@@ -11,7 +11,7 @@
     "title": "KUR’AN-I KERİM’İN GÖRÜNMEYEN MİMARİSİ",
     "subtitle": "Dilbilimsel, Matematiksel ve Bilimsel Kanıtlarla",
     "description": "Bazı metinler okunur. Bazıları ise incelendikçe derinleşir.\n\nKur’an, 1.400 yıldır dilbilimsel, matematiksel ve yapısal katmanlarıyla araştırılan benzersiz bir metin.\n\nHer kelime yerli yerinde. Her yapı bilinçli. Ve keşfedilmeyi bekleyen hâlâ çok şey var.",
-    "cta": "Keşfetmeye Başla",
+    "cta": "İlk Kapıyı Aç",
     "ctaRead": "Kur’an’ı Oku",
     "scroll": "Aşağı kaydır"
   },
@@ -608,10 +608,22 @@
         "title": "Kelime Haritası",
         "content": "Kur'an'ın 77.800 kelimesi arasında her kökün kaç kez geçtiği hesaplandığında sistematik bir denge ortaya çıkıyor:",
         "stats": [
-          { "label": "İman kökü", "value": "811" },
-          { "label": "Küfür kökü", "value": "525" },
-          { "label": "Rahmet", "value": "294" },
-          { "label": "Azap", "value": "343" }
+          {
+            "label": "İman kökü",
+            "value": "811"
+          },
+          {
+            "label": "Küfür kökü",
+            "value": "525"
+          },
+          {
+            "label": "Rahmet",
+            "value": "294"
+          },
+          {
+            "label": "Azap",
+            "value": "343"
+          }
         ],
         "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. Oran 1.54 — Kur'an pozitif bir önyargıyla yüklüdür. Hapax legomena oranı (%18-20 vs %15) yaklaşıktır.",
         "note": "Kök sayım verileri Quranic Arabic Corpus (Leeds Üniversitesi) ve Lane's Lexicon temelli sayımlardır; tek tek lemma sayımları kaynaklara göre küçük farklar gösterebilir."
@@ -728,10 +740,26 @@
     "anchorVerseRef": "Bakara 2:34",
     "statsTitle": "Yedi Anlatımın Sayıları",
     "stats": {
-      "surahs": { "value": "7", "label": "Sûre", "desc": "Aynı olayın geçtiği farklı sûreler" },
-      "longest": { "value": "16", "label": "Ayetlik En Uzun", "desc": "Hicr 15:28-43" },
-      "shortest": { "value": "1", "label": "Ayetlik En Kısa", "desc": "Tâhâ 20:116 ve Kehf 18:50" },
-      "fireClay": { "value": "2", "label": "Sûrede Ateş-Çamur", "desc": "Sadece A'râf ve Sâd'da" }
+      "surahs": {
+        "value": "7",
+        "label": "Sûre",
+        "desc": "Aynı olayın geçtiği farklı sûreler"
+      },
+      "longest": {
+        "value": "16",
+        "label": "Ayetlik En Uzun",
+        "desc": "Hicr 15:28-43"
+      },
+      "shortest": {
+        "value": "1",
+        "label": "Ayetlik En Kısa",
+        "desc": "Tâhâ 20:116 ve Kehf 18:50"
+      },
+      "fireClay": {
+        "value": "2",
+        "label": "Sûrede Ateş-Çamur",
+        "desc": "Sadece A'râf ve Sâd'da"
+      }
     },
     "passagesTitle": "Yedi Sûre, Yedi Anlatım",
     "passagesIntro": "Mushaf sırasında, her sûrenin neyi öne çıkardığı:",
@@ -1259,32 +1287,130 @@
         "title": "İnsan Zaafiyetleri",
         "intro": "Kur'an insan doğasını idealize etmez. Hem potansiyeli hem de sınırları kristal netliğinde tanımlar. Bu zaafiyetler kader değil — dönüşüm çağrısı.",
         "items": [
-          { "id": "aceleci", "title": "Acelesizlik — Hemen İstemek", "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا", "translation": "İnsan çok aceleci yaratılmıştır.", "reference": "İsrâ, 17:11", "description": "Anlık tatmini uzun vadeli faydanın önüne koymak. Sabırsızlık, ihtiyatsız kararların, pişmanlıkların ve fırsatları kaçırmanın ana kaynağı. Kur'an bunu bir fıtrat özelliği olarak tanımlar — aşılabilir ama göz ardı edilemez." },
-          { "id": "hirs", "title": "Hırs — Asla Yetmemek", "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى", "translation": "İnsan, kendini zengin görmekle azar.", "reference": "Alak, 96:6-7", "description": "Zenginleşmek değil — zenginleşince sınır tanımamak. Hırs başlangıçta motivasyon gibi görünür, sonunda kimliği ele geçirir. Kur'an 'tuğyan'ı (sınır aşma) fazlalıktan doğan bir psikolojik tehdit olarak tanımlar." },
-          { "id": "nankor", "title": "Nankörlük — Nimetleri Görmemek", "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا", "translation": "İnsan çok nankördür.", "reference": "İsrâ, 17:67", "description": "Sahip olduklarını değil, sahip olmadıklarını görmek. Minnet körü. Kur'an'ın hedonik adaptasyon (edinilen şeyin cazibesini yitirmesi) tespiti: insan, kurtarılınca kurtaranı unutur." },
-          { "id": "tartismaci", "title": "Tartışmacılık — Haklı Olmak İhtiyacı", "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا", "translation": "İnsan, her şeyden çok tartışmayı sever.", "reference": "Kehf, 18:54", "description": "Gerçeği aramak değil — haklı görünmek. Tartışmacılık zekâyı hakikatten ayırır ve onu ego korumasına yöneltir. Kur'an bu eğilimi uyarı olarak vurgular: en zekî zihinler yanlış yönlendirilebilir." },
-          { "id": "zaaf", "title": "Zaaf — Kırılganlık", "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا", "translation": "İnsan zayıf yaratılmıştır.", "reference": "Nisa, 4:28", "description": "İnsanın kırılganlığının tanınması — bir suçlama değil, bir gerçeklik tespiti. Ve Allah bu gerçekliği görerek insanın yükünü hafifletir. Zayıflığı bilmek, güç arayışının başlangıcıdır." }
+          {
+            "id": "aceleci",
+            "title": "Acelesizlik — Hemen İstemek",
+            "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا",
+            "translation": "İnsan çok aceleci yaratılmıştır.",
+            "reference": "İsrâ, 17:11",
+            "description": "Anlık tatmini uzun vadeli faydanın önüne koymak. Sabırsızlık, ihtiyatsız kararların, pişmanlıkların ve fırsatları kaçırmanın ana kaynağı. Kur'an bunu bir fıtrat özelliği olarak tanımlar — aşılabilir ama göz ardı edilemez."
+          },
+          {
+            "id": "hirs",
+            "title": "Hırs — Asla Yetmemek",
+            "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى",
+            "translation": "İnsan, kendini zengin görmekle azar.",
+            "reference": "Alak, 96:6-7",
+            "description": "Zenginleşmek değil — zenginleşince sınır tanımamak. Hırs başlangıçta motivasyon gibi görünür, sonunda kimliği ele geçirir. Kur'an 'tuğyan'ı (sınır aşma) fazlalıktan doğan bir psikolojik tehdit olarak tanımlar."
+          },
+          {
+            "id": "nankor",
+            "title": "Nankörlük — Nimetleri Görmemek",
+            "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا",
+            "translation": "İnsan çok nankördür.",
+            "reference": "İsrâ, 17:67",
+            "description": "Sahip olduklarını değil, sahip olmadıklarını görmek. Minnet körü. Kur'an'ın hedonik adaptasyon (edinilen şeyin cazibesini yitirmesi) tespiti: insan, kurtarılınca kurtaranı unutur."
+          },
+          {
+            "id": "tartismaci",
+            "title": "Tartışmacılık — Haklı Olmak İhtiyacı",
+            "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا",
+            "translation": "İnsan, her şeyden çok tartışmayı sever.",
+            "reference": "Kehf, 18:54",
+            "description": "Gerçeği aramak değil — haklı görünmek. Tartışmacılık zekâyı hakikatten ayırır ve onu ego korumasına yöneltir. Kur'an bu eğilimi uyarı olarak vurgular: en zekî zihinler yanlış yönlendirilebilir."
+          },
+          {
+            "id": "zaaf",
+            "title": "Zaaf — Kırılganlık",
+            "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا",
+            "translation": "İnsan zayıf yaratılmıştır.",
+            "reference": "Nisa, 4:28",
+            "description": "İnsanın kırılganlığının tanınması — bir suçlama değil, bir gerçeklik tespiti. Ve Allah bu gerçekliği görerek insanın yükünü hafifletir. Zayıflığı bilmek, güç arayışının başlangıcıdır."
+          }
         ]
       },
       "b": {
         "title": "Duygusal Zekâ",
         "intro": "Daniel Goleman, duygusal zekâyı 1995'te tanımladı: öz farkındalık, öz yönetim, empati, sosyal beceriler. Kur'an bu becerilerin her birini somut örnekler ve çerçeveler aracılığıyla aktarır.",
         "items": [
-          { "id": "oz_farkindalik", "title": "Öz Farkındalık", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "Ve kendi içinizde de (ayetler var). Görmüyor musunuz?", "reference": "Zariyat, 51:21", "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek — psikolojik sağlığın temelidir. Murakebe (öz denetim) pratiği, öz farkındalığın İslami karşılığıdır." },
-          { "id": "empati", "title": "Empati — Ötekinin İçine Girmek", "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ", "translation": "Size kendinizden bir peygamber geldi; sıkıntıya uğramanız ona ağır gelir.", "reference": "Tevbe, 9:128", "description": "Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)." },
-          { "id": "ofke", "title": "Öfke Yönetimi", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Öfkelerini yutanlar ve insanları affedenler.", "reference": "Al-i İmran, 3:134", "description": "Kur'an öfkeyiinkâr etmez — 'yutmayı' ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: 'Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilen.' Öfke enerjisi varoluşunu korur ama yönlendirme gerektir." },
-          { "id": "sosyal_farkindalik", "title": "Sosyal Farkındalık", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "Ey insanlar! Sizi bir erkek ve kadından yarattık.", "reference": "Hucurât, 49:13", "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların, kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur." },
-          { "id": "iliski_yonetimi", "title": "İlişki Yönetimi — Adalet ve Şefkat", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Allah, adaleti ve ihsanı (güzel muameleyi) emreder.", "reference": "Nahl, 16:90", "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standartın üzerinde iyilik yapmak). İlişki yönetimi sadece çatışmadan kaçınmak değil — aktif olarak iyilik üretmek. İhsan, karşılık beklemeyen bir verme biçimidir." }
+          {
+            "id": "oz_farkindalik",
+            "title": "Öz Farkındalık",
+            "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ",
+            "translation": "Ve kendi içinizde de (ayetler var). Görmüyor musunuz?",
+            "reference": "Zariyat, 51:21",
+            "description": "Kur'an içsel gözlemi dışsal gözlemle yan yana koyar. Kendi niyetlerini, motivasyonlarını, zayıf noktalarını görmek — psikolojik sağlığın temelidir. Murakebe (öz denetim) pratiği, öz farkındalığın İslami karşılığıdır."
+          },
+          {
+            "id": "empati",
+            "title": "Empati — Ötekinin İçine Girmek",
+            "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ",
+            "translation": "Size kendinizden bir peygamber geldi; sıkıntıya uğramanız ona ağır gelir.",
+            "reference": "Tevbe, 9:128",
+            "description": "Empati bir duygu değil — aktif bir yönelim: başkasının yükünü hissetmek ve ona doğru harekete geçmek. Hz. Peygamber'in empatisinin Kur'ânî tanımı budur. Sosyal uzantısı: iyilik ve takvada karşılıklı yardımlaşma (Maide 5:2)."
+          },
+          {
+            "id": "ofke",
+            "title": "Öfke Yönetimi",
+            "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
+            "translation": "Öfkelerini yutanlar ve insanları affedenler.",
+            "reference": "Al-i İmran, 3:134",
+            "description": "Kur'an öfkeyiinkâr etmez — 'yutmayı' ödüllendirir. Duygusal baskılama değil, bilinçli düzenleme. Hz. Peygamber: 'Güçlü olan güreşi yenen değil, öfkesinde kendini tutabilen.' Öfke enerjisi varoluşunu korur ama yönlendirme gerektir."
+          },
+          {
+            "id": "sosyal_farkindalik",
+            "title": "Sosyal Farkındalık",
+            "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى",
+            "translation": "Ey insanlar! Sizi bir erkek ve kadından yarattık.",
+            "reference": "Hucurât, 49:13",
+            "description": "Kur'an çeşitliliği bir tehdit değil, tanışma fırsatı olarak sunar. Sosyal farkındalık: farklı deneyimlerin, arka planların, kırılganlıkların bilincinde olmak. Takvanın (Allah bilinci) sosyal versiyonu budur."
+          },
+          {
+            "id": "iliski_yonetimi",
+            "title": "İlişki Yönetimi — Adalet ve Şefkat",
+            "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",
+            "translation": "Allah, adaleti ve ihsanı (güzel muameleyi) emreder.",
+            "reference": "Nahl, 16:90",
+            "description": "İki temel ilişki ilkesi: adalet (hakkaniyetli olmak) ve ihsan (standartın üzerinde iyilik yapmak). İlişki yönetimi sadece çatışmadan kaçınmak değil — aktif olarak iyilik üretmek. İhsan, karşılık beklemeyen bir verme biçimidir."
+          }
         ]
       },
       "c": {
         "title": "Psikolojik Mekanizmalar",
         "intro": "Modern psikolojinin laboratuvarda keşfettiği bazı temel mekanizmalar, Kur'an'da somut örnekler ve sistematik çerçeveler aracılığıyla çoktan tanımlanmıştı.",
         "items": [
-          { "id": "bilissel_carpitma", "title": "Bilişsel Çarpıtmalar", "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ", "translation": "İnsanlara, şehvetlerin sevgisi süslü gösterildi.", "reference": "Al-i İmran, 3:14", "description": "Kur'an 'tezyin' kavramını kullanır: süsleme, çekici hâle getirme. Arzu, gerçekliği bozar — insan arzuladığını doğru görür. Aaron Beck'in bilişsel çarpıtma teorisi: duygular düşünceyi filtreler, nesnel gerçeği değil arzuyu yansıtır." },
-          { "id": "motivasyon", "title": "Motivasyon Hiyerarşisi", "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ", "translation": "Allah dilemedikçe siz dileyemezsiniz.", "reference": "İnsan, 76:30", "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahi irade. Bu paradoks değil — sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçeve. Dışsal motivasyon (ödül-ceza) değil, içselleştirilmiş anlam motivasyonu." },
-          { "id": "aliskanlik", "title": "Alışkanlık Döngüsü", "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ", "translation": "Hayır! Aksine kazandıkları şeyler kalplerini pas tuttu.", "reference": "Mutaffifîn, 83:14", "description": "Kur'an tekrarlayan eylemlerin kalp üzerindeki birikim etkisini tanımlar. Charles Duhigg'in alışkanlık döngüsü (cue-routine-reward) ile örtüşür: her tekrar, sonraki tekrarı kolaylaştırır. Hem pozitif hem negatif alışkanlıklar için geçerli." },
-          { "id": "sosyal_kimlik", "title": "Sosyal Kimlik ve Aidiyet", "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", "translation": "Müminler ancak kardeştirler.", "reference": "Hucurât, 49:10", "description": "Tajfel'ın sosyal kimlik teorisi: insanlar grup üyeliği üzerinden kimlik inşa eder, gruba daha yüksek değer biçer, dışarıya yönelik önyargı geliştirir. Kur'an bu eğilimi dönüştürür: kardeşlik evrenselleşir, 'iç grup' insanlığın tamamına uzanır." }
+          {
+            "id": "bilissel_carpitma",
+            "title": "Bilişsel Çarpıtmalar",
+            "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ",
+            "translation": "İnsanlara, şehvetlerin sevgisi süslü gösterildi.",
+            "reference": "Al-i İmran, 3:14",
+            "description": "Kur'an 'tezyin' kavramını kullanır: süsleme, çekici hâle getirme. Arzu, gerçekliği bozar — insan arzuladığını doğru görür. Aaron Beck'in bilişsel çarpıtma teorisi: duygular düşünceyi filtreler, nesnel gerçeği değil arzuyu yansıtır."
+          },
+          {
+            "id": "motivasyon",
+            "title": "Motivasyon Hiyerarşisi",
+            "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ",
+            "translation": "Allah dilemedikçe siz dileyemezsiniz.",
+            "reference": "İnsan, 76:30",
+            "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahi irade. Bu paradoks değil — sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçeve. Dışsal motivasyon (ödül-ceza) değil, içselleştirilmiş anlam motivasyonu."
+          },
+          {
+            "id": "aliskanlik",
+            "title": "Alışkanlık Döngüsü",
+            "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
+            "translation": "Hayır! Aksine kazandıkları şeyler kalplerini pas tuttu.",
+            "reference": "Mutaffifîn, 83:14",
+            "description": "Kur'an tekrarlayan eylemlerin kalp üzerindeki birikim etkisini tanımlar. Charles Duhigg'in alışkanlık döngüsü (cue-routine-reward) ile örtüşür: her tekrar, sonraki tekrarı kolaylaştırır. Hem pozitif hem negatif alışkanlıklar için geçerli."
+          },
+          {
+            "id": "sosyal_kimlik",
+            "title": "Sosyal Kimlik ve Aidiyet",
+            "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",
+            "translation": "Müminler ancak kardeştirler.",
+            "reference": "Hucurât, 49:10",
+            "description": "Tajfel'ın sosyal kimlik teorisi: insanlar grup üyeliği üzerinden kimlik inşa eder, gruba daha yüksek değer biçer, dışarıya yönelik önyargı geliştirir. Kur'an bu eğilimi dönüştürür: kardeşlik evrenselleşir, 'iç grup' insanlığın tamamına uzanır."
+          }
         ]
       }
     }

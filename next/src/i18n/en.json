@@ -11,7 +11,7 @@
     "title": "THE INVISIBLE ARCHITECTURE OF THE QURAN",
     "subtitle": "Linguistic, Mathematical & Scientific Evidence",
     "description": "Some texts are read. Others deepen as you examine them.\n\nFor 1,400 years, the Quran has been studied through its linguistic, mathematical, and structural layers — a singular text.\n\nEvery word in its place. Every structure deliberate. And much still waits to be discovered.",
-    "cta": "Begin Discovering",
+    "cta": "Open the First Gate",
     "ctaRead": "Read Quran",
     "scroll": "Scroll down"
   },
@@ -609,10 +609,22 @@
         "title": "The Word Map",
         "content": "When the frequency of every root across the Quran's 77,800 words is counted, a systematic pattern emerges:",
         "stats": [
-          { "label": "Faith root (iman)", "value": "811" },
-          { "label": "Disbelief root (kufr)", "value": "525" },
-          { "label": "Mercy (rahmet)", "value": "294" },
-          { "label": "Punishment (azap)", "value": "343" }
+          {
+            "label": "Faith root (iman)",
+            "value": "811"
+          },
+          {
+            "label": "Disbelief root (kufr)",
+            "value": "525"
+          },
+          {
+            "label": "Mercy (rahmet)",
+            "value": "294"
+          },
+          {
+            "label": "Punishment (azap)",
+            "value": "343"
+          }
         ],
         "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Ratio: 1.54 — the Quran carries a positive bias. Hapax legomena rate (~18-20% vs ~15%) is approximate.",
         "note": "Root-frequency counts are based on the Quranic Arabic Corpus (University of Leeds) and Lane's Lexicon; individual lemma counts may vary slightly between sources."
@@ -729,10 +741,26 @@
     "anchorVerseRef": "Baqarah 2:34",
     "statsTitle": "The Seven Tellings — In Numbers",
     "stats": {
-      "surahs": { "value": "7", "label": "Surahs", "desc": "Different surahs containing the same event" },
-      "longest": { "value": "16", "label": "Verses, Longest", "desc": "Hijr 15:28-43" },
-      "shortest": { "value": "1", "label": "Verse, Shortest", "desc": "Ta-Ha 20:116 and Kahf 18:50" },
-      "fireClay": { "value": "2", "label": "Surahs, Fire-Clay", "desc": "Only in A'raf and Sād" }
+      "surahs": {
+        "value": "7",
+        "label": "Surahs",
+        "desc": "Different surahs containing the same event"
+      },
+      "longest": {
+        "value": "16",
+        "label": "Verses, Longest",
+        "desc": "Hijr 15:28-43"
+      },
+      "shortest": {
+        "value": "1",
+        "label": "Verse, Shortest",
+        "desc": "Ta-Ha 20:116 and Kahf 18:50"
+      },
+      "fireClay": {
+        "value": "2",
+        "label": "Surahs, Fire-Clay",
+        "desc": "Only in A'raf and Sād"
+      }
     },
     "passagesTitle": "Seven Surahs, Seven Tellings",
     "passagesIntro": "In Mushaf order, what each surah foregrounds:",
@@ -1260,32 +1288,130 @@
         "title": "Human Weaknesses",
         "intro": "The Quran does not idealize human nature. It defines both the potential and the limitations with crystal clarity. These weaknesses are not fate — they are a call to transformation.",
         "items": [
-          { "id": "aceleci", "title": "Hastiness — Wanting It Now", "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا", "translation": "And man is ever hasty.", "reference": "Isra, 17:11", "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets, and missed opportunities. The Quran defines this as a fitrah (innate nature) characteristic — it can be overcome but cannot be ignored." },
-          { "id": "hirs", "title": "Greed — Never Having Enough", "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى", "translation": "Indeed, man transgresses when he sees himself self-sufficient.", "reference": "Alaq, 96:6-7", "description": "Not getting rich — but when rich, knowing no bounds. Greed initially looks like motivation, then takes over identity. The Quran defines 'tughyan' (transgression) as a psychological threat born of excess." },
-          { "id": "nankor", "title": "Ingratitude — Not Seeing the Blessings", "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا", "translation": "And man has ever been ungrateful.", "reference": "Isra, 17:67", "description": "Seeing what one doesn't have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued." },
-          { "id": "tartismaci", "title": "Argumentativeness — The Need to Be Right", "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا", "translation": "And man is the most contentious of things.", "reference": "Kahf, 18:54", "description": "Not seeking truth — but appearing right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected." },
-          { "id": "zaaf", "title": "Weakness — Vulnerability", "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا", "translation": "And man was created weak.", "reference": "Nisa, 4:28", "description": "The recognition of human fragility — not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength." }
+          {
+            "id": "aceleci",
+            "title": "Hastiness — Wanting It Now",
+            "arabic": "وَكَانَ الْإِنسَانُ عَجُولًا",
+            "translation": "And man is ever hasty.",
+            "reference": "Isra, 17:11",
+            "description": "Placing immediate gratification ahead of long-term benefit. Impatience is the main source of rash decisions, regrets, and missed opportunities. The Quran defines this as a fitrah (innate nature) characteristic — it can be overcome but cannot be ignored."
+          },
+          {
+            "id": "hirs",
+            "title": "Greed — Never Having Enough",
+            "arabic": "إِنَّ الْإِنسَانَ لَيَطْغَى أَن رَّآهُ اسْتَغْنَى",
+            "translation": "Indeed, man transgresses when he sees himself self-sufficient.",
+            "reference": "Alaq, 96:6-7",
+            "description": "Not getting rich — but when rich, knowing no bounds. Greed initially looks like motivation, then takes over identity. The Quran defines 'tughyan' (transgression) as a psychological threat born of excess."
+          },
+          {
+            "id": "nankor",
+            "title": "Ingratitude — Not Seeing the Blessings",
+            "arabic": "وَكَانَ الْإِنسَانُ كَفُورًا",
+            "translation": "And man has ever been ungrateful.",
+            "reference": "Isra, 17:67",
+            "description": "Seeing what one doesn't have rather than what one has. Gratitude-blind. The Quran's observation of hedonic adaptation (things acquired losing their appeal): the human forgets the rescuer after being rescued."
+          },
+          {
+            "id": "tartismaci",
+            "title": "Argumentativeness — The Need to Be Right",
+            "arabic": "وَكَانَ الْإِنسَانُ أَكْثَرَ شَيْءٍ جَدَلًا",
+            "translation": "And man is the most contentious of things.",
+            "reference": "Kahf, 18:54",
+            "description": "Not seeking truth — but appearing right. Argumentativeness separates intelligence from truth and redirects it toward ego protection. The Quran emphasizes this tendency as a warning: even the most intelligent minds can be misdirected."
+          },
+          {
+            "id": "zaaf",
+            "title": "Weakness — Vulnerability",
+            "arabic": "وَخُلِقَ الْإِنسَانُ ضَعِيفًا",
+            "translation": "And man was created weak.",
+            "reference": "Nisa, 4:28",
+            "description": "The recognition of human fragility — not an accusation but an acknowledgment of reality. And Allah, seeing this reality, lightens the human burden. Knowing one's weakness is the beginning of the search for strength."
+          }
         ]
       },
       "b": {
         "title": "Emotional Intelligence",
         "intro": "Daniel Goleman defined emotional intelligence in 1995: self-awareness, self-management, empathy, social skills. The Quran conveys each of these skills through concrete examples and frameworks.",
         "items": [
-          { "id": "oz_farkindalik", "title": "Self-Awareness", "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ", "translation": "And within yourselves — will you not see?", "reference": "Dhariyat, 51:21", "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness." },
-          { "id": "empati", "title": "Empathy — Entering the Other's Interior", "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ", "translation": "There has come to you a Messenger from among yourselves; your suffering is grievous to him.", "reference": "Tawba, 9:128", "description": "Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)." },
-          { "id": "ofke", "title": "Anger Management", "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ", "translation": "Those who restrain anger and pardon people.", "reference": "Ali Imran, 3:134", "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction." },
-          { "id": "sosyal_farkindalik", "title": "Social Awareness", "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى", "translation": "O people! We created you from a male and female.", "reference": "Hujurat, 49:13", "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)." },
-          { "id": "iliski_yonetimi", "title": "Relationship Management — Justice and Compassion", "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ", "translation": "Indeed, Allah commands justice and good conduct.", "reference": "Nahl, 16:90", "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity." }
+          {
+            "id": "oz_farkindalik",
+            "title": "Self-Awareness",
+            "arabic": "وَفِي أَنفُسِكُمْ ۚ أَفَلَا تُبْصِرُونَ",
+            "translation": "And within yourselves — will you not see?",
+            "reference": "Dhariyat, 51:21",
+            "description": "The Quran places internal observation alongside external observation. Seeing one's own intentions, motivations, and weak points — it is the foundation of psychological health. Muraqaba (self-monitoring) practice is the Islamic counterpart of self-awareness."
+          },
+          {
+            "id": "empati",
+            "title": "Empathy — Entering the Other's Interior",
+            "arabic": "لَقَدْ جَٓاءَكُمْ رَسُولٌ مِنْ اَنْفُسِكُمْ عَز۪يزٌۘ عَلَيْهِ مَا عَنِتُّمْ",
+            "translation": "There has come to you a Messenger from among yourselves; your suffering is grievous to him.",
+            "reference": "Tawba, 9:128",
+            "description": "Empathy is not a feeling — it is an active orientation: feeling another's burden and moving toward them. This verse defines the Prophet's empathy in Quranic terms. Its social extension: cooperation in righteousness and piety (Maidah 5:2)."
+          },
+          {
+            "id": "ofke",
+            "title": "Anger Management",
+            "arabic": "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
+            "translation": "Those who restrain anger and pardon people.",
+            "reference": "Ali Imran, 3:134",
+            "description": "The Quran does not deny anger — it rewards 'swallowing' it. Not emotional suppression but conscious regulation. The Prophet: 'The strong one is not who wins in wrestling, but who can restrain themselves in anger.' Anger energy preserves existence but requires direction."
+          },
+          {
+            "id": "sosyal_farkindalik",
+            "title": "Social Awareness",
+            "arabic": "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَى",
+            "translation": "O people! We created you from a male and female.",
+            "reference": "Hujurat, 49:13",
+            "description": "The Quran presents diversity not as a threat but as an opportunity for acquaintance. Social awareness: being conscious of different experiences, backgrounds, and vulnerabilities. This is the social version of taqwa (God-consciousness)."
+          },
+          {
+            "id": "iliski_yonetimi",
+            "title": "Relationship Management — Justice and Compassion",
+            "arabic": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",
+            "translation": "Indeed, Allah commands justice and good conduct.",
+            "reference": "Nahl, 16:90",
+            "description": "Two fundamental relationship principles: adl (fairness) and ihsan (beautiful conduct beyond the standard). Relationship management is not just avoiding conflict — it is actively producing goodness. Ihsan is a form of giving that does not expect reciprocity."
+          }
         ]
       },
       "c": {
         "title": "Psychological Mechanisms",
         "intro": "Some fundamental mechanisms that modern psychology discovered in the laboratory had already been defined in the Quran through concrete examples and systematic frameworks.",
         "items": [
-          { "id": "bilissel_carpitma", "title": "Cognitive Distortions", "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ", "translation": "Beautified for people is the love of desires.", "reference": "Ali Imran, 3:14", "description": "The Quran uses the concept of 'tazyin': beautifying, making attractive. Desire distorts reality — the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting not objective reality but desire." },
-          { "id": "motivasyon", "title": "Hierarchy of Motivation", "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ", "translation": "And you do not will except that Allah wills.", "reference": "Insan, 76:30", "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox — it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward-punishment) but internalized meaning motivation." },
-          { "id": "aliskanlik", "title": "Habit Loop", "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ", "translation": "No! Rather, what they were earning has covered their hearts with rust.", "reference": "Mutaffifin, 83:14", "description": "The Quran describes the cumulative effect of repeated actions on the heart. Matches Charles Duhigg's habit loop (cue-routine-reward): each repetition facilitates the next. Valid for both positive and negative habits." },
-          { "id": "sosyal_kimlik", "title": "Social Identity and Belonging", "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ", "translation": "The believers are but brothers.", "reference": "Hujurat, 49:10", "description": "Tajfel's social identity theory: people construct identity through group membership, assign higher value to in-group, develop out-group bias. The Quran transforms this tendency: brotherhood is universalized, the 'in-group' extends to all of humanity." }
+          {
+            "id": "bilissel_carpitma",
+            "title": "Cognitive Distortions",
+            "arabic": "زُيِّنَ لِلنَّاسِ حُبُّ الشَّهَوَاتِ",
+            "translation": "Beautified for people is the love of desires.",
+            "reference": "Ali Imran, 3:14",
+            "description": "The Quran uses the concept of 'tazyin': beautifying, making attractive. Desire distorts reality — the person sees what they desire as right. Aaron Beck's cognitive distortion theory: emotions filter thought, reflecting not objective reality but desire."
+          },
+          {
+            "id": "motivasyon",
+            "title": "Hierarchy of Motivation",
+            "arabic": "وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ",
+            "translation": "And you do not will except that Allah wills.",
+            "reference": "Insan, 76:30",
+            "description": "The Quran defines two layers of motivation: human will and divine will. This is not a paradox — it is a framework that makes tawakkul (trust in Allah) possible without eliminating responsibility. Not external motivation (reward-punishment) but internalized meaning motivation."
+          },
+          {
+            "id": "aliskanlik",
+            "title": "Habit Loop",
+            "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
+            "translation": "No! Rather, what they were earning has covered their hearts with rust.",
+            "reference": "Mutaffifin, 83:14",
+            "description": "The Quran describes the cumulative effect of repeated actions on the heart. Matches Charles Duhigg's habit loop (cue-routine-reward): each repetition facilitates the next. Valid for both positive and negative habits."
+          },
+          {
+            "id": "sosyal_kimlik",
+            "title": "Social Identity and Belonging",
+            "arabic": "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",
+            "translation": "The believers are but brothers.",
+            "reference": "Hujurat, 49:10",
+            "description": "Tajfel's social identity theory: people construct identity through group membership, assign higher value to in-group, develop out-group bias. The Quran transforms this tendency: brotherhood is universalized, the 'in-group' extends to all of humanity."
+          }
         ]
       }
     }

@@ -166,8 +166,49 @@ function Gate({ gate, isMobile, language }) {
         boxShadow: `inset 0 0 0 1px ${gate.accent}10, 0 18px 50px rgba(0,0,0,0.35)`,
         cursor: 'pointer',
         transition: 'border-color 0.25s, box-shadow 0.25s',
+        overflow: 'hidden',
       }}
     >
+      {/* Kapı 05 (Veriyle Keşfet) — subtle graf node/edge arka plan,
+          5% opacity, sadece bu kart için. Kullanıcı tool sayfasına
+          girmeden 'veri tadı' alır (Gemini önerisi 2026-06-15). */}
+      {gate.id === 'gate-data' && (
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 200 200"
+          preserveAspectRatio="xMidYMid slice"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            opacity: 0.07,
+            pointerEvents: 'none',
+          }}
+        >
+          {/* Nodes */}
+          <circle cx="40" cy="60" r="4" fill={gate.accent} />
+          <circle cx="100" cy="40" r="5" fill={gate.accent} />
+          <circle cx="160" cy="70" r="4" fill={gate.accent} />
+          <circle cx="60" cy="120" r="3" fill={gate.accent} />
+          <circle cx="120" cy="130" r="5" fill={gate.accent} />
+          <circle cx="170" cy="150" r="3" fill={gate.accent} />
+          <circle cx="30" cy="170" r="4" fill={gate.accent} />
+          <circle cx="100" cy="180" r="3" fill={gate.accent} />
+          {/* Edges */}
+          <line x1="40" y1="60"   x2="100" y2="40"  stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="100" y1="40"  x2="160" y2="70"  stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="40" y1="60"   x2="60"  y2="120" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="60" y1="120"  x2="120" y2="130" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="120" y1="130" x2="160" y2="70"  stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="120" y1="130" x2="170" y2="150" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="60" y1="120"  x2="30"  y2="170" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="30" y1="170"  x2="100" y2="180" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="100" y1="180" x2="170" y2="150" stroke={gate.accent} strokeWidth="0.8" />
+          <line x1="100" y1="40"  x2="120" y2="130" stroke={gate.accent} strokeWidth="0.6" opacity="0.7" />
+        </svg>
+      )}
+
       {/* Eyebrow + Icon row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
         <span style={{

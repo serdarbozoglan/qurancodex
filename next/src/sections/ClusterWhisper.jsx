@@ -21,7 +21,7 @@ export default function ClusterWhisper({ tr, en }) {
     }}>
       <motion.p
         initial={reduced ? false : { opacity: 0, y: 12 }}
-        whileInView={{ opacity: 0.7, y: 0 }}
+        whileInView={{ opacity: 0.85, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 1.2 }}
         style={{

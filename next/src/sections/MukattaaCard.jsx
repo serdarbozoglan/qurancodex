@@ -169,7 +169,7 @@ export default function MukattaaCard() {
         {/* Closing whisper */}
         <motion.p
           initial={reduced ? false : { opacity: 0 }}
-          whileInView={{ opacity: 0.6 }}
+          whileInView={{ opacity: 0.78 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, delay: 0.7 }}
           style={{
