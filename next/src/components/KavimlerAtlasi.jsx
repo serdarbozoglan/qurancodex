@@ -162,51 +162,53 @@ export default function KavimlerAtlasi({ onClose }) {
     >
       {KAVİMLER_TOOL_HEADER}
 
-      {/* ── TAB BAR — outside scroll area; id for scrollIntoView ──────────── */}
-      <div id="kavim-tab-bar" style={{
-        display: 'flex', gap: '2px', padding: '0 16px',
-        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        background: 'rgba(0,0,0,0.3)',
-        overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
-        scrollMarginTop: '72px',
-      }}>
-        {TABS.map((tab, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setActiveTab(i);
-              // Tab change'de Hero'yu geç, content alanına scroll — visitor
-              // 'değişen bir şey olmadı' hissini yaşamasın (user feedback).
-              setTimeout(() => {
-                const tabBar = document.getElementById('kavim-tab-bar');
-                if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 50);
-            }}
-            style={{
-              flexShrink: 0,
-              padding: isMobile ? '14px 14px' : '15px 20px',
-              border: 'none', background: 'transparent',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-              color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
-              fontSize: isMobile ? '0.74rem' : '0.82rem',
-              fontWeight: activeTab === i ? 700 : 500,
-              fontFamily: FONTS.body,
-              cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
-              letterSpacing: activeTab === i ? '0.14em' : '0.12em',
-              textTransform: 'uppercase',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
       {/* ── SCROLLABLE BODY ──────────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
 
         {/* Hero */}
         <HeroSection meta={data.meta} language={language} isMobile={isMobile} />
+
+        {/* ── TAB BAR — Hero'dan SONRA (Yeminler/Renkler pattern parity).
+            User feedback: tutarsızlık vardı (Kavim'de top, diğerlerinde mid).
+            Standart: Premium cinematic Hero kesilmesin, tablar sonrasında.
+            scrollMarginTop sticky compensation. */}
+        <div id="kavim-tab-bar" style={{
+          display: 'flex', gap: '2px', padding: isMobile ? '0 8px' : '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgba(10,10,26,0.97)',
+          backdropFilter: 'blur(20px)',
+          overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
+          scrollMarginTop: '72px',
+        }}>
+          {TABS.map((tab, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setActiveTab(i);
+                setTimeout(() => {
+                  const tabBar = document.getElementById('kavim-tab-bar');
+                  if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+              }}
+              style={{
+                flexShrink: 0,
+                padding: isMobile ? '14px 14px' : '15px 20px',
+                border: 'none', background: 'transparent',
+                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                fontSize: isMobile ? '0.74rem' : '0.82rem',
+                fontWeight: activeTab === i ? 700 : 500,
+                fontFamily: FONTS.body,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
+                letterSpacing: activeTab === i ? '0.14em' : '0.12em',
+                textTransform: 'uppercase',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
 
         {/* Tab content */}
         <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
