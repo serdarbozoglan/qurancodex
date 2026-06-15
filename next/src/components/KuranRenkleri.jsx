@@ -2695,7 +2695,7 @@ export default function KuranRenkleri({ onClose }) {
             background: `linear-gradient(90deg, transparent 5%, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'} 50%, transparent 95%)`,
             pointerEvents: 'none',
           }} />
-          <div style={{
+          <div id="renkler-tab-bar" style={{
             display: 'flex',
             gap: isMobile ? '0' : '6px',
             padding: isMobile ? '0 6px' : '0 14px',
@@ -2703,6 +2703,7 @@ export default function KuranRenkleri({ onClose }) {
             overflowX: 'auto', scrollbarWidth: 'none',
             flexShrink: 0,
             position: 'relative',
+            scrollMarginTop: '72px',
           }}>
             {Object.values(TABS).map(id => {
               const active = activeTab === id;
@@ -2710,7 +2711,14 @@ export default function KuranRenkleri({ onClose }) {
                 <button
                   key={id}
                   style={tabStyle(id)}
-                  onClick={() => { setActiveTab(id); setExpandedVerse(null); }}
+                  onClick={() => {
+                    setActiveTab(id);
+                    setExpandedVerse(null);
+                    setTimeout(() => {
+                      const tb = document.getElementById('renkler-tab-bar');
+                      if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                  }}
                   onMouseEnter={e => {
                     if (!active) {
                       e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
