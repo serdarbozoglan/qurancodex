@@ -187,7 +187,7 @@ export default function CennetCehennem({ onClose }) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="cennet-cehennem-title"
-      style={{ position: 'fixed', inset: '54px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{ position: 'fixed', inset: '62px 0 0 0', zIndex: 50, background: '#06080e', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
     >
       <span id="cennet-cehennem-title" style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
         {language === 'tr' ? 'Cennet & Cehennem' : 'Paradise & Hell'}
@@ -205,17 +205,16 @@ export default function CennetCehennem({ onClose }) {
       aria-modal="true"
       aria-labelledby="cennet-cehennem-title"
       style={{
-        position: 'fixed', inset: '54px 0 0 0', zIndex: 50,
+        position: 'fixed', inset: '62px 0 0 0', zIndex: 50,
         background: '#06080e',
         display: 'flex', flexDirection: 'column',
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      {/* ── HEADER ────────────────────────────────────────────────── */}
+      {/* ── HEADER — fully opaque, no backdrop blur (sızma fix) ─── */}
       <div style={{
         borderBottom: '1px solid rgba(255,255,255,0.07)',
-        background: 'rgba(6,8,14,0.96)',
-        backdropFilter: 'blur(16px)',
+        background: '#06080e',
         flexShrink: 0,
       }}>
         {/* Top row: title + close */}
