@@ -1729,35 +1729,74 @@ export default function SebebiNuzul({ onClose }) {
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
         titleTr="Sebeb-i Nüzûl"
         titleEn="Occasions of Revelation"
-        subtitleTr="Ayetlerin iniş bağlamı"
-        subtitleEn="The historical context of revelation"
+        subtitleTr="Ayetlerin iniş bağlamı · Vâhidî & Suyûtî"
+        subtitleEn="Context of revelation · al-Wāḥidī & al-Suyūṭī"
         language={language}
       />
 
-      {/* Tab bar */}
+      {/* ── HERO (Cinematic) ───────────────────────────────────────── */}
       <div style={{
+        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBorder}`,
+        textAlign: 'center',
+        flexShrink: 0,
+      }}>
+        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: "'Amiri Quran', 'Amiri', serif", fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+          وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْاٰنُ جُمْلَةً وَاحِدَةً كَذٰلِكَ لِنُثَبِّتَ بِهِ فُؤَادَكَ
+        </p>
+        <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+          "{language === 'tr' ? "İnkâr edenler, 'Kur'an ona bir defada toptan indirilseydi ya' dediler. Biz onu kalbine sağlam yerleştirelim diye böyle yaptık." : "The disbelievers said, 'Why was the Quran not sent down to him all at once?' We have done it this way to firmly establish your heart with it."}"
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.65 }}>
+          — {language === 'tr' ? 'Furkân 25:32' : 'Al-Furqān 25:32'}
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+          {language === 'tr' ? <>Kur'an <em style={{ fontStyle: 'normal', color: COLORS.gold }}>23 yılda</em> ayet ayet indi. Her ayetin bir <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iniş anı</em> var. Sebeb-i Nüzul bilmek, anlamı bağlamına yerleştirmektir.</> : <>The Quran descended <em style={{ fontStyle: 'normal', color: COLORS.gold }}>over 23 years</em>, verse by verse. Each verse has a <em style={{ fontStyle: 'normal', color: COLORS.gold }}>moment of descent</em>. To know its occasion is to place meaning in its context.</>}
+        </p>
+        <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
+        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
+          {language === 'tr' ? "İNİŞ BAĞLAMI · VÂHİDÎ · SUYÛTÎ" : "OCCASION OF REVELATION · AL-WĀḤIDĪ · AL-SUYŪṬĪ"}
+        </div>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
+          {language === 'tr' ? "Her Ayetin Bir Anı Vardır" : 'Every Verse Has Its Moment'}
+        </h1>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+          {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." — Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." — Known only through authentic transmission.'}
+        </p>
+      </div>
+
+      {/* Tab bar — UPPERCASE site-wide pattern */}
+      <div id="sebebi-tab-bar" style={{
         display: 'flex',
         borderBottom: `1px solid ${COLORS.glassBorder}`,
         overflowX: 'auto',
         scrollbarWidth: 'none',
         flexShrink: 0,
-        background: 'rgba(8,9,26,0.7)',
+        background: '#06080e',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10,
+        scrollMarginTop: '72px',
       }}>
         {TABS.map((tab, i) => (
           <button
             key={i}
-            onClick={() => setActiveTab(i)}
+            onClick={() => { setActiveTab(i); setTimeout(() => { const tb = document.getElementById('sebebi-tab-bar'); if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: isMobile ? '10px 14px' : '12px 20px',
+              gap: '8px',
+              padding: isMobile ? '14px 16px' : '16px 26px',
               border: 'none',
               borderBottom: `2px solid ${activeTab === i ? COLORS.gold : 'transparent'}`,
-              background: 'transparent',
+              background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
               color: activeTab === i ? COLORS.gold : COLORS.silver,
-              fontSize: '0.82rem',
-              fontWeight: activeTab === i ? 600 : 400,
+              fontSize: isMobile ? '0.72rem' : '0.78rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              fontWeight: activeTab === i ? 700 : 500,
               fontFamily: FONTS.body,
               cursor: 'pointer',
               transition: 'all 0.15s',

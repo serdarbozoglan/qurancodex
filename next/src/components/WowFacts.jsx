@@ -1197,6 +1197,31 @@ export default function WowFacts({ onClose }) {
           language={language}
         />
 
+        {/* ── HERO (Cinematic) — Nisâ 4:82 ────────────────────────── */}
+        <section style={{
+          padding: '40px 24px 32px',
+          textAlign: 'center',
+          flexShrink: 0,
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          maxWidth: '900px', width: '100%', margin: '0 auto', boxSizing: 'border-box',
+        }}>
+          <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: "'Amiri Quran', 'Amiri', serif", fontSize: '1.85rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: '32px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+          <p dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: 'clamp(1.15rem, 2.2vw, 1.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+            اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
+          </p>
+          <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>
+            "{language === 'tr' ? "Hâlâ Kur'an'ı düşünüp anlamaya çalışmıyorlar mı? Eğer Allah'tan başkasından gelseydi onda birçok tutarsızlık bulurlardı." : "Then do they not reflect upon the Quran? Had it been from any other than Allah, they would have found in it many discrepancies."}"
+          </p>
+          <p style={{ color: COLORS.silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px', opacity: 0.65 }}>
+            — {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}
+          </p>
+          <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+            {language === 'tr' ? <>İlk bakışta görünmeyen <em style={{ fontStyle: 'normal', color: COLORS.gold }}>örüntüler</em>, asla rastlantı olamayacak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>denklikler</em>, 1.400 yıldır içinde duran <em style={{ fontStyle: 'normal', color: COLORS.gold }}>sırlar</em> — tedebbürün açtığı kapılar.</> : <>Patterns invisible at first glance, equivalences too precise to be coincidence, secrets sitting in the text for 1,400 years — the doors that <em style={{ fontStyle: 'normal', color: COLORS.gold }}>tadabbur</em> opens.</>}
+          </p>
+          <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto' }} />
+        </section>
+
         {/* Search + Category filters — hero ile aynı 760 container, ortalanmış */}
         <section style={{
           flexShrink: 0,

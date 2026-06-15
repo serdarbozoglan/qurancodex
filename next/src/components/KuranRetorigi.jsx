@@ -109,10 +109,43 @@ export default function KuranRetorigi({ onClose }) {
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>}
         titleTr="Kur'an Belâgatı"
         titleEn="Quranic Rhetoric"
-        subtitleTr="Tezad · İstiare · İltifât"
-        subtitleEn="Antithesis · Metaphor · Iltifāt"
+        subtitleTr="Tezad · İstiare · İltifât · Mecaz"
+        subtitleEn="Antithesis · Metaphor · Iltifāt · Tropes"
         language={language}
       />
+
+      {/* ── HERO (Cinematic) — Yûsuf 12:111 ─────────────────────── */}
+      <div style={{
+        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+        textAlign: 'center',
+        flexShrink: 0,
+      }}>
+        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: "'Amiri Quran', 'Amiri', serif", fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+          لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى
+        </p>
+        <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+          "{tr ? "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an), uydurulmuş bir söz değildir." : "Indeed, in their stories is a lesson for those of understanding. This is not a fabricated tale."}"
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.65 }}>
+          — {tr ? 'Yûsuf 12:111' : 'Yūsuf 12:111'}
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+          {tr ? <>Kur'an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i'câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
+        </p>
+        <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
+        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
+          {tr ? "BELÂGAT · İ'CÂZ · DÖRT SANAT" : "BALĀGHA · IʿJĀZ · FOUR ARTS"}
+        </div>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '780px' }}>
+          {tr ? "Kur'an'ın Kendine Has Dili" : "The Quran's Register of Its Own"}
+        </h1>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+          {tr ? 'Tezat denge kurar, istiare yoğunlaştırır, iltifât canlandırır.' : 'Antithesis balances, metaphor condenses, iltifāt enlivens.'}
+        </p>
+      </div>
 
       {/* ── TAB BAR ────────────────────────────────────────────── */}
       <div id="retorik-tab-bar" style={{

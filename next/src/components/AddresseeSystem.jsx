@@ -102,6 +102,41 @@ export default function AddresseeSystem({ onClose }) {
     }}>
       {ADDR_TOOL_HEADER}
 
+      {/* ── HERO (Cinematic) ────────────────────────────────────────────────── */}
+      <div style={{
+        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+        borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+        textAlign: 'center',
+        flexShrink: 0,
+      }}>
+        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: "'Amiri Quran', 'Amiri', serif", fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+          يَٓا اَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
+        </p>
+        <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+          "{language === 'tr' ? 'Ey insanlar! Sizi ve sizden öncekileri yaratan Rabbinize kulluk edin ki, takvâya eresiniz.' : "O mankind, worship your Lord who created you and those before you, so that you may attain piety."}"
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.65 }}>
+          — {language === 'tr' ? 'Bakara 2:21' : 'Al-Baqarah 2:21'}
+        </p>
+        <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+          {language === 'tr'
+            ? <>Kur'an üç ayrı sesle hitap eder: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nebî</em> (Resul). Hitap değişimi anlam değişimidir.</>
+            : <>The Quran addresses in three voices: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nabī</em> (the Messenger). A shift in address is a shift in meaning.</>}
+        </p>
+        <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
+        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
+          {language === 'tr' ? "USLÛB-İ HİTÂB · MUHATAPLAR" : "USLŪB AL-KHIṬĀB · ADDRESSEES"}
+        </div>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
+          {language === 'tr' ? "Kur'an Kime Sesleniyor?" : 'To Whom Does the Quran Speak?'}
+        </h1>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+          {language === 'tr' ? 'Tek bir Kitap, çoklu seslenen, farklı muhataplar.' : 'One Book, multiple voices, distinct addressees.'}
+        </p>
+      </div>
+
       {/* ── CHIP ROW ─────────────────────────────────────────────────────────── */}
       <div style={{
         flexShrink: 0,

@@ -197,17 +197,120 @@ export default function QuranCommands({ onClose }) {
         </svg>
       </button>
 
-      {/* Header */}
-      <div style={{ padding: isMobile ? '56px 16px 20px' : '40px 32px 28px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-        <div style={{ marginBottom: '6px' }}>
-          <span style={{ fontSize: '11px', color: COLORS.softGoldAlpha70, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
-            {language === 'tr' ? "KUR'AN'IN EMİRLERİ" : "QURAN COMMANDS"}
+      {/* Header — Cinematic Hero (Bismillah + Nahl 16:90 anchor + framing + filigree) */}
+      <div style={{ padding: isMobile ? '56px 16px 28px' : '60px 32px 36px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)', textAlign: 'center' }}>
+        {/* Bismillah */}
+        <div
+          dir="rtl" lang="ar" aria-label="Bismillāh"
+          style={{
+            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontSize: isMobile ? '1.5rem' : '1.95rem',
+            color: COLORS.gold,
+            opacity: 0.82,
+            lineHeight: 1,
+            marginBottom: isMobile ? '28px' : '40px',
+            textShadow: `0 0 22px ${COLORS.gold}28`,
+          }}
+        >
+          ﷽
+        </div>
+
+        {/* Anchor verse — Nahl 16:90 (canonical command/prohibition verse) */}
+        <p
+          dir="rtl" lang="ar"
+          style={{
+            fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 auto 16px',
+            maxWidth: '820px',
+            textShadow: `0 0 20px ${COLORS.gold}1c`,
+          }}
+        >
+          اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتَٓاءِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشَٓاءِ وَالْمُنْكَرِ وَالْبَغْيِ
+        </p>
+
+        <p style={{
+          color: COLORS.offWhite,
+          fontFamily: "'Playfair Display', serif",
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 8px',
+          maxWidth: '660px',
+          opacity: 0.95,
+        }}>
+          "{language === 'tr'
+            ? 'Şüphesiz Allah adaleti, iyiliği ve akrabaya yardımı emreder; çirkin işleri, fenalığı ve azgınlığı da yasaklar.'
+            : 'Indeed, Allah commands justice, kindness, and giving to relatives; and He forbids indecency, evil, and oppression.'}"
+        </p>
+
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: "'Inter', sans-serif",
+          fontSize: '0.72rem',
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 36px',
+          opacity: 0.65,
+        }}>
+          — {language === 'tr' ? 'Nahl 16:90' : 'An-Naḥl 16:90'}
+        </p>
+
+        {/* Framing whisper */}
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: "'Playfair Display', serif",
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          lineHeight: 1.7,
+          margin: '0 auto 40px',
+          maxWidth: '700px',
+          opacity: 0.88,
+        }}>
+          {language === 'tr'
+            ? <>Kur'an iki kanatla yürür: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>emir</em> (`if'al`) ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>nehiy</em> (`lā taf'al`). Klasik fıkıh bu çifti beş hükme açar: vâcip, mendûb, mubâh, mekrûh, harâm.</>
+            : <>The Quran walks on two wings: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>command</em> (`if'al`) and <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>prohibition</em> (`lā taf'al`). Classical fiqh unfolds this pair into five rulings: wājib, mandūb, mubāḥ, makrūh, ḥarām.</>}
+        </p>
+
+        {/* Filigree divider */}
+        <div aria-hidden="true" style={{
+          width: '120px',
+          height: '1px',
+          background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+          margin: '0 auto 32px',
+        }} />
+
+        {/* Eyebrow */}
+        <div style={{ marginBottom: '12px' }}>
+          <span style={{ fontSize: '0.68rem', color: COLORS.gold, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, opacity: 0.72, fontFamily: "'Inter', sans-serif" }}>
+            {language === 'tr' ? "KUR'AN'IN EMİRLERİ · 5 HÜKÜM" : "QURAN COMMANDS · 5 RULINGS"}
           </span>
         </div>
-        <h1 style={{ ...OVERLAY_TITLE, fontSize: isMobile ? '1.4rem' : '2rem', marginBottom: '8px', lineHeight: 1.2 }}>
+
+        <h1 style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          fontWeight: 700,
+          color: COLORS.offWhite,
+          margin: '0 auto 14px',
+          lineHeight: 1.18,
+          letterSpacing: '-0.015em',
+          maxWidth: '780px',
+        }}>
           {L.title}
         </h1>
-        <p style={{ color: COLORS.silver, fontSize: '0.95rem', marginBottom: '20px' }}>
+        <p style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          color: COLORS.gold,
+          margin: '0 auto 22px',
+          lineHeight: 1.55,
+          fontStyle: 'italic',
+          maxWidth: '700px',
+          opacity: 0.92,
+        }}>
           {L.subtitle}
         </p>
 
