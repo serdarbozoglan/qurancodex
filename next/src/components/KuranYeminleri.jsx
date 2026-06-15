@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { COLORS, FONTS, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -118,43 +118,149 @@ export default function KuranYeminleri({ onClose }) {
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1 }}>
 
-        {/* ── HERO ──────────────────────────────────────────────────────── */}
+        {/* ════ CINEMATIC HERO — Premium Template (İlk-Son + Renkler parity) */}
         <div style={{
-          padding: isMobile ? '28px 20px 24px' : '40px 40px 32px',
+          padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
           background: 'linear-gradient(180deg, rgba(212,162,36,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          textAlign: 'center',
         }}>
-          {/* Arabic subtitle — Şems 91:1-2, mushaf-style verse separator */}
-          <div style={{
-            fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.6rem' : '2rem',
-            color: COLORS.gold,
-            direction: 'rtl',
-            textAlign: 'right',
-            lineHeight: 1.8,
-            marginBottom: '16px',
-          }} dir="rtl" lang="ar">
-            وَالشَّمْسِ وَضُحَاهَا ﴿١﴾ وَالْقَمَرِ إِذَا تَلَاهَا ﴿٢﴾
+          {/* Bismillah ornament — Amiri Quran ligature (§13.2 exception) */}
+          <div
+            dir="rtl"
+            lang="ar"
+            aria-label="Bismillāh"
+            style={{
+              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontSize: isMobile ? '1.6rem' : '2rem',
+              color: COLORS.gold,
+              opacity: 0.85,
+              lineHeight: 1,
+              marginBottom: isMobile ? '28px' : '40px',
+              textShadow: `0 0 22px ${COLORS.gold}28`,
+            }}
+          >
+            ﷽
           </div>
 
-          {/* Title */}
+          {/* Anchor verse — Şems 91:1-2 (KFGQPC, large, gold) */}
+          <p
+            dir="rtl"
+            lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.4vw, 1.75rem)',
+              color: COLORS.gold,
+              lineHeight: 2.1,
+              margin: '0 auto 18px',
+              maxWidth: '800px',
+              textShadow: `0 0 22px ${COLORS.gold}1c`,
+            }}
+          >
+            وَالشَّمْسِ وَضُحٰيهَاۙ وَالْقَمَرِ اِذَا تَلٰيهَاۙ
+          </p>
+
+          <p style={{
+            color: COLORS.offWhite,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 8px',
+            maxWidth: '620px',
+            opacity: 0.95,
+          }}>
+            "{language === 'tr'
+              ? 'Andolsun Güneşe ve onun kuşluk vaktindeki aydınlığına; ardından gelen Ay\'a…'
+              : 'By the sun and its morning brightness; by the moon when it follows it…'}"
+          </p>
+
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            margin: '0 0 36px',
+            opacity: 0.65,
+          }}>
+            — {language === 'tr' ? 'Şems 91:1-2' : 'al-Shams 91:1-2'}
+          </p>
+
+          {/* Framing whisper */}
+          <p style={{
+            color: COLORS.silver,
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            lineHeight: 1.7,
+            margin: '0 auto 40px',
+            maxWidth: '660px',
+            opacity: 0.88,
+          }}>
+            {language === 'tr'
+              ? <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yarattıklarına yemin eder</em> — güneşe, aya, zamana, ruha, Kur'an'ın kendisine. Yemin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bir vurgu sanatı</em>; ardından gelen mesaja en güçlü işaret.</>
+              : <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>swears by His creation</em> — by the sun, the moon, time, the soul, the Quran itself. The oath is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>an art of emphasis</em>; the strongest signal for what follows.</>}
+          </p>
+
+          {/* Filigree divider */}
+          <div aria-hidden="true" style={{
+            width: '120px',
+            height: '1px',
+            background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+            margin: '0 auto 32px',
+          }} />
+
+          {/* Eyebrow */}
+          <div style={{
+            fontSize: '0.68rem', letterSpacing: '0.3em',
+            color: COLORS.gold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, fontWeight: 700,
+            opacity: 0.7,
+            marginBottom: '14px',
+          }}>
+            {language === 'tr' ? `AKSÂMÜ'L-KUR'ÂN · ${meta.totalOaths} BİLEŞİK YEMİN` : `AQSĀM AL-QUR'ĀN · ${meta.totalOaths} COMPOUND OATHS`}
+          </div>
+
+          {/* Big Title */}
           <h1 style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? '1.4rem' : '1.9rem',
+            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
             fontWeight: 700,
-            fontFamily: FONTS.body,
-            margin: '0 0 8px 0',
-            lineHeight: 1.3,
+            fontFamily: FONTS.display,
+            margin: '0 auto 16px',
+            lineHeight: 1.15,
+            letterSpacing: '-0.015em',
+            maxWidth: '760px',
           }}>
             {language === 'tr' ? "Kur'an'ın Yeminleri" : "The Oaths of the Quran"}
           </h1>
+
+          {/* Dramatic subtitle */}
+          <p style={{
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+            color: COLORS.gold,
+            margin: '0 auto 32px',
+            lineHeight: 1.5,
+            fontStyle: 'italic',
+            maxWidth: '680px',
+            opacity: 0.92,
+          }}>
+            {language === 'tr'
+              ? 'Allah neye yemin ederse, ardından gelen söz mutlak bir vurgu kazanır.'
+              : 'Whatever Allah swears by, the word that follows acquires absolute emphasis.'}
+          </p>
+
+          {/* Original descriptive intro (compact, left-aligned, max-w'lı) */}
           <p style={{
             color: COLORS.silver,
             fontSize: '0.88rem',
             fontFamily: FONTS.body,
-            margin: '0 0 28px 0',
+            margin: '0 auto 28px',
             lineHeight: 1.7,
-            maxWidth: '620px',
+            maxWidth: '720px',
+            textAlign: 'left',
           }}>
             {language === 'tr'
               ? `Allah Kur'an'da ${meta.totalOaths} farklı şeye yemin eder: güneş, ay, zaman, şehirler, ruh, hatta Kur'an'ın kendisi. Bu yeminler tesadüfi değil — her biri, ardından gelen mesajın en güçlü delilidir.`
@@ -313,6 +419,9 @@ export default function KuranYeminleri({ onClose }) {
             <TabKaynaklar sources={sources} language={language} isMobile={isMobile} />
           )}
         </div>
+
+        {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
+        <YeminlerClosing language={language} isMobile={isMobile} totalOaths={meta.totalOaths} />
 
         {/* ── MOBILE BOTTOM LINKS ───────────────────────────────────────── */}
         {isMobile && (
@@ -1516,6 +1625,134 @@ function TabKaynaklar({ sources, language, isMobile }) {
             : 'The oath list on this page is a curated selection based on primary sources. For a complete academic corpus study, refer to Ibn Qayyim\'s al-Tibyan and Suyuti\'s al-Itqan (chapter 60).'
           }
         </p>
+      </div>
+    </div>
+  );
+}
+
+// ── Closing Synthesis — Premium Template Kapanışı ─────────────────────────────
+// Hero'daki "yemin bir vurgu sanatı" framing whisper'ını paradox synthesis ile
+// kapatır + 3 cross-tool CTA (relevant yemin-yoğun sûreler).
+
+function YeminlerClosing({ language, isMobile, totalOaths }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      marginTop: isMobile ? '40px' : '60px',
+      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+      borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+      maxWidth: '900px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}>
+      <div style={{
+        fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.3em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7,
+        marginBottom: '20px', textAlign: 'center',
+      }}>
+        {tr ? 'Tefekkür' : 'Reflection'}
+      </div>
+
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        color: COLORS.offWhite,
+        textAlign: 'center',
+        lineHeight: 1.3,
+        letterSpacing: '-0.01em',
+        margin: '0 auto 28px',
+        maxWidth: '780px',
+      }}>
+        {tr
+          ? <>{totalOaths} yemin — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Yaratanın yarattığını şahit tutması</em>.</>
+          : <>{totalOaths} oaths — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>The Creator calling His creation to witness</em>.</>}
+      </h3>
+
+      <p style={{
+        fontFamily: FONTS.display, fontStyle: 'italic',
+        color: COLORS.silver,
+        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        lineHeight: 1.75,
+        textAlign: 'center',
+        margin: '0 auto 50px',
+        maxWidth: '740px',
+        opacity: 0.92,
+      }}>
+        {tr
+          ? <>Bir insan yemin ederken kendinden yüce bir şeye atıfta bulunur. Allah ise <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>kendi yarattığına</strong> yemin eder. Çünkü O'nun katında güneş, kalem, asır, ruh — hepsi <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>O'nun ayetidir</strong>. Yemin, yaratılana verilen değerin en yüksek beyanıdır.</>
+          : <>When a human swears, they refer to something greater than themselves. Allah swears by <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His own creation</strong>. Because before Him, the sun, the pen, time, the soul — all are <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His signs</strong>. The oath is the highest declaration of the value given to the created.</>}
+      </p>
+
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <span style={{
+            fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.24em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.7,
+          }}>
+            {tr ? 'Daha Derine — Yemin-Yoğun Sûreler' : 'Go Deeper — Oath-Rich Suras'}
+          </span>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '12px',
+        }}>
+          {[
+            { href: `/${language}/oku/91`, titleTr: 'Şems Sûresi (91)', titleEn: 'Sura al-Shams (91)', descTr: '7 ayet · 7 yemin — Güneş, ay, gündüz, gece, gök, yer, ruh. Kur\'an\'ın en yoğun yemin zinciri.', descEn: '7 verses · 7 oaths — sun, moon, day, night, sky, earth, soul. The Quran\'s densest oath chain.' },
+            { href: `/${language}/oku/56`, titleTr: 'Vâkıa Sûresi (56)', titleEn: 'Sura al-Wāqiʿa (56)', descTr: '"Yıldızların yerlerine yemin ederim — bilseniz bu büyük bir yemindir" (56:75-76) — Kur\'an\'ın kendi yeminini tefsir ettiği ayet.', descEn: '"I swear by the positions of the stars — and indeed it is a tremendous oath if you only knew" (56:75-76) — the Quran interpreting its own oath.' },
+            { href: `/${language}/oku/103`, titleTr: 'Asr Sûresi (103)', titleEn: 'Sura al-ʿAṣr (103)', descTr: '"Asra yemin olsun ki insan ziyandadır" — 3 ayetlik en kısa yemin sûresi; tüm tarihin tezi.', descEn: '"By time — indeed humanity is in loss" — the shortest oath sura (3 verses); the thesis of all history.' },
+          ].map((tt, i) => (
+            <a
+              key={i}
+              href={tt.href}
+              style={{
+                display: 'block',
+                background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: RADIUS.lg,
+                padding: isMobile ? '20px 18px' : '22px 22px',
+                textDecoration: 'none',
+                transition: `all ${TRANSITION.base}`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.05) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                marginBottom: '8px',
+              }}>
+                <h4 style={{
+                  fontFamily: FONTS.body, fontWeight: 700,
+                  fontSize: '0.95rem',
+                  color: COLORS.gold, margin: 0,
+                }}>
+                  {tr ? tt.titleTr : tt.titleEn}
+                </h4>
+                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+              </div>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.85rem',
+                color: COLORS.silver,
+                lineHeight: 1.6,
+                margin: 0, opacity: 0.85,
+              }}>
+                {tr ? tt.descTr : tt.descEn}
+              </p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
