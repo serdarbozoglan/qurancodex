@@ -238,54 +238,7 @@ export default function CennetCehennem({ onClose }) {
           </button>
         </div>
 
-        {/* Tab bar — UPPERCASE site-wide pattern */}
-        <div id="cennet-tab-bar" style={{
-          display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
-          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(20px)',
-          overflowX: 'auto',
-          scrollbarWidth: 'none',
-          flexShrink: 0,
-          scrollMarginTop: '72px',
-        }}>
-          {TABS.map(tab => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  setTimeout(() => {
-                    const tb = document.getElementById('cennet-tab-bar');
-                    if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }, 50);
-                }}
-                style={{
-                  display: 'flex', alignItems: 'center', gap: '8px',
-                  padding: isMobile ? '14px 16px' : '16px 26px',
-                  border: 'none', borderRadius: '0', flexShrink: 0,
-                  borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                  background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.72rem' : '0.78rem',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  fontWeight: isActive ? 700 : 500,
-                  cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
-                  fontFamily: FONTS.body,
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
-                onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
-              >
-                <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
-                {!isMobile && <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>}
-              </button>
-            );
-          })}
-        </div>
+        {/* Tab bar MOVED to body (after Hero) — Premium pattern parity with Yeminler/Kavim/Renkler */}
       </div>
 
       {/* ── BODY ──────────────────────────────────────────────────── */}
@@ -424,6 +377,58 @@ export default function CennetCehennem({ onClose }) {
 
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
+
+          {/* Tab bar — sticky after Hero (Premium pattern: Hero ÖNCE, tabs SONRA) */}
+          <div id="cennet-tab-bar" style={{
+            display: 'flex', gap: '2px',
+            padding: isMobile ? '0 8px' : '0 16px',
+            margin: isMobile ? '0 -14px 24px' : '0 -32px 28px',
+            borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+            background: 'rgba(10,10,26,0.97)',
+            backdropFilter: 'blur(20px)',
+            overflowX: 'auto',
+            scrollbarWidth: 'none',
+            position: 'sticky',
+            top: 0,
+            zIndex: 10,
+            scrollMarginTop: '72px',
+          }}>
+            {TABS.map(tab => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setActiveTab(tab.id);
+                    setTimeout(() => {
+                      const tb = document.getElementById('cennet-tab-bar');
+                      if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                  }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    padding: isMobile ? '14px 16px' : '16px 26px',
+                    border: 'none', borderRadius: '0', flexShrink: 0,
+                    borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                    background: isActive ? COLORS.goldAlpha15 : 'transparent',
+                    color: isActive ? COLORS.gold : COLORS.silver,
+                    fontSize: isMobile ? '0.72rem' : '0.78rem',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    fontWeight: isActive ? 700 : 500,
+                    cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
+                    fontFamily: FONTS.body,
+                    whiteSpace: 'nowrap',
+                  }}
+                  onMouseEnter={e => { if (!isActive) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                  onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
+                  {!isMobile && <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>}
+                </button>
+              );
+            })}
+          </div>
 
           {activeTab === 'isimler'   && <TabIsimler   data={data} language={language} isMobile={isMobile} />}
           {activeTab === 'cennet'    && <TabCennet    data={data} language={language} isMobile={isMobile} />}
