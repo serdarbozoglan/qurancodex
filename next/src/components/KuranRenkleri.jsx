@@ -2807,6 +2807,50 @@ function ColorsClosing({ language, isMobile }) {
       marginLeft: 'auto',
       marginRight: 'auto',
     }}>
+      {/* ── KELÂMÎ TARTIŞMA — "Cennet Tek Ton mu?" ─────────────────── */}
+      <div style={{
+        background: 'rgba(46,204,113,0.05)',
+        border: '1px solid rgba(46,204,113,0.25)',
+        borderLeft: '3px solid #2ecc71',
+        borderRadius: '12px',
+        padding: isMobile ? '20px 22px' : '24px 28px',
+        marginBottom: isMobile ? '40px' : '60px',
+        maxWidth: '780px',
+        marginInline: 'auto',
+      }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#2ecc71', opacity: 0.9, margin: '0 0 12px', fontFamily: FONTS.body }}>
+          {tr ? "Kelâmî Tartışma · Sıkça Sorulan" : "Theological Q · Frequently Asked"}
+        </p>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
+          {tr ? "Cennet \"tek ton yeşil\" midir? Dünya renksiz mi kalır?" : "Is Paradise \"a single shade of green\"? Is the world the colorful one?"}
+        </p>
+        <p style={{ fontSize: '0.86rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 14px', fontFamily: FONTS.body }}>
+          {tr
+            ? <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax \"koyu yeşil\" iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
+            : <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax "deep green" two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
+        </p>
+        <p style={{ fontSize: '0.84rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 8px', fontFamily: FONTS.body }}>
+          {tr ? "Kur'an'da cennette geçen diğer renkler ve dokular:" : "Other colors and textures of Paradise in the Quran:"}
+        </p>
+        <ul style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.85, margin: '0 0 14px', paddingLeft: '20px', fontFamily: FONTS.body }}>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil sündüs ve istebrak</strong> (yeşil ince ve kalın ipek) — Kehf 18:31, Dehr 76:21</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green sundus and istabraq</strong> (fine green silk + brocade) — Kahf 18:31, Insān 76:21</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Yeşil rafraf</strong> (yeşil yastıklar/tahtlar) — Rahmân 55:76</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Green rafraf</strong> (green cushions/thrones) — Raḥmān 55:76</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Beyaz inci, kırmızı yâkut, zümrüt</strong> — süs ve takı — Hac 22:23, Fâtır 35:33, Rahmân 55:58</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>White pearls, red rubies, emerald</strong> — adornments — Ḥajj 22:23, Fāṭir 35:33, Raḥmān 55:58</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Altın bilezikler ve süsler</strong> (zîneten) — Hac 22:23, Fâtır 35:33, Kehf 18:31</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>Gold bracelets and ornaments</strong> (zīnatan) — Ḥajj 22:23, Fāṭir 35:33, Kahf 18:31</>}</li>
+          <li>{tr ? <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 nehir: su, süt, şarab, bal</strong> — her biri ayrı renk-doku-tat — Muhammed 47:15</> : <><strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>4 rivers: water, milk, wine, honey</strong> — each its own color-texture-taste — Muḥammad 47:15</>}</li>
+        </ul>
+        <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
+          {tr
+            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. \"Monokrom cennet\" okuması hem tefsire hem ayetlere aykırıdır.</>
+            : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
+        </p>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.7, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
+          {tr
+            ? <>Bu sayfa <strong style={{ color: '#2ecc71', fontWeight: 600 }}>yeşil</strong>e \"vaadin baş işareti\" olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
+            : <>This page focuses on <strong style={{ color: '#2ecc71', fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
+        </p>
+      </div>
+
       {/* Eyebrow */}
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
