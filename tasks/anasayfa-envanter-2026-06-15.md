@@ -43,12 +43,10 @@ Kısaltmalar:
 
 Tablodaki **Derinlik** kolonuna göre üç katmana ayrılıyor:
 
-### Katman A — KART-İZE GÜVENLİ (3 bölüm, derhal pilot adayı)
-- **#12 AllahKendiniTanitir** → `/arac/esma-frekans` (TAM)
-- **#11 Highlights** → `/arac/wow` veya `/arac/kurani-tani` (TAM, doğrulama gerek)
-- **#3 QuranRhetoric** → `/arac/retorik` (TAM, doğrulama gerek)
-
-**Bu üç bölümle pilot başlatmak** kullanıcının istediği "tek bölümle pilot yap, sonra çoğalt" prensibine en uygun. Hedef sayfa hazır, içerik göçü 0-minimal.
+### Katman A — KART-İZE GÜVENLİ (1 bölüm + 2 KISMEN'e indi)
+- **#12 AllahKendiniTanitir** → `/arac/esma-frekans` (TAM) — **PILOT 1 TAMAMLANDI (commit f98d940)**
+- ~~#11 Highlights → /arac/wow~~ → **KISMEN'E İNDİ** (Pilot 1 sonrası doğrulama 2026-06-15 gece): 6/3 eksik. WowFacts'te var: Prefrontal Korteks, Parmak İzleri, Zaman Esnekliği. WowFacts'te YOK: Modüler Anlatı, Kelime Haritası, İltifât. → Kart-ize öncesi 3 fact'in WowFacts'e eklenmesi gerek.
+- ~~#3 QuranRhetoric → /arac/retorik~~ → **KISMEN'E İNDİ** (Pilot 1 sonrası doğrulama): Odak farkı var. Anasayfa QuranRhetoric = **retorik sorular** (QUESTION_TYPES, FAMOUS_QUESTIONS, SURAH_DENSITY arrays) — Rahmân/Vâkıa/Yâsîn soru zincirleri. Tool `/arac/retorik` = **belagat araçları** (Tezad · İstiare · İltifât). → Yeni tab "Retorik Sorular" tool'a eklenmeli veya yeni `/arac/sorular` route'u.
 
 ### Katman B — KÜÇÜK İÇERİK GÖÇÜ ÖNCE (5 bölüm)
 - **#4 QuranDua** → `/arac/dualar` (KISMEN)
