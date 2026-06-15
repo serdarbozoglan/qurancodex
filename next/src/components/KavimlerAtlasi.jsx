@@ -215,6 +215,135 @@ export default function KavimlerAtlasi({ onClose }) {
           {activeTab === 4 && <TabKarsilastirma nations={data.nations} language={language} isMobile={isMobile} />}
           {activeTab === 5 && <TabKaynaklar language={language} />}
         </div>
+
+        {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
+        <KavimlerClosing language={language} isMobile={isMobile} totalNations={data.meta.totalMentioned} />
+      </div>
+    </div>
+  );
+}
+
+// ── Closing Synthesis — Premium Template Kapanışı ─────────────────────────────
+
+function KavimlerClosing({ language, isMobile, totalNations }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      marginTop: isMobile ? '40px' : '60px',
+      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+      borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
+      maxWidth: '900px',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}>
+      <div style={{
+        fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+        letterSpacing: '0.3em', textTransform: 'uppercase',
+        color: COLORS.gold, opacity: 0.7,
+        marginBottom: '20px', textAlign: 'center',
+      }}>
+        {tr ? 'Tefekkür' : 'Reflection'}
+      </div>
+
+      <h3 style={{
+        fontFamily: FONTS.display, fontWeight: 700,
+        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        color: COLORS.offWhite,
+        textAlign: 'center',
+        lineHeight: 1.3,
+        letterSpacing: '-0.01em',
+        margin: '0 auto 28px',
+        maxWidth: '780px',
+      }}>
+        {tr
+          ? <>{totalNations} kavım. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>aynı imtihan</em>.</>
+          : <>{totalNations} nations. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>same trial</em>.</>}
+      </h3>
+
+      <p style={{
+        fontFamily: FONTS.display, fontStyle: 'italic',
+        color: COLORS.silver,
+        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        lineHeight: 1.75,
+        textAlign: 'center',
+        margin: '0 auto 50px',
+        maxWidth: '740px',
+        opacity: 0.92,
+      }}>
+        {tr
+          ? <>Her kavme bir peygamber. Her peygambere bir red. Her redde bir helak. Ama helak <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>sonuç değil — hatırlatma</strong>. "Yeryüzünde gezip dolaşmadılar mı?" diye soran ayet, sonra gelene aynayı tutar: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>tarih ders veren bir kâtip değildir; uyaran bir şahittir</strong>.</>
+          : <>To every nation a prophet. To every prophet a rejection. To every rejection a destruction. But destruction is <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>not the end — it is the reminder</strong>. The verse that asks "Have they not traveled through the land?" holds up a mirror to those who come after: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>history is not a teacher writing lessons; it is a witness offering warning</strong>.</>}
+      </p>
+
+      <div style={{ marginBottom: '20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <span style={{
+            fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
+            letterSpacing: '0.24em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.7,
+          }}>
+            {tr ? 'Daha Derine — Kıssa-Yoğun Sûreler' : 'Go Deeper — Narrative-Rich Suras'}
+          </span>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '12px',
+        }}>
+          {[
+            { href: `/${language}/oku/11`, titleTr: 'Hûd Sûresi (11)', titleEn: 'Sura Hūd (11)', descTr: 'Nuh, Hûd, Sâlih, Şuayb, Lût — 5 kavmin helak desenini tek sûrede toplayan ana referans.', descEn: 'Noah, Hūd, Ṣāliḥ, Shuʿayb, Lūṭ — the main reference uniting 5 destruction patterns in one sura.' },
+            { href: `/${language}/oku/26`, titleTr: 'Şuarâ Sûresi (26)', titleEn: 'Sura al-Shuʿarāʾ (26)', descTr: 'Mûsâ, İbrâhîm, Nûh, Hûd, Sâlih, Lût, Şuayb — 7 peygamberin aynı yapıyla anlatıldığı sûre.', descEn: 'Moses, Abraham, Noah, Hūd, Ṣāliḥ, Lūṭ, Shuʿayb — 7 prophets told with the same narrative structure.' },
+            { href: `/${language}/oku/28`, titleTr: 'Kasas Sûresi (28)', titleEn: 'Sura al-Qaṣaṣ (28)', descTr: 'Firavun ve Hz. Mûsâ — Kur\'an\'daki en uzun kavim kıssası, kendi adıyla "Kıssalar" sûresi.', descEn: 'Pharaoh and Moses — the longest nation narrative in the Quran, the sura named "Stories".' },
+          ].map((tt, i) => (
+            <a
+              key={i}
+              href={tt.href}
+              style={{
+                display: 'block',
+                background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: RADIUS.lg,
+                padding: isMobile ? '20px 18px' : '22px 22px',
+                textDecoration: 'none',
+                transition: 'all 0.18s',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.05) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`;
+                e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                marginBottom: '8px',
+              }}>
+                <h4 style={{
+                  fontFamily: FONTS.body, fontWeight: 700,
+                  fontSize: '0.95rem',
+                  color: COLORS.gold, margin: 0,
+                }}>
+                  {tr ? tt.titleTr : tt.titleEn}
+                </h4>
+                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+              </div>
+              <p style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.85rem',
+                color: COLORS.silver,
+                lineHeight: 1.6,
+                margin: 0, opacity: 0.85,
+              }}>
+                {tr ? tt.descTr : tt.descEn}
+              </p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -236,46 +365,147 @@ function HeroSection({ meta, language, isMobile }) {
 
   return (
     <div style={{
-      padding: isMobile ? '28px 20px 24px' : '40px 40px 32px',
+      padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
       background: 'linear-gradient(180deg, rgba(180,100,40,0.05) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+      textAlign: 'center',
     }}>
-      {/* Page label */}
-      <div style={{
-        fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
-        letterSpacing: '0.2em', textTransform: 'uppercase',
-        color: COLORS.gold, marginBottom: '16px', opacity: 0.7,
-      }}>
-        {language === 'tr' ? 'TARİH & İNSAN' : 'HISTORY & HUMAN'}
+      {/* Bismillah ornament — Amiri Quran ligature */}
+      <div
+        dir="rtl"
+        lang="ar"
+        aria-label="Bismillāh"
+        style={{
+          fontFamily: "'Amiri Quran', 'Amiri', serif",
+          fontSize: isMobile ? '1.6rem' : '2rem',
+          color: COLORS.gold,
+          opacity: 0.85,
+          lineHeight: 1,
+          marginBottom: isMobile ? '28px' : '40px',
+          textShadow: `0 0 22px ${COLORS.gold}28`,
+        }}
+      >
+        ﷽
       </div>
 
-      {/* Arabic verse */}
-      <div style={{
-        fontFamily: FONTS.quran, fontSize: isMobile ? '1.2rem' : '1.6rem',
-        color: COLORS.gold, direction: 'rtl', textAlign: 'right',
-        lineHeight: 1.9, marginBottom: '10px',
-      }} dir="rtl" lang="ar">
-        أَفَلَمْ يَسِيرُوا فِي الْأَرْضِ فَيَنظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذِينَ مِن قَبْلِهِمْ
-      </div>
-      <p style={{
-        color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body,
-        fontStyle: 'italic', marginBottom: '20px', lineHeight: 1.6,
-      }}>
-        {language === 'tr'
-          ? '"Yeryüzünde gezip dolaşmadılar mı? Kendilerinden öncekilerin akıbeti nasıl oldu, bir baksalardı ya." — Yusuf 12:109'
-          : '"Have they not traveled through the land and observed how was the end of those before them?" — Yusuf 12:109'}
+      {/* Anchor verse — Yûsuf 12:109 (KFGQPC, large) */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+          color: COLORS.gold,
+          lineHeight: 2.1,
+          margin: '0 auto 18px',
+          maxWidth: '820px',
+          textShadow: `0 0 20px ${COLORS.gold}1c`,
+        }}
+      >
+        اَفَلَمْ يَس۪يرُوا فِي الْاَرْضِ فَيَنْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذ۪ينَ مِنْ قَبْلِهِمْ
       </p>
 
-      {/* Title */}
+      <p style={{
+        color: COLORS.offWhite,
+        fontFamily: FONTS.display,
+        fontStyle: 'italic',
+        fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+        lineHeight: 1.7,
+        margin: '0 auto 8px',
+        maxWidth: '620px',
+        opacity: 0.95,
+      }}>
+        "{language === 'tr'
+          ? 'Yeryüzünde gezip dolaşmadılar mı? Kendilerinden öncekilerin akıbeti nasıl oldu, bir baksalardı ya.'
+          : 'Have they not traveled through the land and observed how was the end of those before them?'}"
+      </p>
+
+      <p style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.body,
+        fontSize: '0.72rem',
+        letterSpacing: '0.16em',
+        textTransform: 'uppercase',
+        margin: '0 0 36px',
+        opacity: 0.65,
+      }}>
+        — {language === 'tr' ? 'Yûsuf 12:109' : 'Yūsuf 12:109'}
+      </p>
+
+      {/* Framing whisper */}
+      <p style={{
+        color: COLORS.silver,
+        fontFamily: FONTS.display,
+        fontStyle: 'italic',
+        fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+        lineHeight: 1.7,
+        margin: '0 auto 40px',
+        maxWidth: '700px',
+        opacity: 0.88,
+      }}>
+        {language === 'tr'
+          ? <>Her kavmin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>helak biçimi</em>, işlediği suça gizli bir aynadır. Tarih boş tekrar değildir — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kâinatın hafızası, sonraki nesle bir mesajdır</em>.</>
+          : <>Each people's <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>mode of destruction</em> is a hidden mirror of their sin. History is not idle repetition — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the universe's memory is a message to the next generation</em>.</>}
+      </p>
+
+      {/* Filigree divider */}
+      <div aria-hidden="true" style={{
+        width: '120px',
+        height: '1px',
+        background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
+        margin: '0 auto 32px',
+      }} />
+
+      {/* Eyebrow */}
+      <div style={{
+        fontSize: '0.68rem', letterSpacing: '0.3em',
+        color: COLORS.gold, textTransform: 'uppercase',
+        fontFamily: FONTS.body, fontWeight: 700,
+        opacity: 0.7,
+        marginBottom: '14px',
+      }}>
+        {language === 'tr' ? `TARİH & İNSAN · ${meta.totalMentioned} KAVİM` : `HISTORY & HUMAN · ${meta.totalMentioned} NATIONS`}
+      </div>
+
+      {/* Big Title */}
       <h1 style={{
-        color: COLORS.offWhite, fontSize: isMobile ? '1.4rem' : '1.9rem',
-        fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 10px', lineHeight: 1.3,
+        color: COLORS.offWhite,
+        fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+        fontWeight: 700,
+        fontFamily: FONTS.display,
+        margin: '0 auto 16px',
+        lineHeight: 1.15,
+        letterSpacing: '-0.015em',
+        maxWidth: '760px',
       }}>
         {language === 'tr' ? "Kur'an'ın Kavimler Atlası" : "The Quran's Nations Atlas"}
       </h1>
+
+      {/* Dramatic subtitle */}
       <p style={{
-        color: COLORS.silver, fontSize: '0.88rem', fontFamily: FONTS.body,
-        margin: '0 0 28px', lineHeight: 1.7, maxWidth: '680px',
+        fontFamily: FONTS.display,
+        fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+        color: COLORS.gold,
+        margin: '0 auto 32px',
+        lineHeight: 1.5,
+        fontStyle: 'italic',
+        maxWidth: '700px',
+        opacity: 0.92,
+      }}>
+        {language === 'tr'
+          ? 'Her kavım bir peygamberle imtihan oldu. Her helak biçimi, bir cevap mıydı?'
+          : 'Every nation was tested with a prophet. Was every form of destruction an answer?'}
+      </p>
+
+      {/* Original intro (left-aligned, max-w) */}
+      <p style={{
+        color: COLORS.silver,
+        fontSize: '0.88rem',
+        fontFamily: FONTS.body,
+        margin: '0 auto 28px',
+        lineHeight: 1.7,
+        maxWidth: '720px',
+        textAlign: 'left',
       }}>
         {language === 'tr'
           ? `Kur'an 20'den fazla kavmi anar. Her biri bir peygamber gönderilen, uyarılan, reddeden ve sonunda helak olan bir toplumun portresidir. Her kavmin helak biçimi, işlediği suçla derin bir anlam bağı taşır. Her kıssanın sonu bir sonraki nesle söylenmiş aynı cümleyle biter.`
@@ -287,6 +517,8 @@ function HeroSection({ meta, language, isMobile }) {
         display: 'grid',
         gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
         gap: '10px',
+        maxWidth: '900px',
+        margin: '0 auto',
       }}>
         {stats.map((s, i) => (
           <div key={i} style={{
