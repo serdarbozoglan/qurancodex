@@ -384,20 +384,27 @@ export default function CennetCehennem({ onClose }) {
           {/* ── HERO BANNER (stat panel) ─────────────────────────── */}
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
-          {/* Tab bar — STICKY (Melekler-reference pattern, user onaylı).
-              Opaque bg #06080e — scroll sızma yok. */}
+          {/* Tab bar — STICKY (Melekler-reference) — bulletproof opaque
+              backgroundColor explicit + isolation stacking context + high zIndex.
+              `background: '#06080e'` tek başına bazı render sızmalarına yol açmıştı. */}
           <div id="cennet-tab-bar" style={{
             display: 'flex', gap: '2px',
             padding: isMobile ? '0 8px' : '0 16px',
             margin: isMobile ? '0 -14px 24px' : '0 -32px 28px',
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-            background: '#06080e',
+            background: 'rgb(6, 8, 14)',
+            backgroundColor: 'rgb(6, 8, 14)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+            isolation: 'isolate',
             overflowX: 'auto',
             scrollbarWidth: 'none',
             position: 'sticky',
             top: 0,
-            zIndex: 10,
+            zIndex: 20,
             scrollMarginTop: '72px',
+            width: 'auto',
+            boxSizing: 'border-box',
           }}>
             {TABS.map(tab => {
               const isActive = activeTab === tab.id;
