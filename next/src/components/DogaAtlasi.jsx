@@ -66,14 +66,17 @@ const TAB_ICONS = [
   <svg aria-hidden="true" key="t3" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
   // Tefsir — scroll
   <svg aria-hidden="true" key="t4" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>,
+  // Bilimsel İşaretler — atom / orbit
+  <svg aria-hidden="true" key="t-sci" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/></svg>,
 ];
 const TABS = [
-  { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',     labelEn: 'Animals',           shortTr: 'Hayvan',  shortEn: 'Animal'   },
-  { icon: TAB_ICONS[1], labelTr: 'Bitkiler',      labelEn: 'Plants',            shortTr: 'Bitki',   shortEn: 'Plant'    },
-  { icon: TAB_ICONS[2], labelTr: 'Gök Cisimleri', labelEn: 'Celestial Bodies',  shortTr: 'Gök',     shortEn: 'Sky'      },
-  { icon: TAB_ICONS[3], labelTr: 'Sûre İsimleri', labelEn: 'Surah Names',       shortTr: 'Sûre',    shortEn: 'Surah'    },
-  { icon: TAB_ICONS[4], labelTr: 'Bağlam',        labelEn: 'Context',           shortTr: 'Bağlam',  shortEn: 'Context'  },
-  { icon: TAB_ICONS[5], labelTr: 'Tefsir',        labelEn: 'Tafsir',            shortTr: 'Tefsir',  shortEn: 'Tafsir'   },
+  { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',          labelEn: 'Animals',           shortTr: 'Hayvan',  shortEn: 'Animal'   },
+  { icon: TAB_ICONS[1], labelTr: 'Bitkiler',           labelEn: 'Plants',            shortTr: 'Bitki',   shortEn: 'Plant'    },
+  { icon: TAB_ICONS[2], labelTr: 'Gök Cisimleri',      labelEn: 'Celestial Bodies',  shortTr: 'Gök',     shortEn: 'Sky'      },
+  { icon: TAB_ICONS[3], labelTr: 'Sûre İsimleri',      labelEn: 'Surah Names',       shortTr: 'Sûre',    shortEn: 'Surah'    },
+  { icon: TAB_ICONS[4], labelTr: 'Bağlam',             labelEn: 'Context',           shortTr: 'Bağlam',  shortEn: 'Context'  },
+  { icon: TAB_ICONS[5], labelTr: 'Tefsir',             labelEn: 'Tafsir',            shortTr: 'Tefsir',  shortEn: 'Tafsir'   },
+  { icon: TAB_ICONS[6], labelTr: 'Bilimsel İşaretler', labelEn: 'Scientific Signs',  shortTr: 'Bilim',   shortEn: 'Science'  },
 ];
 
 // ── Celestial bodies data — inline, verified Quran refs (no API call)
@@ -154,6 +157,85 @@ const CELESTIAL_BODIES = [
     sureRef: 'Bakara 2:22, Enbiyâ 21:32, Fussilet 41:11-12, Mülk 67:3',
     noteTr: "Tekil \"semâ\" (gök/atmosfer) ve çoğul \"semâvât\" (yedi gök) farklı bağlamlarda kullanılır. Enbiyâ 21:32'de gök \"korunmuş bir tavan\" (سَقْفاً مَحْفُوظاً) olarak nitelenir — klasik tefsir bunu meteor-yıldız düşmelerinden koruma (Hicr 15:17 ile bağ) ve modern okumada manyetosfer/ozon tabakası olarak yorumlar. Mülk 67:3'te göklerin \"yedi kat\" olduğu söylenir.",
     noteEn: "Singular 'samaʾ' (sky/atmosphere) and plural 'samawāt' (seven heavens) are used in different contexts. Anbiya 21:32 calls the sky 'a protected ceiling' (سَقْفاً مَحْفُوظاً) — classical tafsir: protection from meteors and shooting stars (linked with Hijr 15:17); modern reading: magnetosphere or ozone layer. Mulk 67:3 mentions 'seven heavens'.",
+  },
+];
+
+// ── Scientific Signs data — inline, 4 verses with parallel modern discoveries
+// ── + criticalNote per item (Bucaillism framing). Migrated from
+// ── /sections/ScientificSigns.jsx during Pilot 2 (CLAUDE.md §17.2).
+// ── Quranic Arabic: standard Unicode only (§13.15) — no U+06EA, no U+0671.
+const SCIENTIFIC_SIGNS = [
+  {
+    id: 'iron',
+    accent: COLORS.orange,
+    nameTr: 'Demir', nameEn: 'Iron',
+    sureRef: 'Hadîd 57:25',
+    sureNo: 57,
+    arabic: 'وَأَنْزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ',
+    translationTr: '"Demiri de indirdik — onda büyük bir kuvvet ve insanlar için faydalar vardır."',
+    translationEn: '"And We sent down iron — in which is great might and benefits for the people."',
+    modernTr: 'Astrofizik · 1957',
+    modernEn: 'Astrophysics · 1957',
+    classicalTr: 'Klasik tefsirin baskın okuması: "enzelnâ" (indirdik) burada "lütfettik / ihsan ettik" anlamında — Allah\'ın bir nimet olarak vermesi (Râzî, İbn Kesîr).',
+    classicalEn: 'Dominant classical reading: "anzalnā" (we sent down) here means "we bestowed / granted" — God\'s gift to humanity (Rāzī, Ibn Kathīr).',
+    modernParallelTr: '1957: B²FH makalesi (Burbidge, Burbidge, Fowler, Hoyle) — demirin yıldızların iç çekirdeklerinde nükleosentez ile oluştuğunu, süpernova patlamalarıyla "yukarıdan" dağıldığını gösterdi. Kelimenin literal kökünün (n-z-l: yukarıdan iniş) bu çerçeveyle örtüşmesi modern okumada işaret olarak gösterilir.',
+    modernParallelEn: '1957: B²FH paper (Burbidge, Burbidge, Fowler, Hoyle) showed iron is forged in stellar cores through nucleosynthesis and scattered "from above" via supernovae. The literal root (n-z-l: descent from above) matching this framing is cited as a sign in modern readings.',
+    criticalTr: '"Enzelnâ"nın kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin çoğu fiili "lütfettik" anlamında okur — "yukarıdan indirme" yorumu modern bir bakış açısıdır. Atlas burada kesin bir mucize iddia etmez; klasik okuma ile modern paralelliği yan yana sunar.',
+    criticalEn: 'Whether "anzalnā" carries a cosmic-origin meaning is debated. Most classical exegetes read it as "bestowed" — the "descent from above" reading is a modern angle. The atlas asserts no definitive miracle claim; it presents the classical reading alongside the modern parallel.',
+  },
+  {
+    id: 'universe',
+    accent: COLORS.violet,
+    nameTr: 'Genişleyen Evren', nameEn: 'Expanding Universe',
+    sureRef: 'Zâriyât 51:47',
+    sureNo: 51,
+    arabic: 'وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ',
+    translationTr: '"Göğü de kudretimizle Biz bina ettik; muhakkak Biz onu genişletmekteyiz."',
+    translationEn: '"And the sky We built it with might, and indeed We are [its] expander."',
+    modernTr: 'Hubble · 1929',
+    modernEn: 'Hubble · 1929',
+    classicalTr: 'Klasik tefsirde "mûsi\'ûn" çoğunlukla "güç sahibi / kapasitesi geniş" olarak okunur (Taberî, Kurtubî). Bazı çağdaş alimler (Mevdûdî, Seyyid Kutub) ise "genişletici" yorumunu öne çıkarır.',
+    classicalEn: 'In classical tafsir, "mūsiʿūn" is mostly read as "having power / capacity" (Ṭabarī, Qurṭubī). Some contemporary scholars (Mawdūdī, Sayyid Qutb) emphasize the "expander" reading.',
+    modernParallelTr: '1929: Edwin Hubble, uzak galaksilerin kızıla kayma (redshift) ile bizden uzaklaştığını gözledi — evrenin sürekli genişlediğini gösteren ilk gözlemsel kanıt. Lemaitre\'in (1927) teorik çalışmasını doğruladı. Bugün ΛCDM modeli evrenin hızlanan genişlemesini kabul eder.',
+    modernParallelEn: '1929: Edwin Hubble observed distant galaxies receding from us via redshift — the first observational evidence that the universe is continuously expanding. Confirmed Lemaitre\'s (1927) theoretical work. Today the ΛCDM model accepts accelerating cosmic expansion.',
+    criticalTr: 'Kozmik genişleme okuması selektif çeviri tartışmasına açıktır. Dilbilimsel olarak "mûsi\'ûn" güç/kapasite veya genişletici anlamlarını taşır; her iki okuma da metne dürüsttür. Modern paralellik düşündürücü ama tek anlamlı bir "ispat" değildir.',
+    criticalEn: 'The cosmic-expansion reading is open to selective-translation critique. Linguistically, "mūsiʿūn" carries both "of capacity/might" and "expander" senses; both readings are textually honest. The modern parallel is suggestive but not a univocal "proof".',
+  },
+  {
+    id: 'ocean',
+    accent: COLORS.cyan,
+    nameTr: 'İki Deniz · Barzakh', nameEn: 'Two Seas · Barzakh',
+    sureRef: 'Rahmân 55:19-20',
+    sureNo: 55,
+    arabic: 'مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ · بَيْنَهُمَا بَرْزَخٌ لَا يَبْغِيَانِ',
+    translationTr: '"İki denizi birbiriyle buluşmak üzere salıverdi. Aralarında bir bariyer (berzah) var, birbirine taşmazlar."',
+    translationEn: '"He has set free the two seas to meet. Between them is a barrier they cannot pass."',
+    modernTr: "Oşinografi · 1960'lar",
+    modernEn: 'Oceanography · 1960s',
+    classicalTr: 'Klasik tefsir (Taberî, Râzî, İbn Kesîr) "iki deniz"i çoğunlukla tatlı su ile tuzlu su (nehir-deniz buluşması) olarak okur; "berzah" ise iki suyun karışmasını engelleyen ilahî bir engel. Furkan 25:53 bu okumayı pekiştirir ("biri tatlı, susuzluğu giderici, biri tuzlu, acı").',
+    classicalEn: 'Classical tafsir (Ṭabarī, Rāzī, Ibn Kathīr) mostly reads "two seas" as fresh and salt water (river-sea meeting); the "barzakh" is a divine barrier preventing their mixing. Furqan 25:53 reinforces this reading ("one fresh, sweet to drink; one salty, bitter").',
+    modernParallelTr: "1960'lar — oşinografide halokline ve termokline tabakaları belgelendi: farklı tuzluluk ve sıcaklıktaki deniz suları (örn. Cebelitarık Boğazı'nda Akdeniz-Atlantik buluşması) yüzyıllarca tam karışmadan akar. Cousteau ve diğer oşinograflar bu görüntüleri kayda aldı. Modern okuma berzah'ı bu fiziksel sınırla paralel görür.",
+    modernParallelEn: "1960s — oceanography documented halocline and thermocline layers: waters of differing salinity and temperature (e.g. Mediterranean-Atlantic at the Strait of Gibraltar) flow for centuries without fully mixing. Cousteau and others recorded these. Modern readings parallel barzakh with this physical boundary.",
+    criticalTr: "Klasik okumanın gücü: ayet kendi bağlamı içinde (Furkan 25:53) tatlı-tuzlu kontrastı verir, halokline okuması metnin başka bir okuması değil ek bir paraleldir. Halokline yorumu güzel ama klasik okumanın yerine geçmez; onu zenginleştirir.",
+    criticalEn: "Strength of the classical reading: in its own context (Furqan 25:53), the verse gives fresh-salt contrast; the halocline reading is not an alternative interpretation but an added parallel. The halocline reading is striking but does not replace classical exegesis — it enriches it.",
+  },
+  {
+    id: 'embryo',
+    accent: COLORS.softEmerald,
+    nameTr: 'Embriyoloji · Alaka', nameEn: 'Embryology · ʿAlaqa',
+    sureRef: "Mü'minûn 23:14",
+    sureNo: 23,
+    arabic: 'ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً',
+    translationTr: '"Sonra o damlayı bir alakaya (asılı duran şey / pıhtı / sülük benzeri) çevirdik; alakayı da bir mudgaya (çiğnenmiş et parçası) çevirdik."',
+    translationEn: '"Then We made the drop into an ʿalaqa (clinging clot / leech-like thing); then We made the ʿalaqa into a mudgha (chewed lump)."',
+    modernTr: 'Embriyoloji · 20. yy.',
+    modernEn: 'Embryology · 20th c.',
+    classicalTr: 'Klasik tefsir (Taberî, Râzî) "alaka"yı genellikle "kan pıhtısı / asılı pıhtı" olarak okur. "Mudga" (çiğnenmiş et parçası) somatit-segmentasyon aşamasındaki embriyonun dış görünümüne benzetilir — klasik müfessirler bu benzetmeyi insan gözüyle dışsal benzerlik olarak kabul ederdi.',
+    classicalEn: 'Classical tafsir (Ṭabarī, Rāzī) usually reads "ʿalaqa" as "clot / clinging clot". "Mudgha" (chewed lump) parallels the somite-segmentation appearance of the embryo — classical exegetes accepted this as visible external resemblance.',
+    modernParallelTr: '20. yüzyıl embriyolojisi: gebeliğin 3-4. haftasında embriyo uterus duvarına asılır ("clinging" — alaka kökünün literal anlamı) ve sülük benzeri morfoloji gösterir. 4-6. haftada somit segmentasyonu ile embriyo "çiğnenmiş et parçası" görünümü kazanır. Keith Moore "The Developing Human"da bu paralellikleri açıkladı.',
+    modernParallelEn: '20th-century embryology: in weeks 3-4, the embryo clings to the uterine wall ("clinging" — literal sense of the ʿalaqa root) and shows leech-like morphology. In weeks 4-6, with somite segmentation, the embryo gains a "chewed lump" appearance. Keith Moore\'s "The Developing Human" articulated these parallels.',
+    criticalTr: 'Keith Moore\'un yorumları akademik bağımsızlık açısından eleştirilmiştir: "Islamic Additions to Embryology" bölümü yalnızca "The Developing Human"ın Suudi Arabistan baskısında bulunur ve King Abdulaziz Üniversitesi tarafından finanse edilmiştir. Klasik okuma — "alaka"nın dışsal benzerlik olarak yorumu — modern paralel olmadan da kendi içinde tutarlıdır. Modern paralellik düşündürücüdür ama akademik tartışmadan azade değildir.',
+    criticalEn: 'Keith Moore\'s commentary has been critiqued for academic independence: the "Islamic Additions to Embryology" section appears only in the Saudi edition of "The Developing Human" and was funded by King Abdulaziz University. The classical reading — interpreting "ʿalaqa" as external resemblance — is internally coherent even without the modern parallel. The modern parallel is striking but not free of academic dispute.',
   },
 ];
 
@@ -821,6 +903,158 @@ function CelestialCard({ body, language, featured = false }) {
   );
 }
 
+// ── Scientific Sign Card — used by TabBilimselIsaretler ───────────────────────
+// Renders one of SCIENTIFIC_SIGNS items with classical / modern / critical
+// three-layer structure (Bucaillism framing — modern parallel without
+// uncritical "miracle" claim).
+function ScienceCard({ item, language }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      ...GLASS_CARD,
+      padding: '22px 24px',
+      border: `1px solid ${item.accent}55`,
+      background: `linear-gradient(135deg, ${item.accent}0d, rgba(255,255,255,0.02))`,
+      display: 'flex', flexDirection: 'column', gap: '14px',
+    }}>
+      {/* Header: name + modern era badge */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
+        <div>
+          <p style={{ margin: 0, color: item.accent, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1.05rem', letterSpacing: '-0.005em' }}>
+            {tr ? item.nameTr : item.nameEn}
+          </p>
+          <p style={{ margin: '4px 0 0', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, opacity: 0.85 }}>
+            — {item.sureRef}
+          </p>
+        </div>
+        <span style={{
+          flexShrink: 0,
+          padding: '3px 10px',
+          borderRadius: '99px',
+          background: `${item.accent}1a`,
+          border: `1px solid ${item.accent}55`,
+          color: item.accent,
+          fontSize: '0.68rem',
+          fontFamily: FONTS.body,
+          fontWeight: 600,
+          letterSpacing: '0.06em',
+          whiteSpace: 'nowrap',
+        }}>
+          {tr ? item.modernTr : item.modernEn}
+        </span>
+      </div>
+
+      {/* Arabic verse */}
+      <p
+        dir="rtl"
+        lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          color: COLORS.gold,
+          fontSize: '1.5rem',
+          lineHeight: 2.0,
+          textAlign: 'center',
+          margin: '4px 0 2px',
+          textShadow: `0 0 14px ${COLORS.gold}1a`,
+        }}
+      >
+        {item.arabic}
+      </p>
+
+      {/* Translation */}
+      <p style={{
+        margin: 0,
+        color: COLORS.offWhite,
+        fontFamily: FONTS.body,
+        fontStyle: 'italic',
+        fontSize: '0.86rem',
+        lineHeight: 1.6,
+        textAlign: 'center',
+        opacity: 0.92,
+      }}>
+        {tr ? item.translationTr : item.translationEn}
+      </p>
+
+      <div style={{ borderTop: `1px solid ${item.accent}22`, marginTop: '4px' }} />
+
+      {/* Classical reading */}
+      <div>
+        <p style={{ margin: '0 0 4px', color: item.accent, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+          {tr ? 'Klasik Okuma' : 'Classical Reading'}
+        </p>
+        <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+          {tr ? item.classicalTr : item.classicalEn}
+        </p>
+      </div>
+
+      {/* Modern parallel */}
+      <div>
+        <p style={{ margin: '0 0 4px', color: item.accent, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+          {tr ? 'Modern Paralellik' : 'Modern Parallel'}
+        </p>
+        <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6 }}>
+          {tr ? item.modernParallelTr : item.modernParallelEn}
+        </p>
+      </div>
+
+      {/* Critical note — boxed for academic emphasis */}
+      <div style={{
+        marginTop: '4px',
+        padding: '10px 12px',
+        background: 'rgba(212,165,116,0.04)',
+        borderLeft: `2px solid ${COLORS.gold}66`,
+        borderRadius: '0 6px 6px 0',
+      }}>
+        <p style={{ margin: '0 0 3px', color: COLORS.gold, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+          {tr ? 'Eleştirel Not' : 'Critical Note'}
+        </p>
+        <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, fontStyle: 'italic' }}>
+          {tr ? item.criticalTr : item.criticalEn}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ── Tab 6: Bilimsel İşaretler ─────────────────────────────────────────────────
+// Bucaillism uyarısı + 4 ayet (demir, evren, denizler, embriyo) klasik+modern
+// paralellik+eleştirel not üçlüsüyle. /sections/ScientificSigns'tan göç (Pilot 2).
+function TabBilimselIsaretler({ items, isMobile, language }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Bucaillism academic frame */}
+      <div style={{
+        borderLeft: `3px solid ${COLORS.gold}80`,
+        background: 'rgba(212,165,116,0.045)',
+        borderRadius: '0 10px 10px 0',
+        padding: '14px 18px',
+      }}>
+        <p style={{ margin: '0 0 5px', color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
+          {tr ? 'Akademik Çerçeve' : 'Academic Frame'}
+        </p>
+        <p style={{ margin: '0 0 6px', color: COLORS.offWhite, fontSize: '0.92rem', fontWeight: 600, fontFamily: FONTS.body, lineHeight: 1.45 }}>
+          {tr ? 'Bu Sayfa Bir "Bilimsel Mucize" İddiası Değildir' : 'This Page Does Not Claim a "Scientific Miracle"'}
+        </p>
+        <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.65, fontStyle: 'italic' }}>
+          {tr
+            ? 'Modern akademide "Bucaillism" — modern bilimsel keşifleri Kur\'an ayetlerinde sistematik olarak "bulma" yaklaşımı — eleştirilmektedir (Ziauddin Sardar; Stefano Bigliardi; Taner Edis). Klasik İslam alimleri (Şâtıbî, El-Muvâfakât) Kur\'an\'ın hidayet kitabı olduğunu, bilim kitabı olmadığını vurgular. Atlas burada kesin bir mucize iddiası sunmaz; klasik tefsir ile modern paraleli yan yana, eleştirel notlarla birlikte sunar.'
+            : 'In modern academia, "Bucaillism" — the systematic effort to "find" modern science in Quranic verses — is critiqued (Ziauddin Sardar; Stefano Bigliardi; Taner Edis). Classical Islamic scholars (al-Shāṭibī, al-Muwāfaqāt) emphasize that the Qur\'an is a book of guidance, not science. The atlas here makes no definitive miracle claim; it places classical exegesis and modern parallels side by side with critical notes.'}
+        </p>
+      </div>
+
+      {/* 4 verse cards */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+        gap: '16px',
+      }}>
+        {items.map(item => <ScienceCard key={item.id} item={item} language={language} />)}
+      </div>
+    </div>
+  );
+}
+
 // ── Tab 3: Sûre İsimleri ──────────────────────────────────────────────────────
 function TabSureIsimleri({ sureNames, isMobile, language }) {
   return (
@@ -1412,6 +1646,7 @@ export default function DogaAtlasi({ onClose }) {
           {activeTab === 3 && <TabSureIsimleri    sureNames={sureNames}               isMobile={isMobile} language={language} />}
           {activeTab === 4 && <TabBaglamAnalizi   contexts={contexts}                                     language={language} />}
           {activeTab === 5 && <TabTefsirNotlari   tefsirNotes={tefsirNotes} sources={sources}             language={language} />}
+          {activeTab === 6 && <TabBilimselIsaretler items={SCIENTIFIC_SIGNS}                              isMobile={isMobile} language={language} />}
         </div>
       </div>
     </div>
