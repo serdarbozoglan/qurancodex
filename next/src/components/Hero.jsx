@@ -82,9 +82,9 @@ export default function Hero() {
           ﷽
         </motion.div>
 
-        {/* Anchor verse — Şûrâ 42:11 (tanzîh: O'nun benzeri yoktur).
-            Tüm sayfanın theological guard rail'i — isimler/yapılar O'nu
-            tanır, ama kuşatmaz. */}
+        {/* Anchor verse — Alak 96:1 (Kur'an'ın ilk inen vahyi: "Oku!").
+            Site CTA "Kur'an'ı Oku" ile doğrudan rezonans + "Yaratan Rabbi"
+            kavramı Conclusion köprüsünün ("Yaratıcıyı tanıyın") temelini atar. */}
         <motion.p
           dir="rtl"
           lang="ar"
@@ -103,7 +103,7 @@ export default function Hero() {
             { duration: 1.0, delay: 0.45 }
           )}
         >
-          لَيْسَ كَمِثْلِهٖ شَيْءٌ وَهُوَ السَّمٖيعُ الْبَصٖيرُ
+          اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
         </motion.p>
 
         <motion.p
@@ -123,8 +123,8 @@ export default function Hero() {
           )}
         >
           "{language === 'tr'
-            ? "O'nun benzeri hiçbir şey yoktur. O hakkıyla işitendir, hakkıyla görendir."
-            : "Nothing is like Him; and He is the All-Hearing, the All-Seeing."}"
+            ? 'Yaratan Rabbinin adıyla oku.'
+            : 'Read in the name of your Lord who created.'}"
         </motion.p>
 
         <motion.p
@@ -143,7 +143,7 @@ export default function Hero() {
             { duration: 0.7, delay: 0.85 }
           )}
         >
-          — {language === 'tr' ? 'Şûrâ 42:11' : 'al-Shūrā 42:11'}
+          — {language === 'tr' ? 'Alak 96:1 · İlk İnen Ayet' : 'al-ʿAlaq 96:1 · The First Revealed Verse'}
         </motion.p>
 
         {/* Filigree divider — anchor verse'ten ana başlığa geçiş eşiği */}
