@@ -47,10 +47,16 @@ export default function Hero() {
   const verseAr = 'اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ';
   const verseChars = [...verseAr];
 
+  // Chevron tıklanınca sahne 2'ye smooth scroll (scroll edenlerin de doğal
+  // olarak ineceği yer). 2026-06-16 iki-sahne refactor.
+  const scrollToScene2 = () => {
+    document.getElementById('hero-scene-2')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-cosmic-black"
+      className="relative overflow-hidden bg-cosmic-black"
     >
       <ParticleBackground
         particleCount={isMobile ? 22 : 40}
@@ -74,8 +80,16 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      {/* ═══ SAHNE 1 — Reverence ═══════════════════════════════════════════
+          Kutsal kelime nefes alır: bismillah + Alak ayeti + çeviri + referans.
+          Sayfanın açılış vurgusu site adıyla ("görünmeyen mimari") rezonans
+          kurar; başlık/CTA aşağıdaki sahne 2'ye iner. Animated chevron alt
+          tarafta hem tıklanabilir hem scroll-cue rolü oynar. */}
+      <div
+        id="hero-scene-1"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6"
+      >
+        <div className="text-center max-w-4xl mx-auto w-full">
 
         {/* Bismillah ornament — cinematic intro (showIntro ? glow pulse + light sweep : sade).
             Reverence sinyali; meta-discovery framing'i bozmadan ekler. */}
@@ -208,7 +222,78 @@ export default function Hero() {
           — {language === 'tr' ? 'Alak 96:1-2 · İlk İnen Ayetler' : 'al-ʿAlaq 96:1-2 · The First Revealed Verses'}
         </motion.p>
 
-        {/* Filigree divider — anchor verse'ten ana başlığa geçiş eşiği */}
+        </div>
+
+        {/* Animated chevron — hem tıklanabilir buton hem scroll-cue.
+            Sahne 2'ye smooth scroll yapar. Aşağı-yukarı hafif pulse:
+            kullanıcının dikkati doğal olarak alta çekilsin. */}
+        <motion.button
+          onClick={scrollToScene2}
+          aria-label={language === 'tr' ? 'Aşağıya in — site neyi açıyor?' : 'Continue down — what this site opens'}
+          style={{
+            position: 'absolute',
+            bottom: isMobile ? '28px' : '40px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            background: 'transparent',
+            border: 'none',
+            color: COLORS.gold,
+            cursor: 'pointer',
+            padding: '12px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
+          {...entrance(
+            { opacity: 0, y: -8 },
+            { opacity: 0.75, y: 0 },
+            { duration: 0.9, delay: showIntro ? 4.0 : 1.4 }
+          )}
+          whileHover={reduced ? undefined : { opacity: 1, scale: 1.1 }}
+          whileTap={reduced ? undefined : { scale: 0.95 }}
+        >
+          <span
+            style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.62rem',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              opacity: 0.7,
+              marginBottom: '2px',
+            }}
+          >
+            {language === 'tr' ? 'Devam' : 'More'}
+          </span>
+          <motion.svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            animate={reduced ? undefined : { y: [0, 6, 0] }}
+            transition={reduced ? undefined : { duration: 2.0, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <path d="M6 9l6 6 6-6" />
+          </motion.svg>
+        </motion.button>
+      </div>
+
+      {/* ═══ SAHNE 2 — Meta-discovery ═════════════════════════════════════
+          Site neyi açıyor: başlık + alt-başlık + 3 paragraf giriş + "İlk
+          Kapıyı Aç" CTA. Sahne 1'den scroll edilince veya chevron'a tıklayınca
+          ulaşılır. Hareketler whileInView ile tetiklenir (sessionStorage'tan
+          bağımsız — her ziyarette yeniden canlı görünüm). */}
+      <div
+        id="hero-scene-2"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pb-16"
+      >
+        <div className="text-center max-w-4xl mx-auto">
+
+        {/* Filigree divider — sahne 2'nin açılış eşiği */}
         <motion.div
           aria-hidden="true"
           style={{
@@ -217,22 +302,20 @@ export default function Hero() {
             background: `linear-gradient(to right, transparent, ${COLORS.gold}70, transparent)`,
             margin: '0 auto 36px',
           }}
-          {...entrance(
-            { scaleX: 0, opacity: 0 },
-            { scaleX: 1, opacity: 1 },
-            { duration: 0.9, delay: 1.0 }
-          )}
+          initial={reduced ? false : { scaleX: 0, opacity: 0 }}
+          whileInView={reduced ? undefined : { scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.05 }}
         />
 
         {/* Title — softened a notch (lg: 7xl → 6xl) and looser leading,
             so the headline invites rather than declares. */}
         <motion.h1
           className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] mb-6 tracking-[-0.015em] sm:tracking-tight"
-          {...entrance(
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0 },
-            { duration: 1.2, delay: 1.15, ease: [0.25, 0.46, 0.45, 0.94] }
-          )}
+          initial={reduced ? false : { opacity: 0, y: 40 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 1.2, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           {t('hero.title')}
         </motion.h1>
@@ -240,11 +323,10 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           className="font-display text-gold text-lg sm:text-xl md:text-2xl mb-4 italic tracking-wide"
-          {...entrance(
-            { opacity: 0, y: 25 },
-            { opacity: 1, y: 0 },
-            { duration: 0.9, delay: 1.5 }
-          )}
+          initial={reduced ? false : { opacity: 0, y: 25 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.4 }}
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -252,11 +334,10 @@ export default function Hero() {
         {/* Decorative line */}
         <motion.div
           className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"
-          {...entrance(
-            { scaleX: 0 },
-            { scaleX: 1 },
-            { duration: 0.8, delay: 1.75 }
-          )}
+          initial={reduced ? false : { scaleX: 0 }}
+          whileInView={reduced ? undefined : { scaleX: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 0.6 }}
         />
 
         {/* Description — 3-paragraph narrative. Rendered as separate blocks
@@ -268,11 +349,10 @@ export default function Hero() {
             fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
             lineHeight: 1.7,
           }}
-          {...entrance(
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0 },
-            { duration: 0.9, delay: 1.95 }
-          )}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.75 }}
         >
           {t('hero.description').split('\n\n').map((para, i, arr) => (
             <p key={i} style={{ margin: i === arr.length - 1 ? 0 : '0 0 0.7em' }}>
@@ -285,11 +365,10 @@ export default function Hero() {
             keeps only the primary discovery action. */}
         <motion.div
           className="flex items-center justify-center"
-          {...entrance(
-            { opacity: 0, y: 10 },
-            { opacity: 1, y: 0 },
-            { duration: 0.8, delay: 2.25 }
-          )}
+          initial={reduced ? false : { opacity: 0, y: 10 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 1.0 }}
         >
           <motion.button
             onClick={() =>
@@ -308,10 +387,8 @@ export default function Hero() {
             {t('hero.cta')}
           </motion.button>
         </motion.div>
+        </div>
       </div>
-
-      {/* Scroll indicator kaldırıldı — buton üstünde overlap yapıyordu (kullanıcı raporu 2026-06-15);
-          modern UX'te 'scroll cue' gerek değil, kullanıcı doğal olarak scroll eder. */}
     </section>
   );
 }
