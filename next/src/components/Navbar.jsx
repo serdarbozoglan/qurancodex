@@ -207,6 +207,9 @@ export default function Navbar() {
   // Dynamic featured tefekkur article — _index.json'dan publishedDate DESC en yeni 1 makale.
   // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
   const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
+  // Tefekkür stats — total live + per-category counts (kullanıcı raporu 2026-06-16:
+  // önceden 9 yayında · 44 planlanan hardcoded'tı, kategori sayıları da statik).
+  const [tefekkurStats, setTefekkurStats] = useState({ total: 0, counts: {}, planned: 44 });
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
@@ -356,12 +359,23 @@ export default function Navbar() {
       .then(r => r.json())
       .then(data => {
         if (cancelled) return;
-        const articles = (data?.articles || []).filter(a => a.publishedDate);
-        if (!articles.length) return;
-        // publishedDate DESC sort, en yeni 1 makaleyi seç
-        articles.sort((a, b) => (b.publishedDate || '').localeCompare(a.publishedDate || ''));
-        const latest = articles[0];
-        // Kategorisinden accent rengini bul
+        const allArticles = data?.articles || [];
+        // Per-category counts — tüm article'lar (status fark etmez)
+        const counts = {};
+        for (const a of allArticles) {
+          counts[a.category] = (counts[a.category] || 0) + 1;
+        }
+        setTefekkurStats({
+          total: allArticles.length,
+          counts,
+          planned: Math.max(0, 44 - allArticles.length),
+        });
+
+        // Featured: publishedDate olan en yeni makale
+        const published = allArticles.filter(a => a.publishedDate);
+        if (!published.length) return;
+        published.sort((a, b) => (b.publishedDate || '').localeCompare(a.publishedDate || ''));
+        const latest = published[0];
         const catAccent = (data?.categories || []).find(c => c.id === latest.category)?.accent || '#d4a574';
         setTefekkurFeatured({
           slug: latest.slug,
@@ -1312,14 +1326,16 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // Kategoriler — count'lar tefekkurStats'ten dinamik (fallback: 0).
+                    // Önceden hardcoded'tı; gerçek JSON ile uyuşmuyordu (kullanıcı raporu 2026-06-16).
                     const tefekkurCategories = [
-                      { id: 'kavramsal', accent: '#3498db', labelTr: 'Kavramsal Tahlil', labelEn: 'Conceptual Analysis', descTr: 'Psikolojik, içsel ve pratik denemeler', descEn: 'Psychology, inner life & practice', count: 5 },
-                      { id: 'terminoloji', accent: '#d4a574', labelTr: 'Terminoloji Serisi', labelEn: 'Terminology Series', descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma', descEn: 'Reading Human, Universe & Quran', count: 8 },
-                      { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik', labelEn: 'Surah & Hermeneutics', descTr: 'Sûre tahlilleri ve yorum prensipleri', descEn: 'Surah analyses & interpretation', count: 11 },
-                      { id: 'semantik', accent: '#8b5cf6', labelTr: 'Semantik Seri', labelEn: 'Semantic Series', descTr: 'Arapça kök etimolojisi', descEn: 'Arabic root etymology', count: 5 },
-                      { id: 'idrak-suur', accent: '#1D9E75', labelTr: 'İdrak & Şuur', labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik', descEn: 'Epistemology & metaphysics', count: 6 },
-                      { id: 'kozmoloji', accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation', descTr: 'Yaratılış, kuantum, evrim', descEn: 'Creation, quantum & evolution', count: 7 },
-                    ];
+                      { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikolojik, içsel ve pratik denemeler',   descEn: 'Psychology, inner life & practice' },
+                      { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
+                      { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
+                      { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
+                      { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness',descTr: 'Epistemoloji ve metafizik',               descEn: 'Epistemology & metaphysics' },
+                      { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
+                    ].map(c => ({ ...c, count: tefekkurStats.counts[c.id] || 0 }));
 
                     // Dynamic featured — _index.json'dan en yeni makale.
                     // Fetch henüz tamamlanmadıysa fallback olarak Tuğyan.
@@ -1361,7 +1377,9 @@ export default function Navbar() {
                                 {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                               </span>
                               <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
-                                {language === 'tr' ? '9 yayında · 44 planlanan · Felsufi · tefekkür' : '9 live · 44 planned · Felsufi · reflection'}
+                                {language === 'tr'
+                                  ? `${tefekkurStats.total} yayında · ${tefekkurStats.planned} planlanan · Felsufi · tefekkür`
+                                  : `${tefekkurStats.total} live · ${tefekkurStats.planned} planned · Felsufi · reflection`}
                               </span>
                             </span>
                           </span>
@@ -1791,7 +1809,9 @@ export default function Navbar() {
                   {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
                 </span>
                 <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.7rem', marginLeft: '4px' }}>
-                  {language === 'tr' ? '· 9 yayında / 44 planlanan' : '· 9 live / 44 planned'}
+                  {language === 'tr'
+                    ? `· ${tefekkurStats.total} yayında / ${tefekkurStats.planned} planlanan`
+                    : `· ${tefekkurStats.total} live / ${tefekkurStats.planned} planned`}
                 </span>
               </button>
               {[
