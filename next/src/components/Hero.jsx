@@ -103,7 +103,7 @@ export default function Hero() {
             { duration: 1.0, delay: 0.45 }
           )}
         >
-          اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
+          اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ
         </motion.p>
 
         <motion.p
@@ -114,7 +114,7 @@ export default function Hero() {
             fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.05rem)',
             lineHeight: 1.7,
             margin: '0 auto 6px',
-            maxWidth: '580px',
+            maxWidth: '620px',
           }}
           {...entrance(
             { opacity: 0, y: 12 },
@@ -123,8 +123,8 @@ export default function Hero() {
           )}
         >
           "{language === 'tr'
-            ? 'Yaratan Rabbinin adıyla oku.'
-            : 'Read in the name of your Lord who created.'}"
+            ? 'Yaratan Rabbinin adıyla oku. O, insanı bir alaktan yarattı.'
+            : 'Read in the name of your Lord who created. He created man from a clinging clot.'}"
         </motion.p>
 
         <motion.p
@@ -143,7 +143,7 @@ export default function Hero() {
             { duration: 0.7, delay: 0.85 }
           )}
         >
-          — {language === 'tr' ? 'Alak 96:1 · İlk İnen Ayet' : 'al-ʿAlaq 96:1 · The First Revealed Verse'}
+          — {language === 'tr' ? 'Alak 96:1-2 · İlk İnen Ayetler' : 'al-ʿAlaq 96:1-2 · The First Revealed Verses'}
         </motion.p>
 
         {/* Filigree divider — anchor verse'ten ana başlığa geçiş eşiği */}
