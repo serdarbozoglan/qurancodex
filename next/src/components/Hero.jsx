@@ -111,7 +111,8 @@ export default function Hero() {
               ? { duration: 1.6, delay: 0.3, ease: 'easeOut', textShadow: { duration: 2.2, delay: 0.3, times: [0, 0.45, 1] } }
               : { duration: 1.1, delay: 0.15, ease: 'easeOut' })}
         >
-          {/* Light sweep — sadece showIntro'da, bir kez sol→sağ geçer */}
+          {/* Light sweep — sadece showIntro'da, bir kez sağ→sol geçer
+              (Arapça akış yönüyle uyum: kalem ucundan harf doğar hissi). */}
           {showIntro && !reduced && (
             <motion.span
               aria-hidden="true"
@@ -124,8 +125,8 @@ export default function Hero() {
                 pointerEvents: 'none',
                 borderRadius: '4px',
               }}
-              initial={{ x: '-200%', opacity: 0 }}
-              animate={{ x: ['-200%', '200%'], opacity: [0, 1, 0] }}
+              initial={{ x: '200%', opacity: 0 }}
+              animate={{ x: ['200%', '-200%'], opacity: [0, 1, 0] }}
               transition={{ duration: 1.6, delay: 1.3, ease: 'easeInOut', times: [0, 0.5, 1] }}
             />
           )}
