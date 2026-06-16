@@ -217,12 +217,20 @@ export default function TefekkurIndexRoute() {
             display: 'flex', flexWrap: 'wrap', gap: '10px',
             marginTop: '20px',
           }}>
-            {[
-              { num: data.articles.length, label: tr ? 'yayında' : 'live', accent: COLORS.gold },
-              { num: '44', label: tr ? 'planlanan' : 'planned' },
-              { num: '7',  label: tr ? 'kategori' : 'categories' },
-              { num: '1',  label: tr ? 'yazar' : 'author' },
-            ].map((s, i) => (
+            {(() => {
+              // Dinamik hesaplama — JSON'daki articles + categories ile sync.
+              // Önceki sürümde 'yayında' / 'planlanan' / 'kategori' sayıları
+              // hardcoded'di ve gerçek veriyle uyuşmuyordu (kullanıcı raporu).
+              const published = data.articles.filter(a => a.status === 'published' || a.status === 'live').length;
+              const drafts = data.articles.length - published;
+              const totalCats = data.categories.length;
+              return [
+                { num: published || data.articles.length, label: tr ? 'yayında' : 'live', accent: COLORS.gold },
+                ...(drafts > 0 ? [{ num: drafts, label: tr ? 'taslak' : 'draft' }] : []),
+                { num: totalCats, label: tr ? 'kategori' : 'categories' },
+                { num: '1',       label: tr ? 'yazar' : 'author' },
+              ];
+            })().map((s, i) => (
               <span key={i} style={{
                 display: 'inline-flex', alignItems: 'baseline', gap: '5px',
                 padding: '5px 12px',

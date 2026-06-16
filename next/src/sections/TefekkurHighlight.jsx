@@ -166,6 +166,10 @@ const TEFEKKUR_CATEGORIES = [
 // compact=true  → ana sayfa "daha derin oku" daveti (subtitle yok, kategori
 //                grid'i yok, sadece headline + 2 essay + CTA)
 // compact=false → /tefekkur rotasında full render (mevcut hali)
+// Hardcoded fallback'ler — runtime fetch hata verirse kullanılır.
+// PLANNED_TOTAL: Felsufi'nin bilinen makale planı (44 hedef — vizyon).
+const PLANNED_TOTAL = 44;
+
 export default function TefekkurHighlight({ compact = false }) {
   const { language } = useLanguage();
   const router = useRouter();
@@ -173,12 +177,37 @@ export default function TefekkurHighlight({ compact = false }) {
   // SSR-safe: start with 1, hydrate post-mount (mirrors ToolsHighlight pattern)
   const [columns, setColumns] = useState(1);
 
+  // Dinamik category sayıları — public/tefekkur/_index.json'dan fetch.
+  // Hardcoded count'lar kullanıcı raporunda (2026-06-16) gerçek JSON ile sync
+  // değildi (5+8+11+5+6+7=42, gerçek 23). Runtime hesaplama ile düzeltildi.
+  const [dynamic, setDynamic] = useState(null);
+
   useEffect(() => {
     const h = () => setColumns(getColumnCount(window.innerWidth));
     h();
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
+
+  useEffect(() => {
+    fetch('/tefekkur/_index.json')
+      .then(r => r.json())
+      .then(d => {
+        const counts = {};
+        for (const a of d.articles || []) {
+          counts[a.category] = (counts[a.category] || 0) + 1;
+        }
+        setDynamic({
+          counts,
+          total: (d.articles || []).length,
+          categories: (d.categories || []).length,
+        });
+      })
+      .catch(() => {/* fallback: statik count'lar kullanılır */});
+  }, []);
+
+  const liveCount = dynamic?.total ?? 0;
+  const plannedRemaining = Math.max(0, PLANNED_TOTAL - liveCount);
 
   const handleViewAll = () => router.push(`/${language}/tefekkur`);
 
@@ -234,8 +263,8 @@ export default function TefekkurHighlight({ compact = false }) {
           }}
         >
           {language === 'tr'
-            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an 9 yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planlanan</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
-            : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>9 currently live</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>44 planned</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
+            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an {liveCount} yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{plannedRemaining} planlanan</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
+            : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>{liveCount} currently live</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{plannedRemaining} planned</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
         </motion.p>
       )}
 
@@ -329,7 +358,7 @@ export default function TefekkurHighlight({ compact = false }) {
             <TefekkurCategoryCard
               key={cat.id}
               accent={cat.accent}
-              count={cat.count}
+              count={dynamic?.counts?.[cat.id] ?? cat.count}
               titleTr={cat.titleTr}
               titleEn={cat.titleEn}
               descTr={cat.descTr}
