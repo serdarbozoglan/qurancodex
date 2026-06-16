@@ -207,9 +207,24 @@ export default function Navbar() {
   // Dynamic featured tefekkur article — _index.json'dan publishedDate DESC en yeni 1 makale.
   // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
   const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
-  // Tefekkür stats — total live + per-category counts (kullanıcı raporu 2026-06-16:
-  // önceden 9 yayında · 44 planlanan hardcoded'tı, kategori sayıları da statik).
-  const [tefekkurStats, setTefekkurStats] = useState({ total: 0, counts: {}, planned: 44 });
+  // Tefekkür stats — total + per-category counts.
+  // Initial state: /tefekkur/_index.json'ın 2026-06-16 snapshot'ı. Fetch
+  // tamamlanmadan render edilirse boş 0 yerine gerçek sayıları gösterir;
+  // fetch tamamlanınca üzerine yazılır (gerçek-zamanlı senkron).
+  // Önceden 9 yayında · 44 planlanan ve 5/8/11/5/6/7 hardcoded'tı,
+  // gerçek JSON ile uyuşmuyordu (kullanıcı raporu 2026-06-16).
+  const [tefekkurStats, setTefekkurStats] = useState({
+    total: 23,
+    counts: {
+      'kavramsal':       3,
+      'terminoloji':     3,
+      'sure-hermenotik': 5,
+      'semantik':        5,
+      'idrak-suur':      7,
+      'kozmoloji':       0,
+    },
+    planned: 21, // 44 - 23
+  });
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);
   const [graphInitialSearch, setGraphInitialSearch] = useState('');
