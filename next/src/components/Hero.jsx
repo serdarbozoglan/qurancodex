@@ -20,12 +20,32 @@ export default function Hero() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
+  // ── Cinematic intro — tek seferlik (sessionStorage ile) ──────────────────
+  // İlk girişte: Bismillah glow pulse + light sweep + Arapça letter reveal
+  // Sonraki ziyaretlerde (geri scroll, navigation): mevcut basit fade-up.
+  // Reduced-motion'da da kapalı — accessibility.
+  const [showIntro, setShowIntro] = useState(false);
+  useEffect(() => {
+    if (reduced) return;
+    try {
+      const seen = sessionStorage.getItem('qcHeroIntroSeen');
+      if (!seen) {
+        setShowIntro(true);
+        sessionStorage.setItem('qcHeroIntroSeen', '1');
+      }
+    } catch (e) { /* sessionStorage erişimi engellenmişse sade fade-up göster */ }
+  }, [reduced]);
+
   // Helper: spread onto a motion element. When reduced-motion is active,
   // mounts at final state with zero duration — choreography collapses cleanly.
   const entrance = (initial, animate, transition) =>
     reduced
       ? { initial: false, transition: { duration: 0 } }
       : { initial, animate, transition };
+
+  // Anchor verse text — letter reveal için karakter array.
+  const verseAr = 'اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ';
+  const verseChars = [...verseAr];
 
   return (
     <section
@@ -57,34 +77,66 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
 
-        {/* Bismillah ornament — premium pattern (Esma flagship parity).
+        {/* Bismillah ornament — cinematic intro (showIntro ? glow pulse + light sweep : sade).
             Reverence sinyali; meta-discovery framing'i bozmadan ekler. */}
         <motion.div
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
           style={{
+            position: 'relative',
+            display: 'inline-block',
             fontFamily: "'Amiri Quran', 'Amiri', serif",
             fontSize: isMobile ? '1.45rem' : '1.85rem',
             color: COLORS.gold,
-            opacity: 0.85,
             lineHeight: 1,
             marginTop: isMobile ? '60px' : '80px',
             marginBottom: isMobile ? '28px' : '40px',
-            textShadow: `0 0 22px ${COLORS.gold}28`,
           }}
-          {...entrance(
-            { opacity: 0, y: 12 },
-            { opacity: 0.85, y: 0 },
-            { duration: 1.1, delay: 0.15, ease: 'easeOut' }
-          )}
+          initial={reduced ? false : (showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
+          animate={reduced ? false : (showIntro
+            ? {
+                opacity: 0.85,
+                scale: 1,
+                textShadow: [
+                  `0 0 22px ${COLORS.gold}28`,
+                  `0 0 42px ${COLORS.gold}66`,
+                  `0 0 28px ${COLORS.gold}3a`,
+                ],
+              }
+            : { opacity: 0.85, y: 0, textShadow: `0 0 22px ${COLORS.gold}28` })}
+          transition={reduced
+            ? { duration: 0 }
+            : (showIntro
+              ? { duration: 1.6, delay: 0.3, ease: 'easeOut', textShadow: { duration: 2.2, delay: 0.3, times: [0, 0.45, 1] } }
+              : { duration: 1.1, delay: 0.15, ease: 'easeOut' })}
         >
+          {/* Light sweep — sadece showIntro'da, bir kez sol→sağ geçer */}
+          {showIntro && !reduced && (
+            <motion.span
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: 0, left: 0, bottom: 0,
+                width: '60%',
+                background: 'linear-gradient(90deg, transparent, rgba(255,224,180,0.55), transparent)',
+                mixBlendMode: 'screen',
+                pointerEvents: 'none',
+                borderRadius: '4px',
+              }}
+              initial={{ x: '-200%', opacity: 0 }}
+              animate={{ x: ['-200%', '200%'], opacity: [0, 1, 0] }}
+              transition={{ duration: 1.6, delay: 1.3, ease: 'easeInOut', times: [0, 0.5, 1] }}
+            />
+          )}
           ﷽
         </motion.div>
 
         {/* Anchor verse — Alak 96:1 (Kur'an'ın ilk inen vahyi: "Oku!").
             Site CTA "Kur'an'ı Oku" ile doğrudan rezonans + "Yaratan Rabbi"
             kavramı Conclusion köprüsünün ("Yaratıcıyı tanıyın") temelini atar. */}
+        {/* Anchor verse — showIntro'da char-by-char RTL letter reveal (kalem yazıyor hissi).
+            Aksi takdirde sade tek seferde fade-up. */}
         <motion.p
           dir="rtl"
           lang="ar"
@@ -97,13 +149,22 @@ export default function Hero() {
             maxWidth: '760px',
             textShadow: `0 0 20px ${COLORS.gold}1c`,
           }}
-          {...entrance(
-            { opacity: 0, y: 16 },
-            { opacity: 1, y: 0 },
-            { duration: 1.0, delay: 0.45 }
-          )}
+          {...(showIntro && !reduced
+            ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
+            : entrance({ opacity: 0, y: 16 }, { opacity: 1, y: 0 }, { duration: 1.0, delay: 0.45 }))}
         >
-          اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ
+          {showIntro && !reduced
+            ? verseChars.map((c, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.05, delay: 1.9 + i * 0.022 }}
+                >
+                  {c}
+                </motion.span>
+              ))
+            : verseAr}
         </motion.p>
 
         <motion.p
@@ -119,7 +180,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0, y: 12 },
             { opacity: 0.92, y: 0 },
-            { duration: 0.9, delay: 0.7 }
+            { duration: 0.9, delay: showIntro ? 3.1 : 0.7 }
           )}
         >
           "{language === 'tr'
@@ -140,7 +201,7 @@ export default function Hero() {
           {...entrance(
             { opacity: 0 },
             { opacity: 0.6 },
-            { duration: 0.7, delay: 0.85 }
+            { duration: 0.7, delay: showIntro ? 3.5 : 0.85 }
           )}
         >
           — {language === 'tr' ? 'Alak 96:1-2 · İlk İnen Ayetler' : 'al-ʿAlaq 96:1-2 · The First Revealed Verses'}

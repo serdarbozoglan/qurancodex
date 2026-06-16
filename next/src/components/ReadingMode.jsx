@@ -4695,7 +4695,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               spellCheck={false}
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder={language === 'tr' ? 'Sûre · sayfa · 2:245 · cüz · kelime…' : 'Surah · page · 2:245 · juz · word…'}
+              onKeyDown={e => {
+                // Enter — parseReference single-hit (sure adı:ayet veya 2:3) durumunda
+                // direkt navigate. Word search'te ilk hit'e gönderme yapmıyoruz
+                // (kullanıcı yanlış kelimeye gidip yorulmasın).
+                if (e.key !== 'Enter') return;
+                const ref = parseReference(searchQuery.trim());
+                if (!ref) return;
+                const target = verses?.find(v => v.surah === ref.surah && v.ayah === ref.ayah);
+                if (!target) return;
+                e.preventDefault();
+                setShowSearch(false);
+                setSearchQuery('');
+                if (target.surah !== selectedSurah) {
+                  changeSurah(target.surah);
+                  setPendingScrollAyah(target.ayah);
+                } else {
+                  const v = surahVerses.find(sv => sv.ayah === target.ayah);
+                  if (v) handleSelectVerse(v);
+                }
+              }}
+              placeholder={language === 'tr' ? 'Sûre · sayfa · bakara:3 · 2:245 · cüz · kelime…' : 'Surah · page · baqara:3 · 2:245 · juz · word…'}
               style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
                 color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.offWhite,
