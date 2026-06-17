@@ -43,9 +43,13 @@ export default function Hero() {
       ? { initial: false, transition: { duration: 0 } }
       : { initial, animate, transition };
 
-  // Anchor verse text — letter reveal için karakter array.
-  const verseAr = 'اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ';
-  const verseChars = [...verseAr];
+  // Anchor verse text — Alak 96:1-2 ayrı ayet, mobile'da her birini ayrı satırda
+  // göstermek için ayrı tutuluyor (random wrap yerine semantik line break).
+  // Desktop'ta tek satırda ' · ' ile birleşik render olur.
+  const verse1Ar = 'اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ';
+  const verse2Ar = 'خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍ';
+  const verse1Chars = [...verse1Ar];
+  const verse2Chars = [...verse2Ar];
 
   // Chevron tıklanınca sahne 2'ye smooth scroll (scroll edenlerin de doğal
   // olarak ineceği yer). 2026-06-16 iki-sahne refactor.
@@ -87,7 +91,12 @@ export default function Hero() {
           tarafta hem tıklanabilir hem scroll-cue rolü oynar. */}
       <div
         id="hero-scene-1"
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6"
+        className="relative z-10 flex flex-col items-center justify-center px-6"
+        // 100svh — tam viewport, peek yok. 92svh denendi (2026-06-16) ama
+        // mobile'da sahne 2 title'ının ("KUR'AN-I K...") üst kısmı sızıp
+        // truncation/bug izlenimi veriyordu. Chevron tek başına yeterli
+        // scroll-davet (40px SVG + bounce + büyük DEVAM text).
+        style={{ minHeight: '100svh' }}
       >
         <div className="text-center max-w-4xl mx-auto w-full">
 
@@ -101,11 +110,13 @@ export default function Hero() {
             position: 'relative',
             display: 'inline-block',
             fontFamily: "'Amiri Quran', 'Amiri', serif",
-            fontSize: isMobile ? '1.45rem' : '1.85rem',
+            fontSize: isMobile ? '1.8rem' : '2.6rem',
             color: COLORS.gold,
             lineHeight: 1,
-            marginTop: isMobile ? '60px' : '80px',
-            marginBottom: isMobile ? '28px' : '40px',
+            // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.
+            // Mobile'da chevron'a yer bırakmak için kısaltıldı.
+            marginTop: isMobile ? '24px' : '60px',
+            marginBottom: isMobile ? '24px' : '52px',
           }}
           initial={reduced ? false : (showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
           animate={reduced ? false : (showIntro
@@ -157,29 +168,59 @@ export default function Hero() {
           lang="ar"
           style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.4vw, 1.7rem)',
+            fontSize: isMobile ? 'clamp(1.5rem, 6.6vw, 2.1rem)' : 'clamp(1.6rem, 3.4vw, 2.5rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
-            margin: '0 auto 16px',
-            maxWidth: '760px',
+            margin: '0 auto 24px',
+            maxWidth: '920px',
             textShadow: `0 0 20px ${COLORS.gold}1c`,
           }}
           {...(showIntro && !reduced
             ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
             : entrance({ opacity: 0, y: 16 }, { opacity: 1, y: 0 }, { duration: 1.0, delay: 0.45 }))}
         >
-          {showIntro && !reduced
-            ? verseChars.map((c, i) => (
+          {showIntro && !reduced ? (
+            <>
+              {verse1Chars.map((c, i) => (
                 <motion.span
-                  key={i}
+                  key={`v1-${i}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.05, delay: 1.9 + i * 0.022 }}
                 >
                   {c}
                 </motion.span>
-              ))
-            : verseAr}
+              ))}
+              {isMobile ? (
+                <br />
+              ) : (
+                <motion.span
+                  key="sep"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.05, delay: 1.9 + verse1Chars.length * 0.022 }}
+                >
+                  {' · '}
+                </motion.span>
+              )}
+              {verse2Chars.map((c, i) => (
+                <motion.span
+                  key={`v2-${i}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.05, delay: 1.9 + (verse1Chars.length + 1 + i) * 0.022 }}
+                >
+                  {c}
+                </motion.span>
+              ))}
+            </>
+          ) : (
+            <>
+              {verse1Ar}
+              {isMobile ? <br /> : ' · '}
+              {verse2Ar}
+            </>
+          )}
         </motion.p>
 
         <motion.p
@@ -187,10 +228,10 @@ export default function Hero() {
             color: 'rgba(232,230,227,0.92)',
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.05rem)',
+            fontSize: isMobile ? '1.1rem' : 'clamp(1.05rem, 1.85vw, 1.3rem)',
             lineHeight: 1.7,
-            margin: '0 auto 6px',
-            maxWidth: '620px',
+            margin: '0 auto 10px',
+            maxWidth: '740px',
           }}
           {...entrance(
             { opacity: 0, y: 12 },
@@ -207,11 +248,11 @@ export default function Hero() {
           style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            fontSize: '0.72rem',
-            letterSpacing: '0.16em',
+            fontSize: isMobile ? '0.72rem' : '0.84rem',
+            letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.6,
+            opacity: 0.65,
           }}
           {...entrance(
             { opacity: 0 },
@@ -225,61 +266,76 @@ export default function Hero() {
         </div>
 
         {/* Animated chevron — hem tıklanabilir buton hem scroll-cue.
-            Sahne 2'ye smooth scroll yapar. Aşağı-yukarı hafif pulse:
-            kullanıcının dikkati doğal olarak alta çekilsin. */}
-        <motion.button
-          onClick={scrollToScene2}
-          aria-label={language === 'tr' ? 'Aşağıya in — site neyi açıyor?' : 'Continue down — what this site opens'}
+            Sahne 2'ye smooth scroll yapar.
+            ─ Centering pattern: dış wrapper `left:0; right:0; flex justify-center`
+              (translateX(-50%) bazı browser/safe-area kombinasyonlarında shift
+              veriyordu; bu pattern bulletproof).
+            ─ Wrapper pointer-events-none, button pointer-events-auto: tüm bottom
+              şerit tıklanabilir olmasın diye.
+            ─ Bottom: iOS safe-area-inset-bottom + 28px ile home indicator/Safari
+              toolbar arkasında kalmaz. */}
+        <div
           style={{
             position: 'absolute',
-            bottom: isMobile ? '28px' : '40px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: 'transparent',
-            border: 'none',
-            color: COLORS.gold,
-            cursor: 'pointer',
-            padding: '12px',
+            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '40px',
+            left: 0,
+            right: 0,
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '4px',
+            justifyContent: 'center',
+            pointerEvents: 'none',
           }}
-          {...entrance(
-            { opacity: 0, y: -8 },
-            { opacity: 0.75, y: 0 },
-            { duration: 0.9, delay: showIntro ? 4.0 : 1.4 }
-          )}
-          whileHover={reduced ? undefined : { opacity: 1, scale: 1.1 }}
-          whileTap={reduced ? undefined : { scale: 0.95 }}
         >
-          <span
+          <motion.button
+            onClick={scrollToScene2}
+            aria-label={language === 'tr' ? 'Aşağıya in — site neyi açıyor?' : 'Continue down — what this site opens'}
             style={{
-              fontFamily: FONTS.body,
-              fontSize: '0.62rem',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              opacity: 0.7,
-              marginBottom: '2px',
+              pointerEvents: 'auto',
+              background: 'transparent',
+              border: 'none',
+              color: COLORS.gold,
+              cursor: 'pointer',
+              padding: '12px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '4px',
             }}
+            {...entrance(
+              { opacity: 0, y: -8 },
+              { opacity: 0.88, y: 0 },
+              { duration: 0.9, delay: showIntro ? 4.0 : 1.4 }
+            )}
+            whileHover={reduced ? undefined : { opacity: 1, scale: 1.1 }}
+            whileTap={reduced ? undefined : { scale: 0.95 }}
           >
-            {language === 'tr' ? 'Devam' : 'More'}
-          </span>
-          <motion.svg
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            animate={reduced ? undefined : { y: [0, 6, 0] }}
-            transition={reduced ? undefined : { duration: 2.0, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <path d="M6 9l6 6 6-6" />
-          </motion.svg>
-        </motion.button>
+            <span
+              style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.7rem',
+                letterSpacing: '0.24em',
+                textTransform: 'uppercase',
+                opacity: 0.82,
+                marginBottom: '4px',
+              }}
+            >
+              {language === 'tr' ? 'Devam' : 'More'}
+            </span>
+            <motion.svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              animate={reduced ? undefined : { y: [0, 8, 0] }}
+              transition={reduced ? undefined : { duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M6 9l6 6 6-6" />
+            </motion.svg>
+          </motion.button>
+        </div>
       </div>
 
       {/* ═══ SAHNE 2 — Meta-discovery ═════════════════════════════════════
