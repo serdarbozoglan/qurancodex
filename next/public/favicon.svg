@@ -1,22 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- QuranCodex Standalone Mark — Q + 8-fold star (Rub el-Hizb)
-       Brand: antique gold #d4a574 on cosmic black #0a0a1a.
-       Dark-mode default; CSS @media swaps to light palette automatically. -->
-  <style>
-    .bg { fill: #0a0a1a; }
-    .mark { fill: none; stroke: #d4a574; stroke-width: 1.4; stroke-linejoin: miter; }
-    .q { fill: #d4a574; font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif; font-weight: 700; }
-    @media (prefers-color-scheme: light) {
-      .bg { fill: #f5f0e6; }
-      .mark { stroke: #0a0a1a; }
-      .q { fill: #0a0a1a; }
-    }
-  </style>
-  <rect class="bg" width="64" height="64"/>
-  <!-- Axis-aligned outer square (8-fold star arm 1) -->
-  <rect class="mark" x="14" y="14" width="36" height="36"/>
-  <!-- 45° rotated square (diamond) — center (32,32), corners reach (32,7), (57,32), (32,57), (7,32) -->
-  <polygon class="mark" points="32,7 57,32 32,57 7,32"/>
-  <!-- Centered "Q" — brand identity at every scale -->
-  <text class="q" x="32" y="42" font-size="26" text-anchor="middle">Q</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#0f1520"/>
+  <text
+    x="16" y="22"
+    font-family="'Amiri', 'Scheherazade New', 'Traditional Arabic', Arial, sans-serif"
+    font-size="26"
+    fill="#d4a574"
+    text-anchor="middle"
+    direction="rtl">ق</text>
 </svg>

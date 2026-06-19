@@ -835,8 +835,11 @@ export default function Navbar() {
           style={{ fontSize: '1.05rem', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px', background: 'transparent', border: 'none', padding: 0, cursor: 'pointer' }}
           aria-label="QuranCodex — Ana sayfa"
         >
-          {/* Standalone mark — Q + 8-fold star (brand identity at any scale) */}
-          <img src="/logo-mark.png" alt="" aria-hidden="true" width="28" height="28" style={{ display: 'block', flexShrink: 0 }} />
+          {/* Standalone mark — Q + 8-fold star (brand identity at any scale).
+              Size 32px: text ~17px cap height ile optical balance (1.9x bound,
+              ~1.3x visible mass — negative space içerideki Q ve outer star
+              arasında nefes alır). */}
+          <img src="/logo-mark.png" alt="" aria-hidden="true" width="32" height="32" style={{ display: 'block', flexShrink: 0 }} />
           <span>QURAN CODEX</span>
         </button>
 

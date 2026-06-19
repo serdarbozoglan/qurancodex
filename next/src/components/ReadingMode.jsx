@@ -2660,22 +2660,42 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={{
                     background: 'transparent', border: 'none', cursor: 'pointer',
                     padding: '4px 10px', marginRight: '6px',
-                    // Krem zemin opacity'yi yutuyor (1.4:1 kontrast, fail).
-                    // Doğru çözüm: opacity 1.0 + daha koyu gold (#6b4a0e raw
-                    // umber, Diyanet cilt yaldız tonu, ~5.2:1 AA pass). Gece
-                    // mevcut COLORS.gold + 0.6 opacity — koyu zeminde opacity
-                    // gerçekten yumuşatır.
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    // Button-level opacity image'ı da yutar (CSS inherits). Bu
+                    // yüzden text'e opacity manuel veriyoruz, button transparan.
                     color: dayMode ? '#8a5f12' : gold,
                     fontFamily: "'Playfair Display', serif",
                     fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.11em',
                     whiteSpace: 'nowrap', flexShrink: 0,
-                    transition: `opacity ${TRANSITION.fast}`,
-                    opacity: dayMode ? 1 : 0.72,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.opacity = dayMode ? '0.8' : '0.95'; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = dayMode ? '1' : '0.72'; }}
+                  onMouseEnter={e => {
+                    const span = e.currentTarget.querySelector('span');
+                    if (span) span.style.opacity = dayMode ? '0.8' : '0.95';
+                  }}
+                  onMouseLeave={e => {
+                    const span = e.currentTarget.querySelector('span');
+                    if (span) span.style.opacity = dayMode ? '1' : '0.72';
+                  }}
                 >
-                  QURAN CODEX
+                  {/* Q+star mark — dayMode'da dark-ink (cream üstü), nightMode'da
+                      gold (siyah üstü). Image button opacity'sinden bağımsız —
+                      tam görünür kalır (gold zaten siyah üzerinde dengeli kontrast). */}
+                  <img
+                    src={dayMode ? '/logo-mark-umber.png' : '/logo-mark.png'}
+                    alt=""
+                    aria-hidden="true"
+                    width="28"
+                    height="28"
+                    style={{ display: 'block', flexShrink: 0 }}
+                  />
+                  <span
+                    style={{
+                      opacity: dayMode ? 1 : 0.72,
+                      transition: `opacity ${TRANSITION.fast}`,
+                    }}
+                  >
+                    QURAN CODEX
+                  </span>
                 </button>
               )}
               {!isMobile && navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}

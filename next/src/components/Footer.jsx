@@ -13,26 +13,24 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        {/* Brand logo — sayfa altı brand reinforcement.
-            Full primary logo (8-fold star + girih medallion + wordmark
-            + tagline) küçük imza ölçeğinde. */}
-        <div className="flex justify-center mb-10">
+        {/* Brand logo — sayfa altı imza.
+            Full primary logo (8-fold star + girih + wordmark + tagline).
+            footer.title h3'ü duplikasyon olduğu için silindi; logo PNG'sinin
+            içsel padding'i fazla — methodology paragrafı negative marginTop
+            ile yukarı çekildi, gap doğal hissi verir. */}
+        <div className="flex justify-center" style={{ marginBottom: '-44px' }}>
           <img
             src="/logo-full.png"
             alt="QuranCodex — Hidden Architecture of the Quran"
-            width="220"
-            height="220"
+            width="340"
+            height="340"
             style={{ display: 'block', opacity: 0.92, maxWidth: '100%', height: 'auto' }}
           />
         </div>
 
-        {/* Title & methodology — footer-scale (not section H2). Methodology
-            paragraph uses Hero baseline body color (offWhite/78) instead of
+        {/* Methodology — Hero baseline body color (offWhite/78) instead of
             silver, so footer reads warm rather than cool-gray. */}
         <div className="text-center mb-12">
-          <h3 className="font-display text-gold text-xl mb-4">
-            {t('footer.title')}
-          </h3>
           <p
             className="max-w-2xl mx-auto"
             style={{
