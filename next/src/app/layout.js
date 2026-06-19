@@ -34,13 +34,21 @@ export const metadata = {
     siteName: 'QuranCodex',
     title: "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
     description: "Kur'an'ın gizli mimarisini interaktif görsellerle keşfedin.",
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'QuranCodex — Hidden Architecture of the Quran' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
+    images: ['/og-image.png'],
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
 };
@@ -59,7 +67,7 @@ const ORGANIZATION_JSONLD = {
   '@type': 'Organization',
   name: 'QuranCodex',
   url: 'https://qurancodex.com',
-  logo: 'https://qurancodex.com/favicon.svg',
+  logo: 'https://qurancodex.com/logo-full.png',
   description: "Kur'an-ı Kerim'in Görünmeyen Mimarisi — interaktif görsellerle keşfedin.",
 };
 

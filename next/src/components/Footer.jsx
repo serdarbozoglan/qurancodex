@@ -13,6 +13,19 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
+        {/* Brand logo — sayfa altı brand reinforcement.
+            Full primary logo (8-fold star + girih medallion + wordmark
+            + tagline) küçük imza ölçeğinde. */}
+        <div className="flex justify-center mb-10">
+          <img
+            src="/logo-full.png"
+            alt="QuranCodex — Hidden Architecture of the Quran"
+            width="220"
+            height="220"
+            style={{ display: 'block', opacity: 0.92, maxWidth: '100%', height: 'auto' }}
+          />
+        </div>
+
         {/* Title & methodology — footer-scale (not section H2). Methodology
             paragraph uses Hero baseline body color (offWhite/78) instead of
             silver, so footer reads warm rather than cool-gray. */}

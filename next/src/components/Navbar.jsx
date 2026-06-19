@@ -832,9 +832,12 @@ export default function Navbar() {
             }
           }}
           className="text-gold font-display font-bold tracking-[0.12em] sm:tracking-[0.18em] hover:text-royal-gold transition-colors"
-          style={{ fontSize: '1.05rem', flexShrink: 0 }}
+          style={{ fontSize: '1.05rem', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px', background: 'transparent', border: 'none', padding: 0, cursor: 'pointer' }}
+          aria-label="QuranCodex — Ana sayfa"
         >
-          QURAN CODEX
+          {/* Standalone mark — Q + 8-fold star (brand identity at any scale) */}
+          <img src="/logo-mark.png" alt="" aria-hidden="true" width="28" height="28" style={{ display: 'block', flexShrink: 0 }} />
+          <span>QURAN CODEX</span>
         </button>
 
         {/* Nav links */}
@@ -1661,7 +1664,7 @@ export default function Navbar() {
             className="text-gold font-display font-bold tracking-[0.14em]"
             style={{
               position: 'fixed',
-              top: '20px',
+              top: '16px',
               left: '20px',
               zIndex: 10002,
               fontSize: '0.95rem',
@@ -1669,10 +1672,14 @@ export default function Navbar() {
               border: 'none',
               padding: 0,
               cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
             }}
             aria-label={language === 'tr' ? 'Ana sayfaya dön' : 'Back to home'}
           >
-            QURAN CODEX
+            <img src="/logo-mark.png" alt="" aria-hidden="true" width="26" height="26" style={{ display: 'block', flexShrink: 0 }} />
+            <span>QURAN CODEX</span>
           </button>
 
           {/* Close button */}
