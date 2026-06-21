@@ -672,7 +672,7 @@ const SURAH_NAMES_AR = [
   'الصَّفّ','الجُمُعَة','المُنَافِقُون','التَّغَابُن','الطَّلَاق','التَّحْرِيم','المُلْك','القَلَم','الحَاقَّة','المَعَارِج',
   'نُوح','الجِنّ','المُزَّمِّل','المُدَّثِّر','القِيَامَة','الإِنْسَان','المُرْسَلَات','النَّبَأ','النَّازِعَات','عَبَسَ',
   'التَّكْوِير','الانفِطَار','المُطَفِّفِين','الانشِقَاق','البُرُوج','الطَّارِق','الأَعْلَى','الغَاشِيَة','الفَجْر','البَلَد',
-  'الشَّمْس','اللَّيْل','الضُّحَى','الشَّرْح','التِّين','العَلَق','القَدْر','البَيِّنَة','الزَّلْزَلَة','العَادِيَات',
+  'الشَّمْس','اللَّيْل','الضُّحَى','الانشِرَاح','التِّين','العَلَق','القَدْر','البَيِّنَة','الزَّلْزَلَة','العَادِيَات',
   'القَارِعَة','التَّكَاثُر','العَصْر','الهُمَزَة','الفِيل','قُرَيْش','المَاعُون','الكَوْثَر','الكَافِرُون','النَّصْر',
   'المَسَد','الإِخْلَاص','الفَلَق','النَّاس',
 ];
@@ -1540,28 +1540,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     if (!ayah || ayah < 1) return null;
     const rawName = nameMatch[1];
 
-    // İki-pas match: önce orijinal, sonra el/al prefix temizli (boşluklu veya
-    // boşluksuz). "bakara"/"el-bakara"/"el bakara"/"elbakara" hepsi yakalanır.
+    // Match: "bakara"/"el-bakara"/"el bakara"/"elbakara"/"al-baqara" hepsi
+    // 2. sure'ye gitsin. Her iki tarafta da "el-/al-" prefix'i strip ederek
+    // karşılaştırırız — TR ("El-Bakara") ve EN ("Al-Baqarah") canonical
+    // formatları "el-/al-" ile başladığı için kullanıcı bunu yazmasa da
+    // match olmalı.
+    const stripArticle = (s) => s.replace(/^(el|al)[-\s]?/i, '');
     const tryName = (candidate) => {
       const nQ = normalizeText(candidate);
       if (nQ.length < 2) return null;
+      const nQs = stripArticle(nQ);
       for (let i = 0; i < SURAH_NAMES_TR.length; i++) {
         const trN = normalizeText(SURAH_NAMES_TR[i]);
         const enN = normalizeText(SURAH_NAMES_EN[i] || '');
-        const enStripped = enN.replace(/^al[-\s]?/, '');
-        if (trN === nQ || enN === nQ || enStripped === nQ ||
-            trN.startsWith(nQ) || enStripped.startsWith(nQ)) {
-          return i + 1;
+        const trStripped = stripArticle(trN);
+        const enStripped = stripArticle(enN);
+        // Direkt match (el-/al- yazsa da yazmasa da bütün kombinasyonlar):
+        const candidates = [trN, trStripped, enN, enStripped];
+        for (const c of candidates) {
+          if (c === nQ || c === nQs || c.startsWith(nQ) || c.startsWith(nQs)) {
+            return i + 1;
+          }
         }
       }
       return null;
     };
 
-    let surah = tryName(rawName);
-    if (!surah) {
-      const stripped = rawName.replace(/^(el|al)[-\s]*/i, '');
-      if (stripped && stripped !== rawName) surah = tryName(stripped);
-    }
+    const surah = tryName(rawName);
     return surah ? { surah, ayah } : null;
   };
 
@@ -1570,13 +1575,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     if (!verses || raw.length < 2) return { hits: [], total: 0 };
 
     // 1. Reference parser — "bakara:3", "el-bakara 3", "2:3" vb.
-    const ref = parseReference(raw);
-    if (ref) {
-      const hits = verses.filter(v => v.surah === ref.surah && v.ayah === ref.ayah);
-      // Eğer ayet bulunamadıysa, sadece sure'nin tamamını gösterme — boş döndür ki
-      // user "ayet yok" sinyali alsın. Eğer bulundu, tek hit döndür (kesin match).
-      return { hits, total: hits.length };
-    }
+    //    Eğer reference match ediyorsa palette zaten "HIZLI ATLAMA / AYET" row
+    //    göstereceği için burada hits döndürmeyiz — duplicate MEAL row önlenir
+    //    (user 2026-06-21: "bakara:5 ve 2:5 farklı şeylere map ediyor").
+    if (parseReference(raw)) return { hits: [], total: 0 };
 
     // 2. Word + surah name search (mevcut mantık)
     const q = normalizeText(raw);
@@ -4684,7 +4686,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           onClick={e => { if (e.target === e.currentTarget) { setShowSearch(false); setSearchQuery(''); } }}
         >
           <div style={{
-            position: 'absolute', top: '70px', left: '50%', transform: 'translateX(-50%)',
+            position: 'absolute',
+            // Mobile toolbar (El-Kalem header + button row) ~170px; desktop
+            // sadece ince üst bar (~70px). Palette top'ı viewport'a göre
+            // ayarlanmazsa input bar toolbar altında saklı kalıyordu
+            // (user screenshot #163 2026-06-21).
+            top: isMobile ? '180px' : '70px',
+            left: '50%', transform: 'translateX(-50%)',
             width: 'calc(100% - 32px)', maxWidth: '560px',
             background: dayMode ? 'rgba(245,239,228,0.99)' : 'rgba(10,12,28,0.98)',
             backdropFilter: 'blur(24px)',
@@ -4698,7 +4706,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             boxShadow: dayMode
               ? '0 24px 64px rgba(60,40,10,0.32), 0 8px 20px rgba(60,40,10,0.16), 0 0 0 1px rgba(212,165,116,0.10)'
               : '0 24px 64px rgba(0,0,0,0.7), 0 8px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,165,116,0.08)',
-            display: 'flex', flexDirection: 'column', maxHeight: 'calc(100vh - 100px)',
+            display: 'flex', flexDirection: 'column',
+            // Mobile'da top:180 olduğu için ekranın altıyla yeterli boşluk
+            // bırakacak şekilde max-height düşürülür. Desktop top:70 → 100 yeter.
+            maxHeight: isMobile ? 'calc(100svh - 210px)' : 'calc(100vh - 100px)',
           }}>
           {/* Search input bar */}
           <div style={{
@@ -4717,8 +4728,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onChange={e => setSearchQuery(e.target.value)}
               onKeyDown={e => {
                 // Enter — parseReference single-hit (sure adı:ayet veya 2:3) durumunda
-                // direkt navigate. Word search'te ilk hit'e gönderme yapmıyoruz
-                // (kullanıcı yanlış kelimeye gidip yorulmasın).
+                // direkt Arabic ayet'e scroll. Daima Arapça (eski: aynı sure'deyse
+                // meal açıyordu — tutarsız, user 2026-06-21).
                 if (e.key !== 'Enter') return;
                 const ref = parseReference(searchQuery.trim());
                 if (!ref) return;
@@ -4727,13 +4738,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 e.preventDefault();
                 setShowSearch(false);
                 setSearchQuery('');
-                if (target.surah !== selectedSurah) {
-                  changeSurah(target.surah);
-                  setPendingScrollAyah(target.ayah);
-                } else {
-                  const v = surahVerses.find(sv => sv.ayah === target.ayah);
-                  if (v) handleSelectVerse(v);
-                }
+                if (target.surah !== selectedSurah) changeSurah(target.surah);
+                setPendingScrollAyah(target.ayah);
               }}
               placeholder={language === 'tr' ? 'Sûre · sayfa · bakara:3 · 2:245 · cüz · kelime…' : 'Surah · page · baqara:3 · 2:245 · juz · word…'}
               style={{
@@ -4746,7 +4752,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 fontFamily: "'Inter', sans-serif",
               }}
             />
-            {searchQuery && (
+            {/* Clear-text X — desktop only. Mobile'da hemen yanında close-overlay
+                X butonu var (line 4792); ikisi yan yana redundant olur (user
+                2026-06-21). Desktop'ta ESC hint mevcut ama text temizlemek için
+                ayrı buton lazım — onlar farklı işler. */}
+            {searchQuery && !isMobile && (
               <button onClick={() => setSearchQuery('')}
                 title={language === 'tr' ? 'Aramayı temizle' : 'Clear search'}
                 style={{ background: 'none', border: 'none', color: dayMode ? 'rgba(80,50,20,0.4)' : COLORS.slate500, cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}>
@@ -4811,32 +4821,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
               const qNorm = q ? normalizeText(q).replace(/['’ʼ`-]/g, '') : '';
 
-              // Verse-address pattern: "2:245", "2.245", "2/245", "2 245"
-              // S:V — surah index 1-114 + ayah index within range
-              const verseAddrMatch = q.match(/^(\d{1,3})\s*[:.\/\s]\s*(\d{1,3})$/);
-              const verseAddrHit = verseAddrMatch ? (() => {
-                const s = parseInt(verseAddrMatch[1], 10);
-                const a = parseInt(verseAddrMatch[2], 10);
-                if (s >= 1 && s <= 114 && a >= 1 && a <= (SURAH_AYAH_COUNTS[s - 1] || 0)) return { surah: s, ayah: a };
+              // Unified verse-address parser: "2:5", "bakara:5", "el-bakara:5",
+              // "bakara 5", "elbakara/5" — hepsi tek path'ten geçer
+              // (parseReference fonksiyonu).
+              const refHit = (() => {
+                const ref = parseReference(q);
+                if (!ref) return null;
+                // Sure-içi ayet sınırını da doğrula
+                if (ref.ayah >= 1 && ref.ayah <= (SURAH_AYAH_COUNTS[ref.surah - 1] || 0)) return ref;
                 return null;
-              })() : null;
+              })();
+              // Eski isimler korunur ki aşağıdaki refactor noktaları çalışsın
+              const verseAddrHit = refHit;
+              const nameVerseHit = null;
 
-              // Surah-name + ayah pattern: "bakara 245", "yasin 36"
-              const nameVerseMatch = (!isNum && !verseAddrHit) ? q.match(/^(.+?)\s+(\d{1,3})$/) : null;
-              const nameVerseHit = nameVerseMatch ? (() => {
-                const namePart = normalizeText(nameVerseMatch[1]).replace(/['’ʼ`-]/g, '');
-                const a = parseInt(nameVerseMatch[2], 10);
-                if (namePart.length < 2) return null;
-                for (let i = 0; i < SURAH_NAMES_TR.length; i++) {
-                  const nameNorm = normalizeText(SURAH_NAMES_TR[i]).replace(/['’ʼ`-]/g, '');
-                  if (nameNorm.includes(namePart) && a >= 1 && a <= SURAH_AYAH_COUNTS[i]) {
-                    return { surah: i + 1, ayah: a };
-                  }
-                }
-                return null;
-              })() : null;
-
-              const isText = !isNum && !verseAddrHit && !nameVerseHit && qNorm.length >= 2;
+              const isText = !isNum && !refHit && qNorm.length >= 2;
 
               // Day/night palette helpers — kept local to avoid touching the
               // overlay's outer styles. Match the dropdown's color decisions.
@@ -4990,20 +4989,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               ) : null;
 
               // ── 2a. Verse address row — "2:245" / "bakara 245" jumps to surah+ayah ──
+              // Daima Arabic ayet'e scroll: kullanıcı bir ayet adresi
+              // ("bakara:5", "2:5", "bakara 5") yazdıysa Arapça orijinali
+              // görmek istiyor. Meal isteyen ayete tıklayarak açabilir.
+              // Önceki: aynı sure'deyse handleSelectVerse'le meal açılıyordu —
+              // farklı sure'de Arabic'e gidiyor — tutarsızdı (user 2026-06-21).
               const verseHit = verseAddrHit || nameVerseHit;
               const verseRow = verseHit ? (
                 <button key="verse"
                   onClick={() => {
                     const { surah: vs, ayah: va } = verseHit;
                     setShowSearch(false); setSearchQuery('');
-                    if (vs !== selectedSurah) {
-                      changeSurah(vs);
-                      setPendingScrollAyah(va);
-                    } else {
-                      const v = surahVerses.find(sv => sv.ayah === va);
-                      if (v) handleSelectVerse(v);
-                      else setPendingScrollAyah(va);
-                    }
+                    if (vs !== selectedSurah) changeSurah(vs);
+                    setPendingScrollAyah(va);
                   }}
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
