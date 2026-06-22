@@ -1540,26 +1540,39 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     if (!ayah || ayah < 1) return null;
     const rawName = nameMatch[1];
 
-    // Match: "bakara"/"el-bakara"/"el bakara"/"elbakara"/"al-baqara" hepsi
-    // 2. sure'ye gitsin. Her iki tarafta da "el-/al-" prefix'i strip ederek
-    // karşılaştırırız — TR ("El-Bakara") ve EN ("Al-Baqarah") canonical
-    // formatları "el-/al-" ile başladığı için kullanıcı bunu yazmasa da
-    // match olmalı.
+    // Match: "bakara"/"el-bakara"/"el bakara"/"elbakara"/"al-baqara"/"yasin"/
+    // "ya-sin" — hepsi tek path'ten geçer. İki normalize:
+    // 1) stripArticle: başındaki "el-/al-" çıkarılır
+    // 2) stripDashes: tüm hyphenleri kaldırır ("ya-sin" → "yasin",
+    //    "yâ-sîn" normalize sonrası "ya-sin" → "yasin")
+    // Hem TR/EN canonical adlar hem kullanıcı input'u ikiside normalize edilir
+    // ki "yasin" ile "Yâ-Sîn" match olsun. (User: 2026-06-22)
     const stripArticle = (s) => s.replace(/^(el|al)[-\s]?/i, '');
+    const stripDashes  = (s) => s.replace(/[-\s']/g, '');
     const tryName = (candidate) => {
       const nQ = normalizeText(candidate);
       if (nQ.length < 2) return null;
       const nQs = stripArticle(nQ);
+      const nQd = stripDashes(nQ);
+      const nQsd = stripDashes(stripArticle(nQ));
       for (let i = 0; i < SURAH_NAMES_TR.length; i++) {
         const trN = normalizeText(SURAH_NAMES_TR[i]);
         const enN = normalizeText(SURAH_NAMES_EN[i] || '');
         const trStripped = stripArticle(trN);
         const enStripped = stripArticle(enN);
-        // Direkt match (el-/al- yazsa da yazmasa da bütün kombinasyonlar):
-        const candidates = [trN, trStripped, enN, enStripped];
+        const trDashes = stripDashes(trN);
+        const enDashes = stripDashes(enN);
+        const trDashesStripped = stripDashes(trStripped);
+        const enDashesStripped = stripDashes(enStripped);
+        // 8 canonical form × 4 user-input form = max 32 karşılaştırma
+        const candidates = [
+          trN, trStripped, trDashes, trDashesStripped,
+          enN, enStripped, enDashes, enDashesStripped,
+        ];
+        const userForms = [nQ, nQs, nQd, nQsd];
         for (const c of candidates) {
-          if (c === nQ || c === nQs || c.startsWith(nQ) || c.startsWith(nQs)) {
-            return i + 1;
+          for (const u of userForms) {
+            if (c === u || c.startsWith(u)) return i + 1;
           }
         }
       }
