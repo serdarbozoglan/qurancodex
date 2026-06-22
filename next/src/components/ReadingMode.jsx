@@ -4687,11 +4687,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         >
           <div style={{
             position: 'absolute',
-            // Mobile toolbar (El-Kalem header + button row) ~170px; desktop
-            // sadece ince üst bar (~70px). Palette top'ı viewport'a göre
-            // ayarlanmazsa input bar toolbar altında saklı kalıyordu
-            // (user screenshot #163 2026-06-21).
-            top: isMobile ? '180px' : '70px',
+            // Mobile toolbar (El-Kalem header + button row) ~110-120px.
+            // Palette top'ı toolbar'ın hemen altına oturmalı; çok küçük
+            // olursa input bar toolbar altında saklı kalır (#163),
+            // çok büyük olursa gereksiz gap (#168 2026-06-22).
+            top: isMobile ? '124px' : '70px',
             left: '50%', transform: 'translateX(-50%)',
             width: 'calc(100% - 32px)', maxWidth: '560px',
             background: dayMode ? 'rgba(245,239,228,0.99)' : 'rgba(10,12,28,0.98)',
@@ -4707,9 +4707,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               ? '0 24px 64px rgba(60,40,10,0.32), 0 8px 20px rgba(60,40,10,0.16), 0 0 0 1px rgba(212,165,116,0.10)'
               : '0 24px 64px rgba(0,0,0,0.7), 0 8px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,165,116,0.08)',
             display: 'flex', flexDirection: 'column',
-            // Mobile'da top:180 olduğu için ekranın altıyla yeterli boşluk
-            // bırakacak şekilde max-height düşürülür. Desktop top:70 → 100 yeter.
-            maxHeight: isMobile ? 'calc(100svh - 210px)' : 'calc(100vh - 100px)',
+            // Mobile top:124 + bottom safe-area buffer (~30) = 154px reserved.
+            maxHeight: isMobile ? 'calc(100svh - 154px)' : 'calc(100vh - 100px)',
           }}>
           {/* Search input bar */}
           <div style={{
