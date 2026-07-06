@@ -64,6 +64,133 @@ const TABS = [
   },
 ];
 
+// ─── Mode icons for civilization patterns ───────────────────────────────────
+// Nûh, Firavun → water (flood). Âd → wind. Semûd, Medyen → shockwave. Lût → meteor.
+// Her ikonun içinde animasyon güçlendirmesi için SVG stroke/opacity ile varyans var.
+
+function ModeIcon({ mode, color, size = 44 }) {
+  const s = size;
+  const stroke = color || '#d4a574';
+  switch (mode) {
+    case 'flood':
+      return (
+        <svg width={s} height={s} viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <path d="M2 18 Q7 14 12 18 T22 18 T32 18 T42 18" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" opacity="0.9" />
+          <path d="M2 26 Q7 22 12 26 T22 26 T32 26 T42 26" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" opacity="0.7" />
+          <path d="M2 34 Q7 30 12 34 T22 34 T32 34 T42 34" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
+          <circle cx="9" cy="10" r="1.5" fill={stroke} opacity="0.6" />
+          <circle cx="24" cy="8" r="1" fill={stroke} opacity="0.4" />
+          <circle cx="36" cy="11" r="1.2" fill={stroke} opacity="0.5" />
+        </svg>
+      );
+    case 'wind':
+      return (
+        <svg width={s} height={s} viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <path d="M4 14 H30 Q35 14 35 10 T31 6" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+          <path d="M4 22 H36 Q41 22 41 18 T37 14" stroke={stroke} strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.85" />
+          <path d="M4 30 H28 Q33 30 33 26 T29 22" stroke={stroke} strokeWidth="1.8" strokeLinecap="round" fill="none" opacity="0.7" />
+          <path d="M4 38 H20 Q25 38 25 34" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" fill="none" opacity="0.5" />
+        </svg>
+      );
+    case 'shockwave':
+      return (
+        <svg width={s} height={s} viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="4" fill={stroke} opacity="0.9" />
+          <circle cx="22" cy="22" r="8" stroke={stroke} strokeWidth="1.4" fill="none" opacity="0.7" />
+          <circle cx="22" cy="22" r="13" stroke={stroke} strokeWidth="1.3" fill="none" opacity="0.5" />
+          <circle cx="22" cy="22" r="18" stroke={stroke} strokeWidth="1.2" fill="none" opacity="0.3" strokeDasharray="2 3" />
+          <path d="M22 2 V6 M22 38 V42 M2 22 H6 M38 22 H42" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        </svg>
+      );
+    case 'meteorite':
+      return (
+        <svg width={s} height={s} viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <path d="M6 6 L20 20" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" opacity="0.5" />
+          <path d="M12 4 L26 18" stroke={stroke} strokeWidth="1.4" strokeLinecap="round" opacity="0.4" />
+          <path d="M4 12 L18 26" stroke={stroke} strokeWidth="1.4" strokeLinecap="round" opacity="0.4" />
+          <circle cx="26" cy="26" r="6" fill={stroke} opacity="0.85" />
+          <circle cx="34" cy="18" r="2.5" fill={stroke} opacity="0.6" />
+          <circle cx="18" cy="34" r="2" fill={stroke} opacity="0.5" />
+          <circle cx="36" cy="32" r="1.5" fill={stroke} opacity="0.4" />
+          <circle cx="10" cy="38" r="1.2" fill={stroke} opacity="0.35" />
+        </svg>
+      );
+    default:
+      return (
+        <svg width={s} height={s} viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="8" stroke={stroke} strokeWidth="1.5" fill="none" />
+        </svg>
+      );
+  }
+}
+
+// ─── Law icons for thematic categories ─────────────────────────────────────
+// 8 kanuna karşılık gelen distinctive SVG'ler. Her biri sadece "stroke" ile
+// çalışır — accent color dışarıdan verilir, ikonun kimliği farklı olur.
+
+const LAW_ICONS = {
+  'helak-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2 L4 22 L20 22 Z" stroke={color} strokeWidth="1.6" strokeLinejoin="round" fill={`${color}18`} />
+      <path d="M12 9 V15" stroke={color} strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="12" cy="18" r="0.9" fill={color} />
+    </svg>
+  ),
+  'yardim-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2 L4 6 V12 C4 17 8 21 12 22 C16 21 20 17 20 12 V6 Z" stroke={color} strokeWidth="1.6" strokeLinejoin="round" fill={`${color}18`} />
+      <path d="M8.5 12 L11 14.5 L15.5 10" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </svg>
+  ),
+  'imtihan-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3 C13 8 17 9 17 14 C17 17.3 14.8 20 12 20 C9.2 20 7 17.3 7 14 C7 11 9 9.5 10 7 C10.5 5.5 11 4 12 3 Z" stroke={color} strokeWidth="1.6" strokeLinejoin="round" fill={`${color}22`} />
+      <circle cx="12" cy="15" r="1.5" fill={color} opacity="0.7" />
+    </svg>
+  ),
+  'yaratma-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z" stroke={color} strokeWidth="1.4" strokeLinejoin="round" fill={`${color}18`} />
+      <circle cx="12" cy="12" r="2" fill={color} opacity="0.9" />
+    </svg>
+  ),
+  'nimet-sukur-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 20 C6 20 8 8 12 8 C16 8 18 20 18 20" stroke={color} strokeWidth="1.6" strokeLinecap="round" fill={`${color}12`} />
+      <circle cx="12" cy="6" r="2" fill={`${color}30`} stroke={color} strokeWidth="1.3" />
+      <path d="M9 14 H15" stroke={color} strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+      <path d="M10 17 H14" stroke={color} strokeWidth="1.4" strokeLinecap="round" opacity="0.5" />
+    </svg>
+  ),
+  'ecel-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke={color} strokeWidth="1.6" fill={`${color}12`} />
+      <path d="M12 7 V12 L15.5 15" stroke={color} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      <circle cx="12" cy="12" r="1" fill={color} />
+    </svg>
+  ),
+  'zulum-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="4" y="8" width="16" height="10" rx="1" stroke={color} strokeWidth="1.5" fill={`${color}14`} />
+      <path d="M8 4 V8 M12 4 V8 M16 4 V8" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M8 13 L16 13 M8 16 L14 16" stroke={color} strokeWidth="1.4" strokeLinecap="round" opacity="0.65" />
+    </svg>
+  ),
+  'sabir-nasr-kanunu': (color) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3 L12 21" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M12 8 Q7 6 4 9 T4 13 Q8 12 12 14" stroke={color} strokeWidth="1.5" strokeLinecap="round" fill={`${color}12`} />
+      <path d="M12 11 Q18 9 21 12 T20 16 Q16 15 12 17" stroke={color} strokeWidth="1.5" strokeLinecap="round" fill={`${color}12`} />
+    </svg>
+  ),
+};
+
+function LawIcon({ id, color, size = 24 }) {
+  const IconFn = LAW_ICONS[id];
+  if (!IconFn) return null;
+  return <span style={{ display: 'inline-flex', width: size, height: size, flexShrink: 0 }}>{IconFn(color)}</span>;
+}
+
 // ─── Main component ──────────────────────────────────────────────────────────
 export default function SunnetullahAtlasi({ onClose }) {
   const { language } = useLanguage();
@@ -162,7 +289,32 @@ export default function SunnetullahAtlasi({ onClose }) {
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          {/* Islamic geometric pattern — subtle background */}
+          <svg aria-hidden="true" width="100%" height="100%" style={{
+            position: 'absolute', inset: 0, pointerEvents: 'none',
+            opacity: 0.05, mixBlendMode: 'screen',
+          }}>
+            <defs>
+              <pattern id="sunnet-geometric" x="0" y="0" width="72" height="72" patternUnits="userSpaceOnUse">
+                <path d="M36 6 L54 18 L54 42 L36 54 L18 42 L18 18 Z" stroke={COLORS.gold} strokeWidth="0.6" fill="none" />
+                <path d="M36 18 L45 24 L45 36 L36 42 L27 36 L27 24 Z" stroke={COLORS.gold} strokeWidth="0.5" fill="none" opacity="0.6" />
+                <circle cx="36" cy="30" r="2" fill={COLORS.gold} opacity="0.4" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#sunnet-geometric)" />
+          </svg>
+          {/* Center-glow radial (extra atmosphere) */}
+          <div aria-hidden="true" style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '80%', height: '90%', pointerEvents: 'none',
+            background: `radial-gradient(ellipse at center, ${COLORS.gold}0F 0%, transparent 70%)`,
+            filter: 'blur(4px)',
+          }} />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
           <div
             dir="rtl" lang="ar" aria-label="Bismillāh"
@@ -346,6 +498,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           {linguisticFormula && (
             <FormulaBox formula={linguisticFormula} language={language} isMobile={isMobile} />
           )}
+          </div>
         </div>
 
         {/* ── TAB BAR ───────────────────────────────────────────────────── */}
@@ -701,7 +854,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
               key={cat.id}
               onClick={() => onSelect(cat.id)}
               style={{
-                padding: isMobile ? '6px 12px' : '7px 16px',
+                padding: isMobile ? '6px 12px' : '8px 16px',
                 borderRadius: '999px',
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
@@ -710,12 +863,19 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
                 fontWeight: isActive ? 600 : 400,
                 fontFamily: FONTS.body,
                 cursor: 'pointer',
-                transition: 'all 0.15s',
+                transition: 'all 0.18s',
                 whiteSpace: 'nowrap',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '7px',
+                boxShadow: isActive ? `0 0 14px ${cat.color}22` : 'none',
               }}
+              onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = `${cat.color}10`; }}
+              onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
             >
-              {language === 'tr' ? cat.titleTr : cat.titleEn}{' '}
-              <span style={{ opacity: 0.7 }}>({cat.items.length})</span>
+              <LawIcon id={cat.id} color={isActive ? cat.color : COLORS.silver} size={16} />
+              <span>{language === 'tr' ? cat.titleTr : cat.titleEn}</span>
+              <span style={{ opacity: 0.65, fontSize: '0.72rem' }}>({cat.items.length})</span>
             </button>
           );
         })}
@@ -723,13 +883,36 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
 
       {/* Category header */}
       <div style={{
-        padding: isMobile ? '18px 16px' : '22px 24px',
-        background: `${active.color}10`,
-        border: `1px solid ${active.color}30`,
+        padding: isMobile ? '20px 18px' : '26px 28px',
+        background: `linear-gradient(135deg, ${active.color}12 0%, rgba(255,255,255,0.02) 60%)`,
+        border: `1px solid ${active.color}35`,
         borderLeft: `4px solid ${active.color}`,
         borderRadius: '10px',
         marginBottom: '20px',
+        display: 'flex', alignItems: 'flex-start', gap: '16px',
+        position: 'relative', overflow: 'hidden',
       }}>
+        {/* Ambient glow */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: '-40px', right: '-40px',
+          width: '180px', height: '180px', pointerEvents: 'none',
+          background: `radial-gradient(circle at center, ${active.color}22 0%, transparent 60%)`,
+          filter: 'blur(3px)',
+        }} />
+        {/* Big icon */}
+        <div style={{
+          flexShrink: 0,
+          width: isMobile ? '46px' : '56px', height: isMobile ? '46px' : '56px',
+          borderRadius: '50%',
+          background: `radial-gradient(circle at center, ${active.color}25 0%, ${active.color}08 70%, transparent 100%)`,
+          border: `1px solid ${active.color}55`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: `0 0 20px ${active.color}22`,
+          zIndex: 1,
+        }}>
+          <LawIcon id={active.id} color={active.color} size={isMobile ? 26 : 32} />
+        </div>
+        <div style={{ flex: 1, minWidth: 0, position: 'relative', zIndex: 1 }}>
         <h3 style={{
           color: active.color,
           fontSize: isMobile ? '1.15rem' : '1.35rem',
@@ -749,6 +932,7 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
         }}>
           {language === 'tr' ? active.descTr : active.descEn}
         </p>
+        </div>
       </div>
 
       {/* Items */}
@@ -1323,10 +1507,93 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
           {tr ? 'Kavimler Atlası' : 'the Nations Atlas'}
         </a>.
       </p>
+
+      {/* Comparison grid — 6 kavim at once */}
+      <KavimComparisonGrid patterns={patterns} language={language} isMobile={isMobile} />
+
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         {patterns.map((p, i) => (
           <KavimPatternCard key={p.id} pattern={p} index={i + 1} language={language} isMobile={isMobile} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+// KavimComparisonGrid — 6 kavim tek görünümde, mode-icon vurgulu.
+// Amaç: tab'a girer girmez görsel bir "aynı örüntü, farklı sahne" özeti.
+function KavimComparisonGrid({ patterns, language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      marginBottom: '32px',
+      padding: isMobile ? '20px 16px' : '26px 28px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(212,165,116,0.01) 100%)',
+      border: `1px solid ${COLORS.gold}25`,
+      borderRadius: RADIUS.md,
+    }}>
+      <div style={{
+        fontSize: '0.66rem', letterSpacing: '0.2em',
+        color: COLORS.gold, textTransform: 'uppercase',
+        fontFamily: FONTS.body, fontWeight: 700,
+        opacity: 0.85, marginBottom: '18px', textAlign: 'center',
+      }}>
+        {tr ? 'Örüntü Panoraması — Altı Kavim, Tek Yasa' : 'Pattern Panorama — Six Nations, One Law'}
+      </div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(6, 1fr)',
+        gap: isMobile ? '10px' : '14px',
+      }}>
+        {patterns.map(p => {
+          const accent = p.color || COLORS.gold;
+          return (
+            <div key={p.id} style={{
+              padding: '14px 8px 12px',
+              background: 'rgba(255,255,255,0.02)',
+              border: `1px solid ${accent}30`,
+              borderRadius: RADIUS.sm,
+              textAlign: 'center',
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', gap: '6px',
+              transition: 'all 0.2s ease',
+              cursor: 'default',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = `${accent}12`; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.transform = 'none'; }}
+            >
+              <div style={{
+                width: '48px', height: '48px', borderRadius: '50%',
+                background: `radial-gradient(circle at center, ${accent}25 0%, ${accent}05 70%, transparent 100%)`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: `0 0 18px ${accent}18`,
+              }}>
+                <ModeIcon mode={p.iconMode} color={accent} size={30} />
+              </div>
+              <div style={{
+                fontSize: '0.78rem', fontWeight: 700,
+                color: COLORS.offWhite, fontFamily: FONTS.body,
+                lineHeight: 1.25,
+              }}>
+                {(tr ? p.titleTr : p.titleEn).split(' ')[0]}
+              </div>
+              <div style={{
+                fontSize: '0.66rem', color: accent,
+                fontFamily: FONTS.body, fontWeight: 600,
+                lineHeight: 1.35,
+              }}>
+                {tr ? p.prophetTr : p.prophetEn}
+              </div>
+              <div style={{
+                fontSize: '0.62rem', color: COLORS.silver,
+                fontFamily: FONTS.body, fontStyle: 'italic',
+                lineHeight: 1.35, opacity: 0.85,
+              }}>
+                {(tr ? p.modeTr : p.modeEn).split(' ')[0].replace(/,$/, '')}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -1338,39 +1605,71 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
   return (
     <div style={{
       padding: isMobile ? '20px 18px' : '28px 32px',
-      background: 'rgba(255,255,255,0.02)',
-      border: `1px solid ${accent}30`,
+      background: `linear-gradient(135deg, ${accent}0A 0%, rgba(255,255,255,0.02) 45%)`,
+      border: `1px solid ${accent}35`,
       borderLeft: `3px solid ${accent}`,
       borderRadius: RADIUS.md,
       display: 'flex', flexDirection: 'column', gap: '18px',
-    }}>
-      {/* Header — index + title + meta */}
+      position: 'relative',
+      overflow: 'hidden',
+      transition: 'all 0.25s ease',
+    }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = `0 8px 24px ${accent}18`; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+    >
+      {/* Ambient corner glow */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', top: '-30px', right: '-30px',
+        width: '160px', height: '160px', pointerEvents: 'none',
+        background: `radial-gradient(circle at center, ${accent}22 0%, transparent 65%)`,
+        filter: 'blur(2px)',
+      }} />
+
+      {/* Header — mode icon + index + title + meta */}
       <div style={{
-        display: 'flex', alignItems: 'flex-start', gap: '14px',
-        flexWrap: 'wrap',
+        display: 'flex', alignItems: 'flex-start', gap: isMobile ? '12px' : '18px',
+        flexWrap: 'wrap', position: 'relative', zIndex: 1,
       }}>
-        <span style={{
+        {/* Mode icon — visual identity */}
+        <div style={{
           flexShrink: 0,
-          width: '32px', height: '32px', borderRadius: '50%',
-          background: `${accent}22`,
+          width: isMobile ? '52px' : '64px', height: isMobile ? '52px' : '64px',
+          borderRadius: '50%',
+          background: `radial-gradient(circle at center, ${accent}20 0%, ${accent}08 70%, transparent 100%)`,
           border: `1px solid ${accent}55`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '0.85rem', fontWeight: 800,
-          color: accent, fontFamily: FONTS.body,
-        }}>{index}</span>
+          boxShadow: `0 0 24px ${accent}22, inset 0 0 12px ${accent}12`,
+        }}>
+          <ModeIcon mode={pattern.iconMode} color={accent} size={isMobile ? 32 : 40} />
+        </div>
+
         <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.18em',
+            color: accent, textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: '4px', opacity: 0.85,
+          }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: '20px', height: '20px', borderRadius: '50%',
+              background: `${accent}22`, border: `1px solid ${accent}55`,
+              fontSize: '0.68rem', fontWeight: 800,
+            }}>{index}</span>
+            {tr ? 'Kavim Örüntüsü' : 'Nation Pattern'}
+          </div>
           <h3 style={{
             margin: 0,
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.2rem' : '1.35rem',
+            fontSize: isMobile ? '1.3rem' : '1.55rem',
             fontWeight: 700, color: COLORS.offWhite,
-            lineHeight: 1.25,
+            lineHeight: 1.2,
           }}>
             {tr ? pattern.titleTr : pattern.titleEn}
           </h3>
           <div style={{
             display: 'flex', gap: '14px', flexWrap: 'wrap',
-            marginTop: '6px', fontSize: '0.72rem',
+            marginTop: '8px', fontSize: '0.74rem',
             color: COLORS.silver, fontFamily: FONTS.body,
           }}>
             <span><span style={{ opacity: 0.55 }}>{tr ? 'Peygamber:' : 'Prophet:'}</span> <strong style={{ color: accent, fontWeight: 600 }}>{tr ? pattern.prophetTr : pattern.prophetEn}</strong></span>
