@@ -171,7 +171,7 @@
       "ref": "20:14",
       "noteTr": "*Tâhâ 20:14* — وَاَقِمِ الصَّلٰوةَ لِذِكْرِي — '**Beni anmak için namaz kıl.**' Namaz şuurun açılmasının **pratik yolu**dur (Bediüzzaman, 4. Söz).",
       "noteEn": "*Ṭā Hā 20:14* — وَاَقِمِ الصَّلٰوةَ لِذِكْرِي — '**Establish prayer for My remembrance.**' Prayer is the **practical road** of consciousness-opening (Bediüzzaman, 4th Word).",
-      "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلٓا اَنَا۬ فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي"
+      "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي"
     },
     {
       "type": "verseInline",
@@ -250,7 +250,7 @@
       "ref": "59:19",
       "noteTr": "*Haşr 59:19* — وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللّٰهَ فَاَنْسٰيهُمْ اَنْفُسَهُمْ — '**Allah'ı unutanlar gibi olmayın; Allah da onlara kendilerini unutturdu.**' Varlığın topolojisine dair derin bir hakikat: **en dıştaki ile bağ koparsa, en içteki kayıp olur**.",
       "noteEn": "*Al-Ḥashr 59:19* — وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللّٰهَ فَاَنْسٰيهُمْ اَنْفُسَهُمْ — '**Do not be like those who forgot Allah, so He made them forget themselves.**' A deep truth about the topology of being: **when the outermost bond breaks, the innermost is lost**.",
-      "ar": "وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللّٰهَ فَاَنْسٰيهُمْ اَنْفُسَهُمْ اُو۬لٰٓئِكَ هُمُ الْفَاسِقُونَ"
+      "ar": "وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللّٰهَ فَاَنْسٰيهُمْ اَنْفُسَهُمْ اُولٰٓئِكَ هُمُ الْفَاسِقُونَ"
     },
     {
       "type": "verseInline",
@@ -264,7 +264,7 @@
       "ref": "79:24",
       "noteTr": "*Nâziât 79:24* — اَنَا رَبُّكُمُ الْاَعْلٰى — '**Ben sizin en yüce rabbinizim.**' *Firavun paradigması* — ene'nin kalınlaşmasının nihai noktası; *mana-yı ismî*nin tam-mutlaklaşması.",
       "noteEn": "*Al-Nāziʿāt 79:24* — اَنَا رَبُّكُمُ الْاَعْلٰى — '**I am your Lord, the Most High.**' *The Pharaoh paradigm* — the final point of the ego's thickening; the full absolutizing of the self-referential frame.",
-      "ar": "فَقَالَ اَنَا۬ رَبُّكُمُ الْاَعْلٰى"
+      "ar": "فَقَالَ اَنَا رَبُّكُمُ الْاَعْلٰى"
     },
     {
       "type": "verseInline",
@@ -357,15 +357,15 @@
       "ref": "19:60-61",
       "noteTr": "*Meryem 19:60-61* — Adn Cennetleri **bil gayb** yapılan salih amellerin karşılığı olarak zikredilir. *İhsan şuurunun eskatolojik meyvesi*.",
       "noteEn": "*Maryam 19:60-61* — the Gardens of ʿAdn are named as the reward for righteous deeds done *bil-ghayb*. *The eschatological fruit of iḥsān-awareness*.",
-      "ar": "اِلَّا مَنْ تَابَ وَاٰمَنَ وَعَمِلَ صَالِحاً فَاُو۬لٰٓئِكَ يَدْخُلُونَ الْجَنَّةَ وَلَا يُظْلَمُونَ شَيْـٔاً",
-      "isRange": true
+      "isRange": true,
+      "ar": "اِلَّا مَنْ تَابَ وَاٰمَنَ وَعَمِلَ صَالِحاً فَاُولٰٓئِكَ يَدْخُلُونَ الْجَنَّةَ وَلَا يُظْلَمُونَ شَيْـٔاً"
     },
     {
       "type": "verseInline",
       "ref": "58:22",
       "noteTr": "*Mücâdele 58:22* — اُولٰٓئِكَ حِزْبُ اللّٰهِ — '**Onlar Allah'ın tarafıdır.**' Yüksek şuurun nihai toplumsal-eskatolojik konumu.",
       "noteEn": "*Al-Mujādila 58:22* — اُولٰٓئِكَ حِزْبُ اللّٰهِ — '**Those are the party of Allah.**' The ultimate social-eschatological standing of high consciousness.",
-      "ar": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوٓادُّونَ مَنْ حٓادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانٓوا اٰبٓاءَهُمْ اَوْ اَبْنٓاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْ اُو۬لٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَا رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُ اُو۬لٰٓئِكَ حِزْبُ اللّٰهِ اَلٓا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ"
+      "ar": "لَا تَجِدُ قَوْماً يُؤْمِنُونَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ يُوٓادُّونَ مَنْ حٓادَّ اللّٰهَ وَرَسُولَهُ وَلَوْ كَانٓوا اٰبٓاءَهُمْ اَوْ اَبْنٓاءَهُمْ اَوْ اِخْوَانَهُمْ اَوْ عَشِيرَتَهُمْ اُولٰٓئِكَ كَتَبَ فِي قُلُوبِهِمُ الْاِيمَانَ وَاَيَّدَهُمْ بِرُوحٍ مِنْهُ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَا رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُ اُولٰٓئِكَ حِزْبُ اللّٰهِ اَلٓا اِنَّ حِزْبَ اللّٰهِ هُمُ الْمُفْلِحُونَ"
     },
     {
       "type": "verseInline",
@@ -379,8 +379,8 @@
       "ref": "7:8-9",
       "noteTr": "*A'râf 7:8-9* — *mizanları ağır gelen kurtulur; hafif gelen ise nefislerini kaybedenlerdir*. **Hasaret = nefisleri kaybetmek** — şuur kapanmasının nihai eskatolojik adı.",
       "noteEn": "*Al-Aʿrāf 7:8-9* — *those whose scales are heavy attain success; those whose scales are light have lost their own selves*. **Khusrān = the loss of selves** — the final eschatological name of consciousness-closing.",
-      "ar": "وَالْوَزْنُ يَوْمَئِذٍ الْحَقُّ فَمَنْ ثَقُلَتْ مَوَازِينُهُ فَاُو۬لٰٓئِكَ هُمُ الْمُفْلِحُونَ",
-      "isRange": true
+      "isRange": true,
+      "ar": "وَالْوَزْنُ يَوْمَئِذٍ الْحَقُّ فَمَنْ ثَقُلَتْ مَوَازِينُهُ فَاُولٰٓئِكَ هُمُ الْمُفْلِحُونَ"
     },
     {
       "type": "section",

@@ -98,7 +98,7 @@
       "ref": "2:31",
       "noteTr": "Bakara 2:31 — 'Âdem'e bütün isimleri öğretti. Sonra onları meleklere sundu: «Doğru sözlüyseniz şunların isimlerinden bana haber verin» dedi.'",
       "noteEn": "Al-Baqarah 2:31 — 'He taught Adam all the names; then He laid them before the angels and said: «Inform Me of the names of these, if you are truthful.»'",
-      "ar": "وَعَلَّمَ اٰدَمَ الْاَسْمٓاءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى الْمَلٰٓئِكَةِ فَقَالَ اَنْبِؤُ۫نِي بِاَسْمٓاءِ هٰٓؤُ۬لٓاءِ اِنْ كُنْتُمْ صَادِقِينَ"
+      "ar": "وَعَلَّمَ اٰدَمَ الْاَسْمٓاءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى الْمَلٰٓئِكَةِ فَقَالَ اَنْبِؤُنِي بِاَسْمٓاءِ هٰٓؤُلٓاءِ اِنْ كُنْتُمْ صَادِقِينَ"
     },
     {
       "type": "paragraph",
@@ -174,8 +174,8 @@
       "ref": "96:15-16",
       "noteTr": "Alak 96:15-16 — 'Hayır, kesinlikle öyle değil! Eğer gerçekten vazgeçmezse perçeminden (nâsiye) yakalarız. Yalancı ve yanlış yapan perçeminden.'",
       "noteEn": "Al-ʿAlaq 96:15-16 — 'Nay! If he ceases not, We shall seize him by the forelock (*nāṣiya*) — a lying, sinful forelock.'",
-      "ar": "كَلَّا لَئِنْ لَمْ يَنْتَهِ۬ لَنَسْفَعاً بِالنَّاصِيَةِ",
-      "isRange": true
+      "isRange": true,
+      "ar": "كَلَّا لَئِنْ لَمْ يَنْتَهِ لَنَسْفَعاً بِالنَّاصِيَةِ"
     },
     {
       "type": "paragraph",
