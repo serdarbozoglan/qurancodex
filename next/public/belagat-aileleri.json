@@ -1,0 +1,326 @@
+{
+  "meta": {
+    "totalAileler": 5,
+    "totalOrnekler": 22,
+    "generatedDate": "2026-07-06",
+    "sourceDraft": "docs/reviews/2026-07-06-kesfet-audit.md — Dalga 1.3"
+  },
+  "intro": {
+    "titleTr": "Belağat Aileleri — İstifhâm'ın Ötesinde",
+    "titleEn": "Belāġa Families — Beyond Istifhām",
+    "subtitleTr": "5 klasik retorik sanat · 22 âyet örneği · Cürcânî'den Zemahşerî'ye",
+    "subtitleEn": "5 classical rhetorical arts · 22 verse examples · from al-Jurjānī to al-Zamakhsharī",
+    "descTr": "Kur'ân'ın retoriği yalnızca soru (istifhâm) sanatından ibaret değildir. Klasik Arap belâgatı — Cürcânî'nin Delâʾilü'l-Iʿcâz (11. yy) ve Zemahşerî'nin el-Keşşâf (12. yy) ile sistematikleşen — beş büyük sanat ailesini tanır: **iltifât** (perspektif değiştirme), **tibâk/muḳâbele** (antithesis), **istiʿâre/teşbih** (metafor/temsil), **kinâye** (allusion), **cinâs** (paronomasia). Bu tool her ailenin 4-5 âyet örneğini klasik tefsir + modern akademik yorum eşliğinde sunar."
+  },
+  "aileler": [
+    {
+      "id": "iltifat",
+      "titleTr": "İltifât — Perspektif Değiştirme",
+      "titleEn": "Iltifāt — Perspective Shift",
+      "arabicName": "الِالْتِفَاتُ",
+      "color": "#d4a574",
+      "definitionTr": "Anlatının içinde ansızın kişi/zaman/hitap değiştirme sanatı. 1. şahıstan 3. şahsa, geçmişten şimdiki zamana, tekilden çoğula geçiş — dikkatin uyanık kalmasını sağlar. Kur'ân'ın belki en belirgin retorik imzası.",
+      "definitionEn": "The art of abruptly shifting person/tense/mode within a narrative. From first to third person, from past to present, from singular to plural — keeps attention alive. Perhaps the Qur'an's most distinctive rhetorical signature.",
+      "classicalTr": "İbn Kuteybe (9. yy) 'Te'vîlü Muşkili'l-Kur'ân'da iltifât'ı 'kelâmın en belâgatlı özelliği' diye niteler. Cürcânî 'Delâʾilü'l-Iʿcâz'da iltifâtı 'nazm' teorisinin merkezine oturtur. Zemahşerî 'Keşşâf' boyunca 100+ iltifât ayetini işaretler.",
+      "classicalEn": "Ibn Qutayba (9th c.) in Taʾwīl Mushkil al-Qurʾān calls iltifāt 'the most eloquent feature of speech.' Al-Jurjānī places iltifāt at the center of his 'naẓm' theory in Dalāʾil al-Iʿjāz. Al-Zamakhsharī marks over 100 iltifāt verses throughout al-Kashshāf.",
+      "modernTr": "Muhammed Abdul Haleem'in 'Grammatical Shift for Rhetorical Purposes' (BSOAS 55, 1992) makalesi iltifâtı akademik İslamoloji'ye yeniden tanıttı. Angelika Neuwirth iltifâtı 'Kur'ân'ın performatif metin karakterinin' delili olarak inceler.",
+      "modernEn": "Muhammad Abdel Haleem's 'Grammatical Shift for Rhetorical Purposes' (BSOAS 55, 1992) reintroduced iltifāt to academic Islamic Studies. Angelika Neuwirth examines iltifāt as evidence of the Qur'an's 'performative textual character.'",
+      "ornekler": [
+        {
+          "verseRef": "Fâtiha 1:2-5",
+          "verseAr": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ الرَّحْمٰنِ الرَّحِيمِ مَالِكِ يَوْمِ الدِّينِ اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ",
+          "verseTr": "Hamd, âlemlerin Rabbi Allah'a mahsustur. Rahmân, Rahîm... Yalnız Sana ibadet ederiz, yalnız Senden yardım isteriz.",
+          "verseEn": "Praise be to Allah, Lord of the worlds. The Most Merciful, the Especially Merciful... You alone we worship, You alone we ask for help.",
+          "analysisTr": "İlk üç ayet ALLAH hakkında 3. şahısla anlatım ('O'dur ki, O'dur ki'), 4. ayette aniden 2. şahıs hitap ('Sen'): 'iyyâke naʿbudü' (yalnız Sana). Bu iltifât Kur'ân'ın açılışında okuyucuyu 'anlatı' pozisyonundan 'dua eden' pozisyonuna geçirir — retorik olarak sarsıcı.",
+          "analysisEn": "The first three verses speak of ALLAH in the third person ('He who, He who'); in the fourth, sudden second-person address: 'iyyāka naʿbudu' (You alone). This iltifāt shifts the reader at the Qur'an's opening from a 'narrative' position to a 'praying' position — rhetorically striking."
+        },
+        {
+          "verseRef": "Yûnus 10:22",
+          "verseAr": "حَتّٰٓى اِذَا كُنْتُمْ فِي الْفُلْكِ وَجَرَيْنَ بِهِمْ بِرِيحٍ طَيِّبَةٍ",
+          "verseTr": "Nihayet siz gemide olduğunuz zaman, gemi de o güzel bir rüzgârla onları yürüttüğü zaman...",
+          "verseEn": "Until, when you are in the ships and they sail with them by a good wind...",
+          "analysisTr": "Ayet 'siz' (kuntum — 2. şahıs) ile başlar, hemen ardından 'onları' (bihim — 3. şahıs) ile devam eder. Aynı grup insan hakkında konuşulurken kişi değişir. Klasik belâgat: sınırdaş dinleyicileri 'içeri' çekip sonra 'dışarı' bırakarak evrensel bir dersi göstermek.",
+          "analysisEn": "The verse begins with 'you' (kuntum — 2nd person), then continues with 'them' (bihim — 3rd person). The person shifts while speaking about the same group. Classical balāgha: pulling the audience 'in' then releasing them 'out' to display a universal lesson."
+        },
+        {
+          "verseRef": "Fatir 35:9",
+          "verseAr": "وَاللّٰهُ الَّذٓي اَرْسَلَ الرِّيَاحَ فَتُثِيرُ سَحَاباً فَسُقْنَاهُ اِلٰى بَلَدٍ مَيِّتٍ",
+          "verseTr": "Allah rüzgârları gönderendir. O rüzgârlar bulutları harekete geçirir; biz de onu ölü beldeye sevk ederiz.",
+          "verseEn": "It is Allah who sends the winds, so that they stir up clouds, and We drive them to a dead land.",
+          "analysisTr": "'Allah gönderdi' (arsele — 3. şahıs mazi) → 'onu (bulutları) sevk ettik' (suqnâhu — 1. çoğul şahıs). Doğa anlatımı 'ilâhî anlatıcının' aniden birinci şahıs olarak devreye girmesiyle vurgulanır — muhatabın Allah'ın anlatıya doğrudan katıldığını hissetmesi retorik amaç.",
+          "analysisEn": "'Allah sent' (arsala — 3rd person perfect) → 'We drive them (clouds)' (suqnāhu — 1st person plural). The natural narrative is emphasized as the 'divine narrator' suddenly enters in first person — the rhetorical aim is for the listener to feel Allah's direct participation in the narrative."
+        },
+        {
+          "verseRef": "Nahl 16:66",
+          "verseAr": "نُسْقِيكُمْ مِمَّا فِي بُطُونِهِ",
+          "verseTr": "Onların karınlarındakinden size içiririz. (dişi hayvanların dışkı ile kanı arasından süt üretiminden bahsedilirken 'butûnihi' — 3. şahıs tekil eril)",
+          "verseEn": "We give you drink from what is in its belly. ('buṭūnihi' — 3rd masculine singular, referring to the female cattle collectively)",
+          "analysisTr": "'En'âm' (hayvanlar) çoğul isim olduğu halde zamiri 'butûnihi' — tekil eril! Klasik belâgat bunu 'iltifât' örneği olarak sayar: cinsin bütünlüğü tekil bir kavramla temsil edilir. Ferrâʾ ve İbn Cinnî'nin Arap dilbilim analizinde kritik referans örneği.",
+          "analysisEn": "Although 'anʿām' (cattle) is a plural noun, the pronoun is 'buṭūnihi' — masculine singular! Classical balāgha counts this as an iltifāt example: the totality of the genus is represented by a singular concept. A critical reference example in the Arabic linguistic analyses of al-Farrāʾ and Ibn Jinnī."
+        },
+        {
+          "verseRef": "Vâkıa 56:63-64",
+          "verseAr": "اَفَرَاَيْتُمْ مَا تَحْرُثُونَ ءَاَنْتُمْ تَزْرَعُونَهٓ اَمْ نَحْنُ الزَّارِعُونَ",
+          "verseTr": "Ektiğinizi bir düşünsenize! Onu siz mi bitiriyorsunuz yoksa bitiren biz miyiz?",
+          "verseEn": "Have you seen what you sow? Is it you who cause it to grow, or We who are the growers?",
+          "analysisTr": "'Siz mi (entum)?' '‰e biz mi (nahnu)?' — 2. çoğul şahıs ile 1. çoğul şahıs arasında hızlı iltifât. Retorik güç: iki tarafı yan yana koyarak muhatabın 'kim gerçekten fiili gerçekleştiriyor?' sorusunu iç sesinde yaşaması. Bu iltifât 63-73 arasında 3 kez tekrarlanır (ekin, su, ateş).",
+          "analysisEn": "'Is it you (antum)?' or 'is it We (naḥnu)?' — rapid iltifāt between second- and first-person plural. Rhetorical force: placing the two parties side by side, making the listener inwardly voice the question 'who really does the act?' This iltifāt repeats three times between 63-73 (sowing, water, fire)."
+        }
+      ]
+    },
+    {
+      "id": "tibak",
+      "titleTr": "Tibâk / Muḳâbele — Antitez",
+      "titleEn": "Ṭibāq / Muqābala — Antithesis",
+      "arabicName": "الطِّبَاقُ وَالْمُقَابَلَةُ",
+      "color": "#3498db",
+      "definitionTr": "Zıt kavramları yan yana koyarak anlamı derinleştirme sanatı. Tibâk (tek karşıtlık: gündüz-gece) ve muḳâbele (çoklu karşıtlık: 'hayrı emret, kötülükten sakındır') — Kur'ân'ın ahlâkî netliğinin retorik altyapısıdır.",
+      "definitionEn": "The art of deepening meaning by placing opposite concepts side by side. Ṭibāq (single antithesis: day-night) and muqābala (multiple antithesis: 'enjoin good, forbid evil') — the rhetorical infrastructure of the Qur'an's moral clarity.",
+      "classicalTr": "Câhız 'Kitâbü'l-Beyân' (9. yy) tibâkı 'i'câzın zirvesindeki sanatlardan' sayar. Cürcânî 'Esrârü'l-Belâġa' (11. yy) muḳâbeleye 3 tam bab ayırır. Zemahşerî ve Râzî tefsirlerinde neredeyse her sayfada tibâk/muḳâbele işaretleri.",
+      "classicalEn": "Al-Jāḥiẓ in Kitāb al-Bayān (9th c.) counts ṭibāq among 'the arts at the summit of iʿjāz.' Al-Jurjānī in Asrār al-Balāgha (11th c.) devotes three full chapters to muqābala. Al-Zamakhsharī and al-Rāzī mark ṭibāq/muqābala on almost every page.",
+      "modernTr": "Mustansir Mir 'Coherence in the Qur'an' (1986), Kur'ân sûrelerinin yapısal birliğinin altında yatan 'kutupluluk ilkesi'ni analiz eder — tibâk/muḳâbele bu ilkenin retorik yüzü.",
+      "modernEn": "Mustansir Mir's Coherence in the Qur'an (1986) analyzes the 'polarity principle' underlying the structural unity of Qur'anic suras — ṭibāq/muqābala is the rhetorical face of this principle.",
+      "ornekler": [
+        {
+          "verseRef": "Bakara 2:257",
+          "verseAr": "اَللّٰهُ وَلِيُّ الَّذِينَ اٰمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَالَّذِينَ كَفَرٓوا اَوْلِيٓاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ اِلَى الظُّلُمَاتِ",
+          "verseTr": "Allah, iman edenlerin velisidir; onları karanlıklardan aydınlığa çıkarır. İnkâr edenlerin velileri ise tâğuttur; onları aydınlıktan karanlıklara sürüklerler.",
+          "verseEn": "Allah is the protector of those who believe; He brings them out of darknesses into light. But those who disbelieve — their allies are ṭāghūt; they bring them out of light into darknesses.",
+          "analysisTr": "5 katmanlı muḳâbele: (1) Allah ↔ tâğut, (2) veli ↔ evliyâ, (3) iman ↔ küfr, (4) çıkarır ↔ çıkarırlar, (5) karanlık→nur ↔ nur→karanlık. Her katman ayna görünümlü — Zemahşerî bu ayeti 'muḳâbelenin zirvesi' sayar.",
+          "analysisEn": "A five-layered muqābala: (1) Allah ↔ ṭāghūt, (2) walī ↔ awliyāʾ, (3) faith ↔ disbelief, (4) brings out ↔ they bring out, (5) darkness→light ↔ light→darkness. Each layer is mirror-like — al-Zamakhsharī considers this the 'zenith of muqābala.'"
+        },
+        {
+          "verseRef": "Âl-i İmrân 3:26",
+          "verseAr": "تُعِزُّ مَنْ تَشٓاءُ وَتُذِلُّ مَنْ تَشٓاءُ",
+          "verseTr": "Dilediğini aziz eder, dilediğini zelil edersin.",
+          "verseEn": "You honor whom You will and abase whom You will.",
+          "analysisTr": "İki fiil kökü ('izze' ↔ 'zill' — üstün kılma vs alçaltma), aynı gramatik yapı ('men teşâʾu' — dilediğin), aynı zaman (şimdiki). Klasik tibâk örneği: 'muşâkele' (paralel yapı) + 'tibâk' (zıt anlam) = ritmin ve mesajın birlikte pekişmesi.",
+          "analysisEn": "Two verb roots ('ʿizz' ↔ 'dhill' — to elevate vs to humble), identical grammatical structure ('man tashāʾu' — whom you will), identical tense (present). Classical ṭibāq example: 'mushākala' (parallel structure) + 'ṭibāq' (opposite meaning) = mutual reinforcement of rhythm and message."
+        },
+        {
+          "verseRef": "Yâsîn 36:44",
+          "verseAr": "اِلَّا رَحْمَةً مِنَّا وَمَتَاعاً اِلٰى حِينٍ",
+          "verseTr": "Ancak bizden bir rahmet ve belli bir vakte kadar geçim (metâʾ) olarak.",
+          "verseEn": "But by mercy from Us, and enjoyment (matāʿ) for a while.",
+          "analysisTr": "İki nimet kavramı yan yana ('rahmet' — ilâhî lütuf, 'metâʾ' — geçici tüketim) ve iki zaman ('mennâ' — ebedi Allah'tan, 'ilâ ḥîn' — belli süreye kadar). Aynı ayette 'kalıcı' + 'geçici' tibâkı ile lütfun katmanları anlatılır.",
+          "analysisEn": "Two blessing concepts side by side ('raḥma' — divine bounty, 'matāʿ' — temporary provision) and two times ('minnā' — eternally from Allah, 'ilā ḥīn' — until a set time). In the same verse, 'lasting' + 'temporary' ṭibāq expresses the layers of grace."
+        },
+        {
+          "verseRef": "Rahmân 55:19-20",
+          "verseAr": "مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ بَيْنَهُمَا بَرْزَخٌ لَا يَبْغِيَانِ",
+          "verseTr": "İki denizi birbirine kavuşmak üzere salıvermiştir. Aralarında bir berzah vardır; birbirine geçip karışmazlar.",
+          "verseEn": "He released the two seas, meeting. Between them is a barrier; they do not transgress.",
+          "analysisTr": "İki hareket antitezi: 'yeltekiyân' (buluşurlar) ↔ 'lâ yeḃğıyân' (birbirine karışmazlar). Buluşma ile ayrılık aynı fenomende — Rahmân sûresinin 'çift yaratılış' ilkesi bu tibâk ile sunulur.",
+          "analysisEn": "Antithesis of two motions: 'yaltaqiyāni' (they meet) ↔ 'lā yabghiyāni' (they do not overflow). Meeting and separation in the same phenomenon — the 'pair-creation' principle of Sūrat al-Raḥmān is presented through this ṭibāq."
+        }
+      ]
+    },
+    {
+      "id": "istiare",
+      "titleTr": "İstiʿâre / Teşbih — Metafor & Temsil",
+      "titleEn": "Istiʿāra / Tashbīh — Metaphor & Simile",
+      "arabicName": "الِاسْتِعَارَةُ وَالتَّشْبِيهُ",
+      "color": "#8b5cf6",
+      "definitionTr": "Bir anlamı başka bir imgeyle taşıma sanatı. Teşbih (karşılaştırma: 'X gibi Y') açık, istiʿâre (metafor: X'i doğrudan Y ile adlandırma) örtüktür. Kur'ân'ın soyut kavramları (iman, küfr, rahmet) somutlaştırmasının ana aracı.",
+      "definitionEn": "The art of carrying meaning through another image. Tashbīh (simile: 'X like Y') is explicit; istiʿāra (metaphor: naming X directly as Y) is implicit. The Qur'an's primary tool for concretizing abstract concepts (faith, disbelief, mercy).",
+      "classicalTr": "Cürcânî 'Esrârü'l-Belâġa' (11. yy) istiʿârenin 'aklîliğini' (rational structure) analiz eder — modern Cognitive Linguistics'in 'conceptual metaphor' teorisinin öncüsü. Zemahşerî her istiʿâreyi 'bağıntı' ve 'karîne' ekseninde açıklar.",
+      "classicalEn": "Al-Jurjānī in Asrār al-Balāgha (11th c.) analyzes the 'rationality' of istiʿāra — a precursor to modern Cognitive Linguistics's 'conceptual metaphor' theory. Al-Zamakhsharī explains each istiʿāra along the axes of 'connection' and 'contextual clue.'",
+      "modernTr": "George Lakoff — Mark Johnson 'Metaphors We Live By' (1980) ile modern kavramsal metafor teorisi başlatıldı. Kevin van Bladel ve Karen Bauer Kur'ân istiʿâresini bu çerçevede analiz eden akademik çalışmalar sundu.",
+      "modernEn": "George Lakoff — Mark Johnson launched modern conceptual metaphor theory with Metaphors We Live By (1980). Kevin van Bladel and Karen Bauer have published academic work analyzing Qur'anic istiʿāra in this frame.",
+      "ornekler": [
+        {
+          "verseRef": "Bakara 2:187",
+          "verseAr": "هُنَّ لِبَاسٌ لَكُمْ وَاَنْتُمْ لِبَاسٌ لَهُنَّ",
+          "verseTr": "Onlar (kadınlar) sizin için, siz de onlar için birer elbisesiniz.",
+          "verseEn": "They (women) are a garment for you, and you are a garment for them.",
+          "analysisTr": "İstiʿâre-i tasrîhiyye (açık metafor): eşler 'libâs' (elbise) olarak adlandırılır. Karîne (context clue): elbisenin işlevleri — koruma, örtme, süsleme, yakınlık. Râzî'nin 8 katmanlı analiz: eşler bu 8 özelliği birbirine sağlar. Küçük bir kelime, sınırsız bir konsept.",
+          "analysisEn": "Istiʿāra taṣrīḥiyya (explicit metaphor): spouses are named 'libās' (garment). Contextual clue: the functions of a garment — protection, covering, adornment, intimacy. Al-Rāzī's 8-layered analysis: spouses provide these 8 qualities for one another. A small word carrying an unbounded concept."
+        },
+        {
+          "verseRef": "Nûr 24:35",
+          "verseAr": "اَللّٰهُ نُورُ السَّمٰوَاتِ وَالْاَرْضِ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ الْمِصْبَاحُ فِي زُجَاجَةٍ الزُّجَاجَةُ كَاَنَّهَا كَوْكَبٌ دُرِّيٌّ",
+          "verseTr": "Allah, göklerin ve yerin nûrudur. Onun nurunun temsili şudur: Bir kandil yuvası, içinde bir kandil; kandil bir camın içinde; cam, sanki inci gibi bir yıldız...",
+          "verseEn": "Allah is the light of the heavens and the earth. The example of His light is like a niche, within which is a lamp; the lamp is within glass; the glass as if it were a pearly star...",
+          "analysisTr": "İç içe geçmiş çok katmanlı teşbih zinciri: Allah-nûru → miştkât (kandil yuvası) → misbâh (kandil) → zücâce (cam) → kevkeb dürrî (inci yıldız). 5 imgenin her biri sonrakine 'zarf' (kap). Râzî bu ayeti 'estetik + felsefî' tefsirin merkezi sayar; Suhrawardi Îşrâk felsefesinde 'nûr metafiziğinin' anchor'ı.",
+          "analysisEn": "A multilayered simile chain nested within itself: Allah-light → mishkāt (niche) → miṣbāḥ (lamp) → zujāja (glass) → kawkab durrī (pearly star). Each of the 5 images is a 'vessel' for the next. Al-Rāzī considers this verse the center of aesthetic + philosophical tafsīr; the anchor of 'light metaphysics' in Suhrawardī's Ishrāq philosophy."
+        },
+        {
+          "verseRef": "İbrahim 14:24-26",
+          "verseAr": "كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ اَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِي السَّمٓاءِ",
+          "verseTr": "Güzel bir söz, kökü sağlam, dalları göğe uzanan güzel bir ağaç gibidir.",
+          "verseEn": "A good word is like a good tree — its roots firmly fixed, its branches in the sky.",
+          "analysisTr": "Teşbih-i temsîlî (allegorical simile): söz ↔ ağaç. Her parça karşılıklı: 'kök' → sözün doğruluk temeli, 'dallar göğe' → sözün ilâhî katta ulaşımı, 'meyve her mevsim' (14:25) → söz meyvesinin sürekliliği. Zemahşerî: 'temsil sanatının en açık örneği.'",
+          "analysisEn": "Tashbīh tamthīlī (allegorical simile): word ↔ tree. Every element corresponds: 'root' → truth-foundation of the word, 'branches in the sky' → the word's reception in the divine realm, 'fruit in every season' (14:25) → continuity of the fruit of speech. Al-Zamakhsharī: 'the clearest example of tamthīl.'"
+        },
+        {
+          "verseRef": "Ankebût 29:41",
+          "verseAr": "مَثَلُ الَّذِينَ اتَّخَذُوا مِنْ دُونِ اللّٰهِ اَوْلِيٓاءَ كَمَثَلِ الْعَنْكَبُوتِ اِتَّخَذَتْ بَيْتاً وَاِنَّ اَوْهَنَ الْبُيُوتِ لَبَيْتُ الْعَنْكَبُوتِ",
+          "verseTr": "Allah'tan başka dostlar edinenlerin durumu, örümceğin durumu gibidir. Örümcek yuva yapar, ama yuvaların en zayıfı örümcek yuvasıdır.",
+          "verseEn": "The example of those who take allies other than Allah is like the example of the spider that takes a home; and indeed, the weakest of homes is the spider's home.",
+          "analysisTr": "Teşbih-i temsîlî — put edinme ↔ örümceğin yuva örmesi. Modern etoloji ilginç bir doğrulama sağlar: örümceğin ipeği çelik-güçlü ama ağı yapısal olarak zayıftır (birazcık esintide dağılır). Kur'ân'ın imgesi bilim ile örtüşür — ancak birincil amaç ahlâkî ders.",
+          "analysisEn": "Tashbīh tamthīlī — idol-taking ↔ spider's web-building. Modern ethology provides a curious confirmation: spider silk is steel-strong, but the web is structurally weak (dispersed by the slightest breeze). The Qur'anic image aligns with science — but the primary aim is moral instruction."
+        }
+      ]
+    },
+    {
+      "id": "kinaye",
+      "titleTr": "Kinâye — Îmâlı Anlatım",
+      "titleEn": "Kināya — Allusive Expression",
+      "arabicName": "الْكِنَايَةُ",
+      "color": "#1D9E75",
+      "definitionTr": "Bir şeyi doğrudan söylemeyip başka bir ifadeyle îmâ ederek anlatma sanatı. Kur'ân bilhassa hassas konularda (cinsellik, ölüm, ilâhî meseleler) kinâyeyi kullanır — hem edep hem derinlik.",
+      "definitionEn": "The art of indirectly signaling something through another expression rather than saying it directly. The Qur'an especially uses kināya on sensitive topics (sexuality, death, divine matters) — for both etiquette and depth.",
+      "classicalTr": "Sekkâkî 'Miftâḥu'l-ʿUlûm' (12. yy) kinâyeyi 3 kategoriye ayırır: (1) sıfat kinâyesi, (2) mevsûf kinâyesi, (3) nispet kinâyesi. Râzî tefsirinde kinâye tespitini 'meʿânî' ilminin merkezi konusu olarak işler.",
+      "classicalEn": "Al-Sakkākī in Miftāḥ al-ʿUlūm (12th c.) divides kināya into 3 categories: (1) attribute kināya, (2) subject kināya, (3) relational kināya. Al-Rāzī treats the identification of kināya as the central topic of the science of maʿānī in his tafsīr.",
+      "modernTr": "Modern pragmatik: kinâye 'impliciture' (Grice-Sperber-Wilson relevance theory) çerçevesinde analiz edilir — konuşan söylemediklerinin hesaba katılmasını bekler. Kur'ân'ın 'edeb' vurgusu bu retoriği zorunlu kılar.",
+      "modernEn": "Modern pragmatics: kināya can be analyzed within the 'impliciture' frame (Grice-Sperber-Wilson relevance theory) — the speaker expects the unsaid to be reckoned. The Qur'an's emphasis on 'adab' (courtesy) necessitates this rhetoric.",
+      "ornekler": [
+        {
+          "verseRef": "Bakara 2:187",
+          "verseAr": "اُحِلَّ لَكُمْ لَيْلَةَ الصِّيَامِ الرَّفَثُ اِلٰى نِسٓائِكُمْ",
+          "verseTr": "Oruç gecesinde kadınlarınıza yaklaşmak size helal kılındı.",
+          "verseEn": "Permitted to you on the night of fasting is 'rafath' with your women.",
+          "analysisTr": "'Rafas' — klasik Arapçada kaba/açık cinsel söz anlamına da gelirken, burada 'cinsel ilişki' için kinâye olarak kullanılır. Ayet cinsel ilişkiyi 'lafzî' söylemez, 'îmâ' eder. Elmalılı: 'Kur'ân edep kelimeleriyle bu meseleyi işaret eder, açık dille söylemez — bu edeb-i beyan örneğidir.'",
+          "analysisEn": "'Rafath' in classical Arabic means coarse/explicit sexual talk, but here it is used as a kināya for 'sexual intercourse.' The verse does not say sexual intercourse literally; it indicates it. Elmalılı: 'the Qur'an points to this matter with words of decorum, not in explicit language — an example of adab al-bayān.'"
+        },
+        {
+          "verseRef": "Nisâ 4:43",
+          "verseAr": "اَوْ لَامَسْتُمُ النِّسٓاءَ",
+          "verseTr": "Ya da kadınlara dokundunuz (temas ettinizse)...",
+          "verseEn": "Or you have touched women...",
+          "analysisTr": "'Lâmestüm' (dokundunuz) — abdest bozmanın sebeplerinden biri olarak kinâye. Klasik Şâfîî tefsiri 'fizikî temas' anlar; Hanefî tefsiri 'cinsel ilişki' anlar. Bu, aynı kinâyenin iki farklı fıkhî yoruma yol açtığı klasik örnektir.",
+          "analysisEn": "'Lāmastum' (you touched) — kināya as a cause for breaking ablution. Classical Shāfiʿī tafsīr reads it as 'physical touch'; Ḥanafī tafsīr reads it as 'sexual intercourse.' This is a classic example of the same kināya giving rise to two different juristic readings."
+        },
+        {
+          "verseRef": "Meryem 19:5",
+          "verseAr": "قَالَ رَبِّ اِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّاْسُ شَيْباً",
+          "verseTr": "Rabbim! Şüphesiz kemiklerim gevşedi. Saç ağarmışlığı ile başım tutuştu.",
+          "verseEn": "My Lord, my bones have weakened, and my head has flared with white hair.",
+          "analysisTr": "Zekeriyya'nın (a.s.) 'yaşlılık' için 3 katmanlı kinâye: (1) 'kemik gevşemesi' — bedensel zayıflık, (2) 'saç ağarması' — yaşın simgesi, (3) 'başım tutuştu' (iştaʿale) — çarpıcı metafor, saç beyazlığı ateşe benzetilir. Zemahşerî bu ayeti 'kinâyenin şiirsel zirvesi' sayar — yaşlılık kelimesi ayette geçmez ama çarpıcı bir portresi çıkar.",
+          "analysisEn": "Zakariyyā's three-layered kināya for 'old age': (1) 'weakened bones' — bodily frailty, (2) 'graying hair' — symbol of age, (3) 'my head has flared' (ishtaʿala) — striking metaphor, white hair likened to fire. Al-Zamakhsharī considers this verse 'the poetic zenith of kināya' — the word 'old age' does not appear, yet a striking portrait emerges."
+        },
+        {
+          "verseRef": "Kehf 18:11",
+          "verseAr": "فَضَرَبْنَا عَلٰٓى اٰذَانِهِمْ فِي الْكَهْفِ سِنِينَ عَدَداً",
+          "verseTr": "Bunun üzerine biz mağarada onların kulaklarına yıllarca perde vurduk.",
+          "verseEn": "So We drew veils over their ears in the cave for many years.",
+          "analysisTr": "'Kulakların üzerine vurma' — derin ve uzun uyku için kinâye. Klasik: 'uyanmasınlar diye kulakları etkisiz kıldık' anlamı. Ayet direkt 'uyuttuk' demez, 'işitmenin geçici olarak durdurulması' îmâsıyla verir — poetik incelik.",
+          "analysisEn": "'Striking upon their ears' — kināya for deep, extended sleep. Classical reading: 'we neutralized their hearing so they would not wake.' The verse does not say 'we made them sleep' directly but implies it as 'the temporary halting of hearing' — poetic subtlety."
+        }
+      ]
+    },
+    {
+      "id": "cinas",
+      "titleTr": "Cinâs — Ses Benzeşmesi (Paronomasia)",
+      "titleEn": "Jinās — Paronomasia",
+      "arabicName": "الْجِنَاسُ",
+      "color": "#e67e22",
+      "definitionTr": "Aynı veya benzer sesli kelimeleri farklı anlamlarla yan yana kullanma sanatı. Ses tekrarı ile anlam derinliği aynı anda oluşur — Kur'ân belâgatının en 'müzikal' katmanı.",
+      "definitionEn": "The art of using same- or similar-sounding words side by side with different meanings. Sonic repetition and depth of meaning are formed simultaneously — the most 'musical' layer of Qur'anic rhetoric.",
+      "classicalTr": "Câhız cinâsı 'kelâmın süsü' sayar. İbnu'l-Muʿtezz (10. yy) el-Bedîʿ'de cinâsı 5 kategoriye ayırır: tam (aynı harfler), nakıs (bir harf farklı), muktarîn (yaklaşık), mudâriʿ (anlam yakın), lâhik (anlam uzak). Râzî her cinâsı 'meʿnâ bihi 'ilm' (kastedilen anlamla eğitim) ekseninde inceler.",
+      "classicalEn": "Al-Jāḥiẓ considers jinās 'the ornament of speech.' Ibn al-Muʿtazz (10th c.) in al-Badīʿ divides jinās into 5 categories: complete (same letters), incomplete (one letter different), close, related in meaning, distant in meaning. Al-Rāzī examines each jinās in his tafsīr along the axis of 'the intended meaning as instruction.'",
+      "modernTr": "Angelika Neuwirth Kur'ân'ın Mekki sûrelerindeki fasıla-cinâs örgüsünü 'performatif ses estetiği' olarak analiz eder. Michael Sells 'Approaching the Qur'an' (1999) fonetik yakınlığın anlam üretimindeki rolünü akademik dille sunar.",
+      "modernEn": "Angelika Neuwirth analyzes the fāṣila-jinās weave in Meccan suras as 'performative sonic aesthetics.' Michael Sells in Approaching the Qur'an (1999) presents the role of phonetic proximity in meaning-generation in academic language.",
+      "ornekler": [
+        {
+          "verseRef": "Rûm 30:55",
+          "verseAr": "يُقْسِمُ الْمُجْرِمُونَ مَا لَبِثُوا غَيْرَ سَاعَةٍ كَذٰلِكَ كَانُوا يُؤْفَكُونَ",
+          "verseTr": "Suçlular yemin ederler: 'Sadece bir saat kaldık' derler. İşte onlar (dünyada da) böyle çarpıtırlardı.",
+          "verseEn": "The criminals will swear they had not remained but an hour. Thus they were deluded.",
+          "analysisTr": "Cinâs-ı nâkıs: 'yuḳsimu' (yemin ederler) ↔ 'yuʾfekûne' (çarpıtılırlardı). Kök farkı: q-s-m vs a-f-k, ama fonetik yakınlık ve ses akışı benzerlik. Retorik: aynı fiil kalıbında iki zıt eylem — yemin (doğrulama) ↔ çarpıtma (yalanlama).",
+          "analysisEn": "Jinās nāqiṣ: 'yuqsimu' (they swear) ↔ 'yuʾfakūna' (they were deluded). Root difference: q-s-m vs a-f-k, but phonetic proximity and flow of sound. Rhetoric: two opposite actions in the same verb pattern — swearing (affirmation) ↔ delusion (falsification)."
+        },
+        {
+          "verseRef": "Tîn 95:4-5",
+          "verseAr": "لَقَدْ خَلَقْنَا الْاِنْسَانَ فِي اَحْسَنِ تَقْوِيمٍ ثُمَّ رَدَدْنَاهُ اَسْفَلَ سَافِلِينَ",
+          "verseTr": "Biz insanı en güzel biçimde yarattık. Sonra onu aşağıların en aşağısına çevirdik.",
+          "verseEn": "We have certainly created man in the best of stature. Then We return him to the lowest of the low.",
+          "analysisTr": "Cinâs-ı iştikâk (kökten türetme): 'aḥseni' (en güzel) ↔ 'asfele sâfilîn' (en aşağı) — antitez + kök-farklı ses akışı. 'Tin' sûresi fasılası 'în' ile biter (tîn, zeytûn, sînîn, emîn, taḳvîm, sâfilîn) — bütün sûre bu ses-tekrarı ile örülüdür.",
+          "analysisEn": "Jinās ishtiqāq (root-derivation): 'aḥsani' (best) ↔ 'asfala sāfilīn' (lowest) — antithesis + sound-flow from different roots. Sūrat al-Tīn's fāṣila ends in 'īn' (tīn, zaytūn, sīnīn, amīn, taqwīm, sāfilīn) — the whole sura is woven with this sound-repetition."
+        },
+        {
+          "verseRef": "Rahmân 55:6-7",
+          "verseAr": "وَالنَّجْمُ وَالشَّجَرُ يَسْجُدَانِ وَالسَّمٓاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ",
+          "verseTr": "Yıldızlar ve ağaçlar (Allah'a) secde ederler. Göğü Allah yükseltti ve mizanı (ölçüyü) koydu.",
+          "verseEn": "And the stars and trees prostrate. And the heaven He raised and set the balance.",
+          "analysisTr": "Cinâs-ı hattı (harflerin dizim benzerliği): 'necm-şecer' (n-c-m/ş-c-r) ↔ 'semâʾ-mîzân' (s-m-ʾ/m-ī-z-n) — ilki bitki-yıldız (yer-gök), ikincisi denge-yasa. Rahmân sûresi ses ile kozmik denge arasında derin cinâs örgüsü kurar.",
+          "analysisEn": "Jinās khaṭṭī (letter-arrangement similarity): 'najm-shajar' (n-j-m/sh-j-r) ↔ 'samāʾ-mīzān' (s-m-ʾ/m-ī-z-n) — the first pair plant-star (earth-sky), the second balance-law. Sūrat al-Raḥmān weaves a deep jinās between sound and cosmic balance."
+        },
+        {
+          "verseRef": "Fussilet 41:11",
+          "verseAr": "قَالَتٓا اَتَيْنَا طٓائِعِينَ",
+          "verseTr": "İkisi de (yer ve gök) dediler ki: 'İtaat ederek geldik.'",
+          "verseEn": "They both said: 'We come willingly.'",
+          "analysisTr": "Cinâs-ı harfî: 'kâletâ' (ikisi dedi) ↔ 'eteynâ' (geldik) ↔ 'ṭâʾiʿîn' (itaat edenler) — 'ta' harfi 3 kez zincirleme, ritmik güç. Fiil-öznenin senkronu yer ve göğün 'sesli anlaşması' izlenimi verir — kozmik hitap sanatı.",
+          "analysisEn": "Jinās ḥarfī: 'qālatā' (the two said) ↔ 'ataynā' (we come) ↔ 'ṭāʾiʿīn' (obedient) — the 'ta' consonant chains three times, rhythmic power. The verb-subject sync creates the impression of a 'vocal agreement' between earth and sky — the art of cosmic address."
+        },
+        {
+          "verseRef": "Duhâ 93:1-2",
+          "verseAr": "وَالضُّحٰى وَاللَّيْلِ اِذَا سَجٰى",
+          "verseTr": "Kuşluk vaktine ve sükûna erdiğinde geceye yemin olsun ki...",
+          "verseEn": "By the morning brightness, and by the night when it settles...",
+          "analysisTr": "Cinâs-ı ses (fonetik): 'duḥâ' ↔ 'sacâ' — 'aa' uzun sesli fasıla, aynı vezinde iki zıt vakit (kuşluk aydınlığı ↔ gece dinginliği). Duhâ sûresi bu ses yapısını sonuna kadar taşır — 11 ayetin hepsi 'aa' sesiyle biter.",
+          "analysisEn": "Sonic (phonetic) jinās: 'ḍuḥā' ↔ 'sajā' — long 'aa' fāṣila, two opposite times in the same meter (morning brightness ↔ night settling). Sūrat al-Ḍuḥā carries this sonic structure to the end — all 11 verses end with the 'aa' sound."
+        }
+      ]
+    }
+  ],
+  "kaynaklar": [
+    {
+      "author": "Câhız",
+      "workTr": "Kitâbü'l-Beyân ve't-Tebyîn",
+      "workEn": "Kitāb al-Bayān wa'l-Tabyīn",
+      "century": "9. yy",
+      "note": "Belâgat ilminin ilk sistematik eseri; cinâs, tibâk, istiʿâre'nin kurucu tanımları."
+    },
+    {
+      "author": "Cürcânî",
+      "workTr": "Delâʾilü'l-Iʿcâz · Esrârü'l-Belâġa",
+      "workEn": "Dalāʾil al-Iʿjāz · Asrār al-Balāgha",
+      "century": "11. yy (1078)",
+      "note": "Naẓm teorisinin ve metafor analizinin bilimsel temeli; modern belâgatın kurucu eseri."
+    },
+    {
+      "author": "Zemahşerî",
+      "workTr": "el-Keşşâf ʿan Ḥaḳâʾiḳi't-Tenzîl",
+      "workEn": "al-Kashshāf ʿan Ḥaqāʾiq al-Tanzīl",
+      "century": "12. yy (1144)",
+      "note": "Klasik belâgatın Kur'ân'a en detaylı uygulaması; iltifât ve muḳâbele tespitleri sık."
+    },
+    {
+      "author": "Sekkâkî",
+      "workTr": "Miftâḥu'l-ʿUlûm",
+      "workEn": "Miftāḥ al-ʿUlūm",
+      "century": "12. yy (1229)",
+      "note": "Belâgat ilminin akademik sistemleşmesi (bayân, meʿânî, bedîʿ üçlü tasnifi)."
+    },
+    {
+      "author": "Fahreddin er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "century": "12-13. yy",
+      "note": "Her ayette belâgat sanatlarını sistematik olarak işaretler ve analiz eder."
+    },
+    {
+      "author": "Abdul Haleem",
+      "workTr": "'Grammatical Shift for Rhetorical Purposes'",
+      "workEn": "'Grammatical Shift for Rhetorical Purposes'",
+      "century": "20. yy (1992)",
+      "note": "İltifât'ı modern akademik Islamic Studies'e yeniden tanıtan öncü makale (BSOAS 55)."
+    },
+    {
+      "author": "Angelika Neuwirth",
+      "workTr": "Studien zur Komposition der mekkanischen Suren",
+      "workEn": "Studien zur Komposition der mekkanischen Suren",
+      "century": "20-21. yy (1981, revize 2007)",
+      "note": "Kur'ân'ın performatif sonik estetiği ve cinâs-fasıla örgüsünün akademik analizi."
+    },
+    {
+      "author": "Michael Sells",
+      "workTr": "Approaching the Qur'ān",
+      "workEn": "Approaching the Qur'ān",
+      "century": "20. yy (1999)",
+      "note": "Fonetik yakınlığın anlam üretimindeki rolü; sound-figure kavramı."
+    }
+  ]
+}
