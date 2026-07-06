@@ -1,12 +1,14 @@
 {
   "meta": {
-    "totalProfiles": 7,
-    "totalCoreVerses": 14,
+    "totalProfiles": 12,
+    "totalCoreVerses": 23,
     "scholarTypologies": 1,
     "authenticHadiths": 1,
     "generatedBy": "qc-content-producer",
     "generatedDate": "2026-04-20",
-    "sourceDraft": "docs/content-drafts/2026-04-20-munafik-profili.md"
+    "sourceDraft": "docs/content-drafts/2026-04-20-munafik-profili.md",
+    "totalSurahsDistribution": 8,
+    "totalKissalar": 3
   },
   "intro": {
     "titleTr": "Münâfık Profili — Kur'ân'ın Psikolojik Anatomisi",
@@ -30,7 +32,7 @@
           "verseRef": "Bakara 2:8",
           "surah": 2,
           "ayah": 8,
-          "verseAr": "وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِن۪ينَۢ",
+          "verseAr": "وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِنِينَ",
           "verseTr": "İnsanlardan bazıları da vardır ki, inanmadıkları halde \"Allah'a ve ahiret gününe inandık\" derler.",
           "verseEn": "And of the people are some who say, \"We believe in Allah and the Last Day,\" but they are not believers."
         },
@@ -38,7 +40,7 @@
           "verseRef": "Bakara 2:9",
           "surah": 2,
           "ayah": 9,
-          "verseAr": "يُخَادِعُونَ اللّٰهَ وَالَّذ۪ينَ اٰمَنُواۚ وَمَا يَخْدَعُونَ اِلَّٓا اَنْفُسَهُمْ وَمَا يَشْعُرُونَۜ",
+          "verseAr": "يُخَادِعُونَ اللّٰهَ وَالَّذِينَ اٰمَنُوا وَمَا يَخْدَعُونَ اِلَٓا اَنْفُسَهُمْ وَمَا يَشْعُرُونَ",
           "verseTr": "Onlar (kendi akıllarınca) güya Allah'ı ve müminleri aldatırlar. Halbuki onlar ancak kendilerini aldatırlar ve bunun farkında değillerdir.",
           "verseEn": "They [think to] deceive Allah and those who believe, but they deceive not except themselves and perceive [it] not."
         },
@@ -46,7 +48,7 @@
           "verseRef": "Bakara 2:10",
           "surah": 2,
           "ayah": 10,
-          "verseAr": "ف۪ي قُلُوبِهِمْ مَرَضٌۙ فَزَادَهُمُ اللّٰهُ مَرَضاًۚ وَلَهُمْ عَذَابٌ اَل۪يمٌۙ بِمَا كَانُوا يَكْذِبُونَ",
+          "verseAr": "فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللّٰهُ مَرَضاً وَلَهُمْ عَذَابٌ اَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ",
           "verseTr": "Onların kalblerinde bir hastalık vardır. Allah da onların hastalığını çoğaltmıştır. Söylemekte oldukları yalanlar sebebiyle de onlar için elim bir azap vardır.",
           "verseEn": "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie."
         }
@@ -74,7 +76,7 @@
           "verseRef": "Bakara 2:11",
           "surah": 2,
           "ayah": 11,
-          "verseAr": "وَاِذَا ق۪يلَ لَهُمْ لَا تُفْسِدُوا فِي الْاَرْضِۙ  قَالُٓوا اِنَّمَا نَحْنُ مُصْلِحُونَ",
+          "verseAr": "وَاِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْاَرْضِ  قَالٓوا اِنَّمَا نَحْنُ مُصْلِحُونَ",
           "verseTr": "Onlara: Yeryüzünde fesat çıkarmayın, denildiği zaman, \"Biz ancak ıslah edicileriz\" derler.",
           "verseEn": "And when it is said to them, \"Do not cause corruption on the earth,\" they say, \"We are but reformers.\""
         },
@@ -82,7 +84,7 @@
           "verseRef": "Bakara 2:12",
           "surah": 2,
           "ayah": 12,
-          "verseAr": "اَلَٓا اِنَّهُمْ هُمُ الْمُفْسِدُونَ وَلٰكِنْ لَا يَشْعُرُونَ",
+          "verseAr": "اَلٓا اِنَّهُمْ هُمُ الْمُفْسِدُونَ وَلٰكِنْ لَا يَشْعُرُونَ",
           "verseTr": "Şunu bilin ki, onlar bozguncuların ta kendileridir, lakin anlamazlar.",
           "verseEn": "Unquestionably, it is they who are the corrupters, but they perceive [it] not."
         }
@@ -110,7 +112,7 @@
           "verseRef": "Bakara 2:14",
           "surah": 2,
           "ayah": 14,
-          "verseAr": "وَاِذَا لَقُوا الَّذٖينَ اٰمَنُوا قَالُٓوا اٰمَنَّاۚ وَاِذَا خَلَوْا اِلٰى شَيَاطٖينِهِمْۙ قَالُٓوا اِنَّا مَعَكُمْۙ اِنَّمَا نَحْنُ مُسْتَهْزِؤُ۫نَ",
+          "verseAr": "وَاِذَا لَقُوا الَّذِينَ اٰمَنُوا قَالٓوا اٰمَنَّا وَاِذَا خَلَوْا اِلٰى شَيَاطِينِهِمْ قَالٓوا اِنَّا مَعَكُمْ اِنَّمَا نَحْنُ مُسْتَهْزِؤُنَ",
           "verseTr": "(Bu münafıklar) müminlerle karşılaştıkları vakit \"(Biz de) iman ettik\" derler. (Kendilerini saptıran) şeytanları ile başbaşa kaldıklarında ise: Biz sizinle beraberiz, biz onlarla (müminlerle) sadece alay ediyoruz, derler.",
           "verseEn": "And when they meet those who believe, they say, \"We believe\"; but when they are alone with their evil ones, they say, \"Indeed, we are with you; we were only mockers.\""
         },
@@ -118,7 +120,7 @@
           "verseRef": "Münâfikûn 63:1",
           "surah": 63,
           "ayah": 1,
-          "verseAr": "اِذَا جَٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِۢ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُۜ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِق۪ينَ لَـكَاذِبُونَۚ",
+          "verseAr": "اِذَا جٓاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ اِنَّكَ لَرَسُولُ اللّٰهِ وَاللّٰهُ يَعْلَمُ اِنَّكَ لَرَسُولُهُ وَاللّٰهُ يَشْهَدُ اِنَّ الْمُنَافِقِينَ لَـكَاذِبُونَ",
           "verseTr": "Münafıklar sana geldiklerinde: Şahitlik ederiz ki sen Allah'ın Peygamberisin, derler. Allah da bilir ki sen elbette, O'nun Peygamberisin. Allah, münafıkların kesinlikle yalancı olduklarını bilmektedir.",
           "verseEn": "When the hypocrites come to you, [O Muhammad], they say, \"We testify that you are the Messenger of Allah.\" And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars."
         },
@@ -126,7 +128,7 @@
           "verseRef": "Münâfikûn 63:4",
           "surah": 63,
           "ayah": 4,
-          "verseAr": "وَاِذَا رَاَيْتَهُمْ تُعْجِبُكَ اَجْسَامُهُمْۜ وَاِنْ يَقُولُوا تَسْمَعْ لِقَوْلِهِمْۜ   كَاَنَّهُمْ خُشُبٌ مُسَنَّدَةٌۜ يَحْسَبُونَ كُلَّ صَيْحَةٍ عَلَيْهِمْۜ هُمُ الْعَدُوُّ فَاحْذَرْهُمْۜ  قَاتَلَهُمُ اللّٰهُۘ  اَنّٰى يُؤْفَـكُونَ",
+          "verseAr": "وَاِذَا رَاَيْتَهُمْ تُعْجِبُكَ اَجْسَامُهُمْ وَاِنْ يَقُولُوا تَسْمَعْ لِقَوْلِهِمْ   كَاَنَّهُمْ خُشُبٌ مُسَنَّدَةٌ يَحْسَبُونَ كُلَّ صَيْحَةٍ عَلَيْهِمْ هُمُ الْعَدُوُّ فَاحْذَرْهُمْ  قَاتَلَهُمُ اللّٰهُ  اَنّٰى يُؤْفَـكُونَ",
           "verseTr": "Onları gördüğün zaman kalıpları hoşuna gider, konuşurlarsa sözlerini dinlersin. Onlar sanki duvara dayanmış kütükler gibidir. Her gürültüyü kendi aleyhlerine sanırlar.",
           "verseEn": "And when you see them, their forms please you, and if they speak, you listen to their speech. [They are] as if they were pieces of wood propped up — they think that every shout is against them."
         }
@@ -154,7 +156,7 @@
           "verseRef": "Nisâ 4:142",
           "surah": 4,
           "ayah": 142,
-          "verseAr": "اِنَّ الْمُنَافِق۪ينَ يُخَادِعُونَ اللّٰهَ وَهُوَ خَادِعُهُمْۚ وَاِذَا قَامُٓوا اِلَى الصَّلٰوةِ قَامُوا كُسَالٰىۙ يُرَٓاؤُ۫نَ النَّاسَ وَلَا يَذْكُرُونَ اللّٰهَ اِلَّا قَل۪يلاًۘ",
+          "verseAr": "اِنَّ الْمُنَافِقِينَ يُخَادِعُونَ اللّٰهَ وَهُوَ خَادِعُهُمْ وَاِذَا قَامٓوا اِلَى الصَّلٰوةِ قَامُوا كُسَالٰى يُرٓاؤُنَ النَّاسَ وَلَا يَذْكُرُونَ اللّٰهَ اِلَّا قَلِيلاً",
           "verseTr": "Şüphesiz münafıklar Allah'a oyun etmeye kalkışıyorlar; halbuki Allah onların oyunlarını başlarına çevirmektedir. Onlar namaza kalktıkları zaman üşenerek kalkarlar, insanlara gösteriş yaparlar, Allah'ı da pek az hatıra getirirler.",
           "verseEn": "Indeed, the hypocrites [think to] deceive Allah, but He is deceiving them. And when they stand for prayer, they stand lazily, showing [themselves to] the people and not remembering Allah except a little."
         }
@@ -182,7 +184,7 @@
           "verseRef": "Nisâ 4:143",
           "surah": 4,
           "ayah": 143,
-          "verseAr": "مُذَبْذَب۪ينَ بَيْنَ ذٰلِكَۗ لَٓا اِلٰى هٰٓؤُ۬لَٓاءِ وَلَٓا اِلٰى هٰٓؤُ۬لَٓاءِۜ وَمَنْ يُضْلِلِ اللّٰهُ فَلَنْ تَجِدَ لَهُ سَب۪يلاً",
+          "verseAr": "مُذَبْذَبِينَ بَيْنَ ذٰلِكَ لٓا اِلٰى هٰٓؤُلٓاءِ وَلٓا اِلٰى هٰٓؤُلٓاءِ وَمَنْ يُضْلِلِ اللّٰهُ فَلَنْ تَجِدَ لَهُ سَبِيلاً",
           "verseTr": "Bunların arasında bocalayıp durmaktalar, ne onlara (bağlanıyorlar) ne bunlara. Allah'ın şaşırttığı kimseye asla bir (çıkar) yol bulamazsın.",
           "verseEn": "Wavering between them, [belonging] neither to the believers nor to the disbelievers. And whoever Allah leaves astray — never will you find for him a way."
         }
@@ -210,7 +212,7 @@
           "verseRef": "Tevbe 9:67",
           "surah": 9,
           "ayah": 67,
-          "verseAr": "اَلْمُنَافِقُونَ وَالْمُنَافِقَاتُ بَعْضُهُمْ مِنْ بَعْضٍۢ يَأْمُرُونَ بِالْمُنْكَرِ وَيَنْهَوْنَ عَنِ الْمَعْرُوفِ وَيَقْبِضُونَ اَيْدِيَهُمْۜ نَسُوا اللّٰهَ فَنَسِيَهُمْۜ اِنَّ الْمُنَافِق۪ينَ هُمُ الْفَاسِقُونَ",
+          "verseAr": "اَلْمُنَافِقُونَ وَالْمُنَافِقَاتُ بَعْضُهُمْ مِنْ بَعْضٍ يَأْمُرُونَ بِالْمُنْكَرِ وَيَنْهَوْنَ عَنِ الْمَعْرُوفِ وَيَقْبِضُونَ اَيْدِيَهُمْ نَسُوا اللّٰهَ فَنَسِيَهُمْ اِنَّ الْمُنَافِقِينَ هُمُ الْفَاسِقُونَ",
           "verseTr": "Münafık erkekler ve münafık kadınlar (sizden değil), birbirlerindendir. Onlar kötülüğü emreder, iyilikten alıkor ve cimrilik ederler. Onlar Allah'ı unuttular. Allah da onları unuttu! Çünkü münafıklar fasıkların kendileridir.",
           "verseEn": "The hypocrite men and hypocrite women are of one another. They enjoin what is wrong and forbid what is right and close their hands. They have forgotten Allah, so He has forgotten them. Indeed, the hypocrites — it is they who are the defiantly disobedient."
         }
@@ -231,14 +233,34 @@
         "titleEn": "Mukābala — Hypocrite (9:67) ↔ Believer (9:71)",
         "noteTr": "Klasik Arap belâgatında 'mukâbele' (zıt karşılaştırma) sanatının zirve örneklerinden biri. Aynı sûrede dört ayet arayla münâfık ve mü'min, dört eksende ters-ayna konumunda tarif edilir.",
         "noteEn": "One of the canonical examples of *mukābala* (antithetical pairing) in classical Arabic rhetoric. In the same sura, four verses apart, hypocrites and believers are described as mirror inversions across four axes.",
-        "mirrorVerseAr": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ وَيُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ",
+        "mirrorVerseAr": "وَالْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ  يَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ وَيُقِيمُونَ الصَّلَاةَ وَيُؤْتُونَ الزَّكَاةَ",
         "mirrorVerseTr": "Mü'min erkekler ve mü'min kadınlar birbirinin velîsidir. İyiliği emreder, kötülükten alıkoyar; namazı kılar, zekâtı verirler. — Tevbe 9:71",
         "mirrorVerseEn": "The believing men and the believing women are allies of one another. They enjoin what is right, forbid what is wrong, establish prayer, and give zakāt. — Q 9:71",
         "pairs": [
-          { "munafikTr": "Birbirlerindendir (ba'duhum min ba'd)",  "muminTr": "Birbirinin velîsidir (evliyâ ba'd)",        "munafikEn": "Of one another (baʿḍuhum min baʿḍ)", "muminEn": "Allies of one another (awliyāʾ baʿḍ)" },
-          { "munafikTr": "Kötülüğü emreder",                        "muminTr": "İyiliği emreder",                            "munafikEn": "Enjoin wrong",                       "muminEn": "Enjoin right" },
-          { "munafikTr": "İyilikten alıkor",                        "muminTr": "Kötülükten alıkor",                          "munafikEn": "Forbid right",                       "muminEn": "Forbid wrong" },
-          { "munafikTr": "Ellerini kapatır (cimrilik)",              "muminTr": "Namaz kılar, zekât verir",                   "munafikEn": "Close their hands (withhold)",       "muminEn": "Establish prayer, give zakāt" }
+          {
+            "munafikTr": "Birbirlerindendir (ba'duhum min ba'd)",
+            "muminTr": "Birbirinin velîsidir (evliyâ ba'd)",
+            "munafikEn": "Of one another (baʿḍuhum min baʿḍ)",
+            "muminEn": "Allies of one another (awliyāʾ baʿḍ)"
+          },
+          {
+            "munafikTr": "Kötülüğü emreder",
+            "muminTr": "İyiliği emreder",
+            "munafikEn": "Enjoin wrong",
+            "muminEn": "Enjoin right"
+          },
+          {
+            "munafikTr": "İyilikten alıkor",
+            "muminTr": "Kötülükten alıkor",
+            "munafikEn": "Forbid right",
+            "muminEn": "Forbid wrong"
+          },
+          {
+            "munafikTr": "Ellerini kapatır (cimrilik)",
+            "muminTr": "Namaz kılar, zekât verir",
+            "munafikEn": "Close their hands (withhold)",
+            "muminEn": "Establish prayer, give zakāt"
+          }
         ]
       }
     },
@@ -253,7 +275,7 @@
           "verseRef": "Münâfikûn 63:8",
           "surah": 63,
           "ayah": 8,
-          "verseAr": "يَقُولُونَ لَئِنْ رَجَعْنَٓا اِلَى الْمَد۪ينَةِ لَيُخْرِجَنَّ الْاَعَزُّ مِنْهَا الْاَذَلَّۜ وَلِلّٰهِ الْعِزَّةُ وَلِرَسُولِه۪ وَلِلْمُؤْمِن۪ينَ وَلٰكِنَّ الْمُنَافِق۪ينَ لَا يَعْلَمُونَ۟",
+          "verseAr": "يَقُولُونَ لَئِنْ رَجَعْنٓا اِلَى الْمَدِينَةِ لَيُخْرِجَنَّ الْاَعَزُّ مِنْهَا الْاَذَلَّ وَلِلّٰهِ الْعِزَّةُ وَلِرَسُولِهِ وَلِلْمُؤْمِنِينَ وَلٰكِنَّ الْمُنَافِقِينَ لَا يَعْلَمُونَ",
           "verseTr": "Onlar: Andolsun, eğer Medine'ye dönersek, üstün olan, zayıf olanı oradan mutlaka çıkaracaktır, diyorlardı. Halbuki asıl üstünlük, ancak Allah'ın, Peygamberinin ve müminlerindir. Fakat münafıklar bunu bilmezler.",
           "verseEn": "They say, \"If we return to al-Madinah, the more honored will surely expel therefrom the more humble.\" And to Allah belongs [all] honor, and to His Messenger, and to the believers, but the hypocrites do not know."
         },
@@ -261,7 +283,7 @@
           "verseRef": "Ahzâb 33:12",
           "surah": 33,
           "ayah": 12,
-          "verseAr": "وَاِذْ يَقُولُ الْمُنَافِقُونَ وَالَّذ۪ينَ ف۪ي قُلُوبِهِمْ مَرَضٌ مَا وَعَدَنَا اللّٰهُ وَرَسُولُـهُٓ اِلَّا غُرُوراً",
+          "verseAr": "وَاِذْ يَقُولُ الْمُنَافِقُونَ وَالَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ مَا وَعَدَنَا اللّٰهُ وَرَسُولُـهٓ اِلَّا غُرُوراً",
           "verseTr": "Ve o zaman, münafıklar ile kalplerinde hastalık (iman zayıflığı) bulunanlar: Meğer Allah ve Resulü bize sadece kuru vaadlerde bulunmuşlar! diyorlardı.",
           "verseEn": "And [remember] when the hypocrites and those in whose hearts is disease said, \"Allah and His Messenger did not promise us except delusion.\""
         }
@@ -275,8 +297,312 @@
       "infoTr": "İbn Übeyy b. Selûl'ün bu sözü söylediği rivayeti Buhârî ve Müslim'de de geçer (Tefsîr kitâbı, Münâfikûn sûresi). Kur'ân'ın onun sözünü birebir kaydetmesi ve sûreye isim vermesi, klasik ulema tarafından tarihsel-olay belgeleme örneği olarak gösterilir.",
       "infoEn": "The narration that Ibn Ubayy ibn Salūl spoke these words also appears in al-Bukhārī and Muslim (*Kitāb al-Tafsīr*, Sūrat al-Munāfiqūn). That the Qur'an records his words verbatim and names a surah after it is cited by classical scholars as an example of historical-event documentation.",
       "ekolEtiketi": "klasik tefsir + tarihî bağlam"
+    },
+    {
+      "id": "kalp-hastaligi",
+      "titleTr": "Kalp Hastalığı — Komplo Sinyali",
+      "titleEn": "Heart-Disease — The Signal of Conspiracy",
+      "color": "#8b5cf6",
+      "iconMode": "brain",
+      "keyVerseRef": "Ahzâb 33:12-13",
+      "verses": [
+        {
+          "verseRef": "Ahzâb 33:12",
+          "surah": 33,
+          "ayah": 12,
+          "verseAr": "وَاِذْ يَقُولُ الْمُنَافِقُونَ وَالَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ مَا وَعَدَنَا اللّٰهُ وَرَسُولُهُ اِلَّا غُرُوراً",
+          "verseTr": "O zaman münafıklarla kalplerinde hastalık bulunanlar, 'Allah ve Resulü bize sadece boş vaadlerde bulunmuşlar' diyorlardı.",
+          "verseEn": "And [remember] when the hypocrites and those in whose hearts is disease said, \"Allah and His Messenger did not promise us except delusion.\""
+        },
+        {
+          "verseRef": "Bakara 2:10",
+          "surah": 2,
+          "ayah": 10,
+          "verseAr": "فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللّٰهُ مَرَضاً",
+          "verseTr": "Kalplerinde bir hastalık vardır. Allah da onların hastalığını çoğaltmıştır.",
+          "verseEn": "In their hearts is disease, so Allah has increased their disease."
+        }
+      ],
+      "behaviorPatternTr": "'Kalpte hastalık' (maraz fi'l-kulûb) Kur'ân'ın en tekrarlı münâfık teşhis kavramıdır — 13 farklı ayette geçer. Klasik ulemaya göre bu 'hastalık' bir tek psikolojik durum değil, iyileşmediği takdirde büyüyen bir zihin dinamiğidir: şüphe → kararsızlık → komplo kurgusu → yalanı gerçek sanma. Ahzâb 33:12'de Hendek kuşatması altındaki münâfıklar 'Allah ve Resulü bize kandırıcı vaadlerde bulundu' der — yani zorluk anında peygamberin vaadi bir 'komplo' olarak yeniden çerçevelenir. Modern paralel: zihinsel çerçeveleme (framing) hastalığı, gerçekliği kendi korkusunun aynasında görme eğilimi.",
+      "behaviorPatternEn": "'Disease in the heart' (maraḍ fī l-qulūb) is the Qur'an's most-repeated diagnostic term for the hypocrite — appearing in 13 distinct verses. Classical scholars read this not as a single psychological state but as a mental dynamic that grows if uncured: doubt → indecision → conspiracy-construction → mistaking one's own fear for truth. In Q 33:12, the hypocrites under the siege of the Trench say 'Allah and His Messenger promised us only delusion' — under pressure, the prophetic promise is reframed as a conspiracy. Modern parallel: the disease of mental framing — seeing reality only through the mirror of one's own fear.",
+      "classicalAnalysisTr": "İbn Âşûr, Ahzâb 12 tefsirinde 'kalp hastalığı' ifadesinin Kur'ân'da tam 13 yerde geçtiğini sayar ve bu tekrarın 'ma'nevî semiyoloji' (manevî semptomatoloji) inşa ettiğini söyler. Râzî bu hastalığın üç aşamalı olduğunu açıklar: (1) reyb (kararsız şüphe), (2) merecu'l-halâh (bulanıklık), (3) hüzn-i vahim (vehmî üzüntü) — üçüncüde kişi kendi vehmini gerçek sayar ve bunu başkalarına aktarır. Elmalılı bu ayeti şöyle özetler: 'İç mikropları dışa vuran an — bir kuşatma anıdır.'",
+      "classicalAnalysisEn": "Ibn ʿĀshūr counts 13 Qur'anic instances of 'heart-disease' and reads this repetition as building a 'moral semiology' — a symptomatology of the soul. Al-Rāzī describes three stages of the disease: (1) rayb (undecided doubt), (2) marj al-ḥāla (blur), (3) ḥuzn wahmī (imaginary sorrow) — at the third stage one takes one's own delusion for truth and transmits it. Elmalılı summarizes: 'The moment inner microbes surface — is the moment of siege.'",
+      "modernParallelTr": "Modern klinik psikolojide 'catastrophizing' (felaketleştirme) ve 'projection' (yansıtma) münâfığın komplo örüntüsüne birebir karşılık gelir. Aaron Beck'in Cognitive Distortions modeli (1976) 'kalp hastalığı' semiolojisine akademik dil sağlar — ancak Kur'ân'ın çerçevesi ahlâkî ve teolojiktir, ontolojik olarak eşdeğer değildir.",
+      "modernParallelEn": "In modern clinical psychology, 'catastrophizing' and 'projection' map exactly onto the hypocrite's conspiracy pattern. Aaron Beck's Cognitive Distortions model (1976) provides academic language for the 'heart-disease' semiology — but the Qur'anic frame is ethical-theological and not ontologically equivalent.",
+      "sourceTr": "İbn Âşûr, Tahrîr, Ahzâb 33:12; Râzî, Mefâtîhu'l-Gayb, Bakara 2:10 (üç aşama analizi); Elmalılı, Ahzâb 33:12.",
+      "sourceEn": "Ibn ʿĀshūr on Q 33:12; Al-Rāzī, Mafātīḥ, on Q 2:10 (three-stage analysis); Elmalılı on Q 33:12.",
+      "ekolEtiketi": "klasik tefsir + modern bilişsel psikoloji paralelliği"
+    },
+    {
+      "id": "riya-i-salat",
+      "titleTr": "Riyâ — Gösteriş Namazı",
+      "titleEn": "Riyāʾ — Ostentatious Prayer",
+      "color": "#e67e22",
+      "iconMode": "mirror",
+      "keyVerseRef": "Nisâ 4:142",
+      "verses": [
+        {
+          "verseRef": "Nisâ 4:142",
+          "surah": 4,
+          "ayah": 142,
+          "verseAr": "اِنَّ الْمُنَافِقِينَ يُخَادِعُونَ اللّٰهَ وَهُوَ خَادِعُهُمْ وَاِذَا قَامٓوا اِلَى الصَّلَاةِ قَامُوا كُسَالٰى يُرٓاؤُنَ النَّاسَ وَلَا يَذْكُرُونَ اللّٰهَ اِلَّا قَلِيلاً",
+          "verseTr": "Şüphesiz münafıklar Allah'ı aldatmaya çalışırlar. Halbuki Allah, onların oyunlarını başlarına geçirir. Onlar namaza kalktıkları zaman üşene üşene kalkarlar, insanlara gösteriş yaparlar, Allah'ı da pek az anarlar.",
+          "verseEn": "Indeed, the hypocrites [think to] deceive Allah, but He is deceiving them. And when they stand for prayer, they stand lazily, showing [themselves to] the people and not remembering Allah except a little."
+        },
+        {
+          "verseRef": "Bakara 2:264",
+          "surah": 2,
+          "ayah": 264,
+          "verseAr": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُبْطِلُوا صَدَقَاتِكُمْ بِالْمَنِّ وَالْاَذٰى كَالَّذِي يُنْفِقُ مَالَهُ رِئٓاءَ النَّاسِ",
+          "verseTr": "Ey iman edenler! Sadakalarınızı, malını insanlara gösteriş için harcayan kimse gibi başa kakmak ve incitmek suretiyle boşa çıkarmayın.",
+          "verseEn": "O you who have believed, do not invalidate your charities with reminders or injury as does one who spends his wealth [only] to be seen by the people."
+        }
+      ],
+      "behaviorPatternTr": "Kur'ân münâfığın namazını üç sıfatla tarif eder: (1) kusâlâ (üşene üşene), (2) yürâûne'n-nâs (insanlara gösteriş), (3) lâ yezkürûne illâ kalîlâ (az zikir). Üçünün ortak paydası: eylem sahne, seyirci ise 'Allah değil insan'dır. Riyâ, en yüksek ibadeti (namaz) en kirli motivasyona (görülmek) bağlar. Modern paralel: 'impression management' (Goffman 1959) — sosyal performans olarak dindarlık.",
+      "behaviorPatternEn": "The Qur'an describes the hypocrite's prayer with three attributes: (1) kusālā (with reluctance), (2) yurāʾūna al-nās (making a show to people), (3) lā yadhkurūna illā qalīlan (little remembrance). Their common denominator: the act is a stage, and the audience is 'not God but people.' Riyāʾ binds the highest act of worship (prayer) to the basest motivation (being seen). Modern parallel: 'impression management' (Goffman 1959) — piety as social performance.",
+      "classicalAnalysisTr": "Gazâlî, İhyâ'nın 'Kitâbu'r-Riyâ' bölümünde riyâyı 'ibâdetin gizli hastalığı' olarak tarif eder ve dört seviye tanır: (1) niyette karışım (Allah + insan), (2) niyette değişim (Allah motive başlar, insan biter), (3) baştan sonra insan için, (4) münâfığın riyâsı — hiç Allah niyeti yok. Kur'ânî tanım (Nisâ 4:142) dördüncü seviyeyi anlatır. İbn Teymiyye, riyâyı 'küçük şirk' (şirk-i asğar) kategorisine yerleştirir — bir sahih hadise dayanarak ('En çok korktuğum küçük şirktir' — Ahmed b. Hanbel).",
+      "classicalAnalysisEn": "Al-Ghazālī, in *Kitāb al-Riyāʾ* of Iḥyāʾ, defines riyāʾ as 'the hidden disease of worship' and distinguishes four levels: (1) mixed intention (God + people), (2) shifted intention (starts for God, ends for people), (3) fully for people from the outset, (4) the hypocrite's riyāʾ — with no God-intention at all. The Qur'anic description (Q 4:142) refers to the fourth level. Ibn Taymiyya places riyāʾ under 'lesser shirk' (shirk aṣghar), citing an authentic hadith: 'What I fear most for you is the lesser shirk' (Aḥmad b. Ḥanbal).",
+      "modernParallelTr": "Erving Goffman'ın The Presentation of Self in Everyday Life (1959) eserindeki 'front stage / back stage' modeli, klasik riyâ analizine sosyolojik dil kazandırır. Ancak Goffman etik-nötr bir sosyal analiz yaparken Kur'ân riyâyı doğrudan ahlâkî-teolojik bozulma olarak tanımlar.",
+      "modernParallelEn": "Erving Goffman's *The Presentation of Self in Everyday Life* (1959) 'front stage / back stage' model gives sociological language to the classical analysis of riyāʾ. But whereas Goffman's analysis is ethically neutral, the Qur'an frames riyāʾ as a direct ethical-theological corruption.",
+      "sourceTr": "Gazâlî, İhyâu Ulûmi'd-Dîn, 3. cilt, Kitâbu'r-Riyâ; İbn Teymiyye, Mecmûu'l-Fetâvâ, 1:158+; Râzî, Mefâtîhu'l-Gayb, Nisâ 4:142.",
+      "sourceEn": "Al-Ghazālī, Iḥyāʾ Ulūm al-Dīn, Book 3, Kitāb al-Riyāʾ; Ibn Taymiyya, Majmūʿ al-Fatāwā, 1:158+; Al-Rāzī, Mafātīḥ, on Q 4:142.",
+      "ekolEtiketi": "klasik kelâm + tasavvuf (Gazâlî çizgisi)"
+    },
+    {
+      "id": "soz-tasima",
+      "titleTr": "Söz Taşıma ve İfk",
+      "titleEn": "Slander and Whispering Campaigns",
+      "color": "#3498db",
+      "iconMode": "whisper",
+      "keyVerseRef": "Tevbe 9:61",
+      "verses": [
+        {
+          "verseRef": "Tevbe 9:61",
+          "surah": 9,
+          "ayah": 61,
+          "verseAr": "وَمِنْهُمُ الَّذِينَ يُؤْذُونَ النَّبِيَّ وَيَقُولُونَ هُوَ اُذُنٌ قُلْ اُذُنُ خَيْرٍ لَكُمْ يُؤْمِنُ بِاللّٰهِ وَيُؤْمِنُ لِلْمُؤْمِنِينَ",
+          "verseTr": "İçlerinde peygamberi inciten ve 'O, her söze kulak veren bir adamdır' diyenler de vardır. De ki: O, sizin hayrınıza kulak verir; Allah'a inanır, müminlere güvenir.",
+          "verseEn": "And among them are those who abuse the Prophet and say, \"He is [merely] an ear.\" Say, \"[It is] an ear of goodness for you: he believes in Allah and believes the believers.\""
+        },
+        {
+          "verseRef": "Ahzâb 33:60",
+          "surah": 33,
+          "ayah": 60,
+          "verseAr": "لَئِنْ لَمْ يَنْتَهِ الْمُنَافِقُونَ وَالَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ وَالْمُرْجِفُونَ فِي الْمَدِينَةِ لَنُغْرِيَنَّكَ بِهِمْ",
+          "verseTr": "Andolsun, eğer münafıklar, kalplerinde hastalık bulunanlar ve Medine'de kötü haber yayanlar (bu hallerinden) vazgeçmezlerse, seni onlara musallat ederiz.",
+          "verseEn": "If the hypocrites and those in whose hearts is disease and those who spread rumors in al-Madinah do not desist, We will certainly incite you against them."
+        }
+      ],
+      "behaviorPatternTr": "Münâfıkın en verimli silahı: söz. Kur'ân üç sınıf söz-hastalığı tanımlar: (1) yü'zûne (peygamberi incitici söz), (2) mürcifûn (dedikodu yayanlar — 'ircâf' kökü: karışıklık üretme), (3) ifk (uydurma iftira — Nûr 24:11-15 detay). Tarihte İfk hâdisesi (Beni Mustaliq gazvesi dönüşü) münâfık söz mekanizmasının klasik örneği: Abdullah bin Übeyy'in inatlı söz taşıması Hz. Âişe'yi hedef alır; Kur'ân bu olayı 10 ayet boyunca (Nûr 24:11-20) analiz eder.",
+      "behaviorPatternEn": "The hypocrite's most productive weapon: speech. The Qur'an distinguishes three classes of speech-disease: (1) yuʾdhūna (hurtful words about the Prophet), (2) murjifūn (rumor-spreaders — root irjāf: sowing chaos), (3) ifk (fabricated slander — detailed in Q 24:11-15). Historically, the Ifk incident (return from the Banū al-Muṣṭaliq raid) is the classical example: Abdullah ibn Ubayy's persistent whispering targeted ʿĀʾisha; the Qur'an analyzes the episode across 10 verses (Q 24:11-20).",
+      "classicalAnalysisTr": "İbn Kesîr, Tevbe 9:61'i tefsir ederken 'söz taşıma tehdidin en pratik biçimidir; ordu kaldırmak zor, dedikodu üretmek kolay' der. İfk hâdisesi tefsirinde (Nûr sûresi girişi) klasik ulema 'Kur'ân'ın 10 ayeti tek bir insanı korumak için indi' — bir mü'minin şerefi ilâhî korumada. İbn Âşûr, Ahzâb 60'taki 'mürcifûn' kelimesini modern terminolojiyle 'disinformation campaign' olarak açıklar.",
+      "classicalAnalysisEn": "Ibn Kathīr on Q 9:61: 'slander is the most practical form of threat — raising an army is hard, spreading rumors is easy.' On the Ifk incident (introduction to Sūrat al-Nūr), classical scholars note: 'the Qur'an sent down 10 verses to protect a single believer' — one believer's honor placed under divine protection. Ibn ʿĀshūr describes the term murjifūn in Q 33:60 in modern language as a 'disinformation campaign.'",
+      "modernParallelTr": "'Bilgi savaşı' (information warfare) ve 'disinformation' modern siyaset bilimi kavramları klasik ircâf analiziyle yapısal paralellik taşır. Cass Sunstein'ın On Rumors (2009) çalışması dedikodunun sosyal psikolojik mekanizmalarını (echo chamber, availability cascade) analiz eder — Kur'ân'ın 10 ayet düzeyindeki müdahaleyle karşılaştırılabilir bir sistemik yaklaşım.",
+      "modernParallelEn": "Modern political science concepts 'information warfare' and 'disinformation' share structural parallels with the classical analysis of irjāf. Cass Sunstein's *On Rumors* (2009) analyzes the socio-psychological mechanisms of rumor (echo chamber, availability cascade) — a systemic approach comparable to the Qur'an's 10-verse intervention.",
+      "sourceTr": "İbn Kesîr, Tefsîr, Tevbe 9:61 ve Nûr sûresi girişi (İfk hâdisesi); İbn Âşûr, Tahrîr, Ahzâb 33:60; Elmalılı, Nûr 11-20 tefsiri.",
+      "sourceEn": "Ibn Kathīr on Q 9:61 and introduction to Sūrat al-Nūr (Ifk episode); Ibn ʿĀshūr on Q 33:60; Elmalılı on Q 24:11-20.",
+      "ekolEtiketi": "klasik tefsir + tarihî bağlam"
+    },
+    {
+      "id": "kuran-alay",
+      "titleTr": "Kur'ân ve İbâdetle Alay",
+      "titleEn": "Mocking Qur'an and Worship",
+      "color": "#c9a227",
+      "iconMode": "laugh",
+      "keyVerseRef": "Tevbe 9:64-66",
+      "verses": [
+        {
+          "verseRef": "Tevbe 9:65",
+          "surah": 9,
+          "ayah": 65,
+          "verseAr": "وَلَئِنْ سَاَلْتَهُمْ لَيَقُولُنَّ اِنَّمَا كُنَّا نَخُوضُ وَنَلْعَبُ قُلْ اَبِاللّٰهِ وَاٰيَاتِهِ وَرَسُولِهِ كُنْتُمْ تَسْتَهْزِؤُنَ",
+          "verseTr": "Eğer onlara (niçin alay ettiklerini) sorarsan: 'Biz sadece şakalaşıp eğleniyorduk' derler. De ki: Allah ile, O'nun âyetleriyle ve O'nun peygamberiyle mi alay ediyordunuz?",
+          "verseEn": "And if you ask them, they will surely say, \"We were only conversing and playing.\" Say, \"Was it Allah and His verses and His Messenger that you were mocking?\""
+        },
+        {
+          "verseRef": "Tevbe 9:79",
+          "surah": 9,
+          "ayah": 79,
+          "verseAr": "اَلَّذِينَ يَلْمِزُونَ الْمُطَّوِّعِينَ مِنَ الْمُؤْمِنِينَ فِي الصَّدَقَاتِ وَالَّذِينَ لَا يَجِدُونَ اِلَّا جُهْدَهُمْ فَيَسْخَرُونَ مِنْهُمْ سَخِرَ اللّٰهُ مِنْهُمْ",
+          "verseTr": "Sadakalar hususunda, müminlerden gönüllü verenleri ve güçlerinin yettiğinden başkasını bulamayanları çekiştirip onlarla alay edenler var ya, Allah da onları alay konusu yapmıştır.",
+          "verseEn": "Those who criticize the contributors among the believers concerning [their] charities and [criticize] the ones who find nothing [to spend] except their effort, so they ridicule them — Allah will ridicule them."
+        }
+      ],
+      "behaviorPatternTr": "Alay, münâfığın en tehlikeli silahı: samimi olanı gülünç göstererek toplumsal utandırma üretir. Kur'ân üç alay şeklini tanır: (1) Allah-âyet-Resûl'e sözlü alay ('şakalaşıyorduk' bahanesi — Tevbe 9:65), (2) gönüllü sadaka verenleri çekiştirme (Tevbe 9:79), (3) az verenleri küçümseme (aynı ayet). Klasik ulemaya göre alay, kişiyi hem sosyal olarak yıkar (samimiyeti tükettirir) hem de teolojik olarak: Tevbe 9:65 alay eden münâfıkların 'iman ettikten sonra küfre döndüğünü' söyler — sadece dil değil, konum değişimi.",
+      "behaviorPatternEn": "Mockery is the hypocrite's most dangerous weapon: it socially shames sincerity by making it look ridiculous. The Qur'an identifies three forms: (1) verbal mockery of Allah-verses-Messenger (the 'we were joking' excuse in Q 9:65), (2) criticizing voluntary charity-givers (Q 9:79), (3) belittling those who can only give little (same verse). Classical scholars: mockery both socially destroys (drains sincerity) and theologically shifts — Q 9:65 says the mockers 'disbelieved after believing' — not merely a slip of tongue, but a change of standing.",
+      "classicalAnalysisTr": "İbn Kesîr, Tevbe 9:65 için Tebuk gazvesi arka planını verir: 'Karavanın arkasında yürüyen bir grup münâfık Hz. Peygamber ve ashabıyla alay ederdi. Bir ayet ineceğini bilmezdiler.' Ayet 'Kâne' ('was' — geçmiş zaman) fiiliyle iner: 'Şaka yapıyorduk' derler; Kur'ân bunu 'yalanınızın belgesi' olarak sabitler. Râzî bu ayeti 'niyyet-i cürm' (suç niyeti) kavramıyla açar: sıradan bir şakayla peygamberle alay eden şaka aynı fiil değildir.",
+      "classicalAnalysisEn": "Ibn Kathīr on Q 9:65 gives the Tabūk-expedition context: 'a group of hypocrites walking behind the caravan mocked the Prophet and his companions. They did not know a verse would descend.' The verse comes with the perfect verb kāna ('was'): they say 'we were joking'; the Qur'an fixes this as 'the record of your falsehood.' Al-Rāzī unfolds this verse through 'niyyat al-jurm' (criminal intent): an ordinary joke and mockery of a prophet are not the same act.",
+      "modernParallelTr": "Modern sosyal psikolojide 'derisive humor' (küçültücü mizah) sosyal dışlama silahı olarak incelenir (Martineau, 1972; Kuipers, 2015). Otoriter rejimlerin kurbanlarına yaptığı ilk şey: kahramanları gülünç kılmak. Kur'ân'ın 9:65-66 analizi bu mekanizmayı 1400 yıl önce isimlendirmiştir.",
+      "modernParallelEn": "In modern social psychology, 'derisive humor' is studied as a tool of social exclusion (Martineau, 1972; Kuipers, 2015). The first weapon of authoritarian regimes: making heroes look ridiculous. The Qur'an named this mechanism in Q 9:65-66 fourteen centuries ago.",
+      "sourceTr": "İbn Kesîr, Tefsîr, Tevbe 9:64-66 (Tebuk arka planı); Râzî, Mefâtîh, Tevbe 9:65; Elmalılı, Tevbe 79.",
+      "sourceEn": "Ibn Kathīr on Q 9:64-66 (Tabūk context); Al-Rāzī, Mafātīḥ, on Q 9:65; Elmalılı on Q 9:79.",
+      "ekolEtiketi": "klasik tefsir + tarihî bağlam"
+    },
+    {
+      "id": "karar-krizi",
+      "titleTr": "Karar Krizi — İki Tarafa Oynama",
+      "titleEn": "Decision Crisis — Playing Both Sides",
+      "color": "#1D9E75",
+      "iconMode": "compass",
+      "keyVerseRef": "Nisâ 4:141, 4:143",
+      "verses": [
+        {
+          "verseRef": "Nisâ 4:141",
+          "surah": 4,
+          "ayah": 141,
+          "verseAr": "اَلَّذِينَ يَتَرَبَّصُونَ بِكُمْ فَاِنْ كَانَ لَكُمْ فَتْحٌ مِنَ اللّٰهِ قَالٓوا اَلَمْ نَكُنْ مَعَكُمْ وَاِنْ كَانَ لِلْكَافِرِينَ نَصِيبٌ قَالٓوا اَلَمْ نَسْتَحْوِذْ عَلَيْكُمْ وَنَمْنَعْكُمْ مِنَ الْمُؤْمِنِينَ",
+          "verseTr": "Onlar hep sizi gözetleyip dururlar. Eğer Allah'tan size bir zafer nasip olsa, 'Sizinle beraber değil miydik?' derler. Kafirler kazançlı çıkarsa, 'Sizin yanınızda yer alıp müminlere karşı sizi savunmadık mı?' derler.",
+          "verseEn": "Those who wait [and watch] you. Then if you gain a victory from Allah, they say, \"Were we not with you?\" But if the disbelievers have a success, they say [to them], \"Did we not gain the advantage over you, but we protected you from the believers?\""
+        },
+        {
+          "verseRef": "Nisâ 4:143",
+          "surah": 4,
+          "ayah": 143,
+          "verseAr": "مُذَبْذَبِينَ بَيْنَ ذٰلِكَ لَا اِلٰى هٰٓؤُلٓاءِ وَلٓا اِلٰى هٰٓؤُلٓاءِ",
+          "verseTr": "Bunların arasında bocalayıp durmaktadırlar. Ne bunlara (müminlere) ne de onlara (kafirlere) katılırlar.",
+          "verseEn": "Wavering between them, [belonging] neither to these [believers] nor to those [disbelievers]."
+        }
+      ],
+      "behaviorPatternTr": "Kur'ân münâfığın karar krizini 'müzebzebîn' kelimesiyle özler: sarkaç gibi arada, hiçbir yana bağlanamayan. Nisâ 4:141'de senaryo tam açık: zafer gelirse mü'minlerle 'biz de yanınızdaydık'; kâfirler avantajlı çıkarsa onlarla 'biz sizi mü'minlerden korumadık mı?' Bu, Talcott Parsons'ın 'strain toward consistency' (tutarlılığa yönelik gerilim) kavramına ters çalışan bir zihindir — münâfık tutarsızlığı stratejik avantaj olarak yaşar. Klasik ulemaya göre 'müzebzebîn' Kur'ân'ın münâfık için kullandığı en belâgatlı tek-kelime portredir.",
+      "behaviorPatternEn": "The Qur'an captures the hypocrite's decision crisis with the word muzabdhabīn — 'wavering,' oscillating like a pendulum, unable to attach to either side. Q 4:141 is unambiguous: if victory comes, with the believers ('were we not with you?'); if the disbelievers have an advantage, with them ('did we not defend you from the believers?'). This is a mind that inverts Talcott Parsons's 'strain toward consistency' — the hypocrite experiences inconsistency as strategic advantage. Classical scholars regard muzabdhabīn as the Qur'an's most eloquent one-word portrait of the hypocrite.",
+      "classicalAnalysisTr": "Zemahşerî, el-Keşşâf'ta 'müzebzebîn' kelimesinin tekrarlı (mü-zeb-zeb) yapısına dikkat çeker: fiil kökü zaten 'sallanma' anlamı taşır, tekrar ile 'sarkaç' imgesi güçlenir. Bu, klasik belâgatta 'sesin anlamı taşıması' (onomatope) örneği. Râzî ayeti 'akl-ı hıyaneti' (hıyanet aklı) çerçevesinde okur: münâfık iki tarafa oynamayı bir strateji sanır; halbuki her iki taraf da onu güvensiz görür — hem mü'minlerden şüphe eder, hem kâfirlerden. Sonuç: yalnızlık ile ödüllendirilir.",
+      "classicalAnalysisEn": "Al-Zamakhsharī in *al-Kashshāf* highlights the reduplicated structure of muzabdhabīn (mu-zab-zab): the root already carries 'oscillation,' and the repetition strengthens the pendulum image. This is a classical balāgha example of 'sound carrying meaning' (onomatope). Al-Rāzī reads the verse under 'ʿaql al-khiyāna' (the intellect of betrayal): the hypocrite thinks playing both sides is a strategy; but both sides find him untrustworthy — the believers suspect him, and so do the disbelievers. Reward: solitude.",
+      "modernParallelTr": "Modern siyaset psikolojisinde 'strategic ambiguity' (stratejik belirsizlik) — dış politika teorisinden davranış modellemesine — münâfık 'müzebzebîn' pozisyonuyla yapısal olarak paralel. Ancak: Kur'ân'ın çerçevesi ontolojik-ahlâkî; sonuç 'stratejik başarısızlık' değil 'ilâhî yalnızlaştırma'. Ontolojik olarak eşdeğer değildir.",
+      "modernParallelEn": "In modern political psychology, 'strategic ambiguity' — from foreign policy theory to behavioral modeling — runs structurally parallel to the muzabdhabīn position. But: the Qur'an's frame is ontological-ethical; the outcome is not 'strategic failure' but 'divine isolation.' Not ontologically equivalent.",
+      "sourceTr": "Zemahşerî, el-Keşşâf, Nisâ 4:143 (müzebzebîn belâgat analizi); Râzî, Mefâtîh, Nisâ 4:141-143; İbn Âşûr, Tahrîr, Nisâ 141.",
+      "sourceEn": "Al-Zamakhsharī, *al-Kashshāf*, on Q 4:143 (analysis of muzabdhabīn); Al-Rāzī, Mafātīḥ, on Q 4:141-143; Ibn ʿĀshūr on Q 4:141.",
+      "ekolEtiketi": "klasik tefsir + belâgat"
     }
   ],
+  "surahDistribution": {
+    "titleTr": "Ayet Yoğunluğu — 8 Sûrede Münâfık Portresi",
+    "titleEn": "Verse Density — The Hypocrite Portrait Across 8 Surahs",
+    "descTr": "Kur'ân münâfıkı 300'ü aşkın ayette işler. Bu ayetlerin yoğunluğu belirli sûrelerde toplanır — çoğu Medine dönemine ait, çünkü münâfık toplumsal kategori olarak ancak Hicret'ten sonra ortaya çıkar. Aşağıdaki grafik, tek konu olarak münâfık ayetlerinin sûrelere göre dağılımıdır.",
+    "descEn": "The Qur'an addresses the hypocrite in over 300 verses. Their density is concentrated in specific surahs — mostly Medinan, because 'hypocrite' as a social category emerges only after the Hijra. The chart below shows the distribution of hypocrite-focused verses across surahs.",
+    "items": [
+      {
+        "surah": "Tevbe (9)",
+        "count": 47,
+        "range": "9:42-107",
+        "period": "medine",
+        "note": "Kur'ân'da en yoğun münâfık analizi. Tebuk gazvesi çevresinde kaleme alınmıştır."
+      },
+      {
+        "surah": "Bakara (2)",
+        "count": 13,
+        "range": "2:8-20",
+        "period": "medine",
+        "note": "Kur'ân'ın münâfık portresini başlatan ayetler."
+      },
+      {
+        "surah": "Münâfikûn (63)",
+        "count": 11,
+        "range": "63:1-11",
+        "period": "medine",
+        "note": "Sûrenin tamamı münâfık analizidir. Abdullah bin Übeyy Selûl'un sözlerinden ismini alır."
+      },
+      {
+        "surah": "Ahzâb (33)",
+        "count": 9,
+        "range": "33:12-20, 33:60",
+        "period": "medine",
+        "note": "Hendek kuşatması altında münâfık davranışı."
+      },
+      {
+        "surah": "Muhammed (47)",
+        "count": 8,
+        "range": "47:16-30",
+        "period": "medine",
+        "note": "Kalp hastalığı ve karşı çıkma alâmetleri."
+      },
+      {
+        "surah": "Fetih (48)",
+        "count": 6,
+        "range": "48:6, 11-16",
+        "period": "medine",
+        "note": "Hudeybiye sonrası kaçak-münâfık portresi."
+      },
+      {
+        "surah": "Nisâ (4)",
+        "count": 6,
+        "range": "4:60-63, 140-145",
+        "period": "medine",
+        "note": "Riyâ, müzebzebîn ve cehennemin en alt katı."
+      },
+      {
+        "surah": "Haşr (59)",
+        "count": 6,
+        "range": "59:11-17",
+        "period": "medine",
+        "note": "Beni Nadîr sürgününde münâfık ittifakı."
+      }
+    ],
+    "totalCount": 106,
+    "totalContextTr": "Yukarıdaki 8 sûre, Kur'ân'ın münâfık-ayet 'çekirdek külliyatını' oluşturur (106 ayet). Buna ek olarak dağınık ayetlerle toplam 300+ ayete ulaşılır. 8 sûrenin de Medine dönemine ait olması, münâfıklık kavramının ancak toplumsal-siyasî bir yapı içinde anlamlı hâle geldiğinin işaretidir.",
+    "totalContextEn": "The 8 surahs above form the 'core corpus' of Qur'anic hypocrite-verses (106 verses). With scattered verses added, the total reaches 300+. That all 8 are Medinan indicates that the concept of hypocrisy becomes meaningful only within a socio-political structure."
+  },
+  "historicalKissalar": {
+    "titleTr": "Tarihsel Kısaslar — Üç Ana Münâfık Olayı",
+    "titleEn": "Historical Episodes — Three Major Hypocrite Events",
+    "descTr": "Sîret literatürü ve klasik tefsir üç büyük münâfık hâdisesini birden Kur'ân ayetleriyle birlikte kaydeder. Bunlar münâfık davranışının soyut portresini somut tarihsel olaylara indirir.",
+    "descEn": "Sīra literature and classical exegesis record three major hypocrite events alongside Qur'anic verses. These ground the abstract portrait of hypocritical behavior in concrete historical episodes.",
+    "items": [
+      {
+        "id": "uhud-geri-donus",
+        "titleTr": "Uhud'da Geri Dönüş — Abdullah bin Übeyy",
+        "titleEn": "The Return at Uḥud — Abdullah ibn Ubayy",
+        "year": "3 H (625 M)",
+        "color": "#e74c3c",
+        "keyFigureTr": "Abdullah bin Übeyy bin Selûl (münâfıkların reisi)",
+        "keyFigureEn": "Abdullah ibn Ubayy ibn Salūl (chief of the hypocrites)",
+        "verses": [
+          "Âl-i İmrân 3:167-168"
+        ],
+        "eventTr": "Uhud sabahı, 1000 kişilik Müslüman ordusu yola çıkarken Abdullah bin Übeyy 300 kişisiyle geri döner — 'Peygamber gençlerin sözünü dinledi, bizimkini dinlemedi' bahanesiyle. Bu, üçte-bir orduda geri çekilmedir. Uhud'un ilk aşamasında zafer kazanılır, ikinci aşamada 70 sahâbe şehit düşer — geri çekilme bu ikinci aşamayı olumsuz etkilemiştir.",
+        "eventEn": "On the morning of Uḥud, as the 1000-strong Muslim army set out, Abdullah ibn Ubayy withdrew with 300 of his men — with the pretext, 'the Prophet listened to the youths' counsel, not to ours.' This was a one-third withdrawal. The first phase of Uḥud brought victory; in the second phase 70 Companions were martyred — the withdrawal shaped this second phase negatively.",
+        "quranReplyTr": "Kur'ân bu olayı iki ayette (3:167-168) yakalar: 'Bir de münâfıklık edenleri açıkça belli etsin diye… Onlara: gelin Allah yolunda savaşın… denildiğinde, savaşmayı bilseydik size uyardık, dediler. O gün onlar imandan çok küfre yakındılar.'",
+        "quranReplyEn": "The Qur'an captures this in two verses (Q 3:167-168): 'And to make evident those who [acted] hypocritically… When it was said to them: come, fight in the way of Allah… they said, if we knew how to fight we would have followed you. They were nearer to disbelief that day than to faith.'",
+        "sourceTr": "İbn İshâk / İbn Hişâm, es-Sîretü'n-Nebeviyye, Uhud gazvesi; Vâkıdî, el-Meğâzî; İbn Kesîr, el-Bidâye ve'n-Nihâye; klasik tefsir 3:167.",
+        "sourceEn": "Ibn Isḥāq / Ibn Hishām, *al-Sīra al-Nabawiyya*, on Uḥud; al-Wāqidī, *al-Maghāzī*; Ibn Kathīr, *al-Bidāya wa'l-Nihāya*; commentary on Q 3:167."
+      },
+      {
+        "id": "mescidi-dirar",
+        "titleTr": "Mescid-i Dırâr — Karşı-Cami Kurma",
+        "titleEn": "Masjid al-Ḍirār — The Counter-Mosque",
+        "year": "9 H (631 M)",
+        "color": "#c9a227",
+        "keyFigureTr": "Ebû Amir Râhib önderliğinde 12 münâfık",
+        "keyFigureEn": "Twelve hypocrites led by Abū ʿĀmir al-Rāhib",
+        "verses": [
+          "Tevbe 9:107-110"
+        ],
+        "eventTr": "Tebuk seferi öncesi Medine yakınlarında 12 münâfık, mü'minleri Mescid-i Nebevî'den ayırmak için ayrı bir cami inşa eder. Hz. Peygamber'i açılışa davet ederler ('bize dua et'), ama gerçek amaç: Kâbe'ye tapan Ebû Amir Râhib'i (Hristiyan-Yahudi ittifakının Medine'deki temsilcisi) gizleme ve mü'minler arasında bölünme yaratmak. Tebuk dönüşünde vahiy iner, Peygamber camiyi yıktırır ve yakar.",
+        "eventEn": "Before the Tabūk campaign, twelve hypocrites near Medina built a separate mosque to divide believers from the Prophet's Mosque. They invited the Prophet to inaugurate it ('pray for us'), but the real aim was to shelter Abū ʿĀmir al-Rāhib (a representative of the Christian-Jewish alliance in Medina) and sow division. On the return from Tabūk, revelation came; the Prophet ordered the mosque demolished and burned.",
+        "quranReplyTr": "Kur'ân bu olayı 4 ayet boyunca (Tevbe 9:107-110) kaydeder: 'Zararlı çıkarmak, kâfirlik etmek, müminlerin arasına ayrılık sokmak ve daha önce Allah ve Resulüne karşı savaşmış olan bir kimseyi beklemek için bir cami kuran ve iyilikten başka bir şey istemiyorduk diye yemin edecek olanlar var ya…'",
+        "quranReplyEn": "The Qur'an records this across 4 verses (Q 9:107-110): 'As for those who took a mosque for causing harm, and disbelief, and division among the believers, and as a place of ambush for those who had waged war on Allah and His Messenger before…'",
+        "sourceTr": "İbn Kesîr, Tefsîr, Tevbe 9:107-110; Vâkıdî, Meğâzî, Tebuk seferi; Elmalılı, Tevbe 107 tefsiri; İbn Hişâm, Sîre.",
+        "sourceEn": "Ibn Kathīr on Q 9:107-110; al-Wāqidī, *al-Maghāzī*, Tabūk campaign; Elmalılı on Q 9:107; Ibn Hishām, *Sīra*."
+      },
+      {
+        "id": "ifk-hadisesi",
+        "titleTr": "İfk Hâdisesi — Hz. Âişe'ye İftirâ",
+        "titleEn": "The Ifk Incident — Slander Against ʿĀʾisha",
+        "year": "5-6 H (627 M)",
+        "color": "#3498db",
+        "keyFigureTr": "Abdullah bin Übeyy + iftirayı yayan üç sahâbî",
+        "keyFigureEn": "Abdullah ibn Ubayy + three Companions who spread the slander",
+        "verses": [
+          "Nûr 24:11-20"
+        ],
+        "eventTr": "Beni Mustaliq gazvesi dönüşünde Hz. Âişe kervandan geriye kalır ve ashâbdan Safvân bin Muattal onu Medine'ye getirir. Abdullah bin Übeyy bin Selûl bu olayı fırsat bilir ve bir 'iftirâ kampanyası' (ifk) başlatır. Aylarca Medine'yi çalkalayan dedikodu, Hz. Peygamber'i bile şüpheye düşürür. Nüzûl geç kalır — sabır ve teslimiyet imtihanı. Nûr sûresinin 11-20. ayetleri Hz. Âişe'yi arındırır ve iftiracıları isimleriyle mahkûm eder.",
+        "eventEn": "On the return from the Banū al-Muṣṭaliq raid, ʿĀʾisha was left behind by the caravan and brought back to Medina by the Companion Ṣafwān ibn al-Muʿaṭṭal. Abdullah ibn Ubayy exploited the incident and launched a 'slander campaign' (ifk). For months the rumors shook Medina, casting doubt even upon the Prophet. Revelation was delayed — a trial of patience and surrender. Verses 11-20 of Sūrat al-Nūr vindicated ʿĀʾisha and condemned the slanderers by name.",
+        "quranReplyTr": "Nûr 24:11: 'İftirayı yayanlar sizden bir topluluktur. Bu olayı kendiniz için kötü sanmayın; aksine o, sizin için hayırdır. Onlardan her birine, kazandığı günahın karşılığı vardır. İçlerinden büyüğünü üstlenen için ise büyük bir azap vardır.' Kur'ân 10 ayet boyunca (11-20) olayı sistematik olarak analiz eder — tefsirde bu bölüm 'ifk edebiyyâtı'nın temeli sayılır.",
+        "quranReplyEn": "Q 24:11: 'Indeed, those who came with falsehood are a group among you. Do not think it bad for you; rather, it is good for you. For every person among them is what he has earned from the sin, and he who took upon himself the greater portion thereof — for him is a great punishment.' The Qur'an analyzes the episode systematically across 10 verses (11-20) — classical exegesis regards this section as the foundation of 'ifk literature.'",
+        "sourceTr": "Buhârî, Meğâzî 34; Müslim, Tevbe 56 (mütefekkun aleyh); İbn Kesîr, Nûr sûresi 11-20 tefsiri; Elmalılı, Nûr 11 tefsiri.",
+        "sourceEn": "Al-Bukhārī, *Kitāb al-Maghāzī* 34; Muslim, *Kitāb al-Tawba* 56 (muttafaqun ʿalayh); Ibn Kathīr on Q 24:11-20; Elmalılı on Q 24:11."
+      }
+    ]
+  },
   "typologies": [
     {
       "scholar": "İbn Kayyim el-Cevziyye",
