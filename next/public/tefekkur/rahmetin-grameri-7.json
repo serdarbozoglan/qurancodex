@@ -170,9 +170,9 @@
           }
         ]
       },
-      "bridgeTr": "Aile — Bu İki Dinamizmin Tohumlandığı Molekül",
-      "bridgeEn": "The Family — the Molecule Where These Two Dynamics Are Seeded",
-      "bridgeMode": "merge"
+      "bridgeTr": "Aile — bu iki dinamizmin tohumlandığı molekül. Sizinki hangi yönde işliyor?",
+      "bridgeEn": "The family — the molecule where these two dynamics are seeded. Which direction is yours running?",
+      "bridgeMode": "diverge"
     },
     {
       "type": "paragraph",

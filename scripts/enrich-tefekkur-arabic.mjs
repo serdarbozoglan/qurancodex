@@ -32,7 +32,12 @@ function cleanArabicForDisplay(str) {
     .replace(/[؀-؅]/g, '')                    // Numara/dipnot
     .replace(/[۝۞۩]/g, '')               // ayet sonu, rub el hizb, secde
     .replace(/ۦ/g, ' ')                            // small yeh → boşluk
-    .replace(/[ۖ-ۜۢۨ]/g, '')  // waqf + dekoratif tajwid
+    // CLAUDE.md §13.15 canonical: U+0615 (waqf-tā) + U+06D6-U+06DC (waqf) +
+    // U+06DF-U+06ED (tajwid range dahil small high rounded zero U+06DF ve
+    // small high upright rectangular zero U+06E0). Bunlar KFGQPC'de tofu/daire
+    // render eder. Ekim 2026'ya kadar range dar tutulmuştu ve U+06DF/06E0
+    // sızıntısı vardı (bkz. rahmetin-grameri-3 3:231, kaynak-yuzey 3:19).
+    .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '')
     .replace(/[﴾﴿]/g, '');                    // süslü parantezler
 }
 
