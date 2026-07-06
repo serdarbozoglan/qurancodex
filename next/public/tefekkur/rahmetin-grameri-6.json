@@ -58,10 +58,11 @@
       "en": "The deniers objected to the Quran's mosquito example: how can something so small, so insignificant, become a subject of the speech of the Creator of the cosmos — how is an example drawn from it?"
     },
     {
-      "type": "pullQuote",
-      "tr": "Allah bir sivrisineği, hatta ondan da ötesini (fevkahâ) örnek/analoji vermekten çekinmez. İman edenler onun Rablerinden gelen bir hak/gerçek olduğunu bilir; inkâra saplananlar ise \"Allah bununla ne demek istedi?\" der.",
-      "en": "Allah does not shy from setting forth as an example a mosquito, or even something beyond it (fawqahā). Those who believe know it is the truth from their Lord; those clinging to denial say, \"What did Allah mean by this?\"",
-      "source": "Bakara 2:26"
+      "type": "verseInline",
+      "ref": "2:26",
+      "noteTr": "Allah bir sivrisineği — hatta ondan da ötesini (fevkahâ) — örnek vermekten çekinmez. İnkârcı ölçeğin küçüklüğünü anlamın küçüklüğü sanır; mümin sanatın inceliğini görür.",
+      "noteEn": "Allah does not shy from setting forth as an example a mosquito — or even fawqahā (what is beyond it). The denier confuses smallness of scale with smallness of meaning; the believer sees the fineness of the craft.",
+      "ar": "اِنَّ اللّٰهَ لَا يَسْتَحْـيٓ اَنْ يَضْرِبَ مَثَلاً مَا بَعُوضَةً فَمَا فَوْقَهَا  فَاَمَّا الَّذِينَ اٰمَنُوا فَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ  وَاَمَّا الَّذِينَ كَفَرُوا فَيَقُولُونَ مَاذٓا اَرَادَ اللّٰهُ بِهٰذَا مَثَلاً يُضِلُّ بِهِ كَثِيراً وَيَهْدِي بِهِ كَثِيراً وَمَا يُضِلُّ بِهٓ اِلَّا الْفَاسِقِينَ"
     },
     {
       "type": "paragraph",
@@ -118,6 +119,58 @@
       "source": "Said Nursî, Hakikat Çiçekleri, Mektubat"
     },
     {
+      "type": "contrastDuo",
+      "captionTr": "Sanat Paritesi — Mikro ile Makro Aynı El",
+      "captionEn": "Parity of Craft — Micro and Macro, the Same Hand",
+      "left": {
+        "ar": "بَعُوضَة",
+        "titleTr": "Sivrisinek — Mikro",
+        "titleEn": "The Mosquito — Micro",
+        "descTr": "\"Fevkahâ\" — ötesi, üstünü. Ölçekçe küçük, sanatça üstün. Yılda ~760 bin ölümle irtibatlı en ölümcül canlı.",
+        "descEn": "\"Fawqahā\" — what is beyond it. Small in scale, superior in craft. The deadliest creature — linked to ~760,000 human deaths per year.",
+        "accent": "#3498db",
+        "bullets": [
+          {
+            "tr": "Ölçek: mikroskobik",
+            "en": "Scale: microscopic"
+          },
+          {
+            "tr": "Sanat: fevkahâ",
+            "en": "Craft: fawqahā"
+          },
+          {
+            "tr": "Küçüklük ≠ önemsizlik",
+            "en": "Small ≠ insignificant"
+          }
+        ]
+      },
+      "right": {
+        "ar": "شَمْس",
+        "titleTr": "Güneş — Makro",
+        "titleEn": "The Sun — Macro",
+        "descTr": "Yörüngede tutan devasa yıldız. Ölçekçe büyük, sanatça aynı el. Nursî: \"Bir sinek icadı kadar kudretine kolay gelir.\"",
+        "descEn": "The massive star holding orbits. Vast in scale, the same hand in craft. Nursī: \"as easy to His Power as the creation of a single fly.\"",
+        "accent": "#d4a574",
+        "bullets": [
+          {
+            "tr": "Ölçek: kozmik",
+            "en": "Scale: cosmic"
+          },
+          {
+            "tr": "Sanat: aynı el",
+            "en": "Craft: the same hand"
+          },
+          {
+            "tr": "Büyüklük ≠ zorluk",
+            "en": "Large ≠ difficult"
+          }
+        ]
+      },
+      "bridgeTr": "Fark Yalnızca Çözünürlüktedir, Sanatta Değil",
+      "bridgeEn": "The Difference Is Only in Resolution, Not in Craft",
+      "bridgeMode": "merge"
+    },
+    {
       "type": "paragraph",
       "tr": "Risale'nin şeffafiyet sırrı dediği şey bunu tek bir görüntüde damıtır: bir tek güneş, denizin geniş yüzeyine de bir göz bebeğinin küçücük camına da aynı kolaylıkla yansır.",
       "en": "What the Risale calls the secret of transparency distils this into a single image: one and the same sun reflects with equal ease on the vast surface of the sea and on the tiny glass of a pupil."
@@ -133,10 +186,11 @@
       "en": "And this parity is given openly in revelation as a reading-law."
     },
     {
-      "type": "pullQuote",
-      "tr": "Onlara âyetlerimizi âfâkta (ufuklarda, dış dünyada, makro kozmosta) ve enfüste (kendi nefislerinde, iç dünyada, mikro kozmosta) göstereceğiz; ta ki onun hak/gerçek olduğu kendilerine besbelli olsun.",
-      "en": "We shall show them Our signs in the horizons (āfāq — the outer, macro cosmos) and within themselves (anfus — the inner, micro cosmos), until it becomes clear to them that it is the truth.",
-      "source": "Fussilet 41:53"
+      "type": "verseInline",
+      "ref": "41:53",
+      "noteTr": "Âfâk (makro kozmos) ve enfüs (mikro kozmos) — Kur'an'ın açık okuma yasası. İkisi aynı imzayı taşır.",
+      "noteEn": "Āfāq (macro cosmos) and anfus (micro cosmos) — the Quran's explicit reading-law. Both bear the same signature.",
+      "ar": "سَنُرِيهِمْ اٰيَاتِنَا فِي الْاٰفَاقِ وَفِٓي اَنْفُسِهِمْ حَتّٰى يَتَبَـيَّنَ لَهُمْ اَنَّهُ الْحَقُّ اَوَلَمْ يَكْفِ بِرَبِّكَ اَنَّهُ عَلٰى كُلِّ شَيْءٍ شَهِيدٌ"
     },
     {
       "type": "paragraph",
@@ -171,16 +225,18 @@
       "en": "And the Quran presents marriage not as an isolated social institution, but as a section of the pair (zawj) law that founds the cosmos — the seed of the field of society."
     },
     {
-      "type": "pullQuote",
-      "tr": "Ve her şeyden birer çift (zevceyn) yarattık ki düşünüp ibret alasınız.",
-      "en": "And of everything We created pairs (zawjayn), that you may reflect.",
-      "source": "Zâriyât 51:49"
+      "type": "verseInline",
+      "ref": "51:49",
+      "noteTr": "Kozmik çift-yasasının ilanı — kâinatta her şey zevc (çift) ilkesi üzere yaratılmıştır.",
+      "noteEn": "Proclamation of the cosmic law of pairs — every thing in the cosmos is created upon the zawj principle.",
+      "ar": "وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ"
     },
     {
-      "type": "pullQuote",
-      "tr": "Yerin bitirdiklerinden, kendi nefislerinden ve daha bilmedikleri nice şeylerden, bütün çiftleri yaratan Allah ne yücedir!",
-      "en": "Glory to Him who created all the pairs — of what the earth produces, of themselves, and of what they do not know!",
-      "source": "Yâsîn 36:36"
+      "type": "verseInline",
+      "ref": "36:36",
+      "noteTr": "Çift-yasasının kapsayıcılığı — sadece insanda değil, bitkilerde ve henüz bilinmeyende de.",
+      "noteEn": "The comprehensiveness of the pair-law — not only in humans but in plants and in what is still unknown.",
+      "ar": "سُبْحَانَ الَّذِي خَلَقَ الْاَزْوَاجَ كُلَّهَا مِمَّا تُنْبِتُ الْاَرْضُ وَمِنْ اَنْفُسِهِمْ وَمِمَّا لَا يَعْلَمُونَ"
     },
     {
       "type": "paragraph",
@@ -193,10 +249,11 @@
       "en": "This law of pairs manifests as night and day, sky and earth, positive and negative pole, male and female."
     },
     {
-      "type": "pullQuote",
-      "tr": "Ve şüphesiz erkek ve dişi (ez-zeker ve'l-ünsâ) çiftini O yarattı.",
-      "en": "And truly He created the pair — the male and the female (al-dhakar wa al-unthā).",
-      "source": "Necm 53:45"
+      "type": "verseInline",
+      "ref": "53:45",
+      "noteTr": "Erkek-dişi çifti — kozmik pair-yasasının biyolojik ölçekteki tezahürü.",
+      "noteEn": "The male-female pair — the biological-scale manifestation of the cosmic pair-law.",
+      "ar": "وَاَنَّهُ خَلَقَ الزَّوْجَيْنِ الذَّكَرَ وَالْاُنْثٰى"
     },
     {
       "type": "paragraph",
@@ -229,10 +286,11 @@
       "en": "The Quran itself names this an āya — a cosmic sign."
     },
     {
-      "type": "pullQuote",
-      "tr": "O'nun âyetlerinden biri de, kendileriyle huzura kavuşasınız diye size kendi nefislerinizden eşler (ezvâc) yaratması ve aranıza sevgi ile rahmet koymasıdır.",
-      "en": "And of His signs is that He created for you, from among yourselves, spouses (azwāj) that you may find rest in them, and He placed between you love and mercy.",
-      "source": "Rûm 30:21"
+      "type": "verseInline",
+      "ref": "30:21",
+      "noteTr": "Kur'an evliliği bir âyet olarak sayar — gök cisimlerinin, yağmurun, gece-gündüzün yanında anılan kozmik bir işaret. Meveddet ve rahmet, gezegenleri yörüngede tutan aynı yasanın en küçük ölçekteki imzasıdır.",
+      "noteEn": "The Quran counts marriage as an āya — a cosmic sign named alongside heavenly bodies, rain, and night and day. Mawadda and raḥma are the smallest-scale signature of the very law that holds planets in orbit.",
+      "ar": "وَمِنْ اٰيَاتِهٓ اَنْ خَلَقَ لَكُمْ مِنْ اَنْفُسِكُمْ اَزْوَاجاً لِتَسْكُـنٓوا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ"
     },
     {
       "type": "paragraph",

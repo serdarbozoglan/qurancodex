@@ -113,13 +113,39 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bu sezgiyi iki örnekle somutlaştırabiliriz. Birincisi ölçek paritesi: Bakara'da Allah, bir misal vermekten \"sivrisineği bile\" çekinmediğini söyler (2:26). Yorumcuların güzel bir tespiti var — Kur'an sivrisineği değersiz olduğu için değil, sanatça çok ince ve üstün bir varlık olduğu için örnek seçer. Bizim \"önemsiz\" saydığımız yerde metin \"ne kadar incelikli\" der. İkincisi, daha derin bir yasa olarak evlilik. Erkek-dişi birliği, kozmik bir çift (zevc) yasasının yeryüzündeki yüzüdür. \"Her şeyi çift yarattık, ki düşünüp ibret alasınız\" (Zâriyât 51:49) ayeti, nikâhın yalnızca sosyal bir akit değil, varlığın dokusuna işlenmiş bir çiftlik ilkesinin uzantısı olduğunu söyler. Bir boşanma hükmünü okurken aslında kozmik bir grameri okuyor olabiliriz — yeter ki ölçeğin bizi aldatmasına izin vermeyelim.",
-      "en": "We can concretize this intuition with two examples. First, scale parity: in al-Baqara, Allah says He does not shy away from making an example \"even of a mosquito\" (2:26). Commentators have offered a beautiful observation — the Quran chooses the mosquito not because it is worthless but because it is a creature of exquisite and superior craft. Where we count it \"insignificant,\" the text says \"how finely wrought.\" Second, marriage as a deeper law. The union of male and female is the earthly face of a cosmic law of pairs (zawj). The verse \"And of everything We created pairs, that you may reflect\" (al-Dhāriyāt 51:49) says that marriage is not merely a social contract but the extension of a pair-principle inscribed in the fabric of existence. When we read a divorce ruling, we may in fact be reading a cosmic grammar — provided we do not let scale deceive us."
+      "tr": "Bu sezgiyi iki örnekle somutlaştırabiliriz. Birincisi **ölçek paritesi**: Bakara'da Allah, bir misal vermekten \"sivrisineği bile\" çekinmediğini söyler (2:26). Yorumcuların güzel bir tespiti var — Kur'an sivrisineği değersiz olduğu için değil, sanatça çok ince ve üstün bir varlık olduğu için örnek seçer. Bizim \"önemsiz\" saydığımız yerde metin \"ne kadar incelikli\" der.",
+      "en": "We can concretize this intuition with two examples. First, **scale parity**: in al-Baqara, Allah says He does not shy away from making an example \"even of a mosquito\" (2:26). Commentators have offered a beautiful observation — the Quran chooses the mosquito not because it is worthless but because it is a creature of exquisite and superior craft. Where we count it \"insignificant,\" the text says \"how finely wrought.\""
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:26",
+      "noteTr": "Sivrisinekten — hatta ondan da ötesinden — misal vermekten çekinmediğini söyleyen ayet. \"Fevkahâ\" (ondan da ötesi), sanatça daha üstünlüğü ima eder.",
+      "noteEn": "The verse in which Allah declares that He does not shy from setting forth a mosquito — or even something beyond it — as an example. Fawqahā (\"what is beyond it\") implies superior craft.",
+      "ar": "اِنَّ اللّٰهَ لَا يَسْتَحْـيٓ اَنْ يَضْرِبَ مَثَلاً مَا بَعُوضَةً فَمَا فَوْقَهَا  فَاَمَّا الَّذِينَ اٰمَنُوا فَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ  وَاَمَّا الَّذِينَ كَفَرُوا فَيَقُولُونَ مَاذٓا اَرَادَ اللّٰهُ بِهٰذَا مَثَلاً يُضِلُّ بِهِ كَثِيراً وَيَهْدِي بِهِ كَثِيراً وَمَا يُضِلُّ بِهٓ اِلَّا الْفَاسِقِينَ"
     },
     {
       "type": "paragraph",
-      "tr": "Aynı sezgi Fussilet'te açıkça vaat olur: Allah işaretlerini hem âfâkta (ufuklarda, dış dünyada) hem enfüste (kendi içimizde) göstereceğini söyler (41:53). Dışarıdaki kozmos ile içerideki insan, aynı imzayı taşır. Bu seri, o imzayı bir hukuk ayetinin içinde aramaktan ibaret.",
-      "en": "The same intuition becomes an explicit promise in Fuṣṣilat: Allah says He will show His signs both in the horizons (āfāq) and in the selves (anfus) (41:53). The cosmos outside and the human within bear the same signature. This series is nothing but a search for that signature inside a legal verse."
+      "tr": "İkincisi, daha derin bir yasa olarak **evlilik**. Erkek-dişi birliği, kozmik bir çift (zevc) yasasının yeryüzündeki yüzüdür. \"Her şeyi çift yarattık, ki düşünüp ibret alasınız\" (Zâriyât 51:49) ayeti, nikâhın yalnızca sosyal bir akit değil, varlığın dokusuna işlenmiş bir **çiftlik ilkesinin** uzantısı olduğunu söyler. Bir boşanma hükmünü okurken aslında **kozmik bir grameri** okuyor olabiliriz — yeter ki ölçeğin bizi aldatmasına izin vermeyelim.",
+      "en": "Second, marriage as a deeper law. The union of male and female is the earthly face of a cosmic law of **pairs (zawj)**. The verse \"And of everything We created pairs, that you may reflect\" (al-Dhāriyāt 51:49) says that marriage is not merely a social contract but the extension of a **pair-principle** inscribed in the fabric of existence. When we read a divorce ruling, we may in fact be reading **a cosmic grammar** — provided we do not let scale deceive us."
+    },
+    {
+      "type": "verseInline",
+      "ref": "51:49",
+      "noteTr": "Her şeyin çift yaratıldığını ilan eden Zâriyât ayeti. Nikâhın kozmik bir çift-yasasının yeryüzündeki kesiti olduğunu gösterir.",
+      "noteEn": "The Dhāriyāt verse proclaiming that all things are created in pairs. It shows that marriage is an earthly section of a cosmic law of pairs.",
+      "ar": "وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Aynı sezgi Fussilet'te açıkça vaat olur: Allah işaretlerini hem **âfâkta** (ufuklarda, dış dünyada) hem **enfüste** (kendi içimizde) göstereceğini söyler (41:53). Dışarıdaki kozmos ile içerideki insan, aynı imzayı taşır. Bu seri, o imzayı bir hukuk ayetinin içinde aramaktan ibaret.",
+      "en": "The same intuition becomes an explicit promise in Fuṣṣilat: Allah says He will show His signs both in the **horizons (āfāq)** and in the **selves (anfus)** (41:53). The cosmos outside and the human within bear the same signature. This series is nothing but a search for that signature inside a legal verse."
+    },
+    {
+      "type": "verseInline",
+      "ref": "41:53",
+      "noteTr": "Serinin omurga çapası — âfâk (makro) ile enfüs (mikro) aynı imzayı taşır. Bir aile hukuku ayetini doğru okumak, o imzayı görmektir.",
+      "noteEn": "The backbone anchor of the series — āfāq (macro) and anfus (micro) bear the same signature. To read a family-law verse correctly is to see that signature.",
+      "ar": "سَنُرِيهِمْ اٰيَاتِنَا فِي الْاٰفَاقِ وَفِٓي اَنْفُسِهِمْ حَتّٰى يَتَبَـيَّنَ لَهُمْ اَنَّهُ الْحَقُّ اَوَلَمْ يَكْفِ بِرَبِّكَ اَنَّهُ عَلٰى كُلِّ شَيْءٍ شَهِيدٌ"
     },
     {
       "type": "section",

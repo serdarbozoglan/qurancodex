@@ -31,8 +31,15 @@
   "blocks": [
     {
       "type": "paragraph",
-      "tr": "Aile hukuku ayetlerinin çoğu aynı biçimde örülür: soğuk bir hükümle başlar, manevî bir mühürle kapanır. Eşleri geri alma düzenlenirken ayet, \"onlara zarar vermek için tutmayın… ve bilin ki Allah her şeyi bilir\" diye biter (2:231). Emzirme ve nafaka anlatılırken, \"Allah'tan sakının (ittika) ve bilin ki Allah yaptıklarınızı görür\" denir (2:233). Zifaftan önceki boşanma ölçülürken ise, \"bağışlamanız takvâya daha yakındır; aranızdaki fazlı unutmayın\" eklenir (2:237).",
-      "en": "Most of the family-law verses are woven the same way: they open with a cold ruling and close with a spiritual seal. Regulating the return to spouses, the verse ends: \"do not retain them to harm them… and know that Allah knows all things\" (2:231). In discussing nursing and maintenance: \"fear Allah (ittiqā) and know that Allah sees what you do\" (2:233). In measuring divorce before consummation: \"but that you forgive is closer to taqwā; do not forget the graciousness between you\" (2:237)."
+      "tr": "Aile hukuku ayetlerinin çoğu aynı biçimde örülür: **soğuk bir hükümle başlar, manevî bir mühürle kapanır**. Eşleri geri alma düzenlenirken ayet, \"onlara zarar vermek için tutmayın… ve bilin ki Allah her şeyi bilir\" diye biter (2:231). Emzirme ve nafaka anlatılırken, \"Allah'tan sakının (**ittika**) ve bilin ki Allah yaptıklarınızı görür\" denir (2:233). Zifaftan önceki boşanma ölçülürken ise, \"bağışlamanız **takvâya** daha yakındır; aranızdaki fazlı unutmayın\" eklenir (2:237).",
+      "en": "Most of the family-law verses are woven the same way: they **open with a cold ruling and close with a spiritual seal**. Regulating the return to spouses, the verse ends: \"do not retain them to harm them… and know that Allah knows all things\" (2:231). In discussing nursing and maintenance: \"fear Allah (**ittiqā**) and know that Allah sees what you do\" (2:233). In measuring divorce before consummation: \"but that you forgive is closer to **taqwā**; do not forget the graciousness between you\" (2:237)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:231",
+      "noteTr": "Soğuk hükmün ardından ilk fezleke — insanı hâkim değil Bilen'in huzuruna çağırır.",
+      "noteEn": "The first fadhlaka after a cold ruling — it summons the human before the All-Knowing, not before a judge.",
+      "ar": "وَاِذَا طَلَّقْتُمُ النِّسٓاءَ فَبَلَغْنَ اَجَلَهُنَّ فَاَمْسِكُوهُنَّ بِمَعْرُوفٍ اَوْ سَرِّحُوهُنَّ بِمَعْرُوفٍ وَلَا تُمْسِكُوهُنَّ ضِرَاراً لِتَعْتَدُوا وَمَنْ يَفْعَلْ ذٰلِكَ فَقَدْ ظَلَمَ نَفْسَهُ وَلَا تَتَّخِذٓوا اٰيَاتِ اللّٰهِ هُزُواً وَاذْكُرُوا نِعْمَتَ اللّٰهِ عَلَيْكُمْ وَمٓا اَنْزَلَ عَلَيْكُمْ مِنَ الْكِتَابِ وَالْحِكْمَةِ يَعِظُـكُمْ بِهِ وَاتَّقُوا اللّٰهَ وَاعْلَمٓوا اَنَّ اللّٰهَ بِكُلِّ شَيْءٍ عَلِيمٌ۟"
     },
     {
       "type": "paragraph",
@@ -118,8 +125,60 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bu ayetlerde bir kelime ısrarla döner: ma'rûf. \"Ma'rûf ile tutun\", \"ma'rûf ile nafaka verin\". Toshihiko Izutsu'nun gösterdiği gibi, Kur'an çoğu zaman yeni kelimeler icat etmez; cahiliyenin kelimelerini alır ve anlam-DNA'larını değiştirir. Cahiliyede ma'rûf, \"kabilenin tanıdığı, onayladığı şey\" demekti. Yani töre, yerleşik kabile standardı. Kur'an bu kelimeyi devralır ve anlamını kabilenin onayından alıp Allah bilincine dayalı evrensel iyiliğe kaydırır.",
-      "en": "One word recurs insistently in these verses: maʿrūf. \"Retain with maʿrūf,\" \"provide maintenance with maʿrūf.\" As Toshihiko Izutsu shows, the Quran often does not invent new words; it takes the words of the Jāhiliyya and rewrites their semantic DNA. In the Jāhiliyya, maʿrūf meant \"what the tribe recognizes, what it approves\" — custom, the settled tribal standard. The Quran takes this word over and shifts its meaning away from tribal endorsement and toward a universal good grounded in Allah-consciousness."
+      "tr": "Bu ayetlerde bir kelime ısrarla döner: **ma'rûf**. \"Ma'rûf ile tutun\", \"ma'rûf ile nafaka verin\". Toshihiko Izutsu'nun gösterdiği gibi, Kur'an çoğu zaman yeni kelimeler icat etmez; **cahiliyenin kelimelerini alır ve anlam-DNA'larını değiştirir**. Cahiliyede ma'rûf, \"kabilenin tanıdığı, onayladığı şey\" demekti. Yani töre, yerleşik kabile standardı. Kur'an bu kelimeyi devralır ve anlamını kabilenin onayından alıp **Allah bilincine dayalı evrensel iyiliğe** kaydırır.",
+      "en": "One word recurs insistently in these verses: **maʿrūf**. \"Retain with maʿrūf,\" \"provide maintenance with maʿrūf.\" As Toshihiko Izutsu shows, the Quran often does not invent new words; it **takes the words of the Jāhiliyya and rewrites their semantic DNA**. In the Jāhiliyya, maʿrūf meant \"what the tribe recognizes, what it approves\" — custom, the settled tribal standard. The Quran takes this word over and shifts its meaning away from tribal endorsement and toward **a universal good grounded in Allah-consciousness**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Ma'rûf — Kabile Töresinden Vahyî Ahlâka",
+      "captionEn": "Maʿrūf — From Tribal Custom to Revealed Ethic",
+      "left": {
+        "ar": "مَعْرُوف",
+        "titleTr": "Ma'rûf — Cahiliye",
+        "titleEn": "Maʿrūf — Jāhiliyya",
+        "descTr": "Kabilenin tanıdığı, onayladığı şey. Yerel töre. Ölçü: aşiretin nazarı.",
+        "descEn": "What the tribe recognizes and approves. Local custom. Measure: the gaze of the clan.",
+        "accent": "#94a3b8",
+        "bullets": [
+          {
+            "tr": "Kabile onayı",
+            "en": "Tribal endorsement"
+          },
+          {
+            "tr": "Yerel, göreli",
+            "en": "Local, relative"
+          },
+          {
+            "tr": "Ölçü değişken",
+            "en": "Standard varies"
+          }
+        ]
+      },
+      "right": {
+        "ar": "مَعْرُوف",
+        "titleTr": "Ma'rûf — Kur'ânî",
+        "titleEn": "Maʿrūf — Quranic",
+        "descTr": "Allah bilincine dayalı evrensel iyilik. Ölçü: vahyin nazarı. Kabileden Rabb'e taşınan bir eksen.",
+        "descEn": "Universal good grounded in Allah-consciousness. Measure: the gaze of revelation. An axis lifted from tribe to Lord.",
+        "accent": "#d4a574",
+        "bullets": [
+          {
+            "tr": "İlahî ölçü",
+            "en": "Divine measure"
+          },
+          {
+            "tr": "Evrensel, mutlak",
+            "en": "Universal, absolute"
+          },
+          {
+            "tr": "Ma'rûf ↔ münker ekseni",
+            "en": "Maʿrūf ↔ munkar axis"
+          }
+        ]
+      },
+      "bridgeTr": "Anlamın Devralınması — Kelimenin İçini Değiştir, Toplumun Ahlakı Değişir",
+      "bridgeEn": "Semantic Takeover — Change What a Word Carries, and the Ethics of the Society Change",
+      "bridgeMode": "merge"
     },
     {
       "type": "paragraph",

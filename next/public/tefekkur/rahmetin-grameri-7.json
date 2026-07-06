@@ -37,8 +37,15 @@
     },
     {
       "type": "paragraph",
-      "tr": "Seri boyunca tek bir emre beş ayrı mercekten bakıldı. Bakara 233'ü hatırlayın: \"Anneler çocuklarını iki tam yıl emzirir; babaya da onların ma'rûf ile rızkı ve giyimi düşer… ne anne çocuğu yüzünden ne baba çocuğu yüzünden zarara sokulsun… ve bilin ki Allah yaptıklarınızı görür.\"",
-      "en": "Throughout the series a single command was looked at through five different lenses. Recall al-Baqara 233: \"Mothers shall nurse their children for two full years; upon the father is their sustenance and clothing with maʿrūf… let no mother be harmed on account of her child, nor a father on account of his… and know that Allah sees what you do.\""
+      "tr": "Seri boyunca tek bir emre beş ayrı mercekten bakıldı. Bakara 233'ü hatırlayın: \"Anneler çocuklarını iki tam yıl emzirir; babaya da onların ma'rûf ile rızkı ve giyimi düşer… ne anne çocuğu yüzünden ne baba çocuğu yüzünden zarara sokulsun… **ve bilin ki Allah yaptıklarınızı görür.**\"",
+      "en": "Throughout the series a single command was looked at through five different lenses. Recall al-Baqara 233: \"Mothers shall nurse their children for two full years; upon the father is their sustenance and clothing with maʿrūf… let no mother be harmed on account of her child, nor a father on account of his… **and know that Allah sees what you do.**\""
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:233",
+      "noteTr": "Serinin prizma-ayeti — tek bir hukukî hüküm, beş boyutu birden kuşatır. Fezleke el-Basîr ile kapanır.",
+      "noteEn": "The prism-verse of the series — a single legal ruling encompasses five dimensions at once. The fadhlaka closes with al-Baṣīr.",
+      "ar": "وَالْوَالِدَاتُ يُرْضِعْنَ اَوْلَادَهُنَّ حَوْلَيْنِ كَامِلَيْنِ لِمَنْ اَرَادَ اَنْ يُـتِمَّ الرَّضَاعَةَ وَعَلَى الْمَوْلُودِ لَهُ رِزْقُهُنَّ وَكِسْوَتُهُنَّ بِالْمَعْرُوفِ لَا تُكَلَّفُ نَفْسٌ اِلَّا وُسْعَهَا لَا تُضٓارَّ وَالِدَةٌ بِوَلَدِهَا وَلَا مَوْلُودٌ لَهُ بِوَلَدِهِ وَعَلَى الْوَارِثِ مِثْلُ ذٰلِكَ فَاِنْ اَرَادَا فِصَالاً عَنْ تَرَاضٍ مِنْهُمَا وَتَشَاوُرٍ فَلَا جُنَاحَ عَلَيْهِمَا وَاِنْ اَرَدْتُمْ اَنْ تَسْتَرْضِعٓوا اَوْلَادَكُمْ فَلَا جُنَاحَ عَلَيْكُمْ اِذَا سَلَّمْتُمْ مٓا اٰتَيْتُمْ بِالْمَعْرُوفِ وَاتَّقُوا اللّٰهَ وَاعْلَمٓوا اَنَّ اللّٰهَ بِمَا تَعْمَلُونَ بَصِيرٌ"
     },
     {
       "type": "paragraph",
@@ -58,8 +65,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Önce kâinata bakılır. Kâinat durağan değildir; bir yöne doğru işleyen bir dinamizmle örülüdür. Fizik en az eylem (least action) ve potansiyeli en aza indirme ilkeleriyle en uygun hâli arar; yıldızların içinde basit hidrojenden ağır elementler doğar; canlılık çeşitlenip türleşir; kâinat genişler; insan bir hücreden bir şahsiyete gelişir. Yani kâinatın kanunları, bir olgunlaşmaya, bir tekâmüle doğru ayarlıdır.",
-      "en": "First look at the cosmos. The cosmos is not static; it is woven with a dynamism that operates in a direction. Physics seeks the optimal state through the principles of least action and the minimization of potential; heavy elements are born from simple hydrogen inside stars; life diversifies and speciates; the cosmos expands; a human being develops from a cell into a person. In other words, the laws of the cosmos are tuned toward maturation, toward takāmul."
+      "tr": "Önce kâinata bakılır. Kâinat **durağan değildir**; bir yöne doğru işleyen bir **dinamizmle** örülüdür. Fizik **en az eylem (least action)** ve potansiyeli en aza indirme ilkeleriyle en uygun hâli arar; yıldızların içinde basit hidrojenden ağır elementler doğar; canlılık çeşitlenip türleşir; kâinat genişler; insan bir hücreden bir şahsiyete gelişir. Yani kâinatın kanunları, bir **olgunlaşmaya**, bir **tekâmüle** doğru ayarlıdır.",
+      "en": "First look at the cosmos. The cosmos is **not static**; it is woven with a **dynamism** that operates in a direction. Physics seeks the optimal state through the principles of **least action** and the minimization of potential; heavy elements are born from simple hydrogen inside stars; life diversifies and speciates; the cosmos expands; a human being develops from a cell into a person. In other words, the laws of the cosmos are tuned toward **maturation**, toward **takāmul**."
     },
     {
       "type": "paragraph",
@@ -85,18 +92,92 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bir yanda doğurganlık: tek bir tohumdan (habbe) yedi başak, her başakta yüz tane çıkması (2:261). Kökü sağlam, dalları gökte, her mevsim meyve veren güzel bir ağaç (14:24–25). Cennet de bu yönün en yüksek hâlidir: aynı su ve toprakla sayısız çeşit meyve, çift çift bahçeler, tükenmeyen bir çoğalma. Bu, varoluşun dinamizmidir; \"sâlih\" olmak, yani üretken, doğurgan, ıslah eden olmaktır.",
-      "en": "On one side, generativity: from a single seed (ḥabba), seven ears, each ear a hundred grains (2:261). A goodly tree whose root is firm, whose branches are in the sky, which gives fruit in every season (14:24–25). Paradise itself is the highest state of this direction: countless fruits from the same water and soil, gardens in pairs, an inexhaustible multiplication. This is the dynamism of existence; to be ṣāliḥ is to be productive, generative, and reforming."
+      "tr": "Bir yanda **doğurganlık**: tek bir tohumdan (habbe) yedi başak, her başakta yüz tane çıkması (2:261). Kökü sağlam, dalları gökte, her mevsim meyve veren güzel bir ağaç (14:24–25). Cennet de bu yönün en yüksek hâlidir: aynı su ve toprakla sayısız çeşit meyve, çift çift bahçeler, tükenmeyen bir çoğalma. Bu, **varoluşun dinamizmidir**; \"sâlih\" olmak, yani üretken, doğurgan, ıslah eden olmaktır.",
+      "en": "On one side, **generativity**: from a single seed (ḥabba), seven ears, each ear a hundred grains (2:261). A goodly tree whose root is firm, whose branches are in the sky, which gives fruit in every season (14:24–25). Paradise itself is the highest state of this direction: countless fruits from the same water and soil, gardens in pairs, an inexhaustible multiplication. This is **the dynamism of existence**; to be ṣāliḥ is to be productive, generative, and reforming."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:261",
+      "noteTr": "Bahçe dinamizminin ayet-tohumu — tek bir habbe, yedi başak, her başakta yüz tane. Doğurgan tekâmülün prototipi.",
+      "noteEn": "The verse-seed of the orchard dynamic — one ḥabba, seven ears, each with a hundred grains. The prototype of generative takāmul.",
+      "ar": "مَثَلُ الَّذِينَ يُنْفِقُونَ اَمْوَالَهُمْ فِي سَبِيلِ اللّٰهِ كَمَثَلِ حَبَّةٍ اَنْبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنْبُلَةٍ مِائَةُ حَبَّةٍ وَاللّٰهُ يُضَاعِفُ لِمَنْ يَشٓاءُ وَاللّٰهُ وَاسِعٌ عَلِيمٌ"
+    },
+    {
+      "type": "verseInline",
+      "ref": "14:24-25",
+      "isRange": true,
+      "noteTr": "\"Güzel ağaç\" (şeceretü'n tayyibe) — kökü sağlam, dalları gökte, her mevsim meyve. Doğurgan tekâmülün en güzel imgesi.",
+      "noteEn": "The \"goodly tree\" (shajaratun ṭayyiba) — root firm, branches in the sky, fruit in every season. The most beautiful image of generative takāmul.",
+      "ar": "اَلَمْ تَرَ كَيْفَ ضَرَبَ اللّٰهُ مَثَلاً كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ اَصْلُهَا ثَابِتٌ وَفَرْعُهَا فِي السَّمٓاءِ"
     },
     {
       "type": "paragraph",
-      "tr": "Öbür yanda ise indirgeme: çeşit çeşit olan şeyi yakıp tek bir şeye, küle çeviren ateş. Kur'an inkârcının amellerini \"fırtınalı bir günde rüzgârın şiddetle savurduğu kül\" gibi tarif eder (14:18). Cehennem-ateş, çeşitliliği yutup tekleştiren, ifsad eden, bozan yöndür. Bu da yokoluşun dinamizmidir.",
-      "en": "On the other side, reduction: fire that burns the manifold down to a single substance — ash. The Quran describes the works of the denier as \"ashes that a violent wind scatters on a stormy day\" (14:18). The hellfire is the direction that swallows diversity into oneness, corrupts, spoils. This is the dynamism of annihilation."
+      "tr": "Öbür yanda ise **indirgeme**: çeşit çeşit olan şeyi yakıp tek bir şeye, **küle** çeviren ateş. Kur'an inkârcının amellerini \"fırtınalı bir günde rüzgârın şiddetle savurduğu kül\" gibi tarif eder (14:18). Cehennem-ateş, çeşitliliği yutup tekleştiren, **ifsad eden, bozan** yöndür. Bu da **yokoluşun dinamizmidir**.",
+      "en": "On the other side, **reduction**: fire that burns the manifold down to a single substance — **ash**. The Quran describes the works of the denier as \"ashes that a violent wind scatters on a stormy day\" (14:18). The hellfire is the direction that swallows diversity into oneness, that **corrupts and spoils**. This is **the dynamism of annihilation**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "14:18",
+      "noteTr": "Kül imgesi — inkârcının amelleri fırtınada savrulan küldür. Bahçenin karşıtı: çeşitliliği yutup tekleştiren, ifsad eden dinamizm.",
+      "noteEn": "The image of ash — the denier's works are ash scattered in a storm. The opposite of the orchard: the dynamic that swallows diversity into oneness, corrupting.",
+      "ar": "مَثَلُ الَّذِينَ كَفَرُوا بِرَبِّهِمْ اَعْمَالُهُمْ كَرَمَادٍ اشْتَدَّتْ بِهِ الرِّيحُ فِي يَوْمٍ عَاصِفٍ لَا يَقْدِرُونَ مِمَّا كَسَبُوا عَلٰى شَيْءٍ ذٰلِكَ هُوَ الضَّلَالُ الْبَعِيدُ"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki Dinamizm — Kâinatın Molekül-Kaderi",
+      "captionEn": "Two Dynamics — The Molecular Destiny of the Cosmos",
+      "left": {
+        "ar": "بُسْتَان",
+        "titleTr": "Bahçe — Doğurgan Tekâmül",
+        "titleEn": "Orchard — Generative Takāmul",
+        "descTr": "Tek habbeden yedi başak. Kök sağlam, dallar gökte. Cennet: çeşitliliğin çoğalması, ıslah, üretken hayat.",
+        "descEn": "Seven ears from one seed. Root firm, branches in the sky. Paradise: multiplication of diversity, reform, productive life.",
+        "accent": "#1D9E75",
+        "bullets": [
+          {
+            "tr": "2:261 — tohumun bereketi",
+            "en": "2:261 — the bounty of the seed"
+          },
+          {
+            "tr": "14:24-25 — güzel ağaç",
+            "en": "14:24-25 — the goodly tree"
+          },
+          {
+            "tr": "Sâlih olmak: doğurgan",
+            "en": "To be ṣāliḥ: generative"
+          }
+        ]
+      },
+      "right": {
+        "ar": "رَمَاد",
+        "titleTr": "Kül — İfsad Eden İndirgeme",
+        "titleEn": "Ash — The Corrupting Reduction",
+        "descTr": "Fırtınada savrulan kül. Çeşitliliği yakıp tekleştiren ateş. Cehennem: bozan, indirgeyen, yakan dinamizm.",
+        "descEn": "Ash scattered by the storm. Fire that burns diversity into oneness. Hellfire: the dynamic that corrupts, reduces, burns.",
+        "accent": "#e74c3c",
+        "bullets": [
+          {
+            "tr": "14:18 — küle indirgeme",
+            "en": "14:18 — reduction to ash"
+          },
+          {
+            "tr": "Çeşitlilik → teklik",
+            "en": "Diversity → oneness"
+          },
+          {
+            "tr": "İfsad, yakma, bozma",
+            "en": "Corruption, burning, spoiling"
+          }
+        ]
+      },
+      "bridgeTr": "Aile — Bu İki Dinamizmin Tohumlandığı Molekül",
+      "bridgeEn": "The Family — the Molecule Where These Two Dynamics Are Seeded",
+      "bridgeMode": "merge"
     },
     {
       "type": "paragraph",
-      "tr": "Bahçe çoğaltır, ateş tekleştirir, küle indirir. Bir toplumu, bir aileyi, bir kalbi bu iki dinamizmden hangisinin sardığı, o birimin kaderini belirler.",
-      "en": "The orchard multiplies; the fire monolithizes and reduces to ash. Whichever of these two dynamics wraps a society, a family, a heart, determines the destiny of that unit."
+      "tr": "Bahçe **çoğaltır**, ateş **tekleştirir**, küle indirir. Bir toplumu, bir aileyi, bir kalbi bu iki dinamizmden hangisinin sardığı, **o birimin kaderini belirler**.",
+      "en": "The orchard **multiplies**; the fire **monolithizes** and reduces to ash. Whichever of these two dynamics wraps a society, a family, a heart, **determines the destiny of that unit**."
     },
     {
       "type": "pullQuote",
@@ -169,10 +250,11 @@
       "en": "The deepest answer is this: because the family is where the cosmos's most fundamental principle (i.e., generative takāmul) is either seeded or reduced to ash. The pen is not descending to a small matter; it is tuning the greatest principle at the smallest and most decisive scale. The hand that works a fly's wing with the same craft as the sun encompasses the nursing of an infant with the same law that holds the planets; because a single dynamic operates in both: to bring to maturity. Granularity is not a fall from cosmic majesty but the proof that this majesty extends without interruption down to the smallest scale."
     },
     {
-      "type": "pullQuote",
-      "tr": "Onlara âyetlerimizi âfâkta (dış dünyada) ve enfüste (iç dünyada) göstereceğiz.",
-      "en": "We shall show them Our signs in the horizons (āfāq — the outer world) and within themselves (anfus — the inner world).",
-      "source": "Fussilet 41:53"
+      "type": "verseInline",
+      "ref": "41:53",
+      "noteTr": "Serinin final çapası — âfâk (dış tekâmül) ile enfüs (iç tekâmül) aynı imzayı taşır. Bir aile hukuku ayetini doğru okumak, o imzayı görmektir.",
+      "noteEn": "The final anchor of the series — the takāmul of āfāq (outer) and the takāmul of anfus (inner) bear the same signature. To read a family-law verse correctly is to see that signature.",
+      "ar": "سَنُرِيهِمْ اٰيَاتِنَا فِي الْاٰفَاقِ وَفِٓي اَنْفُسِهِمْ حَتّٰى يَتَبَـيَّنَ لَهُمْ اَنَّهُ الْحَقُّ اَوَلَمْ يَكْفِ بِرَبِّكَ اَنَّهُ عَلٰى كُلِّ شَيْءٍ شَهِيدٌ"
     },
     {
       "type": "paragraph",

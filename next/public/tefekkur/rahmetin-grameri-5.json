@@ -47,8 +47,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Muhyiddin İbn Arabî (a.k.a. eş-Şeyhü'l-Ekber) dış hukuka, yani zâhire karşı katı bir literalisttir; onu, cahillerin sandığı gibi, aşılıp geçilecek bir mecaz saymaz. Onun ilkesi i'tibâr'dır: karşıya geçiş. Şeriattaki her fiziksel yasa, aynı zamanda kozmik-manevî bir hakikatin holografik yansımasıdır. Bir evin içinde karı ile kocayı düzenleyen yasa ile Ruh ile Nefsi, ya da Akıl ile Kâinatı düzenleyen yasa, ona göre aynı yasadır. Bu yüzden talâk, iddet ve emzirmenin granül ayrıntısı, onun nazarında ruhun yolculuğu için gizli bir kılavuzdur. Hadi biraz daha detaylandıralım.",
-      "en": "Muḥyī al-Dīn Ibn ʿArabī (a.k.a. al-Shaykh al-Akbar) is a strict literalist toward outer law, the ẓāhir; he does not treat it, as the ignorant imagine, as a metaphor to be transcended. His principle is iʿtibār: the crossing over. Every physical law of the Sharīʿa is at once the holographic reflection of a cosmic-spiritual reality. For him, the law that regulates husband and wife inside a household is the same law that regulates Spirit and Soul, or Intellect and Cosmos. That is why the granular detail of ṭalāq, ʿidda, and nursing is, in his eyes, a hidden guide for the soul's journey. Let us elaborate a little further."
+      "tr": "Muhyiddin İbn Arabî (a.k.a. **eş-Şeyhü'l-Ekber**) dış hukuka, yani zâhire karşı **katı bir literalisttir**; onu, cahillerin sandığı gibi, aşılıp geçilecek bir mecaz saymaz. Onun ilkesi **i'tibâr**'dır: karşıya geçiş. **Şeriattaki her fiziksel yasa, aynı zamanda kozmik-manevî bir hakikatin holografik yansımasıdır.** Bir evin içinde karı ile kocayı düzenleyen yasa ile Ruh ile Nefsi, ya da Akıl ile Kâinatı düzenleyen yasa, ona göre **aynı yasadır**. Bu yüzden talâk, iddet ve emzirmenin granül ayrıntısı, onun nazarında **ruhun yolculuğu için gizli bir kılavuzdur**. Hadi biraz daha detaylandıralım.",
+      "en": "Muḥyī al-Dīn Ibn ʿArabī (a.k.a. **al-Shaykh al-Akbar**) is **a strict literalist** toward outer law, the ẓāhir; he does not treat it, as the ignorant imagine, as a metaphor to be transcended. His principle is **iʿtibār**: the crossing over. **Every physical law of the Sharīʿa is at once the holographic reflection of a cosmic-spiritual reality.** For him, the law that regulates husband and wife inside a household is **the same law** that regulates Spirit and Soul, or Intellect and Cosmos. That is why the granular detail of ṭalāq, ʿidda, and nursing is, in his eyes, **a hidden guide for the soul's journey**. Let us elaborate a little further."
     },
     {
       "type": "section",
@@ -62,10 +62,11 @@
       "en": "For Ibn ʿArabī, the cosmos comes to manifestation through a \"spiritual marriage\" between the Universal Intellect (global ration/reason/connectivity, edges) and the Universal Soul (global body, nodes): every cause is like a \"father,\" every locus of manifestation like a \"mother,\" every effect like a \"son.\" That is, the principle of fāʿil (active, masculine) and qābil (receptive, feminine) is the weaving-loom of existence. Revelation names this structure openly:"
     },
     {
-      "type": "pullQuote",
-      "tr": "Ve her şeyden çift (zevceyn) yarattık ki düşünüp ibret alasınız.",
-      "en": "And of everything We created pairs (zawjayn), that you may reflect.",
-      "source": "Zâriyât 51:49"
+      "type": "verseInline",
+      "ref": "51:49",
+      "noteTr": "Kozmik çift-yasasının açık ilanı — evlilik hukukunun kâinatın en temel prensibinin fraktal bir kesiti olduğunun ayet çapası.",
+      "noteEn": "The open declaration of the cosmic law of pairs — the verse-anchor for reading marriage law as a fractal section of the cosmos's most fundamental principle.",
+      "ar": "وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ"
     },
     {
       "type": "paragraph",
@@ -80,8 +81,15 @@
     },
     {
       "type": "paragraph",
-      "tr": "Zâhirde talâk, evlilik bağının hukukî kesilmesidir. Ekberî bâtında ise fenâ'dır: aklın, nefs-i emmârenin alçak arzularından; kalbin ise dünyadan \"boşanması\". İbn Arabî'nin okumasında üç talâk, mistiğin vahdete ulaşmak için geçmesi gereken üç kopuşa karşılık gelir: önce dünyadan, sonra âhiretin ego-centric arzusundan (yani cennet uğruna kulluktan), en sonunda mâsivâdan, yani Allah'tan gayrı her şeyden, kendi bağımsız varlık vehmi dahil. Üçüncü kopuş gerçekleştiğinde egodan ayrılık, tıpkı üçüncü talâk gibi, bâin olur: geri dönüşsüz (2:230).",
-      "en": "In the outer sense ṭalāq is the legal severance of the marital bond. In the Akbarian inner sense it is fanāʾ: the intellect's \"divorce\" from the base desires of the commanding self, and the heart's \"divorce\" from the world. In Ibn ʿArabī's reading, the three divorces correspond to the three ruptures the mystic must pass through in order to reach unity: first from the world, then from the ego-centric desire of the afterlife (i.e., worship for the sake of paradise), and at last from mā siwā — everything other than Allah, including one's own illusion of independent being. When the third rupture occurs, the parting from ego, like the third ṭalāq, becomes bāʾin: irrevocable (2:230)."
+      "tr": "Zâhirde **talâk**, evlilik bağının hukukî kesilmesidir. Ekberî bâtında ise **fenâ**'dır: aklın, nefs-i emmârenin alçak arzularından; kalbin ise dünyadan \"boşanması\". İbn Arabî'nin okumasında üç talâk, mistiğin vahdete ulaşmak için geçmesi gereken **üç kopuşa** karşılık gelir: önce **dünyadan**, sonra **âhiretin ego-centric arzusundan** (yani cennet uğruna kulluktan), en sonunda **mâsivâdan**, yani Allah'tan gayrı her şeyden, kendi bağımsız varlık vehmi dahil. Üçüncü kopuş gerçekleştiğinde egodan ayrılık, tıpkı üçüncü talâk gibi, **bâin** olur: geri dönüşsüz (2:230).",
+      "en": "In the outer sense **ṭalāq** is the legal severance of the marital bond. In the Akbarian inner sense it is **fanāʾ**: the intellect's \"divorce\" from the base desires of the commanding self, and the heart's \"divorce\" from the world. In Ibn ʿArabī's reading, the three divorces correspond to the **three ruptures** the mystic must pass through in order to reach unity: first from **the world**, then from **the ego-centric desire of the afterlife** (i.e., worship for the sake of paradise), and at last from **mā siwā** — everything other than Allah, including one's own illusion of independent being. When the third rupture occurs, the parting from ego, like the third ṭalāq, becomes **bāʾin**: irrevocable (2:230)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:230",
+      "noteTr": "Üçüncü talâkın bâin olması — Ekberî mercekte egodan geri dönüşsüz ayrılığın hukukî çapası.",
+      "noteEn": "The third ṭalāq becoming bāʾin — in the Akbarian lens, the legal anchor for the irrevocable parting from the ego.",
+      "ar": "فَاِنْ طَلَّقَهَا فَلَا تَحِلُّ لَهُ مِنْ بَعْدُ حَتّٰى تَنْكِحَ زَوْجاً غَيْرَهُ  فَاِنْ طَلَّقَهَا فَلَا جُنَاحَ عَلَيْهِمٓا اَنْ يَتَرَاجَعٓا اِنْ ظَـنّٓا اَنْ يُقِيمَا حُدُودَ اللّٰهِ وَتِلْكَ حُدُودُ اللّٰهِ يُبَيِّنُهَا لِقَوْمٍ يَعْلَمُونَ"
     },
     {
       "type": "section",
