@@ -1,0 +1,157 @@
+{
+  "slug": "rahmetin-grameri-5",
+  "titleTr": "Rahmetin Grameri-5: Kozmik Hologram: Bir Boşanma, Ruhun Yolculuğunun Fraktal Planı Nasıl Olur?",
+  "titleEn": "The Grammar of Mercy-5: The Cosmic Hologram: How Is a Divorce a Fractal Blueprint of the Soul's Journey?",
+  "category": "sure-hermenotik",
+  "template": "series-lens",
+  "seriesId": "rahmetin-grameri",
+  "seriesNumber": 5,
+  "publishedDate": "2026-07-05",
+  "readingMinutes": 4,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/rahmetin-grameri-5-kozmik-hologram-bir-bo%C5%9Fanma-ruhun-yolculu%C4%9Funun-fraktal-plan%C4%B1-nas%C4%B1l-olur-c23e19991a23",
+  "tldrTr": "Ekberî/bâtınî mercek. Kur'an iddeti üç kurû'a, talâkı ikiye, emzirmeyi iki yıla, mehri yarıya bağlar. İbn Arabî için bu ayrıntı bir kozmik hologramdır: şeriattaki her fiziksel yasa aynı zamanda kozmik-manevî bir hakikatin holografik yansımasıdır. Talâk fenâya, iddet berzaha, radâ' marifet sütüne, mehir ruh-nefis mübadelesine karşılık gelir.",
+  "tldrEn": "Akbarian/inner lens. The Quran binds ʿidda to three cycles, divorce to two, nursing to two years, dower to half. For Ibn ʿArabī the detail is a cosmic hologram: every physical law of Sharīʿa is at once the holographic reflection of a cosmic-spiritual reality. Ṭalāq corresponds to fanāʾ, ʿidda to barzakh, radāʿ to the milk of gnosis, and dower to the spirit–self exchange.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "2:228-229",
+    "2:230",
+    "2:233",
+    "2:237",
+    "51:49"
+  ],
+  "previousArticle": "rahmetin-grameri-4",
+  "nextArticle": "rahmetin-grameri-6",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Kur'an iddeti üç kurû'a, geri dönüşlü talâkı ikiye — üçüncüsü artık bâin — bağlar; emzirmeyi iki yıla, mehri yarıya ölçer (2:228–229, 233, 237). Görünüşte tamamen fıkhî, tamamen dünyevî parametreler; bir hukuk fihristi.",
+      "en": "The Quran binds the ʿidda to three cycles, and the revocable ṭalāq to twofold — the third being bāʾin, irrevocable; it measures nursing at two years and dower at half (2:228–229, 233, 237). On the surface these are entirely juridical, entirely worldly parameters — a table of contents of law."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Peki İbn Arabî gibi bir ârif, bu \"aile mahkemesi\" ayrıntısını neden manevî bir hazine sayar? Bir bekleme süresi ya da bir süt masrafı, ruhun Allah'a yolculuğuyla nasıl ilgili olabilir? Fıkhın en kuru sayfası, tasavvufun en yüksek haritası nasıl olur?",
+      "en": "Why then does a gnostic like Ibn ʿArabī count this \"family court\" detail a spiritual treasure? How can a waiting period or a nursing expense have anything to do with the soul's journey to Allah? How does the driest page of fiqh become the highest map of taṣawwuf?"
+    },
+    {
+      "type": "section",
+      "id": "itibar",
+      "titleTr": "İ'tibâr",
+      "titleEn": "Iʿtibār"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Muhyiddin İbn Arabî (a.k.a. eş-Şeyhü'l-Ekber) dış hukuka, yani zâhire karşı katı bir literalisttir; onu, cahillerin sandığı gibi, aşılıp geçilecek bir mecaz saymaz. Onun ilkesi i'tibâr'dır: karşıya geçiş. Şeriattaki her fiziksel yasa, aynı zamanda kozmik-manevî bir hakikatin holografik yansımasıdır. Bir evin içinde karı ile kocayı düzenleyen yasa ile Ruh ile Nefsi, ya da Akıl ile Kâinatı düzenleyen yasa, ona göre aynı yasadır. Bu yüzden talâk, iddet ve emzirmenin granül ayrıntısı, onun nazarında ruhun yolculuğu için gizli bir kılavuzdur. Hadi biraz daha detaylandıralım.",
+      "en": "Muḥyī al-Dīn Ibn ʿArabī (a.k.a. al-Shaykh al-Akbar) is a strict literalist toward outer law, the ẓāhir; he does not treat it, as the ignorant imagine, as a metaphor to be transcended. His principle is iʿtibār: the crossing over. Every physical law of the Sharīʿa is at once the holographic reflection of a cosmic-spiritual reality. For him, the law that regulates husband and wife inside a household is the same law that regulates Spirit and Soul, or Intellect and Cosmos. That is why the granular detail of ṭalāq, ʿidda, and nursing is, in his eyes, a hidden guide for the soul's journey. Let us elaborate a little further."
+    },
+    {
+      "type": "section",
+      "id": "kozmik-hologram",
+      "titleTr": "Kozmik Hologram",
+      "titleEn": "The Cosmic Hologram"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İbn Arabî'ye göre kâinat, Küllî Akıl (global ration/reason/connectivity, edges) aracılığıyla Küllî Nefis'te (global body, nodes) bir \"manevî nikâh\" ile zuhur eder: her sebep bir \"baba\", her zuhur mahalli/lokal bir \"anne\", her sonuç bir \"oğul\" gibidir. Yani fâil (etkin, müzekker, maskulin) ile kâbil (edilgen, müennes, feminin) ilkesi, varlığın dokuma tezgâhıdır. Bu yapı vahiyde de açıkça anılır:",
+      "en": "For Ibn ʿArabī, the cosmos comes to manifestation through a \"spiritual marriage\" between the Universal Intellect (global ration/reason/connectivity, edges) and the Universal Soul (global body, nodes): every cause is like a \"father,\" every locus of manifestation like a \"mother,\" every effect like a \"son.\" That is, the principle of fāʿil (active, masculine) and qābil (receptive, feminine) is the weaving-loom of existence. Revelation names this structure openly:"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Ve her şeyden çift (zevceyn) yarattık ki düşünüp ibret alasınız.",
+      "en": "And of everything We created pairs (zawjayn), that you may reflect.",
+      "source": "Zâriyât 51:49"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evlilik hukuku, işte bu kozmik çift-yasasının yeryüzündeki fraktal bir kesitidir. Yani aynı desenin en küçük ölçekte tekrarı. (Bu ekseni bir sonraki yazıda ana tez olarak açacağız.)",
+      "en": "Marriage law, then, is a fractal section on earth of this cosmic law of pairs. That is, the repetition of the same pattern at the smallest scale. (We will unfold this axis as the main thesis of the next essay.)"
+    },
+    {
+      "type": "section",
+      "id": "talak-ve-fena",
+      "titleTr": "Talâk ve Fenâ",
+      "titleEn": "Ṭalāq and Fanāʾ"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Zâhirde talâk, evlilik bağının hukukî kesilmesidir. Ekberî bâtında ise fenâ'dır: aklın, nefs-i emmârenin alçak arzularından; kalbin ise dünyadan \"boşanması\". İbn Arabî'nin okumasında üç talâk, mistiğin vahdete ulaşmak için geçmesi gereken üç kopuşa karşılık gelir: önce dünyadan, sonra âhiretin ego-centric arzusundan (yani cennet uğruna kulluktan), en sonunda mâsivâdan, yani Allah'tan gayrı her şeyden, kendi bağımsız varlık vehmi dahil. Üçüncü kopuş gerçekleştiğinde egodan ayrılık, tıpkı üçüncü talâk gibi, bâin olur: geri dönüşsüz (2:230).",
+      "en": "In the outer sense ṭalāq is the legal severance of the marital bond. In the Akbarian inner sense it is fanāʾ: the intellect's \"divorce\" from the base desires of the commanding self, and the heart's \"divorce\" from the world. In Ibn ʿArabī's reading, the three divorces correspond to the three ruptures the mystic must pass through in order to reach unity: first from the world, then from the ego-centric desire of the afterlife (i.e., worship for the sake of paradise), and at last from mā siwā — everything other than Allah, including one's own illusion of independent being. When the third rupture occurs, the parting from ego, like the third ṭalāq, becomes bāʾin: irrevocable (2:230)."
+    },
+    {
+      "type": "section",
+      "id": "iddet-ve-berzah",
+      "titleTr": "İddet ve Berzah",
+      "titleEn": "ʿIdda and Barzakh"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Zâhirde iddet, kadının yeniden evlenmeden önce üç kurû' beklemesidir. Bâtında bu bir berzah hâlidir: geçiş ve arınma. Mürid dünyevî bağlarından \"boşandığı\" anda İlahî huzura anında kavuşamaz; kalbin dünyanın izini tümüyle boşaltması için bir bekleme, bir riyâzet süresi gerekir. Kalp ancak dünyanın tohumundan tamamen arındığı doğrulandığında, Hakikat'le \"nikâhlanacak\" kadar saf sayılır. Bekleme, bir gecikme değil, bir temizlenmedir.",
+      "en": "In the outer sense the ʿidda is a woman's wait of three cycles before remarrying. In the inner sense it is a state of barzakh: transition and purification. The moment the disciple is \"divorced\" from worldly bonds, he cannot instantly arrive in the Divine presence; the heart requires a period of waiting, of riyāḍa, to empty out every trace of the world. Only when the heart is verified as fully cleared of the seed of the world is it counted pure enough to \"marry\" the Real. The wait is not a delay but a cleansing."
+    },
+    {
+      "type": "section",
+      "id": "marifet-sutu-rada",
+      "titleTr": "Ma'rifet Sütü: Radâ'",
+      "titleEn": "The Milk of Gnosis: Raḍāʿ"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bakara, emzirmeyi ve sütten kesmeyi (fisâl) ayrıntısıyla tarif eder (2:233). Bâtında emzirme, ma'rifetin (İlahî bilginin) aktarımıdır. Ruh yeni bir manevî hâl doğurduğunda, o hâl henüz bir bebektir; katı hakikatleri sindiremez, önce temel hikmetin sütünü emmesi gerekir. Sütten kesme de buna paraleldir: ayet sütten kesmeyi karşılıklı istişareye bağladığı gibi, sâlik de bir noktada giriş niteliğindeki manevî tecrübelerin (rüyaların, yakazaların, hislerin, vecdin) sütünden kesilir ve çıplak Hakikat'in katı gıdasını yemeye çağrılır. Büyümek, tadı bırakıp özü almaktır.",
+      "en": "Al-Baqara describes nursing and weaning (fiṣāl) in detail (2:233). In the inner sense, nursing is the transmission of maʿrifa (Divine knowledge). When the soul gives birth to a new spiritual state, that state is still an infant; it cannot digest hard truths and must first suck the milk of foundational wisdom. Weaning runs in parallel: just as the verse binds weaning to mutual consultation, the sālik too is at some point weaned off the milk of introductory spiritual experiences (dreams, waking visions, sensations, ecstasy) and summoned to the solid food of the naked Real. To grow up is to leave the taste and take the essence."
+    },
+    {
+      "type": "section",
+      "id": "mehir",
+      "titleTr": "Mehir",
+      "titleEn": "The Dower"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Mehrin iadesi ya da elde tutulması, boşanmayı kimin başlattığına bağlıdır (2:237). Bâtında mehir, Allah'ın sâlike bağışladığı manevî armağanları ve makamları (keşfi, derin sezgiyi) temsil eder. Sâlik yoldan \"boşanır\", yüzünü çevirirse, bu armağanları elde tutamaz; çünkü Bağışlayan'dan yüz çevirip O'nun ihsanlarını mülk edinmek olmaz. Gerçek teslimiyet ise, kendi manevî kazanımların üzerinde sahip olduğunu sandığın her iddiadan vazgeçmektir.",
+      "en": "Whether the dower is returned or retained depends on who initiated the divorce (2:237). In the inner sense, the mahr represents the spiritual gifts and stations (unveiling, deep intuition) that Allah bestows on the sālik. If the sālik \"divorces\" the path, turning his face away, he cannot retain these gifts; for one cannot turn from the Giver and yet claim His endowments as personal property. True surrender is to relinquish every claim of ownership you imagined you held over your own spiritual gains."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'ânî içgörü: Ekberî okumada hukukun her parametresi bir aynadır; ama aynadaki suret, dışarıdaki bir manzara değil, okuyanın kendi ruhudur.",
+      "en": "Quranic insight: in the Akbarian reading every parameter of law is a mirror; but the image in the mirror is not a scene from outside — it is the reader's own soul.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "cikarim",
+      "titleTr": "Çıkarım",
+      "titleEn": "Takeaway"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ekberî okumaya göre Bakara 215–245'in yoğun granülerliği, gerçekliğin fraktal doğasının açılmasıdır. Bu okuma adeta şunu söyler: aklın nefisle nasıl etkileştiğini, evrenin nasıl doğduğunu, egodan kopuşun nasıl işlediğini ve kalbin nasıl arındığını anlamak istiyorsan, soyut felsefeye değil, bir insanın boşanmasının çamuruna ve tozuna bak; çünkü makrokozmos ile mikrokozmos aynı yasayla işler.",
+      "en": "According to the Akbarian reading, the dense granularity of al-Baqara 215–245 is the unfolding of reality's fractal nature. This reading effectively says: if you want to understand how the intellect interacts with the soul, how the cosmos is born, how rupture from the ego works, and how the heart is purified, look not to abstract philosophy but to the mud and dust of a human being's divorce; because the macrocosm and the microcosm work by the same law."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir hane hukukunun parametrelerini ayrıntılandıran metin, aynı kalemle insan ruhunun mimarî planını da çiziyordur. Bu içgörünün Kur'an'ın kendi ayetlerinde nasıl açıkça doğrulandığını bir sonraki yazı gösterecek; serinin omurga tezi orada tam olarak yerine oturacak.",
+      "en": "The text that details the parameters of household law is drawing, with the same pen, the architectural plan of the human soul. How this insight is openly confirmed by the Quran's own verses will be shown in the next essay; there the backbone thesis of the series will fully click into place."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Allah en doğrusunu bilir.",
+      "en": "Allah knows best."
+    },
+    {
+      "type": "footnote",
+      "tr": "İbn Arabî'nin fıkha literalist yaklaşımı ve i'tibâr için bkz. Eric Winkel, \"Ibn Arabi's Fiqh: Three Cases from the Futūḥāt al-Makkiyya\", Journal of the Muhyiddin Ibn Arabi Society, c. 55 (2014).",
+      "en": "On Ibn ʿArabī's literalist approach to fiqh and on iʿtibār, see Eric Winkel, \"Ibn Arabi's Fiqh: Three Cases from the Futūḥāt al-Makkiyya,\" Journal of the Muhyiddin Ibn Arabi Society, vol. 55 (2014)."
+    },
+    {
+      "type": "footnote",
+      "tr": "Kozmik \"manevî nikâh\", Küllî Akıl–Küllî Nefis ve fâil/kâbil ilkesi için bkz. Souad Hakim, \"Woman as Human Being and Cosmic Principle\", Journal of the Muhyiddin Ibn Arabi Society, c. 18 (1995); ayrıca Stanford Encyclopedia of Philosophy, \"Ibn ʿArabī\" maddesi (W. Chittick).",
+      "en": "On the cosmic \"spiritual marriage,\" the Universal Intellect–Universal Soul, and the fāʿil/qābil principle, see Souad Hakim, \"Woman as Human Being and Cosmic Principle,\" Journal of the Muhyiddin Ibn Arabi Society, vol. 18 (1995); and the Stanford Encyclopedia of Philosophy, entry \"Ibn ʿArabī\" (W. Chittick)."
+    }
+  ]
+}

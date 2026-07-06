@@ -1,0 +1,162 @@
+{
+  "slug": "rahmetin-grameri-3",
+  "titleTr": "Rahmetin Grameri-3: İçteki Ayna: İnsan Mahkemeleri Körken Hukuk Kalbi Nasıl Denetler?",
+  "titleEn": "The Grammar of Mercy-3: The Inner Mirror: When Human Courts Are Blind, How Does Law Audit the Heart?",
+  "category": "sure-hermenotik",
+  "template": "series-lens",
+  "seriesId": "rahmetin-grameri",
+  "seriesNumber": 3,
+  "publishedDate": "2026-06-28",
+  "readingMinutes": 3,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/rahmetin-grameri-3-i%CC%87%C3%A7teki-ayna-a9af8b2cdbe9",
+  "tldrTr": "Psikolojik/ahlakî mercek. Bakara aile-hukuku ayetleri iki katmanlıdır: soğuk bir hükümle başlar, manevî bir mühürle kapanır — 'Allah her şeyi bilir/görür' (2:231, 2:233). Her madde iki parçadan oluşur: ölçülebilir kural ve iç-uyarı. İnsan mahkemesi körken, iç mahkeme vicdanı denetler. İhsan ve ma'rûf, hukukun ötesindeki ahlaki fazlanın adıdır.",
+  "tldrEn": "Psychological/moral lens. Al-Baqara's family verses are two-layered: they open with a cold ruling and close with a spiritual seal — 'Allah knows/sees all' (2:231, 2:233). Every article has two parts: a measurable rule and an inner warning. Where human courts are blind, the inner court audits conscience. Iḥsān and maʿrūf name the moral surplus beyond law.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "2:229",
+    "2:231",
+    "2:233",
+    "2:235",
+    "2:237"
+  ],
+  "previousArticle": "rahmetin-grameri-2",
+  "nextArticle": "rahmetin-grameri-4",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Aile hukuku ayetlerinin çoğu aynı biçimde örülür: soğuk bir hükümle başlar, manevî bir mühürle kapanır. Eşleri geri alma düzenlenirken ayet, \"onlara zarar vermek için tutmayın… ve bilin ki Allah her şeyi bilir\" diye biter (2:231). Emzirme ve nafaka anlatılırken, \"Allah'tan sakının (ittika) ve bilin ki Allah yaptıklarınızı görür\" denir (2:233). Zifaftan önceki boşanma ölçülürken ise, \"bağışlamanız takvâya daha yakındır; aranızdaki fazlı unutmayın\" eklenir (2:237).",
+      "en": "Most of the family-law verses are woven the same way: they open with a cold ruling and close with a spiritual seal. Regulating the return to spouses, the verse ends: \"do not retain them to harm them… and know that Allah knows all things\" (2:231). In discussing nursing and maintenance: \"fear Allah (ittiqā) and know that Allah sees what you do\" (2:233). In measuring divorce before consummation: \"but that you forgive is closer to taqwā; do not forget the graciousness between you\" (2:237)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Yani her madde iki parçadan oluşur: ölçülebilir bir kural, ve onun ardına basılmış bir iç-uyarı. Önce sınır, sonra kalp.",
+      "en": "So every article is made of two parts: a measurable rule, and an inner warning stamped behind it. First the limit, then the heart."
+    },
+    {
+      "type": "section",
+      "id": "gorunurdeki-surtusme",
+      "titleTr": "Görünürdeki Sürtüşme",
+      "titleEn": "The Visible Friction"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Modern hukuk metinleri seküler ve tekniktir; bir maddenin sonunda \"iyi kalpli ol\" demez. Sözleşme, davranışı düzenler; niyeti değil. Kur'an ise neden her hukukî hükmün ardına bir Allah bilinci, bir ihsan çağrısı iliştirir? Hukuk ile maneviyatı neden tek bir nefeste tutar, birbirinden ayırmaz?",
+      "en": "Modern legal texts are secular and technical; no article ends with \"be kind of heart.\" A contract regulates behavior, not intention. Why then does the Quran attach an awareness of Allah, a call to iḥsān, at the tail of every legal ruling? Why does it hold law and spirituality in a single breath and refuse to separate them?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, üslup gevşekliği değildir. Aksine, hukukun en kör kaldığı yere yerleştirilmiş bir hassasiyettir.",
+      "en": "This is not stylistic looseness. On the contrary, it is a sensitivity placed exactly where law is most blind."
+    },
+    {
+      "type": "section",
+      "id": "ahlak-psikolojisi-semantik",
+      "titleTr": "Ahlak Psikolojisi ve Semantik",
+      "titleEn": "Moral Psychology and Semantics"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda metne vicdan psikolojisi ve kelimelerin anlam-DNA'sı merceğinden bakıyoruz. İki soruyu birlikte soruyoruz: hukukun göremediği yeri ne denetler, ve Kur'an bunu yaparken kelimelerin anlamını nasıl yeniden kurar?",
+      "en": "In this essay we look at the text through the lens of the psychology of conscience and the semantic-DNA of words. We ask two questions together: what audits the place law cannot see, and how does the Quran, in doing so, reconstruct the meaning of words?"
+    },
+    {
+      "type": "section",
+      "id": "vicdan-mahkemesi",
+      "titleTr": "Vicdan Mahkemesi",
+      "titleEn": "The Court of Conscience"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Aile hukukunun en çetin yanı şudur: mahkemeler evin içini göremez. Bir eş, hukuken hiçbir suç işlemeden diğerini yıllarca yıpratabilir; bir çocuk, kimse fark etmeden baskı aracına dönüşebilir. Hâkim çoğu zaman kimin doğru söylediğini bilemez, çünkü kanıt kapının dışında kalır. İşte Kur'an tam bu kör noktaya takvâyı yerleştirir ve insanın vicdanında ikinci bir mahkeme kurar.",
+      "en": "The hardest thing about family law is this: courts cannot see inside a home. A spouse can wear the other down for years without committing any legal offense; a child can be turned into a tool of pressure without anyone noticing. A judge often cannot know who is telling the truth, because the evidence stays outside the door. Right at this blind spot the Quran places taqwā, setting up a second court inside the human conscience."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ayetler, boşanmak üzere olan çiftlere adeta şunu hatırlatır: bir hâkimi yanıltabilirsiniz, ama bu süreci göklerin ve yerin sahibinin huzurunda yürütüyorsunuz. Dışarıdaki mahkeme kapanabilir; içerideki hiç kapanmaz. Bu, serinin ileride açacağı fezleke tekniğinin — her hükmü İlahî bir hatırlatmayla mühürleme — psikolojik yüzüdür: her madde, gözetlendiğini bilen bir vicdana bağlanır.",
+      "en": "The verses effectively remind divorcing couples: you may mislead a judge, but you are running this process in the presence of the Owner of the heavens and the earth. The outer court can close; the inner court never does. This is the psychological face of the fadhlaka technique — sealing every ruling with a Divine reminder — that the series will unfold later: every article is bound to a conscience that knows it is being watched."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'ânî içgörü: Hukukun göremediği yeri takvâ görür. Gizli evlilik niyetlerinden söz edilirken bile \"Allah içinizdekini bilir, o halde O'ndan sakın\" denmesi (2:235), dış davranıştan önce iç niyeti denetler.",
+      "en": "Quranic insight: taqwā sees what law cannot. Even when secret marriage intentions are discussed, the verse says \"Allah knows what is within you, so be wary of Him\" (2:235) — auditing inner intention before outer conduct.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "ihsan",
+      "titleTr": "İhsân",
+      "titleEn": "Iḥsān"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bakara, İslam'ın evlilik felsefesini tek bir cümlede toplar: ya ma'rûf ile tutmak, ya da ihsan ile salıvermek (2:229). Buradaki ihsân sıradan bir nezaket değil; \"Allah'ı görüyormuşçasına davranmak\", manevî mertebelerin en yükseğidir.",
+      "en": "Al-Baqara sums up the Islamic philosophy of marriage in a single sentence: retention with maʿrūf, or release with iḥsān (2:229). The iḥsān here is not ordinary politeness; it is \"to act as though you see Allah\" — the highest of the spiritual stations."
+    },
+    {
+      "type": "paragraph",
+      "tr": "İncelik şudur: bu en yüksek seviye, tam da bir boşanma anında istenir. İhsan camide, namazda kolaydır; yeni doğmuş bir bebeği kucağa alırken de öyle. Ama kalbini kırmış, seni öfkeden tutuşturmuş bir insandan ayrılırken ihsan göstermek neredeyse insan doğasına aykırıdır. Kur'an ahlakın bu en ağır vezniyle tam da burada, en kırılgan ve en gergin noktada yükümlü kılar. Çünkü gerçek ayar, sakin sularda değil, fırtınada görünür.",
+      "en": "The subtlety is this: this highest level is demanded precisely at the moment of a divorce. Iḥsān is easy in the mosque, in prayer; easy when you take a newborn into your arms. But to show iḥsān while separating from someone who has broken your heart and set you ablaze with anger is nearly against human nature. It is right here, at the most fragile and most tense point, that the Quran binds us to the heaviest meter of ethics. Because the true calibration shows itself not in calm waters but in the storm."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'ânî içgörü: İlahî ahlak, ideali laboratuvar şartında değil, ilişkilerin en acı anında sınar. Takvânın gerçek ayarı sevgide değil, ayrılıkta okunur.",
+      "en": "Quranic insight: divine ethics tests its ideal not under laboratory conditions but in the bitterest moment of relations. The true calibration of taqwā is read not in love but in parting.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "anlamin-devralinmasi-maruf",
+      "titleTr": "Anlamın Devralınması: Ma'rûf",
+      "titleEn": "The Semantic Takeover: Maʿrūf"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu ayetlerde bir kelime ısrarla döner: ma'rûf. \"Ma'rûf ile tutun\", \"ma'rûf ile nafaka verin\". Toshihiko Izutsu'nun gösterdiği gibi, Kur'an çoğu zaman yeni kelimeler icat etmez; cahiliyenin kelimelerini alır ve anlam-DNA'larını değiştirir. Cahiliyede ma'rûf, \"kabilenin tanıdığı, onayladığı şey\" demekti. Yani töre, yerleşik kabile standardı. Kur'an bu kelimeyi devralır ve anlamını kabilenin onayından alıp Allah bilincine dayalı evrensel iyiliğe kaydırır.",
+      "en": "One word recurs insistently in these verses: maʿrūf. \"Retain with maʿrūf,\" \"provide maintenance with maʿrūf.\" As Toshihiko Izutsu shows, the Quran often does not invent new words; it takes the words of the Jāhiliyya and rewrites their semantic DNA. In the Jāhiliyya, maʿrūf meant \"what the tribe recognizes, what it approves\" — custom, the settled tribal standard. The Quran takes this word over and shifts its meaning away from tribal endorsement and toward a universal good grounded in Allah-consciousness."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ma'rûf, münkerin — reddedilenin — zıddıdır; ama Kur'an onun ölçüsünü kabileden alıp vahye bağlar. Erkeğe söylediği şudur: boşadığın kadına Arap kabilesinin zalim örfüne göre değil, Allah'ın ma'rûf'una göre davranacaksın. Böylece yerel bir âdet, mutlak bir ahlakî emir seviyesine yükseltilir. Bir medeniyetin ahlakını değiştirmenin en sessiz yolu, kullandığı kelimelerin içini değiştirmektir.",
+      "en": "Maʿrūf is the opposite of munkar — the rejected — but the Quran lifts its measure from the tribe and binds it to revelation. What it says to the man is this: you will treat the woman you divorce not according to the cruel custom of the Arab tribe, but according to the maʿrūf of Allah. In this way a local custom is elevated to the level of an absolute ethical command. The quietest way to change a civilization's ethics is to change the contents of the words it uses."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'ânî içgörü: Bu, Bakara'nın evrenselleştirme temasının dilsel ayağıdır: kabile ahlakının tek bir İlahî ölçüye kaydırılması. Bir kelimenin anlamı değişince, onunla düşünen toplumun ahlakı da değişir.",
+      "en": "Quranic insight: this is the linguistic leg of al-Baqara's universalization theme — the shift of tribal ethics onto a single Divine measure. When the meaning of a word changes, so does the ethics of the society that thinks with it.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "cikarim",
+      "titleTr": "Çıkarım",
+      "titleEn": "Takeaway"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu boyut bize şunu öğretir: Kur'an hukuku iki katmanlıdır. Dışta ölçülebilir kural, içte ölçülemeyen vicdan. Birinci yazıdaki dış duvar, ancak içeride bir takvâ mahkemesiyle tamamlanır; biri olmadan öbürü eksik kalır. Duvar zorbalığı durdurur, vicdan ise zorba olma niyetini.",
+      "en": "This dimension teaches us: Quranic law is two-layered. Outside, the measurable rule; inside, the immeasurable conscience. The outer wall of the first essay is completed only by an inner court of taqwā; one without the other stays incomplete. The wall halts tyranny; the conscience halts the intention to tyrannize."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Peki bu \"dünyevî madde + kozmik mühür\" tekniği tam olarak nasıl çalışır? Bir hüküm, kendini nasıl olup da İlahî bir isme bağlayarak kapanır? Bir sonraki yazı, Bediüzzaman'ın fezleke kavramıyla bu mührün mekaniğini açacak.",
+      "en": "But how exactly does this \"worldly clause + cosmic seal\" technique work? How can a ruling close itself by binding itself to a Divine Name? The next essay will unfold the mechanics of this seal through Bediüzzaman's concept of fadhlaka."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Allah en doğrusunu bilir.",
+      "en": "Allah knows best."
+    },
+    {
+      "type": "footnote",
+      "tr": "Toshihiko Izutsu, Ethico-Religious Concepts in the Qur'an (ilk basım: The Structure of the Ethical Terms in the Koran, 1959). Izutsu, cahiliye kabile değer terimlerinin Kur'ânî sistemde anlam yapısının nasıl dönüştüğünü etno-linguistik yöntemle gösterir.",
+      "en": "Toshihiko Izutsu, Ethico-Religious Concepts in the Qur'an (first edition: The Structure of the Ethical Terms in the Koran, 1959). Izutsu demonstrates, through ethno-linguistic method, how the meaning-structure of Jāhiliyya tribal value-terms is transformed within the Quranic system."
+    }
+  ]
+}
