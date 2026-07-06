@@ -48,6 +48,20 @@ const TABS = [
       </svg>
     ),
   },
+  {
+    tr: 'Kavim Örüntüleri', en: 'Civilization Patterns',
+    icon: (
+      <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l8-4v18" />
+        <path d="M19 21V11l-6-4" />
+        <path d="M9 9v.01" />
+        <path d="M9 12v.01" />
+        <path d="M9 15v.01" />
+        <path d="M9 18v.01" />
+      </svg>
+    ),
+  },
 ];
 
 // ─── Main component ──────────────────────────────────────────────────────────
@@ -125,7 +139,7 @@ export default function SunnetullahAtlasi({ onClose }) {
     );
   }
 
-  const { meta, intro, literalOccurrences, thematicCategories, scholarViews } = data;
+  const { meta, intro, literalOccurrences, thematicCategories, scholarViews, linguisticFormula } = data;
 
   return (
     <div
@@ -296,6 +310,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               { value: meta.totalLiteralOccurrences, tr: 'lafzî ayet', en: 'literal verses', color: COLORS.gold },
               { value: meta.totalThematicCategories, tr: 'tematik kanun', en: 'thematic laws', color: COLORS.emerald },
               { value: scholarViews.length, tr: 'ulema', en: 'scholars', color: COLORS.skyBlue },
+              { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: '#8b5cf6' },
             ].map((s, i) => (
               <div key={i} style={{
                 padding: isMobile ? '8px 14px' : '10px 18px',
@@ -326,6 +341,11 @@ export default function SunnetullahAtlasi({ onClose }) {
               </div>
             ))}
           </div>
+
+          {/* ── LINGUISTIC FORMULA BOX — the "لن تجد" grammar breakdown ─── */}
+          {linguisticFormula && (
+            <FormulaBox formula={linguisticFormula} language={language} isMobile={isMobile} />
+          )}
         </div>
 
         {/* ── TAB BAR ───────────────────────────────────────────────────── */}
@@ -408,6 +428,10 @@ export default function SunnetullahAtlasi({ onClose }) {
 
           {activeTab === 2 && (
             <TabUlemaGorusleri views={scholarViews} language={language} isMobile={isMobile} />
+          )}
+
+          {activeTab === 3 && (
+            <TabKavimPatterns patterns={data.kavimPatterns} language={language} isMobile={isMobile} />
           )}
 
           {/* Cross-tool CTA — sayfa sonu */}
@@ -1104,6 +1128,357 @@ function ScholarCard({ view, language, isMobile }) {
       }}>
         <EkolChip label={view.ekolEtiketi} />
       </div>
+    </div>
+  );
+}
+
+// ─── FormulaBox — inline "لن تجد" linguistic breakdown widget ───────────────
+// Yerleşim: Hero'nun altında, tab bar'ın üstünde. Anchor verse'ın Arapça
+// gramatik yapısını 4 parçalı görsel breakdown ile açar. Her parça hover/click
+// ile ayrı bir kart açar (mobile: her zaman genişlemiş).
+
+function FormulaBox({ formula, language, isMobile }) {
+  const [activePart, setActivePart] = useState(null);
+  const tr = language === 'tr';
+  const parts = formula.partsTr; // both TR/EN share same structure keys
+  return (
+    <div style={{
+      margin: isMobile ? '40px auto 0' : '48px auto 0',
+      maxWidth: '820px',
+      padding: isMobile ? '24px 18px' : '32px 32px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 100%)',
+      border: `1px solid ${COLORS.gold}30`,
+      borderRadius: RADIUS.md,
+      textAlign: 'left',
+    }}>
+      {/* Eyebrow */}
+      <div style={{
+        fontSize: '0.66rem', letterSpacing: '0.22em',
+        color: COLORS.gold, textTransform: 'uppercase',
+        fontFamily: FONTS.body, fontWeight: 700,
+        opacity: 0.85, marginBottom: '10px', textAlign: 'center',
+      }}>
+        {tr ? 'Formül · لن تجد لسنة الله تبديلا' : 'Formula · لن تجد لسنة الله تبديلا'}
+      </div>
+
+      {/* Arabic verse (large) */}
+      <p
+        dir="rtl" lang="ar"
+        style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? '1.15rem' : '1.55rem',
+          color: COLORS.gold,
+          lineHeight: 2.0,
+          margin: '0 auto 6px',
+          textAlign: 'center',
+          textShadow: `0 0 18px ${COLORS.gold}22`,
+        }}
+      >
+        {formula.verseAr}
+      </p>
+
+      <p style={{
+        fontFamily: FONTS.display, fontStyle: 'italic',
+        color: COLORS.offWhite, fontSize: '0.88rem',
+        textAlign: 'center', margin: '0 0 6px', opacity: 0.9,
+      }}>
+        "{tr ? formula.verseTr : formula.verseEn}"
+      </p>
+
+      <p style={{
+        color: COLORS.silver, fontSize: '0.66rem',
+        letterSpacing: '0.14em', textTransform: 'uppercase',
+        textAlign: 'center', margin: '0 0 22px', opacity: 0.6,
+        fontFamily: FONTS.body,
+      }}>
+        — {formula.sourceRef}
+      </p>
+
+      {/* 4-part breakdown */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
+        gap: isMobile ? '8px' : '10px',
+        marginBottom: '18px',
+      }}>
+        {parts.map((p, i) => {
+          const isActive = activePart === i;
+          return (
+            <button
+              key={i}
+              onClick={() => setActivePart(isActive ? null : i)}
+              style={{
+                padding: isMobile ? '12px 14px' : '14px 12px',
+                background: isActive ? `${COLORS.gold}18` : 'rgba(255,255,255,0.025)',
+                border: `1px solid ${isActive ? COLORS.gold + '55' : COLORS.gold + '20'}`,
+                borderRadius: RADIUS.sm,
+                cursor: 'pointer',
+                textAlign: 'center',
+                fontFamily: FONTS.body,
+                transition: 'all 0.18s',
+              }}
+              onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
+              onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; }}
+            >
+              <div dir="rtl" lang="ar" style={{
+                fontFamily: FONTS.quran,
+                fontSize: isMobile ? '1.15rem' : '1.35rem',
+                color: COLORS.gold,
+                lineHeight: 1.8,
+                marginBottom: '4px',
+              }}>
+                {p.part}
+              </div>
+              <div style={{
+                fontSize: '0.68rem', color: COLORS.silver,
+                fontStyle: 'italic', letterSpacing: '0.04em',
+                marginBottom: '4px', opacity: 0.75,
+              }}>
+                {p.translit}
+              </div>
+              <div style={{
+                fontSize: '0.72rem', color: COLORS.offWhite,
+                fontWeight: 600, lineHeight: 1.35,
+              }}>
+                {tr ? p.labelTr : p.labelEn}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Active part explanation */}
+      {activePart !== null && (
+        <div style={{
+          padding: '14px 18px',
+          background: 'rgba(212,165,116,0.06)',
+          border: `1px solid ${COLORS.gold}35`,
+          borderLeft: `3px solid ${COLORS.gold}`,
+          borderRadius: RADIUS.sm,
+          marginBottom: '18px',
+        }}>
+          <p style={{
+            fontSize: '0.82rem', color: COLORS.offWhite,
+            fontFamily: FONTS.body, lineHeight: 1.7,
+            margin: 0, fontStyle: 'italic',
+          }}>
+            {tr ? parts[activePart].explanationTr : parts[activePart].explanationEn}
+          </p>
+        </div>
+      )}
+
+      {/* Structural note (always visible) */}
+      <div style={{
+        padding: '12px 16px',
+        background: 'rgba(52,152,219,0.06)',
+        border: `1px solid rgba(52,152,219,0.18)`,
+        borderRadius: RADIUS.sm,
+        borderLeft: `2px solid ${COLORS.skyBlue}`,
+      }}>
+        <div style={{
+          fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+          color: COLORS.skyBlue, textTransform: 'uppercase',
+          fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.9,
+        }}>
+          {tr ? 'Yapısal Not · Klasik Belâgat' : 'Structural Note · Classical Balāgha'}
+        </div>
+        <p style={{
+          fontSize: '0.78rem', color: COLORS.silver,
+          fontFamily: FONTS.body, lineHeight: 1.7,
+          margin: 0,
+        }}>
+          {tr ? formula.structuralNoteTr : formula.structuralNoteEn}
+        </p>
+      </div>
+
+      {!isMobile && activePart === null && (
+        <p style={{
+          fontSize: '0.7rem', color: COLORS.silver,
+          fontFamily: FONTS.body, fontStyle: 'italic',
+          textAlign: 'center', margin: '14px 0 0', opacity: 0.6,
+        }}>
+          {tr ? '↑ bir parçaya tıkla — dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ─── Tab 4: Kavim Örüntüleri ─────────────────────────────────────────────────
+// 6 helâk edilen kavim, her biri için uyarı → red → sonuç akışı.
+// Her card: prophet meta + verses + 3-stage flow + laws invoked + source.
+
+function TabKavimPatterns({ patterns, language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div>
+      <p style={{
+        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+        fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
+      }}>
+        {tr
+          ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 6 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
+          : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 6 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
+        <a href={`/${language}/atlas/kavim`} style={{ color: COLORS.gold, borderBottom: `1px dashed ${COLORS.gold}55`, textDecoration: 'none' }}>
+          {tr ? 'Kavimler Atlası' : 'the Nations Atlas'}
+        </a>.
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {patterns.map((p, i) => (
+          <KavimPatternCard key={p.id} pattern={p} index={i + 1} language={language} isMobile={isMobile} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function KavimPatternCard({ pattern, index, language, isMobile }) {
+  const tr = language === 'tr';
+  const accent = pattern.color || COLORS.gold;
+  return (
+    <div style={{
+      padding: isMobile ? '20px 18px' : '28px 32px',
+      background: 'rgba(255,255,255,0.02)',
+      border: `1px solid ${accent}30`,
+      borderLeft: `3px solid ${accent}`,
+      borderRadius: RADIUS.md,
+      display: 'flex', flexDirection: 'column', gap: '18px',
+    }}>
+      {/* Header — index + title + meta */}
+      <div style={{
+        display: 'flex', alignItems: 'flex-start', gap: '14px',
+        flexWrap: 'wrap',
+      }}>
+        <span style={{
+          flexShrink: 0,
+          width: '32px', height: '32px', borderRadius: '50%',
+          background: `${accent}22`,
+          border: `1px solid ${accent}55`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '0.85rem', fontWeight: 800,
+          color: accent, fontFamily: FONTS.body,
+        }}>{index}</span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 style={{
+            margin: 0,
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1.2rem' : '1.35rem',
+            fontWeight: 700, color: COLORS.offWhite,
+            lineHeight: 1.25,
+          }}>
+            {tr ? pattern.titleTr : pattern.titleEn}
+          </h3>
+          <div style={{
+            display: 'flex', gap: '14px', flexWrap: 'wrap',
+            marginTop: '6px', fontSize: '0.72rem',
+            color: COLORS.silver, fontFamily: FONTS.body,
+          }}>
+            <span><span style={{ opacity: 0.55 }}>{tr ? 'Peygamber:' : 'Prophet:'}</span> <strong style={{ color: accent, fontWeight: 600 }}>{tr ? pattern.prophetTr : pattern.prophetEn}</strong></span>
+            <span><span style={{ opacity: 0.55 }}>{tr ? 'Süre:' : 'Duration:'}</span> {tr ? pattern.durationTr : pattern.durationEn}</span>
+            <span><span style={{ opacity: 0.55 }}>{tr ? 'Biçim:' : 'Mode:'}</span> <strong style={{ color: COLORS.offWhite, fontWeight: 600 }}>{tr ? pattern.modeTr : pattern.modeEn}</strong></span>
+          </div>
+        </div>
+      </div>
+
+      {/* 3-stage flow */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+        gap: '10px',
+      }}>
+        {[
+          { key: 'warning',   labelTr: 'Uyarı / Sebep',     labelEn: 'Warning / Cause',      body: tr ? pattern.warningTr : pattern.warningEn,     dot: '#c9a227' },
+          { key: 'rejection', labelTr: 'Yalanlama',         labelEn: 'Rejection',            body: tr ? pattern.rejectionTr : pattern.rejectionEn, dot: '#e67e22' },
+          { key: 'outcome',   labelTr: 'Sonuç · Sünnetullah', labelEn: 'Outcome · Sunnatullāh', body: tr ? pattern.outcomeTr : pattern.outcomeEn,     dot: accent },
+        ].map((stage) => (
+          <div key={stage.key} style={{
+            padding: '12px 14px',
+            background: 'rgba(255,255,255,0.02)',
+            border: `1px solid ${COLORS.glassBorderSoft}`,
+            borderRadius: RADIUS.sm,
+            display: 'flex', flexDirection: 'column', gap: '6px',
+          }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '6px',
+              fontSize: '0.62rem', fontWeight: 700,
+              letterSpacing: '0.12em', textTransform: 'uppercase',
+              color: stage.dot, fontFamily: FONTS.body,
+            }}>
+              <span style={{
+                width: '5px', height: '5px', borderRadius: '50%',
+                background: stage.dot, flexShrink: 0,
+              }} />
+              {tr ? stage.labelTr : stage.labelEn}
+            </div>
+            <p style={{
+              margin: 0, color: COLORS.offWhite,
+              fontSize: '0.8rem', fontFamily: FONTS.body,
+              lineHeight: 1.65,
+            }}>
+              {stage.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom row: verses + laws invoked */}
+      <div style={{
+        display: 'flex', flexDirection: isMobile ? 'column' : 'row',
+        gap: '14px', paddingTop: '12px',
+        borderTop: `1px solid ${COLORS.glassBorderSoft}`,
+      }}>
+        <div style={{ flex: 1 }}>
+          <div style={{
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+            color: COLORS.gold, textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.75,
+          }}>
+            {tr ? 'Ayet Kaynakları' : 'Verse References'}
+          </div>
+          <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+            {pattern.verses.map((v, vi) => (
+              <span key={vi} style={{
+                padding: '3px 9px',
+                background: 'rgba(212,165,116,0.10)',
+                border: `1px solid ${COLORS.gold}30`,
+                borderRadius: '999px',
+                fontSize: '0.7rem', color: COLORS.gold,
+                fontFamily: FONTS.body, fontWeight: 500,
+              }}>{v}</span>
+            ))}
+          </div>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{
+            fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em',
+            color: COLORS.emerald, textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.75,
+          }}>
+            {tr ? 'İşleyen Kanunlar' : 'Laws in Play'}
+          </div>
+          <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+            {(tr ? pattern.lawsInvokedTr : pattern.lawsInvokedEn).map((l, li) => (
+              <span key={li} style={{
+                padding: '3px 9px',
+                background: 'rgba(26,122,76,0.10)',
+                border: `1px solid ${COLORS.emerald}30`,
+                borderRadius: '999px',
+                fontSize: '0.7rem', color: COLORS.emerald,
+                fontFamily: FONTS.body, fontWeight: 500,
+              }}>{l}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Source line */}
+      <p style={{
+        margin: 0, fontSize: '0.7rem', color: COLORS.silver,
+        fontFamily: FONTS.body, lineHeight: 1.5,
+        opacity: 0.7, fontStyle: 'italic',
+      }}>
+        {tr ? pattern.sourceTr : pattern.sourceEn}
+      </p>
     </div>
   );
 }

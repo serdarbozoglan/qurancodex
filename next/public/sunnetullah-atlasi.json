@@ -1,11 +1,13 @@
 {
   "meta": {
     "totalLiteralOccurrences": 6,
-    "totalThematicCategories": 4,
-    "totalThematicVerses": 21,
+    "totalThematicCategories": 8,
+    "totalThematicVerses": 36,
     "generatedBy": "qc-content-producer",
     "generatedDate": "2026-04-20",
-    "sourceDraft": "docs/content-drafts/2026-04-19-sunnetullah-atlasi.md"
+    "sourceDraft": "docs/content-drafts/2026-04-19-sunnetullah-atlasi.md",
+    "totalScholarViews": 8,
+    "totalKavimPatterns": 6
   },
   "intro": {
     "titleTr": "Sünnetullah — Allah'ın Değişmez Kanunları",
@@ -145,7 +147,7 @@
           "verseRef": "Ra'd 13:11",
           "surah": 13,
           "ayah": 11,
-          "verseAr": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذَٓا اَرَادَ اللّٰهُ بِقَوْمٍ سُٓوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ",
+          "verseAr": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذٓا اَرَادَ اللّٰهُ بِقَوْمٍ سٓوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ",
           "verseTr": "Onun önünde ve arkasında Allah'ın emriyle onu koruyan takipçiler (melekler) vardır. Bir toplum kendilerindeki özellikleri değiştirinceye kadar Allah, onlarda bulunanı değiştirmez. Allah bir topluma kötülük diledi mi, artık onun için geri çevrilme diye bir şey yoktur. Onların Allah'tan başka yardımcıları da yoktur.",
           "verseEn": "For each one are successive [angels] before and behind him who protect him by the decree of Allah. Indeed, Allah will not change the condition of a people until they change what is in themselves. And when Allah intends for a people ill, there is no repelling it. And there is not for them besides Him any patron."
         },
@@ -154,7 +156,7 @@
           "verseRef": "A'râf 7:96",
           "surah": 7,
           "ayah": 96,
-          "verseAr": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمَٓاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
+          "verseAr": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمٓاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
           "verseTr": "O (peygamberlerin gönderildiği) ülkelerin halkı inansalar ve (günahtan) sakınsalardı, elbette onların üstüne gökten ve yerden nice bereket kapıları açardık, fakat yalanladılar, biz de ettikleri yüzünden onları yakalayıverdik.",
           "verseEn": "And if only the people of the cities had believed and feared Allah, We would have opened upon them blessings from the heaven and the earth; but they denied [the messengers], so We seized them for what they were earning."
         },
@@ -163,7 +165,7 @@
           "verseRef": "Hicr 15:4",
           "surah": 15,
           "ayah": 4,
-          "verseAr": "وَمَٓا اَهْلَكْنَا مِنْ قَرْيَةٍ اِلَّا وَلَهَا كِتَابٌ مَعْلُومٌ",
+          "verseAr": "وَمٓا اَهْلَكْنَا مِنْ قَرْيَةٍ اِلَّا وَلَهَا كِتَابٌ مَعْلُومٌ",
           "verseTr": "Helak ettiğimiz hiçbir ülke yoktur ki hakkında (bizce) bilinen bir yazgı olmasın.",
           "verseEn": "And We did not destroy any city but that for it was a known decree."
         },
@@ -172,7 +174,7 @@
           "verseRef": "Enfâl 8:38",
           "surah": 8,
           "ayah": 38,
-          "verseAr": "قُلْ لِلَّذِينَ كَفَرُٓوا اِنْ يَنْتَهُوا يُغْفَرْ لَهُمْ مَا قَدْ سَلَفَ وَاِنْ يَعُودُوا فَقَدْ مَضَتْ سُنَّتُ الْاَوَّلِينَ",
+          "verseAr": "قُلْ لِلَّذِينَ كَفَرٓوا اِنْ يَنْتَهُوا يُغْفَرْ لَهُمْ مَا قَدْ سَلَفَ وَاِنْ يَعُودُوا فَقَدْ مَضَتْ سُنَّتُ الْاَوَّلِينَ",
           "verseTr": "İnkar edenlere, (sana düşmanlıktan) vazgeçerlerse, geçmiş günahlarının bağışlanacağını söyle. Yok geri dönerlerse kendilerinden öncekilerin hali gözlerinin önündedir!",
           "verseEn": "Say to those who have disbelieved [that] if they cease, what has previously occurred will be forgiven for them. But if they return [to hostility] - then the precedent of the former [rebellious] peoples has already taken place."
         },
@@ -181,7 +183,7 @@
           "verseRef": "En'âm 6:34",
           "surah": 6,
           "ayah": 34,
-          "verseAr": "وَلَقَدْ كُذِّبَتْ رُسُلٌ مِنْ قَبْلِكَ فَصَبَرُوا عَلٰى مَا كُذِّبُوا وَاُو۫ذُوا حَتّٰٓى اَتٰيهُمْ نَصْرُنَا وَلَا مُبَدِّلَ لِكَلِمَاتِ اللّٰهِ وَلَقَدْ جَٓاءَكَ مِنْ نَبَا۬ئِ الْمُرْسَلِينَ",
+          "verseAr": "وَلَقَدْ كُذِّبَتْ رُسُلٌ مِنْ قَبْلِكَ فَصَبَرُوا عَلٰى مَا كُذِّبُوا وَاُوذُوا حَتّٰٓى اَتٰيهُمْ نَصْرُنَا وَلَا مُبَدِّلَ لِكَلِمَاتِ اللّٰهِ وَلَقَدْ جٓاءَكَ مِنْ نَبَائِ الْمُرْسَلِينَ",
           "verseTr": "Andolsun ki senden önceki peygamberler de yalanlanmıştı. Onlar, yalanlanmalarına ve eziyet edilmelerine rağmen sabrettiler, sonunda yardımımız onlara yetişti. Allah'ın kelimelerini (kanunlarını) değiştirebilecek hiçbir kimse yoktur.",
           "verseEn": "And certainly were messengers denied before you, but they were patient over [the effects of] denial, and they were harmed until Our victory came to them. And none can alter the words of Allah."
         }
@@ -205,7 +207,7 @@
           "verseRef": "Mücâdele 58:21",
           "surah": 58,
           "ayah": 21,
-          "verseAr": "كَتَبَ اللّٰهُ لَاَغْلِبَنَّ اَنَا۬ وَرُسُلِي اِنَّ اللّٰهَ قَوِيٌّ عَزِيزٌ",
+          "verseAr": "كَتَبَ اللّٰهُ لَاَغْلِبَنَّ اَنَا وَرُسُلِي اِنَّ اللّٰهَ قَوِيٌّ عَزِيزٌ",
           "verseTr": "Allah: Elbette ben ve elçilerim galip geleceğiz, diye yazmıştır. Şüphesiz Allah güçlüdür, galiptir.",
           "verseEn": "Allah has written, 'I will surely overcome, I and My messengers.' Indeed, Allah is Powerful and Exalted in Might."
         },
@@ -232,7 +234,7 @@
           "verseRef": "Rûm 30:47",
           "surah": 30,
           "ayah": 47,
-          "verseAr": "وَلَقَدْ اَرْسَلْنَا مِنْ قَبْلِكَ رُسُلاً اِلٰى قَوْمِهِمْ فَجَٓاؤُ۫هُمْ بِالْبَيِّنَاتِ فَانْتَقَمْنَا مِنَ الَّذِينَ اَجْرَمُوا وَكَانَ حَقاًّ عَلَيْنَا نَصْرُ الْمُؤْمِنِينَ",
+          "verseAr": "وَلَقَدْ اَرْسَلْنَا مِنْ قَبْلِكَ رُسُلاً اِلٰى قَوْمِهِمْ فَجٓاؤُهُمْ بِالْبَيِّنَاتِ فَانْتَقَمْنَا مِنَ الَّذِينَ اَجْرَمُوا وَكَانَ حَقاًّ عَلَيْنَا نَصْرُ الْمُؤْمِنِينَ",
           "verseTr": "Andolsun ki, biz senden önce kendi kavimlerine nice peygamberler gönderdik de onlara açık deliller getirdiler. (Onları dinlemeyip) günaha dalanların ise cezalarını hakkıyla vermişizdir. Müminlere yardım etmek de bize düşer.",
           "verseEn": "And We have already sent messengers before you to their peoples, and they came to them with clear evidences; then We took retribution from those who committed crimes, and incumbent upon Us was support of the believers."
         }
@@ -254,7 +256,7 @@
           "verseRef": "Ankebût 29:2-3",
           "surah": 29,
           "ayah": 2,
-          "verseAr": "اَحَسِبَ النَّاسُ اَنْ يُتْرَكُٓوا اَنْ يَقُولُٓوا اٰمَنَّا وَهُمْ لَا يُفْتَنُونَ وَلَقَدْ فَتَنَّا الَّذِينَ مِنْ قَبْلِهِمْ فَلَيَعْلَمَنَّ اللّٰهُ الَّذِينَ صَدَقُوا وَلَيَعْلَمَنَّ الْكَاذِبِينَ",
+          "verseAr": "اَحَسِبَ النَّاسُ اَنْ يُتْرَكٓوا اَنْ يَقُولٓوا اٰمَنَّا وَهُمْ لَا يُفْتَنُونَ وَلَقَدْ فَتَنَّا الَّذِينَ مِنْ قَبْلِهِمْ فَلَيَعْلَمَنَّ اللّٰهُ الَّذِينَ صَدَقُوا وَلَيَعْلَمَنَّ الْكَاذِبِينَ",
           "verseTr": "İnsanlar, imtihandan geçirilmeden, sadece 'İman ettik' demeleriyle bırakılıvereceklerini mi sandılar? Andolsun ki, biz onlardan öncekileri de imtihandan geçirmişizdir. Elbette Allah, doğruları ortaya çıkaracak, yalancıları da mutlaka ortaya koyacaktır.",
           "verseEn": "Do the people think that they will be left to say, 'We believe' and they will not be tried? But We have certainly tried those before them, and Allah will surely make evident those who are truthful, and He will surely make evident the liars."
         },
@@ -281,7 +283,7 @@
           "verseRef": "Enbiyâ 21:35",
           "surah": 21,
           "ayah": 35,
-          "verseAr": "كُلُّ نَفْسٍ ذَٓائِقَةُ الْمَوْتِ وَنَبْلُوكُمْ بِالشَّرِّ وَالْخَيْرِ فِتْنَةً وَاِلَيْنَا تُرْجَعُونَ",
+          "verseAr": "كُلُّ نَفْسٍ ذٓائِقَةُ الْمَوْتِ وَنَبْلُوكُمْ بِالشَّرِّ وَالْخَيْرِ فِتْنَةً وَاِلَيْنَا تُرْجَعُونَ",
           "verseTr": "Her canlı, ölümü tadar. Bir deneme olarak sizi hayırla da, şerle de imtihan ederiz. Ve siz, ancak bize döndürüleceksiniz.",
           "verseEn": "Every soul will taste death. And We test you with evil and with good as trial; and to Us you will be returned."
         },
@@ -339,7 +341,7 @@
           "verseRef": "Rahmân 55:7-9",
           "surah": 55,
           "ayah": 7,
-          "verseAr": "وَالسَّمَٓاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ اَلَّا تَطْغَوْا فِي الْمِيزَانِ وَاَقِيمُوا الْوَزْنَ بِالْقِسْطِ وَلَا تُخْسِرُوا الْمِيزَانَ",
+          "verseAr": "وَالسَّمٓاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ اَلَّا تَطْغَوْا فِي الْمِيزَانِ وَاَقِيمُوا الْوَزْنَ بِالْقِسْطِ وَلَا تُخْسِرُوا الْمِيزَانَ",
           "verseTr": "Göğü Allah yükseltti ve mizanı (dengeyi) O koydu. Sakın dengeyi bozmayın. Ölçüyü adaletle tutun ve eksik tartmayın.",
           "verseEn": "And the heaven He raised and imposed the balance. That you not transgress within the balance. And establish weight in justice and do not make deficient the balance."
         },
@@ -367,6 +369,206 @@
       "scienceNoteTr": "Bu ayetler modern fizik yasalarıyla analojik okunur; ancak Kur'ân metni belirli bir fiziksel yasayı tanımlamaz. 'Kadr' ve 'mîzân' kavramları ontolojik düzen iddialarıdır; fiziksel sabitlere doğrudan referans yapılmamıştır. Bu ayrım klasik ulema tarafından titizlikle korunmuştur.",
       "scienceNoteEn": "These verses admit analogical reading with modern physics; however, the Qur'anic text does not define specific physical laws. The concepts of *qadar* and *mīzān* are ontological claims about order, not direct references to physical constants. Classical scholars have carefully preserved this distinction.",
       "ekolEtiketi": "klasik tefsir + modern bilim paralelliği (dikkatli)"
+    },
+    {
+      "id": "nimet-sukur-kanunu",
+      "titleTr": "Nimet-Şükür Kanunu",
+      "titleEn": "The Law of Blessing and Gratitude",
+      "color": "#d4a574",
+      "descTr": "Şükür ile nimetin artması, nankörlük ile nimetin çekilmesi arasındaki değişmez örüntü. Nimetin miktarı değil, karşılıklı ilişki belirleyicidir.",
+      "descEn": "The unchanging pattern between gratitude increasing blessing and ingratitude withdrawing it. What matters is not the quantity of the blessing but the reciprocal relation to it.",
+      "items": [
+        {
+          "id": "nimet-ibrahim-14-7",
+          "verseRef": "İbrâhîm 14:7",
+          "surah": 14,
+          "ayah": 7,
+          "verseAr": "وَاِذْ تَاَذَّنَ رَبُّكُمْ لَئِنْ شَكَرْتُمْ لَاَزِيدَنَّكُمْ وَلَئِنْ كَفَرْتُمْ اِنَّ عَذَابِي لَشَدِيدٌ",
+          "verseTr": "Rabbiniz şöyle bildirmişti: 'Andolsun ki şükrederseniz nimetimi artırırım; nankörlük ederseniz, elbette azabım pek şiddetlidir.'",
+          "verseEn": "Your Lord proclaimed: 'If you are grateful, I will surely increase you [in favor]; but if you deny — indeed, My punishment is severe.'"
+        },
+        {
+          "id": "nimet-nahl-16-112",
+          "verseRef": "Nahl 16:112",
+          "surah": 16,
+          "ayah": 112,
+          "verseAr": "وَضَرَبَ اللّٰهُ مَثَلاً قَرْيَةً كَانَتْ اٰمِنَةً مُطْمَئِنَّةً يَأْتِيهَا رِزْقُهَا رَغَداً مِنْ كُلِّ مَكَانٍ فَكَفَرَتْ بِاَنْعُمِ اللّٰهِ فَاَذَاقَهَا اللّٰهُ لِبَاسَ الْجُوعِ وَالْخَوْفِ بِمَا كَانُوا يَصْنَعُونَ",
+          "verseTr": "Allah, güven ve huzur içinde olan, rızkı her taraftan bol bol gelen, sonra Allah'ın nimetlerine karşı nankörlük eden bir şehri (kavmi) misal verir: Yaptıklarına karşılık Allah ona açlık ve korku elbisesi tattırdı.",
+          "verseEn": "And Allah presents an example: a city which was safe and secure, its provision coming to it in abundance from every direction, but it denied the favors of Allah. So Allah made it taste the garment of hunger and fear for what they had been doing."
+        },
+        {
+          "id": "nimet-kasas-28-58",
+          "verseRef": "Kasas 28:58",
+          "surah": 28,
+          "ayah": 58,
+          "verseAr": "وَكَمْ اَهْلَكْنَا مِنْ قَرْيَةٍ بَطِرَتْ مَعِيشَتَهَا فَتِلْكَ مَسَاكِنُهُمْ لَمْ تُسْكَنْ مِنْ بَعْدِهِمْ اِلَّا قَلِيلاً وَكُنَّا نَحْنُ الْوَارِثِينَ",
+          "verseTr": "Biz maişetleri ile şımaran nice şehri (kavmi) helak etmişizdir. İşte yerleri! Kendilerinden sonra oralarda pek az oturulmuştur. Onlara biz vâris olduk.",
+          "verseEn": "And how many a city have We destroyed that was insolent in its [way of] living. Those are their dwellings which have not been inhabited after them except briefly. And We were the inheritors."
+        },
+        {
+          "id": "nimet-neml-27-40",
+          "verseRef": "Neml 27:40",
+          "surah": 27,
+          "ayah": 40,
+          "verseAr": "وَمَنْ شَكَرَ فَاِنَّمَا يَشْكُرُ لِنَفْسِهِ وَمَنْ كَفَرَ فَاِنَّ رَبِّي غَنِيٌّ كَرِيمٌ",
+          "verseTr": "Kim şükrederse şüphesiz kendisi için şükretmiş olur. Kim de nankörlük ederse bilsin ki Rabbim müstağnîdir, çok kerem sahibidir.",
+          "verseEn": "And whoever is grateful — his gratitude is only for himself. And whoever is ungrateful — then indeed, my Lord is Free of need and Generous."
+        }
+      ],
+      "scholarNoteTr": "İbn Kesîr (İbrâhîm 14:7 tefsiri) bu ayeti 'kanun-i mutlaka' olarak nitelendirir: nimetin sürmesi şükre bağlıdır; nankörlük, nimetin çekilmesinin sebeb-i asli'sidir. Râzî (Mefâtîh, Nahl 16:112) Sebe kavmi ile aynı ayet arasında paralellik kurar — bereket → nankörlük → Arim seli → dağılma sırası, bir sünnet-i ilâhiyye örüntüsüdür. Elmalılı bu ayeti 'iktisad-ı ilâhî' başlığı altında işler: nimetin artması, akışkanlığın açılmasıyla, azalması ise akışkanlığın kilitlenmesiyle mütenasiptir.",
+      "scholarNoteEn": "Ibn Kathīr (on Q 14:7) describes this as an 'absolute law': the persistence of blessing depends on gratitude; ingratitude is the primary cause of withdrawal. Al-Rāzī (Mafātīḥ, on Q 16:112) draws a parallel with the people of Sabaʾ — blessing → ingratitude → the flood of ʿArim → dispersion — as a single sunna pattern. Elmalılı treats it under 'divine economy': the increase of blessing corresponds to the opening of flow; its decrease corresponds to its locking.",
+      "modernNoteTr": "Bu kanun ferdi düzeyde de işler: minnet duygusu (gratitude) modern pozitif psikolojide iyi-oluşun (well-being) en güçlü prediktörlerinden biri olarak ölçülür (Emmons & McCullough, 2003). Bu, ayetin sosyal/ekonomik ölçekten psikolojik ölçeğe de indiğini gösteren bir modern paralel — ancak tefsir konsensüsü öncelikle toplumsal-ilâhî ilişki üzerinedir.",
+      "modernNoteEn": "This law also operates at the individual level: gratitude is measured in modern positive psychology as one of the strongest predictors of well-being (Emmons & McCullough, 2003). This is a modern parallel showing the verse's scope extends from the social/economic to the psychological — although the exegetical consensus primarily concerns the social-divine relation.",
+      "ekolEtiketi": "klasik tefsir + modern psikoloji paralelliği"
+    },
+    {
+      "id": "ecel-kanunu",
+      "titleTr": "Ecel Kanunu",
+      "titleEn": "The Law of the Appointed Term",
+      "color": "#8b5cf6",
+      "descTr": "Her ümmete belirlenmiş bir vakit vardır; ne öne alınır, ne ertelenir. Toplumsal-tarihsel sürelerin ölçülmüşlüğü ilkesi.",
+      "descEn": "Every community has an appointed term — neither brought forward nor postponed. The principle of the measured nature of socio-historical durations.",
+      "items": [
+        {
+          "id": "ecel-araf-7-34",
+          "verseRef": "A'râf 7:34",
+          "surah": 7,
+          "ayah": 34,
+          "verseAr": "وَلِكُلِّ اُمَّةٍ اَجَلٌ فَاِذَا جٓاءَ اَجَلُهُمْ لَا يَسْتَأْخِرُونَ سَاعَةً وَلَا يَسْتَقْدِمُونَ",
+          "verseTr": "Her ümmetin bir eceli vardır. Ecelleri gelince ne bir an geri kalırlar ne de bir an ileri gidebilirler.",
+          "verseEn": "And for every nation is a [specified] term. So when their time has come, they will not remain behind an hour, nor will they precede [it]."
+        },
+        {
+          "id": "ecel-yunus-10-49",
+          "verseRef": "Yûnus 10:49",
+          "surah": 10,
+          "ayah": 49,
+          "verseAr": "قُلْ لٓا اَمْلِكُ لِنَفْسِي ضَراًّ وَلَا نَفْعاً اِلَّا مَا شٓاءَ اللّٰهُ لِكُلِّ اُمَّةٍ اَجَلٌ اِذَا جٓاءَ اَجَلُهُمْ فَلَا يَسْتَأْخِرُونَ سَاعَةً وَلَا يَسْتَقْدِمُونَ",
+          "verseTr": "De ki: 'Ben, Allah'ın dilediğinden başka kendime herhangi bir zarar veya fayda verecek güce sahip değilim.' Her ümmetin bir eceli vardır. Ecelleri gelince artık ne bir saat geri kalırlar ne de ileri giderler.",
+          "verseEn": "Say, 'I possess not for myself any harm or benefit except what Allah wills. For every nation is a term. When their time has come, they will not remain behind an hour, nor will they precede it.'"
+        },
+        {
+          "id": "ecel-hicr-15-5",
+          "verseRef": "Hicr 15:5",
+          "surah": 15,
+          "ayah": 5,
+          "verseAr": "مَا تَسْبِقُ مِنْ اُمَّةٍ اَجَلَهَا وَمَا يَسْتَأْخِرُونَ",
+          "verseTr": "Hiçbir ümmet, ecelinin önüne geçemez, onu geciktiremez de.",
+          "verseEn": "No nation will precede its term, nor will they remain thereafter."
+        },
+        {
+          "id": "ecel-muminun-23-43",
+          "verseRef": "Mü'minûn 23:43",
+          "surah": 23,
+          "ayah": 43,
+          "verseAr": "مَا تَسْبِقُ مِنْ اُمَّةٍ اَجَلَهَا وَمَا يَسْتَأْخِرُونَ",
+          "verseTr": "Hiçbir ümmet, ecelinin önüne geçemez, onu geciktiremez de.",
+          "verseEn": "No nation will precede its term, nor will they remain thereafter."
+        }
+      ],
+      "scholarNoteTr": "İbn Âşûr (Tahrîr, A'râf 7:34) bu ayeti 'sünen-i ictimâiyye'nin (toplumsal kanunlar) en özet ifadesi olarak sunar: ümmet, kendine mahsus bir 'tarihî yaş' taşır; ecel bu yaşın somut ölçüsüdür. Râzî'ye göre 'ecel' burada tek bir vakti değil, kavmin çöküş noktasını gösteren belirlenmiş bir 'terminus' anlamındadır. Klasik ulema bu kanunu 'ecelu'l-kavm' (kavim eceli) diye ayırır — bireysel ecelden farklı, kolektif ve tarihseldir.",
+      "scholarNoteEn": "Ibn ʿĀshūr (Taḥrīr, on Q 7:34) presents this verse as the most compact expression of 'social sunan': every ummah carries its own 'historical age'; the ajal is the concrete measure of this age. For al-Rāzī, ajal here signifies not a single moment but a determined 'terminus' — the point of collapse of a community. Classical scholars distinguish this as ajal al-qawm (nation-term), separate from individual death and always collective and historical.",
+      "modernNoteTr": "İbn Haldûn'un Mukaddime'sindeki devlet ömrü teorisi (üç kuşak / yaklaşık 120 yıl) bu kanunun tarihsel-sosyolojik yorumu olarak okunabilir; klasik ulema onun devlet-bedeni analogy'sini sünnetullah çerçevesinde kabul eder. Ancak: Kur'ân'ın 'ecel' kavramı belirli bir sayısal öngörü sunmaz — Haldûn'un modeli beşerî bir gözlem, ayet ise ilâhî bir bildiridir. Bu ayrım korunmalıdır.",
+      "modernNoteEn": "Ibn Khaldūn's theory of dynastic lifespan in the Muqaddima (three generations / ~120 years) can be read as a historical-sociological interpretation of this law; classical scholars accept his state-as-body analogy within the sunnatullāh frame. However: the Quranic ajal offers no specific numerical prediction — Khaldūn's model is a human observation, whereas the verse is a divine declaration. This distinction must be preserved.",
+      "ekolEtiketi": "klasik tefsir + İbn Haldûn tarih felsefesi"
+    },
+    {
+      "id": "zulum-kanunu",
+      "titleTr": "Zulüm Kanunu",
+      "titleEn": "The Law of Oppression",
+      "color": "#e67e22",
+      "descTr": "Zulüm üzerine kurulmuş hiçbir düzen kalıcı olamaz. Zulmün ölçüsü aşıldığında kanun kaçınılmaz olarak devreye girer.",
+      "descEn": "No order built on oppression can endure. Once the threshold of injustice is crossed, the law inescapably takes effect.",
+      "items": [
+        {
+          "id": "zulum-hud-11-117",
+          "verseRef": "Hûd 11:117",
+          "surah": 11,
+          "ayah": 117,
+          "verseAr": "وَمَا كَانَ رَبُّكَ لِيُهْلِكَ الْقُرٰى بِظُلْمٍ وَاَهْلُهَا مُصْلِحُونَ",
+          "verseTr": "Rabbin, halkı ıslahatçı olsaydı, o memleketleri zulümle helâk edecek değildi.",
+          "verseEn": "And your Lord would not have destroyed the cities unjustly while their people were reformers."
+        },
+        {
+          "id": "zulum-hud-11-102",
+          "verseRef": "Hûd 11:102",
+          "surah": 11,
+          "ayah": 102,
+          "verseAr": "وَكَذٰلِكَ اَخْذُ رَبِّكَ اِذٓا اَخَذَ الْقُرٰى وَهِيَ ظَالِمَةٌ اِنَّ اَخْذَهُ اَلِيمٌ شَدِيدٌ",
+          "verseTr": "Rabbin, zulmeden memleketleri (onların halkını) yakaladığında, onun yakalayışı işte böyledir! Şüphesiz onun yakalaması pek elem verici, pek çetindir!",
+          "verseEn": "And thus is the seizure of your Lord when He seizes the cities while they are committing wrong. Indeed, His seizure is painful and severe."
+        },
+        {
+          "id": "zulum-kasas-28-59",
+          "verseRef": "Kasas 28:59",
+          "surah": 28,
+          "ayah": 59,
+          "verseAr": "وَمَا كَانَ رَبُّكَ مُهْلِكَ الْقُرٰى حَتّٰى يَبْعَثَ فٓي اُمِّهَا رَسُولاً يَتْلُوا عَلَيْهِمْ اٰيَاتِنَا وَمَا كُنَّا مُهْلِكِي الْقُرٰٓى اِلَّا وَاَهْلُهَا ظَالِمُونَ",
+          "verseTr": "Rabbin, kendilerine ayetlerimizi okuyan bir peygamberi memleketlerin ana merkezine göndermedikçe o memleketleri helâk edici değildir. Zaten biz ancak halkı zalim olan memleketleri helâk etmişizdir.",
+          "verseEn": "And never would your Lord have destroyed the cities until He had sent to their mother a messenger reciting to them Our verses. And We would not destroy the cities except while their people were wrongdoers."
+        },
+        {
+          "id": "zulum-al-i-imran-3-57",
+          "verseRef": "Âl-i İmrân 3:57",
+          "surah": 3,
+          "ayah": 57,
+          "verseAr": "وَاَمَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَيُوَفِّيهِمْ اُجُورَهُمْ وَاللّٰهُ لَا يُحِبُّ الظَّالِمِينَ",
+          "verseTr": "İman edip iyi işler yapanlara gelince, Allah onların mükâfatlarını eksiksiz verecektir. Allah zalimleri sevmez.",
+          "verseEn": "But as for those who believed and did righteous deeds, He will give them in full their rewards, and Allah does not like the wrongdoers."
+        }
+      ],
+      "scholarNoteTr": "Hûd 11:117 klasik tefsirde 'çift menfî' (mâ kâne… liyuhlike) yapısıyla en güçlü olumsuzluk kalıbındadır. Elmalılı bunu 'ilâhî adaletin kırmızı çizgisi' olarak yorumlar: sistemi ıslahatçılar (musluhûn) ayakta tutuyorsa, tüm toplumun zâhirî kusurlarına rağmen helâk gecikir. Kurtubî (Câmi', Kasas 28:59) 'zalim toplum' tanımını 'peygamber uyarısına rağmen ısrar edenler' olarak sınırlar — sünnetullah zulmü değil, uyarıya rağmen ısrar edilen zulmü hedefler. Bediüzzaman 'zulüm devam etse de payidar olmaz' formülünü bu kanunun modern özeti sayar.",
+      "scholarNoteEn": "Q 11:117's double-negation construction (mā kāna… li-yuhlika) is the strongest form of negation in classical tafsir. Elmalılı reads this as 'the red line of divine justice': if the system is held up by reformers (muṣliḥūn), destruction is deferred despite the community's apparent flaws. Al-Qurṭubī (on Q 28:59) limits 'unjust community' to those who persist despite prophetic warning — sunnatullāh does not target injustice as such but injustice persisted in after warning. Bediüzzaman treats 'oppression may continue, but it cannot endure' as this law's modern summary.",
+      "ekolEtiketi": "klasik tefsir + Bediüzzaman"
+    },
+    {
+      "id": "sabir-nasr-kanunu",
+      "titleTr": "Sabır-Nasr Kanunu",
+      "titleEn": "The Law of Patience and Victory",
+      "color": "#1D9E75",
+      "descTr": "Meşakket ve zafer arasındaki değişmez ilişki. Zafer, sabrın kemale erdiği eşikte gelir — atlanamayan bir sıra.",
+      "descEn": "The unchanging relation between hardship and victory. Victory arrives at the threshold where patience matures — an order that cannot be skipped.",
+      "items": [
+        {
+          "id": "sabir-bakara-2-214",
+          "verseRef": "Bakara 2:214",
+          "surah": 2,
+          "ayah": 214,
+          "verseAr": "اَمْ حَسِبْتُمْ اَنْ تَدْخُلُوا الْجَنَّةَ وَلَمَّا يَأْتِكُمْ مَثَلُ الَّذِينَ خَلَوْا مِنْ قَبْلِكُمْ مَسَّتْهُمُ الْبَأْسٓاءُ وَالضَّرٓاءُ وَزُلْزِلُوا حَتّٰى يَقُولَ الرَّسُولُ وَالَّذِينَ اٰمَنُوا مَعَهُ مَتٰى نَصْرُ اللّٰهِ اَلٓا اِنَّ نَصْرَ اللّٰهِ قَرِيبٌ",
+          "verseTr": "Yoksa siz, sizden öncekilerin başına gelenler size de gelmeden cennete gireceğinizi mi sandınız? Peygamber ve onunla beraber müminler: 'Allah'ın yardımı ne zaman!' diyecek kadar darlık ve sıkıntıya uğramışlar, sarsılmışlardı. Bilesiniz ki, Allah'ın yardımı yakındır.",
+          "verseEn": "Or do you think that you will enter Paradise while such [trial] has not yet come to you as came to those who passed on before you? They were touched by poverty and hardship and were shaken until [even their] messenger and those who believed with him said, 'When is the help of Allah?' Unquestionably, the help of Allah is near."
+        },
+        {
+          "id": "sabir-inshirah-94-5",
+          "verseRef": "İnşirâh 94:5-6",
+          "surah": 94,
+          "ayah": 5,
+          "verseAr": "فَاِنَّ مَعَ الْعُسْرِ يُسْراً اِنَّ مَعَ الْعُسْرِ يُسْراً",
+          "verseTr": "Elbette zorluğun yanında bir kolaylık vardır. Gerçekten, zorlukla beraber bir kolaylık daha vardır.",
+          "verseEn": "For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease."
+        },
+        {
+          "id": "sabir-al-i-imran-3-146",
+          "verseRef": "Âl-i İmrân 3:146",
+          "surah": 3,
+          "ayah": 146,
+          "verseAr": "وَكَاَيِّنْ مِنْ نَبِيٍّ قَاتَلَ مَعَهُ رِبِّيُّونَ كَثِيرٌ فَمَا وَهَنُوا لِمٓا اَصَابَهُمْ فِي سَبِيلِ اللّٰهِ وَمَا ضَعُفُوا وَمَا اسْتَكَانُوا وَاللّٰهُ يُحِبُّ الصَّابِرِينَ",
+          "verseTr": "Nice peygamberler vardı ki, beraberinde birçok Allah erleri bulunduğu halde savaştılar da; bunlar, Allah yolunda başlarına gelenlerden dolayı gevşeklik ve zaaf göstermediler, boyun eğmediler. Allah sabredenleri sever.",
+          "verseEn": "And how many a prophet [fought and] with him fought many religious scholars. But they never lost assurance due to what afflicted them in the cause of Allah, nor did they weaken or submit. And Allah loves the steadfast."
+        },
+        {
+          "id": "sabir-nahl-16-96",
+          "verseRef": "Nahl 16:96",
+          "surah": 16,
+          "ayah": 96,
+          "verseAr": "مَا عِنْدَكُمْ يَنْفَدُ وَمَا عِنْدَ اللّٰهِ بَاقٍ وَلَنَجْزِيَنَّ الَّذِينَ صَبَرٓوا اَجْرَهُمْ بِاَحْسَنِ مَا كَانُوا يَعْمَلُونَ",
+          "verseTr": "Sizin yanınızdakiler tükenir, Allah katındakiler ise kalıcıdır. Elbette sabredenlere yaptıklarının en güzeli ile karşılığını vereceğiz.",
+          "verseEn": "Whatever you have will end, but what Allah has is lasting. And We will surely give those who were patient their reward according to the best of what they used to do."
+        }
+      ],
+      "scholarNoteTr": "Bakara 2:214'ün 'metâ nasrullâh' (Allah'ın yardımı ne zaman?) sorusu klasik tefsirde 'ihtiyacın zirvesinde teslimiyet' olarak yorumlanır. İbn Kesîr bu ayeti Ashab'ın Uhud sonrası tereddüdüyle ilişkilendirir. Râzî 'me'a-l-'usri yüsrâ' (İnşirâh 94:5-6) çift tekrarını klasik belâgatta 'iki farklı zorluk, iki farklı kolaylık; ama tek 'usr'ün iki 'yüsr'ü' formülüyle açar — yani zorluk tek, kolaylık iki katmanlıdır. Bu, sabır kanununun ontolojik iddiasıdır: zafer sadece nihayette değil, sabrın kendisi içinde başlar. Bediüzzaman: 'Musibet, saadete köprü olduğu için gizlenmiş rahmettir.'",
+      "scholarNoteEn": "The 'matā naṣrullāh' ('When is the help of Allah?') of Q 2:214 is classically read as 'surrender at the summit of need.' Ibn Kathīr links this verse to the Companions' hesitation after Uḥud. Al-Rāzī explains the twin repetition of 'maʿa al-ʿusri yusrā' (Q 94:5-6) through the classical rhetorical formula: 'two hardships, two eases; but one ʿusr matched by two yusr' — hardship is singular, ease is double-layered. This is the ontological claim of the law of patience: victory begins not only at the end, but within patience itself. Bediüzzaman: 'Calamity is concealed mercy, because it is the bridge to felicity.'",
+      "ekolEtiketi": "klasik tefsir + Bediüzzaman"
     }
   ],
   "scholarViews": [
@@ -423,6 +625,328 @@
       "infoTr": "Tartışmalı kaynak uyarısı: Fazlur Rahman'ın genel Kur'ân yaklaşımı ('double movement hermeneutics') akademik İslamoloji'de uzun süreli bir tartışma yaratmıştır. Klasik ulema (Sa'îd Ramazan el-Bûtî, Yûsuf el-Karadâvî) onu lafzî mânâdan uzaklaşmak ve tarihsel-sosyolojik indirgeme yapmakla eleştirir. Akademik İslamoloji (Wael Hallaq, Khaled Abou El Fadl) ise temkinli bir mesafe ile değerlendirir; Türk akademisinin tutumu (Hayrettin Karaman, Ekrem Demirli) karışıktır. Atlas burada onun sünnetullah analizini değerli bulmakla birlikte, metodolojik çerçevesinin tartışmalı olduğunu okurla paylaşır. Klasik perspektif (İbn Âşûr, Elmalılı, Râzî) daha güvenli referanslardır.",
       "infoEn": "Contested source warning: Fazlur Rahman's general Qur'anic approach ('double movement hermeneutics') has been the subject of long-standing debate in academic Islamic Studies. Classical scholars (Saʿīd Ramaḍān al-Būṭī, Yūsuf al-Qaraḍāwī) critique him for departing from the literal meaning and engaging in historical-sociological reductionism. Academic Islamic Studies (Wael Hallaq, Khaled Abou El Fadl) keep a cautious distance; the position of Turkish academia (Hayrettin Karaman, Ekrem Demirli) is mixed. The Atlas finds his sunnatullāh analysis valuable while noting with the reader that his methodological framework is contested. The classical perspective (Ibn ʿĀshūr, Elmalılı, al-Rāzī) is a safer reference.",
       "ekolEtiketi": "çağdaş reformist (tartışmalı — uyarı notuyla)"
+    },
+    {
+      "id": "ibn-haldun",
+      "scholar": "İbn Haldûn",
+      "scholarEn": "Ibn Khaldūn",
+      "work": "Mukaddime",
+      "workEn": "Muqaddima",
+      "century": "14. yüzyıl (1377)",
+      "insightTr": "İbn Haldûn, Mukaddime'de sünnetullah'ı sosyal-tarihsel örüntü ekseninde en sistematik biçimde inceler. Devletlerin ömrünü üç kuşak (yaklaşık 120 yıl) döngüsüne bağlar: (1) asabiyet ile kuruluş, (2) yerleşme ile bolluk, (3) refah-sonrası çöküş. Bu üç aşama, sünen-i ictimâiyye'nin somut örneğidir. Aynı örüntü Kur'ân'daki 'sünnetu'l-evvelîn' (öncekilerin sünneti) ifadesiyle örtüşür. Haldûn'un iddiası: kanun keyfî değil, kavmin iç dinamiklerine bağlı zorunlu bir akıştır.",
+      "insightEn": "Ibn Khaldūn, in the Muqaddima, undertakes the most systematic analysis of sunnatullāh along the axis of socio-historical patterns. He binds the lifespan of dynasties to a three-generation (~120 year) cycle: (1) foundation through ʿaṣabiyya, (2) settlement into abundance, (3) collapse after affluence. These three stages are the concrete illustration of sunan al-ijtimāʿiyya. The pattern echoes the Qur'anic phrase 'sunnat al-awwalīn' (the precedent of the former peoples). Khaldūn's claim: the law is not arbitrary but a necessary flow bound to a community's inner dynamics.",
+      "sourceTr": "İbn Haldûn, Mukaddime, özellikle 3. Bab (devlet ömrü) ve 4. Bab (medeniyet). Türkçe çeviri: Zâkir Kadîrî Ugan / Süleyman Uludağ.",
+      "sourceEn": "Ibn Khaldūn, *Muqaddima*, especially Book 3 (dynastic lifespan) and Book 4 (civilization). English: Franz Rosenthal (Princeton, 1958).",
+      "infoTr": "İbn Haldûn'un tarih felsefesi, sünnetullah'ın toplumsal-ampirik gözlem düzeyindeki en güçlü teorik açılımıdır. Klasik ulema onu 'ilmü'l-umrân'ın kurucusu olarak kabul eder. Katkısı: 'kanun var' iddiasını 'gözlenebilir örüntü' düzeyine taşıyıp Kur'ânî sünnet kavramını sosyoloji ile buluşturur.",
+      "infoEn": "Ibn Khaldūn's philosophy of history is the strongest theoretical elaboration of sunnatullāh at the level of social-empirical observation. Classical scholarship regards him as the founder of ʿilm al-ʿumrān. His contribution: raising the claim 'there is a law' to the level of 'observable pattern,' bridging the Qur'anic concept of sunna with sociology.",
+      "ekolEtiketi": "klasik ilm-i umrân (tarih sosyolojisi)"
+    },
+    {
+      "id": "nursi",
+      "scholar": "Bediüzzaman Said Nursî",
+      "scholarEn": "Bediüzzaman Said Nursī",
+      "work": "Muhâkemât, Sözler (14. Söz), Mektubat",
+      "workEn": "Muḥākamāt, Words (14th Word), Letters",
+      "century": "20. yüzyıl (1878-1960)",
+      "insightTr": "Bediüzzaman sünnetullah'ı 'âdât-ı ilâhiyye' (Allah'ın âdetleri) başlığı altında sistemleştirir ve üç düzeyde çalıştığını gösterir: (1) fizik-kevnî — tabiat kanunları, (2) ferdî — vicdanın ve amelin sonuçları, (3) toplumsal-tarihsel — kavimlerin yükseliş-çöküş örüntüsü. 14. Söz'de zelzele/afetler bahsinde sünnetullah'ı fizikî değil ahlâkî kanun olarak yorumlar: 'Musibetler ekseriya zulmün bir eseri, sünnetullah'ın aksülameli'dir.' Bu, tabiat kanunlarını da manevî düzenle bağlar.",
+      "insightEn": "Bediüzzaman systematizes sunnatullāh under the heading of 'ʿādāt ilāhiyya' (divine customs) and shows that it operates at three levels: (1) physical-cosmic — the laws of nature, (2) individual — the consequences of conscience and action, (3) socio-historical — the rise-and-fall pattern of nations. In the 14th Word, on earthquakes and disasters, he reads sunnatullāh not as a physical but as a moral law: 'Calamities are usually the effect of injustice, the counter-response of sunnatullāh.' This binds the laws of nature to a moral order.",
+      "sourceTr": "Bediüzzaman Said Nursî, Muhâkemât, Unsurü'l-hakikat; Sözler, 14. Söz; Mektubat, 22. Mektup.",
+      "sourceEn": "Bediüzzaman Said Nursī, *Muḥākamāt*, Unṣur al-Ḥaqīqa; *Sözler* (Words), 14th Word; *Mektubat* (Letters), 22nd Letter.",
+      "infoTr": "Nursî'nin özgün katkısı: klasik 'sünnetullah var' iddiasını 'sünnetullah, imanı ve ameli aynı denklemin iki yanı olarak kurar' formülüne dönüştürmesi. Ferdî amellerin toplumsal kanunlarda karşılık bulması, onun 'küçük dâire → büyük dâire' geçişindeki en özgün açılımıdır.",
+      "infoEn": "Nursī's original contribution: transforming the classical claim 'sunnatullāh exists' into the formula 'sunnatullāh binds faith and action as two sides of the same equation.' The way individual actions receive their echo in social laws is his most original elaboration in the passage from 'small circle to great circle.'",
+      "ekolEtiketi": "klasik tefsir + Risale-i Nur perspektifi"
+    },
+    {
+      "id": "iqbal",
+      "scholar": "Muhammad Iqbâl",
+      "scholarEn": "Muhammad Iqbāl",
+      "work": "The Reconstruction of Religious Thought in Islam",
+      "workEn": "The Reconstruction of Religious Thought in Islam",
+      "century": "20. yüzyıl (1934)",
+      "insightTr": "Iqbâl, Reconstruction'da sünnetullah'ı statik değil dinamik bir çerçevede okur: 'Kur'ân'ın gösterdiği kanun, tabiatın matematiği değil, tarihin dinamizmidir.' Ona göre 'değişmez kanun' hükmünün özü, kanunun sabitliği değil, sürecin öngörülebilirliğidir. Tarih, insanın seçimleriyle etkileşen ilâhî yasa altında sürekli bir 'yeniden inşa'dır. Bu görüş, ecel kanununu ve zulüm kanununu 'toplumsal irade' çerçevesinde okur.",
+      "insightEn": "Iqbāl, in *Reconstruction*, reads sunnatullāh in a dynamic rather than static frame: 'The law the Qur'an points to is not the mathematics of nature but the dynamism of history.' For him, the essence of the 'unchanging law' clause is not the fixity of the law but the predictability of the process. History is a continuous 'reconstruction' under a divine law that interacts with human choices. This view rereads the law of appointed term and the law of oppression within a frame of 'social will.'",
+      "sourceTr": "Muhammad Iqbâl, The Reconstruction of Religious Thought in Islam (Oxford, 1934), özellikle 5. bölüm: 'The Spirit of Muslim Culture.'",
+      "sourceEn": "Muhammad Iqbāl, *The Reconstruction of Religious Thought in Islam* (Oxford, 1934), esp. Ch. 5: 'The Spirit of Muslim Culture.'",
+      "infoTr": "Iqbâl'ın yaklaşımı klasik ulemayla teolojik olarak uyumludur (Eş'arî çizgi) ama tarih felsefesinde Batı düşüncesiyle (Bergson, Nietzsche) diyalog kurar. Bu, akademik tartışmaya açık bir konumdur; Türk akademisinde (Hilmi Yavuz, Mahmut Erol Kılıç) genellikle olumlu değerlendirilir. Bazı klasik selefî çevreler (Muhammed Kutub) bu diyaloğu 'Batıya taviz' olarak eleştirmiştir.",
+      "infoEn": "Iqbāl's approach is theologically consistent with classical scholarship (the Ashʿarī line) but engages in dialogue with Western thought (Bergson, Nietzsche) at the level of philosophy of history. This is an academically contested position; Turkish academia (Hilmi Yavuz, Mahmut Erol Kılıç) generally evaluates it positively. Some classical Salafi circles (Muḥammad Quṭb) criticize this dialogue as 'a concession to the West.'",
+      "ekolEtiketi": "çağdaş İslâmî düşünce (metafizik + tarih felsefesi)"
+    },
+    {
+      "id": "malek-bennabi",
+      "scholar": "Malek Bennabi",
+      "scholarEn": "Malek Bennabi",
+      "work": "Vocation of Islam · Les conditions de la renaissance",
+      "workEn": "Vocation of Islam · Les conditions de la renaissance",
+      "century": "20. yüzyıl (1948-1960)",
+      "insightTr": "Cezayirli mütefekkir Bennabi, sünnetullah'ı 'medeniyet formülü' olarak inceler: Medeniyet = İnsan × Toprak × Zaman (bu üçünün 'dini fikir' etrafında birleşmesiyle). Ona göre Müslüman toplumların çöküşü, sünnetullah kanununun bir 'ihmali' değil, tam olarak uygulanışıdır — 'coloniabilité' (sömürüye elverişlilik) toplumun kendi iç bozulmasının bir dış izdüşümüdür. Bu, Ra'd 13:11 ayetinin ('bir kavim kendini değiştirmedikçe...') tarihî-sosyolojik yorumudur.",
+      "insightEn": "The Algerian thinker Bennabi analyzes sunnatullāh as a 'formula of civilization': Civilization = Man × Soil × Time (united by a 'religious idea'). For him, the collapse of Muslim societies is not a 'negligence' of the law but its exact application — 'coloniabilité' (susceptibility to colonization) is the outer projection of an inner corruption. This is the historical-sociological reading of Q 13:11 ('Allah does not change a people until they change themselves…').",
+      "sourceTr": "Malek Bennabi, Les Conditions de la renaissance (1948, Cezayir); Vocation de l'Islam (1954). Türkçe: 'İslâm'ın Yeniden Doğuşu' (İz Yayınları).",
+      "sourceEn": "Malek Bennabi, *Les Conditions de la renaissance* (Algiers, 1948); *Vocation de l'Islam* (1954). English translation: *Islam in History and Society* (Berita, 1988).",
+      "infoTr": "Bennabi'nin katkısı: 'coloniabilité' kavramıyla sünnetullah'ı psikolojik-kültürel derinlikte kavramsallaştırması. Klasik ulema onu genelde 'olumlu bir uyanış düşünürü' olarak değerlendirir; Şeriati ile birlikte 'toplumsal iman-hareket' çizgisinin merkezi ismidir. Modern Türk düşüncesinde (Sezai Karakoç, Rasim Özdenören) etkisi görülür.",
+      "infoEn": "Bennabi's contribution: conceptualizing sunnatullāh at the psychological-cultural depth through the notion of 'coloniabilité.' Classical scholarship generally regards him as 'a positive thinker of revival'; alongside Shariati, he is a central name in the 'social faith-and-movement' line. His influence is visible in modern Turkish thought (Sezai Karakoç, Rasim Özdenören).",
+      "ekolEtiketi": "çağdaş İslâmî medeniyet felsefesi"
     }
-  ]
+  ],
+  "kavimPatterns": [
+    {
+      "id": "nuh-kavmi",
+      "titleTr": "Nûh Kavmi",
+      "titleEn": "The People of Nūḥ",
+      "prophetTr": "Hz. Nûh",
+      "prophetEn": "Prophet Nūḥ",
+      "durationTr": "950 yıl davet",
+      "durationEn": "950 years of invitation",
+      "modeTr": "Tufan (küresel sel)",
+      "modeEn": "The Flood (global deluge)",
+      "color": "#3498db",
+      "verses": [
+        "Hûd 11:25-49",
+        "Nûh 71:1-28",
+        "Ankebût 29:14"
+      ],
+      "iconMode": "flood",
+      "warningTr": "Şirk, servet-güç kibri, zayıfları hor görme.",
+      "warningEn": "Polytheism, arrogance of wealth and power, contempt for the weak.",
+      "rejectionTr": "'Sen bizim gibi bir beşerden başka bir şey değilsin; sana ancak aramızdaki en aşağı tabakadakiler tabi olmuştur' (Hûd 11:27) — sosyal statü argümanı, mesajın içeriğine değil, taşıyıcısının 'sınıfına' saldırı.",
+      "rejectionEn": "'You are only a man like us, and only the lowest of us follow you' (Q 11:27) — a social-status argument attacking not the content but the 'class' of the messenger.",
+      "outcomeTr": "'Yeryüzünde kâfirlerden yurt tutan hiç kimseyi bırakma' (Nûh 71:26) — tufan, sadece bir cezâ değil, kanunun mühürlenmesidir. Kur'ân bu olayı 'sünnetullah'ın ilk somut kaydı' olarak sunar.",
+      "outcomeEn": "'Do not leave upon the earth any inhabitant from among the disbelievers' (Q 71:26) — the flood is not merely punishment but the sealing of the law. The Qur'an presents this event as 'the first concrete record of sunnatullāh.'",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "Ecel kanunu",
+        "İmtihan (sabır) kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of appointed term",
+        "Law of trial (patience)"
+      ],
+      "sourceTr": "İbn Kesîr, Kısasu'l-Enbiyâ (Nûh); Taberî, Târîh, cilt 1; Elmalılı, Nûh sûresi tefsiri.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ al-Anbiyāʾ* (Nūḥ); al-Ṭabarī, *Tārīkh*, vol. 1; Elmalılı on Sūrat Nūḥ."
+    },
+    {
+      "id": "ad-kavmi",
+      "titleTr": "Âd Kavmi",
+      "titleEn": "The People of ʿĀd",
+      "prophetTr": "Hz. Hûd",
+      "prophetEn": "Prophet Hūd",
+      "durationTr": "Belirsiz — kuvvet çağı",
+      "durationEn": "Unspecified — an age of strength",
+      "modeTr": "Sarsar rüzgârı (7 gece 8 gündüz)",
+      "modeEn": "The barren wind (7 nights and 8 days)",
+      "color": "#c9a227",
+      "verses": [
+        "Hûd 11:50-60",
+        "Hâkka 69:6-8",
+        "A'râf 7:65-72"
+      ],
+      "iconMode": "wind",
+      "warningTr": "'Yeryüzünde ıslahat değil, fesat çıkarıyorlardı' — mühendislik-mimari üstünlüğün kibirle çarpımı.",
+      "warningEn": "'They spread corruption on earth, not reform' — the compounding of engineering-architectural mastery with arrogance.",
+      "rejectionTr": "'Bizden daha güçlüsü kim var?' (Fussilet 41:15) — güç kibri argümanı. Ekonomik başarıyı ahlâkî sürdürülebilirliğin garantisi olarak yorumlama.",
+      "rejectionEn": "'Who is stronger than us?' (Q 41:15) — the argument of the arrogance of power. Interpreting economic success as the guarantee of moral sustainability.",
+      "outcomeTr": "'Sarsar bir rüzgârı üzerlerine estirdi' (Hâkka 69:6) — güçlerinin karşısına en yumuşak olan gönderildi. Kanun 'zıt eleman ile ölçmek' formülünde çalışır: güçlü kavim ↔ hafif rüzgâr.",
+      "outcomeEn": "'A barren wind was sent upon them' (Q 69:6) — the softest element was set against their strength. The law operates by the formula 'measure with the opposite element': a mighty people ↔ a light wind.",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "Zulüm kanunu",
+        "Nimet-şükür kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of oppression",
+        "Law of blessing-gratitude"
+      ],
+      "sourceTr": "İbn Kesîr, Kısas (Hûd); Râzî, Mefâtîh, Hâkka 69:6-8; Elmalılı, Fussilet 15.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Hūd); al-Rāzī, Mafātīḥ, on Q 69:6-8; Elmalılı on Q 41:15."
+    },
+    {
+      "id": "semud-kavmi",
+      "titleTr": "Semûd Kavmi",
+      "titleEn": "The People of Thamūd",
+      "prophetTr": "Hz. Sâlih",
+      "prophetEn": "Prophet Ṣāliḥ",
+      "durationTr": "Belirsiz — 3 gün mühlet",
+      "durationEn": "Unspecified — 3 days respite",
+      "modeTr": "Sayha (çığlık/gök gürültüsü) + zelzele",
+      "modeEn": "The Blast (a piercing cry) + earthquake",
+      "color": "#e67e22",
+      "verses": [
+        "Hûd 11:61-68",
+        "A'râf 7:73-79",
+        "Şems 91:11-14"
+      ],
+      "iconMode": "shockwave",
+      "warningTr": "Deveyi (mucize-âyeti) kesip kanunu meydan okumaya çevirdiler.",
+      "warningEn": "They slaughtered the she-camel (the miraculous sign) and turned the law into a challenge.",
+      "rejectionTr": "Deveyi kesmek + 3 günlük mühleti aşağılama: 'Ey Sâlih! Eğer gerçekten peygamberlerden isen bizi tehdit ettiğin şeyi getir!' (A'râf 7:77). Klasik alâmet: mucizeye rağmen ısrar.",
+      "rejectionEn": "Slaughtering the she-camel + mocking the 3-day respite: 'O Ṣāliḥ! If you are truly of the messengers, bring us what you threaten us with' (Q 7:77). The classical sign: persistence despite the miracle.",
+      "outcomeTr": "'Onları bir sayha (korkunç ses) yakaladı ve yurtlarında yüzükoyun kaldılar' (Hûd 11:67) — Semûd'a özgü ders: bilimsel/mühendislik meharet (kayaları oyan uygarlık) tek başına ilâhî yasadan muaf değildir.",
+      "outcomeEn": "'The blast overtook them, and they lay prostrate in their dwellings' (Q 11:67) — the lesson specific to Thamūd: scientific/engineering mastery (a rock-carving civilization) alone provides no exemption from the divine law.",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "İmtihan kanunu",
+        "Ecel kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of trial",
+        "Law of appointed term"
+      ],
+      "sourceTr": "İbn Kesîr, Kısas (Sâlih); Elmalılı, Şems 11-14; Taberî, Târîh, Semûd bahsi.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Ṣāliḥ); Elmalılı on Q 91:11-14; al-Ṭabarī, *Tārīkh*, Thamūd section."
+    },
+    {
+      "id": "lut-kavmi",
+      "titleTr": "Lût Kavmi",
+      "titleEn": "The People of Lūṭ",
+      "prophetTr": "Hz. Lût",
+      "prophetEn": "Prophet Lūṭ",
+      "durationTr": "Belirsiz",
+      "durationEn": "Unspecified",
+      "modeTr": "Şehrin altını üstüne getirme + pişmiş taş yağmuru",
+      "modeEn": "Overturning the city + rain of baked stones",
+      "color": "#e74c3c",
+      "verses": [
+        "Hûd 11:74-83",
+        "Hicr 15:57-77",
+        "A'râf 7:80-84"
+      ],
+      "iconMode": "meteorite",
+      "warningTr": "Fıtratın (yaratılışın) temel bir yasasının reddi — cinsel-toplumsal düzenin bozulması.",
+      "warningEn": "The rejection of a foundational law of nature (fiṭra) — the disruption of the sexual-social order.",
+      "rejectionTr": "'Onları yurdunuzdan çıkarın; onlar temizliğe pek düşkün insanlarmış!' (A'râf 7:82) — ahlâkî uyarıyı, ahlâkı reddedenlerin utancına dönüştürme; toplumun ıslah edicilerini sürgün etme mekanizması.",
+      "rejectionEn": "'Expel them from your town; they are people who purify themselves!' (Q 7:82) — turning a moral warning into shame directed at those who reject morality; the mechanism of exiling a society's reformers.",
+      "outcomeTr": "'Şehrin altını üstüne getirdik ve üzerlerine sağanak halinde pişmiş taş yağdırdık' (Hûd 11:82) — hem fizikî hem sembolik ters çevirme. Kanun: fıtrata karşı gelen düzen, fizikî olarak da 'ters' edilir.",
+      "outcomeEn": "'We turned the city upside down and rained upon them stones of baked clay' (Q 11:82) — both a physical and symbolic inversion. The law: an order that opposes fiṭra is also physically 'inverted.'",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "Fıtrat (yaratma) kanunu",
+        "Zulüm kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of creation (fiṭra)",
+        "Law of oppression"
+      ],
+      "sourceTr": "İbn Kesîr, Kısas (Lût); Kurtubî, Câmi', Hûd 82-83; İbn Âşûr, Tahrîr, Hicr 74-77.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Lūṭ); al-Qurṭubī, *al-Jāmiʿ*, on Q 11:82-83; Ibn ʿĀshūr, *Taḥrīr*, on Q 15:74-77."
+    },
+    {
+      "id": "medyen-kavmi",
+      "titleTr": "Medyen Kavmi (Şuayb'ın Kavmi)",
+      "titleEn": "The People of Madyan (Shuʿayb's People)",
+      "prophetTr": "Hz. Şuayb",
+      "prophetEn": "Prophet Shuʿayb",
+      "durationTr": "Belirsiz",
+      "durationEn": "Unspecified",
+      "modeTr": "Sayha + zelzele",
+      "modeEn": "The Blast + earthquake",
+      "color": "#8b5cf6",
+      "verses": [
+        "Hûd 11:84-95",
+        "A'râf 7:85-93",
+        "Şuarâ 26:176-191"
+      ],
+      "iconMode": "shockwave",
+      "warningTr": "Ölçüde ve tartıda eksiklik — ekonomik adaletsizlik. Sünnetullah burada 'ticaret ahlâkı' düzeyine iner.",
+      "warningEn": "Deficiency in weight and measure — economic injustice. Sunnatullāh here descends to the level of 'trade ethics.'",
+      "rejectionTr": "'Ey Şuayb! Namazın mı sana atalarımızın taptığından, yahut mallarımızda dilediğimizi yapmaktan vazgeçmemizi emrediyor?' (Hûd 11:87) — dinin ekonomik hayattan ayrı tutulması refleksi; laik-piyasa argümanı.",
+      "rejectionEn": "'O Shuʿayb! Does your prayer command you that we abandon what our fathers worshipped, or [that we cease] to do as we wish with our wealth?' (Q 11:87) — the reflex of separating religion from economic life; the secular-market argument.",
+      "outcomeTr": "'O zâlimleri sayha yakaladı; yurtlarında dizüstü çöküverdiler' (Hûd 11:94) — Semûd ile aynı biçim, farklı sebep. Kanun aynı, ama sebeb özel: ölçü-tartı adaletsizliği. Bu, sünnetullah'ın 'sebep farklılığından etkilenmeyen' evrensel yüzüdür.",
+      "outcomeEn": "'The blast seized the wrongdoers, and they lay overturned in their dwellings' (Q 11:94) — the same mode as Thamūd, a different cause. The law is one, the specific cause is trade injustice. This is the universal face of sunnatullāh — 'unaffected by the difference of cause.'",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "Zulüm kanunu",
+        "Nimet-şükür kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of oppression",
+        "Law of blessing-gratitude"
+      ],
+      "sourceTr": "İbn Kesîr, Kısas (Şuayb); Râzî, Mefâtîh, Hûd 87-95; Şuarâ 176-191 tefsirleri.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Shuʿayb); al-Rāzī, Mafātīḥ, on Q 11:87-95; commentaries on Q 26:176-191."
+    },
+    {
+      "id": "firavun-kavmi",
+      "titleTr": "Firavun ve Kavmi",
+      "titleEn": "Pharaoh and His People",
+      "prophetTr": "Hz. Mûsâ ve Hz. Hârûn",
+      "prophetEn": "Prophets Mūsā and Hārūn",
+      "durationTr": "Uzun süreli, çok mucize gösterildikten sonra",
+      "durationEn": "Prolonged, after many miracles were shown",
+      "modeTr": "Denizde boğulma",
+      "modeEn": "Drowning in the sea",
+      "color": "#1a7a4c",
+      "verses": [
+        "Yûnus 10:75-92",
+        "Kasas 28:38-42",
+        "Zuhruf 43:46-56"
+      ],
+      "iconMode": "flood",
+      "warningTr": "'Ben, sizin en yüce Rabbinizim!' (Nâziât 79:24) — sınırsız kibrin resmi. Rububiyet iddiası — sünnetullah'ın en dolaysız reddi.",
+      "warningEn": "'I am your Lord Most High!' (Q 79:24) — the picture of unbounded arrogance. The claim of divinity — the most direct rejection of sunnatullāh.",
+      "rejectionTr": "Yedi belânın (kıtlık, tufan, çekirge, kımıl, kurbağa, kan, ilk-doğan) her birinin ardından tövbe → azap kalkınca cayma (A'râf 7:133-135) — mucize kanunun aksülameli olarak değil, siyasî bir müzakere aracı olarak görme.",
+      "rejectionEn": "After each of the seven plagues (drought, flood, locusts, lice, frogs, blood, firstborn) — repentance → recanting once the affliction lifted (Q 7:133-135). Viewing the miracle not as the counter-response of the law but as a political bargaining chip.",
+      "outcomeTr": "'Bugün senin cesedini kurtaracağız ki, senden sonra geleceklere ibret olasın' (Yûnus 10:92) — Kur'ân, Firavun'un cesedini 'ibret' olarak koruyan tek örnektir. Kanun, tarihte sadece kayıt değil, 'işaret' bırakır. (2026 arkeoloji notu: bu ayetin 1974 keşfedilen Ramesses II mumyasıyla bağı klasik ulema tarafından ihtiyatla değerlendirilir — tefsirin lafzî anlamı 'ceset korunacak' yönündedir; kimlik meselesi arkeolojik tartışmaya bırakılır.)",
+      "outcomeEn": "'This day We shall save you in your body, that you may be a sign for those who follow you' (Q 10:92) — the Qur'an is unique in preserving Pharaoh's body as a 'sign.' The law leaves not only a record but a marker. (2026 archaeological note: classical scholarship treats cautiously the link often drawn with the 1974-discovered mummy of Ramesses II — the literal sense of the verse concerns the preservation of the body; the identification question is left to archaeological debate.)",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "İmtihan kanunu",
+        "Zulüm kanunu",
+        "Ecel kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of trial",
+        "Law of oppression",
+        "Law of appointed term"
+      ],
+      "sourceTr": "İbn Kesîr, Kısas (Mûsâ); Kurtubî, Câmi', Yûnus 90-92; Elmalılı, A'râf 133-135.",
+      "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Mūsā); al-Qurṭubī, *al-Jāmiʿ*, on Q 10:90-92; Elmalılı on Q 7:133-135."
+    }
+  ],
+  "linguisticFormula": {
+    "verseAr": "وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْدِيلاً",
+    "verseTr": "Allah'ın kanununda asla bir değişiklik bulamazsın",
+    "verseEn": "You will never find in the way of Allah any change",
+    "sourceRef": "Fâtır 35:43 · Ahzâb 33:62 · Fetih 48:23",
+    "partsTr": [
+      {
+        "part": "وَلَنْ",
+        "translit": "wa-lan",
+        "labelTr": "Kesin gelecek olumsuzu",
+        "labelEn": "Emphatic future negation",
+        "explanationTr": "Arapça'da en güçlü gelecek olumsuzluk kalıbı. 'Lâ' (basit olumsuz) değil, 'len' (kesinlikle asla, tarihte hiç). Zamahşerî bu ayrımı el-Keşşâf'ta 'te'bîd' (ebedî reddetme) olarak açar.",
+        "explanationEn": "The strongest emphatic future negation in Arabic. Not 'lā' (simple negation) but 'lan' (absolutely never, at no point in time). Al-Zamakhsharī in al-Kashshāf explains this as 'taʾbīd' — eternal denial."
+      },
+      {
+        "part": "تَجِدَ",
+        "translit": "tajida",
+        "labelTr": "Bulacak olan sen",
+        "labelEn": "The one who will find (you)",
+        "explanationTr": "'Vecede' (bulmak) kökünden. Kur'ân bu fiili özellikle 'gerçeği araştıran'a yöneltir — objenin varlığı değil, bulunabilirliği reddedilir. 'Kanun yoktur' değil, 'kanunun değiştiği bir örnek bulamazsın.' Bu, ampirik-tarihsel iddiadır.",
+        "explanationEn": "From the root wajada (to find). The Qur'an directs this verb specifically at the 'seeker of truth' — it is not the existence of the object but its findability that is denied. Not 'there is no law' but 'you cannot find a single instance where the law changed.' This is an empirical-historical claim."
+      },
+      {
+        "part": "لِسُنَّةِ اللّٰهِ",
+        "translit": "li-sunnati Allāh",
+        "labelTr": "Allah'ın yasası için",
+        "labelEn": "For the way of Allah",
+        "explanationTr": "'Sünnet' — âdet, yol, süregelen uygulama. İzafeti 'Allah'a' yaparak beşerî bir örf değil, ilâhî bir düzenlenme olduğunu vurgular. 'Li' (için) edatı 'hakkında' değil, 'yönelmiş' anlamındadır — kanun, hedefli bir düzendir.",
+        "explanationEn": "Sunna — custom, way, established practice. Its iḍāfa with 'Allāh' emphasizes that this is not a human custom but a divine ordinance. The preposition li is not 'concerning' but 'directed toward' — the law is a targeted order."
+      },
+      {
+        "part": "تَبْدِيلاً",
+        "translit": "tabdīlā",
+        "labelTr": "Değişiklik (bedelleştirme)",
+        "labelEn": "Change (substitution)",
+        "explanationTr": "'Bedel' (yerini alma) kökünden — sadece 'değişme' değil, 'bir şeyin yerine başka bir şey koyma.' Fâtır 35:43'te 'tebdîl' + 'tahvîl' (yön değiştirme) birlikte olumsuzlanır: kanun ne özce değişir, ne de yönü sapar. Bu, klasik tefsirin en yoğun 'nevi vs cihet' analiz noktalarından biridir.",
+        "explanationEn": "From badal (substitution) — not merely 'change' but 'placing something else in its place.' In Q 35:43, 'tabdīl' + 'taḥwīl' (change of direction) are negated together: the law neither changes in essence nor deviates in direction. This is one of classical tafsir's densest points of the 'nature vs. direction' analysis."
+      }
+    ],
+    "structuralNoteTr": "Bu formül Kur'ân'da 3 farklı ayette (33:62, 35:43, 48:23) tekrarlanır. Klasik ulema (Râzî, İbn Âşûr) bu tekrarı 'ta'kîd bi'l-lafz' (aynı lafızla pekiştirme) belâgatının en yoğun örneği sayar. Fâtır 35:43 tek başına iki olumsuzu birleştirir: 'lâ tebdîl velâ tahvîl' (ne değişim, ne sapma) — kanunun hem kalitesi hem yönü sabittir.",
+    "structuralNoteEn": "This formula recurs in three different verses (Q 33:62, 35:43, 48:23). Classical scholarship (al-Rāzī, Ibn ʿĀshūr) treats this recurrence as one of the densest examples of 'taʾkīd bi'l-lafẓ' (emphasis by verbatim repetition). Q 35:43 uniquely combines the two negations: 'neither tabdīl nor taḥwīl' — both the quality of the law and its direction are fixed."
+  }
 }
