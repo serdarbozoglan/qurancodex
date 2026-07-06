@@ -2897,23 +2897,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-label={language === 'tr' ? 'Ara' : 'Search'}
                 style={{
                   display: 'flex', alignItems: 'center',
-                  gap: isMobile ? 0 : '8px',
-                  // Adaptive width on desktop: narrow if the toolbar is tight,
-                  // expand on wider monitors. clamp() prevents the bar from
-                  // pushing other right-group buttons off-screen at ≤1280px
-                  // while still feeling like a search field at 1440px+.
-                  width: isMobile ? '36px' : 'clamp(220px, 20vw, 280px)',
-                  minWidth: isMobile ? '36px' : '220px',
-                  height: isMobile ? '42px' : '44px',
+                  gap: isMobile ? '5px' : '8px',
+                  // Mobile: uniform rounded-square (diğer 3 butonla aynı shape
+                  // + size + label pattern — user #172 2026-07-06 pro polish).
+                  // Desktop: adaptive-width pill (input-like search field).
+                  flexDirection: isMobile ? 'column' : 'row',
+                  width: isMobile ? '46px' : 'clamp(220px, 20vw, 280px)',
+                  minWidth: isMobile ? '46px' : '220px',
+                  height: isMobile ? '54px' : '44px',
                   padding: isMobile ? 0 : '0 12px 0 16px',
-                  borderRadius: '999px',
-                  // Search button "soft paper input" hissi — navC.btnBorder zaten
-                  // transparent (premium reader pattern), ama search bir tıklama
-                  // hedefi olarak "input slot" hissi gerektiriyor: soft visible
-                  // border + soft visible bg.
+                  borderRadius: isMobile ? RADIUS.md : '999px',
                   border: `1px solid ${showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
                   background: showSearch ? navC.btnBgActive : (dayMode ? 'rgba(0,0,0,0.025)' : 'rgba(255,255,255,0.025)'),
-                  cursor: 'pointer', flexShrink: 1,
+                  cursor: 'pointer', flexShrink: isMobile ? 0 : 1,
                   transition: `all ${TRANSITION.fast}`,
                   justifyContent: isMobile ? 'center' : 'flex-start',
                   fontFamily: 'Inter, system-ui, sans-serif',
@@ -2924,9 +2920,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   e.currentTarget.style.borderColor = showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)');
                 }}
               >
-                <span style={{ display: 'flex', alignItems: 'center', color: dayMode ? 'rgba(80,50,20,0.55)' : 'rgba(200,185,165,0.55)', flexShrink: 0 }}>
-                  <SearchIcon size={isMobile ? 15 : 14} />
+                <span style={{ display: 'flex', alignItems: 'center', color: isMobile ? gold : (dayMode ? 'rgba(80,50,20,0.55)' : 'rgba(200,185,165,0.55)'), flexShrink: 0 }}>
+                  <SearchIcon size={isMobile ? 16 : 14} />
                 </span>
+                {/* Mobile label — uniform "ARA"/"FIND" (3-4 char) diğer butonlarla eş.  */}
+                {isMobile && (
+                  <span style={{ fontSize: '0.56rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
+                    {language === 'tr' ? 'ARA' : 'FIND'}
+                  </span>
+                )}
                 {!isMobile && (
                   <>
                     <span style={{
