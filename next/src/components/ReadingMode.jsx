@@ -2502,6 +2502,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             minHeight: '48px',
             borderBottom: `1px solid ${navC.divider}`,
           }}>
+            {/* Home button — QuranCodex anasayfasına explicit navigation
+                (mobile için brand-safety net). User feedback #169 (2026-07-06):
+                Google'dan gelen kullanıcı X'e basınca Google'a dönüyordu;
+                X artık home'a gitse de "X = close" semantic'i belirsiz kalır.
+                Bu buton net "anasayfa" davranışı verir. */}
+            <button
+              onClick={() => router.push(`/${language}`)}
+              title={language === 'tr' ? 'Anasayfa' : 'Home'}
+              aria-label={language === 'tr' ? 'Anasayfa' : 'Home'}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: '32px', height: '32px', borderRadius: '50%',
+                background: 'rgba(212,165,116,0.06)',
+                border: `1px solid ${navC.btnBorder}`,
+                color: gold,
+                cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
+                flexShrink: 0, padding: 0,
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 12L12 3l9 9M5 10v10h14V10" />
+              </svg>
+            </button>
+
             {/* Prev surah */}
             <button
               onClick={() => goSurah(selectedSurah - 1)}
