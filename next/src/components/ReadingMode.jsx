@@ -3122,25 +3122,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Group divider: Reading tools | Visual */}
         
-              {/* Day/Night toggle — always visible for quick access */}
+              {/* Day/Night toggle — always visible for quick access.
+                  Mobile'da tüm toolbar butonları uniform (46×54) — icon
+                  16px + label 0.58rem 4px gap ile pro görünüm.
+                  Ayrıca kısaltmalar aynı karakter uzunluğunda:
+                  DAY/NIGHT, TR/EN, AYAR/MENU (user #170 2026-07-06). */}
               <button
                 onClick={() => setDayMode(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${dayMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: dayMode ? navC.btnBgActive : navC.btnBg,
-                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '5px' : '1px',
+                  padding: 0,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dayMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = dayMode ? navC.btnBorderActive : navC.btnBorder; }}
                 title={dayMode ? (language === 'tr' ? 'Gece moduna geç' : 'Switch to night') : (language === 'tr' ? 'Gündüz moduna geç' : 'Switch to day')}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {dayMode ? <SunIcon size={isMobile ? 15 : 18} /> : <MoonIcon size={isMobile ? 15 : 18} />}
+                  {dayMode ? <SunIcon size={isMobile ? 16 : 18} /> : <MoonIcon size={isMobile ? 16 : 18} />}
                 </span>
-                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
-                  {dayMode ? (language === 'tr' ? 'Gündüz' : 'Day') : (language === 'tr' ? 'Gece' : 'Night')}
+                <span style={{ fontSize: isMobile ? '0.56rem' : '0.50rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
+                  {dayMode ? (language === 'tr' ? 'GÜN' : 'DAY') : (language === 'tr' ? 'GECE' : 'NIGHT')}
                 </span>
               </button>
 
@@ -3153,10 +3158,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={toggleLanguage}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: '36px', height: '42px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: '46px', height: '54px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${navC.btnBorder}`,
                   background: navC.btnBg,
-                  transition: `all ${TRANSITION.fast}`, gap: '3px',
+                  transition: `all ${TRANSITION.fast}`, gap: '5px',
+                  padding: 0,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; }}
@@ -3164,25 +3170,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-label={language === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <GlobeIcon size={15} />
+                  <GlobeIcon size={16} />
                 </span>
-                <span style={{ fontSize: '0.38rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%', fontWeight: 700 }}>
+                <span style={{ fontSize: '0.56rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
                   {language === 'tr' ? 'TR' : 'EN'}
                 </span>
               </button>}
 
               {/* Group divider: Visual | Auxiliary */}
-        
+
               {/* Settings gear — combines view picker + meal/reciter/font/tajweed/mushaf */}
               <button
                 onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowViewPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px',
+                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '44px',
                   borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
-                  transition: `all ${TRANSITION.fast}`, gap: '1px',
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '5px' : '1px',
                   padding: 0,
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
@@ -3190,10 +3196,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 title={language === 'tr' ? 'Ayarlar — görünüm modu, meal, kıraat, font boyutu, tecvid, mushaf' : 'Settings — view mode, translation, reciter, font, tajweed, mushaf'}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <GearIcon size={isMobile ? 15 : 18} />
+                  <GearIcon size={isMobile ? 16 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.38rem' : '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
-                  {language === 'tr' ? 'Ayar' : 'Settings'}
+                <span style={{ fontSize: isMobile ? '0.56rem' : '0.50rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
+                  {language === 'tr' ? 'AYAR' : 'MENU'}
                 </span>
               </button>
 
@@ -3897,6 +3903,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           padding: '14px 16px', boxShadow: dropC.shadow,
           display: 'flex', flexDirection: 'column', gap: '12px',
           width: isMobile ? '240px' : '250px',
+          // Mobile'da iOS/Chrome bottom bar altında panel truncate oluyordu
+          // ("MEAL YAZI BOYUTU" kesiliyordu, user #171 2026-07-06).
+          // svh + safe-area-inset ile visible viewport'a sıkıştırılıp
+          // taşan içerik scroll olur.
+          maxHeight: isMobile
+            ? 'calc(100svh - 130px - env(safe-area-inset-bottom, 0px))'
+            : 'calc(100vh - 100px)',
+          overflowY: 'auto',
+          overflowX: 'hidden',
         }}>
 
           {/* Header row — section label + close button. Close is essential
