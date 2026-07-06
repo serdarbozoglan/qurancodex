@@ -157,6 +157,31 @@ function SourcesBlock({ titleTr, titleEn, items, language }) {
   );
 }
 
+// Footnote — makale sonundaki bibliyografik/açıklayıcı dipnot bloğu.
+// Küçük italic, muted color, sol kenar aksan. Ardışık footnote blokları doğal
+// bir "Dipnotlar" kümesi oluşturur (JSON'da hep en sona yerleştirildikleri için).
+function Footnote({ tr: trText, en: enText, language }) {
+  const tr = language === 'tr';
+  const body = tr ? trText : enText;
+  if (!body) return null;
+  return (
+    <div style={{
+      margin: '12px 0',
+      padding: '10px 16px',
+      background: 'rgba(255,255,255,0.022)',
+      borderLeft: `2px solid ${COLORS.gold}55`,
+      borderRadius: RADIUS.sm,
+      fontSize: '0.82rem',
+      color: COLORS.silver,
+      fontFamily: FONTS.body,
+      fontStyle: 'italic',
+      lineHeight: 1.7,
+    }}>
+      {renderInlineMarkdown(body)}
+    </div>
+  );
+}
+
 // CriticalNote — inline alternatif okuma / tartışmalı pasaj uyarısı.
 // "Felsufi'nin bu yorumu klasik tefsir tartışmaları açısından nüansa muhtaç" tarzı flag.
 function CriticalNote({ tr: trText, en: enText, headingTr, headingEn, language }) {
@@ -219,6 +244,8 @@ function renderBlock(block, idx, language, firstParaIdx) {
       return <ContrastDuo key={idx} {...block} language={language} />;
     case 'criticalNote':
       return <CriticalNote key={idx} {...block} language={language} />;
+    case 'footnote':
+      return <Footnote key={idx} {...block} language={language} />;
     default:
       return null;
   }
