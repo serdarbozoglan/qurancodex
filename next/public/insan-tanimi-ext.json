@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "generatedAt": "2026-07-06",
+    "note": "Extension for /atlas/insan-tanimi — Dalga 2.4. Adds İnsan Denklemi formula widget + scholar grid + sources.",
+    "arabicNormalized": true
+  },
+  "insanEquation": {
+    "introTr": "Kur'ân insanın var oluş yapısını 4 elementli bir denklemle sunar: FITRAT (yaratılış istikameti) + AKIL (delil değerlendirme yetisi) + İRADE (seçim gücü) + VAHY (dış rehber) → İSTİKÂMET (dosdoğru yol). Elementlerden biri eksikse denge bozulur — Kur'ân her boyut için özel bir dil kullanır.",
+    "introEn": "The Qur'ān presents the structure of human existence as a four-element equation: FIṬRA (created disposition) + ʿAQL (rational discernment) + IRĀDA (volitional agency) + WAḤY (external guidance) → ISTIQĀMA (the straight path). If any element is missing, balance is lost — the Qur'ān uses a distinct language for each dimension.",
+    "elements": [
+      {
+        "id": "fitrat",
+        "labelTr": "FITRAT",
+        "labelEn": "FIṬRA",
+        "meaningTr": "Yaratılış istikameti — Allah'ı bilme eğilimi.",
+        "meaningEn": "Created disposition — the innate inclination toward God.",
+        "arabic": "فِطْرَتَ اللّٰهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا",
+        "translationTr": "Allah'ın insanları üzerinde yarattığı fıtratı (koru).",
+        "translationEn": "The fiṭra of God upon which He created humanity.",
+        "refTr": "Rûm 30:30",
+        "refEn": "al-Rūm 30:30",
+        "color": "#3498db"
+      },
+      {
+        "id": "akil",
+        "labelTr": "AKIL",
+        "labelEn": "ʿAQL",
+        "meaningTr": "Delil değerlendirme, bağ kurma, çıkarım yapma yetisi.",
+        "meaningEn": "The faculty of evaluating evidence, connecting, and inferring.",
+        "arabic": "اَفَلَا يَعْقِلُونَ",
+        "translationTr": "Hâlâ akıl etmezler mi?",
+        "translationEn": "Will they not use their intellect?",
+        "refTr": "Yâsîn 36:68 (13 kez)",
+        "refEn": "Yā-Sīn 36:68 (13× in the Qur'ān)",
+        "color": "#a78bfa"
+      },
+      {
+        "id": "irade",
+        "labelTr": "İRADE",
+        "labelEn": "IRĀDA",
+        "meaningTr": "Seçim gücü — 'iman edeceği' veya 'inkâr edeceği' özgürlüğü.",
+        "meaningEn": "Volitional agency — the freedom to 'believe' or 'reject'.",
+        "arabic": "فَمَنْ شَٓاءَ فَلْيُؤْمِنْ وَمَنْ شَٓاءَ فَلْيَكْفُرْ",
+        "translationTr": "Dileyen iman etsin, dileyen inkâr etsin.",
+        "translationEn": "Let whoever wills, believe; let whoever wills, disbelieve.",
+        "refTr": "Kehf 18:29",
+        "refEn": "al-Kahf 18:29",
+        "color": "#e67e22"
+      },
+      {
+        "id": "vahy",
+        "labelTr": "VAHY",
+        "labelEn": "WAḤY",
+        "meaningTr": "Dış rehber — iç yapının okuma anahtarı.",
+        "meaningEn": "External guidance — the reading key to the inner structure.",
+        "arabic": "هُدًى لِلْمُتَّقٖينَ",
+        "translationTr": "Takvâ sahiplerine bir rehberdir.",
+        "translationEn": "A guidance for the God-conscious.",
+        "refTr": "Bakara 2:2",
+        "refEn": "al-Baqara 2:2",
+        "color": "#2ecc71"
+      }
+    ],
+    "resultTr": "İSTİKÂMET",
+    "resultEn": "ISTIQĀMA",
+    "resultDescTr": "Dosdoğru yol — 4 elementin uyumlu çalışmasının meyvesi. Fâtiha 1:6'da her gün 17 kez talep edilen: 'İhdinâ's-sırâta'l-mustakīm' — bize dosdoğru yolu göster.",
+    "resultDescEn": "The straight path — the fruit of the four elements working in harmony. Requested 17 times a day in al-Fātiḥa 1:6: 'Ihdinā al-ṣirāṭ al-mustaqīm' — guide us on the straight path.",
+    "resultVerseAr": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقٖيمَ",
+    "resultVerseRefTr": "Fâtiha 1:6",
+    "resultVerseRefEn": "al-Fātiḥa 1:6"
+  },
+  "scholars": [
+    {
+      "author": "er-Râgıb el-Isfahânî",
+      "workTr": "el-Müfredât fî Ğarîbi'l-Kur'ân",
+      "workEn": "al-Mufradāt fī Gharīb al-Qurʾān",
+      "period": "ö. 502 h · (Isfahân)",
+      "insightTr": "İnsanı adlandıran 4 kelimenin (insân, beşer, nâs, benî Âdem) kök analizini yapan klasik: insân — 'ünsiyet' (yakınlık kurma) ile 'nisyân' (unutkanlık) köklerini yan yana koyar. Kur'ân'ın insan tanımının çift kutuplu doğasını tek satırda özetler.",
+      "insightEn": "The classical work that etymologically analyzes the four Qur'anic words for human (insān, bashar, nās, banū Ādam): links insān to both 'unsiyya' (forming intimacy) and 'nisyān' (forgetfulness). In one line it captures the bipolar nature of the Qur'an's definition of humanity.",
+      "color": "#3498db"
+    },
+    {
+      "author": "İbnü'l-Kayyim",
+      "workTr": "Miftâhu Dâri's-Saʿâde",
+      "workEn": "Miftāḥ Dār al-Saʿāda",
+      "period": "691–751 h · (Dımaşk)",
+      "insightTr": "İnsan denklemi hâline getirir: fıtrat + akıl + irade + vahy. Bu 4 boyutun uyumu 'saâdet' (mutluluk), uyumsuzluğu 'şekāvet' (bedbahtlık). Fıtratı 'aslî yapı', vahyi ise 'fıtratın hatırlatıcısı' olarak tanımlar — vahiy yeni bir bilgi getirmez, unutulan bilgiyi çağrıştırır.",
+      "insightEn": "Formulates the human equation: fiṭra + ʿaql + irāda + waḥy. Harmony of these four is saʿāda (felicity); disharmony is shaqāwa (misery). He describes fiṭra as the 'original structure' and waḥy as its 'reminder' — revelation does not add new knowledge but recalls what was forgotten.",
+      "color": "#2ecc71"
+    },
+    {
+      "author": "er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "544–606 h · (Rey)",
+      "insightTr": "İnsanın 'ahsen-i takvîm' (Tîn 95:4) ve 'esfel-i sâfilîn' (Tîn 95:5) arasındaki paradoksunu kelâmî bir sistemle çözer: yükseliş ve düşüş aynı yaratıktır — dinamik denge. İnsan bir 'durum' değil, sürekli bir hareket.",
+      "insightEn": "Resolves the paradox of humanity between 'aḥsan al-taqwīm' (al-Tīn 95:4) and 'asfal al-sāfilīn' (95:5) through a kalāmic system: ascent and descent are the same creature — a dynamic equilibrium. The human is not a 'state' but a continuous motion.",
+      "color": "#a78bfa"
+    },
+    {
+      "author": "el-Kurtubî",
+      "workTr": "el-Câmiʿ li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+      "period": "600–671 h · (Kurtuba/Kahire)",
+      "insightTr": "'Halifelik' (Bakara 2:30) kavramını fıkhî temellendirir: insan yeryüzünde Allah'ın emaneti olan bir sistemi yönetir. Halifeliğin şartı akıl + irade + fıtrat + vahy'in birlikte çalışması — biri eksik olduğunda halifelik askıya alınır.",
+      "insightEn": "Provides the juristic foundation for the concept of 'khilāfa' (al-Baqara 2:30): the human administers a divinely entrusted system on earth. The condition of khilāfa is the joint operation of ʿaql + irāda + fiṭra + waḥy — if one is missing, khilāfa is suspended.",
+      "color": "#e67e22"
+    },
+    {
+      "author": "el-Gazâlî",
+      "workTr": "İhyâʾu ʿUlûmi'd-Dîn",
+      "workEn": "Iḥyāʾ ʿUlūm al-Dīn",
+      "period": "450–505 h · (Tûs)",
+      "insightTr": "İnsan psikolojisinin 'kalbin dört boyutu' modeli: akıl (dimâğ), gazap (kelb), şehvet (hınzîr), rahmet (melek). Denklemin işleyişini 'iç ekosistem' olarak sunar.",
+      "insightEn": "The 'four dimensions of the heart' model of human psychology: intellect (mind), anger (dog), desire (pig), mercy (angel). Presents the equation's operation as an 'inner ecosystem'.",
+      "color": "#d4a574"
+    },
+    {
+      "author": "İbn Âşûr",
+      "workTr": "et-Tahrîr ve't-Tenvîr",
+      "workEn": "al-Taḥrīr wa al-Tanwīr",
+      "period": "1879–1973 (Tunus)",
+      "insightTr": "Modern tefsir: 'ahsen-i takvîm' kavramını çağdaş insanbilim ile buluşturur. İnsanın evrensel doğası (fıtrat) ile kültürel çeşitliliği (karşıtlıklar) arasındaki dengeye özel dikkat.",
+      "insightEn": "Modern tafsīr: meets the concept of 'aḥsan al-taqwīm' with contemporary anthropology. Special attention to the balance between the universal human nature (fiṭra) and cultural diversity (contrasts).",
+      "color": "#94a3b8"
+    }
+  ],
+  "sources": [
+    {
+      "author": "er-Râgıb el-Isfahânî",
+      "workTr": "el-Müfredât fî Ğarîbi'l-Kur'ân",
+      "workEn": "al-Mufradāt fī Gharīb al-Qurʾān",
+      "period": "ö. 502 h · (Isfahân)",
+      "noteTr": "insân, beşer, nâs, benî Âdem — kelime köklerinin klasik referansı.",
+      "noteEn": "insān, bashar, nās, banū Ādam — the classical reference for their etymological roots."
+    },
+    {
+      "author": "İbnü'l-Kayyim",
+      "workTr": "Miftâhu Dâri's-Saʿâde",
+      "workEn": "Miftāḥ Dār al-Saʿāda",
+      "period": "691–751 h · (Dımaşk)",
+      "noteTr": "İnsan denklemi (fıtrat + akıl + irade + vahy → istikâmet) kurucu metin.",
+      "noteEn": "Foundational text for the human equation (fiṭra + ʿaql + irāda + waḥy → istiqāma)."
+    },
+    {
+      "author": "er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "544–606 h · (Rey)",
+      "noteTr": "'Ahsen-i takvîm' ↔ 'esfel-i sâfilîn' paradoksunun kelâmî çözümü.",
+      "noteEn": "Kalāmic resolution of the 'aḥsan al-taqwīm' ↔ 'asfal al-sāfilīn' paradox."
+    },
+    {
+      "author": "el-Kurtubî",
+      "workTr": "el-Câmiʿ li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+      "period": "600–671 h · (Kurtuba/Kahire)",
+      "noteTr": "Halifelik kavramının fıkhî temellendirmesi (Bakara 2:30).",
+      "noteEn": "Juristic foundation of the concept of khilāfa (al-Baqara 2:30)."
+    },
+    {
+      "author": "el-Gazâlî",
+      "workTr": "İhyâʾu ʿUlûmi'd-Dîn",
+      "workEn": "Iḥyāʾ ʿUlūm al-Dīn",
+      "period": "450–505 h · (Tûs)",
+      "noteTr": "Kalbin dört boyutu — iç ekosistem modeli.",
+      "noteEn": "Four dimensions of the heart — the inner ecosystem model."
+    },
+    {
+      "author": "İbn Âşûr",
+      "workTr": "et-Tahrîr ve't-Tenvîr",
+      "workEn": "al-Taḥrīr wa al-Tanwīr",
+      "period": "1879–1973 (Tunus)",
+      "noteTr": "Modern tefsir: fıtrat ↔ kültür dengesi.",
+      "noteEn": "Modern tafsīr: the fiṭra ↔ culture balance."
+    }
+  ]
+}
