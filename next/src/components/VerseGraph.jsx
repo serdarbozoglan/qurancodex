@@ -1008,7 +1008,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   }, [onWheel]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
       {/* Header */}
       <div ref={headerRef} style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
@@ -1859,7 +1859,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
@@ -2260,7 +2260,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
@@ -2638,7 +2638,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   }, [view, onRegisterBackHandler, initialSearch, onClose]);
 
   if (loading) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
       <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 1s linear infinite' }} />
       <span style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor...' : 'Loading map...'}</span>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -2646,7 +2646,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   );
 
   if (error) return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
+    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
       <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
       <span style={{ color: COLORS.slate500, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>
