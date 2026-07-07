@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "generatedAt": "2026-07-06",
+    "version": "1.0",
+    "note": "Dua Dili — extension data for /arac/dua-dili. Existing 6 prophets + Rabbena chain rendered by sections/QuranDua.jsx. This file adds 4 new prophet profiles, dua anatomy patterns, response grid, and classical sources.",
+    "arabicNormalized": true
+  },
+  "additionalProphets": [
+    {
+      "id": "adem",
+      "nameTr": "Hz. Âdem",
+      "nameEn": "Prophet Adam",
+      "colorHex": "#c9a227",
+      "profileTr": "İtiraf · Öz-eleştiri · İlk Tövbe",
+      "profileEn": "Confession · Self-criticism · The First Repentance",
+      "themesTr": ["Kur'ân'daki ilk beşer duası", "'Nefsimize zulmettik' kalıbı", "Merhamet ve mağfiret talebi", "Kaybedeni sahiplenmek"],
+      "themesEn": ["The first human prayer in the Qur'ān", "The 'we have wronged our souls' formula", "Petition for mercy and forgiveness", "Owning the loss"],
+      "arabic": "رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
+      "translationTr": "Rabbimiz! Biz kendimize zulmettik; eğer bizi bağışlamaz ve bize acımazsan, hüsrana uğrayanlardan olacağız.",
+      "translationEn": "Our Lord, we have wronged our souls; if You do not forgive us and have mercy on us, we will surely be among the losers.",
+      "refTr": "A'râf 7:23",
+      "refEn": "al-Aʿrāf 7:23",
+      "countTr": "1 dua — Kur'ân'daki ilk yakarış",
+      "countEn": "1 prayer — the first supplication in the Qur'ān",
+      "insightTr": "Âdem ve Havvâ'nın duası, Kur'ân'ın anlattığı ilk beşer yakarışıdır — ve İblîs'in aynı hatadan sonra takındığı tutumun tam zıddıdır. İblîs 'Beni sen azdırdın' (Aʿrâf 7:16) diyerek sorumluluğu Allah'a yükler; Âdem 'nefsimize zulmettik' diyerek sorumluluğu üstlenir. İki yol, iki teolojik miras: küstahlık ↔ tövbe. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): 'ẓalemnâ enfüsenâ' kalıbı Kur'ân dua dilinin şablonlarından biridir; sonraki peygamberler ve müminler aynı formu kullanır (Yûnus 21:87, Mü'minûn 23:109, Kasas 28:16).",
+      "insightEn": "Adam and Eve's prayer is the first human supplication narrated in the Qur'ān — and it is the exact opposite of Iblīs's stance after the same fault. Iblīs blames God ('You misled me,' al-Aʿrāf 7:16); Adam takes responsibility ('we have wronged our souls'). Two paths, two theological legacies: arrogance vs. repentance. Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr) treats 'ẓalamnā anfusanā' as one of the archetypal templates of Qur'anic prayer; later prophets and believers echo the same form (Yūnus 21:87, al-Muʾminūn 23:109, al-Qaṣaṣ 28:16).",
+      "responseTr": "Cevap: Allah kelimelerle karşıladı ve tövbeyi kabul etti (Bakara 2:37). İnsan tarihi, bir düşüşten değil, kabul edilmiş bir tövbeden başlar.",
+      "responseEn": "Response: God met them with words and accepted the repentance (al-Baqara 2:37). Human history begins not from a fall, but from an accepted repentance."
+    },
+    {
+      "id": "nuh",
+      "nameTr": "Hz. Nûh",
+      "nameEn": "Prophet Noah",
+      "colorHex": "#3498db",
+      "profileTr": "Uzun Mücadele · Yorgun Çığlık · Yargı Talebi",
+      "profileEn": "Long Struggle · Weary Cry · Petition for Judgment",
+      "themesTr": ["950 yıllık davet sonrası çaresizlik", "İçin dolarak Rabbe yönelmek", "Yardım talebi ve yargı", "Kendisi + ehli için mağfiret"],
+      "themesEn": ["Helplessness after 950 years of da'wa", "Turning to the Lord in overflowing anguish", "Petition for help and judgment", "Forgiveness for self + household"],
+      "arabic": "اَنِّي مَغْلُوبٌ فَانْتَصِرْ",
+      "translationTr": "Ben yenildim; artık Sen (bana) yardım et.",
+      "translationEn": "I am overcome, so help me.",
+      "refTr": "Kamer 54:10",
+      "refEn": "al-Qamar 54:10",
+      "countTr": "10+ dua — davet, ehli, mağfiret, yargı",
+      "countEn": "10+ supplications — mission, household, forgiveness, judgment",
+      "insightTr": "Nûh'un duaları, peygamberliğin en uzun mücadele arkasında yer alır: 950 yıllık davet (Ankebût 29:14). Kısa duası 'ennî maġlûbun fentesir' (Kamer 54:10) sadece 3 kelime — ama Kur'ân'ın en yoğun 'gücüm tükendi' beyanıdır. Ayrıca 71. sûre (Nûh) tamamen Nûh'un dua ve şikâyetiyle örülüdür: 'gizli/açık, gündüz/gece' davet ettim (Nûh 71:5-9), 'Rabbim, evimde mümin olarak giren için, benim, annemin-babamın ve ehl-i imanın mağfireti için' (Nûh 71:28) — dua zamansal + coğrafi + soy düzleminde kapsamlı yapılır.",
+      "insightEn": "Noah's prayers stand behind the longest prophetic mission: 950 years of preaching (al-ʿAnkabūt 29:14). His shortest cry — 'annī maghlūbun fantaṣir' (al-Qamar 54:10), just three words — is the Qur'ān's densest declaration of exhaustion. Sūra 71 (Nūḥ) itself is woven from his prayers and complaints: 'I called them secretly and openly, by day and by night' (Nūḥ 71:5-9), 'My Lord, forgive whoever enters my house as a believer, myself, my parents, and the believing people' (Nūḥ 71:28) — the supplication ranges across time, place, and lineage.",
+      "responseTr": "Cevap: Gemi vahyi ile hazırlık (Hûd 11:37), kavmin yargısı (Kamer 54:11-12), ehli için mağfiret. Sadece bir istisna: Nûh'un öz oğlu — 'senin ehlinden değildir' (Hûd 11:46). Kan bağı değil, iman bağı esas.",
+      "responseEn": "Response: Preparation of the ark by revelation (Hūd 11:37), judgment upon the people (al-Qamar 54:11-12), forgiveness for his household. One exception: his own son — 'he is not of your family' (Hūd 11:46). Not blood but faith is the true bond."
+    },
+    {
+      "id": "suleyman",
+      "nameTr": "Hz. Süleyman",
+      "nameEn": "Prophet Solomon",
+      "colorHex": "#a78bfa",
+      "profileTr": "Krallık · Şükür · İktidarın Duası",
+      "profileEn": "Kingship · Gratitude · The Prayer of Power",
+      "themesTr": ["İktidar sahibinin şükran talebi", "Anne-babaya minnet", "Amel-i sâlih için ilham", "Rahmete katılma"],
+      "themesEn": ["Petition for gratitude from one in power", "Thanks toward parents", "Inspiration for righteous deeds", "Inclusion in mercy"],
+      "arabic": "رَبِّ اَوْزِعْنِي اَنْ اَشْكُرَ نِعْمَتَكَ الَّتِي اَنْعَمْتَ عَلَيَّ وَعَلٰى وَالِدَيَّ وَاَنْ اَعْمَلَ صَالِحًا تَرْضٰيهُ وَاَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ",
+      "translationTr": "Rabbim! Bana, bana ve anne-babama verdiğin nimete şükretmemi ve Senin razı olacağın sâlih amel işlememi ilham et; beni rahmetinle sâlih kullarının arasına kat.",
+      "translationEn": "My Lord, inspire me to be grateful for Your favor upon me and upon my parents, and to work righteousness that You may approve; and admit me by Your mercy among Your righteous servants.",
+      "refTr": "Neml 27:19",
+      "refEn": "al-Naml 27:19",
+      "countTr": "3 ana dua — şükür, mülk, ve 'affet'",
+      "countEn": "3 main supplications — gratitude, kingdom, and 'forgive'",
+      "insightTr": "Süleyman'ın duası dünyanın en zengin insanının duasıdır: 'kimseye benden sonra verilmeyecek bir mülk bağışla' (Sâd 38:35) diyebilecek konumdadır. Ama üç duasında da merkez şükür ve rahmete katılma — mal değil. Neml 27:19 duası bir karınca (`neml`) topluluğunu gördüğünde ordusunun onları ezmemesi için gülümsemesinin ardından gelir; iktidar sahibinin küçüklere karşı sorumluluğu duaya dönüşür. 'Evzi'nî' (bana ilham et) fiili Kur'ân'ın en özel dua yüklemlerinden biridir — iyilik için 'motivasyon' istemek başlıbaşına bir teolojik kalıp.",
+      "insightEn": "Solomon's prayer is the prayer of the world's wealthiest man: one who can say 'grant me a kingdom no one after me will have' (Ṣād 38:35). Yet the center of all three of his prayers is gratitude and admission into mercy — not possessions. The prayer in al-Naml 27:19 comes just after he smiles at hearing the ants (`al-naml`) warn each other of his approaching army; the responsibility of power toward the small becomes a prayer. The verb 'awziʿnī' (inspire me) is one of the Qur'ān's most distinctive prayer verbs — asking for the very *motivation* to do good is a theological form in itself.",
+      "responseTr": "Cevap: Rüzgâr, cin ve şeytan orduları emrine verildi (Sâd 38:36-38, Enbiyâ 21:81-82). Ama son ayet: 'Bu bizim ihsanımızdır — dilediğine ver, dilediğinden tut, hesap yok' (Sâd 38:39) — imtihanın devam ettiğini hatırlatır.",
+      "responseEn": "Response: The wind, jinn, and devils were placed at his command (Ṣād 38:36-38, al-Anbiyāʾ 21:81-82). But the closing line: 'This is Our gift — give freely or withhold without account' (Ṣād 38:39) — a reminder that the test continues."
+    },
+    {
+      "id": "muhammed",
+      "nameTr": "Hz. Muhammed ﷺ",
+      "nameEn": "Prophet Muhammad ﷺ",
+      "colorHex": "#2ecc71",
+      "profileTr": "Rahmet Peygamberi · Kısa Dua · Ümmet İçin Yakarış",
+      "profileEn": "Prophet of Mercy · Brief Supplication · Prayer for the Community",
+      "themesTr": ["'Rabbi zidnî ilmâ' — ilim talebi", "Ana-babaya rahmet", "İhlâs kalıbı (Nasr sûresi tesbîh)", "Vahyin acele okunmaması"],
+      "themesEn": ["'Rabbi zidnī ʿilmā' — petition for knowledge", "Mercy toward parents", "The purity pattern (tasbīḥ of Sūrat al-Naṣr)", "Not rushing revelation"],
+      "arabic": "وَقُلْ رَبِّ زِدْنِي عِلْمًا",
+      "translationTr": "De ki: Rabbim, ilmimi artır.",
+      "translationEn": "Say: My Lord, increase me in knowledge.",
+      "refTr": "Tâhâ 20:114",
+      "refEn": "Ṭā-Hā 20:114",
+      "countTr": "10+ dua ayeti (peygambere emredilen)",
+      "countEn": "10+ prayer verses (commanded of the Prophet)",
+      "insightTr": "Kur'ân'da Hz. Peygamber'e emredilen dualar başkalarıyla ilginç bir zıtlık kurar: peygamberler kendi hayatlarından çığlıklar atarken (Zekeriyyâ yaşlılığı, Eyyûb hastalığı, Yûnus karanlığı), Hz. Peygamber'e emredilen dualar hep 'ümmet için' veya 'kalıp koymak için'. 'Rabbi zidnî ilmâ' (Tâhâ 20:114) — vahyin dahi tamamlanmasının ilim yolculuğu olduğunu ilan eder. İsrâ 17:24 ('Rabbim, onlara küçüklüğümde beni büyüttükleri gibi merhamet et') — anne-babaya karşı ideal talebin şablonu. Nasr sûresi (110) fetih anında bile 'tesbîh + istiğfâr' kalıbı sunar — zaferde bile alçakgönüllülük. Klasik tefsir: Hz. Peygamber'in duaları öğreticidir — Ashâba nasıl dua edileceğini bir 'muallim' olarak gösterir.",
+      "insightEn": "The prayers commanded of the Prophet in the Qur'ān stand in striking contrast to those of other prophets: while others cry from their own lives (Zechariah's old age, Job's illness, Jonah's darkness), the Prophet's commanded prayers are always 'for the community' or 'to set a template.' 'Rabbi zidnī ʿilmā' (Ṭā-Hā 20:114) — even the completion of revelation itself is declared a journey of learning. Al-Isrāʾ 17:24 ('My Lord, have mercy on them as they nurtured me when I was small') is the template for filial prayer. Sūrat al-Naṣr (110), at the moment of victory, gives the 'tasbīḥ + istighfār' pattern — humility even in triumph. Classical exegesis: the Prophet's prayers are pedagogical — as a 'muʿallim' he shows the Companions how to pray.",
+      "responseTr": "Cevap: Kur'ân'ın toplam nüzûlü ilim talebine cevap (23 yıl); Nasr sûresi vefâtına 3 ay kala nazil olarak fetih ile ömrün tamamlanması müjdesi.",
+      "responseEn": "Response: The full 23-year revelation of the Qur'ān is the answer to the petition for knowledge; Sūrat al-Naṣr descends three months before his death, announcing that victory and the completion of his life have arrived together."
+    }
+  ],
+  "duaAnatomy": {
+    "introTr": "Kur'ân duasının klasik gramatik kalıbı 4 katmanlıdır: NİDÂ (çağrı) → HÂCET (talep) → GEREKÇE / TESBİH (Allah'ın bir sıfatını hatırlatma) → İSİM İLE KAPATMA (esmâ-ı hüsnâ'dan iki tanımlayıcı). Bu kalıp, İbn Kayyim (`el-Vâbilü's-Sayyib`) ve Suyûtî (`el-Câmiʿu's-Saġîr`) tarafından şablonlaştırılmıştır. Aşağıda 4 örnek dua bu 4 katman üzerinden çözümlenir.",
+    "introEn": "The classical grammar of a Qur'anic prayer has four layers: VOCATIVE (call) → PETITION (request) → REASONING / EXALTATION (invoking a divine attribute) → SEALING WITH DIVINE NAMES (two descriptors from the Beautiful Names). This template is codified by Ibn al-Qayyim (`al-Wābil al-Ṣayyib`) and al-Suyūṭī (`al-Jāmiʿ al-Ṣaghīr`). Four examples below are analyzed across these four layers.",
+    "layers": [
+      {"id": "nida", "labelTr": "NİDÂ (Çağrı)", "labelEn": "Vocative (Call)", "descTr": "Rabbenâ / Rabbi / Yâ Rabb — dua bir 'kime' üzerinden başlar.", "descEn": "Rabbanā / Rabbi / Yā Rabb — the prayer begins with a 'to whom.'", "color": "#3498db"},
+      {"id": "hacet", "labelTr": "HÂCET (Talep)", "labelEn": "Petition (Request)", "descTr": "İğfir lenâ / tekabbel minnâ / âtinâ / âfinâ — asıl istek.", "descEn": "Ighfir lanā / taqabbal minnā / ātinā / ʿāfinā — the core request.", "color": "#d4a574"},
+      {"id": "gerekce", "labelTr": "GEREKÇE / TESBİH", "labelEn": "Reasoning / Exaltation", "descTr": "'Bizi doğru yola ilettikten sonra' / 'Sen bilirsin' / 'Sen gücü yetensin' — talebin arka planı.", "descEn": "'After You have guided us' / 'You know' / 'You are the Able' — the background of the petition.", "color": "#a78bfa"},
+      {"id": "isim", "labelTr": "İSİM İLE KAPATMA", "labelEn": "Sealing with Divine Names", "descTr": "İnneke ente'l-...  — Semîʿu'l-ʿAlîm, er-Ra'ûfü'r-Rahîm, el-Vahhâb, er-Rahmân... İki isim çoğunlukla anlam-eş.", "descEn": "Innaka anta al-... — al-Samīʿ al-ʿAlīm, al-Raʾūf al-Raḥīm, al-Wahhāb, al-Raḥmān... The two names usually parallel in meaning.", "color": "#2ecc71"}
+    ],
+    "examples": [
+      {
+        "id": "ibrahim-127",
+        "titleTr": "Hz. İbrahim — Bakara 2:127",
+        "titleEn": "Abraham — al-Baqara 2:127",
+        "fullArabic": "رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ",
+        "breakdown": [
+          {"layerId": "nida", "textAr": "رَبَّنَا", "labelTr": "Rabbimiz", "labelEn": "Our Lord"},
+          {"layerId": "hacet", "textAr": "تَقَبَّلْ مِنَّا", "labelTr": "Bizden kabul buyur", "labelEn": "Accept from us"},
+          {"layerId": "isim", "textAr": "اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ", "labelTr": "Şüphesiz Sen hakkıyla işiten, hakkıyla bilensin", "labelEn": "Indeed You are the All-Hearing, the All-Knowing"}
+        ],
+        "notesTr": "En saf 3-katmanlı form — Gerekçe katmanı burada yok, iki isim kabul talebini kapatır (işitir + bilir = kabulün iki yönü).",
+        "notesEn": "The purest 3-layer form — no Reasoning layer, the two names seal the petition (hears + knows = the two dimensions of acceptance)."
+      },
+      {
+        "id": "al-i-imran-8",
+        "titleTr": "Rabbenâ (Âl-i İmrân 3:8)",
+        "titleEn": "Rabbanā (Āl ʿImrān 3:8)",
+        "fullArabic": "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ اِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً اِنَّكَ اَنْتَ الْوَهَّابُ",
+        "breakdown": [
+          {"layerId": "nida", "textAr": "رَبَّنَا", "labelTr": "Rabbimiz", "labelEn": "Our Lord"},
+          {"layerId": "hacet", "textAr": "لَا تُزِغْ قُلُوبَنَا", "labelTr": "Kalplerimizi saptırma", "labelEn": "Do not let our hearts deviate"},
+          {"layerId": "gerekce", "textAr": "بَعْدَ اِذْ هَدَيْتَنَا", "labelTr": "Bizi doğru yola ilettikten sonra", "labelEn": "After You have guided us"},
+          {"layerId": "hacet", "textAr": "وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً", "labelTr": "Ve tarafından bize rahmet bağışla", "labelEn": "And grant us mercy from Your presence"},
+          {"layerId": "isim", "textAr": "اِنَّكَ اَنْتَ الْوَهَّابُ", "labelTr": "Şüphesiz Sen çok bağışlayansın", "labelEn": "Indeed You are the Bestower"}
+        ],
+        "notesTr": "Klasik 4-katmanlı form: çağrı + iki talep + arada gerekçe + tek isimle (el-Vahhâb) kapatma. 'Hebe' fiili ile 'Vahhâb' ismi ses-eştir (mukâbele) — talebin isimle bağlanması.",
+        "notesEn": "Classical 4-layer form: call + two petitions + reasoning between them + sealing with a single name (al-Wahhāb). The verb 'hebe' phonetically mirrors the name 'Wahhāb' (muqābala) — the petition sealed with its own name."
+      },
+      {
+        "id": "musa-taha-25-28",
+        "titleTr": "Hz. Mûsâ — Tâhâ 20:25-28",
+        "titleEn": "Moses — Ṭā-Hā 20:25-28",
+        "fullArabic": "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي اَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي",
+        "breakdown": [
+          {"layerId": "nida", "textAr": "رَبِّ", "labelTr": "Rabbim", "labelEn": "My Lord"},
+          {"layerId": "hacet", "textAr": "اشْرَحْ لِي صَدْرِي", "labelTr": "Göğsümü aç", "labelEn": "Expand my chest"},
+          {"layerId": "hacet", "textAr": "وَيَسِّرْ لِي اَمْرِي", "labelTr": "İşimi kolaylaştır", "labelEn": "Ease my task"},
+          {"layerId": "hacet", "textAr": "وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي", "labelTr": "Dilimden düğümü çöz", "labelEn": "Untie the knot from my tongue"},
+          {"layerId": "gerekce", "textAr": "يَفْقَهُوا قَوْلِي", "labelTr": "Sözümü anlasınlar", "labelEn": "That they may understand my speech"}
+        ],
+        "notesTr": "Kalıp bozan bir dua: çağrı + 3 zincirleme talep + gerekçe. İsim ile kapatma yok — çünkü Mûsâ'nın cevabı doğrudan bir sonraki ayette gelir: 'Talebin verildi' (20:36).",
+        "notesEn": "A pattern-breaking prayer: call + three chained petitions + reasoning. No sealing name — because Moses' answer comes in the very next verse: 'Your request is granted' (20:36)."
+      },
+      {
+        "id": "yunus-21-87",
+        "titleTr": "Hz. Yûnus — Enbiyâ 21:87",
+        "titleEn": "Jonah — al-Anbiyāʾ 21:87",
+        "fullArabic": "لَٓا اِلٰهَ اِلَّٓا اَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+        "breakdown": [
+          {"layerId": "isim", "textAr": "لَٓا اِلٰهَ اِلَّٓا اَنْتَ", "labelTr": "Senden başka ilah yoktur", "labelEn": "There is no deity except You"},
+          {"layerId": "isim", "textAr": "سُبْحَانَكَ", "labelTr": "Seni tenzih ederim", "labelEn": "Exalted are You"},
+          {"layerId": "gerekce", "textAr": "اِنِّي كُنْتُ مِنَ الظَّالِمِينَ", "labelTr": "Şüphesiz ben zalimlerden oldum", "labelEn": "Indeed I was among the wrongdoers"}
+        ],
+        "notesTr": "Kalıbı tamamen tersine çeviren dua: çağrı yok, talep yok — sadece tevhid + tenzih + itiraf. Cevabın kendisi de sıra dışı: 'Onu tasadan kurtardık; mü'minleri işte böyle kurtarırız' (21:88). Klasik tefsir: talep ifade edilmeden 'zâlimlerden oldum' beyanı en yüksek talep formudur — çünkü acziyeti tam kabul, en tam sığınmadır.",
+        "notesEn": "A prayer that inverts the entire template: no call, no petition — only unity + exaltation + confession. The response too is exceptional: 'We saved him from distress; thus do We save the believers' (21:88). Classical exegesis: without any stated petition, the declaration 'I was among the wrongdoers' is the highest petition form — because full acknowledgment of helplessness is the fullest refuge."
+      }
+    ]
+  },
+  "responsePatterns": {
+    "introTr": "Kur'ân'da peygamber dualarının 'cevap' pasajları bir örüntü sunar: talebin ne kadar süre sonra, nasıl bir formda, hangi ekstra ile karşılandığı. Aşağıdaki grid, her peygamber için TALEP → CEVAP → SÜRE / EK sütunlarıyla bu örüntüyü haritalandırır.",
+    "introEn": "The 'response' passages of prophetic prayers in the Qur'ān reveal a pattern: how long after the petition, in what form, with what additional element the answer comes. The grid below maps this pattern for each prophet across three columns: PETITION → RESPONSE → TIME / EXTRA.",
+    "rows": [
+      {
+        "prophetTr": "Hz. Âdem",
+        "prophetEn": "Adam",
+        "requestTr": "Nefsimize zulmettik — bizi bağışla ve bize acı.",
+        "requestEn": "We wronged our souls — forgive us and have mercy on us.",
+        "responseTr": "Allah kelimelerle karşıladı, tövbeyi kabul etti.",
+        "responseEn": "God met them with words and accepted the repentance.",
+        "timeTr": "Aynı sahne — Bakara 2:37",
+        "timeEn": "Same scene — al-Baqara 2:37",
+        "verseTr": "A'râf 7:23 → Bakara 2:37",
+        "verseEn": "al-Aʿrāf 7:23 → al-Baqara 2:37"
+      },
+      {
+        "prophetTr": "Hz. Nûh",
+        "prophetEn": "Noah",
+        "requestTr": "Ben yenildim, artık yardım et.",
+        "requestEn": "I am overcome — help me.",
+        "responseTr": "Gemi vahyi ile hazırlık, kavim için yargı seli.",
+        "responseEn": "Preparation of the ark by revelation, the flood as judgment for the people.",
+        "timeTr": "Yaklaşık 950 yıl davet sonrası — nihai karar",
+        "timeEn": "After ~950 years of preaching — final decree",
+        "verseTr": "Kamer 54:10 → 54:11-12",
+        "verseEn": "al-Qamar 54:10 → 54:11-12"
+      },
+      {
+        "prophetTr": "Hz. İbrahim",
+        "prophetEn": "Abraham",
+        "requestTr": "Bunu bizden kabul et; iyi bir zürriyet ver.",
+        "requestEn": "Accept this from us; grant righteous offspring.",
+        "responseTr": "Beytullah kuruldu; İsmâîl ve İshâk verildi.",
+        "responseEn": "The Sacred House was established; Ishmael and Isaac were granted.",
+        "timeTr": "Aile içinde ileri yaşta gerçekleşti (İbrâhim 14:39)",
+        "timeEn": "Realized in advanced age within his family (Ibrāhīm 14:39)",
+        "verseTr": "Bakara 2:127-129 → İbrâhim 14:39",
+        "verseEn": "al-Baqara 2:127-129 → Ibrāhīm 14:39"
+      },
+      {
+        "prophetTr": "Hz. Yûsuf",
+        "prophetEn": "Joseph",
+        "requestTr": "Zindanı günaha tercih ederim; müslüman olarak öldür.",
+        "requestEn": "Prison is dearer than sin; cause me to die a Muslim.",
+        "responseTr": "Zindandan sonra Mısır hazineleri, ailenin birleşmesi.",
+        "responseEn": "After prison, the storehouses of Egypt and the reunion of his family.",
+        "timeTr": "Yıllar sonra (Yûsuf 12:42 zindanda 'birkaç sene')",
+        "timeEn": "Years later (Yūsuf 12:42 'several years' in prison)",
+        "verseTr": "Yûsuf 12:33, 12:101 → 12:54-100",
+        "verseEn": "Yūsuf 12:33, 12:101 → 12:54-100"
+      },
+      {
+        "prophetTr": "Hz. Mûsâ",
+        "prophetEn": "Moses",
+        "requestTr": "Göğsümü aç, dilimi çöz, Hârûn'u yardımcı kıl.",
+        "requestEn": "Expand my chest, untie my tongue, make Aaron my helper.",
+        "responseTr": "'Talebin verildi' — anında ve tam.",
+        "responseEn": "'Your request is granted' — immediate and complete.",
+        "timeTr": "3 ayet sonra (Tâhâ 20:36)",
+        "timeEn": "Three verses later (Ṭā-Hā 20:36)",
+        "verseTr": "Tâhâ 20:25-28 → 20:36",
+        "verseEn": "Ṭā-Hā 20:25-28 → 20:36"
+      },
+      {
+        "prophetTr": "Hz. Süleyman",
+        "prophetEn": "Solomon",
+        "requestTr": "Şükrü ilham et; rahmete kat.",
+        "requestEn": "Inspire gratitude; admit me into mercy.",
+        "responseTr": "Rüzgâr, cin ve şeytan orduları emrine.",
+        "responseEn": "Wind, jinn, and devils placed at his command.",
+        "timeTr": "Neml sûresi içinde gelişerek (Sâd 38:36-38)",
+        "timeEn": "Unfolding within Sūrat al-Naml (Ṣād 38:36-38)",
+        "verseTr": "Neml 27:19 → Sâd 38:36-38",
+        "verseEn": "al-Naml 27:19 → Ṣād 38:36-38"
+      },
+      {
+        "prophetTr": "Hz. Eyyûb",
+        "prophetEn": "Job",
+        "requestTr": "Bana zarar dokundu; Sen merhametlilerin en merhametlisisin.",
+        "requestEn": "Adversity has touched me; You are the Most Merciful.",
+        "responseTr": "Şifa, aile geri döndü, mal iki misli.",
+        "responseEn": "Healing, family restored, wealth doubled.",
+        "timeTr": "Kur'ân'da süre belirtilmez — hadis rivayetleri farklı",
+        "timeEn": "Duration not specified in the Qur'ān — variant hadith reports",
+        "verseTr": "Enbiyâ 21:83 → 21:84 / Sâd 38:42-43",
+        "verseEn": "al-Anbiyāʾ 21:83 → 21:84 / Ṣād 38:42-43"
+      },
+      {
+        "prophetTr": "Hz. Yûnus",
+        "prophetEn": "Jonah",
+        "requestTr": "Senden başka ilah yoktur; ben zalimlerden oldum.",
+        "requestEn": "There is no deity except You; I was among the wrongdoers.",
+        "responseTr": "Karanlıklardan kurtarma.",
+        "responseEn": "Deliverance from the darkness.",
+        "timeTr": "Aynı ayet sonrasında (Enbiyâ 21:88) — anında",
+        "timeEn": "The very next verse (al-Anbiyāʾ 21:88) — instantaneous",
+        "verseTr": "Enbiyâ 21:87 → 21:88",
+        "verseEn": "al-Anbiyāʾ 21:87 → 21:88"
+      },
+      {
+        "prophetTr": "Hz. Zekeriyyâ",
+        "prophetEn": "Zechariah",
+        "requestTr": "İleri yaşta bir vâris ver.",
+        "requestEn": "In old age, grant me an heir.",
+        "responseTr": "'Sana Yahyâ'yı müjdeleriz' — kimseye verilmeyen bir isim.",
+        "responseEn": "'We give you glad tidings of a boy — Yaḥyā' — a name given to none before.",
+        "timeTr": "Aynı sahne — Meryem 19:7 / Âl-i İmrân 3:39",
+        "timeEn": "Same scene — Maryam 19:7 / Āl ʿImrān 3:39",
+        "verseTr": "Meryem 19:4 → 19:7",
+        "verseEn": "Maryam 19:4 → 19:7"
+      },
+      {
+        "prophetTr": "Hz. Muhammed ﷺ",
+        "prophetEn": "Muhammad ﷺ",
+        "requestTr": "Rabbim, ilmimi artır.",
+        "requestEn": "My Lord, increase me in knowledge.",
+        "responseTr": "23 yıllık Kur'ân nüzûlü — sürekli artan vahiy.",
+        "responseEn": "The 23-year revelation of the Qur'ān — continuously increasing.",
+        "timeTr": "Tüm peygamberliğin 23 yılında yayılmış cevap",
+        "timeEn": "The answer spread across the 23 years of prophecy",
+        "verseTr": "Tâhâ 20:114 → Kur'ân'ın tamamı",
+        "verseEn": "Ṭā-Hā 20:114 → the entire Qur'ān"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "author": "es-Suyûtî",
+      "workTr": "el-Câmiʿu's-Saġîr",
+      "workEn": "al-Jāmiʿ al-Ṣaghīr",
+      "period": "849–911 h · (Kahire)",
+      "noteTr": "Kur'ân ve hadisten dua tasnifi; klasik dua ansiklopedisi.",
+      "noteEn": "Classification of prayers from Qur'ān and hadith; the classical prayer encyclopedia."
+    },
+    {
+      "author": "İbnü'l-Kayyim",
+      "workTr": "el-Vâbilü's-Sayyib",
+      "workEn": "al-Wābil al-Ṣayyib",
+      "period": "691–751 h · (Dımaşk)",
+      "noteTr": "Dua ve zikrin psikolojisi — talebin nasıl arz edileceği üzerine.",
+      "noteEn": "The psychology of prayer and remembrance — on how petition should be presented."
+    },
+    {
+      "author": "en-Nevevî",
+      "workTr": "el-Ezkâr",
+      "workEn": "al-Adhkār",
+      "period": "631–676 h · (Dımaşk)",
+      "noteTr": "Sünnet-i seniyyeden dua ve zikir külliyatı; kalıp dua kitabı klasiği.",
+      "noteEn": "Compendium of prayers and remembrances from the prophetic tradition; the classical template prayer book."
+    },
+    {
+      "author": "el-Gazâlî",
+      "workTr": "İhyâʾu ʿUlûmi'd-Dîn (Kitâbü'd-Deʿavât)",
+      "workEn": "Iḥyāʾ ʿUlūm al-Dīn (Book of Supplications)",
+      "period": "450–505 h · (Tûs)",
+      "noteTr": "Dua adabı, zamanları ve iç niyet katmanları — kalbin duayla eğitimi.",
+      "noteEn": "Etiquette of prayer, its times and inner intentions — training the heart through prayer."
+    },
+    {
+      "author": "er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "544–606 h · (Rey)",
+      "noteTr": "Peygamber dualarında sıfat-isim eşleşmesinin akılcı çözümlemesi.",
+      "noteEn": "Rational analysis of the pairing of attributes and divine names in prophetic prayers."
+    },
+    {
+      "author": "el-Kurtubî",
+      "workTr": "el-Câmiʿ li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+      "period": "600–671 h · (Kurtuba/Kahire)",
+      "noteTr": "Dua ayetlerinin fıkhî ve tefsîrî izahı — 'Rabbenâ' kalıbının hukuku.",
+      "noteEn": "Juristic and exegetical explanation of prayer verses — the jurisprudence of the 'Rabbanā' template."
+    }
+  ]
+}
