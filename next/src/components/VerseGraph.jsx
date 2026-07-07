@@ -2539,11 +2539,12 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   const { language } = useLanguage();
   // If opened with a specific verse to find (e.g. from ConceptGraph), always start at clusters
   // so ClusterView can parse initialSearch and call onSelectVerse → sets autoFocusVerseId.
-  // Otherwise restore last view from localStorage.
-  // Mobile guard: persist edilmiş 'verses'/'3d' state'i mobile'da clusters'a düşürülür
+  // Otherwise restore last view from localStorage; desktop default = '3d' (immersive
+  // rotating verse network + Alaq 96:1-5 audio autoplay); mobile default = 'clusters'
+  // via IS_MOBILE_3D_BLOCKED guard (3D crashes on many mobile GPUs).
   const [view, setView] = useState(() => {
     if (IS_MOBILE_3D_BLOCKED) return 'clusters';
-    return initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || 'clusters');
+    return initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || '3d');
   });
   const [pendingSearch, setPendingSearch] = useState(initialSearch);
   const [selectedSurah, setSelectedSurah] = useState(() => {
