@@ -511,6 +511,121 @@ export default function ZamanBoyutlari({ onClose }) {
 
     return (
       <div style={{ padding: isMobile ? '16px' : '24px' }}>
+
+        {/* ═══ LOG-SCALE TIMELINE VISUALIZATION (Dalga 2.3) ═══ */}
+        <div style={{
+          padding: isMobile ? '20px 16px' : '28px 32px',
+          marginBottom: '32px',
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+          border: `1px solid ${COLORS.gold}44`,
+          borderRadius: RADIUS.lg,
+        }}>
+          <div style={{
+            fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: COLORS.gold, opacity: 0.72, fontWeight: 700,
+            marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+          }}>
+            {language === 'tr' ? "KUR'ÂN'DAKİ ZAMAN ÖLÇEĞİ · LOGARİTMİK GÖSTERİM" : "QUR'ĀNIC TIME SCALE · LOGARITHMIC PLOT"}
+          </div>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+            textAlign: 'center', maxWidth: '640px', margin: '0 auto 24px',
+            fontFamily: FONTS.body,
+          }}>
+            {language === 'tr'
+              ? "Bir gece (Kadr) ile 50.000 yıllık bir gün (Meâric) arasındaki fark ~1.8 × 10¹⁰ mertebede. Doğrusal eksen bunu gösteremez. Logaritmik ekseni 6 noktanın konumunu 'zaman büyüklüğü katı' olarak okur."
+              : "The gap between one night (al-Qadr) and a 50,000-year day (al-Maʿārij) spans ~1.8 × 10¹⁰ orders of magnitude. A linear scale cannot show this. The logarithmic axis maps the six points as 'orders of temporal magnitude.'"}
+          </p>
+
+          {(() => {
+            const points = [
+              { id: 'kadr',      labelTr: 'Kadr',        labelEn: 'Qadr',        log: 0,    days: 1,        symbolTr: '1 gece',        symbolEn: '1 night',        color: '#c9a227' },
+              { id: 'musa',      labelTr: '40 gece',     labelEn: '40 nights',   log: 1.6,  days: 40,       symbolTr: 'Musâ · A\'râf 7:142', symbolEn: 'Moses · 7:142', color: COLORS.gold },
+              { id: 'yaratilis', labelTr: '6 evre',      labelEn: '6 phases',    log: 3.5,  days: 3000,     symbolTr: 'Fussilet 41:9-12',  symbolEn: 'Fussilat 41:9-12', color: '#a78bfa' },
+              { id: 'kehf',      labelTr: '309 yıl',     labelEn: '309 years',   log: 5.05, days: 112815,   symbolTr: 'Kehf 18:25',        symbolEn: 'Kahf 18:25',      color: '#e8c97a' },
+              { id: 'bin',       labelTr: '1 gün ilâhî', labelEn: '1 divine day', log: 5.56, days: 365250,   symbolTr: 'Hac 22:47',         symbolEn: 'Hajj 22:47',      color: '#d4a574' },
+              { id: 'elli',      labelTr: 'Meâric',      labelEn: 'al-Maʿārij',  log: 7.26, days: 18262500, symbolTr: 'Meâric 70:4',       symbolEn: 'Maʿārij 70:4',    color: '#e74c3c' },
+            ];
+            const minLog = 0, maxLog = 7.5;
+            const range = maxLog - minLog;
+            return (
+              <div style={{ position: 'relative', paddingTop: '14px', paddingBottom: isMobile ? '80px' : '90px' }}>
+                {/* Axis */}
+                <div style={{
+                  position: 'relative', height: '2px',
+                  background: `linear-gradient(90deg, ${COLORS.gold}44 0%, ${COLORS.gold} 30%, ${COLORS.gold} 70%, #e74c3c 100%)`,
+                  borderRadius: '2px', margin: '0 12px',
+                }}>
+                  {/* Axis ticks: 10^0 ... 10^7 */}
+                  {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+                    <div key={i} style={{
+                      position: 'absolute',
+                      left: `calc(${((i - minLog) / range) * 100}% - 1px)`,
+                      top: '-3px', width: '1px', height: '8px',
+                      background: COLORS.silver, opacity: 0.4,
+                    }}>
+                      <div style={{
+                        position: 'absolute', top: '10px', left: '50%',
+                        transform: 'translateX(-50%)',
+                        fontSize: '0.6rem', color: COLORS.silver,
+                        opacity: 0.5, whiteSpace: 'nowrap',
+                        fontFamily: FONTS.body,
+                      }}>10<sup>{i}</sup></div>
+                    </div>
+                  ))}
+
+                  {/* Data points */}
+                  {points.map((p, idx) => {
+                    const pct = ((p.log - minLog) / range) * 100;
+                    const above = idx % 2 === 0;
+                    return (
+                      <div key={p.id} style={{
+                        position: 'absolute',
+                        left: `${pct}%`,
+                        top: '50%',
+                        transform: 'translate(-50%, -50%)',
+                      }}>
+                        <div style={{
+                          width: '14px', height: '14px',
+                          borderRadius: '50%',
+                          background: p.color,
+                          border: '2px solid rgba(6, 8, 14, 0.9)',
+                          boxShadow: `0 0 12px ${p.color}88`,
+                        }} />
+                        {/* Label */}
+                        <div style={{
+                          position: 'absolute',
+                          left: '50%',
+                          [above ? 'bottom' : 'top']: '18px',
+                          transform: 'translateX(-50%)',
+                          whiteSpace: 'nowrap', textAlign: 'center',
+                          fontSize: isMobile ? '0.62rem' : '0.7rem',
+                          fontFamily: FONTS.body,
+                        }}>
+                          <div style={{ color: p.color, fontWeight: 700, marginBottom: '2px' }}>
+                            {language === 'tr' ? p.labelTr : p.labelEn}
+                          </div>
+                          <div style={{ color: COLORS.silver, opacity: 0.6, fontSize: '0.6rem' }}>
+                            {language === 'tr' ? p.symbolTr : p.symbolEn}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div style={{
+                  marginTop: '48px', display: 'flex', justifyContent: 'space-between',
+                  padding: '0 12px', fontSize: '0.68rem', color: COLORS.silver,
+                  opacity: 0.6, fontFamily: FONTS.body,
+                }}>
+                  <span>← {language === 'tr' ? 'DAKİKA MERTEBESİ' : 'MINUTE ORDER'}</span>
+                  <span>{language === 'tr' ? 'MİLYONLARCA YIL MERTEBESİ' : 'ORDER OF MILLIONS OF YEARS'} →</span>
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+
         {/* Hero verse card */}
         <div style={{
           ...GLASS_CARD,
@@ -668,6 +783,166 @@ export default function ZamanBoyutlari({ onClose }) {
             </div>
           );
         })}
+
+        {/* ═══ FUSSILET 41:9-12 FORMULA WIDGET (Dalga 2.3) ═══ */}
+        <div style={{
+          marginTop: '32px',
+          padding: isMobile ? '20px 16px' : '32px 32px',
+          background: 'linear-gradient(180deg, rgba(167,139,250,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+          border: `1px solid #a78bfa55`,
+          borderRadius: RADIUS.lg,
+        }}>
+          <div style={{
+            fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: '#a78bfa', opacity: 0.85, fontWeight: 700,
+            marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+          }}>
+            {language === 'tr' ? "FUSSİLET 41:9-12 · 6 GÜN FORMÜLÜ" : "FUSSILAT 41:9-12 · 6-DAY FORMULA"}
+          </div>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+            textAlign: 'center', maxWidth: '640px', margin: '0 auto 28px',
+            fontFamily: FONTS.body,
+          }}>
+            {language === 'tr'
+              ? "İlk okuyuşta 2 + 4 + 2 = 8 gün gibi görünür — ama '4 günde' ifadesi kümülatiftir (ilk 2 günü içine alır). Klasik müfessirlerin büyük çoğunluğunun benimsediği yorum, Kur'ân'ın altı kozmik evreyi tutarlı şekilde saydığını gösterir."
+              : "At first reading it appears to be 2 + 4 + 2 = 8 days — but the phrase 'in four days' is cumulative (it includes the first 2). The reading held by the majority of classical exegetes shows the Qur'ān consistently counts six cosmic phases."}
+          </p>
+
+          {/* 3-step formula */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr auto 1fr',
+            gap: isMobile ? '10px' : '14px',
+            alignItems: 'stretch',
+            maxWidth: '840px', margin: '0 auto',
+          }}>
+            {/* Step 1 */}
+            <div style={{
+              padding: '18px 16px',
+              background: 'rgba(52,152,219,0.08)',
+              border: '1px solid #3498db55',
+              borderLeft: '3px solid #3498db',
+              borderRadius: RADIUS.md, textAlign: 'center',
+            }}>
+              <div style={{
+                fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                color: '#3498db', fontWeight: 700, marginBottom: '6px',
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "YER" : "EARTH"}</div>
+              <div style={{
+                fontFamily: FONTS.display, fontSize: '2.2rem',
+                color: '#3498db', fontWeight: 900, lineHeight: 1,
+                marginBottom: '4px',
+              }}>2</div>
+              <div style={{
+                fontSize: '0.72rem', color: COLORS.silver,
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "gün · Fussilet 41:9" : "days · 41:9"}</div>
+            </div>
+
+            {!isMobile && <div style={{ display: 'flex', alignItems: 'center', color: COLORS.gold, fontSize: '1.5rem', fontFamily: FONTS.display }}>+</div>}
+
+            {/* Step 2 */}
+            <div style={{
+              padding: '18px 16px',
+              background: 'rgba(212,165,116,0.08)',
+              border: `1px solid ${COLORS.gold}55`,
+              borderLeft: `3px solid ${COLORS.gold}`,
+              borderRadius: RADIUS.md, textAlign: 'center',
+            }}>
+              <div style={{
+                fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                color: COLORS.gold, fontWeight: 700, marginBottom: '6px',
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "DAĞLAR + RIZIK" : "MOUNTAINS + PROVISIONS"}</div>
+              <div style={{
+                fontFamily: FONTS.display, fontSize: '2.2rem',
+                color: COLORS.gold, fontWeight: 900, lineHeight: 1,
+                marginBottom: '4px',
+              }}>4<span style={{ fontSize: '1rem', color: COLORS.silver }}>{' '}({language === 'tr' ? 'kümülatif' : 'cumulative'})</span></div>
+              <div style={{
+                fontSize: '0.72rem', color: COLORS.silver,
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "= 2 (yer) + 2 ek · Fussilet 41:10" : "= 2 (earth) + 2 more · 41:10"}</div>
+            </div>
+
+            {!isMobile && <div style={{ display: 'flex', alignItems: 'center', color: COLORS.gold, fontSize: '1.5rem', fontFamily: FONTS.display }}>+</div>}
+
+            {/* Step 3 */}
+            <div style={{
+              padding: '18px 16px',
+              background: 'rgba(167,139,250,0.08)',
+              border: '1px solid #a78bfa55',
+              borderLeft: '3px solid #a78bfa',
+              borderRadius: RADIUS.md, textAlign: 'center',
+            }}>
+              <div style={{
+                fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                color: '#a78bfa', fontWeight: 700, marginBottom: '6px',
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "GÖKLER" : "HEAVENS"}</div>
+              <div style={{
+                fontFamily: FONTS.display, fontSize: '2.2rem',
+                color: '#a78bfa', fontWeight: 900, lineHeight: 1,
+                marginBottom: '4px',
+              }}>2</div>
+              <div style={{
+                fontSize: '0.72rem', color: COLORS.silver,
+                fontFamily: FONTS.body,
+              }}>{language === 'tr' ? "gün · Fussilet 41:12" : "days · 41:12"}</div>
+            </div>
+          </div>
+
+          {/* Result */}
+          <div style={{
+            marginTop: '20px',
+            padding: '16px 20px',
+            background: `linear-gradient(90deg, ${COLORS.gold}22 0%, transparent 100%)`,
+            border: `1px solid ${COLORS.gold}66`,
+            borderRadius: RADIUS.md,
+            textAlign: 'center',
+            maxWidth: '840px', margin: '20px auto 0',
+          }}>
+            <div style={{
+              fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+              color: COLORS.gold, fontWeight: 700, marginBottom: '4px',
+              fontFamily: FONTS.body,
+            }}>{language === 'tr' ? "TOPLAM" : "TOTAL"}</div>
+            <div style={{
+              fontFamily: FONTS.display, fontSize: '1.6rem',
+              color: COLORS.offWhite, fontWeight: 700,
+            }}>
+              4 + 2 = <span style={{ color: COLORS.gold, fontWeight: 900 }}>6 {language === 'tr' ? 'kozmik evre' : 'cosmic phases'}</span>
+            </div>
+            <div style={{
+              fontSize: '0.78rem', color: COLORS.silver, marginTop: '6px',
+              fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.85,
+            }}>
+              {language === 'tr'
+                ? '"Rabbin gökleri ve yeri altı günde yarattı" — A\'râf 7:54, Yunus 10:3, Hûd 11:7, Hadîd 57:4, Furkân 25:59, Kaf 50:38.'
+                : '"Your Lord created the heavens and earth in six days" — al-Aʿrāf 7:54, Yūnus 10:3, Hūd 11:7, al-Ḥadīd 57:4, al-Furqān 25:59, Qāf 50:38.'}
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <div style={{
+            marginTop: '18px', padding: '12px 16px',
+            background: 'rgba(231,76,60,0.06)',
+            borderLeft: '2px solid #e74c3c',
+            borderRadius: '4px', maxWidth: '840px', margin: '18px auto 0',
+          }}>
+            <p style={{
+              fontSize: '0.78rem', color: COLORS.silver,
+              lineHeight: 1.6, margin: 0, fontStyle: 'italic',
+              fontFamily: FONTS.body,
+            }}>
+              {language === 'tr'
+                ? "'Gün' (yevm) burada 24 saatlik zaman dilimi değil — kozmolojik evre (marhale). Bu, İbn Kesîr, Râzî ve Elmalılı'nın icmâıdır. Modern kozmoloji ile bir arada okuma tefsir-i mecâzî sınıfına girer, bağlayıcı ilim değildir."
+                : "'Day' (yawm) here does not mean a 24-hour period — but a cosmological phase (marḥala). This is the consensus of Ibn Kathīr, al-Rāzī, and Elmalılı. Reading these alongside modern cosmology is a metaphorical exegesis, not binding science."}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -1461,7 +1736,7 @@ export default function ZamanBoyutlari({ onClose }) {
         </p>
       </div>
 
-      {/* Tab bar — UPPERCASE site-wide pattern */}
+      {/* Tab bar — §13.19 sticky pattern (Dalga 2.3 fix) */}
       <div id="zaman-tab-bar" style={{
         flexShrink: 0,
         display: 'flex',
@@ -1469,13 +1744,14 @@ export default function ZamanBoyutlari({ onClose }) {
         overflowX: 'auto',
         padding: isMobile ? '0 8px' : '0 16px',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        background: 'rgba(10,10,26,0.97)',
-        backdropFilter: 'blur(20px)',
+        background: 'rgb(6, 8, 14)',
+        backgroundColor: 'rgb(6, 8, 14)',
+        isolation: 'isolate',
         scrollbarWidth: 'none',
         position: 'sticky',
-        top: 0,
-        zIndex: 10,
-        scrollMarginTop: '72px',
+        top: '110px',
+        zIndex: 20,
+        scrollMarginTop: '120px',
       }}>
         {TABS.map(tab => {
           const isActive = tab.id === activeTab;
