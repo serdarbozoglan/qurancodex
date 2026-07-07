@@ -702,6 +702,9 @@ function TabCennet({ data, language, isMobile }) {
 
   return (
     <div>
+      {/* ═══ 9-CENNET RISING LAYERS SVG (Dalga 2.5) ═══ */}
+      <NineCennetLayers language={language} isMobile={isMobile} names={data.cennetIsimleri || []} />
+
       {/* Section A — Nehirler */}
       <SectionTitle color={CENNET.accent}>
         {tr ? 'A. Cennetin 4 Nehri' : 'A. The 4 Rivers of Paradise'}
@@ -863,6 +866,9 @@ function TabCehennem({ data, language, isMobile }) {
 
   return (
     <div>
+      {/* ═══ 7-CEHENNEM DESCENDING LAYERS SVG (Dalga 2.5) ═══ */}
+      <SevenCehennemLayers language={language} isMobile={isMobile} names={data.cehennemIsimleri || []} />
+
       {/* Section A — Duyusal Tasvir */}
       <SectionTitle color={CEHENNEM.accent}>
         {tr ? 'A. Beş Duyuyla Cehennem' : 'A. Hell Through the Five Senses'}
@@ -1176,6 +1182,10 @@ function TabRahman({ data, language, isMobile }) {
 
   return (
     <div>
+      {/* ═══ RAHMAN 31-REFRAIN BAR VIZ + 5-SENSE GRID (Dalga 2.5) ═══ */}
+      <Rahman31Viz language={language} isMobile={isMobile} rs={rs} />
+      <FiveSenseGrid language={language} isMobile={isMobile} />
+
       {/* Feature nakarat */}
       <div style={{
         background: 'rgba(255,255,255,0.03)',
@@ -1412,6 +1422,437 @@ function TabKaynaklar({ data, language }) {
             </button>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════ DALGA 2.5 WIDGETS ═══════════
+
+// 9-Cennet Rising Layers — Firdevs center, others outer rings
+function NineCennetLayers({ language, isMobile, names }) {
+  const tr = language === 'tr';
+  // Order for the rising ladder: cennet(base) → naim → meva → adn → huld → makamul-emin → darussalam → illiyyun → firdevs(peak)
+  const ORDER = ['cennet', 'naim', 'meva', 'adn', 'huld', 'makamul-emin', 'darussalam', 'illiyyun', 'firdevs'];
+  const list = ORDER.map(id => names.find(n => n.id === id)).filter(Boolean);
+  const rows = [...list].reverse(); // top = peak
+
+  return (
+    <div style={{
+      marginBottom: '28px',
+      padding: isMobile ? '20px 16px' : '28px 32px',
+      background: 'linear-gradient(180deg, rgba(46,204,113,0.06) 0%, rgba(212,165,116,0.04) 100%)',
+      border: `1px solid ${CENNET.border}`,
+      borderRadius: RADIUS.lg,
+    }}>
+      <div style={{
+        fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+        color: CENNET.accent, opacity: 0.85, fontWeight: 700,
+        marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+      }}>
+        {tr ? "CENNETİN 9 KATMANI · YÜKSELEN HALKALAR" : "THE 9 STATIONS OF PARADISE · RISING RINGS"}
+      </div>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+        textAlign: 'center', maxWidth: '620px', margin: '0 auto 22px',
+        fontFamily: FONTS.body,
+      }}>
+        {tr
+          ? "Firdevs merkez ve zirvedir — 'cennet nehirleri Firdevs'ten doğar' (Buhârî 2790). Aşağıdaki 8 halka farklı bahçe/mekân imgesidir."
+          : "Firdaws is the center and peak — 'the rivers of Paradise spring from al-Firdaws' (Bukhārī 2790). The 8 rings below are different garden/place images."}
+      </p>
+
+      {/* Rising layers list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '740px', margin: '0 auto' }}>
+        {rows.map((n, idx) => {
+          const isPeak = idx === 0;
+          const width = 100 - (idx * 8);
+          return (
+            <div key={n.id} style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
+              padding: isMobile ? '10px 14px' : '12px 18px',
+              width: `${Math.max(width, 45)}%`,
+              margin: '0 auto',
+              background: isPeak
+                ? `linear-gradient(90deg, ${GOLD}22 0%, ${CENNET.accent}22 100%)`
+                : `${CENNET.bg}`,
+              border: `1px solid ${isPeak ? GOLD : CENNET.border}`,
+              borderRadius: RADIUS.md,
+              transition: 'all 0.3s',
+              position: 'relative',
+              boxShadow: isPeak ? `0 0 24px ${GOLD}44` : 'none',
+            }}>
+              <div style={{
+                width: '10px', height: '10px', borderRadius: '50%',
+                background: isPeak ? GOLD : CENNET.accent,
+                opacity: isPeak ? 1 : (0.9 - idx * 0.08),
+                flexShrink: 0,
+                boxShadow: isPeak ? `0 0 10px ${GOLD}` : 'none',
+              }} />
+              <div style={{
+                fontFamily: FONTS.quran, fontSize: '1.1rem',
+                color: isPeak ? GOLD : CENNET.accent, direction: 'rtl', lang: 'ar',
+                flexShrink: 0,
+              }} dir="rtl" lang="ar">{n.nameAr}</div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{
+                  fontSize: '0.85rem', color: COLORS.offWhite,
+                  fontWeight: isPeak ? 700 : 500, fontFamily: FONTS.body,
+                }}>{tr ? n.nameTr : n.nameEn}</div>
+                {!isMobile && (
+                  <div style={{
+                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+                    fontFamily: FONTS.body, marginTop: '2px',
+                  }}>{tr ? n.meaningTr : n.meaningEn}</div>
+                )}
+              </div>
+              {isPeak && (
+                <span style={{
+                  padding: '3px 8px', fontSize: '0.62rem', fontWeight: 700,
+                  background: `${GOLD}33`, color: GOLD,
+                  borderRadius: RADIUS.chip, letterSpacing: '0.12em',
+                  textTransform: 'uppercase', flexShrink: 0,
+                }}>{tr ? "ZİRVE" : "PEAK"}</span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// 7-Cehennem Descending Layers
+function SevenCehennemLayers({ language, isMobile, names }) {
+  const tr = language === 'tr';
+  // Classical descending order (varies by source; using İbn Kesîr al-Bidāya order)
+  const ORDER = ['cehennem', 'leza', 'sair', 'sakar', 'cahim', 'hutame', 'haviye'];
+  const list = ORDER.map(id => names.find(n => n.id === id)).filter(Boolean);
+  const shades = ['#e74c3c', '#c0392b', '#a63030', '#8B0000', '#6d0000', '#500000', '#2d0000'];
+
+  return (
+    <div style={{
+      marginBottom: '28px',
+      padding: isMobile ? '20px 16px' : '28px 32px',
+      background: 'linear-gradient(180deg, rgba(139,0,0,0.08) 0%, rgba(0,0,0,0.4) 100%)',
+      border: `1px solid ${CEHENNEM.border}`,
+      borderRadius: RADIUS.lg,
+    }}>
+      <div style={{
+        fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+        color: '#e74c3c', opacity: 0.85, fontWeight: 700,
+        marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+      }}>
+        {tr ? "CEHENNEMİN 7 İSMİ · İNEN DAİRELER" : "THE 7 NAMES OF HELL · DESCENDING CIRCLES"}
+      </div>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+        textAlign: 'center', maxWidth: '620px', margin: '0 auto 22px',
+        fontFamily: FONTS.body,
+      }}>
+        {tr
+          ? "Kur'ân cehenneme 7 farklı isim verir — her isim ayrı bir kelime kökü ve azap sahnesi. Hz. Peygamber 'cehennemin yedi kapısı vardır' buyurur (Hicr 15:44). Aşağıdaki inen düzen klasik tefsir (İbn Kesîr, Bidâye) sıralamasına uyar."
+          : "The Qur'ān gives Hell 7 distinct names — each with its own root and scene of torment. The Prophet said 'Hell has seven gates' (al-Ḥijr 15:44). The descending order below follows the classical tafsīr (Ibn Kathīr, Bidāya)."}
+      </p>
+
+      {/* Descending circles */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '740px', margin: '0 auto' }}>
+        {list.map((n, idx) => {
+          const width = 100 - (idx * 6);
+          return (
+            <div key={n.id} style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
+              padding: isMobile ? '10px 14px' : '12px 18px',
+              width: `${Math.max(width, 55)}%`,
+              margin: '0 auto',
+              background: `linear-gradient(90deg, ${shades[idx]}33 0%, rgba(0,0,0,0.3) 100%)`,
+              border: `1px solid ${shades[idx]}88`,
+              borderLeft: `3px solid ${shades[idx]}`,
+              borderRadius: RADIUS.md,
+              transition: 'all 0.3s',
+              position: 'relative',
+              boxShadow: `0 0 14px ${shades[idx]}22`,
+            }}>
+              <div style={{
+                width: '10px', height: '10px', borderRadius: '50%',
+                background: shades[idx], flexShrink: 0,
+                boxShadow: `0 0 8px ${shades[idx]}`,
+              }} />
+              <div style={{
+                fontFamily: FONTS.quran, fontSize: '1.1rem',
+                color: shades[idx], direction: 'rtl', lang: 'ar', flexShrink: 0,
+                filter: 'brightness(1.4)',
+              }} dir="rtl" lang="ar">{n.nameAr}</div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{
+                  fontSize: '0.85rem', color: COLORS.offWhite,
+                  fontWeight: 600, fontFamily: FONTS.body,
+                }}>{tr ? n.nameTr : n.nameEn}</div>
+                {!isMobile && (
+                  <div style={{
+                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+                    fontFamily: FONTS.body, marginTop: '2px',
+                  }}>{tr ? n.meaningTr : n.meaningEn}</div>
+                )}
+              </div>
+              <span style={{
+                padding: '3px 8px', fontSize: '0.62rem', fontWeight: 700,
+                background: `${shades[idx]}44`, color: '#fff',
+                borderRadius: RADIUS.chip, letterSpacing: '0.12em',
+                textTransform: 'uppercase', flexShrink: 0,
+              }}>{idx + 1}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <p style={{
+        marginTop: '18px', textAlign: 'center', fontSize: '0.75rem',
+        color: COLORS.silver, opacity: 0.7, fontStyle: 'italic',
+        fontFamily: FONTS.body, maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto',
+      }}>
+        {tr
+          ? "Sıralamanın kesinliği tartışmalıdır — İbn Kesîr, Kurtubî ve İmam Malik farklı düzenler nakleder. 7 sayısı Kur'ânî, sıralama tefsîrî."
+          : "The exactness of the order is disputed — Ibn Kathīr, Qurṭubī, and Imām Mālik report varying arrangements. The number 7 is Qur'anic; the sequence is exegetical."}
+      </p>
+    </div>
+  );
+}
+
+// Rahman 31-Refrain Vertical Bar
+function Rahman31Viz({ language, isMobile, rs }) {
+  const tr = language === 'tr';
+  // Verse numbers where "Fabi-ayyi ala'i rabbikuma tukazziban" appears
+  const REFRAINS = [13, 16, 18, 21, 23, 25, 28, 30, 32, 34, 36, 38, 40, 42, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77];
+
+  return (
+    <div style={{
+      marginBottom: '28px',
+      padding: isMobile ? '20px 16px' : '28px 32px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, rgba(255,255,255,0.02) 100%)',
+      border: `1px solid ${GOLD}44`,
+      borderRadius: RADIUS.lg,
+    }}>
+      <div style={{
+        fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+        color: GOLD, opacity: 0.85, fontWeight: 700,
+        marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+      }}>
+        {tr ? "RAHMAN SÛRESİ · 31 NAKARAT" : "SŪRAT AL-RAḤMĀN · 31 REFRAINS"}
+      </div>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+        textAlign: 'center', maxWidth: '620px', margin: '0 auto 22px',
+        fontFamily: FONTS.body,
+      }}>
+        {tr
+          ? "Rahman 55'te 78 ayetin 31'i tek bir soru: 'Rabbinizin hangi nimetini yalanlayabilirsiniz?' Bar chart bu tekrarların ayet konumlarını gösterir — cennet ve cehennem tasvirleri arasındaki ritmik parantez."
+          : "In Sūrat al-Raḥmān 55, 31 of the 78 verses are a single question: 'Which of your Lord's favors will you deny?' The bar chart shows the verse positions of these repetitions — the rhythmic bracket between descriptions of Paradise and Hell."}
+      </p>
+
+      {/* Bar chart — vertical bars for each verse */}
+      <div style={{
+        display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between',
+        gap: '2px', height: isMobile ? '80px' : '110px',
+        padding: '0 4px', marginBottom: '18px',
+        maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
+      }}>
+        {Array.from({ length: 78 }, (_, i) => i + 1).map(v => {
+          const isRefrain = REFRAINS.includes(v);
+          return (
+            <div key={v} title={`Verse ${v}${isRefrain ? ' — Refrain' : ''}`} style={{
+              flex: 1,
+              height: isRefrain ? '100%' : '30%',
+              background: isRefrain
+                ? `linear-gradient(180deg, ${GOLD} 0%, ${GOLD}88 100%)`
+                : 'rgba(148,163,184,0.2)',
+              borderRadius: '2px 2px 0 0',
+              boxShadow: isRefrain ? `0 0 6px ${GOLD}88` : 'none',
+              transition: 'all 0.2s',
+            }} />
+          );
+        })}
+      </div>
+      <div style={{
+        display: 'flex', justifyContent: 'space-between',
+        fontSize: '0.65rem', color: COLORS.silver, opacity: 0.6,
+        fontFamily: FONTS.body,
+        maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
+      }}>
+        <span>1</span>
+        <span>{tr ? "Nakarat konumları" : "Refrain positions"}</span>
+        <span>78</span>
+      </div>
+
+      {/* Stats row */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+        gap: '10px', marginTop: '22px', maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
+      }}>
+        {[
+          { n: '31', lTr: 'Nakarat', lEn: 'Refrains' },
+          { n: '78', lTr: 'Toplam Ayet', lEn: 'Total Verses' },
+          { n: '39.7%', lTr: 'Nakarat Oranı', lEn: 'Refrain Ratio' },
+          { n: '~2.5', lTr: 'Nakarat Aralığı', lEn: 'Avg Gap' },
+        ].map((s, i) => (
+          <div key={i} style={{
+            padding: '10px 12px', textAlign: 'center',
+            background: 'rgba(255,255,255,0.03)',
+            border: `1px solid ${GOLD}33`,
+            borderRadius: RADIUS.md,
+          }}>
+            <div style={{
+              fontFamily: FONTS.display, fontSize: '1.35rem',
+              color: GOLD, fontWeight: 900, lineHeight: 1,
+            }}>{s.n}</div>
+            <div style={{
+              fontSize: '0.68rem', color: COLORS.silver,
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              marginTop: '4px', fontFamily: FONTS.body,
+            }}>{tr ? s.lTr : s.lEn}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// 5-Sense Cennet ↔ Cehennem Comparison Grid
+function FiveSenseGrid({ language, isMobile }) {
+  const tr = language === 'tr';
+  const SENSES = [
+    {
+      id: 'sight', labelTr: 'GÖRME', labelEn: 'SIGHT',
+      icon: 'M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z',
+      cennetTr: "Yeşillik, akan sular, mücevherlerle bezenmiş huriler (Bakara 2:25, Tûr 52:24).",
+      cennetEn: "Verdure, flowing waters, pearl-adorned companions (al-Baqara 2:25, al-Ṭūr 52:24).",
+      cehennemTr: "Karanlıklar, alevlerin görüntüsü, yüzlerin siyahlığı (Al-i İmrân 3:106).",
+      cehennemEn: "Darkness, sight of flames, blackness of faces (Āl ʿImrān 3:106).",
+    },
+    {
+      id: 'sound', labelTr: 'İŞİTME', labelEn: 'HEARING',
+      icon: 'M18 8h1a4 4 0 0 1 0 8h-1M11 5v14l-5-4V9z',
+      cennetTr: "Selâm (barış) selâmlaşması, boş söz yok (Vâkıa 56:25-26, Mü'min 40:8).",
+      cennetEn: "Greeting of peace (salām), no idle talk (al-Wāqiʿa 56:25-26, Ghāfir 40:8).",
+      cehennemTr: "Uğultu, ah-vah, kaynayan sesler, birbirini kınama (Furkân 25:12, Sâffât 37:64).",
+      cehennemEn: "Roaring, wailing, boiling sounds, mutual reproach (al-Furqān 25:12, al-Ṣāffāt 37:64).",
+    },
+    {
+      id: 'taste', labelTr: 'TATMA', labelEn: 'TASTE',
+      icon: 'M12 2v4M4 12H0M18 4l-3 3M4 4l3 3M18 12h4M8 21l4-4 4 4',
+      cennetTr: "Bal, süt, şarap, tesnîm — 'içenlere lezzet' (Muhammed 47:15, Mutaffifîn 83:27).",
+      cennetEn: "Honey, milk, wine, tasnīm — 'delicious to those who drink' (Muḥammad 47:15, al-Muṭaffifīn 83:27).",
+      cehennemTr: "Kaynar su (hamîm), zakkum ağacının meyvesi, çıra (Vâkıa 56:52-53, Kehf 18:29).",
+      cehennemEn: "Scalding water (ḥamīm), fruit of the zaqqūm tree, molten metal (al-Wāqiʿa 56:52-53, al-Kahf 18:29).",
+    },
+    {
+      id: 'smell', labelTr: 'KOKU', labelEn: 'SMELL',
+      icon: 'M12 2a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2M12 19v3',
+      cennetTr: "Misk ile mühürlü şarap, zencefil kokusu (Mutaffifîn 83:26, İnsan 76:17).",
+      cennetEn: "Wine sealed with musk, scent of ginger (al-Muṭaffifīn 83:26, al-Insān 76:17).",
+      cehennemTr: "Ateşin dumanı, zakkumun kokusu, yanık kokusu (Vâkıa 56:43, Sâffât 37:62-65).",
+      cehennemEn: "Smoke of fire, scent of zaqqūm, burning odor (al-Wāqiʿa 56:43, al-Ṣāffāt 37:62-65).",
+    },
+    {
+      id: 'touch', labelTr: 'DOKUNMA', labelEn: 'TOUCH',
+      icon: 'M9 11.5A2.5 2.5 0 0 1 11.5 9M14.5 9A2.5 2.5 0 0 1 17 11.5M9 14.5A2.5 2.5 0 0 0 11.5 17M14.5 17a2.5 2.5 0 0 0 2.5-2.5',
+      cennetTr: "Yumuşak yastıklar, ipek, hoş serinlik, sıkıntı yok (Kehf 18:31, Vâkıa 56:15-16).",
+      cennetEn: "Soft cushions, silk, pleasant coolness, no fatigue (al-Kahf 18:31, al-Wāqiʿa 56:15-16).",
+      cehennemTr: "Ateş dokunuşu, zincirler, halkalar, yorgunluk (Furkân 25:13, Ğâşiye 88:5).",
+      cehennemEn: "Touch of fire, chains, shackles, exhaustion (al-Furqān 25:13, al-Ghāshiya 88:5).",
+    },
+  ];
+
+  return (
+    <div style={{
+      marginBottom: '28px',
+      padding: isMobile ? '20px 16px' : '28px 32px',
+      background: 'rgba(255,255,255,0.02)',
+      border: `1px solid ${COLORS.glassBorderSoft}`,
+      borderRadius: RADIUS.lg,
+    }}>
+      <div style={{
+        fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+        color: GOLD, opacity: 0.85, fontWeight: 700,
+        marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+      }}>
+        {tr ? "5 DUYU KARŞITLIĞI · CENNET ↔ CEHENNEM" : "5 SENSES CONTRAST · PARADISE ↔ HELL"}
+      </div>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+        textAlign: 'center', maxWidth: '640px', margin: '0 auto 22px',
+        fontFamily: FONTS.body,
+      }}>
+        {tr
+          ? "Kur'ân cennet ve cehennemi felsefi kavramlarla değil — beş duyu üzerinden inşa eder. Her duyu ekseninde tam karşıtlık: misk ↔ zakkum, selâm ↔ uğultu, ipek ↔ zincir."
+          : "The Qur'ān builds Paradise and Hell not through philosophical concepts — but through the five senses. Each sense presents a complete inversion: musk ↔ zaqqūm, salām ↔ roaring, silk ↔ chains."}
+      </p>
+
+      {/* Grid rows */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        {SENSES.map(s => (
+          <div key={s.id} style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '110px 1fr 1fr',
+            gap: '10px', alignItems: 'stretch',
+          }}>
+            {/* Sense label */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '12px 14px',
+              background: 'rgba(255,255,255,0.04)',
+              border: `1px solid ${COLORS.glassBorderSoft}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d={s.icon} />
+              </svg>
+              <span style={{
+                fontSize: '0.72rem', letterSpacing: '0.14em', fontWeight: 700,
+                color: GOLD, fontFamily: FONTS.body,
+              }}>{tr ? s.labelTr : s.labelEn}</span>
+            </div>
+
+            {/* Cennet cell */}
+            <div style={{
+              padding: '12px 14px',
+              background: `${CENNET.bg}`,
+              border: `1px solid ${CENNET.border}`,
+              borderLeft: `3px solid ${CENNET.accent}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <div style={{
+                fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+                color: CENNET.accent, fontWeight: 700, marginBottom: '4px',
+                fontFamily: FONTS.body,
+              }}>{tr ? "CENNET" : "PARADISE"}</div>
+              <div style={{
+                fontSize: '0.82rem', color: COLORS.offWhite,
+                lineHeight: 1.55, fontFamily: FONTS.body,
+              }}>{tr ? s.cennetTr : s.cennetEn}</div>
+            </div>
+
+            {/* Cehennem cell */}
+            <div style={{
+              padding: '12px 14px',
+              background: `${CEHENNEM.bg}`,
+              border: `1px solid ${CEHENNEM.border}`,
+              borderLeft: `3px solid ${CEHENNEM.accent}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <div style={{
+                fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+                color: CEHENNEM.accent, fontWeight: 700, marginBottom: '4px',
+                fontFamily: FONTS.body,
+              }}>{tr ? "CEHENNEM" : "HELL"}</div>
+              <div style={{
+                fontSize: '0.82rem', color: COLORS.offWhite,
+                lineHeight: 1.55, fontFamily: FONTS.body,
+              }}>{tr ? s.cehennemTr : s.cehennemEn}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
