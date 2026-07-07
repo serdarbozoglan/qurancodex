@@ -1882,7 +1882,8 @@ export default function Navbar() {
             setGraphOpen(false);
             setGraphInitialSearch('');
             graphBackRef.current = null;
-            localStorage.removeItem('qurancodex_graph_view');
+            localStorage.removeItem('qurancodex_graph_view_v2');
+            localStorage.removeItem('qurancodex_graph_view'); // legacy — safe cleanup
             localStorage.removeItem('qurancodex_graph_surah');
             if (graphReturnToWow) {
               setGraphReturnToWow(false);

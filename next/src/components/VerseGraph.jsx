@@ -1740,7 +1740,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [focusedNodeId, setFocusedNodeId] = useState(null);
-  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight });
+  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight - 62 });
   const [showHint, setShowHint] = useState(true);
   useEffect(() => { const t = setTimeout(() => setShowHint(false), 3000); return () => clearTimeout(t); }, []);
 
@@ -1774,7 +1774,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedNodeId, graphData.links]);
 
   useEffect(() => {
-    const h = () => setDim({ w: window.innerWidth, h: window.innerHeight });
+    const h = () => setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
@@ -1987,7 +1987,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const [focusedNodeId, setFocusedNodeId] = useState(null);
   const [filterSurah, setFilterSurah] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight });
+  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight - 62 });
   const [muted, setMuted] = useState(false);
 
   /* eslint-disable react-hooks/refs -- resetting fit flag when graph data recomputes is intentional */
@@ -2011,7 +2011,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   }, [focusedNodeId, graphData.links]);
 
   useEffect(() => {
-    const h = () => setDim({ w: window.innerWidth, h: window.innerHeight });
+    const h = () => setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);
@@ -2544,7 +2544,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   // via IS_MOBILE_3D_BLOCKED guard (3D crashes on many mobile GPUs).
   const [view, setView] = useState(() => {
     if (IS_MOBILE_3D_BLOCKED) return 'clusters';
-    return initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view') || '3d');
+    return initialSearch ? 'clusters' : (localStorage.getItem('qurancodex_graph_view_v2') || '3d');
   });
   const [pendingSearch, setPendingSearch] = useState(initialSearch);
   const [selectedSurah, setSelectedSurah] = useState(() => {
@@ -2599,7 +2599,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
 
   // Persist view + surah to localStorage
   useEffect(() => {
-    localStorage.setItem('qurancodex_graph_view', view);
+    localStorage.setItem('qurancodex_graph_view_v2', view);
   }, [view]);
 
   useEffect(() => {
