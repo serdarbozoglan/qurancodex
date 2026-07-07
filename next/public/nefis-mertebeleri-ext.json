@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "generatedAt": "2026-07-06",
+    "note": "Extension data for /atlas/nefs-mertebeleri — Dalga 2.2. Adds comparison matrix + key verses grid to complement nefis-mertebeleri.json.",
+    "arabicNormalized": true
+  },
+  "comparisonMatrix": {
+    "introTr": "Kur'ânî 3 mertebe (kesin) ve tasavvufî 4 ek (bâtınî ekol) yan yana getirildiğinde her mertebe altı boyutta değişir: hâkim duygu, sese karşı tavır, ana zorluk, klasik antidot (Gazâlî pattern), rükn-i ilâhî ve fiziksel tezâhür. Bu matris, mertebelerin bir 'ahlâk skalası' değil — insan bilincinin katmanları olduğunu gösterir.",
+    "introEn": "When the Qur'anic 3 stages (definitive) and the Sufi 4 additions (esoteric tradition) are placed side by side, each stage varies across six dimensions: dominant emotion, stance toward the inner voice, core challenge, classical antidote (Ghazālī's pattern), divine attribute in focus, and outward manifestation. The matrix shows that the stations are not a 'morality scale' but layers of human consciousness.",
+    "dimensions": [
+      { "id": "emotion", "labelTr": "Hâkim Duygu", "labelEn": "Dominant Emotion", "color": "#e74c3c" },
+      { "id": "voice", "labelTr": "İç Sese Karşı", "labelEn": "Toward Inner Voice", "color": "#3498db" },
+      { "id": "challenge", "labelTr": "Ana Zorluk", "labelEn": "Core Challenge", "color": "#a78bfa" },
+      { "id": "antidote", "labelTr": "Klasik Antidot", "labelEn": "Classical Antidote", "color": "#2ecc71" },
+      { "id": "attribute", "labelTr": "Odaktaki Sıfat", "labelEn": "Attribute in Focus", "color": "#d4a574" },
+      { "id": "sign", "labelTr": "Dış Tezâhür", "labelEn": "Outward Sign", "color": "#94a3b8" }
+    ],
+    "rows": [
+      {
+        "stageId": "emmare",
+        "nameTr": "1. Emmâre",
+        "nameEn": "1. Ammāra",
+        "isQuranic": true,
+        "colorHex": "#8B0000",
+        "values": {
+          "emotion": { "tr": "Şehvet + gazap — anlık talep hâkim.", "en": "Desire + anger — the moment's urge rules." },
+          "voice": { "tr": "Sesi bastırır; 'yaptığım normal' savunması.", "en": "Silences the voice; 'what I do is normal' defense." },
+          "challenge": { "tr": "Farkındalık eşiği — nefsin varlığını kabul etmek.", "en": "Awareness threshold — acknowledging the self exists." },
+          "antidote": { "tr": "Şükür + tefekkür (Gazâlî: Riyâzet-i ûlâ — ilk terbiye).", "en": "Gratitude + reflection (Ghazālī: Riyāḍa al-ūlā — the first discipline)." },
+          "attribute": { "tr": "Rahmân — mühlet ve genişlik.", "en": "Al-Raḥmān — reprieve and expansion." },
+          "sign": { "tr": "Kendini haklı görme, geçmişten öğrenmeme.", "en": "Self-justification, no learning from the past." }
+        }
+      },
+      {
+        "stageId": "levvame",
+        "nameTr": "2. Levvâme",
+        "nameEn": "2. Lawwāma",
+        "isQuranic": true,
+        "colorHex": "#94a3b8",
+        "values": {
+          "emotion": { "tr": "Pişmanlık + iç huzursuzluk.", "en": "Regret + inner unease." },
+          "voice": { "tr": "Sese kulak verir ama sıkça geri düşer — döngüsel.", "en": "Listens to the voice but often falls back — cyclical." },
+          "challenge": { "tr": "Öz-kınama denizinde boğulmadan tövbe et.", "en": "Repent without drowning in self-reproach." },
+          "antidote": { "tr": "Tövbe + istiğfâr + iç muhasebe (İbn Kayyim: 'gecelik muhâsebe').", "en": "Repentance + istighfār + inner accounting (Ibn al-Qayyim: 'nightly accounting')." },
+          "attribute": { "tr": "Ğafûr — bağışlayıcılık, tekrar başlama izni.", "en": "Al-Ghafūr — forgiveness, permission to begin again." },
+          "sign": { "tr": "Kendine karşı adalet, ama düzensiz — 'iki adım ileri, bir adım geri'.", "en": "Justice toward oneself, but uneven — 'two forward, one back'." }
+        }
+      },
+      {
+        "stageId": "mulhime",
+        "nameTr": "3. Mülhime",
+        "nameEn": "3. Mulhima",
+        "isQuranic": false,
+        "colorHex": "#8b5cf6",
+        "values": {
+          "emotion": { "tr": "İç ilham + heyecanlı arayış.", "en": "Inspiration + eager seeking." },
+          "voice": { "tr": "Sesin farklı katmanları arasında ayırt eder (Rabbanî ↔ nefsânî).", "en": "Discerns between different layers of the voice (Lordly ↔ egoic)." },
+          "challenge": { "tr": "İlhamı vahiy sanma tuzağı — kalp murakabesi zorunlu.", "en": "The trap of confusing inspiration with revelation — heart-vigilance is essential." },
+          "antidote": { "tr": "İlim ile denge (Râzî): bâtın açılırken zâhirî ilim korunmalı.", "en": "Balance with knowledge (al-Rāzī): as the inward opens, outer knowledge must be preserved." },
+          "attribute": { "tr": "Hâdî — hidayet veren.", "en": "Al-Hādī — the Guide." },
+          "sign": { "tr": "Sık sık 'bana geldi' hissi — henüz doğrulanmamış.", "en": "Frequent sense of 'it came to me' — not yet verified." }
+        }
+      },
+      {
+        "stageId": "mutmainne",
+        "nameTr": "4. Mutmainne",
+        "nameEn": "4. Muṭmaʾinna",
+        "isQuranic": true,
+        "colorHex": "#2ecc71",
+        "values": {
+          "emotion": { "tr": "İç huzur (itmi'nân) — durgun deniz.", "en": "Inner peace (iṭmiʾnān) — a still sea." },
+          "voice": { "tr": "Sesle uyum — istekle emir birleşir.", "en": "Harmony with the voice — desire and command align." },
+          "challenge": { "tr": "Huzurun kendisi imtihan — 'ulaştım' hastalığı.", "en": "Peace itself becomes the test — the 'I have arrived' disease." },
+          "antidote": { "tr": "Zikir dâim + hüsn-i zan (Kübrâ): kalbi Rabbe bağlı tut.", "en": "Constant remembrance + good opinion of God (Kubrāʾ): keep the heart tied to the Lord." },
+          "attribute": { "tr": "es-Selâm — kaynak barışın kendisi.", "en": "Al-Salām — the source of peace itself." },
+          "sign": { "tr": "Musibet karşısında sarsılmayan denge; 'râdıye' ve 'mardıyye'nin kapısı.", "en": "Unshaken balance in adversity; the gate to rāḍiya and marḍiyya." }
+        }
+      },
+      {
+        "stageId": "radiye",
+        "nameTr": "5. Râdıye",
+        "nameEn": "5. Rāḍiya",
+        "isQuranic": false,
+        "colorHex": "#f59e0b",
+        "values": {
+          "emotion": { "tr": "Rızâ — kabullenmenin ötesinde memnuniyet.", "en": "Contentment — beyond acceptance into satisfaction." },
+          "voice": { "tr": "Kendi tercihini terk etmiş; Rabbin tercihi kendi tercihi olmuş.", "en": "One has abandoned personal preference; the Lord's choice has become one's own." },
+          "challenge": { "tr": "Tembelliği rızâ sanmak — pasiflik tuzağı.", "en": "Mistaking laziness for contentment — the trap of passivity." },
+          "antidote": { "tr": "Sabır × şükür denklemi — Kübrâ tarikatı formülü.", "en": "The patience × gratitude equation — the formula of the Kubrāwiyya order." },
+          "attribute": { "tr": "el-Kâfî — yeter kılıcı olan Allah.", "en": "Al-Kāfī — God as the One who suffices." },
+          "sign": { "tr": "Nimetsizlikte nimet, azlıkta bereket görme.", "en": "Seeing blessing in absence, abundance in little." }
+        }
+      },
+      {
+        "stageId": "mardiyye",
+        "nameTr": "6. Mardıyye",
+        "nameEn": "6. Marḍiyya",
+        "isQuranic": false,
+        "colorHex": "#3498db",
+        "values": {
+          "emotion": { "tr": "Karşılıklı rızâ — Fecr 89:28 pattern.", "en": "Mutual pleasing — the Fajr 89:28 pattern." },
+          "voice": { "tr": "İç ses artık kul değil, dostluk sesi.", "en": "The inner voice is no longer that of a servant, but of intimacy." },
+          "challenge": { "tr": "'Râdıyeten mardıyyeten' arasındaki dönüşüm — gizli benlik izleri.", "en": "The turn between 'rāḍiyatan marḍiyyatan' — hidden traces of self remain." },
+          "antidote": { "tr": "Sadâkat + istikâmet (Gazâlî: sırr'ın sırrı).", "en": "Sincerity + steadfastness (Ghazālī: the secret of the secret)." },
+          "attribute": { "tr": "el-Vedûd — seven ve sevilen.", "en": "Al-Wadūd — the Loving-Beloved." },
+          "sign": { "tr": "Etraftakiler üzerinde sükûnet etkisi bırakır — Rabbanî yansıma.", "en": "One leaves a wake of stillness on those nearby — a Lordly reflection." }
+        }
+      },
+      {
+        "stageId": "kamile",
+        "nameTr": "7. Kâmile",
+        "nameEn": "7. Kāmila",
+        "isQuranic": false,
+        "colorHex": "#d4a574",
+        "values": {
+          "emotion": { "tr": "Fenâ-fi'llâh: benlik silinmiş, hakikat kalmış.", "en": "Fanāʾ fīʾLlāh: self erased, Truth remains." },
+          "voice": { "tr": "İç ses ile kader eş — 'her hâlim O'ndan' yaşamak.", "en": "Inner voice and destiny become one — living 'every state is from Him'." },
+          "challenge": { "tr": "Bekâ-billâh imtihanı: geri dönüp öğretme, yönetme.", "en": "The trial of baqāʾ biʾLlāh: returning to teach and guide." },
+          "antidote": { "tr": "İnsan-ı Kâmil öğretisi (İbn Arabî) — halifelik sorumluluğu.", "en": "The Perfect Human doctrine (Ibn ʿArabī) — the responsibility of khilāfa." },
+          "attribute": { "tr": "el-Hak — hakikatin kendisi.", "en": "Al-Ḥaqq — Reality itself." },
+          "sign": { "tr": "Sözü de sükûtu da davet olur; kendi varlığı bir sûre.", "en": "Speech and silence both become invitation; one's own being a sura." }
+        }
+      }
+    ],
+    "criticalNoteTr": "Bu matris klasik + tasavvufî literatürden özet bir kavramsal harita sunar. 4-7 arası mertebeler (Mülhime, Râdıye, Mardıyye, Kâmile) Kur'ân'da isim olarak geçmez; tasavvufî yorumdur. Şablon 'ilerleyici' değil 'katmanlı' okunmalıdır — insan bir gün emmâre, bir başka gün mutmainne olabilir.",
+    "criticalNoteEn": "This matrix distills classical + Sufi literature into a conceptual map. Stages 4-7 (Mulhima, Rāḍiya, Marḍiyya, Kāmila) are not named in the Qur'an; they are a Sufi interpretation. The template should be read as 'layered,' not 'linear' — a person may be ammāra one day, muṭmaʾinna the next."
+  },
+  "keyVerses": {
+    "introTr": "Kur'ân, insanın iç yolculuğu için üç kelime bırakır — emmâre, levvâme, mutmainne. Üçü de birer sûrede, birer sahnede geçer. Bu grid, üç ayeti yan yana koyarak Kur'ân'ın nefs psikolojisinin çekirdek anını gösterir.",
+    "introEn": "The Qur'an leaves three words for the human inner journey — ammāra, lawwāma, muṭmaʾinna. Each appears in one sura, one scene. This grid places the three verses side by side to reveal the core moment of the Qur'an's psychology of the self.",
+    "verses": [
+      {
+        "stageId": "emmare",
+        "labelTr": "EMMÂRE",
+        "labelEn": "AMMĀRA",
+        "colorHex": "#8B0000",
+        "refTr": "Yusuf 12:53",
+        "refEn": "Yūsuf 12:53",
+        "arabic": "وَمَٓا اُبَرِّئُ نَفْسِي اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّٓوءِ اِلَّا مَا رَحِمَ رَبِّي اِنَّ رَبِّي غَفُورٌ رَحِيمٌ",
+        "translationTr": "Ben nefsimi temize çıkarmıyorum; çünkü nefis, kötülüğü çok emreder — Rabbimin acıyıp koruduğu hariç. Şüphesiz Rabbim çok bağışlayan, çok esirgeyendir.",
+        "translationEn": "I do not acquit my soul; indeed, the soul persistently commands evil — except those upon which my Lord has mercy. Indeed, my Lord is Forgiving and Merciful.",
+        "sceneTr": "Hz. Yûsuf, Aziz'in sarayında iftiradan sonra beraat ettikten sonra: en masumluğun tanıklandığı sahnede bu cümleyi kurar. İçindeki en berrak an, kendinden emin olmama beyanıdır.",
+        "sceneEn": "Joseph, after being cleared of the accusations at the Aziz's palace: it is at the moment his innocence is publicly witnessed that he utters this sentence. His clearest moment is a declaration of *not* being certain of himself.",
+        "linguisticTr": "ammâra: عمر kökünden mübalağa kalıbı — 'çok, ısrarla, sürekli emreder'. 'ammâre' değil 'ammâratun' (nekre) — cinsî tanım: kim olursak olalım nefsin bu tarafı vardır.",
+        "linguisticEn": "*ammāra*: hyperbolic form from the root ʿ-M-R — 'commands much, persistently, continuously.' Not 'the ammāra self' (definite) but 'an ammāra self' (indefinite) — generic: whoever we are, the self has this face."
+      },
+      {
+        "stageId": "levvame",
+        "labelTr": "LEVVÂME",
+        "labelEn": "LAWWĀMA",
+        "colorHex": "#94a3b8",
+        "refTr": "Kıyâme 75:2",
+        "refEn": "al-Qiyāma 75:2",
+        "arabic": "وَلَٓا اُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ",
+        "translationTr": "Ve kendini kınayan (levvâme) nefse yemin ederim.",
+        "translationEn": "And I swear by the reproaching soul.",
+        "sceneTr": "Kıyâme sûresi diriliş üzerine olur — ilk iki ayet iki yemin: 'Kıyâmet gününe' + 'Levvâme nefse'. Yemin edilen iki şey aynı anlama gelir: kıyâmet dışta, levvâme içte — ikisi de 'ayağa kaldıran'.",
+        "sceneEn": "The sura is about resurrection — the first two verses are two oaths: 'By the Day of Resurrection' + 'By the reproaching soul.' The two objects of the oath mean the same thing: resurrection outside, reproach inside — both 'that which raises up.'",
+        "linguisticTr": "lawwāme: لوم kökünden mübalağa — 'sık sık kınayan, kendinden hesap soran'. Hasan-ı Basrî: 'Mü'min her gün kendini kınayarak sabahlar'.",
+        "linguisticEn": "*lawwāma*: hyperbolic from L-W-M — 'frequently reproaching, holding oneself to account.' Al-Ḥasan al-Baṣrī: 'The believer greets each morning reproaching himself.'"
+      },
+      {
+        "stageId": "mutmainne",
+        "labelTr": "MUTMAİNNE",
+        "labelEn": "MUṬMAʾINNA",
+        "colorHex": "#2ecc71",
+        "refTr": "Fecr 89:27-28",
+        "refEn": "al-Fajr 89:27-28",
+        "arabic": "يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً",
+        "translationTr": "Ey huzura ermiş nefis! Rabbine hoşnut ve hoşnut olunmuş olarak dön.",
+        "translationEn": "O serene soul! Return to your Lord, well-pleased and pleasing.",
+        "sceneTr": "Fecr sûresi kıyâmet sahnesinde biter — kâfirlerin 'keşke ölüp gitseydim' (89:24) çığlığından sonra Allah, mü'min ruha bizzat hitap eder. Yolculuğun sonu bir çağrıdır: 'irciî' (dön).",
+        "sceneEn": "Sūrat al-Fajr ends with the eschatological scene — after the disbelievers' cry 'if only I had died and gone' (89:24), God addresses the believing soul directly. The end of the journey is a call: '*irjiʿī*' (return).",
+        "linguisticTr": "muṭmaʾinna: طمأن kökünden ism-i fâil — 'sükûn bulmuş, durulmuş'. Râdıye (razı) + mardıyye (razı olunan) sıralaması: önce kendi rızâsı, sonra Rabbin rızâsı — kesişme noktası.",
+        "linguisticEn": "*muṭmaʾinna*: active participle from Ṭ-M-ʾ-N — 'having found stillness, come to rest.' The order *rāḍiya* (well-pleased) + *marḍiyya* (well-pleasing) matters: first one's own contentment, then the Lord's — the point of intersection."
+      }
+    ],
+    "closingWhisperTr": "Kur'ân bu üç ayette bir gramer sunar: nefis bir sıfat değil — bir fiil. 'Emmâre' (emreden), 'levvâme' (kınayan), 'mutmainne' (huzura eren) — hepsi eylem hâlleri. Nefis bir durum değil, bir hareket.",
+    "closingWhisperEn": "In these three verses the Qur'an offers a grammar: the self is not an adjective — it is a verb. *Ammāra* (commanding), *lawwāma* (reproaching), *muṭmaʾinna* (finding rest) — all are states of action. The self is not a condition; it is a motion."
+  }
+}

@@ -17,6 +17,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
+import extData from '../../public/nefis-mertebeleri-ext.json';
 
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
@@ -51,6 +52,7 @@ export default function NefisMertebeleri({ onClose }) {
   const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
+  const [activeTab, setActiveTab] = useState('journey');  // Dalga 2.2 tab state
   const bodyRef = useRef(null);
 
   // Escape key
@@ -354,6 +356,50 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
         </div>
 
+        {/* ───────────────── STICKY TAB BAR (Dalga 2.2) ───────────────── */}
+        <div id="nefs-tab-bar" style={{
+          display: 'flex', gap: '2px',
+          padding: isMobile ? '0 8px' : '0 16px',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
+          position: 'sticky', top: '110px', zIndex: 20,
+          scrollMarginTop: '120px',
+          overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
+        }}>
+          {[
+            { id: 'journey', labelTr: '7 Mertebe · Yolculuk', labelEn: '7 Stages · Journey' },
+            { id: 'matrix', labelTr: 'Karşılaştırma Matrisi', labelEn: 'Comparison Matrix' },
+            { id: 'keyverses', labelTr: 'Anahtar Ayetler', labelEn: 'Key Verses' },
+            { id: 'frameworks', labelTr: 'Ulema Çerçeveleri', labelEn: 'Scholar Frameworks' },
+          ].map(tab => {
+            const active = activeTab === tab.id;
+            return (
+              <button key={tab.id}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setTimeout(() => document.getElementById('nefs-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+                }}
+                style={{
+                  padding: isMobile ? '14px 14px' : '16px 26px',
+                  fontSize: isMobile ? '0.7rem' : '0.76rem',
+                  letterSpacing: '0.14em', textTransform: 'uppercase',
+                  fontWeight: active ? 700 : 500,
+                  color: active ? COLORS.gold : COLORS.silver,
+                  borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                  background: active ? COLORS.goldAlpha15 : 'transparent',
+                  border: 'none', cursor: 'pointer', flexShrink: 0,
+                  fontFamily: FONTS.body, whiteSpace: 'nowrap',
+                }}>
+                {language === 'tr' ? tab.labelTr : tab.labelEn}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ═════════════════ TAB 1: JOURNEY (7 stages) ═════════════════ */}
+        {activeTab === 'journey' && <>
+
         {/* ───────────────── SECTION 1: QUR'ANIC CORE ───────────────── */}
         <SectionHeader
           label={language === 'tr' ? 'Bölüm 1' : 'Section 1'}
@@ -419,6 +465,22 @@ export default function NefisMertebeleri({ onClose }) {
             />
           ))}
         </div>
+
+        </>}
+        {/* ═════════════════ END TAB 1 ═════════════════ */}
+
+        {/* ═════════════════ TAB 2: COMPARISON MATRIX ═════════════════ */}
+        {activeTab === 'matrix' && (
+          <ComparisonMatrixTab language={language} isMobile={isMobile} matrix={extData.comparisonMatrix} />
+        )}
+
+        {/* ═════════════════ TAB 3: KEY VERSES ═════════════════ */}
+        {activeTab === 'keyverses' && (
+          <KeyVersesTab language={language} isMobile={isMobile} keyVerses={extData.keyVerses} />
+        )}
+
+        {/* ═════════════════ TAB 4: SCHOLAR FRAMEWORKS ═════════════════ */}
+        {activeTab === 'frameworks' && <>
 
         {/* ───────────────── SECTION 3: CLASSICAL FRAMEWORKS ───────────────── */}
         <SectionHeader
@@ -541,6 +603,264 @@ export default function NefisMertebeleri({ onClose }) {
             ]}
           />
         </div>
+
+        </>}
+        {/* ═════════════════ END TAB 4 ═════════════════ */}
+
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab: Comparison Matrix ────────────────────────────────────────
+function ComparisonMatrixTab({ language, isMobile, matrix }) {
+  const tr = language === 'tr';
+  const { dimensions, rows, introTr, introEn, criticalNoteTr, criticalNoteEn } = matrix;
+  const [selectedDim, setSelectedDim] = useState('emotion');
+  const activeDim = dimensions.find(d => d.id === selectedDim);
+
+  return (
+    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 40px 80px' }}>
+      {/* Intro */}
+      <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
+        <p style={{
+          fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.72,
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
+        }}>
+          {tr ? "7 MERTEBE × 6 BOYUT KARŞILAŞTIRMA" : "7 STAGES × 6 DIMENSIONS COMPARISON"}
+        </p>
+        <p style={{
+          color: COLORS.offWhite, fontSize: '0.96rem', lineHeight: 1.75,
+          fontFamily: FONTS.body, margin: 0,
+        }}>{tr ? introTr : introEn}</p>
+      </div>
+
+      {/* Dimension selector */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '24px' }}>
+        {dimensions.map(d => (
+          <button key={d.id} onClick={() => setSelectedDim(d.id)}
+            style={{
+              padding: '10px 16px',
+              background: selectedDim === d.id ? `${d.color}22` : 'rgba(255,255,255,0.04)',
+              border: `1px solid ${selectedDim === d.id ? d.color : COLORS.glassBorderSoft}`,
+              color: selectedDim === d.id ? d.color : COLORS.silver,
+              fontSize: '0.78rem', fontWeight: 600, fontFamily: FONTS.body,
+              borderRadius: RADIUS.chip, cursor: 'pointer',
+              letterSpacing: '0.06em',
+            }}>
+            {tr ? d.labelTr : d.labelEn}
+          </button>
+        ))}
+      </div>
+
+      {/* Matrix — vertical list of stage cards, showing selected dimension */}
+      <div style={{
+        display: 'flex', flexDirection: 'column', gap: '10px',
+        maxWidth: '980px', margin: '0 auto',
+      }}>
+        {rows.map((row, i) => (
+          <div key={row.stageId} style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '220px 1fr',
+            gap: isMobile ? '10px' : '20px',
+            alignItems: 'stretch',
+            padding: isMobile ? '16px 14px' : '18px 22px',
+            background: `linear-gradient(90deg, ${row.colorHex}12 0%, rgba(255,255,255,0.03) 100%)`,
+            border: `1px solid ${row.colorHex}44`,
+            borderLeft: `4px solid ${row.colorHex}`,
+            borderRadius: RADIUS.md,
+          }}>
+            {/* Stage name + badge */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div style={{
+                fontFamily: FONTS.display, fontSize: '1.1rem',
+                color: row.colorHex, fontWeight: 700,
+              }}>
+                {tr ? row.nameTr : row.nameEn}
+              </div>
+              <span style={{
+                display: 'inline-block', width: 'fit-content',
+                padding: '3px 8px', fontSize: '0.62rem', fontWeight: 700,
+                letterSpacing: '0.14em', textTransform: 'uppercase',
+                background: row.isQuranic ? `${COLORS.gold}22` : 'rgba(148,163,184,0.15)',
+                color: row.isQuranic ? COLORS.gold : COLORS.silver,
+                border: `1px solid ${row.isQuranic ? COLORS.gold : COLORS.silver}55`,
+                borderRadius: '999px',
+                fontFamily: FONTS.body,
+              }}>
+                {row.isQuranic ? (tr ? "Kur'ânî" : "Qur'anic") : (tr ? "Tasavvufî" : "Sufi")}
+              </span>
+            </div>
+
+            {/* Value for selected dimension */}
+            <div style={{
+              padding: '10px 14px',
+              background: `${activeDim.color}0e`,
+              borderLeft: `2px solid ${activeDim.color}`,
+              borderRadius: '4px',
+            }}>
+              <div style={{
+                fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase',
+                color: activeDim.color, marginBottom: '4px', fontWeight: 700,
+                fontFamily: FONTS.body,
+              }}>{tr ? activeDim.labelTr : activeDim.labelEn}</div>
+              <div style={{
+                fontSize: '0.88rem', color: COLORS.offWhite,
+                lineHeight: 1.6, fontFamily: FONTS.body,
+              }}>
+                {tr ? row.values[selectedDim].tr : row.values[selectedDim].en}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Critical note */}
+      <div style={{
+        marginTop: '32px', maxWidth: '820px',
+        margin: '32px auto 0',
+        padding: '18px 20px',
+        background: 'rgba(231,76,60,0.06)',
+        borderLeft: '3px solid #e74c3c',
+        borderRadius: RADIUS.md,
+      }}>
+        <div style={{
+          fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+          color: '#e74c3c', fontWeight: 700, marginBottom: '8px',
+          fontFamily: FONTS.body,
+        }}>{tr ? "AKADEMİK NOT" : "ACADEMIC NOTE"}</div>
+        <p style={{
+          fontSize: '0.86rem', color: COLORS.offWhite,
+          lineHeight: 1.7, margin: 0, fontFamily: FONTS.body,
+        }}>{tr ? criticalNoteTr : criticalNoteEn}</p>
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab: Key Verses ────────────────────────────────────────────
+function KeyVersesTab({ language, isMobile, keyVerses }) {
+  const tr = language === 'tr';
+  const { verses, introTr, introEn, closingWhisperTr, closingWhisperEn } = keyVerses;
+
+  return (
+    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 40px 80px' }}>
+      {/* Intro */}
+      <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
+        <p style={{
+          fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.72,
+          fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
+        }}>
+          {tr ? "KUR'ÂN'IN ÜÇ KELİMESİ · ÜÇ SAHNE" : "THE QUR'AN'S THREE WORDS · THREE SCENES"}
+        </p>
+        <p style={{
+          color: COLORS.offWhite, fontSize: '0.96rem', lineHeight: 1.75,
+          fontFamily: FONTS.body, margin: 0,
+        }}>{tr ? introTr : introEn}</p>
+      </div>
+
+      {/* 3-column grid */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+        gap: isMobile ? '18px' : '20px',
+        maxWidth: '1240px', margin: '0 auto',
+      }}>
+        {verses.map(v => (
+          <div key={v.stageId} style={{
+            background: `linear-gradient(180deg, ${v.colorHex}12 0%, rgba(255,255,255,0.02) 100%)`,
+            border: `1px solid ${v.colorHex}55`,
+            borderRadius: RADIUS.lg,
+            padding: isMobile ? '22px 18px' : '26px 22px',
+            display: 'flex', flexDirection: 'column',
+            position: 'relative', overflow: 'hidden',
+          }}>
+            <div style={{
+              position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px',
+              background: `radial-gradient(circle, ${v.colorHex}22 0%, transparent 70%)`,
+              pointerEvents: 'none',
+            }} />
+
+            {/* Label */}
+            <div style={{
+              fontSize: '0.72rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+              color: v.colorHex, fontWeight: 700, marginBottom: '4px',
+              fontFamily: FONTS.body, position: 'relative',
+            }}>{tr ? v.labelTr : v.labelEn}</div>
+            <div style={{
+              fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+              marginBottom: '18px', letterSpacing: '0.06em',
+              fontFamily: FONTS.body, position: 'relative',
+            }}>{tr ? v.refTr : v.refEn}</div>
+
+            {/* Arabic verse */}
+            <div style={{
+              padding: '18px 16px', marginBottom: '14px',
+              background: 'rgba(0,0,0,0.35)',
+              border: `1px solid ${v.colorHex}33`,
+              borderRadius: RADIUS.md,
+              textAlign: 'right', position: 'relative',
+            }}>
+              <p dir="rtl" lang="ar" style={{
+                fontFamily: FONTS.quran,
+                fontSize: isMobile ? '1.25rem' : '1.35rem',
+                color: v.colorHex, lineHeight: 2, margin: 0,
+                textShadow: `0 0 12px ${v.colorHex}33`,
+              }}>{v.arabic}</p>
+            </div>
+
+            {/* Translation */}
+            <p style={{
+              fontFamily: FONTS.display, fontStyle: 'italic',
+              fontSize: '0.9rem', color: COLORS.offWhite,
+              lineHeight: 1.65, margin: '0 0 20px',
+              position: 'relative',
+            }}>"{tr ? v.translationTr : v.translationEn}"</p>
+
+            {/* Scene */}
+            <div style={{ marginBottom: '16px', position: 'relative' }}>
+              <div style={{
+                fontSize: '0.66rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+                color: v.colorHex, opacity: 0.72, marginBottom: '6px',
+                fontFamily: FONTS.body, fontWeight: 700,
+              }}>{tr ? "SAHNE" : "SCENE"}</div>
+              <p style={{
+                fontSize: '0.82rem', color: COLORS.offWhite,
+                lineHeight: 1.65, margin: 0, fontFamily: FONTS.body,
+              }}>{tr ? v.sceneTr : v.sceneEn}</p>
+            </div>
+
+            {/* Linguistic */}
+            <div style={{
+              padding: '12px 14px',
+              background: `${v.colorHex}0e`,
+              borderLeft: `2px solid ${v.colorHex}`,
+              borderRadius: '4px', position: 'relative', marginTop: 'auto',
+            }}>
+              <div style={{
+                fontSize: '0.66rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+                color: v.colorHex, marginBottom: '4px',
+                fontFamily: FONTS.body, fontWeight: 700,
+              }}>{tr ? "DİLBİLİM" : "LINGUISTICS"}</div>
+              <p style={{
+                fontSize: '0.8rem', color: COLORS.silver,
+                lineHeight: 1.6, margin: 0, fontFamily: FONTS.body,
+              }}>{tr ? v.linguisticTr : v.linguisticEn}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Closing whisper */}
+      <div style={{ marginTop: '48px', textAlign: 'center', maxWidth: '820px', margin: '48px auto 0' }}>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic',
+          fontSize: isMobile ? '1rem' : '1.15rem',
+          color: COLORS.gold, opacity: 0.85,
+          lineHeight: 1.75, margin: 0,
+        }}>{tr ? closingWhisperTr : closingWhisperEn}</p>
       </div>
     </div>
   );
