@@ -1601,7 +1601,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     for (const v of verses) {
       // Search only the active language field — prevents cross-language false positives
       const text = language === 'tr' ? (cleanTr(v.turkish) || '') : (v.english || '');
-      const surahName = SURAH_NAMES_TR[v.surah - 1] || '';
+      const surahName = surahNameOf(v.surah) || '';
       if (wordRe.test(normalizeText(text)) || normalizeText(surahName).includes(q)) {
         total++;
         if (hits.length < 60) hits.push(v);
@@ -1721,7 +1721,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const shareVerse = useCallback((verse) => {
     const arabic = cleanArabic(verse.arabic);
     const translation = getTranslation(verse);
-    const ref = `${SURAH_NAMES_TR[verse.surah - 1]} ${verse.surah}:${verse.ayah}`;
+    const ref = `${surahNameOf(verse.surah)} ${verse.surah}:${verse.ayah}`;
     const shareText = `${arabic}\n\n"${translation}"\n— ${ref}`;
     navigator.clipboard.writeText(shareText).then(() => {
       setCopiedVerseId(verse.id);
@@ -2210,7 +2210,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     chevronDisabled: 'rgba(255,255,255,0.15)',
   };
 
-  const surahName = SURAH_NAMES_TR[selectedSurah - 1] || `Sûre ${selectedSurah}`;
+  // Language-aware sûre ismi helper (2026-07-08 kullanıcı feedback):
+  // EN dilinde SURAH_NAMES_EN kullan, TR'de SURAH_NAMES_TR.
+  // 'sn' = 1-based surah number.
+  const surahNameOf = (sn) => (language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[sn - 1]
+    || (language === 'en' ? `Sūra ${sn}` : `Sûre ${sn}`);
+  const surahName = surahNameOf(selectedSurah);
 
   // Page navigation helpers
   const surahStartPage = SURAH_PAGES[selectedSurah - 1] ?? 1;
@@ -3522,7 +3527,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             // Shared: render a standard surah row (used in both modes)
             const renderSurahRow = (surah) => {
-              const name = SURAH_NAMES_TR[surah - 1];
+              const name = surahNameOf(surah);
               const nameAr = SURAH_NAMES_AR[surah - 1];
               const ayahCount = SURAH_AYAH_COUNTS[surah - 1];
               const isPicked = surah === pickerSelectedSurah;
@@ -3596,7 +3601,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
                       <span style={{ fontSize: '0.8rem', color: gold, fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        {lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}
+                        {lastRead.surah}. {surahNameOf(lastRead.surah)}
                       </span>
                       <span style={{ fontSize: '0.68rem', color: dropC.textMuted, whiteSpace: 'nowrap', flexShrink: 0 }}>
                         s.{lastRead.page}
@@ -3705,8 +3710,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={srLabel}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
-                      <span style={srMain}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
-                      <span style={srSub}>s.{lastRead.page}</span>
+                      <span style={srMain}>{lastRead.surah}. {surahNameOf(lastRead.surah)}</span>
+                      <span style={srSub}>{language === 'en' ? 'p.' : 's.'}{lastRead.page}</span>
                     </div>
                     {arrowIcon}
                   </button>
@@ -3733,7 +3738,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <div style={{ flex: 1 }}>
                       <div style={srLabel}>{language === 'tr' ? 'Ayete Git' : 'Go to Verse'}</div>
                       <span style={srMain}>
-                        {SURAH_NAMES_TR[verseJump.surah - 1]} {verseJump.surah}:{verseJump.ayah}
+                        {surahNameOf(verseJump.surah)} {verseJump.surah}:{verseJump.ayah}
                       </span>
                     </div>
                     {arrowIcon}
@@ -3755,7 +3760,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <div style={{ flex: 1 }}>
                       <div style={srLabel}>{language === 'tr' ? 'Sayfa' : 'Page'}</div>
                       <span style={srMain}>{num}. {language === 'tr' ? 'Sayfa' : 'Page'}</span>
-                      <span style={srSub}>{SURAH_NAMES_TR[surahAtPage(num) - 1]}</span>
+                      <span style={srSub}>{surahNameOf(surahAtPage(num))}</span>
                     </div>
                     {arrowIcon}
                   </button>
@@ -4584,7 +4589,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                   >
                     <div style={{ color: isHere ? gold : dropC.text, fontSize: '0.8rem', fontWeight: 600, marginBottom: '2px' }}>
-                      {SURAH_NAMES_TR[bm.surah - 1]} · {language === 'tr' ? `Sayfa ${bm.page}` : `Page ${bm.page}`}
+                      {surahNameOf(bm.surah)} · {language === 'tr' ? `Sayfa ${bm.page}` : `Page ${bm.page}`}
                     </div>
                     <div style={{ color: dropC.textMuted, fontSize: '0.65rem' }}>{ago}</div>
                   </button>
@@ -5059,7 +5064,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               // Surah row renderer — mirrors the dropdown's surah row visually
               const renderSurahRow = (surah) => {
-                const name = SURAH_NAMES_TR[surah - 1];
+                const name = surahNameOf(surah);
                 const nameAr = SURAH_NAMES_AR[surah - 1];
                 const ayahCount = SURAH_AYAH_COUNTS[surah - 1];
                 const isActive = surah === selectedSurah;
@@ -5152,7 +5157,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           (user audit: "çok baskın görünüyor"). srMain'in defaultu
                           gold/600 olduğu için color + weight override ediyoruz. */}
                       <span style={{ ...srMain, fontSize: '0.85rem', color: textCol, fontWeight: 600 }}>
-                        {lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}
+                        {lastRead.surah}. {surahNameOf(lastRead.surah)}
                       </span>
                       <span style={{ ...srSub, marginLeft: 0 }}>
                         {/* page <= 0 (henüz scroll edilmemiş yeni session) → "Açılış" / "Start".
@@ -5192,7 +5197,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={srLabel}>{language === 'tr' ? 'Ayet' : 'Verse'}</div>
-                    <span style={srMain}>{SURAH_NAMES_TR[verseHit.surah - 1]} {verseHit.surah}:{verseHit.ayah}</span>
+                    <span style={srMain}>{surahNameOf(verseHit.surah)} {verseHit.surah}:{verseHit.ayah}</span>
                     <span style={srSub}>
                       {language === 'tr'
                         ? `${verseHit.ayah}. ayet · ${SURAH_AYAH_COUNTS[verseHit.surah - 1]} ayet`
@@ -5218,7 +5223,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={srLabel}>{language === 'tr' ? 'Sayfa' : 'Page'}</div>
                     <span style={srMain}>{num}. {language === 'tr' ? 'Sayfa' : 'Page'}</span>
-                    <span style={srSub}>{SURAH_NAMES_TR[surahAtPage(num) - 1]}</span>
+                    <span style={srSub}>{surahNameOf(surahAtPage(num))}</span>
                   </div>
                   {arrowIcon}
                 </button>
