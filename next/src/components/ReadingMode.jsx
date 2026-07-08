@@ -2792,10 +2792,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               >
-                {/* Kompakt tek satır (2026-07-08 kullanıcı feedback: font + genişlik daralt).
-                    'N. name' + ▼ chevron — Cüz/Sayfa chip'leriyle harmonik. */}
+                {/* Parallelism: label + value (Cüz/Sayfa formatıyla eşleşir) */}
+                <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
+                </span>
                 <span style={{ fontSize: '0.78rem', color: gold, fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap' }}>
-                  {selectedSurah}. {surahName}
+                  {surahName}
                 </span>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
                   <polyline points="6 9 12 15 18 9"/>
@@ -2863,10 +2865,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       çok doluydu). Hizb bilgisi + seçici Cüz picker dropdown'unun
                       içine gömüldü — ikinci katmandan erişilebilir. */}
 
-                  {/* SAYFA — prev arrow + picker chip + next arrow (2026-07-08 kullanıcı
-                      feedback: arrow'lar belirgin değildi + page picker de olsa). Arrow
-                      boyutları 26 → 32 büyütüldü + gold accent hover. Chip tıklanabilir picker. */}
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  {/* SAYFA — birleşik segmented pill (2026-07-08 kullanıcı feedback:
+                      arrow'ları SAYFA chip'ine göm, tek connected unit gibi görünsün).
+                      Kindle/iBooks pattern: [◀ | SAYFA X | ▶] tek border, iç divider'lar. */}
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'stretch',
+                    height: '30px',
+                    borderRadius: RADIUS.md,
+                    border: `1px solid ${navC.btnBorderActive}`,
+                    background: navC.btnBgActive,
+                    overflow: 'hidden',
+                  }}>
                     <button
                       onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
                       disabled={currentPage <= 0}
@@ -2874,18 +2883,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        width: '30px', height: '30px', padding: 0, borderRadius: RADIUS.md,
-                        border: `1px solid ${currentPage > 0 ? navC.btnBorderActive : 'transparent'}`,
-                        background: currentPage > 0 ? navC.btnBg : 'transparent',
+                        width: '28px', padding: 0, border: 'none',
+                        borderRight: `1px solid ${navC.btnBorderActive}`,
+                        background: 'transparent',
                         cursor: currentPage > 0 ? 'pointer' : 'default',
-                        opacity: currentPage > 0 ? 1 : 0.28,
+                        opacity: currentPage > 0 ? 0.9 : 0.28,
                         color: currentPage > 0 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; }}}
-                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; }}}
+                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
                     >
-                      <ChevronLeft size={16} />
+                      <ChevronLeft size={14} />
                     </button>
                     <button
                       onClick={() => { setShowPagePicker(p => !p); setShowJuzPicker(false); setShowHizbPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
@@ -2893,11 +2902,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? `Sayfa seçici — Şu an: ${currentPage}` : `Page picker — Current: ${currentPage}`}
                       aria-expanded={showPagePicker}
                       style={{
-                        padding: '4px 10px',
-                        height: '30px',
-                        borderRadius: RADIUS.md,
-                        border: `1px solid ${navC.btnBorderActive}`,
-                        background: navC.btnBgActive,
+                        padding: '0 12px',
+                        border: 'none',
+                        background: 'transparent',
                         fontSize: '0.72rem',
                         display: 'inline-flex', alignItems: 'center', gap: '5px',
                         userSelect: 'none',
@@ -2905,8 +2912,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         fontFamily: 'inherit',
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                     >
                       <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                         {language === 'tr' ? 'Sayfa' : 'Page'}
@@ -2929,18 +2936,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        width: '30px', height: '30px', padding: 0, borderRadius: RADIUS.md,
-                        border: `1px solid ${currentPage < 604 ? navC.btnBorderActive : 'transparent'}`,
-                        background: currentPage < 604 ? navC.btnBg : 'transparent',
+                        width: '28px', padding: 0, border: 'none',
+                        borderLeft: `1px solid ${navC.btnBorderActive}`,
+                        background: 'transparent',
                         cursor: currentPage < 604 ? 'pointer' : 'default',
-                        opacity: currentPage < 604 ? 1 : 0.28,
+                        opacity: currentPage < 604 ? 0.9 : 0.28,
                         color: currentPage < 604 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; }}}
-                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; }}}
+                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
                     >
-                      <ChevronRight size={16} />
+                      <ChevronRight size={14} />
                     </button>
                   </span>
 
@@ -3051,7 +3058,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       letterSpacing: '0.01em',
                       fontWeight: 400,
                     }}>
-                      {language === 'tr' ? 'Sure, sayfa veya ayet ara…' : 'Search surah, page or verse…'}
+                      {language === 'tr' ? 'Sûre, sayfa veya ayet ara…' : 'Search surah, page or verse…'}
                     </span>
                     <kbd style={{
                       fontSize: '0.62rem',
