@@ -2801,6 +2801,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {!isMobile && currentPage >= 0 && (
                 <span style={{
                   marginLeft: '14px',
+                  marginRight: '24px',
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
                   fontSize: '0.72rem',
                   color: dayMode ? 'rgba(80,50,20,0.95)' : 'rgba(200,185,165,0.90)',
