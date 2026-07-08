@@ -2724,7 +2724,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   aria-label={language === 'tr' ? 'Ana sayfa' : 'Home'}
                   style={{
                     background: 'transparent', border: 'none', cursor: 'pointer',
-                    padding: '4px 10px', marginRight: '6px',
+                    padding: '4px 6px', marginRight: '4px',
                     display: 'flex', alignItems: 'center', gap: '8px',
                     // Button-level opacity image'ı da yutar (CSS inherits). Bu
                     // yüzden text'e opacity manuel veriyoruz, button transparan.
@@ -2763,6 +2763,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                 </button>
               )}
+              {/* Brand-to-context divider — 'brand | context' hiyerarşi (2026-07-08 polish) */}
+              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.35, margin: '0 8px 0 4px', flexShrink: 0 }} />}
+
               {/* SÛRE ◀ ▶ prev/next arrow'ları kaldırıldı (2026-07-07 kullanıcı
                   onayı): (a) sayfa navigasyonu zaten sûreler arası doğal geçiş
                   sağlıyor, (b) tıklanabilir pill + ▼ tam liste picker sunuyor,
@@ -3125,7 +3128,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
                     style={{
                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      height: '100%', padding: '0 10px', gap: '3px',
+                      height: '100%', padding: '0 8px', gap: '3px',
                       background: 'transparent', border: 'none', cursor: 'pointer',
                     }}
                   >
@@ -3146,11 +3149,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     title={language === 'tr' ? 'Çevirmen değiştir' : 'Change translator'}
                     style={{
                       display: 'flex', alignItems: 'center', gap: '4px',
-                      height: '100%', padding: '0 10px',
+                      height: '100%', padding: '0 8px',
                       background: 'transparent', border: 'none', cursor: 'pointer',
                     }}
                   >
-                    <span style={{ fontSize: '0.68rem', color: gold, fontWeight: 600, whiteSpace: 'nowrap', maxWidth: '70px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    <span style={{ fontSize: '0.66rem', color: gold, fontWeight: 600, whiteSpace: 'nowrap', maxWidth: '54px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       {selectedMealAuthor.shortLabel}
                     </span>
                     <span style={{ fontSize: '0.55rem', color: navC.label, transform: showMealPicker ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.15s', lineHeight: 1 }}>▾</span>
