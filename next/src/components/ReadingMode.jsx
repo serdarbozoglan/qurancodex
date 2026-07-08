@@ -1004,6 +1004,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return true; }
   });
   const [showSurahPicker, setShowSurahPicker] = useState(false);
+  // Cüz + Hizb + Sayfa picker state (2026-07-08 kullanıcı feedback: dropdown ile seçilebilir olsun).
+  const [showJuzPicker, setShowJuzPicker] = useState(false);
+  const [showHizbPicker, setShowHizbPicker] = useState(false);
+  const [showPagePicker, setShowPagePicker] = useState(false);
   const [reciterIdx, setReciterIdx] = useState(() => {
     try { return parseInt(localStorage.getItem('qurancodex_reciter_idx') || '0', 10); }
     catch { return 0; }
@@ -1357,7 +1361,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const containerRef = useRef(null);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
-  overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker, compareVerse };
+  overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showJuzPicker, showHizbPicker, showPagePicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker, compareVerse };
 
   // Tahta canvas — sized to the scroll container's full content height so
   // drawings can be placed at any verse position; fixed-positioned with a
@@ -1486,13 +1490,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     ]);
   };
 
-  const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showBookmarks || showFontPicker || showSettingsPicker || showViewPicker;
+  const anyMenuOpen = showSearch || showMealPicker || showReciterPicker || showSurahPicker || showJuzPicker || showHizbPicker || showPagePicker || showBookmarks || showFontPicker || showSettingsPicker || showViewPicker;
 
   const closeAllMenus = () => {
     setShowSearch(false); setSearchQuery('');
     setShowMealPicker(false);
     setShowReciterPicker(false);
     setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput('');
+    setShowJuzPicker(false);
+    setShowHizbPicker(false);
+    setShowPagePicker(false);
     setShowBookmarks(false);
     setShowFontPicker(false);
     setShowSettingsPicker(false);
@@ -1675,6 +1682,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       if (s.showMealPicker)    { setShowMealPicker(false); return; }
       if (s.showReciterPicker) { setShowReciterPicker(false); return; }
       if (s.showSurahPicker)   { setShowSurahPicker(false); setSurahSearch(''); setPickerSelectedSurah(null); setPickerVerseInput(''); return; }
+      if (s.showJuzPicker)     { setShowJuzPicker(false); return; }
+      if (s.showHizbPicker)    { setShowHizbPicker(false); return; }
+      if (s.showPagePicker)    { setShowPagePicker(false); return; }
       if (s.showBookmarks)     { setShowBookmarks(false); return; }
       if (s.showFontPicker)        { setShowFontPicker(false); return; }
       if (s.showSettingsPicker)    { setShowSettingsPicker(false); return; }
@@ -2068,6 +2078,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const verse = surahVerses.find(v => v.ayah >= ayah);
       if (verse) handleSelectVerse(verse);
     }
+  };
+
+  // Hizb: HIZB_PAGES[1..60] doğrudan sayfa numaralarını verir.
+  // Cüz'e paralel — sûre lookup gerekmez, exact page jump yeter.
+  const jumpToHizb = (hizb) => {
+    if (hizb < 1 || hizb > 60) return;
+    navigateToPage(HIZB_PAGES[hizb]);
   };
 
   const navigateToPickerSurahVerse = () => {
@@ -2758,16 +2775,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   header above (avoids duplication in the scrollable chip row). */}
               {!isMobile && (
               <button
-                onClick={() => { setShowSurahPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                onClick={() => { setShowSurahPicker(p => !p); setShowJuzPicker(false); setShowHizbPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                 title={language === 'tr' ? 'Sûre seçici' : 'Surah picker'}
                 aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}
                 aria-expanded={showSurahPicker}
                 style={{
                   display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-                  height: '44px', padding: '0 14px 0 12px', borderRadius: RADIUS.md,
-                  border: `1px solid ${showSurahPicker ? navC.btnBorderActive : navC.btnBorderActive}`,
-                  background: showSurahPicker ? navC.btnBgActive : navC.btnBgActive,
-                  gap: '10px', flexShrink: 0,
+                  height: '32px', padding: '0 12px', borderRadius: RADIUS.md,
+                  border: `1px solid ${navC.btnBorderActive}`,
+                  background: navC.btnBgActive,
+                  gap: '8px', flexShrink: 0,
                   cursor: 'pointer',
                   userSelect: 'none',
                   transition: `all ${TRANSITION.fast}`,
@@ -2775,14 +2792,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               >
-                <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
-                  <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                    {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
-                    {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
-                  </span>
-                  <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
-                    {surahName}
-                  </span>
+                {/* Kompakt tek satır (2026-07-08 kullanıcı feedback):
+                    'N. name' + ▼ chevron. Ayet count kaldırıldı — Cüz/Hizb/Sayfa
+                    ile tek satır standart görünüm. */}
+                <span style={{ fontSize: '0.88rem', color: gold, fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap' }}>
+                  {selectedSurah}. {surahName}
                 </span>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
                   <polyline points="6 9 12 15 18 9"/>
@@ -2817,31 +2831,57 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
                 }}>
-                  <span
-                    title={language === 'tr'
-                      ? "Cüz: Kur'an'ın 30 eşit bölümünden biri (≈20 sayfa). Ramazan'da her gün bir cüz okunarak hatim tamamlanır."
-                      : "Juz: One of the 30 equal divisions of the Qur'an (~20 pages). Reading one a day completes the Qur'an in Ramadan."}
-                    style={{ cursor: 'help' }}
+                  {/* CÜZ picker button (2026-07-08 kullanıcı feedback: dropdown) */}
+                  <button
+                    onClick={() => { setShowJuzPicker(p => !p); setShowHizbPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                    title={language === 'tr' ? 'Cüz seçici' : 'Juz picker'}
+                    aria-label={language === 'tr' ? `Cüz seçici — Şu an: Cüz ${currentDisplayJuz}` : `Juz picker — Current: Juz ${currentDisplayJuz}`}
+                    aria-expanded={showJuzPicker}
+                    style={{
+                      background: 'transparent', border: 'none',
+                      padding: '2px 4px', cursor: 'pointer',
+                      display: 'inline-flex', alignItems: 'center', gap: '3px',
+                      color: 'inherit', fontFamily: 'inherit', fontSize: 'inherit',
+                      letterSpacing: 'inherit',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                   >
                     {language === 'tr' ? 'Cüz ' : 'Juz '}
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
-                  </span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showJuzPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </button>
                   <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
-                  <span
-                    title={language === 'tr'
-                      ? 'Hizb: Cüzün yarısı (≈10 sayfa). Her cüz 2 hizbe bölünür; toplam 60 hizb vardır.'
-                      : 'Hizb: Half of a juz (~10 pages). Each juz contains 2 hizbs; 60 in total.'}
-                    style={{ cursor: 'help' }}
+                  {/* HIZB picker button */}
+                  <button
+                    onClick={() => { setShowHizbPicker(p => !p); setShowJuzPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                    title={language === 'tr' ? 'Hizb seçici' : 'Hizb picker'}
+                    aria-label={language === 'tr' ? `Hizb seçici — Şu an: Hizb ${currentDisplayHizb}` : `Hizb picker — Current: Hizb ${currentDisplayHizb}`}
+                    aria-expanded={showHizbPicker}
+                    style={{
+                      background: 'transparent', border: 'none',
+                      padding: '2px 4px', cursor: 'pointer',
+                      display: 'inline-flex', alignItems: 'center', gap: '3px',
+                      color: 'inherit', fontFamily: 'inherit', fontSize: 'inherit',
+                      letterSpacing: 'inherit',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
                   >
                     {language === 'tr' ? 'Hizb ' : 'Hizb '}
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
-                  </span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showHizbPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </button>
                   <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
 
-                  {/* SAYFA — interaktif prev/next arrows (Dalga 2026-07-07 kullanıcı feedback).
-                      Fatiha (page 0 = 'Açılış') dahil TÜM sayfalarda render — Fatiha'da
-                      prev disabled, next enabled (kullanıcı Fatiha'dan Bakara'ya çıkabilir). */}
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  {/* SAYFA — prev arrow + picker chip + next arrow (2026-07-08 kullanıcı
+                      feedback: arrow'lar belirgin değildi + page picker de olsa). Arrow
+                      boyutları 26 → 32 büyütüldü + gold accent hover. Chip tıklanabilir picker. */}
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     <button
                       onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
                       disabled={currentPage <= 0}
@@ -2849,30 +2889,41 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
-                        border: `1px solid ${currentPage > 0 ? navC.btnBorder : 'transparent'}`,
+                        width: '30px', height: '30px', padding: 0, borderRadius: RADIUS.md,
+                        border: `1px solid ${currentPage > 0 ? navC.btnBorderActive : 'transparent'}`,
                         background: currentPage > 0 ? navC.btnBg : 'transparent',
                         cursor: currentPage > 0 ? 'pointer' : 'default',
-                        opacity: currentPage > 0 ? 0.82 : 0.3,
-                        color: navC.chevron,
+                        opacity: currentPage > 0 ? 1 : 0.28,
+                        color: currentPage > 0 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
-                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; }}}
+                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; }}}
                     >
-                      <ChevronLeft size={13} />
+                      <ChevronLeft size={16} />
                     </button>
-                    <span style={{
-                      padding: '2px 10px',
-                      borderRadius: RADIUS.sm,
-                      border: `1px solid ${navC.btnBorderActive}`,
-                      background: navC.btnBgActive,
-                      fontSize: '0.72rem',
-                      display: 'inline-flex', alignItems: 'center', gap: '4px',
-                      userSelect: 'none',
-                      cursor: 'default',
-                    }}>
-                      <span style={{ color: navC.labelSoft, fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                    <button
+                      onClick={() => { setShowPagePicker(p => !p); setShowJuzPicker(false); setShowHizbPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                      title={language === 'tr' ? 'Sayfa seçici' : 'Page picker'}
+                      aria-label={language === 'tr' ? `Sayfa seçici — Şu an: ${currentPage}` : `Page picker — Current: ${currentPage}`}
+                      aria-expanded={showPagePicker}
+                      style={{
+                        padding: '4px 10px',
+                        height: '30px',
+                        borderRadius: RADIUS.md,
+                        border: `1px solid ${navC.btnBorderActive}`,
+                        background: navC.btnBgActive,
+                        fontSize: '0.72rem',
+                        display: 'inline-flex', alignItems: 'center', gap: '5px',
+                        userSelect: 'none',
+                        cursor: 'pointer',
+                        fontFamily: 'inherit',
+                        transition: `all ${TRANSITION.fast}`,
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                    >
+                      <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                         {language === 'tr' ? 'Sayfa' : 'Page'}
                       </span>
                       <span style={{ color: gold, fontWeight: 700 }}>
@@ -2882,7 +2933,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               ? `${currentPage}–${currentPage + 1}`
                               : currentPage)}
                       </span>
-                    </span>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showPagePicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                        <polyline points="6 9 12 15 18 9"/>
+                      </svg>
+                    </button>
                     <button
                       onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
                       disabled={currentPage >= 604}
@@ -2890,18 +2944,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
-                        border: `1px solid ${currentPage < 604 ? navC.btnBorder : 'transparent'}`,
+                        width: '30px', height: '30px', padding: 0, borderRadius: RADIUS.md,
+                        border: `1px solid ${currentPage < 604 ? navC.btnBorderActive : 'transparent'}`,
                         background: currentPage < 604 ? navC.btnBg : 'transparent',
                         cursor: currentPage < 604 ? 'pointer' : 'default',
-                        opacity: currentPage < 604 ? 0.82 : 0.3,
-                        color: navC.chevron,
+                        opacity: currentPage < 604 ? 1 : 0.28,
+                        color: currentPage < 604 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
-                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; }}}
+                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; }}}
                     >
-                      <ChevronRight size={13} />
+                      <ChevronRight size={16} />
                     </button>
                   </span>
 
@@ -4530,6 +4584,189 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
               >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ═══ CÜZ PICKER (2026-07-08 kullanıcı feedback: dropdown) ═══ */}
+      {showJuzPicker && (
+        <div style={{
+          position: 'absolute',
+          top: isMobile ? '52px' : '54px',
+          left: isMobile ? '8px' : '250px',
+          zIndex: 260,
+          background: dropC.bg, backdropFilter: 'blur(20px)',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
+          width: isMobile ? 'calc(100vw - 16px)' : '280px',
+          maxWidth: '320px', boxShadow: dropC.shadow,
+          padding: '10px 12px',
+        }}>
+          <div style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 700 }}>
+            {language === 'tr' ? 'Cüz Seç · 1–30' : 'Select Juz · 1–30'}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '4px' }}>
+            {Array.from({ length: 30 }, (_, i) => i + 1).map(j => {
+              const active = j === currentDisplayJuz;
+              return (
+                <button
+                  key={j}
+                  onClick={() => { jumpToJuz(j); setShowJuzPicker(false); }}
+                  style={{
+                    padding: '8px 0', borderRadius: RADIUS.sm,
+                    border: `1px solid ${active ? gold : dropC.divider}`,
+                    background: active ? `${gold}22` : 'transparent',
+                    color: active ? gold : dropC.text,
+                    fontSize: '0.78rem', fontWeight: active ? 700 : 500,
+                    cursor: 'pointer', fontFamily: FONTS.body,
+                    transition: 'all 0.15s',
+                  }}
+                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.borderColor = gold; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = dropC.divider; }}}
+                >
+                  {j}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ fontSize: '0.65rem', color: dropC.textMuted, marginTop: '10px', lineHeight: 1.5 }}>
+            {language === 'tr'
+              ? "Kur'an'ın 30 eşit bölümü. Her cüz ≈ 20 sayfa."
+              : "The Qur'an's 30 equal divisions. Each juz ≈ 20 pages."}
+          </div>
+        </div>
+      )}
+
+      {/* ═══ HİZB PICKER ═══ */}
+      {showHizbPicker && (
+        <div style={{
+          position: 'absolute',
+          top: isMobile ? '52px' : '54px',
+          left: isMobile ? '8px' : '280px',
+          zIndex: 260,
+          background: dropC.bg, backdropFilter: 'blur(20px)',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
+          width: isMobile ? 'calc(100vw - 16px)' : '320px',
+          maxWidth: '360px', boxShadow: dropC.shadow,
+          padding: '10px 12px',
+        }}>
+          <div style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 700 }}>
+            {language === 'tr' ? 'Hizb Seç · 1–60' : 'Select Hizb · 1–60'}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '3px', maxHeight: '260px', overflowY: 'auto' }}>
+            {Array.from({ length: 60 }, (_, i) => i + 1).map(h => {
+              const active = h === currentDisplayHizb;
+              return (
+                <button
+                  key={h}
+                  onClick={() => { jumpToHizb(h); setShowHizbPicker(false); }}
+                  style={{
+                    padding: '6px 0', borderRadius: RADIUS.sm,
+                    border: `1px solid ${active ? gold : dropC.divider}`,
+                    background: active ? `${gold}22` : 'transparent',
+                    color: active ? gold : dropC.text,
+                    fontSize: '0.68rem', fontWeight: active ? 700 : 500,
+                    cursor: 'pointer', fontFamily: FONTS.body,
+                    transition: 'all 0.15s',
+                  }}
+                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.borderColor = gold; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = dropC.divider; }}}
+                >
+                  {h}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ fontSize: '0.65rem', color: dropC.textMuted, marginTop: '10px', lineHeight: 1.5 }}>
+            {language === 'tr'
+              ? "Cüzün yarısı ≈ 10 sayfa. 30 cüz × 2 = 60 hizb."
+              : "Half of a juz ≈ 10 pages. 30 juz × 2 = 60 hizb."}
+          </div>
+        </div>
+      )}
+
+      {/* ═══ SAYFA PICKER ═══ */}
+      {showPagePicker && (
+        <div style={{
+          position: 'absolute',
+          top: isMobile ? '52px' : '54px',
+          left: isMobile ? '8px' : '360px',
+          zIndex: 260,
+          background: dropC.bg, backdropFilter: 'blur(20px)',
+          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
+          width: isMobile ? 'calc(100vw - 16px)' : '260px',
+          boxShadow: dropC.shadow,
+          padding: '12px 14px',
+        }}>
+          <div style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 700 }}>
+            {language === 'tr' ? 'Sayfa Seç · 1–604' : 'Select Page · 1–604'}
+          </div>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              const val = parseInt(pageInputValue, 10);
+              if (!isNaN(val) && val >= 0 && val <= 604) {
+                navigateToPage(val);
+                setShowPagePicker(false);
+                setPageInputValue('');
+              }
+            }}
+            style={{ display: 'flex', gap: '6px', marginBottom: '10px' }}
+          >
+            <input
+              type="number"
+              min="1"
+              max="604"
+              value={pageInputValue}
+              onChange={e => setPageInputValue(e.target.value)}
+              placeholder={String(currentPage || 1)}
+              autoFocus
+              style={{
+                flex: 1, padding: '8px 10px',
+                borderRadius: RADIUS.sm,
+                border: `1px solid ${dropC.divider}`,
+                background: 'rgba(255,255,255,0.03)',
+                color: dropC.text, fontSize: '0.85rem',
+                fontFamily: FONTS.body, outline: 'none',
+              }}
+              onFocus={e => e.currentTarget.style.borderColor = gold}
+              onBlur={e => e.currentTarget.style.borderColor = dropC.divider}
+            />
+            <button
+              type="submit"
+              style={{
+                padding: '0 14px', height: '34px',
+                borderRadius: RADIUS.sm,
+                border: `1px solid ${gold}55`,
+                background: `${gold}22`,
+                color: gold, fontSize: '0.75rem', fontWeight: 700,
+                cursor: 'pointer', fontFamily: FONTS.body,
+              }}
+            >
+              {language === 'tr' ? 'Git' : 'Go'}
+            </button>
+          </form>
+          <div style={{ fontSize: '0.68rem', color: dropC.textMuted, marginBottom: '8px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            {language === 'tr' ? 'Hızlı Sıçrama' : 'Quick Jump'}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '4px' }}>
+            {[1, 50, 100, 200, 300, 400, 500, 604].map(p => (
+              <button
+                key={p}
+                onClick={() => { navigateToPage(p); setShowPagePicker(false); }}
+                style={{
+                  padding: '6px 0', borderRadius: RADIUS.sm,
+                  border: `1px solid ${dropC.divider}`,
+                  background: 'transparent',
+                  color: dropC.text, fontSize: '0.72rem',
+                  cursor: 'pointer', fontFamily: FONTS.body,
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.borderColor = gold; e.currentTarget.style.color = gold; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = dropC.divider; e.currentTarget.style.color = dropC.text; }}
+              >
+                {p}
+              </button>
+            ))}
           </div>
         </div>
       )}
