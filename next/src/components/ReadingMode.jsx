@@ -3624,12 +3624,43 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // Normalize query for name matching (strip apostrophes, hyphens, diacritics)
             const qNorm = normalizeText(q).replace(/['\u2019\u02bc`-]/g, '');
 
-            // Collect surah name/number matches
+            // ── VERSE REFERENCE PATTERN (Dalga 2026-07-07: bakara:5 desteği) ──
+            // Kabul edilen formatlar: "2:5" · "bakara:5" · "bakara 5" · "al-baqara:5"
+            let verseJump = null;
+            const numRefMatch = q.match(/^(\d+)\s*:\s*(\d+)$/);
+            if (numRefMatch) {
+              const s = parseInt(numRefMatch[1], 10);
+              const a = parseInt(numRefMatch[2], 10);
+              if (s >= 1 && s <= 114 && a > 0) {
+                verseJump = { surah: s, ayah: a };
+              }
+            } else {
+              // "bakara:5" · "bakara 5" — name + separator + verse
+              const nameRefMatch = q.match(/^([A-Za-z\u00c0-\u024f\u1e00-\u1eff\s'\u2019\u02bc\-]+?)\s*[:\s]\s*(\d+)$/);
+              if (nameRefMatch) {
+                const namePart = normalizeText(nameRefMatch[1].trim()).replace(/['\u2019\u02bc`-]/g, '');
+                const ayahNum = parseInt(nameRefMatch[2], 10);
+                if (namePart.length >= 2 && !isNaN(ayahNum) && ayahNum > 0) {
+                  for (let i = 0; i < 114; i++) {
+                    const trN = normalizeText(SURAH_NAMES_TR[i]).replace(/['\u2019\u02bc`-]/g, '');
+                    const enN = normalizeText(SURAH_NAMES_EN[i] || '').replace(/['\u2019\u02bc`-]/g, '');
+                    if (trN.includes(namePart) || enN.includes(namePart)) {
+                      verseJump = { surah: i + 1, ayah: ayahNum };
+                      break;
+                    }
+                  }
+                }
+              }
+            }
+
+            // Collect surah name/number matches — hem TR hem EN (Dalga 2026-07-07)
             const surahMatches = [];
             SURAH_NAMES_TR.forEach((name, i) => {
               const surah = i + 1;
-              const nameNorm = normalizeText(name).replace(/['\u2019\u02bc`-]/g, '');
-              if ((isNum && surah === num) || (qNorm.length >= 1 && nameNorm.includes(qNorm))) {
+              const nameTrNorm = normalizeText(name).replace(/['\u2019\u02bc`-]/g, '');
+              const nameEnNorm = normalizeText(SURAH_NAMES_EN[i] || '').replace(/['\u2019\u02bc`-]/g, '');
+              if ((isNum && surah === num)
+                  || (qNorm.length >= 1 && (nameTrNorm.includes(qNorm) || nameEnNorm.includes(qNorm)))) {
                 surahMatches.push(surah);
               }
             });
@@ -3673,6 +3704,34 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       <div style={srLabel}>{language === 'tr' ? 'Son Okunan' : 'Last Read'}</div>
                       <span style={srMain}>{lastRead.surah}. {SURAH_NAMES_TR[lastRead.surah - 1]}</span>
                       <span style={srSub}>s.{lastRead.page}</span>
+                    </div>
+                    {arrowIcon}
+                  </button>
+                )}
+
+                {/* 1b. Verse jump — bakara:5, 2:5, al-baqara 5 (Dalga 2026-07-07) */}
+                {verseJump && (
+                  <button key="verse"
+                    onClick={() => {
+                      const s = verseJump.surah;
+                      const targetPage = SURAH_PAGES[s - 1] || 1;
+                      if (s !== selectedSurah) { changeSurah(s); setBookPage(targetPage); }
+                      else navigateToPage(targetPage);
+                      setShowSurahPicker(false); setSurahSearch('');
+                    }}
+                    style={{ ...srRow, background: `${gold}0e` }} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
+                  >
+                    <div style={srIcon}>
+                      <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 2h14v16l-7-5-7 5V2z" fill={gold} fillOpacity="0.18" stroke={gold} strokeWidth="1.4" strokeLinejoin="round"/>
+                        <text x="10" y="12" textAnchor="middle" fontSize="7" fontWeight="700" fill={gold} fontFamily="Inter,sans-serif">A</text>
+                      </svg>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={srLabel}>{language === 'tr' ? 'Ayete Git' : 'Go to Verse'}</div>
+                      <span style={srMain}>
+                        {SURAH_NAMES_TR[verseJump.surah - 1]} {verseJump.surah}:{verseJump.ayah}
+                      </span>
                     </div>
                     {arrowIcon}
                   </button>
