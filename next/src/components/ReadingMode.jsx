@@ -3085,12 +3085,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
                   title={language === 'tr' ? 'Kelime modu — her kelimenin anlamı' : 'Word mode — per-word meaning'}
                 >
-                  <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {/* KELİME icon — 'text/typography' Aa (line-art SVG, sibling'lerle uniform) */}
-                    <svg width={isMobile ? 15 : 17} height={isMobile ? 15 : 17} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M4 18L7 8l3 10M5 15h4"/>
-                      <path d="M14 12c1.5 -1.5 4 -1.5 4 1v5M18 14c-3 0 -4 1 -4 2.5s1 1.5 2 1.5s2 -1 2 -2"/>
-                    </svg>
+                  <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
+                    ك
                   </span>
                   <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                     {language === 'tr' ? 'Kelime' : 'Word'}
@@ -3114,14 +3110,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseLeave={e => { e.currentTarget.style.background = (showTranslation || showMealPicker) ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = (showTranslation || showMealPicker) ? navC.btnBorderActive : navC.btnBorder; }}
                 title={language === 'tr' ? `Meal — ${selectedMealAuthor.shortLabel}` : `Meaning — ${selectedMealAuthor.shortLabel}`}
               >
-                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {/* MEAL icon — 'translation' (dil/mütercim) line-art (sibling'lerle uniform) */}
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M4 5h7M9 3v14"/>
-                    <path d="M4 9c2 3 5 5 9 5"/>
-                    <path d="M4 13c3 -3 6 -5 9 -5"/>
-                    <path d="M14 20l4 -9l4 9M15.5 17h5"/>
-                  </svg>
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700 }}>
+                  م
                 </span>
                 <span style={{ fontSize: '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
                   {language === 'tr' ? 'Meal' : 'Meaning'}
