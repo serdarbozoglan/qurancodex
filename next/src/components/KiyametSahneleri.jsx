@@ -668,19 +668,20 @@ export default function KiyametSahneleri({ onClose }) {
           </div>
         </div>
 
-        {/* ── Tab nav — UPPERCASE site-wide pattern ── */}
+        {/* ── Tab nav — §13.19 sticky pattern (Dalga 3.6 fix) ── */}
         <div id="kiyamet-tab-bar" style={{
           display: 'flex', gap: '4px',
           overflowX: 'auto', scrollbarWidth: 'none',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(20px)',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           flexShrink: 0,
           position: 'sticky',
-          top: 0,
-          zIndex: 10,
-          scrollMarginTop: '72px',
+          top: '110px',
+          zIndex: 20,
+          scrollMarginTop: '120px',
         }}>
           {tabs.map((tab, i) => (
             <button
@@ -755,8 +756,9 @@ export default function KiyametSahneleri({ onClose }) {
 
 // ── Tab panel functions ────────────────────────────────────────────────────────
 
-function TabKronoloji({ data, language, isMobile: _isMobile }) {
+function TabKronoloji({ data, language, isMobile }) {
   const phases = [1, 2, 3, 4, 5, 6, 7];
+  const tr = language === 'tr';
 
   return (
     <div>
@@ -768,6 +770,178 @@ function TabKronoloji({ data, language, isMobile: _isMobile }) {
             : "The Quran does not provide an exact chronology of the Day of Judgment. The phase sequence below follows the majority view of classical commentators. Scholars differ on the precise ordering of scenes."}
         </p>
       </div>
+
+      {/* ═══ 7-PHASE VERTICAL TIMELINE SVG (Dalga 3.6) ═══ */}
+      <div style={{
+        padding: isMobile ? '18px 14px' : '26px 26px',
+        marginBottom: '32px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+        border: `1px solid ${GOLD}44`,
+        borderRadius: RADIUS.lg,
+      }}>
+        <div style={{
+          fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: GOLD, opacity: 0.85, fontWeight: 700,
+          marginBottom: '12px', fontFamily: FONTS.body, textAlign: 'center',
+        }}>
+          {tr ? "7 FAZ · KOZMİK YIKIMDAN CENNET/CEHENNEM'E" : "7 PHASES · FROM COSMIC UNRAVELING TO PARADISE/HELL"}
+        </div>
+        <p style={{
+          color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+          textAlign: 'center', maxWidth: '640px', margin: '0 auto 22px',
+          fontFamily: FONTS.body,
+        }}>
+          {tr
+            ? "Sûr'un ilk üfürüşünden nihai ayrılığa uzanan 7 evre. Her rengin sahne sayısı JSON'dan hesaplanır; boyut = phase yoğunluğu."
+            : "Seven phases from the first blast of the Trumpet to the final separation. Each color's scene count is computed from the data; size = phase density."}
+        </p>
+
+        {/* Vertical timeline */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', maxWidth: '780px', margin: '0 auto' }}>
+          {phases.map(pn => {
+            const pc = PHASE_COLORS[pn];
+            const labels = PHASE_LABELS[language][pn];
+            const sceneCount = data.scenes.filter(s => s.phase === pn).length;
+            const barWidthPct = Math.min(100, 40 + sceneCount * 12);
+            return (
+              <div key={pn} style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '32px 1fr' : '48px 1fr 90px',
+                gap: '12px', alignItems: 'stretch',
+                padding: '10px 6px',
+              }}>
+                {/* Circle + connector */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{
+                    width: isMobile ? '28px' : '36px', height: isMobile ? '28px' : '36px',
+                    borderRadius: '50%',
+                    background: pc.accent,
+                    color: '#fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: isMobile ? '0.85rem' : '1rem',
+                    fontWeight: 800, fontFamily: FONTS.body,
+                    boxShadow: `0 0 12px ${pc.accent}88`,
+                    flexShrink: 0,
+                  }}>{pn}</div>
+                  {pn < 7 && (
+                    <div style={{
+                      width: '2px', flex: 1, minHeight: '16px',
+                      background: `linear-gradient(${pc.accent}88, ${PHASE_COLORS[pn + 1].accent}55)`,
+                      marginTop: '4px',
+                    }} />
+                  )}
+                </div>
+
+                {/* Label + bar */}
+                <div style={{
+                  padding: '4px 14px',
+                  background: pc.bg,
+                  borderLeft: `3px solid ${pc.accent}`,
+                  borderRadius: '4px',
+                  width: `${barWidthPct}%`,
+                }}>
+                  <div style={{
+                    fontSize: isMobile ? '0.88rem' : '0.98rem',
+                    color: pc.accent, fontWeight: 700,
+                    fontFamily: FONTS.body,
+                  }}>{labels.title}</div>
+                  <div style={{
+                    fontSize: '0.72rem', color: COLORS.silver,
+                    lineHeight: 1.5, marginTop: '2px',
+                    fontFamily: FONTS.body,
+                  }}>{labels.sub}</div>
+                </div>
+
+                {/* Scene count badge */}
+                {!isMobile && (
+                  <div style={{
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'flex-end', justifyContent: 'center',
+                  }}>
+                    <div style={{
+                      fontSize: '1.4rem', color: pc.accent,
+                      fontWeight: 900, lineHeight: 1,
+                      fontFamily: FONTS.display,
+                    }}>{sceneCount}</div>
+                    <div style={{
+                      fontSize: '0.62rem', color: COLORS.silver, opacity: 0.65,
+                      letterSpacing: '0.1em', textTransform: 'uppercase',
+                      fontFamily: FONTS.body,
+                    }}>{tr ? "sahne" : "scenes"}</div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ═══ SURAH DENSITY HEATMAP (Dalga 3.6) ═══ */}
+      {data.surahs && data.surahs.length > 0 && (
+        <div style={{
+          padding: isMobile ? '18px 14px' : '26px 26px',
+          marginBottom: '32px',
+          background: 'rgba(255,255,255,0.02)',
+          border: `1px solid ${COLORS.glassBorderSoft}`,
+          borderRadius: RADIUS.lg,
+        }}>
+          <div style={{
+            fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+            color: GOLD, opacity: 0.85, fontWeight: 700,
+            marginBottom: '10px', fontFamily: FONTS.body, textAlign: 'center',
+          }}>
+            {tr ? "KIYAMET-YOĞUN SÛRELER · YOĞUNLUK ISI HARİTASI" : "JUDGMENT-DENSE SURAS · DENSITY HEATMAP"}
+          </div>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6,
+            textAlign: 'center', maxWidth: '640px', margin: '0 auto 20px',
+            fontFamily: FONTS.body,
+          }}>
+            {tr
+              ? "Kıyamet sahnesi barındıran sûrelerin yoğunluk skoru — Kur'ân'ın kıyamet dilinin en yoğun coğrafyası."
+              : "Density scores of suras containing eschatological scenes — the densest geography of the Qur'ān's language of the Hour."}
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(6, 1fr)',
+            gap: '8px',
+          }}>
+            {data.surahs.map((s, i) => {
+              const opacity = (s.densityScore || 1) / 5;
+              return (
+                <div key={i} style={{
+                  padding: '12px 6px', textAlign: 'center',
+                  background: `rgba(212,165,116,${(opacity * 0.28).toFixed(2)})`,
+                  border: `1px solid rgba(212,165,116,${(opacity * 0.5).toFixed(2)})`,
+                  borderRadius: RADIUS.md,
+                }}>
+                  <div style={{
+                    fontSize: '1.05rem', color: GOLD,
+                    fontWeight: 800, lineHeight: 1,
+                    marginBottom: '2px',
+                    fontFamily: FONTS.display,
+                  }}>{s.surahNumber}</div>
+                  <div style={{
+                    fontSize: '0.68rem', color: COLORS.offWhite,
+                    fontWeight: 600, marginBottom: '4px',
+                    fontFamily: FONTS.body,
+                  }}>{tr ? s.nameTr : s.nameEn}</div>
+                  <div style={{
+                    display: 'flex', justifyContent: 'center', gap: '1px',
+                  }}>
+                    {[1, 2, 3, 4, 5].map(x => (
+                      <span key={x} style={{
+                        color: x <= (s.densityScore || 0) ? GOLD : COLORS.slate500,
+                        fontSize: '0.7rem',
+                      }}>★</span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* ── EŞRÂT-I SÂAT — Klasik 3 Aşama ──────────────────────── */}
       <div style={{
