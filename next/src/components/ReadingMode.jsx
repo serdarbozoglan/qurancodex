@@ -2461,26 +2461,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         position: 'relative', zIndex: 250,
       }}>
 
-        {/* Mobile Row 1 — Prev surah + Title + Next surah + Close
-            (CLAUDE.md §14.5). Title ortada centered; sol/sağ chevron
-            butonları sure-level navigasyon (1 ↔ 114). */}
+        {/* Mobile Row 1 — Prev PAGE + Title (surah picker) + Next PAGE + Close
+            (CLAUDE.md §14.5). Kullanıcı feedback 2026-07-08: mobilde de sûre
+            arrow'ları yerine sayfa navigasyonu — desktop ile paralel UX.
+            Title tıklanabilir: surah picker açar. */}
         {isMobile && (() => {
-          // Surah-level navigation helpers — mobile only; desktop has
-          // book-mode page arrows. Bookmode loads surah's first verse.
-          const goSurah = (n) => {
-            if (n < 1 || n > 114) return;
-            if (bookMode) {
-              // SURAH_PAGES[0] = 0 (Fatiha unnumbered in Diyanet); ?? not || to preserve 0.
-              const startPage = SURAH_PAGES[n - 1] ?? 0;
-              navigateToPage(startPage);
-              // selectedSurah otomatik update olur (page-detect useEffect line 1644).
-            } else {
-              setSelectedSurah(n);
-              if (containerRef.current) containerRef.current.scrollTop = 0;
-            }
-          };
-          const canPrev = selectedSurah > 1;
-          const canNext = selectedSurah < 114;
+          const step = spreadMode ? 2 : 1;
+          const canPrevPage = currentPage > 0;
+          const canNextPage = currentPage < 604;
           const navBtnStyle = (enabled) => ({
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             width: '32px', height: '32px', borderRadius: '50%',
@@ -2526,20 +2514,31 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </svg>
             </button>
 
-            {/* Prev surah */}
+            {/* Prev PAGE — mobil sayfa navigasyonu (2026-07-08 kullanıcı feedback) */}
             <button
-              onClick={() => goSurah(selectedSurah - 1)}
-              disabled={!canPrev}
-              title={language === 'tr' ? 'Önceki sûre' : 'Previous surah'}
-              aria-label={language === 'tr' ? 'Önceki sûre' : 'Previous surah'}
-              style={navBtnStyle(canPrev)}
+              onClick={() => canPrevPage && navigateToPage(Math.max(0, currentPage - step))}
+              disabled={!canPrevPage}
+              title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+              aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+              style={navBtnStyle(canPrevPage)}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
 
-            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, alignItems: 'flex-start', textAlign: 'left' }}>
+            {/* Title — surah picker'ı açan tıklanabilir alan (desktop paralel) */}
+            <button
+              onClick={() => { setShowSurahPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+              title={language === 'tr' ? 'Sûre seçici' : 'Surah picker'}
+              aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}
+              aria-expanded={showSurahPicker}
+              style={{
+                display: 'flex', flexDirection: 'column', minWidth: 0, alignItems: 'flex-start', textAlign: 'left',
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                padding: '0 6px', flex: 1,
+              }}
+            >
               <span style={{
                 fontFamily: FONTS.body,
                 fontSize: '0.95rem',
@@ -2550,8 +2549,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 maxWidth: '100%',
+                display: 'inline-flex', alignItems: 'center', gap: '4px',
               }}>
                 {surahName}
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
               </span>
               <span style={{
                 fontSize: '0.62rem',
@@ -2562,29 +2565,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
               }}>
-                {bookMode && currentPage > 0 ? (
+                {currentPage > 0 ? (
                   <>
                     {language === 'tr' ? 'Cüz ' : 'Juz '}<span style={{ color: gold, fontWeight: 600 }}>{currentDisplayJuz}</span>
                     {' · '}
                     {language === 'tr' ? 'S. ' : 'P. '}<span style={{ color: gold, fontWeight: 600 }}>{currentPage}</span>
-                    
                   </>
                 ) : (
                   <>
                     {language === 'tr' ? 'Sûre ' : 'Surah '}<span style={{ color: gold, fontWeight: 600 }}>{selectedSurah}</span>
-                    {' / 114'}
+                    {' · '}
+                    <span style={{ color: gold, fontWeight: 600 }}>{language === 'tr' ? 'Açılış' : 'Opening'}</span>
                   </>
                 )}
               </span>
-            </div>
+            </button>
 
-            {/* Next surah */}
+            {/* Next PAGE — mobil sayfa navigasyonu (2026-07-08 kullanıcı feedback) */}
             <button
-              onClick={() => goSurah(selectedSurah + 1)}
-              disabled={!canNext}
-              title={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
-              aria-label={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
-              style={navBtnStyle(canNext)}
+              onClick={() => canNextPage && navigateToPage(Math.min(604, currentPage + step))}
+              disabled={!canNextPage}
+              title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+              aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+              style={navBtnStyle(canNextPage)}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="9 18 15 12 9 6" />
