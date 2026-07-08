@@ -2737,24 +2737,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                 </button>
               )}
-              {/* SÛRE eyebrow — user feedback 2026-07-07: 'kullanıcı sûre nav
-                  ile sayfa nav'ı karıştırıyor'. Eksplisit label eklendi. */}
-              {!isMobile && (
-                <span style={{
-                  fontSize: '0.58rem',
-                  color: navC.labelSoft,
-                  letterSpacing: '0.16em',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                  padding: '0 8px 0 4px',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                  userSelect: 'none',
-                }}>
-                  {language === 'tr' ? 'Sûre' : 'Surah'}
-                </span>
-              )}
+              {/* SÛRE eyebrow kaldırıldı (2026-07-07 kullanıcı feedback:
+                  overlap yaptı) — merkez pill'in içindeki ▼ chevron + tooltip
+                  yeterli. Kompaktlık geri kazanıldı. */}
 
               {!isMobile && navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}
 
@@ -2816,6 +2801,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {!isMobile && currentPage >= 0 && (
                 <span style={{
                   marginLeft: '14px',
+                  display: 'inline-flex', alignItems: 'center', gap: '6px',
                   fontSize: '0.72rem',
                   color: dayMode ? 'rgba(80,50,20,0.95)' : 'rgba(200,185,165,0.90)',
                   fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
@@ -2831,7 +2817,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     {language === 'tr' ? 'Cüz ' : 'Juz '}
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
                   </span>
-                  {' · '}
+                  <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
                   <span
                     title={language === 'tr'
                       ? 'Hizb: Cüzün yarısı (≈10 sayfa). Her cüz 2 hizbe bölünür; toplam 60 hizb vardır.'
@@ -2841,22 +2827,77 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     {language === 'tr' ? 'Hizb ' : 'Hizb '}
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
                   </span>
+                  <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
+
+                  {/* SAYFA — interaktif prev/next arrows (Dalga 2026-07-07 kullanıcı feedback:
+                      'sayfa değiştirme yukarıda daha iyi olur'). Sûre nav'ının yanına
+                      simetrik bir sayfa nav cluster'ı: ◀ [Sayfa X-Y] ▶. */}
                   {currentPage === 0 ? (
-                    <>
-                      {' · '}
-                      <span style={{ color: gold, fontWeight: 700 }}>
-                        {language === 'tr' ? 'Açılış' : 'Opening'}
-                      </span>
-                    </>
+                    <span style={{ color: gold, fontWeight: 700 }}>
+                      {language === 'tr' ? 'Açılış' : 'Opening'}
+                    </span>
                   ) : (
-                    <>
-                      {' · ' + (language === 'tr' ? 'Sayfa ' : 'Page ')}
-                      <span style={{ color: gold, fontWeight: 700 }}>
-                        {spreadMode && versesOnNextPage.length > 0
-                          ? `${currentPage}–${currentPage + 1}`
-                          : currentPage}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <button
+                        onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
+                        disabled={currentPage <= 0}
+                        title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                        aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                        style={{
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
+                          border: `1px solid ${currentPage > 0 ? navC.btnBorder : 'transparent'}`,
+                          background: currentPage > 0 ? navC.btnBg : 'transparent',
+                          cursor: currentPage > 0 ? 'pointer' : 'default',
+                          opacity: currentPage > 0 ? 0.82 : 0.3,
+                          color: navC.chevron,
+                          transition: `all ${TRANSITION.fast}`,
+                        }}
+                        onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
+                        onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                      >
+                        <ChevronLeft size={13} />
+                      </button>
+                      <span style={{
+                        padding: '2px 10px',
+                        borderRadius: RADIUS.sm,
+                        border: `1px solid ${navC.btnBorderActive}`,
+                        background: navC.btnBgActive,
+                        fontSize: '0.72rem',
+                        display: 'inline-flex', alignItems: 'center', gap: '4px',
+                        userSelect: 'none',
+                        cursor: 'default',
+                      }}>
+                        <span style={{ color: navC.labelSoft, fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                          {language === 'tr' ? 'Sayfa' : 'Page'}
+                        </span>
+                        <span style={{ color: gold, fontWeight: 700 }}>
+                          {spreadMode && versesOnNextPage.length > 0
+                            ? `${currentPage}–${currentPage + 1}`
+                            : currentPage}
+                        </span>
                       </span>
-                    </>
+                      <button
+                        onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
+                        disabled={currentPage >= 604}
+                        title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                        aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                        style={{
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
+                          border: `1px solid ${currentPage < 604 ? navC.btnBorder : 'transparent'}`,
+                          background: currentPage < 604 ? navC.btnBg : 'transparent',
+                          cursor: currentPage < 604 ? 'pointer' : 'default',
+                          opacity: currentPage < 604 ? 0.82 : 0.3,
+                          color: navC.chevron,
+                          transition: `all ${TRANSITION.fast}`,
+                        }}
+                        onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
+                        onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                      >
+                        <ChevronRight size={13} />
+                      </button>
+                    </span>
                   )}
 
                 </span>
