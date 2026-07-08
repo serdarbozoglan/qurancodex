@@ -3398,7 +3398,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           position: 'absolute', top: isMobile ? '52px' : '54px',
           left: isMobile ? '8px' : '20px',
           right: isMobile ? '8px' : 'auto',
-          zIndex: 220,
+          zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: isMobile ? 'auto' : '320px', boxShadow: dropC.shadow,
@@ -3732,7 +3732,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Font size popover */}
       {showFontPicker && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 220,
+          position: 'absolute', top: '54px', right: '16px', zIndex: 260,
           background: 'rgba(10,12,24,0.98)', backdropFilter: 'blur(20px)',
           border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip,
           padding: '12px 16px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
@@ -3811,7 +3811,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {showViewPicker && (
         <div style={{
           position: 'absolute', top: isMobile ? '52px' : '54px',
-          right: isMobile ? '8px' : '16px', zIndex: 220,
+          right: isMobile ? '8px' : '16px', zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           padding: '14px 16px', boxShadow: dropC.shadow,
@@ -3899,7 +3899,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {showSettingsPicker && (
         <div style={{
           position: 'absolute', top: isMobile ? '52px' : '54px',
-          right: isMobile ? '8px' : '16px', zIndex: 220,
+          right: isMobile ? '8px' : '16px', zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           padding: '14px 16px', boxShadow: dropC.shadow,
@@ -4406,7 +4406,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Bookmarks panel */}
       {showBookmarks && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 220,
+          position: 'absolute', top: '54px', right: '16px', zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '260px', boxShadow: dropC.shadow,
@@ -4481,7 +4481,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Meal picker dropdown */}
       {showMealPicker && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 220,
+          position: 'absolute', top: '54px', right: '16px', zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '240px', boxShadow: dropC.shadow,
@@ -4586,7 +4586,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Reciter picker dropdown */}
       {showReciterPicker && (
         <div style={{
-          position: 'absolute', top: '54px', right: '16px', zIndex: 220,
+          position: 'absolute', top: '54px', right: '16px', zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
           width: '240px', boxShadow: dropC.shadow,
@@ -4728,7 +4728,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {showSearch && (
         <div
           style={{
-            position: 'absolute', inset: 0, zIndex: 200,
+            position: 'absolute', inset: 0, zIndex: 260,
             // Day mode bumped to 0.58 because 6px blur visibly dilutes the
             // perceived darkness — math says 0.42 should suffice but on
             // light beige bg it still reads as a "haze". 0.58 makes the
