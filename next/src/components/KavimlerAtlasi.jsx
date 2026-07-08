@@ -26,6 +26,104 @@ const HELAK_COLORS = {
   gizemli:  COLORS.slate500,
 };
 
+// ── HELAK MODE-ICON SET (Dalga 3.1 — unique SVG per destruction type) ──
+// Sünnetullah Atlası + Münâfık Profili pattern.
+const HELAK_ICONS = {
+  ruzgar: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 8h11a3 3 0 1 0 -3 -3M3 16h15a3 3 0 1 1 -3 3M3 12h18" />
+    </svg>
+  ),
+  su: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2c3 5 6 9 6 13a6 6 0 0 1 -12 0c0 -4 3 -8 6 -13z" />
+      <path d="M9 15a3 3 0 0 0 3 3" opacity="0.5" />
+    </svg>
+  ),
+  ses: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 9v6M9 6v12M12 3v18M15 6v12M18 9v6" />
+    </svg>
+  ),
+  sarsinti: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 12l3 -4l3 8l3 -12l3 12l3 -8l3 4h2" />
+    </svg>
+  ),
+  tas: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 3 20 10 17 20 7 20 4 10" />
+      <line x1="12" y1="3" x2="12" y2="20" opacity="0.4" />
+    </svg>
+  ),
+  batirma: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 8h18M5 8v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4 -4v-6" />
+      <path d="M12 12v6M9 15h6" opacity="0.5" />
+    </svg>
+  ),
+  deniz: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 6c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
+      <path d="M2 12c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
+      <path d="M2 18c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
+    </svg>
+  ),
+  golge: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="6" r="3" />
+      <path d="M8 20h8l-2 -8h-4z" />
+      <ellipse cx="12" cy="20" rx="6" ry="1.5" opacity="0.4" />
+    </svg>
+  ),
+  ates: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2c2 4 5 6 5 10a5 5 0 0 1 -10 0c0 -2 1 -4 3 -6c-1 3 1 4 2 4c0 -3 -1 -5 0 -8z" />
+    </svg>
+  ),
+  mesh: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="9" cy="9" r="3" />
+      <path d="M17 6l4 -4M17 6l4 4M17 6c-2 3 -1 6 1 8s5 3 8 1M13 14l-2 6l-3 -2l-4 5" opacity="0.7" />
+    </svg>
+  ),
+  kurtulan: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 6L9 17l-5 -5" />
+      <circle cx="12" cy="12" r="10" opacity="0.35" />
+    </svg>
+  ),
+  gizemli: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 9a3 3 0 1 1 5 2c-1 1 -2 2 -2 3M12 17h.01" />
+    </svg>
+  ),
+};
+
+// Compact renderer — chip veya kart içine drop-in.
+function HelakIcon({ type, size = 16, color }) {
+  const icon = HELAK_ICONS[type];
+  if (!icon) return null;
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      width: `${size}px`, height: `${size}px`,
+      color: color || HELAK_COLORS[type] || COLORS.gold,
+      flexShrink: 0,
+    }}>
+      {icon}
+    </span>
+  );
+}
+
+// Sünnetullah pattern — Islamic geometric hero background
+const KAVIM_HERO_PATTERN = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'>
+<g fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.5'>
+<polygon points='40,8 56,20 62,40 56,60 40,72 24,60 18,40 24,20' />
+<polygon points='40,20 52,28 56,40 52,52 40,60 28,52 24,40 28,28' opacity='0.5' />
+<circle cx='40' cy='40' r='8' opacity='0.6'/>
+</g></svg>`;
+
 // ── Shared helpers ────────────────────────────────────────────────────────────
 
 function InfoTip({ textTr, textEn, language }) {
@@ -381,9 +479,12 @@ function HeroSection({ meta, language, isMobile }) {
   return (
     <div style={{
       padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
-      background: 'linear-gradient(180deg, rgba(180,100,40,0.05) 0%, transparent 100%)',
+      background: `linear-gradient(180deg, rgba(180,100,40,0.05) 0%, transparent 100%),
+                   url("data:image/svg+xml;utf8,${KAVIM_HERO_PATTERN}") repeat`,
+      backgroundSize: 'auto, 80px 80px',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
+      position: 'relative',
     }}>
       {/* Bismillah ornament — Amiri Quran ligature */}
       <div
@@ -689,12 +790,14 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
             {prophet}
           </span>
         )}
-        {/* Helak badge */}
+        {/* Helak badge — Dalga 3.1 mode-icon eklendi */}
         <span style={{
           background: `${helakColor}15`, border: `1px solid ${helakColor}30`,
-          color: helakColor, fontSize: '0.7rem', padding: '2px 8px',
+          color: helakColor, fontSize: '0.7rem', padding: '2px 8px 2px 6px',
           borderRadius: RADIUS.chip, fontFamily: FONTS.body,
+          display: 'inline-flex', alignItems: 'center', gap: '5px',
         }}>
+          <HelakIcon type={nation.helakType} size={12} color={helakColor} />
           {helakLabel}
         </span>
         {/* Archaeology badge */}
@@ -855,6 +958,7 @@ const ANALYSIS_CARDS_EN = [
 function TabHelakDesen({ language, isMobile }) {
   const steps = language === 'tr' ? HELAK_STEPS_TR : HELAK_STEPS_EN;
   const cards = language === 'tr' ? ANALYSIS_CARDS_TR : ANALYSIS_CARDS_EN;
+  const tr = language === 'tr';
 
   return (
     <div>
@@ -866,6 +970,117 @@ function TabHelakDesen({ language, isMobile }) {
           ? 'Her kıssa farklı — ama yapı hep aynı. 20+ kavmin tamamında bu yedi adım tekrar eder.'
           : 'Every story is different — but the structure is always the same. All 20+ peoples repeat these seven steps.'}
       </p>
+
+      {/* ═══ FORMULA BOX — 7 aşama compact horizontal viz (Dalga 3.1) ═══ */}
+      <div style={{
+        padding: isMobile ? '16px 14px' : '22px 24px',
+        marginBottom: '32px',
+        background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+        border: `1px solid ${COLORS.gold}44`,
+        borderRadius: RADIUS.lg,
+      }}>
+        <div style={{
+          fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.85, fontWeight: 700,
+          marginBottom: '14px', fontFamily: FONTS.body, textAlign: 'center',
+        }}>
+          {tr ? "HELAK FORMÜLÜ · 7 EVRE" : "DESTRUCTION FORMULA · 7 STAGES"}
+        </div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? 'repeat(4, 1fr)' : 'repeat(7, 1fr)',
+          gap: '6px', alignItems: 'stretch',
+        }}>
+          {steps.map((s, i) => (
+            <div key={i} style={{
+              padding: '10px 6px', textAlign: 'center',
+              background: `${COLORS.gold}0e`,
+              border: `1px solid ${COLORS.gold}33`,
+              borderRadius: RADIUS.md,
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px',
+            }}>
+              <div style={{
+                width: '22px', height: '22px', borderRadius: '50%',
+                background: COLORS.gold, color: '#0a0a1a',
+                fontSize: '0.7rem', fontWeight: 800,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: FONTS.body,
+              }}>{s.n}</div>
+              <div style={{
+                fontSize: '0.62rem', color: COLORS.offWhite,
+                lineHeight: 1.25, fontWeight: 600,
+                fontFamily: FONTS.body,
+              }}>{s.title}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          marginTop: '14px', textAlign: 'center',
+          fontSize: '0.78rem', color: COLORS.silver,
+          fontStyle: 'italic', fontFamily: FONTS.body, opacity: 0.85,
+        }}>
+          {tr
+            ? '"Onların içinde akıl sahipleri için kesin bir ibret vardır." — Yûsuf 12:111'
+            : '"In their story is certainly a lesson for people of understanding." — Yūsuf 12:111'}
+        </p>
+      </div>
+
+      {/* ═══ HELAK MODE-ICON LEGEND (Dalga 3.1) ═══ */}
+      <div style={{
+        padding: isMobile ? '14px 14px' : '18px 22px',
+        marginBottom: '32px',
+        background: 'rgba(255,255,255,0.02)',
+        border: `1px solid ${COLORS.glassBorderSoft}`,
+        borderRadius: RADIUS.lg,
+      }}>
+        <div style={{
+          fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.72, fontWeight: 700,
+          marginBottom: '12px', fontFamily: FONTS.body, textAlign: 'center',
+        }}>
+          {tr ? "HELAK BİÇİMLERİ · MOD İKONOGRAFİSİ" : "MODES OF DESTRUCTION · ICONOGRAPHY"}
+        </div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(6, 1fr)',
+          gap: '8px',
+        }}>
+          {[
+            { type: 'ruzgar',   tr: 'Rüzgâr',   en: 'Wind',      ex: 'Âd' },
+            { type: 'su',       tr: 'Su',       en: 'Water',     ex: 'Nûh' },
+            { type: 'ses',      tr: 'Ses',      en: 'Sound',     ex: 'Semûd' },
+            { type: 'sarsinti', tr: 'Sarsıntı', en: 'Quake',     ex: 'Medyen' },
+            { type: 'tas',      tr: 'Taş',      en: 'Stones',    ex: 'Lût' },
+            { type: 'batirma',  tr: 'Batırma',  en: 'Swallowed', ex: 'Kārûn' },
+            { type: 'deniz',    tr: 'Deniz',    en: 'Sea',       ex: 'Firavun' },
+            { type: 'golge',    tr: 'Gölge',    en: 'Shade',     ex: 'Eyke' },
+            { type: 'ates',     tr: 'Ateş',     en: 'Fire',      ex: 'Uhdud' },
+            { type: 'mesh',     tr: 'Mesh',     en: 'Metamorph', ex: 'Sebt' },
+            { type: 'kurtulan', tr: 'Kurtulan', en: 'Saved',     ex: 'Yûnus' },
+            { type: 'gizemli',  tr: 'Gizemli',  en: 'Unknown',   ex: 'Ress' },
+          ].map(m => (
+            <div key={m.type} style={{
+              padding: '10px 8px', textAlign: 'center',
+              background: `${HELAK_COLORS[m.type]}12`,
+              border: `1px solid ${HELAK_COLORS[m.type]}44`,
+              borderRadius: RADIUS.md,
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px',
+            }}>
+              <div style={{ width: 22, height: 22, color: HELAK_COLORS[m.type] }}>
+                <HelakIcon type={m.type} size={22} color={HELAK_COLORS[m.type]} />
+              </div>
+              <div style={{
+                fontSize: '0.68rem', fontWeight: 700,
+                color: HELAK_COLORS[m.type], fontFamily: FONTS.body,
+              }}>{tr ? m.tr : m.en}</div>
+              <div style={{
+                fontSize: '0.58rem', color: COLORS.silver, opacity: 0.7,
+                fontFamily: FONTS.body, fontStyle: 'italic',
+              }}>{m.ex}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Step diagram */}
       <div style={{ position: 'relative', marginBottom: '40px' }}>
