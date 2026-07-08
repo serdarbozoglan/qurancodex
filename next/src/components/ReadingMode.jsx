@@ -2764,7 +2764,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               )}
               {/* Brand-to-context divider — 'brand | context' hiyerarşi (2026-07-08 polish) */}
-              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.35, margin: '0 8px 0 4px', flexShrink: 0 }} />}
+              {!isMobile && <div style={{ width: '1px', height: '22px', background: navC.divider, opacity: 0.75, margin: '0 10px 0 4px', flexShrink: 0 }} />}
 
               {/* SÛRE ◀ ▶ prev/next arrow'ları kaldırıldı (2026-07-07 kullanıcı
                   onayı): (a) sayfa navigasyonu zaten sûreler arası doğal geçiş
@@ -3094,72 +3094,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               )}
 
-              {/* Meal (Turkish translation) toggle — desktop only.
-                  Was previously buried in the Settings panel; surfaced
-                  here because tedebbür ↔ tilavet switching is frequent
-                  and "5-step Settings dive" is the wrong friction for a
-                  primary reading mode. Translator picker stays in
-                  Settings (Diyanet / Yıldırım / Elmalılı). Order in the
-                  reading-tool group: KELİME (micro) · MEAL (mid) · TEFSİR
-                  (macro) · TAHTA — natural mikro→makro hiyerarşi. */}
-              {/* Split button — left section toggles meal on/off, right
-                  section shows current author and opens the meal picker
-                  dropdown. Two distinct intents (toggle vs. author change)
-                  collapse into a single button group, eliminating the
-                  hidden "inline picker inside meal column" affordance. */}
-              {!isMobile && (
-                <div style={{
-                  display: 'flex', alignItems: 'center',
-                  height: '34px', borderRadius: RADIUS.md, overflow: 'hidden',
-                  border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
-                  background: showTranslation ? navC.btnBgActive : navC.btnBg,
-                  transition: `all ${TRANSITION.fast}`, flexShrink: 0,
+              {/* MEAL — tek buton (2026-07-08 kullanıcı feedback: KELİME/TEFSİR sibling
+                  pattern'ıyla eş). Tıklama → dropdown açılır; dropdown içinde HEM toggle
+                  HEM author listesi zaten var. Aktif state showTranslation'a bağlı. */}
+              {!isMobile && <button
+                onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  border: `1px solid ${showTranslation || showMealPicker ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showTranslation || showMealPicker ? navC.btnBgActive : navC.btnBg,
+                  transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = showTranslation ? navC.btnBorderActive : navC.btnBorder; }}
-                >
-                  {/* Left half: toggle meal on/off — vertical icon/label
-                      stack matching KELİME / TEFSİR / TAHTA / GÜNDÜZ
-                      toolbar buttons for visual consistency. */}
-                  <button
-                    onClick={() => setShowTranslation(v => !v)}
-                    title={showTranslation
-                      ? (language === 'tr' ? 'Meali kapat — mushaf görünümü' : 'Hide meaning — mushaf view')
-                      : (language === 'tr' ? 'Meali göster — Türkçe çeviri' : 'Show meaning — translation')}
-                    style={{
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      height: '100%', padding: '0 8px', gap: '3px',
-                      background: 'transparent', border: 'none', cursor: 'pointer',
-                    }}
-                  >
-                    <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, transform: 'translateY(-5px)' }}>
-                      م
-                    </span>
-                    <span style={{ fontSize: '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center' }}>
-                      {language === 'tr' ? 'Meal' : 'Meaning'}
-                    </span>
-                  </button>
-                  {/* Divider — bumped to 1.5px alpha-rich so the segmented
-                      control reads as two grouped sections, not two
-                      independent buttons stacked side by side. */}
-                  <div style={{ width: '1.5px', height: '24px', background: showTranslation ? navC.btnBorderActive : navC.divider, opacity: 0.85 }} />
-                  {/* Right half: open author picker */}
-                  <button
-                    onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
-                    title={language === 'tr' ? 'Çevirmen değiştir' : 'Change translator'}
-                    style={{
-                      display: 'flex', alignItems: 'center', gap: '4px',
-                      height: '100%', padding: '0 8px',
-                      background: 'transparent', border: 'none', cursor: 'pointer',
-                    }}
-                  >
-                    <span style={{ fontSize: '0.66rem', color: gold, fontWeight: 600, whiteSpace: 'nowrap', maxWidth: '54px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      {selectedMealAuthor.shortLabel}
-                    </span>
-                    <span style={{ fontSize: '0.55rem', color: navC.label, transform: showMealPicker ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.15s', lineHeight: 1 }}>▾</span>
-                  </button>
-                </div>
-              )}
+                onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+                onMouseLeave={e => { e.currentTarget.style.background = (showTranslation || showMealPicker) ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = (showTranslation || showMealPicker) ? navC.btnBorderActive : navC.btnBorder; }}
+                title={language === 'tr' ? `Meal — ${selectedMealAuthor.shortLabel}` : `Meaning — ${selectedMealAuthor.shortLabel}`}
+              >
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700 }}>
+                  م
+                </span>
+                <span style={{ fontSize: '0.50rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                  {language === 'tr' ? 'Meal' : 'Meaning'}
+                </span>
+              </button>}
 
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
