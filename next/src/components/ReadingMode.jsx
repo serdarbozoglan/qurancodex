@@ -2979,7 +2979,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer',
+                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${active ? navC.btnBorderActive : navC.btnBorder}`,
                 background: active ? navC.btnBgActive : navC.btnBg,
                 transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: isMobile ? '3px' : '2px',
@@ -3023,7 +3023,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   flexDirection: isMobile ? 'column' : 'row',
                   width: isMobile ? '46px' : 'clamp(220px, 20vw, 280px)',
                   minWidth: isMobile ? '46px' : '220px',
-                  height: isMobile ? '54px' : '44px',
+                  height: isMobile ? '54px' : '34px',
                   padding: isMobile ? 0 : '0 12px 0 16px',
                   borderRadius: isMobile ? RADIUS.md : '999px',
                   border: `1px solid ${showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
@@ -3079,11 +3079,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 )}
               </button>
 
-              {/* Group divider: action (Ara) | toggles (Kelime/Tefsir/Tahta).
-                  Visually separates the search-bar action from the toggle
-                  cluster so the user reads "search → tools" rather than
-                  "search-toggle-toggle-toggle" as one undifferentiated group. */}
-        
+              {/* Group divider: Ara | İçerik araçları (Kelime/Meal/Tefsir) */}
+              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.4, margin: '0 4px', flexShrink: 0 }} />}
+
               {/* Kelime (word-by-word) mode toggle — visible in both book
                   and verse modes (corpus hover tooltips work in both).
                   Hidden in interlinear / kırık meal mode since that view
@@ -3104,7 +3102,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
                     transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3138,7 +3136,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {!isMobile && (
                 <div style={{
                   display: 'flex', alignItems: 'center',
-                  height: '44px', borderRadius: RADIUS.md, overflow: 'hidden',
+                  height: '34px', borderRadius: RADIUS.md, overflow: 'hidden',
                   border: `1px solid ${showTranslation ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showTranslation ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, flexShrink: 0,
@@ -3195,7 +3193,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3224,7 +3222,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3241,8 +3239,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               </button>}
 
-              {/* Group divider: Reading tools | Visual */}
-        
+              {/* Group divider: İçerik araçları | Görsel (Gün/Gece) */}
+              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.4, margin: '0 4px', flexShrink: 0 }} />}
+
               {/* Day/Night toggle — always visible for quick access.
                   Mobile'da tüm toolbar butonları uniform (46×54) — icon
                   16px + label 0.58rem 4px gap ile pro görünüm.
@@ -3252,7 +3251,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setDayMode(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '44px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${dayMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: dayMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '5px' : '1px',
@@ -3298,14 +3297,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               </button>}
 
-              {/* Group divider: Visual | Auxiliary */}
+              {/* Group divider: Görsel | Yardımcı (Ayar/Yer İmi) */}
+              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.4, margin: '0 4px', flexShrink: 0 }} />}
 
               {/* Settings gear — combines view picker + meal/reciter/font/tajweed/mushaf */}
               <button
                 onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowViewPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '44px',
+                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '34px',
                   borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
@@ -3337,6 +3337,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* Close button spacer kaldırıldı (user audit): kapat zaten sağ
                   ucta natural exit position'ında, ek margin gerekmedi. Diğer
                   group spacer'lar 5px korunur. */}
+
+              {/* Group divider: Yardımcı | Çıkış (destructive isolation) */}
+              {!isMobile && <div style={{ width: '1px', height: '20px', background: navC.divider, opacity: 0.4, margin: '0 4px', flexShrink: 0 }} />}
 
               {/* Kapat — desktop only. Mobile renders the close button in
                   Row 1 of the §14.5 two-row header (above), so this inline
