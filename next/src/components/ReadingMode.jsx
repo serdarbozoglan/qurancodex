@@ -2426,18 +2426,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         />
       )}
       {/* Click-outside backdrop — closes any open menu/picker on tap.
-          Must sit ABOVE side panels (TafsirPanel 180) so tapping the tafsir
-          area while a menu is open closes the menu, but BELOW the search
-          overlay (200) so that clicks inside the ⌘K palette reach its rows
-          (otherwise the backdrop swallows them and clicking a surah just
-          closes the palette without navigating). The navbar dropdowns at
-          220 stay above the backdrop and remain interactive.
-          Tap order: dropdowns (220) > search overlay (200) > backdrop (195)
-          > tafsir panel (180) > main content. */}
+          Must sit ABOVE the tecvid strip (240) so tapping the strip while
+          a menu is open closes the menu (user report 2026-07-07: menü
+          açıkken tecvid strip'e tıklama outside-click gibi davranmalı).
+          Below dropdowns/palette (260) so their contents remain interactive.
+          Below Navbar (250) so navbar buttons stay clickable to open new menus.
+          Tap order: dropdowns/palette (260) > navbar (250) > backdrop (245)
+          > tecvid strip (240) > tahta canvas (200) > tafsir panel (180)
+          > main content. */}
       {anyMenuOpen && (
         <div
           onClick={closeAllMenus}
-          style={{ position: 'absolute', inset: 0, zIndex: 195, background: 'transparent' }}
+          style={{ position: 'absolute', inset: 0, zIndex: 245, background: 'transparent' }}
         />
       )}
       {/* Audio is handled imperatively via audioLiveRef — no DOM <audio> element needed */}
