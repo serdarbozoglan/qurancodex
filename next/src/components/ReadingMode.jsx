@@ -2737,11 +2737,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                 </button>
               )}
-              {/* SÛRE eyebrow kaldırıldı (2026-07-07 kullanıcı feedback:
-                  overlap yaptı) — merkez pill'in içindeki ▼ chevron + tooltip
-                  yeterli. Kompaktlık geri kazanıldı. */}
-
-              {!isMobile && navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}
+              {/* SÛRE ◀ ▶ prev/next arrow'ları kaldırıldı (2026-07-07 kullanıcı
+                  onayı): (a) sayfa navigasyonu zaten sûreler arası doğal geçiş
+                  sağlıyor, (b) tıklanabilir pill + ▼ tam liste picker sunuyor,
+                  (c) iki arrow cluster (Sûre + Sayfa) görsel gürültü ve kafa
+                  karıştırıcıydı. Kompakt tek-pill tasarımı ile netleşti. */}
 
               {/* Active surah pill — clickable, opens surah picker (user feedback
                   2026-07-07: < El-Bakara > → 'sayfa değiştirme gibi görünüyor',
@@ -2782,7 +2782,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </button>
               )}
 
-              {!isMobile && navBtn(selectedSurah + 1, nextName, 'next', () => changeSurah(selectedSurah + 1))}
+              {/* Next-surah arrow kaldırıldı — pill'in ▼ chevron'ı picker sunuyor. */}
 
               {/* Desktop breadcrumb (Cüz · Hizb · Sayfa) — sits right after the
                   next-surah pill, slightly offset by a left margin so it reads
