@@ -2737,38 +2737,64 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                 </button>
               )}
+              {/* SÛRE eyebrow — user feedback 2026-07-07: 'kullanıcı sûre nav
+                  ile sayfa nav'ı karıştırıyor'. Eksplisit label eklendi. */}
+              {!isMobile && (
+                <span style={{
+                  fontSize: '0.58rem',
+                  color: navC.labelSoft,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                  padding: '0 8px 0 4px',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                  userSelect: 'none',
+                }}>
+                  {language === 'tr' ? 'Sûre' : 'Surah'}
+                </span>
+              )}
+
               {!isMobile && navBtn(selectedSurah - 1, prevName, 'prev', () => changeSurah(selectedSurah - 1))}
 
-              {/* Active surah pill — passive "you are here" indicator. Not a
-                  button anymore: clicking it used to open the search palette,
-                  but the user already has multiple ways to do that (search bar,
-                  sister-pill clicks, ⌘K). Making this clickable was redundant
-                  and gave the false impression that the active pill is itself
-                  an action target. Now it's a static label styled like the
-                  pills around it, kept visually emphasized (gold border + bold
-                  name) so it still anchors the cluster.
+              {/* Active surah pill — clickable, opens surah picker (user feedback
+                  2026-07-07: < El-Bakara > → 'sayfa değiştirme gibi görünüyor',
+                  merkeze picker davranışı verildi + ▼ chevron eklendi).
                   Mobile: hidden — title moved to Row 1 of the §14.5 two-row
                   header above (avoids duplication in the scrollable chip row). */}
               {!isMobile && (
-              <div
-                aria-label={language === 'tr' ? `Şu an: ${surahName}` : `Current: ${surahName}`}
+              <button
+                onClick={() => { setShowSurahPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                title={language === 'tr' ? 'Sûre seçici' : 'Surah picker'}
+                aria-label={language === 'tr' ? `Sûre seçici — Şu an: ${surahName}` : `Surah picker — Current: ${surahName}`}
+                aria-expanded={showSurahPicker}
                 style={{
-                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  height: '44px', padding: '0 12px', borderRadius: RADIUS.md, cursor: 'default',
-                  border: `1px solid ${navC.btnBorderActive}`,
-                  background: navC.btnBgActive,
-                  gap: '2px', flexShrink: 0,
+                  display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+                  height: '44px', padding: '0 14px 0 12px', borderRadius: RADIUS.md,
+                  border: `1px solid ${showSurahPicker ? navC.btnBorderActive : navC.btnBorderActive}`,
+                  background: showSurahPicker ? navC.btnBgActive : navC.btnBgActive,
+                  gap: '10px', flexShrink: 0,
+                  cursor: 'pointer',
                   userSelect: 'none',
+                  transition: `all ${TRANSITION.fast}`,
                 }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               >
-                <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
-                  {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
-                  {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
+                <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <span style={{ fontSize: '0.55rem', color: navC.label, letterSpacing: '0.07em', textTransform: 'uppercase', lineHeight: 1 }}>
+                    {language === 'tr' ? 'Sûre' : 'Surah'} {selectedSurah}
+                    {surahVerses.length > 0 && <span style={{ color: navC.labelSoft, marginLeft: '4px' }}>· {surahVerses.length} {language === 'tr' ? 'ayet' : 'v.'}</span>}
+                  </span>
+                  <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+                    {surahName}
+                  </span>
                 </span>
-                <span style={{ fontSize: '0.82rem', color: gold, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
-                  {surahName}
-                </span>
-              </div>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
               )}
 
               {!isMobile && navBtn(selectedSurah + 1, nextName, 'next', () => changeSurah(selectedSurah + 1))}
