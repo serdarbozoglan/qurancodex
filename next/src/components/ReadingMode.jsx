@@ -2831,52 +2831,63 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   whiteSpace: 'nowrap', fontWeight: 500,
                   flexShrink: 0,
                 }}>
-                  {/* CÜZ picker button (2026-07-08 kullanıcı feedback: dropdown) */}
+                  {/* CÜZ picker chip — Sûre/Sayfa ile özdeş görünüm (2026-07-08 kullanıcı feedback) */}
                   <button
-                    onClick={() => { setShowJuzPicker(p => !p); setShowHizbPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                    onClick={() => { setShowJuzPicker(p => !p); setShowHizbPicker(false); setShowPagePicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                     title={language === 'tr' ? 'Cüz seçici' : 'Juz picker'}
                     aria-label={language === 'tr' ? `Cüz seçici — Şu an: Cüz ${currentDisplayJuz}` : `Juz picker — Current: Juz ${currentDisplayJuz}`}
                     aria-expanded={showJuzPicker}
                     style={{
-                      background: 'transparent', border: 'none',
-                      padding: '2px 4px', cursor: 'pointer',
-                      display: 'inline-flex', alignItems: 'center', gap: '3px',
-                      color: 'inherit', fontFamily: 'inherit', fontSize: 'inherit',
-                      letterSpacing: 'inherit',
+                      padding: '4px 10px', height: '30px',
+                      borderRadius: RADIUS.md,
+                      border: `1px solid ${navC.btnBorderActive}`,
+                      background: navC.btnBgActive,
+                      fontSize: '0.72rem',
+                      display: 'inline-flex', alignItems: 'center', gap: '5px',
+                      userSelect: 'none', cursor: 'pointer',
+                      fontFamily: 'inherit',
+                      transition: `all ${TRANSITION.fast}`,
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                   >
-                    {language === 'tr' ? 'Cüz ' : 'Juz '}
+                    <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                      {language === 'tr' ? 'Cüz' : 'Juz'}
+                    </span>
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
                     <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showJuzPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
                       <polyline points="6 9 12 15 18 9"/>
                     </svg>
                   </button>
-                  <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
-                  {/* HIZB picker button */}
+
+                  {/* HIZB picker chip — Sûre/Sayfa ile özdeş görünüm */}
                   <button
-                    onClick={() => { setShowHizbPicker(p => !p); setShowJuzPicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
+                    onClick={() => { setShowHizbPicker(p => !p); setShowJuzPicker(false); setShowPagePicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
                     title={language === 'tr' ? 'Hizb seçici' : 'Hizb picker'}
                     aria-label={language === 'tr' ? `Hizb seçici — Şu an: Hizb ${currentDisplayHizb}` : `Hizb picker — Current: Hizb ${currentDisplayHizb}`}
                     aria-expanded={showHizbPicker}
                     style={{
-                      background: 'transparent', border: 'none',
-                      padding: '2px 4px', cursor: 'pointer',
-                      display: 'inline-flex', alignItems: 'center', gap: '3px',
-                      color: 'inherit', fontFamily: 'inherit', fontSize: 'inherit',
-                      letterSpacing: 'inherit',
+                      padding: '4px 10px', height: '30px',
+                      borderRadius: RADIUS.md,
+                      border: `1px solid ${navC.btnBorderActive}`,
+                      background: navC.btnBgActive,
+                      fontSize: '0.72rem',
+                      display: 'inline-flex', alignItems: 'center', gap: '5px',
+                      userSelect: 'none', cursor: 'pointer',
+                      fontFamily: 'inherit',
+                      transition: `all ${TRANSITION.fast}`,
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                   >
-                    {language === 'tr' ? 'Hizb ' : 'Hizb '}
+                    <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                      {language === 'tr' ? 'Hizb' : 'Hizb'}
+                    </span>
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
                     <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showHizbPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
                       <polyline points="6 9 12 15 18 9"/>
                     </svg>
                   </button>
-                  <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
 
                   {/* SAYFA — prev arrow + picker chip + next arrow (2026-07-08 kullanıcı
                       feedback: arrow'lar belirgin değildi + page picker de olsa). Arrow
