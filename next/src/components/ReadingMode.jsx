@@ -2830,76 +2830,72 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   </span>
                   <span style={{ color: navC.labelSoft, opacity: 0.6 }}>·</span>
 
-                  {/* SAYFA — interaktif prev/next arrows (Dalga 2026-07-07 kullanıcı feedback:
-                      'sayfa değiştirme yukarıda daha iyi olur'). Sûre nav'ının yanına
-                      simetrik bir sayfa nav cluster'ı: ◀ [Sayfa X-Y] ▶. */}
-                  {currentPage === 0 ? (
-                    <span style={{ color: gold, fontWeight: 700 }}>
-                      {language === 'tr' ? 'Açılış' : 'Opening'}
-                    </span>
-                  ) : (
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                      <button
-                        onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
-                        disabled={currentPage <= 0}
-                        title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
-                        aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
-                        style={{
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
-                          border: `1px solid ${currentPage > 0 ? navC.btnBorder : 'transparent'}`,
-                          background: currentPage > 0 ? navC.btnBg : 'transparent',
-                          cursor: currentPage > 0 ? 'pointer' : 'default',
-                          opacity: currentPage > 0 ? 0.82 : 0.3,
-                          color: navC.chevron,
-                          transition: `all ${TRANSITION.fast}`,
-                        }}
-                        onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
-                        onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
-                      >
-                        <ChevronLeft size={13} />
-                      </button>
-                      <span style={{
-                        padding: '2px 10px',
-                        borderRadius: RADIUS.sm,
-                        border: `1px solid ${navC.btnBorderActive}`,
-                        background: navC.btnBgActive,
-                        fontSize: '0.72rem',
-                        display: 'inline-flex', alignItems: 'center', gap: '4px',
-                        userSelect: 'none',
-                        cursor: 'default',
-                      }}>
-                        <span style={{ color: navC.labelSoft, fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                          {language === 'tr' ? 'Sayfa' : 'Page'}
-                        </span>
-                        <span style={{ color: gold, fontWeight: 700 }}>
-                          {spreadMode && versesOnNextPage.length > 0
-                            ? `${currentPage}–${currentPage + 1}`
-                            : currentPage}
-                        </span>
+                  {/* SAYFA — interaktif prev/next arrows (Dalga 2026-07-07 kullanıcı feedback).
+                      Fatiha (page 0 = 'Açılış') dahil TÜM sayfalarda render — Fatiha'da
+                      prev disabled, next enabled (kullanıcı Fatiha'dan Bakara'ya çıkabilir). */}
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <button
+                      onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
+                      disabled={currentPage <= 0}
+                      title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                      aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                      style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
+                        border: `1px solid ${currentPage > 0 ? navC.btnBorder : 'transparent'}`,
+                        background: currentPage > 0 ? navC.btnBg : 'transparent',
+                        cursor: currentPage > 0 ? 'pointer' : 'default',
+                        opacity: currentPage > 0 ? 0.82 : 0.3,
+                        color: navC.chevron,
+                        transition: `all ${TRANSITION.fast}`,
+                      }}
+                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                    >
+                      <ChevronLeft size={13} />
+                    </button>
+                    <span style={{
+                      padding: '2px 10px',
+                      borderRadius: RADIUS.sm,
+                      border: `1px solid ${navC.btnBorderActive}`,
+                      background: navC.btnBgActive,
+                      fontSize: '0.72rem',
+                      display: 'inline-flex', alignItems: 'center', gap: '4px',
+                      userSelect: 'none',
+                      cursor: 'default',
+                    }}>
+                      <span style={{ color: navC.labelSoft, fontSize: '0.6rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                        {language === 'tr' ? 'Sayfa' : 'Page'}
                       </span>
-                      <button
-                        onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
-                        disabled={currentPage >= 604}
-                        title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
-                        aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
-                        style={{
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
-                          border: `1px solid ${currentPage < 604 ? navC.btnBorder : 'transparent'}`,
-                          background: currentPage < 604 ? navC.btnBg : 'transparent',
-                          cursor: currentPage < 604 ? 'pointer' : 'default',
-                          opacity: currentPage < 604 ? 0.82 : 0.3,
-                          color: navC.chevron,
-                          transition: `all ${TRANSITION.fast}`,
-                        }}
-                        onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
-                        onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
-                      >
-                        <ChevronRight size={13} />
-                      </button>
+                      <span style={{ color: gold, fontWeight: 700 }}>
+                        {currentPage === 0
+                          ? (language === 'tr' ? 'Açılış' : 'Opening')
+                          : (spreadMode && versesOnNextPage.length > 0
+                              ? `${currentPage}–${currentPage + 1}`
+                              : currentPage)}
+                      </span>
                     </span>
-                  )}
+                    <button
+                      onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
+                      disabled={currentPage >= 604}
+                      title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                      aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                      style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        width: '26px', height: '26px', padding: 0, borderRadius: RADIUS.sm,
+                        border: `1px solid ${currentPage < 604 ? navC.btnBorder : 'transparent'}`,
+                        background: currentPage < 604 ? navC.btnBg : 'transparent',
+                        cursor: currentPage < 604 ? 'pointer' : 'default',
+                        opacity: currentPage < 604 ? 0.82 : 0.3,
+                        color: navC.chevron,
+                        transition: `all ${TRANSITION.fast}`,
+                      }}
+                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = navC.btnBg; e.currentTarget.style.borderColor = navC.btnBorder; e.currentTarget.style.opacity = '0.82'; }}}
+                    >
+                      <ChevronRight size={13} />
+                    </button>
+                  </span>
 
                 </span>
               )}
