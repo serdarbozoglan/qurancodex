@@ -2824,9 +2824,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                      konvansiyonu sayfasız) için fallback 1 göster. */}
               {!isMobile && currentPage >= 0 && (
                 <span style={{
-                  marginLeft: '14px',
-                  marginRight: '24px',
-                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  marginLeft: '0',
+                  marginRight: '16px',
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
                   fontSize: '0.72rem',
                   color: dayMode ? 'rgba(80,50,20,0.95)' : 'rgba(200,185,165,0.90)',
                   fontFamily: "'Inter', sans-serif", letterSpacing: '0.03em',
@@ -3015,67 +3015,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 title={language === 'tr' ? 'Ara — sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search — surah, verse, juz, page, word (⌘K)'}
                 aria-label={language === 'tr' ? 'Ara' : 'Search'}
                 style={{
-                  display: 'flex', alignItems: 'center',
-                  gap: isMobile ? '5px' : '8px',
-                  // Mobile: uniform rounded-square (diğer 3 butonla aynı shape
-                  // + size + label pattern — user #172 2026-07-06 pro polish).
-                  // Desktop: adaptive-width pill (input-like search field).
+                  // 2026-07-08 kullanıcı feedback: desktop search bar → icon-only
+                  // (GitHub/Linear/Notion pattern). ⌘K klavye shortcut'ı hâlâ çalışır,
+                  // hover tooltip discoverability sağlar. ~230px viewport kazancı.
+                  display: 'flex', alignItems: isMobile ? 'center' : 'center',
                   flexDirection: isMobile ? 'column' : 'row',
-                  width: isMobile ? '46px' : 'clamp(220px, 20vw, 280px)',
-                  minWidth: isMobile ? '46px' : '220px',
+                  justifyContent: 'center',
+                  gap: isMobile ? '5px' : '0',
+                  width: isMobile ? '46px' : '34px',
+                  minWidth: isMobile ? '46px' : '34px',
                   height: isMobile ? '54px' : '34px',
-                  padding: isMobile ? 0 : '0 12px 0 16px',
-                  borderRadius: isMobile ? RADIUS.md : '999px',
-                  border: `1px solid ${showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)')}`,
-                  background: showSearch ? navC.btnBgActive : (dayMode ? 'rgba(0,0,0,0.025)' : 'rgba(255,255,255,0.025)'),
-                  cursor: 'pointer', flexShrink: isMobile ? 0 : 1,
+                  padding: 0,
+                  borderRadius: RADIUS.md,
+                  border: `1px solid ${showSearch ? navC.btnBorderActive : navC.btnBorder}`,
+                  background: showSearch ? navC.btnBgActive : navC.btnBg,
+                  cursor: 'pointer', flexShrink: 0,
                   transition: `all ${TRANSITION.fast}`,
-                  justifyContent: isMobile ? 'center' : 'flex-start',
                   fontFamily: 'Inter, system-ui, sans-serif',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = navC.btnBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = showSearch ? navC.btnBgActive : (dayMode ? 'rgba(0,0,0,0.025)' : 'rgba(255,255,255,0.025)');
-                  e.currentTarget.style.borderColor = showSearch ? navC.btnBorderActive : (dayMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.06)');
+                  e.currentTarget.style.background = showSearch ? navC.btnBgActive : navC.btnBg;
+                  e.currentTarget.style.borderColor = showSearch ? navC.btnBorderActive : navC.btnBorder;
                 }}
               >
-                <span style={{ display: 'flex', alignItems: 'center', color: isMobile ? gold : (dayMode ? 'rgba(80,50,20,0.55)' : 'rgba(200,185,165,0.55)'), flexShrink: 0 }}>
-                  <SearchIcon size={isMobile ? 16 : 14} />
+                <span style={{ display: 'flex', alignItems: 'center', color: gold, flexShrink: 0 }}>
+                  <SearchIcon size={isMobile ? 16 : 15} />
                 </span>
-                {/* Mobile label — uniform "ARA"/"FIND" (3-4 char) diğer butonlarla eş.  */}
+                {/* Mobile label — uniform "ARA"/"FIND" (3-4 char) diğer butonlarla eş. */}
                 {isMobile && (
                   <span style={{ fontSize: '0.56rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
                     {language === 'tr' ? 'ARA' : 'FIND'}
                   </span>
-                )}
-                {!isMobile && (
-                  <>
-                    <span style={{
-                      flex: 1,
-                      color: dayMode ? 'rgba(80,50,20,0.62)' : 'rgba(200,185,165,0.6)',
-                      fontSize: '0.78rem',
-                      textAlign: 'left',
-                      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                      letterSpacing: '0.01em',
-                      fontWeight: 400,
-                    }}>
-                      {language === 'tr' ? 'Sûre, sayfa veya ayet ara…' : 'Search surah, page or verse…'}
-                    </span>
-                    <kbd style={{
-                      fontSize: '0.62rem',
-                      padding: '2px 6px',
-                      borderRadius: RADIUS.xs,
-                      background: dayMode ? 'rgba(80,50,20,0.08)' : 'rgba(255,255,255,0.06)',
-                      border: `1px solid ${dayMode ? 'rgba(80,50,20,0.16)' : COLORS.glassBorder}`,
-                      color: dayMode ? 'rgba(80,50,20,0.65)' : 'rgba(200,185,165,0.7)',
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      fontWeight: 600,
-                      letterSpacing: '0.02em', flexShrink: 0,
-                      lineHeight: 1.4,
-                    }}>
-                      ⌘K
-                    </kbd>
-                  </>
                 )}
               </button>
 
