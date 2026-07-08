@@ -2781,10 +2781,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-expanded={showSurahPicker}
                 style={{
                   display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-                  height: '32px', padding: '0 12px', borderRadius: RADIUS.md,
+                  height: '30px', padding: '0 10px', borderRadius: RADIUS.md,
                   border: `1px solid ${navC.btnBorderActive}`,
                   background: navC.btnBgActive,
-                  gap: '8px', flexShrink: 0,
+                  gap: '6px', flexShrink: 0,
                   cursor: 'pointer',
                   userSelect: 'none',
                   transition: `all ${TRANSITION.fast}`,
@@ -2792,10 +2792,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
               >
-                {/* Kompakt tek satır (2026-07-08 kullanıcı feedback):
-                    'N. name' + ▼ chevron. Ayet count kaldırıldı — Cüz/Hizb/Sayfa
-                    ile tek satır standart görünüm. */}
-                <span style={{ fontSize: '0.88rem', color: gold, fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap' }}>
+                {/* Kompakt tek satır (2026-07-08 kullanıcı feedback: font + genişlik daralt).
+                    'N. name' + ▼ chevron — Cüz/Sayfa chip'leriyle harmonik. */}
+                <span style={{ fontSize: '0.78rem', color: gold, fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap' }}>
                   {selectedSurah}. {surahName}
                 </span>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
@@ -2860,34 +2859,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </svg>
                   </button>
 
-                  {/* HIZB picker chip — Sûre/Sayfa ile özdeş görünüm */}
-                  <button
-                    onClick={() => { setShowHizbPicker(p => !p); setShowJuzPicker(false); setShowPagePicker(false); setShowSurahPicker(false); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSettingsPicker(false); setShowViewPicker(false); }}
-                    title={language === 'tr' ? 'Hizb seçici' : 'Hizb picker'}
-                    aria-label={language === 'tr' ? `Hizb seçici — Şu an: Hizb ${currentDisplayHizb}` : `Hizb picker — Current: Hizb ${currentDisplayHizb}`}
-                    aria-expanded={showHizbPicker}
-                    style={{
-                      padding: '4px 10px', height: '30px',
-                      borderRadius: RADIUS.md,
-                      border: `1px solid ${navC.btnBorderActive}`,
-                      background: navC.btnBgActive,
-                      fontSize: '0.72rem',
-                      display: 'inline-flex', alignItems: 'center', gap: '5px',
-                      userSelect: 'none', cursor: 'pointer',
-                      fontFamily: 'inherit',
-                      transition: `all ${TRANSITION.fast}`,
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = navC.chevron; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-                  >
-                    <span style={{ color: navC.labelSoft, fontSize: '0.58rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                      {language === 'tr' ? 'Hizb' : 'Hizb'}
-                    </span>
-                    <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showHizbPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
-                      <polyline points="6 9 12 15 18 9"/>
-                    </svg>
-                  </button>
+                  {/* HIZB chip kaldırıldı (2026-07-08 kullanıcı feedback: top nav
+                      çok doluydu). Hizb bilgisi + seçici Cüz picker dropdown'unun
+                      içine gömüldü — ikinci katmandan erişilebilir. */}
 
                   {/* SAYFA — prev arrow + picker chip + next arrow (2026-07-08 kullanıcı
                       feedback: arrow'lar belirgin değildi + page picker de olsa). Arrow
@@ -4599,7 +4573,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         </div>
       )}
 
-      {/* ═══ CÜZ PICKER (2026-07-08 kullanıcı feedback: dropdown) ═══ */}
+      {/* ═══ CÜZ PICKER — Hizb dahili (2026-07-08 kullanıcı feedback) ═══ */}
       {showJuzPicker && (
         <div style={{
           position: 'absolute',
@@ -4608,10 +4582,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           zIndex: 260,
           background: dropC.bg, backdropFilter: 'blur(20px)',
           border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
-          width: isMobile ? 'calc(100vw - 16px)' : '280px',
-          maxWidth: '320px', boxShadow: dropC.shadow,
+          width: isMobile ? 'calc(100vw - 16px)' : '320px',
+          maxWidth: '360px', boxShadow: dropC.shadow,
           padding: '10px 12px',
         }}>
+          {/* Cüz section */}
           <div style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 700 }}>
             {language === 'tr' ? 'Cüz Seç · 1–30' : 'Select Juz · 1–30'}
           </div>
@@ -4639,58 +4614,51 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               );
             })}
           </div>
-          <div style={{ fontSize: '0.65rem', color: dropC.textMuted, marginTop: '10px', lineHeight: 1.5 }}>
-            {language === 'tr'
-              ? "Kur'an'ın 30 eşit bölümü. Her cüz ≈ 20 sayfa."
-              : "The Qur'an's 30 equal divisions. Each juz ≈ 20 pages."}
-          </div>
-        </div>
-      )}
 
-      {/* ═══ HİZB PICKER ═══ */}
-      {showHizbPicker && (
-        <div style={{
-          position: 'absolute',
-          top: isMobile ? '52px' : '54px',
-          left: isMobile ? '8px' : '280px',
-          zIndex: 260,
-          background: dropC.bg, backdropFilter: 'blur(20px)',
-          border: `1px solid ${dropC.border}`, borderRadius: RADIUS.chip,
-          width: isMobile ? 'calc(100vw - 16px)' : '320px',
-          maxWidth: '360px', boxShadow: dropC.shadow,
-          padding: '10px 12px',
-        }}>
-          <div style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 700 }}>
-            {language === 'tr' ? 'Hizb Seç · 1–60' : 'Select Hizb · 1–60'}
+          {/* Hizb section — same dropdown (kullanıcı feedback: hizb ikinci katmanda) */}
+          <div style={{
+            marginTop: '14px', paddingTop: '12px',
+            borderTop: `1px solid ${dropC.divider}`,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}>
+                {language === 'tr' ? 'Hizb · 1–60' : 'Hizb · 1–60'}
+              </span>
+              <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.06em' }}>
+                {language === 'tr' ? 'Şu an: ' : 'Current: '}
+                <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayHizb}</span>
+              </span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '3px', maxHeight: '160px', overflowY: 'auto' }}>
+              {Array.from({ length: 60 }, (_, i) => i + 1).map(h => {
+                const active = h === currentDisplayHizb;
+                return (
+                  <button
+                    key={h}
+                    onClick={() => { jumpToHizb(h); setShowJuzPicker(false); }}
+                    style={{
+                      padding: '5px 0', borderRadius: RADIUS.sm,
+                      border: `1px solid ${active ? gold : dropC.divider}`,
+                      background: active ? `${gold}22` : 'transparent',
+                      color: active ? gold : dropC.text,
+                      fontSize: '0.65rem', fontWeight: active ? 700 : 500,
+                      cursor: 'pointer', fontFamily: FONTS.body,
+                      transition: 'all 0.15s',
+                    }}
+                    onMouseEnter={e => { if (!active) { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.borderColor = gold; }}}
+                    onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = dropC.divider; }}}
+                  >
+                    {h}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '3px', maxHeight: '260px', overflowY: 'auto' }}>
-            {Array.from({ length: 60 }, (_, i) => i + 1).map(h => {
-              const active = h === currentDisplayHizb;
-              return (
-                <button
-                  key={h}
-                  onClick={() => { jumpToHizb(h); setShowHizbPicker(false); }}
-                  style={{
-                    padding: '6px 0', borderRadius: RADIUS.sm,
-                    border: `1px solid ${active ? gold : dropC.divider}`,
-                    background: active ? `${gold}22` : 'transparent',
-                    color: active ? gold : dropC.text,
-                    fontSize: '0.68rem', fontWeight: active ? 700 : 500,
-                    cursor: 'pointer', fontFamily: FONTS.body,
-                    transition: 'all 0.15s',
-                  }}
-                  onMouseEnter={e => { if (!active) { e.currentTarget.style.background = dropC.itemBgHover; e.currentTarget.style.borderColor = gold; }}}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = dropC.divider; }}}
-                >
-                  {h}
-                </button>
-              );
-            })}
-          </div>
+
           <div style={{ fontSize: '0.65rem', color: dropC.textMuted, marginTop: '10px', lineHeight: 1.5 }}>
             {language === 'tr'
-              ? "Cüzün yarısı ≈ 10 sayfa. 30 cüz × 2 = 60 hizb."
-              : "Half of a juz ≈ 10 pages. 30 juz × 2 = 60 hizb."}
+              ? "Cüz: Kur'ân'ın 30 eşit bölümü (≈20 sayfa). Hizb: cüzün yarısı (≈10 sayfa)."
+              : "Juz: 30 equal divisions of the Qur'ān (≈20 pages). Hizb: half of a juz (≈10 pages)."}
           </div>
         </div>
       )}
