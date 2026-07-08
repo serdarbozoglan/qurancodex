@@ -2979,7 +2979,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer',
+                width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${active ? navC.btnBorderActive : navC.btnBorder}`,
                 background: active ? navC.btnBgActive : navC.btnBg,
                 transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: isMobile ? '3px' : '2px',
@@ -2994,7 +2994,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           );
 
           return (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : 'flex-end', gap: isMobile ? '6px' : '8px', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : 'flex-end', gap: isMobile ? '6px' : '5px', flexShrink: 0 }}>
 
               {/* Unified search bar — opens command palette overlay (sûre/ayet/cüz/sayfa
                   + Son Okunan + verse text). Sits to the LEFT of Kelime so it lands near
@@ -3102,7 +3102,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                    width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
                     transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3193,7 +3193,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3222,7 +3222,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '58px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -3251,7 +3251,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setDayMode(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  width: isMobile ? '46px' : '48px', height: isMobile ? '54px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${dayMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: dayMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '5px' : '1px',
@@ -3305,7 +3305,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => { setShowSettingsPicker(p => !p); setShowMealPicker(false); setShowReciterPicker(false); setShowBookmarks(false); setShowSurahPicker(false); setShowViewPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '46px' : '58px', height: isMobile ? '54px' : '34px',
+                  width: isMobile ? '46px' : '48px', height: isMobile ? '54px' : '34px',
                   borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showSettingsPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showSettingsPicker ? navC.btnBgActive : navC.btnBg,
