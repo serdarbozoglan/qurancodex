@@ -2448,18 +2448,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         />
       )}
       {/* Click-outside backdrop — closes any open menu/picker on tap.
-          Must sit ABOVE the tecvid strip (240) so tapping the strip while
-          a menu is open closes the menu (user report 2026-07-07: menü
-          açıkken tecvid strip'e tıklama outside-click gibi davranmalı).
-          Below dropdowns/palette (260) so their contents remain interactive.
-          Below Navbar (250) so navbar buttons stay clickable to open new menus.
-          Tap order: dropdowns/palette (260) > navbar (250) > backdrop (245)
+          z:258 = Navbar (250) + tecvid strip (240) + tahta (200) + tafsir (180)
+          hepsinin üstünde; SADECE dropdown/palette (260) altında.
+          User report 2026-07-08: 'herhangi bir dropdown açıkken herhangi bir
+          outside da tıklama kapatmalı'. Backdrop navbar üstünde olduğunda
+          navbar buton tıklama da dropdown'u kapatır (standart UX: 2-click
+          davranışı — önce mevcut menü kapansın, sonra yenisi açılsın).
+          Tap order: dropdowns/palette (260) > backdrop (258) > navbar (250)
           > tecvid strip (240) > tahta canvas (200) > tafsir panel (180)
           > main content. */}
       {anyMenuOpen && (
         <div
           onClick={closeAllMenus}
-          style={{ position: 'absolute', inset: 0, zIndex: 245, background: 'transparent' }}
+          style={{ position: 'absolute', inset: 0, zIndex: 258, background: 'transparent' }}
         />
       )}
       {/* Audio is handled imperatively via audioLiveRef — no DOM <audio> element needed */}
