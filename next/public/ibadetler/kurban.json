@@ -1,0 +1,926 @@
+{
+  "id": "kurban",
+  "titleTr": "Kurban",
+  "titleEn": "Sacrifice",
+  "arabicName": "النُّسُك",
+  "anchorVerse": {
+    "surah": 22,
+    "ayah": 37,
+    "ar": "لَنْ يَنَالَ اللّٰهَ لُحُومُهَا وَلَا دِمٓاؤُهَا وَلٰكِنْ يَنَالُهُ التَّقْوٰى مِنْكُمْ  كَذٰلِكَ سَخَّرَهَا لَكُمْ لِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰيكُمْ وَبَشِّرِ الْمُحْسِنِينَ",
+    "tr": "Onların ne etleri ne de kanları Allah'a ulaşır; fakat sizden O'na ancak takva ulaşır. Böylece onları sizin buyruğunuza verdi ki, size doğru yolu göstermesinden ötürü Allah'ı yüceltesiniz. Muhsinlere müjde ver.",
+    "en": "Their flesh does not reach Allah, nor does their blood; but what reaches Him is your taqwā. Thus He has subjected them to you, that you may glorify Allah for having guided you. And give glad tidings to the doers of good.",
+    "refTr": "Hac 22:37",
+    "refEn": "Al-Ḥajj 22:37"
+  },
+  "hero": {
+    "eyebrowTr": "TESLİMİYETİN AYNASI · İBRÂHÎM HAFIZASI",
+    "eyebrowEn": "MIRROR OF SUBMISSION · MEMORY OF IBRĀHĪM",
+    "subtitleTr": "Kesilen ne ettir ne kan — kesilen şey nefsin sahiplik iddiasıdır; Allah'a ulaşan tek şey takvadır.",
+    "subtitleEn": "What is slaughtered is neither flesh nor blood — it is the nafs's claim of ownership; only taqwā reaches Allah."
+  },
+  "claims": [
+    {
+      "claimId": "kurban-takva-amac-001",
+      "claimTr": "Kur'ân kurbanın amacını açıkça 'takva' olarak koyar; et ve kan Allah'a ulaşmaz",
+      "claimEn": "The Qur'an explicitly names taqwā as what reaches Allah in sacrifice; flesh and blood do not",
+      "refs": [
+        "Hac 22:37"
+      ],
+      "framingTr": "Hac 22:37 'lâ yenâlullâhe luhûmuhâ ve lâ dimâuhâ ve lâkin yenâluhu't-takvâ minkum' — ayetin kendisi kurbanın Kur'ânî amacını bir cümlede özetler."
+    },
+    {
+      "claimId": "kurban-her-ummete-nusuk-001",
+      "claimTr": "Kur'ân kurbanı bir ümmete has değil, her ümmete verilmiş bir nüsük olarak tanımlar",
+      "claimEn": "The Qur'an frames sacrifice not as unique to one community but as a nusuk given to every community",
+      "refs": [
+        "Hac 22:34"
+      ],
+      "framingTr": "Hac 22:34 've li-külli ümmetin ce'alnâ mensekan liyeẕkurusme'llâhi' — her ümmete bir kurban ibadeti verildiği açıkça belirtilir."
+    },
+    {
+      "claimId": "kurban-ibrahim-hafiza-001",
+      "claimTr": "Kur'ân kurbanın arketipal hafızasını İbrâhîm-İsmâîl sınavında konumlandırır",
+      "claimEn": "The Qur'an locates the archetypal memory of sacrifice in the Ibrāhīm-Ismāʿīl trial",
+      "refs": [
+        "Sâffât 37:102",
+        "Sâffât 37:107"
+      ],
+      "framingTr": "Sâffât 37:102-107 sınavın tam ekseni: rüya, teslimiyet ve 'büyük bir kurban ile fidye'. Kurbanın Kur'ânî hafızası bu sahnedir."
+    },
+    {
+      "claimId": "kurban-ihlas-habil-kabil-001",
+      "claimTr": "Kur'ân kurbanın kabulünü niyet-ihlâs eksenine bağlar; Habil-Kabil kıssası bu ekseni ilk kez sahneler",
+      "claimEn": "The Qur'an ties the acceptance of sacrifice to the axis of intention and ikhlāṣ; the Habīl-Qābīl narrative first stages this axis",
+      "refs": [
+        "Maide 5:27"
+      ],
+      "framingTr": "Maide 5:27 'innemâ yetekabbelullâhu mine'l-muttakîn' — Allah kurbanı yalnızca takva sahibinden kabul eder. Kesilen şeyin fiziksel niteliği değil, kesenin iç hali belirleyicidir."
+    }
+  ],
+  "genelBakis": {
+    "introTr": "Kur'ân kurbanı 'nüsük' ve 'hedy' kelimeleri etrafında, İbrâhîm hafızasına dayalı ve amacı açıkça 'takva' olarak konulmuş bir ibadet olarak anlatır. Hac 22:37'de 'ne et ne kan Allah'a ulaşır; fakat sizden O'na takva ulaşır' cümlesiyle kurbanın Kur'ânî ekseni tek bir mihenk taşına oturtulur — kesim bir fiziksel olay değil, iç bir teslimiyetin bedendeki aynasıdır. Kur'ân aynı bölümde (Hac 22:34) 'her ümmete bir nüsük verdik' der; kurban bu ümmete has değil, semavî geleneğin süregelen bir pratiğidir. Onun arketipal sahnesi Sâffât 37:102-107'de İbrâhîm-İsmâîl sınavıdır: rüya, teslimiyet, ve 'büyük bir kurban ile fidye'. Habil-Kabil kıssası (Maide 5:27) kabulün 'takva sahibinden' olduğunu bir kez daha altını çizer. Kevser 108:2 'fesalli li-rabbike venhar' ile kurban ve namazı yan yana koyar; En'âm 6:162 'namazım, kurbanım, hayatım ve ölümüm Allah içindir' ile ibadetlerin tümünü tek bir teslimiyet yayına dizer. Kurban Kur'ân'da bir 'sunum' değil, sahiplik iddiasının bırakılışıdır; kesim bunun bedendeki en somut sembolüdür.",
+    "introEn": "The Qur'an frames sacrifice around the words nusuk and hady, rooted in the memory of Ibrāhīm and with its aim explicitly stated as taqwā. In Ḥajj 22:37 — 'their flesh does not reach Allah, nor their blood; but what reaches Him is your taqwā' — sacrifice's Qur'anic axis is set on a single stone: the slaughter is not a physical event but the bodily mirror of an inner surrender. In the same passage (Ḥajj 22:34) the Qur'an says 'to every community We gave a nusuk'; sacrifice is not unique to this community but a continuing practice of prophetic tradition. Its archetypal scene is the Ibrāhīm-Ismāʿīl trial in Ṣāffāt 37:102-107: the dream, the submission, and 'the great sacrifice by way of ransom.' The Habīl-Qābīl narrative (Māʾida 5:27) underscores once more that acceptance is 'from the one of taqwā.' Kawthar 108:2 — 'fa-ṣalli li-rabbika wa-nḥar' — places sacrifice beside prayer, while Anʿām 6:162 — 'my prayer, my sacrifice, my life and my death are for Allah' — strings all worship on the single bow of surrender. In the Qur'an, sacrifice is not an 'offering' but the release of the nafs's claim of ownership; the slaughter is only that release's most concrete bodily sign.",
+    "keyPoints": [
+      {
+        "titleTr": "Amaç açık: takva",
+        "titleEn": "The purpose is explicit: taqwā",
+        "descTr": "Hac 22:37 Kur'ân'ın kurban için verdiği tek Kur'ânî amaç ayetidir: 'ne et ne kan Allah'a ulaşır, sizden O'na takva ulaşır.' Klasik tefsir bu cümlenin kurbanı fiziksel bir sunumdan tefrik ettiğini vurgular — kan akıtmak amacın kendisi değil, iç teslimiyetin dış aynasıdır.",
+        "descEn": "Ḥajj 22:37 is the Qur'an's single explicit statement of the aim of sacrifice: 'neither their flesh nor their blood reaches Allah — what reaches Him is your taqwā.' Classical exegesis stresses that this clause distinguishes sacrifice from a physical offering: shedding blood is not the aim but the outer mirror of inner surrender."
+      },
+      {
+        "titleTr": "Her ümmete bir nüsük",
+        "titleEn": "A nusuk for every community",
+        "descTr": "Hac 22:34 'her ümmete bir nüsük kıldık' der. Klasik tefsir bu ayetin kurbanı bu ümmete has bir pratik değil, semavî geleneğin süregelen bir ibadeti olarak konumlandırdığını vurgular. Habil-Kabil (Maide 5:27) ile başlar, İbrâhîm ile arketipleşir, bu ümmette de sürer.",
+        "descEn": "Ḥajj 22:34 says 'to every community We gave a nusuk.' Classical exegesis reads this as placing sacrifice not as unique to this community but as a continuing worship of the prophetic tradition. It begins with Habīl-Qābīl (Māʾida 5:27), becomes archetypal in Ibrāhīm, and continues in this community."
+      },
+      {
+        "titleTr": "İbrâhîm hafızası — rüya ve fidye",
+        "titleEn": "Memory of Ibrāhīm — dream and ransom",
+        "descTr": "Sâffât 37:102-107 kurbanın Kur'ânî arketip sahnesidir. Rüya, teslimiyet, ve son anda gelen 'büyük bir kurban ile fidye' (37:107). Klasik tefsir bu sahnenin kurbanın niyet omurgasını taşıdığını belirtir: kesilen şey İsmâîl değil, İbrâhîm'in sahiplik iddiasıdır — Allah ondan kabul ettiği için fidye gelir.",
+        "descEn": "Ṣāffāt 37:102-107 is the Qur'anic archetypal scene of sacrifice. Dream, submission, and at the last moment 'ransom with a great sacrifice' (37:107). Classical exegesis reads this scene as carrying sacrifice's intentional spine: what is slaughtered is not Ismāʿīl but Ibrāhīm's claim of ownership — because Allah accepts that, the ransom comes."
+      },
+      {
+        "titleTr": "Habil-Kabil arketipi — ihlâs eksen",
+        "titleEn": "The Habīl-Qābīl archetype — the ikhlāṣ axis",
+        "descTr": "Maide 5:27'de iki oğulun kurbanı sunulur, birininki kabul, diğerininki reddedilir. Ayetin cevap cümlesi belirleyicidir: 'Allah kurbanı yalnızca takva sahibinden kabul eder.' Klasik tefsir bu cümlenin Kur'ân'da kurbanın kabul kriteri olarak son sözü söylediğini belirtir — kesilen şeyin niteliği değil, kesenin iç hali belirleyicidir.",
+        "descEn": "In Māʾida 5:27 the two sons offer their sacrifices; one is accepted, the other rejected. The verse's answer is decisive: 'Allah accepts only from those of taqwā.' Classical exegesis reads this as the Qur'an's final word on the criterion of acceptance — not the quality of what is slaughtered but the inner state of the one who slaughters."
+      }
+    ]
+  },
+  "kuraniIsimler": [
+    {
+      "term": "Nusuk",
+      "termTr": "Nüsük",
+      "termEn": "Nusuk",
+      "ar": "النُّسُك",
+      "root": "ن س ك",
+      "kategori": "core-name",
+      "searchTerms": [
+        "نُسُك",
+        "مَنسَك",
+        "مَنَاسِك",
+        "نُسُكِي",
+        "نَاسِكُوهُ"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ن س ك",
+        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json",
+        "displayLabelTr": "~8 (ن س ك kökü, tüm türevler)",
+        "displayLabelEn": "~8 (root n-s-k, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök nüsük (isim), mensek (yer/pratik), menâsik (çoğul), nâsik (yapıcı) türevlerini kapsar. Kur'ân'da hem kurban hem daha genel 'ibadet-pratik' anlamında geçer."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kurban ibadeti",
+          "descTr": "Kur'ân'da nüsük en dar anlamıyla kurban için kullanılır — Hac 22:34'te 'her ümmete bir nüsük kıldık ki Allah'ın adını ansınlar' ifadesi kurbanı bir 'zikir yeri' olarak yerleştirir. Bakara 2:196'da hac temettu' bağlamında oruç-fidye-nüsük üçlüsünde kurban olarak geçer.",
+          "descEn": "In its narrowest sense in the Qur'an, nusuk means sacrifice — Ḥajj 22:34 says 'to every community We gave a nusuk so that they might mention Allah's name,' placing sacrifice as a 'site of remembrance.' In Baqara 2:196 it appears within the fasting-ransom-nusuk triad of tamattuʿ ḥajj as sacrifice.",
+          "kaynak": "Kurtubî, Hac 22:34 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Bütün ibadet-hayat",
+          "descTr": "En'âm 6:162'de nüsük daha geniş bir semantik alan taşır: 'namazım, nüsküm, hayatım ve ölümüm Allah içindir.' Klasik tefsir buradaki 'nüsük'ün sadece kurban değil, tüm ibadet-pratiğini içerdiğini belirtir. Kelime 'kurbanı' merkez alarak bütün 'Allah'a adanmış' pratiğe genişler.",
+          "descEn": "In Anʿām 6:162 nusuk carries a broader semantic field: 'my prayer, my nusuk, my life and my death are for Allah.' Classical exegesis reads this nusuk as encompassing not only sacrifice but the entire practice of worship. The word takes sacrifice as its center and extends outward to all practice consecrated to Allah.",
+          "kaynak": "Râzî, En'âm 6:162 tefsiri; Elmalılı aynı ayet"
+        },
+        {
+          "layer": "Menâsikü'l-hac",
+          "descTr": "Bakara 2:200 ve Hac 22:67'de 'menâsik' (çoğul) hac ibadetinin tüm eylemlerini kapsar. Klasik tefsir bu çoğulun kurbanı bir hac elemanı olarak konumlandırdığını, aynı zamanda 'ibadet-yeri' (mensek) anlamıyla mekâna da bağlandığını belirtir. Kurban menâsik içinde yalnız bir eylem değil, bir yerin ve zamanın işaretlenmesidir.",
+          "descEn": "In Baqara 2:200 and Ḥajj 22:67 'manāsik' (plural) covers all the acts of ḥajj. Classical exegesis reads this plural as placing sacrifice as an element of ḥajj, while also binding it to place via the sense of 'mansak' (site of worship). Sacrifice within manāsik is not merely an act but the marking of a place and time.",
+          "kaynak": "Kurtubî, Bakara 2:200 tefsiri (menâsik açılımı)"
+        },
+        {
+          "layer": "Kök anlamı: bağlanma-adanma",
+          "descTr": "Kökün lugat anlamı 'bir şeye bağlanmak, kendini bir işe adamak'tır. Klasik lugatta 'nâsik' kendini ibadete adayan kişidir. Bu köke göre nüsük 'kurban' anlamını 'kendini kesip Allah'a bırakma' semantik ekseninde taşır — dış eylem kesim, iç eylem adanmadır.",
+          "descEn": "The root's lexical sense is 'to bind oneself to something, to devote oneself to a task.' In classical lexicography, 'nāsik' is one who devotes himself to worship. By this root, nusuk carries its meaning of sacrifice along a semantic axis of 'cutting oneself away and leaving oneself for Allah' — the outer act is slaughter, the inner act is devotion.",
+          "kaynak": "Elmalılı, En'âm 6:162 tefsiri (nüsük kök açılımı); Îzutsu, Ethico-Religious Concepts (adanma semantik alanı)"
+        }
+      ]
+    },
+    {
+      "term": "Hady",
+      "termTr": "Hedy",
+      "termEn": "Hady",
+      "ar": "الْهَدْي",
+      "root": "ه د ي",
+      "kategori": "core-name",
+      "searchTerms": [
+        "الْهَدْي",
+        "هَدْي",
+        "هَدْياً",
+        "الْهَدْيَ"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ه د ي",
+        "source": "auto",
+        "displayLabelTr": "~5 (hac-kurban bağlamı; kök ه د ي çok geniş)",
+        "displayLabelEn": "~5 (ḥajj-sacrifice context; root h-d-y much wider)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'yol gösterme, hediye' semantik alanını da kapsar; sayım yalnızca kurban-hedy bağlamındaki türevleri yaklaşık verir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Harem'e sevkedilen kurban",
+          "descTr": "Hedy Kur'ân'da özellikle hac bağlamındaki kurbanı adlandırır — Bakara 2:196'da temettu' haccının kurbanı, Maide 5:2 ve 5:97'de Harem'e sevkedilen kurbanı, Feth 48:25'te Hudeybiye'de yolları kesilen kurbanı ifade eder. Klasik tefsir 'hedy'in 'gönderilen, sevkedilen' semantik özünü taşıdığını belirtir — kurban bir yere doğru yola çıkarılan bir armağandır.",
+          "descEn": "Hady in the Qur'an names sacrifice especially in the ḥajj context — Baqara 2:196 for the tamattuʿ ḥajj sacrifice, Māʾida 5:2 and 5:97 for the sacrifice sent to the Ḥaram, Fatḥ 48:25 for the sacrifice blocked at Ḥudaybiyya. Classical exegesis notes that hady carries the semantic core of 'that which is sent, directed' — sacrifice is a gift set on the road to a place.",
+          "kaynak": "Kurtubî, Bakara 2:196 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Kök: yol gösterme ↔ armağan",
+          "descTr": "Kök h-d-y hem 'hidayet' (yol gösterme) hem 'hediye' (armağan) hem 'hedy' (kurban) anlamlarını türetir. Klasik lugatçılar bu türevlerin ortak özünde 'birine doğru yönelten şey' anlamını görür — hidayet insanı Allah'a yöneltir, hediye ilişkiyi ısındırır, hedy kurban da Harem'e doğru yola çıkar. Kurban Kur'ân'da bu semantik ağın en somut halkasıdır.",
+          "descEn": "The root h-d-y produces 'hidāya' (guidance), 'hadiyya' (gift), and 'hady' (sacrifice). Classical lexicographers see their shared core in 'that which is directed toward someone' — guidance directs man toward Allah, a gift warms a relationship, the hady of sacrifice is set on the road to the Ḥaram. Sacrifice in the Qur'an is the most concrete link in this semantic web.",
+          "kaynak": "Elmalılı, Bakara 2:196 tefsiri (hedy kök açılımı)"
+        }
+      ]
+    },
+    {
+      "term": "Qurbān",
+      "termTr": "Kurban",
+      "termEn": "Qurbān",
+      "ar": "الْقُرْبَان",
+      "root": "ق ر ب",
+      "kategori": "core-name",
+      "searchTerms": [
+        "قُرْبَان",
+        "قُرْبَاناً"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ق ر ب",
+        "source": "auto",
+        "displayLabelTr": "~3 (kurban kelimesi doğrudan)",
+        "displayLabelEn": "~3 (word qurbān directly)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime Kur'ân'da doğrudan 'kurbân' formuyla üç kez geçer: Al-i İmrân 3:183, Maide 5:27, Ahkâf 46:28. Kök ق ر ب çok geniş — 'yakınlık' semantik alanının merkezi."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Yakınlaştıran şey",
+          "descTr": "Kurbân kelimesinin kök anlamı 'yakınlaştıran'dır — kök ق ر ب 'yakın olma' demektir. Kurban Kur'ânî dilde bir 'yakınlaşma aracı'dır: kesim değil, kesimle sağlanan yakınlık. Klasik tefsir 'kurbân' kelimesinin bu semantik özünü vurgular — dış eylem yakınlaşmanın işaretidir, amaç Rabbe yaklaşmaktır.",
+          "descEn": "The lexical sense of qurbān is 'that which brings near' — the root q-r-b means 'to be near.' In the Qur'anic register, qurbān is a 'means of drawing near': not the slaughter but the nearness the slaughter secures. Classical exegesis stresses this semantic core — the outer act is the sign of drawing near, the aim is nearness to the Lord.",
+          "kaynak": "Kurtubî, Maide 5:27 tefsiri (kurbân kök açılımı); Elmalılı aynı ayet"
+        },
+        {
+          "layer": "Habil-Kabil'in sunumu",
+          "descTr": "Maide 5:27 iki oğulun 'kurbân' sunuşunu anlatır: 'Onlara Âdem'in iki oğlunun haberini gerçek olarak oku. Hani her ikisi de birer kurban sunmuşlardı; birinden kabul edilmiş, diğerinden kabul edilmemişti.' Klasik tefsir bu ayetin kurbanın Kur'ânî ilk sahnesi olduğunu ve kabul kriterinin 'takva' olarak sabitlendiğini belirtir.",
+          "descEn": "Māʾida 5:27 recounts the qurbān offered by the two sons: 'Recite to them the story of the two sons of Adam in truth: when they each offered a qurbān, and it was accepted from one but not from the other.' Classical exegesis reads this as the Qur'anic first scene of sacrifice, fixing the criterion of acceptance as taqwā.",
+          "kaynak": "Râzî, Maide 5:27 tefsiri; Kurtubî aynı ayet"
+        },
+        {
+          "layer": "İsrailoğullarının inkâr sınavı",
+          "descTr": "Al-i İmrân 3:183'te Yahudilerin bir bahanesi zikredilir: 'ateşin yiyeceği bir kurbân getirmedikçe biz bir peygambere iman etmeyiz.' Klasik tefsir bu ayetin kurbân kavramının önceki geleneklerde de mevcut olduğuna işaret ettiğini, fakat inkârın 'işaret bekleme' bahanesine sığındığına dair Kur'ânî bir eleştiri taşıdığını belirtir.",
+          "descEn": "Āl ʿImrān 3:183 records a Jewish objection: 'we will not believe a messenger until he brings a qurbān that fire will consume.' Classical exegesis notes that this verse shows qurbān existed in prior traditions, while carrying a Qur'anic critique of denial that hides behind the demand for a sign.",
+          "kaynak": "Kurtubî, Al-i İmrân 3:183 tefsiri"
+        }
+      ]
+    },
+    {
+      "term": "Nahr",
+      "termTr": "Nahr",
+      "termEn": "Naḥr",
+      "ar": "النَّحْر",
+      "root": "ن ح ر",
+      "kategori": "action",
+      "searchTerms": [
+        "انْحَرْ",
+        "النَّحْر"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ن ح ر",
+        "source": "auto",
+        "displayLabelTr": "~2 (fiil/masdar bağlamı)",
+        "displayLabelEn": "~2 (verb/verbal-noun context)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "En kritik geçiş Kevser 108:2'de emir kipiyle (venhar). Kelime dar bir semantik alana sahiptir — özellikle deve gibi büyükbaş hayvanın boğaz üstü damarından kesim."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kevser 108:2 emri",
+          "descTr": "Kevser 108:2 'fesalli li-rabbike venhar' — Rabbin için namaz kıl ve kurban kes. Klasik tefsir bu ayetin kurban ile namazı Kur'ân'ın en kısa sûresinde yan yana koyduğunu vurgular. Râzî iki emrin ardarda gelişinin ibadetin iki temel yönünü — bedenle yönelme ve mülkle bırakma — tek nefeste eşleştirdiğini belirtir.",
+          "descEn": "Kawthar 108:2 — 'fa-ṣalli li-rabbika wa-nḥar' — 'so pray to your Lord and sacrifice.' Classical exegesis stresses that this verse places sacrifice beside prayer in the Qur'an's shortest sūra. Rāzī notes that the two consecutive imperatives pair worship's two fundamental orientations — bodily turning and property release — in a single breath.",
+          "kaynak": "Râzî, Kevser 108:2 tefsiri; Elmalılı aynı ayet"
+        },
+        {
+          "layer": "Kök: boğaz-göğüs üstü",
+          "descTr": "Kök ن ح ر lugatta 'boğaz üstü, göğsün üst kısmı' demektir; buradan 'nahr' fiili 'boğazın üstündeki damardan kesme' anlamını türetir. Klasik lugatçılar bu kelimenin özellikle deve gibi büyükbaş hayvanın ayakta kesimi için kullanıldığını belirtir. Zebh (yatırılarak kesim) ile nahr (ayakta boğaz üstünden kesim) arasındaki hayvan türüne bağlı fıkhî tafsil sünnetle sabittir.",
+          "descEn": "The root n-ḥ-r lexically denotes 'the upper throat, the top of the chest'; from this the verb 'naḥara' derives its sense of 'cutting from the vein above the throat.' Classical lexicographers note this word is used especially for the standing slaughter of large animals like camels. The juridical distinction between dhabḥ (slaughter with the animal laid down) and naḥr (standing throat-slaughter), tied to species, is established by sunnah.",
+          "kaynak": "Kurtubî, Kevser 108:2 tefsiri (nahr-zebh ayrımı); Elmalılı aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Dhabḥ",
+      "termTr": "Zebh",
+      "termEn": "Dhabḥ",
+      "ar": "الذَّبْح",
+      "root": "ذ ب ح",
+      "kategori": "action",
+      "searchTerms": [
+        "الذَّبْح",
+        "ذَبِيح",
+        "فَاذْبَحُوهَا",
+        "يُذَبِّح"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ذ ب ح",
+        "source": "auto",
+        "displayLabelTr": "~10 (ذ ب ح kökü, tüm türevler)",
+        "displayLabelEn": "~10 (root dh-b-ḥ, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök hem 'kesim' fiili hem de 'zebîh' (kesilecek olan) türevini kapsar. Bakara 2:67-71 boğa kurbanı, Sâffât 37:107 İsmâîl bağlamı, Firavun'un çocuk katli (Bakara 2:49) kullanımları farklı semantik yönleri gösterir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "İbadî kesim",
+          "descTr": "Zebh kelimesi Kur'ân'da ibadî kesim için genel fiildir. Sâffât 37:107 've fedeynâhu bi-zibhin azîm' — 'onu büyük bir zebh ile fidye ettik'. Bakara 2:67-71'de İsrailoğullarına 'bir sığır kesin' emri (fezbehûhâ) verilir. Klasik tefsir bu kelimenin 'ibadet olarak kesim'i 'yiyecek kesimi'nden ayırdığını, niyetin belirleyici olduğunu belirtir.",
+          "descEn": "Dhabḥ in the Qur'an is the general verb for ritual-purposed slaughter. Ṣāffāt 37:107 — 'and We ransomed him with a great dhibḥ.' In Baqara 2:67-71 the Israelites are ordered 'to slaughter a cow' (fadhbaḥūhā). Classical exegesis distinguishes this word for 'worship-slaughter' from mere 'food-slaughter,' the criterion being intention.",
+          "kaynak": "Râzî, Sâffât 37:107 tefsiri; Kurtubî, Bakara 2:67 tefsiri"
+        },
+        {
+          "layer": "Zulüm kesimi — kontrastif kullanım",
+          "descTr": "Aynı kök Bakara 2:49'da Firavun'un İsrailoğullarının erkek çocuklarını 'kesmesi' (yüzebbihûne) için de kullanılır. Klasik tefsir bu kontrastif kullanımın manidar olduğunu vurgular — aynı fiil ibadî bağlamda 'yakınlaşma', zulüm bağlamında 'katliam' olur. Zebh Kur'ân'da ahlâkî yükünü niyetle taşır.",
+          "descEn": "The same root is used in Baqara 2:49 for Pharaoh's 'slaughtering' (yudhabbiḥūna) the male children of the Israelites. Classical exegesis stresses the significance of this contrastive usage — the same verb, in a worship context, means 'drawing near'; in a tyranny context, 'massacre.' In the Qur'an, dhabḥ carries its moral weight through intention.",
+          "kaynak": "Elmalılı, Bakara 2:49 tefsiri (zebh ahlâkî yük okuması)"
+        }
+      ]
+    },
+    {
+      "term": "Taqwā",
+      "termTr": "Takva",
+      "termEn": "Taqwā",
+      "ar": "التَّقْوٰى",
+      "root": "و ق ي",
+      "kategori": "purpose",
+      "searchTerms": [
+        "التَّقْوٰى",
+        "تَقْوٰى",
+        "الْمُتَّقِين"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "و ق ي",
+        "source": "auto",
+        "displayLabelTr": "~258 (و ق ي kökü, tüm türevler)",
+        "displayLabelEn": "~258 (root w-q-y, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'korunma, sakınma' semantik alanını içerir; sayım tüm türevleri kapsar. Kurban bağlamında merkez ayet Hac 22:37 ve Maide 5:27."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kurbanın kabul kriteri",
+          "descTr": "Maide 5:27 kurbanın Kur'ânî kabul kriterini tek cümleyle sabitler: 'Allah kurbanı yalnızca takva sahibinden kabul eder.' Klasik tefsir bu cümlenin Habil-Kabil kıssasının cevabı olduğunu, kabulün 'kesilenin niteliği' değil 'kesenin iç hali' ile belirlendiğini vurgular. Râzî 'kurbanı kurban yapan takvadır, kanı değil' der.",
+          "descEn": "Māʾida 5:27 fixes the Qur'anic criterion for the acceptance of sacrifice in a single sentence: 'Allah accepts only from those of taqwā.' Classical exegesis reads this as the answer within the Habīl-Qābīl narrative — acceptance is determined not by 'the quality of what is slaughtered' but by 'the inner state of the one who slaughters.' Rāzī: 'what makes a sacrifice a sacrifice is taqwā, not blood.'",
+          "kaynak": "Râzî, Maide 5:27 tefsiri; Kurtubî aynı ayet"
+        },
+        {
+          "layer": "Kurbanın Kur'ânî amacı",
+          "descTr": "Hac 22:37 kurbanın amacını Kur'ân'ın ağzından tek bir cümlede özetler: 'ne et ne kan Allah'a ulaşır, sizden O'na takva ulaşır.' Klasik tefsir bu ayetin kurbanı fiziksel bir sunumdan ayırdığını, iç halin dış kesimin üstüne yerleştirildiğini belirtir. Elmalılı takva 'nefsin sınırı görmesi ve o sınırda durabilmesidir' der; kurban bu sınırda durmanın bedende sembolüdür.",
+          "descEn": "Ḥajj 22:37 sums up sacrifice's purpose in a single Qur'anic sentence: 'neither their flesh nor their blood reaches Allah — what reaches Him is your taqwā.' Classical exegesis reads this verse as distinguishing sacrifice from physical offering, placing the inner state above the outer slaughter.",
+          "kaynak": "Elmalılı, Hac 22:37 tefsiri; Îzutsu, Ethico-Religious Concepts (taqwā semantik alanı)"
+        }
+      ]
+    },
+    {
+      "term": "Shaʿāʾir Allāh",
+      "termTr": "Şeâir-i İlâhî",
+      "termEn": "Shaʿāʾir Allāh",
+      "ar": "شَعَائِرُ اللّٰهِ",
+      "root": "ش ع ر",
+      "kategori": "concept",
+      "searchTerms": [
+        "شَعَائِر",
+        "شَعَائِرَ",
+        "الشَّعَائِر"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ش ع ر",
+        "source": "auto",
+        "displayLabelTr": "~4 (şeâir kelimesi doğrudan)",
+        "displayLabelEn": "~4 (word shaʿāʾir directly)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime Kur'ân'da Bakara 2:158 (Safa-Merve), Maide 5:2 (hac şeâiri), Hac 22:32 ve 22:36 (kurban ve bedene) geçer."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Allah'ın işaretleri",
+          "descTr": "Kök ش ع ر 'hissetmek, farkına varmak' demektir; şe'îre 'işaret, sembol'dür. Şeâirullah 'Allah'ın kendisiyle tanındığı işaretler'dir. Hac 22:32 'kim Allah'ın şeâirini yüceltirse bu kalplerin takvasındandır' der. Klasik tefsir bu ayetin şeâire ta'zim ile takva arasında doğrudan bir bağ kurduğunu belirtir.",
+          "descEn": "The root sh-ʿ-r means 'to sense, to become aware'; shaʿīra is 'a sign, a symbol.' Shaʿāʾir Allāh are 'the signs by which Allah is recognized.' Ḥajj 22:32 says 'whoever glorifies the signs of Allah, that is from the taqwā of hearts.' Classical exegesis reads this as tying reverence for the signs directly to taqwā.",
+          "kaynak": "Râzî, Hac 22:32 tefsiri; Kurtubî aynı ayet"
+        },
+        {
+          "layer": "Kurban bir işaret olarak",
+          "descTr": "Hac 22:36 kurbanın (bedene) 'Allah'ın şeâirinden' olduğunu açıkça belirtir. Klasik tefsir bu ayetin kurbanı bir 'sunum' değil bir 'işaret' olarak tanımladığını vurgular — kesim eylemi Allah'ın adının anılmasına ve şeâire ta'zime hizmet eder. Maide 5:2'de hac şeâiri (hedy ve kalâid dahil) 'saygısızlık edilmeyecek' kutsallar olarak sayılır.",
+          "descEn": "Ḥajj 22:36 explicitly places the sacrifice (badana) among 'the signs of Allah.' Classical exegesis reads this as defining sacrifice not as an 'offering' but as a 'sign' — the act of slaughter serves the mention of Allah's name and the reverence of the signs. In Māʾida 5:2 the signs of ḥajj (including hady and qalāʾid) are enumerated as sanctities not to be violated.",
+          "kaynak": "Kurtubî, Hac 22:36 tefsiri; Elmalılı, Maide 5:2 tefsiri"
+        }
+      ]
+    },
+    {
+      "term": "Badana",
+      "termTr": "Bedene",
+      "termEn": "Badana",
+      "ar": "الْبُدْن",
+      "root": "ب د ن",
+      "kategori": "concept",
+      "searchTerms": [
+        "الْبُدْن",
+        "بُدْن",
+        "بَدَنَة"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ب د ن",
+        "source": "auto",
+        "displayLabelTr": "1 (Hac 22:36 doğrudan)",
+        "displayLabelEn": "1 (Al-Ḥajj 22:36 directly)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime Kur'ân'da bu formuyla yalnızca Hac 22:36'da geçer. Klasik lugat 'bedene'yi büyükbaş hayvan (deve, sığır) için kullanır."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Büyükbaş kurban",
+          "descTr": "Hac 22:36 'bedene'yi Allah'ın şeâirinden olarak tanımlar: 've'l-bedene ce'alnâhâ leküm min şe'âirillâhi' — 'bedeneyi sizin için Allah'ın şeâirinden kıldık, sizin için onda hayır vardır.' Klasik tefsir 'bedene'nin özellikle deve ve sığır gibi büyükbaş hayvanlar için kullanıldığını, kelimenin 'gövde, iri beden' anlam kökünden geldiğini belirtir.",
+          "descEn": "Ḥajj 22:36 defines 'badana' as among the signs of Allah: 'and We have placed the badana for you among the signs of Allah — for you in them is good.' Classical exegesis notes that 'badana' is used especially for large animals like camels and cattle, the word coming from the root sense of 'body, large frame.'",
+          "kaynak": "Kurtubî, Hac 22:36 tefsiri; Râzî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Fidya",
+      "termTr": "Fidye",
+      "termEn": "Fidya",
+      "ar": "الْفِدْيَة",
+      "root": "ف د ي",
+      "kategori": "action",
+      "searchTerms": [
+        "فِدْيَة",
+        "فَدَيْنَاهُ",
+        "فِدَاء"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ف د ي",
+        "source": "auto",
+        "displayLabelTr": "~7 (ف د ي kökü, tüm türevler)",
+        "displayLabelEn": "~7 (root f-d-y, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'bir şeyin yerine bir şey vermek, kurtarma bedeli' semantik alanını kapsar. Kurban bağlamında merkez ayet Sâffât 37:107."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "İsmâîl'in yerine büyük kurban",
+          "descTr": "Sâffât 37:107 'onu büyük bir kurbanla fidye ettik' (ve fedeynâhu bi-zibhin azîm) der. Klasik tefsir bu ayetin kurban ile fidye arasında Kur'ânî bir bağ kurduğunu vurgular — kurban 'bir şeyin yerine sunulan' bir bedeldir. Râzî 'İbrâhîm'in teslimiyeti kabul edilince kesim ihtiyacı düşer, yerine büyük bir kurban gelir; kurban böylece rahmetin bedende işaretidir' der.",
+          "descEn": "Ṣāffāt 37:107 says 'We ransomed him with a great sacrifice' (wa fadaynāhu bi-dhibḥin ʿaẓīm). Classical exegesis reads this verse as forging a Qur'anic bond between sacrifice and ransom — the sacrifice is a substitute 'given in place of' something. Rāzī: 'when Ibrāhīm's submission is accepted, the slaughter is no longer required — a great sacrifice comes in its place; sacrifice thus becomes the bodily sign of mercy.'",
+          "kaynak": "Râzî, Sâffât 37:107 tefsiri; Elmalılı aynı ayet"
+        },
+        {
+          "layer": "Kök: bedel, kurtarma karşılığı",
+          "descTr": "Kök ف د ي 'bir şeyin yerine başka bir şey vermek, kurtarma bedeli ödemek' demektir. Klasik lugatta esirin fidye ile kurtarılması, kefaretin fidye ile ödenmesi bu kökten türer. Sâffât 37:107'de kurbanın 'fidye' olarak konumlanması, Kur'ân'ın kurbanı 'sunum' değil 'karşılık' olarak okuduğunun en açık delilidir.",
+          "descEn": "The root f-d-y means 'to give something in place of another, to pay a ransom.' In classical lexicography the freeing of a captive by ransom and the paying of an expiation both derive from this root. In Ṣāffāt 37:107, sacrifice's placement as 'fidya' is the clearest Qur'anic proof that the Qur'an reads sacrifice not as 'offering' but as 'substitution.'",
+          "kaynak": "Kurtubî, Sâffât 37:107 tefsiri (fidye kök açılımı)"
+        }
+      ]
+    },
+    {
+      "term": "Manāfiʿ",
+      "termTr": "Menâfî'",
+      "termEn": "Manāfiʿ",
+      "ar": "الْمَنَافِع",
+      "root": "ن ف ع",
+      "kategori": "concept",
+      "searchTerms": [
+        "مَنَافِع",
+        "الْمَنَافِع"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ن ف ع",
+        "source": "auto",
+        "displayLabelTr": "~5 (menâfî' kelimesi doğrudan)",
+        "displayLabelEn": "~5 (word manāfiʿ directly)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kurban bağlamında merkez ayet Hac 22:28. Kelime hac bağlamında 'sağlanan faydalar' (fiziksel ve mânevî) semantik alanını taşır."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kurbanın çift yönlü faydası",
+          "descTr": "Hac 22:28 'kendileri için birtakım menfaatlere şahit olsunlar ve bilinen günlerde Allah'ın onlara rızık olarak verdiği hayvanlar üzerine Allah'ın adını ansınlar' der. Klasik tefsir 'menâfî' kelimesinin hem fiziksel (etin paylaşımı, fakirin doyurulması) hem mânevî (Allah'ın adının anılması, şeâire ta'zim) faydayı içerdiğini vurgular. Ayet devamında 'ondan yiyin, sıkıntı içindeki yoksulu doyurun' (22:28) der — kurbanın sosyal boyutu Kur'ân'ın kendi dilinde açıktır.",
+          "descEn": "Ḥajj 22:28 says 'that they may witness benefits for themselves and mention the name of Allah on known days over what He has provided of the beasts of livestock.' Classical exegesis stresses that 'manāfiʿ' encompasses both physical (sharing meat, feeding the poor) and spiritual (mentioning Allah's name, reverencing the signs) benefits. The verse continues: 'eat of them and feed the hard-pressed, the destitute' (22:28) — the social dimension of sacrifice is explicit in the Qur'an's own words.",
+          "kaynak": "Râzî, Hac 22:28 tefsiri; Kurtubî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Qalāʾid",
+      "termTr": "Kalâid",
+      "termEn": "Qalāʾid",
+      "ar": "الْقَلَائِد",
+      "root": "ق ل د",
+      "kategori": "concept",
+      "searchTerms": [
+        "الْقَلَائِد",
+        "قَلَائِد"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ق ل د",
+        "source": "auto",
+        "displayLabelTr": "~2 (Maide 5:2 ve 5:97)",
+        "displayLabelEn": "~2 (Al-Māʾida 5:2 and 5:97)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime Kur'ân'da Maide 5:2 ve 5:97'de geçer — kurbana takılan işaret (boyun bandı/kolye) anlamında."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kurbana takılan işaret",
+          "descTr": "Kalâid 'boyna takılan şey' demektir; Maide 5:2 'hedy'e ve kalâide saygısızlık etmeyin' der. Klasik tefsir kalâidin Harem'e sevkedilen kurbana takılan bir işaret olduğunu, bu işaretin kurbanın 'Allah'a adanmış olduğunu' herkese belli ettiğini belirtir. Ayet kurbanı bir bireysel eylem değil, topluluğun tanıdığı bir kutsallık olarak konumlandırır.",
+          "descEn": "Qalāʾid means 'that which is placed on the neck'; Māʾida 5:2 says 'do not violate the sanctity of the hady or the qalāʾid.' Classical exegesis reads qalāʾid as a marker placed on the sacrifice sent to the Ḥaram, that marker making public that the sacrifice is 'consecrated to Allah.' The verse frames sacrifice not as a private act but as a sanctity recognized by the community.",
+          "kaynak": "Kurtubî, Maide 5:2 tefsiri; Râzî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Ikhlāṣ",
+      "termTr": "İhlâs",
+      "termEn": "Ikhlāṣ",
+      "ar": "الْإِخْلَاص",
+      "root": "خ ل ص",
+      "kategori": "inner-state",
+      "searchTerms": [
+        "أَخْلَص",
+        "مُخْلِصِين",
+        "مُخْلِصاً",
+        "خَالِصاً"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "خ ل ص",
+        "source": "auto",
+        "displayLabelTr": "~31 (خ ل ص kökü, tüm türevler)",
+        "displayLabelEn": "~31 (root kh-l-ṣ, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'saf olma, arıtılma' semantik alanını kapsar. Kurban bağlamında merkez ayet Maide 5:27 (takva ile birlikte)."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kabulün iç şartı",
+          "descTr": "Maide 5:27'de Habil'in kurbanının kabulü 'takva' ile açıklanır; klasik tasavvuf literatürü aynı kabul kriterini 'ihlâs' ile de eşleştirir. Kök ح ل ص 'saf olma, karışıksız hale gelme' demektir. Kurbanda ihlâs, kesenin niyetinin gösterişten, yiyecek arayışından, geleneğe uymadan arınmış saf bir 'Allah için' olmasıdır.",
+          "descEn": "In Māʾida 5:27, the acceptance of Habīl's sacrifice is explained by taqwā; classical Sufi literature pairs the same criterion with ikhlāṣ. The root kh-l-ṣ means 'to be pure, to become unmixed.' Ikhlāṣ in sacrifice is the slaughterer's intention being pure — cleared of ostentation, of the search for food, of mere custom — a pure 'for Allah.'",
+          "kaynak": "Elmalılı, Maide 5:27 tefsiri; Îzutsu, Ethico-Religious Concepts (ikhlāṣ semantik alanı)"
+        }
+      ]
+    }
+  ],
+  "anaPasajlar": {
+    "ayetler": [
+      {
+        "ref": "Hac 22:37",
+        "ar": "لَنْ يَنَالَ اللّٰهَ لُحُومُهَا وَلَا دِمٓاؤُهَا وَلٰكِنْ يَنَالُهُ التَّقْوٰى مِنْكُمْ  كَذٰلِكَ سَخَّرَهَا لَكُمْ لِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰيكُمْ وَبَشِّرِ الْمُحْسِنِينَ",
+        "tr": "Onların ne etleri ne de kanları Allah'a ulaşır; fakat sizden O'na ancak takva ulaşır. Böylece onları sizin buyruğunuza verdi ki, size doğru yolu göstermesinden ötürü Allah'ı yüceltesiniz. Muhsinlere müjde ver.",
+        "en": "Their flesh does not reach Allah, nor does their blood; but what reaches Him is your taqwā. Thus He has subjected them to you, that you may glorify Allah for having guided you. And give glad tidings to the doers of good.",
+        "not": "Kurbanın anchor ayeti. Kur'ân bir cümle içinde kurbanın Kur'ânî ekseni koyar: 'lâ yenâlullâhe luhûmuhâ ve lâ dimâuhâ ve lâkin yenâluhu't-takvâ minkum'. Klasik tefsir bu ayetin kurbanı bir fiziksel sunumdan tefrik ettiğini, iç halin dış kesimin üstüne yerleştirildiğini vurgular. Râzî 'ne et ne kan' ifadesinin kesin bir olumsuzlama olduğunu, bunun kurbanı 'Allah'a yiyecek götürme' anlayışından tamamen ayırdığını belirtir. Ayetin devamı 'size doğru yolu göstermesinden ötürü Allah'ı yüceltesiniz' ile kurbanı bir 'şükür pratiği' olarak konumlandırır — hidayete verilen bir teşekkür."
+      },
+      {
+        "ref": "Hac 22:34",
+        "ar": "وَلِكُلِّ اُمَّةٍ جَعَلْنَا مَنْسَكاً لِيَذْكُرُوا اسْمَ اللّٰهِ عَلٰى مَا رَزَقَهُمْ مِنْ بَهِيمَةِ الْاَنْعَامِ فَاِلٰهُكُمْ اِلٰهٌ وَاحِدٌ فَلَـهٓ اَسْلِمُوا وَبَشِّرِ الْمُخْبِتِينَ",
+        "tr": "Her ümmet için, Allah'ın kendilerine rızık olarak verdiği hayvanlar üzerine adını ansınlar diye bir kurban ibadeti (mensek) koyduk. Sizin ilâhınız tek bir ilâhtır; öyleyse O'na teslim olun. Sen o alçakgönüllü olanları müjdele.",
+        "en": "For every community We have appointed a rite of sacrifice (mansak), that they may mention the name of Allah over the beasts of livestock He has provided for them. Your God is One God, so submit to Him. And give glad tidings to those who humble themselves.",
+        "not": "Kurbanın 'her ümmete has olmama' Kur'ânî temeli. Klasik tefsir bu ayetin kurbanı semavî geleneğin süregelen bir pratiği olarak konumlandırdığını vurgular. Râzî 'her ümmete bir mensek verdik' ifadesinin 'ümmet' kelimesinin genişliği içinde tüm peygamber ümmetlerini kapsadığını belirtir. Ayetin ana verbal ifadesi 'liyeẕkurusme'llâhi' — Allah'ın adını ansınlar diye — kurbanı bir 'zikir yeri' olarak tanımlar. Kurbanın Kur'ânî işlevi böylece bir 'kan sunumu' değil, 'Allah'ın adının anıldığı bir zaman-mekân eşiği' olur."
+      },
+      {
+        "ref": "Hac 22:28",
+        "ar": "لِيَشْهَدُوا مَنَافِـعَ لَهُمْ وَيَذْكُرُوا اسْمَ اللّٰهِ فِٓي اَيَّامٍ مَعْلُومَاتٍ عَلٰى مَا رَزَقَهُمْ مِنْ بَهِيمَةِ الْاَنْعَامِ فَكُلُوا مِنْهَا وَاَطْعِمُوا الْـبٓائِسَ الْفَقِيرَ",
+        "tr": "Ki (böylece) kendileri için birtakım faydalara şahit olsunlar ve bilinen günlerde Allah'ın onlara rızık olarak verdiği hayvanlar üzerine Allah'ın adını ansınlar. Ondan hem yiyin, hem de sıkıntı içindeki yoksulu doyurun.",
+        "en": "That they may witness benefits for themselves and mention the name of Allah on known days over what He has provided of the beasts of livestock. So eat of them and feed the hard-pressed, the destitute.",
+        "not": "Kurbanın Kur'ânî sosyal boyutu. Ayet üç şeyi tek nefeste birleştirir: (1) 'menâfî'ye şahit olma — hem fiziksel hem mânevî fayda; (2) 'bilinen günlerde' Allah'ın adının anılması — kurbanın vakit boyutu; (3) 'yiyin ve yoksulu doyurun' emri — paylaşımın Kur'ânî direktifi. Klasik tefsir bu ayetin kurbanı bireysel bir ibadet olmaktan çıkarıp topluluk aracılığıyla akan bir 'rızık dolaşımı' olarak konumlandırdığını vurgular. Elmalılı 'kurbanın etinin fakire ulaşması Kur'ân'da bir tavsiye değil, ayetin kendi emridir' der."
+      },
+      {
+        "ref": "Hac 22:36",
+        "ar": "وَالْبُدْنَ جَعَلْنَاهَا لَكُمْ مِنْ شَعٓائِرِ اللّٰهِ لَكُمْ فِيهَا خَيْرٌ فَاذْكُرُوا اسْمَ اللّٰهِ عَلَيْهَا صَوٓافَّ فَاِذَا وَجَبَتْ جُنُوبُهَا فَكُلُوا مِنْهَا وَاَطْعِمُوا الْقَانِـعَ وَالْمُعْتَرَّ  كَذٰلِكَ سَخَّرْنَاهَا لَكُمْ لَعَلَّكُمْ تَشْكُرُونَ",
+        "tr": "Büyük baş hayvanları (bedene) sizin için Allah'ın şeâirinden kıldık; onlarda sizin için hayır vardır. Öyleyse ayakları üzerinde saf dururken üzerlerine Allah'ın adını anın. Yanları üzerine düştüklerinde ondan yiyin, kanaat edip istemeyene de, isteyene de yedirin. Şükredesiniz diye onları böyle sizin buyruğunuza verdik.",
+        "en": "And the large beasts of sacrifice — We have placed them for you among the signs of Allah; in them is good for you. So mention the name of Allah over them when they are lined up; and when they fall on their sides, eat of them and feed the content and the beggar alike. Thus have We subjected them to you, that you may be grateful.",
+        "not": "Kurbanın 'şeâir' (Allah'ın işaretleri) çerçevesindeki Kur'ânî yeri. Klasik tefsir bu ayetin kurbanı bir 'işaret sunumu' olarak tanımladığını vurgular — kesim eylemi Allah'ın adını anmakla ('feẕkurusme'llâhi aleyhâ') iç içedir. Ayet iki paylaşım kategorisini birlikte anar: 'kanaat edip istemeyen' (kâniʿ) ve 'isteyen' (muʿterr). Kurtubî bu ikili kategorinin kurbanın etinin dağıtımında kimseyi dışarıda bırakmama Kur'ânî direktifi olduğunu belirtir. Ayet 'şükür' ile kapanır — kurban Kur'ân'da bir 'çile' değil, bir 'şükür pratiği'dir."
+      },
+      {
+        "ref": "Sâffât 37:102",
+        "ar": "فَلَمَّا بَلَغَ مَعَهُ السَّعْيَ قَالَ يَا بُنَيَّ اِنِٓي اَرٰى فِي الْمَنَامِ اَنِٓي اَذْبَحُكَ فَانْظُرْ مَاذَا تَرٰى قَالَ يٓا اَبَتِ افْعَلْ مَا تُؤْمَرُ سَتَجِدُنٓي اِنْ شٓاءَ اللّٰهُ مِنَ الصَّابِرِينَ",
+        "tr": "Çocuk babasıyla birlikte yürüyecek çağa erişince, İbrâhîm ona 'Yavrum! Rüyamda seni kestiğimi görüyorum. Bir düşün, ne dersin?' dedi. Oğlu 'Babacığım! Emrolunduğun şeyi yap. İnşâallah beni sabredenlerden bulacaksın' dedi.",
+        "en": "When he reached the age of striving with him, he said, 'O my son, I have seen in a dream that I am to sacrifice you; consider what you think.' He said, 'O my father, do as you are commanded; you will find me, if Allah wills, among the patient.'",
+        "not": "Kurbanın arketipal sahnesinin girişi. Klasik tefsir bu ayetin üç Kur'ânî unsurunu vurgular: (1) rüya bir 'emir' değil, 'gördüğüm' formunda bir sınav-işaretidir; (2) İbrâhîm'in oğluyla istişaresi — 'ne dersin?' — teslimiyetin dayatma değil, karşılıklı bir tanınma olduğunu gösterir; (3) İsmâîl'in cevabında 'inşâallah' geçmesi teslimiyetin kaynağının Allah'ın iradesi olduğunu belirtir. Râzî 'bu ayet peygamber ailesindeki teslimiyet dilinin en yoğun sahnesidir' der."
+      },
+      {
+        "ref": "Sâffât 37:103",
+        "ar": "فَلَمّٓا اَسْلَمَا وَتَلَّهُ لِلْجَبِينِ",
+        "tr": "Nihayet ikisi de teslim olup İbrâhîm onu yüzüstü yatırınca,",
+        "en": "When they had both submitted and he had laid him upon his forehead,",
+        "not": "Klasik tefsir bu kısa ayetin dilbilimsel yoğunluğunu vurgular. 'İkisi de teslim olduklarında' — 'felemmâ eslemâ' — teslimiyetin çift yönlü olduğunu gösterir: hem baba hem oğul teslim olur. Râzî bu 'çift-teslim'in kurbanın Kur'ânî ekseninin tam merkezinde olduğunu belirtir — teslimiyet dayatma değil, karşılıklı bir kabuldür. Elmalılı ayetin 'kurbanı kurban yapan an bu ândır — kesim değil, teslim' der."
+      },
+      {
+        "ref": "Sâffât 37:104",
+        "ar": "وَنَادَيْنَاهُ اَنْ يٓا اِبْرٰهِيمُ",
+        "tr": "Ona 'Ey İbrâhîm!' diye seslendik.",
+        "en": "We called out to him, 'O Ibrāhīm!'",
+        "not": "Ayetin kısalığı klasik tefsirde 'Allah'ın müdahalesi tam ande gelir' notuyla vurgulanır. Râzî bu ayeti 'teslimiyet kabul edildikten sonra kesim ihtiyacı düşer' okumasının Kur'ânî delili olarak konumlandırır. Sınav bir kesim testi değil, teslim testiydi — teslim gerçekleşince sınav biter."
+      },
+      {
+        "ref": "Sâffât 37:105",
+        "ar": "قَدْ صَدَّقْتَ الرُّءْيَا اِنَّا كَذٰلِكَ نَجْزِي الْمُحْسِنِينَ",
+        "tr": "'Sen rüyayı gerçekleştirdin.' İşte biz iyilik yapanları böyle mükâfatlandırırız.",
+        "en": "'You have fulfilled the vision.' Indeed, thus do We reward the doers of good.",
+        "not": "Klasik tefsir bu ayetin dilbilimsel inceliğini vurgular: 'sen rüyayı gerçekleştirdin' — 'kad saddakte'r-ru'yâ' — kesim gerçekleşmese de rüya 'tasdik edilmiş' sayılır. Râzî bu ifadenin kurbanın Kur'ânî ekseninde 'niyetin kesime denk olduğunu' bildirdiğini belirtir — Allah kesimi değil, teslimiyeti kabul etmişti. 'Muhsinleri böyle mükâfatlandırırız' ifadesi Hac 22:37'nin sonundaki 'muhsinlere müjde ver' ile aynı Kur'ânî çizgide durur."
+      },
+      {
+        "ref": "Sâffât 37:107",
+        "ar": "وَفَدَيْنَاهُ بِذِبْحٍ عَظِيمٍ",
+        "tr": "Ve ona (İsmâîl'e karşılık) büyük bir kurban ile fidye ettik.",
+        "en": "And We ransomed him with a great sacrifice.",
+        "not": "Kurbanın Kur'ânî 'fidye' anıdır. Klasik tefsir 'zibhin azîm' (büyük kurban) ifadesinin dilbilimsel yoğunluğunu vurgular. Râzî 'büyüklük' vasfının hem hayvanın fiziksel büyüklüğüne hem de olayın mânevî büyüklüğüne işaret ettiğini belirtir. Ayetin Kur'ânî öğretisi: kesim değil teslimiyet Allah'a ulaşır; teslim kabul edilince kesim rahmetle karşılanır ve yerine bir 'karşılık' konur. Kurbanın Kur'ânî 'karşılık' semantiği bu ayette en açık formuna kavuşur — kurban bir 'sunum' değil, Allah'ın rahmetinden gelen bir 'karşılık'tır."
+      },
+      {
+        "ref": "Maide 5:2",
+        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا لَا تُحِلُّوا شَعٓائِرَ اللّٰهِ وَلَا الشَّهْرَ الْحَرَامَ وَلَا الْهَدْيَ وَلَا الْقَلٓائِدَ وَلٓا آٰمِّينَ الْبَيْتَ الْحَرَامَ يَبْتَغُونَ فَضْلاً مِنْ رَبِّهِمْ وَرِضْوَاناً وَاِذَا حَلَلْتُمْ فَاصْطَادُوا وَلَا يَجْرِمَنَّكُمْ شَنَاٰنُ قَوْمٍ اَنْ صَدُّوكُمْ عَنِ الْمَسْجِدِ الْحَرَامِ اَنْ تَعْتَدُوا وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوٰى وَلَا تَعَاوَنُوا عَلَى الْاِثْمِ وَالْعُدْوَانِ وَاتَّقُوا اللّٰهَ اِنَّ اللّٰهَ شَدِيدُ الْعِقَابِ",
+        "tr": "Ey iman edenler! Allah'ın (koyduğu din) şeâirine, haram aya, hedy'e (kurbanlığa), kalâid'e (kurbanlığın nişanına) ve Rablerinin lütfunu ve rızasını isteyerek Beytü'l-Harâm'a doğru yönelmiş kimselere saygısızlık etmeyin...",
+        "en": "O you who believe! Do not violate the sanctity of the signs of Allah, nor the sacred month, nor the hady, nor the qalāʾid, nor those bound for the Sacred House seeking bounty and pleasure from their Lord...",
+        "not": "Kurbanın 'şeâir' listesindeki yeri. Klasik tefsir bu ayetin hedy ve kalâidi 'saygısızlık edilmeyecek kutsallar' arasında sayarak kurbanı bireysel bir eylem olmaktan çıkarıp toplumsal bir kutsallık olarak konumlandırdığını vurgular. Râzî 'kalâid' kelimesinin 'boyna takılan işaret' anlamının önemli olduğunu, kurbanın Harem'e sevkedilirken taşıdığı bu işaret aracılığıyla 'Allah'a adanmışlık' vasfının kamuya beyan edildiğini belirtir."
+      },
+      {
+        "ref": "Maide 5:27",
+        "ar": "وَاتْلُ عَلَيْهِمْ نَبَاَ ابْنَيْ اٰدَمَ بِالْحَقِّ اِذْ قَرَّبَا قُرْبَاناً فَتُقُبِّلَ مِنْ اَحَدِهِمَا وَلَمْ يُتَقَبَّلْ مِنَ الْاٰخَرِ قَالَ لَاَقْتُلَنَّكَ قَالَ اِنَّمَا يَتَقَبَّلُ اللّٰهُ مِنَ الْمُتَّقِينَ",
+        "tr": "Onlara Âdem'in iki oğlunun haberini gerçek olarak oku: Hani her ikisi de birer kurban sunmuşlardı; birinden kabul edilmiş, diğerinden ise kabul edilmemişti. (Kurbanı kabul edilmeyen) 'Andolsun seni öldüreceğim' dedi. Diğeri 'Allah, ancak takva sahiplerinden kabul eder' dedi.",
+        "en": "Recite to them the story of Adam's two sons in truth: when they each offered a sacrifice, and it was accepted from one but not from the other. He said, 'I will surely kill you.' Said the other, 'Allah only accepts from those of taqwā.'",
+        "not": "Kurbanın Kur'ânî ilk sahnesi ve kabul kriterinin tam ifadesi. Klasik tefsir bu ayetin kurban için Kur'ânî 'son sözü' söylediğini vurgular: 'innemâ yetekabbelullâhu mine'l-muttakîn' — Allah kurbanı yalnızca takva sahibinden kabul eder. Râzî bu ifadenin kurbanı fiziksel bir sunumdan tefrik ettiğini, kabul edilenin 'kesilen değil, kesen' olduğunu belirtir. Klasik tefsir Habil-Kabil kıssasının 'kurbanın niyet eksenli olduğu' Kur'ânî öğretisinin ilk sahnesi olduğunu, aynı öğretinin Hac 22:37'de olgunlaştığını gösterir."
+      },
+      {
+        "ref": "Kevser 108:2",
+        "ar": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+        "tr": "Öyleyse Rabbin için namaz kıl ve kurban kes.",
+        "en": "So pray to your Lord and sacrifice.",
+        "not": "Kur'ân'ın en kısa sûresinde kurban ile namazın yan yana emri. Klasik tefsir bu iki emrin ardarda gelişinin manidar olduğunu vurgular. Râzî 'salât bedenle Allah'a yönelme, nahr mülkle Allah'a bırakmadır' der — iki ibadet ibadetin iki temel eksenini birlikte kurar. Elmalılı bu ayeti 'ibadetin ikiz kalbi' okur: biri iç yönelimin dışa vurumu (namaz), diğeri sahiplik iddiasının bırakılması (kurban). Ayet 'lir-abbike' (Rabbin için) ile de kurbanın niyet ekseni olan 'yalnızca Allah için' vurgusunu taşır — Habil-Kabil kıssasının 'takva' kriterinin Kur'ânî bir başka ifadesidir."
+      },
+      {
+        "ref": "En'âm 6:162",
+        "ar": "قُلْ اِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلّٰهِ رَبِّ الْعَالَمِينَ",
+        "tr": "De ki: Şüphesiz benim namazım, kurbanım (nüsküm), hayatım ve ölümüm âlemlerin Rabbi olan Allah içindir.",
+        "en": "Say: Indeed, my prayer, my sacrifice (nusuk), my life and my death are for Allah, the Lord of the worlds.",
+        "not": "Kurbanın Kur'ânî 'bütünlük ayeti'. Klasik tefsir bu ayetin dört kavramı — salât, nüsük, mahyâ, memât — tek bir teslim yayına dizdiğini vurgular. Râzî 'namaz ve kurban ibadet-eylemlerini, hayat ve ölüm varlık-durumlarını temsil eder; hepsi tek bir cümlede Allah'a bağlanır' der. Kurban Kur'ân'da böylece izole bir ibadet değil, 'hayatın tümü Allah için' bütünlüğünün en somut sembolüdür. Elmalılı 'insanın ibadet listesinde kurban tesadüfen değil, bir teslimiyet iddiasının bedenli sembolü olarak yer alır' der."
+      },
+      {
+        "ref": "Bakara 2:196",
+        "ar": "وَاَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلّٰهِ فَاِنْ اُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ وَلَا تَحْلِقُوا رُؤُسَكُمْ حَتّٰى يَبْلُغَ الْهَدْيُ مَحِلَّهُ   فَمَنْ كَانَ مِنْكُمْ مَرِيضاً اَوْ بِهٓ  اَذًى مِنْ رَأْسِهِ فَفِدْيَةٌ مِنْ صِيَامٍ اَوْ صَدَقَةٍ اَوْ نُسُكٍ فَاِذٓا اَمِنْتُمْ  فَمَنْ تَمَتَّعَ بِالْعُمْرَةِ اِلَى الْحَجِّ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ فَمَنْ لَمْ يَجِدْ فَصِيَامُ ثَلٰثَةِ اَيَّامٍ فِي الْحَجِّ وَسَبْعَةٍ اِذَا رَجَعْتُمْ  تِلْكَ عَشَرَةٌ   كَامِلَةٌ  ذٰلِكَ لِمَنْ لَمْ يَكُنْ اَهْلُهُ حَاضِرِي الْمَسْجِدِ الْحَرَامِ  وَاتَّقُوا اللّٰهَ وَاعْلَمٓوا اَنَّ اللّٰهَ شَدِيدُ الْعِقَابِ",
+        "tr": "Haccı ve umreyi Allah için tamamlayın. Eğer engellenirseniz, kolayınıza gelen bir kurbanlık (hedy) gönderin... Kim hac zamanına kadar umre ile faydalanmak isterse, kolayına gelen bir kurbanlık keser. Bulamayan kimse, hac esnasında üç gün, döndüğünüzde yedi gün olmak üzere tam on gün oruç tutar.",
+        "en": "Complete the ḥajj and ʿumra for Allah. If you are prevented, send whatever sacrifice (hady) is affordable... Whoever performs ʿumra followed by ḥajj should offer whatever sacrifice is affordable. But whoever cannot afford it should fast three days during ḥajj and seven upon return — that is ten complete days.",
+        "not": "Temettu' haccında kurban ve oruç arasındaki Kur'ânî bağ. Klasik tefsir bu ayetin kurbanı hac ibadetinin bir eylemi olarak konumlandırırken 'bulamayana oruç' ruhsatını da aynı ayette yerleştirdiğini vurgular. Kurtubî 'kurban ile oruç arasındaki bu Kur'ânî ilişki, ibadetlerin birbirinin yerine geçebilir olduğunu değil, teslimiyetin farklı bedensel dilleri olduğunu gösterir' der. 'Kolayınıza gelen' (mâ'stayseran) ifadesi Kur'ân'ın kurbanda da zorluk yerine yusr'u (kolaylık) esas aldığını gösterir — Bakara 2:185'in 'Allah size kolaylık ister' ilkesi kurban için de geçerlidir."
+      }
+    ],
+    "rituelBaglam": [
+      {
+        "ref": "Sâffât 37:102-107",
+        "sceneTr": "İbrâhîm-İsmâîl sınavı kurbanın Kur'ânî arketip sahnesidir. Sahne beş harekette gelişir: (1) baba oğula rüyayı bildirir ve fikrini sorar (37:102); (2) oğul teslimiyetini beyan eder — 'inşâallah beni sabredenlerden bulacaksın'; (3) her ikisi de teslim olur, çocuk yüzüstü yatırılır (37:103); (4) Allah İbrâhîm'e seslenir — 'sen rüyayı gerçekleştirdin' (37:105); (5) İsmâîl'in yerine 'büyük bir kurban ile fidye' konur (37:107). Klasik tefsir bu sahnenin kurbanın Kur'ânî ekseninin en yoğun tarifini içerdiğini vurgular. Râzî 'kurbanı kurban yapan kesim değil teslimiyettir' okumasının Kur'ânî delili olarak bu sahneyi gösterir — kesim gerçekleşmese de rüya 'tasdik edilmiş' sayılır (37:105); Allah kesimi değil, teslimi kabul etmişti."
+      },
+      {
+        "ref": "Maide 5:27-31",
+        "sceneTr": "Habil-Kabil kıssası kurbanın Kur'ânî ilk sahnesi olarak konumlanır. Sahne dört harekette gelişir: (1) iki oğul birer kurban sunar (5:27); (2) birininki kabul, diğerininki reddedilir; (3) Habil ret üzerine ağabeyine 'Allah kurbanı yalnızca takva sahibinden kabul eder' cevabını verir — Kur'ânî kabul kriterinin ilk ifadesi; (4) Kabil kıskançlıkla Habil'i öldürür (5:30). Klasik tefsir bu sahnenin kurbanın Kur'ânî öğretisinin iki cephesini birlikte gösterdiğini vurgular: (a) kabul kriteri niyet-takvadır; (b) reddedilme sabır ve teslim ile karşılanır, şiddetle değil. Râzî 'Habil'in cevabı Kur'ân'da kurban için verilen en açık ilkedir' der."
+      }
+    ]
+  },
+  "ozelNamazlar": null,
+  "vakitMekan": null,
+  "kiraatBoyutu": null,
+  "rakamsalMimari": {
+    "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
+    "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân kurbanın amacını (takva), niyet kriterini (ihlâs-takva), ekseni (İbrâhîm hafızası), sosyal boyutunu (paylaşım, fakiri doyurma) ve şeâir çerçevesini açıkça çizer; sünnet-i mütevâtire kesim vaktinin uygulama biçimini (bayram sabahı namazından sonra), üleşim oranlarını, teşrik günlerinin tekbir ritmini ve fıkhî tafsilleri belirler. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
+    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an explicitly draws sacrifice's purpose (taqwā), intentional criterion (ikhlāṣ-taqwā), axis (memory of Ibrāhīm), social dimension (sharing, feeding the poor), and its shaʿāʾir frame. Mutawātir sunnah determines the practical form of the timing (after the ʿīd prayer), the sharing proportions, the takbīr rhythm of the tashrīq days, and the juridical details. They complete each other as an inseparable whole.",
+    "kuraniSide": {
+      "titleTr": "Kur'ân'ın koyduğu ilkeler",
+      "titleEn": "The Qur'an's principles",
+      "points": [
+        {
+          "label": "Amaç",
+          "value": "Takva (Hac 22:37)",
+          "note": "Kurbanın Kur'ânî nihaî amacı 'lâkin yenâluhu't-takvâ minkum' — Allah'a ulaşan takvadır. Ayet fiziksel sunumu (et ve kan) açıkça olumsuzlar."
+        },
+        {
+          "label": "Kabul kriteri",
+          "value": "İhlâs-takva (Maide 5:27)",
+          "note": "Habil-Kabil kıssasının cevabı: 'Allah kurbanı yalnızca takva sahibinden kabul eder.' Kabul kesilenin niteliği değil, kesenin iç hali ile belirlenir."
+        },
+        {
+          "label": "Eksen",
+          "value": "İbrâhîm-İsmâîl (Sâffât 37:102-107)",
+          "note": "Kurbanın Kur'ânî arketipal sahnesi. Rüya, teslimiyet, 'büyük kurbanla fidye' — kesim değil teslim kabul edilir."
+        },
+        {
+          "label": "Nüsük çokluğu",
+          "value": "Her ümmete bir (Hac 22:34)",
+          "note": "Kurban bu ümmete has değil, semavî geleneğin süregelen bir pratiği. Habil-Kabil'de başlar, İbrâhîm'de arketipleşir, bu ümmette de sürer."
+        },
+        {
+          "label": "Sosyal boyut",
+          "value": "'Yiyin ve doyurun' (Hac 22:28, 22:36)",
+          "note": "Ayetler kurbanın etinin paylaşımını Kur'ân'ın kendi ağzından emreder: 'kanaat edip istemeyene ve isteyene de yedirin' (22:36). Paylaşım Kur'ânî bir tavsiye değil, ayetin direktifidir."
+        },
+        {
+          "label": "Şeâir çerçevesi",
+          "value": "Allah'ın işaretlerinden (Hac 22:36)",
+          "note": "Kurban Kur'ân'da bir 'sunum' değil, Allah'ın adının anıldığı bir 'işaret'tir. Şeâire ta'zim (Hac 22:32) 'kalplerin takvasındandır' cümlesiyle takvaya bağlanır."
+        },
+        {
+          "label": "Namazla eşleşme",
+          "value": "Kevser 108:2, En'âm 6:162",
+          "note": "Kur'ân kurbanı namazla iki ayrı yerde yan yana koyar. Kevser 108:2 'namaz kıl ve kurban kes' der; En'âm 6:162 'namazım, kurbanım, hayatım, ölümüm Allah içindir' der. Kurban Kur'ân'da izole değil, bütün ibadet omurgasının bir halkasıdır."
+        }
+      ]
+    },
+    "sunnetSide": {
+      "titleTr": "Sünnet-i mütevâtirenin tafsili",
+      "titleEn": "Details from mutawātir sunnah",
+      "points": [
+        {
+          "label": "Kesim vakti",
+          "value": "Bayram sabahı namazından sonra",
+          "note": "Kur'ân Hac 22:28'de 'bilinen günlerde' (eyyâmin ma'lûmât) der; sünnet bu 'bilinen günler'in başlangıcını bayram sabahı namazından sonra olarak tafsil eder. Bayram namazından önce kesilen hayvanın kurban sayılmayacağı sünnet-i mütevâtireyle sabittir; dört klasik mezhep bu tafsilde birleşir."
+        },
+        {
+          "label": "Teşrik günleri",
+          "value": "Kesim ve tekbir zamanı",
+          "note": "Kurbanın kesim penceresi (bayram günü ve akabinde teşrik günleri) ve bu günlerde okunan tekbirlerin ritmi sünnetin uygulamayla doldurduğu bir Kur'ânî çerçevedir. Kur'ân 'bilinen günler' der, sünnet bu günlerin sayısını ve tekbir formunu tafsil eder."
+        },
+        {
+          "label": "Üleşim oranları",
+          "value": "Üçlü paylaşım (aile/komşu/fakir)",
+          "note": "Hac 22:28 'yiyin ve yoksulu doyurun' der; Hac 22:36 'kanaat edip istemeyene ve isteyene yedirin' der. Sünnet bu Kur'ânî direktifi 'üçe böl: bir kısmı aile, bir kısmı komşu, bir kısmı fakir' formuyla tafsil eder. Klasik dört mezhep üleşim oranlarında küçük farklarla bu üçlü çerçeveyi kabul eder."
+        },
+        {
+          "label": "Kurbanlık hayvan şartları",
+          "value": "Fıkhî tafsil",
+          "note": "Kurbanlık hayvanın yaşı, sağlığı, kusursuz olması gibi şartlar Kur'ân'da genel ilkelerle (Hac 22:36 'bedene' ve 22:34 'behîmeti'l-en'âm' — hayvan kategorileri) verilir; sünnet ve fıkıh her hayvan türü için ayrıntılı şartları tafsil eder."
+        },
+        {
+          "label": "Akîka ayrımı",
+          "value": "Farklı bir sünnet ibadeti",
+          "note": "Yeni doğan çocuk için kesilen 'akîka' Kur'ân'da doğrudan geçmez; sünnet-i mütevâtireyle sabit ayrı bir sünnet ibadetidir. Nüsük ve hedy kavramlarıyla aynı kökten sayılmakla birlikte, kurban ile akîka arasındaki fıkhî ayrım klasik mezheplerde ayrı ayrı işlenir."
+        }
+      ]
+    },
+    "tensionNote": "Bu tab 'sadece Kur'ân, sünnete gerek yok' söylemine kapı aralamaz. Amaç: Kur'ân'ın kurbanın mimarisini ne kadar açık koyduğunu VE sünnetin bu mimariyi nasıl doldurduğunu birlikte göstermek. Klasik Ehl-i Sünnet çerçevesi ve dört mezhep uygulaması geçerli; bu sayfa fıkıh kitabı değildir, ibadetin Kur'ânî mimarisini gösterir."
+  },
+  "peygamberVaryasyonlari": [
+    {
+      "prophet": "Habil ve Kabil",
+      "ref": "Maide 5:27",
+      "sceneTr": "Kurbanın Kur'ânî ilk sahnesi. Âdem'in iki oğlu birer kurban sunar; Habil'inki kabul, Kabil'inki reddedilir. Habil'in cevabı Kur'ânî kabul kriterinin ilk ifadesidir: 'Allah kurbanı yalnızca takva sahibinden kabul eder' (5:27). Klasik tefsir bu sahnenin kurbanın 'niyet eksenli' Kur'ânî öğretisinin ilk sahnelemesi olduğunu vurgular. Râzî 'Kur'ân'ın kurban için verdiği ilk sahne bir başarı sahnesi değil, bir ret sahnesidir — bu ret niyetin belirleyici olduğunu bildirmek içindir' der."
+    },
+    {
+      "prophet": "İbrâhîm ve İsmâîl",
+      "ref": "Sâffât 37:102-107",
+      "sceneTr": "Kurbanın arketipal sahnesi. Rüya (37:102), istişare ('ne dersin?'), oğulun teslimiyet beyanı ('inşâallah beni sabredenlerden bulacaksın'), çift-teslim (37:103 'ikisi de teslim olduklarında'), ilahî müdahale (37:104), 'sen rüyayı gerçekleştirdin' cümlesi (37:105), 'büyük bir kurban ile fidye' (37:107). Klasik tefsir bu sahnenin kurbanın Kur'ânî tanımını içerdiğini vurgular: kesim değil teslim; sınav bir kesim testi değil, teslim testiydi. Bu sahne İslâm'da hac ve kurban ibadetinin hafıza omurgasıdır."
+    },
+    {
+      "prophet": "Muhammed s.a.v. Veda Haccı",
+      "ref": "Bakara 2:196, Hac 22:36",
+      "sceneTr": "Peygamber s.a.v. Veda Haccı'nda bedenelerini keserek kurban ibadetinin Kur'ânî çerçevesini fiilî sünnetiyle tafsil eder. Bakara 2:196'nın 'kolayına gelen bir kurbanlık' emri ve Hac 22:36'nın 'bedene Allah'ın şeâirinden' ifadesi ile Peygamber s.a.v.'in uygulaması iç içedir. Klasik tefsir bu tarihî örneğin kurbanın hem hac bağlamındaki (hedy) hem bayram bağlamındaki (udhıye) uygulamasının kaynağı olduğunu belirtir — Kur'ânî çerçeve, peygamberî tafsil.",
+      "sceneEn": "At the Farewell Ḥajj, the Prophet ﷺ slaughtered his badana, detailing the Qur'anic frame of sacrifice through his practice. Baqara 2:196's command 'whatever sacrifice is affordable' and Ḥajj 22:36's 'badana among the signs of Allah' interweave with his practice. Classical exegesis notes this historical example is the source for sacrifice's application both in ḥajj (hady) and in ʿīd (uḍḥiya)."
+    },
+    {
+      "prophet": "İsrailoğulları — Boğa Kıssası",
+      "ref": "Bakara 2:67-71",
+      "sceneTr": "Musa İsrailoğullarına bir sığır kesmelerini emreder. Klasik tefsir bu kıssanın kurban ibadeti değil, bir 'gaybı ortaya çıkarma' vesilesi olarak inen özel bir emir olduğunu belirtir — kesilen sığırın parçasıyla bir katilin ortaya çıkarılması hedeflenir (2:73). Buna rağmen kıssa Kur'ân'da ibadet-kesim ile emir-kesim arasındaki semantik yakınlığı gösterir: zebh kelimesi her iki bağlamda da geçer. Klasik tefsir 'kurbanın kesim eylemi ibadet niyetiyle birlikte anlam kazanır' okumasının bu kıssayla teyit edildiğini belirtir.",
+      "sceneEn": "Moses commands the Israelites to slaughter a heifer. Classical exegesis notes that this narrative is not sacrifice as worship but a special command for the disclosure of a hidden matter — the identification of a killer through part of the slaughtered heifer (2:73). Nonetheless the story shows the semantic proximity in the Qur'an between worship-slaughter and command-slaughter: the word dhabḥ appears in both contexts.",
+      "claimType": "semantic_context",
+      "confidence": "high",
+      "auditGuardTr": "Klasik tefsir (Râzî, Kurtubî) bu kıssayı 'ibadet-kurban' olarak değil, 'ibadî bir emir kesimi' olarak sınıflandırır. Kurban ibadetiyle özdeşleştirme yapılmaz; ancak semantik yakınlık nettir."
+    },
+    {
+      "prophet": "Yahudilerin İnkâr Bahanesi",
+      "ref": "Al-i İmrân 3:183",
+      "sceneTr": "Al-i İmrân 3:183 Yahudilerin bir bahanesini nakleder: 'ateşin yiyeceği bir kurbân getirmedikçe hiçbir peygambere iman etmeyiz.' Klasik tefsir bu ayetin kurban kavramının önceki peygamber geleneklerinde de mevcut olduğunu gösterdiğini, aynı zamanda inkârın 'işaret bekleme' bahanesine sığındığına dair Kur'ânî bir eleştiri taşıdığını belirtir. Kurban Kur'ân'da böylece Hac 22:34'ün 'her ümmete bir nüsük' ifadesiyle aynı çizgide, semavî geleneğin süregelen bir pratiği olarak konumlanır."
+    }
+  ],
+  "icBoyut": [
+    {
+      "titleTr": "Takva Ulaşır, Kan Değil",
+      "refs": [
+        "Hac 22:37"
+      ],
+      "descTr": "Hac 22:37 kurbanın Kur'ânî mihenk taşıdır: 'ne et ne kan Allah'a ulaşır; sizden O'na takva ulaşır.' Klasik tefsir bu cümlenin dilbilimsel keskinliğini vurgular. Râzî 'lâ' (kesin olumsuzlama) edatının hem etleri hem kanları için tekrarının manidar olduğunu, bunun kurbanın Kur'ânî anlayışını 'Allah'a yiyecek götürme' düşüncesinden tamamen ayırdığını belirtir. Elmalılı 'kurban kanla değil takvayla kurban olur' der. Kurbanın iç boyutu bu ayette bir cümlede özetlenir: kesim iç halin dış aynasıdır; ayna kırılırsa geriye yalnızca et ve kan kalır — Allah'a ulaşmayan iki şey."
+    },
+    {
+      "titleTr": "İhlâs — 'Yalnızca Takva Sahibinden'",
+      "refs": [
+        "Maide 5:27"
+      ],
+      "descTr": "Maide 5:27 kurbanın Kur'ânî kabul kriterini tek cümleyle sabitler: 'innemâ yetekabbelullâhu mine'l-muttakîn.' Klasik tefsir 'innemâ' (yalnızca) edatının belirleyici olduğunu vurgular — bu edatta bir dışlama vardır: takva sahibinden başkasından kabul yoktur. Râzî Habil'in cevabının Kabil'e verilmiş bir 'öğüt' değil, Kur'ân'ın kurban için verdiği bir 'ilke' olduğunu belirtir. İhlâs burada gizli bir iç haldir — Habil ile Kabil'in kesimleri dış gözlemciye aynı görünmüş olabilir; ayıran şey niyetin saflığı ve iç halin takvasıdır. Kurbanın iç boyutunda 'ne kestiğin' değil, 'kimin kestiğin' önemlidir."
+    },
+    {
+      "titleTr": "İbrâhîm'in Teslimiyeti — Arketipal Adanış",
+      "refs": [
+        "Sâffât 37:103",
+        "Sâffât 37:105"
+      ],
+      "descTr": "Sâffât 37:103 tek bir kelime ile kurbanın Kur'ânî sırrını verir: 'felemmâ eslemâ' — 'ikisi de teslim olduklarında'. Klasik tefsir bu 'çift-teslim'in kurbanın Kur'ânî ekseninin tam merkezinde olduğunu vurgular. Râzî 'kurbanı kurban yapan an bu ândır' der — kesim değil, teslim. Sonraki ayet (37:105) bunu 'sen rüyayı gerçekleştirdin' cümlesiyle onaylar: kesim gerçekleşmese de rüya 'tasdik edilmiş' sayılır. Kurbanın iç boyutunun İbrâhîmî öğretisi budur: kesim aslında iç bir eylemdir; dıştaki bıçak yalnızca içteki teslimiyetin gölgesidir. Kurban kesildiğinde ölen hayvan bir sembol, canlı kalan teslimiyet gerçek olaydır."
+    },
+    {
+      "titleTr": "Fidye — Rahmetin Bedende İşareti",
+      "refs": [
+        "Sâffât 37:107"
+      ],
+      "descTr": "Sâffât 37:107 kurbanı Kur'ânî bir 'karşılık' semantiğine yerleştirir: 've fedeynâhu bi-zibhin azîm' — 'onu büyük bir kurbanla fidye ettik.' Klasik tefsir bu ayetin kurbanın Kur'ânî iç boyutuna belirleyici bir kayıt eklediğini vurgular: kurban bir 'sunum' değil, Allah'ın rahmetinden gelen bir 'karşılık'tır. Râzî 'İbrâhîm'in teslimiyeti kabul edildikten sonra kesim ihtiyacı düşer, Allah rahmetiyle yerine büyük bir kurbanı koyar' der. Kurbanın iç boyutu böylece bir 'ödeme' değil, bir 'aynayla karşılık verilme' pratiğidir — kul teslim olur, Allah rahmetle karşılar."
+    },
+    {
+      "titleTr": "Şeâir Ta'zimi — 'Kalplerin Takvası'",
+      "refs": [
+        "Hac 22:32"
+      ],
+      "descTr": "Hac 22:32 kurban ibadetinin bir başka Kur'ânî iç eksenini kurar: 'kim Allah'ın şeâirini yüceltirse, bu kalplerin takvasındandır.' Klasik tefsir bu ayetin şeâire ta'zim ile takva arasında Kur'ânî bir bağ kurduğunu vurgular. Râzî 'ta'zim' kelimesinin dışsal bir saygıdan değil, iç bir görme halinden geldiğini belirtir — insan kurbanı bir 'işaret' olarak gördüğünde ancak ta'zim edebilir. Kurbanın iç boyutunda ta'zim şeâiri bir 'kutsal nesne' yapmak değil, onda Allah'ın adının 'anıldığını' hissetmektir. Klasik tefsir 'ta'zim şeâirin kendisinden değil, adın anılmasından gelir' der."
+    },
+    {
+      "titleTr": "Menâfî' — Paylaşımın Kutsallaştırılması",
+      "refs": [
+        "Hac 22:28"
+      ],
+      "descTr": "Hac 22:28 kurbanın iç boyutunun sosyal cephesini kurar: 'kendileri için birtakım faydalara şahit olsunlar... ondan yiyin, sıkıntı içindeki yoksulu doyurun.' Klasik tefsir bu ayetin manidar olduğunu vurgular: 'menâfî' kelimesi hem fiziksel (etin paylaşımı) hem mânevî (Allah'ın adının anılması) faydayı kapsar; iki fayda birbirinden ayrılmaz. Kurtubî 'kurbanın etinin fakirin midesine ulaşması Kur'ân'ın kurbana verdiği sosyal formdur — bu sosyal form kurbanın iç boyutundan ayrı bir ek değil, iç boyutun kendi devamıdır' der. Kurbanın iç boyutunda 'Rabb'e adanış' ile 'kula ulaştırış' aynı Kur'ânî hareketin iki yüzüdür."
+    },
+    {
+      "titleTr": "Namazım-Kurbanım-Hayatım-Ölümüm — Bütünlük",
+      "refs": [
+        "En'âm 6:162"
+      ],
+      "descTr": "En'âm 6:162 kurbanın Kur'ânî iç boyutunu bir 'bütünlük ayeti' içinde konumlar: 'inne salâtî ve nüsükî ve mahyâye ve memâtî lillâhi rabbi'l-âlemîn.' Klasik tefsir dört kavramın — salât, nüsük, mahyâ, memât — tek bir teslim yayına dizildiğini vurgular. Râzî 'namaz ve kurban ibadet-eylemlerini, hayat ve ölüm varlık-durumlarını temsil eder; ayet bu dördünü tek bir cümlede Allah'a bağlayarak insana 'ibadet ve hayat arasında sınır yoktur' öğretisini verir' der. Kurbanın iç boyutunda böylece kesim sadece bir günün eylemi değil, bir hayatın adanmışlığının bir sembolüdür — kesilen hayvan, kesenin bir günün eylemine sıkıştırılmayan teslimiyetinin bedende işaretidir."
+    }
+  ],
+  "insanEtkisi": [
+    {
+      "id": "fedakarlik-kulturu",
+      "titleTr": "Fedakârlık Kültürü — Sahiplik İddiasının Bırakılması",
+      "titleEn": "The Culture of Sacrifice — Releasing the Claim of Ownership",
+      "refs": [
+        "Sâffât 37:102",
+        "Hac 22:37"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:37",
+        "trShort": "Onların ne etleri ne kanları Allah'a ulaşır; fakat sizden O'na ancak takva ulaşır.",
+        "enShort": "Their flesh does not reach Allah, nor does their blood; but what reaches Him is your taqwā."
+      },
+      "descTr": "Kurban Kur'ân'da fiziksel bir sunumdan tefrik edildiğinde ortaya çıkan iç öğreti bir 'fedakârlık kültürü'nün Kur'ânî temelini oluşturur. Kesilen şey yalnızca hayvan değil — kesenin 'benim' iddiasıdır. Klasik tefsir bu okumanın İbrâhîm hafızasına dayandığını vurgular: İbrâhîm en sevdiği evladını verirken 'sahiplik iddiasını' bıraktı; Allah karşılığında rahmetle 'büyük bir kurban' verdi. Elmalılı 'kurban bir kere kesilen bir hayvan değildir; ömrünce bırakılan bir iddianın günlük hatırlatıcısıdır' der. Kurbanın insan etkisinin en somut boyutu: mülkün Allah'ın olduğunu bedene işletmek.",
+      "descEn": "When sacrifice in the Qur'an is distinguished from a physical offering, the inner teaching that emerges lays the Qur'anic foundation of a 'culture of sacrifice.' What is slaughtered is not only the animal — it is the slaughterer's claim of 'mine.' Classical exegesis stresses that this reading rests on the memory of Ibrāhīm: when Ibrāhīm gave up his most beloved son, he released the claim of ownership; Allah in return, through mercy, gave 'a great sacrifice.'",
+      "modernIzlerTr": "Modern etik ve ahlâk felsefesi 'özveri' (self-sacrifice) kavramını farklı bağlamlarda ele alır; bu sayfa Kur'ânî 'sahiplik iddiasının bırakılması' okumasının modern etik tarafından sonradan keşfedildiğini iddia etmez. Kur'ânî çerçeve pratiği koyar; modern etik pratiğin gözlemlenebilir etkilerini ayrı bir dilde inceler.",
+      "modernIzlerEn": "Modern ethics addresses self-sacrifice in various contexts; this page does not claim modern ethics 'discovered' the Qur'anic reading of releasing the claim of ownership.",
+      "kaynak": "Elmalılı, Hac 22:37 tefsiri; Râzî, Sâffât 37:102-107 tefsiri (fedakârlık okuması)"
+    },
+    {
+      "id": "paylasim-ekonomisi",
+      "titleTr": "Paylaşım Ekonomisi — Fakirin Midesinde Buluşma",
+      "titleEn": "Sharing Economy — Meeting in the Poor's Stomach",
+      "refs": [
+        "Hac 22:28",
+        "Hac 22:36"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:28",
+        "trShort": "Ondan hem yiyin, hem de sıkıntı içindeki yoksulu doyurun.",
+        "enShort": "So eat of them and feed the hard-pressed, the destitute."
+      },
+      "descTr": "Kurbanın Kur'ânî sosyal boyutu Hac 22:28 ve 22:36'da ayetin kendi ağzından emirdir — bir tavsiye değil. Klasik tefsir bu Kur'ânî direktifin manidar olduğunu vurgular: kurban ibadetinin kabulü ile etinin fakire ulaşması aynı Kur'ânî hareket içindedir. Elmalılı 'kurban ibadetinde sınıflar arasında en somut buluşma noktası fakirin midesidir — yılın belki tek et yediği gün olabilir' der. Kurbanın insan etkisinin bir başka boyutu böylece bir 'paylaşım ekonomisi' üretmesidir: kurbanı kesen aile, komşu, fakir üçlü bir dolaşımda etin paylaştırılması Kur'ân'ın kendi dilinde teşvik edilir (22:36 'kanaat edip istemeyene ve isteyene yedirin'). Bu paylaşım Kur'ân'a göre kurbanın 'devamı' değil, bir parçasıdır.",
+      "descEn": "Sacrifice's Qur'anic social dimension in Ḥajj 22:28 and 22:36 is a command in the verse's own voice — not a recommendation. Classical exegesis stresses the significance of this Qur'anic directive: sacrifice's acceptance and its meat reaching the poor belong to the same Qur'anic movement.",
+      "modernIzlerTr": "Sosyoloji ve kalkınma ekonomisi 'yeniden dağıtım' (redistribution) mekanizmalarını inceler; kurban ibadetinin bu mekanizmayla yüzeysel bir örtüşmesi vardır. Ancak bu sayfa özdeşleştirme yapmaz — Kur'ânî 'paylaşım pratiği' ile ekonomik dağıtım teknik anlamda farklı dillerdedir; Kur'ânî motivasyon iç bir teslim halidir, ekonomik dağıtım araçsaldır.",
+      "modernIzlerEn": "Sociology and development economics study redistribution mechanisms; sacrifice has a surface overlap with these. But this page does not equate — the Qur'anic 'sharing practice' and technical economic redistribution belong to different languages.",
+      "kaynak": "Kurtubî, Hac 22:28 tefsiri; Elmalılı, Hac 22:36 tefsiri (paylaşım okuması)"
+    },
+    {
+      "id": "nefis-dizgin",
+      "titleTr": "Nefis Dizginlenmesi — Mala Hakim Olmak",
+      "titleEn": "Reining the Nafs — Mastering Property",
+      "refs": [
+        "Hac 22:37",
+        "En'âm 6:162"
+      ],
+      "anaAyet": {
+        "ref": "En'âm 6:162",
+        "trShort": "Şüphesiz benim namazım, kurbanım, hayatım ve ölümüm âlemlerin Rabbi olan Allah içindir.",
+        "enShort": "Indeed, my prayer, my sacrifice, my life and my death are for Allah, the Lord of the worlds."
+      },
+      "descTr": "Kurbanın Kur'ânî iç öğretisinden çıkan bir başka insan etkisi: nefsin mala olan bağlılığının bilinçli olarak sınırlanması. Klasik tefsir En'âm 6:162'nin dört kavramı — salât, nüsük, mahyâ, memât — tek bir cümlede Allah'a bağlarken insan-mal ilişkisine belirleyici bir kayıt eklediğini vurgular. Râzî 'nefis mala bağlıdır; kurban malın en canlı bir kısmının Allah için verilebilmesinin egzersizidir' der. Elmalılı bunu 'kurban yılda bir kere yapılan bir egzersiz değil, mal ile insan arasındaki ilişkinin Kur'ânî yeniden ayarıdır' cümlesiyle özetler. Kurbanın insan etkisinin bu boyutu bir günün eyleminde başlar, bir hayatın malla ilişkisine yansır.",
+      "descEn": "Another human effect emerging from the Qur'anic inner teaching of sacrifice: consciously limiting the nafs's attachment to property. Classical exegesis stresses that Anʿām 6:162, in binding four concepts — ṣalāt, nusuk, maḥyā, mamāt — to Allah in a single sentence, adds a decisive note on the human-property relation. Rāzī: 'the nafs is attached to property; sacrifice is the exercise of the most living part of property being able to be given for Allah.'",
+      "modernIzlerTr": "Modern psikoloji 'kayıp aversiyonu' (loss aversion) ve 'öz-düzenleme' (self-regulation) alanlarında benzer iç dinamikleri inceler; bu sayfa özdeşleştirme yapmaz. Kur'ânî 'nefis dizginlenmesi' motivasyon ekseninde iç bir teslim halidir; modern psikoloji dış davranış kalıplarını dilerken farklı bir dilde durur.",
+      "modernIzlerEn": "Modern psychology studies analogous inner dynamics in loss aversion and self-regulation; this page does not equate. The Qur'anic 'reining of the nafs' stands on the axis of surrender; modern psychology names outward behavioral patterns in another language.",
+      "kaynak": "Râzî, En'âm 6:162 tefsiri; Elmalılı aynı ayet (mala hakim olma okuması)"
+    },
+    {
+      "id": "ibrahim-kimlik",
+      "titleTr": "İbrâhîm Hafızası — Kimlik ve Süreklilik",
+      "titleEn": "The Memory of Ibrāhīm — Identity and Continuity",
+      "refs": [
+        "Hac 22:34",
+        "Sâffât 37:102-107"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:34",
+        "trShort": "Her ümmet için, adını ansınlar diye bir kurban ibadeti (mensek) koyduk.",
+        "enShort": "For every community We have appointed a rite of sacrifice (mansak)."
+      },
+      "descTr": "Kurbanın insan etkisinin tarihsel ve kimliksel boyutu. Klasik tefsir Hac 22:34'ün 'her ümmete bir nüsük' ifadesinin kurbanı bir 'kimlik zinciri' olarak konumlandırdığını vurgular. Kurban her yıl kesildiğinde Habil'in ilk sunumu, İbrâhîm'in sınavı, İsmâîl'in teslimiyeti, Peygamber s.a.v.'in Veda Haccı'ndaki bedeneleri müminin şuurunda bir zincir olarak canlanır. Elmalılı 'kurban Kur'ân'ın müminin yılına attığı bir hafıza düğümüdür — her yıl aynı düğüm, aynı hafıza, aynı teslimiyet' der. Kurbanın insan etkisinin bu boyutu bir bireyi peygamberler tarihindeki bir zincire bağlar; kimlik bu bağlanmayla derinleşir.",
+      "descEn": "The historical and identity dimension of sacrifice's human effect. Classical exegesis stresses that Ḥajj 22:34's 'a nusuk for every community' places sacrifice as a 'chain of identity.' When sacrifice is offered each year, Habīl's first offering, Ibrāhīm's trial, Ismāʿīl's submission, and the Prophet's badana at the Farewell Ḥajj come alive as a chain in the believer's consciousness.",
+      "modernIzlerTr": "Modern sosyoloji ve antropoloji 'ritüel' (bu sayfa bu kelimeyi kullanmaktan kaçınır) ve 'kolektif hafıza' konularında geniş bir literatür üretmiştir. Kur'ânî kurbanın 'kimlik zinciri' okuması bu literatürle yüzeysel örtüşür; ancak bu sayfa özdeşleştirme yapmaz. Kur'ânî hafıza bir sosyolojik mekanizma değil, Allah'a olan bağın canlı bir hatırlatıcısıdır.",
+      "modernIzlerEn": "Modern sociology and anthropology have produced extensive literature on collective memory. The Qur'anic 'chain of identity' reading of sacrifice has surface overlap with this literature; but the page does not equate.",
+      "kaynak": "Râzî, Hac 22:34 tefsiri; Elmalılı, Sâffât 37:102-107 tefsiri (hafıza okuması)"
+    },
+    {
+      "id": "adalet-ihlas",
+      "titleTr": "Adalet ve İhlâs — Görünenle Görünmeyen Arasında",
+      "titleEn": "Justice and Ikhlāṣ — Between the Seen and the Unseen",
+      "refs": [
+        "Maide 5:27"
+      ],
+      "anaAyet": {
+        "ref": "Maide 5:27",
+        "trShort": "Allah, ancak takva sahiplerinden kabul eder.",
+        "enShort": "Allah only accepts from those of taqwā."
+      },
+      "descTr": "Kurbanın insan etkisinin ahlâkî boyutu Maide 5:27'nin cevabıyla kurulur: 'Allah kurbanı yalnızca takva sahibinden kabul eder.' Klasik tefsir bu cümlenin bir Kur'ânî 'adalet ilkesi' de içerdiğini vurgular — dış eylem aynı olsa bile iç hal farklıysa Allah katındaki değeri farklıdır. Râzî 'bu ayet kurbanın Kur'ânî adalet öğretisidir: kimin kestiği değil, kim kestiği için kestiği' der. Kurbanın insan etkisinin bu boyutu bir 'içeri odaklanma' pedagojisidir. Dış gözlemci belki kesenin niyetini göremez; ama kesen kendisi görür. Ve Allah her ikisini de görür. Kurban böylece kesende bir 'kendini görme' pratiği üretir — kendi niyetimi ben ne kadar biliyorum?",
+      "descEn": "The moral dimension of sacrifice's human effect is set by the answer in Māʾida 5:27: 'Allah only accepts from those of taqwā.' Classical exegesis stresses that this sentence also contains a Qur'anic 'principle of justice' — even if the outward act is the same, if the inner state differs, its value before Allah differs. Rāzī: 'this verse is sacrifice's Qur'anic teaching of justice: not who slaughters but for what he slaughters.'",
+      "modernIzlerTr": "İhlâs kavramı klasik tasavvuf literatürünün merkezi kavramlarındandır; kurban bu kavramın en açık pratiklerinden biridir. Modern etik 'niyet ahlâkı' (deontological ethics) ve 'sonuç ahlâkı' (consequentialism) tartışmasında benzer ayrımları yapar; ancak bu sayfa Kur'ânî ihlâs ile modern etik terminolojisini özdeşleştirmez.",
+      "modernIzlerEn": "Ikhlāṣ is central to classical Sufi literature; sacrifice is one of its clearest practices. Modern ethics draws analogous distinctions in the debate between deontology and consequentialism; but this page does not equate ikhlāṣ with modern ethical terminology.",
+      "kaynak": "Râzî, Maide 5:27 tefsiri; Îzutsu, Ethico-Religious Concepts (ikhlāṣ semantik alanı)"
+    }
+  ],
+  "kaynaklar": [
+    {
+      "author": "Fahruddîn er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "1149-1209 (Rey)",
+      "noteTr": "Hac 22:34-37 kurban ayetleri kümesi için kelâmî derinlik ve dilbilimsel açılımlar. 'Lâkin yenâluhu't-takvâ minkum' ifadesinin dilbilimsel keskinliği ve Sâffât 37:102-107 İbrâhîm-İsmâîl sahnesinin 'kesim değil teslim' okuması bu sayfanın omurgasıdır. Ayrıca Maide 5:27 Habil-Kabil kıssasının 'niyet-kabul' Kur'ânî ilkesi ve Kevser 108:2 'namaz-kurban' eşleşmesi üzerine belirleyici okumalar.",
+      "noteEn": "Kalāmī depth and linguistic exposition for the Ḥajj 22:34-37 sacrifice cluster. The linguistic sharpness of 'wa-lākin yanāluhu't-taqwā minkum' and the reading of the Ibrāhīm-Ismāʿīl scene in Ṣāffāt 37:102-107 as 'not slaughter but submission' form this page's spine. Also decisive readings on the 'intention-acceptance' principle of the Habīl-Qābīl narrative in Māʾida 5:27 and the 'prayer-sacrifice' pairing in Kawthar 108:2."
+    },
+    {
+      "author": "Kurtubî",
+      "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
+      "period": "1214-1273 (Kurtuba)",
+      "noteTr": "Hac 22:28 ve 22:36 kurban paylaşımının fıkhî ve Kur'ânî çerçevesi. Nüsük, hedy, bedene, kalâid gibi terimlerin kök açılımları ve şeâir kavramının 'işaret' semantiği için birincil referans. Bakara 2:196 temettu' haccında kurban-oruç bağının fıkhî tafsili.",
+      "noteEn": "The Qur'anic and juridical frame for the sharing of sacrifice in Ḥajj 22:28 and 22:36. Primary reference for the root expositions of nusuk, hady, badana, and qalāʾid, and for the 'sign' semantics of shaʿāʾir. The juridical detailing of the sacrifice-fasting link in the tamattuʿ ḥajj of Baqara 2:196."
+    },
+    {
+      "author": "Elmalılı Hamdi Yazır",
+      "workTr": "Hak Dini Kur'ân Dili",
+      "workEn": "Ḥaqq Dīnī Qur'ān Dili",
+      "period": "1878-1942 (İstanbul)",
+      "noteTr": "Nüsük kökünün 'bağlanma-adanma' lugat açılımı ve En'âm 6:162'nin 'bütünlük ayeti' okuması. 'Kurban kanla değil takvayla kurban olur' ekseninin modern Türk okuyucusu için pedagojik yerleştirimi. Sâffât 37:102-107 'çift-teslim' okumasının Türkçe klasik ifadesi.",
+      "noteEn": "The lexical unfolding of the nusuk root as 'binding-devotion' and the reading of Anʿām 6:162 as a 'wholeness verse.' The pedagogical placement, for the modern Turkish reader, of the axis 'a sacrifice is a sacrifice not by blood but by taqwā.' The classical Turkish articulation of the 'twin-submission' reading of Ṣāffāt 37:102-107."
+    },
+    {
+      "author": "Toshihiko Îzutsu",
+      "workTr": "Ethico-Religious Concepts in the Qur'an",
+      "workEn": "Ethico-Religious Concepts in the Qur'an",
+      "period": "1959 (McGill Islamic Studies)",
+      "noteTr": "Taqwā, ikhlāṣ ve adanma semantik alanlarının modern dilbilimsel çözümlemesi. Bu sayfanın 'takva kurbanın kabul kriteridir' ve 'ihlâs iç haldir' okumalarının modern dilbilimsel omurgası.",
+      "noteEn": "Modern linguistic analysis of the semantic fields of taqwā, ikhlāṣ, and devotion. The modern linguistic backbone for this page's readings that taqwā is the criterion of acceptance for sacrifice and ikhlāṣ its inner state."
+    }
+  ]
+}
