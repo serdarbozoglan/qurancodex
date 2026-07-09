@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, TRANSITION, RADIUS, FONTS } from '../tokens';
-import { CloseIcon, ChatBubbleIcon, ExternalLinkIcon } from './icons';
+import { CloseIcon } from './icons';
 // v1.1 — single source of truth for tools data, shared with the modal
 import {
   FEATURED_TOOLS as IMPORTED_FEATURED_TOOLS,
@@ -57,131 +57,6 @@ const ChevronDown = () => (
   </svg>
 );
 
-const BookIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-  </svg>
-);
-
-const navSections = [
-  {
-    id: 'linguistic', keyTr: 'Dilsel DNA', keyEn: 'Linguistic DNA',
-    descTr: 'Kur\'an\'ın kelime mimarisi', descEn: 'The linguistic architecture of the Quran',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 3c3 2 5 4 7 9s4 7 7 9"/><path d="M19 3c-3 2-5 4-7 9s-4 7-7 9"/>
-        <line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'rhythm', keyTr: 'İmkansız Ritim', keyEn: 'Impossible Rhythm',
-    descTr: 'Ne şiir ne düzyazı — eşi görülmemiş bir form', descEn: 'Neither poetry nor prose — a form never seen before',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 12 Q5 6 8 12 Q11 18 14 12 Q17 6 20 12 Q22 15 24 12"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'rhetoric',
-    keyTr: "Kur'an'ın Retoriği",
-    keyEn: "The Quran's Rhetoric",
-    descTr: "1.200+ soru · 4 tür · kalıplar · muhatap",
-    descEn: "1,200+ questions · 4 types · patterns · addressees",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'dua-language',
-    keyTr: 'Dua Dili',
-    keyEn: 'Language of Prayer',
-    descTr: '40+ Rabbena duasının yapısal haritası',
-    descEn: "Structural map of 40+ Rabbana prayers",
-    icon: <ChatBubbleIcon size={16} strokeWidth={1.8} />,
-  },
-  {
-    id: 'sounds', keyTr: 'Ses Mimarisi', keyEn: 'Sound Architecture',
-    descTr: 'Anlamdan önce ses iletişim kuruyor', descEn: 'Sound communicates before meaning does',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'hidden-architecture', keyTr: 'Yapısal Mimari', keyEn: 'Structural Architecture',
-    descTr: 'Ayna simetrisi ve yedi katmanlı anlam', descEn: 'Mirror symmetry and seven layers of meaning',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11"/>
-        <line x1="12" y1="1" x2="12" y2="23"/><line x1="1" y1="12" x2="23" y2="12"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'science', keyTr: 'Bilimsel İşaretler', keyEn: 'Scientific Signs',
-    descTr: 'Modern bilimin keşfettikleri', descEn: 'What modern science discovered',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'history', keyTr: 'Tarihsel Kanıtlar', keyEn: 'Historical Proof',
-    descTr: '"Hata" denilen her şey sonunda doğrulandı', descEn: 'Every "error" was eventually confirmed',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'human-definition', keyTr: "Kur'an'da İnsan", keyEn: 'The Human in the Quran',
-    descTr: "Kur'an insanı nasıl tanımlar?", descEn: 'How does the Quran define the human being?',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'psychology', keyTr: 'İnsan Psikolojisi', keyEn: 'Human Psychology',
-    descTr: "Nefis, kalp ve savunma mekanizmaları — Kur'an'ın psikoloji haritası", descEn: "Nafs, heart and defense mechanisms — the Quran's map of the mind",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'iblis-satan', keyTr: "Kur'an'da İblis / Şeytan", keyEn: 'Iblis / Satan in the Quran',
-    descTr: 'Yedi sûrede aynı sahne — kibrin başlangıcı', descEn: 'Same scene in seven surahs — the origin of pride',
-    icon: (
-      /* Stylized flame — İblis ateşten yaratıldı (Hicr 15:27, Sâd 38:76). */
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2.5c1.6 3.2 4.8 5.4 4.8 9.4 0 3.6-2.4 6.6-4.8 6.6s-4.8-3-4.8-6.6c0-1.8 0.7-3 1.6-4.1" />
-        <path d="M12 8c0.9 1.7 2.6 2.9 2.6 5.1 0 1.9-1.3 3.5-2.6 3.5s-2.6-1.6-2.6-3.5c0-1 0.4-1.6 0.9-2.2" />
-      </svg>
-    ),
-  },
-  {
-    id: 'conclusion', keyTr: 'Sonuç', keyEn: 'Conclusion',
-    descTr: 'Bir insan eseri olabilir mi?', descEn: 'Could this be the work of a human?',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-      </svg>
-    ),
-  },
-];
 
 export default function Navbar() {
   const { language, toggleLanguage } = useLanguage();
@@ -952,13 +827,8 @@ export default function Navbar() {
                             <Icon size={16} />
                           </span>
                           <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
-                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                            <span className="sl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                               {language === 'tr' ? item.titleTr : item.titleEn}
-                              {item.kind === 'overlay' && (
-                                <span aria-hidden="true" style={{ color: 'rgba(212,165,116,0.5)', flexShrink: 0, display: 'inline-flex' }}>
-                                  <ExternalLinkIcon size={11} strokeWidth={2.2} />
-                                </span>
-                              )}
                             </span>
                             <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                               {language === 'tr' ? item.descTr : item.descEn}
@@ -1139,11 +1009,8 @@ export default function Navbar() {
                       >
                         <span className="ti" style={{ color: 'rgba(212,165,116,0.45)', flexShrink: 0, transition: 'color 0.15s' }}>{tool.icon}</span>
                         <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
-                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <span className="tl" style={{ color: '#e8e6e3', fontSize: '0.85rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, lineHeight: 1.3, transition: 'color 0.15s' }}>
                             {language === 'tr' ? tool.labelTr : tool.labelEn}
-                            <span aria-hidden="true" style={{ color: 'rgba(212,165,116,0.5)', flexShrink: 0, display: 'inline-flex' }}>
-                              <ExternalLinkIcon size={11} strokeWidth={2.2} />
-                            </span>
                           </span>
                           <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                             {language === 'tr' ? tool.descTr : tool.descEn}
@@ -1710,211 +1577,298 @@ export default function Navbar() {
             <CloseIcon size={18} strokeWidth={2.5} />
           </button>
 
-          <div
-            className="flex flex-col"
-            style={{
-              padding: '80px 24px 40px',
-            }}
-          >
-            {/* Oku — matches Hero btn-primary-gold style */}
-            <button
-              onClick={() => { router.push(`/${language}/oku`); setMobileOpen(false); }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px',
-                height: '44px',
-                width: '100%',
-                padding: '0 16px',
-                background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
-                border: 'none',
-                borderRadius: '6px',
-                marginBottom: '14px',
-                boxShadow: '0 0 24px 4px rgba(180,130,40,0.3)',
-                cursor: 'pointer',
-              }}
-            >
-              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.35rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.81rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
-            </button>
+          {(() => {
+            // ─── Mobile Drawer — Unified Design System (2026-07-09 refactor) ─────
+            // Fixes:
+            //   • Color inconsistency (some titles gold, some silver) — now unified
+            //     off-white item labels, muted silver descriptions, subtle-gold icons.
+            //   • Duplicate anchors (navSections + EXPLORE_CATEGORIES section items
+            //     rendered same content twice) — EXPLORE_CATEGORIES is single source.
+            //   • Missing information scent — descriptions now shown, matching
+            //     desktop mega-menu pattern.
+            //   • Missing structure — three top-level SECTIONS (Keşfet/Araçlar/
+            //     Tefekkür) each with sub-category dividers, matching desktop.
+            const OVERLAY_ROUTE_MOBILE = {
+              renkler:'/arac/renkler', yeminler:'/arac/yeminler', kavimler:'/atlas/kavim',
+              kevni:'/atlas/doga', zaman:'/arac/zaman-boyutlari', melekler:'/arac/melekler',
+              kiyamet:'/arac/kiyamet', cennet:'/arac/cennet-cehennem', sunnetullah:'/atlas/sunnetullah',
+              munafik:'/atlas/munafik', nefis:'/atlas/nefs-mertebeleri', iblisSatan:'/arac/iblis-seytan',
+              kadinlar:'/atlas/kadinlar', ilkSon:'/arac/ilk-son-kelimeler', mukattaa:'/arac/mukattaa',
+              ritim:'/arac/ritim', retorikSorular:'/arac/retorik-sorular', duaDili:'/arac/dua-dili',
+              sesMimarisi:'/arac/ses-mimarisi', halkaKomp:'/arac/halka-kompozisyon',
+              bilimselIsaretler:'/arac/bilimsel-isaretler', tarihselKanitlar:'/arac/tarihsel-kanitlar',
+              korumaZinciri:'/arac/koruma-zinciri', tekrarAnatomi:'/arac/tekrar-anatomi',
+              altiKonu:'/arac/alti-konu', insanTanimi:'/atlas/insan-tanimi',
+              insanPsikolojisi:'/atlas/insan-psikolojisi', ibadetler:'/atlas/ibadetler',
+            };
 
-            {/* Esmâ-i Hüsnâ — top-level destination link (desktop parity).
-                Oku CTA'sının altında, Keşfet/Araçlar/Tefekkür sub-listelerinden
-                önce — flagship konumunu mobile'da da koruyacak şekilde. */}
-            <button
-              onClick={() => { router.push(`/${language}/arac/esma-frekans`); setMobileOpen(false); }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                width: '100%',
-                padding: '12px 14px',
-                marginBottom: '14px',
-                background: 'rgba(212,165,116,0.06)',
-                border: '1px solid rgba(212,165,116,0.32)',
-                borderRadius: '8px',
-                color: '#d4a574',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '0.95rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                textAlign: 'left',
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <span>{language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}</span>
-              <span style={{ marginLeft: 'auto', color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1 }}>→</span>
-            </button>
+            // ── Design tokens (mobile drawer only, kept local for cohesion) ─────
+            const SECTION_HEADER = {
+              display: 'flex', alignItems: 'center', gap: '10px',
+              margin: '24px 0 6px', padding: '0 4px',
+            };
+            const SECTION_HEADER_LABEL = {
+              color: '#d4a574', fontSize: '0.72rem', fontWeight: 700,
+              textTransform: 'uppercase', letterSpacing: '0.24em',
+              fontFamily: "'Inter', sans-serif",
+              whiteSpace: 'nowrap',
+            };
+            const SECTION_HEADER_LINE = {
+              flex: 1, height: '1px',
+              background: 'linear-gradient(90deg, rgba(212,165,116,0.28), rgba(212,165,116,0))',
+            };
+            const SUB_LABEL = {
+              color: 'rgba(148,163,184,0.55)', fontSize: '0.62rem', fontWeight: 700,
+              textTransform: 'uppercase', letterSpacing: '0.16em',
+              margin: '14px 4px 4px', fontFamily: "'Inter', sans-serif",
+            };
+            const ITEM_BTN = {
+              display: 'flex', alignItems: 'center', gap: '12px',
+              width: '100%', textAlign: 'left',
+              padding: '10px 12px', borderRadius: '10px', border: 'none',
+              background: 'transparent', cursor: 'pointer',
+              WebkitTapHighlightColor: 'transparent',
+            };
+            const ITEM_ICON = {
+              color: 'rgba(212,165,116,0.55)', flexShrink: 0,
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: '20px', height: '20px',
+            };
+            const ITEM_TITLE = {
+              color: '#e8e6e3', fontSize: '0.9rem',
+              fontFamily: "'Inter', sans-serif", fontWeight: 500,
+              lineHeight: 1.3,
+            };
+            const ITEM_DESC = {
+              color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem',
+              fontFamily: "'Inter', sans-serif", fontWeight: 400,
+              lineHeight: 1.35, marginTop: '2px',
+            };
 
-            {/* Section anchors */}
-            <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '8px 0 4px', fontFamily: "'Inter', sans-serif" }}>
-              {language === 'tr' ? 'Keşfet' : 'Discover'}
-            </p>
-            {navSections.map(({ id, keyTr, keyEn }) => (
+            // ── Reusable item renderer ─────────────────────────────────────────
+            const MobileItem = ({ icon, titleTr, titleEn, descTr, descEn, onClick, dotColor }) => (
               <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body"
-                style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+                onClick={() => { onClick(); setMobileOpen(false); }}
+                style={ITEM_BTN}
+                aria-label={language === 'tr' ? titleTr : titleEn}
               >
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.5, flexShrink: 0 }}><path d="M9 18l6-6-6-6" /></svg>
-                {language === 'tr' ? keyTr : keyEn}
+                <span style={ITEM_ICON}>
+                  {dotColor ? (
+                    <span style={{
+                      width: '8px', height: '8px', borderRadius: '50%',
+                      background: dotColor, boxShadow: `0 0 8px ${dotColor}55`,
+                    }} />
+                  ) : icon}
+                </span>
+                <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                  <span style={ITEM_TITLE}>{language === 'tr' ? titleTr : titleEn}</span>
+                  {(descTr || descEn) && (
+                    <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
+                  )}
+                </span>
               </button>
-            ))}
+            );
 
-            {/* Keşfet — Sayfalar (EXPLORE_CATEGORIES overlay items) */}
-            {/* Desktop dropdown'un mobile mirror'ı — kullanıcı 2026-07-09'da eksik olduğunu fark etti */}
-            {(() => {
-              const OVERLAY_ROUTE_MOBILE = {
-                renkler:'/arac/renkler', yeminler:'/arac/yeminler', kavimler:'/atlas/kavim',
-                kevni:'/atlas/doga', zaman:'/arac/zaman-boyutlari', melekler:'/arac/melekler',
-                kiyamet:'/arac/kiyamet', cennet:'/arac/cennet-cehennem', sunnetullah:'/atlas/sunnetullah',
-                munafik:'/atlas/munafik', nefis:'/atlas/nefs-mertebeleri', iblisSatan:'/arac/iblis-seytan',
-                kadinlar:'/atlas/kadinlar', ilkSon:'/arac/ilk-son-kelimeler', mukattaa:'/arac/mukattaa',
-                ritim:'/arac/ritim', retorikSorular:'/arac/retorik-sorular', duaDili:'/arac/dua-dili',
-                sesMimarisi:'/arac/ses-mimarisi', halkaKomp:'/arac/halka-kompozisyon',
-                bilimselIsaretler:'/arac/bilimsel-isaretler', tarihselKanitlar:'/arac/tarihsel-kanitlar',
-                korumaZinciri:'/arac/koruma-zinciri', tekrarAnatomi:'/arac/tekrar-anatomi',
-                altiKonu:'/arac/alti-konu', insanTanimi:'/atlas/insan-tanimi',
-                insanPsikolojisi:'/atlas/insan-psikolojisi', ibadetler:'/atlas/ibadetler',
-              };
-              return EXPLORE_CATEGORIES.map(cat => (
-                <div key={cat.id} style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
-                  <p style={{ fontSize: '0.62rem', fontWeight: 700, color: 'rgba(148,163,184,0.55)', textTransform: 'uppercase', letterSpacing: '0.16em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
-                    {language === 'tr' ? cat.titleTr : cat.titleEn}
-                  </p>
-                  {cat.items.map(item => {
-                    const Icon = item.icon;
-                    const handleClick = () => {
-                      if (item.kind === 'section') { scrollTo(item.target); }
-                      else {
-                        const route = OVERLAY_ROUTE_MOBILE[item.target];
-                        if (route) router.push(`/${language}${route}`);
-                      }
-                      setMobileOpen(false);
-                    };
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={handleClick}
-                        className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
-                        aria-label={language === 'tr' ? item.titleTr : item.titleEn}
-                      >
-                        <span style={{ color: 'rgba(212,165,116,0.55)', flexShrink: 0, display: 'inline-flex' }}>
-                          {Icon ? <Icon size={14} /> : (
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.5 }}><path d="M9 18l6-6-6-6" /></svg>
-                          )}
-                        </span>
-                        <span style={{ color: '#d4a574', fontWeight: 500, flex: 1, minWidth: 0 }}>
-                          {language === 'tr' ? item.titleTr : item.titleEn}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              ));
-            })()}
-
-            {/* Tools */}
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
-              <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
-                {language === 'tr' ? 'Araçlar' : 'Tools'}
-              </p>
-              {featuredTools.map(ft => (
-                <button
-                  key={ft.id}
-                  onClick={() => { ft.action(); setMobileOpen(false); }}
-                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
-                >
-                  <span style={{ color: '#c9a227', flexShrink: 0 }}>{ft.icon}</span>
-                  <span style={{ color: '#d4a574', fontWeight: 600 }}>
-                    {language === 'tr' ? ft.labelTr : ft.labelEn}
+            // ── Featured banner (Kur'an'ı Tanı / Tüm Yazılar) ─────────────────
+            const MobileFeatured = ({ icon, titleTr, titleEn, descTr, descEn, onClick }) => (
+              <button
+                onClick={() => { onClick(); setMobileOpen(false); }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  width: '100%', textAlign: 'left',
+                  padding: '12px 14px',
+                  background: 'rgba(201, 162, 39, 0.08)',
+                  border: '1px solid rgba(201, 162, 39, 0.20)',
+                  borderLeft: '3px solid #c9a227',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  WebkitTapHighlightColor: 'transparent',
+                }}
+              >
+                <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
+                <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                  <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                    {language === 'tr' ? titleTr : titleEn}
                   </span>
-                </button>
-              ))}
-              {[...vizTools, ...analysisTools, ...researchTools].map(tool => (
-                <button
-                  key={tool.id}
-                  onClick={() => { tool.action(); setMobileOpen(false); }}
-                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
-                >
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.4, flexShrink: 0 }}><path d="M9 18l6-6-6-6" /></svg>
-                  {language === 'tr' ? tool.labelTr : tool.labelEn}
-                </button>
-              ))}
-            </div>
-
-            {/* Tefekkür — Felsufi makaleler (mobile) */}
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
-              <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
-                {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
-              </p>
-              <button
-                onClick={() => { router.push(`/${language}/tefekkur`); setMobileOpen(false); }}
-                className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
-              >
-                <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    {/* Açık kitap — okuma + tefekkür */}
-                    <path d="M12 6 L4 5 L4 18 L12 19" />
-                    <path d="M12 6 L20 5 L20 18 L12 19" />
-                    <line x1="12" y1="6" x2="12" y2="19" />
-                  </svg>
+                  <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
                 </span>
-                <span style={{ color: '#d4a574', fontWeight: 600 }}>
-                  {language === 'tr' ? 'Tüm Yazılar' : 'All Essays'}
-                </span>
-                <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.7rem', marginLeft: '4px' }}>
-                  {language === 'tr'
-                    ? `· ${tefekkurStats.total} yayında / ${tefekkurStats.planned} planlanan`
-                    : `· ${tefekkurStats.total} live / ${tefekkurStats.planned} planned`}
-                </span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
               </button>
-              {[
-                { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',   labelEn: 'Conceptual Analysis' },
-                { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi', labelEn: 'Terminology Series' },
-                { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',  labelEn: 'Surah & Hermeneutics' },
-                { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series' },
-                { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness' },
-                { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation' },
-              ].map(cat => (
+            );
+
+            // ── Categorize tools (Görselleştirme / Analiz & Veri / Araştırma) ─
+            const toolGroups = [
+              { labelTr: 'Görselleştirme', labelEn: 'Visualization', items: vizTools },
+              { labelTr: 'Analiz & Veri', labelEn: 'Analysis & Data', items: analysisTools },
+              { labelTr: 'Araştırma & Keşif', labelEn: 'Research & Explore', items: researchTools },
+            ];
+
+            const tefekkurCategories = [
+              { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikolojik, içsel ve pratik denemeler',    descEn: 'Psychology, inner life & practice' },
+              { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
+              { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
+              { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },
+              { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik',                descEn: 'Epistemology & metaphysics' },
+              { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
+            ];
+
+            return (
+              <div className="flex flex-col" style={{ padding: '76px 20px 40px' }}>
+
+                {/* ── Primary CTA row ────────────────────────────────────────── */}
                 <button
-                  key={cat.id}
-                  onClick={() => { router.push(`/${language}/tefekkur?cat=${cat.id}`); setMobileOpen(false); }}
-                  className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
+                  onClick={() => { router.push(`/${language}/oku`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    gap: '10px', height: '48px', width: '100%', padding: '0 16px',
+                    background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
+                    border: 'none', borderRadius: '10px',
+                    marginBottom: '10px',
+                    boxShadow: '0 4px 20px rgba(180,130,40,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+                    cursor: 'pointer',
+                  }}
                 >
-                  <span style={{
-                    width: '6px', height: '6px', borderRadius: '50%',
-                    background: cat.accent, opacity: 0.85, flexShrink: 0,
-                  }} />
-                  {language === 'tr' ? cat.labelTr : cat.labelEn}
+                  <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.4rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
+                  <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.86rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
                 </button>
-              ))}
-            </div>
-          </div>
+
+                <button
+                  onClick={() => { router.push(`/${language}/arac/esma-frekans`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px',
+                    background: 'rgba(212,165,116,0.07)',
+                    border: '1px solid rgba(212,165,116,0.32)',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? "99 isim · Allah'ın kendini tanıtışı" : "99 names · How God introduces Himself"}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
+                </button>
+
+                {/* ══════════════════════════════════════════════════════════════
+                    ─── KEŞFET SECTION ────────────────────────────────────────── */}
+                <div style={SECTION_HEADER}>
+                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Keşfet' : 'Discover'}</span>
+                  <span style={SECTION_HEADER_LINE} />
+                </div>
+
+                {EXPLORE_CATEGORIES.map(cat => (
+                  <div key={cat.id}>
+                    <p style={SUB_LABEL}>{language === 'tr' ? cat.titleTr : cat.titleEn}</p>
+                    {cat.items.map(item => {
+                      const Icon = item.icon;
+                      return (
+                        <MobileItem
+                          key={item.id}
+                          icon={Icon ? <Icon size={16} /> : null}
+                          titleTr={item.titleTr}
+                          titleEn={item.titleEn}
+                          descTr={item.descTr}
+                          descEn={item.descEn}
+                          onClick={() => {
+                            if (item.kind === 'section') { scrollTo(item.target); }
+                            else {
+                              const route = OVERLAY_ROUTE_MOBILE[item.target];
+                              if (route) router.push(`/${language}${route}`);
+                            }
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+
+                {/* ══════════════════════════════════════════════════════════════
+                    ─── ARAÇLAR SECTION ───────────────────────────────────────── */}
+                <div style={SECTION_HEADER}>
+                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Araçlar' : 'Tools'}</span>
+                  <span style={SECTION_HEADER_LINE} />
+                </div>
+
+                {/* Featured — sadece 1. (Kur'an'ı Tanı); Esma zaten yukarıda */}
+                {featuredTools.slice(0, 1).map(ft => (
+                  <MobileFeatured
+                    key={ft.id}
+                    icon={ft.icon}
+                    titleTr={ft.labelTr}
+                    titleEn={ft.labelEn}
+                    descTr={ft.descTr}
+                    descEn={ft.descEn}
+                    onClick={ft.action}
+                  />
+                ))}
+
+                {toolGroups.map(group => (
+                  <div key={group.labelTr}>
+                    <p style={SUB_LABEL}>{language === 'tr' ? group.labelTr : group.labelEn}</p>
+                    {group.items.map(tool => (
+                      <MobileItem
+                        key={tool.id || tool.labelTr}
+                        icon={tool.icon}
+                        titleTr={tool.labelTr}
+                        titleEn={tool.labelEn}
+                        descTr={tool.descTr}
+                        descEn={tool.descEn}
+                        onClick={tool.action}
+                      />
+                    ))}
+                  </div>
+                ))}
+
+                {/* ══════════════════════════════════════════════════════════════
+                    ─── TEFEKKÜR SECTION ──────────────────────────────────────── */}
+                <div style={SECTION_HEADER}>
+                  <span style={SECTION_HEADER_LABEL}>{language === 'tr' ? 'Tefekkür' : 'Tefekkür'}</span>
+                  <span style={SECTION_HEADER_LINE} />
+                </div>
+
+                <MobileFeatured
+                  icon={
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 6 L4 5 L4 18 L12 19" />
+                      <path d="M12 6 L20 5 L20 18 L12 19" />
+                      <line x1="12" y1="6" x2="12" y2="19" />
+                    </svg>
+                  }
+                  titleTr="Tüm Yazılar"
+                  titleEn="All Essays"
+                  descTr={`${tefekkurStats.total} yayında · ${tefekkurStats.planned} planlanan`}
+                  descEn={`${tefekkurStats.total} live · ${tefekkurStats.planned} planned`}
+                  onClick={() => router.push(`/${language}/tefekkur`)}
+                />
+
+                <p style={SUB_LABEL}>{language === 'tr' ? 'Kategoriler' : 'Categories'}</p>
+                {tefekkurCategories.map(cat => (
+                  <MobileItem
+                    key={cat.id}
+                    dotColor={cat.accent}
+                    titleTr={cat.labelTr}
+                    titleEn={cat.labelEn}
+                    descTr={cat.descTr}
+                    descEn={cat.descEn}
+                    onClick={() => router.push(`/${language}/tefekkur?cat=${cat.id}`)}
+                  />
+                ))}
+              </div>
+            );
+          })()}
         </motion.div>
       )}
     </AnimatePresence>
