@@ -497,8 +497,29 @@ function FeaturedCard({ item, language }) {
 }
 
 // ── Animal Card ───────────────────────────────────────────────────────────────
-function AnimalCard({ item, language }) {
-  const isHapax = item.isHapax || false;
+// Frequency bar mini component
+function FreqBar({ freq, max, color = COLORS.gold }) {
+  if (!freq || !max) return null;
+  const pct = Math.max((freq / max) * 100, 4);
+  return (
+    <div style={{
+      position: 'relative', height: '3px',
+      background: 'rgba(255,255,255,0.06)',
+      borderRadius: '2px', overflow: 'hidden',
+      marginTop: '4px', width: '100%',
+    }}>
+      <div style={{
+        position: 'absolute', top: 0, left: 0, bottom: 0,
+        width: `${pct}%`,
+        background: `linear-gradient(90deg, ${color}, ${color}88)`,
+        borderRadius: '2px',
+      }} />
+    </div>
+  );
+}
+
+function AnimalCard({ item, language, maxFreq }) {
+  const isHapax = item.isHapax || item.freqNumeric === 1;
   return (
     <div style={{
       ...GLASS_CARD,
@@ -522,11 +543,12 @@ function AnimalCard({ item, language }) {
           flexShrink: 0,
           padding: '2px 10px',
           borderRadius: '99px',
-          background: COLORS.glassBg,
-          border: `1px solid ${COLORS.glassBorder}`,
-          color: COLORS.silver,
+          background: isHapax ? 'rgba(168,85,247,0.15)' : COLORS.glassBg,
+          border: `1px solid ${isHapax ? 'rgba(168,85,247,0.4)' : COLORS.glassBorder}`,
+          color: isHapax ? '#c084fc' : COLORS.silver,
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
+          fontWeight: isHapax ? 700 : 400,
         }}>
           {item.frequency}
         </span>
@@ -534,6 +556,8 @@ function AnimalCard({ item, language }) {
       <p style={{ margin: 0, color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.95rem' }}>
         {item.nameTr}
       </p>
+      {/* Frequency bar chart */}
+      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a855f7' : COLORS.gold} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
           <ContextBadge key={ctx} ctx={ctx} colorMap={ANIMAL_CONTEXT_COLORS} language={language} />
@@ -555,8 +579,8 @@ function AnimalCard({ item, language }) {
 }
 
 // ── Plant Card ────────────────────────────────────────────────────────────────
-function PlantCard({ item, language }) {
-  const isHapax = item.isHapax || false;
+function PlantCard({ item, language, maxFreq }) {
+  const isHapax = item.isHapax || item.freqNumeric === 1;
   return (
     <div style={{
       ...GLASS_CARD,
@@ -580,11 +604,12 @@ function PlantCard({ item, language }) {
           flexShrink: 0,
           padding: '2px 10px',
           borderRadius: '99px',
-          background: COLORS.glassBg,
-          border: `1px solid ${COLORS.glassBorder}`,
-          color: COLORS.silver,
+          background: isHapax ? 'rgba(168,85,247,0.15)' : COLORS.glassBg,
+          border: `1px solid ${isHapax ? 'rgba(168,85,247,0.4)' : COLORS.glassBorder}`,
+          color: isHapax ? '#c084fc' : COLORS.silver,
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
+          fontWeight: isHapax ? 700 : 400,
         }}>
           {item.frequency}
         </span>
@@ -592,6 +617,8 @@ function PlantCard({ item, language }) {
       <p style={{ margin: 0, color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.95rem' }}>
         {item.nameTr}
       </p>
+      {/* Frequency bar chart */}
+      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a855f7' : COLORS.gold} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
           <ContextBadge key={ctx} ctx={ctx} colorMap={PLANT_CONTEXT_COLORS} language={language} />
@@ -679,7 +706,7 @@ function TabHayvanlar({ animals, isMobile, language }) {
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '12px',
       }}>
-        {filtered.map(a => <AnimalCard key={a.id} item={a} language={language} />)}
+        {filtered.map(a => <AnimalCard key={a.id} item={a} language={language} maxFreq={Math.max(...animals.map(x => x.freqNumeric || 0), 1)} />)}
       </div>
 
       {filtered.length === 0 && (
@@ -731,7 +758,7 @@ function TabBitkiler({ plants, isMobile, language }) {
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '12px',
       }}>
-        {filtered.map(p => <PlantCard key={p.id} item={p} language={language} />)}
+        {filtered.map(p => <PlantCard key={p.id} item={p} language={language} maxFreq={Math.max(...plants.map(x => x.freqNumeric || 0), 1)} />)}
       </div>
 
       {filtered.length === 0 && (
