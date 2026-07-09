@@ -37,6 +37,7 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
         <AbdCoreSection abdCore={hubData.abdCore} language={language} isMobile={isMobile} />
         <PillarsGrid pillars={hubData.pillars} language={language} isMobile={isMobile} router={router} />
         <SutunlarAgiSection data={hubData.sutunlarAgi} language={language} isMobile={isMobile} router={router} />
+        <KarsilastirmaSection data={hubData.karsilastirma} language={language} isMobile={isMobile} router={router} />
         <ZamanEkseniSection data={hubData.zamanEkseni} language={language} isMobile={isMobile} />
         <OrtakFormullerSection data={hubData.ortakFormuller} language={language} isMobile={isMobile} />
         <FramingNote framingTr={hubData.framingTr} framingEn={hubData.framingEn} language={language} isMobile={isMobile} />
@@ -455,6 +456,96 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
           color: COLORS.silver, fontSize: '0.78rem',
           fontStyle: 'italic', marginTop: '16px', opacity: 0.75,
         }}>{language === 'tr' ? data.notTr : (data.notEn ?? data.notTr)}</p>
+      )}
+    </div>
+  );
+}
+
+// ─── Karşılaştırma Tablosu — 8 sütun bir bakışta ──────────────────────────
+function KarsilastirmaSection({ data, language, isMobile, router }) {
+  if (!data?.rows?.length) return null;
+  const tr = language === 'tr';
+  return (
+    <div style={{ marginBottom: '56px' }}>
+      <h2 style={{
+        fontFamily: FONTS.display, color: COLORS.offWhite,
+        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        margin: '0 0 8px', fontWeight: 700,
+      }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
+        {tr ? data.introTr : (data.introEn ?? data.introTr)}
+      </p>
+
+      {/* Desktop: table, Mobile: stacked cards */}
+      {isMobile ? (
+        <div style={{ display: 'grid', gap: '12px' }}>
+          {data.rows.map(r => (
+            <div key={r.id} style={{
+              padding: '16px 18px',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+              border: `1px solid ${COLORS.goldAlpha25}`,
+              borderLeft: `4px solid ${r.yukumlulukColor}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '10px' }}>
+                <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.4rem', direction: 'rtl' }} lang="ar">{r.arabic}</span>
+                <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '1rem' }}>{tr ? r.labelTr : r.labelEn}</span>
+              </div>
+              <div style={{ display: 'grid', gap: '6px', fontSize: '0.82rem' }}>
+                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Yükümlülük' : 'Degree'}:</span> <span style={{ color: r.yukumlulukColor, fontWeight: 700 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</span></div>
+                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Kategori' : 'Category'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.kategoriTr : r.kategoriEn}</span></div>
+                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</span></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{
+          overflow: 'hidden',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: RADIUS.md,
+        }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.86rem' }}>
+            <thead>
+              <tr style={{ background: 'rgba(212,165,116,0.08)' }}>
+                <th style={{ padding: '12px 14px', textAlign: 'left', color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}>{tr ? 'Sütun' : 'Pillar'}</th>
+                <th style={{ padding: '12px 14px', textAlign: 'left', color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}>{tr ? 'Yükümlülük' : 'Degree'}</th>
+                <th style={{ padding: '12px 14px', textAlign: 'left', color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}>{tr ? 'Kategori' : 'Category'}</th>
+                <th style={{ padding: '12px 14px', textAlign: 'left', color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700 }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.rows.map((r, i) => (
+                <tr key={r.id} style={{
+                  background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
+                  borderTop: `1px solid ${COLORS.glassBorderSoft}`,
+                  cursor: 'pointer', transition: 'background 0.15s',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent'; }}
+                  onClick={() => router.push(`/${language}/atlas/ibadetler/${r.id === 'dua' ? '' : r.id}`)}
+                >
+                  <td style={{ padding: '14px', borderLeft: `4px solid ${r.yukumlulukColor}` }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                      <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.25rem', direction: 'rtl' }} lang="ar">{r.arabic}</span>
+                      <span style={{ color: COLORS.offWhite, fontWeight: 700 }}>{tr ? r.labelTr : r.labelEn}</span>
+                    </div>
+                  </td>
+                  <td style={{ padding: '14px', color: r.yukumlulukColor, fontWeight: 600 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</td>
+                  <td style={{ padding: '14px', color: COLORS.offWhite, opacity: 0.9 }}>{tr ? r.kategoriTr : r.kategoriEn}</td>
+                  <td style={{ padding: '14px', color: COLORS.silver, fontSize: '0.82rem' }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {data.notTr && (
+        <p style={{
+          color: COLORS.silver, fontSize: '0.78rem',
+          fontStyle: 'italic', marginTop: '14px', opacity: 0.75,
+        }}>{tr ? data.notTr : (data.notEn ?? data.notTr)}</p>
       )}
     </div>
   );

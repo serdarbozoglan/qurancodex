@@ -416,5 +416,119 @@
         "confidence": "medium"
       }
     ]
+  },
+  "karsilastirma": {
+    "titleTr": "Sekiz Sütunun Karşılaştırılması",
+    "titleEn": "The Eight Pillars Side by Side",
+    "introTr": "Sekiz sütun aynı 'abd kökünden türese de farklı düzlemlerde işler: kimi bedene, kimi mala, kimi kalbe dokunur; kimi farz, kimi teşvik. Aşağıdaki tablo Kur'ânî yükümlülük ve boyutları bir bakışta gösterir.",
+    "introEn": "The eight pillars, though rooted in a single ʿabd, work at different registers: some touch the body, some wealth, some the heart; some are obligation, some encouragement. The table below shows the Qur'anic degree and dimension at a glance.",
+    "rows": [
+      {
+        "id": "namaz",
+        "labelTr": "Namaz",
+        "labelEn": "Prayer",
+        "arabic": "الصَّلَاة",
+        "yukumlulukTr": "Farz",
+        "yukumlulukEn": "Obligation",
+        "kategoriTr": "Bedenî + Kalbî",
+        "kategoriEn": "Bodily + Cardiac",
+        "sunnetTafsilTr": "Vakit · rekât · kıraat",
+        "sunnetTafsilEn": "Times · units · recitation",
+        "yukumlulukColor": "#e74c3c"
+      },
+      {
+        "id": "zekat",
+        "labelTr": "Zekât",
+        "labelEn": "Zakāt",
+        "arabic": "الزَّكَاة",
+        "yukumlulukTr": "Farz",
+        "yukumlulukEn": "Obligation",
+        "kategoriTr": "Malî",
+        "kategoriEn": "Material",
+        "sunnetTafsilTr": "Nisab · %2.5 · havlan",
+        "sunnetTafsilEn": "Nisab · 2.5% · ḥawlān",
+        "yukumlulukColor": "#e74c3c"
+      },
+      {
+        "id": "oruc",
+        "labelTr": "Oruç",
+        "labelEn": "Fasting",
+        "arabic": "الصَّوْم",
+        "yukumlulukTr": "Farz (Ramazan)",
+        "yukumlulukEn": "Obligation (Ramaḍān)",
+        "kategoriTr": "Bedenî + Nefsî",
+        "kategoriEn": "Bodily + Self-restraint",
+        "sunnetTafsilTr": "İftar · suhûr · itikâf",
+        "sunnetTafsilEn": "Ifṭār · suḥūr · iʿtikāf",
+        "yukumlulukColor": "#e74c3c"
+      },
+      {
+        "id": "hac",
+        "labelTr": "Hac",
+        "labelEn": "Ḥajj",
+        "arabic": "الْحَجّ",
+        "yukumlulukTr": "Farz (imkân olunca)",
+        "yukumlulukEn": "Obligation (if able)",
+        "kategoriTr": "Bedenî + Malî + Mekânî",
+        "kategoriEn": "Bodily + Material + Spatial",
+        "sunnetTafsilTr": "Mikat · ihrâm · tavâf · sa'y",
+        "sunnetTafsilEn": "Mīqāt · iḥrām · ṭawāf · saʿy",
+        "yukumlulukColor": "#e74c3c"
+      },
+      {
+        "id": "kurban",
+        "labelTr": "Kurban",
+        "labelEn": "Sacrifice",
+        "arabic": "النُّسُك",
+        "yukumlulukTr": "Sünnet-i müekkede / vâcib (mezheplere göre)",
+        "yukumlulukEn": "Emphasized sunnah / obligatory (school-dependent)",
+        "kategoriTr": "Malî + Ritüelî",
+        "kategoriEn": "Material + Ritual",
+        "sunnetTafsilTr": "Bayram · üleşim · teşrik",
+        "sunnetTafsilEn": "ʿĪd · sharing · tashrīq",
+        "yukumlulukColor": "#f39c12"
+      },
+      {
+        "id": "zikir",
+        "labelTr": "Zikir",
+        "labelEn": "Remembrance",
+        "arabic": "الذِّكْر",
+        "yukumlulukTr": "Sürekli teşvik",
+        "yukumlulukEn": "Continuous encouragement",
+        "kategoriTr": "Kalbî + Dil",
+        "kategoriEn": "Cardiac + Verbal",
+        "sunnetTafsilTr": "Sabah-akşam · tesbihât · salavât",
+        "sunnetTafsilEn": "Morning-evening · tasbīḥāt · ṣalawāt",
+        "yukumlulukColor": "#3498db"
+      },
+      {
+        "id": "dua",
+        "labelTr": "Dua",
+        "labelEn": "Supplication",
+        "arabic": "الدُّعَاء",
+        "yukumlulukTr": "Sürekli teşvik",
+        "yukumlulukEn": "Continuous encouragement",
+        "kategoriTr": "Dil + Kalbî",
+        "kategoriEn": "Verbal + Cardiac",
+        "sunnetTafsilTr": "Peygamber duaları · edeb",
+        "sunnetTafsilEn": "Prophetic supplications · etiquette",
+        "yukumlulukColor": "#3498db"
+      },
+      {
+        "id": "tovbe",
+        "labelTr": "Tövbe",
+        "labelEn": "Repentance",
+        "arabic": "التَّوْبَة",
+        "yukumlulukTr": "Sürekli teşvik (günahtan sonra farz)",
+        "yukumlulukEn": "Continuous encouragement (obligation after sin)",
+        "kategoriTr": "Kalbî + Amelî",
+        "kategoriEn": "Cardiac + Ethical",
+        "sunnetTafsilTr": "Nasûhâ · nedâmet · ıslâh",
+        "sunnetTafsilEn": "Naṣūḥā · nadāma · iṣlāḥ",
+        "yukumlulukColor": "#3498db"
+      }
+    ],
+    "notTr": "Yükümlülük derecesi ehl-i sünnet çerçevesi ve dört mezhep uygulamasını yansıtır. Renkler: kırmızı = farz, amber = müekkede sünnet, mavi = sürekli teşvik.",
+    "notEn": "The degree of obligation reflects the Sunni framework and the four schools. Colors: red = obligation, amber = emphasized sunnah, blue = continuous encouragement."
   }
 }
