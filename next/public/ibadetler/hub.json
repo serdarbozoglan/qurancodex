@@ -29,7 +29,7 @@
       "trShort": "Yalnız sana kulluk ederiz ve yalnız senden yardım dileriz.",
       "enShort": "You alone we worship, and You alone we ask for help."
     },
-    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts §3 (kulluk semantik alanı)"
+    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts Ch. 9 (God and Man) (kulluk semantik alanı)"
   },
   "wowFacts": [
     {
@@ -40,7 +40,7 @@
       "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
+      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts Ch. 9 (God and Man) "
     },
     {
       "id": "wowfact-namaz-zekat-cifti",
@@ -279,9 +279,9 @@
         "labelTr": "Zikir",
         "ar": "الذِّكْر",
         "root": "ذ ك ر",
-        "freq": 292,
+        "freq": 268,
         "anchorRef": "Bakara 2:152",
-        "period": "Medine"
+        "period": "Mekke-Medine"
       },
       {
         "id": "dua",
@@ -290,7 +290,7 @@
         "root": "د ع و",
         "freq": 213,
         "anchorRef": "Bakara 2:186",
-        "period": "Medine"
+        "period": "Mekke-Medine"
       },
       {
         "id": "tovbe",
@@ -299,11 +299,11 @@
         "root": "ت و ب",
         "freq": 87,
         "anchorRef": "Tahrîm 66:8",
-        "period": "Medine"
+        "period": "Mekke-Medine"
       }
     ],
-    "notTr": "Sıklıklar yaklaşık geçiş sayısıdır (kök türevleri dahil). Nöbet: bkz. Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres.",
-    "notEn": "Frequencies are approximate root-family occurrences (all derivations included). Cf. Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras."
+    "notTr": "Sıklıklar yaklaşık kök geçiş sayısıdır (isim + fiil türevleri). Namaz için 'salâh' ismi ~99, tüm ص ل و kök türevleri (salavât, musallî vs.) dahil ~83 ana namaz-bağlamı geçişi baz alınmıştır. Kaynak: Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres.",
+    "notEn": "Frequencies are approximate root-family occurrences. For prayer, ~99 occurrences of the noun 'ṣalāh' vs. ~83 primary prayer-context occurrences of ṣ-l-w root family. Cf. Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras."
   },
   "zamanEkseni": {
     "titleTr": "Zaman Ekseni — Mekke ve Medine",
@@ -317,7 +317,7 @@
         "descTr": "Kalp-eksenli inşâ. Namazın kök emri (Tâhâ 20:14 'beni anmak için namaz kıl'), teheccüd (Müzzemmil), gece yakarışı (İsra 17:79), huşû ve zikir motifleri Mekke'de yerleşir. Zaman: hicretten önce ~13 yıl.",
         "descEn": "Heart-centered construction. Prayer's foundational command (Ṭā-Hā 20:14), tahajjud (Muzzammil), night invocation (Isrāʾ 17:79), khushūʿ and dhikr motifs settle in Mecca. Duration: ~13 years before hijra.",
         "sutunlar": [
-          "namaz-kok",
+          "namaz",
           "zikir",
           "dua",
           "tovbe"
@@ -326,10 +326,10 @@
       {
         "phase": "Medine",
         "phaseEn": "Medina",
-        "descTr": "Topluluk-eksenli tafsil. Namazın vakit çerçevesi (İsra 17:78 — Mekke'nin son yılında), oruç farziyeti (Bakara 2:183 — hicrî 2), zekât nisabı ve alacaklıları (Tevbe 9:60, 9:103 — hicrî 9), hac farziyeti (Bakara 2:196, Âl-i İmrân 3:97 — hicrî 6-9), kurban semantiği (Hac 22:37) burada tamamlanır.",
-        "descEn": "Community-centered elaboration. Prayer's time frame (Isrāʾ 17:78 — late Meccan), fasting obligation (Baqara 2:183 — year 2 AH), zakat threshold and recipients (Tawba 9:60, 9:103 — year 9 AH), hajj obligation (Baqara 2:196, Āl ʿImrān 3:97 — years 6-9 AH), sacrifice semantics (Ḥajj 22:37) complete here.",
+        "descTr": "Topluluk-eksenli tafsil. Namazın vakit çerçevesi (İsra 17:78 — geç dönemi anıyor), oruç farziyeti (Bakara 2:183 — hicrî 2), zekât nisabı ve alacaklıları (Tevbe 9:60, 9:103 — hicrî 9), hac farziyeti (Bakara 2:196, Âl-i İmrân 3:97 — hicrî 6-9), kurban semantiği (Hac 22:37) burada tamamlanır.",
+        "descEn": "Community-centered elaboration. Prayer's time frame (Isrāʾ 17:78 — late period), fasting obligation (Baqara 2:183 — year 2 AH), zakat threshold and recipients (Tawba 9:60, 9:103 — year 9 AH), hajj obligation (Baqara 2:196, Āl ʿImrān 3:97 — years 6-9 AH), sacrifice semantics (Ḥajj 22:37) complete here.",
         "sutunlar": [
-          "namaz-vakit",
+          "namaz",
           "zekat",
           "oruc",
           "hac",
@@ -409,8 +409,8 @@
         "sampleRefs": [
           "Kevser 108:2"
         ],
-        "descTr": "Namaz ile nahr (kurban) tek ayette birleşir. Klasik tefsir bunu Kurban Bayramı namazı ile kurbanın bir arada okunması olarak yorumlar; bazı okumalar ise 'namazda ellerin yükseltilmesi' jestini de içerir.",
-        "descEn": "Prayer and naḥr (sacrifice) unite in a single verse. Classical exegesis reads this as the pairing of the ʿĪd al-Aḍḥā prayer with the sacrifice; some readings include the hand-raising gesture of prayer.",
+        "descTr": "Namaz ile nahr (kurban) tek ayette birleşir. Klasik tefsir bunu Kurban Bayramı namazı ile kurbanın bir arada okunması olarak yorumlar.",
+        "descEn": "Prayer and naḥr (sacrifice) unite in a single verse. Classical exegesis reads this as the pairing of the ʿĪd al-Aḍḥā prayer with the sacrifice.",
         "kaynak": "Kurtubî, Kevser 108:2 tefsiri; Elmalılı, Kevser Sûresi (ihtilaf notu)",
         "claimType": "tafsir_tradition",
         "confidence": "medium"
