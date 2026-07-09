@@ -215,6 +215,15 @@ const BookendsIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// PrayerIcon — Mihrap kemer ikonu: İbadetlerin Kur'ânî Mimarisi.
+const PrayerIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 21V10a6 6 0 1 1 12 0v11" />
+    <path d="M4 21h16" />
+    <path d="M9 21v-4a3 3 0 0 1 6 0v4" />
+  </svg>
+);
+
 // ── Categories ──────────────────────────────────────────────────────────────
 // User-approved order (2026-04-10):
 //   DİL & YAPI          — unchanged
@@ -394,6 +403,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: "Kur'an'da İblis / Şeytan", titleEn: 'Iblis / Satan in the Quran',
         descTr: 'Yedi sûrede aynı sahne · kibrin başlangıcı',
         descEn: 'Same scene in seven surahs · the origin of pride',
+      },
+      {
+        id:     'ibadetler',
+        kind:   'overlay',
+        target: 'ibadetler',
+        icon:   PrayerIcon,
+        titleTr: "İbadetlerin Kur'ânî Mimarisi", titleEn: "The Qur'anic Architecture of Worship",
+        descTr: "Kulluk · 8 pillar · Kur'an'ın kendi diliyle",
+        descEn: "Worship · 8 pillars · in the Qur'an's own words",
       },
     ],
   },
