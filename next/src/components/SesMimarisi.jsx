@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import SoundArchitecture from '../sections/SoundArchitecture';
+import SoundExtensions from './SoundExtensions';
 import ToolHeader from './ToolHeader';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
@@ -112,6 +113,9 @@ export default function SesMimarisi({ onClose }) {
 
       {/* Anasayfa SoundArchitecture section AYNEN */}
       <SoundArchitecture />
+
+      {/* Genişletilmiş: 4 ek karşıtlık + fonetik spektrum */}
+      <SoundExtensions language={language} isMobile={isMobile} />
     </div>
   );
 }
