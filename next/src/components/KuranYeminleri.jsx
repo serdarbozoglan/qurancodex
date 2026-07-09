@@ -157,7 +157,7 @@ export default function KuranYeminleri({ onClose }) {
               textShadow: `0 0 22px ${COLORS.gold}1c`,
             }}
           >
-            وَالشَّمْسِ وَضُحٰيهَاۙ وَالْقَمَرِ اِذَا تَلٰيهَاۙ
+            وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا
           </p>
 
           <p style={{
@@ -335,20 +335,22 @@ export default function KuranYeminleri({ onClose }) {
             yeminin ardından ne'nin geldiği. */}
         <YeminCevapReveal language={language} isMobile={isMobile} />
 
-        {/* ── TAB BAR — directly above tab content (sticky, Melekler-reference) ─ */}
+        {/* ── TAB BAR — §13.19 compliant (Melekler-reference) ─ */}
         <div id="yemin-tab-bar" style={{
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: '#06080e',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
           position: 'sticky',
-          top: 0,
-          zIndex: 10,
-          scrollMarginTop: '72px',
+          top: '110px',
+          zIndex: 20,
+          scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
@@ -1933,7 +1935,7 @@ function VakiaSpotlight({ language, isMobile }) {
             textShadow: `0 0 20px ${COLORS.gold}28`,
           }}
         >
-          فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ ۙ وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ
+          فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ  وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ
         </p>
 
         <p style={{
@@ -1989,12 +1991,12 @@ const YEMIN_CEVAP_DATA = [
     id: 'sems',
     oathRefTr: 'Şems 91:1-7',
     oathRefEn: 'al-Shams 91:1-7',
-    oathAr: 'وَالشَّمْسِ وَضُحٰيهَاۙ وَالْقَمَرِ اِذَا تَلٰيهَاۙ وَالنَّهَارِ اِذَا جَلّٰيهَاۙ وَالَّيْلِ اِذَا يَغْشٰيهَاۙ وَالسَّمَٓاءِ وَمَا بَنٰيهَاۙ وَالْاَرْضِ وَمَا طَحٰيهَاۙ وَنَفْسٍ وَمَا سَوّٰيهَا',
+    oathAr: 'وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا وَالنَّهَارِ اِذَا جَلّٰيهَا وَالَّيْلِ اِذَا يَغْشٰيهَا وَالسَّمَٓاءِ وَمَا بَنٰيهَا وَالْاَرْضِ وَمَا طَحٰيهَا وَنَفْسٍ وَمَا سَوّٰيهَا',
     oathTr: 'Güneşe ve onun aydınlığına; ay\'a — onu takip ettiğinde; gündüze — onu açığa çıkardığında; geceye — onu örttüğünde; göğe ve onu yapana; yere ve onu döşeyene; nefse ve onu düzenleyene.',
     oathEn: 'By the sun and its morning brightness; the moon when it follows; the day when it reveals it; the night when it veils it; the sky and Who built it; the earth and Who spread it; the soul and Who shaped it.',
     answerRefTr: 'Şems 91:9-10',
     answerRefEn: 'al-Shams 91:9-10',
-    answerAr: 'قَدْ اَفْلَحَ مَنْ زَكّٰيهَاۖ وَقَدْ خَابَ مَنْ دَسّٰيهَاۜ',
+    answerAr: 'قَدْ اَفْلَحَ مَنْ زَكّٰيهَا وَقَدْ خَابَ مَنْ دَسّٰيهَا',
     answerTr: 'Nefsini arındıran kurtuluşa ermiştir. Onu (kötülüğe) gömen ise mahvolmuştur.',
     answerEn: 'Successful is the one who purifies the soul; failed is the one who corrupts it.',
     insightTr: '7 büyük yemin → 1 hüküm. Kâinatın tüm tanıkları: insanın iç temizliği üzerine.',
@@ -2004,12 +2006,12 @@ const YEMIN_CEVAP_DATA = [
     id: 'asr',
     oathRefTr: 'Asr 103:1',
     oathRefEn: 'al-ʿAṣr 103:1',
-    oathAr: 'وَالْعَصْرِۙ',
+    oathAr: 'وَالْعَصْرِ',
     oathTr: 'Asra (zamana) andolsun.',
     oathEn: 'By the passage of time.',
     answerRefTr: 'Asr 103:2-3',
     answerRefEn: 'al-ʿAṣr 103:2-3',
-    answerAr: 'اِنَّ الْاِنْسَانَ لَفِي خُسْرٍۙ اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ ەۙ وَتَوَاصَوْا بِالصَّبْرِ',
+    answerAr: 'اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ ە وَتَوَاصَوْا بِالصَّبْرِ',
     answerTr: 'İnsan kesinlikle ziyandadır — iman edip salih amel işleyenler, birbirine hakkı ve sabrı tavsiye edenler hariç.',
     answerEn: 'Indeed, humanity is in loss — except those who believe, do righteous deeds, and counsel each other in truth and patience.',
     insightTr: '3 ayetin tezi: zaman karşısında insanın yapısal hâli. Şâfiî: "Sadece bu sûre inseydi yeterdi" demiştir.',
@@ -2019,12 +2021,12 @@ const YEMIN_CEVAP_DATA = [
     id: 'buruc',
     oathRefTr: 'Burûc 85:1-3',
     oathRefEn: 'al-Burūj 85:1-3',
-    oathAr: 'وَالسَّمَٓاءِ ذَاتِ الْبُرُوجِۙ وَالْيَوْمِ الْمَوْعُودِۙ وَشَاهِدٍ وَمَشْهُودٍۜ',
+    oathAr: 'وَالسَّمَٓاءِ ذَاتِ الْبُرُوجِ وَالْيَوْمِ الْمَوْعُودِ وَشَاهِدٍ وَمَشْهُودٍ',
     oathTr: 'Burçlarla dolu göğe; vaad edilen güne; tanık olana ve tanık olunana andolsun.',
     oathEn: 'By the sky full of constellations; by the promised day; by the witness and the witnessed.',
     answerRefTr: 'Burûc 85:4-7',
     answerRefEn: 'al-Burūj 85:4-7',
-    answerAr: 'قُتِلَ اَصْحَابُ الْاُخْدُودِۙ اَلنَّارِ ذَاتِ الْوَقُودِۙ اِذْ هُمْ عَلَيْهَا قُعُودٌۙ وَهُمْ عَلٰى مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌۜ',
+    answerAr: 'قُتِلَ اَصْحَابُ الْاُخْدُودِ اَلنَّارِ ذَاتِ الْوَقُودِ اِذْ هُمْ عَلَيْهَا قُعُودٌ وَهُمْ عَلٰى مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌ',
     answerTr: 'Hendek halkı (Ashâb-ı Uhdûd) kahrolsun — yakacaklı ateşin sahipleri; ateşin başında oturmuş, müminlere yaptıklarını seyrediyorlardı.',
     answerEn: 'Cursed be the people of the trench — those of the fueled fire; sitting beside it, watching what they did to the believers.',
     insightTr: 'Kozmik yemin → tarihsel zulüm. Gök tanık; zalimler de tanık. Aynı kelime: "şahid".',

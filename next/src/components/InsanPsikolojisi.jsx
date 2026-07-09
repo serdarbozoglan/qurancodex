@@ -91,6 +91,19 @@ export default function InsanPsikolojisi({ onClose }) {
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
+        <p style={{
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          fontWeight: 700,
+          letterSpacing: '0.3em',
+          textTransform: 'uppercase',
+          opacity: 0.72,
+          margin: '0 0 14px',
+        }}>
+          {tr ? "İÇ HARİTA · NEFSİN GRAMERİ" : "INNER MAP · GRAMMAR OF THE NAFS"}
+        </p>
+
         <h1 style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,

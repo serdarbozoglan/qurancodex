@@ -273,12 +273,14 @@ export default function KavimlerAtlasi({ onClose }) {
         <div id="kavim-tab-bar" style={{
           display: 'flex', gap: '2px', padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: '#06080e',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
           position: 'sticky',
-          top: 0,
-          zIndex: 10,
-          scrollMarginTop: '72px',
+          top: '110px',
+          zIndex: 20,
+          scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
             <button

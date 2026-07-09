@@ -2504,7 +2504,7 @@ export default function KuranRenkleri({ onClose }) {
               textShadow: `0 0 22px ${COLORS.gold}1c`,
             }}
           >
-            اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمَٓاءِ مَٓاءًۚ فَاَخْرَجْنَا بِهٖ ثَمَرَاتٍ مُخْتَلِفًا اَلْوَانُهَا
+            اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمَٓاءِ مَٓاءً فَاَخْرَجْنَا بِهٖ ثَمَرَاتٍ مُخْتَلِفًا اَلْوَانُهَا
           </p>
 
           <p style={{
@@ -2682,12 +2682,12 @@ export default function KuranRenkleri({ onClose }) {
           </p>
         </div>
 
-        {/* ── Tab bar — premium ── */}
+        {/* ── Tab bar — §13.19 compliant (opaque bg, top:110, isolation) ── */}
         <div style={{
-          position: 'sticky', top: 0, zIndex: 10,
-          background: 'rgba(10,10,26,0.97)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          position: 'sticky', top: '110px', zIndex: 20,
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
         }}>
           {/* Top hairline gold accent */}
           <div style={{
@@ -2703,7 +2703,7 @@ export default function KuranRenkleri({ onClose }) {
             overflowX: 'auto', scrollbarWidth: 'none',
             flexShrink: 0,
             position: 'relative',
-            scrollMarginTop: '72px',
+            scrollMarginTop: '120px',
           }}>
             {Object.values(TABS).map(id => {
               const active = activeTab === id;
