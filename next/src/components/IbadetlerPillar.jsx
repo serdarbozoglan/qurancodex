@@ -16,15 +16,19 @@ import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CON
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 
-// Tab defs — 7 sabit, visibleTabs data'ya göre filtreler.
+// Tab defs — visibleTabs data'ya göre filtreler.
 const TAB_DEFS = [
-  { key: 'genel',        titleTr: 'Genel Bakış',        titleEn: 'Overview',           dataKey: 'genelBakis' },
-  { key: 'semantik',     titleTr: 'Semantik Alan',      titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
-  { key: 'pasajlar',     titleTr: 'Ana Pasajlar',       titleEn: 'Key Passages',       dataKey: 'anaPasajlar' },
-  { key: 'mimari',       titleTr: 'Rakamsal Mimari',    titleEn: 'Numeric Design',     dataKey: 'rakamsalMimari' },
-  { key: 'peygamberler', titleTr: 'Peygamberler',       titleEn: 'Prophets',           dataKey: 'peygamberVaryasyonlari' },
-  { key: 'icboyut',      titleTr: 'İç Boyut',           titleEn: 'Inner Dimension',    dataKey: 'icBoyut' },
-  { key: 'kaynaklar',    titleTr: 'Kaynaklar',          titleEn: 'Sources',            dataKey: 'kaynaklar' },
+  { key: 'genel',         titleTr: 'Genel Bakış',       titleEn: 'Overview',           dataKey: 'genelBakis' },
+  { key: 'semantik',      titleTr: 'Semantik Alan',     titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
+  { key: 'pasajlar',      titleTr: 'Ana Pasajlar',      titleEn: 'Key Passages',       dataKey: 'anaPasajlar' },
+  { key: 'ozel-namazlar', titleTr: 'Özel Namazlar',     titleEn: 'Special Prayers',    dataKey: 'ozelNamazlar' },
+  { key: 'vakit-mekan',   titleTr: 'Vakit ve Mekân',    titleEn: 'Time and Space',     dataKey: 'vakitMekan' },
+  { key: 'kiraat',        titleTr: 'Namazın Sözü',      titleEn: 'The Word of Prayer', dataKey: 'kiraatBoyutu' },
+  { key: 'mimari',        titleTr: 'Rakamsal Mimari',   titleEn: 'Numeric Design',     dataKey: 'rakamsalMimari' },
+  { key: 'peygamberler',  titleTr: 'Peygamberler',      titleEn: 'Prophets',           dataKey: 'peygamberVaryasyonlari' },
+  { key: 'icboyut',       titleTr: 'İç Boyut',          titleEn: 'Inner Dimension',    dataKey: 'icBoyut' },
+  { key: 'insan-etkisi',  titleTr: 'İnsan Etkisi',      titleEn: 'Human Impact',       dataKey: 'insanEtkisi' },
+  { key: 'kaynaklar',     titleTr: 'Kaynaklar',         titleEn: 'Sources',            dataKey: 'kaynaklar' },
 ];
 
 // Data'nın ilgili alanı doldu mu — boş tab render etme.
@@ -280,14 +284,18 @@ function PillarHero({ pillarData, language, isMobile }) {
 // ─── Tab body dispatcher ──────────────────────────────────────────────────
 function PillarTabBody({ tabKey, pillarData, language, isMobile }) {
   switch (tabKey) {
-    case 'genel':        return <TabGenel        data={pillarData.genelBakis}              language={language} isMobile={isMobile} />;
-    case 'semantik':     return <TabSemantik     data={pillarData.kuraniIsimler}           language={language} isMobile={isMobile} />;
-    case 'pasajlar':     return <TabPasajlar     data={pillarData.anaPasajlar}             language={language} isMobile={isMobile} />;
-    case 'mimari':       return <TabMimari       data={pillarData.rakamsalMimari}          language={language} isMobile={isMobile} />;
-    case 'peygamberler': return <TabPeygamberler data={pillarData.peygamberVaryasyonlari} language={language} isMobile={isMobile} />;
-    case 'icboyut':      return <TabIcBoyut      data={pillarData.icBoyut}                 language={language} isMobile={isMobile} />;
-    case 'kaynaklar':    return <SourcesCitation language={language}                       isMobile={isMobile} sources={pillarData.kaynaklar} />;
-    default:             return null;
+    case 'genel':          return <TabGenel          data={pillarData.genelBakis}              language={language} isMobile={isMobile} />;
+    case 'semantik':       return <TabSemantik       data={pillarData.kuraniIsimler}           language={language} isMobile={isMobile} />;
+    case 'pasajlar':       return <TabPasajlar       data={pillarData.anaPasajlar}             language={language} isMobile={isMobile} />;
+    case 'ozel-namazlar':  return <TabOzelNamazlar   data={pillarData.ozelNamazlar}            language={language} isMobile={isMobile} />;
+    case 'vakit-mekan':    return <TabVakitMekan     data={pillarData.vakitMekan}              language={language} isMobile={isMobile} />;
+    case 'kiraat':         return <TabKiraat         data={pillarData.kiraatBoyutu}            language={language} isMobile={isMobile} />;
+    case 'mimari':         return <TabMimari         data={pillarData.rakamsalMimari}          language={language} isMobile={isMobile} />;
+    case 'peygamberler':   return <TabPeygamberler   data={pillarData.peygamberVaryasyonlari} language={language} isMobile={isMobile} />;
+    case 'icboyut':        return <TabIcBoyut        data={pillarData.icBoyut}                 language={language} isMobile={isMobile} />;
+    case 'insan-etkisi':   return <TabInsanEtkisi    data={pillarData.insanEtkisi}             language={language} isMobile={isMobile} />;
+    case 'kaynaklar':      return <SourcesCitation   language={language}                       isMobile={isMobile} sources={pillarData.kaynaklar} />;
+    default:               return null;
   }
 }
 
@@ -802,6 +810,388 @@ function TabIcBoyut({ data, language, isMobile }) {
           )}
         </div>
       ))}
+    </div>
+  );
+}
+
+// ─── Tab: Özel Namazlar ─────────────────────────────────────────────────
+function TabOzelNamazlar({ data, language, isMobile }) {
+  if (!data?.length) return null;
+  return (
+    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <p style={{
+        color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.92rem',
+        lineHeight: 1.7, marginBottom: '36px', maxWidth: '760px',
+      }}>
+        {language === 'tr'
+          ? "Kur'ân'ın kendi metnine tutunan özel namaz kategorileri: Cuma, Havf, Cenaze, Bayram, Teheccüd. Her biri için Kur'ânî delil ve sünnet-i mütevâtire tafsili birlikte."
+          : 'Special prayer categories anchored in the Qur\'anic text: Jumuʿah, Fear, Funeral, Eid, Tahajjud. For each: Qur\'anic evidence and mutawātir sunnah detail together.'}
+      </p>
+      <div style={{ display: 'grid', gap: '24px' }}>
+        {data.map((n, i) => (
+          <div key={i} style={{
+            padding: isMobile ? '22px 20px' : '28px 32px',
+            border: `1px solid ${COLORS.goldAlpha25}`,
+            borderRadius: RADIUS.md,
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', flexWrap: 'wrap', marginBottom: '14px' }}>
+              <h3 style={{
+                fontFamily: FONTS.display, color: COLORS.gold,
+                fontSize: isMobile ? '1.25rem' : '1.45rem',
+                margin: 0, fontWeight: 700,
+              }}>{language === 'tr' ? n.titleTr : (n.titleEn ?? n.titleTr)}</h3>
+              {n.arabicName && (
+                <span style={{
+                  fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.35rem',
+                  opacity: 0.85, direction: 'rtl',
+                }} lang="ar" dir="rtl">{n.arabicName}</span>
+              )}
+              {n.claimType && <ClaimTypeBadge claimType={n.claimType} confidence={n.confidence} language={language} />}
+            </div>
+
+            {/* Kur'ânî Delil */}
+            {n.kuraniDelil && (
+              <div style={{
+                padding: '16px 18px',
+                background: 'rgba(0,0,0,0.22)',
+                borderLeft: `3px solid ${COLORS.gold}`,
+                borderRadius: '0 6px 6px 0',
+                marginBottom: '18px',
+              }}>
+                <div style={{
+                  color: COLORS.gold, fontSize: '0.68rem',
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  opacity: 0.85, marginBottom: '10px',
+                }}>{language === 'tr' ? "Kur'ânî Delil" : 'Qur\'anic Evidence'}</div>
+                {n.kuraniDelil.ar && (
+                  <div style={{
+                    fontFamily: FONTS.quran, color: COLORS.gold,
+                    fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)', lineHeight: 2.1,
+                    marginBottom: '10px', direction: 'rtl', textAlign: 'right',
+                  }} lang="ar" dir="rtl">{n.kuraniDelil.ar}</div>
+                )}
+                <p style={{
+                  color: COLORS.offWhite, fontSize: '0.93rem',
+                  fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.7,
+                }}>"{language === 'tr' ? n.kuraniDelil.trShort : (n.kuraniDelil.enShort ?? n.kuraniDelil.trShort)}"</p>
+                <div style={{
+                  color: COLORS.silver, fontSize: '0.7rem',
+                  letterSpacing: '0.14em', textTransform: 'uppercase',
+                }}>— {n.kuraniDelil.ref}</div>
+              </div>
+            )}
+
+            {/* Açıklama */}
+            <p style={{
+              color: COLORS.offWhite, fontSize: '0.95rem',
+              lineHeight: 1.8, margin: '0 0 18px',
+            }}>{language === 'tr' ? n.aciklamaTr : (n.aciklamaEn ?? n.aciklamaTr)}</p>
+
+            {/* Kur'ânî Özellikler */}
+            {n.kuraniOzellikler?.length > 0 && (
+              <div style={{ marginBottom: '18px' }}>
+                <div style={{
+                  color: COLORS.gold, fontSize: '0.7rem',
+                  letterSpacing: '0.16em', textTransform: 'uppercase',
+                  marginBottom: '10px', opacity: 0.85,
+                }}>{language === 'tr' ? "Kur'ânî Çerçeve" : 'Qur\'anic Frame'}</div>
+                <ul style={{ margin: 0, paddingLeft: '20px', color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.75 }}>
+                  {n.kuraniOzellikler.map((k, j) => <li key={j} style={{ marginBottom: '6px' }}>{k}</li>)}
+                </ul>
+              </div>
+            )}
+
+            {/* Sünnet Tafsili */}
+            {n.sunnetTafsil && (
+              <div style={{
+                padding: '12px 16px',
+                background: 'rgba(46,204,113,0.06)',
+                borderLeft: `3px solid #2ecc71`,
+                borderRadius: '0 4px 4px 0',
+                marginBottom: '14px',
+              }}>
+                <div style={{
+                  color: '#2ecc71', fontSize: '0.68rem',
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  marginBottom: '6px', opacity: 0.9,
+                }}>{language === 'tr' ? 'Sünnet-i Mütevâtire Tafsili' : 'Mutawātir Sunnah Detail'}</div>
+                <p style={{
+                  color: COLORS.offWhite, fontSize: '0.88rem',
+                  lineHeight: 1.75, margin: 0,
+                }}>{language === 'tr' ? n.sunnetTafsil : (n.sunnetTafsilEn ?? n.sunnetTafsil)}</p>
+              </div>
+            )}
+
+            {n.kaynak && (
+              <div style={{
+                color: COLORS.silver, fontSize: '0.75rem',
+                fontStyle: 'italic', marginTop: '10px',
+              }}>— {n.kaynak}</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab: Vakit ve Mekân ─────────────────────────────────────────────────
+function TabVakitMekan({ data, language, isMobile }) {
+  if (!data) return null;
+  return (
+    <div style={{ maxWidth: '960px', margin: '0 auto', display: 'grid', gap: '48px' }}>
+      {data.vakitEkseni && <VakitEkseniSection section={data.vakitEkseni} language={language} isMobile={isMobile} />}
+      {data.kibleHikayesi && <KibleHikayesiSection section={data.kibleHikayesi} language={language} isMobile={isMobile} />}
+    </div>
+  );
+}
+
+function VakitEkseniSection({ section, language, isMobile }) {
+  return (
+    <div>
+      <h3 style={{
+        fontFamily: FONTS.display, color: COLORS.gold,
+        fontSize: isMobile ? '1.3rem' : '1.55rem',
+        margin: '0 0 12px', fontWeight: 700,
+      }}>{language === 'tr' ? section.titleTr : (section.titleEn ?? section.titleTr)}</h3>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '24px' }}>
+        {language === 'tr' ? section.introTr : (section.introEn ?? section.introTr)}
+      </p>
+      {section.anaAyet && <VerseCard ayah={section.anaAyet} language={language} isMobile={isMobile} />}
+      {section.sozlukselAcilim?.length > 0 && (
+        <div style={{ marginTop: '28px', display: 'grid', gap: '14px' }}>
+          {section.sozlukselAcilim.map((s, i) => (
+            <div key={i} style={{
+              padding: '18px 22px',
+              background: 'rgba(255,255,255,0.03)',
+              border: `1px solid ${COLORS.glassBorderSoft}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <div style={{
+                fontFamily: FONTS.quran, color: COLORS.gold,
+                fontSize: '1.4rem', direction: 'rtl',
+                marginBottom: '10px', lineHeight: 1.6,
+              }} lang="ar" dir="rtl">{s.kelime}</div>
+              <p style={{ color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.75, margin: '0 0 8px' }}>
+                {language === 'tr' ? s.anlamTr : (s.anlamEn ?? s.anlamTr)}
+              </p>
+              {s.kaynak && (
+                <div style={{ color: COLORS.silver, fontSize: '0.72rem', fontStyle: 'italic' }}>
+                  — {s.kaynak}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      {section.notTr && (
+        <div style={{
+          marginTop: '20px',
+          padding: '14px 18px',
+          background: 'rgba(255,255,255,0.02)',
+          borderRadius: RADIUS.md,
+          color: COLORS.silver,
+          fontSize: '0.85rem',
+          lineHeight: 1.7,
+          fontStyle: 'italic',
+        }}>{language === 'tr' ? section.notTr : (section.notEn ?? section.notTr)}</div>
+      )}
+    </div>
+  );
+}
+
+function KibleHikayesiSection({ section, language, isMobile }) {
+  return (
+    <div>
+      <h3 style={{
+        fontFamily: FONTS.display, color: COLORS.gold,
+        fontSize: isMobile ? '1.3rem' : '1.55rem',
+        margin: '0 0 12px', fontWeight: 700,
+      }}>{language === 'tr' ? section.titleTr : (section.titleEn ?? section.titleTr)}</h3>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '24px' }}>
+        {language === 'tr' ? section.introTr : (section.introEn ?? section.introTr)}
+      </p>
+      {/* Pasaj — vertical connected timeline */}
+      {section.pasaj?.length > 0 && (
+        <div style={{ position: 'relative', marginBottom: '28px' }}>
+          <div style={{
+            position: 'absolute',
+            left: isMobile ? '11px' : '15px',
+            top: '20px', bottom: '20px',
+            width: '2px',
+            background: `linear-gradient(180deg, ${COLORS.gold}, ${COLORS.gold}33)`,
+          }} />
+          <div style={{ display: 'grid', gap: '16px', paddingLeft: isMobile ? '32px' : '40px' }}>
+            {section.pasaj.map((p, i) => (
+              <div key={i} style={{ position: 'relative' }}>
+                <div style={{
+                  position: 'absolute',
+                  left: isMobile ? '-32px' : '-40px',
+                  top: '10px',
+                  width: isMobile ? '24px' : '30px',
+                  height: isMobile ? '24px' : '30px',
+                  borderRadius: '50%',
+                  background: COLORS.gold,
+                  color: COLORS.cosmicBlack,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontWeight: 800, fontSize: '0.7rem',
+                  border: `2px solid ${COLORS.cosmicBlack}`,
+                  boxShadow: `0 0 0 2px ${COLORS.gold}55`,
+                }}>{i + 1}</div>
+                <VerseCard ayah={p} language={language} isMobile={isMobile} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {section.aciklamaTr && (
+        <div style={{
+          padding: '18px 22px',
+          background: 'rgba(212,165,116,0.06)',
+          borderLeft: `3px solid ${COLORS.gold}`,
+          borderRadius: '0 4px 4px 0',
+          marginBottom: '14px',
+        }}>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.93rem', lineHeight: 1.8, margin: 0 }}>
+            {language === 'tr' ? section.aciklamaTr : (section.aciklamaEn ?? section.aciklamaTr)}
+          </p>
+        </div>
+      )}
+      {section.kaynak && (
+        <div style={{ color: COLORS.silver, fontSize: '0.78rem', fontStyle: 'italic' }}>
+          — {section.kaynak}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Tab: Kıraat Boyutu ─────────────────────────────────────────────────
+function TabKiraat({ data, language, isMobile }) {
+  if (!data) return null;
+  return (
+    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75,
+        marginBottom: '32px', maxWidth: '760px',
+      }}>{language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}</p>
+      <div style={{ display: 'grid', gap: '22px' }}>
+        {(data.unsurlar ?? []).map((u, i) => (
+          <div key={i} style={{
+            padding: isMobile ? '20px 18px' : '26px 30px',
+            border: `1px solid ${COLORS.goldAlpha25}`,
+            borderRadius: RADIUS.md,
+            background: 'rgba(212,165,116,0.03)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+              <h3 style={{
+                fontFamily: FONTS.display, color: COLORS.gold,
+                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                margin: 0, fontWeight: 700,
+              }}>{language === 'tr' ? u.titleTr : (u.titleEn ?? u.titleTr)}</h3>
+              {u.claimType && <ClaimTypeBadge claimType={u.claimType} confidence={u.confidence} language={language} />}
+            </div>
+            {u.refs?.length > 0 && (
+              <div style={{
+                color: COLORS.silver, fontSize: '0.7rem',
+                letterSpacing: '0.12em', textTransform: 'uppercase',
+                marginBottom: '14px',
+              }}>{u.refs.join(' · ')}</div>
+            )}
+            {u.anaAyet && (
+              <div style={{ marginBottom: '16px' }}>
+                <VerseCard ayah={u.anaAyet} language={language} isMobile={isMobile} />
+              </div>
+            )}
+            <p style={{
+              color: COLORS.offWhite, fontSize: '0.93rem',
+              lineHeight: 1.8, margin: '0 0 10px',
+            }}>{language === 'tr' ? u.descTr : (u.descEn ?? u.descTr)}</p>
+            {u.kaynak && (
+              <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic' }}>
+                — {u.kaynak}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Tab: İnsan Etkisi ─────────────────────────────────────────────────
+function TabInsanEtkisi({ data, language, isMobile }) {
+  if (!data?.length) return null;
+  return (
+    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <p style={{
+        color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75,
+        marginBottom: '32px', maxWidth: '760px',
+      }}>
+        {language === 'tr'
+          ? "Namazın Kur'ânî vaadi soyut bir ritüel değildir. Ayetler namazın ahlâk, iç dünya, sosyal doku ve zorluk anlarındaki insana yansımasını açıkça anar."
+          : 'The Qur\'anic promise of prayer is not an abstract ritual. Verses explicitly name prayer\'s reflection on ethics, inner life, social fabric, and moments of hardship.'}
+      </p>
+      <div style={{ display: 'grid', gap: '22px' }}>
+        {data.map((k, i) => (
+          <div key={i} style={{
+            padding: isMobile ? '22px 20px' : '28px 32px',
+            border: `1px solid ${COLORS.glassBorderSoft}`,
+            borderRadius: RADIUS.md,
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.03) 0%, rgba(255,255,255,0.02) 100%)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+              <h3 style={{
+                fontFamily: FONTS.display, color: COLORS.gold,
+                fontSize: isMobile ? '1.2rem' : '1.35rem',
+                margin: 0, fontWeight: 700,
+              }}>{language === 'tr' ? k.titleTr : (k.titleEn ?? k.titleTr)}</h3>
+              {k.claimType && <ClaimTypeBadge claimType={k.claimType} confidence={k.confidence} language={language} />}
+            </div>
+            {k.refs?.length > 0 && (
+              <div style={{
+                color: COLORS.silver, fontSize: '0.7rem',
+                letterSpacing: '0.12em', textTransform: 'uppercase',
+                marginBottom: '14px',
+              }}>{k.refs.join(' · ')}</div>
+            )}
+            {k.anaAyet && (
+              <div style={{ marginBottom: '16px' }}>
+                <VerseCard ayah={k.anaAyet} language={language} isMobile={isMobile} />
+              </div>
+            )}
+            <p style={{
+              color: COLORS.offWhite, fontSize: '0.94rem',
+              lineHeight: 1.8, margin: '0 0 14px',
+            }}>{language === 'tr' ? k.descTr : (k.descEn ?? k.descTr)}</p>
+            {k.modernIzlerTr && (
+              <div style={{
+                padding: '12px 16px',
+                background: 'rgba(255,255,255,0.03)',
+                borderLeft: `2px solid ${COLORS.silver}`,
+                borderRadius: '0 4px 4px 0',
+                marginBottom: '10px',
+              }}>
+                <div style={{
+                  color: COLORS.silver, fontSize: '0.68rem',
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  marginBottom: '6px', opacity: 0.8,
+                }}>{language === 'tr' ? 'Modern İzler' : 'Modern Traces'}</div>
+                <p style={{
+                  color: COLORS.offWhite, fontSize: '0.87rem',
+                  lineHeight: 1.75, margin: 0, fontStyle: 'italic',
+                }}>{language === 'tr' ? k.modernIzlerTr : (k.modernIzlerEn ?? k.modernIzlerTr)}</p>
+              </div>
+            )}
+            {k.kaynak && (
+              <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic' }}>
+                — {k.kaynak}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

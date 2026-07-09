@@ -697,7 +697,7 @@
       },
       {
         "ref": "Nisa 4:102",
-        "ar": "وَاِذَا كُنْتَ فِيهِمْ فَاَقَمْتَ لَهُمُ الصَّلٰوةَ فَلْتَقُمْ طٓائِفَةٌ مِنْهُمْ مَعَكَ وَلْيَأْخُذٓوا اَسْلِحَتَهُمْ۠ فَاِذَا سَجَدُوا فَلْيَكُونُوا مِنْ وَرٓائِكُمْ وَلْتَأْتِ طٓائِفَةٌ اُخْرٰى لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَاَسْلِحَتَهُمْ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ اَسْلِحَتِكُمْ وَاَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُمْ مَيْلَةً وَاحِدَةً وَلَا جُنَاحَ عَلَيْكُمْ اِنْ كَانَ بِكُمْ اَذًى مِنْ مَطَرٍ اَوْ كُنْتُمْ مَرْضٰٓى اَنْ تَضَعٓوا اَسْلِحَتَكُمْ وَخُذُوا حِذْرَكُمْ اِنَّ اللّٰهَ اَعَدَّ لِلْكَافِرِينَ عَذَاباً مُهِيناً",
+        "ar": "وَاِذَا كُنْتَ فِيهِمْ فَاَقَمْتَ لَهُمُ الصَّلٰوةَ فَلْتَقُمْ طٓائِفَةٌ مِنْهُمْ مَعَكَ وَلْيَأْخُذٓوا اَسْلِحَتَهُمْ فَاِذَا سَجَدُوا فَلْيَكُونُوا مِنْ وَرٓائِكُمْ وَلْتَأْتِ طٓائِفَةٌ اُخْرٰى لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَاَسْلِحَتَهُمْ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ اَسْلِحَتِكُمْ وَاَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُمْ مَيْلَةً وَاحِدَةً وَلَا جُنَاحَ عَلَيْكُمْ اِنْ كَانَ بِكُمْ اَذًى مِنْ مَطَرٍ اَوْ كُنْتُمْ مَرْضٰٓى اَنْ تَضَعٓوا اَسْلِحَتَكُمْ وَخُذُوا حِذْرَكُمْ اِنَّ اللّٰهَ اَعَدَّ لِلْكَافِرِينَ عَذَاباً مُهِيناً",
         "tr": "İçlerinde bulunup da onlara namaz kıldıracağın zaman, bir bölük seninle namaz kılıp silahlarını alsınlar. Secdeye vardıklarında (diğerleri) arkanızda dursunlar.",
         "en": "When you are among them and lead them in prayer, let a group of them stand with you and take up their arms.",
         "sceneTr": "Havf (korku) namazı — savaş ortamında namaz düzenlemesi. İlahi ruhsat; namaz'ın hiçbir şart altında terkedilmediğinin göstergesi.",
@@ -897,6 +897,384 @@
       ],
       "descTr": "'İnne kur'âne'l-fecri kâne meşhûdâ' — 'Muhakkak sabahın Kur'ân'ı şahitlidir.' Klasik tefsirlerde meleklerin gece ve gündüz vardiyalarının değişimine denk gelen bir anlaşma vakti olarak açıklanır.",
       "claimType": "tafsir_tradition",
+      "confidence": "high"
+    }
+  ],
+  "ozelNamazlar": [
+    {
+      "id": "cuma-namazi",
+      "titleTr": "Cuma Namazı",
+      "titleEn": "Friday Prayer",
+      "arabicName": "صَلَاةُ الْجُمُعَة",
+      "kuraniDelil": {
+        "ref": "Cum'a 62:9",
+        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِذَا نُودِيَ لِلصَّلٰوةِ مِنْ يَوْمِ الْجُمُعَةِ فَاسْعَوْا اِلٰى ذِكْرِ اللّٰهِ وَذَرُوا الْبَيْعَ ذٰلِكُمْ خَيْرٌ لَكُمْ اِنْ كُنْتُمْ تَعْلَمُونَ",
+        "trShort": "Ey iman edenler! Cuma günü namaz için çağırıldığında Allah'ın zikrine koşun ve alışverişi bırakın.",
+        "enShort": "O you who believe, when the call is made for prayer on the day of Jumu'ah, hasten to the remembrance of Allah and leave off trade."
+      },
+      "aciklamaTr": "Kur'ân'da özel adıyla anılan tek haftalık namaz Cuma'dır. Sûrenin adı da 'Cuma' — bu, namazın Kur'ânî ağırlığının bir işaretidir. Ayet üç emri arka arkaya sıralar: çağrıya kulak ver, zikre koş, alışverişi bırak. Klasik tefsir bu üçlemede 'toplumsal dünyanın bir an için durması' motifini görür: dünyanın çarkı Allah'ın zikri için askıya alınır.",
+      "aciklamaEn": "Jumu'ah is the only weekly prayer named explicitly in the Qur'an, with an entire surah bearing its name. The verse enjoins three consecutive commands: heed the call, hasten to remembrance, suspend trade. Classical exegesis reads this as a temporary halt of the worldly wheel for the sake of divine remembrance.",
+      "kuraniOzellikler": [
+        "Zikre 'koşma' (fes'aw) emri — sıradan yürüyüş değil, öncelik verilmiş hareket",
+        "Alışverişin (bey') geçici olarak durması — toplumsal ritmi kesen tek namaz",
+        "Cemaat vurgusu — ayetin hitabı çoğuldur, ferdî değil",
+        "Sûre adının namazla özdeşleşmesi — Kur'ânî anıştırma"
+      ],
+      "sunnetTafsil": "İki rekât farz + hutbe düzeni sünnet-i mütevâtire ile sabittir. Klasik dört mezhep hutbenin farz olduğu ve öğle namazının yerine geçtiği hususunda birleşir; katılım şartlarında (mesafe, yerleşim yoğunluğu, yol izni) tafsilât farklıdır.",
+      "sunnetTafsilEn": "Two units of obligatory prayer plus a sermon are established by mutawātir sunnah. The four classical schools agree on the sermon's obligatoriness and that Jumu'ah stands in for zuhr; they differ in details concerning attendance conditions.",
+      "claimType": "quran_explicit",
+      "confidence": "high",
+      "kaynak": "Râzî, Cum'a 62:9-11 tefsiri; Kurtubî, Cum'a 62:9 tefsiri; Elmalılı, Cum'a Sûresi girişi"
+    },
+    {
+      "id": "havf-namazi",
+      "titleTr": "Havf Namazı — Korku Halinde Namaz",
+      "titleEn": "Prayer of Fear (Ṣalāt al-Khawf)",
+      "arabicName": "صَلَاةُ الْخَوْف",
+      "kuraniDelil": {
+        "ref": "Nisa 4:102",
+        "ar": "وَاِذَا كُنْتَ فِيهِمْ فَاَقَمْتَ لَهُمُ الصَّلٰوةَ فَلْتَقُمْ طٓائِفَةٌ مِنْهُمْ مَعَكَ وَلْيَأْخُذٓوا اَسْلِحَتَهُمْ فَاِذَا سَجَدُوا فَلْيَكُونُوا مِنْ وَرٓائِكُمْ وَلْتَأْتِ طٓائِفَةٌ اُخْرٰى لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَاَسْلِحَتَهُمْ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ اَسْلِحَتِكُمْ وَاَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُمْ مَيْلَةً وَاحِدَةً وَلَا جُنَاحَ عَلَيْكُمْ اِنْ كَانَ بِكُمْ اَذًى مِنْ مَطَرٍ اَوْ كُنْتُمْ مَرْضٰٓى اَنْ تَضَعٓوا اَسْلِحَتَكُمْ وَخُذُوا حِذْرَكُمْ اِنَّ اللّٰهَ اَعَدَّ لِلْكَافِرِينَ عَذَاباً مُهِيناً",
+        "trShort": "Sen içlerinde olup da onlara namaz kıldırdığında, bir grup seninle namaza dursun ve silahlarını yanlarına alsınlar.",
+        "enShort": "When you are among them and lead them in prayer, let a group stand with you and take their arms."
+      },
+      "aciklamaTr": "Nisa 4:101-103 üç ayrı ayette üç ayrı hükmü sıralar: yolculukta namazı kısaltma ruhsatı (101), düşman karşısında saf değişimli namaz düzeni (102), namazın bitiminden sonra da zikrin sürmesi (103). Klasik tefsir 4:102'yi savaş sırasında bile namazın terk edilmediğinin en güçlü Kur'ânî işareti olarak okur — ayet nasıl kılınacağını dahi tarif eder, ki bu tafsil Kur'ân'da nadirdir.",
+      "aciklamaEn": "Nisa 4:101-103 sets forth three distinct rulings in three consecutive verses: shortening prayer while traveling (101), an alternating-rank formation during combat (102), and continued remembrance after prayer's conclusion (103). Classical exegesis reads 4:102 as the strongest Qur'anic sign that prayer is not abandoned even in combat.",
+      "kuraniOzellikler": [
+        "Kısaltma (kasr) ruhsatı yolculuk şartına bağlanır (4:101)",
+        "Saflar değişerek namaz kılınır — bir grup namazda, bir grup nöbette (4:102)",
+        "Silahlar yanda tutulur — ihtiyat namazın parçasıdır",
+        "Namaz bitince Allah'ı ayakta, oturarak, yanlar üzeri anmak sürer (4:103)"
+      ],
+      "sunnetTafsil": "Cem' (öğle-ikindi, akşam-yatsı birleştirme) ve kasr'ın tafsili sünnete dayanır. Havf namazının uygulama biçimi (İbn Ömer, İbn Abbas rivayetleri ekseninde) klasik fıkıhta çeşitli sûretler halinde sistemleştirilmiştir; farklı savaş şartları için farklı düzenler kabul edilir.",
+      "sunnetTafsilEn": "The details of jam' (combining) and qasr rely on sunnah. The practical form of the fear prayer, based on Companion narrations, was systematized in classical fiqh into several patterns tailored to varying combat conditions.",
+      "claimType": "quran_explicit",
+      "confidence": "high",
+      "kaynak": "Râzî, Nisa 4:101-103 tefsiri (uzun pasaj); Kurtubî, Nisa 4:102 tefsiri; Elmalılı, Nisa 4:101-103"
+    },
+    {
+      "id": "cenaze-namazi",
+      "titleTr": "Cenaze Namazı",
+      "titleEn": "Funeral Prayer",
+      "arabicName": "صَلَاةُ الْجَنَازَة",
+      "kuraniDelil": {
+        "ref": "Tevbe 9:84",
+        "ar": "وَلَا تُصَلِّ عَلٰٓى اَحَدٍ مِنْهُمْ مَاتَ اَبَداً وَلَا تَقُمْ عَلٰى قَبْرِهِ اِنَّهُمْ كَفَرُوا بِاللّٰهِ وَرَسُولِهِ وَمَاتُوا وَهُمْ فَاسِقُونَ",
+        "trShort": "Onlardan ölen hiçbirine asla namaz kılma ve kabrinin başında da durma.",
+        "enShort": "And do not pray over any of them who has died, nor stand at his grave."
+      },
+      "aciklamaTr": "Cenaze namazı Kur'ân'da doğrudan bir 'kılın' emriyle geçmez; ancak Tevbe 9:84'te Peygamber'e münafıklar için cenaze namazı kılmama emrinin verilmesi, cenaze namazının o dönemde yerleşik bir pratik olduğunun dolaylı Kur'ânî delilidir. Klasik tefsir bu ayetten şu çıkarımı yapar: eğer namaz kılınması yasaklanan bir grup varsa, aslî halin namazın kılınması olduğu anlaşılır.",
+      "aciklamaEn": "The funeral prayer is not commanded directly in the Qur'an; however, Tawbah 9:84's prohibition against the Prophet praying over the hypocrites presupposes that funeral prayer was an established practice. Classical exegesis draws the implicit conclusion: if a group is singled out as excluded, the baseline is that prayer is performed.",
+      "kuraniOzellikler": [
+        "İçerdiği yasak, aslî pratiğin varlığını gösterir (implicit delil)",
+        "Peygamber'in fiilî uygulaması bu ayetten önce de vardır (ayet fiili nesheder)",
+        "Klasik usûlde 'mefhûm-u muhâlif' delili olarak okunur"
+      ],
+      "sunnetTafsil": "Rükünler (dört tekbir, Fatiha, salavat, meyyit için dua), kıyamda kılınması, rükû ve secdesizliği sünnet-i mütevâtire ile sabittir. Klasik dört mezhep bu ana yapıda birleşir; okunacak dualarda ve tekbir sayısında (Şia gelenekleri hariç) tafsil farkları vardır.",
+      "sunnetTafsilEn": "The pillars (four takbīrs, Fātiḥa, ṣalawāt, supplication for the deceased), the standing posture, and the absence of rukūʿ and sujūd are established by mutawātir sunnah. The four classical Sunni schools agree on this frame with minor variations.",
+      "claimType": "quran_semantic",
+      "confidence": "high",
+      "kaynak": "Kurtubî, Tevbe 9:84 tefsiri; Râzî, Tevbe 9:84 tefsiri (usûlî çıkarım); Elmalılı, Tevbe 9:80-84"
+    },
+    {
+      "id": "bayram-namazlari",
+      "titleTr": "Bayram Namazları",
+      "titleEn": "Eid Prayers",
+      "arabicName": "صَلَاةُ الْعِيدَيْن",
+      "kuraniDelil": {
+        "ref": "Kevser 108:2",
+        "ar": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+        "trShort": "Öyleyse Rabbin için namaz kıl ve kurban kes.",
+        "enShort": "So pray to your Lord and sacrifice."
+      },
+      "aciklamaTr": "Bayram namazlarının doğrudan bir Kur'ânî delili yoktur; klasik tefsir Kevser 108:2'deki 'fesalli li-rabbike venhar' ifadesinde bir işaret arar, fakat müfessirler arasında ihtilaf vardır: Kurtubî bu ayeti Kurban Bayramı namazı ile kurbanı birlikte anlar; Elmalılı ise daha geniş yorumla 'namaz ve nahr' emrinin özel bir güne bağlanmasının delilsiz olduğunu belirtir. Bayram namazlarının aslî dayanağı sünnet-i mütevâtiredir.",
+      "aciklamaEn": "There is no direct Qur'anic prescription for the Eid prayers; classical exegesis reads a possible indication in Kawthar 108:2's 'fa-ṣalli li-rabbika wa-nḥar', but exegetes disagree: Qurṭubī links it to the ʿĪd al-Aḍḥā prayer alongside the sacrifice, while Elmalılı reads it more broadly. The primary basis for the Eid prayers is mutawātir sunnah.",
+      "kuraniOzellikler": [
+        "Kevser 108:2'de 'namaz' ve 'kurban' aynı ayette anılır — Kurbân Bayramı işareti (ihtilaflı)",
+        "Ramazan Bayramı için Kur'ânî açık işaret yoktur — dayanak sünnettir",
+        "Kur'ân ilkeyi (Rab için namaz) koyar; sünnet iki bayramı ve düzenini tafsil eder"
+      ],
+      "sunnetTafsil": "İki rekât, ek tekbirler (Hanefî'de altı, Şâfiî ve Mâlikî'de on iki), hutbenin namazdan sonra kılınması sünnet-i mütevâtire ile sabittir. Klasik dört mezhep bayram namazının vücûbu veya sünneti hususunda ayrılır — Hanefî vâcib, Şâfiî ve Mâlikî müekked sünnet, Hanbelî farz-ı kifâye olarak niteler.",
+      "sunnetTafsilEn": "Two units of prayer with additional takbīrs (six in Ḥanafī, twelve in Shāfiʿī and Mālikī), with the sermon following the prayer, are established by mutawātir sunnah. The four schools differ on the ruling's degree.",
+      "claimType": "fiqh_tafsil",
+      "confidence": "medium",
+      "kaynak": "Kurtubî, Kevser 108:2 tefsiri; Elmalılı, Kevser Sûresi tefsiri (ihtilaf notu); Râzî, Kevser 108:2 (namaz-nahr bağı)"
+    },
+    {
+      "id": "teheccud",
+      "titleTr": "Teheccüd — Gece Namazı",
+      "titleEn": "Tahajjud — Night Prayer",
+      "arabicName": "صَلَاةُ التَّهَجُّد",
+      "kuraniDelil": {
+        "ref": "İsra 17:79",
+        "ar": "وَمِنَ الَّيْلِ فَـتَهَجَّدْ بِهِ نَافِلَةً لَكَ عَسٰٓى اَنْ يَبْعَثَكَ رَبُّكَ مَقَاماً مَحْمُوداً",
+        "trShort": "Gecenin bir kısmında da uyanıp sana özel bir nafile olmak üzere Kur'ân ile teheccüd namazı kıl. Umulur ki Rabbin seni övülmüş bir makama ulaştırır.",
+        "enShort": "And rise from sleep in part of the night as an additional prayer for you — perhaps your Lord will raise you to a praiseworthy station."
+      },
+      "aciklamaTr": "Kur'ân teheccüdden ismiyle bahseder — bu, Kur'ânî isimle anılan az sayıdaki namazdan biridir. İsra 17:79 Peygamber'e özel bir 'nâfile' olarak emreder; klasik tefsir bu 'sana özel' (leke) kaydını, ümmet için nafile olmasının işareti olarak okur. Müzzemmil 73:1-4 ise Peygamber'e gecenin yarısı, üçte biri veya üçte ikisi kadar kalkmasını emreder; aynı sûrenin 20. ayeti bu emri hafifleterek 'Kur'ân'dan kolayınıza geleni okuyun' der. Klasik tefsir bu iki ayet arasındaki dengede teheccüdün Peygamber'e vâcib, ümmete nafile olduğu sonucuna varır.",
+      "aciklamaEn": "The Qur'an names tahajjud explicitly — one of the few prayers so named. Isrāʾ 17:79 commands it upon the Prophet as a 'nāfila special to you'; classical exegesis reads this qualifier as indicating that it is supererogatory for the community. Muzzammil 73:1-4 commands the Prophet to rise for half, a third, or two-thirds of the night; verse 20 then eases this to 'recite what is easy from the Qur'an.'",
+      "kuraniOzellikler": [
+        "İsra 17:79 — 'sana özel nafile' kaydı",
+        "Müzzemmil 73:1-4 — gecenin bölümlerinde kalkma emri",
+        "Müzzemmil 73:20 — emrin hafifletilmesi ('kolayınıza geleni okuyun')",
+        "Zümer 39:9 — 'gece secde ederek ve ayakta durarak' övgüsü",
+        "Furkan 25:64 — 'Rablerine secde ederek ve ayakta durarak geceleyenler'"
+      ],
+      "sunnetTafsil": "Rekât sayısı (klasik uygulamada 2'şer rekât halinde 8'e kadar), vitirle bitirilmesi ve son üçte birde kılınmasının fazileti sünnet-i mütevâtire ile sabittir. Klasik dört mezhep teheccüdü müekked nafile olarak kabul eder.",
+      "sunnetTafsilEn": "The number of units (traditionally up to eight in pairs), the concluding witr, and the merit of praying in the last third of the night are established by mutawātir sunnah. All four schools categorize tahajjud as emphasized supererogatory prayer.",
+      "claimType": "quran_explicit",
+      "confidence": "high",
+      "kaynak": "Râzî, İsra 17:79 tefsiri; Kurtubî, Müzzemmil 73:1-4 ve 73:20 tefsiri; Elmalılı, İsra 17:79 ve Müzzemmil Sûresi tefsiri"
+    }
+  ],
+  "vakitMekan": {
+    "vakitEkseni": {
+      "titleTr": "Vakit Ekseni — İsra 17:78 Kelime Kelime",
+      "titleEn": "The Time Axis — Isrāʾ 17:78 Word by Word",
+      "introTr": "Kur'ân namaz vakitlerini belirli kelimelerle çerçeveler. İsra 17:78 tek bir ayette güneşin batıya meyliyle gece karanlığına kadar olan diliminden ve sabahın Kur'ân'ından bahseder. Klasik tefsir bu kelimelerin sözlüksel anlamlarını uzun uzun tartışır — çünkü kelimenin anlamı vaktin sınırını belirler.",
+      "introEn": "The Qur'an frames prayer times through specific vocabulary. Isrāʾ 17:78 in a single verse mentions the span from the sun's westward decline through the night's darkness, and the 'Qur'an of dawn.' Classical exegesis discusses these words at length — because the meaning of the word sets the boundary of the time.",
+      "anaAyet": {
+        "ref": "İsra 17:78",
+        "ar": "اَقِمِ الصَّلٰوةَ لِدُلُوكِ الشَّمْسِ اِلٰى غَسَقِ الَّيْلِ وَقُرْاٰنَ الْفَجْرِ اِنَّ قُرْاٰنَ الْفَجْرِ كَانَ مَشْهُوداً",
+        "trShort": "Güneşin batıya meyletmesinden gecenin karanlığına kadar (belirli vakitlerde) namaz kıl; bir de sabah namazını (kıl). Şüphesiz sabah namazı şahitlidir.",
+        "enShort": "Establish prayer at the decline of the sun till the darkness of the night, and the Qur'an of dawn — indeed, the dawn recitation is witnessed."
+      },
+      "sozlukselAcilim": [
+        {
+          "kelime": "دُلُوك (dulûk)",
+          "anlamTr": "'Batıya meyil' — güneşin zirveden batıya doğru kaymaya başlaması. Klasik tefsirde iki okuma vardır: (1) zeval vakti, yani öğle namazının başlangıcı; (2) güneşin gözle görülür şekilde alçalmaya başlaması, yani ikindi. Râzî her iki okumanın da lugat açısından mümkün olduğunu ve ayetin öğleden ikindiye kadar olan diliminin tümünü kapsayacak şekilde okunabileceğini belirtir.",
+          "anlamEn": "'Westward decline' — the sun's turn from zenith toward the west. Classical exegesis offers two readings: (1) the moment of zawāl, marking zuhr; (2) the sun's visible descent, marking ʿaṣr. Rāzī notes both are lexically valid.",
+          "kaynak": "Râzî, İsra 17:78 tefsiri; Elmalılı, İsra 17:78 tefsiri"
+        },
+        {
+          "kelime": "غَسَق اللَّيْل (ğasak al-leyl)",
+          "anlamTr": "'Gecenin yoğun karanlığı' — ğasak kökü lugatta 'karanlığın çökmesi, dolması' anlamındadır. Klasik tefsir bunu ya güneşin batmasından sonraki koyu karanlığın başlangıcı (akşam vakti) ya da gecenin tam ortasına doğru karanlığın en yoğun hali (yatsı vaktinin sonu) olarak okur. Kurtubî bu iki okumadan hareketle ayetin akşam ve yatsı vakitlerinin her ikisini de çerçevelediğini söyler.",
+          "anlamEn": "'The deep darkness of night' — the root ghasaq denotes darkness gathering and filling. Classical exegesis reads this either as the onset of thick darkness after sunset (maghrib) or the fullest darkness near the middle of the night (end of ʿishāʾ).",
+          "kaynak": "Kurtubî, İsra 17:78 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "kelime": "فَجْر (fecr)",
+          "anlamTr": "'Yarık, yarılma' — fecr kökü bir şeyin yarılması, ortaya çıkması anlamındadır. Klasik lugatta iki fecr ayırt edilir: fecr-i kâzib (yalancı fecr — dikey ışık huzmesi, kısa sürede kaybolur) ve fecr-i sâdık (doğru fecr — doğu ufkunda yayılan beyaz çizgi). Sabah namazı fecr-i sâdıkla başlar. Elmalılı bu ayrımın Kur'ânî 'fecr' teriminin doğru anlaşılması için temel olduğunu vurgular.",
+          "anlamEn": "'Splitting, cleaving' — the root fajr denotes a thing being split open. Classical lexicography distinguishes two fajrs: fajr al-kādhib (false dawn — a vertical shaft of light) and fajr al-ṣādiq (true dawn — the white line spreading along the horizon).",
+          "kaynak": "Elmalılı, İsra 17:78 tefsiri; Kurtubî aynı ayet"
+        },
+        {
+          "kelime": "قُرْآنَ الْفَجْر (kur'âne'l-fecr)",
+          "anlamTr": "'Sabahın Kur'ân'ı' — ayette namaz kelimesi yerine 'Kur'ân' kullanılması dikkat çekicidir. Klasik tefsir bunu, sabah namazında kıraatin (Kur'ân okumanın) uzun tutulmasının işareti olarak okur; namazın en belirgin unsuru orada Kur'ân olduğu için 'sabahın Kur'ân'ı' diye anılmıştır. Râzî bu ifadeyi 'namazda kıraatin rükün oluşunun Kur'ânî delili' olarak da değerlendirir.",
+          "anlamEn": "'The Qur'an of dawn' — the substitution of 'Qur'an' for 'prayer' is significant. Classical exegesis reads it as a sign that recitation is lengthened in the dawn prayer.",
+          "kaynak": "Râzî, İsra 17:78 tefsiri; Kurtubî aynı ayet"
+        },
+        {
+          "kelime": "مَشْهُود (meşhûd)",
+          "anlamTr": "'Şahitli, tanıklık edilen' — ayet 'sabah namazı meşhûd idi' der. Klasik tefsir bu şahitliği iki türlü okur: (1) gece melekleri ile gündüz meleklerinin sabah namazında bir arada bulunması; (2) fecrin ışığıyla birlikte 'kâinatın uyanışının' bu namaza tanıklık etmesi. Her iki okuma da klasik tefsir geleneğinde kabul görür.",
+          "anlamEn": "'Witnessed, attended' — classical exegesis reads this witness twofold: angels of the night and day meeting at the dawn prayer, or the awakening of creation itself bearing witness.",
+          "kaynak": "Kurtubî, İsra 17:78 tefsiri; Râzî aynı ayet"
+        }
+      ],
+      "notTr": "Bu kelime analizi klasik tefsir lugatından çıkarılmıştır. Astronomik derece hesabı (örneğin 'güneşin 17° altında') Kur'ân'da veya klasik tefsirde geçmez; o hesaplamalar sonraki dönem fıkıh ve heyet (astronomi) literatürünün ürünüdür.",
+      "notEn": "Astronomical angle calculations do not appear in the Qur'an or classical tafsīr; they belong to later fiqh and astronomical literature."
+    },
+    "kibleHikayesi": {
+      "titleTr": "Kıble Ekseni — Bakara 2:142-150 Hikâyesi",
+      "titleEn": "The Qibla Axis — The Story of Baqara 2:142-150",
+      "introTr": "Namazın mekân ekseni Kur'ân'da tek bir yerde, birbirini takip eden dokuz ayette anlatılır: Bakara 2:142-150. Bu pasaj Kur'ân'daki en 'anlatılı' fıkhî değişimlerden biridir — çünkü mimarî bir talimat değil, bir imtihân hikâyesidir.",
+      "introEn": "The spatial axis of prayer is narrated in the Qur'an in a single stretch of nine consecutive verses: Baqara 2:142-150. This passage is among the most 'narrative' juridical shifts in the Qur'an — because it is not an architectural instruction but the story of a test.",
+      "pasaj": [
+        {
+          "ref": "Bakara 2:142",
+          "ar": "سَيَقُولُ السُّفَـهٓاءُ مِنَ النَّاسِ مَا وَلّٰيهُمْ عَنْ قِبْلَتِهِمُ الَّتِي كَانُوا عَلَيْهَا قُلْ لِلّٰهِ الْمَشْرِقُ وَالْمَغْرِبُ يَهْدِي مَنْ يَشٓاءُ اِلٰى صِرَاطٍ مُسْتَقِيمٍ",
+          "trShort": "İnsanlardan bir kısım beyinsizler, 'Onları yönelmekte oldukları kıbleden çeviren nedir?' diyecekler. De ki: 'Doğu da batı da Allah'ındır. O dilediğini doğru yola iletir.'",
+          "enShort": "The foolish among people will say: 'What has turned them away from their qibla?' Say: 'To Allah belong the east and the west; He guides whom He wills to the straight path.'"
+        },
+        {
+          "ref": "Bakara 2:143",
+          "ar": "وَكَذٰلِكَ جَعَلْنَاكُمْ اُمَّةً وَسَطاً لِتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِ وَيَكُونَ الرَّسُولُ عَلَيْكُمْ شَهِيداً وَمَا جَعَلْنَا الْقِبْلَةَ الَّتِي كُنْتَ عَلَيْهٓا اِلَّا لِنَعْلَمَ مَنْ يَتَّبِـعُ الرَّسُولَ مِمَّنْ يَنْقَلِبُ عَلٰى عَقِبَيْهِ  وَاِنْ كَانَتْ لَكَبِيرَةً اِلَّا عَلَى الَّذِينَ هَدَى اللّٰهُ وَمَا كَانَ اللّٰهُ لِيُضِيعَ اِيمَانَكُمْ اِنَّ اللّٰهَ بِالنَّاسِ لَرَؤُ۫فٌ رَحِيمٌ",
+          "trShort": "Böylece sizi orta bir ümmet yaptık ki insanlara şahit olasınız ve peygamber de size şahit olsun. Yönelmekte olduğun kıbleyi, ancak peygambere uyanı, ökçesi üzerinde geri dönenden ayırt etmek için belirledik.",
+          "enShort": "Thus We have made you a middle community, that you may be witnesses over mankind and the Messenger a witness over you."
+        },
+        {
+          "ref": "Bakara 2:144",
+          "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُو۫تُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
+          "trShort": "Yüzünü göğe doğru çevirip durduğunu görüyoruz. Elbette seni razı olacağın bir kıbleye döndüreceğiz. Artık yüzünü Mescid-i Haram tarafına çevir. Nerede olursanız yüzlerinizi o tarafa çevirin.",
+          "enShort": "We have seen your face turning about in the sky. Now We will turn you toward a qibla that shall please you."
+        },
+        {
+          "ref": "Bakara 2:149",
+          "ar": "وَمِنْ حَيْثُ خَرَجْتَ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَاِنَّهُ لَلْحَقُّ مِنْ رَبِّكَ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا تَعْمَلُونَ",
+          "trShort": "Nereden yola çıkarsan, yüzünü Mescid-i Haram tarafına çevir; nerede olursanız yüzlerinizi o tarafa çevirin ki insanların — zâlimleri hariç — size karşı bir delili kalmasın.",
+          "enShort": "From wherever you set out, turn your face toward the Sacred Mosque."
+        }
+      ],
+      "aciklamaTr": "Klasik tefsir bu pasajı üç katmanda okur. Birinci katman: yön değişimi (Mescid-i Aksâ'dan Kâbe'ye) tarihsel bir olaydır. Klasik rivayetler bu değişimin hicretten 16-17 ay sonra gerçekleştiğini nakleder. İkinci katman — Bakara 2:143'ün açıkça ortaya koyduğu — imtihân katmanıdır: yön değişimi bir 'ayıklama'dır; kim gerçekten peygambere tabi, kim adet üzerine namaz kılıyor. Üçüncü katman: 2:142'nin 'doğu da batı da Allah'ındır' cevabıyla kıble sabitlemesinin metafizik değeri: Allah yönde değil, yön Allah'a dönüşün simgesidir. Râzî bu üç katmanın birlikte okunması gerektiğini vurgular — sadece fıkhî yön belirleme değil, kulluk yöneliminin bütün bir teolojisi.",
+      "aciklamaEn": "Classical exegesis reads this passage on three layers. First: the directional change (from al-Aqṣā to the Kaʿba) is a historical event, traditionally placed 16-17 months after the Hijra. Second — made explicit by Baqara 2:143 — the layer of test: the change is a sifting; who genuinely follows the Messenger and who prayed by habit. Third: the answer in 2:142 ('to Allah belong east and west') gives the qibla's metaphysical value — Allah is not in a direction; the direction is a sign of turning to Allah.",
+      "kaynak": "Râzî, Bakara 2:142-150 tefsiri (uzun pasaj); Kurtubî aynı pasaj; Elmalılı, Bakara 2:142-150 tefsiri (üç katmanlı okuma)"
+    }
+  },
+  "kiraatBoyutu": {
+    "titleTr": "Namazın Sözü — Kur'ân Okuyuşu",
+    "titleEn": "The Word of Prayer — Qur'anic Recitation",
+    "introTr": "Namaz Kur'ân'da sessiz bir ibadet değildir. Kalbi Kur'ân okuyuşu ile atar; İsra 17:78'de sabah namazının adı bile 'sabahın Kur'ân'ı'dır. Bu bölüm namazın kıraat boyutunun Kur'ânî izlerini gösterir.",
+    "introEn": "Prayer in the Qur'an is not a silent worship. Its heart beats through Qur'anic recitation; in Isrāʾ 17:78 the dawn prayer is called 'the Qur'an of dawn.' This section traces the Qur'anic markers of prayer's recitational dimension.",
+    "unsurlar": [
+      {
+        "titleTr": "Fatiha — Namazın Kalbi",
+        "titleEn": "Fātiḥa — The Heart of Prayer",
+        "refs": ["Hicr 15:87", "Fatiha 1:1-7"],
+        "anaAyet": {
+          "ref": "Hicr 15:87",
+          "ar": "وَلَقَدْ اٰتَيْنَاكَ سَبْعاً مِنَ الْمَثَانِي وَالْقُرْاٰنَ الْعَظِيمَ",
+          "trShort": "Andolsun ki biz sana tekrarlanan yedi (âyeti) ve büyük Kur'ân'ı verdik.",
+          "enShort": "We have certainly given you the seven oft-repeated and the great Qur'an."
+        },
+        "descTr": "Klasik tefsir 'tekrarlanan yedi' (seb'an mine'l-mesânî) ifadesini Fatiha olarak yorumlar — Fatiha yedi ayettir ve namazın her rekâtında tekrarlanır. Râzî bu okumanın hem lugat (mesânî = tekrarlanan) hem de fıkhî uygulama (Fatiha'nın her rekâtta okunması) açısından tutarlı olduğunu belirtir. Kurtubî ise 'tekrarlanan yedi'nin Kur'ân'daki yedi uzun sûre olabileceği ikinci bir okumayı da nakleder, fakat baskın klasik yorum Fatiha yönündedir.",
+        "descEn": "Classical exegesis interprets 'the seven oft-repeated' (sabʿan mina al-mathānī) as al-Fātiḥa — Fātiḥa has seven verses and is repeated in every unit of prayer. Rāzī notes this coheres both lexically and juridically.",
+        "kaynak": "Râzî, Hicr 15:87 tefsiri; Kurtubî, Hicr 15:87 tefsiri; Elmalılı, Fatiha Sûresi girişi",
+        "claimType": "tafsir_tradition",
+        "confidence": "high"
+      },
+      {
+        "titleTr": "Cehrî ↔ Hafî — Sesli ve Sessiz Kıraat",
+        "titleEn": "Jahrī ↔ Khafī — Audible and Silent Recitation",
+        "refs": ["İsra 17:110"],
+        "anaAyet": {
+          "ref": "İsra 17:110",
+          "ar": "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ  اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى وَلَا تَجْهَرْ بِصَلَاتِكَ وَلَا تُخَافِتْ بِهَا وَابْتَغِ بَيْنَ ذٰلِكَ سَبِيلاً",
+          "trShort": "Namazda sesini pek yükseltme, onu büsbütün de kısma. Bu ikisi arasında bir yol tut.",
+          "enShort": "Do not raise your voice in your prayer, nor make it too low; but seek between that a middle path."
+        },
+        "descTr": "İsra 17:110 namazdaki ses düzeni için Kur'ânî bir ölçü koyar: ne çok yüksek ne çok kısık, ikisinin arasında. Klasik tefsir bu ayeti iki katmanda okur. Birinci katman: müşriklerin peygamberin okuyuşunu duyup alay etmesi gibi tarihsel bir durum vardır, ayet bu bağlamda 'sesi ayarla' der. İkinci katman — fıkhî uygulamaya taşınmış hali — sabah, akşam ve yatsı namazlarında cehrî (sesli), öğle ve ikindi namazlarında hafî (sessiz) kıraatin işareti olarak okunur. Râzî bu ikinci okumanın sünnet-i mütevâtireyle tafsil edildiğini belirtir.",
+        "descEn": "Isrāʾ 17:110 sets a Qur'anic measure for the voice in prayer: neither too loud nor too soft. Classical exegesis reads two layers: historical (Meccan mockery) and juridical (jahrī in fajr/maghrib/ʿishāʾ, khafī in zuhr/ʿaṣr), the latter detailed by mutawātir sunnah.",
+        "kaynak": "Râzî, İsra 17:110 tefsiri; Kurtubî aynı ayet; Elmalılı, İsra 17:110",
+        "claimType": "tafsir_tradition",
+        "confidence": "high"
+      },
+      {
+        "titleTr": "Tesbihât — Namaz Sonrası Zikir",
+        "titleEn": "Tasbīḥ — Remembrance After Prayer",
+        "refs": ["Nisa 4:103"],
+        "anaAyet": {
+          "ref": "Nisa 4:103",
+          "ar": "فَاِذَا قَضَيْتُمُ الصَّلٰوةَ فَاذْكُرُوا اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِكُمْ فَاِذَا اطْمَأْنَنْتُمْ فَاَقِيمُوا الصَّلٰوةَ اِنَّ الصَّلٰوةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَاباً مَوْقُوتاً",
+          "trShort": "Namazı bitirdiğinizde ayakta, oturarak ve yanlarınız üzerinde Allah'ı anın. Güvene kavuştuğunuzda namazı gereği gibi kılın. Şüphesiz namaz, müminlere belirli vakitlerde farz kılınmıştır.",
+          "enShort": "When you have completed the prayer, remember Allah standing, sitting, or on your sides. Prayer is prescribed for the believers at specified times."
+        },
+        "descTr": "Ayet iki şeyi bir arada söyler: (1) namazın 'belirli vakitlere' (kitâben mevkûtâ) bağlı olması — vakit ekseninin Kur'ânî delili; (2) namaz bittikten sonra da zikrin farklı bedensel hallerde sürmesi. Klasik tefsir bu ikinci kısmı namaz sonrası tesbîhâtın Kur'ânî kökeni olarak okur. Sünnet-i mütevâtire bu genel emri 33'er tesbih (Sübhânallah), tahmid (Elhamdülillah) ve tekbir (Allahu ekber) olarak tafsil etmiştir.",
+        "descEn": "The verse joins two matters: prayer bound to 'specified times' (Qur'anic anchor for the time axis) and continued remembrance after prayer concludes. Classical exegesis reads the second part as the Qur'anic root of post-prayer tasbīḥ; mutawātir sunnah then details it as thirty-three counts each of subḥān Allāh, al-ḥamdu lillāh, and Allāhu akbar.",
+        "kaynak": "Kurtubî, Nisa 4:103 tefsiri; Râzî aynı ayet; Elmalılı, Nisa 4:103",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "titleTr": "Ta'dîl-i Erkân — Rükünlerde Sükûnet",
+        "titleEn": "Taʿdīl al-Arkān — Composure in the Pillars",
+        "refs": ["Mü'minûn 23:1-2", "Mâûn 107:4-6"],
+        "anaAyet": {
+          "ref": "Mü'minûn 23:2",
+          "ar": "اَلَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ",
+          "trShort": "Müminler gerçekten kurtuluşa ermiştir. Onlar ki namazlarında huşû içindedirler.",
+          "enShort": "Successful indeed are the believers — those who are humbly submissive in their prayers."
+        },
+        "descTr": "Kur'ân namazın niteliğini iki karşıt kutupla anar. Mü'minûn 23:1-2 kurtulan müminleri 'namazında huşû içinde olanlar' diye tanımlar; huşû lugatta 'boyun eğiş, kalbin sükûneti' demektir. Mâûn 107:4-6 ise 'namazlarından gafil olanlara' yazıklar olsun der — namazın şeklî yapılıp iç boyutunun terk edildiği hale. Klasik fıkıh bu iki Kur'ânî uçtan hareketle 'ta'dîl-i erkân' ilkesini sistemleştirir: her rükünde (kıyâm, rükû, secde, celse) yeterli sükûn olmalıdır. Kurtubî bu ilkenin namazın Kur'ânî ruhundan çıktığını, sünnetin sadece ölçüsünü verdiğini belirtir.",
+        "descEn": "The Qur'an frames prayer's quality between two poles: Muʾminūn 23:1-2 (humble submission) and Māʿūn 107:4-6 (heedlessness). Classical fiqh systematizes 'taʿdīl al-arkān' from these poles: each pillar must include sufficient stillness.",
+        "kaynak": "Kurtubî, Mü'minûn 23:2 tefsiri; Râzî, Mâûn 107:4-6 tefsiri; Elmalılı, Mü'minûn 23:1-2 ve Mâûn Sûresi",
+        "claimType": "tafsir_tradition",
+        "confidence": "high"
+      }
+    ]
+  },
+  "insanEtkisi": [
+    {
+      "id": "fahsadan-alikoyma",
+      "titleTr": "Fahşâdan Alıkoyma — Namazın Ahlâkî Boyutu",
+      "titleEn": "Restraint from Indecency — Prayer's Ethical Dimension",
+      "refs": ["Ankebût 29:45"],
+      "anaAyet": {
+        "ref": "Ankebût 29:45",
+        "ar": "اُتْلُ مٓا اُو۫حِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
+        "trShort": "Şüphesiz namaz hayâsızlıktan (fahşâ) ve kötülükten (münker) alıkoyar. Allah'ı anmak (zikrullâh) elbette en büyüktür.",
+        "enShort": "Indeed, prayer restrains from indecency and wrongdoing. And the remembrance of Allah is greater."
+      },
+      "descTr": "Ankebût 29:45 namazın vaadini tek cümlede özetler: fahşâdan ve münkerden alıkoyma. Klasik tefsir bu vaadi iki katmanda okur. Birinci katman: doğru kılınan namaz iç dünyayı ıslah eder — kalbe huşû yerleşir, Allah huzurunda durma bilinci gündelik davranışa taşar. İkinci katman: bu iç ıslah dış eylemi de değiştirir; namaz kılan bir mümin, namazdan çıktığında fahşâya elini uzatmakta zorluk çeker. Râzî önemli bir soruyu da tefsirinde işler: 'Peki fahşâdan alıkoymayan namaz nedir?' Cevabı: 'Henüz iç bağlantısını kurmamış, dışta kalmış namazdır.' Ayetin sonundaki 've Allah'ı anmak elbette en büyüktür' cümlesi bu iç bağlantının adıdır.",
+      "descEn": "ʿAnkabūt 29:45 sums up prayer's promise: restraint from indecency and wrongdoing. Classical exegesis reads two layers: rightly performed prayer reforms the inner world, and this inner reform shifts outward action. Rāzī: 'A prayer that does not restrain is one that has not yet made its inner connection.'",
+      "modernIzlerTr": "20. yüzyıl İslâm düşüncesinde bu ayet 'namazın etik döngüsü' olarak tekrar okundu: ibadet ↔ ahlâk dinamik bir ilişki; birinin sıhhati diğerinin sıhhatidir. Elmalılı'nın tefsiri de bu düşünsel çizgiye yakın durur.",
+      "modernIzlerEn": "In 20th-century Islamic thought, this verse has been reread as 'prayer's ethical loop': worship and ethics as a dynamic relation.",
+      "kaynak": "Râzî, Ankebût 29:45 tefsiri (fahşâdan alıkoyma katmanları); Elmalılı, Ankebût 29:45 tefsiri",
+      "claimType": "quran_explicit",
+      "confidence": "high"
+    },
+    {
+      "id": "husu-ic-dinginlik",
+      "titleTr": "Huşû — İç Dinginlik",
+      "titleEn": "Khushūʿ — Inner Stillness",
+      "refs": ["Mü'minûn 23:1-2", "Bakara 2:45"],
+      "anaAyet": {
+        "ref": "Bakara 2:45",
+        "ar": "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ وَاِنَّهَا لَكَبِيرَةٌ اِلَّا عَلَى الْخَاشِعِينَ",
+        "trShort": "Sabır ve namazla (Allah'tan) yardım isteyin. Bu, huşû sahiplerinden başkasına ağır gelir.",
+        "enShort": "Seek help through patience and prayer — and indeed, it is difficult except for the humbly submissive."
+      },
+      "descTr": "Bakara 2:45 namazı iki bağlamda anar: bir 'yardım isteme' aracı olarak ve 'huşû sahipleri' için mümkün bir hâl olarak. Klasik tefsir buradan iki dersi çıkarır. Birincisi: namaz külfet mi rahatlık mı? Ayet açıkça 'ağır gelir' der — ama sadece huşûsuz kalpler için. İkincisi: huşû namazın önşartı değil, meyvesidir; namaz kılındıkça huşû yerleşir. Mü'minûn 23:1-2'nin 'kurtulan müminler namazlarında huşû içindedirler' vaadi bu meyvenin adıdır. Râzî huşû'yu 'kalbin Allah huzurunda sükûnete ermesi ve bedenin de bu sükûneti taşıması' olarak tanımlar — sadece iç değil, iç-dış birliği.",
+      "descEn": "Baqara 2:45 places prayer in two frames: means of seeking help, and a state accessible to the humbly submissive. Classical exegesis: prayer is heavy — but only on hearts without khushūʿ. Rāzī defines khushūʿ as 'the heart's stillness in the presence of Allah, carried through by the body's stillness.'",
+      "modernIzlerTr": "Klasik tasavvuf literatürü (Gazâlî ve sonrası) bu ayetten hareketle 'huzûr-u kalb' (kalp huzuru) kavramını sistemleştirmiştir: namazda zihnin dağılmaması, kalbin ne söylediğini bilmesi.",
+      "modernIzlerEn": "Classical Sufi literature built the concept of ḥuḍūr al-qalb (presence of heart) upon this verse.",
+      "kaynak": "Râzî, Bakara 2:45 tefsiri; Kurtubî, Mü'minûn 23:2 tefsiri; Elmalılı, Bakara 2:45",
+      "claimType": "quran_explicit",
+      "confidence": "high"
+    },
+    {
+      "id": "zaman-ritmi-gun-yapisi",
+      "titleTr": "Gün Yapısı — Namazın Zaman Ritmi",
+      "titleEn": "Structure of the Day — Prayer's Temporal Rhythm",
+      "refs": ["İsra 17:78", "Hud 11:114", "Rum 30:17-18"],
+      "anaAyet": {
+        "ref": "Rum 30:18",
+        "ar": "وَلَهُ الْحَمْدُ فِي السَّمٰوَاتِ وَالْاَرْضِ وَعَشِياًّ وَحِينَ تُظْهِرُونَ",
+        "trShort": "Akşama erdiğinizde de sabaha kavuştuğunuzda da Allah'ı tesbih edin. Göklerde ve yerde hamd O'nundur — ikindide de öğle vaktinde de.",
+        "enShort": "Glorify Allah when you reach evening and when you rise in the morning — to Him belongs praise in the heavens and the earth — and at nightfall and at midday."
+      },
+      "descTr": "Kur'ân namazı zamanın belirli 'çentiklerine' yerleştirir: fecir, öğle, ikindi, akşam, gecenin karanlığı. Rum 30:17-18 tek pasajda beş vakti işaret edecek şekilde günün geçişlerini sıralar — akşam, sabah, ikindi, öğle; klasik tefsir buradaki 'aşiyy' (akşam) ifadesinin akşam ile yatsıyı birlikte kapsayabileceğini belirtir. Elmalılı bu ayetleri 'namazın günün taksiminin ana çizgilerinde ölçek olarak konumlandırılması' olarak okur: gün namazla bölünür, namaz günü bölmez. Klasik tefsir bu vakitleri kalbin Allah'a dönüş noktaları olarak yorumlar — insan hayatının her büyük geçişinde (uykudan kalkma, günün ortası, ışığın çekilmesi, karanlığın çökmesi) bir zikir noktası.",
+      "descEn": "The Qur'an sets prayer at the day's marked seams. Rūm 30:17-18 lists the day's transitions in a way classical exegesis reads as pointing to all five prayer times. Elmalılı reads these verses as 'prayer positioned as a scale at the day's main creases': the day is divided by prayer, not prayer by the day.",
+      "modernIzlerTr": "Bu 'gün yapısı' okuması klasik tefsirin bir metaforudur: namaz insanın gününü bölerek onu 'kutsal ritim'e bağlar. Sirkadyen ritim veya psikoloji gibi modern bilim iddiaları burada üretilmez — konu kalbin gün içindeki dönüş noktalarıdır.",
+      "modernIzlerEn": "This 'structure of the day' reading is a classical exegetical metaphor. No modern scientific claims (circadian rhythm, psychology) are advanced here.",
+      "kaynak": "Elmalılı, Rum 30:17-18 tefsiri ('günün taksimi' okuması); Râzî, İsra 17:78 tefsiri; Kurtubî, Hud 11:114",
+      "claimType": "semantic_inference",
+      "confidence": "medium"
+    },
+    {
+      "id": "cemaat-bagi",
+      "titleTr": "Cemaat Bağı — Sosyal Doku",
+      "titleEn": "The Congregational Bond — Social Fabric",
+      "refs": ["Bakara 2:43", "Nisa 4:102"],
+      "anaAyet": {
+        "ref": "Bakara 2:43",
+        "ar": "وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+        "trShort": "Namazı kılın, zekâtı verin ve rükû edenlerle birlikte rükû edin.",
+        "enShort": "Establish prayer, give zakāt, and bow down with those who bow."
+      },
+      "descTr": "Bakara 2:43'te namaz emri üçlü bir dizi olarak gelir: namaz kıl, zekât ver, ve — dikkat çekici ifadeyle — 'rükû edenlerle birlikte rükû et'. Klasik tefsir bu son ifadenin cemaat namazının Kur'ânî işareti olduğunu belirtir; çünkü ayet 'namaz kılın' dedikten sonra ayrıca 'birlikte rükû edin' demeye gerek duymuştur. Râzî bunun 'namazı ferdî değil topluluk hâlinde kılmanın Kur'ânî yönlendirmesi' olduğunu söyler. Kurtubî de aynı okumaya katılır ve cemaatin namazın 'sosyal boyutu' olduğunu vurgular. Nisa 4:102 savaş halinde bile cemaat namazının bırakılmadığını gösterir — bu, cemaatin ne kadar merkezî olduğunun bir başka Kur'ânî delilidir.",
+      "descEn": "Baqara 2:43 gives prayer's command in a triple sequence, closing with 'bow down with those who bow.' Classical exegesis reads this closing phrase as the Qur'anic sign of congregational prayer. Nisa 4:102 shows congregation is not abandoned even in combat.",
+      "modernIzlerTr": "Klasik fıkıh cemaat namazını farklı derecelerde vâcib, sünnet-i müekkede veya farz-ı kifâye olarak sınıflandırır; mezhepler arasında ihtilaf vardır. Fakat Kur'ânî işaretin cemaate yönelik olduğu hususunda ittifak vardır.",
+      "modernIzlerEn": "Classical fiqh varies on the ruling's degree; the schools differ. But there is agreement that the Qur'anic direction points to congregation.",
+      "kaynak": "Râzî, Bakara 2:43 tefsiri ('rükû edenlerle rükû' ifadesi); Kurtubî aynı ayet; Elmalılı, Bakara 2:43",
+      "claimType": "quran_semantic",
+      "confidence": "high"
+    },
+    {
+      "id": "sabir-istiane-siginak",
+      "titleTr": "Sabır ve İstiâne — Zorlukta Sığınak",
+      "titleEn": "Patience and Recourse — A Refuge in Hardship",
+      "refs": ["Bakara 2:45", "Bakara 2:153"],
+      "anaAyet": {
+        "ref": "Bakara 2:153",
+        "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",
+        "trShort": "Ey iman edenler! Sabır ve namazla (Allah'tan) yardım isteyin. Şüphesiz Allah sabredenlerle beraberdir.",
+        "enShort": "O you who believe, seek help through patience and prayer. Indeed, Allah is with the patient."
+      },
+      "descTr": "Kur'ân iki farklı yerde (Bakara 2:45 ve 2:153) sabır ile namazı yan yana anar ve her ikisinde de 'yardım isteme' (istiâne) fiiliyle bağlar. Klasik tefsir bu tekrarın rastgele olmadığını belirtir. Râzî'nin okuması: sabır zorluğa karşı iç dayanma, namaz ise zorluğu Yaratıcı'ya taşıma; ikisi birlikte müminin 'iki elidir'. Kurtubî ise şu inceliğe dikkat çeker: 2:45 hitabı ilgilendirmez ('yardım isteyin'), 2:153 ise açıkça 'ey iman edenler!' diye seslenir — sanki ayet ikinci kez, daha kişisel bir seslenişle aynı formülü tekrarlar. Elmalılı bu tekrarı 'zorluğun büyüklüğünde formül aynıdır: sabır + namaz' olarak yorumlar. Namaz, hayatın zorluk anlarında bir kaçış değil, bir yönelme — zorluğa rağmen Allah'ın huzuruna durmak.",
+      "descEn": "The Qur'an twice pairs patience with prayer (Baqara 2:45 and 2:153), both times binding the pair to 'seeking help' (istiʿāna). Classical exegesis: patience is inner endurance, prayer carries the hardship to the Creator; together the believer's 'two hands.' Prayer is not an escape from difficulty but a turning — standing before Allah despite it.",
+      "modernIzlerTr": "Klasik tasavvuf metinleri bu ayetten hareketle namazı 'sığınak' olarak nitelendirir. Hz. Peygamber'in de zorluk anlarında 'namaza dur' emri verdiği rivayeti bu Kur'ânî formülün pratiğidir.",
+      "modernIzlerEn": "Classical Sufi texts characterize prayer as a 'refuge' based on this verse.",
+      "kaynak": "Râzî, Bakara 2:45 ve 2:153 tefsiri (sabır-namaz beraberliği); Kurtubî aynı ayetler; Elmalılı, Bakara 2:45 ve 2:153",
+      "claimType": "quran_explicit",
       "confidence": "high"
     }
   ],
