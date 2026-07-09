@@ -4605,9 +4605,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </div>
 
           <div style={{ fontSize: '0.65rem', color: dropC.textMuted, marginTop: '10px', lineHeight: 1.5 }}>
-            {language === 'tr'
-              ? "Cüz: Kur'ân'ın 30 eşit bölümü (≈20 sayfa). Hizb: cüzün yarısı (≈10 sayfa)."
-              : "Juz: 30 equal divisions of the Qur'ān (≈20 pages). Hizb: half of a juz (≈10 pages)."}
+            {language === 'tr' ? (
+              <>
+                <span style={{ display: 'block' }}>Cüz: Kur'ân'ın 30 eşit bölümü (≈20 sayfa).</span>
+                <span style={{ display: 'block' }}>Hizb: cüzün yarısı (≈10 sayfa).</span>
+              </>
+            ) : (
+              <>
+                <span style={{ display: 'block' }}>Juz: 30 equal divisions of the Qur'ān (≈20 pages).</span>
+                <span style={{ display: 'block' }}>Hizb: half of a juz (≈10 pages).</span>
+              </>
+            )}
           </div>
         </div>
       )}
