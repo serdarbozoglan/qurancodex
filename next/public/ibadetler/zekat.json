@@ -146,7 +146,7 @@
           "layer": "Nefsin tezkiyesi",
           "descTr": "'Kim onu temizlerse (zekkâhâ) kurtulmuştur; kim onu kirletirse ziyana uğramıştır' (Şems 91:9-10). Aynı kök, nefsin arınması için de kullanılır — mal-nefs paralelliği.",
           "descEn": "'He has succeeded who purifies it (zakkāhā); he has failed who corrupts it' (Shams 91:9-10). The same root is used for the soul's purification — the wealth-self parallel.",
-          "kaynak": "Râzî, Şems 91:9-10 tefsiri; Îzutsu §5 (tazkiya semantic field)",
+          "kaynak": "Râzî, Şems 91:9-10 tefsiri; Îzutsu (tazkiya semantic field)",
           "claimType": "quran_semantic",
           "confidence": "high"
         }
@@ -170,10 +170,10 @@
         "method": "search-terms",
         "root": "ص د ق",
         "source": "auto — scripts/build-ibadetler.mjs",
-        "displayLabelTr": "~24 (sadaka anlamı, ص د ق kökü)",
-        "displayLabelEn": "~24 (ṣadaqa sense, root ṣ-d-q)",
-        "humanSpotChecked": false,
-        "spotCheckNote": "Kök geniş — 'sıdk' (doğruluk), 'sıddîk' (çok doğru) türevlerini de içerir; sayım sadece sadaka/sadakât kullanımlarını hedefler."
+        "displayLabelTr": "~13 (isim; ص د ق kökü ile ilgili)",
+        "displayLabelEn": "~13 (as noun; related to root ṣ-d-q)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Sadaka ismi Kur'ân'da ~13 kez; kök daha geniş (sıdk, sadık, sadakât)."
       },
       "anlamKatmanlari": [
         {
@@ -196,7 +196,7 @@
           "layer": "Sıdk ile bağ",
           "descTr": "Kelimenin kökü 'ṣ-d-q' (doğruluk). Klasik tefsir sadakanın 'imanın sadâkatinin (doğruluğunun) fiilî delili' olduğunu vurgular — malla verilen doğruluk sertifikası.",
           "descEn": "The root ṣ-d-q means 'truthfulness'. Classical exegesis stresses that ṣadaqa is 'the practical proof of faith's truthfulness' — a certificate of sincerity given through wealth.",
-          "kaynak": "Elmalılı, Bakara 2:264-271 tefsiri; Îzutsu, Ethico-Religious Concepts §4 (ṣidq-ṣadaqa alanı)",
+          "kaynak": "Elmalılı, Bakara 2:264-271 tefsiri; Îzutsu, Ethico-Religious Concepts (ṣidq-ṣadaqa alanı)",
           "claimType": "semantic_inference",
           "confidence": "high"
         }
@@ -701,7 +701,7 @@
         "ar": "وَالَّذِينَ فِٓي اَمْوَالِهِمْ حَقٌّ مَعْلُومٌ",
         "tr": "Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.",
         "en": "And in their wealth is a known right for the beggar and the deprived.",
-        "not": "Kur'ân'ın 'hakk-ı ma'lûm' formülü — 'mü'minin malında bilinen bir hak vardır'. Klasik tefsir bu ifadedeki 'ma'lûm' (bilinen) kelimesinin belirli bir miktara işaret ettiğini, dolayısıyla ayetin zekâtın Mekkî döneme uzanan bir işareti olduğunu belirtir. 'İsteyen (sâil)' ile 'mahrum (utandığından istemeyen)' ayrımı da klasik tefsirin özellikle vurguladığı bir incelik.",
+        "not": "Kur'ân'ın 'hakk-ı ma'lûm' formülü — 'mü'minin malında bilinen bir hak vardır'. Klasik tefsir bu ifadedeki 'ma'lûm' (bilinen) kelimesinin belirli bir miktara işaret ettiğini, dolayısıyla ayetin zekâtın Mekkî döneme uzanan bir işareti olduğunu belirtir. 'İsteyen (sâil)' ile 'mahrum (utandığından istemeyen)' ayrımı da klasik tefsirin özellikle vurguladığı bir incelik. (Arapça metin serideki ilk ayetin metnidir; çeviri ilgili ayet grubunu özetler.)",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
@@ -710,7 +710,7 @@
         "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنٓوا اِنَّ كَثِيراً مِنَ الْاَحْبَارِ وَالرُّهْبَانِ لَيَأْكُلُونَ اَمْوَالَ النَّاسِ بِالْبَاطِلِ وَيَصُدُّونَ عَنْ سَبِيلِ اللّٰهِ وَالَّذِينَ يَكْنِزُونَ الذَّهَبَ وَالْفِضَّةَ وَلَا يُنْفِقُونَهَا فِي سَبِيلِ اللّٰهِ فَبَشِّرْهُمْ بِعَذَابٍ اَلِيمٍ",
         "tr": "Ey iman edenler! Din bilginlerinin ve rahiplerin çoğu insanların mallarını haksız yollardan yerler ve Allah yolundan alıkoyarlar. Altını ve gümüşü biriktirip Allah yolunda harcamayanlara acı bir azabı müjdele.",
         "en": "O you who believe! Indeed, many rabbis and monks consume people's wealth in falsehood and turn from the way of Allah. Announce to those who hoard gold and silver and do not spend it in the way of Allah a painful punishment.",
-        "not": "Kanz (biriktirme) uyarısının en açık ayeti. 9:35 devamında biriktirilen altın ve gümüşün cehennemde kızdırılarak sahiplerinin alınlarına, yanlarına ve sırtlarına dağlanacağını anlatır. Klasik tefsir bu ayeti 'zekâtı verilmeyen mal — miktarı ne olursa olsun — kanz'dır' hükmünün Kur'ânî temeli olarak okur.",
+        "not": "Kanz (biriktirme) uyarısının en açık ayeti. 9:35 devamında biriktirilen altın ve gümüşün cehennemde kızdırılarak sahiplerinin alınlarına, yanlarına ve sırtlarına dağlanacağını anlatır. Klasik tefsir bu ayeti 'zekâtı verilmeyen mal — miktarı ne olursa olsun — kanz'dır' hükmünün Kur'ânî temeli olarak okur. (Arapça metin serideki ilk ayetin metnidir; çeviri ilgili ayet grubunu özetler.)",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
@@ -728,7 +728,7 @@
         "ar": "فَاَمَّا مَنْ اَعْطٰى وَاتَّقٰى",
         "tr": "Kim verir ve sakınırsa, en güzel olanı tasdik ederse, biz de onu 'en kolay olan'a hazırlarız. Ama kim cimrilik eder ve kendini müstağni sayarsa, en güzel olanı yalanlarsa, biz de onu 'en zor olan'a hazırlarız.",
         "en": "As for the one who gives and fears Allah and affirms the best — We will ease him toward ease. But as for the one who withholds and considers himself self-sufficient, and denies the best — We will ease him toward hardship.",
-        "not": "Kur'ân'ın 'cömert-cimri' insan tiplerini en yoğun karşıtlıkla çizdiği pasaj. Klasik tefsir bu ayetleri 'verme-yalanlama' ve 'esirgeme-yalanlama' fiillerinin bir arada anılmasıyla 'zekâtın imanın delili olduğu' formülünün Mekkî kaynağı olarak okur.",
+        "not": "Kur'ân'ın 'cömert-cimri' insan tiplerini en yoğun karşıtlıkla çizdiği pasaj. Klasik tefsir bu ayetleri 'verme-yalanlama' ve 'esirgeme-yalanlama' fiillerinin bir arada anılmasıyla 'zekâtın imanın delili olduğu' formülünün Mekkî kaynağı olarak okur. (Arapça metin serideki ilk ayetin metnidir; çeviri ilgili ayet grubunu özetler.)",
         "claimType": "quran_explicit",
         "confidence": "high"
       }
@@ -826,7 +826,7 @@
           "value": "Ramazan sonu, kişi başı ölçü",
           "note": "Bayram namazından önce verilen fıtır sadakası mütevâtir sünnetle sabittir; miktar (bir sâ' hurma, arpa veya buğday) sünnetle tafsil edilmiştir. Kur'ân'da doğrudan bir 'zekât-ı fıtır' ayeti yoktur; A'lâ 87:14-15'in klasik tefsirdeki bir okumasında işaret aranır.",
           "claimType": "fiqh_tafsil",
-          "confidence": "medium"
+          "confidence": "low"
         }
       ]
     },
@@ -867,13 +867,6 @@
       "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir.",
       "claimType": "quran_semantic",
       "confidence": "medium"
-    },
-    {
-      "prophet": "Zekeriya, Yahya, İsa (topluca)",
-      "ref": "Enbiyâ 21:73",
-      "sceneTr": "Aynı ayet İbrahim'in soyunu — Zekeriya, Yahya, İsa dahil — 'hayırlar yapmayı, namaz ve zekât vermeyi vahyettik' formülü altında toplar. Peygamberlik zincirinde zekâtın süreklilik izi.",
-      "claimType": "quran_explicit",
-      "confidence": "high"
     },
     {
       "prophet": "Muhammed s.a.v. (Medine döneminde sistem)",
@@ -1106,8 +1099,8 @@
       "workTr": "Ethico-Religious Concepts in the Qur'an",
       "workEn": "Ethico-Religious Concepts in the Qur'an",
       "period": "1966 (McGill-Queen's yay.)",
-      "noteTr": "Sadaka-sıdk semantic field'ı §4 (kelimenin 'doğruluk' kökü ile bağı). Zakāt/tazkiya semantik alanı §5 (mal-nefs paralel arınması). Bakhīl-shuḥḥ karşıtlığının etik semantiği. Bu sayfanın 'semantic_inference' etiketli iddialarının modern dilbilimsel omurgası.",
-      "noteEn": "The ṣadaqa-ṣidq semantic field in §4 (the bond of the word with the root of 'truthfulness'). The zakāt/tazkiya semantic field in §5 (parallel purification of wealth and self). The ethical semantics of the bakhīl-shuḥḥ opposition. Modern linguistic backbone for this page's 'semantic_inference' claims."
+      "noteTr": "Sadaka-sıdk semantic field'ı (kelimenin 'doğruluk' kökü ile bağı). Zakāt/tazkiya semantik alanı (mal-nefs paralel arınması). Bakhīl-shuḥḥ karşıtlığının etik semantiği. Bu sayfanın 'semantic_inference' etiketli iddialarının modern dilbilimsel omurgası.",
+      "noteEn": "The ṣadaqa-ṣidq semantic field in (the bond of the word with the root of 'truthfulness'). The zakāt/tazkiya semantic field in (parallel purification of wealth and self). The ethical semantics of the bakhīl-shuḥḥ opposition. Modern linguistic backbone for this page's 'semantic_inference' claims."
     }
   ]
 }
