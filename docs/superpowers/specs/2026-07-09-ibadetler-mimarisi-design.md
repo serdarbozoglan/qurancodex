@@ -65,6 +65,8 @@ Kur'an'ın ibadeti nasıl anlattığını **kendi diliyle** ortaya koyan, sığ 
    - "Zekât ≠ Sadaka — 2 semantik alan"
    - "Zikir Kur'an'da 250+ yerde geçer"
 
+**Wow fact SSoT kuralı:** Her wow fact zorunlu olarak bir `pillarId` taşır ve o pillar'ın data'sındaki bir claim'in özetidir. HUB ↔ pillar arası çelişki olmasın diye pillar JSON tek doğruluk kaynağı, wow fact ondan türetilir.
+
 4. **8 Pillar Kartı Grid**
    - Her kart: mode-icon + Kur'ânî isim (Arapça) + 1 satır özet + "Keşfet →" CTA
    - Grid: mobile 1-col, tablet 2-col, desktop 4-col (2 sıra)
@@ -94,12 +96,16 @@ Her pillar sayfası **uniform 7-tab** yapıda:
 | Tab | Başlık | İçerik | Görsel öğe |
 |---|---|---|---|
 | **1** | Genel Bakış | Kavramsal çerçeve + 1 anchor pasaj + 3-4 madde "neden önemli" | Anchor verse block + gold-frame intro |
-| **2** | Kur'ânî İsimler | 5-15 term, her biri: Arapça yazım + kök + anlam katmanları + Îzutsu/Râzî citation | SemanticMap (radial diagram: merkez term + dış halka katmanlar) |
-| **3** | Ana Pasajlar | 4-8 anchor ayet, chorus formatında: Arapça (KFGQPC gold) + çeviri + tefsir notu | Verse chorus grid, her ayet kendi kartında |
-| **4** | Rakamsal / Yapısal Mimari | Vakit/sayı/oran + Kur'an ↔ fıkıh nüansı | NumericTension widget (2 sütun: Kur'ânî ↔ Fıkhî) |
-| **5** | Peygamber Varyasyonları | Hangi peygamber nasıl uygulamış: kısa sahne + ayet ref | Vertical timeline SVG (Adem → Muhammed s.a.v.) |
-| **6** | İç Boyut | Huşû, ihlâs, niyet, samimiyet ayetleri + Îzutsu kavramsal analiz | Callout kartları + iç boyut verse block |
+| **2** | Kur'ânî İsimler | 5-15 term, her biri: Arapça yazım + kök + anlam katmanları + tefsir citation (sure/ayet-bazlı) | SemanticMap (radial diagram: merkez term + dış halka katmanlar) |
+| **3** | Ana Pasajlar & Ritüel Bağlam | 4-8 anchor ayet + 2-3 tarihsel/ritüel pasaj (ör. kıble değişimi, havf namazı) — chorus formatında | Verse chorus grid, tarihsel pasajlar ayrı bir alt-bölüm başlığıyla |
+| **4** | Rakamsal / Yapısal Mimari | "Kur'an ilke koyar, sünnet tafsil eder" ekseninde: hangi öğe Kur'ân'da açık, hangisi sünnet + icma ile tanzim edilmiş | NumericTension widget (2 sütun: Kur'ânî ilke ↔ Sünnet tafsili) |
+| **5** | Peygamber Varyasyonları | Hangi peygamber nasıl uygulamış: kısa sahne + ayet ref | Vertical timeline SVG (İbrahim → Muhammed s.a.v.) |
+| **6** | İç Boyut | Huşû, ihlâs, niyet, samimiyet ayetleri + kavramsal analiz + tarihsel-kavramsal katman (ör. İsra & namaz) | Callout kartları + iç boyut verse block |
 | **7** | Kaynaklar | SourcesCitation component (Râzî/Kurtubî/Elmalılı/Îzutsu inline) | Standart SourcesCitation |
+
+**Not:** Önceki taslakta ayrı bir `tarihselKatman` field'ı vardı; tab yapısında karşılığı yoktu. Şimdi:
+- Verse-anchored tarihsel öğeler (kıble değişimi Bakara 142-150, havf namazı Nisa 101-103) → **Tab 3** içine "Ritüel Bağlam" alt-bölümü
+- Kavramsal/tarihsel çerçeveler (İsra & namaz gibi) → **Tab 6** İç Boyut'a
 
 Sayfa sonu:
 - CrossToolCTA (2-3 ilgili pillar)
@@ -200,7 +206,7 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
     "sourceNote": "Îzutsu, Ethico-Religious Concepts §3.1"
   },
   "wowFacts": [
-    { "titleTr": "Kur'an namazı 3 vakit anar", "descTr": "...", "refs": ["İsra 78", "Bakara 238", "Hud 114"] },
+    { "pillarId": "namaz", "titleTr": "Kur'an namazı doğrudan 3 vakit tanımıyla anar", "descTr": "...", "refs": ["İsra 17:78", "Bakara 2:238", "Hud 11:114"], "framingTr": "Sünnet ve icma ile 5 vakit — Kur'an ilke, sünnet tafsil." },
     ...
   ],
   "pillars": [
@@ -244,12 +250,13 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
       "ar": "الصَّلَاة",
       "root": "ص ل و",
       "occurrenceCount": 83,
+      "occurrenceCountSource": "auto — build script verse-graph-bgem3.json üzerinden sayar; manuel yazılmaz",
       "anlamKatmanlari": [
-        { "layer": "Namaz", "descTr": "Ritüel ibadet", "kaynak": "Râzî 22/45" },
-        { "layer": "Dua", "descTr": "Yakarış", "kaynak": "Kurtubî 1/167" },
-        { "layer": "Rahmet", "descTr": "Allah'tan kullara indiği anlamda", "kaynak": "Bakara 157 tefsiri" },
-        { "layer": "Destek", "descTr": "Meleklerden gelen destek", "kaynak": "Ahzab 43 tefsiri" },
-        { "layer": "Salavât", "descTr": "Peygamber'e salât", "kaynak": "Ahzab 56" }
+        { "layer": "Namaz", "descTr": "Ritüel ibadet", "kaynak": "Râzî, Bakara 43 tefsiri" },
+        { "layer": "Dua", "descTr": "Yakarış — kelime kök anlamı", "kaynak": "Elmalılı, Fâtiha girişi + Bakara 3 tefsiri" },
+        { "layer": "Rahmet", "descTr": "Allah'tan kullara indiği anlamda", "kaynak": "Râzî, Bakara 2:157 tefsiri" },
+        { "layer": "Destek", "descTr": "Meleklerden gelen destek", "kaynak": "Kurtubî, Ahzab 33:43 tefsiri" },
+        { "layer": "Salavât", "descTr": "Peygamber'e salât", "kaynak": "Ahzab 33:56 — Îzutsu §4.2 semantik alan" }
       ]
     },
     { "term": "Dhikr", "ar": "الذِّكْر", ... },
@@ -267,34 +274,42 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
     { "term": "İşâ", ... },
     { "term": "Vitir", ... }
   ],
-  "anaPasajlar": [
-    { "ref": "Bakara 2:238", "ar": "...", "tr": "...", "en": "...", "not": "Orta namaz (salât al-vustâ) — Râzî 4 farklı yorum sunar..." },
-    { "ref": "İsra 17:78", "ar": "...", "tr": "...", "en": "...", "not": "Fecir + akşam + gece — 3 vakit görüşünün ana ayeti" },
-    { "ref": "Hud 11:114", "ar": "...", "tr": "...", "en": "...", "not": "Gündüzün iki ucu + gecenin yakınında" },
-    { "ref": "Nisa 4:103", "ar": "...", "tr": "...", "en": "...", "not": "Vakitli farz (kitâben mevkûtâ)" },
-    { "ref": "Mü'minûn 23:1-2", ... },
-    { "ref": "Ankebût 29:45", ... },
-    { "ref": "Tâhâ 20:132", ... },
-    { "ref": "Nisa 4:43", ... }
-  ],
+  "anaPasajlar": {
+    "ayetler": [
+      { "ref": "Bakara 2:238", "ar": "...", "tr": "...", "en": "...", "not": "Orta namaz (salât al-vustâ) — Râzî, Bakara 238 tefsirinde 4 farklı yorum sunar (öğle, ikindi, sabah, akşam)" },
+      { "ref": "İsra 17:78", "ar": "...", "tr": "...", "en": "...", "not": "Fecir + gece kısmı + akşam — Kur'ân'daki 3 vakit çerçevesinin ana ayeti" },
+      { "ref": "Hud 11:114", "ar": "...", "tr": "...", "en": "...", "not": "Gündüzün iki ucu + gecenin yakınları" },
+      { "ref": "Nisa 4:103", "ar": "...", "tr": "...", "en": "...", "not": "Vakitli farz (kitâben mevkûtâ) — namaz vaktinin ilahi tayinliği" },
+      { "ref": "Mü'minûn 23:1-2", "not": "Huşû — namazın iç boyutu" },
+      { "ref": "Ankebût 29:45", "not": "Namaz fahşâdan alıkoyar — namazın hayat üzerindeki etkisi" },
+      { "ref": "Tâhâ 20:132", "not": "Aileye namaz emri" },
+      { "ref": "Nisa 4:43", "not": "Sarhoş yasağı — dolaylı olarak namaz kültürünün şekillenmesi" }
+    ],
+    "rituelBaglam": [
+      { "ref": "Bakara 2:142-150", "sceneTr": "Kıble değişimi", "not": "Mescid-i Aksâ'dan Kâbe'ye kıblenin çevrilmesi — namazın mekân eksenini kuran ayetler" },
+      { "ref": "Nisa 4:101-103", "sceneTr": "Havf (korku) namazı", "not": "Savaş ortamında namazın kısaltılması ve düzenlenmesi — ilahi ruhsat" }
+    ]
+  },
   "rakamsalMimari": {
-    "titleTr": "Kur'an ↔ Fıkıh",
+    "titleTr": "Kur'an İlkeyi Koyar, Sünnet Tafsil Eder",
+    "framingTr": "Bu bölüm 'Kur'an eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'an genel bir çerçeve verir; sünnet-i mütevâtire ve icma bunu detaylandırır. İkisi birbirini tamamlar.",
     "kuraniSide": {
-      "titleTr": "Kur'an'da açık geçen",
+      "titleTr": "Kur'ân'ın koyduğu ilkeler",
       "points": [
-        { "label": "Vakit sayısı", "value": "3 vakit anılır", "note": "İsra 78 (fecr + gece + akşam), Bakara 238, Hud 114" },
-        { "label": "Farz-sünnet ayrımı", "value": "Kur'an'da yok", "note": "..." },
-        { "label": "Rekâat sayısı", "value": "Kur'an'da yok", "note": "..." }
+        { "label": "Vakit çerçevesi", "value": "3 vakit dilimi anılır", "note": "İsra 17:78 (fecir + gece kısmı + akşam), Bakara 2:238 (orta namaz), Hud 11:114 (gündüzün iki ucu + gecenin yakınları)" },
+        { "label": "Vaktin kesinliği", "value": "'kitâben mevkûtâ'", "note": "Nisa 4:103 — namaz vakti belirlenmiş bir farzdır" },
+        { "label": "Huşû + zikir amacı", "value": "Kur'ân'da açık", "note": "Mü'minûn 23:1-2, Tâhâ 20:14" }
       ]
     },
-    "fikhiSide": {
-      "titleTr": "Fıkıh geleneği",
+    "sunnetSide": {
+      "titleTr": "Sünnet-i mütevâtirenin tafsili",
       "points": [
-        { "label": "Vakit sayısı", "value": "5 vakit (icma)", "note": "Peygamber uygulaması ve icma ile 5'e çıkar" },
-        { "label": "Farz-sünnet", "value": "Rekâat + hükümler tanzim edildi", "note": "Mezheplere göre değişir" }
+        { "label": "5 vakit", "value": "Mütevâtir sünnet", "note": "5 vakit uygulaması Peygamber s.a.v.'in bütün ashabı ve nesilden nesle mütevatir olarak taşınmıştır. Bu 'ekleme' değil, ilkenin uygulama biçimidir." },
+        { "label": "Rekâat sayıları", "value": "Sünnet + icma", "note": "2-4 rekâat düzeni fiilî sünnet ile sabit; klasik dört mezhep de kabul eder." },
+        { "label": "Farz-sünnet ayrımı", "value": "Fıkhî tasnif", "note": "Farz/vacip/sünnet ayrımı fıkhî bir tasnif; namaz'ın 5 vakit farzlığı ile bu tasnif farklı düzlemlerdedir." }
       ]
     },
-    "tensionNote": "Bu tension, Kur'an'ın 'ilkeler kitabı' + sünnetin 'uygulama' işbölümünü gösterir. Kur'anîyye/mezhepsizlik değil, klasik sünnî fıkhın çerçevesi."
+    "tensionNote": "Bu tab Kur'aniyyun (mezhepsizlik) söylemine kapı aralamaz. Amaç: Kur'ân'ın kendi dilinde ne söylediğini ve sünnetin/icmanın onu nasıl detaylandırdığını GÖSTERMEK. Klasik Ehl-i Sünnet çerçevesi geçerli."
   },
   "peygamberVaryasyonlari": [
     { "prophet": "İbrahim", "ref": "Bakara 2:128", "sceneTr": "Namazın Beytullah'ta kuruluşu için dua" },
@@ -307,21 +322,18 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
   ],
   "icBoyut": [
     { "titleTr": "Huşû", "refs": ["Mü'minûn 23:1-2"], "descTr": "İç bağlantı ve saygı — namazın yaşayan hali" },
-    { "titleTr": "Anmak (dhikr) için namaz", "refs": ["Tâhâ 20:14"], "descTr": "Namazın amacı zikir" },
+    { "titleTr": "Anmak (dhikr) için namaz", "refs": ["Tâhâ 20:14"], "descTr": "Namazın amacı: Allah'ı anmak" },
     { "titleTr": "Fahşâdan alıkoyar", "refs": ["Ankebût 29:45"], "descTr": "Namazın hayat üzerindeki etkisi" },
     { "titleTr": "Sabr + salât", "refs": ["Bakara 2:45"], "descTr": "Kombinasyon: dayanma + kulluk" },
-    { "titleTr": "Huşûsuz namaza uyarı", "refs": ["Mâûn 107:4-6"], "descTr": "Namazından gafil olanların hali" }
-  ],
-  "tarihselKatman": [
-    { "titleTr": "İsra & namaz", "descTr": "..." },
-    { "titleTr": "Kıble değişimi", "refs": ["Bakara 2:142-150"], "descTr": "..." },
-    { "titleTr": "Havf namazı (korku)", "refs": ["Nisa 4:101-103"], "descTr": "Savaş anında namaz düzenlemesi" }
+    { "titleTr": "Huşûsuz namaza uyarı", "refs": ["Mâûn 107:4-6"], "descTr": "Namazından gafil olanların hali" },
+    { "titleTr": "İsra & namazın manası", "descTr": "İsra sûresinde namaz emri (Tâhâ 14, İsra 78) ile geceleyin kaldırılış (İsra 1) aynı sûre çerçevesinde — namaz Kur'ân'da bir 'yükseliş' arketipiyle iç içedir." },
+    { "titleTr": "Sabah namazının şahitliği", "refs": ["İsra 17:78"], "descTr": "'İnne kur'âne'l-fecri kâne meşhûdâ' — fecr namazı meleklerin şahit olduğu bir anlaşmadır" }
   ],
   "kaynaklar": [
-    { "author": "Fahruddîn er-Râzî", "workTr": "Mefâtîhu'l-Ğayb", "workEn": "Mafātīḥ al-Ghayb", "period": "1149-1209", "noteTr": "Bakara 238 orta namaz tartışması cilt 6" },
-    { "author": "Kurtubî", "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân", "period": "1214-1273", "noteTr": "Namaz vakti ayetleri fıkhî analizi" },
-    { "author": "Elmalılı Hamdi Yazır", "workTr": "Hak Dini Kur'ân Dili", "period": "1878-1942", "noteTr": "Bakara 238 modern tefsiri" },
-    { "author": "Toshihiko Îzutsu", "workTr": "Ethico-Religious Concepts in the Qur'an", "period": "1959 (yay.)", "noteTr": "Kulluk semantic field §3-4" }
+    { "author": "Fahruddîn er-Râzî", "workTr": "Mefâtîhu'l-Ğayb", "workEn": "Mafātīḥ al-Ghayb", "period": "1149-1209", "noteTr": "Bakara 2:238 orta namaz tartışması (4 yorum) — bu sayfadaki Salât semantik katmanları ve rakamsal mimari için ana referans" },
+    { "author": "Kurtubî", "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân", "period": "1214-1273", "noteTr": "Namaz vakti ayetleri (İsra 17:78, Hud 11:114, Nisa 4:103) fıkhî analizi" },
+    { "author": "Elmalılı Hamdi Yazır", "workTr": "Hak Dini Kur'ân Dili", "period": "1878-1942", "noteTr": "Salât kelimesinin kök anlamı (Fâtiha girişi + Bakara 2:3 tefsiri)" },
+    { "author": "Toshihiko Îzutsu", "workTr": "Ethico-Religious Concepts in the Qur'an", "period": "1959 (yay.)", "noteTr": "Kulluk semantic field §3-4; Salât/salavât semantik alanı §4.2" }
   ]
 }
 ```
@@ -340,15 +352,32 @@ Aynı şema **oruc.json, hac.json, zekat.json, kurban.json, zikir.json, dua.json
 
 ### 6.2 Tefsir claim'leri
 
-- Her tefsir claim'i inline citation ile gelir: "Râzî 22/45", "Kurtubî 1/167", "Elmalılı 3/34"
-- Cilt/sayfa referansı **verifiable** olsun; belirsizse "§concept" (bölüm) formu
-- Îzutsu için chapter/section (§3.1, §4.2)
+**KRİTİK:** Cilt/sayfa numaraları KULLANILMAYACAK. LLM'lerin ve içerik üretiminde hallüsinasyona en açık yer bu tür sayısal referanslardır. Bunun yerine **sure/ayet-bazlı atıf** kullanılır:
 
-### 6.3 Fıkıh anlatımı
+- ✅ DOĞRU: `"Râzî, Bakara 2:238 tefsiri"` — herkes doğrulayabilir (o ayetin tefsir bölümüne git)
+- ✅ DOĞRU: `"Elmalılı, Fâtiha girişi"` (namumkün bölüm başlığı)
+- ✅ DOĞRU: `"Îzutsu §4.2"` (Îzutsu için chapter/section — kitap yapısı sabit ve numaralı)
+- ❌ YASAK: `"Râzî 22/45"` — cilt/sayfa doğrulanamaz, hallüsinasyon riski
+- ❌ YASAK: `"Kurtubî 1/167"` — aynı sebep
 
-- Mezhepler-üstü dil
-- "Şafiî'ye göre / Hanefî'ye göre" gibi ihtilaflara mecbur kalınmazsa girme
-- "Klasik sünnî fıkıh çerçevesi" formunda genel çerçeve
+**Kaynaklar tab'ında (`kaynaklar` field):** Yazarın hangi eserde ve hangi bölümde bu sayfada anılan claim'lerini bulacağı **ayet-bazlı** olarak listelenir.
+
+### 6.3 Fıkıh anlatımı — Kur'aniyyun Tuzağından Kaçınma
+
+**Ana ilke:** "Kur'an ilkeyi koyar, sünnet-i mütevâtire ve icma tafsil eder." Bu formül, Rakamsal Mimari tab'ının tümünde bağlayıcı.
+
+**Yasaklar:**
+- ❌ "Kur'an'da yok" ifadesi tek başına kullanılamaz — kullanılırsa **hemen ardından** "sünnet-i mütevâtire ile sabittir" veya "icma ile tanzim edilmiştir" eklenir.
+- ❌ "Kur'an aslında X der, ama sonra Y eklendi" gibi ekleme/deformasyon iması.
+- ❌ Mezhep ihtilaflarına gereksiz girme ("Şafiî'ye göre / Hanefî'ye göre" gibi).
+- ❌ 5 vakit namazı "fıkhî tercih" olarak sunma — 5 vakit **mütevâtir sünnet**, klasik Ehl-i Sünnet'in dört mezhebinde de sabit.
+
+**Zorunlular:**
+- ✅ Kur'ân'ın **söylediğini** ve sünnet-icmanın **tafsil ettiğini** iki paralel sütun olarak göster (rakamsalMimari yapısı bunu zorlar).
+- ✅ Her rakamsal mimari tab'ına "Bu Kur'aniyyun görüşü değildir" tarzı framing note.
+- ✅ 4 klasik mezhep çerçevesi geçerli, ihtilaf sadece esaslı bir konuda değişikse anılır.
+
+**Kayıp uyarısı:** Bu sayfalar bir fıkıh kitabı değildir. İbadetlerin **Kur'ânî mimarisini** gösterir. Fiilî namaz uygulaması için ilmihal + fıkıh kitaplarına yönlendirme her pillar footer'ında olacak.
 
 ### 6.4 Denetim katmanı
 
@@ -422,12 +451,19 @@ Katman A-tarzı kart, HUB'a link.
 - [ ] 8 pillar route hepsi build OK
 - [ ] Her pillar 7 tab uniform render eder
 - [ ] Ayet ref hatası yok (build script cross-verify)
+- [ ] **Hiçbir tefsir citation'ında cilt/sayfa numarası yok** — hepsi ayet-bazlı (§6.2)
+- [ ] **Rakamsal Mimari tab'ında "Kur'aniyyun değil" framing note her pillar'da var** (§6.3)
+- [ ] **HUB wow fact'lar zorunlu `pillarId` içeriyor, pillar SSoT** (§5.1)
+- [ ] **`occurrenceCount` alanları build script tarafından otomatik hesaplanıyor**, manuel yazılmamış
+- [ ] Ağır pillar'lar (Namaz, Oruç, Hac, Zekât) full 7 tab dolu
+- [ ] Hafif pillar'lar (Kurban, Zikir, Dua, Tövbe) min 5 tab dolu
 - [ ] Arapça encoding §13.15 pass (problem char = 0)
 - [ ] Mobil responsive: 390px viewport'ta HUB + her pillar okunabilir
 - [ ] Nav entegrasyonu: exploreCategories'te İbadetler kartı görünür + tıklama route.push tetikler
 - [ ] i18n: TR + EN paralel içerik (EN opsiyonel — TR-first, EN kısa özet)
 - [ ] Kaynak citation'lar SourcesCitation tab'ında listeli
 - [ ] qc-content-auditor pass: no critical errors
+- [ ] qc-source-curator pass: no missing/hallucinated sources
 
 ---
 
@@ -435,27 +471,66 @@ Katman A-tarzı kart, HUB'a link.
 
 | Risk | Etki | Hafifletme |
 |---|---|---|
-| Fıkhî ihtilaflara girme | Site'in mezheb-üstü tonunu bozar | "Klasik sünnî fıkıh çerçevesi" formunda genel, ihtilaftan kaçın |
-| Kur'anîyye söylemi (mezhepsizlik) | Yanlış anlaşılır | Rakamsal Mimari tab'ında explicit not: "Bu tension sünnet + icma çerçevesini bozmaz" |
-| Yanlış ayet ref | Kredibilite kaybı | Build-time cross-verify + audit agent |
-| İçerik derinliği tutarsız (namaz zengin, kurban zayıf) | Kalite dengesizliği | Her pillar min 5 tab dolu; kurban için hafıza + semantic yeter |
-| KFGQPC glyph edge cases (§13.15) | Render bozukluğu | Build script normalize + doğrulama zorunlu |
+| **Kur'aniyyun (mezhepsizlik) söylemine kayma** | Teolojik olarak problemli, kullanıcı tabanını yanıltır | `rakamsalMimari` şeması `kuraniSide` + `sunnetSide` iki paralel sütun zorlar; her tab başında framing note; §6.3'te yasak formülasyonlar açık |
+| **Tefsir citation hallüsinasyonu (cilt/sayfa)** | LLM tefsir cilt/sayfa numaralarını hallüsine eder | §6.2: cilt/sayfa YASAK, ayet-bazlı atıf zorunlu (`"Râzî, Bakara 2:238 tefsiri"`) |
+| **Fıkhî mezhep ihtilaflarına girme** | Site'in mezheb-üstü tonunu bozar | 4 mezhep çerçevesi geçerli, ihtilaf sadece kaçınılmazsa anılır |
+| **Yanlış ayet ref** | Kredibilite kaybı | Build-time cross-verify (`scripts/build-ibadetler.mjs` → verse-graph üzerinden) + qc-content-auditor pass |
+| **HUB wow fact ↔ pillar drift** | HUB'daki iddia pillar'la çelişebilir | Wow fact zorunlu `pillarId` taşır; pillar SSoT, HUB türev |
+| **İçerik derinliği tutarsız** | Kalite dengesizliği | Namaz/Oruç/Hac/Zekât **full 7 tab dolu**; Zikir/Dua/Tövbe/Kurban **bilinçli daha hafif** (5 tab dolu, "Peygamber varyasyonları" ve "Rakamsal Mimari" opsiyonel) |
+| **KFGQPC glyph edge cases (§13.15)** | Render bozukluğu | Build script normalize + doğrulama zorunlu (problem char = 0) |
 
 ---
 
-## 11. Zaman Planı
+## 11. Zaman Planı (Gerçekçi)
+
+**Not:** İçerik zenginliği (15+ isim, 8 pasaj, 7 peygamber varyasyonu, tefsir cross-check) her pillar için ciddi zaman ister. "Paralel yürütme" mümkün ama iş miktarını değiştirmez.
+
+### 11.1 Ağır pillar'lar (full 7 tab, ~1.5 gün/pillar içerik yazımı)
+
+- **Namaz** (pilot — pattern kurar)
+- **Oruç**
+- **Hac**
+- **Zekât** (İnfak/Sadaka semantik ayrımı hassas — audit ekstra)
+
+### 11.2 Hafif pillar'lar (5 tab dolu, ~0.75 gün/pillar)
+
+- **Kurban** — İbrahim hafızası + Nüsuk semantiği, Rakamsal Mimari opsiyonel
+- **Zikir** — semantik zengin ama uniform yapı yok; Ana Pasajlar + Kur'ânî İsimler ağırlıklı
+- **Dua** — mevcut `/arac/dualar` ile çakışmasın, sadece ibadet ekseni; Peygamber Varyasyonları light
+- **Tövbe** — semantik + iç boyut ağırlıklı
+
+### 11.3 Aşamalı plan
 
 | Aşama | Süre | Bağımlılık |
 |---|---|---|
-| Design doc + data schema | 0.5 gün | (bu doküman) |
+| Design doc + data schema | 0.5 gün ✅ (bugün) | (bu doküman) |
+| Build script + verse-graph verify utils | 0.5 gün | schema |
 | HUB layout + IbadetlerHub.jsx | 1 gün | schema |
-| Shared pillar layout + 6 tab component | 1 gün | schema |
-| Namaz pilot data + route | 1 gün | pillar layout |
-| Namaz audit + revizyon | 0.5 gün | pilot data |
-| Kalan 7 pillar data (parallelde) | 4-5 gün | pilot pattern |
-| Görsel polish + mobil | 1 gün | tüm pillar'lar |
-| Audit + nav entegrasyon + i18n | 1 gün | polish |
-| **Toplam** | **~10 gün** | |
+| Shared pillar layout + 6 tab component | 1.5 gün | schema |
+| **Pilot: Namaz** (data + route + audit + revize) | 2 gün | pillar layout |
+| **Pattern donduktan sonra:** | | |
+| Zekât (2. sırada — İnfak/Sadaka risk) | 1.5 gün | Namaz pattern |
+| Kurban (3. sırada — İbrahim kıssası risk) | 1 gün | Namaz pattern |
+| Oruç | 1.5 gün | Namaz pattern |
+| Hac | 1.5 gün | Namaz pattern |
+| Zikir | 0.75 gün | Namaz pattern |
+| Dua | 0.75 gün | Namaz pattern |
+| Tövbe | 0.75 gün | Namaz pattern |
+| qc-content-auditor pass (tüm pillar) | 1.5 gün | tüm pillar'lar |
+| qc-source-curator pass | 0.5 gün | audit |
+| Görsel polish + mobil test | 1 gün | audit temiz |
+| Nav entegrasyon + i18n + anasayfa teaser | 0.75 gün | polish |
+| **Toplam** | **~16 gün** | |
+
+### 11.4 Pilot öncelik gerekçesi
+
+**Namaz** ilk — en zengin içerik (15+ isim, 8 pasaj, 7 peygamber), pattern burada oturur.
+
+Namaz pilot donduktan sonra **Zekât + Kurban** hemen — bunlar en risky iki pillar:
+- **Zekât**: `Zakât / Sadaka / İnfak` semantic ayrımı çok hassas; erken hata görünsün
+- **Kurban**: İbrahim-İsmail kıssası ve Nüsuk semantiği; İncil'le paralellik/fark tartışması var
+
+Risk erken çıkarsa pattern revize edilir. Diğer 4 pillar (Oruç, Hac, Zikir, Dua, Tövbe) risky değil.
 
 ---
 
