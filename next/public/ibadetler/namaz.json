@@ -138,7 +138,7 @@
           "layer": "Salavât",
           "descTr": "Peygamber'e salât — 'Muhakkak Allah ve melekleri o peygambere ṣalavât gönderir' (Ahzab 33:56).",
           "descEn": "Blessings upon the Prophet — Al-Aḥzāb 33:56.",
-          "kaynak": "Ahzab 33:56, Îzutsu §4.2 semantik alan",
+          "kaynak": "Ahzab 33:56; Îzutsu, Ethico-Religious Concepts (ṣalāt / ṣalawāt semantik alanı)",
           "claimType": "quran_explicit",
           "confidence": "high"
         },
@@ -1362,9 +1362,9 @@
       "author": "Toshihiko Îzutsu",
       "workTr": "Ethico-Religious Concepts in the Qur'an",
       "workEn": "Ethico-Religious Concepts in the Qur'an",
-      "period": "1959 (McGill yay.)",
-      "noteTr": "Kulluk ('abd') semantic field'ı §3-4. Salât/salavât semantik alanı §4.2. Bu sayfanın 'semantic_inference' etiketli iddialarının modern dilbilimsel omurgası.",
-      "noteEn": "Semantic field of servitude (ʿabd) in §3-4. Ṣalāt/ṣalawāt semantic field in §4.2. Modern linguistic backbone for this page's 'semantic_inference' claims."
+      "period": "1966 (McGill Islamic Studies)",
+      "noteTr": "Kulluk (ʿabd) semantik alanının sistematik incelemesi ile ṣalāt/ṣalawāt bağlamının Kur'ânî-ahlâkî terminoloji içinde konumlandırılması. Bu sayfanın 'semantic_inference' etiketli iddialarının modern dilbilimsel omurgası.",
+      "noteEn": "Systematic analysis of the semantic field of servitude (ʿabd) and its situating of ṣalāt/ṣalawāt within Qur'anic ethico-religious terminology. Modern linguistic backbone for this page's 'semantic_inference' claims."
     }
   ]
 }
