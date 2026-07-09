@@ -8,6 +8,7 @@ import {
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 const TABS = {
   RENKLER:   'renkler',
@@ -2787,6 +2788,16 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
         <ColorsClosing language={language} isMobile={isMobile} />
+
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/yeminler`, titleTr: "Kur'an'ın Yeminleri", titleEn: 'Quranic Oaths', descTr: 'Renkler tabiat sözlüğüdür; yeminler onu vurgular.', descEn: "Colors are nature's lexicon; oaths emphasize them." },
+            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: 'Renklerin doğduğu kâinatın atlası.', descEn: 'Atlas of the universe where colors are born.' },
+            { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre-içi konumu — açılış-kapanış deseni.', descEn: "Colors' surah-position — opening-closing pattern." },
+          ]}
+        />
 
       </div>
     </div>

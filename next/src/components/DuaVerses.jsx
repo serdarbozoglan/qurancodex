@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import { PlayIcon, PauseIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import SurahLink from './SurahLink';
 
 const SURAH_NAMES = [
@@ -531,6 +532,15 @@ export default function DuaVerses({ onClose }) {
               : "This page contains only the supplications drawn directly from the Quran (Adʿiyat al-Qurʾān). For hadith-based litanies, morning/evening adhkār, and broader prayer collections, see classical sources: al-Nawawī, al-Adhkār · Ibn al-Sunnī, ʿAmal al-Yawm wa-al-Layla · Ibn al-Qayyim, al-Wābil al-Ṣayyib."}
           </div>
         )}
+
+        <CrossToolCTA
+          language={language}
+          links={[
+            { href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: "Duaların gramer omurgası: 'Rabbenâ' kalıbı.", descEn: "The grammatical spine of prayer: the 'Rabbanā' formula." },
+            { href: `/${language}/atlas/ibadetler/tovbe`, titleTr: 'Tövbe', titleEn: 'Tawba', descTr: 'Dua ve tövbe: aynı diyaloğun iki yüzü.', descEn: 'Prayer and repentance: two faces of one dialogue.' },
+            { href: `/${language}/atlas/ibadetler`, titleTr: "İbadetlerin Kur'ânî Mimarisi", titleEn: "Qur'anic Architecture of Worship", descTr: 'Duanın 8 sütun içindeki yeri.', descEn: 'Where prayer sits among the 8 pillars.' },
+          ]}
+        />
       </div>
     </div>
   );

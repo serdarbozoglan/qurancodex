@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import PsychologySection from '../sections/PsychologySection';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
@@ -130,6 +131,16 @@ export default function InsanPsikolojisi({ onClose }) {
       <UlemaPsikolojiGrid tr={tr} isMobile={isMobile} />
       <PsikolojikDengeFormulaBox tr={tr} isMobile={isMobile} />
       <YusufIyilesmeArc tr={tr} isMobile={isMobile} />
+
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefis Mertebeleri', titleEn: 'Stations of the Self', descTr: "Kur'ânî 3 + tasavvufî 4 basamak.", descEn: "3 Qur'anic + 4 Sufi stations." },
+          { href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: 'İç dünyanın karanlık kutbu — 7 davranış deseni.', descEn: "The inner world's dark pole — 7 behavioral patterns." },
+          { href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'İçsel vesvesenin dış yüzü.', descEn: 'The outer face of inner whispers.' },
+        ]}
+      />
     </div>
   );
 }

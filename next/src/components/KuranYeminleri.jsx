@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // Tab definitions with mini SVG icons for visual affordance
@@ -452,6 +453,16 @@ export default function KuranYeminleri({ onClose }) {
 
         {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
         <YeminlerClosing language={language} isMobile={isMobile} totalOaths={meta.totalOaths} />
+
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'Yeminlerin ardındaki tabiat: gün, güneç, semâ.', descEn: 'The nature behind the oaths: day, sun, sky.' },
+            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: 'Yemin edilen kâinat — 200+ ayet.', descEn: 'The universe sworn by — 200+ verses.' },
+            { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: 'Yemin bir kanun cümlesidir; hangi kanuna?', descEn: 'An oath is a law-statement; which law?' },
+          ]}
+        />
 
         {/* ── MOBILE BOTTOM LINKS ───────────────────────────────────────── */}
         {isMobile && (

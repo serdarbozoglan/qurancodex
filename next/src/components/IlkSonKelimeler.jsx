@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import { CloseIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
@@ -395,6 +396,16 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
       {activeFilter === 'all' && searchValue.trim().length < 2 && (
         <ClosingSynthesis language={language} isMobile={isMobile} />
       )}
+
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'İlk-son gibi bir tekrar sistemi — 11 renk evreni.', descEn: 'Another recurrence system — 11 color domains.' },
+          { href: `/${language}/arac/mukattaa`, titleTr: 'Mukattaa Harfleri', titleEn: 'Mukaṭṭaʿāt Letters', descTr: "Kur'an'ın en gizemli açılışları.", descEn: "The Quran's most mysterious openings." },
+          { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Açılış ↔ Kapanış mimarisi — büyük ölçek.', descEn: 'Opening ↔ closing architecture — macro scale.' },
+        ]}
+      />
     </div>
   );
 }

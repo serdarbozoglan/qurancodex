@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // Overlay-local fadeUp — used for individual blocks; overlay has no parent stagger container.
@@ -1273,6 +1274,16 @@ export default function IblisSatan({ onClose }) {
           { author: 'et-Taberî',                workTr: 'Câmiu\'l-Beyân',              workEn: 'Jāmiʿ al-Bayān',             period: '839–923 (Âmûl)',      noteTr: '7 sûrenin karşılaştırmalı tefsiri — İblis kıssasının ayrıntıları.', noteEn: 'Comparative commentary on the 7 surahs — details of the Iblis narrative.' },
           { author: 'el-Mâturîdî',              workTr: 'Te\'vîlâtu\'l-Kur\'ân',       workEn: 'Taʾwīlāt al-Qurʾān',         period: '853–944 (Semerkand)', noteTr: 'İblis\'in cin kimliği (Kehf 18:50) — yaratılış ve isyân ilişkisi.', noteEn: 'Iblis\'s jinn identity (Kahf 18:50) — creation and rebellion.' },
           { author: 'İbn Kayyim el-Cevziyye',   workTr: 'İğâsetü\'l-Lehfân',           workEn: 'Ighāthat al-Lahfān',         period: '1292–1350 (Şâm)',     noteTr: 'Şeytan\'ın hile yöntemleri — Kur\'an ve hadis kaynaklı tipoloji.',  noteEn: 'Satan\'s methods of deception — typology from Qurʾan and ḥadīth.' },
+        ]}
+      />
+
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefis Mertebeleri', titleEn: 'Stations of the Self', descTr: 'İçerdeki savaşın haritası.', descEn: 'Map of the inner war.' },
+          { href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: "İblis'in insan yüzü.", descEn: "Iblis's human face." },
+          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'İçsel ekosistem — kalp, nefs, kalp gözü.', descEn: "Inner ecosystem — heart, self, heart's eye." },
         ]}
       />
       </div>

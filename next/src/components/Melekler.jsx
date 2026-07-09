@@ -6,6 +6,7 @@ import { useQuranNav } from '@/hooks/useQuranNav';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -1379,6 +1380,16 @@ export default function Melekler({ onClose }) {
             </>
           )}
         </div>
+
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Resurrection', descTr: "Sûr'u üfleyecek olan İsrâfîl'in sahnesi.", descEn: 'The scene of Isrāfīl who blows the trumpet.' },
+            { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Melekler bu iki mekânın da hâdim ve muhafızları.', descEn: 'Angels are stewards of both realms.' },
+            { href: `/${language}/tefekkur?cat=kozmoloji`, titleTr: 'Kozmoloji & Yaratılış', titleEn: 'Cosmology & Creation', descTr: 'Melekler yaratılışın görünmez katı.', descEn: 'Angels — the invisible layer of creation.' },
+          ]}
+        />
       </div>
     </div>
   );

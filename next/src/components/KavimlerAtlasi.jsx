@@ -7,6 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -333,6 +334,15 @@ export default function KavimlerAtlasi({ onClose }) {
 
         {/* ════ CLOSING — Paradox Synthesis + Cross-tool CTA Strip ════════ */}
         <KavimlerClosing language={language} isMobile={isMobile} totalNations={data.meta.totalMentioned} />
+
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: "Allah'ın toplumsal kanunları — kavimlerin kaderi bunlara uyar.", descEn: "God's social laws — the fate of nations follows them." },
+            { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Proof', descTr: "Arkeoloji, Firavun'un cesedi, Roma kehâneti.", descEn: "Archaeology, Pharaoh's body, Roman prophecy." },
+          ]}
+        />
       </div>
     </div>
   );
