@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import ImpossibleRhythm from '../sections/ImpossibleRhythm';
+import RhythmExtensions from './RhythmExtensions';
 import ToolHeader from './ToolHeader';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
@@ -123,6 +124,9 @@ export default function Ritim({ onClose }) {
 
       {/* Anasayfa ImpossibleRhythm section AYNEN */}
       <ImpossibleRhythm />
+
+      {/* Genişletilmiş: 16 vezin widget + Rahmân 31 refrain */}
+      <RhythmExtensions language={language} isMobile={isMobile} />
     </div>
   );
 }
