@@ -1,0 +1,1090 @@
+{
+  "id": "hac",
+  "titleTr": "Hac",
+  "titleEn": "Ḥajj",
+  "arabicName": "الْحَجّ",
+  "anchorVerse": {
+    "surah": 2,
+    "ayah": 196,
+    "ar": "وَاَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلّٰهِ فَاِنْ اُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ وَلَا تَحْلِقُوا رُؤُسَكُمْ حَتّٰى يَبْلُغَ الْهَدْيُ مَحِلَّهُ   فَمَنْ كَانَ مِنْكُمْ مَرِيضاً اَوْ بِهٓ  اَذًى مِنْ رَأْسِهِ فَفِدْيَةٌ مِنْ صِيَامٍ اَوْ صَدَقَةٍ اَوْ نُسُكٍ فَاِذٓا اَمِنْتُمْ  فَمَنْ تَمَتَّعَ بِالْعُمْرَةِ اِلَى الْحَجِّ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ فَمَنْ لَمْ يَجِدْ فَصِيَامُ ثَلٰثَةِ اَيَّامٍ فِي الْحَجِّ وَسَبْعَةٍ اِذَا رَجَعْتُمْ  تِلْكَ عَشَرَةٌ   كَامِلَةٌ  ذٰلِكَ لِمَنْ لَمْ يَكُنْ اَهْلُهُ حَاضِرِي الْمَسْجِدِ الْحَرَامِ  وَاتَّقُوا اللّٰهَ وَاعْلَمٓوا اَنَّ اللّٰهَ شَدِيدُ الْعِقَابِ",
+    "tr": "Haccı ve umreyi Allah için tamamlayın. Eğer engellenirseniz, kolayınıza gelen bir kurban gönderin; kurban yerine ulaşıncaya kadar başlarınızı tıraş etmeyin.",
+    "en": "Complete the ḥajj and the ʿumra for Allah. If you are prevented, then whatever sacrifice is easy for you (should be offered); and do not shave your heads until the offering reaches its place.",
+    "refTr": "Bakara 2:196",
+    "refEn": "Al-Baqara 2:196"
+  },
+  "hero": {
+    "eyebrowTr": "İBRÂHÎM MİRASI · MEKÂNIN YOLCULUĞU",
+    "eyebrowEn": "ABRAHAMIC HERITAGE · JOURNEY OF PLACE",
+    "subtitleTr": "İbrahim'in yükselttiği taş, bir ümmetin ortak yönü olur — bedenin bir mekâna doğru çekilmesi, kalbin bir sınıra doğru çekilmesidir.",
+    "subtitleEn": "The stone Abraham raised becomes a common orientation for a whole community — the body drawn toward a place is the heart drawn toward a limit."
+  },
+  "claims": [
+    {
+      "claimId": "hac-tamam-lillah-001",
+      "claimType": "kurani-carcive",
+      "confidence": "kesin",
+      "claimTr": "Kur'ân hac ve umreyi 'Allah için tamamlama' emri ile açar; ibadetin adresi baştan belirlenir",
+      "claimEn": "The Qur'an opens with the command to 'complete ḥajj and ʿumra for Allah'; the worship's addressee is set from the start",
+      "refs": [
+        "Bakara 2:196"
+      ],
+      "framingTr": "Bakara 2:196'nın ilk cümlesi ('ve etimmü'l-hacce ve'l-umrete lillâh') haccın niyet ekseninin Kur'ânî tanımıdır — 'lillâh' kelimesi ibadetin yönünü tespit eder."
+    },
+    {
+      "claimId": "hac-farziyet-3-97-001",
+      "claimType": "kurani-carcive",
+      "confidence": "kesin",
+      "claimTr": "Kur'ân hac farziyetini gücü yetenlere tahsis eder; ibadetin sınırı ayette açıkça ('menistetâa ileyhi sebîlâ') kayıt altındadır",
+      "claimEn": "The Qur'an assigns the ḥajj obligation to those who are able; the limit is inscribed in the verse itself ('for whoever is able to find a way')",
+      "refs": [
+        "Âl-i İmrân 3:97"
+      ],
+      "framingTr": "Âl-i İmrân 3:97 haccı 'Allah'ın insanlar üzerindeki hakkı' olarak tanımlarken aynı cümlede 'yol bulabilene' kaydını da yerleştirir. Farz ve şart aynı ayette iner."
+    },
+    {
+      "claimId": "hac-seairullah-takva-001",
+      "claimType": "tefsir-okumasi",
+      "confidence": "yaygin-kabul",
+      "claimTr": "Kur'ân haccın kurban ve nüsük boyutunda amacın 'kan ve et' değil takva olduğunu açıkça bildirir",
+      "claimEn": "The Qur'an explicitly states that in ḥajj's sacrifice and rites the aim is not 'flesh or blood' but taqwā",
+      "refs": [
+        "Hac 22:37"
+      ],
+      "framingTr": "Hac 22:37 kurban bağlamında 'Allah'a onların ne etleri ne de kanları ulaşır; fakat sizden takva ulaşır' der. Ayet nüsük ile kalp arasındaki bağı Kur'ânî bir cümlede toplar."
+    },
+    {
+      "claimId": "hac-refes-fusuk-cidal-001",
+      "claimType": "kurani-carcive",
+      "confidence": "kesin",
+      "claimTr": "Hac ayları belirlenirken içeriye üç yasak yerleştirilir: refes (cinsî yakınlık), fusûk (isyan) ve cidâl (tartışma)",
+      "claimEn": "In the same verse fixing the ḥajj months, three inner prohibitions are laid down: rafath (marital intimacy), fusūq (transgression), and jidāl (dispute)",
+      "refs": [
+        "Bakara 2:197"
+      ],
+      "framingTr": "Bakara 2:197 hacca 'girmiş olanın' dilinden, bedeninden ve tavrından üç Kur'ânî kesilmeyi ister — dış yolculuk iç disipline bağlanır."
+    }
+  ],
+  "genelBakis": {
+    "introTr": "Kur'ân haccı İbrahim'in mirası üzerine kurar: Beyt önce onun elleriyle yükseltilir (Bakara 2:127), sonra 'insanlar arasında hacca çağrı yap' emri onun diline verilir (Hac 22:27). Bakara 2:196 ibadetin niyet eksenini koyar — 'lillâh' (Allah için) tamamlanacak. Bakara 2:197 zaman çerçevesini (eşhur-i ma'lûmât) ve iç disiplini (refes yok, fusûk yok, cidâl yok) çizer. Bakara 2:158 Safâ ve Merve'yi 'Allah'ın şeâirinden' olarak kaydeder; sa'y ibadetin bir hafıza yürüyüşüdür. Hac 22:32-37 kurbanın Kur'ânî amacını açıkça belirler: 'Allah'a et de kan da ulaşmaz — sizden takva ulaşır.' Bakara 2:198-203 Arefe, Meş'ar-i Harâm ve Mina'nın adlarını Kur'ânî coğrafyaya yerleştirir. Âl-i İmrân 3:97 haccı 'gücü yetenler' için farz kılar. Bu ayetlerin birleşimi Kur'ân'da haccı bir bedensel yolculuk değil, İbrahim mirasının kolektif bir yeniden yaşanması olarak tarif eder.",
+    "introEn": "The Qur'an builds the ḥajj upon the heritage of Abraham: the House is first raised by his hands (Baqara 2:127), then the command 'call the people to ḥajj' is placed on his tongue (Ḥajj 22:27). Baqara 2:196 sets the axis of intent — 'lillāh,' completed for Allah. Baqara 2:197 draws the temporal frame (the known months) and the inner discipline (no rafath, no fusūq, no jidāl). Baqara 2:158 records Ṣafā and Marwa as 'among Allah's shaʿāʾir'; the saʿy is a memorial walk. Ḥajj 22:32-37 states the Qur'anic aim of sacrifice plainly: 'neither their flesh nor their blood reaches Allah — what reaches Him from you is taqwā.' Baqara 2:198-203 fixes the names of ʿArafa, al-Mashʿar al-Ḥarām, and Minā within Qur'anic geography. Āl ʿImrān 3:97 makes ḥajj obligatory for those who can. Together, these verses describe ḥajj not as a bodily journey but as the collective re-living of Abraham's heritage.",
+    "keyPoints": [
+      {
+        "titleTr": "İbrahim mirası olarak Beyt",
+        "titleEn": "The House as Abrahamic heritage",
+        "descTr": "Kâbe Kur'ân'da 'insanlar için konulan ilk ev' (Âl-i İmrân 3:96) olarak tanımlanır ve İbrahim ile İsmail'in ellerinde yükseltilir (Bakara 2:127). Klasik tefsir haccın kimlik ekseninin bu kuruluş anına bağlı olduğunu vurgular — hac İbrahim'in dininin hafızasını taşır.",
+        "descEn": "The Kaʿba is defined as 'the first house set up for mankind' (Āl ʿImrān 3:96), raised by the hands of Abraham and Ishmael (Baqara 2:127). Classical exegesis stresses that ḥajj's axis of identity is anchored to this founding moment — ḥajj carries the memory of Abraham's religion."
+      },
+      {
+        "titleTr": "Şeâirullah — Allah'ın işaretleri",
+        "titleEn": "Shaʿāʾir Allāh — Allah's signs",
+        "descTr": "Safâ-Merve (2:158) ve haccın kurbanlıkları (22:32, 22:36) Kur'ân'da 'Allah'ın şeâirinden' olarak nitelendirilir. Şeâir kelimesi 'ilâhî işaret' anlamındadır: bu mekânlar ve nüsükler tek başlarına bir değer taşımaz, Allah'a delalet ettikleri için değerlidirler.",
+        "descEn": "Ṣafā-Marwa (2:158) and the ḥajj offerings (22:32, 22:36) are named 'among Allah's shaʿāʾir.' The word shaʿāʾir means 'divine signs': these places and rites carry no value in themselves but are honored because they point to Allah."
+      },
+      {
+        "titleTr": "Amaç: takva",
+        "titleEn": "The aim: taqwā",
+        "descTr": "Hac 22:37 kurban bağlamında açık cümleyi kurar: 'Ne kanı, ne eti Allah'a ulaşır; O'na sizden takva ulaşır.' Klasik tefsir bu ayetin haccın tüm nüsüklerinin Kur'ânî amacını özetlediğini vurgular — kurban, tavaf, sa'y, telbiye hep aynı iç yönelime bağlanır.",
+        "descEn": "Ḥajj 22:37, in the context of sacrifice, sets down a plain sentence: 'Neither its flesh nor its blood reaches Allah; what reaches Him from you is taqwā.' Classical exegesis reads this as summing up the Qur'anic aim of all ḥajj rites — sacrifice, ṭawāf, saʿy, talbiya all bend to the same inner direction."
+      },
+      {
+        "titleTr": "Ümmet-i vâhide deneyimi",
+        "titleEn": "The experience of one community",
+        "descTr": "Bakara 2:197'nin 'refes yok, fusûk yok, cidâl yok' kaydı ile Bakara 2:198'in 'Rabbinizden bir fazl istemenizde günah yoktur' cümlesi bir arada, haccı hem iç disiplinli hem sosyal olarak açık bir zaman-mekâna yerleştirir. Klasik tefsir bu birleşimin ümmet bilincinin bedende doğduğu an olduğunu belirtir.",
+        "descEn": "The 'no rafath, no fusūq, no jidāl' clause of Baqara 2:197 together with the 'no blame in seeking bounty from your Lord' of 2:198 place ḥajj in a time-space that is at once inwardly disciplined and socially open. Classical exegesis reads this joint framing as the moment when the consciousness of one community is born in the body."
+      }
+    ]
+  },
+  "kuraniIsimler": [
+    {
+      "term": "Ḥajj",
+      "termTr": "Hac",
+      "termEn": "Ḥajj",
+      "ar": "الْحَجّ",
+      "root": "ح ج ج",
+      "kategori": "core-name",
+      "searchTerms": [
+        "الْحَجّ",
+        "حَجّ",
+        "حِجُّ",
+        "يَحُجّ",
+        "حِجَج"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ح ج ج",
+        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json",
+        "displayLabelTr": "~12 (ح ج ج kökü, tüm türevler)",
+        "displayLabelEn": "~12 (root ḥ-j-j, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'kastetme, hedeflenen yere yönelme' anlam alanını kapsar; sayım hac (ibadet), hicce (delil), yıllar (hicec) türevlerini içerir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kastedilen yolculuk",
+          "descTr": "Kök ḥ-j-j 'bir yere kasten yönelmek' demektir. Klasik lugat 'haccehû' fiilini 'bir kimseyi ziyaret etti, kasden ona gitti' olarak açar. İbadet adı olarak hac 'Beyt'e kasten yönelme' anlamındadır — bedenin bir mekâna doğru bilinçli çekilmesi. Kelime kökü niyet ile hareket arasındaki bağı içerir; hac düşünülmeden yürünen bir yol değildir.",
+          "descEn": "The root ḥ-j-j denotes 'to head deliberately toward a place.' Classical lexicography glosses 'ḥajjahu' as 'he visited him, went to him purposefully.' As a worship name, ḥajj is 'the deliberate turning toward the House' — the body's conscious drawing toward a place. The root binds intent and motion; ḥajj is not a walked path without thought.",
+          "kaynak": "Elmalılı, Bakara 2:196 tefsiri (kök açılımı); Kurtubî aynı ayet"
+        },
+        {
+          "layer": "İbrahim'in ilan ettiği çağrı",
+          "descTr": "Hac 22:27 İbrahim'e 'insanlar arasında hacca çağrı yap' emrini verir. Klasik tefsir bu ayetin haccın Kur'ânî orijinini İbrahim'e bağladığını vurgular — hac ismi Kur'ân'da doğrudan İbrahim'in dilinden yankılanan bir çağrının cevabıdır.",
+          "descEn": "Ḥajj 22:27 gives Abraham the command 'proclaim to the people the ḥajj.' Classical exegesis emphasizes that this verse anchors ḥajj's Qur'anic origin in Abraham — the name 'ḥajj' in the Qur'an is the answer to a call echoing directly from Abraham's tongue.",
+          "kaynak": "Râzî, Hac 22:27 tefsiri"
+        },
+        {
+          "layer": "Farz-ı ayn",
+          "descTr": "Âl-i İmrân 3:97 haccı 'Allah'ın insanlar üzerindeki bir hakkı' olarak koyar ve 'yol bulabilene' (menistetâa ileyhi sebîlâ) kaydını ekler. Klasik dört mezhep bu ayetten haccın farz-ı ayn olduğunu ve gücü yetene ömürde bir kez farz olduğunu istinbat eder.",
+          "descEn": "Āl ʿImrān 3:97 sets ḥajj as 'a right of Allah upon the people,' with the qualifier 'for whoever is able to find a way.' The four classical schools derive from this verse that ḥajj is farḍ ʿayn, obligatory once in a lifetime upon whoever is able.",
+          "kaynak": "Kurtubî, Âl-i İmrân 3:97 tefsiri"
+        }
+      ]
+    },
+    {
+      "term": "ʿUmra",
+      "termTr": "Umre",
+      "termEn": "ʿUmra",
+      "ar": "الْعُمْرَة",
+      "root": "ع م ر",
+      "kategori": "core-name",
+      "searchTerms": [
+        "الْعُمْرَة",
+        "عُمْرَة",
+        "بِعُمْرَةٍ",
+        "اعْتَمَرَ"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ع م ر",
+        "source": "auto",
+        "displayLabelTr": "~4 (umre bağlamı; kök ع م ر çok geniş)",
+        "displayLabelEn": "~4 (ʿumra context; root ʿ-m-r much wider)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kök 'imar etme, uzun ömür, yaşama' anlam alanını kapsar; sayım umre kelimesinin ibadet bağlamındaki kullanımını verir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Ziyaret, imar",
+          "descTr": "Kök ʿ-m-r 'imar etmek, bir yeri ihya etmek' anlamındadır. Umre kelimesi 'ziyaretle bir yeri imar etmek' anlamı taşır; klasik lugatta ibadet için Beyt'i ziyaret 'iʿtimâr' olarak adlandırılır. Bakara 2:196 hac ve umreyi birlikte 'lillâh' tamamlama emrinde birleştirir — iki ibadet aynı adresi paylaşır ama umre zaman kaydından muaftır.",
+          "descEn": "The root ʿ-m-r denotes 'to build up, to bring to life.' The word ʿumra carries 'to enliven a place by visiting'; classical lexicography names visiting the House for worship 'iʿtimār.' Baqara 2:196 joins ḥajj and ʿumra in the same command to complete them 'lillāh' — they share the same address, though ʿumra is exempt from the temporal restriction.",
+          "kaynak": "Kurtubî, Bakara 2:196 tefsiri (umre kelimesinin lugat açılımı); Elmalılı aynı ayet"
+        },
+        {
+          "layer": "Vakitsiz ziyaret",
+          "descTr": "Klasik tefsir haccın belirli aylara (2:197) bağlı iken umrenin yılın her zamanında yapılabileceğinin ayette dolaylı olarak yer aldığını belirtir. Umre 'Beyt'e küçük ziyaret' olarak haccın vakit-sınırından muaf tutulmuştur; bu ayrım Kur'ânî zamanlama sistemi içinde kayıtlıdır.",
+          "descEn": "Classical exegesis notes that while ḥajj is bound to specified months (2:197), ʿumra can be performed at any time of the year, an implicit distinction within the verses. ʿUmra as 'the lesser visit to the House' is exempted from the temporal restriction of ḥajj — a distinction inscribed within the Qur'anic timing system.",
+          "kaynak": "Râzî, Bakara 2:196 tefsiri (hac-umre zamansal ayrımı)"
+        }
+      ]
+    },
+    {
+      "term": "Iḥrām",
+      "termTr": "İhrâm",
+      "termEn": "Iḥrām",
+      "ar": "الْإِحْرَام",
+      "root": "ح ر م",
+      "kategori": "action",
+      "searchTerms": [
+        "حُرُم",
+        "حُرُمَاً",
+        "لَا تَحِلُّوا",
+        "شَعَائِر"
+      ],
+      "occurrenceCount": {
+        "method": "manual-context",
+        "root": "ح ر م",
+        "source": "auto",
+        "displayLabelTr": "~7 (ح ر م kökü, hac ihram bağlamı)",
+        "displayLabelEn": "~7 (root ḥ-r-m, iḥrām context)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kök 'yasaklama, kutsallaştırma' anlam alanını kapsar; ihrâm kelimesi bu adla Kur'ân'da geçmez, kavramın hâli 'ḥurum' (ihramlı haldeyken) olarak Mâide 5:1-2 ve 5:95-96'da yer alır."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kutsallaştırılmış hâl",
+          "descTr": "Kök ḥ-r-m 'yasaklamak, kutsallaştırmak' demektir. İhrâm ismen Kur'ân'da geçmez; ancak 'ihramlı iken' (ve entum ḥurum) ifadesi Mâide 5:1 ve 5:95'te açıkça kullanılır. Klasik tefsir ihrâmı 'kişinin normal olarak helâl olan şeyleri kendi üzerine yasakladığı ibadet hâli' olarak tanımlar — evlilik yaklaşımı, avlanma, kokular ve dikişli giysi ihram halinde yasaklanır.",
+          "descEn": "The root ḥ-r-m means 'to prohibit, to consecrate.' The word iḥrām does not appear as such in the Qur'an, but the phrase 'while you are in iḥrām' (wa antum ḥurum) is explicit in Māʾida 5:1 and 5:95. Classical exegesis defines iḥrām as 'the worship state in which one consecrates upon oneself things ordinarily permitted' — marital approach, hunting, perfumes and sewn garments are all prohibited within it.",
+          "kaynak": "Kurtubî, Mâide 5:1 tefsiri (ihram kavramı); Râzî aynı ayet"
+        },
+        {
+          "layer": "Bakara 2:197 içindeki üç yasak",
+          "descTr": "Bakara 2:197 'hacca girmiş olan'a üç Kur'ânî yasak koyar: refes (cinsî yakınlık ve müstehcen söz), fusûk (isyan) ve cidâl (tartışma). Klasik tefsir bu üç yasağı ihram halinin iç omurgası olarak okur — dış giysi değişikliği (dikişsiz iki parça) ancak bu iç yasakların bir habercisi olarak anlam kazanır.",
+          "descEn": "Baqara 2:197 places three Qur'anic prohibitions upon 'the one who has entered ḥajj': rafath (marital approach and lewd speech), fusūq (transgression), and jidāl (quarrel). Classical exegesis reads these three as the inner spine of the iḥrām state — the outer change of garment (two unsewn cloths) only carries meaning as a herald of these inner prohibitions.",
+          "kaynak": "Râzî, Bakara 2:197 tefsiri (üç yasak okuması)"
+        }
+      ]
+    },
+    {
+      "term": "Ṭawāf",
+      "termTr": "Tavâf",
+      "termEn": "Ṭawāf",
+      "ar": "الطَّوَاف",
+      "root": "ط و ف",
+      "kategori": "action",
+      "searchTerms": [
+        "طَوَّاف",
+        "الطَّائِفِين",
+        "لْيَطَّوَّفُوا",
+        "طَوَّافُون"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ط و ف",
+        "source": "auto",
+        "displayLabelTr": "~8 (ط و ف kökü, tavaf ve dönme bağlamı)",
+        "displayLabelEn": "~8 (root ṭ-w-f, ṭawāf and encircling)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'etrafında dönme, dolaşma' anlam alanını kapsar; sayım tâif (dolaşan) ve tavafın tüm türevlerini içerir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Beyt'in etrafında dönme",
+          "descTr": "Kök ṭ-w-f 'bir şeyin etrafında dönmek' anlamındadır. Bakara 2:125 İbrahim ve İsmail'e 'Beyt'imi tâifler (dönenler), âkifler (kalanlar) ve rükû-sücûd edenler için temizleyin' der; ayet tavafın Kur'ânî çerçevesini İbrahim'in görevine bağlar. Hac 22:29 haccın nüsüklerinden birini 'Beyt-i Atîk'i tavaf' olarak koyar.",
+          "descEn": "The root ṭ-w-f denotes 'to circle around a thing.' Baqara 2:125 addresses Abraham and Ishmael: 'purify My House for those who circle it (ṭāʾifīn), those who stay (ʿākifīn), and those who bow and prostrate'; the verse binds ṭawāf's Qur'anic frame to Abraham's task. Ḥajj 22:29 places 'circling the Ancient House' as one of the rites.",
+          "kaynak": "Kurtubî, Bakara 2:125 tefsiri (tâifler ifadesinin açılımı); Râzî, Hac 22:29"
+        },
+        {
+          "layer": "Sünnet tafsili — yedi devir",
+          "descTr": "Tavafın 'yedi devir' olması Kur'ân'da isimle geçmez; sünnet-i mütevâtireyle sabittir. Klasik dört mezhep bu sayıda ittifak eder. Kur'ânî çerçeve tavafın 'dönme' olduğunu koyar; sünnet 'kaç defa'yı tafsil eder — iki dilin bütünlüğü.",
+          "descEn": "The 'seven circuits' of ṭawāf are not named in the Qur'an; they are established by mutawātir sunnah. The four classical schools are unanimous on this count. The Qur'anic frame sets the act as 'circling'; sunnah details 'how many' — the completeness of the two languages.",
+          "kaynak": "Kurtubî, Hac 22:29 tefsiri (tavaf tafsili)"
+        }
+      ]
+    },
+    {
+      "term": "Saʿy",
+      "termTr": "Sa'y",
+      "termEn": "Saʿy",
+      "ar": "السَّعْي",
+      "root": "س ع ي",
+      "kategori": "action",
+      "searchTerms": [
+        "يَطَّوَّفَ",
+        "الصَّفَا",
+        "الْمَرْوَة",
+        "شَعَائِرِ اللّٰه"
+      ],
+      "occurrenceCount": {
+        "method": "manual-context",
+        "root": "س ع ي",
+        "source": "auto",
+        "displayLabelTr": "1 (Bakara 2:158, Safâ-Merve arasında)",
+        "displayLabelEn": "1 (Al-Baqara 2:158, between Ṣafā and Marwa)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Sa'y ismen Kur'ân'da bu bağlamda 'yattavvefe bihimâ' (o ikisinin arasında dönmesinde) olarak geçer; kök s-ʿ-y çok geniştir (koşma, çalışma) ve sayım hac bağlamına indirgenmiştir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "İki tepe arasında yürüme",
+          "descTr": "Bakara 2:158 Safâ ve Merve'yi 'Allah'ın şeâirinden' olarak koyar ve 'Beyt'i hac veya umre edenin bu ikisinin arasında dönmesinde (yattavvefe) bir günah yoktur' der. Sa'y kelimesi ayette doğrudan geçmez; ancak iki tepe arasında yürüme (koşma) fiili — sonraki tefsirde 'sa'y' olarak isimlendirilen — burada Kur'ânî nüsük olarak sabitlenir.",
+          "descEn": "Baqara 2:158 sets Ṣafā and Marwa 'among Allah's shaʿāʾir' and says 'there is no blame upon one who does ḥajj or ʿumra to the House to go about (yaṭṭawwafa) between the two.' The word saʿy does not appear directly in the verse; but the walking/running between the two hills — later named saʿy in exegesis — is fixed here as a Qur'anic rite.",
+          "kaynak": "Kurtubî, Bakara 2:158 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Hâcer'in hafızası",
+          "descTr": "Klasik tefsir sa'y'ın Kur'ânî orijinini İbrahim'in eşi Hâcer'in oğlu İsmail için su ararken Safâ ile Merve arasında koşmasına bağlar. Bu hafıza doğrudan Kur'ân'da tafsil edilmez; rivayet İbrahim kıssasının kültürel arka planını taşır. Sa'y bu bakımdan 'bir peygamber anasının umudunun tekrarlanması'dır — ibadetin sosyal hafızası kadın figürüne dayanır.",
+          "descEn": "Classical exegesis anchors the Qur'anic origin of the saʿy to Hagar's running between Ṣafā and Marwa in search of water for her son Ishmael. The memory is not detailed in the Qur'an itself; it carries the cultural background of Abraham's narrative. Saʿy, in this sense, is 'the repetition of a prophet-mother's hope' — the worship's social memory rests on a woman's figure.",
+          "kaynak": "Kurtubî, Bakara 2:158 tefsiri (Hâcer rivayeti); Elmalılı aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "ʿArafa",
+      "termTr": "Arefe",
+      "termEn": "ʿArafa",
+      "ar": "عَرَفَات",
+      "root": "ع ر ف",
+      "kategori": "place",
+      "searchTerms": [
+        "عَرَفَات",
+        "عَرَفَٰت"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ع ر ف",
+        "source": "auto",
+        "displayLabelTr": "1 (Bakara 2:198, isim olarak)",
+        "displayLabelEn": "1 (Al-Baqara 2:198, as a name)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Arefe (Arafât) coğrafî bir yer adı olarak Kur'ân'da bir kez, Bakara 2:198'de geçer. Kökün diğer türevleri (marifet, ta'arruf) geniş kullanıma sahiptir; sayım hac vakfesinin adını verir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Vakfe yeri",
+          "descTr": "Bakara 2:198 'Arefe'den (Arafât'tan) döndüğünüzde Meş'ar-i Harâm'ın yanında Allah'ı zikredin' der. Ayet Arefe'nin ismini doğrudan Kur'ânî coğrafyaya yerleştirir; klasik tefsir bu isim geçişinin haccın 'gün'ünü Kur'ânî bir zamana bağladığını vurgular. Arefe günü haccın hac olduğu gündür — Peygamber s.a.v.'in 'el-hacc arafa' (hac Arefe'dir) sözü Kur'ânî bu tesbitin sünnetle tafsilidir.",
+          "descEn": "Baqara 2:198 says 'when you depart from ʿArafāt, remember Allah at al-Mashʿar al-Ḥarām.' The verse places ʿArafa's name directly within Qur'anic geography; classical exegesis stresses that this naming binds the 'day' of ḥajj to a Qur'anic time. The Day of ʿArafa is the day on which ḥajj becomes ḥajj — the Prophet's saying 'al-ḥajj ʿArafa' is the sunnah's detailing of this Qur'anic fixation.",
+          "kaynak": "Kurtubî, Bakara 2:198 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Kök: bilme, tanışma",
+          "descTr": "Kök ʿ-r-f 'bilmek, tanımak' anlamındadır. Klasik lugatta Arefe adının bu köke bağlanmasının iki tefsiri vardır: (1) İbrahim'in Cibril'den nüsükleri 'bilerek öğrendiği' yer; (2) Âdem ile Havvâ'nın birbirini yeniden 'tanıdığı' yer. Her iki okuma da tefsir geleneğinde rivayet düzeyindedir; kesin dil-tarihsel kanıt zayıftır ancak semantik yankı (arefe ↔ bilme, tanıma) Kur'ânî bilgelik yerinin adıyla uyum gösterir.",
+          "descEn": "The root ʿ-r-f denotes 'to know, to recognize.' Classical lexicography offers two derivations for the name ʿArafa: (1) the place where Abraham 'came to know' the rites from Gabriel; (2) the place where Adam and Eve 'recognized' each other again. Both readings remain at the level of narration in the exegetical tradition; strict linguistic-historical evidence is thin, yet the semantic echo (ʿarafa ↔ knowing, recognizing) coheres with the naming of the Qur'anic place of wisdom.",
+          "kaynak": "Kurtubî, Bakara 2:198 tefsiri (isim rivayetleri); Elmalılı aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "al-Mashʿar al-Ḥarām",
+      "termTr": "Meş'ar-i Harâm",
+      "termEn": "al-Mashʿar al-Ḥarām",
+      "ar": "الْمَشْعَرِ الْحَرَام",
+      "root": "ش ع ر / ح ر م",
+      "kategori": "place",
+      "searchTerms": [
+        "الْمَشْعَرِ الْحَرَام",
+        "الْمَشْعَر"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ش ع ر",
+        "source": "auto",
+        "displayLabelTr": "1 (Bakara 2:198, isim olarak)",
+        "displayLabelEn": "1 (Al-Baqara 2:198, as a name)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime bileşik isim olarak Kur'ân'da bir kez geçer. Coğrafî yer olarak Müzdelife'yi tarif eder — klasik tefsirin ittifakı bu yöndedir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kutsal işaret yeri",
+          "descTr": "Kök ş-ʿ-r 'his etmek, farkına varmak' ve 'işaret' anlam alanını kapsar; şeâir kelimesi de aynı kökten gelir. Meş'ar 'işaretin yeri', harâm 'kutsallaşmış' demektir. Bakara 2:198 Arefe'den dönüşte bu yerde Allah'ı zikretmeyi emreder — klasik tefsir bu yerin Müzdelife olduğunda ve ismin 'Allah'ın işaretinin (haccın) yeri' anlamı taşıdığında ittifak eder.",
+          "descEn": "The root sh-ʿ-r spans 'to sense, to be aware' and 'sign'; the word shaʿāʾir also derives from it. Mashʿar means 'the place of the sign,' ḥarām means 'consecrated.' Baqara 2:198 commands remembrance of Allah at this place on return from ʿArafa — classical exegesis is unanimous that this refers to Muzdalifa and that the name carries the sense of 'the place of Allah's sign (of ḥajj).'",
+          "kaynak": "Kurtubî, Bakara 2:198 tefsiri; Râzî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Minā",
+      "termTr": "Mina",
+      "termEn": "Minā",
+      "ar": "مِنى",
+      "root": "-",
+      "kategori": "place",
+      "searchTerms": [
+        "أَيَّامٍ مَعْدُودَات",
+        "فَاذْكُرُوا اللّٰهَ"
+      ],
+      "occurrenceCount": {
+        "method": "manual-context",
+        "root": "-",
+        "source": "manual — kelime Kur'ân'da bu ismle geçmez; kavram 2:203'te tarif edilir",
+        "displayLabelTr": "0 (isim olarak; nüsük yeri Bakara 2:203'te 'sayılı günler'de tarif edilir)",
+        "displayLabelEn": "0 (as a name; the ritual location is described in Al-Baqara 2:203 as 'numbered days')",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Mina yer adı olarak Kur'ân'da geçmez. Bakara 2:203 'sayılı günlerde Allah'ı zikredin' der ve klasik tefsir bu 'sayılı günler'in Mina'da geçen teşrîk günleri olduğunda ittifak eder."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Sayılı günlerin yeri",
+          "descTr": "Bakara 2:203 'Sayılı günlerde (eyyâmen ma'dûdât) Allah'ı zikredin' der. Klasik tefsir bu sayılı günlerin haccın Mina'da geçirdiği teşrîk günleri (kurban bayramının 11, 12 ve 13'ü) olduğunda ittifak eder. Mina Kur'ân'da isimle anılmasa da nüsükün yerine dair Kur'ânî işaret bu ayette yerleşiktir; sünnet ismi ile birlikte yerini tafsil eder.",
+          "descEn": "Baqara 2:203 says 'remember Allah in numbered days.' Classical exegesis is unanimous that these 'numbered days' refer to the tashrīq days spent at Minā (11, 12, and 13 of Dhū al-Ḥijja). Minā is not named in the Qur'an itself; but the Qur'anic pointer to the ritual's location is inscribed here, and the sunnah details the place along with its name.",
+          "kaynak": "Kurtubî, Bakara 2:203 tefsiri; Râzî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Bayt Allāh / al-Kaʿba",
+      "termTr": "Beytullah / Kâbe",
+      "termEn": "Bayt Allāh / al-Kaʿba",
+      "ar": "بَيْتُ اللّٰه / الْكَعْبَة",
+      "root": "ب ي ت / ك ع ب",
+      "kategori": "place",
+      "searchTerms": [
+        "الْكَعْبَة",
+        "الْبَيْت",
+        "الْبَيْتَ الْحَرَام",
+        "الْبَيْتَ الْعَتِيق"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ب ي ت / ك ع ب",
+        "source": "auto",
+        "displayLabelTr": "~15 (Beyt bağlamında haccî kullanım; kelime doğrudan Kâbe olarak 2 kez)",
+        "displayLabelEn": "~15 (House in ḥajj contexts; the word Kaʿba itself twice)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kâbe kelimesi Kur'ân'da iki kez geçer (Mâide 5:95 ve 5:97); Beyt (ev) haccî bağlamlarda çok daha sık kullanılır. Ayrıca 'Beyt-i Harâm', 'Beyt-i Atîk' gibi terkipler de yer alır."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "İlk ev",
+          "descTr": "Âl-i İmrân 3:96 Beyt'i 'insanlar için konulan ilk ev' (evvele beytin vudia li'n-nâs) olarak tanımlar; Mekke'de olduğu ve mübarek olduğu aynı ayette bildirilir. Klasik tefsir bu ifadenin Beyt'in tarihsel önceliğini değil, insanlığın Allah'a yönelme tarihinin bu evle başladığını anlattığını vurgular.",
+          "descEn": "Āl ʿImrān 3:96 defines the House as 'the first house set up for mankind' (awwala baytin wuḍiʿa li-l-nās), stating in the same verse that it is in Bakka and is blessed. Classical exegesis reads this as pointing not merely to the historical priority of the House but to the fact that the history of humanity's turning toward Allah begins with this House.",
+          "kaynak": "Kurtubî, Âl-i İmrân 3:96 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Beyt-i Atîk — özgür ev",
+          "descTr": "Hac 22:29 ve 22:33 Beyt'i 'Beyt-i Atîk' (özgür / kadîm ev) olarak isimlendirir. Kök ʿ-t-q hem 'eski' hem 'köleliğinden kurtarılmış' anlamları taşır. Klasik tefsir her iki okumayı da nakleder: (1) yeryüzünün en eski ibadet evi; (2) hiçbir zorbanın mülkiyetine geçmemiş, özgür kalmış ev.",
+          "descEn": "Ḥajj 22:29 and 22:33 name the House 'al-Bayt al-ʿAtīq' (the ancient/freed house). The root ʿ-t-q carries both 'old' and 'freed from bondage.' Classical exegesis narrates both readings: (1) the earth's most ancient house of worship; (2) the house that has never fallen into any tyrant's ownership, remaining free.",
+          "kaynak": "Râzî, Hac 22:29 tefsiri (Atîk isminin iki okuması)"
+        }
+      ]
+    },
+    {
+      "term": "Shaʿāʾir Allāh",
+      "termTr": "Şeâir-i Ilâhî",
+      "termEn": "Shaʿāʾir Allāh",
+      "ar": "شَعَائِرُ اللّٰه",
+      "root": "ش ع ر",
+      "kategori": "concept",
+      "searchTerms": [
+        "شَعَائِر",
+        "شَعَائِرِ اللّٰه",
+        "شَعَٓائِر"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ش ع ر",
+        "source": "auto",
+        "displayLabelTr": "~4 (şeâir kelimesi doğrudan)",
+        "displayLabelEn": "~4 (word shaʿāʾir directly)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kelime Kur'ân'da Bakara 2:158, Mâide 5:2, Hac 22:32 ve Hac 22:36'da doğrudan geçer. Sayım tam kelime aramasına dayanır."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "İlâhî işaretler",
+          "descTr": "Kök ş-ʿ-r 'his etmek, farkına varmak' anlamındadır; şeâir 'işaretler' anlamına gelir. Bakara 2:158 Safâ-Merve'yi, Mâide 5:2 haccın yerlerini ve Hac 22:32-36 kurbanlıkları 'Allah'ın şeâiri' olarak sıralar. Klasik tefsir bu kelimenin haccın mekânları ve nüsüklerinin tek başlarına bir kutsallık taşımadığını, Allah'a delalet ettikleri için ta'zim edildiklerini gösterdiğini vurgular.",
+          "descEn": "The root sh-ʿ-r denotes 'to sense, to become aware'; shaʿāʾir means 'signs.' Baqara 2:158 lists Ṣafā-Marwa, Māʾida 5:2 the ḥajj places, and Ḥajj 22:32-36 the sacrificial animals as 'Allah's shaʿāʾir.' Classical exegesis stresses that this word shows the places and rites of ḥajj carry no sanctity in themselves — they are honored because they point to Allah.",
+          "kaynak": "Râzî, Hac 22:32 tefsiri (şeâir kavramının açılımı); Kurtubî aynı ayet"
+        },
+        {
+          "layer": "Ta'zîm ↔ takva",
+          "descTr": "Hac 22:32 şeâiri ta'zîm etmeyi (yüceltmeyi) 'kalplerin takvası' ile bağlar: 'Kim Allah'ın şeâirini yüceltirse — bu kalplerin takvasındandır.' Klasik tefsir bu bağın haccın tüm nüsüklerinin iç ölçüsünü verdiğini vurgular: şeâirin ta'zîmi kalbin takvasında sabit tutulmadıkça 'sadece davranış'a düşer.",
+          "descEn": "Ḥajj 22:32 binds the honoring of the signs to 'the taqwā of hearts': 'whoever honors Allah's shaʿāʾir — this is of the taqwā of hearts.' Classical exegesis reads this as giving the inner measure of all ḥajj rites: the honoring of the signs, unless anchored in the taqwā of the heart, sinks into 'behavior alone.'",
+          "kaynak": "Râzî, Hac 22:32 tefsiri (ta'zîm-takva bağı)"
+        }
+      ]
+    },
+    {
+      "term": "Nusuk",
+      "termTr": "Nüsük",
+      "termEn": "Nusuk",
+      "ar": "النُّسُك",
+      "root": "ن س ك",
+      "kategori": "action",
+      "searchTerms": [
+        "نُسُكاً",
+        "نُسُكِي",
+        "مَنَاسِك",
+        "مَنْسَك"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ن س ك",
+        "source": "auto",
+        "displayLabelTr": "~7 (ن س ك kökü, tüm türevler)",
+        "displayLabelEn": "~7 (root n-s-k, all derivations)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'ibadet, adama, kurban' anlam alanını kapsar; sayım nüsük (kurban), mensek (nüsük yeri) ve menâsik türevlerini içerir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Kurban ve ibadet",
+          "descTr": "Kök n-s-k 'kendini bir şeye adama, ibadet' anlamındadır. Klasik lugatta 'nâsik' 'kendini ibadete adamış kimse' demektir. Bakara 2:196'da 'fe fidyetün min sıyâmin ev sadakatin ev nüsük' ifadesiyle nüsük 'kurban' anlamında kullanılır. En'âm 6:162'de ise İbrahimî bir cümle olarak zirve alır: 'De ki: Şüphesiz namazım, nüsûküm, hayatım ve ölümüm âlemlerin Rabbi Allah içindir.'",
+          "descEn": "The root n-s-k denotes 'devoting oneself to something, worship.' In classical lexicography 'nāsik' means 'one who devotes himself to worship.' In Baqara 2:196, in the phrase 'a ransom of fasting or charity or nusuk,' the word carries the sense of 'sacrifice.' In Anʿām 6:162 it reaches its peak in an Abrahamic sentence: 'Say: my prayer, my nusuk, my life and my death are for Allah, Lord of the worlds.'",
+          "kaynak": "Kurtubî, Bakara 2:196 tefsiri; Râzî, En'âm 6:162"
+        },
+        {
+          "layer": "Menâsik — hac amelleri",
+          "descTr": "Bakara 2:200 hacca 'menâsikinizi bitirdiğinizde' (fe iẕâ ḳaḍaytum menâsikeküm) ifadesiyle atıf yapar. Menâsik nüsükün çoğuludur ve tavaf, sa'y, vakfe, remy, kurban gibi hac amellerini toplu olarak ifade eder. Klasik tefsir bu ifadenin haccın 'birbirini takip eden nüsükler kümesi' olarak Kur'ânî çerçevesini kurduğunu vurgular.",
+          "descEn": "Baqara 2:200 refers to ḥajj with 'when you have finished your rites' (fa idhā qaḍaytum manāsikakum). Manāsik is the plural of nusuk and collectively names the acts of ḥajj — ṭawāf, saʿy, wuqūf, ramy, sacrifice. Classical exegesis stresses that this phrase sets the Qur'anic framework of ḥajj as 'a series of successive rites.'",
+          "kaynak": "Râzî, Bakara 2:200 tefsiri"
+        }
+      ]
+    },
+    {
+      "term": "Hady",
+      "termTr": "Hedy",
+      "termEn": "Hady",
+      "ar": "الْهَدْي",
+      "root": "ه د ي",
+      "kategori": "action",
+      "searchTerms": [
+        "الْهَدْي",
+        "هَدْياً",
+        "بَالِغَ الْكَعْبَة"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ه د ي",
+        "source": "auto",
+        "displayLabelTr": "~5 (hedy bağlamı; kök ه د ي çok geniş)",
+        "displayLabelEn": "~5 (hady context; root h-d-y much wider)",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Kök hem 'hidayet' hem 'hediye/kurban' anlam alanlarını kapsar. Sayım hedy kelimesinin hac bağlamındaki (kurban) kullanımını verir; Bakara 2:196, Mâide 5:2, 5:95, 5:97 ve Feth 48:25'te geçer."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Beyt'e gönderilen kurban",
+          "descTr": "Kök h-d-y hem 'yola iletme' (hidayet) hem 'bir yere gönderme, hediye etme' anlamı taşır. Hedy 'Beyt'e gönderilen kurban' anlamındadır. Bakara 2:196 temettu' hac yapanın kolayına gelen bir hedy'i sunmasını emreder; bulamayan 3+7=10 gün oruç tutar. Klasik tefsir hedy'in maddi ödeme değil, 'ibadetin Beyt'e ulaşan bedensel karşılığı' olduğunu vurgular.",
+          "descEn": "The root h-d-y carries both 'to guide' (hidāya) and 'to send, to make a gift.' Hady means 'the offering sent to the House.' Baqara 2:196 commands the one who does tamattuʿ ḥajj to offer whatever hady is easy for him; whoever cannot fasts 3+7 = 10 days. Classical exegesis stresses that hady is not a monetary payment but 'the bodily counterpart of worship that reaches the House.'",
+          "kaynak": "Kurtubî, Bakara 2:196 tefsiri; Râzî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Rafath / Fusūq / Jidāl",
+      "termTr": "Refes / Fusûk / Cidâl",
+      "termEn": "Rafath / Fusūq / Jidāl",
+      "ar": "الرَّفَث / الْفُسُوق / الْجِدَال",
+      "root": "ر ف ث / ف س ق / ج د ل",
+      "kategori": "state",
+      "searchTerms": [
+        "رَفَث",
+        "فُسُوق",
+        "جِدَال"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "üç kök",
+        "source": "auto",
+        "displayLabelTr": "3 kelime, hac bağlamında bir kez: Bakara 2:197",
+        "displayLabelEn": "3 words, once in ḥajj context: Al-Baqara 2:197",
+        "humanSpotChecked": true,
+        "spotCheckNote": "Üç kelime Bakara 2:197'de yan yana geçer; başka bağlamlarda (rafeṯ Bakara 2:187'de, fusûk-cidâl geniş kullanımda) ayrı yer alır. Buradaki sayım hac özelidir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Hac içinde üç yasak",
+          "descTr": "Bakara 2:197 hac aylarına 'girmiş olanın' üç şeyden kesilmesini emreder: refes (cinsî yakınlık ve müstehcen konuşma), fusûk (Allah'ın çizdiği sınırdan çıkma) ve cidâl (haksız tartışma). Klasik tefsir bu üçlü yasağı haccın 'dış bir yolculuk kadar iç bir disiplin' olduğunun Kur'ânî delili olarak okur. Râzî üçlünün beden (refes), dil (cidâl) ve iman-tavır (fusûk) eksenlerini kapsadığını gösterir — hac tüm insanı çekilir.",
+          "descEn": "Baqara 2:197 commands whoever 'has entered' the ḥajj months to withhold from three things: rafath (marital approach and lewd speech), fusūq (departure from Allah's limits), and jidāl (unjust quarrel). Classical exegesis reads this triad as Qur'anic evidence that ḥajj is 'an inner discipline as much as an outer journey.' Rāzī shows that the triad spans body (rafath), tongue (jidāl), and faith-conduct (fusūq) — the ḥajj withdraws the whole human being.",
+          "kaynak": "Râzî, Bakara 2:197 tefsiri (üç yasak okuması); Kurtubî aynı ayet"
+        }
+      ]
+    },
+    {
+      "term": "Taqwā",
+      "termTr": "Takva",
+      "termEn": "Taqwā",
+      "ar": "التَّقْوٰى",
+      "root": "و ق ي",
+      "kategori": "purpose",
+      "searchTerms": [
+        "التَّقْوٰى",
+        "لَعَلَّكُم تَتَّقُون",
+        "تَقْوَى الْقُلُوب"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "و ق ي",
+        "source": "auto",
+        "displayLabelTr": "~258 (و ق ي kökü, tüm türevler; hacla ilişki 2:197, 22:37)",
+        "displayLabelEn": "~258 (root w-q-y, all derivations; ḥajj-linked 2:197, 22:37)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök 'korunma, sakınma' semantik alanını içerir; sayım tüm türevleri kapsar. Hac bağlamında özellikle Bakara 2:197 ('en hayırlı azık takvadır') ve Hac 22:37 ('takva ulaşır') belirleyicidir."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Haccın azığı",
+          "descTr": "Bakara 2:197 hac ayları bahsinden sonra dikkat çekici bir cümle koyar: 'Azık edinin; hayırlı azık takvadır.' Klasik tefsir bu ifadenin haccın 'yolcunun cebiyle ölçülen bir seyahat' değil, 'takvanın yükseldiği bir yolculuk' olduğunun Kur'ânî tesbitini yaptığını vurgular. Elmalılı 'hac maddî yolculukta manevi azık edinmenin okuludur' der.",
+          "descEn": "Baqara 2:197, after mentioning the ḥajj months, sets down a striking sentence: 'Take provision; and the best provision is taqwā.' Classical exegesis reads this as the Qur'anic fixation that ḥajj is not 'a journey measured by the traveler's purse' but 'a journey in which taqwā rises.' Elmalılı: 'ḥajj is the school in which spiritual provision is gathered on a material journey.'",
+          "kaynak": "Elmalılı, Bakara 2:197 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "layer": "Nüsükün amacı",
+          "descTr": "Hac 22:37 kurban bağlamında cümleyi kurar: 'Allah'a ne etleri ne kanları ulaşır; O'na sizden takva ulaşır.' Îzutsu Ethico-Religious Concepts ölümünde bu ayeti takvanın 'iç bir yönelme' olarak Kur'ânî tesbitinin en açık örneği olarak okur. Nüsük ne yapılıyor değil, hangi kalple yapılıyor sorusuyla Kur'ânî değerini kazanır.",
+          "descEn": "Ḥajj 22:37, in the context of sacrifice, states plainly: 'Neither their flesh nor their blood reaches Allah; what reaches Him from you is taqwā.' Īzutsu, in Ethico-Religious Concepts (takvâ semantik alanı), reads this verse as the clearest Qur'anic fixing of taqwā as an 'inner turning.' The rite gains its Qur'anic value not from what is done but from the heart with which it is done.",
+          "kaynak": "Râzî, Hac 22:37 tefsiri; Îzutsu, Ethico-Religious Concepts (taqwā semantik alanı)"
+        }
+      ]
+    }
+  ],
+  "anaPasajlar": {
+    "ayetler": [
+      {
+        "ref": "Bakara 2:196",
+        "ar": "وَاَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلّٰهِ فَاِنْ اُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ وَلَا تَحْلِقُوا رُؤُسَكُمْ حَتّٰى يَبْلُغَ الْهَدْيُ مَحِلَّهُ   فَمَنْ كَانَ مِنْكُمْ مَرِيضاً اَوْ بِهٓ  اَذًى مِنْ رَأْسِهِ فَفِدْيَةٌ مِنْ صِيَامٍ اَوْ صَدَقَةٍ اَوْ نُسُكٍ فَاِذٓا اَمِنْتُمْ  فَمَنْ تَمَتَّعَ بِالْعُمْرَةِ اِلَى الْحَجِّ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ فَمَنْ لَمْ يَجِدْ فَصِيَامُ ثَلٰثَةِ اَيَّامٍ فِي الْحَجِّ وَسَبْعَةٍ اِذَا رَجَعْتُمْ  تِلْكَ عَشَرَةٌ   كَامِلَةٌ  ذٰلِكَ لِمَنْ لَمْ يَكُنْ اَهْلُهُ حَاضِرِي الْمَسْجِدِ الْحَرَامِ  وَاتَّقُوا اللّٰهَ وَاعْلَمٓوا اَنَّ اللّٰهَ شَدِيدُ الْعِقَابِ",
+        "tr": "Haccı ve umreyi Allah için tamamlayın. Eğer engellenirseniz, kolayınıza gelen bir kurban gönderin... Kim hac zamanına kadar umre ile faydalanmak isterse, kolayına gelen bir kurban keser. Bulamayan kimse, hac esnasında üç gün, döndüğünüzde yedi gün olmak üzere tam on gün oruç tutar. Bu, ailesi Mescid-i Harâm civarında oturmayanlar içindir.",
+        "en": "Complete the ḥajj and the ʿumra for Allah. If you are prevented, then whatever sacrifice is easy to obtain... Whoever performs ʿumra followed by ḥajj should offer whatever sacrifice is affordable. But whoever cannot afford it should fast three days during ḥajj and seven upon return — that is ten complete days. This is for those whose family is not near Masjid al-Ḥarām.",
+        "not": "Haccın anchor ayeti. İlk cümle ('haccı ve umreyi Allah için tamamlayın') haccın niyet ekseninin Kur'ânî tesbitidir — 'lillâh' kelimesi ibadetin adresini koyar. Ayet aynı nefeste ihsâr (engellenme) durumunu, hastalık kefaretini, temettu' haccının hedy'ini ve hedy bulamayanın 3+7=10 gün oruç ruhsatını yerleştirir. Klasik tefsir bu ayetin bir 'hac fıkhının tohumu' olduğunu vurgular: haccın ana durumlarının Kur'ânî çerçevesi burada iner. Râzî 'tam on' (tilke ʿaşeratun kâmileh) ifadesindeki 'kâmileh' kelimesinin, üç ile yedinin toplamının 'sadece sayı olarak on değil, tam ibadet olarak on' olduğunu belirttiğini gösterir."
+      },
+      {
+        "ref": "Bakara 2:197",
+        "ar": "اَلْحَجُّ اَشْهُرٌ مَعْلُومَاتٌ فَمَنْ فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللّٰهُ وَتَزَوَّدُوا فَاِنَّ خَيْرَ الزَّادِ التَّقْوٰى وَاتَّقُونِ يٓا اُولِي الْاَلْبَابِ",
+        "tr": "Hac malum aylardadır. Kim bu aylarda hacca girmişse, artık hacda refes (cinsî yakınlık), fusûk (isyan) ve cidâl (tartışma) yoktur. Ne hayır işlerseniz Allah onu bilir. Azık edinin; hayırlı azık takvadır. Ey akıl sahipleri, bana karşı gelmekten sakının.",
+        "en": "Ḥajj is in the known months. Whoever undertakes ḥajj therein, no rafath, no fusūq, and no jidāl during ḥajj. Whatever good you do, Allah knows it. Take provision — the best provision is taqwā. So fear Me, O people of understanding.",
+        "not": "Ayet üç şeyi tek nefeste birleştirir: (1) haccın Kur'ânî zaman çerçevesi ('malum aylar' — klasik tefsir bunu Şevval, Zilkade ve Zilhicce'nin ilk on günü olarak yerleştirir); (2) hacda iç disiplin — refes, fusûk, cidâl üçlü yasağı; (3) haccın Kur'ânî azığı olarak takva. Klasik tefsir 'takva azığı' ifadesinin haccın diğer yolculuklardan Kur'ânî farkını çizdiğini vurgular. Râzî 'refes' kelimesinin lugatta hem cinsî yakınlığı hem müstehcen konuşmayı kapsadığını, hac içindeki yasakta bu geniş anlamın kastedildiğini belirtir. 'Fusûk' Allah'ın çizdiği sınırdan çıkma, 'cidâl' haksız-inatçı tartışmadır. Üçlü Kur'ân'da haccın 'iç disiplinini' ismen sabitler."
+      },
+      {
+        "ref": "Bakara 2:158",
+        "ar": "اِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعٓائِرِ اللّٰهِ فَمَنْ حَجَّ الْبَيْتَ اَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ اَنْ يَطَّوَّفَ بِهِمَا وَمَنْ تَطَوَّعَ خَيْراً فَاِنَّ اللّٰهَ شَاكِرٌ عَلِيمٌ",
+        "tr": "Şüphesiz Safâ ile Merve Allah'ın (dininin) işaretlerindendir (şeâirullah). Kim Beyt'i hac veya umre ederse bu ikisi arasında dönmesinde (yattavvefe) bir günah yoktur. Kim gönülden bir hayır işlerse şüphesiz Allah şükrün karşılığını verendir, hakkıyla bilendir.",
+        "en": "Indeed, Ṣafā and Marwa are among the signs of Allah (shaʿāʾir). So whoever makes ḥajj or ʿumra to the House — there is no blame upon him for going between them. And whoever volunteers good — Allah is Grateful, Knowing.",
+        "not": "Sa'y ibadetinin Kur'ânî temel ayeti. Safâ ve Merve iki tepe olarak Kur'ân'da 'Allah'ın şeâirinden' olarak isimlendirilir; şeâir kelimesinin ilk tefsir ekseni burada belirlenir. Klasik tefsir 'bir günah yoktur' ifadesinin nüzul sebebine değinir: bir kısım sahabî iki tepe arasındaki dönmede — cahiliyye bağlamı nedeniyle — bir çekince taşımaktaydı; ayet bunu ortadan kaldırdı ve sa'y Kur'ânî bir nüsük olarak sabitlendi. Kurtubî sa'yın Hâcer'in İsmail için su ararken bu iki tepe arasında koştuğunun hafızasını taşıdığını, ayetin ise nüsükün Kur'ânî çerçevesini kurduğunu vurgular. Elmalılı 'sa'y bir peygamber anasının umudunun tekrarıdır' der."
+      },
+      {
+        "ref": "Bakara 2:125",
+        "ar": "وَاِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِلنَّاسِ وَاَمْناً وَاتَّخِذُوا مِنْ مَقَامِ اِبْرٰهِيمَ مُصَلًّى  وَعَهِدْنٓا اِلٰٓى اِبْرٰهِيمَ وَاِسْمٰعِيلَ اَنْ طَهِّرَا بَيْتِيَ لِلطّٓائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
+        "tr": "Hani Beyt'i insanlar için toplanma yeri ve emniyet mahalli kılmıştık. Siz de İbrahim'in makamından bir namaz yeri edinin. İbrahim ile İsmail'e 'Tavaf edenler (tâifîn), itikâfa girenler (âkifîn) ve rükû-sücûd edenler için evimi temizleyin' diye ahd etmiştik.",
+        "en": "And when We made the House a place of gathering for people and (a place of) security; and take the standing-place of Abraham as a place of prayer. And We covenanted with Abraham and Ishmael: 'Purify My House for those who circle it, those who stay in retreat, and those who bow and prostrate.'",
+        "not": "Kâbe'nin Kur'ânî tanımının ilk ayeti. Üç Kur'ânî unsur: (1) Beyt insanlar için 'toplanma yeri (mesâbe) ve emniyet mahalli (emn)' olarak konulur — hac boyunca bir milyondan fazla insanın barındığı Beyt'in kültürel/hukukî statüsü ayette yerleşiktir; (2) 'İbrahim'in makamı' bir namaz yeri olarak koyulur — Kur'ânî bir mekân-taşı; (3) tavaf, itikâf ve namaz üç bâbı Beyt'in temiz tutulması emrinde toplanır. Râzî 'temiz tutulması' emrinin fiziksel temizliği ve şirkten arınmayı birlikte kapsadığını, İbrahim'in görevinin ikinci boyutunun Kâbe'yi 'putlardan arındırma' misyonu olduğunu vurgular."
+      },
+      {
+        "ref": "Bakara 2:127",
+        "ar": "وَاِذْ يَرْفَعُ اِبْرٰهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَاِسْمٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ",
+        "tr": "Hani İbrahim ile İsmail Beyt'in temellerini yükseltiyor (ve şöyle diyorlardı): 'Rabbimiz, bizden kabul buyur. Şüphesiz sen Semî' (her şeyi işiten) ve Alîm (her şeyi bilen)sin.'",
+        "en": "And when Abraham and Ishmael were raising the foundations of the House (they said): 'Our Lord, accept from us. Indeed, You are the Hearing, the Knowing.'",
+        "not": "Kâbe'nin İbrahimî kuruluş anı. Ayet iki peygamberin — baba ve oğul — birlikte Beyt'in temellerini yükseltişini betimler ve bir duayı çerçeveye alır: 'kabul buyur, bizden.' Klasik tefsir bu duanın ibadetin Kur'ânî iç ruhunu özetlediğini vurgular: iş bittiğinde 'yaptık' değil 'kabul et' denir. Râzî 'temellerin yükseltilmesi' ifadesinin İbrahim'den önce bir zemin temelinin bulunduğunu (Âdem dönemine bağlanan rivayet) ima ettiğini, İbrahim'in Beyt'i 'yeniden inşa' değil 'yükseltme' işini yaptığını klasik tefsirin belirlediğini gösterir. Bu tefsir tarihsel iddia olarak zayıf ancak semantik olarak ayetin fiiline (yerfaʿu — yükseltiyorlar) uygundur."
+      },
+      {
+        "ref": "Bakara 2:128",
+        "ar": "رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِنْ ذُرِّيَّتِنٓا اُمَّةً مُسْلِمَةً لَكَ وَاَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ",
+        "tr": "'Rabbimiz, bizi sana teslim olanlardan (müslim) kıl; soyumuzdan da sana teslim olan bir ümmet çıkar. Bize menâsikimizi göster (erinâ menâsikenâ); bize tövbe nasip et. Şüphesiz sen Tevvâb ve Rahîm'sin.'",
+        "en": "'Our Lord, make us submitters (muslim) to You, and from our descendants a community submitting to You; and show us our rites (arinā manāsikanā); and accept our repentance. Indeed, You are the Accepting of repentance, the Merciful.'",
+        "not": "Ayet 'menâsik' kelimesinin Kur'ân'daki ilk kullanımını taşır. İbrahim ve İsmail Beyt'i yükseltirken 'bize menâsikimizi göster' derler; klasik tefsir bu ifadenin haccın nüsüklerinin (tavaf, sa'y, vakfe, kurban) tanınmasının Kur'ânî orijininin İbrahim'in bu duasında olduğunu belirtir. Râzî bu dua ile Hac 22:27'nin 'insanlar arasında hacca çağrı yap' emrini birlikte okur — birinde nüsükün adı öğrenilir, diğerinde nüsüke çağrı ilan edilir."
+      },
+      {
+        "ref": "Âl-i İmrân 3:96",
+        "ar": "اِنَّ اَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكاً وَهُدًى لِلْعَالَمِينَ",
+        "tr": "Şüphesiz insanlar için kurulan ilk ev (evvele beytin), Mekke'deki (Bekke'deki) mübarek ve âlemlere hidayet olan (Kâbe'dir).",
+        "en": "Indeed, the first house set up for mankind was that in Bakka (Mecca) — blessed and a guidance for the worlds.",
+        "not": "Kâbe'nin Kur'ânî tanıtım ayeti. Üç Kur'ânî nitelendirme: (1) 'insanlar için kurulan ilk ev' — Beyt'in tarihsel önceliği değil, insanlığın Allah'a yönelme tarihinde ilk merkez olduğu; (2) 'mübarek' (bereketli); (3) 'âlemlere hidayet' (hüden lil-ʿâlemîn). Bekke Mekke'nin klasik Kur'ânî ismidir. Klasik tefsir bu ayetin haccın 'insanlığın en eski birleşme yeri' olarak Kur'ânî çerçevesini kurduğunu vurgular."
+      },
+      {
+        "ref": "Âl-i İmrân 3:97",
+        "ar": "فِيهِ اٰيَاتٌ بَيِّنَاتٌ مَقَامُ اِبْرٰهِيمَ وَمَنْ دَخَلَهُ  كَانَ اٰمِناً وَلِلّٰهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ اِلَيْهِ سَبِيلاً وَمَنْ كَفَرَ فَاِنَّ اللّٰهَ غَنِيٌّ عَنِ الْعَالَمِينَ",
+        "tr": "Orada apaçık işaretler ve İbrahim'in makamı vardır. Kim oraya girerse güvende olur. Yol bulabilenin (menistetâa ileyhi sebîlâ) Beyt'i haccetmesi Allah'ın insanlar üzerindeki hakkıdır. Kim inkâr ederse şüphesiz Allah âlemlere muhtaç değildir.",
+        "en": "In it are clear signs and the standing-place of Abraham. Whoever enters it is safe. And ḥajj to the House is a right of Allah upon the people — for whoever is able to find a way. Whoever disbelieves, Allah is independent of the worlds.",
+        "not": "Haccın farziyet ayeti. Ayet dört unsuru toplar: (1) 'apaçık işaretler' — Beyt bölgesindeki Kur'ânî delalet noktaları (Zemzem, İbrahim'in makamı, tavaf çizgisi); (2) 'İbrahim'in makamı' — 2:125'in tekrarı; (3) 'kim girerse güvende olur' — Kâbe bölgesinin dokunulmazlığı (haram); (4) haccın 'yol bulabilene' farz olması. Klasik dört mezhep haccın farz-ı ayn olması ve gücü yetene ömürde bir kez farz olmasını bu ayetten istinbat eder. Kurtubî 'menistetâa ileyhi sebîlâ' (yol bulabilene) kaydının bedensel, mâlî ve yol güvenliği şartlarını kapsadığını klasik ittifak olarak nakleder. Râzî ayetin sonundaki 'kim inkâr ederse' ifadesinin 'kim haccın farz olduğunu inkâr ederse' değil, 'kim haccı terk ederse' anlamı taşıdığını belirtir — farzı ihmal etme küfür yakınlığında sunulur."
+      },
+      {
+        "ref": "Hac 22:26",
+        "ar": "وَاِذْ بَوَّأْنَا لِاِبْرٰهِيمَ مَكَانَ الْبَيْتِ اَنْ لَا تُشْرِكْ بِي شَيْـٔاً وَطَهِّرْ بَيْتِيَ لِلطّٓائِفِينَ وَالْقٓائِمِينَ وَالرُّكَّعِ السُّجُودِ",
+        "tr": "Hani biz İbrahim'e Beyt'in yerini hazırlamış (ve şöyle demiştik): 'Bana hiçbir şeyi ortak koşma; Beyt'imi tavaf edenler, kıyamda duranlar, rükû ve sücûd edenler için temizle.'",
+        "en": "And (mention) when We showed Abraham the place of the House (saying): 'Do not associate anything with Me; and purify My House for those who circle, those who stand, and those who bow and prostrate.'",
+        "not": "Kâbe'nin İbrahim'e Kur'ânî 'tanıtılış' ayeti. 'Bevveenâ' (yeri hazırladık) ifadesi klasik tefsirde iki okumaya sahiptir: (1) İbrahim'e Beyt'in yerini Cebrail göstermiştir; (2) sel ile örtülmüş eski Beyt kalıntıları İbrahim'e keşfettirilmiştir. İkinci rivayet zayıf, birincisi klasik tefsirin ittifakı. Râzî 'Bana hiçbir şeyi ortak koşma' emrinin haccın Kur'ânî esasının tevhid olduğunu ve nüsükün üç kategorisi (tavaf, kıyam, rükû-sücûd) burada zikredildiğini vurgular."
+      },
+      {
+        "ref": "Hac 22:27",
+        "ar": "وَاَذِّنْ فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالاً وَعَلٰى كُلِّ ضَامِرٍ يَأْتِينَ مِنْ كُلِّ فَجٍّ عَمِيقٍ",
+        "tr": "İnsanlar arasında hacca (bir çağrı ile) çağrı yap. Yaya olarak veya her uzak yoldan (gelecek) zayıflamış develer üzerinde sana gelsinler.",
+        "en": "And proclaim to the people the ḥajj — they will come to you on foot and on every lean camel, coming from every distant pass.",
+        "not": "Haccın Kur'ânî 'çağrı'sının verildiği ayet. Emir İbrahim'e yöneliktir; klasik tefsir bu çağrının haccın Kur'ânî orijinini İbrahim'in diline bağladığını vurgular. 'Yaya ve zayıflamış devede uzak yollardan' ifadesi haccın 'gücü yeten herkesin' evrensel bir yolculuğu olduğunu betimler. Elmalılı bu ayetin 'insanlığın Beyt'e yürüyüşünün ilk daveti' olduğunu belirtir."
+      },
+      {
+        "ref": "Hac 22:29",
+        "ar": "ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ",
+        "tr": "Sonra kirlerini gidersinler, adaklarını yerine getirsinler ve Beyt-i Atîk'i (özgür/kadîm evi) tavaf etsinler.",
+        "en": "Then let them end their state of consecration, fulfill their vows, and circle the Ancient House (al-Bayt al-ʿAtīq).",
+        "not": "Haccın nüsüklerinin özet ayeti. Üç Kur'ânî nüsük burada sıralanır: 'kirlerini giderme' (klasik tefsir bunu tıraş, tırnak kesme ve ihram sonrası temizlik olarak açar), 'adaklarını yerine getirme' (kurban ve nezirler), 'Beyt-i Atîk'i tavaf' (ifâde tavafı). Beyt'in 'Atîk' adı Kur'ân'da yalnızca Hac sûresinde (22:29 ve 22:33) geçer; ismin 'özgür/kadîm' iki tefsiri klasik geleneğe aittir."
+      },
+      {
+        "ref": "Hac 22:32",
+        "ar": "ذٰلِكَ وَمَنْ يُعَظِّمْ شَعٓائِرَ اللّٰهِ فَاِنَّهَا مِنْ تَقْوَى الْقُلُوبِ",
+        "tr": "İşte böyle. Kim Allah'ın şeâirini yüceltirse şüphesiz bu kalplerin takvasındandır.",
+        "en": "Thus it is. And whoever honors the signs of Allah — indeed, that is from the taqwā of hearts.",
+        "not": "Şeâir kavramının Kur'ânî içselleştirilmesi. Ayet 'ta'zîm' (yüceltme) fiilini 'kalplerin takvası' ile bağlar — haccın nüsüklerinin dış davranış değil, iç yönelim olduğunun en açık Kur'ânî delili. Râzî bu ayetin haccın tüm rüknünün Kur'ânî iç ölçüsünü verdiğini, ta'zîmin kalpteki karşılığı olmadan nüsüklerin 'sadece hareket'e düştüğünü belirtir. Elmalılı 'kalplerin takvası' ifadesinin 'takva birçok şey olabilir; ama kalbe yerleşen takva şeâiri yücelten takvadır' olarak okur."
+      },
+      {
+        "ref": "Hac 22:36",
+        "ar": "وَالْبُدْنَ جَعَلْنَاهَا لَكُمْ مِنْ شَعٓائِرِ اللّٰهِ لَكُمْ فِيهَا خَيْرٌ فَاذْكُرُوا اسْمَ اللّٰهِ عَلَيْهَا صَوٓافَّ فَاِذَا وَجَبَتْ جُنُوبُهَا فَكُلُوا مِنْهَا وَاَطْعِمُوا الْقَانِـعَ وَالْمُعْتَرَّ  كَذٰلِكَ سَخَّرْنَاهَا لَكُمْ لَعَلَّكُمْ تَشْكُرُونَ",
+        "tr": "Kurbanlık develeri sizin için Allah'ın işaretlerinden (şeâirullah) kıldık; sizin için onlarda hayır vardır. Öyleyse ayakları sıra sıra iken üzerlerine Allah'ın adını anın. Yanları yere düştüğünde onlardan yiyin; kanaat gösteren yoksula da isteyen yoksula da yedirin. Şükretmeniz için onları böylece sizin emrinize verdik.",
+        "en": "We have made the sacrificial camels among Allah's shaʿāʾir; in them is good for you. So mention Allah's name over them while they are lined up. When they fall on their sides, eat of them and feed the contented and the beggar. Thus have We subjected them to you that you may be grateful.",
+        "not": "Kurban ayeti. Beş Kur'ânî unsur: (1) kurbanlıkların 'Allah'ın şeâirinden' olması; (2) Allah'ın adının anılması; (3) ayakların sıra sıra iken (saf saf durmuş halde) tesmiye; (4) etin yenmesi ve yoksula yedirilmesi — kurbanın sosyal boyutu; (5) 'sizin emrinize verdik ki şükredesiniz.' Klasik tefsir kurbanın 'sadece bir kesim' değil, 'bir şeâir eylemi' olduğunu vurgular — Allah'ın adıyla anılıp, sosyal olarak paylaşılan bir ibadet."
+      },
+      {
+        "ref": "Hac 22:37",
+        "ar": "لَنْ يَنَالَ اللّٰهَ لُحُومُهَا وَلَا دِمٓاؤُهَا وَلٰكِنْ يَنَالُهُ التَّقْوٰى مِنْكُمْ  كَذٰلِكَ سَخَّرَهَا لَكُمْ لِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰيكُمْ وَبَشِّرِ الْمُحْسِنِينَ",
+        "tr": "Allah'a onların etleri de kanları da ulaşmaz; fakat sizden takva ulaşır. Böylece onları sizin emrinize verdi ki size hidayet ettiği için Allah'ı yüceltesiniz. Muhsinleri müjdele.",
+        "en": "Neither their flesh nor their blood reaches Allah; but the taqwā from you reaches Him. Thus has He subjected them to you that you may glorify Allah for guiding you. And give good tidings to those who do good.",
+        "not": "Haccın en teolojik yoğunluklu ayeti. Kurbanın Kur'ânî amacının 'et ve kan' değil takva olduğu açıkça bildirilir. Klasik tefsir bu ayetin haccın tüm nüsüklerinin (kurbanla sınırlı değil — tavaf, sa'y, vakfe, remy dahil) Kur'ânî ölçüsünü belirlediğini vurgular. Râzî 'ulaşır' fiilinin Allah'ın 'ihtiyacı olması' anlamı taşımadığını — kelime insanın niyetinin Allah'ın rızasına ulaşmasını gösterir — belirtir. Elmalılı bu ayeti 'Kur'ân'ın nüsük teolojisinin özet cümlesi' olarak nitelendirir. Îzutsu Ethico-Religious Concepts ölümünde bu ayetle 'iç yönelim olarak takva'nın Kur'ânî tespitini örneklendirir."
+      },
+      {
+        "ref": "Bakara 2:198",
+        "ar": "لَيْسَ عَلَيْكُمْ جُنَاحٌ اَنْ تَبْتَغُوا فَضْلاً مِنْ رَبِّكُمْ فَاِذٓا اَفَضْتُمْ مِنْ عَرَفَاتٍ فَاذْكُرُوا اللّٰهَ عِنْدَ الْمَشْعَرِ الْحَرَامِ وَاذْكُرُوهُ كَمَا هَدٰيكُمْ وَاِنْ كُنْتُمْ مِنْ قَبْلِهِ لَمِنَ الضّٓالِّينَ",
+        "tr": "Rabbinizden bir fazl (bereket) istemenizde bir günah yoktur. Arafât'tan (Arefe'den) döndüğünüzde Meş'ar-i Harâm'da Allah'ı zikredin. Sizi size hidayet ettiği gibi O'nu zikredin. Şüphesiz siz bundan önce dalâletteydiniz.",
+        "en": "There is no blame upon you for seeking bounty from your Lord (during ḥajj). And when you depart from ʿArafāt, remember Allah at al-Mashʿar al-Ḥarām. Remember Him as He has guided you, though before that you were of those astray.",
+        "not": "Ayet iki eksende önemli: (1) hac esnasında 'Rabbinden bir fazl istemek' — ticaret ve ekonomik faaliyet — haccın maneviyatına aykırı değildir; klasik tefsir bunu bir 'cahiliyye çekincesinin' kaldırılması olarak okur; (2) Arefe'den Meş'ar-i Harâm'a (Müzdelife) geçiş ayette isimle işaretlenir. İki yer adı Kur'ânî coğrafyaya yerleşir. Râzî 'bundan önce dalâletteydiniz' ifadesinin haccın Kur'ânî hidayetin bedendeki karşılığı olduğunu gösterdiğini belirtir."
+      },
+      {
+        "ref": "Bakara 2:200",
+        "ar": "فَاِذَا قَضَيْتُمْ مَنَاسِكَكُمْ فَاذْكُرُوا اللّٰهَ كَذِكْرِكُمْ اٰبٓاءَكُمْ اَوْ اَشَدَّ ذِكْراً فَمِنَ النَّاسِ مَنْ يَقُولُ رَبَّنٓا اٰتِنَا فِي الدُّنْيَا وَمَا لَهُ فِي الْاٰخِرَةِ مِنْ خَلَاقٍ",
+        "tr": "Menâsikinizi bitirdiğinizde atalarınızı andığınız gibi hattâ ondan daha kuvvetli bir zikirle Allah'ı zikredin. İnsanlardan öylesi vardır ki 'Rabbimiz, bize dünyada ver' der; ahirette ise onun bir nasibi yoktur.",
+        "en": "When you have completed your rites, remember Allah as you used to remember your fathers or with even greater remembrance. Among people is one who says: 'Our Lord, give us in this world' — and there is nothing for him in the Hereafter.",
+        "not": "Menâsikin tamamlanması sonrasına dair ayet. 'Atalarınızı andığınız gibi' ifadesi cahiliyye Arap'ının hac sonrasında ata övgüleri düzenleyen sözlü geleneğine göndermedir; klasik tefsir bu Kur'ânî talebi 'aynı yeri, aynı yoğunlukla, Allah'ın zikri ile doldurun' olarak okur. Ayet sonundaki 'sadece dünyayı isteyen' ile 2:201'deki 'dünyada da ahirette de hasene isteyen' kontrastı hac duasının Kur'ânî örneğidir."
+      },
+      {
+        "ref": "Kasas 28:57",
+        "ar": "وَقَالٓوا اِنْ نَتَّبِـعِ الْهُدٰى مَعَكَ نُتَخَطَّفْ مِنْ اَرْضِنَا اَوَلَمْ نُمَكِّنْ لَهُمْ حَرَماً اٰمِناً يُجْبٰٓى اِلَيْهِ ثَمَرَاتُ كُلِّ شَيْءٍ رِزْقاً مِنْ لَدُنَّا وَلٰكِنَّ اَكْثَرَهُمْ لَا يَعْلَمُونَ",
+        "tr": "Dediler ki: 'Eğer bu hidayete seninle birlikte tabi olursak yurdumuzdan sürülürüz.' Biz onlar için katımızdan bir rızık olarak her şeyin ürünlerinin toplandığı güvenli bir haram (bölge) mekân kılmadık mı? Fakat çokları bilmezler.",
+        "en": "They said: 'If we follow the guidance with you, we would be swept from our land.' Have We not established for them a secure sanctuary (ḥaramun āminun), to which are brought the fruits of all things as provision from Us? But most of them do not know.",
+        "not": "Mekke'nin Kur'ânî 'güvenlik' statüsünün ayeti. 'Haramun âminun' (güvenli haram) ifadesi Kâbe civarının Kur'ânî dokunulmazlığını kayıt altına alır. Klasik tefsir bu ayetin haccın 'güvenlik' boyutunun Kur'ânî temelini oluşturduğunu vurgular: Mekke'ye giren güvendedir, orada avlanmak yasaktır, kan dökülmez. Kureyş 106:1-4 ile birlikte okunduğunda bu güvenliğin Kur'ânî çerçevesi netleşir."
+      }
+    ],
+    "rituelBaglam": [
+      {
+        "ref": "Hac 22:27",
+        "sceneTr": "Klasik tefsir haccın Kur'ânî orijinini iki sahneye bağlar. Birincisi Bakara 2:127: İbrahim ve İsmail Beyt'in temellerini yükseltir. İkincisi Hac 22:27: İbrahim'e 'insanlar arasında hacca çağrı yap' emri verilir. Râzî bu iki ayetin birlikte okunmasının haccın Kur'ânî iki katmanını gösterdiğini belirtir: (1) mekânın kuruluşu — taş yükseltilir; (2) çağrının yayılışı — ses yükseltilir. Klasik rivayet İbrahim'in bir tepeye çıkıp bu çağrıyı yaptığını nakleder; rivayet Kur'ân'da tafsil edilmez, ancak ayetin emri açıktır: hac ismen insanlara ilan edilir."
+      },
+      {
+        "ref": "Bakara 2:125 / Bakara 2:127",
+        "sceneTr": "Kâbe'nin Kur'ânî inşa hafızası iki ayette dokunur. Bakara 2:125 Beyt'i 'insanlar için toplanma yeri ve emniyet mahalli' olarak koyar ve tavaf, itikâf, namaz olan üç kullanım kategorisini İbrahim'in görevine bağlar. Bakara 2:127 ise inşa anını gösterir: 'temelleri yükseltiyor' ve 'kabul buyur' duası. Klasik tefsir Beyt'in Kur'ânî sunumunun tarihsel bir yapı tanıtımı değil, bir 'ibadet ekseninin insana açılışı' olduğunu vurgular. Ayet inşa fiiliyle biterken duayla açılır — ibadet baştan sona bir kabul isteme hâlidir."
+      }
+    ]
+  },
+  "ozelNamazlar": null,
+  "vakitMekan": {
+    "kibleHikayesi": {
+      "titleTr": "Mekân Ekseni — Kâbe'nin Kuruluşu",
+      "titleEn": "The Spatial Axis — The Founding of the Kaʿba",
+      "introTr": "Hac Kur'ân'da hem bir zamana (eşhur-i ma'lûmât) hem bir mekâna (Beyt, Arefe, Meş'ar-i Harâm, Mina) bağlıdır. Bu bölüm mekân eksenini — Kâbe'nin İbrahimî kuruluşunun ayetlerini — açar.",
+      "introEn": "Ḥajj in the Qur'an is bound both to a time (the known months) and to a place (the House, ʿArafa, al-Mashʿar al-Ḥarām, Minā). This section unfolds the spatial axis — the verses of Abraham's founding of the Kaʿba.",
+      "pasaj": [
+        {
+          "ref": "Bakara 2:125",
+          "ar": "وَاِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِلنَّاسِ وَاَمْناً وَاتَّخِذُوا مِنْ مَقَامِ اِبْرٰهِيمَ مُصَلًّى  وَعَهِدْنٓا اِلٰٓى اِبْرٰهِيمَ وَاِسْمٰعِيلَ اَنْ طَهِّرَا بَيْتِيَ لِلطّٓائِفِينَ وَالْعَاكِفِينَ وَالرُّكَّعِ السُّجُودِ",
+          "trShort": "Hani Beyt'i insanlar için toplanma yeri ve emniyet mahalli kılmıştık. İbrahim ile İsmail'e 'Tavaf edenler, itikâfa girenler ve rükû-sücûd edenler için evimi temizleyin' diye ahd etmiştik.",
+          "enShort": "And when We made the House a place of gathering and security. And We covenanted with Abraham and Ishmael to purify My House for those who circle, retreat, and bow-prostrate."
+        },
+        {
+          "ref": "Bakara 2:127",
+          "ar": "وَاِذْ يَرْفَعُ اِبْرٰهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَاِسْمٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ",
+          "trShort": "İbrahim ile İsmail Beyt'in temellerini yükseltiyorlardı: 'Rabbimiz, bizden kabul buyur.'",
+          "enShort": "Abraham and Ishmael were raising the foundations of the House: 'Our Lord, accept from us.'"
+        },
+        {
+          "ref": "Bakara 2:128",
+          "ar": "رَبَّنَا وَاجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِنْ ذُرِّيَّتِنٓا اُمَّةً مُسْلِمَةً لَكَ وَاَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَا اِنَّكَ اَنْتَ التَّوَّابُ الرَّحِيمُ",
+          "trShort": "'Rabbimiz, bize menâsikimizi göster; tövbelerimizi kabul et.'",
+          "enShort": "'Our Lord, show us our rites; accept our repentance.'"
+        },
+        {
+          "ref": "Bakara 2:129",
+          "ar": "رَبَّنَا وَابْعَثْ فِيهِمْ رَسُولاً مِنْهُمْ يَتْلُوا عَلَيْهِمْ اٰيَاتِكَ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ وَيُزَكِّيهِمْ اِنَّكَ اَنْتَ الْعَزِيزُ الْحَكِيمُ",
+          "trShort": "'Rabbimiz, onların arasında kendilerinden bir resul gönder; senin ayetlerini onlara okusun, kitabı ve hikmeti öğretsin, onları arıtsın.'",
+          "enShort": "'Our Lord, and raise up among them a messenger from themselves who will recite Your verses, teach the Book and wisdom, and purify them.'"
+        }
+      ],
+      "aciklamaTr": "Bakara 2:125-129 haccın Kur'ânî 'kuruluş belgesi'dir. Dört ayette dört sahne: (1) Beyt'in insanlar için 'toplanma ve emniyet yeri' olarak yerleştirilmesi (2:125); (2) İbrahim ve İsmail'in temelleri yükseltmesi ve 'kabul et' duası (2:127); (3) 'bize menâsikimizi göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişi (2:128); (4) İbrahim'in son duası: kendi soyundan bir peygamber gönderilmesi (2:129) — klasik tefsir bu duayı Muhammed s.a.v.'in gönderilişinin İbrahimî bir kabulü olarak okur. Elmalılı bu dört ayetin haccın Kur'ânî geçmiş-şimdi-gelecek eksenini tek pasajda topladığını vurgular: geçmiş (Beyt'in kuruluşu), şimdi (menâsikin tanınması), gelecek (peygamberin ümmete gelişi).",
+      "aciklamaEn": "Baqara 2:125-129 is the Qur'anic 'founding document' of ḥajj. Four verses, four scenes: (1) the House placed as 'gathering and security' for people (2:125); (2) Abraham and Ishmael raising the foundations and praying 'accept from us' (2:127); (3) the entry of the ḥajj rites into the Qur'an by name through the prayer 'show us our rites' (2:128); (4) Abraham's final prayer: that a messenger be raised from his own descendants (2:129) — classical exegesis reads this as an Abrahamic reception of Muhammad's mission. Elmalılı stresses that these four verses gather the ḥajj's Qur'anic past-present-future axis into a single passage: past (founding of the House), present (naming of the rites), future (coming of the Prophet)."
+    },
+    "vakitEkseni": {
+      "titleTr": "Vakit Ekseni — 'Eşhur-i Ma'lûmât' (Bakara 2:197)",
+      "titleEn": "The Time Axis — The 'Known Months' (Baqara 2:197)",
+      "introTr": "Kur'ân haccı belirli aylara bağlar: 'el-haccu eşhurun ma'lûmât' (Bakara 2:197). Bu bölüm Kur'ânî vakit ifadelerini ve Arefe gününün Kur'ân'daki adını açar.",
+      "introEn": "The Qur'an binds ḥajj to specified months: 'ḥajj is in the known months' (Baqara 2:197). This section opens the Qur'anic time expressions and the naming of the Day of ʿArafa.",
+      "anaAyet": {
+        "ref": "Bakara 2:197",
+        "ar": "اَلْحَجُّ اَشْهُرٌ مَعْلُومَاتٌ فَمَنْ فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللّٰهُ وَتَزَوَّدُوا فَاِنَّ خَيْرَ الزَّادِ التَّقْوٰى وَاتَّقُونِ يٓا اُولِي الْاَلْبَابِ",
+        "trShort": "Hac malum aylardadır. Kim bu aylarda hacca girmişse, artık hacda refes, fusûk ve cidâl yoktur. Azık edinin; hayırlı azık takvadır.",
+        "enShort": "Ḥajj is in known months. Whoever undertakes ḥajj therein — no rafath, no fusūq, no jidāl. Take provision; the best provision is taqwā."
+      },
+      "sozlukselAcilim": [
+        {
+          "kelime": "أَشْهُرٌ مَعْلُومَات (eşhurun ma'lûmât)",
+          "anlamTr": "'Bilinen (belirli) aylar' — Bakara 2:197'nin haccı belirli bir zamana bağlayan ilk ifadesi. Klasik tefsir 'eşhur-i ma'lûmât'ın hangi aylar olduğunda ittifak eder: Şevval, Zilkade ve Zilhicce'nin ilk on günü (bir kısım tefsire göre tüm Zilhicce). 'Ma'lûmât' kelimesi 'ins tarafından bilinen, sabit hale gelmiş' anlamındadır — cahiliyye Arabı bile hac aylarını bu üç ay olarak biliyordu; Kur'ân bu bilgiyi hükümle sabitler.",
+          "anlamEn": "'Known (fixed) months' — the first expression in Baqara 2:197 binding ḥajj to a specific time. Classical exegesis is unanimous on the months: Shawwāl, Dhū al-Qaʿda, and the first ten of Dhū al-Ḥijja (some hold all of Dhū al-Ḥijja). The word 'maʿlūmāt' means 'known by people, fixed' — even the pre-Islamic Arab knew ḥajj's months as these three; the Qur'an fixes this knowledge by ruling.",
+          "kaynak": "Kurtubî, Bakara 2:197 tefsiri (üç ay ittifakı); Râzî aynı ayet"
+        },
+        {
+          "kelime": "أَيَّامٌ مَعْلُومَات (eyyâmun ma'lûmât)",
+          "anlamTr": "'Bilinen günler' — Hac 22:28'de 'Belli günlerde Allah'ın adını ansınlar' olarak geçer. Klasik tefsir bu ifadenin Zilhicce'nin ilk on gününü kapsadığında ittifak eder ve Arefe gününü (9 Zilhicce) 'bilinen günlerin' zirvesi olarak yerleştirir. 'Ma'lûmât' burada da 'sabit hale gelmiş, bilinen' anlamındadır.",
+          "anlamEn": "'Known days' — appearing in Ḥajj 22:28 as 'that they may mention Allah's name on known days.' Classical exegesis is unanimous that these are the first ten days of Dhū al-Ḥijja, with the Day of ʿArafa (9 Dhū al-Ḥijja) as their apex.",
+          "kaynak": "Kurtubî, Hac 22:28 tefsiri"
+        },
+        {
+          "kelime": "أَيَّامٌ مَعْدُودَات (eyyâmun ma'dûdât)",
+          "anlamTr": "'Sayılı günler' — Bakara 2:203'te 'Sayılı günlerde Allah'ı zikredin' olarak geçer. Klasik tefsir bu ifadenin Kurban Bayramı'nın 11, 12 ve 13'ünü (teşrîk günleri) kapsadığında ittifak eder. Farkın önemi: 'ma'lûmât' Arefe zirvesini içerir, 'ma'dûdât' bayram sonrası günleri işaret eder.",
+          "anlamEn": "'Numbered days' — appearing in Baqara 2:203 as 'remember Allah in numbered days.' Classical exegesis is unanimous that these are the 11th, 12th, and 13th of Dhū al-Ḥijja (the tashrīq days). The importance of the distinction: 'maʿlūmāt' includes the ʿArafa peak; 'maʿdūdāt' points to the post-eid days.",
+          "kaynak": "Râzî, Bakara 2:203 tefsiri"
+        },
+        {
+          "kelime": "عَرَفَات (Arafât)",
+          "anlamTr": "Arefe'nin coğrafî adı. Bakara 2:198 tek bir cümlede 'Arafât'tan (döndüğünüzde) Meş'ar-i Harâm'ın yanında Allah'ı zikredin' der. Arefe günü haccın Kur'ânî 'gün'üdür — Peygamber s.a.v.'in 'el-hacc Arafa' (hac Arefe'dir) sözü ayetin sünnetle tafsilidir. Klasik tefsir Arefe'de öğle-ikindiden gün batımına kadar vakfe yapılmasının sünnetle sabit olduğunu, Kur'ân'ın 'Arefe'den dönüş' ifadesiyle vakfenin varlığını yerleştirdiğini vurgular.",
+          "anlamEn": "The geographic name for ʿArafa. Baqara 2:198 in a single clause says 'when you depart from ʿArafāt, remember Allah at al-Mashʿar al-Ḥarām.' The Day of ʿArafa is the Qur'anic 'day' of ḥajj — the Prophet's 'al-ḥajj ʿArafa' is the sunnah's detailing of the verse. Classical exegesis notes that the wuqūf at ʿArafa from midday to sunset is established by sunnah; the Qur'an secures the wuqūf's existence through the phrase 'departing from ʿArafāt.'",
+          "kaynak": "Kurtubî, Bakara 2:198 tefsiri; Râzî aynı ayet"
+        },
+        {
+          "kelime": "الْمَشْعَرِ الْحَرَام (el-Meş'ar-i Harâm)",
+          "anlamTr": "'Kutsal işaret yeri' — Kur'ân'da bir kez Bakara 2:198'de geçen bileşik isim. Klasik tefsir ittifakla bunun Müzdelife olduğunu belirtir. 'Meş'ar' kelimesi kök ş-ʿ-r'den gelir (his etmek, işaret); 'harâm' kutsallaştırılmış demektir. Kur'ânî bir zikir yeri — Arefe vakfesinden sonra hacılar burada gecelemekte ve Allah'ı zikretmektedir.",
+          "anlamEn": "'The sacred place of the sign' — a compound name appearing once in the Qur'an, in Baqara 2:198. Classical exegesis unanimously identifies this as Muzdalifa. 'Mashʿar' derives from the root sh-ʿ-r (to sense, to sign); 'ḥarām' means 'consecrated.' A Qur'anic place of remembrance — after the wuqūf at ʿArafa, pilgrims spend the night here in the remembrance of Allah.",
+          "kaynak": "Kurtubî, Bakara 2:198 tefsiri (Müzdelife ittifakı)"
+        }
+      ],
+      "notTr": "Modern hac takviminin dakika-hesap detayı (öğle vakti, gün batımı, imsak) Kur'ân'da veya klasik tefsirde geçmez; o hesaplamalar sonraki dönem heyet-fıkıh literatürüne aittir. Ayrıca hac aylarının tarihlendirilmesi hilal görme (rüyet) ile yapıldığı için modern astronomik hesap ile bazı yıllarda küçük farklılıklar olur.",
+      "notEn": "The modern ḥajj calendar's minute-level calculations (noon, sunset, imsāk) do not appear in the Qur'an or classical tafsīr; they belong to later astronomical and legal literature. Since the dating of ḥajj months rests on crescent sighting (ruʾya), some years produce minor differences with modern astronomical calculation."
+    }
+  },
+  "kiraatBoyutu": null,
+  "rakamsalMimari": {
+    "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
+    "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân haccın niyet eksenini (lillâh, Bakara 2:196), zaman çerçevesini (eşhur-i ma'lûmât, 2:197), farziyet şartını (menistetâa, Âl-i İmrân 3:97), üç iç yasağı (refes-fusûk-cidâl, 2:197), nüsükün amacını (takva, Hac 22:37), yerlerini (Beyt, Safâ-Merve, Arefe, Meş'ar-i Harâm, Mina) ve şeâir kavramını (2:158, 22:32) açıkça çizer. Sünnet-i mütevâtire mikat yerlerini, tavafın 7 devrini, sa'yın 7 gidiş-gelişini, ihram türlerini (temettu'/kırân/ifrâd) ve remy sayılarını tafsil eder. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
+    "framingEn": "This section is NOT the claim that 'the Qur'an is deficient and fiqh added to it.' The Qur'an explicitly draws ḥajj's axis of intent (lillāh, Baqara 2:196), its temporal frame (the known months, 2:197), its condition of obligation (whoever is able, Āl ʿImrān 3:97), the three inner prohibitions (rafath-fusūq-jidāl, 2:197), the aim of the rites (taqwā, Ḥajj 22:37), the places (the House, Ṣafā-Marwa, ʿArafa, al-Mashʿar al-Ḥarām, Minā), and the concept of shaʿāʾir (2:158, 22:32). Mutawātir sunnah details the mīqāt stations, the seven circuits of ṭawāf, the seven trips of saʿy, the types of iḥrām (tamattuʿ, qirān, ifrād), and the counts of ramy. They complete each other as an inseparable whole.",
+    "kuraniSide": {
+      "titleTr": "Kur'ân'ın koyduğu ilkeler",
+      "titleEn": "The Qur'an's principles",
+      "points": [
+        {
+          "label": "Amaç ekseni",
+          "value": "Takva (Hac 22:37) + 'lillâh' (Bakara 2:196)",
+          "note": "Kurbanın (ve tüm nüsükün) Kur'ânî amacı 'kan ve et' değil takvadır. Bakara 2:196'nın 'lillâh' kelimesi haccın adresini baştan koyar."
+        },
+        {
+          "label": "Farziyet ve şart",
+          "value": "Âl-i İmrân 3:97 — 'yol bulabilene'",
+          "note": "Hac 'Allah'ın insanlar üzerindeki hakkı' olarak farz kılınırken 'yol bulabilene' kaydıyla sınırlanır. Farz ve şart aynı ayette."
+        },
+        {
+          "label": "Zaman çerçevesi",
+          "value": "Eşhur-i ma'lûmât (2:197) + eyyâmun ma'lûmât (22:28)",
+          "note": "Hac ayları (Şevval, Zilkade, Zilhicce'nin ilk on günü) Kur'ânî terimle sabit; Arefe günü ve teşrîk günleri 'bilinen/sayılı günler' olarak yerleştirilir."
+        },
+        {
+          "label": "İç disiplin",
+          "value": "Üç yasak: refes, fusûk, cidâl (2:197)",
+          "note": "Beden (refes), iman-tavır (fusûk), dil (cidâl) üç eksende ihram halinin iç omurgası. Dış yolculuğun iç karşılığı Kur'ân'da isimle."
+        },
+        {
+          "label": "Yerler",
+          "value": "Beyt, Safâ-Merve, Arefe, Meş'ar-i Harâm",
+          "note": "Kâbe (2:125, 3:96), Safâ-Merve (2:158), Arefe ve Meş'ar-i Harâm (2:198) Kur'ânî coğrafyaya ismen yerleştirilir. Mina 'sayılı günler' bağlamıyla (2:203) dolaylı."
+        },
+        {
+          "label": "Şeâir kavramı",
+          "value": "'Allah'ın işaretleri' (2:158, 22:32)",
+          "note": "Yer ve nüsükler tek başlarına kutsal değil — Allah'a delalet ettikleri için ta'zim edilir. Bu Kur'ânî tesbit haccın anti-fetiş çerçevesini korur."
+        }
+      ]
+    },
+    "sunnetSide": {
+      "titleTr": "Sünnet-i mütevâtirenin tafsili",
+      "titleEn": "Details from mutawātir sunnah",
+      "points": [
+        {
+          "label": "Mikat yerleri",
+          "value": "Beş mikat noktası",
+          "note": "İhrâmın giyileceği coğrafî sınırlar (Zülhuleyfe, Cuhfe, Karn, Yelemlem, Zât-ı Irk) Kur'ân'da isimle geçmez; Peygamber s.a.v.'in sünnetiyle sabittir. Kur'ân ihram halini, sünnet mikat yerini tafsil eder."
+        },
+        {
+          "label": "İhrâm türleri",
+          "value": "Temettu', Kırân, İfrâd",
+          "note": "Bakara 2:196 temettu' haccını Kur'ânî olarak isimle koyar ('men temetteâ bi'l-umrati ile'l-hacc'); üç ihrâm türünün tafsili sünnet ve dört mezhep fıkhında oturur."
+        },
+        {
+          "label": "Hac ayları icması",
+          "value": "Şevval-Zilkade-Zilhicce",
+          "note": "Bakara 2:197 'eşhur-i ma'lûmât' der; hangi aylar olduğu klasik dört mezhep ittifakı ile Şevval, Zilkade ve Zilhicce'nin ilk on günü olarak yerleşir."
+        },
+        {
+          "label": "Tavâf 7 devir",
+          "value": "Sünnet-i mütevâtire",
+          "note": "Hac 22:29 tavafı Kur'ânî nüsük olarak koyar; devir sayısının 7 olması Peygamber s.a.v.'in fiilî sünnetiyle sabittir. Klasik dört mezhep ittifak eder."
+        },
+        {
+          "label": "Sa'y 7 gidiş-geliş",
+          "value": "Sünnet-i mütevâtire",
+          "note": "Bakara 2:158 Safâ-Merve arası dönmeyi Kur'ânî nüsük olarak koyar; 7 gidiş-geliş (dört gidiş, üç dönüş — Safâ'dan başlayıp Merve'de bitmek) sünnetle tafsildir."
+        },
+        {
+          "label": "Remy — cemre taşları",
+          "value": "Sünnet-i mütevâtire",
+          "note": "Mina'daki üç cemreye taş atma nüsükü Kur'ân'da doğrudan isimle geçmez; Peygamber s.a.v.'in sünnetiyle sabittir. Kur'ânî 'sayılı günler' (2:203) çerçevesi bu nüsük için zamansal arka planı verir."
+        }
+      ]
+    },
+    "tensionNote": "Bu tab 'sadece Kur'ân, sünnete gerek yok' söylemine kapı aralamaz. Amaç: Kur'ân'ın haccın mimarisini ne kadar açık koyduğunu VE sünnetin bu mimariyi nasıl doldurduğunu birlikte göstermek. Klasik Ehl-i Sünnet çerçevesi ve dört mezhep uygulaması geçerli; bu sayfa fıkıh kitabı değildir, ibadetin Kur'ânî mimarisini gösterir. Sünnetin tafsilini reddeden yaklaşımlar (Kur'ânîyyûn/Qur'aniyyūn) klasik ulema tarafından reddedilmiştir; bu sayfa böyle bir yaklaşımı temsil etmez."
+  },
+  "peygamberVaryasyonlari": [
+    {
+      "prophet": "İbrahim",
+      "ref": "Bakara 2:125-129 / Hac 22:26-27",
+      "sceneTr": "Haccın Kur'ânî orijini tümüyle İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de İbrahim ve oğlu İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla haccın nüsüklerinin isim olarak Kur'ân'a girişini sağlar. (2) Hac 22:26-27'de İbrahim'e Beyt'in yeri hazırlanır ve 'insanlar arasında hacca çağrı yap' emri verilir. Klasik tefsir bu iki sahnenin haccın Kur'ânî mimarisinin iki taşıyıcısı olduğunu vurgular: taş (Beyt) ve ses (çağrı). Elmalılı 'hac İbrahim'in Kur'ân'da uzatılan kolu, hac aylarında Beyt İbrahim'in namazgâhıdır' der."
+    },
+    {
+      "prophet": "İsmail",
+      "ref": "Bakara 2:127 / Bakara 2:158 (arka plan)",
+      "sceneTr": "İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka planı — klasik tefsir naklinde — İsmail'in su ihtiyacı üzerine annesi Hâcer'in bu iki tepe arasında koşmasıdır. Bu hafıza Kur'ân'da doğrudan tafsil edilmez; klasik tefsir rivayet düzeyinde nakleder. Zemzem geleneği de İsmail'in çocukluk hikâyesine bağlıdır; ancak Zemzem ismi Kur'ân'da geçmez. Kur'ân İsmail'in Beyt kuruluşundaki payını isim vererek, sa'y ve Zemzem hafızasını ise tafsile bırakır."
+    },
+    {
+      "prophet": "Muhammed s.a.v. — Veda Haccı",
+      "ref": "Bakara 2:196-203 / Mâide 5:3 (bağlamı)",
+      "sceneTr": "Peygamber s.a.v.'e ve ümmetine haccın Kur'ânî çerçevesi Bakara 2:196-203'te verilir. Klasik tefsir Bakara 2:196'nın haccın Kur'ânî anayasası olduğunu, 2:197'nin iç disiplinini, 2:198-203'ün ise nüsüklerin coğrafî ve zamansal sırasını (Arefe → Meş'ar-i Harâm → Mina) çizdiğini belirtir. Peygamber s.a.v.'in bir kez yerine getirdiği 'Veda Haccı' (Hicret'in 10. yılı) sünnetin hac uygulamasının Kur'ânî çerçevesini nasıl doldurduğunun canlı örneğidir. Mâide 5:3'ün 'bugün size dininizi ikmal ettim' cümlesi klasik tefsirin ittifakıyla Veda Haccı sırasında Arefe günü inmiştir — hac Kur'ân'ın ikmal ilanının verildiği zaman-mekânıdır."
+    },
+    {
+      "prophet": "Önceki peygamberler (İbrahim öncesi hafıza)",
+      "ref": "Bakara 2:125 (arka plan) / Âl-i İmrân 3:96",
+      "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Âdem döneminden kalma bir yapıdır ve İbrahim onu 'yeniden yükseltmiştir' (Bakara 2:127'nin 'yerfeʿu' fiili bu okumaya uygun düşer). Bu okuma Kur'ân'da tafsil edilmez; klasik tefsirin rivayet düzeyindeki bilgisidir. Râzî bu ayrıntının Kur'ânî bir hüküm taşımadığını, ilkenin ise açık olduğunu belirtir: Beyt insanlığın ilk ibadet ekseni olarak Kur'ân'da yerleşiktir."
+    }
+  ],
+  "icBoyut": [
+    {
+      "titleTr": "Ümmet-i Vâhide — Bir Ümmetin Bedende Doğuşu",
+      "refs": [
+        "Bakara 2:196",
+        "Hac 22:27"
+      ],
+      "descTr": "Hac Kur'ân'ın 'ümmet' kavramını insan bedenine tercüme ettiği zaman-mekândır. Hac 22:27 çağrının 'insanlar arasında' yayılmasını emreder; Bakara 2:196 haccı 'lillâh' (Allah için) tamamlama emri koyar. Farklı diller, farklı renkler, farklı ülkeler bir tek 'lillâh' etrafında birleşir. Klasik tefsir bu birleşmenin haccın Kur'ânî iç boyutlarından biri olduğunu vurgular: iman, günde beş vakit namazda camide yaşanır — hac ayında ise bir milyon insanın aynı taşın etrafında dönmesiyle ümmet bedende doğar. Elmalılı 'hac yılda bir kez müminin ümmetle bedeninde buluştuğu andır' der."
+    },
+    {
+      "titleTr": "Refes / Fusûk / Cidâl'in Terki — İç Sesin Kesilmesi",
+      "refs": [
+        "Bakara 2:197"
+      ],
+      "descTr": "Bakara 2:197 haccın iç disiplinini üç kelime ile çizer: refes yok, fusûk yok, cidâl yok. Klasik tefsir bu üçlünün bedeni, kalbi ve dili aynı anda çekilme talebini içerdiğini belirtir. Refes — cinsî yakınlık ve müstehcen konuşma. Fusûk — Allah'ın sınırından çıkma. Cidâl — kavgacı-inatçı tartışma. Râzî 'hac dış bir yolculuk kadar iç bir çekilmedir; bu üç yasak iç yolculuğun Kur'ânî omurgasıdır' der. İbadetin bu bakımdan derin çelişkisi vardır: hacı fiziken hareket eder ama içeriden 'sükût'a çekilir — dış yolculuk iç sessizliğin okuludur."
+    },
+    {
+      "titleTr": "Takva ile Kalbin Fedakârlığı",
+      "refs": [
+        "Hac 22:37"
+      ],
+      "descTr": "Hac 22:37 kurban bağlamında Kur'ân'ın en yalın cümlelerinden birini kurar: 'Allah'a onların ne etleri ne de kanları ulaşır; O'na sizden takva ulaşır.' Klasik tefsir bu ayeti haccın Kur'ânî iç boyutunun özet ifadesi olarak okur. Râzî 'Allah'ın kanı ete ihtiyacı yoktur — ancak insanın niyetine ihtiyaç vardır; niyet, kanın ulaşabileceği tek şeydir' cümlesiyle özetler. Bu ayet ile kurbanın bir 'kan törenine' düşmesi Kur'ânî olarak önlenir. Elmalılı 'bir hayvan kesilir ama gerçekten kesilen kişinin nefsindeki takvasız haldir' der."
+    },
+    {
+      "titleTr": "Şeâirullah'ı Ta'zîm — Kalplerin Takvası",
+      "refs": [
+        "Hac 22:32"
+      ],
+      "descTr": "Hac 22:32'nin 'Kim Allah'ın şeâirini yüceltirse — bu kalplerin takvasındandır' cümlesi haccın iç boyutunun ikinci Kur'ânî yasa cümlesidir. Şeâir — Safâ-Merve, Beyt, Arefe, kurbanlıklar — Kur'ân'ın 'işaretler' dediği yer ve nüsüklerdir. Klasik tefsir bu ayetin haccın nüsüklerinin puta dönüşmesini önleyen Kur'ânî sigortayı verdiğini belirtir: yer veya nüsükün kendisi kutsal değil; Allah'a delalet ettiği için ta'zim edilir. Râzî 'kalplerin takvası' ifadesinin bir 'iç filtre' olduğunu — şeâirin kalp süzgecinden geçmeden hakiki ta'zim olamayacağını — vurgular."
+    },
+    {
+      "titleTr": "İbrahim Mirası — Kolektif Hafıza",
+      "refs": [
+        "Bakara 2:127",
+        "Hac 22:27"
+      ],
+      "descTr": "Hac Kur'ân'da İbrahim'in Kur'ânî hafızasını taşır. Klasik tefsir hac boyunca yaşananların — taşın etrafında dönme, iki tepe arasında koşma, ayakların altında toz, kurbanın kanı — hepsinin bir peygamber ailesinin (İbrahim, Hâcer, İsmail) bedensel hafızasını tekrar ettiğini vurgular. Râzî 'hac bir peygamber ailesinin hikâyesinin insan bedeninde tekrarlanmasıdır' der. Bu tekrar Kur'ânî bir 'ibret' — geçmişi anmak değil, ondan doğrulmak. Elmalılı 'her hacı kısa bir süre İbrahim gibi durur, Hâcer gibi koşar, İsmail gibi teslim olur' der."
+    },
+    {
+      "titleTr": "Fakir-Zengin Eşitliği — İhramın Sesi",
+      "refs": [
+        "Bakara 2:197"
+      ],
+      "descTr": "İhram dikişsiz iki parça beyaz kumaştır. Sultan da, çoban da, doktor da, işçi de aynı iki parça ile durur. Klasik tefsir bu dış aynılığın Kur'ânî ihram halinin sosyal karşılığı olduğunu belirtir — 'refes yok, fusûk yok, cidâl yok' (2:197) iç ekseni, aynı ihram parçası dış görünürlüğü bir ümmet-bilinci üretir. Râzî 'ihram öldüğünde giyeceğin kefen değil, ölmeden önce giydiğin kefendir' cümlesiyle bu bağı özetler. Hac bir 'ölüm provası'dır; ihram bu provanın kıyafetidir. Sınıf ayrımı bu bakımdan Kur'ânî bir askıya alınıştır — 'takva azıktır' (2:197) cümlesi tam bu askıda dile gelir."
+    },
+    {
+      "titleTr": "Nüsük — Kalbin Teslimiyeti",
+      "refs": [
+        "En'âm 6:162",
+        "Hac 22:36"
+      ],
+      "descTr": "Nüsük kelimesi Kur'ân'da hac amelleri yanında bir zirve cümlede de kullanılır: 'De ki: Şüphesiz namazım, nüsûküm, hayatım ve ölümüm âlemlerin Rabbi Allah içindir' (En'âm 6:162). Klasik tefsir bu ayetin nüsükün Kur'ânî derin anlamını verdiğini vurgular — bir kurban kesiminden fazla, hayat ile ölüm arası her nefesin Allah'a adanmasıdır. Hac 22:36 kurbanı bir 'şeâir eylemi' olarak koyarken bu iç yönelimi somutlaştırır. Elmalılı 'nüsük yaşayabildiğin en yüksek kabul cümlesidir: her şeyimi teslim ettim' der."
+    }
+  ],
+  "insanEtkisi": [
+    {
+      "id": "kuresel-ummet-deneyimi",
+      "titleTr": "Küresel Ümmet Deneyimi — Bedende Doğan İman Birliği",
+      "titleEn": "Global Community Experience — Faith Unity Born in the Body",
+      "refs": [
+        "Hac 22:27"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:27",
+        "trShort": "İnsanlar arasında hacca çağrı yap. Yaya olarak veya her uzak yoldan gelecek zayıflamış develer üzerinde sana gelsinler.",
+        "enShort": "Proclaim to the people the ḥajj — they will come to you on foot and on every lean camel, coming from every distant pass."
+      },
+      "descTr": "Hac 22:27 çağrının 'her uzak yoldan' insana ulaşmasını öngörür. Klasik tefsir bu ifadenin haccın Kur'ânî 'evrensel' boyutunun ilk delili olduğunu belirtir. Ayet aynı zamanda haccın 'bir toplantı olduğunu' Kur'ânî dille kaydeder: yaya gelen, hayvan üstünde gelen, uzaktan gelen — tek bir mekânda buluşur. Bu Kur'ânî çerçeve ümmetin bir 'kavram' olmaktan çıkıp bir 'beden' olarak yaşanmasının zeminini verir. Elmalılı 'hac Kur'ân'ın ümmet kavramının fizikselleştiği andır' der.",
+      "descEn": "Ḥajj 22:27 foresees the call reaching people 'from every distant pass.' Classical exegesis reads this as the first Qur'anic evidence of ḥajj's universal dimension. The verse also records in Qur'anic terms that ḥajj is 'a gathering': the one on foot, the one on a mount, the one from far — all meet in one place. This Qur'anic frame gives ground for the ummah to be lived as a body rather than a concept alone.",
+      "modernIzlerTr": "Modern sosyoloji ve din antropolojisi hac deneyimini 'ritüel-topluluk' (Victor Turner'ın 'communitas' kavramı) çerçevesinde inceler; bu sayfa böyle bir sosyolojik iddiayı Kur'ân'ın ağzına koymaz. Kur'ânî çerçeve pratiği koyar; sosyoloji bu pratiğin insan davranışına etkilerini ayrı bir dilde inceler.",
+      "modernIzlerEn": "Modern sociology and anthropology of religion analyze the ḥajj experience through the frame of 'ritual community' (Victor Turner's 'communitas'); this page does not place such sociological claims into the Qur'an's mouth. The Qur'anic frame sets the practice; sociology examines the practice's effect on human behavior in its own language.",
+      "kaynak": "Elmalılı, Hac 22:27 tefsiri; Kurtubî aynı ayet"
+    },
+    {
+      "id": "ekonomik-dolasim",
+      "titleTr": "Ekonomik Dolaşım — 'Menâfî' Yerlerini' (Hac 22:28)",
+      "titleEn": "Economic Circulation — 'Places of Benefit' (Ḥajj 22:28)",
+      "refs": [
+        "Hac 22:28",
+        "Bakara 2:198"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:28",
+        "trShort": "Ki (hac ile) kendilerine ait menâfî' (yararlar) yerlerine tanık olsunlar ve belli günlerde onlara rızık olarak verdiği hayvanlar üzerinde Allah'ın adını ansınlar.",
+        "enShort": "That they may witness benefits for themselves and mention the name of Allah on known days over the beasts He has provided them."
+      },
+      "descTr": "Hac 22:28'in 'menâfî' yerlerine tanık olsunlar' ifadesi klasik tefsirde dünyevî ve uhrevî yararların birlikte kastedildiği olarak okunur. Bakara 2:198 bunu daha da açar: 'Rabbinizden bir fazl (bereket) istemenizde bir günah yoktur' — hac esnasında ticaretin meşru olduğunu Kur'ânî bir ifadeyle sabitler. Klasik tefsir bunun nüzul sebebini 'bir kısım Arap'ın hac içinde ticareti günah zannetmesi' olarak nakleder; ayet bunu kaldırdı. Kur'ân'da hac böylece bir 'ekonomik dolaşım noktası' olarak da yerleşir — bir milyon insanın buluştuğu yer sadece manevi değil, aynı zamanda ihtiyaç, ticaret ve yardımın dolaşım noktasıdır.",
+      "descEn": "Ḥajj 22:28's 'that they may witness benefits for themselves' is read by classical exegesis as encompassing both worldly and otherworldly benefits. Baqara 2:198 opens this further: 'there is no blame upon you for seeking bounty from your Lord' — the verse fixes in Qur'anic terms the licitness of trade during ḥajj. Classical exegesis narrates the occasion of revelation as some Arabs regarding trade in ḥajj as sinful; the verse removes this. In the Qur'an, ḥajj thereby settles also as a 'point of economic circulation.'",
+      "modernIzlerTr": "Modern ekonomi hac dolaşımının ölçülebilir etkilerini inceler; bu sayfa böyle bir iktisadî iddiayı Kur'ân'ın ağzına koymaz. Kur'ânî çerçeve ticaretin meşruiyetini koyar; modern ekonomi bu meşruiyetin gözlemlenebilir etkilerini ayrı bir dilde inceler.",
+      "modernIzlerEn": "Modern economics studies the measurable effects of ḥajj circulation; this page does not place such economic claims into the Qur'an's mouth. The Qur'anic frame fixes the licitness of trade; modern economics examines its observable effects in its own language.",
+      "kaynak": "Kurtubî, Bakara 2:198 tefsiri (ticaretin meşruiyeti); Râzî, Hac 22:28"
+    },
+    {
+      "id": "mekan-hafiza-bagi",
+      "titleTr": "Mekân-Hafıza Bağı — Taşın Tanıklığı",
+      "titleEn": "Place-Memory Bond — The Stone's Witness",
+      "refs": [
+        "Bakara 2:127",
+        "Âl-i İmrân 3:96-97"
+      ],
+      "anaAyet": {
+        "ref": "Âl-i İmrân 3:96",
+        "trShort": "Şüphesiz insanlar için kurulan ilk ev, Mekke'de olan (Kâbe'dir); mübarek ve âlemlere hidayet olan.",
+        "enShort": "The first house set up for mankind was that in Bakka — blessed and a guidance for the worlds."
+      },
+      "descTr": "Kur'ân haccı bir taşa (Kâbe), iki tepeye (Safâ-Merve), bir düzlüğe (Arafât) ve bir vadiye (Mina) bağlar. Klasik tefsir bu mekân-bağının Kur'ânî hafıza pedagojisinin bir parçası olduğunu belirtir: hafıza mekân üzerinden yeniden yaşanır. Râzî 'yer hafızayı taşır; nüsük mekân olmadan sadece hareket, mekân nüsük olmadan sadece taştır' cümlesi ile bu bağı özetler. Elmalılı 'Kâbe'ye dokunan hacı yalnız taşa dokunmaz — İbrahim'e, İsmail'e, Hâcer'e, bin dört yüzyıllık ümmete dokunur' der. Kur'ân bu tanıklığın (hac 22:28 'menâfî'ne tanık olsunlar') Kur'ânî önemini vurgular.",
+      "descEn": "The Qur'an ties ḥajj to a stone (the Kaʿba), two hills (Ṣafā-Marwa), a plain (ʿArafāt), and a valley (Minā). Classical exegesis reads this place-bond as part of the Qur'an's pedagogy of memory: memory is relived through place. Rāzī: 'place carries memory; rite without place is only motion, place without rite is only stone.' Elmalılı: 'the pilgrim touching the Kaʿba does not touch only stone — he touches Abraham, Ishmael, Hagar, and fourteen centuries of ummah.'",
+      "modernIzlerTr": "Mekân-hafıza bağı modern bellek çalışmalarında (Pierre Nora'nın 'lieux de mémoire' kavramı) yer bulur; bu sayfa bu iki dili özdeşleştirmez. Kur'ânî çerçeve mekân-bağlı hafızayı ibadet olarak kurar; modern bellek çalışmaları başka örneklerde bu bağı inceler.",
+      "modernIzlerEn": "The place-memory bond appears in modern memory studies (Pierre Nora's 'lieux de mémoire'); this page does not equate the two languages. The Qur'anic frame founds place-bound memory as worship; modern memory studies analyze the bond in other examples.",
+      "kaynak": "Râzî, Âl-i İmrân 3:96 tefsiri; Elmalılı aynı ayet"
+    },
+    {
+      "id": "fedakarlik-kulturu",
+      "titleTr": "Fedakârlık Kültürü — Kesilen Kurbanın Sosyal Sesi",
+      "titleEn": "Culture of Sacrifice — The Social Voice of the Slaughtered Offering",
+      "refs": [
+        "Hac 22:36-37"
+      ],
+      "anaAyet": {
+        "ref": "Hac 22:36",
+        "trShort": "Kurbanlıkları sizin için Allah'ın işaretlerinden kıldık; onlarda hayır vardır. Yanları yere düştüğünde onlardan yiyin ve yoksula yedirin.",
+        "enShort": "We have made the sacrificial animals among Allah's signs; in them is good for you. When they fall on their sides, eat of them and feed the poor."
+      },
+      "descTr": "Hac 22:36-37 kurbanın hem şahsî hem sosyal boyutunu tek bir pasajda toplar: 'kendiniz yiyin, yoksula yedirin.' Klasik tefsir bu Kur'ânî talimatın kurbanın bir 'tören' olmaktan çıkıp 'sosyal bir dolaşım'a bağlandığını vurgular. Etin dağıtılması — üç eş parçaya bölme sünneti Peygamber s.a.v.'in tafsilidir — Kur'ânî bir çerçeveye dayanır: fedakârlığın kanı bireysel, eti kolektiftir. Elmalılı 'bir kurban kesilir ama bir cemaat doyurulur' der. Hac böylece bir 'gıda dolaşımı' etiğinin de Kur'ânî tesbitini içerir — modern gıda güvenliği literatürünün karşılığı değil, kendi dilinden kurulmuş bir sosyal etik.",
+      "descEn": "Ḥajj 22:36-37 gathers the personal and social dimensions of sacrifice in one passage: 'eat of them yourselves, and feed the poor.' Classical exegesis stresses that this Qur'anic instruction lifts sacrifice from a 'ceremony' into 'social circulation.' The distribution of meat — the Prophet's threefold split is a sunnah detail — rests on a Qur'anic frame: the blood of sacrifice is individual, the flesh is collective.",
+      "modernIzlerTr": "Modern gıda güvenliği ve yeniden dağıtım (redistribution) etikleri bu bakımdan hac kurbanının pratik uygulamasıyla yüzeysel benzerlikler taşır; bu sayfa iki dili özdeşleştirmez. Kur'ânî çerçeve sosyal dolaşımı ibadetle bağlar; modern etik başka gerekçelerle benzer sonuca ulaşır.",
+      "modernIzlerEn": "Modern food security and redistribution ethics show surface parallels with the ḥajj sacrifice's practical outworking; this page does not equate the two languages. The Qur'anic frame binds social circulation to worship; modern ethics reaches similar outcomes on different grounds.",
+      "kaynak": "Kurtubî, Hac 22:36 tefsiri (kurban etinin dağıtımı); Râzî aynı ayet"
+    },
+    {
+      "id": "zamansal-mekansal-ritim",
+      "titleTr": "Zamansal-Mekânsal Ritim — Yıllık Uyanış",
+      "titleEn": "Temporal-Spatial Rhythm — The Yearly Awakening",
+      "refs": [
+        "Bakara 2:197",
+        "Bakara 2:198-203"
+      ],
+      "anaAyet": {
+        "ref": "Bakara 2:198",
+        "trShort": "Arafât'tan döndüğünüzde Meş'ar-i Harâm'da Allah'ı zikredin.",
+        "enShort": "When you depart from ʿArafāt, remember Allah at al-Mashʿar al-Ḥarām."
+      },
+      "descTr": "Kur'ân hac ayları için hem zaman (eşhur-i ma'lûmât, 2:197) hem mekân (Arefe → Meş'ar-i Harâm → Mina, 2:198-203) sıralı bir ritim çizer. Klasik tefsir bu ritmin haccın 'kolektif takvim' olarak Kur'ânî yerleşimini oluşturduğunu vurgular. Her yıl aynı aylar, aynı yerler, aynı sıra — ümmet aynı ritmi ortak yaşar. Ramazan (Bakara 2:185) yıllık bir 'oruç ayı' olarak müminin yıllık ritmine dikey bir düğüm atarken, hac ayları (özellikle Zilhicce) ümmetin coğrafî-zamansal bir buluşmasını oluşturur. Elmalılı 'oruç yıllık iç ritmi, hac yıllık dış ritmi verir; ikisi Kur'ânî takvimin iki temel düğümüdür' der.",
+      "descEn": "The Qur'an draws for the ḥajj months a rhythm ordered in both time (the known months, 2:197) and place (ʿArafa → al-Mashʿar al-Ḥarām → Minā, 2:198-203). Classical exegesis stresses this rhythm as the Qur'anic settling of ḥajj as a 'collective calendar.' The same months, the same places, the same order each year — the community lives one rhythm together. Ramadan (Baqara 2:185) puts a vertical knot into the believer's yearly inner rhythm; the ḥajj months form the community's geographic-temporal meeting.",
+      "modernIzlerTr": "Modern ritim/döngü çalışmaları (chronobiology, cultural calendars) bu bakımdan hac takviminin insan grubuna etkisini inceler; bu sayfa böyle bir iddiayı Kur'ân'ın ağzına koymaz. Kur'ânî çerçeve ritmi kurar; modern çalışmalar etkiyi ölçer.",
+      "modernIzlerEn": "Modern rhythm/cycle studies (chronobiology, cultural calendars) analyze the ḥajj calendar's effect on human groups; this page does not place such claims into the Qur'an's mouth. The Qur'anic frame founds the rhythm; modern studies measure the effect.",
+      "kaynak": "Elmalılı, Bakara 2:197-198 tefsiri (yıllık ritm okuması); Râzî aynı ayetler"
+    }
+  ],
+  "kaynaklar": [
+    {
+      "author": "Fahruddîn er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "1149-1209 (Rey)",
+      "noteTr": "Hac ayetleri kümesi (Bakara 2:196-203) ve Hac sûresi (22:26-37) için kelâmî ve dilbilimsel derinlik. 'Şeâirullah' kavramının, 'takva ulaşır' cümlesinin ve Kâbe kuruluş ayetlerinin (Bakara 2:125-129) tefsiri bu sayfanın omurgasıdır. Ayrıca Âl-i İmrân 3:97'nin 'menistetâa' kaydı ve 'lillâh' emri üzerine belirleyici okumalar.",
+      "noteEn": "Kalāmī and linguistic depth for the ḥajj-verse cluster (Baqara 2:196-203) and the Ḥajj sūra (22:26-37). His exegesis of the shaʿāʾir Allāh concept, the 'taqwā reaches Him' sentence, and the Kaʿba-founding verses (Baqara 2:125-129) forms this page's spine. Also decisive readings on the 'whoever is able' qualifier in Āl ʿImrān 3:97 and the 'lillāh' command."
+    },
+    {
+      "author": "Kurtubî",
+      "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
+      "period": "1214-1273 (Kurtuba)",
+      "noteTr": "Bakara 2:158'in Safâ-Merve nüsükü ve Hâcer rivayeti, Bakara 2:197'nin 'refes-fusûk-cidâl' üçlüsünün fıkhî tafsili, Bakara 2:198'in ticaretin meşruiyeti ve Arefe-Meş'ar-i Harâm yerleşimi, Hac 22:29'un 'Beyt-i Atîk' isminin iki okuması için birincil referans. Mâide 5:1 ve 5:95'in ihram bağlamı da bu sayfanın ihrâm okumasında merkezîdir.",
+      "noteEn": "Primary reference for the Ṣafā-Marwa rite and the Hagar narration (Baqara 2:158), the fiqhī detailing of the rafath-fusūq-jidāl triad (Baqara 2:197), the licitness of trade and the placement of ʿArafa and al-Mashʿar al-Ḥarām (Baqara 2:198), and the two readings of the name 'al-Bayt al-ʿAtīq' (Ḥajj 22:29). The iḥrām contexts of Māʾida 5:1 and 5:95 are also central to this page's iḥrām reading."
+    },
+    {
+      "author": "Elmalılı Hamdi Yazır",
+      "workTr": "Hak Dini Kur'ân Dili",
+      "workEn": "Ḥaqq Dīnī Qur'ān Dili",
+      "period": "1878-1942 (İstanbul)",
+      "noteTr": "Hac kökünün (ḥ-j-j) lugat açılımı, 'lillâh' emri ile haccın niyet ekseninin okuması (Bakara 2:196), 'takva azığı' cümlesinin pedagojik yorumu (2:197). 'Hac Kur'ân'da uzatılan İbrahim'in kolu' cümlesi ve haccın 'ümmetin yıllık dış ritmi' olarak çerçeveleyen bakışı modern Türk okuyucu için haccın Kur'ânî terminolojisini pedagojik güçle yerleştirir.",
+      "noteEn": "The lexical unfolding of the ḥ-j-j root, the reading of the ḥajj's intent axis via the 'lillāh' command (Baqara 2:196), and the pedagogical interpretation of the 'best provision is taqwā' clause (2:197). Elmalılı's framing of ḥajj as 'the ummah's yearly outer rhythm' settles the Qur'anic terminology of ḥajj with pedagogical force for modern readers."
+    },
+    {
+      "author": "Toshihiko Îzutsu",
+      "workTr": "Ethico-Religious Concepts in the Qur'an",
+      "workEn": "Ethico-Religious Concepts in the Qur'an",
+      "period": "1959 (McGill Islamic Studies)",
+      "noteTr": "Îzutsu (takvâ semantik alanı) bölümünde Hac 22:37'nin 'takva ulaşır' cümlesini takvanın 'iç yönelim' olarak Kur'ânî tesbitinin en açık örneği olarak okur. Ayrıca (şeâir semantik alanı) bölümünde şeâir kavramının Kur'ânî semantik alanının modern dilbilimsel çözümlemesi bu sayfanın 'ta'zîm ↔ kalplerin takvası' okumasının modern omurgasıdır.",
+      "noteEn": "In (takvâ semantik alanı), Īzutsu reads Ḥajj 22:37's 'taqwā reaches Him' as the clearest Qur'anic fixing of taqwā as an 'inner turning.' Also in (şeâir semantik alanı), his modern linguistic analysis of the shaʿāʾir semantic field forms the modern backbone for this page's reading of 'honoring ↔ the taqwā of hearts.'"
+    }
+  ]
+}
