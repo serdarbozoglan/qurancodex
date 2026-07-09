@@ -339,11 +339,11 @@ export const BREAKPOINT_TABLET = 768;
 // Claim taxonomy (spec §5.1): iddiaların epistemolojik tipini görsel olarak ayır.
 // LLM hallüsinasyonuna karşı kullanıcıya "bu iddia hangi düzlemde geliyor" işaret et.
 export const IBADET_CLAIM_TYPE_STYLES = {
-  quran_explicit:     { color: '#22d3ee', labelTr: 'Kur\'ân açık',        labelEn: 'Qur\'an explicit' },
-  quran_semantic:     { color: '#8b5cf6', labelTr: 'Kur\'ân semantik',    labelEn: 'Qur\'an semantic' },
-  tafsir_tradition:   { color: '#d4a574', labelTr: 'Tefsir/siyer',        labelEn: 'Tafsir/sīra' },
-  fiqh_tafsil:        { color: '#2ecc71', labelTr: 'Fıkhî tafsil',        labelEn: 'Fiqh detail' },
-  semantic_inference: { color: '#94a3b8', labelTr: 'Semantik çıkarım',    labelEn: 'Semantic inference' },
+  quran_explicit:     { color: '#22d3ee', labelTr: 'Kur\'ân',      labelEn: 'Qur\'an' },
+  quran_semantic:     { color: '#8b5cf6', labelTr: 'Semantik',     labelEn: 'Semantic' },
+  tafsir_tradition:   { color: '#d4a574', labelTr: 'Tefsir',       labelEn: 'Tafsir' },
+  fiqh_tafsil:        { color: '#2ecc71', labelTr: 'Sünnet',       labelEn: 'Sunnah' },
+  semantic_inference: { color: '#94a3b8', labelTr: 'Çıkarım',      labelEn: 'Inference' },
 };
 
 // Confidence dots — 3 seviye görsel indicator.

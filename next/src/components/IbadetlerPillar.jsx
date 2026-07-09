@@ -20,7 +20,7 @@ import SourcesCitation from './SourcesCitation';
 const TAB_DEFS = [
   { key: 'genel',         titleTr: 'Genel Bakış',       titleEn: 'Overview',           dataKey: 'genelBakis' },
   { key: 'semantik',      titleTr: 'Semantik Alan',     titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
-  { key: 'pasajlar',      titleTr: 'Ana Pasajlar',      titleEn: 'Key Passages',       dataKey: 'anaPasajlar' },
+  { key: 'pasajlar',      titleTr: 'Ana Ayetler',       titleEn: 'Key Verses',         dataKey: 'anaPasajlar' },
   { key: 'ozel-namazlar', titleTr: 'Özel Namazlar',     titleEn: 'Special Prayers',    dataKey: 'ozelNamazlar' },
   { key: 'vakit-mekan',   titleTr: 'Vakit ve Mekân',    titleEn: 'Time and Space',     dataKey: 'vakitMekan' },
   { key: 'kiraat',        titleTr: 'Namazın Sözü',      titleEn: 'The Word of Prayer', dataKey: 'kiraatBoyutu' },
@@ -284,7 +284,7 @@ function PillarHero({ pillarData, language, isMobile }) {
 // ─── Tab body dispatcher ──────────────────────────────────────────────────
 function PillarTabBody({ tabKey, pillarData, language, isMobile }) {
   switch (tabKey) {
-    case 'genel':          return <TabGenel          data={pillarData.genelBakis}              language={language} isMobile={isMobile} />;
+    case 'genel':          return <TabGenel          data={pillarData.genelBakis}              language={language} isMobile={isMobile} pillarData={pillarData} />;
     case 'semantik':       return <TabSemantik       data={pillarData.kuraniIsimler}           language={language} isMobile={isMobile} />;
     case 'pasajlar':       return <TabPasajlar       data={pillarData.anaPasajlar}             language={language} isMobile={isMobile} />;
     case 'ozel-namazlar':  return <TabOzelNamazlar   data={pillarData.ozelNamazlar}            language={language} isMobile={isMobile} />;
@@ -304,72 +304,164 @@ function ClaimTypeBadge({ claimType, confidence, language, small = true }) {
   const style = IBADET_CLAIM_TYPE_STYLES[claimType];
   if (!style) return null;
   const confStyle = IBADET_CONFIDENCE_STYLES[confidence];
+  const confTitle = confidence === 'high' ? 'Yüksek güvenlik' : confidence === 'medium' ? 'Orta güvenlik' : confidence === 'low' ? 'Düşük güvenlik' : '';
   return (
     <span
-      title={confStyle ? `Confidence: ${confidence}` : undefined}
+      title={confTitle || undefined}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '4px',
-        padding: small ? '2px 8px' : '4px 10px',
+        gap: '5px',
+        padding: small ? '3px 9px' : '5px 12px',
         background: `${style.color}18`,
         border: `1px solid ${style.color}55`,
         borderRadius: '10px',
         color: style.color,
         fontSize: small ? '0.62rem' : '0.7rem',
-        fontWeight: 600,
-        letterSpacing: '0.06em',
+        fontWeight: 700,
+        letterSpacing: '0.08em',
         textTransform: 'uppercase',
         whiteSpace: 'nowrap',
         opacity: confStyle?.opacity ?? 1,
+        flexShrink: 0,
       }}
     >
       {language === 'tr' ? style.labelTr : style.labelEn}
-      {confStyle && <span style={{ fontSize: '0.55rem', opacity: 0.7 }}>{confStyle.icon}</span>}
     </span>
   );
 }
 
-// ─── Tab 1: Genel Bakış ───────────────────────────────────────────────────
-function TabGenel({ data, language, isMobile }) {
-  if (!data) return null;
+// ─── Ref chip listesi — comma-separated yerine görsel pill ───────────────
+function RefChips({ refs }) {
+  if (!refs?.length) return null;
   return (
-    <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
+      {refs.map((r, i) => (
+        <span key={i} style={{
+          display: 'inline-flex', alignItems: 'center',
+          padding: '3px 10px',
+          background: 'rgba(212,165,116,0.10)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: '10px',
+          color: COLORS.gold,
+          fontSize: '0.68rem',
+          fontWeight: 600,
+          letterSpacing: '0.08em',
+          whiteSpace: 'nowrap',
+        }}>{r}</span>
+      ))}
+    </div>
+  );
+}
+
+// ─── Tab 1: Genel Bakış ───────────────────────────────────────────────────
+function TabGenel({ data, language, isMobile, pillarData }) {
+  if (!data) return null;
+  const terms = pillarData?.kuraniIsimler ?? [];
+  return (
+    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      {/* Intro paragraph */}
       <p style={{
         fontFamily: FONTS.body,
         color: COLORS.offWhite,
         fontSize: '1.05rem',
         lineHeight: 1.85,
-        marginBottom: '32px',
+        marginBottom: '36px',
       }}>
         {language === 'tr' ? data.introTr : data.introEn}
       </p>
+
+      {/* Semantik Alan Haritası — chip grid (auto-derive from kuraniIsimler) */}
+      {terms.length > 0 && (
+        <div style={{
+          padding: isMobile ? '20px 18px' : '26px 28px',
+          background: 'linear-gradient(135deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: RADIUS.md,
+          marginBottom: '36px',
+        }}>
+          <div style={{
+            display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap',
+            marginBottom: '18px',
+          }}>
+            <div style={{
+              color: COLORS.gold, fontSize: '0.72rem',
+              letterSpacing: '0.2em', textTransform: 'uppercase',
+              opacity: 0.85, fontWeight: 700,
+            }}>{language === 'tr' ? 'Semantik Alan Haritası' : 'Semantic Field Map'}</div>
+            <div style={{
+              color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.7,
+            }}>{language === 'tr' ? `${terms.length} terim` : `${terms.length} terms`}</div>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            {terms.map((t, i) => (
+              <div key={i} style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '6px 12px 6px 10px',
+                background: 'rgba(255,255,255,0.04)',
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: '999px',
+                transition: 'background 0.15s',
+              }}>
+                <span style={{
+                  fontFamily: FONTS.quran, color: COLORS.gold,
+                  fontSize: '1rem', direction: 'rtl', lineHeight: 1,
+                }} lang="ar">{t.ar}</span>
+                <span style={{
+                  color: COLORS.offWhite, fontSize: '0.78rem',
+                  fontWeight: 600, letterSpacing: '0.02em',
+                }}>{t.term}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Key Points — numbered visual cards */}
       {(data.keyPoints ?? []).length > 0 && (
-        <div style={{ display: 'grid', gap: '16px' }}>
+        <div style={{
+          display: 'grid', gap: '14px',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(340px, 1fr))',
+        }}>
           {data.keyPoints.map((kp, i) => (
             <div key={i} style={{
-              padding: '20px 24px',
+              display: 'flex', gap: '16px',
+              padding: '20px 22px',
               border: `1px solid ${COLORS.glassBorderSoft}`,
               borderRadius: RADIUS.md,
               background: 'rgba(255,255,255,0.03)',
+              alignItems: 'flex-start',
             }}>
-              <h3 style={{
+              <div style={{
+                flexShrink: 0,
+                width: '32px', height: '32px',
+                borderRadius: '50%',
+                background: COLORS.goldAlpha15,
+                border: `1px solid ${COLORS.goldAlpha25}`,
                 color: COLORS.gold,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.display,
-                fontSize: '1.05rem',
-                margin: '0 0 8px',
-                fontWeight: 700,
-              }}>
-                {language === 'tr' ? kp.titleTr : kp.titleEn}
-              </h3>
-              <p style={{
-                color: COLORS.offWhite,
-                margin: 0,
-                fontSize: '0.95rem',
-                lineHeight: 1.75,
-              }}>
-                {language === 'tr' ? kp.descTr : kp.descEn}
-              </p>
+                fontSize: '0.95rem', fontWeight: 700,
+              }}>{i + 1}</div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h3 style={{
+                  color: COLORS.gold,
+                  fontFamily: FONTS.display,
+                  fontSize: '1.05rem',
+                  margin: '0 0 8px',
+                  fontWeight: 700,
+                }}>
+                  {language === 'tr' ? kp.titleTr : kp.titleEn}
+                </h3>
+                <p style={{
+                  color: COLORS.offWhite,
+                  margin: 0,
+                  fontSize: '0.92rem',
+                  lineHeight: 1.7,
+                }}>
+                  {language === 'tr' ? kp.descTr : kp.descEn}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -477,7 +569,7 @@ function SemanticTermCard({ term, language, isMobile }) {
   );
 }
 
-// ─── Tab 3: Ana Pasajlar + Ritüel Bağlam ─────────────────────────────────
+// ─── Tab 3: Ana Ayetler + Bağlam Ayetleri ────────────────────────────────
 function TabPasajlar({ data, language, isMobile }) {
   if (!data) return null;
   const { ayetler = [], rituelBaglam = [] } = data;
@@ -511,7 +603,7 @@ function TabPasajlar({ data, language, isMobile }) {
             fontSize: '0.72rem',
             marginBottom: '20px',
           }}>
-            {language === 'tr' ? 'Ritüel Bağlam' : 'Ritual Context'}
+            {language === 'tr' ? 'Bağlam Ayetleri' : 'Contextual Verses'}
           </h3>
           <div style={{ display: 'grid', gap: '18px' }}>
             {rituelBaglam.map((r, i) => <VerseCard key={i} ayah={r} language={language} isMobile={isMobile} />)}
@@ -775,17 +867,7 @@ function TabIcBoyut({ data, language, isMobile }) {
             </h4>
             {item.claimType && <ClaimTypeBadge claimType={item.claimType} confidence={item.confidence} language={language} />}
           </div>
-          {item.refs && (
-            <div style={{
-              color: COLORS.silver,
-              fontSize: '0.7rem',
-              letterSpacing: '0.1em',
-              marginBottom: '10px',
-              textTransform: 'uppercase',
-            }}>
-              {item.refs.join(' · ')}
-            </div>
-          )}
+          <RefChips refs={item.refs} />
           <p style={{
             color: COLORS.offWhite,
             fontSize: '0.92rem',
@@ -1092,13 +1174,7 @@ function TabKiraat({ data, language, isMobile }) {
               }}>{language === 'tr' ? u.titleTr : (u.titleEn ?? u.titleTr)}</h3>
               {u.claimType && <ClaimTypeBadge claimType={u.claimType} confidence={u.confidence} language={language} />}
             </div>
-            {u.refs?.length > 0 && (
-              <div style={{
-                color: COLORS.silver, fontSize: '0.7rem',
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                marginBottom: '14px',
-              }}>{u.refs.join(' · ')}</div>
-            )}
+            <RefChips refs={u.refs} />
             {u.anaAyet && (
               <div style={{ marginBottom: '16px' }}>
                 <VerseCard ayah={u.anaAyet} language={language} isMobile={isMobile} />
@@ -1130,7 +1206,7 @@ function TabInsanEtkisi({ data, language, isMobile }) {
         marginBottom: '32px', maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Namazın Kur'ânî vaadi soyut bir ritüel değildir. Ayetler namazın ahlâk, iç dünya, sosyal doku ve zorluk anlarındaki insana yansımasını açıkça anar."
+          ? "Namazın Kur'ânî vaadi soyut bir eylem değildir. Ayetler namazın ahlâk, iç dünya, sosyal doku ve zorluk anlarındaki insana yansımasını açıkça anar."
           : 'The Qur\'anic promise of prayer is not an abstract ritual. Verses explicitly name prayer\'s reflection on ethics, inner life, social fabric, and moments of hardship.'}
       </p>
       <div style={{ display: 'grid', gap: '22px' }}>
@@ -1149,13 +1225,7 @@ function TabInsanEtkisi({ data, language, isMobile }) {
               }}>{language === 'tr' ? k.titleTr : (k.titleEn ?? k.titleTr)}</h3>
               {k.claimType && <ClaimTypeBadge claimType={k.claimType} confidence={k.confidence} language={language} />}
             </div>
-            {k.refs?.length > 0 && (
-              <div style={{
-                color: COLORS.silver, fontSize: '0.7rem',
-                letterSpacing: '0.12em', textTransform: 'uppercase',
-                marginBottom: '14px',
-              }}>{k.refs.join(' · ')}</div>
-            )}
+            <RefChips refs={k.refs} />
             {k.anaAyet && (
               <div style={{ marginBottom: '16px' }}>
                 <VerseCard ayah={k.anaAyet} language={language} isMobile={isMobile} />

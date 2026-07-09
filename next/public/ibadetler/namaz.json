@@ -6,7 +6,7 @@
   "anchorVerse": {
     "surah": 20,
     "ayah": 14,
-    "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا۬ فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
+    "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
     "tr": "Şüphesiz ben Allah'ım. Benden başka ilâh yoktur. O halde bana ibadet et ve beni anmak için namaz kıl.",
     "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.",
     "refTr": "Tâhâ 20:14",
@@ -58,14 +58,14 @@
     }
   ],
   "genelBakis": {
-    "introTr": "Namaz, Kur'ân'da 'salât' başta olmak üzere on beşi aşkın terim etrafında dönen bir kulluk pratiğidir. Kur'ân namazı belirli zaman dilimleri (fecir, orta gün, akşam) çerçevesinde anar; sünnet-i mütevâtire bu çerçeveyi beş vakit olarak tafsil eder. Kur'ân'ın vurgusu ritüelin şeklinden çok iç boyutundadır: huşû, zikir amacı, fahşâdan alıkoyma. Bu sayfa namazın Kur'ânî mimarisini — kelime alanı, ana pasajlar, vakit çerçevesi, peygamber varyasyonları ve iç boyut — birlikte gösterir.",
+    "introTr": "Namaz, Kur'ân'da 'salât' başta olmak üzere on beşi aşkın terim etrafında dönen bir kulluk pratiğidir. Kur'ân namazı belirli zaman dilimleri (fecir, orta gün, akşam) çerçevesinde anar; sünnet-i mütevâtire bu çerçeveyi beş vakit olarak tafsil eder. Kur'ân'ın vurgusu eylemin dış şeklinden çok iç boyutundadır: huşû, zikir amacı, fahşâdan alıkoyma. Bu sayfa namazın Kur'ânî mimarisini — kelime alanı, ana ayet grupları, vakit çerçevesi, peygamber varyasyonları ve iç boyut — birlikte gösterir.",
     "introEn": "Prayer in the Qur'an revolves around 15+ terms, with 'ṣalāt' at the core. The Qur'an refers to prayer within specific time frames (dawn, midday, evening); mutawātir sunnah details this into five daily prayers. The Qur'an's emphasis is less on ritual form and more on inner dimension: khushūʿ (reverence), remembrance as purpose, prevention from indecency.",
     "keyPoints": [
       {
         "titleTr": "Kelime alanı 15+ terim",
         "titleEn": "15+ term semantic field",
-        "descTr": "Salât, zikir, tesbîh, sücûd, rükû', kıyâm — namaz Kur'ân'da tek bir kelimeyle değil, birbirini tamamlayan bir kavram alanıyla anlatılır.",
-        "descEn": "Ṣalāt, dhikr, tasbīḥ, sujūd, rukūʿ, qiyām — prayer is described not by a single word but by an interconnected semantic field."
+        "descTr": "Namaz Kur'ân'da tek bir kelimeyle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim — hareket (rükû', sücûd), zaman (fecr, ğasak), iç durum (huşû, kunût) — namazın farklı bir boyutunu işaret eder.",
+        "descEn": "Prayer is described in the Qur'an not by a single word but by a complementary semantic field. Each term — movement (rukūʿ, sujūd), time (fajr, ghasaq), inner state (khushūʿ, qunūt) — points to a different dimension."
       },
       {
         "titleTr": "Zaman ekseni Kur'ân'da açık",
@@ -76,7 +76,7 @@
       {
         "titleTr": "Amaç: Allah'ı anmak",
         "titleEn": "Purpose: remembrance of Allah",
-        "descTr": "Tâhâ 20:14 namazın nihaî amacını 'Allah'ı anmak' (li-dhikrī) olarak tanımlar. Ritüel bir araçtır, hedef zikirdir.",
+        "descTr": "Tâhâ 20:14 namazın nihaî amacını 'Allah'ı anmak' (li-dhikrī) olarak tanımlar. Eylem bir araçtır, hedef zikirdir.",
         "descEn": "Ṭā-Hā 20:14 defines prayer's ultimate purpose as remembrance of Allah (li-dhikrī). The ritual is a means; the goal is remembrance."
       },
       {
@@ -112,7 +112,7 @@
       "anlamKatmanlari": [
         {
           "layer": "Namaz",
-          "descTr": "Ritüel ibadet — Kur'ânî en yaygın kullanım.",
+          "descTr": "Eylem ibadet — Kur'ânî en yaygın kullanım.",
           "descEn": "Ritual prayer — most common Qur'anic usage.",
           "kaynak": "Râzî, Bakara 2:43 tefsiri",
           "claimType": "tafsir_tradition",
@@ -610,7 +610,7 @@
       ]
     }
   ],
-  "anaPasajlar": {
+  "anaAyet grubular": {
     "ayetler": [
       {
         "ref": "Bakara 2:238",
@@ -644,16 +644,16 @@
         "ar": "فَاِذَا قَضَيْتُمُ الصَّلٰوةَ فَاذْكُرُوا اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِكُمْ فَاِذَا اطْمَأْنَنْتُمْ فَاَقِيمُوا الصَّلٰوةَ اِنَّ الصَّلٰوةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَاباً مَوْقُوتاً",
         "tr": "Namazı bitirince Allah'ı ayakta, oturarak ve yanlarınız üzerinde anın. Güvene kavuştuğunuzda namazı dosdoğru kılın. Şüphesiz namaz, müminler üzerine vakitleri belli bir farzdır.",
         "en": "When you have completed prayer, remember Allah standing, sitting, or lying on your sides. When you are secure, establish prayer. Indeed, prayer has been decreed upon the believers a timed prescription.",
-        "not": "'Kitâben mevkûtâ' — vakti belirlenmiş bir farz. Namazın Kur'ân'daki farziyet bildirisi. Nisa'nın havf (korku) namazı bağlamında geldiği için Task 3'te 'rituelBaglam' altında da anılır.",
+        "not": "'Kitâben mevkûtâ' — vakti belirlenmiş bir farz. Namazın Kur'ân'daki farziyet bildirisi. Nisa'nın havf (korku) namazı bağlamında geldiği için Task 3'te 'eylemBaglam' altında da anılır.",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
       {
         "ref": "Tâhâ 20:14",
-        "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا۬ فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
+        "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
         "tr": "Şüphesiz ben Allah'ım. Benden başka ilâh yoktur. O halde bana ibadet et ve beni anmak için namaz kıl.",
         "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.",
-        "not": "Namazın Kur'ânî nihaî amacı: 'li-dhikrī' — beni anmak için. Ritüel değil zikir esas; dış şekil araç, iç bağlantı hedef.",
+        "not": "Namazın Kur'ânî nihaî amacı: 'li-dhikrī' — beni anmak için. Eylem değil zikir esas; dış şekil araç, iç bağlantı hedef.",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
@@ -668,7 +668,7 @@
       },
       {
         "ref": "Ankebût 29:45",
-        "ar": "اُتْلُ مٓا اُو۫حِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
+        "ar": "اُتْلُ مٓا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
         "tr": "Sana vahyedilen Kitab'ı oku ve namaz kıl. Muhakkak namaz fahşadan ve münkerden alıkoyar. Allah'ı anmak ise (her şeyden) daha büyüktür.",
         "en": "Recite what has been revealed to you of the Book and establish prayer. Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater.",
         "not": "Namazın hayat üzerindeki ahlâkî etkisi — fahşâdan alıkoyma. 'Allah'ı anmak daha büyüktür' cümlesi Tâhâ 14'ün amaç-tesbitini tekrar eder.",
@@ -685,13 +685,13 @@
         "confidence": "high"
       }
     ],
-    "rituelBaglam": [
+    "eylemBaglam": [
       {
         "ref": "Bakara 2:144",
-        "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُو۫تُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
+        "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُوتُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
         "tr": "Yüzünü göğe çevirdiğini muhakkak görüyoruz. Elbette seni memnun olacağın kıbleye döndüreceğiz. Artık yüzünü Mescid-i Harâm tarafına çevir.",
         "en": "We have certainly seen the turning of your face toward the heaven. So We will surely turn you to a qibla with which you will be pleased. So turn your face toward al-Masjid al-Ḥarām.",
-        "sceneTr": "Kıble değişimi — Mescid-i Aksâ'dan Kâbe'ye. Namazın mekân eksenini kuran anahtar ayet (Bakara 2:142-150 tam pasaj).",
+        "sceneTr": "Kıble değişimi — Mescid-i Aksâ'dan Kâbe'ye. Namazın mekân eksenini kuran anahtar ayet (Bakara 2:142-150 tam ayet grubu).",
         "claimType": "quran_explicit",
         "confidence": "high"
       },
@@ -847,7 +847,7 @@
         "Tâhâ 20:14",
         "Ankebût 29:45"
       ],
-      "descTr": "'Beni anmak için namaz kıl' (Tâhâ 20:14). Namazın amacı ritüelin kendisi değil, zikirle bir olan iç durumdur. Ankebût 29:45 'Allah'ı anmak daha büyüktür' der.",
+      "descTr": "'Beni anmak için namaz kıl' (Tâhâ 20:14). Namazın amacı eylemin kendisi değil, zikirle bir olan iç durumdur. Ankebût 29:45 'Allah'ı anmak daha büyüktür' der.",
       "claimType": "quran_explicit",
       "confidence": "high"
     },
@@ -949,7 +949,7 @@
       "sunnetTafsilEn": "The details of jam' (combining) and qasr rely on sunnah. The practical form of the fear prayer, based on Companion narrations, was systematized in classical fiqh into several patterns tailored to varying combat conditions.",
       "claimType": "quran_explicit",
       "confidence": "high",
-      "kaynak": "Râzî, Nisa 4:101-103 tefsiri (uzun pasaj); Kurtubî, Nisa 4:102 tefsiri; Elmalılı, Nisa 4:101-103"
+      "kaynak": "Râzî, Nisa 4:101-103 tefsiri (uzun kesit); Kurtubî, Nisa 4:102 tefsiri; Elmalılı, Nisa 4:101-103"
     },
     {
       "id": "cenaze-namazi",
@@ -1076,9 +1076,9 @@
     "kibleHikayesi": {
       "titleTr": "Kıble Ekseni — Bakara 2:142-150 Hikâyesi",
       "titleEn": "The Qibla Axis — The Story of Baqara 2:142-150",
-      "introTr": "Namazın mekân ekseni Kur'ân'da tek bir yerde, birbirini takip eden dokuz ayette anlatılır: Bakara 2:142-150. Bu pasaj Kur'ân'daki en 'anlatılı' fıkhî değişimlerden biridir — çünkü mimarî bir talimat değil, bir imtihân hikâyesidir.",
+      "introTr": "Namazın mekân ekseni Kur'ân'da tek bir yerde, birbirini takip eden dokuz ayette anlatılır: Bakara 2:142-150. Bu ayet grubu Kur'ân'daki en 'anlatılı' fıkhî değişimlerden biridir — çünkü mimarî bir talimat değil, bir imtihân hikâyesidir.",
       "introEn": "The spatial axis of prayer is narrated in the Qur'an in a single stretch of nine consecutive verses: Baqara 2:142-150. This passage is among the most 'narrative' juridical shifts in the Qur'an — because it is not an architectural instruction but the story of a test.",
-      "pasaj": [
+      "ayet grubu": [
         {
           "ref": "Bakara 2:142",
           "ar": "سَيَقُولُ السُّفَـهٓاءُ مِنَ النَّاسِ مَا وَلّٰيهُمْ عَنْ قِبْلَتِهِمُ الَّتِي كَانُوا عَلَيْهَا قُلْ لِلّٰهِ الْمَشْرِقُ وَالْمَغْرِبُ يَهْدِي مَنْ يَشٓاءُ اِلٰى صِرَاطٍ مُسْتَقِيمٍ",
@@ -1087,13 +1087,13 @@
         },
         {
           "ref": "Bakara 2:143",
-          "ar": "وَكَذٰلِكَ جَعَلْنَاكُمْ اُمَّةً وَسَطاً لِتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِ وَيَكُونَ الرَّسُولُ عَلَيْكُمْ شَهِيداً وَمَا جَعَلْنَا الْقِبْلَةَ الَّتِي كُنْتَ عَلَيْهٓا اِلَّا لِنَعْلَمَ مَنْ يَتَّبِـعُ الرَّسُولَ مِمَّنْ يَنْقَلِبُ عَلٰى عَقِبَيْهِ  وَاِنْ كَانَتْ لَكَبِيرَةً اِلَّا عَلَى الَّذِينَ هَدَى اللّٰهُ وَمَا كَانَ اللّٰهُ لِيُضِيعَ اِيمَانَكُمْ اِنَّ اللّٰهَ بِالنَّاسِ لَرَؤُ۫فٌ رَحِيمٌ",
+          "ar": "وَكَذٰلِكَ جَعَلْنَاكُمْ اُمَّةً وَسَطاً لِتَكُونُوا شُهَدٓاءَ عَلَى النَّاسِ وَيَكُونَ الرَّسُولُ عَلَيْكُمْ شَهِيداً وَمَا جَعَلْنَا الْقِبْلَةَ الَّتِي كُنْتَ عَلَيْهٓا اِلَّا لِنَعْلَمَ مَنْ يَتَّبِـعُ الرَّسُولَ مِمَّنْ يَنْقَلِبُ عَلٰى عَقِبَيْهِ  وَاِنْ كَانَتْ لَكَبِيرَةً اِلَّا عَلَى الَّذِينَ هَدَى اللّٰهُ وَمَا كَانَ اللّٰهُ لِيُضِيعَ اِيمَانَكُمْ اِنَّ اللّٰهَ بِالنَّاسِ لَرَؤُفٌ رَحِيمٌ",
           "trShort": "Böylece sizi orta bir ümmet yaptık ki insanlara şahit olasınız ve peygamber de size şahit olsun. Yönelmekte olduğun kıbleyi, ancak peygambere uyanı, ökçesi üzerinde geri dönenden ayırt etmek için belirledik.",
           "enShort": "Thus We have made you a middle community, that you may be witnesses over mankind and the Messenger a witness over you."
         },
         {
           "ref": "Bakara 2:144",
-          "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُو۫تُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
+          "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُوتُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
           "trShort": "Yüzünü göğe doğru çevirip durduğunu görüyoruz. Elbette seni razı olacağın bir kıbleye döndüreceğiz. Artık yüzünü Mescid-i Haram tarafına çevir. Nerede olursanız yüzlerinizi o tarafa çevirin.",
           "enShort": "We have seen your face turning about in the sky. Now We will turn you toward a qibla that shall please you."
         },
@@ -1104,9 +1104,9 @@
           "enShort": "From wherever you set out, turn your face toward the Sacred Mosque."
         }
       ],
-      "aciklamaTr": "Klasik tefsir bu pasajı üç katmanda okur. Birinci katman: yön değişimi (Mescid-i Aksâ'dan Kâbe'ye) tarihsel bir olaydır. Klasik rivayetler bu değişimin hicretten 16-17 ay sonra gerçekleştiğini nakleder. İkinci katman — Bakara 2:143'ün açıkça ortaya koyduğu — imtihân katmanıdır: yön değişimi bir 'ayıklama'dır; kim gerçekten peygambere tabi, kim adet üzerine namaz kılıyor. Üçüncü katman: 2:142'nin 'doğu da batı da Allah'ındır' cevabıyla kıble sabitlemesinin metafizik değeri: Allah yönde değil, yön Allah'a dönüşün simgesidir. Râzî bu üç katmanın birlikte okunması gerektiğini vurgular — sadece fıkhî yön belirleme değil, kulluk yöneliminin bütün bir teolojisi.",
+      "aciklamaTr": "Klasik tefsir bu ayet grubuı üç katmanda okur. Birinci katman: yön değişimi (Mescid-i Aksâ'dan Kâbe'ye) tarihsel bir olaydır. Klasik rivayetler bu değişimin hicretten 16-17 ay sonra gerçekleştiğini nakleder. İkinci katman — Bakara 2:143'ün açıkça ortaya koyduğu — imtihân katmanıdır: yön değişimi bir 'ayıklama'dır; kim gerçekten peygambere tabi, kim adet üzerine namaz kılıyor. Üçüncü katman: 2:142'nin 'doğu da batı da Allah'ındır' cevabıyla kıble sabitlemesinin metafizik değeri: Allah yönde değil, yön Allah'a dönüşün simgesidir. Râzî bu üç katmanın birlikte okunması gerektiğini vurgular — sadece fıkhî yön belirleme değil, kulluk yöneliminin bütün bir teolojisi.",
       "aciklamaEn": "Classical exegesis reads this passage on three layers. First: the directional change (from al-Aqṣā to the Kaʿba) is a historical event, traditionally placed 16-17 months after the Hijra. Second — made explicit by Baqara 2:143 — the layer of test: the change is a sifting; who genuinely follows the Messenger and who prayed by habit. Third: the answer in 2:142 ('to Allah belong east and west') gives the qibla's metaphysical value — Allah is not in a direction; the direction is a sign of turning to Allah.",
-      "kaynak": "Râzî, Bakara 2:142-150 tefsiri (uzun pasaj); Kurtubî aynı pasaj; Elmalılı, Bakara 2:142-150 tefsiri (üç katmanlı okuma)"
+      "kaynak": "Râzî, Bakara 2:142-150 tefsiri (uzun kesit); Kurtubî aynı ayet grubu; Elmalılı, Bakara 2:142-150 tefsiri (üç katmanlı okuma)"
     }
   },
   "kiraatBoyutu": {
@@ -1118,7 +1118,10 @@
       {
         "titleTr": "Fatiha — Namazın Kalbi",
         "titleEn": "Fātiḥa — The Heart of Prayer",
-        "refs": ["Hicr 15:87", "Fatiha 1:1-7"],
+        "refs": [
+          "Hicr 15:87",
+          "Fatiha 1:1-7"
+        ],
         "anaAyet": {
           "ref": "Hicr 15:87",
           "ar": "وَلَقَدْ اٰتَيْنَاكَ سَبْعاً مِنَ الْمَثَانِي وَالْقُرْاٰنَ الْعَظِيمَ",
@@ -1134,7 +1137,9 @@
       {
         "titleTr": "Cehrî ↔ Hafî — Sesli ve Sessiz Kıraat",
         "titleEn": "Jahrī ↔ Khafī — Audible and Silent Recitation",
-        "refs": ["İsra 17:110"],
+        "refs": [
+          "İsra 17:110"
+        ],
         "anaAyet": {
           "ref": "İsra 17:110",
           "ar": "قُلِ ادْعُوا اللّٰهَ اَوِ ادْعُوا الرَّحْمٰنَ  اَياًّ مَا تَدْعُوا فَلَهُ الْاَسْمٓاءُ الْحُسْنٰى وَلَا تَجْهَرْ بِصَلَاتِكَ وَلَا تُخَافِتْ بِهَا وَابْتَغِ بَيْنَ ذٰلِكَ سَبِيلاً",
@@ -1150,7 +1155,9 @@
       {
         "titleTr": "Tesbihât — Namaz Sonrası Zikir",
         "titleEn": "Tasbīḥ — Remembrance After Prayer",
-        "refs": ["Nisa 4:103"],
+        "refs": [
+          "Nisa 4:103"
+        ],
         "anaAyet": {
           "ref": "Nisa 4:103",
           "ar": "فَاِذَا قَضَيْتُمُ الصَّلٰوةَ فَاذْكُرُوا اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِكُمْ فَاِذَا اطْمَأْنَنْتُمْ فَاَقِيمُوا الصَّلٰوةَ اِنَّ الصَّلٰوةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَاباً مَوْقُوتاً",
@@ -1166,7 +1173,10 @@
       {
         "titleTr": "Ta'dîl-i Erkân — Rükünlerde Sükûnet",
         "titleEn": "Taʿdīl al-Arkān — Composure in the Pillars",
-        "refs": ["Mü'minûn 23:1-2", "Mâûn 107:4-6"],
+        "refs": [
+          "Mü'minûn 23:1-2",
+          "Mâûn 107:4-6"
+        ],
         "anaAyet": {
           "ref": "Mü'minûn 23:2",
           "ar": "اَلَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ",
@@ -1186,10 +1196,12 @@
       "id": "fahsadan-alikoyma",
       "titleTr": "Fahşâdan Alıkoyma — Namazın Ahlâkî Boyutu",
       "titleEn": "Restraint from Indecency — Prayer's Ethical Dimension",
-      "refs": ["Ankebût 29:45"],
+      "refs": [
+        "Ankebût 29:45"
+      ],
       "anaAyet": {
         "ref": "Ankebût 29:45",
-        "ar": "اُتْلُ مٓا اُو۫حِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
+        "ar": "اُتْلُ مٓا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
         "trShort": "Şüphesiz namaz hayâsızlıktan (fahşâ) ve kötülükten (münker) alıkoyar. Allah'ı anmak (zikrullâh) elbette en büyüktür.",
         "enShort": "Indeed, prayer restrains from indecency and wrongdoing. And the remembrance of Allah is greater."
       },
@@ -1205,7 +1217,10 @@
       "id": "husu-ic-dinginlik",
       "titleTr": "Huşû — İç Dinginlik",
       "titleEn": "Khushūʿ — Inner Stillness",
-      "refs": ["Mü'minûn 23:1-2", "Bakara 2:45"],
+      "refs": [
+        "Mü'minûn 23:1-2",
+        "Bakara 2:45"
+      ],
       "anaAyet": {
         "ref": "Bakara 2:45",
         "ar": "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ وَاِنَّهَا لَكَبِيرَةٌ اِلَّا عَلَى الْخَاشِعِينَ",
@@ -1224,14 +1239,18 @@
       "id": "zaman-ritmi-gun-yapisi",
       "titleTr": "Gün Yapısı — Namazın Zaman Ritmi",
       "titleEn": "Structure of the Day — Prayer's Temporal Rhythm",
-      "refs": ["İsra 17:78", "Hud 11:114", "Rum 30:17-18"],
+      "refs": [
+        "İsra 17:78",
+        "Hud 11:114",
+        "Rum 30:17-18"
+      ],
       "anaAyet": {
         "ref": "Rum 30:18",
         "ar": "وَلَهُ الْحَمْدُ فِي السَّمٰوَاتِ وَالْاَرْضِ وَعَشِياًّ وَحِينَ تُظْهِرُونَ",
         "trShort": "Akşama erdiğinizde de sabaha kavuştuğunuzda da Allah'ı tesbih edin. Göklerde ve yerde hamd O'nundur — ikindide de öğle vaktinde de.",
         "enShort": "Glorify Allah when you reach evening and when you rise in the morning — to Him belongs praise in the heavens and the earth — and at nightfall and at midday."
       },
-      "descTr": "Kur'ân namazı zamanın belirli 'çentiklerine' yerleştirir: fecir, öğle, ikindi, akşam, gecenin karanlığı. Rum 30:17-18 tek pasajda beş vakti işaret edecek şekilde günün geçişlerini sıralar — akşam, sabah, ikindi, öğle; klasik tefsir buradaki 'aşiyy' (akşam) ifadesinin akşam ile yatsıyı birlikte kapsayabileceğini belirtir. Elmalılı bu ayetleri 'namazın günün taksiminin ana çizgilerinde ölçek olarak konumlandırılması' olarak okur: gün namazla bölünür, namaz günü bölmez. Klasik tefsir bu vakitleri kalbin Allah'a dönüş noktaları olarak yorumlar — insan hayatının her büyük geçişinde (uykudan kalkma, günün ortası, ışığın çekilmesi, karanlığın çökmesi) bir zikir noktası.",
+      "descTr": "Kur'ân namazı zamanın belirli 'çentiklerine' yerleştirir: fecir, öğle, ikindi, akşam, gecenin karanlığı. Rum 30:17-18 tek ayet grubunda beş vakti işaret edecek şekilde günün geçişlerini sıralar — akşam, sabah, ikindi, öğle; klasik tefsir buradaki 'aşiyy' (akşam) ifadesinin akşam ile yatsıyı birlikte kapsayabileceğini belirtir. Elmalılı bu ayetleri 'namazın günün taksiminin ana çizgilerinde ölçek olarak konumlandırılması' olarak okur: gün namazla bölünür, namaz günü bölmez. Klasik tefsir bu vakitleri kalbin Allah'a dönüş noktaları olarak yorumlar — insan hayatının her büyük geçişinde (uykudan kalkma, günün ortası, ışığın çekilmesi, karanlığın çökmesi) bir zikir noktası.",
       "descEn": "The Qur'an sets prayer at the day's marked seams. Rūm 30:17-18 lists the day's transitions in a way classical exegesis reads as pointing to all five prayer times. Elmalılı reads these verses as 'prayer positioned as a scale at the day's main creases': the day is divided by prayer, not prayer by the day.",
       "modernIzlerTr": "Bu 'gün yapısı' okuması klasik tefsirin bir metaforudur: namaz insanın gününü bölerek onu 'kutsal ritim'e bağlar. Sirkadyen ritim veya psikoloji gibi modern bilim iddiaları burada üretilmez — konu kalbin gün içindeki dönüş noktalarıdır.",
       "modernIzlerEn": "This 'structure of the day' reading is a classical exegetical metaphor. No modern scientific claims (circadian rhythm, psychology) are advanced here.",
@@ -1243,7 +1262,10 @@
       "id": "cemaat-bagi",
       "titleTr": "Cemaat Bağı — Sosyal Doku",
       "titleEn": "The Congregational Bond — Social Fabric",
-      "refs": ["Bakara 2:43", "Nisa 4:102"],
+      "refs": [
+        "Bakara 2:43",
+        "Nisa 4:102"
+      ],
       "anaAyet": {
         "ref": "Bakara 2:43",
         "ar": "وَاَقِيمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
@@ -1262,7 +1284,10 @@
       "id": "sabir-istiane-siginak",
       "titleTr": "Sabır ve İstiâne — Zorlukta Sığınak",
       "titleEn": "Patience and Recourse — A Refuge in Hardship",
-      "refs": ["Bakara 2:45", "Bakara 2:153"],
+      "refs": [
+        "Bakara 2:45",
+        "Bakara 2:153"
+      ],
       "anaAyet": {
         "ref": "Bakara 2:153",
         "ar": "يٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",

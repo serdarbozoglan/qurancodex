@@ -922,6 +922,7 @@ export default function Navbar() {
                       altiKonu:         '/arac/alti-konu',
                       insanTanimi:      '/atlas/insan-tanimi',
                       insanPsikolojisi: '/atlas/insan-psikolojisi',
+                      ibadetler:        '/atlas/ibadetler/namaz',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
