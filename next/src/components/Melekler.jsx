@@ -1385,7 +1385,7 @@ export default function Melekler({ onClose }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Resurrection', descTr: "Sûr'u üfleyecek olan İsrâfîl'in sahnesi.", descEn: 'The scene of Isrāfīl who blows the trumpet.' },
+            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Resurrection', descTr: "Sûr sahnesi — meleklerin son evredeki görevi (Kur'ân melekleri isimsiz anar; klasik hadis geleneğinde: İsrâfîl).", descEn: "The trumpet scene — the angels' final-stage role (unnamed in the Qur'an; classical hadith: Isrāfīl)." },
             { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Melekler bu iki mekânın da hâdim ve muhafızları.', descEn: 'Angels are stewards of both realms.' },
             { href: `/${language}/tefekkur?cat=kozmoloji`, titleTr: 'Kozmoloji & Yaratılış', titleEn: 'Cosmology & Creation', descTr: 'Melekler yaratılışın görünmez katı.', descEn: 'Angels — the invisible layer of creation.' },
           ]}

@@ -29,7 +29,7 @@
       "trShort": "Yalnız sana kulluk ederiz ve yalnız senden yardım dileriz.",
       "enShort": "You alone we worship, and You alone we ask for help."
     },
-    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts Ch. 9 (God and Man) (kulluk semantik alanı)"
+    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts ('God and Man' bölümü, ʿabd/ʿibāda bağlamı)"
   },
   "wowFacts": [
     {
@@ -40,7 +40,7 @@
       "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts Ch. 9 (God and Man) "
+      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts ('God and Man' bölümü)"
     },
     {
       "id": "wowfact-namaz-zekat-cifti",
@@ -219,8 +219,8 @@
       "workTr": "Ethico-Religious Concepts in the Qur'an",
       "workEn": "Ethico-Religious Concepts in the Qur'an",
       "period": "1966 (McGill Islamic Studies)",
-      "noteTr": "Kulluk (ʿabd) semantik alanının Kur'ânî-ahlâkî kavramlar dizisi içinde sistematik incelemesi. Bu HUB'ın 'sekiz yüz, tek kök' çerçevesinin modern dilbilimsel omurgası.",
-      "noteEn": "Systematic analysis of the semantic field of servitude (ʿabd) within Qur'anic ethico-religious concepts. The modern linguistic backbone of this HUB's 'eight faces, one root' frame."
+      "noteTr": "Kur'ân'ın ahlâkî-dinî terminolojisinin semantik alan çözümlemesi; 'God and Man' bölümünde ʿabd/ʿibāda ilişkisine değinir. Bu HUB'ın 'sekiz yüz, tek kök' çerçevesinin modern dilbilimsel arka planı.",
+      "noteEn": "Semantic-field analysis of the Qur'an's ethico-religious terminology; the 'God and Man' section touches on the ʿabd/ʿibāda relation. The modern linguistic backdrop of this HUB's 'eight faces, one root' frame."
     }
   ],
   "sutunlarAgi": {

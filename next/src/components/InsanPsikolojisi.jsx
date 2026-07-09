@@ -138,7 +138,7 @@ export default function InsanPsikolojisi({ onClose }) {
         links={[
           { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefis Mertebeleri', titleEn: 'Stations of the Self', descTr: "Kur'ânî 3 + tasavvufî 4 basamak.", descEn: "3 Qur'anic + 4 Sufi stations." },
           { href: `/${language}/atlas/munafik`, titleTr: 'Münâfık Profili', titleEn: 'The Hypocrite Profile', descTr: 'İç dünyanın karanlık kutbu — 7 davranış deseni.', descEn: "The inner world's dark pole — 7 behavioral patterns." },
-          { href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'İçsel vesvesenin dış yüzü.', descEn: 'The outer face of inner whispers.' },
+          { href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'Vesvesenin dış kanalı — nefsin baş rakibi.', descEn: "The outer channel of whispers — the self's chief adversary." },
         ]}
       />
     </div>

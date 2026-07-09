@@ -459,7 +459,7 @@ export default function KuranYeminleri({ onClose }) {
           isMobile={isMobile}
           links={[
             { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'Yeminlerin ardındaki tabiat: gün, güneç, semâ.', descEn: 'The nature behind the oaths: day, sun, sky.' },
-            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: 'Yemin edilen kâinat — 200+ ayet.', descEn: 'The universe sworn by — 200+ verses.' },
+            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: "Yemin edilen kâinat — Kur'ân'ın tabiat paneli.", descEn: "The universe sworn by — the Qur'an's nature panel." },
             { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: 'Yemin bir kanun cümlesidir; hangi kanuna?', descEn: 'An oath is a law-statement; which law?' },
           ]}
         />
