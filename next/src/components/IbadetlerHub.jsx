@@ -36,6 +36,9 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
       }}>
         <AbdCoreSection abdCore={hubData.abdCore} language={language} isMobile={isMobile} />
         <PillarsGrid pillars={hubData.pillars} language={language} isMobile={isMobile} router={router} />
+        <SutunlarAgiSection data={hubData.sutunlarAgi} language={language} isMobile={isMobile} router={router} />
+        <ZamanEkseniSection data={hubData.zamanEkseni} language={language} isMobile={isMobile} />
+        <OrtakFormullerSection data={hubData.ortakFormuller} language={language} isMobile={isMobile} />
         <FramingNote framingTr={hubData.framingTr} framingEn={hubData.framingEn} language={language} isMobile={isMobile} />
         <WowFactsSection wowFacts={hubData.wowFacts} language={language} isMobile={isMobile} />
         <SourcesCitation language={language} isMobile={isMobile} sources={hubData.kaynaklar} />
@@ -380,6 +383,214 @@ function FramingNote({ framingTr, framingEn, language, isMobile }) {
         color: COLORS.offWhite, fontSize: '0.92rem',
         lineHeight: 1.8, margin: 0, fontStyle: 'italic',
       }}>{language === 'tr' ? framingTr : (framingEn ?? framingTr)}</p>
+    </div>
+  );
+}
+
+// ─── Sütunlar Ağı — 8 sütun frequency network ─────────────────────────────
+function SutunlarAgiSection({ data, language, isMobile, router }) {
+  if (!data?.nodes?.length) return null;
+  const maxFreq = Math.max(...data.nodes.map(n => n.freq));
+  return (
+    <div style={{ marginBottom: '56px' }}>
+      <h2 style={{
+        fontFamily: FONTS.display, color: COLORS.offWhite,
+        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        margin: '0 0 8px', fontWeight: 700,
+      }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '760px' }}>
+        {language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}
+      </p>
+      <div style={{
+        display: 'grid', gap: '10px',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))',
+      }}>
+        {data.nodes.map((n, i) => {
+          const pct = (n.freq / maxFreq) * 100;
+          return (
+            <button key={i}
+              onClick={() => router.push(`/${language}/atlas/ibadetler/${n.id === 'dua' ? '' : n.id}`)}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '14px',
+                padding: '14px 16px',
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: RADIUS.md,
+                background: 'rgba(255,255,255,0.03)',
+                cursor: 'pointer', fontFamily: 'inherit',
+                textAlign: 'left', transition: `all ${TRANSITION.fast}`,
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.transform = 'translateX(2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.transform = 'translateX(0)'; }}
+            >
+              <div style={{
+                fontFamily: FONTS.quran, color: COLORS.gold,
+                fontSize: '1.5rem', direction: 'rtl', minWidth: '80px', textAlign: 'right',
+              }} lang="ar">{n.ar}</div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '6px' }}>
+                  <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '0.95rem' }}>{n.labelTr}</span>
+                  <span style={{ color: COLORS.silver, fontSize: '0.7rem', letterSpacing: '0.1em' }}>{n.root}</span>
+                </div>
+                {/* Frequency bar */}
+                <div style={{ position: 'relative', height: '4px', background: 'rgba(255,255,255,0.06)', borderRadius: '2px', overflow: 'hidden' }}>
+                  <div style={{
+                    position: 'absolute', top: 0, left: 0, bottom: 0,
+                    width: `${pct}%`,
+                    background: `linear-gradient(90deg, ${COLORS.gold}, ${COLORS.gold}88)`,
+                    borderRadius: '2px',
+                  }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', fontSize: '0.7rem', color: COLORS.silver }}>
+                  <span>~{n.freq} {language === 'tr' ? 'geçiş' : 'occurrences'}</span>
+                  <span style={{ opacity: 0.7 }}>{n.period} · {n.anchorRef}</span>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+      {data.notTr && (
+        <p style={{
+          color: COLORS.silver, fontSize: '0.78rem',
+          fontStyle: 'italic', marginTop: '16px', opacity: 0.75,
+        }}>{language === 'tr' ? data.notTr : (data.notEn ?? data.notTr)}</p>
+      )}
+    </div>
+  );
+}
+
+// ─── Zaman Ekseni — Mekke & Medine ───────────────────────────────────────
+function ZamanEkseniSection({ data, language, isMobile }) {
+  if (!data?.phases?.length) return null;
+  return (
+    <div style={{ marginBottom: '56px' }}>
+      <h2 style={{
+        fontFamily: FONTS.display, color: COLORS.offWhite,
+        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        margin: '0 0 8px', fontWeight: 700,
+      }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
+        {language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}
+      </p>
+      <div style={{
+        display: 'grid', gap: '18px',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+      }}>
+        {data.phases.map((p, i) => {
+          const isMedina = p.phase === 'Medine';
+          const accent = isMedina ? '#2ecc71' : COLORS.gold;
+          return (
+            <div key={i} style={{
+              padding: '22px 24px',
+              border: `1px solid ${accent}44`,
+              borderRadius: RADIUS.md,
+              background: `linear-gradient(180deg, ${accent}0d 0%, rgba(255,255,255,0.02) 100%)`,
+            }}>
+              <div style={{
+                color: accent, fontSize: '0.7rem',
+                letterSpacing: '0.22em', textTransform: 'uppercase',
+                marginBottom: '8px', fontWeight: 700, opacity: 0.9,
+              }}>{isMedina ? (language === 'tr' ? 'Dönem 2' : 'Phase 2') : (language === 'tr' ? 'Dönem 1' : 'Phase 1')}</div>
+              <h3 style={{
+                fontFamily: FONTS.display, color: COLORS.offWhite,
+                fontSize: '1.4rem', margin: '0 0 12px', fontWeight: 700,
+              }}>{language === 'tr' ? p.phase : (p.phaseEn ?? p.phase)}</h3>
+              <p style={{
+                color: COLORS.offWhite, opacity: 0.9,
+                fontSize: '0.93rem', lineHeight: 1.75, margin: '0 0 14px',
+              }}>{language === 'tr' ? p.descTr : (p.descEn ?? p.descTr)}</p>
+              {p.sutunlar?.length > 0 && (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {p.sutunlar.map((s, j) => (
+                    <span key={j} style={{
+                      padding: '3px 9px',
+                      background: `${accent}22`,
+                      border: `1px solid ${accent}44`,
+                      borderRadius: '999px',
+                      color: accent, fontSize: '0.68rem',
+                      fontWeight: 600, letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                    }}>{s.replace('-', ' ')}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Ortak Formüller ─────────────────────────────────────────────────────
+function OrtakFormullerSection({ data, language, isMobile }) {
+  if (!data?.formuller?.length) return null;
+  return (
+    <div style={{ marginBottom: '56px' }}>
+      <h2 style={{
+        fontFamily: FONTS.display, color: COLORS.offWhite,
+        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        margin: '0 0 8px', fontWeight: 700,
+      }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
+        {language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}
+      </p>
+      <div style={{ display: 'grid', gap: '18px' }}>
+        {data.formuller.map((f, i) => (
+          <div key={i} style={{
+            padding: isMobile ? '20px 20px' : '26px 30px',
+            border: `1px solid ${COLORS.goldAlpha25}`,
+            borderRadius: RADIUS.md,
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
+          }}>
+            {/* Arabic formula */}
+            {f.arabic && (
+              <div style={{
+                fontFamily: FONTS.quran, color: COLORS.gold,
+                fontSize: isMobile ? 'clamp(1.3rem, 5vw, 1.65rem)' : 'clamp(1.5rem, 2.3vw, 1.85rem)',
+                lineHeight: 2, direction: 'rtl', textAlign: 'right',
+                marginBottom: '14px',
+              }} lang="ar" dir="rtl">{f.arabic}</div>
+            )}
+            {/* TR/EN formula */}
+            <p style={{
+              fontFamily: FONTS.display, fontStyle: 'italic',
+              color: COLORS.offWhite, fontSize: '1.02rem',
+              margin: '0 0 10px', lineHeight: 1.6,
+            }}>"{language === 'tr' ? f.formulTr : (f.formulEn ?? f.formulTr)}"</p>
+            {/* Occurrence + refs */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
+              <span style={{
+                color: COLORS.gold, fontSize: '0.7rem',
+                letterSpacing: '0.14em', textTransform: 'uppercase',
+                fontWeight: 700, opacity: 0.85,
+              }}>{language === 'tr' ? f.occurrenceTr : (f.occurrenceEn ?? f.occurrenceTr)}</span>
+            </div>
+            {f.sampleRefs?.length > 0 && (
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
+                {f.sampleRefs.map((r, j) => (
+                  <span key={j} style={{
+                    padding: '3px 10px',
+                    background: 'rgba(212,165,116,0.10)',
+                    border: `1px solid ${COLORS.goldAlpha25}`,
+                    borderRadius: '10px',
+                    color: COLORS.gold, fontSize: '0.68rem',
+                    fontWeight: 600, letterSpacing: '0.06em',
+                  }}>{r}</span>
+                ))}
+              </div>
+            )}
+            {/* Description */}
+            <p style={{
+              color: COLORS.offWhite, fontSize: '0.92rem',
+              lineHeight: 1.75, margin: '0 0 10px',
+            }}>{language === 'tr' ? f.descTr : (f.descEn ?? f.descTr)}</p>
+            {f.kaynak && (
+              <div style={{ color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic' }}>— {f.kaynak}</div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -222,5 +222,199 @@
       "noteTr": "Kulluk ('abd') semantic field'ı §3'te sistematik incelenir. Bu HUB'ın 'sekiz yüz, tek kök' çerçevesinin modern dilbilimsel omurgası.",
       "noteEn": "Systematic analysis of the semantic field of ʿabd (servitude) in §3. The modern linguistic backbone of this HUB's 'eight faces, one root' frame."
     }
-  ]
+  ],
+  "sutunlarAgi": {
+    "titleTr": "Sütunlar Ağı — Ortak Kaynaktan Sekiz Yüz",
+    "titleEn": "The Web of Pillars — Eight Faces from a Common Source",
+    "introTr": "Her sütun kendi Kur'ânî kök kelimesi ve semantik alanıyla anılır. Aşağıdaki ağ 'abd' merkezinde toplanan sekiz kulluk yüzünü — her biri kendi Kur'ânî sıklığıyla — birlikte gösterir.",
+    "introEn": "Each pillar has its own Qur'anic root and semantic field. The web below shows the eight faces of servitude gathering around 'abd — each with its Qur'anic frequency.",
+    "nodes": [
+      {
+        "id": "namaz",
+        "labelTr": "Namaz",
+        "ar": "الصَّلَاة",
+        "root": "ص ل و",
+        "freq": 83,
+        "anchorRef": "Tâhâ 20:14",
+        "period": "Mekke"
+      },
+      {
+        "id": "zekat",
+        "labelTr": "Zekât",
+        "ar": "الزَّكَاة",
+        "root": "ز ك و",
+        "freq": 32,
+        "anchorRef": "Tevbe 9:103",
+        "period": "Medine"
+      },
+      {
+        "id": "oruc",
+        "labelTr": "Oruç",
+        "ar": "الصَّوْم",
+        "root": "ص و م",
+        "freq": 14,
+        "anchorRef": "Bakara 2:183",
+        "period": "Medine"
+      },
+      {
+        "id": "hac",
+        "labelTr": "Hac",
+        "ar": "الْحَجّ",
+        "root": "ح ج ج",
+        "freq": 12,
+        "anchorRef": "Bakara 2:196",
+        "period": "Medine"
+      },
+      {
+        "id": "kurban",
+        "labelTr": "Kurban",
+        "ar": "النُّسُك",
+        "root": "ن س ك",
+        "freq": 6,
+        "anchorRef": "Hac 22:37",
+        "period": "Medine"
+      },
+      {
+        "id": "zikir",
+        "labelTr": "Zikir",
+        "ar": "الذِّكْر",
+        "root": "ذ ك ر",
+        "freq": 292,
+        "anchorRef": "Bakara 2:152",
+        "period": "Medine"
+      },
+      {
+        "id": "dua",
+        "labelTr": "Dua",
+        "ar": "الدُّعَاء",
+        "root": "د ع و",
+        "freq": 213,
+        "anchorRef": "Bakara 2:186",
+        "period": "Medine"
+      },
+      {
+        "id": "tovbe",
+        "labelTr": "Tövbe",
+        "ar": "التَّوْبَة",
+        "root": "ت و ب",
+        "freq": 87,
+        "anchorRef": "Tahrîm 66:8",
+        "period": "Medine"
+      }
+    ],
+    "notTr": "Sıklıklar yaklaşık geçiş sayısıdır (kök türevleri dahil). Nöbet: bkz. Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres.",
+    "notEn": "Frequencies are approximate root-family occurrences (all derivations included). Cf. Muḥammad Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras."
+  },
+  "zamanEkseni": {
+    "titleTr": "Zaman Ekseni — Mekke ve Medine",
+    "titleEn": "Time Axis — Mecca and Medina",
+    "introTr": "Kur'ân'da ibadetlerin Kur'ânî inşâsı iki dönemi kapsar: Mekke (kalp, iman, huşû, zikir, dua, tövbe) ve Medine (topluluk, tafsil — namaz vakit çerçevesi, zekât oranları, oruç ayı, hac). Bu ayrım klasik tefsir ve sûrenin nüzûl bilgisine dayanır.",
+    "introEn": "The Qur'anic construction of worship spans two periods: Mecca (heart, faith, khushūʿ, remembrance, supplication, repentance) and Medina (community, elaboration — prayer times, zakat rates, fasting month, pilgrimage). This division draws on classical exegesis and traditional dating.",
+    "phases": [
+      {
+        "phase": "Mekke",
+        "phaseEn": "Mecca",
+        "descTr": "Kalp-eksenli inşâ. Namazın kök emri (Tâhâ 20:14 'beni anmak için namaz kıl'), teheccüd (Müzzemmil), gece yakarışı (İsra 17:79), huşû ve zikir motifleri Mekke'de yerleşir. Zaman: hicretten önce ~13 yıl.",
+        "descEn": "Heart-centered construction. Prayer's foundational command (Ṭā-Hā 20:14), tahajjud (Muzzammil), night invocation (Isrāʾ 17:79), khushūʿ and dhikr motifs settle in Mecca. Duration: ~13 years before hijra.",
+        "sutunlar": [
+          "namaz-kok",
+          "zikir",
+          "dua",
+          "tovbe"
+        ]
+      },
+      {
+        "phase": "Medine",
+        "phaseEn": "Medina",
+        "descTr": "Topluluk-eksenli tafsil. Namazın vakit çerçevesi (İsra 17:78 — Mekke'nin son yılında), oruç farziyeti (Bakara 2:183 — hicrî 2), zekât nisabı ve alacaklıları (Tevbe 9:60, 9:103 — hicrî 9), hac farziyeti (Bakara 2:196, Âl-i İmrân 3:97 — hicrî 6-9), kurban semantiği (Hac 22:37) burada tamamlanır.",
+        "descEn": "Community-centered elaboration. Prayer's time frame (Isrāʾ 17:78 — late Meccan), fasting obligation (Baqara 2:183 — year 2 AH), zakat threshold and recipients (Tawba 9:60, 9:103 — year 9 AH), hajj obligation (Baqara 2:196, Āl ʿImrān 3:97 — years 6-9 AH), sacrifice semantics (Ḥajj 22:37) complete here.",
+        "sutunlar": [
+          "namaz-vakit",
+          "zekat",
+          "oruc",
+          "hac",
+          "kurban"
+        ]
+      }
+    ]
+  },
+  "ortakFormuller": {
+    "titleTr": "Kur'ân'ın Tekrarlanan Formülleri",
+    "titleEn": "The Qur'an's Recurring Formulae",
+    "introTr": "Kur'ân ibadetleri tek başına değil, birbirine bağlı formüller içinde anar. Aşağıdaki 4 formül — 8 sütunun Kur'ân'ın kendi dili içindeki iç bağlarını gösterir.",
+    "introEn": "The Qur'an mentions worship not in isolation but through interlinked formulae. The four below reveal the inner ties of the eight pillars in the Qur'an's own language.",
+    "formuller": [
+      {
+        "formulTr": "Namazı kılın ve zekâtı verin",
+        "formulEn": "Establish prayer and give zakāt",
+        "arabic": "أَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",
+        "occurrenceTr": "Kur'ân'da 25-30 yerde tekrarlanır",
+        "occurrenceEn": "Repeats in 25-30 places in the Qur'an",
+        "sampleRefs": [
+          "Bakara 2:43",
+          "2:83",
+          "2:110",
+          "2:177",
+          "2:277",
+          "Nisa 4:77",
+          "Nur 24:56",
+          "Mücadele 58:13"
+        ],
+        "descTr": "İç ibadet (namaz-kalp) ile dış ibadet (zekât-mal) birbirinden ayrılmaz. Namazın olduğu yerde zekât da vardır — kalbin dönüşü mal ile de tasdik olur.",
+        "descEn": "Inward worship (prayer-heart) and outward worship (zakat-wealth) do not part. Where there is prayer, there is zakat — the heart's turning is confirmed also through wealth.",
+        "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti); Râzî, Bakara 2:43 tefsiri",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "formulTr": "Sabır ve namazla yardım isteyin",
+        "formulEn": "Seek help through patience and prayer",
+        "arabic": "اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+        "occurrenceTr": "İki yerde (2:45, 2:153) — özdeşleşmiş formül",
+        "occurrenceEn": "Twice (2:45, 2:153) — identical formula",
+        "sampleRefs": [
+          "Bakara 2:45",
+          "Bakara 2:153"
+        ],
+        "descTr": "Zorluk anında Kur'ânî formül: sabır (iç dayanma) + namaz (yönelme). Aynı formülün tekrarı bir vurgu, bir hafıza koridoru işareti.",
+        "descEn": "The Qur'anic formula in hardship: patience (inner endurance) + prayer (turning). The formula's repetition marks emphasis, a memory corridor.",
+        "kaynak": "Râzî, Bakara 2:45 ve 2:153 tefsiri (sabır-namaz beraberliği)",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "formulTr": "Tövbe eden, iman eden, salih amel işleyen",
+        "formulEn": "Whoever repents, believes, and does righteous deeds",
+        "arabic": "مَنْ تَابَ وَآمَنَ وَعَمِلَ صَالِحاً",
+        "occurrenceTr": "Furkan 25:70-71, Meryem 19:60, Kasas 28:67, Tâhâ 20:82",
+        "occurrenceEn": "Furqān 25:70-71, Maryam 19:60, Qaṣaṣ 28:67, Ṭā-Hā 20:82",
+        "sampleRefs": [
+          "Furkan 25:70",
+          "Meryem 19:60",
+          "Kasas 28:67",
+          "Tâhâ 20:82"
+        ],
+        "descTr": "Tövbe ne yalnızdır ne pasiftir — Kur'ân'da hep üçlü sıra ile gelir: dönüş (tövbe) → iman → amel. Kalp yenilendiğinde eylem de yenilenir.",
+        "descEn": "Repentance is neither solitary nor passive — in the Qur'an it always comes as a triad: return (tawba) → faith → deed. When the heart renews, action renews.",
+        "kaynak": "Râzî, Furkan 25:70 tefsiri (üçlü sıralamanın çözümlemesi)",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "formulTr": "Rabbin için namaz kıl ve kurban kes",
+        "formulEn": "Pray to your Lord and sacrifice",
+        "arabic": "فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+        "occurrenceTr": "Kevser 108:2 (tek yer)",
+        "occurrenceEn": "Kawthar 108:2 (single occurrence)",
+        "sampleRefs": [
+          "Kevser 108:2"
+        ],
+        "descTr": "Namaz ile nahr (kurban) tek ayette birleşir. Klasik tefsir bunu Kurban Bayramı namazı ile kurbanın bir arada okunması olarak yorumlar; bazı okumalar ise 'namazda ellerin yükseltilmesi' jestini de içerir.",
+        "descEn": "Prayer and naḥr (sacrifice) unite in a single verse. Classical exegesis reads this as the pairing of the ʿĪd al-Aḍḥā prayer with the sacrifice; some readings include the hand-raising gesture of prayer.",
+        "kaynak": "Kurtubî, Kevser 108:2 tefsiri; Elmalılı, Kevser Sûresi (ihtilaf notu)",
+        "claimType": "tafsir_tradition",
+        "confidence": "medium"
+      }
+    ]
+  }
 }
