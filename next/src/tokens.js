@@ -334,3 +334,21 @@ export const TRANSITION = {
 //                  simplified layouts. New overlays should prefer MOBILE.
 export const BREAKPOINT_MOBILE = 640;
 export const BREAKPOINT_TABLET = 768;
+
+// ─── İbadetler Mimarisi — V0 tokens ─────────────────────────────────────────
+// Claim taxonomy (spec §5.1): iddiaların epistemolojik tipini görsel olarak ayır.
+// LLM hallüsinasyonuna karşı kullanıcıya "bu iddia hangi düzlemde geliyor" işaret et.
+export const IBADET_CLAIM_TYPE_STYLES = {
+  quran_explicit:     { color: '#22d3ee', labelTr: 'Kur\'ân açık',        labelEn: 'Qur\'an explicit' },
+  quran_semantic:     { color: '#8b5cf6', labelTr: 'Kur\'ân semantik',    labelEn: 'Qur\'an semantic' },
+  tafsir_tradition:   { color: '#d4a574', labelTr: 'Tefsir/siyer',        labelEn: 'Tafsir/sīra' },
+  fiqh_tafsil:        { color: '#2ecc71', labelTr: 'Fıkhî tafsil',        labelEn: 'Fiqh detail' },
+  semantic_inference: { color: '#94a3b8', labelTr: 'Semantik çıkarım',    labelEn: 'Semantic inference' },
+};
+
+// Confidence dots — 3 seviye görsel indicator.
+export const IBADET_CONFIDENCE_STYLES = {
+  high:   { icon: '●●●', opacity: 1.0 },
+  medium: { icon: '●●○', opacity: 0.7 },
+  low:    { icon: '●○○', opacity: 0.5 },
+};
