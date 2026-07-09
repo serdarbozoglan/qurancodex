@@ -85,10 +85,86 @@ Her önemli iddia (`claim` dizisinde veya inline `not`larda) zorunlu bir `claimT
 | `semantic_inference` | Îzutsu tarzı semantic field analizinden çıkan | "İbâdet ≠ ritüel" |
 
 Her claim ayrıca:
-- `confidence`: `"high" | "medium" | "low"` (kaynak sağlamlığı)
-- `auditStatus`: `"pending" | "verified" | "revised"` (qc-content-auditor pass durumu)
+- `confidence`: `"high" | "medium" | "low"` (kaynak sağlamlığı — data'da yaşar, içeriğin bir parçası)
+
+**`auditStatus` data'dan AYRI:** `pending / verified / revised` git'te commit edilen JSON'da yaşarsa audit sonrası her seferinde data mutate olur → diff gürültüsü + content vs pipeline state karışır. Bu yüzden:
+
+```
+public/ibadetler/namaz.json                    ← içerik data (stable, versiyonlanır)
+public/ibadetler/audit-report/namaz.json       ← audit pipeline state (volatile)
+```
+
+`audit-report/<pillar>.json` yapısı:
+```json
+{
+  "pillarId": "namaz",
+  "generatedAt": "2026-07-09T12:00:00Z",
+  "auditor": "qc-content-auditor@v1",
+  "claims": {
+    "namaz-vakit-001": { "auditStatus": "verified", "note": "İsra 17:78 metnini cross-check ok" },
+    "namaz-semantic-alan-001": { "auditStatus": "revised", "note": "..." }
+  },
+  "inlineFindings": [
+    { "path": "kuraniIsimler[0].anlamKatmanlari[2]", "status": "flagged", "issue": "Rahmet katmanı için Bakara 157 yerine Ahzab 43 daha güçlü" }
+  ],
+  "summary": { "verified": 12, "pending": 3, "flagged": 1, "revised": 4 }
+}
+```
+
+Build script `qc-content-auditor` run ettikçe audit-report'u regenerate eder; içerik JSON'u dokunulmaz.
 
 Bu 4-alanlı yapı: **HUB wowFact + pillar claim + audit + LLM hallüsinasyon yakalayıcı** olarak birleşir.
+
+### 5.1.1 Şemada Nerede Yaşıyor — Karar
+
+Claim taxonomy iki yerde birden yaşar:
+
+**(a) Inline — her claim-bearing alanda zorunlu**
+
+Aşağıdaki alanların içindeki her kayıt kendi `claimType` (+ opsiyonel `confidence`) taşır:
+
+| Alan | Uygulama |
+|---|---|
+| `kuraniIsimler[].anlamKatmanlari[]` | Her katman: `{layer, descTr, kaynak, claimType, confidence?}` |
+| `anaPasajlar.ayetler[]` | Her ayet: `{ref, ..., not, claimType, confidence?}` |
+| `anaPasajlar.rituelBaglam[]` | Her: `{ref, sceneTr, not, claimType, confidence?}` |
+| `rakamsalMimari.kuraniSide.points[]` | Her point: `{label, value, note, claimType, confidence?}` |
+| `rakamsalMimari.sunnetSide.points[]` | Aynı |
+| `peygamberVaryasyonlari[]` | Her: `{prophet, ref, sceneTr, claimType, confidence?}` |
+| `icBoyut[]` | Her: `{titleTr, refs, descTr, claimType, confidence?}` |
+
+**(b) Top-level — pillar canonical claims (`claims: []`) HUB SSoT**
+
+Her pillar JSON'unun kökünde bir `claims: []` dizisi bulunur. HUB wow fact'lerin `derivedFromClaimId` bu diziye referans verir:
+
+```json
+"claims": [
+  {
+    "claimId": "namaz-vakit-001",
+    "claimTr": "Kur'an namaz vakitlerini belirli zaman dilimleri üzerinden anar",
+    "claimEn": "The Qur'an refers to prayer within specific time frames",
+    "refs": ["İsra 17:78", "Bakara 2:238", "Hud 11:114"],
+    "claimType": "quran_semantic",
+    "confidence": "high",
+    "framingTr": "Sünnet-i mütevâtire 5 vakit olarak tafsil eder — Kur'an ilke, sünnet tafsil."
+  },
+  {
+    "claimId": "namaz-semantic-alan-001",
+    "claimTr": "Namaz Kur'an'da tek isimli değil, 15+ terim etrafında dönen bir semantik alandır",
+    ...
+  }
+]
+```
+
+**Neden ikisi de?**
+- Inline `claimType` audit agent'a **her cümleye** çekişme düzlemi verir (halüsinasyon tespiti fine-grained).
+- Top-level `claims[]` HUB ↔ pillar arası SSoT tutar (drift-proof). `derivedFromClaimId` çözümlenmezse build fail.
+
+**qc-content-auditor kontrolü:**
+- Her `not`/`descTr`/`note`/`sceneTr` alanının `claimType` alanı boş olamaz.
+- `top-level claims[].claimId` HUB `wowFacts[].derivedFromClaimId` ile 1:1 çözümlenebilir olmalı.
+- `claimType === "quran_explicit"` iddialar için Kur'an metnindeki açık ifade cross-check edilir.
+- `claimType === "tafsir_tradition"` için "tefsir/siyer hafızasında" gibi hedge dili aranır; "Kur'an X der" gibi düz iddia varsa flag.
 
 4. **8 Pillar Kartı Grid**
    - Her kart: mode-icon + Kur'ânî isim (Arapça) + 1 satır özet + "Keşfet →" CTA
@@ -139,6 +215,13 @@ const visibleTabs = TAB_DEFS.filter(t => hasContent(pillarData, t.dataKey));
 Layout 7 tab destekler; data'da alan yoksa tab hiç gösterilmez. Kabul kriterinde ağır/hafif ayrımı böyle validate edilir.
 
 **Tab state URL-persistent (v2):** Tab seçimi query param olarak URL'e yazılır — `/atlas/ibadetler/namaz?tab=mimari`. Deep-linkable + back button friendly. Client component `useSearchParams` + `useRouter.replace()` kullanır.
+
+**URL tab fallback (v2 edge case):**
+```js
+const requestedTab = searchParams.get('tab');
+const activeTab = visibleTabs.find(t => t.key === requestedTab) ?? visibleTabs[0];
+```
+Hafif pillar'da var olmayan bir tab'e deep-link atılırsa (`?tab=peygamber` ama Zikir'de peygamber tab'ı yok) → Tab 1 (Genel Bakış) fallback. URL sessizce düzeltilir (`router.replace(...)` ile query'den `?tab=peygamber` silinir).
 
 **Hac/Kurban özel Tab 4 varyantı:** Hac ve Kurban için Tab 4 sadece "Rakamsal Mimari" değil, "Zaman & Mekân Mimarisi" — `eyyâmün ma'lûmât` (belirli günler, Bakara 2:203), `eyyâmin ma'dûdât` (sayılı günler, Bakara 2:184), Kâbe merkezi vs. Kur'ân'ın verdiği zaman/mekân çerçevesi + sünnetin takvimsel/coğrafi tafsili.
 
@@ -298,7 +381,11 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
         "value": 83,
         "method": "root-based",
         "root": "ص ل و",
-        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json"
+        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json",
+        "displayLabelTr": "~83 (ص ل و kökü)",
+        "displayLabelEn": "~83 (root ṣ-l-w)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök tabanlı sayım 'namaz olarak salât' ile 'vuslat/silâ' anlamındaki türevleri ayırt etmez. Kabul kriteri: her term için insan tarafından bir kez spot-check + yaklaşık (~) etiketle sun."
       },
       "anlamKatmanlari": [
         { "layer": "Namaz", "descTr": "Ritüel ibadet", "kaynak": "Râzî, Bakara 43 tefsiri" },
@@ -375,7 +462,13 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
     { "titleTr": "Fahşâdan alıkoyar", "refs": ["Ankebût 29:45"], "descTr": "Namazın hayat üzerindeki etkisi" },
     { "titleTr": "Sabr + salât", "refs": ["Bakara 2:45"], "descTr": "Kombinasyon: dayanma + kulluk" },
     { "titleTr": "Huşûsuz namaza uyarı", "refs": ["Mâûn 107:4-6"], "descTr": "Namazından gafil olanların hali" },
-    { "titleTr": "Yükseliş ve namaz arketipi", "descTr": "Tâhâ 20:14 namazın **zikir amacını** verir; İsra 17:78 **fecir + gece + akşam** vakit eksenini kurar. İsra 17:1'deki gece yolculuğu ile birlikte düşünüldüğünde namaz, Kur'ân'da gece, yükseliş ve yakınlık temalarıyla ilişkilenen bir ibadet olarak okunabilir.", "claimType": "semantic_inference", "confidence": "medium" },
+    {
+      "titleTr": "Yükseliş ve namaz arketipi",
+      "descTr": "Tâhâ 20:14 namazın **zikir amacını** verir; İsra 17:78 **fecir + gece + akşam** vakit eksenini kurar. İsra 17:1'deki gece yolculuğu ile birlikte düşünüldüğünde namaz, Kur'ân'da gece, yükseliş ve yakınlık temalarıyla ilişkilenen bir ibadet olarak okunabilir.",
+      "claimType": "semantic_inference",
+      "confidence": "medium",
+      "auditGuardTr": "Bu kayıt tematik bir okumadır. **Mi'rac → namazın farz kılınması** klasik anlatısı hadis kaynaklıdır ve bu kayıtta iddia edilmez; sadece Kur'ân metnindeki gece + yükseliş + yakınlık temaları arasındaki bağlantı gösterilir. Nedensellik iddiası aranırsa flag."
+    },
     { "titleTr": "Sabah namazının şahitliği", "refs": ["İsra 17:78"], "descTr": "'İnne kur'âne'l-fecri kâne meşhûdâ' — fecr namazı meleklerin şahit olduğu bir anlaşmadır" }
   ],
   "kaynaklar": [
@@ -517,6 +610,11 @@ Katman A-tarzı kart, HUB'a link.
 - [ ] **Performance:** HUB'da sadece `ibadetler-index.json` yüklenir; her pillar data'sı **kendi route'unda lazy-load** olur (`fetch` inside client component veya server component)
 - [ ] **Accessibility:** tab bar keyboard navigable (ArrowLeft/Right + Home/End), Arapça `dir="rtl" lang="ar"`, SemanticMap SVG'de `aria-label`
 - [ ] **Content lint:** build script şu yasak ifadeleri yakalar ve **fail**'e çevirir: `"Kur'an'da yok"`, `"sonradan eklendi"`, `"aslında yok"`, `"sadece fıkıh"`, `"fıkhî ekleme"`. Beyaz liste allowlist ile "Kur'an'da açıkça yok, sünnet-i mütevâtire ile sabit" gibi güvenli formülasyonlar geçirilir.
+- [ ] **Claim taxonomy inline zorunlu:** her `not`/`descTr`/`note`/`sceneTr`/`layer` içeren claim-bearing kayıtta `claimType` alanı var (build script eksik olanları fail eder)
+- [ ] **Top-level `claims: []` HUB SSoT:** her pillar'ın `claims[]` dizisi HUB `wowFacts[].derivedFromClaimId` ile 1:1 çözümlenebilir
+- [ ] **Audit-report ayrı dosya:** `public/ibadetler/audit-report/<pillar>.json` mevcut; `auditStatus` alanı content JSON'unda YOK
+- [ ] **occurrenceCount human spot-check:** her term için `humanSpotChecked: true` işaretli; UI'da `displayLabelTr` şeffaf metotla gösteriliyor (`"~83 (ص ل و kökü)"`)
+- [ ] **URL tab fallback:** geçersiz `?tab=X` parametre Tab 1'e düşer, URL sessizce düzeltilir
 
 ---
 
