@@ -2243,7 +2243,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     : (nextSurahStartPage - 1);
   const surahPageCount = Math.max(1, surahLastPage - surahStartPage + 1);
   const currentPage = bookPage ?? surahStartPage;
-  const isCurrentPageBookmarked = bookmarks.some(b => b.surah === selectedSurah && b.page === currentPage);
+  // In bookMode: match on page only — Mushaf sayfası cross-surah olabilir; kaydeden
+  // selectedSurah ile mevcut selectedSurah farklı olduğunda "ici bos" görünme bugini
+  // engeller (kullanıcı 2026-07-08 bildirdi).
+  const isCurrentPageBookmarked = bookMode
+    ? bookmarks.some(b => b.page === currentPage)
+    : bookmarks.some(b => b.surah === selectedSurah && b.page === currentPage);
 
   // Verses that belong to the current mushaf page (book mode only)
   // Page-centric: includes ALL surahs on the page, not just selectedSurah.
@@ -2537,13 +2542,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </svg>
             </button>
 
-            {/* Prev PAGE — mobil sayfa navigasyonu (2026-07-08 kullanıcı feedback) */}
+            {/* LEFT chevron — Kur'an RTL: soldaki ok "ileri" (sayfa numarası ARTAR).
+                Mushaf'ı sola çevirmek gibi. 2026-07-08 kullanıcı feedback. */}
             <button
-              onClick={() => canPrevPage && navigateToPage(Math.max(0, currentPage - step))}
-              disabled={!canPrevPage}
-              title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
-              aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
-              style={navBtnStyle(canPrevPage)}
+              onClick={() => canNextPage && navigateToPage(Math.min(604, currentPage + step))}
+              disabled={!canNextPage}
+              title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+              aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+              style={navBtnStyle(canNextPage)}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6" />
@@ -2604,13 +2610,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </span>
             </button>
 
-            {/* Next PAGE — mobil sayfa navigasyonu (2026-07-08 kullanıcı feedback) */}
+            {/* RIGHT chevron — Kur'an RTL: sağdaki ok "geri" (sayfa numarası AZALIR).
+                Mushaf'ın sağdaki eski sayfasına dönmek gibi. */}
             <button
-              onClick={() => canNextPage && navigateToPage(Math.min(604, currentPage + step))}
-              disabled={!canNextPage}
-              title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
-              aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
-              style={navBtnStyle(canNextPage)}
+              onClick={() => canPrevPage && navigateToPage(Math.max(0, currentPage - step))}
+              disabled={!canPrevPage}
+              title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+              aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+              style={navBtnStyle(canPrevPage)}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="9 18 15 12 9 6" />
@@ -2881,22 +2888,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     overflow: 'hidden',
                   }}>
                     <button
-                      onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
-                      disabled={currentPage <= 0}
-                      title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
-                      aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                      onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
+                      disabled={currentPage >= 604}
+                      title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                      aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         width: '28px', padding: 0, border: 'none',
                         borderRight: `1px solid ${navC.btnBorderActive}`,
                         background: 'transparent',
-                        cursor: currentPage > 0 ? 'pointer' : 'default',
-                        opacity: currentPage > 0 ? 0.9 : 0.28,
-                        color: currentPage > 0 ? gold : navC.chevronDisabled,
+                        cursor: currentPage < 604 ? 'pointer' : 'default',
+                        opacity: currentPage < 604 ? 0.9 : 0.28,
+                        color: currentPage < 604 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
-                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
+                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
                     >
                       <ChevronLeft size={14} />
                     </button>
@@ -2926,7 +2933,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         {currentPage === 0
                           ? (language === 'tr' ? 'Açılış' : 'Opening')
                           : (spreadMode && versesOnNextPage.length > 0
-                              ? `${currentPage}–${currentPage + 1}`
+                              ? `${currentPage + 1}–${currentPage}` /* Mushaf spread: sol=büyük, sağ=küçük */
                               : currentPage)}
                       </span>
                       <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showPagePicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
@@ -2934,22 +2941,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       </svg>
                     </button>
                     <button
-                      onClick={() => currentPage < 604 && navigateToPage(Math.min(604, currentPage + (spreadMode ? 2 : 1)))}
-                      disabled={currentPage >= 604}
-                      title={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
-                      aria-label={language === 'tr' ? 'Sonraki sayfa' : 'Next page'}
+                      onClick={() => currentPage > 0 && navigateToPage(Math.max(0, currentPage - (spreadMode ? 2 : 1)))}
+                      disabled={currentPage <= 0}
+                      title={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
+                      aria-label={language === 'tr' ? 'Önceki sayfa' : 'Previous page'}
                       style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         width: '28px', padding: 0, border: 'none',
                         borderLeft: `1px solid ${navC.btnBorderActive}`,
                         background: 'transparent',
-                        cursor: currentPage < 604 ? 'pointer' : 'default',
-                        opacity: currentPage < 604 ? 0.9 : 0.28,
-                        color: currentPage < 604 ? gold : navC.chevronDisabled,
+                        cursor: currentPage > 0 ? 'pointer' : 'default',
+                        opacity: currentPage > 0 ? 0.9 : 0.28,
+                        color: currentPage > 0 ? gold : navC.chevronDisabled,
                         transition: `all ${TRANSITION.fast}`,
                       }}
-                      onMouseEnter={e => { if (currentPage < 604) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
-                      onMouseLeave={e => { if (currentPage < 604) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
+                      onMouseEnter={e => { if (currentPage > 0) { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; e.currentTarget.style.opacity = '1'; }}}
+                      onMouseLeave={e => { if (currentPage > 0) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.opacity = '0.9'; }}}
                     >
                       <ChevronRight size={14} />
                     </button>
@@ -3110,7 +3117,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseLeave={e => { e.currentTarget.style.background = (showTranslation || showMealPicker) ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = (showTranslation || showMealPicker) ? navC.btnBorderActive : navC.btnBorder; }}
                 title={language === 'tr' ? `Meal — ${selectedMealAuthor.shortLabel}` : `Meaning — ${selectedMealAuthor.shortLabel}`}
               >
-                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700 }}>
+                <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', transform: 'translateY(-1px)' }}>
                   م
                 </span>
                 <span style={{ fontSize: '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
@@ -4728,7 +4735,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {language === 'tr' ? 'Henüz yer imi yok' : 'No bookmarks yet'}
               </div>
             ) : bookmarks.map((bm, i) => {
-              const isHere = bm.surah === selectedSurah && bm.page === currentPage;
+              const isHere = bookMode
+                ? bm.page === currentPage
+                : bm.surah === selectedSurah && bm.page === currentPage;
               const ago = (() => {
                 const diff = Date.now() - bm.timestamp;
                 const min = Math.floor(diff / 60000);
@@ -8702,7 +8711,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {language === 'tr' ? 'Sayfa' : 'Page'}{' '}
                 <span style={{ color: gold, fontWeight: 700 }}>
                   {spreadMode && versesOnNextPage.length > 0
-                    ? `${currentPage}–${currentPage + 1}`
+                    ? `${currentPage + 1}–${currentPage}` /* Mushaf spread: sol=büyük, sağ=küçük */
                     : currentPage}
                 </span>
                 
