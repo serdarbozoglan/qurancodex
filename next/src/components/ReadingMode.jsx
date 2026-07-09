@@ -1373,36 +1373,49 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // stay anchored to the verses, not to the viewport. Existing strokes are
   // intentionally cleared on resize (acceptable for a teaching tool; keeps
   // the math simple). Refresh / ✕ / 🗑️ also clear.
+  // Tahta canvas sizing — perf trade-off:
+  //
+  // Book mode: sc.scrollHeight is small (~800-1500px, one page). Canvas is
+  // small → fast pointer sampling → smooth strokes.
+  //
+  // Verse/Interlinear mode: sc.scrollHeight can be 30000-50000px (285-ayet
+  // Bakara). Two problems:
+  //   1. Canvas dim limit (~32767 px per side) — canvas allocation fails,
+  //      renders WHITE opaque placeholder over verses (fixed 2026-07-08).
+  //   2. Even with cap at 12000px CSS × 2 DPR = ~24000 px height × ~2800 px
+  //      width = 67M pixels ≈ 268 MB. Each pointermove redraws large canvas
+  //      area → GPU/CPU can't keep up → pointer events throttled → strokes
+  //      appear as choppy line segments between distant points (2026-07-08b).
+  //
+  // Fix: Cap CSS height at ~3 viewport heights (fits ~5x scroll drawing) and
+  // FORCE dpr=1 on large canvases. Book mode still uses full dpr (small
+  // canvas, no perf issue). Verse/Interlinear pays slight aliasing cost but
+  // gets smooth strokes.
   useEffect(() => {
     if (!drawMode) return;
     hasDrawnRef.current = false;
-    // Browser canvas dimension limits (Chrome/Safari/FF): max ~32767 px per dim.
-    // At dpr=2, CSS height 16384 hits the limit. Long-scroll views (Verse/Interlinear
-    // mode with 285-ayet Bakara can scroll 30000-50000 CSS px) blow past this and
-    // the canvas silently fails allocation → renders as a WHITE opaque placeholder
-    // covering all verses (2026-07-08 user bug). 12000 CSS px cap keeps us safely
-    // under 32k pixel dim at 2x DPR; that's still ~15 viewport heights of drawing
-    // surface which is more than enough for a teaching whiteboard.
-    const CANVAS_MAX_CSS_H = 12000;
     const fit = () => {
       const c = drawCanvasRef.current;
       const sc = containerRef.current;
       if (!c || !sc) return;
-      const dpr = window.devicePixelRatio || 1;
-      const w  = sc.clientWidth;
-      const h  = Math.min(sc.scrollHeight, CANVAS_MAX_CSS_H);
-      setTahtaContentHeight(h);
+      const w   = sc.clientWidth;
+      const rawH = sc.scrollHeight;
+      const isBook = bookMode;
+      // Book mode: full raster res, canvas = content (small). Verse/Interlinear:
+      // cap at 3× viewport + dpr=1 to keep pointer sampling snappy.
+      const capH = isBook ? rawH : Math.min(rawH, Math.max(3000, sc.clientHeight * 3));
+      const dpr  = isBook ? (window.devicePixelRatio || 1) : 1;
+      setTahtaContentHeight(capH);
       c.width  = w * dpr;
-      c.height = h * dpr;
+      c.height = capH * dpr;
       c.style.width  = `${w}px`;
-      c.style.height = `${h}px`;
+      c.style.height = `${capH}px`;
       const ctx = c.getContext('2d');
-      ctx.scale(dpr, dpr);
+      if (dpr !== 1) ctx.scale(dpr, dpr);
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
     };
     fit();
-    // Track scroll so the canvas translates with the verses.
     const sc = containerRef.current;
     const onScroll = () => { if (sc) setTahtaScrollTop(sc.scrollTop); };
     if (sc) {
@@ -1410,34 +1423,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       sc.addEventListener('scroll', onScroll, { passive: true });
     }
     window.addEventListener('resize', fit);
-    // Also refit when view mode changes — Book ↔ Verse ↔ Interlinear swaps
-    // change sc.scrollHeight dramatically. Without this, stale dims persist.
     return () => {
       window.removeEventListener('resize', fit);
       if (sc) sc.removeEventListener('scroll', onScroll);
     };
-  }, [drawMode]);
-
-  // Refit canvas when view mode changes (Book/Verse/Interlinear). Separate effect
-  // so we don't reset drawings on drawMode toggle timing quirks — just re-measures.
-  useEffect(() => {
-    if (!drawMode) return;
-    const c = drawCanvasRef.current;
-    const sc = containerRef.current;
-    if (!c || !sc) return;
-    const dpr = window.devicePixelRatio || 1;
-    const w  = sc.clientWidth;
-    const h  = Math.min(sc.scrollHeight, 12000);
-    setTahtaContentHeight(h);
-    c.width  = w * dpr;
-    c.height = h * dpr;
-    c.style.width  = `${w}px`;
-    c.style.height = `${h}px`;
-    const ctx = c.getContext('2d');
-    ctx.scale(dpr, dpr);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    hasDrawnRef.current = false;
   }, [drawMode, bookMode, interlinearMode]);
 
   // Inline meal picker — close on Esc or click outside. Uses both
@@ -9141,10 +9130,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const c = drawCanvasRef.current;
               if (!c) return;
               const rect = c.getBoundingClientRect();
-              const x = e.clientX - rect.left;
-              const y = e.clientY - rect.top;
-              const last = drawLastPointRef.current;
               const ctx = c.getContext('2d');
+              // getCoalescedEvents(): browser buffers multiple sub-frame pointer
+              // samples per event on capable HW (trackpad/pen/high-Hz mouse).
+              // Iterate through them so fast strokes don't skip pixels → smooth
+              // curves instead of choppy line segments (2026-07-08 user report).
+              const events = (typeof e.getCoalescedEvents === 'function')
+                ? e.getCoalescedEvents() : [e];
+              // For non-freehand tools (eraser/highlight) the last event is enough;
+              // freehand pen benefits most from per-sample drawing.
+              const isFreehand = drawColor !== 'eraser' && drawColor !== 'highlight' && drawColor !== 'text';
+              const iter = isFreehand ? events : [e];
+              for (const ev of iter) {
+              const x = ev.clientX - rect.left;
+              const y = ev.clientY - rect.top;
+              const last = drawLastPointRef.current;
+              if (!last) { drawLastPointRef.current = { x, y }; continue; }
               if (drawColor === 'eraser') {
                 ctx.globalCompositeOperation = 'destination-out';
                 ctx.lineWidth = 22;
@@ -9200,6 +9201,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 hasDrawnRef.current = true;
                 drawLastPointRef.current = { x, y };
               }
+              } /* end coalesced-events loop */
             }}
             onPointerUp={() => {
               drawingActiveRef.current = false;
