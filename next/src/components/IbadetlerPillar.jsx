@@ -358,18 +358,77 @@ function RefChips({ refs }) {
 function TabGenel({ data, language, isMobile, pillarData }) {
   if (!data) return null;
   const terms = pillarData?.kuraniIsimler ?? [];
+
+  // Extract verse refs mentioned in intro (Turkish surah names + N:M)
+  const introText = language === 'tr' ? (data.introTr ?? '') : (data.introEn ?? '');
+  const refPattern = /(?:Bakara|Fâtiha|Fatiha|Nisa|Nisâ|Nisâ'|Maide|Mâide|En'âm|A'râf|Enfâl|Tevbe|Yûnus|Hûd|Yûsuf|Ra'd|İbrahim|Hicr|Nahl|İsra|İsrâ|Kehf|Meryem|Tâhâ|Enbiyâ|Hac|Mü'minûn|Nûr|Furkan|Şuarâ|Neml|Kasas|Ankebût|Rûm|Rum|Lokman|Secde|Ahzâb|Sebe|Fâtır|Yâsîn|Sâffât|Sâd|Zümer|Mü'min|Fussilet|Şûrâ|Zuhruf|Duhân|Câsiye|Ahkâf|Muhammed|Fetih|Hucurât|Kâf|Zâriyât|Tûr|Necm|Kamer|Rahmân|Vakıa|Vâkıa|Hadîd|Mücâdele|Mücadele|Haşr|Mümtehine|Saff|Cum'a|Cuma|Münâfikûn|Teğâbün|Talâk|Tahrîm|Tahrim|Mülk|Kalem|Hâkka|Meâric|Nûh|Cin|Müzzemmil|Müddessir|Kıyâme|İnsân|Mürselât|Nebe|Nâziât|Abese|Tekvîr|İnfitâr|Mutaffifîn|İnşikâk|Bürûc|Târık|A'lâ|Ğâşiye|Fecr|Beled|Şems|Leyl|Duhâ|İnşirâh|Tîn|Alak|Kadir|Beyyine|Zilzâl|Âdiyât|Kâri'a|Tekâsür|Asr|Hümeze|Fîl|Kureyş|Mâûn|Kevser|Kâfirûn|Nasr|Tebbet|Leheb|İhlâs|Felak|Nâs)\s+\d+:\d+/g;
+  const foundRefs = [...new Set(introText.match(refPattern) ?? [])];
+
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-      {/* Intro paragraph */}
-      <p style={{
-        fontFamily: FONTS.body,
-        color: COLORS.offWhite,
-        fontSize: '1.05rem',
-        lineHeight: 1.85,
+      {/* Intro paragraph — glassmorphism card with gold accent */}
+      <div style={{
+        position: 'relative',
+        padding: isMobile ? '24px 20px 24px 26px' : '32px 32px 28px 40px',
         marginBottom: '36px',
+        background: 'linear-gradient(135deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+        border: `1px solid ${COLORS.goldAlpha25}`,
+        borderRadius: RADIUS.md,
+        overflow: 'hidden',
       }}>
-        {language === 'tr' ? data.introTr : data.introEn}
-      </p>
+        {/* Left vertical gold accent bar */}
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0,
+          width: '3px',
+          background: `linear-gradient(180deg, ${COLORS.gold} 0%, ${COLORS.gold}44 100%)`,
+        }} />
+
+        {/* Eyebrow */}
+        <div style={{
+          color: COLORS.gold, fontSize: '0.7rem',
+          letterSpacing: '0.24em', textTransform: 'uppercase',
+          fontWeight: 700, opacity: 0.82,
+          marginBottom: '14px',
+        }}>{language === 'tr' ? 'Bir Bakışta' : 'At a Glance'}</div>
+
+        {/* Intro text — larger, better line-height */}
+        <p style={{
+          fontFamily: FONTS.body,
+          color: COLORS.offWhite,
+          fontSize: isMobile ? '1rem' : '1.06rem',
+          lineHeight: 1.9,
+          margin: 0,
+          letterSpacing: '0.005em',
+        }}>{introText}</p>
+
+        {/* Extracted verse refs — inline chip row */}
+        {foundRefs.length > 0 && (
+          <div style={{
+            marginTop: '20px',
+            paddingTop: '18px',
+            borderTop: `1px dashed ${COLORS.goldAlpha25}`,
+            display: 'flex', flexWrap: 'wrap', gap: '6px',
+            alignItems: 'center',
+          }}>
+            <span style={{
+              color: COLORS.silver, fontSize: '0.7rem',
+              letterSpacing: '0.16em', textTransform: 'uppercase',
+              marginRight: '4px', opacity: 0.75,
+            }}>{language === 'tr' ? 'Anılan Ayetler' : 'Cited Verses'}:</span>
+            {foundRefs.map((r, i) => (
+              <span key={i} style={{
+                padding: '3px 10px',
+                background: 'rgba(212,165,116,0.10)',
+                border: `1px solid ${COLORS.goldAlpha25}`,
+                borderRadius: '10px',
+                color: COLORS.gold, fontSize: '0.7rem',
+                fontWeight: 600, letterSpacing: '0.04em',
+                whiteSpace: 'nowrap',
+              }}>{r}</span>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Semantik Alan Haritası — chip grid (auto-derive from kuraniIsimler) */}
       {terms.length > 0 && (
