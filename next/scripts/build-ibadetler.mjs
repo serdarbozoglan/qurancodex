@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cleanArabicForDisplay, hasProblemChars } from './lib/arabic-normalize.mjs';
+import { lintPillarData } from './lib/content-lint.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -96,6 +97,17 @@ let totalErrors = 0;
 for (const file of files) {
   console.log(`\n[pillar] ${path.relative(ROOT, file)}`);
   const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+
+  // Content lint — Kur'aniyyun tuzağı (build fail if strict)
+  const lintFindings = lintPillarData(data, `$.${data.id ?? 'unknown'}`);
+  if (lintFindings.length) {
+    console.error(`  [content-lint] FAIL — ${lintFindings.length} yasak ifade:`);
+    lintFindings.forEach(f => console.error(`    ${f.path}: "${f.matched}" — ${f.snippet}...`));
+    totalErrors += lintFindings.length;
+  } else {
+    console.log('  [content-lint] OK');
+  }
+
   // Ayet ref check — data içindeki tüm ref field'ları
   const refFindings = validateRefs(data);
   if (refFindings.length) {
