@@ -2983,13 +2983,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
         {/* RIGHT: controls */}
         {(() => {
-          const btn = (active, onClick, label, value, onEnter, onLeave, tooltip) => (
+          const btn = (active, onClick, label, value, onEnter, onLeave, tooltip, widthOverride) => (
             <button
               onClick={onClick}
               title={tooltip || label}
               style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer',
+                width: isMobile ? '36px' : (widthOverride || '48px'), height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer',
                 border: `1px solid ${active ? navC.btnBorderActive : navC.btnBorder}`,
                 background: active ? navC.btnBgActive : navC.btnBg,
                 transition: `all ${TRANSITION.fast}`, flexShrink: 0, gap: isMobile ? '3px' : '2px',
@@ -2999,7 +2999,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = active ? navC.btnBorderActive : navC.btnBorder; })}
             >
               <span style={{ color: gold, fontWeight: 700, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{value}</span>
-              <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>{label}</span>
+              <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: widthOverride ? 'nowrap' : 'normal', wordBreak: widthOverride ? 'normal' : 'break-word', maxWidth: '100%' }}>{label}</span>
             </button>
           );
 
@@ -3262,15 +3262,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               </button>
 
-              {/* Yer İmi — hidden on mobile */}
+              {/* Yer İmi — hidden on mobile. Width override 66px: "BOOKMARK" (8 chars)
+                  0.58rem + 0.03em letter-spacing tek satıra 48px'te sığmıyor. */}
               {!isMobile && btn(showBookmarks || isCurrentPageBookmarked,
                 () => { setShowBookmarks(p => !p); setShowSurahPicker(false); setShowMealPicker(false); setShowSettingsPicker(false); },
-                language === 'tr' ? 'Yer İmi' : 'Bookmark', // 8 chars, fits 58px wide button
+                language === 'tr' ? 'Yer İmi' : 'Bookmark',
                 <BookmarkIcon size={isMobile ? 15 : 18} filled={isCurrentPageBookmarked} />,
                 undefined, undefined,
                 isCurrentPageBookmarked
                   ? (language === 'tr' ? 'Yer imlerini aç — bu sayfa zaten kayıtlı' : 'Open bookmarks — this page is saved')
-                  : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'))}
+                  : (language === 'tr' ? 'Yer imlerini aç / bu sayfayı kaydet' : 'Open bookmarks / save this page'),
+                '66px')}
 
               {/* Close button spacer kaldırıldı (user audit): kapat zaten sağ
                   ucta natural exit position'ında, ek margin gerekmedi. Diğer
