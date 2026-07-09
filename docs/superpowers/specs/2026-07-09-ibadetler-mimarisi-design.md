@@ -15,9 +15,14 @@ Kur'an'ın ibadeti nasıl anlattığını **kendi diliyle** ortaya koyan, sığ 
 
 **Emosyonel arc:**
 1. Wonder — "İbadet aslında ne demek?" (`abd` kökü)
-2. Fascination — "Kur'an namazı **3 vakit** anar, 5 nasıl geldi?"
+2. Fascination — "Kur'an namaz vakitlerini nasıl anar, sünnet-i mütevâtire nasıl tafsil eder?"
 3. Awe — "Aynı ibadet farklı peygamberlerde farklı biçimde"
 4. Reflection — "Kulluk = tüm hayat"
+
+**Dil ilkeleri (v2 önemli):**
+- ❌ "Kur'an'da yok / var / eksik / sonradan eklendi" tarzı ifadeler YASAK.
+- ✅ "Kur'an X'i ilkeli çerçevede anar; sünnet-i mütevâtire ve icma bunu tafsil eder."
+- ✅ Merak uyandır, ama teolojik olarak temkinli — Kur'aniyyun havasına düşme.
 
 ---
 
@@ -65,7 +70,25 @@ Kur'an'ın ibadeti nasıl anlattığını **kendi diliyle** ortaya koyan, sığ 
    - "Zekât ≠ Sadaka — 2 semantik alan"
    - "Zikir Kur'an'da 250+ yerde geçer"
 
-**Wow fact SSoT kuralı:** Her wow fact zorunlu olarak bir `pillarId` taşır ve o pillar'ın data'sındaki bir claim'in özetidir. HUB ↔ pillar arası çelişki olmasın diye pillar JSON tek doğruluk kaynağı, wow fact ondan türetilir.
+**Wow fact SSoT kuralı:** Her wow fact zorunlu olarak bir `pillarId` + `derivedFromClaimId` taşır ve o pillar'ın `claims` dizisindeki bir kaydın özetidir. HUB ↔ pillar arası çelişki olmasın diye pillar JSON tek doğruluk kaynağı, wow fact ondan türetilir. Build script `derivedFromClaimId → claim` çözümlemesi yapamazsa fail eder.
+
+**Claim Taxonomy (v2 — teolojik epistemoloji katmanı):**
+
+Her önemli iddia (`claim` dizisinde veya inline `not`larda) zorunlu bir `claimType` taşır:
+
+| `claimType` | Tanım | Örnek |
+|---|---|---|
+| `quran_explicit` | Kur'ân doğrudan söyler, tefsir yorumu gerekmez | "Namaz kılın" — Bakara 43 |
+| `quran_semantic` | Kur'ân'da açıkça geçen ama semantik yorum içeren | "Salât'ın 'anmak' amacı" — Tâhâ 14 |
+| `tafsir_tradition` | Klasik tefsir-siyer hafızasında yerleşik | "Sa'y = Hâcer'in koşusu" — Bakara 158 açık söylemez |
+| `fiqh_tafsil` | Sünnet-i mütevâtire + icma ile tafsil | "5 vakit namaz" |
+| `semantic_inference` | Îzutsu tarzı semantic field analizinden çıkan | "İbâdet ≠ ritüel" |
+
+Her claim ayrıca:
+- `confidence`: `"high" | "medium" | "low"` (kaynak sağlamlığı)
+- `auditStatus`: `"pending" | "verified" | "revised"` (qc-content-auditor pass durumu)
+
+Bu 4-alanlı yapı: **HUB wowFact + pillar claim + audit + LLM hallüsinasyon yakalayıcı** olarak birleşir.
 
 4. **8 Pillar Kartı Grid**
    - Her kart: mode-icon + Kur'ânî isim (Arapça) + 1 satır özet + "Keşfet →" CTA
@@ -96,16 +119,28 @@ Her pillar sayfası **uniform 7-tab** yapıda:
 | Tab | Başlık | İçerik | Görsel öğe |
 |---|---|---|---|
 | **1** | Genel Bakış | Kavramsal çerçeve + 1 anchor pasaj + 3-4 madde "neden önemli" | Anchor verse block + gold-frame intro |
-| **2** | Kur'ânî İsimler | 5-15 term, her biri: Arapça yazım + kök + anlam katmanları + tefsir citation (sure/ayet-bazlı) | SemanticMap (radial diagram: merkez term + dış halka katmanlar) |
+| **2** | Kur'ânî Semantik Alan | 5-15 term (isim, hareket, zaman, iç durum karışık — "namazın etrafında dönen kavram alanı"), her biri: Arapça yazım + kök + anlam katmanları + tefsir citation (sure/ayet-bazlı) | SemanticMap (radial diagram: merkez term + dış halka katmanlar) |
 | **3** | Ana Pasajlar & Ritüel Bağlam | 4-8 anchor ayet + 2-3 tarihsel/ritüel pasaj (ör. kıble değişimi, havf namazı) — chorus formatında | Verse chorus grid, tarihsel pasajlar ayrı bir alt-bölüm başlığıyla |
 | **4** | Rakamsal / Yapısal Mimari | "Kur'an ilke koyar, sünnet tafsil eder" ekseninde: hangi öğe Kur'ân'da açık, hangisi sünnet + icma ile tanzim edilmiş | NumericTension widget (2 sütun: Kur'ânî ilke ↔ Sünnet tafsili) |
-| **5** | Peygamber Varyasyonları | Hangi peygamber nasıl uygulamış: kısa sahne + ayet ref | Vertical timeline SVG (İbrahim → Muhammed s.a.v.) |
+| **5** | Peygamber Varyasyonları | Hangi peygamber nasıl uygulamış: kısa sahne + ayet ref (silsile, katı yıl kronolojisi değil — bazı peygamberler çağdaş) | Vertical timeline SVG — **kulluk mirasının aktarım silsilesi**; Kur'an'ın anlatı dizilimini takip eder, katı takvim değil |
 | **6** | İç Boyut | Huşû, ihlâs, niyet, samimiyet ayetleri + kavramsal analiz + tarihsel-kavramsal katman (ör. İsra & namaz) | Callout kartları + iç boyut verse block |
 | **7** | Kaynaklar | SourcesCitation component (Râzî/Kurtubî/Elmalılı/Îzutsu inline) | Standart SourcesCitation |
 
 **Not:** Önceki taslakta ayrı bir `tarihselKatman` field'ı vardı; tab yapısında karşılığı yoktu. Şimdi:
 - Verse-anchored tarihsel öğeler (kıble değişimi Bakara 142-150, havf namazı Nisa 101-103) → **Tab 3** içine "Ritüel Bağlam" alt-bölümü
 - Kavramsal/tarihsel çerçeveler (İsra & namaz gibi) → **Tab 6** İç Boyut'a
+
+**Dinamik tab görünürlüğü (v2):** Ağır pillar'lar 7/7 tab dolu, hafif pillar'lar 5/7 tab dolu. Boş tab render edilmez:
+
+```js
+const visibleTabs = TAB_DEFS.filter(t => hasContent(pillarData, t.dataKey));
+```
+
+Layout 7 tab destekler; data'da alan yoksa tab hiç gösterilmez. Kabul kriterinde ağır/hafif ayrımı böyle validate edilir.
+
+**Tab state URL-persistent (v2):** Tab seçimi query param olarak URL'e yazılır — `/atlas/ibadetler/namaz?tab=mimari`. Deep-linkable + back button friendly. Client component `useSearchParams` + `useRouter.replace()` kullanır.
+
+**Hac/Kurban özel Tab 4 varyantı:** Hac ve Kurban için Tab 4 sadece "Rakamsal Mimari" değil, "Zaman & Mekân Mimarisi" — `eyyâmün ma'lûmât` (belirli günler, Bakara 2:203), `eyyâmin ma'dûdât` (sayılı günler, Bakara 2:184), Kâbe merkezi vs. Kur'ân'ın verdiği zaman/mekân çerçevesi + sünnetin takvimsel/coğrafi tafsili.
 
 Sayfa sonu:
 - CrossToolCTA (2-3 ilgili pillar)
@@ -128,7 +163,7 @@ next/src/components/
     ↳ TabPeygamberVary.jsx
     ↳ TabIcBoyut.jsx
     ↳ (Tab7 = SourcesCitation kullanır)
-  IbadetlerSemanticMap.jsx            Radial diagram (term + katmanlar)
+  IbadetlerSemanticMap.jsx            Radial diagram — SAF CSS Flexbox/Grid + SVG line (D3/Canvas YOK). KFGQPC Arapça glyph HTML element içinde kalır → responsive/a11y/§13.15 normalize güvenli.
   IbadetlerNumericTension.jsx         Kur'an ↔ fıkıh 2-col widget
   IbadetlerPeygamberTimeline.jsx      Vertical SVG timeline
   IbadetlerAbdCore.jsx                HUB'daki abd kökü çember
@@ -206,7 +241,15 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
     "sourceNote": "Îzutsu, Ethico-Religious Concepts §3.1"
   },
   "wowFacts": [
-    { "pillarId": "namaz", "titleTr": "Kur'an namazı doğrudan 3 vakit tanımıyla anar", "descTr": "...", "refs": ["İsra 17:78", "Bakara 2:238", "Hud 11:114"], "framingTr": "Sünnet ve icma ile 5 vakit — Kur'an ilke, sünnet tafsil." },
+    {
+      "pillarId": "namaz",
+      "derivedFromClaimId": "namaz-vakit-001",
+      "titleTr": "Kur'ân namaz vakitlerini belirli zaman dilimleri üzerinden anar",
+      "descTr": "Sabah, orta gün ve gece kısmı — üç ana zaman çerçevesi. Sünnet-i mütevâtire ve icma bunu 5 vakit olarak tafsil eder.",
+      "refs": ["İsra 17:78", "Bakara 2:238", "Hud 11:114"],
+      "claimType": "quran_semantic",
+      "framingTr": "Kur'an ilkeyi koyar, sünnet tafsil eder."
+    },
     ...
   ],
   "pillars": [
@@ -249,8 +292,14 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
       "term": "Salât",
       "ar": "الصَّلَاة",
       "root": "ص ل و",
-      "occurrenceCount": 83,
-      "occurrenceCountSource": "auto — build script verse-graph-bgem3.json üzerinden sayar; manuel yazılmaz",
+      "kategori": "core-name",
+      "searchTerms": ["الصَّلَاة", "الصَّلَوَات", "بِالصَّلَاة", "صَلَاتِ", "صَلَوَاتٌ"],
+      "occurrenceCount": {
+        "value": 83,
+        "method": "root-based",
+        "root": "ص ل و",
+        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json"
+      },
       "anlamKatmanlari": [
         { "layer": "Namaz", "descTr": "Ritüel ibadet", "kaynak": "Râzî, Bakara 43 tefsiri" },
         { "layer": "Dua", "descTr": "Yakarış — kelime kök anlamı", "kaynak": "Elmalılı, Fâtiha girişi + Bakara 3 tefsiri" },
@@ -326,7 +375,7 @@ Her `<Pillar>Route.jsx` sadece `<IbadetlerPillar pillarData={data} />` render ed
     { "titleTr": "Fahşâdan alıkoyar", "refs": ["Ankebût 29:45"], "descTr": "Namazın hayat üzerindeki etkisi" },
     { "titleTr": "Sabr + salât", "refs": ["Bakara 2:45"], "descTr": "Kombinasyon: dayanma + kulluk" },
     { "titleTr": "Huşûsuz namaza uyarı", "refs": ["Mâûn 107:4-6"], "descTr": "Namazından gafil olanların hali" },
-    { "titleTr": "İsra & namazın manası", "descTr": "İsra sûresinde namaz emri (Tâhâ 14, İsra 78) ile geceleyin kaldırılış (İsra 1) aynı sûre çerçevesinde — namaz Kur'ân'da bir 'yükseliş' arketipiyle iç içedir." },
+    { "titleTr": "Yükseliş ve namaz arketipi", "descTr": "Tâhâ 20:14 namazın **zikir amacını** verir; İsra 17:78 **fecir + gece + akşam** vakit eksenini kurar. İsra 17:1'deki gece yolculuğu ile birlikte düşünüldüğünde namaz, Kur'ân'da gece, yükseliş ve yakınlık temalarıyla ilişkilenen bir ibadet olarak okunabilir.", "claimType": "semantic_inference", "confidence": "medium" },
     { "titleTr": "Sabah namazının şahitliği", "refs": ["İsra 17:78"], "descTr": "'İnne kur'âne'l-fecri kâne meşhûdâ' — fecr namazı meleklerin şahit olduğu bir anlaşmadır" }
   ],
   "kaynaklar": [
@@ -464,6 +513,10 @@ Katman A-tarzı kart, HUB'a link.
 - [ ] Kaynak citation'lar SourcesCitation tab'ında listeli
 - [ ] qc-content-auditor pass: no critical errors
 - [ ] qc-source-curator pass: no missing/hallucinated sources
+- [ ] **SEO metadata:** her pillar için `generateMetadata` (title/desc/canonical/hreflang) tam
+- [ ] **Performance:** HUB'da sadece `ibadetler-index.json` yüklenir; her pillar data'sı **kendi route'unda lazy-load** olur (`fetch` inside client component veya server component)
+- [ ] **Accessibility:** tab bar keyboard navigable (ArrowLeft/Right + Home/End), Arapça `dir="rtl" lang="ar"`, SemanticMap SVG'de `aria-label`
+- [ ] **Content lint:** build script şu yasak ifadeleri yakalar ve **fail**'e çevirir: `"Kur'an'da yok"`, `"sonradan eklendi"`, `"aslında yok"`, `"sadece fıkıh"`, `"fıkhî ekleme"`. Beyaz liste allowlist ile "Kur'an'da açıkça yok, sünnet-i mütevâtire ile sabit" gibi güvenli formülasyonlar geçirilir.
 
 ---
 
@@ -499,38 +552,60 @@ Katman A-tarzı kart, HUB'a link.
 - **Dua** — mevcut `/arac/dualar` ile çakışmasın, sadece ibadet ekseni; Peygamber Varyasyonları light
 - **Tövbe** — semantik + iç boyut ağırlıklı
 
-### 11.3 Aşamalı plan
+### 11.3 MVP Fazlar — V0 → V1 → V2
 
-| Aşama | Süre | Bağımlılık |
-|---|---|---|
-| Design doc + data schema | 0.5 gün ✅ (bugün) | (bu doküman) |
-| Build script + verse-graph verify utils | 0.5 gün | schema |
-| HUB layout + IbadetlerHub.jsx | 1 gün | schema |
-| Shared pillar layout + 6 tab component | 1.5 gün | schema |
-| **Pilot: Namaz** (data + route + audit + revize) | 2 gün | pillar layout |
-| **Pattern donduktan sonra:** | | |
-| Zekât (2. sırada — İnfak/Sadaka risk) | 1.5 gün | Namaz pattern |
-| Kurban (3. sırada — İbrahim kıssası risk) | 1 gün | Namaz pattern |
-| Oruç | 1.5 gün | Namaz pattern |
-| Hac | 1.5 gün | Namaz pattern |
-| Zikir | 0.75 gün | Namaz pattern |
-| Dua | 0.75 gün | Namaz pattern |
-| Tövbe | 0.75 gün | Namaz pattern |
-| qc-content-auditor pass (tüm pillar) | 1.5 gün | tüm pillar'lar |
-| qc-source-curator pass | 0.5 gün | audit |
-| Görsel polish + mobil test | 1 gün | audit temiz |
-| Nav entegrasyon + i18n + anasayfa teaser | 0.75 gün | polish |
-| **Toplam** | **~16 gün** | |
+**V0 — Güçlü Demo (~8 gün)**
+Amaç: Erken çalışan, patterni oturmuş, teolojik güvenli MVP. Erken kullanıcı feedback + risk mitigation. Bu fazın sonunda deploy edilebilir bir şey var.
+
+| Aşama | Süre |
+|---|---|
+| Build script iskeleti + verse-graph verify utils (Namaz taslağıyla paralel) | 0.5 gün |
+| Data schema + Namaz ilk taslak (paralel; iterative — validation kuralları taslağı gerçek datayla test eder) | 1 gün |
+| Shared pillar layout + 6 content tab + `visibleTabs` filter + URL query param tab state | 1.5 gün |
+| **Namaz pilot full** (data + route + audit + revize + qc-content-auditor) | 2 gün |
+| **Zekât pilot full** (İnfak/Sadaka semantic risk erken çıksın) | 1.5 gün |
+| **HUB layout + IbadetlerHub.jsx + AbdCore + wowFacts** (pillar SSoT'ları hazır; drift riski minimal) | 1 gün |
+| **Kurban light** (İbrahim kıssası risk, 5/7 tab) | 0.75 gün |
+| Mobile test + görsel polish (V0 kapsamı) | 0.5 gün |
+| Nav entegrasyon (exploreCategories) + i18n TR-first | 0.25 gün |
+| **V0 toplam** | **~8 gün** |
+
+**V1 — Ana Atlas (~5 gün)**
+Amaç: Kalan 5 pillar. Pattern oturduğu için hızlanır.
+
+| Aşama | Süre |
+|---|---|
+| Oruç full | 1.5 gün |
+| Hac full (Zaman & Mekân Mimarisi Tab 4 varyantı ile) | 1.5 gün |
+| Zikir | 0.75 gün |
+| Dua | 0.75 gün |
+| Tövbe | 0.75 gün |
+| qc-content-auditor + qc-source-curator kapsamlı pass | 1 gün |
+| **V1 toplam** | **~6 gün** (paralel bazı kalemler mümkün) |
+
+**V2 — Polish & Genişletme (~2-3 gün)**
+
+| Aşama | Süre |
+|---|---|
+| EN içerik doldurma (V0/V1'de TR-first bırakıldı) | 1 gün |
+| Anasayfa teaser kartı (Katman A pattern) | 0.5 gün |
+| Gelişmiş görselleştirme (SemanticMap animasyonları, Peygamber timeline hover state) | 0.5 gün |
+| Kaynak/audit raporu (kullanıcıya gösterilebilir) | 0.5 gün |
+| **V2 toplam** | **~2.5 gün** |
+
+**Toplam:** V0 + V1 + V2 = **~16-17 gün**. V0'dan sonra deploy edilebilir. V1 sonrası "ana ürün" tamamlanır.
 
 ### 11.4 Pilot öncelik gerekçesi
 
-**Namaz** ilk — en zengin içerik (15+ isim, 8 pasaj, 7 peygamber), pattern burada oturur.
+**Sıra: Build script + Namaz taslağı paralel → Shared layout → Namaz pilot → Zekât pilot → HUB → Kurban**
 
-Namaz pilot donduktan sonra **Zekât + Kurban** hemen — bunlar en risky iki pillar:
-- **Zekât**: `Zakât / Sadaka / İnfak` semantic ayrımı çok hassas; erken hata görünsün
-- **Kurban**: İbrahim-İsmail kıssası ve Nüsuk semantiği; İncil'le paralellik/fark tartışması var
+- **Build script + Namaz taslağı paralel:** Validation kurallarını ham veri görmeden yazmak edge case kaçırır. Namaz taslağı build script'i test eder, script Namaz'ı doğrular — iteratif.
+- **Namaz ilk:** En zengin içerik, pattern burada oturur.
+- **Zekât ikinci:** `Zakât / Sadaka / İnfak` semantic ayrımı çok hassas — erken hata görünsün, pattern revizyonu Namaz+Zekât üzerinden yapılır.
+- **HUB üçüncü:** Wow fact'lar pillar SSoT'dan türeyecek; en az 2 pillar hazır olmadan HUB yaparsan sonra refactor gerekir. 2 pillar + HUB = drift riski minimum.
+- **Kurban dördüncü (V0 sonu):** İbrahim-İsmail kıssası risk; light versiyonla dene, tam versiyonla V1'de değil.
 
-Risk erken çıkarsa pattern revize edilir. Diğer 4 pillar (Oruç, Hac, Zikir, Dua, Tövbe) risky değil.
+V0'dan sonra risk büyük ölçüde mitigate edilmiş olur; V1 kalan pillar'lar aynı pattern'ı takip eder, hızlanır.
 
 ---
 
