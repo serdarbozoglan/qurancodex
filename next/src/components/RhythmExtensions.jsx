@@ -129,6 +129,8 @@ export default function RhythmExtensions({ language, isMobile }) {
               return (
                 <button key={m.id}
                   onClick={() => setActiveMetre(isActive ? null : i)}
+                  aria-expanded={isActive}
+                  aria-label={`${i + 1}. ${tr ? m.tr : m.en} — ${tr ? 'aruz vezni' : 'aruz metre'}`}
                   style={{
                     padding: '12px 14px',
                     background: isActive

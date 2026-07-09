@@ -175,6 +175,7 @@ export default function SoundExtensions({ language, isMobile }) {
           {CONTRAST_PAIRS.map((p, i) => (
             <button key={p.id}
               onClick={() => setActivePair(i)}
+              aria-pressed={activePair === i}
               style={{
                 padding: '8px 14px',
                 background: activePair === i ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.03)',
@@ -228,6 +229,8 @@ export default function SoundExtensions({ language, isMobile }) {
               return (
                 <button key={i}
                   onClick={() => setActiveSpec(isActive ? null : i)}
+                  aria-expanded={isActive}
+                  aria-label={`${tr ? g.groupTr : g.groupEn} — ${g.letters.length} ${tr ? 'harf' : 'letters'}`}
                   style={{
                     padding: '16px 18px',
                     background: isActive

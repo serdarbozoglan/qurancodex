@@ -159,7 +159,14 @@ function FatihaRingDiagram({ language, isMobile }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '18px' }}>
-      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} style={{ maxWidth: '100%' }}>
+      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}
+        role="img"
+        aria-labelledby="fatiha-ring-title fatiha-ring-desc"
+        style={{ maxWidth: '100%' }}>
+        <title id="fatiha-ring-title">{tr ? 'Fâtiha Sûresi Halka Kompozisyon Diyagramı' : 'Al-Fātiḥa Ring Composition Diagram'}</title>
+        <desc id="fatiha-ring-desc">{tr
+          ? 'A-B-C-D-C\'-B\'-A\' yapısında 7 pozisyonlu Fâtiha halkası. Merkezde D pivotu — Fâtiha 1:5 (İyyâke naʿbudu ve iyyâke nesteʿîn).'
+          : 'Seven-position Fatiha ring in A-B-C-D-C\'-B\'-A\' structure. Centre: D pivot — Al-Fātiḥa 1:5 (You alone we worship).'}</desc>
         {/* Outer ring */}
         <circle cx={cx} cy={cy} r={r + 12} fill="none" stroke={`${COLORS.gold}22`} strokeWidth="1" strokeDasharray="3 4" />
 
@@ -175,7 +182,12 @@ function FatihaRingDiagram({ language, isMobile }) {
             <g key={i}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              style={{ cursor: 'pointer' }}
+              onFocus={() => setHovered(i)}
+              onBlur={() => setHovered(null)}
+              tabIndex={0}
+              role="button"
+              aria-label={`${v.pos} · Fâtiha 1:${v.ayah} · ${tr ? v.themeTr : v.themeEn}`}
+              style={{ cursor: 'pointer', outline: 'none' }}
             >
               {/* Line from center to node */}
               <line x1={cx} y1={cy} x2={x} y2={y}
@@ -315,6 +327,7 @@ export default function RingExtensions({ language, isMobile }) {
             {ADDITIONAL_RINGS.map((r, i) => (
               <button key={r.id}
                 onClick={() => setActiveRing(i)}
+                aria-pressed={activeRing === i}
                 style={{
                   padding: '8px 14px',
                   background: activeRing === i ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.03)',

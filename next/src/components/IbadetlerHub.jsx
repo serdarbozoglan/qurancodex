@@ -267,6 +267,7 @@ function PillarCard({ pillar, language, isMobile, router }) {
     <button
       onClick={handleClick}
       disabled={!isReady}
+      aria-label={`${language === 'tr' ? pillar.titleTr : pillar.titleEn} · ${isReady ? (language === 'tr' ? 'Hazır — sayfaya git' : 'Ready — go to page') : (language === 'tr' ? 'Yakında' : 'Coming soon')}`}
       style={{
         display: 'flex', flexDirection: 'column',
         padding: isMobile ? '22px 20px' : '24px 24px',
