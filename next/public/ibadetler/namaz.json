@@ -150,7 +150,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Salât",
+      "termEn": "Ṣalāt"
     },
     {
       "term": "Dhikr",
@@ -190,7 +192,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Zikr",
+      "termEn": "Dhikr"
     },
     {
       "term": "Tesbîh",
@@ -230,7 +234,9 @@
           "claimType": "tafsir_tradition",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Tesbîh",
+      "termEn": "Tasbīḥ"
     },
     {
       "term": "Sücûd",
@@ -270,7 +276,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Secde",
+      "termEn": "Sujūd"
     },
     {
       "term": "Rükû'",
@@ -310,7 +318,9 @@
           "claimType": "tafsir_tradition",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Rükû",
+      "termEn": "Rukūʿ"
     },
     {
       "term": "Kıyâm",
@@ -341,7 +351,9 @@
           "claimType": "quran_semantic",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Kıyâm",
+      "termEn": "Qiyām"
     },
     {
       "term": "Kunût",
@@ -372,7 +384,9 @@
           "claimType": "quran_semantic",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Kunut",
+      "termEn": "Qunūt"
     },
     {
       "term": "Huşû'",
@@ -403,7 +417,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Huşû",
+      "termEn": "Khushūʿ"
     },
     {
       "term": "Fecr",
@@ -433,7 +449,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Fecr",
+      "termEn": "Fajr"
     },
     {
       "term": "Asr",
@@ -463,7 +481,9 @@
           "claimType": "tafsir_tradition",
           "confidence": "medium"
         }
-      ]
+      ],
+      "termTr": "Asr",
+      "termEn": "ʿAṣr"
     },
     {
       "term": "Vustâ",
@@ -492,7 +512,9 @@
           "claimType": "tafsir_tradition",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Vustâ",
+      "termEn": "Wusṭā"
     },
     {
       "term": "Duluk",
@@ -521,7 +543,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Duluk",
+      "termEn": "Dulūk"
     },
     {
       "term": "Ğasak",
@@ -550,7 +574,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Ğasak",
+      "termEn": "Ghasaq"
     },
     {
       "term": "Kur'ân al-Fecr",
@@ -578,7 +604,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Fecrin Kur'ân'ı",
+      "termEn": "Qur'ān al-Fajr"
     },
     {
       "term": "Zulf",
@@ -607,7 +635,9 @@
           "claimType": "quran_explicit",
           "confidence": "high"
         }
-      ]
+      ],
+      "termTr": "Zulf",
+      "termEn": "Zulaf"
     }
   ],
   "anaAyet grubular": {

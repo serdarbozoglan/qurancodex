@@ -410,7 +410,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
                 <span style={{
                   color: COLORS.offWhite, fontSize: '0.78rem',
                   fontWeight: 600, letterSpacing: '0.02em',
-                }}>{t.term}</span>
+                }}>{language === 'tr' ? (t.termTr ?? t.term) : (t.termEn ?? t.term)}</span>
               </div>
             ))}
           </div>
@@ -517,7 +517,7 @@ function SemanticTermCard({ term, language, isMobile }) {
           direction: 'rtl',
           lineHeight: 1,
         }} lang="ar">{term.ar}</h3>
-        <span style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.15rem', fontWeight: 700 }}>{term.term}</span>
+        <span style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.15rem', fontWeight: 700 }}>{language === 'tr' ? (term.termTr ?? term.term) : (term.termEn ?? term.term)}</span>
         {term.root && (
           <span style={{
             fontFamily: FONTS.body,

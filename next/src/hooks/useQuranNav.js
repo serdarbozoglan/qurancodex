@@ -62,7 +62,7 @@ const OVERLAY_ROUTES = {
   commands:   '/arac/buyruklar',
   iblisSatan: '/arac/iblis-seytan',
   ilkSon:     '/arac/ilk-son-kelimeler',
-  ibadetler:  '/atlas/ibadetler/namaz',  // V0: HUB henüz yok → direkt Namaz'a git; Task 12 sonrası HUB'a döner
+  ibadetler:  '/atlas/ibadetler',  // HUB — 8 pillar landing (Namaz ready, diğer 7 coming)
 };
 
 export function useQuranNav() {

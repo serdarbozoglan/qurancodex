@@ -1,0 +1,226 @@
+{
+  "id": "ibadetler-hub",
+  "titleTr": "İbadetlerin Kur'ânî Mimarisi",
+  "titleEn": "The Qur'anic Architecture of Worship",
+  "anchorVerse": {
+    "surah": 51,
+    "ayah": 56,
+    "ar": "وَمَا خَلَقْتُ الْجِنَّ وَالْاِنْسَ اِلَّا لِيَعْبُدُونِ",
+    "tr": "Ben cinleri ve insanları ancak bana kulluk etsinler diye yarattım.",
+    "en": "And I did not create the jinn and mankind except to worship Me.",
+    "refTr": "Zâriyât 51:56",
+    "refEn": "Al-Dhāriyāt 51:56"
+  },
+  "hero": {
+    "eyebrowTr": "KULLUĞUN SEKİZ SÜTUNU",
+    "eyebrowEn": "EIGHT SÜTUNS OF SERVITUDE",
+    "subtitleTr": "Kur'ân ilkeyi koyar; sünnet tafsil eder.",
+    "subtitleEn": "The Qur'an frames the principle; sunnah details it."
+  },
+  "abdCore": {
+    "arabicName": "عَبْد",
+    "titleTr": "abd — Kul",
+    "titleEn": "ʿAbd — Servant",
+    "descTr": "Kur'ân'da kulluğun kök kelimesi. 'İbâde' (ibadet) 'abd' kökünden gelir; kul olmak, tek bir Rabbe ait olmaktır. Sekiz sütun bu tek kökten türeyen sekiz yüzdür — beden, mal, zaman, arzu, dil, kalp, tövbe ve hac bir bütün olarak 'abd'in Rabbi ile bağlantısını kurar.",
+    "descEn": "The root of servitude in the Qur'an. 'ʿIbāda' derives from the root ʿ-b-d; to be a servant is to belong to a single Lord. The eight pillars are eight faces of a single root — body, wealth, time, desire, tongue, heart, repentance and pilgrimage together forge the servant's link to the Lord.",
+    "coreAyet": {
+      "ref": "Fatiha 1:5",
+      "ar": "اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ",
+      "trShort": "Yalnız sana kulluk ederiz ve yalnız senden yardım dileriz.",
+      "enShort": "You alone we worship, and You alone we ask for help."
+    },
+    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
+  },
+  "wowFacts": [
+    {
+      "id": "wowfact-abd-kok",
+      "titleTr": "'abd' kökü Kur'ân'da 275+ türev",
+      "titleEn": "The root ʿ-b-d appears in 275+ derivatives",
+      "descTr": "Kulluk Kur'ân'ın en yoğun semantik alanlarından biri. 'abd, ibâde, âbid, taʿabbud, maʿbûd — hepsi tek kökten. Ne yapıldığı değil, kime yapıldığı belirleyicidir.",
+      "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from one root. It is not what is done but to whom it is done that defines it.",
+      "claimType": "quran_semantic",
+      "confidence": "high",
+      "kaynak": "Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
+    },
+    {
+      "id": "wowfact-namaz-zekat-cifti",
+      "titleTr": "Namaz ve zekât Kur'ân'da 32 kez yan yana",
+      "titleEn": "Prayer and zakat side by side 32 times",
+      "descTr": "Kur'ân'da namaz emri çoğunlukla zekât emriyle birlikte gelir — 'ekîmu's-salât ve âtu'z-zekât' formülü otuzu aşkın yerde tekrarlanır. İç ibadet (kalp) ile dış ibadet (mal) birbirinden ayrılmaz.",
+      "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat — 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in over thirty places. Inward worship (heart) and outward worship (wealth) do not part.",
+      "claimType": "quran_explicit",
+      "confidence": "high",
+      "kaynak": "Bakara 2:43, Bakara 2:83, Bakara 2:110, Nisa 4:77, Nur 24:56 ve devamı; Râzî, Bakara 2:43 tefsiri (formül analizi)"
+    },
+    {
+      "id": "wowfact-oruc-hac-vakti",
+      "titleTr": "Oruç ve Hac — Kur'ân'ın adını verdiği iki vakit",
+      "titleEn": "Fasting and Pilgrimage — two named times in the Qur'an",
+      "descTr": "Kur'ân zamana bağlı iki ibadete özel ay adı verir: Ramazan (Bakara 2:185) ve haram aylar (Tevbe 9:36). Zaman Kur'ân'da kulluğun konteyneri olarak inşâ edilir.",
+      "descEn": "The Qur'an names two time-bound acts of worship: Ramaḍān (Baqara 2:185) and the sacred months (Tawbah 9:36). Time is framed in the Qur'an as the container of servitude.",
+      "claimType": "quran_explicit",
+      "confidence": "high",
+      "kaynak": "Râzî, Bakara 2:185 tefsiri; Kurtubî, Tevbe 9:36 tefsiri"
+    },
+    {
+      "id": "wowfact-tovbe-mercy",
+      "titleTr": "Tövbe — Kur'ân'da Allah'ın da yaptığı tek 'ibadet' fiili",
+      "titleEn": "Tawba — the only 'worship' verb the Qur'an ascribes to Allah too",
+      "descTr": "Tövbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. İki taraftan aynı fiil: kulun dönüşü, Rabb'in dönüşüyle karşılanır.",
+      "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy) — 'inna'llāha tawwābun raḥīm.' The same verb from both sides: the servant's return is met with the Lord's turning.",
+      "claimType": "quran_semantic",
+      "confidence": "high",
+      "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tövbesi ↔ kulun tövbesi)"
+    }
+  ],
+  "pillars": [
+    {
+      "id": "namaz",
+      "arabicName": "الصَّلَاة",
+      "titleTr": "Namaz",
+      "titleEn": "Prayer",
+      "shortDescTr": "Kur'ân'da 15+ terim etrafında dönen semantik alan. Vakit ekseni, kıble ve iç boyut birlikte.",
+      "shortDescEn": "A semantic field around 15+ Qur'anic terms. Time axis, qibla and inner dimension together.",
+      "anchorRef": "Tâhâ 20:14",
+      "domain": "Beden ve Kalp",
+      "domainEn": "Body and Heart",
+      "status": "ready",
+      "href": "/atlas/ibadetler/namaz",
+      "iconKey": "prayer"
+    },
+    {
+      "id": "zekat",
+      "arabicName": "الزَّكَاة",
+      "titleTr": "Zekât",
+      "titleEn": "Zakat",
+      "shortDescTr": "Malın Kur'ânî temizlenmesi. Zekât-sadaka-infak semantik ayrımı ve mal-mülk teolojisi.",
+      "shortDescEn": "Qur'anic purification of wealth. The semantic distinction of zakat-sadaqa-infaq and the theology of possession.",
+      "anchorRef": "Tevbe 9:103",
+      "domain": "Mal",
+      "domainEn": "Wealth",
+      "status": "coming",
+      "href": null,
+      "iconKey": "coins"
+    },
+    {
+      "id": "oruc",
+      "arabicName": "الصَّوْم",
+      "titleTr": "Oruç",
+      "titleEn": "Fasting",
+      "shortDescTr": "Zamanı bir kabuk gibi giyen ibadet. Ramazan, takva ve nefsin dizginlenmesi.",
+      "shortDescEn": "The worship that wears time like a shell. Ramaḍān, taqwā and the restraint of the self.",
+      "anchorRef": "Bakara 2:183",
+      "domain": "Zaman ve Nefs",
+      "domainEn": "Time and Self",
+      "status": "coming",
+      "href": null,
+      "iconKey": "crescent"
+    },
+    {
+      "id": "hac",
+      "arabicName": "الْحَجّ",
+      "titleTr": "Hac",
+      "titleEn": "Pilgrimage",
+      "shortDescTr": "Kulluğun mekânsal yolculuğu. İbrahim mirası, Beytullah ve ümmet-i vâhide bilinci.",
+      "shortDescEn": "The spatial journey of servitude. Abrahamic heritage, the House of Allah, and the consciousness of one community.",
+      "anchorRef": "Bakara 2:196",
+      "domain": "Mekân ve Beden",
+      "domainEn": "Space and Body",
+      "status": "coming",
+      "href": null,
+      "iconKey": "kaaba"
+    },
+    {
+      "id": "kurban",
+      "arabicName": "النُّسُك",
+      "titleTr": "Kurban",
+      "titleEn": "Sacrifice",
+      "shortDescTr": "Nüsuk semantiği ve İbrahim hafızası. Kanın değil, takvânın Rabb'e ulaşması.",
+      "shortDescEn": "The semantics of nusuk and Abrahamic memory. Not blood but taqwā reaching the Lord.",
+      "anchorRef": "Hac 22:37",
+      "domain": "Teslimiyet",
+      "domainEn": "Surrender",
+      "status": "coming",
+      "href": null,
+      "iconKey": "sacrifice"
+    },
+    {
+      "id": "zikir",
+      "arabicName": "الذِّكْر",
+      "titleTr": "Zikir",
+      "titleEn": "Remembrance",
+      "shortDescTr": "Kur'ân'ın kendi diyarı: 'beni anın, ben de sizi anayım'. Namazın da amacı olan iç sürekli.",
+      "shortDescEn": "The Qur'an's own territory: 'remember Me, I will remember you.' The inward continuum that is also prayer's purpose.",
+      "anchorRef": "Bakara 2:152",
+      "domain": "Dil ve Kalp",
+      "domainEn": "Tongue and Heart",
+      "status": "coming",
+      "href": null,
+      "iconKey": "tongue"
+    },
+    {
+      "id": "dua",
+      "arabicName": "الدُّعَاء",
+      "titleTr": "Dua",
+      "titleEn": "Supplication",
+      "shortDescTr": "Kulun sesli yakarışı. 'Dua ibadetin özüdür' — Kur'ân'ın kişisel iletişim kanalı.",
+      "shortDescEn": "The servant's spoken plea. 'Supplication is the essence of worship' — the Qur'an's personal channel.",
+      "anchorRef": "Bakara 2:186",
+      "domain": "Yakarış",
+      "domainEn": "Invocation",
+      "status": "coming",
+      "href": null,
+      "iconKey": "hands"
+    },
+    {
+      "id": "tovbe",
+      "arabicName": "التَّوْبَة",
+      "titleTr": "Tövbe",
+      "titleEn": "Repentance",
+      "shortDescTr": "Dönüş fiili — hem kuldan Rabbe, hem Rabbden kula. Sürekli yenilenen bağın kapısı.",
+      "shortDescEn": "The verb of turning — from the servant to the Lord, and from the Lord to the servant. The gate of a constantly renewed bond.",
+      "anchorRef": "Nur 24:31",
+      "domain": "Dönüş",
+      "domainEn": "Return",
+      "status": "coming",
+      "href": null,
+      "iconKey": "return"
+    }
+  ],
+  "framingTr": "Bu HUB bir 'fıkıh kitabı' değil, ibadetin Kur'ânî mimarisidir. Sekiz sütun Kur'ân'ın ilkeyi koyduğu, sünnet-i mütevâtirenin tafsil ettiği bir bütünün parçalarıdır. Klasik Ehl-i Sünnet çerçevesi ve dört mezhep uygulaması geçerli; her sayfa 'Kur'ân ne diyor?' + 'sünnet nasıl tafsil eder?' ayrımını görsel olarak korur.",
+  "framingEn": "This HUB is not a manual of jurisprudence but the Qur'anic architecture of worship. The eight pillars are components of a whole whose principle the Qur'an frames and whose details mutawātir sunnah supplies. The classical Sunni framework and the four schools apply; each page preserves the distinction between 'what the Qur'an says' and 'how sunnah details it.'",
+  "kaynaklar": [
+    {
+      "author": "Fahruddîn er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "1149-1209 (Rey)",
+      "noteTr": "Sekiz sütunun klasik tefsir çerçevesi için ana referans. Fâtiha 1:5 'iyyâke naʿbudu' tefsirinde kulluğun semantik alanı; zekât-namaz formülü (Bakara 2:43) analizinde ibadet-mal bağı.",
+      "noteEn": "Primary reference for the classical exegetical frame of the eight pillars. On Fātiḥa 1:5 for the semantic field of servitude; on Baqara 2:43 for the worship-wealth link."
+    },
+    {
+      "author": "Kurtubî",
+      "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+      "workEn": "al-Jāmiʿ li-Aḥkām al-Qur'ān",
+      "period": "1214-1273 (Kurtuba)",
+      "noteTr": "Sekiz sütunun fıkhî ahkâmı için başlıca kaynak. Klasik dört mezhep karşılaştırması ve icma noktaları.",
+      "noteEn": "The primary source for the juridical rulings of the eight pillars. Comparison of the four classical schools and points of consensus."
+    },
+    {
+      "author": "Elmalılı Hamdi Yazır",
+      "workTr": "Hak Dini Kur'ân Dili",
+      "workEn": "Ḥaqq Dīnī Qur'ān Dili",
+      "period": "1878-1942 (İstanbul)",
+      "noteTr": "Modern Türkçe okuyucu için pedagojik çerçeve. İbadet kavramının felsefî-teolojik değerlendirmesi (Fâtiha girişi).",
+      "noteEn": "Pedagogical frame for the modern Turkish reader. Philosophical-theological treatment of the concept of worship (Fātiḥa introduction)."
+    },
+    {
+      "author": "Toshihiko Îzutsu",
+      "workTr": "Ethico-Religious Concepts in the Qur'an",
+      "workEn": "Ethico-Religious Concepts in the Qur'an",
+      "period": "1966 (McGill-Queen's)",
+      "noteTr": "Kulluk ('abd') semantic field'ı §3'te sistematik incelenir. Bu HUB'ın 'sekiz yüz, tek kök' çerçevesinin modern dilbilimsel omurgası.",
+      "noteEn": "Systematic analysis of the semantic field of ʿabd (servitude) in §3. The modern linguistic backbone of this HUB's 'eight faces, one root' frame."
+    }
+  ]
+}
