@@ -19,6 +19,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cleanArabicForDisplay, hasProblemChars } from './lib/arabic-normalize.mjs';
 import { lintPillarData } from './lib/content-lint.mjs';
+import { countOccurrence } from './lib/occurrence-count.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -120,6 +121,9 @@ for (const file of files) {
   // Arabic text normalize + inject
   const injected = injectArabicText(data);
   console.log(`  [arabic-inject] ${injected} ayet Arapça metni enjekte edildi`);
+  // Occurrence count doldur
+  const counted = fillOccurrenceCounts(data);
+  if (counted > 0) console.log(`  [occurrence] ${counted} term için sayım yapıldı`);
   // Write back
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n', 'utf-8');
 }
@@ -153,6 +157,25 @@ function validateRefs(data) {
   };
   walk(data, `$.${data.id ?? 'unknown'}`);
   return findings;
+}
+
+function fillOccurrenceCounts(data) {
+  // kuraniIsimler[].occurrenceCount doldurma.
+  let filled = 0;
+  const allVerses = [...versesById.values()];
+  for (const term of (data.kuraniIsimler ?? [])) {
+    const spec = term.occurrenceCount;
+    if (!spec) continue;
+    const result = countOccurrence(allVerses, spec);
+    if (!result) continue;
+    spec.value = result.value;
+    if (result.method !== spec.method) spec.effectiveMethod = result.method;
+    if (result.fallbackReason) spec.fallbackReason = result.fallbackReason;
+    spec.hitsSample = result.hits.slice(0, 5);
+    filled++;
+    console.log(`    ${term.term} (${result.method}): ${result.value}`);
+  }
+  return filled;
 }
 
 function injectArabicText(data) {
