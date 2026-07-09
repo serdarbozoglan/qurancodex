@@ -184,8 +184,9 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
           }}>
             <div style={{
               fontFamily: FONTS.quran, color: COLORS.gold,
-              fontSize: '1.35rem', lineHeight: 2, direction: 'rtl',
-              textAlign: 'right', marginBottom: '8px',
+              fontSize: isMobile ? 'clamp(1.5rem, 5vw, 1.85rem)' : 'clamp(1.75rem, 2.4vw, 2.15rem)',
+              lineHeight: 2.15, direction: 'rtl',
+              textAlign: 'right', marginBottom: '12px',
             }} lang="ar" dir="rtl">{abdCore.coreAyet.ar}</div>
             <p style={{
               color: COLORS.offWhite, fontSize: '0.88rem',
@@ -289,21 +290,21 @@ function PillarCard({ pillar, language, isMobile, router }) {
         e.currentTarget.style.background = 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)';
       }}
     >
-      {/* Status badge */}
-      <div style={{
-        position: 'absolute', top: '14px', right: '14px',
-        padding: '3px 9px',
-        background: isReady ? `${COLORS.gold}22` : 'rgba(148,163,184,0.15)',
-        border: `1px solid ${isReady ? COLORS.goldAlpha25 : 'rgba(148,163,184,0.25)'}`,
-        borderRadius: '999px',
-        color: isReady ? COLORS.gold : COLORS.silver,
-        fontSize: '0.6rem', fontWeight: 700,
-        letterSpacing: '0.14em', textTransform: 'uppercase',
-      }}>
-        {isReady
-          ? (language === 'tr' ? 'Hazır' : 'Ready')
-          : (language === 'tr' ? 'Yakında' : 'Soon')}
-      </div>
+      {/* Status badge — sadece "Yakında" durumunda göster; hazır olanlar için işaret gereksiz */}
+      {!isReady && (
+        <div style={{
+          position: 'absolute', top: '14px', right: '14px',
+          padding: '3px 9px',
+          background: 'rgba(148,163,184,0.15)',
+          border: `1px solid rgba(148,163,184,0.25)`,
+          borderRadius: '999px',
+          color: COLORS.silver,
+          fontSize: '0.6rem', fontWeight: 700,
+          letterSpacing: '0.14em', textTransform: 'uppercase',
+        }}>
+          {language === 'tr' ? 'Yakında' : 'Soon'}
+        </div>
+      )}
 
       {/* Big Arabic name */}
       <div style={{
@@ -392,7 +393,7 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
         fontFamily: FONTS.display, color: COLORS.offWhite,
         fontSize: isMobile ? '1.4rem' : '1.75rem',
         margin: '0 0 22px', fontWeight: 700,
-      }}>{language === 'tr' ? 'Kur\'ân\'ın "wow" izleri' : 'The Qur\'an\'s "wow" traces'}</h2>
+      }}>{language === 'tr' ? "Kur'ân'ın Açtığı Pencereler" : "Windows the Qur'an Opens"}</h2>
       <div style={{
         display: 'grid', gap: '18px',
         gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))',

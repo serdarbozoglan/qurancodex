@@ -29,28 +29,28 @@
       "trShort": "Yalnız sana kulluk ederiz ve yalnız senden yardım dileriz.",
       "enShort": "You alone we worship, and You alone we ask for help."
     },
-    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
+    "kaynak": "Râzî, Fâtiha 1:5 tefsiri (iyyâke naʿbudu semantik incelemesi); Îzutsu, Ethico-Religious Concepts §3 (kulluk semantik alanı)"
   },
   "wowFacts": [
     {
       "id": "wowfact-abd-kok",
-      "titleTr": "'abd' kökü Kur'ân'da 275+ türev",
-      "titleEn": "The root ʿ-b-d appears in 275+ derivatives",
-      "descTr": "Kulluk Kur'ân'ın en yoğun semantik alanlarından biri. 'abd, ibâde, âbid, taʿabbud, maʿbûd — hepsi tek kökten. Ne yapıldığı değil, kime yapıldığı belirleyicidir.",
-      "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from one root. It is not what is done but to whom it is done that defines it.",
+      "titleTr": "'abd' kökü Kur'ân'da 275 civarında geçiş",
+      "titleEn": "The root ʿ-b-d appears around 275 times in the Qur'an",
+      "descTr": "Kulluk Kur'ân'ın en yoğun semantik alanlarından biri. 'abd, ibâde, âbid, taʿabbud, maʿbûd — hepsi tek kökten (ع ب د). Ne yapıldığı değil, kime yapıldığı belirleyicidir.",
+      "descEn": "Servitude is one of the most densely charged semantic fields in the Qur'an. ʿabd, ʿibāda, ʿābid, taʿabbud, maʿbūd — all from a single root (ʿ-b-d). It is not what is done but to whom it is done that defines it.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
+      "kaynak": "Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (kök geçiş sayımı); Îzutsu, Ethico-Religious Concepts §3 (semantic field of ʿabd)"
     },
     {
       "id": "wowfact-namaz-zekat-cifti",
-      "titleTr": "Namaz ve zekât Kur'ân'da 32 kez yan yana",
-      "titleEn": "Prayer and zakat side by side 32 times",
-      "descTr": "Kur'ân'da namaz emri çoğunlukla zekât emriyle birlikte gelir — 'ekîmu's-salât ve âtu'z-zekât' formülü otuzu aşkın yerde tekrarlanır. İç ibadet (kalp) ile dış ibadet (mal) birbirinden ayrılmaz.",
-      "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat — 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in over thirty places. Inward worship (heart) and outward worship (wealth) do not part.",
+      "titleTr": "Namaz ve zekât Kur'ân'da onlarca kez yan yana",
+      "titleEn": "Prayer and zakat side by side dozens of times",
+      "descTr": "Kur'ân'da namaz emri çoğunlukla zekât emriyle birlikte gelir — 'ekîmu's-salât ve âtu'z-zekât' formülü Kur'ân'da klasik hesaplarla 25-30 arası yerde tekrarlanır. İç ibadet (kalp) ile dış ibadet (mal) birbirinden ayrılmaz.",
+      "descEn": "In the Qur'an the command to pray usually appears with the command to give zakat — 'aqīmu al-ṣalāt wa-ātū al-zakāt' repeats in classically some 25-30 locations. Inward worship (heart) and outward worship (wealth) do not part.",
       "claimType": "quran_explicit",
       "confidence": "high",
-      "kaynak": "Bakara 2:43, Bakara 2:83, Bakara 2:110, Nisa 4:77, Nur 24:56 ve devamı; Râzî, Bakara 2:43 tefsiri (formül analizi)"
+      "kaynak": "Bakara 2:43, 2:83, 2:110, 2:177, 2:277, Nisa 4:77, Nur 24:56, ve devamı; Muhammed Fuâd Abdulbâkî, el-Mu'cemü'l-Müfehres (formül tespiti)"
     },
     {
       "id": "wowfact-oruc-hac-vakti",
@@ -64,10 +64,10 @@
     },
     {
       "id": "wowfact-tovbe-mercy",
-      "titleTr": "Tövbe — Kur'ân'da Allah'ın da yaptığı tek 'ibadet' fiili",
-      "titleEn": "Tawba — the only 'worship' verb the Qur'an ascribes to Allah too",
-      "descTr": "Tövbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. İki taraftan aynı fiil: kulun dönüşü, Rabb'in dönüşüyle karşılanır.",
-      "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy) — 'inna'llāha tawwābun raḥīm.' The same verb from both sides: the servant's return is met with the Lord's turning.",
+      "titleTr": "Tövbe — Kur'ân'da Allah'ın da yaptığı nadir 'ibadet' fiili",
+      "titleEn": "Tawba — a rare 'worship' verb the Qur'an ascribes to Allah too",
+      "descTr": "Tövbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. Zikr (Bakara 2:152) ve şükr (İbrahim 14:7) gibi az sayıda fiil bu 'karşılıklı' yapıyı taşır; tövbe bu ailenin en açık örneğidir.",
+      "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy) — 'inna'llāha tawwābun raḥīm.' Alongside dhikr (2:152) and shukr (14:7), tāba belongs to a small family of verbs that carry this reciprocal structure; it is that family's clearest instance.",
       "claimType": "quran_semantic",
       "confidence": "high",
       "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tövbesi ↔ kulun tövbesi)"
@@ -98,8 +98,8 @@
       "anchorRef": "Tevbe 9:103",
       "domain": "Mal",
       "domainEn": "Wealth",
-      "status": "coming",
-      "href": null,
+      "status": "ready",
+      "href": "/atlas/ibadetler/zekat",
       "iconKey": "coins"
     },
     {
@@ -168,8 +168,8 @@
       "anchorRef": "Bakara 2:186",
       "domain": "Yakarış",
       "domainEn": "Invocation",
-      "status": "coming",
-      "href": null,
+      "status": "ready",
+      "href": "/arac/dualar",
       "iconKey": "hands"
     },
     {
@@ -179,7 +179,7 @@
       "titleEn": "Repentance",
       "shortDescTr": "Dönüş fiili — hem kuldan Rabbe, hem Rabbden kula. Sürekli yenilenen bağın kapısı.",
       "shortDescEn": "The verb of turning — from the servant to the Lord, and from the Lord to the servant. The gate of a constantly renewed bond.",
-      "anchorRef": "Nur 24:31",
+      "anchorRef": "Tahrîm 66:8",
       "domain": "Dönüş",
       "domainEn": "Return",
       "status": "coming",
@@ -218,7 +218,7 @@
       "author": "Toshihiko Îzutsu",
       "workTr": "Ethico-Religious Concepts in the Qur'an",
       "workEn": "Ethico-Religious Concepts in the Qur'an",
-      "period": "1966 (McGill-Queen's)",
+      "period": "1966 (McGill Islamic Studies)",
       "noteTr": "Kulluk ('abd') semantic field'ı §3'te sistematik incelenir. Bu HUB'ın 'sekiz yüz, tek kök' çerçevesinin modern dilbilimsel omurgası.",
       "noteEn": "Systematic analysis of the semantic field of ʿabd (servitude) in §3. The modern linguistic backbone of this HUB's 'eight faces, one root' frame."
     }
