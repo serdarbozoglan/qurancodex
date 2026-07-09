@@ -1372,13 +1372,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => {
     if (!drawMode) return;
     hasDrawnRef.current = false;
+    // Browser canvas dimension limits (Chrome/Safari/FF): max ~32767 px per dim.
+    // At dpr=2, CSS height 16384 hits the limit. Long-scroll views (Verse/Interlinear
+    // mode with 285-ayet Bakara can scroll 30000-50000 CSS px) blow past this and
+    // the canvas silently fails allocation → renders as a WHITE opaque placeholder
+    // covering all verses (2026-07-08 user bug). 12000 CSS px cap keeps us safely
+    // under 32k pixel dim at 2x DPR; that's still ~15 viewport heights of drawing
+    // surface which is more than enough for a teaching whiteboard.
+    const CANVAS_MAX_CSS_H = 12000;
     const fit = () => {
       const c = drawCanvasRef.current;
       const sc = containerRef.current;
       if (!c || !sc) return;
       const dpr = window.devicePixelRatio || 1;
       const w  = sc.clientWidth;
-      const h  = sc.scrollHeight;
+      const h  = Math.min(sc.scrollHeight, CANVAS_MAX_CSS_H);
       setTahtaContentHeight(h);
       c.width  = w * dpr;
       c.height = h * dpr;
@@ -1398,11 +1406,35 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       sc.addEventListener('scroll', onScroll, { passive: true });
     }
     window.addEventListener('resize', fit);
+    // Also refit when view mode changes — Book ↔ Verse ↔ Interlinear swaps
+    // change sc.scrollHeight dramatically. Without this, stale dims persist.
     return () => {
       window.removeEventListener('resize', fit);
       if (sc) sc.removeEventListener('scroll', onScroll);
     };
   }, [drawMode]);
+
+  // Refit canvas when view mode changes (Book/Verse/Interlinear). Separate effect
+  // so we don't reset drawings on drawMode toggle timing quirks — just re-measures.
+  useEffect(() => {
+    if (!drawMode) return;
+    const c = drawCanvasRef.current;
+    const sc = containerRef.current;
+    if (!c || !sc) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w  = sc.clientWidth;
+    const h  = Math.min(sc.scrollHeight, 12000);
+    setTahtaContentHeight(h);
+    c.width  = w * dpr;
+    c.height = h * dpr;
+    c.style.width  = `${w}px`;
+    c.style.height = `${h}px`;
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    hasDrawnRef.current = false;
+  }, [drawMode, bookMode, interlinearMode]);
 
   // Inline meal picker — close on Esc or click outside. Uses both
   // mousedown and touchstart in the CAPTURE phase so the close runs
