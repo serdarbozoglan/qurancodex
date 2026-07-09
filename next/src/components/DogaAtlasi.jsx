@@ -69,11 +69,14 @@ const TAB_ICONS = [
   <svg aria-hidden="true" key="t4" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>,
   // Bilimsel İşaretler — atom / orbit
   <svg aria-hidden="true" key="t-sci" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/></svg>,
+  // Hapax — sparkles (tek geçen)
+  <svg aria-hidden="true" key="t-hapax" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>,
 ];
 const TABS = [
   { icon: TAB_ICONS[0], labelTr: 'Hayvanlar',          labelEn: 'Animals',           shortTr: 'Hayvan',  shortEn: 'Animal'   },
   { icon: TAB_ICONS[1], labelTr: 'Bitkiler',           labelEn: 'Plants',            shortTr: 'Bitki',   shortEn: 'Plant'    },
   { icon: TAB_ICONS[2], labelTr: 'Gök Cisimleri',      labelEn: 'Celestial Bodies',  shortTr: 'Gök',     shortEn: 'Sky'      },
+  { icon: TAB_ICONS[7], labelTr: 'Hapax Alfabesi',     labelEn: 'Hapax Alphabet',    shortTr: 'Hapax',   shortEn: 'Hapax'    },
   { icon: TAB_ICONS[3], labelTr: 'Sûre İsimleri',      labelEn: 'Surah Names',       shortTr: 'Sûre',    shortEn: 'Surah'    },
   { icon: TAB_ICONS[4], labelTr: 'Bağlam',             labelEn: 'Context',           shortTr: 'Bağlam',  shortEn: 'Context'  },
   { icon: TAB_ICONS[5], labelTr: 'Tefsir',             labelEn: 'Tafsir',            shortTr: 'Tefsir',  shortEn: 'Tafsir'   },
@@ -633,6 +636,176 @@ function PlantCard({ item, language, maxFreq }) {
       {(item.noteTr || item.noteEn) && (
         <p style={{ margin: 0, color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.5 }}>
           {language === 'tr' ? item.noteTr : (item.noteEn ?? item.noteTr)}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ── Tab: Hapax Alfabesi — 4 hayvan + 12 bitki, alfabetik purple-themed ──
+function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
+  // Collect hapax items from both — freqNumeric === 1 OR isHapax OR contexts includes hapax
+  const isHapax = it => it.freqNumeric === 1 || it.isHapax || (it.contexts && it.contexts.includes('hapax'));
+  const hapaxAnimals = animals.filter(isHapax).map(a => ({ ...a, kind: 'animal' }));
+  const hapaxPlants  = plants.filter(isHapax).map(p => ({ ...p, kind: 'plant' }));
+
+  // Merge + sort alphabetically by nameTr / nameEn
+  const nameKey = language === 'tr' ? 'nameTr' : 'nameEn';
+  const all = [...hapaxAnimals, ...hapaxPlants].sort((a, b) =>
+    (a[nameKey] ?? a.nameTr ?? '').localeCompare(b[nameKey] ?? b.nameTr ?? '', language === 'tr' ? 'tr' : 'en')
+  );
+
+  // Group by first letter
+  const groups = {};
+  for (const item of all) {
+    const letter = (item[nameKey] ?? item.nameTr ?? '?').charAt(0).toUpperCase();
+    (groups[letter] ??= []).push(item);
+  }
+  const letters = Object.keys(groups).sort((a, b) => a.localeCompare(b, language === 'tr' ? 'tr' : 'en'));
+
+  const PURPLE = '#a855f7';
+  const PURPLE_LIGHT = '#c084fc';
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Intro card */}
+      <div style={{
+        position: 'relative',
+        padding: isMobile ? '20px 20px 22px 26px' : '26px 30px 26px 34px',
+        background: `linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(255,255,255,0.02) 100%)`,
+        border: `1px solid ${PURPLE}55`,
+        borderRadius: RADIUS.md,
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px',
+          background: `linear-gradient(180deg, ${PURPLE} 0%, ${PURPLE}44 100%)`,
+        }} />
+        <div style={{
+          color: PURPLE_LIGHT, fontSize: '0.7rem',
+          letterSpacing: '0.24em', textTransform: 'uppercase',
+          fontWeight: 700, opacity: 0.9, marginBottom: '10px',
+        }}>{language === 'tr' ? 'Bir Kez Anılan' : 'Named Once'}</div>
+        <h3 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite,
+          fontSize: isMobile ? '1.25rem' : '1.5rem',
+          margin: '0 0 12px', fontWeight: 700,
+        }}>{language === 'tr' ? 'Hapax Alfabesi' : 'Hapax Alphabet'}</h3>
+        <p style={{
+          color: COLORS.offWhite, opacity: 0.88,
+          fontSize: '0.95rem', lineHeight: 1.7, margin: 0, maxWidth: '760px',
+        }}>
+          {language === 'tr'
+            ? "Kur'ân'da yalnızca bir kez geçen doğa isimleri. Bir kelime tek yerde geçtiğinde o kelime kendi bağlamıyla özdeşleşir — kelimenin ağırlığı geçtiği tek yeri parlatır. Bu vitrin, hapax hayvan ve bitkileri alfabetik olarak toplar."
+            : "Names of nature that appear only once in the Qur'an. When a word occurs in a single place, it fuses with its context — the word's weight illuminates its sole occurrence. This showcase gathers hapax animals and plants alphabetically."}
+        </p>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '14px' }}>
+          <span style={{
+            padding: '3px 10px',
+            background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
+            borderRadius: '999px', color: PURPLE_LIGHT,
+            fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
+          }}>{hapaxAnimals.length} {language === 'tr' ? 'hayvan' : 'animals'}</span>
+          <span style={{
+            padding: '3px 10px',
+            background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
+            borderRadius: '999px', color: PURPLE_LIGHT,
+            fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
+          }}>{hapaxPlants.length} {language === 'tr' ? 'bitki' : 'plants'}</span>
+          <span style={{
+            padding: '3px 10px',
+            background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
+            borderRadius: '999px', color: PURPLE_LIGHT,
+            fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
+          }}>{all.length} {language === 'tr' ? 'toplam' : 'total'}</span>
+        </div>
+      </div>
+
+      {/* Letter jump chips */}
+      {letters.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {letters.map(l => (
+            <a key={l} href={`#hapax-${l}`} style={{
+              padding: '4px 10px',
+              background: 'rgba(255,255,255,0.04)',
+              border: `1px solid ${PURPLE}44`,
+              borderRadius: '8px',
+              color: PURPLE_LIGHT,
+              fontSize: '0.8rem', fontWeight: 700,
+              textDecoration: 'none', letterSpacing: '0.06em',
+            }}>{l}</a>
+          ))}
+        </div>
+      )}
+
+      {/* Alphabetical groups */}
+      {letters.map(letter => (
+        <div key={letter} id={`hapax-${letter}`} style={{ scrollMarginTop: '80px' }}>
+          {/* Letter divider */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+            <div style={{
+              width: '32px', height: '32px', borderRadius: '50%',
+              background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
+              color: PURPLE_LIGHT,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: FONTS.display, fontWeight: 800, fontSize: '1rem',
+            }}>{letter}</div>
+            <div style={{
+              flex: 1, height: '1px',
+              background: `linear-gradient(90deg, ${PURPLE}55, transparent)`,
+            }} />
+          </div>
+          {/* Cards */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '10px',
+          }}>
+            {groups[letter].map((item, i) => (
+              <div key={`${item.id}-${i}`} style={{
+                padding: '14px 16px',
+                border: `1px solid ${PURPLE}33`,
+                borderRadius: RADIUS.md,
+                background: `linear-gradient(180deg, rgba(168,85,247,0.04) 0%, rgba(255,255,255,0.02) 100%)`,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                  <span style={{
+                    fontFamily: FONTS.quran, color: PURPLE_LIGHT,
+                    fontSize: '1.35rem', direction: 'rtl', lineHeight: 1.4,
+                  }} lang="ar">{item.arabic}</span>
+                  <span style={{
+                    fontFamily: FONTS.body, color: COLORS.offWhite,
+                    fontSize: '0.95rem', fontWeight: 700,
+                  }}>{language === 'tr' ? item.nameTr : (item.nameEn ?? item.nameTr)}</span>
+                  <span style={{
+                    padding: '2px 8px',
+                    background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
+                    borderRadius: '999px', color: PURPLE_LIGHT,
+                    fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                  }}>{item.kind === 'animal' ? (language === 'tr' ? 'Hayvan' : 'Animal') : (language === 'tr' ? 'Bitki' : 'Plant')}</span>
+                </div>
+                {item.sureRef && (
+                  <div style={{
+                    color: COLORS.silver, fontSize: '0.72rem',
+                    letterSpacing: '0.1em', marginBottom: '6px',
+                  }}>{item.sureRef}</div>
+                )}
+                {(item.noteTr || item.noteEn) && (
+                  <p style={{
+                    color: COLORS.silver, fontSize: '0.82rem',
+                    lineHeight: 1.6, margin: 0, fontStyle: 'italic',
+                  }}>{language === 'tr' ? item.noteTr : (item.noteEn ?? item.noteTr)}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {all.length === 0 && (
+        <p style={{ color: COLORS.silver, fontSize: '0.9rem', textAlign: 'center', padding: '32px 0' }}>
+          {language === 'tr' ? 'Hapax kayıt bulunamadı.' : 'No hapax entries found.'}
         </p>
       )}
     </div>
@@ -1457,10 +1630,11 @@ export default function DogaAtlasi({ onClose }) {
           {activeTab === 0 && <TabHayvanlar      animals={animals}                   isMobile={isMobile} language={language} />}
           {activeTab === 1 && <TabBitkiler        plants={plants}                     isMobile={isMobile} language={language} />}
           {activeTab === 2 && <TabGokCisimleri    bodies={CELESTIAL_BODIES}           isMobile={isMobile} language={language} />}
-          {activeTab === 3 && <TabSureIsimleri    sureNames={sureNames}               isMobile={isMobile} language={language} />}
-          {activeTab === 4 && <TabBaglamAnalizi   contexts={contexts}                                     language={language} />}
-          {activeTab === 5 && <TabTefsirNotlari   tefsirNotes={tefsirNotes} sources={sources}             language={language} />}
-          {activeTab === 6 && <TabBilimselIsaretler />}
+          {activeTab === 3 && <TabHapaxAlfabesi   animals={animals} plants={plants}   isMobile={isMobile} language={language} />}
+          {activeTab === 4 && <TabSureIsimleri    sureNames={sureNames}               isMobile={isMobile} language={language} />}
+          {activeTab === 5 && <TabBaglamAnalizi   contexts={contexts}                                     language={language} />}
+          {activeTab === 6 && <TabTefsirNotlari   tefsirNotes={tefsirNotes} sources={sources}             language={language} />}
+          {activeTab === 7 && <TabBilimselIsaretler />}
         </div>
       </div>
     </div>
