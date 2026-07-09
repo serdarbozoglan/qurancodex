@@ -486,7 +486,7 @@
       "anlamKatmanlari": [
         {
           "layer": "Orucun iç omurgası",
-          "descTr": "Bakara 2:153 'sabır ve namaz ile yardım isteyin' der. Klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur — açlık, susuzluk, arzudan kesilme sabrın kendisidir. Elmalılı bu bağlamı 'oruç sabrın uygulamalı okuludur' cümlesiyle özetler.",
+          "descTr": "Bakara 2:153 'sabır ve namaz ile yardım isteyin' der. Klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur — açlık, susuzluk, arzudan kesilme sabrın kendisidir. Elmalılı bu bağlamı orucu sabrın uygulamalı okulu olarak niteler cümlesiyle özetler.",
           "descEn": "Baqara 2:153 says 'seek help through patience and prayer.' Classical exegesis reads fasting as 'the most concrete bodily form of ṣabr' — hunger, thirst, abstention from appetite are ṣabr itself. Elmalılı sums this up: 'fasting is the practical school of patience.'",
           "kaynak": "Elmalılı, Bakara 2:153 tefsiri; Îzutsu, Ethico-Religious Concepts (ṣabr semantik alanı)"
         }
@@ -718,7 +718,11 @@
     {
       "prophet": "Zekeriyya",
       "ref": "Meryem 19:10 / Âl-i İmrân 3:41",
-      "sceneTr": "Zekeriyya Yahya'nın müjdesine karşılık bir 'işaret' istediğinde ona 'üç gün insanlarla konuşmama' verilir (Meryem 19:10 ve Âl-i İmrân 3:41). Klasik tefsir bu üç günlük konuşmama halini savm semantik alanının açık bir örneği olarak okur: kelime yalnızca mideden değil, dilden de kesilmeyi kapsar. Elmalılı bu bağlamla Meryem'in savm-i sükût'unu (19:26) birbirine bağlar."
+      "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen 'insanlarla üç gün konuşmama' hali (Meryem 19:10, Âl-i İmrân 3:41). Klasik tefsir bu olayı savm/oruç olarak değil, mucizevî bir dil bağlanması (âyet) olarak yorumlar; ancak Meryem 19:26'daki 'savm-i sükût' ile Kur'ân'ın sessizlik-adama motifi arasında düşünülebilecek semantik bir bağ vardır.",
+      "sceneEn": "The sign granted to Zechariah upon the announcement of Yahya — 'you shall not speak to people for three days' (Maryam 19:10, Āl ʿImrān 3:41). Classical exegesis reads this as miraculous tongue-tying (an āya), not as ṣawm; a semantic tie to the 'ṣawm of silence' in Maryam 19:26 may be considered, but classical support for calling it fasting is not established.",
+      "claimType": "semantic_inference",
+      "confidence": "medium",
+      "auditGuardTr": "Klasik tefsir (İbn Abbâs, Katâde, Mücâhid rivayetleri) bunu savm olarak değil, mucize olarak nakleder."
     },
     {
       "prophet": "Meryem",
@@ -750,7 +754,7 @@
         "Bakara 2:45",
         "Bakara 2:153"
       ],
-      "descTr": "Kur'ân sabır ve namazı iki yerde yan yana getirir (2:45 ve 2:153); klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur. Açlık sabrın soyut bir kavram olmaktan çıkıp midede, dilde, damakta gerçek bir tutuş halini almasıdır. Elmalılı 'oruç sabrın uygulamalı okuludur' der. Îzutsu Kur'ân'daki ṣabr semantik alanının 'yerinde kalma, yerinden ayrılmama' özünü çizerken tam da bu bedensel duruşu betimler."
+      "descTr": "Kur'ân sabır ve namazı iki yerde yan yana getirir (2:45 ve 2:153); klasik tefsir orucu 'sabrın bedendeki en somut hali' olarak okur. Açlık sabrın soyut bir kavram olmaktan çıkıp midede, dilde, damakta gerçek bir tutuş halini almasıdır. Elmalılı orucu sabrın uygulamalı okulu olarak niteler der. Îzutsu Kur'ân'daki ṣabr semantik alanının 'yerinde kalma, yerinden ayrılmama' özünü çizerken tam da bu bedensel duruşu betimler."
     },
     {
       "titleTr": "'Ben Yakınım' — Duanın Ayı",
@@ -771,14 +775,14 @@
       "refs": [
         "Bakara 2:185"
       ],
-      "descTr": "Bakara 2:185 Ramazan'ı önce 'Kur'ân'ın indirildiği ay' olarak tanımlar, sonra oruç emrini verir. Sıra manidardır: ay önce Kur'ân'ın, sonra orucun ayıdır. Klasik tefsir Ramazan'ın Kur'ân'da isimle anılan tek ay olduğunu ve bu tekliğin ayın Kur'ânî kimliğinin özeti olduğunu belirtir. Elmalılı 'oruç Ramazan'ın kalbi, Kur'ân ise nefesi' der. Ay ile Kitap Kur'ân'ın kendi dilinde iç içe geçer."
+      "descTr": "Bakara 2:185 Ramazan'ı önce 'Kur'ân'ın indirildiği ay' olarak tanımlar, sonra oruç emrini verir. Sıra manidardır: ay önce Kur'ân'ın, sonra orucun ayıdır. Klasik tefsir Ramazan'ın Kur'ân'da isimle anılan tek ay olduğunu ve bu tekliğin ayın Kur'ânî kimliğinin özeti olduğunu belirtir. Elmalılı orucu Ramazan'ın kalbi olarak, Kur'ân'ı da bu ayın nefesi olarak konumlandırır der. Ay ile Kitap Kur'ân'ın kendi dilinde iç içe geçer."
     },
     {
       "titleTr": "Meryem'in Savm-i Sükût'u — Dilin de Orucu",
       "refs": [
         "Meryem 19:26"
       ],
-      "descTr": "Meryem 19:26'da Hz. Meryem'e söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmek orucundan tamamen farklı bir orucu tarif eder: konuşmadan kesilme. Klasik tefsir bu ayetten iki dersi çıkarır. Birincisi: savm kelimesi tek bir uygulamaya sıkıştırılamaz; Kur'ân'ın kendi semantik alanı geniştir. İkincisi: Ramazan orucunun 'sadece midenin' orucu olmadığı anlaşılır — dilin, kulağın, gözün de kendine göre bir imsâki vardır. Klasik tasavvuf metinleri bu ayetten hareketle 'organların orucu' kavramını sistemleştirmiştir."
+      "descTr": "Meryem 19:26'da Hz. Meryem'e söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmek orucundan tamamen farklı bir orucu tarif eder: konuşmadan kesilme. Klasik tefsir bu ayetten iki dersi çıkarır. Birincisi: savm kelimesi tek bir uygulamaya sıkıştırılamaz; Kur'ân'ın kendi semantik alanı geniştir. İkincisi: Ramazan orucunun 'sadece midenin' orucu olmadığı anlaşılır — dilin, kulağın, gözün de kendine göre bir imsâki vardır. Klasik ahlâk literatürü metinleri bu ayetten hareketle 'organların orucu' kavramını sistemleştirmiştir."
     },
     {
       "titleTr": "Sınır — 'Bunlar Allah'ın Sınırlarıdır'",
@@ -819,7 +823,7 @@
         "trShort": "Ona (güç yetiremeyene) gücü yetenler için ise bir yoksul doyumu kadar fidye vardır.",
         "enShort": "For those who can only bear it with difficulty, there is a ransom of feeding a poor person."
       },
-      "descTr": "Bakara 2:184'ün fidye çözümü rastgele değildir. Ayet 'bir yoksulun doyurulması' der; klasik tefsir bu ölçünün seçilmesinin tesadüf olmadığını, orucun bedensel öğretisiyle sosyal öğretisinin aynı ayette buluştuğunu vurgular. Aç kalan mide yoksulun midesini içeriden bilir; fidye bu 'içeriden bilme' halinin kutsallaştırılmasıdır. Elmalılı bu ilişkiyi 'oruç sınıfsal empatinin bedende doğduğu andır' cümlesiyle özetler.",
+      "descTr": "Bakara 2:184'ün fidye çözümü rastgele değildir. Ayet 'bir yoksulun doyurulması' der; klasik tefsir bu ölçünün seçilmesinin tesadüf olmadığını, orucun bedensel öğretisiyle sosyal öğretisinin aynı ayette buluştuğunu vurgular. Aç kalan mide yoksulun midesini içeriden bilir; fidye bu 'içeriden bilme' halinin kutsallaştırılmasıdır. Elmalılı bu ilişkiyi orucun sınıfsal empatiyi bedende deneyimlettiğini vurgular cümlesiyle özetler.",
       "descEn": "Baqara 2:184's fidya solution is not incidental. The verse specifies 'feeding a poor person'; classical exegesis stresses that the choice of measure is not accidental — fasting's bodily lesson and its social lesson meet in the same verse. The hungry stomach comes to know the poor's stomach from within; fidya is the consecration of that inner knowing.",
       "modernIzlerTr": "Sosyoloji ve empati araştırmaları 'bedensel ortaklık ile empati' arasındaki ilişkiyi inceler; bu sayfa Kur'ânî bir 'içeriden bilme' formülünün sosyoloji tarafından sonradan keşfedildiğini iddia etmez. Kur'ânî çerçeve pratiği koyar; sosyoloji bu pratiğin gözlemlenebilir etkilerini ayrı bir dilde inceler.",
       "modernIzlerEn": "Studies of empathy and embodied cognition explore the link between shared bodily states and empathic response; this page does not claim sociology later 'discovered' a Qur'anic formula.",
@@ -857,7 +861,7 @@
       },
       "descTr": "Bakara 2:187 orucun cinsî, gündüz–gece ve itikâfî sınırlarını çizdikten sonra dikkat çekici bir uyarıyla kapanır: 'Bunlar Allah'ın sınırlarıdır; onlara yaklaşmayın.' 'Aşmayın' değil, 'yaklaşmayın'. Klasik tefsir bu inceliği önemli görür: kelime seçimi nefsin sınıra 'sürtünmesinin' bile bir tehlike olduğunu bildirir. Râzî orucun nefis terbiyesindeki asıl işlevini burada bulur — bedene 'sınırı hisset' değil, 'sınırdan uzağa yerleş' talimi. Elmalılı bunu 'orucun disiplini nefsin sabrının nerede kırılabileceğini önceden görme ilmidir' cümlesiyle özetler.",
       "descEn": "Baqara 2:187, after drawing the marital, day-night, and iʿtikāf limits of the fast, closes with a striking warning: 'These are the limits of Allah, do not approach them.' Not 'do not cross' — 'do not approach.' Classical exegesis finds this word choice significant: the phrasing declares that even the nafs's 'grazing' of the limit is a danger. Rāzī locates fasting's real function for the nafs here: not 'feel the limit' but 'settle at a distance from it.'",
-      "modernIzlerTr": "Klasik tasavvuf metinleri 'orucun nefis mertebeleri üzerindeki etkisi' konusunda geniş bir literatür üretmiştir. Modern psikoloji ise 'öz-düzenleme' (self-regulation) araştırmalarında benzer bedensel disiplinlerin etkilerini inceler; bu iki dilin örtüşme noktaları olsa da bu sayfa özdeşleştirmez.",
+      "modernIzlerTr": "Klasik ahlâk literatürü metinleri 'orucun nefis mertebeleri üzerindeki etkisi' konusunda geniş bir literatür üretmiştir. Modern psikoloji ise 'öz-düzenleme' (self-regulation) araştırmalarında benzer bedensel disiplinlerin etkilerini inceler; bu iki dilin örtüşme noktaları olsa da bu sayfa özdeşleştirmez.",
       "modernIzlerEn": "Classical Sufi literature has produced a rich corpus on fasting's effect on the nafs's stages. Modern psychology's studies of self-regulation examine analogous bodily disciplines; overlaps exist, but the page keeps the languages distinct.",
       "kaynak": "Râzî, Bakara 2:187 tefsiri ('yaklaşmayın' inceliği); Elmalılı aynı ayet"
     },
