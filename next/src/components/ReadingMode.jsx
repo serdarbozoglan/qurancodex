@@ -458,7 +458,11 @@ const WarningIcon = ({ size = 18 }) => (
   </svg>
 );
 const HighlighterIcon = ({ size = 16 }) => (
+  // 2026-07-08: Marker + baseline underline + filled highlight rectangle behind
+  // the tip → visually communicates "highlighter draws a translucent bar" so
+  // user doesn't confuse it with the freehand pen (color chips).
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="14" width="10" height="4" fill="currentColor" opacity="0.32" stroke="none"/>
     <path d="M9 11l-4 4 1 4 4 1 4-4"/>
     <path d="M14 6l4 4-7 7-4-4z"/>
     <path d="M3 21h8"/>
@@ -9460,21 +9464,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               { c: '#3b82f6', name: 'Mavi' },
               { c: '#22c55e', name: 'Yeşil' },
             ].map(({ c, name }) => {
-              // Show active ring if this color is selected directly OR if a tool that
-              // uses lastColor (text/highlight) is active and this is that color.
+              // "Pen" active: drawColor is a hex color (freehand mode).
+              // "Chosen but tool active" (Highlight/Text uses lastColor):
+              // show a subtle secondary indicator (thin gold ring) so user
+              // knows this is the color the tool will use, but WITHOUT the
+              // full pen-active look — prevents 2026-07-08 user confusion
+              // where clicking a color chip while a tool was active looked
+              // identical to Pen mode ('daire çizemez, rectangle çıkıyor').
               const usesLast = drawColor === 'text' || drawColor === 'highlight';
-              const active = drawColor === c || (usesLast && lastColor === c);
+              const isPenActive = drawColor === c && !usesLast;
+              const isToolColor = usesLast && lastColor === c;
               return (
                 <button
                   key={c}
-                  onClick={() => { setDrawColor(c); setLastColor(c); }}
+                  onClick={() => {
+                    setDrawColor(c); setLastColor(c);
+                    // Defensive: clear any lingering highlight-in-progress state
+                    // so switching from Highlight → Pen doesn't leave stale refs.
+                    highlightStartRef.current = null;
+                    highlightSnapshotRef.current = null;
+                  }}
                   title={name}
                   style={{
                     width: `${tbColor}px`, height: `${tbColor}px`,
                     borderRadius: RADIUS.full,
                     background: c,
-                    border: `2px solid ${active ? '#fff' : 'rgba(255,255,255,0.25)'}`,
-                    boxShadow: active ? `0 0 0 2px ${c}88` : 'none',
+                    border: `2px solid ${isPenActive ? '#fff' : (isToolColor ? 'rgba(212,165,116,0.65)' : 'rgba(255,255,255,0.25)')}`,
+                    boxShadow: isPenActive ? `0 0 0 2px ${c}88` : 'none',
                     cursor: 'pointer',
                     padding: 0, flexShrink: 0,
                     transition: `all ${TRANSITION.fast}`,
