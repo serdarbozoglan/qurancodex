@@ -470,9 +470,25 @@ function TabGenel({ data, language, isMobile, pillarData }) {
   );
 }
 
+// Kategori renk map — semantik terimleri görsel olarak grupla
+const CATEGORY_STYLES = {
+  'core-name':   { color: '#d4a574', labelTr: 'Ana İsim',       labelEn: 'Core Name' },
+  'action':      { color: '#22d3ee', labelTr: 'Eylem',          labelEn: 'Action' },
+  'state':       { color: '#a855f7', labelTr: 'Hâl',            labelEn: 'State' },
+  'inner-state': { color: '#8b5cf6', labelTr: 'İç Hâl',         labelEn: 'Inner State' },
+  'time':        { color: '#3498db', labelTr: 'Vakit',          labelEn: 'Time' },
+  'concept':     { color: '#94a3b8', labelTr: 'Kavram',         labelEn: 'Concept' },
+  'purpose':     { color: '#e8c98a', labelTr: 'Amaç',           labelEn: 'Purpose' },
+  'warning':     { color: '#e74c3c', labelTr: 'Uyarı',          labelEn: 'Warning' },
+};
+
 // ─── Tab 2: Kur'ânî Semantik Alan ─────────────────────────────────────────
 function TabSemantik({ data, language, isMobile }) {
   if (!data?.length) return null;
+
+  // Kategori sayımı → filter chip'leri için
+  const categories = [...new Set(data.map(t => t.kategori).filter(Boolean))];
+
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
       <p style={{
@@ -480,13 +496,39 @@ function TabSemantik({ data, language, isMobile }) {
         fontFamily: FONTS.body,
         fontSize: '0.92rem',
         lineHeight: 1.7,
-        marginBottom: '32px',
+        marginBottom: '20px',
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Namaz Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim namaz pratiğinin farklı bir boyutunu — hareket, zaman, iç durum — işaret eder."
-          : 'Prayer in the Qur\'an is described not by a single word but by a complementary semantic field. Each term points to a different dimension — movement, time, inner state.'}
+          ? "Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim ibadetin farklı bir boyutunu — eylem, zaman, iç hâl — işaret eder."
+          : 'Described not by a single word but by a complementary semantic field. Each term points to a different dimension — action, time, inner state.'}
       </p>
+
+      {/* Kategori legenda */}
+      {categories.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
+          {categories.map(cat => {
+            const cs = CATEGORY_STYLES[cat];
+            if (!cs) return null;
+            return (
+              <span key={cat} style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '3px 10px',
+                background: `${cs.color}15`,
+                border: `1px solid ${cs.color}44`,
+                borderRadius: '999px',
+                color: cs.color, fontSize: '0.68rem',
+                fontWeight: 700, letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+              }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: cs.color, display: 'inline-block' }} />
+                {language === 'tr' ? cs.labelTr : cs.labelEn}
+              </span>
+            );
+          })}
+        </div>
+      )}
+
       <div style={{
         display: 'grid',
         gap: '20px',
@@ -501,18 +543,35 @@ function TabSemantik({ data, language, isMobile }) {
 }
 
 function SemanticTermCard({ term, language, isMobile }) {
+  const catStyle = CATEGORY_STYLES[term.kategori];
   return (
     <div style={{
       padding: '22px',
-      border: `1px solid ${COLORS.goldAlpha25}`,
+      border: `1px solid ${catStyle ? `${catStyle.color}44` : COLORS.goldAlpha25}`,
       borderRadius: RADIUS.md,
-      background: 'rgba(212,165,116,0.03)',
+      background: catStyle
+        ? `linear-gradient(180deg, ${catStyle.color}08 0%, rgba(255,255,255,0.02) 100%)`
+        : 'rgba(212,165,116,0.03)',
+      position: 'relative',
     }}>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '14px' }}>
+      {/* Kategori badge */}
+      {catStyle && (
+        <span style={{
+          position: 'absolute', top: '14px', right: '14px',
+          padding: '2px 8px',
+          background: `${catStyle.color}18`,
+          border: `1px solid ${catStyle.color}44`,
+          borderRadius: '999px',
+          color: catStyle.color, fontSize: '0.6rem',
+          fontWeight: 700, letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+        }}>{language === 'tr' ? catStyle.labelTr : catStyle.labelEn}</span>
+      )}
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '14px', paddingRight: catStyle ? '60px' : '0' }}>
         <h3 style={{
           fontFamily: FONTS.quran,
           fontSize: '1.8rem',
-          color: COLORS.gold,
+          color: catStyle?.color ?? COLORS.gold,
           margin: 0,
           direction: 'rtl',
           lineHeight: 1,
@@ -816,19 +875,41 @@ function TabPeygamberler({ data, language, isMobile }) {
 
             {/* Card */}
             <div style={{
-              padding: '14px 18px',
-              background: 'rgba(255,255,255,0.03)',
-              border: `1px solid ${COLORS.glassBorderSoft}`,
+              padding: '16px 20px',
+              background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
+              border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: RADIUS.md,
             }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap', marginBottom: '6px' }}>
-                <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '1rem' }}>{p.prophet}</div>
-                <div style={{ color: COLORS.silver, fontSize: '0.72rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>{p.ref}</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+                <div style={{
+                  fontFamily: FONTS.display, color: COLORS.gold,
+                  fontWeight: 700, fontSize: '1.1rem',
+                }}>{p.prophet}</div>
+                <span style={{
+                  padding: '2px 8px',
+                  background: 'rgba(212,165,116,0.10)',
+                  border: `1px solid ${COLORS.goldAlpha25}`,
+                  borderRadius: '10px',
+                  color: COLORS.gold, fontSize: '0.66rem',
+                  fontWeight: 600, letterSpacing: '0.08em',
+                }}>{p.ref}</span>
                 {p.claimType && <ClaimTypeBadge claimType={p.claimType} confidence={p.confidence} language={language} />}
               </div>
-              <div style={{ color: COLORS.offWhite, fontSize: '0.92rem', lineHeight: 1.7 }}>
+              <div style={{ color: COLORS.offWhite, fontSize: '0.93rem', lineHeight: 1.75 }}>
                 {language === 'tr' ? p.sceneTr : (p.sceneEn ?? p.sceneTr)}
               </div>
+              {p.auditGuardTr && (
+                <div style={{
+                  marginTop: '10px',
+                  padding: '8px 12px',
+                  background: 'rgba(255,255,255,0.03)',
+                  borderLeft: `2px solid ${COLORS.silver}`,
+                  color: COLORS.silver,
+                  fontSize: '0.78rem',
+                  lineHeight: 1.6,
+                  fontStyle: 'italic',
+                }}>{p.auditGuardTr}</div>
+              )}
             </div>
           </div>
         ))}
