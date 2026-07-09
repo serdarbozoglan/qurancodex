@@ -40,6 +40,7 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
         <SutunlarAgiSection data={hubData.sutunlarAgi} language={language} isMobile={isMobile} router={router} />
         <KarsilastirmaSection data={hubData.karsilastirma} language={language} isMobile={isMobile} router={router} />
         <ZamanEkseniSection data={hubData.zamanEkseni} language={language} isMobile={isMobile} />
+        <PeygamberIzleriSection data={hubData.peygamberIzleri} language={language} isMobile={isMobile} router={router} />
         <OrtakFormullerSection data={hubData.ortakFormuller} language={language} isMobile={isMobile} />
         <FramingNote framingTr={hubData.framingTr} framingEn={hubData.framingEn} language={language} isMobile={isMobile} />
         <WowFactsSection wowFacts={hubData.wowFacts} language={language} isMobile={isMobile} />
@@ -720,6 +721,143 @@ function ZamanEkseniSection({ data, language, isMobile }) {
                       fontWeight: 600, letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                     }}>{s.replace('-', ' ')}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Peygamber İzleri — 21 peygamber × 41 kayıt aggregation ──────────────
+function PeygamberIzleriSection({ data, language, isMobile, router }) {
+  if (!data?.prophets?.length) return null;
+  const tr = language === 'tr';
+  const [expanded, setExpanded] = useState(null);
+
+  return (
+    <div style={{ marginBottom: '56px' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '18px' }}>
+        <h2 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite,
+          fontSize: isMobile ? '1.4rem' : '1.75rem',
+          margin: 0, fontWeight: 700,
+        }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+        <div style={{
+          color: COLORS.silver, fontSize: '0.78rem',
+          fontStyle: 'italic', opacity: 0.75,
+        }}>
+          {data.totalProphets} {tr ? 'peygamber' : 'prophets'} · {data.totalRecords} {tr ? 'kayıt' : 'records'}
+        </div>
+      </div>
+      <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
+        {tr ? data.introTr : (data.introEn ?? data.introTr)}
+      </p>
+
+      <div style={{ display: 'grid', gap: '12px' }}>
+        {data.prophets.map((p, i) => {
+          const isOpen = expanded === i;
+          const pillarChips = [...new Set(p.records.map(r => r.pillar))];
+          return (
+            <div key={p.name} style={{
+              padding: isMobile ? '14px 16px' : '16px 20px',
+              background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
+              border: `1px solid ${COLORS.goldAlpha25}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <button
+                onClick={() => setExpanded(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                aria-label={`${p.name} — ${p.occurrenceCount} ${tr ? 'ibadet kaydı' : 'worship records'}`}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '14px',
+                  width: '100%', padding: 0, background: 'transparent',
+                  border: 'none', cursor: 'pointer', textAlign: 'left',
+                  fontFamily: 'inherit', color: 'inherit',
+                }}
+              >
+                {/* Count badge */}
+                <div style={{
+                  flexShrink: 0,
+                  width: '36px', height: '36px', borderRadius: '50%',
+                  background: p.occurrenceCount >= 5 ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.05)',
+                  border: `1px solid ${p.occurrenceCount >= 5 ? COLORS.gold : COLORS.goldAlpha25}`,
+                  color: p.occurrenceCount >= 5 ? COLORS.gold : COLORS.silver,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: FONTS.display, fontWeight: 800, fontSize: '0.95rem',
+                }}>{p.occurrenceCount}</div>
+
+                {/* Name + pillar chips */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{
+                    color: COLORS.offWhite, fontWeight: 700,
+                    fontSize: '1.02rem', marginBottom: '6px',
+                  }}>{p.name}</div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+                    {pillarChips.map(pl => {
+                      const meta = p.records.find(r => r.pillar === pl);
+                      return (
+                        <span key={pl} style={{
+                          padding: '2px 8px',
+                          background: `${meta.pillarColor}22`,
+                          border: `1px solid ${meta.pillarColor}55`,
+                          borderRadius: '10px',
+                          color: meta.pillarColor,
+                          fontSize: '0.66rem', fontWeight: 700,
+                          letterSpacing: '0.06em', textTransform: 'uppercase',
+                        }}>{tr ? meta.pillarLabelTr : meta.pillarLabelEn}</span>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Expand arrow */}
+                <div style={{
+                  flexShrink: 0,
+                  color: COLORS.gold, fontSize: '0.85rem',
+                  transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.15s',
+                }} aria-hidden="true">▸</div>
+              </button>
+
+              {/* Expanded records */}
+              {isOpen && (
+                <div style={{
+                  marginTop: '14px', paddingTop: '14px',
+                  borderTop: `1px dashed ${COLORS.goldAlpha25}`,
+                  display: 'grid', gap: '10px',
+                }}>
+                  {p.records.map((r, j) => (
+                    <div key={j} style={{
+                      padding: '10px 14px',
+                      background: `linear-gradient(90deg, ${r.pillarColor}0d 0%, rgba(255,255,255,0.02) 100%)`,
+                      borderLeft: `3px solid ${r.pillarColor}`,
+                      borderRadius: '0 6px 6px 0',
+                      cursor: 'pointer',
+                    }}
+                      onClick={(e) => { e.stopPropagation(); router.push(`/${language}/atlas/ibadetler/${r.pillar}?tab=peygamberler`); }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '5px' }}>
+                        <span style={{
+                          color: r.pillarColor, fontSize: '0.65rem',
+                          letterSpacing: '0.14em', textTransform: 'uppercase',
+                          fontWeight: 700,
+                        }}>{tr ? r.pillarLabelTr : r.pillarLabelEn}</span>
+                        <span style={{
+                          color: COLORS.silver, fontSize: '0.7rem',
+                          letterSpacing: '0.06em',
+                        }}>{r.ref}</span>
+                      </div>
+                      {r.sceneTr && (
+                        <p style={{
+                          color: COLORS.offWhite, opacity: 0.85,
+                          fontSize: '0.85rem', lineHeight: 1.6, margin: 0,
+                        }}>{r.sceneTr}</p>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}

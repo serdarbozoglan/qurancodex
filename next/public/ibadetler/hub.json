@@ -628,5 +628,469 @@
         ]
       }
     ]
+  },
+  "peygamberIzleri": {
+    "titleTr": "Peygamber İzleri — Sekiz Sütun İçinde",
+    "titleEn": "Prophetic Traces — Across the Eight Pillars",
+    "introTr": "Aynı peygamber farklı ibadet sütunlarında farklı yüzleriyle anılır: İbrahim hacda Kâbe'yi kurar, kurbanda oğlunu teslim eder, namazda soyunu için dua eder. Bu aggregation her peygamberi Kur'ân'ın kendi anlatısındaki sütunları ile birlikte gösterir.",
+    "introEn": "The same prophet appears in different pillars with different faces: Abraham builds the Kaʿba in ḥajj, surrenders his son in sacrifice, prays for his descendants in prayer. This aggregation shows each prophet with the pillars in which the Qur'an narrates them.",
+    "prophets": [
+      {
+        "name": "Muhammed s.a.v.",
+        "occurrenceCount": 8,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "İsra 17:78-79",
+            "sceneTr": "'Güneşin duluk'undan gecenin karanlığına kadar namaz kıl ve fecr Kur'ân'ını da. Muhakkak fecir Kur'ân'ı şahitlidir.' Peygamber'e verilen namaz vakit çerçevesinin en açık ayetleri."
+          },
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Tevbe 9:103",
+            "sceneTr": "'Onların mallarından bir sadaka al, onları temizle ve arındır.' Ayet peygambere doğrudan hitap eder; klasik tefsir bunu Medine döneminde zekât toplama sisteminin kurulduğu ana Kur'ânî emir olarak okur. Sekiz alacaklı kat"
+          },
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Meâric 70:24-25",
+            "sceneTr": "'Onların mallarında isteyen ve mahrum için bilinen bir hak vardır.' Mekkî bir ayet olan Meâric, klasik tefsire göre zekâtın 'hakk-ı ma'lûm' ilkesinin Mekke döneminde de yerleşmiş olduğunun işareti. Kur'ân'da zekâtın kökü"
+          },
+          {
+            "pillar": "oruc",
+            "pillarLabelTr": "Oruç",
+            "pillarLabelEn": "Fasting",
+            "pillarColor": "#3498db",
+            "ref": "Bakara 2:183-187",
+            "sceneTr": "Peygamber s.a.v.'e ve ümmetine farz kılınan Ramazan orucunun tam Kur'ânî çerçevesi Bakara 2:183-187'de verilir: farz (183), sayılı günler ve ruhsat (184), Ramazan ve Kur'ân bağı (185), 'ben yakınım' (186), gündüz–gece sı"
+          },
+          {
+            "pillar": "hac",
+            "pillarLabelTr": "Hac",
+            "pillarLabelEn": "Ḥajj",
+            "pillarColor": "#f39c12",
+            "ref": "Bakara 2:196-203 / Mâide 5:3 (bağlamı)",
+            "sceneTr": "Peygamber s.a.v.'e ve ümmetine haccın Kur'ânî çerçevesi Bakara 2:196-203'te verilir. Klasik tefsir Bakara 2:196'nın haccın Kur'ânî anayasası olduğunu, 2:197'nin iç disiplinini, 2:198-203'ün ise nüsüklerin coğrafî ve zama"
+          },
+          {
+            "pillar": "kurban",
+            "pillarLabelTr": "Kurban",
+            "pillarLabelEn": "Sacrifice",
+            "pillarColor": "#e74c3c",
+            "ref": "Bakara 2:196, Hac 22:36",
+            "sceneTr": "Peygamber s.a.v. Veda Haccı'nda bedenelerini keserek kurban ibadetinin Kur'ânî çerçevesini fiilî sünnetiyle tafsil eder. Bakara 2:196'nın 'kolayına gelen bir kurbanlık' emri ve Hac 22:36'nın 'bedene Allah'ın şeâirinden' "
+          },
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Ahzâb 33:56",
+            "sceneTr": "Ahzâb 33:56 der: 'Allah ve melekleri Peygamber'e salât ederler. Ey iman edenler! Siz de ona salât edin ve tam bir teslimiyetle selâm verin.' Klasik tefsir bu ayetin Kur'ân'da nadir bir kompozisyon içerdiğini vurgular: 's"
+          },
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "Fetih 48:2",
+            "sceneTr": "Peygamber s.a.v.'e Fetih sûresinin başında bildirilen: 'liyağfire leke'llâhu mâ tekaddeme min zenbike ve mâ te'aḫḫare.' — 'Allah senin geçmiş ve gelecek zellelerini bağışlasın.' Klasik tefsir bu ayeti farklı okumalarda t"
+          }
+        ]
+      },
+      {
+        "name": "Musa",
+        "occurrenceCount": 4,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Tâhâ 20:14",
+            "sceneTr": "Vahyin ilk emri: 'Bana ibadet et ve beni anmak için namaz kıl.' Namaz'ın Musa peygamberliğinin başlangıç emirlerinden biri olduğu ayet."
+          },
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Bakara 2:83",
+            "sceneTr": "'Hani biz İsrailoğullarından şöyle söz almıştık: Allah'tan başkasına kulluk etmeyeceksiniz, anne-babaya iyilikte bulunacaksınız... namazı kılacak ve zekâtı vereceksiniz.' İsrailoğullarına verilen misakta zekât açıkça anı"
+          },
+          {
+            "pillar": "oruc",
+            "pillarLabelTr": "Oruç",
+            "pillarLabelEn": "Fasting",
+            "pillarColor": "#3498db",
+            "ref": "A'râf 7:142",
+            "sceneTr": "'Musa ile otuz gece için sözleştik ve buna on gece daha ekledik; böylece Rabbinin belirlediği vakit tam kırk gece olarak tamamlandı.' Klasik tefsir bu kırk geceyi bir 'oruç ve inziva' dönemi olarak okur: Musa Tur'a çıkar"
+          },
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "Kasas 28:16",
+            "sceneTr": "Musa peygamber Mısır'da Kıbtî'yi kazâen öldürdüğü sahnenin ardından Rabbine döner: 'Rabbim! Ben nefsime zulmettim; beni bağışla.' Ayette dikkat çekici üç adım: (1) itiraf; (2) af talebi; (3) hemen kabul ('Allah da onu ba"
+          }
+        ]
+      },
+      {
+        "name": "İbrahim",
+        "occurrenceCount": 4,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Bakara 2:128",
+            "sceneTr": "Beytullah'ın kuruluşunda İbrahim ve İsmail: 'Rabbimiz, ikimizi de sana teslim olanlardan kıl, soyumuzdan da sana teslim olmuş bir ümmet.' Namazın mekân merkezinin duası."
+          },
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "İbrahim 14:40",
+            "sceneTr": "'Rabbim, beni namazı ikame edenlerden kıl, soyumdan da! Rabbimiz duamı kabul et.' Namazın nesillerdeki devamlılığı için dua."
+          },
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Enbiyâ 21:73",
+            "sceneTr": "'Onları emrimizle doğru yolu gösteren imamlar kıldık; kendilerine hayırlar yapmayı, namaz kılmayı ve zekât vermeyi vahyettik.' İbrahim ve nesli için Kur'ân'ın açıkça anıldığı zekât ayeti. Namaz-zekât çiftinin peygamberle"
+          },
+          {
+            "pillar": "hac",
+            "pillarLabelTr": "Hac",
+            "pillarLabelEn": "Ḥajj",
+            "pillarColor": "#f39c12",
+            "ref": "Bakara 2:125-129 / Hac 22:26-27",
+            "sceneTr": "Haccın Kur'ânî orijini tümüyle İbrahim'e bağlıdır. İki ana sahne: (1) Bakara 2:125-127'de İbrahim ve oğlu İsmail Beyt'in temellerini yükseltir; 'Rabbimiz bizden kabul buyur' der ve 'menâsikimizi bize göster' duasıyla hac"
+          }
+        ]
+      },
+      {
+        "name": "Hz. Meryem",
+        "occurrenceCount": 3,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Âl-i İmrân 3:43",
+            "sceneTr": "'Ey Meryem, Rabbine kunut'la dur, secde et ve rükû edenlerle rükû et.' Bir kadın peygamber muhatabına namaz emrinin en açık şekli."
+          },
+          {
+            "pillar": "oruc",
+            "pillarLabelTr": "Oruç",
+            "pillarLabelEn": "Fasting",
+            "pillarColor": "#3498db",
+            "ref": "Meryem 19:26",
+            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Bu Kur'ânî 'savm' yemek-içmekten değil, konuşmaktan bir kesilmedir. Meryem 19"
+          },
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Meryem 19:26",
+            "sceneTr": "Meryem İsa'yı doğurduktan sonra insanların önüne çıkarken kendisine söylenir: 'Ben Rahmân'a savm adadım; bugün hiçbir insanla konuşmayacağım.' Klasik tefsir bu 'sessizlik adağını' zikrin 'sessiz mod'unun (khafī) Kur'ânî "
+          }
+        ]
+      },
+      {
+        "name": "Zekeriya",
+        "occurrenceCount": 3,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Âl-i İmrân 3:39",
+            "sceneTr": "'Zekeriya mihrapta namaz kılarken melekler ona seslendi: Allah sana Yahyâ'yı müjdeler.' Yakarışın ve namaz'ın buluşma noktası."
+          },
+          {
+            "pillar": "oruc",
+            "pillarLabelTr": "Oruç",
+            "pillarLabelEn": "Fasting",
+            "pillarColor": "#3498db",
+            "ref": "Meryem 19:10 / Âl-i İmrân 3:41",
+            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen 'insanlarla üç gün konuşmama' hali (Meryem 19:10, Âl-i İmrân 3:41). Klasik tefsir bu olayı savm/oruç olarak değil, mucizevî bir dil bağlanması (âyet) olarak yorumlar; "
+          },
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Âl-i İmrân 3:41",
+            "sceneTr": "Zekeriyya'ya Yahya müjdesinin işareti olarak verilen üç günlük dil bağlanması bağlamında ona söylenir: 'Üç gün insanlarla ancak işaretle konuşacaksın. Rabbini çokça an (ve'zkur rabbeke kesîran) ve akşam-sabah tesbih et.'"
+          }
+        ]
+      },
+      {
+        "name": "İsmail",
+        "occurrenceCount": 3,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Meryem 19:55",
+            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında beğenilmişti.' Aile hayatının merkezinde namaz."
+          },
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Meryem 19:55",
+            "sceneTr": "'Ailesine namazı ve zekâtı emrederdi; Rabbinin katında rızaya erişmişti.' Kur'ân İsmail peygamberi 'ehline zekât emreden' vasıflarıyla anar. Aile yönetimi ve zekât birbirine bağlanır."
+          },
+          {
+            "pillar": "hac",
+            "pillarLabelTr": "Hac",
+            "pillarLabelEn": "Ḥajj",
+            "pillarColor": "#f39c12",
+            "ref": "Bakara 2:127 / Bakara 2:158 (arka plan)",
+            "sceneTr": "İsmail Kur'ân'da babasıyla birlikte Beyt'in kurucusudur; Bakara 2:127'nin 'İbrahim ile İsmail Beyt'in temellerini yükseltiyor' cümlesi baba-oğul ortak inşayı gösterir. Bakara 2:158'in Safâ-Merve nüsükünün Kur'ânî arka pl"
+          }
+        ]
+      },
+      {
+        "name": "Yunus",
+        "occurrenceCount": 2,
+        "records": [
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Enbiyâ 21:87",
+            "sceneTr": "Yunus balığın karnında karanlığın içinden seslenir: 'Senden başka ilah yoktur; sen noksanlardan uzaksın; ben zalimlerden oldum.' Klasik tefsir bu üç cümlelik zikri 'karanlık içinde zikir' motifi olarak okur — dilin en sı"
+          },
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "Enbiyâ 21:87",
+            "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tövbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsi"
+          }
+        ]
+      },
+      {
+        "name": "Habil & Kabil",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "kurban",
+            "pillarLabelTr": "Kurban",
+            "pillarLabelEn": "Sacrifice",
+            "pillarColor": "#e74c3c",
+            "ref": "Maide 5:27",
+            "sceneTr": "Kurbanın Kur'ânî ilk sahnesi. Âdem'in iki oğlu birer kurban sunar; Habil'inki kabul, Kabil'inki reddedilir. Habil'in cevabı Kur'ânî kabul kriterinin ilk ifadesidir: 'Allah kurbanı yalnızca takva sahibinden kabul eder' (5"
+          }
+        ]
+      },
+      {
+        "name": "Lokman",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Lokman 31:19",
+            "sceneTr": "Lokman oğluna öğütlerinde: 'Yürüyüşünde iktisad et' — orta yolu tut, aşırılığa kaçma. Zekâtın etrafındaki 'israf-cimrilik dengesi' Kur'ân'ın bu hakîm peygamberinde de temsil edilir."
+          }
+        ]
+      },
+      {
+        "name": "Musa & Hârun",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Tâhâ 20:33-34",
+            "sceneTr": "Musa Rabbinden Hârun'un peygamberlik yardımını isterken der: 'Seni bolca tesbih edelim (key nusebbihake kesîran) ve seni çokça analım (ve nezkurake kesîran).' Klasik tefsir bu duayı zikrin 'kardeşlik' motifi olarak okur "
+          }
+        ]
+      },
+      {
+        "name": "Nûh",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "Hûd 11:47",
+            "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tövbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bi"
+          }
+        ]
+      },
+      {
+        "name": "Peygamberler genel",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "zikir",
+            "pillarLabelTr": "Zikir",
+            "pillarLabelEn": "Remembrance",
+            "pillarColor": "#8b5cf6",
+            "ref": "Sâd 38:17-25",
+            "sceneTr": "Sâd sûresi Davud'un tesbihini anlatırken der: 'Onunla birlikte akşam-sabah tesbih eden dağları ve toplu halde kuşları emrimize verdik' (38:18-19). Klasik tefsir bu ayetin peygamberlerin zikrinin özel bir örneği olduğunu "
+          }
+        ]
+      },
+      {
+        "name": "Süleyman",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "Sâd 38:35",
+            "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tövbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana ben"
+          }
+        ]
+      },
+      {
+        "name": "Yahudilerin İnkâr Bahanesi",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "kurban",
+            "pillarLabelTr": "Kurban",
+            "pillarLabelEn": "Sacrifice",
+            "pillarColor": "#e74c3c",
+            "ref": "Al-i İmrân 3:183",
+            "sceneTr": "Al-i İmrân 3:183 Yahudilerin bir bahanesini nakleder: 'ateşin yiyeceği bir kurbân getirmedikçe hiçbir peygambere iman etmeyiz.' Klasik tefsir bu ayetin kurban kavramının önceki peygamber geleneklerinde de mevcut olduğunu"
+          }
+        ]
+      },
+      {
+        "name": "Âdem & Havvâ",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "tovbe",
+            "pillarLabelTr": "Tövbe",
+            "pillarLabelEn": "Repentance",
+            "pillarColor": "#22d3ee",
+            "ref": "A'râf 7:23 ↔ Bakara 2:37",
+            "sceneTr": "İnsanlığın ilk tövbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'ni"
+          }
+        ]
+      },
+      {
+        "name": "Önceki peygamberler",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "hac",
+            "pillarLabelTr": "Hac",
+            "pillarLabelEn": "Ḥajj",
+            "pillarColor": "#f39c12",
+            "ref": "Bakara 2:125 (arka plan) / Âl-i İmrân 3:96",
+            "sceneTr": "Kur'ân Kâbe'yi 'insanlar için konulan ilk ev' (evvele beytin, 3:96) olarak tanımlar. Klasik tefsir bu ifadenin İbrahim'den önce Beyt'in bir tarihsel var oluşuna işaret edip etmediğini tartışır. Bir okumaya göre Beyt Âdem"
+          }
+        ]
+      },
+      {
+        "name": "Önceki ümmetler",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "oruc",
+            "pillarLabelTr": "Oruç",
+            "pillarLabelEn": "Fasting",
+            "pillarColor": "#3498db",
+            "ref": "Bakara 2:183",
+            "sceneTr": "'Sizden öncekilere farz kılındığı gibi oruç size de farz kılındı.' Klasik tefsir bu ifadenin orucun sadece bu ümmete has olmadığını, semavî geleneğin süregelen bir pratiği olduğunu vurguladığını belirtir. Râzî önceki ümm"
+          }
+        ]
+      },
+      {
+        "name": "İbrâhîm ve İsmâîl",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "kurban",
+            "pillarLabelTr": "Kurban",
+            "pillarLabelEn": "Sacrifice",
+            "pillarColor": "#e74c3c",
+            "ref": "Sâffât 37:102-107",
+            "sceneTr": "Kurbanın arketipal sahnesi. Rüya (37:102), istişare ('ne dersin?'), oğulun teslimiyet beyanı ('inşâallah beni sabredenlerden bulacaksın'), çift-teslim (37:103 'ikisi de teslim olduklarında'), ilahî müdahale (37:104), 'se"
+          }
+        ]
+      },
+      {
+        "name": "İsa",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "zekat",
+            "pillarLabelTr": "Zekât",
+            "pillarLabelEn": "Zakāt",
+            "pillarColor": "#2ecc71",
+            "ref": "Meryem 19:31",
+            "sceneTr": "Beşikte konuşan İsa'nın sözleri arasında: 'Yaşadığım sürece bana namazı ve zekâtı emretti.' Klasik tefsir bu ayeti, zekâtın Kur'ân'da peygamberlik zincirinin devamlı bir emri olarak sunulduğunun kesin delili olarak okur."
+          }
+        ]
+      },
+      {
+        "name": "İsrailoğulları — Boğa Kıssası",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "kurban",
+            "pillarLabelTr": "Kurban",
+            "pillarLabelEn": "Sacrifice",
+            "pillarColor": "#e74c3c",
+            "ref": "Bakara 2:67-71",
+            "sceneTr": "Musa İsrailoğullarına bir sığır kesmelerini emreder. Klasik tefsir bu kıssanın kurban ibadeti değil, bir 'gaybı ortaya çıkarma' vesilesi olarak inen özel bir emir olduğunu belirtir — kesilen sığırın parçasıyla bir katili"
+          }
+        ]
+      },
+      {
+        "name": "Şu'ayb",
+        "occurrenceCount": 1,
+        "records": [
+          {
+            "pillar": "namaz",
+            "pillarLabelTr": "Namaz",
+            "pillarLabelEn": "Prayer",
+            "pillarColor": "#d4a574",
+            "ref": "Hud 11:87",
+            "sceneTr": "Kavmi Şu'ayb'e: 'Ey Şu'ayb, namazın mı sana atalarımızın taptığını terk etmeyi emrediyor?' Namaz'ın topluma bir çağrı hâline geldiğinin göstergesi."
+          }
+        ]
+      }
+    ],
+    "totalProphets": 21,
+    "totalRecords": 41
   }
 }
