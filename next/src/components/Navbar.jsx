@@ -1785,6 +1785,59 @@ export default function Navbar() {
               </button>
             ))}
 
+            {/* Keşfet — Sayfalar (EXPLORE_CATEGORIES overlay items) */}
+            {/* Desktop dropdown'un mobile mirror'ı — kullanıcı 2026-07-09'da eksik olduğunu fark etti */}
+            {(() => {
+              const OVERLAY_ROUTE_MOBILE = {
+                renkler:'/arac/renkler', yeminler:'/arac/yeminler', kavimler:'/atlas/kavim',
+                kevni:'/atlas/doga', zaman:'/arac/zaman-boyutlari', melekler:'/arac/melekler',
+                kiyamet:'/arac/kiyamet', cennet:'/arac/cennet-cehennem', sunnetullah:'/atlas/sunnetullah',
+                munafik:'/atlas/munafik', nefis:'/atlas/nefs-mertebeleri', iblisSatan:'/arac/iblis-seytan',
+                kadinlar:'/atlas/kadinlar', ilkSon:'/arac/ilk-son-kelimeler', mukattaa:'/arac/mukattaa',
+                ritim:'/arac/ritim', retorikSorular:'/arac/retorik-sorular', duaDili:'/arac/dua-dili',
+                sesMimarisi:'/arac/ses-mimarisi', halkaKomp:'/arac/halka-kompozisyon',
+                bilimselIsaretler:'/arac/bilimsel-isaretler', tarihselKanitlar:'/arac/tarihsel-kanitlar',
+                korumaZinciri:'/arac/koruma-zinciri', tekrarAnatomi:'/arac/tekrar-anatomi',
+                altiKonu:'/arac/alti-konu', insanTanimi:'/atlas/insan-tanimi',
+                insanPsikolojisi:'/atlas/insan-psikolojisi', ibadetler:'/atlas/ibadetler',
+              };
+              return EXPLORE_CATEGORIES.map(cat => (
+                <div key={cat.id} style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
+                  <p style={{ fontSize: '0.62rem', fontWeight: 700, color: 'rgba(148,163,184,0.55)', textTransform: 'uppercase', letterSpacing: '0.16em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
+                    {language === 'tr' ? cat.titleTr : cat.titleEn}
+                  </p>
+                  {cat.items.map(item => {
+                    const Icon = item.icon;
+                    const handleClick = () => {
+                      if (item.kind === 'section') { scrollTo(item.target); }
+                      else {
+                        const route = OVERLAY_ROUTE_MOBILE[item.target];
+                        if (route) router.push(`/${language}${route}`);
+                      }
+                      setMobileOpen(false);
+                    };
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={handleClick}
+                        className="text-silver hover:text-gold transition-colors text-left py-2 text-sm font-body w-full flex items-center gap-2"
+                        aria-label={language === 'tr' ? item.titleTr : item.titleEn}
+                      >
+                        <span style={{ color: 'rgba(212,165,116,0.55)', flexShrink: 0, display: 'inline-flex' }}>
+                          {Icon ? <Icon size={14} /> : (
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.5 }}><path d="M9 18l6-6-6-6" /></svg>
+                          )}
+                        </span>
+                        <span style={{ color: '#d4a574', fontWeight: 500, flex: 1, minWidth: 0 }}>
+                          {language === 'tr' ? item.titleTr : item.titleEn}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ));
+            })()}
+
             {/* Tools */}
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '8px', marginTop: '6px' }}>
               <p style={{ fontSize: '0.68rem', fontWeight: 600, color: '#d4a574', textTransform: 'uppercase', letterSpacing: '0.18em', margin: '0 0 6px', fontFamily: "'Inter', sans-serif" }}>
