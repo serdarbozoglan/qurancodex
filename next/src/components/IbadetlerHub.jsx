@@ -35,6 +35,7 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
         padding: isMobile ? '20px 16px 60px' : '48px 48px 80px',
       }}>
         <AbdCoreSection abdCore={hubData.abdCore} language={language} isMobile={isMobile} />
+        <YolHaritasiSection data={hubData.yolHaritasi} language={language} isMobile={isMobile} router={router} />
         <PillarsGrid pillars={hubData.pillars} language={language} isMobile={isMobile} router={router} />
         <SutunlarAgiSection data={hubData.sutunlarAgi} language={language} isMobile={isMobile} router={router} />
         <KarsilastirmaSection data={hubData.karsilastirma} language={language} isMobile={isMobile} router={router} />
@@ -456,6 +457,122 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
           color: COLORS.silver, fontSize: '0.78rem',
           fontStyle: 'italic', marginTop: '16px', opacity: 0.75,
         }}>{language === 'tr' ? data.notTr : (data.notEn ?? data.notTr)}</p>
+      )}
+    </div>
+  );
+}
+
+// ─── Yol Haritası — Nereden Başlamalı? 3 önerilen yolculuk ──────────────
+function YolHaritasiSection({ data, language, isMobile, router }) {
+  if (!data?.yollar?.length) return null;
+  const tr = language === 'tr';
+  const [active, setActive] = useState(0);
+
+  return (
+    <div style={{ marginBottom: '48px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+        <p style={{
+          color: COLORS.gold, fontSize: '0.72rem',
+          letterSpacing: '0.28em', textTransform: 'uppercase',
+          fontWeight: 700, opacity: 0.85, marginBottom: '10px',
+        }}>{tr ? 'YOLCULUK ÖNERİLERİ' : 'SUGGESTED JOURNEYS'}</p>
+        <h2 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite,
+          fontSize: isMobile ? '1.5rem' : '1.85rem',
+          margin: '0 0 10px', fontWeight: 700,
+        }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
+        <p style={{
+          color: COLORS.silver, fontSize: '0.95rem',
+          lineHeight: 1.7, margin: 0, maxWidth: '680px',
+          marginLeft: 'auto', marginRight: 'auto',
+        }}>{tr ? data.introTr : (data.introEn ?? data.introTr)}</p>
+      </div>
+
+      {/* Tab pills */}
+      <div style={{
+        display: 'flex', flexWrap: 'wrap', gap: '10px',
+        justifyContent: 'center', marginBottom: '20px',
+      }}>
+        {data.yollar.map((y, i) => (
+          <button key={y.id}
+            onClick={() => setActive(i)}
+            aria-pressed={active === i}
+            style={{
+              padding: '10px 18px',
+              background: active === i ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${active === i ? COLORS.gold : COLORS.glassBorderSoft}`,
+              borderRadius: '999px',
+              color: active === i ? COLORS.gold : COLORS.silver,
+              fontSize: '0.82rem', fontWeight: 700,
+              letterSpacing: '0.06em', cursor: 'pointer',
+              fontFamily: 'inherit', display: 'inline-flex',
+              alignItems: 'center', gap: '8px', transition: 'all 0.15s',
+            }}
+          >
+            <span aria-hidden="true" style={{ fontSize: '1.05rem' }}>{y.iconTr}</span>
+            <span>{tr ? y.titleTr : (y.titleEn ?? y.titleTr)}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Active journey — steps */}
+      {data.yollar[active] && (
+        <div style={{
+          padding: isMobile ? '22px 20px' : '28px 32px',
+          background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+          border: `1px solid ${COLORS.goldAlpha25}`,
+          borderRadius: RADIUS.md,
+        }}>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.9rem',
+            lineHeight: 1.65, margin: '0 0 20px', fontStyle: 'italic',
+            maxWidth: '760px',
+          }}>{tr ? data.yollar[active].descTr : (data.yollar[active].descEn ?? data.yollar[active].descTr)}</p>
+
+          <ol style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+            {data.yollar[active].adimlar.map((s, i) => (
+              <li key={i} style={{
+                display: 'flex', alignItems: 'flex-start', gap: '14px',
+                padding: '12px 14px',
+                marginBottom: '8px',
+                background: 'rgba(255,255,255,0.02)',
+                border: `1px solid ${COLORS.glassBorderSoft}`,
+                borderRadius: RADIUS.md,
+                cursor: 'pointer', transition: 'all 0.15s',
+              }}
+                onClick={() => { if (s.href) router.push(`/${language}${s.href}`); }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.transform = 'translateX(3px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.transform = 'translateX(0)'; }}
+              >
+                <div style={{
+                  flexShrink: 0,
+                  width: '28px', height: '28px', borderRadius: '50%',
+                  background: COLORS.goldAlpha15,
+                  border: `1px solid ${COLORS.goldAlpha25}`,
+                  color: COLORS.gold,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: FONTS.display, fontWeight: 700, fontSize: '0.85rem',
+                }}>{i + 1}</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{
+                    color: COLORS.offWhite, fontWeight: 600,
+                    fontSize: '0.9rem', marginBottom: '4px',
+                    display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  }}>
+                    {s.labelTr.replace(/^\d+\.\s*/, '')}
+                    <span style={{ color: COLORS.gold, fontSize: '0.85rem' }} aria-hidden="true">→</span>
+                  </div>
+                  {s.hintTr && (
+                    <div style={{
+                      color: COLORS.silver, fontSize: '0.78rem',
+                      lineHeight: 1.5, fontStyle: 'italic', opacity: 0.85,
+                    }}>{s.hintTr}</div>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       )}
     </div>
   );

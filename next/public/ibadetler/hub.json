@@ -530,5 +530,103 @@
     ],
     "notTr": "Yükümlülük derecesi ehl-i sünnet çerçevesi ve dört mezhep uygulamasını yansıtır. Renkler: kırmızı = farz, amber = müekkede sünnet, mavi = sürekli teşvik.",
     "notEn": "The degree of obligation reflects the Sunni framework and the four schools. Colors: red = obligation, amber = emphasized sunnah, blue = continuous encouragement."
+  },
+  "yolHaritasi": {
+    "titleTr": "Nereden Başlamalı?",
+    "titleEn": "Where to Begin?",
+    "introTr": "8 sütun bir bakışta çok — herkes aynı kapıdan girmez. Üç farklı okuyucu tipine üç farklı yolculuk önerisi.",
+    "introEn": "Eight pillars at once are a lot — not everyone enters through the same door. Three suggested journeys for three reader types.",
+    "yollar": [
+      {
+        "id": "ilk-defa",
+        "titleTr": "İlk Defa Gezenler",
+        "titleEn": "First-Time Visitors",
+        "iconTr": "🌱",
+        "descTr": "Kavramla yeni tanışan okuyucu için tek bir sütunla başla, sonra genişlet.",
+        "descEn": "For readers new to the concept: begin with one pillar, then expand.",
+        "adimlar": [
+          {
+            "labelTr": "1. Namaz sayfası — Genel Bakış tab",
+            "href": "/atlas/ibadetler/namaz?tab=genel",
+            "hintTr": "En detaylı sütun; 11 tab, 15+ terim."
+          },
+          {
+            "labelTr": "2. Semantik Alan tab — kelimelerin dünyası",
+            "href": "/atlas/ibadetler/namaz?tab=semantik",
+            "hintTr": "Kur'ân'ın kendi kelimelerinden bir harita."
+          },
+          {
+            "labelTr": "3. Ana Ayetler tab — Kur'ânî pasajlar",
+            "href": "/atlas/ibadetler/namaz?tab=pasajlar",
+            "hintTr": "8 anchor ayet ve bağlam."
+          },
+          {
+            "labelTr": "4. HUB'a dön — diğer sütunlara bak",
+            "href": "/atlas/ibadetler",
+            "hintTr": "8 sütunu bir bakışta karşılaştır."
+          }
+        ]
+      },
+      {
+        "id": "kavram-calisan",
+        "titleTr": "Kavram Çalışan",
+        "titleEn": "Concept Studiers",
+        "iconTr": "🧭",
+        "descTr": "Semantik alan ve tefsir odaklı okuyucu için — sütunların ortak dokusuna bak.",
+        "descEn": "For semantically and exegetically oriented readers — see the common fabric of the pillars.",
+        "adimlar": [
+          {
+            "labelTr": "1. Sütunlar Ağı — 8 kök bir arada",
+            "href": "/atlas/ibadetler#sutunlar-agi",
+            "hintTr": "Her sütunun Kur'ânî frekansı."
+          },
+          {
+            "labelTr": "2. Zaman Ekseni — Mekke/Medine",
+            "href": "/atlas/ibadetler#zaman-ekseni",
+            "hintTr": "Kalp inşâsı vs topluluk tafsili."
+          },
+          {
+            "labelTr": "3. Ortak Formüller — Kur'ânî iç bağlar",
+            "href": "/atlas/ibadetler#ortak-formuller",
+            "hintTr": "Namaz-zekât çifti, tövbe-iman-amel üçlemesi."
+          },
+          {
+            "labelTr": "4. Her sütunun İç Boyut tab'ı",
+            "href": "/atlas/ibadetler/namaz?tab=icboyut",
+            "hintTr": "Ma'nâ ve iç durum katmanı."
+          }
+        ]
+      },
+      {
+        "id": "fikih-calisan",
+        "titleTr": "Fıkıh / Karşılaştırma Çalışan",
+        "titleEn": "Fiqh / Comparative Studies",
+        "iconTr": "⚖",
+        "descTr": "Yükümlülük ve mezhep farklılıklarına ilgi duyan okuyucu için — Kur'ân ile sünnetin tafsili net görülür.",
+        "descEn": "For readers interested in obligation and school variation — the Qur'an-sunnah division is made explicit.",
+        "adimlar": [
+          {
+            "labelTr": "1. Sekiz Sütun Karşılaştırması tablosu",
+            "href": "/atlas/ibadetler#karsilastirma",
+            "hintTr": "8 sütun · yükümlülük · kategori · tafsil."
+          },
+          {
+            "labelTr": "2. Her sütunun Rakamsal Mimari tab'ı",
+            "href": "/atlas/ibadetler/namaz?tab=mimari",
+            "hintTr": "Kur'ân ilkeleri ↔ Sünnet tafsili yan yana."
+          },
+          {
+            "labelTr": "3. Bu HUB nedir, ne değildir? — çerçeve notu",
+            "href": "/atlas/ibadetler",
+            "hintTr": "Ehl-i Sünnet + 4 mezhep + Kur'aniyyun karşıtlığı."
+          },
+          {
+            "labelTr": "4. Kaynaklar — Râzî/Kurtubî/Elmalılı/Îzutsu",
+            "href": "/atlas/ibadetler",
+            "hintTr": "Her sütunun klasik kaynak referansları."
+          }
+        ]
+      }
+    ]
   }
 }
