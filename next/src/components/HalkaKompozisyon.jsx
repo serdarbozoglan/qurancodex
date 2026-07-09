@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import HiddenArchitecture from '../sections/HiddenArchitecture';
+import RingExtensions from './RingExtensions';
 import ToolHeader from './ToolHeader';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
@@ -112,6 +113,9 @@ export default function HalkaKompozisyon({ onClose }) {
 
       {/* Anasayfa HiddenArchitecture section AYNEN */}
       <HiddenArchitecture />
+
+      {/* Genişletilmiş: Fatiha SVG halka + 4 ek örnek + Cuypers/Farrin */}
+      <RingExtensions language={language} isMobile={isMobile} />
     </div>
   );
 }
