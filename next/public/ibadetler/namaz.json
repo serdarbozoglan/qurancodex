@@ -1,0 +1,158 @@
+{
+  "id": "namaz",
+  "titleTr": "Namaz",
+  "titleEn": "Prayer",
+  "arabicName": "الصَّلَاة",
+  "anchorVerse": {
+    "surah": 20,
+    "ayah": 14,
+    "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا۬ فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
+    "tr": "Şüphesiz ben Allah'ım. Benden başka ilâh yoktur. O halde bana ibadet et ve beni anmak için namaz kıl.",
+    "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.",
+    "refTr": "Tâhâ 20:14",
+    "refEn": "Ṭā-Hā 20:14"
+  },
+  "hero": {
+    "eyebrowTr": "KULLUĞUN AYAKTA DURAN HALİ",
+    "eyebrowEn": "WORSHIP IN STANDING FORM",
+    "subtitleTr": "Zamana bağlı, kelimelerle şekillenen kulluk.",
+    "subtitleEn": "Worship shaped by time and word."
+  },
+  "claims": [
+    {
+      "claimId": "namaz-vakit-001",
+      "claimTr": "Kur'an namaz vakitlerini belirli zaman dilimleri üzerinden anar",
+      "claimEn": "The Qur'an refers to prayer within specific time frames",
+      "refs": [
+        "İsra 17:78",
+        "Bakara 2:238",
+        "Hud 11:114"
+      ],
+      "claimType": "quran_semantic",
+      "confidence": "high",
+      "framingTr": "Sünnet-i mütevâtire 5 vakit olarak tafsil eder — Kur'an ilke, sünnet tafsil."
+    },
+    {
+      "claimId": "namaz-semantic-alan-001",
+      "claimTr": "Namaz Kur'an'da tek isimli değil, 15+ terim etrafında dönen bir semantik alandır",
+      "claimEn": "Prayer in the Qur'an is not a single term but a semantic field of 15+ concepts",
+      "refs": [
+        "Bakara 2:43",
+        "Tâhâ 20:14",
+        "Mü'minûn 23:9"
+      ],
+      "claimType": "semantic_inference",
+      "confidence": "high"
+    }
+  ],
+  "genelBakis": {
+    "introTr": "Namaz, Kur'ân'da 'salât' başta olmak üzere on beşi aşkın terim etrafında dönen bir kulluk pratiğidir. Kur'ân namazı belirli zaman dilimleri (fecir, orta, akşam) çerçevesinde anar; sünnet-i mütevâtire bu çerçeveyi beş vakit olarak tafsil eder. Kur'ân'ın vurgusu ritüelin şeklinden çok iç boyutundadır: huşû, zikir amacı, fahşâdan alıkoyma. Bu sayfa namazın Kur'ânî mimarisini — kelime alanı, ana pasajlar, vakit çerçevesi, peygamber varyasyonları ve iç boyut — birlikte gösterir.",
+    "introEn": "Prayer in the Qur'an revolves around 15+ terms, with 'ṣalāt' at the core. The Qur'an refers to prayer within specific time frames (dawn, middle, evening); mutawātir sunnah details this into five daily prayers. The Qur'an's emphasis is less on ritual form and more on inner dimension: khushūʿ (reverence), remembrance as purpose, prevention from indecency.",
+    "keyPoints": [
+      {
+        "titleTr": "Kelime alanı 15+ terim",
+        "titleEn": "15+ term semantic field",
+        "descTr": "Salât, zikir, tesbîh, sücûd, rükû', kıyâm — namaz Kur'ân'da tek bir kelimeyle değil, birbirini tamamlayan bir kavram alanıyla anlatılır.",
+        "descEn": "Ṣalāt, dhikr, tasbīḥ, sujūd, rukūʿ, qiyām — prayer is described not by a single word but by an interconnected semantic field."
+      },
+      {
+        "titleTr": "Zaman ekseni Kur'ân'da açık",
+        "titleEn": "Time axis explicit in the Qur'an",
+        "descTr": "Fecir, orta, akşam — namazın zaman dilimleri açıkça geçer. Beş vakit sünnet-i mütevâtire ile tafsil edilmiştir.",
+        "descEn": "Dawn, middle, evening — prayer time frames are explicit. The five daily prayers are detailed through mutawātir sunnah."
+      },
+      {
+        "titleTr": "Amaç: Allah'ı anmak",
+        "titleEn": "Purpose: remembrance of Allah",
+        "descTr": "Tâhâ 20:14 namazın nihaî amacını 'Allah'ı anmak' (li-dhikrī) olarak tanımlar. Ritüel bir araçtır, hedef zikirdir.",
+        "descEn": "Ṭā-Hā 20:14 defines prayer's ultimate purpose as remembrance of Allah (li-dhikrī). The ritual is a means; the goal is remembrance."
+      },
+      {
+        "titleTr": "İç boyut esas",
+        "titleEn": "Inner dimension is essential",
+        "descTr": "Mü'minûn 23:1-2 huşû'yu, Ankebût 29:45 fahşâdan alıkoyma etkisini, Mâûn 107:4-6 huşûsuz namazı azarlar — Kur'ân dış şeklin ötesindeki iç bağlantıyı vurgular.",
+        "descEn": "Al-Mu'minūn 23:1-2 highlights khushūʿ, Al-ʿAnkabūt 29:45 the effect of preventing indecency, Al-Māʿūn 107:4-6 warns against heedless prayer — the Qur'an emphasizes inner connection beyond outer form."
+      }
+    ]
+  },
+  "kuraniIsimler": [
+    {
+      "term": "Salât",
+      "ar": "الصَّلَاة",
+      "root": "ص ل و",
+      "kategori": "core-name",
+      "searchTerms": [
+        "الصَّلٰوة",
+        "صَلٰوة",
+        "صَلَاة",
+        "صَلَوَات",
+        "بِالصَّلٰوة"
+      ],
+      "occurrenceCount": {
+        "method": "search-terms",
+        "root": "ص ل و",
+        "source": "auto — scripts/build-ibadetler.mjs, verse-graph-bgem3.json",
+        "displayLabelTr": "~83 (ص ل و kökü)",
+        "displayLabelEn": "~83 (root ṣ-l-w)",
+        "humanSpotChecked": false,
+        "spotCheckNote": "Kök tabanlı sayım vuslat/silâ türevlerini de yakalar; UI'da ~ yaklaşık etiketle sun."
+      },
+      "anlamKatmanlari": [
+        {
+          "layer": "Namaz",
+          "descTr": "Ritüel ibadet — Kur'ânî en yaygın kullanım.",
+          "descEn": "Ritual prayer — most common Qur'anic usage.",
+          "kaynak": "Râzî, Bakara 43 tefsiri",
+          "claimType": "tafsir_tradition",
+          "confidence": "high"
+        },
+        {
+          "layer": "Dua",
+          "descTr": "Yakarış — salât kelimesinin kök anlamı 'bağlantı, yakarış' etrafında döner.",
+          "descEn": "Supplication — the root meaning revolves around 'connection, invocation'.",
+          "kaynak": "Elmalılı, Fâtiha girişi",
+          "claimType": "semantic_inference",
+          "confidence": "high"
+        },
+        {
+          "layer": "Rahmet",
+          "descTr": "Allah'tan kullara indiği anlamda — 'Bakara 2:157: onlara Rablerinden ṣalavât vardır.'",
+          "descEn": "Divine mercy directed toward servants — Al-Baqara 2:157.",
+          "kaynak": "Râzî, Bakara 2:157 tefsiri",
+          "claimType": "quran_semantic",
+          "confidence": "high"
+        },
+        {
+          "layer": "Salavât",
+          "descTr": "Peygamber'e salât — 'Muhakkak Allah ve melekleri o peygambere ṣalavât gönderir' (Ahzab 56).",
+          "descEn": "Blessings upon the Prophet — Al-Aḥzāb 33:56.",
+          "kaynak": "Ahzab 33:56, Îzutsu §4.2 semantik alan",
+          "claimType": "quran_explicit",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "anaPasajlar": {
+    "ayetler": [],
+    "rituelBaglam": []
+  },
+  "rakamsalMimari": {
+    "titleTr": "Kur'an İlkeyi Koyar, Sünnet Tafsil Eder",
+    "framingTr": "Bu bölüm 'Kur'an eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'an genel bir çerçeve verir; sünnet-i mütevâtire ve icma bunu detaylandırır. İkisi birbirini tamamlar.",
+    "kuraniSide": {
+      "titleTr": "Kur'ân'ın koyduğu ilkeler",
+      "titleEn": "The Qur'an's principles",
+      "points": []
+    },
+    "sunnetSide": {
+      "titleTr": "Sünnet-i mütevâtirenin tafsili",
+      "titleEn": "Details from mutawātir sunnah",
+      "points": []
+    },
+    "tensionNote": "Bu tab Kur'aniyyun (mezhepsizlik) söylemine kapı aralamaz. Amaç: Kur'ân'ın kendi dilinde ne söylediğini ve sünnetin/icmanın onu nasıl detaylandırdığını göstermek. Klasik Ehl-i Sünnet çerçevesi geçerli."
+  },
+  "peygamberVaryasyonlari": [],
+  "icBoyut": [],
+  "kaynaklar": []
+}
