@@ -23,6 +23,14 @@ const TABS = [
     icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>,
   },
   {
+    tr: 'Tahaddi', en: 'Challenge',
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>,
+  },
+  {
+    tr: 'Kozmoloji', en: 'Cosmology',
+    icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>,
+  },
+  {
     tr: 'İbn Kayyim', en: 'Ibn Qayyim',
     icon: <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>,
   },
@@ -446,13 +454,23 @@ export default function KuranYeminleri({ onClose }) {
             <TabSureDagilimi categories={categories} meta={meta} language={language} isMobile={isMobile} />
           )}
 
-          {/* Tab 3: İbn Kayyim */}
+          {/* Tab 3: Tahaddi — 2026-07-10 Dalga 3 · Madde 4 */}
           {activeTab === 3 && (
+            <TabTahaddi language={language} isMobile={isMobile} />
+          )}
+
+          {/* Tab 4: Kozmoloji — 2026-07-10 Dalga 3 · Madde 4 */}
+          {activeTab === 4 && (
+            <TabKozmoloji language={language} isMobile={isMobile} />
+          )}
+
+          {/* Tab 5: İbn Kayyim */}
+          {activeTab === 5 && (
             <TabIbnKayyim ibnQayyim={ibnQayyim} ibnKayyimPatterns={data.ibnKayyimPatterns} language={language} isMobile={isMobile} />
           )}
 
-          {/* Tab 4: Kaynaklar */}
-          {activeTab === 4 && (
+          {/* Tab 6: Kaynaklar */}
+          {activeTab === 6 && (
             <TabKaynaklar sources={sources} language={language} isMobile={isMobile} />
           )}
         </div>
@@ -1727,6 +1745,347 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Tab: Tahaddi — Kur'ân'ın Meydan Okuması ──────────────────────────────────
+// 2026-07-10 Dalga 3 · Madde 4.1-4.2.
+// Yemin ↔ Tahaddi paraleli: yemin kâinatı işaret eder, tahaddi metni. İkisi de
+// Kur'ân'ın "kanıtı işaretle" retoriğinin iki yüzü.
+// Sıra: en geniş (bütün Kur'ân) → 10 sûre → 1 sûre → "onun benzeri bir söz".
+const TAHADDI_VERSES = [
+  {
+    ref: 'İsrâ 17:88',
+    period: 'mekke',
+    ar: 'قُلْ لَئِنِ اجْتَمَعَتِ الْاِنْسُ وَالْجِنُّ عَلٰٓى اَنْ يَأْتُوا بِمِثْلِ هٰذَا الْقُرْاٰنِ لَا يَأْتُونَ بِمِثْلِهٖ وَلَوْ كَانَ بَعْضُهُمْ لِبَعْضٍ ظَهِيراً',
+    tr: '"De ki: İnsanlar ve cinler bir araya gelseler, bu Kur\'ân\'ın bir benzerini getirmek için, onun benzerini getiremezler — birbirlerine yardımcı olsalar bile."',
+    en: '"Say: Even if humans and jinn joined together to bring the like of this Qur\'an, they could not produce anything like it — even if they backed each other."',
+    scope: 'butun',
+    scopeTr: 'Bütün Kur\'ân', scopeEn: 'Entire Quran',
+    noteTr: 'Tahaddinin en geniş versiyonu. Sonraki ayetler gradation gösterir: 10 sûre → 1 sûre → "onun benzeri bir söz". Klasik tefsir (Râzî, Kurtubî) bu düzeni "insanın yetersizliğinin ispatı" olarak okur.',
+    noteEn: 'The broadest version of the challenge. Later verses show gradation: 10 surahs → 1 surah → "any speech like it". Classical tafsīr (al-Rāzī, al-Qurṭubī) reads this progression as "proof of human incapacity".',
+    kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, İsrâ 17:88 tefsiri',
+  },
+  {
+    ref: 'Hûd 11:13',
+    period: 'mekke',
+    ar: 'اَمْ يَقُولُونَ افْتَرٰيهُ قُلْ فَأْتُوا بِعَشْرِ سُوَرٍ مِثْلِهٖ مُفْتَرَيَاتٍ وَادْعُوا مَنِ اسْتَطَعْتُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ',
+    tr: '"Yoksa \'onu kendisi uydurdu\' mu diyorlar? De ki: Öyleyse siz de onun benzeri uydurulmuş on sûre getirin, Allah\'tan başka çağırabildiğiniz kim varsa çağırın — eğer doğru söylüyorsanız."',
+    en: '"Or do they say, \'He has fabricated it\'? Say: Then bring ten fabricated surahs like it, and call upon whomever you can other than God — if you are truthful."',
+    scope: '10-sure',
+    scopeTr: '10 Sûre', scopeEn: '10 Surahs',
+    noteTr: 'İlk daralma: bütün Kur\'ân yerine 10 sûre. Klasik tefsir "muktereyât" (uydurulmuş) kelimesinden hareketle içeriğin doğruluğunun bile gerekmediğini, sadece dilbilimsel-retorik seviyenin talep edildiğini vurgular.',
+    noteEn: 'The first narrowing: 10 surahs instead of the whole Qur\'an. Classical tafsīr notes that "muftarayāt" (fabricated) drops even the content-truth demand — only linguistic-rhetorical parity is asked.',
+    kaynak: 'Kurtubî, el-Câmi\', Hûd 11:13 tefsiri',
+  },
+  {
+    ref: 'Yûnus 10:38',
+    period: 'mekke',
+    ar: 'اَمْ يَقُولُونَ افْتَرٰيهُ قُلْ فَأْتُوا بِسُورَةٍ مِثْلِهٖ وَادْعُوا مَنِ اسْتَطَعْتُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ',
+    tr: '"Yoksa \'onu kendisi uydurdu\' mu diyorlar? De ki: Öyleyse siz de onun benzeri bir sûre getirin, Allah\'tan başka çağırabildiğiniz kim varsa çağırın — eğer doğru söylüyorsanız."',
+    en: '"Or do they say, \'He has fabricated it\'? Say: Then bring a surah like it, and call whomever you can other than God — if you are truthful."',
+    scope: '1-sure',
+    scopeTr: '1 Sûre', scopeEn: '1 Surah',
+    noteTr: 'İkinci daralma: 10\'dan 1\'e. Meccan tahaddinin son adımı. Klasik retorik geleneği (İbn Ebi\'l-Isbâ, Bâkillânî) burada tahaddinin "en küçük birim" ölçüsünü verdiğini kabul eder.',
+    noteEn: 'The second narrowing: from 10 down to 1. Final step of the Meccan challenge. The classical rhetorical tradition (Ibn Abī al-Iṣbaʿ, al-Bāqillānī) treats this as the minimum-unit measurement.',
+    kaynak: 'Bâkillânî, İ\'câzü\'l-Kur\'ân, tahaddi bölümü',
+  },
+  {
+    ref: 'Bakara 2:23-24',
+    period: 'medine',
+    ar: 'وَاِنْ كُنْتُمْ فِي رَيْبٍ مِمَّا نَزَّلْنَا عَلٰى عَبْدِنَا فَأْتُوا بِسُورَةٍ مِنْ مِثْلِهٖ وَادْعُوا شُهَدَٓاءَكُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ فَاِنْ لَمْ تَفْعَلُوا وَلَنْ تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ',
+    tr: '"Kulumuza indirdiğimizden şüpheniz varsa, onun benzeri bir sûre getirin ve şahitlerinizi çağırın — eğer doğru söylüyorsanız. Yapamazsanız — ki asla yapamayacaksınız — o zaman yakıtı insanlar ve taşlar olan ateşten sakının."',
+    en: '"If you are in doubt about what We have sent down upon Our servant, bring a surah like it and call your witnesses other than God — if you are truthful. But if you do not — and you will never do it — then fear the fire whose fuel is people and stones."',
+    scope: '1-sure',
+    scopeTr: '1 Sûre + Kesin İfade', scopeEn: '1 Surah + Emphatic',
+    noteTr: 'Meccan tahaddinin Medenî döneme taşınması. "Ve len tef\'alû" (asla yapamayacaksınız) ile klasik retorik burada "yakîni ihbâr" (kesin gaybi haber) sınıfı verir — 14 asırdır bu tahaddi cevaplanmamıştır.',
+    noteEn: 'The Meccan challenge carried into the Medinan period. "Wa lan tafʿalū" (you will never do it) makes this a "yaqīnī ikhbār" — a definitive prediction; classical scholars note it has stood unanswered for 14 centuries.',
+    kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Bakara 2:23 tefsiri',
+  },
+  {
+    ref: 'Tûr 52:33-34',
+    period: 'mekke',
+    ar: 'اَمْ يَقُولُونَ تَقَوَّلَهُ بَلْ لَا يُؤْمِنُونَ فَلْيَأْتُوا بِحَدِيثٍ مِثْلِهٖٓ اِنْ كَانُوا صَادِقِينَ',
+    tr: '"Yoksa \'onu kendisi uydurdu\' mu diyorlar? Hayır, onlar iman etmiyorlar. Öyleyse onun benzeri bir söz getirsinler — eğer doğru söylüyorsalar."',
+    en: '"Or do they say, \'He fabricated it\'? Rather, they do not believe. Then let them bring a discourse like it, if they are truthful."',
+    scope: 'soz',
+    scopeTr: 'Herhangi Bir Söz', scopeEn: 'Any Discourse',
+    noteTr: 'Tahaddinin nihaî sınırı: "sûre" bile denmez, sadece "hadîs" (söz). Klasik retorik burada tahaddinin genişletilerek bir tür tafsîr olduğunu görür — Kur\'ân\'ın miras almadığı Arabî belağatın tümüne meydan okuma.',
+    noteEn: 'The ultimate limit: not even "surah" — just "ḥadīth" (any discourse). Classical rhetoric reads this as the challenge broadening into a universal test against all of Arabic eloquence Muhammad did not inherit.',
+    kaynak: 'Süyûtî, el-İtkân, tahaddi bölümü',
+  },
+  {
+    ref: 'Yûnus 10:37',
+    period: 'mekke',
+    ar: 'وَمَا كَانَ هٰذَا الْقُرْاٰنُ اَنْ يُفْتَرٰى مِنْ دُونِ اللّٰهِ وَلٰكِنْ تَصْدِيقَ الَّذِي بَيْنَ يَدَيْهِ وَتَفْصِيلَ الْكِتَابِ لَا رَيْبَ فِيهِ مِنْ رَبِّ الْعَالَمِينَ',
+    tr: '"Bu Kur\'ân Allah\'tan başkası tarafından uydurulmuş değildir; fakat kendinden öncekini tasdik eden ve Kitab\'ı ayrıntılarıyla açıklayandır. Onda hiçbir şüphe yoktur — âlemlerin Rabbindendir."',
+    en: '"This Qur\'an is not such as could be fabricated by any besides God; rather, it confirms what came before and details the Book. There is no doubt in it — from the Lord of the Worlds."',
+    scope: 'iddia',
+    scopeTr: 'Kaynak İddia', scopeEn: 'Source Claim',
+    noteTr: 'Tahaddinin arka-plandaki iddiası: Kur\'ân uydurulmuş olamaz. Bu ayet 10:38 tahaddiye zemin hazırlar; klasik dizim gereği önce iddia, sonra ispat teklifi.',
+    noteEn: 'The claim behind the challenge: this Qur\'an cannot be a fabrication. It sets the ground for verse 10:38 — classical rhetorical order places the claim before the proof-offer.',
+    kaynak: 'Kurtubî, el-Câmi\', Yûnus 10:37 tefsiri',
+  },
+];
+
+function TabTahaddi({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+      {/* Section header */}
+      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+          {tr ? 'Yemin ↔ Tahaddi Paraleli' : 'The Oath–Challenge Parallel'}
+        </div>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+          {tr ? (
+            <>Yemin kâinatı işaret eder, <span style={{ color: COLORS.gold, fontStyle: 'italic' }}>tahaddi metni.</span></>
+          ) : (
+            <>Oaths point to creation; <span style={{ color: COLORS.gold, fontStyle: 'italic' }}>challenges point to the text.</span></>
+          )}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
+          {tr
+            ? "Kur'ân'ın altı yerdeki meydan okuması — en geniş kapsamlıdan (bütün Kur'ân) en dar olana (herhangi bir söz) doğru daralarak."
+            : "The Qur'an's six-place challenge — narrowing from the broadest scope (the entire Qur'an) to the tightest (any discourse at all)."}
+        </p>
+      </div>
+
+      {/* Verse cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '14px' }}>
+        {TAHADDI_VERSES.map((v, i) => {
+          const isMedinan = v.period === 'medine';
+          const accent = isMedinan ? '#3B82F6' : COLORS.gold;
+          return (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.02)',
+              border: `1px solid ${accent}22`,
+              borderLeft: `3px solid ${accent}`,
+              borderRadius: RADIUS.lg,
+              padding: isMobile ? '16px' : '20px',
+              display: 'flex', flexDirection: 'column', gap: '12px',
+            }}>
+              {/* Header: ref + scope + period chip */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, fontWeight: 700, opacity: 0.85 }}>
+                    {v.ref}
+                  </div>
+                  <div style={{ fontFamily: FONTS.display, fontSize: '1rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                    {tr ? v.scopeTr : v.scopeEn}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                  <span style={{
+                    fontSize: '0.62rem', fontWeight: 700, padding: '2px 8px', borderRadius: RADIUS.pillSm,
+                    color: isMedinan ? '#3B82F6' : COLORS.gold,
+                    background: isMedinan ? 'rgba(59,130,246,0.12)' : `${COLORS.gold}12`,
+                    border: `1px solid ${isMedinan ? 'rgba(59,130,246,0.28)' : `${COLORS.gold}28`}`,
+                    letterSpacing: '0.08em', textTransform: 'uppercase',
+                  }}>
+                    {isMedinan ? (tr ? 'Medine' : 'Medinan') : (tr ? 'Mekke' : 'Meccan')}
+                  </span>
+                </div>
+              </div>
+
+              {/* Arabic */}
+              <p style={{
+                fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.2rem',
+                color: COLORS.gold, lineHeight: 2.0, direction: 'rtl', textAlign: 'right',
+                margin: 0,
+              }} dir="rtl" lang="ar">
+                {v.ar}
+              </p>
+
+              {/* Translation */}
+              <p style={{
+                fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite,
+                lineHeight: 1.65, fontStyle: 'italic', margin: 0,
+              }}>
+                {tr ? v.tr : v.en}
+              </p>
+
+              {/* Note */}
+              <div style={{
+                fontSize: '0.75rem', color: COLORS.silver, lineHeight: 1.55,
+                paddingTop: '10px', borderTop: `1px dashed ${accent}22`,
+              }}>
+                {tr ? v.noteTr : v.noteEn}
+              </div>
+
+              {/* Source */}
+              <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.55, fontStyle: 'italic' }}>
+                {v.kaynak}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Tab: Kozmoloji — Kur'ânî yemin edilen kâinat objeleri ────────────────────
+// 12 majör yemin (fecr, güneş+ay, gece+gündüz, kuşluk+gece, yıldız, gökyüzü,
+// burçlı sema, güvenli belde, nefs yaratılışı, savuran rüzgârlar, gönderilenler,
+// incir+zeytin). Her item: ref + tema + 1-satır bilimsel gözlem (nötr dille).
+const KOZMOLOJI_ITEMS = [
+  {
+    ref: 'Fecr 89:1',
+    themeTr: 'Fecr — Şafak vakti', themeEn: 'al-Fajr — Dawn',
+    ar: 'وَالْفَجْرِ',
+    obsTr: 'Astronomik şafak (fecr-i sâdık) atmosferin ~18° güneş altı geometrisiyle tanımlanır — güneşin dolaylı ışığının ilk beliriş anı.',
+    obsEn: 'Astronomical dawn (fajr al-ṣādiq) is defined by the sun ~18° below horizon — the moment scattered sunlight first appears.',
+    kaynak: 'Kurtubî, Fecr 89:1 tefsiri; klasik miqāt hesapları',
+  },
+  {
+    ref: 'Şems 91:1-2',
+    themeTr: 'Güneş + Ay', themeEn: 'Sun + Moon',
+    ar: 'وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا',
+    obsTr: 'Güneş ve ayın "birbirini takip etmesi" (talâ) — ay güneşin ışığını yansıtarak günlük ~13° faz gecikmesiyle dolaşır.',
+    obsEn: 'The sun and moon "following one another" (talā) — the moon reflects solar light with a ~13° daily phase-lag orbit.',
+    kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Şems 91:1-2',
+  },
+  {
+    ref: 'Leyl 92:1-2',
+    themeTr: 'Gece + Gündüz', themeEn: 'Night + Day',
+    ar: 'وَالَّيْلِ اِذَا يَغْشٰي وَالنَّهَارِ اِذَا تَجَلّٰى',
+    obsTr: 'Gece-gündüz dönüşü Dünya\'nın ~23.5° eğik ekseninde 24-saatlik rotasyonu; "örten" (yağşâ) ve "beliren" (tecellâ) çift-fiil kozmik ikilik retoriği.',
+    obsEn: 'The night–day cycle is Earth\'s 24-hour rotation on a ~23.5° tilted axis; the pair "veils" (yaghshā) and "reveals" (tajallā) forms a cosmic-duality rhetoric.',
+    kaynak: 'Elmalılı, Hak Dini Kur\'an Dili, Leyl 92:1-2',
+  },
+  {
+    ref: 'Duhâ 93:1-2',
+    themeTr: 'Kuşluk + Gecenin Sükûneti', themeEn: 'Forenoon + Night\'s Stillness',
+    ar: 'وَالضُّحٰى وَالَّيْلِ اِذَا سَجٰى',
+    obsTr: 'Duhâ (kuşluk) güneşin bir mızrak boyu yükseldiği an — psikolojik olarak "sükûn" evresi (secâ). Klasik tefsir bunu ruhî ferahlığın kozmik simgesi olarak okur.',
+    obsEn: 'Ḍuḥā is the moment the sun rises a spear\'s length — psychologically the "stillness" phase (sajā). Classical tafsīr reads it as a cosmic symbol of inner rest.',
+    kaynak: 'İbn Kesîr, Duhâ 93:1-2 tefsiri',
+  },
+  {
+    ref: 'Necm 53:1',
+    themeTr: 'Yıldız', themeEn: 'Star',
+    ar: 'وَالنَّجْمِ اِذَا هَوٰى',
+    obsTr: '"Kaybolduğunda" (hevâ) — klasik tefsir bunu (a) yıldızın batışı, (b) meteor / gök taşı, (c) Süreyya takım yıldızı olarak yorumlar. Kelimenin kök anlamı "iniş, sükûn".',
+    obsEn: '"When it sets/falls" (hawā) — classical tafsīr reads this as (a) a setting star, (b) a meteor, (c) the Pleiades. The root meaning is "descent, coming to rest".',
+    kaynak: 'Kurtubî, Necm 53:1 tefsiri',
+  },
+  {
+    ref: 'Târiq 86:1-3',
+    themeTr: 'Gökyüzü + Gece Ziyaretçisi', themeEn: 'Sky + Night Visitor',
+    ar: 'وَالسَّمَٓاءِ وَالطَّارِقِ وَمَٓا اَدْرٰيكَ مَا الطَّارِقُ النَّجْمُ الثَّاقِبُ',
+    obsTr: 'Târiq — "gecenin kapıyı çalanı, delici yıldız". Modern astronomide "pulsar" (delici radyo darbeleri gönderen nötron yıldızı) örneği klasik yorumla kesişmez ama semantik alanın genişliğini gösterir.',
+    obsEn: 'Ṭāriq — "the night-knocker, the piercing star". Modern astronomy\'s pulsar (a neutron star sending piercing radio bursts) does not overlap with the classical exegesis but shows the semantic-field breadth.',
+    kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Târiq 86:1-3',
+  },
+  {
+    ref: 'Bürûc 85:1',
+    themeTr: 'Burçlı Sema', themeEn: 'The Constellated Sky',
+    ar: 'وَالسَّمَٓاءِ ذَاتِ الْبُرُوجِ',
+    obsTr: '"Bürûc" — burçlar / kaleler. Klasik astronomi 12 zodyak burcu; genişletilmiş yorumda gök cisimlerinin "istikametli konumları". Modern gözlem gökyüzünü 88 takımyıldızına böler.',
+    obsEn: '"Burūj" — constellations / towers. Classical astronomy: the 12 zodiac signs; broader reading: fixed celestial positions. Modern observation divides the sky into 88 constellations.',
+    kaynak: 'Süyûtî, ed-Dürrü\'l-Mensûr, Bürûc 85:1',
+  },
+  {
+    ref: 'Tîn 95:1-3',
+    themeTr: 'İncir + Zeytin + Sinâ + Belde', themeEn: 'Fig + Olive + Sinai + Sanctuary',
+    ar: 'وَالتِّينِ وَالزَّيْتُونِ وَطُورِ سِينِينَ وَهٰذَا الْبَلَدِ الْاَمِينِ',
+    obsTr: "Botanik (incir + zeytin) + coğrafya (Sinâ dağı + Mekke) — kozmik olmayıp yeryüzü-antropolojik yemin serisi. Tefsir bunu 'vahiy coğrafyası' (İsa, Musa, Muhammed'in mekânsal işaretleri) olarak okur.",
+    obsEn: 'Botany (fig + olive) + geography (Mt Sinai + Mecca) — not cosmological but geo-anthropological. Tafsīr reads it as "the geography of revelation" (Jesus, Moses, Muhammad markers).',
+    kaynak: 'Kurtubî, el-Câmi\', Tîn 95:1-3',
+  },
+  {
+    ref: 'Şems 91:7-8',
+    themeTr: 'Nefs + Tesviye', themeEn: 'Self + Its Balancing',
+    ar: 'وَنَفْسٍ وَمَا سَوّٰيهَا فَاَلْهَمَهَا فُجُورَهَا وَتَقْوٰيهَا',
+    obsTr: 'Kozmik yeminlerin arkasından iç dünyaya dönüş: nefsin dengelenişi (tesviye) + fücur ↔ takva ikili sezgisi. "Yemin edilen kâinat" retoriğinin insana kadar uzanışı.',
+    obsEn: 'The cosmic oaths turn inward: the self\'s balancing (taswiya) + the fujūr ↔ taqwā dual intuition. The "cosmos-you-swear-by" rhetoric reaches all the way to the human.',
+    kaynak: 'Râzî, Şems 91:7-8; İzutsu, Ethico-Religious Concepts',
+  },
+  {
+    ref: 'Zâriyât 51:1-4',
+    themeTr: 'Savuran Rüzgârlar', themeEn: 'Scattering Winds',
+    ar: 'وَالذَّارِيَاتِ ذَرْواً فَالْحَامِلَاتِ وِقْراً فَالْجَارِيَاتِ يُسْراً فَالْمُقَسِّمَاتِ اَمْراً',
+    obsTr: 'Dört aşamalı meteorolojik-kozmik zincir: savurma → yük taşıma → akış → dağılım. Klasik tefsir bunu rüzgâr → bulut → gemiler → melekler dörtlemesi olarak açıklar.',
+    obsEn: 'A four-stage meteoro-cosmic chain: scattering → burden-bearing → flow → distribution. Classical tafsīr reads it as winds → clouds → ships → distributing angels.',
+    kaynak: 'İbn Kesîr, Zâriyât 51:1-4',
+  },
+  {
+    ref: 'Mürselât 77:1-6',
+    themeTr: 'Gönderilenler', themeEn: 'The Emissaries',
+    ar: 'وَالْمُرْسَلَاتِ عُرْفاً فَالْعَاصِفَاتِ عَصْفاً وَالنَّاشِرَاتِ نَشْراً فَالْفَارِقَاتِ فَرْقاً فَالْمُلْقِيَاتِ ذِكْراً',
+    obsTr: 'Beş aşamalı seri: gönderilenler → esenler → yayanlar → ayıranlar → hatırlatma bırakanlar. Yorum: rüzgârlar veya melekler; Kur\'ân\'ın en kompresli yemin dizisi.',
+    obsEn: 'A five-stage series: those sent → the raging → the spreading → the separating → the reminder-bearers. Exegesis: winds or angels; the Qur\'an\'s most compressed oath-chain.',
+    kaynak: 'Râzî, Mürselât 77:1-6',
+  },
+  {
+    ref: 'Vâkı\'a 56:75-76',
+    themeTr: 'Yıldızların Konumları', themeEn: 'Positions of the Stars',
+    ar: 'فَلَٓا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ',
+    obsTr: '"Mevâki\'i\'n-nücûm" — yıldızların konumları. Klasik tefsir bunu (a) yıldızların gökteki yerleri, (b) inen ayetlerin metindeki yerleri (nüzul-anları) olarak iki katmanda okur.',
+    obsEn: '"Mawāqiʿ al-nujūm" — the positions of the stars. Classical tafsīr reads it in two layers: (a) the stars\' locations in the sky, (b) the verses\' positions in the text (moments of descent).',
+    kaynak: 'Süyûtî, el-İtkân, Vâkı\'a 56:75-76',
+  },
+];
+
+function TabKozmoloji({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+      {/* Section header */}
+      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+          {tr ? 'Yemin Edilen Kâinat' : 'The Cosmos Sworn By'}
+        </div>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+          {tr ? (
+            <>Kur&apos;ân&apos;ın <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} kozmik yemini</span></>
+          ) : (
+            <>The Qur'an's <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} cosmic oaths</span></>
+          )}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
+          {tr
+            ? "Fecrden gecenin ziyaretçisine, savuran rüzgârlardan yıldızların konumlarına — yemin edilen kâinatın haritası. Her yeminin klasik tefsiri + nötr bilimsel gözlem."
+            : "From dawn to the night visitor, from scattering winds to stellar positions — the map of the cosmos sworn by. Each with classical exegesis plus a neutral scientific observation."}
+        </p>
+      </div>
+
+      {/* Items — vertical list */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {KOZMOLOJI_ITEMS.map((it, i) => (
+          <div key={i} style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: `1px solid ${COLORS.gold}20`,
+            borderLeft: `3px solid ${COLORS.gold}88`,
+            borderRadius: RADIUS.lg,
+            padding: isMobile ? '14px' : '18px 22px',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+              <div style={{ fontFamily: FONTS.display, fontSize: '1.05rem', color: COLORS.offWhite, fontWeight: 600 }}>
+                {tr ? it.themeTr : it.themeEn}
+              </div>
+              <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.85 }}>
+                {it.ref}
+              </div>
+            </div>
+            <p style={{
+              fontFamily: FONTS.quran, fontSize: isMobile ? '1.05rem' : '1.15rem',
+              color: COLORS.gold, lineHeight: 2.0, direction: 'rtl', textAlign: 'right',
+              margin: '0 0 10px',
+            }} dir="rtl" lang="ar">
+              {it.ar}
+            </p>
+            <p style={{ fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.65, margin: 0 }}>
+              {tr ? it.obsTr : it.obsEn}
+            </p>
+            <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.55, fontStyle: 'italic', marginTop: '6px' }}>
+              {it.kaynak}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
