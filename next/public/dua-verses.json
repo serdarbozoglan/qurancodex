@@ -1,7 +1,7 @@
 {
   "duas": [
     {
-      "id": "bakara-127",
+      "id": "dua-1",
       "surah": 2,
       "ayah": 127,
       "ayah_end": null,
@@ -15,7 +15,7 @@
       "note_en": "Supplication made by Ibrahim and Ismail while raising the foundations of the Ka'bah."
     },
     {
-      "id": "bakara-128",
+      "id": "dua-2",
       "surah": 2,
       "ayah": 128,
       "ayah_end": null,
@@ -29,7 +29,7 @@
       "note_en": null
     },
     {
-      "id": "bakara-201",
+      "id": "dua-3",
       "surah": 2,
       "ayah": 201,
       "ayah_end": null,
@@ -43,7 +43,7 @@
       "note_en": "One of the shortest yet most comprehensive supplications"
     },
     {
-      "id": "bakara-250",
+      "id": "dua-4",
       "surah": 2,
       "ayah": 250,
       "ayah_end": null,
@@ -57,7 +57,7 @@
       "note_en": null
     },
     {
-      "id": "bakara-286",
+      "id": "dua-5",
       "surah": 2,
       "ayah": 286,
       "ayah_end": null,
@@ -72,7 +72,7 @@
       "note_en": "Holds a special place in classical Islamic tradition. The Prophet said: \"Whoever recites the last two verses of Surah al-Baqarah at night, they will suffice him.\" (al-Bukhārī, Faḍāʾil al-Qurʾān 10; Muslim, Musāfirīn 256). Considered a comprehensive prayer that summarizes the believer's full range of supplications."
     },
     {
-      "id": "ali-imran-8",
+      "id": "dua-6",
       "surah": 3,
       "ayah": 8,
       "ayah_end": null,
@@ -86,7 +86,7 @@
       "note_en": null
     },
     {
-      "id": "ali-imran-16",
+      "id": "dua-7",
       "surah": 3,
       "ayah": 16,
       "ayah_end": null,
@@ -100,7 +100,7 @@
       "note_en": null
     },
     {
-      "id": "ali-imran-26",
+      "id": "dua-8",
       "surah": 3,
       "ayah": 26,
       "ayah_end": null,
@@ -114,7 +114,7 @@
       "note_en": "One of the few Quranic verses beginning with the direct address 'Allahumma'."
     },
     {
-      "id": "ali-imran-38",
+      "id": "dua-9",
       "surah": 3,
       "ayah": 38,
       "ayah_end": null,
@@ -128,7 +128,7 @@
       "note_en": null
     },
     {
-      "id": "ali-imran-53",
+      "id": "dua-10",
       "surah": 3,
       "ayah": 53,
       "ayah_end": null,
@@ -142,7 +142,7 @@
       "note_en": "Supplication of the disciples of Jesus."
     },
     {
-      "id": "ali-imran-147",
+      "id": "dua-11",
       "surah": 3,
       "ayah": 147,
       "ayah_end": null,
@@ -156,7 +156,7 @@
       "note_en": "The supplication of steadfast believers facing trials and battle."
     },
     {
-      "id": "ali-imran-193",
+      "id": "dua-12",
       "surah": 3,
       "ayah": 193,
       "ayah_end": 194,
@@ -170,7 +170,7 @@
       "note_en": null
     },
     {
-      "id": "nisa-75",
+      "id": "dua-13",
       "surah": 4,
       "ayah": 75,
       "ayah_end": null,
@@ -184,7 +184,7 @@
       "note_en": "The supplication of the oppressed; the verse states that God hears their cry."
     },
     {
-      "id": "maide-114",
+      "id": "dua-14",
       "surah": 5,
       "ayah": 114,
       "ayah_end": null,
@@ -198,7 +198,7 @@
       "note_en": null
     },
     {
-      "id": "araf-23",
+      "id": "dua-15",
       "surah": 7,
       "ayah": 23,
       "ayah_end": null,
@@ -212,7 +212,7 @@
       "note_en": null
     },
     {
-      "id": "araf-47",
+      "id": "dua-16",
       "surah": 7,
       "ayah": 47,
       "ayah_end": null,
@@ -226,7 +226,7 @@
       "note_en": "Supplication of the people of A'raf — those between Paradise and the Fire."
     },
     {
-      "id": "araf-89",
+      "id": "dua-17",
       "surah": 7,
       "ayah": 89,
       "ayah_end": null,
@@ -240,7 +240,7 @@
       "note_en": null
     },
     {
-      "id": "yunus-85",
+      "id": "dua-18",
       "surah": 10,
       "ayah": 85,
       "ayah_end": 86,
@@ -254,7 +254,7 @@
       "note_en": "Supplication of the young believers from Moses' people during the time of Pharaoh's oppression."
     },
     {
-      "id": "hud-47",
+      "id": "dua-19",
       "surah": 11,
       "ayah": 47,
       "ayah_end": null,
@@ -268,7 +268,7 @@
       "note_en": null
     },
     {
-      "id": "yusuf-86",
+      "id": "dua-20",
       "surah": 12,
       "ayah": 86,
       "ayah_end": null,
@@ -282,7 +282,7 @@
       "note_en": null
     },
     {
-      "id": "yusuf-101",
+      "id": "dua-21",
       "surah": 12,
       "ayah": 101,
       "ayah_end": null,
@@ -296,7 +296,7 @@
       "note_en": null
     },
     {
-      "id": "ibrahim-35",
+      "id": "dua-22",
       "surah": 14,
       "ayah": 35,
       "ayah_end": 37,
@@ -310,7 +310,7 @@
       "note_en": null
     },
     {
-      "id": "ibrahim-40",
+      "id": "dua-23",
       "surah": 14,
       "ayah": 40,
       "ayah_end": 41,
@@ -324,7 +324,7 @@
       "note_en": null
     },
     {
-      "id": "isra-24",
+      "id": "dua-24",
       "surah": 17,
       "ayah": 24,
       "ayah_end": null,
@@ -338,7 +338,7 @@
       "note_en": "Supplication for parents"
     },
     {
-      "id": "isra-80",
+      "id": "dua-25",
       "surah": 17,
       "ayah": 80,
       "ayah_end": null,
@@ -352,7 +352,7 @@
       "note_en": null
     },
     {
-      "id": "kehf-10",
+      "id": "dua-26",
       "surah": 18,
       "ayah": 10,
       "ayah_end": null,
@@ -366,7 +366,7 @@
       "note_en": "The supplication of the Companions of the Cave"
     },
     {
-      "id": "meryem-4",
+      "id": "dua-27",
       "surah": 19,
       "ayah": 4,
       "ayah_end": 5,
@@ -380,7 +380,7 @@
       "note_en": null
     },
     {
-      "id": "taha-25",
+      "id": "dua-28",
       "surah": 20,
       "ayah": 25,
       "ayah_end": 28,
@@ -394,7 +394,7 @@
       "note_en": "Moses' prayer before his mission to Pharaoh. Recited for eloquence and ease."
     },
     {
-      "id": "taha-114",
+      "id": "dua-29",
       "surah": 20,
       "ayah": 114,
       "ayah_end": null,
@@ -408,7 +408,7 @@
       "note_en": "Addressed to the Prophet as a command, this verse teaches seeking knowledge as a form of prayer. Considered one of the briefest yet most comprehensive Quranic supplications."
     },
     {
-      "id": "enbiya-83",
+      "id": "dua-30",
       "surah": 21,
       "ayah": 83,
       "ayah_end": null,
@@ -422,7 +422,7 @@
       "note_en": null
     },
     {
-      "id": "enbiya-87",
+      "id": "dua-31",
       "surah": 21,
       "ayah": 87,
       "ayah_end": null,
@@ -436,7 +436,7 @@
       "note_en": "The supplication made inside the whale"
     },
     {
-      "id": "enbiya-89",
+      "id": "dua-32",
       "surah": 21,
       "ayah": 89,
       "ayah_end": null,
@@ -450,7 +450,7 @@
       "note_en": "Zechariah's prayer for offspring; God answered it by granting him John (21:90)."
     },
     {
-      "id": "muminun-97",
+      "id": "dua-33",
       "surah": 23,
       "ayah": 97,
       "ayah_end": 98,
@@ -464,7 +464,7 @@
       "note_en": null
     },
     {
-      "id": "muminun-109",
+      "id": "dua-34",
       "surah": 23,
       "ayah": 109,
       "ayah_end": null,
@@ -478,7 +478,7 @@
       "note_en": "Prayer of believers who were mocked in the world; they are told in the Hereafter that this supplication was answered."
     },
     {
-      "id": "muminun-118",
+      "id": "dua-35",
       "surah": 23,
       "ayah": 118,
       "ayah_end": null,
@@ -492,7 +492,7 @@
       "note_en": null
     },
     {
-      "id": "furkan-65",
+      "id": "dua-36",
       "surah": 25,
       "ayah": 65,
       "ayah_end": 66,
@@ -506,7 +506,7 @@
       "note_en": null
     },
     {
-      "id": "furkan-74",
+      "id": "dua-37",
       "surah": 25,
       "ayah": 74,
       "ayah_end": null,
@@ -520,7 +520,7 @@
       "note_en": null
     },
     {
-      "id": "suara-83",
+      "id": "dua-38",
       "surah": 26,
       "ayah": 83,
       "ayah_end": 85,
@@ -534,7 +534,7 @@
       "note_en": null
     },
     {
-      "id": "neml-19",
+      "id": "dua-39",
       "surah": 27,
       "ayah": 19,
       "ayah_end": null,
@@ -548,7 +548,7 @@
       "note_en": null
     },
     {
-      "id": "kasas-16",
+      "id": "dua-40",
       "surah": 28,
       "ayah": 16,
       "ayah_end": null,
@@ -562,7 +562,7 @@
       "note_en": null
     },
     {
-      "id": "kasas-17",
+      "id": "dua-41",
       "surah": 28,
       "ayah": 17,
       "ayah_end": null,
@@ -576,7 +576,7 @@
       "note_en": "Moses' prayer of repentance and commitment after unintentionally causing a man's death."
     },
     {
-      "id": "kasas-24",
+      "id": "dua-42",
       "surah": 28,
       "ayah": 24,
       "ayah_end": null,
@@ -590,7 +590,7 @@
       "note_en": "Moses' humble prayer upon reaching Midian, exhausted and hungry, in utter need."
     },
     {
-      "id": "ankebut-30",
+      "id": "dua-43",
       "surah": 29,
       "ayah": 30,
       "ayah_end": null,
@@ -604,7 +604,7 @@
       "note_en": "Lot's prayer for divine aid against his people's corruption."
     },
     {
-      "id": "saffat-100",
+      "id": "dua-44",
       "surah": 37,
       "ayah": 100,
       "ayah_end": null,
@@ -618,7 +618,7 @@
       "note_en": "Ibrahim's prayer before the birth of Ismail; God answered with glad tidings."
     },
     {
-      "id": "gafir-7",
+      "id": "dua-45",
       "surah": 40,
       "ayah": 7,
       "ayah_end": 9,
@@ -632,7 +632,7 @@
       "note_en": "The supplication of the angels for the believers"
     },
     {
-      "id": "ahkaf-15",
+      "id": "dua-46",
       "surah": 46,
       "ayah": 15,
       "ayah_end": null,
@@ -646,7 +646,7 @@
       "note_en": null
     },
     {
-      "id": "hasr-10",
+      "id": "dua-47",
       "surah": 59,
       "ayah": 10,
       "ayah_end": null,
@@ -660,7 +660,7 @@
       "note_en": null
     },
     {
-      "id": "mumtehine-4",
+      "id": "dua-48",
       "surah": 60,
       "ayah": 4,
       "ayah_end": 5,
@@ -674,7 +674,7 @@
       "note_en": null
     },
     {
-      "id": "tahrim-8",
+      "id": "dua-49",
       "surah": 66,
       "ayah": 8,
       "ayah_end": null,
@@ -688,7 +688,7 @@
       "note_en": null
     },
     {
-      "id": "nuh-28",
+      "id": "dua-50",
       "surah": 71,
       "ayah": 28,
       "ayah_end": null,
@@ -802,8 +802,8 @@
       "en": "Moses said: 'Our Lord! You have given Pharaoh and his chiefs splendor and wealth in this life. Our Lord! With them they lead people astray from Your path. Our Lord! Obliterate their wealth and harden their hearts, so they will not believe until they see the painful punishment.' Allah said: 'Your prayer is granted. So stand firm on the straight path.'",
       "prophet_tr": "Hz. Mûsâ",
       "prophet_en": "Moses",
-      "note_tr": "Sabrın kırıldığı an: peygamber bile \"yeter\" diyebilir. Rabbin cevabı da hazırdır: \"istikamet.",
-      "note_en": "The moment patience breaks: even a prophet may say \"enough.\" And the Lord's answer is ready: \"stand firm."
+      "note_tr": "Sabrın kırıldığı an: peygamber bile \"yeter\" diyebilir. Rabbin cevabı da hazırdır: \"istikamet.\"",
+      "note_en": "The moment patience breaks: even a prophet may say \"enough.\" And the Lord's answer is ready: \"stand firm.\""
     },
     {
       "id": "dua-59",
@@ -821,19 +821,6 @@
     {
       "id": "dua-60",
       "surah": 12,
-      "ayah": 22,
-      "category": "ilim",
-      "arabic": "وَلَمَّا بَلَغَ اَشُدَّهُٓ اٰتَيْنَاهُ حُكْماً وَعِلْماً وَكَذٰلِكَ نَجْزِي الْمُحْسِنِينَ",
-      "tr": "Yûsuf olgunluk çağına eriştiğinde, ona hüküm (hikmet) ve ilim verdik. İyilik edenleri işte böyle mükâfatlandırırız.",
-      "en": "When Joseph reached full maturity, We granted him wisdom and knowledge. Thus do We reward those who do good.",
-      "prophet_tr": "Hz. Yûsuf (Allah'ın Yûsuf'a verdiği hüküm ve ilim)",
-      "prophet_en": "Joseph (Allah's grant of judgment and knowledge to Joseph)",
-      "note_tr": "İlim istemenin zemini: önce ihsan, sonra hüküm. Ödül olarak inen bir bilgi.",
-      "note_en": "The ground for asking knowledge: first excellence, then judgment. Knowledge that descends as reward."
-    },
-    {
-      "id": "dua-61",
-      "surah": 12,
       "ayah": 98,
       "category": "tovbe",
       "arabic": "قَالَ سَوْفَ اَسْتَغْفِرُ لَكُمْ رَبِّي اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
@@ -845,7 +832,7 @@
       "note_en": "A father's plea of forgiveness for his sons: not an act of grudge but the proof of a bond still carried."
     },
     {
-      "id": "dua-62",
+      "id": "dua-61",
       "surah": 16,
       "ayah": 78,
       "category": "sukur",
@@ -858,7 +845,7 @@
       "note_en": "The precondition of gratitude: we were nothing a moment ago. We were equipped with ears, eyes, hearts. We still forget."
     },
     {
-      "id": "dua-63",
+      "id": "dua-62",
       "surah": 18,
       "ayah": 24,
       "category": "ilim",
@@ -871,20 +858,7 @@
       "note_en": "The first condition of knowledge: admitting we forgot. The second: asking to be led to something nearer to truth."
     },
     {
-      "id": "dua-64",
-      "surah": 18,
-      "ayah": 65,
-      "category": "ilim",
-      "arabic": "فَوَجَدَا عَبْداً مِنْ عِبَادِنَٓا اٰتَيْنَاهُ رَحْمَةً مِنْ عِنْدِنَا وَعَلَّمْنَاهُ مِنْ لَدُنَّا عِلْماً",
-      "tr": "Derken kullarımızdan bir kul buldular ki, biz ona katımızdan bir rahmet vermiş, kendisine tarafımızdan bir ilim öğretmiştik.",
-      "en": "They found one of Our servants, upon whom We had bestowed mercy from Us and had taught knowledge from Our presence.",
-      "prophet_tr": "Hz. Hızır (Allah'ın verdiği \"ledünnî ilim\")",
-      "prophet_en": "Al-Khidr (the \"'ilm ladunnī\" Allah granted)",
-      "note_tr": "İlmin sınırının çizildiği ayet: bir kul, hep öğrencidir. Bir başkası, Rabbinden doğrudan öğrenmiştir.",
-      "note_en": "The verse where the limit of knowledge is drawn: one servant is always a student. Another has learned directly from his Lord."
-    },
-    {
-      "id": "dua-65",
+      "id": "dua-63",
       "surah": 20,
       "ayah": 132,
       "category": "aile",
@@ -897,7 +871,7 @@
       "note_en": "The first wish for family is not wealth but a shared moment of bowing — the name of standing together."
     },
     {
-      "id": "dua-66",
+      "id": "dua-64",
       "surah": 21,
       "ayah": 76,
       "category": "sikinit",
@@ -910,7 +884,7 @@
       "note_en": "The report of one call: even the text does not record the words. It simply says \"he called.\" This is distress in its purest form."
     },
     {
-      "id": "dua-67",
+      "id": "dua-65",
       "surah": 27,
       "ayah": 40,
       "category": "sukur",
@@ -923,7 +897,7 @@
       "note_en": "The paradox of gratitude: the blessing itself is the test. Even ingratitude adds nothing to the Lord's riches."
     },
     {
-      "id": "dua-68",
+      "id": "dua-66",
       "surah": 34,
       "ayah": 39,
       "category": "rizik",
@@ -936,7 +910,7 @@
       "note_en": "The classic answer to the prayer for provision: abundance and scarcity are both from His hand. What you give comes from His treasury."
     },
     {
-      "id": "dua-69",
+      "id": "dua-67",
       "surah": 39,
       "ayah": 53,
       "category": "hidayet",
@@ -949,7 +923,7 @@
       "note_en": "An invitation descending from a prophet's mouth, on the Lord's behalf: no door has closed."
     },
     {
-      "id": "dua-70",
+      "id": "dua-68",
       "surah": 40,
       "ayah": 60,
       "category": "genel",
@@ -962,20 +936,7 @@
       "note_en": "Prayer is not merely a request but the necessary sign of servitude: to not pray is arrogance."
     },
     {
-      "id": "dua-71",
-      "surah": 55,
-      "ayah": 78,
-      "category": "genel",
-      "arabic": "تَبَارَكَ اسْمُ رَبِّكَ ذِي الْجَلَالِ وَالْاِكْرَامِ",
-      "tr": "Celâl ve ikram sahibi olan Rabbinin adı ne yücedir!",
-      "en": "Blessed is the name of your Lord, Full of Majesty and Honor.",
-      "prophet_tr": "Genel (isim tesbihi)",
-      "prophet_en": "General (glorification of the Name)",
-      "note_tr": "İsmi anmak dua etmektir. \"Ne yücedir\" demek, yakarıştan önce ismi kutlamaktır.",
-      "note_en": "To name Him is to pray. To say \"how sublime\" is to celebrate the Name before making the request."
-    },
-    {
-      "id": "dua-72",
+      "id": "dua-69",
       "surah": 58,
       "ayah": 11,
       "category": "ilim",
@@ -988,7 +949,7 @@
       "note_en": "The answer to the prayer for knowledge is here: whoever makes room for a knower makes room for himself."
     },
     {
-      "id": "dua-73",
+      "id": "dua-70",
       "surah": 62,
       "ayah": 10,
       "category": "rizik",
@@ -1001,7 +962,7 @@
       "note_en": "The door of provision is in two places: the earth and remembrance. One hand at work, one tongue in praise."
     },
     {
-      "id": "dua-74",
+      "id": "dua-71",
       "surah": 63,
       "ayah": 10,
       "category": "genel",
@@ -1014,7 +975,7 @@
       "note_en": "A prayer offered as a warning: this is the one that will not be answered. When the time comes, whatever is asked, the door has already closed."
     },
     {
-      "id": "dua-75",
+      "id": "dua-72",
       "surah": 71,
       "ayah": 26,
       "category": "aile",
@@ -1027,7 +988,7 @@
       "note_en": "A father's heaviest prayer: a plea concerned with descendants — protecting his own children by taking refuge from the corruption of others."
     },
     {
-      "id": "dua-76",
+      "id": "dua-73",
       "surah": 113,
       "ayah": 1,
       "category": "siginma",
@@ -1040,20 +1001,20 @@
       "note_en": "Four enemies: creation itself, the fall of night, hidden whisperings, the eye of envy. Against them all — one Name."
     },
     {
-      "id": "dua-77",
+      "id": "dua-74",
       "surah": 26,
       "ayah": 118,
-      "category": "aile",
+      "category": "sikinit",
       "arabic": "فَافْتَحْ بَيْنِي وَبَيْنَهُمْ فَتْحاً وَنَجِّنِي وَمَنْ مَعِيَ مِنَ الْمُؤْمِنِينَ",
       "tr": "Artık benimle onların arasında sen hüküm ver; beni ve benimle beraber olan mü'minleri kurtar.",
       "en": "Now judge between me and them decisively, and save me and the believers who are with me.",
       "prophet_tr": "Hz. Nûh",
       "prophet_en": "Noah",
       "note_tr": "Bir babanın kendisi ile toplumu arasında Rabbini hakem tayin edişi: kurtuluş sadece kendisi için değil, \"benimle olanlar\" için.",
-      "note_en": "A father asking his Lord to arbitrate between himself and his people: salvation not for himself alone but for \"those with me."
+      "note_en": "A father asking his Lord to arbitrate between himself and his people: salvation not for himself alone but for \"those with me.\""
     },
     {
-      "id": "dua-78",
+      "id": "dua-75",
       "surah": 26,
       "ayah": 169,
       "category": "sikinit",
@@ -1066,7 +1027,7 @@
       "note_en": "The narrowest definition of distress: \"from what they do\" — a plea to save one's family from what a society enacts."
     },
     {
-      "id": "dua-79",
+      "id": "dua-76",
       "surah": 29,
       "ayah": 60,
       "category": "rizik",
@@ -1079,7 +1040,7 @@
       "note_en": "A bird carries no provision in its beak. Yet it lives. This is the simplest answer to the prayer for sustenance."
     },
     {
-      "id": "dua-80",
+      "id": "dua-77",
       "surah": 50,
       "ayah": 33,
       "category": "hidayet",
