@@ -16,6 +16,7 @@ import {
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 import extData from '../../public/nefis-mertebeleri-ext.json';
 
@@ -142,7 +143,11 @@ export default function NefisMertebeleri({ onClose }) {
           background: 'linear-gradient(180deg, rgba(139,0,0,0.05) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          <HeroGeometricBackground />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
           <div
             dir="rtl" lang="ar" aria-label="Bismillāh"
@@ -353,6 +358,7 @@ export default function NefisMertebeleri({ onClose }) {
                 {language === 'tr' ? 'Tasavvufî ek (4-7)' : 'Sufi addition (4-7)'}
               </span>
             </div>
+          </div>
           </div>
         </div>
 

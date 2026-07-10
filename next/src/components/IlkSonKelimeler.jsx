@@ -7,6 +7,7 @@ import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import { CloseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
@@ -843,7 +844,10 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         padding: isMobile ? '40px 8px 24px' : '60px 0 32px',
         textAlign: 'center',
         position: 'relative',
+        overflow: 'hidden',
       }}>
+        <HeroGeometricBackground />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Bismillah ornament — small decorative, KFGQPC'de U+FDFD glyph yok,
             Amiri Quran ligature kullanılır (§13.2 documented exception) */}
         <div
@@ -966,6 +970,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             ? 'Her sûre bir mektup gibi açılır, ve bir cevapla kapanır.'
             : 'Every surah opens like a letter — and closes with a reply.'}
         </p>
+        </div>
       </div>
 
       {/* ════ Manifesto descriptive paragraphs ════════════════════════════ */}

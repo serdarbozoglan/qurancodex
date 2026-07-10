@@ -7,6 +7,7 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // Overlay-local fadeUp — used for individual blocks; overlay has no parent stagger container.
@@ -504,6 +505,10 @@ export default function IblisSatan({ onClose }) {
         padding: isMobile ? '24px 16px 60px' : '40px 60px 80px',
       }}>
 
+      {/* ─── Hero region wrapper (additive — layers HeroGeometricBackground) ── */}
+      <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <HeroGeometricBackground />
+        <div style={{ position: 'relative', zIndex: 1 }}>
       {/* ─── Bismillah ornament — Amiri Quran ligature ───── */}
       <motion.div
         initial="hidden" animate="visible" variants={fadeUpItem}
@@ -669,6 +674,9 @@ export default function IblisSatan({ onClose }) {
           margin: '0 auto 36px',
         }}
       />
+        </div>
+      </div>
+      {/* ─── End Hero region wrapper ─────────────────────── */}
 
       {/* ─── Header (in-body) ───────────────────────────── */}
       {/* 7-Marker Preview: her nokta = bir sûrenin accent rengi.
