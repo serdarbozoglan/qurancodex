@@ -989,6 +989,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   migrateReadingModeSettings();
   const { language, toggleLanguage } = useLanguage();
   const router = useRouter();
+  // Language-aware sûre ismi helper (2026-07-08 kullanıcı feedback).
+  // Hoisted to the top of the component so the search-results useMemo below
+  // can call it — the earlier declaration further down created a temporal
+  // dead-zone crash when the user opened Search (2026-07-09 bug report).
+  const surahNameOf = (sn) => (language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[sn - 1]
+    || (language === 'en' ? `Sūra ${sn}` : `Sûre ${sn}`);
   // Wordmark scroll-aware fade — premium reader pattern (Apple iBooks /
   // Kindle / quran.com): scroll yapıldığında brand fısıltıya iner
   // (immersion), top'a dönülünce normale döner. Threshold 100px.
@@ -2252,11 +2258,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     chevronDisabled: 'rgba(255,255,255,0.15)',
   };
 
-  // Language-aware sûre ismi helper (2026-07-08 kullanıcı feedback):
-  // EN dilinde SURAH_NAMES_EN kullan, TR'de SURAH_NAMES_TR.
-  // 'sn' = 1-based surah number.
-  const surahNameOf = (sn) => (language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[sn - 1]
-    || (language === 'en' ? `Sūra ${sn}` : `Sûre ${sn}`);
+  // surahNameOf is defined near the top of the component (below useLanguage).
   const surahName = surahNameOf(selectedSurah);
 
   // Page navigation helpers
