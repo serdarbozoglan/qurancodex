@@ -101,6 +101,159 @@ const HELAK_ICONS = {
   ),
 };
 
+// ── NATION_ICONS — 16 kavim için karakteristik line-art SVG ──────────────────
+// 2026-07-10 Dalga 3 · Madde 2. Her kavim Kur'ânî anlatısıyla en iyi
+// özdeşleşen tek imgeyle (Nûh=gemi, Âd=eğilen palm, Semûd=dağa oyulmuş ev,
+// Lût=çevrik şehir, Firavun=piramit-taç, Medyen=terazi, İrem=sütun grubu…)
+// tanınırlık kazanır. NationCard sol-üst kutucuğunda 20px olarak render edilir.
+const NATION_ICONS = {
+  // Nûh — gemi (Hûd 11:37-44)
+  nuh: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 17c1 1 2 1.5 3 1.5s2-.5 3-.5 2 .5 3 .5 2-.5 3-.5 2 .5 3 .5 2-.5 3-.5" opacity="0.55" />
+      <path d="M3 14h18l-2 5H5z" />
+      <line x1="12" y1="14" x2="12" y2="6" />
+      <path d="M12 6l5 5H12z" opacity="0.75" />
+    </svg>
+  ),
+  // Âd — rüzgârda eğilen palm (Kâmer 54:19-20)
+  ad: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 22C14 15 15 10 17 4" />
+      <path d="M17 4c-2 1-4 2-6 3" opacity="0.75" />
+      <path d="M17 4c1 1 3 2 4 4" opacity="0.75" />
+      <path d="M17 4c-1 2-1 4-2 6" opacity="0.65" />
+      <path d="M17 4c2 1 3 3 4 5" opacity="0.55" />
+    </svg>
+  ),
+  // Semûd — dağa oyulmuş ev (A'râf 7:74)
+  semud: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 20 L12 5 L22 20z" />
+      <rect x="9" y="13" width="6" height="7" rx="1" />
+      <path d="M12 13a3 3 0 0 1 3 3" opacity="0.6" />
+    </svg>
+  ),
+  // Lût — devrik şehir (Hûd 11:82)
+  lut: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h4v6H4z" />
+      <path d="M10 4h4v6h-4z" opacity="0.8" />
+      <path d="M16 4h4v6h-4z" opacity="0.6" />
+      <path d="M3 20l7-6" />
+      <path d="M10 20l7-6" opacity="0.75" />
+      <line x1="2" y1="22" x2="22" y2="22" />
+    </svg>
+  ),
+  // Firavun — piramit + taç (Kasas 28:38, Bakara 2:49)
+  firavun: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 20 L12 3 L21 20z" />
+      <line x1="12" y1="3" x2="12" y2="20" opacity="0.5" />
+      <path d="M8 14h8" opacity="0.65" />
+    </svg>
+  ),
+  // Medyen — terazi (Şuarâ 26:181-183 mizan)
+  medyen: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="3" x2="12" y2="21" />
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <path d="M4 8L1.5 14a3 3 0 0 0 5 0z" />
+      <path d="M20 8l-2.5 6a3 3 0 0 0 5 0z" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+    </svg>
+  ),
+  // Eyke — sık ağaç kümesi (Şuarâ 26:176)
+  eyke: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 14a4 4 0 1 1 4-6 4 4 0 0 1 6 6z" />
+      <line x1="12" y1="14" x2="12" y2="21" />
+      <path d="M8 21h8" opacity="0.5" />
+    </svg>
+  ),
+  // İbrahim kavmi — kırık put (Enbiyâ 21:58)
+  'ibrahim-kavmi': (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="3" />
+      <path d="M9 14l1 4h4l1-4" />
+      <path d="M8 21h8" opacity="0.55" />
+      <path d="M12 5l2 3-4 0z" fill="currentColor" opacity="0.75" stroke="none" />
+    </svg>
+  ),
+  // Karun — hazine kesesi + para (Kasas 28:76)
+  karun: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 8h12l-1.5 12H7.5z" />
+      <path d="M8 5c1-1 2.5-1 4-1s3 0 4 1l-1 3H9z" />
+      <circle cx="12" cy="14" r="2.5" opacity="0.7" />
+    </svg>
+  ),
+  // Ress — kuyu (Furkan 25:38)
+  ress: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="6" rx="7" ry="2" />
+      <path d="M5 6v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6" />
+      <path d="M5 12h14" opacity="0.5" />
+      <circle cx="12" cy="16" r="1" fill="currentColor" opacity="0.4" />
+    </svg>
+  ),
+  // Tübba — çift boynuzlu taç (Duhân 44:37 · Yemen kralları)
+  tubba: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 10l3 6h10l3-6-4 3-4-5-4 5z" />
+      <line x1="4" y1="20" x2="20" y2="20" />
+      <circle cx="9" cy="8" r="0.8" fill="currentColor" />
+      <circle cx="15" cy="8" r="0.8" fill="currentColor" />
+    </svg>
+  ),
+  // İrem — çoklu sütun (Fecr 89:7 zâti'l-imâd)
+  irem: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="22" x2="21" y2="22" />
+      <line x1="3" y1="4" x2="21" y2="4" opacity="0.55" />
+      <line x1="6" y1="4" x2="6" y2="22" />
+      <line x1="12" y1="4" x2="12" y2="22" />
+      <line x1="18" y1="4" x2="18" y2="22" />
+    </svg>
+  ),
+  // Yunus kavmi — balık + tövbe halkası (Yunus 10:98)
+  'yunus-kavmi': (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M15 12c-3-3-8-3-11 0 3 3 8 3 11 0z" />
+      <path d="M15 12l6-4v8z" />
+      <circle cx="7" cy="12" r="0.7" fill="currentColor" />
+      <path d="M2 6a3 3 0 0 1 6 0" opacity="0.55" />
+    </svg>
+  ),
+  // Sebe — baraj / su seddi (Sebe 34:16 seylü'l-arim)
+  sebe: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 14 L4 6 L20 6 L20 14z" />
+      <path d="M2 20c1-1 2.5-1 3.5 0s2.5 1 3.5 0 2.5-1 3.5 0 2.5 1 3.5 0 2.5-1 3.5 0" />
+      <line x1="9" y1="6" x2="9" y2="14" opacity="0.55" />
+      <line x1="15" y1="6" x2="15" y2="14" opacity="0.55" />
+    </svg>
+  ),
+  // Ashâb-ı Uhdud — ateş çukuru / hendek (Bürûc 85:4-6)
+  uhdud: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 14l3 6h12l3-6z" />
+      <path d="M9 6c1 2 2 3 3 6-3 0-5-2-5-4z" opacity="0.75" />
+      <path d="M13 4c1 3 3 4 3 7-2 0-4-2-4-4z" opacity="0.65" />
+    </svg>
+  ),
+  // Ashâb-ı Sebt — balık ağı + su (A'râf 7:163)
+  sebt: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 5l16 6-16 6z" />
+      <path d="M4 5v12" opacity="0.5" />
+      <path d="M9 8l7 6" opacity="0.35" />
+      <path d="M9 14l7-6" opacity="0.35" />
+      <circle cx="16" cy="11" r="0.8" fill="currentColor" />
+    </svg>
+  ),
+};
+
 // Compact renderer — chip veya kart içine drop-in.
 function HelakIcon({ type, size = 16, color }) {
   const icon = HELAK_ICONS[type];
@@ -753,8 +906,20 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
     >
       {/* Header row */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', marginBottom: '10px' }}>
+        {/* Nation mode-icon — 2026-07-10 Dalga 3 · Madde 2 */}
+        {NATION_ICONS[nation.id] && (
+          <span aria-hidden="true" style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '36px', height: '36px', borderRadius: RADIUS.md,
+            background: `${helakColor}12`,
+            border: `1px solid ${helakColor}22`,
+            color: helakColor, flexShrink: 0,
+          }}>
+            {NATION_ICONS[nation.id](22)}
+          </span>
+        )}
         {/* Arabic + Turkish name */}
-        <div>
+        <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
             fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold,
             direction: 'rtl', lineHeight: 1.6, marginBottom: '2px',
