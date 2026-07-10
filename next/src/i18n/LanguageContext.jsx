@@ -18,8 +18,10 @@ export function LanguageProvider({ children, initialLocale }) {
   // stale dil ile render ediliyordu (user audit). Pathname source-of-truth.
   const router = useRouter();
   const pathname = usePathname();
-  // EN dict yüklenince re-render tetiklemek için
-  const [, setEnLoadedAt] = useState(0);
+  // EN dict yüklenince consumer'larda re-render tetiklemek için — state DEĞERİ
+  // memo deps'e girmezse `value` memoize edilmiş kalır, context consumer'lar
+  // TR fallback'te takılır (2026-07-10 Hero i18n bug fix).
+  const [enLoadedAt, setEnLoadedAt] = useState(0);
 
   const language = useMemo(() => {
     if (pathname) {
@@ -61,7 +63,9 @@ export function LanguageProvider({ children, initialLocale }) {
       value = value[k];
     }
     return value ?? key;
-  }, [language]);
+    // enLoadedAt intentionally in deps: EN async yüklendiğinde t reference
+    // yenilenmeli, aksi halde value memo aynı kalır ve consumer'lar re-render olmaz.
+  }, [language, enLoadedAt]);
 
   // Faz 5: dil değiştir → URL pathname'i locale prefix swap ile yeniden yönlendir.
   const toggleLanguage = useCallback(() => {

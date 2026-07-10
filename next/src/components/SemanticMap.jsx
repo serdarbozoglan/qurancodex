@@ -404,12 +404,16 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
             {title || (language === 'tr' ? '(tema henüz tanımlanmadı)' : '(theme not yet defined)')}
           </div>
         </div>
-        <button onClick={onClose} style={{
-          width: '30px', height: '30px', borderRadius: RADIUS.full,
-          background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.1)'}`,
-          color: COLORS.silver, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+        <button
+          onClick={onClose}
+          aria-label={language === 'tr' ? 'Detay panelini kapat' : 'Close detail panel'}
+          style={{
+            width: '30px', height: '30px', borderRadius: RADIUS.full,
+            background: 'rgba(255,255,255,0.05)', border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.1)'}`,
+            color: COLORS.silver, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >
+          <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
