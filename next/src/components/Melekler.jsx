@@ -9,20 +9,158 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 
+// ── Category mode-icons (24×24, line-art, currentColor) ──────────────────────
+// Each category gets a distinct minimal SVG that visualizes its function.
+// Rendered by AngelCard's top-left slot at 20px + card-accent color.
+// 2026-07-10 Dalga 3 · Madde 1 — 7 kategorik icon seti.
+
+const MELEK_ICONS = {
+  // vahiy — downward beam with radiating rays (revelation from above)
+  vahiy: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v14" />
+      <path d="M8 7l4-4 4 4" />
+      <line x1="5" y1="19" x2="19" y2="19" opacity="0.55" />
+      <line x1="3" y1="21" x2="7" y2="21" opacity="0.4" />
+      <line x1="17" y1="21" x2="21" y2="21" opacity="0.4" />
+    </svg>
+  ),
+  // yardim — supportive shield with rising arrow inside
+  yardim: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 21s7-3.5 7-9V5l-7-2-7 2v7c0 5.5 7 9 7 9z" />
+      <path d="M12 15v-6" opacity="0.85" />
+      <path d="M9 12l3-3 3 3" opacity="0.85" />
+    </svg>
+  ),
+  // azap — stylized flame (destructive fire)
+  azap: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1-2-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+    </svg>
+  ),
+  // koruyucu — closed shield (guardian)
+  koruyucu: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M9 12l2 2 4-4" opacity="0.75" />
+    </svg>
+  ),
+  // kayit — quill on parchment
+  kayit: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 20 L20 4" />
+      <path d="M14 4h6v6" opacity="0.75" />
+      <path d="M5 18 L4 20 L6 19" />
+      <line x1="8" y1="15" x2="14" y2="9" opacity="0.5" />
+    </svg>
+  ),
+  // yuceltme — ascending halo / concentric arcs
+  yuceltme: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 15a8 8 0 0 1 16 0" />
+      <path d="M7 15a5 5 0 0 1 10 0" opacity="0.75" />
+      <path d="M10 15a2 2 0 0 1 4 0" opacity="0.55" />
+      <line x1="4" y1="19" x2="20" y2="19" opacity="0.4" />
+    </svg>
+  ),
+  // gizemlI — subtle veil / question mark
+  gizemlI: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" opacity="0.4" />
+      <path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5" />
+      <circle cx="12" cy="17" r="0.5" fill="currentColor" />
+    </svg>
+  ),
+  // hadis — book with an info dot (hadith-tradition source)
+  hadis: (size = 20) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z" opacity="0.5" />
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z" />
+      <line x1="8" y1="8" x2="16" y2="8" opacity="0.7" />
+      <line x1="8" y1="12" x2="14" y2="12" opacity="0.55" />
+    </svg>
+  ),
+};
+
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
-  vahiy:    { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation' },
-  yardim:   { accent: '#3B82F6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper' },
-  azap:     { accent: '#D85A30', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment' },
-  koruyucu: { accent: '#1D9E75', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian' },
-  kayit:    { accent: '#534AB7', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder' },
-  yuceltme: { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28, labelTr: 'Yüceltme Meleği', labelEn: 'Glorification' },
-  gizemlI:  { accent: '#6B7280', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious' },
-  hadis:    { accent: '#6B7280', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source' },
+  vahiy:    { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation',   icon: MELEK_ICONS.vahiy },
+  yardim:   { accent: '#3B82F6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper',       icon: MELEK_ICONS.yardim },
+  azap:     { accent: '#D85A30', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
+  koruyucu: { accent: '#1D9E75', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
+  kayit:    { accent: '#534AB7', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
+  yuceltme: { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28, labelTr: 'Yüceltme Meleği', labelEn: 'Glorification', icon: MELEK_ICONS.yuceltme },
+  gizemlI:  { accent: '#6B7280', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious',   icon: MELEK_ICONS.gizemlI },
+  hadis:    { accent: '#6B7280', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source', icon: MELEK_ICONS.hadis },
 };
 
 const HAPAX_COLOR = '#534AB7';
 const GOLD = COLORS.softGold;
+
+// ── KanatMotif — hero'nun görsel imzası ──────────────────────────────────────
+// Fâtır 35:1 "meleklerin kanatları — ikişer, üçer, dörder" ayetinin
+// görsel yankısı. Hero'nun genişliğine yayılan, simetrik açılmış bir
+// çift kanat — 6 birincil + 3 ikincil tüy her yandan. HeroGeometricBackground
+// üzerinde durur, opacity 0.055 · mixBlend screen · pointerEvents:none.
+// (2026-07-10 Dalga 3 · Madde 1.2)
+function KanatMotif({ isMobile }) {
+  const w = 900;
+  const h = isMobile ? 220 : 280;
+  const cx = w / 2;
+  const cy = h * 0.55;
+  // Bir tüy: bir alanı olan kavisli path (ellipse + iç çizgi)
+  const feather = (x0, angle, len, ratio) => {
+    const rad = (angle * Math.PI) / 180;
+    const dx = Math.cos(rad) * len;
+    const dy = Math.sin(rad) * len;
+    const tipX = x0 + dx;
+    const tipY = cy + dy;
+    const ctrl1x = x0 + dx * 0.35 - dy * ratio;
+    const ctrl1y = cy + dy * 0.35 + dx * ratio;
+    const ctrl2x = x0 + dx * 0.65 + dy * ratio;
+    const ctrl2y = cy + dy * 0.65 - dx * ratio;
+    return `M${x0} ${cy} Q${ctrl1x} ${ctrl1y} ${tipX} ${tipY} Q${ctrl2x} ${ctrl2y} ${x0} ${cy} Z`;
+  };
+  const primaryLen = isMobile ? 180 : 240;
+  const secondaryLen = isMobile ? 115 : 155;
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox={`0 0 ${w} ${h}`}
+      preserveAspectRatio="xMidYMid meet"
+      width="100%"
+      height={h}
+      style={{
+        position: 'absolute',
+        top: '50%', left: '50%',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        opacity: 0.055,
+        mixBlendMode: 'screen',
+        zIndex: 0,
+      }}
+    >
+      <g stroke={COLORS.gold} strokeWidth="1.1" fill={COLORS.gold} fillOpacity="0.08" strokeLinecap="round" strokeLinejoin="round">
+        {/* SOL KANAT — 6 birincil (aşağıdan yukarıya doğru dizilim) */}
+        {[-165, -150, -135, -120, -105, -90].map((a, i) => (
+          <path key={`lp-${i}`} d={feather(cx - 14, a, primaryLen * (0.72 + i * 0.05), 0.18)} />
+        ))}
+        {/* SOL KANAT — 3 ikincil (daha kısa, alt katman) */}
+        {[-160, -145, -128].map((a, i) => (
+          <path key={`ls-${i}`} d={feather(cx - 10, a, secondaryLen * (0.75 + i * 0.08), 0.24)} opacity="0.62" />
+        ))}
+        {/* SAĞ KANAT — mirror */}
+        {[-15, -30, -45, -60, -75, -90].map((a, i) => (
+          <path key={`rp-${i}`} d={feather(cx + 14, a, primaryLen * (0.72 + i * 0.05), -0.18)} />
+        ))}
+        {[-20, -35, -52].map((a, i) => (
+          <path key={`rs-${i}`} d={feather(cx + 10, a, secondaryLen * (0.75 + i * 0.08), -0.24)} opacity="0.62" />
+        ))}
+      </g>
+    </svg>
+  );
+}
 
 // ── Reusable micro-components ────────────────────────────────────────────────
 function HadisBadge({ language }) {
@@ -279,14 +417,27 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       display: 'flex', flexDirection: 'column', gap: '10px',
       opacity: isHadithOnly ? 0.75 : 1,
     }}>
-      {/* Top row: Arabic + mention count */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+      {/* Top row: category mode-icon + Arabic + mention count */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
+        {/* Mode-icon — kategori kimliği (2026-07-10 Dalga 3 · Madde 1) */}
+        {cat.icon && (
+          <span aria-hidden="true" style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '32px', height: '32px', borderRadius: RADIUS.md,
+            background: `${cat.accent}12`,
+            border: `1px solid ${cat.accent}22`,
+            color: cat.accent, flexShrink: 0,
+            opacity: isHadithOnly ? 0.55 : 1,
+          }}>
+            {cat.icon(20)}
+          </span>
+        )}
         {angel.arabicName ? (
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right' }} lang="ar">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right', flex: 1, minWidth: 0 }} lang="ar">
             {angel.arabicName}
           </p>
         ) : (
-          <p style={{ fontSize: '1rem', color: '#374151', fontStyle: 'italic', margin: 0 }}>—</p>
+          <p style={{ fontSize: '1rem', color: '#374151', fontStyle: 'italic', margin: 0, flex: 1 }}>—</p>
         )}
         {angel.mentionCount > 0 && (
           <span style={{
@@ -1187,6 +1338,10 @@ export default function Melekler({ onClose }) {
           overflow: 'hidden',
         }}>
           <HeroGeometricBackground />
+          {/* Kanat motifi — açılan bir çift kanat, hero'nun görsel imzası
+              (2026-07-10 Dalga 3 · Madde 1). HeroGeometricBackground'ın
+              üzerinde, content'in altında bir katman olarak durur. */}
+          <KanatMotif isMobile={isMobile} />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah */}
           <div
