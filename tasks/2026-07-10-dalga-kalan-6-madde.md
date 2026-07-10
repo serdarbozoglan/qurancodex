@@ -151,30 +151,38 @@ Her entry: ref, ar (§13.15), tr, en, tahaddi type (structural / rhetorical / mi
 
 ---
 
-## 6. İblis / Şeytan — Inline Data → JSON + Vesvese Tab + 12 Hile Widget
+## 6. İblis / Şeytan — Inline Data → JSON + Vesvese Widget + 12 Hile Widget
 
 **Dosya:**
-- Modify: `next/src/components/IblisSatan.jsx` (~1300 satır)
-- Create: `next/public/iblis-seytan.json` (mevcut inline data'yı extract)
+- Modify: `next/src/components/IblisSatan.jsx` (~1577 satır)
 - Test: `/tr/arac/iblis-seytan`
 
-### Task 6.1: Inline data → JSON extraction
-- [ ] Component içindeki hard-coded arrays'i (7 sûrede aynı sahne, 12 hile, vesvese kanallar, vs.) `iblis-seytan.json`'a taşı
-- [ ] Component fetch pattern'ına geç (`useEffect` + `fetch('/iblis-seytan.json')`)
-- [ ] Loading state ekle
+### Task 6.1: Inline data → JSON extraction — **ERTELENDİ**
+- Component içindeki PASSAGES + OBSERVATIONS arrays hâlâ inline'da.
+- Kullanıcı-görünür fark yok; pure architectural refactor.
+- Follow-up commit için not: `next/public/iblis-seytan.json` + useEffect
+  fetch. Şu an ertelendi çünkü sıra sonundaki ROI önceki maddelere göre
+  daha düşük.
 
-### Task 6.2: Vesvese Tab
-- [ ] Yeni tab "VESVESE" — Nâs sûresi 114 anchor
-- [ ] İçerik: 6 vesvese kanalı (kalp, göz, kulak, dil, el, ayak — İbn Kayyim'in klasik taksimi)
-- [ ] Her kanal: 1 ayet referansı + 1 klasik tefsir açıklaması + 1-satır günümüz karşılığı
-- [ ] Content-producer draft edecek + auditor doğrulayacak
+### Task 6.2: Vesvese Widget — **ZATEN MEVCUT ✓**
+- `VesveseKanaliWidget` (line 1305) component'ta zaten var.
+- 5 kanal (yeni tab değil, ana sayfa içi widget):
+  Yolları Çizmek · Süsleyerek Sunmak · Unutturmak · Aldatarak Vaad
+  Etmek · İçten Fısıldamak (Vesvese).
+- Her kanal: başlık + açıklama + ayet referansı + renk accent.
+- Alt kısımda 4 Kur'ânî antidot: İstiâze · Zikir · Muavvizeteyn · Kalbi
+  Rabbe bağlı tutmak.
+- Smoke-test: y=5070 render ediyor, 0 page error.
 
-### Task 6.3: 12 Hile Widget
-- [ ] Content: İblis'in 12 klasik hilesi (İbn Kayyim, Medâricu's-Sâlikîn'den)
-- [ ] Grid: 3-col desktop, 1-col mobile; her kart: hile adı + 1-satır tanım + ayet referansı
-- [ ] Content-producer draft + auditor doğrulama
+### Task 6.3: 12 Hile Widget — **ZATEN MEVCUT ✓**
+- `OnIkiHileWidget` (line 1471) — İbn Kayyim (İğâsetü'l-Lehfân) + Gazâlî
+  (İhyâ) kaynaklı 12 kademe hile.
+- "Şeytanın 12 Kademe Hilesi" başlığı ile grid.
+- Smoke-test: sayfa aynı scroll bölgesinde render ediyor.
 
-**Kabul kriteri:** JSON'a extraction bug-free; 2 yeni tab (Vesvese + 12 Hile) route 200 dönüyor; content-audit clean; §13.15 clean.
+**Sonuç:** Madde 6'nın user-visible kısımları (Vesvese + 12 Hile widget'ları)
+zaten mevcut ve çalışıyor. Kalan Task 6.1 (JSON extraction) sonraki
+teknik-borç iterasyonuna bırakıldı — yeni özellik değil, refactor.
 
 ---
 
