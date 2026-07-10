@@ -720,7 +720,7 @@
     "istikaametIntro": "Kur'an'da yüzlerce direktif var. Ama Hz. Peygamber'in 'beni ihtiyarlatan ayet' dediği tek bir ayet var: Hûd 112. Çünkü 'emrolunduğun gibi dosdoğru ol' bir eylem değil — sürekli bir hal.",
     "istikaametVerse": "فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
     "istikaametRef": "Hûd 11:112",
-    "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol — seninle tövbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
+    "istikaametTr": "\"Emrolunduğun gibi dosdoğru ol — seninle tevbe edenlerle birlikte. Aşırıya gitmeyin. Şüphesiz O, yaptıklarınızı hakkıyla görmektedir.\"",
     "istikaametHadith": "Hz. Peygamber: \"Hûd ve benzeri sûreler beni ihtiyarlattı.\"",
     "istikaametHadithNote": "Bu rivayet hadis kaynaklarından gelmektedir (Tirmizî), Kur'an'dan değil.",
     "istikaametClickHint": "Her kelimeye tıklayarak dilbilimsel analizi görün",
@@ -925,11 +925,11 @@
           },
           {
             "id": "munib",
-            "title": "Kalb-i Münîb — Dönen, Tövbeden Dönen Kalp",
+            "title": "Kalb-i Münîb — Dönen, Tevbeden Dönen Kalp",
             "arabic": "مَنْ خَشِيَ الرَّحْمَنَ بِالْغَيْبِ وَجَاءَ بِقَلْبٍ مُنِيبٍ",
             "translation": "Gaybte Rahman'dan korkan ve gönülden dönen bir kalp ile gelen kimse.",
             "reference": "Kaf, 50:33",
-            "description": "Sürekli Allah'a yönelen, uzaklaşınca geri dönen kalp. Tövbe mekanizması burada yatar — tek seferlik değil, kronik bir dönüş eğilimi. Münib kalp hata yapar ama teslim olmaz.",
+            "description": "Sürekli Allah'a yönelen, uzaklaşınca geri dönen kalp. Tevbe mekanizması burada yatar — tek seferlik değil, kronik bir dönüş eğilimi. Münib kalp hata yapar ama teslim olmaz.",
             "modernNote": "Psikolojik dayanıklılık (resilience) ve 'büyüme sonrası travma' kavramlarıyla paraleldir."
           },
           {
@@ -938,7 +938,7 @@
             "arabic": "فِي قُلُوبِهِم مَّرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا",
             "translation": "Kalplerinde hastalık vardır; Allah da hastalıklarını artırdı.",
             "reference": "Bakara, 2:10",
-            "description": "Nifak (ikiyüzlülük), şüphe, haset, kibir gibi psikolojik patolojilerin yurdu. Hastanın hastalığı görmemesi gibi, hasta kalp da kendi durumundan habersizdir. Tedavisi: farkındalık, tövbe, ilim.",
+            "description": "Nifak (ikiyüzlülük), şüphe, haset, kibir gibi psikolojik patolojilerin yurdu. Hastanın hastalığı görmemesi gibi, hasta kalp da kendi durumundan habersizdir. Tedavisi: farkındalık, tevbe, ilim.",
             "modernNote": "Psikolojik savunma mekanizmaları ve 'yansıtmalı tanımsızlık' (projective identification) ile bağlantılıdır."
           },
           {
@@ -956,7 +956,7 @@
             "arabic": "كَلَّا بَلْ رَانَ عَلَى قَلْبِهِم مَّا كَانُوا يَكْسِبُونَ",
             "translation": "Hayır! Aksine, kazandıkları şeyler kalplerini pas tuttu.",
             "reference": "Mutaffifîn, 83:14",
-            "description": "Mühürden farklı olarak pas temizlenebilir. Hz. Peygamber: 'Kul günah işlediğinde kalbine siyah bir nokta düşer; tövbe edip affedilirse o nokta silinir. Devam ederse büyür.' Rân, ihmal sonucu oluşan birikimli kirliliktir.",
+            "description": "Mühürden farklı olarak pas temizlenebilir. Hz. Peygamber: 'Kul günah işlediğinde kalbine siyah bir nokta düşer; tevbe edip affedilirse o nokta silinir. Devam ederse büyür.' Rân, ihmal sonucu oluşan birikimli kirliliktir.",
             "modernNote": "Nöropsikolojideki 'duygusal yük birikimi' ve travma katmanlaşması mekanizmasıyla örtüşür."
           }
         ]
@@ -1036,11 +1036,11 @@
           },
           {
             "id": "erteleme",
-            "title": "Erteleme — 'Yarın Tövbe Ederim'",
+            "title": "Erteleme — 'Yarın Tevbe Ederim'",
             "arabic": "حَتَّى إِذَا حَضَرَ أَحَدَهُمُ الْمَوْتُ قَالَ إِنِّي تُبْتُ الْآنَ",
-            "translation": "Ölüm birine gelince 'İşte şimdi tövbe ettim' der.",
+            "translation": "Ölüm birine gelince 'İşte şimdi tevbe ettim' der.",
             "reference": "Nisa, 4:18",
-            "description": "Değişimi sürekli ertelemek, hem bir savunma hem bir tuzak. Kur'an bu erteleme mekanizmasını açıkça uyarır: Son nefeste tövbenin kabul edilmeyeceği bir sınır vardır. Procrastination'ın psikolojik kökeni: değişimin yarattığı kaygıdan kaçış.",
+            "description": "Değişimi sürekli ertelemek, hem bir savunma hem bir tuzak. Kur'an bu erteleme mekanizmasını açıkça uyarır: Son nefeste tevbenin kabul edilmeyeceği bir sınır vardır. Procrastination'ın psikolojik kökeni: değişimin yarattığı kaygıdan kaçış.",
             "modernNote": "Davranışsal ekonomideki 'hyperbolic discounting': uzak ödüllere değer biçememe, anlık rahata kaçış."
           },
           {
@@ -1264,9 +1264,9 @@
           },
           {
             "id": "gunah_psikoloji",
-            "title": "Günah ve Tövbe — Psikolojik Temizlik Mekanizması",
-            "description": "Freud'da suçluluk duygusu patolojiktir — bastırılmış arzuların yarattığı nevrotik yük. Kur'an'da günah gerçektir ama tövbeyle silinebilir. Bu mekanizma özgürleştiricidir: hata kalıcı bir iz değil, silinebilir bir durumdur. Sürekli özeleştiri değil, eylemli bağışlanma arayışı.",
-            "modernNote": "Özgürleştirici suçluluk vs. yıkıcı utanç farkı (Brené Brown): suçluluk 'yanlış yaptım', utanç 'ben yanlışım.' Tövbe sağlıklı suçluluğu çözer."
+            "title": "Günah ve Tevbe — Psikolojik Temizlik Mekanizması",
+            "description": "Freud'da suçluluk duygusu patolojiktir — bastırılmış arzuların yarattığı nevrotik yük. Kur'an'da günah gerçektir ama tevbeyle silinebilir. Bu mekanizma özgürleştiricidir: hata kalıcı bir iz değil, silinebilir bir durumdur. Sürekli özeleştiri değil, eylemli bağışlanma arayışı.",
+            "modernNote": "Özgürleştirici suçluluk vs. yıkıcı utanç farkı (Brené Brown): suçluluk 'yanlış yaptım', utanç 'ben yanlışım.' Tevbe sağlıklı suçluluğu çözer."
           },
           {
             "id": "maslow",

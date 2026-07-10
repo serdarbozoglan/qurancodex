@@ -40,8 +40,8 @@
         "values": {
           "emotion": { "tr": "Pişmanlık + iç huzursuzluk.", "en": "Regret + inner unease." },
           "voice": { "tr": "Sese kulak verir ama sıkça geri düşer — döngüsel.", "en": "Listens to the voice but often falls back — cyclical." },
-          "challenge": { "tr": "Öz-kınama denizinde boğulmadan tövbe et.", "en": "Repent without drowning in self-reproach." },
-          "antidote": { "tr": "Tövbe + istiğfâr + iç muhasebe (İbn Kayyim: 'gecelik muhâsebe').", "en": "Repentance + istighfār + inner accounting (Ibn al-Qayyim: 'nightly accounting')." },
+          "challenge": { "tr": "Öz-kınama denizinde boğulmadan tevbe et.", "en": "Repent without drowning in self-reproach." },
+          "antidote": { "tr": "Tevbe + istiğfâr + iç muhasebe (İbn Kayyim: 'gecelik muhâsebe').", "en": "Repentance + istighfār + inner accounting (Ibn al-Qayyim: 'nightly accounting')." },
           "attribute": { "tr": "Ğafûr — bağışlayıcılık, tekrar başlama izni.", "en": "Al-Ghafūr — forgiveness, permission to begin again." },
           "sign": { "tr": "Kendine karşı adalet, ama düzensiz — 'iki adım ileri, bir adım geri'.", "en": "Justice toward oneself, but uneven — 'two forward, one back'." }
         }

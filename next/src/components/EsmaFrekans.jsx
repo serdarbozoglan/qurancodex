@@ -1461,9 +1461,9 @@ const NAME_PAIRS = [
     arabic: 'التَّوَّابُ الرَّحِيمُ',
     trName: 'Et-Tevvâb · Er-Rahîm',
     enName: 'at-Tawwāb · ar-Raḥīm',
-    trMeaning: 'Tövbeleri kabul eden + Merhametli',
+    trMeaning: 'Tevbeleri kabul eden + Merhametli',
     enMeaning: 'Accepting of repentance + The Merciful',
-    trGloss: 'Tövbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
+    trGloss: 'Tevbe kapısı kapanmaz — açan ve karşılayan aynı şefkattir.',
     enGloss: 'The door of repentance never closes — the One who opens and receives is the same mercy.',
   },
   // ── v2 ek pair'ler (build-name-pairs.mjs ile doğrulanmış) ──────────────────

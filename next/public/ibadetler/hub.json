@@ -21,7 +21,7 @@
     "arabicName": "عَبْد",
     "titleTr": "abd — Kul",
     "titleEn": "ʿAbd — Servant",
-    "descTr": "Kur'ân'da kulluğun kök kelimesi. 'İbâde' (ibadet) 'abd' kökünden gelir; kul olmak, tek bir Rabbe ait olmaktır. Sekiz sütun bu tek kökten türeyen sekiz yüzdür — beden, mal, zaman, arzu, dil, kalp, tövbe ve hac bir bütün olarak 'abd'in Rabbi ile bağlantısını kurar.",
+    "descTr": "Kur'ân'da kulluğun kök kelimesi. 'İbâde' (ibadet) 'abd' kökünden gelir; kul olmak, tek bir Rabbe ait olmaktır. Sekiz sütun bu tek kökten türeyen sekiz yüzdür — beden, mal, zaman, arzu, dil, kalp, tevbe ve hac bir bütün olarak 'abd'in Rabbi ile bağlantısını kurar.",
     "descEn": "The root of servitude in the Qur'an. 'ʿIbāda' derives from the root ʿ-b-d; to be a servant is to belong to a single Lord. The eight pillars are eight faces of a single root — body, wealth, time, desire, tongue, heart, repentance and pilgrimage together forge the servant's link to the Lord.",
     "coreAyet": {
       "ref": "Fatiha 1:5",
@@ -64,13 +64,13 @@
     },
     {
       "id": "wowfact-tovbe-mercy",
-      "titleTr": "Tövbe — Kur'ân'da Allah'ın da yaptığı nadir 'ibadet' fiili",
+      "titleTr": "Tevbe — Kur'ân'da Allah'ın da yaptığı nadir 'ibadet' fiili",
       "titleEn": "Tawba — a rare 'worship' verb the Qur'an ascribes to Allah too",
-      "descTr": "Tövbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. Zikr (Bakara 2:152) ve şükr (İbrahim 14:7) gibi az sayıda fiil bu 'karşılıklı' yapıyı taşır; tövbe bu ailenin en açık örneğidir.",
+      "descTr": "Tevbe (t-w-b) fiili Kur'ân'da hem kul için (dönüş) hem Allah için (dönüş, rahmetle yönelme) kullanılır — 'inne'llâhe tevvâbun rahîm'. Zikr (Bakara 2:152) ve şükr (İbrahim 14:7) gibi az sayıda fiil bu 'karşılıklı' yapıyı taşır; tevbe bu ailenin en açık örneğidir.",
       "descEn": "The verb tāba (t-w-b) is used in the Qur'an both for the servant (turning back) and for Allah (turning toward, in mercy) — 'inna'llāha tawwābun raḥīm.' Alongside dhikr (2:152) and shukr (14:7), tāba belongs to a small family of verbs that carry this reciprocal structure; it is that family's clearest instance.",
       "claimType": "quran_semantic",
       "confidence": "high",
-      "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tövbesi ↔ kulun tövbesi)"
+      "kaynak": "Bakara 2:37, Bakara 2:160; Râzî, Bakara 2:37 tefsiri (Allah'ın tevbesi ↔ kulun tevbesi)"
     }
   ],
   "pillars": [
@@ -175,7 +175,7 @@
     {
       "id": "tovbe",
       "arabicName": "التَّوْبَة",
-      "titleTr": "Tövbe",
+      "titleTr": "Tevbe",
       "titleEn": "Repentance",
       "shortDescTr": "Dönüş fiili — hem kuldan Rabbe, hem Rabbden kula. Sürekli yenilenen bağın kapısı.",
       "shortDescEn": "The verb of turning — from the servant to the Lord, and from the Lord to the servant. The gate of a constantly renewed bond.",
@@ -294,7 +294,7 @@
       },
       {
         "id": "tovbe",
-        "labelTr": "Tövbe",
+        "labelTr": "Tevbe",
         "ar": "التَّوْبَة",
         "root": "ت و ب",
         "freq": 87,
@@ -308,7 +308,7 @@
   "zamanEkseni": {
     "titleTr": "Zaman Ekseni — Mekke ve Medine",
     "titleEn": "Time Axis — Mecca and Medina",
-    "introTr": "Kur'ân'da ibadetlerin Kur'ânî inşâsı iki dönemi kapsar: Mekke (kalp, iman, huşû, zikir, dua, tövbe) ve Medine (topluluk, tafsil — namaz vakit çerçevesi, zekât oranları, oruç ayı, hac). Bu ayrım klasik tefsir ve sûrenin nüzûl bilgisine dayanır.",
+    "introTr": "Kur'ân'da ibadetlerin Kur'ânî inşâsı iki dönemi kapsar: Mekke (kalp, iman, huşû, zikir, dua, tevbe) ve Medine (topluluk, tafsil — namaz vakit çerçevesi, zekât oranları, oruç ayı, hac). Bu ayrım klasik tefsir ve sûrenin nüzûl bilgisine dayanır.",
     "introEn": "The Qur'anic construction of worship spans two periods: Mecca (heart, faith, khushūʿ, remembrance, supplication, repentance) and Medina (community, elaboration — prayer times, zakat rates, fasting month, pilgrimage). This division draws on classical exegesis and traditional dating.",
     "phases": [
       {
@@ -383,7 +383,7 @@
         "confidence": "high"
       },
       {
-        "formulTr": "Tövbe eden, iman eden, salih amel işleyen",
+        "formulTr": "Tevbe eden, iman eden, salih amel işleyen",
         "formulEn": "Whoever repents, believes, and does righteous deeds",
         "arabic": "مَنْ تَابَ وَآمَنَ وَعَمِلَ صَالِحاً",
         "occurrenceTr": "Furkan 25:70-71, Meryem 19:60, Kasas 28:67, Tâhâ 20:82",
@@ -394,7 +394,7 @@
           "Kasas 28:67",
           "Tâhâ 20:82"
         ],
-        "descTr": "Tövbe ne yalnızdır ne pasiftir — Kur'ân'da hep üçlü sıra ile gelir: dönüş (tövbe) → iman → amel. Kalp yenilendiğinde eylem de yenilenir.",
+        "descTr": "Tevbe ne yalnızdır ne pasiftir — Kur'ân'da hep üçlü sıra ile gelir: dönüş (tevbe) → iman → amel. Kalp yenilendiğinde eylem de yenilenir.",
         "descEn": "Repentance is neither solitary nor passive — in the Qur'an it always comes as a triad: return (tawba) → faith → deed. When the heart renews, action renews.",
         "kaynak": "Râzî, Furkan 25:70 tefsiri (üçlü sıralamanın çözümlemesi)",
         "claimType": "quran_explicit",
@@ -516,7 +516,7 @@
       },
       {
         "id": "tovbe",
-        "labelTr": "Tövbe",
+        "labelTr": "Tevbe",
         "labelEn": "Repentance",
         "arabic": "التَّوْبَة",
         "yukumlulukTr": "Farz (günahtan sonra fevrî) · süreklilik teşviki",
@@ -528,7 +528,7 @@
         "yukumlulukColor": "#e74c3c"
       }
     ],
-    "notTr": "Yükümlülük derecesi ehl-i sünnet çerçevesi ve dört mezhep uygulamasını yansıtır. Renkler: kırmızı = farz (dâim veya vâcib), amber = müekkede sünnet, mavi = müstehab (süreklilik teşviki). Tövbe cumhur-i ulemâya göre günahtan sonra fevrî farzdır (Râzî, Nisâ 4:17).",
+    "notTr": "Yükümlülük derecesi ehl-i sünnet çerçevesi ve dört mezhep uygulamasını yansıtır. Renkler: kırmızı = farz (dâim veya vâcib), amber = müekkede sünnet, mavi = müstehab (süreklilik teşviki). Tevbe cumhur-i ulemâya göre günahtan sonra fevrî farzdır (Râzî, Nisâ 4:17).",
     "notEn": "The degree of obligation reflects the Sunni framework and the four schools. Colors: red = obligation (recurring or wājib), amber = emphasized sunnah, blue = mustaḥabb. Repentance is, according to the majority, an immediate obligation after sin (Rāzī on Nisāʾ 4:17)."
   },
   "yolHaritasi": {
@@ -588,7 +588,7 @@
           {
             "labelTr": "3. Ortak Formüller — Kur'ânî iç bağlar",
             "href": "/atlas/ibadetler#ortak-formuller",
-            "hintTr": "Namaz-zekât çifti, tövbe-iman-amel üçlemesi."
+            "hintTr": "Namaz-zekât çifti, tevbe-iman-amel üçlemesi."
           },
           {
             "labelTr": "4. Her sütunun İç Boyut tab'ı",
@@ -697,7 +697,7 @@
           },
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Fetih 48:2",
@@ -735,7 +735,7 @@
           },
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Kasas 28:16",
@@ -885,11 +885,11 @@
           },
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Enbiyâ 21:87",
-            "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tövbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsi"
+            "sceneTr": "Balığın karnındaki karanlıkta Yunus peygamberin tevbe duası: 'lâ ilâhe illâ ente sübhâneke innî küntü mine'z-zâlimîn.' Klasik tefsir duanın üç omurgasını vurgular: (1) tevhîd; (2) tesbih; (3) itiraf. Bu üçlü klasik tefsi"
           }
         ]
       },
@@ -941,11 +941,11 @@
         "records": [
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Hûd 11:47",
-            "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tövbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bi"
+            "sceneTr": "Tufan sırasında Nûh peygamberin oğlu için yakardığı dua reddedildikten sonra tevbesi: 'Rabbi innî eʿûzü bike en es'eleke mâ leyse lî bihî ʿilm; ve illâ tağfir lî ve terhamnî ekun mine'l-hâsirîn.' — 'Rabbim! Bilmediğim bi"
           }
         ]
       },
@@ -969,11 +969,11 @@
         "records": [
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "Sâd 38:35",
-            "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tövbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana ben"
+            "sceneTr": "Süleyman peygamberin klasik tefsirin çeşitli rivayetlerle açıkladığı bir imtihan sonrası tevbesi: 'Rabbi'ğfir lî ve heb lî mülken lâ yenbeğî li-ehadin min baʿdî; inneke ente'l-Vehhâb.' — 'Rabbim! Beni bağışla ve bana ben"
           }
         ]
       },
@@ -997,11 +997,11 @@
         "records": [
           {
             "pillar": "tovbe",
-            "pillarLabelTr": "Tövbe",
+            "pillarLabelTr": "Tevbe",
             "pillarLabelEn": "Repentance",
             "pillarColor": "#22d3ee",
             "ref": "A'râf 7:23 ↔ Bakara 2:37",
-            "sceneTr": "İnsanlığın ilk tövbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'ni"
+            "sceneTr": "İnsanlığın ilk tevbesi. Cennette işledikleri hatanın ardından A'râf 7:23'te birlikte söyledikleri dua: 'Rabbena zalemna enfusena ve in lem tağfir lena ve terhamna lenekûnenne mine'l-hâsirîn.' Klasik tefsir Bakara 2:37'ni"
           }
         ]
       },

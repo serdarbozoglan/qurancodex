@@ -1481,7 +1481,7 @@ function OnIkiHileWidget({ language, isMobile }) {
     { n: 8,  tr: 'Ucub (kendini beğenme)', en: 'ʿUjb (self-admiration)', descTr: 'İhlâslı ameli ucub ile silmek.', descEn: 'Erasing sincere deeds through self-admiration.' },
     { n: 9,  tr: 'Vesvese-i kalbiyye', en: 'Heart-whispering', descTr: 'Zayıf anlarda sürekli fısıltı — Nâs 114:5.', descEn: 'Constant whispering in moments of weakness — Nās 114:5.' },
     { n: 10, tr: 'Hasad ve gadab', en: 'Envy and rage', descTr: 'İki kapı: başkasının nimeti + kızgınlık.', descEn: 'Two doors: envy of others\' blessings + rage.' },
-    { n: 11, tr: 'Ümitsizlik ve kavut', en: 'Despair and hopelessness', descTr: '"Allah affetmez artık" düşüncesi — tövbe kapısını kapatma.', descEn: '"God will not forgive now" — closing the door of repentance.' },
+    { n: 11, tr: 'Ümitsizlik ve kavut', en: 'Despair and hopelessness', descTr: '"Allah affetmez artık" düşüncesi — tevbe kapısını kapatma.', descEn: '"God will not forgive now" — closing the door of repentance.' },
     { n: 12, tr: 'Aşırı ümit (gurur)', en: 'Excessive hope (delusion)', descTr: '"Nasılsa affeder" — ameli erteletir.', descEn: '"He will forgive anyway" — postponing action.' },
   ];
 

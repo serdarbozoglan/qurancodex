@@ -216,7 +216,7 @@ const NATION_ICONS = {
       <line x1="18" y1="4" x2="18" y2="22" />
     </svg>
   ),
-  // Yunus kavmi — balık + tövbe halkası (Yunus 10:98)
+  // Yunus kavmi — balık + tevbe halkası (Yunus 10:98)
   'yunus-kavmi': (size = 20) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M15 12c-3-3-8-3-11 0 3 3 8 3 11 0z" />
@@ -1941,7 +1941,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
           </div>
           {[
             { tr: 'İbrahim Kavmi', en: "People of Abraham", noteTr: 'Kavim helak edilmedi — Kur\'an sebebini açıklamaz', noteEn: 'People were not destroyed — Quran gives no reason' },
-            { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tövbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
+            { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tevbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
           ].map((n, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
               <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: HELAK_COLORS.kurtulan, flexShrink: 0, marginTop: '4px' }} />

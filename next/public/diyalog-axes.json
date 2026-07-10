@@ -32,7 +32,7 @@
       "speakerTr": "Allah", "speakerEn": "Allah", "speakerId": "allah",
       "addresseeTr": "Hz. Âdem", "addresseeEn": "Adam", "addresseeId": "adam",
       "color": "#c9a227", "temporalLayer": "ezel", "dialogueCount": 4,
-      "keyThemesTr": ["İsim öğretimi", "Yasak ağaç", "Tövbenin kabulü"],
+      "keyThemesTr": ["İsim öğretimi", "Yasak ağaç", "Tevbenin kabulü"],
       "keyThemesEn": ["Teaching of names", "Forbidden tree", "Acceptance of repentance"],
       "keyRefs": ["2:31-37", "7:19-23", "20:115-123"]
     },
@@ -221,7 +221,7 @@
       "speakerTr": "Firavun", "speakerEn": "Pharaoh", "speakerId": "pharaoh",
       "addresseeTr": "Allah", "addresseeEn": "Allah", "addresseeId": "allah",
       "color": "#8e44ad", "temporalLayer": "dunya", "dialogueCount": 1,
-      "keyThemesTr": ["Son tövbe", "Kabul edilmeyen iman"],
+      "keyThemesTr": ["Son tevbe", "Kabul edilmeyen iman"],
       "keyThemesEn": ["Deathbed repentance", "Faith not accepted"],
       "keyRefs": ["10:90-92"]
     }

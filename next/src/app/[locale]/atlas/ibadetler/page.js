@@ -7,7 +7,7 @@ import IbadetlerHubRoute from './IbadetlerHubRoute';
 const PATH = '/atlas/ibadetler';
 const TITLE_TR = "İbadetlerin Kur'ânî Mimarisi";
 const TITLE_EN = "The Qur'anic Architecture of Worship";
-const DESC_TR = "Namaz, zekât, oruç, hac, kurban, zikir, dua ve tövbe — kulluğun sekiz sütunu. Kur'ân ilkeyi koyar, sünnet tafsil eder; 'abd' kökünden türeyen sekiz yüz.";
+const DESC_TR = "Namaz, zekât, oruç, hac, kurban, zikir, dua ve tevbe — kulluğun sekiz sütunu. Kur'ân ilkeyi koyar, sünnet tafsil eder; 'abd' kökünden türeyen sekiz yüz.";
 const DESC_EN = "Prayer, zakat, fasting, pilgrimage, sacrifice, remembrance, supplication, repentance — the eight pillars of servitude. The Qur'an frames the principle, sunnah details it; eight faces from the root ʿ-b-d.";
 
 export async function generateMetadata({ params }) {

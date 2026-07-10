@@ -96,7 +96,7 @@ const PRESETS_TR = [
   { label: 'Sabır', term: 'sabır', group: 'kavram' },
   { label: 'Şeytan', term: 'şeytan', group: 'kavram' },
   { label: 'Takva', term: 'takva', group: 'kavram' },
-  { label: 'Tövbe', term: 'tövbe', group: 'kavram' },
+  { label: 'Tevbe', term: 'tevbe', group: 'kavram' },
   // Tekrarlayan Kalıplar — sıklık sırasına göre, doğrulanmış frekanslar
   { label: 'رَبُّ الْعَالَمِينَ', desc: 'Âlemlerin Rabbi · ×42', term: 'رب العالمين', group: 'kalıp' },
   { label: 'غَفُورٌ رَّحِيمٌ', desc: 'Çok Bağışlayan, Merhametli · ×49', term: 'غفور رحيم', group: 'kalıp' },
@@ -235,7 +235,7 @@ const PROPER_NAMES_AR = {
   'sabir':     'صبر',     // normalizeTr('sabır') → 'sabir'
   'patience':  'صبر',
   'patient':   'صبر',
-  'tovbe':     'توبة',    // normalizeTr('tövbe') → 'tovbe'
+  'tovbe':     'توبة',    // normalizeTr('tevbe') → 'tovbe'
   'repent':    'توبة',
   'repentance':'توبة',
   'melek':     'مليك',    // post-strip form of ملائكة — angel-plural; safe vs ملك (king)

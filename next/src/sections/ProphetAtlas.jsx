@@ -83,7 +83,7 @@ const GIFT_VERSE_REFS = {
   '2:37': {
     ref: 'Bakara 2:37',
     ar: 'فَتَلَقَّىٰ آدَمُ مِن رَّبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ',
-    tr: 'Âdem Rabbinden kelimeler aldı (öğrendi); Allah da tövbesini kabul etti. O, tövbeleri çok kabul eden ve çok merhamet edendir.',
+    tr: 'Âdem Rabbinden kelimeler aldı (öğrendi); Allah da tevbesini kabul etti. O, tevbeleri çok kabul eden ve çok merhamet edendir.',
     en: 'Then Adam received from his Lord some words, and He accepted his repentance. Indeed, He is the Accepting of repentance, the Merciful.',
   },
   '7:12': {
@@ -95,7 +95,7 @@ const GIFT_VERSE_REFS = {
   '20:122': {
     ref: 'Tâhâ 20:122',
     ar: 'ثُمَّ اجْتَبَاهُ رَبُّهُ فَتَابَ عَلَيْهِ وَهَدَىٰ',
-    tr: 'Sonra Rabbi onu seçti, tövbesini kabul etti ve doğru yola iletti.',
+    tr: 'Sonra Rabbi onu seçti, tevbesini kabul etti ve doğru yola iletti.',
     en: 'Then his Lord chose him, accepted his repentance and guided him.',
   },
   '32:9': {
@@ -191,7 +191,7 @@ const GIFT_VERSE_REFS = {
   '11:52': {
     ref: 'Hûd 11:52',
     ar: 'وَيَا قَوْمِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ يُرْسِلِ السَّمَاءَ عَلَيْكُم مِّدْرَارًا وَيَزِدْكُمْ قُوَّةً إِلَىٰ قُوَّتِكُمْ',
-    tr: '"Ey kavmim! Rabbinizden bağışlanma dileyin, sonra O\'na tövbe edin ki üzerinize bol bol yağmur göndersin ve gücünüze güç katsın."',
+    tr: '"Ey kavmim! Rabbinizden bağışlanma dileyin, sonra O\'na tevbe edin ki üzerinize bol bol yağmur göndersin ve gücünüze güç katsın."',
     en: '"O my people, seek forgiveness of your Lord and then repent to Him. He will send rain upon you in abundance and add strength to your strength."',
   },
   '11:56': {
@@ -561,8 +561,8 @@ const PROPHETS_REF = [
       "Tüm isimleri öğrendi; meleklerin bilmediği ilim ona verildi (2:31–33)",
       "Melekler ona secde etti — insanlık tarihinde ilk ve tek secde şerefi (2:34)",
       "İblis'in kibrinin nedeni: 'Ben ateşten, o çamurdan' — Kur'an'ın anlattığı ilk büyüklenme (7:12)",
-      "Pişmanlığını ifade etmek için Allah'tan kelimeler aldı; tövbesi kabul edildi (2:37)",
-      "Tövbenin ardından Allah onu nebî olarak seçti ve doğru yola iletti (20:122)",
+      "Pişmanlığını ifade etmek için Allah'tan kelimeler aldı; tevbesi kabul edildi (2:37)",
+      "Tevbenin ardından Allah onu nebî olarak seçti ve doğru yola iletti (20:122)",
       "Hz. İsa ile mukayese edildi: 'Allah katında İsa'nın durumu Âdem gibidir' (3:59)",
     ],
     giftsEn:[
@@ -1198,7 +1198,7 @@ const PROPHETS_REF = [
     duaTr:"Rabbinden bağışlama diledi, eğilerek rükûya kapandı ve O'na döndü.",
     duaEn:'He sought forgiveness of his Lord and fell down bowing and turned in repentance.',
     duaRef:'38:24',
-    duaLabelTr:'Tövbesi',
+    duaLabelTr:'Tevbesi',
     duaLabelEn:'His Repentance',
   },
   {

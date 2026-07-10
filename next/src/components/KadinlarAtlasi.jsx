@@ -925,7 +925,7 @@ const OBSERVATIONS = [
         labelTr: 'ÜÇ TEPKİ', labelEn: 'THREE RESPONSES',
         chips: [
           { name: 'Asiye — iman', ref: 'Tahrîm 66:11' },
-          { name: "Aziz'in karısı — tutku → tövbe", ref: 'Yûsuf 12:51' },
+          { name: "Aziz'in karısı — tutku → tevbe", ref: 'Yûsuf 12:51' },
           { name: 'Belkıs — hidayet', ref: 'Neml 27:44' },
         ],
       },

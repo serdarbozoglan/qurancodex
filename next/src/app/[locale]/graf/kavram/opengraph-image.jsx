@@ -14,7 +14,7 @@ export default async function Image({ params }) {
     title: isEn ? 'Concept Graph' : 'Kavram Grafiği',
     subtitle: isEn
       ? 'Quranic concepts — repentance, patience, faith, taqwa — as a network'
-      : "Kur'an kavramları — tövbe, sabır, iman, takva — bağlantı ağı",
+      : "Kur'an kavramları — tevbe, sabır, iman, takva — bağlantı ağı",
     glyph: 'مَفْهُوم',
     accentColor: '#a78bfa', // audit §4.2 — entelektüel mor
   });

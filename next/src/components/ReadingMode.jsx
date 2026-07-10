@@ -5737,7 +5737,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </div>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
                 {language === 'tr'
-                  ? 'Allah\'ım! Seni her türlü noksanlıktan tenzih ederim, hamdini tesbih ederim. Senden başka ilah olmadığına şahitlik ederim. Senden bağışlanma diliyor ve sana tövbe ediyorum.'
+                  ? 'Allah\'ım! Seni her türlü noksanlıktan tenzih ederim, hamdini tesbih ederim. Senden başka ilah olmadığına şahitlik ederim. Senden bağışlanma diliyor ve sana tevbe ediyorum.'
                   : 'O Allah! Glory be to You and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance.'}
               </p>
 

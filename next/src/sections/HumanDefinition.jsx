@@ -218,7 +218,7 @@ const ISTIKAMET_WORDS = [
   },
   {
     ar: 'وَمَن تَابَ مَعَكَ',
-    tr: 'Seninle tövbe edenlerle',
+    tr: 'Seninle tevbe edenlerle',
     en: 'And those who repented with you',
     noteTr: 'Bireysel değil, topluluk direktifi. İstikâmet yalnız yürünen bir yol değil — cemaat meselesi.',
     noteEn: 'Not an individual command — a communal directive. Uprightness is not a solitary path, but a community matter.',

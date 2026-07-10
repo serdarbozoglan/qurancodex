@@ -3,6 +3,7 @@
 // Cinematic hero + AbdCore radial + wowFacts + 8 pillar grid + kaynaklar
 // Namaz "ready", diğer 7 pillar "coming" — click disabled.
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES } from '../tokens';
 import ToolHeader from './ToolHeader';

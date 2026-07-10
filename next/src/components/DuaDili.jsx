@@ -239,7 +239,7 @@ function ProphetsTab({ tr, isMobile }) {
           isMobile={isMobile}
           links={[
             { href: `/${tr ? 'tr' : 'en'}/arac/dualar`, titleTr: 'Dualar (Browser)', titleEn: 'Prayers (Browser)', descTr: "50 tematik dua · 11 kategori · ses playback.", descEn: '50 thematic prayers · 11 categories · audio playback.' },
-            { href: `/${tr ? 'tr' : 'en'}/atlas/psikoloji`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: "Dua psikolojisi — havf, recâ, tövbe, itmi'nân.", descEn: 'Psychology of prayer — hope, fear, repentance, tranquility.' },
+            { href: `/${tr ? 'tr' : 'en'}/atlas/psikoloji`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: "Dua psikolojisi — havf, recâ, tevbe, itmi'nân.", descEn: 'Psychology of prayer — hope, fear, repentance, tranquility.' },
             { href: `/${tr ? 'tr' : 'en'}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: "Peygamber duaları kıssa bağlamında.", descEn: 'Prophetic prayers within their story context.' },
           ]}
         />

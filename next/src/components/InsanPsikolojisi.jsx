@@ -166,7 +166,7 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
       color: '#d4a574',
     },
     { author: 'İbn Kayyim', workTr: 'Medâricu\'s-Sâlikîn', workEn: 'Madārij al-Sālikīn', period: '1292–1350 (Şâm)',
-      insightTr: "3 mertebeli iyileşme yol haritası: tövbe → sabr → şükür → rızâ → itmi'nân. Her mertebede 3 alt katman — modern pozitif psikolojinin 'flourishing' aşamalarına eşdeğer 15 basamak.",
+      insightTr: "3 mertebeli iyileşme yol haritası: tevbe → sabr → şükür → rızâ → itmi'nân. Her mertebede 3 alt katman — modern pozitif psikolojinin 'flourishing' aşamalarına eşdeğer 15 basamak.",
       insightEn: "Three-station healing map: tawba → ṣabr → shukr → riḍā → iṭmiʾnān. Each station has 3 sub-layers — 15 rungs equivalent to positive psychology's 'flourishing' stages.",
       color: '#2ecc71',
     },

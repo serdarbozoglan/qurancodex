@@ -99,7 +99,7 @@ const FACTS = [
     surahRef: 'Çeşitli sûreler',
     titleTr: 'İsimle Anılan Peygamberler',
     titleEn: 'Prophets Named in the Quran',
-    bodyTr: 'Kur\'an, peygamberlerin bir kısmını ismiyle zikreder. İslam geleneğinde toplamda 124.000 peygamber gönderildiği rivayet edilir. İsimle anılanların her biri farklı bir insanlık dersini taşır: sabır, adalet, tövbe, tevekkül... ℹ Zülkifl başta olmak üzere bazı isimlerin peygamberliği klasik tefsirde tartışmalıdır.',
+    bodyTr: 'Kur\'an, peygamberlerin bir kısmını ismiyle zikreder. İslam geleneğinde toplamda 124.000 peygamber gönderildiği rivayet edilir. İsimle anılanların her biri farklı bir insanlık dersini taşır: sabır, adalet, tevbe, tevekkül... ℹ Zülkifl başta olmak üzere bazı isimlerin peygamberliği klasik tefsirde tartışmalıdır.',
     bodyEn: 'The Quran names a select group of prophets according to general scholarly consensus. Islamic tradition holds that 124,000 prophets were sent in total. Each named prophet carries a distinct lesson: patience, justice, repentance, trust... ℹ The prophethood of some figures, notably Dhul-Kifl, is debated in classical exegesis.',
     wowTr: '124.000\'den 25 — her biri bir ders, hepsi bir sistem.',
     wowEn: '25 out of 124,000 — each a lesson, together a system.',

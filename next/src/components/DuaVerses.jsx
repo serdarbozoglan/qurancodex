@@ -26,7 +26,7 @@ const SURAH_NAMES = [
 
 const CATEGORY_CONFIG = {
   af:       { color: 'rgba(245,158,11,0.8)',   label_tr: 'Af',         label_en: 'Forgiveness' },
-  tovbe:    { color: 'rgba(236,72,153,0.8)',   label_tr: 'Tövbe',      label_en: 'Repentance'  },
+  tovbe:    { color: 'rgba(236,72,153,0.8)',   label_tr: 'Tevbe',      label_en: 'Repentance'  },
   siginma:  { color: 'rgba(20,184,166,0.8)',   label_tr: 'Sığınma',    label_en: 'Refuge'      },
   hidayet:  { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet',    label_en: 'Guidance'    },
   sabir:    { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',      label_en: 'Patience'    },
@@ -555,7 +555,7 @@ export default function DuaVerses({ onClose }) {
           language={language}
           links={[
             { href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: "Duaların gramer omurgası: 'Rabbenâ' kalıbı.", descEn: "The grammatical spine of prayer: the 'Rabbanā' formula." },
-            { href: `/${language}/atlas/ibadetler/tovbe`, titleTr: 'Tövbe', titleEn: 'Tawba', descTr: 'Dua ve tövbe: aynı diyaloğun iki yüzü.', descEn: 'Prayer and repentance: two faces of one dialogue.' },
+            { href: `/${language}/atlas/ibadetler/tovbe`, titleTr: 'Tevbe', titleEn: 'Tawba', descTr: 'Dua ve tevbe: aynı diyaloğun iki yüzü.', descEn: 'Prayer and repentance: two faces of one dialogue.' },
             { href: `/${language}/atlas/ibadetler`, titleTr: "İbadetlerin Kur'ânî Mimarisi", titleEn: "Qur'anic Architecture of Worship", descTr: 'Duanın 8 sütun içindeki yeri.', descEn: 'Where prayer sits among the 8 pillars.' },
           ]}
         />

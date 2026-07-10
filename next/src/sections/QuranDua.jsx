@@ -464,7 +464,7 @@ export default function QuranDua() {
               fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
             }}>
               {tr
-                ? '"Kendimize zulmettik" — Hz. Âdem ve Hz. Mûsâ\'nın tövbe dillerinde aynı kalıp tekrar eder (çoğul ve tekil formlarda). Birden fazla peygamberin tövbe duasında yankılanan bu formül tek bir öğreti taşır: günah dışsal değil içseldir; sorumluluk başkasına değil, kendi nefsine yöneltilir.'
+                ? '"Kendimize zulmettik" — Hz. Âdem ve Hz. Mûsâ\'nın tevbe dillerinde aynı kalıp tekrar eder (çoğul ve tekil formlarda). Birden fazla peygamberin tevbe duasında yankılanan bu formül tek bir öğreti taşır: günah dışsal değil içseldir; sorumluluk başkasına değil, kendi nefsine yöneltilir.'
                 : '"We wronged ourselves" — the same formula recurs in Hz. Adam\'s and Hz. Moses\' repentance prayers (plural and singular forms). Echoing across multiple prophetic prayers, this formula carries one teaching: sin is internal, not external; responsibility is directed inward to one\'s own self, not outward.'}
             </p>
           </div>
@@ -995,7 +995,7 @@ export default function QuranDua() {
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? "Sığınma · şifa · hidayet · şükür · tövbe — Kur'an'dan seçilmiş duaların tamamı"
+                ? "Sığınma · şifa · hidayet · şükür · tevbe — Kur'an'dan seçilmiş duaların tamamı"
                 : "Refuge · healing · guidance · gratitude · repentance — the full collection of selected supplications"}
             </p>
           </div>

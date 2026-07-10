@@ -5,9 +5,9 @@ import PageHeading from '@/components/PageHeading';
 import TovbeRoute from './TovbeRoute';
 
 const PATH = '/atlas/ibadetler/tovbe';
-const TITLE_TR = "Tövbe — İki Taraftan Açılan Kapı";
+const TITLE_TR = "Tevbe — İki Taraftan Açılan Kapı";
 const TITLE_EN = "Tawba — The Gate That Opens from Both Sides";
-const DESC_TR = "Tövbe, tevvâb, istiğfâr, nedâmet, ıslâh, nasûhâ, rücû', inâbe, gufrân — tövbenin Kur'ânî semantik alanı; karşılıklı dönüş fiili. Klasik tefsir kaynakları.";
+const DESC_TR = "Tevbe, tevvâb, istiğfâr, nedâmet, ıslâh, nasûhâ, rücû', inâbe, gufrân — tevbenin Kur'ânî semantik alanı; karşılıklı dönüş fiili. Klasik tefsir kaynakları.";
 const DESC_EN = "Tawba, tawwāb, istighfār, nadāma, iṣlāḥ, naṣūḥā, rujūʿ, ināba, ghufrān — the Qur'anic semantic field of repentance; the verb of reciprocal return. Classical tafsir sources.";
 
 export async function generateMetadata({ params }) {

@@ -298,7 +298,7 @@ const LATIN_QURAN_WORDS = {
   'kuran':'القرآن','quran':'القرآن',
   'kitab':'الكتاب','kitabı':'الكتاب',
   'ayet':'آية',
-  'tevbe':'توبة','tövbe':'توبة',
+  'tevbe':'توبة','tevbe':'توبة',
   'iman':'إيمان',
   'islam':'إسلام',
   'cihat':'جهاد','cihad':'جهاد',
