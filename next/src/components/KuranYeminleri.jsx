@@ -1795,9 +1795,9 @@ const TAHADDI_VERSES = [
   {
     ref: 'Bakara 2:23-24',
     period: 'medine',
-    ar: 'وَاِنْ كُنْتُمْ فِي رَيْبٍ مِمَّا نَزَّلْنَا عَلٰى عَبْدِنَا فَأْتُوا بِسُورَةٍ مِنْ مِثْلِهٖ وَادْعُوا شُهَدَٓاءَكُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ فَاِنْ لَمْ تَفْعَلُوا وَلَنْ تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ',
-    tr: '"Kulumuza indirdiğimizden şüpheniz varsa, onun benzeri bir sûre getirin ve şahitlerinizi çağırın — eğer doğru söylüyorsanız. Yapamazsanız — ki asla yapamayacaksınız — o zaman yakıtı insanlar ve taşlar olan ateşten sakının."',
-    en: '"If you are in doubt about what We have sent down upon Our servant, bring a surah like it and call your witnesses other than God — if you are truthful. But if you do not — and you will never do it — then fear the fire whose fuel is people and stones."',
+    ar: 'وَاِنْ كُنْتُمْ فِي رَيْبٍ مِمَّا نَزَّلْنَا عَلٰى عَبْدِنَا فَأْتُوا بِسُورَةٍ مِنْ مِثْلِهٖ وَادْعُوا شُهَدَٓاءَكُمْ مِنْ دُونِ اللّٰهِ اِنْ كُنْتُمْ صَادِقِينَ فَاِنْ لَمْ تَفْعَلُوا وَلَنْ تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ اُعِدَّتْ لِلْكَافِرِينَ',
+    tr: '"Kulumuza indirdiğimizden şüpheniz varsa, onun benzeri bir sûre getirin ve şahitlerinizi çağırın — eğer doğru söylüyorsanız. Yapamazsanız — ki asla yapamayacaksınız — o zaman yakıtı insanlar ve taşlar olan, kâfirler için hazırlanmış ateşten sakının."',
+    en: '"If you are in doubt about what We have sent down upon Our servant, bring a surah like it and call your witnesses other than God — if you are truthful. But if you do not — and you will never do it — then fear the fire whose fuel is people and stones, prepared for the disbelievers."',
     scope: '1-sure',
     scopeTr: '1 Sûre + Kesin İfade', scopeEn: '1 Surah + Emphatic',
     noteTr: 'Meccan tahaddinin Medenî döneme taşınması. "Ve len tef\'alû" (asla yapamayacaksınız) ile klasik retorik burada "yakîni ihbâr" (kesin gaybi haber) sınıfı verir — 14 asırdır bu tahaddi cevaplanmamıştır.',
@@ -1812,9 +1812,9 @@ const TAHADDI_VERSES = [
     en: '"Or do they say, \'He fabricated it\'? Rather, they do not believe. Then let them bring a discourse like it, if they are truthful."',
     scope: 'soz',
     scopeTr: 'Herhangi Bir Söz', scopeEn: 'Any Discourse',
-    noteTr: 'Tahaddinin nihaî sınırı: "sûre" bile denmez, sadece "hadîs" (söz). Klasik retorik burada tahaddinin genişletilerek bir tür tafsîr olduğunu görür — Kur\'ân\'ın miras almadığı Arabî belağatın tümüne meydan okuma.',
-    noteEn: 'The ultimate limit: not even "surah" — just "ḥadīth" (any discourse). Classical rhetoric reads this as the challenge broadening into a universal test against all of Arabic eloquence Muhammad did not inherit.',
-    kaynak: 'Süyûtî, el-İtkân, tahaddi bölümü',
+    noteTr: 'Tahaddinin sınır ifadesi: "sûre" bile denmez, sadece "hadîs" (herhangi bir söz). Klasik tefsir (Kurtubî, Râzî) burada tahaddinin en açık biçimde formüle edildiğini kaydeder — sûre → söz genişlemesi.',
+    noteEn: 'The boundary phrase of the challenge: not even "surah" — just "ḥadīth" (any discourse). Classical tafsīr (al-Qurṭubī, al-Rāzī) records this as the most open formulation of the challenge — the surah → discourse broadening.',
+    kaynak: 'Kurtubî, el-Câmi\', Tûr 52:33-34 tefsiri; Râzî, Mefâtîhu\'l-Ğayb, Tûr 52:33-34',
   },
   {
     ref: 'Yûnus 10:37',
@@ -1944,8 +1944,8 @@ const KOZMOLOJI_ITEMS = [
     ref: 'Şems 91:1-2',
     themeTr: 'Güneş + Ay', themeEn: 'Sun + Moon',
     ar: 'وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا',
-    obsTr: 'Güneş ve ayın "birbirini takip etmesi" (talâ) — ay güneşin ışığını yansıtarak günlük ~13° faz gecikmesiyle dolaşır.',
-    obsEn: 'The sun and moon "following one another" (talā) — the moon reflects solar light with a ~13° daily phase-lag orbit.',
+    obsTr: 'Güneş ve ayın "birbirini takip etmesi" (talâ) — ay güneşin ışığını yansıtır ve yörüngesinde günlük ~13.2° doğuya doğru ilerler; klasik tefsir bu ardıllık ritmini işaret olarak okur.',
+    obsEn: 'The sun and moon "following one another" (talā) — the moon reflects solar light and moves ~13.2° eastward per day along its orbit; classical tafsīr reads this succession-rhythm as the referent.',
     kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Şems 91:1-2',
   },
   {
@@ -1976,8 +1976,8 @@ const KOZMOLOJI_ITEMS = [
     ref: 'Târiq 86:1-3',
     themeTr: 'Gökyüzü + Gece Ziyaretçisi', themeEn: 'Sky + Night Visitor',
     ar: 'وَالسَّمَٓاءِ وَالطَّارِقِ وَمَٓا اَدْرٰيكَ مَا الطَّارِقُ النَّجْمُ الثَّاقِبُ',
-    obsTr: 'Târiq — "gecenin kapıyı çalanı, delici yıldız". Modern astronomide "pulsar" (delici radyo darbeleri gönderen nötron yıldızı) örneği klasik yorumla kesişmez ama semantik alanın genişliğini gösterir.',
-    obsEn: 'Ṭāriq — "the night-knocker, the piercing star". Modern astronomy\'s pulsar (a neutron star sending piercing radio bursts) does not overlap with the classical exegesis but shows the semantic-field breadth.',
+    obsTr: 'Târiq — "gecenin kapıyı çalanı, delici yıldız". Klasik tefsir ثاقب (ᵗhāḳıb) kelimesini "parlayan, karanlığı delen" olarak açıklar. Kelime doğrudan bir gök cismini tanımlar, modern astronomideki spesifik gök objelerine karşılık gelmez.',
+    obsEn: 'Ṭāriq — "the night-knocker, the piercing star". Classical tafsīr renders ثاقب (ṯāqib) as "shining, piercing the darkness". The term names a celestial body directly and does not correspond to specific modern astronomical objects.',
     kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Târiq 86:1-3',
   },
   {
@@ -2026,7 +2026,7 @@ const KOZMOLOJI_ITEMS = [
     ar: 'فَلَٓا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ',
     obsTr: '"Mevâki\'i\'n-nücûm" — yıldızların konumları. Klasik tefsir bunu (a) yıldızların gökteki yerleri, (b) inen ayetlerin metindeki yerleri (nüzul-anları) olarak iki katmanda okur.',
     obsEn: '"Mawāqiʿ al-nujūm" — the positions of the stars. Classical tafsīr reads it in two layers: (a) the stars\' locations in the sky, (b) the verses\' positions in the text (moments of descent).',
-    kaynak: 'Süyûtî, el-İtkân, Vâkı\'a 56:75-76',
+    kaynak: 'Taberî, Câmi\'u\'l-Beyân, Vâkı\'a 56:75-76 (İbn Abbâs rivayeti); Süyûtî, el-İtkân (peyderpey nüzul bölümü)',
   },
 ];
 
