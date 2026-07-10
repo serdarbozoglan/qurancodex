@@ -204,6 +204,43 @@ Autonomous mode + parallel content-producer delegations ile ~50-60% kısaltılab
 
 ---
 
+---
+
+## Madde 0 — ARAÇLAR KATALOG / KEŞFEDİLEBİLİRLİK
+
+**Kaynak:** `docs/reviews/2026-07-07-araclar-audit.md` — kısmen artık geçersiz.
+**Denetim sonucu (2026-07-10):** Audit'teki 4 iddiadan 3'ü DOĞRULANMADI:
+- ~~KissaAtlas "4 peygamber" iddiası yanlış~~ → DOĞRU (Musa, Yusuf, İbrahim, İsa)
+- ~~Emirler "88 emir" sayı belirsiz~~ → DOĞRU (88 emir, 8 kategori)
+- ~~`/arac/wow` vs `/arac/kurani-tani` duplicate~~ → wow → kurani-tani'ye 308 permanent redirect
+- ~~`/arac/retorik` vs `/arac/retorik-sorular` duplicate~~ → 2 farklı tool (retoriği = iltifât; sorular = ~1200 soru)
+
+**Gerçek kalan sorunlar:**
+
+### 0.1 DuaVerses catalog description update (5 dk)
+- `data/tools.jsx:428` DuaVerses `descLongTr/En` şu anda muğlak; 77 dua + 11 kategori sayısı eklenmeli.
+
+### 0.2 28 gizli tool kategorizasyon değerlendirmesi (~30 dk)
+28 sayfa (Renkler, Yeminler, Kavimler, Doğa Atlası, Melekler, Kıyâmet, Cennet, Sünnetullah, Münâfık, Nefis, İblis, Kadınlar, İlkSon, Mukattaa, Ritim, Retorik Sorular, Dua Dili, Ses Mimarisi, Halka Kompozisyon, Bilimsel İşaretler, Tarihsel Kanıtlar, Koruma Zinciri, Tekrar Anatomi, Altı Konu, İnsan Tanımı, İnsan Psikolojisi, İbadetler, Semantik Arama) EXPLORE_CATEGORIES kataloğunda mevcut ama tools.jsx kataloğunda yok.
+- **Karar:** Bu ayrım tasarım seçimi (content topics vs interactive tools). Kullanıcı Keşfet mega-menüsü ile erişebiliyor — bug değil.
+- **Aksiyon:** Bir subset (5-6 en tool-like olan: Renkler palet, İlkSon 114-viz, Halka SVG, Yeminler tab-heavy, Nefis mertebeler viz) `tools.jsx`'e alınabilir. Ancak bu her sayfayı Keşfet + Araçlar İKİ menüde gösterir; UX kalabalıklaşır. **Şimdilik ertelendi**, Dalga 1-6 sonrasında gündeme.
+
+### 0.3 ToolsBrowser modal iyileştirmesi (~30 dk)
+`/arac/tum-araclar` modal'ında "Kategori filtreleri + arama" pattern'ı zaten var. Denetim sonrası:
+- Aramada Türkçe karakter varyantları (ı/i, ş/s) fuzzy match desteği kontrol
+- Modal içi arama focus mgmt (Cmd+K veya `/` shortcut var mı?)
+- Ertelendi (kritik değil).
+
+### 0.4 exploreCategories.jsx → tools.jsx cross-reference cleanup (~15 dk)
+İki kataloğ arasında `id` çakışmaları veya truncation risk kontrol.
+- Ertelendi (bilinen sorun yok).
+
+## Madde 0 Aksiyonu: SADECE 0.1 (küçük, hızlı)
+
+DuaVerses açıklamasını 77 dua + 11 kategori olarak güncelle. Kalan 0.2/0.3/0.4 Dalga 1-6 tamamlanana kadar bekler.
+
+---
+
 ## Uygulama Başlıyor
 
-Sırayla ilerleyeceğim. Her madde tamamlanınca commit hash + smoke test sonucu bildireceğim.
+Sırayla ilerleyeceğim: Madde 0.1 → 1 → 2 → ... → 6. Her madde tamamlanınca commit hash + smoke test sonucu bildireceğim.
