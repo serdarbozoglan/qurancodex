@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 
 const TABS = {
   RENKLER:   'renkler',
@@ -2472,7 +2473,11 @@ export default function KuranRenkleri({ onClose }) {
           background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`,
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          <HeroGeometricBackground />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament — Amiri Quran ligature (§13.2 documented exception) */}
           <div
             dir="rtl"
@@ -2630,6 +2635,7 @@ export default function KuranRenkleri({ onClose }) {
                 </span>
               </div>
             ))}
+          </div>
           </div>
         </div>
 

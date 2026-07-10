@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, CLOSE_BTN, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // Tab definitions with mini SVG icons for visual affordance
@@ -125,7 +126,11 @@ export default function KuranYeminleri({ onClose }) {
           background: 'linear-gradient(180deg, rgba(212,162,36,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          <HeroGeometricBackground />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament — Amiri Quran ligature (§13.2 exception) */}
           <div
             dir="rtl"
@@ -323,6 +328,7 @@ export default function KuranYeminleri({ onClose }) {
               </p>
             </div>
           )}
+          </div>
         </div>
 
         {/* ════ VÂKIA 56:75-76 SPOTLIGHT — Premium Tier B ════════════════════

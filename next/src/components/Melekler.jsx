@@ -7,6 +7,7 @@ import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens'
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 
 // ── Category color system ─────────────────────────────────────────────────────
 const CAT = {
@@ -1182,7 +1183,11 @@ export default function Melekler({ onClose }) {
           padding: isMobile ? '36px 16px 24px' : '52px 32px 28px',
           textAlign: 'center',
           background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, transparent 100%)',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          <HeroGeometricBackground />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah */}
           <div
             dir="rtl" lang="ar" aria-label="Bismillāh"
@@ -1316,6 +1321,7 @@ export default function Melekler({ onClose }) {
           </p>
           <div style={{ marginTop: '8px' }}>
             <HeroStats language={language} />
+          </div>
           </div>
         </div>
 

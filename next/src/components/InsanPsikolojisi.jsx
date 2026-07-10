@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import PsychologySection from '../sections/PsychologySection';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
@@ -46,7 +47,11 @@ export default function InsanPsikolojisi({ onClose }) {
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
       }}>
+        <HeroGeometricBackground />
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{
           fontSize: isMobile ? '2.2rem' : '2.6rem',
           color: COLORS.gold,
@@ -122,6 +127,7 @@ export default function InsanPsikolojisi({ onClose }) {
         }}>
           {tr ? "Nefs mertebeleri · kalp · korku · savunma · iyileşme" : "Nafs stations · heart · fear · defense · healing"}
         </p>
+        </div>
       </div>
 
       {/* Anasayfa PsychologySection section AYNEN */}
