@@ -19,7 +19,7 @@ const PROPHET_PROFILES = [
     themesEn: ['Lineage and continuity', 'Intercession for people', 'Guidance and gratitude', 'Provision and thanks'],
     famousTr: '"Rabbenâ tekabbel minnâ, inneke ente\'s-semîʿu\'l-ʿalîm" — Rabbimiz, bunu bizden kabul et; şüphesiz Sen hakkıyla işiten, hakkıyla bilensin. (Bakara 2:127)',
     famousEn: '"Rabbanā taqabbal minnā, innaka anta al-samīʿu al-ʿalīm" — Our Lord, accept this from us; indeed You are the All-Hearing, the All-Knowing. (Al-Baqara 2:127)',
-    ar: 'رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
+    ar: 'رَبَّنَا تَقَبَّلْ مِنَّا  إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
     countTr: '15+ dua',
     countEn: '15+ supplications',
     insightTr: "Hz. İbrahim'in duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.",
@@ -134,7 +134,7 @@ const RABBENA_DUAS = [
     noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26 — from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
   },
   {
-    ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ',
+    ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً  إِنَّكَ أَنتَ الْوَهَّابُ',
     tr: 'Rabbimiz! Bizi doğru yola ilettikten sonra kalplerimizi saptırma; tarafından bize rahmet bağışla. Şüphesiz Sen, çok bağışlayansın.',
     en: 'Our Lord, do not let our hearts deviate after You have guided us, and grant us mercy from Your presence. Indeed, You are the Bestower.',
     ref: 'Âl-i İmrân 3:8', color: '#3498db',
@@ -166,7 +166,7 @@ const RABBENA_DUAS = [
     ref: 'Âl-i İmrân 3:16', color: '#3498db',
   },
   {
-    ar: 'رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+    ar: 'رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا  رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا  رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ  وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا  أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
     tr: 'Rabbimiz! Unutursak veya hata yaparsak bizi sorumlu tutma. Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Rabbimiz! Bize gücümüzün yetmediği şeyleri yükleme. Bizi affet, bağışla ve bize merhamet et. Sen bizim Mevlâmızsın; kâfirler topluluğuna karşı bize yardım et.',
     en: 'Our Lord, do not hold us accountable if we forget or err. Our Lord, do not place upon us a burden like that which You placed on those before us. Our Lord, do not burden us with what we cannot bear. Pardon us, forgive us, and have mercy on us. You are our Protector — help us against the disbelieving people.',
     ref: 'Bakara 2:286', color: '#a78bfa',

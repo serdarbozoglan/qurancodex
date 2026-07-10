@@ -42,7 +42,7 @@ const CONTRAST_PAIRS = [
     themeEn: 'Oath Harshness ↔ Invocation Softness',
     left: {
       surahTr: 'Fecr 89:1-2', surahEn: 'Al-Fajr 89:1-2',
-      verse: 'وَالْفَجْرِ ۙ وَلَيَالٍ عَشْرٍ',
+      verse: 'وَالْفَجْرِ  وَلَيَالٍ عَشْرٍ',
       translitTr: 'Ve\'l-fecri · ve leyâlin aşr',
       color: '#e67e22',
       letters: ['ف', 'ج', 'ر', 'ش'],

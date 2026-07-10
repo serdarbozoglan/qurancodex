@@ -517,7 +517,7 @@ function BesmeleCard({ language }) {
             Hafs · İbn Kesîr · el-Kisâî
           </div>
           <div style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite, direction: 'rtl', marginBottom: 6 }} dir="rtl" lang="ar">
-            بِسۡمِ ٱللَّهِ
+            بِسْمِ اللَّهِ
           </div>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>
             {language === 'tr' ? 'Besmele = İlk Ayet' : 'Basmala = First Verse'}
@@ -531,7 +531,7 @@ function BesmeleCard({ language }) {
             Verş · Nâfiʿ · diğerleri
           </div>
           <div style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.offWhite, direction: 'rtl', marginBottom: 6 }} dir="rtl" lang="ar">
-            بِسۡمِ ٱللَّهِ
+            بِسْمِ اللَّهِ
           </div>
           <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>
             {language === 'tr' ? 'Besmele = Sûre Başlığı' : 'Basmala = Chapter Heading'}
@@ -1627,11 +1627,13 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
 
         {/* Tab bar — sticky */}
         <div style={{
-          position: 'sticky', top: 0, zIndex: 10,
+          position: 'sticky', top: '110px', zIndex: 10,
           display: 'flex', gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(10,10,26,0.97)',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           backdropFilter: 'blur(20px)',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>

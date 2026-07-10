@@ -1776,9 +1776,9 @@ export default function SebebiNuzul({ onClose }) {
         flexShrink: 0,
         background: '#06080e',
         position: 'sticky',
-        top: 0,
+        top: '110px',
         zIndex: 10,
-        scrollMarginTop: '72px',
+        scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
           <button

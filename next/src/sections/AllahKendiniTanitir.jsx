@@ -13,10 +13,10 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
 const TEASER_NAMES = [
-  { ar: 'ٱللَّه',       trName: 'Allah',     enName: 'Allāh',      count: 2699 },
-  { ar: 'ٱلرَّحْمَٰن',  trName: 'Er-Rahmân', enName: 'ar-Raḥmān',  count: 60   },
-  { ar: 'ٱلْعَلِيم',    trName: 'El-Alîm',   enName: 'al-ʿAlīm',   count: 161  },
-  { ar: 'ٱلْحَكِيم',    trName: 'El-Hakîm',  enName: 'al-Ḥakīm',   count: 97   },
+  { ar: 'اللَّه',       trName: 'Allah',     enName: 'Allāh',      count: 2699 },
+  { ar: 'الرَّحْمَٰن',  trName: 'Er-Rahmân', enName: 'ar-Raḥmān',  count: 60   },
+  { ar: 'الْعَلِيم',    trName: 'El-Alîm',   enName: 'al-ʿAlīm',   count: 161  },
+  { ar: 'الْحَكِيم',    trName: 'El-Hakîm',  enName: 'al-Ḥakīm',   count: 97   },
 ];
 
 export default function AllahKendiniTanitir() {

@@ -387,7 +387,7 @@ export default function QuranCommands({ onClose }) {
           width: '220px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.07)',
           padding: '20px 0',
-          position: 'sticky', top: 0, alignSelf: 'flex-start',
+          position: 'sticky', top: '110px', alignSelf: 'flex-start',
           maxHeight: 'calc(100vh - 220px)', overflowY: 'auto',
           display: isMobile ? 'none' : 'block',
         }}>

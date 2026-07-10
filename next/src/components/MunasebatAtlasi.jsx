@@ -88,9 +88,9 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
         scrollbarWidth: 'none',
         flexShrink: 0,
         position: 'sticky',
-        top: 0,
+        top: '110px',
         zIndex: 10,
-        scrollMarginTop: '72px',
+        scrollMarginTop: '120px',
       }}
     >
       {TABS.map((t, i) => {

@@ -507,13 +507,15 @@ export default function SunnetullahAtlasi({ onClose }) {
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-          background: 'rgba(10,10,26,0.97)',
+          background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate',
           backdropFilter: 'blur(20px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
           position: 'sticky',
-          top: 0,
+          top: '110px',
           zIndex: 10,
         }}>
           {TABS.map((tab, i) => {

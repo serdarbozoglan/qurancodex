@@ -225,7 +225,9 @@ export default function FurukAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB BAR ─────────────────────────────────────────────────────── */}
-        <div style={{ position: 'sticky', top: 0, zIndex: 10, background: 'rgba(10,10,26,0.97)', backdropFilter: 'blur(20px)' }}>
+        <div style={{ position: 'sticky', top: '110px', zIndex: 20, background: 'rgb(6, 8, 14)',
+          backgroundColor: 'rgb(6, 8, 14)',
+          isolation: 'isolate' }}>
           <div id="furuk-tab-bar" style={{
             display: 'flex', gap: 2,
             padding: isMobile ? '0 8px' : '0 16px',
