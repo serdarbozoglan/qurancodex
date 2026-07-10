@@ -31,7 +31,9 @@
       "infoTr": "Tufanın evrensel mi bölgesel mi olduğu tartışmalıdır. Kur'an tufanın coğrafi kapsamını net belirtmez.",
       "infoEn": "Whether the flood was universal or regional is debated. The Quran does not specify the flood's geographical scope explicitly.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Nuh 71, Hud 11:25-48",
+      "verseRefEn": "Nuh 71:26"
     },
     {
       "id": "ad",
@@ -57,7 +59,9 @@
       "infoTr": "Âd kavminin büyük ihtimalle Güney Arabistan'da yaşadığı ve İrem şehriyle ilişkili olduğu düşünülür.",
       "infoEn": "The ʿAd people likely lived in southern Arabia and are thought to be associated with the city of Iram.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Ahqaf 46:21-26, Hud 11:50-60, Al-Haqqah 69:6-8",
+      "verseRefEn": "Al-Haqqah 69:7"
     },
     {
       "id": "semud",
@@ -83,7 +87,9 @@
       "infoTr": "Medain Salih kalıntıları (Hegra) 2008'de UNESCO Dünya Mirası olarak tescillendi. Kur'an Semûd'un Hicr'de yaşadığını açıkça belirtir (Hicr 15:80).",
       "infoEn": "The ruins of Madain Salih (Hegra) were registered as UNESCO World Heritage in 2008. The Quran explicitly states Thamud lived in al-Hijr (15:80).",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Araf 7:73-79, Hud 11:61-68, Ash-Shams 91:11-15",
+      "verseRefEn": "Adh-Dhariyat 51:44"
     },
     {
       "id": "lut",
@@ -109,7 +115,9 @@
       "infoTr": "Sodom ve Gomorra isimleri Kur'an'da geçmez — bunlar İncil'e ait isimlerdir. Kur'an bu kavmi 'Lût'un kavmi' olarak anar. Tall el-Hammam kazıları bazı araştırmacılarca bu olayın kalıntısı olarak yorumlanır; kesin teyit yoktur.",
       "infoEn": "The names Sodom and Gomorrah do not appear in the Quran — they are Biblical names. The Quran refers to this people as 'the people of Lot'. The Tall el-Hammam excavations are interpreted by some researchers as remnants of this event; no definitive confirmation.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Hud 11:77-83, Al-Hijr 15:57-77, Ash-Shuara 26:160-175",
+      "verseRefEn": "Hud 11:82"
     },
     {
       "id": "firavun",
@@ -135,7 +143,9 @@
       "infoTr": "Hangi Firavun olduğu tartışmalıdır — Ahmose I, Thutmose III, Ramses II ve Merneptah dahil dört aday vardır, akademik konsensüs yoktur. Firavun'un mumyasıyla Yunus 10:92 arasındaki bağlantı yorumcuların önerisidir, Kur'an metninden çıkmaz. Bucaille'in 'tuz kristali = boğulma' argümanı (1976) Mısıroloji'de reddedilir: tüm mumyalar ~40 gün natron (sodyum karbonat) içinde bekletildiği için her mumyada tuz izi bulunur.",
       "infoEn": "Which Pharaoh is debated — Ahmose I, Thutmose III, Ramses II and Merneptah are all candidates, with no academic consensus. The connection between Pharaoh's mummy and Quran 10:92 is a scholarly interpretation, not derived from the Quranic text. Bucaille's 'salt crystal = drowning' argument (1976) is rejected in Egyptology: every mummy was steeped in natron (sodium carbonate) for ~40 days, so traces of salt appear in all of them.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Baqarah 2:49-73, Ta-Ha 20:9-98, Al-Qasas 28:1-43, Yunus 10:75-92",
+      "verseRefEn": "Yunus 10:91"
     },
     {
       "id": "medyen",
@@ -161,7 +171,9 @@
       "infoTr": "Helak biçimi 'rajfa' (sarsıntı/deprem) — Semûd'un helakı olan 'saika/sayha' (ses/yıldırım) ile karıştırılmamalıdır. Medyen ve Eyke Halkı aynı coğrafyada, aynı peygamberle anılır; müfessirlerin büyük çoğunluğu bunların aynı kavim ya da komşu topluluklar olduğu görüşündedir.",
       "infoEn": "The mode of destruction is 'rajfa' (earthquake) — not to be confused with 'saika/sayha' (thunderbolt), which struck Thamud. Midian and the Companions of the Grove are associated with the same geography and prophet; most commentators hold them to be the same or neighboring communities.",
       "hasArchaeology": false,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Araf 7:85-93, Hud 11:84-95, Ash-Shuara 26:176-191",
+      "verseRefEn": "Al-Araf 7:91"
     },
     {
       "id": "eyke",
@@ -187,7 +199,9 @@
       "infoTr": "Medyen ve Eyke aynı kavim mi farklı mı? Müfessirlerin çoğu Hz. Şuayb'ın her ikisine de gönderildiğini söyler.",
       "infoEn": "Are Midian and the Grove the same people or different? Most commentators say Shu'ayb was sent to both.",
       "hasArchaeology": false,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Ash-Shuara 26:176-191, Al-Hijr 15:78, Sad 38:13",
+      "verseRefEn": "Ash-Shuara 26:189"
     },
     {
       "id": "ibrahim-kavmi",
@@ -213,7 +227,9 @@
       "infoTr": "Nemrut ismi Kur'an'da geçmez — 'onların hükümdarı' olarak anılır.",
       "infoEn": "The name Nimrod does not appear in the Quran — he is referred to as 'their king'.",
       "hasArchaeology": false,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Anbiya 21:51-73, Ash-Shuara 26:69-104",
+      "verseRefEn": "Al-Anbiya 21:69"
     },
     {
       "id": "karun",
@@ -239,7 +255,9 @@
       "infoTr": "Kavim olmaktan çok bireysel helak örneği. Kur'an serveti kendinden bilmenin kibri olarak yorumlar.",
       "infoEn": "More an example of individual rather than collective destruction. The Quran frames it as arrogance in attributing wealth to oneself.",
       "hasArchaeology": false,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Al-Qasas 28:76-82",
+      "verseRefEn": "Al-Qasas 28:81"
     },
     {
       "id": "ress",
@@ -265,7 +283,8 @@
       "infoTr": "Kimliği belirsiz kavimlerden biri. Tefsir geleneğinde çeşitli rivayetler mevcuttur ama hiçbiri kesin değil.",
       "infoEn": "One of the unidentified peoples. Various traditions exist in tafsir literature but none are definitive.",
       "hasArchaeology": false,
-      "isRare": true
+      "isRare": true,
+      "mainSurahEn": "Al-Furqan 25:38, Qaf 50:12"
     },
     {
       "id": "tubba",
@@ -291,7 +310,8 @@
       "infoTr": "Tübba, Yemen Himyerî Krallığı (~MÖ 110 — MS 525) krallarının unvanıdır. Yemen'deki Hima yazıtları ve Christian Robin (CNRS) gibi akademisyenlerin epigrafik çalışmaları Himyerî krallarına dair zengin tarihsel kayıt sağlar. Bu krallardan Yusuf As'ar Yas'ar (Zü Nüvâs, MS ~525) Necran Hıristiyanlarını yakan kişi olarak bilinir ve Ashâb-ı Uhdûd (Bürûc 85:4) için en güçlü tarihsel adaydır. Krallığın bazı dönemlerinde tek tanrılı inancın benimsendiği bilinmektedir.",
       "infoEn": "'Tubba'' is the title of the kings of the Yemeni Himyarite Kingdom (~110 BCE – 525 CE). The Hima inscriptions of Yemen and the epigraphic work of scholars such as Christian Robin (CNRS) provide a rich historical record of the Himyarite kings. One such king, Yusuf As'ar Yath'ar (Dhu Nuwas, ~525 CE), is known for the massacre of the Christian community of Najran — the strongest historical candidate for the Companions of the Pit (Al-Buruj 85:4). Monotheism was adopted during some periods of the kingdom.",
       "hasArchaeology": false,
-      "isRare": true
+      "isRare": true,
+      "mainSurahEn": "Ad-Dukhan 44:37, Qaf 50:14"
     },
     {
       "id": "irem",
@@ -317,7 +337,9 @@
       "infoTr": "Ubar-İrem özdeşleştirmesi tartışmalıdır. Nicholas Clapp (1998) profesyonel arkeolog değil, dökümanter film yapımcısıdır; Suudi kazılarında uzun yıllar çalışan arkeolog Juris Zarins ise Şişr kalıntılarının küçük bir kervan istasyonu ölçeğinde olduğunu, bunun Kur'an'ın 'sütunları olan İrem' tanımına uymadığını belirtir. Akademik konsensüs oluşmamıştır.",
       "infoEn": "The Ubar-Iram identification is disputed. Nicholas Clapp (1998) was a documentary filmmaker rather than a professional archaeologist; archaeologist Juris Zarins, who worked on Saudi excavations for years, has noted that the Shisr remains form a small caravan station and do not match the scale implied by the Quran's 'Iram of the Pillars'. No academic consensus has been reached.",
       "hasArchaeology": true,
-      "isRare": true
+      "isRare": true,
+      "mainSurahEn": "Al-Fajr 89:6-8",
+      "verseRefEn": "Al-Fajr 89:7"
     },
     {
       "id": "yunus-kavmi",
@@ -343,7 +365,9 @@
       "infoTr": "Ninova bugünkü Musul (Irak) yakınlarında. Asur İmparatorluğu'nun başkenti olarak tarihen teyitlenmiştir — ancak Yunus kıssasının spesifik arkeolojik izi (tövbe olayı) ayrıca doğrulanmış değildir.",
       "infoEn": "Nineveh is near modern Mosul (Iraq) and is historically confirmed as the Assyrian capital — however, the specific archaeological trace of Jonah's mission (the repentance event) is not separately verified.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Yunus 10:98, As-Saffat 37:147-148",
+      "verseRefEn": "Yunus 10:98"
     },
     {
       "id": "sebe",
@@ -369,7 +393,9 @@
       "infoTr": "Me'rib Barajı yaklaşık MÖ 1750 — MS 575 arasında kullanıldı; tarih boyunca birden çok kez yıkılıp onarıldı, son ve tam yıkım MS ~575'te gerçekleşti — Hz. Peygamber'in doğumundan yaklaşık 5 yıl önce. Yani Kur'an indirildiğinde olay yaşayan tarihsel hafızadaydı; baraj kalıntıları bugün Yemen'de modern arkeolojiyle teyitlidir. Aynı sûrede Hz. Süleyman ve Belkıs kıssası da geçer.",
       "infoEn": "The Ma'rib Dam was in use from roughly 1750 BCE to 575 CE; it was breached and rebuilt several times, with its final, complete collapse around 575 CE — about five years before the birth of Prophet Muhammad. The event was thus within living historical memory at the time of the Quranic revelation; the dam's ruins are confirmed by modern archaeology in Yemen. The same surah also contains the story of Solomon and the Queen of Sheba.",
       "hasArchaeology": true,
-      "isRare": false
+      "isRare": false,
+      "mainSurahEn": "Saba 34:15-19, An-Naml 27:22-44",
+      "verseRefEn": "Saba 34:16"
     },
     {
       "id": "uhdud",
@@ -395,7 +421,9 @@
       "infoTr": "Tarihsel özdeşleştirme tartışmalıdır; klasik tefsirin en güçlü adayı: MS 523'te Necran Hıristiyanlarını ateş çukurunda yakan Himyerî hükümdarı Yusuf As'ar Yas'ar (Zü Nüvâs). Bu olay modern arkeoloji ve tarih biliminde çok iyi belgelenmiştir: Yemen'deki Hima yazıtları (Christian Robin, CNRS — uzun yıllı epigrafik çalışmalar), çağdaş Bizans kaynakları (Procopius), Süryani kaynakları (Yuhanna Efesli) olayı doğrular. Olay Kur'an'ın indirilişine yaklaşık 100 yıl uzaklıkta — yani çağdaş tarihsel hafızadaydı. Ancak Kur'an metninin doğrudan bu olaya işaret edip etmediği akademik açıdan kesin değildir; daha erken Hıristiyan zulümleri de aday olarak öne sürülmüştür.",
       "infoEn": "The historical identification is debated; the strongest classical-tafsir candidate is the Himyarite ruler Yusuf As'ar Yath'ar (Dhu Nuwas), who burnt the Christian community of Najran in a fire-trench in 523 CE. This event is well documented in modern archaeology and history: the Hima inscriptions in Yemen (long-standing epigraphic work by Christian Robin, CNRS), contemporary Byzantine sources (Procopius), and Syriac sources (John of Ephesus) confirm it. The event lies about 100 years from the Quranic revelation — within living historical memory. Whether the Quranic text refers to this specific event is, however, not academically settled; earlier Christian persecutions have also been proposed.",
       "hasArchaeology": true,
-      "isRare": true
+      "isRare": true,
+      "mainSurahEn": "Al-Buruj 85:4-9",
+      "verseRefEn": "Al-Buruj 85:4-5"
     },
     {
       "id": "sebt",
@@ -421,7 +449,9 @@
       "infoTr": "Müfessirlerin çoğunluğu bu dönüşümü literal (gerçek) olarak yorumlar. Bazıları mecazi (ahlaki çöküş anlamında) yorumlamaktadır. Her iki yorum da ilim geleneğinde mevcuttur.",
       "infoEn": "Most classical commentators interpret this transformation as literal. Some interpret it metaphorically (moral degradation). Both interpretations exist within scholarly tradition.",
       "hasArchaeology": false,
-      "isRare": true
+      "isRare": true,
+      "mainSurahEn": "Al-Baqarah 2:65, Al-Araf 7:163-166, An-Nisa 4:47",
+      "verseRefEn": "Al-Baqarah 2:65"
     }
   ]
 }

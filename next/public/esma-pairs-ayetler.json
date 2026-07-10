@@ -942,7 +942,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Ghafur · Ar-Rahim"
     },
     {
       "id": "semi-basir",
@@ -1093,7 +1094,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "As-Sami · Al-Basir"
     },
     {
       "id": "aziz-hakim",
@@ -1712,7 +1714,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Aziz · Al-Hakim"
     },
     {
       "id": "alim-hakim",
@@ -2188,7 +2191,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Alim · Al-Hakim"
     },
     {
       "id": "tevvab-rahim",
@@ -2274,7 +2278,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "At-Tawwab · Ar-Rahim"
     },
     {
       "id": "rauf-rahim",
@@ -2399,7 +2404,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Ar-Rauf · Ar-Rahim"
     },
     {
       "id": "vasi-alim",
@@ -2498,7 +2504,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Wasi · Al-Alim"
     },
     {
       "id": "latif-habir",
@@ -2571,7 +2578,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Latif · Al-Khabir"
     },
     {
       "id": "gafur-sekur",
@@ -2618,7 +2626,8 @@
           "position": "end",
           "positionRatio": 1
         }
-      ]
+      ],
+      "enName": "Al-Ghafur · Ash-Shakur"
     }
   ],
   "generated_at": "2026-06-01T17:12:58.030Z",

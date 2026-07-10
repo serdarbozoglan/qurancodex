@@ -1280,7 +1280,7 @@ function FreqBar({ item, max, tr, rank }) {
         {rank}
       </span>
       <span style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 600 }}>
-        {item.isim}
+        {tr ? item.isim : (item.isim_en || item.isim)}
       </span>
       <div style={{ position: 'relative', height: '24px', background: 'rgba(255,255,255,0.04)', borderRadius: '4px' }}>
         <motion.div
@@ -2353,9 +2353,9 @@ function KokCard({ kok, tr, index }) {
         {tr ? kok.anlamTr : kok.anlamEn}
       </p>
 
-      {/* İsim chip'leri */}
+      {/* İsim chip'leri — EN modunda isimlerEn kullanılır */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-        {kok.isimler.map(n => (
+        {(tr ? kok.isimler : (kok.isimlerEn || kok.isimler)).map(n => (
           <span
             key={n}
             style={{
@@ -2501,7 +2501,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             {names.map(n => (
               <div
                 key={n.isim}
-                title={`${n.isim} · ${tr ? 'top 20 sure içi' : 'within top 20'}: ${n.top20Total ?? '—'}`}
+                title={`${tr ? n.isim : (n.isim_en || n.isim)} · ${tr ? 'top 20 sure içi' : 'within top 20'}: ${n.top20Total ?? '—'}`}
                 style={{
                   color: COLORS.silver,
                   fontFamily: FONTS.body,
@@ -2516,7 +2516,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
                   height: '88px',
                 }}
               >
-                {n.isim}
+                {tr ? n.isim : (n.isim_en || n.isim)}
               </div>
             ))}
 
@@ -2925,7 +2925,7 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
           }}>
             {item.arapca}
           </span>
-          <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>{item.isim}</span>
+          <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>{tr ? item.isim : (item.isim_en || item.isim)}</span>
           <span style={{
             color: COLORS.silver,
             fontSize: '0.78rem',
@@ -2935,7 +2935,7 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
             whiteSpace: 'nowrap',
             display: 'none',
           }} className="esma-meaning-inline">
-            {item.anlam}
+            {tr ? item.anlam : (item.anlam_en || item.anlam)}
           </span>
         </div>
         <span style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
@@ -3208,7 +3208,9 @@ function NameDetail({ item, tr, isAllah }) {
           {item.arapca}
         </span>
         <span style={{ color: COLORS.silver, fontSize: '0.85rem', fontStyle: 'italic', marginTop: '4px' }}>
-          {item.okunus} · {item.isim}
+          {tr
+            ? `${item.okunus} · ${item.isim}`
+            : `${item.okunus_en || item.okunus} · ${item.isim_en || item.isim}`}
         </span>
       </div>
 
@@ -3219,9 +3221,9 @@ function NameDetail({ item, tr, isAllah }) {
         margin: '0 0 8px',
         textAlign: 'center',
       }}>
-        "{item.anlam}"
+        "{tr ? item.anlam : (item.anlam_en || item.anlam)}"
       </p>
-      {item.aciklama && (
+      {tr && item.aciklama && (
         <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 20px', textAlign: 'center', fontStyle: 'italic' }}>
           {item.aciklama}
         </p>

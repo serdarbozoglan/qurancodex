@@ -1007,10 +1007,12 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
         </span>
       </div>
 
-      {/* Main surah */}
+      {/* Main surah — mainSurahEn TR transliteration'ının EN karşılığıyla değiştirir */}
       <div style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '10px' }}>
         {language === 'tr' ? 'Ana sûre: ' : 'Main surah: '}
-        <span style={{ color: COLORS.silver }}>{nation.mainSurah}</span>
+        <span style={{ color: COLORS.silver }}>
+          {language === 'en' ? (nation.mainSurahEn || nation.mainSurah) : nation.mainSurah}
+        </span>
       </div>
 
       {/* Summary */}
@@ -1040,7 +1042,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               )}
               {nation.verseRef && (
                 <p style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>
-                  — {nation.verseRef}
+                  — {language === 'en' ? (nation.verseRefEn || nation.verseRef) : nation.verseRef}
                 </p>
               )}
             </div>

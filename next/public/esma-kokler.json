@@ -11,7 +11,11 @@
         "Er-Rahmân",
         "Er-Rahîm"
       ],
-      "corpusGecis": 370
+      "corpusGecis": 370,
+      "isimlerEn": [
+        "Ar-Rahman",
+        "Ar-Rahim"
+      ]
     },
     {
       "kok": "ع ل م",
@@ -23,7 +27,10 @@
       "isimler": [
         "El-Alîm"
       ],
-      "corpusGecis": 1663
+      "corpusGecis": 1663,
+      "isimlerEn": [
+        "Al-Alim"
+      ]
     },
     {
       "kok": "ح ك م",
@@ -36,7 +43,11 @@
         "El-Hakîm",
         "El-Hakem"
       ],
-      "corpusGecis": 263
+      "corpusGecis": 263,
+      "isimlerEn": [
+        "Al-Hakim",
+        "Al-Hakam"
+      ]
     },
     {
       "kok": "غ ف ر",
@@ -49,7 +60,11 @@
         "El-Gafûr",
         "El-Gaffâr"
       ],
-      "corpusGecis": 236
+      "corpusGecis": 236,
+      "isimlerEn": [
+        "Al-Ghafur",
+        "Al-Ghaffar"
+      ]
     },
     {
       "kok": "ر ز ق",
@@ -61,7 +76,10 @@
       "isimler": [
         "Er-Rezzâk"
       ],
-      "corpusGecis": 124
+      "corpusGecis": 124,
+      "isimlerEn": [
+        "Ar-Razzaq"
+      ]
     },
     {
       "kok": "خ ل ق",
@@ -74,7 +92,11 @@
         "El-Hâlik",
         "El-Hallâk"
       ],
-      "corpusGecis": 262
+      "corpusGecis": 262,
+      "isimlerEn": [
+        "Al-Khaliq",
+        "Al-Khallaq"
+      ]
     },
     {
       "kok": "س م ع",
@@ -86,7 +108,10 @@
       "isimler": [
         "Es-Semî'"
       ],
-      "corpusGecis": 253
+      "corpusGecis": 253,
+      "isimlerEn": [
+        "As-Sami"
+      ]
     },
     {
       "kok": "ب ص ر",
@@ -98,7 +123,10 @@
       "isimler": [
         "El-Basîr"
       ],
-      "corpusGecis": 163
+      "corpusGecis": 163,
+      "isimlerEn": [
+        "Al-Basir"
+      ]
     },
     {
       "kok": "و د د",
@@ -110,7 +138,10 @@
       "isimler": [
         "El-Vedûd"
       ],
-      "corpusGecis": 22
+      "corpusGecis": 22,
+      "isimlerEn": [
+        "Al-Wadud"
+      ]
     },
     {
       "kok": "ل ط ف",
@@ -122,7 +153,10 @@
       "isimler": [
         "El-Latîf"
       ],
-      "corpusGecis": 33
+      "corpusGecis": 33,
+      "isimlerEn": [
+        "Al-Latif"
+      ]
     },
     {
       "kok": "ع ز ز",
@@ -134,7 +168,10 @@
       "isimler": [
         "El-Azîz"
       ],
-      "corpusGecis": 100
+      "corpusGecis": 100,
+      "isimlerEn": [
+        "Al-Aziz"
+      ]
     },
     {
       "kok": "ج ب ر",
@@ -146,7 +183,10 @@
       "isimler": [
         "El-Cebbâr"
       ],
-      "corpusGecis": 15
+      "corpusGecis": 15,
+      "isimlerEn": [
+        "Al-Jabbar"
+      ]
     },
     {
       "kok": "ك ب ر",
@@ -159,7 +199,11 @@
         "El-Kebîr",
         "El-Mütekebbir"
       ],
-      "corpusGecis": 215
+      "corpusGecis": 215,
+      "isimlerEn": [
+        "Al-Kabir",
+        "Al-Mutakabbir"
+      ]
     },
     {
       "kok": "ق د ر",
@@ -172,7 +216,11 @@
         "El-Kâdir",
         "El-Muktedir"
       ],
-      "corpusGecis": 180
+      "corpusGecis": 180,
+      "isimlerEn": [
+        "Al-Qadir",
+        "Al-Muqtadir"
+      ]
     },
     {
       "kok": "ح ي ي",
@@ -184,7 +232,10 @@
       "isimler": [
         "El-Hayy"
       ],
-      "corpusGecis": 112
+      "corpusGecis": 112,
+      "isimlerEn": [
+        "Al-Hayy"
+      ]
     },
     {
       "kok": "ق و م",
@@ -196,7 +247,10 @@
       "isimler": [
         "El-Kayyûm"
       ],
-      "corpusGecis": 689
+      "corpusGecis": 689,
+      "isimlerEn": [
+        "Al-Qayyum"
+      ]
     },
     {
       "kok": "م ل ك",
@@ -209,7 +263,11 @@
         "El-Melik",
         "Mâlikü'l-Mülk"
       ],
-      "corpusGecis": 544
+      "corpusGecis": 544,
+      "isimlerEn": [
+        "Al-Malik",
+        "Malik al-Mulk"
+      ]
     },
     {
       "kok": "ق د س",
@@ -221,7 +279,10 @@
       "isimler": [
         "El-Kuddûs"
       ],
-      "corpusGecis": 40
+      "corpusGecis": 40,
+      "isimlerEn": [
+        "Al-Quddus"
+      ]
     },
     {
       "kok": "س ل م",
@@ -233,7 +294,10 @@
       "isimler": [
         "Es-Selâm"
       ],
-      "corpusGecis": 390
+      "corpusGecis": 390,
+      "isimlerEn": [
+        "As-Salam"
+      ]
     },
     {
       "kok": "أ م ن",
@@ -245,7 +309,10 @@
       "isimler": [
         "El-Mü'min"
       ],
-      "corpusGecis": 2816
+      "corpusGecis": 2816,
+      "isimlerEn": [
+        "Al-Mumin"
+      ]
     },
     {
       "kok": "ت و ب",
@@ -257,7 +324,10 @@
       "isimler": [
         "Et-Tevvâb"
       ],
-      "corpusGecis": 154
+      "corpusGecis": 154,
+      "isimlerEn": [
+        "At-Tawwab"
+      ]
     },
     {
       "kok": "ن و ر",
@@ -269,7 +339,10 @@
       "isimler": [
         "En-Nûr"
       ],
-      "corpusGecis": 173
+      "corpusGecis": 173,
+      "isimlerEn": [
+        "An-Nur"
+      ]
     },
     {
       "kok": "ك ر م",
@@ -281,7 +354,10 @@
       "isimler": [
         "El-Kerîm"
       ],
-      "corpusGecis": 249
+      "corpusGecis": 249,
+      "isimlerEn": [
+        "Al-Karim"
+      ]
     },
     {
       "kok": "و ج د",
@@ -293,7 +369,10 @@
       "isimler": [
         "El-Vâcid"
       ],
-      "corpusGecis": 84
+      "corpusGecis": 84,
+      "isimlerEn": [
+        "Al-Wajid"
+      ]
     },
     {
       "kok": "ش ك ر",
@@ -305,7 +384,10 @@
       "isimler": [
         "Eş-Şekûr"
       ],
-      "corpusGecis": 81
+      "corpusGecis": 81,
+      "isimlerEn": [
+        "Ash-Shakur"
+      ]
     }
   ],
   "generated_at": "2026-06-01T18:42:34.592Z",

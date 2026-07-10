@@ -42,13 +42,9 @@
 
 ---
 
-## Görev 3 — `/en/arac/dua-verses` route 404
+## Görev 3 — `/en/arac/dua-verses` route 404 (FALSE ALARM — 2026-07-10)
 
-**URL:** `http://localhost:3011/en/arac/dua-verses` → 404
-**Beklenen:** DuaVerses tool sayfası.
-**Muhtemel neden:** Route klasör adı farklı (`dua-dili` veya başka bir slug). Menu link'i yanlış URL'e işaret ediyor olabilir veya route hiç oluşturulmamış.
-
-**Aksiyon:** `next/src/app/[locale]/arac/` altına git, dua-verses klasörü var mı doğrula. Yoksa oluştur veya menü linkini düzelt.
+**Sonuç:** Bug değil. `dua-verses` tool ID'sidir, gerçek route değil. Doğru URL: `/en/arac/dualar`. Navbar.jsx:596 mapping'i (`openDuaVerses: '/arac/dualar'`) doğru çalışıyor. Playwright taramamda tool ID'yi URL slug olarak kullanmıştım, bu hataydı. **Kapatıldı.**
 
 ---
 
