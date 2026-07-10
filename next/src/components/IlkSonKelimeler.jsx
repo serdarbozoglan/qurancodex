@@ -305,6 +305,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           gap: '10px',
           alignContent: 'start',
         }}>
+          {/* Açılış-Kapanış Spektrumu — 2026-07-10 Dalga 3 · Madde 5
+              SpotlightSection'dan önce göster: narrative deep-dive'dan
+              önce "bütün resim" geliyor, sonra 5 keşif ile aha momenti. */}
+          {activeFilter === 'all' && searchValue.trim().length < 2 && (
+            <div style={{ gridColumn: '1 / -1' }}>
+              <AcilisKapanisSpektrum surahs={data.surahs} language={language} isMobile={isMobile} />
+            </div>
+          )}
+
           {activeFilter === 'all' && searchValue.trim().length < 2 && spotlights.length > 0 && (
             <div style={{ gridColumn: '1 / -1' }}>
               <SpotlightSection
@@ -449,8 +458,10 @@ function Card({ surah, onClick, selected, language }) {
   const revColor = isMedeni ? '#2ecc71' : COLORS.royalGold; // soft emerald for readability on dark bg
   return (
     <button
+      id={`ilk-son-card-${surah.surah}`}
       onClick={onClick}
       style={{
+        scrollMarginTop: '160px',
         textAlign: 'left',
         background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
         border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
@@ -2006,6 +2017,203 @@ function SpotlightList({ spotlight, language, isMobile }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+// ═══ AcilisKapanisSpektrum — 114 sûre'nin açılış+kapanış kök spektrumu ═══════
+// 2026-07-10 Dalga 3 · Madde 5.
+// İki satırlı bar: üst satır 114 sûrenin ilk kelime kökü, alt satır son
+// kelime kökü. Aynı kök alanına giren sûre'ler aynı rengi paylaşır → hangi
+// kök ailelerinin (hamd, rabb, ilah, rahmân...) hangi sûre'lerde açılış/
+// kapanış olarak kümelendiği bir bakışta görülür.
+// Tıklama: sûre kartına scroll. Hover: sûre adı + kelime + kök.
+function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
+  const tr = language === 'tr';
+  const [hovered, setHovered] = useState(null); // {surah, side}
+
+  // Kök → semantic family renk map. Top ~15 kök alanı için tanımlanmış;
+  // geri kalanı silver/gri (default).
+  const ROOT_FAMILIES = useMemo(() => [
+    // Kur'ân'ın en çok tekrar eden anlam ekseni gruplamaları
+    { pattern: /^ح م د$/, colorTr: 'Hamd (övgü)', colorEn: 'Ḥamd (praise)', hex: '#D4A574' },
+    { pattern: /^ر ب ب$/, colorTr: 'Rabb (Rab)',  colorEn: 'Rabb (Lord)', hex: '#B8860B' },
+    { pattern: /^ا ل ه|^أ ل ه$/, colorTr: 'Ilâh (İlah)', colorEn: 'Ilāh (God)', hex: '#8B5CF6' },
+    { pattern: /^ن ا س$/, colorTr: 'Nâs (insan)', colorEn: 'Nās (people)', hex: '#3B82F6' },
+    { pattern: /^ر ح م$/, colorTr: 'Rahm (rahmet)', colorEn: 'Raḥm (mercy)', hex: '#1D9E75' },
+    { pattern: /^ذ ك ر$/, colorTr: 'Zikr (anma)', colorEn: 'Dhikr (remembrance)', hex: '#22C55E' },
+    { pattern: /^ا م ن|^أ م ن$/, colorTr: 'Îmân (iman)', colorEn: 'Īmān (faith)', hex: '#14B8A6' },
+    { pattern: /^ع ب د$/, colorTr: 'ʿAbd (kulluk)', colorEn: 'ʿAbd (worship)', hex: '#C9A227' },
+    { pattern: /^ي و م$/, colorTr: 'Yevm (gün)', colorEn: 'Yawm (day)', hex: '#F97316' },
+    { pattern: /^ك ف ر$/, colorTr: 'Kufr (inkar)', colorEn: 'Kufr (denial)', hex: '#D85A30' },
+    { pattern: /^ص ل و$/, colorTr: 'Ṣalât (namaz)', colorEn: 'Ṣalāt (prayer)', hex: '#EAB308' },
+    { pattern: /^ع ل م$/, colorTr: 'ʿIlm (bilgi)', colorEn: 'ʿIlm (knowledge)', hex: '#3498DB' },
+    { pattern: /^س م ع|^ب ص ر$/, colorTr: 'Semī' + "'" + '-Basîr (duyu)', colorEn: 'Semīʿ-Baṣīr (senses)', hex: '#06B6D4' },
+    { pattern: /^ح ك م$/, colorTr: 'Hukm (hüküm)', colorEn: 'Ḥukm (judgment)', hex: '#F59E0B' },
+    { pattern: /^ه د ي$/, colorTr: 'Hidâyet', colorEn: 'Hidāya (guidance)', hex: '#10B981' },
+  ], []);
+  const DEFAULT = { colorTr: 'Diğer', colorEn: 'Other', hex: 'rgba(148,163,184,0.35)' };
+
+  const familyFor = (root) => {
+    if (!root) return DEFAULT;
+    return ROOT_FAMILIES.find(f => f.pattern.test(root)) || DEFAULT;
+  };
+
+  const tileSize = isMobile ? 8 : 11;
+  const gap = isMobile ? 1 : 2;
+  const rowW = 114 * tileSize + 113 * gap;
+
+  const renderRow = (side) => (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: `repeat(114, ${tileSize}px)`,
+      gap: `${gap}px`,
+      justifyContent: 'center',
+    }}>
+      {surahs.map((s) => {
+        const word = side === 'ilk' ? s.firstWord : s.lastWord;
+        const fam = familyFor(word?.root);
+        const isHover = hovered && hovered.surah === s.surah;
+        return (
+          <button
+            key={s.surah}
+            onMouseEnter={() => setHovered({ surah: s.surah, side })}
+            onMouseLeave={() => setHovered(null)}
+            onFocus={() => setHovered({ surah: s.surah, side })}
+            onBlur={() => setHovered(null)}
+            onClick={() => {
+              const el = document.getElementById(`ilk-son-card-${s.surah}`);
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}
+            aria-label={`${s.surah}. ${tr ? s.nameTr : s.nameEn} — ${side === 'ilk' ? (tr ? 'açılış' : 'opener') : (tr ? 'kapanış' : 'closer')}: ${word?.meaning || ''}`}
+            title={`${s.surah}. ${tr ? s.nameTr : s.nameEn} — ${word?.meaning || ''}`}
+            style={{
+              width: `${tileSize}px`,
+              height: `${tileSize}px`,
+              padding: 0,
+              border: 'none',
+              cursor: 'pointer',
+              background: fam.hex,
+              opacity: isHover ? 1 : 0.75,
+              boxShadow: isHover ? `0 0 0 1.5px ${COLORS.gold}` : 'none',
+              transition: 'opacity 0.15s ease, box-shadow 0.15s ease',
+              borderRadius: '2px',
+              WebkitTapHighlightColor: 'transparent',
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+
+  const activeHover = hovered && surahs.find(s => s.surah === hovered.surah);
+  const activeWord = activeHover ? (hovered.side === 'ilk' ? activeHover.firstWord : activeHover.lastWord) : null;
+  const activeFam = activeWord ? familyFor(activeWord.root) : null;
+
+  return (
+    <div style={{
+      marginTop: isMobile ? '18px' : '28px',
+      marginBottom: isMobile ? '12px' : '20px',
+      padding: isMobile ? '18px 12px 16px' : '24px 20px 20px',
+      background: 'rgba(255,255,255,0.02)',
+      border: `1px solid ${COLORS.goldAlpha15}`,
+      borderRadius: '14px',
+    }}>
+      {/* Section header */}
+      <div style={{ textAlign: 'center', marginBottom: isMobile ? '14px' : '18px' }}>
+        <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.7, marginBottom: '6px' }}>
+          {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
+        </div>
+        <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4 }}>
+          {tr
+            ? 'Her sütun bir sûre. Üst satır açılış kökü, alt satır kapanış kökü — aynı renk = aynı anlam alanı.'
+            : 'Each column = one surah. Top row = opening root, bottom row = closing root — same color = same semantic domain.'}
+        </p>
+      </div>
+
+      {/* Row 1 — openers */}
+      <div style={{ marginBottom: `${gap * 2}px`, overflowX: 'auto', paddingBottom: '4px' }}>
+        <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
+          {renderRow('ilk')}
+        </div>
+      </div>
+      {/* Row 2 — closers */}
+      <div style={{ overflowX: 'auto', paddingBottom: '4px' }}>
+        <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
+          {renderRow('son')}
+        </div>
+      </div>
+
+      {/* Row labels */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: COLORS.silver, opacity: 0.55, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px', padding: '0 4px' }}>
+        <span>{tr ? '1. Fâtiha' : '1. Al-Fatiha'}</span>
+        <span>{tr ? '↑ açılış · kapanış ↓' : '↑ opener · closer ↓'}</span>
+        <span>{tr ? '114. Nâs' : '114. An-Nās'}</span>
+      </div>
+
+      {/* Hover detail */}
+      {activeHover && activeWord && (
+        <div style={{
+          marginTop: '14px',
+          padding: '12px 14px',
+          background: `${activeFam.hex}12`,
+          border: `1px solid ${activeFam.hex}40`,
+          borderRadius: '10px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '14px',
+          flexWrap: 'wrap',
+        }}>
+          <div style={{
+            width: '10px', height: '10px', borderRadius: '50%',
+            background: activeFam.hex, flexShrink: 0,
+          }} />
+          <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+              <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '0.9rem' }}>
+                {activeHover.surah}. {tr ? activeHover.nameTr : activeHover.nameEn}
+              </span>
+              <span style={{ color: COLORS.silver, fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+                {hovered.side === 'ilk' ? (tr ? 'AÇILIŞ' : 'OPENER') : (tr ? 'KAPANIŞ' : 'CLOSER')}
+              </span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap', marginTop: '2px' }}>
+              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1rem' }}>
+                {activeWord.ar}
+              </span>
+              <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{activeWord.meaning}</span>
+              <span style={{ color: COLORS.silver, fontSize: '0.68rem', opacity: 0.6, fontFamily: 'ui-monospace, monospace' }}>{activeWord.root}</span>
+            </div>
+          </div>
+          <span style={{
+            fontSize: '0.66rem', fontWeight: 700, padding: '3px 10px',
+            color: activeFam.hex,
+            background: `${activeFam.hex}18`,
+            border: `1px solid ${activeFam.hex}30`,
+            borderRadius: '999px',
+            letterSpacing: '0.08em',
+          }}>
+            {tr ? activeFam.colorTr : activeFam.colorEn}
+          </span>
+        </div>
+      )}
+
+      {/* Legend — family colors */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '14px', justifyContent: 'center' }}>
+        {ROOT_FAMILIES.map(f => (
+          <span key={f.hex} style={{
+            display: 'inline-flex', alignItems: 'center', gap: '5px',
+            fontSize: '0.62rem', color: COLORS.silver, opacity: 0.72,
+            padding: '2px 8px',
+            border: `1px solid ${f.hex}30`,
+            background: `${f.hex}0a`,
+            borderRadius: '999px',
+          }}>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: f.hex }} />
+            {tr ? f.colorTr : f.colorEn}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
