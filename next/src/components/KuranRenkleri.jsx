@@ -13,6 +13,7 @@ import HeroGeometricBackground from './HeroGeometricBackground';
 
 const TABS = {
   RENKLER:   'renkler',
+  PALET:     'palet',
   BAGLAM:    'baglam',
   CENNET:    'cennet',
   KIYAMET:   'kiyamet',
@@ -22,6 +23,7 @@ const TABS = {
 
 const TAB_LABELS = {
   renkler:   { tr: 'RENKLER',         en: 'COLORS' },
+  palet:     { tr: 'PALET',           en: 'PALETTE' },
   baglam:    { tr: 'BAĞLAM HARİTASI', en: 'CONTEXT MAP' },
   cennet:    { tr: 'CENNET PALETİ',   en: 'PARADISE PALETTE' },
   kiyamet:   { tr: 'KIYAMETİN RENKLERİ', en: "JUDGMENT'S COLORS" },
@@ -91,12 +93,13 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
 
   return (
     <div
+      id={`color-${renk.id}`}
       role="button"
       tabIndex={0}
       aria-expanded={expanded}
       onClick={onToggle}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
-      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: RADIUS.chip, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none', height: '100%', display: 'flex', flexDirection: 'column' }}
+      style={{ background: renk.tintBg, border: `1px solid ${renk.tintBorder}`, borderRadius: RADIUS.chip, overflow: 'hidden', cursor: 'pointer', transition: 'transform 0.15s', userSelect: 'none', height: '100%', display: 'flex', flexDirection: 'column', scrollMarginTop: '140px' }}
       onMouseEnter={e => { if (!isMobile) e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
     >
@@ -486,6 +489,197 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
           })()}
         </div>
       )}
+    </div>
+  );
+}
+
+// ═══ TabPalet — interaktif renk paleti (2026-07-10 Dalga 3 · Madde 3.2) ═══════
+// data.renkler'in tamamını dairesel/grid layout'ta gösterir. Her swatch:
+// (a) Rengin hex çemberi (kartın accent'i), (b) Türkçe adı, (c) hover'da
+// canlanan Arapça terim + 1-satır semantik. Click → RENKLER tab'ına atlar,
+// ilgili karta scroll + filter. Mobile'da linear grid, desktop'ta 4-kolonlu
+// hexagonal grid.
+function TabPalet({ data, language, isMobile, onColorClick }) {
+  const tr = language === 'tr';
+  const [hoveredId, setHoveredId] = useState(null);
+  const colors = data?.renkler || [];
+
+  if (!colors.length) return null;
+
+  return (
+    <div style={{ padding: isMobile ? '20px 12px 32px' : '32px 24px 48px', maxWidth: '1080px', margin: '0 auto' }}>
+      {/* Section header */}
+      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '36px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+          {tr ? "Kur'ân'ın Renk Paleti" : "The Qur'anic Color Palette"}
+        </div>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.7rem)' : 'clamp(1.8rem, 3vw, 2.2rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+          {tr ? (
+            <>Bir bakışta <span style={{ color: COLORS.gold }}>tüm renkler</span></>
+          ) : (
+            <>All colors <span style={{ color: COLORS.gold }}>at a glance</span></>
+          )}
+        </h2>
+        <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '540px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
+          {tr
+            ? `${colors.length} renk · her biri Kur'ân'ın kendine has semantik alanıyla. Bir swatch üstüne gelin, tıklayınca ilgili rengin ayet listesine atlarsınız.`
+            : `${colors.length} colors · each with its distinct Qur'anic semantic domain. Hover to preview, click to jump to that color's verse list.`}
+        </p>
+      </div>
+
+      {/* Swatch grid — mobile 2-col, desktop 4-col */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
+        gap: isMobile ? '14px' : '20px',
+      }}>
+        {colors.map(c => {
+          const isHover = hoveredId === c.id;
+          const name = language === 'tr' ? c.colorNameTr : c.colorNameEn;
+          const summary = language === 'tr' ? c.summaryTr : c.summaryEn;
+          const arTerm = (c.arabicTerms && c.arabicTerms[0] && c.arabicTerms[0].arabic) || '';
+          const refCount = (c.allRefs && c.allRefs.length) || 0;
+
+          return (
+            <button
+              key={c.id}
+              onClick={() => onColorClick && onColorClick(c.id)}
+              onMouseEnter={() => setHoveredId(c.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onFocus={() => setHoveredId(c.id)}
+              onBlur={() => setHoveredId(null)}
+              aria-label={`${name} — ${refCount} ${tr ? 'ayet' : 'verses'}`}
+              style={{
+                position: 'relative',
+                display: 'flex', flexDirection: 'column',
+                alignItems: 'center',
+                padding: isMobile ? '20px 12px 16px' : '28px 16px 22px',
+                background: isHover ? `${c.hexColor}12` : 'rgba(255,255,255,0.02)',
+                border: `1px solid ${isHover ? `${c.hexColor}55` : COLORS.glassBorderSoft}`,
+                borderRadius: RADIUS.lg,
+                cursor: 'pointer',
+                transition: 'all 0.22s cubic-bezier(0.4, 0, 0.2, 1)',
+                textAlign: 'center',
+                transform: isHover ? 'translateY(-4px)' : 'translateY(0)',
+                WebkitTapHighlightColor: 'transparent',
+              }}
+            >
+              {/* Color disc */}
+              <div style={{
+                width: isMobile ? '54px' : '72px',
+                height: isMobile ? '54px' : '72px',
+                borderRadius: '50%',
+                background: c.hexColor,
+                border: '2px solid rgba(255,255,255,0.08)',
+                boxShadow: isHover
+                  ? `0 0 32px ${c.hexColor}66, 0 0 0 4px ${c.hexColor}18`
+                  : `0 4px 14px ${c.hexColor}22`,
+                transition: 'box-shadow 0.28s ease',
+                marginBottom: isMobile ? '12px' : '16px',
+              }} />
+
+              {/* Turkish name */}
+              <div style={{
+                fontFamily: FONTS.display,
+                fontSize: isMobile ? '1.05rem' : '1.18rem',
+                fontWeight: 600,
+                color: isHover ? c.hexColor : COLORS.offWhite,
+                lineHeight: 1.15,
+                marginBottom: '6px',
+                transition: 'color 0.2s ease',
+              }}>
+                {name}
+              </div>
+
+              {/* Arabic term */}
+              {arTerm && (
+                <div style={{
+                  fontFamily: FONTS.quran,
+                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  color: COLORS.gold,
+                  opacity: isHover ? 0.95 : 0.72,
+                  direction: 'rtl',
+                  lineHeight: 1.4,
+                  marginBottom: '8px',
+                  transition: 'opacity 0.2s ease',
+                }} dir="rtl" lang="ar">
+                  {arTerm}
+                </div>
+              )}
+
+              {/* Ref count chip */}
+              <div style={{
+                fontSize: '0.68rem',
+                fontWeight: 700,
+                letterSpacing: '0.06em',
+                color: c.hexColor,
+                background: `${c.hexColor}18`,
+                border: `1px solid ${c.hexColor}30`,
+                borderRadius: RADIUS.pillSm,
+                padding: '2px 8px',
+                marginBottom: '10px',
+              }}>
+                {refCount} {tr ? 'ayet' : 'verses'}
+              </div>
+
+              {/* Hex code */}
+              <div style={{
+                fontFamily: 'ui-monospace, SFMono-Regular, monospace',
+                fontSize: '0.66rem',
+                color: COLORS.silver,
+                opacity: 0.55,
+                letterSpacing: '0.04em',
+                marginBottom: '10px',
+              }}>
+                {c.hexColor.toUpperCase()}
+              </div>
+
+              {/* Summary — hover-only expand */}
+              {summary && (
+                <div style={{
+                  fontSize: '0.72rem',
+                  color: COLORS.silver,
+                  opacity: isHover ? 0.95 : 0,
+                  maxHeight: isHover ? '80px' : '0',
+                  overflow: 'hidden',
+                  lineHeight: 1.5,
+                  transition: 'opacity 0.25s ease, max-height 0.28s ease',
+                }}>
+                  {summary}
+                </div>
+              )}
+
+              {/* Click affordance */}
+              <div style={{
+                marginTop: '10px',
+                fontSize: '0.66rem',
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: isHover ? c.hexColor : COLORS.silver,
+                opacity: isHover ? 1 : 0.4,
+                fontWeight: 700,
+                transition: 'all 0.2s ease',
+              }}>
+                {tr ? 'Detay →' : 'Details →'}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Footer note */}
+      <p style={{
+        textAlign: 'center',
+        color: COLORS.silver,
+        fontSize: '0.75rem',
+        opacity: 0.55,
+        marginTop: isMobile ? '28px' : '40px',
+        fontStyle: 'italic',
+      }}>
+        {tr
+          ? "Renkler Kur'ân'da sadece görsel değil, semantik alanlardır — beyaz iyilik, siyah utanç, yeşil vaad."
+          : "In the Qur'an colors are not merely visual — they are semantic domains: white for grace, black for shame, green for the promise."}
+      </p>
     </div>
   );
 }
@@ -2774,6 +2968,19 @@ export default function KuranRenkleri({ onClose }) {
         <div style={{ padding: isMobile ? '16px' : '24px 32px', minHeight: '400px' }}>
           {activeTab === TABS.RENKLER && (
             <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} expandedVerse={expandedVerse} setExpandedVerse={setExpandedVerse} />
+          )}
+          {activeTab === TABS.PALET && (
+            <TabPalet
+              data={data} language={language} isMobile={isMobile}
+              onColorClick={(id) => {
+                setActiveTab(TABS.RENKLER);
+                setActiveFilter(id);
+                setTimeout(() => {
+                  const el = document.getElementById(`color-${id}`);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 60);
+              }}
+            />
           )}
           {activeTab === TABS.BAGLAM && (
             <TabBaglam language={language} isMobile={isMobile} />
