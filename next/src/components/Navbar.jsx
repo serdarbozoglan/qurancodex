@@ -14,7 +14,7 @@ import {
   RESEARCH_TOOLS as IMPORTED_RESEARCH,
 } from '../data/tools';
 // v1.1 — single source of truth for explore categories, shared with AllTopics
-import { EXPLORE_CATEGORIES } from '../data/exploreCategories';
+import { EXPLORE_CATEGORIES, FEATURED_EXPLORE_ITEM } from '../data/exploreCategories';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
@@ -798,6 +798,7 @@ export default function Navbar() {
                       insanTanimi:      '/atlas/insan-tanimi',
                       insanPsikolojisi: '/atlas/insan-psikolojisi',
                       ibadetler:        '/atlas/ibadetler',
+                      addresseeSystem:  '/arac/muhataplar',
                     };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
@@ -920,15 +921,62 @@ export default function Navbar() {
                       </button>
                     );
 
+                    // İbadetler flagship featured banner (2026-07-10)
+                    // Mirrors the Araçlar dropdown's "Kur'an'ı Tanı" banner style.
+                    const FeaturedIbadetlerIcon = FEATURED_EXPLORE_ITEM.icon;
+                    const ibadetlerBanner = (
+                      <button
+                        onClick={() => {
+                          const route = OVERLAY_ROUTE_BY_TARGET[FEATURED_EXPLORE_ITEM.target];
+                          if (route) router.push(`/${language}${route}`);
+                          setExploreOpen(false);
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '12px 20px',
+                          background: 'rgba(201, 162, 39, 0.08)',
+                          borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
+                          borderTop: 'none', borderRight: 'none',
+                          borderLeft: '3px solid #c9a227',
+                          borderRadius: '8px 8px 0 0',
+                          boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
+                          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                          cursor: 'pointer', transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
+                      >
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <span style={{ color: '#c9a227', flexShrink: 0 }}>
+                            <FeaturedIbadetlerIcon size={20} />
+                          </span>
+                          <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
+                            <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                              {language === 'tr' ? FEATURED_EXPLORE_ITEM.titleTr : FEATURED_EXPLORE_ITEM.titleEn}
+                            </span>
+                            <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
+                              {language === 'tr' ? FEATURED_EXPLORE_ITEM.descTr : FEATURED_EXPLORE_ITEM.descEn}
+                            </span>
+                          </span>
+                        </span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </button>
+                    );
+
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        {/* Featured banner — İbadetlerin Kur'ânî Mimarisi */}
+                        {ibadetlerBanner}
+
                         {/* Önerilen Yollar banner */}
                         <div
                           style={{
                             padding: '10px 12px',
                             background: 'rgba(201, 162, 39, 0.05)',
                             borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
-                            borderRadius: '8px 8px 0 0',
+                            borderRadius: 0,
                           }}
                         >
                           <div style={{ ...colLabel, padding: '0 4px 6px' }}>
@@ -1610,6 +1658,7 @@ export default function Navbar() {
               korumaZinciri:'/arac/koruma-zinciri', tekrarAnatomi:'/arac/tekrar-anatomi',
               altiKonu:'/arac/alti-konu', insanTanimi:'/atlas/insan-tanimi',
               insanPsikolojisi:'/atlas/insan-psikolojisi', ibadetler:'/atlas/ibadetler',
+              addresseeSystem:'/arac/muhataplar',
             };
 
             // ── Design tokens (mobile drawer only, kept local for cohesion) ─────
@@ -1770,6 +1819,39 @@ export default function Navbar() {
                     </span>
                   </span>
                   <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
+                </button>
+
+                {/* ── FLAGSHIP: İbadetlerin Kur'ânî Mimarisi ─────────────────
+                    Desktop mega-menu'nun featured banner'ının mobile mirror'ı. */}
+                <button
+                  onClick={() => {
+                    const route = OVERLAY_ROUTE_MOBILE[FEATURED_EXPLORE_ITEM.target];
+                    if (route) router.push(`/${language}${route}`);
+                    setMobileOpen(false);
+                  }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px', marginTop: '10px',
+                    background: 'rgba(201, 162, 39, 0.08)',
+                    border: '1px solid rgba(201, 162, 39, 0.20)',
+                    borderLeft: '3px solid #c9a227',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
+                    <FEATURED_EXPLORE_ITEM.icon size={18} />
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? FEATURED_EXPLORE_ITEM.titleTr : FEATURED_EXPLORE_ITEM.titleEn}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? FEATURED_EXPLORE_ITEM.descTr : FEATURED_EXPLORE_ITEM.descEn}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(201,162,39,0.75)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
                 </button>
 
                 {/* ══════════════════════════════════════════════════════════════

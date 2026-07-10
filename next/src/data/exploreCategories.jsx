@@ -224,12 +224,48 @@ const PrayerIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// AddresseeIcon — "Ey iman edenler" — çift portre (muhatap sistemi).
+const AddresseeIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+);
+
+// ── FEATURED explore item — İbadetlerin Kur'ânî Mimarisi ─────────────────────
+// 2026-07-10: Bu content-flagship (8 sütun · 77 dua · 15 semantik terim).
+// Önceden TARİH & İNSAN kolonunda item olarak yığın içinde kaybolyordu.
+// Şimdi mega-menu'nun tepesinde full-width banner olarak render edilir
+// (Araçlar dropdown'ının "Kur'an'ı Tanı" featured banner'ı pattern'ıyla parity).
+// Consumer'lar (Navbar desktop + mobile drawer) bu export'u ayrı olarak import
+// eder ve EXPLORE_CATEGORIES.items içinde tekrar göstermez.
+export const FEATURED_EXPLORE_ITEM = {
+  id:      'ibadetler',
+  kind:    'overlay',
+  target:  'ibadetler',
+  icon:    PrayerIcon,
+  titleTr: "İbadetlerin Kur'ânî Mimarisi",
+  titleEn: "The Qur'anic Architecture of Worship",
+  descTr:  "Kulluk · 8 sütun · Kur'an'ın kendi diliyle · 77 dua ekseni",
+  descEn:  "Worship · 8 pillars · in the Qur'an's own words · 77-prayer axis",
+};
+
 // ── Categories ──────────────────────────────────────────────────────────────
-// User-approved order (2026-04-10):
-//   DİL & YAPI          — unchanged
-//   RETORİK & DUA       — Yeminler → Retorik → Dua Dili
-//   TARİH & İNSAN       — Kavimler → Tarihsel → İnsan → Psikoloji
-//   KUR'AN'IN EVRENİ    — Kevni → Bilimsel → Zaman → Melekler → Kıyamet → Cennet
+// Order (2026-07-10 revision):
+//   DİL & YAPI          — 6 item
+//   RETORİK & DUA       — Yeminler → Retorik → Dua Dili → Muhatap Sistemi (4)
+//   İNSAN & TOPLUM      — İnsan → Psikoloji → Nefis → İblis → Münâfık → Sünnetullah → Kavimler → Tarihsel (8)
+//   KUR'AN'IN EVRENİ    — Kevni → Bilimsel → Zaman → Melekler → Kıyamet → Cennet (6)
+//
+// Change log:
+//   - İbadetlerin Kur'ânî Mimarisi (flagship) çıkarıldı → FEATURED_EXPLORE_ITEM
+//     olarak ayrı export edilir (mega-menu banner + mobile flagship banner).
+//   - TARİH & İNSAN → İNSAN & TOPLUM olarak yeniden adlandırıldı (10 item'ın 8'i
+//     içsel/toplumsal, "tarih" başlığı yanıltıcıydı).
+//   - Muhatap Sistemi RETORİK & DUA'ya eklendi (Araçlar'da da kalır — reinforced
+//     discovery); önceki 3 item / 10 item dengesizliğini kapatır (4/8).
 
 export const EXPLORE_CATEGORIES = [
   {
@@ -325,24 +361,31 @@ export const EXPLORE_CATEGORIES = [
         descTr: 'Yakarışın gramatik kalıbı',
         descEn: 'The grammar of supplication',
       },
+      {
+        // Muhatap Sistemi — retorik-analitik tool. Araçlar'da da kalır;
+        // Explore'a eklenmesi 3→4 dengeleme + reinforced discovery için
+        // (2026-07-10 mega-menu revizyonu).
+        id:     'addressee-system',
+        kind:   'overlay',
+        target: 'addresseeSystem',
+        icon:   AddresseeIcon,
+        titleTr: 'Muhatap Sistemi',       titleEn: 'Addressee System',
+        descTr: "'Ey iman edenler' — kim, ne zaman?",
+        descEn: "'O you who believe' — who, when?",
+      },
     ],
   },
   {
+    // 2026-07-10 revizyonu: 'İNSAN & TOPLUM'. Önceki adı 'TARİH & İNSAN'dı;
+    // 10 item'ın 8'i iç dünya/toplum (Sünnetullah, İblis, Münâfık dahil), sadece
+    // 2'si tarih (Kavimler, Tarihsel Kanıtlar) — başlıkla içerik uyumsuzdu.
+    // İbadetler kolondan çıkarıldı → FEATURED_EXPLORE_ITEM (mega-menu banner).
     id: 'history',
-    titleTr: 'TARİH & İNSAN',
-    titleEn: 'HISTORY & THE HUMAN',
+    titleTr: 'İNSAN & TOPLUM',
+    titleEn: 'THE HUMAN & SOCIETY',
     items: [
-      // Sıra: iç dünya (kulluk çerçevesi → insan tanımı → psikoloji → nefs → iç düşman → dış davranış)
+      // Sıra: iç dünya (insan tanımı → psikoloji → nefs → iç düşman → dış davranış)
       // → topluma (sünnetullah → kavimler → tarihsel kanıtlar)
-      {
-        id:     'ibadetler',
-        kind:   'overlay',
-        target: 'ibadetler',
-        icon:   PrayerIcon,
-        titleTr: "İbadetlerin Kur'ânî Mimarisi", titleEn: "The Qur'anic Architecture of Worship",
-        descTr: "Kulluk · 8 sütun · Kur'an'ın kendi diliyle",
-        descEn: "Worship · 8 pillars · in the Qur'an's own words",
-      },
       {
         id:     'human-definition',
         kind:   'section',
