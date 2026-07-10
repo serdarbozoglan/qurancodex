@@ -780,7 +780,11 @@ export default function WordHeatmap({ onClose }) {
               {language === 'tr' ? 'Ara' : 'Search'}
             </button>
             {searchTerm && (
-              <button onClick={clearSearch} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: RADIUS.md, color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}>
+              <button
+                onClick={clearSearch}
+                aria-label={language === 'tr' ? 'Aramayı temizle' : 'Clear search'}
+                style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: RADIUS.md, color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}
+              >
                 ✕
               </button>
             )}

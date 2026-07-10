@@ -331,6 +331,13 @@ export default function ImpossibleRhythm() {
               <button
                 onClick={!duhaFailed ? toggleDuha : undefined}
                 disabled={duhaFailed}
+                aria-label={
+                  duhaFailed
+                    ? (language === 'tr' ? 'Duhâ sûresi tilâveti — ses yüklenemedi' : 'Surah Ad-Duha recitation — audio unavailable')
+                    : duhaPlaying
+                      ? (language === 'tr' ? 'Duhâ sûresi tilâvetini durdur' : 'Stop Surah Ad-Duha recitation')
+                      : (language === 'tr' ? 'Duhâ sûresi tilâvetini oynat' : 'Play Surah Ad-Duha recitation')
+                }
                 style={{
                   width: '36px', height: '36px', borderRadius: RADIUS.full, flexShrink: 0,
                   background: duhaFailed ? 'rgba(100,116,139,0.08)' : duhaPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',

@@ -199,6 +199,13 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
           onClick={isFailed ? undefined : (isPlaying ? onStop : onPlay)}
           disabled={isFailed}
           title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+          aria-label={
+            isFailed
+              ? (language === 'tr' ? 'Tilâvet — ses yüklenemedi' : 'Recitation — audio unavailable')
+              : isPlaying
+                ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation')
+                : (language === 'tr' ? 'Tilâveti oynat' : 'Play recitation')
+          }
           style={{
             width: '28px', height: '28px', borderRadius: RADIUS.full, flexShrink: 0,
             background: isFailed ? 'rgba(100,116,139,0.08)' : isPlaying ? 'rgba(212,165,116,0.22)' : 'rgba(212,165,116,0.08)',
@@ -460,16 +467,27 @@ export default function DuaVerses({ onClose }) {
             const count = categoryCounts[cat] || 0;
             if (!count) return null;
             const isActive = activeCategory === cat;
+            const label = language === 'tr' ? cfg.label_tr : cfg.label_en;
             return (
-              <button key={cat} onClick={() => setActiveCategory(isActive ? 'all' : cat)} style={{
-                flexShrink: 0,
-                background: isActive ? cfg.color.replace('0.8)', '0.15)') : 'rgba(255,255,255,0.04)',
-                border: `1px solid ${isActive ? cfg.color.replace('0.8)', '0.4)') : 'rgba(255,255,255,0.08)'}`,
-                borderRadius: RADIUS.xl, color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
-                cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
-                display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: `all ${TRANSITION.fast}`,
-              }}>
-                {language === 'tr' ? cfg.label_tr : cfg.label_en}
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(isActive ? 'all' : cat)}
+                aria-label={
+                  language === 'tr'
+                    ? `${label} kategorisi — ${count} dua${isActive ? ' — seçili' : ''}`
+                    : `${label} category — ${count} duas${isActive ? ' — selected' : ''}`
+                }
+                aria-pressed={isActive}
+                style={{
+                  flexShrink: 0,
+                  background: isActive ? cfg.color.replace('0.8)', '0.15)') : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${isActive ? cfg.color.replace('0.8)', '0.4)') : 'rgba(255,255,255,0.08)'}`,
+                  borderRadius: RADIUS.xl, color: isActive ? cfg.color.replace('0.8)', '1)') : silver,
+                  cursor: 'pointer', padding: '4px 12px', fontSize: '0.75rem', fontWeight: 600,
+                  display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', transition: `all ${TRANSITION.fast}`,
+                }}
+              >
+                {label}
                 <span style={{ background: isActive ? cfg.color.replace('0.8)', '0.2)') : 'rgba(255,255,255,0.06)', borderRadius: RADIUS.md, padding: '0 5px', fontSize: '0.65rem', fontWeight: 700 }}>
                   {count}
                 </span>

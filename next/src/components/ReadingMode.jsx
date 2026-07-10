@@ -818,6 +818,13 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
           onClick={failed ? undefined : onToggle}
           disabled={failed}
           title={failed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
+          aria-label={
+            failed
+              ? (language === 'tr' ? 'Ayet tilâveti — ses yüklenemedi' : 'Verse recitation — audio unavailable')
+              : playing
+                ? (language === 'tr' ? 'Ayet tilâvetini durdur' : 'Stop verse recitation')
+                : (language === 'tr' ? 'Ayet tilâvetini oynat' : 'Play verse recitation')
+          }
           style={{
             position: 'relative', zIndex: 1,
             width: '28px', height: '28px', borderRadius: RADIUS.full, flexShrink: 0,
@@ -8669,6 +8676,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage < 604) navigateToPage(Math.min(604, currentPage + step)); }}
               disabled={currentPage >= 604}
+              aria-label={language === 'tr' ? 'Sonraki Mushaf sayfası' : 'Next Mushaf page'}
               onMouseEnter={e => {
                 if (currentPage >= 604) return;
                 e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.14)' : 'rgba(212,165,116,0.16)';
@@ -8758,6 +8766,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <button
               onClick={() => { const step = spreadMode ? 2 : 1; if (currentPage > 0) navigateToPage(Math.max(0, currentPage - step)); }}
               disabled={currentPage <= 0}
+              aria-label={language === 'tr' ? 'Önceki Mushaf sayfası' : 'Previous Mushaf page'}
               onMouseEnter={e => {
                 if (currentPage <= 0) return;
                 e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.14)' : 'rgba(212,165,116,0.16)';
@@ -8818,7 +8827,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             : 'none';
           return (
             <button
-              onClick={onClick} disabled={!enabled} title={title}
+              onClick={onClick} disabled={!enabled} title={title} aria-label={title}
               style={{
                 position: 'absolute', top: '50%', transform: 'translateY(-50%)',
                 zIndex: 20,

@@ -1115,11 +1115,14 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         )}
 
         {/* Close — rightmost */}
-        <button onClick={onClose}
+        <button
+          onClick={onClose}
+          aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
           style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.full, color: COLORS.slate500, cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
           onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.slate500; }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.slate500; }}
+        >
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
@@ -1393,18 +1396,30 @@ function ZoomControls({ graphRef, language, rightOffset = 24 }) {
       position: 'absolute', bottom: '24px', right: `${rightOffset}px`, zIndex: 25,
       display: 'flex', flexDirection: 'column', gap: '6px',
     }}>
-      <button style={btnStyle} title="Yakınlaştır"
+      <button
+        style={btnStyle}
+        title={language === 'en' ? 'Zoom in' : 'Yakınlaştır'}
+        aria-label={language === 'en' ? 'Zoom in' : 'Yakınlaştır'}
         onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
         onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
-        onClick={() => zoomBy(0.65)}>+</button>
-      <button style={btnStyle} title="Uzaklaştır"
+        onClick={() => zoomBy(0.65)}
+      >+</button>
+      <button
+        style={btnStyle}
+        title={language === 'en' ? 'Zoom out' : 'Uzaklaştır'}
+        aria-label={language === 'en' ? 'Zoom out' : 'Uzaklaştır'}
         onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
         onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
-        onClick={() => zoomBy(1.54)}>−</button>
-      <button style={{ ...btnStyle, fontSize: '0.7rem', color: COLORS.slate500 }} title={language === 'tr' ? 'Tümünü göster' : 'Fit all'}
+        onClick={() => zoomBy(1.54)}
+      >−</button>
+      <button
+        style={{ ...btnStyle, fontSize: '0.7rem', color: COLORS.slate500 }}
+        title={language === 'tr' ? 'Tümünü göster' : 'Fit all'}
+        aria-label={language === 'tr' ? 'Grafın tümünü göster' : 'Fit graph to view'}
         onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
         onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = COLORS.goldAlpha20; }}
-        onClick={() => graphRef.current?.zoomToFit(600, 60)}>⊡</button>
+        onClick={() => graphRef.current?.zoomToFit(600, 60)}
+      >⊡</button>
     </div>
   );
 }
@@ -1891,11 +1906,12 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         {onClose && (
           <button
             onClick={onClose}
+            aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
             style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
@@ -2377,11 +2393,12 @@ function FullGraph({ verses, onBack, language, onClose }) {
         {onClose && (
           <button
             onClick={onClose}
+            aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
             style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
@@ -2482,6 +2499,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         <button
           onClick={() => setMuted(m => !m)}
           title={muted ? (language === 'tr' ? 'Sesi aç' : 'Unmute') : (language === 'tr' ? 'Sesi kapat' : 'Mute')}
+          aria-label={muted ? (language === 'tr' ? 'Tilâvet sesini aç' : 'Unmute recitation') : (language === 'tr' ? 'Tilâvet sesini kapat' : 'Mute recitation')}
           style={{
             width: '34px', height: '34px',
             background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
@@ -2938,11 +2956,15 @@ function ShareModal({ node, language, onClose }) {
             </button>
           )}
 
-          <button onClick={onClose} style={{
-            background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
-            borderRadius: RADIUS.md, color: COLORS.slate500,
-            padding: '10px 12px', cursor: 'pointer', fontSize: '0.8rem',
-          }}>✕</button>
+          <button
+            onClick={onClose}
+            aria-label={language === 'en' ? 'Close panel' : 'Paneli kapat'}
+            style={{
+              background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
+              borderRadius: RADIUS.md, color: COLORS.slate500,
+              padding: '10px 12px', cursor: 'pointer', fontSize: '0.8rem',
+            }}
+          >✕</button>
         </div>
       </div>
     </div>
@@ -3039,8 +3061,11 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
             style={{ background: 'rgba(212,165,116,0.07)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.sm, color: COLORS.gold, cursor: 'pointer', fontSize: '0.72rem', padding: '3px 9px' }}>
             ↗ {language === 'tr' ? 'Paylaş' : 'Share'}
           </button>
-          <button onClick={onClose}
-            style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: COLORS.slate500, cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}>✕</button>
+          <button
+            onClick={onClose}
+            aria-label={language === 'en' ? 'Close verse detail' : 'Ayet detayını kapat'}
+            style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: COLORS.slate500, cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}
+          >✕</button>
         </div>
       </div>
 
