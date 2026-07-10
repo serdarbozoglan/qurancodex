@@ -57,7 +57,7 @@ export default function ToolHeader({
         }}
       >
         {icon && (
-          <span style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}>
+          <span aria-hidden="true" style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center' }}>
             {icon}
           </span>
         )}
