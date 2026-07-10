@@ -852,7 +852,10 @@ export default function Navbar() {
                         ),
                       },
                       {
-                        id: 'peygamberler', target: 'history',
+                        // Peygamberler chip: route to the full Prophet Atlas
+                        // (2026-07-10). Previously scrolled to `#history`
+                        // (Firavun/Haman/Roma section) which mismatched the label.
+                        id: 'peygamberler', route: '/atlas/peygamber',
                         labelTr: 'Peygamberler', labelEn: 'Prophets',
                         icon: (
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -888,7 +891,14 @@ export default function Navbar() {
                     const pathBtn = (path) => (
                       <button
                         key={path.id}
-                        onClick={() => { scrollTo(path.target); setExploreOpen(false); }}
+                        onClick={() => {
+                          if (path.route) {
+                            router.push(`/${language}${path.route}`);
+                          } else {
+                            scrollTo(path.target);
+                          }
+                          setExploreOpen(false);
+                        }}
                         style={{
                           flex: 1, minWidth: 0,
                           display: 'flex', alignItems: 'center', gap: '8px',
