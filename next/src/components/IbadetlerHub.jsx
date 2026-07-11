@@ -414,7 +414,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
           const pct = (n.freq / maxFreq) * 100;
           return (
             <button key={i}
-              onClick={() => router.push(`/${language}/atlas/ibadetler/${n.id === 'dua' ? '' : n.id}`)}
+              onClick={() => router.push(`/${language}${n.id === 'dua' ? '/arac/dualar' : `/atlas/ibadetler/${n.id}`}`)}
               style={{
                 display: 'flex', alignItems: 'center', gap: '14px',
                 padding: '14px 16px',
@@ -642,7 +642,7 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent'; }}
-                  onClick={() => router.push(`/${language}/atlas/ibadetler/${r.id === 'dua' ? '' : r.id}`)}
+                  onClick={() => router.push(`/${language}${r.id === 'dua' ? '/arac/dualar' : `/atlas/ibadetler/${r.id}`}`)}
                 >
                   <td style={{ padding: '14px', borderLeft: `4px solid ${r.yukumlulukColor}` }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>

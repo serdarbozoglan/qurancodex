@@ -640,102 +640,6 @@
       "termEn": "Zulaf"
     }
   ],
-  "anaAyet grubular": {
-    "ayetler": [
-      {
-        "ref": "Bakara 2:238",
-        "ar": "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلٰوةِ الْوُسْطٰى وَقُومُوا لِلّٰهِ قَانِتِينَ",
-        "tr": "Namazlara ve orta namaza devam edin; Allah'a boyun eğerek namaza durun.",
-        "en": "Guard the prayers, especially the middle prayer, and stand before Allah devoutly obedient.",
-        "not": "Râzî bu ayette 'orta namaz' (ṣalât al-vustâ) hakkında 4 farklı yorum sunar: ikindi, öğle, sabah veya akşam. İhtilaf tefsir geleneği içindedir; ayet 'namazların özellikle korunmasını' emreder.",
-        "claimType": "tafsir_tradition",
-        "confidence": "high"
-      },
-      {
-        "ref": "İsra 17:78",
-        "ar": "اَقِمِ الصَّلٰوةَ لِدُلُوكِ الشَّمْسِ اِلٰى غَسَقِ الَّيْلِ وَقُرْاٰنَ الْفَجْرِ اِنَّ قُرْاٰنَ الْفَجْرِ كَانَ مَشْهُوداً",
-        "tr": "Güneşin duluk'undan (batıya meyli) gecenin karanlığına kadar namaz kıl, sabahın Kur'ân'ını da; muhakkak sabahın Kur'ân'ı şahitlidir.",
-        "en": "Establish prayer at the decline of the sun until the darkness of the night, and the Qur'an of dawn — indeed, the recitation of dawn is witnessed.",
-        "not": "Kur'ân'da namaz vakit çerçevesinin en açık ayeti. Üç ana zaman dilimi anılır: duluk (öğleden akşama), ğasak (gece), fecr (sabah). Sünnet-i mütevâtire bu çerçeveyi beş vakit olarak tafsil eder.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Hud 11:114",
-        "ar": "وَاَقِمِ الصَّلٰوةَ طَرَفَيِ النَّهَارِ وَزُلَفاً مِنَ الَّيْلِ اِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّـَٔاتِ ذٰلِكَ ذِكْرٰى لِلذَّاكِرِينَ",
-        "tr": "Gündüzün iki ucunda ve gecenin yakınlarında namaz kıl. Muhakkak iyilikler kötülükleri giderir. Bu, düşünenler için bir öğüttür.",
-        "en": "Establish prayer at the two ends of the day and at the approach of the night. Indeed, good deeds do away with misdeeds.",
-        "not": "İkinci vakit çerçevesi ayeti — 'gündüzün iki ucu' sabah ve akşamı, 'gecenin yakınları' ise yatsı vaktini işaret eder. İyilik-kötülük dengesi teması namaz'ın ahlâkî etkisini vurgular.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Nisa 4:103",
-        "ar": "فَاِذَا قَضَيْتُمُ الصَّلٰوةَ فَاذْكُرُوا اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِكُمْ فَاِذَا اطْمَأْنَنْتُمْ فَاَقِيمُوا الصَّلٰوةَ اِنَّ الصَّلٰوةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَاباً مَوْقُوتاً",
-        "tr": "Namazı bitirince Allah'ı ayakta, oturarak ve yanlarınız üzerinde anın. Güvene kavuştuğunuzda namazı dosdoğru kılın. Şüphesiz namaz, müminler üzerine vakitleri belli bir farzdır.",
-        "en": "When you have completed prayer, remember Allah standing, sitting, or lying on your sides. When you are secure, establish prayer. Indeed, prayer has been decreed upon the believers a timed prescription.",
-        "not": "'Kitâben mevkûtâ' — vakti belirlenmiş bir farz. Namazın Kur'ân'daki farziyet bildirisi. Nisa'nın havf (korku) namazı bağlamında geldiği için Task 3'te 'eylemBaglam' altında da anılır.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Tâhâ 20:14",
-        "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
-        "tr": "Şüphesiz ben Allah'ım. Benden başka ilâh yoktur. O halde bana ibadet et ve beni anmak için namaz kıl.",
-        "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.",
-        "not": "Namazın Kur'ânî nihaî amacı: 'li-dhikrī' — beni anmak için. Eylem değil zikir esas; dış şekil araç, iç bağlantı hedef.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Mü'minûn 23:1",
-        "ar": "قَدْ اَفْلَحَ الْمُؤْمِنُونَ",
-        "tr": "Kurtuluşa erdi o müminler ki, onlar namazlarında huşû içindedirler.",
-        "en": "Certainly will the believers have succeeded — they who are during their prayer humbly submissive.",
-        "not": "Kurtuluşun ilk şartı olarak huşû'lu namaz. Kur'ân'da namazın iç boyutunun en açık vurgusu. Fıkhî geçerlilik değil, kurtuluşa götüren yaşayan namaz.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Ankebût 29:45",
-        "ar": "اُتْلُ مٓا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
-        "tr": "Sana vahyedilen Kitab'ı oku ve namaz kıl. Muhakkak namaz fahşadan ve münkerden alıkoyar. Allah'ı anmak ise (her şeyden) daha büyüktür.",
-        "en": "Recite what has been revealed to you of the Book and establish prayer. Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater.",
-        "not": "Namazın hayat üzerindeki ahlâkî etkisi — fahşâdan alıkoyma. 'Allah'ı anmak daha büyüktür' cümlesi Tâhâ 14'ün amaç-tesbitini tekrar eder.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Mâûn 107:4",
-        "ar": "فَوَيْلٌ لِلْمُصَلِّينَ",
-        "tr": "Vay o namaz kılanların haline!",
-        "en": "So woe to those who pray!",
-        "not": "Mâûn 107:4-6 — 'namazlarından gafil olan, gösteriş yapan, en küçük yardımı bile esirgeyenler'. Kur'ân dış şekilli ama iç bağlantısız namazı sert biçimde eleştirir.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      }
-    ],
-    "eylemBaglam": [
-      {
-        "ref": "Bakara 2:144",
-        "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُوتُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
-        "tr": "Yüzünü göğe çevirdiğini muhakkak görüyoruz. Elbette seni memnun olacağın kıbleye döndüreceğiz. Artık yüzünü Mescid-i Harâm tarafına çevir.",
-        "en": "We have certainly seen the turning of your face toward the heaven. So We will surely turn you to a qibla with which you will be pleased. So turn your face toward al-Masjid al-Ḥarām.",
-        "sceneTr": "Kıble değişimi — Mescid-i Aksâ'dan Kâbe'ye. Namazın mekân eksenini kuran anahtar ayet (Bakara 2:142-150 tam ayet grubu).",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      },
-      {
-        "ref": "Nisa 4:102",
-        "ar": "وَاِذَا كُنْتَ فِيهِمْ فَاَقَمْتَ لَهُمُ الصَّلٰوةَ فَلْتَقُمْ طٓائِفَةٌ مِنْهُمْ مَعَكَ وَلْيَأْخُذٓوا اَسْلِحَتَهُمْ فَاِذَا سَجَدُوا فَلْيَكُونُوا مِنْ وَرٓائِكُمْ وَلْتَأْتِ طٓائِفَةٌ اُخْرٰى لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَاَسْلِحَتَهُمْ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ اَسْلِحَتِكُمْ وَاَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُمْ مَيْلَةً وَاحِدَةً وَلَا جُنَاحَ عَلَيْكُمْ اِنْ كَانَ بِكُمْ اَذًى مِنْ مَطَرٍ اَوْ كُنْتُمْ مَرْضٰٓى اَنْ تَضَعٓوا اَسْلِحَتَكُمْ وَخُذُوا حِذْرَكُمْ اِنَّ اللّٰهَ اَعَدَّ لِلْكَافِرِينَ عَذَاباً مُهِيناً",
-        "tr": "İçlerinde bulunup da onlara namaz kıldıracağın zaman, bir bölük seninle namaz kılıp silahlarını alsınlar. Secdeye vardıklarında (diğerleri) arkanızda dursunlar.",
-        "en": "When you are among them and lead them in prayer, let a group of them stand with you and take up their arms.",
-        "sceneTr": "Havf (korku) namazı — savaş ortamında namaz düzenlemesi. İlahi ruhsat; namaz'ın hiçbir şart altında terkedilmediğinin göstergesi.",
-        "claimType": "quran_explicit",
-        "confidence": "high"
-      }
-    ]
-  },
   "rakamsalMimari": {
     "titleTr": "Kur'ân İlkeyi Koyar, Sünnet Tafsil Eder",
     "framingTr": "Bu bölüm 'Kur'ân eksik, fıkıh ekledi' iddiası DEĞİLDİR. Kur'ân genel bir zaman çerçevesi ve iç boyut vurgusu verir; sünnet-i mütevâtire ve icma bu çerçeveyi beş vakit ve rekâat düzeni olarak detaylandırır. İkisi birbirini tamamlar; ayrılmaz bir bütündür.",
@@ -1366,5 +1270,101 @@
       "noteTr": "Kur'ân'ın īmān–kufr eksenli ahlâkî-dinî terminolojisinin semantik alan analizi; özellikle 'God and Man' bölümünde ʿabd/ʿibāda ilişkisi ele alınır. Namazın 'ahlâkî-dinî kavramlar dizisinin bir düğüm noktası' olarak sunulmasının modern dilbilimsel çerçevesidir.",
       "noteEn": "A semantic-field analysis of the Qur'an's ethico-religious terminology on the īmān/kufr axis; the 'God and Man' section engages the ʿabd/ʿibāda relation in particular. The modern linguistic backbone for framing prayer as a node in that ethico-religious lexicon."
     }
-  ]
+  ],
+  "anaPasajlar": {
+    "ayetler": [
+      {
+        "ref": "Bakara 2:238",
+        "ar": "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلٰوةِ الْوُسْطٰى وَقُومُوا لِلّٰهِ قَانِتِينَ",
+        "tr": "Namazlara ve orta namaza devam edin; Allah'a boyun eğerek namaza durun.",
+        "en": "Guard the prayers, especially the middle prayer, and stand before Allah devoutly obedient.",
+        "not": "Râzî bu ayette 'orta namaz' (ṣalât al-vustâ) hakkında 4 farklı yorum sunar: ikindi, öğle, sabah veya akşam. İhtilaf tefsir geleneği içindedir; ayet 'namazların özellikle korunmasını' emreder.",
+        "claimType": "tafsir_tradition",
+        "confidence": "high"
+      },
+      {
+        "ref": "İsra 17:78",
+        "ar": "اَقِمِ الصَّلٰوةَ لِدُلُوكِ الشَّمْسِ اِلٰى غَسَقِ الَّيْلِ وَقُرْاٰنَ الْفَجْرِ اِنَّ قُرْاٰنَ الْفَجْرِ كَانَ مَشْهُوداً",
+        "tr": "Güneşin duluk'undan (batıya meyli) gecenin karanlığına kadar namaz kıl, sabahın Kur'ân'ını da; muhakkak sabahın Kur'ân'ı şahitlidir.",
+        "en": "Establish prayer at the decline of the sun until the darkness of the night, and the Qur'an of dawn — indeed, the recitation of dawn is witnessed.",
+        "not": "Kur'ân'da namaz vakit çerçevesinin en açık ayeti. Üç ana zaman dilimi anılır: duluk (öğleden akşama), ğasak (gece), fecr (sabah). Sünnet-i mütevâtire bu çerçeveyi beş vakit olarak tafsil eder.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Hud 11:114",
+        "ar": "وَاَقِمِ الصَّلٰوةَ طَرَفَيِ النَّهَارِ وَزُلَفاً مِنَ الَّيْلِ اِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّـَٔاتِ ذٰلِكَ ذِكْرٰى لِلذَّاكِرِينَ",
+        "tr": "Gündüzün iki ucunda ve gecenin yakınlarında namaz kıl. Muhakkak iyilikler kötülükleri giderir. Bu, düşünenler için bir öğüttür.",
+        "en": "Establish prayer at the two ends of the day and at the approach of the night. Indeed, good deeds do away with misdeeds.",
+        "not": "İkinci vakit çerçevesi ayeti — 'gündüzün iki ucu' sabah ve akşamı, 'gecenin yakınları' ise yatsı vaktini işaret eder. İyilik-kötülük dengesi teması namaz'ın ahlâkî etkisini vurgular.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Nisa 4:103",
+        "ar": "فَاِذَا قَضَيْتُمُ الصَّلٰوةَ فَاذْكُرُوا اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِكُمْ فَاِذَا اطْمَأْنَنْتُمْ فَاَقِيمُوا الصَّلٰوةَ اِنَّ الصَّلٰوةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَاباً مَوْقُوتاً",
+        "tr": "Namazı bitirince Allah'ı ayakta, oturarak ve yanlarınız üzerinde anın. Güvene kavuştuğunuzda namazı dosdoğru kılın. Şüphesiz namaz, müminler üzerine vakitleri belli bir farzdır.",
+        "en": "When you have completed prayer, remember Allah standing, sitting, or lying on your sides. When you are secure, establish prayer. Indeed, prayer has been decreed upon the believers a timed prescription.",
+        "not": "'Kitâben mevkûtâ' — vakti belirlenmiş bir farz. Namazın Kur'ân'daki farziyet bildirisi. Nisa'nın havf (korku) namazı bağlamında geldiği için Task 3'te 'eylemBaglam' altında da anılır.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Tâhâ 20:14",
+        "ar": "اِنَّـنِٓي اَنَا اللّٰهُ لٓا اِلٰهَ اِلّٓا اَنَا فَاعْبُدْنِي وَاَقِمِ الصَّلٰوةَ لِذِكْرِي",
+        "tr": "Şüphesiz ben Allah'ım. Benden başka ilâh yoktur. O halde bana ibadet et ve beni anmak için namaz kıl.",
+        "en": "Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.",
+        "not": "Namazın Kur'ânî nihaî amacı: 'li-dhikrī' — beni anmak için. Eylem değil zikir esas; dış şekil araç, iç bağlantı hedef.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Mü'minûn 23:1",
+        "ar": "قَدْ اَفْلَحَ الْمُؤْمِنُونَ",
+        "tr": "Kurtuluşa erdi o müminler ki, onlar namazlarında huşû içindedirler.",
+        "en": "Certainly will the believers have succeeded — they who are during their prayer humbly submissive.",
+        "not": "Kurtuluşun ilk şartı olarak huşû'lu namaz. Kur'ân'da namazın iç boyutunun en açık vurgusu. Fıkhî geçerlilik değil, kurtuluşa götüren yaşayan namaz.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Ankebût 29:45",
+        "ar": "اُتْلُ مٓا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ  اَكْبَرُ  وَاللّٰهُ  يَعْلَمُ  مَا  تَصْنَعُونَ",
+        "tr": "Sana vahyedilen Kitab'ı oku ve namaz kıl. Muhakkak namaz fahşadan ve münkerden alıkoyar. Allah'ı anmak ise (her şeyden) daha büyüktür.",
+        "en": "Recite what has been revealed to you of the Book and establish prayer. Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater.",
+        "not": "Namazın hayat üzerindeki ahlâkî etkisi — fahşâdan alıkoyma. 'Allah'ı anmak daha büyüktür' cümlesi Tâhâ 14'ün amaç-tesbitini tekrar eder.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Mâûn 107:4",
+        "ar": "فَوَيْلٌ لِلْمُصَلِّينَ",
+        "tr": "Vay o namaz kılanların haline!",
+        "en": "So woe to those who pray!",
+        "not": "Mâûn 107:4-6 — 'namazlarından gafil olan, gösteriş yapan, en küçük yardımı bile esirgeyenler'. Kur'ân dış şekilli ama iç bağlantısız namazı sert biçimde eleştirir.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      }
+    ],
+    "eylemBaglam": [
+      {
+        "ref": "Bakara 2:144",
+        "ar": "قَدْ نَرٰى تَقَلُّبَ وَجْهِكَ فِي السَّمٓاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضٰيهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ وَاِنَّ الَّذِينَ اُوتُوا الْكِتَابَ لَيَعْلَمُونَ اَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ وَمَا اللّٰهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
+        "tr": "Yüzünü göğe çevirdiğini muhakkak görüyoruz. Elbette seni memnun olacağın kıbleye döndüreceğiz. Artık yüzünü Mescid-i Harâm tarafına çevir.",
+        "en": "We have certainly seen the turning of your face toward the heaven. So We will surely turn you to a qibla with which you will be pleased. So turn your face toward al-Masjid al-Ḥarām.",
+        "sceneTr": "Kıble değişimi — Mescid-i Aksâ'dan Kâbe'ye. Namazın mekân eksenini kuran anahtar ayet (Bakara 2:142-150 tam ayet grubu).",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      },
+      {
+        "ref": "Nisa 4:102",
+        "ar": "وَاِذَا كُنْتَ فِيهِمْ فَاَقَمْتَ لَهُمُ الصَّلٰوةَ فَلْتَقُمْ طٓائِفَةٌ مِنْهُمْ مَعَكَ وَلْيَأْخُذٓوا اَسْلِحَتَهُمْ فَاِذَا سَجَدُوا فَلْيَكُونُوا مِنْ وَرٓائِكُمْ وَلْتَأْتِ طٓائِفَةٌ اُخْرٰى لَمْ يُصَلُّوا فَلْيُصَلُّوا مَعَكَ وَلْيَأْخُذُوا حِذْرَهُمْ وَاَسْلِحَتَهُمْ وَدَّ الَّذِينَ كَفَرُوا لَوْ تَغْفُلُونَ عَنْ اَسْلِحَتِكُمْ وَاَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُمْ مَيْلَةً وَاحِدَةً وَلَا جُنَاحَ عَلَيْكُمْ اِنْ كَانَ بِكُمْ اَذًى مِنْ مَطَرٍ اَوْ كُنْتُمْ مَرْضٰٓى اَنْ تَضَعٓوا اَسْلِحَتَكُمْ وَخُذُوا حِذْرَكُمْ اِنَّ اللّٰهَ اَعَدَّ لِلْكَافِرِينَ عَذَاباً مُهِيناً",
+        "tr": "İçlerinde bulunup da onlara namaz kıldıracağın zaman, bir bölük seninle namaz kılıp silahlarını alsınlar. Secdeye vardıklarında (diğerleri) arkanızda dursunlar.",
+        "en": "When you are among them and lead them in prayer, let a group of them stand with you and take up their arms.",
+        "sceneTr": "Havf (korku) namazı — savaş ortamında namaz düzenlemesi. İlahi ruhsat; namaz'ın hiçbir şart altında terkedilmediğinin göstergesi.",
+        "claimType": "quran_explicit",
+        "confidence": "high"
+      }
+    ]
+  }
 }

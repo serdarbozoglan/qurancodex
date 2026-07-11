@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { surahNameTr } from '../lib/surahNames';
+import { surahName } from '../lib/surahNames';
 import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 
@@ -764,7 +764,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   </p>
                   {/* Reference */}
                   <p style={{ color: COLORS.slate600, fontSize: '0.72rem', margin: 0 }}>
-                    {surahNameTr(v.surah)} · {v.ayah}
+                    {surahName(v.surah, language)} · {v.ayah}
                   </p>
                 </div>
               ))}

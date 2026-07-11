@@ -115,7 +115,39 @@ const SURAH_NAMES_TR = [
   'El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn','En-Nasr',
   'Tebbet','El-İhlâs','El-Felak','En-Nâs',
 ];
-function surahNameTr(n) { return SURAH_NAMES_TR[n - 1] || ''; }
+// Locale-aware. isLocaleEn undefined/false → TR (backward compat), true → EN.
+// Search normalization çağrıları 2. argüman geçmediği için TR kalır (doğru davranış).
+function surahNameTr(n, isLocaleEn) { return (isLocaleEn ? SURAH_NAMES_EN : SURAH_NAMES_TR)[n - 1] || ''; }
+
+// EN mirror of SURAH_NAMES_TR (IJMES-Lite) — merkezî lib'den kopyalanmadı çünkü
+// VerseGraph çok sayıda kaynak hâlihazırda inline TR listesi kullanıyor; drift
+// önlemek için EN de burada. Ana kaynak next/src/lib/surahNames.js.
+const SURAH_NAMES_EN = [
+  'Al-Fatihah','Al-Baqarah','Aal-Imran','An-Nisa','Al-Maidah',
+  'Al-Anam','Al-Araf','Al-Anfal','At-Tawbah','Yunus',
+  'Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl',
+  'Al-Isra','Al-Kahf','Maryam','Ta-Ha','Al-Anbiya','Al-Hajj',
+  'Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml',
+  'Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab',
+  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir',
+  'Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf',
+  'Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur',
+  'An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah',
+  'Al-Hashr','Al-Mumtahanah','As-Saff','Al-Jumuah','Al-Munafiqun',
+  'At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqah',
+  'Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyamah',
+  'Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir',
+  'Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala',
+  'Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha',
+  'Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah',
+  'Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil',
+  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad',
+  'Al-Ikhlas','Al-Falaq','An-Nas',
+];
+// Locale-aware helper — TR default, EN sadece isLocaleEn=true olduğunda.
+// isLocaleEn parametresi çağıran component scope'undaki language === 'en'
+// değerini alır.
+function surahNameFor(n, isLocaleEn) { return (isLocaleEn ? SURAH_NAMES_EN : SURAH_NAMES_TR)[n - 1] || ''; }
 
 const SURAH_NAMES_AR = [
   'الفَاتِحَة','البَقَرَة','آل عِمْرَان','النِّسَاء','المَائِدَة','الأَنْعَام','الأَعْرَاف','الأَنْفَال','التَّوْبَة','يُونُس',
@@ -636,7 +668,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
   const placeholder = allowAll
     ? (language === 'tr' ? 'Tüm Sûreler' : 'All Surahs')
     : (language === 'tr' ? 'Sûreye git…' : 'Go to surah…');
-  const currentLabel = value ? `${value}. ${surahNameTr(value)}` : placeholder;
+  const currentLabel = value ? `${value}. ${surahNameTr(value, language === 'en')}` : placeholder;
 
   // Filter surahs by number or name
   const filteredSurahs = (() => {
@@ -750,7 +782,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
                     </span>
                     <div style={{ minWidth: 0 }}>
                       <div style={{ color: nameColor, fontSize: '0.78rem', fontWeight: isSelected ? 700 : 400, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        {surahNameTr(s)}
+                        {surahNameTr(s, language === 'en')}
                       </div>
                       <div style={{ color: '#4a5568', fontSize: '0.6rem', marginTop: '1px' }}>
                         {SURAH_AYAH_COUNTS[s - 1]} {language === 'tr' ? 'ayet' : 'verses'}
@@ -1060,7 +1092,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700 }}>→ AYET</span>
                       <span style={{ color: COLORS.gold, fontWeight: 700 }}>{v.id}</span>
-                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah, language === 'en')}</span>
                     </div>
                     <div style={{ color: COLORS.silver, fontSize: '0.72rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
                   </button>
@@ -1086,7 +1118,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                       <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.78rem' }}>{v.id}</span>
-                      <span style={{ color: COLORS.slate500, fontSize: '0.7rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.slate500, fontSize: '0.7rem' }}>{surahNameTr(v.surah, language === 'en')}</span>
                     </div>
                     <div style={{ color: COLORS.silver, fontSize: '0.71rem', lineHeight: 1.4 }}>{vt?.slice(0, 70)}...</div>
                   </button>
@@ -1219,7 +1251,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     fontSize={Math.max(6, Math.min(9, r * 0.3))} fontWeight="400"
                     fill="#fff" fillOpacity={isHov ? 0.95 : 0.65}
                     style={{ pointerEvents: 'none', userSelect: 'none', transition: 'opacity 0.15s' }}>
-                    {surahNameTr(c.surah)}
+                    {surahNameTr(c.surah, language === 'en')}
                   </text>
                 )}
                 {/* External label — only for small bubbles (always) or hover state */}
@@ -1235,7 +1267,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                         fontSize={isHov ? 11 : 9} fontWeight={isHov ? '600' : '400'}
                         fill={isHov ? color : COLORS.silver} fillOpacity={isHov ? 1 : 0.7}
                         style={{ pointerEvents: 'none', userSelect: 'none', transition: `all ${TRANSITION.fast}` }}>
-                        {surahNameTr(c.surah)}
+                        {surahNameTr(c.surah, language === 'en')}
                       </text>
                       {isHov && (
                         <text x={x} y={countY} textAnchor="middle"
@@ -1303,7 +1335,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
               return (
                 <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <span style={{ color: isActive ? COLORS.gold : COLORS.slate500, fontSize: '0.68rem', fontWeight: 700, minWidth: '22px' }}>{s}.</span>
-                  <span style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.75rem', flex: 1, fontWeight: isActive ? 600 : 400 }}>{surahNameTr(s)}</span>
+                  <span style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.75rem', flex: 1, fontWeight: isActive ? 600 : 400 }}>{surahNameTr(s, language === 'en')}</span>
                   {cl && <span style={{ color: '#4a5568', fontSize: '0.63rem' }}>{cl.count}</span>}
                 </div>
               );
@@ -1512,7 +1544,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
             >‹</button>
           )}
           <div style={{ ...OVERLAY_TITLE, fontSize: '1.35rem', lineHeight: 1.2, flex: 1, textAlign: 'center' }}>
-            {surah}. {SURAH_NAMES_TR[surah - 1]}
+            {surah}. {surahNameTr(surah, language === 'en')}
           </div>
           {onNavigate && (
             <button onClick={() => onNavigate(1)} disabled={surah >= 114} title={language === 'tr' ? 'Sonraki sûre' : 'Next surah'}
@@ -1608,7 +1640,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
                 <div style={{ flex: 1, background: COLORS.glassBg, borderRadius: RADIUS.xs, height: '5px', overflow: 'hidden' }}>
                   <div style={{ height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.5), ${gold})`, width: `${pct}%`, borderRadius: RADIUS.xs }} />
                 </div>
-                <span style={{ color: '#8fa3b8', fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s)}</span>
+                <span style={{ color: '#8fa3b8', fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s, language === 'en')}</span>
                 <span style={{ color: COLORS.slate500, fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
               </div>
                 );
@@ -2342,7 +2374,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ color: COLORS.gold, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.05em' }}>→ AYET</span>
                       <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.82rem' }}>{v.id}</span>
-                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah)}</span>
+                      <span style={{ color: COLORS.silver, fontSize: '0.75rem' }}>{surahNameTr(v.surah, language === 'en')}</span>
                     </div>
                     <div style={{ color: COLORS.silver, fontSize: '0.73rem', lineHeight: 1.4 }}>{vt?.slice(0, 80)}...</div>
                   </button>
@@ -2415,7 +2447,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           padding: '24px', overflowY: 'auto',
         }}>
           <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
-            {surahNameTr(filterSurah)} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
+            {surahNameTr(filterSurah, language === 'en')} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%', maxWidth: '480px' }}>
             {graphData.nodes.filter(n => !n.ghost).map(node => (
@@ -2440,7 +2472,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         warmupTicks={0} cooldownTicks={10}
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
-        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah)}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
+        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
         linkColor={linkColor}
         linkOpacity={1}
         linkWidth={linkWidth}
@@ -2883,7 +2915,7 @@ function VerseAudioPlayer({ surah, ayah, language }) {
 function ShareModal({ node, language, onClose }) {
   const [copied, setCopied] = useState(false);
   const vt = language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish));
-  const surahName = surahNameTr(node.surah);
+  const surahName = surahNameTr(node.surah, language === 'en');
   const ref = `— ${surahName}, ${node.id}`;
 
   const shareText = `${node.arabic}\n\n"${vt}"\n${ref}`;
@@ -3038,7 +3070,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
           >‹</button>
           <div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-              <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem' }}>{surahNameTr(node.surah)}</span>
+              <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '1.1rem' }}>{surahNameTr(node.surah, language === 'en')}</span>
               <span style={{ color: '#c9a227', fontWeight: 800, fontSize: '1rem', letterSpacing: '0.02em' }}>{node.id}</span>
             </div>
             {connections.length > 0 && (
@@ -3166,7 +3198,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                 {/* Header row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ color: COLORS.gold, fontSize: '0.85rem', fontWeight: 600 }}>{surahNameTr(c.verse.surah)}</span>
+                    <span style={{ color: COLORS.gold, fontSize: '0.85rem', fontWeight: 600 }}>{surahNameTr(c.verse.surah, language === 'en')}</span>
                     <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{c.id}</span>
                   </div>
                   <span

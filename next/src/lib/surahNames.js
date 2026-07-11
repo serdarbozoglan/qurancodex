@@ -21,7 +21,42 @@ export const SURAH_NAMES_TR = [
   'Tebbet','El-İhlâs','El-Felak','En-Nâs',
 ];
 
+// EN: IJMES-Lite transliteration standardı — ReadingMode.jsx:645'teki listeyle
+// birebir aynı. Sun letter asimilasyonu (Al-/Ar-/As-/At-...) tutarlı uygulanmış.
+export const SURAH_NAMES_EN = [
+  'Al-Fatihah','Al-Baqarah','Aal-Imran','An-Nisa','Al-Maidah',
+  'Al-Anam','Al-Araf','Al-Anfal','At-Tawbah','Yunus',
+  'Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl',
+  'Al-Isra','Al-Kahf','Maryam','Ta-Ha','Al-Anbiya','Al-Hajj',
+  'Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml',
+  'Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab',
+  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir',
+  'Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf',
+  'Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur',
+  'An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah',
+  'Al-Hashr','Al-Mumtahanah','As-Saff','Al-Jumuah','Al-Munafiqun',
+  'At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqah',
+  'Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyamah',
+  'Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir',
+  'Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala',
+  'Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha',
+  'Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah',
+  'Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil',
+  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad',
+  'Al-Ikhlas','Al-Falaq','An-Nas',
+];
+
 /** Returns Turkish surah name by 1-based surah number */
 export function surahNameTr(surahNumber) {
   return SURAH_NAMES_TR[surahNumber - 1] || `${surahNumber}. Sûre`;
+}
+
+/** Returns English surah name by 1-based surah number */
+export function surahNameEn(surahNumber) {
+  return SURAH_NAMES_EN[surahNumber - 1] || `Sūra ${surahNumber}`;
+}
+
+/** Returns locale-aware surah name. locale: 'tr' | 'en'. */
+export function surahName(surahNumber, locale) {
+  return locale === 'en' ? surahNameEn(surahNumber) : surahNameTr(surahNumber);
 }
