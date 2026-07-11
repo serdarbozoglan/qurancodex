@@ -482,7 +482,7 @@
         "arabic": "النُّسُك",
         "yukumlulukTr": "Vâcib (Hanefî) / Müekkede (diğer 3 mezhep)",
         "yukumlulukEn": "Wājib (Ḥanafī) / Muʾakkada (other three schools)",
-        "kategoriTr": "Malî + Ritüelî",
+        "kategoriTr": "Malî + Biçimsel",
         "kategoriEn": "Material + Ritual",
         "sunnetTafsilTr": "Bayram · üleşim · teşrik",
         "sunnetTafsilEn": "ʿĪd · sharing · tashrīq",
@@ -560,7 +560,7 @@
             "hintEn": "A map from the Qur'an's own vocabulary."
           },
           {
-            "labelTr": "3. Ana Ayetler tab — Kur'ânî pasajlar",
+            "labelTr": "3. Ana Ayetler tab — Kur'ânî ayet grupları",
             "href": "/atlas/ibadetler/namaz?tab=pasajlar",
             "hintTr": "8 anchor ayet ve bağlam.",
             "labelEn": "3. Key Verses tab — Qur'anic anchor verses",

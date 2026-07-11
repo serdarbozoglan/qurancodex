@@ -1,6 +1,6 @@
 'use client';
 // İbadetler shared pillar layout — spec §3.2 + §5.1 + §5.2.
-// 7 tab yapısı (Genel / Semantik / Pasajlar / Mimari / Peygamberler / İçBoyut / Kaynaklar)
+// 7 tab yapısı (Genel / Semantik / Ayet Grupları / Mimari / Peygamberler / İçBoyut / Kaynaklar)
 // + visibleTabs filter (hafif pillar'da boş tab render edilmez)
 // + URL query param tab state (deep-linkable)
 // + URL fallback (geçersiz ?tab=X → Tab 1)
@@ -20,7 +20,7 @@ import SourcesCitation from './SourcesCitation';
 const TAB_DEFS = [
   { key: 'genel',         titleTr: 'Genel Bakış',       titleEn: 'Overview',           dataKey: 'genelBakis' },
   { key: 'semantik',      titleTr: 'Semantik Alan',     titleEn: 'Semantic Field',     dataKey: 'kuraniIsimler' },
-  { key: 'pasajlar',      titleTr: 'Ana Ayetler',       titleEn: 'Key Verses',         dataKey: 'anaPasajlar' },
+  { key: 'ayet-gruplari',      titleTr: 'Ana Ayetler',       titleEn: 'Key Verses',         dataKey: 'anaPasajlar' },
   { key: 'ozel-namazlar', titleTr: 'Özel Namazlar',     titleEn: 'Special Prayers',    dataKey: 'ozelNamazlar' },
   { key: 'vakit-mekan',   titleTr: 'Vakit ve Mekân',    titleEn: 'Time and Space',     dataKey: 'vakitMekan' },
   { key: 'kiraat',        titleTr: 'Namazın Sözü',      titleEn: 'The Word of Prayer', dataKey: 'kiraatBoyutu' },
@@ -286,7 +286,7 @@ function PillarTabBody({ tabKey, pillarData, language, isMobile }) {
   switch (tabKey) {
     case 'genel':          return <TabGenel          data={pillarData.genelBakis}              language={language} isMobile={isMobile} pillarData={pillarData} />;
     case 'semantik':       return <TabSemantik       data={pillarData.kuraniIsimler}           language={language} isMobile={isMobile} />;
-    case 'pasajlar':       return <TabPasajlar       data={pillarData.anaPasajlar}             language={language} isMobile={isMobile} />;
+    case 'ayet-gruplari':       return <TabPasajlar       data={pillarData.anaPasajlar}             language={language} isMobile={isMobile} />;
     case 'ozel-namazlar':  return <TabOzelNamazlar   data={pillarData.ozelNamazlar}            language={language} isMobile={isMobile} />;
     case 'vakit-mekan':    return <TabVakitMekan     data={pillarData.vakitMekan}              language={language} isMobile={isMobile} />;
     case 'kiraat':         return <TabKiraat         data={pillarData.kiraatBoyutu}            language={language} isMobile={isMobile} />;

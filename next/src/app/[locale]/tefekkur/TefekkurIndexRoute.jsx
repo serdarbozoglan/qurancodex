@@ -207,7 +207,7 @@ export default function TefekkurIndexRoute() {
               fontStyle: 'italic',
             }}>
               {tr
-                ? <>Bu metinler klasik tefsir konsensüsü değil, <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>yazarın şahsi içtihad ve okuma denemeleri</strong>dir. Alternatif klasik yorumlar mevcuttur; tartışmalı pasajlar makale içinde <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>&quot;alternatif okuma&quot;</strong> kutularıyla nazikçe işaret edilmiştir.</>
+                ? <>Bu metinler klasik tefsir konsensüsü değil, <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>yazarın şahsi içtihad ve okuma denemeleri</strong>dir. Alternatif klasik yorumlar mevcuttur; tartışmalı ayet grupları makale içinde <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>&quot;alternatif okuma&quot;</strong> kutularıyla nazikçe işaret edilmiştir.</>
                 : <>These are not the consensus of classical tafsīr but the <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>author&apos;s personal ijtihād and reading-attempts</strong>. Alternative classical readings exist; contested passages are gently flagged within the essays with <strong style={{ color: COLORS.gold, fontStyle: 'normal' }}>&quot;alternative reading&quot;</strong> callouts.</>}
             </p>
           </div>
