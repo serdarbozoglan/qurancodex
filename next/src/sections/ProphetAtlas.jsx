@@ -2431,7 +2431,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
             borderRadius: RADIUS.md,
           }}>
             <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: '0.85rem', lineHeight: 1.7, margin: 0 }}>
-              <span style={{ color: 'rgba(212,165,116,0.85)', fontWeight: 700, marginRight: '6px' }}>Not:</span>
+              <span style={{ color: 'rgba(212,165,116,0.85)', fontWeight: 700, marginRight: '6px' }}>{tr('Not:', 'Note:')}</span>
               {tr(
                 'Peygamber kıssaları Kur\'an\'da tek bir döneme sınırlı değildir; bir peygamber hem Mekkî hem Medenî sûrelerde yer alabilir. Bu tablo, her kıssanın en yoğun işlendiği nüzul ortamını ve Siyer\'deki psikolojik karşılığını esas almaktadır.',
                 "Prophet narratives in the Quran are not confined to a single period; a prophet may appear in both Meccan and Medinan surahs. This table focuses on the revelation context in which each narrative was most intensively developed, and its psychological parallel in the Sira.",

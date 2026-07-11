@@ -3202,7 +3202,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
                     <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{c.id}</span>
                   </div>
                   <span
-                    title="Kosinüs benzerlik skoru (0–1 arası, 1 = tam eşleşme)"
+                    title={language === 'tr' ? 'Kosinüs benzerlik skoru (0–1 arası, 1 = tam eşleşme)' : 'Cosine similarity score (0–1, where 1 = exact match)'}
                     style={{ color: '#c9a227', fontSize: '0.8rem', fontWeight: 700, flexShrink: 0, cursor: 'help' }}
                   >{(c.score).toFixed(2)}</span>
                 </div>

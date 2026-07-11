@@ -304,7 +304,12 @@ function ClaimTypeBadge({ claimType, confidence, language, small = true }) {
   const style = IBADET_CLAIM_TYPE_STYLES[claimType];
   if (!style) return null;
   const confStyle = IBADET_CONFIDENCE_STYLES[confidence];
-  const confTitle = confidence === 'high' ? 'Yüksek güvenlik' : confidence === 'medium' ? 'Orta güvenlik' : confidence === 'low' ? 'Düşük güvenlik' : '';
+  const CONF_LABELS = {
+    high:   { tr: 'Yüksek güvenlik', en: 'High confidence' },
+    medium: { tr: 'Orta güvenlik',   en: 'Medium confidence' },
+    low:    { tr: 'Düşük güvenlik',  en: 'Low confidence' },
+  };
+  const confTitle = CONF_LABELS[confidence]?.[language] ?? '';
   return (
     <span
       title={confTitle || undefined}

@@ -243,9 +243,19 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
           color: COLORS.silver, fontSize: '0.78rem',
           fontStyle: 'italic', opacity: 0.75,
         }}>
-          {language === 'tr'
-            ? `${pillars.filter(p => p.status === 'ready').length}/${pillars.length} hazır — kalanı hazırlanıyor`
-            : `${pillars.filter(p => p.status === 'ready').length}/${pillars.length} ready — others coming soon`}
+          {(() => {
+            const readyCount = pillars.filter(p => p.status === 'ready').length;
+            const total = pillars.length;
+            const allReady = readyCount === total;
+            if (language === 'tr') {
+              return allReady
+                ? `${readyCount}/${total} sütun hazır`
+                : `${readyCount}/${total} hazır — kalanı hazırlanıyor`;
+            }
+            return allReady
+              ? `${readyCount}/${total} pillars ready`
+              : `${readyCount}/${total} ready — others coming soon`;
+          })()}
         </div>
       </div>
       <div style={{

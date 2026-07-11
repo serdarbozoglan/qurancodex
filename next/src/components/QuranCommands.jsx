@@ -113,7 +113,7 @@ export default function QuranCommands({ onClose }) {
 
   if (!data) return (
     <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>Yükleniyor...</div>
+      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>
     </div>
   );
 
