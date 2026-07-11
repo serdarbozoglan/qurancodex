@@ -55,7 +55,7 @@
   "isimler": [
     {
       "isim": "Allah",
-      "arapca": "ٱللَّه",
+      "arapca": "اللَّه",
       "okunus": "Allah",
       "anlam": "Yüce yaratıcının özel adı (lafza-i celâl)",
       "aciklama": "İsm-i a'zam, zâtın özel adı",
@@ -149,7 +149,7 @@
     },
     {
       "isim": "El-Hakk",
-      "arapca": "ٱلْحَقّ",
+      "arapca": "الْحَقّ",
       "okunus": "al-Hakk",
       "anlam": "Varlığı ve hâkimiyeti gerçek olan",
       "aciklama": "Mutlak gerçek olan",
@@ -243,7 +243,7 @@
     },
     {
       "isim": "El-Alîm",
-      "arapca": "ٱلْعَلِيم",
+      "arapca": "الْعَلِيم",
       "okunus": "al-Alîm",
       "anlam": "Her şeyi hakkıyla bilen",
       "aciklama": "Gizli açık her şeyi bilen",
@@ -337,7 +337,7 @@
     },
     {
       "isim": "Er-Rahîm",
-      "arapca": "ٱلرَّحِيم",
+      "arapca": "الرَّحِيم",
       "okunus": "ar-Rahîm",
       "anlam": "Çok merhametli, bağışlayan",
       "aciklama": "Âhirette müminlere özel merhamet eden",
@@ -431,7 +431,7 @@
     },
     {
       "isim": "El-Azîm",
-      "arapca": "ٱلْعَظِيم",
+      "arapca": "الْعَظِيم",
       "okunus": "al-Azîm",
       "anlam": "Pek yüce, azamet sahibi",
       "aciklama": "Büyüklükte sınırsız",
@@ -525,7 +525,7 @@
     },
     {
       "isim": "El-Azîz",
-      "arapca": "ٱلْعَزِيز",
+      "arapca": "الْعَزِيز",
       "okunus": "al-Azîz",
       "anlam": "Mutlak galip, izzet sahibi, yenilmez",
       "aciklama": "Her şeye galip, asla mağlup olmayan",
@@ -619,7 +619,7 @@
     },
     {
       "isim": "El-Hakîm",
-      "arapca": "ٱلْحَكِيم",
+      "arapca": "الْحَكِيم",
       "okunus": "al-Hakîm",
       "anlam": "Her işi hikmetli olan",
       "aciklama": "Hikmet sahibi",
@@ -713,7 +713,7 @@
     },
     {
       "isim": "El-Gafûr",
-      "arapca": "ٱلْغَفُور",
+      "arapca": "الْغَفُور",
       "okunus": "al-Gafûr",
       "anlam": "Çok bağışlayıcı, mağfireti bol",
       "aciklama": "Günahları örtüp affeden",
@@ -807,7 +807,7 @@
     },
     {
       "isim": "El-Melik",
-      "arapca": "ٱلْمَلِك",
+      "arapca": "الْمَلِك",
       "okunus": "al-Melik",
       "anlam": "Mülkün ve her şeyin sahibi, hükümran",
       "aciklama": "Bütün kâinatın gerçek mâliki ve hükümdarı",
@@ -901,7 +901,7 @@
     },
     {
       "isim": "El-Veliyy",
-      "arapca": "ٱلْوَلِيّ",
+      "arapca": "الْوَلِيّ",
       "okunus": "al-Veliyy",
       "anlam": "Dost, yardımcı, koruyucu",
       "aciklama": "Müminlerin dostu ve yardımcısı",
@@ -995,7 +995,7 @@
     },
     {
       "isim": "Er-Rahmân",
-      "arapca": "ٱلرَّحْمَٰن",
+      "arapca": "الرَّحْمَٰن",
       "okunus": "ar-Rahmân",
       "anlam": "Rahmeti her şeyi kuşatan, esirgeyen",
       "aciklama": "Dünyada tüm yaratılmışlara merhamet eden",
@@ -1089,7 +1089,7 @@
     },
     {
       "isim": "El-Hâdî",
-      "arapca": "ٱلْهَادِي",
+      "arapca": "الْهَادِي",
       "okunus": "al-Hâdî",
       "anlam": "Hidayet veren, doğru yola ileten",
       "aciklama": "Doğru yola ileten",
@@ -1183,7 +1183,7 @@
     },
     {
       "isim": "El-Basîr",
-      "arapca": "ٱلْبَصِير",
+      "arapca": "الْبَصِير",
       "okunus": "al-Basîr",
       "anlam": "Her şeyi gören",
       "aciklama": "Gizli açık her şeyi gören",
@@ -1277,7 +1277,7 @@
     },
     {
       "isim": "Es-Semî'",
-      "arapca": "ٱلسَّمِيع",
+      "arapca": "السَّمِيع",
       "okunus": "as-Semî'",
       "anlam": "Her şeyi işiten",
       "aciklama": "Bütün sesleri işiten",
@@ -1371,7 +1371,7 @@
     },
     {
       "isim": "El-Habîr",
-      "arapca": "ٱلْخَبِير",
+      "arapca": "الْخَبِير",
       "okunus": "al-Habîr",
       "anlam": "Her şeyden haberdar olan",
       "aciklama": "İçyüzünden haberdar olan",
@@ -1465,7 +1465,7 @@
     },
     {
       "isim": "Er-Rezzâk",
-      "arapca": "ٱلرَّزَّاق",
+      "arapca": "الرَّزَّاق",
       "okunus": "ar-Rezzâk",
       "anlam": "Bütün canlıların rızkını veren",
       "aciklama": "Her mahlûkun rızkını üstlenen",
@@ -1559,7 +1559,7 @@
     },
     {
       "isim": "El-Kebîr",
-      "arapca": "ٱلْكَبِير",
+      "arapca": "الْكَبِير",
       "okunus": "al-Kebîr",
       "anlam": "Mutlak büyük",
       "aciklama": "Büyüklükte eşsiz",
@@ -1653,7 +1653,7 @@
     },
     {
       "isim": "Eş-Şehîd",
-      "arapca": "ٱلشَّهِيد",
+      "arapca": "الشَّهِيد",
       "okunus": "eş-Şehîd",
       "anlam": "Her şeye şahit olan",
       "aciklama": "Her şeye tanık",
@@ -1747,7 +1747,7 @@
     },
     {
       "isim": "El-Ehad",
-      "arapca": "ٱلْأَحَد",
+      "arapca": "الْأَحَد",
       "okunus": "al-Ehad",
       "anlam": "Bölünmez biricik, mutlak tek",
       "aciklama": "Zâtında mutlak tek",
@@ -1841,7 +1841,7 @@
     },
     {
       "isim": "El-Kâdir",
-      "arapca": "ٱلْقَادِر",
+      "arapca": "الْقَادِر",
       "okunus": "al-Kâdir",
       "anlam": "Her şeye gücü yeten",
       "aciklama": "Mutlak kudret sahibi",
@@ -1935,7 +1935,7 @@
     },
     {
       "isim": "El-Âhir",
-      "arapca": "ٱلْآخِر",
+      "arapca": "الْآخِر",
       "okunus": "al-Âhir",
       "anlam": "Sonu olmayan son",
       "aciklama": "Her şeyden sonra bâki kalan",
@@ -2029,7 +2029,7 @@
     },
     {
       "isim": "El-Kerîm",
-      "arapca": "ٱلْكَرِيم",
+      "arapca": "الْكَرِيم",
       "okunus": "al-Kerîm",
       "anlam": "Çok cömert, ikram sahibi",
       "aciklama": "Cömertliği sınırsız",
@@ -2123,7 +2123,7 @@
     },
     {
       "isim": "El-Gaffâr",
-      "arapca": "ٱلْغَفَّار",
+      "arapca": "الْغَفَّار",
       "okunus": "al-Gaffâr",
       "anlam": "Günahları çokça örten, bağışlayan",
       "aciklama": "Tekrar tekrar bağışlayan",
@@ -2217,7 +2217,7 @@
     },
     {
       "isim": "El-Vekîl",
-      "arapca": "ٱلْوَكِيل",
+      "arapca": "الْوَكِيل",
       "okunus": "al-Vekîl",
       "anlam": "İşleri kendisine tevdi edilen, kefil",
       "aciklama": "Güvenilip dayanılan",
@@ -2311,7 +2311,7 @@
     },
     {
       "isim": "El-Ganî",
-      "arapca": "ٱلْغَنِيّ",
+      "arapca": "الْغَنِيّ",
       "okunus": "al-Ganî",
       "anlam": "Hiçbir şeye muhtaç olmayan zengin",
       "aciklama": "Mutlak müstağni",
@@ -2405,7 +2405,7 @@
     },
     {
       "isim": "El-Muğnî",
-      "arapca": "ٱلْمُغْنِي",
+      "arapca": "الْمُغْنِي",
       "okunus": "al-Muğnî",
       "anlam": "Dilediğini zengin kılan",
       "aciklama": "İhtiyaçtan kurtaran",
@@ -2499,7 +2499,7 @@
     },
     {
       "isim": "El-Berr",
-      "arapca": "ٱلْبَرّ",
+      "arapca": "الْبَرّ",
       "okunus": "al-Berr",
       "anlam": "İyiliği ve ihsanı bol, lütufkâr",
       "aciklama": "İyilik ve ihsan kaynağı",
@@ -2611,7 +2611,7 @@
     },
     {
       "isim": "El-Hâlik",
-      "arapca": "ٱلْخَالِق",
+      "arapca": "الْخَالِق",
       "okunus": "al-Hâlik",
       "anlam": "Yoktan yaratan, takdir edip var eden",
       "aciklama": "Her şeyi ölçüyle yaratan",
@@ -2713,7 +2713,7 @@
     },
     {
       "isim": "El-Hamîd",
-      "arapca": "ٱلْحَمِيد",
+      "arapca": "الْحَمِيد",
       "okunus": "al-Hamîd",
       "anlam": "Her türlü övgüye lâyık",
       "aciklama": "Övgüye en lâyık olan",
@@ -2815,7 +2815,7 @@
     },
     {
       "isim": "En-Nâfi'",
-      "arapca": "ٱلنَّافِع",
+      "arapca": "النَّافِع",
       "okunus": "en-Nâfi'",
       "anlam": "Fayda veren",
       "aciklama": "Dilediğine fayda ulaştıran",
@@ -2917,7 +2917,7 @@
     },
     {
       "isim": "El-Halîm",
-      "arapca": "ٱلْحَلِيم",
+      "arapca": "الْحَلِيم",
       "okunus": "al-Halîm",
       "anlam": "Cezada acele etmeyen, yumuşak",
       "aciklama": "Hilm sahibi, müsamahakâr",
@@ -3009,7 +3009,7 @@
     },
     {
       "isim": "El-Câmi'",
-      "arapca": "ٱلْجَامِع",
+      "arapca": "الْجَامِع",
       "okunus": "al-Câmi'",
       "anlam": "Toplayan, bir araya getiren",
       "aciklama": "Mahşerde insanları toplayan",
@@ -3096,7 +3096,7 @@
     },
     {
       "isim": "Es-Selâm",
-      "arapca": "ٱلسَّلَام",
+      "arapca": "السَّلَام",
       "okunus": "as-Selâm",
       "anlam": "Esenlik veren, her kusurdan sâlim",
       "aciklama": "Selâmet kaynağı, kullarını esenliğe çıkaran",
@@ -3178,7 +3178,7 @@
     },
     {
       "isim": "El-Vâsi'",
-      "arapca": "ٱلْوَاسِع",
+      "arapca": "الْوَاسِع",
       "okunus": "al-Vâsi'",
       "anlam": "İlmi ve rahmeti geniş olan",
       "aciklama": "Lütfu ve ilmi her şeyi kuşatan",
@@ -3260,7 +3260,7 @@
     },
     {
       "isim": "Et-Tevvâb",
-      "arapca": "ٱلتَّوَّاب",
+      "arapca": "التَّوَّاب",
       "okunus": "et-Tevvâb",
       "anlam": "Tevbeleri çokça kabul eden",
       "aciklama": "Tevbeye dönüş kapısını açan",
@@ -3342,7 +3342,7 @@
     },
     {
       "isim": "Eş-Şekûr",
-      "arapca": "ٱلشَّكُور",
+      "arapca": "الشَّكُور",
       "okunus": "eş-Şekûr",
       "anlam": "Az amele çok karşılık veren",
       "aciklama": "Şükre bol mükâfat veren",
@@ -3419,7 +3419,7 @@
     },
     {
       "isim": "En-Nûr",
-      "arapca": "ٱلنُّور",
+      "arapca": "النُّور",
       "okunus": "en-Nûr",
       "anlam": "Göklerin ve yerin nuru, aydınlatan",
       "aciklama": "Hidayet ve aydınlık kaynağı",
@@ -3496,7 +3496,7 @@
     },
     {
       "isim": "El-Hakem",
-      "arapca": "ٱلْحَكَم",
+      "arapca": "الْحَكَم",
       "okunus": "al-Hakem",
       "anlam": "Mutlak hüküm veren, hakem",
       "aciklama": "Aralarında hükmeden yegâne hâkim",
@@ -3568,7 +3568,7 @@
     },
     {
       "isim": "El-Hafîz",
-      "arapca": "ٱلْحَفِيظ",
+      "arapca": "الْحَفِيظ",
       "okunus": "al-Hafîz",
       "anlam": "Koruyup gözeten, muhafaza eden",
       "aciklama": "Her şeyi koruyan",
@@ -3640,7 +3640,7 @@
     },
     {
       "isim": "El-Kaviyy",
-      "arapca": "ٱلْقَوِيّ",
+      "arapca": "الْقَوِيّ",
       "okunus": "al-Kaviyy",
       "anlam": "Mutlak kuvvet sahibi",
       "aciklama": "Kuvvette eşsiz",
@@ -3712,7 +3712,7 @@
     },
     {
       "isim": "El-Vâlî",
-      "arapca": "ٱلْوَالِي",
+      "arapca": "الْوَالِي",
       "okunus": "al-Vâlî",
       "anlam": "Kâinatı yöneten, idare eden",
       "aciklama": "Her şeyin yöneticisi",
@@ -3784,7 +3784,7 @@
     },
     {
       "isim": "Er-Raûf",
-      "arapca": "ٱلرَّؤُوف",
+      "arapca": "الرَّؤُوف",
       "okunus": "ar-Raûf",
       "anlam": "Çok şefkatli, müşfik",
       "aciklama": "Şefkati derin olan",
@@ -3856,7 +3856,7 @@
     },
     {
       "isim": "El-Bâsit",
-      "arapca": "ٱلْبَاسِط",
+      "arapca": "الْبَاسِط",
       "okunus": "al-Bâsit",
       "anlam": "Rızkı genişleten, açan",
       "aciklama": "Dilediğine genişlik veren",
@@ -3923,7 +3923,7 @@
     },
     {
       "isim": "El-Aliyy",
-      "arapca": "ٱلْعَلِيّ",
+      "arapca": "الْعَلِيّ",
       "okunus": "al-Aliyy",
       "anlam": "Pek yüce, üstün",
       "aciklama": "Her şeyin üstünde yüce",
@@ -3990,7 +3990,7 @@
     },
     {
       "isim": "El-Bâis",
-      "arapca": "ٱلْبَاعِث",
+      "arapca": "الْبَاعِث",
       "okunus": "al-Bâis",
       "anlam": "Ölüleri dirilten, gönderen",
       "aciklama": "Kıyamette dirilten",
@@ -4052,7 +4052,7 @@
     },
     {
       "isim": "El-Mümît",
-      "arapca": "ٱلْمُمِيت",
+      "arapca": "الْمُمِيت",
       "okunus": "al-Mümît",
       "anlam": "Ölümü yaratan, öldüren",
       "aciklama": "Eceli takdir edip öldüren",
@@ -4114,7 +4114,7 @@
     },
     {
       "isim": "El-Afüvv",
-      "arapca": "ٱلْعَفُوّ",
+      "arapca": "الْعَفُوّ",
       "okunus": "al-Afüvv",
       "anlam": "Günahları affeden, silen",
       "aciklama": "Affı bol olan",
@@ -4176,7 +4176,7 @@
     },
     {
       "isim": "Ed-Dârr",
-      "arapca": "ٱلضَّارّ",
+      "arapca": "الضَّارّ",
       "okunus": "ed-Dârr",
       "anlam": "Zarar verebilen (imtihan için)",
       "aciklama": "Dilerse zarar takdir eden",
@@ -4238,7 +4238,7 @@
     },
     {
       "isim": "El-Kahhâr",
-      "arapca": "ٱلْقَهَّار",
+      "arapca": "الْقَهَّار",
       "okunus": "al-Kahhâr",
       "anlam": "Her şeye boyun eğdiren, kahredici güç",
       "aciklama": "Mutlak galebe sahibi",
@@ -4295,7 +4295,7 @@
     },
     {
       "isim": "El-Mübdi'",
-      "arapca": "ٱلْمُبْدِئ",
+      "arapca": "الْمُبْدِئ",
       "okunus": "al-Mübdi'",
       "anlam": "İlk defa yoktan yaratan",
       "aciklama": "Yaratmayı başlatan",
@@ -4352,7 +4352,7 @@
     },
     {
       "isim": "El-Muîd",
-      "arapca": "ٱلْمُعِيد",
+      "arapca": "الْمُعِيد",
       "okunus": "al-Muîd",
       "anlam": "Yarattığını tekrar dirilten",
       "aciklama": "Yaratmayı tekrarlayan",
@@ -4409,7 +4409,7 @@
     },
     {
       "isim": "El-Hayy",
-      "arapca": "ٱلْحَيّ",
+      "arapca": "الْحَيّ",
       "okunus": "al-Hayy",
       "anlam": "Ezelî-ebedî diri, ölümsüz",
       "aciklama": "Daima diri olan",
@@ -4466,7 +4466,7 @@
     },
     {
       "isim": "El-Fettâh",
-      "arapca": "ٱلْفَتَّاح",
+      "arapca": "الْفَتَّاح",
       "okunus": "al-Fettâh",
       "anlam": "Hayır kapılarını açan, hükmeden",
       "aciklama": "Zorlukları açan, hak ile hükmeden",
@@ -4518,7 +4518,7 @@
     },
     {
       "isim": "El-Latîf",
-      "arapca": "ٱللَّطِيف",
+      "arapca": "اللَّطِيف",
       "okunus": "al-Latîf",
       "anlam": "En ince işleri bilen, lütufkâr",
       "aciklama": "İhsanı en ince yollarla ulaştıran",
@@ -4570,7 +4570,7 @@
     },
     {
       "isim": "Er-Râfi'",
-      "arapca": "ٱلرَّافِع",
+      "arapca": "الرَّافِع",
       "okunus": "ar-Râfi'",
       "anlam": "Yükselten, dereceleri yücelten",
       "aciklama": "Dilediğini yücelten",
@@ -4617,7 +4617,7 @@
     },
     {
       "isim": "El-Vâhid",
-      "arapca": "ٱلْوَاحِد",
+      "arapca": "الْوَاحِد",
       "okunus": "al-Vâhid",
       "anlam": "Tek olan, eşi olmayan",
       "aciklama": "Birliğinde eşsiz",
@@ -4664,7 +4664,7 @@
     },
     {
       "isim": "El-Mâni'",
-      "arapca": "ٱلْمَانِع",
+      "arapca": "الْمَانِع",
       "okunus": "al-Mâni'",
       "anlam": "Engelleyen, koruyan",
       "aciklama": "Dilediğini menfeden",
@@ -4711,7 +4711,7 @@
     },
     {
       "isim": "El-Bâkî",
-      "arapca": "ٱلْبَاقِي",
+      "arapca": "الْبَاقِي",
       "okunus": "al-Bâkî",
       "anlam": "Varlığı sürekli, ebedî",
       "aciklama": "Daima kalıcı olan",
@@ -4758,7 +4758,7 @@
     },
     {
       "isim": "El-Adl",
-      "arapca": "ٱلْعَدْل",
+      "arapca": "الْعَدْل",
       "okunus": "al-Adl",
       "anlam": "Mutlak adaletli, asla zulmetmeyen",
       "aciklama": "Adaletin kaynağı",
@@ -4800,7 +4800,7 @@
     },
     {
       "isim": "Er-Rakîb",
-      "arapca": "ٱلرَّقِيب",
+      "arapca": "الرَّقِيب",
       "okunus": "ar-Rakîb",
       "anlam": "Her şeyi gözetleyen, murakabe eden",
       "aciklama": "Her an gözetleyen",
@@ -4842,7 +4842,7 @@
     },
     {
       "isim": "El-Vâris",
-      "arapca": "ٱلْوَارِث",
+      "arapca": "الْوَارِث",
       "okunus": "al-Vâris",
       "anlam": "Her şeyin gerçek vârisi",
       "aciklama": "Her şey fâni olunca bâki kalan",
@@ -4884,7 +4884,7 @@
     },
     {
       "isim": "El-Hasîb",
-      "arapca": "ٱلْحَسِيب",
+      "arapca": "الْحَسِيب",
       "okunus": "al-Hasîb",
       "anlam": "Hesaba çeken, yeten",
       "aciklama": "Kâfi gelen ve hesap gören",
@@ -4921,7 +4921,7 @@
     },
     {
       "isim": "El-Mecîd",
-      "arapca": "ٱلْمَجِيد",
+      "arapca": "الْمَجِيد",
       "okunus": "al-Mecîd",
       "anlam": "Şanı yüce, şerefli",
       "aciklama": "Şan ve şeref sahibi",
@@ -4958,7 +4958,7 @@
     },
     {
       "isim": "El-Mü'min",
-      "arapca": "ٱلْمُؤْمِن",
+      "arapca": "الْمُؤْمِن",
       "okunus": "al-Mü'min",
       "anlam": "Güven veren, emniyet bahşeden",
       "aciklama": "Kullarına güven veren, vaadinde sâdık",
@@ -4990,7 +4990,7 @@
     },
     {
       "isim": "El-Vehhâb",
-      "arapca": "ٱلْوَهَّاب",
+      "arapca": "الْوَهَّاب",
       "okunus": "al-Vehhâb",
       "anlam": "Karşılıksız çokça veren, bağışlayan",
       "aciklama": "Sınırsız ihsanda bulunan",
@@ -5022,7 +5022,7 @@
     },
     {
       "isim": "El-Vedûd",
-      "arapca": "ٱلْوَدُود",
+      "arapca": "الْوَدُود",
       "okunus": "al-Vedûd",
       "anlam": "Çok seven, sevilen",
       "aciklama": "Sâlih kullarını seven",
@@ -5054,7 +5054,7 @@
     },
     {
       "isim": "El-Metîn",
-      "arapca": "ٱلْمَتِين",
+      "arapca": "الْمَتِين",
       "okunus": "al-Metîn",
       "anlam": "Çok sağlam, dayanıklı kudret",
       "aciklama": "Kudreti sarsılmaz",
@@ -5086,7 +5086,7 @@
     },
     {
       "isim": "El-Muhyî",
-      "arapca": "ٱلْمُحْيِي",
+      "arapca": "الْمُحْيِي",
       "okunus": "al-Muhyî",
       "anlam": "Hayat veren, dirilten",
       "aciklama": "Can veren",
@@ -5118,7 +5118,7 @@
     },
     {
       "isim": "El-Kayyûm",
-      "arapca": "ٱلْقَيُّوم",
+      "arapca": "الْقَيُّوم",
       "okunus": "al-Kayyûm",
       "anlam": "Her şeyi ayakta tutan, kâim",
       "aciklama": "Kâinatı varlıkta tutan",
@@ -5150,7 +5150,7 @@
     },
     {
       "isim": "El-Muktedir",
-      "arapca": "ٱلْمُقْتَدِر",
+      "arapca": "الْمُقْتَدِر",
       "okunus": "al-Muktedir",
       "anlam": "Her şeye mutlak iktidarı olan",
       "aciklama": "Kudretiyle galip",
@@ -5182,7 +5182,7 @@
     },
     {
       "isim": "El-Müntekim",
-      "arapca": "ٱلْمُنْتَقِم",
+      "arapca": "الْمُنْتَقِم",
       "okunus": "al-Müntekim",
       "anlam": "Suçluları adaletle cezalandıran",
       "aciklama": "Zalimlerden intikam alan",
@@ -5214,7 +5214,7 @@
     },
     {
       "isim": "El-Muksit",
-      "arapca": "ٱلْمُقْسِط",
+      "arapca": "الْمُقْسِط",
       "okunus": "al-Muksit",
       "anlam": "Adaletle hükmeden, denge kuran",
       "aciklama": "Adaleti seven ve uygulayan",
@@ -5246,7 +5246,7 @@
     },
     {
       "isim": "Er-Reşîd",
-      "arapca": "ٱلرَّشِيد",
+      "arapca": "الرَّشِيد",
       "okunus": "ar-Reşîd",
       "anlam": "Doğruya ulaştıran, irşad eden",
       "aciklama": "Hidayet ve olgunluk kaynağı",
@@ -5278,7 +5278,7 @@
     },
     {
       "isim": "El-Kuddûs",
-      "arapca": "ٱلْقُدُّوس",
+      "arapca": "الْقُدُّوس",
       "okunus": "al-Kuddûs",
       "anlam": "Her türlü eksiklikten münezzeh, mukaddes",
       "aciklama": "Her noksanlıktan ve ayıptan arınmış",
@@ -5305,7 +5305,7 @@
     },
     {
       "isim": "El-Muiz",
-      "arapca": "ٱلْمُعِزّ",
+      "arapca": "الْمُعِزّ",
       "okunus": "al-Muiz",
       "anlam": "İzzet ve şeref veren",
       "aciklama": "Dilediğini aziz kılan",
@@ -5332,7 +5332,7 @@
     },
     {
       "isim": "El-Celîl",
-      "arapca": "ٱلْجَلِيل",
+      "arapca": "الْجَلِيل",
       "okunus": "al-Celîl",
       "anlam": "Azamet ve celâl sahibi",
       "aciklama": "Celâl ve ikram sahibi",
@@ -5359,7 +5359,7 @@
     },
     {
       "isim": "El-Muhsî",
-      "arapca": "ٱلْمُحْصِي",
+      "arapca": "الْمُحْصِي",
       "okunus": "al-Muhsî",
       "anlam": "Her şeyi tek tek sayıp bilen",
       "aciklama": "Her şeyi sayıyla bilen",
@@ -5386,7 +5386,7 @@
     },
     {
       "isim": "El-Muahhir",
-      "arapca": "ٱلْمُؤَخِّر",
+      "arapca": "الْمُؤَخِّر",
       "okunus": "al-Muahhir",
       "anlam": "Dilediğini geriye bırakan",
       "aciklama": "Dilediğini erteleyen",
@@ -5413,7 +5413,7 @@
     },
     {
       "isim": "El-Evvel",
-      "arapca": "ٱلْأَوَّل",
+      "arapca": "الْأَوَّل",
       "okunus": "al-Evvel",
       "anlam": "Başlangıcı olmayan ilk",
       "aciklama": "Her şeyden önce var olan",
@@ -5440,7 +5440,7 @@
     },
     {
       "isim": "Zü'l-Celâli ve'l-İkrâm",
-      "arapca": "ذُو ٱلْجَلَالِ وَٱلْإِكْرَام",
+      "arapca": "ذُو الْجَلَالِ وَالْإِكْرَام",
       "okunus": "Zü'l-Celâli ve'l-İkrâm",
       "anlam": "Azamet ve kerem sahibi",
       "aciklama": "Celâl ve ikram sahibi",
@@ -5467,7 +5467,7 @@
     },
     {
       "isim": "El-Bedî'",
-      "arapca": "ٱلْبَدِيع",
+      "arapca": "الْبَدِيع",
       "okunus": "al-Bedî'",
       "anlam": "Örneksiz, eşsiz yaratan",
       "aciklama": "Eşi benzeri olmadan yaratan",
@@ -5494,7 +5494,7 @@
     },
     {
       "isim": "El-Müheymin",
-      "arapca": "ٱلْمُهَيْمِن",
+      "arapca": "الْمُهَيْمِن",
       "okunus": "al-Müheymin",
       "anlam": "Gözeten, koruyup denetleyen",
       "aciklama": "Her şeyi görüp gözeten ve koruyan",
@@ -5516,7 +5516,7 @@
     },
     {
       "isim": "El-Cebbâr",
-      "arapca": "ٱلْجَبَّار",
+      "arapca": "الْجَبَّار",
       "okunus": "al-Cebbâr",
       "anlam": "İradesini her şeye geçiren, ıslah edici güç",
       "aciklama": "Dilediğini zorla yaptıran, kırıkları onaran",
@@ -5538,7 +5538,7 @@
     },
     {
       "isim": "El-Mütekebbir",
-      "arapca": "ٱلْمُتَكَبِّر",
+      "arapca": "الْمُتَكَبِّر",
       "okunus": "al-Mütekebbir",
       "anlam": "Büyüklük ve azamet yalnız kendisine ait olan",
       "aciklama": "Yüceliğin tek gerçek sahibi",
@@ -5560,7 +5560,7 @@
     },
     {
       "isim": "El-Bâri'",
-      "arapca": "ٱلْبَارِئ",
+      "arapca": "الْبَارِئ",
       "okunus": "al-Bâri'",
       "anlam": "Kusursuzca var eden, örneksiz yaratan",
       "aciklama": "Yarattıklarını uyumlu biçimde inşa eden",
@@ -5582,7 +5582,7 @@
     },
     {
       "isim": "El-Musavvir",
-      "arapca": "ٱلْمُصَوِّر",
+      "arapca": "الْمُصَوِّر",
       "okunus": "al-Musavvir",
       "anlam": "Şekil ve sûret veren",
       "aciklama": "Her varlığa ayrı bir biçim veren",
@@ -5604,7 +5604,7 @@
     },
     {
       "isim": "El-Kâbid",
-      "arapca": "ٱلْقَابِض",
+      "arapca": "الْقَابِض",
       "okunus": "al-Kâbid",
       "anlam": "Rızkı tutan, daraltan",
       "aciklama": "Dilediğine daraltan",
@@ -5626,7 +5626,7 @@
     },
     {
       "isim": "El-Hâfid",
-      "arapca": "ٱلْخَافِض",
+      "arapca": "الْخَافِض",
       "okunus": "al-Hâfid",
       "anlam": "Alçaltan, dereceleri düşüren",
       "aciklama": "Hak edeni alçaltan",
@@ -5648,7 +5648,7 @@
     },
     {
       "isim": "El-Müzill",
-      "arapca": "ٱلْمُذِلّ",
+      "arapca": "الْمُذِلّ",
       "okunus": "al-Müzill",
       "anlam": "Zillete düşüren, alçaltan",
       "aciklama": "Dilediğini zelil kılan",
@@ -5670,7 +5670,7 @@
     },
     {
       "isim": "El-Mukît",
-      "arapca": "ٱلْمُقِيت",
+      "arapca": "الْمُقِيت",
       "okunus": "al-Mukît",
       "anlam": "Rızık ve kuvvet veren, gözeten",
       "aciklama": "Her şeye gücü yeten gözetici",
@@ -5692,7 +5692,7 @@
     },
     {
       "isim": "El-Mucîb",
-      "arapca": "ٱلْمُجِيب",
+      "arapca": "الْمُجِيب",
       "okunus": "al-Mucîb",
       "anlam": "Dualara icabet eden",
       "aciklama": "Duaları kabul eden",
@@ -5714,7 +5714,7 @@
     },
     {
       "isim": "Es-Samed",
-      "arapca": "ٱلصَّمَد",
+      "arapca": "الصَّمَد",
       "okunus": "as-Samed",
       "anlam": "Her şey kendisine muhtaç, hiçbir şeye muhtaç olmayan",
       "aciklama": "Müstağni, herkesin sığınağı",
@@ -5736,7 +5736,7 @@
     },
     {
       "isim": "Ez-Zâhir",
-      "arapca": "ٱلظَّاهِر",
+      "arapca": "الظَّاهِر",
       "okunus": "ez-Zâhir",
       "anlam": "Varlığı âşikâr, üstün",
       "aciklama": "Varlığı apaçık belli",
@@ -5758,7 +5758,7 @@
     },
     {
       "isim": "El-Bâtın",
-      "arapca": "ٱلْبَاطِن",
+      "arapca": "الْبَاطِن",
       "okunus": "al-Bâtın",
       "anlam": "Gizli, idraklerin ötesinde",
       "aciklama": "Mahiyeti idrak edilemeyen",
@@ -5780,7 +5780,7 @@
     },
     {
       "isim": "El-Müteâlî",
-      "arapca": "ٱلْمُتَعَالِي",
+      "arapca": "الْمُتَعَالِي",
       "okunus": "al-Müteâlî",
       "anlam": "Her şeyden yüce, aşkın",
       "aciklama": "Noksanlıklardan münezzeh yüce",
@@ -5802,7 +5802,7 @@
     },
     {
       "isim": "Mâlikü'l-Mülk",
-      "arapca": "مَالِكُ ٱلْمُلْك",
+      "arapca": "مَالِكُ الْمُلْك",
       "okunus": "Mâlikü'l-Mülk",
       "anlam": "Mülkün gerçek ve mutlak sahibi",
       "aciklama": "Bütün mülkün sahibi",
@@ -5819,12 +5819,12 @@
       ],
       "isim_en": "Malik al-Mulk",
       "okunus_en": "Malik al-Mulk",
-      "anlam_en": "Master of the Dominion, true and absolute Owner of all sovereignty",
+      "anlam_en": "Owner of the Sovereignty, absolute possessor of all dominion",
       "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâcid",
-      "arapca": "ٱلْوَاجِد",
+      "arapca": "الْوَاجِد",
       "okunus": "al-Vâcid",
       "anlam": "İstediğini bulan, hiçbir şeye muhtaç olmayan",
       "aciklama": "Hiçbir şeyden yoksun olmayan",
@@ -5840,7 +5840,7 @@
     },
     {
       "isim": "El-Mâcid",
-      "arapca": "ٱلْمَاجِد",
+      "arapca": "الْمَاجِد",
       "okunus": "al-Mâcid",
       "anlam": "Şanı büyük, kadri yüce",
       "aciklama": "Yücelik ve cömertlik sahibi",
@@ -5856,7 +5856,7 @@
     },
     {
       "isim": "El-Mukaddim",
-      "arapca": "ٱلْمُقَدِّم",
+      "arapca": "الْمُقَدِّم",
       "okunus": "al-Mukaddim",
       "anlam": "Dilediğini öne alan",
       "aciklama": "Dilediğini öne geçiren",
@@ -5872,7 +5872,7 @@
     },
     {
       "isim": "Es-Sabûr",
-      "arapca": "ٱلصَّبُور",
+      "arapca": "الصَّبُور",
       "okunus": "as-Sabûr",
       "anlam": "Çok sabırlı, cezada acele etmeyen",
       "aciklama": "Sonsuz sabır sahibi",
@@ -5888,7 +5888,7 @@
     },
     {
       "isim": "Rabbü'l-Âlemîn",
-      "arapca": "رَبُّ ٱلْعَالَمِين",
+      "arapca": "رَبُّ الْعَالَمِين",
       "okunus": "Rabbü'l-Âlemîn",
       "anlam": "Âlemlerin Rabbi, terbiye edicisi",
       "aciklama": "Bütün âlemleri yaratıp yöneten",
@@ -5982,7 +5982,7 @@
     },
     {
       "isim": "En-Nasîr",
-      "arapca": "ٱلنَّصِير",
+      "arapca": "النَّصِير",
       "okunus": "en-Nasîr",
       "anlam": "Yardım eden, zafer veren",
       "aciklama": "En hayırlı yardımcı",
@@ -6076,7 +6076,7 @@
     },
     {
       "isim": "El-Hallâk",
-      "arapca": "ٱلْخَلَّاق",
+      "arapca": "الْخَلَّاق",
       "okunus": "al-Hallâk",
       "anlam": "Durmadan yaratan büyük yaratıcı",
       "aciklama": "Sürekli ve bol yaratan (Hicr 86, Yâsîn 81)",
@@ -6178,7 +6178,7 @@
     },
     {
       "isim": "Şedîdü'l-İkâb",
-      "arapca": "شَدِيدُ ٱلْعِقَاب",
+      "arapca": "شَدِيدُ الْعِقَاب",
       "okunus": "Şedîdü'l-İkâb",
       "anlam": "Cezası çok şiddetli olan",
       "aciklama": "Cezalandırması şiddetli",
@@ -6265,7 +6265,7 @@
     },
     {
       "isim": "El-Mevlâ",
-      "arapca": "ٱلْمَوْلَىٰ",
+      "arapca": "الْمَوْلَىٰ",
       "okunus": "al-Mevlâ",
       "anlam": "Efendi, sahip, yardımcı dost",
       "aciklama": "Müminlerin koruyucu efendisi",
@@ -6409,7 +6409,7 @@
     },
     {
       "isim": "Zü'l-Fadli'l-Azîm",
-      "arapca": "ذُو ٱلْفَضْلِ ٱلْعَظِيم",
+      "arapca": "ذُو الْفَضْلِ الْعَظِيم",
       "okunus": "Zü'l-Fadli'l-Azîm",
       "anlam": "Büyük lütuf sahibi",
       "aciklama": "Pek büyük ihsan sahibi",
@@ -6449,14 +6449,14 @@
           "ayet": 4
         }
       ],
-      "isim_en": "Dhu al-Fadli al-Azim",
-      "okunus_en": "Dhu al-Fadli al-Azim",
+      "isim_en": "Dhu al-Fadl al-Azim",
+      "okunus_en": "Dhu al-Fadl al-Azim",
       "anlam_en": "Possessor of Great Bounty",
       "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Hayru'r-Râzıkîn",
-      "arapca": "خَيْرُ ٱلرَّازِقِين",
+      "arapca": "خَيْرُ الرَّازِقِين",
       "okunus": "Hayru'r-Râzıkîn",
       "anlam": "Rızık verenlerin en hayırlısı",
       "aciklama": "Rızık verenlerin en hayırlısı",
@@ -6498,7 +6498,7 @@
     },
     {
       "isim": "Erhamü'r-Râhimîn",
-      "arapca": "أَرْحَمُ ٱلرَّاحِمِين",
+      "arapca": "أَرْحَمُ الرَّاحِمِين",
       "okunus": "Erhamü'r-Râhimîn",
       "anlam": "Merhamet edenlerin en merhametlisi",
       "aciklama": "Merhametlilerin en üstünü",
@@ -6535,7 +6535,7 @@
     },
     {
       "isim": "Hayru'l-Hâkimîn",
-      "arapca": "خَيْرُ ٱلْحَاكِمِين",
+      "arapca": "خَيْرُ الْحَاكِمِين",
       "okunus": "Hayru'l-Hâkimîn",
       "anlam": "Hüküm verenlerin en hayırlısı",
       "aciklama": "Hâkimlerin en hayırlısı",
@@ -6567,7 +6567,7 @@
     },
     {
       "isim": "Ahkemü'l-Hâkimîn",
-      "arapca": "أَحْكَمُ ٱلْحَاكِمِين",
+      "arapca": "أَحْكَمُ الْحَاكِمِين",
       "okunus": "Ahkemü'l-Hâkimîn",
       "anlam": "Hükmedenlerin en âdili",
       "aciklama": "Hâkimlerin en hikmetlisi",
@@ -6594,7 +6594,7 @@
     },
     {
       "isim": "Zü'r-Rahme",
-      "arapca": "ذُو ٱلرَّحْمَة",
+      "arapca": "ذُو الرَّحْمَة",
       "okunus": "Zü'r-Rahme",
       "anlam": "Rahmet sahibi",
       "aciklama": "Geniş rahmet sahibi",
@@ -6621,7 +6621,7 @@
     },
     {
       "isim": "Bedîu's-Semâvât",
-      "arapca": "بَدِيعُ ٱلسَّمَاوَات",
+      "arapca": "بَدِيعُ السَّمَاوَات",
       "okunus": "Bedîu's-Semâvât",
       "anlam": "Göklerin ve yerin eşsiz yaratıcısı",
       "aciklama": "Örneksiz yaratan",
@@ -6641,14 +6641,14 @@
           "ayet": 101
         }
       ],
-      "isim_en": "Badi as-Samawat",
-      "okunus_en": "Badi as-Samawat",
-      "anlam_en": "Originator of the Heavens",
+      "isim_en": "Badi as-Samawati wa'l-Ard",
+      "okunus_en": "Badi as-Samawati wa'l-Ard",
+      "anlam_en": "Originator of the Heavens and the Earth",
       "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Hayru'l-Gâfirîn",
-      "arapca": "خَيْرُ ٱلْغَافِرِين",
+      "arapca": "خَيْرُ الْغَافِرِين",
       "okunus": "Hayru'l-Gâfirîn",
       "anlam": "Bağışlayanların en hayırlısı",
       "aciklama": "Affedenlerin en hayırlısı",
@@ -6671,7 +6671,7 @@
   ],
   "metodoloji_en": {
     "kaynak_metin": "Uthmānī muṣḥaf script (fully diacritized, 6236 verses)",
-    "kalibrasyon": "Verified against M. Fu'ād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras (e.g. Raḥmān 57, Raḥīm 114, Dhū al-Jalāli wa'l-Ikrām 2).",
+    "kalibrasyon": "Verified against M. Fu'ād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras (e.g. Raḥmān 57, Raḥīm 114, Dhū al-Faḍl al-ʿAẓīm 6).",
     "onemli_not": "For some short roots (e.g. al-Ḥaqq 'truth/right', al-Khāliq/al-Khallāq), homographic terms may vary in tafsir context — the count here is the surface form.",
     "uyari": "Occurrence counts are approximations based on the attribute/lexical form of the name; consult classical concordances for definitive figures."
   }
