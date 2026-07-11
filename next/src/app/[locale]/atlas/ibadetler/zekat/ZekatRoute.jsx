@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import IbadetlerPillar from '@/components/IbadetlerPillar';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { COLORS, FONTS } from '@/tokens';
 
 export default function ZekatRoute() {
   const { language } = useLanguage();
@@ -19,6 +20,16 @@ export default function ZekatRoute() {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  if (!pillarData) return null;
+  if (!pillarData) return (
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: 'calc(100vh - 62px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
+        {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
+      </div>
+    </div>
+  );
   return <IbadetlerPillar pillarData={pillarData} language={language} isMobile={isMobile} />;
 }
