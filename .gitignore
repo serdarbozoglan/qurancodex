@@ -65,3 +65,10 @@ docs/screenshots/
 # Meal cache prefetch output — regenerable via `node scripts/prefetch-meals.mjs`
 # (~50-80MB after full prefetch). Keep _authors.json registry tracked.
 next/public/meal-cache/[0-9]*/
+
+# Ephemeral Playwright test scripts — geliştirme sırasında oluşturulan tek-kullanımlık
+# doğrulama helper'ları. Sürüm kontrolüne girmez; her batch yeniden oluşturulur.
+next/qc-*.mjs
+next/check-*.mjs
+qc-*.mjs
+check-*.mjs
