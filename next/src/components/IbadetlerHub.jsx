@@ -561,14 +561,14 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
                     fontSize: '0.9rem', marginBottom: '4px',
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                   }}>
-                    {s.labelTr.replace(/^\d+\.\s*/, '')}
+                    {(tr ? s.labelTr : (s.labelEn ?? s.labelTr)).replace(/^\d+\.\s*/, '')}
                     <span style={{ color: COLORS.gold, fontSize: '0.85rem' }} aria-hidden="true">→</span>
                   </div>
-                  {s.hintTr && (
+                  {(tr ? s.hintTr : (s.hintEn ?? s.hintTr)) && (
                     <div style={{
                       color: COLORS.silver, fontSize: '0.78rem',
                       lineHeight: 1.5, fontStyle: 'italic', opacity: 0.85,
-                    }}>{s.hintTr}</div>
+                    }}>{tr ? s.hintTr : (s.hintEn ?? s.hintTr)}</div>
                   )}
                 </div>
               </li>
