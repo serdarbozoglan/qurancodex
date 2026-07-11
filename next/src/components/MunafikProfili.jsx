@@ -271,7 +271,7 @@ export default function MunafikProfili({ onClose }) {
         {MUNAFIK_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+            {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
       </div>
@@ -565,7 +565,7 @@ export default function MunafikProfili({ onClose }) {
           flexShrink: 0,
           position: 'sticky',
           top: '110px',
-          zIndex: 2,
+          zIndex: 20,
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => {

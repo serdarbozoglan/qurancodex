@@ -112,7 +112,7 @@ export default function RetorikSorular({ onClose }) {
       <div ref={trapRef} style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', display: 'flex', flexDirection: 'column', paddingTop: '62px' }}>
         {TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Yükleniyor...' : 'Loading...'}</span>
+          <span style={{ color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Yükleniyor…' : 'Loading…'}</span>
         </div>
       </div>
     );

@@ -1570,7 +1570,7 @@ export default function DogaAtlasi({ onClose }) {
         <div id="kevni-tab-bar" style={{
           position: 'sticky',
           top: '110px',
-          zIndex: 10,
+          zIndex: 20,
           display: 'flex',
           gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',

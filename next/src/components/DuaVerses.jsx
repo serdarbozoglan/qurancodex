@@ -502,7 +502,7 @@ export default function DuaVerses({ onClose }) {
         {/* Content */}
         {loading && (
           <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+            {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </div>
         )}
 

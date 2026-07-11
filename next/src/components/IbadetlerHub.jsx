@@ -299,12 +299,14 @@ function PillarCard({ pillar, language, isMobile, router }) {
       }}
       onMouseEnter={e => {
         if (!isReady) return;
-        e.currentTarget.style.transform = 'translateY(-3px)';
+        const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduced) e.currentTarget.style.transform = 'translateY(-3px)';
         e.currentTarget.style.background = 'linear-gradient(180deg, rgba(212,165,116,0.11) 0%, rgba(255,255,255,0.04) 100%)';
       }}
       onMouseLeave={e => {
         if (!isReady) return;
-        e.currentTarget.style.transform = 'translateY(0)';
+        const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduced) e.currentTarget.style.transform = 'translateY(0)';
         e.currentTarget.style.background = 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)';
       }}
     >

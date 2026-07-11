@@ -254,7 +254,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
           </div>
         ) : loading ? (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem' }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+            {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </div>
         ) : (
           <>

@@ -1777,7 +1777,7 @@ export default function SebebiNuzul({ onClose }) {
         background: '#06080e',
         position: 'sticky',
         top: '110px',
-        zIndex: 10,
+        zIndex: 20,
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (

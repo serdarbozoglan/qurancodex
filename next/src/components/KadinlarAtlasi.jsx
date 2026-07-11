@@ -138,7 +138,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         {KADINLAR_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+            {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
       </div>

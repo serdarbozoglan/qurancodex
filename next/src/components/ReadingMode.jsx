@@ -4919,7 +4919,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           {mealLoading && (
             <div style={{ padding: '8px 14px', borderTop: `1px solid ${dropC.divider}`, fontSize: '0.72rem', color: dropC.textMuted, display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{ animation: 'spin 1s linear infinite', display: 'inline-block' }}>⟳</span>
-              {language === 'tr' ? 'Meal yükleniyor...' : 'Loading...'}
+              {language === 'tr' ? 'Meal yükleniyor...' : 'Loading…'}
             </div>
           )}
         </div>

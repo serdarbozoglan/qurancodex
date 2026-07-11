@@ -121,7 +121,7 @@ export default function RevelationTimeline({ onClose }) {
 
       {loading && (
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.slate500 }}>
-          {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+          {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
         </div>
       )}
 

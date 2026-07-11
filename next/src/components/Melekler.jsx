@@ -1528,7 +1528,7 @@ export default function Melekler({ onClose }) {
         <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
           {!data ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', color: COLORS.slate600 }}>
-              {tr ? 'Yükleniyor...' : 'Loading...'}
+              {tr ? 'Yükleniyor…' : 'Loading…'}
             </div>
           ) : (
             <>

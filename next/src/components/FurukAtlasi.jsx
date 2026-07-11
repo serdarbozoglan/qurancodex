@@ -148,7 +148,7 @@ export default function FurukAtlasi({ onClose }) {
         {FURUK_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {tr ? 'Yükleniyor...' : 'Loading...'}
+            {tr ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
       </div>

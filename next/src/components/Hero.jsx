@@ -208,7 +208,7 @@ export default function Hero() {
                   key={`v2-${i}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.05, delay: 1.9 + (verse1Chars.length + 1 + i) * 0.022 }}
+                  transition={{ duration: 0.05, delay: 1.9 + (verse1Chars.length + (isMobile ? 0 : 1) + i) * 0.022 }}
                 >
                   {c}
                 </motion.span>

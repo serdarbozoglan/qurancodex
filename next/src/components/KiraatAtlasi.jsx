@@ -1627,7 +1627,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
 
         {/* Tab bar — sticky */}
         <div style={{
-          position: 'sticky', top: '110px', zIndex: 10,
+          position: 'sticky', top: '110px', zIndex: 20,
           display: 'flex', gap: '2px',
           padding: isMobile ? '0 8px' : '0 16px',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,

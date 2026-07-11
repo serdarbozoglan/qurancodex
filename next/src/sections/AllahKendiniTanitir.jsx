@@ -241,7 +241,7 @@ export default function AllahKendiniTanitir() {
             onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; e.currentTarget.style.borderColor = `${COLORS.gold}aa`; }}
             onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}1a`; e.currentTarget.style.borderColor = `${COLORS.gold}66`; }}
           >
-            <span>{tr ? 'Esmâ-i Hüsnâ sayfasını keşfet' : 'Explore Esmâ-i Hüsnâ'}</span>
+            <span>{tr ? 'Esmâ-i Hüsnâ sayfasını keşfet' : 'Explore the Beautiful Names'}</span>
             <span style={{ fontSize: '1.1rem', lineHeight: 1 }}>→</span>
           </Link>
         </motion.div>

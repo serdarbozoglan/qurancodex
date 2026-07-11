@@ -28,7 +28,7 @@ const STROKE = {
  *
  * Props:
  *   message    — Optional custom string. Defaults to a language-aware
- *                "Yükleniyor..." / "Loading...".
+ *                "Yükleniyor…" / "Loading…".
  *   fullScreen — false (default) inline; true for fixed overlay.
  *   size       — 'sm' | 'md' (default) | 'lg'.
  */
@@ -38,7 +38,7 @@ export default function LoadingOverlay({
   size = 'md',
 }) {
   const { language } = useLanguage();
-  const defaultMsg = language === 'tr' ? 'Yükleniyor...' : 'Loading...';
+  const defaultMsg = language === 'tr' ? 'Yükleniyor…' : 'Loading…';
   const label = message ?? defaultMsg;
 
   const diameter = SIZES[size] ?? SIZES.md;

@@ -723,7 +723,7 @@ export default function KiyametSahneleri({ onClose }) {
         <div style={{ padding: isMobile ? '16px' : '24px 32px' }}>
           {!data ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh' }}>
-              <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem', margin: 0 }}>{language === 'tr' ? 'Yükleniyor...' : 'Loading...'}</p>
+              <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem', margin: 0 }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
             </div>
           ) : (
             <>

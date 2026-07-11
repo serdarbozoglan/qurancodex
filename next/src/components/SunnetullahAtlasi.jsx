@@ -259,7 +259,7 @@ export default function SunnetullahAtlasi({ onClose }) {
         {SUNNETULLAH_TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {language === 'tr' ? 'Yükleniyor...' : 'Loading...'}
+            {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
       </div>
@@ -516,7 +516,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           flexShrink: 0,
           position: 'sticky',
           top: '110px',
-          zIndex: 10,
+          zIndex: 20,
         }}>
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;

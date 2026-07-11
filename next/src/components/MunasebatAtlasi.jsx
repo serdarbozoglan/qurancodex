@@ -89,7 +89,7 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
         flexShrink: 0,
         position: 'sticky',
         top: '110px',
-        zIndex: 10,
+        zIndex: 20,
         scrollMarginTop: '120px',
       }}
     >

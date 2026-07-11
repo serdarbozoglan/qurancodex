@@ -91,7 +91,7 @@ export default function KuranRetorigi({ onClose }) {
         />
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: FONTS.body }}>
-            {tr ? 'Yükleniyor...' : 'Loading...'}
+            {tr ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
       </div>
@@ -157,7 +157,7 @@ export default function KuranRetorigi({ onClose }) {
         scrollbarWidth: 'none',
         position: 'sticky',
         top: '110px',
-        zIndex: 10,
+        zIndex: 20,
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
