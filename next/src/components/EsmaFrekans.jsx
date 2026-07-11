@@ -2952,7 +2952,7 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
               whiteSpace: 'nowrap',
             }}
           >
-            {item.kategori_etiket}
+            {tr ? item.kategori_etiket : (item.kategori_etiket_en || item.kategori_etiket)}
           </span>
           <span style={{
             color: COLORS.offWhite,
@@ -3648,14 +3648,14 @@ function Methodology({ data, tr }) {
               {tr ? 'Kaynak metin' : 'Source text'}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
-              {data.metodoloji.kaynak_metin}
+              {tr ? data.metodoloji.kaynak_metin : (data.metodoloji_en?.kaynak_metin || data.metodoloji.kaynak_metin)}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
               {tr ? 'Kalibrasyon' : 'Calibration'}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
-              {data.metodoloji.kalibrasyon}
+              {tr ? data.metodoloji.kalibrasyon : (data.metodoloji_en?.kalibrasyon || data.metodoloji.kalibrasyon)}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
@@ -3676,14 +3676,14 @@ function Methodology({ data, tr }) {
               {tr ? 'Hadis kaynaklı isimler' : 'Hadith-sourced names'}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
-              {data.metodoloji.onemli_not}
+              {tr ? data.metodoloji.onemli_not : (data.metodoloji_en?.onemli_not || data.metodoloji.onemli_not)}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
               {tr ? 'Uyarı' : 'Caveat'}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 24px' }}>
-              {data.metodoloji.uyari}
+              {tr ? data.metodoloji.uyari : (data.metodoloji_en?.uyari || data.metodoloji.uyari)}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>

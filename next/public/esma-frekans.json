@@ -144,7 +144,8 @@
       "tum_ayetler": [],
       "isim_en": "Allah",
       "okunus_en": "Allah",
-      "anlam_en": "The proper name of the Almighty Creator (Lafz al-Jalalah)"
+      "anlam_en": "The proper name of the Almighty Creator (Lafz al-Jalalah)",
+      "kategori_etiket_en": "Divine Name"
     },
     {
       "isim": "El-Hakk",
@@ -237,7 +238,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Haqq",
       "okunus_en": "Al-Haqq",
-      "anlam_en": "The Absolute Truth, whose existence and sovereignty are real"
+      "anlam_en": "The Absolute Truth, whose existence and sovereignty are real",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Alîm",
@@ -330,7 +332,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Alim",
       "okunus_en": "Al-Alim",
-      "anlam_en": "The All-Knowing of everything"
+      "anlam_en": "The All-Knowing of everything",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Rahîm",
@@ -423,7 +426,8 @@
       "tum_ayetler": [],
       "isim_en": "Ar-Rahim",
       "okunus_en": "Ar-Rahim",
-      "anlam_en": "The Especially Merciful to the believers"
+      "anlam_en": "The Especially Merciful to the believers",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Azîm",
@@ -516,7 +520,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Azim",
       "okunus_en": "Al-Azim",
-      "anlam_en": "The Magnificent, Possessor of supreme grandeur"
+      "anlam_en": "The Magnificent, Possessor of supreme grandeur",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Azîz",
@@ -609,7 +614,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Aziz",
       "okunus_en": "Al-Aziz",
-      "anlam_en": "The Almighty, the Invincible in honor and might"
+      "anlam_en": "The Almighty, the Invincible in honor and might",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hakîm",
@@ -702,7 +708,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Hakim",
       "okunus_en": "Al-Hakim",
-      "anlam_en": "The All-Wise, whose every act is filled with wisdom"
+      "anlam_en": "The All-Wise, whose every act is filled with wisdom",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Gafûr",
@@ -795,7 +802,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Ghafur",
       "okunus_en": "Al-Ghafur",
-      "anlam_en": "The Oft-Forgiving, whose forgiveness is abundant"
+      "anlam_en": "The Oft-Forgiving, whose forgiveness is abundant",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Melik",
@@ -888,7 +896,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Malik",
       "okunus_en": "Al-Malik",
-      "anlam_en": "The Sovereign King, Owner of all dominion"
+      "anlam_en": "The Sovereign King, Owner of all dominion",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Veliyy",
@@ -981,7 +990,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Waliyy",
       "okunus_en": "Al-Waliyy",
-      "anlam_en": "The Protecting Friend, the Helper and Guardian"
+      "anlam_en": "The Protecting Friend, the Helper and Guardian",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Rahmân",
@@ -1074,7 +1084,8 @@
       "tum_ayetler": [],
       "isim_en": "Ar-Rahman",
       "okunus_en": "Ar-Rahman",
-      "anlam_en": "The Entirely Merciful, whose mercy encompasses all things"
+      "anlam_en": "The Entirely Merciful, whose mercy encompasses all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hâdî",
@@ -1167,7 +1178,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Hadi",
       "okunus_en": "Al-Hadi",
-      "anlam_en": "The Guide to the straight path"
+      "anlam_en": "The Guide to the straight path",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Basîr",
@@ -1260,7 +1272,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Basir",
       "okunus_en": "Al-Basir",
-      "anlam_en": "The All-Seeing of everything"
+      "anlam_en": "The All-Seeing of everything",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Es-Semî'",
@@ -1353,7 +1366,8 @@
       "tum_ayetler": [],
       "isim_en": "As-Sami",
       "okunus_en": "As-Sami",
-      "anlam_en": "The All-Hearing of everything"
+      "anlam_en": "The All-Hearing of everything",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Habîr",
@@ -1446,7 +1460,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Khabir",
       "okunus_en": "Al-Khabir",
-      "anlam_en": "The All-Aware, acquainted with everything"
+      "anlam_en": "The All-Aware, acquainted with everything",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Rezzâk",
@@ -1539,7 +1554,8 @@
       "tum_ayetler": [],
       "isim_en": "Ar-Razzaq",
       "okunus_en": "Ar-Razzaq",
-      "anlam_en": "The Provider of sustenance for all living beings"
+      "anlam_en": "The Provider of sustenance for all living beings",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kebîr",
@@ -1632,7 +1648,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Kabir",
       "okunus_en": "Al-Kabir",
-      "anlam_en": "The Absolutely Great"
+      "anlam_en": "The Absolutely Great",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Eş-Şehîd",
@@ -1725,7 +1742,8 @@
       "tum_ayetler": [],
       "isim_en": "Ash-Shahid",
       "okunus_en": "Ash-Shahid",
-      "anlam_en": "The Witness over all things"
+      "anlam_en": "The Witness over all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Ehad",
@@ -1818,7 +1836,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Ahad",
       "okunus_en": "Al-Ahad",
-      "anlam_en": "The Indivisible One, absolutely Unique"
+      "anlam_en": "The Indivisible One, absolutely Unique",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kâdir",
@@ -1911,7 +1930,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Qadir",
       "okunus_en": "Al-Qadir",
-      "anlam_en": "The All-Powerful over all things"
+      "anlam_en": "The All-Powerful over all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Âhir",
@@ -2004,7 +2024,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Akhir",
       "okunus_en": "Al-Akhir",
-      "anlam_en": "The Last, without end"
+      "anlam_en": "The Last, without end",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kerîm",
@@ -2097,7 +2118,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Karim",
       "okunus_en": "Al-Karim",
-      "anlam_en": "The Most Generous, Bestower of honor"
+      "anlam_en": "The Most Generous, Bestower of honor",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Gaffâr",
@@ -2190,7 +2212,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Ghaffar",
       "okunus_en": "Al-Ghaffar",
-      "anlam_en": "The Ever-Forgiving, who repeatedly conceals sins"
+      "anlam_en": "The Ever-Forgiving, who repeatedly conceals sins",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vekîl",
@@ -2283,7 +2306,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Wakil",
       "okunus_en": "Al-Wakil",
-      "anlam_en": "The Trustee, in whom all affairs are entrusted"
+      "anlam_en": "The Trustee, in whom all affairs are entrusted",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Ganî",
@@ -2376,7 +2400,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Ghani",
       "okunus_en": "Al-Ghani",
-      "anlam_en": "The Self-Sufficient, in need of nothing"
+      "anlam_en": "The Self-Sufficient, in need of nothing",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muğnî",
@@ -2469,7 +2494,8 @@
       "tum_ayetler": [],
       "isim_en": "Al-Mughni",
       "okunus_en": "Al-Mughni",
-      "anlam_en": "The Enricher, who bestows sufficiency upon whom He wills"
+      "anlam_en": "The Enricher, who bestows sufficiency upon whom He wills",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Berr",
@@ -2580,7 +2606,8 @@
       ],
       "isim_en": "Al-Barr",
       "okunus_en": "Al-Barr",
-      "anlam_en": "The Source of Goodness, abundant in kindness"
+      "anlam_en": "The Source of Goodness, abundant in kindness",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hâlik",
@@ -2681,7 +2708,8 @@
       ],
       "isim_en": "Al-Khaliq",
       "okunus_en": "Al-Khaliq",
-      "anlam_en": "The Creator, who brings all things into existence from nothing"
+      "anlam_en": "The Creator, who brings all things into existence from nothing",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hamîd",
@@ -2782,7 +2810,8 @@
       ],
       "isim_en": "Al-Hamid",
       "okunus_en": "Al-Hamid",
-      "anlam_en": "The Praiseworthy, deserving of all praise"
+      "anlam_en": "The Praiseworthy, deserving of all praise",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "En-Nâfi'",
@@ -2883,7 +2912,8 @@
       ],
       "isim_en": "An-Nafi",
       "okunus_en": "An-Nafi",
-      "anlam_en": "The Bestower of Benefits"
+      "anlam_en": "The Bestower of Benefits",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Halîm",
@@ -2974,7 +3004,8 @@
       ],
       "isim_en": "Al-Halim",
       "okunus_en": "Al-Halim",
-      "anlam_en": "The Forbearing, who does not hasten punishment"
+      "anlam_en": "The Forbearing, who does not hasten punishment",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Câmi'",
@@ -3060,7 +3091,8 @@
       ],
       "isim_en": "Al-Jami",
       "okunus_en": "Al-Jami",
-      "anlam_en": "The Gatherer, who brings all things together"
+      "anlam_en": "The Gatherer, who brings all things together",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Es-Selâm",
@@ -3141,7 +3173,8 @@
       ],
       "isim_en": "As-Salam",
       "okunus_en": "As-Salam",
-      "anlam_en": "The Source of Peace, free from every imperfection"
+      "anlam_en": "The Source of Peace, free from every imperfection",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâsi'",
@@ -3222,7 +3255,8 @@
       ],
       "isim_en": "Al-Wasi",
       "okunus_en": "Al-Wasi",
-      "anlam_en": "The All-Encompassing in knowledge and mercy"
+      "anlam_en": "The All-Encompassing in knowledge and mercy",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Et-Tevvâb",
@@ -3303,7 +3337,8 @@
       ],
       "isim_en": "At-Tawwab",
       "okunus_en": "At-Tawwab",
-      "anlam_en": "The Ever-Accepting of repentance"
+      "anlam_en": "The Ever-Accepting of repentance",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Eş-Şekûr",
@@ -3379,7 +3414,8 @@
       ],
       "isim_en": "Ash-Shakur",
       "okunus_en": "Ash-Shakur",
-      "anlam_en": "The Most Appreciative, who rewards little deeds abundantly"
+      "anlam_en": "The Most Appreciative, who rewards little deeds abundantly",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "En-Nûr",
@@ -3455,7 +3491,8 @@
       ],
       "isim_en": "An-Nur",
       "okunus_en": "An-Nur",
-      "anlam_en": "The Light of the heavens and the earth"
+      "anlam_en": "The Light of the heavens and the earth",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hakem",
@@ -3526,7 +3563,8 @@
       ],
       "isim_en": "Al-Hakam",
       "okunus_en": "Al-Hakam",
-      "anlam_en": "The Ultimate Judge, whose decree is absolute"
+      "anlam_en": "The Ultimate Judge, whose decree is absolute",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hafîz",
@@ -3597,7 +3635,8 @@
       ],
       "isim_en": "Al-Hafiz",
       "okunus_en": "Al-Hafiz",
-      "anlam_en": "The Preserver, who guards and protects all things"
+      "anlam_en": "The Preserver, who guards and protects all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kaviyy",
@@ -3668,7 +3707,8 @@
       ],
       "isim_en": "Al-Qawiyy",
       "okunus_en": "Al-Qawiyy",
-      "anlam_en": "The Possessor of absolute strength"
+      "anlam_en": "The Possessor of absolute strength",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâlî",
@@ -3739,7 +3779,8 @@
       ],
       "isim_en": "Al-Wali",
       "okunus_en": "Al-Wali",
-      "anlam_en": "The Governor, who administers the affairs of the universe"
+      "anlam_en": "The Governor, who administers the affairs of the universe",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Raûf",
@@ -3810,7 +3851,8 @@
       ],
       "isim_en": "Ar-Rauf",
       "okunus_en": "Ar-Rauf",
-      "anlam_en": "The Compassionate, full of gentle kindness"
+      "anlam_en": "The Compassionate, full of gentle kindness",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bâsit",
@@ -3876,7 +3918,8 @@
       ],
       "isim_en": "Al-Basit",
       "okunus_en": "Al-Basit",
-      "anlam_en": "The Expander of provision"
+      "anlam_en": "The Expander of provision",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Aliyy",
@@ -3942,7 +3985,8 @@
       ],
       "isim_en": "Al-Aliyy",
       "okunus_en": "Al-Aliyy",
-      "anlam_en": "The Most High, exalted above all"
+      "anlam_en": "The Most High, exalted above all",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bâis",
@@ -4003,7 +4047,8 @@
       ],
       "isim_en": "Al-Baith",
       "okunus_en": "Al-Baith",
-      "anlam_en": "The Resurrector of the dead"
+      "anlam_en": "The Resurrector of the dead",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mümît",
@@ -4064,7 +4109,8 @@
       ],
       "isim_en": "Al-Mumit",
       "okunus_en": "Al-Mumit",
-      "anlam_en": "The Bringer of Death"
+      "anlam_en": "The Bringer of Death",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Afüvv",
@@ -4125,7 +4171,8 @@
       ],
       "isim_en": "Al-Afuww",
       "okunus_en": "Al-Afuww",
-      "anlam_en": "The Pardoner, who erases sins"
+      "anlam_en": "The Pardoner, who erases sins",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Ed-Dârr",
@@ -4186,7 +4233,8 @@
       ],
       "isim_en": "Ad-Darr",
       "okunus_en": "Ad-Darr",
-      "anlam_en": "The Distresser, who allows harm as a trial"
+      "anlam_en": "The Distresser, who allows harm as a trial",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kahhâr",
@@ -4242,7 +4290,8 @@
       ],
       "isim_en": "Al-Qahhar",
       "okunus_en": "Al-Qahhar",
-      "anlam_en": "The Subduer, before whom all things submit"
+      "anlam_en": "The Subduer, before whom all things submit",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mübdi'",
@@ -4298,7 +4347,8 @@
       ],
       "isim_en": "Al-Mubdi",
       "okunus_en": "Al-Mubdi",
-      "anlam_en": "The Originator, who creates for the first time from nothing"
+      "anlam_en": "The Originator, who creates for the first time from nothing",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muîd",
@@ -4354,7 +4404,8 @@
       ],
       "isim_en": "Al-Muid",
       "okunus_en": "Al-Muid",
-      "anlam_en": "The Restorer, who resurrects what He has created"
+      "anlam_en": "The Restorer, who resurrects what He has created",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hayy",
@@ -4410,7 +4461,8 @@
       ],
       "isim_en": "Al-Hayy",
       "okunus_en": "Al-Hayy",
-      "anlam_en": "The Ever-Living, eternally alive"
+      "anlam_en": "The Ever-Living, eternally alive",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Fettâh",
@@ -4461,7 +4513,8 @@
       ],
       "isim_en": "Al-Fattah",
       "okunus_en": "Al-Fattah",
-      "anlam_en": "The Opener, who unfolds the gates of good"
+      "anlam_en": "The Opener, who unfolds the gates of good",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Latîf",
@@ -4512,7 +4565,8 @@
       ],
       "isim_en": "Al-Latif",
       "okunus_en": "Al-Latif",
-      "anlam_en": "The Subtle, gracious in the finest of matters"
+      "anlam_en": "The Subtle, gracious in the finest of matters",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Râfi'",
@@ -4558,7 +4612,8 @@
       ],
       "isim_en": "Ar-Rafi",
       "okunus_en": "Ar-Rafi",
-      "anlam_en": "The Exalter, who raises ranks"
+      "anlam_en": "The Exalter, who raises ranks",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâhid",
@@ -4604,7 +4659,8 @@
       ],
       "isim_en": "Al-Wahid",
       "okunus_en": "Al-Wahid",
-      "anlam_en": "The One, without any partner"
+      "anlam_en": "The One, without any partner",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mâni'",
@@ -4650,7 +4706,8 @@
       ],
       "isim_en": "Al-Mani",
       "okunus_en": "Al-Mani",
-      "anlam_en": "The Preventer, who withholds and protects"
+      "anlam_en": "The Preventer, who withholds and protects",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bâkî",
@@ -4696,7 +4753,8 @@
       ],
       "isim_en": "Al-Baqi",
       "okunus_en": "Al-Baqi",
-      "anlam_en": "The Everlasting, whose being endures forever"
+      "anlam_en": "The Everlasting, whose being endures forever",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Adl",
@@ -4737,7 +4795,8 @@
       ],
       "isim_en": "Al-Adl",
       "okunus_en": "Al-Adl",
-      "anlam_en": "The Absolutely Just, who never wrongs anyone"
+      "anlam_en": "The Absolutely Just, who never wrongs anyone",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Rakîb",
@@ -4778,7 +4837,8 @@
       ],
       "isim_en": "Ar-Raqib",
       "okunus_en": "Ar-Raqib",
-      "anlam_en": "The Watchful, who observes all things"
+      "anlam_en": "The Watchful, who observes all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâris",
@@ -4819,7 +4879,8 @@
       ],
       "isim_en": "Al-Warith",
       "okunus_en": "Al-Warith",
-      "anlam_en": "The Inheritor of all things"
+      "anlam_en": "The Inheritor of all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hasîb",
@@ -4855,7 +4916,8 @@
       ],
       "isim_en": "Al-Hasib",
       "okunus_en": "Al-Hasib",
-      "anlam_en": "The Reckoner, who takes account and suffices"
+      "anlam_en": "The Reckoner, who takes account and suffices",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mecîd",
@@ -4891,7 +4953,8 @@
       ],
       "isim_en": "Al-Majid",
       "okunus_en": "Al-Majid",
-      "anlam_en": "The Most Glorious, exalted in honor"
+      "anlam_en": "The Most Glorious, exalted in honor",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mü'min",
@@ -4922,7 +4985,8 @@
       ],
       "isim_en": "Al-Mumin",
       "okunus_en": "Al-Mumin",
-      "anlam_en": "The Giver of Security, who grants safety"
+      "anlam_en": "The Giver of Security, who grants safety",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vehhâb",
@@ -4953,7 +5017,8 @@
       ],
       "isim_en": "Al-Wahhab",
       "okunus_en": "Al-Wahhab",
-      "anlam_en": "The Bestower, who gives abundantly without expectation"
+      "anlam_en": "The Bestower, who gives abundantly without expectation",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vedûd",
@@ -4984,7 +5049,8 @@
       ],
       "isim_en": "Al-Wadud",
       "okunus_en": "Al-Wadud",
-      "anlam_en": "The Most Loving, who loves and is beloved"
+      "anlam_en": "The Most Loving, who loves and is beloved",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Metîn",
@@ -5015,7 +5081,8 @@
       ],
       "isim_en": "Al-Matin",
       "okunus_en": "Al-Matin",
-      "anlam_en": "The Firm, of enduring and unshakeable power"
+      "anlam_en": "The Firm, of enduring and unshakeable power",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muhyî",
@@ -5046,7 +5113,8 @@
       ],
       "isim_en": "Al-Muhyi",
       "okunus_en": "Al-Muhyi",
-      "anlam_en": "The Giver of Life"
+      "anlam_en": "The Giver of Life",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kayyûm",
@@ -5077,7 +5145,8 @@
       ],
       "isim_en": "Al-Qayyum",
       "okunus_en": "Al-Qayyum",
-      "anlam_en": "The Self-Subsisting Sustainer of all things"
+      "anlam_en": "The Self-Subsisting Sustainer of all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muktedir",
@@ -5108,7 +5177,8 @@
       ],
       "isim_en": "Al-Muqtadir",
       "okunus_en": "Al-Muqtadir",
-      "anlam_en": "The Omnipotent, who has absolute power over all things"
+      "anlam_en": "The Omnipotent, who has absolute power over all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Müntekim",
@@ -5139,7 +5209,8 @@
       ],
       "isim_en": "Al-Muntaqim",
       "okunus_en": "Al-Muntaqim",
-      "anlam_en": "The Avenger, who justly requites the guilty"
+      "anlam_en": "The Avenger, who justly requites the guilty",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muksit",
@@ -5170,7 +5241,8 @@
       ],
       "isim_en": "Al-Muqsit",
       "okunus_en": "Al-Muqsit",
-      "anlam_en": "The Equitable, who rules with justice and balance"
+      "anlam_en": "The Equitable, who rules with justice and balance",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Er-Reşîd",
@@ -5201,7 +5273,8 @@
       ],
       "isim_en": "Ar-Rashid",
       "okunus_en": "Ar-Rashid",
-      "anlam_en": "The Guide to the right path"
+      "anlam_en": "The Guide to the right path",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kuddûs",
@@ -5227,7 +5300,8 @@
       ],
       "isim_en": "Al-Quddus",
       "okunus_en": "Al-Quddus",
-      "anlam_en": "The Most Holy, free from every imperfection"
+      "anlam_en": "The Most Holy, free from every imperfection",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muiz",
@@ -5253,7 +5327,8 @@
       ],
       "isim_en": "Al-Muizz",
       "okunus_en": "Al-Muizz",
-      "anlam_en": "The Bestower of Honor"
+      "anlam_en": "The Bestower of Honor",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Celîl",
@@ -5279,7 +5354,8 @@
       ],
       "isim_en": "Al-Jalil",
       "okunus_en": "Al-Jalil",
-      "anlam_en": "The Majestic, Possessor of grandeur"
+      "anlam_en": "The Majestic, Possessor of grandeur",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muhsî",
@@ -5305,7 +5381,8 @@
       ],
       "isim_en": "Al-Muhsi",
       "okunus_en": "Al-Muhsi",
-      "anlam_en": "The Reckoner, who counts and knows every single thing"
+      "anlam_en": "The Reckoner, who counts and knows every single thing",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Muahhir",
@@ -5331,7 +5408,8 @@
       ],
       "isim_en": "Al-Muakhkhir",
       "okunus_en": "Al-Muakhkhir",
-      "anlam_en": "The Delayer, who defers whom He wills"
+      "anlam_en": "The Delayer, who defers whom He wills",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Evvel",
@@ -5357,7 +5435,8 @@
       ],
       "isim_en": "Al-Awwal",
       "okunus_en": "Al-Awwal",
-      "anlam_en": "The First, without any beginning"
+      "anlam_en": "The First, without any beginning",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Zü'l-Celâli ve'l-İkrâm",
@@ -5383,7 +5462,8 @@
       ],
       "isim_en": "Dhu al-Jalali wa al-Ikram",
       "okunus_en": "Dhu al-Jalali wa al-Ikram",
-      "anlam_en": "Possessor of Majesty and Honor"
+      "anlam_en": "Possessor of Majesty and Honor",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bedî'",
@@ -5409,7 +5489,8 @@
       ],
       "isim_en": "Al-Badi",
       "okunus_en": "Al-Badi",
-      "anlam_en": "The Incomparable Originator, who creates without precedent"
+      "anlam_en": "The Incomparable Originator, who creates without precedent",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Müheymin",
@@ -5430,7 +5511,8 @@
       ],
       "isim_en": "Al-Muhaymin",
       "okunus_en": "Al-Muhaymin",
-      "anlam_en": "The Guardian, who watches over and preserves"
+      "anlam_en": "The Guardian, who watches over and preserves",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Cebbâr",
@@ -5451,7 +5533,8 @@
       ],
       "isim_en": "Al-Jabbar",
       "okunus_en": "Al-Jabbar",
-      "anlam_en": "The Compeller, whose will prevails and restores"
+      "anlam_en": "The Compeller, whose will prevails and restores",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mütekebbir",
@@ -5472,7 +5555,8 @@
       ],
       "isim_en": "Al-Mutakabbir",
       "okunus_en": "Al-Mutakabbir",
-      "anlam_en": "The Supreme, to whom all greatness belongs"
+      "anlam_en": "The Supreme, to whom all greatness belongs",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bâri'",
@@ -5493,7 +5577,8 @@
       ],
       "isim_en": "Al-Bari",
       "okunus_en": "Al-Bari",
-      "anlam_en": "The Maker, who fashions all things flawlessly"
+      "anlam_en": "The Maker, who fashions all things flawlessly",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Musavvir",
@@ -5514,7 +5599,8 @@
       ],
       "isim_en": "Al-Musawwir",
       "okunus_en": "Al-Musawwir",
-      "anlam_en": "The Fashioner, who gives form and shape"
+      "anlam_en": "The Fashioner, who gives form and shape",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Kâbid",
@@ -5535,7 +5621,8 @@
       ],
       "isim_en": "Al-Qabid",
       "okunus_en": "Al-Qabid",
-      "anlam_en": "The Withholder, who restrains provision"
+      "anlam_en": "The Withholder, who restrains provision",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Hâfid",
@@ -5556,7 +5643,8 @@
       ],
       "isim_en": "Al-Khafid",
       "okunus_en": "Al-Khafid",
-      "anlam_en": "The Abaser, who lowers ranks"
+      "anlam_en": "The Abaser, who lowers ranks",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Müzill",
@@ -5577,7 +5665,8 @@
       ],
       "isim_en": "Al-Mudhill",
       "okunus_en": "Al-Mudhill",
-      "anlam_en": "The Humiliator, who brings low whom He wills"
+      "anlam_en": "The Humiliator, who brings low whom He wills",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mukît",
@@ -5598,7 +5687,8 @@
       ],
       "isim_en": "Al-Muqit",
       "okunus_en": "Al-Muqit",
-      "anlam_en": "The Nourisher, who bestows sustenance and strength"
+      "anlam_en": "The Nourisher, who bestows sustenance and strength",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mucîb",
@@ -5619,7 +5709,8 @@
       ],
       "isim_en": "Al-Mujib",
       "okunus_en": "Al-Mujib",
-      "anlam_en": "The Responsive, who answers prayers"
+      "anlam_en": "The Responsive, who answers prayers",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Es-Samed",
@@ -5640,7 +5731,8 @@
       ],
       "isim_en": "As-Samad",
       "okunus_en": "As-Samad",
-      "anlam_en": "The Eternal Refuge, upon whom all depend while He depends on none"
+      "anlam_en": "The Eternal Refuge, upon whom all depend while He depends on none",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Ez-Zâhir",
@@ -5661,7 +5753,8 @@
       ],
       "isim_en": "Az-Zahir",
       "okunus_en": "Az-Zahir",
-      "anlam_en": "The Manifest, whose existence is evident"
+      "anlam_en": "The Manifest, whose existence is evident",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Bâtın",
@@ -5682,7 +5775,8 @@
       ],
       "isim_en": "Al-Batin",
       "okunus_en": "Al-Batin",
-      "anlam_en": "The Hidden, beyond all perception"
+      "anlam_en": "The Hidden, beyond all perception",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Müteâlî",
@@ -5703,7 +5797,8 @@
       ],
       "isim_en": "Al-Mutaali",
       "okunus_en": "Al-Mutaali",
-      "anlam_en": "The Most Exalted, transcendent above all things"
+      "anlam_en": "The Most Exalted, transcendent above all things",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Mâlikü'l-Mülk",
@@ -5724,7 +5819,8 @@
       ],
       "isim_en": "Malik al-Mulk",
       "okunus_en": "Malik al-Mulk",
-      "anlam_en": "Master of the Dominion, true and absolute Owner of all sovereignty"
+      "anlam_en": "Master of the Dominion, true and absolute Owner of all sovereignty",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Vâcid",
@@ -5739,7 +5835,8 @@
       "ayetler": [],
       "isim_en": "Al-Wajid",
       "okunus_en": "Al-Wajid",
-      "anlam_en": "The Finder, who lacks nothing He desires"
+      "anlam_en": "The Finder, who lacks nothing He desires",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mâcid",
@@ -5754,7 +5851,8 @@
       "ayetler": [],
       "isim_en": "Al-Majid",
       "okunus_en": "Al-Majid",
-      "anlam_en": "The Illustrious, of exalted rank and glory"
+      "anlam_en": "The Illustrious, of exalted rank and glory",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "El-Mukaddim",
@@ -5769,7 +5867,8 @@
       "ayetler": [],
       "isim_en": "Al-Muqaddim",
       "okunus_en": "Al-Muqaddim",
-      "anlam_en": "The Expediter, who brings forward whom He wills"
+      "anlam_en": "The Expediter, who brings forward whom He wills",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Es-Sabûr",
@@ -5784,7 +5883,8 @@
       "ayetler": [],
       "isim_en": "As-Sabur",
       "okunus_en": "As-Sabur",
-      "anlam_en": "The Patient, who does not hasten punishment"
+      "anlam_en": "The Patient, who does not hasten punishment",
+      "kategori_etiket_en": "Beautiful Name"
     },
     {
       "isim": "Rabbü'l-Âlemîn",
@@ -5877,7 +5977,8 @@
       "tum_ayetler": [],
       "isim_en": "Rabb al-Alamin",
       "okunus_en": "Rabb al-Alamin",
-      "anlam_en": "Lord of the Worlds, the Nurturer of all realms"
+      "anlam_en": "Lord of the Worlds, the Nurturer of all realms",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "En-Nasîr",
@@ -5970,7 +6071,8 @@
       "tum_ayetler": [],
       "isim_en": "An-Nasir",
       "okunus_en": "An-Nasir",
-      "anlam_en": "The Helper, who grants victory"
+      "anlam_en": "The Helper, who grants victory",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "El-Hallâk",
@@ -6071,7 +6173,8 @@
       ],
       "isim_en": "Al-Khallaq",
       "okunus_en": "Al-Khallaq",
-      "anlam_en": "The Supreme Creator, who creates ceaselessly"
+      "anlam_en": "The Supreme Creator, who creates ceaselessly",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Şedîdü'l-İkâb",
@@ -6157,7 +6260,8 @@
       ],
       "isim_en": "Shadid al-Iqab",
       "okunus_en": "Shadid al-Iqab",
-      "anlam_en": "Severe in Punishment"
+      "anlam_en": "Severe in Punishment",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "El-Mevlâ",
@@ -6243,7 +6347,8 @@
       ],
       "isim_en": "Al-Mawla",
       "okunus_en": "Al-Mawla",
-      "anlam_en": "The Master and Protecting Friend"
+      "anlam_en": "The Master and Protecting Friend",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "El-Fâtır",
@@ -6299,7 +6404,8 @@
       ],
       "isim_en": "Al-Fatir",
       "okunus_en": "Fatir",
-      "anlam_en": "The Originator, who brought the heavens and the earth into being from nothing"
+      "anlam_en": "The Originator, who brought the heavens and the earth into being from nothing",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Zü'l-Fadli'l-Azîm",
@@ -6345,7 +6451,8 @@
       ],
       "isim_en": "Dhu al-Fadli al-Azim",
       "okunus_en": "Dhu al-Fadli al-Azim",
-      "anlam_en": "Possessor of Great Bounty"
+      "anlam_en": "Possessor of Great Bounty",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Hayru'r-Râzıkîn",
@@ -6386,7 +6493,8 @@
       ],
       "isim_en": "Khayr ar-Raziqin",
       "okunus_en": "Khayr ar-Raziqin",
-      "anlam_en": "The Best of Providers"
+      "anlam_en": "The Best of Providers",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Erhamü'r-Râhimîn",
@@ -6422,7 +6530,8 @@
       ],
       "isim_en": "Arham ar-Rahimin",
       "okunus_en": "Arham ar-Rahimin",
-      "anlam_en": "The Most Merciful of the Merciful"
+      "anlam_en": "The Most Merciful of the Merciful",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Hayru'l-Hâkimîn",
@@ -6453,7 +6562,8 @@
       ],
       "isim_en": "Khayr al-Hakimin",
       "okunus_en": "Khayr al-Hakimin",
-      "anlam_en": "The Best of Judges"
+      "anlam_en": "The Best of Judges",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Ahkemü'l-Hâkimîn",
@@ -6479,7 +6589,8 @@
       ],
       "isim_en": "Ahkam al-Hakimin",
       "okunus_en": "Ahkam al-Hakimin",
-      "anlam_en": "The Most Just of Judges"
+      "anlam_en": "The Most Just of Judges",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Zü'r-Rahme",
@@ -6505,7 +6616,8 @@
       ],
       "isim_en": "Dhu ar-Rahmah",
       "okunus_en": "Dhu ar-Rahmah",
-      "anlam_en": "Owner of Mercy"
+      "anlam_en": "Owner of Mercy",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Bedîu's-Semâvât",
@@ -6531,7 +6643,8 @@
       ],
       "isim_en": "Badi as-Samawat",
       "okunus_en": "Badi as-Samawat",
-      "anlam_en": "Originator of the Heavens"
+      "anlam_en": "Originator of the Heavens",
+      "kategori_etiket_en": "Quranic Attribute"
     },
     {
       "isim": "Hayru'l-Gâfirîn",
@@ -6552,7 +6665,14 @@
       ],
       "isim_en": "Khayr al-Ghafirin",
       "okunus_en": "Khayr al-Ghafirin",
-      "anlam_en": "The Best of Forgivers"
+      "anlam_en": "The Best of Forgivers",
+      "kategori_etiket_en": "Quranic Attribute"
     }
-  ]
+  ],
+  "metodoloji_en": {
+    "kaynak_metin": "Uthmānī muṣḥaf script (fully diacritized, 6236 verses)",
+    "kalibrasyon": "Verified against M. Fu'ād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras (e.g. Raḥmān 57, Raḥīm 114, Dhū al-Jalāli wa'l-Ikrām 2).",
+    "onemli_not": "For some short roots (e.g. al-Ḥaqq 'truth/right', al-Khāliq/al-Khallāq), homographic terms may vary in tafsir context — the count here is the surface form.",
+    "uyari": "Occurrence counts are approximations based on the attribute/lexical form of the name; consult classical concordances for definitive figures."
+  }
 }

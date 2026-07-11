@@ -4,85 +4,99 @@
       "isim": "El-Alîm",
       "arabic": "العليم",
       "total": 161,
-      "top20Total": 119
+      "top20Total": 119,
+      "isim_en": "Al-Alim"
     },
     {
       "isim": "El-Hakk",
       "arabic": "الحق",
       "total": 163,
-      "top20Total": 99
+      "top20Total": 99,
+      "isim_en": "Al-Haqq"
     },
     {
       "isim": "Er-Rahîm",
       "arabic": "الرحيم",
       "total": 115,
-      "top20Total": 82
+      "top20Total": 82,
+      "isim_en": "Ar-Rahim"
     },
     {
       "isim": "El-Azîm",
       "arabic": "العظيم",
       "total": 104,
-      "top20Total": 69
+      "top20Total": 69,
+      "isim_en": "Al-Azim"
     },
     {
       "isim": "El-Hakîm",
       "arabic": "الحكيم",
       "total": 96,
-      "top20Total": 61
+      "top20Total": 61,
+      "isim_en": "Al-Hakim"
     },
     {
       "isim": "El-Gafûr",
       "arabic": "الغفور",
       "total": 91,
-      "top20Total": 61
+      "top20Total": 61,
+      "isim_en": "Al-Ghafur"
     },
     {
       "isim": "El-Azîz",
       "arabic": "العزيز",
       "total": 95,
-      "top20Total": 51
+      "top20Total": 51,
+      "isim_en": "Al-Aziz"
     },
     {
       "isim": "Es-Semî'",
       "arabic": "السميع",
       "total": 46,
-      "top20Total": 34
+      "top20Total": 34,
+      "isim_en": "As-Sami"
     },
     {
       "isim": "El-Basîr",
       "arabic": "البصير",
       "total": 46,
-      "top20Total": 25
+      "top20Total": 25,
+      "isim_en": "Al-Basir"
     },
     {
       "isim": "Er-Rahmân",
       "arabic": "الرحمان",
       "total": 46,
-      "top20Total": 14
+      "top20Total": 14,
+      "isim_en": "Ar-Rahman"
     },
     {
       "isim": "El-Kerîm",
       "arabic": "الكريم",
       "total": 26,
-      "top20Total": 14
+      "top20Total": 14,
+      "isim_en": "Al-Karim"
     },
     {
       "isim": "El-Hayy",
       "arabic": "الحي",
       "total": 19,
-      "top20Total": 14
+      "top20Total": 14,
+      "isim_en": "Al-Hayy"
     },
     {
       "isim": "El-Halîm",
       "arabic": "الحليم",
       "total": 15,
-      "top20Total": 9
+      "top20Total": 9,
+      "isim_en": "Al-Halim"
     },
     {
       "isim": "El-Kayyûm",
       "arabic": "القيوم",
       "total": 3,
-      "top20Total": 2
+      "top20Total": 2,
+      "isim_en": "Al-Qayyum"
     }
   ],
   "surahs": [
