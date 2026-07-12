@@ -86,7 +86,7 @@ export default function AllTopics() {
       {/* Subtitle — Hero baseline imza (paralelliği koruyalim). */}
       <motion.p
         variants={fadeUpItem}
-        className="max-w-2xl mb-6"
+        className="max-w-3xl mb-6"
         style={{
           fontFamily: FONTS.body,
           color: COLORS.offWhiteAlpha78,

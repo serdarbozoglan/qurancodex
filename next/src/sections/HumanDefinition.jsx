@@ -449,7 +449,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('termsTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-2">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-2">
           {tr('termsSubtitle')}
         </p>
         <p className="text-silver/40 text-[0.7rem] font-body italic mb-8">
@@ -568,7 +568,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('muminTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-6">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-6">
           {tr('muminIntro')}
         </p>
 
@@ -832,7 +832,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('oppositionTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-2">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-2">
           {tr('oppositionIntro')}
         </p>
         <p
@@ -1006,7 +1006,7 @@ export default function HumanDefinition() {
         <h3 className="font-display text-2xl font-bold text-off-white mb-2">
           {tr('istikaametTitle')}
         </h3>
-        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-2xl mb-8">
+        <p className="text-silver/65 text-sm font-body leading-relaxed max-w-3xl mb-8">
           {tr('istikaametIntro')}
         </p>
 

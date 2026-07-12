@@ -183,7 +183,7 @@ export default function ToolsHighlight() {
       {/* Subtitle — Hero baseline imza. */}
       <motion.p
         variants={fadeUpItem}
-        className="max-w-2xl mb-10"
+        className="max-w-3xl mb-10"
         style={{
           fontFamily: FONTS.body,
           color: COLORS.offWhiteAlpha78,

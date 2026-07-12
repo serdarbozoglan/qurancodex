@@ -611,7 +611,7 @@ export default function ImpossibleRhythm() {
         <h3 className="font-display text-xl font-bold text-off-white mb-3">
           {t('impossibleRhythm.fasila.title')}
         </h3>
-        <p className="text-silver/75 text-sm leading-relaxed font-body max-w-2xl mb-6">
+        <p className="text-silver/75 text-sm leading-relaxed font-body max-w-3xl mb-6">
           {t('impossibleRhythm.fasila.desc')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -676,7 +676,7 @@ export default function ImpossibleRhythm() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {language === 'tr' ? "Kevser Sûresi — '-ar' Fasılası" : "Al-Kawthar — '-ar' Fāṣila"}
         </h3>
-        <p className="text-silver/65 text-sm leading-relaxed font-body max-w-2xl mb-6">
+        <p className="text-silver/65 text-sm leading-relaxed font-body max-w-3xl mb-6">
           {language === 'tr'
             ? "3 ayetin tamamı aynı '-ar' sesiyle biter. Kafiye zorunluluğu yok; ama ses örüntüsü anlamın doğal bir parçası gibi akar."
             : "All 3 verses end with the same '-ar' sound. No rhyme rule is imposed — yet the sonic pattern flows as a natural part of the meaning."}
@@ -978,7 +978,7 @@ export default function ImpossibleRhythm() {
       {/* ── Quote ── */}
       <motion.div
         variants={fadeUpItem}
-        className="glass-card-strong p-6 md:p-8 text-center max-w-2xl mx-auto"
+        className="glass-card-strong p-6 md:p-8 text-center max-w-3xl mx-auto"
       >
         <p className="text-gold/90 text-xl md:text-2xl italic font-display leading-relaxed">
           {t('impossibleRhythm.quote')}

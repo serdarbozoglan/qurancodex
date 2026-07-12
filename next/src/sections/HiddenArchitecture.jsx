@@ -283,7 +283,7 @@ export default function HiddenArchitecture() {
         </div>
 
         {/* ── Mirror diagram ── */}
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <p className="text-silver/70 text-sm text-center mb-4 font-body leading-relaxed max-w-lg mx-auto">
             {language === 'tr' ? surah.introTr : surah.introEn}
           </p>

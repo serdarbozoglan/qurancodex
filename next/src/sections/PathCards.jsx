@@ -169,7 +169,7 @@ export default function PathCards() {
       {/* Subtitle — Hero baseline imza: offWhite/78, clamp, lineHeight 1.7. */}
       <motion.p
         variants={fadeUpItem}
-        className="max-w-2xl mb-10"
+        className="max-w-3xl mb-10"
         style={{
           fontFamily: FONTS.body,
           color: COLORS.offWhiteAlpha78,
