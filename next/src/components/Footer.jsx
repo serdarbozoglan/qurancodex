@@ -78,8 +78,9 @@ export default function Footer() {
         {/* Support this Work — Stripe Payment Links (link-based, embed yok →
             provider switch trivial). Placeholder URL'ler kullanıcı Stripe
             hesabı açıp Payment Link ürettikten sonra real URL ile değişecek
-            (2026-07-12 initial). */}
-        <div className="mb-12">
+            (2026-07-12 initial). id="support" = Navbar ❤ Destek buton +
+            Conclusion CTA anchor scroll target. */}
+        <div id="support" className="mb-12" style={{ scrollMarginTop: '80px' }}>
           <div
             className="max-w-xl mx-auto text-center"
             style={{

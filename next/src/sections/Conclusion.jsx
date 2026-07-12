@@ -198,6 +198,62 @@ export default function Conclusion() {
           {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
         </motion.button>
       </motion.div>
+
+      {/* Support whisper — Conclusion sonrası organic CTA. Footer anchor'a
+          scroll ederek Bu Çalışmayı Destekle callout'una götürür. Whisper
+          tonunda — narrative sonuna doğal bağlanır, agresif değil (2026-07-12). */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1, delay: 0.9 }}
+        className="flex flex-col items-center mt-16 gap-3"
+      >
+        <p style={{
+          color: COLORS.silverAlpha70,
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: '0.95rem',
+          lineHeight: 1.6,
+          textAlign: 'center',
+          maxWidth: '520px',
+          margin: 0,
+        }}>
+          {language === 'tr'
+            ? 'Bu yolculuk bağımsız bir çalışmadır. Beğendiysen sürdürmemize destek olabilirsin.'
+            : 'This journey is an independent effort. If you find it meaningful, you can help sustain it.'}
+        </p>
+        <button
+          onClick={() => {
+            document.getElementById('support')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '9px 20px',
+            background: 'transparent',
+            border: `1px solid ${COLORS.goldAlpha45}`,
+            borderRadius: '999px',
+            color: COLORS.gold,
+            fontFamily: FONTS.body,
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha15; e.currentTarget.style.borderColor = COLORS.gold; }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = COLORS.goldAlpha45; }}
+        >
+          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.9 }}>
+            <path d="M12 21s-7-4.5-9.5-9.5C.5 7.5 3 4 6.5 4c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3 3.5 0 6 3.5 4 7.5C19 16.5 12 21 12 21z"/>
+          </svg>
+          {language === 'tr' ? 'Bu Çalışmayı Destekle' : 'Support this Work'}
+          <span style={{ fontSize: '0.9rem', lineHeight: 1 }}>↓</span>
+        </button>
+      </motion.div>
     </SectionWrapper>
   );
 }

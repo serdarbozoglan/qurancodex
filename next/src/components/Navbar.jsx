@@ -1479,6 +1479,44 @@ export default function Navbar() {
             {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 
+          {/* Destek — heart icon button, navbar-persistent CTA. Anchor scroll
+              to homepage footer #support callout. Height 32px §13.13 rule.
+              Sadece desktop (lg:flex); mobile menu içine ayrıca eklenecek. */}
+          <button
+            onClick={() => {
+              const homePath = `/${language}`;
+              if (typeof window !== 'undefined' && window.location.pathname === homePath) {
+                document.getElementById('support')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              } else {
+                window.location.href = `${homePath}#support`;
+              }
+            }}
+            aria-label={language === 'tr' ? 'Bu çalışmayı destekle' : 'Support this work'}
+            title={language === 'tr' ? 'Bu çalışmayı destekle' : 'Support this work'}
+            className="hidden lg:flex items-center justify-center gap-1.5"
+            style={{
+              padding: '0 12px',
+              height: '32px',
+              borderRadius: '6px',
+              border: `1px solid ${COLORS.goldAlpha45}`,
+              background: 'transparent',
+              color: COLORS.gold,
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              cursor: 'pointer',
+              transition: `all ${TRANSITION.fast}`,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
+          >
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style={{ opacity: 0.85 }}>
+              <path d="M12 21s-7-4.5-9.5-9.5C.5 7.5 3 4 6.5 4c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3 3.5 0 6 3.5 4 7.5C19 16.5 12 21 12 21z"/>
+            </svg>
+            {language === 'tr' ? 'Destek' : 'Support'}
+          </button>
+
           {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
           <button
             onClick={toggleLanguage}
