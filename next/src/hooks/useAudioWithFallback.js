@@ -36,7 +36,10 @@ export function buildFallbackUrlsFromReciter(reciterId, surah, ayah) {
   const a = pad(ayah, 3);
   const file = `${s}${a}.mp3`;
 
-  // All supported reciters in priority order
+  // All supported reciters in priority order.
+  // Keep alignment with ReadingMode RECITERS ids so any selected reciter can
+  // start the chain from itself (startIdx >= 0). Sudais previously missed and
+  // fell through to Alafasy — user-visible reciter drift on karaoke fallback.
   const reciters = [
     'Alafasy_128kbps',
     'Abdul_Basit_Murattal_192kbps',
@@ -44,6 +47,12 @@ export function buildFallbackUrlsFromReciter(reciterId, surah, ayah) {
     'Ghamadi_40kbps',
     'Minshawy_Murattal_128kbps',
     'Muhammad_Jibreel_128kbps',
+    'Abdurrahmaan_As-Sudais_192kbps',
+    'Abu_Bakr_Ash-Shaatree_128kbps',
+    'Saood_ash-Shuraym_64kbps',
+    'Husary_Muallim_128kbps',
+    'Abdul_Basit_Mujawwad_128kbps',
+    'Minshawy_Mujawwad_64kbps',
   ];
 
   // Start from the selected reciter, wrap around

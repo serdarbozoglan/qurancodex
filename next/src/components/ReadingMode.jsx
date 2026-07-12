@@ -989,6 +989,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   });
   const [playingVerseId, setPlayingVerseId] = useState(null);
   const [failedVerseId, setFailedVerseId] = useState(null);
+  // playingVerseId'yi ref olarak da tut — async guard'lardan (seek-fail timer,
+  // fallback promise) stale closure olmadan güncel değeri okumak için.
+  const playingVerseIdRef = useRef(null);
+  useEffect(() => { playingVerseIdRef.current = playingVerseId; }, [playingVerseId]);
   // Karaoke (word-level highlight) — only available for reciters with quranComId.
   const [karaokeEnabled, setKaraokeEnabled] = useState(() => {
     try { return localStorage.getItem('qurancodex_karaoke_on') !== '0'; } catch { return true; }
@@ -1995,10 +1999,36 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       surahAudioRef.current = audio;
     }
 
-    audio.currentTime = vt.from / 1000;
+    const seekTargetSec = vt.from / 1000;
+    audio.currentTime = seekTargetSec;
+
+    // Seek-fail guard: bazı CDN'ler (özellikle Sudais qdc mirror'ı Chrome'da)
+    // HTTP Range request'i tam desteklemez → play() promise resolve olur ama
+    // seek silently fail eder, audio.currentTime = 0'da takılı kalır ve ses
+    // çıkmaz. 900ms sonra sanity check: seek noktasından >2sn uzaktaysak veya
+    // playback ilerlemiyorsa → per-verse everyayah fallback'ine düş.
+    const seekGuardVerseId = verse.id;
+    const seekGuard = setTimeout(() => {
+      const cur = surahAudioRef.current;
+      if (!cur || cur !== audio) return;
+      // Kullanıcı başka verse'e geçtiyse veya durdurulduysa iptal.
+      if (playingVerseIdRef.current !== seekGuardVerseId) return;
+      const drift = Math.abs(cur.currentTime - seekTargetSec);
+      const stalled = cur.paused || drift > 2;
+      if (!stalled) return;
+      // Seek başarısız — karaoke akışını kes, per-verse everyayah chain'ine düş.
+      cur.pause();
+      setKaraokeFallbackActive(true);
+      stopKaraokeLoop();
+      const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, verse.surah, verse.ayah);
+      setPlayingVerseId(verse.id);
+      playVerseWithFallback(verse, 0, urls);
+    }, 900);
+
     const playPromise = audio.play();
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(err => {
+        clearTimeout(seekGuard);
         if (err?.name === 'AbortError') return;
         // Surah mp3 unreachable — degrade to per-ayet flow for this play attempt.
         setKaraokeFallbackActive(true);
