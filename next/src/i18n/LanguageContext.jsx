@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import tr from './tr.json';
 
 // EN lazy — initial bundle'dan ~90KB raw / ~25KB gzip kazanım. TR default
@@ -18,6 +18,9 @@ export function LanguageProvider({ children, initialLocale }) {
   // stale dil ile render ediliyordu (user audit). Pathname source-of-truth.
   const router = useRouter();
   const pathname = usePathname();
+  // Search params locale switch sırasında korunur (UX audit O-01, 2026-07-12).
+  // Örn: /tr/atlas/ibadetler/namaz?tab=ayet-gruplari → /en/... aynı tab.
+  const searchParams = useSearchParams();
   // EN dict yüklenince consumer'larda re-render tetiklemek için — state DEĞERİ
   // memo deps'e girmezse `value` memoize edilmiş kalır, context consumer'lar
   // TR fallback'te takılır (2026-07-10 Hero i18n bug fix).
@@ -68,15 +71,17 @@ export function LanguageProvider({ children, initialLocale }) {
   }, [language, enLoadedAt]);
 
   // Faz 5: dil değiştir → URL pathname'i locale prefix swap ile yeniden yönlendir.
+  // searchParams (?tab=..., ?q=...) korunur — tab state kaybını önler (O-01).
   const toggleLanguage = useCallback(() => {
     const next = language === 'tr' ? 'en' : 'tr';
     if (pathname) {
       const swapped = pathname.replace(/^\/(tr|en)/, `/${next}`);
-      router.push(swapped);
+      const qs = searchParams?.toString();
+      router.push(qs ? `${swapped}?${qs}` : swapped);
     } else {
       setLanguage(next);
     }
-  }, [language, pathname, router]);
+  }, [language, pathname, searchParams, router]);
 
   // setLanguage corollary: direct setter still works (overlay components that
   // call setLanguage('en') directly), but doesn't change URL. Caller's

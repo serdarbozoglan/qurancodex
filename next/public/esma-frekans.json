@@ -6082,99 +6082,25 @@
       "aciklama": "Sürekli ve bol yaratan (Hicr 86, Yâsîn 81)",
       "kategori": "kurani_sifat",
       "kategori_etiket": "Kur'ânî Sıfat / Tamlama",
-      "kuranda_gecis_sayisi": 17,
+      "kuranda_gecis_sayisi": 2,
       "yuksek_frekansli": false,
       "ayetler": [
-        {
-          "sure": 7,
-          "sure_adi": "A'râf",
-          "ayet": 54
-        },
-        {
-          "sure": 7,
-          "sure_adi": "A'râf",
-          "ayet": 69
-        },
-        {
-          "sure": 10,
-          "sure_adi": "Yûnus",
-          "ayet": 4
-        },
-        {
-          "sure": 10,
-          "sure_adi": "Yûnus",
-          "ayet": 34
-        },
-        {
-          "sure": 13,
-          "sure_adi": "Ra'd",
-          "ayet": 16
-        },
         {
           "sure": 15,
           "sure_adi": "Hicr",
           "ayet": 86
         },
         {
-          "sure": 23,
-          "sure_adi": "Mü'minûn",
-          "ayet": 17
-        },
-        {
-          "sure": 27,
-          "sure_adi": "Neml",
-          "ayet": 64
-        },
-        {
-          "sure": 29,
-          "sure_adi": "Ankebût",
-          "ayet": 19
-        },
-        {
-          "sure": 29,
-          "sure_adi": "Ankebût",
-          "ayet": 20
-        },
-        {
-          "sure": 30,
-          "sure_adi": "Rûm",
-          "ayet": 11
-        },
-        {
-          "sure": 30,
-          "sure_adi": "Rûm",
-          "ayet": 27
-        },
-        {
-          "sure": 35,
-          "sure_adi": "Fâtır",
-          "ayet": 1
-        },
-        {
-          "sure": 36,
-          "sure_adi": "Yâsîn",
-          "ayet": 68
-        },
-        {
           "sure": 36,
           "sure_adi": "Yâsîn",
           "ayet": 81
-        },
-        {
-          "sure": 50,
-          "sure_adi": "Kâf",
-          "ayet": 15
-        },
-        {
-          "sure": 59,
-          "sure_adi": "Haşr",
-          "ayet": 24
         }
       ],
       "isim_en": "Al-Khallaq",
       "okunus_en": "Al-Khallaq",
       "anlam_en": "The Supreme Creator, who creates ceaselessly",
-      "kategori_etiket_en": "Quranic Attribute"
+      "kategori_etiket_en": "Quranic Attribute",
+      "gosterim_notu": "El-Hallâk (خَلَّاق mübâlağa vezni) Kur'ân'da yalnızca Hicr 15:86 ve Yâsîn 36:81'de geçer. Önceki 17 sayısı el-Hâlik (خَالِق) ve khalq (masdar) formlarını yanlışlıkla dahil ediyordu — bu formlar dilbilimsel olarak farklıdır (Content audit K-01, 2026-07-12)."
     },
     {
       "isim": "Şedîdü'l-İkâb",

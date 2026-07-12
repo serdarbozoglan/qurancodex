@@ -144,9 +144,11 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
               textTransform: 'uppercase',
               fontWeight: activeTab === tab.key ? 700 : 500,
               color: activeTab === tab.key ? COLORS.gold : COLORS.silver,
+              // borderTop/Left/Right = none; borderBottom yalnızca active için gold underline.
+              // Not: 'border: none' shorthand YASAK — React strict mode warning tetikler (§UX audit K-01, 2026-07-12).
+              borderTop: 'none', borderLeft: 'none', borderRight: 'none',
               borderBottom: activeTab === tab.key ? `2px solid ${COLORS.gold}` : '2px solid transparent',
               background: activeTab === tab.key ? COLORS.goldAlpha15 : 'transparent',
-              border: 'none',
               cursor: 'pointer',
               whiteSpace: 'nowrap',
               transition: `all ${TRANSITION.fast}`,

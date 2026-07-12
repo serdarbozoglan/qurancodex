@@ -53,10 +53,11 @@ function VesveseKanaliWidget({ language, isMobile }) {
   ];
 
   const antidotes = [
-    { tr: 'İstiâze (اَعوذُ باللهِ)', en: 'Isti\'ādha (I seek refuge in Allah)', descTr: 'Nahl 16:98', descEn: 'al-Nahl 16:98' },
-    { tr: 'Zikir + istiğfâr', en: 'Dhikr + istighfār', descTr: 'A\'râf 7:201', descEn: 'al-A\'rāf 7:201' },
-    { tr: 'Muavvizeteyn (Felak + Nâs)', en: 'Al-Muʿawwidhatān (Falaq + Nās)', descTr: 'Hz. Peygamber pratiği', descEn: 'Prophetic practice' },
-    { tr: 'Kalbi Rabbe bağlı tutmak', en: 'Keeping the heart tied to the Lord', descTr: 'Furkân 25:29', descEn: 'al-Furqān 25:29' },
+    // href: null → tıklanabilir değil (Peygamber pratiği referansı)
+    { tr: 'İstiâze (اَعوذُ باللهِ)', en: 'Isti\'ādha (I seek refuge in Allah)', descTr: 'Nahl 16:98', descEn: 'al-Nahl 16:98', href: '/oku/16/98' },
+    { tr: 'Zikir + istiğfâr', en: 'Dhikr + istighfār', descTr: 'A\'râf 7:201', descEn: 'al-A\'rāf 7:201', href: '/oku/7/201' },
+    { tr: 'Muavvizeteyn (Felak + Nâs)', en: 'Al-Muʿawwidhatān (Falaq + Nās)', descTr: 'Hz. Peygamber pratiği', descEn: 'Prophetic practice', href: null },
+    { tr: 'Kalbi Rabbe bağlı tutmak', en: 'Keeping the heart tied to the Lord', descTr: 'Furkân 25:29', descEn: 'al-Furqān 25:29', href: '/oku/25/29' },
   ];
 
   return (
@@ -153,19 +154,48 @@ function VesveseKanaliWidget({ language, isMobile }) {
           gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
           gap: '8px',
         }}>
-          {antidotes.map((a, i) => (
-            <div key={i} style={{ textAlign: 'center' }}>
-              <div style={{
-                fontSize: '0.85rem', color: COLORS.gold,
-                fontWeight: 700, marginBottom: '2px',
-                fontFamily: FONTS.body,
-              }}>{tr ? a.tr : a.en}</div>
-              <div style={{
-                fontSize: '0.68rem', color: COLORS.silver, opacity: 0.7,
-                fontFamily: FONTS.body,
-              }}>{tr ? a.descTr : a.descEn}</div>
-            </div>
-          ))}
+          {antidotes.map((a, i) => {
+            const content = (
+              <>
+                <div style={{
+                  fontSize: '0.85rem', color: COLORS.gold,
+                  fontWeight: 700, marginBottom: '2px',
+                  fontFamily: FONTS.body,
+                }}>{tr ? a.tr : a.en}</div>
+                <div style={{
+                  fontSize: '0.68rem', color: COLORS.silver, opacity: 0.7,
+                  fontFamily: FONTS.body,
+                }}>{tr ? a.descTr : a.descEn}</div>
+              </>
+            );
+            // href varsa ayet sayfasına Link (UX audit O-02, 2026-07-12)
+            if (a.href) {
+              return (
+                <a
+                  key={i}
+                  href={`/${tr ? 'tr' : 'en'}${a.href}`}
+                  style={{
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    display: 'block',
+                    padding: '2px',
+                    borderRadius: '4px',
+                    transition: 'background 0.15s',
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                  aria-label={tr ? `${a.tr} — ${a.descTr} ayetini oku` : `${a.en} — read ${a.descEn}`}
+                >
+                  {content}
+                </a>
+              );
+            }
+            return (
+              <div key={i} style={{ textAlign: 'center' }}>
+                {content}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -66,8 +66,11 @@ export default function ToolHeader({
         </span>
         {subtitleTr && (
           <>
-            <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+            {/* Mobil'de subtitle gizlenir — hero eyebrow ile duplicate + overflow */}
+            {/* (Visual audit K-02, 2026-07-12). Desktop'ta (sm:) inline gösterilir. */}
+            <span className="hidden sm:inline" style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
             <span
+              className="hidden sm:inline"
               style={{
                 color: COLORS.slate500,
                 fontSize: '0.78rem',

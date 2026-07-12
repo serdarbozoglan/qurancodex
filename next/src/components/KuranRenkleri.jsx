@@ -2974,11 +2974,15 @@ export default function KuranRenkleri({ onClose }) {
               data={data} language={language} isMobile={isMobile}
               onColorClick={(id) => {
                 setActiveTab(TABS.RENKLER);
-                setActiveFilter(id);
+                // BUG FIX (UX audit K-02, 2026-07-12): activeFilter renk id'si DEĞİL context id'si
+                // ('tumu' | 'cennet' | 'kiyamet' | 'doga' | 'kissa' | 'hapax'). Renk id'sini set etmek
+                // filtered array'i boşaltıp tüm kartları unmount ediyordu. 'tumu' → tüm renkler görünür.
+                setActiveFilter('tumu');
+                setExpandedVerse(id);
                 setTimeout(() => {
                   const el = document.getElementById(`color-${id}`);
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 60);
+                }, 200);
               }}
             />
           )}
@@ -3050,7 +3054,7 @@ function ColorsClosing({ language, isMobile }) {
         </p>
         <p style={{ fontSize: '0.86rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 14px', fontFamily: FONTS.body }}>
           {tr
-            ? <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax \"koyu yeşil\" iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
+            ? <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
             : <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax "deep green" two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
         </p>
         <p style={{ fontSize: '0.84rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 8px', fontFamily: FONTS.body }}>
@@ -3065,12 +3069,12 @@ function ColorsClosing({ language, isMobile }) {
         </ul>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
           {tr
-            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. \"Monokrom cennet\" okuması hem tefsire hem ayetlere aykırıdır.</>
+            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem tefsire hem ayetlere aykırıdır.</>
             : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.7, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
-            ? <>Bu sayfa <strong style={{ color: '#2ecc71', fontWeight: 600 }}>yeşil</strong>e \"vaadin baş işareti\" olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
+            ? <>Bu sayfa <strong style={{ color: '#2ecc71', fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
             : <>This page focuses on <strong style={{ color: '#2ecc71', fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
         </p>
       </div>

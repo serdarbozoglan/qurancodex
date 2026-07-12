@@ -41,7 +41,10 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
         speedY: isGlyph
           ? (glyphRising ? -1 : 1) * (Math.random() * 0.15 + 0.05)
           : -(Math.random() * 0.25 + 0.05),
-        opacity: isGlyph ? Math.random() * 0.18 + 0.15 : Math.random() * 0.5 + 0.15,
+        // Glyph opacity aralığı düşürüldü — Bismillah etrafındaki cinematic sessizliği
+        // korumak için (Visual audit K-03, 2026-07-12). Eski: 0.15-0.33 → yeni: 0.06-0.14.
+        // Nokta partiküller genişçe bırakıldı — arka plandaki nefes.
+        opacity: isGlyph ? Math.random() * 0.08 + 0.06 : Math.random() * 0.5 + 0.15,
         phase: Math.random() * Math.PI * 2,
         color: Math.random() > 0.7
           ? [201, 162, 39]   // royal gold

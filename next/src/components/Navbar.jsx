@@ -1196,7 +1196,7 @@ export default function Navbar() {
               onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
               onMouseLeave={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
             >
-              {language === 'tr' ? 'Tefekkür' : 'Tefekkür'}
+              {language === 'tr' ? 'Tefekkür' : 'Reflections'}
               <span style={{ transition: 'transform 0.2s', transform: tefekkurOpen ? 'rotate(180deg)' : 'rotate(0deg)', opacity: 0.6 }}>
                 <ChevronDown />
               </span>
