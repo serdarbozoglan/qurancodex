@@ -771,6 +771,15 @@
     "title": "Quran Codex",
     "tagline": "Hidden Architecture of the Quran",
     "methodology": "The analyses on this site are drawn from academic sources, classical exegetical tradition, and Quranic corpus studies. Claims in each section are grounded in the sources relevant to that section; academic debates and nuances are noted within the relevant sections.",
+    "support": {
+      "eyebrow": "SUPPORT THIS WORK",
+      "title": "An independent Quranic research project",
+      "description": "QuranCodex is a solo endeavor with no institutional backing. Your contribution covers hosting, API, and content development costs — and helps us continue this journey together.",
+      "monthlyBtn": "Monthly Support",
+      "onetimeBtn": "One-time Support",
+      "monthlyUrl": "https://buy.stripe.com/5kQ00j0x2c1jbIw0CB8Ra02",
+      "onetimeUrl": "https://buy.stripe.com/3cI6oH93yghz6oc70Z8Ra04"
+    },
     "sourcesTitle": "Sources",
     "sources": [
       {

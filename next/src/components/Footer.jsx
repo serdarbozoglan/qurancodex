@@ -75,6 +75,125 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* Support this Work — Stripe Payment Links (link-based, embed yok →
+            provider switch trivial). Placeholder URL'ler kullanıcı Stripe
+            hesabı açıp Payment Link ürettikten sonra real URL ile değişecek
+            (2026-07-12 initial). */}
+        <div className="mb-12">
+          <div
+            className="max-w-xl mx-auto text-center"
+            style={{
+              padding: '32px 28px',
+              background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, rgba(255,255,255,0.02) 100%)`,
+              border: `1px solid ${COLORS.gold}2e`,
+              borderRadius: '16px',
+            }}
+          >
+            <div
+              style={{
+                color: `${COLORS.gold}cc`,
+                fontFamily: FONTS.body,
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                letterSpacing: '0.24em',
+                textTransform: 'uppercase',
+                marginBottom: '10px',
+              }}
+            >
+              {t('footer.support.eyebrow') || (t('footer.copyright') && '❤')}
+            </div>
+            <h4
+              style={{
+                fontFamily: FONTS.display,
+                fontWeight: 700,
+                fontSize: 'clamp(1.15rem, 2.2vw, 1.4rem)',
+                color: COLORS.offWhite,
+                margin: '0 0 12px',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              {t('footer.support.title')}
+            </h4>
+            <p
+              style={{
+                color: COLORS.silver,
+                fontFamily: FONTS.body,
+                fontSize: '0.86rem',
+                lineHeight: 1.65,
+                margin: '0 0 22px',
+                maxWidth: '460px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              {t('footer.support.description')}
+            </p>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '10px',
+                justifyContent: 'center',
+              }}
+            >
+              <a
+                href={t('footer.support.monthlyUrl') || 'https://buy.stripe.com/PLACEHOLDER_MONTHLY'}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: `${COLORS.gold}1a`,
+                  border: `1px solid ${COLORS.gold}66`,
+                  borderRadius: '999px',
+                  padding: '11px 22px',
+                  color: COLORS.gold,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; e.currentTarget.style.borderColor = `${COLORS.gold}aa`; }}
+                onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}1a`; e.currentTarget.style.borderColor = `${COLORS.gold}66`; }}
+              >
+                <span>{t('footer.support.monthlyBtn')}</span>
+                <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>→</span>
+              </a>
+              <a
+                href={t('footer.support.onetimeUrl') || 'https://buy.stripe.com/PLACEHOLDER_ONETIME'}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'transparent',
+                  border: `1px solid ${COLORS.gold}44`,
+                  borderRadius: '999px',
+                  padding: '11px 22px',
+                  color: `${COLORS.gold}dd`,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.84rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}11`; e.currentTarget.style.borderColor = `${COLORS.gold}88`; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = `${COLORS.gold}44`; }}
+              >
+                <span>{t('footer.support.onetimeBtn')}</span>
+                <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Sources */}
         <div className="glass-card p-8 mb-12">
           <h4 className="text-off-white font-body font-semibold mb-4 text-xs uppercase tracking-[0.2em]">

@@ -771,6 +771,15 @@
     "title": "Quran Codex",
     "tagline": "Kur'an'ın Görünmeyen Mimarisi",
     "methodology": "Bu sitedeki analizler akademik kaynaklar, klasik tefsir geleneği ve Kur'an korpus çalışmalarından derlenmiştir. Her bölümdeki iddialar, o bölüme ait kaynaklara dayanmaktadır; akademik tartışmalar ve nüanslar ilgili bölüm notlarında belirtilmiştir.",
+    "support": {
+      "eyebrow": "BU ÇALIŞMAYI DESTEKLE",
+      "title": "Bağımsız bir Kur'an araştırma projesi",
+      "description": "QuranCodex hiçbir kurumsal desteği olmayan, tek kişilik bir çalışmadır. Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar.",
+      "monthlyBtn": "Aylık Destek Ol",
+      "onetimeBtn": "Tek Seferlik Destek",
+      "monthlyUrl": "https://buy.stripe.com/5kQ00j0x2c1jbIw0CB8Ra02",
+      "onetimeUrl": "https://buy.stripe.com/3cI6oH93yghz6oc70Z8Ra04"
+    },
     "sourcesTitle": "Kaynaklar",
     "sources": [
       {
