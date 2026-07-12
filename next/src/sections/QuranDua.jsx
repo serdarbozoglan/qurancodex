@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import { COLORS, RADIUS, TRANSITION, BREAKPOINT_MOBILE } from '../tokens';
+import { COLORS, RADIUS, TRANSITION, BREAKPOINT_MOBILE, FONTS } from '../tokens';
 
 const PROPHET_PROFILES = [
   {
@@ -257,7 +257,7 @@ export default function QuranDua() {
             wordBreak: 'break-word',
           }}>
             <div dir="rtl" lang="ar" style={{
-              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontFamily: FONTS.quran,
               fontSize: '2.2rem', color: '#3498db', textAlign: 'center',
               lineHeight: 1.2, marginBottom: '6px',
               textShadow: '0 0 14px rgba(52,152,219,0.18)',
@@ -315,7 +315,7 @@ export default function QuranDua() {
             wordBreak: 'break-word',
           }}>
             <div dir="rtl" lang="ar" style={{
-              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontFamily: FONTS.quran,
               fontSize: '2.2rem', color: COLORS.gold, textAlign: 'center',
               lineHeight: 1.2, marginBottom: '6px',
               textShadow: '0 0 14px rgba(212,165,116,0.18)',
@@ -380,7 +380,7 @@ export default function QuranDua() {
               {tr ? 'Pencere 2 · "Yâ" Edatının Yokluğu' : 'Window 2 · The Absence of "Yā"'}
             </div>
             <div dir="rtl" lang="ar" style={{
-              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontFamily: FONTS.quran,
               fontSize: '1.4rem', color: '#a78bfa', textAlign: 'right',
               lineHeight: 1.7, marginBottom: '4px',
               textShadow: '0 0 14px rgba(167,139,250,0.18)',
@@ -427,7 +427,7 @@ export default function QuranDua() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
               <div>
                 <div dir="rtl" lang="ar" style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
                   lineHeight: 1.7,
                   textShadow: '0 0 14px rgba(231,76,60,0.18)',
@@ -443,7 +443,7 @@ export default function QuranDua() {
               </div>
               <div>
                 <div dir="rtl" lang="ar" style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '1.25rem', color: '#e74c3c', textAlign: 'right',
                   lineHeight: 1.7,
                   textShadow: '0 0 14px rgba(231,76,60,0.18)',
@@ -583,7 +583,7 @@ export default function QuranDua() {
                 textAlign: 'center',
               }}>
                 <p dir="rtl" lang="ar" style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '1.8rem', lineHeight: 2,
                   color: p.emojiColor,
                   margin: '0 0 12px',
@@ -759,7 +759,7 @@ export default function QuranDua() {
 
               {/* Arabic */}
               <div dir="rtl" lang="ar" style={{
-                fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                fontFamily: FONTS.quran,
                 fontSize: '1.5rem', color: stage.color,
                 textAlign: 'right', lineHeight: 1.85,
                 margin: '4px 0 2px',
@@ -870,7 +870,7 @@ export default function QuranDua() {
               <p
                 dir="rtl"
                 style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '1.55rem',
                   lineHeight: 2,
                   textAlign: 'right',

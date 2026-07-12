@@ -445,7 +445,7 @@ export default function HiddenArchitecture() {
               </div>
               {surah.center.ar && (
                 <p dir="rtl" lang="ar" style={{
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: '1.25rem', color: '#9b59b6',
                   lineHeight: 2, textAlign: 'right',
                 }}>
@@ -770,7 +770,7 @@ export default function HiddenArchitecture() {
                 style={{
                   fill: '#d4a574',
                   fontSize: '20px',
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   opacity: 0.95,
                 }}>
                 نور

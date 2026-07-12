@@ -1032,7 +1032,7 @@ function VerseRow({ occurrence, language }) {
         <div style={{ padding: '0 14px 14px', borderTop: `1px solid ${COLORS.glassBg}` }}>
           {loading && (
             <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, margin: '12px 0 0', fontStyle: 'italic' }}>
-              {tr ? 'Ayet yükleniyor...' : 'Loading verse...'}
+              {tr ? 'Ayet yükleniyor…' : 'Loading verse…'}
             </p>
           )}
           {verse && (

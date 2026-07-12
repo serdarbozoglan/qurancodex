@@ -181,7 +181,7 @@ function AccordionItem({ item, accentColor }) {
                   marginBottom: '14px',
                 }}>
                   <p style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: '1.5rem', color: '#d4a574',
                     lineHeight: 1.8, direction: 'rtl',
                     textAlign: 'right',
@@ -370,7 +370,7 @@ function AppendixPanel() {
                 transition: 'all 0.2s',
               }}
             >
-              <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '0.9rem', opacity: 0.7 }}>{EK_LETTERS[ek]}</span>
+              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', opacity: 0.7 }}>{EK_LETTERS[ek]}</span>
               {tabs[ek] || ek.toUpperCase()}
             </button>
           );

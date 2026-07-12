@@ -395,7 +395,7 @@ export default function LinguisticDNA() {
               >
                 <span
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: isMobile ? '1.25rem' : '1.6rem',
                     color: COLORS.goldBright,
                     lineHeight: 1,
@@ -525,7 +525,7 @@ export default function LinguisticDNA() {
                   position: 'absolute',
                   top: '-0.5rem',
                   right: '-0.5rem',
-                  fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                  fontFamily: FONTS.quran,
                   fontSize: 'clamp(5rem, 12vw, 9rem)',
                   color: group.color,
                   opacity: isOpen ? 0.08 : 0.06,
@@ -544,7 +544,7 @@ export default function LinguisticDNA() {
                   <div>
                     <span
                       style={{
-                        fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                        fontFamily: FONTS.quran,
                         fontSize: '2.2rem',
                         color: group.color,
                         lineHeight: 1,
@@ -740,7 +740,7 @@ export default function LinguisticDNA() {
                 {/* Arabic letter — size varies by letter count */}
                 <span
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize,
                     color: '#e8e6e3',
                     lineHeight: 1.1,

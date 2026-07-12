@@ -3046,7 +3046,7 @@ function ColorsClosing({ language, isMobile }) {
         maxWidth: '780px',
         marginInline: 'auto',
       }}>
-        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#2ecc71', opacity: 0.9, margin: '0 0 12px', fontFamily: FONTS.body }}>
+        <p style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.softEmerald, opacity: 0.9, margin: '0 0 12px', fontFamily: FONTS.body }}>
           {tr ? "Kelâmî Tartışma · Sıkça Sorulan" : "Theological Q · Frequently Asked"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
@@ -3054,8 +3054,8 @@ function ColorsClosing({ language, isMobile }) {
         </p>
         <p style={{ fontSize: '0.86rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 14px', fontFamily: FONTS.body }}>
           {tr
-            ? <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
-            : <><strong style={{ color: '#2ecc71', fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax "deep green" two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
+            ? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
+            : <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax "deep green" two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
         </p>
         <p style={{ fontSize: '0.84rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 8px', fontFamily: FONTS.body }}>
           {tr ? "Kur'an'da cennette geçen diğer renkler ve dokular:" : "Other colors and textures of Paradise in the Quran:"}
@@ -3069,13 +3069,13 @@ function ColorsClosing({ language, isMobile }) {
         </ul>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
           {tr
-            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem tefsire hem ayetlere aykırıdır.</>
-            : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: '#2ecc71', fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
+            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem tefsire hem ayetlere aykırıdır.</>
+            : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.7, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
-            ? <>Bu sayfa <strong style={{ color: '#2ecc71', fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
-            : <>This page focuses on <strong style={{ color: '#2ecc71', fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
+            ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
+            : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
         </p>
       </div>
 
@@ -3102,8 +3102,8 @@ function ColorsClosing({ language, isMobile }) {
         maxWidth: '780px',
       }}>
         {tr
-          ? <>Renk <em style={{ fontStyle: 'normal', color: COLORS.gold }}>dünyayı anlatır</em>. <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>Yeşil</em> cenneti <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>vaad eder</em>.</>
-          : <><em style={{ fontStyle: 'normal', color: COLORS.gold }}>Color narrates</em> the world. <em style={{ fontStyle: 'normal', color: '#2ecc71' }}>Green promises</em> the Paradise.</>}
+          ? <>Renk <em style={{ fontStyle: 'normal', color: COLORS.gold }}>dünyayı anlatır</em>. <em style={{ fontStyle: 'normal', color: COLORS.softEmerald }}>Yeşil</em> cenneti <em style={{ fontStyle: 'normal', color: COLORS.softEmerald }}>vaad eder</em>.</>
+          : <><em style={{ fontStyle: 'normal', color: COLORS.gold }}>Color narrates</em> the world. <em style={{ fontStyle: 'normal', color: COLORS.softEmerald }}>Green promises</em> the Paradise.</>}
       </h3>
 
       {/* Synthesis paragraph */}
@@ -3118,8 +3118,8 @@ function ColorsClosing({ language, isMobile }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Allah dünyayı renklerle yazdı — yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (koyu yeşil iki bahçe, 55:64), yeşil sündüs ve istebrak (18:31, 76:21), yeşil rafraf (55:76), inci, yâkut, dört nehir. Bütün bunların habercisi tek renkten gelir — <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>yeşilden</strong>.</>
-          : <>Allah wrote the world with colors — green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (two deep-green gardens, 55:64), green sundus and istabraq silk (18:31, 76:21), green rafraf (55:76), pearls, rubies, four rivers. Yet the herald of all these comes from one color — <strong style={{ color: '#2ecc71', fontStyle: 'normal', fontWeight: 600 }}>green</strong>.</>}
+          ? <>Allah dünyayı renklerle yazdı — yeşil, sarı, beyaz, siyah. Renk bu dünyada bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alfabe</strong>, bir <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>anlatım</strong>. Cennet ise söze sığmaz: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (koyu yeşil iki bahçe, 55:64), yeşil sündüs ve istebrak (18:31, 76:21), yeşil rafraf (55:76), inci, yâkut, dört nehir. Bütün bunların habercisi tek renkten gelir — <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>yeşilden</strong>.</>
+          : <>Allah wrote the world with colors — green, yellow, white, black. In this world, color is an <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>alphabet</strong>, a <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>narrative</strong>. Paradise exceeds words: <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>مُدْهَامَّتَانِ</strong> (two deep-green gardens, 55:64), green sundus and istabraq silk (18:31, 76:21), green rafraf (55:76), pearls, rubies, four rivers. Yet the herald of all these comes from one color — <strong style={{ color: COLORS.softEmerald, fontStyle: 'normal', fontWeight: 600 }}>green</strong>.</>}
       </p>
 
       {/* Cross-tool CTA strip — 3 derin link */}

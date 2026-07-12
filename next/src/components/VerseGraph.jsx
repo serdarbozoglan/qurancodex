@@ -2691,7 +2691,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   if (loading) return (
     <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
       <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 1s linear infinite' }} />
-      <span style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor...' : 'Loading map...'}</span>
+      <span style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor…' : 'Loading map…'}</span>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );

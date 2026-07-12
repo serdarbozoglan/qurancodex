@@ -591,7 +591,7 @@ export default function QuranRhetoric() {
                 <p
                   dir="rtl"
                   style={{
-                    fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+                    fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
                     color: '#e8e6e3',
                     textAlign: 'right',

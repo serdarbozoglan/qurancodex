@@ -1789,7 +1789,7 @@ export default function Navbar() {
                     cursor: 'pointer',
                   }}
                 >
-                  <span dir="rtl" lang="ar" style={{ fontFamily: "'KFGQPC', 'Amiri Quran', serif", fontSize: '1.4rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
+                  <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.86rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
                 </button>
 

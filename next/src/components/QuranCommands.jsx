@@ -209,7 +209,7 @@ export default function QuranCommands({ onClose }) {
         <p
           dir="rtl" lang="ar"
           style={{
-            fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+            fontFamily: FONTS.quran,
             fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
