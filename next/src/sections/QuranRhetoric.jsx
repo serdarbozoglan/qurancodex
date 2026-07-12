@@ -436,7 +436,7 @@ export default function QuranRhetoric() {
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                     background: isVisual ? `${qt.color}25` : 'rgba(255,255,255,0.06)',
-                    color: isVisual ? qt.color : '#94a3b8',
+                    color: isVisual ? qt.color : COLORS.silver,
                     fontSize: '0.78rem', fontWeight: 700,
                     fontFamily: "'Inter', sans-serif",
                     padding: '3px 10px', borderRadius: '20px',
@@ -451,7 +451,7 @@ export default function QuranRhetoric() {
                   <svg
                     aria-hidden="true"
                     width="16" height="16" viewBox="0 0 24 24"
-                    fill="none" stroke={isVisual ? qt.color : '#94a3b8'}
+                    fill="none" stroke={isVisual ? qt.color : COLORS.silver}
                     strokeWidth="2" strokeLinecap="round"
                     style={{
                       flexShrink: 0,
@@ -593,7 +593,7 @@ export default function QuranRhetoric() {
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
-                    color: '#e8e6e3',
+                    color: COLORS.offWhite,
                     textAlign: 'right',
                     lineHeight: 2,
                     marginBottom: 8,
@@ -604,7 +604,7 @@ export default function QuranRhetoric() {
                 {/* Meal */}
                 <p
                   style={{
-                    color: '#94a3b8',
+                    color: COLORS.silver,
                     fontSize: '0.9rem',
                     fontStyle: 'italic',
                     lineHeight: 1.7,
@@ -683,7 +683,7 @@ export default function QuranRhetoric() {
                     pointerEvents: 'none',
                   }}
                 >
-                  <span style={{ color: '#e8e6e3', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>
+                  <span style={{ color: COLORS.offWhite, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>
                     {i + 1}. {SURAH_NAMES_TR[i]}
                   </span>
                   <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif" }}>
@@ -706,7 +706,7 @@ export default function QuranRhetoric() {
         </div>
         {/* Legend */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '12px' }}>
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
+          <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
             {tr ? 'Az' : 'Few'}
           </span>
           <div style={{
@@ -714,7 +714,7 @@ export default function QuranRhetoric() {
             background: 'linear-gradient(to right, rgba(212,165,116,0.22), rgba(212,165,116,0.42), rgba(212,165,116,0.62), rgba(212,165,116,0.80), rgba(212,165,116,0.97))',
             border: '1px solid rgba(255,255,255,0.06)',
           }} />
-          <span style={{ color: '#94a3b8', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
+          <span style={{ color: COLORS.silver, fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}>
             {tr ? 'Çok' : 'Many'}
           </span>
         </div>
@@ -761,16 +761,16 @@ export default function QuranRhetoric() {
           }}
         >
           <div style={{ textAlign: 'left' }}>
-            <p style={{ color: '#d4a574', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
+            <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? '↗ RETORİK ANALİZİ — DETAYLI İNCELE' : '↗ RHETORIC ANALYSIS — EXPLORE IN DETAIL'}
             </p>
-            <p style={{ color: '#94a3b8', fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
                 ? '30 soru · alt kalıplar · muhatap analizi · sure haritası'
                 : '30 questions · sub-patterns · addressee analysis · surah map'}
             </p>
           </div>
-          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a574" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </button>
