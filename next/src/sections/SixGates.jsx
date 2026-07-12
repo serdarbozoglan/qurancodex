@@ -156,7 +156,10 @@ function Gate({ gate, isMobile, language }) {
       transition={{ duration: 0.55, type: 'spring', stiffness: 140 }}
       style={{
         position: 'relative',
+        // Grid cell stretch + explicit minHeight — kısa içerikli kartların uzun kartlarla
+        // balanced grid görünümünü korumak için (Visual audit O-10, 2026-07-12).
         height: '100%',
+        minHeight: '320px',
         display: 'flex',
         flexDirection: 'column',
         padding: isMobile ? '22px 20px' : '26px 24px',

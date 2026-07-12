@@ -134,7 +134,14 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
             onClick={() => {
               setActiveTab(tab.key);
               setTimeout(() => {
-                document.getElementById('ibadet-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Tab bar'ı sticky top'una hizala (110px = Navbar 62px + ToolHeader 48px).
+                // Böylece hero tagline sticky arkasında yarım görünmez, sticky altında
+                // pürüzsüz otururur (Visual audit O-08, 2026-07-12).
+                const el = document.getElementById('ibadet-tab-bar');
+                if (el) {
+                  const y = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
               }, 50);
             }}
             style={{

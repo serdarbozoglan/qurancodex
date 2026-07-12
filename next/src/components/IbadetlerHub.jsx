@@ -523,7 +523,35 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
               alignItems: 'center', gap: '8px', transition: 'all 0.15s',
             }}
           >
-            <span aria-hidden="true" style={{ fontSize: '1.05rem' }}>{y.iconTr}</span>
+            {/* Yol tipine göre brand-tutarlı SVG line-icon (emoji → SVG, Visual O-09 2026-07-12) */}
+            <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              {y.id === 'ilk-defa' && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Seedling / new beginning */}
+                  <path d="M12 20V10" />
+                  <path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5z" />
+                  <path d="M12 10c3 0 5-2 5-5-3 0-5 2-5 5z" />
+                  <path d="M6 20h12" />
+                </svg>
+              )}
+              {y.id === 'kavram-calisan' && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Compass */}
+                  <circle cx="12" cy="12" r="9" />
+                  <polygon points="16,8 12,14 8,16 12,10" />
+                </svg>
+              )}
+              {y.id === 'fikih-calisan' && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Scale / balance */}
+                  <path d="M12 3v18" />
+                  <path d="M6 21h12" />
+                  <path d="M5 8h14" />
+                  <path d="M5 8L3 14a3 3 0 0 0 6 0z" />
+                  <path d="M19 8l-2 6a3 3 0 0 0 6 0z" />
+                </svg>
+              )}
+            </span>
             <span>{tr ? y.titleTr : (y.titleEn ?? y.titleTr)}</span>
           </button>
         ))}

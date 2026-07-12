@@ -9,10 +9,11 @@ import QuranVerse from '../components/QuranVerse';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
 // ── Pair colors: A/A' = gold, B/B' = emerald, C/C' = sky-blue ──
+// COLORS token'ından türetilir (§13.1) — Visual audit O-04 (2026-07-12).
 const PAIR_COLORS = [
-  { text: '#d4a574', border: 'rgba(212,165,116,0.55)', bg: 'rgba(212,165,116,0.09)', glow: '0 0 22px rgba(212,165,116,0.3)' },
-  { text: '#2ecc71', border: 'rgba(46,204,113,0.55)',  bg: 'rgba(46,204,113,0.09)',  glow: '0 0 22px rgba(46,204,113,0.3)' },
-  { text: '#3498db', border: 'rgba(52,152,219,0.55)',  bg: 'rgba(52,152,219,0.09)',  glow: '0 0 22px rgba(52,152,219,0.3)' },
+  { text: COLORS.gold,        border: 'rgba(212,165,116,0.55)', bg: 'rgba(212,165,116,0.09)', glow: `0 0 22px rgba(212,165,116,0.3)` },
+  { text: COLORS.softEmerald, border: 'rgba(46,204,113,0.55)',  bg: 'rgba(46,204,113,0.09)',  glow: '0 0 22px rgba(46,204,113,0.3)' },
+  { text: COLORS.skyBlue,     border: 'rgba(52,152,219,0.55)',  bg: 'rgba(52,152,219,0.09)',  glow: '0 0 22px rgba(52,152,219,0.3)' },
 ];
 
 // ── Surah data with Arabic text + per-surah info panel content ──
@@ -264,7 +265,7 @@ export default function HiddenArchitecture() {
                   borderRadius: '20px',
                   border: `1px solid ${active ? 'rgba(212,165,116,0.6)' : 'rgba(255,255,255,0.1)'}`,
                   background: active ? 'rgba(212,165,116,0.12)' : 'transparent',
-                  color: active ? '#d4a574' : '#94a3b8',
+                  color: active ? COLORS.gold : COLORS.silver,
                   fontSize: '0.8rem',
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 600,
@@ -330,13 +331,13 @@ export default function HiddenArchitecture() {
 
             const themeStyle = {
               fontSize: '0.8rem', fontWeight: 600,
-              color: isActive ? color.text : '#94a3b8',
-              fontFamily: "'Inter', sans-serif",
+              color: isActive ? color.text : COLORS.silver,
+              fontFamily: FONTS.body,
               transition: 'color 0.25s',
             };
 
             const arStyle = {
-              fontFamily: "'KFGQPC', 'Amiri Quran', serif",
+              fontFamily: FONTS.quran,
               fontSize: '1.2rem',
               color: isActive ? color.text : 'rgba(232,230,227,0.4)',
               marginTop: '6px', lineHeight: 2,
