@@ -15,16 +15,27 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         {/* Brand logo — sayfa altı imza.
             Full primary logo (8-fold star + girih + wordmark + tagline).
-            footer.title h3'ü duplikasyon olduğu için silindi; logo PNG'sinin
-            içsel padding'i fazla — methodology paragrafı negative marginTop
-            ile yukarı çekildi, gap doğal hissi verir. */}
-        <div className="flex justify-center" style={{ marginBottom: '-44px' }}>
+            footer.title h3'ü duplikasyon olduğu için silindi. PNG'nin içsel
+            padding'i doğal boşluk sağlar; ek negative margin methodology
+            paragrafını image DOM kutusunun içine sokup overlap yaratıyordu
+            (2026-07-12 fix). */}
+        <div className="flex justify-center">
           <img
             src="/logo-full.png"
             alt="QuranCodex — Hidden Architecture of the Quran"
             width="340"
             height="340"
-            style={{ display: 'block', opacity: 0.92, maxWidth: '100%', height: 'auto' }}
+            style={{
+              display: 'block',
+              maxWidth: '100%',
+              height: 'auto',
+              // PNG içindeki beyaz tagline ("HIDDEN ARCHITECTURE OF THE QURAN")
+              // deep-navy background üzerinde düşük kontrastla gömülü; brightness
+              // + contrast bump ile okunabilir hale getirilir. Gold wordmark
+              // zaten parlak — %10 brightness yükselmesi mark ve gold rengi
+              // rahatsız etmiyor (2026-07-12 fix).
+              filter: 'brightness(1.15) contrast(1.1)',
+            }}
           />
         </div>
 
