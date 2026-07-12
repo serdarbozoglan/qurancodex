@@ -279,12 +279,13 @@
       "verseAr": null,
       "verseTr": null,
       "verseEn": null,
-      "verseRef": null,
+      "verseRef": "Furkan 25:38",
       "infoTr": "Kimliği belirsiz kavimlerden biri. Tefsir geleneğinde çeşitli rivayetler mevcuttur ama hiçbiri kesin değil.",
       "infoEn": "One of the unidentified peoples. Various traditions exist in tafsir literature but none are definitive.",
       "hasArchaeology": false,
       "isRare": true,
-      "mainSurahEn": "Al-Furqan 25:38, Qaf 50:12"
+      "mainSurahEn": "Al-Furqan 25:38, Qaf 50:12",
+      "verseRefEn": "Al-Furqan 25:38"
     },
     {
       "id": "tubba",
@@ -306,12 +307,13 @@
       "verseAr": null,
       "verseTr": null,
       "verseEn": null,
-      "verseRef": null,
+      "verseRef": "Duhan 44:37",
       "infoTr": "Tübba, Yemen Himyerî Krallığı (~MÖ 110 — MS 525) krallarının unvanıdır. Yemen'deki Hima yazıtları ve Christian Robin (CNRS) gibi akademisyenlerin epigrafik çalışmaları Himyerî krallarına dair zengin tarihsel kayıt sağlar. Bu krallardan Yusuf As'ar Yas'ar (Zü Nüvâs, MS ~525) Necran Hıristiyanlarını yakan kişi olarak bilinir ve Ashâb-ı Uhdûd (Bürûc 85:4) için en güçlü tarihsel adaydır. Krallığın bazı dönemlerinde tek tanrılı inancın benimsendiği bilinmektedir.",
       "infoEn": "'Tubba'' is the title of the kings of the Yemeni Himyarite Kingdom (~110 BCE – 525 CE). The Hima inscriptions of Yemen and the epigraphic work of scholars such as Christian Robin (CNRS) provide a rich historical record of the Himyarite kings. One such king, Yusuf As'ar Yath'ar (Dhu Nuwas, ~525 CE), is known for the massacre of the Christian community of Najran — the strongest historical candidate for the Companions of the Pit (Al-Buruj 85:4). Monotheism was adopted during some periods of the kingdom.",
       "hasArchaeology": false,
       "isRare": true,
-      "mainSurahEn": "Ad-Dukhan 44:37, Qaf 50:14"
+      "mainSurahEn": "Ad-Dukhan 44:37, Qaf 50:14",
+      "verseRefEn": "Ad-Dukhan 44:37"
     },
     {
       "id": "irem",

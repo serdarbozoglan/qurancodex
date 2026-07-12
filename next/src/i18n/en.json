@@ -211,7 +211,7 @@
   "hiddenSymmetry": {
     "badge": "Hidden Symmetry",
     "title": "A Mirror Within a Mirror",
-    "intro": "Consider Sura Al-Fatiha. Seven verses. Seems simple. But look at its structure: a perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. Ring composition is a structure that could only be systematically identified through modern literary analysis — the kind developed by scholars like Mary Douglas in the 20th century. For 1,400 years, commentators wrote volumes without naming this framework — the structure was there, but it had no name. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.",
+    "intro": "Consider Al-Fatihah. Seven verses. Deceptively simple. But look at its structure: perfect mirror symmetry. A-B-C-CENTER-C'-B'-A'. Ring composition is a modern analytic language developed in the 20th century by Western literary theorists such as Mary Douglas. Classical tafsir addressed these structural symmetries under the headings munāsabāt and tanāsub — most notably Al-Biqāʿī's Naẓm al-Durar fī Tanāsub al-Āyi wa'l-Suwar, a monumental work analyzing exactly this verse-and-sura structure. Modern ring-composition terminology brings that classical tradition into contemporary narrative theory; the framework is not new — its name is.",
     "fatiha": {
       "title": "Sura Al-Fatiha",
       "subtitle": "A-B-C-D-C'-B'-A' Ring Composition",
@@ -625,7 +625,7 @@
             "value": "343"
           }
         ],
-        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Ratio: 1.54 — the Quran carries a positive bias. Hapax legomena rate (~18-20% vs ~15%) is approximate.",
+        "statsNote": "Punishment (343) appears to exceed mercy (294) — but most 'punishment' verses recount the historical fates of past peoples, not direct threats; mercy is predominantly direct promise. Faith/disbelief ratio ≈ 1.55 (811/525): the Quran carries a positive-hope bias. Hapax legomena rate (~18-20% vs ~15%) is approximate (Leeds Quranic Arabic Corpus).",
         "note": "Root-frequency counts are based on the Quranic Arabic Corpus (University of Leeds) and Lane's Lexicon; individual lemma counts may vary slightly between sources."
       },
       {

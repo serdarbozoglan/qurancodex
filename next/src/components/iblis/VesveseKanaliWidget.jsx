@@ -89,8 +89,8 @@ function VesveseKanaliWidget({ language, isMobile }) {
           fontFamily: FONTS.body,
         }}>
           {tr
-            ? "Kur'ân, İblis'in insanı hedef almak için kullandığı 5 farklı stratejik yolu detaylandırır. Her biri ayrı bir sûrede tanımlanır. Antidot: istiâze + zikir."
-            : "The Qur'ān details 5 distinct strategic paths Iblis uses to target humans. Each defined in a separate sura. Antidote: isti'ādha + dhikr."}
+            ? "Kur'ân İblis'in insanı hedef almak için başvurduğu farklı stratejilere çeşitli sûrelerde işaret eder. Aşağıdaki tipoloji bu ayetleri (Nâs, A'râf, Hicr, Kehf/Mücâdele, Nisâ/İbrâhim) sentezleyerek 5 ana kanal olarak sınıflar — Kur'ân'ın kendi sistematizasyonu değil, klasik müfessirlerin (İbn Kesîr, Elmalılı) 'şeytanın giriş kapıları' başlığı altında yaptığı sentezdir. Antidot: istiâze + zikir."
+            : "The Qur'ān points to different strategies Iblis employs across several suras. The typology below synthesizes those verses (al-Nās, al-Aʿrāf, al-Ḥijr, al-Kahf/al-Mujādala, al-Nisāʾ/Ibrāhīm) into 5 main channels — not the Qur'ān's own systematization, but a synthesis classical exegetes (Ibn Kathīr, Elmalılı) developed under the heading 'Satan's gates of entry.' Antidote: isti'ādha + dhikr."}
         </p>
       </div>
 

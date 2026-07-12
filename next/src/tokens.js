@@ -164,10 +164,13 @@ export const COLORS = {
 
 // ── Fonts ─────────────────────────────────────────────────────────────────────
 export const FONTS = {
-  quran:   "'KFGQPC', 'Amiri Quran', serif",
-  arabic:  "'Amiri', serif",
-  display: "'Playfair Display', serif",
-  body:    "'Inter', sans-serif",
+  quran:    "'KFGQPC', 'Amiri Quran', serif",
+  arabic:   "'Amiri', serif",
+  // Bismillah ornament — Amiri Quran (KFGQPC ornament varyantı yok) — Visual audit O-06/O-07 (2026-07-12).
+  // Anasayfa Hero + tool sayfa Bismillah'larında kullanılır (Hero.jsx, IbadetlerHub.jsx, IbadetlerPillar.jsx vs).
+  bismillah:"'Amiri Quran', 'Amiri', serif",
+  display:  "'Playfair Display', serif",
+  body:     "'Inter', sans-serif",
 };
 
 // ── Overlay base — fixed fullscreen container ─────────────────────────────────

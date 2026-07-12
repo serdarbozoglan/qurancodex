@@ -38,7 +38,7 @@ function OnIkiHileWidget({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.75, fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>
-          {tr ? "İBN KAYYIM'IN 12 BASAMAK TİPOLOJİSİ" : "IBN AL-QAYYIM'S 12-STEP TYPOLOGY"}
+          {tr ? "KLASİK TİPOLOJİ · İBN KAYYIM & GAZÂLÎ SENTEZİ" : "CLASSICAL TYPOLOGY · IBN AL-QAYYIM & AL-GHAZĀLĪ SYNTHESIS"}
         </p>
         <h3 style={{
           fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.65rem',
@@ -52,8 +52,8 @@ function OnIkiHileWidget({ language, isMobile }) {
           fontFamily: FONTS.body,
         }}>
           {tr
-            ? "İbn Kayyim el-Cevziyye, İğâsetü'l-Lehfân'da şeytanın insanı düşürmek için sırasıyla denediği 12 basamaklı stratejiyi tanımlar. Kişi bir kademeyi başarıyla geçerse, şeytan bir alt kademeye iner. Sıralama önemlidir: başarısızlığın küfür değil bid'at ile başlaması, tuzağın inceliğini gösterir."
-            : "Ibn al-Qayyim in Ighāthat al-Lahfān identifies the 12-rung strategy Satan employs sequentially to cause a person's fall. If one rung is successfully passed, Satan descends to the next. The ordering matters: that failure starts not with disbelief but with innovation reveals the trap's subtlety."}
+            ? "İbn Kayyim el-Cevziyye İğâsetü'l-Lehfân'da 6 basamaklı temel stratejiyi tanımlar (küfür → bid'at → kebâir → sagâir → mubah → fâzıl ameldeki yönlendirme). Klasik ahlâk-tasavvuf geleneğinde Gazâlî'nin İhyâʾu ʿUlûmi'd-Dîn'inde işlenen 'kalp âfetleri' bu çerçeveye eklenir. Aşağıdaki 12 kademelik tablo bu iki geleneğin pedagojik bir sentezidir. Sıralama önemlidir: başarısızlığın küfür değil bid'at ile başlaması, tuzağın inceliğini gösterir."
+            : "In Ighāthat al-Lahfān Ibn al-Qayyim identifies a 6-rung core strategy (disbelief → innovation → grave sins → minor sins → indulgence in the permitted → distraction from higher virtue). Al-Ghazālī's Iḥyāʾ ʿUlūm al-Dīn adds the 'diseases of the heart' from the classical ethical-Sufi tradition. The 12-rung table below is a pedagogical synthesis of these two streams. The ordering matters: that failure starts not with disbelief but with innovation reveals the trap's subtlety."}
         </p>
       </div>
 

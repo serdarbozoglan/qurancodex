@@ -37,7 +37,7 @@ export const PASSAGES = [
     distinctEn: 'Full dialogue · 4-direction attack',
     teaserTr: 'Ateş-çamur argümanı ilk burada. Önden, arkadan, sağdan, soldan saldırı yemini sadece bu sûrede.',
     teaserEn: 'Fire-clay argument first appears here. Attack vow from front, back, right, left only in this surah.',
-    arabic: 'قَالَ اَنَا۬ خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ',
+    arabic: 'قَالَ اَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ',
     arabicSecondary: 'قَالَ فَبِمَٓا اَغْوَيْتَنِي لَاَقْعُدَنَّ لَهُمْ صِرَاطَكَ الْمُسْتَقِيمَ ثُمَّ لَاٰتِيَنَّهُمْ مِنْ بَيْنِ اَيْدِيهِمْ وَمِنْ خَلْفِهِمْ وَعَنْ اَيْمَانِهِمْ وَعَنْ شَمَٓائِلِهِمْ',
     translationTr: '"Dedi: Ben ondan hayırlıyım. Beni ateşten yarattın, onu ise çamurdan yarattın." (A\'râf 7:12)\n\n"Dedi: Beni azdırmana karşılık, yemin ederim ki onların yoluna oturacağım. Sonra onlara önlerinden, arkalarından, sağlarından, sollarından sokulacağım." (A\'râf 7:16-17)',
     translationEn: '"He said, \'I am better than him. You created me from fire and created him from clay.\'" (A\'raf 7:12)\n\n"I will surely sit in wait for them on Your straight path. Then I will come at them from before them and from behind them and on their right and on their left." (A\'raf 7:16-17)',

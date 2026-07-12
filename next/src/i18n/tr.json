@@ -211,7 +211,7 @@
   "hiddenSymmetry": {
     "badge": "Gizli Simetri",
     "title": "Ayna İçinde Ayna",
-    "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, ancak 20. yüzyılda Mary Douglas gibi akademisyenlerin geliştirdiği modern edebi analiz yöntemleriyle sistematik olarak tanımlanabilen bir yapıdır. 1.400 yıl boyunca hiçbir müfessir bu çerçeveyi kullanmadan tefsir yazdı — yapı vardı, ama adı yoktu. Peki 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı bir mimariyi nasıl taşıdığı sorusu hâlâ yanıtsızdır.",
+    "intro": "Fatiha suresini düşünün. 7 ayet. Basit görünür. Ama yapısına bakın: mükemmel bir ayna simetrisi. A-B-C-MERKEZ-C'-B'-A'. Halka kompozisyon, Mary Douglas gibi Batı edebiyat teorisyenlerinin 20. yüzyılda geliştirdiği modern bir analitik dildir. Klasik tefsir bu tür yapısal simetrileri münâsebât ve tenâsub başlıkları altında ele almıştır — özellikle Bikaî'nin Nazmü'd-Dürer fî Tenâsübi'l-Âyi ve's-Süver'i tam olarak bu ayet ve sûre yapısını inceleyen dev bir eserdir. Modern halka kompozisyon terminolojisi bu klasik geleneği çağdaş anlatı teorisiyle buluşturur; çerçeve yeni değil, adı yeni.",
     "fatiha": {
       "title": "Fatiha Sûresi",
       "subtitle": "A-B-C-D-C'-B'-A' Halka Kompozisyon",
@@ -625,7 +625,7 @@
             "value": "343"
           }
         ],
-        "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. Oran 1.54 — Kur'an pozitif bir önyargıyla yüklüdür. Hapax legomena oranı (%18-20 vs %15) yaklaşıktır.",
+        "statsNote": "Azap (343) rahmetten (294) fazla görünür — ama azap ayetlerinin büyük çoğunluğu doğrudan tehdit değil, geçmiş kavimlerin tarihi ibretleridir; rahmet ise çoğunlukla doğrudan vaattir. İman/Küfür oranı ≈ 1.55 (811/525): Kur'ân umut yönünde ağırlıklıdır. Hapax legomena oranı (~%18-20 vs ~%15) yaklaşıktır (Leeds Quranic Arabic Corpus).",
         "note": "Kök sayım verileri Quranic Arabic Corpus (Leeds Üniversitesi) ve Lane's Lexicon temelli sayımlardır; tek tek lemma sayımları kaynaklara göre küçük farklar gösterebilir."
       },
       {
