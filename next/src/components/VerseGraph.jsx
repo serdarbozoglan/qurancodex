@@ -14,6 +14,17 @@ import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import { VolumeOnIcon, VolumeOffIcon } from './icons';
+// ─── Graph-local slate scale ──────────────────────────────────────────────────
+// VerseGraph'a özel dark slate palette — graph tooltip/dropdown/muted text
+// için kullanılır. Global tokens.js'e katılmadı çünkü sadece bu tool içinde
+// semantik anlam taşır (deep-space graph aesthetic).
+const SLATE = {
+  deepBg:   '#07091a',  // dropdown container bg, tooltip bg (deepest)
+  midBg:    '#0d1128',  // input dropdown bg, chip bg (mid)
+  muted:    '#4a5568',  // muted text — subtitle, meta, unselected node label
+  subtle:   '#2d3748',  // subtle text — footer domain, faint labels
+};
+
 // ─── Strip footnotes from Suat Yıldırım translation ──────────────────────────
 // Removes {KM, Tesniye 4,35; İşaya 43,10-11} style cross-reference notes.
 function cleanTr(str) {
@@ -736,7 +747,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
         <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: COLORS.slate500, fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
       </button>
       {open && (
-        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: '#07091a', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip, zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: SLATE.deepBg, border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip, zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
           {/* Search input */}
           <div style={{ padding: '8px 10px', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
             <input
@@ -757,7 +768,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
               </button>
             )}
             {filteredSurahs.length === 0 && (
-              <div style={{ padding: '16px 12px', color: '#4a5568', fontSize: '0.78rem', textAlign: 'center' }}>
+              <div style={{ padding: '16px 12px', color: SLATE.muted, fontSize: '0.78rem', textAlign: 'center' }}>
                 {language === 'tr' ? 'Sonuç bulunamadı' : 'No results'}
               </div>
             )}
@@ -773,7 +784,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
                 >
                   {/* Left: number + icon + name + ayah count */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '7px', minWidth: 0, overflow: 'hidden' }}>
-                    <span style={{ color: '#4a5568', fontSize: '0.62rem', flexShrink: 0, minWidth: '18px', textAlign: 'right' }}>{s}</span>
+                    <span style={{ color: SLATE.muted, fontSize: '0.62rem', flexShrink: 0, minWidth: '18px', textAlign: 'right' }}>{s}</span>
                     <span style={{ flexShrink: 0, lineHeight: 1, display: 'flex', alignItems: 'center' }}>
                       {isMadani
                         ? <img src="/icons/masjid-al-nabawi.png" alt="" width="18" height="18" style={{ display: 'block', objectFit: 'contain' }} />
@@ -784,13 +795,13 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
                       <div style={{ color: nameColor, fontSize: '0.78rem', fontWeight: isSelected ? 700 : 400, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {surahNameTr(s, language === 'en')}
                       </div>
-                      <div style={{ color: '#4a5568', fontSize: '0.6rem', marginTop: '1px' }}>
+                      <div style={{ color: SLATE.muted, fontSize: '0.6rem', marginTop: '1px' }}>
                         {SURAH_AYAH_COUNTS[s - 1]} {language === 'tr' ? 'ayet' : 'verses'}
                       </div>
                     </div>
                   </div>
                   {/* Right: Arabic name */}
-                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: isSelected ? COLORS.gold : '#4a5568', flexShrink: 0, direction: 'rtl', maxWidth: '72px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: isSelected ? COLORS.gold : SLATE.muted, flexShrink: 0, direction: 'rtl', maxWidth: '72px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {SURAH_NAMES_AR[s - 1]}
                   </span>
                 </button>
@@ -1076,7 +1087,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           {(clusterSearchResults.direct || clusterSearchResults.surahs.length > 0 || clusterSearchResults.verses.length > 0) && (
             <div style={{
               position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px',
-              background: '#0d1128', border: `1px solid ${COLORS.goldAlpha15}`,
+              background: SLATE.midBg, border: `1px solid ${COLORS.goldAlpha15}`,
               borderRadius: RADIUS.md, overflow: 'hidden', zIndex: 30,
               boxShadow: '0 8px 32px rgba(0,0,0,0.6)', boxSizing: 'border-box',
             }}>
@@ -1336,7 +1347,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                 <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <span style={{ color: isActive ? COLORS.gold : COLORS.slate500, fontSize: '0.68rem', fontWeight: 700, minWidth: '22px' }}>{s}.</span>
                   <span style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.75rem', flex: 1, fontWeight: isActive ? 600 : 400 }}>{surahNameTr(s, language === 'en')}</span>
-                  {cl && <span style={{ color: '#4a5568', fontSize: '0.63rem' }}>{cl.count}</span>}
+                  {cl && <span style={{ color: SLATE.muted, fontSize: '0.63rem' }}>{cl.count}</span>}
                 </div>
               );
             })}
@@ -1756,7 +1767,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
       {open && filteredAyahs.length > 0 && (
         <div style={{
           position: 'absolute', top: 'calc(100% + 4px)', right: 0,
-          background: '#07091a', border: `1px solid ${COLORS.goldAlpha15}`,
+          background: SLATE.deepBg, border: `1px solid ${COLORS.goldAlpha15}`,
           borderRadius: RADIUS.md, overflowY: 'auto', maxHeight: '280px',
           minWidth: '220px', maxWidth: 'calc(100vw - 24px)',
           zIndex: 50, boxShadow: '0 8px 32px rgba(0,0,0,0.7)',
@@ -2361,7 +2372,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
             </div>
           )}
           {(searchResults.direct || searchResults.surahs.length > 0 || searchResults.verses.length > 0) && (
-            <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px', background: '#0d1128', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, overflow: 'hidden', zIndex: 30, boxShadow: '0 8px 32px rgba(0,0,0,0.5)', minWidth: '280px' }}>
+            <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, marginTop: '4px', background: SLATE.midBg, border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, overflow: 'hidden', zIndex: 30, boxShadow: '0 8px 32px rgba(0,0,0,0.5)', minWidth: '280px' }}>
               {/* Direct verse match */}
               {searchResults.direct && (() => {
                 const v = searchResults.direct;
@@ -2962,7 +2973,7 @@ function ShareModal({ node, language, onClose }) {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 700 }}>{ref}</span>
-            <span style={{ color: '#2d3748', fontSize: '0.65rem' }}>qurancodex.com</span>
+            <span style={{ color: SLATE.subtle, fontSize: '0.65rem' }}>qurancodex.com</span>
           </div>
         </div>
 
