@@ -2748,8 +2748,8 @@
     56
   ],
   "methodology": {
-    "tr": "15 en sık Esmâ-i Hüsnâ ismi × 114 sure matrisi. Her hücre: o sureyi sıyıran ismin (stripped form, ال + lām + accusative tanvin esnek) toplam görünümü. Top 20 sure (mushaf sırasında) varsayılan heatmap'te görünür.",
-    "en": "Matrix of 15 most frequent Beautiful Names × 114 surahs. Each cell: total occurrences of the name (stripped form, flexible al-/lām-/tanwīn) in that surah. Top 20 surahs (in mushaf order) shown by default."
+    "tr": "15 en sık Esmâ-i Hüsnâ ismi × 114 sure matrisi. Her hücre: o sureyi sıyıran ismin (stripped form, ال + lām + accusative tanvin esnek) toplam görünümü. Top 20 sure (mushaf sırasında) varsayılan heatmap'te görünür. NOT: 'total' alanı top20 surahlardaki toplam görünümü; klasik konkordanstaki Rahman=57 gibi rakamlar TÜM surahları kapsar (esma-frekans.json:kuranda_gecis_sayisi).",
+    "en": "Matrix of 15 most frequent Beautiful Names × 114 surahs. Each cell: total occurrences of the name (stripped form, flexible al-/lām-/tanwīn) in that surah. Top 20 surahs (in mushaf order) shown by default. NOTE: 'total' field is the count within the top-20 surahs shown here; classical concordance figures such as Raḥmān=57 span all surahs (see esma-frekans.json:kuranda_gecis_sayisi)."
   },
   "generated_at": "2026-06-01T19:05:57.869Z"
 }
