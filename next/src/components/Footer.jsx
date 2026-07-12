@@ -13,30 +13,49 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        {/* Brand logo — sayfa altı imza.
-            Full primary logo (8-fold star + girih + wordmark + tagline).
-            footer.title h3'ü duplikasyon olduğu için silindi. PNG'nin içsel
-            padding'i doğal boşluk sağlar; ek negative margin methodology
-            paragrafını image DOM kutusunun içine sokup overlap yaratıyordu
-            (2026-07-12 fix). */}
-        <div className="flex justify-center">
+        {/* Brand imza — Q-mark image + HTML wordmark + HTML tagline.
+            Önceden logo-full.png içine gömülü tagline ("HIDDEN ARCHITECTURE...")
+            yarı-transparent beyaz olarak kaynaktan zayıf renderleniyordu;
+            brightness/contrast filter yetmedi. Q-mark'ı ayrı image, wordmark
+            ve tagline'ı HTML text olarak yazınca tam CSS kontrolü + dil-aware
+            + okunabilir kontrast (2026-07-12 fix). */}
+        <div className="flex flex-col items-center gap-4 mb-12">
           <img
-            src="/logo-full.png"
-            alt="QuranCodex — Hidden Architecture of the Quran"
-            width="340"
-            height="340"
-            style={{
-              display: 'block',
-              maxWidth: '100%',
-              height: 'auto',
-              // PNG içindeki beyaz tagline ("HIDDEN ARCHITECTURE OF THE QURAN")
-              // deep-navy background üzerinde düşük kontrastla gömülü; brightness
-              // + contrast bump ile okunabilir hale getirilir. Gold wordmark
-              // zaten parlak — %10 brightness yükselmesi mark ve gold rengi
-              // rahatsız etmiyor (2026-07-12 fix).
-              filter: 'brightness(1.15) contrast(1.1)',
-            }}
+            src="/logo-mark.png"
+            alt=""
+            aria-hidden="true"
+            width="120"
+            height="120"
+            style={{ display: 'block', width: '120px', height: '120px' }}
           />
+          <div className="flex flex-col items-center gap-2">
+            <h3
+              style={{
+                fontFamily: FONTS.display,
+                fontWeight: 400,
+                fontSize: 'clamp(1.6rem, 3vw, 2rem)',
+                color: COLORS.gold,
+                letterSpacing: '0.2em',
+                margin: 0,
+                lineHeight: 1,
+              }}
+            >
+              QURANCODEX
+            </h3>
+            <p
+              style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.68rem',
+                color: COLORS.offWhiteAlpha78,
+                letterSpacing: '0.28em',
+                textTransform: 'uppercase',
+                margin: 0,
+                opacity: 0.85,
+              }}
+            >
+              {t('footer.tagline') || "Hidden Architecture of the Quran"}
+            </p>
+          </div>
         </div>
 
         {/* Methodology — Hero baseline body color (offWhite/78) instead of
