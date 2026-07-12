@@ -11,6 +11,28 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 
+// ─── KURANI_COLORS — Kur'ani semantik renk paleti ─────────────────────────────
+// Bu paleti tokens.js'e katmadık çünkü sadece bu tool'da semantik anlam
+// taşır (Kur'an'da geçen fiziksel/metafizik renkler). Diğer tool'larda kullanıma
+// açık değil. Repetition matrix (2026-07-12): 8x #C8D6E5, 7x #1D9E75, 6x
+// #B91C1C, 5x #1E1B4B, 4x #CA8A04, 4x #0F4C35, 3x #F0F0F0, 3x #64748B, 3x
+// #2563EB — refactor ile 43 raw hex tekil semantik atıf noktasına indirildi.
+const KURANI_COLORS = {
+  // Cennet / kurtuluş
+  beyazFildisi:   '#C8D6E5',  // Kurtulanların yüzü, dağ şeritleri, Hz. Musa'nın eli
+  yesilYaprak:    '#1D9E75',  // Cennet giysileri, koyu yeşil ağaç (accent + hex)
+  yesilKoyu:      '#0F4C35',  // Cennet bahçeleri (Rahmân 55:64)
+  altin:          '#B8860B',  // Bilezikler (İnsan 76:21)
+  gumusGri:       '#64748B',  // Gümüş kaplar (İnsan 76:15)
+
+  // Kıyâmet / cehennem
+  kirmiziKan:     '#B91C1C',  // Gökyüzü kızıllığı, dağ şeritleri, Cehennem
+  siyahKaranlik:  '#1E1B4B',  // Duman, azap görenler, karanlık dağ şeritleri
+  sariKivilcim:   '#CA8A04',  // Kıvılcımlar, İnek (Bakara)
+  maviDonuk:      '#2563EB',  // Gözlerin donuk mavisi (Tâ-Hâ 20:102)
+  beyazSaf:       '#F0F0F0',  // Şafak çizgisi, saf beyaz kar
+};
+
 const TABS = {
   RENKLER:   'renkler',
   PALET:     'palet',
@@ -68,7 +90,7 @@ function InfoPopover({ text }) {
 }
 
 const CONTEXT_BADGES = {
-  cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: '#1D9E75' },
+  cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: KURANI_COLORS.yesilYaprak },
   kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
   doga:     { labelTr: 'Tabiat',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
   kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
@@ -436,7 +458,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
           {expandedVerse && (() => {
             const v = data.renkSekans.verses.find(x => x.ref === expandedVerse);
             if (!v) return null;
-            const stageColors = { green: '#1D9E75', yellow: '#CA8A04', dry: '#78624A' };
+            const stageColors = { green: KURANI_COLORS.yesilYaprak, yellow: KURANI_COLORS.sariKivilcim, dry: '#78624A' };
             const stageLabels = {
               green:  { tr: 'Yeşil aşama',  en: 'Green stage' },
               yellow: { tr: 'Sarı aşama',   en: 'Yellow stage' },
@@ -692,12 +714,12 @@ function TabBaglam({ language, isMobile }) {
     {
       titleTr: 'Cennet Paleti',
       titleEn: 'Paradise Palette',
-      accentColor: '#1D9E75',
+      accentColor: KURANI_COLORS.yesilYaprak,
       descTr: "Kur'an cennetin renklerini doğrudan adlandırmaz — nesneler aracılığıyla verir. Dikkat çekici olan: cennet tasvirinde kırmızı, turuncu ve sarı yoktur. Serin, sakin tonlar hâkim.",
       descEn: "The Quran names paradise colors through objects, not directly. Notably: no red, orange or yellow in paradise imagery. Cool, serene tones dominate.",
       colors: [
         {
-          hex: '#1D9E75', nameTr: 'Yeşil — Elbiseler', nameEn: 'Green — Garments',
+          hex: KURANI_COLORS.yesilYaprak, nameTr: 'Yeşil — Elbiseler', nameEn: 'Green — Garments',
           verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
           verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
           verseEn: 'They wear green garments of fine silk and brocade.',
@@ -706,7 +728,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf and Al-Insan (Ad-Dahr).",
         },
         {
-          hex: '#B8860B', nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',
+          hex: KURANI_COLORS.altin, nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',
           verseAr: 'يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَلُؤْلُؤًا',
           verseTr: 'Orada altın bilezikler ve incilerle süslenirler.',
           verseEn: 'They are adorned therein with bracelets of gold and pearl.',
@@ -715,7 +737,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "Gold bracelet motif repeats in 3 suras: Al-Hajj, Al-Kahf, Fatir. Gold is paradise's metallic color — the gift of paradise to men forbidden it in the world.",
         },
         {
-          hex: '#64748B', nameTr: 'Gümüş — Kaplar', nameEn: 'Silver — Vessels',
+          hex: KURANI_COLORS.gumusGri, nameTr: 'Gümüş — Kaplar', nameEn: 'Silver — Vessels',
           verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
           verseTr: 'Gümüşten kaplar ve billur kadehlerle dolaşılır — gümüşten billur.',
           verseEn: 'Silver vessels and crystal cups circulate — crystal of silver.',
@@ -724,7 +746,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "'Crystal of silver' — silver's sheen with crystal's transparency. Two material properties in one object.",
         },
         {
-          hex: '#0F4C35', nameTr: 'Koyu Yeşil — Bahçeler', nameEn: 'Dark Green — Gardens',
+          hex: KURANI_COLORS.yesilKoyu, nameTr: 'Koyu Yeşil — Bahçeler', nameEn: 'Dark Green — Gardens',
           verseAr: 'مُدْهَامَّتَانِ',
           verseTr: 'İkisi de koyu yemyeşil.',
           verseEn: 'Both of them are intensely dark green.',
@@ -738,12 +760,12 @@ function TabBaglam({ language, isMobile }) {
     {
       titleTr: 'Cehennem Paleti',
       titleEn: 'Hell Palette',
-      accentColor: '#B91C1C',
+      accentColor: KURANI_COLORS.kirmiziKan,
       descTr: "Cehennem renkleri cennetin tam zıttı: yeşil ve altın yok. Siyah, sarı ve kırmızı — ısı, yanma ve ceza tonları. Zıtlık kasıtlı ve sistematik.",
       descEn: "Hell's colors are the exact opposite of paradise: no green, no gold. Black, yellow and red — heat, burning and punishment tones. The contrast is deliberate and systematic.",
       colors: [
         {
-          hex: '#1E1B4B', nameTr: 'Siyah — Duman', nameEn: 'Black — Smoke',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Duman', nameEn: 'Black — Smoke',
           verseAr: 'وَظِلٍّ مِّن يَحْمُومٍ ۝ لَّا بَارِدٍ وَلَا كَرِيمٍ',
           verseTr: 'Simsiyah bir duman gölgesinde — ne serin ne de hoş.',
           verseEn: 'In the shade of black smoke — neither cool nor pleasant.',
@@ -752,7 +774,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "يَحْمُوم (yahmûm) — raven/coal black. Contrasting paradise's 'coolness,' this shade is neither cool nor good. Everything is opposite to paradise.",
         },
         {
-          hex: '#CA8A04', nameTr: 'Sarı — Kıvılcımlar', nameEn: 'Yellow — Sparks',
+          hex: KURANI_COLORS.sariKivilcim, nameTr: 'Sarı — Kıvılcımlar', nameEn: 'Yellow — Sparks',
           verseAr: 'إِنَّهَا تَرْمِي بِشَرَرٍ كَالْقَصْرِ ۝ كَأَنَّهُ جِمَالَتٌ صُفْرٌ',
           verseTr: 'Saraylar büyüklüğünde kıvılcımlar fırlatıyor — sanki sarı develer gibi.',
           verseEn: 'It throws sparks as large as a palace — as if they were yellow camels.',
@@ -761,7 +783,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "Yellow's only positive use is Al-Baqarah's cow. Here yellow: hellfire spark, yellow camel — large, terrifying, burning.",
         },
         {
-          hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
           verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
           verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
           verseEn: 'When the sky is split open and turns red like oil.',
@@ -774,12 +796,12 @@ function TabBaglam({ language, isMobile }) {
     {
       titleTr: 'Kıyamet Paleti',
       titleEn: 'Judgment Day Palette',
-      accentColor: '#C8D6E5',
+      accentColor: KURANI_COLORS.beyazFildisi,
       descTr: "Kıyamet sahnesi Kur'an'da en yoğun renk bağlamıdır. Renk burada sembolik sınıflandırıcıdır: beyaz yüz = kurtuluş, siyah yüz = azap. Tek ayette iki kutup.",
       descEn: "The judgment scene is the most color-dense context in the Quran. Color here is a symbolic classifier: white face = salvation, black face = punishment. Two poles in one verse.",
       colors: [
         {
-          hex: '#C8D6E5', nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Kurtulanların Yüzü', nameEn: "White — The Saved's Faces",
           verseAr: 'يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ',
           verseTr: 'Yüzlerin beyazlayacağı ve yüzlerin kararacağı gün.',
           verseEn: 'The day when faces will turn white and faces will turn black.',
@@ -788,7 +810,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "Two opposing colors in one verse. تَبْيَضُّ (to whiten) and تَسْوَدُّ (to blacken) together — color here indicates moral state.",
         },
         {
-          hex: '#2563EB', nameTr: 'Mavi/Donuk — Gözler', nameEn: 'Blue/Glazed — Eyes',
+          hex: KURANI_COLORS.maviDonuk, nameTr: 'Mavi/Donuk — Gözler', nameEn: 'Blue/Glazed — Eyes',
           verseAr: 'وَنَحْشُرُ الْمُجْرِمِينَ يَوْمَئِذٍ زُرْقًا',
           verseTr: 'O gün suçluları gözleri donuk/mavimsi olarak haşredeceğiz.',
           verseEn: 'That day We will gather the criminals with blue/glazed eyes.',
@@ -797,7 +819,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "زُرْق (zurq) — means both 'blue' and 'glazed, blind-like' in Arabic. Eyes frozen in terror and horror. Commentators are divided between both meanings.",
         },
         {
-          hex: '#B91C1C', nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Gökyüzü', nameEn: 'Red — The Sky',
           verseAr: 'فَإِذَا انشَقَّتِ السَّمَاءُ فَكَانَتْ وَرْدَةً كَالدِّهَانِ',
           verseTr: 'Gökyüzü yarılıp kırmızı yağ gibi olduğunda.',
           verseEn: 'When the sky is split open and turns red like oil.',
@@ -806,7 +828,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "The cosmic sign of judgment: the sky's color transforms to red. The exact opposite of the everyday blue sky.",
         },
         {
-          hex: '#1E1B4B', nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',
           verseAr: 'وَأَمَّا الَّذِينَ اسْوَدَّتْ وُجُوهُهُمْ أَكَفَرْتُم بَعْدَ إِيمَانِكُمْ',
           verseTr: 'Yüzleri kararan kimseler ise: "İman ettikten sonra mı inkâr ettiniz?"',
           verseEn: 'As for those whose faces turn black: "Did you disbelieve after your faith?"',
@@ -824,7 +846,7 @@ function TabBaglam({ language, isMobile }) {
       descEn: "In nature descriptions, color is both realistic and symbolic. Fatir 35:27 is a geological observation — mineral streaks in mountains. Al-Baqarah 2:187 uses color as a practical time measure.",
       colors: [
         {
-          hex: '#C8D6E5', nameTr: 'Beyaz — Dağ Şeritleri', nameEn: 'White — Mountain Streaks',
+          hex: KURANI_COLORS.beyazFildisi, nameTr: 'Beyaz — Dağ Şeritleri', nameEn: 'White — Mountain Streaks',
           verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
           verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
           verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
@@ -833,7 +855,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "جُدَد (judad) — mineral streaks. Three colors in one verse: white (calcite/limestone), red (iron oxide), black (basalt/mica). Modern geology recognizes these streaks.",
         },
         {
-          hex: '#B91C1C', nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks',
+          hex: KURANI_COLORS.kirmiziKan, nameTr: 'Kırmızı — Dağ Şeritleri', nameEn: 'Red — Mountain Streaks',
           verseAr: 'وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ',
           verseTr: 'Dağlarda beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah şeritler vardır.',
           verseEn: 'And among the mountains are streaks of white and red of varying shades, and some intensely black.',
@@ -842,7 +864,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "مُّخْتَلِفٌ أَلْوَانُهَا — 'of varying shades' applies specifically to red — pointing to the different concentrations of iron oxide.",
         },
         {
-          hex: '#1E1B4B', nameTr: 'Siyah — Dağ Şeritleri', nameEn: 'Black — Mountain Streaks',
+          hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Dağ Şeritleri', nameEn: 'Black — Mountain Streaks',
           verseAr: 'وَغَرَابِيبُ سُودٌ',
           verseTr: 'Ve simsiyah.',
           verseEn: 'And intensely black.',
@@ -851,7 +873,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "غَرَابِيب (gharabib) — from ghurab (raven/crow). A special word for the most intense shade of black. Intensifying 'black black' — like English 'pitch black.'",
         },
         {
-          hex: '#F0F0F0', nameTr: 'Beyaz — Şafak Çizgisi', nameEn: 'White — Dawn Line',
+          hex: KURANI_COLORS.beyazSaf, nameTr: 'Beyaz — Şafak Çizgisi', nameEn: 'White — Dawn Line',
           verseAr: 'حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ',
           verseTr: 'Şafağın beyaz ipliği siyah iplikten sizin için ayrılıncaya kadar.',
           verseEn: 'Until the white thread of dawn becomes distinct to you from the black thread.',
@@ -864,12 +886,12 @@ function TabBaglam({ language, isMobile }) {
     {
       titleTr: 'Kıssa ve Mucize Paleti',
       titleEn: 'Narrative & Miracle Palette',
-      accentColor: '#C8D6E5',
+      accentColor: KURANI_COLORS.beyazFildisi,
       descTr: "Mucizelerin rengi Kur'an'da tutarlı biçimde beyazdır. Sarı yalnızca bir kez olumlu bağlamda — Bakara'nın ineği. Bu tutarlılık tesadüf değil.",
       descEn: "The color of miracles in the Quran is consistently white. Yellow appears positively only once — Al-Baqarah's cow. This consistency is not coincidental.",
       colors: [
         {
-          hex: '#C8D6E5', nameTr: "Beyaz — Hz. Musa'nın Eli", nameEn: "White — Moses' Hand",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. Musa'nın Eli", nameEn: "White — Moses' Hand",
           verseAr: 'وَأَدْخِلْ يَدَكَ فِي جَيْبِكَ تَخْرُجْ بَيْضَاءَ مِنْ غَيْرِ سُوءٍ',
           verseTr: 'Elini koynuna sok; hastalıksız beyaz olarak çıksın.',
           verseEn: 'Put your hand into your garment; it will come out white without disease.',
@@ -878,7 +900,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-Baqarah, Al-A'raf, Ta-Ha, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
         },
         {
-          hex: '#CA8A04', nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",
+          hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",
           verseAr: 'إِنَّهَا بَقَرَةٌ صَفْرَاءُ فَاقِعٌ لَّوْنُهَا تَسُرُّ النَّاظِرِينَ',
           verseTr: 'O, rengi pırıl pırıl olan sarı bir inektir; bakanlara sevinç veriyor.',
           verseEn: 'It is a yellow cow, bright in color, pleasing to those who see it.',
@@ -887,7 +909,7 @@ function TabBaglam({ language, isMobile }) {
           noteEn: "صَفْرَاءُ فَاقِعٌ (safrâ fâqi') — fâqi' is the brightest, purest shade of yellow. The only joyful use of yellow in the Quran. All other yellow uses are negative or neutral.",
         },
         {
-          hex: '#C8D6E5', nameTr: "Beyaz — Hz. İsa'nın Mucizesi", nameEn: "White — Jesus' Miracle",
+          hex: KURANI_COLORS.beyazFildisi, nameTr: "Beyaz — Hz. İsa'nın Mucizesi", nameEn: "White — Jesus' Miracle",
           verseAr: 'وَتُبْرِئُ الْأَكْمَهَ وَالْأَبْرَصَ بِإِذْنِي',
           verseTr: 'Doğuştan körü ve alacalıyı iznimle iyileştiriyordun.',
           verseEn: 'You healed the blind and the leper by My permission.',
@@ -1020,7 +1042,7 @@ function TabBaglam({ language, isMobile }) {
                       <div style={{
                         width: '24px', height: '24px', borderRadius: RADIUS.full,
                         background: c.hex,
-                        border: c.hex === '#FFFFFF' || c.hex === '#F0F0F0' ? '1px solid rgba(0,0,0,0.25)' : '1px solid rgba(255,255,255,0.12)',
+                        border: c.hex === '#FFFFFF' || c.hex === KURANI_COLORS.beyazSaf ? '1px solid rgba(0,0,0,0.25)' : '1px solid rgba(255,255,255,0.12)',
                         boxShadow: `0 0 0 3px rgba(0,0,0,0.35), 0 0 14px ${c.hex}77`,
                         flexShrink: 0,
                       }} />
@@ -1143,18 +1165,18 @@ function TabCennet({ language, isMobile }) {
   const tr = language === 'tr';
 
   const swatches = [
-    { hex: '#1D9E75', labelTr: 'Yeşil',      labelEn: 'Green',      noteTr: 'Elbiseler',   noteEn: 'Garments' },
-    { hex: '#B8860B', labelTr: 'Altın',       labelEn: 'Gold',       noteTr: 'Bilezikler',  noteEn: 'Bracelets' },
-    { hex: '#64748B', labelTr: 'Gümüş',       labelEn: 'Silver',     noteTr: 'Kaplar',      noteEn: 'Vessels' },
-    { hex: '#0F4C35', labelTr: 'Koyu Yeşil',  labelEn: 'Dark Green', noteTr: 'Bahçeler',    noteEn: 'Gardens' },
-    { hex: '#F0F0F0', labelTr: 'Beyaz',       labelEn: 'White',      noteTr: 'Süt nehri',   noteEn: 'Milk river', implied: true },
+    { hex: KURANI_COLORS.yesilYaprak, labelTr: 'Yeşil',      labelEn: 'Green',      noteTr: 'Elbiseler',   noteEn: 'Garments' },
+    { hex: KURANI_COLORS.altin, labelTr: 'Altın',       labelEn: 'Gold',       noteTr: 'Bilezikler',  noteEn: 'Bracelets' },
+    { hex: KURANI_COLORS.gumusGri, labelTr: 'Gümüş',       labelEn: 'Silver',     noteTr: 'Kaplar',      noteEn: 'Vessels' },
+    { hex: KURANI_COLORS.yesilKoyu, labelTr: 'Koyu Yeşil',  labelEn: 'Dark Green', noteTr: 'Bahçeler',    noteEn: 'Gardens' },
+    { hex: KURANI_COLORS.beyazSaf, labelTr: 'Beyaz',       labelEn: 'White',      noteTr: 'Süt nehri',   noteEn: 'Milk river', implied: true },
     { hex: '#C8A832', labelTr: 'Bal/Krem',    labelEn: 'Honey/Cream',noteTr: 'Bal nehri',   noteEn: 'Honey river', implied: true },
   ];
 
   const analyses = [
     {
       ref: 'Kehf 18:31',
-      themeColor: '#1D9E75',  // emerald — yeşil elbise teması
+      themeColor: KURANI_COLORS.yesilYaprak,  // emerald — yeşil elbise teması
       themeTr: 'Yeşil elbise',
       themeEn: 'Green garments',
       verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
@@ -1165,7 +1187,7 @@ function TabCennet({ language, isMobile }) {
     },
     {
       ref: 'Rahman 55:64',
-      themeColor: '#0F4C35',  // koyu yeşil — mudhammatân
+      themeColor: KURANI_COLORS.yesilKoyu,  // koyu yeşil — mudhammatân
       themeTr: 'Koyu yoğun yeşil',
       themeEn: 'Intensely dark green',
       verseAr: 'مُدْهَامَّتَانِ',
@@ -1177,7 +1199,7 @@ function TabCennet({ language, isMobile }) {
     },
     {
       ref: 'İnsan 76:15-16',
-      themeColor: '#64748B',  // gümüş
+      themeColor: KURANI_COLORS.gumusGri,  // gümüş
       themeTr: 'Gümüşten billur',
       themeEn: 'Crystal of silver',
       verseAr: 'وَيُطَافُ عَلَيْهِم بِآنِيَةٍ مِّن فِضَّةٍ وَأَكْوَابٍ كَانَتْ قَوَارِيرَا ۝ قَوَارِيرَ مِن فِضَّةٍ',
@@ -1188,7 +1210,7 @@ function TabCennet({ language, isMobile }) {
     },
   ];
 
-  const ACCENT = '#1D9E75'; // emerald — paradise accent
+  const ACCENT = KURANI_COLORS.yesilYaprak; // emerald — paradise accent
   const directCount = swatches.filter(s => !s.implied).length;
   const impliedCount = swatches.filter(s => s.implied).length;
 
@@ -1465,7 +1487,7 @@ function TabCennet({ language, isMobile }) {
 
 function TabKiyamet({ language, isMobile }) {
   const tr = language === 'tr';
-  const WHITE_FACE = '#C8D6E5';
+  const WHITE_FACE = KURANI_COLORS.beyazFildisi;
 
   const scenes = [
     {
@@ -1475,7 +1497,7 @@ function TabKiyamet({ language, isMobile }) {
       verseTr: 'Gök yarıldığında kırmızı deri gibi, erimiş yağ gibi olacak.',
       verseEn: 'And when the sky breaks apart and becomes rose-red like oil.',
       ref: 'Rahman 55:37',
-      hex: '#B91C1C',
+      hex: KURANI_COLORS.kirmiziKan,
       noteTr: "Kıyametin sinematik açılış sahnesi. 'Dihân' — erimiş yağ veya kırmızı deri. Gökyüzünün hem eriyip hem kızarması: iki algı bir imgede.",
       noteEn: "The cinematic opening of judgment. 'Dihan' — molten oil or red leather. The sky simultaneously melting and reddening: two perceptions in one image.",
       infoTr: "'Dihân' kelimesinin tam anlamı tartışmalı: kırmızı yağ mı, kırmızı deri mi, kırmızı boya mı?",
@@ -1488,7 +1510,7 @@ function TabKiyamet({ language, isMobile }) {
       verseTr: 'Yüzlerin ağardığı ve yüzlerin karardığı gün…',
       verseEn: 'The Day when faces will turn white and faces will turn black…',
       ref: 'Al-i İmran 3:106',
-      hex: '#C8D6E5',
+      hex: KURANI_COLORS.beyazFildisi,
       noteTr: "Beyaz-siyah yüz zıtlığı tek ayette (3:106-107). İç halin dışa renk olarak yansıması. Müfessirlerin büyük çoğunluğu fiziksel değil, metaforik okur.",
       noteEn: "White-black face contrast in one verse (3:106-107). The inner state manifested outwardly as color. Most commentators read it metaphorically, not literally.",
       infoTr: "Yüzlerin 'ağarması' ve 'kararması' fiziksel mi, ruhsal hal mi? Müfessirler arasında görüş ayrılığı.",
@@ -1501,7 +1523,7 @@ function TabKiyamet({ language, isMobile }) {
       verseTr: 'O gün suçluları gözleri donuk/mavimsi olarak haşrederiz.',
       verseEn: 'We will gather the criminals that Day, blue-eyed / glazed.',
       ref: 'Taha 20:102',
-      hex: '#2563EB',
+      hex: KURANI_COLORS.maviDonuk,
       noteTr: "'Zurk' — hem mavi hem donuk/bulanık anlamına gelir. Kıyamette suçluların gözleri mi mavileşiyor, yoksa korkudan donup mu kalıyor? İki yorum da dilbilimsel olarak mümkün.",
       noteEn: "'Zurq' — means both blue and glazed/dull. Are criminals' eyes turning blue, or freezing with terror? Both interpretations are linguistically valid.",
       infoTr: "'Zurk' kelimesinin anlamı tartışmalı: mavi gözlü mü, donuk gözlü mü, körlük mu? Müfessirler arasında görüş ayrılığı mevcuttur.",
@@ -1520,7 +1542,7 @@ function TabKiyamet({ language, isMobile }) {
     },
   ];
 
-  const BLACK_FACE = '#1E1B4B';
+  const BLACK_FACE = KURANI_COLORS.siyahKaranlik;
 
   return (
     <div>
@@ -1959,8 +1981,8 @@ function TabDilbilim({ language, isMobile }) {
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
-            { normalAr: 'أَخْضَر', normalTrans: 'ahdar', intenseAr: 'مُدْهَامَّتَانِ', intenseTrans: 'mudhammatân', meaningTr: 'Yeşil → Koyu Yoğun Yeşil', meaningEn: 'Green → Intensely Dark Green', hex: '#0F4C35' },
-            { normalAr: 'أَسْوَد', normalTrans: 'esvad',  intenseAr: 'غَرَابِيبُ سُودٌ', intenseTrans: 'garâbîb sûd', meaningTr: 'Siyah → Kuzgun Siyahı', meaningEn: 'Black → Raven Black', hex: '#1E1B4B' },
+            { normalAr: 'أَخْضَر', normalTrans: 'ahdar', intenseAr: 'مُدْهَامَّتَانِ', intenseTrans: 'mudhammatân', meaningTr: 'Yeşil → Koyu Yoğun Yeşil', meaningEn: 'Green → Intensely Dark Green', hex: KURANI_COLORS.yesilKoyu },
+            { normalAr: 'أَسْوَد', normalTrans: 'esvad',  intenseAr: 'غَرَابِيبُ سُودٌ', intenseTrans: 'garâbîb sûd', meaningTr: 'Siyah → Kuzgun Siyahı', meaningEn: 'Black → Raven Black', hex: KURANI_COLORS.siyahKaranlik },
           ].map((row, i) => (
             <div key={i} style={{
               display: 'grid',
@@ -2145,7 +2167,7 @@ function TabDilbilim({ language, isMobile }) {
               numTr: '1', titleTr: 'Mavi Gözlü', titleEn: 'Blue-eyed',
               descTr: 'Gerçek mavi göz. Arap kültüründe yabancı veya hastalık çağrışımı taşıyabilir.',
               descEn: 'Literally blue eyes. May carry connotations of foreignness or illness in Arab culture.',
-              color: '#2563EB',
+              color: KURANI_COLORS.maviDonuk,
             },
             {
               numTr: '2', titleTr: 'Donuk / Bulanık Gözlü', titleEn: 'Glazed / Dull-eyed',
@@ -2228,7 +2250,7 @@ function TabDilbilim({ language, isMobile }) {
               noteEn: "Milk is white — but the Quran doesn't say so. The color arrives through the object's mental association.",
             },
             {
-              hex: '#CA8A04',
+              hex: KURANI_COLORS.sariKivilcim,
               objectTr: 'Bal', objectEn: 'Honey',
               colorTr: 'Amber / Sarı', colorEn: 'Amber / Yellow',
               verseAr: 'وَأَنْهَارٌ مِّنْ عَسَلٍ مُّصَفًّى',
@@ -2239,7 +2261,7 @@ function TabDilbilim({ language, isMobile }) {
               noteEn: "'Musaffâ' — purified, filtered. No color named; the amber hue is concealed in the object itself.",
             },
             {
-              hex: '#B91C1C',
+              hex: KURANI_COLORS.kirmiziKan,
               objectTr: 'Ateş / Alev', objectEn: 'Fire / Flame',
               colorTr: 'Kırmızı / Turuncu', colorEn: 'Red / Orange',
               verseAr: 'لَوَّاحَةٌ لِّلْبَشَرِ',
