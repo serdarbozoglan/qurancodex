@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
+import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
@@ -617,53 +618,10 @@ const SURAH_JUZ = [
  30, 30, 30, 30,
 ];
 
-const SURAH_NAMES_TR = [
-  'El-Fatiha','El-Bakara','Âl-i İmrân','El-Nisâ','El-Mâide',
-  "El-En'âm","El-A'râf",'El-Enfâl','El-Tevbe','Yûnus',
-  'Hûd','Yûsuf',"El-Ra'd",'İbrâhim','El-Hicr','El-Nahl',
-  "El-İsrâ",'El-Kehf','Meryem','Tâhâ','El-Enbiyâ','El-Hac',
-  "El-Mü'minûn",'El-Nûr','El-Furkân','El-Şuarâ','El-Neml',
-  'El-Kasas','El-Ankebût','El-Rûm','Lokmân','El-Secde','El-Ahzâb',
-  "Sebe'",'Fâtır','Yâ-Sîn','El-Sâffât','Sâd','El-Zümer',"Mü'min",
-  'Fussilet','El-Şûrâ','El-Zuhruf','El-Duhân','El-Câsiye','El-Ahkâf',
-  'Muhammed','El-Feth','El-Hucurât','Kâf','El-Zâriyât','El-Tûr',
-  'El-Necm','El-Kamer','El-Rahmân','El-Vâkıa','El-Hadîd','El-Mücâdele',
-  'El-Haşr','El-Mümtehine','El-Saf',"El-Cum'a",'El-Münâfikûn',
-  'El-Teğâbun','El-Talâk','El-Tahrîm','El-Mülk','El-Kalem','El-Hâkka',
-  'El-Meâric','Nûh','El-Cin','El-Müzzemmil','El-Müddessir','El-Kıyâme',
-  "El-İnsân",'El-Mürselât',"El-Nebe'",'El-Nâziât','Abese','El-Tekvîr',
-  'El-İnfitâr','El-Mutaffifîn','El-İnşikâk','El-Burûc','El-Târık',
-  "El-A'lâ",'El-Ğâşiye','El-Fecr','El-Beled','El-Şems','El-Leyl',
-  'El-Duhâ','El-İnşirah','El-Tîn','El-Alak','El-Kadr','El-Beyyine',
-  'El-Zilzal',"El-Âdiyât","El-Kâri'a",'El-Tekâsür','El-Asr',
-  'El-Hümeze','El-Fîl','Kureyş','El-Mâûn','El-Kevser','El-Kâfirûn',
-  'El-Nasr','Tebbet','El-İhlâs','El-Felak','El-Nâs',
-];
-
-// English surah names — sade transliterasyon (akademik diacritics olmadan).
-// Wikipedia ve Sahih International standardı; günlük İngilizce okuyucu için.
-const SURAH_NAMES_EN = [
-  'Al-Fatihah','Al-Baqarah','Aal-Imran','An-Nisa','Al-Maidah',
-  'Al-Anam','Al-Araf','Al-Anfal','At-Tawbah','Yunus',
-  'Hud','Yusuf','Ar-Rad','Ibrahim','Al-Hijr','An-Nahl',
-  'Al-Isra','Al-Kahf','Maryam','Ta-Ha','Al-Anbiya','Al-Hajj',
-  'Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml',
-  'Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab',
-  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir',
-  'Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf',
-  'Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur',
-  'An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah',
-  'Al-Hashr','Al-Mumtahanah','As-Saff','Al-Jumuah','Al-Munafiqun',
-  'At-Taghabun','At-Talaq','At-Tahrim','Al-Mulk','Al-Qalam','Al-Haqqah',
-  'Al-Maarij','Nuh','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyamah',
-  'Al-Insan','Al-Mursalat','An-Naba','An-Naziat','Abasa','At-Takwir',
-  'Al-Infitar','Al-Mutaffifin','Al-Inshiqaq','Al-Buruj','At-Tariq','Al-Ala',
-  'Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha',
-  'Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah',
-  'Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil',
-  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad',
-  'Al-Ikhlas','Al-Falaq','An-Nas',
-];
+// SURAH_NAMES_TR + SURAH_NAMES_EN → next/src/lib/surahNames.js'ten import edilir
+// (M-03 fix, 2026-07-12). Merkezî liste sun letter asimilasyonu tutarlı
+// (En-Nisâ, Er-Ra'd, Eş-Şuarâ...); ReadingMode inline'daki eski El-* prefix'i
+// uniform ama grammatical değildi. Import satırı üst kısımda mevcut.
 
 // Arabic surah names (standard Uthmani spelling)
 const SURAH_NAMES_AR = [
