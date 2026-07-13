@@ -767,6 +767,9 @@
     "observationsIntro": "Patterns visible only when the seven are read together, not separately:",
     "closing": "Seven surahs, one event, distinct windows. How a single narrative expands and contracts by context — the Quran uses narrative economy as a rhetorical device. Each retelling foregrounds a different word, a different reasoning, a different identity element; the common core remains. This is the seven-fold registration of pride's origin."
   },
+  "bugReport": {
+    "formUrl": "https://docs.google.com/forms/d/e/PLACEHOLDER/viewform?embedded=true"
+  },
   "footer": {
     "title": "Quran Codex",
     "tagline": "Hidden Architecture of the Quran",

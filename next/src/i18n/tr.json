@@ -767,6 +767,9 @@
     "observationsIntro": "Yedi anlatımı tek tek değil birlikte okuduğumuzda ortaya çıkan örüntüler:",
     "closing": "Yedi sûre, tek olay, başka başka pencereler. Bir anlatının bağlama göre nasıl genişleyip daraldığı — Kur'an, anlatı ekonomisini retorik bir araç olarak kullanır. Her tekrarda başka bir kelime, başka bir gerekçe, başka bir kimlik öğesi öne çıkar; ortak çekirdek değişmez. Bu, kibrin başlangıcının yedi farklı kayda geçirilişidir."
   },
+  "bugReport": {
+    "formUrl": "https://docs.google.com/forms/d/e/PLACEHOLDER/viewform?embedded=true"
+  },
   "footer": {
     "title": "Quran Codex",
     "tagline": "Kur'an'ın Görünmeyen Mimarisi",

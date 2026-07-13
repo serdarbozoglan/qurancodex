@@ -8,6 +8,7 @@ import { LanguageProvider } from '@/i18n/LanguageContext';
 import { PathProvider } from '@/contexts/PathContext';
 import Navbar from '@/components/Navbar';
 import ScrollProgress from '@/components/ScrollProgress';
+import BugReportFab from '@/components/BugReportFab';
 
 const SUPPORTED_LOCALES = ['tr', 'en'];
 
@@ -33,6 +34,7 @@ export default async function LocaleLayout({ children, params }) {
           <ScrollProgress />
           <Navbar />
           <main id="main">{children}</main>
+          <BugReportFab />
         </PathProvider>
       </LanguageProvider>
     </>
