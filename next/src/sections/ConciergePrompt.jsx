@@ -102,8 +102,9 @@ export default function ConciergePrompt() {
           background: `radial-gradient(circle at 20% 30%, ${COLORS.gold}08 0%, transparent 40%), radial-gradient(circle at 80% 70%, ${COLORS.gold}06 0%, transparent 50%)`,
         }}
       />
-      {/* Cinematic parçacıklar — Hero ile devamlılık, daha sakin.
-          Mukattaa harfleri (0.10 oranı) + gold noktalar (30 toplam) süzülür.
+      {/* Cinematic parçacıklar — Hero ile parity, section tam yaşayan hisse.
+          60 toplam parçacık × 0.20 glyph = ~12 mukattaa harfi + 48 gold nokta
+          süzülür. Hero'daki 80 parçacığın section boyutuna uygun oranı.
           reduced-motion respekt edilir (ParticleBackground kendi içinde). */}
       <div
         aria-hidden
@@ -111,10 +112,10 @@ export default function ConciergePrompt() {
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
-          opacity: 0.55,
+          opacity: 0.85,
         }}
       >
-        <ParticleBackground particleCount={30} glyphRatio={0.10} />
+        <ParticleBackground particleCount={60} glyphRatio={0.20} />
       </div>
 
       <motion.div
