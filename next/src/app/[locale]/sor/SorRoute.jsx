@@ -773,7 +773,12 @@ function ResponseView({ data, language, feedback, setFeedback }) {
       )}
 
       {/* Feedback */}
-      <FeedbackRow feedback={feedback} setFeedback={setFeedback} language={language} />
+      <FeedbackRow
+        feedback={feedback}
+        setFeedback={setFeedback}
+        language={language}
+        queryHash={meta?.queryHash}
+      />
 
       {/* Meta stats — subtle */}
       {meta?.timings && (
@@ -1194,9 +1199,37 @@ function ArticleCard({ article, delay, language }) {
   );
 }
 
-function FeedbackRow({ feedback, setFeedback, language }) {
+function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
   const tr = language === 'tr';
   const reduced = useReducedMotion();
+  // localStorage dedup — aynı queryHash için bir kere feedback yeter.
+  // Sayfa yeniden mount olduğunda önceki feedback restore edilir.
+  useEffect(() => {
+    if (!queryHash || feedback) return;
+    if (typeof window === 'undefined') return;
+    try {
+      const prev = localStorage.getItem(`fb:${queryHash}`);
+      if (prev === 'up' || prev === 'down') setFeedback(prev);
+    } catch { /* localStorage engelli */ }
+  }, [queryHash, feedback, setFeedback]);
+
+  const submit = useCallback(async (thumb) => {
+    if (feedback) return; // Zaten verilmiş
+    setFeedback(thumb); // Optimistic
+    if (!queryHash) return;
+    try {
+      localStorage.setItem(`fb:${queryHash}`, thumb);
+    } catch { /* localStorage engelli */ }
+    try {
+      await fetch('/api/concierge/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ queryHash, thumb, lang: language }),
+      });
+    } catch {
+      // Silent — feedback non-critical; optimistic state korunur.
+    }
+  }, [feedback, queryHash, language, setFeedback]);
   return (
     <motion.div
       initial={reduced ? false : { opacity: 0 }}
@@ -1217,7 +1250,7 @@ function FeedbackRow({ feedback, setFeedback, language }) {
       </span>
       <button
         aria-label={tr ? 'Faydalı' : 'Helpful'}
-        onClick={() => setFeedback('up')}
+        onClick={() => submit('up')}
         style={{
           background: feedback === 'up' ? `${COLORS.gold}22` : 'transparent',
           border: `1px solid ${feedback === 'up' ? COLORS.gold : COLORS.gold + '33'}`,
@@ -1235,7 +1268,7 @@ function FeedbackRow({ feedback, setFeedback, language }) {
       </button>
       <button
         aria-label={tr ? 'Faydalı değil' : 'Not helpful'}
-        onClick={() => setFeedback('down')}
+        onClick={() => submit('down')}
         style={{
           background: feedback === 'down' ? `${COLORS.gold}22` : 'transparent',
           border: `1px solid ${feedback === 'down' ? COLORS.gold : COLORS.gold + '33'}`,

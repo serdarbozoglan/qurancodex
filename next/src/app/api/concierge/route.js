@@ -4,11 +4,19 @@
 // Node runtime (not edge) — corpus-embeddings.json 75 MB module-level cache.
 // ────────────────────────────────────────────────────────────────────────────
 
+import crypto from 'node:crypto';
 import { embedQuery } from '@/lib/concierge-embed';
 import { conciergeSearch } from '@/lib/concierge-search';
 import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
+
+// Query hash — stable identifier for feedback + cache curation. Deterministic
+// SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
+function computeQueryHash(query, lang) {
+  const normalized = query.toLowerCase().trim().replace(/\s+/g, ' ');
+  return crypto.createHash('sha256').update(`${normalized}|${lang}`).digest('hex').slice(0, 16);
+}
 
 // Node runtime — corpus JSON file access + big memory
 export const runtime = 'nodejs';
@@ -92,6 +100,7 @@ export async function POST(request) {
         timings,
         usage,
         candidateCount,
+        queryHash: computeQueryHash(query, lang), // Feedback + cache curation key
         rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
       },
     }, {
