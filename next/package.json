@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "embed:corpus": "node scripts/build-corpus.mjs",
+    "embed:build": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs",
+    "embed:check": "node scripts/build-corpus.mjs --stats && node scripts/build-embeddings.mjs --check-only"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.111.0",
     "framer-motion": "^12.40.0",
     "leaflet": "^1.9.4",
     "next": "16.2.6",
