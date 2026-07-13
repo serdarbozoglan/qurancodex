@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs && node scripts/reencode-embeddings.mjs",
+    "prebuild": "node scripts/prebuild-guard.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
