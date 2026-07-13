@@ -59,11 +59,30 @@ if (corpusSize < 1024) {
   const newSize = lfsOk ? fs.statSync(CORPUS).size : corpusSize;
   console.log(`   Corpus after LFS attempt: ${(newSize / 1024 / 1024).toFixed(1)} MB (was pointer)`);
   if (!lfsOk || newSize < 1024) {
-    console.log('🚧 LFS pull failed or unavailable → running full pipeline as fallback (~8 min)');
-    run('node', ['scripts/build-corpus.mjs']);
-    run('node', ['scripts/build-embeddings.mjs']);
-    run('node', ['scripts/reencode-embeddings.mjs']);
-    console.log('\n✅ Corpus regenerated via fallback.');
+    console.log('🚧 LFS pull failed → attempting fallback pipeline');
+
+    // Env var check — Vercel'de eksikse skip et, deploy başarılı olsun
+    // (Concierge route runtime'da çalışmaz ama diğer feature'lar OK)
+    if (!process.env.DEEPINFRA_API_KEY) {
+      console.warn('⚠  DEEPINFRA_API_KEY missing — skipping embedding pipeline.');
+      console.warn('   Concierge feature will be unavailable until:');
+      console.warn('   1) Vercel Settings → Git → Enable LFS (recommended)');
+      console.warn('   2) Or add DEEPINFRA_API_KEY to Vercel env vars for fallback rebuild.');
+      console.warn('   Continuing build to keep other features functional...');
+      process.exit(0);
+    }
+
+    // Full fallback — 8 dk + $0.007
+    try {
+      run('node', ['scripts/build-corpus.mjs']);
+      run('node', ['scripts/build-embeddings.mjs']);
+      run('node', ['scripts/reencode-embeddings.mjs']);
+      console.log('\n✅ Corpus regenerated via fallback.');
+    } catch (err) {
+      console.error(`❌ Fallback pipeline failed: ${err.message}`);
+      console.warn('   Continuing build — concierge route will 500 until corpus available.');
+      process.exit(0); // Deploy başarılı, sadece concierge çalışmaz
+    }
   } else {
     console.log('\n✅ LFS pull successful.');
   }
