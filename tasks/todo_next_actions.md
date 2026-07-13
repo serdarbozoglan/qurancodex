@@ -3,7 +3,7 @@
 > **Kaynak:** Bu dosya 2026-07-13 çalışma seansının sonunda yazıldı. Session içinde TaskCreate ile oluşturulan 11 task, memory notları ve visual audit raporunun konsolide görünümüdür. Session bittikten sonra da bu dosya `git` üzerinden görünürdür.
 >
 > **Son güncelleme:** 2026-07-13
-> **Konsolidasyon:** #157-#158, #167 completed. #159-#166 pending.
+> **Konsolidasyon:** #157-#158, #167 completed. #159-#166, #168 pending. Guardrails + Chunking Faz 2 kararları alındı (aşağıda Bölüm E + F).
 
 ---
 
@@ -18,14 +18,29 @@
 | **#161** | Feedback loop Faz 2 — Query cache curation | 2-3 saat | Aynı dosya Faz 2 |
 | **#162** | Feedback loop Faz 3 — Item boost/demote (retrieval reranking) | 2-3 saat | Aynı dosya Faz 3 |
 
-### Sıra 2 — RAG kalite artışı (uzun vadeli)
+### Sıra 2 — RAG kalite artışı (Chunking Faz 2, kademeli)
 
-| # | İş | Efor | Detay Dosyası |
+Tüm kararlar 2026-07-13'te alındı. Detay: **Bölüm E** (aşağıda).
+
+| # | Faz | İçerik | Efor |
 |---|---|---|---|
-| **#163** | RAG Chunking Phase 2 — sliding window + sure özet + kıssa-agrega | 4-6 saat | `project_chunking_improvements.md` |
-| **#164** | Tefsir dual embedding (Elmalılı TR + İbn Kesîr EN) | 3-4 saat | Aynı dosya Faz 2b |
-| **#165** | LLM metadata enrichment (özet + tema tag per ayet) | 2-3 saat | Aynı dosya Faz 2c |
-| **#166** | 3-meal ensemble (Suat Y. + Diyanet + Elmalılı average) | 2 saat | `project_meal_ensemble.md` |
+| **#166** | **Faz 2a** | Meal fetch (Ali Bulaç + Diyanet + Yusuf Ali + Asad) + multi-vector 3-meal embed | 1 gün |
+| **#165** | **Faz 2b** | LLM metadata enrichment (özet + tema tag + kavram per ayet) | 0.5 gün |
+| **#163** | **Faz 2c** | Pericope (B) + Sure özet (C) + Kıssa-agrega (D) + Kavram-agrega (F) chunk'ları | 1.5 gün |
+| **#164** | **Faz 2d** | Tefsir dual (Elmalılı TR + İbn Kesîr EN, ilk 200 kelime) | 1 gün |
+| — | **Faz 2e** | Differential ayet enrichment (~500 mukattaa/refrain/continuation) | 0.5 gün |
+
+### Sıra 2b — Guardrails + Query Rewrite
+
+| # | İş | Efor |
+|---|---|---|
+| **#168** | Regex prefilter + LLM classifier + adaptive rewrite | 2-3 saat |
+
+### Sıra 2c — Referans Dokümantasyon (RAG işi tamamen bittiğinde)
+
+| # | İş | Efor |
+|---|---|---|
+| **#169** | Kapsamlı HTML referans dokümanı — mimari + chunking + guardrails + feedback + cost | 3-4 saat |
 
 ### Sıra 3 — Paralel iş (opsiyonel)
 
@@ -147,3 +162,119 @@ Detaylı plan: `~/.claude/projects/-Users-serdar-dev-.../memory/project_chunking
 5. Test + user onayı sonra `main`'e push
 
 **Push kuralı:** Her push ayrı onay. Autonomous mode'da bile push konfirmasyonu gerekir (memory: `feedback_local_test_first.md`).
+
+---
+
+## Bölüm E — Chunking Faz 2 Kararları (2026-07-13 alındı)
+
+### 6 katman chunk yapısı
+
+| Katman | İçerik | Chunk sayısı | Kaynak |
+|---|---|---|---|
+| **A** | Ayet (mevcut) + differential enrichment | 6236 | mevcut + LLM detect |
+| **B** | Pericope (konu bütünlüğü olan 3-15 ayet blokları) | ~1500 | klasik ruku baseline + LLM refine |
+| **C** | Sure özet | 114 | surah-info.json + LLM 2-3 cümle |
+| **D** | Kıssa-agrega (tam kıssa tek chunk) | 25 | kissa-atlas.json |
+| **E** | Tefsir dual (ilk 200 kelime, meal ile PARALEL — concat DEĞİL) | ~6236 | Elmalılı TR + İbn Kesîr EN |
+| **F** | Kavram-agrega (anchor ayetler + tanım + tefsir özet) | 65 | concept-graph.json |
+
+### Multi-vector 3-meal
+
+- **TR:** Suat Yıldırım + Ali Bulaç + Diyanet (3 vector per ayet, MAX cosine retrieval)
+- **EN:** Sahih International + Yusuf Ali + Muhammad Asad
+- File size: 75 → ~225 MB (Vercel LFS quota içinde)
+- Fetch script gerek: acikkuran API (apiId 6, 11, 2, 9)
+
+### LLM metadata enrichment (Katman A upgrade)
+
+Her ayet için Claude ile offline batch:
+- 1 cümle özet
+- 3-5 tema tag
+- 2-3 ilişkili kavram (concept-graph'tan)
+
+Bu metadata `searchText`'e eklenir, vector zenginleşir. Cost: ~$3 tek seferlik.
+
+### Differential ayet enrichment (Katman A, ~500 problem ayet)
+
+Şunlar için searchText'e ±1 ayet context eklenir (display değişmez):
+- Mukattaa açılış ayetleri (29 sure × 1-2)
+- Kısa refrain ayetleri (Rahman refrain gibi)
+- Grammatical continuation (zamir referansı önceki ayette)
+
+Detection: LLM offline batch. Kalan ~5700 ayet AYNI (kendi başına yeterli).
+
+### Meal display parity
+
+Kullanıcının Reading Mode'da seçtiği meal (`localStorage: qurancodex_selected_meal`) /sor kartlarında da kullanılır. Ekstra UI yok. TR arama + EN meal isteyen kullanıcı Reading Mode'da EN meal seçer → /sor otomatik EN gösterir.
+
+### Retrieval strategy (multi-scale)
+
+Query başına top-K:
+
+| Katman | Top-K |
+|---|---|
+| A Ayet | 5 |
+| B Pericope | 3 |
+| C Sure özet | 2 |
+| D Kıssa | 1 |
+| E Tefsir | 3 |
+| F Kavram | 2 |
+| Article/atlas/tool | 3 |
+| **Total** | **19** → Claude curator seçer |
+
+---
+
+## Bölüm F — Guardrails + Query Rewrite Kararları (2026-07-13 alındı)
+
+### 3-katmanlı sistem
+
+```
+POST /api/concierge
+  ↓
+[K0] Rate limit + length/char validation (mevcut)
+  ↓
+[K1] Regex prefilter (mandatory, ~5ms, $0)
+  → Kesin match → reject + graceful
+  → Flag match → K2'ye gönder
+  → Temiz → K3'e atla (K2 skip)
+  ↓
+[K2] LLM classifier (adaptive, ~%20 query, ~200ms, $0.0002)
+  → query < 15 char OR flag keyword
+  → 5 kategori: ok | rewrite | reject | off_topic | fetva_talebi
+  ↓
+[K3] Adaptive rewrite (sadece gerekirse, ~%10 query, ~300ms, $0.0002)
+  ↓
+Embed → Search → Claude curate (mevcut)
+```
+
+### Regex scope (2 kategori, ~25 pattern)
+
+**A) Prompt injection (~10):** `/ignore\s+(previous|above)/i`, `/system\s*[:=]/i`, `/you\s+are\s+now/i`, `/act\s+as/i`, `/pretend\s+to\s+be/i`, `/jailbreak/i`, `/<\s*script/i`, vb.
+
+**B) Direkt hakaret (~15):** Bağlamsız TR + EN küfür (sisteme veya başkalarına).
+
+**Kritik:** Kur'anî terimler (kâfir, cihad, günah, Şia, Sünni, mezhep, fetva) blacklist'te **YOK**. Bunlar Kur'an'ın kendi konuları. Bağlam LLM'in işi.
+
+### LLM classifier 5 kategorisi
+
+- **`ok`** → direkt pipeline
+- **`rewrite`** → K3'e gönder
+- **`reject`** → graceful reddet (sıcak tonda + suggestion chips)
+- **`off_topic`** → "Kur'anî konu?" redirect
+- **`fetva_talebi`** → normal pipeline AMA response başında disclaimer: _"Sistem fetva vermez, sadece Kur'an'ın konu hakkındaki genel işaretlerini gösterir. Kesin hüküm için ehline başvurunuz."_
+
+### Rewrite gösterimi (transparan)
+
+Kart üstünde küçük gri satır:
+> _Sorgunuzu şu şekilde değerlendirdik: sabrın karşılığı ve Kur'anî öğütleri_
+> _Yanlış anladıysak orijinal sorunuzla arayın_
+
+### Reject tonu (sıcak)
+
+> _Belki farklı bir şekilde sormak istersin? Örnek: sabır, adalet, yaratılış..._
+
++ Suggestion chip'leri kullanıcıya alternatif konular sunar.
+
+### Rejection log
+
+Reddedilen queryler ayrı log — aylık review, false positive tespit, blacklist evolution.
