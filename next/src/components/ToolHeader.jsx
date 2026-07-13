@@ -16,6 +16,7 @@
 // CLAUDE.md §13.10 OVERLAY_TITLE token'ını kullanır.
 // CLAUDE.md §13.15 Arapça font kurallarına dokunmaz (icon JSX olarak alır).
 
+import Link from 'next/link';
 import { COLORS, FONTS, OVERLAY_TITLE, RADIUS } from '../tokens';
 
 export default function ToolHeader({
@@ -26,7 +27,9 @@ export default function ToolHeader({
   subtitleEn,
   chip,                  // opsiyonel — JSX (örn: <span>49 fact</span>)
   language,
+  hideHomeLink = false,  // opsiyonel — bazı sayfalarda home link istenmeyebilir
 }) {
+  const homePath = `/${language || 'tr'}`;
   return (
     <div
       style={{
@@ -88,6 +91,53 @@ export default function ToolHeader({
           <span style={{ flexShrink: 0 }}>
             {chip}
           </span>
+        )}
+
+        {/* Spacer — home link'i sağa iter */}
+        {!hideHomeLink && <span style={{ flex: 1 }} />}
+
+        {/* ← Anasayfa link — sticky bar sağ tarafta, subtle gold outline pill.
+            Tüm tool sayfalarında navigation gap'ini kapatır (Navbar logo hariç
+            başka geri dönüş yoktu). CLAUDE.md §13.17 pattern update. */}
+        {!hideHomeLink && (
+          <Link
+            href={homePath}
+            aria-label={language === 'en' ? 'Back to home' : 'Anasayfaya dön'}
+            title={language === 'en' ? 'Back to home' : 'Anasayfaya dön'}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '5px',
+              padding: '4px 10px',
+              borderRadius: '999px',
+              border: `1px solid ${COLORS.gold}33`,
+              color: `${COLORS.gold}bb`,
+              fontFamily: FONTS.body,
+              fontSize: '0.68rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              flexShrink: 0,
+              transition: 'all 0.15s',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = `${COLORS.gold}12`;
+              e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+              e.currentTarget.style.color = COLORS.gold;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = `${COLORS.gold}33`;
+              e.currentTarget.style.color = `${COLORS.gold}bb`;
+            }}
+          >
+            <span style={{ fontSize: '0.85rem', lineHeight: 1 }}>←</span>
+            <span className="hidden sm:inline">
+              {language === 'en' ? 'Home' : 'Anasayfa'}
+            </span>
+          </Link>
         )}
       </div>
     </div>
