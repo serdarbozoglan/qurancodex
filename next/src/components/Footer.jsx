@@ -75,11 +75,13 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Support this Work — Stripe Payment Links (link-based, embed yok →
-            provider switch trivial). Placeholder URL'ler kullanıcı Stripe
-            hesabı açıp Payment Link ürettikten sonra real URL ile değişecek
-            (2026-07-12 initial). id="support" = Navbar ❤ Destek buton +
-            Conclusion CTA anchor scroll target. */}
+        {/* ═══ DESTEK CALLOUT — GEÇİCİ KALDIRILDI 2026-07-12 ═══
+            Kullanıcı isteği: "hemen kaldıralım ama kodu comment out yap".
+            i18n footer.support.* keyleri intact — reactivate için: bu bloğu
+            uncomment + Navbar (❤ Destek button) + Conclusion (whisper CTA)
+            aynı anda uncomment.
+            Stripe URL'ler i18n'de aktif (test edilmiş, verify pending değil).
+
         <div id="support" className="mb-12" style={{ scrollMarginTop: '80px' }}>
           <div
             className="max-w-xl mx-auto text-center"
@@ -194,6 +196,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        ═══ DESTEK CALLOUT END ═══ */}
 
         {/* Sources */}
         <div className="glass-card p-8 mb-12">

@@ -1479,9 +1479,12 @@ export default function Navbar() {
             {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 
-          {/* Destek — heart icon button, navbar-persistent CTA. Anchor scroll
-              to homepage footer #support callout. Height 32px §13.13 rule.
-              Sadece desktop (lg:flex); mobile menu içine ayrıca eklenecek. */}
+          {/* ═══ NAVBAR ❤ DESTEK BUTTON — GEÇİCİ KALDIRILDI 2026-07-12 ═══
+              Kullanıcı isteği: destek CTA'larını sitede geçici olarak kaldır,
+              kod comment out kalsın. Reactivate için: bu bloğu uncomment +
+              Footer callout (id="support") + Conclusion whisper CTA aynı
+              anda uncomment.
+
           <button
             onClick={() => {
               const homePath = `/${language}`;
@@ -1516,6 +1519,7 @@ export default function Navbar() {
             </svg>
             {language === 'tr' ? 'Destek' : 'Support'}
           </button>
+          ═══ NAVBAR DESTEK END ═══ */}
 
           {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
           <button

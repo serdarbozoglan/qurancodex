@@ -199,9 +199,12 @@ export default function Conclusion() {
         </motion.button>
       </motion.div>
 
-      {/* Support whisper — Conclusion sonrası organic CTA. Footer anchor'a
-          scroll ederek Bu Çalışmayı Destekle callout'una götürür. Whisper
-          tonunda — narrative sonuna doğal bağlanır, agresif değil (2026-07-12). */}
+      {/* ═══ CONCLUSION SUPPORT WHISPER CTA — GEÇİCİ KALDIRILDI 2026-07-12 ═══
+          Kullanıcı isteği: destek CTA'larını sitede geçici olarak kaldır,
+          kod comment out kalsın. Reactivate için: bu bloğu uncomment +
+          Footer callout (id="support") + Navbar (❤ Destek button) aynı
+          anda uncomment.
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -254,6 +257,7 @@ export default function Conclusion() {
           <span style={{ fontSize: '0.9rem', lineHeight: 1 }}>↓</span>
         </button>
       </motion.div>
+      ═══ CONCLUSION SUPPORT WHISPER END ═══ */}
     </SectionWrapper>
   );
 }
