@@ -5,7 +5,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 
@@ -183,26 +183,18 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
         }}>{language === 'tr' ? abdCore.descTr : abdCore.descEn}</p>
 
         {abdCore.coreAyet && (
-          <div style={{
-            padding: '14px 18px',
-            background: 'rgba(0,0,0,0.24)',
-            borderLeft: `3px solid ${COLORS.gold}`,
-            borderRadius: '0 6px 6px 0',
-          }}>
+          <div style={{ ...VERSE_BLOCK, padding: '14px 18px' }}>
             <div style={{
-              fontFamily: FONTS.quran, color: COLORS.gold,
+              ...TEXT.verseArabic,
               fontSize: isMobile ? 'clamp(1.5rem, 5vw, 1.85rem)' : 'clamp(1.75rem, 2.4vw, 2.15rem)',
-              lineHeight: 2.15, direction: 'rtl',
-              textAlign: 'right', marginBottom: '12px',
+              lineHeight: 2.15,
+              marginBottom: '12px',
             }} lang="ar" dir="rtl">{abdCore.coreAyet.ar}</div>
             <p style={{
               color: COLORS.offWhite, fontSize: '0.88rem',
               fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.6,
             }}>"{language === 'tr' ? abdCore.coreAyet.trShort : abdCore.coreAyet.enShort}"</p>
-            <div style={{
-              color: COLORS.silver, fontSize: '0.7rem',
-              letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>— {abdCore.coreAyet.ref}</div>
+            <div style={{ ...TEXT.verseRef }}>— {abdCore.coreAyet.ref}</div>
           </div>
         )}
 

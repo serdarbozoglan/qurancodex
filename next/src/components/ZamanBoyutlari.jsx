@@ -3,7 +3,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from './icons';
@@ -626,19 +626,11 @@ export default function ZamanBoyutlari({ onClose }) {
           })()}
         </div>
 
-        {/* Hero verse card */}
-        <div style={{
-          ...GLASS_CARD,
-          padding: '20px 24px',
-          borderLeft: `3px solid ${COLORS.gold}`,
-          marginBottom: '32px',
-        }}>
+        {/* Hero verse card — canonical VERSE_BLOCK + TEXT (§13.5) */}
+        <div style={{ ...VERSE_BLOCK, padding: '20px 24px', marginBottom: '32px' }}>
           <p style={{
-            fontFamily: FONTS.quran,
+            ...TEXT.verseArabic,
             fontSize: '1.8rem',
-            color: COLORS.gold,
-            textAlign: 'right',
-            direction: 'rtl',
             margin: '0 0 10px',
             lineHeight: 1.8,
           }} dir="rtl" lang="ar">

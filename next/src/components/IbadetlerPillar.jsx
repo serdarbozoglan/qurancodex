@@ -12,7 +12,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 
@@ -1086,35 +1086,27 @@ function TabOzelNamazlar({ data, language, isMobile }) {
               {n.claimType && <ClaimTypeBadge claimType={n.claimType} confidence={n.confidence} language={language} />}
             </div>
 
-            {/* Kur'ânî Delil */}
+            {/* Kur'ânî Delil — canonical VERSE_BLOCK + TEXT (§13.5) */}
             {n.kuraniDelil && (
-              <div style={{
-                padding: '16px 18px',
-                background: 'rgba(0,0,0,0.22)',
-                borderLeft: `3px solid ${COLORS.gold}`,
-                borderRadius: '0 6px 6px 0',
-                marginBottom: '18px',
-              }}>
+              <div style={{ ...VERSE_BLOCK, padding: '16px 18px', marginBottom: '18px' }}>
                 <div style={{
-                  color: COLORS.gold, fontSize: '0.68rem',
-                  letterSpacing: '0.18em', textTransform: 'uppercase',
-                  opacity: 0.85, marginBottom: '10px',
+                  ...TEXT.sectionLabel,
+                  letterSpacing: '0.18em',
+                  marginBottom: '10px',
                 }}>{language === 'tr' ? "Kur'ânî Delil" : 'Qur\'anic Evidence'}</div>
                 {n.kuraniDelil.ar && (
                   <div style={{
-                    fontFamily: FONTS.quran, color: COLORS.gold,
-                    fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)', lineHeight: 2.1,
-                    marginBottom: '10px', direction: 'rtl', textAlign: 'right',
+                    ...TEXT.verseArabic,
+                    fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+                    lineHeight: 2.1,
+                    marginBottom: '10px',
                   }} lang="ar" dir="rtl">{n.kuraniDelil.ar}</div>
                 )}
                 <p style={{
                   color: COLORS.offWhite, fontSize: '0.93rem',
                   fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.7,
                 }}>"{language === 'tr' ? n.kuraniDelil.trShort : (n.kuraniDelil.enShort ?? n.kuraniDelil.trShort)}"</p>
-                <div style={{
-                  color: COLORS.silver, fontSize: '0.7rem',
-                  letterSpacing: '0.14em', textTransform: 'uppercase',
-                }}>— {n.kuraniDelil.ref}</div>
+                <div style={{ ...TEXT.verseRef }}>— {n.kuraniDelil.ref}</div>
               </div>
             )}
 

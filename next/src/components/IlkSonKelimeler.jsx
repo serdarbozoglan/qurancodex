@@ -12,6 +12,7 @@ import {
   COLORS, FONTS,
   OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
+  VERSE_BLOCK, TEXT,
 } from '../tokens';
 
 // ─── İlk ve Son Kelimeler (F-11) ──────────────────────────────────────────────
@@ -812,19 +813,14 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
         </div>
       </div>
 
-      {/* Full ayah */}
+      {/* Full ayah — canonical VERSE_BLOCK (§13.5) */}
       {ayahAr && (
-        <div style={{
-          padding: '14px 16px',
-          background: 'rgba(0,0,0,0.25)',
-          borderRadius: RADIUS.md,
-          borderLeft: `3px solid ${COLORS.gold}`,
-        }}>
+        <div style={{ ...VERSE_BLOCK, padding: '14px 16px' }}>
           <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.15rem', color: COLORS.offWhite,
-            direction: 'rtl', lineHeight: 2.0,
+            ...TEXT.verseArabic,
+            fontSize: '1.15rem',
+            color: COLORS.offWhite,
             marginBottom: ayahTr ? '10px' : 0,
-            textAlign: 'right',
           }}>
             {cleanArabic(ayahAr)}
           </div>

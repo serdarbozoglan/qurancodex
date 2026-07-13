@@ -208,10 +208,11 @@ export default function KissaAtlas({ onClose }) {
 
       {KISSA_TOOL_HEADER}
 
-      {/* ── PROPHET TAB BAR — sticky top:110 (Navbar 62 + ToolHeader 48) ───────── */}
+      {/* ── PROPHET TAB BAR — sticky §13.19 full hygiene guards ─────────────── */}
       <div style={{
         borderBottom: '1px solid rgba(255,255,255,0.07)',
         background: 'rgb(6, 8, 14)',
+        backgroundColor: 'rgb(6, 8, 14)',
         flexShrink: 0,
         position: 'sticky',
         top: '110px',

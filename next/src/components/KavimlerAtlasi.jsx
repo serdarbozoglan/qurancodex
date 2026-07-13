@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 
@@ -1023,15 +1023,14 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
       {/* Expand: verse + info */}
       {expanded && (
         <div style={{ marginTop: '12px', borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: '12px' }}>
-          {/* Verse */}
+          {/* Verse — canonical VERSE_BLOCK + TEXT (§13.5) */}
           {nation.verseAr && (
-            <div style={{
-              background: `${COLORS.gold}08`, border: `1px solid ${COLORS.gold}20`,
-              borderRadius: RADIUS.md, padding: '12px 14px', marginBottom: '10px',
-            }}>
+            <div style={{ ...VERSE_BLOCK, padding: '12px 14px', marginBottom: '10px' }}>
               <div style={{
-                fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold,
-                direction: 'rtl', textAlign: 'right', lineHeight: 1.8, marginBottom: '6px',
+                ...TEXT.verseArabic,
+                fontSize: '1.1rem',
+                lineHeight: 1.8,
+                marginBottom: '6px',
               }} dir="rtl" lang="ar">
                 {nation.verseAr}
               </div>
@@ -1041,7 +1040,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
                 </p>
               )}
               {nation.verseRef && (
-                <p style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>
+                <p style={{ ...TEXT.verseRef, fontSize: '0.72rem' }}>
                   — {language === 'en' ? (nation.verseRefEn || nation.verseRef) : nation.verseRef}
                 </p>
               )}

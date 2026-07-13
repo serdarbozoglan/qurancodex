@@ -10,6 +10,7 @@ import {
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
+  TEXT,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
@@ -559,7 +560,6 @@ export default function MunafikProfili({ onClose }) {
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          backdropFilter: 'blur(20px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
@@ -1092,7 +1092,7 @@ function SectionBlock({ label, color, children }) {
   );
 }
 
-// ─── Verse card ──────────────────────────────────────────────────────────────
+// ─── Verse card — canonical TEXT tokens (§13.5) ────────────────────────────
 function VerseCard({ verse, language }) {
   return (
     <div style={{
@@ -1104,13 +1104,10 @@ function VerseCard({ verse, language }) {
         dir="rtl"
         lang="ar"
         style={{
-          fontFamily: FONTS.quran,
+          ...TEXT.verseArabic,
           fontSize: '1.5rem',
           color: COLORS.offWhite,
-          lineHeight: 2,
-          textAlign: 'right',
           margin: '0 0 10px 0',
-          direction: 'rtl',
         }}
       >
         {cleanArabic(verse.verseAr)}
@@ -1128,10 +1125,9 @@ function VerseCard({ verse, language }) {
       </p>
       {/* Reference */}
       <p style={{
+        ...TEXT.verseRef,
         color: COLORS.gold,
-        fontSize: '0.75rem',
-        fontFamily: FONTS.body,
-        fontWeight: 600,
+        opacity: 1,
         margin: 0,
       }}>
         — {verse.verseRef}

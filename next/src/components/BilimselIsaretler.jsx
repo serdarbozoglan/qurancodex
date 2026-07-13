@@ -8,7 +8,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
-import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -415,15 +415,11 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
           </div>
         </div>
       </div>
-      <div style={{
-        padding: '14px 18px', background: 'rgba(212,165,116,0.06)',
-        border: `1px solid ${COLORS.gold}25`, borderLeft: `2px solid ${COLORS.gold}`,
-        borderRadius: RADIUS.sm, position: 'relative', zIndex: 1,
-      }}>
+      <div style={{ ...VERSE_BLOCK, padding: '14px 18px', position: 'relative', zIndex: 1 }}>
         <p dir="rtl" lang="ar" style={{
-          fontFamily: FONTS.quran,
+          ...TEXT.verseArabic,
           fontSize: isMobile ? '1.15rem' : '1.4rem',
-          color: COLORS.gold, lineHeight: 2, margin: '0 0 10px', textAlign: 'right',
+          margin: '0 0 10px',
         }}>{cleanArabic(isaret.verseAr)}</p>
         <p style={{
           fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body,

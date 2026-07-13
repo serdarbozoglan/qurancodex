@@ -6,6 +6,7 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS, FONTS,
   BREAKPOINT_MOBILE, RADIUS,
+  VERSE_BLOCK, TEXT,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 
@@ -127,11 +128,13 @@ export default function KuranRetorigi({ onClose }) {
         </p>
       </div>
 
-      {/* ── TAB BAR (sticky, Melekler-reference) ─────────────────── */}
+      {/* ── TAB BAR (sticky, §13.19 pattern — full hygiene guards) ────────── */}
       <div id="retorik-tab-bar" style={{
         display: 'flex',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-        background: '#06080e',
+        background: 'rgb(6, 8, 14)',
+        backgroundColor: 'rgb(6, 8, 14)',
+        isolation: 'isolate',
         flexShrink: 0,
         overflowX: 'auto',
         scrollbarWidth: 'none',
@@ -276,27 +279,18 @@ function TabKategoriler({ data, tr, isMobile }) {
     </button>
   );
 
-  // Ayet kartı (VERSE_BLOCK benzeri, inline)
+  // Ayet kartı — canonical VERSE_BLOCK + TEXT tokens (§13.5)
   const verseCard = (v, i) => (
     <div
       key={i}
-      style={{
-        padding: '14px 16px',
-        marginBottom: 10,
-        background: 'transparent',
-        border: `1px solid ${COLORS.glassBorder}`,
-        borderLeft: `3px solid ${COLORS.gold}`,
-        borderRadius: 8,
-      }}
+      style={{ ...VERSE_BLOCK, padding: '14px 16px', marginBottom: 10 }}
     >
       <p
         dir="rtl"
+        lang="ar"
         style={{
-          fontFamily: FONTS.quran,
+          ...TEXT.verseArabic,
           fontSize: isMobile ? '1.3rem' : '1.6rem',
-          color: COLORS.gold,
-          textAlign: 'right',
-          lineHeight: 2,
           margin: '0 0 8px',
         }}
       >
@@ -305,7 +299,7 @@ function TabKategoriler({ data, tr, isMobile }) {
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body, lineHeight: 1.6 }}>
         {tr ? v.tr : v.en}
       </p>
-      <p style={{ color: `${COLORS.gold}70`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>
+      <p style={{ ...TEXT.verseRef, margin: 0 }}>
         — {v.ref}
       </p>
     </div>

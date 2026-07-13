@@ -11,6 +11,7 @@ import {
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
+  TEXT,
 } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
@@ -510,7 +511,6 @@ export default function SunnetullahAtlasi({ onClose }) {
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          backdropFilter: 'blur(20px)',
           overflowX: 'auto',
           scrollbarWidth: 'none',
           flexShrink: 0,
@@ -689,16 +689,14 @@ function LiteralVerseCard({ item, language, isMobile }) {
         </span>
       </div>
 
-      {/* Arabic verse */}
+      {/* Arabic verse — canonical TEXT.verseArabic (§13.5) */}
       <div
         dir="rtl"
         lang="ar"
         style={{
-          fontFamily: FONTS.quran,
+          ...TEXT.verseArabic,
           fontSize: isMobile ? '1.35rem' : '1.55rem',
           color: COLORS.offWhite,
-          direction: 'rtl',
-          textAlign: 'right',
           lineHeight: 2.0,
         }}
       >
