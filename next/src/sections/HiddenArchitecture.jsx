@@ -956,7 +956,7 @@ export default function HiddenArchitecture() {
                         </span>
                       </div>
                       <div>
-                        <h4 style={{ fontSize: '22px', fontWeight: 700, color: layer.color, fontFamily: "'Playfair Display', serif", lineHeight: 1.2, marginBottom: '3px' }}>
+                        <h4 style={{ fontSize: '22px', fontWeight: 700, color: layer.color, fontFamily: FONTS.display, lineHeight: 1.2, marginBottom: '3px' }}>
                           {language === 'tr' ? layer.nameTr : layer.nameEn}
                         </h4>
                         <p style={{ fontSize: '11px', color: 'rgba(148,163,184,0.5)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase' }}>

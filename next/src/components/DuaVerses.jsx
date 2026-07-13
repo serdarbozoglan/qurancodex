@@ -406,7 +406,7 @@ export default function DuaVerses({ onClose }) {
         <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.05rem, 2.2vw, 1.45rem)', color: gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', textShadow: `0 0 20px ${gold}1c` }}>
           وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ
         </p>
-        <p style={{ color: '#e8e6e3', fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
+        <p style={{ color: '#e8e6e3', fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
           "{language === 'tr' ? 'Kullarım sana benden sorduklarında, ben yakınım. Bana dua ettiğinde dua edenin duasına icabet ederim.' : "When My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls Me."}"
         </p>
         <p style={{ color: silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px', opacity: 0.65 }}>
@@ -416,10 +416,10 @@ export default function DuaVerses({ onClose }) {
         <div style={{ fontSize: '0.66rem', letterSpacing: '0.3em', color: gold, textTransform: 'uppercase', fontFamily: 'Inter, sans-serif', fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
           {language === 'tr' ? "DUA · MÜNÂCÂT · TAZARRU'" : "DUʿĀ · MUNĀJĀT · TAḌARRUʿ"}
         </div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.45rem, 3vw, 2rem)', fontWeight: 700, color: '#e8e6e3', margin: '0 auto 8px', lineHeight: 1.2, letterSpacing: '-0.01em', maxWidth: '760px' }}>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: 'clamp(1.45rem, 3vw, 2rem)', fontWeight: 700, color: '#e8e6e3', margin: '0 auto 8px', lineHeight: 1.2, letterSpacing: '-0.01em', maxWidth: '760px' }}>
           {language === 'tr' ? "Kur'an'dan Dualar" : 'Supplications from the Quran'}
         </h2>
-        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: gold, margin: 0, lineHeight: 1.5, fontStyle: 'italic', opacity: 0.92 }}>
+        <p style={{ fontFamily: FONTS.display, fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', color: gold, margin: 0, lineHeight: 1.5, fontStyle: 'italic', opacity: 0.92 }}>
           {language === 'tr' ? "Peygamber duâları, hâcet duâları, sığınma sözleri." : "Prophetic supplications, need-driven prayers, words of refuge."}
         </p>
       </div>

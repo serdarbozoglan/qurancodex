@@ -49,7 +49,7 @@ export default function LoadingOverlay({
         position: 'fixed',
         inset: 0,
         zIndex: 9999,
-        background: 'rgba(10,10,26,0.85)',
+        background: COLORS.cosmicBlackAlpha85,
         backdropFilter: 'blur(4px)',
         display: 'flex',
         flexDirection: 'column',

@@ -161,7 +161,7 @@ export default function MobileSectionChipNav() {
         pointerEvents: visible ? 'auto' : 'none',
         transform: visible ? 'translateY(0)' : 'translateY(-6px)',
         transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
-        background: 'rgba(10,10,26,0.85)',
+        background: COLORS.cosmicBlackAlpha85,
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,

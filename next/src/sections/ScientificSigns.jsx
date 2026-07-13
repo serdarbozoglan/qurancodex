@@ -327,7 +327,7 @@ export default function ScientificSigns() {
 
                   {/* Title */}
                   <h3 style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: FONTS.display,
                     fontWeight: 700, fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)',
                     color: meta.color, marginBottom: '16px', lineHeight: 1.3,
                   }}>

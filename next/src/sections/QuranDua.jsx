@@ -555,7 +555,7 @@ export default function QuranDua() {
               flexWrap: 'wrap', gap: '12px',
             }}>
               <div>
-                <h3 style={{ color: p.emojiColor, fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
+                <h3 style={{ color: p.emojiColor, fontFamily: FONTS.display, fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
                   {tr ? p.nameTr : p.nameEn}
                 </h3>
                 <p style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
@@ -624,7 +624,7 @@ export default function QuranDua() {
                 }}>
                   <span style={{
                     position: 'absolute', top: '6px', left: '12px',
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: FONTS.display,
                     fontSize: '2.2rem', lineHeight: 1, color: p.emojiColor,
                     opacity: 0.25, fontWeight: 800, pointerEvents: 'none',
                   }}>"</span>

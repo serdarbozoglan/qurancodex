@@ -236,7 +236,7 @@ function ComparisonCard({ t, language }) {
         }}>{side.label}</p>
         <p style={{
           color: COLORS.offWhite, fontSize: '0.95rem',
-          fontFamily: "'Playfair Display', serif", fontWeight: 700,
+          fontFamily: FONTS.display, fontWeight: 700,
         }}>{side.sura}</p>
         </div>
 
@@ -398,7 +398,7 @@ function TajwidPanel({ t, language }) {
       <div style={{ marginBottom: '16px' }}>
         <h3 style={{
           color: COLORS.offWhite, fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)',
-          fontFamily: "'Playfair Display', serif", fontWeight: 700,
+          fontFamily: FONTS.display, fontWeight: 700,
           marginBottom: '6px',
         }}>{data.title}</h3>
         <p style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: 'Inter, sans-serif', maxWidth: '52rem' }}>
@@ -426,7 +426,7 @@ function TajwidPanel({ t, language }) {
               {/* Name */}
               <p style={{
                 color: p.color, fontSize: '1rem',
-                fontFamily: "'Playfair Display', serif", fontWeight: 700,
+                fontFamily: FONTS.display, fontWeight: 700,
               }}>{cat.name}</p>
 
               {/* Letters row */}
@@ -613,7 +613,7 @@ function DiscoveryWidget({ t, language }) {
       <div style={{ marginBottom: '14px' }}>
         <h3 style={{
           color: COLORS.offWhite, fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)',
-          fontFamily: "'Playfair Display', serif", fontWeight: 700,
+          fontFamily: FONTS.display, fontWeight: 700,
           marginBottom: '6px',
         }}>{data.title}</h3>
         <p style={{ color: COLORS.silver, fontSize: '0.9rem', fontFamily: 'Inter, sans-serif', maxWidth: '52rem' }}>
@@ -716,7 +716,7 @@ function DiscoveryWidget({ t, language }) {
                         borderRadius: RADIUS.lg,
                         padding: '11px 12px',
                         color: '#e74c3c',
-                        fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
+                        fontSize: '0.95rem', fontFamily: FONTS.display,
                         fontWeight: 700, cursor: 'pointer',
                         transition: 'all 0.18s',
                       }}
@@ -731,7 +731,7 @@ function DiscoveryWidget({ t, language }) {
                         borderRadius: RADIUS.lg,
                         padding: '11px 12px',
                         color: '#2ecc71',
-                        fontSize: '0.95rem', fontFamily: "'Playfair Display', serif",
+                        fontSize: '0.95rem', fontFamily: FONTS.display,
                         fontWeight: 700, cursor: 'pointer',
                         transition: 'all 0.18s',
                       }}
@@ -813,7 +813,7 @@ function DiscoveryWidget({ t, language }) {
                       style={{
                         color: COLORS.offWhite,
                         fontSize: 'clamp(2rem, 5vw, 3rem)',
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: FONTS.display,
                         fontWeight: 800,
                         marginBottom: '14px',
                         textShadow: perfect
@@ -899,7 +899,7 @@ function ClassicalSource({ t, language }) {
         {/* Decorative quote mark */}
         <div style={{
           position: 'absolute', top: '8px', right: '20px',
-          fontSize: '5rem', fontFamily: "'Playfair Display', serif",
+          fontSize: '5rem', fontFamily: FONTS.display,
           color: COLORS.goldAlpha15, lineHeight: 1, fontWeight: 900,
           pointerEvents: 'none',
         }}>"</div>
@@ -912,7 +912,7 @@ function ClassicalSource({ t, language }) {
 
         <p style={{
           color: COLORS.offWhite, fontSize: 'clamp(1.05rem, 2vw, 1.2rem)',
-          fontFamily: "'Playfair Display', serif", fontStyle: 'italic',
+          fontFamily: FONTS.display, fontStyle: 'italic',
           lineHeight: 1.65, marginBottom: '16px',
           position: 'relative',
         }}>{language === 'tr' ? data.quoteTr : data.quoteEn}</p>
@@ -1097,7 +1097,7 @@ export default function SoundArchitecture() {
                 <p style={{ color: sura.color, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '4px' }}>
                   {language === 'tr' ? sura.numTr : sura.numEn}
                 </p>
-                <p style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.95rem', fontFamily: "'Playfair Display', serif", fontWeight: 700, marginBottom: '4px' }}>
+                <p style={{ color: isActive ? COLORS.offWhite : COLORS.silver, fontSize: '0.95rem', fontFamily: FONTS.display, fontWeight: 700, marginBottom: '4px' }}>
                   {language === 'tr' ? sura.labelTr : sura.labelEn}
                 </p>
                 <p style={{ color: isActive ? sura.color : COLORS.slate500, fontSize: '0.7rem', fontFamily: 'Inter, sans-serif' }}>

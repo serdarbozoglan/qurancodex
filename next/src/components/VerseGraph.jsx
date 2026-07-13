@@ -1298,7 +1298,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       {/* Click hint — auto-dismisses after 4s */}
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
-        zIndex: 20, background: 'rgba(10,10,26,0.88)', border: `1px solid ${COLORS.glassBgStrong}`,
+        zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
         borderRadius: RADIUS.pillSm, padding: '6px 18px', color: 'rgba(148,163,184,0.75)', fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
@@ -1332,7 +1332,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         return (
           <div style={{
             position: 'absolute', left: panelX, top: panelY, width: PANEL_W,
-            background: 'rgba(10,10,26,0.93)', border: '1px solid rgba(212,165,116,0.22)',
+            background: COLORS.cosmicBlackAlpha93, border: '1px solid rgba(212,165,116,0.22)',
             borderRadius: RADIUS.chip, padding: '12px 14px',
             backdropFilter: 'blur(14px)', pointerEvents: 'none', zIndex: 10,
             boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
@@ -1571,7 +1571,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {info && (
         <div style={{ marginBottom: '16px' }}>
           <div style={{ color: COLORS.slate600, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
-          <div style={{ color: '#c8c0b4', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.4, fontFamily: "'Playfair Display', serif" }}>
+          <div style={{ color: '#c8c0b4', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.4, fontFamily: FONTS.display }}>
             {label(info.meaning.tr, info.meaning.en)}
           </div>
         </div>
@@ -1798,7 +1798,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [focusedNodeId, setFocusedNodeId] = useState(null);
-  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight - 62 });
+  const [dim, setDim] = useState({ w: 0, h: 0 });
   const [showHint, setShowHint] = useState(true);
   useEffect(() => { const t = setTimeout(() => setShowHint(false), 3000); return () => clearTimeout(t); }, []);
 
@@ -1832,6 +1832,8 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedNodeId, graphData.links]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     const h = () => setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
@@ -1964,7 +1966,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       {/* Auto-dismissing hint badge */}
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
-        zIndex: 20, background: 'rgba(10,10,26,0.85)', border: `1px solid ${COLORS.glassBgStrong}`,
+        zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
         borderRadius: RADIUS.pillSm, padding: '6px 16px', color: COLORS.slate500, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showHint ? 1 : 0, transition: 'opacity 0.8s ease',
@@ -2046,7 +2048,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const [focusedNodeId, setFocusedNodeId] = useState(null);
   const [filterSurah, setFilterSurah] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [dim, setDim] = useState({ w: window.innerWidth, h: window.innerHeight - 62 });
+  const [dim, setDim] = useState({ w: 0, h: 0 });
   const [muted, setMuted] = useState(false);
 
   /* eslint-disable react-hooks/refs -- resetting fit flag when graph data recomputes is intentional */
@@ -2070,6 +2072,8 @@ function FullGraph({ verses, onBack, language, onClose }) {
   }, [focusedNodeId, graphData.links]);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     const h = () => setDim({ w: window.innerWidth, h: window.innerHeight - 62 });
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);

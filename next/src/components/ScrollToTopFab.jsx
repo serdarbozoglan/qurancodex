@@ -33,7 +33,7 @@ export default function ScrollToTopFab() {
         width: '42px',
         height: '42px',
         borderRadius: RADIUS.full,
-        background: 'rgba(10,10,26,0.55)',
+        background: COLORS.cosmicBlackAlpha55,
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
         border: `1px solid ${COLORS.goldAlpha25}`,
@@ -58,7 +58,7 @@ export default function ScrollToTopFab() {
       }}
       onMouseLeave={e => {
         e.currentTarget.style.opacity = '0.6';
-        e.currentTarget.style.background = 'rgba(10,10,26,0.55)';
+        e.currentTarget.style.background = COLORS.cosmicBlackAlpha55;
         e.currentTarget.style.transform = 'translateY(0)';
       }}
       onFocus={e => { e.currentTarget.style.opacity = '1'; }}

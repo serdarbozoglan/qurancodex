@@ -1413,7 +1413,7 @@ export default function Navbar() {
                                 border: '1px solid rgba(212,165,116,0.30)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 color: '#d4a574', fontWeight: 700, fontSize: '0.9rem',
-                                fontFamily: "'Playfair Display', serif", flexShrink: 0,
+                                fontFamily: FONTS.display, flexShrink: 0,
                               }}>F</span>
                               <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1 }}>
                                 <span style={{ color: '#e8e6e3', fontSize: '0.85rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>

@@ -6,6 +6,12 @@
 export const COLORS = {
   // Backgrounds
   cosmicBlack:   '#0a0a1a',
+  // cosmicBlack alpha variants — used for FAB backgrounds, floating panels,
+  // loading overlays. Same color signature as cosmicBlack, dial-in opacity.
+  cosmicBlackAlpha55: 'rgba(10,10,26,0.55)',
+  cosmicBlackAlpha85: 'rgba(10,10,26,0.85)',
+  cosmicBlackAlpha88: 'rgba(10,10,26,0.88)',
+  cosmicBlackAlpha93: 'rgba(10,10,26,0.93)',
   deepNavy:      '#0d1b2a',
   overlayBg:     '#0a0a1a',
   inkBlack:      '#08091a',                  // Used as text color on amber buttons

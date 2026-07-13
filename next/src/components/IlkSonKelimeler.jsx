@@ -10,7 +10,7 @@ import CrossToolCTA from './CrossToolCTA';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import {
   COLORS, FONTS,
-  OVERLAY_BASE, OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
+  OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
   VERSE_BLOCK, TEXT,
 } from '../tokens';
@@ -120,7 +120,12 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   // ── Loading ──────────────────────────────────────────────────────────────────
   if (!data) {
     return (
-      <div style={{ ...OVERLAY_BASE, display: 'flex', flexDirection: 'column' }}>
+      <div style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex', flexDirection: 'column',
+        paddingTop: '62px',
+      }}>
         <Header language={language} onClose={onClose} />
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem' }}>

@@ -223,7 +223,7 @@ export default function QuranCommands({ onClose }) {
 
         <p style={{
           color: COLORS.offWhite,
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: FONTS.display,
           fontStyle: 'italic',
           fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
           lineHeight: 1.7,
@@ -251,7 +251,7 @@ export default function QuranCommands({ onClose }) {
         {/* Framing whisper */}
         <p style={{
           color: COLORS.silver,
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: FONTS.display,
           fontStyle: 'italic',
           fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
           lineHeight: 1.7,
@@ -280,7 +280,7 @@ export default function QuranCommands({ onClose }) {
         </div>
 
         <h1 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: FONTS.display,
           fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
@@ -292,7 +292,7 @@ export default function QuranCommands({ onClose }) {
           {L.title}
         </h1>
         <p style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: FONTS.display,
           fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
           color: COLORS.gold,
           margin: '0 auto 22px',
