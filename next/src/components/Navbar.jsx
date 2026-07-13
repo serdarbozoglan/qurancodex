@@ -1521,6 +1521,37 @@ export default function Navbar() {
           </button>
           ═══ NAVBAR DESTEK END ═══ */}
 
+          {/* Sor — global entry to Concierge (RAG semantic Q&A). Site-wide access
+              gap kapatır: sadece anasayfada ConciergePrompt görünür, tool sayfasında
+              yeni soru için ayrı entry gerekiyordu (kullanıcı feedback 2026-07-13). */}
+          <button
+            onClick={() => router.push(`/${language}/sor`)}
+            title={language === 'tr' ? "Kur'an Rehberi'ne sor" : 'Ask the Quran Guide'}
+            className="hidden lg:flex items-center gap-1.5 transition-all duration-200"
+            style={{
+              padding: '0 12px',
+              height: '32px',
+              borderRadius: '6px',
+              border: `1px solid ${COLORS.goldAlpha45}`,
+              background: 'transparent',
+              color: COLORS.gold,
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.78rem',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              cursor: 'pointer',
+              transition: `all ${TRANSITION.fast}`,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
+          >
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            {language === 'tr' ? 'Sor' : 'Ask'}
+          </button>
+
           {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
           <button
             onClick={toggleLanguage}
@@ -1833,6 +1864,36 @@ export default function Navbar() {
                 >
                   <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', fontWeight: 700, color: COLORS.btnGoldText }}>اقرأ</span>
                   <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.86rem', fontWeight: 700, color: COLORS.btnGoldText, letterSpacing: '0.04em' }}>{language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}</span>
+                </button>
+
+                {/* Kur'an'a Sor — RAG concierge global entry (mobile mirror) */}
+                <button
+                  onClick={() => { router.push(`/${language}/sor`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px', marginBottom: '10px',
+                    background: 'rgba(212,165,116,0.07)',
+                    border: '1px solid rgba(212,165,116,0.32)',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? "Kur'an'a Sor" : 'Ask the Quran'}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? 'Doğal dilde soru · anlamlı ayet & içerik' : 'Ask in plain language · relevant verses & content'}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
                 </button>
 
                 <button
