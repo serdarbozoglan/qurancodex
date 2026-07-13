@@ -113,6 +113,12 @@ function SorInner() {
         setState('error');
         return;
       }
+      // Guardrails rejection — sıcak reject card + suggestion chips
+      if (data.rejected) {
+        setResponse(data);
+        setState('rejected');
+        return;
+      }
       const hasContent =
         (data.response?.verses?.length || 0) +
         (data.response?.tools?.length || 0) +
@@ -394,6 +400,13 @@ function SorInner() {
         {state === 'loading' && <LoadingState language={language} />}
         {state === 'empty' && <EmptyState language={language} query={query} />}
         {state === 'error' && <ErrorState language={language} message={errorMsg} onRetry={() => runQuery(query)} />}
+        {state === 'rejected' && response?.rejection && (
+          <RejectedState
+            language={language}
+            rejection={response.rejection}
+            onSuggestion={(s) => { setQuery(s); setPendingQuery(s); runQuery(s); }}
+          />
+        )}
         {state === 'ok' && response && (
           <ResponseView
             data={response}
@@ -676,6 +689,107 @@ function ErrorState({ language, message, onRetry }) {
   );
 }
 
+// ─── REJECTED STATE ────────────────────────────────────────────────────────
+// Guardrails K1/K2 sıcak reject → mesaj + suggestion chip'leri
+
+function RejectedState({ language, rejection, onSuggestion }) {
+  const tr = language === 'tr';
+  const { message, suggestions = [] } = rejection;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      style={{
+        maxWidth: '640px',
+        margin: '40px auto',
+        padding: '32px 28px',
+        borderRadius: '12px',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        textAlign: 'center',
+      }}
+    >
+      <div style={{
+        width: '48px',
+        height: '48px',
+        borderRadius: '50%',
+        background: `${COLORS.gold}14`,
+        border: `1px solid ${COLORS.gold}33`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '0 auto 20px',
+      }}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/>
+        </svg>
+      </div>
+      <p style={{
+        fontFamily: FONTS.body,
+        fontSize: '0.95rem',
+        color: COLORS.offWhite,
+        lineHeight: 1.7,
+        margin: '0 0 24px',
+      }}>
+        {message}
+      </p>
+
+      {suggestions.length > 0 && (
+        <>
+          <div style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.silver,
+            opacity: 0.7,
+            margin: '0 0 12px',
+          }}>
+            {tr ? 'Örnek konular' : 'Example topics'}
+          </div>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
+            justifyContent: 'center',
+          }}>
+            {suggestions.map((s) => (
+              <button
+                key={s}
+                onClick={() => onSuggestion(s)}
+                style={{
+                  padding: '8px 14px',
+                  borderRadius: '999px',
+                  background: `${COLORS.gold}12`,
+                  border: `1px solid ${COLORS.gold}44`,
+                  color: COLORS.gold,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.82rem',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `${COLORS.gold}26`;
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = `${COLORS.gold}12`;
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </motion.div>
+  );
+}
+
 // ─── RESPONSE VIEW ──────────────────────────────────────────────────────────
 
 function ResponseView({ data, language, feedback, setFeedback }) {
@@ -685,6 +799,75 @@ function ResponseView({ data, language, feedback, setFeedback }) {
 
   return (
     <div>
+      {/* Rewrite banner — kullanıcıya transparan bilgi */}
+      {data.rewritten && (
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '10px',
+            padding: '12px 16px',
+            marginBottom: '24px',
+            borderRadius: '8px',
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            fontFamily: FONTS.body,
+            fontSize: '0.82rem',
+            color: COLORS.silver,
+            lineHeight: 1.55,
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0, marginTop: '3px', opacity: 0.7 }}>
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4M12 16h.01"/>
+          </svg>
+          <div>
+            <div style={{ marginBottom: '4px' }}>
+              {tr
+                ? <>Sorgunuzu şu şekilde değerlendirdik: <span style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>&ldquo;{data.rewritten.to}&rdquo;</span></>
+                : <>We interpreted your query as: <span style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>&ldquo;{data.rewritten.to}&rdquo;</span></>
+              }
+            </div>
+            <div style={{ opacity: 0.65, fontSize: '0.76rem' }}>
+              {tr ? 'Yanlış anladıysak orijinal sorunuzla tekrar arayabilirsiniz.' : 'If we got it wrong, feel free to try again with your original wording.'}
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Fetva disclaimer — hüküm sorusuysa üstte uyarı */}
+      {data.fetvaDisclaimer && (
+        <motion.div
+          initial={reduced ? false : { opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '10px',
+            padding: '14px 18px',
+            marginBottom: '24px',
+            borderRadius: '8px',
+            background: `${COLORS.gold}0d`,
+            border: `1px solid ${COLORS.gold}33`,
+            fontFamily: FONTS.body,
+            fontSize: '0.85rem',
+            color: COLORS.offWhite,
+            lineHeight: 1.6,
+          }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" style={{ flexShrink: 0, marginTop: '3px' }}>
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>{data.fetvaDisclaimer}</div>
+        </motion.div>
+      )}
+
       {/* Intro whisper */}
       {response.intro && (
         <motion.p

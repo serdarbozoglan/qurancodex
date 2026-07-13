@@ -10,6 +10,7 @@ import { conciergeSearch } from '@/lib/concierge-search';
 import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
+import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
 
 // Query hash — stable identifier for feedback + cache curation. Deterministic
 // SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
@@ -61,11 +62,59 @@ export async function POST(request) {
   }
 
   const timings = {};
+  const originalQuery = query;
 
   try {
+    // 0. Guardrails — 3-katmanlı adaptive pipeline
+    // (regex prefilter → LLM classifier (adaptive) → LLM rewrite (adaptive))
+    // Rejected queries returned early with warm message + suggestion chips.
+    const tG = Date.now();
+    const guard = await runGuardrails(query, lang);
+    timings.guardrails = Date.now() - tG;
+
+    if (guard.verdict === 'reject') {
+      // Structured log — for false-positive review (Bölüm F rejection log).
+      console.log(JSON.stringify({
+        type: 'concierge_rejection',
+        ts: new Date().toISOString(),
+        queryHash: computeQueryHash(originalQuery, lang),
+        category: guard.category,
+        reason: guard.reason,
+        regexReason: guard.meta?.regex?.reason || null,
+        lang,
+        ipHash: ip ? ip.slice(0, 8) : null,
+      }));
+      return Response.json({
+        query: originalQuery,
+        lang,
+        rejected: true,
+        rejection: {
+          category: guard.category,
+          message: guard.message,
+          suggestions: guard.suggestions,
+        },
+        meta: {
+          timings,
+          queryHash: computeQueryHash(originalQuery, lang),
+          rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
+          guardrails: guard.meta,
+        },
+      }, {
+        status: 200,
+        headers: {
+          'X-RateLimit-Remaining': String(rl.remaining),
+          'Cache-Control': 'private, no-store',
+        },
+      });
+    }
+
+    // Guardrails proceed — use possibly-rewritten query for retrieval,
+    // but preserve original for logging/UX.
+    const effectiveQuery = guard.query;
+
     // 1. Embed query
     const t0 = Date.now();
-    const queryEmb = await embedQuery(query);
+    const queryEmb = await embedQuery(effectiveQuery);
     timings.embed = Date.now() - t0;
 
     // 2. Search
@@ -85,7 +134,7 @@ export async function POST(request) {
 
     // 3. Claude curate
     const t2 = Date.now();
-    const { parsed, usage } = await runConcierge({ query, grouped, lang });
+    const { parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang });
     timings.claude = Date.now() - t2;
 
     // 4. Hydrate with full item details (halisinasyon guard)
@@ -93,15 +142,19 @@ export async function POST(request) {
     timings.total = Date.now() - startTs;
 
     return Response.json({
-      query,
+      query: originalQuery,
+      effectiveQuery,
       lang,
       response: hydrated,
+      rewritten: guard.rewritten ? { from: originalQuery, to: effectiveQuery } : null,
+      fetvaDisclaimer: guard.category === 'fetva_talebi' ? FETVA_DISCLAIMER[lang] : null,
       meta: {
         timings,
         usage,
         candidateCount,
-        queryHash: computeQueryHash(query, lang), // Feedback + cache curation key
+        queryHash: computeQueryHash(originalQuery, lang), // Feedback + cache curation key
         rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
+        guardrails: { category: guard.category, reason: guard.reason },
       },
     }, {
       headers: {
