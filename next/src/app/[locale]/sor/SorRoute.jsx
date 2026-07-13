@@ -423,69 +423,208 @@ function IdleState({ language }) {
 
 function LoadingState({ language }) {
   const tr = language === 'tr';
-  const messages = tr
-    ? ['Ayetleri tarıyorum...', 'Sayfaları eşleştiriyorum...', 'Tefekkür yazılarını arıyorum...', 'Cevap curated ediliyor...']
-    : ['Scanning verses...', 'Matching pages...', 'Searching essays...', 'Curating response...'];
+  // Gerçek pipeline aşamalarını yansıtan aşamalı mesajlar — kullanıcıya
+  // "sistem çalışıyor" hissi verir (fake spinner değil).
+  const stages = tr
+    ? [
+        { text: 'Sorun BGE-M3 vektörüne dönüştürülüyor', dur: 1400 },
+        { text: 'Kur\'an ve içerik havuzu taranıyor', dur: 1600 },
+        { text: 'En yakın 12 aday seçildi', dur: 1200 },
+        { text: 'Yanıt hazırlanıyor', dur: 3000 },
+      ]
+    : [
+        { text: 'Encoding your query into BGE-M3 vector', dur: 1400 },
+        { text: 'Scanning Quran and content pool', dur: 1600 },
+        { text: 'Selecting the 12 closest candidates', dur: 1200 },
+        { text: 'Composing the response', dur: 3000 },
+      ];
   const [idx, setIdx] = useState(0);
   useEffect(() => {
-    const interval = setInterval(() => setIdx((i) => (i + 1) % messages.length), 1800);
-    return () => clearInterval(interval);
-  }, [messages.length]);
+    if (idx >= stages.length - 1) return; // Son aşamada takıl (Claude hala çalışıyor olabilir)
+    const t = setTimeout(() => setIdx((i) => Math.min(i + 1, stages.length - 1)), stages[idx].dur);
+    return () => clearTimeout(t);
+  }, [idx, stages]);
 
   return (
-    <div style={{ padding: '48px 20px', textAlign: 'center' }}>
-      {/* Rotating gold ring */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-        style={{
-          width: '54px',
-          height: '54px',
-          margin: '0 auto 24px',
-          border: `2px solid ${COLORS.gold}22`,
-          borderTopColor: COLORS.gold,
-          borderRadius: '50%',
-        }}
-      />
+    <div style={{ padding: '56px 20px 40px', textAlign: 'center', position: 'relative' }}>
+      {/* Center orbital — 3 gold dots orbiting a center pulse */}
+      <div style={{
+        width: '96px',
+        height: '96px',
+        margin: '0 auto 32px',
+        position: 'relative',
+      }}>
+        {/* Outer subtle ring */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute', inset: 0,
+            border: `1px solid ${COLORS.gold}22`,
+            borderRadius: '50%',
+          }}
+        />
+        {/* Middle ring — reverse rotation */}
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+          style={{
+            position: 'absolute', inset: '14px',
+            border: `1px dashed ${COLORS.gold}44`,
+            borderRadius: '50%',
+          }}
+        />
+        {/* 3 orbital dots */}
+        {[0, 1, 2].map((i) => (
+          <motion.div
+            key={i}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'linear', delay: i * 0.2 }}
+            style={{
+              position: 'absolute', inset: 0,
+              transformOrigin: 'center',
+            }}
+          >
+            <motion.div
+              animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.15, 0.9] }}
+              transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.15 }}
+              style={{
+                position: 'absolute',
+                top: `${8 + i * 4}px`,
+                left: '50%',
+                width: '6px',
+                height: '6px',
+                marginLeft: '-3px',
+                borderRadius: '50%',
+                background: COLORS.gold,
+                boxShadow: `0 0 12px ${COLORS.gold}, 0 0 24px ${COLORS.gold}66`,
+              }}
+            />
+          </motion.div>
+        ))}
+        {/* Center pulse */}
+        <motion.div
+          animate={{ opacity: [0.5, 0.95, 0.5], scale: [0.85, 1.05, 0.85] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            width: '18px', height: '18px',
+            marginTop: '-9px', marginLeft: '-9px',
+            borderRadius: '50%',
+            background: `radial-gradient(circle, ${COLORS.gold} 0%, ${COLORS.gold}00 70%)`,
+          }}
+        />
+      </div>
+
+      {/* Stage progress — 4 mini pill markers */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '22px' }}>
+        {stages.map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              opacity: i <= idx ? 1 : 0.25,
+              width: i === idx ? '24px' : '10px',
+            }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            style={{
+              height: '3px',
+              borderRadius: '999px',
+              background: i <= idx ? COLORS.gold : `${COLORS.gold}66`,
+              boxShadow: i === idx ? `0 0 8px ${COLORS.gold}88` : 'none',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Stage message */}
       <AnimatePresence mode="wait">
         <motion.p
           key={idx}
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.4 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.35 }}
           style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            color: `${COLORS.gold}dd`,
-            fontSize: '1.05rem',
+            color: COLORS.offWhite,
+            opacity: 0.88,
+            fontSize: 'clamp(0.98rem, 1.6vw, 1.08rem)',
+            margin: '0 auto',
+            maxWidth: '440px',
+            letterSpacing: '-0.005em',
           }}
         >
-          {messages[idx]}
+          {stages[idx].text}
         </motion.p>
       </AnimatePresence>
-      {/* Shimmer skeleton */}
-      <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+
+      {/* Skeleton cards mimicking actual verse card structure */}
+      <div style={{ marginTop: '44px', display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '760px', margin: '44px auto 0' }}>
         {[1, 2, 3].map((i) => (
-          <Skeleton key={i} delay={i * 0.15} />
+          <VerseSkeleton key={i} delay={i * 0.12} />
         ))}
       </div>
+
+      {/* Trust footer — same as ConciergePrompt */}
+      <p style={{
+        marginTop: '32px',
+        fontFamily: FONTS.body,
+        fontSize: '0.7rem',
+        color: COLORS.silver,
+        opacity: 0.55,
+        letterSpacing: '0.06em',
+      }}>
+        {tr ? 'Sistem yorum katmaz — sadece rehberler.' : 'The system adds no commentary — it only guides.'}
+      </p>
     </div>
   );
 }
 
-function Skeleton({ delay = 0 }) {
+// Verse card şeklinde skeleton — sûre chip + Arapça satır + meal satırları + button
+function VerseSkeleton({ delay = 0 }) {
   return (
     <motion.div
-      animate={{ opacity: [0.3, 0.6, 0.3] }}
-      transition={{ duration: 1.5, repeat: Infinity, delay }}
+      animate={{ opacity: [0.3, 0.65, 0.3] }}
+      transition={{ duration: 1.8, repeat: Infinity, delay, ease: 'easeInOut' }}
       style={{
-        height: '80px',
-        borderRadius: '14px',
-        background: `linear-gradient(90deg, ${COLORS.gold}0a 0%, ${COLORS.gold}18 50%, ${COLORS.gold}0a 100%)`,
-        border: `1px solid ${COLORS.gold}18`,
+        borderRadius: '16px',
+        border: `1px solid ${COLORS.gold}22`,
+        background: `linear-gradient(180deg, ${COLORS.gold}06 0%, rgba(255,255,255,0.012) 100%)`,
+        padding: '20px 22px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
       }}
-    />
+    >
+      {/* Sûre chip skeleton */}
+      <div style={{
+        width: '110px',
+        height: '20px',
+        borderRadius: '999px',
+        background: `${COLORS.gold}22`,
+      }} />
+      {/* Arabic block skeleton — 2 lines RTL-feel (wider right side) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'flex-end' }}>
+        <div style={{ width: '85%', height: '18px', borderRadius: '4px', background: `${COLORS.gold}18` }} />
+        <div style={{ width: '65%', height: '18px', borderRadius: '4px', background: `${COLORS.gold}18` }} />
+      </div>
+      {/* Translation skeleton — 3 lines LTR */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px' }}>
+        <div style={{ width: '95%', height: '10px', borderRadius: '3px', background: 'rgba(255,255,255,0.08)' }} />
+        <div style={{ width: '88%', height: '10px', borderRadius: '3px', background: 'rgba(255,255,255,0.08)' }} />
+        <div style={{ width: '60%', height: '10px', borderRadius: '3px', background: 'rgba(255,255,255,0.08)' }} />
+      </div>
+      {/* Button skeleton */}
+      <div style={{
+        width: '130px',
+        height: '32px',
+        borderRadius: '8px',
+        background: `${COLORS.gold}18`,
+        marginTop: '6px',
+      }} />
+    </motion.div>
   );
 }
 
