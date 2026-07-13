@@ -161,7 +161,7 @@ export default function MukattaaCard() {
             onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; e.currentTarget.style.borderColor = `${COLORS.gold}aa`; }}
             onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}1a`; e.currentTarget.style.borderColor = `${COLORS.gold}66`; }}
           >
-            <span>{tr ? 'Mukatta Sayfasını Keşfet' : 'Explore the Mukattaʿāt Page'}</span>
+            <span>{tr ? 'Mukattaa Sayfasını Keşfet' : 'Explore the Mukattaʿāt Page'}</span>
             <span style={{ fontSize: '1.1rem', lineHeight: 1 }}>→</span>
           </Link>
         </motion.div>

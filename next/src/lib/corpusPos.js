@@ -36,7 +36,7 @@ const POS_LABELS = {
   FUT:  { tr: 'Gelecek Zaman Edatı',   en: 'Future Particle' },
   IMPV: { tr: 'Emir Edatı',            en: 'Imperative Particle' },
   INC:  { tr: 'İstifham Cevabı',       en: 'Inceptive Particle' },
-  INL:  { tr: 'Mukatta Harfi',         en: 'Quranic Initials' },
+  INL:  { tr: 'Mukattaa Harfi',        en: 'Quranic Initials' },
   INT:  { tr: 'Tahkik Edatı',          en: 'Particle of Interpretation' },
   INTG: { tr: 'Soru Edatı',            en: 'Interrogative Particle' },
   NEG:  { tr: 'Olumsuzluk Edatı',      en: 'Negative Particle' },

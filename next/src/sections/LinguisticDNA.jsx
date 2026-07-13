@@ -911,7 +911,7 @@ export default function LinguisticDNA() {
               href: `/${language}/graf/kelime-isi`,
               titleTr: 'Kelime Isı Haritası',
               titleEn: 'Word Heatmap',
-              descTr: 'Mukatta harflerinin Kur\'an genelindeki dağılımını görselleştirin.',
+              descTr: 'Mukattaa harflerinin Kur\'an genelindeki dağılımını görselleştirin.',
               descEn: 'Visualize the distribution of muqaṭṭaʿāt letters across the Quran.',
             },
             {
