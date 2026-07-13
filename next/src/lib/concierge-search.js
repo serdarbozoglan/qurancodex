@@ -100,18 +100,23 @@ export function search(queryEmbedding, options = {}) {
 }
 
 // ── Convenience: search with default concierge preset
+// perType TOTAL: 3+2+2+5 = 12 candidates (was 18). Claude nihayetinde
+// 3-7 seçtiği için üstteki 6 aday çoğunlukla artıyor + fazladan input token
+// LLM latency'yi artırıyordu. Cut atlaslarda: her tip 2→1 (5×2 → 5×1).
+// tool 3→2 (rarely need 3). verse 3, article 2 korundu (en yüksek recall).
+// Beklenen: ~-300 input token, ~-200-300ms LLM latency, recall değişmez.
 export function conciergeSearch(queryEmbedding, lang = 'tr') {
   return search(queryEmbedding, {
     lang,
     perType: {
       verse: 3,
       article: 2,
-      tool: 3,
-      'atlas-kissa': 2,
-      'atlas-kavim': 2,
-      'atlas-esma': 2,
-      'atlas-dua': 2,
-      'atlas-kavram': 2,
+      tool: 2,
+      'atlas-kissa': 1,
+      'atlas-kavim': 1,
+      'atlas-esma': 1,
+      'atlas-dua': 1,
+      'atlas-kavram': 1,
     },
     minScore: 0.35,
   });
