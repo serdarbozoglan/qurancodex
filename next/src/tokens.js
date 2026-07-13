@@ -273,6 +273,81 @@ export const VERSE_DISPLAY_CARD = {
   borderRadius: '8px',
 };
 
+// ── VERSE_BLOCK — canonical ayet kutusu (CLAUDE.md §13.5) ────────────────────
+// Every verse display MUST use this container style. Historically ~80 inline
+// variants existed across 46 tool pages; this token collapses them to one.
+// Pair with TEXT.verseArabic / TEXT.verseRef for the inner text nodes.
+//
+// Structure:
+//   <div style={VERSE_BLOCK}>
+//     <p style={{ ...TEXT.verseArabic, margin: '0 0 10px' }} dir="rtl" lang="ar">{arabic}</p>
+//     <p style={{ fontSize:'0.85rem', color: COLORS.offWhite, fontStyle:'italic' }}>{translation}</p>
+//     <p style={{ ...TEXT.verseRef, margin: 0 }}>— {ref}</p>
+//   </div>
+//
+// Design: transparent bg + 3px gold left accent — same visual DNA as
+// VERSE_DISPLAY_CARD but with padding baked in for standalone use.
+export const VERSE_BLOCK = {
+  background:   'transparent',
+  border:       `1px solid ${COLORS.glassBorder}`,
+  borderLeft:   `3px solid ${COLORS.gold}`,
+  borderRadius: '8px',
+  padding:      '16px 18px',
+};
+
+// ── TEXT — canonical text style presets (CLAUDE.md §13.5, §13.6, §13.8) ─────
+// Semantic text shorthands to eliminate inline fontFamily/fontSize/color sprawl.
+// Import: `import { TEXT } from '../tokens';` then `style={{ ...TEXT.verseArabic }}`
+//
+// Roles:
+//   sectionLabel:  small UPPERCASE eyebrow above a card/section title (§13.6)
+//   verseArabic:   Arabic Quranic verse text — KFGQPC font, gold accent
+//   verseRef:      "— Surah X:Y" reference label under a verse
+//   chip:          small pill/chip label
+//   overlayTitle:  in-modal title (mirrors OVERLAY_TITLE token)
+export const TEXT = {
+  sectionLabel: {
+    color:          COLORS.gold,
+    fontSize:       '0.72rem',
+    fontWeight:     700,
+    fontFamily:     FONTS.body,
+    letterSpacing:  '0.14em',
+    textTransform:  'uppercase',
+    opacity:        0.82,
+  },
+  verseArabic: {
+    fontFamily:     FONTS.quran,          // KFGQPC — §13.2 mutlak
+    fontSize:       'clamp(1.4rem, 3vw, 1.9rem)',
+    lineHeight:     2,
+    color:          COLORS.gold,
+    textAlign:      'right',              // RTL context — Arabic reads right-to-left
+  },
+  verseRef: {
+    fontFamily:     FONTS.body,
+    fontSize:       '0.78rem',
+    fontWeight:     600,
+    letterSpacing:  '0.08em',
+    textTransform:  'uppercase',
+    color:          COLORS.silver,
+    opacity:        0.82,
+  },
+  chip: {
+    fontFamily:     FONTS.body,
+    fontSize:       '0.72rem',
+    fontWeight:     600,
+    letterSpacing:  '0.08em',
+    textTransform:  'uppercase',
+    color:          COLORS.silver,
+  },
+  overlayTitle: {
+    color:          COLORS.gold,
+    fontSize:       '0.9rem',
+    fontWeight:     700,
+    fontFamily:     FONTS.body,
+    margin:         0,
+  },
+};
+
 // ── Radius scale ──────────────────────────────────────────────────────────────
 // Normalizes 14+ inline borderRadius values to a canonical scale.
 // Guidance:
