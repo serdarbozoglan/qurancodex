@@ -106,6 +106,11 @@ export const CONTENT_SOURCES = [
       titleTr: item.nameTr || '',
       titleEn: item.nameEn || '',
       arabic: item.arabic || '',
+      // Card display fields — hydrate karta özet aktarır
+      descTr: item.summaryTr || item.helakTr || '',
+      descEn: item.helakEn || '',
+      prophetTr: item.prophetTr || '',
+      prophetEn: item.prophetEn || '',
       searchTextTr: `${item.nameTr || ''} kavmi (${item.arabic || ''}). Peygamberi: ${item.prophetTr || 'belirtilmemiş'}. Helâk sebebi: ${item.helakTr || ''}. Durumu: ${item.status || ''}.`,
       searchTextEn: `${item.nameEn || ''} people (${item.arabic || ''}). Prophet: ${item.prophetEn || 'unspecified'}. Destruction: ${item.helakEn || ''}. Status: ${item.status || ''}.`,
     }),
@@ -119,6 +124,8 @@ export const CONTENT_SOURCES = [
     buildItem: (item) => {
       const scenesTextTr = (item.scenes || []).slice(0, 5).map(s => s.titleTr || s.summaryTr || '').filter(Boolean).join('. ');
       const scenesTextEn = (item.scenes || []).slice(0, 5).map(s => s.titleEn || s.summaryEn || '').filter(Boolean).join('. ');
+      const firstSceneTr = (item.scenes || [])[0]?.summaryTr || (item.scenes || [])[0]?.titleTr || '';
+      const firstSceneEn = (item.scenes || [])[0]?.summaryEn || (item.scenes || [])[0]?.titleEn || '';
       return {
         id: `atlas-kissa:${item.id}`,
         type: 'atlas-kissa',
@@ -126,6 +133,8 @@ export const CONTENT_SOURCES = [
         titleTr: item.nameTr || '',
         titleEn: item.nameEn || '',
         arabic: item.nameAr || '',
+        descTr: firstSceneTr ? `${item.surahCount || 0} sûrede: ${firstSceneTr}`.slice(0, 160) : '',
+        descEn: firstSceneEn ? `In ${item.surahCount || 0} suras: ${firstSceneEn}`.slice(0, 160) : '',
         searchTextTr: `${item.nameTr || ''} kıssası (${item.nameAr || ''}). ${item.surahCount || 0} sûrede geçer. Sahneler: ${scenesTextTr}`,
         searchTextEn: `Story of ${item.nameEn || ''} (${item.nameAr || ''}). Appears in ${item.surahCount || 0} suras. Scenes: ${scenesTextEn}`,
       };
@@ -145,6 +154,8 @@ export const CONTENT_SOURCES = [
       titleEn: item.okunus || item.isim || '',
       arabic: item.arapca || '',
       kuranda_gecis_sayisi: item.kuranda_gecis_sayisi || 0,
+      descTr: (item.anlam || '').slice(0, 160),
+      descEn: (item.anlam_en || item.anlam || '').slice(0, 160),
       searchTextTr: `${item.isim || ''} (${item.arapca || ''}), okunuşu ${item.okunus || ''}. ${item.anlam || ''}. ${item.aciklama || ''} Kategori: ${item.kategori_etiket || item.kategori || ''}.`,
       searchTextEn: `${item.okunus || ''} (${item.arapca || ''}). ${item.anlam || ''} — a name/attribute of God. Category: ${item.kategori_etiket || item.kategori || ''}.`,
     }),
@@ -165,6 +176,10 @@ export const CONTENT_SOURCES = [
       prophetTr: item.prophet_tr || '',
       prophetEn: item.prophet_en || '',
       arabic: item.arabic || '',
+      // Card display fields — dua'nın kendi meali kısa özet olarak kullanılır.
+      // Dua'lar zaten kısa (~15-30 kelime) olduğu için tam meal kullanılabilir.
+      descTr: (item.tr || '').slice(0, 200),
+      descEn: (item.en || '').slice(0, 200),
       searchTextTr: `Dua: ${item.tr || ''} — ${item.prophet_tr || 'genel'} duası (${item.surah}:${item.ayah}). Kategori: ${item.category || ''}.`,
       searchTextEn: `Prayer: ${item.en || ''} — from ${item.prophet_en || 'general'} (${item.surah}:${item.ayah}). Category: ${item.category || ''}.`,
     }),
@@ -190,6 +205,9 @@ export const CONTENT_SOURCES = [
         arabic: item.ar || '',
         group: item.group || '',
         anchorVerse: (item.anchorVerses || [])[0] || null,
+        // Card display: kategori + anahtar kelimelerden özet cümle
+        descTr: item.group ? `${item.group}${keywords ? ' · ' + keywords.slice(0, 100) : ''}` : keywords.slice(0, 140),
+        descEn: item.group ? `${item.group}${keywords ? ' · ' + keywords.slice(0, 100) : ''}` : keywords.slice(0, 140),
         searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Ana ayetler: ${anchors}. Kategori: ${item.group || ''}.`,
         searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Anchor verses: ${anchors}. Group: ${item.group || ''}.`,
       };

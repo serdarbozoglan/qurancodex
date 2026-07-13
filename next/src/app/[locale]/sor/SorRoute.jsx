@@ -934,14 +934,31 @@ function AtlasCard({ atlas, delay, language }) {
           </h4>
           {atlas.reason && (
             <p style={{
-              fontFamily: FONTS.body,
-              fontSize: '0.82rem',
-              color: COLORS.offWhite,
-              opacity: 0.75,
-              lineHeight: 1.6,
-              margin: 0,
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: '0.85rem',
+              color: `${COLORS.gold}cc`,
+              opacity: 0.95,
+              lineHeight: 1.55,
+              margin: '0 0 6px',
             }}>
               {atlas.reason}
+            </p>
+          )}
+          {atlas.description && (
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.8rem',
+              color: COLORS.offWhite,
+              opacity: 0.68,
+              lineHeight: 1.55,
+              margin: 0,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}>
+              {atlas.description}
             </p>
           )}
         </div>

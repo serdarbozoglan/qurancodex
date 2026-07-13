@@ -94,6 +94,11 @@ function hydrateItem(item, reason, lang) {
         subId: item.subId,
         title: lang === 'tr' ? item.titleTr : item.titleEn,
         arabic: item.arabic ? normalizeArabic(item.arabic) : undefined,
+        // Content description — build script her atlas tipi için buildItem'da
+        // descTr/descEn üretir (kavim summary, kissa first scene, esma anlam,
+        // dua meal, kavram keywords). Kart body text olarak kullanılır.
+        description: lang === 'tr' ? (item.descTr || '') : (item.descEn || ''),
+        prophet: lang === 'tr' ? item.prophetTr : item.prophetEn,
       };
   }
 }
