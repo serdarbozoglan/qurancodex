@@ -828,7 +828,7 @@ export default function LinguisticDNA() {
             <span>100%</span>
           </div>
         </div>
-        <p className="text-silver/55 text-sm font-body italic max-w-3xl mx-auto">
+        <p className="text-silver/55 text-sm font-body italic max-w-3xl">
           {language === 'tr'
             ? 'Huruf-i mukattaa ile açılan 29 sûrenin 25\'inde — tutarlı bir vahiy atfı örüntüsü. Kur\'ân\'ın genelinde sûre açılışlarında vahiy atfı daha nadirdir; bu yoğunluk dikkat çekicidir.'
             : 'In 25 of the 29 muqaṭṭaʿāt-opening suras — a consistent pattern of revelation reference. Such references are less frequent in sura openings overall; this density is notable.'}
@@ -881,12 +881,12 @@ export default function LinguisticDNA() {
       {/* ── Closing reflection + Cross-tool CTA strip ─────────────────────── */}
       <motion.div variants={fadeUpItem} className="mb-8">
         <p
-          className="font-display italic text-center mx-auto"
+          className="font-display italic"
           style={{
             color: COLORS.silver,
             fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
             lineHeight: 1.7,
-            maxWidth: '700px',
+            maxWidth: '760px',
             marginBottom: '40px',
             opacity: 0.9,
           }}

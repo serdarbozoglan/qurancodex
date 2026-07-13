@@ -284,7 +284,7 @@ export default function HiddenArchitecture() {
 
         {/* ── Mirror diagram ── */}
         <div className="max-w-3xl mx-auto">
-          <p className="text-silver/70 text-sm text-center mb-4 font-body leading-relaxed max-w-lg mx-auto">
+          <p className="text-silver/70 text-sm mb-4 font-body leading-relaxed max-w-3xl">
             {language === 'tr' ? surah.introTr : surah.introEn}
           </p>
           <p className="text-silver/40 text-xs text-center mb-5 font-body">
@@ -294,7 +294,7 @@ export default function HiddenArchitecture() {
           </p>
 
           {activeSurah === 'fatiha' && (
-            <p className="text-silver/40 text-xs text-center mb-5 font-body italic max-w-lg mx-auto leading-relaxed">
+            <p className="text-silver/40 text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
               {language === 'tr'
                 ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfada Şafiî sayımı kullanılmaktadır (7 ayet, Bismillah dahil).'
                 : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. This page follows the Shāfiʿī count (7 verses, Bismillah included).'}
