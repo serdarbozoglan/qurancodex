@@ -37,7 +37,7 @@ const PLACEHOLDERS_EN = [
 
 // Suggested chip queries — click → direkt navigate
 const SUGGESTIONS_TR = [
-  'Sabır', 'Öldükten sonra', 'Rızık', 'Yalnızlık', 'Yaratılış', 'Peygamber Yusuf',
+  'Sabır', 'Öldükten sonra', 'Rızık', 'Yalnızlık', 'Yaratılış', 'Hz. Yusuf',
 ];
 const SUGGESTIONS_EN = [
   'Patience', 'Afterlife', 'Provision', 'Loneliness', 'Creation', 'Prophet Joseph',
@@ -124,7 +124,7 @@ export default function ConciergePrompt() {
           textTransform: 'uppercase',
           marginBottom: '20px',
         }}>
-          {tr ? 'Kur\'an Rehberi · Yeni' : 'Quran Guide · New'}
+          {tr ? 'Kur\'an Rehberi' : 'Quran Guide'}
         </div>
 
         {/* Hook headline */}
@@ -156,8 +156,8 @@ export default function ConciergePrompt() {
           opacity: 0.85,
         }}>
           {tr
-            ? 'Yaşadığın bir durumu, aklındaki bir kavramı ya da merak ettiğin bir konuyu yaz. Sistem 6.236 ayet, tefekkür yazıları ve araç sayfaları arasından sana en yakın olanları seçer, sunar.'
-            : 'Write about a situation you\'re living, a concept in mind, or a topic you\'re curious about. The system selects the ones closest to you from 6,236 verses, reflection essays, and tool pages.'}
+            ? 'Yaşadığın bir durumu ya da merak ettiğin bir kavramı yaz — sistem 6.236 ayet ve içerik arasından sana en yakın olanları seçer.'
+            : 'Write a situation you\'re living or a concept you\'re curious about — the system picks the closest matches from 6,236 verses and content.'}
         </p>
 
         {/* Prompt input — gold border, subtle glow, focused state animasyon */}
@@ -245,26 +245,29 @@ export default function ConciergePrompt() {
           </motion.button>
         </motion.form>
 
-        {/* Suggested queries — chips */}
+        {/* Suggested queries — label above, chips below */}
+        <div style={{
+          textAlign: 'center',
+          marginTop: '22px',
+        }}>
+          <div style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.68rem',
+            color: COLORS.silver,
+            opacity: 0.55,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            marginBottom: '10px',
+          }}>
+            {tr ? 'Örnek sorular' : 'Try one of these'}
+          </div>
+        </div>
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '8px',
           justifyContent: 'center',
-          marginTop: '20px',
         }}>
-          <span style={{
-            fontFamily: FONTS.body,
-            fontSize: '0.72rem',
-            color: COLORS.silver,
-            opacity: 0.7,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            alignSelf: 'center',
-            marginRight: '6px',
-          }}>
-            {tr ? 'Örnek' : 'Try'}
-          </span>
           {suggestions.map((s) => (
             <button
               key={s}
@@ -302,9 +305,9 @@ export default function ConciergePrompt() {
           textAlign: 'center',
           marginTop: '28px',
           fontFamily: FONTS.body,
-          fontSize: '0.72rem',
+          fontSize: '0.74rem',
           color: COLORS.silver,
-          opacity: 0.55,
+          opacity: 0.7,
           letterSpacing: '0.04em',
         }}>
           {tr

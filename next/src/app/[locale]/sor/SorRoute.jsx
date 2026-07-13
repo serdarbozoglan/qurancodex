@@ -49,8 +49,47 @@ function SorInner() {
   const [feedback, setFeedback] = useState(null); // null | 'up' | 'down'
   const abortRef = useRef(null);
 
+  // sessionStorage cache — aynı query için redundant LLM çağrısını önler.
+  // Browser back navigation → sayfa yeniden mount → cache hit → anlık render.
+  // Cache scope: tab (sessionStorage), key: language + query normalized.
+  // Cost: query başına ~$0.001 tasarruf; UX: 5-10 sn → anlık.
+  const cacheKey = (lang, q) => `concierge:${lang}:${q.trim().toLowerCase()}`;
+
+  const getCachedResponse = useCallback((lang, q) => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const raw = sessionStorage.getItem(cacheKey(lang, q));
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      // Sanity: cache age check (30 dk)
+      if (parsed.cachedAt && Date.now() - parsed.cachedAt > 30 * 60 * 1000) {
+        sessionStorage.removeItem(cacheKey(lang, q));
+        return null;
+      }
+      return parsed.data;
+    } catch { return null; }
+  }, []);
+
+  const setCachedResponse = useCallback((lang, q, data) => {
+    if (typeof window === 'undefined') return;
+    try {
+      sessionStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
+    } catch {/* quota exceeded — silently skip */}
+  }, []);
+
   const runQuery = useCallback(async (q) => {
     if (!q || q.length < 3) return;
+
+    // Cache-first
+    const cached = getCachedResponse(language, q);
+    if (cached) {
+      setResponse(cached);
+      setState('ok');
+      setErrorMsg('');
+      setFeedback(null);
+      return;
+    }
+
     setState('loading');
     setResponse(null);
     setErrorMsg('');
@@ -84,13 +123,14 @@ function SorInner() {
       } else {
         setResponse(data);
         setState('ok');
+        setCachedResponse(language, q, data); // Cache başarılı response
       }
     } catch (err) {
       if (err.name === 'AbortError') return;
       setErrorMsg(err.message || 'Network error');
       setState('error');
     }
-  }, [language]);
+  }, [language, getCachedResponse, setCachedResponse]);
 
   // Fire on initial mount if q param present
   useEffect(() => {
@@ -626,29 +666,35 @@ function SectionBlock({ title, count, children }) {
       style={{ marginBottom: '36px' }}
     >
       <div style={{
-        display: 'flex', alignItems: 'baseline', gap: '10px',
-        marginBottom: '14px',
-        paddingBottom: '10px',
-        borderBottom: `1px solid ${COLORS.gold}18`,
+        display: 'flex', alignItems: 'center', gap: '12px',
+        marginBottom: '18px',
+        paddingBottom: '12px',
+        borderBottom: `1px solid ${COLORS.gold}22`,
       }}>
         <h2 style={{
           fontFamily: FONTS.body,
-          fontSize: '0.72rem',
+          fontSize: '0.82rem',
           fontWeight: 700,
-          letterSpacing: '0.24em',
+          letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          color: `${COLORS.gold}dd`,
+          color: COLORS.gold,
           margin: 0,
         }}>
           {title}
         </h2>
         <span style={{
           fontFamily: FONTS.body,
-          fontSize: '0.7rem',
-          color: COLORS.silver,
-          opacity: 0.55,
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          color: `${COLORS.gold}dd`,
+          background: `${COLORS.gold}14`,
+          border: `1px solid ${COLORS.gold}33`,
+          padding: '2px 9px',
+          borderRadius: '999px',
+          lineHeight: 1.4,
+          letterSpacing: '0.04em',
         }}>
-          · {count}
+          {count}
         </span>
       </div>
       {children}
