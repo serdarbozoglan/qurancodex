@@ -64,8 +64,8 @@ function HubHero({ hubData, language, isMobile }) {
       textAlign: 'center',
     }}>
       <div style={{
-        fontFamily: FONTS.arabic, fontSize: '1.7rem',
-        color: COLORS.gold, opacity: 0.85, marginBottom: '28px',
+        fontFamily: FONTS.bismillah, fontSize: '1.7rem',
+        color: COLORS.gold, opacity: 0.82, marginBottom: '28px',
       }}>﷽</div>
 
       <div style={{

@@ -1206,7 +1206,7 @@ export default function WowFacts({ onClose }) {
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           maxWidth: '900px', width: '100%', margin: '0 auto', boxSizing: 'border-box',
         }}>
-          <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: "'Amiri Quran', 'Amiri', serif", fontSize: '1.85rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: '32px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+          <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: '1.85rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: '32px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
           <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.15rem, 2.2vw, 1.6rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '780px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
             اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
           </p>

@@ -866,10 +866,10 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           lang="ar"
           aria-label="Bismillāh"
           style={{
-            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontFamily: FONTS.bismillah,
             fontSize: isMobile ? '1.6rem' : '2rem',
             color: COLORS.gold,
-            opacity: 0.85,
+            opacity: 0.82,
             lineHeight: 1,
             marginBottom: isMobile ? '32px' : '44px',
             textShadow: `0 0 20px ${COLORS.gold}22`,

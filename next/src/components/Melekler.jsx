@@ -1347,7 +1347,7 @@ export default function Melekler({ onClose }) {
           <div
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
-              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
               color: COLORS.gold,
               opacity: 0.82,

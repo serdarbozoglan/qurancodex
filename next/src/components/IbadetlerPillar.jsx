@@ -195,7 +195,7 @@ function PillarHero({ pillarData, language, isMobile }) {
     }}>
       {/* Bismillah ornament */}
       <div style={{
-        fontFamily: FONTS.arabic,
+        fontFamily: FONTS.bismillah,
         fontSize: '1.6rem',
         color: COLORS.gold,
         opacity: 0.82,

@@ -109,7 +109,7 @@ export default function Hero() {
           style={{
             position: 'relative',
             display: 'inline-block',
-            fontFamily: "'Amiri Quran', 'Amiri', serif",
+            fontFamily: FONTS.bismillah,
             fontSize: isMobile ? '1.8rem' : '2.6rem',
             color: COLORS.gold,
             lineHeight: 1,

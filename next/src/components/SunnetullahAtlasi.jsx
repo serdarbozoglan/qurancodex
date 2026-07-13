@@ -320,10 +320,10 @@ export default function SunnetullahAtlasi({ onClose }) {
           <div
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
-              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
               color: COLORS.gold,
-              opacity: 0.85,
+              opacity: 0.82,
               lineHeight: 1,
               marginBottom: isMobile ? '28px' : '40px',
               textShadow: `0 0 22px ${COLORS.gold}28`,

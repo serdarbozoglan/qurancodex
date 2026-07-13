@@ -161,9 +161,9 @@ export default function RetorikSorular({ onClose }) {
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{
-              fontFamily: "'Amiri Quran', 'Amiri', serif",
+              fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
-              color: COLORS.gold, opacity: 0.85, lineHeight: 1,
+              color: COLORS.gold, opacity: 0.82, lineHeight: 1,
               marginBottom: isMobile ? '28px' : '40px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>

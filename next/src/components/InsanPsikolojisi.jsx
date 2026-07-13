@@ -56,7 +56,7 @@ export default function InsanPsikolojisi({ onClose }) {
           fontSize: isMobile ? '2.2rem' : '2.6rem',
           color: COLORS.gold,
           opacity: 0.82,
-          fontFamily: 'Amiri Quran, serif',
+          fontFamily: FONTS.bismillah,
           marginBottom: '24px',
           lineHeight: 1.2,
         }} dir="rtl" lang="ar" aria-label="Bismillāh">﷽</div>
