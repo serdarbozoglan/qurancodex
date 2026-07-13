@@ -28,6 +28,17 @@ function run(cmd, args) {
   }
 }
 
+// Soft-fail variant: log error, return false, don't exit
+function trySoft(cmd, args) {
+  console.log(`\n▶ ${cmd} ${args.join(' ')} (soft — may fail)`);
+  const res = spawnSync(cmd, args, { cwd: ROOT, stdio: 'inherit' });
+  if (res.status !== 0) {
+    console.warn(`⚠  Soft command failed (exit ${res.status}), continuing...`);
+    return false;
+  }
+  return true;
+}
+
 // ── Check 1: corpus file exists?
 if (!fs.existsSync(CORPUS)) {
   console.log('🚧 corpus-embeddings.json missing → running full pipeline');
@@ -43,15 +54,18 @@ console.log(`📖 corpus-embeddings.json exists (${(corpusSize / 1024 / 1024).to
 
 // ── Check 2: file is git-lfs pointer (~130 bytes)? Then LFS not fetched yet.
 if (corpusSize < 1024) {
-  console.log('⚠  Corpus is LFS pointer (not fetched). Running `git lfs pull`...');
-  run('git', ['lfs', 'pull']);
-  const newSize = fs.statSync(CORPUS).size;
-  console.log(`   Corpus after LFS pull: ${(newSize / 1024 / 1024).toFixed(1)} MB`);
-  if (newSize < 1024) {
-    console.log('🚧 LFS pull failed → running full pipeline as fallback');
+  console.log('⚠  Corpus is LFS pointer (not fetched). Attempting `git lfs pull`...');
+  const lfsOk = trySoft('git', ['lfs', 'pull']);
+  const newSize = lfsOk ? fs.statSync(CORPUS).size : corpusSize;
+  console.log(`   Corpus after LFS attempt: ${(newSize / 1024 / 1024).toFixed(1)} MB (was pointer)`);
+  if (!lfsOk || newSize < 1024) {
+    console.log('🚧 LFS pull failed or unavailable → running full pipeline as fallback (~8 min)');
     run('node', ['scripts/build-corpus.mjs']);
     run('node', ['scripts/build-embeddings.mjs']);
     run('node', ['scripts/reencode-embeddings.mjs']);
+    console.log('\n✅ Corpus regenerated via fallback.');
+  } else {
+    console.log('\n✅ LFS pull successful.');
   }
   process.exit(0);
 }
