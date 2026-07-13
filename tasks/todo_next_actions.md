@@ -26,7 +26,7 @@ Tüm kararlar 2026-07-13'te alındı. Detay: **Bölüm E** (aşağıda).
 |---|---|---|---|
 | **#166** | **Faz 2a** | Meal fetch (Ali Bulaç + Diyanet + Yusuf Ali + Asad) + multi-vector 3-meal embed | 1 gün |
 | **#165** | **Faz 2b** | LLM metadata enrichment (özet + tema tag + kavram per ayet) | 0.5 gün |
-| **#163** | **Faz 2c** | Pericope (B) + Sure özet (C) + Kıssa-agrega (D) + Kavram-agrega (F) chunk'ları | 1.5 gün |
+| **#163** | **Faz 2c** | Pericope (B) + Sure özet (C) + Kıssa-agrega (D) + Kavram-agrega (F) + Makale section (G) chunk'ları | 1.5 gün |
 | **#164** | **Faz 2d** | Tefsir dual (Elmalılı TR + İbn Kesîr EN, ilk 200 kelime) | 1 gün |
 | — | **Faz 2e** | Differential ayet enrichment (~500 mukattaa/refrain/continuation) | 0.5 gün |
 
@@ -167,7 +167,7 @@ Detaylı plan: `~/.claude/projects/-Users-serdar-dev-.../memory/project_chunking
 
 ## Bölüm E — Chunking Faz 2 Kararları (2026-07-13 alındı)
 
-### 6 katman chunk yapısı
+### 7 katman chunk yapısı
 
 | Katman | İçerik | Chunk sayısı | Kaynak |
 |---|---|---|---|
@@ -177,6 +177,21 @@ Detaylı plan: `~/.claude/projects/-Users-serdar-dev-.../memory/project_chunking
 | **D** | Kıssa-agrega (tam kıssa tek chunk) | 25 | kissa-atlas.json |
 | **E** | Tefsir dual (ilk 200 kelime, meal ile PARALEL — concat DEĞİL) | ~6236 | Elmalılı TR + İbn Kesîr EN |
 | **F** | Kavram-agrega (anchor ayetler + tanım + tefsir özet) | 65 | concept-graph.json |
+| **G** | **Makale section-based hierarchical** — uzun tefekkür yazıları için parent (mevcut, tüm makale) + child'lar (h2 breakpoints per section) | ~500-600 | tefekkur-*.json sections |
+
+### Katman G detay — Makale hierarchical chunking (2026-07-13 eklendi)
+
+**Problem:** Mevcut `article` type tek chunk (`titleTr + tldrTr + tüm body`). Uzun makaleler (Okuma Prensipleri, Ruhun Termostatı, Sema ve İsim: 2000-5000 kelime) tek vector'e sıkışıyor → belirli bölümü hedefleyen sorgu zayıf recall alır.
+
+**Çözüm:**
+- **Parent chunk (mevcut korunur):** `article:slug` — orphan match önlemek için.
+- **Child chunk:** `article:slug#section-N` — her h2 heading + o section paragrafları (~400-800 kelime).
+- **Retrieval:** child match'lerse parent'ı da promote et (aynı slug varsa dedup). Claude curator seçer.
+- **Kısa makaleler (< 800 kelime):** child'lara bölünmez, parent yeterli. Threshold: word count.
+
+**Etki:** ~150 tefekkür makalesi × ortalama 3-4 section = ~500-600 yeni child chunk. Recall +25-35% uzun makale sorgularında.
+
+**Atlas + tool sayfaları:** ZATEN atomik (kısa) — dokunma, tek chunk kalır.
 
 ### Multi-vector 3-meal
 

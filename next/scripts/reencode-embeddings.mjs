@@ -58,15 +58,29 @@ console.log('⚙️  Encoding to binary base64...');
 let done = 0;
 let totalDim = 0;
 
+// Multi-vector aware: verse items have embeddingTrArr/embeddingEnArr,
+// non-verse items have embeddingTr/embeddingEn.
 const encodedItems = data.items.map(item => {
-  const { embeddingTr, embeddingEn, ...rest } = item;
-  const embTr = toB64(embeddingTr);
-  const embEn = toB64(embeddingEn);
-  if (embTr && !totalDim) totalDim = embeddingTr.length;
+  const { embeddingTr, embeddingEn, embeddingTrArr, embeddingEnArr, ...rest } = item;
+  const out = { ...rest };
+
+  if (Array.isArray(embeddingTrArr) && embeddingTrArr.length > 0) {
+    out.embTrArr = embeddingTrArr.map(toB64).filter(Boolean);
+    if (!totalDim && embeddingTrArr[0]) totalDim = embeddingTrArr[0].length;
+  } else if (embeddingTr) {
+    out.embTr = toB64(embeddingTr);
+    if (!totalDim) totalDim = embeddingTr.length;
+  }
+
+  if (Array.isArray(embeddingEnArr) && embeddingEnArr.length > 0) {
+    out.embEnArr = embeddingEnArr.map(toB64).filter(Boolean);
+  } else if (embeddingEn) {
+    out.embEn = toB64(embeddingEn);
+  }
 
   done++;
   if (done % 500 === 0) console.log(`   ${done}/${data.items.length}`);
-  return { ...rest, embTr, embEn };
+  return out;
 });
 
 const output = {

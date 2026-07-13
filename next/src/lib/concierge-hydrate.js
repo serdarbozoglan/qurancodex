@@ -70,6 +70,10 @@ function hydrateItem(item, reason, lang) {
         surahName: lang === 'tr' ? item.surahName : item.surahNameEn,
         arabic: normalizeArabic(item.arabic),
         text: lang === 'tr' ? item.textTr : item.textEn,
+        // Faz 2a — multi-meal: client'a 3 meal seçeneği gönder.
+        // Client Reading Mode localStorage'daki seçili meal ile eşleştirir.
+        ...(item.mealsTr ? { mealsTr: item.mealsTr } : {}),
+        ...(item.mealsEn ? { mealsEn: item.mealsEn } : {}),
       };
     case 'article':
       return {

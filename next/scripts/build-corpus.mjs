@@ -25,14 +25,18 @@ const args = process.argv.slice(2);
 const statsOnly = args.includes('--stats');
 
 // ── Hash: text + metadata → deterministik SHA256
+// Multi-vector (Faz 2a): searchTextTrArr/searchTextEnArr da hash'e dahil,
+// yeni meal geldiğinde re-embed tetiklensin.
 function itemHash(item) {
-  const key = [
+  const parts = [
     item.searchTextTr || '',
     item.searchTextEn || '',
     item.type,
     item.id,
-  ].join('|');
-  return crypto.createHash('sha256').update(key).digest('hex').slice(0, 16);
+  ];
+  if (Array.isArray(item.searchTextTrArr)) parts.push(item.searchTextTrArr.join('~'));
+  if (Array.isArray(item.searchTextEnArr)) parts.push(item.searchTextEnArr.join('~'));
+  return crypto.createHash('sha256').update(parts.join('|')).digest('hex').slice(0, 16);
 }
 
 // ── File source: single JSON file

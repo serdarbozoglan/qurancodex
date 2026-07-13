@@ -25,24 +25,37 @@ function b64ToFloat32(b64) {
 }
 
 // ── Load corpus into memory (once)
+// Multi-vector schema (Faz 2a):
+//   verse item: { embTrArr: [b64_meal1, b64_meal2, b64_meal3], embEnArr: [...] }
+//     → parsed as _embTrArr: [Float32Array, Float32Array, Float32Array]
+//   non-verse item: { embTr, embEn }
+//     → parsed as _embTr, _embEn (single Float32Array)
+// Backward compat: if item has embTr (not embTrArr), treat as single-vector.
 export function loadCorpus() {
   if (CORPUS_CACHE) return CORPUS_CACHE;
   if (!fs.existsSync(CORPUS_PATH)) {
     throw new Error(`Corpus not found at ${CORPUS_PATH}. Run \`npm run embed:build\`.`);
   }
   const raw = JSON.parse(fs.readFileSync(CORPUS_PATH, 'utf8'));
-  const items = raw.items.map(item => ({
-    ...item,
-    _embTr: b64ToFloat32(item.embTr),
-    _embEn: b64ToFloat32(item.embEn),
-  }));
+  const items = raw.items.map(item => {
+    const out = { ...item };
+    if (Array.isArray(item.embTrArr) && item.embTrArr.length > 0) {
+      out._embTrArr = item.embTrArr.map(b64ToFloat32);
+    } else if (item.embTr) {
+      out._embTr = b64ToFloat32(item.embTr);
+    }
+    if (Array.isArray(item.embEnArr) && item.embEnArr.length > 0) {
+      out._embEnArr = item.embEnArr.map(b64ToFloat32);
+    } else if (item.embEn) {
+      out._embEn = b64ToFloat32(item.embEn);
+    }
+    return out;
+  });
   CORPUS_CACHE = {
     items,
     dim: raw.dim,
     builtAt: raw.builtAt,
-    // Pre-computed norms for fast cosine (norm(a) * norm(b) denominator)
-    // Actually — BGE-M3 embeddings are already L2-normalized by the model.
-    // Cosine similarity = dot product for normalized vectors.
+    // BGE-M3 embeddings are already L2-normalized — cosine = dot product.
     isNormalized: true,
   };
   return CORPUS_CACHE;
@@ -56,6 +69,20 @@ function dotProduct(a, b) {
   return sum;
 }
 
+// ── Multi-vector MAX cosine: return highest similarity across all meal embeddings.
+// User query "sabır" → 3 meals'ten hangisi en yakın anlatıyorsa o skor.
+// Bu, tek meal'in kelime seçimine bağlı recall kaybını önler (Diyanet "sabr",
+// Suat "dayanma", Ali Bulaç "katlanmak" → query hangisiyle örtüşürse o kazanır).
+function maxDot(queryEmb, embArr) {
+  let max = -Infinity;
+  for (const emb of embArr) {
+    if (!emb || emb.length !== queryEmb.length) continue;
+    const s = dotProduct(queryEmb, emb);
+    if (s > max) max = s;
+  }
+  return max;
+}
+
 // ── Search — top K by cosine similarity, per type filtering
 export function search(queryEmbedding, options = {}) {
   const {
@@ -67,15 +94,22 @@ export function search(queryEmbedding, options = {}) {
   } = options;
 
   const corpus = loadCorpus();
-  const embField = lang === 'en' ? '_embEn' : '_embTr';
+  const singleField = lang === 'en' ? '_embEn' : '_embTr';
+  const arrField = lang === 'en' ? '_embEnArr' : '_embTrArr';
 
-  // Compute scores
+  // Compute scores — multi-vector MAX for verses, single for others.
   const scored = [];
   for (const item of corpus.items) {
-    const emb = item[embField];
-    if (!emb || emb.length !== queryEmbedding.length) continue;
     if (typeFilter && !typeFilter.has(item.type)) continue;
-    const score = dotProduct(queryEmbedding, emb);
+    let score;
+    const arr = item[arrField];
+    if (arr && arr.length > 0) {
+      score = maxDot(queryEmbedding, arr);
+    } else {
+      const emb = item[singleField];
+      if (!emb || emb.length !== queryEmbedding.length) continue;
+      score = dotProduct(queryEmbedding, emb);
+    }
     if (score < minScore) continue;
     scored.push({ item, score });
   }

@@ -3,7 +3,24 @@
 // Yeni content type geldiğinde buraya entry eklenir → build-corpus.mjs
 // otomatik pickup eder.
 
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
+
+// ── Multi-meal (Faz 2a) — load once, module-level cache.
+const _srcDir = path.dirname(fileURLToPath(import.meta.url));
+const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
+let MEALS_MULTI = null;
+try {
+  if (fs.existsSync(_mealsPath)) {
+    MEALS_MULTI = JSON.parse(fs.readFileSync(_mealsPath, 'utf8'));
+    console.log(`   ℹ  meals-multi.json loaded (${Object.keys(MEALS_MULTI).length} verses)`);
+  }
+} catch (err) {
+  console.warn(`   ⚠  Failed to load meals-multi.json: ${err.message}`);
+}
+export { MEALS_MULTI };
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -22,25 +39,48 @@ export const CONTENT_SOURCES = [
     type: 'verse',
     file: 'public/verse-graph-bgem3.json',
     extract: (data) => (Array.isArray(data) ? data : Object.values(data)),
-    buildItem: (v) => ({
-      id: `verse:${v.id}`,
-      type: 'verse',
-      surah: v.surah,
-      ayah: v.ayah,
-      // Kaynakta v.surahName Arapça ("الأعراف"), v.surahNameEn Latin. TR yok.
-      // Canonical TR/EN transliteration için surahNames.js map'i kullanılır —
-      // concierge hydrate'de item.surahName direkt render edilir (TR display).
-      // NOT: searchText'te ORİJİNAL v.surahName (Arapça) korunur → embedding
-      // hash'i değişmez, re-embed gerekmez.
-      surahName: SURAH_NAMES_TR[v.surah - 1] || v.surahName,
-      surahNameEn: SURAH_NAMES_EN[v.surah - 1] || v.surahNameEn,
-      textTr: v.turkish || '',
-      textEn: v.english || '',
-      arabic: v.arabic || '',
-      // Search text: sûre + ayet + Türkçe/İngilizce metin
-      searchTextTr: `${v.surahName || ''} ${v.surah}:${v.ayah}. ${v.turkish || ''}`,
-      searchTextEn: `${v.surahNameEn || ''} ${v.surah}:${v.ayah}. ${v.english || ''}`,
-    }),
+    buildItem: (v) => {
+      // Multi-meal (Faz 2a): meals-multi.json'dan bu ayetin 3 TR + 3 EN meal'i.
+      // Yoksa (henüz fetch edilmedi veya eksik key), fallback: verse-graph.
+      const key = `${v.surah}:${v.ayah}`;
+      const meals = MEALS_MULTI?.[key] || null;
+      const mealsTr = meals?.tr && Object.keys(meals.tr).length ? meals.tr : null;
+      const mealsEn = meals?.en && Object.keys(meals.en).length ? meals.en : null;
+
+      // searchTextTrArr — multi-vector için 3 ayrı text (surah+ayah prefix + her meal).
+      // Yoksa tek text (backward compat).
+      let searchTextTrArr = null;
+      let searchTextEnArr = null;
+      if (mealsTr) {
+        const prefix = `${v.surahName || ''} ${v.surah}:${v.ayah}.`;
+        searchTextTrArr = Object.values(mealsTr).map(m => `${prefix} ${m}`.trim()).filter(Boolean);
+      }
+      if (mealsEn) {
+        const prefix = `${v.surahNameEn || ''} ${v.surah}:${v.ayah}.`;
+        searchTextEnArr = Object.values(mealsEn).map(m => `${prefix} ${m}`.trim()).filter(Boolean);
+      }
+
+      return {
+        id: `verse:${v.id}`,
+        type: 'verse',
+        surah: v.surah,
+        ayah: v.ayah,
+        surahName: SURAH_NAMES_TR[v.surah - 1] || v.surahName,
+        surahNameEn: SURAH_NAMES_EN[v.surah - 1] || v.surahNameEn,
+        textTr: v.turkish || '',
+        textEn: v.english || '',
+        arabic: v.arabic || '',
+        // Fallback searchText — build-embeddings.mjs bunları kullanır eğer *Arr yoksa.
+        searchTextTr: `${v.surahName || ''} ${v.surah}:${v.ayah}. ${v.turkish || ''}`,
+        searchTextEn: `${v.surahNameEn || ''} ${v.surah}:${v.ayah}. ${v.english || ''}`,
+        // Multi-vector inputs (undefined ise build-embeddings single embed yapar).
+        ...(searchTextTrArr ? { searchTextTrArr } : {}),
+        ...(searchTextEnArr ? { searchTextEnArr } : {}),
+        // Display için tam meal map (opsiyonel, hydrate kullanabilir).
+        ...(mealsTr ? { mealsTr } : {}),
+        ...(mealsEn ? { mealsEn } : {}),
+      };
+    },
   },
 
   // ─── Tefekkür yazıları — 33 makale

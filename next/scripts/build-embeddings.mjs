@@ -140,10 +140,12 @@ if (checkOnly) {
 }
 
 // ── Embed in batches
-console.log(`\n⚙️  Embedding ${toEmbed.length} items × 2 languages...`);
+// Faz 2a: verse item'ları çoklu meal ile embed edilir (searchTextTrArr / searchTextEnArr).
+// Non-verse item'lar tek embed (searchTextTr / searchTextEn).
+console.log(`\n⚙️  Embedding ${toEmbed.length} items × 2 languages (multi-vector for verses)...`);
 console.log(`   Batch size: ${BATCH_SIZE}`);
 
-const embeddings = {}; // { itemId: { embeddingTr: [...], embeddingEn: [...] } }
+const embeddings = {}; // { itemId: { embeddingTr, embeddingEn, embeddingTrArr, embeddingEnArr } }
 
 // ── Base64 → float array (for reencoded format)
 function b64ToArr(b64) {
@@ -151,49 +153,82 @@ function b64ToArr(b64) {
   return Array.from(new Float32Array(buf.buffer, buf.byteOffset, buf.byteLength / 4));
 }
 
-// Load existing embeddings if OUT exists (handles both raw and reencoded formats)
-// LFS pointer detection: Vercel'de LFS enabled değilse dosya 130-byte pointer
-// olur ("version https://git-lfs.github.com/spec/v1..."). JSON.parse fail eder.
+// Load existing embeddings (backward compat + resume)
 if (fs.existsSync(OUT) && !force) {
   const rawExisting = fs.readFileSync(OUT, 'utf8');
   const isLfsPointer = rawExisting.startsWith('version https://git-lfs') || rawExisting.length < 1024;
   if (isLfsPointer) {
-    console.warn(`   ⚠  Existing corpus-embeddings.json is LFS pointer (${rawExisting.length} bytes). Skipping reuse — will re-embed all.`);
+    console.warn(`   ⚠  Existing corpus-embeddings.json is LFS pointer. Skipping reuse — will re-embed all.`);
   } else {
     try {
       const existing = JSON.parse(rawExisting);
       const isReencoded = existing.format === 'float32-base64';
       for (const item of existing.items || []) {
-        const tr = item.embeddingTr || (isReencoded && item.embTr ? b64ToArr(item.embTr) : null);
-        const en = item.embeddingEn || (isReencoded && item.embEn ? b64ToArr(item.embEn) : null);
-        if (tr && en) {
-          embeddings[item.id] = { embeddingTr: tr, embeddingEn: en };
-        }
+        const cache = {};
+        if (item.embeddingTr) cache.embeddingTr = item.embeddingTr;
+        else if (isReencoded && item.embTr) cache.embeddingTr = b64ToArr(item.embTr);
+        if (item.embeddingEn) cache.embeddingEn = item.embeddingEn;
+        else if (isReencoded && item.embEn) cache.embeddingEn = b64ToArr(item.embEn);
+        if (Array.isArray(item.embeddingTrArr)) cache.embeddingTrArr = item.embeddingTrArr;
+        else if (isReencoded && Array.isArray(item.embTrArr)) cache.embeddingTrArr = item.embTrArr.map(b64ToArr);
+        if (Array.isArray(item.embeddingEnArr)) cache.embeddingEnArr = item.embeddingEnArr;
+        else if (isReencoded && Array.isArray(item.embEnArr)) cache.embeddingEnArr = item.embEnArr.map(b64ToArr);
+        if (Object.keys(cache).length) embeddings[item.id] = cache;
       }
-      console.log(`   Reused ${Object.keys(embeddings).length} existing embeddings (${isReencoded ? 'from base64' : 'from raw'})`);
+      console.log(`   Reused ${Object.keys(embeddings).length} existing embeddings`);
     } catch (err) {
       console.warn(`   ⚠  Failed to parse existing embeddings: ${err.message}. Skipping reuse.`);
     }
   }
 }
 
-async function embedForLang(items, lang) {
-  const texts = items.map(item => item[`searchText${lang === 'tr' ? 'Tr' : 'En'}`] || '');
-  const totalBatches = Math.ceil(texts.length / BATCH_SIZE);
-  let done = 0;
-
+// Batch embedder — collects texts across many items into one API call.
+async function embedManyTexts(texts) {
+  const out = [];
   for (let i = 0; i < texts.length; i += BATCH_SIZE) {
     const batchTexts = texts.slice(i, i + BATCH_SIZE);
-    const batchItems = items.slice(i, i + BATCH_SIZE);
     const embs = await embedBatch(batchTexts);
-    for (let j = 0; j < batchItems.length; j++) {
-      const id = batchItems[j].id;
-      embeddings[id] = embeddings[id] || {};
-      embeddings[id][`embedding${lang === 'tr' ? 'Tr' : 'En'}`] = embs[j];
+    out.push(...embs);
+    const done = Math.min(i + BATCH_SIZE, texts.length);
+    if ((done % (BATCH_SIZE * 5)) === 0 || done === texts.length) {
+      console.log(`     batch ${done}/${texts.length} (${((done / texts.length) * 100).toFixed(0)}%)`);
     }
-    done++;
-    if (done % 5 === 0 || done === totalBatches) {
-      console.log(`   ${lang.toUpperCase()}: batch ${done}/${totalBatches} (${((done / totalBatches) * 100).toFixed(0)}%)`);
+  }
+  return out;
+}
+
+// Per-lang embed: multi-vector for verses (searchTextTrArr), single for others.
+async function embedForLang(items, lang) {
+  const suffix = lang === 'tr' ? 'Tr' : 'En';
+  // Job list: { id, targetField, offset, count } — flat text queue.
+  const texts = [];
+  const jobs = [];
+  for (const item of items) {
+    const arrField = `searchText${suffix}Arr`;
+    const singleField = `searchText${suffix}`;
+    const arr = item[arrField];
+    if (Array.isArray(arr) && arr.length > 0) {
+      const start = texts.length;
+      texts.push(...arr);
+      jobs.push({ id: item.id, targetField: `embedding${suffix}Arr`, offset: start, count: arr.length });
+    } else {
+      const t = item[singleField] || '';
+      const start = texts.length;
+      texts.push(t);
+      jobs.push({ id: item.id, targetField: `embedding${suffix}`, offset: start, count: 1 });
+    }
+  }
+
+  console.log(`   ${lang.toUpperCase()}: ${texts.length} texts across ${jobs.length} items`);
+  const embs = await embedManyTexts(texts);
+
+  for (const job of jobs) {
+    embeddings[job.id] = embeddings[job.id] || {};
+    if (job.count === 1) {
+      embeddings[job.id][job.targetField] = embs[job.offset];
+    } else {
+      const slice = embs.slice(job.offset, job.offset + job.count);
+      embeddings[job.id][job.targetField] = slice;
     }
   }
 }
@@ -206,16 +241,48 @@ await embedForLang(toEmbed, 'en');
 const dt = ((Date.now() - t0) / 1000).toFixed(1);
 
 // ── Write outputs
+// IMPORTANT (Faz 2a): 3x embed per verse × 6236 verses × 2 langs makes the raw
+// float-array JSON ~700-800 MB — exceeds Node's max string length in
+// JSON.stringify. So we encode to Float32 base64 INLINE and skip the
+// separate reencode step. Output format = 'float32-base64' directly.
+function toB64(floatArr) {
+  if (!floatArr || !Array.isArray(floatArr)) return null;
+  const f32 = new Float32Array(floatArr);
+  return Buffer.from(f32.buffer).toString('base64');
+}
+
+let dim = 0;
 const finalItems = corpus.map(item => {
   const emb = embeddings[item.id] || {};
-  return { ...item, embeddingTr: emb.embeddingTr, embeddingEn: emb.embeddingEn };
+  const out = { ...item };
+  // Base64 encode: verses use *Arr, others use single.
+  if (Array.isArray(emb.embeddingTrArr) && emb.embeddingTrArr.length > 0) {
+    out.embTrArr = emb.embeddingTrArr.map(toB64).filter(Boolean);
+    if (!dim && emb.embeddingTrArr[0]) dim = emb.embeddingTrArr[0].length;
+  } else if (emb.embeddingTr) {
+    out.embTr = toB64(emb.embeddingTr);
+    if (!dim) dim = emb.embeddingTr.length;
+  }
+  if (Array.isArray(emb.embeddingEnArr) && emb.embeddingEnArr.length > 0) {
+    out.embEnArr = emb.embeddingEnArr.map(toB64).filter(Boolean);
+  } else if (emb.embeddingEn) {
+    out.embEn = toB64(emb.embeddingEn);
+  }
+  return out;
 });
 
-// Sanity check
-const missingEmb = finalItems.filter(i => !i.embeddingTr || !i.embeddingEn);
+// Sanity check — verse items should have Arr, others should have single.
+const missingEmb = finalItems.filter(i => {
+  if (i.type === 'verse') {
+    const hasTr = Array.isArray(i.embTrArr) || i.embTr;
+    const hasEn = Array.isArray(i.embEnArr) || i.embEn;
+    return !hasTr || !hasEn;
+  }
+  return !i.embTr || !i.embEn;
+});
 if (missingEmb.length > 0) {
   console.warn(`\n⚠  ${missingEmb.length} items missing embeddings after run`);
-  missingEmb.slice(0, 5).forEach(i => console.warn(`   - ${i.id}`));
+  missingEmb.slice(0, 5).forEach(i => console.warn(`   - ${i.id} (${i.type})`));
 }
 
 // Update manifest
@@ -229,14 +296,23 @@ for (const id of Object.keys(manifest)) {
   if (!activeIds.has(id)) delete manifest[id];
 }
 
-fs.writeFileSync(OUT, JSON.stringify({ builtAt: now, count: finalItems.length, items: finalItems }));
+fs.writeFileSync(OUT, JSON.stringify({
+  builtAt: now,
+  count: finalItems.length,
+  dim,
+  format: 'float32-base64',
+  items: finalItems,
+}));
 fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 2));
 
 const size = fs.statSync(OUT).size;
 console.log(`\n✅ Embeddings written`);
 console.log(`   Corpus file: ${path.relative(ROOT, OUT)}`);
 console.log(`   Size: ${(size / 1024 / 1024).toFixed(2)} MB`);
-console.log(`   Total items with embedding: ${finalItems.filter(i => i.embeddingTr && i.embeddingEn).length}`);
+const okItems = finalItems.filter(i => (i.embTr || Array.isArray(i.embTrArr)) && (i.embEn || Array.isArray(i.embEnArr))).length;
+console.log(`   Total items with embedding: ${okItems}`);
+console.log(`   Verses with multi-vector Arr: ${finalItems.filter(i => Array.isArray(i.embTrArr)).length}`);
 console.log(`   New/changed embedded: ${toEmbed.length}`);
+console.log(`   Format: float32-base64 (dim=${dim})`);
 console.log(`   Time: ${dt}s`);
-console.log(`   Estimated cost: $${((toEmbed.length * 2 * 50) / 1_000_000 * 0.010).toFixed(4)}`);
+console.log(`   Estimated cost: $${((toEmbed.length * 5 * 50) / 1_000_000 * 0.010).toFixed(4)}`);
