@@ -94,15 +94,22 @@ const corpus = JSON.parse(fs.readFileSync(CORPUS_RAW, 'utf8'));
 console.log(`📖 Loaded corpus: ${corpus.length} items`);
 
 let manifest = {};
-// Manifest yalnızca corpus-embeddings.json da varsa güvenli.
-// Vercel build'de manifest git'te var ama corpus.json .gitignore'da → yok.
-// O durumda manifest'i skip → full rebuild.
+// Manifest yalnızca corpus-embeddings.json da varsa VE LFS pointer değilse güvenli.
+// Vercel'de LFS enabled değilse corpus.json ~130 byte "version https://git-lfs..."
+// pointer'ı olur — manifest 6584 known der, embeddings yok → tüm request 500.
 const corpusExists = fs.existsSync(OUT);
-if (fs.existsSync(MANIFEST) && !force && corpusExists) {
+let corpusIsLfsPointer = false;
+if (corpusExists) {
+  const head = fs.readFileSync(OUT, 'utf8').slice(0, 100);
+  corpusIsLfsPointer = head.startsWith('version https://git-lfs') || fs.statSync(OUT).size < 1024;
+}
+if (fs.existsSync(MANIFEST) && !force && corpusExists && !corpusIsLfsPointer) {
   manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
   console.log(`📋 Loaded manifest: ${Object.keys(manifest).length} known items`);
 } else if (!corpusExists) {
   console.log(`📋 Manifest skipped (corpus-embeddings.json missing → full rebuild)`);
+} else if (corpusIsLfsPointer) {
+  console.log(`📋 Manifest skipped (corpus-embeddings.json is LFS pointer → full rebuild)`);
 }
 
 // ── Diff: new + changed items
@@ -145,17 +152,29 @@ function b64ToArr(b64) {
 }
 
 // Load existing embeddings if OUT exists (handles both raw and reencoded formats)
+// LFS pointer detection: Vercel'de LFS enabled değilse dosya 130-byte pointer
+// olur ("version https://git-lfs.github.com/spec/v1..."). JSON.parse fail eder.
 if (fs.existsSync(OUT) && !force) {
-  const existing = JSON.parse(fs.readFileSync(OUT, 'utf8'));
-  const isReencoded = existing.format === 'float32-base64';
-  for (const item of existing.items || []) {
-    const tr = item.embeddingTr || (isReencoded && item.embTr ? b64ToArr(item.embTr) : null);
-    const en = item.embeddingEn || (isReencoded && item.embEn ? b64ToArr(item.embEn) : null);
-    if (tr && en) {
-      embeddings[item.id] = { embeddingTr: tr, embeddingEn: en };
+  const rawExisting = fs.readFileSync(OUT, 'utf8');
+  const isLfsPointer = rawExisting.startsWith('version https://git-lfs') || rawExisting.length < 1024;
+  if (isLfsPointer) {
+    console.warn(`   ⚠  Existing corpus-embeddings.json is LFS pointer (${rawExisting.length} bytes). Skipping reuse — will re-embed all.`);
+  } else {
+    try {
+      const existing = JSON.parse(rawExisting);
+      const isReencoded = existing.format === 'float32-base64';
+      for (const item of existing.items || []) {
+        const tr = item.embeddingTr || (isReencoded && item.embTr ? b64ToArr(item.embTr) : null);
+        const en = item.embeddingEn || (isReencoded && item.embEn ? b64ToArr(item.embEn) : null);
+        if (tr && en) {
+          embeddings[item.id] = { embeddingTr: tr, embeddingEn: en };
+        }
+      }
+      console.log(`   Reused ${Object.keys(embeddings).length} existing embeddings (${isReencoded ? 'from base64' : 'from raw'})`);
+    } catch (err) {
+      console.warn(`   ⚠  Failed to parse existing embeddings: ${err.message}. Skipping reuse.`);
     }
   }
-  console.log(`   Reused ${Object.keys(embeddings).length} existing embeddings (${isReencoded ? 'from base64' : 'from raw'})`);
 }
 
 async function embedForLang(items, lang) {
