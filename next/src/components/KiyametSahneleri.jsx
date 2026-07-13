@@ -92,22 +92,6 @@ const TEKVER_IDHA = [
 
 // ── Sub-components ─────────────────────────────────────────────────────────────
 
-function CloseBtn({ onClose, language }) {
-  return (
-    <button
-      onClick={onClose}
-      aria-label={language === 'en' ? 'Close' : 'Kapat'}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}
-
 function InfoTip({ textTr, textEn, language }) {
   const [visible, setVisible] = useState(false);
   const text = language === 'tr' ? textTr : textEn;

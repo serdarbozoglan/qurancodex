@@ -4,7 +4,6 @@ import { useState, useEffect, useId } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  CLOSE_BTN,
   FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';

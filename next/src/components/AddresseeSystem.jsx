@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, CLOSE_BTN, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 
 const INITIAL_SHOW = 2;

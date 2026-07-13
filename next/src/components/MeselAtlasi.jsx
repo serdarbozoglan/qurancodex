@@ -134,23 +134,6 @@ const PARABLE_TYPE_LABELS = {
 const TABS_TR = ['İmge Evreni', 'Mesel Kataloğu', 'Çift Meseller', 'Nûr & Zulumât', 'Hayvan Atlası', 'Bilgi'];
 const TABS_EN = ['Imagery Universe', 'Parable Catalogue', 'Paired Parables', 'Light & Darkness', 'Animal Atlas', 'Info'];
 
-// ── Shared close button ──────────────────────────────────────────────────────
-function CloseBtn({ onClose, language }) {
-  return (
-    <button
-      onClick={onClose}
-      aria-label={language === 'en' ? 'Close' : 'Kapat'}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
-      onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-    >
-      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}
-
 // ── Chip / pill ──────────────────────────────────────────────────────────────
 function Chip({ label, color, active, onClick, small }) {
   const bg     = active ? (color ?? COLORS.gold) + '30' : 'rgba(255,255,255,0.04)';

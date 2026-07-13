@@ -243,30 +243,6 @@ export default function SemanticMap({ onClose }) {
   );
 }
 
-// ─── Header ─────────────────────────────────────────────────────────────────
-function Header({ language, onClose }) {
-  return (
-    <div style={{ ...OVERLAY_HEADER }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
-        <span style={{ ...OVERLAY_TITLE }}>
-          {language === 'tr' ? 'Anlam Haritası' : 'Semantic Map'}
-        </span>
-        <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body }}>
-          {language === 'tr' ? '20 semantik küme · BGE-M3 + Louvain' : '20 semantic clusters · BGE-M3 + Louvain'}
-        </span>
-      </div>
-      <button style={{ ...CLOSE_BTN }} onClick={onClose}
-        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = COLORS.offWhite; }}
-        onMouseLeave={e => { e.currentTarget.style.background = CLOSE_BTN.background; e.currentTarget.style.color = COLORS.silver; }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M18 6L6 18M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-  );
-}
-
 // ─── Cluster Card ────────────────────────────────────────────────────────────
 function ClusterCard({ cluster, onClick, selected, language, maxVerseCount }) {
   const c = cluster;

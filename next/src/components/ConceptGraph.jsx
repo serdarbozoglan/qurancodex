@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { surahName } from '../lib/surahNames';
-import { COLORS, FONTS, OVERLAY_BASE, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, OVERLAY_BASE, OVERLAY_TITLE, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 
 import { cleanArabicForGraph } from '../lib/arabic';

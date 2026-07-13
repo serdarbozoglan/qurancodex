@@ -1642,25 +1642,3 @@ export default function DogaAtlasi({ onClose }) {
     </div>
   );
 }
-
-// ── Close Button ──────────────────────────────────────────────────────────────
-function CloseButton({ onClose }) {
-  return (
-    <button
-      onClick={onClose}
-      style={{ ...CLOSE_BTN }}
-      onMouseEnter={e => {
-        e.currentTarget.style.background = COLORS.glassBorder;
-        e.currentTarget.style.color = COLORS.offWhite;
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.background = CLOSE_BTN.background;
-        e.currentTarget.style.color = COLORS.silver;
-      }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-        <path d="M18 6L6 18M6 6l12 12" />
-      </svg>
-    </button>
-  );
-}
