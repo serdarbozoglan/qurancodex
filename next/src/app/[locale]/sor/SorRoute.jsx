@@ -1029,9 +1029,71 @@ function SectionBlock({ title, count, children }) {
   );
 }
 
+// Reading Mode meal ID → mealsTr/mealsEn anahtarları arasındaki köprü.
+// Reading Mode `local`/`en_local` seçildiğinde base text (verse.text) gösterilir
+// — bu Suat Y. (TR) ve Sahih (EN) baseline meal'lere karşılık gelir.
+const MEAL_ID_TO_KEY = {
+  local: null,            // → verse.text (Suat Y.)
+  alibulac: 'aliBulac',
+  diyanet: 'diyanet',
+  en_local: null,         // → verse.text (Sahih)
+  en_yusufali: 'yusufAli',
+  en_asad: 'asad',
+};
+const MEAL_ID_TO_LABEL = {
+  local: 'Suat Yıldırım',
+  alibulac: 'Ali Bulaç',
+  diyanet: 'Diyanet İşleri',
+  en_local: 'Sahih International',
+  en_yusufali: 'Abdullah Yusuf Ali',
+  en_asad: 'Muhammad Asad',
+};
+
+// Hook — Reading Mode'daki seçili meal ID'sini takip eder.
+// SSR-safe: initial 'local', mount sonrası localStorage okur, storage event dinler.
+// Post-mount setState hydration için gerekli; SSR-güvenli lazy init olmaz
+// (window server'da yok). Aynı pattern SorInner useEffect 144:7 ile aynı.
+function useSelectedMealId() {
+  const [id, setId] = useState('local');
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('qurancodex_meal_id');
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (stored) setId(stored);
+    } catch { /* private mode / disabled */ }
+    const onStorage = (e) => {
+      if (e.key === 'qurancodex_meal_id' && e.newValue) setId(e.newValue);
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
+  return id;
+}
+
 function VerseCard({ verse, delay, language }) {
   const reduced = useReducedMotion();
   const tr = language === 'tr';
+  const mealId = useSelectedMealId();
+
+  // Seçili meal'e uygun text + label çıkar.
+  // Bilinmeyen meal ID → verse.text fallback (Suat Y./Sahih baseline).
+  let displayText = verse.text;
+  let displayLabel = tr ? 'Suat Yıldırım' : 'Sahih International';
+  if (mealId in MEAL_ID_TO_KEY) {
+    const key = MEAL_ID_TO_KEY[mealId];
+    if (key === null) {
+      // 'local' veya 'en_local' — baseline verse.text kullanılır.
+      displayLabel = MEAL_ID_TO_LABEL[mealId] || displayLabel;
+    } else {
+      // Faz 2a multi-meal içinde varsa onu göster.
+      const map = mealId.startsWith('en_') ? verse.mealsEn : verse.mealsTr;
+      if (map && map[key]) {
+        displayText = map[key];
+        displayLabel = MEAL_ID_TO_LABEL[mealId];
+      }
+    }
+  }
+
   return (
     <motion.div
       initial={reduced ? false : { opacity: 0, y: 12 }}
@@ -1082,16 +1144,28 @@ function VerseCard({ verse, delay, language }) {
       )}
 
       {/* Meal */}
-      {verse.text && (
-        <p style={{
-          fontFamily: FONTS.body,
-          fontSize: '0.95rem',
-          color: COLORS.offWhite,
-          lineHeight: 1.75,
-          margin: '0 0 14px',
-        }}>
-          {verse.text}
-        </p>
+      {displayText && (
+        <>
+          <p style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.95rem',
+            color: COLORS.offWhite,
+            lineHeight: 1.75,
+            margin: '0 0 4px',
+          }}>
+            {displayText}
+          </p>
+          <p style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.7rem',
+            color: COLORS.silver,
+            opacity: 0.6,
+            margin: '0 0 14px',
+            letterSpacing: '0.04em',
+          }}>
+            — {displayLabel}
+          </p>
+        </>
       )}
 
       {/* Reason */}
