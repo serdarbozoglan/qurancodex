@@ -9,6 +9,7 @@ import Hero from '@/components/Hero';
 
 // Navigasyon
 import SixGates from '@/sections/SixGates';
+import ConciergePrompt from '@/sections/ConciergePrompt';
 import CardSeam from '@/sections/CardSeam';
 import ClusterWhisper from '@/sections/ClusterWhisper';
 import QuietParticles from '@/sections/QuietParticles';
@@ -65,6 +66,9 @@ export default async function Home({ params }) {
       <ScrollToTopFab />
 
       <Hero />
+
+      {/* Semantik Concierge — Hero altı cinematic prompt (RAG) */}
+      <ConciergePrompt />
 
       {/* 6 Kapı — kategorize edici navigasyon */}
       <SixGates />

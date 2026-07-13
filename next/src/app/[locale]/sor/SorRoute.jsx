@@ -1,0 +1,958 @@
+'use client';
+
+// ─── /sor — Semantik Concierge Dedicated Experience ─────────────────────────
+// Query URL param'dan gelir → /api/concierge çağrısı → curated cards render.
+//
+// Layout: full-screen focused UX
+//   1. Sticky query bar (üstte) — kullanıcı istediği zaman yeni soru sorabilir
+//   2. Loading state: shimmer + gold glow animation
+//   3. Response: 4 kategoride card grid (verses / atlases / tools / articles)
+//   4. Error/empty states
+//   5. Feedback (thumbs up/down) — future
+//
+// World-class design:
+//   - Framer-motion smooth reveals
+//   - Ayet card: KFGQPC Arapça + gradient border + meal
+//   - Tool card: gold glow hover
+//   - Article card: reading time + category chip
+//   - Kavim/Kissa/Esma/Dua/Kavram merged "Atlas" section
+// ────────────────────────────────────────────────────────────────────────────
+
+import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useLanguage } from '../../../i18n/LanguageContext';
+import { COLORS, FONTS } from '../../../tokens';
+
+export default function SorRoute() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: 'calc(100vh - 62px)', background: COLORS.cosmicBlack }} />}>
+      <SorInner />
+    </Suspense>
+  );
+}
+
+function SorInner() {
+  const { language } = useLanguage();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const reduced = useReducedMotion();
+  const tr = language === 'tr';
+
+  const initialQuery = (searchParams.get('q') || '').trim();
+  const [query, setQuery] = useState(initialQuery);
+  const [pendingQuery, setPendingQuery] = useState(initialQuery);
+  const [state, setState] = useState('idle'); // idle | loading | ok | error | empty
+  const [response, setResponse] = useState(null);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [feedback, setFeedback] = useState(null); // null | 'up' | 'down'
+  const abortRef = useRef(null);
+
+  const runQuery = useCallback(async (q) => {
+    if (!q || q.length < 3) return;
+    setState('loading');
+    setResponse(null);
+    setErrorMsg('');
+    setFeedback(null);
+
+    // Abort previous
+    if (abortRef.current) abortRef.current.abort();
+    const ctrl = new AbortController();
+    abortRef.current = ctrl;
+
+    try {
+      const res = await fetch('/api/concierge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ q, lang: language }),
+        signal: ctrl.signal,
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorMsg(data?.message || `HTTP ${res.status}`);
+        setState('error');
+        return;
+      }
+      const hasContent =
+        (data.response?.verses?.length || 0) +
+        (data.response?.tools?.length || 0) +
+        (data.response?.articles?.length || 0) +
+        (data.response?.atlases?.length || 0) > 0;
+      if (!hasContent) {
+        setState('empty');
+      } else {
+        setResponse(data);
+        setState('ok');
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') return;
+      setErrorMsg(err.message || 'Network error');
+      setState('error');
+    }
+  }, [language]);
+
+  // Fire on initial mount if q param present
+  useEffect(() => {
+    if (initialQuery) {
+      setQuery(initialQuery);
+      setPendingQuery(initialQuery);
+      runQuery(initialQuery);
+    } else {
+      setState('idle');
+    }
+    return () => { abortRef.current?.abort(); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSubmit = (e) => {
+    e?.preventDefault?.();
+    const q = pendingQuery.trim();
+    if (q.length < 3 || q === query) return;
+    setQuery(q);
+    // URL güncelle (soft push, page reload yok)
+    router.replace(`/${language}/sor?q=${encodeURIComponent(q)}`, { scroll: false });
+    runQuery(q);
+  };
+
+  return (
+    <div
+      style={{
+        background: COLORS.cosmicBlack,
+        minHeight: 'calc(100vh - 62px)',
+        paddingTop: '62px', // Navbar height
+        color: COLORS.offWhite,
+      }}
+    >
+      {/* Subtle background glow */}
+      <div
+        aria-hidden
+        style={{
+          position: 'fixed',
+          inset: '62px 0 0 0',
+          pointerEvents: 'none',
+          background: `radial-gradient(ellipse at 50% -10%, ${COLORS.gold}10 0%, transparent 40%), radial-gradient(circle at 20% 80%, ${COLORS.gold}06 0%, transparent 50%)`,
+        }}
+      />
+
+      {/* Sticky query bar */}
+      <div
+        style={{
+          position: 'sticky',
+          top: '62px',
+          zIndex: 40,
+          background: 'rgba(10,10,26,0.92)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: `1px solid ${COLORS.gold}22`,
+          padding: '16px 24px',
+        }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            maxWidth: '860px',
+            margin: '0 auto',
+            gap: '10px',
+            background: 'rgba(13,27,42,0.7)',
+            border: `1px solid ${COLORS.gold}33`,
+            borderRadius: '999px',
+            padding: '4px 4px 4px 20px',
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.75 }}>
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            value={pendingQuery}
+            onChange={(e) => setPendingQuery(e.target.value)}
+            placeholder={tr ? 'Yeni bir soru sor...' : 'Ask a new question...'}
+            aria-label={tr ? 'Soru' : 'Question'}
+            style={{
+              flex: 1,
+              background: 'transparent',
+              border: 'none',
+              outline: 'none',
+              color: COLORS.offWhite,
+              fontFamily: FONTS.body,
+              fontSize: '0.95rem',
+              padding: '11px 4px',
+              minWidth: 0,
+            }}
+          />
+          <button
+            type="submit"
+            disabled={pendingQuery.trim().length < 3 || pendingQuery.trim() === query}
+            style={{
+              background: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query
+                ? `linear-gradient(135deg, ${COLORS.gold} 0%, #b8860b 100%)`
+                : `${COLORS.gold}22`,
+              color: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? '#1c0f00' : `${COLORS.gold}88`,
+              border: 'none',
+              borderRadius: '999px',
+              padding: '9px 18px',
+              fontFamily: FONTS.body,
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              cursor: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? 'pointer' : 'not-allowed',
+              transition: 'all 0.2s',
+              flexShrink: 0,
+            }}
+          >
+            {tr ? 'Sor' : 'Ask'}
+          </button>
+        </form>
+      </div>
+
+      {/* Main content area */}
+      <main style={{
+        maxWidth: '860px',
+        margin: '0 auto',
+        padding: '32px 24px 80px',
+        position: 'relative',
+      }}>
+        {/* Current query as displayed title */}
+        {query && (
+          <motion.div
+            key={query}
+            initial={reduced ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{ marginBottom: '28px' }}
+          >
+            <div style={{
+              color: `${COLORS.gold}cc`,
+              fontFamily: FONTS.body,
+              fontSize: '0.66rem',
+              fontWeight: 600,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}>
+              {tr ? 'Sorulan Soru' : 'Your Question'}
+            </div>
+            <h1 style={{
+              fontFamily: FONTS.display,
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
+              fontWeight: 700,
+              color: COLORS.offWhite,
+              margin: 0,
+              lineHeight: 1.25,
+              letterSpacing: '-0.01em',
+            }}>
+              "{query}"
+            </h1>
+          </motion.div>
+        )}
+
+        {/* States */}
+        {state === 'idle' && <IdleState language={language} />}
+        {state === 'loading' && <LoadingState language={language} />}
+        {state === 'empty' && <EmptyState language={language} query={query} />}
+        {state === 'error' && <ErrorState language={language} message={errorMsg} onRetry={() => runQuery(query)} />}
+        {state === 'ok' && response && (
+          <ResponseView
+            data={response}
+            language={language}
+            feedback={feedback}
+            setFeedback={setFeedback}
+          />
+        )}
+      </main>
+    </div>
+  );
+}
+
+// ─── STATES ─────────────────────────────────────────────────────────────────
+
+function IdleState({ language }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ textAlign: 'center', padding: '80px 20px', color: COLORS.silver }}>
+      <div style={{ fontSize: '3rem', opacity: 0.4, marginBottom: '20px' }}>✨</div>
+      <p style={{ fontFamily: FONTS.body, fontSize: '1rem' }}>
+        {tr ? 'Yukarıdaki kutuya bir soru yaz.' : 'Type a question in the box above.'}
+      </p>
+    </div>
+  );
+}
+
+function LoadingState({ language }) {
+  const tr = language === 'tr';
+  const messages = tr
+    ? ['Ayetleri tarıyorum...', 'Sayfaları eşleştiriyorum...', 'Tefekkür yazılarını arıyorum...', 'Cevap curated ediliyor...']
+    : ['Scanning verses...', 'Matching pages...', 'Searching essays...', 'Curating response...'];
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setIdx((i) => (i + 1) % messages.length), 1800);
+    return () => clearInterval(interval);
+  }, [messages.length]);
+
+  return (
+    <div style={{ padding: '48px 20px', textAlign: 'center' }}>
+      {/* Rotating gold ring */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+        style={{
+          width: '54px',
+          height: '54px',
+          margin: '0 auto 24px',
+          border: `2px solid ${COLORS.gold}22`,
+          borderTopColor: COLORS.gold,
+          borderRadius: '50%',
+        }}
+      />
+      <AnimatePresence mode="wait">
+        <motion.p
+          key={idx}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.4 }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            color: `${COLORS.gold}dd`,
+            fontSize: '1.05rem',
+          }}
+        >
+          {messages[idx]}
+        </motion.p>
+      </AnimatePresence>
+      {/* Shimmer skeleton */}
+      <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {[1, 2, 3].map((i) => (
+          <Skeleton key={i} delay={i * 0.15} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Skeleton({ delay = 0 }) {
+  return (
+    <motion.div
+      animate={{ opacity: [0.3, 0.6, 0.3] }}
+      transition={{ duration: 1.5, repeat: Infinity, delay }}
+      style={{
+        height: '80px',
+        borderRadius: '14px',
+        background: `linear-gradient(90deg, ${COLORS.gold}0a 0%, ${COLORS.gold}18 50%, ${COLORS.gold}0a 100%)`,
+        border: `1px solid ${COLORS.gold}18`,
+      }}
+    />
+  );
+}
+
+function EmptyState({ language, query }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ textAlign: 'center', padding: '60px 20px', color: COLORS.silver }}>
+      <div style={{ fontSize: '2.5rem', marginBottom: '16px', opacity: 0.4 }}>🔍</div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.4rem', margin: '0 0 8px' }}>
+        {tr ? 'Bu soruya yakın içerik bulamadım' : 'No matching content found'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, opacity: 0.75, maxWidth: '440px', margin: '0 auto', lineHeight: 1.6 }}>
+        {tr
+          ? 'Sorunu biraz farklı bir şekilde ifade etmeyi dene, veya bir kavram/durum kelimesi kullan.'
+          : 'Try rephrasing your question, or use a concept or situation word.'}
+      </p>
+    </div>
+  );
+}
+
+function ErrorState({ language, message, onRetry }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{ textAlign: 'center', padding: '60px 20px' }}>
+      <div style={{ fontSize: '2.5rem', marginBottom: '16px', opacity: 0.5 }}>⚠️</div>
+      <h2 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.3rem', margin: '0 0 8px' }}>
+        {tr ? 'Bir sorun oluştu' : 'Something went wrong'}
+      </h2>
+      <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.85rem', margin: '0 0 20px' }}>
+        {message}
+      </p>
+      <button
+        onClick={onRetry}
+        style={{
+          background: `${COLORS.gold}1a`,
+          border: `1px solid ${COLORS.gold}66`,
+          borderRadius: '999px',
+          padding: '10px 20px',
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.85rem',
+          fontWeight: 600,
+          cursor: 'pointer',
+        }}
+      >
+        {tr ? 'Tekrar dene' : 'Try again'}
+      </button>
+    </div>
+  );
+}
+
+// ─── RESPONSE VIEW ──────────────────────────────────────────────────────────
+
+function ResponseView({ data, language, feedback, setFeedback }) {
+  const { response, meta } = data;
+  const tr = language === 'tr';
+  const reduced = useReducedMotion();
+
+  return (
+    <div>
+      {/* Intro whisper */}
+      {response.intro && (
+        <motion.p
+          initial={reduced ? false : { opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: '1.02rem',
+            color: `${COLORS.gold}cc`,
+            lineHeight: 1.6,
+            margin: '0 0 32px',
+            padding: '14px 18px',
+            borderLeft: `2px solid ${COLORS.gold}55`,
+            background: `${COLORS.gold}08`,
+            borderRadius: '0 8px 8px 0',
+          }}
+        >
+          {response.intro}
+        </motion.p>
+      )}
+
+      {/* Verses section */}
+      {response.verses?.length > 0 && (
+        <SectionBlock title={tr ? 'İlgili Ayetler' : 'Relevant Verses'} count={response.verses.length}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {response.verses.map((v, i) => (
+              <VerseCard key={v.id} verse={v} delay={i * 0.06} language={language} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
+
+      {/* Tools section */}
+      {response.tools?.length > 0 && (
+        <SectionBlock title={tr ? 'Derinleş: Sayfalar' : 'Explore: Pages'} count={response.tools.length}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px' }}>
+            {response.tools.map((t, i) => (
+              <ToolCard key={t.id} tool={t} delay={i * 0.05} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
+
+      {/* Atlases section (merged) */}
+      {response.atlases?.length > 0 && (
+        <SectionBlock title={tr ? 'Atlas Referansları' : 'Atlas References'} count={response.atlases.length}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '10px' }}>
+            {response.atlases.map((a, i) => (
+              <AtlasCard key={a.id} atlas={a} delay={i * 0.05} language={language} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
+
+      {/* Articles section */}
+      {response.articles?.length > 0 && (
+        <SectionBlock title={tr ? 'Tefekkür Yazıları' : 'Reflection Essays'} count={response.articles.length}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {response.articles.map((a, i) => (
+              <ArticleCard key={a.id} article={a} delay={i * 0.05} language={language} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
+
+      {/* Closing whisper */}
+      {response.closing && (
+        <motion.p
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 0.7 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: '0.95rem',
+            color: COLORS.silver,
+            textAlign: 'center',
+            marginTop: '48px',
+            lineHeight: 1.6,
+          }}
+        >
+          {response.closing}
+        </motion.p>
+      )}
+
+      {/* Feedback */}
+      <FeedbackRow feedback={feedback} setFeedback={setFeedback} language={language} />
+
+      {/* Meta stats — subtle */}
+      {meta?.timings && (
+        <p style={{
+          textAlign: 'center',
+          marginTop: '24px',
+          fontFamily: FONTS.body,
+          fontSize: '0.68rem',
+          color: COLORS.silver,
+          opacity: 0.4,
+          letterSpacing: '0.08em',
+        }}>
+          {(meta.timings.total / 1000).toFixed(1)}s · {meta.candidateCount} {language === 'tr' ? 'aday' : 'candidates'}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ─── SECTION + CARDS ────────────────────────────────────────────────────────
+
+function SectionBlock({ title, count, children }) {
+  const reduced = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ marginBottom: '36px' }}
+    >
+      <div style={{
+        display: 'flex', alignItems: 'baseline', gap: '10px',
+        marginBottom: '14px',
+        paddingBottom: '10px',
+        borderBottom: `1px solid ${COLORS.gold}18`,
+      }}>
+        <h2 style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          fontWeight: 700,
+          letterSpacing: '0.24em',
+          textTransform: 'uppercase',
+          color: `${COLORS.gold}dd`,
+          margin: 0,
+        }}>
+          {title}
+        </h2>
+        <span style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.7rem',
+          color: COLORS.silver,
+          opacity: 0.55,
+        }}>
+          · {count}
+        </span>
+      </div>
+      {children}
+    </motion.div>
+  );
+}
+
+function VerseCard({ verse, delay, language }) {
+  const reduced = useReducedMotion();
+  const tr = language === 'tr';
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+      whileHover={reduced ? {} : { y: -2 }}
+      style={{
+        background: `linear-gradient(180deg, ${COLORS.gold}08 0%, rgba(255,255,255,0.015) 100%)`,
+        border: `1px solid ${COLORS.gold}26`,
+        borderRadius: '16px',
+        padding: '20px 22px',
+        transition: 'border-color 0.2s',
+      }}
+    >
+      {/* Header: sûre ref chip */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+        <span style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.66rem',
+          fontWeight: 700,
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          color: `${COLORS.gold}cc`,
+          padding: '3px 10px',
+          border: `1px solid ${COLORS.gold}44`,
+          borderRadius: '999px',
+        }}>
+          {verse.surahName} {verse.surah}:{verse.ayah}
+        </span>
+      </div>
+
+      {/* Arabic */}
+      {verse.arabic && (
+        <p
+          dir="rtl"
+          lang="ar"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: 'clamp(1.15rem, 2.2vw, 1.5rem)',
+            color: COLORS.gold,
+            lineHeight: 2.1,
+            margin: '0 0 14px',
+            textShadow: `0 0 12px ${COLORS.gold}18`,
+          }}
+        >
+          {verse.arabic}
+        </p>
+      )}
+
+      {/* Meal */}
+      {verse.text && (
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.95rem',
+          color: COLORS.offWhite,
+          lineHeight: 1.75,
+          margin: '0 0 14px',
+        }}>
+          {verse.text}
+        </p>
+      )}
+
+      {/* Reason */}
+      {verse.reason && (
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: '0.86rem',
+          color: `${COLORS.gold}bb`,
+          margin: '0 0 12px',
+          lineHeight: 1.55,
+          paddingLeft: '10px',
+          borderLeft: `2px solid ${COLORS.gold}44`,
+        }}>
+          {verse.reason}
+        </p>
+      )}
+
+      {/* CTA */}
+      <Link
+        href={verse.url}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+          fontFamily: FONTS.body,
+          fontSize: '0.76rem',
+          color: COLORS.gold,
+          textDecoration: 'none',
+          fontWeight: 600,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          opacity: 0.85,
+        }}
+      >
+        {tr ? 'Sûrede aç' : 'Open in Sura'} <span>→</span>
+      </Link>
+    </motion.div>
+  );
+}
+
+function ToolCard({ tool, delay }) {
+  const reduced = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+    >
+      <Link href={tool.url} style={{ textDecoration: 'none' }}>
+        <motion.div
+          whileHover={reduced ? {} : { y: -3 }}
+          style={{
+            background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, rgba(255,255,255,0.02) 100%)`,
+            border: `1px solid ${COLORS.gold}22`,
+            borderRadius: '14px',
+            padding: '18px 20px',
+            height: '100%',
+            transition: 'all 0.2s',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+            e.currentTarget.style.boxShadow = `0 8px 24px ${COLORS.gold}18`;
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = `${COLORS.gold}22`;
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          <h3 style={{
+            fontFamily: FONTS.display,
+            fontSize: '1rem',
+            fontWeight: 700,
+            color: COLORS.offWhite,
+            margin: '0 0 6px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+          }}>
+            {tool.title}
+            <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+          </h3>
+          {tool.reason && (
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.82rem',
+              color: COLORS.silver,
+              lineHeight: 1.6,
+              margin: 0,
+            }}>
+              {tool.reason}
+            </p>
+          )}
+        </motion.div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function AtlasCard({ atlas, delay, language }) {
+  const reduced = useReducedMotion();
+  const tr = language === 'tr';
+  const typeLabel = {
+    'atlas-kavim': tr ? 'Kavim' : 'People',
+    'atlas-kissa': tr ? 'Kıssa' : 'Story',
+    'atlas-esma': tr ? 'Esma' : 'Name',
+    'atlas-dua': tr ? 'Dua' : 'Prayer',
+    'atlas-kavram': tr ? 'Kavram' : 'Concept',
+  }[atlas.type] || '';
+
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay }}
+    >
+      <Link href={atlas.url} style={{ textDecoration: 'none' }}>
+        <div
+          style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: `1px solid ${COLORS.gold}1a`,
+            borderRadius: '12px',
+            padding: '14px 16px',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.borderColor = `${COLORS.gold}44`;
+            e.currentTarget.style.background = 'rgba(212,165,116,0.04)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = `${COLORS.gold}1a`;
+            e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+            <span style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.58rem',
+              fontWeight: 700,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: `${COLORS.gold}aa`,
+            }}>{typeLabel}</span>
+          </div>
+          <h4 style={{
+            fontFamily: FONTS.display,
+            fontSize: '0.95rem',
+            fontWeight: 700,
+            color: COLORS.offWhite,
+            margin: '0 0 4px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+          }}>
+            {atlas.title}
+            {atlas.arabic && (
+              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, opacity: 0.85, fontSize: '0.85rem' }}>
+                {atlas.arabic}
+              </span>
+            )}
+          </h4>
+          {atlas.reason && (
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.75rem',
+              color: COLORS.silver,
+              lineHeight: 1.55,
+              margin: 0,
+              opacity: 0.85,
+            }}>
+              {atlas.reason}
+            </p>
+          )}
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function ArticleCard({ article, delay, language }) {
+  const reduced = useReducedMotion();
+  const tr = language === 'tr';
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+    >
+      <Link href={article.url} style={{ textDecoration: 'none' }}>
+        <div
+          style={{
+            background: `linear-gradient(180deg, ${COLORS.gold}08 0%, rgba(255,255,255,0.02) 100%)`,
+            border: `1px solid ${COLORS.gold}26`,
+            borderRadius: '14px',
+            padding: '16px 20px',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}66`; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = `${COLORS.gold}26`; }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <span style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.62rem',
+              fontWeight: 700,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: `${COLORS.gold}bb`,
+            }}>{tr ? 'Tefekkür' : 'Essay'}</span>
+            {article.readingMinutes && (
+              <span style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.68rem',
+                color: COLORS.silver,
+                opacity: 0.6,
+              }}>
+                {article.readingMinutes} {tr ? 'dk' : 'min'} okuma
+              </span>
+            )}
+          </div>
+          <h3 style={{
+            fontFamily: FONTS.display,
+            fontSize: '1.05rem',
+            fontWeight: 700,
+            color: COLORS.offWhite,
+            margin: '0 0 6px',
+            lineHeight: 1.35,
+          }}>
+            {article.title} <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+          </h3>
+          {article.reason && (
+            <p style={{
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: '0.85rem',
+              color: `${COLORS.gold}bb`,
+              margin: '0 0 6px',
+              lineHeight: 1.55,
+            }}>
+              {article.reason}
+            </p>
+          )}
+          {article.tldr && (
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: '0.82rem',
+              color: COLORS.silver,
+              lineHeight: 1.55,
+              margin: 0,
+              opacity: 0.85,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}>
+              {article.tldr}
+            </p>
+          )}
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+function FeedbackRow({ feedback, setFeedback, language }) {
+  const tr = language === 'tr';
+  const reduced = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduced ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.5 }}
+      style={{
+        marginTop: '40px',
+        paddingTop: '20px',
+        borderTop: `1px solid ${COLORS.gold}18`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '14px',
+      }}
+    >
+      <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, opacity: 0.7 }}>
+        {tr ? 'Bu yardımcı oldu mu?' : 'Was this helpful?'}
+      </span>
+      <button
+        aria-label={tr ? 'Faydalı' : 'Helpful'}
+        onClick={() => setFeedback('up')}
+        style={{
+          background: feedback === 'up' ? `${COLORS.gold}22` : 'transparent',
+          border: `1px solid ${feedback === 'up' ? COLORS.gold : COLORS.gold + '33'}`,
+          borderRadius: '50%',
+          width: '36px', height: '36px',
+          cursor: 'pointer',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: feedback === 'up' ? COLORS.gold : `${COLORS.gold}88`,
+          transition: 'all 0.15s',
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2 20h4V9H2v11zm20-11a2 2 0 00-2-2h-6.31l.95-4.57.03-.32a1.5 1.5 0 00-.44-1.06L13.17 0 6.59 6.59A2 2 0 006 8v10a2 2 0 002 2h9a2 2 0 001.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9z"/></svg>
+      </button>
+      <button
+        aria-label={tr ? 'Faydalı değil' : 'Not helpful'}
+        onClick={() => setFeedback('down')}
+        style={{
+          background: feedback === 'down' ? `${COLORS.gold}22` : 'transparent',
+          border: `1px solid ${feedback === 'down' ? COLORS.gold : COLORS.gold + '33'}`,
+          borderRadius: '50%',
+          width: '36px', height: '36px',
+          cursor: 'pointer',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: feedback === 'down' ? COLORS.gold : `${COLORS.gold}88`,
+          transition: 'all 0.15s',
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ transform: 'rotate(180deg)' }}><path d="M2 20h4V9H2v11zm20-11a2 2 0 00-2-2h-6.31l.95-4.57.03-.32a1.5 1.5 0 00-.44-1.06L13.17 0 6.59 6.59A2 2 0 006 8v10a2 2 0 002 2h9a2 2 0 001.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9z"/></svg>
+      </button>
+      {feedback && (
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.gold, opacity: 0.8 }}
+        >
+          {tr ? 'Teşekkürler ✓' : 'Thank you ✓'}
+        </motion.span>
+      )}
+    </motion.div>
+  );
+}

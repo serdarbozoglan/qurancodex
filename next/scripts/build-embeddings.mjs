@@ -94,9 +94,15 @@ const corpus = JSON.parse(fs.readFileSync(CORPUS_RAW, 'utf8'));
 console.log(`📖 Loaded corpus: ${corpus.length} items`);
 
 let manifest = {};
-if (fs.existsSync(MANIFEST) && !force) {
+// Manifest yalnızca corpus-embeddings.json da varsa güvenli.
+// Vercel build'de manifest git'te var ama corpus.json .gitignore'da → yok.
+// O durumda manifest'i skip → full rebuild.
+const corpusExists = fs.existsSync(OUT);
+if (fs.existsSync(MANIFEST) && !force && corpusExists) {
   manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
   console.log(`📋 Loaded manifest: ${Object.keys(manifest).length} known items`);
+} else if (!corpusExists) {
+  console.log(`📋 Manifest skipped (corpus-embeddings.json missing → full rebuild)`);
 }
 
 // ── Diff: new + changed items

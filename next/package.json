@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs && node scripts/reencode-embeddings.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "embed:corpus": "node scripts/build-corpus.mjs",
-    "embed:build": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs",
+    "embed:build": "node scripts/build-corpus.mjs && node scripts/build-embeddings.mjs && node scripts/reencode-embeddings.mjs",
     "embed:check": "node scripts/build-corpus.mjs --stats && node scripts/build-embeddings.mjs --check-only"
   },
   "dependencies": {
