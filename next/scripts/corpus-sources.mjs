@@ -2,6 +2,8 @@
 // RAG Semantik Concierge için hangi content'in embed edileceğini tanımlar.
 // Yeni content type geldiğinde buraya entry eklenir → build-corpus.mjs
 // otomatik pickup eder.
+
+import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -25,8 +27,13 @@ export const CONTENT_SOURCES = [
       type: 'verse',
       surah: v.surah,
       ayah: v.ayah,
-      surahName: v.surahName,
-      surahNameEn: v.surahNameEn,
+      // Kaynakta v.surahName Arapça ("الأعراف"), v.surahNameEn Latin. TR yok.
+      // Canonical TR/EN transliteration için surahNames.js map'i kullanılır —
+      // concierge hydrate'de item.surahName direkt render edilir (TR display).
+      // NOT: searchText'te ORİJİNAL v.surahName (Arapça) korunur → embedding
+      // hash'i değişmez, re-embed gerekmez.
+      surahName: SURAH_NAMES_TR[v.surah - 1] || v.surahName,
+      surahNameEn: SURAH_NAMES_EN[v.surah - 1] || v.surahNameEn,
       textTr: v.turkish || '',
       textEn: v.english || '',
       arabic: v.arabic || '',
