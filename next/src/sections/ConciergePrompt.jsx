@@ -124,7 +124,7 @@ export default function ConciergePrompt() {
           textTransform: 'uppercase',
           marginBottom: '20px',
         }}>
-          {tr ? 'Semantik Rehber · Beta' : 'Semantic Guide · Beta'}
+          {tr ? 'Kur\'an Rehberi · Yeni' : 'Quran Guide · New'}
         </div>
 
         {/* Hook headline */}
@@ -139,8 +139,8 @@ export default function ConciergePrompt() {
           margin: '0 0 12px',
         }}>
           {tr
-            ? 'Aklındaki soru neyse — Kur\'an nereden konuşuyor?'
-            : 'Whatever your question — where does the Quran speak from?'}
+            ? 'Aklındaki soruya Kur\'an nereden yaklaşır?'
+            : 'How does the Quran approach your question?'}
         </h2>
 
         {/* Subtitle whisper */}
@@ -156,8 +156,8 @@ export default function ConciergePrompt() {
           opacity: 0.85,
         }}>
           {tr
-            ? 'Yaşadığın durumu, aklındaki kavramı ya da merak ettiğini yaz. Sistem 6.236 ayet, tefekkür yazıları ve tool sayfaları arasından en uygun olanlarını curated şekilde sunar.'
-            : 'Type a situation, a concept, or a curiosity. The system curates the most relevant among 6,236 verses, essays, and tool pages.'}
+            ? 'Yaşadığın bir durumu, aklındaki bir kavramı ya da merak ettiğin bir konuyu yaz. Sistem 6.236 ayet, tefekkür yazıları ve araç sayfaları arasından sana en yakın olanları seçer, sunar.'
+            : 'Write about a situation you\'re living, a concept in mind, or a topic you\'re curious about. The system selects the ones closest to you from 6,236 verses, reflection essays, and tool pages.'}
         </p>
 
         {/* Prompt input — gold border, subtle glow, focused state animasyon */}

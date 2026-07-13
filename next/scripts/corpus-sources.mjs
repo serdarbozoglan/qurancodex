@@ -164,6 +164,9 @@ export const CONTENT_SOURCES = [
   },
 
   // ─── Kavramlar (Concept Graph) — 65 kavram
+  // NOT: /graf/kavram sayfası şu an URL param ile auto-select desteklemiyor.
+  // Bu yüzden anchorVerses[0]'ı item'da tutuyoruz — hydrate katmanı bu ayete
+  // yönlendirir (kavram sayfası yerine doğrudan ilgili ayete).
   {
     type: 'atlas-kavram',
     file: 'public/concept-graph.json',
@@ -179,6 +182,7 @@ export const CONTENT_SOURCES = [
         titleEn: item.en || '',
         arabic: item.ar || '',
         group: item.group || '',
+        anchorVerse: (item.anchorVerses || [])[0] || null,
         searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Ana ayetler: ${anchors}. Kategori: ${item.group || ''}.`,
         searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Anchor verses: ${anchors}. Group: ${item.group || ''}.`,
       };

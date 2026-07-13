@@ -5,6 +5,25 @@
 
 import { loadCorpus } from './concierge-search.js';
 
+// ── §13.15 Arabic normalization — KFGQPC fontunda daire/tofu render'ı önler.
+// verse-graph-bgem3.json'da Uthmani-özel karakterler (U+06EA, U+06E1, U+0671
+// vs.) mevcut. Concierge response'ta ayet gösterilirken normalize edilmeli.
+function normalizeArabic(text) {
+  if (!text) return text;
+  return text
+    .replace(/۪/g, 'ِ')                        // U+06EA → U+0650 (kasra)
+    .replace(/ۡ/g, 'ْ')                        // U+06E1 → U+0652 (sukun)
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')                  // §13.14 hareke+maddah fix
+    .replace(/ٱ/g, 'ا')                        // Alef wasla → düz alef
+    .replace(/ی/g, 'ي')                        // Farsi yeh → Arabic yeh
+    .replace(/[ؐ-ؔؖؗ]/g, '')                   // İslami kısaltma işaretleri
+    .replace(/[؀-؅]/g, '')                     // Kur'anî numara/dipnot
+    .replace(/[۝۞۩]/g, '')                     // ayet sonu, rub el hizb, secde
+    .replace(/ۦ/g, ' ')                        // small yeh → boşluk
+    .replace(/[ۖ-ۜۢۨ]/g, '')                   // waqf + dekoratif tajwid
+    .replace(/[﴾﴿]/g, '');                     // süslü parantezler
+}
+
 // URL builders per type
 function buildUrl(item, lang = 'tr') {
   const base = `/${lang}`;
@@ -24,7 +43,14 @@ function buildUrl(item, lang = 'tr') {
     case 'atlas-dua':
       return `${base}/arac/dualar?id=${item.subId}`;
     case 'atlas-kavram':
-      return `${base}/graf/kavram?id=${item.subId}`;
+      // /graf/kavram henüz URL param ile auto-select desteklemiyor.
+      // Fallback: kavramın ilk anchor verse'ine yönlendir (semantic olarak
+      // "kavramla ilgili giriş noktası").
+      if (item.anchorVerse) {
+        const [s, a] = String(item.anchorVerse).split(':');
+        if (s && a) return `${base}/oku/${s}#ayet-${a}`;
+      }
+      return `${base}/graf/kavram`;
     default:
       return `${base}/`;
   }
@@ -42,7 +68,7 @@ function hydrateItem(item, reason, lang) {
         surah: item.surah,
         ayah: item.ayah,
         surahName: lang === 'tr' ? item.surahName : item.surahNameEn,
-        arabic: item.arabic,
+        arabic: normalizeArabic(item.arabic),
         text: lang === 'tr' ? item.textTr : item.textEn,
       };
     case 'article':
@@ -67,7 +93,7 @@ function hydrateItem(item, reason, lang) {
         ...base,
         subId: item.subId,
         title: lang === 'tr' ? item.titleTr : item.titleEn,
-        arabic: item.arabic || undefined,
+        arabic: item.arabic ? normalizeArabic(item.arabic) : undefined,
       };
   }
 }

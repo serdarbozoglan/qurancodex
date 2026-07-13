@@ -19,7 +19,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../../../i18n/LanguageContext';
@@ -105,6 +105,20 @@ function SorInner() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // ESC key: eğer input dolu ise clear et, yoksa anasayfaya dön
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (pendingQuery) {
+        setPendingQuery('');
+      } else {
+        router.push(`/${language}`);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [pendingQuery, router, language]);
+
   const handleSubmit = (e) => {
     e?.preventDefault?.();
     const q = pendingQuery.trim();
@@ -135,7 +149,7 @@ function SorInner() {
         }}
       />
 
-      {/* Sticky query bar */}
+      {/* Sticky query bar + Anasayfa link */}
       <div
         style={{
           position: 'sticky',
@@ -145,68 +159,153 @@ function SorInner() {
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderBottom: `1px solid ${COLORS.gold}22`,
-          padding: '16px 24px',
+          padding: '14px 24px',
         }}
       >
-        <form
-          onSubmit={handleSubmit}
-          style={{
+        <div style={{
+          maxWidth: '860px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        }}>
+          {/* Top row: Anasayfa link + hint */}
+          <div style={{
             display: 'flex',
             alignItems: 'center',
-            maxWidth: '860px',
-            margin: '0 auto',
+            justifyContent: 'space-between',
             gap: '10px',
-            background: 'rgba(13,27,42,0.7)',
-            border: `1px solid ${COLORS.gold}33`,
-            borderRadius: '999px',
-            padding: '4px 4px 4px 20px',
-          }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.75 }}>
-            <circle cx="11" cy="11" r="7" />
-            <path d="M21 21l-4.35-4.35" />
-          </svg>
-          <input
-            type="text"
-            value={pendingQuery}
-            onChange={(e) => setPendingQuery(e.target.value)}
-            placeholder={tr ? 'Yeni bir soru sor...' : 'Ask a new question...'}
-            aria-label={tr ? 'Soru' : 'Question'}
+          }}>
+            <Link
+              href={`/${language}`}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontFamily: FONTS.body,
+                fontSize: '0.72rem',
+                color: `${COLORS.gold}bb`,
+                textDecoration: 'none',
+                fontWeight: 600,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                padding: '2px 4px',
+                transition: 'color 0.15s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; }}
+              onMouseLeave={e => { e.currentTarget.style.color = `${COLORS.gold}bb`; }}
+            >
+              <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>←</span>
+              <span>{tr ? 'Anasayfa' : 'Home'}</span>
+            </Link>
+            <span
+              style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.66rem',
+                color: COLORS.silver,
+                opacity: 0.55,
+                letterSpacing: '0.04em',
+              }}
+              className="hidden sm:inline"
+            >
+              {tr ? 'ESC ile kapat' : 'Press ESC to close'}
+            </span>
+          </div>
+
+          {/* Query bar */}
+          <form
+            onSubmit={handleSubmit}
             style={{
-              flex: 1,
-              background: 'transparent',
-              border: 'none',
-              outline: 'none',
-              color: COLORS.offWhite,
-              fontFamily: FONTS.body,
-              fontSize: '0.95rem',
-              padding: '11px 4px',
-              minWidth: 0,
-            }}
-          />
-          <button
-            type="submit"
-            disabled={pendingQuery.trim().length < 3 || pendingQuery.trim() === query}
-            style={{
-              background: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query
-                ? `linear-gradient(135deg, ${COLORS.gold} 0%, #b8860b 100%)`
-                : `${COLORS.gold}22`,
-              color: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? '#1c0f00' : `${COLORS.gold}88`,
-              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              background: 'rgba(13,27,42,0.7)',
+              border: `1px solid ${COLORS.gold}33`,
               borderRadius: '999px',
-              padding: '9px 18px',
-              fontFamily: FONTS.body,
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              letterSpacing: '0.06em',
-              cursor: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? 'pointer' : 'not-allowed',
-              transition: 'all 0.2s',
-              flexShrink: 0,
+              padding: '4px 4px 4px 20px',
             }}
           >
-            {tr ? 'Sor' : 'Ask'}
-          </button>
-        </form>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.75 }}>
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              value={pendingQuery}
+              onChange={(e) => setPendingQuery(e.target.value)}
+              placeholder={tr ? 'Yeni bir soru sor...' : 'Ask a new question...'}
+              aria-label={tr ? 'Soru' : 'Question'}
+              style={{
+                flex: 1,
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body,
+                fontSize: '0.95rem',
+                padding: '11px 4px',
+                minWidth: 0,
+              }}
+            />
+            {/* Clear button — only visible when input has content */}
+            {pendingQuery.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setPendingQuery('')}
+                aria-label={tr ? 'Temizle' : 'Clear'}
+                title={tr ? 'Temizle' : 'Clear'}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.06)',
+                  border: `1px solid ${COLORS.gold}22`,
+                  color: `${COLORS.gold}aa`,
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = `${COLORS.gold}18`;
+                  e.currentTarget.style.color = COLORS.gold;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.color = `${COLORS.gold}aa`;
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+            <button
+              type="submit"
+              disabled={pendingQuery.trim().length < 3 || pendingQuery.trim() === query}
+              style={{
+                background: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query
+                  ? `linear-gradient(135deg, ${COLORS.gold} 0%, #b8860b 100%)`
+                  : `${COLORS.gold}22`,
+                color: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? '#1c0f00' : `${COLORS.gold}88`,
+                border: 'none',
+                borderRadius: '999px',
+                padding: '9px 18px',
+                fontFamily: FONTS.body,
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                letterSpacing: '0.06em',
+                cursor: pendingQuery.trim().length >= 3 && pendingQuery.trim() !== query ? 'pointer' : 'not-allowed',
+                transition: 'all 0.2s',
+                flexShrink: 0,
+              }}
+            >
+              {tr ? 'Sor' : 'Ask'}
+            </button>
+          </form>
+        </div>
       </div>
 
       {/* Main content area */}

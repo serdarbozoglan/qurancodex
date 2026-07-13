@@ -121,10 +121,9 @@ console.log(`\n🔍 Detection:`);
 console.log(`   → New/changed: ${toEmbed.length}`);
 console.log(`   → Unchanged:   ${unchanged.length}`);
 
-if (toEmbed.length === 0) {
-  console.log(`\n✅ Nothing to embed. Manifest up-to-date.`);
-  process.exit(0);
-}
+// NOTE: "nothing to embed" early-exit taşındı — aşağıda `embeddings` variable
+// initialize edildikten SONRA çalışıyor. Corpus metadata refresh için embed
+// cache gerekli.
 
 if (checkOnly) {
   console.log(`\n⚠  Check-only mode. ${toEmbed.length} items need embedding.`);
