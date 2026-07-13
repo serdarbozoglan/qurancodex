@@ -46,3 +46,7 @@ src/lib/corpus-raw.json
 # corpus-embeddings.json (~75 MB): COMMITTED via Git LFS (see .gitattributes)
 # corpus-manifest.json: COMMITTED small (~800KB), needed for incremental rebuilds
 
+
+# Playwright test artifacts
+test-results/
+playwright-report/
