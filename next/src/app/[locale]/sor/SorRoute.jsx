@@ -837,23 +837,25 @@ function ToolCard({ tool, delay }) {
         >
           <h3 style={{
             fontFamily: FONTS.display,
-            fontSize: '1rem',
+            fontSize: '1.12rem',
             fontWeight: 700,
             color: COLORS.offWhite,
-            margin: '0 0 6px',
+            margin: '0 0 8px',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '8px',
+            letterSpacing: '-0.005em',
           }}>
             {tool.title}
-            <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+            <span style={{ color: COLORS.gold, opacity: 0.8, fontSize: '0.95rem' }}>→</span>
           </h3>
           {tool.reason && (
             <p style={{
               fontFamily: FONTS.body,
-              fontSize: '0.82rem',
-              color: COLORS.silver,
-              lineHeight: 1.6,
+              fontSize: '0.88rem',
+              color: COLORS.offWhite,
+              opacity: 0.78,
+              lineHeight: 1.65,
               margin: 0,
             }}>
               {tool.reason}
@@ -901,29 +903,31 @@ function AtlasCard({ atlas, delay, language }) {
             e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
             <span style={{
               fontFamily: FONTS.body,
-              fontSize: '0.58rem',
+              fontSize: '0.66rem',
               fontWeight: 700,
-              letterSpacing: '0.16em',
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: `${COLORS.gold}aa`,
+              color: COLORS.gold,
+              opacity: 0.85,
             }}>{typeLabel}</span>
           </div>
           <h4 style={{
             fontFamily: FONTS.display,
-            fontSize: '0.95rem',
+            fontSize: '1.05rem',
             fontWeight: 700,
             color: COLORS.offWhite,
-            margin: '0 0 4px',
+            margin: '0 0 6px',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '10px',
+            letterSpacing: '-0.005em',
           }}>
             {atlas.title}
             {atlas.arabic && (
-              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, opacity: 0.85, fontSize: '0.85rem' }}>
+              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, opacity: 0.9, fontSize: '0.95rem' }}>
                 {atlas.arabic}
               </span>
             )}
@@ -931,11 +935,11 @@ function AtlasCard({ atlas, delay, language }) {
           {atlas.reason && (
             <p style={{
               fontFamily: FONTS.body,
-              fontSize: '0.75rem',
-              color: COLORS.silver,
-              lineHeight: 1.55,
+              fontSize: '0.82rem',
+              color: COLORS.offWhite,
+              opacity: 0.75,
+              lineHeight: 1.6,
               margin: 0,
-              opacity: 0.85,
             }}>
               {atlas.reason}
             </p>
@@ -968,44 +972,46 @@ function ArticleCard({ article, delay, language }) {
           onMouseEnter={e => { e.currentTarget.style.borderColor = `${COLORS.gold}66`; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = `${COLORS.gold}26`; }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
             <span style={{
               fontFamily: FONTS.body,
-              fontSize: '0.62rem',
+              fontSize: '0.68rem',
               fontWeight: 700,
-              letterSpacing: '0.16em',
+              letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: `${COLORS.gold}bb`,
+              color: COLORS.gold,
+              opacity: 0.85,
             }}>{tr ? 'Tefekkür' : 'Essay'}</span>
             {article.readingMinutes && (
               <span style={{
                 fontFamily: FONTS.body,
-                fontSize: '0.68rem',
+                fontSize: '0.7rem',
                 color: COLORS.silver,
-                opacity: 0.6,
+                opacity: 0.7,
               }}>
-                {article.readingMinutes} {tr ? 'dk' : 'min'} okuma
+                {article.readingMinutes} {tr ? 'dk okuma' : 'min read'}
               </span>
             )}
           </div>
           <h3 style={{
             fontFamily: FONTS.display,
-            fontSize: '1.05rem',
+            fontSize: '1.15rem',
             fontWeight: 700,
             color: COLORS.offWhite,
-            margin: '0 0 6px',
+            margin: '0 0 8px',
             lineHeight: 1.35,
+            letterSpacing: '-0.005em',
           }}>
-            {article.title} <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+            {article.title} <span style={{ color: COLORS.gold, opacity: 0.8, fontSize: '1rem' }}>→</span>
           </h3>
           {article.reason && (
             <p style={{
               fontFamily: FONTS.display,
               fontStyle: 'italic',
-              fontSize: '0.85rem',
-              color: `${COLORS.gold}bb`,
-              margin: '0 0 6px',
-              lineHeight: 1.55,
+              fontSize: '0.9rem',
+              color: `${COLORS.gold}cc`,
+              margin: '0 0 8px',
+              lineHeight: 1.6,
             }}>
               {article.reason}
             </p>
@@ -1013,11 +1019,11 @@ function ArticleCard({ article, delay, language }) {
           {article.tldr && (
             <p style={{
               fontFamily: FONTS.body,
-              fontSize: '0.82rem',
-              color: COLORS.silver,
-              lineHeight: 1.55,
+              fontSize: '0.88rem',
+              color: COLORS.offWhite,
+              lineHeight: 1.6,
               margin: 0,
-              opacity: 0.85,
+              opacity: 0.75,
               display: '-webkit-box',
               WebkitLineClamp: 2,
               WebkitBoxOrient: 'vertical',

@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
+import ParticleBackground from '../components/ParticleBackground';
 
 // Rotating placeholder queries — dil ile birlikte döner
 const PLACEHOLDERS_TR = [
@@ -91,7 +92,7 @@ export default function ConciergePrompt() {
         overflow: 'hidden',
       }}
     >
-      {/* Subtle background gold particles/glow */}
+      {/* Subtle background gold radial glow — dual-hotspot ambient */}
       <div
         aria-hidden
         style={{
@@ -101,6 +102,20 @@ export default function ConciergePrompt() {
           background: `radial-gradient(circle at 20% 30%, ${COLORS.gold}08 0%, transparent 40%), radial-gradient(circle at 80% 70%, ${COLORS.gold}06 0%, transparent 50%)`,
         }}
       />
+      {/* Cinematic parçacıklar — Hero ile devamlılık, daha sakin.
+          Mukattaa harfleri (0.10 oranı) + gold noktalar (30 toplam) süzülür.
+          reduced-motion respekt edilir (ParticleBackground kendi içinde). */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          opacity: 0.55,
+        }}
+      >
+        <ParticleBackground particleCount={30} glyphRatio={0.10} />
+      </div>
 
       <motion.div
         initial={reduced ? false : { opacity: 0, y: 24 }}
