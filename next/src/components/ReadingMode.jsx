@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
@@ -974,6 +974,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return 1; }
   });
   const [activeVerse, setActiveVerse] = useState(null);
+  // Concierge deep-link landing marker — extra gold glow for 4 seconds after
+  // ?ayah=N URL param resolves. Cleared when user clicks another verse or timer
+  // expires; the underlying activeVerse highlight persists after.
+  const [landedVerseId, setLandedVerseId] = useState(null);
+  const searchParams = useSearchParams();
   const [showTranslation, setShowTranslation] = useState(() => {
     try { return JSON.parse(localStorage.getItem('qurancodex_show_translation') ?? 'true'); }
     catch { return true; }
@@ -1727,6 +1732,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     if (!verses) return [];
     return verses.filter(v => v.surah === selectedSurah).sort((a, b) => a.ayah - b.ayah);
   }, [verses, selectedSurah]);
+
+  // ── Concierge deep-link: read ?ayah=N and jump to that verse.
+  // Runs once per (surah, ?ayah) combination. Reuses existing activeVerse
+  // machinery for page-jump + scrollIntoView; adds landedVerseId for the
+  // one-shot gold glow highlight.
+  const deepLinkKeyRef = useRef('');
+  useEffect(() => {
+    if (!surahVerses.length) return;
+    const ayahParam = searchParams?.get('ayah');
+    if (!ayahParam) return;
+    const ayahNum = parseInt(ayahParam, 10);
+    if (!Number.isFinite(ayahNum) || ayahNum < 1) return;
+    const key = `${selectedSurah}:${ayahNum}`;
+    if (deepLinkKeyRef.current === key) return;   // already landed
+    const target = surahVerses.find(v => v.ayah === ayahNum);
+    if (!target) return;
+    deepLinkKeyRef.current = key;
+    setActiveVerse(target);
+    setLandedVerseId(target.id);
+    const t = setTimeout(() => setLandedVerseId(null), 4000);
+    return () => clearTimeout(t);
+  }, [surahVerses, searchParams, selectedSurah]);
 
   const shareVerse = useCallback((verse) => {
     const arabic = cleanArabic(verse.arabic);
@@ -6343,6 +6370,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       const { verse } = item;
                       const vt = getTranslation(verse);
                       const isActive = activeVerse?.id === verse.id;
+                      const isLanded = landedVerseId === verse.id;
                       const isSajdaTr = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                       // Verse-range dedupe — some translators (Diyanet, İslamoğlu...)
                       // group consecutive verses under one combined translation, prefixed
@@ -6369,6 +6397,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             padding: isMobile ? '10px 8px' : '8px 12px',
                             marginBottom: longSurah ? (isMobile ? '10px' : '14px') : 0,
                             background: isActive ? C.activeHighlight : 'transparent',
+                            boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
                             borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                             transition: 'all 0.18s',
                           }}
@@ -6732,6 +6761,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       }
                       const { verse } = item;
                       const isActive = activeVerse?.id === verse.id;
+                      const isLanded = landedVerseId === verse.id;
                       const isSajdaBook = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                       const ar = cleanArabic(verse.arabic).trimEnd();
                       const fullHtml = showTajweed
@@ -7259,6 +7289,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     }
                     const { verse } = item;
                     const isActive = activeVerse?.id === verse.id;
+                      const isLanded = landedVerseId === verse.id;
                     const isSajdaBook = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
                     return (
                       <span
@@ -8254,6 +8285,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {surahVerses.map((verse, verseIdx) => {
               const vt = getTranslation(verse);
               const isActive = activeVerse?.id === verse.id;
+                      const isLanded = landedVerseId === verse.id;
               const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
               return (
                 <div
@@ -8270,6 +8302,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
+                    boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
                     borderLeft: isMobile ? 'none' : `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
                     borderRight: isMobile && isActive ? `3px solid ${C.activeBorder}` : 'none',
                     cursor: 'pointer', transition: 'all 0.18s',

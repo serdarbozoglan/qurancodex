@@ -29,7 +29,7 @@ function buildUrl(item, lang = 'tr') {
   const base = `/${lang}`;
   switch (item.type) {
     case 'verse':
-      return `${base}/oku/${item.surah}#ayet-${item.ayah}`;
+      return `${base}/oku/${item.surah}?ayah=${item.ayah}`;
     case 'article':
       return `${base}/tefekkur/${item.slug}`;
     case 'tool':
@@ -48,7 +48,7 @@ function buildUrl(item, lang = 'tr') {
       // "kavramla ilgili giriş noktası").
       if (item.anchorVerse) {
         const [s, a] = String(item.anchorVerse).split(':');
-        if (s && a) return `${base}/oku/${s}#ayet-${a}`;
+        if (s && a) return `${base}/oku/${s}?ayah=${a}`;
       }
       return `${base}/graf/kavram`;
     default:
