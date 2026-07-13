@@ -1086,7 +1086,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
               padding: '10px 12px',
               background: 'rgba(148,163,184,0.05)',
               border: `1px solid ${COLORS.glassBorderSoft}`,
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
             }}>
               <div style={{
                 ...sectionLabel(COLORS.silver),
@@ -1128,7 +1128,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
               padding: '14px 16px',
               background: 'rgba(231,76,60,0.04)',
               border: '1px solid rgba(231,76,60,0.3)',
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
             }}>
               <div style={{
                 display: 'flex',
@@ -1418,7 +1418,7 @@ function FrameworkCard({ framework, isMobile, language }) {
           padding: '10px 12px',
           background: 'rgba(148,163,184,0.05)',
           border: `1px solid ${COLORS.glassBorderSoft}`,
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           marginTop: '4px',
         }}>
           <div style={{ ...sectionLabel(COLORS.silver), marginBottom: '4px' }}>

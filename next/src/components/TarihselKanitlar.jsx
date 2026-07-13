@@ -307,7 +307,7 @@ export default function TarihselKanitlar({ onClose }) {
                 <div key={i} style={{
                   padding: isMobile ? '8px 14px' : '10px 18px',
                   background: `${s.color}12`, border: `1px solid ${s.color}30`,
-                  borderRadius: '999px', display: 'flex', alignItems: 'center', gap: '8px',
+                  borderRadius: RADIUS.pill, display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
                   <span style={{ color: s.color, fontSize: '1rem', fontWeight: 800, fontFamily: FONTS.body, lineHeight: 1 }}>{s.value}</span>
                   <span style={{ color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, lineHeight: 1 }}>{tr ? s.tr : s.en}</span>
@@ -426,7 +426,7 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
               onClick={() => onCategoryToggle(cat.id)}
               style={{
                 padding: isMobile ? '6px 12px' : '8px 16px',
-                borderRadius: '999px',
+                borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
                 color: isActive ? cat.color : COLORS.silver,
@@ -449,7 +449,7 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
             onClick={() => onCategoryToggle(activeCategoryId)}
             style={{
               padding: isMobile ? '6px 12px' : '8px 14px',
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`,
               background: 'transparent',
               color: COLORS.gold,
@@ -523,7 +523,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
             }}>{index}</span>
             {tr ? category.titleTr : category.titleEn}
             <span style={{
-              padding: '2px 8px', borderRadius: '999px',
+              padding: '2px 8px', borderRadius: RADIUS.pill,
               background: `${conf.color}22`,
               border: `1px solid ${conf.color}55`,
               color: conf.color,
@@ -578,7 +578,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
         style={{
           alignSelf: 'flex-start',
           display: 'inline-flex', alignItems: 'center', gap: '6px',
-          padding: '6px 12px', borderRadius: '999px',
+          padding: '6px 12px', borderRadius: RADIUS.pill,
           background: `${cat.color}18`, border: `1px solid ${cat.color}40`,
           color: cat.color, cursor: 'pointer',
           fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
@@ -873,7 +873,7 @@ function MethodologyTab({ intro, language, isMobile }) {
             <div key={k} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{
                 display: 'inline-block',
-                padding: '2px 10px', borderRadius: '999px',
+                padding: '2px 10px', borderRadius: RADIUS.pill,
                 background: `${m.color}22`, border: `1px solid ${m.color}55`,
                 color: m.color, fontSize: '0.68rem',
                 fontFamily: FONTS.body, fontWeight: 700,

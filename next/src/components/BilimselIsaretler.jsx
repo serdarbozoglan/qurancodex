@@ -11,6 +11,7 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 const DOMAIN_ICONS = {
@@ -227,7 +228,7 @@ export default function BilimselIsaretler({ onClose }) {
                 <div key={i} style={{
                   padding: isMobile ? '8px 14px' : '10px 18px',
                   background: `${s.color}12`, border: `1px solid ${s.color}30`,
-                  borderRadius: '999px', display: 'flex', alignItems: 'center', gap: '8px',
+                  borderRadius: RADIUS.pill, display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
                   <span style={{ color: s.color, fontSize: '1rem', fontWeight: 800, fontFamily: FONTS.body, lineHeight: 1 }}>{s.value}</span>
                   <span style={{ color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, lineHeight: 1 }}>{tr ? s.tr : s.en}</span>
@@ -286,6 +287,16 @@ export default function BilimselIsaretler({ onClose }) {
           {activeTab === 1 && (<TimelineTab isaretler={isaretler} domains={domains} language={language} isMobile={isMobile} />)}
           {activeTab === 2 && (<BucaillismTab intro={intro} language={language} isMobile={isMobile} />)}
 
+          <SourcesCitation
+            language={language} isMobile={isMobile}
+            sources={[
+              { author: 'er-Râzî',    workTr: "Mefâtîhu'l-Ğayb",              workEn: 'Mafātīḥ al-Ghayb',           period: '1149–1209 (Rey)',       noteTr: 'Kevnî ayetlerin klasik tefsirinde en zengin damar — felsefî-kelâmî çerçeve.', noteEn: 'The richest classical vein for cosmic verses — philosophical-kalāmic framework.' },
+              { author: 'ez-Zamahşerî', workTr: "el-Keşşâf",                    workEn: 'al-Kashshāf',                period: '1075–1144 (Hârizm)',    noteTr: 'Belağî okuma — kevnî ayetlerin dilsel imalarının klasik referansı.',            noteEn: 'Rhetorical reading — the classical reference for the linguistic implications of cosmic verses.' },
+              { author: 'İbn Kesîr',   workTr: "Tefsîru'l-Kur'âni'l-Azîm",     workEn: "Tafsīr al-Qur'ān al-ʿAẓīm",  period: '1301–1373 (Dımaşk)',    noteTr: 'Rivayet ağırlıklı tefsir — kevnî ayetlerin selef yorumu.',                        noteEn: 'Riwāya-heavy commentary — the salaf reading of cosmic verses.' },
+              { author: 'el-Kurtubî',  workTr: "el-Câmiʿu li-Ahkâmi'l-Kur'ân", workEn: "al-Jāmiʿ li-Aḥkām al-Qur'ān", period: '1214–1273 (Kurtuba)', noteTr: 'Fıkhî + dilsel + kevnî — çok boyutlu klasik referans.',                          noteEn: 'Fiqh + linguistic + cosmic — a multi-dimensional classical reference.' },
+            ]}
+          />
+
           <CrossToolCTA
             language={language} isMobile={isMobile}
             links={[
@@ -321,7 +332,7 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
             <button key={d.id} onClick={() => onDomainToggle(d.id)}
               style={{
                 padding: isMobile ? '6px 12px' : '8px 16px',
-                borderRadius: '999px',
+                borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? d.color : COLORS.glassBorder}`,
                 background: isActive ? `${d.color}22` : 'transparent',
                 color: isActive ? d.color : COLORS.silver,
@@ -338,7 +349,7 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
         {activeDomainId && (
           <button onClick={() => onDomainToggle(activeDomainId)}
             style={{
-              padding: isMobile ? '6px 12px' : '8px 14px', borderRadius: '999px',
+              padding: isMobile ? '6px 12px' : '8px 14px', borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`, background: 'transparent',
               color: COLORS.gold, fontSize: isMobile ? '0.78rem' : '0.85rem',
               fontFamily: FONTS.body, cursor: 'pointer',
@@ -433,7 +444,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
       <button onClick={onToggle}
         style={{
           alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: '6px',
-          padding: '6px 12px', borderRadius: '999px',
+          padding: '6px 12px', borderRadius: RADIUS.pill,
           background: `${dom.color}18`, border: `1px solid ${dom.color}40`,
           color: dom.color, cursor: 'pointer',
           fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,

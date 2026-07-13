@@ -950,7 +950,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <div style={{
           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.7, marginBottom: '14px',
+          color: COLORS.gold, opacity: 0.72, marginBottom: '14px',
         }}>
           {tr ? 'Münâsebât-ı Süver · 114 Mührün Şifresi' : 'Munāsabāt al-Suwar · The Cipher of 114 Seals'}
         </div>
@@ -1076,7 +1076,7 @@ function ClosingSynthesis({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7,
+        color: COLORS.gold, opacity: 0.72,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -1455,7 +1455,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         <div style={{
           fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.7, marginBottom: '12px',
+          color: COLORS.gold, opacity: 0.72, marginBottom: '12px',
         }}>
           {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>

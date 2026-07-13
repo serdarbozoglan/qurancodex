@@ -115,7 +115,7 @@ function renderInline(text, palette) {
           color: palette.refColor,
           background: palette.refBg,
           border: `1px solid ${palette.refBorder}`,
-          borderRadius: '999px',
+          borderRadius: RADIUS.pill,
           letterSpacing: '0.01em',
           verticalAlign: '1px',
           whiteSpace: 'nowrap',
@@ -370,7 +370,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                   color: C.gold, fontFamily: 'inherit', fontSize: 'inherit',
                   fontWeight: 'inherit', letterSpacing: 'inherit',
                   textTransform: 'uppercase', padding: '3px 10px',
-                  cursor: 'pointer', borderRadius: '999px',
+                  cursor: 'pointer', borderRadius: RADIUS.pill,
                   transition: 'background 0.15s, border-color 0.15s',
                 }}
                 onMouseEnter={e => {
@@ -562,7 +562,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                       color: C.gold,
                       background: dayMode ? 'rgba(212,165,116,0.14)' : 'rgba(212,165,116,0.10)',
                       border: `1px solid ${C.gold}44`,
-                      borderRadius: '999px',
+                      borderRadius: RADIUS.pill,
                       letterSpacing: '0.02em',
                       verticalAlign: '2px',
                       fontFamily: FONTS.body,
@@ -666,7 +666,7 @@ export default function TafsirPanel({ open, onClose, surah, language, dayMode, i
                     color: C.gold,
                     background: dayMode ? 'rgba(212,165,116,0.14)' : 'rgba(212,165,116,0.10)',
                     border: `1px solid ${C.gold}44`,
-                    borderRadius: '999px',
+                    borderRadius: RADIUS.pill,
                     letterSpacing: '0.03em',
                   }}>
                     {language === 'tr' ? 'Ayet' : 'Verse'} {label}

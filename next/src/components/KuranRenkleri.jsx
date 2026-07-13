@@ -2784,7 +2784,7 @@ export default function KuranRenkleri({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.7,
+            opacity: 0.72,
             marginBottom: '14px',
           }}>
             {tr ? "KUR'AN'IN RENK PALETİ · 14 KELİME, 8 TON" : "THE QURAN'S COLOR PALETTE · 14 WORDS, 8 TONES"}
@@ -3061,7 +3061,7 @@ function ColorsClosing({ language, isMobile }) {
         background: 'rgba(46,204,113,0.05)',
         border: '1px solid rgba(46,204,113,0.25)',
         borderLeft: '3px solid #2ecc71',
-        borderRadius: '12px',
+        borderRadius: RADIUS.lg,
         padding: isMobile ? '20px 22px' : '24px 28px',
         marginBottom: isMobile ? '40px' : '60px',
         maxWidth: '780px',
@@ -3104,7 +3104,7 @@ function ColorsClosing({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7,
+        color: COLORS.gold, opacity: 0.72,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}

@@ -400,7 +400,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.65, marginBottom: '14px',
+        color: COLORS.gold, opacity: 0.72, marginBottom: '14px',
       }}>
         {tr ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
       </div>

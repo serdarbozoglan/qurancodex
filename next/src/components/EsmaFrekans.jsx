@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD, TEXT, TRANSITION } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
@@ -429,7 +429,7 @@ function Hero({ tr }) {
                 style={{
                   background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, rgba(255,255,255,0.02) 100%)`,
                   border: `1px solid ${COLORS.gold}26`,
-                  borderRadius: '12px',
+                  borderRadius: RADIUS.lg,
                   padding: 'clamp(20px, 2.4vw, 26px) clamp(18px, 2vw, 22px)',
                   textAlign: 'center',
                   position: 'relative',
@@ -815,7 +815,7 @@ function CelalCemalBalance({ tr, balance }) {
         padding: '22px 24px',
         background: 'rgba(255,255,255,0.025)',
         border: '1px solid rgba(255,255,255,0.06)',
-        borderRadius: '12px',
+        borderRadius: RADIUS.lg,
       }}
     >
       <div className="esma-balance-header" style={{
@@ -855,7 +855,7 @@ function CelalCemalBalance({ tr, balance }) {
       <div style={{
         position: 'relative',
         height: '14px',
-        borderRadius: '999px',
+        borderRadius: RADIUS.pill,
         overflow: 'hidden',
         background: 'rgba(255,255,255,0.05)',
         display: 'flex',
@@ -1595,7 +1595,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
             style={{
               background: `linear-gradient(135deg, ${COLORS.gold}14 0%, ${COLORS.gold}08 100%)`,
               border: `1px solid ${COLORS.gold}38`,
-              borderRadius: '12px',
+              borderRadius: RADIUS.lg,
               padding: '18px 22px',
               margin: '0 0 44px',
               maxWidth: '780px',
@@ -1610,7 +1610,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
               flexShrink: 0,
               width: '110px',
               height: '6px',
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               background: 'rgba(255,255,255,0.08)',
               overflow: 'hidden',
             }}
@@ -1762,7 +1762,7 @@ function PairCard({ pair, tr, index, verseData }) {
           gap: '6px',
           background: `${COLORS.gold}14`,
           border: `1px solid ${COLORS.gold}33`,
-          borderRadius: '999px',
+          borderRadius: RADIUS.pill,
           padding: '5px 11px',
         }}>
           <span style={{
@@ -1858,7 +1858,7 @@ function PairCard({ pair, tr, index, verseData }) {
               gap: '6px',
               background: expanded ? `${COLORS.gold}1f` : `${COLORS.gold}10`,
               border: `1px solid ${COLORS.gold}3a`,
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               padding: '6px 13px',
               color: COLORS.gold,
               fontFamily: FONTS.body,
@@ -1897,7 +1897,7 @@ function PairCard({ pair, tr, index, verseData }) {
                 <div key={a.ref} style={{
                   background: 'rgba(255,255,255,0.025)',
                   border: '1px solid rgba(255,255,255,0.06)',
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   padding: '12px 14px',
                 }}>
                   <div style={{
@@ -1975,7 +1975,7 @@ function TripleCard({ triple, tr, index }) {
           gap: '6px',
           background: `${COLORS.gold}1f`,
           border: `1px solid ${COLORS.gold}55`,
-          borderRadius: '999px',
+          borderRadius: RADIUS.pill,
           padding: '4px 11px',
           color: COLORS.gold,
           fontFamily: FONTS.body,
@@ -2061,7 +2061,7 @@ function TripleCard({ triple, tr, index }) {
               display: 'inline-flex',
               alignItems: 'center',
               padding: '4px 10px',
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               background: `${COLORS.gold}10`,
               border: `1px solid ${COLORS.gold}30`,
               color: COLORS.gold,
@@ -2298,7 +2298,7 @@ function KokCard({ kok, tr, index }) {
       style={{
         ...GLASS_CARD,
         padding: '22px 22px 20px',
-        borderRadius: '12px',
+        borderRadius: RADIUS.lg,
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
@@ -2362,7 +2362,7 @@ function KokCard({ kok, tr, index }) {
               display: 'inline-flex',
               alignItems: 'center',
               padding: '5px 11px',
-              borderRadius: '999px',
+              borderRadius: RADIUS.pill,
               background: `${COLORS.gold}14`,
               border: `1px solid ${COLORS.gold}40`,
               color: COLORS.gold,
@@ -2488,7 +2488,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
           overflowX: 'auto',
           background: 'rgba(255,255,255,0.02)',
           border: '1px solid rgba(255,255,255,0.06)',
-          borderRadius: '12px',
+          borderRadius: RADIUS.lg,
           padding: '20px',
         }}>
           <div style={{
@@ -2760,7 +2760,7 @@ function NamesAtlas({ data, tr }) {
               minWidth: 0,
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               color: COLORS.offWhite,
               padding: '10px 14px',
               fontSize: '0.9rem',
@@ -2774,7 +2774,7 @@ function NamesAtlas({ data, tr }) {
             style={{
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               color: COLORS.offWhite,
               padding: '10px 14px',
               fontSize: '0.88rem',
@@ -2826,7 +2826,7 @@ function NamesAtlas({ data, tr }) {
                   <span style={{
                     background: `${COLORS.gold}33`,
                     color: COLORS.gold,
-                    borderRadius: '999px',
+                    borderRadius: RADIUS.pill,
                     padding: '1px 7px',
                     fontSize: '0.7rem',
                     fontWeight: 700,
@@ -2863,7 +2863,7 @@ function NamesAtlas({ data, tr }) {
               style={{
                 background: 'transparent',
                 border: '1px solid rgba(212,165,116,0.4)',
-                borderRadius: '8px',
+                borderRadius: RADIUS.md,
                 color: COLORS.gold,
                 padding: '10px 22px',
                 fontSize: '0.88rem',
@@ -3066,7 +3066,7 @@ function VerseChipGrid({ ayetler, tr }) {
               style={{
                 background: isExpanded ? `${COLORS.gold}22` : 'rgba(255,255,255,0.04)',
                 border: isExpanded ? `1px solid ${COLORS.gold}66` : '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '12px',
+                borderRadius: RADIUS.lg,
                 padding: '4px 10px',
                 fontSize: '0.78rem',
                 color: isExpanded ? COLORS.gold : COLORS.silver,
@@ -3093,7 +3093,7 @@ function VerseChipGrid({ ayetler, tr }) {
                 <div style={{
                   background: `linear-gradient(180deg, ${COLORS.gold}0c, rgba(255,255,255,0.03))`,
                   border: `1px solid ${COLORS.gold}33`,
-                  borderRadius: '12px',
+                  borderRadius: RADIUS.lg,
                   padding: '18px 22px',
                 }}>
                   <p
@@ -3233,7 +3233,7 @@ function NameDetail({ item, tr, isAllah }) {
         <div style={{
           background: 'rgba(255,255,255,0.04)',
           border: '1px solid rgba(255,255,255,0.06)',
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           padding: '14px 18px',
           margin: '0 0 20px',
         }}>
@@ -3256,7 +3256,7 @@ function NameDetail({ item, tr, isAllah }) {
         <div style={{
           background: 'rgba(212,165,116,0.08)',
           border: `1px solid ${COLORS.gold}33`,
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           padding: '16px 20px',
           marginBottom: '20px',
         }}>
@@ -3694,7 +3694,7 @@ function Methodology({ data, tr }) {
                 style={{
                   background: 'transparent',
                   border: `1px solid ${COLORS.softGoldAlpha40 || 'rgba(212,165,116,0.4)'}`,
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   color: COLORS.gold,
                   padding: '8px 16px',
                   fontSize: '0.85rem',
@@ -3710,7 +3710,7 @@ function Methodology({ data, tr }) {
                 style={{
                   background: 'transparent',
                   border: `1px solid ${COLORS.softGoldAlpha40 || 'rgba(212,165,116,0.4)'}`,
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   color: COLORS.gold,
                   padding: '8px 16px',
                   fontSize: '0.85rem',

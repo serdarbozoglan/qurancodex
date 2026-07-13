@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import HiddenArchitecture from '../sections/HiddenArchitecture';
 import RingExtensions from './RingExtensions';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -116,6 +118,27 @@ export default function HalkaKompozisyon({ onClose }) {
 
       {/* Genişletilmiş: Fatiha SVG halka + 4 ek örnek + Cuypers/Farrin */}
       <RingExtensions language={language} isMobile={isMobile} />
+
+      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 56px', maxWidth: '1200px', margin: '0 auto' }}>
+        <SourcesCitation
+          language={language} isMobile={isMobile}
+          sources={[
+            { author: 'el-Bikâî',        workTr: "Nazmü'd-Dürer fî Tenâsübi'l-Âyi ve's-Süver", workEn: "Naẓm al-Durar fī Tanāsub al-Āy wa al-Suwar", period: '1406–1480 (Şâm)',    noteTr: 'Klasik münâsebât + sûre-içi tenâsüb — halka/simetri okumasının klasik zirvesi.', noteEn: 'Classical munāsabāt + intra-sura tanāsub — the classical peak of ring/symmetry reading.' },
+            { author: 'es-Suyûtî',       workTr: "Tenâsuku'd-Dürer fî Tenâsübi's-Süver",       workEn: "Tanāsuq al-Durar fī Tanāsub al-Suwar",       period: '1445–1505 (Kahire)', noteTr: "Sûreler arası ve içi tenâsüb üzerine özel monografi.",                            noteEn: 'A dedicated monograph on inter- and intra-sura tanāsub.' },
+            { author: 'er-Râzî',         workTr: "Mefâtîhu'l-Ğayb",                            workEn: 'Mafātīḥ al-Ghayb',                            period: '1149–1209 (Rey)',    noteTr: 'Klasik tefsirde tenâsübün ilk sistemli işleyicilerinden — halka yaklaşımının erken izleri.', noteEn: 'One of the earliest systematic classical treatments of tanāsub — early traces of the ring approach.' },
+            { author: 'Raymond Farrin',  workTr: 'Structure and Qur\'anic Interpretation',      workEn: "Structure and Qur'anic Interpretation",      period: '2014 (Kuveyt)',      noteTr: 'Halka kompozisyonun çağdaş metodolojik referansı — Fâtiha ve Bakara üzerine analiz.',        noteEn: 'The contemporary methodological reference for ring composition — analysis of al-Fātiḥa and al-Baqara.' },
+          ]}
+        />
+
+        <CrossToolCTA
+          language={language} isMobile={isMobile}
+          links={[
+            { href: `/${language}/atlas/munasebat`, titleTr: 'Münasebât Atlası', titleEn: 'Atlas of Surah Coherence', descTr: 'Sûreler arası bağ — halka kompozisyonunun makro karşılığı.', descEn: 'Inter-surah coherence — the macro counterpart of ring composition.' },
+            { href: `/${language}/arac/tekrar-anatomi`, titleTr: 'Tekrar Anatomisi', titleEn: 'Anatomy of Repetition', descTr: 'İltifât, refren, çekirdek kelime — halkanın ritmik izleri.', descEn: 'Iltifāt, refrain, kernel word — the rhythmic traces of the ring.' },
+            { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '14 açılış harfi — sûre mimarîsinin dilsel imzası.', descEn: '14 opening letters — the linguistic signature of surah architecture.' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

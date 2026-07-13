@@ -7,6 +7,8 @@
 import { useEffect, useState } from 'react';
 import ZeroRedundancy from '../sections/ZeroRedundancy';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -112,6 +114,27 @@ export default function TekrarAnatomi({ onClose }) {
 
       {/* Anasayfa ZeroRedundancy section AYNEN */}
       <ZeroRedundancy />
+
+      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 56px', maxWidth: '1200px', margin: '0 auto' }}>
+        <SourcesCitation
+          language={language} isMobile={isMobile}
+          sources={[
+            { author: 'ez-Zerkeşî',   workTr: "el-Burhân fî Ulûmi'l-Kur'ân",   workEn: "al-Burhān fī ʿUlūm al-Qur'ān", period: '1344–1392 (Kahire)',  noteTr: 'Kur\'ân ilimlerinin klasik özeti — iltifât ve tekrarın belağî çerçevesi.',                   noteEn: "Classical summary of Qur'anic sciences — the rhetorical frame of iltifāt and repetition." },
+            { author: 'es-Suyûtî',    workTr: "el-İtkân fî Ulûmi'l-Kur'ân",    workEn: "al-Itqān fī ʿUlūm al-Qur'ān",  period: '1445–1505 (Kahire)',    noteTr: 'Zerkeşî\'nin geliştirilmiş halefi — tekrarın türleri (tekrîr, iltifât, tavdih) sistemli katalog.', noteEn: "Zarkashī's developed successor — a systematic catalogue of repetition types (takrīr, iltifāt, tawḍīḥ)." },
+            { author: 'ez-Zamahşerî', workTr: 'el-Keşşâf',                      workEn: 'al-Kashshāf',                  period: '1075–1144 (Hârizm)',     noteTr: 'Belağî tefsirin zirvesi — iltifâtın klasik örneklerinin analizi.',                            noteEn: 'The pinnacle of rhetorical exegesis — analysis of classical examples of iltifāt.' },
+            { author: 'er-Râzî',      workTr: "Mefâtîhu'l-Ğayb",                workEn: 'Mafātīḥ al-Ghayb',             period: '1149–1209 (Rey)',        noteTr: 'Rahmân sûresindeki refrenin (31 kez) klasik yorumu — vurgu ve hitap anlamları.',              noteEn: 'Classical commentary on the refrain in Sūrat al-Raḥmān (31 times) — emphasis and address readings.' },
+          ]}
+        />
+
+        <CrossToolCTA
+          language={language} isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Refrenin geometrik karşılığı — sûre-içi ayna simetrisi.', descEn: 'The geometric counterpart of refrain — intra-surah mirror symmetry.' },
+            { href: `/${language}/arac/kuran-retorigi`, titleTr: "Kur'ân'ın Belağatı", titleEn: "Rhetoric of the Qur'an", descTr: 'İltifât ve tekrar — belağatın canlı dokusu.', descEn: 'Iltifāt and repetition — the living tissue of Qur\'anic eloquence.' },
+            { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '29 sûrede tekrar eden 14 harf — tekrarın dilsel çekirdeği.', descEn: '14 letters recurring in 29 suras — the linguistic kernel of repetition.' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

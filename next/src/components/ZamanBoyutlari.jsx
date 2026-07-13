@@ -1005,7 +1005,7 @@ export default function ZamanBoyutlari({ onClose }) {
               {/* Arabic verse */}
               <div style={{
                 background: 'rgba(0,0,0,0.2)',
-                borderRadius: '8px',
+                borderRadius: RADIUS.md,
                 padding: '10px 14px',
               }}>
                 <p style={{
@@ -1162,7 +1162,7 @@ export default function ZamanBoyutlari({ onClose }) {
                 <div style={{
                   background: 'rgba(0,0,0,0.25)',
                   border: `1px solid ${COLORS.glassBorder}`,
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   padding: '14px 16px',
                   marginBottom: '12px',
                 }}>
@@ -1220,7 +1220,7 @@ export default function ZamanBoyutlari({ onClose }) {
               background: 'rgba(0,0,0,0.3)',
               border: `1px solid ${COLORS.gold}44`,
               borderLeft: `3px solid ${COLORS.gold}`,
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               padding: '14px 18px',
             }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', margin: '0 0 8px', lineHeight: 1.9 }} dir="rtl" lang="ar">

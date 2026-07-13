@@ -230,7 +230,7 @@ export default function KuranYeminleri({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.7,
+            opacity: 0.72,
             marginBottom: '14px',
           }}>
             {language === 'tr' ? `AKSÂMÜ'L-KUR'ÂN · ${meta.totalOaths} BİLEŞİK YEMİN` : `AQSĀM AL-QUR'ĀN · ${meta.totalOaths} COMPOUND OATHS`}
@@ -319,7 +319,7 @@ export default function KuranYeminleri({ onClose }) {
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderLeft: `2px solid ${COLORS.goldAlpha45}`,
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               display: 'flex',
               gap: '10px',
               alignItems: 'flex-start',
@@ -497,11 +497,11 @@ export default function KuranYeminleri({ onClose }) {
             gap: '8px',
           }}>
             <a href="https://corpus.quran.com" target="_blank" rel="noopener noreferrer"
-              style={{ flex: 1, textAlign: 'center', padding: '8px', background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '8px', color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, textDecoration: 'none' }}>
+              style={{ flex: 1, textAlign: 'center', padding: '8px', background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, textDecoration: 'none' }}>
               Corpus Quran
             </a>
             <a href="https://tanzil.net" target="_blank" rel="noopener noreferrer"
-              style={{ flex: 1, textAlign: 'center', padding: '8px', background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: '8px', color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, textDecoration: 'none' }}>
+              style={{ flex: 1, textAlign: 'center', padding: '8px', background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body, textDecoration: 'none' }}>
               Tanzil.net
             </a>
           </div>
@@ -839,11 +839,11 @@ function OathCard({ item, accent, language, compact = false }) {
 
         {!compact && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginTop: '8px' }}>
-            <span style={{ padding: '2px 8px', background: `${accent}18`, border: `1px solid ${accent}30`, borderRadius: '12px', color: accent, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+            <span style={{ padding: '2px 8px', background: `${accent}18`, border: `1px solid ${accent}30`, borderRadius: RADIUS.lg, color: accent, fontSize: '0.72rem', fontFamily: FONTS.body }}>
               {language === 'tr' ? item.subjectTr : item.subjectEn}
             </span>
             {isCompound && (
-              <span style={{ padding: '2px 8px', background: 'rgba(167,139,250,0.12)', border: `1px solid rgba(167,139,250,0.35)`, borderRadius: '12px', color: '#a78bfa', fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+              <span style={{ padding: '2px 8px', background: 'rgba(167,139,250,0.12)', border: `1px solid rgba(167,139,250,0.35)`, borderRadius: RADIUS.lg, color: '#a78bfa', fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                 {language === 'tr' ? `🔗 Bileşik · ${item.compoundParts.length} öğe` : `🔗 Compound · ${item.compoundParts.length} parts`}
               </span>
             )}
@@ -916,7 +916,7 @@ function OathCard({ item, accent, language, compact = false }) {
                   background: 'rgba(255,255,255,0.025)',
                   border: `1px solid ${COLORS.glassBorder}`,
                   borderLeft: `2px solid ${accent}`,
-                  borderRadius: '8px',
+                  borderRadius: RADIUS.md,
                   padding: '10px 12px',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
@@ -1102,7 +1102,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
                         background: 'transparent',
                         border: `1px solid ${COLORS.glassBorder}`,
                         borderLeft: `2px solid ${COLORS.gold}`,
-                        borderRadius: '8px',
+                        borderRadius: RADIUS.md,
                         display: 'flex', flexDirection: 'column', gap: '6px',
                       }}>
                         {(ex.linkIntroTr || ex.linkIntroEn) && (
@@ -1279,7 +1279,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
           padding: isMobile ? '14px 16px' : '18px 22px',
           background: 'linear-gradient(90deg, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.02) 100%)',
           border: `1px solid ${COLORS.goldAlpha25}`,
-          borderRadius: '12px',
+          borderRadius: RADIUS.lg,
           marginBottom: '28px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap' }}>
@@ -1451,7 +1451,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
           <div key={i} style={{
             background: 'rgba(255,255,255,0.025)',
             border: `1px solid ${COLORS.glassBorder}`,
-            borderRadius: '12px',
+            borderRadius: RADIUS.lg,
             overflow: 'hidden',
             position: 'relative',
           }}>
@@ -1524,7 +1524,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               <div key={pattern.id || pi} style={{
                 background: 'rgba(255,255,255,0.025)',
                 border: `1px solid ${COLORS.glassBorder}`,
-                borderRadius: '12px',
+                borderRadius: RADIUS.lg,
                 overflow: 'hidden',
               }}>
                 <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
@@ -1627,7 +1627,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                     background: 'rgba(212,165,116,0.05)',
                     border: `1px solid ${COLORS.goldAlpha25}`,
                     borderLeft: `2px solid ${COLORS.gold}`,
-                    borderRadius: '8px',
+                    borderRadius: RADIUS.md,
                   }}>
                     <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? 'Klasik Kaynak' : 'Classical Source'}
@@ -1702,7 +1702,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             <div key={i} style={{
               background: 'rgba(255,255,255,0.025)',
               border: `1px solid ${COLORS.glassBorder}`,
-              borderRadius: '12px',
+              borderRadius: RADIUS.lg,
               overflow: 'hidden',
             }}>
               <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
@@ -1716,7 +1716,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                   {ex.ar}
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-                  <div style={{ background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: '8px', padding: '12px 14px' }}>
+                  <div style={{ background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
                     <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Bihi · Yemin Objesi" : "Muqsam Bihi · The Oath-Object"}
                     </div>
@@ -1724,7 +1724,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                       {language === 'tr' ? ex.objectTr : ex.objectEn}
                     </p>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: '8px', padding: '12px 14px' }}>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
                     <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Aleyhi · Yemin Cevabı" : "Muqsam ʿAlayhi · The Oath-Subject"}
                     </div>
@@ -2120,7 +2120,7 @@ function TabKaynaklar({ sources, language, isMobile }) {
       <div style={{
         background: 'rgba(148,163,184,0.06)',
         border: `1px solid rgba(148,163,184,0.14)`,
-        borderRadius: '8px',
+        borderRadius: RADIUS.md,
         padding: '14px 16px',
         display: 'flex',
         gap: '10px',
@@ -2155,7 +2155,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7,
+        color: COLORS.gold, opacity: 0.72,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -2292,7 +2292,7 @@ function VakiaSpotlight({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.75,
+          color: COLORS.gold, opacity: 0.72,
           marginBottom: '14px',
         }}>
           {tr ? "Kur'an Kendi Yeminini Tefsir Ediyor" : "The Quran Interprets Its Own Oath"}
@@ -2424,7 +2424,7 @@ function YeminCevapReveal({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.7,
+          color: COLORS.gold, opacity: 0.72,
           marginBottom: '12px',
         }}>
           {tr ? 'Yeminin Ardındaki Mesaj' : 'The Message Behind the Oath'}

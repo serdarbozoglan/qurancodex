@@ -1622,7 +1622,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           <div style={{
             color: COLORS.gold, fontSize: '0.72rem',
             fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase',
-            marginBottom: '16px', opacity: 0.7,
+            marginBottom: '16px', opacity: 0.72,
           }}>
             {tr('Anlatı Haritası', 'Narrative Map')}
           </div>

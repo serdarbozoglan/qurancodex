@@ -3,9 +3,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 
 const SURAH_NAMES_EN = [
@@ -105,7 +106,7 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               padding: '8px 14px',
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               border: `1px solid ${active ? COLORS.goldAlpha45 : 'transparent'}`,
               background: active ? COLORS.goldAlpha15 : 'transparent',
               color: active ? COLORS.gold : COLORS.silver,
@@ -195,7 +196,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
             color: strengthColor,
             background: `${strengthColor}18`,
             padding: '2px 8px',
-            borderRadius: '8px',
+            borderRadius: RADIUS.md,
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
@@ -257,7 +258,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
           style={{
             marginTop: '12px',
             padding: '6px 12px',
-            borderRadius: '8px',
+            borderRadius: RADIUS.md,
             background: 'transparent',
             border: `1px solid ${COLORS.goldAlpha25}`,
             color: COLORS.gold,
@@ -764,6 +765,15 @@ export default function MunasebatAtlasi({ onClose }) {
             <ScholarList scholars={data.scholars} language={language} isMobile={isMobile} />
           </>
         )}
+
+        <CrossToolCTA
+          language={language} isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Sûre-içi ayna simetrisi — münâsebâtın mikro karşılığı.', descEn: 'Intra-surah mirror symmetry — the micro counterpart of munāsabāt.' },
+            { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '29 sûrede paylaşılan 14 harflik açılış imzası — münâsebâtın dilsel izleri.', descEn: '14 opening letters shared by 29 suras — linguistic traces of munāsabāt.' },
+            { href: `/${language}/atlas/ilk-son-kelimeler`, titleTr: 'İlk-Son Kelimeler', titleEn: 'First-Last Words', descTr: 'Sûrelerin açılış-kapanış mimarîsi — bağın kelime düzeyinde tezahürü.', descEn: 'The opening-closing architecture of suras — the connection at the word level.' },
+          ]}
+        />
       </div>
     </div>
   );
@@ -772,7 +782,7 @@ export default function MunasebatAtlasi({ onClose }) {
 function filterChipStyle(active, color) {
   return {
     padding: '5px 11px',
-    borderRadius: '12px',
+    borderRadius: RADIUS.lg,
     background: active ? `${color}22` : 'transparent',
     border: `1px solid ${active ? color : COLORS.glassBorder}`,
     color: active ? color : COLORS.silver,

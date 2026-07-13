@@ -7,6 +7,7 @@ import ToolHeader from './ToolHeader';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ScientificSigns from '../sections/ScientificSigns';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -280,7 +281,7 @@ function ContextBadge({ ctx, colorMap, language }) {
           position: 'absolute', bottom: '22px', left: 0,
           background: 'rgba(8,10,26,0.97)',
           border: `1px solid ${color}40`,
-          borderRadius: '8px',
+          borderRadius: RADIUS.md,
           padding: '7px 10px',
           color: COLORS.silver,
           fontSize: '0.72rem',
@@ -461,7 +462,7 @@ function FeaturedCard({ item, language }) {
         lineHeight: 1.85,
         textAlign: 'right',
         background: 'rgba(0,0,0,0.20)',
-        borderRadius: '8px',
+        borderRadius: RADIUS.md,
         padding: '12px 16px',
         borderRight: `3px solid ${COLORS.gold}`,
         wordBreak: 'keep-all',
@@ -703,19 +704,19 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
           <span style={{
             padding: '3px 10px',
             background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
-            borderRadius: '999px', color: PURPLE_LIGHT,
+            borderRadius: RADIUS.pill, color: PURPLE_LIGHT,
             fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
           }}>{hapaxAnimals.length} {language === 'tr' ? 'hayvan' : 'animals'}</span>
           <span style={{
             padding: '3px 10px',
             background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
-            borderRadius: '999px', color: PURPLE_LIGHT,
+            borderRadius: RADIUS.pill, color: PURPLE_LIGHT,
             fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
           }}>{hapaxPlants.length} {language === 'tr' ? 'bitki' : 'plants'}</span>
           <span style={{
             padding: '3px 10px',
             background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
-            borderRadius: '999px', color: PURPLE_LIGHT,
+            borderRadius: RADIUS.pill, color: PURPLE_LIGHT,
             fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em',
           }}>{all.length} {language === 'tr' ? 'toplam' : 'total'}</span>
         </div>
@@ -729,7 +730,7 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
               padding: '4px 10px',
               background: 'rgba(255,255,255,0.04)',
               border: `1px solid ${PURPLE}44`,
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               color: PURPLE_LIGHT,
               fontSize: '0.8rem', fontWeight: 700,
               textDecoration: 'none', letterSpacing: '0.06em',
@@ -780,7 +781,7 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
                   <span style={{
                     padding: '2px 8px',
                     background: `${PURPLE}22`, border: `1px solid ${PURPLE}55`,
-                    borderRadius: '999px', color: PURPLE_LIGHT,
+                    borderRadius: RADIUS.pill, color: PURPLE_LIGHT,
                     fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em',
                     textTransform: 'uppercase',
                   }}>{item.kind === 'animal' ? (language === 'tr' ? 'Hayvan' : 'Animal') : (language === 'tr' ? 'Bitki' : 'Plant')}</span>
@@ -1133,7 +1134,7 @@ function TabBaglamAnalizi({ contexts, language }) {
               lineHeight: 1.6,
               padding: '10px 14px',
               background: COLORS.glassBg,
-              borderRadius: '8px',
+              borderRadius: RADIUS.md,
               borderRight: `3px solid ${ctx.color ?? COLORS.gold}`,
             }}>
               {ctx.arabic}
@@ -1353,7 +1354,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
         fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.7,
+        opacity: 0.72,
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants + counts.celestial}+ DELİL` : `COSMIC SIGNS · ${counts.animals + counts.plants + counts.celestial}+ PROOFS`}
@@ -1637,6 +1638,15 @@ export default function DogaAtlasi({ onClose }) {
           {activeTab === 5 && <TabBaglamAnalizi   contexts={contexts}                                     language={language} />}
           {activeTab === 6 && <TabTefsirNotlari   tefsirNotes={tefsirNotes} sources={sources}             language={language} />}
           {activeTab === 7 && <TabBilimselIsaretler />}
+
+          <CrossToolCTA
+            language={language} isMobile={isMobile}
+            links={[
+              { href: `/${language}/atlas/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: '16 âyet · 5 alan — Kur\'ân\'ın kevnî işaretlerinin klasik + modern okuması.', descEn: '16 verses · 5 domains — the Qur\'an\'s cosmic signs read classically and scientifically.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa — tabiat panelinin arkasındaki metafizik çerçeve.', descEn: 'Divine law — the metaphysical frame behind the nature panel.' },
+              { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Prophet Stories Atlas', descTr: 'Kıssaların doğa referansları — anlatı içinde kevnî işaret.', descEn: 'Nature references in prophet narratives — cosmic signs embedded in stories.' },
+            ]}
+          />
         </div>
       </div>
     </div>

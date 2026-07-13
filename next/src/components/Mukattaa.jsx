@@ -12,6 +12,8 @@
 
 import LinguisticDNA from '../sections/LinguisticDNA';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 import { useEffect, useState } from 'react';
@@ -143,6 +145,27 @@ export default function Mukattaa({ onClose }) {
 
       {/* Anasayfa LinguisticDNA section AYNEN — kısaltma yok, değişiklik yok */}
       <LinguisticDNA />
+
+      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 56px', maxWidth: '1200px', margin: '0 auto' }}>
+        <SourcesCitation
+          language={language} isMobile={isMobile}
+          sources={[
+            { author: 'es-Suyûtî',    workTr: "el-İtkân fî Ulûmi'l-Kur'ân",   workEn: "al-Itqān fī ʿUlūm al-Qur'ān", period: '1445–1505 (Kahire)',    noteTr: 'Kur\'ân ilimlerinin ansiklopedik özeti — mukattaʿâta özel bölüm ve klasik yorum katalogu.', noteEn: "Encyclopedic summary of Qur'anic sciences — a dedicated section on mukattaʿāt cataloguing classical readings." },
+            { author: 'er-Râzî',      workTr: "Mefâtîhu'l-Ğayb",              workEn: 'Mafātīḥ al-Ghayb',            period: '1149–1209 (Rey)',        noteTr: 'Mukattaa harfleri üzerine 20+ klasik görüşü sıralayan en kapsamlı klasik tefsir.',           noteEn: 'The most comprehensive classical commentary — enumerates 20+ scholarly opinions on mukattaʿāt letters.' },
+            { author: 'ez-Zamahşerî', workTr: 'el-Keşşâf',                    workEn: 'al-Kashshāf',                 period: '1075–1144 (Hârizm)',     noteTr: 'Muʿtezilî belağî okuma — mukattaʿâtın dilsel işaret olarak yorumu.',                          noteEn: 'Muʿtazilite rhetorical reading — interpreting mukattaʿāt as a linguistic sign.' },
+            { author: 'İbn Kesîr',    workTr: "Tefsîru'l-Kur'âni'l-Azîm",     workEn: "Tafsīr al-Qur'ān al-ʿAẓīm",   period: '1301–1373 (Dımaşk)',     noteTr: 'Selef görüşü — "Allah bilir" tavrı ve rivayet ağırlıklı yaklaşım.',                             noteEn: 'The salaf position — the "Allah knows best" stance and a riwāya-heavy approach.' },
+          ]}
+        />
+
+        <CrossToolCTA
+          language={language} isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Sûrelerin ayna simetrisi — Fatiha\'nın halka yapısı ve makro-örüntüler.', descEn: 'The mirror symmetry of suras — Fātiḥa\'s ring structure and macro-patterns.' },
+            { href: `/${language}/atlas/munasebat`, titleTr: 'Münasebât Atlası', titleEn: 'Atlas of Surah Coherence', descTr: 'Sûreler arası bağ — Razi geleneği ve mukattaa dizilişi.', descEn: 'Inter-surah coherence — the Razi tradition and mukattaʿāt sequence.' },
+            { href: `/${language}/arac/tekrar-anatomi`, titleTr: 'Tekrar Anatomisi', titleEn: 'Anatomy of Repetition', descTr: 'Kur\'ân\'ın tekrar mimarîsi — iltifât, refren, çekirdek kelime.', descEn: 'The Qur\'an\'s architecture of repetition — iltifāt, refrain, kernel word.' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

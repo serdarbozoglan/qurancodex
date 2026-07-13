@@ -517,7 +517,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7,
+        color: COLORS.gold, opacity: 0.72,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -742,7 +742,7 @@ function HeroSection({ meta, language, isMobile }) {
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
         fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.7,
+        opacity: 0.72,
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `TARİH & İNSAN · ${meta.totalMentioned} KAVİM` : `HISTORY & HUMAN · ${meta.totalMentioned} NATIONS`}
