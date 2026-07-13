@@ -937,7 +937,7 @@ export default function Navbar() {
                           background: 'rgba(201, 162, 39, 0.08)',
                           borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
                           borderTop: 'none', borderRight: 'none',
-                          borderLeft: '3px solid #c9a227',
+                          borderLeft: `3px solid ${COLORS.royalGold}`,
                           borderRadius: '8px 8px 0 0',
                           boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -947,7 +947,7 @@ export default function Navbar() {
                         onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
                       >
                         <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                          <span style={{ color: '#c9a227', flexShrink: 0 }}>
+                          <span style={{ color: COLORS.royalGold, flexShrink: 0 }}>
                             <FeaturedIbadetlerIcon size={20} />
                           </span>
                           <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
@@ -959,7 +959,7 @@ export default function Navbar() {
                             </span>
                           </span>
                         </span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                           <path d="M9 18l6-6-6-6" />
                         </svg>
                       </button>
@@ -1102,7 +1102,7 @@ export default function Navbar() {
                                 background: 'rgba(201, 162, 39, 0.08)',
                                 borderBottom: isLast ? '1px solid rgba(201, 162, 39, 0.15)' : '1px solid rgba(201, 162, 39, 0.10)',
                                 borderTop: 'none', borderRight: 'none',
-                                borderLeft: '3px solid #c9a227',
+                                borderLeft: `3px solid ${COLORS.royalGold}`,
                                 borderRadius: isFirst ? '8px 8px 0 0' : '0',
                                 boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                                 display: 'flex',
@@ -1115,7 +1115,7 @@ export default function Navbar() {
                               onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
                             >
                               <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <span style={{ color: '#c9a227', flexShrink: 0 }}>{ft.icon}</span>
+                                <span style={{ color: COLORS.royalGold, flexShrink: 0 }}>{ft.icon}</span>
                                 <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', textAlign: 'left' }}>
                                   <span style={{ color: '#e8e6e3', fontSize: '0.88rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                                     {language === 'tr' ? ft.labelTr : ft.labelEn}
@@ -1125,7 +1125,7 @@ export default function Navbar() {
                                   </span>
                                 </span>
                               </span>
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                                 <path d="M9 18l6-6-6-6" />
                               </svg>
                             </button>
@@ -1278,7 +1278,7 @@ export default function Navbar() {
                     const tefekkurCategories = [
                       { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikolojik, içsel ve pratik denemeler',   descEn: 'Psychology, inner life & practice' },
                       { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
-                      { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
+                      { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
                       { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
                       { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness',descTr: 'Epistemoloji ve metafizik',               descEn: 'Epistemology & metaphysics' },
                       { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
@@ -1301,7 +1301,7 @@ export default function Navbar() {
                             background: 'rgba(201, 162, 39, 0.08)',
                             borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
                             borderTop: 'none', borderRight: 'none',
-                            borderLeft: '3px solid #c9a227',
+                            borderLeft: `3px solid ${COLORS.royalGold}`,
                             borderRadius: '8px 8px 0 0',
                             boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -1311,7 +1311,7 @@ export default function Navbar() {
                           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
                         >
                           <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
+                            <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>
                               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                                 {/* Açık kitap — okuma + tefekkür */}
                                 <path d="M12 6 L4 5 L4 18 L12 19" />
@@ -1330,7 +1330,7 @@ export default function Navbar() {
                               </span>
                             </span>
                           </span>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                             <path d="M9 18l6-6-6-6" />
                           </svg>
                         </button>
@@ -1811,20 +1811,20 @@ export default function Navbar() {
                   padding: '12px 14px',
                   background: 'rgba(201, 162, 39, 0.08)',
                   border: '1px solid rgba(201, 162, 39, 0.20)',
-                  borderLeft: '3px solid #c9a227',
+                  borderLeft: `3px solid ${COLORS.royalGold}`,
                   borderRadius: '10px',
                   cursor: 'pointer',
                   WebkitTapHighlightColor: 'transparent',
                 }}
               >
-                <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
+                <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>{icon}</span>
                 <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
                   <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
                     {language === 'tr' ? titleTr : titleEn}
                   </span>
                   <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
                 </span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a227" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
@@ -1840,7 +1840,7 @@ export default function Navbar() {
             const tefekkurCategories = [
               { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikolojik, içsel ve pratik denemeler',    descEn: 'Psychology, inner life & practice' },
               { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
-              { id: 'sure-hermenotik', accent: '#c9a227', labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
+              { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
               { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },
               { id: 'idrak-suur',      accent: '#1D9E75', labelTr: 'İdrak & Şuur',        labelEn: 'Cognition & Consciousness', descTr: 'Epistemoloji ve metafizik',                descEn: 'Epistemology & metaphysics' },
               { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış', labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
@@ -1937,13 +1937,13 @@ export default function Navbar() {
                     width: '100%', padding: '12px 14px', marginTop: '10px',
                     background: 'rgba(201, 162, 39, 0.08)',
                     border: '1px solid rgba(201, 162, 39, 0.20)',
-                    borderLeft: '3px solid #c9a227',
+                    borderLeft: `3px solid ${COLORS.royalGold}`,
                     borderRadius: '10px',
                     cursor: 'pointer', textAlign: 'left',
                     WebkitTapHighlightColor: 'transparent',
                   }}
                 >
-                  <span style={{ color: '#c9a227', flexShrink: 0, display: 'inline-flex' }}>
+                  <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>
                     <FEATURED_EXPLORE_ITEM.icon size={18} />
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
