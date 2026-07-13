@@ -3,7 +3,7 @@
 > **Kaynak:** Bu dosya 2026-07-13 çalışma seansının sonunda yazıldı. Session içinde TaskCreate ile oluşturulan 11 task, memory notları ve visual audit raporunun konsolide görünümüdür. Session bittikten sonra da bu dosya `git` üzerinden görünürdür.
 >
 > **Son güncelleme:** 2026-07-13
-> **Konsolidasyon:** #157-#158 completed (visual audit + fixes), #159-#167 pending
+> **Konsolidasyon:** #157-#158, #167 completed. #159-#166 pending.
 
 ---
 
@@ -27,11 +27,9 @@
 | **#165** | LLM metadata enrichment (özet + tema tag per ayet) | 2-3 saat | Aynı dosya Faz 2c |
 | **#166** | 3-meal ensemble (Suat Y. + Diyanet + Elmalılı average) | 2 saat | `project_meal_ensemble.md` |
 
-### Sıra 3 — Paralel (Content erişim + yayıncı)
+### Sıra 3 — Paralel iş (opsiyonel)
 
-| # | İş | Efor | Not |
-|---|---|---|---|
-| **#167** | Işık Yayınları başvuru şablonu — Ali Ünal Meali lisansı | 30 dk | Yayıncı ve yazar-tarafı iki yaklaşım paralel |
+- **Ali Ünal Meali lisans başvurusu** — Işık Yayınları TR/EN + yazar-tarafı ricâ taslakları hazır: `tasks/outreach-isik-yayinlari-ali-unal.md`. İhtiyaç olduğunda kullanılır.
 
 ---
 
@@ -104,25 +102,6 @@ Detaylı plan: `~/.claude/projects/-Users-serdar-dev-.../memory/project_chunking
 - **#166 3-meal ensemble**: SY + Diyanet + Elmalılı average embedding. File size aynı (75 MB). Recall +15-20%. Chunking Phase 2 ile eş zamanlı yap. **2 saat.**
 
 **Karar notu:** LLM-based chunking (boundary detection) Kur'an için REDDEDİLDİ — ayet zaten ilahi tarafından çizilmiş semantik atomik birim. LLM sadece metadata enrichment için kullanılır.
-
----
-
-## Bölüm D — Paralel Proje (Task #167)
-
-**Işık Yayınları başvuru şablonu — Ali Ünal Meali lisansı**
-
-Ali Ünal'ın "Allah Kelamı Kur'an-ı Kerim ve Açıklamalı Meali" (Işık Yayınları, 2006) telifsiz erişilebilir değil. Public deploy için:
-
-1. **Yayıncı başvurusu** (Işık/Kaynak Kültür) — resmi lisans anlaşması
-2. **Yazar-tarafı ricâ** — Ali Ünal ile doğrudan (paralel)
-3. **Fallback**: Elmalılı tefsir + Suat Yıldırım meal (elimizde, legal) ile Faz 2 başlar; Ünal geldiğinde Faz 3'e eklenir
-
-Başvuru şablonunda:
-- Non-commercial semantic search projesi framing
-- Attribution + satın alma link teklifi
-- Vercel Analytics trafik verisi (risk küçüklüğü)
-
-30 dk hazırlık — user isteyince kalıp verilir.
 
 ---
 
