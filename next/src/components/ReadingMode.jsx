@@ -1736,7 +1736,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // ── Concierge deep-link: read ?ayah=N and jump to that verse.
   // Runs once per (surah, ?ayah) combination. Reuses existing activeVerse
   // machinery for page-jump + scrollIntoView; adds landedVerseId for the
-  // one-shot gold glow highlight.
+  // one-shot gold glow highlight. Forces bookMode=true so landing shows the
+  // Arabic mushaf page where the ayah lives (concierge semantics: "here is
+  // the verse on its physical Quran page").
   const deepLinkKeyRef = useRef('');
   useEffect(() => {
     if (!surahVerses.length) return;
@@ -1749,11 +1751,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const target = surahVerses.find(v => v.ayah === ayahNum);
     if (!target) return;
     deepLinkKeyRef.current = key;
+    if (!bookMode) setBookMode(true);
     setActiveVerse(target);
     setLandedVerseId(target.id);
     const t = setTimeout(() => setLandedVerseId(null), 4000);
     return () => clearTimeout(t);
-  }, [surahVerses, searchParams, selectedSurah]);
+  }, [surahVerses, searchParams, selectedSurah, bookMode]);
 
   const shareVerse = useCallback((verse) => {
     const arabic = cleanArabic(verse.arabic);
