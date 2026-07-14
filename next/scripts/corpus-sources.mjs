@@ -8,10 +8,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
 
-// ── Multi-meal (Faz 2a) — load once, module-level cache.
+// ── Multi-meal (Faz 2a) + Metadata enrichment (Faz 2b) — load once.
 const _srcDir = path.dirname(fileURLToPath(import.meta.url));
 const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
+const _metaPath = path.resolve(_srcDir, '..', 'public/verse-metadata.json');
 let MEALS_MULTI = null;
+let VERSE_META = null;
 try {
   if (fs.existsSync(_mealsPath)) {
     MEALS_MULTI = JSON.parse(fs.readFileSync(_mealsPath, 'utf8'));
@@ -20,7 +22,15 @@ try {
 } catch (err) {
   console.warn(`   ⚠  Failed to load meals-multi.json: ${err.message}`);
 }
-export { MEALS_MULTI };
+try {
+  if (fs.existsSync(_metaPath)) {
+    VERSE_META = JSON.parse(fs.readFileSync(_metaPath, 'utf8'));
+    console.log(`   ℹ  verse-metadata.json loaded (${Object.keys(VERSE_META).length} verses)`);
+  }
+} catch (err) {
+  console.warn(`   ⚠  Failed to load verse-metadata.json: ${err.message}`);
+}
+export { MEALS_MULTI, VERSE_META };
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -47,17 +57,29 @@ export const CONTENT_SOURCES = [
       const mealsTr = meals?.tr && Object.keys(meals.tr).length ? meals.tr : null;
       const mealsEn = meals?.en && Object.keys(meals.en).length ? meals.en : null;
 
+      // Metadata enrichment (Faz 2b): tema tag + kavram + özet.
+      // Her meal metnine ekstra bir "SEMANTIC HINT" suffix eklenir → embedding
+      // model kelimenin/kavramın çevresini öğrenir; Query'de "tevekkül" geçtiğinde
+      // özetinde "tevekkül" olmayan ama teması "tevekkül" olan ayete recall artar.
+      const meta = VERSE_META?.[key] || null;
+      const suffixTr = meta
+        ? ` [özet: ${meta.summary_tr}] [temalar: ${(meta.themes_tr || []).join(', ')}] [kavramlar: ${(meta.concepts || []).join(', ')}]`
+        : '';
+      const suffixEn = meta
+        ? ` [summary: ${meta.summary_en}] [themes: ${(meta.themes_en || []).join(', ')}] [concepts: ${(meta.concepts || []).join(', ')}]`
+        : '';
+
       // searchTextTrArr — multi-vector için 3 ayrı text (surah+ayah prefix + her meal).
       // Yoksa tek text (backward compat).
       let searchTextTrArr = null;
       let searchTextEnArr = null;
       if (mealsTr) {
         const prefix = `${v.surahName || ''} ${v.surah}:${v.ayah}.`;
-        searchTextTrArr = Object.values(mealsTr).map(m => `${prefix} ${m}`.trim()).filter(Boolean);
+        searchTextTrArr = Object.values(mealsTr).map(m => `${prefix} ${m}${suffixTr}`.trim()).filter(Boolean);
       }
       if (mealsEn) {
         const prefix = `${v.surahNameEn || ''} ${v.surah}:${v.ayah}.`;
-        searchTextEnArr = Object.values(mealsEn).map(m => `${prefix} ${m}`.trim()).filter(Boolean);
+        searchTextEnArr = Object.values(mealsEn).map(m => `${prefix} ${m}${suffixEn}`.trim()).filter(Boolean);
       }
 
       return {
@@ -71,8 +93,8 @@ export const CONTENT_SOURCES = [
         textEn: v.english || '',
         arabic: v.arabic || '',
         // Fallback searchText — build-embeddings.mjs bunları kullanır eğer *Arr yoksa.
-        searchTextTr: `${v.surahName || ''} ${v.surah}:${v.ayah}. ${v.turkish || ''}`,
-        searchTextEn: `${v.surahNameEn || ''} ${v.surah}:${v.ayah}. ${v.english || ''}`,
+        searchTextTr: `${v.surahName || ''} ${v.surah}:${v.ayah}. ${v.turkish || ''}${suffixTr}`,
+        searchTextEn: `${v.surahNameEn || ''} ${v.surah}:${v.ayah}. ${v.english || ''}${suffixEn}`,
         // Multi-vector inputs (undefined ise build-embeddings single embed yapar).
         ...(searchTextTrArr ? { searchTextTrArr } : {}),
         ...(searchTextEnArr ? { searchTextEnArr } : {}),
