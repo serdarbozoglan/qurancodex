@@ -145,8 +145,10 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
     perType: {
       verse: 3,
       article: 2,
+      'article-section': 2,      // Faz 2c-D: makale section child'ları
       tool: 2,
       'atlas-kissa': 1,
+      'atlas-kissa-scene': 2,    // Faz 2c-B: peygamber kıssası sahneleri
       'atlas-kavim': 1,
       'atlas-esma': 1,
       'atlas-dua': 1,

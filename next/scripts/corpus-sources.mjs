@@ -105,17 +105,17 @@ export const CONTENT_SOURCES = [
     },
   },
 
-  // ─── Tefekkür yazıları — 33 makale
-  // Body extraction: article.sections içindeki text alanlarını birleştir.
-  // Toplam text daha zengin → semantic search recall'u artar.
+  // ─── Tefekkür yazıları — 33 makale (parent chunks)
+  // Faz 2c-D: blocks-based extraction. Mevcut extractSectionsText legacy
+  // format için, blocks format için ise flat paragraph extraction eklendi.
   {
     type: 'article',
     dir: 'public/tefekkur/',
     pattern: /\.json$/,
     exclude: ['_index.json'],
     buildItem: (article) => {
-      // Extract text from article body sections (varies by template)
-      const extractSectionsText = (lang) => {
+      // Legacy: sections/content array (eski format)
+      const extractLegacySections = (lang) => {
         const parts = [];
         const sections = article.sections || article.content || [];
         for (const s of (Array.isArray(sections) ? sections : [])) {
@@ -125,7 +125,6 @@ export const CONTENT_SOURCES = [
           if (s[`body${lang === 'tr' ? 'Tr' : 'En'}`]) parts.push(s[`body${lang === 'tr' ? 'Tr' : 'En'}`]);
           if (s[`content${lang === 'tr' ? 'Tr' : 'En'}`]) parts.push(s[`content${lang === 'tr' ? 'Tr' : 'En'}`]);
           if (s[`summary${lang === 'tr' ? 'Tr' : 'En'}`]) parts.push(s[`summary${lang === 'tr' ? 'Tr' : 'En'}`]);
-          // Nested paragraphs
           if (Array.isArray(s.paragraphs)) {
             for (const p of s.paragraphs) {
               if (typeof p === 'string') parts.push(p);
@@ -133,11 +132,32 @@ export const CONTENT_SOURCES = [
             }
           }
         }
-        return parts.join(' ').slice(0, 3000); // cap at ~3000 chars per lang (roughly 750 tokens)
+        return parts.join(' ');
       };
 
-      const bodyTr = extractSectionsText('tr');
-      const bodyEn = extractSectionsText('en');
+      // Faz 2c-D: New blocks-based extraction — flat block list ile çalışır.
+      // Block types: paragraph, section, pullQuote, criticalNote, verseInline
+      const extractBlocksText = (lang) => {
+        const blocks = article.blocks || [];
+        const key = lang === 'tr' ? 'tr' : 'en';
+        const titleKey = lang === 'tr' ? 'titleTr' : 'titleEn';
+        const parts = [];
+        for (const b of blocks) {
+          const t = b.type;
+          if (t === 'paragraph' || t === 'pullQuote' || t === 'criticalNote') {
+            if (b[key]) parts.push(b[key]);
+          } else if (t === 'section') {
+            if (b[titleKey]) parts.push(b[titleKey]);
+          } else if (t === 'verseInline') {
+            // Ayet gövdesi ayrıca verse chunk'ta var; kısa özet varsa ekle.
+            if (b[key]) parts.push(b[key]);
+          }
+        }
+        return parts.join(' ');
+      };
+
+      const bodyTr = (extractLegacySections('tr') + ' ' + extractBlocksText('tr')).trim().slice(0, 5000);
+      const bodyEn = (extractLegacySections('en') + ' ' + extractBlocksText('en')).trim().slice(0, 5000);
 
       return {
         id: `article:${article.slug}`,
@@ -149,11 +169,93 @@ export const CONTENT_SOURCES = [
         tldrTr: article.tldrTr || '',
         tldrEn: article.tldrEn || '',
         readingMinutes: article.readingMinutes || null,
-        // Search text: başlık + tldr + body sections + keywords
         searchTextTr: `${article.titleTr || ''}. ${article.tldrTr || ''} ${bodyTr}`.trim(),
         searchTextEn: `${article.titleEn || ''}. ${article.tldrEn || ''} ${bodyEn}`.trim(),
       };
     },
+  },
+
+  // ─── Article Sections — Faz 2c-D: section-based child chunks
+  // Sadece uzun makaleler (>800 kelime) için section chunk'ları üretilir.
+  // Kısa makaleler parent yeterli.
+  {
+    type: 'article-section',
+    dir: 'public/tefekkur/',
+    pattern: /\.json$/,
+    exclude: ['_index.json'],
+    extract: (article) => {
+      const blocks = article.blocks || [];
+      // Word count gate: sadece uzun makaleler section'lara bölünür.
+      let wc = 0;
+      for (const b of blocks) {
+        if (b.type === 'paragraph' || b.type === 'pullQuote' || b.type === 'criticalNote') {
+          wc += (b.tr || '').split(/\s+/).length;
+        }
+      }
+      if (wc < 800) return []; // parent chunk yeterli
+
+      // Group blocks by section header. Blocks before first section = intro chunk.
+      const groups = [];
+      let current = { section: null, blocks: [] };
+      for (const b of blocks) {
+        if (b.type === 'section') {
+          if (current.blocks.length > 0) groups.push(current);
+          current = { section: b, blocks: [] };
+        } else {
+          current.blocks.push(b);
+        }
+      }
+      if (current.blocks.length > 0) groups.push(current);
+
+      // Build one item per group (intro group has section=null).
+      const items = [];
+      for (let i = 0; i < groups.length; i++) {
+        const g = groups[i];
+        const sectionId = g.section?.id || `intro-${i}`;
+        const sectionTitleTr = g.section?.titleTr || (i === 0 ? 'Giriş' : `Bölüm ${i}`);
+        const sectionTitleEn = g.section?.titleEn || (i === 0 ? 'Introduction' : `Section ${i}`);
+        // Body: paragraph + pullQuote + criticalNote text (skip verseInline — verse chunk'ta var)
+        const buildBody = (lang) => {
+          const key = lang;
+          const parts = [];
+          for (const b of g.blocks) {
+            if (b.type === 'paragraph' || b.type === 'pullQuote' || b.type === 'criticalNote') {
+              if (b[key]) parts.push(b[key]);
+            }
+          }
+          return parts.join(' ').slice(0, 3000);
+        };
+        const bodyTr = buildBody('tr');
+        const bodyEn = buildBody('en');
+        // Skip nearly-empty groups
+        if (bodyTr.length < 100 && bodyEn.length < 100) continue;
+        items.push({
+          _articleSlug: article.slug,
+          _articleTitleTr: article.titleTr,
+          _articleTitleEn: article.titleEn,
+          _articleCategory: article.category,
+          sectionId,
+          sectionTitleTr,
+          sectionTitleEn,
+          bodyTr,
+          bodyEn,
+        });
+      }
+      return items;
+    },
+    buildItem: (s) => ({
+      id: `article-section:${s._articleSlug}#${s.sectionId}`,
+      type: 'article-section',
+      slug: s._articleSlug,
+      articleTitleTr: s._articleTitleTr,
+      articleTitleEn: s._articleTitleEn,
+      sectionId: s.sectionId,
+      sectionTitleTr: s.sectionTitleTr,
+      sectionTitleEn: s.sectionTitleEn,
+      category: s._articleCategory,
+      searchTextTr: `${s._articleTitleTr || ''} — ${s.sectionTitleTr || ''}. ${s.bodyTr || ''}`.slice(0, 4000).trim(),
+      searchTextEn: `${s._articleTitleEn || ''} — ${s.sectionTitleEn || ''}. ${s.bodyEn || ''}`.slice(0, 4000).trim(),
+    }),
   },
 
   // ─── Kavim Atlas — 16 kavim
@@ -178,16 +280,26 @@ export const CONTENT_SOURCES = [
     }),
   },
 
-  // ─── Kıssa Atlas — Peygamber kıssaları (4 major prophets)
+  // ─── Kıssa Atlas — Peygamber kıssaları (4 major prophets, parent chunks)
+  // Faz 2c-B: parent chunk enriched — tüm scene descTr'ları ile "tam kıssa" olarak
+  //   embed edilir (kısa özet değil). Recall'un tam narrative üzerinden çalışması için.
   {
     type: 'atlas-kissa',
     file: 'public/kissa-atlas.json',
     extract: (data) => data.prophets || [],
     buildItem: (item) => {
-      const scenesTextTr = (item.scenes || []).slice(0, 5).map(s => s.titleTr || s.summaryTr || '').filter(Boolean).join('. ');
-      const scenesTextEn = (item.scenes || []).slice(0, 5).map(s => s.titleEn || s.summaryEn || '').filter(Boolean).join('. ');
-      const firstSceneTr = (item.scenes || [])[0]?.summaryTr || (item.scenes || [])[0]?.titleTr || '';
-      const firstSceneEn = (item.scenes || [])[0]?.summaryEn || (item.scenes || [])[0]?.titleEn || '';
+      // Full narrative: TÜM scene descTr birleştir (parent = full story chunk).
+      const scenesFullTr = (item.scenes || [])
+        .map(s => `${s.titleTr || ''}: ${s.descTr || ''}`.trim())
+        .filter(x => x !== ':')
+        .join(' — ');
+      const scenesFullEn = (item.scenes || [])
+        .map(s => `${s.titleEn || ''}: ${s.descEn || ''}`.trim())
+        .filter(x => x !== ':')
+        .join(' — ');
+      // Card display: kısa özet (ilk scene) — UI'da değişmez.
+      const firstSceneTr = (item.scenes || [])[0]?.descTr || (item.scenes || [])[0]?.titleTr || '';
+      const firstSceneEn = (item.scenes || [])[0]?.descEn || (item.scenes || [])[0]?.titleEn || '';
       return {
         id: `atlas-kissa:${item.id}`,
         type: 'atlas-kissa',
@@ -197,8 +309,45 @@ export const CONTENT_SOURCES = [
         arabic: item.nameAr || '',
         descTr: firstSceneTr ? `${item.surahCount || 0} sûrede: ${firstSceneTr}`.slice(0, 160) : '',
         descEn: firstSceneEn ? `In ${item.surahCount || 0} suras: ${firstSceneEn}`.slice(0, 160) : '',
-        searchTextTr: `${item.nameTr || ''} kıssası (${item.nameAr || ''}). ${item.surahCount || 0} sûrede geçer. Sahneler: ${scenesTextTr}`,
-        searchTextEn: `Story of ${item.nameEn || ''} (${item.nameAr || ''}). Appears in ${item.surahCount || 0} suras. Scenes: ${scenesTextEn}`,
+        // Enriched searchText — tam kıssa tek chunk (Faz 2c-B parent).
+        searchTextTr: `${item.nameTr || ''} kıssası (${item.nameAr || ''}). ${item.surahCount || 0} sûrede geçer. ${scenesFullTr}`.slice(0, 4000),
+        searchTextEn: `Story of ${item.nameEn || ''} (${item.nameAr || ''}). Appears in ${item.surahCount || 0} suras. ${scenesFullEn}`.slice(0, 4000),
+      };
+    },
+  },
+
+  // ─── Kıssa Scenes — Faz 2c-B: her scene ayrı chunk (~68 total)
+  // Spesifik query'ler için ("Musa'nın Firavun'la karşılaşması") hedefli match.
+  {
+    type: 'atlas-kissa-scene',
+    file: 'public/kissa-atlas.json',
+    extract: (data) => {
+      const scenes = [];
+      for (const prophet of (data.prophets || [])) {
+        for (const scene of (prophet.scenes || [])) {
+          scenes.push({ ...scene, _prophet: prophet });
+        }
+      }
+      return scenes;
+    },
+    buildItem: (scene) => {
+      const p = scene._prophet;
+      const surahsList = Array.isArray(scene.surahs) ? scene.surahs.join(', ') : '';
+      return {
+        id: `atlas-kissa-scene:${scene.id}`,
+        type: 'atlas-kissa-scene',
+        subId: scene.id,
+        prophetId: p.id,
+        prophetNameTr: p.nameTr,
+        prophetNameEn: p.nameEn,
+        order: scene.order,
+        verseRef: scene.verseRef || '',
+        titleTr: scene.titleTr || '',
+        titleEn: scene.titleEn || '',
+        descTr: (scene.descTr || '').slice(0, 200),
+        descEn: (scene.descEn || '').slice(0, 200),
+        searchTextTr: `${p.nameTr} kıssası, sahne ${scene.order || ''}: ${scene.titleTr || ''}. ${scene.descTr || ''} Geçtiği yerler: ${surahsList}. Referans: ${scene.verseRef || ''}.`,
+        searchTextEn: `Story of ${p.nameEn}, scene ${scene.order || ''}: ${scene.titleEn || ''}. ${scene.descEn || ''} Referenced in surahs: ${surahsList}. Verse ref: ${scene.verseRef || ''}.`,
       };
     },
   },

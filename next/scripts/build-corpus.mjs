@@ -52,6 +52,8 @@ function loadFileSource(source) {
 }
 
 // ── Directory source: multiple JSON files matching pattern
+// Faz 2c-D: source.extract kullanılırsa her file → array of items (child chunks).
+// Yoksa: her file → 1 item (parent chunk).
 function loadDirSource(source) {
   const dirPath = path.join(ROOT, source.dir);
   if (!fs.existsSync(dirPath)) {
@@ -63,15 +65,29 @@ function loadDirSource(source) {
     if (source.pattern instanceof RegExp) return source.pattern.test(f);
     return f.endsWith('.json');
   });
-  return files.map(f => {
+  const all = [];
+  for (const f of files) {
     try {
       const raw = JSON.parse(fs.readFileSync(path.join(dirPath, f), 'utf8'));
-      return source.buildItem(raw);
+      if (source.extract) {
+        // extract returns array → each becomes an item
+        const items = source.extract(raw);
+        if (Array.isArray(items)) {
+          for (const it of items) {
+            const built = source.buildItem(it);
+            if (built) all.push(built);
+          }
+        }
+      } else {
+        // Single item per file
+        const built = source.buildItem(raw);
+        if (built) all.push(built);
+      }
     } catch (err) {
       console.warn(`⚠  Failed to parse ${f}: ${err.message}`);
-      return null;
     }
-  }).filter(Boolean);
+  }
+  return all;
 }
 
 // ── Tool catalog → items

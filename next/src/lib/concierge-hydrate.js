@@ -31,6 +31,11 @@ function buildUrl(item, lang = 'tr') {
     case 'verse':
       return `${base}/oku/${item.surah}?ayah=${item.ayah}`;
     case 'article':
+    case 'article-section':
+      // Article-section child → parent article URL + section anchor
+      if (item.type === 'article-section' && item.sectionId) {
+        return `${base}/tefekkur/${item.slug}#${item.sectionId}`;
+      }
       return `${base}/tefekkur/${item.slug}`;
     case 'tool':
       return `${base}${item.route}`;
@@ -38,6 +43,9 @@ function buildUrl(item, lang = 'tr') {
       return `${base}/atlas/kavim?id=${item.subId}`;
     case 'atlas-kissa':
       return `${base}/atlas/kissa?id=${item.subId}`;
+    case 'atlas-kissa-scene':
+      // Scene → parent prophet atlas + scene anchor
+      return `${base}/atlas/kissa?id=${item.prophetId}#${item.subId}`;
     case 'atlas-esma':
       return `${base}/arac/esma-frekans?id=${encodeURIComponent(item.subId)}`;
     case 'atlas-dua':
@@ -83,6 +91,26 @@ function hydrateItem(item, reason, lang) {
         tldr: lang === 'tr' ? item.tldrTr : item.tldrEn,
         category: item.category,
         readingMinutes: item.readingMinutes,
+      };
+    case 'article-section':
+      // Section chunk — bir makale bölümü. UI'da "Makale › Bölüm" chip'i.
+      return {
+        ...base,
+        slug: item.slug,
+        title: lang === 'tr' ? item.articleTitleTr : item.articleTitleEn,
+        sectionTitle: lang === 'tr' ? item.sectionTitleTr : item.sectionTitleEn,
+        category: item.category,
+      };
+    case 'atlas-kissa-scene':
+      // Scene chunk — belirli peygamber kıssa sahnesi.
+      return {
+        ...base,
+        subId: item.subId,
+        prophetId: item.prophetId,
+        prophetName: lang === 'tr' ? item.prophetNameTr : item.prophetNameEn,
+        title: lang === 'tr' ? item.titleTr : item.titleEn,
+        description: lang === 'tr' ? item.descTr : item.descEn,
+        verseRef: item.verseRef,
       };
     case 'tool':
       return {

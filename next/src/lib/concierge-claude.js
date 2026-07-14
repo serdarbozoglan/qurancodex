@@ -46,6 +46,14 @@ MUTLAK KURALLAR:
   "closing": "1 cümle whisper (opsiyonel, şiirsel değil, mütevazı)"
 }
 
+TİPLER (dikkat):
+- "verse:X:Y" → ayet
+- "article:slug" → tefekkür yazısı PARENT (tüm makale) → articles listesine koy
+- "article-section:slug#section-id" → makale bir BÖLÜMÜ (Faz 2c-D child) → articles listesine koy, aynı slug parent ile birlikte gelse dedup gerekmez ama tercihen SPESİFİK section daha iyi match ise onu tercih et
+- "atlas-kissa:prophet" → peygamber kıssası parent (tam kıssa) → atlases
+- "atlas-kissa-scene:scene-id" → belirli sahne (Faz 2c-B child) → atlases, spesifik sahne query'de bu ideal
+- Diğer atlas-* → atlases
+
 Sadece JSON dön, başka açıklama ekleme.`;
 
 const SYSTEM_PROMPT_EN = `You are QuranCodex's "Semantic Concierge". Given the user's question, return a CURATED list from the provided verse, page, and article candidates — you are a GUIDE, not an INTERPRETER.
@@ -76,6 +84,14 @@ OUTPUT SCHEMA (JSON):
   ],
   "closing": "1-sentence whisper (optional, humble, not poetic)"
 }
+
+TYPES (note):
+- "verse:X:Y" → verse
+- "article:slug" → reflection essay PARENT (whole article) → articles list
+- "article-section:slug#section-id" → article SECTION (Faz 2c-D child) → articles list, prefer specific section over parent when the section is a stronger match
+- "atlas-kissa:prophet" → prophet story parent (full narrative) → atlases
+- "atlas-kissa-scene:scene-id" → specific scene (Faz 2c-B child) → atlases, ideal for scene-specific queries
+- Other atlas-* → atlases
 
 Return JSON only, no other explanation.`;
 
@@ -112,21 +128,40 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     parts.push('');
   }
 
-  // Articles
+  // Articles (parent) + article-section (children) merged, dedup by slug
   const articles = grouped.article || [];
-  if (articles.length) {
+  const articleSections = grouped['article-section'] || [];
+  const seenSlugs = new Set();
+  const combinedArticles = [];
+  // Parent first (higher priority for full-context match)
+  for (const entry of articles) {
+    seenSlugs.add(entry.item.slug);
+    combinedArticles.push(entry);
+  }
+  // Sections that don't have a parent already in list
+  for (const entry of articleSections) {
+    combinedArticles.push(entry);
+  }
+  combinedArticles.sort((a, b) => b.score - a.score);
+  if (combinedArticles.length) {
     parts.push(`--- ${lang === 'tr' ? 'TEFEKKÜR YAZILARI' : 'REFLECTION ESSAYS'} ---`);
-    for (const { item, score } of articles) {
-      const t = lang === 'tr' ? item.titleTr : item.titleEn;
-      const tldr = lang === 'tr' ? item.tldrTr : item.tldrEn;
-      parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${t}`);
-      parts.push(`  ${(tldr || '').slice(0, 200)}`);
+    for (const { item, score } of combinedArticles) {
+      if (item.type === 'article-section') {
+        const t = lang === 'tr' ? item.articleTitleTr : item.articleTitleEn;
+        const st = lang === 'tr' ? item.sectionTitleTr : item.sectionTitleEn;
+        parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${t} › ${st}`);
+      } else {
+        const t = lang === 'tr' ? item.titleTr : item.titleEn;
+        const tldr = lang === 'tr' ? item.tldrTr : item.tldrEn;
+        parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${t}`);
+        parts.push(`  ${(tldr || '').slice(0, 200)}`);
+      }
     }
     parts.push('');
   }
 
-  // Atlases (kavim, kissa, esma, dua, kavram merged)
-  const atlasTypes = ['atlas-kissa', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram'];
+  // Atlases (kavim, kissa, scene, esma, dua, kavram merged)
+  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram'];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {
     parts.push(`--- ${lang === 'tr' ? 'ATLASLAR' : 'ATLASES'} ---`);
