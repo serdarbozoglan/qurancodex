@@ -6,12 +6,12 @@
 
 import crypto from 'node:crypto';
 import { embedQuery } from '@/lib/concierge-embed';
-import { conciergeSearch } from '@/lib/concierge-search';
+import { conciergeSearch, applyQualityBoost, extractItemIds } from '@/lib/concierge-search';
 import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
-import { logQuery, getResponseCache, setResponseCache } from '@/lib/concierge-kv';
+import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } from '@/lib/concierge-kv';
 
 // Query hash — stable identifier for feedback + cache curation. Deterministic
 // SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
@@ -172,8 +172,22 @@ export async function POST(request) {
 
     // 2. Search
     const t1 = Date.now();
-    const grouped = conciergeSearch(queryEmb, lang);
+    let grouped = conciergeSearch(queryEmb, lang);
     timings.search = Date.now() - t1;
+
+    // 2b. Faz 3 — item quality boost/demote (feedback-driven reranking)
+    // KV'de itemler için upCount/downCount aggregate var; retrieval sonrası
+    // final_score = cosine * (1 + 0.3 * (quality - 0.5)) uygulanır.
+    // Sadece feedback ≥ 20 olan itemlerde etkili (cold start protection).
+    const tQ = Date.now();
+    const candidateIds = extractItemIds(grouped);
+    if (candidateIds.length > 0) {
+      const qualityScores = await getItemQualityScores(candidateIds);
+      if (Object.keys(qualityScores).length > 0) {
+        grouped = applyQualityBoost(grouped, qualityScores);
+      }
+    }
+    timings.qualityBoost = Date.now() - tQ;
 
     // Count total candidates
     const candidateCount = Object.values(grouped).reduce((sum, arr) => sum + arr.length, 0);

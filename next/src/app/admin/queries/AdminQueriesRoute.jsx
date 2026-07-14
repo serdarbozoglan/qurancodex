@@ -143,6 +143,7 @@ export default function AdminQueriesRoute() {
     { id: 'recent', label: 'Son Sorgular' },
     { id: 'top', label: 'En Çok Sorulan' },
     { id: 'feedback', label: 'Feedback' },
+    { id: 'items', label: 'Item Boost' },
     { id: 'stats', label: 'İstatistik' },
   ];
 
@@ -225,6 +226,7 @@ export default function AdminQueriesRoute() {
         {view === 'recent' && <RecentQueriesTable rows={rows} />}
         {view === 'top' && <TopQueriesTable rows={rows} />}
         {view === 'feedback' && <FeedbackTable rows={rows} />}
+        {view === 'items' && <ItemsTable rows={rows} />}
 
         {rows.length === 0 && view !== 'stats' && !loading && kvEnabled && (
           <p style={{ padding: 40, textAlign: 'center', color: COLORS.silver }}>Kayıt yok.</p>
@@ -237,11 +239,12 @@ export default function AdminQueriesRoute() {
 function StatsView({ stats, onPurgeCache }) {
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 24 }}>
         <StatCard label="Toplam Sorgu" value={stats.totalQueries || 0} />
         <StatCard label="Toplam Feedback" value={stats.totalFeedback || 0} />
         <StatCard label="Benzersiz Sorgu" value={stats.totalUniqueQueries || 0} />
         <StatCard label="Cache Entry" value={stats.cacheEntries || 0} />
+        <StatCard label="Feedback Item" value={stats.itemsWithFeedback || 0} />
       </div>
       {(stats.cacheEntries || 0) > 0 && (
         <div style={{ padding: 16, background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12 }}>
@@ -380,6 +383,39 @@ function TopQueriesTable({ rows }) {
         );
       })}
     </Table>
+  );
+}
+
+function ItemsTable({ rows }) {
+  return (
+    <div>
+      <div style={{ marginBottom: 12, padding: 12, background: `${COLORS.gold}0d`, border: `1px solid ${COLORS.gold}22`, borderRadius: 8, fontSize: '0.78rem', color: COLORS.silver }}>
+        ℹ Feedback ≥ 20 olan itemler retrieval&apos;da boost/demote alır. Boost formülü:
+        <code style={{ fontFamily: MONO, marginLeft: 6 }}>cosine × (1 + 0.3 × (quality − 0.5))</code> · max ±%15
+      </div>
+      <Table headers={['Item ID', '👍', '👎', 'Total', 'Quality', 'Boost', 'Son Güncelleme']}>
+        {rows.map((r, i) => {
+          const boostPct = (r.boost * 100).toFixed(1);
+          const boostColor = r.boost > 0.02 ? COLORS.green : r.boost < -0.02 ? COLORS.red : COLORS.silver;
+          const active = r.total >= 20;
+          return (
+            <tr key={i} style={{ opacity: active ? 1 : 0.55 }}>
+              <Td style={{ fontFamily: MONO, fontSize: '0.75rem', maxWidth: 320, wordBreak: 'break-word' }}>{r.itemId}</Td>
+              <Td style={{ color: COLORS.green, fontWeight: 700 }}>{r.up}</Td>
+              <Td style={{ color: COLORS.red, fontWeight: 700 }}>{r.down}</Td>
+              <Td>{r.total}</Td>
+              <Td style={{ fontWeight: 700, color: r.quality > 0.7 ? COLORS.green : r.quality < 0.3 ? COLORS.red : COLORS.silver }}>
+                {(r.quality * 100).toFixed(0)}%
+              </Td>
+              <Td style={{ color: boostColor, fontWeight: 700 }}>
+                {active ? `${r.boost >= 0 ? '+' : ''}${boostPct}%` : 'cold-start'}
+              </Td>
+              <Td style={{ fontFamily: MONO, fontSize: '0.72rem', color: COLORS.silver }}>{formatTs(r.lastUpdated)}</Td>
+            </tr>
+          );
+        })}
+      </Table>
+    </div>
   );
 }
 

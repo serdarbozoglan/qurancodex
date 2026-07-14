@@ -13,7 +13,7 @@
 //   ?offset=N       — pagination
 // ────────────────────────────────────────────────────────────────────────────
 
-import { listRecentQueries, listRecentFeedback, listTopQueries, getStats, isKvEnabled, purgeAllCache } from '@/lib/concierge-kv';
+import { listRecentQueries, listRecentFeedback, listTopQueries, getStats, isKvEnabled, purgeAllCache, getItemsWithFeedback } from '@/lib/concierge-kv';
 
 export const runtime = 'nodejs';
 
@@ -57,6 +57,9 @@ export async function GET(request) {
         break;
       case 'feedback':
         data = await listRecentFeedback({ limit, offset });
+        break;
+      case 'items':
+        data = await getItemsWithFeedback({ limit });
         break;
       case 'stats':
         data = await getStats();

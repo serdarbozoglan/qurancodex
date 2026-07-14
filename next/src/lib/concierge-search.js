@@ -133,6 +133,37 @@ export function search(queryEmbedding, options = {}) {
   return scored.slice(0, topK);
 }
 
+// ── Faz 3: apply item quality boost to grouped search results
+// final_score = cosine * (1 + 0.3 * (quality - 0.5))
+//   quality 0.5 → no change (cold start default)
+//   quality 1.0 → +15% (all thumbs up)
+//   quality 0.0 → -15% (all thumbs down)
+// Only items with ≥MIN_FEEDBACK_FOR_BOOST feedback have non-neutral quality.
+export function applyQualityBoost(grouped, qualityScores) {
+  if (!qualityScores || Object.keys(qualityScores).length === 0) return grouped;
+  const out = {};
+  for (const [type, arr] of Object.entries(grouped)) {
+    out[type] = arr.map(entry => {
+      const q = qualityScores[entry.item.id];
+      if (q === undefined) return entry;
+      const multiplier = 1 + 0.3 * (q - 0.5);
+      return { ...entry, score: entry.score * multiplier, qualityBoost: q };
+    });
+    // Re-sort within type after boost
+    out[type].sort((a, b) => b.score - a.score);
+  }
+  return out;
+}
+
+// Helper — flatten grouped map to list of item IDs (for KV batch lookup)
+export function extractItemIds(grouped) {
+  const ids = [];
+  for (const arr of Object.values(grouped)) {
+    for (const { item } of arr) ids.push(item.id);
+  }
+  return ids;
+}
+
 // ── Convenience: search with default concierge preset
 // perType TOTAL: 3+2+2+5 = 12 candidates (was 18). Claude nihayetinde
 // 3-7 seçtiği için üstteki 6 aday çoğunlukla artıyor + fazladan input token
