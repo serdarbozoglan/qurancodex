@@ -49,32 +49,49 @@ function SorInner() {
   const [feedback, setFeedback] = useState(null); // null | 'up' | 'down'
   const abortRef = useRef(null);
 
-  // sessionStorage cache — aynı query için redundant LLM çağrısını önler.
-  // Browser back navigation → sayfa yeniden mount → cache hit → anlık render.
-  // Cache scope: tab (sessionStorage), key: language + query normalized.
+  // localStorage cache — aynı query için redundant LLM çağrısını önler.
+  // 2026-07-14 update: sessionStorage → localStorage upgrade (cross-tab paylaşım,
+  // bookmark hit, refresh persist). TTL 30 dk → 24 saat.
   // Cost: query başına ~$0.001 tasarruf; UX: 5-10 sn → anlık.
+  // Quota: response ~5-20 KB × 100 entry ≈ 2 MB, localStorage 5 MB limit altı.
+  const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 saat
   const cacheKey = (lang, q) => `concierge:${lang}:${q.trim().toLowerCase()}`;
 
   const getCachedResponse = useCallback((lang, q) => {
     if (typeof window === 'undefined') return null;
     try {
-      const raw = sessionStorage.getItem(cacheKey(lang, q));
+      const raw = localStorage.getItem(cacheKey(lang, q));
       if (!raw) return null;
       const parsed = JSON.parse(raw);
-      // Sanity: cache age check (30 dk)
-      if (parsed.cachedAt && Date.now() - parsed.cachedAt > 30 * 60 * 1000) {
-        sessionStorage.removeItem(cacheKey(lang, q));
+      if (parsed.cachedAt && Date.now() - parsed.cachedAt > CACHE_TTL_MS) {
+        localStorage.removeItem(cacheKey(lang, q));
         return null;
       }
       return parsed.data;
     } catch { return null; }
-  }, []);
+  }, [CACHE_TTL_MS]);
 
   const setCachedResponse = useCallback((lang, q, data) => {
     if (typeof window === 'undefined') return;
     try {
-      sessionStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
-    } catch {/* quota exceeded — silently skip */}
+      localStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
+    } catch (err) {
+      // Quota exceeded — evict oldest concierge entries + retry once
+      try {
+        const keys = Object.keys(localStorage).filter(k => k.startsWith('concierge:'));
+        if (keys.length > 20) {
+          // Read timestamps, sort ascending, drop oldest half
+          const withAge = keys.map(k => {
+            try { return { k, ts: JSON.parse(localStorage.getItem(k)).cachedAt || 0 }; }
+            catch { return { k, ts: 0 }; }
+          }).sort((a, b) => a.ts - b.ts);
+          for (const { k } of withAge.slice(0, Math.floor(keys.length / 2))) {
+            localStorage.removeItem(k);
+          }
+          localStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
+        }
+      } catch { /* still failing — silently skip */ }
+    }
   }, []);
 
   const runQuery = useCallback(async (q) => {
