@@ -7,6 +7,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
+import { logFeedback } from '@/lib/concierge-kv';
 
 export const runtime = 'nodejs';
 export const maxDuration = 5;
@@ -53,17 +54,29 @@ export async function POST(request) {
   const itemId = body.itemId || 'response'; // Page-level feedback için varsayılan
   const lang = body.lang === 'en' ? 'en' : 'tr';
 
+  const ipHash = ip ? ip.slice(0, 8) : null;
+  const ts = Date.now();
+
   // Structured log — Vercel Logs Query ile grep + aggregate mümkün.
-  // Faz 1b'de: bu kayıt Vercel KV'ye yazılacak (fb-agg:{itemId} + fb:{queryHash}:{itemId}).
   console.log(JSON.stringify({
     type: 'concierge_feedback',
-    ts: new Date().toISOString(),
+    ts: new Date(ts).toISOString(),
     queryHash,
     itemId,
     thumb,
     lang,
-    ipHash: ip ? ip.slice(0, 8) : null, // PII minimize — sadece prefix
+    ipHash,
   }));
+
+  // KV log — admin arşivi + aggregate feedback güncelle (async, non-blocking)
+  logFeedback({
+    queryHash,
+    itemId,
+    thumb,
+    lang,
+    ipHash,
+    timestamp: ts,
+  }).catch(() => {});
 
   return Response.json(
     { ok: true },

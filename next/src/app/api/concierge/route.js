@@ -11,6 +11,7 @@ import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
+import { logQuery } from '@/lib/concierge-kv';
 
 // Query hash — stable identifier for feedback + cache curation. Deterministic
 // SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
@@ -73,17 +74,30 @@ export async function POST(request) {
     timings.guardrails = Date.now() - tG;
 
     if (guard.verdict === 'reject') {
+      const queryHash = computeQueryHash(originalQuery, lang);
+      const ipHash = ip ? ip.slice(0, 8) : null;
       // Structured log — for false-positive review (Bölüm F rejection log).
       console.log(JSON.stringify({
         type: 'concierge_rejection',
         ts: new Date().toISOString(),
-        queryHash: computeQueryHash(originalQuery, lang),
+        queryHash,
         category: guard.category,
         reason: guard.reason,
         regexReason: guard.meta?.regex?.reason || null,
         lang,
-        ipHash: ip ? ip.slice(0, 8) : null,
+        ipHash,
       }));
+      // KV log — admin arşivi
+      logQuery({
+        queryHash,
+        query: originalQuery,
+        lang,
+        category: guard.category, // 'reject' | 'off_topic'
+        rejected: true,
+        rejectReason: guard.reason,
+        ipHash,
+        timestamp: Date.now(),
+      }).catch(() => {}); // fire-and-forget
       return Response.json({
         query: originalQuery,
         lang,
@@ -141,6 +155,30 @@ export async function POST(request) {
     const hydrated = hydrateResponse(parsed, lang);
     timings.total = Date.now() - startTs;
 
+    const queryHash = computeQueryHash(originalQuery, lang);
+    const ipHash = ip ? ip.slice(0, 8) : null;
+
+    // KV log — admin arşivi (async, non-blocking)
+    logQuery({
+      queryHash,
+      query: originalQuery,
+      effectiveQuery: guard.rewritten ? effectiveQuery : null,
+      lang,
+      category: guard.category, // 'ok' | 'rewrite' | 'fetva_talebi'
+      rejected: false,
+      candidateCount,
+      resultsCount: {
+        verses: hydrated.verses?.length || 0,
+        tafsirs: hydrated.tafsirs?.length || 0,
+        atlases: hydrated.atlases?.length || 0,
+        articles: hydrated.articles?.length || 0,
+        tools: hydrated.tools?.length || 0,
+      },
+      timingTotal: timings.total,
+      ipHash,
+      timestamp: Date.now(),
+    }).catch(() => {});
+
     return Response.json({
       query: originalQuery,
       effectiveQuery,
@@ -152,7 +190,7 @@ export async function POST(request) {
         timings,
         usage,
         candidateCount,
-        queryHash: computeQueryHash(originalQuery, lang), // Feedback + cache curation key
+        queryHash,
         rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
         guardrails: { category: guard.category, reason: guard.reason },
       },
