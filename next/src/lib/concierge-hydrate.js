@@ -46,6 +46,9 @@ function buildUrl(item, lang = 'tr') {
     case 'atlas-kissa-scene':
       // Scene → parent prophet atlas + scene anchor
       return `${base}/atlas/kissa?id=${item.prophetId}#${item.subId}`;
+    case 'surah-summary':
+      // Sure özet chunk → sure oku sayfası (1. ayete land)
+      return `${base}/oku/${item.surah}`;
     case 'atlas-esma':
       return `${base}/arac/esma-frekans?id=${encodeURIComponent(item.subId)}`;
     case 'atlas-dua':
@@ -111,6 +114,17 @@ function hydrateItem(item, reason, lang) {
         title: lang === 'tr' ? item.titleTr : item.titleEn,
         description: lang === 'tr' ? item.descTr : item.descEn,
         verseRef: item.verseRef,
+      };
+    case 'surah-summary':
+      // Sure özet — 114 sureden biri hakkında meta bilgi.
+      return {
+        ...base,
+        surah: item.surah,
+        title: lang === 'tr' ? item.titleTr : item.titleEn,
+        meaning: lang === 'tr' ? item.meaningTr : item.meaningEn,
+        period: lang === 'tr' ? item.periodTr : item.periodEn,
+        themes: lang === 'tr' ? item.themesTr : item.themesEn,
+        description: lang === 'tr' ? item.descTr : item.descEn,
       };
     case 'tool':
       return {

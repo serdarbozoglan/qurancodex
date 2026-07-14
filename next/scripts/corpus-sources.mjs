@@ -8,12 +8,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
 
-// ── Multi-meal (Faz 2a) + Metadata enrichment (Faz 2b) — load once.
+// ── Multi-meal (Faz 2a) + Metadata enrichment (Faz 2b) + Verse text index — load once.
 const _srcDir = path.dirname(fileURLToPath(import.meta.url));
 const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
 const _metaPath = path.resolve(_srcDir, '..', 'public/verse-metadata.json');
+const _versesPath = path.resolve(_srcDir, '..', 'public/verse-graph-bgem3.json');
 let MEALS_MULTI = null;
 let VERSE_META = null;
+let VERSE_TEXT_INDEX = null; // { "1:1": { tr, en, arabic } } — kavram enrichment için
 try {
   if (fs.existsSync(_mealsPath)) {
     MEALS_MULTI = JSON.parse(fs.readFileSync(_mealsPath, 'utf8'));
@@ -30,7 +32,24 @@ try {
 } catch (err) {
   console.warn(`   ⚠  Failed to load verse-metadata.json: ${err.message}`);
 }
-export { MEALS_MULTI, VERSE_META };
+try {
+  if (fs.existsSync(_versesPath)) {
+    const raw = JSON.parse(fs.readFileSync(_versesPath, 'utf8'));
+    const arr = Array.isArray(raw) ? raw : Object.values(raw);
+    VERSE_TEXT_INDEX = {};
+    for (const v of arr) {
+      VERSE_TEXT_INDEX[`${v.surah}:${v.ayah}`] = {
+        tr: v.turkish || '',
+        en: v.english || '',
+        arabic: v.arabic || '',
+      };
+    }
+    console.log(`   ℹ  verse text index built (${Object.keys(VERSE_TEXT_INDEX).length} verses)`);
+  }
+} catch (err) {
+  console.warn(`   ⚠  Failed to build verse text index: ${err.message}`);
+}
+export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX };
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -397,9 +416,9 @@ export const CONTENT_SOURCES = [
   },
 
   // ─── Kavramlar (Concept Graph) — 65 kavram
-  // NOT: /graf/kavram sayfası şu an URL param ile auto-select desteklemiyor.
-  // Bu yüzden anchorVerses[0]'ı item'da tutuyoruz — hydrate katmanı bu ayete
-  // yönlendirir (kavram sayfası yerine doğrudan ilgili ayete).
+  // Faz 2c-A: enriched with anchor verse TEXT (not just IDs). Kavram search'e
+  // ayet metni dahil olur → "iman" query hem kavram card'a hem 2:285'e yakın
+  // olur ama kavram card daha bağlamsal.
   {
     type: 'atlas-kavram',
     file: 'public/concept-graph.json',
@@ -407,6 +426,17 @@ export const CONTENT_SOURCES = [
     buildItem: (item) => {
       const anchors = (item.anchorVerses || []).join(', ');
       const keywords = (item.keywords || []).join(', ');
+      // Anchor ayet metinlerini ekle (Faz 2c-A enrichment)
+      const anchorTextsTr = (item.anchorVerses || [])
+        .slice(0, 4)
+        .map(ref => VERSE_TEXT_INDEX?.[ref]?.tr)
+        .filter(Boolean)
+        .join(' | ');
+      const anchorTextsEn = (item.anchorVerses || [])
+        .slice(0, 4)
+        .map(ref => VERSE_TEXT_INDEX?.[ref]?.en)
+        .filter(Boolean)
+        .join(' | ');
       return {
         id: `atlas-kavram:${item.id}`,
         type: 'atlas-kavram',
@@ -416,11 +446,59 @@ export const CONTENT_SOURCES = [
         arabic: item.ar || '',
         group: item.group || '',
         anchorVerse: (item.anchorVerses || [])[0] || null,
-        // Card display: kategori + anahtar kelimelerden özet cümle
         descTr: item.group ? `${item.group}${keywords ? ' · ' + keywords.slice(0, 100) : ''}` : keywords.slice(0, 140),
         descEn: item.group ? `${item.group}${keywords ? ' · ' + keywords.slice(0, 100) : ''}` : keywords.slice(0, 140),
-        searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Ana ayetler: ${anchors}. Kategori: ${item.group || ''}.`,
-        searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Anchor verses: ${anchors}. Group: ${item.group || ''}.`,
+        // Enriched — kavram başlığı + anahtar kelimeler + kategori + anchor ayet metinleri
+        searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Kategori: ${item.group || ''}. Ana ayetler (${anchors}): ${anchorTextsTr}`.slice(0, 3000),
+        searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Group: ${item.group || ''}. Anchor verses (${anchors}): ${anchorTextsEn}`.slice(0, 3000),
+      };
+    },
+  },
+
+  // ─── Sure Özet — Faz 2c-C: 114 sure özet chunk
+  // surah-info.json'daki meaning + period + themes + fadail yapısını birleştirir.
+  // LLMSIZ — mevcut structured data yeterli.
+  {
+    type: 'surah-summary',
+    file: 'public/surah-info.json',
+    extract: (data) => {
+      const out = [];
+      for (const [num, info] of Object.entries(data || {})) {
+        const n = parseInt(num);
+        if (!n || n < 1 || n > 114) continue;
+        out.push({ ...info, _surahNum: n });
+      }
+      return out.sort((a, b) => a._surahNum - b._surahNum);
+    },
+    buildItem: (item) => {
+      const n = item._surahNum;
+      const nameTr = SURAH_NAMES_TR[n - 1] || '';
+      const nameEn = SURAH_NAMES_EN[n - 1] || '';
+      const meaningTr = item.meaning?.tr || '';
+      const meaningEn = item.meaning?.en || '';
+      const periodTr = item.period?.tr || '';
+      const periodEn = item.period?.en || '';
+      const approx = item.period?.approx || '';
+      const themesTr = (item.themes?.tr || []).join(', ');
+      const themesEn = (item.themes?.en || []).join(', ');
+      const fadailTr = item.fadail?.tr || '';
+      const fadailEn = item.fadail?.en || '';
+      return {
+        id: `surah-summary:${n}`,
+        type: 'surah-summary',
+        surah: n,
+        titleTr: `${nameTr} suresi`,
+        titleEn: `Surah ${nameEn}`,
+        meaningTr,
+        meaningEn,
+        periodTr,
+        periodEn,
+        themesTr: item.themes?.tr || [],
+        themesEn: item.themes?.en || [],
+        descTr: `${meaningTr} · ${periodTr}${approx ? ' (' + approx + ')' : ''} · ${themesTr}`.slice(0, 200),
+        descEn: `${meaningEn} · ${periodEn}${approx ? ' (' + approx + ')' : ''} · ${themesEn}`.slice(0, 200),
+        searchTextTr: `${nameTr} suresi (${n}). Anlamı: ${meaningTr}. Dönem: ${periodTr}${approx ? ', ' + approx : ''}. Ana temalar: ${themesTr}. Faziletleri: ${fadailTr}`.slice(0, 2000),
+        searchTextEn: `Surah ${nameEn} (${n}). Meaning: ${meaningEn}. Period: ${periodEn}${approx ? ', ' + approx : ''}. Main themes: ${themesEn}. Virtues: ${fadailEn}`.slice(0, 2000),
       };
     },
   },

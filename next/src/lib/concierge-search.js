@@ -153,6 +153,7 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
       'atlas-esma': 1,
       'atlas-dua': 1,
       'atlas-kavram': 1,
+      'surah-summary': 2,        // Faz 2c-C: sure özet (114)
     },
     minScore: 0.35,
   });

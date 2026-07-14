@@ -160,8 +160,8 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     parts.push('');
   }
 
-  // Atlases (kavim, kissa, scene, esma, dua, kavram merged)
-  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram'];
+  // Atlases (kavim, kissa, scene, esma, dua, kavram, surah-summary merged)
+  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram', 'surah-summary'];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {
     parts.push(`--- ${lang === 'tr' ? 'ATLASLAR' : 'ATLASES'} ---`);
