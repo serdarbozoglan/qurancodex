@@ -53,6 +53,9 @@ function buildUrl(item, lang = 'tr') {
     case 'surah-summary':
       // Sure özet chunk → sure oku sayfası (1. ayete land)
       return `${base}/oku/${item.surah}`;
+    case 'pericope':
+      // Ruku → sure oku sayfası + start ayet
+      return `${base}/oku/${item.surah}?ayah=${item.startAyah}`;
     case 'atlas-esma':
       return `${base}/arac/esma-frekans?id=${encodeURIComponent(item.subId)}`;
     case 'atlas-dua':
@@ -138,6 +141,18 @@ function hydrateItem(item, reason, lang) {
         meaning: lang === 'tr' ? item.meaningTr : item.meaningEn,
         period: lang === 'tr' ? item.periodTr : item.periodEn,
         themes: lang === 'tr' ? item.themesTr : item.themesEn,
+        description: lang === 'tr' ? item.descTr : item.descEn,
+      };
+    case 'pericope':
+      // Ruku — konu bütünlüğü olan ayet bloğu (birkaç ayetlik).
+      return {
+        ...base,
+        surah: item.surah,
+        surahName: lang === 'tr' ? item.surahName : item.surahNameEn,
+        startAyah: item.startAyah,
+        endAyah: item.endAyah,
+        verseCount: item.verseCount,
+        rukuIndex: item.rukuIndex,
         description: lang === 'tr' ? item.descTr : item.descEn,
       };
     case 'tool':

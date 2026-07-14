@@ -25,10 +25,12 @@ const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
 const _metaPath = path.resolve(_srcDir, '..', 'public/verse-metadata.json');
 const _versesPath = path.resolve(_srcDir, '..', 'public/verse-graph-bgem3.json');
 const _tefsirPath = path.resolve(_srcDir, '..', 'public/tefsir-per-verse.json');
+const _rukusPath = path.resolve(_srcDir, '..', 'public/rukus.json');
 let MEALS_MULTI = null;
 let VERSE_META = null;
 let VERSE_TEXT_INDEX = null; // { "1:1": { tr, en, arabic } } — kavram enrichment için
 let TEFSIR_INDEX = null;     // { "1:1": { tr, en } } — Faz 2d
+let RUKUS = null;            // [ { index, start, end, verses, verseCount } ] — Faz 2c-E
 try {
   if (fs.existsSync(_mealsPath)) {
     MEALS_MULTI = JSON.parse(fs.readFileSync(_mealsPath, 'utf8'));
@@ -70,7 +72,15 @@ try {
 } catch (err) {
   console.warn(`   ⚠  Failed to load tefsir-per-verse.json: ${err.message}`);
 }
-export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX, TEFSIR_INDEX };
+try {
+  if (fs.existsSync(_rukusPath)) {
+    RUKUS = JSON.parse(fs.readFileSync(_rukusPath, 'utf8'));
+    console.log(`   ℹ  rukus.json loaded (${RUKUS.length} rukus)`);
+  }
+} catch (err) {
+  console.warn(`   ⚠  Failed to load rukus.json: ${err.message}`);
+}
+export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX, TEFSIR_INDEX, RUKUS };
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -481,6 +491,50 @@ export const CONTENT_SOURCES = [
         // Enriched — kavram başlığı + anahtar kelimeler + kategori + anchor ayet metinleri
         searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Kategori: ${item.group || ''}. Ana ayetler (${anchors}): ${anchorTextsTr}`.slice(0, 3000),
         searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Group: ${item.group || ''}. Anchor verses (${anchors}): ${anchorTextsEn}`.slice(0, 3000),
+      };
+    },
+  },
+
+  // ─── Pericope (Ruku) — Faz 2c-E: konu bütünlüğü olan ayet blokları (~556)
+  // Al Quran Cloud API'sinden alınan klasik ruku baseline'ı. Her ruku ortalama
+  // 11 ayet (min 1, max 53). Ayet chunk'a paralel — spesifik ayet için değil,
+  // "konu geçişleri" için match verir.
+  {
+    type: 'pericope',
+    file: 'public/rukus.json',
+    extract: () => RUKUS || [],
+    buildItem: (ruku) => {
+      const surahNum = ruku.start.surah;
+      const surahNameTr = SURAH_NAMES_TR[surahNum - 1] || '';
+      const surahNameEn = SURAH_NAMES_EN[surahNum - 1] || '';
+      // Ayet metinlerini birleştir (Suat Y. baseline TR + Sahih baseline EN)
+      const trTexts = [];
+      const enTexts = [];
+      for (const ref of ruku.verses) {
+        const vt = VERSE_TEXT_INDEX?.[ref];
+        if (vt) {
+          if (vt.tr) trTexts.push(vt.tr);
+          if (vt.en) enTexts.push(vt.en);
+        }
+      }
+      const trBody = trTexts.join(' ');
+      const enBody = enTexts.join(' ');
+      const range = `${ruku.start.ayah}-${ruku.end.ayah}`;
+      return {
+        id: `pericope:${surahNum}:${range}`,
+        type: 'pericope',
+        surah: surahNum,
+        rukuIndex: ruku.index,
+        startAyah: ruku.start.ayah,
+        endAyah: ruku.end.ayah,
+        verseCount: ruku.verseCount,
+        surahName: surahNameTr,
+        surahNameEn,
+        descTr: `${surahNameTr} ${surahNum}:${range} · ${ruku.verseCount} ayet · ${trTexts[0]?.slice(0, 100) || ''}`,
+        descEn: `${surahNameEn} ${surahNum}:${range} · ${ruku.verseCount} verses · ${enTexts[0]?.slice(0, 100) || ''}`,
+        // Search text: ayet aralığı prefix + full body. Max 2500 char (embed model context).
+        searchTextTr: `${surahNameTr} ${surahNum}:${range} (${ruku.verseCount} ayet). ${trBody}`.slice(0, 2500),
+        searchTextEn: `${surahNameEn} ${surahNum}:${range} (${ruku.verseCount} verses). ${enBody}`.slice(0, 2500),
       };
     },
   },

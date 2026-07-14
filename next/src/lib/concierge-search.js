@@ -155,6 +155,7 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
       'atlas-dua': 1,
       'atlas-kavram': 1,
       'surah-summary': 2,        // Faz 2c-C: sure özet (114)
+      pericope: 2,               // Faz 2c-E: klasik ruku (~556)
     },
     minScore: 0.35,
   });

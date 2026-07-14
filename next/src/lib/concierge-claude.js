@@ -58,6 +58,7 @@ TİPLER (dikkat):
 - "atlas-kissa-scene:scene-id" → belirli sahne (Faz 2c-B child) → atlases, spesifik sahne query'de bu ideal
 - Diğer atlas-* → atlases
 - "surah-summary:N" → sure özet → atlases
+- "pericope:surah:startAyah-endAyah" → konu bütünlüğü olan ayet bloğu (klasik ruku) → atlases
 
 Sadece JSON dön, başka açıklama ekleme.`;
 
@@ -102,6 +103,7 @@ TYPES (note):
 - "atlas-kissa-scene:scene-id" → specific scene (Faz 2c-B child) → atlases, ideal for scene-specific queries
 - Other atlas-* → atlases
 - "surah-summary:N" → surah summary → atlases
+- "pericope:surah:startAyah-endAyah" → topically-coherent verse block (classical ruku) → atlases
 
 Return JSON only, no other explanation.`;
 
@@ -184,14 +186,19 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     parts.push('');
   }
 
-  // Atlases (kavim, kissa, scene, esma, dua, kavram, surah-summary merged)
-  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram', 'surah-summary'];
+  // Atlases (kavim, kissa, scene, esma, dua, kavram, surah-summary, pericope merged)
+  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram', 'surah-summary', 'pericope'];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {
     parts.push(`--- ${lang === 'tr' ? 'ATLASLAR' : 'ATLASES'} ---`);
     for (const { item, score } of atlases.slice(0, 6)) {
-      const t = lang === 'tr' ? item.titleTr : item.titleEn;
-      parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${item.type}: ${t}`);
+      let label = lang === 'tr' ? item.titleTr : item.titleEn;
+      // Pericope title = "Sure X:Y-Z (N ayet)" formatı (title alanı yok)
+      if (item.type === 'pericope') {
+        const name = lang === 'tr' ? item.surahName : item.surahNameEn;
+        label = `${name} ${item.surah}:${item.startAyah}-${item.endAyah} (${item.verseCount} ayet)`;
+      }
+      parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${item.type}: ${label}`);
     }
     parts.push('');
   }

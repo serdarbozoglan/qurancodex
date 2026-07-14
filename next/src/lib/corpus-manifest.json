@@ -59693,5 +59693,2785 @@
     "hash": "fed38c2a43e02cd1",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tool"
+  },
+  "pericope:1:1-7": {
+    "hash": "97b1dc31c474c846",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:1-7": {
+    "hash": "fe700292da8bd511",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:8-20": {
+    "hash": "1ec89c1b95c31fd3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:21-29": {
+    "hash": "a3816e08716e007e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:30-39": {
+    "hash": "bd833b651394d680",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:40-46": {
+    "hash": "ef92e6776e1f278b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:47-59": {
+    "hash": "32c0cae40d627683",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:60-61": {
+    "hash": "da51fc4dacc17746",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:62-71": {
+    "hash": "d3f0e1307df87675",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:72-82": {
+    "hash": "a19fdd88e83f392b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:83-86": {
+    "hash": "8e9383ce010cfa6f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:87-96": {
+    "hash": "a1010aa5fdfda754",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:97-103": {
+    "hash": "2616ffa0d8ef460f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:104-112": {
+    "hash": "6cb57fec5b9c94cd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:113-121": {
+    "hash": "3faa2effb26bc122",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:122-129": {
+    "hash": "ad4f988018889e10",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:130-141": {
+    "hash": "00df8a66657231ab",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:142-147": {
+    "hash": "7dcdbdebc1532540",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:148-152": {
+    "hash": "7d3acbf74712fc8c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:153-163": {
+    "hash": "1f53344b732fbf67",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:164-167": {
+    "hash": "3b9d8ef6a13d5ce0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:168-176": {
+    "hash": "ee2ad160d3adc36e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:177-182": {
+    "hash": "4402f1bbebb7bd7e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:183-188": {
+    "hash": "bb14f9720cb14ab5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:189-196": {
+    "hash": "9abbc1c5d5617c75",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:197-210": {
+    "hash": "4b567f2239a2f4f0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:211-216": {
+    "hash": "c7c98c6dcf86699b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:217-221": {
+    "hash": "fd767dfd218b66eb",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:222-228": {
+    "hash": "a85216b838574f84",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:229-231": {
+    "hash": "694e65a90d2a358a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:232-235": {
+    "hash": "66145de00d81bf6f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:236-242": {
+    "hash": "427a7f9d4cf50268",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:243-248": {
+    "hash": "98afa1d279a5d2f9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:249-253": {
+    "hash": "72be4c3e09805c30",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:254-257": {
+    "hash": "b4dfdce5c79c496d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:258-260": {
+    "hash": "13181ed9253d4875",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:261-266": {
+    "hash": "af15c1c430713e4b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:267-273": {
+    "hash": "44c54fcbbf0e8f7c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:274-281": {
+    "hash": "e3a30b0f4ed5f932",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:282-283": {
+    "hash": "050ca411917991dd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:2:284-286": {
+    "hash": "4b3970dd4e155ad8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:1-9": {
+    "hash": "7d2722a5fd3040aa",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:10-20": {
+    "hash": "699beec7a4763ba6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:21-30": {
+    "hash": "9333ab6ab95ef48b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:31-41": {
+    "hash": "3a80b22d9663b796",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:42-54": {
+    "hash": "b0cddf38922dc6b9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:55-63": {
+    "hash": "dbdc103837a33bc0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:64-71": {
+    "hash": "8f0124cf7a830545",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:72-80": {
+    "hash": "af5148f5ebe27439",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:81-91": {
+    "hash": "fc9af2abc94e052b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:92-101": {
+    "hash": "5bce3db53f296c0b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:102-109": {
+    "hash": "d2e5d15f00feb9c1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:110-120": {
+    "hash": "1bc6cd52ac9e42aa",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:121-129": {
+    "hash": "1a41ad81a983b09f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:130-143": {
+    "hash": "23a7152bb8773285",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:144-148": {
+    "hash": "55769b680edb522a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:149-155": {
+    "hash": "703f12976c238ca8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:156-171": {
+    "hash": "0d2d4bbca7aa75fb",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:172-180": {
+    "hash": "fc9cc748880c48b8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:181-189": {
+    "hash": "c647664cfee05f9e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:3:190-200": {
+    "hash": "2c3f33967eee5c04",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:1-10": {
+    "hash": "91cb412e4f5baa66",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:11-14": {
+    "hash": "049c2b1787a635ce",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:15-22": {
+    "hash": "b0e127920a3edebd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:23-25": {
+    "hash": "f70fa0987b36a798",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:26-33": {
+    "hash": "68cd55c6113fa85a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:34-42": {
+    "hash": "e4691bab38619434",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:43-50": {
+    "hash": "c1c7b2c5afdca6df",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:51-59": {
+    "hash": "ee7336c5bd3f0691",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:60-70": {
+    "hash": "9d446c18fe6e5210",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:71-76": {
+    "hash": "de6eac509c9405ac",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:77-87": {
+    "hash": "8804c5eeb9c87f3b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:88-91": {
+    "hash": "2d2776e609e9e2e0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:92-96": {
+    "hash": "cce0a0296cbcf0f7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:97-100": {
+    "hash": "f5fa5349c2acf926",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:101-104": {
+    "hash": "eb935fa8102a46f0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:105-112": {
+    "hash": "aeb76e45e804f5d3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:113-115": {
+    "hash": "0a0b074dbb683965",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:116-126": {
+    "hash": "f327bb2356ec31ad",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:127-134": {
+    "hash": "7dece97820e38c2f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:135-141": {
+    "hash": "6f132a2f3dbd6729",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:142-152": {
+    "hash": "330e441984298775",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:153-162": {
+    "hash": "f0ae1cfa69b5c051",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:163-171": {
+    "hash": "7978fd63d03e9eed",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:4:172-176": {
+    "hash": "26a3be4b5683d0ef",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:1-5": {
+    "hash": "eac69948a3bfda72",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:6-11": {
+    "hash": "12e0aa2e516f456c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:12-19": {
+    "hash": "7ea45332d2b78cfd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:20-26": {
+    "hash": "3ad4d5bf412b8a09",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:27-34": {
+    "hash": "190f6afc62a9d9fe",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:35-43": {
+    "hash": "ec14d09f9caacbf7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:44-50": {
+    "hash": "10b3164255e830df",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:51-56": {
+    "hash": "fcbb1dbb52676781",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:57-66": {
+    "hash": "f822dc328b11a470",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:67-77": {
+    "hash": "e0ca621ee0b1ca1d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:78-86": {
+    "hash": "a61715e06305d5de",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:87-93": {
+    "hash": "269fc1b2c1fc3f52",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:94-100": {
+    "hash": "6671d02709e28353",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:101-108": {
+    "hash": "dc1680b02016d053",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:109-115": {
+    "hash": "9f4045626044aab6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:5:116-120": {
+    "hash": "54f81bee35a51503",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:1-10": {
+    "hash": "7e64523e3727fe68",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:11-20": {
+    "hash": "d8e4f0c61e82a737",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:21-30": {
+    "hash": "749d3581c08671a8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:31-41": {
+    "hash": "17549d2133b7dee6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:42-50": {
+    "hash": "b2b11fd84d037983",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:51-55": {
+    "hash": "75ac555d7c01b4dc",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:56-60": {
+    "hash": "44d68765d9878a5f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:61-70": {
+    "hash": "41e75b7fc75d3265",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:71-82": {
+    "hash": "e39967d07c1cf270",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:83-90": {
+    "hash": "a1999caff40f1679",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:91-94": {
+    "hash": "3f4b737b9845652f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:95-100": {
+    "hash": "930b4ede56ea9996",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:101-110": {
+    "hash": "ecae72198ab4396b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:111-121": {
+    "hash": "0e710c79f41269d4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:122-129": {
+    "hash": "9d4c04b33daeb595",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:130-140": {
+    "hash": "1f680a6a362fe469",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:141-144": {
+    "hash": "54c6a0c47b446bc6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:145-150": {
+    "hash": "24d97942e5aa911f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:151-154": {
+    "hash": "77371c66aa753b37",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:6:155-165": {
+    "hash": "e10a5ff2b4215236",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:1-10": {
+    "hash": "24e0e22fea928248",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:11-25": {
+    "hash": "bf9e86a34126ca11",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:26-31": {
+    "hash": "57448bfa5d739b8f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:32-39": {
+    "hash": "51127c555de63134",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:40-47": {
+    "hash": "74d7fc4839311eab",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:48-53": {
+    "hash": "b74fd8abc0fd343b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:54-58": {
+    "hash": "ea6191e8391dc1c6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:59-64": {
+    "hash": "19df3b1a761d1309",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:65-72": {
+    "hash": "80b4474163212bd0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:73-84": {
+    "hash": "61410e01efb559fb",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:85-93": {
+    "hash": "4be9e1cb19b2ee86",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:94-99": {
+    "hash": "dcfc0ca5c465de80",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:100-108": {
+    "hash": "4dbd9bba0828327b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:109-126": {
+    "hash": "336dd7760c099d59",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:127-129": {
+    "hash": "253dadc1ff01012e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:130-141": {
+    "hash": "461c7f23a34c425a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:142-147": {
+    "hash": "4e6b58793e1c7679",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:148-151": {
+    "hash": "46b687f56877c0ba",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:152-157": {
+    "hash": "a61fcec093476f7a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:158-162": {
+    "hash": "a831496166406790",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:163-171": {
+    "hash": "265051a4263fd78d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:172-181": {
+    "hash": "b2092653d8e28d62",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:182-188": {
+    "hash": "c70c0aa09f44f097",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:7:189-206": {
+    "hash": "65df07b9409fac36",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:1-10": {
+    "hash": "d63f5c4412de5bea",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:11-19": {
+    "hash": "f15afad8b52d8909",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:20-28": {
+    "hash": "9b924351eb3b5ab1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:29-37": {
+    "hash": "a232998c9e8cede7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:38-44": {
+    "hash": "5d645107268ea38c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:45-48": {
+    "hash": "226439cf13bee5cd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:49-58": {
+    "hash": "bd5faab8c991d5b8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:59-64": {
+    "hash": "827e99ecdbbf5f5e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:65-69": {
+    "hash": "775d2f794c83f5b8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:8:70-75": {
+    "hash": "db9c032b39bc0d2f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:1-6": {
+    "hash": "b52aa01c7af17229",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:7-16": {
+    "hash": "fde23985a65f95db",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:17-24": {
+    "hash": "e39913a7b0657cde",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:25-29": {
+    "hash": "1752159a3e926032",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:30-37": {
+    "hash": "907582273168e0f6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:38-42": {
+    "hash": "433b14cb76326c8a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:43-59": {
+    "hash": "e5b2f707e5c51947",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:60-66": {
+    "hash": "d7802076d65e17e9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:67-72": {
+    "hash": "9203a9b40c09ea8f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:73-80": {
+    "hash": "36cc99c139153183",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:81-89": {
+    "hash": "7bae9d73f0d76ba2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:90-99": {
+    "hash": "132e70e13e843181",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:100-110": {
+    "hash": "a7750b21df1e87d7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:111-118": {
+    "hash": "84dbe63c738c9929",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:119-122": {
+    "hash": "e9d76ff17cd7cd5e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:9:123-129": {
+    "hash": "28a02556bf8629f8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:1-10": {
+    "hash": "9dcad67424436b21",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:11-20": {
+    "hash": "663018b21efd691b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:21-30": {
+    "hash": "f15276e60b94a986",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:31-40": {
+    "hash": "dd391847acfc230b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:41-53": {
+    "hash": "166dac53ff960ea0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:54-60": {
+    "hash": "8d866c675938511b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:61-70": {
+    "hash": "ed91ce2a71461015",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:71-82": {
+    "hash": "610ce953b7bbe792",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:83-92": {
+    "hash": "3c7ce37bd5d8c286",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:93-103": {
+    "hash": "7e241e4c624e3153",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:10:104-109": {
+    "hash": "752a34d53f6792ca",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:1-8": {
+    "hash": "529e61c591dcc78f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:9-24": {
+    "hash": "b2575d52c67161f6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:25-35": {
+    "hash": "b5f94f8283cbec35",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:36-49": {
+    "hash": "648fbe809395efb4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:50-60": {
+    "hash": "caeda860ae195e93",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:61-68": {
+    "hash": "d5f5314a29bb7892",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:69-83": {
+    "hash": "129e6f7e3919643a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:84-95": {
+    "hash": "99ba7d628b7f986d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:96-109": {
+    "hash": "c996eea7e137229e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:11:110-123": {
+    "hash": "a2444cd1ef24893f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:1-6": {
+    "hash": "8b139254bb2eeb1b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:7-20": {
+    "hash": "38529c2644ab266f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:21-29": {
+    "hash": "021c48d6da8b41a1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:30-35": {
+    "hash": "93f11e43550fd55f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:36-42": {
+    "hash": "9d8328f1c2d62ffd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:43-49": {
+    "hash": "d16e12208504b069",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:50-57": {
+    "hash": "2a34cae4e90e0d8a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:58-68": {
+    "hash": "bfc5b8fa2cfa1592",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:69-79": {
+    "hash": "0746644c46a863e6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:80-93": {
+    "hash": "0a4e2cedd5cf3a8f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:94-104": {
+    "hash": "b717ba2769f1da0a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:12:105-111": {
+    "hash": "1d80bb066708062c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:1-7": {
+    "hash": "377e47a390374df7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:8-18": {
+    "hash": "ba8b2a321ca016b0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:19-26": {
+    "hash": "c1590e9f0adb216c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:27-31": {
+    "hash": "a0368604e38640c1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:32-37": {
+    "hash": "ce32f409c84d74e3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:13:38-43": {
+    "hash": "bb73dc92007f18e7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:1-6": {
+    "hash": "2e5b80b9c0adc3f7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:7-12": {
+    "hash": "95951839d84e1059",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:13-21": {
+    "hash": "44038973e0297da3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:22-27": {
+    "hash": "8a36a02a24b43e31",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:28-34": {
+    "hash": "e096fbc04e8cfbc8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:35-41": {
+    "hash": "ae6cb1c3bc6023d2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:14:42-52": {
+    "hash": "30b20ab63b57d085",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:1-15": {
+    "hash": "662523951b94ccb1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:16-25": {
+    "hash": "4514b9fcca0720aa",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:26-44": {
+    "hash": "e9d0545d058fc0b9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:45-60": {
+    "hash": "3e57b9d8fe81cc5c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:61-79": {
+    "hash": "136860a496ce34ff",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:15:80-99": {
+    "hash": "cd50ef961daa2ef8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:1-9": {
+    "hash": "66808f8b7aba623c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:10-21": {
+    "hash": "1640a7885cc7f351",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:22-25": {
+    "hash": "bbb11a5b80260826",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:26-34": {
+    "hash": "8dfbf81479f10c57",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:35-40": {
+    "hash": "b7641e7553a08e2f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:41-50": {
+    "hash": "59949d5ec167e299",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:51-60": {
+    "hash": "b668e8d8ccdc393b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:61-65": {
+    "hash": "2811e605f709f4d8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:66-70": {
+    "hash": "1aa6f3d0d5d79f25",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:71-76": {
+    "hash": "46c00d230611fa59",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:77-83": {
+    "hash": "7101a884c0764096",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:84-89": {
+    "hash": "14937f703f909153",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:90-100": {
+    "hash": "3d876db372c31af5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:101-110": {
+    "hash": "c323cb262b3e949f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:111-119": {
+    "hash": "414e13b1fc3d9773",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:16:120-128": {
+    "hash": "3b656783f4053231",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:1-10": {
+    "hash": "14e6c50a679ead0a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:11-22": {
+    "hash": "dcb4153b4edc482f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:23-30": {
+    "hash": "0f0853a12754251d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:31-40": {
+    "hash": "94b6e55b12f10bc7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:41-52": {
+    "hash": "a67017d581175899",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:53-60": {
+    "hash": "e224551dd4d4e32a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:61-70": {
+    "hash": "074f0814af457f97",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:71-77": {
+    "hash": "93fc6081f3c76694",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:78-84": {
+    "hash": "e1a1442e36e607a0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:85-93": {
+    "hash": "0593c4c0c1963175",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:94-100": {
+    "hash": "d189c9afa696b52e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:17:101-111": {
+    "hash": "4f72aba482fb15f9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:1-12": {
+    "hash": "419bd3ede503bc66",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:13-17": {
+    "hash": "cb02af9d492a96b4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:18-22": {
+    "hash": "e88a33c67aa3fe79",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:23-31": {
+    "hash": "d5092627fe6944b9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:32-44": {
+    "hash": "b33ff3b3a05de141",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:45-49": {
+    "hash": "66f8481656f76ff8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:50-53": {
+    "hash": "3b5217b482400d57",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:54-59": {
+    "hash": "d5b04db615addfb4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:60-70": {
+    "hash": "a0d2ce60b0b50d5a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:71-82": {
+    "hash": "c7ea4c527a83f37f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:83-101": {
+    "hash": "e6b6a3e940f89679",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:18:102-110": {
+    "hash": "6428afc78b980901",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:1-15": {
+    "hash": "b13d619f72d98f8e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:16-40": {
+    "hash": "5e12725e1f490f26",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:41-50": {
+    "hash": "388f7260c8bdfe6f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:51-65": {
+    "hash": "76e9803cf9bce68b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:66-82": {
+    "hash": "cec55cfe1d074835",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:19:83-98": {
+    "hash": "c33e81fe873aecce",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:1-24": {
+    "hash": "28040d6ce3bfe24b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:25-54": {
+    "hash": "f8ec366672065425",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:55-76": {
+    "hash": "f5695953b4dd3412",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:77-89": {
+    "hash": "6a5651cc371fb934",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:90-104": {
+    "hash": "cc96690f9d409893",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:105-115": {
+    "hash": "77ef6de619aceb80",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:116-128": {
+    "hash": "572d6a655e962f12",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:20:129-135": {
+    "hash": "4a77d7d25d80a1db",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:1-10": {
+    "hash": "0b8feda39cfe1c79",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:11-29": {
+    "hash": "0ee45330e581edb4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:30-41": {
+    "hash": "93f16faaa43e4895",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:42-50": {
+    "hash": "37c169571b1946b7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:51-75": {
+    "hash": "720ab82df08e9758",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:76-93": {
+    "hash": "a1b96df803766c4c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:21:94-112": {
+    "hash": "c0b0cdd3d253045b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:1-10": {
+    "hash": "06923be39edea292",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:11-22": {
+    "hash": "f6029e1c5b66a9ec",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:23-25": {
+    "hash": "7cf8ae1fa8506d14",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:26-33": {
+    "hash": "9e3df59406c5220e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:34-38": {
+    "hash": "889c30da5388ac36",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:39-48": {
+    "hash": "db61b1c23efa6551",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:49-57": {
+    "hash": "37a4c1469ffcb0e6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:58-64": {
+    "hash": "3e26dbc7061970ff",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:65-72": {
+    "hash": "ac0306c7c8604081",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:22:73-78": {
+    "hash": "b5212a342d56daab",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:1-22": {
+    "hash": "c17cf9ec158bd1ad",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:23-32": {
+    "hash": "bd039c28956d4c91",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:33-50": {
+    "hash": "4d7beeda2ba734b8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:51-77": {
+    "hash": "39240827645a757d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:78-92": {
+    "hash": "dc5d09469208feac",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:23:93-118": {
+    "hash": "2e2f784006184532",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:1-10": {
+    "hash": "b024cf11dbec0201",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:11-20": {
+    "hash": "7b93e4d18df93be9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:21-26": {
+    "hash": "499e108c78eb7a28",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:27-34": {
+    "hash": "99783880c967b35e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:35-40": {
+    "hash": "260436ff96ec7d93",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:41-50": {
+    "hash": "8d73b2b3ea452877",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:51-57": {
+    "hash": "6fd8b54b75f90402",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:58-61": {
+    "hash": "99f61190ce47550d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:24:62-64": {
+    "hash": "26d0f6a9951a5bc7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:1-9": {
+    "hash": "21962b61aa193218",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:10-20": {
+    "hash": "c0b9ee7206730b73",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:21-34": {
+    "hash": "bd78822a6e96f610",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:35-44": {
+    "hash": "39a046f9197678ac",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:45-60": {
+    "hash": "e8a585a346efd392",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:25:61-77": {
+    "hash": "281bee0ad05baf28",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:1-9": {
+    "hash": "1d50903856154395",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:10-33": {
+    "hash": "3c83e17fe30b1fa4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:34-52": {
+    "hash": "1753aee57f679d72",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:53-69": {
+    "hash": "eb0a1929b3f5bfc2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:70-104": {
+    "hash": "0dd65152c4e7fb7e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:105-122": {
+    "hash": "09bb35f4e37f0145",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:123-140": {
+    "hash": "8887ff787053c191",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:141-159": {
+    "hash": "1f7d14ef9b5cfaea",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:160-175": {
+    "hash": "4cbb44fb1dbd5fc6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:176-191": {
+    "hash": "13e6b1ee529f0eab",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:26:192-227": {
+    "hash": "47944ec6008ba45d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:1-14": {
+    "hash": "4ef532e920e3157a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:15-31": {
+    "hash": "ee71923427e23bd9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:32-44": {
+    "hash": "e7a860c6df3b0d12",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:45-58": {
+    "hash": "76de2c3cec1d5701",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:59-66": {
+    "hash": "8f24831d62f0e623",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:67-82": {
+    "hash": "a5a5f5b5f11524b5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:27:83-93": {
+    "hash": "086a099da81fbcab",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:1-13": {
+    "hash": "649a9bf4f4874947",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:14-21": {
+    "hash": "fc0429421ba38e04",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:22-28": {
+    "hash": "854e850b2b916d00",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:29-42": {
+    "hash": "d0bff1beef9806ad",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:43-50": {
+    "hash": "2d12fdf8f82af9cf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:51-60": {
+    "hash": "aefd7f5236aea880",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:61-75": {
+    "hash": "d658de8f2b69842d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:28:76-88": {
+    "hash": "8bde84ff0cb9a35f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:1-13": {
+    "hash": "52a2160e358585b3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:14-22": {
+    "hash": "8548de911c44faf7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:23-30": {
+    "hash": "915c8cc26e3a81dd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:31-44": {
+    "hash": "a1db66abfc54ae0c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:45-51": {
+    "hash": "4e0589aec2a3fe81",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:52-63": {
+    "hash": "3c53ba2884472cf8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:29:64-69": {
+    "hash": "6158c0aeb5b30c0f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:1-10": {
+    "hash": "3a903db21fd1d5be",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:11-19": {
+    "hash": "e4d01683a96236f9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:20-27": {
+    "hash": "0aa62187228f93c5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:28-40": {
+    "hash": "ef53b53387dfe8b5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:41-53": {
+    "hash": "b5e7025e4040efa2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:30:54-60": {
+    "hash": "207a4d876082dacf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:31:1-11": {
+    "hash": "e7cf6ddd37c778b6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:31:12-19": {
+    "hash": "74cf089c5dea8d5a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:31:20-34": {
+    "hash": "8b16c74052038e98",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:32:1-11": {
+    "hash": "f45e904b41a54a5a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:32:12-22": {
+    "hash": "1e5b8542667737d8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:32:23-30": {
+    "hash": "3cdbbe5da103889b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:1-8": {
+    "hash": "240155f2093847b8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:9-20": {
+    "hash": "8cc89324bacf9305",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:21-27": {
+    "hash": "98723451d5e4b1c1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:28-34": {
+    "hash": "7bf1cd3ff34537f5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:35-40": {
+    "hash": "49000055501bb533",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:41-52": {
+    "hash": "0cd0ff2a2101e409",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:53-58": {
+    "hash": "80e6058b33a5e64e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:59-68": {
+    "hash": "3f2b1a9799846eb3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:33:69-73": {
+    "hash": "24decd67a1dcb279",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:1-9": {
+    "hash": "627a5645c1c042a9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:10-21": {
+    "hash": "1f721b549e08b375",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:22-30": {
+    "hash": "acb13aad9ed9a60e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:31-36": {
+    "hash": "0b99c744fb4279c6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:37-45": {
+    "hash": "3c85c00d8bf3afa0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:34:46-54": {
+    "hash": "b14a2ce166d87ed5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:35:1-7": {
+    "hash": "df2261995c96c401",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:35:8-14": {
+    "hash": "7a6dfe567d2c2e03",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:35:15-26": {
+    "hash": "33a323f7531966ac",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:35:27-37": {
+    "hash": "a56ecfd4172d9988",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:35:38-45": {
+    "hash": "a7329b837a779152",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:36:1-12": {
+    "hash": "5fa8101f253e5141",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:36:13-32": {
+    "hash": "efd316b5b4d5916a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:36:33-50": {
+    "hash": "92864bb8c3e8fea4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:36:51-67": {
+    "hash": "4d43eb0a6bbb4c12",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:36:68-83": {
+    "hash": "cbe6eca32f1b3692",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:37:1-21": {
+    "hash": "a72f4ba454af55b7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:37:22-74": {
+    "hash": "f5322cd1bf5b519e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:37:75-113": {
+    "hash": "bbbdc1a830e26473",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:37:114-138": {
+    "hash": "f2f60b1b7a96c0a1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:37:139-182": {
+    "hash": "8c847ec1b085a612",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:38:1-14": {
+    "hash": "8d04f3ffcf3aedd2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:38:15-26": {
+    "hash": "f62b8f5a78311737",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:38:27-40": {
+    "hash": "6d376e4b8ba9a504",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:38:41-64": {
+    "hash": "6ca4f2ab5478dbc9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:38:65-88": {
+    "hash": "f4692f476b89ea63",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:1-9": {
+    "hash": "7baecbb21052aed4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:10-21": {
+    "hash": "3004c781469c1d2e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:22-31": {
+    "hash": "ce3100b6056f19f8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:32-41": {
+    "hash": "4cd8136e95ad79a4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:42-52": {
+    "hash": "075823624f2d3980",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:53-63": {
+    "hash": "5093097e20bed146",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:64-70": {
+    "hash": "81c1b87023cb67d7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:39:71-75": {
+    "hash": "a5118ad3e5991cb9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:1-9": {
+    "hash": "126a79fe3937d218",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:10-20": {
+    "hash": "37ae14ce7171110b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:21-27": {
+    "hash": "6894f055bee9f487",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:28-37": {
+    "hash": "34d75e4067949695",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:38-50": {
+    "hash": "146a9c37d25d0afc",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:51-60": {
+    "hash": "f608e58bf183be50",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:61-68": {
+    "hash": "5243d54c784f2454",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:69-78": {
+    "hash": "7081ecead713fae2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:40:79-85": {
+    "hash": "d0b9eba334c1dc8b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:1-8": {
+    "hash": "c8c8118dcd91db13",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:9-18": {
+    "hash": "31dd499de0d109f8",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:19-25": {
+    "hash": "9dfc3b768e6dff19",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:26-32": {
+    "hash": "f72476f7cdaf1cc3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:33-44": {
+    "hash": "bef4a5d21be98562",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:41:45-54": {
+    "hash": "936babd4f39abcbf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:42:1-9": {
+    "hash": "111042cabe665015",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:42:10-19": {
+    "hash": "813b7c00d0dd4378",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:42:20-29": {
+    "hash": "0e56e922ab8ae3a4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:42:30-43": {
+    "hash": "ffd23ac7a4764e79",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:42:44-53": {
+    "hash": "7912025215d9559d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:1-15": {
+    "hash": "e4ba6489bcf91f8f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:16-25": {
+    "hash": "c91453c594a5fa54",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:26-35": {
+    "hash": "f0729210ab30bc5b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:36-45": {
+    "hash": "de52ee8eb6eb6d87",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:46-56": {
+    "hash": "6ad8320cbd071393",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:57-67": {
+    "hash": "68d7e66493d71d4f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:43:68-89": {
+    "hash": "61cac86531dccc5a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:44:1-29": {
+    "hash": "1c1d5c7bddbc4376",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:44:30-42": {
+    "hash": "e529ffe35d967e8e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:44:43-59": {
+    "hash": "751ae39f35705fe7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:45:1-11": {
+    "hash": "2f29cd1bd2b5123b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:45:12-21": {
+    "hash": "c0194f1ee5f7d725",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:45:22-26": {
+    "hash": "e5ee2e4d78ab3cac",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:45:27-37": {
+    "hash": "76e110c67062f7d9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:46:1-10": {
+    "hash": "12af3978d89187c9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:46:11-20": {
+    "hash": "630d0e12830099cc",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:46:21-26": {
+    "hash": "b3f3c9e332448906",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:46:27-35": {
+    "hash": "4a235d340def0bd7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:47:1-11": {
+    "hash": "cc1e7b18ecdafff4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:47:12-19": {
+    "hash": "7dc6b8ab9c985f9d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:47:20-28": {
+    "hash": "4b489d78d4ab53bf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:47:29-38": {
+    "hash": "f1ff6708bd4ac16d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:48:1-10": {
+    "hash": "dbd71bb52643f1e0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:48:11-17": {
+    "hash": "97c11087d7700f34",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:48:18-26": {
+    "hash": "bcc50da91f5e1710",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:48:27-29": {
+    "hash": "f712c5b639ac4550",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:49:1-10": {
+    "hash": "cfa8f6adec9b4a57",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:49:11-18": {
+    "hash": "e7dd5a3048fb5c26",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:50:1-15": {
+    "hash": "759ebe6f794e0443",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:50:16-29": {
+    "hash": "1b3985663b292a9f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:50:30-45": {
+    "hash": "7d81b444c8780e94",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:51:1-23": {
+    "hash": "82133b540429b508",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:51:24-46": {
+    "hash": "b497fe122e3caf04",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:51:47-60": {
+    "hash": "a849da985cb76a81",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:52:1-28": {
+    "hash": "725c5104d20d4f8e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:52:29-49": {
+    "hash": "75e14bab1f4c7102",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:53:1-25": {
+    "hash": "4077b5d97442fad9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:53:26-32": {
+    "hash": "b8e6e5f970e9576f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:53:33-62": {
+    "hash": "261ae4cd07f75efa",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:54:1-22": {
+    "hash": "f63898a5efc7c2cc",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:54:23-40": {
+    "hash": "1f943f4b07dc7ffa",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:54:41-55": {
+    "hash": "ab44f38819a19728",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:55:1-25": {
+    "hash": "e7df057f0c0565b4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:55:26-45": {
+    "hash": "80ee802ad21a7d5f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:55:46-78": {
+    "hash": "27b9177b1ff8de1d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:56:1-38": {
+    "hash": "a7d770df920ba096",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:56:39-74": {
+    "hash": "dab6fd71ae2341f4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:56:75-96": {
+    "hash": "87351b021e099920",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:57:1-10": {
+    "hash": "0aec08be0e6644c5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:57:11-19": {
+    "hash": "e9804d8bbba5e991",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:57:20-25": {
+    "hash": "b69d9a530645da5d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:57:26-29": {
+    "hash": "20110afdacf9f06b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:58:1-6": {
+    "hash": "c35b50fb2af21c0a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:58:7-13": {
+    "hash": "c039295b0618d99f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:58:14-22": {
+    "hash": "99ac6a8950a69441",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:59:1-10": {
+    "hash": "60b0d2479cd557fe",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:59:11-17": {
+    "hash": "61ffb8a602dc2233",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:59:18-24": {
+    "hash": "639363ecc96f6774",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:60:1-6": {
+    "hash": "7b567636b63ea646",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:60:7-13": {
+    "hash": "9a12753889c38570",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:61:1-9": {
+    "hash": "2934b2c5057b78e6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:61:10-14": {
+    "hash": "871bf4f8c166bf20",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:62:1-8": {
+    "hash": "3f06962511a50ce6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:62:9-11": {
+    "hash": "6fb98ccf747ace0f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:63:1-8": {
+    "hash": "4c38fcc49c83b0f1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:63:9-11": {
+    "hash": "a425dcce8549e78f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:64:1-10": {
+    "hash": "b523eebf9bb02ada",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:64:11-18": {
+    "hash": "6fb0de3afd3901e0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:65:1-7": {
+    "hash": "3c6971567bd5aa07",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:65:8-12": {
+    "hash": "c5f472fd82a25ff1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:66:1-7": {
+    "hash": "57b71d5cf4a90201",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:66:8-12": {
+    "hash": "2498ac9cffa1f834",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:67:1-14": {
+    "hash": "16a655aca4647bfd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:67:15-30": {
+    "hash": "7470797e0e9b0ab6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:68:1-33": {
+    "hash": "fc72aa2e59ad44ea",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:68:34-52": {
+    "hash": "73f73f7580572a8c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:69:1-37": {
+    "hash": "f294b0cb113c79bf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:69:38-52": {
+    "hash": "261af4733b471af3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:70:1-35": {
+    "hash": "07f3079546e79ea3",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:70:36-44": {
+    "hash": "69830d6f7693fc22",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:71:1-20": {
+    "hash": "154a4b7b849e262c",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:71:21-28": {
+    "hash": "39a288db52005acb",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:72:1-19": {
+    "hash": "d5170341626dad54",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:72:20-28": {
+    "hash": "372f2fde9b0d846b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:73:1-19": {
+    "hash": "2fc49fb574ae7723",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:73:20-20": {
+    "hash": "ae0d5cd6011a8d9a",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:74:1-31": {
+    "hash": "770a0ca9a2a72de0",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:74:32-56": {
+    "hash": "b1261f4d3553b1c7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:75:1-30": {
+    "hash": "98d3d5f266ade8c4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:75:31-40": {
+    "hash": "b1ea37a546e4d95e",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:76:1-22": {
+    "hash": "435a5f1ccb87a3e1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:76:23-31": {
+    "hash": "437d8baec5a48182",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:77:1-40": {
+    "hash": "5752772d59ec53a2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:77:41-50": {
+    "hash": "9b7bfff6fda75e1f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:78:1-30": {
+    "hash": "6b874bb4b7fbca5d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:78:31-40": {
+    "hash": "b77463f5d2b400a1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:79:1-26": {
+    "hash": "2dc09f2566df3215",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:79:27-46": {
+    "hash": "4a8441fc6c60f778",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:80:1-42": {
+    "hash": "ca3136eb6270a6d6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:81:1-29": {
+    "hash": "e7501ad8e2bff121",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:82:1-19": {
+    "hash": "ab01b09aca39b366",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:83:1-36": {
+    "hash": "679d7be04ca20189",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:84:1-25": {
+    "hash": "6b473868d6660abe",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:85:1-22": {
+    "hash": "af38ef4990ddba8f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:86:1-17": {
+    "hash": "618bb14ca998a6c9",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:87:1-19": {
+    "hash": "40ad7ae693ed2594",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:88:1-26": {
+    "hash": "a2436852168d8710",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:89:1-30": {
+    "hash": "f226cfa0543292e4",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:90:1-20": {
+    "hash": "db810f04d68fc194",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:91:1-15": {
+    "hash": "76c62103b1996c76",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:92:1-21": {
+    "hash": "9a000555135d7779",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:93:1-11": {
+    "hash": "ac208ba4894e699d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:94:1-8": {
+    "hash": "ab80d04848e98360",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:95:1-8": {
+    "hash": "d416a250f1350b61",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:96:1-19": {
+    "hash": "339991f8e5ea6f11",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:97:1-5": {
+    "hash": "5142ee1e73bdcdf7",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:98:1-8": {
+    "hash": "82ddacfa0c7d03d2",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:99:1-8": {
+    "hash": "66587f33ad884e3d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:100:1-11": {
+    "hash": "5e1aa1e79aa953f1",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:101:1-11": {
+    "hash": "dfe9d7d7d3b7789d",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:102:1-8": {
+    "hash": "5e57368ae42d8e45",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:103:1-3": {
+    "hash": "e1b6869985a04648",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:104:1-9": {
+    "hash": "aee86e3866f287bf",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:105:1-5": {
+    "hash": "f039a76739913d85",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:106:1-4": {
+    "hash": "62c3b32660cef20f",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:107:1-7": {
+    "hash": "dce0b0bedb661b6b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:108:1-3": {
+    "hash": "87060711ed2e0410",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:109:1-6": {
+    "hash": "4996c955b011933b",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:110:1-3": {
+    "hash": "61f66581af134ef6",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:111:1-5": {
+    "hash": "c2e8a69dfaf794c5",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:112:1-4": {
+    "hash": "857b0fcb0b812776",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:113:1-5": {
+    "hash": "26ceb567e50c42bd",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
+  },
+  "pericope:114:1-6": {
+    "hash": "ff78edc98f7b96ca",
+    "embeddedAt": "2026-07-14T13:15:36.470Z",
+    "type": "pericope"
   }
 }
