@@ -107,6 +107,46 @@ async function updateAggregateFeedback(entry) {
   }
 }
 
+// ── Server-side response cache (Faz 2)
+// Aynı sorgu bir daha geldiğinde LLM çağrısı YAPMADAN cache'ten döner.
+// TTL 7 gün — corpus + prompt update'ler sonrası doğal invalidation.
+// Sadece 'ok' + 'fetva_talebi' cache'lenir; reject/rewrite cache'lenmez.
+
+const CACHE_TTL_SECONDS = 7 * 24 * 60 * 60; // 7 gün
+
+export async function getResponseCache(queryHash) {
+  if (!KV_ENABLED) return null;
+  try {
+    const key = `cache:${queryHash}`;
+    return await kv.get(key);
+  } catch (err) {
+    console.error('[kv] getResponseCache failed:', err.message);
+    return null;
+  }
+}
+
+export async function setResponseCache(queryHash, response) {
+  if (!KV_ENABLED) return;
+  try {
+    const key = `cache:${queryHash}`;
+    await kv.set(key, response, { ex: CACHE_TTL_SECONDS });
+    // Track cache count via sorted set
+    await kv.zadd('cache:by-time', { score: Date.now(), member: queryHash });
+  } catch (err) {
+    console.error('[kv] setResponseCache failed:', err.message);
+  }
+}
+
+export async function getCacheStats() {
+  if (!KV_ENABLED) return { count: 0 };
+  try {
+    const count = await kv.zcard('cache:by-time');
+    return { count: count || 0 };
+  } catch (err) {
+    return { count: 0, error: err.message };
+  }
+}
+
 // ── Admin read APIs
 export async function listRecentQueries({ limit = 50, offset = 0 } = {}) {
   if (!KV_ENABLED) return [];
@@ -153,19 +193,36 @@ export async function listTopQueries({ limit = 50 } = {}) {
 export async function getStats() {
   if (!KV_ENABLED) return { kvEnabled: false };
   try {
-    const [totalQueries, totalFeedback, totalUnique] = await Promise.all([
+    const [totalQueries, totalFeedback, totalUnique, cacheEntries] = await Promise.all([
       kv.zcard('queries:by-time'),
       kv.zcard('feedback:by-time'),
       kv.zcard('agg:by-count'),
+      kv.zcard('cache:by-time'),
     ]);
     return {
       kvEnabled: true,
       totalQueries: totalQueries || 0,
       totalFeedback: totalFeedback || 0,
       totalUniqueQueries: totalUnique || 0,
+      cacheEntries: cacheEntries || 0,
     };
   } catch (err) {
     console.error('[kv] getStats failed:', err.message);
     return { kvEnabled: true, error: err.message };
+  }
+}
+
+// ── Cache purge (admin action)
+export async function purgeAllCache() {
+  if (!KV_ENABLED) return { purged: 0 };
+  try {
+    const hashes = await kv.zrange('cache:by-time', 0, -1);
+    if (!hashes || hashes.length === 0) return { purged: 0 };
+    const cacheKeys = hashes.map(h => `cache:${h}`);
+    await kv.del(...cacheKeys);
+    await kv.del('cache:by-time');
+    return { purged: hashes.length };
+  } catch (err) {
+    return { purged: 0, error: err.message };
   }
 }

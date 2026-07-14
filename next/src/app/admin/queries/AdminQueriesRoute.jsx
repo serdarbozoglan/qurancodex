@@ -124,6 +124,21 @@ export default function AdminQueriesRoute() {
 
   useEffect(() => { load(); }, [load]);
 
+  const purgeCache = useCallback(async () => {
+    if (!window.confirm('Tüm response cache silinsin mi? (KV disk temizlenir, sonraki query\'ler LLM\'e gider)')) return;
+    try {
+      const res = await fetch('/api/admin/queries?action=purge_cache', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const j = await res.json();
+      alert(`${j.purged || 0} cache entry silindi`);
+      load();
+    } catch (err) {
+      alert(`Purge hatası: ${err.message}`);
+    }
+  }, [token, load]);
+
   const tabs = [
     { id: 'recent', label: 'Son Sorgular' },
     { id: 'top', label: 'En Çok Sorulan' },
@@ -205,7 +220,7 @@ export default function AdminQueriesRoute() {
 
         {/* Content */}
         {view === 'stats' && stats && (
-          <StatsView stats={stats} />
+          <StatsView stats={stats} onPurgeCache={purgeCache} />
         )}
         {view === 'recent' && <RecentQueriesTable rows={rows} />}
         {view === 'top' && <TopQueriesTable rows={rows} />}
@@ -219,12 +234,35 @@ export default function AdminQueriesRoute() {
   );
 }
 
-function StatsView({ stats }) {
+function StatsView({ stats, onPurgeCache }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16 }}>
-      <StatCard label="Toplam Sorgu" value={stats.totalQueries || 0} />
-      <StatCard label="Toplam Feedback" value={stats.totalFeedback || 0} />
-      <StatCard label="Benzersiz Sorgu" value={stats.totalUniqueQueries || 0} />
+    <div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+        <StatCard label="Toplam Sorgu" value={stats.totalQueries || 0} />
+        <StatCard label="Toplam Feedback" value={stats.totalFeedback || 0} />
+        <StatCard label="Benzersiz Sorgu" value={stats.totalUniqueQueries || 0} />
+        <StatCard label="Cache Entry" value={stats.cacheEntries || 0} />
+      </div>
+      {(stats.cacheEntries || 0) > 0 && (
+        <div style={{ padding: 16, background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+            <div>
+              <div style={{ fontSize: '0.85rem', color: COLORS.offWhite, marginBottom: 4 }}>
+                Response Cache
+              </div>
+              <div style={{ fontSize: '0.72rem', color: COLORS.silver }}>
+                {stats.cacheEntries} cached response · TTL 7 gün · corpus/prompt update sonrası purge önerilir
+              </div>
+            </div>
+            <button
+              onClick={onPurgeCache}
+              style={{ ...btnStyle('danger'), whiteSpace: 'nowrap' }}
+            >
+              Tümünü Temizle
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -297,13 +335,20 @@ function catBadge(cat, rejected) {
 
 function RecentQueriesTable({ rows }) {
   return (
-    <Table headers={['Zaman', 'Sorgu', 'Dil', 'Durum', 'Sonuç', 'IP']}>
+    <Table headers={['Zaman', 'Sorgu', 'Dil', 'Durum', 'Cache', 'Sonuç', 'IP']}>
       {rows.map((r, i) => (
         <tr key={i}>
           <Td style={{ fontFamily: MONO, fontSize: '0.75rem', whiteSpace: 'nowrap' }}>{formatTs(r.timestamp)}</Td>
           <Td style={{ maxWidth: 400, wordBreak: 'break-word' }}>{r.query || '—'}</Td>
           <Td>{langBadge(r.lang)}</Td>
           <Td>{catBadge(r.category, r.rejected)}</Td>
+          <Td style={{ fontSize: '0.7rem' }}>
+            {r.cacheHit ? (
+              <span style={{ padding: '2px 8px', borderRadius: 4, background: `${COLORS.green}22`, color: COLORS.green, fontWeight: 700, letterSpacing: '0.05em' }}>HIT</span>
+            ) : (
+              <span style={{ color: COLORS.silver }}>miss</span>
+            )}
+          </Td>
           <Td style={{ fontSize: '0.75rem', color: COLORS.silver }}>
             {r.resultsCount
               ? `V:${r.resultsCount.verses} T:${r.resultsCount.tafsirs} At:${r.resultsCount.atlases}`

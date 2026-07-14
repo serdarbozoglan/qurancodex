@@ -11,7 +11,7 @@ import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
-import { logQuery } from '@/lib/concierge-kv';
+import { logQuery, getResponseCache, setResponseCache } from '@/lib/concierge-kv';
 
 // Query hash — stable identifier for feedback + cache curation. Deterministic
 // SHA-256 of normalized (lowercase, trim, whitespace-collapse) query + lang.
@@ -64,9 +64,48 @@ export async function POST(request) {
 
   const timings = {};
   const originalQuery = query;
+  const preHash = computeQueryHash(query, lang);
 
   try {
-    // 0. Guardrails — 3-katmanlı adaptive pipeline
+    // 0a. Server-side response cache lookup (Faz 2)
+    // Aynı sorgu daha önce cache'lendiyse LLM pipeline'ı skip et.
+    // TTL 7 gün; corpus/prompt update sonrası doğal invalidation.
+    const tC = Date.now();
+    const cached = await getResponseCache(preHash);
+    timings.cacheLookup = Date.now() - tC;
+    if (cached) {
+      timings.total = Date.now() - startTs;
+      // fire-and-forget: cache hit'i de query log'a yaz (analytics için)
+      logQuery({
+        queryHash: preHash,
+        query: originalQuery,
+        lang,
+        category: cached.meta?.guardrails?.category || 'ok',
+        rejected: false,
+        cacheHit: true,
+        candidateCount: cached.meta?.candidateCount || 0,
+        timingTotal: timings.total,
+        ipHash: ip ? ip.slice(0, 8) : null,
+        timestamp: Date.now(),
+      }).catch(() => {});
+      return Response.json({
+        ...cached,
+        cached: true,
+        meta: {
+          ...cached.meta,
+          timings,
+          rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
+        },
+      }, {
+        headers: {
+          'X-RateLimit-Remaining': String(rl.remaining),
+          'X-Cache': 'HIT',
+          'Cache-Control': 'private, no-store',
+        },
+      });
+    }
+
+    // 0b. Guardrails — 3-katmanlı adaptive pipeline
     // (regex prefilter → LLM classifier (adaptive) → LLM rewrite (adaptive))
     // Rejected queries returned early with warm message + suggestion chips.
     const tG = Date.now();
@@ -166,6 +205,7 @@ export async function POST(request) {
       lang,
       category: guard.category, // 'ok' | 'rewrite' | 'fetva_talebi'
       rejected: false,
+      cacheHit: false,
       candidateCount,
       resultsCount: {
         verses: hydrated.verses?.length || 0,
@@ -179,7 +219,7 @@ export async function POST(request) {
       timestamp: Date.now(),
     }).catch(() => {});
 
-    return Response.json({
+    const responsePayload = {
       query: originalQuery,
       effectiveQuery,
       lang,
@@ -194,11 +234,18 @@ export async function POST(request) {
         rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
         guardrails: { category: guard.category, reason: guard.reason },
       },
-    }, {
+    };
+
+    // Faz 2: cache'e yaz (sadece ok + fetva_talebi, TTL 7 gün)
+    if (guard.category === 'ok' || guard.category === 'fetva_talebi') {
+      setResponseCache(preHash, responsePayload).catch(() => {});
+    }
+
+    return Response.json(responsePayload, {
       headers: {
         'X-RateLimit-Remaining': String(rl.remaining),
         'X-RateLimit-Reset': String(rl.resetAt),
-        // Prevent CDN caching (each query unique)
+        'X-Cache': 'MISS',
         'Cache-Control': 'private, no-store',
       },
     });

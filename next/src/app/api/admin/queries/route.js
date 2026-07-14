@@ -13,7 +13,7 @@
 //   ?offset=N       — pagination
 // ────────────────────────────────────────────────────────────────────────────
 
-import { listRecentQueries, listRecentFeedback, listTopQueries, getStats, isKvEnabled } from '@/lib/concierge-kv';
+import { listRecentQueries, listRecentFeedback, listTopQueries, getStats, isKvEnabled, purgeAllCache } from '@/lib/concierge-kv';
 
 export const runtime = 'nodejs';
 
@@ -69,4 +69,24 @@ export async function GET(request) {
     console.error('[admin] error:', err);
     return Response.json({ error: 'internal_error', message: err.message }, { status: 500 });
   }
+}
+
+// POST — admin actions (currently: cache purge)
+export async function POST(request) {
+  const auth = checkAuth(request);
+  if (!auth.ok) return Response.json({ error: auth.error }, { status: 401 });
+
+  const url = new URL(request.url);
+  const action = url.searchParams.get('action');
+
+  if (!isKvEnabled()) {
+    return Response.json({ error: 'kv_not_enabled' }, { status: 400 });
+  }
+
+  if (action === 'purge_cache') {
+    const result = await purgeAllCache();
+    return Response.json(result);
+  }
+
+  return Response.json({ error: 'invalid_action' }, { status: 400 });
 }
