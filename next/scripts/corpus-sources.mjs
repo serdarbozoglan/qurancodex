@@ -8,14 +8,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
 
-// ── Multi-meal (Faz 2a) + Metadata enrichment (Faz 2b) + Verse text index — load once.
+// ── Multi-meal (Faz 2a) + Metadata (Faz 2b) + Verse text index + Tefsir (Faz 2d) — load once.
 const _srcDir = path.dirname(fileURLToPath(import.meta.url));
 const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
 const _metaPath = path.resolve(_srcDir, '..', 'public/verse-metadata.json');
 const _versesPath = path.resolve(_srcDir, '..', 'public/verse-graph-bgem3.json');
+const _tefsirPath = path.resolve(_srcDir, '..', 'public/tefsir-per-verse.json');
 let MEALS_MULTI = null;
 let VERSE_META = null;
 let VERSE_TEXT_INDEX = null; // { "1:1": { tr, en, arabic } } — kavram enrichment için
+let TEFSIR_INDEX = null;     // { "1:1": { tr, en } } — Faz 2d
 try {
   if (fs.existsSync(_mealsPath)) {
     MEALS_MULTI = JSON.parse(fs.readFileSync(_mealsPath, 'utf8'));
@@ -49,7 +51,15 @@ try {
 } catch (err) {
   console.warn(`   ⚠  Failed to build verse text index: ${err.message}`);
 }
-export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX };
+try {
+  if (fs.existsSync(_tefsirPath)) {
+    TEFSIR_INDEX = JSON.parse(fs.readFileSync(_tefsirPath, 'utf8'));
+    console.log(`   ℹ  tefsir-per-verse.json loaded (${Object.keys(TEFSIR_INDEX).length} entries)`);
+  }
+} catch (err) {
+  console.warn(`   ⚠  Failed to load tefsir-per-verse.json: ${err.message}`);
+}
+export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX, TEFSIR_INDEX };
 //
 // Her source:
 //   type: string           — item type (verse, article, atlas-*, tool)
@@ -451,6 +461,55 @@ export const CONTENT_SOURCES = [
         // Enriched — kavram başlığı + anahtar kelimeler + kategori + anchor ayet metinleri
         searchTextTr: `${item.tr || ''} (${item.ar || ''}) — ${keywords}. Kategori: ${item.group || ''}. Ana ayetler (${anchors}): ${anchorTextsTr}`.slice(0, 3000),
         searchTextEn: `${item.en || ''} (${item.ar || ''}) — ${keywords}. Group: ${item.group || ''}. Anchor verses (${anchors}): ${anchorTextsEn}`.slice(0, 3000),
+      };
+    },
+  },
+
+  // ─── Tefsir per-verse — Faz 2d: Elmalılı TR + İbn Kesîr EN
+  // Meal ile PARALEL chunk (concat DEĞİL) — retrieval'da tefsir ayrı hit vermeli.
+  // Elmalılı ~4993 segment, İbn Kesîr ~300 segment. Toplam ~5083 tefsir chunk.
+  // Coverage eksik ayetler skip edilir (segment yok → chunk üretilmez).
+  {
+    type: 'tefsir',
+    // Kullanılmıyor ama loadDirSource'a "extract" formatı için dummy path lazım.
+    // Aslında TEFSIR_INDEX'ten okuyoruz — file source değil, buildItem içinde generate.
+    file: 'public/tefsir-per-verse.json',
+    extract: () => {
+      if (!TEFSIR_INDEX) return [];
+      const items = [];
+      for (const [ref, texts] of Object.entries(TEFSIR_INDEX)) {
+        // At least one lang must have content
+        if (!texts.tr && !texts.en) continue;
+        const [surahStr, ayahStr] = ref.split(':');
+        items.push({ ref, surah: parseInt(surahStr), ayah: parseInt(ayahStr), tr: texts.tr || '', en: texts.en || '' });
+      }
+      return items;
+    },
+    buildItem: (item) => {
+      const surahNameTr = SURAH_NAMES_TR[item.surah - 1] || '';
+      const surahNameEn = SURAH_NAMES_EN[item.surah - 1] || '';
+      // Meal metnini de prefix'e ekle → tefsir context'i güçlü olsun
+      const mealTr = VERSE_TEXT_INDEX?.[item.ref]?.tr || '';
+      const mealEn = VERSE_TEXT_INDEX?.[item.ref]?.en || '';
+      // searchText: [sure ref] [meal] TEFSIR: [tefsir metni]
+      // Meal olmasa bile tefsir metni yeterli semantik ipuç
+      const trBody = item.tr ? `TEFSİR (Elmalılı): ${item.tr}` : '';
+      const enBody = item.en ? `TAFSIR (Ibn Kathir): ${item.en}` : '';
+      return {
+        id: `tefsir:${item.ref}`,
+        type: 'tefsir',
+        surah: item.surah,
+        ayah: item.ayah,
+        surahName: surahNameTr,
+        surahNameEn,
+        source: 'elmalili+ibnkathir',
+        // Card display: kısa özet (ilk 200 char)
+        descTr: (item.tr || mealTr).slice(0, 200),
+        descEn: (item.en || mealEn).slice(0, 200),
+        // Full searchText — meal + tefsir birlikte, embedding bağlam öğrenir.
+        // Boş dil için sadece prefix döner (embedding zayıf olsa da corpus'ta kalsın).
+        searchTextTr: `${surahNameTr} ${item.surah}:${item.ayah}. ${mealTr} ${trBody}`.trim().slice(0, 3000),
+        searchTextEn: `${surahNameEn} ${item.surah}:${item.ayah}. ${mealEn} ${enBody}`.trim().slice(0, 3000),
       };
     },
   },

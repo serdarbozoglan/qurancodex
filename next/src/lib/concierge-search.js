@@ -144,6 +144,7 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
     lang,
     perType: {
       verse: 3,
+      tefsir: 2,                 // Faz 2d: Elmalılı TR + İbn Kesîr EN
       article: 2,
       'article-section': 2,      // Faz 2c-D: makale section child'ları
       tool: 2,

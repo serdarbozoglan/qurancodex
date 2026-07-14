@@ -29,6 +29,10 @@ function buildUrl(item, lang = 'tr') {
   const base = `/${lang}`;
   switch (item.type) {
     case 'verse':
+    case 'tefsir':
+      // Tefsir chunk kullanıcıya "oku" sayfası + ayet olarak sunulur
+      // (site'de bağımsız tefsir viewer yok; ayet üzerinden Reading Mode'un
+      // tefsir tab'ına inilebilir).
       return `${base}/oku/${item.surah}?ayah=${item.ayah}`;
     case 'article':
     case 'article-section':
@@ -85,6 +89,16 @@ function hydrateItem(item, reason, lang) {
         // Client Reading Mode localStorage'daki seçili meal ile eşleştirir.
         ...(item.mealsTr ? { mealsTr: item.mealsTr } : {}),
         ...(item.mealsEn ? { mealsEn: item.mealsEn } : {}),
+      };
+    case 'tefsir':
+      // Tefsir chunk — kart görüntüsünde "Elmalılı" veya "İbn Kesîr" etiketi.
+      return {
+        ...base,
+        surah: item.surah,
+        ayah: item.ayah,
+        surahName: lang === 'tr' ? item.surahName : item.surahNameEn,
+        source: lang === 'tr' ? 'Elmalılı Hamdi Yazır' : 'Ibn Kathir',
+        excerpt: lang === 'tr' ? item.descTr : item.descEn,
       };
     case 'article':
       return {
@@ -171,11 +185,12 @@ export function hydrateResponse(parsed, lang = 'tr') {
     return out;
   }
 
-  // Merge atlases + articles + tools + verses into unified structure
+  // Merge atlases + articles + tools + verses + tafsir into unified structure
   const verses = resolve(parsed.verses);
   const tools = resolve(parsed.tools);
   const articles = resolve(parsed.articles);
   const atlases = resolve(parsed.atlases);
+  const tafsirs = resolve(parsed.tafsirs || parsed.tefsirler);
 
   return {
     intro: parsed.intro || '',
@@ -184,10 +199,12 @@ export function hydrateResponse(parsed, lang = 'tr') {
     tools,
     articles,
     atlases,
+    tafsirs,
     stats: {
       versesCount: verses.length,
       toolsCount: tools.length,
       articlesCount: articles.length,
+      tafsirsCount: tafsirs.length,
       atlasesCount: atlases.length,
     },
   };

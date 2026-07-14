@@ -34,6 +34,9 @@ MUTLAK KURALLAR:
   "verses": [
     { "id": "verse:2:255", "reason": "1 cümle — bu ayet nasıl ilgili" }
   ],
+  "tafsirs": [
+    { "id": "tefsir:2:255", "reason": "1 cümle — tefsir ne diyor" }
+  ],
   "tools": [
     { "id": "tool:/arac/kiyamet", "reason": "1 cümle — sayfa neyi sunar" }
   ],
@@ -48,11 +51,13 @@ MUTLAK KURALLAR:
 
 TİPLER (dikkat):
 - "verse:X:Y" → ayet
+- "tefsir:X:Y" → o ayetin tefsiri (Elmalılı TR / İbn Kesîr EN) → tafsirs listesine koy
 - "article:slug" → tefekkür yazısı PARENT (tüm makale) → articles listesine koy
 - "article-section:slug#section-id" → makale bir BÖLÜMÜ (Faz 2c-D child) → articles listesine koy, aynı slug parent ile birlikte gelse dedup gerekmez ama tercihen SPESİFİK section daha iyi match ise onu tercih et
 - "atlas-kissa:prophet" → peygamber kıssası parent (tam kıssa) → atlases
 - "atlas-kissa-scene:scene-id" → belirli sahne (Faz 2c-B child) → atlases, spesifik sahne query'de bu ideal
 - Diğer atlas-* → atlases
+- "surah-summary:N" → sure özet → atlases
 
 Sadece JSON dön, başka açıklama ekleme.`;
 
@@ -73,6 +78,9 @@ OUTPUT SCHEMA (JSON):
   "verses": [
     { "id": "verse:2:255", "reason": "1 sentence — how this verse relates" }
   ],
+  "tafsirs": [
+    { "id": "tefsir:2:255", "reason": "1 sentence — what tafsir says" }
+  ],
   "tools": [
     { "id": "tool:/arac/kiyamet", "reason": "1 sentence — what the page offers" }
   ],
@@ -87,11 +95,13 @@ OUTPUT SCHEMA (JSON):
 
 TYPES (note):
 - "verse:X:Y" → verse
+- "tefsir:X:Y" → tafsir chunk for that verse (Elmalılı TR / Ibn Kathir EN) → tafsirs list
 - "article:slug" → reflection essay PARENT (whole article) → articles list
 - "article-section:slug#section-id" → article SECTION (Faz 2c-D child) → articles list, prefer specific section over parent when the section is a stronger match
 - "atlas-kissa:prophet" → prophet story parent (full narrative) → atlases
 - "atlas-kissa-scene:scene-id" → specific scene (Faz 2c-B child) → atlases, ideal for scene-specific queries
 - Other atlas-* → atlases
+- "surah-summary:N" → surah summary → atlases
 
 Return JSON only, no other explanation.`;
 
@@ -112,6 +122,20 @@ function buildUserMessage(query, grouped, lang = 'tr') {
       const name = lang === 'tr' ? item.surahName : item.surahNameEn;
       parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${name} ${item.surah}:${item.ayah}`);
       parts.push(`  ${(text || '').slice(0, 300)}`);
+    }
+    parts.push('');
+  }
+
+  // Tefsirler (Faz 2d) — verse'lere paralel tefsir chunk'ları
+  const tafsirs = grouped.tefsir || [];
+  if (tafsirs.length) {
+    parts.push(`--- ${lang === 'tr' ? 'TEFSİRLER' : 'TAFSIRS'} ---`);
+    for (const { item, score } of tafsirs) {
+      const src = lang === 'tr' ? 'Elmalılı' : 'Ibn Kathir';
+      const excerpt = lang === 'tr' ? item.descTr : item.descEn;
+      const nameTr = lang === 'tr' ? item.surahName : item.surahNameEn;
+      parts.push(`[${item.id}] (score ${score.toFixed(2)}) ${src} ${nameTr} ${item.surah}:${item.ayah}`);
+      parts.push(`  ${(excerpt || '').slice(0, 200)}`);
     }
     parts.push('');
   }
@@ -211,6 +235,7 @@ export async function runConcierge({ query, grouped, lang = 'tr' }) {
   if (!Array.isArray(parsed.tools)) parsed.tools = [];
   if (!Array.isArray(parsed.articles)) parsed.articles = [];
   if (!Array.isArray(parsed.atlases)) parsed.atlases = [];
+  if (!Array.isArray(parsed.tafsirs)) parsed.tafsirs = [];
 
   return {
     parsed,
