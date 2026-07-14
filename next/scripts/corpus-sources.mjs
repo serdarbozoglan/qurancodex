@@ -8,6 +8,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../src/lib/surahNames.js';
 
+// ── ENABLED_MEALS — Faz 2a whitelist (2026-07-14 boyut optimizasyonu).
+// Vercel 250 MB function limit için multi-vector meal sayısı azaltıldı:
+//   TR 3 → 2 (Suat Yıldırım + Diyanet) — Ali Bulaç çıkarıldı
+//   EN 3 → 1 (Sahih International) — Yusuf Ali + Asad çıkarıldı
+// Client'a tüm 6 meal display için gönderilir (VerseCard parity için); ancak
+// embedding vector sayısı sadece whitelist'e göre. Recall etkisi minimum.
+const ENABLED_MEALS = {
+  tr: ['suatYildirim', 'diyanet'],
+  en: ['sahih'],
+};
+
 // ── Multi-meal (Faz 2a) + Metadata (Faz 2b) + Verse text index + Tefsir (Faz 2d) — load once.
 const _srcDir = path.dirname(fileURLToPath(import.meta.url));
 const _mealsPath = path.resolve(_srcDir, '..', 'public/meals-multi.json');
@@ -98,17 +109,26 @@ export const CONTENT_SOURCES = [
         ? ` [summary: ${meta.summary_en}] [themes: ${(meta.themes_en || []).join(', ')}] [concepts: ${(meta.concepts || []).join(', ')}]`
         : '';
 
-      // searchTextTrArr — multi-vector için 3 ayrı text (surah+ayah prefix + her meal).
-      // Yoksa tek text (backward compat).
+      // searchTextTrArr — multi-vector için sadece ENABLED_MEALS whitelist'ine
+      // dahil olan meal'ler embed edilir. Client'a mealsTr/mealsEn ise TAM
+      // 3 meal olarak gönderilir (VerseCard parity için).
       let searchTextTrArr = null;
       let searchTextEnArr = null;
       if (mealsTr) {
         const prefix = `${v.surahName || ''} ${v.surah}:${v.ayah}.`;
-        searchTextTrArr = Object.values(mealsTr).map(m => `${prefix} ${m}${suffixTr}`.trim()).filter(Boolean);
+        const trTexts = ENABLED_MEALS.tr
+          .map(k => mealsTr[k])
+          .filter(Boolean)
+          .map(m => `${prefix} ${m}${suffixTr}`.trim());
+        if (trTexts.length > 0) searchTextTrArr = trTexts;
       }
       if (mealsEn) {
         const prefix = `${v.surahNameEn || ''} ${v.surah}:${v.ayah}.`;
-        searchTextEnArr = Object.values(mealsEn).map(m => `${prefix} ${m}${suffixEn}`.trim()).filter(Boolean);
+        const enTexts = ENABLED_MEALS.en
+          .map(k => mealsEn[k])
+          .filter(Boolean)
+          .map(m => `${prefix} ${m}${suffixEn}`.trim());
+        if (enTexts.length > 0) searchTextEnArr = enTexts;
       }
 
       return {
