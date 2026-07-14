@@ -24,6 +24,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { COLORS, FONTS } from '../../../tokens';
+import { detectQueryLang } from '../../../lib/query-lang';
 
 export default function SorRoute() {
   return (
@@ -97,8 +98,12 @@ function SorInner() {
   const runQuery = useCallback(async (q) => {
     if (!q || q.length < 3) return;
 
-    // Cache-first
-    const cached = getCachedResponse(language, q);
+    // Query dilini heuristic ile tespit et — sayfa dilinden BAĞIMSIZ.
+    // TR user EN sorabilir, EN user TR sorabilir. Default TR.
+    const queryLang = detectQueryLang(q);
+
+    // Cache-first (queryLang'e göre)
+    const cached = getCachedResponse(queryLang, q);
     if (cached) {
       setResponse(cached);
       setState('ok');
@@ -121,7 +126,7 @@ function SorInner() {
       const res = await fetch('/api/concierge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q, lang: language }),
+        body: JSON.stringify({ q, lang: queryLang }),
         signal: ctrl.signal,
       });
       const data = await res.json();
@@ -913,7 +918,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
         <SectionBlock title={tr ? 'İlgili Ayetler' : 'Relevant Verses'} count={response.verses.length}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {response.verses.map((v, i) => (
-              <VerseCard key={v.id} verse={v} delay={i * 0.06} language={language} />
+              <VerseCard key={v.id} verse={v} delay={i * 0.06} language={data.lang || language} />
             ))}
           </div>
         </SectionBlock>
@@ -1090,19 +1095,26 @@ function useSelectedMealId() {
 function VerseCard({ verse, delay, language }) {
   const reduced = useReducedMotion();
   const tr = language === 'tr';
-  const mealId = useSelectedMealId();
+  const rawMealId = useSelectedMealId();
+
+  // 2026-07-14 fix: Query lang (parent'tan gelen `language` prop)
+  // Reading Mode meal ID'sini OVERRIDE eder. Query TR ise user'ın seçtiği
+  // EN meal ignore edilir → default TR meal (SY) gösterilir. Query EN ise
+  // TR meal ignore → default EN (Sahih).
+  const mealIsEn = rawMealId.startsWith('en_');
+  const langMismatch = (tr && mealIsEn) || (!tr && !mealIsEn);
+  const mealId = langMismatch ? (tr ? 'local' : 'en_local') : rawMealId;
 
   // Seçili meal'e uygun text + label çıkar.
-  // Bilinmeyen meal ID → verse.text fallback (Suat Y./Sahih baseline).
+  // API `lang` param'ine göre verse.text zaten doğru lang'de (TR ise Suat Y.,
+  // EN ise Sahih). VerseCard sadece user Reading Mode meal seçimini eşleştirir.
   let displayText = verse.text;
   let displayLabel = tr ? 'Suat Yıldırım' : 'Sahih International';
   if (mealId in MEAL_ID_TO_KEY) {
     const key = MEAL_ID_TO_KEY[mealId];
     if (key === null) {
-      // 'local' veya 'en_local' — baseline verse.text kullanılır.
       displayLabel = MEAL_ID_TO_LABEL[mealId] || displayLabel;
     } else {
-      // Faz 2a multi-meal içinde varsa onu göster.
       const map = mealId.startsWith('en_') ? verse.mealsEn : verse.mealsTr;
       if (map && map[key]) {
         displayText = map[key];
