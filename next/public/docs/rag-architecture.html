@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>QuranCodex RAG Concierge — Reference / Referans</title>
+<style>
+  :root {
+    --bg: #0a0a1a;
+    --bg-alt: #0d1b2a;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.1);
+    --border-soft: rgba(255,255,255,0.06);
+    --gold: #d4a574;
+    --gold-soft: rgba(212,165,116,0.15);
+    --gold-glow: rgba(212,165,116,0.25);
+    --off-white: #e8e6e3;
+    --silver: #94a3b8;
+    --green: #2ecc71;
+    --red: #e74c3c;
+    --blue: #3498db;
+    --purple: #9b59b6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--off-white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.65;
+    font-size: 15.5px;
+  }
+  /* ── Layout */
+  .top-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,26,0.94);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .top-nav h1 {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .lang-toggle {
+    display: flex; gap: 4px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 999px;
+    padding: 3px;
+    border: 1px solid var(--border);
+  }
+  .lang-toggle button {
+    padding: 6px 14px;
+    background: transparent;
+    border: none;
+    color: var(--silver);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.2s;
+  }
+  .lang-toggle button.active {
+    background: var(--gold);
+    color: var(--bg);
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 32px 24px 80px;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 20px; padding: 20px 16px; }
+    .toc { position: static !important; max-height: none !important; }
+  }
+  /* ── TOC */
+  .toc {
+    position: sticky; top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 0.85rem;
+  }
+  .toc h3 {
+    margin: 0 0 12px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0; margin: 0;
+    counter-reset: toc;
+  }
+  .toc li {
+    counter-increment: toc;
+    padding: 4px 0;
+  }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero) '. ';
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    margin-right: 4px;
+    opacity: 0.7;
+  }
+  .toc a {
+    color: var(--off-white);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .toc a:hover { color: var(--gold); }
+  /* ── Content */
+  .content { min-width: 0; }
+  section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  section h2 {
+    margin: 0 0 8px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--off-white);
+    line-height: 1.15;
+  }
+  section .eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+  section h3 {
+    margin: 32px 0 12px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  section h4 {
+    margin: 20px 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--off-white);
+  }
+  section p {
+    margin: 0 0 14px;
+    color: var(--off-white);
+  }
+  section p.muted { color: var(--silver); font-size: 0.9rem; }
+  section ul, section ol { margin: 8px 0 14px; padding-left: 22px; }
+  section li { margin: 4px 0; }
+  section a { color: var(--gold); }
+  strong { color: var(--gold); font-weight: 700; }
+  em { color: var(--off-white); font-style: italic; }
+  /* ── Code */
+  code {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    background: rgba(255,255,255,0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: var(--gold);
+  }
+  pre {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--off-white);
+    margin: 12px 0 18px;
+  }
+  pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+  .k { color: var(--purple); font-weight: 600; }  /* keyword */
+  .s { color: var(--green); }                      /* string */
+  .n { color: var(--gold); }                       /* number */
+  .c { color: var(--silver); font-style: italic; } /* comment */
+  /* ── Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px;
+    font-size: 0.88rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--silver);
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(0,0,0,0.3);
+  }
+  td { color: var(--off-white); }
+  td code { font-size: 0.78em; }
+  /* ── Callouts */
+  .callout {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    background: var(--gold-soft);
+    border-left: 3px solid var(--gold);
+  }
+  .callout.warning {
+    background: rgba(231,76,60,0.1);
+    border-left-color: var(--red);
+  }
+  .callout.info {
+    background: rgba(52,152,219,0.1);
+    border-left-color: var(--blue);
+  }
+  .callout .label {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .callout.warning .label { color: var(--red); }
+  .callout.info .label { color: var(--blue); }
+  /* ── Diagram */
+  .diagram {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: var(--off-white);
+    overflow-x: auto;
+    white-space: pre;
+    margin: 12px 0 18px;
+  }
+  .diagram .highlight { color: var(--gold); font-weight: 700; }
+  .diagram .green { color: var(--green); }
+  .diagram .red { color: var(--red); }
+  .diagram .blue { color: var(--blue); }
+  /* ── Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .badge-gold { background: var(--gold-soft); color: var(--gold); }
+  .badge-green { background: rgba(46,204,113,0.15); color: var(--green); }
+  .badge-red { background: rgba(231,76,60,0.15); color: var(--red); }
+  .badge-blue { background: rgba(52,152,219,0.15); color: var(--blue); }
+  /* ── i18n */
+  [data-lang="tr"] [lang="en"] { display: none; }
+  [data-lang="en"] [lang="tr"] { display: none; }
+  /* ── Metric grid */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0 18px;
+  }
+  .metric-card {
+    padding: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .metric-card .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--silver);
+    margin-bottom: 4px;
+  }
+  .metric-card .value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    color: var(--silver);
+    font-size: 0.8rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <h1>
+    <span lang="tr">QuranCodex RAG — Referans</span>
+    <span lang="en">QuranCodex RAG — Reference</span>
+  </h1>
+  <div class="lang-toggle">
+    <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="toc">
+    <h3 lang="tr">İçindekiler</h3>
+    <h3 lang="en">Contents</h3>
+    <ol>
+      <li><a href="#vision" lang="tr">Vizyon</a><a href="#vision" lang="en">Vision</a></li>
+      <li><a href="#overview" lang="tr">Genel Bakış</a><a href="#overview" lang="en">Overview</a></li>
+      <li><a href="#chunks" lang="tr">7 Chunk Katmanı</a><a href="#chunks" lang="en">7 Chunk Layers</a></li>
+      <li><a href="#pipeline" lang="tr">Retrieval Pipeline</a><a href="#pipeline" lang="en">Retrieval Pipeline</a></li>
+      <li><a href="#guardrails" lang="tr">Guardrails Sistemi</a><a href="#guardrails" lang="en">Guardrails System</a></li>
+      <li><a href="#llm-curator" lang="tr">LLM Curator</a><a href="#llm-curator" lang="en">LLM Curator</a></li>
+      <li><a href="#cache" lang="tr">Response Cache</a><a href="#cache" lang="en">Response Cache</a></li>
+      <li><a href="#feedback" lang="tr">Feedback Loop</a><a href="#feedback" lang="en">Feedback Loop</a></li>
+      <li><a href="#multi-meal" lang="tr">Çoklu Meal</a><a href="#multi-meal" lang="en">Multi-Meal</a></li>
+      <li><a href="#metadata" lang="tr">Metadata Enrichment</a><a href="#metadata" lang="en">Metadata Enrichment</a></li>
+      <li><a href="#query-lang" lang="tr">Dil Tespiti</a><a href="#query-lang" lang="en">Query Lang Detection</a></li>
+      <li><a href="#admin" lang="tr">Admin Panel</a><a href="#admin" lang="en">Admin Panel</a></li>
+      <li><a href="#cost" lang="tr">Maliyet Modeli</a><a href="#cost" lang="en">Cost Model</a></li>
+      <li><a href="#deploy" lang="tr">Deployment</a><a href="#deploy" lang="en">Deployment</a></li>
+      <li><a href="#files" lang="tr">Dosya Yapısı</a><a href="#files" lang="en">File Structure</a></li>
+      <li><a href="#roadmap" lang="tr">Yol Haritası</a><a href="#roadmap" lang="en">Roadmap</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+  <!-- ═══ 1. VISION ═══ -->
+  <section id="vision">
+    <div class="eyebrow" lang="tr">BÖLÜM 01 · VİZYON</div>
+    <div class="eyebrow" lang="en">SECTION 01 · VISION</div>
+    <h2 lang="tr">Vizyon</h2>
+    <h2 lang="en">Vision</h2>
+
+    <p lang="tr">
+      QuranCodex Semantik Concierge, kullanıcının doğal dilde sorduğu bir Kur'anî soruya <strong>halisinasyon üretmeden</strong>, yalnızca sitedeki gerçek ayet, tefsir, kavram, kıssa ve makaleleri seçerek yanıt veren bir RAG (Retrieval Augmented Generation) sistemidir. Kur'an metnini <em>yorumlamaz</em>, sadece ilgili kaynakları <em>curate</em> eder — kullanıcıyı okumaya, düşünmeye ve keşfetmeye yönlendirir.
+    </p>
+    <p lang="en">
+      QuranCodex Semantic Concierge is a RAG (Retrieval Augmented Generation) system that answers Kur'anic questions in natural language by <strong>selecting only real verses, tafsirs, concepts, stories, and articles</strong> from the site — never hallucinating. It does <em>not interpret</em> Kur'an; it <em>curates</em> relevant sources — guiding the user toward reading, reflection, and discovery.
+    </p>
+
+    <h3 lang="tr">Temel İlkeler</h3>
+    <h3 lang="en">Core Principles</h3>
+    <ul lang="tr">
+      <li><strong>Halisinasyon YASAK</strong> — LLM sadece verilen aday havuzundan seçim yapar, uydurma id kullanamaz. Hydrate katmanında ID doğrulaması yapılır.</li>
+      <li><strong>Yorum YASAK</strong> — LLM ayet üzerine tefsir yazamaz; sadece "bu ayet neden ilgili" cümlesi ekler.</li>
+      <li><strong>Kur'an metnine dokunma</strong> — Arapça asla generate edilmez, veri kaynağından aynen okunur.</li>
+      <li><strong>Kaynak-şeffaf</strong> — her sonuç kartında kaynak referansı (Suat Yıldırım, Elmalılı, Sahih International, vb.) net gösterilir.</li>
+      <li><strong>Kendi kendini iyileştiren</strong> — kullanıcı feedback'i retrieval sıralamasını dinamik olarak değiştirir.</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>NO Hallucination</strong> — LLM only selects from provided candidate pool; fabricated IDs are rejected by the hydrate layer.</li>
+      <li><strong>NO Interpretation</strong> — LLM cannot write tafsir on a verse; it only adds "why this verse is relevant".</li>
+      <li><strong>Don't touch Qur'an text</strong> — Arabic is never generated; read verbatim from source data.</li>
+      <li><strong>Source-transparent</strong> — every result card shows explicit source attribution (Suat Yıldırım, Elmalılı, Sahih International, etc.).</li>
+      <li><strong>Self-improving</strong> — user feedback dynamically reshapes retrieval ranking.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="label" lang="tr">Kılavuz İlke</div>
+      <div class="label" lang="en">Guiding Principle</div>
+      <div lang="tr">
+        <em>Bir REHBER, bir YORUMCU değil.</em> Sistem prompt'unun ilk satırıdır — Claude'un rolünü tek cümleyle tanımlar.
+      </div>
+      <div lang="en">
+        <em>A GUIDE, not an INTERPRETER.</em> This is the first line of the system prompt — it defines Claude's role in a single sentence.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. OVERVIEW ═══ -->
+  <section id="overview">
+    <div class="eyebrow" lang="tr">BÖLÜM 02 · GENEL BAKIŞ</div>
+    <div class="eyebrow" lang="en">SECTION 02 · OVERVIEW</div>
+    <h2 lang="tr">Sistemin Genel Görünümü</h2>
+    <h2 lang="en">System Overview</h2>
+
+    <p lang="tr">
+      Sistem, kullanıcı sorgusunu 8 aşamalı bir pipeline'dan geçirir. Her aşama isteğe göre atlanabilir (cache HIT → tüm pipeline skip) veya adaptif olarak devreye girer (guardrails yalnızca %20 sorguda tam çalışır).
+    </p>
+    <p lang="en">
+      The system processes user queries through an 8-stage pipeline. Each stage can be skipped (cache HIT → skip entire pipeline) or adaptively triggered (guardrails fully engage only on ~20% of queries).
+    </p>
+
+    <div class="diagram">
+<span class="highlight">POST /api/concierge</span> { q: "kullanıcı sorgusu", lang: "tr"|"en" }
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="green">[0] Rate Limit + Input Validation</span>       ~1ms · $0             │
+│     20 req/IP/min, min 3 chars, max 300 chars                  │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="blue">[1] Cache Lookup (KV)</span>                    ~50ms · $0             │
+│     queryHash → önceden hesaplanmış response varsa RETURN      │
+│     TTL 7 gün                                                  │
+└────────────────────────────────────────────────────────────────┘
+       │ MISS
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="green">[2] Guardrails (K1 Regex)</span>                ~5ms · $0             │
+│     • Prompt injection reject                                   │
+│     • Direct abuse reject                                       │
+│     • Fetva pattern → fetva_talebi kategorisi                  │
+│     • Short/flag query → K2'ye yönlendir                        │
+└────────────────────────────────────────────────────────────────┘
+       │ ok / fetva / flag
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="green">[2b] Guardrails (K2 Classifier, adaptif)</span> ~200ms · $0.0002 (20% queries) │
+│     Claude Haiku → 5 kategori: ok / rewrite / reject / off_topic / fetva_talebi │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="green">[2c] Guardrails (K3 Rewrite, adaptif)</span>   ~300ms · $0.0002 (10% queries) │
+│     Vague query → clarified query                              │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="blue">[3] BGE-M3 Embed (DeepInfra)</span>              ~400ms · $0.00001    │
+│     query → 1024-dim L2-normalized Float32Array                │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="blue">[4] Cosine Search (in-memory)</span>              ~50ms · $0            │
+│     12,495 chunks × dot product                                │
+│     Multi-vector verse: MAX over 3 embeddings                  │
+│     Top per type: verse:3, tefsir:2, article:2, atlas:5, ...  │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="blue">[5] Item Quality Boost (KV)</span>              ~30ms · $0             │
+│     top-N candidate → feedback aggregate mget                   │
+│     final = cosine × (1 + 0.3 × (quality − 0.5))              │
+│     cold start: total < 20 → no effect                         │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="green">[6] Claude Haiku Curate</span>                ~3-5s · $0.001-0.002  │
+│     top-12 aday + query → curated JSON response                 │
+│     {intro, verses[], tafsirs[], articles[], atlases[], tools[], closing} │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="highlight">[7] Hydrate (halisinasyon guard)</span>     ~5ms · $0             │
+│     Claude ID → corpus.byId map lookup                         │
+│     Unknown ID → REJECT (log warning)                           │
+│     Return full item details + reason                          │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+┌────────────────────────────────────────────────────────────────┐
+│ <span class="blue">[8] Cache Write + Query Log (KV)</span>        ~10ms · $0             │
+│     Successful ok/fetva → cache:queryHash (TTL 7d)             │
+│     Always → query:{ts} + agg:query:{hash} + zset             │
+└────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+<span class="highlight">Response JSON</span> → client
+    </div>
+
+    <h3 lang="tr">Toplam Latency</h3>
+    <h3 lang="en">Total Latency</h3>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="label" lang="tr">Cache HIT</div>
+        <div class="label" lang="en">Cache HIT</div>
+        <div class="value">~100 ms</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Cold Path (LLM)</div>
+        <div class="label" lang="en">Cold Path (LLM)</div>
+        <div class="value">4-7 s</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Reject Path</div>
+        <div class="label" lang="en">Reject Path</div>
+        <div class="value">~200 ms</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Cold Start (Vercel)</div>
+        <div class="label" lang="en">Cold Start (Vercel)</div>
+        <div class="value">+5-8 s</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. CHUNK LAYERS ═══ -->
+  <section id="chunks">
+    <div class="eyebrow" lang="tr">BÖLÜM 03 · CHUNK KATMANLARI</div>
+    <div class="eyebrow" lang="en">SECTION 03 · CHUNK LAYERS</div>
+    <h2 lang="tr">7 Chunk Katmanı — 12,495 Chunk</h2>
+    <h2 lang="en">7 Chunk Layers — 12,495 Chunks</h2>
+
+    <p lang="tr">
+      Sistem, farklı granülariteler için 7 chunk türü tutar. Retrieval her tür için kendi kotasıyla çalışır, Claude curator hangi türden hangi sayıda item seçeceğine karar verir.
+    </p>
+    <p lang="en">
+      The system maintains 7 chunk types at different granularities. Retrieval runs per-type with its own quota; the Claude curator decides how many items to pick from each type.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Katman</th>
+          <th lang="en">Layer</th>
+          <th lang="tr">İçerik</th>
+          <th lang="en">Content</th>
+          <th>Chunk</th>
+          <th lang="tr">Faz</th>
+          <th lang="en">Phase</th>
+          <th>perType</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-gold">A</span></td>
+          <td lang="tr"><strong>Ayet</strong> (multi-vector + metadata)</td>
+          <td lang="en"><strong>Verse</strong> (multi-vector + metadata)</td>
+          <td><code>6236</code></td>
+          <td>2a + 2b</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">B</span></td>
+          <td lang="tr"><strong>Pericope</strong> (klasik ruku)</td>
+          <td lang="en"><strong>Pericope</strong> (classical ruku)</td>
+          <td><code>556</code></td>
+          <td>2c-E</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">C</span></td>
+          <td lang="tr"><strong>Sure Özeti</strong></td>
+          <td lang="en"><strong>Surah Summary</strong></td>
+          <td><code>114</code></td>
+          <td>2c-C</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">D</span></td>
+          <td lang="tr"><strong>Kıssa</strong> (parent + scene)</td>
+          <td lang="en"><strong>Prophet Story</strong> (parent + scene)</td>
+          <td><code>4 + 68</code></td>
+          <td>2c-B</td>
+          <td>1+2</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">E</span></td>
+          <td lang="tr"><strong>Tefsir</strong> (Elmalılı + İbn Kesîr)</td>
+          <td lang="en"><strong>Tafsir</strong> (Elmalılı + Ibn Kathir)</td>
+          <td><code>5083</code></td>
+          <td>2d</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">F</span></td>
+          <td lang="tr"><strong>Kavram</strong> (anchor verse ile zenginleştirilmiş)</td>
+          <td lang="en"><strong>Concept</strong> (enriched with anchor verses)</td>
+          <td><code>65</code></td>
+          <td>2c-A</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">G</span></td>
+          <td lang="tr"><strong>Makale Section</strong> (uzun tefekkür yazıları)</td>
+          <td lang="en"><strong>Article Section</strong> (long reflection essays)</td>
+          <td><code>90</code></td>
+          <td>2c-D</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td lang="tr">Diğer atlas (kavim, dua, esma, kissa parent)</td>
+          <td lang="en">Other atlases (nation, dua, esma, kissa parent)</td>
+          <td><code>212</code></td>
+          <td>—</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td lang="tr">Makale parent + tool</td>
+          <td lang="en">Article parent + tool</td>
+          <td><code>72</code></td>
+          <td>—</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><strong>Σ</strong></td>
+          <td lang="tr" colspan="2"><strong>TOPLAM</strong></td>
+          <td lang="en" colspan="2"><strong>TOTAL</strong></td>
+          <td><code>12,495</code></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Neden Bu Kadar Çok Katman?</h3>
+    <h3 lang="en">Why So Many Layers?</h3>
+    <p lang="tr">
+      Tek bir "her şey aynı chunk türünde" yaklaşımı belirli sorgu tipleri için zayıf recall verir. Örnekler:
+    </p>
+    <p lang="en">
+      A monolithic "everything as verses" approach gives poor recall for certain query types. Examples:
+    </p>
+    <ul lang="tr">
+      <li><strong>"Ashab-ı Kehf mağara hikayesi"</strong> → tek ayet match'i eksik kalır; <em>pericope</em> katmanı Kehf 18:9-26 bloğuna hedefli hit verir.</li>
+      <li><strong>"Yasin suresi ne anlatır"</strong> → tek ayet 36:1 yeterli değil; <em>sure özet</em> katmanı 36'nın tam profili döner.</li>
+      <li><strong>"faiz konusunda Elmalılı ne der"</strong> → verse match olur ama <em>tefsir</em> katmanı direkt Elmalılı 2:275 tefsir metnini getirir.</li>
+      <li><strong>"Musa'nın Firavun'la karşılaşması"</strong> → 30+ ayet dağınık; <em>kıssa scene</em> katmanı "Musa'nın Büyücülerle Karşılaşması" sahnesini hedefli döner.</li>
+      <li><strong>"Kur'an okuma prensipleri"</strong> → makale parent uzun; <em>article-section</em> katmanı "Epistemik Prensipler" bölümünü izole eder.</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>"Companions of the Cave story"</strong> → single-verse match falls short; <em>pericope</em> layer directly hits Kahf 18:9-26 block.</li>
+      <li><strong>"What does Yasin surah discuss"</strong> → 36:1 alone insufficient; <em>surah summary</em> layer returns 36's full profile.</li>
+      <li><strong>"What does Elmalılı say about interest (riba)"</strong> → verse matches but the <em>tafsir</em> layer directly returns Elmalılı's commentary on 2:275.</li>
+      <li><strong>"Moses meeting Pharaoh"</strong> → 30+ scattered verses; <em>kissa scene</em> layer targets "Moses vs. Magicians" scene.</li>
+      <li><strong>"Qur'an reading principles"</strong> → parent article is long; <em>article-section</em> layer isolates "Epistemic Principles" section.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 4. PIPELINE ═══ -->
+  <section id="pipeline">
+    <div class="eyebrow" lang="tr">BÖLÜM 04 · RETRIEVAL PIPELINE</div>
+    <div class="eyebrow" lang="en">SECTION 04 · RETRIEVAL PIPELINE</div>
+    <h2 lang="tr">Retrieval Pipeline Detayı</h2>
+    <h2 lang="en">Retrieval Pipeline Detail</h2>
+
+    <h3 lang="tr">Adım 1 — Embed</h3>
+    <h3 lang="en">Step 1 — Embed</h3>
+    <p lang="tr">
+      Query, <strong>BGE-M3</strong> (BAAI multilingual, 1024-dim) modeli ile embed edilir. DeepInfra API'si üzerinden batch-uyumlu; single query için ~300-500 ms. L2-normalize edilir, cosine similarity direkt dot product ile hesaplanır.
+    </p>
+    <p lang="en">
+      The query is embedded via <strong>BGE-M3</strong> (BAAI multilingual, 1024-dim) through DeepInfra's API. ~300-500 ms per single query. L2-normalized, so cosine similarity is a simple dot product.
+    </p>
+    <pre><code><span class="c">// next/src/lib/concierge-embed.js</span>
+<span class="k">export async function</span> embedQuery(text) {
+  <span class="k">const</span> res = <span class="k">await</span> fetch(<span class="s">'https://api.deepinfra.com/v1/inference/BAAI/bge-m3'</span>, {
+    method: <span class="s">'POST'</span>,
+    headers: { <span class="s">'Authorization'</span>: <span class="s">`Bearer ${API_KEY}`</span> },
+    body: JSON.stringify({ inputs: [text] }),
+  });
+  <span class="k">const</span> { embeddings } = <span class="k">await</span> res.json();
+  <span class="k">return</span> <span class="k">new</span> Float32Array(embeddings[<span class="n">0</span>]);
+}</code></pre>
+
+    <h3 lang="tr">Adım 2 — Cosine Search</h3>
+    <h3 lang="en">Step 2 — Cosine Search</h3>
+    <p lang="tr">
+      Corpus (<code>corpus-embeddings.json</code>) module-level cache olarak RAM'de tutulur (~180 MB). Her item için query ile dot product hesaplanır. Verse item'lar multi-vector — 3 embed'ten MAX seçilir.
+    </p>
+    <p lang="en">
+      The corpus (<code>corpus-embeddings.json</code>) is held in RAM as a module-level cache (~180 MB). Dot product computed against every item. Verse items are multi-vector — MAX over the 3 embeddings.
+    </p>
+    <pre><code><span class="k">function</span> maxDot(queryEmb, embArr) {
+  <span class="k">let</span> max = -Infinity;
+  <span class="k">for</span> (<span class="k">const</span> emb <span class="k">of</span> embArr) {
+    <span class="k">const</span> s = dotProduct(queryEmb, emb);
+    <span class="k">if</span> (s > max) max = s;
+  }
+  <span class="k">return</span> max;
+}</code></pre>
+
+    <p lang="tr">
+      Filtre: <code>minScore 0.35</code> altındakiler drop edilir. Per-type kota uygulanır — verse 3, tefsir 2, article 2, article-section 2, kissa-scene 2, surah-summary 2, pericope 2, atlas × 5 tür × 1 = <strong>toplam 22 aday</strong>.
+    </p>
+    <p lang="en">
+      Filter: <code>minScore 0.35</code> threshold drops weak matches. Per-type quotas — verse 3, tafsir 2, article 2, article-section 2, kissa-scene 2, surah-summary 2, pericope 2, atlases × 5 types × 1 = <strong>22 candidates total</strong>.
+    </p>
+
+    <h3 lang="tr">Adım 3 — Feedback-Based Quality Boost</h3>
+    <h3 lang="en">Step 3 — Feedback-Based Quality Boost</h3>
+    <p lang="tr">
+      Top-N adayın item ID'leri KV'den quality score için batch fetch edilir (<code>mget</code>). Cold start protection: feedback &lt; 20 olanlarda quality = 0.5 (no effect). Diğerlerinde:
+    </p>
+    <p lang="en">
+      Top-N candidates' item IDs are batch-fetched from KV for quality scores (<code>mget</code>). Cold start protection: feedback &lt; 20 → quality = 0.5 (no effect). Otherwise:
+    </p>
+    <pre><code><span class="c">// Bayesian smoothing: prior 3 up + 3 down</span>
+quality = (up + <span class="n">3</span>) / (up + down + <span class="n">6</span>)
+
+<span class="c">// Reranking multiplier</span>
+final_score = cosine × (<span class="n">1</span> + <span class="n">0.3</span> × (quality − <span class="n">0.5</span>))
+<span class="c">// quality 1.0 → cosine × 1.15 (max boost)</span>
+<span class="c">// quality 0.5 → cosine (nötr)</span>
+<span class="c">// quality 0.0 → cosine × 0.85 (max demote)</span></code></pre>
+
+    <h3 lang="tr">Adım 4 — Claude Curate</h3>
+    <h3 lang="en">Step 4 — Claude Curate</h3>
+    <p lang="tr">
+      Top-22 aday Claude Haiku 4.5'e verilir. System prompt <strong>halisinasyon yasağı + yorum yasağı + sadece verilen ID'lerden seçim</strong> disiplinini enforce eder. Claude JSON döner:
+    </p>
+    <p lang="en">
+      Top-22 candidates fed to Claude Haiku 4.5. The system prompt enforces <strong>no hallucination + no interpretation + only pick from provided IDs</strong>. Claude returns JSON:
+    </p>
+    <pre><code>{
+  <span class="s">"intro"</span>: <span class="s">"1 cümlelik nazik selamlama"</span>,
+  <span class="s">"verses"</span>: [{ <span class="s">"id"</span>: <span class="s">"verse:2:255"</span>, <span class="s">"reason"</span>: <span class="s">"..."</span> }],
+  <span class="s">"tafsirs"</span>: [{ <span class="s">"id"</span>: <span class="s">"tefsir:2:255"</span>, <span class="s">"reason"</span>: <span class="s">"..."</span> }],
+  <span class="s">"articles"</span>: [{ <span class="s">"id"</span>: <span class="s">"article:okuma-prensipleri-1"</span>, <span class="s">"reason"</span>: <span class="s">"..."</span> }],
+  <span class="s">"atlases"</span>: [{ <span class="s">"id"</span>: <span class="s">"atlas-kissa:musa"</span>, <span class="s">"reason"</span>: <span class="s">"..."</span> }],
+  <span class="s">"tools"</span>: [{ <span class="s">"id"</span>: <span class="s">"tool:/arac/kiyamet"</span>, <span class="s">"reason"</span>: <span class="s">"..."</span> }],
+  <span class="s">"closing"</span>: <span class="s">"1 cümle whisper"</span>
+}</code></pre>
+
+    <h3 lang="tr">Adım 5 — Hydrate (halisinasyon guard)</h3>
+    <h3 lang="en">Step 5 — Hydrate (hallucination guard)</h3>
+    <p lang="tr">
+      Claude'un döndürdüğü her ID, corpus <code>byId</code> map'inde aranır. Bulunmayan (uydurulmuş) ID <code>REJECT</code> edilir + log warning. Bulunanlar için tam item detayları (Arapça metin, meal, url, vb.) response'a eklenir.
+    </p>
+    <p lang="en">
+      Every ID returned by Claude is looked up in the corpus <code>byId</code> map. Missing (fabricated) IDs are <code>REJECT</code>ed + logged as warnings. Found items get their full details (Arabic text, meal, url, etc.) hydrated into the response.
+    </p>
+  </section>
+
+  <!-- ═══ 5. GUARDRAILS ═══ -->
+  <section id="guardrails">
+    <div class="eyebrow" lang="tr">BÖLÜM 05 · GUARDRAILS</div>
+    <div class="eyebrow" lang="en">SECTION 05 · GUARDRAILS</div>
+    <h2 lang="tr">3-Katmanlı Adaptive Guardrails</h2>
+    <h2 lang="en">3-Layer Adaptive Guardrails</h2>
+
+    <p lang="tr">
+      Sistem, kötü niyetli / bağlam dışı sorguları erken durdurmak için 3 katmanlı bir filtreye sahiptir. Katmanlar <strong>adaptive</strong>: temiz sorgular hemen geçer (~%80), sadece belirsiz/flag'li sorgular LLM katmanına iner (~%20).
+    </p>
+    <p lang="en">
+      The system uses a 3-layer filter to stop malicious/off-topic queries early. Layers are <strong>adaptive</strong>: clean queries fast-track (~80%), only ambiguous/flagged queries reach the LLM layer (~20%).
+    </p>
+
+    <h3 lang="tr">K1 — Regex Prefilter</h3>
+    <h3 lang="en">K1 — Regex Prefilter</h3>
+    <p lang="tr">
+      Deterministik pattern matching, sıfır cost, ~5 ms. 3 kategori:
+    </p>
+    <p lang="en">
+      Deterministic pattern matching, zero cost, ~5 ms. 3 categories:
+    </p>
+    <ul lang="tr">
+      <li><strong>Prompt injection (~10 pattern)</strong> — "ignore previous instructions", "act as", "&lt;script&gt;", "DAN mode", vb. → <span class="badge badge-red">REJECT</span></li>
+      <li><strong>Direkt hakaret (~15 pattern)</strong> — bağlamsız TR + EN küfür → <span class="badge badge-red">REJECT</span></li>
+      <li><strong>Fetva pattern (~6 pattern)</strong> — "caiz mi", "helal mi", "is X permissible", vb. → <span class="badge badge-gold">FETVA_TALEBI</span> (retrieval devam, response'a disclaimer)</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Prompt injection (~10 patterns)</strong> — "ignore previous instructions", "act as", "&lt;script&gt;", "DAN mode", etc. → <span class="badge badge-red">REJECT</span></li>
+      <li><strong>Direct abuse (~15 patterns)</strong> — context-free TR + EN profanity → <span class="badge badge-red">REJECT</span></li>
+      <li><strong>Fetva patterns (~6 patterns)</strong> — "caiz mi", "helal mi", "is X permissible", etc. → <span class="badge badge-gold">FETVA_TALEBI</span> (retrieval continues, response gets a disclaimer)</li>
+    </ul>
+
+    <div class="callout warning">
+      <div class="label" lang="tr">Kritik Karar</div>
+      <div class="label" lang="en">Critical Decision</div>
+      <div lang="tr">
+        <strong>Kur'anî terimler blacklist'te YOK</strong> — kâfir, cihad, günah, tevbe, şirk, nifak, Şia, Sünni, mezhep, fetva → bunlar Kur'an'ın kendi konuları. Bağlam LLM'in işi (K2), regex'in değil.
+      </div>
+      <div lang="en">
+        <strong>Kur'anic terms are NEVER blacklisted</strong> — kāfir, jihad, sin, repentance, shirk, hypocrisy, Shia, Sunni, madhhab, fatwa → these are Qur'an's own topics. Context is the LLM's job (K2), not regex's.
+      </div>
+    </div>
+
+    <h3 lang="tr">K2 — LLM Classifier (Adaptive)</h3>
+    <h3 lang="en">K2 — LLM Classifier (Adaptive)</h3>
+    <p lang="tr">
+      Sadece K1'de flag alan queryler K2'ye iner (~%20). Claude Haiku, 5 kategoriden birini döner:
+    </p>
+    <p lang="en">
+      Only K1-flagged queries reach K2 (~20%). Claude Haiku returns one of 5 categories:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Kategori</th>
+          <th lang="en">Category</th>
+          <th lang="tr">Anlam</th>
+          <th lang="en">Meaning</th>
+          <th lang="tr">Aksiyon</th>
+          <th lang="en">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ok</code></td>
+          <td lang="tr">Standart Kur'anî sorgu</td>
+          <td lang="en">Standard Kur'anic query</td>
+          <td lang="tr">Direkt pipeline</td>
+          <td lang="en">Direct to pipeline</td>
+        </tr>
+        <tr>
+          <td><code>rewrite</code></td>
+          <td lang="tr">Belirsiz / kısa / tek kelime</td>
+          <td lang="en">Vague / short / single-word</td>
+          <td lang="tr">K3'e gönder (rewrite)</td>
+          <td lang="en">Send to K3 (rewrite)</td>
+        </tr>
+        <tr>
+          <td><code>reject</code></td>
+          <td lang="tr">İnjection, abuse, harm</td>
+          <td lang="en">Injection, abuse, harm</td>
+          <td lang="tr">Reject + suggestion chips</td>
+          <td lang="en">Reject + suggestion chips</td>
+        </tr>
+        <tr>
+          <td><code>off_topic</code></td>
+          <td lang="tr">Hava, spor, tech vb.</td>
+          <td lang="en">Weather, sports, tech, etc.</td>
+          <td lang="tr">"Kur'anî konu?" redirect</td>
+          <td lang="en">"Kur'anic topic?" redirect</td>
+        </tr>
+        <tr>
+          <td><code>fetva_talebi</code></td>
+          <td lang="tr">Hüküm sorusu</td>
+          <td lang="en">Legal ruling question</td>
+          <td lang="tr">Normal pipeline + disclaimer</td>
+          <td lang="en">Normal pipeline + disclaimer</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">K3 — Query Rewrite (Adaptive)</h3>
+    <h3 lang="en">K3 — Query Rewrite (Adaptive)</h3>
+    <p lang="tr">
+      Sadece K2 <code>rewrite</code> verdiyse (~%10 sorgu). Claude Haiku belirsiz query'yi 1-3 anahtar kelime ekleyerek netleştirir. Sonuç kart üstünde <em>transparan</em> gösterilir:
+    </p>
+    <p lang="en">
+      Only if K2 said <code>rewrite</code> (~10% queries). Claude Haiku adds 1-3 clarifying keywords. Result shown <em>transparently</em> above the response cards:
+    </p>
+    <pre><code>Original: <span class="s">"sabır"</span>
+Rewritten: <span class="s">"sabır İslamda sabır faziletleri"</span>
+
+<span class="c">// UI banner:</span>
+<span class="s">"Sorgunuzu şu şekilde değerlendirdik: sabır İslamda sabır faziletleri
+ Yanlış anladıysak orijinal sorunuzla tekrar arayabilirsiniz."</span></code></pre>
+
+    <h3 lang="tr">Reject UX</h3>
+    <h3 lang="en">Reject UX</h3>
+    <p lang="tr">
+      Reddedilen sorgu <strong>sıcak tonla</strong> reddedilir + <strong>suggestion chip'ler</strong> gösterilir:
+    </p>
+    <p lang="en">
+      Rejected queries get a <strong>warm-toned message</strong> + <strong>suggestion chips</strong>:
+    </p>
+    <pre><code>{
+  <span class="s">"rejected"</span>: <span class="k">true</span>,
+  <span class="s">"rejection"</span>: {
+    <span class="s">"category"</span>: <span class="s">"reject"</span>,
+    <span class="s">"message"</span>: <span class="s">"Bu sorguyu değerlendiremedim. Farklı bir şekilde sormak ister misin?"</span>,
+    <span class="s">"suggestions"</span>: [<span class="s">"sabır"</span>, <span class="s">"adalet"</span>, <span class="s">"tevbe"</span>, <span class="s">"şükür"</span>, <span class="s">"yaratılış"</span>, <span class="s">"ahlak"</span>]
+  }
+}</code></pre>
+
+    <h3 lang="tr">Fetva Disclaimer</h3>
+    <h3 lang="en">Fetva Disclaimer</h3>
+    <p lang="tr">
+      Fetva talebi query'lerinde retrieval yapılır AMA response üstünde gold-border callout:
+    </p>
+    <p lang="en">
+      Fetva queries proceed to retrieval BUT get a gold-border callout above results:
+    </p>
+    <blockquote lang="tr" style="border-left: 3px solid var(--gold); padding: 12px 16px; margin: 12px 0; background: var(--gold-soft);">
+      Bu sistem fetva vermez; yalnızca Kur'an'ın konu hakkındaki genel işaretlerini gösterir. Kesin hüküm için ehline başvurunuz.
+    </blockquote>
+    <blockquote lang="en" style="border-left: 3px solid var(--gold); padding: 12px 16px; margin: 12px 0; background: var(--gold-soft);">
+      This system does not issue fatwas; it only surfaces Kur'anic signals on the topic. For binding rulings, please consult qualified scholars.
+    </blockquote>
+  </section>
+
+  <!-- ═══ 6. LLM CURATOR ═══ -->
+  <section id="llm-curator">
+    <div class="eyebrow" lang="tr">BÖLÜM 06 · LLM CURATOR</div>
+    <div class="eyebrow" lang="en">SECTION 06 · LLM CURATOR</div>
+    <h2 lang="tr">LLM Curator (Claude Haiku 4.5)</h2>
+    <h2 lang="en">LLM Curator (Claude Haiku 4.5)</h2>
+
+    <p lang="tr">
+      Claude Haiku, 22 aday havuzundan 3-7 arası item seçer + 1 cümlelik <em>reason</em> yazar. System prompt disiplin enforcement'ı yapar.
+    </p>
+    <p lang="en">
+      Claude Haiku selects 3-7 items from the 22-candidate pool + writes a 1-sentence <em>reason</em>. The system prompt enforces discipline.
+    </p>
+
+    <h3 lang="tr">System Prompt Disiplini</h3>
+    <h3 lang="en">System Prompt Discipline</h3>
+    <ol lang="tr">
+      <li>Verilen adaylar DIŞINDA ayet, sayfa, makale ÜRETME. <strong>Halüsinasyon YASAK.</strong></li>
+      <li>Ayete kendi TEFSİR yorumunu KATMA. "Bu ayette Allah şunu diyor..." gibi yorumlar YASAK.</li>
+      <li>Ayet metni değiştirme, paraphraze etme. Adaydaki metin aynen kullanılır (referans ile).</li>
+      <li>Sorulan konuya en uygun 3 ayet, 2-3 sayfa, 1-2 tefekkür seç (adaylardan). Uygunsa daha az seç.</li>
+      <li>Her seçim için 1 cümlelik <em>reason</em> ekle — o item'ın soruya nasıl bağlandığını NEUTRAL şekilde açıkla.</li>
+      <li>Yanıt DAİMA valid JSON — belirlenen şemaya göre.</li>
+      <li>Adaylar yetersizse boş liste dön — uydurma.</li>
+    </ol>
+    <ol lang="en">
+      <li>DO NOT generate verses, pages, or articles OUTSIDE the provided candidates. <strong>Hallucination FORBIDDEN.</strong></li>
+      <li>DO NOT add your own EXEGESIS. Comments like "This verse means..." are FORBIDDEN.</li>
+      <li>DO NOT rewrite or paraphrase verse text. Use candidate text as-is (with reference).</li>
+      <li>Select 3 most relevant verses, 2-3 pages, 1-2 articles (from candidates). Fewer is fine if less relevant.</li>
+      <li>Include 1-sentence <em>reason</em> for each selection — neutrally explain how it relates to the query.</li>
+      <li>Response MUST be valid JSON per the schema.</li>
+      <li>If candidates are insufficient, return empty lists — never fabricate.</li>
+    </ol>
+
+    <h3 lang="tr">Model Seçimi Neden Haiku?</h3>
+    <h3 lang="en">Why Haiku?</h3>
+    <ul lang="tr">
+      <li><strong>Ucuz</strong> — $0.25/M input, $1.25/M output. Sorgu başına ~$0.001-0.002.</li>
+      <li><strong>Hızlı</strong> — 3-5 sn cold, 1-2 sn warm.</li>
+      <li><strong>Curator role için yeterli</strong> — task complexity ID seçim + kısa reason. Yorum/tefsir üretmiyor, bu yüzden Sonnet/Opus overkill.</li>
+      <li><strong>JSON output güvenli</strong> — Haiku strict schema takip eder.</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Cheap</strong> — $0.25/M input, $1.25/M output. ~$0.001-0.002 per query.</li>
+      <li><strong>Fast</strong> — 3-5s cold, 1-2s warm.</li>
+      <li><strong>Sufficient for curator role</strong> — task complexity is ID selection + short reason. No interpretation/tafsir generation, so Sonnet/Opus is overkill.</li>
+      <li><strong>Reliable JSON output</strong> — Haiku follows strict schema well.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 7. CACHE ═══ -->
+  <section id="cache">
+    <div class="eyebrow" lang="tr">BÖLÜM 07 · RESPONSE CACHE</div>
+    <div class="eyebrow" lang="en">SECTION 07 · RESPONSE CACHE</div>
+    <h2 lang="tr">İki Katmanlı Response Cache</h2>
+    <h2 lang="en">Two-Layer Response Cache</h2>
+
+    <p lang="tr">
+      Aynı sorgu farklı zamanlarda, farklı kullanıcılardan gelebilir. Sistem 2 katmanlı cache tutar:
+    </p>
+    <p lang="en">
+      The same query may arrive from different users at different times. The system maintains 2 cache layers:
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Katman</th>
+          <th lang="en">Layer</th>
+          <th lang="tr">Kapsam</th>
+          <th lang="en">Scope</th>
+          <th>TTL</th>
+          <th lang="tr">Amaç</th>
+          <th lang="en">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Client</strong></td>
+          <td>localStorage</td>
+          <td>24h</td>
+          <td lang="tr">Aynı user, aynı browser — refresh/bookmark HIT</td>
+          <td lang="en">Same user, same browser — refresh/bookmark HIT</td>
+        </tr>
+        <tr>
+          <td><strong>Server</strong></td>
+          <td>Vercel KV (Redis)</td>
+          <td>7d</td>
+          <td lang="tr">Cross-user paylaşım — herhangi biri aynı soruyu ilk kez sordu mu?</td>
+          <td lang="en">Cross-user shared — has anyone else asked this?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Cache Key</h3>
+    <h3 lang="en">Cache Key</h3>
+    <p lang="tr">
+      Deterministik SHA-256 hash — normalize edilmiş (lowercase, trim, whitespace collapse) query + lang:
+    </p>
+    <p lang="en">
+      Deterministic SHA-256 hash — normalized (lowercase, trim, whitespace collapse) query + lang:
+    </p>
+    <pre><code><span class="k">function</span> computeQueryHash(query, lang) {
+  <span class="k">const</span> normalized = query.toLowerCase().trim().replace(/\s+/g, <span class="s">' '</span>);
+  <span class="k">return</span> crypto.createHash(<span class="s">'sha256'</span>)
+    .update(<span class="s">`${normalized}|${lang}`</span>)
+    .digest(<span class="s">'hex'</span>)
+    .slice(<span class="n">0</span>, <span class="n">16</span>);
+}</code></pre>
+
+    <h3 lang="tr">Cache Kuralları</h3>
+    <h3 lang="en">Cache Rules</h3>
+    <ul lang="tr">
+      <li>Sadece <code>ok</code> + <code>fetva_talebi</code> kategorilerinde başarılı response cache'lenir.</li>
+      <li><code>rewrite</code>, <code>reject</code>, <code>off_topic</code> — cache'lenmez (dynamic content).</li>
+      <li>Server cache TTL 7 gün — corpus/prompt update sonrası doğal invalidation.</li>
+      <li>Admin panel'de "Tümünü Temizle" butonu ile manuel purge mümkün.</li>
+    </ul>
+    <ul lang="en">
+      <li>Only successful <code>ok</code> + <code>fetva_talebi</code> responses are cached.</li>
+      <li><code>rewrite</code>, <code>reject</code>, <code>off_topic</code> — not cached (dynamic content).</li>
+      <li>Server cache TTL 7 days — natural invalidation after corpus/prompt updates.</li>
+      <li>Admin panel "Purge All" button for manual invalidation.</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 8. FEEDBACK LOOP ═══ -->
+  <section id="feedback">
+    <div class="eyebrow" lang="tr">BÖLÜM 08 · FEEDBACK LOOP</div>
+    <div class="eyebrow" lang="en">SECTION 08 · FEEDBACK LOOP</div>
+    <h2 lang="tr">3-Fazlı Feedback Loop</h2>
+    <h2 lang="en">3-Phase Feedback Loop</h2>
+
+    <p lang="tr">
+      Kullanıcı thumbs up/down verdikçe sistem <em>kendi kendini iyileştirir</em>. Feedback şu üç noktayı besler:
+    </p>
+    <p lang="en">
+      As users give thumbs up/down, the system <em>improves itself</em>. Feedback drives three loops:
+    </p>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="label">Faz 1</div>
+        <div class="value" style="font-size:1rem">Storage</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Faz 2</div>
+        <div class="value" style="font-size:1rem">Cache</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Faz 3</div>
+        <div class="value" style="font-size:1rem">Rerank</div>
+      </div>
+    </div>
+
+    <h3 lang="tr">Faz 1 — Storage (KV)</h3>
+    <h3 lang="en">Phase 1 — Storage (KV)</h3>
+    <p lang="tr">
+      Her thumbs click <code>/api/concierge/feedback</code>'e POST edilir. Rate limit (60/dk/IP), input validation, localStorage dedup (aynı user aynı item'a 2. kez oy veremez). Server KV'ye 3 kayıt yazar:
+    </p>
+    <p lang="en">
+      Every thumbs click POSTs to <code>/api/concierge/feedback</code>. Rate limit (60/min/IP), input validation, localStorage dedup (same user can't vote twice on the same item). The server writes 3 KV records:
+    </p>
+    <pre><code><span class="c">// 1. Raw log</span>
+feedback:{timestamp} → { queryHash, itemId, thumb: <span class="s">'up'</span>|<span class="s">'down'</span>, lang, ipHash }
+
+<span class="c">// 2. Query aggregate güncellemesi</span>
+agg:query:{queryHash} → { upCount, downCount, ... }
+
+<span class="c">// 3. Item aggregate (Faz 3 için)</span>
+item:{itemId} → { up, down, lastUpdated }</code></pre>
+
+    <h3 lang="tr">Faz 2 — Query Cache Curation</h3>
+    <h3 lang="en">Phase 2 — Query Cache Curation</h3>
+    <p lang="tr">
+      Server-side response cache — cross-user paylaşımlı, 7 gün TTL. Popüler soruların LLM cost'unu düşürür + speed 100× artırır. Ayrıca kullanıcı feedback'i cache'in kalitesini denetler:
+    </p>
+    <p lang="en">
+      Server-side response cache — cross-user shared, 7-day TTL. Reduces LLM cost for popular queries + speeds up 100×. User feedback also gates cache quality:
+    </p>
+    <ul lang="tr">
+      <li><strong>Positive %70+</strong> → cache freeze (bu response güvenilir, TTL uzatılır — <em>Faz 4 plan</em>).</li>
+      <li><strong>Negative %50+</strong> → cache invalidate (bu response kötü, yeniden generate — <em>Faz 4 plan</em>).</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Positive ≥70%</strong> → freeze cache (response is trusted, TTL extended — <em>Phase 4 planned</em>).</li>
+      <li><strong>Negative ≥50%</strong> → invalidate cache (response is bad, regenerate — <em>Phase 4 planned</em>).</li>
+    </ul>
+
+    <h3 lang="tr">Faz 3 — Item Boost/Demote (Retrieval Reranking)</h3>
+    <h3 lang="en">Phase 3 — Item Boost/Demote (Retrieval Reranking)</h3>
+    <p lang="tr">
+      Her retrieval'da top-N candidate için item quality skoru KV'den fetch edilir. Feedback ≥ 20 olan itemler <strong>Bayesian smoothing</strong> ile skorlanır:
+    </p>
+    <p lang="en">
+      For each retrieval, top-N candidates' item quality scores are fetched from KV. Items with ≥20 feedback are scored via <strong>Bayesian smoothing</strong>:
+    </p>
+    <pre><code><span class="c">// Prior: 3 up + 3 down (nötr baseline)</span>
+quality = (up + <span class="n">3</span>) / (up + down + <span class="n">6</span>)
+
+<span class="c">// Reranking multiplier</span>
+final_score = cosine × (<span class="n">1</span> + <span class="n">0.3</span> × (quality − <span class="n">0.5</span>))
+
+<span class="c">// Örnekler:</span>
+quality = <span class="n">1.0</span> (all up)    → final = cosine × <span class="n">1.15</span>   (+<span class="n">15</span>% boost)
+quality = <span class="n">0.75</span>           → final = cosine × <span class="n">1.075</span>  (+<span class="n">7.5</span>% boost)
+quality = <span class="n">0.5</span> (dengeli)   → final = cosine        (nötr)
+quality = <span class="n">0.25</span>           → final = cosine × <span class="n">0.925</span>  (-<span class="n">7.5</span>% demote)
+quality = <span class="n">0</span>.<span class="n">0</span> (all down)  → final = cosine × <span class="n">0.85</span>   (-<span class="n">15</span>% demote)</code></pre>
+
+    <p lang="tr">
+      Cold start protection: feedback &lt; 20 olanlarda quality = 0.5 kabul edilir (retrieval'a hiç etki etmez). Böylece yeni kartlar unfairly demote edilmez.
+    </p>
+    <p lang="en">
+      Cold start protection: items with feedback &lt; 20 use quality = 0.5 (no retrieval effect). This prevents new items from being unfairly demoted.
+    </p>
+  </section>
+
+  <!-- ═══ 9. MULTI-MEAL ═══ -->
+  <section id="multi-meal">
+    <div class="eyebrow" lang="tr">BÖLÜM 09 · MULTI-MEAL EMBEDDING</div>
+    <div class="eyebrow" lang="en">SECTION 09 · MULTI-MEAL EMBEDDING</div>
+    <h2 lang="tr">Multi-Vector Çoklu Meal Retrieval</h2>
+    <h2 lang="en">Multi-Vector Multi-Translation Retrieval</h2>
+
+    <p lang="tr">
+      Ayetler için 3 vector saklanır — retrieval'da MAX cosine seçilir. Tek meal ile embed edilmiş sistemde "Diyanet sabr der, Suat Y. dayanma der, Ali Bulaç katlanmak der" durumu <em>kelime seçimi bias'ı</em> yaratır. Multi-meal bunu çözer.
+    </p>
+    <p lang="en">
+      Verses store 3 vectors — retrieval takes MAX cosine. With a single meal, "Diyanet says sabr, Suat Y. says dayanma, Ali Bulaç says katlanmak" creates <em>word-choice bias</em>. Multi-meal solves this.
+    </p>
+
+    <h3 lang="tr">Aktif Meal Listesi (2026-07-14)</h3>
+    <h3 lang="en">Active Meal List (2026-07-14)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Dil</th>
+          <th lang="en">Language</th>
+          <th lang="tr">Meal / Çeviri</th>
+          <th lang="en">Meal / Translation</th>
+          <th lang="tr">Not</th>
+          <th lang="en">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TR</td>
+          <td>Suat Yıldırım</td>
+          <td lang="tr">Baseline default, akıcı</td>
+          <td lang="en">Baseline default, fluent</td>
+        </tr>
+        <tr>
+          <td>TR</td>
+          <td>Diyanet İşleri</td>
+          <td lang="tr">Resmi, teknik</td>
+          <td lang="en">Official, technical</td>
+        </tr>
+        <tr>
+          <td>EN</td>
+          <td>Sahih International</td>
+          <td lang="tr">Modern, en yaygın EN meal</td>
+          <td lang="en">Modern, most widely used EN</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p lang="tr">
+      <strong>Not:</strong> Ali Bulaç (TR), Abdullah Yusuf Ali (EN), Muhammad Asad (EN) fetch edilmiş ama Vercel 250 MB function limit için embedding'lerden çıkarılmıştır (2026-07-14 optimizasyon). Client'a <em>display parity</em> için hâlâ 3 TR + 3 EN meal metni gönderilir (Reading Mode'daki seçili meal /sor kartlarında da gösterilir).
+    </p>
+    <p lang="en">
+      <strong>Note:</strong> Ali Bulaç (TR), Abdullah Yusuf Ali (EN), Muhammad Asad (EN) were fetched but stripped from embeddings due to Vercel 250 MB function limit (2026-07-14 optimization). Client still receives all 3 TR + 3 EN meal texts for <em>display parity</em> (Reading Mode's selected meal shown on /sor cards too).
+    </p>
+
+    <h3 lang="tr">Schema</h3>
+    <h3 lang="en">Schema</h3>
+    <pre><code><span class="c">// verse:2:255 item</span>
+{
+  <span class="s">"id"</span>: <span class="s">"verse:2:255"</span>,
+  <span class="s">"type"</span>: <span class="s">"verse"</span>,
+  <span class="s">"embTrArr"</span>: [<span class="s">"base64_suat"</span>, <span class="s">"base64_diyanet"</span>],  <span class="c">// 2 TR vector</span>
+  <span class="s">"embEnArr"</span>: [<span class="s">"base64_sahih"</span>],                     <span class="c">// 1 EN vector</span>
+  <span class="s">"mealsTr"</span>: { suatYildirim: <span class="s">"..."</span>, aliBulac: <span class="s">"..."</span>, diyanet: <span class="s">"..."</span> },
+  <span class="s">"mealsEn"</span>: { sahih: <span class="s">"..."</span>, yusufAli: <span class="s">"..."</span>, asad: <span class="s">"..."</span> }
+}
+
+<span class="c">// Retrieval — MAX cosine over available vectors</span>
+score_tr = MAX(cosine(query, embTrArr[<span class="n">0</span>]), cosine(query, embTrArr[<span class="n">1</span>]))
+score_en = cosine(query, embEnArr[<span class="n">0</span>])</code></pre>
+  </section>
+
+  <!-- ═══ 10. METADATA ═══ -->
+  <section id="metadata">
+    <div class="eyebrow" lang="tr">BÖLÜM 10 · METADATA ENRICHMENT</div>
+    <div class="eyebrow" lang="en">SECTION 10 · METADATA ENRICHMENT</div>
+    <h2 lang="tr">LLM Metadata Enrichment (Faz 2b)</h2>
+    <h2 lang="en">LLM Metadata Enrichment (Phase 2b)</h2>
+
+    <p lang="tr">
+      6236 ayet için offline batch — Claude Haiku her ayet için 5 alan üretir:
+    </p>
+    <p lang="en">
+      Offline batch for 6236 verses — Claude Haiku generates 5 fields per verse:
+    </p>
+    <pre><code>{
+  <span class="s">"summary_tr"</span>: <span class="s">"1 cümlelik Türkçe özet (max 15 kelime)"</span>,
+  <span class="s">"summary_en"</span>: <span class="s">"1 sentence English summary"</span>,
+  <span class="s">"themes_tr"</span>: [<span class="s">"3-5 Türkçe tema"</span>],
+  <span class="s">"themes_en"</span>: [<span class="s">"3-5 English themes"</span>],
+  <span class="s">"concepts"</span>: [<span class="s">"3-5 İslamî kavram TR (iman, tevekkül, sabır...)"</span>]
+}</code></pre>
+
+    <p lang="tr">
+      Bu metadata her meal metnine <em>suffix</em> olarak eklenir → embedding zenginleşir. Sonuç: "tevekkül" gibi kavram sorgusunda ayet metninde geçmese bile <strong>teması tevekkül olan</strong> ayete recall artar.
+    </p>
+    <p lang="en">
+      This metadata is appended as a <em>suffix</em> to each meal text → embedding enriches. Result: for a concept query like "tevekkül", recall improves for verses whose <strong>theme is tevekkül</strong> even if the verse text doesn't mention it explicitly.
+    </p>
+
+    <h3 lang="tr">Suffix Formatı</h3>
+    <h3 lang="en">Suffix Format</h3>
+    <pre><code>El-Bakara <span class="n">2</span>:<span class="n">255</span>. Allah o İlahtır ki Kendisinden başka ilah yoktur...
+[özet: Allah'ın varlığı, öznitelikleri ve evrene hakim gücü açıklanır.]
+[temalar: tevhid, ilahi öznitelikler, kozmik düzen, ilim ve hikmet, şefaat]
+[kavramlar: tawhid, qudra, ilm, wilaya, kursi]</code></pre>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="label" lang="tr">Batch Cost</div>
+        <div class="label" lang="en">Batch Cost</div>
+        <div class="value">$1.93</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Süre</div>
+        <div class="label" lang="en">Duration</div>
+        <div class="value">42 dk</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Verse Coverage</div>
+        <div class="label" lang="en">Verse Coverage</div>
+        <div class="value">100%</div>
+      </div>
+      <div class="metric-card">
+        <div class="label" lang="tr">Concurrency</div>
+        <div class="label" lang="en">Concurrency</div>
+        <div class="value">5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 11. QUERY LANG ═══ -->
+  <section id="query-lang">
+    <div class="eyebrow" lang="tr">BÖLÜM 11 · DIL TESPİTİ</div>
+    <div class="eyebrow" lang="en">SECTION 11 · LANGUAGE DETECTION</div>
+    <h2 lang="tr">Query Dil Tespiti (LLM'siz)</h2>
+    <h2 lang="en">Query Language Detection (No LLM)</h2>
+
+    <p lang="tr">
+      Sistem, sayfa locale'ini <strong>ignore</strong> eder. Query'nin gerçek dilini heuristic ile tespit eder — böylece kullanıcı TR sayfada EN soru sorabilir (veya tersi), response o dilde gelir.
+    </p>
+    <p lang="en">
+      The system <strong>ignores</strong> page locale. Detects the query's actual language via heuristics — so a user can ask an EN question on a TR page (or vice versa) and get a response in that language.
+    </p>
+
+    <h3 lang="tr">Algoritma (Sıralı)</h3>
+    <h3 lang="en">Algorithm (Sequential)</h3>
+    <ol lang="tr">
+      <li>Query'de Türkçe karakter (<code>ğüşıçöĞÜŞİÇÖ</code>) var mı? → <strong>TR kesin</strong></li>
+      <li>TR stopword count &gt; EN stopword count? → <strong>TR</strong></li>
+      <li>EN stopword count &gt; TR stopword count? → <strong>EN</strong></li>
+      <li>Belirsiz → <strong>default TR</strong></li>
+    </ol>
+    <ol lang="en">
+      <li>Query contains Turkish characters (<code>ğüşıçöĞÜŞİÇÖ</code>)? → <strong>TR certain</strong></li>
+      <li>TR stopword count &gt; EN stopword count? → <strong>TR</strong></li>
+      <li>EN stopword count &gt; TR stopword count? → <strong>EN</strong></li>
+      <li>Ambiguous → <strong>default TR</strong></li>
+    </ol>
+
+    <p lang="tr">
+      Cost: <strong>$0</strong>. Latency: <strong>~2 ms</strong>. Client-side, synchronous, deterministic. Stopword sözlükleri: TR (~40 kelime), EN (~30 kelime). Dosya: <code>next/src/lib/query-lang.js</code>.
+    </p>
+    <p lang="en">
+      Cost: <strong>$0</strong>. Latency: <strong>~2 ms</strong>. Client-side, synchronous, deterministic. Stopword dictionaries: TR (~40 words), EN (~30 words). File: <code>next/src/lib/query-lang.js</code>.
+    </p>
+  </section>
+
+  <!-- ═══ 12. ADMIN ═══ -->
+  <section id="admin">
+    <div class="eyebrow" lang="tr">BÖLÜM 12 · ADMIN PANEL</div>
+    <div class="eyebrow" lang="en">SECTION 12 · ADMIN PANEL</div>
+    <h2 lang="tr">Admin Panel — /admin/queries</h2>
+    <h2 lang="en">Admin Panel — /admin/queries</h2>
+
+    <p lang="tr">
+      Password-protected dashboard. <code>ADMIN_TOKEN</code> env var'ı ile Authorization Bearer token check. Locale-independent URL — direkt <code>/admin/queries</code>.
+    </p>
+    <p lang="en">
+      Password-protected dashboard. Authorization Bearer token check via <code>ADMIN_TOKEN</code> env var. Locale-independent URL — direct <code>/admin/queries</code>.
+    </p>
+
+    <h3 lang="tr">5 Tab</h3>
+    <h3 lang="en">5 Tabs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tab</th>
+          <th lang="tr">İçerik</th>
+          <th lang="en">Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Son Sorgular</strong></td>
+          <td lang="tr">Zaman + query + dil + durum + cache hit/miss + sonuç sayısı + IP</td>
+          <td lang="en">Timestamp + query + lang + status + cache hit/miss + result count + IP</td>
+        </tr>
+        <tr>
+          <td><strong>En Çok Sorulan</strong></td>
+          <td lang="tr">Aggregate — query + count + ilk/son + upCount/downCount</td>
+          <td lang="en">Aggregate — query + count + first/last + upCount/downCount</td>
+        </tr>
+        <tr>
+          <td><strong>Feedback</strong></td>
+          <td lang="tr">Son thumbs — queryHash + itemId + thumb + IP</td>
+          <td lang="en">Recent thumbs — queryHash + itemId + thumb + IP</td>
+        </tr>
+        <tr>
+          <td><strong>Item Boost</strong></td>
+          <td lang="tr">Feedback'i olan itemler + quality% + boost/demote%</td>
+          <td lang="en">Items with feedback + quality% + boost/demote%</td>
+        </tr>
+        <tr>
+          <td><strong>İstatistik</strong></td>
+          <td lang="tr">Toplam sayılar + cache purge button</td>
+          <td lang="en">Total counts + cache purge button</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">KV Data Model</h3>
+    <h3 lang="en">KV Data Model</h3>
+    <pre><code><span class="c">// Raw logs (append-only, TTL yok)</span>
+query:{ts}          → { queryHash, query, lang, category, ipHash, timings, ... }
+feedback:{ts}       → { queryHash, itemId, thumb, ipHash, ... }
+
+<span class="c">// Aggregates (update-on-write)</span>
+agg:query:{hash}    → { query, lang, count, firstSeen, lastSeen, upCount, downCount, categories }
+item:{itemId}       → { up, down, lastUpdated }
+
+<span class="c">// Response cache (TTL 7d)</span>
+cache:{queryHash}   → full response JSON
+
+<span class="c">// Sorted set indexes (score-based pagination)</span>
+ZSET queries:by-time     score=ts    <span class="c">// recent queries</span>
+ZSET feedback:by-time    score=ts    <span class="c">// recent feedback</span>
+ZSET agg:by-count        score=count <span class="c">// top queries</span>
+ZSET cache:by-time       score=ts    <span class="c">// cache entries</span>
+ZSET items:with-feedback score=total <span class="c">// items by feedback volume</span></code></pre>
+
+    <h3 lang="tr">CSV Export</h3>
+    <h3 lang="en">CSV Export</h3>
+    <p lang="tr">
+      Her tabloda "CSV Kopyala" button. Clipboard'a CSV formatında yazılır → Sheets/Excel'e paste. Bulk analiz için.
+    </p>
+    <p lang="en">
+      Each table has "Copy CSV" button. CSV format written to clipboard → paste to Sheets/Excel. For bulk analysis.
+    </p>
+  </section>
+
+  <!-- ═══ 13. COST ═══ -->
+  <section id="cost">
+    <div class="eyebrow" lang="tr">BÖLÜM 13 · MALİYET MODELİ</div>
+    <div class="eyebrow" lang="en">SECTION 13 · COST MODEL</div>
+    <h2 lang="tr">Maliyet Modeli</h2>
+    <h2 lang="en">Cost Model</h2>
+
+    <h3 lang="tr">Sorgu Başına Cost (Cold Path)</h3>
+    <h3 lang="en">Per-Query Cost (Cold Path)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Aşama</th>
+          <th lang="en">Stage</th>
+          <th lang="tr">Servis</th>
+          <th lang="en">Service</th>
+          <th>Cost</th>
+          <th lang="tr">Detay</th>
+          <th lang="en">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Guardrails K2 (~%20)</td>
+          <td>Anthropic Haiku</td>
+          <td>$0.00004</td>
+          <td lang="tr">~200 input token</td>
+          <td lang="en">~200 input tokens</td>
+        </tr>
+        <tr>
+          <td>Guardrails K3 (~%10)</td>
+          <td>Anthropic Haiku</td>
+          <td>$0.00003</td>
+          <td lang="tr">~150 input token</td>
+          <td lang="en">~150 input tokens</td>
+        </tr>
+        <tr>
+          <td>Embed</td>
+          <td>DeepInfra BGE-M3</td>
+          <td>$0.0000005</td>
+          <td lang="tr">~50 token</td>
+          <td lang="en">~50 tokens</td>
+        </tr>
+        <tr>
+          <td>Search</td>
+          <td lang="tr">Node in-memory</td>
+          <td lang="en">Node in-memory</td>
+          <td>$0</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Quality Boost</td>
+          <td>KV mget × 22</td>
+          <td>$0.000004</td>
+          <td lang="tr">~22 KV command</td>
+          <td lang="en">~22 KV commands</td>
+        </tr>
+        <tr>
+          <td>Claude Curate</td>
+          <td>Anthropic Haiku</td>
+          <td>$0.00150</td>
+          <td lang="tr">~4500 input + 350 output</td>
+          <td lang="en">~4500 input + 350 output</td>
+        </tr>
+        <tr>
+          <td>KV Log + Cache Write</td>
+          <td>Upstash Redis</td>
+          <td>$0.000006</td>
+          <td lang="tr">~4 KV command</td>
+          <td lang="en">~4 KV commands</td>
+        </tr>
+        <tr>
+          <td><strong>Cold Path Toplam</strong></td>
+          <td>—</td>
+          <td><strong>~$0.0016</strong></td>
+          <td lang="tr">$1 = ~625 sorgu</td>
+          <td lang="en">$1 = ~625 queries</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Sorgu Başına Cost (Cache HIT)</h3>
+    <h3 lang="en">Per-Query Cost (Cache HIT)</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td>KV cache read</td>
+          <td>$0.000001</td>
+        </tr>
+        <tr>
+          <td>Query log write</td>
+          <td>$0.000005</td>
+        </tr>
+        <tr>
+          <td><strong>Cache HIT Toplam</strong></td>
+          <td><strong>~$0.000006</strong> <span lang="tr">(~250× ucuz)</span><span lang="en">(~250× cheaper)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Aylık Cost Projeksiyonu</h3>
+    <h3 lang="en">Monthly Cost Projection</h3>
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Sorgu/Gün</th>
+          <th lang="en">Queries/Day</th>
+          <th lang="tr">Cache Hit Ratio</th>
+          <th lang="en">Cache Hit Ratio</th>
+          <th lang="tr">Aylık LLM</th>
+          <th lang="en">Monthly LLM</th>
+          <th lang="tr">Aylık KV</th>
+          <th lang="en">Monthly KV</th>
+          <th lang="tr">Aylık Total</th>
+          <th lang="en">Monthly Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100</td>
+          <td>0%</td>
+          <td>$4.80</td>
+          <td>$0.02</td>
+          <td>~$5</td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>40%</td>
+          <td>$14.40</td>
+          <td>$0.10</td>
+          <td>~$15</td>
+        </tr>
+        <tr>
+          <td>2000</td>
+          <td>60%</td>
+          <td>$38.40</td>
+          <td>$0.40</td>
+          <td>~$40</td>
+        </tr>
+        <tr>
+          <td>10000</td>
+          <td>70%</td>
+          <td>$144.00</td>
+          <td>$2.00</td>
+          <td>~$150</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Tek Seferlik Cost (Setup)</h3>
+    <h3 lang="en">One-Time Cost (Setup)</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td lang="tr">Corpus embed (12,495 chunk)</td>
+          <td lang="en">Corpus embed (12,495 chunks)</td>
+          <td>$0.05</td>
+        </tr>
+        <tr>
+          <td lang="tr">Metadata enrichment (6236 ayet Claude Haiku)</td>
+          <td lang="en">Metadata enrichment (6236 verses via Claude Haiku)</td>
+          <td>$1.93</td>
+        </tr>
+        <tr>
+          <td lang="tr">Meal fetch (6 author × 114 sure)</td>
+          <td lang="en">Meal fetch (6 authors × 114 surahs)</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td lang="tr">Ruku data fetch</td>
+          <td lang="en">Ruku data fetch</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td><strong>Toplam</strong></td>
+          <td><strong>~$2</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══ 14. DEPLOYMENT ═══ -->
+  <section id="deploy">
+    <div class="eyebrow" lang="tr">BÖLÜM 14 · DEPLOYMENT</div>
+    <div class="eyebrow" lang="en">SECTION 14 · DEPLOYMENT</div>
+    <h2 lang="tr">Deployment (Vercel)</h2>
+    <h2 lang="en">Deployment (Vercel)</h2>
+
+    <h3 lang="tr">Environment Variables</h3>
+    <h3 lang="en">Environment Variables</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Var</th>
+          <th lang="tr">Amaç</th>
+          <th lang="en">Purpose</th>
+          <th lang="tr">Nasıl?</th>
+          <th lang="en">How?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ANTHROPIC_API_KEY</code></td>
+          <td lang="tr">Claude Haiku (guardrails + curate)</td>
+          <td lang="en">Claude Haiku (guardrails + curate)</td>
+          <td lang="tr">console.anthropic.com</td>
+          <td lang="en">console.anthropic.com</td>
+        </tr>
+        <tr>
+          <td><code>DEEPINFRA_API_KEY</code></td>
+          <td lang="tr">BGE-M3 embed</td>
+          <td lang="en">BGE-M3 embed</td>
+          <td lang="tr">deepinfra.com</td>
+          <td lang="en">deepinfra.com</td>
+        </tr>
+        <tr>
+          <td><code>KV_REST_API_URL</code></td>
+          <td>Upstash Redis</td>
+          <td lang="tr">Storage → Upstash otomatik</td>
+          <td lang="en">Storage → Upstash auto-injects</td>
+        </tr>
+        <tr>
+          <td><code>KV_REST_API_TOKEN</code></td>
+          <td>Upstash Redis auth</td>
+          <td lang="tr">Storage → Upstash otomatik</td>
+          <td lang="en">Storage → Upstash auto-injects</td>
+        </tr>
+        <tr>
+          <td><code>ADMIN_TOKEN</code></td>
+          <td lang="tr">Admin panel auth</td>
+          <td lang="en">Admin panel auth</td>
+          <td lang="tr">Manuel (openssl rand -hex 24)</td>
+          <td lang="en">Manual (openssl rand -hex 24)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Vercel Function Size Constraint</h3>
+    <h3 lang="en">Vercel Function Size Constraint</h3>
+    <div class="callout warning">
+      <div class="label" lang="tr">Sınır</div>
+      <div class="label" lang="en">Limit</div>
+      <div lang="tr">
+        Vercel Fluid Serverless <strong>250 MB uncompressed function bundle</strong> sınırı. corpus-embeddings.json module import edildiği için function bundle'ına dahil olur. Şu an ~195 MB, güvenli marj. Aşılırsa: split-by-lang, raw binary format, veya <code>VERCEL_SUPPORT_LARGE_FUNCTIONS=1</code> (beta) çözümleri.
+      </div>
+      <div lang="en">
+        Vercel Fluid Serverless enforces a <strong>250 MB uncompressed function bundle</strong> limit. Since corpus-embeddings.json is module-imported, it's bundled into the function. Currently ~195 MB — safe margin. If exceeded: split-by-lang, raw binary format, or <code>VERCEL_SUPPORT_LARGE_FUNCTIONS=1</code> (beta) are solutions.
+      </div>
+    </div>
+
+    <h3 lang="tr">Git LFS</h3>
+    <h3 lang="en">Git LFS</h3>
+    <p lang="tr">
+      <code>corpus-embeddings.json</code> (~195 MB) Git LFS ile track edilir. Her deploy LFS pull ekler (~30-40 sn). GitHub free tier LFS bandwidth: 1 GB/ay → ~5 deploy/ay serbest. Aşılırsa LFS bandwidth pack ($5 / 50 GB).
+    </p>
+    <p lang="en">
+      <code>corpus-embeddings.json</code> (~195 MB) is tracked via Git LFS. Each deploy adds LFS pull time (~30-40 sec). GitHub free tier LFS bandwidth: 1 GB/month → ~5 deploys/month free. Beyond that requires LFS bandwidth pack ($5 / 50 GB).
+    </p>
+
+    <h3 lang="tr">Kritik Deploy Adımları</h3>
+    <h3 lang="en">Critical Deploy Steps</h3>
+    <ol lang="tr">
+      <li><strong>Env vars değişiklik sonrası</strong> mutlaka manuel Redeploy (env sadece deploy time'da build'e girer)</li>
+      <li>Upstash KV sonradan bağlandıysa mevcut deployment env vars'ı görmez — Redeploy şart</li>
+      <li>Corpus rebuild sonrası (yeni chunk / re-embed): <code>git push</code> → Vercel auto-deploy</li>
+      <li>Vercel deploy başarısız olursa: prod eski deploy ile çalışmaya devam eder (rollback otomatik)</li>
+    </ol>
+    <ol lang="en">
+      <li><strong>After env var changes</strong>, always manually Redeploy (env vars are baked at build time)</li>
+      <li>If Upstash KV is connected later, existing deployment won't see the env vars — Redeploy required</li>
+      <li>After corpus rebuild (new chunks / re-embed): <code>git push</code> → Vercel auto-deploys</li>
+      <li>If deploy fails: prod continues serving the previous successful deploy (auto-rollback)</li>
+    </ol>
+  </section>
+
+  <!-- ═══ 15. FILES ═══ -->
+  <section id="files">
+    <div class="eyebrow" lang="tr">BÖLÜM 15 · DOSYA YAPISI</div>
+    <div class="eyebrow" lang="en">SECTION 15 · FILE STRUCTURE</div>
+    <h2 lang="tr">Kritik Dosyalar</h2>
+    <h2 lang="en">Key Files</h2>
+
+    <h3 lang="tr">Lib (Runtime)</h3>
+    <h3 lang="en">Lib (Runtime)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th lang="tr">Dosya</th>
+          <th lang="en">File</th>
+          <th lang="tr">Sorumluluk</th>
+          <th lang="en">Responsibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>next/src/lib/concierge-embed.js</code></td>
+          <td lang="tr">DeepInfra BGE-M3 API wrapper</td>
+          <td lang="en">DeepInfra BGE-M3 API wrapper</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-search.js</code></td>
+          <td lang="tr">Corpus load + cosine + multi-vector MAX + quality boost</td>
+          <td lang="en">Corpus load + cosine + multi-vector MAX + quality boost</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-guardrails.js</code></td>
+          <td lang="tr">K1 regex + K2 classifier + K3 rewrite</td>
+          <td lang="en">K1 regex + K2 classifier + K3 rewrite</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-claude.js</code></td>
+          <td lang="tr">Claude Haiku wrapper — system prompt + curate</td>
+          <td lang="en">Claude Haiku wrapper — system prompt + curate</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-hydrate.js</code></td>
+          <td lang="tr">Halisinasyon guard + client-ready response</td>
+          <td lang="en">Hallucination guard + client-ready response</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-kv.js</code></td>
+          <td lang="tr">Vercel KV wrapper (log + cache + item quality)</td>
+          <td lang="en">Vercel KV wrapper (log + cache + item quality)</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/concierge-ratelimit.js</code></td>
+          <td lang="tr">In-memory rate limit (IP + endpoint bazlı)</td>
+          <td lang="en">In-memory rate limit (per-IP + per-endpoint)</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/query-lang.js</code></td>
+          <td lang="tr">Heuristic dil tespit</td>
+          <td lang="en">Heuristic language detection</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">API Routes</h3>
+    <h3 lang="en">API Routes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th lang="tr">Amaç</th>
+          <th lang="en">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>POST /api/concierge</code></td>
+          <td lang="tr">Ana endpoint — full pipeline</td>
+          <td lang="en">Main endpoint — full pipeline</td>
+        </tr>
+        <tr>
+          <td><code>POST /api/concierge/feedback</code></td>
+          <td lang="tr">Thumbs up/down kayıt</td>
+          <td lang="en">Thumbs up/down record</td>
+        </tr>
+        <tr>
+          <td><code>GET /api/admin/queries</code></td>
+          <td lang="tr">Admin data (recent/top/feedback/items/stats)</td>
+          <td lang="en">Admin data (recent/top/feedback/items/stats)</td>
+        </tr>
+        <tr>
+          <td><code>POST /api/admin/queries?action=purge_cache</code></td>
+          <td lang="tr">Cache temizle</td>
+          <td lang="en">Purge cache</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Client Sayfalar</h3>
+    <h3 lang="en">Client Pages</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>/[locale]/sor</code></td>
+          <td lang="tr">Concierge UI — query bar + response cards + feedback</td>
+          <td lang="en">Concierge UI — query bar + response cards + feedback</td>
+        </tr>
+        <tr>
+          <td><code>/admin/queries</code></td>
+          <td lang="tr">Admin dashboard (locale-independent)</td>
+          <td lang="en">Admin dashboard (locale-independent)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Data Dosyaları</h3>
+    <h3 lang="en">Data Files</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>next/src/lib/corpus-embeddings.json</code></td>
+          <td>~195 MB</td>
+          <td lang="tr">Tüm chunk embed'ler (LFS)</td>
+          <td lang="en">All chunk embeddings (LFS)</td>
+        </tr>
+        <tr>
+          <td><code>next/src/lib/corpus-raw.json</code></td>
+          <td>~30 MB</td>
+          <td lang="tr">Chunk metadata (embedding'siz)</td>
+          <td lang="en">Chunk metadata (no embeddings)</td>
+        </tr>
+        <tr>
+          <td><code>next/public/meals-multi.json</code></td>
+          <td>~7 MB</td>
+          <td lang="tr">6236 ayet × 6 meal metni</td>
+          <td lang="en">6236 verses × 6 meal texts</td>
+        </tr>
+        <tr>
+          <td><code>next/public/verse-metadata.json</code></td>
+          <td>~2 MB</td>
+          <td lang="tr">Ayet başına özet + tema + kavram</td>
+          <td lang="en">Per-verse summary + themes + concepts</td>
+        </tr>
+        <tr>
+          <td><code>next/public/tefsir-per-verse.json</code></td>
+          <td>~4 MB</td>
+          <td lang="tr">Elmalılı TR (4993) + İbn Kesîr EN (300)</td>
+          <td lang="en">Elmalılı TR (4993) + Ibn Kathir EN (300)</td>
+        </tr>
+        <tr>
+          <td><code>next/public/rukus.json</code></td>
+          <td>~100 KB</td>
+          <td lang="tr">556 ruku başlangıç/bitiş</td>
+          <td lang="en">556 ruku start/end</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 lang="tr">Scripts (Offline)</h3>
+    <h3 lang="en">Scripts (Offline)</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td><code>scripts/build-corpus.mjs</code></td>
+          <td lang="tr">Content source'lardan chunk'ları üret</td>
+          <td lang="en">Build chunks from content sources</td>
+        </tr>
+        <tr>
+          <td><code>scripts/build-embeddings.mjs</code></td>
+          <td lang="tr">DeepInfra ile chunk'ları embed et</td>
+          <td lang="en">Embed chunks via DeepInfra</td>
+        </tr>
+        <tr>
+          <td><code>scripts/fetch-meals-multi.mjs</code></td>
+          <td lang="tr">acikkuran API'den 6 meal fetch</td>
+          <td lang="en">Fetch 6 meals from acikkuran API</td>
+        </tr>
+        <tr>
+          <td><code>scripts/enrich-verse-metadata.mjs</code></td>
+          <td lang="tr">Claude Haiku batch metadata</td>
+          <td lang="en">Claude Haiku batch metadata</td>
+        </tr>
+        <tr>
+          <td><code>scripts/split-tefsir.mjs</code></td>
+          <td lang="tr">Sure tefsir → ayet segment</td>
+          <td lang="en">Surah tafsir → per-verse segments</td>
+        </tr>
+        <tr>
+          <td><code>scripts/fetch-rukus.mjs</code></td>
+          <td lang="tr">Al Quran Cloud API ruku metadata</td>
+          <td lang="en">Al Quran Cloud API ruku metadata</td>
+        </tr>
+        <tr>
+          <td><code>scripts/strip-meal-vectors.mjs</code></td>
+          <td lang="tr">Vector shrink (whitelist filter, no re-embed)</td>
+          <td lang="en">Vector shrink (whitelist filter, no re-embed)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══ 16. ROADMAP ═══ -->
+  <section id="roadmap">
+    <div class="eyebrow" lang="tr">BÖLÜM 16 · YOL HARİTASI</div>
+    <div class="eyebrow" lang="en">SECTION 16 · ROADMAP</div>
+    <h2 lang="tr">Yol Haritası</h2>
+    <h2 lang="en">Roadmap</h2>
+
+    <h3 lang="tr">Kısa Vadeli (Sonraki 1-2 ay)</h3>
+    <h3 lang="en">Short Term (Next 1-2 months)</h3>
+    <ul lang="tr">
+      <li><strong>Query cache auto-curation</strong> — feedback %70+ positive → TTL uzat; %50+ negative → invalidate</li>
+      <li><strong>Content gap detection</strong> — admin panelde "sonuç 0" veya "negatif ≥%40" query listesi → yeni içerik önerisi</li>
+      <li><strong>User query history</strong> — /sor sayfasında localStorage chip'ler (son 20)</li>
+      <li><strong>Retrieval A/B test</strong> — 2 farklı boost katsayısı → hangisi daha iyi feedback alır?</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Query cache auto-curation</strong> — feedback ≥70% positive → extend TTL; ≥50% negative → invalidate</li>
+      <li><strong>Content gap detection</strong> — admin panel list of "zero result" or "≥40% negative" queries → suggests new content</li>
+      <li><strong>User query history</strong> — /sor page localStorage chips (last 20)</li>
+      <li><strong>Retrieval A/B test</strong> — 2 different boost coefficients → which gets better feedback?</li>
+    </ul>
+
+    <h3 lang="tr">Orta Vadeli (3-6 ay)</h3>
+    <h3 lang="en">Mid Term (3-6 months)</h3>
+    <ul lang="tr">
+      <li><strong>Cross-encoder reranker</strong> — BGE-reranker-v2-m3 gerçek yeniden sıralama (~$0.15/M token)</li>
+      <li><strong>External vector DB</strong> — Upstash Vector veya Pinecone → cold start 0, edge runtime</li>
+      <li><strong>Prompt evolution</strong> — feedback log'undan system prompt iyileştirme (aylık batch)</li>
+      <li><strong>Multi-modal</strong> — audio input (query'yi konuşarak sor)</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Cross-encoder reranker</strong> — BGE-reranker-v2-m3 true reranking (~$0.15/M token)</li>
+      <li><strong>External vector DB</strong> — Upstash Vector or Pinecone → 0 cold start, edge runtime</li>
+      <li><strong>Prompt evolution</strong> — improve system prompt from feedback logs (monthly batch)</li>
+      <li><strong>Multi-modal</strong> — audio input (ask query by voice)</li>
+    </ul>
+
+    <h3 lang="tr">Uzun Vadeli (6+ ay)</h3>
+    <h3 lang="en">Long Term (6+ months)</h3>
+    <ul lang="tr">
+      <li><strong>Personalization</strong> — kullanıcı okuma geçmişi + feedback → kişisel retrieval bias</li>
+      <li><strong>Conversation memory</strong> — multi-turn conversation, "önceki cevabına dayanarak..."</li>
+      <li><strong>Community feedback</strong> — expert olarak işaretlenmiş kullanıcıların thumbs'u daha ağır sayılır</li>
+      <li><strong>Content generation</strong> — feedback boşluğu tespit edilirse Claude ile draft içerik önerisi (human review sonrası publish)</li>
+    </ul>
+    <ul lang="en">
+      <li><strong>Personalization</strong> — user reading history + feedback → personal retrieval bias</li>
+      <li><strong>Conversation memory</strong> — multi-turn conversations, "based on your previous answer..."</li>
+      <li><strong>Community feedback</strong> — expert-flagged users' thumbs weighted higher</li>
+      <li><strong>Content generation</strong> — if feedback gap detected, Claude drafts new content proposals (published after human review)</li>
+    </ul>
+
+    <hr>
+
+    <p class="muted" lang="tr">
+      Bu belge Faz 2 tamamlandığında (2026-07-14) yazıldı. Sistem yaşayan bir belge; güncellemeler <code>next/public/docs/rag-architecture.html</code> içinde tutulur.
+    </p>
+    <p class="muted" lang="en">
+      This document was written when Phase 2 completed (2026-07-14). The system is a living document; updates are maintained in <code>next/public/docs/rag-architecture.html</code>.
+    </p>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  <p>
+    QuranCodex · Semantic Concierge Reference · v1.0 · 2026-07-14
+    <br>
+    <a href="https://www.qurancodex.com" style="color: var(--gold); text-decoration: none;">qurancodex.com</a>
+  </p>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('rag_doc_lang', lang); } catch {}
+  }
+  // Hydrate from localStorage on load
+  try {
+    const saved = localStorage.getItem('rag_doc_lang');
+    if (saved === 'en' || saved === 'tr') setLang(saved);
+  } catch {}
+</script>
+
+</body>
+</html>
