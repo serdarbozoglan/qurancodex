@@ -61,27 +61,34 @@ export default function SourcesCitation({ language, isMobile, sources }) {
             }}>
               {tr ? s.workTr : (s.workEn ?? s.workTr)}
             </div>
-            <div style={{
-              fontSize: '0.7rem',
-              color: COLORS.silver,
-              opacity: 0.7,
-              fontFamily: FONTS.body,
-              marginBottom: s.note ? '6px' : 0,
-            }}>
-              {s.period}
-            </div>
-            {s.note && (
-              <div style={{
-                fontSize: '0.76rem',
-                color: COLORS.silver,
-                fontFamily: FONTS.body,
-                lineHeight: 1.55,
-                opacity: 0.88,
-                marginTop: '6px',
-              }}>
-                {tr ? s.noteTr : (s.noteEn ?? s.noteTr)}
-              </div>
-            )}
+            {(() => {
+              const hasNote = !!(s.note || s.noteTr || s.noteEn);
+              return (
+                <>
+                  <div style={{
+                    fontSize: '0.7rem',
+                    color: COLORS.silver,
+                    opacity: 0.7,
+                    fontFamily: FONTS.body,
+                    marginBottom: hasNote ? '6px' : 0,
+                  }}>
+                    {s.period}
+                  </div>
+                  {hasNote && (
+                    <div style={{
+                      fontSize: '0.76rem',
+                      color: COLORS.silver,
+                      fontFamily: FONTS.body,
+                      lineHeight: 1.55,
+                      opacity: 0.88,
+                      marginTop: '6px',
+                    }}>
+                      {tr ? (s.noteTr ?? s.note) : (s.noteEn ?? s.noteTr ?? s.note)}
+                    </div>
+                  )}
+                </>
+              );
+            })()}
           </div>
         ))}
       </div>

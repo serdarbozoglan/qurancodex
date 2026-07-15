@@ -14,6 +14,8 @@ import path from 'node:path';
 const ROOT = path.resolve(process.cwd(), 'next/public');
 const TARGET = path.join(ROOT, 'ahiret-yolculugu.json');
 const VERSE_GRAPH = path.join(ROOT, 'verse-graph-bgem3.json');
+// SSR-safe copy: AhiretYolculugu.jsx bunu module-level import eder (2026-07-15).
+const SRC_DATA_COPY = path.join(process.cwd(), 'next/src/data/ahiret-yolculugu.json');
 
 // §13.15 cleanArabicForDisplay — build script inline (ES module port)
 // Expanded per Ahiret Yolculuğu visual audit K-02 (2026-07-15): U+06DF-U+06E0
@@ -94,9 +96,13 @@ function walk(o) {
 }
 walk(data);
 
-fs.writeFileSync(TARGET, JSON.stringify(data, null, 2) + '\n');
+const output = JSON.stringify(data, null, 2) + '\n';
+fs.writeFileSync(TARGET, output);
+// SSR-safe copy — AhiretYolculugu component'ı bunu module-level import eder
+fs.writeFileSync(SRC_DATA_COPY, output);
 
 console.log(`[build-ahiret-yolculugu] ✅ Enriched: ${enriched} refs`);
+console.log(`[build-ahiret-yolculugu] ✅ src/data/ copy: ${SRC_DATA_COPY}`);
 if (missing.length) {
   console.warn(`[build-ahiret-yolculugu] ⚠ Missing verses (${missing.length}):`, missing);
 }

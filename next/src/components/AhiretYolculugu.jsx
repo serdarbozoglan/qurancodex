@@ -23,6 +23,10 @@ import { COLORS, FONTS } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
+// SSR-safe: JSON'u module-level import et. Fetch pattern SSR'da null döndürüyordu
+// → SourcesCitation + CTA'lar SEO HTML'de görünmüyordu (2026-07-15 audit bug).
+// Bundle'a ~90KB static content ekler; ancak initial render tam olur.
+import ahiretDataStatic from '../data/ahiret-yolculugu.json';
 
 // ─── Stage icons — her aşama için custom minimal SVG ─────────────────────────
 const StageIcons = {
@@ -145,7 +149,7 @@ const AtlasIcon = ({ size = 18 }) => (
 export default function AhiretYolculugu({ onClose }) {
   const { language } = useLanguage();
   const router = useRouter();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(ahiretDataStatic);
   const [isMobile, setIsMobile] = useState(false);
   const [openStage, setOpenStage] = useState(null);
   const [activeIdx, setActiveIdx] = useState(0);
@@ -158,7 +162,8 @@ export default function AhiretYolculugu({ onClose }) {
   const progressX = useSpring(scrollYProgress, { stiffness: 130, damping: 26, mass: 0.4 });
 
   useEffect(() => {
-    fetch('/ahiret-yolculugu.json').then(r => r.json()).then(setData);
+    // Fetch kaldırıldı — data module-level import ile SSR-safe (2026-07-15 fix).
+    // Eğer public/ dosyası src/ ile drift ederse: rebuild script src/data/'ya kopyalar.
     const check = () => setIsMobile(window.innerWidth < 640);
     check();
     window.addEventListener('resize', check);

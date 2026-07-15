@@ -75,6 +75,40 @@ export default function AddresseeSystem({ onClose }) {
     />
   );
 
+  // Related-tool CTA — data'dan bağımsız, hem loading hem main return'de aynı.
+  // SSR HTML'inde CTA görünür → SEO ve first paint için kritik (2026-07-15 audit fix).
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '32px 16px 80px' : '48px 32px 100px' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          {
+            href: '/graf/diyalog',
+            titleTr: 'Diyalog Ağı',
+            titleEn: 'Dialogue Network',
+            descTr: 'Kur\'an\'da ~300 diyalog — muhatap sistemi\'nin canlı sahneleri.',
+            descEn: '~300 dialogues in the Quran — the addressee system in living scenes.',
+          },
+          {
+            href: '/arac/retorik',
+            titleTr: "Kur'an Belâgatı",
+            titleEn: 'Quranic Rhetoric',
+            descTr: 'Muhatap seçimi retoriğin çekirdeğidir — iltifât, takdîm-tehîr.',
+            descEn: 'Choice of addressee is the core of rhetoric — iltifāt, syntactic shifts.',
+          },
+          {
+            href: '/arac/dua-dili',
+            titleTr: 'Dua Dili',
+            titleEn: 'Language of Prayer',
+            descTr: 'İnsanın Allah\'a hitabı — muhatap sisteminin özel bir alt-tipi.',
+            descEn: "The human's address to God — a special subtype of the addressee system.",
+          },
+        ]}
+      />
+    </div>
+  );
+
   // ── Loading skeleton ─────────────────────────────────────────────────────────
   if (!data) {
     return (
@@ -85,11 +119,12 @@ export default function AddresseeSystem({ onClose }) {
         paddingTop: '62px',
       }}>
         {ADDR_TOOL_HEADER}
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontSize: '0.9rem' }}>
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -351,36 +386,9 @@ export default function AddresseeSystem({ onClose }) {
         </div>
       </div>
 
-      {/* CrossToolCTA — muhatap ↔ diyalog ↔ retorik ↔ dua hattı */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '32px 16px 80px' : '48px 32px 100px' }}>
-        <CrossToolCTA
-          language={language}
-          isMobile={isMobile}
-          links={[
-            {
-              href: '/atlas/diyalog',
-              titleTr: 'Diyalog Ağı',
-              titleEn: 'Dialogue Network',
-              descTr: 'Kur\'an\'da ~300 diyalog — muhatap sistemi\'nin canlı sahneleri.',
-              descEn: '~300 dialogues in the Quran — the addressee system in living scenes.',
-            },
-            {
-              href: '/arac/retorik',
-              titleTr: "Kur'an Belâgatı",
-              titleEn: 'Quranic Rhetoric',
-              descTr: 'Muhatap seçimi retoriğin çekirdeğidir — iltifât, takdîm-tehîr.',
-              descEn: 'Choice of addressee is the core of rhetoric — iltifāt, syntactic shifts.',
-            },
-            {
-              href: '/arac/dua-dili',
-              titleTr: 'Dua Dili',
-              titleEn: 'Language of Prayer',
-              descTr: 'İnsanın Allah\'a hitabı — muhatap sisteminin özel bir alt-tipi.',
-              descEn: "The human's address to God — a special subtype of the addressee system.",
-            },
-          ]}
-        />
-      </div>
+      {/* CrossToolCTA — RELATED_CTA sabiti kullanılıyor (loading skeleton ile aynı,
+          duplikasyon önlendi). */}
+      {RELATED_CTA}
     </div>
   );
 }
