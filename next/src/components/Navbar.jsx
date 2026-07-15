@@ -1511,6 +1511,32 @@ export default function Navbar() {
           </button>
           ═══ NAVBAR DESTEK END ═══ */}
 
+          {/* Kütüphanem — global bookmark library entry (2026-07-15 #173).
+              Icon-only; kullanıcı bookmark ettiği item'ları hızlı görebilsin. */}
+          <button
+            onClick={() => router.push(`/${language}/kutuphanem`)}
+            title={language === 'tr' ? 'Kütüphanem' : 'My Library'}
+            aria-label={language === 'tr' ? 'Kütüphanem' : 'My Library'}
+            className="hidden lg:flex items-center justify-center transition-all duration-200"
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '6px',
+              border: `1px solid ${COLORS.goldAlpha45}`,
+              background: 'transparent',
+              color: COLORS.gold,
+              cursor: 'pointer',
+              transition: `all ${TRANSITION.fast}`,
+              flexShrink: 0,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
+          >
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+
           {/* Sor — global entry to Concierge (RAG semantic Q&A). Site-wide access
               gap kapatır: sadece anasayfada ConciergePrompt görünür, tool sayfasında
               yeni soru için ayrı entry gerekiyordu (kullanıcı feedback 2026-07-13). */}
@@ -1882,6 +1908,35 @@ export default function Navbar() {
                     </span>
                     <span style={ITEM_DESC}>
                       {language === 'tr' ? 'Doğal dilde soru · anlamlı ayet & içerik' : 'Ask in plain language · relevant verses & content'}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
+                </button>
+
+                {/* Kütüphanem — bookmark library (mobile mirror, 2026-07-15 #173) */}
+                <button
+                  onClick={() => { router.push(`/${language}/kutuphanem`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px', marginBottom: '10px',
+                    background: 'rgba(212,165,116,0.05)',
+                    border: '1px solid rgba(212,165,116,0.22)',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? 'Kütüphanem' : 'My Library'}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? 'Kaydettiğin ayet, tefsir, atlas item\'ları' : "Your saved verses, tafsirs, atlas items"}
                     </span>
                   </span>
                   <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>

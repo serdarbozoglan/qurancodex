@@ -1448,21 +1448,47 @@ function AtlasCard({ atlas, delay, language }) {
     'atlas-esma': tr ? 'Esma' : 'Name',
     'atlas-dua': tr ? 'Dua' : 'Prayer',
     'atlas-kavram': tr ? 'Kavram' : 'Concept',
-  }[atlas.type] || '';
+    'atlas-kissa-scene': tr ? 'Kıssa sahnesi' : 'Story scene',
+    'atlas-ahiret-yolculugu-stage': tr ? 'Ahiret aşaması' : 'Afterlife stage',
+    'surah-summary': tr ? 'Sûre özet' : 'Sūra summary',
+    'pericope': tr ? 'Pericope' : 'Pericope',
+  }[atlas.type] || (tr ? 'Atlas' : 'Atlas');
 
   return (
     <motion.div
       initial={reduced ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay }}
+      style={{ position: 'relative' }}
     >
+      {/* BookmarkButton — Link üzerinde absolute; e.stopPropagation() ile
+          Link navigasyonu tetiklenmez (2026-07-15 #173 bookmark bitirme). */}
+      <div
+        style={{ position: 'absolute', top: 10, right: 10, zIndex: 2 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <BookmarkButton
+          item={{
+            id: atlas.id || `${atlas.type}:${atlas.url}`,
+            type: atlas.type || 'atlas',
+            title: atlas.title,
+            subtitle: typeLabel,
+            description: atlas.description || atlas.reason || '',
+            arabic: atlas.arabic || '',
+            url: atlas.url,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
+
       <Link href={atlas.url} style={{ textDecoration: 'none' }}>
         <div
           style={{
             background: 'rgba(255,255,255,0.02)',
             border: `1px solid ${COLORS.gold}1a`,
             borderRadius: '12px',
-            padding: '14px 16px',
+            padding: '14px 44px 14px 16px',
             cursor: 'pointer',
             transition: 'all 0.2s',
           }}
@@ -1547,14 +1573,34 @@ function ArticleCard({ article, delay, language }) {
       initial={reduced ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
+      style={{ position: 'relative' }}
     >
+      {/* BookmarkButton — Link üzerinde absolute (2026-07-15 #173 bookmark bitirme) */}
+      <div
+        style={{ position: 'absolute', top: 12, right: 12, zIndex: 2 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <BookmarkButton
+          item={{
+            id: article.id || `article:${article.url}`,
+            type: article.type || 'article',
+            title: article.title,
+            subtitle: article.readingMinutes ? `${article.readingMinutes} ${tr ? 'dk' : 'min'}` : (tr ? 'Tefekkür' : 'Essay'),
+            description: article.tldr || article.reason || '',
+            url: article.url,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
+
       <Link href={article.url} style={{ textDecoration: 'none' }}>
         <div
           style={{
             background: `linear-gradient(180deg, ${COLORS.gold}08 0%, rgba(255,255,255,0.02) 100%)`,
             border: `1px solid ${COLORS.gold}26`,
             borderRadius: '14px',
-            padding: '16px 20px',
+            padding: '16px 48px 16px 20px',
             cursor: 'pointer',
             transition: 'all 0.2s',
           }}
