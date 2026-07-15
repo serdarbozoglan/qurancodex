@@ -1,0 +1,985 @@
+'use client';
+
+// ─── AhiretYolculugu.jsx — /atlas/ahiret-yolculugu ─────────────────────────
+// Meta-timeline eskatolojik atlas hub — 11 aşama kronolojik akış:
+//   Sekerât → Berzah → Sûr → Ba's → Mahşer → Amel Defteri → Mîzân →
+//   Havz-Şefâat → Sırât → Cennet & Cehennem → Rü'yetullâh
+//
+// Yapı:
+//   - Cinematic Hero (§13.18)
+//   - Sticky index rail (desktop) — 11 aşamaya jump
+//   - Dikey scroll-triggered timeline
+//   - Expandable stage card: anchor verse + narration + additional refs +
+//     classical tafsir + CriticalNote + visualMotif + crossLinks
+//   - SourcesCitation footer
+//
+// Content: /public/ahiret-yolculugu.json (build script §13.15 normalized)
+// ────────────────────────────────────────────────────────────────────────────
+
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { COLORS, FONTS, GLASS_CARD, TEXT, VERSE_BLOCK } from '../tokens';
+import { useLanguage } from '../i18n/LanguageContext';
+import ToolHeader from './ToolHeader';
+import SourcesCitation from './SourcesCitation';
+
+// ─── Stage icons — her aşama için custom minimal SVG ─────────────────────────
+const StageIcons = {
+  sekerat: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v8" />
+      <path d="M8 7l4 4l4 -4" opacity="0.5" />
+      <circle cx="12" cy="16" r="4" strokeDasharray="2 2" />
+      <path d="M12 20v2" opacity="0.4" />
+    </svg>
+  ),
+  berzah: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="1" opacity="0.35" />
+      <line x1="12" y1="4" x2="12" y2="20" strokeWidth="1.8" />
+      <line x1="5" y1="8" x2="10" y2="8" opacity="0.5" />
+      <line x1="5" y1="12" x2="10" y2="12" opacity="0.5" />
+      <line x1="14" y1="12" x2="19" y2="12" opacity="0.5" />
+      <line x1="14" y1="16" x2="19" y2="16" opacity="0.5" />
+    </svg>
+  ),
+  sur: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 10v4l9 -3v-2l-9 1z" />
+      <path d="M12 11v2l4 -1v0l-4 -1z" opacity="0.7" />
+      <path d="M18 7c1.5 1.5 1.5 8.5 0 10" opacity="0.4" />
+      <path d="M20 4c3 3 3 13 0 16" opacity="0.2" />
+    </svg>
+  ),
+  dirilis: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 20h16" />
+      <path d="M8 20v-5" />
+      <path d="M12 20v-8" />
+      <path d="M16 20v-5" />
+      <path d="M6 12c2 -3 4 -3 6 -3s4 0 6 3" opacity="0.4" />
+      <circle cx="12" cy="6" r="2" opacity="0.6" />
+    </svg>
+  ),
+  mahser: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="2" y1="18" x2="22" y2="18" opacity="0.5" />
+      <circle cx="6" cy="15" r="1" fill="currentColor" />
+      <circle cx="10" cy="15" r="1" fill="currentColor" />
+      <circle cx="14" cy="15" r="1" fill="currentColor" />
+      <circle cx="18" cy="15" r="1" fill="currentColor" />
+      <circle cx="8" cy="12" r="1" fill="currentColor" opacity="0.7" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" opacity="0.7" />
+      <circle cx="16" cy="12" r="1" fill="currentColor" opacity="0.7" />
+      <circle cx="10" cy="9" r="1" fill="currentColor" opacity="0.5" />
+      <circle cx="14" cy="9" r="1" fill="currentColor" opacity="0.5" />
+    </svg>
+  ),
+  kitap: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 5a2 2 0 0 1 2 -2h11v16h-11a2 2 0 0 1 -2 -2v-12z" />
+      <line x1="8" y1="7" x2="14" y2="7" opacity="0.5" />
+      <line x1="8" y1="11" x2="14" y2="11" opacity="0.5" />
+      <line x1="8" y1="15" x2="12" y2="15" opacity="0.5" />
+      <path d="M17 3v16l3 -2v-14z" opacity="0.3" />
+    </svg>
+  ),
+  mizan: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="3" x2="12" y2="20" />
+      <line x1="4" y1="7" x2="20" y2="7" />
+      <path d="M4 7l-2 5a3 3 0 0 0 4 0z" />
+      <path d="M20 7l2 5a3 3 0 0 1 -4 0z" opacity="0.7" />
+      <line x1="8" y1="20" x2="16" y2="20" />
+    </svg>
+  ),
+  havz: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="15" rx="9" ry="3" />
+      <path d="M3 15v3a9 3 0 0 0 18 0v-3" opacity="0.5" />
+      <path d="M6 10l1 3" opacity="0.6" />
+      <path d="M12 8l0 4" opacity="0.6" />
+      <path d="M18 10l-1 3" opacity="0.6" />
+    </svg>
+  ),
+  sirat: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 8l18 0" strokeWidth="2" />
+      <path d="M3 8v10" opacity="0.4" />
+      <path d="M21 8v10" opacity="0.4" />
+      <path d="M5 20l2 -3M9 20l2 -3M13 20l2 -3M17 20l2 -3" opacity="0.35" strokeDasharray="1 2" />
+    </svg>
+  ),
+  'cennet-cehennem': ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 20v-12a2 2 0 0 1 2 -2h4v14" />
+      <path d="M20 20v-12a2 2 0 0 0 -2 -2h-4v14" opacity="0.6" />
+      <circle cx="7" cy="12" r="0.8" fill="currentColor" opacity="0.6" />
+      <circle cx="17" cy="12" r="0.8" fill="currentColor" opacity="0.4" />
+    </svg>
+  ),
+  ruyet: ({ size = 20 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3" />
+      <circle cx="12" cy="12" r="7" opacity="0.4" strokeDasharray="2 3" />
+      <circle cx="12" cy="12" r="10" opacity="0.2" strokeDasharray="1 4" />
+      <path d="M12 5v-2M12 21v-2M5 12h-2M21 12h-2" opacity="0.4" />
+    </svg>
+  ),
+};
+
+// ─── Tool header icon ────────────────────────────────────────────────────────
+const AtlasIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="12" y1="4" x2="12" y2="20" />
+    <circle cx="12" cy="5" r="1.6" fill="currentColor" />
+    <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+    <circle cx="12" cy="19" r="1.6" fill="currentColor" />
+    <path d="M9 8l3 -3l3 3" opacity="0.5" />
+    <path d="M9 16l3 3l3 -3" opacity="0.5" />
+  </svg>
+);
+
+// ─── Main component ──────────────────────────────────────────────────────────
+export default function AhiretYolculugu({ onClose }) {
+  const { language } = useLanguage();
+  const router = useRouter();
+  const [data, setData] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [openStage, setOpenStage] = useState(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const stageRefs = useRef({});
+  const tr = language === 'tr';
+
+  useEffect(() => {
+    fetch('/ahiret-yolculugu.json').then(r => r.json()).then(setData);
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Escape → close
+  useEffect(() => {
+    if (!onClose) return;
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [onClose]);
+
+  // Scroll spy for index rail (desktop)
+  useEffect(() => {
+    if (!data || isMobile) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            if (!Number.isNaN(idx)) setActiveIdx(idx);
+          }
+        });
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+    );
+    Object.values(stageRefs.current).forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [data, isMobile]);
+
+  const jumpTo = (id) => {
+    const el = stageRefs.current[id];
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  if (!data) {
+    return (
+      <div style={{ minHeight: '100vh', background: COLORS.cosmicBlack, display: 'grid', placeItems: 'center', color: COLORS.silver }}>
+        <div style={{ fontFamily: FONTS.body, fontSize: '0.9rem', opacity: 0.6 }}>{tr ? 'Yükleniyor…' : 'Loading…'}</div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{
+      background: COLORS.cosmicBlack,
+      minHeight: '100vh',
+      color: COLORS.offWhite,
+      paddingTop: '62px',
+    }}>
+      <ToolHeader
+        icon={<AtlasIcon />}
+        titleTr={data.meta.titleTr}
+        titleEn={data.meta.titleEn}
+        subtitleTr={tr ? 'Eskatolojik akış hub\'ı' : undefined}
+        subtitleEn={tr ? undefined : 'Eschatological flow hub'}
+        language={language}
+        chip={
+          <span style={{
+            padding: '3px 10px',
+            borderRadius: 999,
+            background: `${COLORS.gold}15`,
+            color: COLORS.gold,
+            fontSize: '0.66rem',
+            fontWeight: 700,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+          }}>
+            11 {tr ? 'aşama' : 'stages'}
+          </span>
+        }
+      />
+
+      {/* ── Cinematic Hero (§13.18) ─────────────────────────────────────── */}
+      <Hero meta={data.meta} isMobile={isMobile} tr={tr} />
+
+      {/* ── Body: timeline + sticky index rail ──────────────────────────── */}
+      <div style={{
+        display: 'flex',
+        maxWidth: 1240,
+        margin: '0 auto',
+        padding: isMobile ? '32px 16px 80px' : '56px 32px 100px',
+        gap: 48,
+        alignItems: 'flex-start',
+      }}>
+        {/* Sticky index rail — desktop only */}
+        {!isMobile && (
+          <IndexRail
+            stages={data.stages}
+            activeIdx={activeIdx}
+            onJump={jumpTo}
+            tr={tr}
+          />
+        )}
+
+        {/* Main timeline */}
+        <div style={{ flex: 1, minWidth: 0, position: 'relative' }}>
+          {/* Vertical accent line */}
+          <div style={{
+            position: 'absolute',
+            left: isMobile ? 14 : 20,
+            top: 20,
+            bottom: 20,
+            width: 1,
+            background: `linear-gradient(180deg, transparent 0%, ${COLORS.gold}55 8%, ${COLORS.gold}22 50%, ${COLORS.gold}55 92%, transparent 100%)`,
+          }} />
+
+          {data.stages.map((stage, i) => (
+            <div
+              key={stage.id}
+              ref={el => stageRefs.current[stage.id] = el}
+              data-idx={i}
+              style={{ marginBottom: i === data.stages.length - 1 ? 0 : (isMobile ? 32 : 44) }}
+            >
+              <StageCard
+                stage={stage}
+                isOpen={openStage === stage.id}
+                onToggle={() => setOpenStage(openStage === stage.id ? null : stage.id)}
+                isMobile={isMobile}
+                tr={tr}
+                language={language}
+                router={router}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Sources ─────────────────────────────────────────────────────── */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          labelTr="KLASİK ESKATOLOJI KAYNAKLARI"
+          labelEn="CLASSICAL ESCHATOLOGY SOURCES"
+          sources={data.sources.map(s => ({
+            author: s.author,
+            workTr: s.workTr,
+            workEn: s.workEn,
+            period: s.period,
+            noteTr: s.noteTr,
+            noteEn: s.noteEn,
+          }))}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─── Hero ────────────────────────────────────────────────────────────────────
+function Hero({ meta, isMobile, tr }) {
+  return (
+    <section style={{
+      padding: isMobile ? '48px 20px 40px' : '72px 40px 56px',
+      background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, transparent 100%)`,
+      borderBottom: `1px solid ${COLORS.gold}18`,
+      textAlign: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* Subtle radial glow */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 600,
+        height: 300,
+        background: `radial-gradient(ellipse at center, ${COLORS.gold}12 0%, transparent 70%)`,
+        pointerEvents: 'none',
+      }} />
+
+      <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto' }}>
+        {/* Bismillah ornament */}
+        <div style={{
+          fontFamily: "'Amiri Quran', serif",
+          fontSize: isMobile ? '1.4rem' : '1.7rem',
+          color: COLORS.gold,
+          opacity: 0.82,
+          marginBottom: 26,
+          direction: 'rtl',
+        }}>﷽</div>
+
+        {/* Anchor verse — Kâf 50:19 (aşama-1 anchor'ı) */}
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? '1.3rem' : '1.65rem',
+          color: COLORS.gold,
+          lineHeight: 2.1,
+          margin: '0 0 18px',
+          letterSpacing: '0.01em',
+        }}>وَجَاءَتْ سَكْرَةُ الْمَوْتِ بِالْحَقِّ ذَٰلِكَ مَا كُنتَ مِنْهُ تَحِيدُ</p>
+
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.95rem' : '1.05rem',
+          color: COLORS.offWhite,
+          maxWidth: 660,
+          margin: '0 auto 12px',
+          lineHeight: 1.65,
+          opacity: 0.9,
+        }}>
+          {tr
+            ? '"Ölüm sarhoşluğu hakikatiyle geldi: İşte, senin ondan kaçındığın şey budur!"'
+            : '"The stupor of death will bring the Truth: This is what you were trying to escape."'}
+        </p>
+
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: isMobile ? '0.7rem' : '0.75rem',
+          color: COLORS.silver,
+          opacity: 0.65,
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          margin: '0 0 36px',
+        }}>— {tr ? 'Kâf 50:19' : 'Sūrat Qāf 50:19'}</p>
+
+        {/* Framing whisper */}
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.98rem' : '1.1rem',
+          color: COLORS.silver,
+          maxWidth: 700,
+          margin: '0 auto 32px',
+          lineHeight: 1.75,
+          opacity: 0.88,
+        }}>{tr ? meta.framingTr : meta.framingEn}</p>
+
+        {/* Filigree divider */}
+        <div style={{
+          width: 120,
+          height: 1,
+          margin: '0 auto 30px',
+          background: `linear-gradient(90deg, transparent, ${COLORS.gold}88, transparent)`,
+        }} />
+
+        {/* Eyebrow */}
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: isMobile ? '0.65rem' : '0.72rem',
+          color: COLORS.gold,
+          opacity: 0.72,
+          letterSpacing: '0.3em',
+          textTransform: 'uppercase',
+          fontWeight: 700,
+          margin: '0 0 16px',
+        }}>{tr ? meta.eyebrowTr : meta.eyebrowEn}</p>
+
+        {/* H1 */}
+        <h1 style={{
+          fontFamily: FONTS.display,
+          color: COLORS.offWhite,
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          fontWeight: 700,
+          margin: '0 0 14px',
+          lineHeight: 1.15,
+        }}>{tr ? meta.titleTr : meta.titleEn}</h1>
+
+        {/* Dramatic subtitle */}
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          color: COLORS.gold,
+          fontSize: isMobile ? 'clamp(0.95rem, 3.2vw, 1.05rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          opacity: 0.92,
+          margin: 0,
+          lineHeight: 1.5,
+        }}>{tr ? meta.subtitleTr : meta.subtitleEn}</p>
+      </div>
+    </section>
+  );
+}
+
+// ─── Sticky Index Rail (desktop) ─────────────────────────────────────────────
+function IndexRail({ stages, activeIdx, onJump, tr }) {
+  return (
+    <nav style={{
+      width: 220,
+      flexShrink: 0,
+      position: 'sticky',
+      top: 130,
+      alignSelf: 'flex-start',
+      paddingRight: 8,
+    }}>
+      <div style={{
+        fontFamily: FONTS.body,
+        fontSize: '0.62rem',
+        letterSpacing: '0.24em',
+        textTransform: 'uppercase',
+        color: COLORS.gold,
+        opacity: 0.7,
+        marginBottom: 14,
+        fontWeight: 700,
+      }}>{tr ? 'YOLCULUK' : 'THE JOURNEY'}</div>
+
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
+        {stages.map((s, i) => {
+          const active = i === activeIdx;
+          return (
+            <li key={s.id}>
+              <button
+                onClick={() => onJump(s.id)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  width: '100%',
+                  padding: '7px 8px',
+                  background: active ? `${COLORS.gold}12` : 'transparent',
+                  border: 'none',
+                  borderLeft: `2px solid ${active ? COLORS.gold : 'transparent'}`,
+                  color: active ? COLORS.gold : COLORS.silver,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.75rem',
+                  fontWeight: active ? 600 : 400,
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  transition: 'all 0.18s ease',
+                  opacity: active ? 1 : 0.7,
+                }}
+                onMouseEnter={(e) => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                onMouseLeave={(e) => { if (!active) { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.color = COLORS.silver; } }}
+              >
+                <span style={{
+                  fontFamily: FONTS.body,
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  color: active ? COLORS.gold : COLORS.silver,
+                  opacity: active ? 0.7 : 0.4,
+                  minWidth: 16,
+                }}>{String(i + 1).padStart(2, '0')}</span>
+                <span style={{ flex: 1 }}>{tr ? s.titleTr.split(' — ')[0] : s.titleEn.split(' — ')[0]}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+// ─── StageCard ───────────────────────────────────────────────────────────────
+function StageCard({ stage, isOpen, onToggle, isMobile, tr, language, router }) {
+  const Icon = StageIcons[stage.iconKey] || StageIcons.sekerat;
+  const isNew = stage.category === 'yeni-icerik';
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        position: 'relative',
+        paddingLeft: isMobile ? 44 : 60,
+      }}
+    >
+      {/* Timeline node marker */}
+      <div style={{
+        position: 'absolute',
+        left: isMobile ? 4 : 10,
+        top: 8,
+        width: isMobile ? 22 : 24,
+        height: isMobile ? 22 : 24,
+        borderRadius: '50%',
+        background: COLORS.cosmicBlack,
+        border: `1.5px solid ${COLORS.gold}`,
+        display: 'grid',
+        placeItems: 'center',
+        color: COLORS.gold,
+        boxShadow: `0 0 0 4px ${COLORS.cosmicBlack}, 0 0 20px ${COLORS.gold}33`,
+        zIndex: 2,
+      }}>
+        <span style={{ fontFamily: FONTS.body, fontSize: '0.62rem', fontWeight: 700 }}>{stage.index}</span>
+      </div>
+
+      {/* Card */}
+      <div style={{
+        background: 'rgba(255,255,255,0.025)',
+        backdropFilter: 'blur(12px)',
+        border: `1px solid ${isOpen ? `${COLORS.gold}44` : 'rgba(255,255,255,0.08)'}`,
+        borderRadius: 14,
+        padding: isMobile ? '18px 18px' : '24px 28px',
+        transition: 'border-color 0.25s, background 0.25s',
+      }}>
+        {/* Header */}
+        <button
+          onClick={onToggle}
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: 14,
+            width: '100%',
+            background: 'transparent',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+            textAlign: 'left',
+            color: 'inherit',
+          }}
+        >
+          <div style={{
+            flexShrink: 0,
+            width: isMobile ? 32 : 36,
+            height: isMobile ? 32 : 36,
+            borderRadius: 8,
+            background: `${COLORS.gold}12`,
+            border: `1px solid ${COLORS.gold}22`,
+            display: 'grid',
+            placeItems: 'center',
+            color: COLORS.gold,
+            marginTop: 2,
+          }}>
+            <Icon size={isMobile ? 18 : 20} />
+          </div>
+
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+              <span dir="rtl" lang="ar" style={{
+                fontFamily: FONTS.quran,
+                color: COLORS.gold,
+                fontSize: isMobile ? '0.95rem' : '1.05rem',
+                lineHeight: 1.4,
+                opacity: 0.9,
+              }}>{stage.arabicTerm}</span>
+              {isNew && (
+                <span style={{
+                  padding: '2px 7px',
+                  borderRadius: 4,
+                  background: `${COLORS.gold}18`,
+                  color: COLORS.gold,
+                  fontSize: '0.58rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}>{tr ? 'derin' : 'deep'}</span>
+              )}
+            </div>
+            <h2 style={{
+              fontFamily: FONTS.display,
+              fontSize: isMobile ? '1.15rem' : '1.32rem',
+              fontWeight: 700,
+              color: COLORS.offWhite,
+              margin: '0 0 6px',
+              lineHeight: 1.25,
+            }}>{tr ? stage.titleTr : stage.titleEn}</h2>
+            <p style={{
+              fontFamily: FONTS.body,
+              fontSize: isMobile ? '0.88rem' : '0.94rem',
+              color: COLORS.silver,
+              margin: 0,
+              lineHeight: 1.55,
+            }}>{tr ? stage.descTr : stage.descEn}</p>
+          </div>
+
+          <div style={{
+            flexShrink: 0,
+            color: COLORS.silver,
+            transition: 'transform 0.25s ease, color 0.25s ease',
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
+            marginTop: 4,
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </button>
+
+        {/* Expanded content */}
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              style={{ overflow: 'hidden' }}
+            >
+              <StageBody stage={stage} isMobile={isMobile} tr={tr} language={language} router={router} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.article>
+  );
+}
+
+// ─── StageBody — expanded detail ─────────────────────────────────────────────
+function StageBody({ stage, isMobile, tr, language, router }) {
+  const anchor = stage.anchorVerseRef;
+  const anchorText = tr ? stage.anchorVerseTr : stage.anchorVerseEn;
+  const narration = tr ? stage.narrationTr : stage.narrationEn;
+
+  return (
+    <div style={{ paddingTop: 20, borderTop: `1px solid ${COLORS.gold}18`, marginTop: 18 }}>
+      {/* Anchor verse */}
+      {anchor && (
+        <VerseBlock
+          arabic={anchor.arabic}
+          translation={anchorText}
+          reference={tr
+            ? `${anchor.surahName || ''} ${anchor.surah}:${anchor.ayah}`.trim()
+            : `Sūrah ${anchor.surahNameEn || anchor.surah} ${anchor.surah}:${anchor.ayah}`}
+          isMobile={isMobile}
+          isAnchor
+        />
+      )}
+
+      {/* Narration */}
+      {narration && (
+        <div style={{ marginTop: 24, marginBottom: 24 }}>
+          {narration.split('\n\n').map((para, i) => (
+            <p key={i} style={{
+              fontFamily: FONTS.body,
+              fontSize: isMobile ? '0.92rem' : '0.98rem',
+              color: COLORS.offWhite,
+              lineHeight: 1.75,
+              margin: i === 0 ? '0 0 14px' : '0 0 14px',
+              opacity: 0.94,
+            }}>{formatItalic(para)}</p>
+          ))}
+        </div>
+      )}
+
+      {/* Additional refs */}
+      {stage.additionalRefs && stage.additionalRefs.length > 0 && (
+        <details style={{ marginBottom: 22 }}>
+          <summary style={{
+            cursor: 'pointer',
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.gold,
+            fontWeight: 700,
+            opacity: 0.8,
+            marginBottom: 12,
+            padding: '6px 0',
+            userSelect: 'none',
+          }}>{tr ? `İlave Kur'ânî referanslar (${stage.additionalRefs.length})` : `Additional Qur'anic references (${stage.additionalRefs.length})`}</summary>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 8 }}>
+            {stage.additionalRefs.map((r, i) => (
+              <MiniRef key={i} ref_={r} isMobile={isMobile} tr={tr} />
+            ))}
+          </div>
+        </details>
+      )}
+
+      {/* Classical tafsir */}
+      {stage.classicalTafsir && stage.classicalTafsir.length > 0 && (
+        <div style={{ marginBottom: 22 }}>
+          <div style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.gold,
+            fontWeight: 700,
+            opacity: 0.8,
+            marginBottom: 12,
+          }}>{tr ? 'Klasik Tefsir Çeşitliliği' : 'Classical Tafsir Plurality'}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {stage.classicalTafsir.map((t, i) => (
+              <div key={i} style={{
+                padding: '12px 14px',
+                background: 'rgba(255,255,255,0.02)',
+                borderLeft: `2px solid ${COLORS.gold}55`,
+                borderRadius: '0 6px 6px 0',
+              }}>
+                <div style={{ marginBottom: 4 }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600 }}>{t.source}</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
+                </div>
+                <p style={{
+                  fontFamily: FONTS.body,
+                  fontSize: isMobile ? '0.86rem' : '0.9rem',
+                  color: COLORS.offWhite,
+                  margin: 0,
+                  lineHeight: 1.65,
+                  opacity: 0.9,
+                }}>{formatItalic(tr ? t.noteTr : t.noteEn)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* CriticalNote */}
+      {stage.criticalNote && (
+        <CriticalNoteBlock note={stage.criticalNote} isMobile={isMobile} tr={tr} />
+      )}
+
+      {/* Visual motif */}
+      {stage.visualMotif && (
+        <div style={{
+          marginBottom: 22,
+          padding: '10px 14px',
+          background: 'rgba(212,165,116,0.04)',
+          border: `1px dashed ${COLORS.gold}33`,
+          borderRadius: 6,
+          fontFamily: FONTS.body,
+          fontSize: '0.78rem',
+          color: COLORS.silver,
+          fontStyle: 'italic',
+          opacity: 0.75,
+          lineHeight: 1.55,
+        }}>
+          <span style={{ color: COLORS.gold, fontWeight: 700, fontStyle: 'normal', letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.65rem', marginRight: 8 }}>{tr ? 'GÖRSEL MOTİF' : 'VISUAL MOTIF'}</span>
+          {stage.visualMotif}
+        </div>
+      )}
+
+      {/* Cross-links */}
+      {stage.crossLinks && stage.crossLinks.length > 0 && (
+        <div style={{ marginTop: 4 }}>
+          <div style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.gold,
+            fontWeight: 700,
+            opacity: 0.8,
+            marginBottom: 12,
+          }}>{tr ? 'Devamı için' : 'Continue with'}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {stage.crossLinks.map((cl, i) => (
+              <button
+                key={i}
+                onClick={() => router.push(`/${language}${cl.href}`)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: 10,
+                  padding: '11px 14px',
+                  background: cl.primary ? `${COLORS.gold}12` : 'rgba(255,255,255,0.03)',
+                  border: cl.primary ? `1px solid ${COLORS.gold}55` : `1px solid rgba(255,255,255,0.08)`,
+                  borderRadius: 8,
+                  color: cl.primary ? COLORS.gold : COLORS.offWhite,
+                  fontFamily: FONTS.body,
+                  fontSize: isMobile ? '0.84rem' : '0.88rem',
+                  fontWeight: cl.primary ? 600 : 500,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  transition: 'all 0.18s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}22` : 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.transform = 'translateX(2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}12` : 'rgba(255,255,255,0.03)';
+                  e.currentTarget.style.transform = 'translateX(0)';
+                }}
+              >
+                <span>{tr ? cl.labelTr : cl.labelEn}</span>
+                <span style={{ opacity: 0.7, fontSize: '1rem' }}>→</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── VerseBlock ──────────────────────────────────────────────────────────────
+function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
+  return (
+    <div style={{
+      padding: isMobile ? '18px 16px' : '22px 24px',
+      background: isAnchor ? `linear-gradient(135deg, ${COLORS.gold}10, ${COLORS.gold}04)` : 'rgba(255,255,255,0.03)',
+      border: `1px solid ${isAnchor ? COLORS.gold + '44' : 'rgba(255,255,255,0.08)'}`,
+      borderRadius: 10,
+      textAlign: 'center',
+    }}>
+      {arabic && (
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? '1.2rem' : '1.45rem',
+          color: COLORS.gold,
+          lineHeight: 2.1,
+          margin: '0 0 14px',
+          letterSpacing: '0.01em',
+        }}>{arabic}</p>
+      )}
+      {translation && (
+        <p style={{
+          fontFamily: FONTS.display,
+          fontStyle: 'italic',
+          fontSize: isMobile ? '0.92rem' : '0.98rem',
+          color: COLORS.offWhite,
+          margin: '0 0 10px',
+          lineHeight: 1.6,
+          opacity: 0.92,
+        }}>{translation}</p>
+      )}
+      {reference && (
+        <p style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.68rem',
+          color: COLORS.silver,
+          opacity: 0.7,
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          margin: 0,
+          fontWeight: 600,
+        }}>— {reference}</p>
+      )}
+    </div>
+  );
+}
+
+// ─── MiniRef ─────────────────────────────────────────────────────────────────
+function MiniRef({ ref_, isMobile, tr }) {
+  const refLabel = ref_.range
+    ? `${ref_.surah}:${ref_.range}`
+    : `${ref_.surah}:${ref_.ayah}`;
+  return (
+    <div style={{
+      padding: isMobile ? '12px 14px' : '14px 16px',
+      background: 'rgba(255,255,255,0.03)',
+      border: `1px solid rgba(255,255,255,0.08)`,
+      borderRadius: 8,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
+        <span style={{
+          padding: '2px 8px',
+          borderRadius: 4,
+          background: `${COLORS.gold}15`,
+          color: COLORS.gold,
+          fontFamily: FONTS.body,
+          fontSize: '0.7rem',
+          fontWeight: 700,
+          letterSpacing: '0.06em',
+        }}>{refLabel}</span>
+        {ref_.surahName && (
+          <span dir="rtl" lang="ar" style={{
+            fontFamily: FONTS.quran,
+            fontSize: '0.82rem',
+            color: COLORS.silver,
+            opacity: 0.75,
+          }}>{ref_.surahName}</span>
+        )}
+      </div>
+      {ref_.arabic && (
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran,
+          fontSize: isMobile ? '0.95rem' : '1.02rem',
+          color: COLORS.gold,
+          opacity: 0.9,
+          lineHeight: 1.95,
+          margin: '0 0 8px',
+        }}>{ref_.arabic}</p>
+      )}
+      <p style={{
+        fontFamily: FONTS.body,
+        fontSize: isMobile ? '0.85rem' : '0.88rem',
+        color: COLORS.offWhite,
+        margin: 0,
+        lineHeight: 1.6,
+        opacity: 0.88,
+      }}>{formatItalic(tr ? ref_.noteTr : ref_.noteEn)}</p>
+    </div>
+  );
+}
+
+// ─── CriticalNoteBlock ───────────────────────────────────────────────────────
+function CriticalNoteBlock({ note, isMobile, tr }) {
+  return (
+    <div style={{
+      marginBottom: 22,
+      padding: isMobile ? '16px 18px' : '20px 22px',
+      background: 'rgba(52, 152, 219, 0.06)',
+      border: `1px solid rgba(52, 152, 219, 0.3)`,
+      borderLeft: `3px solid #3498db`,
+      borderRadius: 8,
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 8,
+        marginBottom: 10,
+      }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3498db" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        <span style={{
+          fontFamily: FONTS.body,
+          fontSize: '0.72rem',
+          fontWeight: 700,
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          color: '#3498db',
+        }}>{tr ? note.titleTr : note.titleEn}</span>
+      </div>
+      <div style={{
+        fontFamily: FONTS.body,
+        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        color: COLORS.offWhite,
+        lineHeight: 1.7,
+        opacity: 0.92,
+      }}>
+        {(tr ? note.bodyTr : note.bodyEn).split('\n\n').map((p, i) => (
+          <p key={i} style={{ margin: i === 0 ? '0 0 10px' : '0 0 10px' }}>{formatItalic(p)}</p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Utility: *italic* → <em> ────────────────────────────────────────────────
+function formatItalic(text) {
+  if (!text || !text.includes('*')) return text;
+  const parts = text.split(/(\*[^*]+\*)/g);
+  return parts.map((p, i) => {
+    if (p.startsWith('*') && p.endsWith('*') && p.length > 2) {
+      return <em key={i} style={{ color: COLORS.gold, fontStyle: 'italic', opacity: 0.95 }}>{p.slice(1, -1)}</em>;
+    }
+    return p;
+  });
+}

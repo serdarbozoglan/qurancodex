@@ -158,6 +158,19 @@ const FeatherIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// JourneyIcon — dikey timeline: 3 node + bağlayıcı çizgi. Ahiret Yolculuğu'nun
+// kronolojik akış hub'ı olduğunu görsel olarak simgeler (sekerât → berzah → cennet/cehennem).
+const JourneyIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="12" y1="4" x2="12" y2="20" />
+    <circle cx="12" cy="5" r="1.6" fill="currentColor" />
+    <circle cx="12" cy="12" r="1.6" fill="currentColor" />
+    <circle cx="12" cy="19" r="1.6" fill="currentColor" />
+    <path d="M9 8l3 -3l3 3" opacity="0.5" />
+    <path d="M9 16l3 3l3 -3" opacity="0.5" />
+  </svg>
+);
+
 const CompassIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -500,6 +513,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Melekler',              titleEn: 'Angels',
         descTr: 'Cebrail · Mikail · görevler',
         descEn: 'Gabriel · Michael · their roles',
+      },
+      {
+        id:     'ahiretYolculugu',
+        kind:   'overlay',
+        target: 'ahiretYolculugu',
+        icon:   JourneyIcon,
+        titleTr: 'Âhiret Yolculuğu',      titleEn: 'The Afterlife Journey',
+        descTr: 'Sekerât → berzah → mahşer → cennet/cehennem',
+        descEn: 'Death throes → barzakh → gathering → heaven/hell',
       },
       {
         id:     'kiyamet',
