@@ -926,6 +926,90 @@ Prod'da `/tr/sor` üzerinden yeni içerikle ilgili bir query yaz — sonuçta g�
 
 ---
 
+### 13.23 Regresyon Prevention — PUSH ÖNCESİ MUTLAK VERIFY (2026-07-15+)
+
+**Her push öncesi, yeni kodun mevcut çalışan bir özelliği bozmadığından EMIN ol. Vercel auto-deploy = live prod = kullanıcı stale tab 404 riski. Regresyon push edilirse geri alma pahalı.**
+
+Kural: **Değişiklik scope'una göre 3 seviyeli verify pipeline'ı çalıştır.**
+
+#### Seviye 1 — Minor edit (tek satır, string change, typo fix)
+
+- Dev server başlat (`npm run dev`)
+- Etkilenen sayfaya HTTP curl → 200 kontrolü
+- Compilation warning/error yok mu?
+- **Push edilebilir.**
+
+#### Seviye 2 — Component/route değişikliği (yeni fixler, JSON edit, prop refactor)
+
+Yukarıdakilere ek:
+- Etkilenen sayfayı localhost'ta manuel gez (mobile + desktop viewport)
+- Sayfada JavaScript console error var mı?
+- SSR/hydration mismatch warning var mı?
+- İlişkili ~3 sayfayı sample test et (menü'den erişilenler)
+- Değişiklik `data/*.jsx` (menü) ise: item count değişmediğini verify et (`grep -c "titleTr:"`)
+- Değişiklik `public/*.json` ise: build script rebuild + §13.15 problem chars: 0 verify
+
+#### Seviye 3 — Cross-cutting refactor (tokens.js edit, shared component, corpus schema)
+
+Yukarıdakilere ek:
+- Etkilenen tüm tool'ları localhost'ta gez (min 5 sample tool)
+- `git diff --stat` → değişen dosya sayısı ve satır sayısı ile risk assessment
+- Mobile'da `~/dev-tools` viewport test (390px, 640px, 1024px)
+- Screenshot al (görsel regresyon check)
+- RAG değişiklik ise: `/tr/sor` test query → sonuç doğru mu?
+
+#### Genel Kurallar
+
+**A) Değişiklik boyutu → verify süresi:**
+| Diff satır | Verify süresi | Seviye |
+|---|---|---|
+| < 50 | 5 dk | Seviye 1 |
+| 50-500 | 15 dk | Seviye 2 |
+| 500+ | 30-60 dk | Seviye 3 |
+
+**B) Yasaklar:**
+- ❌ `git push` öncesi hiç localhost test yapmadan
+- ❌ `git push --force` (destructive, backup yok)
+- ❌ `git push` mesai dışı (kullanıcı feedback yapamaz → sabaha kırık kalır)
+- ❌ Cross-cutting refactor'ı tek commit'te push (küçük parçalara böl)
+- ❌ `git push` çalıştırırken açık bir soruna dair unresolved warning varsa (log'da error, TypeScript error, missing import, hydration mismatch)
+
+**C) Regresyon çıkarsa protokol:**
+1. **Panic revert:** `git revert HEAD` + `git push` (yeni commit, geriye alır — ForcePush YASAK)
+2. Root cause bul (localhost reproduce)
+3. Fix + testler + tekrar push
+
+**D) Kritik korunacak flow'lar (her değişiklikte break check et):**
+- `/tr` anasayfa → tüm section'lar render oluyor mu
+- `/tr/oku` → Reading Mode + Kur'an metni yükleniyor mu
+- `/tr/sor` → Concierge çalışıyor mu (API 200 + result render)
+- Navbar mega-menu (Keşfet + Araçlar + Tefekkür) → tüm dropdown açılıyor mu
+- Mobile drawer → tüm section'lar hamburger açılınca görünüyor mu
+- Bookmark button → toggle çalışıyor mu, /kutuphanem'de item görünüyor mu
+- Language switcher → TR ↔ EN switch bozmuyor mu
+
+**E) Değişiklik commit mesajında verify raporu**
+
+Commit mesajının sonuna ekle:
+```
+Verify:
+- Localhost tested: /tr/atlas/ahiret-yolculugu, /tr, /tr/sor
+- Item count preserved: 25/25 explore, 19/19 tools
+- Compilation: clean, no warnings
+- HTTP: 200 all routes
+- No hydration errors in server log
+```
+
+Bu rapor gelecek regresyon debugging için audit trail bırakır.
+
+#### Bu Kural Neden Yazıldı
+
+Geçmişte (2026-07-14) admin panel infinite render loop → 500K KV limit exceeded olmuştu. Localhost test edilmemişti; regression prod'a çıktı. Kullanıcı fark etti, tersine mühendislikle çözüldü. Bu kural 2026-07-15'te Ahiret Yolculuğu Faz 2 push sonrası kullanıcı hatırlatmasıyla explicit yazıldı.
+
+**Prensip:** Push edilen kod → live prod → gerçek kullanıcı. Test etmeden gönderme.
+
+---
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
