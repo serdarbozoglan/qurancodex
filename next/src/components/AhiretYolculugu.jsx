@@ -181,27 +181,59 @@ export default function AhiretYolculugu({ onClose }) {
     return () => window.removeEventListener('keydown', h);
   }, [onClose]);
 
-  // Scroll spy for index rail (desktop)
+  // Scroll spy for index rail (desktop) — "en yakın viewport üstü" mantığı.
+  // Önceki IntersectionObserver -40%/-50% pencere ile aşamalar atlanıyor +
+  // jumpTo sonrası yanlış idx set edilebiliyordu (2026-07-15 kullanıcı bug).
+  // Yeni yaklaşım: scroll event + her aşamanın bounding rect top pozisyonu →
+  // viewport threshold'una (140px navbar+header offset) en yakın stage aktif.
+  // Programmatic scroll sırasında (jumpTo) 800ms lock ile observer override.
+  const programmaticScrollLock = useRef(false);
   useEffect(() => {
     if (!data || isMobile) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const idx = parseInt(e.target.dataset.idx, 10);
-            if (!Number.isNaN(idx)) setActiveIdx(idx);
-          }
-        });
-      },
-      { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
-    );
-    Object.values(stageRefs.current).forEach(el => el && observer.observe(el));
-    return () => observer.disconnect();
+    const HEADER_OFFSET = 180; // navbar 62 + toolheader 48 + hero comfort 70
+    const compute = () => {
+      if (programmaticScrollLock.current) return;
+      let closestIdx = 0;
+      let closestDelta = Infinity;
+      data.stages.forEach((s, i) => {
+        const el = stageRefs.current[s.id];
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const top = rect.top - HEADER_OFFSET;
+        // Viewport'un üst 1/3'ünden geçenler öncelikli
+        if (top <= 0 && Math.abs(top) < closestDelta) {
+          closestDelta = Math.abs(top);
+          closestIdx = i;
+        } else if (top > 0 && closestDelta === Infinity) {
+          // Hiçbir stage geçmediyse en üstteki
+          closestIdx = 0;
+        }
+      });
+      setActiveIdx(closestIdx);
+    };
+    let rafId = null;
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => { compute(); rafId = null; });
+    };
+    compute();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [data, isMobile]);
 
   const jumpTo = (id) => {
     const el = stageRefs.current[id];
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!el) return;
+    // Programmatic scroll: activeIdx manuel set + 800ms observer lock
+    // (smooth scroll ~600-700ms sürer, observer overshoot etmesin)
+    const idx = data.stages.findIndex(s => s.id === id);
+    if (idx !== -1) setActiveIdx(idx);
+    programmaticScrollLock.current = true;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => { programmaticScrollLock.current = false; }, 800);
   };
 
   if (!data) {
@@ -988,25 +1020,9 @@ function StageBody({ stage, isMobile, tr, language, router }) {
         <CriticalNoteBlock note={stage.criticalNote} isMobile={isMobile} tr={tr} />
       )}
 
-      {/* Visual motif */}
-      {stage.visualMotif && (
-        <div style={{
-          marginBottom: 22,
-          padding: '10px 14px',
-          background: COLORS.goldAlpha04,
-          border: `1px dashed ${COLORS.gold}33`,
-          borderRadius: 6,
-          fontFamily: FONTS.body,
-          fontSize: '0.78rem',
-          color: COLORS.silver,
-          fontStyle: 'italic',
-          opacity: 0.75,
-          lineHeight: 1.55,
-        }}>
-          <span style={{ color: COLORS.gold, fontWeight: 700, fontStyle: 'normal', letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.65rem', marginRight: 8 }}>{tr ? 'GÖRSEL MOTİF' : 'VISUAL MOTIF'}</span>
-          {stage.visualMotif}
-        </div>
-      )}
+      {/* NOT: visualMotif alanı prompt/agent seviyesinde art direction ipucudur —
+          kullanıcıya render EDİLMEZ (2026-07-15 kullanıcı feedback). JSON'da
+          documentation olarak kalır, gelecek SVG illüstrasyon üretimi için. */}
 
       {/* Cross-links */}
       {stage.crossLinks && stage.crossLinks.length > 0 && (
