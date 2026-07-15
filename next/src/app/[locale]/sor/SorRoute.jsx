@@ -1282,18 +1282,27 @@ function VerseCard({ verse, delay, language }) {
         }}>
           {verse.surahName} {verse.surah}:{verse.ayah}
         </span>
-        <BookmarkButton
-          item={{
-            id: verse.id,
-            type: 'verse',
-            title: `${verse.surahName} ${verse.surah}:${verse.ayah}`,
-            description: displayText,
-            arabic: verse.arabic,
-            url: verse.url,
-          }}
-          size="sm"
-          language={language}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <ShareVerseButton
+            surah={verse.surah}
+            ayah={verse.ayah}
+            surahName={verse.surahName}
+            translation={displayText}
+            language={language}
+          />
+          <BookmarkButton
+            item={{
+              id: verse.id,
+              type: 'verse',
+              title: `${verse.surahName} ${verse.surah}:${verse.ayah}`,
+              description: displayText,
+              arabic: verse.arabic,
+              url: verse.url,
+            }}
+            size="sm"
+            language={language}
+          />
+        </div>
       </div>
 
       {/* Arabic */}
@@ -1375,6 +1384,80 @@ function VerseCard({ verse, delay, language }) {
         {tr ? 'Sûrede aç' : 'Open in Sura'} <span>→</span>
       </Link>
     </motion.div>
+  );
+}
+
+// ─── ShareVerseButton — Web Share API + clipboard fallback (2026-07-15 #174)
+// VerseCard header'ında BookmarkButton yanında. Native mobile share sheet
+// açar, desktop'ta URL'i clipboard'a kopyalar.
+function ShareVerseButton({ surah, ayah, surahName, translation, language }) {
+  const [status, setStatus] = useState(null); // 'copied' | 'shared' | 'error' | null
+  const tr = language === 'tr';
+
+  const handleClick = async () => {
+    const url = typeof window !== 'undefined'
+      ? `${window.location.origin}/${language}/ayet/${surah}/${ayah}`
+      : `https://www.qurancodex.com/${language}/ayet/${surah}/${ayah}`;
+    const title = `${surahName} ${surah}:${ayah} — QuranCodex`;
+    const text = translation
+      ? `${surahName} ${surah}:${ayah}\n\n"${translation}"`
+      : `${surahName} ${surah}:${ayah}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text, url });
+        setStatus('shared');
+      } catch (err) {
+        if (err.name === 'AbortError') return; // user cancelled
+        try {
+          await navigator.clipboard.writeText(url);
+          setStatus('copied');
+        } catch { setStatus('error'); }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url);
+        setStatus('copied');
+      } catch { setStatus('error'); }
+    }
+    setTimeout(() => setStatus(null), 2200);
+  };
+
+  const label = status === 'copied' ? (tr ? 'Kopyalandı' : 'Copied')
+              : status === 'shared' ? (tr ? 'Paylaşıldı' : 'Shared')
+              : status === 'error'  ? (tr ? 'Hata' : 'Error')
+              : (tr ? 'Paylaş' : 'Share');
+
+  return (
+    <button
+      onClick={handleClick}
+      title={label}
+      aria-label={label}
+      style={{
+        width: 28,
+        height: 28,
+        borderRadius: '50%',
+        border: `1px solid ${status ? COLORS.gold : 'rgba(255,255,255,0.12)'}`,
+        background: status ? `${COLORS.gold}22` : 'transparent',
+        color: status ? COLORS.gold : COLORS.silver,
+        cursor: 'pointer',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 0.18s',
+        flexShrink: 0,
+      }}
+      onMouseEnter={e => { if (!status) { e.currentTarget.style.borderColor = `${COLORS.gold}88`; e.currentTarget.style.color = COLORS.gold; } }}
+      onMouseLeave={e => { if (!status) { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.silver; } }}
+    >
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </svg>
+    </button>
   );
 }
 
