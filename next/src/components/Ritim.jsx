@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import ImpossibleRhythm from '../sections/ImpossibleRhythm';
 import RhythmExtensions from './RhythmExtensions';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -127,6 +128,37 @@ export default function Ritim({ onClose }) {
 
       {/* Genişletilmiş: 16 vezin widget + Rahmân 31 refrain */}
       <RhythmExtensions language={language} isMobile={isMobile} />
+
+      {/* CrossToolCTA — ritim ↔ ses ↔ yemin ↔ retorik hattı */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            {
+              href: '/arac/ses-mimarisi',
+              titleTr: 'Ses Mimarisi',
+              titleEn: 'Sound Architecture',
+              descTr: 'Sert ve yumuşak ünsüzler — ritmin fonetik alt-yapısı.',
+              descEn: 'Hard and soft consonants — the phonetic infrastructure of rhythm.',
+            },
+            {
+              href: '/arac/yeminler',
+              titleTr: "Kur'an'ın Yeminleri",
+              titleEn: 'Quranic Oaths',
+              descTr: '40+ yeminin ritim ve fasıla ekseninde okunması.',
+              descEn: 'Reading 40+ oaths along the axis of rhythm and cadence.',
+            },
+            {
+              href: '/arac/retorik',
+              titleTr: "Kur'an Belâgatı",
+              titleEn: 'Quranic Rhetoric',
+              descTr: 'Fâsıla, iltifât, takdîm-tehîr — ritmi anlama dönüştüren sanatlar.',
+              descEn: 'Cadence, iltifāt, syntactic shifts — arts that turn rhythm into meaning.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import SoundArchitecture from '../sections/SoundArchitecture';
 import SoundExtensions from './SoundExtensions';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -116,6 +117,37 @@ export default function SesMimarisi({ onClose }) {
 
       {/* Genişletilmiş: 4 ek karşıtlık + fonetik spektrum */}
       <SoundExtensions language={language} isMobile={isMobile} />
+
+      {/* CrossToolCTA — sesin retorik, yemin ve renk boyutlarına köprü */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            {
+              href: '/arac/retorik',
+              titleTr: "Kur'an Belâgatı",
+              titleEn: 'Quranic Rhetoric',
+              descTr: 'Tezat, istiare, teşbih, iltifât — sesle taşınan retorik güç.',
+              descEn: 'Antithesis, metaphor, simile, iltifāt — the rhetorical power carried by sound.',
+            },
+            {
+              href: '/arac/yeminler',
+              titleTr: "Kur'an'ın Yeminleri",
+              titleEn: 'Quranic Oaths',
+              descTr: 'Vâv-ı kasem — 40+ yeminin ses ve ritim mimarisi.',
+              descEn: 'Wāw al-qasam — the sound and rhythm architecture of 40+ oaths.',
+            },
+            {
+              href: '/arac/ritim',
+              titleTr: 'İmkansız Ritim',
+              titleEn: 'Impossible Rhythm',
+              descTr: 'Ne şiir ne düzyazı — Kur\'ânî fasıla ve prozodinin analizi.',
+              descEn: 'Neither poetry nor prose — analysis of Quranic cadence and prosody.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

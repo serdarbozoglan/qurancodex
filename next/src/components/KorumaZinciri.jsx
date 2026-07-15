@@ -7,6 +7,8 @@
 import { useEffect, useState } from 'react';
 import LivingPreservation from '../sections/LivingPreservation';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -110,8 +112,81 @@ export default function KorumaZinciri({ onClose }) {
         </p>
       </div>
 
-      {/* Anasayfa LivingPreservation section AYNEN */}
+      {/* Anasayfa LivingPreservation section AYNEN — memory no-downgrade */}
       <LivingPreservation />
+
+      {/* Klasik kaynaklar — Kur'an hıfz + isnâd geleneği */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 24px' : '0 32px 32px' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            {
+              author: 'es-Suyûtî',
+              workTr: "el-İtkān fî Ulûmi'l-Kur'an",
+              workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+              period: '1445–1505 · Kahire',
+              noteTr: "Kur'an ilimlerinin ansiklopedik klasiği — cem', hıfz, isnâd, yedi harf ve mütevâtir kıraatlar üzerine 80 bölüm.",
+              noteEn: "Encyclopedic classic of Quranic sciences — 80 chapters on compilation, memorization, transmission, seven aḥruf, and mutawātir recitations.",
+            },
+            {
+              author: 'ez-Zerkeşî',
+              workTr: "el-Burhân fî Ulûmi'l-Kur'an",
+              workEn: 'al-Burhān fī ʿUlūm al-Qurʾān',
+              period: '1344–1392 · Kahire',
+              noteTr: 'Suyûtî\'nin İtkān\'ına kaynaklık eden erken ansiklopedik eser — kıraat, hıfz ve resm-i mushaf disiplinleri.',
+              noteEn: "Earlier encyclopedic work that fed Suyūṭī's Itqān — disciplines of qirāʾa, ḥifẓ, and mushaf orthography.",
+            },
+            {
+              author: 'İbnü\'l-Cezerî',
+              workTr: "en-Neşr fi'l-Kırâati'l-Aşr",
+              workEn: 'al-Nashr fī al-Qirāʾāt al-ʿAshr',
+              period: '1350–1429 · Şam/Şiraz',
+              noteTr: '10 mütevâtir kıraatin cihanşümul isnâd zinciri — her kıraatın senedini Peygamber\'e (s.a.v) kadar geriye takip eder.',
+              noteEn: 'Universal isnād chain for the 10 mutawātir recitations — traces each qirāʾa back to the Prophet ﷺ.',
+            },
+            {
+              author: 'ez-Zehebî',
+              workTr: "Ma'rifetu'l-Kurrâi'l-Kibâr",
+              workEn: 'Maʿrifat al-Qurrāʾ al-Kibār',
+              period: '1274–1348 · Şam',
+              noteTr: 'Erken hâfız ve kıraat imamlarının biyografik zinciri — nesillerin isnâd köprüsünü belgeler.',
+              noteEn: "Biographical chain of early ḥuffāẓ and qirāʾa imams — documents the isnād bridge across generations.",
+            },
+          ]}
+        />
+      </div>
+
+      {/* CrossToolCTA — hâfız chain + kıraat varyantları + nüzul bağlamı */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            {
+              href: '/oku',
+              titleTr: "Kur'an'ı Oku",
+              titleEn: 'Read the Quran',
+              descTr: 'Hâfız zincirinin bugün de sürdüğü canlı tecrübe — 114 sûre, çoklu meal + tefsir.',
+              descEn: 'The living experience carried by the huffāẓ chain today — 114 sūras, multi-meal + tafsir.',
+            },
+            {
+              href: '/atlas/kiraat',
+              titleTr: 'Kıraat Atlası',
+              titleEn: 'Qirāʾāt Atlas',
+              descTr: '10 imam · 20 râvî · coğrafi dağılım — sıfır-varyasyon prensibinin canlı manzarası.',
+              descEn: '10 readers · 20 transmitters · geographic spread — the living face of the zero-variation principle.',
+            },
+            {
+              href: '/arac/sebebi-nuzul',
+              titleTr: 'Sebeb-i Nüzûl',
+              titleEn: 'Occasions of Revelation',
+              descTr: 'Ayetlerin ilk inişindeki bağlam — koruma zincirinin başlangıç noktası.',
+              descEn: 'The context of each verse\'s first descent — the starting point of the preservation chain.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react';
 import Highlights from '../sections/Highlights';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
@@ -110,8 +111,40 @@ export default function AltiKonu({ onClose }) {
         </p>
       </div>
 
-      {/* Anasayfa Highlights section AYNEN */}
+      {/* Anasayfa Highlights section AYNEN — memory no-downgrade guarantee */}
       <Highlights />
+
+      {/* CrossToolCTA — 6 konu insanı, kâinatı, anlatıyı, zamanı, sesi ve
+          adı ilgilendirir; okuyucu ilgili derinlemesine tool'lara yönlendirilir. */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            {
+              href: '/atlas/insan-tanimi',
+              titleTr: "Kur'an'da İnsan",
+              titleEn: 'The Human in the Quran',
+              descTr: 'Nefs, kalp, ruh, akıl — insanın çok-boyutlu tanımı.',
+              descEn: 'Nafs, qalb, rūḥ, ʿaql — the multi-dimensional definition of the human.',
+            },
+            {
+              href: '/atlas/insan-psikolojisi',
+              titleTr: 'İnsan Psikolojisi',
+              titleEn: 'Human Psychology',
+              descTr: "Kur'an'ın iç dünya haritası — 7 psikolojik davranış deseni.",
+              descEn: "The Quran's inner-world map — 7 psychological behavior patterns.",
+            },
+            {
+              href: '/graf/kavram',
+              titleTr: 'Kavram Ağı',
+              titleEn: 'Concept Network',
+              descTr: '65 kavramın Kur\'an içindeki bağlantı haritası.',
+              descEn: 'Network map of 65 Quranic concepts.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }

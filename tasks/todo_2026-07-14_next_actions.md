@@ -82,10 +82,10 @@ Her tool: Hero pattern (§13.18) + 1 tab + CrossToolCTA. Component dosyaları: `
 
 | # | Tool (rating) | Component satır | Aksiyon | Efor |
 |---|---|---|---|---|
-| **#190** | AltiKonu (1/5) | 117 | Hero (Nahl 16:103) + Tab (6 konu) + CTA | 1-2h |
-| **#191** | KorumaZinciri (1/5) | 118 | Hero + CTA → İbadetlerHub | 1h |
-| **#192** | Ritim (1/5) | 133 | Hero (26:1-4) + Tab (Şiir/Kur'an/Düzyazı) + karşılaştırma | 2-3h |
-| **#193** | SesMimarisi (1/5) | 122 | Hero (Şûrâ 42:11) + Tab (Rahmet/Azap sesleri) | 1-2h |
+| **#190** | ✅ AltiKonu (1/5 → 3/5) | 117 | Hero var + Highlights ✅ + **CrossToolCTA eklendi** (2026-07-15) | done |
+| **#191** | ✅ KorumaZinciri (1/5 → 4/5) | 118 | Hero var + LivingPreservation ✅ + **SourcesCitation** (Suyûtî İtkān, Zerkeşî Burhân, İbnü'l-Cezerî Neşr, Zehebî) + **CrossToolCTA** (Oku, Kıraat, Sebeb-i Nüzul) (2026-07-15) | done |
+| **#192** | ✅ Ritim (1/5 → 3/5) | 133 | Hero var + ImpossibleRhythm + RhythmExtensions ✅ + **CrossToolCTA** (Ses, Yeminler, Retorik) (2026-07-15) | done |
+| **#193** | ✅ SesMimarisi (1/5 → 3/5) | 122 | Hero var + SoundArchitecture + SoundExtensions ✅ + **CrossToolCTA** (Retorik, Yeminler, Ritim) (2026-07-15) | done |
 | **#194** | RevelationTimeline (1/5) | 376 | Verse metin enrich + reference çıkıntısı | 2h |
 | **#195** | TekrarAnatomi (2/5) | ? | Hero + Tab (5 Musa perspective) + Tafsir | 2h |
 | **#196** | HalkaKompozisyon (2/5) | ? | Hero (Bakara 2:1-5) + Tab (Fatiha/Sure/Macro ring) | 2-3h |
