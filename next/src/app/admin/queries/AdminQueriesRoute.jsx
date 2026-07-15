@@ -99,30 +99,41 @@ export default function AdminQueriesRoute() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [kvEnabled, setKvEnabled] = useState(true);
+  const [reloadTick, setReloadTick] = useState(0);
 
-  const load = useCallback(async () => {
+  // Load data: view veya token değişince tek sefer çağrılır.
+  // useCallback deps loop'a sebep olabildiği için useEffect body içinde
+  // async IIFE + cancelled flag ile clean pattern.
+  useEffect(() => {
     if (!token) return;
-    setLoading(true);
-    setError('');
-    try {
-      const r = await fetchAdmin(view, token, 200);
-      setKvEnabled(r.kvEnabled !== false);
-      if (view === 'stats') {
-        setStats(r.data);
-        setRows([]);
-      } else {
-        setRows(Array.isArray(r.data) ? r.data : []);
-        setStats(null);
+    let cancelled = false;
+    (async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const r = await fetchAdmin(view, token, 200);
+        if (cancelled) return;
+        setKvEnabled(r.kvEnabled !== false);
+        if (view === 'stats') {
+          setStats(r.data);
+          setRows([]);
+        } else {
+          setRows(Array.isArray(r.data) ? r.data : []);
+          setStats(null);
+        }
+      } catch (err) {
+        if (cancelled) return;
+        setError(err.message);
+        if (err.message.includes('invalid_token')) clear();
+      } finally {
+        if (!cancelled) setLoading(false);
       }
-    } catch (err) {
-      setError(err.message);
-      if (err.message.includes('invalid_token')) clear();
-    } finally {
-      setLoading(false);
-    }
-  }, [view, token, clear]);
+    })();
+    return () => { cancelled = true; };
+  }, [view, token, clear, reloadTick]);
 
-  useEffect(() => { load(); }, [load]);
+  // Manuel refresh button — tick artırarak useEffect tetikle
+  const load = useCallback(() => setReloadTick(t => t + 1), []);
 
   const purgeCache = useCallback(async () => {
     if (!window.confirm('Tüm response cache silinsin mi? (KV disk temizlenir, sonraki query\'ler LLM\'e gider)')) return;
