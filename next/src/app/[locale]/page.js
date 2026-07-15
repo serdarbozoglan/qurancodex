@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
+import ReadingProgressCard from '@/components/ReadingProgressCard';
 
 // Navigasyon
 import SixGates from '@/sections/SixGates';
@@ -66,6 +67,11 @@ export default async function Home({ params }) {
       <ScrollToTopFab />
 
       <Hero />
+
+      {/* Reading Progress — sadece progress varsa render (#175, 2026-07-15) */}
+      <div style={{ marginTop: 24 }}>
+        <ReadingProgressCard />
+      </div>
 
       {/* Semantik Concierge — Hero altı cinematic prompt (RAG) */}
       <ConciergePrompt />

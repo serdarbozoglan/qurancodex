@@ -1775,10 +1775,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // Auto-save last position whenever surah or page changes
   // Uses bookPage directly (not derived currentPage) to avoid temporal dead zone
+  // Timestamp eklendi (2026-07-15 #175) — anasayfa ReadingProgressCard için
+  // "N saat önce" formatlaması yapılabilsin.
   useEffect(() => {
     if (loading) return;
     const page = bookPage ?? SURAH_PAGES[selectedSurah - 1];
-    localStorage.setItem('qurancodex_last_position', JSON.stringify({ surah: selectedSurah, page }));
+    localStorage.setItem('qurancodex_last_position', JSON.stringify({
+      surah: selectedSurah,
+      page,
+      timestamp: Date.now(),
+    }));
   }, [selectedSurah, bookPage, loading]);
 
   // Persist preferences
