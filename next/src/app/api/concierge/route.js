@@ -75,19 +75,23 @@ export async function POST(request) {
     timings.cacheLookup = Date.now() - tC;
     if (cached) {
       timings.total = Date.now() - startTs;
-      // fire-and-forget: cache hit'i de query log'a yaz (analytics için)
-      logQuery({
-        queryHash: preHash,
-        query: originalQuery,
-        lang,
-        category: cached.meta?.guardrails?.category || 'ok',
-        rejected: false,
-        cacheHit: true,
-        candidateCount: cached.meta?.candidateCount || 0,
-        timingTotal: timings.total,
-        ipHash: ip ? ip.slice(0, 8) : null,
-        timestamp: Date.now(),
-      }).catch(() => {});
+      // Cache hit'i de query log'a yaz — await ile safe (Vercel fire-and-forget değil)
+      try {
+        await logQuery({
+          queryHash: preHash,
+          query: originalQuery,
+          lang,
+          category: cached.meta?.guardrails?.category || 'ok',
+          rejected: false,
+          cacheHit: true,
+          candidateCount: cached.meta?.candidateCount || 0,
+          timingTotal: timings.total,
+          ipHash: ip ? ip.slice(0, 8) : null,
+          timestamp: Date.now(),
+        });
+      } catch (err) {
+        console.error('[concierge] cache-hit logQuery failed:', err.message);
+      }
       return Response.json({
         ...cached,
         cached: true,
@@ -126,17 +130,21 @@ export async function POST(request) {
         lang,
         ipHash,
       }));
-      // KV log — admin arşivi
-      logQuery({
-        queryHash,
-        query: originalQuery,
-        lang,
-        category: guard.category, // 'reject' | 'off_topic'
-        rejected: true,
-        rejectReason: guard.reason,
-        ipHash,
-        timestamp: Date.now(),
-      }).catch(() => {}); // fire-and-forget
+      // KV log — admin arşivi (await ile safe)
+      try {
+        await logQuery({
+          queryHash,
+          query: originalQuery,
+          lang,
+          category: guard.category, // 'reject' | 'off_topic'
+          rejected: true,
+          rejectReason: guard.reason,
+          ipHash,
+          timestamp: Date.now(),
+        });
+      } catch (err) {
+        console.error('[concierge] reject logQuery failed:', err.message);
+      }
       return Response.json({
         query: originalQuery,
         lang,
@@ -211,27 +219,33 @@ export async function POST(request) {
     const queryHash = computeQueryHash(originalQuery, lang);
     const ipHash = ip ? ip.slice(0, 8) : null;
 
-    // KV log — admin arşivi (async, non-blocking)
-    logQuery({
-      queryHash,
-      query: originalQuery,
-      effectiveQuery: guard.rewritten ? effectiveQuery : null,
-      lang,
-      category: guard.category, // 'ok' | 'rewrite' | 'fetva_talebi'
-      rejected: false,
-      cacheHit: false,
-      candidateCount,
-      resultsCount: {
-        verses: hydrated.verses?.length || 0,
-        tafsirs: hydrated.tafsirs?.length || 0,
-        atlases: hydrated.atlases?.length || 0,
-        articles: hydrated.articles?.length || 0,
-        tools: hydrated.tools?.length || 0,
-      },
-      timingTotal: timings.total,
-      ipHash,
-      timestamp: Date.now(),
-    }).catch(() => {});
+    // KV log — Vercel serverless fire-and-forget güvenli DEĞİL (response
+    // sonrası eventLoop task'lar drop olur). Await ile try/catch içinde
+    // bloklayan yazım — latency ~30-50 ms artar ama data garantili yazılır.
+    try {
+      await logQuery({
+        queryHash,
+        query: originalQuery,
+        effectiveQuery: guard.rewritten ? effectiveQuery : null,
+        lang,
+        category: guard.category,
+        rejected: false,
+        cacheHit: false,
+        candidateCount,
+        resultsCount: {
+          verses: hydrated.verses?.length || 0,
+          tafsirs: hydrated.tafsirs?.length || 0,
+          atlases: hydrated.atlases?.length || 0,
+          articles: hydrated.articles?.length || 0,
+          tools: hydrated.tools?.length || 0,
+        },
+        timingTotal: timings.total,
+        ipHash,
+        timestamp: Date.now(),
+      });
+    } catch (err) {
+      console.error('[concierge] logQuery failed:', err.message);
+    }
 
     const responsePayload = {
       query: originalQuery,
@@ -250,9 +264,13 @@ export async function POST(request) {
       },
     };
 
-    // Faz 2: cache'e yaz (sadece ok + fetva_talebi, TTL 7 gün)
+    // Faz 2: cache'e yaz (sadece ok + fetva_talebi, TTL 7 gün) — await ile safe
     if (guard.category === 'ok' || guard.category === 'fetva_talebi') {
-      setResponseCache(preHash, responsePayload).catch(() => {});
+      try {
+        await setResponseCache(preHash, responsePayload);
+      } catch (err) {
+        console.error('[concierge] setResponseCache failed:', err.message);
+      }
     }
 
     return Response.json(responsePayload, {

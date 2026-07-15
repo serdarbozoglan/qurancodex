@@ -68,15 +68,19 @@ export async function POST(request) {
     ipHash,
   }));
 
-  // KV log — admin arşivi + aggregate feedback güncelle (async, non-blocking)
-  logFeedback({
-    queryHash,
-    itemId,
-    thumb,
-    lang,
-    ipHash,
-    timestamp: ts,
-  }).catch(() => {});
+  // KV log — await ile safe (Vercel serverless fire-and-forget dropped edilir)
+  try {
+    await logFeedback({
+      queryHash,
+      itemId,
+      thumb,
+      lang,
+      ipHash,
+      timestamp: ts,
+    });
+  } catch (err) {
+    console.error('[feedback] logFeedback failed:', err.message);
+  }
 
   return Response.json(
     { ok: true },
