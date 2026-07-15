@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import PsychologySection from '../sections/PsychologySection';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
@@ -147,6 +148,48 @@ export default function InsanPsikolojisi({ onClose }) {
           { href: `/${language}/arac/iblis-seytan`, titleTr: 'İblis / Şeytan', titleEn: 'Iblis / Satan', descTr: 'Vesvesenin dış kanalı — nefsin baş rakibi.', descEn: "The outer channel of whispers — the self's chief adversary." },
         ]}
       />
+
+      {/* Klasik kaynaklar — İslâmî psikoloji-ahlâk geleneği */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '32px 16px 60px' : '48px 32px 80px' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            {
+              author: 'Gazâlî',
+              workTr: "İhyâ'u Ulûmi'd-Dîn (Rub'u'l-Mühlikât + Rub'u'l-Munciyât)",
+              workEn: 'Iḥyā ʿUlūm al-Dīn (The Destructive + The Saving Traits)',
+              period: '1058–1111 · Tûs/Nişâbûr',
+              noteTr: 'İslâm ahlâk psikolojisinin klasik anıtı — nefsin hastalıkları (kibir, hased, ucub) + iyileşme yolları (tevbe, sabır, tevekkül) sistematik olarak.',
+              noteEn: 'Classical monument of Islamic moral psychology — diseases of the self (pride, envy, self-admiration) + paths of healing (repentance, patience, trust) systematically laid out.',
+            },
+            {
+              author: 'İbn Kayyim el-Cevziyye',
+              workTr: "Medâricü's-Sâlikîn + Emrâzü'l-Kulûb",
+              workEn: 'Madārij al-Sālikīn + Amrāḍ al-Qulūb',
+              period: '1292–1350 · Şam',
+              noteTr: 'Kalp hastalıkları ve manevî iyileşmenin adım-adım yolculuğu — 100+ makam üzerinden nefs analizi.',
+              noteEn: 'Diseases of the heart and the step-by-step journey of spiritual healing — self-analysis across 100+ stations.',
+            },
+            {
+              author: 'er-Râgıb el-Isfahânî',
+              workTr: "ez-Zerî'a ilâ Mekârimi'ş-Şerî'a",
+              workEn: 'al-Dharīʿah ilā Makārim al-Sharīʿah',
+              period: 'ö. 1108 · İsfahan',
+              noteTr: 'Kur\'ânî ahlâk kavramlarının felsefî-psikolojik açılımı — Gazâlî\'nin doğrudan kaynaklarından biri.',
+              noteEn: 'Philosophical-psychological unpacking of Quranic ethical concepts — one of Ghazālī\'s direct sources.',
+            },
+            {
+              author: 'İbn Miskeveyh',
+              workTr: "Tehzîbü'l-Ahlâk",
+              workEn: 'Tahdhīb al-Akhlāq',
+              period: '932–1030 · Rey',
+              noteTr: 'Aristo etik + Kur\'ânî fıtrat sentezi — İslâm ahlâk psikolojisinin ilk sistemli eseri.',
+              noteEn: 'Aristotelian ethics + Quranic fiṭra synthesis — the first systematic work in Islamic moral psychology.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }
