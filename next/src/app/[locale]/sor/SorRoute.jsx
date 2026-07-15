@@ -151,7 +151,8 @@ function SorInner() {
       } else {
         setResponse(data);
         setState('ok');
-        setCachedResponse(language, q, data); // Cache başarılı response
+        setCachedResponse(queryLang, q, data); // Cache başarılı response
+        pushHistory(q, queryLang);              // Query history — son 20
       }
     } catch (err) {
       if (err.name === 'AbortError') return;
@@ -418,7 +419,12 @@ function SorInner() {
         )}
 
         {/* States */}
-        {state === 'idle' && <IdleState language={language} />}
+        {state === 'idle' && <IdleState language={language} onSelect={(q) => {
+          setQuery(q);
+          setPendingQuery(q);
+          router.replace(`/${language}/sor?q=${encodeURIComponent(q)}`, { scroll: false });
+          runQuery(q);
+        }} />}
         {state === 'loading' && <LoadingState language={language} />}
         {state === 'empty' && <EmptyState language={language} query={query} />}
         {state === 'error' && <ErrorState language={language} message={errorMsg} onRetry={() => runQuery(query)} />}
@@ -444,14 +450,137 @@ function SorInner() {
 
 // ─── STATES ─────────────────────────────────────────────────────────────────
 
-function IdleState({ language }) {
+// Query history — localStorage'daki son 20 sorgu. Refresh + yeni tab'da persist.
+const HISTORY_KEY = 'qurancodex_query_history';
+const HISTORY_MAX = 20;
+
+function readHistory() {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch { return []; }
+}
+
+function writeHistory(list) {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, HISTORY_MAX)));
+  } catch { /* quota exceeded — skip */ }
+}
+
+// Public: yeni bir başarılı query'yi history'e ekle (dedup + en başa taşı)
+function pushHistory(q, lang) {
+  const normalized = q.trim();
+  if (normalized.length < 3) return;
+  const list = readHistory();
+  const filtered = list.filter(e => e.q.toLowerCase() !== normalized.toLowerCase());
+  filtered.unshift({ q: normalized, lang, ts: Date.now() });
+  writeHistory(filtered);
+}
+
+function IdleState({ language, onSelect }) {
   const tr = language === 'tr';
+  const [history, setHistory] = useState([]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHistory(readHistory());
+  }, []);
+
+  const remove = (q) => {
+    const list = readHistory().filter(e => e.q !== q);
+    writeHistory(list);
+    setHistory(list);
+  };
+
   return (
-    <div style={{ textAlign: 'center', padding: '80px 20px', color: COLORS.silver }}>
+    <div style={{ textAlign: 'center', padding: '60px 20px', color: COLORS.silver }}>
       <div style={{ fontSize: '3rem', opacity: 0.4, marginBottom: '20px' }}>✨</div>
-      <p style={{ fontFamily: FONTS.body, fontSize: '1rem' }}>
+      <p style={{ fontFamily: FONTS.body, fontSize: '1rem', marginBottom: history.length ? '36px' : 0 }}>
         {tr ? 'Yukarıdaki kutuya bir soru yaz.' : 'Type a question in the box above.'}
       </p>
+
+      {history.length > 0 && (
+        <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+          <div style={{
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.silver,
+            opacity: 0.7,
+            marginBottom: '14px',
+          }}>
+            {tr ? 'Son sorularınız' : 'Recent questions'}
+          </div>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
+            justifyContent: 'center',
+          }}>
+            {history.slice(0, 20).map((entry) => (
+              <div key={entry.q} style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '2px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '999px',
+                paddingLeft: '12px',
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                e.currentTarget.style.background = `${COLORS.gold}12`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+              }}>
+                <button
+                  onClick={() => onSelect(entry.q)}
+                  title={entry.q}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: '8px 4px 8px 0',
+                    color: COLORS.offWhite,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    maxWidth: '240px',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {entry.q}
+                </button>
+                <button
+                  onClick={() => remove(entry.q)}
+                  aria-label={tr ? 'Sil' : 'Delete'}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: '4px 10px 4px 4px',
+                    color: COLORS.silver,
+                    opacity: 0.5,
+                    cursor: 'pointer',
+                    fontSize: '0.9rem',
+                    lineHeight: 1,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.red; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.5'; e.currentTarget.style.color = COLORS.silver; }}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

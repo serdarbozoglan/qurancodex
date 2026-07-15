@@ -46,15 +46,15 @@ function useAdminToken() {
         }
       }
     } catch { /* ignore */ }
-    // Post-mount localStorage hydration — cascading render kabul edilebilir
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setToken(t);
     setPrompted(true);
   }, []);
-  const clear = () => {
+  // useCallback ile sar — reference stable olsun, load useCallback tetiklenmesin
+  const clear = useCallback(() => {
     try { sessionStorage.removeItem('qurancodex_admin_token'); } catch { /* ignore */ }
     setToken('');
-  };
+  }, []);
   return { token, prompted, clear };
 }
 
