@@ -25,6 +25,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { COLORS, FONTS } from '../../../tokens';
 import { detectQueryLang } from '../../../lib/query-lang';
+import BookmarkButton from '../../../components/BookmarkButton';
 
 export default function SorRoute() {
   return (
@@ -1266,8 +1267,8 @@ function VerseCard({ verse, delay, language }) {
         transition: 'border-color 0.2s',
       }}
     >
-      {/* Header: sûre ref chip */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+      {/* Header: sûre ref chip + bookmark */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', marginBottom: '14px' }}>
         <span style={{
           fontFamily: FONTS.body,
           fontSize: '0.66rem',
@@ -1281,6 +1282,18 @@ function VerseCard({ verse, delay, language }) {
         }}>
           {verse.surahName} {verse.surah}:{verse.ayah}
         </span>
+        <BookmarkButton
+          item={{
+            id: verse.id,
+            type: 'verse',
+            title: `${verse.surahName} ${verse.surah}:${verse.ayah}`,
+            description: displayText,
+            arabic: verse.arabic,
+            url: verse.url,
+          }}
+          size="sm"
+          language={language}
+        />
       </div>
 
       {/* Arabic */}

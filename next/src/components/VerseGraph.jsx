@@ -1489,6 +1489,13 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   }, [surah]);
 
   // Top 3 connections from graph data
+  // Fix (2026-07-14): önce her link 2 kere sayılıyordu (hem source hem target
+  // tarafından) VE current surah ile alakalı OLMAYAN linkler de sayılıyordu
+  // (ör. graph'ta yer alan komşu surah'ların kendi aralarındaki bağlantılar).
+  // Sonuç: 1117 gibi şişik rakamlar.
+  //
+  // Düzeltme: sadece current surah <-> other surah linklerini say; her link
+  // 1 kez katkı yapsın (her verse pair için tek edge).
   const topLinks = useMemo(() => {
     if (!graphData) return [];
     const counts = {};
@@ -1497,8 +1504,13 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       const tgt = typeof l.target === 'object' ? l.target.id : l.target;
       const srcSurah = parseInt(src.split(':')[0]);
       const tgtSurah = parseInt(tgt.split(':')[0]);
-      if (srcSurah !== surah && !isNaN(srcSurah)) counts[srcSurah] = (counts[srcSurah] || 0) + 1;
-      if (tgtSurah !== surah && !isNaN(tgtSurah)) counts[tgtSurah] = (counts[tgtSurah] || 0) + 1;
+      if (isNaN(srcSurah) || isNaN(tgtSurah)) return;
+      if (srcSurah === surah && tgtSurah !== surah) {
+        counts[tgtSurah] = (counts[tgtSurah] || 0) + 1;
+      } else if (tgtSurah === surah && srcSurah !== surah) {
+        counts[srcSurah] = (counts[srcSurah] || 0) + 1;
+      }
+      // İki taraf da current surah değilse skip (unrelated cross-surah link)
     });
     return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([s, c]) => ({ surah: +s, count: c }));
   }, [graphData, surah]);
