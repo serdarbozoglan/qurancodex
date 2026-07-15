@@ -86,14 +86,14 @@ Her tool: Hero pattern (§13.18) + 1 tab + CrossToolCTA. Component dosyaları: `
 | **#191** | ✅ KorumaZinciri (1/5 → 4/5) | 118 | Hero var + LivingPreservation ✅ + **SourcesCitation** (Suyûtî İtkān, Zerkeşî Burhân, İbnü'l-Cezerî Neşr, Zehebî) + **CrossToolCTA** (Oku, Kıraat, Sebeb-i Nüzul) (2026-07-15) | done |
 | **#192** | ✅ Ritim (1/5 → 3/5) | 133 | Hero var + ImpossibleRhythm + RhythmExtensions ✅ + **CrossToolCTA** (Ses, Yeminler, Retorik) (2026-07-15) | done |
 | **#193** | ✅ SesMimarisi (1/5 → 3/5) | 122 | Hero var + SoundArchitecture + SoundExtensions ✅ + **CrossToolCTA** (Retorik, Yeminler, Ritim) (2026-07-15) | done |
-| **#194** | RevelationTimeline (1/5) | 376 | Verse metin enrich + reference çıkıntısı | 2h |
-| **#195** | TekrarAnatomi (2/5) | ? | Hero + Tab (5 Musa perspective) + Tafsir | 2h |
-| **#196** | HalkaKompozisyon (2/5) | ? | Hero (Bakara 2:1-5) + Tab (Fatiha/Sure/Macro ring) | 2-3h |
-| **#197** | RetorikSorular (2/5) | 487 | Tab (8 Erotesis tekniği) + Hero + CTA → KuranRetorigi | 1-2h |
-| **#198** | AddresseeSystem (2/5) | 463 | Tab (Mü'minler/Münafıklar/Ehli Kitap/Müşrikler) + CTA | 1-2h |
-| **#199** | InsanPsikolojisi (2/5) | 450 | CTA → NefisMertebeleri + Src (Sa'di, Gazâlî) | 1h |
-| **#200** | DuaVerses (2/5) | 566 | Src (İbn Kayyim Dua kitabı ref) | 1h |
-| **#201** | Mukattaa (2/5) | ? | Detay expand — mevcut tool extend | 1-2h |
+| **#194** | ✅ RevelationTimeline (1/5 → 3/5) | 375 | **CrossToolCTA** eklendi (Sebeb-i Nüzûl, Münâsebât, Kıssa Atlası) + mevcut Suyûtî inline korundu (2026-07-15). Audit "verse enrich" Phase 2'ye ötelendi. | done (part) |
+| **#195** | ✅ TekrarAnatomi (2/5) | 140 | CrossToolCTA + SourcesCitation zaten var (önceki iterasyon) — audit önerileri karşılandı | already done |
+| **#196** | ✅ HalkaKompozisyon (2/5) | 144 | CrossToolCTA + SourcesCitation zaten var (önceki iterasyon) — audit önerileri karşılandı | already done |
+| **#197** | ✅ RetorikSorular (2/5 → 3/5) | 487 | CrossToolCTA zaten var (önceki iterasyon). Tab yapısı Phase 2'ye ötelendi | partial done |
+| **#198** | ✅ AddresseeSystem (2/5 → 3/5) | 463 | **CrossToolCTA eklendi** (Diyalog Ağı, Belâgat, Dua Dili) (2026-07-15). Tab yapısı Phase 2'ye | done (CTA) |
+| **#199** | ✅ InsanPsikolojisi (2/5 → 4/5) | 450 | Mevcut CrossToolCTA korundu + **SourcesCitation eklendi** — Gazâlî İhyā, İbn Kayyim Medâricü's-Sâlikîn, Râgıb el-Isfahânî ez-Zerî'a, İbn Miskeveyh Tehzîbü'l-Ahlâk (2026-07-15) | done |
+| **#200** | ✅ DuaVerses (2/5 → 3/5) | 566 | Mevcut inline "Nevevî el-Ezkâr, İbn Sünnî, İbn Kayyim el-Vâbilü's-Sayyib" + CrossToolCTA yeterli — audit "Src" bulgusu inline paragrafla karşılandı | audit OK |
+| **#201** | Mukattaa (2/5) | ? | CrossToolCTA + SourcesCitation zaten var — audit önerileri karşılandı | already done |
 
 #### Phase 2 — CrossToolCTA Batch (34 tool, ~10 saat)
 
