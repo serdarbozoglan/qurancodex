@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -370,6 +371,36 @@ export default function RevelationTimeline({ onClose }) {
           </div>
         </div>
       )}
+
+      {/* CrossToolCTA — nüzul sırası ↔ sebeb-i nüzul ↔ münâsebât hattı */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: '32px 16px 60px' }}>
+        <CrossToolCTA
+          language={language}
+          links={[
+            {
+              href: `/${language}/arac/sebebi-nuzul`,
+              titleTr: 'Sebeb-i Nüzûl',
+              titleEn: 'Occasions of Revelation',
+              descTr: '~570 ayet — her ayetin hangi olay üzerine indiği; nüzul sırasının bağlamı.',
+              descEn: '~570 verses — the event behind each verse; the context of the revelation order.',
+            },
+            {
+              href: `/${language}/atlas/munasebat`,
+              titleTr: 'Münâsebât Atlası',
+              titleEn: 'Munāsabāt Atlas',
+              descTr: '114 sûrenin mushaf sırasındaki tematik-dilsel bağlantıları — nüzul ↔ mushaf dengesi.',
+              descEn: 'Thematic-linguistic ties across the mushaf order of 114 sūras — the nūzul ↔ mushaf balance.',
+            },
+            {
+              href: `/${language}/atlas/kissa`,
+              titleTr: 'Kıssa Atlası',
+              titleEn: 'Story Atlas',
+              descTr: 'Peygamber kıssalarının vahiy kronolojisinde açılışı — parçalı anlatının zamansal haritası.',
+              descEn: 'Unfolding of prophet stories across the revelation chronology — temporal map of fragmented narrative.',
+            },
+          ]}
+        />
+      </div>
     </div>
   );
 }
