@@ -295,15 +295,8 @@ export const EXPLORE_CATEGORIES = [
         descTr: '14 gizemli harf ve şifresi',
         descEn: '14 mysterious letters & their code',
       },
-      {
-        id:     'rhythm',
-        kind:   'section',
-        target: 'ritim-card',
-        icon:   PulseIcon,
-        titleTr: 'İmkansız Ritim',        titleEn: 'Impossible Rhythm',
-        descTr: 'Ne şiir ne düzyazı',
-        descEn: 'Neither poetry nor prose',
-      },
+      // Ses (harf-fonetik) → Ritim (cümle-fasıla) sırası mikro→makro akışı için
+      // ters çevrildi (2026-07-15 audit).
       {
         id:     'sounds',
         kind:   'section',
@@ -312,6 +305,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Ses Mimarisi',          titleEn: 'Sound Architecture',
         descTr: 'Sert ve yumuşak ünsüzler',
         descEn: 'Hard and soft consonants',
+      },
+      {
+        id:     'rhythm',
+        kind:   'section',
+        target: 'ritim-card',
+        icon:   PulseIcon,
+        titleTr: 'İmkansız Ritim',        titleEn: 'Impossible Rhythm',
+        descTr: 'Ne şiir ne düzyazı',
+        descEn: 'Neither poetry nor prose',
       },
       {
         id:     'hidden-architecture',
@@ -346,16 +348,9 @@ export const EXPLORE_CATEGORIES = [
     id: 'rhetoric',
     titleTr: 'RETORİK & DUA',
     titleEn: 'RHETORIC & PRAYER',
+    // 2026-07-15 audit sıralama: genel çerçeve (Retoriği) → hedef (Muhatap) →
+    // özel retorik türleri (Yeminler, Dua). Umbrella → alt-tür akışı.
     items: [
-      {
-        id:     'yeminler',
-        kind:   'overlay',
-        target: 'yeminler',
-        icon:   ShieldIcon,
-        titleTr: "Kur'an'ın Yeminleri",   titleEn: 'Quranic Oaths',
-        descTr: 'Vâv-ı kasem · 40+ yemin',
-        descEn: 'Wāw al-qasam · 40+ oaths',
-      },
       {
         id:     'rhetoric',
         kind:   'section',
@@ -366,18 +361,6 @@ export const EXPLORE_CATEGORIES = [
         descEn: 'Iltifāt, syntactic shifts, cadence',
       },
       {
-        id:     'dua-language',
-        kind:   'section',
-        target: 'dua-card',
-        icon:   HandsIcon,
-        titleTr: 'Dua Dili',              titleEn: 'Language of Prayer',
-        descTr: 'Yakarışın gramatik kalıbı',
-        descEn: 'The grammar of supplication',
-      },
-      {
-        // Muhatap Sistemi — retorik-analitik tool. Araçlar'da da kalır;
-        // Explore'a eklenmesi 3→4 dengeleme + reinforced discovery için
-        // (2026-07-10 mega-menu revizyonu).
         id:     'addressee-system',
         kind:   'overlay',
         target: 'addresseeSystem',
@@ -385,6 +368,24 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Muhatap Sistemi',       titleEn: 'Addressee System',
         descTr: "'Ey iman edenler' — kim, ne zaman?",
         descEn: "'O you who believe' — who, when?",
+      },
+      {
+        id:     'yeminler',
+        kind:   'overlay',
+        target: 'yeminler',
+        icon:   ShieldIcon,
+        titleTr: "Kur'an'ın Yeminleri",   titleEn: 'Quranic Oaths',
+        descTr: 'Vâv-ı kasem · 40+ yemin',
+        descEn: 'Wāw al-qasam · 40+ oaths',
+      },
+      {
+        id:     'dua-language',
+        kind:   'section',
+        target: 'dua-card',
+        icon:   HandsIcon,
+        titleTr: 'Dua Dili',              titleEn: 'Language of Prayer',
+        descTr: 'Yakarışın gramatik kalıbı',
+        descEn: 'The grammar of supplication',
       },
     ],
   },

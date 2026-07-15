@@ -16,6 +16,9 @@ const TARGET = path.join(ROOT, 'ahiret-yolculugu.json');
 const VERSE_GRAPH = path.join(ROOT, 'verse-graph-bgem3.json');
 
 // §13.15 cleanArabicForDisplay — build script inline (ES module port)
+// Expanded per Ahiret Yolculuğu visual audit K-02 (2026-07-15): U+06DF-U+06E0
+// range added to strip small-high-rounded-zero + small-high-mim-isolated
+// (KFGQPC glyph eksikliği → □ tofu).
 function cleanArabicForDisplay(str) {
   if (!str) return str;
   return str
@@ -28,7 +31,7 @@ function cleanArabicForDisplay(str) {
     .replace(/[؀-؅]/g, '')                    // Numara/dipnot
     .replace(/[۝۞۩]/g, '')                    // ayet sonu, rub el hizb, secde
     .replace(/ۦ/g, ' ')                        // small yeh → boşluk
-    .replace(/[ۖ-ۜۢۨ]/g, '')                  // waqf + dekoratif tajwid
+    .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '')            // waqf + tajwid + U+06DF-U+06E0 range
     .replace(/[﴾﴿]/g, '');                    // süslü parantezler
 }
 

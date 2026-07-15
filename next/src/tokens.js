@@ -87,6 +87,12 @@ export const COLORS = {
   teal:          '#1abc9c',
   tealDark:      '#2ab5a0',
   softRed:       '#e74c3c',
+  // skyBlue alpha varyantları — CriticalNote pattern (mezhepler-arası nüans
+  // callout) için: Calm/Mercy accent. Kur'anî yorum farkını mavi glasscard ile
+  // teolojik olarak nötr sunmak. Eklenme: Ahiret Yolculuğu visual audit K-01
+  // (2026-07-15) — inline #3498db substitute.
+  skyBlueAlpha06: 'rgba(52,152,219,0.06)',
+  skyBlueAlpha30: 'rgba(52,152,219,0.30)',
   coral:         '#D85A30',   // Ve Mâ Edrâke kalıp rengi
   skyBlue:       '#3498db',
   cyan:          '#06b6d4',

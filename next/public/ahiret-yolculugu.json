@@ -16,8 +16,8 @@
       "workTr": "Mefâtîhu'l-Ğayb",
       "workEn": "Mafātīḥ al-Ghayb",
       "period": "1149–1209 · Rey",
-      "noteTr": "Klasik kelâmî-felsefî büyük tefsir. Berzah, mîzân, ru'yetullâh tartışmalarında Sünnî-Eş'arî pozisyonun en detaylı savunması. (Fussilet sûresinden sonraki cüzler ölümünden sonra öğrencileri Hûbî ve Kamûlî tarafından tamamlandı — klasik icmâ.)",
-      "noteEn": "Classical kalām–philosophical grand tafsir. Most detailed defense of the Sunni-Ash'ari position on barzakh, mīzān, and ru'yatullāh. (Volumes after Fuṣṣilat completed by his students Ḥūbī and Kamūlī after his death — classical consensus.)"
+      "noteTr": "Klasik kelâmî-felsefî büyük tefsir. Berzah, mîzân, ru'yetullâh tartışmalarında Sünnî-Eş'arî pozisyonun en detaylı savunması. (Fussilet sûresinden sonraki bölümlerin bir kısmının ölümünden sonra öğrencileri Şihâbüddîn el-Hûbî ve Necmeddin el-Kamûlî tarafından tamamlandığı klasik gelenekte yaygın kabuldür; modern akademik araştırmalarda hangi cüzün kime ait olduğu net değildir — Ayman Shihadeh 2006.)",
+      "noteEn": "Classical kalām–philosophical grand tafsir. Most detailed defense of the Sunni-Ash'ari position on barzakh, mīzān, and ru'yatullāh. (It is widely accepted in the classical tradition that portions after Sūrat Fuṣṣilat were completed by his students Shihāb al-Dīn al-Ḥūbī and Najm al-Dīn al-Kamūlī after his death; modern scholarship, however, does not settle which volume was completed by whom — Ayman Shihadeh, 2006.)"
     },
     {
       "author": "el-Kurtubî",
@@ -48,8 +48,8 @@
       "workTr": "Kitâbu'r-Rûh",
       "workEn": "Kitāb al-Rūḥ",
       "period": "1292–1350 · Şam",
-      "noteTr": "Rûh, berzah, kabir sorgusu üzerine soru-cevap formatında derin çalışma. İbn Teymiyye ekolünün eskatoloji üzerine en sistemli eseri.",
-      "noteEn": "Deep Q&A-format study of soul, barzakh, and grave questioning. The Ibn Taymiyya school's most systematic work on eschatology."
+      "noteTr": "Rûh, berzah, kabir sorgusu üzerine soru-cevap formatında derin çalışma. İbn Teymiyye ekolünün eskatoloji üzerine en sistemli eseri. (Not: Eserdeki bazı görüşler İbn Kayyim'in diğer eserlerindeki pozisyonlarıyla gerilim içinde olduğundan aidiyeti bazı Selefî ve modern akademik çevrelerce sorgulanmıştır — Livnat Holtzman, Caterina Bori; ancak klasik gelenek eseri İbn Kayyim'e nispet eder.)",
+      "noteEn": "Deep Q&A-format study of soul, barzakh, and grave questioning. The Ibn Taymiyya school's most systematic work on eschatology. (Note: Some views in the work stand in tension with Ibn al-Qayyim's positions in his other works; its attribution has been questioned by some Salafi and modern academic circles — Livnat Holtzman, Caterina Bori; the classical tradition, however, ascribes the work to Ibn al-Qayyim.)"
     },
     {
       "author": "es-Suyûtî",
@@ -96,7 +96,7 @@
           "ayah": 93,
           "noteTr": "Melekler ellerini uzatmış: 'Çıkarın canlarınızı!' — zâlimin gözünden ölüm anı.",
           "noteEn": "Angels stretch out their hands: 'Give up your souls!' — the moment seen from the wrongdoer's angle.",
-          "arabic": "وَمَنْ اَظْلَمُ مِمَّنِ افْتَرٰى عَلَى اللّٰهِ كَذِباً اَوْ قَالَ اُو۫حِيَ اِلَيَّ وَلَمْ يُوحَ اِلَيْهِ شَيْءٌ وَمَنْ قَالَ سَاُنْزِلُ مِثْلَ مٓا اَنْزَلَ اللّٰهُ وَلَوْ تَرٰٓى اِذِ الظَّالِمُونَ فِي غَمَرَاتِ الْمَوْتِ وَالْمَلٰٓئِكَةُ بَاسِطٓوا اَيْدِيهِمْ اَخْرِجٓوا اَنْفُسَكُمْ اَلْيَوْمَ تُجْزَوْنَ عَذَابَ الْهُونِ بِمَا كُنْتُمْ تَقُولُونَ عَلَى اللّٰهِ غَيْرَ الْحَقِّ وَكُنْتُمْ عَنْ اٰيَاتِهِ تَسْتَكْبِرُونَ",
+          "arabic": "وَمَنْ اَظْلَمُ مِمَّنِ افْتَرٰى عَلَى اللّٰهِ كَذِباً اَوْ قَالَ اُوحِيَ اِلَيَّ وَلَمْ يُوحَ اِلَيْهِ شَيْءٌ وَمَنْ قَالَ سَاُنْزِلُ مِثْلَ مٓا اَنْزَلَ اللّٰهُ وَلَوْ تَرٰٓى اِذِ الظَّالِمُونَ فِي غَمَرَاتِ الْمَوْتِ وَالْمَلٰٓئِكَةُ بَاسِطٓوا اَيْدِيهِمْ اَخْرِجٓوا اَنْفُسَكُمْ اَلْيَوْمَ تُجْزَوْنَ عَذَابَ الْهُونِ بِمَا كُنْتُمْ تَقُولُونَ عَلَى اللّٰهِ غَيْرَ الْحَقِّ وَكُنْتُمْ عَنْ اٰيَاتِهِ تَسْتَكْبِرُونَ",
           "surahName": "الأنعام",
           "surahNameEn": "The Cattle"
         },
@@ -173,7 +173,7 @@
           "ayah": 46,
           "noteTr": "'Onlar sabah akşam ateşe arz olunurlar…' — kabir azabının en açık Kur'ânî delili (Firavun hanedanı).",
           "noteEn": "'They are exposed to the fire morning and evening…' — the clearest Qur'anic evidence for grave punishment (Pharaoh's people).",
-          "arabic": "اَلنَّارُ يُعْرَضُونَ عَلَيْهَا غُدُواًّ وَعَشِياًّ وَيَوْمَ تَقُومُ السَّاعَةُ۠ اَدْخِلٓوا اٰلَ فِرْعَوْنَ اَشَدَّ الْعَذَابِ",
+          "arabic": "اَلنَّارُ يُعْرَضُونَ عَلَيْهَا غُدُواًّ وَعَشِياًّ وَيَوْمَ تَقُومُ السَّاعَةُ اَدْخِلٓوا اٰلَ فِرْعَوْنَ اَشَدَّ الْعَذَابِ",
           "surahName": "غافر",
           "surahNameEn": "The Forgiver"
         },
@@ -221,8 +221,8 @@
       "criticalNote": {
         "titleTr": "Kabir azabı — klasik dönemin büyük ihtilâfı",
         "titleEn": "Grave punishment — a major classical debate",
-        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması mütevâtir seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde bağlayıcısı görmez. Nazzâm gibi bazı isimler kabir azabını tümden reddederken, cumhur (Kâdî Abdulcabbâr) kabul eder.\n\nBu tartışma mezhepçilik değil, *epistemik metodoloji* farkıdır: Kur'an'ı temel, hadîsi tamamlayıcı gören her ekol pozisyon farkına düşer.",
-        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through mutawātir-level hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names, the grave's pressing) as binding creed since they are *āḥād* narrations. Some figures like al-Naẓẓām rejected grave punishment outright, while the majority (al-Qāḍī 'Abd al-Jabbār) accepted it.\n\nThis is not sectarianism but *epistemic methodology*: any school that takes the Qur'an as base and hadith as supplement lands on different positions."
+        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Kabir azabı sabittir; Ğâfir 40:46 açık Kur'ânî delildir. Münker-Nekîr sorgusu ve kabirin sıkışması *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabit kabul edilir.\n\nMu'tezile (klasik ekol): Kur'ânî delili kabul eder ancak hadîs-bazlı ayrıntıları (Münker-Nekîr'in isimleri, kabirin sıkışması) *âhâd* rivayet olduğu için akîde bağlayıcısı görmez. Nazzâm gibi bazı isimler kabir azabını tümden reddederken, cumhur (Kâdî Abdulcabbâr) kabul eder.\n\nModern Selefî çizgi (İbn Bâz, Elbânî): Klasik Ehl-i Sünnet pozisyonunu benimser, ancak zayıf rivayetleri ayıklama disiplini uygular — sahih hadîs corpusuna dayalı azap tasavvuru.\n\nBu tartışma mezhepçilik değil, *epistemik metodoloji* farkıdır: Kur'an'ı temel, hadîsi tamamlayıcı gören her ekol pozisyon farkına düşer.",
+        "bodyEn": "Sunni orthodoxy (Ash'ari + Māturīdī majority): Grave punishment is established; Ghāfir 40:46 is a clear Qur'anic proof. Munkar-Nakīr's questioning and the grave's pressing are considered established through *mutawātir maʿnawī* (semantic mass-transmission) hadith.\n\nMu'tazila (classical school): Accepts the Qur'anic evidence but does not treat hadith-based details (Munkar-Nakīr's names, the grave's pressing) as binding creed since they are *āḥād* narrations. Some figures like al-Naẓẓām rejected grave punishment outright, while the majority (al-Qāḍī 'Abd al-Jabbār) accepted it.\n\nModern Salafi line (Ibn Bāz, al-Albānī): Adopts the classical Sunni position while applying a discipline of filtering weak narrations — grave-punishment imagery grounded in the authenticated hadith corpus.\n\nThis is not sectarianism but *epistemic methodology*: any school that takes the Qur'an as base and hadith as supplement lands on different positions."
       },
       "visualMotif": "Yarı-şeffaf perde/örtü ardında beliren silüet; bir tarafında toprak-mekân, diğerinde ışık-ışın. Perde geçirimli ama geçilemez.",
       "crossLinks": [
@@ -482,7 +482,7 @@
       "anchorVerseRef": {
         "surah": 69,
         "ayah": 19,
-        "arabic": "فَاَمَّا مَنْ اُو۫تِيَ كِتَابَهُ بِيَمِينِهِ فَيَقُولُ هٓاؤُ۬مُ اقْرَؤُ۫ا كِتَابِيَهْ",
+        "arabic": "فَاَمَّا مَنْ اُوتِيَ كِتَابَهُ بِيَمِينِهِ فَيَقُولُ هٓاؤُمُ اقْرَؤُا كِتَابِيَهْ",
         "surahName": "الحاقة",
         "surahNameEn": "The Reality"
       },
@@ -494,7 +494,7 @@
           "ayah": 25,
           "noteTr": "'Kitabı solundan verilen ise: Keşke kitabım bana verilmeseydi… der.'",
           "noteEn": "'Whoever is given his record in his left hand will say: Would that I had not been given my record…'",
-          "arabic": "وَاَمَّا مَنْ اُو۫تِيَ كِتَابَهُ بِشِمَالِهِ فَيَقُولُ يَا لَيْتَنِي لَمْ اُو۫تَ كِتَابِيَهْ",
+          "arabic": "وَاَمَّا مَنْ اُوتِيَ كِتَابَهُ بِشِمَالِهِ فَيَقُولُ يَا لَيْتَنِي لَمْ اُوتَ كِتَابِيَهْ",
           "surahName": "الحاقة",
           "surahNameEn": "The Reality"
         },
@@ -504,7 +504,7 @@
           "range": "7-12",
           "noteTr": "'Kitabı sağından verilen kolay bir hesapla hesaba çekilir… Kitabı arkasından verilen ise ölüm ister.'",
           "noteEn": "'Whoever is given his record in his right hand will have an easy reckoning… whoever is given it behind his back will call for destruction.'",
-          "arabic": "فَاَمَّا مَنْ اُو۫تِيَ كِتَابَهُ بِيَمِينِهِ",
+          "arabic": "فَاَمَّا مَنْ اُوتِيَ كِتَابَهُ بِيَمِينِهِ",
           "surahName": "الإنشقاق",
           "surahNameEn": "The Sundering"
         },
@@ -523,7 +523,7 @@
           "ayah": 49,
           "noteTr": "'Kitab konur; suçluları görürsün, içindekilerden çekinirler…'",
           "noteEn": "'The book is set forth; you see the guilty in fear of what is in it…'",
-          "arabic": "وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً اِلّٓا اَحْصٰيهَا وَوَجَدُوا مَا عَمِلُوا حَاضِراً وَلَا يَظْلِمُ رَبُّكَ اَحَداً۟",
+          "arabic": "وَوُضِعَ الْكِتَابُ فَتَرَى الْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَا وَيْلَتَنَا مَالِ هٰذَا الْكِتَابِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً اِلّٓا اَحْصٰيهَا وَوَجَدُوا مَا عَمِلُوا حَاضِراً وَلَا يَظْلِمُ رَبُّكَ اَحَداً",
           "surahName": "الكهف",
           "surahNameEn": "The Cave"
         }
@@ -592,7 +592,7 @@
           "range": "8-9",
           "noteTr": "'Tartı, o gün hakkın kendisidir. Kimin terazileri ağır gelirse, işte onlar felâha erenlerdir. Terazileri hafif gelenler ise…'",
           "noteEn": "'The weight on that day is the truth itself. Those whose scales are heavy are the successful; those whose scales are light…'",
-          "arabic": "وَالْوَزْنُ يَوْمَئِذٍ الْحَقُّ فَمَنْ ثَقُلَتْ مَوَازِينُهُ فَاُو۬لٰٓئِكَ هُمُ الْمُفْلِحُونَ",
+          "arabic": "وَالْوَزْنُ يَوْمَئِذٍ الْحَقُّ فَمَنْ ثَقُلَتْ مَوَازِينُهُ فَاُولٰٓئِكَ هُمُ الْمُفْلِحُونَ",
           "surahName": "الأعراف",
           "surahNameEn": "The Heights"
         },
@@ -689,7 +689,7 @@
           "ayah": 255,
           "noteTr": "'İzni olmadıkça O'nun katında kim şefâat edebilir?' — şefâatin izne bağlı olduğunun temel ilkesi (Âyet el-Kürsî).",
           "noteEn": "'Who can intercede with Him except by His permission?' — the foundational principle of intercession being conditional on permission (Āyat al-Kursī).",
-          "arabic": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُ۫دُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+          "arabic": "اَللّٰهُ لٓا اِلٰهَ اِلَّا هُوَ اَلْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهٓ اِلَّا بِاِذْنِهِ يَعْلَمُ مَا بَيْنَ اَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهٓ اِلَّا بِمَا شٓاءَ وَسِعَ كُرْسِيُّهُ السَّمٰوَاتِ وَالْاَرْضَ وَلَا يَؤُدُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ",
           "surahName": "البقرة",
           "surahNameEn": "The Cow"
         },
@@ -721,7 +721,7 @@
           "surahNameEn": "The Prophets"
         }
       ],
-      "narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez — Kevser sûresi 108:1'de sadece 'Kevser' (bol/hayır çokluğu) verilir. Havzın *fiziksel* betimi (beyaz süt gibi, gümüş kâseler, koku vs.) tamamen hadîs geleneğine aittir (Buhârî, Müslim'in 'Havz' bölümleri). Kur'an, Kevser'i *hediye* olarak takdim eder; havz olarak tefsir eden bir sahâbî yorumu (İbn Abbâs'a nispet edilen) klasik dönemde yaygınlaşmıştır.\n\n*Şefâat* ise Kur'an'da açık şekilde işlenir — ama çok sıkı bir çerçevede: (1) izne bağlıdır (Bakara 2:255, Yûnus 10:3); (2) râzı olunan kimseye yapılır (Enbiyâ 21:28); (3) Rahmân katında 'ahid edinmiş' olanlar için geçerlidir (Meryem 19:87). Bu üç şart Kur'an'ın şefâat anlayışının *çekirdeği*dir.",
+      "narrationTr": "*Havz-ı Kevser* (Kevser Havuzu) doğrudan Kur'an'da 'havz' kelimesiyle geçmez — Kevser sûresi 108:1'de sadece 'Kevser' (bol/hayır çokluğu) verilir. Havzın *fiziksel* betimi (sütten beyaz, misk kokusundan güzel, gümüş kâseler) tamamen hadîs geleneğine aittir (Buhârî'nin *Rikâk* kitabı, Müslim'in *Fedâil* kitabındaki 'Havz' bâbları). Kur'an, Kevser'i *hediye* olarak takdim eder; havz olarak tefsir eden bir sahâbî yorumu (İbn Abbâs'a nispet edilen) klasik dönemde yaygınlaşmıştır.\n\n*Şefâat* ise Kur'an'da açık şekilde işlenir — ama çok sıkı bir çerçevede: (1) izne bağlıdır (Bakara 2:255, Yûnus 10:3); (2) râzı olunan kimseye yapılır (Enbiyâ 21:28); (3) Rahmân katında 'ahid edinmiş' olanlar için geçerlidir (Meryem 19:87). Bu üç şart Kur'an'ın şefâat anlayışının *çekirdeği*dir.",
       "narrationEn": "*Ḥawḍ al-Kawthar* (the Basin of Kawthar) does not appear in the Qur'an by the word '*ḥawḍ*' — Sūrat al-Kawthar 108:1 gives only '*al-kawthar*' (abundance). The *physical* description of the basin (whiter than milk, silver cups, aromatic vessels) belongs entirely to the hadith tradition (the 'Ḥawḍ' chapters in Bukhārī and Muslim). The Qur'an presents *al-kawthar* as a *gift*; interpreting it as the basin is a Companion-attributed reading (traced to Ibn 'Abbās) that became widespread in the classical period.\n\n*Intercession* (*shafā'ah*) is treated openly in the Qur'an — but within tight limits: (1) it depends on permission (Baqarah 2:255, Yūnus 10:3); (2) it is for those with whom God is pleased (Anbiyā' 21:28); (3) it is available for those who have 'made a covenant' with the All-Merciful (Maryam 19:87). These three conditions are the *core* of the Qur'anic understanding of intercession.",
       "classicalTafsir": [
         {
@@ -746,7 +746,7 @@
       "criticalNote": {
         "titleTr": "Şefâat kapsamı — klasik ihtilâfın en kritik noktalarından biri",
         "titleEn": "Scope of intercession — one of the most critical classical disputes",
-        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) mütevâtir seviyesindedir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür — hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü bu 'va'd ve vaîd' (Allah'ın vaadi ve tehdidi) ilkesiyle çelişir. Ehl-i Sünnet ise cehennemden çıkarma şefâatini rivayetlerle savunur.\n\nBu tartışma *reddetme-kabul etme* değil, *kapsam* meselesidir. Kur'an'ın 'izne bağlı' çerçevesi her iki tarafın da hareket zeminidir.",
+        "bodyTr": "Ehl-i Sünnet (Eş'arî + Mâtürîdî çoğunluğu): Peygamber'in *şefâat-i uzmâ*'sı (büyük şefâat) *mütevâtir manevî* (anlam mütevâtiri) seviyesinde hadîslerle sabittir; ayrıca sâlihlerin, meleklerin, hafızların şefâati de mümkündür — hepsi *izinle*.\n\nMu'tezile: Şefâat *sadece derece yükseltmek için* kabul edilir; büyük günah işlemiş mü'minin cehennemden çıkarılması için kabul edilmez, çünkü bu 'va'd ve vaîd' (Allah'ın vaadi ve tehdidi) ilkesiyle çelişir. Ehl-i Sünnet ise cehennemden çıkarma şefâatini rivayetlerle savunur.\n\nBu tartışma *reddetme-kabul etme* değil, *kapsam* meselesidir. Kur'an'ın 'izne bağlı' çerçevesi her iki tarafın da hareket zeminidir.",
         "bodyEn": "Sunni orthodoxy: The Prophet's *shafā'ah al-'uẓmā* (Great Intercession) is at mutawātir level; the intercession of the righteous, angels, and memorizers of the Qur'an is also possible — all by *permission*.\n\nMu'tazila: Intercession is accepted *only for elevating ranks*; not for removing a major-sin-committing believer from Hell, since that conflicts with the principle of 'wa'd and wa'īd' (God's promise and threat). Sunnism defends the removing-from-Hell intercession through narrations.\n\nThis debate is one of *scope*, not of *acceptance versus rejection*. The Qur'an's 'by permission' frame is the ground on which both sides move."
       },
       "visualMotif": "Işıltılı beyaz-gümüşî bir havuz; kenarlarında gümüş kâseler dizisi; havuzdan yansıyan ışık üstünde asılı duruyor. Palet: kırık beyaz + gümüş + soft-gold accent.",
@@ -780,11 +780,10 @@
       "additionalRefs": [
         {
           "surah": 37,
-          "ayah": 23,
-          "range": "23-24",
-          "noteTr": "'…Onları durdurun, çünkü onlar sorguya çekileceklerdir.' — sırât üstünde bir *durdurma anı*nın klasik yorumu.",
-          "noteEn": "'…Detain them, for they are to be questioned.' — the classical reading of a *stopping moment* on the ṣirāṭ.",
-          "arabic": "مِنْ دُونِ اللّٰهِ فَاهْدُوهُمْ اِلٰى صِرَاطِ الْجَحِيمِ",
+          "ayah": 24,
+          "noteTr": "'Onları durdurun, çünkü onlar sorguya çekileceklerdir.' — sırât üstünde bir *durdurma anı*nın klasik yorumu.",
+          "noteEn": "'Detain them, for they are to be questioned.' — the classical reading of a *stopping moment* on the ṣirāṭ.",
+          "arabic": "وَقِفُوهُمْ اِنَّهُمْ مَسْؤُلُونَ",
           "surahName": "الصافات",
           "surahNameEn": "Those who set the Ranks"
         },
@@ -804,8 +803,8 @@
         {
           "source": "Râzî",
           "workRef": "Mefâtîh (Meryem 19:71)",
-          "noteTr": "'Vârid' (uğrayan) kelimesinin dilbilimsel analizi; kelime hem 'içine girmek' hem 'yanından geçmek' anlamına gelir. Râzî her iki okumayı da kabul eder — kâfirler için içine girme, mü'minler için yanından geçme.",
-          "noteEn": "Linguistic analysis of *wārid*; the word means both 'entering' and 'passing by.' Rāzī accepts both readings — entering for the unbelievers, passing by for the believers."
+          "noteTr": "'Vârid' (uğrayan) kelimesinin dilbilimsel analizi; Râzî bu iki anlamı (içine girmek / yanından geçmek) da serimler ve kelâmî sonuçlarını tartışır. Klasik gelenekte kâfirler için 'içine girme', mü'minler için 'yanından geçme' formülasyonu (Zemahşerî *el-Keşşâf*'ın da vurguladığı) yaygın kabuldür.",
+          "noteEn": "Linguistic analysis of *wārid*; Rāzī sets out both meanings (entering / passing by) and discusses their theological consequences. In the classical tradition, the formula of 'entering' for unbelievers and 'passing by' for believers (also emphasized by al-Zamakhsharī in *al-Kashshāf*) is widely accepted."
         },
         {
           "source": "Kurtubî",
@@ -881,7 +880,7 @@
           "range": "6-8",
           "noteTr": "Kâfirin ve mü'minin son yeri karşılaştırmalı kısa özet.",
           "noteEn": "A short comparative summary of the final abode of the unbeliever and the believer.",
-          "arabic": "اِنَّ الَّذِينَ كَفَرُوا مِنْ اَهْلِ الْـكِتَابِ وَالْمُشْرِكِينَ فِي نَارِ جَهَنَّمَ خَالِدِينَ فِيهَا  اُو۬لٰٓئِكَ هُمْ شَرُّ الْبَرِيَّةِ",
+          "arabic": "اِنَّ الَّذِينَ كَفَرُوا مِنْ اَهْلِ الْـكِتَابِ وَالْمُشْرِكِينَ فِي نَارِ جَهَنَّمَ خَالِدِينَ فِيهَا  اُولٰٓئِكَ هُمْ شَرُّ الْبَرِيَّةِ",
           "surahName": "البينة",
           "surahNameEn": "The Clear Proof"
         }
@@ -941,16 +940,16 @@
         {
           "surah": 10,
           "ayah": 26,
-          "noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' — klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim, Îmân 297).",
+          "noteTr": "'Güzel iş yapanlara el-hüsnâ (en güzel karşılık) ve ziyâde (fazlası) vardır.' — klasik Ehl-i Sünnet yorumunda *ziyâde* rü'yetullâhtır (Müslim'in *Kitâbu'l-Îmân*'ında Suheyb b. Sinân rivayetiyle sabit; Muhammed Fuâd Abdülbâkî neşri hadis no. 181).",
           "noteEn": "'For those who do good is the best reward and more (ziyādah).' — in classical Sunni reading, *ziyādah* is ru'yatullāh (Muslim, Īmān 297).",
-          "arabic": "لِلَّذِينَ اَحْسَنُوا الْحُسْنٰى وَزِيَادَةٌ وَلَا يَرْهَقُ وُجُوهَهُمْ قَتَرٌ وَلَا ذِلَّةٌ اُو۬لٰٓئِكَ اَصْحَابُ الْجَنَّةِ هُمْ فِيهَا خَالِدُونَ",
+          "arabic": "لِلَّذِينَ اَحْسَنُوا الْحُسْنٰى وَزِيَادَةٌ وَلَا يَرْهَقُ وُجُوهَهُمْ قَتَرٌ وَلَا ذِلَّةٌ اُولٰٓئِكَ اَصْحَابُ الْجَنَّةِ هُمْ فِيهَا خَالِدُونَ",
           "surahName": "يونس",
           "surahNameEn": "Jonah"
         },
         {
           "surah": 83,
           "ayah": 15,
-          "noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' — kâfirlerin rü'yetullâhtan mahrûm oluşu; *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır.",
+          "noteTr": "'Hayır, doğrusu onlar o gün Rablerinden perdelenirler.' — kâfirlerin rü'yetullâhtan mahrûm oluşu; Şafiî usûlüne göre *mefhûm-u muhâlefe* ile mü'minlerin görmesi çıkarılır. (Hanefî usûlü mefhûm-u muhâlefeyi delîl kabul etmez; Mu'tezile de bu çıkarımı reddeder — 'perdelenmeme' rahmet açılışı olarak okunur.)",
           "noteEn": "'No, indeed! On that day they will be veiled from their Lord.' — the unbelievers' deprivation; through *mafhūm al-mukhālafah* the believers' vision is inferred.",
           "arabic": "كَلّٓا اِنَّهُمْ عَنْ رَبِّهِمْ يَوْمَئِذٍ لَمَحْجُوبُونَ",
           "surahName": "المطففين",
@@ -961,7 +960,7 @@
           "ayah": 143,
           "noteTr": "Mûsâ'nın Rabb'i görme talebi ve 'len terânî' (beni göremezsin) cevabı — bu dünyada rü'yetin imkânsızlığının klasik delili; âhiret rü'yeti bu ayetin dışındadır (Sünnî yorum).",
           "noteEn": "Moses' request to see the Lord and the reply 'lan tarānī' (you will not see Me) — the classical proof of vision's impossibility in this world; the hereafter's vision is outside this verse's scope (Sunni reading).",
-          "arabic": "وَلَمَّا جٓاءَ مُوسٰى لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ اَرِنِٓي اَنْظُرْ اِلَيْكَ قَالَ لَنْ تَرٰينِي وَلٰكِنِ انْظُرْ اِلَى الْجَبَلِ فَاِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرٰينِي فَلَمَّا تَجَلّٰى رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكاًّ وَخَرَّ مُوسٰى صَعِقاً فَلَمّٓا اَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ اِلَيْكَ وَاَنَا۬ اَوَّلُ الْمُؤْمِنِينَ",
+          "arabic": "وَلَمَّا جٓاءَ مُوسٰى لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ اَرِنِٓي اَنْظُرْ اِلَيْكَ قَالَ لَنْ تَرٰينِي وَلٰكِنِ انْظُرْ اِلَى الْجَبَلِ فَاِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرٰينِي فَلَمَّا تَجَلّٰى رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكاًّ وَخَرَّ مُوسٰى صَعِقاً فَلَمّٓا اَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ اِلَيْكَ وَاَنَا اَوَّلُ الْمُؤْمِنِينَ",
           "surahName": "الأعراف",
           "surahNameEn": "The Heights"
         }

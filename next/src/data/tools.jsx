@@ -249,17 +249,9 @@ export const VIZ_TOOLS = [
     descLongEn:  "6,236 verses as points in a 3D space. Verses with similar meaning sit near each other. Click any verse to see its closest neighbors.",
     icon:        VerseGraphIcon,
   },
-  {
-    id:          'revelation-order',
-    event:       'openRevelationOrder',
-    titleTr:     'Nüzul Sırası',
-    titleEn:     'Revelation Order',
-    descTr:      '23 yıllık vahyin kronolojisi',
-    descEn:      'The chronology of 23 years of revelation',
-    descLongTr:  "114 sûre indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, sûrelerin geliş bağlamı ve ana teması — vahyin akışını zamanda izle.",
-    descLongEn:  "All 114 surahs in the chronological order they were revealed. Meccan and Medinan periods, the historical context and main theme of each — follow revelation through time.",
-    icon:        RevelationIcon,
-  },
+  // 2026-07-15 audit: Kelime Haritası (yapısal viz — kelime yoğunluk) Nüzul
+  // Sırası'nın (kronoloji viz) önüne alındı. Yapısal viz'ler (Ayet+Kelime)
+  // kümelenir, sonra kronoloji, sonra 3 tematik atlas.
   {
     id:          'word-heatmap',
     event:       'openHeatmap',
@@ -270,6 +262,17 @@ export const VIZ_TOOLS = [
     descLongTr:  "Bir kelime gir, Kur'an'ın hangi surelerinde, hangi yoğunlukta geçtiğini ısı haritası olarak gör. Kavramların coğrafyasını keşfet.",
     descLongEn:  "Type a word and see a heatmap of where it appears across the Quran's surahs and at what density. Discover the geography of every concept.",
     icon:        HeatmapIcon,
+  },
+  {
+    id:          'revelation-order',
+    event:       'openRevelationOrder',
+    titleTr:     'Nüzul Sırası',
+    titleEn:     'Revelation Order',
+    descTr:      '23 yıllık vahyin kronolojisi',
+    descEn:      'The chronology of 23 years of revelation',
+    descLongTr:  "114 sûre indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, sûrelerin geliş bağlamı ve ana teması — vahyin akışını zamanda izle.",
+    descLongEn:  "All 114 surahs in the chronological order they were revealed. Meccan and Medinan periods, the historical context and main theme of each — follow revelation through time.",
+    icon:        RevelationIcon,
   },
   {
     id:          'kissa-atlas',
@@ -382,8 +385,9 @@ export const ANALYSIS_TOOLS = [
   },
 ];
 
-// ── Araştırma & Keşif (4) ────────────────────────────────────────────────────
-// Order: Sebeb → Peygamberler → Emirler → Dua
+// ── Araştırma & Keşif (5) ────────────────────────────────────────────────────
+// Order: Sebeb (bağlam) → Peygamberler (persona-büyük) → Kadınlar (persona-özel)
+// → Emirler (buyruk) → Dua (dua). Persona grubu (2026-07-15 audit) birleştirildi.
 export const RESEARCH_TOOLS = [
   {
     id:          'sebeb-i-nuzul',
@@ -408,6 +412,17 @@ export const RESEARCH_TOOLS = [
     icon:        ProphetIcon,
   },
   {
+    id:          'kadinlar',
+    event:       'openKadinlarAtlasi',
+    titleTr:     "Kur'an'da Kadınlar",
+    titleEn:     'Women in the Quran',
+    descTr:      'Anılan, seçilen, ders olarak öne çıkan kadınlar',
+    descEn:      'Named, chosen, set forth as lessons',
+    descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Belkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",
+    descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife — each with verse references.",
+    icon:        KadinlarIcon,
+  },
+  {
     id:          'quran-commands',
     event:       'openSurahCommands',
     titleTr:     "Kur'an'ın Emirleri",
@@ -428,17 +443,6 @@ export const RESEARCH_TOOLS = [
     descLongTr:  "Kur'an'daki 77 dua — 11 kategoriye ayrılmış (af, aile, rızık, hidayet, sabır, sığınma, tevbe, sıkıntı, şükür, ilim, genel). Peygamberlerin yakarışları, müminlerin niyazları. Her dua bağlamı, kim tarafından edildiği ve klasik tefsir notu ile birlikte.",
     descLongEn:  '77 prayers from the Quran — organized into 11 categories (forgiveness, family, provision, guidance, patience, refuge, repentance, distress, gratitude, knowledge, general). Prophetic supplications and believer petitions. Each prayer with its context, who prayed it, and a classical tafsir note.',
     icon:        DuaIcon,
-  },
-  {
-    id:          'kadinlar',
-    event:       'openKadinlarAtlasi',
-    titleTr:     "Kur'an'da Kadınlar",
-    titleEn:     'Women in the Quran',
-    descTr:      'Anılan, seçilen, ders olarak öne çıkan kadınlar',
-    descEn:      'Named, chosen, set forth as lessons',
-    descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Belkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",
-    descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife — each with verse references.",
-    icon:        KadinlarIcon,
   },
 ];
 

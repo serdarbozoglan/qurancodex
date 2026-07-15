@@ -16,10 +16,10 @@
 // Content: /public/ahiret-yolculugu.json (build script §13.15 normalized)
 // ────────────────────────────────────────────────────────────────────────────
 
-import { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { COLORS, FONTS, GLASS_CARD, TEXT, VERSE_BLOCK } from '../tokens';
+import { COLORS, FONTS } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
@@ -149,15 +149,28 @@ export default function AhiretYolculugu({ onClose }) {
   const [isMobile, setIsMobile] = useState(false);
   const [openStage, setOpenStage] = useState(null);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const stageRefs = useRef({});
   const tr = language === 'tr';
+
+  // Global scroll progress (top bar)
+  const { scrollYProgress } = useScroll();
+  const progressX = useSpring(scrollYProgress, { stiffness: 130, damping: 26, mass: 0.4 });
 
   useEffect(() => {
     fetch('/ahiret-yolculugu.json').then(r => r.json()).then(setData);
     const check = () => setIsMobile(window.innerWidth < 640);
     check();
     window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    // Respect prefers-reduced-motion
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const onMotion = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.('change', onMotion);
+    return () => {
+      window.removeEventListener('resize', check);
+      mq.removeEventListener?.('change', onMotion);
+    };
   }, []);
 
   // Escape → close
@@ -205,7 +218,25 @@ export default function AhiretYolculugu({ onClose }) {
       minHeight: '100vh',
       color: COLORS.offWhite,
       paddingTop: '62px',
+      position: 'relative',
     }}>
+      {/* Top scroll progress bar */}
+      <motion.div
+        style={{
+          position: 'fixed',
+          top: 62,
+          left: 0,
+          right: 0,
+          height: 2,
+          background: `linear-gradient(90deg, ${COLORS.gold}, ${COLORS.gold}cc)`,
+          transformOrigin: '0% 50%',
+          scaleX: progressX,
+          zIndex: 50,
+          boxShadow: reducedMotion ? 'none' : `0 0 12px ${COLORS.gold}66`,
+          pointerEvents: 'none',
+        }}
+      />
+
       <ToolHeader
         icon={<AtlasIcon />}
         titleTr={data.meta.titleTr}
@@ -230,7 +261,13 @@ export default function AhiretYolculugu({ onClose }) {
       />
 
       {/* ── Cinematic Hero (§13.18) ─────────────────────────────────────── */}
-      <Hero meta={data.meta} isMobile={isMobile} tr={tr} />
+      <Hero
+        meta={data.meta}
+        firstStage={data.stages[0]}
+        isMobile={isMobile}
+        tr={tr}
+        reducedMotion={reducedMotion}
+      />
 
       {/* ── Body: timeline + sticky index rail ──────────────────────────── */}
       <div style={{
@@ -274,10 +311,12 @@ export default function AhiretYolculugu({ onClose }) {
                 stage={stage}
                 isOpen={openStage === stage.id}
                 onToggle={() => setOpenStage(openStage === stage.id ? null : stage.id)}
+                isActive={i === activeIdx}
                 isMobile={isMobile}
                 tr={tr}
                 language={language}
                 router={router}
+                reducedMotion={reducedMotion}
               />
             </div>
           ))}
@@ -306,136 +345,247 @@ export default function AhiretYolculugu({ onClose }) {
 }
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
-function Hero({ meta, isMobile, tr }) {
+// Deterministic particle positions (avoids SSR/CSR hydration mismatch)
+const PARTICLES = Array.from({ length: 22 }, (_, i) => {
+  const seed = (i * 9301 + 49297) % 233280;
+  const rand = seed / 233280;
+  const rand2 = ((i * 37 + 11) * 9301 + 49297) % 233280 / 233280;
+  const rand3 = ((i * 71 + 23) * 9301 + 49297) % 233280 / 233280;
+  return {
+    x: Math.round(rand * 100),          // %
+    y: Math.round(rand2 * 100),         // %
+    size: 1.5 + rand3 * 2.5,             // px
+    delay: rand * 6,                     // s
+    duration: 4 + rand2 * 5,             // s
+    opacity: 0.15 + rand3 * 0.35,        // final opacity
+  };
+});
+
+function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
+  const stagger = reducedMotion ? 0 : 0.12;
+  // Hero anchor: firstStage'in anchor verse'i (Kâf 50:19) — JSON'dan çekilir
+  // (build script §13.15 normalized). Hardcoded string YASAK (§13.15 + audit).
+  const anchor = firstStage?.anchorVerseRef || {};
+  const anchorArabic = anchor.arabic || '';
+  const anchorTr = firstStage?.anchorVerseTr || '';
+  const anchorEn = firstStage?.anchorVerseEn || '';
+  const anchorRef = anchor.surah && anchor.ayah ? `${anchor.surah}:${anchor.ayah}` : '';
+
+  const revealVariants = {
+    hidden: { opacity: 0, y: reducedMotion ? 0 : 24, filter: reducedMotion ? 'none' : 'blur(6px)' },
+    show:   { opacity: 1, y: 0, filter: 'blur(0px)' },
+  };
+
   return (
     <section style={{
-      padding: isMobile ? '48px 20px 40px' : '72px 40px 56px',
-      background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, transparent 100%)`,
+      padding: isMobile ? '56px 20px 44px' : '86px 40px 62px',
+      background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 65%)`,
       borderBottom: `1px solid ${COLORS.gold}18`,
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Subtle radial glow */}
+      {/* Ambient starfield */}
+      {!reducedMotion && (
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.85 }}>
+          {PARTICLES.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: [0, p.opacity, 0], scale: [0.6, 1, 0.6] }}
+              transition={{
+                duration: p.duration,
+                repeat: Infinity,
+                delay: p.delay,
+                ease: 'easeInOut',
+              }}
+              style={{
+                position: 'absolute',
+                left: `${p.x}%`,
+                top: `${p.y}%`,
+                width: p.size,
+                height: p.size,
+                borderRadius: '50%',
+                background: COLORS.gold,
+                boxShadow: `0 0 ${p.size * 4}px ${COLORS.gold}66`,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Layered radial glows */}
       <div style={{
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 600,
-        height: 300,
-        background: `radial-gradient(ellipse at center, ${COLORS.gold}12 0%, transparent 70%)`,
+        width: 760,
+        height: 380,
+        background: `radial-gradient(ellipse at center, ${COLORS.gold}18 0%, ${COLORS.gold}00 70%)`,
+        pointerEvents: 'none',
+        filter: 'blur(4px)',
+      }} />
+      <div style={{
+        position: 'absolute',
+        bottom: '-140px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: 900,
+        height: 240,
+        background: `radial-gradient(ellipse at center, ${COLORS.gold}0e 0%, transparent 70%)`,
         pointerEvents: 'none',
       }} />
 
-      <div style={{ position: 'relative', maxWidth: 780, margin: '0 auto' }}>
+      <motion.div
+        style={{ position: 'relative', maxWidth: 780, margin: '0 auto' }}
+        initial="hidden"
+        animate="show"
+        transition={{ staggerChildren: stagger, delayChildren: 0.05 }}
+      >
         {/* Bismillah ornament */}
-        <div style={{
-          fontFamily: "'Amiri Quran', serif",
-          fontSize: isMobile ? '1.4rem' : '1.7rem',
-          color: COLORS.gold,
-          opacity: 0.82,
-          marginBottom: 26,
-          direction: 'rtl',
-        }}>﷽</div>
+        <motion.div
+          variants={revealVariants}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.bismillah,
+            fontSize: isMobile ? '1.5rem' : '1.8rem',
+            color: COLORS.gold,
+            opacity: 0.85,
+            marginBottom: 28,
+            direction: 'rtl',
+            textShadow: `0 0 24px ${COLORS.gold}44`,
+          }}>﷽</motion.div>
 
-        {/* Anchor verse — Kâf 50:19 (aşama-1 anchor'ı) */}
-        <p dir="rtl" lang="ar" style={{
-          fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.3rem' : '1.65rem',
-          color: COLORS.gold,
-          lineHeight: 2.1,
-          margin: '0 0 18px',
-          letterSpacing: '0.01em',
-        }}>وَجَاءَتْ سَكْرَةُ الْمَوْتِ بِالْحَقِّ ذَٰلِكَ مَا كُنتَ مِنْهُ تَحِيدُ</p>
+        {/* Anchor verse — Kâf 50:19 (JSON'dan çekilir, §13.15 normalized) */}
+        {anchorArabic && (
+          <motion.p
+            variants={revealVariants}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            dir="rtl" lang="ar"
+            style={{
+              fontFamily: FONTS.quran,
+              fontSize: isMobile ? '1.35rem' : '1.75rem',
+              color: COLORS.gold,
+              lineHeight: 2.15,
+              margin: '0 0 20px',
+              textShadow: `0 0 32px ${COLORS.gold}22`,
+            }}>{anchorArabic}</motion.p>
+        )}
 
-        <p style={{
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          fontSize: isMobile ? '0.95rem' : '1.05rem',
-          color: COLORS.offWhite,
-          maxWidth: 660,
-          margin: '0 auto 12px',
-          lineHeight: 1.65,
-          opacity: 0.9,
-        }}>
-          {tr
-            ? '"Ölüm sarhoşluğu hakikatiyle geldi: İşte, senin ondan kaçındığın şey budur!"'
-            : '"The stupor of death will bring the Truth: This is what you were trying to escape."'}
-        </p>
+        <motion.p
+          variants={revealVariants}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '0.98rem' : '1.08rem',
+            color: COLORS.offWhite,
+            maxWidth: 660,
+            margin: '0 auto 12px',
+            lineHeight: 1.7,
+            opacity: 0.92,
+          }}>
+          {tr ? `“${anchorTr}”` : `“${anchorEn}”`}
+        </motion.p>
 
-        <p style={{
-          fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.7rem' : '0.75rem',
-          color: COLORS.silver,
-          opacity: 0.65,
-          letterSpacing: '0.16em',
-          textTransform: 'uppercase',
-          margin: '0 0 36px',
-        }}>— {tr ? 'Kâf 50:19' : 'Sūrat Qāf 50:19'}</p>
+        <motion.p
+          variants={revealVariants}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.body,
+            fontSize: isMobile ? '0.7rem' : '0.75rem',
+            color: COLORS.silver,
+            opacity: 0.65,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            margin: '0 0 40px',
+          }}>— {tr ? `Kâf ${anchorRef}` : `Sūrat Qāf ${anchorRef}`}</motion.p>
 
         {/* Framing whisper */}
-        <p style={{
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          fontSize: isMobile ? '0.98rem' : '1.1rem',
-          color: COLORS.silver,
-          maxWidth: 700,
-          margin: '0 auto 32px',
-          lineHeight: 1.75,
-          opacity: 0.88,
-        }}>{tr ? meta.framingTr : meta.framingEn}</p>
+        <motion.p
+          variants={revealVariants}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            fontSize: isMobile ? '1rem' : '1.12rem',
+            color: COLORS.silver,
+            maxWidth: 700,
+            margin: '0 auto 34px',
+            lineHeight: 1.8,
+            opacity: 0.9,
+          }}>{tr ? meta.framingTr : meta.framingEn}</motion.p>
 
-        {/* Filigree divider */}
-        <div style={{
-          width: 120,
-          height: 1,
-          margin: '0 auto 30px',
-          background: `linear-gradient(90deg, transparent, ${COLORS.gold}88, transparent)`,
-        }} />
+        {/* Filigree divider — grow-in */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: reducedMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            width: 120,
+            height: 1,
+            margin: '0 auto 32px',
+            background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)`,
+            transformOrigin: 'center',
+            boxShadow: `0 0 12px ${COLORS.gold}44`,
+          }}
+        />
 
         {/* Eyebrow */}
-        <p style={{
-          fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.65rem' : '0.72rem',
-          color: COLORS.gold,
-          opacity: 0.72,
-          letterSpacing: '0.3em',
-          textTransform: 'uppercase',
-          fontWeight: 700,
-          margin: '0 0 16px',
-        }}>{tr ? meta.eyebrowTr : meta.eyebrowEn}</p>
+        <motion.p
+          variants={revealVariants}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.body,
+            fontSize: isMobile ? '0.65rem' : '0.72rem',
+            color: COLORS.gold,
+            opacity: 0.78,
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            margin: '0 0 18px',
+          }}>{tr ? meta.eyebrowTr : meta.eyebrowEn}</motion.p>
 
         {/* H1 */}
-        <h1 style={{
-          fontFamily: FONTS.display,
-          color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
-          fontWeight: 700,
-          margin: '0 0 14px',
-          lineHeight: 1.15,
-        }}>{tr ? meta.titleTr : meta.titleEn}</h1>
+        <motion.h1
+          variants={revealVariants}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.display,
+            color: COLORS.offWhite,
+            fontSize: isMobile ? 'clamp(1.7rem, 7.5vw, 2.1rem)' : 'clamp(2.1rem, 3.8vw, 2.85rem)',
+            fontWeight: 700,
+            margin: '0 0 16px',
+            lineHeight: 1.12,
+            letterSpacing: '-0.01em',
+          }}>{tr ? meta.titleTr : meta.titleEn}</motion.h1>
 
         {/* Dramatic subtitle */}
-        <p style={{
-          fontFamily: FONTS.display,
-          fontStyle: 'italic',
-          color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(0.95rem, 3.2vw, 1.05rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
-          opacity: 0.92,
-          margin: 0,
-          lineHeight: 1.5,
-        }}>{tr ? meta.subtitleTr : meta.subtitleEn}</p>
-      </div>
+        <motion.p
+          variants={revealVariants}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            fontFamily: FONTS.display,
+            fontStyle: 'italic',
+            color: COLORS.gold,
+            fontSize: isMobile ? 'clamp(0.95rem, 3.2vw, 1.08rem)' : 'clamp(1.08rem, 1.85vw, 1.22rem)',
+            opacity: 0.95,
+            margin: 0,
+            lineHeight: 1.55,
+            letterSpacing: '0.005em',
+          }}>{tr ? meta.subtitleTr : meta.subtitleEn}</motion.p>
+      </motion.div>
     </section>
   );
 }
 
 // ─── Sticky Index Rail (desktop) ─────────────────────────────────────────────
 function IndexRail({ stages, activeIdx, onJump, tr }) {
+  const itemH = 34; // approx button height
   return (
     <nav style={{
-      width: 220,
+      width: 240,
       flexShrink: 0,
       position: 'sticky',
       top: 130,
@@ -445,103 +595,191 @@ function IndexRail({ stages, activeIdx, onJump, tr }) {
       <div style={{
         fontFamily: FONTS.body,
         fontSize: '0.62rem',
-        letterSpacing: '0.24em',
+        letterSpacing: '0.28em',
         textTransform: 'uppercase',
         color: COLORS.gold,
-        opacity: 0.7,
-        marginBottom: 14,
+        opacity: 0.75,
+        marginBottom: 18,
         fontWeight: 700,
       }}>{tr ? 'YOLCULUK' : 'THE JOURNEY'}</div>
 
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {stages.map((s, i) => {
-          const active = i === activeIdx;
-          return (
-            <li key={s.id}>
-              <button
-                onClick={() => onJump(s.id)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  width: '100%',
-                  padding: '7px 8px',
-                  background: active ? `${COLORS.gold}12` : 'transparent',
-                  border: 'none',
-                  borderLeft: `2px solid ${active ? COLORS.gold : 'transparent'}`,
-                  color: active ? COLORS.gold : COLORS.silver,
-                  fontFamily: FONTS.body,
-                  fontSize: '0.75rem',
-                  fontWeight: active ? 600 : 400,
-                  textAlign: 'left',
-                  cursor: 'pointer',
-                  transition: 'all 0.18s ease',
-                  opacity: active ? 1 : 0.7,
-                }}
-                onMouseEnter={(e) => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.offWhite; } }}
-                onMouseLeave={(e) => { if (!active) { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.color = COLORS.silver; } }}
-              >
-                <span style={{
-                  fontFamily: FONTS.body,
-                  fontSize: '0.65rem',
-                  fontWeight: 700,
-                  color: active ? COLORS.gold : COLORS.silver,
-                  opacity: active ? 0.7 : 0.4,
-                  minWidth: 16,
-                }}>{String(i + 1).padStart(2, '0')}</span>
-                <span style={{ flex: 1 }}>{tr ? s.titleTr.split(' — ')[0] : s.titleEn.split(' — ')[0]}</span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <div style={{ position: 'relative' }}>
+        {/* Vertical rail line */}
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          top: 6,
+          bottom: 6,
+          width: 1,
+          background: COLORS.goldAlpha15,
+        }} />
+        {/* Smooth active indicator */}
+        <motion.div
+          animate={{ top: 6 + activeIdx * itemH }}
+          transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+          style={{
+            position: 'absolute',
+            left: -1,
+            width: 3,
+            height: itemH - 6,
+            background: `linear-gradient(180deg, ${COLORS.gold}, ${COLORS.gold}bb)`,
+            borderRadius: 2,
+            boxShadow: `0 0 12px ${COLORS.gold}88`,
+          }}
+        />
+
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column' }}>
+          {stages.map((s, i) => {
+            const active = i === activeIdx;
+            return (
+              <li key={s.id} style={{ height: itemH }}>
+                <button
+                  onClick={() => onJump(s.id)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 12,
+                    width: '100%',
+                    height: '100%',
+                    padding: '0 8px 0 14px',
+                    background: 'transparent',
+                    border: 'none',
+                    color: active ? COLORS.gold : COLORS.silver,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.78rem',
+                    fontWeight: active ? 600 : 400,
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    transition: 'color 0.2s ease, opacity 0.2s ease',
+                    opacity: active ? 1 : 0.6,
+                  }}
+                  onMouseEnter={(e) => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.offWhite; } }}
+                  onMouseLeave={(e) => { if (!active) { e.currentTarget.style.opacity = '0.6'; e.currentTarget.style.color = COLORS.silver; } }}
+                >
+                  <span style={{
+                    fontFamily: FONTS.body,
+                    fontSize: '0.6rem',
+                    fontWeight: 700,
+                    color: active ? COLORS.gold : COLORS.silver,
+                    opacity: active ? 0.75 : 0.4,
+                    minWidth: 18,
+                    letterSpacing: '0.06em',
+                  }}>{String(i + 1).padStart(2, '0')}</span>
+                  <span style={{ flex: 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {tr ? s.titleTr.split(' — ')[0] : s.titleEn.split(' — ')[0]}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </nav>
   );
 }
 
 // ─── StageCard ───────────────────────────────────────────────────────────────
-function StageCard({ stage, isOpen, onToggle, isMobile, tr, language, router }) {
+function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, router, reducedMotion }) {
   const Icon = StageIcons[stage.iconKey] || StageIcons.sekerat;
   const isNew = stage.category === 'yeni-icerik';
+  const [hover, setHover] = useState(false);
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reducedMotion ? {} : { opacity: 0, y: 32, filter: 'blur(6px)' }}
+      whileInView={reducedMotion ? {} : { opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'relative',
-        paddingLeft: isMobile ? 44 : 60,
+        paddingLeft: isMobile ? 46 : 66,
       }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      {/* Timeline node marker */}
+      {/* Timeline node marker + pulse glow */}
       <div style={{
         position: 'absolute',
         left: isMobile ? 4 : 10,
         top: 8,
-        width: isMobile ? 22 : 24,
-        height: isMobile ? 22 : 24,
-        borderRadius: '50%',
-        background: COLORS.cosmicBlack,
-        border: `1.5px solid ${COLORS.gold}`,
-        display: 'grid',
-        placeItems: 'center',
-        color: COLORS.gold,
-        boxShadow: `0 0 0 4px ${COLORS.cosmicBlack}, 0 0 20px ${COLORS.gold}33`,
+        width: isMobile ? 24 : 26,
+        height: isMobile ? 24 : 26,
         zIndex: 2,
       }}>
-        <span style={{ fontFamily: FONTS.body, fontSize: '0.62rem', fontWeight: 700 }}>{stage.index}</span>
+        {/* Pulse ring — active state only */}
+        {isActive && !reducedMotion && (
+          <motion.div
+            initial={{ scale: 1, opacity: 0.55 }}
+            animate={{ scale: [1, 2.2, 1], opacity: [0.55, 0, 0.55] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '50%',
+              background: `radial-gradient(circle, ${COLORS.gold}55 0%, transparent 70%)`,
+              pointerEvents: 'none',
+            }}
+          />
+        )}
+        <div style={{
+          width: '100%',
+          height: '100%',
+          borderRadius: '50%',
+          background: isActive ? COLORS.gold : COLORS.cosmicBlack,
+          border: `1.5px solid ${COLORS.gold}`,
+          display: 'grid',
+          placeItems: 'center',
+          color: isActive ? COLORS.cosmicBlack : COLORS.gold,
+          boxShadow: isActive
+            ? `0 0 0 4px ${COLORS.cosmicBlack}, 0 0 28px ${COLORS.gold}99, 0 0 60px ${COLORS.gold}44`
+            : `0 0 0 4px ${COLORS.cosmicBlack}, 0 0 16px ${COLORS.gold}33`,
+          transition: 'all 0.35s ease',
+          position: 'relative',
+          zIndex: 1,
+        }}>
+          <span style={{ fontFamily: FONTS.body, fontSize: '0.62rem', fontWeight: 700 }}>{stage.index}</span>
+        </div>
       </div>
+
+      {/* Large decorative chapter number (background) — desktop only */}
+      {!isMobile && (
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            right: 20,
+            top: 4,
+            fontFamily: FONTS.display,
+            fontSize: '4.2rem',
+            fontWeight: 900,
+            color: COLORS.gold,
+            opacity: hover || isOpen ? 0.09 : 0.045,
+            lineHeight: 1,
+            pointerEvents: 'none',
+            transition: 'opacity 0.35s ease',
+            letterSpacing: '-0.02em',
+            userSelect: 'none',
+          }}
+        >
+          {String(stage.index).padStart(2, '0')}
+        </div>
+      )}
 
       {/* Card */}
       <div style={{
-        background: 'rgba(255,255,255,0.025)',
-        backdropFilter: 'blur(12px)',
-        border: `1px solid ${isOpen ? `${COLORS.gold}44` : 'rgba(255,255,255,0.08)'}`,
+        background: isOpen
+          ? `linear-gradient(135deg, ${COLORS.glassBg}, ${COLORS.goldAlpha04})`
+          : (hover ? COLORS.glassBg : COLORS.glassBgFaint),
+        backdropFilter: 'blur(14px)',
+        border: `1px solid ${isOpen ? `${COLORS.gold}55` : (hover ? `${COLORS.gold}30` : COLORS.glassBorderSoft)}`,
         borderRadius: 14,
         padding: isMobile ? '18px 18px' : '24px 28px',
-        transition: 'border-color 0.25s, background 0.25s',
+        transition: 'border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
+        transform: hover && !isOpen ? 'translateY(-2px)' : 'translateY(0)',
+        boxShadow: isOpen
+          ? `0 8px 40px -12px ${COLORS.gold}33`
+          : (hover ? `0 6px 22px -10px ${COLORS.gold}22` : 'none'),
+        position: 'relative',
       }}>
         {/* Header */}
         <button
@@ -723,7 +961,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
             {stage.classicalTafsir.map((t, i) => (
               <div key={i} style={{
                 padding: '12px 14px',
-                background: 'rgba(255,255,255,0.02)',
+                background: COLORS.glassBgFaint,
                 borderLeft: `2px solid ${COLORS.gold}55`,
                 borderRadius: '0 6px 6px 0',
               }}>
@@ -755,7 +993,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
         <div style={{
           marginBottom: 22,
           padding: '10px 14px',
-          background: 'rgba(212,165,116,0.04)',
+          background: COLORS.goldAlpha04,
           border: `1px dashed ${COLORS.gold}33`,
           borderRadius: 6,
           fontFamily: FONTS.body,
@@ -794,8 +1032,8 @@ function StageBody({ stage, isMobile, tr, language, router }) {
                   justifyContent: 'space-between',
                   gap: 10,
                   padding: '11px 14px',
-                  background: cl.primary ? `${COLORS.gold}12` : 'rgba(255,255,255,0.03)',
-                  border: cl.primary ? `1px solid ${COLORS.gold}55` : `1px solid rgba(255,255,255,0.08)`,
+                  background: cl.primary ? `${COLORS.gold}1f` : COLORS.glassBgFaint,
+                  border: cl.primary ? `1px solid ${COLORS.gold}55` : `1px solid ${COLORS.glassBorderSoft}`,
                   borderRadius: 8,
                   color: cl.primary ? COLORS.gold : COLORS.offWhite,
                   fontFamily: FONTS.body,
@@ -806,11 +1044,11 @@ function StageBody({ stage, isMobile, tr, language, router }) {
                   transition: 'all 0.18s',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}22` : 'rgba(255,255,255,0.06)';
+                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}33` : COLORS.glassBg;
                   e.currentTarget.style.transform = 'translateX(2px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}12` : 'rgba(255,255,255,0.03)';
+                  e.currentTarget.style.background = cl.primary ? `${COLORS.gold}1f` : COLORS.glassBgFaint;
                   e.currentTarget.style.transform = 'translateX(0)';
                 }}
               >
@@ -830,8 +1068,8 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
   return (
     <div style={{
       padding: isMobile ? '18px 16px' : '22px 24px',
-      background: isAnchor ? `linear-gradient(135deg, ${COLORS.gold}10, ${COLORS.gold}04)` : 'rgba(255,255,255,0.03)',
-      border: `1px solid ${isAnchor ? COLORS.gold + '44' : 'rgba(255,255,255,0.08)'}`,
+      background: isAnchor ? `linear-gradient(135deg, ${COLORS.gold}10, ${COLORS.gold}04)` : COLORS.glassBgFaint,
+      border: `1px solid ${isAnchor ? COLORS.gold + '44' : COLORS.glassBorderSoft}`,
       borderRadius: 10,
       textAlign: 'center',
     }}>
@@ -842,7 +1080,6 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 0 14px',
-          letterSpacing: '0.01em',
         }}>{arabic}</p>
       )}
       {translation && (
@@ -880,8 +1117,8 @@ function MiniRef({ ref_, isMobile, tr }) {
   return (
     <div style={{
       padding: isMobile ? '12px 14px' : '14px 16px',
-      background: 'rgba(255,255,255,0.03)',
-      border: `1px solid rgba(255,255,255,0.08)`,
+      background: COLORS.glassBgFaint,
+      border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: 8,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
@@ -932,9 +1169,9 @@ function CriticalNoteBlock({ note, isMobile, tr }) {
     <div style={{
       marginBottom: 22,
       padding: isMobile ? '16px 18px' : '20px 22px',
-      background: 'rgba(52, 152, 219, 0.06)',
-      border: `1px solid rgba(52, 152, 219, 0.3)`,
-      borderLeft: `3px solid #3498db`,
+      background: COLORS.skyBlueAlpha06,
+      border: `1px solid ${COLORS.skyBlueAlpha30}`,
+      borderLeft: `3px solid ${COLORS.skyBlue}`,
       borderRadius: 8,
     }}>
       <div style={{
@@ -943,7 +1180,7 @@ function CriticalNoteBlock({ note, isMobile, tr }) {
         gap: 8,
         marginBottom: 10,
       }}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3498db" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.skyBlue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="8" x2="12" y2="12" />
           <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -954,7 +1191,7 @@ function CriticalNoteBlock({ note, isMobile, tr }) {
           fontWeight: 700,
           letterSpacing: '0.14em',
           textTransform: 'uppercase',
-          color: '#3498db',
+          color: COLORS.skyBlue,
         }}>{tr ? note.titleTr : note.titleEn}</span>
       </div>
       <div style={{

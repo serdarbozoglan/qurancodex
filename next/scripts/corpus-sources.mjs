@@ -495,6 +495,48 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Ahiret Yolculuğu Atlası — 11 kronolojik aşama (2026-07-15)
+  // Her aşama full chunk: title + narration (TR/EN) + anchor verse + additional
+  // refs + classical tafsir + critical note. RAG Concierge /sor query'lerine
+  // ("kabir azabı", "sırât", "mîzân", "berzah", "rü'yetullâh") direkt cevap için.
+  // Kural (CLAUDE.md §13.22): Her yeni içerik JSON'u corpus'a MUTLAK eklenmelidir.
+  {
+    type: 'atlas-ahiret-yolculugu-stage',
+    file: 'public/ahiret-yolculugu.json',
+    extract: (data) => data.stages || [],
+    buildItem: (stage) => {
+      const anchor = stage.anchorVerseRef || {};
+      const anchorRef = anchor.surah && anchor.ayah ? `${anchor.surah}:${anchor.ayah}` : '';
+      const additionalRefs = (stage.additionalRefs || [])
+        .map(r => `${r.surah}:${r.ayah}${r.noteTr ? ` (${r.noteTr})` : ''}`)
+        .join(' | ');
+      const tafsirTr = (stage.classicalTafsir || [])
+        .map(t => `${t.source}: ${t.noteTr}`)
+        .join(' | ');
+      const tafsirEn = (stage.classicalTafsir || [])
+        .map(t => `${t.source}: ${t.noteEn}`)
+        .join(' | ');
+      const criticalTr = stage.criticalNote ? `${stage.criticalNote.titleTr}: ${stage.criticalNote.bodyTr}` : '';
+      const criticalEn = stage.criticalNote ? `${stage.criticalNote.titleEn}: ${stage.criticalNote.bodyEn}` : '';
+      return {
+        id: `atlas-ahiret-yolculugu:${stage.id}`,
+        type: 'atlas-ahiret-yolculugu-stage',
+        subId: stage.id,
+        stageIndex: stage.index,
+        arabicTerm: stage.arabicTerm,
+        titleTr: stage.titleTr,
+        titleEn: stage.titleEn,
+        anchorSurah: anchor.surah || null,
+        anchorAyah: anchor.ayah || null,
+        arabic: anchor.arabic || '',
+        descTr: (stage.descTr || '').slice(0, 200),
+        descEn: (stage.descEn || '').slice(0, 200),
+        searchTextTr: `Ahiret yolculuğu aşama ${stage.index}: ${stage.titleTr} (${stage.arabicTerm}). ${stage.descTr || ''}. ${stage.narrationTr || ''} Anchor ayet ${anchorRef}: ${stage.anchorVerseTr || ''}. İlave ayetler: ${additionalRefs}. Klasik tefsir: ${tafsirTr}. ${criticalTr}`.slice(0, 5000),
+        searchTextEn: `Afterlife journey stage ${stage.index}: ${stage.titleEn} (${stage.arabicTerm}). ${stage.descEn || ''}. ${stage.narrationEn || ''} Anchor verse ${anchorRef}: ${stage.anchorVerseEn || ''}. Additional verses: ${additionalRefs}. Classical tafsir: ${tafsirEn}. ${criticalEn}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Pericope (Ruku) — Faz 2c-E: konu bütünlüğü olan ayet blokları (~556)
   // Al Quran Cloud API'sinden alınan klasik ruku baseline'ı. Her ruku ortalama
   // 11 ayet (min 1, max 53). Ayet chunk'a paralel — spesifik ayet için değil,
@@ -663,6 +705,7 @@ export const TOOL_CATALOG = [
   { route: '/arac/bilimsel-isaretler', titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Demir, genişleyen evren, deniz bariyeri, embriyoloji ayetleri.', descEn: 'Iron, expanding universe, ocean barrier, embryology verses.', keywords: ['bilim', 'demir', 'evren', 'embriyo', 'deniz'] },
   { route: '/arac/mukattaa', titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt Letters', descTr: '14 mukattaa harfi, 29 sûre açılışı, dilsel şifre.', descEn: '14 mukattaʿāt letters, 29 sura openings, linguistic cipher.', keywords: ['mukattaa', 'huruf', 'sifre', 'harfler'] },
   { route: '/arac/kiyamet', titleTr: 'Kıyâmet Sahneleri', titleEn: 'Judgment Day Scenes', descTr: 'Ölüm sonrası, berzah, hesap günü, cennet, cehennem.', descEn: 'After death, barzakh, day of reckoning, heaven, hell.', keywords: ['kiyamet', 'olum', 'ahiret', 'berzah', 'hesap'] },
+  { route: '/atlas/ahiret-yolculugu', titleTr: 'Âhiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü\'yetullâh — 11 kronolojik aşama + klasik tefsir çeşitliliği.', descEn: 'Sakarat, barzakh, trumpet, gathering, scales, basin-intercession, bridge, heaven-hell, vision of God — 11 chronological stages with classical tafsir plurality.', keywords: ['ahiret', 'sekerat', 'berzah', 'kabir', 'mahser', 'mizan', 'havz', 'sefaat', 'sirat', 'ruyetullah', 'olum', 'diriliş', 'nefha', 'eskatoloji'] },
   { route: '/arac/cennet-cehennem', titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Cennet ve cehennem tasvirleri, sahneler, kavramsal harita.', descEn: 'Descriptions of paradise and hell, scenes, conceptual map.', keywords: ['cennet', 'cehennem', 'firdevs', 'cahim'] },
   { route: '/arac/melekler', titleTr: 'Melekler', titleEn: 'Angels', descTr: 'Cebrail, Mikail, İsrafil, Azrail, hafaza melekleri.', descEn: 'Gabriel, Michael, Israfil, Azrael, guardian angels.', keywords: ['melek', 'cebrail', 'mikail', 'israfil', 'azrail'] },
   { route: '/arac/iblis-seytan', titleTr: 'İblis & Şeytan', titleEn: 'Iblis & Satan', descTr: 'İblis\'in düşüşü, vesvese kanalları, klasik tipoloji.', descEn: 'Fall of Iblis, whisper channels, classical typology.', keywords: ['iblis', 'seytan', 'vesvese', 'nifak'] },

@@ -971,22 +971,11 @@ export default function Navbar() {
                         {/* Featured banner — İbadetlerin Kur'ânî Mimarisi */}
                         {ibadetlerBanner}
 
-                        {/* Önerilen Yollar banner */}
-                        <div
-                          style={{
-                            padding: '10px 12px',
-                            background: 'rgba(201, 162, 39, 0.05)',
-                            borderBottom: '1px solid rgba(201, 162, 39, 0.15)',
-                            borderRadius: 0,
-                          }}
-                        >
-                          <div style={{ ...colLabel, padding: '0 4px 6px' }}>
-                            {language === 'tr' ? 'Önerilen Yollar' : 'Curated Paths'}
-                          </div>
-                          <div style={{ display: 'flex', gap: '4px' }}>
-                            {PATHS.map(pathBtn)}
-                          </div>
-                        </div>
+                        {/* Önerilen Yollar banner KALDIRILDI (2026-07-15 UX audit):
+                            4 chip = 4 column visual illusion → kullanıcı chip'leri
+                            column header sanıyordu. Anasayfa PathCards ile örtüşme.
+                            PATHS + pathBtn tanımları kod içinde kalır (mobile
+                            drawer'da veya gelecek revizyonda tekrar kullanılabilir). */}
 
                         {/* 4-column mega-menu driven by EXPLORE_CATEGORIES */}
                         <div style={{ display: 'flex' }}>

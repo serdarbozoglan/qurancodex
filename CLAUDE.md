@@ -831,6 +831,101 @@ Sayfa sonunda (CrossToolCTA üstünde veya altında). Pages: Münâfık, Nefs, �
 
 ---
 
+### 13.22 Yeni İçerik → RAG Corpus + Embedding — MUTLAK PIPELINE (2026-07-15+)
+
+**Her yeni content JSON (`next/public/*.json`) veya yeni tool route eklendiğinde RAG Concierge corpus'una registration + embedding rebuild MUTLAKA yapılmalıdır. Aksi halde `/sor` (Concierge) yeni içerikten haberdar olmaz, arama sonuçlarında görünmez.**
+
+Bu kural istisnasızdır — yeni bir Atlas, arac, article, kavram data'sı eklendiğinde sıra:
+
+#### Adım 1 — `next/scripts/corpus-sources.mjs` düzenle
+
+**A) CONTENT_SOURCES array'ine yeni source ekle:**
+
+```js
+{
+  type: 'atlas-<isim>-<alt-tur>',  // örn. atlas-ahiret-yolculugu-stage
+  file: 'public/<yeni-dosya>.json',
+  extract: (data) => data.<items-key> || [],  // JSON root'ta items key
+  buildItem: (item) => ({
+    id: `atlas-<isim>:${item.id}`,
+    type: 'atlas-<isim>-<alt-tur>',
+    subId: item.id,
+    titleTr: item.titleTr || '',
+    titleEn: item.titleEn || '',
+    descTr: (item.descTr || '').slice(0, 200),
+    descEn: (item.descEn || '').slice(0, 200),
+    // KRİTİK: searchTextTr/En Concierge'in embedding'te aradığı ana metin.
+    // Zengin olmalı: title + description + narration + anchor verse + tafsir
+    // + critical note. slice(0, 5000) — 1 chunk maksimum.
+    searchTextTr: `${item.titleTr}. ${item.descTr}. ${item.narrationTr || ''} ...`.slice(0, 5000),
+    searchTextEn: `${item.titleEn}. ${item.descEn}. ${item.narrationEn || ''} ...`.slice(0, 5000),
+  }),
+},
+```
+
+**B) TOOL_CATALOG array'ine tool route entry ekle:**
+
+```js
+{
+  route: '/atlas/<yeni-route>',
+  titleTr: '<İsim>',
+  titleEn: '<Name>',
+  descTr: '<Kısa açıklama Türkçe>',
+  descEn: '<Short description English>',
+  keywords: ['anahtar', 'kelimeler', 'kullanıcı-arayacağı-terimler']
+},
+```
+
+#### Adım 2 — Corpus rebuild
+
+```bash
+cd next && npm run embed:corpus
+```
+
+Çıktıda yeni tipin count'unu doğrula:
+```
+   ✓ atlas-<isim>-<alt-tur>  →     N items
+```
+
+#### Adım 3 — Embedding rebuild (INCREMENTAL — sadece yeni item'lar)
+
+```bash
+node scripts/build-embeddings.mjs
+```
+
+Log'da doğrula:
+- `New/changed: N` — sadece yeni item sayısı (mevcut değil).
+- `Reused ~12495 existing embeddings` — mevcut hash'ler dokunulmadı.
+- `Estimated cost: $0.00XX` — trivial (yeni item × ~1000 token × $0.010/1M).
+
+**Hash-based incremental** — `corpus-manifest.json` (SHA256 hash tracking) sayesinde mevcut ayet + tefsir + atlas embed'leri **hiç re-run olmaz**. Yalnızca yeni + değişen item'lar API'ye gider.
+
+#### Adım 4 — Vercel size verify
+
+```bash
+wc -c next/src/lib/corpus-embeddings.json | awk '{printf "%.1f MB\n", $1/1024/1024}'
+```
+
+**Vercel function limit: 250 MB uncompressed.** Şu an ~196 MB (54 MB marj). Corpus 240 MB'a ulaşırsa `strip-meal-vectors.mjs` gibi optimizasyon script'i devreye alınmalı.
+
+#### Adım 5 — Deploy sonrası verify
+
+Prod'da `/tr/sor` üzerinden yeni içerikle ilgili bir query yaz — sonuçta görünmeli.
+
+#### Neden Zorunlu
+
+- Concierge (`/sor`) sadece embed edilmiş chunk'ları arar. Corpus'a eklenmeyen içerik "yok" gibidir.
+- Kullanıcı yeni tool'u menü'de görüp içeriği okuyabilir, ama Concierge'e "sekerât nedir?" sorduğunda cevap gelmez → **kırık deneyim**.
+- Sitenin RAG mimarisi (bkz. `docs/rag-architecture.html`) bu single source of truth prensibine dayanır.
+
+#### Bilinen İstisnalar (Yok)
+
+**Her yeni content JSON bu pipeline'a dahil edilir.** İstisna: sadece componentte hardcoded UI metinleri (menü label, footer) — bunlar Concierge kapsamında değil zaten.
+
+**Kural ihlali sonucu:** Geçmişte esma-frekans veya doga atlas eklendiğinde bu pipeline atlanırsa `/sor` "esma nedir?" sorusuna klasik ayet sonuçları döner, tool sayfası link'i vermez. Kullanıcı deneyimi kaybı yaşanır. Bu kural 2026-07-15'te Ahiret Yolculuğu eklendikten sonra explicit yazıldı (kullanıcı hatırlatması).
+
+---
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

@@ -62473,5 +62473,65 @@
     "hash": "ff78edc98f7b96ca",
     "embeddedAt": "2026-07-14T13:15:36.470Z",
     "type": "pericope"
+  },
+  "atlas-ahiret-yolculugu:sekerat": {
+    "hash": "05dd12d25b25c31f",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:berzah-kabir": {
+    "hash": "6cd176cfa1a0529d",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:sur-birinci-nefha": {
+    "hash": "3f6468c2bcc9dc97",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:dirilis-bas": {
+    "hash": "6f3c4081800594fb",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:mahser": {
+    "hash": "bbc00ae6568bccff",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:amel-defteri": {
+    "hash": "cd7dcf797065f52a",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:mizan-hesap": {
+    "hash": "ab1016515184b309",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:havz-sefaat": {
+    "hash": "1120e96a1a6aa9e5",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:sirat": {
+    "hash": "a3164700940a5542",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:cennet-cehennem-son": {
+    "hash": "ed760aa5c0bb4e8d",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "atlas-ahiret-yolculugu:ruyetullah": {
+    "hash": "9c7dcd7fd07017bf",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "atlas-ahiret-yolculugu-stage"
+  },
+  "tool:/atlas/ahiret-yolculugu": {
+    "hash": "9268f4a37c77570d",
+    "embeddedAt": "2026-07-15T05:05:23.964Z",
+    "type": "tool"
   }
 }
