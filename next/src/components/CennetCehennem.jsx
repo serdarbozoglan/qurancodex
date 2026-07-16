@@ -6,6 +6,7 @@ import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens'
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Color system ──────────────────────────────────────────────────────────────
@@ -487,7 +488,7 @@ function TabIsimler({ data, language, isMobile }) {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {cennetIsimleri.map(item => (
-              <IsimCard key={item.id} item={item} language={language} color={CENNET.accent} bg={CENNET.bg} border={CENNET.border} />
+              <IsimCard key={item.id} item={item} language={language} color={CENNET.accent} bg={CENNET.bg} border={CENNET.border} kind="cennet" />
             ))}
           </div>
         </div>
@@ -506,7 +507,7 @@ function TabIsimler({ data, language, isMobile }) {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {cehennemIsimleri.map(item => (
-              <IsimCard key={item.id} item={item} language={language} color={CEHENNEM.accent} bg={CEHENNEM.bg} border={CEHENNEM.border} />
+              <IsimCard key={item.id} item={item} language={language} color={CEHENNEM.accent} bg={CEHENNEM.bg} border={CEHENNEM.border} kind="cehennem" />
             ))}
           </div>
         </div>
@@ -515,7 +516,7 @@ function TabIsimler({ data, language, isMobile }) {
   );
 }
 
-function IsimCard({ item, language, color, bg, border }) {
+function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
   const tr = language === 'tr';
   return (
     <div style={{
@@ -523,7 +524,24 @@ function IsimCard({ item, language, color, bg, border }) {
       border: `1px solid ${border}`,
       borderRadius: RADIUS.chip,
       padding: '14px 16px',
+      position: 'relative',
     }}>
+      {/* #199 (2026-07-16) — Bookmark this name */}
+      <div style={{ position: 'absolute', top: 10, right: 10 }}>
+        <BookmarkButton
+          item={{
+            id: `${kind}-name:${item.id}`,
+            type: kind === 'cennet' ? 'cennet-name' : 'cehennem-name',
+            title: tr ? item.nameTr : item.nameEn,
+            subtitle: tr ? item.meaningTr : item.meaningEn,
+            description: (tr ? item.notTr : item.notEn) || (tr ? item.kaynak : item.kaynakEn) || '',
+            url: `/${language}/arac/cennet-cehennem`,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
+
       {/* Arabic name */}
       <p style={{
         fontFamily: FONTS.quran,
@@ -531,6 +549,7 @@ function IsimCard({ item, language, color, bg, border }) {
         color: GOLD,
         textAlign: 'right', direction: 'rtl', lang: 'ar',
         margin: '0 0 6px',
+        paddingRight: '32px',
       }}>
         {item.nameAr}
       </p>

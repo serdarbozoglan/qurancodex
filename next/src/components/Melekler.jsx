@@ -7,6 +7,7 @@ import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens'
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 
 // ── Category mode-icons (24×24, line-art, currentColor) ──────────────────────
@@ -417,7 +418,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       display: 'flex', flexDirection: 'column', gap: '10px',
       opacity: isHadithOnly ? 0.75 : 1,
     }}>
-      {/* Top row: category mode-icon + Arabic + mention count */}
+      {/* Top row: category mode-icon + Arabic + mention count + bookmark */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
         {/* Mode-icon — kategori kimliği (2026-07-10 Dalga 3 · Madde 1) */}
         {cat.icon && (
@@ -449,6 +450,19 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
             {angel.mentionCount}×
           </span>
         )}
+        {/* #199 (2026-07-16) — Bookmark this angel */}
+        <BookmarkButton
+          item={{
+            id: `angel:${angel.id || angel.nameEn || angel.nameTr}`,
+            type: 'angel',
+            title: tr ? angel.nameTr : angel.nameEn,
+            subtitle: tr ? cat.labelTr : cat.labelEn,
+            description: (tr ? angel.summaryTr : angel.summaryEn || '').slice(0, 240),
+            url: `/${language}/arac/melekler`,
+          }}
+          size="sm"
+          language={language}
+        />
       </div>
 
       {/* Names + badges */}

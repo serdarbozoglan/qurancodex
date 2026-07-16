@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -827,14 +828,29 @@ function OathCard({ item, accent, language, compact = false }) {
         }} dir="rtl" lang="ar">
           {item.arabic}
         </div>
-        {/* Translation + ref */}
+        {/* Translation + ref + bookmark */}
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
           <span style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.5, flex: 1 }}>
             {language === 'tr' ? item.tr : item.en}
           </span>
-          <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, flexShrink: 0, paddingTop: '2px' }}>
-            {item.ref}
-          </span>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', flexShrink: 0 }}>
+            <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, paddingTop: '2px' }}>
+              {item.ref}
+            </span>
+            {/* #199 (2026-07-16) — Bookmark this oath */}
+            <BookmarkButton
+              item={{
+                id: `yemin:${item.id}`,
+                type: 'yemin',
+                title: language === 'tr' ? (item.subjectTr || item.tr?.slice(0, 60)) : (item.subjectEn || item.en?.slice(0, 60)),
+                subtitle: item.ref,
+                description: (language === 'tr' ? item.tr : item.en) || '',
+                url: `/${language}/arac/yeminler`,
+              }}
+              size="sm"
+              language={language}
+            />
+          </div>
         </div>
 
         {!compact && (

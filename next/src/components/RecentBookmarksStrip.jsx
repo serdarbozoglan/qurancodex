@@ -29,6 +29,10 @@ const TYPE_LABELS = {
   'atlas-kadin':                    { tr: 'Kadın',          en: 'Woman',            icon: '☙' },
   'atlas-kavim':                    { tr: 'Kavim',          en: 'Nation',           icon: '⚑' },
   'atlas-mesel':                    { tr: 'Mesel',          en: 'Parable',          icon: '❈' },
+  'angel':                          { tr: 'Melek',          en: 'Angel',            icon: '☽' },
+  'cennet-name':                    { tr: 'Cennet',         en: 'Paradise',         icon: '❀' },
+  'cehennem-name':                  { tr: 'Cehennem',       en: 'Hell',             icon: '☒' },
+  'yemin':                          { tr: 'Yemin',          en: 'Oath',             icon: '⚝' },
 };
 
 function typeMeta(type, tr) {
