@@ -6,6 +6,7 @@ import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -989,7 +990,7 @@ function WowCard({ fact, language, onClose }) {
         transition: 'background 0.2s, border-color 0.2s',
       }}
     >
-      {/* Top row: badge + reference */}
+      {/* Top row: badge + reference + bookmark */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
         <span style={{
           background: cfg.color + '22',
@@ -1005,14 +1006,29 @@ function WowCard({ fact, language, onClose }) {
         }}>
           {language === 'tr' ? cfg.labelTr : cfg.labelEn}
         </span>
-        <span style={{
-          color: 'rgba(148,163,184,0.45)',
-          fontSize: '0.68rem',
-          fontFamily: "'Inter', sans-serif",
-          whiteSpace: 'nowrap',
-        }}>
-          {fact.surahRef}
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'auto' }}>
+          <span style={{
+            color: 'rgba(148,163,184,0.45)',
+            fontSize: '0.68rem',
+            fontFamily: "'Inter', sans-serif",
+            whiteSpace: 'nowrap',
+          }}>
+            {fact.surahRef}
+          </span>
+          {/* #197 (2026-07-16) — Bookmark this wow fact */}
+          <BookmarkButton
+            item={{
+              id: `wowfact:${fact.titleTr?.slice(0, 40) || fact.titleEn?.slice(0, 40) || fact.surahRef}`,
+              type: 'wowfact',
+              title: language === 'tr' ? fact.titleTr : fact.titleEn,
+              subtitle: fact.surahRef,
+              description: (language === 'tr' ? fact.wowTr : fact.wowEn) || (language === 'tr' ? fact.bodyTr : fact.bodyEn) || '',
+              url: `/${language}/arac/kurani-tani`,
+            }}
+            size="sm"
+            language={language}
+          />
+        </div>
       </div>
 
       {/* Title */}
