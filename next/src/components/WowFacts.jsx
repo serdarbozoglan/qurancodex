@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 const CATEGORY_CONFIG = {
   sayisal:      { color: COLORS.gold,      labelTr: 'Sayısal',      labelEn: 'Numerical'   },
@@ -1106,6 +1107,15 @@ export default function WowFacts({ onClose }) {
   const { language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchValue, setSearchValue]       = useState('');
+  const [isMobile, setIsMobile] = useState(false); // SSR-safe
+
+  // isMobile hydrate (§16.6)
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   // Escape key
   useEffect(() => {
@@ -1361,6 +1371,19 @@ export default function WowFacts({ onClose }) {
               ))}
             </div>
           )}
+
+          {/* Cross-tool CTA — #202 (2026-07-16) */}
+          <div style={{ maxWidth: 1200, margin: '48px auto 0', padding: '0 4px' }}>
+            <CrossToolCTA
+              language={language}
+              isMobile={isMobile}
+              links={[
+                { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: 'Wow-Facts\'in kapsamlı hâli — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: 'The comprehensive version of Wow-Facts — Quran\'s structure, architecture, language and content.' },
+                { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimin sonradan doğruladığı Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs later confirmed by modern science — with all their nuances.' },
+                { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Evidence', descTr: 'Arkeoloji ve tarihin onayladığı Kur\'ânî iddialar — Firavun\'un bedeni, Hâmân.', descEn: 'Quranic claims confirmed by archaeology and history — Pharaoh\'s body, Hāmān.' },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </>

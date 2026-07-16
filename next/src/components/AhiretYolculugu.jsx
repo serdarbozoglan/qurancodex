@@ -23,6 +23,7 @@ import { COLORS, FONTS } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
+import CrossToolCTA from './CrossToolCTA';
 // SSR-safe: JSON'u module-level import et. Fetch pattern SSR'da null döndürüyordu
 // → SourcesCitation + CTA'lar SEO HTML'de görünmüyordu (2026-07-15 audit bug).
 // Bundle'a ~90KB static content ekler; ancak initial render tam olur.
@@ -361,7 +362,7 @@ export default function AhiretYolculugu({ onClose }) {
       </div>
 
       {/* ── Sources ─────────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 40px' : '0 32px 40px' }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}
@@ -375,6 +376,19 @@ export default function AhiretYolculugu({ onClose }) {
             noteTr: s.noteTr,
             noteEn: s.noteEn,
           }))}
+        />
+      </div>
+
+      {/* Cross-tool CTA — #202 (2026-07-16) */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell', descTr: 'Yolculuğun iki nihai varış noktası — Kur\'an\'daki tasvirlerle.', descEn: 'The journey\'s two final destinations — with Quranic descriptions.' },
+            { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Yolculuğun başlangıcı — sûr\'un üflenişi ve kozmik son.', descEn: 'The journey\'s beginning — the trumpet blast and cosmic end.' },
+            { href: `/${language}/arac/melekler`, titleTr: 'Melekler Atlası', titleEn: 'Angels Atlas', descTr: 'Ölüm meleği, sûr meleği, sırât meleği — yolculuğun rehberleri.', descEn: 'Angel of death, trumpet angel, ṣirāṭ angel — guides of the journey.' },
+          ]}
         />
       </div>
     </div>

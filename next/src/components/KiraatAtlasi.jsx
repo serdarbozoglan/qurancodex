@@ -9,6 +9,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -1590,6 +1591,21 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
     />
   );
 
+  // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/arac/koruma-zinciri`, titleTr: 'Koruma Zinciri', titleEn: 'Chain of Preservation', descTr: 'Kur\'an metninin nesilden nesle korunması — huffâz zinciri ve isnâd.', descEn: 'Preservation of the Quranic text across generations — huffāẓ chain and isnād.' },
+          { href: `/${language}/oku`, titleTr: 'Kur\'an\'ı Oku', titleEn: 'Read the Quran', descTr: 'Kıraatlerin uygulaması — 8 farklı meal + tecvid overlay ile ayet ayet.', descEn: 'Application of qirā\'āt — verse by verse with 8 translations + tajwīd overlay.' },
+          { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation', descTr: 'Sahâbenin kıraat farklılıkları — nüzûl bağlamı ile birlikte.', descEn: 'Companions\' qirā\'a variations — with revelation context.' },
+        ]}
+      />
+    </div>
+  );
+
   // Loading state
   if (!data) {
     return (
@@ -1606,6 +1622,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
         <div style={{ flex: 1, display: 'flex' }}>
           <LoadingOverlay />
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -1671,6 +1688,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
           {activeTab === 3 && <TabHarita data={data} isMobile={isMobile} language={language} />}
           {activeTab === 4 && <TabTecvid isMobile={isMobile} language={language} />}
         </div>
+        {RELATED_CTA}
       </div>
     </div>
   );

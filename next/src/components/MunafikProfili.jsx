@@ -13,6 +13,7 @@ import {
   TEXT,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -258,6 +259,21 @@ export default function MunafikProfili({ onClose }) {
     />
   );
 
+  // #202 (2026-07-16) — CTA SSR-safe (loading skeleton'a da eklenir)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Nifâkın psikolojik kökleri — savunma mekanizmaları, kalp hastalığı.', descEn: 'Psychological roots of nifāq — defense mechanisms, disease of the heart.' },
+          { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stages of the Self', descTr: 'Nifâkın karşıtı — nefs-i mutmainne\'ye giden 7 mertebe.', descEn: 'The opposite of nifāq — 7 stages leading to nafs muṭma\'inna.' },
+          { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Münâfıkların kıyâmet gününde hâli — Kur\'an\'ın kesin tasviri.', descEn: 'The state of hypocrites on Doomsday — the Quran\'s definitive depiction.' },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) {
     return (
       <div
@@ -275,6 +291,7 @@ export default function MunafikProfili({ onClose }) {
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -653,6 +670,8 @@ export default function MunafikProfili({ onClose }) {
 
           {/* Cross-page CTA — Psychology section'a yönlendir */}
           <PsychologyCTA onClose={onClose} language={language} isMobile={isMobile} />
+
+          {RELATED_CTA}
 
         </div>
       </div>
