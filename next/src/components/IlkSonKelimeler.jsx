@@ -7,6 +7,7 @@ import { cleanArabicMinimal as cleanArabic } from '../lib/arabic';
 import { CloseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import {
   COLORS, FONTS,
@@ -463,26 +464,32 @@ function Card({ surah, onClick, selected, language }) {
   const isMedeni = surah.revelation === 'medeni';
   const revColor = isMedeni ? '#2ecc71' : COLORS.royalGold; // soft emerald for readability on dark bg
   return (
-    <button
+    <div
       id={`ilk-son-card-${surah.surah}`}
-      onClick={onClick}
       style={{
         scrollMarginTop: '160px',
-        textAlign: 'left',
-        background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
-        border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
-        borderRadius: RADIUS.md,
-        padding: '11px 13px 14px',
-        cursor: 'pointer',
-        transition: `all ${TRANSITION.fast}`,
-        display: 'flex', flexDirection: 'column', gap: '8px',
-        fontFamily: FONTS.body,
-        minHeight: '110px',
-        overflow: 'hidden',
+        position: 'relative',
       }}
-      onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; }}
-      onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
     >
+      <button
+        onClick={onClick}
+        style={{
+          width: '100%',
+          textAlign: 'left',
+          background: selected ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.035)',
+          border: `1px solid ${selected ? COLORS.goldAlpha40 : 'rgba(255,255,255,0.12)'}`,
+          borderRadius: RADIUS.md,
+          padding: '11px 13px 14px',
+          cursor: 'pointer',
+          transition: `all ${TRANSITION.fast}`,
+          display: 'flex', flexDirection: 'column', gap: '8px',
+          fontFamily: FONTS.body,
+          minHeight: '110px',
+          overflow: 'hidden',
+        }}
+        onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'; }}
+        onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; }}
+      >
       {/* Top: surah no + name + revelation badge */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', flexWrap: 'wrap' }}>
         <span style={{ color: COLORS.gold, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.06em' }}>
@@ -491,6 +498,7 @@ function Card({ surah, onClick, selected, language }) {
         <span style={{ color: COLORS.offWhite, fontSize: '0.84rem', fontWeight: 600 }}>{name}</span>
         <span style={{
           marginLeft: 'auto',
+          marginRight: '28px',
           fontSize: '0.56rem', letterSpacing: '0.12em', textTransform: 'uppercase',
           color: revColor,
           opacity: 0.85,
@@ -544,7 +552,23 @@ function Card({ surah, onClick, selected, language }) {
           </div>
         );
       })()}
-    </button>
+      </button>
+      {/* #201 (2026-07-16) — Bookmark ilk-son pair */}
+      <div style={{ position: 'absolute', top: 8, right: 8 }}>
+        <BookmarkButton
+          item={{
+            id: `ilk-son:${surah.surah}`,
+            type: 'ilk-son',
+            title: `${name} — ${language === 'tr' ? 'İlk-Son' : 'First-Last'}`,
+            subtitle: `${String(surah.surah).padStart(3, '0')} · ${isMedeni ? (language === 'tr' ? 'Medenî' : 'Medinan') : (language === 'tr' ? 'Mekkî' : 'Meccan')}`,
+            description: `${surah.firstWord?.ar || ''} → ${surah.lastWord?.ar || ''}`,
+            url: `/${language}/arac/ilk-son-kelimeler`,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
+    </div>
   );
 }
 

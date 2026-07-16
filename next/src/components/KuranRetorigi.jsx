@@ -10,6 +10,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
@@ -449,7 +450,7 @@ function TabKategoriler({ data, tr, isMobile }) {
         {/* KATEGORİ PANELİ */}
         {activeCategory && (
           <>
-            {/* Başlık + badge */}
+            {/* Başlık + badge + bookmark */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
               <h2 style={{ color: activeCategory.color, fontFamily: FONTS.display, fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>
                 {tr ? activeCategory.nameTr : activeCategory.nameEn}
@@ -459,6 +460,21 @@ function TabKategoriler({ data, tr, isMobile }) {
                   ~{activeCategory.pct}%
                 </span>
               )}
+              {/* #201 (2026-07-16) — Bookmark this rhetorical category */}
+              <div style={{ marginLeft: 'auto' }}>
+                <BookmarkButton
+                  item={{
+                    id: `retorik:${activeCategory.id}`,
+                    type: 'retorik',
+                    title: tr ? activeCategory.nameTr : activeCategory.nameEn,
+                    subtitle: tr ? (activeCategory.aliasTr || '') : (activeCategory.aliasEn || ''),
+                    description: (tr ? activeCategory.descTr : activeCategory.descEn || '').slice(0, 240),
+                    url: `/${language}/arac/retorik`,
+                  }}
+                  size="sm"
+                  language={language}
+                />
+              </div>
             </div>
             {(activeCategory.aliasTr || activeCategory.aliasEn) && (
               <p style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, margin: '0 0 16px' }}>

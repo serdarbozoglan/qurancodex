@@ -7,6 +7,7 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -510,6 +511,7 @@ export default function IblisSatan({ onClose }) {
                 overflow: 'hidden',
                 transition: 'background 0.2s, border-color 0.2s',
                 scrollMarginTop: '20px',
+                position: 'relative',
               }}
             >
               {/* Clickable header */}
@@ -596,6 +598,21 @@ export default function IblisSatan({ onClose }) {
                   </svg>
                 </span>
               </button>
+              {/* #201 (2026-07-16) — Bookmark this iblis passage (absolute, over card) */}
+              <div style={{ position: 'absolute', top: 8, right: 40 }} onClick={e => e.stopPropagation()}>
+                <BookmarkButton
+                  item={{
+                    id: `iblis-passage:${p.id}`,
+                    type: 'iblis-item',
+                    title: p.surahName,
+                    subtitle: p.verseRange,
+                    description: (lang === 'tr' ? p.teaserTr : p.teaserEn || '').slice(0, 240),
+                    url: `/${language}/arac/iblis-seytan`,
+                  }}
+                  size="sm"
+                  language={language}
+                />
+              </div>
 
               {/* Expanded body */}
               <AnimatePresence initial={false}>

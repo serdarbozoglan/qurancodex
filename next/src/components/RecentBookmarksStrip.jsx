@@ -36,6 +36,9 @@ const TYPE_LABELS = {
   'kiyamet-scene':                  { tr: 'Kıyâmet',        en: 'Doomsday',         icon: '☄' },
   'sunnetullah':                    { tr: 'Sünnetullah',    en: 'Divine Pattern',   icon: '☯' },
   'doga-item':                      { tr: 'Tabiat',         en: 'Nature',           icon: '❋' },
+  'ilk-son':                        { tr: 'İlk-Son',        en: 'First-Last',       icon: '⇋' },
+  'iblis-item':                     { tr: 'İblis',          en: 'Iblīs',            icon: '☠' },
+  'retorik':                        { tr: 'Belâgat',        en: 'Rhetoric',         icon: '❊' },
 };
 
 function typeMeta(type, tr) {
