@@ -11,6 +11,9 @@ import { COLORS, FONTS } from '../../../tokens';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { listBookmarks, removeBookmark, libraryStats } from '../../../lib/bookmarks';
 
+// Kütüphane tip etiketleri — RecentBookmarksStrip.jsx TYPE_LABELS ile senkron.
+// Yeni bir bookmark tipi eklendiğinde her iki dosyada da label ekle.
+// Session 2026-07-16: 22 tip artık desteklenir.
 const TYPE_LABELS_TR = {
   verse: 'Ayet',
   tefsir: 'Tefsir',
@@ -18,13 +21,28 @@ const TYPE_LABELS_TR = {
   'article-section': 'Makale bölümü',
   'atlas-kissa': 'Kıssa',
   'atlas-kissa-scene': 'Kıssa sahnesi',
+  'atlas-ahiret-yolculugu-stage': 'Ahiret aşaması',
   'atlas-kavim': 'Kavim',
   'atlas-esma': 'Esma',
   'atlas-dua': 'Dua',
   'atlas-kavram': 'Kavram',
+  'atlas-kadin': 'Kadın figürü',
+  'atlas-mesel': 'Mesel',
   'surah-summary': 'Sure özet',
-  pericope: 'Pericope',
-  tool: 'Tool',
+  pericope: 'Ayet grubu',
+  tool: 'Araç',
+  'sebeb-nuzul': 'Sebeb-i Nüzûl',
+  wowfact: 'Wow bilgisi',
+  angel: 'Melek',
+  'cennet-name': 'Cennet ismi',
+  'cehennem-name': 'Cehennem ismi',
+  yemin: 'Yemin',
+  'kiyamet-scene': 'Kıyâmet sahnesi',
+  sunnetullah: 'Sünnetullah örüntüsü',
+  'doga-item': 'Tabiat ögesi',
+  'ilk-son': 'İlk-Son kelime',
+  'iblis-item': 'İblis pasajı',
+  retorik: 'Belâgat',
 };
 const TYPE_LABELS_EN = {
   verse: 'Verse',
@@ -33,13 +51,28 @@ const TYPE_LABELS_EN = {
   'article-section': 'Article section',
   'atlas-kissa': 'Story',
   'atlas-kissa-scene': 'Story scene',
+  'atlas-ahiret-yolculugu-stage': 'Afterlife stage',
   'atlas-kavim': 'Nation',
   'atlas-esma': 'Divine name',
   'atlas-dua': 'Prayer',
   'atlas-kavram': 'Concept',
+  'atlas-kadin': 'Female figure',
+  'atlas-mesel': 'Parable',
   'surah-summary': 'Surah',
   pericope: 'Pericope',
   tool: 'Tool',
+  'sebeb-nuzul': 'Occasion of Revelation',
+  wowfact: 'Wow fact',
+  angel: 'Angel',
+  'cennet-name': 'Paradise name',
+  'cehennem-name': 'Hell name',
+  yemin: 'Oath',
+  'kiyamet-scene': 'Doomsday scene',
+  sunnetullah: 'Divine pattern',
+  'doga-item': 'Nature item',
+  'ilk-son': 'First-Last word',
+  'iblis-item': 'Iblīs passage',
+  retorik: 'Rhetoric',
 };
 
 export default function KutuphanemRoute() {
