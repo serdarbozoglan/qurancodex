@@ -10,6 +10,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 
 
@@ -56,6 +57,58 @@ export default function KuranRetorigi({ onClose }) {
 
   const TABS = tr ? TABS_TR : TABS_EN;
 
+  // #203 (2026-07-16) — SSR-safe: CTA + SOURCES hem loading skeleton'da hem main'de görünsün
+  const CTA_AND_SOURCES = (
+    <div style={{ padding: isMobile ? '0 16px' : '0 32px', maxWidth: '1200px', width: '100%', margin: '0 auto' }}>
+      <CrossToolCTA
+        language={language} isMobile={isMobile}
+        links={[
+          { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı — belağatın en canlı motoru.', descEn: 'The Qur\'an\'s art of questioning — belaghah\'s liveliest engine.' },
+          { href: `/${language}/atlas/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belağî örüntüsü — çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers — call, request, address.' },
+          { href: `/${language}/arac/muhatap`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? — 30+ muhatap kalıbı ile belağatın altyapısı.', descEn: 'Whom does the Qur\'an address? — 30+ addressee patterns undergirding the rhetoric.' },
+        ]}
+      />
+      <SourcesCitation
+        language={language}
+        isMobile={isMobile}
+        sources={[
+          {
+            author: 'Abdülkâhir el-Cürcânî',
+            workTr: "Delâʾilü'l-İʿcâz",
+            workEn: "Dalāʾil al-Iʿjāz",
+            period: '?–1078 (Cürcân)',
+            noteTr: "Kurʾânî belâgat teorisinin foundational eseri; nazım (word-order) teorisini kuran metin. Modern belâgatın temeli.",
+            noteEn: "The foundational work of Quranic rhetorical theory; the text that established the naẓm (word-order) theory. Bedrock of modern belaghah.",
+          },
+          {
+            author: 'ez-Zemahşerî',
+            workTr: "el-Keşşâf",
+            workEn: 'al-Kashshāf',
+            period: '1075–1144 (Harezm)',
+            noteTr: "Belâgat perspektifinden Kurʾân tefsirinin klasik zirvesi; teşbih, istiare, iltifat, tıbâk gibi retorik figürleri her ayette işaretler.",
+            noteEn: "Classical peak of Quranic exegesis from a rhetorical perspective; marks metaphor, simile, iltifāt, and antithesis in every verse.",
+          },
+          {
+            author: 'es-Sekkâkî',
+            workTr: "Miftâhu'l-Ulûm",
+            workEn: "Miftāḥ al-ʿUlūm",
+            period: '1160–1229 (Harezm)',
+            noteTr: "Belâgatı sistematize eden ilk büyük ansiklopedik eser; meʿânî · beyân · bedî üçlü tasnifi buradan gelir.",
+            noteEn: "The first major encyclopedic work to systematize belaghah; the three-fold maʿānī · bayān · badīʿ classification originates here.",
+          },
+          {
+            author: 'er-Râzî',
+            workTr: "Mefâtîhu'l-Ğayb",
+            workEn: 'Mafātīḥ al-Ghayb',
+            period: '1149–1209 (Rey)',
+            noteTr: "Retorik soru, muhatap değişimi ve iltifat gibi figürleri kelâmî hikmetle birleştiren tefsir.",
+            noteEn: "Tafsir combining rhetorical questions, addressee shifts, and iltifāt with theological wisdom.",
+          },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) {
     return (
       <div style={{
@@ -77,6 +130,7 @@ export default function KuranRetorigi({ onClose }) {
             {tr ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {CTA_AND_SOURCES}
       </div>
     );
   }
@@ -182,16 +236,7 @@ export default function KuranRetorigi({ onClose }) {
         {activeTab === 1 && <TabMuhatap data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 2 && <TabSorular data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 3 && <TabSureHaritasi data={data} tr={tr} isMobile={isMobile} />}
-        <div style={{ padding: isMobile ? '0 16px' : '0 32px', maxWidth: '1200px', width: '100%', margin: '0 auto' }}>
-          <CrossToolCTA
-            language={language} isMobile={isMobile}
-            links={[
-              { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı — belağatın en canlı motoru.', descEn: 'The Qur\'an\'s art of questioning — belaghah\'s liveliest engine.' },
-              { href: `/${language}/atlas/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belağî örüntüsü — çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers — call, request, address.' },
-              { href: `/${language}/arac/muhatap`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? — 30+ muhatap kalıbı ile belağatın altyapısı.', descEn: 'Whom does the Qur\'an address? — 30+ addressee patterns undergirding the rhetoric.' },
-            ]}
-          />
-        </div>
+        {CTA_AND_SOURCES}
       </div>
 
     </div>

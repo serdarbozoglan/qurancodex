@@ -8,6 +8,7 @@ import { fetchMealSurah } from '../lib/mealCache';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -178,6 +179,48 @@ export default function KissaAtlas({ onClose }) {
     </div>
   );
 
+  // #203 (2026-07-16) — Klasik kıssa kaynakları
+  const SOURCES = (
+    <SourcesCitation
+      language={language}
+      isMobile={isMobile}
+      sources={[
+        {
+          author: 'İbn Kesîr',
+          workTr: "Kısasü'l-Enbiyâ",
+          workEn: 'Qiṣaṣ al-Anbiyāʾ',
+          period: '1301–1373 (Dımaşk)',
+          noteTr: 'Peygamber kıssalarının en kapsamlı klasik derlemesi; ayet + hadis + selef rivayetleri birleştirir.',
+          noteEn: 'The most comprehensive classical compilation of prophet narratives; combines verses, hadith, and salaf reports.',
+        },
+        {
+          author: 'et-Taberî',
+          workTr: "Târîhu'r-Rusul ve'l-Mülûk",
+          workEn: 'Tārīkh al-Rusul wa-l-Mulūk',
+          period: '839–923 (Bağdat)',
+          noteTr: 'Kıssaları tarih perspektifinden ele alan foundational kaynak; farklı rivayetleri isnadıyla verir.',
+          noteEn: 'Foundational historical source treating narratives with full chains of transmission.',
+        },
+        {
+          author: 'es-Süyûtî',
+          workTr: "el-İtkān fî Ulûmi'l-Kurʾân",
+          workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+          period: '1445–1505 (Kahire)',
+          noteTr: 'Kıssaların Kurʾân\'da neden dağıtılarak anlatıldığı ve bu tekniğin belağat değeri üzerine klasik değerlendirme.',
+          noteEn: 'Classical assessment of why narratives are distributed across the Quran and the rhetorical value of this technique.',
+        },
+        {
+          author: 'ez-Zemahşerî',
+          workTr: "el-Keşşâf",
+          workEn: 'al-Kashshāf',
+          period: '1075–1144 (Harezm)',
+          noteTr: 'Kıssaların belağat + lisân boyutunu detaylıca inceler; her ayetin dilsel katmanını açar.',
+          noteEn: 'Detailed analysis of the rhetorical and linguistic dimensions of narratives, layer by verse layer.',
+        },
+      ]}
+    />
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
@@ -191,6 +234,7 @@ export default function KissaAtlas({ onClose }) {
     >
       {KISSA_TOOL_HEADER}
       <LoadingOverlay />
+      {SOURCES}
       {RELATED_CTA}
     </div>
   );
@@ -198,6 +242,7 @@ export default function KissaAtlas({ onClose }) {
   if (!data) return (
     <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px' }}>
       {KISSA_TOOL_HEADER}
+      {SOURCES}
       {RELATED_CTA}
     </div>
   );
@@ -888,6 +933,7 @@ export default function KissaAtlas({ onClose }) {
         </span>
       </div>}
 
+      {SOURCES}
       {RELATED_CTA}
     </div>
   );

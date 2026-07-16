@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
@@ -140,6 +141,48 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
     </div>
   );
 
+  // #203 (2026-07-16) — Klasik + modern kaynaklar (kadın figürleri odaklı)
+  const SOURCES = (
+    <SourcesCitation
+      language={language}
+      isMobile={isMobile}
+      sources={[
+        {
+          author: 'İbn Kesîr',
+          workTr: "Tefsîru'l-Kurʾâni'l-Azîm",
+          workEn: 'Tafsīr al-Qurʾān al-ʿAẓīm',
+          period: '1301–1373 (Dımaşk)',
+          noteTr: 'Meryem, Âsiye, Belkıs, Havva ve Kur\'an\'daki tüm kadın figürler hakkındaki foundational tefsir kaynağı.',
+          noteEn: 'Foundational tafsir source for Maryam, Āsiya, Bilqīs, Ḥawwāʾ and all female figures in the Quran.',
+        },
+        {
+          author: 'er-Râzî',
+          workTr: "Mefâtîhu'l-Ğayb",
+          workEn: 'Mafātīḥ al-Ghayb',
+          period: '1149–1209 (Rey)',
+          noteTr: 'Meryem\'in "sıddîka" makamı, Belkıs\'ın hikmeti ve Âsiye\'nin duası üzerine derin kelâmî çözümlemeler.',
+          noteEn: 'Deep theological analysis of Maryam\'s "ṣiddīqa" rank, Bilqīs\'s wisdom, and Āsiya\'s prayer.',
+        },
+        {
+          author: 'ez-Zemahşerî',
+          workTr: "el-Keşşâf",
+          workEn: 'al-Kashshāf',
+          period: '1075–1144 (Harezm)',
+          noteTr: 'Kur\'an\'daki kadın figürlerin dilsel + belâgat perspektifinden analizi; her ayetin retorik katmanı.',
+          noteEn: 'Linguistic and rhetorical analysis of female figures in the Quran, layered by verse.',
+        },
+        {
+          author: 'Amina Wadud',
+          workTr: 'Kurʾân ve Kadın',
+          workEn: 'Qurʾan and Woman',
+          period: '1992 (Oxford UP)',
+          noteTr: 'Modern gender hermeneutiği; kadın figürlerin klasik tefsir okumasına eleştirel çağdaş perspektif.',
+          noteEn: 'Modern gender hermeneutics; contemporary critical perspective on classical readings of female figures.',
+        },
+      ]}
+    />
+  );
+
   // ── Loading ────────────────────────────────────────────────────────────────
   if (!data) {
     return (
@@ -158,6 +201,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {SOURCES}
         {RELATED_CTA}
       </div>
     );
@@ -386,6 +430,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
           />
         )}
 
+        {SOURCES}
         {RELATED_CTA}
       </div>
     </div>
