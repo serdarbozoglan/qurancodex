@@ -6,6 +6,7 @@ import { useQuranNav } from '../hooks/useQuranNav';
 import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 
 const CATEGORY_CONFIG = {
@@ -1397,6 +1398,46 @@ export default function WowFacts({ onClose }) {
                 { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: 'Wow-Facts\'in kapsamlı hâli — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: 'The comprehensive version of Wow-Facts — Quran\'s structure, architecture, language and content.' },
                 { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimin sonradan doğruladığı Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs later confirmed by modern science — with all their nuances.' },
                 { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Evidence', descTr: 'Arkeoloji ve tarihin onayladığı Kur\'ânî iddialar — Firavun\'un bedeni, Hâmân.', descEn: 'Quranic claims confirmed by archaeology and history — Pharaoh\'s body, Hāmān.' },
+              ]}
+            />
+
+            {/* #205 (2026-07-16) — Karma sayı, dilbilim, tarih odaklı kaynaklar */}
+            <SourcesCitation
+              language={language}
+              isMobile={isMobile}
+              sources={[
+                {
+                  author: 'es-Süyûtî',
+                  workTr: "el-İtkān fî Ulûmi\'l-Kurʾân",
+                  workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+                  period: '1445–1505 (Kahire)',
+                  noteTr: "Kur'ân ilimlerinin klasik ansiklopedisi — sayısal örüntüler, dil özellikleri, retorik incelikler için foundational başvuru.",
+                  noteEn: 'Classical encyclopedia of Quranic sciences — foundational reference for numerical patterns, linguistic features, rhetorical subtleties.',
+                },
+                {
+                  author: 'ez-Zerkeşî',
+                  workTr: "el-Burhân fî Ulûmi\'l-Kurʾân",
+                  workEn: 'al-Burhān fī ʿUlūm al-Qurʾān',
+                  period: '1344–1392 (Kahire)',
+                  noteTr: "Kur'ân ilimlerinin bir diğer klasik kompendyumu — mucize (iʿcâz), tenâsüb, münâsebet ve dilsel örüntüler.",
+                  noteEn: 'Another classical compendium of Quranic sciences — miraculousness (iʿjāz), munāsaba, and linguistic patterns.',
+                },
+                {
+                  author: 'Angelika Neuwirth',
+                  workTr: "Kur\'ân Geç Antikitede Metin",
+                  workEn: 'The Qur\'an and Late Antiquity',
+                  period: '2019 (Oxford UP)',
+                  noteTr: "Kur\'ân\'ın geç antikite bağlamında tarihsel-edebi yapısını inceleyen çağdaş akademik referans; Wow-fact tarihi arka planı.",
+                  noteEn: 'Contemporary academic reference examining the Quran\'s historical-literary structure in late antique context; historical background for wow-facts.',
+                },
+                {
+                  author: 'Michel Cuypers',
+                  workTr: 'Kur\'ân\'ın Yapıları',
+                  workEn: 'The Composition of the Quran',
+                  period: '2015 (Bloomsbury)',
+                  noteTr: "Kur\'ân\'ın halka-yapılı (ring) kompozisyonu, simetri ve chiasmus örüntüleri üzerine modern strukturel analiz.",
+                  noteEn: "Modern structural analysis of the Quran's ring composition, symmetry, and chiasmus patterns.",
+                },
               ]}
             />
           </div>

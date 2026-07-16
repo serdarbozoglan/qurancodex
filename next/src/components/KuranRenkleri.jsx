@@ -8,6 +8,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
 
 // ─── KURANI_COLORS — Kur'ani semantik renk paleti ─────────────────────────────
@@ -3034,6 +3035,46 @@ export default function KuranRenkleri({ onClose }) {
             { href: `/${language}/arac/yeminler`, titleTr: "Kur'an'ın Yeminleri", titleEn: 'Quranic Oaths', descTr: 'Renkler tabiat sözlüğüdür; yeminler onu vurgular.', descEn: "Colors are nature's lexicon; oaths emphasize them." },
             { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: 'Renklerin doğduğu kâinatın atlası.', descEn: 'Atlas of the universe where colors are born.' },
             { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk ve Son Kelimeler', titleEn: 'First and Last Words', descTr: 'Renklerin sûre-içi konumu — açılış-kapanış deseni.', descEn: "Colors' surah-position — opening-closing pattern." },
+          ]}
+        />
+
+        {/* #205 (2026-07-16) — Renk-anlam-sanat kaynakları */}
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            {
+              author: 'er-Râzî',
+              workTr: "Mefâtîhu'l-Ğayb",
+              workEn: 'Mafātīḥ al-Ghayb',
+              period: '1149–1209 (Rey)',
+              noteTr: "Cennet renkleri (yeşil, altın), cehennem renkleri (siyah, sarı) ve Kur'ân'da renk sembolizmi üzerine kapsamlı analiz.",
+              noteEn: 'Comprehensive analysis of paradise colors (green, gold), hell colors (black, yellow), and color symbolism in the Quran.',
+            },
+            {
+              author: 'ez-Zemahşerî',
+              workTr: "el-Keşşâf",
+              workEn: 'al-Kashshāf',
+              period: '1075–1144 (Harezm)',
+              noteTr: "Bakara 2:69 (buzağı sarısı) gibi renk-özgü ayetlerin belâgat + dilsel çözümlemesi; renk kelimelerinin nüansı.",
+              noteEn: 'Rhetorical + linguistic analysis of color-specific verses like Baqara 2:69 (yellow of the cow); nuances of color words.',
+            },
+            {
+              author: 'er-Râgıb el-İsfahânî',
+              workTr: "Müfredâtü Elfâzi\'l-Kurʾân",
+              workEn: 'al-Mufradāt fī Gharīb al-Qurʾān',
+              period: '?–1108 (İsfahan)',
+              noteTr: "Kur'ân\'daki her renk isminin (ahdar, esved, ebyad, ahmer, asfar, azrak) kök + türev + tam anlam yelpazesi.",
+              noteEn: "Root, derivation, and full meaning-spectrum of every color name in the Quran (akhḍar, aswad, abyaḍ, aḥmar, aṣfar, azraq).",
+            },
+            {
+              author: 'Seyyid Hüseyin Nasr',
+              workTr: 'İslam Sanatı ve Maneviyatı',
+              workEn: 'Islamic Art and Spirituality',
+              period: '1987 (SUNY Press)',
+              noteTr: "İslamî geleneğin renk teorisini (mavi kubbe, altın hat, yeşil işaret) sembolik-manevi çerçevede ele alan çağdaş klasik.",
+              noteEn: "Contemporary classic on Islamic tradition's color theory (blue dome, gold calligraphy, green marker) in symbolic-spiritual frame.",
+            },
           ]}
         />
 
