@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN } from '../tokens';
 import ProphetMap from './ProphetMap';
+import BookmarkButton from '../components/BookmarkButton';
 
 // Revelation order — rank 1-86 Mekki, 87-114 Medeni
 const REVELATION = [
@@ -1686,9 +1687,23 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
               )}
             </p>
           ) : (
-            <p style={{ color: focusedProphetObj.color, fontSize: '0.92rem', fontStyle: 'italic', margin: 0 }}>
-              {tr(focusedProphetObj.subtitleTr, focusedProphetObj.subtitleEn)}
-            </p>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+              <p style={{ color: focusedProphetObj.color, fontSize: '0.92rem', fontStyle: 'italic', margin: 0 }}>
+                {tr(focusedProphetObj.subtitleTr, focusedProphetObj.subtitleEn)}
+              </p>
+              <BookmarkButton
+                item={{
+                  id: `prophet:${focusedProphetObj.id}`,
+                  type: 'prophet',
+                  title: tr(focusedProphetObj.nameTr, focusedProphetObj.nameEn),
+                  subtitle: `${focusedProphetObj.mentions} ${tr('geçiş', 'mentions')} · ${focusedProphetObj.surahs.length} ${tr('sûre', 'surahs')}`,
+                  description: tr(focusedProphetObj.subtitleTr, focusedProphetObj.subtitleEn),
+                  url: `/${language}/atlas/peygamber/${focusedProphetObj.id}`,
+                }}
+                size="sm"
+                language={language}
+              />
+            </div>
           )}
         </div>
 

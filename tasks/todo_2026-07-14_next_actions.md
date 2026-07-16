@@ -1,6 +1,6 @@
 # QuranCodex — Next Action Items
 
-> **Son güncelleme:** 2026-07-14 (3. güncelleme, gece — audit action items eklendi) · **Toplam pending:** 35+ iş
+> **Son güncelleme:** 2026-07-15 (öğle — #172 SEO polish tamamlandı: sitemap 302→416 URL) · **Toplam pending:** 30+ iş
 >
 > RAG Semantic Concierge v1.0 tamamlandı. Aşağıdaki liste bir sonraki iş sırası. **Araçlar audit tamamlandı** (2026-07-14) → 46 tool audit edildi, 21 zayıf (%44), sistemsel eksikler (CTA %74, Src %89, Tab %44). Action item'lar Kategori F'e eklendi.
 
@@ -23,6 +23,26 @@
 - **4 kritik bug fix (2599e5a, 2026-07-15)** — SourcesCitation `s.note` render bug (14 kaynak notu invisible idi), AddresseeSystem `/atlas/diyalog` 404 broken link → `/graf/diyalog`, AddresseeSystem SSR loading skeleton CTA visibility, Ahiret Yolculuğu fetch→static import (SSR SourcesCitation gösterimi)
 - **RAG corpus + embedding pipeline** — atlas-ahiret-yolculugu-stage (11 chunk) + /atlas/ahiret-yolculugu tool catalog registered; incremental embed (12 new / 12495 reused / $0.00) (2026-07-15)
 - **CLAUDE.md §13.22** — yeni content JSON → corpus + embedding rebuild MUTLAKA (kural yazıldı, gelecek eklemeler için pipeline korunacak)
+- **#173 Global bookmark** — Navbar Kütüphanem link + AtlasCard/ArticleCard BookmarkButton (fe849bd, 2026-07-15)
+- **#174 Verse share cards** — `/ayet/[s]/[a]` landing + OG image (1200×630 PNG) + Web Share/clipboard button (d0cce18, 2026-07-15)
+- **#175 Reading progress tracker** — ReadingProgressCard anasayfa + timestamp storage + relative time (TR/EN) (3f50517, 2026-07-15)
+- **#176 Kissa Atlas genişletme** — 4 → 12 peygamber (Nûh, Âdem, Süleyman, Dâvud, Yunus, Eyyub, Lût, Zekeriya/Yahyâ +36 sahne); RAG incremental embed (44 chunk / $0.0001) (45a1b66, 2026-07-15)
+- **#172 SEO polish — sitemap coverage** — 302 → 416 URL (+114); 32 tefekkur slug dinamik + 25 tool + `/sor` `/kaynakca` `/tefekkur` üst route eklendi; /arac/wow legacy redirect sitemap dışı; hreflang alternates korunmuş (e30e18f, 2026-07-15)
+- **#202 Phase 2 CrossToolCTA batch 1 (4/34)** — KissaAtlas + KadinlarAtlasi + FurukAtlasi + SebebiNuzul CTA eklendi; SSR-safe RELATED_CTA pattern (loading + main return); EsmaFrekans hariç (kendi ClosingReflection'da custom 3 tool linki mevcut) (1e03e39, 2026-07-16)
+- **#202 Phase 2 CrossToolCTA batch 2 (8/34)** — SemanticMap + ConceptGraph + QuranCommands + DiyalogAgi CTA eklendi; aynı SSR-safe pattern (b7d37e5, 2026-07-16)
+- **#202 Phase 2 CrossToolCTA batch 3 (12/34)** — SurahComparator + WordHeatmap + ZamanBoyutlari + MeselAtlasi CTA eklendi (7056b55, 2026-07-16)
+- **#202 Phase 2 CrossToolCTA batch 4 (16/34)** — AhiretYolculugu + KiraatAtlasi + MunafikProfili + WowFacts; KiraatAtlasi ssr:false (leaflet) → CTA client-only bilinen istisna (06186a5, 2026-07-16)
+- **#202 Phase 2 CrossToolCTA batch 5 (18/34)** — IbadetlerHub + IbadetlerPillar (7 pillar tek CTA paylaşır); route client-fetch → CTA client-only (e060b80, 2026-07-16)
+- **RecentBookmarksStrip (homepage)** — 3 chip son bookmark, sadece bookmark varsa render; library-changed + storage event sync; ReadingProgressCard pattern (be6f81f, 2026-07-16)
+- **RecentQueriesStrip (homepage)** — 3 chip son Concierge sorgusu, sadece geçmiş varsa render; SorRoute pushHistory'nin lokal impl'i `lib/query-history.js`'e taşındı (shared util); chip click → /sor?q=... (9bf9294, 2026-07-16)
+- **BookmarkButton — KissaAtlas scenes + SebebiNuzul occasions** — bookmark ekosistemini kıssa sahnelerine (12 peygamber × ~9 sahne = 100+) + sebeb kayıtlarına genişletti; RecentBookmarksStrip TYPE_LABELS uzatıldı (sebeb-nuzul ⌛, wowfact ✨) (0f7f2b0, 2026-07-16)
+- **BookmarkButton — WowFacts fact cards** (a455c16, 2026-07-16)
+- **BookmarkButton — KadinlarAtlasi + KavimlerAtlasi + MeselAtlasi** — 3 atlas'a bookmark; TYPE_LABELS +3 (☙/⚑/❈) (b8672a8, 2026-07-16)
+- **BookmarkButton — Melekler + CennetCehennem + KuranYeminleri** — eskatoloji + dilbilim tool'ları; TYPE_LABELS +4 (☽ angel · ❀ cennet · ☒ cehennem · ⚝ yemin); IsimCard'a kind prop eklendi (ccfe6a7, 2026-07-16)
+- **BookmarkButton — KiyametSahneleri + SunnetullahAtlasi + DogaAtlasi** — kıyamet sahneleri + sünnetullah pattern'ları + tabiat item'ları; TYPE_LABELS +3 (☄ kıyamet · ☯ sünnetullah · ❋ tabiat) (9e22128, 2026-07-16)
+- **BookmarkButton — IlkSonKelimeler + IblisSatan + KuranRetorigi** — dilbilim + kelâm tool'ları; TYPE_LABELS +3 (⇋ ilk-son · ☠ iblis · ❊ belâgat). Toplam 21 bookmark tipi. (488c7df, 2026-07-16)
+- **BookmarkButton — ReadingMode VerseRow** — ana kullanım akışında her ayet satırında BookmarkButton; audio bar yanı, stopPropagation; ID: verse:S:A, URL: /ayet/S/A. Kritik entegrasyon — user Kur'an okurken direkt kaydediyor (a5cea23, 2026-07-16)
+- **/kutuphanem TYPE_LABELS bug fix** — 22 tip için TR/EN çeviri; önceden 15 yeni tip raw string ('sebeb-nuzul', 'kiyamet-scene') olarak görünüyordu; RecentBookmarksStrip.jsx ile senkron (0e4cc9c, 2026-07-16)
 
 ---
 
@@ -32,17 +52,19 @@
 
 | # | İş | Efor | Durum |
 |---|---|---|---|
-| **#173** | Global bookmark — `/kutuphanem` + BookmarkButton | 2-3 saat | 🚧 WIP (VerseCard done, Navbar+AtlasCard eksik) |
-| **#174** | Verse share cards — OG image gen (WhatsApp/Twitter) | 2-3 saat | pending |
-| **#175** | Reading progress tracker — kaldığın yerden devam | 2-3 saat | pending |
+| **#173** | Global bookmark — `/kutuphanem` + BookmarkButton | 2-3 saat | ✅ done (fe849bd) |
+| **#174** | Verse share cards — OG image gen (WhatsApp/Twitter) | 2-3 saat | ✅ done (d0cce18) |
+| **#175** | Reading progress tracker — kaldığın yerden devam | 2-3 saat | ✅ done (3f50517) |
 | **#170** | User query history — /sor localStorage chip'leri | ✅ done | already merged |
+
+**Kategori A tamamen bitti (2026-07-15).**
 
 ### Kategori B — İçerik ağırlıklı büyütme
 
 | # | İş | Efor | Öncelik |
 |---|---|---|---|
-| **#176** | **Kissa Atlas genişletme** — 4 → 12+ peygamber + mevcut 4'ün detay iyileştirmesi | 1-2 gün | Yüksek |
-| **#187** | **Peygamber Atlası** — 25 peygamber (soykütüğü + kavim + mucize + timeline + coğrafi harita + nesep) | 2-3 gün | Yüksek |
+| **#176** | ✅ **Kissa Atlas genişletme** — 4 → 12 peygamber + 68 → 104 sahne (45a1b66) | done | 2026-07-15 |
+| **#187** | **Peygamber Atlası** — 25 peygamber (soykütüğü + kavim + mucize + timeline + coğrafi harita + nesep) — ⚠ **mevcut ProphetAtlas.jsx 3221 satır, 25 peygamber zaten mevcut**; enhancement = soykütüğü tree + nesep visualization + mucize dedicated section | 2-3 gün | Yüksek |
 | **#189** | **Ahiret Yolculuğu Atlası** — `/atlas/ahiret-yolculugu` meta-timeline hub; 11 aşama (sekerât → berzah → sûr → diriliş → mahşer → mîzân → havz+şefâat → sırât → cennet/cehennem → rü'yetullâh); mevcut tool'lara deep-link + 4 yeni içerik (sekerât, kabir sorusu, havz+şefâat, rü'yetullâh); CriticalNote pattern ile mezhebî yorum + literal/mecaz ayrıştır | 6-8 saat | Yüksek |
 | **#177** | **Sebebi-Nüzul tool** — historical context aggregation (Vahidi, Suyuti) | 1-2 gün | Orta |
 | **#185** | **Muhatap sistemi** — ayet başına muhatap etiketi + istatistik + filter | 1 gün | Orta |
@@ -70,8 +92,8 @@
 | # | İş | Efor |
 |---|---|---|
 | **#182** | Ayet Haritası "Güçlü Bağlantılar" verify — ilk fix push edildi, prod'da rakamlar doğru mu doğrula | ilk kontrol |
-| **#171** | Anasayfa /sor CTA — Concierge'in varlığı daha güçlü sinyal | 1-2 saat |
-| **#172** | SEO polish — sitemap tool sayfaları + Google Search Console + hreflang | 2 saat |
+| **#171** | Anasayfa /sor CTA — Concierge'in varlığı daha güçlü sinyal | ⚠ **ConciergePrompt zaten hero altında güçlü form (input + rotating placeholder + 6 chip + trust footer); pratikte done** — belki: Hero'ya küçük CTA button eklemek? kararsız |
+| **#172** | ✅ SEO polish — sitemap 302→416 URL (+114); 32 tefekkur + 25 tool + 5 üst route + hreflang; /arac/wow legacy dışı (e30e18f, 2026-07-15) | done |
 
 ### Kategori F — Araçlar Audit Follow-up (2026-07-14)
 
@@ -100,9 +122,16 @@ Her tool: Hero pattern (§13.18) + 1 tab + CrossToolCTA. Component dosyaları: `
 
 | # | İş | Efor |
 |---|---|---|
-| **#202** | CrossToolCTA template + 34 tool'a batch add | 10h |
+| **#202** | CrossToolCTA template + 34 tool'a batch add — 12/34 done (2026-07-16, 3 commit) | ~5h kaldı |
 
-Eksik tool'lar: ConceptGraph, SemanticMap, SurahComparator, WordHeatmap, KadinlarAtlasi, KissaAtlas, DiyalogAgi, FurukAtlasi, TarihselKanitlar, SebebiNuzul, ZamanBoyutlari, InsanTanimi, EsmaFrekans, VerseGraph, QuranCommands, ...
+Kalan CTA-eksik tool'lar (verify pending): VerseGraph (Phase 5 target #206), MunafikProfili + diğer 2-CTA olanlar audit'ten geçecek.
+
+**Done batch 1 (4):** KissaAtlas, KadinlarAtlasi, FurukAtlasi, SebebiNuzul (1e03e39)
+**Done batch 2 (4):** SemanticMap, ConceptGraph, QuranCommands, DiyalogAgi (b7d37e5)
+**Done batch 3 (4):** SurahComparator, WordHeatmap, ZamanBoyutlari, MeselAtlasi (7056b55)
+**Skip (1):** EsmaFrekans (custom ClosingReflection zaten var)
+
+**Not:** Bu batch'lerde yeni content JSON eklenmedi — CTA link component değişikliği. §13.22 embedding rebuild gerek YOK.
 
 #### Phase 3 — SourcesCitation Curation (41 tool, ~30 saat)
 

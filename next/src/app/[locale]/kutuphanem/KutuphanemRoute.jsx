@@ -43,6 +43,7 @@ const TYPE_LABELS_TR = {
   'ilk-son': 'İlk-Son kelime',
   'iblis-item': 'İblis pasajı',
   retorik: 'Belâgat',
+  prophet: 'Peygamber',
 };
 const TYPE_LABELS_EN = {
   verse: 'Verse',
@@ -73,6 +74,7 @@ const TYPE_LABELS_EN = {
   'ilk-son': 'First-Last word',
   'iblis-item': 'Iblīs passage',
   retorik: 'Rhetoric',
+  prophet: 'Prophet',
 };
 
 export default function KutuphanemRoute() {

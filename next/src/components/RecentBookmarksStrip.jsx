@@ -39,6 +39,7 @@ const TYPE_LABELS = {
   'ilk-son':                        { tr: 'İlk-Son',        en: 'First-Last',       icon: '⇋' },
   'iblis-item':                     { tr: 'İblis',          en: 'Iblīs',            icon: '☠' },
   'retorik':                        { tr: 'Belâgat',        en: 'Rhetoric',         icon: '❊' },
+  'prophet':                        { tr: 'Peygamber',      en: 'Prophet',          icon: '☉' },
 };
 
 function typeMeta(type, tr) {
