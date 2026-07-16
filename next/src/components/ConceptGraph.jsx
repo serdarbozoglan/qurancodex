@@ -7,6 +7,7 @@ import { useQuranNav } from '../hooks/useQuranNav';
 import { surahName } from '../lib/surahNames';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
@@ -803,6 +804,19 @@ export default function ConceptGraph({ onClose, restore = null }) {
           </div>
         </div>
       )}
+
+      {/* Cross-tool CTA — #202 (2026-07-16) */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'BGE-M3 + Louvain ile 20 anlamsal küme — kavramların otomatik gruplaşması.', descEn: 'BGE-M3 + Louvain — 20 semantic clusters, the automatic grouping of concepts.' },
+            { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı — bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept — neighborhood analysis of a concept\'s verses.' },
+            { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler — kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words — the word-level foundation of the concept graph.' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

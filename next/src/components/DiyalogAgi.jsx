@@ -8,6 +8,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
@@ -311,6 +312,19 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
             )}
           </>
         )}
+      </div>
+
+      {/* Cross-tool CTA — #202 (2026-07-16) */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Diyalogların geçtiği kıssalar — sahne-sahne bağlam.', descEn: 'The narratives containing these dialogues — scene-by-scene context.' },
+            { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Konuşma partnerlerinin kategori dağılımı — kim kimin muhatabı.', descEn: 'Category distribution of speech partners — who addresses whom.' },
+            { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Diyaloglarda kullanılan belâgat sanatları — iltifât, hitâb-ı vahdaniyye.', descEn: 'Rhetorical devices in dialogue — iltifāt, singular divine address.' },
+          ]}
+        />
       </div>
     </div>
   );

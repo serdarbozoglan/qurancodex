@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ─── Semantic Map (F-2) ──────────────────────────────────────────────────────
 // 6.236 ayet üzerinde BGE-M3 embedding'i ile NetworkX Louvain topluluk
@@ -92,6 +93,21 @@ export default function SemanticMap({ onClose }) {
     />
   );
 
+  // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — anlamsal kümelerin insan-tanımlı karşılığı.', descEn: 'Concept connections — human-defined counterpart of semantic clusters.' },
+          { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions Atlas', descTr: 'Yakın anlamlı kelimeler — kümelenmenin kelime düzeyindeki mekaniği.', descEn: 'Near-synonym words — the word-level mechanics of clustering.' },
+          { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Tek ayet düzeyinde semantik komşuları görselleştir (BGE-M3).', descEn: 'Visualize semantic neighbors at single-verse level (BGE-M3).' },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) {
     return (
       <div style={{
@@ -104,6 +120,7 @@ export default function SemanticMap({ onClose }) {
         <div style={{ flex: 1, display: 'flex' }}>
           <LoadingOverlay />
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -239,6 +256,7 @@ export default function SemanticMap({ onClose }) {
       {selected && isMobile && (
         <DetailPanel cluster={selected} onClose={() => setSelected(null)} language={language} isMobile={true} clustersById={data.clusters} />
       )}
+      {RELATED_CTA}
     </div>
   );
 }

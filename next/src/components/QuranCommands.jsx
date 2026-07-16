@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -111,9 +112,27 @@ export default function QuranCommands({ onClose }) {
   useEffect(() => { setExpanded(false); }, [activeId, filter]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
+  // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Atlası', titleEn: 'Worship Atlas', descTr: 'Emirlerin uygulaması — namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'Application of commands — prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
+          { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation', descTr: 'Emirlerin iniş bağlamı — hangi olay hangi hükmü doğurdu.', descEn: 'Revelation context of commands — which event birthed which ruling.' },
+          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'Emirlerin kime yönelik olduğu — müminler, ehl-i kitap, insanlık.', descEn: 'Who commands are addressed to — believers, People of the Book, humanity.' },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>
+      </div>
+      {RELATED_CTA}
     </div>
   );
 
@@ -525,6 +544,7 @@ export default function QuranCommands({ onClose }) {
           )}
         </div>
       </div>
+      {RELATED_CTA}
     </div>
   );
 }
