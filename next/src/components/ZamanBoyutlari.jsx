@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from './icons';
 
@@ -1794,6 +1795,19 @@ export default function ZamanBoyutlari({ onClose }) {
         {activeTab === 'felsefe'       && renderFelsefe()}
         {activeTab === 'karsilastirma' && renderKarsilastirma()}
         {activeTab === 'kaynaklar'     && renderKaynaklar()}
+
+        {/* Cross-tool CTA — #202 (2026-07-16) */}
+        <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Ölüm sonrası zamanın 11 aşaması — berzah, mahşer, sırât.', descEn: 'Time\'s 11 stages after death — barzakh, gathering, ṣirāṭ.' },
+              { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Kur\'an\'daki kıyâmet tasvirleri — kozmik zamanın sona ermesi.', descEn: 'Doomsday depictions in the Quran — the end of cosmic time.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Atlas of Divine Patterns', descTr: 'Tarih boyunca tekrarlayan yasalar — zamanın döngüsel örüntüleri.', descEn: 'Recurring laws through history — cyclical patterns of time.' },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

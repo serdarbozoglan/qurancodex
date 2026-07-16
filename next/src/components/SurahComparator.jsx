@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -1053,6 +1054,19 @@ export default function SurahComparator({ onClose }) {
           </div>
         </div>
       )}
+
+      {/* Cross-tool CTA — #202 (2026-07-16) */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Sureler arası anlamsal bağlar — klasik tefsir gelenekleriyle.', descEn: 'Semantic ties between surahs — from the classical tafsir tradition.' },
+            { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Sûrelerin nüzul dönemleri (Mekki/Medeni) — kronolojik akış.', descEn: 'Revelation periods of surahs (Meccan/Medinan) — chronological flow.' },
+            { href: `/${language}/graf/kelime-isi`, titleTr: 'Kelime Isı Haritası', titleEn: 'Word Heatmap', descTr: 'Bir kelimenin 114 sure boyunca yoğunluk dağılımı.', descEn: 'Distribution density of a word across all 114 surahs.' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -1402,6 +1403,21 @@ export default function MeselAtlasi({ onClose, backRef }) {
     />
   );
 
+  // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/doga`, titleTr: 'Tabiat Atlası', titleEn: 'Nature Atlas', descTr: 'Meselerdeki tabiat imgeleri — su, ateş, ağaç, sivrisinek, örümcek.', descEn: 'Nature imagery in parables — water, fire, tree, mosquito, spider.' },
+          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Mesel — belâgat sanatları içinde teşbih ve temsilin doruğu.', descEn: 'Parable — the peak of simile and analogy in rhetorical arts.' },
+          { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Meselleri okuyucuya emanet eden retorik yapıların diğer örneği.', descEn: 'Another example of rhetorical structures that entrust parables to the reader.' },
+        ]}
+      />
+    </div>
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
@@ -1415,6 +1431,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
     >
       {MESEL_TOOL_HEADER}
       <LoadingOverlay />
+      {RELATED_CTA}
     </div>
   );
 
@@ -1467,6 +1484,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
         {activeTab === 3 && <TabNurZulumat data={nurData} language={language} isMobile={isMobile} />}
         {activeTab === 4 && <TabHayvanlar animals={animals} language={language} isMobile={isMobile} />}
         {activeTab === 5 && <TabBilgi metaVerses={metaVerses} scholars={scholars} language={language} isMobile={isMobile} />}
+        {RELATED_CTA}
       </div>
 
     </div>

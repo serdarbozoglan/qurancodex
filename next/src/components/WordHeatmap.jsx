@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 
 // Strip footnote refs and parenthetical translator additions
@@ -1095,6 +1096,19 @@ export default function WordHeatmap({ onClose }) {
             </div>
           );
         })()}
+      </div>
+
+      {/* Cross-tool CTA — #202 (2026-07-16) */}
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+        <CrossToolCTA
+          language={language}
+          isMobile={isMobile}
+          links={[
+            { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler — heatmap\'in kelime düzeyindeki nüansları.', descEn: 'Near-synonym words — the word-level nuances behind the heatmap.' },
+            { href: `/${language}/graf/karsilastir`, titleTr: 'Sûre Karşılaştırıcı', titleEn: 'Surah Comparator', descTr: 'İki sûrenin kelime, tema ve figür örtüşmesini karşılaştır.', descEn: 'Compare two surahs\' word, theme and figure overlap.' },
+            { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Bir ayetin semantik komşularını görselleştir (BGE-M3).', descEn: 'Visualize semantic neighbors of a verse (BGE-M3).' },
+          ]}
+        />
       </div>
     </div>
 
