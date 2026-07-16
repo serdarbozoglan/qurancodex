@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
 const SURAH_NAMES_TR = {
@@ -687,6 +688,20 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
             </p>
           )}
         </div>
+
+        {/* #198 (2026-07-16) — Bookmark this figure */}
+        <BookmarkButton
+          item={{
+            id: `atlas-kadin:${figure.id}`,
+            type: 'atlas-kadin',
+            title: name,
+            subtitle: epithet || categoryLabel || '',
+            description: (summary || '').slice(0, 240),
+            url: `/${language}/atlas/kadinlar`,
+          }}
+          size="sm"
+          language={language}
+        />
       </div>
 
       {/* Body */}

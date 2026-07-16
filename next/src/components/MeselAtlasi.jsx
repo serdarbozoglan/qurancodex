@@ -12,6 +12,7 @@ import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -492,9 +493,24 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
               }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: domColor, flexShrink: 0 }} />
-                <span style={{ color: domColor, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                <span style={{ color: domColor, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600, flex: 1 }}>
                   {language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain]}
                 </span>
+                {/* #198 (2026-07-16) — Bookmark this parable */}
+                <div onClick={e => e.stopPropagation()} style={{ flexShrink: 0 }}>
+                  <BookmarkButton
+                    item={{
+                      id: `atlas-mesel:${p.id}`,
+                      type: 'atlas-mesel',
+                      title: language === 'tr' ? p.nameTr : (p.nameEn || p.nameTr),
+                      subtitle: `${p.surah}:${p.ayah}`,
+                      description: (language === 'tr' ? p.summaryTr : (p.summaryEn || p.summaryTr) || '').slice(0, 240),
+                      url: `/${language}/atlas/mesel`,
+                    }}
+                    size="sm"
+                    language={language}
+                  />
+                </div>
               </div>
               <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>
                 {p.nameTr}

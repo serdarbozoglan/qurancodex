@@ -26,6 +26,9 @@ const TYPE_LABELS = {
   'pericope':                       { tr: 'Ayet Grubu',     en: 'Pericope',         icon: '¶' },
   'sebeb-nuzul':                    { tr: 'Sebeb-i Nüzûl',  en: 'Occasion',         icon: '⌛' },
   'wowfact':                        { tr: 'Wow',            en: 'Wow',              icon: '✨' },
+  'atlas-kadin':                    { tr: 'Kadın',          en: 'Woman',            icon: '☙' },
+  'atlas-kavim':                    { tr: 'Kavim',          en: 'Nation',           icon: '⚑' },
+  'atlas-mesel':                    { tr: 'Mesel',          en: 'Parable',          icon: '❈' },
 };
 
 function typeMeta(type, tr) {

@@ -8,6 +8,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -952,6 +953,21 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           <div style={{ color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'geçiş' : 'refs'}
           </div>
+        </div>
+        {/* #198 (2026-07-16) — Bookmark this nation */}
+        <div onClick={e => e.stopPropagation()} style={{ flexShrink: 0 }}>
+          <BookmarkButton
+            item={{
+              id: `atlas-kavim:${nation.id}`,
+              type: 'atlas-kavim',
+              title: name,
+              subtitle: prophet || helakLabel || '',
+              description: (summary || '').slice(0, 240),
+              url: `/${language}/atlas/kavim`,
+            }}
+            size="sm"
+            language={language}
+          />
         </div>
       </div>
 
