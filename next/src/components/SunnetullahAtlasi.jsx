@@ -16,6 +16,7 @@ import {
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -247,6 +248,50 @@ export default function SunnetullahAtlasi({ onClose }) {
     />
   );
 
+  // #204 (2026-07-16) — Sünnetullah literatürü, hem loading hem main render (SSR SEO)
+  const SOURCES = (
+    <div style={{ maxWidth: 1200, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '32px 24px 48px', width: '100%' }}>
+      <SourcesCitation
+        language={language}
+        isMobile={isMobile}
+        sources={[
+          {
+            author: 'ez-Zemahşerî',
+            workTr: "el-Keşşâf",
+            workEn: 'al-Kashshāf',
+            period: '1075–1144 (Harezm)',
+            noteTr: "Sünnetullah bahsi (Fetih 48:23, Ahzâb 33:62) — Allah'ın değişmeyen yasasının tefsir perspektifinden kapsamlı analizi.",
+            noteEn: "On sunnatullāh (Fatḥ 48:23, Aḥzāb 33:62) — comprehensive exegetical analysis of God's unchanging law.",
+          },
+          {
+            author: 'er-Râzî',
+            workTr: "Mefâtîhu'l-Ğayb",
+            workEn: 'Mafātīḥ al-Ghayb',
+            period: '1149–1209 (Rey)',
+            noteTr: "Sünnetullah'ın kelâmî çerçevesi; ilâhî fiil, tarih ve kozmik nizamda örüntü kavramının epistemolojik temelleri.",
+            noteEn: "Theological framing of sunnatullāh; epistemological foundations of pattern in divine action, history, and cosmic order.",
+          },
+          {
+            author: 'Muhammed Bâkır es-Sadr',
+            workTr: "Kurʾânî Sünnetler",
+            workEn: 'al-Sunan al-Qurʾāniyya',
+            period: '1935–1980 (Necef)',
+            noteTr: "Modern Kurʾânî sosyoloji — sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",
+            noteEn: 'Modern Quranic sociology — contemporary classic theorizing sunnatullāh as historical laws of change.',
+          },
+          {
+            author: 'Muhammed İkbal',
+            workTr: "İslam'da Dinî Düşüncenin Yeniden İnşası",
+            workEn: 'The Reconstruction of Religious Thought in Islam',
+            period: '1930 (Lahor)',
+            noteTr: "Sünnetullah'ı tarih felsefesi + dinamik ilâhî yasa çerçevesinde okuyan modern islam düşüncesinin dönüm noktası.",
+            noteEn: 'A turning point in modern Islamic thought — reading sunnatullāh as philosophy of history and dynamic divine law.',
+          },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) {
     return (
       <div
@@ -264,6 +309,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {SOURCES}
       </div>
     );
   }
@@ -600,6 +646,8 @@ export default function SunnetullahAtlasi({ onClose }) {
               { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Self',  descTr: 'İçsel sünnetullah — nefs-i emmâreden mutmainneye giden değişmeyen yasalar.',       descEn: 'Inner sunnatullāh — the unchanging laws from ammāra to muṭmaʾinna.' },
             ]}
           />
+
+          {SOURCES}
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN } from '../tokens';
 import ProphetMap from './ProphetMap';
 import BookmarkButton from '../components/BookmarkButton';
+import CrossToolCTA from '../components/CrossToolCTA';
+import SourcesCitation from '../components/SourcesCitation';
 
 // Revelation order — rank 1-86 Mekki, 87-114 Medeni
 const REVELATION = [
@@ -3231,6 +3233,55 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           to   { opacity: 1; transform: scale(1); }
         }
       `}</style>
+
+      {/* #203+#204 (2026-07-16) — CrossToolCTA + SourcesCitation */}
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '32px 24px 48px', width: '100%' }}>
+        <CrossToolCTA
+          language={language}
+          links={[
+            { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: '12 peygamberin sahne-sahne kıssa anlatısı — bağlam, ders, ayet.', descEn: 'Scene-by-scene prophet stories of 12 prophets — context, lessons, verses.' },
+            { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Peygamberlerin gönderildiği kavimler — coğrafya + akıbet.', descEn: 'The nations prophets were sent to — geography and outcome.' },
+            { href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Peygamber ↔ muhatap konuşma ağı — kim kime ne dedi.', descEn: 'Prophet ↔ addressee dialogue network — who said what to whom.' },
+          ]}
+        />
+        <SourcesCitation
+          language={language}
+          sources={[
+            {
+              author: 'İbn Kesîr',
+              workTr: "Kısasü'l-Enbiyâ",
+              workEn: 'Qiṣaṣ al-Anbiyāʾ',
+              period: '1301–1373 (Dımaşk)',
+              noteTr: '25 peygamberin klasik kıssa derlemesi — ayet + hadis + selef rivayetleri birlikte.',
+              noteEn: 'Classical compilation of 25 prophet stories — verses, hadith, and salaf reports together.',
+            },
+            {
+              author: 'et-Taberî',
+              workTr: "Târîhu\'r-Rusul ve\'l-Mülûk",
+              workEn: 'Tārīkh al-Rusul wa-l-Mulūk',
+              period: '839–923 (Bağdat)',
+              noteTr: 'Peygamberleri tarih perspektifinden ele alan foundational eser; nüzul kronolojisi için kritik kaynak.',
+              noteEn: 'Foundational historical treatment of prophets; critical source for revelation chronology.',
+            },
+            {
+              author: 'İbn Hişâm',
+              workTr: "es-Sîretü\'n-Nebeviyye",
+              workEn: 'al-Sīra al-Nabawiyya',
+              period: '?–834 (Fustat)',
+              noteTr: 'Hz. Muhammed\'in siyeri — Kur\'ân\'daki peygamber anlatısıyla siyer arasındaki bağlantıyı kuran temel eser.',
+              noteEn: 'The biography of Prophet Muhammad — foundational text connecting Quranic prophet narratives with sīra.',
+            },
+            {
+              author: 'es-Süyûtî',
+              workTr: "el-İtkān fî Ulûmi\'l-Kurʾân",
+              workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+              period: '1445–1505 (Kahire)',
+              noteTr: 'Peygamber kıssalarının sûrelere neden dağıtıldığı ve bu tekniğin belağat işlevi üzerine klasik değerlendirme.',
+              noteEn: 'Classical assessment of why prophet narratives are distributed across surahs and the rhetorical function of this technique.',
+            },
+          ]}
+        />
+      </div>
     </section>
   );
 }

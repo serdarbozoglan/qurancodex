@@ -12,6 +12,7 @@ import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
@@ -1434,6 +1435,48 @@ export default function MeselAtlasi({ onClose, backRef }) {
     </div>
   );
 
+  // #204 (2026-07-16) — Klasik emsâl kaynakları
+  const SOURCES = (
+    <SourcesCitation
+      language={language}
+      isMobile={isMobile}
+      sources={[
+        {
+          author: 'el-Mâverdî',
+          workTr: "Emsâlü'l-Kurʾân",
+          workEn: 'Amthāl al-Qurʾān',
+          period: '974–1058 (Basra)',
+          noteTr: "Kurʾânî mesellerin ilk müstakil derlemesi; her meselin yapısını, hikmetini ve retorik amacını tek tek çözümler.",
+          noteEn: "The first standalone compilation of Quranic parables; analyzes each parable's structure, wisdom, and rhetorical purpose.",
+        },
+        {
+          author: 'ez-Zemahşerî',
+          workTr: "el-Keşşâf",
+          workEn: 'al-Kashshāf',
+          period: '1075–1144 (Harezm)',
+          noteTr: "Meselin belâgat mimarisi (teşbih, temsil, istiare) üzerine klasik tefsirin zirvesi.",
+          noteEn: "Classical peak of tafsir on the rhetorical architecture of parables (simile, analogy, metaphor).",
+        },
+        {
+          author: 'es-Süyûtî',
+          workTr: "el-İtkān fî Ulûmi'l-Kurʾân",
+          workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+          period: '1445–1505 (Kahire)',
+          noteTr: "Emsâl bahsi (bölüm 66) — meselin Kurʾân retoriği içindeki yerini konumlandırır.",
+          noteEn: 'Chapter on amthāl (§66) — positions parables within Quranic rhetoric.',
+        },
+        {
+          author: 'er-Râzî',
+          workTr: "Mefâtîhu'l-Ğayb",
+          workEn: 'Mafātīḥ al-Ghayb',
+          period: '1149–1209 (Rey)',
+          noteTr: "Meselleri kelâmî hikmetle birleştiren tefsir; sivrisinek, örümcek gibi metaforların anlam katmanlarını açar.",
+          noteEn: "Tafsir combining parables with theological wisdom; unpacks metaphors like the mosquito and spider.",
+        },
+      ]}
+    />
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
@@ -1447,6 +1490,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
     >
       {MESEL_TOOL_HEADER}
       <LoadingOverlay />
+      {SOURCES}
       {RELATED_CTA}
     </div>
   );
@@ -1500,6 +1544,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
         {activeTab === 3 && <TabNurZulumat data={nurData} language={language} isMobile={isMobile} />}
         {activeTab === 4 && <TabHayvanlar animals={animals} language={language} isMobile={isMobile} />}
         {activeTab === 5 && <TabBilgi metaVerses={metaVerses} scholars={scholars} language={language} isMobile={isMobile} />}
+        {SOURCES}
         {RELATED_CTA}
       </div>
 
