@@ -7,6 +7,7 @@ import { buildBreadcrumb } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
 import ReadingProgressCard from '@/components/ReadingProgressCard';
+import RecentBookmarksStrip from '@/components/RecentBookmarksStrip';
 
 // Navigasyon
 import SixGates from '@/sections/SixGates';
@@ -72,6 +73,9 @@ export default async function Home({ params }) {
       <div style={{ marginTop: 24 }}>
         <ReadingProgressCard />
       </div>
+
+      {/* Recent Bookmarks — sadece bookmark varsa render (#196, 2026-07-16) */}
+      <RecentBookmarksStrip />
 
       {/* Semantik Concierge — Hero altı cinematic prompt (RAG) */}
       <ConciergePrompt />
