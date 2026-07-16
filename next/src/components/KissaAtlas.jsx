@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -161,6 +162,21 @@ export default function KissaAtlas({ onClose }) {
     />
   );
 
+  // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '32px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/peygamber`, titleTr: 'Peygamberler Atlası', titleEn: 'Prophets Atlas', descTr: '25 peygamberin nüzul sırasına göre sûrelerdeki dağılımı ve karşılaştırması.', descEn: 'Distribution of 25 prophets across surahs by revelation order.' },
+          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Kıssalardaki kavimler — coğrafi + tarihsel arka planlarıyla.', descEn: 'The nations in prophetic narratives — with geographic and historical context.' },
+          { href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Kıssalardaki konuşma partnerleri — kim kime ne dedi.', descEn: 'Speech partners in prophetic narratives — who said what to whom.' },
+        ]}
+      />
+    </div>
+  );
+
   if (loading) return (
     <div
       ref={trapRef}
@@ -174,10 +190,16 @@ export default function KissaAtlas({ onClose }) {
     >
       {KISSA_TOOL_HEADER}
       <LoadingOverlay />
+      {RELATED_CTA}
     </div>
   );
 
-  if (!data) return null;
+  if (!data) return (
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px' }}>
+      {KISSA_TOOL_HEADER}
+      {RELATED_CTA}
+    </div>
+  );
 
   const prophet = data.prophets.find(p => p.id === selectedProphetId);
   if (!prophet) return null;
@@ -854,6 +876,8 @@ export default function KissaAtlas({ onClose }) {
           {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
         </span>
       </div>}
+
+      {RELATED_CTA}
     </div>
   );
 }

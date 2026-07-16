@@ -7,6 +7,7 @@ import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { fetchMealSurah } from '../lib/mealCache';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -1682,6 +1683,21 @@ export default function SebebiNuzul({ onClose }) {
     }
   }, [activeTab]);
 
+  // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Ayet-ayet, sûre-sûre arası anlamsal bağlar — nüzul bağlamı ile birlikte.', descEn: 'Semantic ties verse-to-verse and surah-to-surah — with revelation context.' },
+          { href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Nüzûl olaylarındaki tarihsel aktörler — Kureyş, Ehl-i Kitâb, Bedir sahnesi.', descEn: 'Historical actors in revelation events — Quraysh, People of the Book, Badr scene.' },
+          { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Nüzul sırası ve dönemleri (Mekki/Medeni) kronolojik olarak gezin.', descEn: 'Browse revelation order and periods (Meccan/Medinan) chronologically.' },
+        ]}
+      />
+    </div>
+  );
+
   // Loading screen
   if (loading) {
     return (
@@ -1708,11 +1724,16 @@ export default function SebebiNuzul({ onClose }) {
           }} />
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
 
-  if (!data) return null;
+  if (!data) return (
+    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px' }}>
+      {RELATED_CTA}
+    </div>
+  );
 
   return (
     <div
@@ -1824,6 +1845,8 @@ export default function SebebiNuzul({ onClose }) {
           {activeTab === 3 && <TabKaynaklar data={data} language={language} isMobile={isMobile} />}
         </div>
       )}
+
+      {RELATED_CTA}
     </div>
   );
 }

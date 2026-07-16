@@ -8,6 +8,7 @@ import {
   BREAKPOINT_MOBILE, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
 const SURAH_NAMES_TR = {
@@ -123,6 +124,21 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
     />
   );
 
+  // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: 'Meryem, Âsiye, Belkıs ve daha fazlası — kıssaların içindeki bağlam.', descEn: 'Maryam, Āsiya, Bilqīs and more — the narrative context.' },
+          { href: `/${language}/atlas/peygamber`, titleTr: 'Peygamberler Atlası', titleEn: 'Prophets Atlas', descTr: '25 peygamberin hanımları ve aile örüntüleri Kur\'an nassıyla.', descEn: 'Wives and family patterns of 25 prophets from Quranic text.' },
+          { href: `/${language}/arac/dualar`, titleTr: 'Kur\'ânî Dualar', titleEn: 'Quranic Duas', descTr: 'Meryem\'in duası, Âsiye\'nin duası — kadın figürlerin yakarışları.', descEn: "Maryam's prayer, Āsiya's prayer — supplications of female figures." },
+        ]}
+      />
+    </div>
+  );
+
   // ── Loading ────────────────────────────────────────────────────────────────
   if (!data) {
     return (
@@ -141,6 +157,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
             {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -367,6 +384,8 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
             isMobile={isMobile}
           />
         )}
+
+        {RELATED_CTA}
       </div>
     </div>
   );

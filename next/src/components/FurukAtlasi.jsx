@@ -7,6 +7,7 @@ import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
+import CrossToolCTA from './CrossToolCTA';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
@@ -134,6 +135,21 @@ export default function FurukAtlasi({ onClose }) {
     />
   );
 
+  // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
+  const RELATED_CTA = (
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <CrossToolCTA
+        language={language}
+        isMobile={isMobile}
+        links={[
+          { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Yakın anlamlı kelimelerin Kur\'an genelindeki bağlantılarını 3B görselleştir.', descEn: 'Visualize connections of near-synonym words across the Quran in 3D.' },
+          { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — furûk\'un daha geniş harita bağlamı.', descEn: 'Concept connections — the wider map context for furūq.' },
+          { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Anlam nüansları belâgat tekniklerine nasıl yansır — teşbih, kinâye, tıbâk.', descEn: 'How meaning nuances reflect in rhetorical techniques — tashbīh, kināya, ṭibāq.' },
+        ]}
+      />
+    </div>
+  );
+
   if (!data) {
     return (
       <div
@@ -151,6 +167,7 @@ export default function FurukAtlasi({ onClose }) {
             {tr ? 'Yükleniyor…' : 'Loading…'}
           </span>
         </div>
+        {RELATED_CTA}
       </div>
     );
   }
@@ -307,6 +324,8 @@ export default function FurukAtlasi({ onClose }) {
           {activeTab === 3 && (
             <TabSources sources={data.sources} language={language} isMobile={isMobile} />
           )}
+
+          {RELATED_CTA}
         </div>
       </div>
     </div>
