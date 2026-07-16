@@ -8,6 +8,7 @@ import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ScientificSigns from '../sections/ScientificSigns';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -531,7 +532,23 @@ function AnimalCard({ item, language, maxFreq }) {
       display: 'flex',
       flexDirection: 'column',
       gap: '8px',
+      position: 'relative',
     }}>
+      {/* #200 (2026-07-16) — Bookmark */}
+      <div style={{ position: 'absolute', top: 10, right: 10 }}>
+        <BookmarkButton
+          item={{
+            id: `doga-animal:${item.nameTr || item.nameEn}`,
+            type: 'doga-item',
+            title: item.nameTr || item.nameEn,
+            subtitle: item.sureRef || item.frequency,
+            description: (language === 'tr' ? item.noteTr : (item.noteEn ?? item.noteTr)) || '',
+            url: `/${language}/atlas/doga`,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
         <p style={{
           fontFamily: FONTS.quran,
@@ -553,6 +570,7 @@ function AnimalCard({ item, language, maxFreq }) {
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
           fontWeight: isHapax ? 700 : 400,
+          marginRight: '32px',
         }}>
           {item.frequency}
         </span>
@@ -592,7 +610,23 @@ function PlantCard({ item, language, maxFreq }) {
       display: 'flex',
       flexDirection: 'column',
       gap: '8px',
+      position: 'relative',
     }}>
+      {/* #200 (2026-07-16) — Bookmark */}
+      <div style={{ position: 'absolute', top: 10, right: 10 }}>
+        <BookmarkButton
+          item={{
+            id: `doga-plant:${item.nameTr || item.nameEn}`,
+            type: 'doga-item',
+            title: item.nameTr || item.nameEn,
+            subtitle: item.sureRef || item.frequency,
+            description: (language === 'tr' ? item.noteTr : (item.noteEn ?? item.noteTr)) || '',
+            url: `/${language}/atlas/doga`,
+          }}
+          size="sm"
+          language={language}
+        />
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
         <p style={{
           fontFamily: FONTS.quran,
@@ -614,6 +648,7 @@ function PlantCard({ item, language, maxFreq }) {
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
           fontWeight: isHapax ? 700 : 400,
+          marginRight: '32px',
         }}>
           {item.frequency}
         </span>

@@ -6,6 +6,7 @@ import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
 const VERSE_BLOCK_BASE = {
@@ -261,11 +262,28 @@ function PhaseScene({ scene, language, defaultOpen }) {
           {scene.quranicStatus === 'hadith-only' && <HadisBadge language={language} />}
           {scene.isHapax && <HapaxBadge language={language} />}
         </span>
-        <span style={{
-          color: pc.accent, fontSize: '0.7rem',
-          transform: open ? 'rotate(180deg)' : 'rotate(0)',
-          transition: 'transform 0.2s', flexShrink: 0,
-        }}>▼</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+          {/* #200 (2026-07-16) — Bookmark this scene */}
+          <span onClick={e => e.stopPropagation()} style={{ display: 'inline-flex' }}>
+            <BookmarkButton
+              item={{
+                id: `kiyamet-scene:${scene.id || scene.sceneEn || scene.sceneTr}`,
+                type: 'kiyamet-scene',
+                title: language === 'tr' ? scene.sceneTr : scene.sceneEn,
+                subtitle: scene.primaryRef || '',
+                description: (language === 'tr' ? scene.summaryTr : scene.summaryEn || '').slice(0, 240),
+                url: `/${language}/arac/kiyamet`,
+              }}
+              size="sm"
+              language={language}
+            />
+          </span>
+          <span style={{
+            color: pc.accent, fontSize: '0.7rem',
+            transform: open ? 'rotate(180deg)' : 'rotate(0)',
+            transition: 'transform 0.2s',
+          }}>▼</span>
+        </span>
       </button>
 
       {open && (

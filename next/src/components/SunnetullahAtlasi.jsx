@@ -16,6 +16,7 @@ import {
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 
@@ -1658,15 +1659,31 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
             }}>{index}</span>
             {tr ? 'Kavim Örüntüsü' : 'Nation Pattern'}
           </div>
-          <h3 style={{
-            margin: 0,
-            fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
-            fontWeight: 700, color: COLORS.offWhite,
-            lineHeight: 1.2,
-          }}>
-            {tr ? pattern.titleTr : pattern.titleEn}
-          </h3>
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
+            <h3 style={{
+              margin: 0,
+              fontFamily: FONTS.display,
+              fontSize: isMobile ? '1.3rem' : '1.55rem',
+              fontWeight: 700, color: COLORS.offWhite,
+              lineHeight: 1.2,
+              flex: 1,
+            }}>
+              {tr ? pattern.titleTr : pattern.titleEn}
+            </h3>
+            {/* #200 (2026-07-16) — Bookmark this pattern */}
+            <BookmarkButton
+              item={{
+                id: `sunnetullah:${pattern.id || pattern.titleEn?.slice(0, 40) || pattern.titleTr?.slice(0, 40)}`,
+                type: 'sunnetullah',
+                title: tr ? pattern.titleTr : pattern.titleEn,
+                subtitle: tr ? pattern.prophetTr : pattern.prophetEn,
+                description: (tr ? pattern.summaryTr : pattern.summaryEn || '').slice(0, 240),
+                url: `/${language}/atlas/sunnetullah`,
+              }}
+              size="sm"
+              language={language}
+            />
+          </div>
           <div style={{
             display: 'flex', gap: '14px', flexWrap: 'wrap',
             marginTop: '8px', fontSize: '0.74rem',

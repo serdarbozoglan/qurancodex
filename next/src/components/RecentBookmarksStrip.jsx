@@ -33,6 +33,9 @@ const TYPE_LABELS = {
   'cennet-name':                    { tr: 'Cennet',         en: 'Paradise',         icon: '❀' },
   'cehennem-name':                  { tr: 'Cehennem',       en: 'Hell',             icon: '☒' },
   'yemin':                          { tr: 'Yemin',          en: 'Oath',             icon: '⚝' },
+  'kiyamet-scene':                  { tr: 'Kıyâmet',        en: 'Doomsday',         icon: '☄' },
+  'sunnetullah':                    { tr: 'Sünnetullah',    en: 'Divine Pattern',   icon: '☯' },
+  'doga-item':                      { tr: 'Tabiat',         en: 'Nature',           icon: '❋' },
 };
 
 function typeMeta(type, tr) {
