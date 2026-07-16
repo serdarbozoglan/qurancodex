@@ -26,6 +26,7 @@ import { useLanguage } from '../../../i18n/LanguageContext';
 import { COLORS, FONTS } from '../../../tokens';
 import { detectQueryLang } from '../../../lib/query-lang';
 import BookmarkButton from '../../../components/BookmarkButton';
+import { readQueryHistory, pushQueryHistory as sharedPushHistory, removeQueryHistory as sharedRemoveHistory } from '../../../lib/query-history';
 
 export default function SorRoute() {
   return (
@@ -451,36 +452,11 @@ function SorInner() {
 
 // ─── STATES ─────────────────────────────────────────────────────────────────
 
-// Query history — localStorage'daki son 20 sorgu. Refresh + yeni tab'da persist.
-const HISTORY_KEY = 'qurancodex_query_history';
-const HISTORY_MAX = 20;
-
-function readHistory() {
-  if (typeof window === 'undefined') return [];
-  try {
-    const raw = localStorage.getItem(HISTORY_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch { return []; }
-}
-
-function writeHistory(list) {
-  if (typeof window === 'undefined') return;
-  try {
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, HISTORY_MAX)));
-  } catch { /* quota exceeded — skip */ }
-}
-
-// Public: yeni bir başarılı query'yi history'e ekle (dedup + en başa taşı)
-function pushHistory(q, lang) {
-  const normalized = q.trim();
-  if (normalized.length < 3) return;
-  const list = readHistory();
-  const filtered = list.filter(e => e.q.toLowerCase() !== normalized.toLowerCase());
-  filtered.unshift({ q: normalized, lang, ts: Date.now() });
-  writeHistory(filtered);
-}
+// Query history — src/lib/query-history.js shared utility.
+// (Eski lokal readHistory/writeHistory/pushHistory kaldırıldı — homepage
+// RecentQueriesStrip aynı store'u kullanır. Backward-compat için wrapper.)
+const readHistory = readQueryHistory;
+const pushHistory = sharedPushHistory;
 
 function IdleState({ language, onSelect }) {
   const tr = language === 'tr';
@@ -491,9 +467,8 @@ function IdleState({ language, onSelect }) {
   }, []);
 
   const remove = (q) => {
-    const list = readHistory().filter(e => e.q !== q);
-    writeHistory(list);
-    setHistory(list);
+    sharedRemoveHistory(q);
+    setHistory(readHistory());
   };
 
   return (

@@ -8,6 +8,7 @@ import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
 import ReadingProgressCard from '@/components/ReadingProgressCard';
 import RecentBookmarksStrip from '@/components/RecentBookmarksStrip';
+import RecentQueriesStrip from '@/components/RecentQueriesStrip';
 
 // Navigasyon
 import SixGates from '@/sections/SixGates';
@@ -76,6 +77,9 @@ export default async function Home({ params }) {
 
       {/* Recent Bookmarks — sadece bookmark varsa render (#196, 2026-07-16) */}
       <RecentBookmarksStrip />
+
+      {/* Recent Queries — sadece geçmiş varsa render (2026-07-16) */}
+      <RecentQueriesStrip />
 
       {/* Semantik Concierge — Hero altı cinematic prompt (RAG) */}
       <ConciergePrompt />
