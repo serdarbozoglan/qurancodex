@@ -11,6 +11,7 @@ import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
 import WordTooltip from './WordTooltip';
 import WordPopover from './WordPopover';
+import BookmarkButton from './BookmarkButton';
 import { useInterlinearData } from '../hooks/useInterlinearData';
 import { fetchMealSurah } from '../lib/mealCache';
 
@@ -825,7 +826,7 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
       onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
       onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
     >
-      {/* Ayah number + sajda badge + audio */}
+      {/* Ayah number + sajda badge + bookmark + audio */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{
@@ -845,14 +846,30 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
             </span>
           )}
         </div>
-        <AudioBar
-          surah={verse.surah} ayah={verse.ayah}
-          playing={audioPlaying}
-          failed={audioFailed}
-          onToggle={(e) => { e.stopPropagation(); onAudioToggle(verse); }}
-          language={language}
-          reciterIdx={reciterIdx}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={e => e.stopPropagation()}>
+          {/* #201 (2026-07-16) — Bookmark this verse */}
+          <BookmarkButton
+            item={{
+              id: `verse:${verse.surah}:${verse.ayah}`,
+              type: 'verse',
+              title: `${(language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[verse.surah - 1]} ${verse.surah}:${verse.ayah}`,
+              subtitle: language === 'en' ? SURAH_NAMES_TR[verse.surah - 1] : SURAH_NAMES_EN[verse.surah - 1],
+              description: (cleanTr(verse.turkish) || verse.english || '').slice(0, 240),
+              arabic: cleanArabic(verse.arabic),
+              url: `/${language}/ayet/${verse.surah}/${verse.ayah}`,
+            }}
+            size="sm"
+            language={language}
+          />
+          <AudioBar
+            surah={verse.surah} ayah={verse.ayah}
+            playing={audioPlaying}
+            failed={audioFailed}
+            onToggle={(e) => { e.stopPropagation(); onAudioToggle(verse); }}
+            language={language}
+            reciterIdx={reciterIdx}
+          />
+        </div>
       </div>
 
       {/* Arabic */}
