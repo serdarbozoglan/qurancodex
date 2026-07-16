@@ -8,6 +8,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import { fetchMealSurah } from '../lib/mealCache';
 import useFocusTrap from '../hooks/useFocusTrap';
 
@@ -271,12 +272,25 @@ function OccasionCard({ occ, language, isMobile }) {
       <div style={{ padding: pad }}>
         {/* Title row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '8px' }}>
-          <span style={{ fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: isMobile ? '0.9rem' : '0.95rem', lineHeight: 1.4 }}>
+          <span style={{ fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: isMobile ? '0.9rem' : '0.95rem', lineHeight: 1.4, flex: 1, minWidth: 0 }}>
             {title}
           </span>
           <span style={{ ...chipStyle(relMeta.color), flexShrink: 0 }}>
             {language === 'tr' ? relMeta.tr : relMeta.en}
           </span>
+          {/* #197 (2026-07-16) — Bookmark this occasion */}
+          <BookmarkButton
+            item={{
+              id: `sebeb-nuzul:${occ.id || `${occ.verses?.[0]?.surah || 0}-${occ.verses?.[0]?.ayahStart || 0}`}`,
+              type: 'sebeb-nuzul',
+              title,
+              subtitle: (occ.verses || []).map(v => `${v.surah}:${v.ayahStart}`).join(' · '),
+              description: (summary || '').slice(0, 240),
+              url: `/${language}/arac/sebebi-nuzul`,
+            }}
+            size="sm"
+            language={language}
+          />
         </div>
 
         {/* Chips row */}

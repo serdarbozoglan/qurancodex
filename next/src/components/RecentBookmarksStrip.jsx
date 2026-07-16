@@ -24,6 +24,8 @@ const TYPE_LABELS = {
   'atlas-kavram':                   { tr: 'Kavram',         en: 'Concept',          icon: '✧' },
   'surah-summary':                  { tr: 'Sûre',           en: 'Sūrah',            icon: '§' },
   'pericope':                       { tr: 'Ayet Grubu',     en: 'Pericope',         icon: '¶' },
+  'sebeb-nuzul':                    { tr: 'Sebeb-i Nüzûl',  en: 'Occasion',         icon: '⌛' },
+  'wowfact':                        { tr: 'Wow',            en: 'Wow',              icon: '✨' },
 };
 
 function typeMeta(type, tr) {

@@ -7,6 +7,7 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens'
 import { fetchMealSurah } from '../lib/mealCache';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -652,6 +653,15 @@ export default function KissaAtlas({ onClose }) {
                     </button>
                   )}
                   {selectedScene && (() => {
+                    // #197 (2026-07-16) — Bookmark scene
+                    const bookmarkItem = {
+                      id: `atlas-kissa-scene:${prophet.id}:${selectedScene.id}`,
+                      type: 'atlas-kissa-scene',
+                      title: language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn,
+                      subtitle: language === 'tr' ? prophet.nameTr : prophet.nameEn,
+                      description: (language === 'tr' ? selectedScene.descTr : selectedScene.descEn)?.slice(0, 240) || '',
+                      url: `/${language}/atlas/kissa`,
+                    };
                     return (
                       <div>
                         {/* Scene header */}
@@ -664,12 +674,13 @@ export default function KissaAtlas({ onClose }) {
                           }}>
                             {selectedScene.order}
                           </span>
-                          <div>
+                          <div style={{ flex: 1, minWidth: 0 }}>
                             <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 2px' }}>
                               {language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn}
                             </h4>
                             <span style={{ color: COLORS.slate600, fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
                           </div>
+                          <BookmarkButton item={bookmarkItem} size="sm" language={language} />
                         </div>
 
                         {/* Description */}
