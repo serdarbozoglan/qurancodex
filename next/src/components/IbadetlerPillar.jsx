@@ -15,6 +15,7 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CONFIDENCE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
+import CrossToolCTA from './CrossToolCTA';
 
 // Tab defs — visibleTabs data'ya göre filtreler.
 const TAB_DEFS = [
@@ -177,6 +178,19 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
         width: '100%',
       }}>
         {activeTab && <PillarTabBody tabKey={activeTab} pillarData={pillarData} language={language} isMobile={isMobile} />}
+
+        {/* Cross-tool CTA — #202 (2026-07-16) — pillar hub'a geri döner + ilgili tool'lar */}
+        <div style={{ marginTop: 48 }}>
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Hub', titleEn: 'Worship Hub', descTr: '7 ana ibadet direği — namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'The 7 main pillars of worship — prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },
+              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'Bu ibadetin doğrudan emirleri ve yasakları — ayet ayet.', descEn: 'Direct commands and prohibitions of this worship — verse by verse.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetin nihai bağlamı — hesap, mîzân ve cennet ile buluşma.', descEn: 'The ultimate context of worship — reckoning, scales and meeting Paradise.' },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

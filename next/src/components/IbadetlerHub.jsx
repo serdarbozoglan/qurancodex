@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
+import CrossToolCTA from './CrossToolCTA';
 
 export default function IbadetlerHub({ hubData, language, isMobile }) {
   const router = useRouter();
@@ -46,6 +47,19 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
         <FramingNote framingTr={hubData.framingTr} framingEn={hubData.framingEn} language={language} isMobile={isMobile} />
         <WowFactsSection wowFacts={hubData.wowFacts} language={language} isMobile={isMobile} />
         <SourcesCitation language={language} isMobile={isMobile} sources={hubData.kaynaklar} />
+
+        {/* Cross-tool CTA — #202 (2026-07-16) */}
+        <div style={{ marginTop: 40 }}>
+          <CrossToolCTA
+            language={language}
+            isMobile={isMobile}
+            links={[
+              { href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'İbadetlerin metin dayanakları — doğrudan emirler ve tavsiyeler.', descEn: 'Textual bases of worship — direct commands and recommendations.' },
+              { href: `/${language}/arac/muhataplar`, titleTr: 'Muhataplar', titleEn: 'Addressees', descTr: 'İbadet emirlerinin kime yönelik olduğu — müminler, insanlık, ehl-i kitap.', descEn: 'Who worship commands address — believers, humanity, People of the Book.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetlerin nihai gayesi — hesap, mîzân, cennet ile buluşma.', descEn: 'The final purpose of worship — reckoning, scales, and meeting Paradise.' },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
