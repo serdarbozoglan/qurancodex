@@ -8,11 +8,27 @@
       "period": "madani",
       "hijriYear": 6,
       "location": "medina",
-      "verses": [{ "surah": 24, "ayahStart": 11, "ayahEnd": 20 }],
-      "keyPersons": ["Hz. Âişe", "Münafıklar", "Hassan b. Sâbit"],
+      "verses": [
+        {
+          "surah": 24,
+          "ayahStart": 11,
+          "ayahEnd": 20
+        }
+      ],
+      "keyPersons": [
+        "Hz. Âişe",
+        "Münafıklar",
+        "Hassan b. Sâbit"
+      ],
       "summaryTr": "Hz. Âişe'ye (r.a.) atılan iftira. Münafıkların başlattığı söylenti bir ay boyunca Medine'yi sarstı. Bu ayetler Hz. Âişe'nin masumiyetini ilan etti ve iftira atanlara seksen sopa had cezasını hükme bağladı.",
       "summaryEn": "The slander against Aisha (r.a.). A rumor spread by hypocrites shook Medina for a month. These verses declared her innocence and prescribed eighty lashes for those who falsely accused her.",
-      "tags": ["iftira", "aile", "münafık", "had-cezası", "Âişe"],
+      "tags": [
+        "iftira",
+        "aile",
+        "münafık",
+        "had-cezası",
+        "Âişe"
+      ],
       "source": "Buhârî, Müslim, Vâhidî",
       "reliability": "sahih"
     },
@@ -24,11 +40,27 @@
       "period": "madani",
       "hijriYear": 2,
       "location": "medina",
-      "verses": [{ "surah": 2, "ayahStart": 142, "ayahEnd": 150 }],
-      "keyPersons": ["Hz. Muhammed", "Yahudiler", "Müslümanlar"],
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 142,
+          "ayahEnd": 150
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Yahudiler",
+        "Müslümanlar"
+      ],
       "summaryTr": "Hz. Peygamber Medine'ye hicret ettiğinde 16-17 ay Kudüs'e yönelerek namaz kıldı. Kâbe'ye dönmeyi arzuluyordu. Yahudiler kıble değişikliğine itiraz edince Bakara 2:142-150 arası ayetler indi ve kıblenin Mescid-i Harâm'a çevrilmesi emredildi.",
       "summaryEn": "After emigrating to Medina, the Prophet prayed toward Jerusalem for 16-17 months while longing to face the Kaaba. When Jews objected to the direction change, these verses were revealed, commanding prayer toward the Masjid al-Haram.",
-      "tags": ["kıble", "namaz", "Kudüs", "Kâbe", "Yahudiler"],
+      "tags": [
+        "kıble",
+        "namaz",
+        "Kudüs",
+        "Kâbe",
+        "Yahudiler"
+      ],
       "source": "Buhârî, Müslim, Vâhidî",
       "reliability": "sahih"
     },
@@ -40,11 +72,25 @@
       "period": "makki",
       "hijriYear": null,
       "location": "mekke",
-      "verses": [{ "surah": 17, "ayahStart": 85, "ayahEnd": 85 }],
-      "keyPersons": ["Yahudiler", "Kureyş"],
+      "verses": [
+        {
+          "surah": 17,
+          "ayahStart": 85,
+          "ayahEnd": 85
+        }
+      ],
+      "keyPersons": [
+        "Yahudiler",
+        "Kureyş"
+      ],
       "summaryTr": "Yahudiler, Kureyş'e Hz. Peygamber'i sınamak için üç soru sormalarını tavsiye etti. Bunlardan biri ruh hakkındaydı. \"Sana ruh hakkında sorarlar. De ki: Ruh, Rabbimin emrindendir. Size ilimden ancak az bir şey verilmiştir.\"",
       "summaryEn": "Jews advised Quraysh to ask the Prophet three questions to test him. One was about the spirit. 'They ask you about the spirit. Say: the spirit is of the command of my Lord. You have been given of knowledge only a little.'",
-      "tags": ["ruh", "soru", "Yahudiler", "gayb"],
+      "tags": [
+        "ruh",
+        "soru",
+        "Yahudiler",
+        "gayb"
+      ],
       "source": "Buhârî, Vâhidî",
       "reliability": "sahih"
     },
@@ -56,11 +102,25 @@
       "period": "madani",
       "hijriYear": 5,
       "location": "medina",
-      "verses": [{ "surah": 58, "ayahStart": 1, "ayahEnd": 4 }],
-      "keyPersons": ["Havle bint Saʿlebe", "Evs b. Sâmit"],
+      "verses": [
+        {
+          "surah": 58,
+          "ayahStart": 1,
+          "ayahEnd": 4
+        }
+      ],
+      "keyPersons": [
+        "Havle bint Saʿlebe",
+        "Evs b. Sâmit"
+      ],
       "summaryTr": "Evs b. Sâmit karısı Havle'ye zıhâr yaptı — annesine benzeterek onu kendine haram saydı. Havle, Hz. Peygamber'e gidip şikâyette bulundu ve Allah'a yakardı. Mücâdele Sûresi'nin ilk ayetleri bu olay üzerine indi ve zıhâr hükmünü kesin olarak belirledi.",
       "summaryEn": "Aws ibn al-Samit pronounced zihar against his wife Khawla — declaring her back like his mother's, making her forbidden to him. Khawla complained to the Prophet and supplicated to Allah. The first verses of Surah Al-Mujadila were revealed, defining the ruling on zihar.",
-      "tags": ["zıhâr", "kadın-hakkı", "aile-hukuku", "Havle"],
+      "tags": [
+        "zıhâr",
+        "kadın-hakkı",
+        "aile-hukuku",
+        "Havle"
+      ],
       "source": "Vâhidî, Süyûtî",
       "reliability": "sahih"
     },
@@ -72,11 +132,26 @@
       "period": "makki",
       "hijriYear": 3,
       "location": "mekke",
-      "verses": [{ "surah": 80, "ayahStart": 1, "ayahEnd": 10 }],
-      "keyPersons": ["Hz. Muhammed", "İbn Ümmü Mektûm", "Utbe b. Rabîa"],
+      "verses": [
+        {
+          "surah": 80,
+          "ayahStart": 1,
+          "ayahEnd": 10
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "İbn Ümmü Mektûm",
+        "Utbe b. Rabîa"
+      ],
       "summaryTr": "Hz. Peygamber Kureyş'in ileri gelenlerini İslam'a davet ederken görme engelli sahabi İbn Ümmü Mektûm gelip sürekli soru sormaya başladı. Peygamber yüzünü ekşitti ve ona sırt döndü. Abese Sûresi bu olay üzerine indi ve onu hafifçe uyardı.",
       "summaryEn": "While the Prophet was inviting Quraysh's nobles to Islam, the blind companion Ibn Umm Maktum came and kept asking questions. The Prophet frowned and turned away. Surah Abasa was revealed, gently reproving him for this.",
-      "tags": ["engelli", "eşitlik", "terbiye", "sahabî"],
+      "tags": [
+        "engelli",
+        "eşitlik",
+        "terbiye",
+        "sahabî"
+      ],
       "source": "Tirmizî, Vâhidî",
       "reliability": "sahih"
     },
@@ -88,11 +163,26 @@
       "period": "madani",
       "hijriYear": 3,
       "location": "medina",
-      "verses": [{ "surah": 2, "ayahStart": 219, "ayahEnd": 219 }],
-      "keyPersons": ["Ömer b. Hattâb", "Muaz b. Cebel", "Ashab"],
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 219,
+          "ayahEnd": 219
+        }
+      ],
+      "keyPersons": [
+        "Ömer b. Hattâb",
+        "Muaz b. Cebel",
+        "Ashab"
+      ],
       "summaryTr": "Ashabdan bir grup Hz. Peygamber'e içki ve kumar hakkında sordu. Bakara 2:219 indi: \"İkisinde büyük günah ve insanlar için bazı faydalar vardır; ama günahları faydalarından büyüktür.\" Bu, içkinin dört aşamada yasaklanmasının birinci adımıydı.",
       "summaryEn": "A group of companions asked the Prophet about wine and gambling. Al-Baqarah 2:219 was revealed: 'In both there is great sin and some benefit for people, but their sin is greater than their benefit.' This was the first of four gradual stages in the prohibition of alcohol.",
-      "tags": ["içki", "haram", "aşamalı-hüküm", "kumar"],
+      "tags": [
+        "içki",
+        "haram",
+        "aşamalı-hüküm",
+        "kumar"
+      ],
       "source": "Vâhidî, Süyûtî",
       "reliability": "sahih"
     },
@@ -104,11 +194,24 @@
       "period": "madani",
       "hijriYear": 5,
       "location": "medina",
-      "verses": [{ "surah": 63, "ayahStart": 1, "ayahEnd": 8 }],
-      "keyPersons": ["Abdullah b. Übeyy", "Hz. Muhammed"],
+      "verses": [
+        {
+          "surah": 63,
+          "ayahStart": 1,
+          "ayahEnd": 8
+        }
+      ],
+      "keyPersons": [
+        "Abdullah b. Übeyy",
+        "Hz. Muhammed"
+      ],
       "summaryTr": "Abdullah b. Übeyy (münafıkların lideri) Benu'l-Mustalık gazvesinden dönerken şöyle dedi: \"Medine'ye dönersek güçlü olan zayıf olanı oradan çıkaracak.\" Bununla Müslümanları kastetmişti. Münâfikûn Sûresi bu söz üzerine indi.",
       "summaryEn": "Abdullah ibn Ubayy, leader of the hypocrites, said on returning from the Banu al-Mustaliq expedition: 'When we return to Medina, the stronger will expel the weaker from it,' referring to the Muslims. Surah Al-Munafiqun was revealed in response.",
-      "tags": ["münafık", "Abdullah-bin-Übeyy", "nifak"],
+      "tags": [
+        "münafık",
+        "Abdullah-bin-Übeyy",
+        "nifak"
+      ],
       "source": "Buhârî, Müslim, Vâhidî",
       "reliability": "sahih"
     },
@@ -120,11 +223,25 @@
       "period": "madani",
       "hijriYear": 2,
       "location": "medina",
-      "verses": [{ "surah": 2, "ayahStart": 89, "ayahEnd": 91 }],
-      "keyPersons": ["Medine Yahudileri", "Hz. Muhammed"],
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 89,
+          "ayahEnd": 91
+        }
+      ],
+      "keyPersons": [
+        "Medine Yahudileri",
+        "Hz. Muhammed"
+      ],
       "summaryTr": "Medine Yahudileri daha önce Arapların bir peygamber göndereceğini söyleyerek onlarla savaşmakla tehdit etmişti. Ama Hz. Muhammed gelince onu inkâr ettiler. Bakara 2:89-91 bu çifte standartları ortaya koyarak indi.",
       "summaryEn": "The Jews of Medina had previously told the Arabs they would defeat them with a coming prophet. But when Prophet Muhammad came, they rejected him. Al-Baqarah 2:89-91 was revealed to expose this double standard.",
-      "tags": ["Yahudiler", "ehl-i-kitap", "inkâr", "çifte-standart"],
+      "tags": [
+        "Yahudiler",
+        "ehl-i-kitap",
+        "inkâr",
+        "çifte-standart"
+      ],
       "source": "Vâhidî, İbn Abbâs",
       "reliability": "sahih"
     },
@@ -136,11 +253,25 @@
       "period": "madani",
       "hijriYear": 9,
       "location": "medina",
-      "verses": [{ "surah": 24, "ayahStart": 6, "ayahEnd": 9 }],
-      "keyPersons": ["Hilâl b. Ümeyye", "Karısı"],
+      "verses": [
+        {
+          "surah": 24,
+          "ayahStart": 6,
+          "ayahEnd": 9
+        }
+      ],
+      "keyPersons": [
+        "Hilâl b. Ümeyye",
+        "Karısı"
+      ],
       "summaryTr": "Hilâl b. Ümeyye, karısını zina ile suçladı fakat dört şahidi yoktu. Nûr 24:6-9 ayetleri indi ve liân hükmünü belirledi: Eş dört kez Allah adına yemin eder, beşinci keffareti öngörür. Böylece hem yalancı iftiradan hem de şahitsiz suçlamadan çıkış yolu bulundu.",
       "summaryEn": "Hilal ibn Umayya accused his wife of adultery without four witnesses. An-Nur 24:6-9 was revealed, establishing the li'an ruling: the husband swears four times by Allah, with a fifth invoking Allah's curse if lying. This resolved cases of accusations without witnesses.",
-      "tags": ["liân", "zina", "ispat", "evlilik-hukuku"],
+      "tags": [
+        "liân",
+        "zina",
+        "ispat",
+        "evlilik-hukuku"
+      ],
       "source": "Buhârî, Müslim",
       "reliability": "sahih"
     },
@@ -152,11 +283,26 @@
       "period": "madani",
       "hijriYear": 5,
       "location": "medina",
-      "verses": [{ "surah": 33, "ayahStart": 53, "ayahEnd": 53 }],
-      "keyPersons": ["Hz. Muhammed", "Zeynep bint Cahş", "Ashab"],
+      "verses": [
+        {
+          "surah": 33,
+          "ayahStart": 53,
+          "ayahEnd": 53
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Zeynep bint Cahş",
+        "Ashab"
+      ],
       "summaryTr": "Hz. Peygamber'in Zeynep bint Cahş ile evliliğinin düğününde ashabın eve girip çıkması ve uzun oturmalarından doğan sıkıntı üzerine bu ayet indi. Peygamber'in eşleriyle perde arkasından konuşulmasını emretti.",
       "summaryEn": "At the wedding banquet for the Prophet's marriage to Zaynab bint Jahsh, companions kept entering and staying long, causing discomfort. This verse was revealed, commanding that the Prophet's wives be spoken to from behind a screen.",
-      "tags": ["hicâb", "perde", "Zeynep", "aile-mahremiyeti"],
+      "tags": [
+        "hicâb",
+        "perde",
+        "Zeynep",
+        "aile-mahremiyeti"
+      ],
       "source": "Buhârî, Müslim",
       "reliability": "sahih"
     },
@@ -168,11 +314,24 @@
       "period": "madani",
       "hijriYear": 3,
       "location": "medina",
-      "verses": [{ "surah": 4, "ayahStart": 11, "ayahEnd": 12 }],
-      "keyPersons": ["Câbir b. Abdullah"],
+      "verses": [
+        {
+          "surah": 4,
+          "ayahStart": 11,
+          "ayahEnd": 12
+        }
+      ],
+      "keyPersons": [
+        "Câbir b. Abdullah"
+      ],
       "summaryTr": "Hz. Câbir b. Abdullah hastalandı ve Hz. Peygamber'e sordu: \"Benim malım nasıl paylaşılacak? Yalnızca kız kardeşlerim var.\" Kadın mirasçıları kapsayan Nisâ 4:11-12 ayetleri bu soru üzerine indi.",
       "summaryEn": "Jabir ibn Abdullah fell ill and asked the Prophet: 'How will my estate be divided? I only have sisters.' An-Nisa 4:11-12 was revealed, establishing inheritance shares for female heirs.",
-      "tags": ["miras", "kadın-hakkı", "fıkıh", "aile-hukuku"],
+      "tags": [
+        "miras",
+        "kadın-hakkı",
+        "fıkıh",
+        "aile-hukuku"
+      ],
       "source": "Buhârî, Müslim",
       "reliability": "sahih"
     },
@@ -184,11 +343,25 @@
       "period": "madani",
       "hijriYear": 9,
       "location": "medina",
-      "verses": [{ "surah": 9, "ayahStart": 29, "ayahEnd": 29 }],
-      "keyPersons": ["Hz. Muhammed", "Rum (Bizans)"],
+      "verses": [
+        {
+          "surah": 9,
+          "ayahStart": 29,
+          "ayahEnd": 29
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Rum (Bizans)"
+      ],
       "summaryTr": "Tebük Seferi hazırlığı sırasında, Ehl-i Kitab (Yahudi ve Hristiyanlar) ile nasıl muamele edileceği sorusu gündeme geldi. Tevbe 9:29 indi ve onlara can ve mal güvencesi karşılığında cizye vergisi ödeme seçeneği tanındı.",
       "summaryEn": "During preparations for the Tabuk expedition, the question arose of how to deal with the People of the Book. At-Tawba 9:29 was revealed, giving them the option to pay jizya (a protection tax) in exchange for security of life and property.",
-      "tags": ["cizye", "ehl-i-kitap", "Tebük", "savaş-hukuku"],
+      "tags": [
+        "cizye",
+        "ehl-i-kitap",
+        "Tebük",
+        "savaş-hukuku"
+      ],
       "source": "Vâhidî, İbn Abbas",
       "reliability": "hasan"
     },
@@ -200,11 +373,25 @@
       "period": "madani",
       "hijriYear": 9,
       "location": "medina",
-      "verses": [{ "surah": 9, "ayahStart": 74, "ayahEnd": 74 }],
-      "keyPersons": ["Cülas b. Süveyd", "Ashab"],
+      "verses": [
+        {
+          "surah": 9,
+          "ayahStart": 74,
+          "ayahEnd": 74
+        }
+      ],
+      "keyPersons": [
+        "Cülas b. Süveyd",
+        "Ashab"
+      ],
       "summaryTr": "Tebük dönüşünde münafıklardan biri Cülas: \"Şu Arapların ileri gelenleri gibi yalancı, korkak ve aç gözlü olmak zorunda kalsaydık...\" diyerek Hz. Peygamberi kastetti. Tevbe 9:74 bu sözü ifşa ederek indi.",
       "summaryEn": "On returning from Tabuk, a hypocrite named Julas said something mocking the Prophet and companions. At-Tawba 9:74 was revealed, exposing this statement and warning that their denial of what they said itself constituted disbelief.",
-      "tags": ["münafık", "Tebük", "gizli-söz", "ifşa"],
+      "tags": [
+        "münafık",
+        "Tebük",
+        "gizli-söz",
+        "ifşa"
+      ],
       "source": "Süyûtî, Taberî",
       "reliability": "hasan"
     },
@@ -216,11 +403,27 @@
       "period": "madani",
       "hijriYear": 3,
       "location": "medina",
-      "verses": [{ "surah": 3, "ayahStart": 38, "ayahEnd": 41 }],
-      "keyPersons": ["Zekeriya", "Meryem", "Yahyâ"],
+      "verses": [
+        {
+          "surah": 3,
+          "ayahStart": 38,
+          "ayahEnd": 41
+        }
+      ],
+      "keyPersons": [
+        "Zekeriya",
+        "Meryem",
+        "Yahyâ"
+      ],
       "summaryTr": "Yahudiler, Hz. Meryem'in mucizevî şekilde rızıklandırılması hakkında soru sordular. Bu soru Âl-i İmrân Sûresi'nin Meryem ve Zekeriya bölümünü tetikledi. Zekeriya'nın yaşlılığında çocuk sahibi olması ve Yahyâ'nın doğumu bu bağlamda anlatılır.",
       "summaryEn": "Jews asked about Mary's miraculous provision. This question triggered the Mary and Zechariah section of Surah Al-Imran. Zechariah's request for a child in old age and the birth of John are narrated in this context.",
-      "tags": ["Meryem", "Zekeriya", "Yahyâ", "mucize", "dua"],
+      "tags": [
+        "Meryem",
+        "Zekeriya",
+        "Yahyâ",
+        "mucize",
+        "dua"
+      ],
       "source": "Vâhidî",
       "reliability": "hasan"
     },
@@ -232,11 +435,26 @@
       "period": "madani",
       "hijriYear": 3,
       "location": "medina",
-      "verses": [{ "surah": 3, "ayahStart": 165, "ayahEnd": 168 }],
-      "keyPersons": ["Münafıklar", "Ashab", "Abdullah b. Übeyy"],
+      "verses": [
+        {
+          "surah": 3,
+          "ayahStart": 165,
+          "ayahEnd": 168
+        }
+      ],
+      "keyPersons": [
+        "Münafıklar",
+        "Ashab",
+        "Abdullah b. Übeyy"
+      ],
       "summaryTr": "Uhud Savaşı'nda Müslümanlar ağır kayıplar verdi. Münafıklar şöyle dedi: \"Ölenler bizimle olsaydı ölmezlerdi.\" Âl-i İmrân 3:165-168 bu itirazlara cevap olarak indi.",
       "summaryEn": "After heavy losses at Uhud, the hypocrites said: 'If they had followed us, they would not have been killed.' Al-Imran 3:165-168 was revealed in response to these objections.",
-      "tags": ["Uhud", "şehadet", "münafık", "musîbet"],
+      "tags": [
+        "Uhud",
+        "şehadet",
+        "münafık",
+        "musîbet"
+      ],
       "source": "Buhârî, Vâhidî",
       "reliability": "sahih"
     },
@@ -248,11 +466,27 @@
       "period": "madani",
       "hijriYear": 6,
       "location": "medina",
-      "verses": [{ "surah": 4, "ayahStart": 43, "ayahEnd": 43 }],
-      "keyPersons": ["Hz. Âişe", "Ashab", "Üseyd b. Hudayr"],
+      "verses": [
+        {
+          "surah": 4,
+          "ayahStart": 43,
+          "ayahEnd": 43
+        }
+      ],
+      "keyPersons": [
+        "Hz. Âişe",
+        "Ashab",
+        "Üseyd b. Hudayr"
+      ],
       "summaryTr": "Bir seferde Hz. Âişe'nin gerdanlığı kayboldu. Su arayışında vakit geçerken namaz vakti girdi fakat su bulunamadı. Üseyd b. Hudayr dua edince Hz. Âişe'nin devesi oturduğu yerde kalktı ve gerdanlık orada bulundu. Bu olay teyemmüm izninin nüzulüyle eş zamanlıydı.",
       "summaryEn": "On an expedition, Aisha's necklace was lost. While searching for water, the prayer time came but no water was found. This occasion coincided with the revelation of the verse permitting tayammum (dry ablution with earth when water is unavailable).",
-      "tags": ["teyemmüm", "abdest", "namaz", "Âişe", "yolculuk"],
+      "tags": [
+        "teyemmüm",
+        "abdest",
+        "namaz",
+        "Âişe",
+        "yolculuk"
+      ],
       "source": "Buhârî, Müslim",
       "reliability": "sahih"
     },
@@ -264,11 +498,26 @@
       "period": "madani",
       "hijriYear": 9,
       "location": "medina",
-      "verses": [{ "surah": 2, "ayahStart": 275, "ayahEnd": 279 }],
-      "keyPersons": ["Sakîf Kabilesi", "Benu Mugîre"],
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 275,
+          "ayahEnd": 279
+        }
+      ],
+      "keyPersons": [
+        "Sakîf Kabilesi",
+        "Benu Mugîre"
+      ],
       "summaryTr": "Taif'in fethi üzerine Sakîf kabilesi İslam'a girdi. Aralarındaki Benu Mugîre kabilesinin Amr b. Umeyr ailesiyle faizli alacakları vardı. Sözleşmeleri sona ermiş ama faizli alacaklarını tahsil etmek istiyorlardı. Bu durum üzerine Bakara 2:275-279 indi ve faizi kesin olarak yasakladı.",
       "summaryEn": "After the conquest of Taif, the Thaqif tribe accepted Islam. Among them, the Banu Mughira clan had usurious loans with the Amr ibn Umayr family. Though the contracts had expired, they wanted to collect interest. Al-Baqarah 2:275-279 was revealed, absolutely forbidding usury.",
-      "tags": ["faiz", "riba", "ticaret", "haram", "Taif"],
+      "tags": [
+        "faiz",
+        "riba",
+        "ticaret",
+        "haram",
+        "Taif"
+      ],
       "source": "Vâhidî, Süyûtî",
       "reliability": "sahih"
     },
@@ -280,11 +529,24 @@
       "period": "madani",
       "hijriYear": 10,
       "location": "medina",
-      "verses": [{ "surah": 5, "ayahStart": 5, "ayahEnd": 5 }],
-      "keyPersons": ["Ashab"],
+      "verses": [
+        {
+          "surah": 5,
+          "ayahStart": 5,
+          "ayahEnd": 5
+        }
+      ],
+      "keyPersons": [
+        "Ashab"
+      ],
       "summaryTr": "Ashabdan bir kısmı Hristiyan ve Yahudilerin kestiklerini yiyip yiyemeyeceklerini ve onlarla evlenip evlenemeyeceklerini sordu. Mâide 5:5 indi: Ehli kitabın yiyeceği size helaldir ve onların iffetli kadınlarıyla evlenebilirsiniz.",
       "summaryEn": "Some companions asked whether they could eat food slaughtered by Christians and Jews, and whether they could marry their women. Al-Ma'ida 5:5 was revealed: 'The food of those given the Scripture is lawful for you, and their chaste women are lawful for you.'",
-      "tags": ["ehl-i-kitap", "yemek", "nikâh", "helal"],
+      "tags": [
+        "ehl-i-kitap",
+        "yemek",
+        "nikâh",
+        "helal"
+      ],
       "source": "Vâhidî",
       "reliability": "hasan"
     },
@@ -296,11 +558,25 @@
       "period": "madani",
       "hijriYear": 4,
       "location": "medina",
-      "verses": [{ "surah": 5, "ayahStart": 90, "ayahEnd": 91 }],
-      "keyPersons": ["Ömer b. Hattâb", "Ashab"],
+      "verses": [
+        {
+          "surah": 5,
+          "ayahStart": 90,
+          "ayahEnd": 91
+        }
+      ],
+      "keyPersons": [
+        "Ömer b. Hattâb",
+        "Ashab"
+      ],
       "summaryTr": "Ashabdan bazıları içki içip sonra namaz kıldıklarında yanlış ayetler okudu. Bunun üzerine namaz öncesi içki yasağı geldi (Nisâ 4:43). Ardından ashabdan biri kumar oynayıp kavga çıkardı. Hz. Ömer: \"Allah'ım, içki ve kumar hakkında bize açıklayıcı bir şey indir\" diye dua etti. Mâide 5:90-91 indi ve her ikisini kesin olarak haram kıldı.",
       "summaryEn": "After several incidents — companions reciting wrong verses after drinking, and a fight breaking out over gambling — Umar prayed: 'O Allah, give us a clear ruling on wine and gambling.' Al-Ma'ida 5:90-91 was revealed, definitively forbidding both.",
-      "tags": ["içki", "kumar", "kesin-haram", "dördüncü-aşama"],
+      "tags": [
+        "içki",
+        "kumar",
+        "kesin-haram",
+        "dördüncü-aşama"
+      ],
       "source": "Tirmizî, Vâhidî",
       "reliability": "sahih"
     },
@@ -312,16 +588,335 @@
       "period": "madani",
       "hijriYear": 2,
       "location": "medina",
-      "verses": [{ "surah": 2, "ayahStart": 255, "ayahEnd": 255 }],
-      "keyPersons": ["Yahudiler", "Hz. Muhammed"],
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 255,
+          "ayahEnd": 255
+        }
+      ],
+      "keyPersons": [
+        "Yahudiler",
+        "Hz. Muhammed"
+      ],
       "summaryTr": "Medine Yahudileri Hz. Peygamber'e Allah'ın büyüklüğünü ve ezeli-ebedîliğini sordular. Bir görüşe göre Bakara 2:255 bu soru üzerine indi. \"Allah, kendisinden başka ilah olmayandır; Hayy ve Kayyûm'dur.\" Bu ayet Kur'an'ın en büyük ayeti olarak tanımlanmıştır.",
       "summaryEn": "The Jews of Medina asked the Prophet about the greatness and eternality of Allah. According to one view, Al-Baqarah 2:255 was revealed in response. 'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence.' This verse is described as the greatest verse in the Quran.",
-      "tags": ["âyetü'l-kürsî", "Allah'ın-sıfatları", "Yahudiler", "tevhid"],
+      "tags": [
+        "âyetü'l-kürsî",
+        "Allah'ın-sıfatları",
+        "Yahudiler",
+        "tevhid"
+      ],
       "source": "Süyûtî, İbn Merdûye",
       "reliability": "hasan"
+    },
+    {
+      "id": "first-revelation-alaq",
+      "titleTr": "İlk Vahiy — Alak Sûresi",
+      "titleEn": "The First Revelation — Sūrah al-ʿAlaq",
+      "category": "revelation-onset",
+      "period": "makki",
+      "hijriYear": -13,
+      "location": "hira-cave",
+      "verses": [
+        {
+          "surah": 96,
+          "ayahStart": 1,
+          "ayahEnd": 5
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Cebrâîl",
+        "Hz. Hatice",
+        "Varaka b. Nevfel"
+      ],
+      "summaryTr": "Ramazan ayında Hira Mağarası'nda Cebrâîl'in Hz. Peygamber'e ilk vahyi getirmesi: 'Yaratan Rabbinin adıyla oku!' Rasûlullah titreyerek eve döndü; Hz. Hatice onu Varaka b. Nevfel'e götürdü ve peygamberliği doğrulandı.",
+      "summaryEn": "During Ramadan, Gabriel brought the first revelation to the Prophet in the Cave of Ḥirāʾ: 'Read in the name of your Lord who created.' Trembling, he returned home; Khadīja took him to Waraqa b. Nawfal, who confirmed his prophethood.",
+      "tags": [
+        "ilk-vahiy",
+        "Hira",
+        "Cebrâîl",
+        "Hatice",
+        "Varaka"
+      ],
+      "source": "Buhârî, Müslim, İbn İshâk",
+      "reliability": "sahih"
+    },
+    {
+      "id": "second-revelation-muddassir",
+      "titleTr": "İkinci Vahiy Dalgası — Müddessir",
+      "titleEn": "The Second Wave of Revelation — Sūrah al-Muddaththir",
+      "category": "revelation-onset",
+      "period": "makki",
+      "hijriYear": -13,
+      "location": "mecca",
+      "verses": [
+        {
+          "surah": 74,
+          "ayahStart": 1,
+          "ayahEnd": 7
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Cebrâîl"
+      ],
+      "summaryTr": "İlk vahiyden sonra bir dönem 'fetret' yaşandı. Rasûlullah Cebrâîl'i tekrar semada oturmuş görünce evine gitti ve örtündü. 'Ey örtüsüne bürünmüş! Kalk ve uyar!' emri ile açık davete başlaması emredildi.",
+      "summaryEn": "After the first revelation there was a period of pause (fatra). The Prophet saw Gabriel enthroned in the sky, went home and covered himself. Then came: 'O you who are covered! Arise and warn!' — the command to begin open preaching.",
+      "tags": [
+        "fetret",
+        "davet-başlangıcı",
+        "örtü",
+        "uyarı"
+      ],
+      "source": "Buhârî, Müslim",
+      "reliability": "sahih"
+    },
+    {
+      "id": "abu-lahab-condemnation",
+      "titleTr": "Ebû Leheb'e Sûre — Tebbet",
+      "titleEn": "A Sūrah for Abū Lahab — Tabbat",
+      "category": "mecca-persecution",
+      "period": "makki",
+      "hijriYear": -10,
+      "location": "safa-mount",
+      "verses": [
+        {
+          "surah": 111,
+          "ayahStart": 1,
+          "ayahEnd": 5
+        }
+      ],
+      "keyPersons": [
+        "Ebû Leheb",
+        "Ümmü Cemil",
+        "Hz. Muhammed"
+      ],
+      "summaryTr": "Rasûlullah Safâ Tepesi'nde Kureyş'i toplayıp 'Size bir ordu geliyor desem inanır mısınız?' dediğinde amcası Ebû Leheb 'Helâk olasın! Bunun için mi bizi topladın?' diye tepki gösterdi. Tebbet Sûresi hem ismi hem cehennem akıbetiyle onu ifşa etti.",
+      "summaryEn": "When the Prophet gathered Quraysh on Ṣafā and warned them, his uncle Abū Lahab retorted: 'May you perish! Did you gather us for this?' Sūrah al-Masad exposed him by name and prophesied his ruin in the Fire.",
+      "tags": [
+        "Ebû-Leheb",
+        "Safâ",
+        "yakın-uyarı",
+        "amca"
+      ],
+      "source": "Buhârî, Müslim, Tirmizî",
+      "reliability": "sahih"
+    },
+    {
+      "id": "kevser-abtar-response",
+      "titleTr": "Ebter İftirasına Kevser Sûresi",
+      "titleEn": "Al-Kawthar as Reply to the 'Abtar' Insult",
+      "category": "mecca-persecution",
+      "period": "makki",
+      "hijriYear": -8,
+      "location": "mecca",
+      "verses": [
+        {
+          "surah": 108,
+          "ayahStart": 1,
+          "ayahEnd": 3
+        }
+      ],
+      "keyPersons": [
+        "Âs b. Vâil es-Sehmî",
+        "Hz. Muhammed"
+      ],
+      "summaryTr": "Rasûlullah'ın oğlu Kâsım vefat ettiğinde Âs b. Vâil 'Muhammed ebterdir (soyu kesiktir)' dedi. Kevser Sûresi indi: 'Biz sana Kevser'i verdik... Asıl ebter olan senin düşmanındır.' Klasik yorum: Kevser hem cennetteki nehir hem sonsuz bir soy vaadidir.",
+      "summaryEn": "When the Prophet's son Qāsim died, ʿĀṣ b. Wāʾil called him 'abtar' (cut off, sonless). Al-Kawthar answered: 'We have given you al-Kawthar... it is your enemy who is cut off.' Classical exegesis: al-Kawthar is both a heavenly river and a promise of enduring lineage.",
+      "tags": [
+        "Âs-b-Vâil",
+        "iftira",
+        "Kevser",
+        "soy"
+      ],
+      "source": "Vâhidî, Râzî, Zemahşerî",
+      "reliability": "meşhur"
+    },
+    {
+      "id": "duha-pause-in-revelation",
+      "titleTr": "Vahyin Kesilmesine Duhâ Sûresi",
+      "titleEn": "Al-Ḍuḥā After the Pause in Revelation",
+      "category": "mecca-persecution",
+      "period": "makki",
+      "hijriYear": -8,
+      "location": "mecca",
+      "verses": [
+        {
+          "surah": 93,
+          "ayahStart": 1,
+          "ayahEnd": 11
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Cebrâîl",
+        "Ümmü Cemil"
+      ],
+      "summaryTr": "Bir süre vahiy kesildiğinde müşrikler 'Rabbi ondan yüz çevirdi' diye alay etti. Duhâ Sûresi indi: 'Kuşluk vaktine ve karanlığa yemin olsun ki Rabbin seni ne terk etti ne de sana darıldı.' Yetimliğine, yoksulluğuna, kaybolduğunda bulunmasına atıfla teselli.",
+      "summaryEn": "When revelation paused, polytheists mocked: 'His Lord has abandoned him.' Al-Ḍuḥā came down: 'By the forenoon and by the night when it grows still, your Lord has neither forsaken you nor is displeased.' Consolation invoking his orphanhood, poverty, and being found.",
+      "tags": [
+        "fetret-2",
+        "teselli",
+        "yetim",
+        "Ümmü-Cemil"
+      ],
+      "source": "Buhârî, Müslim, Vâhidî",
+      "reliability": "sahih"
+    },
+    {
+      "id": "zaynab-jahsh-marriage",
+      "titleTr": "Zeyneb bint Cahş Evliliği",
+      "titleEn": "The Marriage of Zaynab bint Jaḥsh",
+      "category": "family-law",
+      "period": "madani",
+      "hijriYear": 5,
+      "location": "medina",
+      "verses": [
+        {
+          "surah": 33,
+          "ayahStart": 37,
+          "ayahEnd": 40
+        }
+      ],
+      "keyPersons": [
+        "Zeyd b. Hârise",
+        "Zeyneb bint Cahş",
+        "Hz. Muhammed"
+      ],
+      "summaryTr": "Zeyd b. Hârise (Rasûlullah'ın azatlısı ve evlatlığı) Zeyneb'i boşadıktan sonra Kur'ân Rasûlullah'a onunla evlenmesini emretti. Bu ayet evlatlık müessesesinin gerçek soy statüsü vermediğini kesinleştirdi (33:5) ve Câhiliye'nin bir tabusunu kaldırdı.",
+      "summaryEn": "After Zayd b. Ḥāritha (the Prophet's freedman and adopted son) divorced Zaynab, the Quran commanded the Prophet to marry her. This settled that adoption does not confer biological lineage (33:5) and dismantled a pre-Islamic taboo.",
+      "tags": [
+        "evlatlık",
+        "Zeyd",
+        "Zeyneb",
+        "câhiliye-tabusu"
+      ],
+      "source": "Buhârî, Müslim, Vâhidî",
+      "reliability": "sahih"
+    },
+    {
+      "id": "hudaybiyya-treaty-fath",
+      "titleTr": "Hudeybiye Sonrası Fetih Sûresi",
+      "titleEn": "Sūrah al-Fatḥ After Ḥudaybiyya",
+      "category": "treaty-context",
+      "period": "madani",
+      "hijriYear": 6,
+      "location": "hudaybiyya",
+      "verses": [
+        {
+          "surah": 48,
+          "ayahStart": 1,
+          "ayahEnd": 3
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Süheyl b. Amr",
+        "Hz. Ömer"
+      ],
+      "summaryTr": "Hudeybiye anlaşması sahâbeye zâhiren yenilgi gibi göründü; Hz. Ömer bile Rasûlullah'a bunun kaygısını iletti. Medine'ye dönüşte 'Sana apaçık bir fetih verdik' (48:1) inince Rasûl 'Bugün bana öyle bir sûre indi ki güneşin doğduğu her şeyden daha sevimli' buyurdu.",
+      "summaryEn": "The Treaty of Ḥudaybiyya seemed like defeat to the Companions; even ʿUmar voiced concern. On the way back to Medina came 'We have granted you a clear victory' (48:1). The Prophet said: 'A sūrah has been revealed to me more beloved than the sun and all it rises upon.'",
+      "tags": [
+        "Hudeybiye",
+        "fetih",
+        "Ömer",
+        "anlaşma"
+      ],
+      "source": "Buhârî, Müslim",
+      "reliability": "sahih"
+    },
+    {
+      "id": "farewell-verse-maida-3",
+      "titleTr": "Dinin Tamamlandığı Ayet — Mâide 5:3",
+      "titleEn": "The Completion of the Religion — al-Māʾida 5:3",
+      "category": "revelation-onset",
+      "period": "madani",
+      "hijriYear": 10,
+      "location": "arafat",
+      "verses": [
+        {
+          "surah": 5,
+          "ayahStart": 3,
+          "ayahEnd": 3
+        }
+      ],
+      "keyPersons": [
+        "Hz. Muhammed",
+        "Vedâ Haccı sahâbesi"
+      ],
+      "summaryTr": "Vedâ Haccı'nda Arefe günü, Rasûlullah devesinin üzerindeyken indi: 'Bugün size dininizi kemale erdirdim, üzerinize nimetimi tamamladım.' Bir Yahudi Hz. Ömer'e 'Bu ayet bize inseydi o günü bayram yapardık' dediğinde Ömer 'O gün bizim iki bayramımızdır: Cuma ve Arefe' cevabı verdi.",
+      "summaryEn": "During the Farewell Pilgrimage on the day of ʿArafa, while the Prophet was on his camel, came: 'Today I have perfected your religion for you and completed My favor upon you.' When a Jew told ʿUmar 'Had this verse come to us we would have made that day a festival,' ʿUmar said: 'For us it is two festivals — Friday and ʿArafa.'",
+      "tags": [
+        "vedâ-haccı",
+        "Arefe",
+        "dinin-kemali",
+        "Ömer"
+      ],
+      "source": "Buhârî, Müslim, Tirmizî",
+      "reliability": "sahih"
+    },
+    {
+      "id": "hilal-question-baqara-189",
+      "titleTr": "Hilâller Sorusu — Bakara 2:189",
+      "titleEn": "Question of the Crescent Moons — Baqara 2:189",
+      "category": "question-answer",
+      "period": "madani",
+      "hijriYear": 2,
+      "location": "medina",
+      "verses": [
+        {
+          "surah": 2,
+          "ayahStart": 189,
+          "ayahEnd": 189
+        }
+      ],
+      "keyPersons": [
+        "Muâz b. Cebel",
+        "Sâlebe b. Ganm"
+      ],
+      "summaryTr": "Sahâbeden bazıları 'Hilâller neden ince başlayıp büyür sonra tekrar iner?' diye sordu. Cevap ay'ın astronomik açıklamasını değil, İSLAMÎ FONKSIYONU verdi: 'Onlar insanlar için ve hac için vakit ölçüleridir.' Klasik yorum: Kur'ân sorulara ihtiyaç düzeyinde cevap verir, teorik merakları ihmal eder.",
+      "summaryEn": "Some Companions asked: 'Why do the crescents wax and wane?' The answer did not give an astronomical explanation but stated the ISLAMIC FUNCTION: 'They are measures of time for people and for pilgrimage.' Classical exegesis: the Quran answers questions at the level of need, not theoretical curiosity.",
+      "tags": [
+        "hilâl",
+        "vakit-ölçüsü",
+        "hac",
+        "soru-cevap"
+      ],
+      "source": "Vâhidî, Râzî",
+      "reliability": "meşhur"
+    },
+    {
+      "id": "zina-punishment-nur-2",
+      "titleTr": "Zina Cezası Ayeti — Nûr 24:2",
+      "titleEn": "The Adultery Verse — Nūr 24:2",
+      "category": "family-law",
+      "period": "madani",
+      "hijriYear": 6,
+      "location": "medina",
+      "verses": [
+        {
+          "surah": 24,
+          "ayahStart": 2,
+          "ayahEnd": 2
+        }
+      ],
+      "keyPersons": [
+        "Nesaʾ topluluğu"
+      ],
+      "summaryTr": "İslam öncesi zina yaptırımı belirsizdi; sadece kadınlar evde hapsedilerek ölene kadar bekletiliyordu (Nisâ 4:15). Nûr Sûresi indi: 'Zina yapan kadın ve erkeğin her birine yüz sopa vurun.' Sınırlar netleşti, dört şahit zorunluluğu (24:4) ile ispat yükü de sıkılaştırıldı.",
+      "summaryEn": "Pre-Islamic adultery sanctions were vague; women were confined at home until death (Nisāʾ 4:15). Sūrah al-Nūr replaced this: 'The adulterer and adulteress — flog each of them one hundred lashes.' Limits were set, and the burden of proof tightened with the four-witness requirement (24:4).",
+      "tags": [
+        "zina",
+        "had",
+        "dört-şahit",
+        "kadın-hakkı"
+      ],
+      "source": "Vâhidî, Kurtubî",
+      "reliability": "meşhur"
     }
   ],
-
   "scholars": [
     {
       "id": "wahidi",
@@ -369,7 +964,6 @@
       "status": "precursor"
     }
   ],
-
   "principles": [
     {
       "id": "generality-over-specificity",
@@ -412,7 +1006,6 @@
       "camp": "taxonomy"
     }
   ],
-
   "stats": {
     "overview": {
       "totalVerses": 6236,
@@ -425,17 +1018,56 @@
       "totalSurahs": 114
     },
     "byCategory": [
-      { "category": "event-response",    "approxCount": 210, "percent": 36.8 },
-      { "category": "question-answer",   "approxCount": 120, "percent": 21.1 },
-      { "category": "hypocrite-response","approxCount": 80,  "percent": 14.0 },
-      { "category": "ahl-kitab",         "approxCount": 60,  "percent": 10.5 },
-      { "category": "companion-case",    "approxCount": 45,  "percent": 7.9  },
-      { "category": "family-law",        "approxCount": 30,  "percent": 5.3  },
-      { "category": "need-response",     "approxCount": 25,  "percent": 4.4  }
+      {
+        "category": "event-response",
+        "approxCount": 210,
+        "percent": 36.8
+      },
+      {
+        "category": "question-answer",
+        "approxCount": 120,
+        "percent": 21.1
+      },
+      {
+        "category": "hypocrite-response",
+        "approxCount": 80,
+        "percent": 14.0
+      },
+      {
+        "category": "ahl-kitab",
+        "approxCount": 60,
+        "percent": 10.5
+      },
+      {
+        "category": "companion-case",
+        "approxCount": 45,
+        "percent": 7.9
+      },
+      {
+        "category": "family-law",
+        "approxCount": 30,
+        "percent": 5.3
+      },
+      {
+        "category": "need-response",
+        "approxCount": 25,
+        "percent": 4.4
+      }
     ],
     "byPeriod": [
-      { "period": "makki",  "approxCount": 160, "percent": 28 },
-      { "period": "madani", "approxCount": 410, "percent": 72 }
-    ]
+      {
+        "period": "makki",
+        "approxCount": 160,
+        "percent": 28
+      },
+      {
+        "period": "madani",
+        "approxCount": 410,
+        "percent": 72
+      }
+    ],
+    "totalOccasions": 30,
+    "mecciCount": 5,
+    "madaniCount": 23
   }
 }

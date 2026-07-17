@@ -537,6 +537,33 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Sebeb-i Nüzûl (30 vaka) — 2026-07-17 CLAUDE.md §13.22 pipeline
+  // Her occasion: bağlam + katılımcılar + ayet referansları + summary + kaynak
+  // Concierge sorgusu: "İfk hadisesi ne zaman", "Kevser sûresi neden indi", ...
+  {
+    type: 'sebeb-nuzul',
+    file: 'public/sebeb-i-nuzul.json',
+    extract: (data) => data.occasions || [],
+    buildItem: (occ) => {
+      const verses = (occ.verses || [])
+        .map(v => `${v.surah}:${v.ayahStart}${v.ayahEnd !== v.ayahStart ? '-' + v.ayahEnd : ''}`)
+        .join(', ');
+      const persons = (occ.keyPersons || []).join(', ');
+      const tags = (occ.tags || []).join(', ');
+      return {
+        id: `sebeb-nuzul:${occ.id}`,
+        type: 'sebeb-nuzul',
+        subId: occ.id,
+        titleTr: occ.titleTr || '',
+        titleEn: occ.titleEn || '',
+        descTr: (occ.summaryTr || '').slice(0, 200),
+        descEn: (occ.summaryEn || '').slice(0, 200),
+        searchTextTr: `Sebeb-i Nüzûl — ${occ.titleTr}. Kategori: ${occ.category}. Dönem: ${occ.period}. Konum: ${occ.location}. Ayetler: ${verses}. Kişiler: ${persons}. ${occ.summaryTr || ''} Etiketler: ${tags}. Kaynak: ${occ.source || ''}.`.slice(0, 5000),
+        searchTextEn: `Occasion of Revelation — ${occ.titleEn}. Category: ${occ.category}. Period: ${occ.period}. Location: ${occ.location}. Verses: ${verses}. Persons: ${persons}. ${occ.summaryEn || ''} Tags: ${tags}. Source: ${occ.source || ''}.`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Pericope (Ruku) — Faz 2c-E: konu bütünlüğü olan ayet blokları (~556)
   // Al Quran Cloud API'sinden alınan klasik ruku baseline'ı. Her ruku ortalama
   // 11 ayet (min 1, max 53). Ayet chunk'a paralel — spesifik ayet için değil,

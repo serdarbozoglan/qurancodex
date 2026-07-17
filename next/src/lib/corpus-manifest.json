@@ -62753,5 +62753,155 @@
     "hash": "493e5100afa2337c",
     "embeddedAt": "2026-07-15T14:09:35.633Z",
     "type": "atlas-kissa-scene"
+  },
+  "sebeb-nuzul:ifk-incident": {
+    "hash": "a836baef37b1a0d0",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:qibla-change": {
+    "hash": "e65320662f8f31c0",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:ruh-question": {
+    "hash": "d2677d3aaf8f07fc",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:zihar-case": {
+    "hash": "3b437bdf1bd27a79",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:abese-incident": {
+    "hash": "fcf3cd9640351e9c",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:alcohol-prohibition": {
+    "hash": "1d2585e8dcda531e",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:hypocrites-surah": {
+    "hash": "fe43ad4d7be9a47e",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:jews-of-medina-treaty": {
+    "hash": "5d0750e2dc00e1f0",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:lian-verses": {
+    "hash": "f746fad10376b900",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:hijab-verse": {
+    "hash": "f116a126ce4eb449",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:inheritance-verses": {
+    "hash": "76942945cd97b363",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:jizya-verse": {
+    "hash": "40a6f47df4e65eac",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:bara-verse": {
+    "hash": "f8f59d114cee2b15",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:dua-of-zechariah": {
+    "hash": "491511a1d76f05cf",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:uhud-aftermath": {
+    "hash": "99339e503b7a6835",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:tayammum-verse": {
+    "hash": "2e1cf8ee58d63845",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:usury-prohibition": {
+    "hash": "b6a472da4d2e9af5",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:food-of-christian": {
+    "hash": "1cfeabcb543e43b8",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:gambling-prohibition": {
+    "hash": "8f9cceef05675127",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:verse-of-throne-context": {
+    "hash": "c8509eb6df086594",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:first-revelation-alaq": {
+    "hash": "4e7f2b2fc4b4a8e1",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:second-revelation-muddassir": {
+    "hash": "ede1c1fa3b5df5aa",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:abu-lahab-condemnation": {
+    "hash": "deb422cb2345c042",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:kevser-abtar-response": {
+    "hash": "686e2b8f27695c5a",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:duha-pause-in-revelation": {
+    "hash": "46f420450ebf040e",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:zaynab-jahsh-marriage": {
+    "hash": "0b221558344af453",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:hudaybiyya-treaty-fath": {
+    "hash": "a2ea61bc16e9a965",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:farewell-verse-maida-3": {
+    "hash": "b4736bf64fbbd0f5",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:hilal-question-baqara-189": {
+    "hash": "b993e0f7a51dca21",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
+  },
+  "sebeb-nuzul:zina-punishment-nur-2": {
+    "hash": "130c83772d839954",
+    "embeddedAt": "2026-07-17T05:18:03.458Z",
+    "type": "sebeb-nuzul"
   }
 }
