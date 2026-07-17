@@ -1357,7 +1357,26 @@ const PROPHETS_REF = [
 ];
 
 const PROPHETS = [
-  // Kronolojik sıra: Nuh → İbrahim → Yusuf → Musa → İsa
+  // Kronolojik sıra: Âdem → Nuh → İbrahim → Lût → Yusuf → Eyyub → Musa → Dâvud → Süleyman → Yunus → Zekeriya-Yahyâ → İsa
+  // Mention counts: Muhammed Fuad Abdulbâki, el-Muʿcemü'l-Müfehres li-Elfâzi'l-Kurʾân
+  {
+    id: 'adem',
+    nameTr: 'Hz. Âdem', nameEn: 'Adam',
+    subtitleTr: 'İlk insan, ilk halife, ilk tövbe — yeryüzü hikâyesinin açılışı',
+    subtitleEn: 'First human, first vicegerent, first repentance — the opening of the earthly story',
+    mentions: 25,
+    color: '#fca5a5', glow: 'rgba(252,165,165,0.65)', // TODO: tokenize — prophet-chart clay/rose
+    surahs: [
+      { s:15, phaseTr:'Kuru çamurdan yaratılış', phaseEn:'Created from Dry Clay' },
+      { s:2,  phaseTr:'Halifelik + isimlerin öğretilmesi', phaseEn:'Vicegerency + Teaching of Names' },
+      { s:7,  phaseTr:'Meleklerin secdesi + İblis\'in reddi', phaseEn:"Angels' Prostration + Iblīs's Refusal" },
+      { s:20, phaseTr:'Yasak ağaç + düşüş', phaseEn:'The Forbidden Tree + Fall' },
+      { s:3,  phaseTr:'Seçilmişler zincirinin başı', phaseEn:'Head of the Chosen Lineage' },
+      { s:17, phaseTr:'Şeref verilen çocukları', phaseEn:"Honored Children of Adam" },
+      { s:19, phaseTr:'İbrahim ve Nûh\'un ataları arasında', phaseEn:"Ancestor Among Abraham's and Noah's Line" },
+      { s:36, phaseTr:'İblis\'e uymamak — misak', phaseEn:'Covenant Against Following Iblīs' },
+    ],
+  },
   {
     id: 'nuh',
     nameTr: 'Hz. Nuh', nameEn: 'Noah',
@@ -1398,6 +1417,25 @@ const PROPHETS = [
     ],
   },
   {
+    id: 'lut',
+    nameTr: 'Hz. Lût', nameEn: 'Lot',
+    subtitleTr: 'Sodom-Gomorra\'nın sesi — üç meleğin misafir olduğu peygamber',
+    subtitleEn: "The voice of Sodom-Gomorrah — the prophet who hosted three angels",
+    mentions: 27,
+    color: '#f87171', glow: 'rgba(248,113,113,0.65)', // TODO: tokenize — prophet-chart red/warning
+    surahs: [
+      { s:7,  phaseTr:'Kavminin sapkınlığı — ilk uyarı', phaseEn:"His People's Deviance — First Warning" },
+      { s:26, phaseTr:'Peygamberliğin ilanı & red', phaseEn:'Declaration of Prophethood & Rejection' },
+      { s:15, phaseTr:'Meleklerin misafirliği', phaseEn:"Angels' Hospitality" },
+      { s:11, phaseTr:'Kavmin baskısı & Lût\'un acizliği', phaseEn:"People's Assault & Lot's Helplessness" },
+      { s:29, phaseTr:'Şehrin altüst edilmesi', phaseEn:'The City Overturned' },
+      { s:51, phaseTr:'Kalıntılar — apaçık bir işaret', phaseEn:'Ruins — A Clear Sign' },
+      { s:37, phaseTr:'Lût\'un kurtarılışı', phaseEn:"Lot's Deliverance" },
+      { s:54, phaseTr:'Kavmin akıbeti — sabah şafağı', phaseEn:"People's End — At Dawn" },
+      { s:66, phaseTr:'Lût\'un karısı — ihanet örneği', phaseEn:"Lot's Wife — Example of Betrayal" },
+    ],
+  },
+  {
     id: 'yusuf',
     nameTr: 'Hz. Yusuf', nameEn: 'Joseph',
     subtitleTr: 'Kur\'an\'ın en güzel kıssası — başından sonuna tek sûreli eksiksiz anlatı',
@@ -1408,6 +1446,20 @@ const PROPHETS = [
       { s:6,  phaseTr:'İshak soyundan', phaseEn:'Of the Lineage of Isaac' },
       { s:12, phaseTr:'Rüya → Kuyu → Saray → Hapishane → Mısır Veziri', phaseEn:'Dream → Well → Palace → Prison → Viceroy of Egypt' },
       { s:40, phaseTr:'Mısır\'daki Yusuf\'a atıf', phaseEn:'Reference to Joseph of Egypt' },
+    ],
+  },
+  {
+    id: 'eyyub',
+    nameTr: 'Hz. Eyyub', nameEn: 'Job',
+    subtitleTr: 'Sabrın timsâli — hastalıktan sonra iyileşme suyu ve iade',
+    subtitleEn: "The archetype of patience — healing waters and restoration after illness",
+    mentions: 4,
+    color: '#a8a29e', glow: 'rgba(168,162,158,0.65)', // TODO: tokenize — prophet-chart stone/patience
+    surahs: [
+      { s:4,  phaseTr:'Vahyi alan peygamberler zinciri', phaseEn:'Chain of Prophets Receiving Revelation' },
+      { s:6,  phaseTr:'İbrahim\'in soyundan seçilenler', phaseEn:"Chosen From Abraham's Progeny" },
+      { s:21, phaseTr:'Uzun imtihan + Rabbe niyaz', phaseEn:'Long Trial + Supplication to the Lord' },
+      { s:38, phaseTr:'Ayak vurma → iyileşme suyu → iade', phaseEn:'Foot Strike → Healing Water → Restoration' },
     ],
   },
   {
@@ -1430,6 +1482,72 @@ const PROPHETS = [
       { s:79, phaseTr:'Firavun\'a son uyarı', phaseEn:"Final Warning to Pharaoh" },
       { s:2,  phaseTr:'İsrailoğulları paktı', phaseEn:'Covenant with Israel' },
       { s:61, phaseTr:'Ümmetine son çağrı', phaseEn:'Final Call to His People' },
+    ],
+  },
+  {
+    id: 'davud',
+    nameTr: 'Hz. Dâvud', nameEn: 'David',
+    subtitleTr: 'Zebûr, zafer ve dağların tesbihine katılan ses',
+    subtitleEn: 'The Psalter, victory, and the voice joined by mountains in praise',
+    mentions: 16,
+    color: '#22d3ee', glow: 'rgba(34,211,238,0.65)', // TODO: tokenize — prophet-chart cyan/psalms
+    surahs: [
+      { s:2,  phaseTr:'Câlût\'a karşı zafer + hükümdarlık', phaseEn:'Victory Over Goliath + Kingship' },
+      { s:4,  phaseTr:'Zebûr\'un verilişi', phaseEn:'The Giving of the Psalter' },
+      { s:5,  phaseTr:'İsrâiloğullarına lanet', phaseEn:'Curse on the Rebellious of Israel' },
+      { s:6,  phaseTr:'Peygamberler zincirinde adı', phaseEn:"His Name in the Chain of Prophets" },
+      { s:17, phaseTr:'Peygamberlere üstünlük', phaseEn:'Preference Among Prophets' },
+      { s:21, phaseTr:'İki davacı arasında hüküm', phaseEn:'Judgment Between Two Litigants' },
+      { s:27, phaseTr:'Süleyman\'a miras — hikmet', phaseEn:'Inheritance to Solomon — Wisdom' },
+      { s:34, phaseTr:'Demir zırh + dağların tespihi', phaseEn:'Iron Armor + Mountains in Praise' },
+      { s:38, phaseTr:'Mihrap sahnesi + tövbe + halifelik', phaseEn:'The Miḥrāb Scene + Repentance + Vicegerency' },
+    ],
+  },
+  {
+    id: 'suleyman',
+    nameTr: 'Hz. Süleyman', nameEn: 'Solomon',
+    subtitleTr: 'Rüzgâra, cinlere ve karıncanın diline hâkim olan hükümdar-peygamber',
+    subtitleEn: 'The king-prophet who commanded the wind, the jinn, and the language of the ant',
+    mentions: 17,
+    color: '#f97316', glow: 'rgba(249,115,22,0.65)', // TODO: tokenize — prophet-chart orange/throne
+    surahs: [
+      { s:2,  phaseTr:'Sihir + iftiraya karşı savunma', phaseEn:"Magic + Defense Against False Charges" },
+      { s:4,  phaseTr:'Vahiy zincirinde adı', phaseEn:'Name in the Chain of Revelation' },
+      { s:6,  phaseTr:'Seçilmiş peygamberler arasında', phaseEn:'Among the Chosen Prophets' },
+      { s:21, phaseTr:'İki davacı arasında hüküm — Dâvud ile', phaseEn:'Judgment Between Litigants — With David' },
+      { s:27, phaseTr:'Karınca + Hüdhüd + Belkıs\'ın imanı', phaseEn:"Ant + Hoopoe + Bilqīs's Faith" },
+      { s:34, phaseTr:'Rüzgâr, cinler + vefâtı — asaya dayanma', phaseEn:'Wind, Jinn + Death — Leaning on the Staff' },
+      { s:38, phaseTr:'Atlar imtihanı + taht üzerinde ceset', phaseEn:'Test of the Horses + The Body on the Throne' },
+    ],
+  },
+  {
+    id: 'yunus',
+    nameTr: 'Hz. Yunus', nameEn: 'Jonah',
+    subtitleTr: 'Balığın karnındaki zulumât duası — Ninova\'nın imana dönüşü',
+    subtitleEn: "The prayer from the darkness within the whale — the conversion of Nineveh",
+    mentions: 4,
+    color: '#14b8a6', glow: 'rgba(20,184,166,0.65)', // TODO: tokenize — prophet-chart teal/sea
+    surahs: [
+      { s:4,  phaseTr:'Vahyi alan peygamberler arasında', phaseEn:'Among Prophets Who Received Revelation' },
+      { s:6,  phaseTr:'Seçilmişler zincirinde', phaseEn:'Within the Chain of the Chosen' },
+      { s:10, phaseTr:'İman eden tek kavim — Yunus\'un ümmeti', phaseEn:"The One People That Believed — Jonah's People" },
+      { s:21, phaseTr:'Zulumât duası — Zünnûn', phaseEn:'The Darkness Prayer — Dhū al-Nūn' },
+      { s:37, phaseTr:'Balık + kaçış + kabak dalı', phaseEn:'The Fish + The Flight + The Gourd Plant' },
+      { s:68, phaseTr:'Balık sahibi\'ne uyma — Rasûl\'e öğüt', phaseEn:"Warning: Do Not Be Like the Man of the Fish" },
+    ],
+  },
+  {
+    id: 'zekeriya-yahya',
+    nameTr: 'Hz. Zekeriya & Hz. Yahyâ', nameEn: 'Zechariah & John',
+    subtitleTr: 'Yaşlılıkta gelen dua — Meryem\'in kefili ile onun müjdelediği evlat',
+    subtitleEn: 'A prayer answered in old age — the guardian of Mary and the son he foretold',
+    mentions: 12,  // Zekeriya 7 + Yahyâ 5
+    color: '#a3e635', glow: 'rgba(163,230,53,0.65)', // TODO: tokenize — prophet-chart lime/renewal
+    surahs: [
+      { s:3,  phaseTr:'Meryem\'in kefaleti + Yahyâ\'nın müjdesi', phaseEn:"Guardianship of Mary + Glad Tidings of John" },
+      { s:6,  phaseTr:'Peygamberler zincirinde', phaseEn:'Within the Chain of Prophets' },
+      { s:19, phaseTr:'Yaşlılık duası + Yahyâ\'nın doğumu + üç gün konuşamamak', phaseEn:'Old-age Prayer + John\'s Birth + Three Days of Silence' },
+      { s:21, phaseTr:'Kendisine layık evlat duası', phaseEn:'Prayer for a Worthy Heir' },
     ],
   },
   {

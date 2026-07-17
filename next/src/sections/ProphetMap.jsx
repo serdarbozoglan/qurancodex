@@ -121,6 +121,116 @@ const LOCATIONS = {
       phaseEn: 'Ark’s Landing — End of the Flood & New Beginning',
     },
   ],
+  adem: [
+    {
+      id: 'kabe', lat: 21.4225, lon: 39.8262,
+      nameTr: 'Mekke — Kâbe\'nin İlk Yeri', nameEn: 'Mecca — First Site of the Kaaba',
+      phaseTr: 'Bazı klasik rivayetler: Âdem yeryüzünde ilk mabedi buraya inşa etti',
+      phaseEn: 'Classical tradition: Adam built the first sanctuary here',
+    },
+    {
+      id: 'adem-peak', lat: 6.809, lon: 80.499,
+      nameTr: 'Adam\'s Peak — Sri Lanka', nameEn: "Adam's Peak — Sri Lanka",
+      phaseTr: 'Bazı klasik rivayetler: Âdem\'in cennetten inişini konumlandırır',
+      phaseEn: 'Some classical narrations locate Adam\'s earthly descent here',
+    },
+  ],
+  lut: [
+    {
+      id: 'sodom', lat: 31.15, lon: 35.40,
+      nameTr: 'Sedum & Amora — Lut Gölü çevresi', nameEn: 'Sodom & Gomorrah — Dead Sea region',
+      phaseTr: 'Kavmin şehirleri; helâk sonrası altüst edilen bölge',
+      phaseEn: "His people's cities; the region overturned in destruction",
+    },
+    {
+      id: 'zoar', lat: 30.90, lon: 35.51,
+      nameTr: 'Zoar — Kurtuluş yeri', nameEn: 'Zoar — Site of Refuge',
+      phaseTr: 'Lût ve kızlarının kurtuluş noktası',
+      phaseEn: "Where Lot and his daughters found refuge",
+    },
+  ],
+  eyyub: [
+    {
+      id: 'uz', lat: 32.55, lon: 36.35,
+      nameTr: 'Uz Diyarı — Havran/Şam bölgesi', nameEn: 'Land of Uz — Ḥawrān / Damascus region',
+      phaseTr: 'Klasik rivayetler Eyyub\'un yaşadığı yeri Havran\'a konumlandırır',
+      phaseEn: 'Classical tradition places Job in the Ḥawrān region',
+    },
+    {
+      id: 'eyyub-well', lat: 32.28, lon: 36.05,
+      nameTr: 'Şeyh Sa\'d — İyileşme pınarı', nameEn: "Shaykh Saʿd — Healing spring",
+      phaseTr: '"Ayak vurup su çıkarma" ile ilişkilendirilen ziyaret yeri',
+      phaseEn: "Traditional site associated with the healing water Job struck forth",
+    },
+  ],
+  davud: [
+    {
+      id: 'kudus-davud', lat: 31.7784, lon: 35.2354,
+      nameTr: 'Kudüs — Beyt-i Makdis', nameEn: 'Jerusalem — Bayt al-Maqdis',
+      phaseTr: 'Hükümdarlığın merkezi + Zebûr\'un okunduğu şehir',
+      phaseEn: 'Center of his kingship + city where the Psalter was recited',
+    },
+    {
+      id: 'beytüllahim', lat: 31.7054, lon: 35.2024,
+      nameTr: 'Beytüllahim', nameEn: 'Bethlehem',
+      phaseTr: 'Dâvud soyunun doğduğu şehir',
+      phaseEn: "Birthplace of David's lineage",
+    },
+    {
+      id: 'elah', lat: 31.68, lon: 34.95,
+      nameTr: 'Elâh Vadisi — Câlût mücadelesi', nameEn: 'Valley of Elah — Battle with Goliath',
+      phaseTr: 'Câlût\'la (Golyat) karşılaşılan vadi',
+      phaseEn: 'The valley where he defeated Goliath (Jālūt)',
+    },
+  ],
+  suleyman: [
+    {
+      id: 'kudus-suleyman', lat: 31.7784, lon: 35.2354,
+      nameTr: 'Kudüs — Süleyman Mabedi', nameEn: "Jerusalem — Solomon's Temple site",
+      phaseTr: 'Hükümdarlık merkezi ve mabed inşası',
+      phaseEn: 'Center of kingship and construction of the temple',
+    },
+    {
+      id: 'saba', lat: 15.42, lon: 45.35,
+      nameTr: 'Sebe\' — Mârib, Yemen', nameEn: "Sabaʾ — Maʾrib, Yemen",
+      phaseTr: 'Belkıs\'ın memleketi — Hüdhüd\'ün getirdiği haber',
+      phaseEn: "Bilqīs's realm — the news brought by the Hoopoe",
+    },
+    {
+      id: 'wadi-naml', lat: 30.5, lon: 34.9,
+      nameTr: 'Karınca Vadisi — Neml sûresi 27:18', nameEn: 'Valley of the Ant — Sūrah al-Naml 27:18',
+      phaseTr: 'Karıncanın uyarı sahnesi (klasik lokalizasyon: Şam-Filistin arası)',
+      phaseEn: "Scene of the ant's warning (classical localization: between Syria and Palestine)",
+    },
+  ],
+  yunus: [
+    {
+      id: 'ninova', lat: 36.359, lon: 43.152,
+      nameTr: 'Ninova — Musul, Irak', nameEn: 'Nineveh — Mosul, Iraq',
+      phaseTr: 'Gönderildiği kavim; imana dönen tek millet',
+      phaseEn: 'The people he was sent to; the only nation that turned to faith',
+    },
+    {
+      id: 'yaffa', lat: 32.055, lon: 34.760,
+      nameTr: 'Yafa Limanı', nameEn: 'Port of Jaffa',
+      phaseTr: 'Kavmi terk edip gemiye bindiği liman (klasik rivayet)',
+      phaseEn: 'Port where he boarded the ship after leaving his people (classical narration)',
+    },
+  ],
+  'zekeriya-yahya': [
+    {
+      id: 'kudus-zekeriya', lat: 31.7784, lon: 35.2354,
+      nameTr: 'Kudüs — Beyt-i Makdis (mihrap)', nameEn: 'Jerusalem — Bayt al-Maqdis (miḥrāb)',
+      phaseTr: 'Zekeriya\'nın Meryem\'i himaye ettiği + Yahyâ\'nın müjdesini aldığı mekân',
+      phaseEn: "Where Zechariah guarded Mary + received the tidings of John",
+    },
+    {
+      id: 'yahya-birth', lat: 31.68, lon: 35.29,
+      nameTr: 'Ayn Karim (Yahyâ\'nın doğduğu yer, klasik rivayet)', nameEn: "ʿAyn Kārim (traditional birthplace of John)",
+      phaseTr: 'Yahyâ\'nın doğumu ile ilişkilendirilen ziyaret yeri',
+      phaseEn: "Traditional site associated with John's birth",
+    },
+  ],
 };
 
 const PROPHET_VIEWS = {
@@ -128,6 +238,13 @@ const PROPHET_VIEWS = {
   ibrahim: { center: [31.5, 40.5], zoom: 5 },
   yusuf:   { center: [31.0, 33.2], zoom: 7 },
   isa:     { center: [32.1, 35.3], zoom: 7 },
+  adem:    { center: [14.0, 60.0], zoom: 3 },
+  lut:     { center: [31.05, 35.42], zoom: 8 },
+  eyyub:   { center: [32.40, 36.20], zoom: 7 },
+  davud:   { center: [31.74, 35.15], zoom: 8 },
+  suleyman:{ center: [24.0, 40.0], zoom: 4 },
+  yunus:   { center: [34.20, 39.00], zoom: 5 },
+  'zekeriya-yahya': { center: [31.73, 35.23], zoom: 9 },
   nuh:     { center: [34.5, 43.5], zoom: 6 },
 };
 
