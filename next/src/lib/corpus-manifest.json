@@ -63088,5 +63088,70 @@
     "hash": "2138117531577396",
     "embeddedAt": "2026-07-17T19:40:45.235Z",
     "type": "addressee"
+  },
+  "atlas-kavram:fitrat": {
+    "hash": "c2e59cdc5d02e8ca",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:halife": {
+    "hash": "0e1832027139e117",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:cihad": {
+    "hash": "8c2c167f67fb14ce",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:muhabbet": {
+    "hash": "9133afd8fdd4d29d",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:reca": {
+    "hash": "58d03064a10a60b6",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:istigfar": {
+    "hash": "1c8c686d82debe96",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:haset": {
+    "hash": "12f9c87a7afecdb1",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:hasyet": {
+    "hash": "cc48063aec1a2d58",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:kader": {
+    "hash": "65b3331cf46b2185",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:rizik": {
+    "hash": "49e2b903b781a869",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:nimet": {
+    "hash": "1295e73eabda9cd7",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:tagut": {
+    "hash": "3c3d36282342f57c",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
+  },
+  "atlas-kavram:hicret": {
+    "hash": "4dbac6df5e97c09d",
+    "embeddedAt": "2026-07-17T19:44:51.022Z",
+    "type": "atlas-kavram"
   }
 }
