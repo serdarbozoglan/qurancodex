@@ -50,6 +50,13 @@ function SorInner() {
   const [response, setResponse] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
   const [feedback, setFeedback] = useState(null); // null | 'up' | 'down'
+  // #178 (2026-07-17) — Search modu: 'semantic' (default, RAG BGE-M3) veya
+  // 'keyword' (klasik anahtar-kelime tam metin). Kullanıcı tercihi
+  // localStorage'de persist edilir.
+  const [searchMode, setSearchMode] = useState(() => {
+    if (typeof window === 'undefined') return 'semantic';
+    return localStorage.getItem('concierge_search_mode') === 'keyword' ? 'keyword' : 'semantic';
+  });
   const abortRef = useRef(null);
 
   // localStorage cache — aynı query için redundant LLM çağrısını önler.
@@ -58,26 +65,27 @@ function SorInner() {
   // Cost: query başına ~$0.001 tasarruf; UX: 5-10 sn → anlık.
   // Quota: response ~5-20 KB × 100 entry ≈ 2 MB, localStorage 5 MB limit altı.
   const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 saat
-  const cacheKey = (lang, q) => `concierge:${lang}:${q.trim().toLowerCase()}`;
+  // #178: cache key mode-aware — keyword vs semantic ayrı entry
+  const cacheKey = (lang, q, mode = 'semantic') => `concierge:${mode}:${lang}:${q.trim().toLowerCase()}`;
 
-  const getCachedResponse = useCallback((lang, q) => {
+  const getCachedResponse = useCallback((lang, q, mode = 'semantic') => {
     if (typeof window === 'undefined') return null;
     try {
-      const raw = localStorage.getItem(cacheKey(lang, q));
+      const raw = localStorage.getItem(cacheKey(lang, q, mode));
       if (!raw) return null;
       const parsed = JSON.parse(raw);
       if (parsed.cachedAt && Date.now() - parsed.cachedAt > CACHE_TTL_MS) {
-        localStorage.removeItem(cacheKey(lang, q));
+        localStorage.removeItem(cacheKey(lang, q, mode));
         return null;
       }
       return parsed.data;
     } catch { return null; }
   }, [CACHE_TTL_MS]);
 
-  const setCachedResponse = useCallback((lang, q, data) => {
+  const setCachedResponse = useCallback((lang, q, data, mode = 'semantic') => {
     if (typeof window === 'undefined') return;
     try {
-      localStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
+      localStorage.setItem(cacheKey(lang, q, mode), JSON.stringify({ cachedAt: Date.now(), data }));
     } catch (err) {
       // Quota exceeded — evict oldest concierge entries + retry once
       try {
@@ -91,7 +99,7 @@ function SorInner() {
           for (const { k } of withAge.slice(0, Math.floor(keys.length / 2))) {
             localStorage.removeItem(k);
           }
-          localStorage.setItem(cacheKey(lang, q), JSON.stringify({ cachedAt: Date.now(), data }));
+          localStorage.setItem(cacheKey(lang, q, mode), JSON.stringify({ cachedAt: Date.now(), data }));
         }
       } catch { /* still failing — silently skip */ }
     }
@@ -104,8 +112,8 @@ function SorInner() {
     // TR user EN sorabilir, EN user TR sorabilir. Default TR.
     const queryLang = detectQueryLang(q);
 
-    // Cache-first (queryLang'e göre)
-    const cached = getCachedResponse(queryLang, q);
+    // Cache-first (queryLang + searchMode'e göre)
+    const cached = getCachedResponse(queryLang, q, searchMode);
     if (cached) {
       setResponse(cached);
       setState('ok');
@@ -128,7 +136,7 @@ function SorInner() {
       const res = await fetch('/api/concierge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ q, lang: queryLang }),
+        body: JSON.stringify({ q, lang: queryLang, mode: searchMode }),
         signal: ctrl.signal,
       });
       const data = await res.json();
@@ -153,7 +161,7 @@ function SorInner() {
       } else {
         setResponse(data);
         setState('ok');
-        setCachedResponse(queryLang, q, data); // Cache başarılı response
+        setCachedResponse(queryLang, q, data, searchMode); // Cache başarılı response
         pushHistory(q, queryLang);              // Query history — son 20
       }
     } catch (err) {
@@ -161,7 +169,7 @@ function SorInner() {
       setErrorMsg(err.message || 'Network error');
       setState('error');
     }
-  }, [language, getCachedResponse, setCachedResponse]);
+  }, [language, getCachedResponse, setCachedResponse, searchMode]);
 
   // Fire on initial mount if q param present
   useEffect(() => {
@@ -376,6 +384,57 @@ function SorInner() {
               {tr ? 'Sor' : 'Ask'}
             </button>
           </form>
+
+          {/* #178 (2026-07-17) — Search modu toggle: semantic ↔ keyword */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '12px',
+            gap: '6px',
+          }}>
+            {[
+              { id: 'semantic', tr: 'Anlam ile ara', en: 'Semantic search', descTr: 'Yakın anlamları getirir (yavaş, akıllı)', descEn: 'Fetches related meanings (slow, smart)' },
+              { id: 'keyword',  tr: 'Anahtar kelime', en: 'Keyword search',  descTr: 'Tam metin eşleşmesi (hızlı, birebir)',      descEn: 'Full-text match (fast, exact)' },
+            ].map(opt => {
+              const active = searchMode === opt.id;
+              return (
+                <button
+                  key={opt.id}
+                  type="button"
+                  onClick={() => {
+                    if (opt.id === searchMode) return;
+                    setSearchMode(opt.id);
+                    if (typeof window !== 'undefined') {
+                      localStorage.setItem('concierge_search_mode', opt.id);
+                    }
+                    // Aktif query varsa yeni modla yeniden çalıştır
+                    if (query && query.length >= 3) {
+                      // runQuery closure eski mode'u yakalayabilir — bir tick
+                      // sonra state güncellenmiş olur, safe re-run
+                      setTimeout(() => runQuery(query), 0);
+                    }
+                  }}
+                  aria-pressed={active}
+                  title={tr ? opt.descTr : opt.descEn}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '999px',
+                    border: `1px solid ${active ? COLORS.gold : `${COLORS.gold}22`}`,
+                    background: active ? `${COLORS.gold}22` : 'transparent',
+                    color: active ? COLORS.gold : `${COLORS.silver}`,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.72rem',
+                    fontWeight: active ? 700 : 500,
+                    letterSpacing: '0.06em',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {tr ? opt.tr : opt.en}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 

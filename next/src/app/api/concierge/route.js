@@ -7,6 +7,7 @@
 import crypto from 'node:crypto';
 import { embedQuery } from '@/lib/concierge-embed';
 import { conciergeSearch, applyQualityBoost, extractItemIds } from '@/lib/concierge-search';
+import { conciergeKeywordSearch } from '@/lib/concierge-keyword-search';
 import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
@@ -57,6 +58,10 @@ export async function POST(request) {
 
   const query = (body?.q || body?.query || '').trim();
   const lang = body?.lang === 'en' ? 'en' : 'tr';
+  // #178 (2026-07-17) — search modu: 'semantic' (default, BGE-M3 cosine) veya
+  // 'keyword' (klasik anahtar-kelime tam metin arama). Keyword modu embed
+  // atlar → daha hızlı (~50 ms) + Claude curate aynı pipeline'a bağlanır.
+  const mode = body?.mode === 'keyword' ? 'keyword' : 'semantic';
   const validationError = validateQuery(query, lang);
   if (validationError) {
     return Response.json({ error: 'invalid_query', message: validationError }, { status: 400 });
@@ -64,7 +69,9 @@ export async function POST(request) {
 
   const timings = {};
   const originalQuery = query;
-  const preHash = computeQueryHash(query, lang);
+  // Query hash mode-aware: aynı query keyword vs semantic'te farklı cache
+  // key üretir — sonuç setleri farklı olabilir.
+  const preHash = computeQueryHash(`${mode}:${query}`, lang);
 
   try {
     // 0a. Server-side response cache lookup (Faz 2)
@@ -81,6 +88,7 @@ export async function POST(request) {
           queryHash: preHash,
           query: originalQuery,
           lang,
+          mode,
           category: cached.meta?.guardrails?.category || 'ok',
           rejected: false,
           cacheHit: true,
@@ -117,7 +125,7 @@ export async function POST(request) {
     timings.guardrails = Date.now() - tG;
 
     if (guard.verdict === 'reject') {
-      const queryHash = computeQueryHash(originalQuery, lang);
+      const queryHash = computeQueryHash(`${mode}:${originalQuery}`, lang);
       const ipHash = ip ? ip.slice(0, 8) : null;
       // Structured log — for false-positive review (Bölüm F rejection log).
       console.log(JSON.stringify({
@@ -136,6 +144,7 @@ export async function POST(request) {
           queryHash,
           query: originalQuery,
           lang,
+          mode,
           category: guard.category, // 'reject' | 'off_topic'
           rejected: true,
           rejectReason: guard.reason,
@@ -173,14 +182,24 @@ export async function POST(request) {
     // but preserve original for logging/UX.
     const effectiveQuery = guard.query;
 
-    // 1. Embed query
-    const t0 = Date.now();
-    const queryEmb = await embedQuery(effectiveQuery);
-    timings.embed = Date.now() - t0;
+    // 1. Embed query (semantic mode only)
+    let queryEmb = null;
+    if (mode === 'semantic') {
+      const t0 = Date.now();
+      queryEmb = await embedQuery(effectiveQuery);
+      timings.embed = Date.now() - t0;
+    } else {
+      timings.embed = 0;
+    }
 
-    // 2. Search
+    // 2. Search — mode branch
     const t1 = Date.now();
-    let grouped = conciergeSearch(queryEmb, lang);
+    let grouped;
+    if (mode === 'keyword') {
+      grouped = conciergeKeywordSearch(effectiveQuery, lang);
+    } else {
+      grouped = conciergeSearch(queryEmb, lang);
+    }
     timings.search = Date.now() - t1;
 
     // 2b. Faz 3 — item quality boost/demote (feedback-driven reranking)
@@ -216,7 +235,7 @@ export async function POST(request) {
     const hydrated = hydrateResponse(parsed, lang);
     timings.total = Date.now() - startTs;
 
-    const queryHash = computeQueryHash(originalQuery, lang);
+    const queryHash = computeQueryHash(`${mode}:${originalQuery}`, lang);
     const ipHash = ip ? ip.slice(0, 8) : null;
 
     // KV log — Vercel serverless fire-and-forget güvenli DEĞİL (response
@@ -228,6 +247,7 @@ export async function POST(request) {
         query: originalQuery,
         effectiveQuery: guard.rewritten ? effectiveQuery : null,
         lang,
+        mode,
         category: guard.category,
         rejected: false,
         cacheHit: false,
