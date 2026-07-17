@@ -537,6 +537,37 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Muhatap Sistemi (14 kategori) — 2026-07-17 §13.22 pipeline
+  // Her addressee kategorisi: hitap tipi + tanım + temalar + örnek ayetler
+  // Concierge: "ey iman edenler hitabı", "peygamberin eşlerine emir", ...
+  {
+    type: 'addressee',
+    file: 'public/addressees.json',
+    extract: (data) => data.categories || [],
+    buildItem: (cat) => {
+      const verses = (cat.example_verses || [])
+        .map(v => `${v.ref}: ${v.tr || ''}`)
+        .join(' | ');
+      const versesEn = (cat.example_verses || [])
+        .map(v => `${v.ref}: ${v.en || ''}`)
+        .join(' | ');
+      const themesTr = (cat.themes && cat.themes.tr) ? cat.themes.tr.join(', ') : '';
+      const themesEn = (cat.themes && cat.themes.en) ? cat.themes.en.join(', ') : '';
+      return {
+        id: `addressee:${cat.id}`,
+        type: 'addressee',
+        subId: cat.id,
+        titleTr: cat.tr || '',
+        titleEn: cat.en || '',
+        arabic: cat.arabic || '',
+        descTr: (cat.desc && cat.desc.tr ? cat.desc.tr : '').slice(0, 200),
+        descEn: (cat.desc && cat.desc.en ? cat.desc.en : '').slice(0, 200),
+        searchTextTr: `Muhatap: ${cat.tr}. ${cat.arabic}. ${cat.desc && cat.desc.tr || ''} Temalar: ${themesTr}. Örnek ayetler: ${verses}.`.slice(0, 5000),
+        searchTextEn: `Addressee: ${cat.en}. ${cat.arabic}. ${cat.desc && cat.desc.en || ''} Themes: ${themesEn}. Example verses: ${versesEn}.`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Diyalog Ağı (23 dialogue) — 2026-07-17 §13.22 pipeline
   // Her dialogue: axisId + turns (speaker/addressee/keyPhrase) + lesson
   // Concierge: "meryem'e cebrail ne dedi", "musa hızır kıssası", "belkıs tahtı"

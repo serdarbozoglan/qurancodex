@@ -63018,5 +63018,75 @@
     "hash": "b69e68898a4fcef8",
     "embeddedAt": "2026-07-17T05:29:28.761Z",
     "type": "dialogue"
+  },
+  "addressee:iman": {
+    "hash": "bcf5d30c413d1897",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:insanlar": {
+    "hash": "251a2a0d62c27002",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:ehlikitap": {
+    "hash": "40c9150e9f2fa324",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:peygamber": {
+    "hash": "d98e79dfab31d32c",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:kafirler": {
+    "hash": "edb192563e6d1a81",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:munafik": {
+    "hash": "e6f6cb86b39cef5f",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:musrik": {
+    "hash": "545c795790a261b0",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:israil": {
+    "hash": "e07b1213c435f509",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:adem": {
+    "hash": "3a4a6c05c21f1c0e",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:resul": {
+    "hash": "940bb9b095e6653a",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:insan": {
+    "hash": "07032fbac73d231c",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:muzzammil": {
+    "hash": "48a507fda2fa545c",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:azvac-nebi": {
+    "hash": "9fb6ccdbaf18ce0f",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
+  },
+  "addressee:muminat": {
+    "hash": "2138117531577396",
+    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "type": "addressee"
   }
 }

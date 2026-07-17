@@ -433,7 +433,7 @@
       },
       "example_verses": [
         {
-          "arabic": "قُلْ يَا أَيُّهَا الْكَافِرُونَ ۝ لَا أَعْبُدُ مَا تَعْبُدُونَ",
+          "arabic": "قُلْ يَا أَيُّهَا الْكَافِرُونَ  لَا أَعْبُدُ مَا تَعْبُدُونَ",
           "ref": "109:1-2",
           "surah": "Kâfirûn",
           "topic": {
@@ -453,6 +453,39 @@
           },
           "tr": "Ey kâfirler! Bugün özür dilemeyin. Siz sadece yaptıklarınızın karşılığını alıyorsunuz.",
           "en": "O you who disbelieve! Make no excuses today. You are only being recompensed for what you used to do."
+        },
+        {
+          "arabic": "قُلْ يَا أَيُّهَا الْكَافِرُونَ لَا أَعْبُدُ مَا تَعْبُدُونَ",
+          "ref": "109:1-2",
+          "surah": "Kafirun",
+          "topic": {
+            "tr": "Kesin ayrılık ilanı",
+            "en": "Declaration of separation"
+          },
+          "tr": "De ki: 'Ey kafirler! Ben sizin taptıklarınıza tapmam.'",
+          "en": "Say: 'O disbelievers! I do not worship what you worship.'"
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ كَفَرُوا لَا تَعْتَذِرُوا الْيَوْمَ",
+          "ref": "66:7",
+          "surah": "Tahrim",
+          "topic": {
+            "tr": "Kıyamet günü mazeretin reddi",
+            "en": "Refusal of excuses on the Day of Judgment"
+          },
+          "tr": "Ey kafirler! Bugün mazeret öne sürmeyin — ancak yaptıklarınızın karşılığını görürsünüz.",
+          "en": "O disbelievers! Make no excuses today — you are only being requited for what you used to do."
+        },
+        {
+          "arabic": "قُلْ لِلَّذِينَ كَفَرُوا إِنْ يَنْتَهُوا يُغْفَرْ لَهُمْ مَا قَدْ سَلَفَ",
+          "ref": "8:38",
+          "surah": "Enfal",
+          "topic": {
+            "tr": "Tövbe kapısı hala açık",
+            "en": "The door of repentance still open"
+          },
+          "tr": "İnkar edenlere de ki: 'Eğer vazgeçerlerse geçmiş günahları bağışlanır.'",
+          "en": "Say to those who disbelieve: 'If they cease, their past will be forgiven them.'"
         }
       ]
     },
@@ -584,6 +617,28 @@
           },
           "tr": "De ki: Ey insanlar! Benim dinim hakkında şüphede iseniz bilin ki ben sizin Allah'tan başka ibadet ettiklerinize ibadet etmiyorum.",
           "en": "Say: O people! If you are in doubt as to my religion — I do not worship those you worship besides Allah."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا إِنَّمَا الْمُشْرِكُونَ نَجَسٌ",
+          "ref": "9:28",
+          "surah": "Tevbe",
+          "topic": {
+            "tr": "Müşriklerin Mescid-i Haram'a alınmaması",
+            "en": "Prohibition from the Sacred Mosque"
+          },
+          "tr": "Ey iman edenler! Müşrikler ancak bir necâsettir; bu yıldan sonra Mescid-i Haram'a yaklaşmasınlar.",
+          "en": "O believers! The polytheists are impure; let them not approach the Sacred Mosque after this year."
+        },
+        {
+          "arabic": "بَرَاءَةٌ مِّنَ اللَّهِ وَرَسُولِهِ إِلَى الَّذِينَ عَاهَدْتُم مِّنَ الْمُشْرِكِينَ",
+          "ref": "9:1",
+          "surah": "Tevbe",
+          "topic": {
+            "tr": "Ahitten uzaklık ilanı",
+            "en": "Disavowal from treaties"
+          },
+          "tr": "Allah ve Resulünden, anlaşma yaptığınız müşriklere bir uzaklaşma bildirisidir.",
+          "en": "A disavowal from Allah and His Messenger to those polytheists with whom you had a treaty."
         }
       ]
     },
@@ -783,6 +838,28 @@
           },
           "tr": "Ey Resul! Küfre koşanlar seni üzmesin.",
           "en": "O Messenger! Let not those who hasten into disbelief grieve you."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا",
+          "ref": "33:45",
+          "surah": "Ahzab",
+          "topic": {
+            "tr": "Peygamberliğin dört misyonu",
+            "en": "Four missions of prophethood"
+          },
+          "tr": "Ey Peygamber! Biz seni bir şahit, bir müjdeci ve bir uyarıcı olarak gönderdik.",
+          "en": "O Prophet! We have sent you as a witness, a bringer of glad tidings and a warner."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ لِمَ تُحَرِّمُ مَا أَحَلَّ اللَّهُ لَكَ",
+          "ref": "66:1",
+          "surah": "Tahrim",
+          "topic": {
+            "tr": "Peygambere şefkatli sitem",
+            "en": "Compassionate reproach"
+          },
+          "tr": "Ey Peygamber! Allah'ın sana helal kıldığını neden kendine haram kılıyorsun?",
+          "en": "O Prophet! Why do you prohibit yourself from what Allah has made lawful for you?"
         }
       ]
     },
@@ -842,6 +919,251 @@
           },
           "tr": "Ey insan! Sen Rabbine doğru didinip durmaktasın; nihayet O'na kavuşacaksın.",
           "en": "O human being! Indeed you are laboring toward your Lord with great exertion and you will meet Him."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الْإِنسَانُ مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ",
+          "ref": "82:6",
+          "surah": "Infitar",
+          "topic": {
+            "tr": "Aldanma kutusu",
+            "en": "The box of self-deception"
+          },
+          "tr": "Ey insan! Seni O çok cömert Rabbine karşı ne aldattı?",
+          "en": "O human! What has deceived you concerning your Lord, the Most Generous?"
+        },
+        {
+          "arabic": "يَا أَيُّهَا الْإِنسَانُ إِنَّكَ كَادِحٌ إِلَىٰ رَبِّكَ كَدْحًا فَمُلَاقِيهِ",
+          "ref": "84:6",
+          "surah": "Inshiqaq",
+          "topic": {
+            "tr": "Emek ve karşılaşma",
+            "en": "Toil and encounter"
+          },
+          "tr": "Ey insan! Sen Rabbine (kavuşuncaya kadar) durmadan çalışıp çabalarsın; sonunda O'na kavuşursun.",
+          "en": "O human! Indeed, you are laboring toward your Lord with exertion — and you will meet Him."
+        }
+      ]
+    },
+    {
+      "id": "muzzammil",
+      "accent": "#94a3b8",
+      "arabic": "يَا أَيُّهَا الْمُزَّمِّلُ",
+      "tr": "Ey Örtüsüne Bürünen",
+      "en": "O You Wrapped in Garments",
+      "desc": {
+        "tr": "Kur'an'ın Peygamber'e özel iki lakabı: 'Müzzemmil' (73:1) ve 'Müddessir' (74:1). Fiziksel bir örtünme durumundan manevi bir mesuliyet çağrısına çekiliş — vahyin ilk günlerine ait mahrem hitap.",
+        "en": "Two intimate epithets for the Prophet: 'Muzzammil' (73:1, 'wrapped') and 'Muddaththir' (74:1, 'cloaked'). A pull from a physical state of covering into the summons of spiritual responsibility — intimate address from revelation's earliest days."
+      },
+      "stats": {
+        "count": 2,
+        "medeni_percent": 0,
+        "sure_count": 2,
+        "yogun_sureler": [
+          "Müzzemmil",
+          "Müddessir"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Gece kalkışı",
+          "Kur'an tertili",
+          "Uyarı görevi başlangıcı",
+          "Kişisel disiplin"
+        ],
+        "en": [
+          "Night vigil",
+          "Measured recitation of the Quran",
+          "Beginning of the warning mission",
+          "Personal discipline"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا أَيُّهَا الْمُزَّمِّلُ قُمِ اللَّيْلَ إِلَّا قَلِيلًا",
+          "ref": "73:1-2",
+          "surah": "Muzzemmil",
+          "topic": {
+            "tr": "Gece kalkış emri",
+            "en": "Command to rise for night vigil"
+          },
+          "tr": "Ey örtüsüne bürünen! Az bir kısmı hariç geceleri kalk.",
+          "en": "O you wrapped in garments! Stand at night, except for a little."
+        },
+        {
+          "arabic": "يَا أَيُّهَا الْمُدَّثِّرُ قُمْ فَأَنذِرْ",
+          "ref": "74:1-2",
+          "surah": "Muddessir",
+          "topic": {
+            "tr": "Uyarma göreviyle görevlendirme",
+            "en": "Commissioning to warn"
+          },
+          "tr": "Ey örtüsüne bürünen! Kalk ve uyar!",
+          "en": "O you cloaked! Arise and warn!"
+        },
+        {
+          "arabic": "وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا",
+          "ref": "73:4",
+          "surah": "Muzzemmil",
+          "topic": {
+            "tr": "Tertîl emri",
+            "en": "Command of measured recitation"
+          },
+          "tr": "Kur'an'ı ağır ağır, tane tane oku.",
+          "en": "Recite the Quran with measured, unhurried recitation."
+        }
+      ]
+    },
+    {
+      "id": "azvac-nebi",
+      "accent": "#f472b6",
+      "arabic": "يَا نِسَاءَ النَّبِيِّ",
+      "tr": "Ey Peygamber'in Eşleri",
+      "en": "O Wives of the Prophet",
+      "desc": {
+        "tr": "Ümmü'l-mü'minîn hitabı — Ahzâb Sûresi'nde özel bir sorumluluk düzeyi tanımlanır. Ceza da ecir de iki katıdır (33:30-31); model olma yükü sıradan hitabın üstündedir.",
+        "en": "The address 'Mothers of the Believers' — Sūrah al-Aḥzāb defines a unique level of responsibility. Both punishment and reward are doubled (33:30-31); the burden of being a model exceeds ordinary address."
+      },
+      "stats": {
+        "count": 4,
+        "medeni_percent": 100,
+        "sure_count": 1,
+        "yogun_sureler": [
+          "Ahzâb"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Çifte sorumluluk",
+          "Ev içi davranış",
+          "Örtünme",
+          "Model rol",
+          "Konuşma ölçüsü"
+        ],
+        "en": [
+          "Double responsibility",
+          "Household conduct",
+          "Modest covering",
+          "Role modeling",
+          "Measured speech"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "يَا نِسَاءَ النَّبِيِّ لَسْتُنَّ كَأَحَدٍ مِّنَ النِّسَاءِ إِنِ اتَّقَيْتُنَّ",
+          "ref": "33:32",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Diğer kadınlar gibi değilsiniz",
+            "en": "You are not like other women"
+          },
+          "tr": "Ey Peygamber'in eşleri! Siz kadınlardan herhangi biri gibi değilsiniz — eğer takva sahibiyseniz.",
+          "en": "O wives of the Prophet! You are not like other women — if you are God-conscious."
+        },
+        {
+          "arabic": "يَا نِسَاءَ النَّبِيِّ مَن يَأْتِ مِنكُنَّ بِفَاحِشَةٍ مُّبَيِّنَةٍ يُضَاعَفْ لَهَا الْعَذَابُ ضِعْفَيْنِ",
+          "ref": "33:30",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Ceza iki katı",
+            "en": "Doubled punishment"
+          },
+          "tr": "Ey Peygamber'in eşleri! Sizden kim apaçık bir edepsizlik yaparsa cezası iki kat verilir.",
+          "en": "O wives of the Prophet! Whoever of you commits a clear indecency, her punishment will be doubled."
+        },
+        {
+          "arabic": "وَمَن يَقْنُتْ مِنكُنَّ لِلَّهِ وَرَسُولِهِ وَتَعْمَلْ صَالِحًا نُّؤْتِهَا أَجْرَهَا مَرَّتَيْنِ",
+          "ref": "33:31",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Ecir iki katı",
+            "en": "Doubled reward"
+          },
+          "tr": "Sizden kim Allah'a ve Resulüne itaat eder, iyi iş yaparsa ona ecrini iki kat veririz.",
+          "en": "Whoever of you devoutly obeys Allah and His Messenger and does good, We will give her reward twice."
+        },
+        {
+          "arabic": "وَقَرْنَ فِي بُيُوتِكُنَّ وَلَا تَبَرَّجْنَ تَبَرُّجَ الْجَاهِلِيَّةِ الْأُولَىٰ",
+          "ref": "33:33",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Ev içinde vakar",
+            "en": "Dignity within the home"
+          },
+          "tr": "Evlerinizde vakarınızla oturun; ilk cahiliye çağının teşhirciliği gibi süslenip yayılmayın.",
+          "en": "Remain within your homes and do not display yourselves as in the first pre-Islamic age of ignorance."
+        }
+      ]
+    },
+    {
+      "id": "muminat",
+      "accent": "#a3e635",
+      "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا / الْمُؤْمِنَاتِ",
+      "tr": "Mü'min Kadınlara Doğrudan Hitap",
+      "en": "Direct Address to Believing Women",
+      "desc": {
+        "tr": "Kur'an mü'min kadınlara zaman zaman doğrudan hitap eder: haya, iffet, süs sınırı, aile hukuku. Genellikle 'iman edenler' hitabıyla erkek-kadın birlikte anılırken bu ayetler kadını ismen muhatap alır.",
+        "en": "The Quran sometimes addresses believing women directly: modesty, chastity, limits of adornment, family law. While the general 'O believers' addresses both sexes, these verses specifically name women as addressees."
+      },
+      "stats": {
+        "count": 15,
+        "medeni_percent": 100,
+        "sure_count": 4,
+        "yogun_sureler": [
+          "Nûr",
+          "Ahzâb",
+          "Nisâ",
+          "Mümtehine"
+        ]
+      },
+      "themes": {
+        "tr": [
+          "Örtü",
+          "Haya",
+          "Süs sınırı",
+          "Mahrem ilişkiler",
+          "Bey'at"
+        ],
+        "en": [
+          "Covering",
+          "Modesty",
+          "Limits of adornment",
+          "Intimate relations",
+          "Pledge of allegiance"
+        ]
+      },
+      "example_verses": [
+        {
+          "arabic": "وَقُل لِّلْمُؤْمِنَاتِ يَغْضُضْنَ مِنْ أَبْصَارِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ",
+          "ref": "24:31",
+          "surah": "Nûr",
+          "topic": {
+            "tr": "Bakışın ve iffetin korunması",
+            "en": "Guarding the gaze and chastity"
+          },
+          "tr": "Mü'min kadınlara söyle: bakışlarını indirsinler; iffetlerini korusunlar.",
+          "en": "Tell the believing women to lower their gaze and guard their chastity."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ قُل لِّأَزْوَاجِكَ وَبَنَاتِكَ وَنِسَاءِ الْمُؤْمِنِينَ يُدْنِينَ عَلَيْهِنَّ مِن جَلَابِيبِهِنَّ",
+          "ref": "33:59",
+          "surah": "Ahzâb",
+          "topic": {
+            "tr": "Cilbâb — dışarıda örtü",
+            "en": "Jilbāb — the outer garment"
+          },
+          "tr": "Ey Peygamber! Eşlerine, kızlarına ve mü'minlerin kadınlarına söyle: cilbâblarını üzerlerine örtsünler.",
+          "en": "O Prophet! Tell your wives, your daughters, and the wives of the believers to draw their outer garments over themselves."
+        },
+        {
+          "arabic": "يَا أَيُّهَا النَّبِيُّ إِذَا جَاءَكَ الْمُؤْمِنَاتُ يُبَايِعْنَكَ عَلَىٰ أَن لَّا يُشْرِكْنَ بِاللَّهِ شَيْئًا",
+          "ref": "60:12",
+          "surah": "Mümtehine",
+          "topic": {
+            "tr": "Mü'min kadınların bey'atı",
+            "en": "Pledge of believing women"
+          },
+          "tr": "Ey Peygamber! Mü'min kadınlar, sana biat etmeye geldiklerinde... onların biatini kabul et.",
+          "en": "O Prophet! When believing women come to you pledging allegiance... accept their pledge."
         }
       ]
     }
