@@ -153,10 +153,16 @@
   "connections": [
     {
       "id": "fatiha-baqara-qa",
-      "surahs": [1, 2],
+      "surahs": [
+        1,
+        2
+      ],
       "nameTr": "Soru ve Cevap",
       "nameEn": "Prayer and Response",
-      "types": ["tenzir", "intikal"],
+      "types": [
+        "tenzir",
+        "intikal"
+      ],
       "strength": "iconic",
       "category": "opening",
       "anchors": [
@@ -179,7 +185,11 @@
       ],
       "summaryTr": "Fâtiha'da kul Allah'tan yol gösterme diler. Hemen ardından gelen Bakara, bu dileğe cevap olarak 'İşte yol gösteren kitap budur' der. Kur'an'daki en açık münâsebât örneği.",
       "summaryEn": "In al-Fātiḥa the servant asks God for guidance. Al-Baqara opens with the response: 'Here is the Book — a guidance.' The clearest case of munāsabāt in the Quran.",
-      "sources": ["razi", "biqai", "suyuti"],
+      "sources": [
+        "razi",
+        "biqai",
+        "suyuti"
+      ],
       "quote": {
         "scholar": "razi",
         "textTr": "Kim Fâtiha'nın son ayetinin ardından Bakara'nın ilk ayetlerini arka arkaya düşünürse, ilahi cevap mekanizmasını görür.",
@@ -189,11 +199,17 @@
     },
     {
       "id": "baqara-imran-zahrawan",
-      "surahs": [2, 3],
+      "surahs": [
+        2,
+        3
+      ],
       "nameTr": "Zehrâvân — İki Parlak",
       "nameEn": "Az-Zahrāwān — The Two Radiant",
       "nameAr": "الزَّهْرَاوَان",
-      "types": ["tenasub", "tenzir"],
+      "types": [
+        "tenasub",
+        "tenzir"
+      ],
       "strength": "iconic",
       "category": "paired-named",
       "anchors": [
@@ -224,7 +240,11 @@
       ],
       "summaryTr": "Bakara yoğunlukla Yahudilerle diyalog kurar — Hz. Mûsâ kavminin tarihi, hukuku, sapmaları. Âl-i İmrân ise Hristiyanlarla diyalog kurar — Hz. Meryem, Hz. Îsâ, üçlü doktrinin düzeltilmesi. İki büyük Ehl-i Kitap cemaatiyle sistematik muhatap alma.",
       "summaryEn": "Al-Baqara engages the Jewish community — Moses' people, their history, law, and deviations. Āl ʿImrān engages the Christian community — Mary, Jesus, the correction of trinitarian doctrine. A systematic address to the two great Peoples of the Book.",
-      "sources": ["razi", "biqai", "suyuti"],
+      "sources": [
+        "razi",
+        "biqai",
+        "suyuti"
+      ],
       "hadith": {
         "textTr": "Bakara ve Âl-i İmrân'ı okuyun; çünkü bu iki sure kıyamet günü iki bulut veya iki gölge gibi gelip okuyanları savunacaklardır.",
         "textEn": "Recite al-Baqara and Āl ʿImrān, for on the Day of Resurrection they will come like two clouds and defend their reciters.",
@@ -233,10 +253,15 @@
     },
     {
       "id": "isra-kahf-hamd",
-      "surahs": [17, 18],
+      "surahs": [
+        17,
+        18
+      ],
       "nameTr": "Hamd İkizi",
       "nameEn": "The Praise Pair",
-      "types": ["tenzir"],
+      "types": [
+        "tenzir"
+      ],
       "strength": "structural",
       "category": "linguistic",
       "anchors": [
@@ -259,26 +284,41 @@
       ],
       "summaryTr": "İsrâ hamd ile biter, Kehf hamd ile başlar. Kur'an'da sadece 5 sure hamd ile başlar (Fâtiha, En'âm, Kehf, Sebe', Fâtır) — peş peşe iki surenin bu kalıpla bağlanması tek örnektir.",
       "summaryEn": "Al-Isrāʾ ends with ḥamd; al-Kahf opens with ḥamd. Only 5 surahs begin with ḥamd (al-Fātiḥa, al-Anʿām, al-Kahf, Sabaʾ, Fāṭir) — this is the only consecutive pair linked by it.",
-      "sources": ["biqai", "samarrai"]
+      "sources": [
+        "biqai",
+        "samarrai"
+      ]
     },
     {
       "id": "secde-ahzab-transition",
-      "surahs": [32, 33],
+      "surahs": [
+        32,
+        33
+      ],
       "nameTr": "Mekkî/Medenî Geçiş",
       "nameEn": "Meccan/Medinan Transition",
-      "types": ["intikal"],
+      "types": [
+        "intikal"
+      ],
       "strength": "thematic",
       "category": "structural",
       "summaryTr": "Secde 30 ayetlik kısa Mekkî — akîde (iman temelleri) inşası. Ahzâb 73 ayetlik uzun Medenî — toplum ve savaş inşası. Kur'an'ın Mekkî'den Medenî'ye geçişinin kusursuz örneği.",
       "summaryEn": "As-Sajda is a short Meccan surah (30 verses) building doctrine; al-Aḥzāb is a long Medinan surah (73 verses) building community and law. A textbook Meccan-to-Medinan hinge.",
-      "sources": ["biqai"]
+      "sources": [
+        "biqai"
+      ]
     },
     {
       "id": "vakiah-hadid-wealth",
-      "surahs": [56, 57],
+      "surahs": [
+        56,
+        57
+      ],
       "nameTr": "Ahiret Mahkemesi → Dünya Sınaması",
       "nameEn": "Hereafter Court → World's Test",
-      "types": ["tenasub"],
+      "types": [
+        "tenasub"
+      ],
       "strength": "thematic",
       "category": "thematic",
       "anchors": [
@@ -293,19 +333,30 @@
       ],
       "summaryTr": "Vâkıa kıyamet günündeki üç zümreyi (sağcılar, solcular, önde gidenler) anlatır. Hadîd bu dünyadaki servet sınamasını işler. Ahiretin mahkemesinden dünyanın hazırlığına köprü.",
       "summaryEn": "Al-Wāqiʿa depicts the three classes of the Last Day (right, left, foremost). Al-Ḥadīd immediately follows with the test of wealth in this world. A bridge from the hereafter's court to this life's preparation.",
-      "sources": ["biqai"]
+      "sources": [
+        "biqai"
+      ]
     },
     {
       "id": "ala-ghashiya-jumah",
-      "surahs": [87, 88],
+      "surahs": [
+        87,
+        88
+      ],
       "nameTr": "Cuma Çifti",
       "nameEn": "The Friday Pair",
-      "types": ["tenzir", "tenasub"],
+      "types": [
+        "tenzir",
+        "tenasub"
+      ],
       "strength": "strong",
       "category": "paired-recitation",
       "summaryTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında bu iki sureyi okurdu. A'lâ Allah'ın adını ululama ve uyarma, Ğâşiye kıyamet günü tasviriyle onu tamamlar.",
       "summaryEn": "The Prophet ﷺ recited these two surahs in Friday and festival prayers. Al-Aʿlā exalts God's name and warns; al-Ghāshiya completes it with the scene of the Last Day.",
-      "sources": ["razi", "suyuti"],
+      "sources": [
+        "razi",
+        "suyuti"
+      ],
       "hadith": {
         "textTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında A'lâ ve Ğâşiye'yi okurdu.",
         "textEn": "The Prophet ﷺ used to recite al-Aʿlā and al-Ghāshiya in Friday and festival prayers.",
@@ -314,10 +365,16 @@
     },
     {
       "id": "duha-inshirah-twins",
-      "surahs": [93, 94],
+      "surahs": [
+        93,
+        94
+      ],
       "nameTr": "Teselli İkizleri",
       "nameEn": "The Comfort Twins",
-      "types": ["tenasub", "tekamul"],
+      "types": [
+        "tenasub",
+        "tekamul"
+      ],
       "strength": "iconic",
       "category": "paired-recitation",
       "anchors": [
@@ -340,14 +397,24 @@
       ],
       "summaryTr": "Duhâ'da Hz. Peygamber'e geçmişte verilen nimetler hatırlatılır; İnşirâh'ta aynı formatla iç dünyası (göğüs ferahlığı) ele alınır. Bu iki sure Kur'an'da başından sonuna yalnızca Peygamber'e (tekil 'sen') hitap eden tek arka arkaya çifttir. İmâmiyye fıkhında zorunlu namazda tek sure gibi birlikte okunur.",
       "summaryEn": "Aḍ-Ḍuḥā reminds the Prophet of past blessings; ash-Sharḥ mirrors it for his inner world (expansion of the breast). These two surahs are the only consecutive pair in the Quran addressed entirely to the Prophet alone (singular 'you'). In Imāmī jurisprudence they are recited together as one unit in obligatory prayer.",
-      "sources": ["razi", "biqai", "samarrai"]
+      "sources": [
+        "razi",
+        "biqai",
+        "samarrai"
+      ]
     },
     {
       "id": "fil-quraysh-one-breath",
-      "surahs": [105, 106],
+      "surahs": [
+        105,
+        106
+      ],
       "nameTr": "Tek Soluk — Fîl ve Kureyş",
       "nameEn": "One Breath — Elephant and Quraysh",
-      "types": ["intikal", "tekamul"],
+      "types": [
+        "intikal",
+        "tekamul"
+      ],
       "strength": "iconic",
       "category": "paired-possibly-one",
       "anchors": [
@@ -362,15 +429,23 @@
       ],
       "summaryTr": "Fîl Ebrehe ordusunun helâkını anlatır. Kureyş bu helâkın SONUCU olarak Kureyş kabilesinin emniyetini anlatır. Sebep-sonuç ilişkisiyle tek bir argüman oluşturur. Übey b. Ka'b mushafında tek sure sayılmıştır; İmâmiyye fıkhında zorunlu namazda aralarında besmele olmadan birlikte okunur.",
       "summaryEn": "Al-Fīl narrates the destruction of Abraha's army. Quraysh continues by stating the resulting safety of the Quraysh tribe. Cause-and-effect woven into a single argument. Counted as one surah in the muṣḥaf of Ubayy b. Kaʿb; in Imāmī fiqh they are recited together without basmala.",
-      "sources": ["biqai"]
+      "sources": [
+        "biqai"
+      ]
     },
     {
       "id": "falaq-nas-refuge",
-      "surahs": [113, 114],
+      "surahs": [
+        113,
+        114
+      ],
       "nameTr": "Muavvizeteyn — İki Sığınma Suresi",
       "nameEn": "Al-Muʿawwidhatān — The Two Refuge Surahs",
       "nameAr": "المُعَوِّذَتَان",
-      "types": ["tenasub", "tekamul"],
+      "types": [
+        "tenasub",
+        "tekamul"
+      ],
       "strength": "iconic",
       "category": "paired-named",
       "anchors": [
@@ -393,7 +468,10 @@
       ],
       "summaryTr": "İki sure birlikte 'Muavvizeteyn' (İki Sığınak) olarak adlandırılır. Felak dış dünyadaki tehditleri (karanlık, sihir, hased), Nâs iç dünyadaki tehditleri (vesvese, gizli düşman) kapsar. Peygamber (s.a.v.) her gece yatmadan önce ikisini birlikte okurdu.",
       "summaryEn": "Known together as al-Muʿawwidhatān ('the two refuges'). Al-Falaq covers outer threats (darkness, sorcery, envy); an-Nās covers inner ones (whispering, hidden enmity). The Prophet ﷺ recited both every night before sleep.",
-      "sources": ["razi", "biqai"],
+      "sources": [
+        "razi",
+        "biqai"
+      ],
       "hadith": {
         "textTr": "Peygamber (s.a.v.) her gece yatağına girdiğinde iki elini birleştirir, üzerine Muavvizeteyn ve İhlâs'ı okur, sonra elleriyle vücudunu sıvazlardı.",
         "textEn": "Each night the Prophet ﷺ would cup his hands, recite the Muʿawwidhatān and al-Ikhlāṣ over them, and wipe his body.",
@@ -402,15 +480,299 @@
     },
     {
       "id": "nas-fatiha-cycle",
-      "surahs": [114, 1],
+      "surahs": [
+        114,
+        1
+      ],
       "nameTr": "Döngü — Son ve Başlangıç",
       "nameEn": "The Eternal Cycle",
-      "types": ["intikal"],
+      "types": [
+        "intikal"
+      ],
       "strength": "thematic",
       "category": "structural",
       "summaryTr": "Nâs (son sure) 'şeytanın vesvesesinden sığınma' ile biter. Fâtiha (ilk sure) 'yol gösterilmesi duası' ile başlar. Kur'an'ın okunuşu biten ama bitmeyen bir döngüdür — her hatim yeni bir başlangıç.",
       "summaryEn": "An-Nās (the last surah) ends with seeking refuge from Satan's whispers. Al-Fātiḥa (the first) begins with the prayer for guidance. Reading the Quran is a closed loop that never truly closes — each completion is a new beginning.",
-      "sources": ["samarrai"]
+      "sources": [
+        "samarrai"
+      ]
+    },
+    {
+      "id": "hicr-nahl-teselli-nimet",
+      "surahs": [
+        15,
+        16
+      ],
+      "nameTr": "Teselli → Nimet",
+      "nameEn": "Consolation → Blessing",
+      "types": [
+        "tenzir",
+        "intikal"
+      ],
+      "strength": "strong",
+      "category": "pastoral",
+      "anchors": [
+        {
+          "ref": "15:97-99",
+          "arabic": "وَلَقَدْ نَعْلَمُ أَنَّكَ يَضِيقُ صَدْرُكَ بِمَا يَقُولُونَ",
+          "tr": "Onların söyledikleri şeyler yüzünden göğsünün daraldığını elbette biliyoruz",
+          "en": "We know your heart is straitened by what they say",
+          "roleTr": "Rasûl'e teselli",
+          "roleEn": "Consolation to the Prophet"
+        },
+        {
+          "ref": "16:1",
+          "arabic": "أَتَىٰ أَمْرُ اللَّهِ فَلَا تَسْتَعْجِلُوهُ",
+          "tr": "Allah'ın emri geldi — sakın onu acele istemeyin",
+          "en": "The decree of Allah is coming — do not seek to hasten it",
+          "roleTr": "Cevap: nimet zinciri açılır",
+          "roleEn": "Answer: chain of blessings opens"
+        }
+      ],
+      "summaryTr": "Hicr sûresi Rasûl'e teselli ile biter; Nahl (Arı) hemen ardından nimet zinciri (arı, hayvanlar, meyveler, gece-gündüz) açar. Teselli sonrası nimet — pastoral münâsebâtın örneği.",
+      "summaryEn": "Al-Ḥijr ends with consolation to the Prophet; al-Naḥl (The Bee) immediately opens a chain of blessings (bee, animals, fruits, day-night). Blessing after consolation — pastoral munāsabāt.",
+      "sources": [
+        "biqai",
+        "suyuti"
+      ],
+      "quote": {
+        "scholar": "biqai",
+        "textTr": "Nahl'in başlangıcı Hicr'in kapanışına doğrudan bir cevaptır: acele isteme, yakında görürsün.",
+        "textEn": "The opening of al-Naḥl is a direct answer to the closing of al-Ḥijr: do not hasten, you shall soon see.",
+        "source": "Nazmü'd-Dürer"
+      }
+    },
+    {
+      "id": "zumer-mumin-havf-reca",
+      "surahs": [
+        39,
+        40
+      ],
+      "nameTr": "Havf ↔ Recâ",
+      "nameEn": "Fear ↔ Hope",
+      "types": [
+        "mukabele",
+        "zıddiyet"
+      ],
+      "strength": "iconic",
+      "category": "psychology",
+      "anchors": [
+        {
+          "ref": "39:53",
+          "arabic": "لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
+          "tr": "Allah'ın rahmetinden ümit kesmeyin",
+          "en": "Do not despair of Allah's mercy",
+          "roleTr": "Recânın zirvesi",
+          "roleEn": "Peak of hope"
+        },
+        {
+          "ref": "40:3",
+          "arabic": "غَافِرِ الذَّنبِ وَقَابِلِ التَّوْبِ شَدِيدِ الْعِقَابِ",
+          "tr": "Günahı bağışlayan, tövbeyi kabul eden, cezası şiddetli",
+          "en": "Forgiver of sin, acceptor of repentance, severe in punishment",
+          "roleTr": "Havf ve recânın birlikte anılması",
+          "roleEn": "Fear and hope named together"
+        }
+      ],
+      "summaryTr": "Zümer rahmet kapısını sonuna kadar açar (39:53 en kapsayıcı ümit ayeti). Mü'min (Ğâfir) hemen ardından hem bağışlayan hem cezalandıran isimleri yan yana getirir. Ümit ↔ korku dengesi — havf-recâ psikolojisinin klasik münâsebât örneği.",
+      "summaryEn": "Al-Zumar opens mercy's gate to the fullest (39:53, the most encompassing verse of hope). Al-Muʾmin/Ghāfir immediately juxtaposes 'the Forgiver of sin' and 'the Severe in punishment.' Balance of hope ↔ fear — a classical example of the fear-hope psychology in munāsabāt.",
+      "sources": [
+        "razi",
+        "biqai"
+      ],
+      "quote": {
+        "scholar": "razi",
+        "textTr": "Zümer'in kapanışı Mü'min'in girişini zorunlu kılar — mutlak ümit mutlak korkusuzluğa dönmesin diye.",
+        "textEn": "The closing of al-Zumar necessitates the opening of al-Muʾmin — lest absolute hope turn into absolute fearlessness.",
+        "source": "Mefâtîhu'l-Ğayb"
+      }
+    },
+    {
+      "id": "rahman-vakia-kiyamet-zinciri",
+      "surahs": [
+        55,
+        56
+      ],
+      "nameTr": "Nimet → Kıyâmet",
+      "nameEn": "Blessings → Judgment",
+      "types": [
+        "intikal",
+        "tenzir"
+      ],
+      "strength": "strong",
+      "category": "eschato",
+      "anchors": [
+        {
+          "ref": "55:78",
+          "arabic": "تَبَارَكَ اسْمُ رَبِّكَ ذِي الْجَلَالِ وَالْإِكْرَامِ",
+          "tr": "Celâl ve ikram sahibi olan Rabbinin adı ne yücedir",
+          "en": "Blessed be the name of your Lord, Full of Majesty and Honor",
+          "roleTr": "Nimetin zirve övgüsü",
+          "roleEn": "Peak praise of blessings"
+        },
+        {
+          "ref": "56:1-3",
+          "arabic": "إِذَا وَقَعَتِ الْوَاقِعَةُ لَيْسَ لِوَقْعَتِهَا كَاذِبَةٌ خَافِضَةٌ رَّافِعَةٌ",
+          "tr": "Vâkı'a (kıyamet) vuku bulduğunda... kimini alçaltır, kimini yükseltir",
+          "en": "When the Event occurs... it will lower some, raise others",
+          "roleTr": "Kıyâmetin başlangıcı",
+          "roleEn": "Onset of judgment"
+        }
+      ],
+      "summaryTr": "Rahman 78 kez 'hangi nimeti yalanlarsınız?' diye tekrar edip biter; Vâkı'a hemen o nimetlerin hesabının başlayacağını söyler. Nimet listesi ↔ hesap günü — münâsebâtın en klasik zinciri.",
+      "summaryEn": "Al-Raḥmān ends after asking 78 times 'which of your Lord's favors do you deny?'; al-Wāqiʿa immediately declares the reckoning of those favors is at hand. Blessing catalogue ↔ Judgment Day — one of the most classical chains in munāsabāt.",
+      "sources": [
+        "biqai",
+        "razi"
+      ],
+      "quote": {
+        "scholar": "biqai",
+        "textTr": "Rahman'ın 'yalanlarsınız' soru tekrarı Vâkı'a'da yanıtını bulur: yalanlayanlar için 'ashâbü'ş-şimâl' vardır.",
+        "textEn": "The refrain 'which do you deny?' in al-Raḥmān finds its answer in al-Wāqiʿa: for those who denied, the 'companions of the left.'",
+        "source": "Nazmü'd-Dürer"
+      }
+    },
+    {
+      "id": "mulk-kalem-yaratma-kalem",
+      "surahs": [
+        67,
+        68
+      ],
+      "nameTr": "Mülk → Kalem",
+      "nameEn": "Dominion → Pen",
+      "types": [
+        "intikal"
+      ],
+      "strength": "strong",
+      "category": "opening",
+      "anchors": [
+        {
+          "ref": "67:1-2",
+          "arabic": "تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+          "tr": "Mülk elinde olan çok yücedir",
+          "en": "Blessed is He in whose hand is dominion",
+          "roleTr": "Kozmik hâkimiyet",
+          "roleEn": "Cosmic sovereignty"
+        },
+        {
+          "ref": "68:1",
+          "arabic": "ن وَالْقَلَمِ وَمَا يَسْطُرُونَ",
+          "tr": "Nûn. Kaleme ve yazdıklarına andolsun",
+          "en": "Nūn. By the pen and what they inscribe",
+          "roleTr": "İlim + kayıt",
+          "roleEn": "Knowledge and record"
+        }
+      ],
+      "summaryTr": "Mülk kâinatı elinde tutan hâkimiyeti över; Kalem hemen o hâkimiyetin nasıl yazıldığını (kader defteri + ilim + vahy) gösterir. Kozmik → epistemik geçiş.",
+      "summaryEn": "Al-Mulk praises the sovereignty that holds the cosmos; al-Qalam immediately shows how that sovereignty is inscribed (book of destiny + knowledge + revelation). Cosmic → epistemic transition.",
+      "sources": [
+        "biqai",
+        "suyuti"
+      ],
+      "quote": {
+        "scholar": "suyuti",
+        "textTr": "Mülk sûresinin sonunda 'suyu kim çekilince getirir' sorusu geldi; Kalem sûresinin başında 'kalem ile yazan kim' cevabı gelir.",
+        "textEn": "Al-Mulk ends by asking 'who will bring you flowing water?'; al-Qalam opens answering 'the pen and what it inscribes.'",
+        "source": "el-İtkān"
+      }
+    },
+    {
+      "id": "tekvir-infitar-mutaffifin-trio",
+      "surahs": [
+        81,
+        82,
+        83
+      ],
+      "nameTr": "Mahşer Üçlemesi",
+      "nameEn": "Judgment Triad",
+      "types": [
+        "intikal",
+        "tekrar"
+      ],
+      "strength": "iconic",
+      "category": "eschato",
+      "anchors": [
+        {
+          "ref": "81:1-3",
+          "arabic": "إِذَا الشَّمْسُ كُوِّرَتْ وَإِذَا النُّجُومُ انكَدَرَتْ وَإِذَا الْجِبَالُ سُيِّرَتْ",
+          "tr": "Güneş dürüldüğünde, yıldızlar döküldüğünde, dağlar yürütüldüğünde",
+          "en": "When the sun is folded up, when the stars fall, when the mountains are set moving",
+          "roleTr": "Kozmik çöküş",
+          "roleEn": "Cosmic collapse"
+        },
+        {
+          "ref": "82:1-2",
+          "arabic": "إِذَا السَّمَاءُ انفَطَرَتْ وَإِذَا الْكَوَاكِبُ انتَثَرَتْ",
+          "tr": "Gök yarıldığında, yıldızlar dağıldığında",
+          "en": "When the heaven splits, when the stars scatter",
+          "roleTr": "Devam eden çöküş",
+          "roleEn": "Continuing collapse"
+        },
+        {
+          "ref": "83:1-3",
+          "arabic": "وَيْلٌ لِّلْمُطَفِّفِينَ الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ",
+          "tr": "Mutaffifîn (ölçüde hile yapanların) vay hâline",
+          "en": "Woe to those who give short measure",
+          "roleTr": "Ahiret → gündelik ahlâk",
+          "roleEn": "Afterlife → everyday morality"
+        }
+      ],
+      "summaryTr": "Üç sûre üst üste geliyor: kozmik çöküş → mikro çöküş → ölçüde hile. Skala giderek küçülür — evren dürülür, gök yarılır, terazi eğilir. Aynı ahlâk terazisi.",
+      "summaryEn": "Three sūrahs in a row: cosmic collapse → micro collapse → shortchanging measure. The scale shrinks progressively — the universe folds, the sky splits, the scale tilts. Same moral balance throughout.",
+      "sources": [
+        "biqai",
+        "razi"
+      ],
+      "quote": {
+        "scholar": "biqai",
+        "textTr": "Bu üç sûre tek bir dersin üç okuma seviyesidir: kâinat, insan bedeni, tezgâh — hepsi aynı ölçüyle tartılır.",
+        "textEn": "These three sūrahs are three reading levels of one lesson: cosmos, human body, marketplace — all weighed by the same scale.",
+        "source": "Nazmü'd-Dürer"
+      }
+    },
+    {
+      "id": "nebe-naziat-buyuk-haber",
+      "surahs": [
+        78,
+        79
+      ],
+      "nameTr": "Büyük Haber Zinciri",
+      "nameEn": "The Great Tidings Chain",
+      "types": [
+        "tekrar",
+        "intikal"
+      ],
+      "strength": "strong",
+      "category": "eschato",
+      "anchors": [
+        {
+          "ref": "78:1-3",
+          "arabic": "عَمَّ يَتَسَاءَلُونَ عَنِ النَّبَإِ الْعَظِيمِ",
+          "tr": "Neyi soruşturuyorlar? O büyük haberi",
+          "en": "About what are they asking? — About the Great News",
+          "roleTr": "Soru: büyük haber nedir?",
+          "roleEn": "Question: what is the great news?"
+        },
+        {
+          "ref": "79:6-9",
+          "arabic": "يَوْمَ تَرْجُفُ الرَّاجِفَةُ تَتْبَعُهَا الرَّادِفَةُ قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ",
+          "tr": "O gün sarsan sarsar, ardından ikinci sarsıntı gelir; kalpler o gün titrer",
+          "en": "On the Day the shaking shakes, followed by the second — hearts on that Day tremble",
+          "roleTr": "Cevap: haberin fiziksel karşılığı",
+          "roleEn": "Answer: the physical reality of the news"
+        }
+      ],
+      "summaryTr": "Nebe' 'büyük haber' üzerine soruyu açar; Nâzi'ât o haberin fiziksel karşılığını (sarsıntı, kalpler titreme) resmeder. Soru → resim münâsebâtı.",
+      "summaryEn": "Al-Nabaʾ opens the question of 'the great tidings'; al-Nāziʿāt paints the physical reality of those tidings (the shaking, hearts trembling). Question → depiction munāsabāt.",
+      "sources": [
+        "biqai"
+      ],
+      "quote": {
+        "scholar": "biqai",
+        "textTr": "Nebe'in soru işareti Nâzi'ât'ın deprem tasviriyle noktaya döner.",
+        "textEn": "The question mark of al-Nabaʾ closes into a period with al-Nāziʿāt's earthquake depiction.",
+        "source": "Nazmü'd-Dürer"
+      }
     }
   ],
   "groups": [
@@ -418,7 +780,15 @@
       "id": "havamim",
       "nameTr": "Havâmîm",
       "nameEn": "Ḥawāmīm",
-      "surahs": [40, 41, 42, 43, 44, 45, 46],
+      "surahs": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
       "lettersAr": "حم",
       "descriptionTr": "'Hâ-Mîm' ile başlayan 7 sure. Peş peşe tek mukatta'a grubu. Tematik süreklilik: vahiy, kitap, inanç-inkâr karşıtlığı.",
       "descriptionEn": "Seven consecutive surahs opening with Ḥā-Mīm. Thematic continuity: revelation, the Book, belief vs. denial."
@@ -427,7 +797,14 @@
       "id": "alif-lam-ra",
       "nameTr": "Elif Lâm Râ Grubu",
       "nameEn": "Alif Lām Rā Group",
-      "surahs": [10, 11, 12, 13, 14, 15],
+      "surahs": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
       "lettersAr": "الر / المر",
       "descriptionTr": "Yûnus'tan Hicr'e 6 sure. Kıssa-yoğun bölge; peygamber hikayelerinin paralel anlatımı.",
       "descriptionEn": "Six surahs from Yūnus to al-Ḥijr. Dense with prophetic stories told in parallel."
@@ -436,7 +813,11 @@
       "id": "tasinler",
       "nameTr": "Tâsînler",
       "nameEn": "Ṭā-Sīn Group",
-      "surahs": [26, 27, 28],
+      "surahs": [
+        26,
+        27,
+        28
+      ],
       "lettersAr": "طسم / طس",
       "descriptionTr": "Şuarâ, Neml, Kasas — üç ardışık sure. Mûsâ kıssasının farklı açılardan anlatımı.",
       "descriptionEn": "Ash-Shuʿarāʾ, an-Naml, al-Qaṣaṣ — three consecutive surahs. The story of Moses told from complementary angles."
@@ -445,7 +826,11 @@
       "id": "kehf-meryem-taha",
       "nameTr": "Asrın Ortası — Kıssa Yoğunluğu",
       "nameEn": "The Middle Arc — Story Density",
-      "surahs": [18, 19, 20],
+      "surahs": [
+        18,
+        19,
+        20
+      ],
       "descriptionTr": "Kehf, Meryem, Tâhâ — Kur'an'ın orta bölgesinde üç sure üst üste kıssa yoğun. Ashâb-ı Kehf, Zülkarneyn, Mûsâ-Hızır, Meryem, Îsâ, Yahyâ, Mûsâ-Firavun.",
       "descriptionEn": "Al-Kahf, Maryam, Ṭā-Hā — three consecutive story-dense surahs at the Quran's middle. People of the Cave, Dhul-Qarnayn, Moses-Khiḍr, Mary, Jesus, John, Moses-Pharaoh."
     }

@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 
 // ── MODULE-LEVEL CACHES ───────────────────────────────────────────────────────
 let cachedVerses = null;
@@ -1064,6 +1065,46 @@ export default function SurahComparator({ onClose }) {
             { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Sureler arası anlamsal bağlar — klasik tefsir gelenekleriyle.', descEn: 'Semantic ties between surahs — from the classical tafsir tradition.' },
             { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Sûrelerin nüzul dönemleri (Mekki/Medeni) — kronolojik akış.', descEn: 'Revelation periods of surahs (Meccan/Medinan) — chronological flow.' },
             { href: `/${language}/graf/kelime-isi`, titleTr: 'Kelime Isı Haritası', titleEn: 'Word Heatmap', descTr: 'Bir kelimenin 114 sure boyunca yoğunluk dağılımı.', descEn: 'Distribution density of a word across all 114 surahs.' },
+          ]}
+        />
+
+        {/* #181 (2026-07-17) — Sûreler arası karşılaştırma / münâsebât klasik literatürü */}
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            {
+              author: 'el-Bikâî',
+              workTr: "Nazmü\'d-Dürer fî Tenâsübi\'l-Âyi ve\'s-Süver",
+              workEn: 'Naẓm al-Durar fī Tanāsub al-Āy wa al-Suwar',
+              period: '1406–1480 (Kahire)',
+              noteTr: "Sûreler-arası münâsebât ilminin foundational eseri — her sûrenin bir öncekiyle bağını sistematik ayet-ayet inceler. Sûre DNA karşılaştırmasının klasik zemini.",
+              noteEn: "The foundational work of inter-sūrah munāsabāt studies — systematically examines each sūrah's link with the previous one verse by verse. The classical grounding for inter-sūrah comparison.",
+            },
+            {
+              author: 'es-Süyûtî',
+              workTr: "el-İtkān fî Ulûmi\'l-Kurʾân",
+              workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
+              period: '1445–1505 (Kahire)',
+              noteTr: 'Kur\'ân ilimleri ansiklopedisi; sûrelerin başlangıç-son münâsebeti (ibtidâ-hâtime), fâsıla ilişkisi, mü\'menun aleyh gibi başlıkları buradan gelir.',
+              noteEn: 'Encyclopedia of Quranic sciences; topics like the beginning-ending correspondence of sūrahs (ibtidāʾ-khātima), fāsila relations, and shared themes come from here.',
+            },
+            {
+              author: 'ez-Zerkeşî',
+              workTr: "el-Burhân fî Ulûmi\'l-Kurʾân",
+              workEn: 'al-Burhān fī ʿUlūm al-Qurʾān',
+              period: '1344–1392 (Kahire)',
+              noteTr: 'Tenâsüb (koherens) bahsi (bölüm 2) — sûrelerin nüzul sırasında değil mushaf tertibinde neden bu düzende olduğunu belağat perspektifinden savunur.',
+              noteEn: 'On tanāsub / coherence (§2) — argues from a rhetorical perspective why sūrahs are arranged in mushaf order rather than revelation order.',
+            },
+            {
+              author: 'Neal Robinson',
+              workTr: 'Kurʾân\'ı Keşfetmek',
+              workEn: 'Discovering the Qurʾan',
+              period: '1996 (Georgetown UP)',
+              noteTr: 'Modern akademik münâsebât çalışması — Michel Cuypers ve Neuwirth\'in yanında sûre iç-yapısı + sûreler-arası bağların çağdaş sistematik analizini yapar.',
+              noteEn: 'Modern academic study of munāsabāt — alongside Cuypers and Neuwirth, offers a contemporary systematic analysis of intra-sūrah structure + inter-sūrah ties.',
+            },
           ]}
         />
       </div>

@@ -63153,5 +63153,85 @@
     "hash": "4dbac6df5e97c09d",
     "embeddedAt": "2026-07-17T19:44:51.022Z",
     "type": "atlas-kavram"
+  },
+  "munasebat:fatiha-baqara-qa": {
+    "hash": "72336a2300072f3a",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:baqara-imran-zahrawan": {
+    "hash": "ddb8b59a66f928d6",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:isra-kahf-hamd": {
+    "hash": "f5fb4ce02b36a3bc",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:secde-ahzab-transition": {
+    "hash": "aa0753c50730d188",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:vakiah-hadid-wealth": {
+    "hash": "64f75cec948f54f9",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:ala-ghashiya-jumah": {
+    "hash": "e20e9f1a036b50a9",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:duha-inshirah-twins": {
+    "hash": "ab26edd85f2df192",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:fil-quraysh-one-breath": {
+    "hash": "dab12535923f319f",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:falaq-nas-refuge": {
+    "hash": "0aa7c2ed3ff552a6",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:nas-fatiha-cycle": {
+    "hash": "098aaff96185228a",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:hicr-nahl-teselli-nimet": {
+    "hash": "27a0bce745f8ec0f",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:zumer-mumin-havf-reca": {
+    "hash": "930cbd5efd9176c8",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:rahman-vakia-kiyamet-zinciri": {
+    "hash": "036a017915f3c25c",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:mulk-kalem-yaratma-kalem": {
+    "hash": "f09d0bebe5a06f9a",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:tekvir-infitar-mutaffifin-trio": {
+    "hash": "0a19a4e9255920d2",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
+  },
+  "munasebat:nebe-naziat-buyuk-haber": {
+    "hash": "01cefea2dedbf6e0",
+    "embeddedAt": "2026-07-17T21:34:08.537Z",
+    "type": "munasebat"
   }
 }

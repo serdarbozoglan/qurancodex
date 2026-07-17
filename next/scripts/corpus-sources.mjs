@@ -537,6 +537,38 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Münâsebât (surah-connections 16) — 2026-07-17 §13.22 pipeline
+  // Sûreler arası klasik münâsebât bağları — Bikâî geleneği + Râzî.
+  // Concierge: "fâtiha bakara ilişkisi", "rahman vâkı'a münâsebâtı", ...
+  {
+    type: 'munasebat',
+    file: 'public/surah-connections.json',
+    extract: (data) => data.connections || [],
+    buildItem: (conn) => {
+      const surahs = (conn.surahs || []).join(', ');
+      const anchors = (conn.anchors || [])
+        .map(a => `${a.ref} — ${a.tr || ''} (${a.roleTr || ''})`)
+        .join(' | ');
+      const anchorsEn = (conn.anchors || [])
+        .map(a => `${a.ref} — ${a.en || ''} (${a.roleEn || ''})`)
+        .join(' | ');
+      const sources = (conn.sources || []).join(', ');
+      const quote = conn.quote ? `${conn.quote.scholar} (${conn.quote.source}): ${conn.quote.textTr || ''}` : '';
+      const quoteEn = conn.quote ? `${conn.quote.scholar} (${conn.quote.source}): ${conn.quote.textEn || ''}` : '';
+      return {
+        id: `munasebat:${conn.id}`,
+        type: 'munasebat',
+        subId: conn.id,
+        titleTr: conn.nameTr || '',
+        titleEn: conn.nameEn || '',
+        descTr: (conn.summaryTr || '').slice(0, 200),
+        descEn: (conn.summaryEn || '').slice(0, 200),
+        searchTextTr: `Münâsebât: ${conn.nameTr}. Sûreler: ${surahs}. Kategori: ${conn.category}. Güç: ${conn.strength}. ${conn.summaryTr || ''} Ayet demirleri: ${anchors}. Klasik kaynak: ${sources}. Alıntı: ${quote}.`.slice(0, 5000),
+        searchTextEn: `Munāsabāt: ${conn.nameEn}. Sūrahs: ${surahs}. Category: ${conn.category}. Strength: ${conn.strength}. ${conn.summaryEn || ''} Anchor verses: ${anchorsEn}. Classical sources: ${sources}. Quote: ${quoteEn}.`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Muhatap Sistemi (14 kategori) — 2026-07-17 §13.22 pipeline
   // Her addressee kategorisi: hitap tipi + tanım + temalar + örnek ayetler
   // Concierge: "ey iman edenler hitabı", "peygamberin eşlerine emir", ...
