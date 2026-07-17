@@ -537,6 +537,36 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Diyalog Ağı (23 dialogue) — 2026-07-17 §13.22 pipeline
+  // Her dialogue: axisId + turns (speaker/addressee/keyPhrase) + lesson
+  // Concierge: "meryem'e cebrail ne dedi", "musa hızır kıssası", "belkıs tahtı"
+  {
+    type: 'dialogue',
+    file: 'public/diyalog-dialogues.json',
+    extract: (data) => data.dialogues || [],
+    buildItem: (dlg) => {
+      const refs = (dlg.refs || []).join(', ');
+      const turnSummaries = (dlg.turns || [])
+        .map(t => `${t.speaker} → ${t.addressee}: ${t.summaryTr || ''}`)
+        .join(' | ');
+      const turnSummariesEn = (dlg.turns || [])
+        .map(t => `${t.speaker} → ${t.addressee}: ${t.summaryEn || ''}`)
+        .join(' | ');
+      return {
+        id: `dialogue:${dlg.id}`,
+        type: 'dialogue',
+        subId: dlg.id,
+        axisId: dlg.axisId,
+        titleTr: dlg.titleTr || '',
+        titleEn: dlg.titleEn || '',
+        descTr: (dlg.lessonTr || '').slice(0, 200),
+        descEn: (dlg.lessonEn || '').slice(0, 200),
+        searchTextTr: `Diyalog: ${dlg.titleTr}. Eksen: ${dlg.axisId}. Ayetler: ${refs}. Konuşma: ${turnSummaries}. Ders: ${dlg.lessonTr || ''}`.slice(0, 5000),
+        searchTextEn: `Dialogue: ${dlg.titleEn}. Axis: ${dlg.axisId}. Verses: ${refs}. Speech: ${turnSummariesEn}. Lesson: ${dlg.lessonEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Sebeb-i Nüzûl (30 vaka) — 2026-07-17 CLAUDE.md §13.22 pipeline
   // Her occasion: bağlam + katılımcılar + ayet referansları + summary + kaynak
   // Concierge sorgusu: "İfk hadisesi ne zaman", "Kevser sûresi neden indi", ...

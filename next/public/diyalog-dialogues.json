@@ -5,7 +5,9 @@
       "axisId": "allah-angels",
       "titleTr": "Halife Atanması",
       "titleEn": "Appointing the Vicegerent",
-      "refs": ["2:30-34"],
+      "refs": [
+        "2:30-34"
+      ],
       "temporalLayer": "ezel",
       "turns": [
         {
@@ -38,7 +40,9 @@
       "axisId": "iblis-allah",
       "titleTr": "İblis'in Secde Reddi",
       "titleEn": "Iblis Refuses to Prostrate",
-      "refs": ["7:11-18"],
+      "refs": [
+        "7:11-18"
+      ],
       "temporalLayer": "ezel",
       "turns": [
         {
@@ -78,7 +82,9 @@
       "axisId": "allah-musa",
       "titleTr": "Tûr'da İlk Vahiy",
       "titleEn": "First Revelation at the Burning Bush",
-      "refs": ["20:10-36"],
+      "refs": [
+        "20:10-36"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -111,7 +117,9 @@
       "axisId": "musa-pharaoh",
       "titleTr": "Mûsâ-Firavun: İlk Karşılaşma",
       "titleEn": "Moses and Pharaoh: First Encounter",
-      "refs": ["26:16-31"],
+      "refs": [
+        "26:16-31"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -151,7 +159,9 @@
       "axisId": "pharaoh-allah",
       "titleTr": "Firavun'un Son Sözü",
       "titleEn": "Pharaoh's Final Words",
-      "refs": ["10:90-92"],
+      "refs": [
+        "10:90-92"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -177,7 +187,9 @@
       "axisId": "ibrahim-azar",
       "titleTr": "İbrâhîm Babasına Davet Ediyor",
       "titleEn": "Abraham Invites His Father",
-      "refs": ["19:41-48"],
+      "refs": [
+        "19:41-48"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -210,7 +222,9 @@
       "axisId": "ibrahim-nimrod",
       "titleTr": "İbrâhîm-Nemrut: Akıl Tartışması",
       "titleEn": "Abraham vs. Nimrod: The Rational Debate",
-      "refs": ["2:258"],
+      "refs": [
+        "2:258"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -243,7 +257,9 @@
       "axisId": "yusuf-brothers",
       "titleTr": "Yûsuf Kendini Tanıtıyor",
       "titleEn": "Joseph Reveals Himself",
-      "refs": ["12:89-93"],
+      "refs": [
+        "12:89-93"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -283,7 +299,10 @@
       "axisId": "angels-paradise",
       "titleTr": "Meleklerin Cennet Ehline Selamı",
       "titleEn": "Angels Welcome the People of Paradise",
-      "refs": ["39:73", "13:23-24"],
+      "refs": [
+        "39:73",
+        "13:23-24"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -302,7 +321,10 @@
       "axisId": "paradise-hell",
       "titleTr": "Cennet Ehlinden Cehennem Ehline",
       "titleEn": "From Paradise to Hell: The Dialogue",
-      "refs": ["7:44", "7:50"],
+      "refs": [
+        "7:44",
+        "7:50"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -342,7 +364,9 @@
       "axisId": "iblis-hell-dwellers",
       "titleTr": "İblis'in Son İtirafı",
       "titleEn": "Satan's Final Confession",
-      "refs": ["14:22"],
+      "refs": [
+        "14:22"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -368,7 +392,10 @@
       "axisId": "followers-leaders",
       "titleTr": "Takipçilerin Önderleri Suçlaması",
       "titleEn": "Followers Blame Their Leaders",
-      "refs": ["14:21", "34:31-33"],
+      "refs": [
+        "14:21",
+        "34:31-33"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -394,7 +421,9 @@
       "axisId": "allah-isa",
       "titleTr": "Allah'ın Îsâ'ya Sorusu",
       "titleEn": "God Questions Jesus on Judgment Day",
-      "refs": ["5:116-117"],
+      "refs": [
+        "5:116-117"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -420,7 +449,9 @@
       "axisId": "nuh-son",
       "titleTr": "Nûh'un Oğluna Son Çağrısı",
       "titleEn": "Noah's Final Call to His Son",
-      "refs": ["11:42-43"],
+      "refs": [
+        "11:42-43"
+      ],
       "temporalLayer": "dunya",
       "turns": [
         {
@@ -453,7 +484,9 @@
       "axisId": "araf-both",
       "titleTr": "A'râf Ehli — İki Tarafa Hitap",
       "titleEn": "People of A'raf Address Both Sides",
-      "refs": ["7:46-49"],
+      "refs": [
+        "7:46-49"
+      ],
       "temporalLayer": "ahiret",
       "turns": [
         {
@@ -473,6 +506,364 @@
       ],
       "lessonTr": "Berzah bir bilinç halidir — her iki sonucu gören ve Allah'a sığınan.",
       "lessonEn": "The A'raf is a state of awareness — seeing both outcomes and seeking refuge in God."
+    },
+    {
+      "id": "maryam-gabriel-annunciation",
+      "axisId": "maryam-gabriel",
+      "titleTr": "Meryem'e Mujde — Ruh Cebrail",
+      "titleEn": "Annunciation to Mary — The Spirit Gabriel",
+      "refs": [
+        "19:16-21"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "maryam",
+          "addressee": "gabriel",
+          "keyPhrase": "إِنِّي أَعُوذُ بِالرَّحْمَٰنِ مِنكَ",
+          "summaryTr": "Senden Rahman'a siginirim — eger sen takva sahibisen.",
+          "summaryEn": "I seek refuge in the Most Merciful from you — if you are God-fearing."
+        },
+        {
+          "speaker": "gabriel",
+          "addressee": "maryam",
+          "keyPhrase": "إِنَّمَآ أَنَا رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَٰمًا زَكِيًّا",
+          "summaryTr": "Ben yalnizca Rabbinin elcisiyim — sana temiz bir ogul bahsetmek icin.",
+          "summaryEn": "I am only a messenger of your Lord — to give you a pure boy."
+        },
+        {
+          "speaker": "maryam",
+          "addressee": "gabriel",
+          "keyPhrase": "أَنَّىٰ يَكُونُ لِى غُلَٰمٌ وَلَمْ يَمْسَسْنِى بَشَرٌ",
+          "summaryTr": "Bana bir beser dokunmadigi halde nasil oglum olur?",
+          "summaryEn": "How can I have a boy when no man has touched me?"
+        },
+        {
+          "speaker": "gabriel",
+          "addressee": "maryam",
+          "keyPhrase": "كَذَٰلِكِ قَالَ رَبُّكِ هُوَ عَلَىَّ هَيِّنٌ",
+          "summaryTr": "Rabbin boyle buyurdu — bu bana kolaydir; ve onu insanlara bir isaret kilacagiz.",
+          "summaryEn": "Thus said your Lord — it is easy for Me; and We will make him a sign for humankind."
+        }
+      ],
+      "lessonTr": "Kul-mucize karsilasmasinda ilk tepki soru; teslimiyet cevabi takip eder. Meryem'in \"nasil?\" sorusu suphe degil hakikat arayisidir.",
+      "lessonEn": "In the encounter between servant and miracle, the first reaction is a question; surrender follows. Mary's 'how?' is not doubt but a search for truth."
+    },
+    {
+      "id": "zekeriya-old-age-prayer",
+      "axisId": "allah-zekeriya",
+      "titleTr": "Zekeriya'nin Yaslilik Duasi",
+      "titleEn": "Zechariah's Old-Age Prayer",
+      "refs": [
+        "19:2-11"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "zekeriya",
+          "addressee": "allah",
+          "keyPhrase": "إِنِّى وَهَنَ الْعَظْمُ مِنِّى وَاشْتَعَلَ الرَّأْسُ شَيْبًا",
+          "summaryTr": "Rabbim, kemiklerim gevsedi, sacim agardi — sana ettigim dua ile hic mahrum kalmadim.",
+          "summaryEn": "My Lord, my bones have weakened, my head has flared with grey — I have never been unblessed in praying to You."
+        },
+        {
+          "speaker": "zekeriya",
+          "addressee": "allah",
+          "keyPhrase": "فَهَبْ لِى مِن لَّدُنكَ وَلِيًّا",
+          "summaryTr": "Bana katindan bir varis (Yahya) bagisla; Yakup soyuna varis olsun.",
+          "summaryEn": "So grant me from Yourself an heir (John) who will inherit from the line of Jacob."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "zekeriya",
+          "keyPhrase": "يَٰزَكَرِيَّآ إِنَّا نُبَشِّرُكَ بِغُلَٰمٍ اسْمُهُ يَحْيَىٰ",
+          "summaryTr": "Ey Zekeriya! Seni adi Yahya olan bir ogulla mujdeliyoruz — bu ismi kimseye daha once vermedik.",
+          "summaryEn": "O Zechariah! We give you glad tidings of a boy whose name is John — a name We have never given before."
+        },
+        {
+          "speaker": "zekeriya",
+          "addressee": "allah",
+          "keyPhrase": "أَنَّىٰ يَكُونُ لِى غُلَٰمٌ وَكَانَتِ امْرَأَتِى عَاقِرًا",
+          "summaryTr": "Karim kisir, ben de yaslanmisken nasil oglum olur?",
+          "summaryEn": "How can I have a boy when my wife is barren and I have reached old age?"
+        },
+        {
+          "speaker": "allah",
+          "addressee": "zekeriya",
+          "keyPhrase": "كَذَٰلِكَ قَالَ رَبُّكَ هُوَ عَلَىَّ هَيِّنٌ",
+          "summaryTr": "Rabbin boyle buyurdu — bu bana kolaydir; nitekim seni de daha once hicbir sey degilken yarattim.",
+          "summaryEn": "Thus said your Lord — it is easy for Me; indeed, I created you before when you were nothing."
+        }
+      ],
+      "lessonTr": "Meryem'in kissasina paralel: kul, imkansizin onunde \"nasil?\" sorar; Allah ayni formulle cevaplar. Iki kissa ayni surede yan yana getirilerek biri digerini besliyor.",
+      "lessonEn": "A parallel to Mary's story: the servant asks 'how?' before the impossible; God answers with the same formula. The two stories placed side by side in the same surah feed one another."
+    },
+    {
+      "id": "sulayman-bilqis-throne",
+      "axisId": "sulayman-bilqis",
+      "titleTr": "Suleyman — Belkis: Taht Sahnesi",
+      "titleEn": "Solomon — Bilqis: The Throne Scene",
+      "refs": [
+        "27:38-44"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "sulayman",
+          "addressee": "other-characters",
+          "keyPhrase": "يَٰٓأَيُّهَا الْمَلَؤُاْ أَيُّكُمْ يَأْتِينِى بِعَرْشِهَا",
+          "summaryTr": "Ey ileri gelenler! Onun tahtini hangisi bana getirebilir?",
+          "summaryEn": "O chiefs! Which of you will bring me her throne?"
+        },
+        {
+          "speaker": "other-characters",
+          "addressee": "sulayman",
+          "keyPhrase": "أَنَا ءَاتِيكَ بِهِ قَبْلَ أَن تَقُومَ مِن مَّقَامِكَ",
+          "summaryTr": "Kitap ilminden bir bilgiye sahip olan zat: 'Goz kirpmadan onu getiririm.'",
+          "summaryEn": "The one who had knowledge from the Book: 'I will bring it before you blink.'"
+        },
+        {
+          "speaker": "sulayman",
+          "addressee": "bilqis",
+          "keyPhrase": "أَهَٰكَذَا عَرْشُكِ",
+          "summaryTr": "Senin tahtin boyle midir?",
+          "summaryEn": "Is your throne like this?"
+        },
+        {
+          "speaker": "bilqis",
+          "addressee": "sulayman",
+          "keyPhrase": "كَأَنَّهُ هُوَ",
+          "summaryTr": "Sanki o.",
+          "summaryEn": "It is as though it were."
+        },
+        {
+          "speaker": "bilqis",
+          "addressee": "allah",
+          "keyPhrase": "رَبِّ إِنِّى ظَلَمْتُ نَفْسِى وَأَسْلَمْتُ مَعَ سُلَيْمَٰنَ لِلَّهِ رَبِّ الْعَٰلَمِينَ",
+          "summaryTr": "Rabbim, ben kendime zulmettim; simdi Suleyman ile birlikte Alemlerin Rabbine teslim oldum.",
+          "summaryEn": "My Lord, I have wronged myself; I submit with Solomon to Allah, Lord of the worlds."
+        }
+      ],
+      "lessonTr": "Belkis bir kadin hukumdar olarak akil + gozlem + istisare ile imana gecer. Zor delil degil zarif teshir onu ikna eder — Suleyman'in stratejisi baski degil hayrettir.",
+      "lessonEn": "Bilqis as a woman ruler moves to faith through reason, observation, and consultation. Not harsh proof but graceful display persuades her — Solomon's strategy is not pressure but wonder."
+    },
+    {
+      "id": "sulayman-ant-hoopoe",
+      "axisId": "sulayman-nature",
+      "titleTr": "Suleyman — Karinca ve Hudhud",
+      "titleEn": "Solomon — The Ant and the Hoopoe",
+      "refs": [
+        "27:18-19",
+        "27:22-28"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "other-characters",
+          "addressee": "other-characters",
+          "keyPhrase": "يَٰٓأَيُّهَا النَّمْلُ ادْخُلُواْ مَسَٰكِنَكُمْ",
+          "summaryTr": "Bir karinca: 'Ey karincalar! Yuvalariniza girin — Suleyman ve ordulari farkinda olmadan sizi ezmesin.'",
+          "summaryEn": "An ant: 'O ants! Enter your dwellings, lest Solomon and his soldiers crush you unknowingly.'"
+        },
+        {
+          "speaker": "sulayman",
+          "addressee": "allah",
+          "keyPhrase": "رَبِّ أَوْزِعْنِىٓ أَنْ أَشْكُرَ نِعْمَتَكَ",
+          "summaryTr": "Rabbim, bana verdigin nimete sukretmemi ilham et; salih ameller islemem icin.",
+          "summaryEn": "My Lord, inspire me to give thanks for Your blessing; and to work righteousness."
+        },
+        {
+          "speaker": "other-characters",
+          "addressee": "sulayman",
+          "keyPhrase": "أَحَطتُ بِمَا لَمْ تُحِطْ بِهِ",
+          "summaryTr": "Hudhud: 'Senin bilmedigin seyi ogrendim — Sebe'den guvenilir bir haber getirdim.'",
+          "summaryEn": "The hoopoe: 'I have grasped what you have not — I bring you certain news from Saba.'"
+        },
+        {
+          "speaker": "sulayman",
+          "addressee": "other-characters",
+          "keyPhrase": "سَنَنظُرُ أَصَدَقْتَ أَمْ كُنتَ مِنَ الْكَٰذِبِينَ",
+          "summaryTr": "Suleyman: 'Dogru mu soyluyorsun yoksa yalancilardan misin — gorecegiz.'",
+          "summaryEn": "Solomon: 'We shall see whether you have told the truth or you are a liar.'"
+        }
+      ],
+      "lessonTr": "Bir hukumdarin hayvani isitecek kadar mutevazi olmasi + hayvani sorgulayacak kadar disiplinli olmasi — Kur'ani liderlik modelinin iki uc kutbu.",
+      "lessonEn": "A ruler humble enough to hear an animal + disciplined enough to interrogate one — the two poles of the Quranic model of leadership."
+    },
+    {
+      "id": "musa-khidr-journey",
+      "axisId": "musa-khidr",
+      "titleTr": "Musa — Hizir: Uc Sabir Sinavi",
+      "titleEn": "Moses — al-Khidr: The Three Tests of Patience",
+      "refs": [
+        "18:65-82"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "musa",
+          "addressee": "khidr",
+          "keyPhrase": "هَلْ أَتَّبِعُكَ عَلَىٰٓ أَن تُعَلِّمَنِ مِمَّا عُلِّمْتَ رُشْدًا",
+          "summaryTr": "Sana ogretilen hikmetten bana da ogretmen icin sana tabi olabilir miyim?",
+          "summaryEn": "May I follow you so that you may teach me from what you have been taught of guidance?"
+        },
+        {
+          "speaker": "khidr",
+          "addressee": "musa",
+          "keyPhrase": "إِنَّكَ لَن تَسْتَطِيعَ مَعِىَ صَبْرًا",
+          "summaryTr": "Sen benimle beraber sabretmeye asla guc yetiremezsin.",
+          "summaryEn": "You will never be able to have patience with me."
+        },
+        {
+          "speaker": "musa",
+          "addressee": "khidr",
+          "keyPhrase": "أَخَرَقْتَهَا لِتُغْرِقَ أَهْلَهَآ",
+          "summaryTr": "(Gemi delinince) Ehlini bogmak icin mi deldin? Dogrusu sasilacak bir sey yaptin.",
+          "summaryEn": "Did you make a hole in it to drown its people? You have done a strange thing."
+        },
+        {
+          "speaker": "musa",
+          "addressee": "khidr",
+          "keyPhrase": "أَقَتَلْتَ نَفْسًا زَكِيَّةً بِغَيْرِ نَفْسٍ",
+          "summaryTr": "(Cocuk oldurulunce) Sucsuz bir cana kiydin mi? Dogrusu igrenc bir sey yaptin.",
+          "summaryEn": "Have you slain an innocent soul without any prior guilt? You have done an outrageous thing."
+        },
+        {
+          "speaker": "khidr",
+          "addressee": "musa",
+          "keyPhrase": "هَٰذَا فِرَاقُ بَيْنِى وَبَيْنِكَ",
+          "summaryTr": "Iste bu, benimle senin ayriligimizin vaktidir; sana sabredemedigin seylerin te'vilini bildireyim.",
+          "summaryEn": "This is the parting between me and you; I will inform you of the interpretation of that which you could not have patience for."
+        }
+      ],
+      "lessonTr": "Zahir ilim (Musa — seriat) ile batin ilim (Hizir — hikmet) arasindaki gerilim. Kur'an her iki tarafin hakkini verir: Hizir cevap verir, ama Musa da hakli olarak sorar.",
+      "lessonEn": "The tension between outward knowledge (Moses — law) and inner knowledge (al-Khidr — wisdom). The Quran honors both sides: al-Khidr explains, but Moses is also right to have questioned."
+    },
+    {
+      "id": "musa-samiri-golden-calf",
+      "axisId": "musa-samiri",
+      "titleTr": "Musa — Samiri: Altin Buzagi Muhasebesi",
+      "titleEn": "Moses — al-Samiri: Reckoning of the Golden Calf",
+      "refs": [
+        "20:85-97"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "musa",
+          "addressee": "samiri",
+          "keyPhrase": "فَمَا خَطْبُكَ يَٰسَٰمِرِىُّ",
+          "summaryTr": "Oyleyse halin nedir, ey Samiri?",
+          "summaryEn": "So what was your objective, O Samiri?"
+        },
+        {
+          "speaker": "samiri",
+          "addressee": "musa",
+          "keyPhrase": "بَصُرْتُ بِمَا لَمْ يَبْصُرُواْ بِهِ",
+          "summaryTr": "Onlarin goremediklerini gordum; Elci'nin (Cebrail'in) izinden bir tutam alip attim — nefsim bana boyle guzel gosterdi.",
+          "summaryEn": "I saw what they did not see; I took a handful from the footprint of the Messenger (Gabriel) and cast it — thus my soul enticed me."
+        },
+        {
+          "speaker": "musa",
+          "addressee": "samiri",
+          "keyPhrase": "فَاذْهَبْ فَإِنَّ لَكَ فِى الْحَيَوٰةِ أَن تَقُولَ لَا مِسَاسَ",
+          "summaryTr": "Git! Artik sana hayatta 'bana dokunma' demek kaldi; sana asla bozulmayacak bir vaat de vardir. Ilahina bak — onu yakip denize savuracagiz.",
+          "summaryEn": "Go then! In life you shall say 'no contact'; and there is a promise for you that will not be broken. Look at your god — we shall burn it and scatter it in the sea."
+        }
+      ],
+      "lessonTr": "Samiri'nin cezasi infaz degil, surgun — sosyal olum. \"Bana dokunma\" formulu Kur'an'in en incelikli ceza tasarimlarindan biri: kalabalikta yasayip yalniz kalmak.",
+      "lessonEn": "The Samiri's punishment is not execution but exile — social death. The 'no contact' formula is one of the Quran's most subtle punitive designs: to live in a crowd yet be alone."
+    },
+    {
+      "id": "hawariyun-isa-table",
+      "axisId": "hawariyun-isa",
+      "titleTr": "Havariyyun — Isa: Sofra Talebi",
+      "titleEn": "The Disciples — Jesus: The Request for the Table",
+      "refs": [
+        "5:112-115"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "hawariyun",
+          "addressee": "isa",
+          "keyPhrase": "هَلْ يَسْتَطِيعُ رَبُّكَ أَن يُنَزِّلَ عَلَيْنَا مَآئِدَةً مِّنَ السَّمَآءِ",
+          "summaryTr": "Ey Meryem oglu Isa! Rabbin bize gokten bir sofra indirebilir mi?",
+          "summaryEn": "O Jesus son of Mary! Can your Lord send down a table to us from heaven?"
+        },
+        {
+          "speaker": "isa",
+          "addressee": "hawariyun",
+          "keyPhrase": "اتَّقُواْ اللَّهَ إِن كُنتُم مُّؤْمِنِينَ",
+          "summaryTr": "Mu'minseniz Allah'tan korkun.",
+          "summaryEn": "Fear God, if you are believers."
+        },
+        {
+          "speaker": "hawariyun",
+          "addressee": "isa",
+          "keyPhrase": "نُرِيدُ أَن نَّأْكُلَ مِنْهَا وَتَطْمَئِنَّ قُلُوبُنَا",
+          "summaryTr": "Ondan yiyip kalplerimizin mutmain olmasini istiyoruz; senin bize dogruyu soyledigini bilelim ve sahitlerden olalim.",
+          "summaryEn": "We wish to eat from it and let our hearts be at ease; that we may know you have told us the truth and be among its witnesses."
+        },
+        {
+          "speaker": "isa",
+          "addressee": "allah",
+          "keyPhrase": "اللَّهُمَّ رَبَّنَآ أَنزِلْ عَلَيْنَا مَآئِدَةً مِّنَ السَّمَآءِ تَكُونُ لَنَا عِيدًا",
+          "summaryTr": "Allahim, Rabbimiz! Uzerimize gokten bir sofra indir — bizim icin, oncekimiz ve sonrakimiz icin bir bayram ve senden bir isaret olsun.",
+          "summaryEn": "O Allah, our Lord! Send down for us a table from heaven — it shall be a festival for the first and the last of us and a sign from You."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "isa",
+          "keyPhrase": "إِنِّى مُنَزِّلُهَا عَلَيْكُمْ فَمَن يَكْفُرْ بَعْدُ فَأُعَذِّبُهُ عَذَابًا لَّآ أُعَذِّبُهُٓ أَحَدًا مِّنَ الْعَٰلَمِينَ",
+          "summaryTr": "Ben size onu indirecegim — kim bundan sonra inkar ederse, alemlerden hic kimseye vermeyecegim bir azapla onu azaplandirir.",
+          "summaryEn": "I shall send it down to you — but whoever disbelieves after that, I will punish him with a punishment I have not given to anyone in the worlds."
+        }
+      ],
+      "lessonTr": "Mucize talebinin agir bedeli var: gosterilen mucizeden sonra inkar, siradan inkardan farkli. Isa'nin duasi da nazikce Rabbinin adaletini hatirlatir ('bayram olsun') — talebi lehe cevirir.",
+      "lessonEn": "The demand for a miracle carries a heavy cost: denial after a shown miracle differs from ordinary denial. Jesus's prayer gently invokes his Lord's justice ('let it be a festival') — turning the demand into blessing."
+    },
+    {
+      "id": "musa-ruyet-request",
+      "axisId": "allah-musa",
+      "titleTr": "Musa'nin Ru'yet Talebi",
+      "titleEn": "Moses's Request to See",
+      "refs": [
+        "7:143"
+      ],
+      "temporalLayer": "dunyevi",
+      "turns": [
+        {
+          "speaker": "musa",
+          "addressee": "allah",
+          "keyPhrase": "رَبِّ أَرِنِىٓ أَنظُرْ إِلَيْكَ",
+          "summaryTr": "Rabbim, bana kendini goster — sana bakayim.",
+          "summaryEn": "My Lord, show Yourself to me that I may look upon You."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "musa",
+          "keyPhrase": "لَن تَرَىٰنِى وَلَٰكِنِ انظُرْ إِلَى الْجَبَلِ",
+          "summaryTr": "Beni asla goremezsin; ama su daga bak. Eger o yerinde durursa beni gorursun.",
+          "summaryEn": "You shall never see Me; but look upon the mountain. If it remains firm, you shall see Me."
+        },
+        {
+          "speaker": "allah",
+          "addressee": "musa",
+          "keyPhrase": "فَلَمَّا تَجَلَّىٰ رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكًّا وَخَرَّ مُوسَىٰ صَعِقًا",
+          "summaryTr": "Rabbi daga tecelli edince onu yerle bir etti; Musa da baygin dustu.",
+          "summaryEn": "When his Lord manifested Himself to the mountain, He shattered it, and Moses fell down in a swoon."
+        },
+        {
+          "speaker": "musa",
+          "addressee": "allah",
+          "keyPhrase": "سُبْحَٰنَكَ تُبْتُ إِلَيْكَ وَأَنَا أَوَّلُ الْمُؤْمِنِينَ",
+          "summaryTr": "(Ayilinca) Seni tesbih ederim — sana tovbe ettim; ben mu'minlerin ilkiyim.",
+          "summaryEn": "(When he came to) Glory be to You — I turn to You in repentance; I am the first of the believers."
+        }
+      ],
+      "lessonTr": "Tevhidi bilgiyi tasiyan bir peygamber bile 'ru'yet' talep edecek kadar merak sahibidir. Cevap yasak degil ama uyaridir: en guclu dag bile tecelliyi tasiyamaz.",
+      "lessonEn": "Even a prophet bearing monotheistic knowledge is curious enough to request the beatific vision. The answer is not prohibition but warning: even the strongest mountain cannot bear the theophany."
     }
   ]
 }

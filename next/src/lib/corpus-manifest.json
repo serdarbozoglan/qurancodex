@@ -62903,5 +62903,120 @@
     "hash": "130c83772d839954",
     "embeddedAt": "2026-07-17T05:18:03.458Z",
     "type": "sebeb-nuzul"
+  },
+  "dialogue:adam-creation-angels": {
+    "hash": "dfaf22a381e3012a",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:iblis-refusal": {
+    "hash": "261179fb2faa8853",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:musa-burning-bush": {
+    "hash": "db4522a0361e5553",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:musa-pharaoh-first": {
+    "hash": "28586b379e0023c4",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:pharaoh-drowning": {
+    "hash": "e10265f5cb67f728",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:ibrahim-azar-dialogue": {
+    "hash": "68057be72d8bd135",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:ibrahim-nimrod-debate": {
+    "hash": "2a3775484fbaf1f6",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:yusuf-brothers-reunion": {
+    "hash": "ca2e8b10cef5c245",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:angels-welcome-paradise": {
+    "hash": "f6706dc339cc743e",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:paradise-hell-dialogue": {
+    "hash": "0e68d4223675ec7a",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:iblis-final-confession": {
+    "hash": "3bcf7b1f2e94e110",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:followers-blame-leaders": {
+    "hash": "04ba9c80ed5fa107",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:allah-judgment-isa": {
+    "hash": "833b146f5cbf0c53",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:nuh-son-ark": {
+    "hash": "a0845326087ba6ef",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:araf-dwellers-dialogue": {
+    "hash": "54512811b1d13541",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:maryam-gabriel-annunciation": {
+    "hash": "18a6e5f32e979884",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:zekeriya-old-age-prayer": {
+    "hash": "a90f575e3cce9bb5",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:sulayman-bilqis-throne": {
+    "hash": "b796b8b6a7eb69ae",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:sulayman-ant-hoopoe": {
+    "hash": "9ff3f7d95223da47",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:musa-khidr-journey": {
+    "hash": "2a8e033d5b1f44c7",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:musa-samiri-golden-calf": {
+    "hash": "c2914024f5bc3d47",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:hawariyun-isa-table": {
+    "hash": "a00d6ffb7dfedfb2",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
+  },
+  "dialogue:musa-ruyet-request": {
+    "hash": "b69e68898a4fcef8",
+    "embeddedAt": "2026-07-17T05:29:28.761Z",
+    "type": "dialogue"
   }
 }
