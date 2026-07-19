@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { surahName } from '../lib/surahNames';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, TEXT, VERSE_DISPLAY_CARD } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 
@@ -140,6 +140,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
   const [concepts, setConcepts] = useState(_conceptsCache);
   const [groups, setGroups] = useState(_groupsCache);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
@@ -306,24 +307,27 @@ export default function ConceptGraph({ onClose, restore = null }) {
       {/* ── DYNAMIC SUB-HEADER (graph view: back + central concept + connected) ── */}
       {view === 'graph' && (
       <div style={{
-        display: 'flex', alignItems: 'center', gap: '12px',
-        padding: '12px 20px',
-        borderBottom: `1px solid ${COLORS.glassBorder}`,
-        background: 'rgba(8,9,26,0.95)',
+        display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : '14px',
+        padding: isMobile ? '10px 14px' : '11px 22px',
+        borderBottom: `1px solid ${COLORS.goldAlpha15}`,
+        background: COLORS.panelBg,
         backdropFilter: 'blur(16px)',
-        flexShrink: 0, flexWrap: 'wrap', minHeight: '60px',
+        WebkitBackdropFilter: 'blur(16px)',
+        flexShrink: 0, flexWrap: 'wrap', minHeight: '56px',
       }}>
         <button
           onClick={backToLanding}
           style={{
             display: 'flex', alignItems: 'center', gap: '6px',
-            background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: RADIUS.md, padding: '6px 12px', cursor: 'pointer',
-            color: COLORS.silver, fontSize: '0.82rem', fontWeight: 500,
+            background: COLORS.glassBg,
+            border: `1px solid ${COLORS.glassBorder}`,
+            borderRadius: RADIUS.pill, padding: '6px 14px', cursor: 'pointer',
+            color: COLORS.silver, fontSize: '0.75rem', fontWeight: 600,
+            letterSpacing: '0.06em',
             transition: `all ${TRANSITION.fast}`,
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
-          onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
+          onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = COLORS.goldAlpha25; e.currentTarget.style.background = COLORS.goldAlpha04; }}
+          onMouseLeave={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = COLORS.glassBorder; e.currentTarget.style.background = COLORS.glassBg; }}
         >
           <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -332,14 +336,27 @@ export default function ConceptGraph({ onClose, restore = null }) {
         </button>
 
         {view === 'graph' && centralConcept && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: centralConcept.color, boxShadow: `0 0 8px ${centralConcept.color}` }} />
-            <span style={{ color: centralConcept.color, fontWeight: 700, fontSize: '1.05rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingLeft: '2px' }}>
+            <div style={{
+              width: '8px', height: '8px', borderRadius: RADIUS.full,
+              background: centralConcept.color,
+              boxShadow: `0 0 10px ${centralConcept.color}, 0 0 20px ${centralConcept.color}55`,
+            }} />
+            <span style={{
+              color: centralConcept.color,
+              fontFamily: FONTS.display, fontWeight: 700,
+              fontSize: isMobile ? '1rem' : '1.08rem',
+              letterSpacing: '0.01em',
+            }}>
               {language === 'tr' ? centralConcept.tr : centralConcept.en}
             </span>
             {graphRef.current?.nodes[0]?.verseCount != null && (
-              <span style={{ color: COLORS.slate500, fontSize: '0.8rem' }}>
-                {language === 'tr' ? `${graphRef.current.nodes[0].verseCount} ayette` : `in ${graphRef.current.nodes[0].verseCount} verses`}
+              <span style={{
+                color: COLORS.silver, opacity: 0.72,
+                fontSize: '0.68rem', fontWeight: 600,
+                letterSpacing: '0.14em', textTransform: 'uppercase',
+              }}>
+                {language === 'tr' ? `${graphRef.current.nodes[0].verseCount} ayet` : `${graphRef.current.nodes[0].verseCount} verses`}
               </span>
             )}
           </div>
@@ -349,25 +366,31 @@ export default function ConceptGraph({ onClose, restore = null }) {
         {view === 'graph' && graphRef.current && (
           <div style={{
             display: 'flex', gap: '6px', overflowX: 'auto', flex: 1,
-            scrollbarWidth: 'none', padding: '0 4px',
+            scrollbarWidth: 'none', padding: '0 4px', alignItems: 'center',
           }}>
-            <span style={{ color: COLORS.slate700, fontSize: '0.72rem', flexShrink: 0, alignSelf: 'center', paddingRight: '2px' }}>
-              {language === 'tr' ? 'bağlantılar:' : 'connected:'}
+            <span style={{
+              color: COLORS.silver, opacity: 0.55,
+              fontSize: '0.62rem', fontWeight: 600,
+              letterSpacing: '0.16em', textTransform: 'uppercase',
+              flexShrink: 0, paddingRight: '4px',
+            }}>
+              {language === 'tr' ? 'bağlantılar' : 'connected'}
             </span>
             {graphRef.current.nodes.filter(n => !n.isCentral).map(n => (
               <button
                 key={n.id}
                 onClick={() => openConcept(n.concept)}
                 style={{
-                  flexShrink: 0, padding: '4px 10px',
-                  background: 'rgba(255,255,255,0.04)',
+                  flexShrink: 0, padding: '5px 12px',
+                  background: 'transparent',
                   border: `1px solid ${n.color}33`,
-                  borderRadius: RADIUS.pillSm, cursor: 'pointer',
-                  color: n.color, fontSize: '0.75rem', fontWeight: 500,
+                  borderRadius: RADIUS.pill, cursor: 'pointer',
+                  color: n.color, fontSize: '0.74rem', fontWeight: 500,
+                  letterSpacing: '0.02em',
                   transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = `${n.color}18`; e.currentTarget.style.borderColor = `${n.color}66`; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = `${n.color}33`; }}
+                onMouseEnter={e => { e.currentTarget.style.background = `${n.color}1a`; e.currentTarget.style.borderColor = `${n.color}80`; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = `${n.color}33`; e.currentTarget.style.transform = 'translateY(0)'; }}
               >
                 {language === 'tr' ? n.concept.tr : n.concept.en}
               </button>
@@ -397,41 +420,92 @@ export default function ConceptGraph({ onClose, restore = null }) {
       {view === 'landing' && !loadingData && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-          {/* Top bar: intro + search */}
-          <div style={{ padding: isMobile ? '16px 16px 12px' : '20px 28px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '24px', flexWrap: 'wrap' }}>
-              <p style={{ color: COLORS.slate600, fontSize: '0.88rem', lineHeight: 1.6, margin: 0, flex: 1, minWidth: isMobile ? '100%' : '200px' }}>
-                {language === 'tr'
-                  ? 'Bir kavram seçin — hangi kavramların aynı ayetlerde geçtiğini görün.'
-                  : 'Select a concept to see which ideas appear together across 6,236 verses.'}
-              </p>
-              <div style={{ position: 'relative', width: isMobile ? '100%' : '260px', flexShrink: 0 }}>
-                <input
-                  ref={searchRef}
-                  value={searchInput}
-                  onChange={e => setSearchInput(e.target.value)}
-                  placeholder={language === 'tr' ? 'Kavram ara…' : 'Search…'}
-                  style={{
-                    width: '100%', padding: '8px 14px 8px 36px',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: RADIUS.md, color: COLORS.offWhite,
-                    fontSize: '0.85rem', fontFamily: FONTS.body,
-                    outline: 'none', boxSizing: 'border-box',
-                  }}
-                  onFocus={e => { e.target.style.borderColor = 'rgba(212,165,116,0.4)'; }}
-                  onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.1)'; }}
-                />
-                <svg aria-hidden="true" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }}
-                  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e8e6e3" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-                </svg>
-              </div>
+          {/* Hero strip — eyebrow + Playfair italic subtitle */}
+          <div style={{
+            padding: isMobile ? '22px 16px 18px' : '32px 32px 26px',
+            borderBottom: `1px solid ${COLORS.goldAlpha15}`,
+            background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
+            flexShrink: 0,
+            textAlign: 'center',
+          }}>
+            <p style={{
+              color: COLORS.gold, opacity: 0.72,
+              fontSize: '0.68rem', fontWeight: 700,
+              letterSpacing: '0.24em', textTransform: 'uppercase',
+              margin: '0 0 10px',
+            }}>
+              {language === 'tr' ? 'KAVRAM AĞI · 100+ ANAHTAR TERİM' : 'CONCEPT NETWORK · 100+ KEY TERMS'}
+            </p>
+            <p style={{
+              color: COLORS.offWhiteAlpha78,
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: isMobile ? '0.98rem' : '1.15rem',
+              lineHeight: 1.5,
+              margin: '0 auto',
+              maxWidth: '640px',
+            }}>
+              {language === 'tr'
+                ? 'Bir kavrama dokunun — birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'
+                : 'Touch a concept — see the network of ideas that appear alongside it across 6,236 verses.'}
+            </p>
+          </div>
+
+          {/* Search bar — centered premium glass */}
+          <div style={{
+            padding: isMobile ? '14px 16px 12px' : '18px 28px 14px',
+            borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+            flexShrink: 0,
+            display: 'flex',
+            justifyContent: 'center',
+          }}>
+            <div style={{ position: 'relative', width: isMobile ? '100%' : '360px' }}>
+              <input
+                ref={searchRef}
+                value={searchInput}
+                onChange={e => setSearchInput(e.target.value)}
+                placeholder={language === 'tr' ? 'Kavram ara…' : 'Search concept…'}
+                style={{
+                  width: '100%', padding: '11px 16px 11px 40px',
+                  background: COLORS.glassBgStrong,
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: `1px solid ${COLORS.glassBorder}`,
+                  borderRadius: RADIUS.pill, color: COLORS.offWhite,
+                  fontSize: '0.88rem', fontFamily: FONTS.body,
+                  letterSpacing: '0.01em',
+                  outline: 'none', boxSizing: 'border-box',
+                  transition: `all ${TRANSITION.fast}`,
+                }}
+                onFocus={e => {
+                  e.target.style.borderColor = COLORS.goldAlpha45;
+                  e.target.style.boxShadow = `0 0 0 4px ${COLORS.goldAlpha04}, 0 0 24px ${COLORS.goldAlpha15}`;
+                }}
+                onBlur={e => {
+                  e.target.style.borderColor = COLORS.glassBorder;
+                  e.target.style.boxShadow = 'none';
+                }}
+              />
+              <svg aria-hidden="true" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', opacity: 0.5 }}
+                width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round">
+                <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+              </svg>
             </div>
           </div>
 
           {/* 2-column concept grid — collapses to single column on mobile */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px' : '20px 28px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '0' : '0 32px', alignContent: 'start' }}>
+          <div style={{
+            flex: 1, overflowY: 'auto',
+            padding: isMobile ? '20px 16px 32px' : '28px 32px 40px',
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+            gap: isMobile ? '0' : '0 40px',
+            alignContent: 'start',
+            maxWidth: '1180px',
+            width: '100%',
+            margin: '0 auto',
+            boxSizing: 'border-box',
+          }}>
             {(() => {
               const leftGroups  = ['core', 'virtue', 'worship', 'divine', 'social'];
               const rightGroups = ['mind', 'inner', 'eschato', 'vice', 'prophet'];
@@ -442,33 +516,66 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 const label = groups?.[group];
                 const catColor = label.color;
                 return (
-                  <div key={group} style={{ marginBottom: '20px' }}>
-                    <p style={{
-                      color: catColor, fontSize: '0.65rem', letterSpacing: '0.18em',
-                      textTransform: 'uppercase', marginBottom: '8px', fontWeight: 700,
-                      opacity: 0.7,
+                  <div key={group} style={{ marginBottom: '26px' }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '10px',
+                      marginBottom: '12px',
                     }}>
-                      {language === 'tr' ? label.tr : label.en}
-                    </p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      <span style={{
+                        width: '6px', height: '6px', borderRadius: RADIUS.full,
+                        background: catColor,
+                        boxShadow: `0 0 8px ${catColor}80`,
+                      }} />
+                      <p style={{
+                        color: catColor,
+                        fontSize: '0.66rem', letterSpacing: '0.2em',
+                        textTransform: 'uppercase', margin: 0, fontWeight: 700,
+                        opacity: 0.82,
+                      }}>
+                        {language === 'tr' ? label.tr : label.en}
+                      </p>
+                      <span style={{
+                        flex: 1, height: '1px',
+                        background: `linear-gradient(90deg, ${catColor}30 0%, transparent 100%)`,
+                      }} />
+                    </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                       {list.map(c => (
                         <button
                           key={c.id}
                           onClick={() => openConcept(c)}
                           style={{
-                            display: 'flex', alignItems: 'center', gap: '6px',
-                            padding: '6px 12px',
-                            background: `${catColor}12`,
-                            border: `1px solid ${catColor}40`,
-                            borderRadius: RADIUS.pillSm, cursor: 'pointer',
+                            display: 'flex', alignItems: 'center', gap: '8px',
+                            padding: isMobile ? '8px 13px' : '7px 14px',
+                            minHeight: isMobile ? '38px' : 'auto',
+                            background: `${catColor}0d`,
+                            border: `1px solid ${catColor}33`,
+                            borderRadius: RADIUS.pill, cursor: 'pointer',
                             transition: `all ${TRANSITION.fast}`,
                             whiteSpace: 'nowrap',
                           }}
-                          onMouseEnter={e => { e.currentTarget.style.background = `${catColor}25`; e.currentTarget.style.borderColor = `${catColor}70`; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = `${catColor}12`; e.currentTarget.style.borderColor = `${catColor}40`; }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.background = `${catColor}22`;
+                            e.currentTarget.style.borderColor = `${catColor}80`;
+                            e.currentTarget.style.transform = 'translateY(-1px)';
+                            e.currentTarget.style.boxShadow = `0 4px 14px ${catColor}22`;
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.background = `${catColor}0d`;
+                            e.currentTarget.style.borderColor = `${catColor}33`;
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = 'none';
+                          }}
                         >
-                          <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: catColor, direction: 'rtl' }}>{c.ar}</span>
-                          <span style={{ color: catColor, fontSize: '0.85rem', fontWeight: 600 }}>
+                          <span style={{
+                            fontFamily: FONTS.quran, fontSize: '1rem',
+                            color: catColor, opacity: 0.68, direction: 'rtl',
+                          }}>{c.ar}</span>
+                          <span style={{
+                            color: catColor,
+                            fontSize: '0.84rem', fontWeight: 600,
+                            letterSpacing: '0.01em',
+                          }}>
                             {language === 'tr' ? c.tr : c.en}
                           </span>
                         </button>
@@ -505,25 +612,78 @@ export default function ConceptGraph({ onClose, restore = null }) {
             >
               <defs>
                 <radialGradient id="cg-center-glow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor={centralConcept?.color || '#d4a574'} stopOpacity="0.3" />
-                  <stop offset="100%" stopColor={centralConcept?.color || '#d4a574'} stopOpacity="0" />
+                  <stop offset="0%" stopColor={centralConcept?.color || COLORS.gold} stopOpacity="0.28" />
+                  <stop offset="45%" stopColor={centralConcept?.color || COLORS.gold} stopOpacity="0.08" />
+                  <stop offset="100%" stopColor={centralConcept?.color || COLORS.gold} stopOpacity="0" />
                 </radialGradient>
+                {/* Per-primary-edge gradients: central color → satellite color */}
+                {graphRef.current.edges.filter(e => !e.isSecondary).map((e, i) => {
+                  const src = graphRef.current.nodes[e.source];
+                  const tgt = graphRef.current.nodes[e.target];
+                  return (
+                    <linearGradient
+                      key={`grad-${i}`}
+                      id={`cg-edge-${i}`}
+                      x1={src.x} y1={src.y}
+                      x2={tgt.x} y2={tgt.y}
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0%" stopColor={src.color} stopOpacity="0.9" />
+                      <stop offset="100%" stopColor={tgt.color} stopOpacity="0.75" />
+                    </linearGradient>
+                  );
+                })}
               </defs>
 
-              {/* Edges */}
+              {/* Ambient center glow — brings the constellation to life */}
+              {(() => {
+                const central = graphRef.current.nodes[0];
+                if (!central) return null;
+                return (
+                  <rect
+                    x={central.x - 320}
+                    y={central.y - 320}
+                    width="640" height="640"
+                    fill="url(#cg-center-glow)"
+                    style={{ pointerEvents: 'none' }}
+                  />
+                );
+              })()}
+
+              {/* Edges — primary uses per-edge gradient + glow; secondary dashed silver */}
               {graphRef.current.edges.map((e, i) => {
                 const src = graphRef.current.nodes[e.source];
                 const tgt = graphRef.current.nodes[e.target];
-                const opacity = e.isSecondary ? 0.12 + e.weight * 0.15 : 0.2 + e.weight * 0.5;
-                const width = e.isSecondary ? Math.max(0.5, e.weight * 2) : Math.max(1, e.weight * 4);
+                if (e.isSecondary) {
+                  const opacity = 0.14 + e.weight * 0.18;
+                  const width = Math.max(0.5, e.weight * 1.8);
+                  return (
+                    <line
+                      key={i}
+                      x1={src.x} y1={src.y}
+                      x2={tgt.x} y2={tgt.y}
+                      stroke={COLORS.silver}
+                      strokeWidth={width}
+                      strokeOpacity={opacity}
+                      strokeDasharray="2 5"
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  );
+                }
+                // Primary edge — find its index within primary-only list for gradient id
+                const primaryIdx = graphRef.current.edges.filter(ed => !ed.isSecondary).indexOf(e);
+                const opacity = 0.35 + e.weight * 0.45;
+                const width = Math.max(1.2, e.weight * 4.2);
                 return (
                   <line
                     key={i}
                     x1={src.x} y1={src.y}
                     x2={tgt.x} y2={tgt.y}
-                    stroke={tgt.color}
+                    stroke={`url(#cg-edge-${primaryIdx})`}
                     strokeWidth={width}
                     strokeOpacity={opacity}
+                    strokeLinecap="round"
+                    style={{ pointerEvents: 'none', filter: `drop-shadow(0 0 2px ${tgt.color}40)` }}
                   />
                 );
               })}
@@ -533,6 +693,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 const isHov = hoveredId === n.id;
                 const isPinned = pinnedId === n.id;
                 const _isFocused = focusedId === n.id;
+                const isActive = isHov || isPinned;
                 return (
                   <g
                     key={n.id}
@@ -542,70 +703,97 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     onMouseLeave={() => setHoveredId(null)}
                     onClick={() => { setPinnedId(isPinned ? null : n.id); setVersePageSize(15); }}
                   >
-                    {/* Outer glow */}
-                    {(isHov || isPinned || n.isCentral) && (
+                    {/* Outer soft aura — cinematic halo layer */}
+                    {(isActive || n.isCentral) && (
                       <circle
-                        r={n.radius + (isHov ? 14 : 8)}
-                        fill={`${n.color}${n.isCentral ? '20' : '12'}`}
-                        stroke={n.color}
-                        strokeWidth="1"
-                        strokeOpacity={isHov ? 0.5 : 0.25}
+                        r={n.radius + (isHov ? 20 : n.isCentral ? 14 : 12)}
+                        fill={`${n.color}${n.isCentral ? '18' : '10'}`}
+                        style={{ pointerEvents: 'none' }}
                       />
                     )}
 
-                    {/* Main circle */}
+                    {/* Inner ring — tighter accent */}
+                    {(isActive || n.isCentral) && (
+                      <circle
+                        r={n.radius + (isHov ? 8 : 5)}
+                        fill="none"
+                        stroke={n.color}
+                        strokeWidth="1"
+                        strokeOpacity={isHov ? 0.55 : 0.28}
+                        style={{ pointerEvents: 'none' }}
+                      />
+                    )}
+
+                    {/* Main circle — central breathing, satellites still */}
                     <circle
                       r={n.radius}
-                      fill={n.isCentral ? n.color : `${n.color}20`}
+                      fill={n.isCentral ? n.color : `${n.color}22`}
                       stroke={n.color}
-                      strokeWidth={n.isCentral ? 3 : isHov ? 2 : 1.5}
-                      strokeOpacity={isHov || n.isCentral ? 1 : 0.65}
-                    />
+                      strokeWidth={n.isCentral ? 2.5 : isHov ? 2 : 1.4}
+                      strokeOpacity={isHov || n.isCentral ? 1 : 0.7}
+                      style={n.isCentral ? { filter: `drop-shadow(0 0 12px ${n.color}80)` } : undefined}
+                    >
+                      {n.isCentral && !prefersReducedMotion && (
+                        <animate
+                          attributeName="r"
+                          values={`${n.radius};${n.radius + 2.5};${n.radius}`}
+                          dur="3.6s"
+                          repeatCount="indefinite"
+                          calcMode="spline"
+                          keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+                        />
+                      )}
+                    </circle>
 
-                    {/* Arabic letter hint */}
+                    {/* Arabic letter hint — soft, non-baskın */}
                     {!n.isCentral && (
                       <text
-                        y="-2"
+                        y="1"
                         textAnchor="middle"
-                        fontSize={n.radius * 0.75}
+                        dominantBaseline="middle"
+                        fontSize={n.radius * 0.7}
                         fontFamily={FONTS.quran}
                         fill={n.color}
-                        fillOpacity={0.6}
+                        fillOpacity={isHov ? 0.72 : 0.42}
                         style={{ pointerEvents: 'none', userSelect: 'none' }}
                       >
                         {n.concept.ar?.charAt(0)}
                       </text>
                     )}
 
-                    {/* Label on central node */}
+                    {/* Label on central node — Playfair title + Inter caption */}
                     {n.isCentral && (
                       <>
                         <text
-                          y="-4"
+                          y="-3"
                           textAnchor="middle"
-                          fontSize="12"
+                          fontSize={isMobile ? '11.5' : '13'}
                           fontWeight="700"
-                          fontFamily={FONTS.body}
-                          fill="#0a0a1a"
-                          style={{ pointerEvents: 'none', userSelect: 'none' }}
+                          fontFamily={FONTS.display}
+                          fill={COLORS.cosmicBlack}
+                          style={{ pointerEvents: 'none', userSelect: 'none', letterSpacing: '0.01em' }}
                         >
                           {language === 'tr' ? n.concept.tr : n.concept.en}
                         </text>
                         <text
-                          y="10"
+                          y="12"
                           textAnchor="middle"
-                          fontSize="9"
+                          fontSize="7.5"
+                          fontWeight="700"
                           fontFamily={FONTS.body}
-                          fill="#0a0a1a"
-                          fillOpacity={0.7}
-                          style={{ pointerEvents: 'none', userSelect: 'none' }}
+                          fill={COLORS.cosmicBlack}
+                          fillOpacity={0.72}
+                          style={{
+                            pointerEvents: 'none', userSelect: 'none',
+                            letterSpacing: '0.16em', textTransform: 'uppercase',
+                          }}
                         >
-                          {n.verseCount} {language === 'tr' ? 'ayet' : 'verses'}
+                          {n.verseCount} {language === 'tr' ? 'AYET' : 'VERSES'}
                         </text>
                       </>
                     )}
 
-                    {/* Label — positioned away from center */}
+                    {/* Satellite label — positioned away from center */}
                     {!n.isCentral && (() => {
                       // Vector from center to this node
                       const cx = graphRef.current.nodes[0].x;
@@ -614,7 +802,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
                       const dy = n.y - cy;
                       // Angle determines which side the label goes
                       const angle = Math.atan2(dy, dx); // -π to π
-                      const offset = n.radius + 14;
+                      const offset = n.radius + 16;
                       const lx = Math.cos(angle) * offset;
                       const ly = Math.sin(angle) * offset;
                       // Text anchor based on horizontal direction
@@ -627,11 +815,16 @@ export default function ConceptGraph({ onClose, restore = null }) {
                           y={ly + (Math.sin(angle) >= 0 ? 4 : -4)}
                           textAnchor={anchor}
                           dominantBaseline={Math.abs(dy) > Math.abs(dx) ? (dy > 0 ? 'hanging' : 'auto') : 'middle'}
-                          fontSize={isHov ? 12 : 10}
-                          fontWeight={isHov ? 600 : 400}
+                          fontSize={isHov ? 12.5 : 10.5}
+                          fontWeight={isHov ? 600 : 500}
                           fontFamily={FONTS.body}
                           fill={isHov ? n.color : COLORS.silver}
-                          style={{ pointerEvents: 'none', userSelect: 'none' }}
+                          fillOpacity={isHov ? 1 : 0.82}
+                          style={{
+                            pointerEvents: 'none', userSelect: 'none',
+                            letterSpacing: isHov ? '0.01em' : '0.04em',
+                            transition: 'font-size 0.15s, letter-spacing 0.15s',
+                          }}
                         >
                           {language === 'tr' ? n.concept.tr : n.concept.en}
                         </text>
@@ -650,26 +843,39 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 return (
                   <motion.div
                     key={hoveredId}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.92, y: 4 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92, y: 4 }}
+                    transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
                     style={{
                       position: 'absolute',
-                      left: Math.min(n.x + n.radius + 8, (containerRef.current?.clientWidth || 700) - 160),
-                      top: Math.max(8, n.y - 28),
+                      left: Math.min(n.x + n.radius + 10, (containerRef.current?.clientWidth || 700) - 180),
+                      top: Math.max(8, n.y - 30),
                       pointerEvents: 'none',
-                      background: 'rgba(6,8,20,0.92)',
-                      backdropFilter: 'blur(12px)',
-                      border: `1px solid ${n.color}40`,
-                      borderRadius: RADIUS.chip, padding: '8px 12px',
+                      background: COLORS.cosmicBlackAlpha88,
+                      backdropFilter: 'blur(14px)',
+                      WebkitBackdropFilter: 'blur(14px)',
+                      border: `1px solid ${n.color}55`,
+                      borderRadius: RADIUS.chip,
+                      padding: '10px 14px',
+                      boxShadow: `0 8px 32px ${COLORS.backdropDim}, 0 0 20px ${n.color}22`,
                     }}
                   >
-                    <p style={{ color: n.color, fontWeight: 700, fontSize: '0.85rem', margin: '0 0 2px' }}>
+                    <p style={{
+                      color: n.color,
+                      fontFamily: FONTS.display, fontWeight: 700,
+                      fontSize: '0.92rem', margin: '0 0 4px',
+                      letterSpacing: '0.01em',
+                    }}>
                       {language === 'tr' ? n.concept.tr : n.concept.en}
                     </p>
-                    <p style={{ color: COLORS.slate500, fontSize: '0.75rem', margin: 0 }}>
+                    <p style={{
+                      color: COLORS.silver, opacity: 0.78,
+                      fontSize: '0.68rem', margin: 0,
+                      letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600,
+                    }}>
                       {language === 'tr'
-                        ? `${n.shared} paylaşılan ayet · ${n.verseCount} toplam`
+                        ? `${n.shared} paylaşılan · ${n.verseCount} toplam`
                         : `${n.shared} shared · ${n.verseCount} total`}
                     </p>
                   </motion.div>
@@ -682,61 +888,78 @@ export default function ConceptGraph({ onClose, restore = null }) {
           <div style={{
             width: isMobile ? '100%' : '420px',
             flexShrink: 0,
-            flexBasis: isMobile ? '50%' : 'auto',
-            borderLeft: isMobile ? 'none' : '1px solid rgba(255,255,255,0.07)',
-            borderTop: isMobile ? '1px solid rgba(255,255,255,0.07)' : 'none',
+            flexBasis: isMobile ? '55vh' : 'auto',
+            borderLeft: isMobile ? 'none' : `1px solid ${COLORS.glassBorderSoft}`,
+            borderTop: isMobile ? `1px solid ${COLORS.glassBorderSoft}` : 'none',
             display: 'flex', flexDirection: 'column',
-            background: 'rgba(255,255,255,0.02)',
+            background: COLORS.glassBgFaint,
             overflow: 'hidden',
           }}>
             {/* Panel header */}
             <div style={{
-              padding: '16px 16px 12px',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
+              padding: '16px 18px 14px',
+              borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+              background: focusedNode ? `linear-gradient(180deg, ${focusedNode.color}0d 0%, transparent 100%)` : 'transparent',
               flexShrink: 0,
             }}>
               {focusedNode ? (
                 <>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: focusedNode.color }} />
-                    <span style={{ color: focusedNode.color, fontWeight: 700, fontSize: '0.95rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                    <div style={{
+                      width: '8px', height: '8px', borderRadius: RADIUS.full,
+                      background: focusedNode.color,
+                      boxShadow: `0 0 8px ${focusedNode.color}80`,
+                    }} />
+                    <span style={{
+                      color: focusedNode.color,
+                      fontFamily: FONTS.display, fontWeight: 700,
+                      fontSize: '1rem', letterSpacing: '0.01em',
+                    }}>
                       {language === 'tr' ? focusedNode.concept.tr : focusedNode.concept.en}
                     </span>
                   </div>
-                  <p style={{ color: COLORS.slate600, fontSize: '0.75rem', margin: 0 }}>
+                  <p style={{
+                    color: COLORS.silver, opacity: 0.72,
+                    fontSize: '0.66rem', margin: 0,
+                    letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600,
+                  }}>
                     {language === 'tr'
                       ? `${focusedNode.verseCount} ayet · ${focusedNode.isCentral ? 'merkez kavram' : `${focusedNode.shared} paylaşılan`}`
-                      : `${focusedNode.verseCount} verses · ${focusedNode.isCentral ? 'central concept' : `${focusedNode.shared} shared`}`}
+                      : `${focusedNode.verseCount} verses · ${focusedNode.isCentral ? 'central' : `${focusedNode.shared} shared`}`}
                   </p>
                 </>
               ) : (
-                <p style={{ color: COLORS.slate600, fontSize: '0.82rem', margin: 0 }}>
+                <p style={{ color: COLORS.silver, opacity: 0.7, fontSize: '0.82rem', margin: 0 }}>
                   {language === 'tr' ? 'Ayet görmek için bir düğüme dokunun' : 'Tap a node to see verses'}
                 </p>
               )}
             </div>
 
             {/* Verses */}
-            <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, padding: '8px' }}>
+            <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, padding: '12px 10px' }}>
               {focusedVerses.length === 0 && (
-                <p style={{ color: COLORS.slate700, fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
+                <p style={{ color: COLORS.silver, opacity: 0.5, fontSize: '0.8rem', textAlign: 'center', marginTop: '32px' }}>
                   {language === 'tr' ? 'Bir kavram seçin' : 'Select a concept'}
                 </p>
               )}
-              {focusedVerses.map((v, i) => (
+              {focusedVerses.map((v) => (
                 <div
                   key={v.id}
                   style={{
-                    padding: '12px',
-                    borderRadius: RADIUS.chip,
-                    marginBottom: '6px',
-                    background: i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent',
-                    border: '1px solid rgba(255,255,255,0.04)',
+                    ...VERSE_DISPLAY_CARD,
+                    padding: '14px 14px 12px',
+                    marginBottom: '10px',
                     cursor: 'pointer',
-                    transition: 'background 0.15s',
+                    transition: `all ${TRANSITION.fast}`,
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'; }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = COLORS.goldAlpha04;
+                    e.currentTarget.style.borderLeftWidth = '4px';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.borderLeftWidth = '3px';
+                  }}
                   onClick={() => {
                     // W22-U2: dispatchEvent → openOverlay. Return-to-concept
                     // state-restore (centralConcept, pinnedId) artık route-based
@@ -748,23 +971,27 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   {/* Arabic */}
                   <p style={{
                     fontFamily: FONTS.quran,
-                    fontSize: '1.6rem', lineHeight: 2.2,
+                    fontSize: '1.55rem', lineHeight: 2.1,
                     textAlign: 'right', direction: 'rtl',
                     color: COLORS.gold, margin: '0 0 10px',
-                  }}>
+                  }} lang="ar">
                     {cleanArabicForGraph(v.arabic)}
                   </p>
                   {/* Translation */}
                   <p style={{
-                    color: COLORS.silver, fontSize: '0.82rem',
-                    lineHeight: 1.6, margin: '0 0 6px',
+                    color: COLORS.offWhiteAlpha78, fontSize: '0.82rem',
+                    lineHeight: 1.65, margin: '0 0 8px',
                     display: '-webkit-box', WebkitLineClamp: 3,
                     WebkitBoxOrient: 'vertical', overflow: 'hidden',
                   }}>
                     {language === 'tr' ? v.turkish : v.english}
                   </p>
                   {/* Reference */}
-                  <p style={{ color: COLORS.slate600, fontSize: '0.72rem', margin: 0 }}>
+                  <p style={{
+                    color: COLORS.silver, opacity: 0.7,
+                    fontSize: '0.66rem', margin: 0, fontWeight: 600,
+                    letterSpacing: '0.12em', textTransform: 'uppercase',
+                  }}>
                     {surahName(v.surah, language)} · {v.ayah}
                   </p>
                 </div>
@@ -774,19 +1001,29 @@ export default function ConceptGraph({ onClose, restore = null }) {
                   onClick={() => setVersePageSize(p => p + 15)}
                   style={{
                     width: '100%',
-                    padding: '10px',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: RADIUS.md,
-                    color: COLORS.slate500,
-                    fontSize: '0.78rem',
+                    padding: '11px',
+                    background: 'transparent',
+                    border: `1px solid ${COLORS.glassBorder}`,
+                    borderRadius: RADIUS.pill,
+                    color: COLORS.silver,
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
                     cursor: 'pointer',
                     fontFamily: FONTS.body,
                     transition: `all ${TRANSITION.fast}`,
-                    marginTop: '4px',
+                    marginTop: '6px',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.color = COLORS.gold;
+                    e.currentTarget.style.borderColor = COLORS.goldAlpha25;
+                    e.currentTarget.style.background = COLORS.goldAlpha04;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.color = COLORS.silver;
+                    e.currentTarget.style.borderColor = COLORS.glassBorder;
+                    e.currentTarget.style.background = 'transparent';
+                  }}
                 >
                   {language === 'tr'
                     ? `${allFocusedVerses.length - versePageSize} ayet daha göster`
@@ -796,9 +1033,17 @@ export default function ConceptGraph({ onClose, restore = null }) {
             </div>
 
             {/* Hint */}
-            <div style={{ padding: '10px 14px', borderTop: '1px solid rgba(255,255,255,0.05)', flexShrink: 0 }}>
-              <p style={{ color: '#1e293b', fontSize: '0.7rem', margin: 0, textAlign: 'center' }}>
-                {language === 'tr' ? 'Ayete tıklayın → Ayet Haritası\'nda aç' : 'Click a verse → open in Verse Map'}
+            <div style={{
+              padding: '11px 14px',
+              borderTop: `1px solid ${COLORS.glassBorderSoft}`,
+              flexShrink: 0,
+            }}>
+              <p style={{
+                color: COLORS.silver, opacity: 0.6,
+                fontSize: '0.66rem', margin: 0, textAlign: 'center',
+                letterSpacing: '0.1em', fontWeight: 500,
+              }}>
+                {language === 'tr' ? "Ayete tıklayın → Ayet Haritası'nda aç" : 'Click a verse → open in Verse Map'}
               </p>
             </div>
           </div>
