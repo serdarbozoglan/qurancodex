@@ -63,12 +63,12 @@ const SURAS = [
     numTr: '19. Sûre', numEn: 'Surah 19',
     themeTr: 'Rahmet · Huzur', themeEn: 'Mercy · Peace',
     color: '#3498db', glow: 'rgba(52,152,219,0.12)', border: 'rgba(52,152,219,0.35)',
-    verse: 'وَحَنَانًا مِّن لَّدُنَّا',
+    verse: 'وَحَنَانًا مِن لَّدُنَّا وَزَكَاةً وَكَانَ تَقِيًّا',
     verseRef: '19:13',
-    harshLetters: ['د'],
+    harshLetters: ['د', 'ت', 'ق'],
     softLetters: ['و', 'ح', 'ن', 'م', 'ل'],
-    descTr: 'ح، ن، م — nazal ve sürtünmeli sesler rahmetin yumuşaklığını taşır.',
-    descEn: 'ح، ن، م — nasal and fricative consonants carry the tenderness of mercy.',
+    descTr: 'ح، ن، م، ل — nazal ve akıcı sesler rahmetin yumuşaklığını taşır; kapanış "takıyyâ" da bu yumuşaklıkla uyum içinde.',
+    descEn: 'ح، ن، م، ل — nasal and liquid consonants carry the tenderness of mercy; even the closing "taqiyyā" flows in that same softness.',
     audioKey: '019013',
   },
   {
@@ -97,7 +97,9 @@ const SURAS = [
     softLetters: ['ر', 'ح', 'م', 'ن', 'ل'],
     descTr: 'ر، ح، م، ن — dört yumuşak ses, dört nimetin müziği.',
     descEn: 'ر، ح، م، ن — four flowing sounds for four opening blessings.',
-    audioKey: '055001',
+    // #197 (2026-07-19) — Ekranda 55:1-2 iki ayet gösteriliyor; audio da her ikisini
+    // sırayla çalar (55:1 tek başına yalnız "er-Rahmân"; ekran-audio parity gerekli).
+    audioKey: ['055001', '055002'],
   },
 ];
 
@@ -572,13 +574,53 @@ function DiscoveryWidget({ t, language }) {
       return;
     }
     setAudioFailed(false);
-    const { surah, ayah } = parseAudioKey(item.audioKey);
-    const urls = buildFallbackUrls(surah, ayah);
+    // #197 (2026-07-19) — audioKey string veya array olabilir; array durumunda
+    // ayet-ayet zincir çalınır (69:1-2 gibi çift-ayet item'ların tümü duyulur).
+    const keys = Array.isArray(item.audioKey) ? item.audioKey : [item.audioKey];
     // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render; token uniqueness is the intent.
     const token = `${item.id}-${Date.now()}`;
     liveIdRef.current = token;
     setPlaying(true);
-    playWithFallback(urls, 0, token);
+
+    let keyIdx = 0;
+    const playNextKey = () => {
+      if (liveIdRef.current !== token) return;
+      if (keyIdx >= keys.length) {
+        if (liveIdRef.current === token) setPlaying(false);
+        return;
+      }
+      const { surah, ayah } = parseAudioKey(keys[keyIdx]);
+      const urls = buildFallbackUrls(surah, ayah);
+      keyIdx += 1;
+      // playWithFallback ilk imzasında token + urlIdx alıyor; ancak "onEnd"
+      // callback'i içeride setPlaying(false) yapıyor — chain için özel
+      // playWithFallbackChained versiyonu yazmalıyız. Inline:
+      const playChainStep = (urlIdx) => {
+        if (liveIdRef.current !== token) return;
+        if (urlIdx >= urls.length) {
+          setAudioFailed(true);
+          setPlaying(false);
+          return;
+        }
+        const audio = new Audio(urls[urlIdx]);
+        audioRef.current = audio;
+        audio.onended = () => {
+          if (liveIdRef.current === token) playNextKey();
+        };
+        audio.onerror = () => {
+          if (audioRef.current !== audio) return;
+          audio.onerror = null;
+          playChainStep(urlIdx + 1);
+        };
+        audio.play().catch(err => {
+          if (err?.name === 'AbortError') return;
+          if (audioRef.current !== audio) return;
+          playChainStep(urlIdx + 1);
+        });
+      };
+      playChainStep(0);
+    };
+    playNextKey();
   };
 
   const pickAnswer = (answer) => {
@@ -993,14 +1035,55 @@ export default function SoundArchitecture() {
       });
   };
 
+  // #197 (2026-07-19) — audioKey artık string veya string[] olabilir.
+  // Array durumunda ayet-ayet zincirleme çalınır (55:1-2 gibi çift-ayet
+  // kartlarda ekranda gösterilen tüm metin duyulsun).
   const startPlay = (sura) => {
     stopAudio();
     setFailedSura(null);
-    const { surah, ayah } = parseAudioKey(sura.audioKey);
-    const urls = buildFallbackUrls(surah, ayah);
     liveIdRef.current = sura.id;
     setPlaying(sura.id);
-    playWithFallback(sura, 0, urls);
+    const keys = Array.isArray(sura.audioKey) ? sura.audioKey : [sura.audioKey];
+    let keyIdx = 0;
+    const playNextKey = () => {
+      if (liveIdRef.current !== sura.id) return;
+      if (keyIdx >= keys.length) {
+        if (liveIdRef.current === sura.id) setPlaying(null);
+        return;
+      }
+      const { surah, ayah } = parseAudioKey(keys[keyIdx]);
+      const urls = buildFallbackUrls(surah, ayah);
+      keyIdx += 1;
+      playWithFallbackChained(sura, 0, urls, playNextKey);
+    };
+    playNextKey();
+  };
+
+  // Fallback URL zinciri boyunca dener; audio bittiğinde onDone çağırır
+  // (klasik playWithFallback zincir sonunda direkt setPlaying(null) yapar;
+  // chained versiyon bunun yerine sonraki ayete geçmek için onDone kullanır).
+  const playWithFallbackChained = (sura, urlIdx, urls, onDone) => {
+    if (liveIdRef.current !== sura.id) return;
+    if (urlIdx >= urls.length) {
+      setFailedSura(sura.id);
+      setPlaying(null);
+      return;
+    }
+    const audio = new Audio(urls[urlIdx]);
+    audioRef.current = audio;
+    audio.onended = () => {
+      if (liveIdRef.current === sura.id) onDone();
+    };
+    audio.onerror = () => {
+      if (audioRef.current !== audio) return;
+      audio.onerror = null;
+      playWithFallbackChained(sura, urlIdx + 1, urls, onDone);
+    };
+    audio.play().catch(err => {
+      if (err?.name === 'AbortError') return;
+      if (audioRef.current !== audio) return;
+      playWithFallbackChained(sura, urlIdx + 1, urls, onDone);
+    });
   };
 
   const selectSura = (sura) => {
@@ -1299,7 +1382,8 @@ export default function SoundArchitecture() {
 
           {/* Read full sura link — under description, subtle */}
           {(() => {
-            const surahNum = parseAudioKey(activeSura.audioKey).surah;
+            const firstKey = Array.isArray(activeSura.audioKey) ? activeSura.audioKey[0] : activeSura.audioKey;
+            const surahNum = parseAudioKey(firstKey).surah;
             const sName = language === 'tr' ? activeSura.labelTr : activeSura.labelEn;
             return (
               <div style={{ marginTop: '12px', textAlign: 'right' }}>

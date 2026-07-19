@@ -63233,5 +63233,45 @@
     "hash": "01cefea2dedbf6e0",
     "embeddedAt": "2026-07-17T21:34:08.537Z",
     "type": "munasebat"
+  },
+  "elestirel:miras-esitsizligi": {
+    "hash": "1ff0421c0d283d09",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:nisa-4-34-dovme": {
+    "hash": "dc1f735dd1958f44",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:kolelik-tedrici": {
+    "hash": "1f27378f4f5fa5b4",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:cizye-vatandaslik": {
+    "hash": "5ef4ff020bddf0a9",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:nuh-tufani-global-mi": {
+    "hash": "5505b6a73f2234c4",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:bilim-onceleme": {
+    "hash": "04773043f65f3017",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:cinsel-yonelim-lut": {
+    "hash": "820bbee6f13aea5b",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
+  },
+  "elestirel:muhkem-mutesabih-hangisi": {
+    "hash": "377db4f693df0c2a",
+    "embeddedAt": "2026-07-19T15:27:30.019Z",
+    "type": "elestirel"
   }
 }

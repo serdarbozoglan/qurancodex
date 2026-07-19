@@ -158,7 +158,7 @@
       "items": [
         {
           "id": "q1",
-          "audioKey": "069001",
+          "audioKey": ["069001", "069002"],
           "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
           "verseRef": "Al-Ḥāqqa 69:1-2",
           "answer": "punishment",

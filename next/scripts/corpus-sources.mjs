@@ -537,6 +537,34 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Eleştirel Çerçeve (8 zorlu soru) — 2026-07-18 §13.22 pipeline
+  // Kur'ân'a yöneltilen zorlu sorulara balanced akademik cevap: klasik +
+  // modern kaynaklar yan yana. Concierge: "kadın miras yarım neden",
+  // "kölelik neden yasaklanmadı", "iʿcâzü'l-ilmî eleştirisi", ...
+  {
+    type: 'elestirel',
+    file: 'public/elestirel-cerceve.json',
+    extract: (data) => data.questions || [],
+    buildItem: (q) => {
+      const verses = (q.verses || []).join(', ');
+      const cs = (q.classicalSources || []).map(s => `${s.author} (${s.workTr})`).join(' | ');
+      const csEn = (q.classicalSources || []).map(s => `${s.author} (${s.workEn || s.workTr})`).join(' | ');
+      const ms = (q.modernSources || []).map(s => `${s.author} (${s.workTr}, ${s.period || ''})`).join(' | ');
+      const msEn = (q.modernSources || []).map(s => `${s.author} (${s.workEn || s.workTr}, ${s.period || ''})`).join(' | ');
+      return {
+        id: `elestirel:${q.id}`,
+        type: 'elestirel',
+        subId: q.id,
+        titleTr: q.titleTr || '',
+        titleEn: q.titleEn || '',
+        descTr: (q.shortResponseTr || '').slice(0, 200),
+        descEn: (q.shortResponseEn || '').slice(0, 200),
+        searchTextTr: `Eleştirel Çerçeve: ${q.titleTr}. Kategori: ${q.category}. Ayetler: ${verses}. Kısa cevap: ${q.shortResponseTr || ''}. Detay: ${q.longResponseTr || ''}. Klasik kaynak: ${cs}. Modern kaynak: ${ms}.`.slice(0, 5000),
+        searchTextEn: `Critical Frame: ${q.titleEn}. Category: ${q.category}. Verses: ${verses}. Short: ${q.shortResponseEn || ''}. Detail: ${q.longResponseEn || ''}. Classical: ${csEn}. Modern: ${msEn}.`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Münâsebât (surah-connections 16) — 2026-07-17 §13.22 pipeline
   // Sûreler arası klasik münâsebât bağları — Bikâî geleneği + Râzî.
   // Concierge: "fâtiha bakara ilişkisi", "rahman vâkı'a münâsebâtı", ...
