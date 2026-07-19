@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "titleTr": "Kur'ân Kendini Nasıl Tanımlar? — Kitap Kavramı",
+    "titleEn": "How Does the Quran Describe Itself? — The Concept of the Book",
+    "principleTr": "Kur'ân yalnızca 'Kitap' değildir; kendisi için 11 farklı isim + sıfat kullanır. Her isim ayrı bir işleve, ayrı bir okuyucu ilişkisine işaret eder. Hüdâ okuru yönlendirir, Furkân ayırt eder, Şifâ iyileştirir, Zikr uyandırır. Bu tanımlar bir çeşitliliktir değil — Kur'ân'ın kendisiyle kurduğu çok-boyutlu okuma sözleşmesi. Bu sayfa Kur'ân'ın kendi isimlerinin envanterini + Râgıb el-İsfahânî çerçevesinde her ismin anlam katmanını sunar.",
+    "principleEn": "The Quran is not merely 'The Book'; it uses 11 distinct names + attributes for itself. Each name points to a different function, a different reading relationship. Hudā guides, Furqān distinguishes, Shifāʾ heals, Dhikr awakens. This is not just variety — it is the multi-dimensional reading covenant the Quran establishes with itself. This page presents an inventory of the Quran's self-names + the meaning-layers of each within the framework of al-Rāghib al-Iṣfahānī."
+  },
+  "items": [
+    {
+      "id": "kitab",
+      "termAr": "الكِتَاب",
+      "titleTr": "el-Kitâb — Yazılan",
+      "titleEn": "al-Kitāb — The Written",
+      "verses": [
+        "2:2",
+        "3:7",
+        "10:37",
+        "39:1"
+      ],
+      "shortTr": "Kur'ân'ın en temel öz-adı. 'Kitâb' kökü 'yazmak, sınır çizmek, kesin hüküm koymak' — sadece bir kitap değil, ilahî bir mühürleme.",
+      "shortEn": "The Quran's most fundamental self-name. The root 'k-t-b' means 'to write, to draw a boundary, to establish decree' — not merely a book, but a divine sealing.",
+      "longTr": "Bakara 2:2 açılışta 'İşte bu kitap' der — 'zâlike' (uzak işaret) kullanır, sanki Kur'ân kendi kendinden bahsediyor. Râgıb el-İsfahânî 'Müfredât'ta 'kitâb' kökünün sadece 'yazı' değil 'ilâhî hüküm + zamanla sabit kılınan' anlamlarını da taşıdığını vurgular. Bu isim Kur'ân'ı sözel bir metin olmaktan çıkarır, bir varlık statüsüne yükseltir — Ehl-i Kitap terimindeki 'Kitap' işte bu anlamda mühürlenmiş, tamamlanmış, sınır konulmuş vahiy demektir.",
+      "longEn": "Baqara 2:2 opens with 'this is the Book' — using 'dhālika' (distal demonstrative), as though the Quran speaks of itself. Al-Rāghib al-Iṣfahānī in al-Mufradāt emphasizes that 'kitāb' carries not just 'writing' but also 'divine ruling + made-permanent-in-time.' This name lifts the Quran beyond a verbal text to the status of an entity — the 'Book' in 'People of the Book' means this sealed, completed, bounded revelation."
+    },
+    {
+      "id": "furkan",
+      "termAr": "الفُرْقَان",
+      "titleTr": "el-Furkân — Ayıran",
+      "titleEn": "al-Furqān — The Criterion",
+      "verses": [
+        "2:53",
+        "2:185",
+        "3:4",
+        "25:1"
+      ],
+      "shortTr": "Hakk ile bâtılı ayıran. Kök f-r-q 'yarmak, ikiye bölmek' — Kur'ân okurun içinde bir teraziyi devreye alır; artık her fikir aynı ağırlıkta değildir.",
+      "shortEn": "That which distinguishes truth from falsehood. Root f-r-q means 'to split, to divide into two' — the Quran activates a scale within the reader; no longer are all ideas of equal weight.",
+      "longTr": "Furkân sûresinin ilk ayeti (25:1) 'kuluna Furkân'ı indirdi ki âlemlere uyarıcı olsun' der. Bu isim Kur'ân'ın epistemolojik işlevini tanımlar: ayrım gücü kazandırma. Klasik tefsir bunu üç ayrımda okur: (1) tevhid ↔ şirk; (2) helâl ↔ haram; (3) hidâyet ↔ dalâlet. İbrâhim'e verilen furkân (2:53) ile Kur'ân'ın furkânı arasında bir zincir vardır — her vahiy insanı bir ayrım eşiğine oturtur.",
+      "longEn": "The opening verse of Sūrat al-Furqān (25:1) says 'He sent down the Furqān upon His servant to be a warner to the worlds.' This name defines the Quran's epistemological function: the granting of discrimination. Classical tafsir reads this in three distinctions: (1) tawḥīd vs shirk; (2) ḥalāl vs ḥarām; (3) guidance vs misguidance. There is a chain between the furqān given to Moses (2:53) and the Quran's furqān — every revelation seats the human at a threshold of discernment."
+    },
+    {
+      "id": "zikr",
+      "termAr": "الذِّكْر",
+      "titleTr": "ez-Zikr — Anımsatan",
+      "titleEn": "al-Dhikr — The Reminder",
+      "verses": [
+        "15:9",
+        "16:44",
+        "21:50",
+        "38:1"
+      ],
+      "shortTr": "Fıtratımızda zaten olan bilgiyi hatırlatır. Kur'ân yeni bir bilgi vermez — unuttuğumuzu geri getirir. Zikr = insanın kendine dönmesi.",
+      "shortEn": "It reminds us of knowledge already in our fitra. The Quran does not add new information — it returns what we forgot. Dhikr = the human's return to self.",
+      "longTr": "Hicr 15:9 'zikri biz indirdik ve onu koruyacak olan da biziz' der — Kur'ân'ı 'zikr' olarak tanımlar. Bu isim iki katman taşır: (1) tarihsel katman — geçmiş peygamberlerin unutulmuş mirasını hatırlatır; (2) fıtrî katman — insanın Allah'la olan asal misakını (7:172 'elestü bi-rabbikum') anımsatır. Râzî 'Mefâtîh'ta zikrin hem 'içeriden' hem 'dışarıdan' anımsatma taşıdığını, Kur'ân okumanın kendi kendine bir uyanış olduğunu vurgular. Bugün 'zikirullah' pratiği (Allah'ı anma) bu isim üzerinden şekillenir.",
+      "longEn": "Ḥijr 15:9 says 'It is We who sent down the Reminder, and it is We who will preserve it' — defining the Quran as 'dhikr.' This name carries two layers: (1) historical — it recalls the forgotten heritage of past prophets; (2) primordial — it reminds the human of the original covenant with God (7:172, 'am I not your Lord?'). Al-Rāzī in Mafātīḥ emphasizes that dhikr carries both 'inward' and 'outward' recall — that reading the Quran is an awakening unto oneself. Today's practice of dhikrullāh (remembrance of God) is shaped through this name."
+    },
+    {
+      "id": "huda",
+      "termAr": "الهُدَى",
+      "titleTr": "el-Hüdâ — Yol Gösteren",
+      "titleEn": "al-Hudā — The Guidance",
+      "verses": [
+        "2:2",
+        "2:185",
+        "3:138",
+        "16:64"
+      ],
+      "shortTr": "Metafizik bir GPS. Hüdâ 'yol tarifi' değil 'yolun kendisi' — okur okumaya başladığında yol açılır.",
+      "shortEn": "A metaphysical GPS. Hudā is not 'directions' but 'the path itself' — as the reader begins to read, the road opens.",
+      "longTr": "Bakara 2:2 'muttakîler için hüdâ' der — kayıt önemli: hüdâ herkese değil, açık bir kalbe (takva) yönelir. Râgıb 'Mufredât'ta 'hüdâ' ile 'delâlet' arasında ince bir fark koyar: delâlet 'işaret etmek', hüdâ ise 'işareti verirken beraberinde yürümek'. Yani Kur'ân sadece yolu göstermez; okurla birlikte yürür. Muhammed Abduh çağdaş yorumunda bu ismi 'iç-hikmet' + 'dış-hukuk' birleşimi olarak okur.",
+      "longEn": "Baqara 2:2 says 'guidance for the God-conscious' — the qualifier is important: hudā is directed not to everyone but to an open heart (taqwā). Al-Rāghib in al-Mufradāt places a subtle distinction between hudā and dalāla: dalāla is 'to point,' hudā is 'to walk alongside while pointing.' The Quran does not merely show the way; it walks with the reader. Muḥammad ʿAbduh in his contemporary reading treats this name as a union of 'inner-wisdom' and 'outer-law.'"
+    },
+    {
+      "id": "nur",
+      "termAr": "النُّور",
+      "titleTr": "en-Nûr — Aydınlatan",
+      "titleEn": "al-Nūr — The Light",
+      "verses": [
+        "4:174",
+        "5:15",
+        "7:157",
+        "64:8"
+      ],
+      "shortTr": "Kur'ân bir aydınlatma metaforudur — kalp karanlığını, akıl karanlığını, sosyal karanlığı aynı anda kaldırır. Nûr = varlığın kendi görünmesi.",
+      "shortEn": "The Quran is a lighting metaphor — it lifts the darkness of the heart, of reason, and of society all at once. Nūr = being's own visibility.",
+      "longTr": "Nisâ 4:174 'apaçık bir nûr indirdik' der. Nûr sûresi (24) bir sonraki adımı atar: 'Allah göklerin ve yerin nûrudur' (24:35) — nûr artık bir metaforu aşarak ilâhî bir sıfat olur. Gazâlî 'Mişkâtü'l-Envâr'da bu ayet üzerine mistik-felsefî bir okuma inşa eder: Kur'ân, Peygamber, akıl, kalp — hepsi ilâhî nûrun farklı yoğunluklardaki yansımaları. Kur'ân okumak, bu ışık zincirinin son halkasını içeriden ateşlemektir.",
+      "longEn": "Nisāʾ 4:174 says 'We have sent down a clear light.' Sūrat al-Nūr (24) takes the next step: 'Allah is the light of the heavens and the earth' (24:35) — nūr moves beyond metaphor to a divine attribute. Al-Ghazālī builds a mystic-philosophical reading upon this in Mishkāt al-Anwār: the Quran, the Prophet, reason, the heart — all are reflections of divine light at different intensities. Reading the Quran is igniting the final link of this chain of light from within."
+    },
+    {
+      "id": "shifa",
+      "termAr": "الشِّفَاء",
+      "titleTr": "eş-Şifâ — İyileştiren",
+      "titleEn": "al-Shifāʾ — The Healing",
+      "verses": [
+        "10:57",
+        "17:82",
+        "41:44"
+      ],
+      "shortTr": "Kur'ân bir metin değil, bir tıp. İsrâ 17:82 'Kur'ân'dan öyle şeyler indiriyoruz ki mü'minler için şifâ ve rahmettir' — hastalık göğüs (kalp), tedavi okuma.",
+      "shortEn": "The Quran is not just a text but a medicine. Isrāʾ 17:82: 'We send down of the Quran that which is healing and mercy for believers' — the disease is in the chest (heart), the cure is reading.",
+      "longTr": "Şifâ ismi Kur'ân'ın psikolojik-manevi işlevini tanımlar. Yûnus 10:57 dört sıfat sıralar: mev'iza (öğüt) + şifâ (iyileşme) + hüdâ (yol) + rahmet (merhamet) — bu dörtlü okuma sürecinin dört aşamasıdır. Klasik tıp (Ibn Sînâ, İbn Kayyim 'et-Tıbbü'n-Nebevî') Kur'ân okumayı ruhu iyileştirici bir tedavi olarak sistemleştirir. Modern psikoloji (Malik Badri 'Contemplation') Kur'ân tefekkürünün depresyon + anksiyete için tedavi edici etkisini akademik olarak inceler. Şifâ pasif değil aktif — okur katılımı gerektiren bir iyileşme.",
+      "longEn": "The name Shifāʾ defines the Quran's psycho-spiritual function. Yūnus 10:57 lists four attributes: mawʿiẓa (admonition) + shifāʾ (healing) + hudā (guidance) + raḥma (mercy) — these are the four stages of the reading process. Classical medicine (Ibn Sīnā, Ibn al-Qayyim 'al-Ṭibb al-Nabawī') systematized Quranic reading as spiritual therapy. Modern psychology (Malik Badri 'Contemplation') academically examines the therapeutic effect of Quranic reflection on depression and anxiety. Shifāʾ is not passive but active — a healing requiring reader participation."
+    },
+    {
+      "id": "beyan",
+      "termAr": "البَيَان",
+      "titleTr": "el-Beyân — Açıklayan",
+      "titleEn": "al-Bayān — The Clarification",
+      "verses": [
+        "3:138",
+        "55:4",
+        "75:19"
+      ],
+      "shortTr": "Kur'ân berrak konuşur. Bayân 'bir örtüyü kaldırmak' — Rahmân 55:4 'insanı yarattı, ona beyânı öğretti' der: hem ilâhî konuşma hem insan dili aynı kökten.",
+      "shortEn": "The Quran speaks clearly. Bayān means 'to lift a veil' — al-Raḥmān 55:4 says 'He created the human, and He taught him al-bayān': both divine speech and human language stem from the same root.",
+      "longTr": "Âl-i İmrân 3:138 Kur'ân'ı 'insanlar için beyân, muttakîler için hüdâ ve mev'iza' olarak tanımlar. Beyân sadece 'anlatma' değil, 'gerçeği örtüsünden çıkarma'dır. Rahmân sûresi ise bu ismi kozmolojik bir ölçüye taşır: yaratılışın en yüksek nimeti 'beyân öğretilmesi'dir. Cürcânî 'Delâʾil'de bu isim üzerinden Kur'ân belagatının teorisini kurar — Kur'ân'ın sözü, sözün kendisinin nasıl beyân olabildiğini de gösterir.",
+      "longEn": "Āl ʿImrān 3:138 defines the Quran as 'bayān for the people, guidance and admonition for the God-conscious.' Bayān is not merely 'to explain' but 'to unveil truth.' Sūrat al-Raḥmān raises this name to a cosmological measure: the highest gift of creation is 'the teaching of bayān.' Al-Jurjānī in Dalāʾil builds the theory of Quranic rhetoric on this name — the Quran's speech shows how speech itself can be bayān."
+    },
+    {
+      "id": "tibyan",
+      "termAr": "التِّبْيَان",
+      "titleTr": "et-Tibyân — Her Şeyin Beyânı",
+      "titleEn": "al-Tibyān — The Explanation of Everything",
+      "verses": [
+        "16:89"
+      ],
+      "shortTr": "Beyân'ın yoğunlaştırılmış hâli. Nahl 16:89 Kur'ân'ı 'her şey için bir tibyân' olarak tanımlar — sınırsız bir açıklama sözü.",
+      "shortEn": "The intensified form of bayān. Naḥl 16:89 defines the Quran as 'a tibyān of everything' — a boundless word of clarification.",
+      "longTr": "'Tibyân' Arapça'da 'beyân'ın mübalağa formudur — 'her şeyi apaçık gösteren'. Nahl 16:89 iddialı bir ifade: 'Kur'ân her şey için tibyândır.' Klasik tefsir bu 'her şey'i 'dinin gerektirdiği her şey' olarak sınırlandırır (Râzî, Kurtubî) — çünkü Kur'ân bir tıp veya astronomi kitabı değildir. Modern tartışma (Fazlur Rahman, Muhammed Talbi) bu 'her şey'in 'ahlâki-varoluşsal her şey' olduğunu savunur: hangi soru insanı en derinden ilgilendiriyorsa (adalet, ölüm, anlam, yakınlık) — Kur'ân o soruya karşılık verir. Bu isim Kur'ân'ın kapsayıcılık iddiasını tanımlar.",
+      "longEn": "'Tibyān' is the intensive form of 'bayān' in Arabic — 'that which makes everything utterly clear.' Naḥl 16:89 makes an ambitious claim: 'The Quran is a tibyān of everything.' Classical tafsir (al-Rāzī, al-Qurṭubī) limits this 'everything' to 'everything the religion requires' — for the Quran is not a medical or astronomical treatise. Modern debate (Fazlur Rahman, Muhammed Talbi) argues this 'everything' is 'every ethical-existential thing': whichever question concerns the human at the deepest level (justice, death, meaning, intimacy) — the Quran answers it. This name defines the Quran's claim to comprehensiveness."
+    },
+    {
+      "id": "maviza",
+      "termAr": "المَوْعِظَة",
+      "titleTr": "el-Mev'iza — Öğüt Veren",
+      "titleEn": "al-Mawʿiẓa — The Admonition",
+      "verses": [
+        "3:138",
+        "10:57",
+        "11:120"
+      ],
+      "shortTr": "Öğüt = 'yumuşak uyarı'. Mev'iza sert vaaz değil, kalbi hazır olana yönelen dostça bir seslenme. Ateşle değil ışıkla eğitir.",
+      "shortEn": "Admonition = 'gentle warning.' Mawʿiẓa is not a harsh sermon but a friendly call directed to a heart already prepared. It teaches with light, not fire.",
+      "longTr": "Mev'iza kelimesi 'v-ʿ-ẓ' kökünden — 'kalbi yumuşatan öğüt' anlamı taşır. Kur'ân'ın öğüt verirken kullandığı ton dikkat çekicidir: 'olur ki düşünürsünüz', 'aklınıza gelsin diye', 'hikmete uygun olsun diye'. Zorlama yoktur (2:256 'lâ ikrâhe fî'd-dîn'). İsfahânî 'Mufredât'ta 'mev'iza' ile 'zecr' (sert uyarı) arasında fark koyar: mev'iza kalbi kazanmaya çalışır, zecr kalbi durdurmaya. Rasûlullah'ın öğretim üslubunun temel formülü — 'yaşarken öğret, dinlerken sohbet et, dövmeden düşündür.'",
+      "longEn": "'Mawʿiẓa' comes from the root 'w-ʿ-ẓ' — meaning 'admonition that softens the heart.' The tone the Quran adopts when admonishing is notable: 'perhaps you will reflect,' 'that you may remember,' 'that it may accord with wisdom.' There is no compulsion (2:256 'lā ikrāha fī l-dīn'). Al-Iṣfahānī in al-Mufradāt distinguishes mawʿiẓa from zajr (harsh warning): mawʿiẓa tries to win the heart, zajr tries to stop it. The Prophet's teaching method's core formula — 'teach as you live, converse as you listen, make them think without striking.'"
+    },
+    {
+      "id": "mubin",
+      "termAr": "المُبِين",
+      "titleTr": "el-Mübîn — Apaçık",
+      "titleEn": "al-Mubīn — The Manifest",
+      "verses": [
+        "5:15",
+        "12:1",
+        "15:1",
+        "44:2"
+      ],
+      "shortTr": "Kur'ân'ın en sık kullanılan öz-sıfatı (~29 kez). Mübîn 'kendi kendini açıklayan' — okuyucu için değil, kendinden ötürü apaçık.",
+      "shortEn": "The Quran's most frequently used self-attribute (~29 times). Mubīn = 'self-explaining' — clear not for the reader but of itself.",
+      "longTr": "Mübîn 'b-y-n' kökünün ism-i faili — hem 'açıklayan' hem 'apaçık olan' anlamları taşır. Yûsuf sûresinin ilk ayeti (12:1) 'Bunlar Kitâbü'l-Mübîn'in ayetleridir' der — Kur'ân önce kendisine güvenmek üzere kendini apaçık ilan eder. Klasik ulûmü'l-Kur'ân bunu şöyle okur: 'Kur'ân'ın her ayeti kendinde apaçık; kapalılık dışsal bir okur eksikliğinden gelir.' Modern hermeneutik (Nasr Ebû Zeyd) bu iddianın sınırlarını sorgular: 'apaçık' kime göre? — okuyucu, kültür, tarih üçlüsünün etkileşimi. Ancak Kur'ân'ın kendi öz-tanımı 'mübîn' — bu apaçıklık bir okur-öncesi vaattir.",
+      "longEn": "Mubīn is the active participle from the root 'b-y-n' — carrying both 'that which explains' and 'that which is clear.' The opening verse of Sūrat Yūsuf (12:1) says 'These are the verses of the Manifest Book' — the Quran first declares itself manifest so it may be trusted. Classical Quranic sciences read this thus: 'every verse of the Quran is clear in itself; obscurity comes from an external lack in the reader.' Modern hermeneutics (Naṣr Abū Zayd) questions the limits of this claim: 'clear' according to whom? — the interaction of reader, culture, history. Yet the Quran's own self-definition is 'mubīn' — this manifestness is a pre-reader promise."
+    }
+  ]
+}
