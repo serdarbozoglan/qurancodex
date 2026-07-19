@@ -63323,5 +63323,55 @@
     "hash": "717ea5aaac044d49",
     "embeddedAt": "2026-07-19T15:44:38.003Z",
     "type": "kitap-kavrami"
+  },
+  "neden-sonuc:sabir-yardim-zafer": {
+    "hash": "d10b3ec525c250c0",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:sukur-nimet": {
+    "hash": "42ac0a65d797ab96",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:tovbe-magfiret-yumusama": {
+    "hash": "5f733bdc4c537c33",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:kibir-muhurleme-sapma": {
+    "hash": "1518b4cd7a9586fd",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:zulum-helak": {
+    "hash": "a182689fe8816232",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:adalet-toplumun-ayakta": {
+    "hash": "054098738094383a",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:ifsat-deprem-kitlik": {
+    "hash": "8a95f1120559da03",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:emanet-ihaneti-cokus": {
+    "hash": "94ae0d2b3a879a74",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:mizan-goklerin-durmasi": {
+    "hash": "44b9f7ca3244e5d5",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
+  },
+  "neden-sonuc:amac-son-toplama": {
+    "hash": "77c699af0896e41d",
+    "embeddedAt": "2026-07-19T15:52:27.015Z",
+    "type": "neden-sonuc"
   }
 }

@@ -537,6 +537,35 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Neden → Sonuç Atlası (10 zincir) — 2026-07-19 §13.22 pipeline
+  // "Kim X yaparsa Y olur" — nefsî + toplumsal + kozmik ahlâki zincirler.
+  // Concierge: "sabır sonuç", "zulüm helâk", "şükür nimet artışı", ...
+  {
+    type: 'neden-sonuc',
+    file: 'public/neden-sonuc.json',
+    extract: (data) => data.chains || [],
+    buildItem: (chain) => {
+      const verses = (chain.verses || []).join(', ');
+      const steps = (chain.steps || []).map((s, i) =>
+        `${i+1}) ${s.stepTr || ''} [${s.verse || ''}]`
+      ).join(' → ');
+      const stepsEn = (chain.steps || []).map((s, i) =>
+        `${i+1}) ${s.stepEn || ''} [${s.verse || ''}]`
+      ).join(' → ');
+      return {
+        id: `neden-sonuc:${chain.id}`,
+        type: 'neden-sonuc',
+        subId: chain.id,
+        titleTr: chain.titleTr || '',
+        titleEn: chain.titleEn || '',
+        descTr: (chain.shortTr || '').slice(0, 200),
+        descEn: (chain.shortEn || '').slice(0, 200),
+        searchTextTr: `Neden-Sonuç: ${chain.titleTr}. Kategori: ${chain.category}. Kısa: ${chain.shortTr || ''} Zincir: ${steps}. Ayetler: ${verses}. Not: ${chain.note || ''}`.slice(0, 5000),
+        searchTextEn: `Cause-Effect: ${chain.titleEn}. Category: ${chain.category}. Short: ${chain.shortEn || ''} Chain: ${stepsEn}. Verses: ${verses}. Note: ${chain.note || ''}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Kitap Kavramı (10 self-descriptor) — 2026-07-19 §13.22 pipeline
   // Kur'ân'ın kendisi için kullandığı isim + sıfat inventer: el-Kitâb,
   // el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân,
