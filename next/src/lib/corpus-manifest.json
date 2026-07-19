@@ -63273,5 +63273,55 @@
     "hash": "377db4f693df0c2a",
     "embeddedAt": "2026-07-19T15:27:30.019Z",
     "type": "elestirel"
+  },
+  "kitap-kavrami:kitab": {
+    "hash": "3daf0598f38e7a18",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:furkan": {
+    "hash": "7db591edfad148d2",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:zikr": {
+    "hash": "a78c41371e44a0ce",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:huda": {
+    "hash": "ca48e78943283418",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:nur": {
+    "hash": "87d801cdd69242e2",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:shifa": {
+    "hash": "8c3e30470a6e9868",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:beyan": {
+    "hash": "b0d74e66707e143b",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:tibyan": {
+    "hash": "4b6324b251c79e35",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:maviza": {
+    "hash": "e3a582bc3dc2d484",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
+  },
+  "kitap-kavrami:mubin": {
+    "hash": "717ea5aaac044d49",
+    "embeddedAt": "2026-07-19T15:44:38.003Z",
+    "type": "kitap-kavrami"
   }
 }

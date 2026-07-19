@@ -537,6 +537,32 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Kitap Kavramı (10 self-descriptor) — 2026-07-19 §13.22 pipeline
+  // Kur'ân'ın kendisi için kullandığı isim + sıfat inventer: el-Kitâb,
+  // el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân,
+  // el-Mev'iza, el-Mübîn. Concierge: "kur'ân'ın kaç ismi var", "furkân
+  // ne demek", "zikr kavramı", ...
+  {
+    type: 'kitap-kavrami',
+    file: 'public/kitap-kavrami.json',
+    extract: (data) => data.items || [],
+    buildItem: (item) => {
+      const verses = (item.verses || []).join(', ');
+      return {
+        id: `kitap-kavrami:${item.id}`,
+        type: 'kitap-kavrami',
+        subId: item.id,
+        arabic: item.termAr || '',
+        titleTr: item.titleTr || '',
+        titleEn: item.titleEn || '',
+        descTr: (item.shortTr || '').slice(0, 200),
+        descEn: (item.shortEn || '').slice(0, 200),
+        searchTextTr: `Kur'ân'ın ismi: ${item.termAr} — ${item.titleTr}. Ayetler: ${verses}. Kısa: ${item.shortTr || ''} Detay: ${item.longTr || ''}`.slice(0, 5000),
+        searchTextEn: `Name of the Quran: ${item.termAr} — ${item.titleEn}. Verses: ${verses}. Short: ${item.shortEn || ''} Detail: ${item.longEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Eleştirel Çerçeve (8 zorlu soru) — 2026-07-18 §13.22 pipeline
   // Kur'ân'a yöneltilen zorlu sorulara balanced akademik cevap: klasik +
   // modern kaynaklar yan yana. Concierge: "kadın miras yarım neden",
