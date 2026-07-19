@@ -605,6 +605,10 @@ export default function Navbar() {
     openIblisSatan:      '/arac/iblis-seytan',
     openKadinlarAtlasi:  '/atlas/kadinlar',
     openIlkSonKelimeler: '/arac/ilk-son-kelimeler',
+    // #207 #208 #211 (2026-07-19) — Yeni 3 tool route mapping
+    openElestirelCerceve: '/arac/elestirel-cerceve',
+    openNedenSonuc:      '/arac/neden-sonuc',
+    openKitapKavrami:    '/arac/kitap-kavrami',
   };
   // Backwards-compat alias — bazı yerlerde TOOL_TRIGGERS kullanıyor olabilir.
   const TOOL_TRIGGERS = Object.fromEntries(

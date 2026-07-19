@@ -200,6 +200,32 @@ const FurukIcon = ({ size = 14 }) => (
   </svg>
 );
 
+// #208 (2026-07-19) — Cause→Effect: iki bağlı düğüm + çizgi
+const NedenSonucIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="6" cy="6" r="3" />
+    <circle cx="18" cy="18" r="3" />
+    <path d="M8.5 8.5l7 7" />
+  </svg>
+);
+
+// #211 (2026-07-19) — Kitap Kavramı: açık kitap (2 sayfa)
+const KitapKavramiIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+  </svg>
+);
+
+// #207 (2026-07-19) — Eleştirel Çerçeve: soru işareti içinde daire
+const ElestirelIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+);
+
 // ── Featured ─────────────────────────────────────────────────────────────────
 // Vitrin tier — drawer'da en üstte yatay full-width banner olarak gösterilir.
 // "Araç" değil, "anlatı/vitrin" zümresine girer. ANALYSIS/VIZ/RESEARCH tools
@@ -279,10 +305,10 @@ export const VIZ_TOOLS = [
     event:       'openKissaAtlas',
     titleTr:     'Kıssa Atlası',
     titleEn:     'Story Atlas',
-    descTr:      '4 peygamber — hangi sûrede hangi sahne?',
-    descEn:      '4 prophets — which scene in which surah?',
-    descLongTr:  "4 peygamberin (Musa, İbrahim, Yusuf, Nuh) hayat hikayesi parçalı sahneler halinde Kur'an'a dağılmış. Hangi sahne hangi sûrede, hangi sırada — atlas formatında haritalı.",
-    descLongEn:  "The lives of 4 prophets (Moses, Abraham, Joseph, Noah) scattered as fragmented scenes across the Quran. Which scene appears in which surah, in what order — mapped as an atlas.",
+    descTr:      '12 peygamber — hangi sûrede hangi sahne?',
+    descEn:      '12 prophets — which scene in which surah?',
+    descLongTr:  "12 peygamberin (Âdem, Nûh, İbrâhim, Lût, Yûsuf, Eyyûb, Mûsâ, Dâvud, Süleymân, Yûnus, Zekeriyâ-Yahyâ, Îsâ) hayat hikâyesi parçalı sahneler hâlinde Kur'ân'a dağılmış. Hangi sahne hangi sûrede, hangi sırada — atlas formatında haritalı.",
+    descLongEn:  "The lives of 12 prophets (Adam, Noah, Abraham, Lot, Joseph, Job, Moses, David, Solomon, Jonah, Zechariah-John, Jesus) scattered as fragmented scenes across the Quran. Which scene appears in which surah, in what order — mapped as an atlas.",
     icon:        KissaIcon,
   },
   {
@@ -351,6 +377,17 @@ export const ANALYSIS_TOOLS = [
     icon:        SureDnaIcon,
   },
   {
+    id:          'neden-sonuc',
+    event:       'openNedenSonuc',
+    titleTr:     'Neden → Sonuç Atlası',
+    titleEn:     'Cause → Effect Atlas',
+    descTr:      '10 Kur\'ânî zincir · nefsî + toplumsal + kozmik',
+    descEn:      '10 Quranic chains · inner + social + cosmic',
+    descLongTr:  "Sabır → Yardım → Zafer. Şükür → Nimet artışı. Zulüm → Toplumsal helâk. Mîzân → Göklerin ayakta durması. Sünnetullah'ın somut zincirleri — her halka Kur'ânî ayet ankrajıyla.",
+    descLongEn:  "Patience → Help → Victory. Gratitude → Increase of blessing. Injustice → Societal collapse. Balance → Heavens standing firm. The concrete chains of sunnatullāh — every link anchored in Quranic verses.",
+    icon:        NedenSonucIcon,
+  },
+  {
     id:          'munasebat',
     event:       'openMunasebatAtlasi',
     titleTr:     'Münâsebât — Sure Bağlantıları',
@@ -394,10 +431,10 @@ export const RESEARCH_TOOLS = [
     event:       'openSebebNuzul',
     titleTr:     'Sebeb-i Nüzul',
     titleEn:     'Occasions of Revelation',
-    descTr:      '~570 ayet · olay→ayet & ayet→olay',
-    descEn:      '~570 verses · bidirectional',
-    descLongTr:  "~570 ayetin nüzul sebebi — hangi olay üzerine, hangi soru karşısında, hangi kişi için indi. Olay→ayet ve ayet→olay, çift yönlü arama.",
-    descLongEn:  "The occasions of revelation for ~570 verses — which event, which question, for whom. Bidirectional search: event→verse and verse→event.",
+    descTr:      '30 klasik vaka · olay ↔ ayet',
+    descEn:      '30 classical occasions · event ↔ verse',
+    descLongTr:  "Vâhidî, Buhârî, Süyûtî geleneğinden 30 önemli nüzul vakası — İlk vahiy, Kevser, Duhâ (fetret), İfk hadisesi, Kıble değişimi, Zeyneb bint Cahş evliliği, Hudeybiye Fetih, Vedâ Haccı Mâide 5:3 vb. Her vaka: bağlam + katılımcılar + ayet referansları + klasik kaynak.",
+    descLongEn:  "30 major revelation occasions from the Wāḥidī, Bukhārī, Suyūṭī tradition — first revelation, al-Kawthar, al-Ḍuḥā (fatra), the slander incident, qibla change, Zaynab bint Jaḥsh's marriage, Ḥudaybiyya Fatḥ, Farewell Pilgrimage Māʾida 5:3, and more. Each occasion: context + participants + verse references + classical source.",
     icon:        SebebIcon,
   },
   {
@@ -443,6 +480,28 @@ export const RESEARCH_TOOLS = [
     descLongTr:  "Kur'an'daki 77 dua — 11 kategoriye ayrılmış (af, aile, rızık, hidayet, sabır, sığınma, tevbe, sıkıntı, şükür, ilim, genel). Peygamberlerin yakarışları, müminlerin niyazları. Her dua bağlamı, kim tarafından edildiği ve klasik tefsir notu ile birlikte.",
     descLongEn:  '77 prayers from the Quran — organized into 11 categories (forgiveness, family, provision, guidance, patience, refuge, repentance, distress, gratitude, knowledge, general). Prophetic supplications and believer petitions. Each prayer with its context, who prayed it, and a classical tafsir note.',
     icon:        DuaIcon,
+  },
+  {
+    id:          'kitap-kavrami',
+    event:       'openKitapKavrami',
+    titleTr:     'Kitap Kavramı',
+    titleEn:     'Concept of the Book',
+    descTr:      "Kur'ân'ın 10 öz-adı · hüdâ, furkân, nûr, şifâ, beyân…",
+    descEn:      "The Quran's 10 self-names · hudā, furqān, nūr, shifāʾ, bayān…",
+    descLongTr:  "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",
+    descLongEn:  "The Quran is not merely 'the Book'; it uses 10+ names + attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Function + meaning-layer of each name within al-Rāghib al-Iṣfahānī's Mufradāt framework.",
+    icon:        KitapKavramiIcon,
+  },
+  {
+    id:          'elestirel-cerceve',
+    event:       'openElestirelCerceve',
+    titleTr:     'Eleştirel Çerçeve',
+    titleEn:     'Critical Frame',
+    descTr:      "8 zorlu soru · klasik + modern akademi balanslı",
+    descEn:      '8 hard questions · balanced classical + modern academia',
+    descLongTr:  "Kur'ân'a yöneltilen içeriden ve dışarıdan zorlu sorulara dengeli akademik çerçeve — miras eşitsizliği, Nisâ 4:34, kölelik, cizye, Nûh tufanı, iʿcâzü'l-ilmî eleştirisi, cinsel yönelim, muhkem-müteşâbih. Klasik tefsir + modern akademi yan yana; kapatılmış cevap değil süregelen bir okuma.",
+    descLongEn:  "A balanced academic frame for hard questions posed to the Quran — inheritance inequality, Nisāʾ 4:34, slavery, jizya, Noah's flood, critique of scientific miraculousness, sexual orientation, muḥkam-mutashābih. Classical tafsir alongside modern academia; ongoing readings rather than closed answers.",
+    icon:        ElestirelIcon,
   },
 ];
 

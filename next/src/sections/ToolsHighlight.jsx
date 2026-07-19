@@ -82,8 +82,8 @@ const FEATURED_TOOLS = [
     overlay: 'sebeb',
     titleTr: 'Sebeb-i Nüzul',
     titleEn: 'Occasions of Revelation',
-    descTr: '~570 ayet · olay→ayet & ayet→olay · çift yönlü arama',
-    descEn: '~570 verses · event→verse & verse→event · bidirectional',
+    descTr: '30 klasik vaka · olay ↔ ayet · çift yönlü arama',
+    descEn: '30 classical occasions · event ↔ verse · bidirectional',
     icon: (
       <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -97,8 +97,8 @@ const FEATURED_TOOLS = [
     overlay: 'kissa',
     titleTr: 'Kıssa Atlası',
     titleEn: 'Story Atlas',
-    descTr: '4 peygamber — hangi sûrede hangi sahne?',
-    descEn: '4 prophets — which scene in which surah?',
+    descTr: '12 peygamber — hangi sûrede hangi sahne?',
+    descEn: '12 prophets — which scene in which surah?',
     icon: (
       <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
