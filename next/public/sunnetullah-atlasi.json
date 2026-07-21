@@ -1,13 +1,13 @@
 {
   "meta": {
     "totalLiteralOccurrences": 6,
-    "totalThematicCategories": 8,
-    "totalThematicVerses": 36,
+    "totalThematicCategories": 12,
+    "totalThematicVerses": 56,
     "generatedBy": "qc-content-producer",
-    "generatedDate": "2026-04-20",
-    "sourceDraft": "docs/content-drafts/2026-04-19-sunnetullah-atlasi.md",
-    "totalScholarViews": 8,
-    "totalKavimPatterns": 6
+    "generatedDate": "2026-07-21",
+    "sourceDraft": "docs/content-drafts/2026-04-19-sunnetullah-atlasi.md + expanded 2026-07-21 (+4 categories, +4 kavim, +4 scholars)",
+    "totalScholarViews": 12,
+    "totalKavimPatterns": 10
   },
   "intro": {
     "titleTr": "Sünnetullah — Allah'ın Değişmez Kanunları",
@@ -569,6 +569,246 @@
       "scholarNoteTr": "Bakara 2:214'ün 'metâ nasrullâh' (Allah'ın yardımı ne zaman?) sorusu klasik tefsirde 'ihtiyacın zirvesinde teslimiyet' olarak yorumlanır. İbn Kesîr bu ayeti Ashab'ın Uhud sonrası tereddüdüyle ilişkilendirir. Râzî 'me'a-l-'usri yüsrâ' (İnşirâh 94:5-6) çift tekrarını klasik belâgatta 'iki farklı zorluk, iki farklı kolaylık; ama tek 'usr'ün iki 'yüsr'ü' formülüyle açar — yani zorluk tek, kolaylık iki katmanlıdır. Bu, sabır kanununun ontolojik iddiasıdır: zafer sadece nihayette değil, sabrın kendisi içinde başlar. Bediüzzaman: 'Musibet, saadete köprü olduğu için gizlenmiş rahmettir.'",
       "scholarNoteEn": "The 'matā naṣrullāh' ('When is the help of Allah?') of Q 2:214 is classically read as 'surrender at the summit of need.' Ibn Kathīr links this verse to the Companions' hesitation after Uḥud. Al-Rāzī explains the twin repetition of 'maʿa al-ʿusri yusrā' (Q 94:5-6) through the classical rhetorical formula: 'two hardships, two eases; but one ʿusr matched by two yusr' — hardship is singular, ease is double-layered. This is the ontological claim of the law of patience: victory begins not only at the end, but within patience itself. Bediüzzaman: 'Calamity is concealed mercy, because it is the bridge to felicity.'",
       "ekolEtiketi": "klasik tefsir + Bediüzzaman"
+    },
+    {
+      "id": "istidrac-kanunu",
+      "titleTr": "İstidrâc Kanunu",
+      "titleEn": "The Law of Istidrāj (Gradual Ensnarement)",
+      "color": "#c9a227",
+      "descTr": "İnkârcılara verilen bolluk, çoğu zaman bir mükâfat değil, farkına varmadan sonlarına yaklaştırılış olabilir. İstidrâc, Allah'ın helâk kanununun 'yumuşak' hâlidir: kapılar açılır, azgınlık artar, ansızın yakalanır.",
+      "descEn": "The abundance granted to deniers is often not a reward but a gradual ensnarement toward destruction. Istidrāj is the 'soft' form of the law of destruction: doors open, transgression grows, then the seizure comes suddenly.",
+      "items": [
+        {
+          "id": "istidrac-kalem-68-44",
+          "verseRef": "Kalem 68:44",
+          "surah": 68,
+          "ayah": 44,
+          "verseAr": "فَذَرْنِي وَمَنْ يُكَذِّبُ بِهٰذَا الْحَدِيثِ سَنَسْتَدْرِجُهُمْ مِنْ حَيْثُ لَا يَعْلَمُونَ",
+          "verseTr": "(Resulüm!) Sen bu sözü (Kur'an'ı) yalan sayanı bana bırak (kendini üzme). Biz onları, bilmedikleri bir yönden yavaş yavaş azaba yaklaştırıyoruz.",
+          "verseEn": "So leave Me, [O Muhammad], with [the matter of] whoever denies the Qur'an. We will progressively lead them [to punishment] from where they do not know"
+        },
+        {
+          "id": "istidrac-enam-6-44",
+          "verseRef": "En'âm 6:44",
+          "surah": 6,
+          "ayah": 44,
+          "verseAr": "فَلَمَّا نَسُوا مَا ذُكِّرُوا بِهِ فَتَحْنَا عَلَيْهِمْ اَبْوَابَ كُلِّ شَيْءٍ حَتّٰٓى اِذَا فَرِحُوا بِمَٓا اُوتُٓوا اَخَذْنَاهُمْ بَغْتَةً فَاِذَا هُمْ مُبْلِسُونَ",
+          "verseTr": "Kendilerine yapılan uyarıları unuttuklarında, (indirmiş olduğumuz sıkıntı ve musibetleri kaldırıp) üzerlerine her şeyin kapılarını açtık. Nihayet kendilerine verilenler yüzünden şımardıkları zaman onları ansızın yakaladık, birdenbire onlar bütün ümitlerini yitirdiler.",
+          "verseEn": "So when they forgot that by which they had been reminded, We opened to them the doors of every [good] thing until, when they rejoiced in that which they were given, We seized them suddenly, and they were [then] in despair"
+        },
+        {
+          "id": "istidrac-araf-7-182",
+          "verseRef": "A'râf 7:182",
+          "surah": 7,
+          "ayah": 182,
+          "verseAr": "وَالَّذِينَ كَذَّبُوا بِاٰيَاتِنَا سَنَسْتَدْرِجُهُمْ مِنْ حَيْثُ لَا يَعْلَمُونَ",
+          "verseTr": "Âyetlerimizi yalanlayanları, hiç bilmeyecekleri yerden yavaş yavaş helake götüreceğiz.",
+          "verseEn": "But those who deny Our signs - We will progressively lead them [to destruction] from where they do not know"
+        },
+        {
+          "id": "istidrac-ali-imran-3-178",
+          "verseRef": "Âl-i İmrân 3:178",
+          "surah": 3,
+          "ayah": 178,
+          "verseAr": "وَلَا يَحْسَبَنَّ الَّذِينَ كَفَرُٓوا اَنَّمَا نُمْلِي لَهُمْ خَيْرٌ لِاَنْفُسِهِمْ اِنَّمَا نُمْلِي لَهُمْ لِيَزْدَادُٓوا اِثْماً وَلَهُمْ عَذَابٌ مُهِينٌ",
+          "verseTr": "İnkar edenler sanmasınlar ki, kendilerine mühlet vermemiz onlar için daha hayırlıdır. Onlara ancak günahlarını arttırmaları için fırsat veriyoruz. Onlar için alçaltıcı bir azap vardır.",
+          "verseEn": "And let not those who disbelieve ever think that [because] We extend their time [of enjoyment] it is better for them. We only extend it for them so that they may increase in sin, and for them is a humiliating punishment"
+        },
+        {
+          "id": "istidrac-muminun-23-55",
+          "verseRef": "Mü'minûn 23:55",
+          "surah": 23,
+          "ayah": 55,
+          "verseAr": "اَيَحْسَبُونَ اَنَّمَا نُمِدُّهُمْ بِهِ مِنْ مَالٍ وَبَنِينَ",
+          "verseTr": "Sanıyorlar mı ki, onlara verdiğimiz servet ve oğullar ile.",
+          "verseEn": "Do they think that what We extend to them of wealth and children"
+        }
+      ],
+      "scholarNoteTr": "Râzî ve İbn Kesîr, istidrâcı 'mühletin uzatılması' (imhâl) ile birlikte okur: nimet artışı, bir müdahale değil, günahın kendi başına birikmesine izin verilmesidir. Bu, ilâhî adaletin en incelikli biçimidir — insan kendi hesabını kendi çoğaltır.",
+      "scholarNoteEn": "Al-Rāzī and Ibn Kathīr read istidrāj alongside imhāl (extended reprieve): the increase in blessing is not an intervention but a permitted accumulation of sin. This is the most subtle form of divine justice — the person multiplies their own account.",
+      "modernNoteTr": "Modern sosyolojik okumada istidrâc, refahın ahlâkî kontrolü zayıflatan etkisini karşılar: eleştirinin susturulduğu, uyarının 'karamsarlık' sayıldığı toplumlar, tam da 'her şey iyi giderken' çöker.",
+      "modernNoteEn": "In modern sociological reading, istidrāj corresponds to the corrosive effect of affluence on moral vigilance: societies where criticism is silenced and warning is dismissed as 'pessimism' collapse precisely 'when everything is going well.'",
+      "ekolEtiketi": "klasik + modern sosyoloji"
+    },
+    {
+      "id": "tedric-kanunu",
+      "titleTr": "Tedrîc Kanunu",
+      "titleEn": "The Law of Tadrīj (Gradual Unfolding)",
+      "color": "#3498db",
+      "descTr": "Allah'ın hem yaratmada hem şeriatta 'zamanla, aşama aşama' işleyen bir yasası vardır. Kâinat altı 'gün'de, insan nutfeden alakaya, Kur'ân 23 yılda parça parça. Ani devrim değil, kademeli oluş — sünnetullah'ın taşıyıcı ritmi.",
+      "descEn": "God's law operates 'in stages, over time' both in creation and in revelation. The cosmos in six 'days', the human being from nutfa to ʿalaqa, the Qur'an over 23 years in installments. Not sudden revolution but gradual unfolding — the carrier rhythm of sunnatullāh.",
+      "items": [
+        {
+          "id": "tedric-araf-7-54",
+          "verseRef": "A'râf 7:54",
+          "surah": 7,
+          "ayah": 54,
+          "verseAr": "اِنَّ رَبَّكُمُ اللّٰهُ الَّذِي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ فِي سِتَّةِ اَيَّامٍ ثُمَّ اسْتَوٰى عَلَى الْعَرْشِ يُغْشِي الَّيْلَ النَّهَارَ يَطْلُبُهُ حَثِيثاً وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ مُسَخَّرَاتٍ بِاَمْرِهِ اَلَا لَهُ الْخَلْقُ وَالْاَمْرُ تَبَارَكَ اللّٰهُ رَبُّ الْعَالَمِينَ",
+          "verseTr": "Şüphesiz ki Rabbiniz, gökleri ve yeri altı günde yaratan, sonra Arş'a istiva eden, geceyi, durmadan kendisini kovalayan gündüze bürüyüp örten; güneşi, ayı ve yıldızları emrine boyun eğmiş durumda yaratan Allah'tır. Bilesiniz ki, yaratmak da emretmek de O'na mahsustur. Alemlerin Rabbi Allah ne yücedir!",
+          "verseEn": "Indeed, your Lord is Allah, who created the heavens and earth in six days and then established Himself above the Throne. He covers the night with the day, [another night] chasing it rapidly; and [He created] the sun, the moon, and the stars, subjected by His command. Unquestionably, His is the creation and the command; blessed is Allah, Lord of the worlds"
+        },
+        {
+          "id": "tedric-yunus-10-3",
+          "verseRef": "Yûnus 10:3",
+          "surah": 10,
+          "ayah": 3,
+          "verseAr": "اِنَّ رَبَّكُمُ اللّٰهُ الَّذِي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ فِي سِتَّةِ اَيَّامٍ ثُمَّ اسْتَوٰى عَلَى الْعَرْشِ يُدَبِّرُ الْاَمْرَ مَا مِنْ شَفِيعٍ اِلَّا مِنْ بَعْدِ اِذْنِهِ ذٰلِكُمُ اللّٰهُ رَبُّكُمْ فَاعْبُدُوهُ اَفَلَا تَذَكَّرُونَ",
+          "verseTr": "Şüphesiz ki Rabbiniz, gökleri ve yeri altı günde yaratan, sonra da işleri yerli yerince idare ederek arşa istiva eden Allah'dır. Onun izni olmadan hiç kimse şefaatçı olamaz. İşte O Rabbiniz Allah'tır. O halde O'na kulluk edin. Hala düşünmüyor musunuz!",
+          "verseEn": "Indeed, your Lord is Allah, who created the heavens and the earth in six days and then established Himself above the Throne, arranging the matter [of His creation]. There is no intercessor except after His permission. That is Allah, your Lord, so worship Him. Then will you not remember"
+        },
+        {
+          "id": "tedric-hac-22-5",
+          "verseRef": "Hac 22:5",
+          "surah": 22,
+          "ayah": 5,
+          "verseAr": "يَٓا اَيُّهَا النَّاسُ اِنْ كُنْتُمْ فِي رَيْبٍ مِنَ الْبَعْثِ فَاِنَّا خَلَقْنَاكُمْ مِنْ تُرَابٍ ثُمَّ مِنْ نُطْفَةٍ ثُمَّ مِنْ عَلَقَةٍ ثُمَّ مِنْ مُضْغَةٍ مُخَلَّقَةٍ وَغَيْرِ مُخَلَّقَةٍ لِنُبَيِّنَ لَكُمْ وَنُقِرُّ فِي الْاَرْحَامِ مَا نَشَٓاءُ اِلٰٓى اَجَلٍ مُسَمًّى ثُمَّ نُخْرِجُكُمْ طِفْلاً ثُمَّ لِتَبْلُغُٓوا اَشُدَّكُمْ وَمِنْكُمْ مَنْ يُتَوَفّٰى وَمِنْكُمْ مَنْ يُرَدُّ اِلٰٓى اَرْذَلِ الْعُمُرِ لِكَيْلَا يَعْلَمَ مِنْ بَعْدِ عِلْمٍ شَيْـٔاً وَتَرَى الْاَرْضَ هَامِدَةً فَاِذَٓا اَنْزَلْنَا عَلَيْهَا الْمَٓاءَ اهْتَزَّتْ وَرَبَتْ وَاَنْبَتَتْ مِنْ كُلِّ زَوْجٍ بَهِيجٍ",
+          "verseTr": "Ey insanlar! Eğer yeniden dirilmekten şüphede iseniz, şunu bilin ki, biz sizi topraktan, sonra nutfeden, sonra alakadan (aşılanmış yumurtadan), sonra uzuvları (önce) belirsiz, (sonra) belirlenmiş canlı et parçasından (uzuvları zamanla oluşan ceninden) yarattık ki size (kudretimizi) gösterelim. Ve dilediğimizi, belirlenmiş bir süreye kadar rahimlerde bekletiriz; sonra sizi bir bebek olarak dışarı çıkarırız. Sonra güçlü çağınıza ulaşmanız için (sizi büyütürüz). İçinizden kimi vefat eder; yine içinizden kimi de ömrün en verimsiz çağına kadar götürülür; ta ki bilen bir kimse olduktan sonra bir şey bilmez hale gelsin. Sen, yeryüzünü de kupkuru ve ölü bir halde görürsün; fakat biz, üzerine yağmur indirdiğimizde o, kıpırdanır, kabarır ve her çeşitten (veya çiftten) iç açıcı bitkiler verir.",
+          "verseEn": "O People, if you should be in doubt about the Resurrection, then [consider that] indeed, We created you from dust, then from a sperm-drop, then from a clinging clot, and then from a lump of flesh, formed and unformed - that We may show you. And We settle in the wombs whom We will for a specified term, then We bring you out as a child, and then [We develop you] that you may reach your [time of] maturity. And among you is he who is taken in [early] death, and among you is he who is returned to the most decrepit [old] age so that he knows, after [once having] knowledge, nothing. And you see the earth barren, but when We send down upon it rain, it quivers and swells and grows [something] of every beautiful kind"
+        },
+        {
+          "id": "tedric-furkan-25-32",
+          "verseRef": "Furkân 25:32",
+          "surah": 25,
+          "ayah": 32,
+          "verseAr": "وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْاٰنُ جُمْلَةً وَاحِدَةً كَذٰلِكَ لِنُثَبِّتَ بِهِ فُؤٰادَكَ وَرَتَّلْنَاهُ تَرْتِيلاً",
+          "verseTr": "İnkar edenler: Kur'an ona bir defada topluca indirilmeli değil miydi? dediler. Biz onu senin kalbine iyice yerleştirmek için böyle yaptık (parça parça indirdik) ve onu tane tane (ayırarak) okuduk.",
+          "verseEn": "And those who disbelieve say, \"Why was the Qur'an not revealed to him all at once?\" Thus [it is] that We may strengthen thereby your heart. And We have spaced it distinctly"
+        },
+        {
+          "id": "tedric-isra-17-106",
+          "verseRef": "İsrâ 17:106",
+          "surah": 17,
+          "ayah": 106,
+          "verseAr": "وَقُرْاٰناً فَرَقْنَاهُ لِتَقْرَاَهُ عَلَى النَّاسِ عَلٰى مُكْثٍ وَنَزَّلْنَاهُ تَنْزِيلاً",
+          "verseTr": "Biz onu, Kur'an olarak, insanlara dura dura okuyasın diye (ayet ayet, sûre sûre) ayırdık; ve onu peyderpey indirdik.",
+          "verseEn": "And [it is] a Qur'an which We have separated [by intervals] that you might recite it to the people over a prolonged period. And We have sent it down progressively"
+        }
+      ],
+      "scholarNoteTr": "İbn Âşûr, kâinatın 'altı gün' yaratılışını sünenü'l-hilkıyye'nin (yaratma kanunları) prototipi sayar. Elmalılı ise şeriattaki tedrîci (içki yasağının üç aşaması, hicretin evreleri) 'ilâhî pedagoji' olarak yorumlar: yasa insanı sarsmadan, kaldıramayacağı yükü koymadan inşa eder.",
+      "scholarNoteEn": "Ibn ʿĀshūr treats the 'six-day' creation as the prototype of sunan al-khilqiyya (creative laws). Elmalılı reads the gradualism in Sharīʿa (three-phase wine prohibition, phases of Hijra) as 'divine pedagogy': the law builds the human without shock, without imposing an unbearable burden.",
+      "modernNoteTr": "Modern gelişim psikolojisi ve evrimsel biyoloji, doğadaki her sistemin 'kademeli oluş' üzerine kurulu olduğunu ortaya koydu. Kur'ân bu ritmi 1400 yıl önce şeriatın epistemik zeminine yerleştirdi — bir gecede değişecek toplum yoktur.",
+      "modernNoteEn": "Modern developmental psychology and evolutionary biology have shown every natural system is built on 'gradual emergence.' The Qur'an placed this rhythm at the epistemic base of Sharīʿa 1400 years ago — no society changes overnight.",
+      "ekolEtiketi": "klasik + modern pedagoji"
+    },
+    {
+      "id": "degisim-kanunu",
+      "titleTr": "Değişim Kanunu (Tağyîr)",
+      "titleEn": "The Law of Change (Taghyīr)",
+      "color": "#27ae60",
+      "descTr": "Toplumun kaderi dışarıdan değil, içeriden değişir. 'Bir kavim kendindekini değiştirmedikçe Allah onlardakini değiştirmez' — bu ilke, sünnetullah'ın en sık tekrar eden formülüdür ve hem yükseliş hem çöküş için geçerlidir.",
+      "descEn": "A society's fate changes from within, not from without. 'God does not change a people's condition until they change what is within themselves' — this is the most-repeated formula of sunnatullāh, and it applies to both rise and fall.",
+      "items": [
+        {
+          "id": "degisim-rad-13-11",
+          "verseRef": "Ra'd 13:11",
+          "surah": 13,
+          "ayah": 11,
+          "verseAr": "لَهُ مُعَقِّبَاتٌ مِنْ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِ يَحْفَظُونَهُ مِنْ اَمْرِ اللّٰهِ اِنَّ اللّٰهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاِذَٓا اَرَادَ اللّٰهُ بِقَوْمٍ سُٓوءاً فَلَا مَرَدَّ لَهُ وَمَا لَهُمْ مِنْ دُونِهِ مِنْ وَالٍ",
+          "verseTr": "Onun önünde ve arkasında Allah'ın emriyle onu koruyan takipçiler (melekler) vardır. Bir toplum kendilerindeki özellikleri değiştirinceye kadar Allah, onlarda bulunanı değiştirmez. Allah bir topluma kötülük diledi mi, artık onun için geri çevrilme diye bir şey yoktur. Onların Allah'tan başka yardımcıları da yoktur.",
+          "verseEn": "For each one are successive [angels] before and behind him who protect him by the decree of Allah. Indeed, Allah will not change the condition of a people until they change what is in themselves. And when Allah intends for a people ill, there is no repelling it. And there is not for them besides Him any patron"
+        },
+        {
+          "id": "degisim-enfal-8-53",
+          "verseRef": "Enfâl 8:53",
+          "surah": 8,
+          "ayah": 53,
+          "verseAr": "ذٰلِكَ بِاَنَّ اللّٰهَ لَمْ يَكُ مُغَيِّراً نِعْمَةً اَنْعَمَهَا عَلٰى قَوْمٍ حَتّٰى يُغَيِّرُوا مَا بِاَنْفُسِهِمْ وَاَنَّ اللّٰهَ سَمِيعٌ عَلِيمٌ",
+          "verseTr": "Bu da, bir millet kendilerinde bulunanı (güzel ahlak ve meziyetleri) değiştirinceye kadar Allah'ın onlara verdiği nimeti değiştirmeyeceğinden dolayıdır. Gerçekten Allah işitendir, bilendir.",
+          "verseEn": "That is because Allah would not change a favor which He had bestowed upon a people until they change what is within themselves. And indeed, Allah is Hearing and Knowing"
+        },
+        {
+          "id": "degisim-sura-42-30",
+          "verseRef": "Şûrâ 42:30",
+          "surah": 42,
+          "ayah": 30,
+          "verseAr": "وَمَٓا اَصَابَكُمْ مِنْ مُصِيبَةٍ فَبِمَا كَسَبَتْ اَيْدِيكُمْ وَيَعْفُوا عَنْ كَثِيرٍ",
+          "verseTr": "Başınıza gelen herhangi bir musibet, kendi ellerinizle işledikleriniz yüzündendir. (Bununla beraber) Allah çoğunu affeder.",
+          "verseEn": "And whatever strikes you of disaster - it is for what your hands have earned; but He pardons much"
+        },
+        {
+          "id": "degisim-nahl-16-112",
+          "verseRef": "Nahl 16:112",
+          "surah": 16,
+          "ayah": 112,
+          "verseAr": "وَضَرَبَ اللّٰهُ مَثَلاً قَرْيَةً كَانَتْ اٰمِنَةً مُطْمَئِنَّةً يَأْتِيهَا رِزْقُهَا رَغَداً مِنْ كُلِّ مَكَانٍ فَكَفَرَتْ بِاَنْعُمِ اللّٰهِ فَاَذَاقَهَا اللّٰهُ لِبَاسَ الْجُوعِ وَالْخَوْفِ بِمَا كَانُوا يَصْنَعُونَ",
+          "verseTr": "Allah, (ibret için) bir ülkeyi örnek verdi: Bu ülke güvenli, huzurlu idi; ona rızkı her yerden bol bol gelirdi. Sonra onlar Allah'ın nimetlerine karşı nankörlük ettiler. Allah da onlara, yaptıklarından ötürü açlık ve korku sıkıntısını tattırdı.",
+          "verseEn": "And Allah presents an example: a city which was safe and secure, its provision coming to it in abundance from every location, but it denied the favors of Allah. So Allah made it taste the envelopment of hunger and fear for what they had been doing"
+        },
+        {
+          "id": "degisim-rum-30-41",
+          "verseRef": "Rûm 30:41",
+          "surah": 30,
+          "ayah": 41,
+          "verseAr": "ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ اَيْدِي النَّاسِ لِيُذِيقَهُمْ بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ",
+          "verseTr": "İnsanların bizzat kendi işledikleri yüzünden karada ve denizde düzen bozuldu, ki Allah yaptıklarının bir kısmını onlara tattırsın; belki de (tuttukları kötü yoldan) dönerler.",
+          "verseEn": "Corruption has appeared throughout the land and sea by [reason of] what the hands of people have earned so He may let them taste part of [the consequence of] what they have done that perhaps they will return [to righteousness]"
+        }
+      ],
+      "scholarNoteTr": "İbn Haldûn Mukaddime'de bu ayeti 'umrân kuramının' anayasa maddesi sayar: devlet-toplum dönüşümü ancak topluluğun asabiyye ve ahlâkî durumu değiştikçe gerçekleşir. Malek Bennabi bunu 'medeniyet formülü' olarak sistemleştirir: insan × zaman × toprak.",
+      "scholarNoteEn": "In the Muqaddima, Ibn Khaldūn treats this verse as the constitutional article of his ʿumrān (civilizational) theory: state-society transformation occurs only as the group's ʿaṣabiyya and moral condition change. Malek Bennabi systematized this as the 'civilization formula': man × time × soil.",
+      "modernNoteTr": "Ali Şeriati Ra'd 13:11'i modernist bir manifesto olarak okur: sünnetullah, kaderin halkın elinde olduğunu ilan eder. Fazlur Rahman ise bu ayetin 'ahlâki hukuk' katmanına dikkat çeker — bireysel değişim toplumsal değişimin önkoşuludur, tersi değil.",
+      "modernNoteEn": "Ali Shariati reads Q 13:11 as a modernist manifesto: sunnatullāh declares that fate lies in the people's hand. Fazlur Rahman highlights the 'moral-legal' layer of this verse — individual change is the precondition of social change, not the reverse.",
+      "ekolEtiketi": "Mukaddime + modernist"
+    },
+    {
+      "id": "dua-icabet-kanunu",
+      "titleTr": "Duâ-İcâbet Kanunu",
+      "titleEn": "The Law of Duʿāʾ–Ijāba (Call and Response)",
+      "color": "#9b59b6",
+      "descTr": "Sünnetullah sadece 'değişmez cezâ yasası' değildir; aynı zamanda bir 'çağrı-cevap' yasasıdır. Kul samimi çağırır, Allah cevap vermeye kefildir — bu yasa Kur'ân'da açık ilan edilmiştir ve tarihte yeis anlarının kırılma noktasıdır.",
+      "descEn": "Sunnatullāh is not only the 'immutable law of punishment' but also a 'call–response' law. The servant sincerely calls, and God pledges to answer — this law is openly proclaimed in the Qur'an and is the breaking-point in the moments of historical despair.",
+      "items": [
+        {
+          "id": "dua-bakara-2-186",
+          "verseRef": "Bakara 2:186",
+          "surah": 2,
+          "ayah": 186,
+          "verseAr": "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ فَلْيَسْتَجِيبُوا لِي وَلْيُؤْمِنُوا بِي لَعَلَّهُمْ يَرْشُدُونَ",
+          "verseTr": "Kullarım sana, beni sorduğunda (söyle onlara): Ben çok yakınım. Bana dua ettiği vakit dua edenin dileğine karşılık veririm. O halde (kullarım da) benim davetime uysunlar ve bana inansınlar ki doğru yolu bulalar.",
+          "verseEn": "And when My servants ask you, [O Muhammad], concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me. So let them respond to Me [by obedience] and believe in Me that they may be [rightly] guided"
+        },
+        {
+          "id": "dua-gafir-40-60",
+          "verseRef": "Ğâfir 40:60",
+          "surah": 40,
+          "ayah": 60,
+          "verseAr": "وَقَالَ رَبُّكُمُ ادْعُونِٓي اَسْتَجِبْ لَكُمْ اِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+          "verseTr": "Rabbiniz şöyle buyurdu: Bana dua edin, kabul edeyim. Çünkü bana ibadeti bırakıp büyüklük taslayanlar aşağılanarak cehenneme gireceklerdir.",
+          "verseEn": "And your Lord says, \"Call upon Me; I will respond to you.\" Indeed, those who disdain My worship will enter Hell [rendered] contemptible"
+        },
+        {
+          "id": "dua-neml-27-62",
+          "verseRef": "Neml 27:62",
+          "surah": 27,
+          "ayah": 62,
+          "verseAr": "اَمَّنْ يُجِيبُ الْمُضْطَرَّ اِذَا دَعَاهُ وَيَكْشِفُ السُّٓوءَ وَيَجْعَلُكُمْ خُلَـفَٓاءَ الْاَرْضِ ءَاِلٰهٌ مَعَ اللّٰهِ قَلِيلاً مَا تَذَكَّرُونَ",
+          "verseTr": "(Onlar mı hayırlı) yoksa darda kalana kendine yalvardığı zaman karşılık veren ve (başındaki) sıkıntıyı gideren, sizi yeryüzünün hakimleri kılan mı? Allah'tan başka bir tanrı mı var! Ne kadar da kıt düşünüyorsunuz!",
+          "verseEn": "Is He [not best] who responds to the desperate one when he calls upon Him and removes evil and makes you inheritors of the earth? Is there a deity with Allah? Little do you remember"
+        },
+        {
+          "id": "dua-araf-7-55",
+          "verseRef": "A'râf 7:55",
+          "surah": 7,
+          "ayah": 55,
+          "verseAr": "اُدْعُوا رَبَّكُمْ تَضَرُّعاً وَخُفْيَةً اِنَّهُ لَا يُحِبُّ الْمُعْتَدِينَ",
+          "verseTr": "Rabbinize yalvara yakara ve gizlice dua edin. Bilesiniz ki O, haddi aşanları sevmez.",
+          "verseEn": "Call upon your Lord in humility and privately; indeed, He does not like transgressors"
+        },
+        {
+          "id": "dua-enbiya-21-88",
+          "verseRef": "Enbiyâ 21:88",
+          "surah": 21,
+          "ayah": 88,
+          "verseAr": "فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ وَكَذٰلِكَ نُنْجِي الْمُؤْمِنِينَ",
+          "verseTr": "Bunun üzerine onun duasını kabul ettik ve onu kederden kurtardık. İşte biz müminleri böyle kurtarırız.",
+          "verseEn": "So We responded to him and saved him from the distress. And thus do We save the believers"
+        }
+      ],
+      "scholarNoteTr": "Râzî, Bakara 2:186'daki 'ben yakınım' ifadesinin, tüm sünnetullah katmanlarının üstünde bir 'meta-kanun' olduğunu belirtir: cezânın da rahmetin de kapısı duadır. İbn Kayyim el-Cevziyye 'ed-Dâʾ ve'd-Devâ'da duayı 'sünnetullah'ın sırdır' diye niteler — çünkü hem yasa sabittir hem yasa değişir.",
+      "scholarNoteEn": "Al-Rāzī notes that the 'I am near' formula in Q 2:186 is a 'meta-law' above all layers of sunnatullāh: the door of both punishment and mercy is duʿāʾ. In al-Dāʾ wa'l-Dawāʾ, Ibn Qayyim al-Jawziyya characterizes duʿāʾ as 'the secret of sunnatullāh' — for the law is both constant and mutable through it.",
+      "modernNoteTr": "Modern kelâm bu paradoksu şöyle çözer: dua, yasanın dışına çıkış değil, yasa içindeki bir 'ek sebep'tir. Allah dua edilmesini, o duayla birlikte gelecek sonucu ezelde bilir; yasa, duayı içeren daha büyük bir düzendir.",
+      "modernNoteEn": "Modern kalām resolves this paradox: duʿāʾ is not an exit from the law but an 'additional cause' within it. God has eternally known that this prayer would be uttered and what would follow; the law is a larger order that already contains the prayer.",
+      "ekolEtiketi": "klasik kelâm + tasavvuf"
     }
   ],
   "scholarViews": [
@@ -685,6 +925,58 @@
       "infoTr": "Bennabi'nin katkısı: 'coloniabilité' kavramıyla sünnetullah'ı psikolojik-kültürel derinlikte kavramsallaştırması. Klasik ulema onu genelde 'olumlu bir uyanış düşünürü' olarak değerlendirir; Şeriati ile birlikte 'toplumsal iman-hareket' çizgisinin merkezi ismidir. Modern Türk düşüncesinde (Sezai Karakoç, Rasim Özdenören) etkisi görülür.",
       "infoEn": "Bennabi's contribution: conceptualizing sunnatullāh at the psychological-cultural depth through the notion of 'coloniabilité.' Classical scholarship generally regards him as 'a positive thinker of revival'; alongside Shariati, he is a central name in the 'social faith-and-movement' line. His influence is visible in modern Turkish thought (Sezai Karakoç, Rasim Özdenören).",
       "ekolEtiketi": "çağdaş İslâmî medeniyet felsefesi"
+    },
+    {
+      "id": "seyyid-kutb",
+      "scholar": "Seyyid Kutub",
+      "scholarEn": "Sayyid Quṭb",
+      "work": "Fî Zılâli'l-Kur'ân",
+      "workEn": "Fī Ẓilāl al-Qurʾān (In the Shade of the Qur'an)",
+      "century": "20. yüzyıl (1954-1965)",
+      "insightTr": "Kutub, sünnetullah'ı 'Câhiliyye toplumu' ile 'İslâmî toplum' arasındaki değişmez çatışma yasası olarak okur. İki tür toplum tarih boyunca aynı ilkelere göre yükselir ve düşer: iman-adalet toplumları ayakta kalır, azgınlık-cahiliyye toplumları ise iç çürümeyle çöker. Ra'd 13:11 bir bildirge değil, bir kanun formülüdür — ve Kur'ân onu her helâk anlatısında farklı bir renkte tekrar eder.",
+      "insightEn": "Quṭb reads sunnatullāh as the immutable law of conflict between 'jāhilī society' and 'Islamic society.' Both types rise and fall by the same principles throughout history: faith-just societies endure, transgression-jāhilī societies collapse from within. Q 13:11 is not a declaration but a legal formula — and the Qur'an repeats it in a different color in every destruction narrative.",
+      "sourceTr": "Seyyid Kutub, Fî Zılâli'l-Kur'ân, Ra'd 13:11 ve Enfâl 8:53 tefsirleri; giriş bölümleri.",
+      "sourceEn": "Sayyid Quṭb, *Fī Ẓilāl al-Qurʾān*, exegesis of Q 13:11 and Q 8:53; introductory sections.",
+      "ekolEtiketi": "modernist-hareketçi (20. yy)"
+    },
+    {
+      "id": "mevdudi",
+      "scholar": "Ebu'l-A'lâ Mevdûdî",
+      "scholarEn": "Abū al-Aʿlā Mawdūdī",
+      "work": "Tefhîmu'l-Kur'ân",
+      "workEn": "Tafhīm al-Qurʾān (Towards Understanding the Qur'an)",
+      "century": "20. yüzyıl (1942-1972)",
+      "insightTr": "Mevdûdî sünnetullah'ı 'evrensel adalet-mühlet-hesap' üçlüsü olarak sunar. Allah'ın toplumlara verdiği mühlet (imhâl) bir affediliş değil, delillerin tükenmesine ve iç seçimin kendini göstermesine kadar tanınan zamandır. Toplum kendi ahlâkî çözülüşünü seçtiğinde, çöküş 'dış cezâ' değil, 'iç çürümenin doğal sonucu' olarak gelir — mekanik değil, ahlâki bir kanun.",
+      "insightEn": "Mawdūdī presents sunnatullāh as a triad of 'universal justice–reprieve–reckoning.' The reprieve (imhāl) God grants to societies is not forgiveness but the time allowed for evidence to be exhausted and inner choice to reveal itself. When a society chooses its own moral dissolution, collapse comes not as 'external punishment' but as 'the natural consequence of inner rot' — not a mechanical but a moral law.",
+      "sourceTr": "Mevdûdî, Tefhîmu'l-Kur'ân, Nûh sûresi girişi; A'râf 96 tefsiri; Hac 45-46 tefsiri.",
+      "sourceEn": "Mawdūdī, *Tafhīm al-Qurʾān*, introduction to Sūrat Nūḥ; exegesis of Q 7:96 and Q 22:45-46.",
+      "ekolEtiketi": "modernist-teolojik (20. yy)"
+    },
+    {
+      "id": "ibn-kesir",
+      "scholar": "İbn Kesîr",
+      "scholarEn": "Ibn Kathīr",
+      "work": "Tefsîru'l-Kur'âni'l-Azîm",
+      "workEn": "Tafsīr al-Qurʾān al-ʿAẓīm",
+      "century": "14. yüzyıl (ölm. 1373)",
+      "insightTr": "İbn Kesîr sünnetullah'ı öncelikle 'kısâsu'l-enbiyâ' (peygamber kıssaları) ekseninde okur: Nûh, Âd, Semûd, Lût, Sebe' — her biri aynı yasanın farklı sahnedeki tekrarıdır. Onun için Kur'ân bu kavimleri sadece 'geçmiş kayıt' olarak değil, 'gelecek için işaret' olarak anlatır. 'Kayrada dolaşın, öncekilerin sonuna bakın' (Nahl 16:36) bir tarih daveti değil, bir yasa okuma metodudur.",
+      "insightEn": "Ibn Kathīr reads sunnatullāh primarily along the axis of qiṣaṣ al-anbiyāʾ (the prophet narratives): Nūḥ, ʿĀd, Thamūd, Lūṭ, Sabaʾ — each a repetition of the same law on a different stage. For him, the Qur'an narrates these peoples not merely as 'past record' but as 'sign for the future.' 'Travel through the land and see the end of those before you' (Q 16:36) is not an invitation to history but a method for reading the law.",
+      "sourceTr": "İbn Kesîr, Tefsir, Nûh sûresi; A'râf 65-102 (Âd-Semûd-Şuayb); Kısasu'l-Enbiyâ.",
+      "sourceEn": "Ibn Kathīr, *Tafsīr*, Sūrat Nūḥ; Q 7:65-102 (ʿĀd, Thamūd, Shuʿayb); *Qiṣaṣ al-Anbiyāʾ*.",
+      "ekolEtiketi": "klasik tefsir + kısas (14. yy)"
+    },
+    {
+      "id": "ali-seriati",
+      "scholar": "Ali Şeriati",
+      "scholarEn": "ʿAlī Sharīʿatī",
+      "work": "İslâm-Şinâsî / Konferanslar",
+      "workEn": "Islamology / Public Lectures",
+      "century": "20. yüzyıl (1971-1975)",
+      "insightTr": "Şiî-modernist perspektifle Şeriati sünnetullah'ı 'halkın (nâs) tarihin öznesi olduğu' bir manifesto olarak okur. Ra'd 13:11'i 'ilâhî demokrasi' metni sayar: Allah, halkın kendi kaderini eline aldığı zaman değişimi başlatır. Sünnetullah, bir 'kader mühürlemesi' değil, 'halka verilmiş bir sorumluluk sözü'dür. Bu okuma İran devrimi öncesi kuşağın siyasi bilincine derinden etki etti.",
+      "insightEn": "From a Shīʿī-modernist perspective, Sharīʿatī reads sunnatullāh as a manifesto in which the people (nās) are the subject of history. He treats Q 13:11 as a text of 'divine democracy': God initiates change when the people take their fate into their own hands. Sunnatullāh is not a 'sealing of destiny' but 'a covenant of responsibility placed upon the people.' This reading deeply influenced the political consciousness of the pre-revolutionary generation in Iran.",
+      "sourceTr": "Şeriati, İslâm-Şinâsî; Nâs (Halk) makalesi; Fâtiha derslerinden pasajlar.",
+      "sourceEn": "Sharīʿatī, *Islāmshināsī*; essay *al-Nās* (The People); passages from the Fātiḥa lectures.",
+      "ekolEtiketi": "Şiî modernist (20. yy)"
     }
   ],
   "kavimPatterns": [
@@ -905,6 +1197,144 @@
       ],
       "sourceTr": "İbn Kesîr, Kısas (Mûsâ); Kurtubî, Câmi', Yûnus 90-92; Elmalılı, A'râf 133-135.",
       "sourceEn": "Ibn Kathīr, *Qiṣaṣ* (Mūsā); al-Qurṭubī, *al-Jāmiʿ*, on Q 10:90-92; Elmalılı on Q 7:133-135."
+    },
+    {
+      "id": "sebe-kavmi",
+      "titleTr": "Sebe' Kavmi (Ma'rib Barajı)",
+      "titleEn": "The People of Sabaʾ (Marib Dam)",
+      "prophetTr": "Peygambersiz — Süleyman sonrası bereket toplumu",
+      "prophetEn": "Without a prophet — a post-Solomonic society of blessing",
+      "durationTr": "Yaklaşık MÖ 8. yy — MS 6. yy (Ma'rib Barajı'nın yıkılışı)",
+      "durationEn": "Circa 8th c. BCE – 6th c. CE (collapse of the Marib Dam)",
+      "modeTr": "Seylü'l-Arim — barajın yıkılıp gelen büyük sel",
+      "modeEn": "Sayl al-ʿArim — the great flood following the dam's collapse",
+      "color": "#16a085",
+      "verses": [
+        "Sebe' 34:15-17",
+        "Sebe' 34:18-19",
+        "Sebe' 34:20-21"
+      ],
+      "iconMode": "flood",
+      "warningTr": "Bereketin nankörlüğü, mesafenin şükürsüzlüğü — 'iki bahçe, sağdan ve soldan' verildikten sonra kavmin 'Rabbimiz, yolculuklarımızın arasını uzaklaştır!' diye sızlanması.",
+      "warningEn": "Ingratitude for blessing, thanklessness for closeness — after 'two gardens, right and left' were given, the people whined: 'Our Lord, make our journeys distant!'",
+      "rejectionTr": "'Bize verilen yakınlığı çok gördüler; sanki mesafenin uzunluğu bir kimlik göstergesiymiş gibi.' (Sebe' 34:19) Toplum, kolaylığı bir 'ödül' değil, 'sıkıcılık' saydı — rahmet, sıradanlaştığı zaman kadrini kaybeder.",
+      "rejectionEn": "'They found the closeness given to them excessive, as though the length of a journey were a mark of identity.' (Q 34:19) The society treated ease not as a 'reward' but as 'dullness' — mercy, when normalized, loses its worth.",
+      "outcomeTr": "Ma'rib Barajı yıkıldı, sel toprakları alıp götürdü, iki bahçe 'buruk meyveli ıslıklı ağaçlar ve az miktarda sedir' oldu (34:16). Kavim dağıldı, ülkeleri 'ders/hikâye' hâline geldi. Kur'ân bu olayı hem 'nimet-nankörlük' hem 'refahtan çöküş' arketipi olarak kayıtlar.",
+      "outcomeEn": "The Marib Dam collapsed, the flood swept away the lands, the two gardens became 'bitter-fruited tamarisks and a few lote-trees' (Q 34:16). The people dispersed, their country became a 'lesson.' The Qur'an records this as the archetype of both 'blessing–ingratitude' and 'collapse-from-affluence.'",
+      "lawsInvokedTr": [
+        "Nimet-Şükür kanunu",
+        "Değişim kanunu",
+        "Helâk kanunu (yumuşak biçim)"
+      ],
+      "lawsInvokedEn": [
+        "Law of blessing and gratitude",
+        "Law of change",
+        "Law of destruction (mild form)"
+      ],
+      "sourceTr": "Taberî, Câmiu'l-Beyân, Sebe' 34:15-19; İbn Kesîr, Tefsir, Sebe' 34; Elmalılı, Sebe' sûresi tefsiri; arkeoloji: Ma'rib Barajı çöküşü ~MS 570 civarı (Yemen).",
+      "sourceEn": "al-Ṭabarī, *Jāmiʿ al-Bayān*, Sabaʾ 34:15-19; Ibn Kathīr, *Tafsīr*, Sabaʾ 34; Elmalılı on Sūrat Sabaʾ; archaeology: Marib Dam collapse ~570 CE (Yemen)."
+    },
+    {
+      "id": "ashab-i-fil",
+      "titleTr": "Ashâb-ı Fîl (Ebrehe Ordusu)",
+      "titleEn": "The Companions of the Elephant (Abraha's Army)",
+      "prophetTr": "Peygambersiz — Hz. Muhammed'in doğum yılı (Fîl yılı, MS ~570)",
+      "prophetEn": "Without a prophet — the year of the Prophet Muḥammad's birth (Year of the Elephant, ~570 CE)",
+      "durationTr": "Tek bir sefer — Kâbe'yi yıkma girişimi",
+      "durationEn": "A single campaign — the attempt to demolish the Kaʿba",
+      "modeTr": "Ebâbîl kuşları ve siccîl (fırınlanmış çamur) taşları",
+      "modeEn": "Flocks of birds (abābīl) and stones of sijjīl (baked clay)",
+      "color": "#e67e22",
+      "verses": [
+        "Fîl 105:1-5"
+      ],
+      "iconMode": "meteor",
+      "warningTr": "Beytullah'a saldırı, Habeş-Yemen valisi Ebrehe'nin fillerle Mekke üzerine yürüyüşü. Sünnetullah bu vakıada 'peygambersiz bir kavme değil, peygamberin doğacağı beldeye' saldırıyı cezalandırdı.",
+      "warningEn": "Assault on the Sacred House: the march of Abraha, Abyssinian viceroy of Yemen, with elephants against Mecca. In this event, sunnatullāh punished not a people 'without a prophet' but an assault on the land where the Prophet would be born.",
+      "rejectionTr": "Ebrehe'nin şehir dışında karşılaştığı Abdülmuttalib'e (Peygamber'in dedesi) 'Kâbe'nin sahibi onu korur' cevabını hafife alması — yaratılmışın gücüyle yaratanın evine karşı meydan okuma.",
+      "rejectionEn": "Abraha dismissed ʿAbd al-Muṭṭalib's (the Prophet's grandfather) reply outside the city — 'the Owner of the Kaʿba will protect it' — a challenge, with the power of the created, against the House of the Creator.",
+      "outcomeTr": "Ebâbîl kuşları siccîl taşları yağdırdı; ordu 'yenilmiş ekin sapı' (Fîl 105:5) gibi dağıldı. Kur'ân bu olayı, İslâm'ın kuruluşundan hemen önce, Kâbe'nin ilâhî koruma altında olduğunun tarihsel kanıtı olarak kayıtlar. Yıl bu sebeple 'Fîl Yılı' adıyla anılır.",
+      "outcomeEn": "Flocks of birds rained down stones of sijjīl; the army was scattered 'like eaten-up chaff' (Q 105:5). The Qur'an records this event, right before the founding of Islam, as historical proof that the Kaʿba is under divine protection. The year is accordingly named 'Year of the Elephant.'",
+      "lawsInvokedTr": [
+        "Helâk kanunu",
+        "Yardım kanunu (mü'min olmayan Mekke halkına bile)"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction",
+        "Law of divine aid (even for the pre-Islamic Meccans)"
+      ],
+      "sourceTr": "İbn Hişâm, es-Sîre; Taberî, Târîh, cilt 2; Fîl sûresi tefsiri (İbn Kesîr, Elmalılı).",
+      "sourceEn": "Ibn Hishām, *al-Sīra*; al-Ṭabarī, *Tārīkh*, vol. 2; Tafsīr of Sūrat al-Fīl (Ibn Kathīr, Elmalılı)."
+    },
+    {
+      "id": "ashab-i-sebt",
+      "titleTr": "Ashâb-ı Sebt (Cumartesi Ashâbı)",
+      "titleEn": "The People of the Sabbath",
+      "prophetTr": "Peygambersiz kanun — Hz. Mûsâ sonrası bir sahil kasabası",
+      "prophetEn": "A post-Mosaic coastal town under existing law",
+      "durationTr": "Bir dönem — Sebt yasağının hile ile aşılması evresi",
+      "durationEn": "A period — the phase when the Sabbath ban was circumvented by trick",
+      "modeTr": "Mesh (biyolojik dönüşüm) — 'aşağılık maymunlar olun' hükmü",
+      "modeEn": "Maskh (biological transformation) — the decree 'Become despised apes'",
+      "color": "#8e44ad",
+      "verses": [
+        "A'râf 7:163-166",
+        "Bakara 2:65-66",
+        "Nisâ 4:47"
+      ],
+      "iconMode": "curse",
+      "warningTr": "Şeriatın harfî uygulanması ile ruhî aşılması: Sebt gününde balık avlamak yasak. Kavim, cuma günü tuzakları kurup, cumartesi ağların dolması için bekleyip, pazar günü topladı. Hüküm 'yasağı bozmama' formülüne uydu, ama niyet yasağın kalbini boşalttı.",
+      "warningEn": "Literal compliance with law while spiritually violating it: fishing was forbidden on the Sabbath. The people set traps on Friday, waited for the nets to fill on Saturday, and collected on Sunday. The act 'did not break' the prohibition — but the intention emptied its heart.",
+      "rejectionTr": "'Aralarından bir topluluk: Bunlara neden öğüt veriyorsunuz? dedi. Kalanlar dedi ki: Rabbinize karşı bir mazeret olması ve belki sakınırlar diye' (7:164). Kavim üç kısma bölündü: yasağı çiğneyenler, susanlar, uyaranlar. Ceza sadece çiğneyenlere geldi, uyaranlar kurtuldu (7:165).",
+      "rejectionEn": "'A group among them said: Why do you preach to these? The others replied: As an excuse before your Lord, and perhaps they may become mindful' (Q 7:164). The people split into three: the transgressors, the silent, and the warners. The punishment fell only on the transgressors; the warners were saved (Q 7:165).",
+      "outcomeTr": "'Onlara: Aşağılık maymunlar olun! dedik' (7:166) — hükmü hile ile aşan kısım biyolojik olarak dönüştürüldü. Kur'ân bu olayı hem 'şeriatın harfi ile ruhu' hem de 'uyaranın kurtuluşu' arketipi olarak kayıtlar — İbn Kesîr bunu 'yasada aldatma tabusunun' kaynağı sayar.",
+      "outcomeEn": "'We said to them: Become despised apes' (Q 7:166) — those who evaded the ban by trick were biologically transformed. The Qur'an records this as the archetype of both 'letter vs. spirit of the law' and 'the salvation of the warners' — Ibn Kathīr treats it as the source of the taboo on 'trickery in law.'",
+      "lawsInvokedTr": [
+        "Helâk kanunu (kısmi)",
+        "Yardım kanunu (uyaranlara)",
+        "İmtihan kanunu"
+      ],
+      "lawsInvokedEn": [
+        "Law of destruction (partial)",
+        "Law of divine aid (for the warners)",
+        "Law of trial"
+      ],
+      "sourceTr": "İbn Kesîr, Tefsir, A'râf 7:163-166; Râzî, Mefâtîhu'l-Ğayb, aynı ayetler; Elmalılı, A'râf tefsiri.",
+      "sourceEn": "Ibn Kathīr, *Tafsīr*, al-Aʿrāf 7:163-166; al-Rāzī, *Mafātīḥ al-Ghayb*, same verses; Elmalılı on Sūrat al-Aʿrāf."
+    },
+    {
+      "id": "ashab-i-uhdud",
+      "titleTr": "Ashâb-ı Uhdûd (Çukur Sahipleri)",
+      "titleEn": "The Companions of the Trench",
+      "prophetTr": "Peygambersiz — mü'minleri diri diri yakan bir kâfir kavim",
+      "prophetEn": "Without a prophet — a disbelieving people who burned believers alive",
+      "durationTr": "Tek bir olay — muhtemelen 6. yy Necran veya benzeri Arap Hıristiyan azınlık katliamı",
+      "durationEn": "A single event — likely a 6th-c. Najrān or similar massacre of Arab Christian minorities",
+      "modeTr": "Doğrudan helâk anlatılmaz — 'kahroldular' ve ateş azabı vaad edilir",
+      "modeEn": "Direct destruction is not narrated — they are 'destroyed' and promised the punishment of fire",
+      "color": "#c0392b",
+      "verses": [
+        "Bürûc 85:4-10"
+      ],
+      "iconMode": "fire",
+      "warningTr": "İman edenleri sırf 'Aziz ve Hamd'a lâyık Allah'a iman ettikleri için' hendekler kazıp içinde diri diri yakma. Zulmün en katıksız hâli — mü'minlerin 'yalnızca inandıkları için' cezalandırılması.",
+      "warningEn": "The digging of trenches to burn believers alive solely 'because they believed in the Almighty, the Praiseworthy God.' The purest form of oppression — believers punished 'only because they believed.'",
+      "rejectionTr": "Kavim değil, iktidar bloğu — yakanların 'ateşe karşı oturup mü'minlere yapılanlara şahitlik ettikleri' (85:7) belirtiliyor. Zalim, cinâyeti sadece işlemekle kalmıyor; onu bir 'gösteri' hâline getiriyor.",
+      "rejectionEn": "Not a whole people but a ruling faction — those who burned 'sat by the fire and witnessed what was being done to the believers' (Q 85:7). The oppressor did not merely commit the crime; they turned it into a 'spectacle.'",
+      "outcomeTr": "'Kahrolsun o çukurun sahipleri, o tutuşturulmuş ateş yataklarının' (85:4-5). Ve: 'Mü'min erkek ve kadınlara zulmedip sonra tövbe etmeyenler için cehennem azâbı, yakıcı azâb vardır' (85:10). Sünnetullah burada 'iman'a zulmün karşısına 'ateşe karşı ateş' koyar — zalimin kendi silâhı ona döner.",
+      "outcomeEn": "'Cursed are the companions of the trench, of the fire fed with fuel' (Q 85:4-5). And: 'For those who oppress believing men and women and do not repent, there is the punishment of Hell — the burning punishment' (Q 85:10). Sunnatullāh here places 'fire against fire' opposite oppression of faith — the oppressor's own weapon turns against him.",
+      "lawsInvokedTr": [
+        "Zulüm kanunu",
+        "İmtihan kanunu (mü'min tarafında)",
+        "Ecel kanunu (ahiret hesabına ertelenmiş)"
+      ],
+      "lawsInvokedEn": [
+        "Law of oppression",
+        "Law of trial (for the believers)",
+        "Law of appointed term (deferred to the account of the Hereafter)"
+      ],
+      "sourceTr": "İbn Kesîr, Tefsir, Bürûc 85; Elmalılı, Bürûc tefsiri; tarihsel arka plan: Necran katliamı (523), Zû Nuvâs. Bkz. Watt, Islamic History.",
+      "sourceEn": "Ibn Kathīr, *Tafsīr*, al-Burūj 85; Elmalılı on Sūrat al-Burūj; historical background: Najrān massacre (523 CE), Dhū Nuwās. Cf. Watt, *Islamic History*."
     }
   ],
   "linguisticFormula": {

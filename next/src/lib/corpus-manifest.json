@@ -63373,5 +63373,175 @@
     "hash": "77c699af0896e41d",
     "embeddedAt": "2026-07-19T15:52:27.015Z",
     "type": "neden-sonuc"
+  },
+  "sunnetullah-kanun:helak-kanunu": {
+    "hash": "166b71ca0edf23ca",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:yardim-kanunu": {
+    "hash": "5c02136db59ba7e7",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:imtihan-kanunu": {
+    "hash": "6c0ddee7f5860b24",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:yaratma-kanunu": {
+    "hash": "dc877d467fffeada",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:nimet-sukur-kanunu": {
+    "hash": "304824752dd6602e",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:ecel-kanunu": {
+    "hash": "033ba1c300c77999",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:zulum-kanunu": {
+    "hash": "05f5e886f8807385",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:sabir-nasr-kanunu": {
+    "hash": "071c08230f49cd2b",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:istidrac-kanunu": {
+    "hash": "ea11da2db6f4b0bf",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:tedric-kanunu": {
+    "hash": "b71df6a5cfdea33f",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:degisim-kanunu": {
+    "hash": "f736e362a2023b84",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kanun:dua-icabet-kanunu": {
+    "hash": "54036dda1a6471ab",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kanun"
+  },
+  "sunnetullah-kavim:nuh-kavmi": {
+    "hash": "68a17930701a7796",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:ad-kavmi": {
+    "hash": "4f5c721d0b065e70",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:semud-kavmi": {
+    "hash": "353031646703d967",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:lut-kavmi": {
+    "hash": "2efb72c52c9a5d1c",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:medyen-kavmi": {
+    "hash": "efbe28bfd98b3810",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:firavun-kavmi": {
+    "hash": "1324c770257b96a1",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:sebe-kavmi": {
+    "hash": "8f74eed52d2e3bb2",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:ashab-i-fil": {
+    "hash": "970d85543352b597",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:ashab-i-sebt": {
+    "hash": "3251f71a1bb6b102",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-kavim:ashab-i-uhdud": {
+    "hash": "2df42eff35cb8912",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-kavim"
+  },
+  "sunnetullah-ulema:ibn-asur": {
+    "hash": "8036184d679801d9",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:elmalili": {
+    "hash": "665998a3fd1e2b20",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:razi": {
+    "hash": "78afe6200f20676d",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:fazlur-rahman": {
+    "hash": "7e85e531876b6170",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:ibn-haldun": {
+    "hash": "11c451e70e6d8223",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:nursi": {
+    "hash": "b4c9e89b61fabf83",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:iqbal": {
+    "hash": "123fa85de7ed3b79",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:malek-bennabi": {
+    "hash": "920a76d5c4352fad",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:seyyid-kutb": {
+    "hash": "6b1335f63fcccb51",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:mevdudi": {
+    "hash": "2ac917930e621327",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:ibn-kesir": {
+    "hash": "452584b9e2aee4a0",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
+  },
+  "sunnetullah-ulema:ali-seriati": {
+    "hash": "a8dbdab61ee594d4",
+    "embeddedAt": "2026-07-21T22:24:24.722Z",
+    "type": "sunnetullah-ulema"
   }
 }

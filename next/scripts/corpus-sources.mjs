@@ -537,6 +537,75 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Sünnetullah Atlası (12 kanun + 10 kavim + 12 ulema) — 2026-07-21 §13.22 pipeline
+  // Kur'ân'ın "değişmez ilâhî yasa" (sünnetullah) mimarisi: helâk/yardım/imtihan
+  // /istidrâc/tedrîc/değişim/duâ-icâbet vb. + Nûh, Âd, Sebe', Uhdûd kavimleri
+  // + Râzî, İbn Haldûn, Kutub, Şeriati vb. ulema perspektifleri.
+  // Concierge: "sünnetullah nedir", "helâk yasası", "Sebe' kavmi bereket",
+  // "istidrâc mühlet", "Ra'd 13:11 değişim"...
+  {
+    type: 'sunnetullah-kanun',
+    file: 'public/sunnetullah-atlasi.json',
+    extract: (data) => data.thematicCategories || [],
+    buildItem: (cat) => {
+      const verses = (cat.items || []).map(it => it.verseRef).join(', ');
+      const items = (cat.items || []).map(it =>
+        `${it.verseRef}: ${(it.verseTr || '').slice(0, 220)}`
+      ).join(' | ');
+      const itemsEn = (cat.items || []).map(it =>
+        `${it.verseRef}: ${(it.verseEn || '').slice(0, 220)}`
+      ).join(' | ');
+      return {
+        id: `sunnetullah-kanun:${cat.id}`,
+        type: 'sunnetullah-kanun',
+        subId: cat.id,
+        titleTr: cat.titleTr || '',
+        titleEn: cat.titleEn || '',
+        descTr: (cat.descTr || '').slice(0, 200),
+        descEn: (cat.descEn || '').slice(0, 200),
+        searchTextTr: `Sünnetullah Kanunu: ${cat.titleTr}. Ekol: ${cat.ekolEtiketi || ''}. ${cat.descTr || ''} Ayetler: ${items}. Ulemâ notu: ${cat.scholarNoteTr || ''} Modern okuma: ${cat.modernNoteTr || ''}`.slice(0, 5000),
+        searchTextEn: `Sunnatullāh Law: ${cat.titleEn}. School: ${cat.ekolEtiketi || ''}. ${cat.descEn || ''} Verses: ${itemsEn}. Scholarly note: ${cat.scholarNoteEn || ''} Modern reading: ${cat.modernNoteEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+  {
+    type: 'sunnetullah-kavim',
+    file: 'public/sunnetullah-atlasi.json',
+    extract: (data) => data.kavimPatterns || [],
+    buildItem: (k) => {
+      const verses = (k.verses || []).join(', ');
+      const laws = (k.lawsInvokedTr || []).join(', ');
+      const lawsEn = (k.lawsInvokedEn || []).join(', ');
+      return {
+        id: `sunnetullah-kavim:${k.id}`,
+        type: 'sunnetullah-kavim',
+        subId: k.id,
+        titleTr: k.titleTr || '',
+        titleEn: k.titleEn || '',
+        descTr: (k.warningTr || '').slice(0, 200),
+        descEn: (k.warningEn || '').slice(0, 200),
+        searchTextTr: `Sünnetullah Kavmi: ${k.titleTr}. Peygamber: ${k.prophetTr}. Süre: ${k.durationTr}. Helâk biçimi: ${k.modeTr}. Ayetler: ${verses}. Uyarı: ${k.warningTr || ''} Reddediş biçimi: ${k.rejectionTr || ''} Akıbet: ${k.outcomeTr || ''} İşleyen yasalar: ${laws}. Kaynak: ${k.sourceTr || ''}`.slice(0, 5000),
+        searchTextEn: `Sunnatullāh Nation: ${k.titleEn}. Prophet: ${k.prophetEn}. Duration: ${k.durationEn}. Destruction mode: ${k.modeEn}. Verses: ${verses}. Warning: ${k.warningEn || ''} Rejection mode: ${k.rejectionEn || ''} Outcome: ${k.outcomeEn || ''} Laws invoked: ${lawsEn}. Source: ${k.sourceEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+  {
+    type: 'sunnetullah-ulema',
+    file: 'public/sunnetullah-atlasi.json',
+    extract: (data) => data.scholarViews || [],
+    buildItem: (v) => ({
+      id: `sunnetullah-ulema:${v.id}`,
+      type: 'sunnetullah-ulema',
+      subId: v.id,
+      titleTr: `${v.scholar} — ${v.work}`,
+      titleEn: `${v.scholarEn} — ${v.workEn}`,
+      descTr: (v.insightTr || '').slice(0, 200),
+      descEn: (v.insightEn || '').slice(0, 200),
+      searchTextTr: `Sünnetullah Ulemâ: ${v.scholar} (${v.century}), Eser: ${v.work}. Ekol: ${v.ekolEtiketi || ''}. Görüş: ${v.insightTr || ''} Kaynak: ${v.sourceTr || ''}`.slice(0, 5000),
+      searchTextEn: `Sunnatullāh Scholar: ${v.scholarEn} (${v.century}), Work: ${v.workEn}. School: ${v.ekolEtiketi || ''}. Insight: ${v.insightEn || ''} Source: ${v.sourceEn || ''}`.slice(0, 5000),
+    }),
+  },
+
   // ─── Neden → Sonuç Atlası (10 zincir) — 2026-07-19 §13.22 pipeline
   // "Kim X yaparsa Y olur" — nefsî + toplumsal + kozmik ahlâki zincirler.
   // Concierge: "sabır sonuç", "zulüm helâk", "şükür nimet artışı", ...
