@@ -63598,5 +63598,60 @@
     "hash": "fe77407f1b84e68a",
     "embeddedAt": "2026-07-21T22:44:04.046Z",
     "type": "tool"
+  },
+  "yakin-anlamli:kalb-fuad-sadr": {
+    "hash": "25fefd729f8f3f9a",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:insan-beser-nas": {
+    "hash": "5cc11fd8ec0c26c4",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:ilm-hikmet-fikh": {
+    "hash": "d207c7c75882ec82",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:havf-hasyet-rehbet": {
+    "hash": "c9e893843a90de43",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:rizik-rahmet-bereket": {
+    "hash": "d0f4440eb3635fcc",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:hidayet-rusd-tevfik": {
+    "hash": "ed3ce068ca5baf6d",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:gafur-afuvv-halim": {
+    "hash": "93607badff80487b",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:sabir-cemil-musabere": {
+    "hash": "53512c5cfdf842d5",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:takva-birr-ihsan": {
+    "hash": "43d350ed725d41a1",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "yakin-anlamli:cehennemin-isimleri": {
+    "hash": "646e79a43cd16302",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "nuance-set"
+  },
+  "tool:/arac/yakin-anlamli-nuanslar": {
+    "hash": "ea08599c2a8d9099",
+    "embeddedAt": "2026-07-21T22:58:38.745Z",
+    "type": "tool"
   }
 }

@@ -218,6 +218,16 @@ const KitapKavramiIcon = ({ size = 14 }) => (
 );
 
 // #207 (2026-07-19) — Eleştirel Çerçeve: soru işareti içinde daire
+// YakinAnlamliIcon — üç overlapping daire, ortada ayrım noktası:
+// "eş anlamlı görünen ama farklı yükleri olan kelimeler" temasını semantik anlatır.
+const YakinAnlamliIcon = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="8" cy="12" r="5" />
+    <circle cx="16" cy="12" r="5" />
+    <line x1="12" y1="7" x2="12" y2="17" strokeDasharray="2 2" />
+  </svg>
+);
+
 const ElestirelIcon = ({ size = 14 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -491,6 +501,17 @@ export const RESEARCH_TOOLS = [
     descLongTr:  "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",
     descLongEn:  "The Quran is not merely 'the Book'; it uses 10+ names + attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Function + meaning-layer of each name within al-Rāghib al-Iṣfahānī's Mufradāt framework.",
     icon:        KitapKavramiIcon,
+  },
+  {
+    id:          'yakin-anlamli-nuanslar',
+    event:       'openYakinAnlamliNuanslar',
+    titleTr:     'Yakın Anlamlı Nüanslar',
+    titleEn:     'Near-Synonymous Nuances',
+    descTr:      "10 nüans seti · kalb/fu'âd/sadr, ilm/hikmet/fıkh…",
+    descEn:      '10 nuance sets · qalb/fuʾād/ṣadr, ʿilm/ḥikma/fiqh…',
+    descLongTr:  "Kur'ân'ın 'eş anlamlı gibi görünen' 32 terimi 10 nüans setinde: kalb-fu'âd-sadr (üç iç merkez), insân-beşer-nâs (insanın üç çehresi), ilm-hikmet-fıkh (bilmenin üç derinliği), havf-haşyet-rehbet, rızık-rahmet-bereket, hidayet-rüşd-tevfîk, gafûr-afüvv-halîm, sabr-sabr-i cemîl-musâbere, takvâ-birr-ihsân, cehennemin beş ismi. Her terim: kök + Kur'ânî örnek + kullanım nüansı. Râgıb el-İsfahânî'nin Müfredât'ı + İzutsu çerçevesinde.",
+    descLongEn:  "32 'seemingly synonymous' Qurʾānic terms across 10 nuance sets: qalb-fuʾād-ṣadr (three inner centers), insān-bashar-nās (three faces of the human), ʿilm-ḥikma-fiqh (three depths of knowing), khawf-khashya-rahba, rizq-raḥma-baraka, hidāya-rushd-tawfīq, ghafūr-ʿafuww-ḥalīm, ṣabr-ṣabr jamīl-muṣābara, taqwā-birr-iḥsān, five names of Hell. Each term: root + Qurʾānic example + usage nuance. Framed by al-Rāghib al-Iṣfahānī's Mufradāt + Izutsu.",
+    icon:        YakinAnlamliIcon,
   },
   {
     id:          'elestirel-cerceve',

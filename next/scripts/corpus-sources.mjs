@@ -537,6 +537,31 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── Yakın Anlamlı Nüanslar (10 set / 32 terim) — 2026-07-21 §13.22 pipeline
+  // Kur'ân'ın "eş anlamlı gibi görünen" kelimeleri: kalb/fu'âd/sadr,
+  // insan/beşer/nâs, ilm/hikmet/fıkh vb. Concierge: "kalb ile fuad farkı",
+  // "insan mı beşer mi", "havf haşyet rehbet", "gafûr afüvv fark"...
+  {
+    type: 'nuance-set',
+    file: 'public/yakin-anlamli-nuanslar.json',
+    extract: (data) => data.sets || [],
+    buildItem: (s) => {
+      const terms = (s.terms || []).map(t => `${t.termAr} (${t.termTr}) — ${(t.meaningTr || '').slice(0, 300)}`).join(' || ');
+      const termsEn = (s.terms || []).map(t => `${t.termAr} (${t.termEn}) — ${(t.meaningEn || '').slice(0, 300)}`).join(' || ');
+      return {
+        id: `yakin-anlamli:${s.id}`,
+        type: 'nuance-set',
+        subId: s.id,
+        titleTr: s.titleTr || '',
+        titleEn: s.titleEn || '',
+        descTr: (s.introTr || '').slice(0, 200),
+        descEn: (s.introEn || '').slice(0, 200),
+        searchTextTr: `Yakın Anlamlı Nüans: ${s.titleTr}. Kategori: ${s.category}. Giriş: ${s.introTr || ''} Terimler: ${terms}. Nüans: ${s.nuanceTr || ''} Kaynak: ${s.sourceTr || ''}`.slice(0, 5000),
+        searchTextEn: `Near-Synonymous Nuance: ${s.titleEn}. Category: ${s.category}. Intro: ${s.introEn || ''} Terms: ${termsEn}. Nuance: ${s.nuanceEn || ''} Source: ${s.sourceEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── İnsan Yolculuğu Atlası (10 aşama) — 2026-07-21 §13.22 pipeline
   // Fıtrat → Uyanış → İman → Sâlih Amel → Takvâ → İhsan → Kalb-i Selîm →
   // Hüsn-i Hâtime → Rızâ → Cemâlullah. Concierge: "fıtrat nedir",
@@ -1007,6 +1032,7 @@ export const TOOL_CATALOG = [
   { route: '/arac/kiyamet', titleTr: 'Kıyâmet Sahneleri', titleEn: 'Judgment Day Scenes', descTr: 'Ölüm sonrası, berzah, hesap günü, cennet, cehennem.', descEn: 'After death, barzakh, day of reckoning, heaven, hell.', keywords: ['kiyamet', 'olum', 'ahiret', 'berzah', 'hesap'] },
   { route: '/atlas/ahiret-yolculugu', titleTr: 'Âhiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü\'yetullâh — 11 kronolojik aşama + klasik tefsir çeşitliliği.', descEn: 'Sakarat, barzakh, trumpet, gathering, scales, basin-intercession, bridge, heaven-hell, vision of God — 11 chronological stages with classical tafsir plurality.', keywords: ['ahiret', 'sekerat', 'berzah', 'kabir', 'mahser', 'mizan', 'havz', 'sefaat', 'sirat', 'ruyetullah', 'olum', 'diriliş', 'nefha', 'eskatoloji'] },
   { route: '/atlas/insan-yolculugu', titleTr: 'İnsan Yolculuğu Atlası', titleEn: 'The Human Journey Atlas', descTr: 'Fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah — 10 aşamalı manevî olgunlaşma haritası.', descEn: 'Fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God — 10-stage spiritual maturation map.', keywords: ['insan', 'yolculuk', 'fitrat', 'iman', 'takva', 'ihsan', 'kalb-i selim', 'ruyetullah', 'cemalullah', 'nefis', 'olgunlasma', 'manevi', 'huzn-i hatime', 'riza', 'uyanis'] },
+  { route: '/arac/yakin-anlamli-nuanslar', titleTr: 'Yakın Anlamlı Nüanslar', titleEn: 'Near-Synonymous Nuances', descTr: '10 nüans seti / 32 terim: kalb-fu\'âd-sadr, insan-beşer-nâs, ilm-hikmet-fıkh, havf-haşyet-rehbet, rızık-rahmet-bereket, gafûr-afüvv-halîm ve dahası.', descEn: '10 nuance sets / 32 terms: qalb-fuʾād-ṣadr, insān-bashar-nās, ʿilm-ḥikma-fiqh, khawf-khashya-rahba, rizq-raḥma-baraka, ghafūr-ʿafuww-ḥalīm, and more.', keywords: ['nuans', 'es anlamli', 'fark', 'kalb', 'fuad', 'sadr', 'insan', 'beser', 'nas', 'ilm', 'hikmet', 'fikh', 'havf', 'hasyet', 'rehbet', 'rizik', 'rahmet', 'bereket', 'gafur', 'afuvv', 'halim', 'sabr', 'takva', 'birr', 'ihsan', 'cehennem', 'cehim', 'sakar', 'leza', 'hutame', 'isfahani', 'mufredat', 'izutsu', 'furuk'] },
   { route: '/arac/cennet-cehennem', titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Cennet ve cehennem tasvirleri, sahneler, kavramsal harita.', descEn: 'Descriptions of paradise and hell, scenes, conceptual map.', keywords: ['cennet', 'cehennem', 'firdevs', 'cahim'] },
   { route: '/arac/melekler', titleTr: 'Melekler', titleEn: 'Angels', descTr: 'Cebrail, Mikail, İsrafil, Azrail, hafaza melekleri.', descEn: 'Gabriel, Michael, Israfil, Azrael, guardian angels.', keywords: ['melek', 'cebrail', 'mikail', 'israfil', 'azrail'] },
   { route: '/arac/iblis-seytan', titleTr: 'İblis & Şeytan', titleEn: 'Iblis & Satan', descTr: 'İblis\'in düşüşü, vesvese kanalları, klasik tipoloji.', descEn: 'Fall of Iblis, whisper channels, classical typology.', keywords: ['iblis', 'seytan', 'vesvese', 'nifak'] },

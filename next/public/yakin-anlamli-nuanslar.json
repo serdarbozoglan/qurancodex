@@ -1,0 +1,794 @@
+{
+  "meta": {
+    "totalSets": 10,
+    "totalTerms": 32,
+    "titleTr": "Yakın Anlamlı Nüanslar",
+    "titleEn": "Near-Synonymous Nuances",
+    "generatedDate": "2026-07-21",
+    "sourceDraft": "curated 10 nuance sets — Qurʾānic terms often translated identically but semantically distinct"
+  },
+  "intro": {
+    "titleTr": "Yakın Anlamlı Nüanslar",
+    "titleEn": "Near-Synonymous Nuances",
+    "subtitleTr": "Kur'ân'ın 'eş anlamlı gibi görünen' kelimeleri — her seçim bir anlam katmanıdır",
+    "subtitleEn": "The Qur'an's 'seemingly synonymous' words — each choice is a semantic layer",
+    "descTr": "Çevirilerde tek kelimeyle karşılanan bazı Kur'ân kelimeleri, aslında ayrı iç yükler taşır. 'Kalp' derken kalb mi, fu'âd mı, sadr mı? 'Bilmek' ilm mi, hikmet mi, fıkh mı? 'İnsan' insân mı, beşer mi, nâs mı? Her nüans setinin kökeni, Kur'ânî örneği ve ayırıcı özelliği ile.",
+    "descEn": "Some Qur'anic words rendered by a single translation actually carry different inner loads. When 'heart' is said, is it qalb, fuʾād, or ṣadr? Is 'to know' ʿilm, ḥikma, or fiqh? Is 'human' insān, bashar, or nās? Each nuance set with its root, Qur'anic example, and distinctive mark."
+  },
+  "sets": [
+    {
+      "id": "kalb-fuad-sadr",
+      "category": "iç-dünya",
+      "titleTr": "Kalb · Fu'âd · Sadr — Üç İç Merkez",
+      "titleEn": "Qalb · Fuʾād · Ṣadr — The Three Inner Centers",
+      "introTr": "Kur'ân insanın 'içi'ni tek kelimeyle karşılamaz. Üç ayrı isim vardır ve her biri farklı bir katmanı gösterir: sadr en dış, kalb orta, fu'âd en iç. Bu üç kelimenin değişimi rastgele değildir — her seçim ilâhî mesajın hangi katmana konuştuğunu belirler.",
+      "introEn": "The Qur'an does not name the human 'inner' with a single word. There are three distinct names, each indicating a different layer: ṣadr is the outermost, qalb the middle, fuʾād the innermost. Their alternation is not random — each choice specifies which layer the divine message is addressing.",
+      "terms": [
+        {
+          "termAr": "الصَّدْر",
+          "termTr": "Sadr",
+          "termEn": "Ṣadr",
+          "rootTr": "ص-د-ر (öne çıkmak)",
+          "rootEn": "ṣ-d-r (to come forth)",
+          "meaningTr": "Göğüs — kalbi çevreleyen dış katman. Duyguların ve dış tepkilerin sahnesi: darlık/genişlik burada yaşanır (İnşirâh'ın 'göğsünü açtık'ı).",
+          "meaningEn": "The breast — the outer layer surrounding the heart. The stage of emotions and outward reactions: constriction/expansion is lived here (as in 'We expanded your breast' of al-Sharḥ).",
+          "verse": {
+            "verseRef": "İnşirâh 94:1",
+            "surah": 94,
+            "ayah": 1,
+            "arabic": "اَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",
+            "turkish": "Biz senin göğsünü açıp genişletmedik mi?",
+            "english": "Did We not expand for you, [O Muhammad], your breast"
+          },
+          "usageNoteTr": "Kur'ân sadr ile 'toplumsal katılım', 'göğüs açıklığı' (şerh) ve 'sıkıntı' (dıyk) meselelerinde konuşur.",
+          "usageNoteEn": "The Qur'an speaks of ṣadr in matters of 'social engagement,' 'expansion of the chest' (sharḥ), and 'constriction' (ḍīq)."
+        },
+        {
+          "termAr": "القَلْب",
+          "termTr": "Kalb",
+          "termEn": "Qalb",
+          "rootTr": "ق-ل-ب (dönmek, çevirmek)",
+          "rootEn": "q-l-b (to turn, invert)",
+          "meaningTr": "Kalp — orta ve merkezî katman. İman, akıl, niyet ve karar burada yerleşir. 'Kalb' adı bile 'sürekli hâl değiştirir' anlamına gelir: iman kaymaya, mühürlenmeye, temizlenmeye açık.",
+          "meaningEn": "The heart — the middle and central layer. Faith, reason, intention, decision settle here. The very name 'qalb' means 'that which continually turns': faith is open to drift, sealing, cleansing.",
+          "verse": {
+            "verseRef": "Kaf 50:37",
+            "surah": 50,
+            "ayah": 37,
+            "arabic": "اِنَّ فِي ذٰلِكَ لَذِكْرٰى لِمَنْ كَانَ لَهُ قَلْبٌ اَوْ اَلْقَى السَّمْعَ وَهُوَ شَهِيدٌ",
+            "turkish": "Şüphesiz ki bunda aklı olan veya hazır bulunup kulak veren kimseler için bir öğüt vardır.",
+            "english": "Indeed in that is a reminder for whoever has a heart or who listens while he is present [in mind]"
+          },
+          "usageNoteTr": "Kur'ân kalp için hem hastalık (marad) hem hidayet (hüdâ) hem mühürleniş (khatm) tabirlerini kullanır — insanın iç kaderi bu düzeyde belirlenir.",
+          "usageNoteEn": "For the qalb the Qur'an uses expressions of both disease (maraḍ), guidance (hudā), and sealing (khatm) — the human's inner destiny is decided at this level."
+        },
+        {
+          "termAr": "الفُؤَاد",
+          "termTr": "Fu'âd",
+          "termEn": "Fuʾād",
+          "rootTr": "ف-أ-د (yakmak, tutuşturmak)",
+          "rootEn": "f-ʾ-d (to burn, kindle)",
+          "meaningTr": "İç kalp — en derin, en 'yanan' merkez. Vahyin doğrudan indiği yer, bilincin tuttuğu tanıklık. 'Fu'âd yalanlamadı gördüğünü' (Necm 53:11) — burada 'gören' fu'âddır.",
+          "meaningEn": "The inmost heart — the deepest, most 'burning' center. The place where revelation directly descends, the witness the consciousness holds. 'The fuʾād did not lie about what it saw' (Q 53:11) — here it is the fuʾād that 'sees.'",
+          "verse": {
+            "verseRef": "Necm 53:11",
+            "surah": 53,
+            "ayah": 11,
+            "arabic": "مَا كَذَبَ الْفُؤٰادُ مَا رَاٰى",
+            "turkish": "(Gözleriyle) gördüğünü kalbi yalanlamadı.",
+            "english": "The heart did not lie [about] what it saw"
+          },
+          "usageNoteTr": "Fu'âd kavramı Kur'ân'da nadir (~16 defa) fakat kritik yerlerde geçer: vahyin alınması, Ka'be'nin sevgisi (Hac 22:32), Meryem'in oğlunu bekleyişi (Kasas 28:10).",
+          "usageNoteEn": "Fuʾād appears rarely (~16 times) in the Qur'an but in critical places: reception of revelation, love for the Kaʿba (Q 22:32), Mary awaiting her son (Q 28:10)."
+        }
+      ],
+      "nuanceTr": "İnşirâh'ta 'sadrını genişletmedik mi?' — dış katman. Kaf'ta 'kalbi olan için bir öğüttür' — merkez. Necm'de 'fu'âd yalanlamadı gördüğünü' — en iç. Kur'ân katman seçtiğinde muhâtabı da katman seçer.",
+      "nuanceEn": "In al-Sharḥ, 'Did We not expand your ṣadr?' — the outer layer. In Qāf, 'a reminder for one who has a qalb' — the center. In al-Najm, 'the fuʾād did not lie about what it saw' — the innermost. When the Qur'an selects a layer, it selects the addressee's layer.",
+      "sourceTr": "İbn Kayyim, et-Tıbyân; er-Râgıb el-İsfahânî, el-Müfredât ('ق ل ب', 'ف ء د', 'ص د ر' maddeleri).",
+      "sourceEn": "Ibn Qayyim, *al-Tibyān*; al-Rāghib al-Iṣfahānī, *al-Mufradāt* (entries *q-l-b*, *f-ʾ-d*, *ṣ-d-r*)."
+    },
+    {
+      "id": "insan-beser-nas",
+      "category": "insan-tanımı",
+      "titleTr": "İnsan · Beşer · Nâs — İnsanın Üç Çehresi",
+      "titleEn": "Insān · Bashar · Nās — The Three Faces of the Human",
+      "introTr": "Türkçede tek kelimeyle 'insan' dediğimizi, Kur'ân üç farklı ismiyle ayırır: insân onun 'unutan-uyumsuz' yönüdür, beşer onun 'et-kemikten yaratılış' boyutudur, nâs onun 'çoğulluk içinde toplumsal' yüzüdür.",
+      "introEn": "What we call by a single word 'human' in most languages, the Qur'an distinguishes by three names: insān is his 'forgetful-inconsistent' aspect, bashar is his 'flesh-and-bone' dimension, nās is his 'plural-social' face.",
+      "terms": [
+        {
+          "termAr": "الإِنْسَان",
+          "termTr": "İnsân",
+          "termEn": "Insān",
+          "rootTr": "أ-ن-س (ünsiyet kurmak) veya ن-س-ي (unutmak)",
+          "rootEn": "ʾ-n-s (to befriend) or n-s-y (to forget)",
+          "meaningTr": "İnsân — ilişkiye açık ama unutkan varlık. Yaratılış hâlinin farkında olamayan, sürekli 'aceleci' (İsrâ 17:11), 'nankör' (İbrahîm 14:34), 'zâlim ve câhil' (Ahzâb 33:72). İnsân sıfatları çoğunlukla eleştireldir.",
+          "meaningEn": "Insān — a being open to companionship yet forgetful. Unaware of his creational state, ever 'hasty' (Q 17:11), 'ungrateful' (Q 14:34), 'oppressive and ignorant' (Q 33:72). The attributes of insān are largely critical.",
+          "verse": {
+            "verseRef": "Asr 103:2",
+            "surah": 103,
+            "ayah": 2,
+            "arabic": "اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ",
+            "turkish": "İnsan gerçekten ziyan içindedir.",
+            "english": "Indeed, mankind is in loss"
+          },
+          "usageNoteTr": "'İnnel-insâne le-fî husr' — insân zarardadır. Bu ismin geçtiği ayetler çoğunlukla insanın eksikliğini, mü'min ile eş anlamlı 'insan olmayı' değil, düşüşe eğilimli fıtratı gösterir.",
+          "usageNoteEn": "'Inna al-insāna la-fī khusr' — insān is in loss. Verses where this name appears mostly display the human's deficiency, not 'being human' as synonymous with being a believer, but the nature inclined to fall."
+        },
+        {
+          "termAr": "البَشَر",
+          "termTr": "Beşer",
+          "termEn": "Bashar",
+          "rootTr": "ب-ش-ر (deri; müjdelemek)",
+          "rootEn": "b-sh-r (skin; to bring good news)",
+          "meaningTr": "Beşer — beden boyutu. Peygamberler kendilerinden 'beşer' diye söz ederken 'biz de sizin gibi et-kemikteniz' der (İbrahim 14:11); Hz. Meryem şaşkınlıkla 'bana bir beşer dokunmadı' (Meryem 19:20) der. Beşer bedenin isimlidir.",
+          "meaningEn": "Bashar — the bodily dimension. Prophets referring to themselves as bashar say, 'we are flesh like you' (Q 14:11); Mary in astonishment says, 'no human (bashar) has touched me' (Q 19:20). Bashar is the name of the body.",
+          "verse": {
+            "verseRef": "Kehf 18:110",
+            "surah": 18,
+            "ayah": 110,
+            "arabic": "قُلْ اِنَّـمَٓا اَنَا بَشَرٌ مِثْلُكُمْ يُوحٰٓى اِلَيَّ اَنَّـمَٓا اِلٰهُكُمْ اِلٰهٌ وَاحِدٌ فَمَنْ كَانَ يَرْجُوا لِقَٓاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلاً صَالِحاً وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِٓ اَحَداً",
+            "turkish": "De ki: Ben, yalnızca sizin gibi bir beşerim. (Şu var ki) bana, İlah'ınızın, sadece bir İlah olduğu vahyolunuyor. Artık her kim Rabbine kavuşmayı umuyorsa, iyi iş yapsın ve Rabbine ibadette hiçbir şeyi ortak koşmasın.",
+            "english": "Say, \"I am only a man like you, to whom has been revealed that your god is one God. So whoever would hope for the meeting with his Lord - let him do righteous work and not associate in the worship of his Lord anyone"
+          },
+          "usageNoteTr": "'Kul innemâ ene beşerun mislükum' (18:110) — Peygamber'in 'ben de sizin gibi bir beşerim' formülü. Vahiy alan biri olsa da, bedeni sizinkiyle aynıdır. Bu ilişkiyi zayıflatmaz; onu doğru zemine oturtur.",
+          "usageNoteEn": "'Qul innamā anā basharun mithlukum' (Q 18:110) — the Prophet's formula 'I too am a bashar like you.' Though he receives revelation, his body is the same as yours. This does not weaken the relationship; it grounds it correctly."
+        },
+        {
+          "termAr": "النَّاس",
+          "termTr": "Nâs",
+          "termEn": "Nās",
+          "rootTr": "ن-و-س (kaynaşmak, birbiriyle karışmak)",
+          "rootEn": "n-w-s (to mingle, blend together)",
+          "meaningTr": "Nâs — çoğul, toplumsal insan. 'Ey iman edenler' hitabı 'içeriye' konuşurken, 'Ey insanlar (nâs)' evrensele konuşur (Nisâ 4:1). Nâs, insanı bir cemaat, bir toplum, bir yığın olarak görür.",
+          "meaningEn": "Nās — the plural, social human. While 'O you who believe' addresses the 'inside,' 'O mankind (nās)' addresses the universal (Q 4:1). Nās views the human as a congregation, a society, a mass.",
+          "verse": {
+            "verseRef": "Nisâ 4:1",
+            "surah": 4,
+            "ayah": 1,
+            "arabic": "يَٓا اَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالاً كَثِيراً وَنِسَٓاءً وَاتَّقُوا اللّٰهَ الَّذِي تَسَٓاءَلُونَ بِهِ وَالْاَرْحَامَ اِنَّ اللّٰهَ كَانَ عَلَيْكُمْ رَقِيباً",
+            "turkish": "Ey insanlar! Sizi bir tek nefisten yaratan ve ondan da eşini yaratan ve ikisinden birçok erkekler ve kadınlar üretip yayan Rabbinizden sakının. Adını kullanarak birbirinizden dilekte bulunduğunuz Allah'tan ve akrabalık haklarına riayetsizlikten de sakının. Şüphesiz Allah sizin üzerinizde gözetleyicidir.",
+            "english": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer"
+          },
+          "usageNoteTr": "Nâs sûresi (114) 'Rabbü'n-nâs, Melikü'n-nâs, İlâhü'n-nâs' — Kur'ân son sûresinde Allah'ı üç kez 'nâs'a bağlar: toplumsal insanın koruyucusu Allah'tır.",
+          "usageNoteEn": "Sūrat al-Nās (114): 'Rabb al-nās, Malik al-nās, Ilāh al-nās' — in its final sura the Qur'an binds God three times to 'al-nās': the social human's Guardian is God."
+        }
+      ],
+      "nuanceTr": "'İnsân' insanın 'düşmüş fıtrat'ı, 'beşer' 'et-kemik boyutu', 'nâs' 'toplumsal katmanı'dır. Aynı kişi üçüdür ama Kur'ân seçim yaparak konuşur. Peygamber vahiy alırken 'beşer', kavmine seslenirken 'nâs'a hitap eden, Allah katında ise 'insân'dır — üç isim, üç muhâtab, üç ton.",
+      "nuanceEn": "'Insān' is the human's 'fallen fiṭra,' 'bashar' is the 'flesh-and-bone dimension,' 'nās' is the 'social layer.' The same person is all three, but the Qur'an speaks with selection. The Prophet is 'bashar' when receiving revelation, 'nās' whom he addresses, 'insān' before God — three names, three addressees, three tones.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('أ ن س', 'ب ش ر', 'ن و س'); İzutsu, Kur'an'da Allah ve İnsan (bölüm 4).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *ʾ-n-s*, *b-sh-r*, *n-w-s*); Izutsu, *God and Man in the Qur'an* (chapter 4)."
+    },
+    {
+      "id": "ilm-hikmet-fikh",
+      "category": "bilgi",
+      "titleTr": "İlm · Hikmet · Fıkh — Bilmenin Üç Derinliği",
+      "titleEn": "ʿIlm · Ḥikma · Fiqh — The Three Depths of Knowing",
+      "introTr": "'Bilmek' fiili Kur'ân'da tek katmanda kalmaz: ilm bilginin çıkışıdır, hikmet o bilginin doğru yerinde kullanılmasıdır, fıkh ise bilgi ile hikmeti derin kavrayışta birleştirmedir. Üçü de vardır ve biri diğerini kapsar; olgunlaşmış bilme fıkha varır.",
+      "introEn": "The verb 'to know' in the Qur'an does not stay on a single layer: ʿilm is the emergence of knowledge, ḥikma is placing that knowledge in the right context, fiqh is the deep comprehension that unites knowledge with wisdom. All three exist; each contains the other; mature knowing arrives at fiqh.",
+      "terms": [
+        {
+          "termAr": "العِلْم",
+          "termTr": "İlm",
+          "termEn": "ʿIlm",
+          "rootTr": "ع-ل-م (bilmek, işaretlemek)",
+          "rootEn": "ʿ-l-m (to know, to mark)",
+          "meaningTr": "İlm — bilginin çıplak biçimi. Bir şeyin ne olduğunu, sınırlarını, ilişkilerini bilmek. Kur'ân 'ilim' kavramını genelde geniş, açık, aktarılabilir bilgi için kullanır: 'Rabbim, ilmimi arttır' (Tâhâ 20:114) — burada söz konusu olan 'bilme kapasitesi'nin genişlemesidir.",
+          "meaningEn": "ʿIlm — the bare form of knowledge. To know what a thing is, its limits, its relations. The Qur'an uses ʿilm for wide, open, transmissible knowledge: 'My Lord, increase me in knowledge' (Q 20:114) — the expansion here is of the 'knowing capacity.'",
+          "verse": {
+            "verseRef": "Tâhâ 20:114",
+            "surah": 20,
+            "ayah": 114,
+            "arabic": "فَتَعَالَى اللّٰهُ الْمَلِكُ الْحَقُّ وَلَا تَعْجَلْ بِالْقُرْاٰنِ مِنْ قَبْلِ اَنْ يُقْضٰٓى اِلَيْكَ وَحْيُهُ وَقُلْ رَبِّ زِدْنِي عِلْماً",
+            "turkish": "Gerçek hükümdar olan Allah, yücedir. Sana O'nun vahyi tamamlanmazdan önce Kur'an'ı (okumakta) acele etme ve \"Rabbim, benim ilmimi artır\" de.",
+            "english": "So high [above all] is Allah, the Sovereign, the Truth. And, [O Muhammad], do not hasten with [recitation of] the Qur'an before its revelation is completed to you, and say, \"My Lord, increase me in knowledge"
+          },
+          "usageNoteTr": "Kur'ân'da 'ilim' çoğunlukla 'cehâlet'in karşısındadır. 'Bilenlerle bilmeyenler bir olur mu?' (Zümer 39:9) — bilginin kendisi bir üstünlüktür, ama tek başına yeterli değildir.",
+          "usageNoteEn": "In the Qur'an ʿilm is mostly the opposite of 'ignorance.' 'Are those who know equal to those who do not know?' (Q 39:9) — knowledge itself is an excellence, but is not sufficient on its own."
+        },
+        {
+          "termAr": "الحِكْمَة",
+          "termTr": "Hikmet",
+          "termEn": "Ḥikma",
+          "rootTr": "ح-ك-م (sağlam kılmak, hükmetmek)",
+          "rootEn": "ḥ-k-m (to make firm, to judge)",
+          "meaningTr": "Hikmet — bilgiyi doğru yer ve zamanda kullanma sanatı. Bilmek 'nedir'i bilmek, hikmet 'ne zaman, kime, nasıl'ı bilmektir. 'Kime hikmet verilirse ona çok hayır verilmiştir' (Bakara 2:269) — hikmet, ilmin ötesinde ayrı bir nimet olarak zikredilir.",
+          "meaningEn": "Ḥikma — the art of using knowledge at the right place and time. Knowing is knowing 'what'; ḥikma is knowing 'when, to whom, how.' 'Whoever has been given wisdom has been given much good' (Q 2:269) — ḥikma is mentioned as a distinct gift beyond ʿilm.",
+          "verse": {
+            "verseRef": "Bakara 2:269",
+            "surah": 2,
+            "ayah": 269,
+            "arabic": "يُؤْتِي الْحِكْمَةَ مَنْ يَشَٓاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً وَمَا يَذَّكَّرُ اِلَّٓا اُولُوا الْاَلْبَابِ",
+            "turkish": "Allah hikmeti dilediğine verir. Kime hikmet verilirse, ona pek çok hayır verilmiş demektir. Ancak akıl sahipleri düşünüp ibret alırlar.",
+            "english": "He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good. And none will remember except those of understanding"
+          },
+          "usageNoteTr": "Kur'ân 'kitâb ve hikmet' (2:151, 3:81) tabirini sıkça birleştirir: kitâb aktarılabilir 'ilm', hikmet ise 'onu yerli yerinde kullanma' meziyetidir. Peygamber'in görevi ikisini de öğretmektir.",
+          "usageNoteEn": "The Qur'an frequently pairs 'the Book and wisdom' (Q 2:151, 3:81): the Book is transmissible ʿilm, ḥikma is the virtue of using it in its proper place. The Prophet's task is to teach both."
+        },
+        {
+          "termAr": "الفِقْه",
+          "termTr": "Fıkh",
+          "termEn": "Fiqh",
+          "rootTr": "ف-ق-ه (derin kavramak, iç anlamı sezmek)",
+          "rootEn": "f-q-h (to comprehend deeply, to grasp the inner sense)",
+          "meaningTr": "Fıkh — bilgiyi 'anlayıp kavrama' derinliği. İşitmek değil, işittiğinin altına inmek. Kur'ân müşrikleri eleştirirken 'kalpleri var ama onunla fıkh etmezler' (A'râf 7:179) der: onların ilim eksiği yok, anlama derinliği eksik.",
+          "meaningEn": "Fiqh — the depth of 'comprehension' of knowledge. Not to hear, but to descend beneath what one hears. Rebuking the polytheists the Qur'an says, 'they have hearts with which they do not comprehend (yafqahūn)' (Q 7:179): they lack not information but the depth of understanding.",
+          "verse": {
+            "verseRef": "A'râf 7:179",
+            "surah": 7,
+            "ayah": 179,
+            "arabic": "وَلَقَدْ ذَرَأْنَا لِجَهَنَّمَ كَثِيراً مِنَ الْجِنِّ وَالْاِنْسِ  لَهُمْ قُلُوبٌ لَا يَفْقَهُونَ بِهَا وَلَهُمْ اَعْيُنٌ لَا يُبْصِرُونَ بِهَا وَلَهُمْ اٰذَانٌ لَا يَسْمَعُونَ بِهَا  اُولٰٓئِكَ كَالْاَنْعَامِ بَلْ هُمْ اَضَلُّ اُولٰٓئِكَ هُمُ الْغَافِلُونَ",
+            "turkish": "Andolsun, biz cinler ve insanlardan birçoğunu cehennem için yaratmışızdır. Onların kalpleri vardır, onlarla kavramazlar; gözleri vardır, onlarla görmezler; kulakları vardır, onlarla işitmezler. İşte onlar hayvanlar gibidir; hatta daha da şaşkındırlar. İşte asıl gafiller onlardır.",
+            "english": "And We have certainly created for Hell many of the jinn and mankind. They have hearts with which they do not understand, they have eyes with which they do not see, and they have ears with which they do not hear. Those are like livestock; rather, they are more astray. It is they who are the heedless"
+          },
+          "usageNoteTr": "'Fıkh' bugün 'İslâm hukuku' olarak sınırlanmış olsa da Kur'ân'daki asıl anlamı 'derin kavrayış'tır. Hz. Muhammed 'Allah kime hayır dilerse onu dinde fâkih (derin anlayan) yapar' hadisinde de bu geniş anlam kullanılır (Buhârî, İlim 10).",
+          "usageNoteEn": "Though 'fiqh' is today narrowed to 'Islamic law,' its original Qurʾānic meaning is 'deep comprehension.' The Prophet's ḥadīth 'To whomever God intends good, He makes him a faqīh (deep understander) in religion' uses this wider meaning (Bukhārī, ʿIlm 10)."
+        }
+      ],
+      "nuanceTr": "'İlim' bilginin çıkışıdır, 'hikmet' onu yerli yerinde kullanmadır, 'fıkh' o bilgi + hikmeti bir derinlikte kavrayıp içselleştirmedir. Bir doktor 'ilm' ile tanı koyar, 'hikmet' ile ne söyleyeceğini seçer, 'fıkh' ile hastasının iç dünyasını kavrar. Üçü üç ayrı olgunlaşma katmanıdır.",
+      "nuanceEn": "'ʿIlm' is the emergence of knowledge, 'ḥikma' its right placement, 'fiqh' the deep comprehension that internalizes both. A physician diagnoses with ʿilm, selects what to say with ḥikma, grasps the patient's inner world with fiqh. Three separate layers of maturation.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('ع ل م', 'ح ك م', 'ف ق ه'); Gazâlî, İhyâ (I, Kitâbü'l-İlm).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *ʿ-l-m*, *ḥ-k-m*, *f-q-h*); al-Ghazālī, *Iḥyāʾ* (vol. I, *Kitāb al-ʿIlm*)."
+    },
+    {
+      "id": "havf-hasyet-rehbet",
+      "category": "duygu",
+      "titleTr": "Havf · Haşyet · Rehbet — Üç Katmanlı Korku",
+      "titleEn": "Khawf · Khashya · Rahba — Three Layers of Fear",
+      "introTr": "Kur'ân 'Allah'tan korkma' fiilini tek kelimeyle değil, en az üç ayrı isimle anlatır: havf yaygın, dış korku; haşyet bilgiye dayalı derin saygı; rehbet iç titremeye yakın huşû. Bunlar sıkı bir hiyerarşi içinde olup 'kimin, hangi Allah'a, nasıl korkacağı' meselesini şekillendirir.",
+      "introEn": "The Qur'an conveys 'fear of God' not with one word but with at least three names: khawf, a common outer fear; khashya, deep reverence based on knowledge; rahba, an inner trembling close to awe. They form a hierarchy that shapes the question of 'who fears which God, and how.'",
+      "terms": [
+        {
+          "termAr": "الخَوْف",
+          "termTr": "Havf",
+          "termEn": "Khawf",
+          "rootTr": "خ-و-ف (endişelenmek, kaçınmak)",
+          "rootEn": "kh-w-f (to worry, to avoid)",
+          "meaningTr": "Havf — gelecek bir zarara karşı iç tetikte olma. En yaygın 'korku' hâli: mü'minlerin mahşer korkusu (Nûr 24:37), münâfıkların dünyevî korkusu (Bakara 2:19), peygamberlerin görevini kaybetme kaygısı.",
+          "meaningEn": "Khawf — inner alertness toward a possible future harm. The most common 'fear' state: believers' fear of the Resurrection (Q 24:37), the hypocrites' worldly fear (Q 2:19), a prophet's anxiety of failing the mission.",
+          "verse": {
+            "verseRef": "Bakara 2:40",
+            "surah": 2,
+            "ayah": 40,
+            "arabic": "يَا بَنِٓي اِسْرَٓائِلَ اذْكُرُوا نِعْمَتِيَ الَّتِٓي اَنْعَمْتُ عَلَيْكُمْ وَاَوْفُوا بِعَهْدِٓي اُوفِ بِعَهْدِكُمْ وَاِيَّايَ فَارْهَبُونِ",
+            "turkish": "Ey İsrailoğulları! Size verdiğim nimetlerimi hatırlayın, bana verdiğiniz sözü yerine getirin ki, ben de size vadettiklerimi vereyim. Yalnızca benden korkun.",
+            "english": "O Children of Israel, remember My favor which I have bestowed upon you and fulfill My covenant [upon you] that I will fulfill your covenant [from Me], and be afraid of [only] Me"
+          },
+          "usageNoteTr": "Havf 've iyyâye fe-rhebûn'da (2:40) rehbet ile birlikte gelir. Havf sonucu 'kaçınmak, dönmek'tir; hemen davranışa bağlanır.",
+          "usageNoteEn": "Khawf pairs with rahba in 'and fear Me alone' (Q 2:40). The result of khawf is 'to avoid, to return'; it links immediately to behavior."
+        },
+        {
+          "termAr": "الخَشْيَة",
+          "termTr": "Haşyet",
+          "termEn": "Khashya",
+          "rootTr": "خ-ش-ي (bilgiyle karışık derin çekinme)",
+          "rootEn": "kh-sh-y (deep restraint mixed with knowledge)",
+          "meaningTr": "Haşyet — 'Allah'ı bildikçe artan' korku. Râzî'nin tabiriyle 'ilme dayalı korku' — bilinmezden değil, tanımaktan doğar. 'Allah'a kulları arasında ancak âlimler haşyet duyar' (Fâtır 35:28) — bu ayet haşyet'i doğrudan bilgi ile birleştirir.",
+          "meaningEn": "Khashya — the fear that 'grows as God is known.' In al-Rāzī's phrase, 'knowledge-based fear' — it arises not from the unknown but from recognition. 'Only the learned among His servants feel khashya toward God' (Q 35:28) — this verse binds khashya directly to knowledge.",
+          "verse": {
+            "verseRef": "Fâtır 35:28",
+            "surah": 35,
+            "ayah": 28,
+            "arabic": "وَمِنَ النَّاسِ وَالدَّوَٓابِّ وَالْاَنْعَامِ مُخْتَلِفٌ اَلْوَانُهُ كَذٰلِكَ اِنَّمَا يَخْشَى اللّٰهَ مِنْ عِبَادِهِ الْعُلَمٰٓؤُا اِنَّ اللّٰهَ عَزِيزٌ غَفُورٌ",
+            "turkish": "İnsanlardan, hayvanlardan ve davarlardan da yine böyle türlü renkte olanlar var. Kulları içinden ancak alimler, Allah'tan (gereğince) korkar. Şüphesiz Allah, daima üstündür, çok bağışlayandır.",
+            "english": "And among people and moving creatures and grazing livestock are various colors similarly. Only those fear Allah, from among His servants, who have knowledge. Indeed, Allah is Exalted in Might and Forgiving"
+          },
+          "usageNoteTr": "Haşyet, dış kaygı değil, iç sarsılıştır. Peygamber'in eşiği: 'ben Allah'ı sizden çok tanırım, bu yüzden en çok ben haşyet duyarım' der (Buhârî, İman 13).",
+          "usageNoteEn": "Khashya is not an outer worry but an inner tremor. The Prophet's threshold: 'I know God better than you, therefore I feel more khashya than anyone' (Bukhārī, Īmān 13)."
+        },
+        {
+          "termAr": "الرَّهْبَة",
+          "termTr": "Rehbet",
+          "termEn": "Rahba",
+          "rootTr": "ر-ه-ب (huşû ile titremek)",
+          "rootEn": "r-h-b (to tremble in awe)",
+          "meaningTr": "Rehbet — huşû ile karışık titreme. 'Râhib'in kökeni: dünyayı bırakıp bir 'tek irâde'ye teslim olmak. Rehbet, bilgi + korku + saygı + kaçınmanın tek anda toplanmasıdır. En sık 'ragab' (umut) ile eşleşir: 'bize umutla ve rehbetle dua ederler' (Enbiyâ 21:90).",
+          "meaningEn": "Rahba — trembling mingled with awe. The root of 'rāhib' (monk): to relinquish the world for surrender to a single Will. Rahba is the simultaneous convergence of knowledge, fear, reverence, and avoidance. It most often pairs with raghab (hope): 'they invoke Us in hope and rahba' (Q 21:90).",
+          "verse": {
+            "verseRef": "Enbiyâ 21:90",
+            "surah": 21,
+            "ayah": 90,
+            "arabic": "فَاسْتَجَبْنَا لَهُ وَوَهَبْنَا لَهُ يَحْيٰى وَاَصْلَحْنَا لَهُ زَوْجَهُ اِنَّهُمْ كَانُوا يُسَارِعُونَ فِي الْخَيْرَاتِ وَيَدْعُونَنَا رَغَباً وَرَهَباً وَكَانُوا لَنَا خَاشِعِينَ",
+            "turkish": "Biz onun da duasını kabul ettik ve ona Yahya'yı verdik; eşini de kendisi için (çocuk doğurmaya) elverişli kıldık. Onlar (bütün bu peygamberler), hayır işlerinde koşuşurlar, umarak ve korkarak bize yalvarırlardı; onlar, bize karşı derin saygı içindeydiler.",
+            "english": "So We responded to him, and We gave to him John, and amended for him his wife. Indeed, they used to hasten to good deeds and supplicate Us in hope and fear, and they were to Us humbly submissive"
+          },
+          "usageNoteTr": "Rehbet, bilinç halinin en yüksek katıdır: dış davranışı değil, iç titreşimi anlatır. Sûfiler bunu 'huşû'un iç yüzü' sayar.",
+          "usageNoteEn": "Rahba is the highest layer of the conscious state: it describes not outer behavior but inner tremor. Sufis regard it as 'the inner face of khushūʿ.'"
+        }
+      ],
+      "nuanceTr": "Havf'ın kaynağı 'olabilecek zarar'dır; haşyet 'tanıdığın Allah' bilgisidir; rehbet ise 'huşû ile tesliminden gelen titremedir.' Havf dışta durur, haşyet içeri girer, rehbet insanı yeniden şekillendirir.",
+      "nuanceEn": "Khawf's source is 'possible harm'; khashya's is 'the God you know'; rahba is 'the trembling that comes from awe-filled surrender.' Khawf stays outside, khashya enters within, rahba reshapes the person.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('خ و ف', 'خ ش ي', 'ر ه ب'); Râzî, Mefâtîh, Fâtır 28 tefsiri.",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *kh-w-f*, *kh-sh-y*, *r-h-b*); al-Rāzī, *Mafātīḥ*, exegesis of Q 35:28."
+    },
+    {
+      "id": "rizik-rahmet-bereket",
+      "category": "ilahi-lütuf",
+      "titleTr": "Rızık · Rahmet · Bereket — Üç İlâhî Cömertlik",
+      "titleEn": "Rizq · Raḥma · Baraka — Three Divine Generosities",
+      "introTr": "Allah'ın kula verdiği 'iyilikler' Kur'ân'da üç farklı isimle anılır ve her biri farklı bir yön çizer: rızık verilen 'pay', rahmet o payın altındaki 'sıcaklık', bereket ise payın 'artan verimliliğidir'. Aynı ekmek üç kelimeyle üç ayrı hayattır.",
+      "introEn": "The 'goods' God grants the servant are called by three names in the Qur'an, each drawing a different aspect: rizq is the 'portion' given, raḥma is the 'warmth' beneath the portion, baraka is the 'multiplying yield' of the portion. The same bread lives three lives in three words.",
+      "terms": [
+        {
+          "termAr": "الرِّزْق",
+          "termTr": "Rızık",
+          "termEn": "Rizq",
+          "rootTr": "ر-ز-ق (pay, hisse vermek)",
+          "rootEn": "r-z-q (to apportion, to give a share)",
+          "meaningTr": "Rızık — Allah'ın kula ölçtüğü 'pay'. Yalnız yiyecek değil; sağlık, huzur, çocuk, ilim — hepsi rızıktır. 'Hiçbir yerde yürüyen canlı yoktur ki rızkı Allah'a ait olmasın' (Hûd 11:6).",
+          "meaningEn": "Rizq — the 'portion' God apportions to the servant. Not only food; health, peace, offspring, knowledge — all are rizq. 'There is no creature moving on the earth whose provision is not upon God' (Q 11:6).",
+          "verse": {
+            "verseRef": "Hûd 11:6",
+            "surah": 11,
+            "ayah": 6,
+            "arabic": "وَمَا مِنْ دَٓابَّةٍ فِي الْاَرْضِ اِلَّا عَلَى اللّٰهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا كُلٌّ فِي كِتَابٍ مُبِينٍ",
+            "turkish": "Yeryüzünde yürüyen her canlının rızkı, yalnızca Allah'ın üzerinedir. Allah o canlının durduğu yeri ve sonunda bırakılacağı mekanı bilir. (Bunların) hepsi açık bir kitapta (levh-i mahfuz'da) dır.",
+            "english": "And there is no creature on earth but that upon Allah is its provision, and He knows its place of dwelling and place of storage. All is in a clear register"
+          },
+          "usageNoteTr": "Rızık 'takdir edilmiş' bir kavramdır: miktarı, zamanı, biçimi Allah tarafından ayarlanmıştır. Kula düşen 'sebep' aramak (Cuma 62:10), sonucu Allah'a bırakmaktır.",
+          "usageNoteEn": "Rizq is a 'foreordained' concept: its amount, time, and form are set by God. What falls to the servant is to seek 'the causes' (Q 62:10) and to leave the outcome to God."
+        },
+        {
+          "termAr": "الرَّحْمَة",
+          "termTr": "Rahmet",
+          "termEn": "Raḥma",
+          "rootTr": "ر-ح-م (rahim, kucaklayıcı şefkat)",
+          "rootEn": "r-ḥ-m (womb; encompassing tenderness)",
+          "meaningTr": "Rahmet — kaynaktaki 'sıcaklık'. Allah'ın 99 ismi arasında 'er-Rahmân' ve 'er-Rahîm', hepsinden önce anılır. Rahmet, verilen 'şey'i değil, veren 'niyeti' gösterir: kucaklama, bağışlama, hoşgörü.",
+          "meaningEn": "Raḥma — the 'warmth' in the source. Among God's 99 names, 'al-Raḥmān' and 'al-Raḥīm' are named before all. Raḥma does not indicate the 'thing' given but the 'intention' of the Giver: embracing, forgiving, indulgent.",
+          "verse": {
+            "verseRef": "A'râf 7:156",
+            "surah": 7,
+            "ayah": 156,
+            "arabic": "وَاكْتُبْ لَنَا فِي هٰذِهِ الدُّنْيَا حَسَنَةً وَفِي الْاٰخِرَةِ اِنَّا هُدْنَٓا اِلَيْكَ قَالَ عَذَابِٓي اُصِيبُ بِهِ مَنْ اَشَٓاءُ وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ فَسَاَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ الزَّكٰوةَ وَالَّذِينَ هُمْ بِاٰيَاتِنَا يُؤْمِنُونَ",
+            "turkish": "Bize, bu dünyada da iyilik yaz ahirette de. Şüphesiz biz sana döndük.\" Allah buyurdu ki: Kimi dilersem onu azabıma uğratırım; rahmetim ise her şeyi kuşatır. Onu, sakınanlara, zekatı verenlere ve ayetlerimize inananlara yazacağım.",
+            "english": "And decree for us in this world [that which is] good and [also] in the Hereafter; indeed, we have turned back to You.\" [Allah] said, \"My punishment - I afflict with it whom I will, but My mercy encompasses all things.\" So I will decree it [especially] for those who fear Me and give zakah and those who believe in Our verses"
+          },
+          "usageNoteTr": "'Rahmetim her şeyi kuşatmıştır' (A'râf 7:156). Rahmet Kur'ân'da yaklaşık 340 defa geçer — Allah'ın en sık zikredilen niteliğidir. Kul olarak 'ummalık' rahmettir; rızık ummayı bile aşan güven.",
+          "usageNoteEn": "'My mercy encompasses all things' (Q 7:156). Raḥma appears about 340 times in the Qur'an — God's most frequently mentioned attribute. What the servant is to 'hope for' is raḥma: a trust beyond even hope for rizq."
+        },
+        {
+          "termAr": "البَرَكَة",
+          "termTr": "Bereket",
+          "termEn": "Baraka",
+          "rootTr": "ب-ر-ك (çökmek, sabit kalmak; artmak)",
+          "rootEn": "b-r-k (to settle, to remain firm; to increase)",
+          "meaningTr": "Bereket — 'içine yerleşen artış'. Bir şey rakamla eksilmez, çoğalır. Ramazân'daki bereket (Bakara 2:185), zeytin ağacındaki bereket (Nûr 24:35), Kâbe'deki bereket (Âl-i İmrân 3:96) — sabit + artan bir cömertlik.",
+          "meaningEn": "Baraka — 'the increase that settles into a thing.' It does not diminish numerically; it multiplies. The baraka of Ramadan (Q 2:185), the baraka of the olive tree (Q 24:35), the baraka of the Kaʿba (Q 3:96) — a generosity that is both stable and multiplying.",
+          "verse": {
+            "verseRef": "A'râf 7:96",
+            "surah": 7,
+            "ayah": 96,
+            "arabic": "وَلَوْ اَنَّ اَهْلَ الْقُرٰٓى اٰمَنُوا وَاتَّقَوْا لَفَتَحْنَا عَلَيْهِمْ بَرَكَاتٍ مِنَ السَّمَٓاءِ وَالْاَرْضِ وَلٰكِنْ كَذَّبُوا فَاَخَذْنَاهُمْ بِمَا كَانُوا يَكْسِبُونَ",
+            "turkish": "O (peygamberlerin gönderildiği) ülkelerin halkı inansalar ve (günahtan) sakınsalardı, elbette onların üstüne gökten ve yerden nice bereket kapıları açardık, fakat yalanladılar, biz de ettikleri yüzünden onları yakalayıverdik.",
+            "english": "And if only the people of the cities had believed and feared Allah, We would have opened upon them blessings from the heaven and the earth; but they denied [the messengers], so We seized them for what they were earning"
+          },
+          "usageNoteTr": "'Ehl-i karyeler iman edip sakınsalardı, üstlerine gökten ve yerden bereketleri açardık' (A'râf 7:96) — bereket iman ile açılan bir kapıdır. Rakamla değil, ilişki ile ölçülür: küçük şey büyük bereket taşıyabilir.",
+          "usageNoteEn": "'Had the peoples of the towns believed and been mindful, We would have opened upon them baraka from heaven and earth' (Q 7:96) — baraka is a door opened by faith. Not measured by number but by relationship: a small thing may carry great baraka."
+        }
+      ],
+      "nuanceTr": "Rızık verilen 'pay'dır; rahmet payın altındaki 'sıcak niyettir'; bereket payın 'ilişkiyle artan verimliliğidir'. Aynı ekmek rızık olarak yetsin, rahmet olarak korunsun, bereket olarak 5 kişiye bölünse aç kalmasın diye — üç kelime aynı ekmeğin üç yüzüdür.",
+      "nuanceEn": "Rizq is the 'portion' given; raḥma is the 'warm intention' beneath the portion; baraka is the 'yield that multiplies through relationship.' The same bread suffices as rizq, is protected as raḥma, is divided among five without leaving anyone hungry as baraka — three words, three faces of the same bread.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('ر ز ق', 'ر ح م', 'ب ر ك'); İbn Kayyim, ed-Dâʾ ve'd-Devâ.",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *r-z-q*, *r-ḥ-m*, *b-r-k*); Ibn Qayyim, *al-Dāʾ wa'l-Dawāʾ*."
+    },
+    {
+      "id": "hidayet-rusd-tevfik",
+      "category": "yönlenme",
+      "titleTr": "Hidayet · Rüşd · Tevfîk — Doğru Yola Üç Kapı",
+      "titleEn": "Hidāya · Rushd · Tawfīq — Three Doors to the Right Path",
+      "introTr": "'Doğru yola erişme' Kur'ân'da üç ayrı fiilde ayrılır: hidayet 'yolu göstermek'tir, rüşd 'doğru olanı ayırt edecek olgunluk'tur, tevfîk ise 'niyet ile amelin uyuşması'dır. Hidayet dıştan gelir, rüşd içte gelişir, tevfîk sonuçta ortaya çıkar.",
+      "introEn": "'Arriving at the right path' is split in the Qur'an into three separate verbs: hidāya is 'showing the way,' rushd is 'the maturity that discerns what is right,' tawfīq is 'the harmony of intention with deed.' Hidāya comes from without, rushd develops within, tawfīq appears in the outcome.",
+      "terms": [
+        {
+          "termAr": "الهِدَايَة",
+          "termTr": "Hidayet",
+          "termEn": "Hidāya",
+          "rootTr": "ه-د-ي (yol göstermek)",
+          "rootEn": "h-d-y (to guide the way)",
+          "meaningTr": "Hidayet — yolun 'gösterilmesi'. Kur'ân bunu Allah'ın işi olarak zikreder: 'Sen sevdiğini hidayete erdiremezsin, ama Allah dilediğini hidayete erdirir' (Kasas 28:56). Hidayetin iki katmanı vardır: 'irşad' (yolu göstermek — herkese) ve 'tevfîk' (yola girmesini sağlamak — dilediğine).",
+          "meaningEn": "Hidāya — the 'showing' of the path. The Qur'an mentions this as God's act: 'You cannot guide whom you love, but God guides whom He wills' (Q 28:56). Hidāya has two layers: 'irshād' (showing the way — to all) and 'tawfīq' (enabling one to enter the way — to whom He wills).",
+          "verse": {
+            "verseRef": "Fâtiha 1:6",
+            "surah": 1,
+            "ayah": 6,
+            "arabic": "اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+            "turkish": "Bize doğru yolu göster.",
+            "english": "Guide us to the straight path"
+          },
+          "usageNoteTr": "Fâtiha'da 17 defa günde okunan 'ihdinâ' (bize hidayet ver) — hidayet 'bir defa alınan' değil, 'sürekli istenen' bir hâldir. Bir mü'min her rekâtta yeniden hidayet ister.",
+          "usageNoteEn": "The 'ihdinā' (guide us) recited 17 times daily in the Fātiḥa — hidāya is not something 'received once' but 'continually asked for.' A believer requests hidāya anew in every rakʿa."
+        },
+        {
+          "termAr": "الرُّشْد",
+          "termTr": "Rüşd",
+          "termEn": "Rushd",
+          "rootTr": "ر-ش-د (doğruyu bulma olgunluğu)",
+          "rootEn": "r-sh-d (maturity in finding what is right)",
+          "meaningTr": "Rüşd — 'doğru olanı seçebilecek olgunluk'. 'Dinde zorlama yoktur; rüşd, ğayy'dan (sapkınlıktan) ayrılmıştır' (Bakara 2:256). Bu kelime 'ergin akıl' ile 'ahlakî doğruluk'un buluştuğu noktayı gösterir — bir yetim 'rüşd sahibi olunca' malı ona teslim edilir (Nisâ 4:6).",
+          "meaningEn": "Rushd — 'the maturity to choose what is right.' 'There is no compulsion in religion; rushd has been distinguished from ghayy (error)' (Q 2:256). This word marks the meeting point of 'mature reason' and 'moral rectitude' — an orphan's property is handed over 'when he attains rushd' (Q 4:6).",
+          "verse": {
+            "verseRef": "Bakara 2:256",
+            "surah": 2,
+            "ayah": 256,
+            "arabic": "لَٓا اِكْرَاهَ فِي الدِّينِ قَدْ تَبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ فَمَنْ يَكْفُرْ بِالطَّاغُوتِ وَيُؤْمِنْ بِاللّٰهِ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقٰى لَا انْفِصَامَ لَهَا وَاللّٰهُ سَمِيعٌ عَلِيمٌ",
+            "turkish": "Dinde zorlama yoktur. Artık doğrulukla eğrilik birbirinden ayrılmıştır. O halde kim tağutu reddedip Allah'a inanırsa, kopmayan sağlam kulpa yapışmıştır. Allah işitir ve bilir.",
+            "english": "There shall be no compulsion in [acceptance of] the religion. The right course has become clear from the wrong. So whoever disbelieves in Taghut and believes in Allah has grasped the most trustworthy handhold with no break in it. And Allah is Hearing and Knowing"
+          },
+          "usageNoteTr": "Rüşd, dışardan hediye edilmez; iç olgunlaşmayı gerektirir. Hidayet 'kapıyı gösterir', rüşd 'kapıdan girip içeriyi anlayabilecek erginliktir'.",
+          "usageNoteEn": "Rushd is not gifted from outside; it requires inner maturation. Hidāya 'shows the door'; rushd is 'the maturity to enter and understand what is within.'"
+        },
+        {
+          "termAr": "التَّوْفِيق",
+          "termTr": "Tevfîk",
+          "termEn": "Tawfīq",
+          "rootTr": "و-ف-ق (uyumlu kılmak, denk düşürmek)",
+          "rootEn": "w-f-q (to make harmonious, to align)",
+          "meaningTr": "Tevfîk — 'niyet ile amelin, arzu ile fiilinin denk düşmesi'. 'Benim başarım (tevfîkim) ancak Allah iledir' (Hûd 11:88) — Şuayb'in ünlü sözü. Tevfîk, hidayetin son verimidir: yol gösterildikten, olgunluk hazırlandıktan sonra 'gerçekleşen' — insan istese de olmayabilir, Allah dilerse olur.",
+          "meaningEn": "Tawfīq — 'the alignment of intention with deed, of desire with act.' 'My success (tawfīq) is only through God' (Q 11:88) — Shuʿayb's famous statement. Tawfīq is the final yield of hidāya: after the way is shown and maturity prepared, that which 'comes to be' — one may wish for it and it not happen; God wills, it happens.",
+          "verse": {
+            "verseRef": "Hûd 11:88",
+            "surah": 11,
+            "ayah": 88,
+            "arabic": "قَالَ يَا قَوْمِ اَرَاَيْتُمْ اِنْ كُنْتُ عَلٰى بَيِّنَةٍ مِنْ رَبِّي وَرَزَقَنِي مِنْهُ رِزْقاً حَسَناً وَمَٓا اُرِيدُ اَنْ اُخَالِفَكُمْ اِلٰى مَٓا اَنْهٰيكُمْ عَنْهُ اِنْ اُرِيدُ اِلَّا الْاِصْلَاحَ مَا اسْتَطَعْتُ وَمَا تَوْفِيقِٓي اِلَّا بِاللّٰهِ  عَلَيْهِ تَوَكَّلْتُ وَاِلَيْهِ اُنِيبُ",
+            "turkish": "Dedi ki: Ey kavmim! Eğer benim, Rabbim tarafından (verilmiş) apaçık bir delilim varsa ve O bana tarafından güzel bir rızık vermişse buna ne dersiniz? Size yasak ettiğim şeylerin aksini yaparak size aykırı davranmak istemiyorum. Ben sadece gücümün yettiği kadar ıslah etmek istiyorum. Fakat başarmam ancak Allah'ın yardımı iledir. Yalnız O'na dayandım ve yalnız O'na döneceğim.",
+            "english": "He said, \"O my people, have you considered: if I am upon clear evidence from my Lord and He has provided me with a good provision from Him...? And I do not intend to differ from you in that which I have forbidden you; I only intend reform as much as I am able. And my success is not but through Allah. Upon him I have relied, and to Him I return"
+          },
+          "usageNoteTr": "Ehl-i sünnet 'Allah'ım sana ibadet için tevfîk ver' duasında bulunur — çünkü ibadet niyet edilir ama sadece Allah'ın izniyle yerine getirilir. Tevfîk kul için 'iç kararla gerçekleşme'nin izniidir.",
+          "usageNoteEn": "The Sunni prays, 'O God, grant me tawfīq to worship You' — for worship is intended but is enacted only by God's permission. For the servant, tawfīq is the license for 'inner intention becoming enacted.'"
+        }
+      ],
+      "nuanceTr": "'Hidayet' Allah'ın 'yolu göstermesi'dir (dıştan); 'rüşd' 'yola girecek olgunluğun içte gelişmesi'dir; 'tevfîk' ise 'niyet ile amelin son anda uyumlu olması'dır (sonuçta). Üçü de vardır: yol gösterilsin, olgunluk hazırlansın, gerçekleşme ilâhî izinle olsun.",
+      "nuanceEn": "'Hidāya' is God's 'showing the way' (from without); 'rushd' is 'the maturity to enter that path developing within'; 'tawfīq' is 'the final alignment of intention with deed' (in the outcome). All three are needed: the way shown, the maturity prepared, the realization granted by divine leave.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('ه د ي', 'ر ش د', 'و ف ق'); Râzî, Mefâtîh, Fâtiha girişi.",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *h-d-y*, *r-sh-d*, *w-f-q*); al-Rāzī, *Mafātīḥ*, introduction to al-Fātiḥa."
+    },
+    {
+      "id": "gafur-afuvv-halim",
+      "category": "ilahi-isim",
+      "titleTr": "Gafûr · Afüvv · Halîm — Bağışlamanın Üç Katmanı",
+      "titleEn": "Ghafūr · ʿAfuww · Ḥalīm — Three Layers of Forgiveness",
+      "introTr": "Allah'ın 'bağışlayıcılığı' tek kelimeyle karşılanamaz. Gafûr günahı 'örter'; Afüvv izlerini 'siler'; Halîm ise kısasta 'aceleyi bırakır'. Üç isim üç ayrı zamanı gösterir: günah anı, sonrası, ceza anı.",
+      "introEn": "God's 'forgivingness' cannot be captured by one word. Ghafūr 'covers' the sin; ʿAfuww 'erases' its traces; Ḥalīm 'refrains from haste' in retribution. Three names point to three separate moments: the moment of sin, its aftermath, the moment of punishment.",
+      "terms": [
+        {
+          "termAr": "الغَفُور",
+          "termTr": "Gafûr",
+          "termEn": "al-Ghafūr",
+          "rootTr": "غ-ف-ر (örtmek, saklamak)",
+          "rootEn": "gh-f-r (to cover, to conceal)",
+          "meaningTr": "Gafûr — 'örten'. Bir günahı Allah'ın 'ne başkasına ne kula gösterir' hâle getirmesi. Ceza kaldırılır, sadece dıştan da gizlenir. 'Miğfer' aynı kökten: askere darbeye karşı örtü.",
+          "meaningEn": "Ghafūr — 'the Concealer.' God's making a sin such that 'it is shown neither to another nor to the servant.' The punishment is lifted and the trace is hidden from view. 'Mighfar' (helmet) shares the root: a cover against blows.",
+          "verse": {
+            "verseRef": "Zümer 39:53",
+            "surah": 39,
+            "ayah": 53,
+            "arabic": "قُلْ يَا عِبَادِيَ الَّذِينَ اَسْرَفُوا عَلٰٓى اَنْفُسِهِمْ لَا تَقْنَطُوا مِنْ رَحْمَةِ اللّٰهِ اِنَّ اللّٰهَ يَغْفِرُ الذُّنُوبَ جَمِيعاً اِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ",
+            "turkish": "De ki: Ey kendi nefisleri aleyhine haddi aşan kullarım! Allah'ın rahmetinden ümit kesmeyin! Çünkü Allah bütün günahları bağışlar. Şüphesiz ki O, çok bağışlayan, çok esirgeyendir.",
+            "english": "Say, \"O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful"
+          },
+          "usageNoteTr": "'Rahmetimden ümit kesmeyin — Allah tüm günahları bağışlar' (39:53). Gafûr, en yaygın kullanılan mağfiret ismidir; kulun 'bağışlanma umudunu' hep açık tutar.",
+          "usageNoteEn": "'Do not despair of God's mercy — He forgives all sins' (Q 39:53). Ghafūr is the most frequently used name of forgiveness; it keeps 'the servant's hope of pardon' always open."
+        },
+        {
+          "termAr": "العَفُوّ",
+          "termTr": "Afüvv",
+          "termEn": "al-ʿAfuww",
+          "rootTr": "ع-ف-و (silmek, izini kaldırmak)",
+          "rootEn": "ʿ-f-w (to erase, to remove the trace)",
+          "meaningTr": "Afüvv — 'izleri silen'. Gafûr'un ötesinde: sadece örtmez, tamamen ortadan kaldırır. 'Sanki hiç işlemediği' hâline getirir. Ramazân'ın en ünlü duası: 'Allahümme inneke Afüvvun tuhibbü'l-afve fa'fu annî' (Tirmizî, Deavât 84).",
+          "meaningEn": "ʿAfuww — 'the One who erases traces.' Beyond Ghafūr: it does not only cover but wholly removes. Rendered 'as if never committed.' Ramadan's famous duʿāʾ: 'Allāhumma innaka ʿAfuwwun tuḥibbu al-ʿafwa faʿfu ʿannī' (Tirmidhī, Daʿawāt 84).",
+          "verse": {
+            "verseRef": "Nisâ 4:149",
+            "surah": 4,
+            "ayah": 149,
+            "arabic": "اِنْ تُبْدُوا خَيْراً اَوْ تُخْفُوهُ اَوْ تَعْفُوا عَنْ سُٓوءٍ فَاِنَّ اللّٰهَ كَانَ عَفُواًّ قَدِيراً",
+            "turkish": "Bir iyiliği açıklar yahut gizlerseniz veya bir kötülüğü (açıklamayıp) affederseniz, şüphesiz Allah da ziyadesiyle affedici ve kadirdir.",
+            "english": "If [instead] you show [some] good or conceal it or pardon an offense - indeed, Allah is ever Pardoning and Competent"
+          },
+          "usageNoteTr": "Afüvv, insanlar arası ilişkide bir görevin de adıdır: 'kötülüğü affetmek' Allah'ın çok sevdiği bir sıfat. 'İyiliği açığa çıkarır ya da kötülüğü affederseniz, Allah da Afüvvün Kadîr'dir' (Nisâ 4:149).",
+          "usageNoteEn": "ʿAfuww is also the name of a duty in human relations: 'to pardon evil' is an attribute God greatly loves. 'Whether you disclose a good or pardon an evil, God is ever ʿAfuww, Qadīr' (Q 4:149)."
+        },
+        {
+          "termAr": "الحَلِيم",
+          "termTr": "Halîm",
+          "termEn": "al-Ḥalīm",
+          "rootTr": "ح-ل-م (aceleyi bırakma, dinginlik)",
+          "rootEn": "ḥ-l-m (to refrain from haste, calm)",
+          "meaningTr": "Halîm — 'cezada acele etmeyen'. Günah işleniyorken, hemen karşılık verilmiyor. Bu bir 'gafûr' değil, bir 'sabır' göstergesi: bağışlamak değil, süreyi uzatmak. Bu ilâhî hilm sayesinde kul tövbe etme fırsatı bulur.",
+          "meaningEn": "Ḥalīm — 'the One who does not hasten to punish.' While a sin is being committed, no response comes at once. This is not 'ghafūr' but 'a sign of patience': not forgiveness but the extension of time. Through this divine ḥilm, the servant finds the opportunity to repent.",
+          "verse": {
+            "verseRef": "Bakara 2:225",
+            "surah": 2,
+            "ayah": 225,
+            "arabic": "لَا يُؤَاخِذُكُمُ اللّٰهُ بِاللَّغْوِ فِٓي اَيْمَانِكُمْ وَلٰكِنْ يُؤَاخِذُكُمْ بِمَا كَسَبَتْ قُلُوبُكُمْ وَاللّٰهُ غَفُورٌ حَلِيمٌ",
+            "turkish": "Allah sizi kasıtsız yeminlerinizden sorumlu tutmaz. Lakin kasıtlı yaptığınız yeminlerinizden dolayı sizi sorumlu tutar. Allah gafurdur, halimdir.",
+            "english": "Allah does not impose blame upon you for what is unintentional in your oaths, but He imposes blame upon you for what your hearts have earned. And Allah is Forgiving and Forbearing"
+          },
+          "usageNoteTr": "'Allah hilm sahibidir; hemen yakalamaz.' Bu isim, insanın 'affedildim' zannına düşerek gaflete kapılmaması için 'aliyy' (yüce), 'gafûr' isimleriyle birlikte anılır. Hilm, tövbe için verilen süredir; sonsuz değildir.",
+          "usageNoteEn": "'God is Ḥalīm; He does not seize at once.' This name is paired with 'ʿAlī' (Exalted), 'Ghafūr' so that the servant does not fall into heedlessness thinking 'I've been forgiven.' Ḥilm is the time given for repentance; it is not endless."
+        }
+      ],
+      "nuanceTr": "'Gafûr' günahın üstünü örter; 'Afüvv' izlerini siler; 'Halîm' ise günah işlenirken cezayı ertelemektedir. Halîm 'süre verir', Gafûr 'örter', Afüvv 'iz bırakmaz'. Üçü de rahmetin ayrı bir aşamasıdır.",
+      "nuanceEn": "'Ghafūr' covers the sin; 'ʿAfuww' erases its traces; 'Ḥalīm' postpones punishment while the sin is being committed. Ḥalīm 'grants time,' Ghafūr 'covers,' ʿAfuww 'leaves no trace.' All three are separate stages of mercy.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('غ ف ر', 'ع ف و', 'ح ل م'); Gazâlî, el-Maksadü'l-Esnâ (Gafûr, Afüvv, Halîm maddeleri).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *gh-f-r*, *ʿ-f-w*, *ḥ-l-m*); al-Ghazālī, *al-Maqṣad al-Asnā* (entries on Ghafūr, ʿAfuww, Ḥalīm)."
+    },
+    {
+      "id": "sabir-cemil-musabere",
+      "category": "duruş",
+      "titleTr": "Sabr · Sabr-i Cemîl · Musâbere — Sabrın Üç Katmanı",
+      "titleEn": "Ṣabr · Ṣabr Jamīl · Muṣābara — Three Layers of Patience",
+      "introTr": "Kur'ân sabrı tek kalıpta bırakmaz. Sabr genel dayanma; sabr-i cemîl 'şikâyetsiz güzel sabır'; musâbere ise 'başkasıyla yarışırcasına birlikte sabretme'dir. Üçü de aşamalı: içeride kalmak, güzelleşmek, kolektif hâle gelmek.",
+      "introEn": "The Qur'an does not leave patience in a single mold. Ṣabr is general endurance; ṣabr jamīl is 'beautiful patience without complaint'; muṣābara is 'patience together, as if in competition.' All three are graduated: to remain within, to beautify, to become collective.",
+      "terms": [
+        {
+          "termAr": "الصَّبْر",
+          "termTr": "Sabr",
+          "termEn": "Ṣabr",
+          "rootTr": "ص-ب-ر (dayanmak, kendini tutmak)",
+          "rootEn": "ṣ-b-r (to endure, to restrain oneself)",
+          "meaningTr": "Sabr — 'dayanma' fiilinin temel biçimi. Zorluk anında iç dünyayı dağılmadan tutma. Kur'ân sabra 'yardım için başvurulacak iki şey'in biri olarak zikreder: 'Sabır ve namaz ile Allah'tan yardım isteyin' (Bakara 2:45).",
+          "meaningEn": "Ṣabr — the basic form of 'enduring.' Holding the inner world unshattered in the moment of hardship. The Qur'an mentions ṣabr as one of the 'two things to seek help through': 'Seek help through ṣabr and prayer' (Q 2:45).",
+          "verse": {
+            "verseRef": "Bakara 2:153",
+            "surah": 2,
+            "ayah": 153,
+            "arabic": "يَٓا اَيُّهَا الَّذِينَ اٰمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلٰوةِ اِنَّ اللّٰهَ مَعَ الصَّابِرِينَ",
+            "turkish": "Ey iman edenler! Sabır ve namaz ile Allah'tan yardım isteyin. Çünkü Allah muhakkak sabredenlerle beraberdir.",
+            "english": "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient"
+          },
+          "usageNoteTr": "Sabr, sırf dayanma değildir; niyeti içerir. Sûfîler üç tür sabr sayar: (1) mâsiyetten sabr (günahtan kaçınma), (2) tâatta sabr (ibadeti sürdürme), (3) musîbete sabr (belâya katlanma).",
+          "usageNoteEn": "Ṣabr is not mere endurance; it includes intention. Sufis distinguish three kinds: (1) ṣabr from sin (avoiding transgression), (2) ṣabr in obedience (sustaining worship), (3) ṣabr in affliction (bearing trials)."
+        },
+        {
+          "termAr": "صَبْرٌ جَمِيل",
+          "termTr": "Sabr-ı Cemîl",
+          "termEn": "Ṣabr Jamīl",
+          "rootTr": "ص-ب-ر + ج-م-ل (güzel)",
+          "rootEn": "ṣ-b-r + j-m-l (beautiful)",
+          "meaningTr": "Sabr-ı Cemîl — 'şikâyetsiz, sitem-siz sabr'. Kur'ân bu terkibi iki yerde kullanır: Hz. Yakûb oğullarının Yûsuf'u kaybettiği haberi karşısında 'artık bana düşen güzel bir sabırdır' (Yûsuf 12:18) der. Peygamber'e de aynı sabr emredilir (Meâric 70:5).",
+          "meaningEn": "Ṣabr Jamīl — 'patience without complaint or reproach.' The Qur'an uses this compound twice: Jacob, on receiving news of the loss of Joseph, says 'what falls to me now is a beautiful patience' (Q 12:18). The same ṣabr is commanded to the Prophet (Q 70:5).",
+          "verse": {
+            "verseRef": "Yûsuf 12:18",
+            "surah": 12,
+            "ayah": 18,
+            "arabic": "وَجَٓاؤُ عَلٰى قَمِيصِهِ بِدَمٍ كَذِبٍ قَالَ بَلْ سَوَّلَتْ لَكُمْ اَنْفُسُكُمْ اَمْراً فَصَبْرٌ جَمِيلٌ وَاللّٰهُ الْمُسْتَعَانُ عَلٰى مَا تَصِفُونَ",
+            "turkish": "Gömleğinin üstünde sahte bir kan ile geldiler. (Yakub) dedi ki: Bilakis nefisleriniz size (kötü) bir işi güzel gösterdi. Artık (bana düşen) hakkıyla sabretmektir. Anlattığınız karşısında (bana) yardım edecek olan, ancak Allah'tır.",
+            "english": "And they brought upon his shirt false blood. [Jacob] said, \"Rather, your souls have enticed you to something, so patience is most fitting. And Allah is the one sought for help against that which you describe"
+          },
+          "usageNoteTr": "Sabr-ı Cemîl'in ayırıcı özelliği: içindeki acıyı Allah'a şikâyet etmek serbest, insana şikâyet etmek yasak. Yakûb 'ancak Allah'a arz ederim kederimi' (12:86) derken sabrın 'cemîl'i tarif edilmiş olur.",
+          "usageNoteEn": "The distinctive mark of ṣabr jamīl: it is permitted to complain of one's pain to God, forbidden to complain to human beings. Jacob's 'I only present my grief to God' (Q 12:86) defines the 'beautiful' in patience."
+        },
+        {
+          "termAr": "المُصَابَرَة",
+          "termTr": "Musâbere",
+          "termEn": "Muṣābara",
+          "rootTr": "ص-ب-ر (mufâale babı — karşılıklı yarışma)",
+          "rootEn": "ṣ-b-r (mufāʿala pattern — reciprocal competition)",
+          "meaningTr": "Musâbere — 'birlikte, yarışırcasına sabretme'. Kur'ân'ın en ünlü ayeti: 'Ey iman edenler! Sabredin, musâbere edin, râbıta kurun (nöbet tutun), Allah'a takvâ edin' (Âl-i İmrân 3:200) — sabrın kolektif hâli. Tek başına değil, toplumun sabrına iştirak.",
+          "meaningEn": "Muṣābara — 'to be patient together, as if in competition.' The Qur'an's famous verse: 'O believers! Be patient, contend in patience (ṣābirū), stand firm (rābiṭū), and be mindful of God' (Q 3:200) — the collective form of ṣabr. Not alone, but participating in the patience of the community.",
+          "verse": {
+            "verseRef": "Âl-i İmrân 3:200",
+            "surah": 3,
+            "ayah": 200,
+            "arabic": "يَٓا اَيُّهَا الَّذِينَ اٰمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللّٰهَ لَعَلَّكُمْ تُفْلِحُونَ",
+            "turkish": "Ey iman edenler! Sabredin; (düşman karşısında) sebat göster",
+            "english": "O you who have believed, persevere and endure and remain stationed and fear Allah that you may be successful"
+          },
+          "usageNoteTr": "Musâbere, sabrı bireysel bir 'iç direnç'ten kolektif bir 'topluluk gücü'ne yükseltir. İmam Şâfiî: 'Musâbere düşmandan çok sabr etmektir; bekleyene öbürü teslim olur.' Bu sabr 'strateji' ile bezenmiştir.",
+          "usageNoteEn": "Muṣābara raises ṣabr from a personal 'inner resistance' to a collective 'communal strength.' Imam al-Shāfiʿī: 'Muṣābara is to be more patient than the enemy; the one who waits sees the other surrender.' This ṣabr is furnished with 'strategy.'"
+        }
+      ],
+      "nuanceTr": "'Sabr' iç dünyada dayanmadır; 'sabr-i cemîl' onu şikâyetsiz güzelleştirmedir; 'musâbere' bir topluluk hâlinde birlikte dayanmadır. Yakûb'un Yûsuf'u beklerken tuttuğu tavır sabr-i cemîl'in özüdür; Uhud'da kayaya sarılıp 'geri dönmeyeceğiz' diyen sahabînin duruşu musâbere'dir.",
+      "nuanceEn": "'Ṣabr' is inner endurance; 'ṣabr jamīl' is its complaint-free beautification; 'muṣābara' is enduring together as a community. Jacob's stance while awaiting Joseph exemplifies ṣabr jamīl; the Companion's stance at Uḥud, clinging to a rock and saying 'we will not retreat,' is muṣābara.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('ص ب ر', 'ج م ل'); İbn Kayyim, ʿUddetü's-Sâbirîn (Sabir Ehlinin Erzaki).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *ṣ-b-r*, *j-m-l*); Ibn Qayyim, *ʿUddat al-Ṣābirīn*."
+    },
+    {
+      "id": "takva-birr-ihsan",
+      "category": "erdem",
+      "titleTr": "Takvâ · Birr · İhsan — Erdemin Üç Basamağı",
+      "titleEn": "Taqwā · Birr · Iḥsān — Three Levels of Virtue",
+      "introTr": "Kur'ân'ın erdem sözlüğünde üç ayrı 'iyi olma' vardır: takvâ 'sakınmak', birr 'kâmil iyilik', ihsân 'her şeyi güzel yapmak'. Aynı iyilik üç kelime ile üç yüksekliğe yayılır — hepsi mü'minden istenir ama derece derece.",
+      "introEn": "In the Qur'an's virtue vocabulary there are three separate 'goodnesses': taqwā 'mindfulness/avoidance,' birr 'complete righteousness,' iḥsān 'to do everything beautifully.' The same good spreads across three heights in three words — all are asked of the believer, but by degrees.",
+      "terms": [
+        {
+          "termAr": "التَّقْوَى",
+          "termTr": "Takvâ",
+          "termEn": "Taqwā",
+          "rootTr": "و-ق-ي (korunmak, siper etmek)",
+          "rootEn": "w-q-y (to guard, to shield)",
+          "meaningTr": "Takvâ — 'Allah'a karşı iç sakınma'. Zararı önleyecek ilk yüksekliktir: yasağa yaklaşmama, emri terk etmeme. 'Diken tarlasında yürüyen adamın eteğini toplaması gibi' der Ömer bin Hattâb.",
+          "meaningEn": "Taqwā — 'inner mindfulness toward God.' The first height that prevents harm: not approaching the forbidden, not neglecting the commanded. 'Like a man walking through a field of thorns lifting his robe,' said ʿUmar b. al-Khaṭṭāb.",
+          "verse": {
+            "verseRef": "Hucurât 49:13",
+            "surah": 49,
+            "ayah": 13,
+            "arabic": "يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبَٓائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ",
+            "turkish": "Ey insanlar! Doğrusu biz sizi bir erkekle bir dişiden yarattık. Ve birbirinizle tanışmanız için sizi kavimlere ve kabilelere ayırdık. Muhakkak ki Allah yanında en değerli olanınız, O'ndan en çok korkanınızdır. Şüphesiz Allah bilendir, her şeyden haberdardır.",
+            "english": "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you. Indeed, Allah is Knowing and Acquainted"
+          },
+          "usageNoteTr": "Takvâ Kur'ân'da mü'minin ölçüsüdür (Hucurât 49:13). 'Zengin, güçlü, âlim' değil, en 'takvâ sahibi' olan Allah katında en üstündür.",
+          "usageNoteEn": "In the Qur'an taqwā is the measure of a believer (Q 49:13). Not 'the rich, the strong, the learned,' but the most 'taqwā-possessing' is highest before God."
+        },
+        {
+          "termAr": "البِرّ",
+          "termTr": "Birr",
+          "termEn": "Birr",
+          "rootTr": "ب-ر-ر (kapsamlı iyilik)",
+          "rootEn": "b-r-r (comprehensive righteousness)",
+          "meaningTr": "Birr — 'toplam iyilik'. Sadece Allah'a karşı değil, ana-babaya, akrabaya, yetime, komşuya, malını dahi harcamaya kadar uzanan geniş erdem. Bakara 177 birr'in Kur'ân'daki en uzun tanımıdır: iman + iyi amel + adalet + sabır.",
+          "meaningEn": "Birr — 'total righteousness.' Extending not only toward God but to parents, kin, orphans, neighbors, even the giving of one's wealth. Q 2:177 is the Qur'an's longest definition of birr: faith + good deed + justice + patience.",
+          "verse": {
+            "verseRef": "Bakara 2:177",
+            "surah": 2,
+            "ayah": 177,
+            "arabic": "لَيْسَ الْبِرَّ اَنْ تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلٰكِنَّ الْبِرَّ مَنْ اٰمَنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَالْمَلٰٓئِكَةِ وَالْكِتَابِ وَالنَّبِيِّنَ وَاٰتَى الْمَالَ عَلٰى حُبِّهِ ذَوِي الْقُرْبٰى وَالْيَتَامٰى وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّٓائِلِينَ وَفِي الرِّقَابِ وَاَقَامَ الصَّلٰوةَ وَاٰتَى الزَّكٰوةَ وَالْمُوفُونَ بِعَهْدِهِمْ اِذَا عَاهَدُوا وَالصَّابِرِينَ فِي الْبَأْسَٓاءِ وَالضَّرَّٓاءِ وَحِينَ الْبَأْسِ اُولٰٓئِكَ الَّذِينَ صَدَقُوا وَاُولٰٓئِكَ هُمُ الْمُتَّقُونَ",
+            "turkish": "İyilik, yüzlerinizi doğu ve batı tarafına çevirmeniz değildir. Asıl iyilik, o kimsenin yaptığıdır ki, Allah'a, ahiret gününe, meleklere, kitaplara, peygamberlere inanır. (Allah'ın rızasını gözeterek) yakınlara, yetimlere, yoksullara, yolda kalmışlara, dilenenlere ve kölelere sevdiği maldan harcar, namaz kılar, zekat verir. Antlaşma yaptığı zaman sözlerini yerine getirir. Sıkıntı, hastalık ve savaş zamanlarında sabreder. İşte doğru olanlar, bu vasıfları taşıyanlardır. Müttakiler ancak onlardır!",
+            "english": "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets and gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; [and who] establishes prayer and gives zakah; [those who] fulfill their promise when they promise; and [those who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous"
+          },
+          "usageNoteTr": "Birr'in 'Berr' formu (Allah'ın ismi) 'her iyiliği sonsuz veren' anlamındadır. Kul için birr, 'Berr'in gölgesinde bir yansımadır: iyilik yapmak, iyiliğe iyilikle karşılık vermek, kötülüğe iyilikle karşılık vermek.",
+          "usageNoteEn": "The 'Barr' form of birr (a Name of God) means 'the One who bestows every goodness infinitely.' For the servant, birr is a reflection under the shade of 'al-Barr': to do good, to return good with good, to return evil with good."
+        },
+        {
+          "termAr": "الإِحْسَان",
+          "termTr": "İhsan",
+          "termEn": "Iḥsān",
+          "rootTr": "ح-س-ن (güzel yapmak, güzelleştirmek)",
+          "rootEn": "ḥ-s-n (to do beautifully, to beautify)",
+          "meaningTr": "İhsan — 'her yaptığını güzel yapmak' + 'daha fazlasını vermek'. Sadece sorumluluğu ödemek değil, üzerine güzellik katmak. Cibrîl hadisi tanımını verir: 'Allah'a onu görüyormuş gibi ibâdet etmen — sen O'nu görmüyorsan da O seni görüyor' (Buhârî, İman 37).",
+          "meaningEn": "Iḥsān — 'to make every act beautiful' + 'to give beyond what is due.' Not merely paying one's responsibility but adding beauty. The Ḥadīth of Jibrīl gives the definition: 'To worship God as if you see Him; and if you do not see Him, He surely sees you' (Bukhārī, Īmān 37).",
+          "verse": {
+            "verseRef": "Nahl 16:90",
+            "surah": 16,
+            "ayah": 90,
+            "arabic": "اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتَٓائِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشَٓاءِ وَالْمُنْكَرِ وَالْبَغْيِ  يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ",
+            "turkish": "Muhakkak ki Allah, adaleti, iyiliği, akrabaya yardım etmeyi emreder, çirkin işleri, fenalık ve azgınlığı da yasaklar. O, düşünüp tutasınız diye size öğüt veriyor.",
+            "english": "Indeed, Allah orders justice and good conduct and giving to relatives and forbids immorality and bad conduct and oppression. He admonishes you that perhaps you will be reminded"
+          },
+          "usageNoteTr": "Nahl 16:90 üç emri toplar: 'adl (adalet, gerekeni ödeme), ihsan (üzerine güzellik katma), zî'l-kurbâya vermek'. İhsân adaletin ötesindedir — hak edenden fazlasını verir. Erdemin zirvesidir.",
+          "usageNoteEn": "Q 16:90 gathers three commands: 'ʿadl (justice, paying what is due), iḥsān (adding beauty beyond it), giving to kin.' Iḥsān is beyond justice — it gives more than the deserving deserves. The peak of virtue."
+        }
+      ],
+      "nuanceTr": "Takvâ 'kötüden korumak', birr 'iyiliği kapsamlı yapmak', ihsan 'her şeyi güzelleştirmek'tir. Bir mü'min birine borcunu ödediğinde takvâ, dost bir tebessümle uzattığında birr, borcun üstüne bir hediye eklediğinde ihsân yapar. Üçü aynı iyiliğin farklı yüksekliğidir.",
+      "nuanceEn": "Taqwā 'guards from evil,' birr 'makes goodness comprehensive,' iḥsān 'beautifies everything.' A believer paying a debt performs taqwā; extending it with a friendly smile, birr; adding a gift on top of the debt, iḥsān. Three heights of the same goodness.",
+      "sourceTr": "el-İsfahânî, el-Müfredât ('و ق ي', 'ب ر ر', 'ح س ن'); İbn Kayyim, Medâricü's-Sâlikîn (bâbü'l-birr).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (entries *w-q-y*, *b-r-r*, *ḥ-s-n*); Ibn Qayyim, *Madārij al-Sālikīn* (chapter on birr)."
+    },
+    {
+      "id": "cehennemin-isimleri",
+      "category": "ahiret",
+      "titleTr": "Cehennem'in Beş İsmi — Cehennem · Cehîm · Sakar · Lezâ · Hutame",
+      "titleEn": "Five Names of Hell — Jahannam · Jaḥīm · Saqar · Laẓā · Ḥuṭama",
+      "introTr": "Kur'ân cehennemi tek kelimeyle tanıtmaz — beş ayrı isim kullanır ve her isim ateşin farklı bir katmanına, farklı bir azabına işaret eder. İsim seçimi ceza tipini işaret eder: kimin, ne için, hangi katmanda azâp göreceği bu isimlerle kodlanır.",
+      "introEn": "The Qur'an does not name Hell with a single word — it uses five distinct names, each pointing to a different layer of the fire, a different torment. The choice of name marks the type of punishment: who, for what, in which layer will be tormented — encoded through these names.",
+      "terms": [
+        {
+          "termAr": "جَهَنَّم",
+          "termTr": "Cehennem",
+          "termEn": "Jahannam",
+          "rootTr": "İbranice/Süryânice 'derin vadi' asıllı; Arapçada ج-ه-م ('kapalı, karanlık')",
+          "rootEn": "From Heb./Aram. 'deep valley'; in Arabic j-h-m ('closed, dark')",
+          "meaningTr": "Cehennem — genel isim, çoğu zaman Kur'ân'da 'Cehennem' geçer (77 defa). Yedi kapılı (Hicr 15:44), derin bir vadi imgesi. Cehennemin 'toplu adı'dır — diğer dört isim onun katmanlarını gösterir.",
+          "meaningEn": "Jahannam — the general name, most often occurring in the Qur'an (77 times). Imaged as a deep valley with seven gates (Q 15:44). The 'collective name' of Hell — the four other names indicate its layers.",
+          "verse": {
+            "verseRef": "Hicr 15:44",
+            "surah": 15,
+            "ayah": 44,
+            "arabic": "لَهَا سَبْعَةُ اَبْوَابٍ لِكُلِّ بَابٍ مِنْهُمْ جُزْءٌ مَقْسُومٌ",
+            "turkish": "Cehennemin yedi kapısı vardır. Onlardan her kapı için birer gurup ayrılmıştır.",
+            "english": "It has seven gates; for every gate is of them a portion designated"
+          },
+          "usageNoteTr": "Cehennem'in yedi kapısı, klasik tefsirde yedi tabakayı temsil eder. Her tabakada farklı bir topluluk (münâfık, kâfir, mecûsî, sâbiî, yahûdî, hristiyan, mü'min-günahkâr) — İbn Kesîr, Hicr 15:44 tefsiri.",
+          "usageNoteEn": "Jahannam's seven gates represent, in classical tafsir, seven levels. Each level houses a different group (hypocrites, deniers, Zoroastrians, Sabians, Jews, Christians, sinful believers) — Ibn Kathīr on Q 15:44."
+        },
+        {
+          "termAr": "الجَحِيم",
+          "termTr": "Cehîm",
+          "termEn": "Jaḥīm",
+          "rootTr": "ج-ح-م (şiddetle tutuşmak)",
+          "rootEn": "j-ḥ-m (to blaze fiercely)",
+          "meaningTr": "Cehîm — 'şiddetle tutuşmuş ateş'. Ateşin en azgın hâlini gösterir. 26 defa geçer, çoğunlukla mü'min olmayanların ısınma değil, yakınma katmanı için: 'Sonra o cehîm'e sürükleyin!' (Duhân 44:47).",
+          "meaningEn": "Jaḥīm — 'the fiercely blazing fire.' Denotes the fire's most raging state. Appears 26 times, mostly for the layer of the deniers' 'not warming but wailing': 'Then drag him into the jaḥīm!' (Q 44:47).",
+          "verse": {
+            "verseRef": "Duhân 44:47",
+            "surah": 44,
+            "ayah": 47,
+            "arabic": "خُذُوهُ فَاعْتِلُوهُ اِلٰى سَوَٓاءِ الْجَحِيمِ",
+            "turkish": "(Allah zebanilere emreder): Tutun onu! Cehennemin ortasına sürükleyin!",
+            "english": "[It will be commanded], \"Seize him and drag him into the midst of the Hellfire"
+          },
+          "usageNoteTr": "Cehîm, 'ateşin verimini' gösterir — sabit yanma değil, artan öfke. İbn Kayyim: cehîm 'kalpten çıkan alevle beslenir'.",
+          "usageNoteEn": "Jaḥīm indicates the 'fire's yield' — not steady burning but rising fury. Ibn Qayyim: 'Jaḥīm is fed by the flame that issues from the heart.'"
+        },
+        {
+          "termAr": "سَقَر",
+          "termTr": "Sakar",
+          "termEn": "Saqar",
+          "rootTr": "س-ق-ر (yakmak, kavurmak)",
+          "rootEn": "s-q-r (to burn, to scorch)",
+          "meaningTr": "Sakar — 'kavurucu ateş'. Sadece dış deriyi değil, iç kemiği de yakan. Müddessir sûresinde uzun uzun anlatılır: 'Sakar nedir? Ne bir eser bırakır, ne de bırakmaz. Ne can, ne mal, ne de saklama' (74:27-29).",
+          "meaningEn": "Saqar — 'the scorching fire.' It burns not only outer skin but inner bone. Described at length in al-Muddaththir: 'What can convey to you what Saqar is? It leaves nothing, spares nothing — no soul, no wealth, no concealment' (Q 74:27-29).",
+          "verse": {
+            "verseRef": "Müddessir 74:42",
+            "surah": 74,
+            "ayah": 42,
+            "arabic": "مَا سَلَـكَكُمْ فِي سَقَرَ",
+            "turkish": "\"Sizi şu yakıcı ateşe sokan nedir?\" diye",
+            "english": "[And asking them], \"What put you into Saqar"
+          },
+          "usageNoteTr": "Sakar, iman etmeden namaz kılmayan, yoksulu doyurmayan, dalıp dünyaya batanların katmanıdır (Müddessir 74:43-46). Sûre bu isim 'kime, ne için' sorusunun cevabını verir.",
+          "usageNoteEn": "Saqar is the layer for those who did not pray without faith, did not feed the poor, plunged into the world (Q 74:43-46). The sūra provides the answer to 'for whom, for what' in this name."
+        },
+        {
+          "termAr": "لَظَى",
+          "termTr": "Lezâ",
+          "termEn": "Laẓā",
+          "rootTr": "ل-ظ-ي (dilinden ateş çıkarmak, öfke ile alevlenmek)",
+          "rootEn": "l-ẓ-y (to spit tongues of fire, to flare with rage)",
+          "meaningTr": "Lezâ — 'dilini uzatan alev'. Sadece bir defa geçer (Meâric 70:15). Ateşin sanki 'canlı' bir varlıkmış gibi hedefine uzandığı görüntü. 'Derileri kavurucu, çağıran, arka çevireni' (70:15-17). Bu isim ateşin 'kişilik' katmanıdır.",
+          "meaningEn": "Laẓā — 'the fire that thrusts out its tongue.' Appears only once (Q 70:15). An image of the fire reaching toward its target as though 'alive.' 'Peeling the skin, calling out to whoever turned away' (Q 70:15-17). This name is the fire's 'personified' layer.",
+          "verse": {
+            "verseRef": "Meâric 70:15",
+            "surah": 70,
+            "ayah": 15,
+            "arabic": "كَلَّا اِنَّهَا لَظٰى",
+            "turkish": "Fakat ne mümkün! Bilinmeli ki, o (cehennem) alevlenen bir ateştir.",
+            "english": "No! Indeed, it is the Flame [of Hell]"
+          },
+          "usageNoteTr": "Lezâ, ateşin insana özel bir öfkeyle uzandığını gösterir. Klasik tefsirde 'bir avın peşinden koşan yırtıcı' benzetmesi kullanılır (Râzî, Meâric 70 tefsiri).",
+          "usageNoteEn": "Laẓā shows the fire reaching toward the human with a personal rage. In classical tafsir, the image of 'a predator pursuing its prey' is used (al-Rāzī on Q 70)."
+        },
+        {
+          "termAr": "الحُطَمَة",
+          "termTr": "Hutame",
+          "termEn": "al-Ḥuṭama",
+          "rootTr": "ح-ط-م (kırmak, parçalamak)",
+          "rootEn": "ḥ-ṭ-m (to break, to shatter)",
+          "meaningTr": "Hutame — 'kırıp parçalayan ateş'. Sadece yakmıyor; parçalıyor. Hümeze sûresinde tanımlanır: 'Bilir misin nedir Hutame? Allah'ın tutuşturulmuş ateşi, kalplerin üzerine çıkan' (104:5-7). Cehennemin 'iç ateşi' — kalbin çürümesinden kaynaklanan.",
+          "meaningEn": "al-Ḥuṭama — 'the fire that shatters as it burns.' Not only burning; shattering. Defined in al-Humaza: 'What can convey to you what al-Ḥuṭama is? God's kindled fire, rising over the hearts' (Q 104:5-7). Hell's 'inner fire' — arising from the rotting of the heart.",
+          "verse": {
+            "verseRef": "Hümeze 104:4-7",
+            "surah": 104,
+            "ayah": 4,
+            "arabic": "كَلَّا لَيُنْبَذَنَّ فِي الْحُطَمَةِ",
+            "turkish": "Hayır! Andolsun ki o, Hutame'ye atılacaktır.",
+            "english": "No! He will surely be thrown into the Crusher"
+          },
+          "usageNoteTr": "Hutame 'gıybet edenin, ayıp arayanın, servet biriktirip sayıp duranın' katmanıdır (Hümeze 104:1-3). Katmanın kaynağı iç: kalp çürümesi. Ateş 'kalplere' çıkar — dıştan değil.",
+          "usageNoteEn": "Al-Ḥuṭama is the layer for 'the slanderer, the fault-finder, the one hoarding and counting wealth' (Q 104:1-3). The source of this layer is inner: the rotting of the heart. The fire rises 'to the hearts' — not from without."
+        }
+      ],
+      "nuanceTr": "Aynı 'cehennem'in beş yüzü: 'Cehennem' toplu isim (yedi kapılı vadi), 'Cehîm' azgın ateş, 'Sakar' kavurucu ateş, 'Lezâ' dilini uzatan avcı ateş, 'Hutame' kalpten yükselen parçalayıcı ateş. Kur'ân hangi ismi seçerse o katmanı çağırır. Cehennemin 'çoğulluğu' rastgele değil — her günah kendi ateşine denk düşer.",
+      "nuanceEn": "Five faces of the same 'Hell': 'Jahannam' the collective name (a valley with seven gates), 'Jaḥīm' the raging fire, 'Saqar' the scorching fire, 'Laẓā' the hunter fire spitting its tongue, 'al-Ḥuṭama' the shattering fire that rises from the heart. Whichever name the Qur'an chooses, that layer is summoned. Hell's 'plurality' is not random — every sin meets its own fire.",
+      "sourceTr": "el-İsfahânî, el-Müfredât (ilgili maddeler); İbn Kayyim, Hâdi'l-Ervâh ilâ Bilâdi'l-Efrâh (cehennem isimleri); Râzî, Mefâtîh (Müddessir, Meâric, Hümeze tefsirleri).",
+      "sourceEn": "al-Iṣfahānī, *al-Mufradāt* (relevant entries); Ibn Qayyim, *Ḥādī al-Arwāḥ* (names of Hell); al-Rāzī, *Mafātīḥ* (on al-Muddaththir, al-Maʿārij, al-Humaza)."
+    }
+  ],
+  "sources": [
+    {
+      "author": "er-Râgıb el-İsfahânî",
+      "workTr": "el-Müfredât fî Ğarîbi'l-Kur'ân",
+      "workEn": "al-Mufradāt fī Gharīb al-Qurʾān",
+      "period": "11. yy (ölm. 1108/9)"
+    },
+    {
+      "author": "İbn Kayyim el-Cevziyye",
+      "workTr": "et-Tıbyân fî Eymâni'l-Kur'ân",
+      "workEn": "al-Tibyān fī Aymān al-Qurʾān",
+      "period": "1292-1350 (Şam)"
+    },
+    {
+      "author": "Fahreddin er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb (Tefsîr-i Kebîr)",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "1149-1209 (Rey)"
+    },
+    {
+      "author": "Toshihiko İzutsu",
+      "workTr": "Kur'an'da Allah ve İnsan · Kur'an'da Dinî-Ahlâkî Kavramlar",
+      "workEn": "God and Man in the Qurʾān · Ethico-Religious Concepts in the Qurʾān",
+      "period": "1959-1966 (Tokyo/McGill)"
+    }
+  ]
+}

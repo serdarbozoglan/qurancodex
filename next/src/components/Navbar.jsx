@@ -609,6 +609,8 @@ export default function Navbar() {
     openElestirelCerceve: '/arac/elestirel-cerceve',
     openNedenSonuc:      '/arac/neden-sonuc',
     openKitapKavrami:    '/arac/kitap-kavrami',
+    // #210 (2026-07-21) — Yakın Anlamlı Nüanslar
+    openYakinAnlamliNuanslar: '/arac/yakin-anlamli-nuanslar',
   };
   // Backwards-compat alias — bazı yerlerde TOOL_TRIGGERS kullanıyor olabilir.
   const TOOL_TRIGGERS = Object.fromEntries(
