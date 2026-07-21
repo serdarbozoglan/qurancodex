@@ -781,6 +781,7 @@ export default function Navbar() {
                       zaman:       '/arac/zaman-boyutlari',
                       melekler:    '/arac/melekler',
                       ahiretYolculugu: '/atlas/ahiret-yolculugu',
+                      insanYolculugu:  '/atlas/insan-yolculugu',
                       kiyamet:     '/arac/kiyamet',
                       cennet:      '/arac/cennet-cehennem',
                       sunnetullah: '/atlas/sunnetullah',
@@ -1742,7 +1743,7 @@ export default function Navbar() {
             const OVERLAY_ROUTE_MOBILE = {
               renkler:'/arac/renkler', yeminler:'/arac/yeminler', kavimler:'/atlas/kavim',
               kevni:'/atlas/doga', zaman:'/arac/zaman-boyutlari', melekler:'/arac/melekler',
-              ahiretYolculugu:'/atlas/ahiret-yolculugu',
+              ahiretYolculugu:'/atlas/ahiret-yolculugu', insanYolculugu:'/atlas/insan-yolculugu',
               kiyamet:'/arac/kiyamet', cennet:'/arac/cennet-cehennem', sunnetullah:'/atlas/sunnetullah',
               munafik:'/atlas/munafik', nefis:'/atlas/nefs-mertebeleri', iblisSatan:'/arac/iblis-seytan',
               kadinlar:'/atlas/kadinlar', ilkSon:'/arac/ilk-son-kelimeler', mukattaa:'/arac/mukattaa',

@@ -63543,5 +63543,60 @@
     "hash": "a8dbdab61ee594d4",
     "embeddedAt": "2026-07-21T22:24:24.722Z",
     "type": "sunnetullah-ulema"
+  },
+  "insan-yolculugu:fitrat": {
+    "hash": "62b50d16e9111dd9",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:uyanis": {
+    "hash": "4ba5d9c0306eda7e",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:iman": {
+    "hash": "0599bf9e6886faeb",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:amel": {
+    "hash": "3e75e309c772e5d6",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:takva": {
+    "hash": "4b1bc8477d22bc3a",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:ihsan": {
+    "hash": "6ddeec6d701abbf4",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:kalb-i-selim": {
+    "hash": "74925772a278887e",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:husn-i-hatime": {
+    "hash": "2773a8f578c3d819",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:rida": {
+    "hash": "4cf2f3d86dd36621",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "insan-yolculugu:cemalullah": {
+    "hash": "c9029fa1a224021c",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "insan-yolculugu-stage"
+  },
+  "tool:/atlas/insan-yolculugu": {
+    "hash": "fe77407f1b84e68a",
+    "embeddedAt": "2026-07-21T22:44:04.046Z",
+    "type": "tool"
   }
 }

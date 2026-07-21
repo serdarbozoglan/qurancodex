@@ -218,6 +218,15 @@ const LadderIcon = ({ size = 18 }) => (
   </svg>
 );
 
+// PathStepsIcon — çıkan patika üzerinde 4 basamak (İnsan Yolculuğu için).
+// Diagonal ascending steps: aşamalı olgunlaşma sembolü.
+const PathStepsIcon = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 20h4v-4h4v-4h4V8h4V4" />
+    <circle cx="21" cy="4" r="1.5" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 // İlk ve Son Kelimeler — bridge: iki dolgu nokta + bunları birleştiren arc/yay
 // (sayfanın "ilk kelime ile son kelime arasındaki köprü" temasını semantik anlatır)
 const BookendsIcon = ({ size = 18 }) => (
@@ -426,6 +435,15 @@ export const EXPLORE_CATEGORIES = [
         titleTr: 'Nefis Mertebeleri',     titleEn: 'Stations of the Self',
         descTr: '3 Kur\'ânî + 4 tasavvufî basamak',
         descEn: '3 Qur\'anic + 4 Sufi stations',
+      },
+      {
+        id:     'insanYolculugu',
+        kind:   'overlay',
+        target: 'insanYolculugu',
+        icon:   PathStepsIcon,
+        titleTr: 'İnsan Yolculuğu',       titleEn: 'The Human Journey',
+        descTr: "Fıtrattan Cemâlullah'a · 10 aşama",
+        descEn: 'From Fiṭra to Jamāl Allāh · 10 stages',
       },
       {
         id:     'iblisSatan',

@@ -537,6 +537,34 @@ export const CONTENT_SOURCES = [
     },
   },
 
+  // ─── İnsan Yolculuğu Atlası (10 aşama) — 2026-07-21 §13.22 pipeline
+  // Fıtrat → Uyanış → İman → Sâlih Amel → Takvâ → İhsan → Kalb-i Selîm →
+  // Hüsn-i Hâtime → Rızâ → Cemâlullah. Concierge: "fıtrat nedir",
+  // "ihsan nasıl olur", "kalb-i selîm", "cemâlullah ru'yetullâh", ...
+  {
+    type: 'insan-yolculugu-stage',
+    file: 'public/insan-yolculugu.json',
+    extract: (data) => data.stages || [],
+    buildItem: (s) => {
+      const anchorRef = s.anchor?.verseRef || '';
+      const anchorTr = s.anchor?.turkish || '';
+      const anchorEn = s.anchor?.english || '';
+      const supportRefs = (s.supportingVerses || []).map(v => v.verseRef).join(', ');
+      return {
+        id: `insan-yolculugu:${s.id}`,
+        type: 'insan-yolculugu-stage',
+        subId: s.id,
+        arabic: s.arabicTerm || '',
+        titleTr: s.titleTr || '',
+        titleEn: s.titleEn || '',
+        descTr: (s.essenceTr || '').slice(0, 200),
+        descEn: (s.essenceEn || '').slice(0, 200),
+        searchTextTr: `İnsan Yolculuğu Aşama ${s.order}: ${s.titleTr} (${s.arabicTerm}). Öz: ${s.essenceTr || ''} Ana ayet ${anchorRef}: ${anchorTr}. Destek ayetler: ${supportRefs}. Pratik: ${s.practiceTr || ''} Engel: ${s.obstacleTr || ''} Sıradaki: ${s.nextTr || ''}`.slice(0, 5000),
+        searchTextEn: `Human Journey Stage ${s.order}: ${s.titleEn} (${s.arabicTerm}). Essence: ${s.essenceEn || ''} Anchor verse ${anchorRef}: ${anchorEn}. Supporting: ${supportRefs}. Practice: ${s.practiceEn || ''} Obstacle: ${s.obstacleEn || ''} Next: ${s.nextEn || ''}`.slice(0, 5000),
+      };
+    },
+  },
+
   // ─── Sünnetullah Atlası (12 kanun + 10 kavim + 12 ulema) — 2026-07-21 §13.22 pipeline
   // Kur'ân'ın "değişmez ilâhî yasa" (sünnetullah) mimarisi: helâk/yardım/imtihan
   // /istidrâc/tedrîc/değişim/duâ-icâbet vb. + Nûh, Âd, Sebe', Uhdûd kavimleri
@@ -978,6 +1006,7 @@ export const TOOL_CATALOG = [
   { route: '/arac/mukattaa', titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt Letters', descTr: '14 mukattaa harfi, 29 sûre açılışı, dilsel şifre.', descEn: '14 mukattaʿāt letters, 29 sura openings, linguistic cipher.', keywords: ['mukattaa', 'huruf', 'sifre', 'harfler'] },
   { route: '/arac/kiyamet', titleTr: 'Kıyâmet Sahneleri', titleEn: 'Judgment Day Scenes', descTr: 'Ölüm sonrası, berzah, hesap günü, cennet, cehennem.', descEn: 'After death, barzakh, day of reckoning, heaven, hell.', keywords: ['kiyamet', 'olum', 'ahiret', 'berzah', 'hesap'] },
   { route: '/atlas/ahiret-yolculugu', titleTr: 'Âhiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü\'yetullâh — 11 kronolojik aşama + klasik tefsir çeşitliliği.', descEn: 'Sakarat, barzakh, trumpet, gathering, scales, basin-intercession, bridge, heaven-hell, vision of God — 11 chronological stages with classical tafsir plurality.', keywords: ['ahiret', 'sekerat', 'berzah', 'kabir', 'mahser', 'mizan', 'havz', 'sefaat', 'sirat', 'ruyetullah', 'olum', 'diriliş', 'nefha', 'eskatoloji'] },
+  { route: '/atlas/insan-yolculugu', titleTr: 'İnsan Yolculuğu Atlası', titleEn: 'The Human Journey Atlas', descTr: 'Fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah — 10 aşamalı manevî olgunlaşma haritası.', descEn: 'Fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God — 10-stage spiritual maturation map.', keywords: ['insan', 'yolculuk', 'fitrat', 'iman', 'takva', 'ihsan', 'kalb-i selim', 'ruyetullah', 'cemalullah', 'nefis', 'olgunlasma', 'manevi', 'huzn-i hatime', 'riza', 'uyanis'] },
   { route: '/arac/cennet-cehennem', titleTr: 'Cennet & Cehennem', titleEn: 'Heaven & Hell', descTr: 'Cennet ve cehennem tasvirleri, sahneler, kavramsal harita.', descEn: 'Descriptions of paradise and hell, scenes, conceptual map.', keywords: ['cennet', 'cehennem', 'firdevs', 'cahim'] },
   { route: '/arac/melekler', titleTr: 'Melekler', titleEn: 'Angels', descTr: 'Cebrail, Mikail, İsrafil, Azrail, hafaza melekleri.', descEn: 'Gabriel, Michael, Israfil, Azrael, guardian angels.', keywords: ['melek', 'cebrail', 'mikail', 'israfil', 'azrail'] },
   { route: '/arac/iblis-seytan', titleTr: 'İblis & Şeytan', titleEn: 'Iblis & Satan', descTr: 'İblis\'in düşüşü, vesvese kanalları, klasik tipoloji.', descEn: 'Fall of Iblis, whisper channels, classical typology.', keywords: ['iblis', 'seytan', 'vesvese', 'nifak'] },

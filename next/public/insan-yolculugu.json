@@ -1,0 +1,481 @@
+{
+  "meta": {
+    "totalStages": 10,
+    "titleTr": "İnsan Yolculuğu Atlası",
+    "titleEn": "The Human Journey Atlas",
+    "generatedDate": "2026-07-21",
+    "sourceDraft": "curated 10-stage Qurʾānic spiritual maturation cycle — from Fiṭra to Jamāl Allāh"
+  },
+  "intro": {
+    "titleTr": "İnsan Yolculuğu",
+    "titleEn": "The Human Journey",
+    "subtitleTr": "Fıtrattan Cemâlullah'a — Kur'ân'ın çizdiği manevî olgunlaşma haritası",
+    "subtitleEn": "From Fiṭra to Jamāl Allāh — the map of spiritual maturation drawn by the Qur'an",
+    "descTr": "Kur'ân insanı 10 aşamalı bir yolculuğun mumu olarak anlatır: doğuştaki fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ ve nihayetinde Cemâlullah'ı görmek. Her aşama bir öncekinden doğar; hiçbiri atlanmadan geçilmez.",
+    "descEn": "The Qur'an narrates the human being as the candle of a 10-stage journey: the primordial fiṭra at birth, awakening, faith, righteous deed, taqwā, iḥsān, the sound heart, a good ending, mutual contentment, and finally to gaze upon God's Beauty. Each stage is born from the previous; none is skipped."
+  },
+  "stages": [
+    {
+      "id": "fitrat",
+      "order": 1,
+      "titleTr": "Fıtrat",
+      "titleEn": "Fiṭra (The Primordial Nature)",
+      "arabicTerm": "الفِطْرَة",
+      "iconMode": "seed",
+      "color": "#c9a96e",
+      "essenceTr": "Doğuşta Allah'ın koyduğu iç eğilim — tevhide, adalete, güzelliğe meyilli olan asıl insan yapısı. Tüm yolculuk, bu ilk 'ayardan' sapmayı ve ona dönüşü anlatır.",
+      "essenceEn": "The inner disposition God placed at birth — the primordial human structure inclined to divine unity, justice, and beauty. The entire journey narrates our drift from this initial 'setting' and our return to it.",
+      "anchor": {
+        "verseRef": "Rûm 30:30",
+        "surah": 30,
+        "ayah": 30,
+        "arabic": "فَاَقِمْ وَجْهَكَ لِلدِّينِ حَنِيفاً فِطْرَتَ اللّٰهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا لَا تَبْدِيلَ لِخَلْقِ اللّٰهِ ذٰلِكَ الدِّينُ الْقَيِّمُ وَلٰكِنَّ اَكْثَرَ النَّاسِ لَا يَعْلَمُونَ",
+        "turkish": "(Resulüm!) Sen yüzünü hanif olarak dine, Allah insanları hangi fıtrat üzere yaratmış ise ona çevir. Allah'ın yaratışında değişme yoktur. İşte dosdoğru din budur; fakat insanların çoğu bilmezler.",
+        "english": "So direct your face toward the religion, inclining to truth. [Adhere to] the fitrah of Allah upon which He has created [all] people. No change should there be in the creation of Allah. That is the correct religion, but most of the people do not know"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "A'râf 7:172",
+          "surah": 7,
+          "ayah": 172,
+          "arabic": "وَاِذْ اَخَذَ رَبُّكَ مِنْ بَنِٓي اٰدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَاَشْهَدَهُمْ عَلٰٓى اَنْفُسِهِمْ اَلَسْتُ بِرَبِّكُمْ  قَالُوا بَلٰى شَهِدْنَا اَنْ تَقُولُوا يَوْمَ الْقِيٰمَةِ اِنَّا كُنَّا عَنْ هٰذَا غَافِلِينَ",
+          "turkish": "Kıyamet gününde, biz bundan habersizdik demeyesiniz diye Rabbin Adem oğullarından, onların bellerinden zürriyetlerini çıkardı, onları kendilerine şahit tuttu ve dedi ki: Ben sizin Rabbiniz değil miyim? (Onlar da), Evet (buna) şahit olduk, dediler.",
+          "english": "And [mention] when your Lord took from the children of Adam - from their loins - their descendants and made them testify of themselves, [saying to them], \"Am I not your Lord?\" They said, \"Yes, we have testified.\" [This] - lest you should say on the day of Resurrection, \"Indeed, we were of this unaware"
+        },
+        {
+          "verseRef": "Şems 91:7-8",
+          "surah": 91,
+          "ayah": 7,
+          "arabic": "وَنَفْسٍ وَمَا سَوّٰيهَا",
+          "turkish": "Nefse ve ona birtakım kabiliyetler verene,",
+          "english": "And [by] the soul and He who proportioned it"
+        }
+      ],
+      "practiceTr": "Fıtratı korumak: uyku, beslenme, kalb temizliği, çevre — insanın 'ilk hâline' zarar veren şeylerden uzak durmak. Ebu Hüreyre hadisi: 'Her doğan fıtrat üzere doğar; sonra anne-babası onu Yahudi, Hıristiyan veya Mecûsî yapar' (Buhârî, Cenâiz 92).",
+      "practiceEn": "Guarding the fiṭra: sleep, nourishment, purity of heart, environment — avoiding what harms the human's 'original state.' Ḥadīth of Abū Hurayra: 'Every child is born upon the fiṭra; then his parents make him a Jew, a Christian, or a Zoroastrian' (Bukhārī, Janāʾiz 92).",
+      "obstacleTr": "Çevre, kültür, alışkanlıklar — 'benim rengim de bu' diyerek fıtratın üstünü kapatmak. Modern okumada: dijital gürültü, sürekli uyarı, 'sessizliği kaybetmiş' zihin.",
+      "obstacleEn": "Environment, culture, habits — covering the fiṭra by saying 'this is just how I am.' In modern reading: digital noise, constant stimulation, the mind that has lost silence.",
+      "nextTr": "Uyanış — fıtrat sesi ilk defa duyulur.",
+      "nextEn": "Awakening — the voice of fiṭra is heard for the first time."
+    },
+    {
+      "id": "uyanis",
+      "order": 2,
+      "titleTr": "Uyanış (Tefekkür)",
+      "titleEn": "Awakening (Tafakkur)",
+      "arabicTerm": "التَّفَكُّر",
+      "iconMode": "sunrise",
+      "color": "#f0c98a",
+      "essenceTr": "İlk defa 'gerçekten neyim ben?' sorusunun kurulması. Kur'ân bu evreyi 'göklerin ve yerin yaratılışını tefekkür' olarak adlandırır — kâinatta bir düzen, düzende bir düzenleyici görme.",
+      "essenceEn": "The first genuine posing of 'what am I, really?' The Qur'an calls this stage 'reflecting upon the creation of the heavens and the earth' — perceiving order in the cosmos, and behind order, an Orderer.",
+      "anchor": {
+        "verseRef": "Âl-i İmrân 3:191",
+        "surah": 3,
+        "ayah": 191,
+        "arabic": "اَلَّذِينَ يَذْكُرُونَ اللّٰهَ قِيَاماً وَقُعُوداً وَعَلٰى جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمٰوَاتِ وَالْاَرْضِ رَبَّنَا مَا خَلَقْتَ هٰذَا بَاطِلاً سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ",
+        "turkish": "Onlar, ayakta dururken, otururken, yanları üzerine yatarken (her vakit) Allah'ı anarlar, göklerin ve yerin yaratılışı hakkında derin derin düşünürler (ve şöyle derler:) Rabbimiz! Sen bunu boşuna yaratmadın. Seni tesbih ederiz. Bizi cehennem azabındankoru!",
+        "english": "Who remember Allah while standing or sitting or [lying] on their sides and give thought to the creation of the heavens and the earth, [saying], \"Our Lord, You did not create this aimlessly; exalted are You [above such a thing]; then protect us from the punishment of the Fire"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Ğâşiye 88:17-20",
+          "surah": 88,
+          "ayah": 17,
+          "arabic": "اَفَلَا يَنْظُرُونَ اِلَى الْاِبِلِ كَيْفَ خُلِقَتْ",
+          "turkish": "(İnsanlar) devenin nasıl yaratıldığına, bakmazlar mı?",
+          "english": "Then do they not look at the camels - how they are created"
+        },
+        {
+          "verseRef": "Zâriyât 51:20-21",
+          "surah": 51,
+          "ayah": 21,
+          "arabic": "وَفِٓي اَنْفُسِكُمْ  اَفَلَا تُبْصِرُونَ",
+          "turkish": "Kendi nefislerinizde de öyle. Görmüyor musunuz?",
+          "english": "And in yourselves. Then will you not see"
+        }
+      ],
+      "practiceTr": "Günün bir vaktini 'düşünme' için ayırma — telefon kapalı, yalnız kalb ile. Sabah ışığı, bir yaprağın damarları, kendi eli. 'Nedir bu? Nereden? Neden?' sorularının cevabı bilgi değil, farkındalıktır.",
+      "practiceEn": "Setting aside a time each day for reflection — phone off, alone with the heart. Morning light, the veins of a leaf, one's own hand. The answers to 'What is this? Whence? Why?' are not information but awareness.",
+      "obstacleTr": "'Bu sorulara zamanım yok' — dünya işlerinin insanı 'düşünme boşluğundan' mahrum bırakması. Râzî: gaflet, uyanışın en büyük perdesidir.",
+      "obstacleEn": "'I have no time for these questions' — worldly business depriving one of the 'contemplation void.' Al-Rāzī: heedlessness is the greatest veil against awakening.",
+      "nextTr": "Uyanış cevabı istemeye başlar → İman.",
+      "nextEn": "Awakening begins to demand an answer → Faith."
+    },
+    {
+      "id": "iman",
+      "order": 3,
+      "titleTr": "İman (İçten Tasdik)",
+      "titleEn": "Īmān (Inner Affirmation)",
+      "arabicTerm": "الإيمَان",
+      "iconMode": "flame",
+      "color": "#3498db",
+      "essenceTr": "Kalbin 'evet, öyledir' demesi — sadece dil değil, iç varlığın tanıklığı. İman zihinsel bir kabul değil, hayatı yeniden düzenleyen bir merkez seçimi.",
+      "essenceEn": "The heart's saying 'yes, so it is' — not merely with the tongue, but with the witness of the inner being. Faith is not a mental acceptance but the choosing of a center that reorganizes life.",
+      "anchor": {
+        "verseRef": "Hucurât 49:14",
+        "surah": 49,
+        "ayah": 14,
+        "arabic": "قَالَتِ الْاَعْرَابُ اٰمَنَّا قُلْ لَمْ تُؤْمِنُوا وَلٰكِنْ قُولُٓوا اَسْلَمْنَا وَلَمَّا يَدْخُلِ الْاِيمَانُ فِي قُلُوبِكُمْ وَاِنْ تُطِيعُوا اللّٰهَ وَرَسُولَهُ لَا يَلِتْكُمْ مِنْ اَعْمَالِكُمْ شَيْـٔاً اِنَّ اللّٰهَ غَفُورٌ رَحِيمٌ",
+        "turkish": "Bedeviler \"İnandık\" dediler. De ki: Siz iman etmediniz, ama \"Boyun eğdik\" deyin. Henüz iman kalplerinize yerleşmedi. Eğer Allah'a ve elçisine itaat ederseniz, Allah işlerinizden hiçbir şeyi eksiltmez. Çünkü Allah çok bağışlayan, çok esirgeyendir.",
+        "english": "The bedouins say, \"We have believed.\" Say, \"You have not [yet] believed; but say [instead], 'We have submitted,' for faith has not yet entered your hearts. And if you obey Allah and His Messenger, He will not deprive you from your deeds of anything. Indeed, Allah is Forgiving and Merciful"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Bakara 2:285",
+          "surah": 2,
+          "ayah": 285,
+          "arabic": "اٰمَنَ الرَّسُولُ بِمَٓا اُنْزِلَ اِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ اٰمَنَ بِاللّٰهِ وَمَلٰٓئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ اَحَدٍ مِنْ رُسُلِهِ وَقَالُوا سَمِعْنَا وَاَطَعْنَا غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَصِيرُ",
+          "turkish": "Peygamber, Rabbi tarafından kendisine indirilene iman etti, müminler de (iman ettiler). Her biri Allah a, meleklerine, kitaplarına, peygamberlerine iman ettiler. \"Allah'ın peygamberlerinden hiçbiri arasında ayırım yapmayız. İşittik, itaat ettik. Ey Rabbimiz, affına sığındık! Dönüş sanadır\" dediler.",
+          "english": "The Messenger has believed in what was revealed to him from his Lord, and [so have] the believers. All of them have believed in Allah and His angels and His books and His messengers, [saying], \"We make no distinction between any of His messengers.\" And they say, \"We hear and we obey. [We seek] Your forgiveness, our Lord, and to You is the [final] destination"
+        },
+        {
+          "verseRef": "Enfâl 8:2",
+          "surah": 8,
+          "ayah": 2,
+          "arabic": "اِنَّمَا الْمُؤْمِنُونَ الَّذِينَ اِذَا ذُكِرَ اللّٰهُ وَجِلَتْ قُلُوبُهُمْ وَاِذَا تُلِيَتْ عَلَيْهِمْ اٰيَاتُهُ زَادَتْهُمْ اِيمَاناً وَعَلٰى رَبِّهِمْ يَتَوَكَّلُونَ",
+          "turkish": "Müminler ancak, Allah anıldığı zaman yürekleri titreyen, kendilerine Allah'ın ayetleri okunduğunda imanlarını artıran ve yalnız Rablerine dayanıp güvenen kimselerdir.",
+          "english": "The believers are only those who, when Allah is mentioned, their hearts become fearful, and when His verses are recited to them, it increases them in faith; and upon their Lord they rely"
+        }
+      ],
+      "practiceTr": "Kelime-i şehâdet'i içerden ve dikkatle söylemek. İbn Kayyim: iman iki kanatlıdır — kalbin tasdiki + amelin doğrulaması. Biri olmadan diğeri havada kalır.",
+      "practiceEn": "Reciting the shahāda from within, with attentiveness. Ibn Qayyim: faith has two wings — the heart's affirmation and the deeds' verification. One without the other hangs in the air.",
+      "obstacleTr": "Sözle iman, kalpte tereddüt — Hucurât 49:14: 'Bedeviler iman ettik dediler. De ki: iman etmediniz, ancak 'boyun eğdik' deyin, çünkü iman henüz kalplerinize girmedi.' Yüzeysel iman, denenmediği için kendini fark etmez.",
+      "obstacleEn": "Verbal faith with inner hesitation — Q 49:14: 'The Bedouins said, We have believed. Say, You have not believed; but say, We have submitted, for faith has not yet entered your hearts.' Superficial faith does not notice itself because it has not been tried.",
+      "nextTr": "İman iddiadan yaşayışa geçer → Amel.",
+      "nextEn": "Faith moves from claim to lived life → Practice."
+    },
+    {
+      "id": "amel",
+      "order": 4,
+      "titleTr": "Sâlih Amel",
+      "titleEn": "Righteous Deed (ʿAmal Ṣāliḥ)",
+      "arabicTerm": "العَمَل الصَّالِح",
+      "iconMode": "hands",
+      "color": "#4ade80",
+      "essenceTr": "İmanın vücut bulması — namaz, oruç, zekât, dürüstlük, iyilik. Kur'ân neredeyse her yerde 'iman' ile 'sâlih amel'i eşleştirir: iman gövde, amel yaprak. Yaprak yoksa gövdenin yaşadığı belli olmaz.",
+      "essenceEn": "Faith taking bodily form — prayer, fasting, zakāt, honesty, kindness. The Qur'an pairs 'faith' with 'righteous deed' almost everywhere: faith is trunk, deed is leaf. Without leaves, one cannot see whether the trunk is alive.",
+      "anchor": {
+        "verseRef": "Asr 103:3",
+        "surah": 103,
+        "ayah": 3,
+        "arabic": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+        "turkish": "Bundan ancak iman edip iyi ameller işleyenler, birbirlerine hakkı tavsiye edenler ve sabrı tavsiye edenler müstesnadır.",
+        "english": "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Bakara 2:25",
+          "surah": 2,
+          "ayah": 25,
+          "arabic": "وَبَشِّرِ الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ اَنَّ لَهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ كُلَّمَا رُزِقُوا مِنْهَا مِنْ ثَمَرَةٍ رِزْقاً قَالُوا هٰذَا الَّذِي رُزِقْنَا مِنْ قَبْلُ وَاُتُوا بِهِ مُتَشَابِهاً وَلَهُمْ فِيهَٓا اَزْوَاجٌ مُطَهَّرَةٌ وَهُمْ فِيهَا خَالِدُونَ",
+          "turkish": "İman edip iyi davranışlarda bulunanlara, içinden ırmaklar akan cennetler olduğunu müjdele! O cennetlerdeki bir meyveden kendilerine rızık olarak yedirildikçe: Bundan önce dünyada bize verilenlerdendir bu, derler. Bu rızıklar onlara (bazı yönlerden dünyadakine) benzer olarak verilmiştir. Onlar için cennette tertemiz eşler de vardır. Ve onlar orada ebedi kalıcılardır.",
+          "english": "And give good tidings to those who believe and do righteous deeds that they will have gardens [in Paradise] beneath which rivers flow. Whenever they are provided with a provision of fruit therefrom, they will say, \"This is what we were provided with before.\" And it is given to them in likeness. And they will have therein purified spouses, and they will abide therein eternally"
+        },
+        {
+          "verseRef": "Fussilet 41:33",
+          "surah": 41,
+          "ayah": 33,
+          "arabic": "وَمَنْ اَحْسَنُ قَوْلاً مِمَّنْ دَعَٓا اِلَى اللّٰهِ وَعَمِلَ صَالِحاً وَقَالَ اِنَّنِي مِنَ الْمُسْلِمِينَ",
+          "turkish": "(İnsanları) Allah'a çağıran, iyi iş yapan ve \"Ben müslümanlardanım\" diyenden kimin sözü daha güzeldir?",
+          "english": "And who is better in speech than one who invites to Allah and does righteousness and says, \"Indeed, I am of the Muslims"
+        }
+      ],
+      "practiceTr": "Farzların dikkatli edası + gizli iyilik alışkanlığı (kimsenin görmediği bir iyilik günde en az bir). Nursî Sözler'de: sâlih amel imanın 'hayat suyu'dur; onsuz iman 'kurumuş' kalır.",
+      "practiceEn": "Careful performance of obligations + a habit of hidden good (at least one good deed daily that no one sees). In Sözler, Nursī: righteous deed is the 'water of life' for faith; without it, faith 'dries up.'",
+      "obstacleTr": "Riya — amelin başkasına gösteriş için yapılması. Kur'ân bunu 'ateşle üstü kaplanmış hava' (Nûr 24:39) benzetmesiyle anar: dış parlar, iç boştur.",
+      "obstacleEn": "Riyāʾ (ostentation) — performing the deed for others' sight. The Qur'an likens this to 'air covered with fire' (Q 24:39): the outside gleams, the inside is empty.",
+      "nextTr": "Amel içeride kök salınca → Takvâ.",
+      "nextEn": "When deed strikes root within → Taqwā."
+    },
+    {
+      "id": "takva",
+      "order": 5,
+      "titleTr": "Takvâ",
+      "titleEn": "Taqwā (God-Consciousness)",
+      "arabicTerm": "التَّقْوَى",
+      "iconMode": "shield",
+      "color": "#c9a227",
+      "essenceTr": "Allah'a karşı 'iç uyanıklık' — her an yapılan işin altındaki niyeti Allah'a göre ayarlama. Takvâ bir korku değil, bir 'kaybetmemek' bilincidir: 'Bu iş fıtratımı bozar mı?' sorusunun sürekli açık olması.",
+      "essenceEn": "Inner wakefulness toward God — continuously calibrating the intention beneath each act by God. Taqwā is not fear but a consciousness of 'not-losing': keeping the question 'Would this corrupt my fiṭra?' always open.",
+      "anchor": {
+        "verseRef": "Hucurât 49:13",
+        "surah": 49,
+        "ayah": 13,
+        "arabic": "يَٓا اَيُّهَا النَّاسُ اِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَاُنْثٰى وَجَعَلْنَاكُمْ شُعُوباً وَقَـبَٓائِلَ لِتَعَارَفُوا اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰيكُمْ اِنَّ اللّٰهَ عَلِيمٌ خَبِيرٌ",
+        "turkish": "Ey insanlar! Doğrusu biz sizi bir erkekle bir dişiden yarattık. Ve birbirinizle tanışmanız için sizi kavimlere ve kabilelere ayırdık. Muhakkak ki Allah yanında en değerli olanınız, O'ndan en çok korkanınızdır. Şüphesiz Allah bilendir, her şeyden haberdardır.",
+        "english": "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you. Indeed, Allah is Knowing and Acquainted"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Bakara 2:197",
+          "surah": 2,
+          "ayah": 197,
+          "arabic": "اَلْحَجُّ اَشْهُرٌ مَعْلُومَاتٌ فَمَنْ فَرَضَ فِيهِنَّ الْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِي الْحَجِّ وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللّٰهُ وَتَزَوَّدُوا فَاِنَّ خَيْرَ الزَّادِ التَّقْوٰى وَاتَّقُونِ يَٓا اُولِي الْاَلْبَابِ",
+          "turkish": "Hac, bilinen aylardadır. Kim o aylarda hacca niyet ederse (ihramını giyerse), hac esnasında kadına yaklaşmak, günah sayılan davranışlara yönelmek, kavga etmek yoktur. Ne hayır işlerseniz Allah onu bilir. (Ey müminler! Ahiret için) azık edinin. Bilin ki azığın en hayırlısı takvadır. Ey akıl sahipleri! Benden (emirlerime muhalefetten) sakının.",
+          "english": "Hajj is [during] well-known months, so whoever has made Hajj obligatory upon himself therein [by entering the state of ihram], there is [to be for him] no sexual relations and no disobedience and no disputing during Hajj. And whatever good you do - Allah knows it. And take provisions, but indeed, the best provision is fear of Allah. And fear Me, O you of understanding"
+        },
+        {
+          "verseRef": "Talâk 65:2-3",
+          "surah": 65,
+          "ayah": 2,
+          "arabic": "فَاِذَا بَلَغْنَ اَجَلَهُنَّ فَاَمْسِكُوهُنَّ بِمَعْرُوفٍ اَوْ فَارِقُوهُنَّ بِمَعْرُوفٍ وَاَشْهِدُوا ذَوَيْ عَدْلٍ مِنْكُمْ وَاَقِيمُوا الشَّهَادَةَ لِلّٰهِ  ذٰلِكُمْ يُوعَظُ بِهِ مَنْ كَانَ يُؤْمِنُ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَمَنْ يَتَّقِ اللّٰهَ يَجْعَلْ لَهُ مَخْرَجاً",
+          "turkish": "İddet müddetlerini doldurduklarında onları ya meşru ölçüler içerisinde (nikahınız altında) tutun veya onlardan meşru ölçülere göre ayrılın. İçinizden adalet sahibi iki kişiyi de şahit tutun. Şahitliği Allah için yapın. İşte bu, Allah'a ve ahiret gününe inananlara verilen öğüttür. Kim Allah'tan korkarsa, Allah ona bir çıkış yolu ihsan eder.",
+          "english": "And when they have [nearly] fulfilled their term, either retain them according to acceptable terms or part with them according to acceptable terms. And bring to witness two just men from among you and establish the testimony for [the acceptance of] Allah. That is instructed to whoever should believe in Allah and the Last day. And whoever fears Allah - He will make for him a way out"
+        }
+      ],
+      "practiceTr": "İç muhâsebe — günde bir defa 'bugün ne yaptım, hangi niyetle?' Sûfî geleneğinde 'murâkabe'. Râzî: takvâ, Allah ile kul arasında bir 'siperdir' — dıştaki günahı değil, iç yönelimin kaymasını engeller.",
+      "practiceEn": "Inner accounting — once a day, 'What did I do today, and with what intention?' In the Sufi tradition, this is murāqaba. Al-Rāzī: taqwā is a 'shield' between servant and Lord — it blocks not outer sin but the drift of inner direction.",
+      "obstacleTr": "Alışkanlığa dönüşen ibâdet — 'ne yaptığımı biliyorum, artık düşünmek gerekmez.' Bu, takvânın kalpten çekilip 'formüle' inmesidir.",
+      "obstacleEn": "Worship that has become mere habit — 'I know what I'm doing, no need to think anymore.' This is taqwā's withdrawal from the heart into a 'formula.'",
+      "nextTr": "Takvâ derinleşince → İhsan.",
+      "nextEn": "When taqwā deepens → Iḥsān."
+    },
+    {
+      "id": "ihsan",
+      "order": 6,
+      "titleTr": "İhsan (Görüyor Gibi)",
+      "titleEn": "Iḥsān (As If Seeing)",
+      "arabicTerm": "الإِحْسَان",
+      "iconMode": "eye",
+      "color": "#f472b6",
+      "essenceTr": "Cibrîl hadisindeki tanım: 'Allah'a, sanki O'nu görüyormuş gibi ibâdet etmen; sen O'nu görmüyorsan da O seni görüyor.' Bu artık kural değil, halktır — kalp Allah'ın 'huzurunda olduğunu' unutmaz.",
+      "essenceEn": "As defined in the Ḥadīth of Jibrīl: 'To worship God as if you see Him; and if you do not see Him, He surely sees you.' This is no longer rule but state — the heart never forgets it is 'in God's presence.'",
+      "anchor": {
+        "verseRef": "Nahl 16:128",
+        "surah": 16,
+        "ayah": 128,
+        "arabic": "اِنَّ اللّٰهَ مَعَ الَّذِينَ اتَّقَوْا وَالَّذِينَ هُمْ مُحْسِنُونَ",
+        "turkish": "Çünkü Allah, (kötülükten) sakınanlar ve güzel amel edenlerle beraberdir.",
+        "english": "Indeed, Allah is with those who fear Him and those who are doers of good"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Bakara 2:195",
+          "surah": 2,
+          "ayah": 195,
+          "arabic": "وَاَنْفِقُوا فِي سَبِيلِ اللّٰهِ وَلَا تُلْقُوا بِاَيْدِيكُمْ اِلَى التَّهْلُكَةِ وَاَحْسِنُوا اِنَّ اللّٰهَ يُحِبُّ الْمُحْسِنِينَ",
+          "turkish": "Allah yolunda harcayın. Kendi ellerinizle kendinizi tehlikeye atmayın. Her türlü hareketinizde dürüst davranın. Çünkü Allah dürüstleri sever.",
+          "english": "And spend in the way of Allah and do not throw [yourselves] with your [own] hands into destruction [by refraining]. And do good; indeed, Allah loves the doers of good"
+        },
+        {
+          "verseRef": "Rahmân 55:60",
+          "surah": 55,
+          "ayah": 60,
+          "arabic": "هَلْ جَزَٓاءُ الْاِحْسَانِ اِلَّا الْاِحْسَانُ",
+          "turkish": "İyiliğin karşılığı iyilikten başka bir şey midir?",
+          "english": "Is the reward for good [anything] but good"
+        }
+      ],
+      "practiceTr": "Sabah namazından sonra 'Allah beni görüyor' cümlesini içeriden geçirmek; günün her kararında bu farkındalıkla durmak. Gazâlî İhyâ'da bunu 'sürekli huzûr hâli' diye adlandırır.",
+      "practiceEn": "After the morning prayer, letting the phrase 'God sees me' pass through the heart; standing at every decision in the day with this awareness. In the Iḥyāʾ, al-Ghazālī calls this the 'state of continual presence.'",
+      "obstacleTr": "İç dünyanın 'başka' dolulukları — kin, kıyas, hased. Bunlar 'huzûr' hâlini kesintiye uğratır; ihsanın en incelikli hastalığı 'başkasıyla karşılaştırarak var olmak'tır.",
+      "obstacleEn": "Other 'occupations' of the inner world — resentment, comparison, envy. These interrupt the state of presence; iḥsān's subtlest illness is 'existing by comparison with another.'",
+      "nextTr": "İhsan sükûnete varır → Kalb-i Selîm.",
+      "nextEn": "Iḥsān settles into stillness → the Sound Heart."
+    },
+    {
+      "id": "kalb-i-selim",
+      "order": 7,
+      "titleTr": "Kalb-i Selîm (Sağlam Kalp)",
+      "titleEn": "Qalb Salīm (The Sound Heart)",
+      "arabicTerm": "القَلْب السَّلِيم",
+      "iconMode": "heart",
+      "color": "#e84a7c",
+      "essenceTr": "Kıyâmet günü Allah'a ne mal ne evlat, sadece 'kalb-i selîm' ile gelmenin fayda vereceğini bildiren âyet, insan yolculuğunun 'ulaşılabilir zirvesi'ni işaret eder: içi şirkten, kinden, riyâdan, dünya sevgisinden arınmış bir kalp.",
+      "essenceEn": "The verse informing that on Judgment Day neither wealth nor children profit, but only coming with 'a sound heart,' marks the human journey's 'reachable summit': a heart cleansed of shirk, rancor, ostentation, and love of the world.",
+      "anchor": {
+        "verseRef": "Şuarâ 26:89",
+        "surah": 26,
+        "ayah": 89,
+        "arabic": "اِلَّا مَنْ اَتَى اللّٰهَ بِقَلْبٍ سَلِيمٍ",
+        "turkish": "Ancak Allah'a kalb-i selim (temiz bir kalp) ile gelenler (o günde fayda bulur).",
+        "english": "But only one who comes to Allah with a sound heart"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Sâffât 37:83-84",
+          "surah": 37,
+          "ayah": 84,
+          "arabic": "اِذْ جَٓاءَ رَبَّهُ بِقَلْبٍ سَلِيمٍ",
+          "turkish": "Çünkü Rabbine kalb-i selim ile geldi.",
+          "english": "When he came to his Lord with a sound heart"
+        },
+        {
+          "verseRef": "Kaf 50:33",
+          "surah": 50,
+          "ayah": 33,
+          "arabic": "مَنْ خَشِيَ الرَّحْمٰنَ بِالْغَيْبِ وَجَٓاءَ بِقَلْبٍ مُنِيبٍ",
+          "turkish": "Görmeden Rahmân'a saygı gösteren ve(Allah'a) dönük bir kalp getiren herkesin (mükafatı budur).",
+          "english": "Who feared the Most Merciful unseen and came with a heart returning [in repentance]"
+        }
+      ],
+      "practiceTr": "Kalb-i selîm bir 'yapılış' değil, bir 'temizlenmiş bulunuş'tur. Günlük istiğfar + tevbe + haset-kin-öfkenin arınması. Sûfî 'tezkiye' geleneği bu evrenin metodudur.",
+      "practiceEn": "The sound heart is not a 'making' but a 'cleansed being.' Daily istighfār + tawba + purification from envy-rancor-anger. The Sufi tradition of tazkiya is the method of this stage.",
+      "obstacleTr": "Kibir — 'ben oldum' zannı. Kalb-i selîmin en büyük tehdidi, ulaşıldığını sanmaktır; ulaşan artık ulaşmıştır ve kimseye bunu söylemez.",
+      "obstacleEn": "Kibr (pride) — the delusion 'I've arrived.' The greatest threat to the sound heart is thinking one has attained; the truly arrived have arrived and speak of it to no one.",
+      "nextTr": "Kalb-i selîm ölümü bekler → Hüsn-i Hâtime.",
+      "nextEn": "The sound heart awaits death → A good ending."
+    },
+    {
+      "id": "husn-i-hatime",
+      "order": 8,
+      "titleTr": "Hüsn-i Hâtime (Güzel Son)",
+      "titleEn": "Ḥusn al-Khātima (The Beautiful End)",
+      "arabicTerm": "حُسْن الخَاتِمَة",
+      "iconMode": "sunset",
+      "color": "#fdba74",
+      "essenceTr": "Ölüm anında iman üzere olmak, son nefeste kelime-i tevhîdi söyleyerek gitmek. Bu bir 'şans' değil, bir 'birikimin karşılığı'dır — yolculuğun tüm aşamalarını 'gündelik hayatta yaşayan' insanın Allah'ın merhametiyle kavuştuğu son güzellik.",
+      "essenceEn": "To be upon faith at the moment of death, to depart with the shahāda upon one's lips. This is not 'luck' but 'the reciprocal of an accumulation' — the final beauty attained by God's mercy, granted to one who has lived every stage of the journey in daily life.",
+      "anchor": {
+        "verseRef": "Âl-i İmrân 3:102",
+        "surah": 3,
+        "ayah": 102,
+        "arabic": "يَٓا اَيُّهَا الَّذِينَ اٰمَنُوا اتَّقُوا اللّٰهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ اِلَّا وَاَنْتُمْ مُسْلِمُونَ",
+        "turkish": "Ey iman edenler! Allah'tan, O'na yaraşır şekilde korkun ve ancak müslümanlar olarak can verin.",
+        "english": "O you who have believed, fear Allah as He should be feared and do not die except as Muslims [in submission to Him]"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Fecr 89:27-30",
+          "surah": 89,
+          "ayah": 27,
+          "arabic": "يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ",
+          "turkish": "Ey huzura kavuşmuş insan!",
+          "english": "[To the righteous it will be said], \"O reassured soul"
+        },
+        {
+          "verseRef": "Fussilet 41:30",
+          "surah": 41,
+          "ayah": 30,
+          "arabic": "اِنَّ الَّذِينَ قَالُوا رَبُّنَا اللّٰهُ ثُمَّ اسْتَقَامُوا تَـتَنَزَّلُ عَلَيْهِمُ الْمَلٰٓئِكَةُ اَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَاَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ",
+          "turkish": "Şüphesiz, Rabbimiz Allah'tır deyip, sonra dosdoğru yolda yürüyenlerin üzerine melekler iner. Onlara: Korkmayın, üzülmeyin, size vadolunan cennetle sevinin! derler.",
+          "english": "Indeed, those who have said, \"Our Lord is Allah \" and then remained on a right course - the angels will descend upon them, [saying], \"Do not fear and do not grieve but receive good tidings of Paradise, which you were promised"
+        }
+      ],
+      "practiceTr": "Sürekli hüsn-i hâtime duası: 'Allah'ım, canımı îmanla al.' Peygamber'in duası: 'Bizi hidayete erdirdikten sonra kalplerimizi saptırma' (bu duanın Kur'ân versiyonu Âl-i İmrân 3:8). Ölümü unutmayan iş bırakmaz.",
+      "practiceEn": "Constant duʿāʾ for a good ending: 'O God, take my soul while I am in faith.' The Prophet's duʿāʾ: 'Do not misguide our hearts after You have guided us' (its Qurʾānic version, Q 3:8). One who does not forget death leaves no unfinished business.",
+      "obstacleTr": "'Zaman var, tövbe sonra' — imhâl'in aldatıcı yüzü. Ölüm 'ansızın' gelir; hüsn-i hâtime, 'sonraya bırakma' hastalığından kurtulmuş kalbin hediyesidir.",
+      "obstacleEn": "'There is time, I'll repent later' — the deceptive face of imhāl (reprieve). Death comes 'suddenly'; ḥusn al-khātima is the gift of a heart cured of the disease of 'putting off.'",
+      "nextTr": "Kabir → Mahşer → Hesap → Cennet.",
+      "nextEn": "The grave → the Gathering → the Reckoning → Paradise."
+    },
+    {
+      "id": "rida",
+      "order": 9,
+      "titleTr": "Rızâ (Karşılıklı Hoşnudluk)",
+      "titleEn": "Riḍā (Mutual Contentment)",
+      "arabicTerm": "الرِّضَا",
+      "iconMode": "moon",
+      "color": "#a78bfa",
+      "essenceTr": "Kur'ân'ın vaadi: 'Allah onlardan razı, onlar da Allah'tan razı' (Beyyine 98:8). Cennet'in kapısında Allah'ın 'razı olduğu bir kul' olarak durmak — cennet nimetinden önce zikredilen, aslî mükâfat.",
+      "essenceEn": "The Qur'anic promise: 'God is pleased with them, and they with God' (Q 98:8). To stand at Paradise's gate as 'a servant with whom God is pleased' — the primary reward mentioned before the delights of Paradise themselves.",
+      "anchor": {
+        "verseRef": "Beyyine 98:8",
+        "surah": 98,
+        "ayah": 8,
+        "arabic": "جَزَٓاؤُهُمْ عِنْدَ رَبِّهِمْ جَنَّاتُ عَدْنٍ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَٓا اَبَداً رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُ ذٰلِكَ لِمَنْ خَشِيَ رَبَّهُ",
+        "turkish": "Onların Rableri katındaki mükafatları, zemininden ırmaklar akan, içinde devamlı olarak kalacakları Adn cennetleridir. Allah kendilerinden hoşnut olmuş, onlar da Allah'tan hoşnut olmuşlardır. Bu söylenenler hep Rabbinden korkan (O'na saygı gösterenler) içindir.",
+        "english": "Their reward with Allah will be gardens of perpetual residence beneath which rivers flow, wherein they will abide forever, Allah being pleased with them and they with Him. That is for whoever has feared his Lord"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Fecr 89:28",
+          "surah": 89,
+          "ayah": 28,
+          "arabic": "اِرْجِعِٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً",
+          "turkish": "Sen O'ndan hoşnut, O da senden hoşnut olarak Rabbine dön.",
+          "english": "Return to your Lord, well-pleased and pleasing [to Him]"
+        },
+        {
+          "verseRef": "Mâide 5:119",
+          "surah": 5,
+          "ayah": 119,
+          "arabic": "قَالَ اللّٰهُ هٰذَا يَوْمُ يَنْفَعُ الصَّادِقِينَ صِدْقُهُمْ لَهُمْ جَنَّاتٌ تَجْرِي مِنْ تَحْتِهَا الْاَنْهَارُ خَالِدِينَ فِيهَٓا اَبَداً رَضِيَ اللّٰهُ عَنْهُمْ وَرَضُوا عَنْهُ ذٰلِكَ الْفَوْزُ الْعَظِيمُ",
+          "turkish": "(Bu konuşmadan sonra) Allah şöyle buyuracaktır: Bu, doğrulara, doğruluklarının fayda vereceği gündür. Onlara, içinde ebedi kalacakları, zemininden ırmaklar akan cennetler vardır. Allah onlardan razı olmuştur, onlar da O'ndan razı olmuşlardır. İşte büyük kurtuluş ve kazanç budur.",
+          "english": "Allah will say, \"This is the Day when the truthful will benefit from their truthfulness.\" For them are gardens [in Paradise] beneath which rivers flow, wherein they will abide forever, Allah being pleased with them, and they with Him. That is the great attainment"
+        }
+      ],
+      "practiceTr": "Musibet ve nimet karşısında aynı 'elhamdülillâh' — rızâ, olayları değil, Allah'ın irâdesini görmektir. İbn Kayyim: rızâ 'kalbin başka bir tercih arzu etmediği' hâldir.",
+      "practiceEn": "Saying 'al-ḥamdu li-llāh' equally in trial and in blessing — riḍā is seeing not events but God's will. Ibn Qayyim: riḍā is the state 'in which the heart wishes for no other choice.'",
+      "obstacleTr": "'Ama benim şu isteğim...' — kula özgü tercihi Rabbin tercihinin önüne koymak. Sûfî: rızâ, teslimiyetten bir adım öte — teslim olmakla kalmaz, sever.",
+      "obstacleEn": "'But my particular wish...' — placing the servant's preference before the Lord's. In Sufi thought: riḍā is one step beyond submission — one not only submits but loves.",
+      "nextTr": "Rızâ → Cennet · Cemâlullah.",
+      "nextEn": "Riḍā → Paradise · The Vision of God."
+    },
+    {
+      "id": "cemalullah",
+      "order": 10,
+      "titleTr": "Cemâlullah (Allah'ın Cemâli)",
+      "titleEn": "Jamāl Allāh (The Beauty of God)",
+      "arabicTerm": "جَمَال الله",
+      "iconMode": "sun",
+      "color": "#d4a574",
+      "essenceTr": "Kur'ân cennetin en yüksek nimetini 'Rablerine bakan yüzler' olarak ilan eder (Kıyâme 75:22-23). Yolculuğun sonu bahçe değil, Bahçe'nin Sahibi'ni görmektir — 'ru'yetullah'. Bütün fıtrat, tüm ibâdet, tüm sâlih amel, bu anın hazırlığıdır.",
+      "essenceEn": "The Qur'an declares Paradise's highest gift to be 'faces gazing at their Lord' (Q 75:22-23). The end of the journey is not the Garden but seeing the Garden's Owner — ruʾyat Allāh. All of fiṭra, all worship, all righteous deed are preparations for this moment.",
+      "anchor": {
+        "verseRef": "Kıyâme 75:22-23",
+        "surah": 75,
+        "ayah": 22,
+        "arabic": "وُجُوهٌ يَوْمَئِذٍ نَاضِرَةٌ",
+        "turkish": "Yüzler vardır ki, o gün ışıl ışıl parıldayacaktır.",
+        "english": "[Some] faces, that Day, will be radiant"
+      },
+      "supportingVerses": [
+        {
+          "verseRef": "Yûnus 10:26",
+          "surah": 10,
+          "ayah": 26,
+          "arabic": "لِلَّذِينَ اَحْسَنُوا الْحُسْنٰى وَزِيَادَةٌ وَلَا يَرْهَقُ وُجُوهَهُمْ قَتَرٌ وَلَا ذِلَّةٌ اُولٰٓئِكَ اَصْحَابُ الْجَنَّةِ هُمْ فِيهَا خَالِدُونَ",
+          "turkish": "Güzel davrananlara daha güzel karşılık, bir de fazlası vardır. Onların yüzlerine ne bir toz (kara leke) bulaşır ne de bir horluk (gelir). İşte onlar cennet ehlidirler. Ve onlar orada ebedi kalacaklardır.",
+          "english": "For them who have done good is the best [reward] and extra. No darkness will cover their faces, nor humiliation. Those are companions of Paradise; they will abide therein eternally"
+        },
+        {
+          "verseRef": "Mutaffifîn 83:15",
+          "surah": 83,
+          "ayah": 15,
+          "arabic": "كَلَّٓا اِنَّهُمْ عَنْ رَبِّهِمْ يَوْمَئِذٍ لَمَحْجُوبُونَ",
+          "turkish": "Hayır! Onlar şüphesiz o gün Rablerinden (O'nu görmekten) mahrum kalmışlardır.",
+          "english": "No! Indeed, from their Lord, that Day, they will be partitioned"
+        }
+      ],
+      "practiceTr": "Bu evre 'yapılabilir' bir amel değil, tüm aşamaların meyvesidir. Peygamber'in duası: 'Allah'ım, senden yüzüne bakmanın lezzetini ve sana kavuşmanın şevkini isterim' (Nesâî, Sehv 62).",
+      "practiceEn": "This stage is not a deed one 'does' but the fruit of all stages. The Prophet's duʿāʾ: 'O God, I ask You for the pleasure of gazing at Your face and the longing to meet You' (Nasāʾī, Sahw 62).",
+      "obstacleTr": "'Beni gizleyen perdeler' — dünya sevgisi, gaflet, kir. Kur'ân kâfirlerin bu nimetten mahrum bırakılışını 'perde çekilmesi' olarak anar (Mutaffifîn 83:15): 'Hayır, o gün onlarla Rableri arasına perde çekilecektir.'",
+      "obstacleEn": "'The veils that hide me' — worldly love, heedlessness, defilement. The Qur'an speaks of the deniers' deprivation as 'a curtain being drawn' (Q 83:15): 'No! Indeed, on that Day they will be veiled from their Lord.'",
+      "nextTr": "Sonsuzluk — burada yolculuk 'başlar', bitmez.",
+      "nextEn": "Eternity — here the journey 'begins', it does not end."
+    }
+  ],
+  "closingVerse": {
+    "verseAr": "يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ اِرْجِعِٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً فَادْخُلِي فِي عِبَادِي وَادْخُلِي جَنَّتِي",
+    "verseTr": "Ey mutmain nefis! Sen Rabbinden razı, O da senden razı olarak Rabbine dön. Kullarımın arasına gir ve cennetime gir.",
+    "verseEn": "O tranquil soul! Return to your Lord, well pleased and pleasing to Him. Enter among My servants, and enter My Paradise.",
+    "verseRef": "Fecr 89:27-30"
+  },
+  "sources": [
+    {
+      "author": "İbn Kayyim el-Cevziyye",
+      "workTr": "Medâricü's-Sâlikîn",
+      "workEn": "Madārij al-Sālikīn",
+      "period": "1292-1350 (Şam)"
+    },
+    {
+      "author": "Gazâlî",
+      "workTr": "İhyâu ʿUlûmi'd-Dîn (Rub'u'l-Munciyât)",
+      "workEn": "Iḥyāʾ ʿUlūm al-Dīn (Book of Salvations)",
+      "period": "1058-1111 (Tûs)"
+    },
+    {
+      "author": "Fahreddin er-Râzî",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "period": "1149-1209 (Rey)"
+    },
+    {
+      "author": "Bediüzzaman Said Nursî",
+      "workTr": "Sözler (24., 25., 30. Söz)",
+      "workEn": "Words (24th, 25th, 30th)",
+      "period": "1878-1960 (Anadolu)"
+    }
+  ]
+}
