@@ -420,35 +420,102 @@ export default function ConceptGraph({ onClose, restore = null }) {
       {view === 'landing' && !loadingData && (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-          {/* Hero strip — eyebrow + Playfair italic subtitle */}
+          {/* Hero strip — §13.18 Premium: anchor verse + eyebrow + Playfair italic + micro-stats */}
           <div style={{
-            padding: isMobile ? '22px 16px 18px' : '32px 32px 26px',
+            padding: isMobile ? '30px 16px 22px' : '44px 32px 30px',
             borderBottom: `1px solid ${COLORS.goldAlpha15}`,
             background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
             flexShrink: 0,
             textAlign: 'center',
           }}>
+            {/* Anchor verse — Bakara 2:269 (hikmet) */}
+            <p dir="rtl" lang="ar" style={{
+              fontFamily: FONTS.quran,
+              color: COLORS.gold,
+              fontSize: isMobile ? '1.05rem' : '1.35rem',
+              lineHeight: 2.1,
+              margin: '0 auto 12px',
+              maxWidth: '780px',
+              opacity: 0.94,
+            }}>
+              يُؤْتِي الْحِكْمَةَ مَنْ يَشَٓاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً
+            </p>
+            <p style={{
+              color: COLORS.offWhiteAlpha78,
+              fontFamily: FONTS.display,
+              fontStyle: 'italic',
+              fontSize: isMobile ? '0.92rem' : '1.02rem',
+              lineHeight: 1.6,
+              margin: '0 auto 6px',
+              maxWidth: '660px',
+            }}>
+              {language === 'tr'
+                ? '"Allah hikmeti dilediğine verir; kime hikmet verilirse ona pek çok hayır verilmiştir."'
+                : '"He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good."'}
+            </p>
+            <p style={{
+              color: COLORS.silver, opacity: 0.65,
+              fontSize: '0.68rem', fontWeight: 600,
+              letterSpacing: '0.16em', textTransform: 'uppercase',
+              margin: '0 0 22px',
+            }}>
+              — {language === 'tr' ? 'Bakara 2:269' : 'al-Baqara 2:269'}
+            </p>
+
+            {/* Filigree */}
+            <div style={{
+              width: '120px', height: '1px', margin: '0 auto 22px',
+              background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
+            }} />
+
+            {/* Eyebrow */}
             <p style={{
               color: COLORS.gold, opacity: 0.72,
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 10px',
             }}>
-              {language === 'tr' ? 'KAVRAM AĞI · 100+ ANAHTAR TERİM' : 'CONCEPT NETWORK · 100+ KEY TERMS'}
+              {language === 'tr' ? 'KAVRAM AĞI · HİKMETİN HARİTASI' : 'CONCEPT NETWORK · MAP OF WISDOM'}
             </p>
+
+            {/* Playfair italic subtitle */}
             <p style={{
               color: COLORS.offWhiteAlpha78,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
               fontSize: isMobile ? '0.98rem' : '1.15rem',
               lineHeight: 1.5,
-              margin: '0 auto',
+              margin: '0 auto 20px',
               maxWidth: '640px',
             }}>
               {language === 'tr'
                 ? 'Bir kavrama dokunun — birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'
                 : 'Touch a concept — see the network of ideas that appear alongside it across 6,236 verses.'}
             </p>
+
+            {/* Micro-stat ribbon */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: isMobile ? '10px' : '18px',
+              padding: '8px 18px',
+              background: COLORS.goldAlpha04,
+              border: `1px solid ${COLORS.goldAlpha15}`,
+              borderRadius: RADIUS.pill,
+              fontSize: isMobile ? '0.68rem' : '0.72rem',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: COLORS.silver,
+              fontWeight: 600,
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}>
+              <span><span style={{ color: COLORS.gold, fontWeight: 700 }}>{concepts.length}</span> {language === 'tr' ? 'KAVRAM' : 'CONCEPTS'}</span>
+              <span style={{ opacity: 0.35 }}>·</span>
+              <span><span style={{ color: COLORS.gold, fontWeight: 700 }}>6.236</span> {language === 'tr' ? 'AYET' : 'VERSES'}</span>
+              <span style={{ opacity: 0.35 }}>·</span>
+              <span><span style={{ color: COLORS.gold, fontWeight: 700 }}>{Object.keys(groups || {}).length}</span> {language === 'tr' ? 'KATEGORİ' : 'CATEGORIES'}</span>
+            </div>
           </div>
 
           {/* Search bar — centered premium glass */}
