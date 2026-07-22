@@ -85,15 +85,64 @@ html {
      scrollbar oluşma/kaybolma kaynaklı layout shift'i (navbar sağa kayma)
      önler. */
   scrollbar-gutter: stable;
+
+  /* ─── ATMOSFER TABAN — P2: Root radial depth (2026-07-21) ────────
+     Cosmic Black + hafif altın "ambient candlelight" hint. Fixed
+     attachment ile scroll boyunca sabit kalır. Opacity 0.028 —
+     kullanıcı fark etmez, subconscious depth cue. Palet aynı (§4). */
+  background-color: var(--color-cosmic-black);
+  background-image: radial-gradient(
+    ellipse 90% 60% at 50% 20%,
+    rgba(212, 165, 116, 0.028),
+    transparent 65%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-cosmic-black);
+  /* Background html'e taşındı; body transparan → grain/watermark pseudo'lar
+     content altında ama html bg üstünde kalır (isolation: isolate ile
+     kontrollü stacking context). */
+  background: transparent;
   color: var(--color-off-white);
   overflow-x: hidden;
   line-height: 1.8;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+/* ─── ATMOSFER: P1 — Paper grain (SVG feTurbulence) ─────────────────
+   Cosmic-black üstünde çok hafif kağıt-mürekkep dokusu. mix-blend-mode
+   overlay ile luminance modülasyonu yapar (renk eklemez). Fixed —
+   scroll'da sabit kalır. Opacity 0.028, mobile GPU-ucuz single layer. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+}
+
+/* ─── ATMOSFER: P3 — Ambient Islamic geometric watermark ──────────
+   Hero'daki 8-köşeli yıldız desenin çok soluk versiyonu (%1.5). Fixed
+   attachment ile scroll boyunca subconscious tutarlılık — Hero'nun DNA
+   imzası tüm sayfaya "kâğıt filigranı" gibi yayılır. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 0L74 46H120L82 74L96 120L60 92L24 120L38 74L0 46H46Z' fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.4'/%3E%3Ccircle cx='60' cy='60' r='30' fill='none' stroke='%23d4a574' stroke-width='0.3' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  opacity: 0.015;
 }
 
 ::selection {
@@ -150,13 +199,21 @@ body {
 }
 
 /* ---- Glassmorphism ---- */
-/* Values mirror GLASS_CARD / GLASS_CARD_STRONG in tokens.js (CLAUDE.md §13.7). */
+/* Values mirror GLASS_CARD / GLASS_CARD_STRONG in tokens.js (CLAUDE.md §13.7).
+   ─── ATMOSFER: P5 (2026-07-21) — Manuscript-page inset shadow ───
+   Kartın alt kenarında ince altın hairline (kâğıt kırılması ipucu), üstte
+   hafif beyaz iç-ışık. Mevcut border/blur/radius aynen korunur; sadece
+   inset box-shadow eklenir. Sistemik ama micro — SaaS-glass ↔ manuscript-page
+   ekseninde manuscript tarafa çekilir. */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  box-shadow:
+    inset 0 -1px 0 rgba(212, 165, 116, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .glass-card-strong {
@@ -165,6 +222,9 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  box-shadow:
+    inset 0 -1px 0 rgba(212, 165, 116, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* ---- CTA Buttons ---- */
@@ -509,17 +569,26 @@ section[id$="-card"]:hover > div > div[style*="border-radius: 20px"] {
     0 0 80px rgba(212, 165, 116, 0.14) !important;
 }
 
-/* Cluster gradient wrapper — atmosferik geçiş */
+/* Cluster gradient wrapper — atmosferik geçiş
+   ─── ATMOSFER: P4 (2026-07-21) — Cluster açılışında altın hairline ornament ───
+   Cluster'ın üst kenarına ince altın-gradient hairline: klasik mushaf sayfa
+   üstündeki müzehhep bordür ipucu. Cluster'ı "sayfa" gibi ambalajlar. */
 .cluster-fascination {
-  background: linear-gradient(180deg, #0a0a1a 0%, #0b0e1e 50%, #0a0a1a 100%);
+  background:
+    linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.32), transparent) top / 100% 1px no-repeat,
+    linear-gradient(180deg, #0a0a1a 0%, #0b0e1e 50%, #0a0a1a 100%);
   position: relative;
 }
 .cluster-astonishment {
-  background: linear-gradient(180deg, #0a0a1a 0%, #0d0a1e 50%, #0a0a1a 100%);
+  background:
+    linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.32), transparent) top / 100% 1px no-repeat,
+    linear-gradient(180deg, #0a0a1a 0%, #0d0a1e 50%, #0a0a1a 100%);
   position: relative;
 }
 .cluster-reflection {
-  background: linear-gradient(180deg, #0a0a1a 0%, #0a0d1e 50%, #0a0a1a 100%);
+  background:
+    linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.32), transparent) top / 100% 1px no-repeat,
+    linear-gradient(180deg, #0a0a1a 0%, #0a0d1e 50%, #0a0a1a 100%);
   position: relative;
 }
 

@@ -8,7 +8,17 @@ export default function Footer() {
   const sources = t('footer.sources');
 
   return (
-    <footer className="relative bg-cosmic-black border-t border-white/5 py-16 px-6">
+    <footer
+      className="relative bg-cosmic-black border-t border-white/5 py-16 px-6"
+      style={{
+        // ─── ATMOSFER: P7 (2026-07-21) — Colophon vignette ───
+        // Footer'ın altına doğru hafif altın "kapanış sıcaklığı" — ilk baskı
+        // mushafların son sayfasındaki "tamamlandı Elhamdulillah" ambiansı.
+        // Cosmic-black üzerine radial hint (%3), palet aynı.
+        backgroundImage:
+          'radial-gradient(ellipse 100% 60% at 50% 100%, rgba(212, 165, 116, 0.03) 0%, transparent 60%)',
+      }}
+    >
       {/* Gold gradient line at top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
@@ -238,6 +248,48 @@ export default function Footer() {
                 );
               })}
           </ul>
+        </div>
+
+        {/* ─── ATMOSFER: P7 — Colophon closure ornament (2026-07-21) ───
+            İlk baskı mushafların son sayfasındaki finial ornament: iki-yön
+            filigree + 8-köşeli yıldız. CardSeam'in colophon-varyantı; kaynakça
+            ile copyright arasında "sayfa kapanışı" ipucu. Palet: sadece altın. */}
+        <div
+          aria-hidden="true"
+          className="flex items-center justify-center gap-4 mb-8 mt-2"
+        >
+          <span
+            className="block"
+            style={{
+              width: 'clamp(60px, 12vw, 100px)',
+              height: '1px',
+              background: 'linear-gradient(to right, transparent, rgba(212,165,116,0.35), rgba(212,165,116,0.15))',
+            }}
+          />
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            style={{ opacity: 0.7 }}
+          >
+            <path
+              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10Z"
+              fill="none"
+              stroke="rgba(212, 165, 116, 0.6)"
+              strokeWidth="0.8"
+              strokeLinejoin="round"
+            />
+            <circle cx="12" cy="12" r="1.6" fill="rgba(212, 165, 116, 0.4)" />
+          </svg>
+          <span
+            className="block"
+            style={{
+              width: 'clamp(60px, 12vw, 100px)',
+              height: '1px',
+              background: 'linear-gradient(to right, rgba(212,165,116,0.15), rgba(212,165,116,0.35), transparent)',
+            }}
+          />
         </div>
 
         {/* Bottom bar */}

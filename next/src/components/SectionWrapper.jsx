@@ -14,11 +14,17 @@ const staggerContainer = {
   },
 };
 
+// ─── ATMOSFER: P6 (2026-07-21) — Motion polish ───
+// Flat translate SaaS. Manuscript-tabanlı UI'de element "önce zeminde yatar,
+// sonra kalkarken hafif genişler" — subtle 3D ipucu (kağıttan yükseliyormuş
+// hissi). scale 0.985 → 1 = %1.5 micro-depth. useReducedMotion() reduce-motion
+// modunda zaten kapanır (staggerContainer üzerinden), okunurluğu etkilemez.
 const fadeUpItem = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30, scale: 0.985 },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: { duration: 0.7, ease: 'easeOut' },
   },
 };
