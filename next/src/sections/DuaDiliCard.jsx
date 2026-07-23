@@ -43,7 +43,7 @@ export default function DuaDiliCard() {
           padding: 'clamp(40px, 6vw, 64px) clamp(28px, 5vw, 56px)',
           background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
           border: `1px solid ${COLORS.gold}33`,
-          borderRadius: '20px',
+          borderRadius: '12px',
           boxShadow: `inset 0 0 0 1px ${COLORS.gold}14, 0 30px 80px rgba(0,0,0,0.4)`,
         }}
       >

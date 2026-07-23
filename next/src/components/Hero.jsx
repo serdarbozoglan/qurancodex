@@ -62,9 +62,17 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden bg-cosmic-black"
     >
+      {/* Auditor #3 (2026-07-22) — Nihai (tur 3):
+          Hero özel = mihrap ritüeli. Kur'ânî yıldız motifi zaten sitewide
+          atmosfer (P1 grain + P2 candlelight + P3 watermark) ile karşılanıyor;
+          Hero'da noktalar mihrap sakinliğini "startup starfield"e çeviriyor.
+          Nihai: %100 glyph — sadece semantic mukattaa harfleri.
+          Sayım: 26 desktop (14 harf setinden zengin varyans) / 16 mobile.
+          Glyph opacity + twinkle ayrıca ParticleBackground.jsx'te dial-up
+          (harfler artık hep görünür, sadece hafif parıldar). */}
       <ParticleBackground
-        particleCount={isMobile ? 22 : 40}
-        glyphRatio={isMobile ? 0.35 : 0.20}
+        particleCount={isMobile ? 16 : 26}
+        glyphRatio={1}
       />
 
       {/* Slow-rotating Islamic pattern overlay — felt, not seen */}
@@ -365,16 +373,71 @@ export default function Hero() {
         />
 
         {/* Title — softened a notch (lg: 7xl → 6xl) and looser leading,
-            so the headline invites rather than declares. */}
-        <motion.h1
-          className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] mb-6 tracking-[-0.015em] sm:tracking-tight"
-          initial={reduced ? false : { opacity: 0, y: 40 }}
-          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={reduced ? { duration: 0 } : { duration: 1.2, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          {t('hero.title')}
-        </motion.h1>
+            so the headline invites rather than declares.
+
+            Auditor #5 (2026-07-21): H1 arkasına manuscript cadre/kartuş.
+            Klasik Islamic ilüminasyon: 4 köşede altın kartuş marker'ı +
+            H1 arkasında hafif altın-tint dikdörtgen zemin. mihrap ritüelini
+            bozmayacak kadar subtle (opacity 5%). */}
+        <div style={{ position: 'relative', display: 'inline-block', padding: '18px 32px', marginBottom: '24px' }}>
+          {/* Cadre zemin — çok soluk altın tint dikdörtgen */}
+          <motion.div
+            aria-hidden="true"
+            initial={reduced ? false : { opacity: 0 }}
+            whileInView={reduced ? undefined : { opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={reduced ? { duration: 0 } : { duration: 1.6, delay: 0.3, ease: 'easeOut' }}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'radial-gradient(ellipse 85% 70% at 50% 50%, rgba(212, 165, 116, 0.045), transparent 70%)',
+              pointerEvents: 'none',
+            }}
+          />
+          {/* 4 köşe kartuş marker'ı — Islamic manuscript ilüminasyon */}
+          {[
+            { top: 0, left: 0, rotate: 0 },
+            { top: 0, right: 0, rotate: 90 },
+            { bottom: 0, right: 0, rotate: 180 },
+            { bottom: 0, left: 0, rotate: 270 },
+          ].map((pos, i) => (
+            <motion.svg
+              key={i}
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              initial={reduced ? false : { opacity: 0, scale: 0.6 }}
+              whileInView={reduced ? undefined : { opacity: 0.55, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 0.5 + i * 0.06, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                ...pos,
+                transform: `rotate(${pos.rotate}deg)`,
+                pointerEvents: 'none',
+              }}
+            >
+              <path
+                d="M2 8 L2 2 L8 2 M2 2 L5 5"
+                fill="none"
+                stroke="rgba(212, 165, 116, 0.55)"
+                strokeWidth="1.1"
+                strokeLinecap="round"
+              />
+            </motion.svg>
+          ))}
+          <motion.h1
+            className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] tracking-[-0.015em] sm:tracking-tight"
+            style={{ position: 'relative', margin: 0 }}
+            initial={reduced ? false : { opacity: 0, y: 40 }}
+            whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={reduced ? { duration: 0 } : { duration: 1.2, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            {t('hero.title')}
+          </motion.h1>
+        </div>
 
         {/* Subtitle */}
         <motion.p

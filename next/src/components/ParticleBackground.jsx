@@ -33,7 +33,7 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
         isGlyph,
         glyph: isGlyph ? MUKATTAA_HARFLER[Math.floor(Math.random() * MUKATTAA_HARFLER.length)] : null,
         // Glyph 28-46px (kullanıcı bir tık büyüt dedi — 22-38'den +6px artırıldı)
-        size: isGlyph ? Math.random() * 18 + 28 : Math.random() * 2 + 0.5,
+        size: isGlyph ? Math.random() * 18 + 28 : Math.random() * 0.9 + 0.3,
         // Glyph'ler daha güçlü horizontal drift: -0.2 → +0.2 (önce -0.075 → +0.075)
         // Bu sayede bazıları belirgin sağa, bazıları sola süzülür
         speedX: isGlyph ? (Math.random() - 0.5) * 0.4 : (Math.random() - 0.5) * 0.15,
@@ -41,10 +41,11 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
         speedY: isGlyph
           ? (glyphRising ? -1 : 1) * (Math.random() * 0.15 + 0.05)
           : -(Math.random() * 0.25 + 0.05),
-        // Glyph opacity aralığı düşürüldü — Bismillah etrafındaki cinematic sessizliği
-        // korumak için (Visual audit K-03, 2026-07-12). Eski: 0.15-0.33 → yeni: 0.06-0.14.
-        // Nokta partiküller genişçe bırakıldı — arka plandaki nefes.
-        opacity: isGlyph ? Math.random() * 0.08 + 0.06 : Math.random() * 0.5 + 0.15,
+        // Glyph opacity dial-up (2026-07-22 auditor #3 tur 3): 0.06-0.14 → 0.14-0.28.
+        // Kullanıcı "harfler çok az görünüyor" dedi — twinkle 0'a düşünce
+        // harfler kayboluyordu. Opacity ~2× artırıldı; twinkle formülü de
+        // ayrıca daraltıldı (aşağıda: 0.65 + 0.35*sin) → alpha asla 0'a inmez.
+        opacity: isGlyph ? Math.random() * 0.14 + 0.14 : Math.random() * 0.17 + 0.08,
         phase: Math.random() * Math.PI * 2,
         color: Math.random() > 0.7
           ? [201, 162, 39]   // royal gold
@@ -104,7 +105,11 @@ export default function ParticleBackground({ particleCount = 80, glyphRatio = 0.
         if (p.x < -margin) p.x = w + margin;
         if (p.x > w + margin) p.x = -margin;
 
-        const twinkle = 0.5 + 0.5 * Math.sin(p.phase);
+        // Twinkle dial-up (2026-07-22 auditor #3 tur 3): eskiden 0.5+0.5*sin
+        // → alpha range 0..1× opacity → parıldarken tam kayboluyordu.
+        // Yeni: 0.65+0.35*sin → alpha range 0.3..1× opacity → asla 0 değil,
+        // harfler hep görünür, sadece hafif parıldar.
+        const twinkle = 0.65 + 0.35 * Math.sin(p.phase);
         const alpha = p.opacity * twinkle;
         const [r, g, b] = p.color;
 

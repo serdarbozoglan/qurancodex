@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
+import HeroGeometricBackground from '../components/HeroGeometricBackground';
 import { COLORS, FONTS } from '../tokens';
 
 export default function Conclusion() {
@@ -25,6 +26,12 @@ export default function Conclusion() {
   };
 
   return (
+    <div style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Auditor #2 (2026-07-21): Conclusion arkasına geometric atmosfer.
+          SectionWrapper kendi bg-cosmic-black'ini uygular; wrapper div üzerinde
+          pattern render eder, section transparan olamayacağı için opacity
+          düşük tutulur ki section-bg üzerinden hissedilsin (screen blend). */}
+      <HeroGeometricBackground patternOpacity={0.04} glowOpacity="0C" tileSize={88} />
     <SectionWrapper id="conclusion" dark={false}>
       {/* Section badge — Hero parity (0.75rem, tracking 0.3em, gold/60) */}
       <motion.div variants={fadeUpItem}>
@@ -259,5 +266,6 @@ export default function Conclusion() {
       </motion.div>
       ═══ CONCLUSION SUPPORT WHISPER END ═══ */}
     </SectionWrapper>
+    </div>
   );
 }

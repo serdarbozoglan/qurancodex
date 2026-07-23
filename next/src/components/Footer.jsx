@@ -208,8 +208,18 @@ export default function Footer() {
         </div>
         ═══ DESTEK CALLOUT END ═══ */}
 
-        {/* Sources */}
-        <div className="glass-card p-8 mb-12">
+        {/* Sources — Auditor #4 (2026-07-21): glass → parşömen.
+            Colophon = kağıt olmalı, cam değil. glass-card (blur+beyaz cam)
+            yerine altın-hairline + hafif altın-tint parşömen zemin. */}
+        <div
+          className="p-8 mb-12"
+          style={{
+            background: 'linear-gradient(180deg, rgba(212, 165, 116, 0.025), rgba(212, 165, 116, 0.012))',
+            border: '1px solid rgba(212, 165, 116, 0.18)',
+            borderRadius: '4px',
+            boxShadow: 'inset 0 0 40px rgba(212, 165, 116, 0.02)',
+          }}
+        >
           <h4 className="text-off-white font-body font-semibold mb-4 text-xs uppercase tracking-[0.2em]">
             {t('footer.sourcesTitle')}
           </h4>

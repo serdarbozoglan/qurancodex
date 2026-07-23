@@ -6,12 +6,20 @@
 // ──────────────────────────────────────────────────────────────────────────────
 
 import { useLanguage } from '../i18n/LanguageContext';
+import HeroGeometricBackground from '../components/HeroGeometricBackground';
 
 export default function FeaturedWrap({ children }) {
   const { language } = useLanguage();
   const label = language === 'tr' ? 'ÖNE ÇIKAN' : 'FEATURED';
   return (
-    <div className="featured-card-wrap" style={{ position: 'relative' }}>
+    <div
+      className="featured-card-wrap"
+      style={{ position: 'relative', overflow: 'hidden', borderRadius: '18px' }}
+    >
+      {/* Auditor #2 (2026-07-21): HeroGeometric wrapper içinde geometric
+          atmosfer — SunnetullahAtlasi + 7 diğer tool ile aynı DNA imzası.
+          Featured card sarmalayan alanın atmosferini tutarlılaştırır. */}
+      <HeroGeometricBackground patternOpacity={0.035} glowOpacity="0A" tileSize={64} />
       <div
         aria-hidden="true"
         style={{
@@ -35,7 +43,7 @@ export default function FeaturedWrap({ children }) {
       >
         {label}
       </div>
-      {children}
+      <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
     </div>
   );
 }

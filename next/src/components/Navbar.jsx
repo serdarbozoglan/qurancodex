@@ -1437,44 +1437,11 @@ export default function Navbar() {
         {/* Right: Oku + Language + Mobile */}
         <div className="flex items-center gap-3">
 
-          {/* Oku — secondary outline CTA. Hero's gold-filled "Keşfe Başla"
-              is the page's primary CTA; this nav entry mirrors its color
-              language as an outline so the two never compete for dominance.
-              Mobile menu version (further below) stays filled — there is
-              no Hero CTA in view there, so no conflict. */}
-          <button
-            onClick={() => router.push(`/${language}/oku`)}
-            title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
-            className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
-            style={{
-              background: 'transparent',
-              border: `1.5px solid ${COLORS.goldAlpha45}`,
-              borderRadius: '6px',
-              color: COLORS.gold,
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              letterSpacing: '0.07em',
-              padding: '6px 24px',
-              height: '32px',
-              cursor: 'pointer',
-              boxShadow: 'inset 0 0 12px rgba(180,130,40,0.06)',
-              transition: `all ${TRANSITION.fast}`,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = COLORS.gold;
-              e.currentTarget.style.background = COLORS.goldAlpha15;
-              e.currentTarget.style.boxShadow = `0 0 24px 3px ${COLORS.btnGoldGlow25}`;
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = COLORS.goldAlpha45;
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'inset 0 0 12px rgba(180,130,40,0.06)';
-            }}
-          >
-            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.goldBright, opacity: 0.95, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
-            {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
-          </button>
+          {/* Navbar right-group order (2026-07-23): 🔖 | Sor | EN | Kur'an'ı Oku
+              (moved from left of group → far right). Rationale: L→R okuma
+              sonunda primary CTA anchor olsun; utility'ler (bookmark, ask,
+              language) ortaya kümelensin. Anthropic/Vercel/Stripe/Notion
+              pattern'i. Kur'an'ı Oku butonu artık EN'den sonra render olur. */}
 
           {/* ═══ NAVBAR ❤ DESTEK BUTTON — GEÇİCİ KALDIRILDI 2026-07-12 ═══
               Kullanıcı isteği: destek CTA'larını sitede geçici olarak kaldır,
@@ -1600,6 +1567,44 @@ export default function Navbar() {
             onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
           >
             {language === 'tr' ? 'EN' : 'TR'}
+          </button>
+
+          {/* Oku — primary CTA, en sağda anchor (2026-07-23 reorder).
+              Hero's gold-filled "Keşfe Başla" is the page's primary CTA; this
+              nav entry mirrors its color language as an outline so the two
+              never compete for dominance. */}
+          <button
+            onClick={() => router.push(`/${language}/oku`)}
+            title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
+            className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
+            style={{
+              background: 'transparent',
+              border: `1.5px solid ${COLORS.goldAlpha45}`,
+              borderRadius: '6px',
+              color: COLORS.gold,
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              letterSpacing: '0.07em',
+              padding: '6px 24px',
+              height: '32px',
+              cursor: 'pointer',
+              boxShadow: 'inset 0 0 12px rgba(180,130,40,0.06)',
+              transition: `all ${TRANSITION.fast}`,
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = COLORS.gold;
+              e.currentTarget.style.background = COLORS.goldAlpha15;
+              e.currentTarget.style.boxShadow = `0 0 24px 3px ${COLORS.btnGoldGlow25}`;
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = COLORS.goldAlpha45;
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.boxShadow = 'inset 0 0 12px rgba(180,130,40,0.06)';
+            }}
+          >
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.goldBright, opacity: 0.95, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
+            {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 
           {/* Mobile menu toggle — z-index above tool overlays (z:50 post K2)
