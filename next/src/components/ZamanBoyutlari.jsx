@@ -534,8 +534,8 @@ export default function ZamanBoyutlari({ onClose }) {
             fontFamily: FONTS.body,
           }}>
             {language === 'tr'
-              ? "Bir gece (Kadr) ile 50.000 yıllık bir gün (Meâric) arasındaki fark ~1.8 × 10¹⁰ mertebede. Doğrusal eksen bunu gösteremez. Logaritmik ekseni 6 noktanın konumunu 'zaman büyüklüğü katı' olarak okur."
-              : "The gap between one night (al-Qadr) and a 50,000-year day (al-Maʿārij) spans ~1.8 × 10¹⁰ orders of magnitude. A linear scale cannot show this. The logarithmic axis maps the six points as 'orders of temporal magnitude.'"}
+              ? "Bir gece (Kadr) ile 50.000 yıllık bir gün (Meâric) arasındaki oran ~1.8 × 10⁷ mertebesinde (50.000 yıl ≈ 1.8 × 10⁷ gün) — yani yaklaşık 7 basamak. Doğrusal eksen bunu gösteremez. Logaritmik ekseni 6 noktanın konumunu 'zaman büyüklüğü katı' olarak okur."
+              : "The ratio between one night (al-Qadr) and a 50,000-year day (al-Maʿārij) is ~1.8 × 10⁷ (50,000 years ≈ 1.8 × 10⁷ days) — about seven orders of magnitude. A linear scale cannot show this. The logarithmic axis maps the six points as 'orders of temporal magnitude.'"}
           </p>
 
           {(() => {

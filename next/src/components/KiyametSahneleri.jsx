@@ -1205,7 +1205,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
     },
     {
       title: "Said Nursi'nin Onuncu Söz Argümanı",
-      content: "Said Nursi (Bediüzzaman, ö. 1960) Risâle-i Nur külliyatında kıyamete dair en kapsamlı argümantasyonu Onuncu Söz'de (Sözler) sunar. Onuncu Söz'ün omurgası, bedensel diriliş (haşr-i cismânî) için dokuz ayrı 'hakikat' başlığında işlenen delillerdir; merkezî analoji ise bahar-sonbahar döngüsüdür: sonbaharda yapraklar dökülür, canlı dünya ölü gibi olur; baharda yeniden hayata döner. Bu 'küçük kıyamet' büyüğüne işaret eden bir göstergedir. Argüman klasik Sünnî kıyamet inancını (Eş'arî/Mâturîdî zemin) modern Türkçe ile sistematik olarak ifade eder. Aynı tema Yedinci Şua (Lem'alar — Âyetü'l-Kübrâ) ve Yirmi Dokuzuncu Söz'de genişletilir.",
+      content: "Said Nursi (Bediüzzaman, ö. 1960) Risâle-i Nur külliyatında kıyamete dair en kapsamlı argümantasyonu Onuncu Söz'de (Sözler) sunar. Onuncu Söz'ün omurgası, bedensel diriliş (haşr-i cismânî) için on iki ayrı 'hakikat' başlığında işlenen delillerdir; merkezî analoji ise bahar-sonbahar döngüsüdür: sonbaharda yapraklar dökülür, canlı dünya ölü gibi olur; baharda yeniden hayata döner. Bu 'küçük kıyamet' büyüğüne işaret eden bir göstergedir. Argüman klasik Sünnî kıyamet inancını (Eş'arî/Mâturîdî zemin) modern Türkçe ile sistematik olarak ifade eder. Aynı tema Yedinci Şua (Şualar — Âyetü'l-Kübrâ) ve Yirmi Dokuzuncu Söz'de genişletilir.",
       isInfo: true,
       infoText: "Modern Türk Müslüman düşüncesinin kıyamet referansı. Klasik Sünnî inancı reddetmeden, modern dile aktaran sistematik bir bedensel diriliş savunması.",
     },
@@ -1232,7 +1232,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
     },
     {
       title: "Said Nursi's Argument in the Tenth Word",
-      content: "Said Nursi (Bediüzzaman, d. 1960), in the Risāle-i Nūr corpus, presents his most comprehensive argument for resurrection in the Tenth Word (Onuncu Söz, in Sözler). Its backbone is a sequence of nine 'truths' (haqāʾiq) that establish bodily resurrection (haşr-i cismānī); the central analogy is the autumn–spring cycle: in autumn leaves fall and the living world appears dead; in spring it returns to life. This 'small resurrection' is read as a sign pointing to the great one. The argument expresses the classical Sunnī doctrine of resurrection (on Ashʿarī/Māturīdī ground) in systematic modern Turkish prose. The Seventh Ray (Yedinci Şua in Lemʿalar — Āyat al-Kubrā) and the Twenty-Ninth Word develop the same theme.",
+      content: "Said Nursi (Bediüzzaman, d. 1960), in the Risāle-i Nūr corpus, presents his most comprehensive argument for resurrection in the Tenth Word (Onuncu Söz, in Sözler). Its backbone is a sequence of twelve 'truths' (haqāʾiq) that establish bodily resurrection (haşr-i cismānī); the central analogy is the autumn–spring cycle: in autumn leaves fall and the living world appears dead; in spring it returns to life. This 'small resurrection' is read as a sign pointing to the great one. The argument expresses the classical Sunnī doctrine of resurrection (on Ashʿarī/Māturīdī ground) in systematic modern Turkish prose. The Seventh Ray (Yedinci Şua in Şuālar / The Rays — Āyat al-Kubrā) and the Twenty-Ninth Word develop the same theme.",
       isInfo: true,
       infoText: 'A modern Turkish Muslim reference for resurrection: a systematic defence of bodily resurrection that translates classical Sunnī belief into modern prose without departing from it.',
     },

@@ -16,8 +16,8 @@ const ARUZ_METRES = [
     descTr: 'Ağır ve dengeli; mersiye ve hikmet şiirinde tercih edilir.',
     descEn: 'Heavy and balanced; preferred in elegy and gnomic verse.' },
   { id: 'kamil',    tr: 'Kâmil',        en: 'Kāmil',    tef: 'مُتَفَاعِلُنْ مُتَفَاعِلُنْ',
-    descTr: 'Ritmik ve enerjik; el-Muallakât şiirlerinin çoğu bu vezindedir.',
-    descEn: 'Rhythmic and energetic; many of al-Muʿallaqāt use this metre.' },
+    descTr: 'Ritmik ve enerjik; bazı Muallakât kasideleri (Lebîd, Antere) bu vezindedir.',
+    descEn: 'Rhythmic and energetic; some Muʿallaqāt odes (Labīd, ʿAntara) use this metre.' },
   { id: 'vafir',    tr: 'Vâfir',        en: 'Wāfir',    tef: 'مُفَاعَلَتُنْ مُفَاعَلَتُنْ',
     descTr: 'Coşkun ve akıcı; kahramanlık şiirlerinin nabzı.',
     descEn: 'Exuberant and flowing; the pulse of heroic verse.' },
@@ -111,13 +111,13 @@ export default function RhythmExtensions({ language, isMobile }) {
             fontFamily: FONTS.display, color: COLORS.offWhite,
             fontSize: isMobile ? '1.3rem' : '1.55rem',
             margin: '0 0 12px', fontWeight: 700,
-          }}>{tr ? "Halil bin Ahmed'in 16 Vezni" : "Al-Khalīl's 16 Metres"}</h3>
+          }}>{tr ? "Aruzun 16 Vezni" : "The 16 Metres of ʿArūḍ"}</h3>
           <p style={{
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 24px', maxWidth: '760px',
           }}>{tr
-            ? "Klasik Arap şiiri el-Halîl b. Ahmed'in (ö. 791) sistemleştirdiği on altı aruz vezninden birine bağlıdır. Kur'ân bu vezinlerin hiçbirine uymaz — ne şiir ne düzyazı olan bir yapıya sahiptir."
-            : "Classical Arabic poetry is bound to one of the sixteen metres systematised by al-Khalīl ibn Aḥmad (d. 791). The Qur'an conforms to none of them — its structure is neither verse nor prose."}
+            ? "Klasik Arap şiiri on altı aruz vezninden birine bağlıdır — on beşini el-Halîl b. Ahmed (ö. 791) sistemleştirdi, on altıncısını (Mütedârik) öğrencisi el-Ahfeş ekledi. Kur'ân bu vezinlerin hiçbirine uymaz — ne şiir ne düzyazı olan bir yapıya sahiptir."
+            : "Classical Arabic poetry is bound to one of the sixteen ʿarūḍ metres — fifteen systematised by al-Khalīl ibn Aḥmad (d. 791), the sixteenth (al-Mutadārik) added by his student al-Akhfash. The Qur'an conforms to none of them — its structure is neither verse nor prose."}
           </p>
 
           <div style={{
