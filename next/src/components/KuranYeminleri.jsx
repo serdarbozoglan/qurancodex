@@ -1742,7 +1742,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
                     <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
-                      {language === 'tr' ? "Muksam Aleyhi · Yemin Cevabı" : "Muqsam ʿAlayhi · The Oath-Subject"}
+                      {language === 'tr' ? "Muksam Aleyhi · Yeminin Vurguladığı" : "Muqsam ʿAlayhi · What It Affirms"}
                     </div>
                     <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.6, margin: 0 }}>
                       {language === 'tr' ? ex.answerTr : ex.answerEn}
@@ -2088,8 +2088,8 @@ function TabKozmoloji({ language, isMobile }) {
               </div>
             </div>
             <p style={{
-              fontFamily: FONTS.quran, fontSize: isMobile ? '1.05rem' : '1.15rem',
-              color: COLORS.gold, lineHeight: 2.0, direction: 'rtl', textAlign: 'right',
+              fontFamily: FONTS.quran, fontSize: isMobile ? '1.35rem' : '1.6rem',
+              color: COLORS.gold, lineHeight: 2.1, direction: 'rtl', textAlign: 'right',
               margin: '0 0 10px',
             }} dir="rtl" lang="ar">
               {it.ar}
@@ -2416,13 +2416,13 @@ const YEMIN_CEVAP_DATA = [
     oathAr: 'وَالسَّمٓاءِ ذَاتِ الْبُرُوجِ وَالْيَوْمِ الْمَوْعُودِ وَشَاهِدٍ وَمَشْهُودٍ',
     oathTr: 'Burçlarla dolu göğe; vaad edilen güne; tanık olana ve tanık olunana andolsun.',
     oathEn: 'By the sky full of constellations; by the promised day; by the witness and the witnessed.',
-    answerRefTr: 'Burûc 85:4-7',
-    answerRefEn: 'al-Burūj 85:4-7',
-    answerAr: 'قُتِلَ اَصْحَابُ الْاُخْدُودِ اَلنَّارِ ذَاتِ الْوَقُودِ اِذْ هُمْ عَلَيْهَا قُعُودٌ وَهُمْ عَلٰى مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌ',
-    answerTr: 'Hendek halkı (Ashâb-ı Uhdûd) kahrolsun — yakacaklı ateşin sahipleri; ateşin başında oturmuş, müminlere yaptıklarını seyrediyorlardı.',
-    answerEn: 'Cursed be the people of the trench — those of the fueled fire; sitting beside it, watching what they did to the believers.',
-    insightTr: 'Kozmik yemin → tarihsel zulüm. Gök tanık; zalimler de tanık. Aynı kelime: "şahid".',
-    insightEn: 'Cosmic oath → historical injustice. The sky witnesses; the oppressors also witness. Same word: "shāhid".',
+    answerRefTr: 'Burûc 85:12',
+    answerRefEn: 'al-Burūj 85:12',
+    answerAr: 'اِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ',
+    answerTr: 'Şüphesiz Rabbinin yakalayışı çok çetindir.',
+    answerEn: 'Indeed, the grip of your Lord is severe.',
+    insightTr: 'Yemin (85:1-3) tematik olarak Ashâb-ı Uhdûd kıssasını (85:4-7) açar; fakat kasem cevabı (jevâbü\'l-kasem) gramatik olarak "inne… le-" kalıbını taşıyan 85:12\'dir — zulmedenlerin karşısına "Rabbinin çetin yakalayışı" konur. (Bu cevap ihtilaflıdır; bir görüşe göre mahzûftur.)',
+    insightEn: 'The oath (85:1-3) thematically opens the story of the People of the Trench (85:4-7); grammatically, though, the oath\'s answer carries the classic "inna… la-" form in 85:12 — against the oppressors stands "the severe grip of your Lord." (This answer is debated; one view holds it is elided.)',
   },
 ];
 
@@ -2455,7 +2455,7 @@ function YeminCevapReveal({ language, isMobile }) {
           letterSpacing: '-0.01em',
           maxWidth: '700px',
         }}>
-          {tr ? 'Yemin → Cevap' : 'Oath → Answer'}
+          {tr ? 'Yemin → Vurgu' : 'Oath → Affirmation'}
         </h2>
         <p style={{
           fontFamily: FONTS.display,
@@ -2565,7 +2565,7 @@ function YeminCevapReveal({ language, isMobile }) {
                 onMouseEnter={e => { if (!isRevealed) e.currentTarget.style.background = COLORS.goldAlpha04; }}
                 onMouseLeave={e => { if (!isRevealed) e.currentTarget.style.background = 'transparent'; }}
               >
-                <span>{isRevealed ? (tr ? '▴ Cevabı Kapat' : '▴ Hide the Answer') : (tr ? '▾ Cevabı Aç' : '▾ Reveal the Answer')}</span>
+                <span>{isRevealed ? (tr ? '▴ Vurguyu Kapat' : '▴ Hide') : (tr ? '▾ Vurguyu Aç' : '▾ Reveal')}</span>
               </button>
 
               {/* Answer section — reveal */}
@@ -2587,7 +2587,7 @@ function YeminCevapReveal({ language, isMobile }) {
                       border: '1px solid rgba(46,204,113,0.25)',
                       borderRadius: RADIUS.pillSm,
                     }}>
-                      {tr ? 'Cevap' : 'Answer'}
+                      {tr ? 'Yeminin Vurguladığı' : 'What It Affirms'}
                     </span>
                     <span style={{
                       fontSize: '0.74rem', color: COLORS.silver, opacity: 0.75,
