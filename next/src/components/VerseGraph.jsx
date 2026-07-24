@@ -2159,8 +2159,8 @@ function FullGraph({ verses, onBack, language, onClose }) {
       );
     };
 
-    // Wait for graph to fully initialize before starting
-    const initTimer = setTimeout(() => { rafId = requestAnimationFrame(tick); }, 2000);
+    // Yerleştirme (60ms, animasyonsuz) bittikten sonra başla.
+    const initTimer = setTimeout(() => { rafId = requestAnimationFrame(tick); }, 600);
 
     // Pause on pointer interaction, resume after 3s idle
     const pauseOnInteract = () => {
@@ -2235,12 +2235,16 @@ function FullGraph({ verses, onBack, language, onClose }) {
     setFocusedNodeId(null);
     if (!graphRef.current || !graphData.nodes.length) return;
 
-    // TEK kamera hareketi.
+    // TEK ve ANİ kamera yerleştirmesi.
     //
-    // Önce zoomToFit(bbox merkezi) + 950ms sonra medyan eksene düzeltme vardı;
-    // iki ayrı hareket olduğu için sayfa yenilenince küme gözle görülür biçimde
-    // "zıplıyordu". Artık hedef ve mesafe tek seferde hesaplanıp tek animasyonla
-    // uygulanıyor (2026-07-23).
+    // Önce zoomToFit(bbox merkezi) 1200ms gecikmeyle + 950ms sonra ikinci bir
+    // düzeltme çalışıyordu. Sayfa açılışta bir kamerayla çizilip sonra kayıyor,
+    // bu da "küme zıplıyor" olarak görünüyordu.
+    //
+    // Düzen statik (d3AlphaDecay=1, warmupTicks=0 → node konumları grafik
+    // kurulurken hesaplanıyor), yani fizik motorunun oturmasını beklemeye gerek
+    // yok. Hedef ve mesafe tek seferde hesaplanıp animasyonsuz uygulanıyor:
+    // ilk çizilen kare zaten doğru yerde (2026-07-23).
     const fitTimer = setTimeout(() => {
       const g = graphRef.current;
       if (!g) return;
@@ -2260,14 +2264,15 @@ function FullGraph({ verses, onBack, language, onClose }) {
       };
       const pivot = { x: median('x'), y: median('y'), z: median('z') };
 
-      // Yarıçap: 90. persentil — birkaç uzak ayet yüzünden gereksiz uzaklaşma olmasın.
+      // Yarıçap: 95. persentil — birkaç uzak ayet yüzünden gereksiz uzaklaşma
+      // olmasın, ama kümenin gövdesi de kadraja sığsın.
       const radii = pts
         .map(n => Math.hypot(n.x - pivot.x, n.y - pivot.y, n.z - pivot.z))
         .sort((a, b) => a - b);
-      const radius = radii[Math.floor(radii.length * 0.9)] || radii[radii.length - 1] || 100;
+      const radius = radii[Math.floor(radii.length * 0.95)] || radii[radii.length - 1] || 100;
 
       const fovRad = ((cam.fov || 50) * Math.PI) / 180;
-      const dist = (radius / Math.tan(fovRad / 2)) * 1.15; // 1.15 → kenar payı
+      const dist = (radius / Math.tan(fovRad / 2)) * 1.3; // 1.3 → kenar payı
 
       // Mevcut bakış yönünü koru, sadece uzaklığı ayarla.
       const dx = cam.position.x - ctrl.target.x;
@@ -2282,9 +2287,9 @@ function FullGraph({ verses, onBack, language, onClose }) {
       g.cameraPosition(
         { x: pivot.x + (dx / len) * dist, y: pivot.y + (dy / len) * dist, z: pivot.z + (dz / len) * dist },
         { x: pivot.x, y: pivot.y + yOffset, z: pivot.z },
-        900,
+        0, // animasyon yok — ilk kare doğru yerde
       );
-    }, 1200);
+    }, 60); // grafik örneğinin kurulması için tek kare
 
     return () => clearTimeout(fitTimer);
   }, [filterSurah, graphData]);
@@ -2565,10 +2570,11 @@ function FullGraph({ verses, onBack, language, onClose }) {
         enableNodeDrag={false}
         showNavInfo={false}
         onEngineStop={() => {
-          if (!initialFitDone.current && !filterSurah) {
-            initialFitDone.current = true;
-            setTimeout(() => graphRef.current?.zoomToFit(700, 60), 150);
-          }
+          // Buradaki zoomToFit(700, 60) kaldırıldı: ilk yerleştirmeyi zaten
+          // yukarıdaki [filterSurah, graphData] efekti yapıyor (medyan eksen).
+          // İkisi birlikte çalışınca kamera önce medyan eksene, sonra bbox
+          // merkezine gidiyordu — sayfa yenilenince küme zıplıyordu (2026-07-23).
+          initialFitDone.current = true;
           const controls = graphRef.current?.controls?.();
           if (controls) {
             controls.screenSpacePanning = true;
