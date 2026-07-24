@@ -14,7 +14,7 @@
 | ✅ done | ~~#206 VerseGraph Hero~~ | — | — | **ZATEN YAPILMIŞ** (git `40763af` feat #206 §13.18 premium açılış katmanı). Todo maddesi eskiydi. Landing: Zümer 39:23 anchor + eyebrow + micro-stat + "Haritayı keşfet" CTA mevcut. Rotasyon (yörünge) kullanıcı onayladı=böyle iyi. |
 | ✅ done | ~~#205 EsmaFrekans Hero~~ | — | — | **ZATEN YAPILMIŞ + §13.17 istisnası.** Tam flagship §13.18 hero mevcut (bismillah + Şûrâ 42:11 + framing whisper + ESMÂ-İ HÜSNÂ + 4 Temel Ayet + ClosingReflection CTA). Todo Phase 5 eskiydi. Dokunulmadı (flagship). |
 | ✅ done | ~~#203 SourcesCitation — 4 tool~~ | — | — | **3/4 EKLENDİ** (QuranCommands `b1d2e8e` + AddresseeSystem/DiyalogAgi `0ee95e4`). WordHeatmap = §13.21 istisnası (immersive fullscreen; Leeds Corpus zaten /kaynakca+/hakkinda'da). |
-| **65** | **Atmosfer raporu madde 4** (15 dk) | ⭐⭐ | Çok düşük | Değer küçük ama efor **15 dk** → ROI yüksek. Anasayfa 5 section `borderRadius 20→12px`. Görsel karar senin. |
+| ✅ done | ~~Atmosfer raporu madde 4~~ | — | — | **`200af63`** — kontrol sonucu rapor fazla kabaymış: 5'ten sadece 1'i (AllahKendiniTanitir büyük kartı) gerçekten fazla bulbous'tu → 12px. Diğer 4'ü küçük pill/chip (20px=pill doğru), dokunulmadı. |
 | **58** | **#202 CrossToolCTA kalanı** (~5h) | ⭐⭐⭐ | Düşük | Keşif/çapraz-navigasyon → oturum derinliği. Zaten 18/34 done; ~16 tool verify+kapat. Değer orta (yarısı bitmiş), efor orta. |
 | **52** | **Morfoloji tooltip** (P2, ~8-12h) | ⭐⭐⭐⭐ | Orta | Eğitsel derinlik (kelime→kök/fiil/şahıs, Leeds corpus). Kullanıcı-değeri yüksek ama efor+entegrasyon orta → puan orta. |
 | **48** | **Güven kutusu** (P2, ~15-20h) | ⭐⭐⭐⭐ | Orta | Epistemik şeffaflık iddia-düzeyinde. Hakkında sayfası site-düzeyinde yaptı → marj azaldı. Değerli ama büyük sistem işi. |
