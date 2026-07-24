@@ -1105,10 +1105,10 @@ const OBSERVATIONS = [
   {
     id: 'kemal', cluster: 'ornek-tarih',
     statValue: '4',
-    labelTr: 'Hadiste "kemâle eren" dört kadın',
-    labelEn: 'Four "perfected" women in hadith',
-    bodyTr: 'Hadis literatüründe (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe 70) Hz. Peygamber\'in "kemâl mertebesine ulaşmış" olarak isimlendirdiği dört kadın: Hz. Meryem ve Asiye (Kur\'an\'da yer alan iki figür) + Hz. Hatice ve Hz. Fâtıma (yalnızca hadis-tarih kaynaklarında). Atlasın ilk ikisi içerdiği, son ikisinin Kur\'an dışında kaldığı dikkatli bir ayrımdır.',
-    bodyEn: 'In hadith literature (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba 70) the Prophet names four women as having reached the rank of perfection: Maryam and Asiya (two atlas figures) + Khadija and Fatima (only in hadith-historical sources). The careful distinction: the atlas includes the first two; the latter two fall outside the Quran.',
+    labelTr: 'İki hadiste anılan dört seçkin kadın',
+    labelEn: 'Four honored women across two hadiths',
+    bodyTr: 'İki AYRI hadis söz konusudur: (1) "Kemâl" hadisi (Buhârî, Enbiyâ 32; Müslim, Fedâilü\'s-Sahâbe) — "erkeklerden birçoğu kemâle erdi; kadınlardan ise Hz. Meryem ile Hz. Âsiye\'den başkası kemâle ermedi" — yalnız İKİ kadın. (2) "Cennet kadınlarının en faziletlileri" hadisi — Hz. Hatice, Hz. Fâtıma, Hz. Meryem ve Hz. Âsiye. Meryem ve Âsiye her iki hadiste ve Kur\'ân\'da yer alır; Hatice ile Fâtıma yalnız ikinci hadistedir. (Kemâl hadisini "dört kadın" olarak sunmak iki rivayeti karıştırmaktır.)',
+    bodyEn: 'These are TWO separate hadiths: (1) the "kamāl" hadith (Bukhari, Anbiya 32; Muslim, Fada\'il as-Sahaba) — "many men reached perfection, but among women none reached it except Maryam and Asiya" — only two women. (2) the "foremost women of Paradise" hadith — Khadija, Fatima, Maryam, and Asiya. Maryam and Asiya appear in both and in the Quran; Khadija and Fatima only in the second. (Attributing four women to the kamāl hadith conflates the two narrations.)',
     groups: [
       {
         labelTr: "KUR'AN'DA", labelEn: 'IN THE QURAN',
