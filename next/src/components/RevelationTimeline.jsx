@@ -180,8 +180,16 @@ export default function RevelationTimeline({ onClose }) {
                       onMouseLeave={() => setHovered(null)}
                       style={{
                         background: isHovered ? `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.15)` : 'rgba(255,255,255,0.025)',
-                        border: `1px solid ${isHovered ? periodColor(s.period) + '60' : COLORS.glassBg}`,
-                        borderLeft: `3px solid ${periodColor(s.period)}`,
+                        // Long-form: shorthand `border` hover'da değişince long-form
+                        // `borderLeft`'i eziyor ve sol renkli şerit kayboluyordu
+                        // (React shorthand/long-form çakışması, 2026-07-24 kullanıcı bug).
+                        borderStyle: 'solid',
+                        borderTopWidth: '1px', borderRightWidth: '1px', borderBottomWidth: '1px',
+                        borderLeftWidth: '3px',
+                        borderTopColor: isHovered ? periodColor(s.period) + '60' : COLORS.glassBg,
+                        borderRightColor: isHovered ? periodColor(s.period) + '60' : COLORS.glassBg,
+                        borderBottomColor: isHovered ? periodColor(s.period) + '60' : COLORS.glassBg,
+                        borderLeftColor: periodColor(s.period),
                         borderRadius: RADIUS.md, padding: '10px 12px', cursor: 'default',
                         transition: `all ${TRANSITION.fast}`,
                       }}
