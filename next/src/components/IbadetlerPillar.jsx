@@ -278,7 +278,7 @@ function PillarHero({ pillarData, language, isMobile }) {
       )}
 
       {/* H1 title */}
-      <h1 style={{
+      <h2 style={{
         fontFamily: FONTS.display,
         color: COLORS.offWhite,
         fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
@@ -286,7 +286,7 @@ function PillarHero({ pillarData, language, isMobile }) {
         fontWeight: 700,
       }}>
         {language === 'tr' ? pillarData.titleTr : pillarData.titleEn}
-      </h1>
+      </h2>
 
       {/* Dramatic subtitle */}
       {(hero.subtitleTr || hero.subtitleEn) && (

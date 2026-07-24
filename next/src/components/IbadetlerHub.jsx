@@ -117,11 +117,11 @@ function HubHero({ hubData, language, isMobile }) {
         }}>{language === 'tr' ? hero.eyebrowTr : hero.eyebrowEn}</p>
       )}
 
-      <h1 style={{
+      <h2 style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
         fontSize: isMobile ? 'clamp(1.7rem, 7.5vw, 2.15rem)' : 'clamp(2.15rem, 3.8vw, 2.85rem)',
         margin: '0 0 14px', fontWeight: 700,
-      }}>{language === 'tr' ? hubData.titleTr : hubData.titleEn}</h1>
+      }}>{language === 'tr' ? hubData.titleTr : hubData.titleEn}</h2>
 
       {(hero.subtitleTr || hero.subtitleEn) && (
         <p style={{

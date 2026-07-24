@@ -202,12 +202,12 @@ export default function RetorikSorular({ onClose }) {
               fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72,
               marginBottom: '14px',
             }}>{tr ? "BELÂGAT · CÜRCÂNÎ'DEN NEUWIRTH'E" : "BALĀGHA · FROM AL-JURJĀNĪ TO NEUWIRTH"}</div>
-            <h1 style={{
+            <h2 style={{
               color: COLORS.offWhite,
               fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
               fontWeight: 700, fontFamily: FONTS.display,
               margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px',
-            }}>{tr ? "Kur'an'ın Belağatı" : "Belāġa of the Qur'an"}</h1>
+            }}>{tr ? "Kur'an'ın Belağatı" : "Belāġa of the Qur'an"}</h2>
             <p style={{
               fontFamily: FONTS.display,
               fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',

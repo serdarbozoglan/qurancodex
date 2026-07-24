@@ -165,9 +165,9 @@ export default function AddresseeSystem({ onClose }) {
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
           {language === 'tr' ? "USLÛB-İ HİTÂB · MUHATAPLAR" : "USLŪB AL-KHIṬĀB · ADDRESSEES"}
         </div>
-        <h1 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
+        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
           {language === 'tr' ? "Kur'an Kime Sesleniyor?" : 'To Whom Does the Quran Speak?'}
-        </h1>
+        </h2>
         <p style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {language === 'tr' ? 'Tek bir Kitap, çoklu seslenen, farklı muhataplar.' : 'One Book, multiple voices, distinct addressees.'}
         </p>

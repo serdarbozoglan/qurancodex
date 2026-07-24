@@ -142,14 +142,14 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             }}>
               {isEn ? "NUANCES · WORDS THAT DIFFER" : 'NÜANSLAR · KELİMELER AYRIŞIYOR'}
             </p>
-            <h1 style={{
+            <h2 style={{
               fontFamily: FONTS.display,
               fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
               color: COLORS.offWhite,
               margin: '0 0 10px', fontWeight: 700,
             }}>
               {isEn ? data.intro.titleEn : data.intro.titleTr}
-            </h1>
+            </h2>
             <p style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.gold,

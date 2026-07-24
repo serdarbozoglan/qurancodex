@@ -592,7 +592,7 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
 
           {/* Big Title */}
-          <h1 style={{
+          <h2 style={{
             fontFamily: FONTS.display,
             fontSize: isMobile ? 'clamp(1.65rem, 7vw, 2.05rem)' : 'clamp(2.05rem, 3.7vw, 2.8rem)',
             fontWeight: 900, color: COLORS.offWhite, margin: '0 auto 16px',
@@ -601,7 +601,7 @@ export default function KiyametSahneleri({ onClose }) {
             maxWidth: '780px',
           }}>
             {language === 'tr' ? 'O Gün Her Şey Farklı Olacak' : 'On That Day, Everything Will Be Different'}
-          </h1>
+          </h2>
 
           <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '48rem', margin: '0 auto 24px', fontFamily: FONTS.body, textAlign: 'left' }}>
             {language === 'tr'

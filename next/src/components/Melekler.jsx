@@ -1446,7 +1446,7 @@ export default function Melekler({ onClose }) {
           </p>
 
           {/* Big Title */}
-          <h1 style={{
+          <h2 style={{
             fontFamily: FONTS.display,
             fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
             fontWeight: 700,
@@ -1457,7 +1457,7 @@ export default function Melekler({ onClose }) {
             maxWidth: '760px',
           }}>
             {tr ? 'Görünmeyenin Elçileri' : 'Messengers of the Unseen'}
-          </h1>
+          </h2>
 
           {/* Dramatic subtitle */}
           <p style={{

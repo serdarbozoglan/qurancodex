@@ -1396,7 +1396,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </div>
 
       {/* Big Title (h1 — server-rendered SEO heading already in PageHeading; this is the visible h1) */}
-      <h1 style={{
+      <h2 style={{
         fontFamily: FONTS.display,
         color: COLORS.offWhite,
         fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
@@ -1407,7 +1407,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         maxWidth: '760px',
       }}>
         {language === 'tr' ? "Kur'an'ın Tabiat Atlası" : "The Quran's Nature Atlas"}
-      </h1>
+      </h2>
 
       {/* Dramatic subtitle */}
       <p style={{

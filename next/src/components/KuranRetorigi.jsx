@@ -176,9 +176,9 @@ export default function KuranRetorigi({ onClose }) {
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
           {tr ? "BELÂGAT · İ'CÂZ · DÖRT SANAT" : "BALĀGHA · IʿJĀZ · FOUR ARTS"}
         </div>
-        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '780px' }}>
+        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '780px' }}>
           {tr ? "Kur'an'ın Kendine Has Dili" : "The Quran's Register of Its Own"}
-        </h1>
+        </h2>
         <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {tr ? 'Tezat denge kurar, istiare yoğunlaştırır, iltifât canlandırır.' : 'Antithesis balances, metaphor condenses, iltifāt enlivens.'}
         </p>

@@ -446,7 +446,7 @@ export default function MunafikProfili({ onClose }) {
           </div>
 
           {/* Big pull quote */}
-          <h1 style={{
+          <h2 style={{
             fontFamily: FONTS.display,
             fontSize: isMobile ? '1.55rem' : 'clamp(1.9rem, 3.4vw, 2.55rem)',
             fontWeight: 700,
@@ -460,7 +460,7 @@ export default function MunafikProfili({ onClose }) {
             {language === 'tr'
               ? '300+ ayet tek bir karakter tipine ayrıldı.'
               : '300+ verses are devoted to a single character type.'}
-          </h1>
+          </h2>
 
           {/* Subtitle */}
           <p style={{

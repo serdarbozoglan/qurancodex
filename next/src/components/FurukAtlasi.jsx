@@ -198,13 +198,13 @@ export default function FurukAtlasi({ onClose }) {
           <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: 8 }}>
             {tr ? 'AYNI ÇEVİRİ · FARKLI ANLAM' : 'SAME TRANSLATION · DIFFERENT MEANING'}
           </div>
-          <h1 style={{
+          <h2 style={{
             color: COLORS.offWhite, fontSize: isMobile ? '1.4rem' : '1.9rem',
             fontWeight: 700, fontFamily: FONTS.display, margin: '0 0 12px',
             lineHeight: 1.3,
           }}>
             {tr ? 'İddia değil, veri göster.' : 'Show data, not claims.'}
-          </h1>
+          </h2>
           <p style={{
             color: COLORS.silver, fontSize: isMobile ? '0.9rem' : '0.95rem',
             fontFamily: FONTS.body, margin: '0 0 20px',

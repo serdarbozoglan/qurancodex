@@ -238,7 +238,7 @@ export default function KuranYeminleri({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h1 style={{
+          <h2 style={{
             color: COLORS.offWhite,
             fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
             fontWeight: 700,
@@ -249,7 +249,7 @@ export default function KuranYeminleri({ onClose }) {
             maxWidth: '760px',
           }}>
             {language === 'tr' ? "Kur'an'ın Yeminleri" : "The Oaths of the Quran"}
-          </h1>
+          </h2>
 
           {/* Dramatic subtitle */}
           <p style={{

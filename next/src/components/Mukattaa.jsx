@@ -121,7 +121,7 @@ export default function Mukattaa({ onClose }) {
           {tr ? 'DİLSEL DNA · 1.400 YIL · 14 HARF' : 'LINGUISTIC DNA · 1,400 YEARS · 14 LETTERS'}
         </div>
 
-        <h1 style={{
+        <h2 style={{
           fontFamily: FONTS.display,
           fontWeight: 700,
           color: COLORS.offWhite,
@@ -131,7 +131,7 @@ export default function Mukattaa({ onClose }) {
           margin: '0 0 12px',
         }}>
           {tr ? "Huruf-i Mukattaâ — Kur'an'ın Dilsel DNA'sı" : "Mukattaʿāt — The Linguistic DNA of the Qur'an"}
-        </h1>
+        </h2>
         <p style={{
           fontFamily: FONTS.display,
           fontStyle: 'italic',

@@ -237,7 +237,7 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
 
           {/* Playfair italic quote */}
-          <h1 style={{
+          <h2 style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
             fontWeight: 700,
@@ -251,7 +251,7 @@ export default function NefisMertebeleri({ onClose }) {
             {language === 'tr'
               ? '"İnsan nefsi sabit bir şey değildir."'
               : '"The human self is not static."'}
-          </h1>
+          </h2>
 
           {/* Subtitle */}
           <p style={{

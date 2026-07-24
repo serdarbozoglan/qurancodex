@@ -2792,7 +2792,7 @@ export default function KuranRenkleri({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h1 style={{
+          <h2 style={{
             fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
             fontWeight: 700, fontFamily: FONTS.display,
             color: COLORS.offWhite,
@@ -2802,7 +2802,7 @@ export default function KuranRenkleri({ onClose }) {
             maxWidth: '760px',
           }}>
             {tr ? "Allah'ın Seçtiği Renkler" : 'The Colors Allah Chose'}
-          </h1>
+          </h2>
 
           {/* Dramatic subtitle */}
           <p style={{

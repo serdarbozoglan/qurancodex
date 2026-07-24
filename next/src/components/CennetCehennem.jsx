@@ -339,7 +339,7 @@ export default function CennetCehennem({ onClose }) {
             </p>
 
             {/* Big Title */}
-            <h1 style={{
+            <h2 style={{
               fontFamily: FONTS.display,
               fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
               fontWeight: 700,
@@ -350,7 +350,7 @@ export default function CennetCehennem({ onClose }) {
               maxWidth: '780px',
             }}>
               {language === 'tr' ? 'İki Son, İki Dil' : 'Two Endings, Two Languages'}
-            </h1>
+            </h2>
 
             {/* Dramatic subtitle */}
             <p style={{

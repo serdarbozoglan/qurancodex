@@ -347,7 +347,7 @@ function Hero({ tr }) {
           >
             الْأَسْمَاءُ الْحُسْنٰى
           </p>
-          <h1 style={{
+          <h2 style={{
             fontFamily: FONTS.display,
             fontWeight: 900,
             fontSize: 'clamp(2.6rem, 7.5vw, 5.5rem)',
@@ -361,7 +361,7 @@ function Hero({ tr }) {
             display: 'inline-block',
           }}>
             {tr ? 'ESMÂ-İ HÜSNÂ' : 'THE BEAUTIFUL NAMES'}
-          </h1>
+          </h2>
           {/* Subtle gold underline glow */}
           <div aria-hidden style={{
             width: '120px',

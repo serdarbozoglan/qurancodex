@@ -115,13 +115,13 @@ export default function DuaDili({ onClose }) {
         }}>
           {tr ? "YAKARIŞIN GRAMERİ · 4 KATMAN" : "GRAMMAR OF SUPPLICATION · 4 LAYERS"}
         </p>
-        <h1 style={{
+        <h2 style={{
           fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite,
           fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em', margin: '0 0 12px',
         }}>
           {tr ? "Dua Dili — Yakarışın Gramatik Kalıbı" : "Language of Prayer — The Grammar of Supplication"}
-        </h1>
+        </h2>
         <p style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
           fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',

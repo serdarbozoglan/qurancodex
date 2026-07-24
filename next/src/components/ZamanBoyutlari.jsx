@@ -1699,7 +1699,7 @@ export default function ZamanBoyutlari({ onClose }) {
         </div>
 
         {/* Big Title */}
-        <h1 style={{
+        <h2 style={{
           color: COLORS.offWhite,
           fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
           fontWeight: 700,
@@ -1710,7 +1710,7 @@ export default function ZamanBoyutlari({ onClose }) {
           maxWidth: '760px',
         }}>
           {language === 'tr' ? "Kur'an'da Zaman Boyutları" : "Dimensions of Time in the Quran"}
-        </h1>
+        </h2>
 
         {/* Dramatic subtitle */}
         <p style={{

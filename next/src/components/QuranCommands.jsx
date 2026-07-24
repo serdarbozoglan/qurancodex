@@ -298,7 +298,7 @@ export default function QuranCommands({ onClose }) {
           </span>
         </div>
 
-        <h1 style={{
+        <h2 style={{
           fontFamily: FONTS.display,
           fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
           fontWeight: 700,
@@ -309,7 +309,7 @@ export default function QuranCommands({ onClose }) {
           maxWidth: '780px',
         }}>
           {L.title}
-        </h1>
+        </h2>
         <p style={{
           fontFamily: FONTS.display,
           fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',

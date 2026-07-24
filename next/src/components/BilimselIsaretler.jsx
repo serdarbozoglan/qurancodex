@@ -203,12 +203,12 @@ export default function BilimselIsaretler({ onClose }) {
               fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72,
               marginBottom: '14px',
             }}>{tr ? 'ÂYÂT-I KEVNİYYE · TABİAT İŞARETLERİ' : 'ĀYĀT KAWNIYYA · SIGNS OF NATURE'}</div>
-            <h1 style={{
+            <h2 style={{
               color: COLORS.offWhite,
               fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
               fontWeight: 700, fontFamily: FONTS.display,
               margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px',
-            }}>{tr ? intro.titleTr : intro.titleEn}</h1>
+            }}>{tr ? intro.titleTr : intro.titleEn}</h2>
             <p style={{
               fontFamily: FONTS.display,
               fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',

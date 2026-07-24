@@ -92,7 +92,7 @@ export default function AltiKonu({ onClose }) {
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
-        <h1 style={{
+        <h2 style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
           fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
@@ -100,7 +100,7 @@ export default function AltiKonu({ onClose }) {
           margin: '0 0 12px',
         }}>
           {tr ? "Altı Konu, Altı Sır" : "Six Topics, Six Secrets"}
-        </h1>
+        </h2>
         <p style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,

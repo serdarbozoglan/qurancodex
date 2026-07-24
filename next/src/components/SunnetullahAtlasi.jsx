@@ -458,7 +458,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h1 style={{
+          <h2 style={{
             color: COLORS.offWhite,
             fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
             fontWeight: 700,
@@ -469,7 +469,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             maxWidth: '760px',
           }}>
             {language === 'tr' ? intro.titleTr : intro.titleEn}
-          </h1>
+          </h2>
 
           {/* Dramatic subtitle */}
           <p style={{
