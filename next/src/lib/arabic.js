@@ -128,6 +128,7 @@ export function cleanArabicForDisplay(str) {
     .replace(/[ؐ-ؔؖؗ]/g, '')               // İslami kısaltma işaretleri
     .replace(/[؀-؅]/g, '')                           // Kur'an numara/dipnot işaretleri
     .replace(/[۝۞۩]/g, '')                      // ayet sonu, rub el hizb, secde işareti
+    .replace(/ە/g, '')                          // U+06D5 (ARABIC LETTER AE, ە) — standart Kur'an metninde yok; KFGQPC'de tofu (2026-07-24 Asr 103:3 fix)
     .replace(/ۦ/g, ' ')                                   // small yeh → boşluk (kelime ayracı)
     .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '') // CLAUDE.md §13.15 canonical: waqf + tajwid range (U+0615 + U+06D6-U+06DC + U+06DF-U+06ED). Eski regex U+06E0'ı (small high upright rectangular zero) kaçırıyordu — kaynak-yuzey 3:19'da tofu render'a yol açtı (2026-07 fix).
     .replace(/[﴾﴿]/g, '');                           // süslü parantezler
