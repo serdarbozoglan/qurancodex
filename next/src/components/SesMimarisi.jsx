@@ -68,7 +68,7 @@ export default function SesMimarisi({ onClose }) {
             textShadow: `0 0 22px ${COLORS.gold}1f`,
           }}
         >
-          وَالنَّاشِطَاتِ نَشْطًا
+          وَالنَّازِعَاتِ غَرْقاً
         </p>
         <p style={{
           fontFamily: FONTS.display,
@@ -79,7 +79,7 @@ export default function SesMimarisi({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Andolsun şiddetle çekip alanlara..." : "By those who pluck out vigorously..."}"
+          "{tr ? "Andolsun, şiddetle söküp çıkaranlara..." : "By those who pluck out violently..."}"
         </p>
         <p style={{
           color: COLORS.silver,
@@ -89,7 +89,7 @@ export default function SesMimarisi({ onClose }) {
           textTransform: 'uppercase',
           opacity: 0.65,
           marginBottom: '24px',
-        }}>— {tr ? "Nâziât 79:2" : "an-Nāziʿāt 79:2"}</p>
+        }}>— {tr ? "Nâziât 79:1" : "an-Nāziʿāt 79:1"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
