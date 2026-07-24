@@ -158,7 +158,7 @@ export default function KitapKavrami() {
               workTr: "el-Müfredât fî Garîbi\'l-Kurʾân",
               workEn: 'al-Mufradāt fī Gharīb al-Qurʾān',
               period: '?–1108 (İsfahan)',
-              noteTr: "Kur'ân\'daki her kelimenin kök + türev + tam anlam yelpazesi. Kur'ân\'ın kendi isimleri için foundational başvuru — beyân, tibyân, mübîn ayrımı buradan.",
+              noteTr: "Kur'ân\'daki her kelimenin kök + türev + tam anlam yelpazesi. Kur'ân\'ın kendi isimleri için temel başvuru — beyân, tibyân, mübîn ayrımı buradan.",
               noteEn: "Root, derivation, and full meaning-spectrum of every word in the Quran. The foundational reference for the Quran\'s self-names — the distinction between bayān, tibyān, mubīn comes from here.",
             },
             {

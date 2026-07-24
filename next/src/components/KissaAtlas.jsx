@@ -198,7 +198,7 @@ export default function KissaAtlas({ onClose }) {
           workTr: "Târîhu'r-Rusul ve'l-Mülûk",
           workEn: 'Tārīkh al-Rusul wa-l-Mulūk',
           period: '839–923 (Bağdat)',
-          noteTr: 'Kıssaları tarih perspektifinden ele alan foundational kaynak; farklı rivayetleri isnadıyla verir.',
+          noteTr: 'Kıssaları tarih perspektifinden ele alan temel kaynak; farklı rivayetleri isnadıyla verir.',
           noteEn: 'Foundational historical source treating narratives with full chains of transmission.',
         },
         {

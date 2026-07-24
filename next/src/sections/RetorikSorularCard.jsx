@@ -169,7 +169,7 @@ export default function RetorikSorularCard() {
             lineHeight: 1.6,
           }}
         >
-          {tr ? "31 refrain · 3 büyük soru zinciri · sayısız iç sorgulama" : "31 refrain · 3 major chains · countless inner inquiries"}
+          {tr ? "31 nakarat · 3 büyük soru zinciri · sayısız iç sorgulama" : "31 refrain · 3 major chains · countless inner inquiries"}
         </motion.p>
       </motion.div>
     </section>

@@ -169,7 +169,7 @@ export default function TekrarCard() {
             lineHeight: 1.6,
           }}
         >
-          {tr ? "Rahmân 31 · Mürselât 10 · Kamer 4 — refrain mimarisi" : "Ar-Raḥmān 31 · al-Mursalāt 10 · al-Qamar 4 — refrain architecture"}
+          {tr ? "Rahmân 31 · Mürselât 10 · Kamer 4 — nakarat mimarisi" : "Ar-Raḥmān 31 · al-Mursalāt 10 · al-Qamar 4 — refrain architecture"}
         </motion.p>
       </motion.div>
     </section>

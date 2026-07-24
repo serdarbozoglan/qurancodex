@@ -1078,7 +1078,7 @@ export default function SurahComparator({ onClose }) {
               workTr: "Nazmü\'d-Dürer fî Tenâsübi\'l-Âyi ve\'s-Süver",
               workEn: 'Naẓm al-Durar fī Tanāsub al-Āy wa al-Suwar',
               period: '1406–1480 (Kahire)',
-              noteTr: "Sûreler-arası münâsebât ilminin foundational eseri — her sûrenin bir öncekiyle bağını sistematik ayet-ayet inceler. Sûre DNA karşılaştırmasının klasik zemini.",
+              noteTr: "Sûreler-arası münâsebât ilminin temel eseri — her sûrenin bir öncekiyle bağını sistematik ayet-ayet inceler. Sûre DNA karşılaştırmasının klasik zemini.",
               noteEn: "The foundational work of inter-sūrah munāsabāt studies — systematically examines each sūrah's link with the previous one verse by verse. The classical grounding for inter-sūrah comparison.",
             },
             {

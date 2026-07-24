@@ -91,7 +91,7 @@ export default function RhythmExtensions({ language, isMobile }) {
             color: COLORS.gold, fontSize: '0.72rem',
             letterSpacing: '0.28em', textTransform: 'uppercase',
             fontWeight: 700, opacity: 0.82, marginBottom: '14px',
-          }}>{tr ? 'DERİN İNCELEME · VEZİN VE REFRAIN' : 'DEEP DIVE · METRE AND REFRAIN'}</p>
+          }}>{tr ? 'DERİN İNCELEME · VEZİN VE NAKARAT' : 'DEEP DIVE · METRE AND REFRAIN'}</p>
           <h2 style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
             fontSize: isMobile ? '1.6rem' : '2rem',
@@ -102,7 +102,7 @@ export default function RhythmExtensions({ language, isMobile }) {
             color: COLORS.gold, opacity: 0.85,
             fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
             margin: 0,
-          }}>{tr ? "16 klasik vezin, 31 kez tekrarlanan bir refrain" : "16 classical metres, a refrain repeated 31 times"}</p>
+          }}>{tr ? "16 klasik vezin, 31 kez tekrarlanan bir nakarat" : "16 classical metres, a refrain repeated 31 times"}</p>
         </div>
 
         {/* 16 Vezin Widget */}
@@ -180,7 +180,7 @@ export default function RhythmExtensions({ language, isMobile }) {
             fontFamily: FONTS.display, color: COLORS.offWhite,
             fontSize: isMobile ? '1.3rem' : '1.55rem',
             margin: '0 0 12px', fontWeight: 700,
-          }}>{tr ? "Rahmân Sûresi'nin 31 Refrain'i" : "The 31 Refrains of Sūrat al-Raḥmān"}</h3>
+          }}>{tr ? "Rahmân Sûresi'nin 31 Nakaratı" : "The 31 Refrains of Sūrat al-Raḥmān"}</h3>
           <p style={{
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 20px', maxWidth: '760px',
@@ -202,7 +202,7 @@ export default function RhythmExtensions({ language, isMobile }) {
               color: COLORS.gold, fontSize: '0.7rem',
               letterSpacing: '0.22em', textTransform: 'uppercase',
               opacity: 0.85, marginBottom: '12px', fontWeight: 700,
-            }}>{tr ? 'Refrain' : 'Refrain'}</div>
+            }}>{tr ? 'Nakarat' : 'Refrain'}</div>
             <div style={{
               fontFamily: FONTS.quran, color: COLORS.gold,
               fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.75rem)' : 'clamp(1.65rem, 2.6vw, 2.05rem)',
@@ -242,7 +242,7 @@ export default function RhythmExtensions({ language, isMobile }) {
                       marginLeft: 'auto',
                       color: s.color, fontSize: '0.72rem',
                       fontWeight: 600, opacity: 0.85,
-                    }}>{inSection.length} × {tr ? 'refrain' : 'refrain'}</span>
+                    }}>{inSection.length} × {tr ? 'nakarat' : 'refrain'}</span>
                   </div>
                   {inSection.length > 0 && (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>

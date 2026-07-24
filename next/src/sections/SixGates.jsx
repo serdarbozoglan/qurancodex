@@ -19,7 +19,7 @@ const GATES = [
     eyebrowTr: 'KAPI 01',  eyebrowEn: 'GATE 01',
     titleTr: 'Arapça Bilmeden Görebileceğin Mimari',
     titleEn: 'Architecture Visible Without Arabic',
-    descTr: '14 mukattaa harfi · 16 vezin · ritim · ses-anlam · halka kompozisyon · refrain',
+    descTr: '14 mukattaa harfi · 16 vezin · ritim · ses-anlam · halka kompozisyon · nakarat',
     descEn: '14 mukattaʿāt letters · 16 meters · rhythm · sound-meaning · ring composition · refrain',
     chipsTr: ['Dilsel DNA', 'İmkânsız Ritim', 'Retorik', 'Ses Mimarisi', 'Halka Komp.', 'Sıfır Gereksizlik'],
     chipsEn: ['Linguistic DNA', 'Impossible Rhythm', 'Rhetoric', 'Sound', 'Ring Comp.', 'Zero Redundancy'],

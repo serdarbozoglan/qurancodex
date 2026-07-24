@@ -1411,7 +1411,7 @@ export default function WowFacts({ onClose }) {
                   workTr: "el-İtkān fî Ulûmi\'l-Kurʾân",
                   workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
                   period: '1445–1505 (Kahire)',
-                  noteTr: "Kur'ân ilimlerinin klasik ansiklopedisi — sayısal örüntüler, dil özellikleri, retorik incelikler için foundational başvuru.",
+                  noteTr: "Kur'ân ilimlerinin klasik ansiklopedisi — sayısal örüntüler, dil özellikleri, retorik incelikler için temel başvuru.",
                   noteEn: 'Classical encyclopedia of Quranic sciences — foundational reference for numerical patterns, linguistic features, rhetorical subtleties.',
                 },
                 {

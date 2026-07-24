@@ -152,7 +152,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
           workTr: "Tefsîru'l-Kurʾâni'l-Azîm",
           workEn: 'Tafsīr al-Qurʾān al-ʿAẓīm',
           period: '1301–1373 (Dımaşk)',
-          noteTr: 'Meryem, Âsiye, Belkıs, Havva ve Kur\'an\'daki tüm kadın figürler hakkındaki foundational tefsir kaynağı.',
+          noteTr: 'Meryem, Âsiye, Belkıs, Havva ve Kur\'an\'daki tüm kadın figürler hakkındaki temel tefsir kaynağı.',
           noteEn: 'Foundational tafsir source for Maryam, Āsiya, Bilqīs, Ḥawwāʾ and all female figures in the Quran.',
         },
         {

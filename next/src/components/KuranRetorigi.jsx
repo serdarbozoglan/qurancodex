@@ -77,7 +77,7 @@ export default function KuranRetorigi({ onClose }) {
             workTr: "Delâʾilü'l-İʿcâz",
             workEn: "Dalāʾil al-Iʿjāz",
             period: '?–1078 (Cürcân)',
-            noteTr: "Kurʾânî belâgat teorisinin foundational eseri; nazım (word-order) teorisini kuran metin. Modern belâgatın temeli.",
+            noteTr: "Kurʾânî belâgat teorisinin temel eseri; nazım (kelime dizimi) teorisini kuran metin. Modern belâgatın temeli.",
             noteEn: "The foundational work of Quranic rhetorical theory; the text that established the naẓm (word-order) theory. Bedrock of modern belaghah.",
           },
           {

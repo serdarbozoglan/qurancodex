@@ -3378,7 +3378,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
               workTr: "Târîhu\'r-Rusul ve\'l-Mülûk",
               workEn: 'Tārīkh al-Rusul wa-l-Mulūk',
               period: '839–923 (Bağdat)',
-              noteTr: 'Peygamberleri tarih perspektifinden ele alan foundational eser; nüzul kronolojisi için kritik kaynak.',
+              noteTr: 'Peygamberleri tarih perspektifinden ele alan temel eser; nüzul kronolojisi için kritik kaynak.',
               noteEn: 'Foundational historical treatment of prophets; critical source for revelation chronology.',
             },
             {
