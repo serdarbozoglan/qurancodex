@@ -12,7 +12,7 @@
 | Puan | İş (efor) | Değer | Risk | Not (neden bu puan) |
 |---|---|---|---|---|
 | ✅ done | ~~#206 VerseGraph Hero~~ | — | — | **ZATEN YAPILMIŞ** (git `40763af` feat #206 §13.18 premium açılış katmanı). Todo maddesi eskiydi. Landing: Zümer 39:23 anchor + eyebrow + micro-stat + "Haritayı keşfet" CTA mevcut. Rotasyon (yörünge) kullanıcı onayladı=böyle iyi. |
-| **80** | **#205 EsmaFrekans Hero + ToolHeader** (2-3h) | ⭐⭐⭐⭐ | Orta | Sitedeki **en büyük tool** (3797 satır), çok ziyaret edilen esmâ aracı; premium çerçevesi yok. Aynı iş, dosya büyük olduğu için biraz daha dikkat → risk orta. |
+| ✅ done | ~~#205 EsmaFrekans Hero~~ | — | — | **ZATEN YAPILMIŞ + §13.17 istisnası.** Tam flagship §13.18 hero mevcut (bismillah + Şûrâ 42:11 + framing whisper + ESMÂ-İ HÜSNÂ + 4 Temel Ayet + ClosingReflection CTA). Todo Phase 5 eskiydi. Dokunulmadı (flagship). |
 | **78** | **#203 SourcesCitation — 4 tool** (~3h) | ⭐⭐⭐⭐ | Düşük | Akademik güvenilirlik. Net kapsam: AddresseeSystem/DiyalogAgi/WordHeatmap (0 kaynak) + QuranCommands (2). Düşük risk, net iş. |
 | **65** | **Atmosfer raporu madde 4** (15 dk) | ⭐⭐ | Çok düşük | Değer küçük ama efor **15 dk** → ROI yüksek. Anasayfa 5 section `borderRadius 20→12px`. Görsel karar senin. |
 | **58** | **#202 CrossToolCTA kalanı** (~5h) | ⭐⭐⭐ | Düşük | Keşif/çapraz-navigasyon → oturum derinliği. Zaten 18/34 done; ~16 tool verify+kapat. Değer orta (yarısı bitmiş), efor orta. |
