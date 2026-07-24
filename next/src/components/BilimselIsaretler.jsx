@@ -245,7 +245,7 @@ export default function BilimselIsaretler({ onClose }) {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: '110px', scrollMarginTop: '120px', zIndex: 20,
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {TABS.map((t, i) => {

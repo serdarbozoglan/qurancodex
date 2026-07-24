@@ -563,6 +563,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           flexShrink: 0,
           position: 'sticky',
           top: '110px',
+          scrollMarginTop: '120px',
           zIndex: 20,
         }}>
           {TABS.map((tab, i) => {

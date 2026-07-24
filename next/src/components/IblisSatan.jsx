@@ -510,7 +510,7 @@ export default function IblisSatan({ onClose }) {
                 borderRadius: RADIUS.md,
                 overflow: 'hidden',
                 transition: 'background 0.2s, border-color 0.2s',
-                scrollMarginTop: '20px',
+                scrollMarginTop: '80px',
                 position: 'relative',
               }}
             >

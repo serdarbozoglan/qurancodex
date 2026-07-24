@@ -345,7 +345,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
             gridColumn: '1 / -1',
             paddingTop: '20px',
             marginBottom: '4px',
-            scrollMarginTop: '12px',
+            scrollMarginTop: '120px',
           }}>
             <div style={{
               display: 'flex', alignItems: 'center', gap: '14px',
