@@ -98,3 +98,28 @@ Görsel-etkisiz §13.1 kod hijyeni (hex→token, renk aynı görünür). Bir kı
 ## Değiştirilmeyen — Kullanıcı İncelemesi Gerek (⚠ %100 doğrulanamadı)
 
 _(doğrulayamadığım skolastik bulgular buraya)_
+
+---
+
+## İçerik Audit Workflow (inline-JSX) — 2026-07-24
+
+Workflow `wf_2d908475-652`: 47 dosya (26 section + 21 hardcoded component), 87 ajan, **38 CONFIRMED_ERROR**. Her biri benim tarafımdan `verse-graph-bgem3.json` + `surah-info.json`'a karşı yeniden doğrulandı.
+
+**✅ Uygulandı (30) — `f1310ce` + `662f491` + `1b536b2`:**
+Ayet-ref/atıf/Arapça: SesMimarisiCard 79:2→79:1 + ص "sert", ProphetAtlas 21:87→37:143-144, CennetCehennem 15:44 hadis→Kur'an + 37:64→37:27, HumanDefinition Muʿridûn, EsmaFrekans 20:82→16:110 + 34:2 sıra, KuranRenkleri (Musa el Bakara→Şuarâ, 56:23→37:49, 3:106 فأما, İnsan gümüş, altın 3 sûre), Melekler 42:51 vahiy, KiyametSahneleri 56:5 بُسَّتْ, IlkSonKelimeler Sebbih(A'lâ). İstatistik/dil: LinguisticDNA tilke 5/5→3/5, DuaDili 11→10, KadinlarAtlasi 7→14, SunnetullahAtlasi EN 6→10, SoundExtensions şedîde, DogaAtlasi Z.Naik "astronom" kaldırıldı, ZamanBoyutlari 309.017→309.21.
+
+**⚠ KULLANICI İNCELEMESİ (8) — skolastik/harici/yorumsal, kanonik'e karşı doğrulanamaz, DEĞİŞTİRİLMEDİ:**
+
+1. **LinguisticDNA.jsx:158** — mukattaa ayet-sayımı. "Şûrâ hariç diğer 28 sûrede mukattaa tek ayet sayılır" genellemesi kısmen hatalı: الر grubu (10,11,12,14,15), المر(13), طس(27), ص(38), ق(50), ن(68) mukattaayı 1. ayete GÖMER, bağımsız ayet saymaz. Kûfî/Hafs sayımı skolastik — kesin sayı (18 vs 28) tartışmalı.
+
+2-5. **KiyametSahneleri.jsx:1208 (TR) + :1235 (EN)** — Risale-i Nur bibliyografyası (harici eser, kanonik değil):
+   - "Yedinci Şua (**Lem'alar** — Âyetü'l-Kübrâ)" → Âyetü'l-Kübrâ **Şualar**'da (The Rays), Lem'alar'da değil. ("Yedinci Şua" zaten Şualar'a ait — çelişkili.) *Değerlendirmem: yüksek güven, ama harici eser → onayınız.*
+   - "Onuncu Söz'ün omurgası ... **dokuz** hakikat" → Onuncu Söz **on iki (12)** hakikat içerir. *Değerlendirmem: yüksek güven.*
+
+6. **RhythmExtensions.jsx:114** — "el-Halîl'in 16 Vezni" → el-Halîl **15** vezni sistemleştirdi; 16. (Mütedârik) öğrencisi el-Ahfeş tarafından eklendi. Edebiyat tarihi nüansı.
+
+7. **RhythmExtensions.jsx:19** — "Muallakât'ın çoğu Kâmil vezninde" → çoğu **Tavîl** vezninde (Imruʾu'l-Kays, Tarafe, Zuheyr); Kâmil yalnızca 2 kasidede. Edebiyat tarihi.
+
+8. **ZamanBoyutlari.jsx:537** — "Kadr gecesi ↔ 50.000 yıllık gün farkı ~1.8×10¹⁰" → karşılaştırma tabanına göre ~1.8×10⁷ (50.000 yıl ≈ 1.8×10⁷ gün) olabilir; mertebe belirsiz, apolojetik.
+
+**Not:** Risale-i Nur (2-5) ve edebiyat tarihi (6-7) bulguları harici kaynaklara ait — Kur'an kanonik verisiyle doğrulanamadığı için uygulanmadı; onayınızla düzeltilebilir.
