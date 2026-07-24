@@ -1396,7 +1396,7 @@ export default function WowFacts({ onClose }) {
               isMobile={isMobile}
               links={[
                 { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: 'Wow-Facts\'in kapsamlı hâli — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: 'The comprehensive version of Wow-Facts — Quran\'s structure, architecture, language and content.' },
-                { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimin sonradan doğruladığı Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs later confirmed by modern science — with all their nuances.' },
+                { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimsel okumalarla örtüşen Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs that align with modern scientific readings — with all their nuances.' },
                 { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Evidence', descTr: 'Arkeoloji ve tarihin onayladığı Kur\'ânî iddialar — Firavun\'un bedeni, Hâmân.', descEn: 'Quranic claims confirmed by archaeology and history — Pharaoh\'s body, Hāmān.' },
               ]}
             />

@@ -68,7 +68,7 @@ export default function TarihselCard() {
           letterSpacing: '-0.015em',
           margin: '0 0 36px',
         }}>
-          {tr ? "Üç İddia · Bir Tarihin Doğrulaması" : "Three Claims · A History's Confirmation"}
+          {tr ? "Üç İddia · Tarihsel İzler" : "Three Claims · Historical Traces"}
         </h2>
 
         <div style={{ marginBottom: '36px' }}>
