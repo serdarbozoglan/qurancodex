@@ -170,7 +170,7 @@ export default function InsanTanimi({ onClose }) {
           language={language} isMobile={isMobile}
           links={[
             { href: `/${language}/atlas/nefs-mertebeleri`, titleTr: 'Nefs Mertebeleri', titleEn: 'Stations of the Soul', descTr: "İnsanın iç yolculuğu — emmâreden mutmainneye 7 basamak.", descEn: 'Human inner journey — 7 stations from ammāra to muṭmaʾinna.' },
-            { href: `/${language}/atlas/psikoloji`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Kalp, korku, savunma — Kur\'an\'ın iç haritası 9 tab.', descEn: 'Heart, fear, defense — the Qur\'an\'s inner map in 9 tabs.' },
+            { href: `/${language}/atlas/insan-psikolojisi`, titleTr: 'İnsan Psikolojisi', titleEn: 'Human Psychology', descTr: 'Kalp, korku, savunma — Kur\'an\'ın iç haritası 9 tab.', descEn: 'Heart, fear, defense — the Qur\'an\'s inner map in 9 tabs.' },
             { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: "İnsan denklemi kıssalarda nasıl işler — 25 peygamber.", descEn: 'How the human equation works in stories — 25 prophets.' },
           ]}
         />
