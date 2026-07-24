@@ -61,7 +61,7 @@
 
 - ✅ **Arapça font çok küçük — BİTTİ** (`3b8b272` + kullanıcı-onaylı batch, 2026-07-24). RESUME listesindeki 20+ dosya: 17 font büyütme (≥1.1-1.6rem) + FONTS.arabic swap + clamp responsive + dir=rtl. Mobil 390px overflow yok, 21 route 200. (VerseGraph dropdown chip bilinçli küçük bırakıldı — overflow riski.)
 - ⏭ **Tool kartlarına thumbnail/mockup preview** — ATLANDI (kullanıcı: "şu anda atla", 2026-07-24). Tasarım/build işi; sonraya bırakıldı.
-- ⏳ **Six Gates bilişsel yük** — alt başlık yığını yerine hover chip/badge — Gemini. YAPILMADI.
+- ⏭ **Six Gates hover chip** — DEĞERLENDİRİLDİ: minör UX polish, gerekli değil (kullanıcı yargı bıraktı 2026-07-24). Geç.
 - CrossToolCTA locale-prefix (✅ done `dde3503`), scroll-ofset (✅ `7b41387`), responsive (kısmen `4069ba5`)
 
 ## P1 — YÜKSEK: Epistemik / editoryal
@@ -76,12 +76,12 @@
 
 ## P2 — ORTA  (opsiyonel polish — içerik bütünlüğü yanında kritik değil, sonraya ertelendi)
 
-- ⏳ **Hakkında / Metodoloji sayfası** (yazar, kaynak, kıraat=Hafs, meal, sınırlar). Değerli ama **kullanıcı içerik kararı gerek** (yazar kimliği, çerçeve). Not: Kur'an üstünlüğü ilkesi (memory) metodoloji dilinde yansımalı.
+- ✅ **Hakkında / Metodoloji sayfası — BİTTİ (`6ede6bb`).** `/hakkinda` TR+EN: Amaç + ⭐Epistemik Duruş (Kur'an üstünlüğü) + Metodoloji (Hafs/6 meâl/tefsir) + Sınırlar + Yazar(anonim)/İletişim. Footer'a "Hakkında·Kaynakça" link, sitemap.
 - ⏳ Her iddiada güven kutusu (kaynak+tür+güven+tarih). Büyük sistem işi.
 - ⏳ Morfoloji tooltip (Leeds corpus). Feature.
 - ✅ **EN parity — ESASEN TEMİZ** (2026-07-24 tarandı: yapısal EN alanlarında 0 Türkçe-kalıntı; çeviriler yerinde). Kritik gap yok.
 - SEO H1/H2 (duplicate H1 ✅ `822d634` düzeltildi); hreflang/canonical/schema mevcut.
-- ⏳ Kontrast WCAG AA. ⏳ İkincil soğuk accent (monoton altın).
+- ⏭ Kontrast WCAG — DEĞERLENDİRİLDİ: temel renkler AAA geçiyor (offWhite 15.7/silver 7.65/gold 8.81); sistemik sorun yok, geç. ⏭ İkincil accent — öznel estetik, geç.
 
 ## P3 — DÜŞÜK (ertelendi)
 
