@@ -55,6 +55,7 @@ const ROUTES = [
   { path: '/oku',                     priority: 0.9, freq: 'monthly' },
   { path: '/sor',                     priority: 0.9, freq: 'weekly'  },
   { path: '/kaynakca',                priority: 0.5, freq: 'monthly' },
+  { path: '/hakkinda',                priority: 0.5, freq: 'monthly' },
   { path: '/tefekkur',                priority: 0.8, freq: 'weekly'  },
   // Atlas (16)
   { path: '/atlas/kissa',             priority: 0.8, freq: 'monthly' },

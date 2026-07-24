@@ -4,7 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sources = t('footer.sources');
 
   return (
@@ -305,6 +305,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-silver/75 text-xs">
           <p>© 2026 — {t('footer.copyright')}</p>
+          <div className="flex items-center gap-3 text-xs">
+            <a href={`/${language}/hakkinda`} className="text-silver/60 hover:text-gold transition-colors">{language === 'en' ? 'About' : 'Hakkında'}</a>
+            <span className="text-silver/30">·</span>
+            <a href={`/${language}/kaynakca`} className="text-silver/60 hover:text-gold transition-colors">{language === 'en' ? 'Bibliography' : 'Kaynakça'}</a>
+          </div>
           <div className="flex flex-col items-center gap-1">
             <span className="text-silver/80 text-xs">qurancodex.com</span>
             <a
