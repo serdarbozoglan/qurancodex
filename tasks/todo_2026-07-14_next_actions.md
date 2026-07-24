@@ -35,8 +35,8 @@
 
 ## P0 — KRİTİK: Teknik / SEO
 
-- **SSR/"Yükleniyor" iç sayfalar** — `/arac/*`, `/atlas/*` client-render → SEO + LLM görünürlüğü + OG kaybı. (ChatGPT C03 + Claude 2.1 + Gemini; **DOĞRULA**: gerçekten SSR eksik mi yoksa sadece veri client-fetch mi — bazı tool'lar zaten PageHeading/JsonLd SSR ediyor.)
-- **Duplicate H1** — SEO H1 + görsel hero H1 aynı sayfada. (ChatGPT C05)
+- ✅ **SSR/"Yükleniyor" — DOĞRULANDI: yanlış alarm.** Tüm tool sayfaları H1 + meta-description + JsonLd(3 şema) server-render ediyor (PageHeading/JsonLd pattern §16.8/§16.12 çalışıyor). "Yükleniyor" sadece interaktif içeriğin client loading fallback'i — SEO-kritik sinyaller server'da. Fix gerekmedi. (ChatGPT C03 + Claude 2.1 + Gemini)
+- ✅ **Duplicate H1 — DÜZELTİLDİ `822d634`.** 34 tool component'inin görsel hero `<h1>` → `<h2>`; PageHeading sr-only h1 tek kanonik başlık. 32 route doğrulandı: hepsi 200 + h1×1. Görsel değişiklik yok. (ChatGPT C05)
 
 ## P1 — YÜKSEK: Görsel (ÜÇ denetim birleşiyor → en güçlü)
 
