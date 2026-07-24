@@ -12,22 +12,24 @@
 
 ## P0 — KRİTİK: Faktüel içerik hataları (kanonik-doğrulandı → DÜZELT)
 
-| # | Dosya · konum | Hata | Doğru | Kaynak |
-|---|---|---|---|---|
-| 1 | `SesMimarisi.jsx:71-92` | **Nâziât 79:2 ters meal** — Arapça 79:2 (nazik çekiş) ama çeviri "şiddetle çekip" | 79:2="Yavaşça çekenlere"; şiddet 79:1'e ait | ChatGPT C01 + kanonik |
-| 2 | `DuaDili.jsx:243`, `InsanTanimi.jsx:173` | **404 link** `/atlas/psikoloji` | `/atlas/insan-psikolojisi` | ChatGPT C02 + me |
-| 3 | `kiyamet-sahneleri.json` gruplar-ayrilma | Arapça 6:22 değil **10:28** | primaryRef: Yûnus 10:28 | benim wf |
-| 4 | `quran-commands.json` iletisim | **Hadis, sahte 49:12 ile ayet olarak `verified:true`** | verified:false + hadis etiketi | benim wf |
-| 5 | `CennetCehennem.jsx:1290` | **55:54 (cennet ayeti) cehennem sütununda**; zakkum Rahmân'da yok | satırı kaldır / 55:43-44 kullan | benim wf |
-| 6 | `cennet-cehennem.json` rahmanSimetrisi | **Uydurma "19 cennet + 12 cehennem"** nakarat statı | bölümlemeyi kaldır | benim wf |
-| 7 | `kuran-retorigi.json` q31 | **Bakara 2:9 uydurma Arapça form** (أَيَحْسَبُونَ mushafta yok); soru değil haber | gerçek 2:9 ibaresi / kaldır | benim wf |
-| 8 | `nefis-mertebeleri(-ext).json` emmare | **Kök عمر yanlış → أمر** (ammâra) 2 yerde | kök أ-م-ر | benim wf |
-| 9 | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim global replace bug) | "spiritüalite" | benim wf |
-| 10 | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding HÂLÂ var** (۝ ۚ ۗ → tofu): cennet-cehennem, kiyamet-sahneleri, ahiret-yolculugu… | cleanArabicForDisplay + "Problem chars: 0" | benim wf |
-| 11 | İstatistik tutarsızlıkları | Sunnetullah "4 kanun"/12, "6 kavim"/10; sebeb-i-nuzul 28≠30; "sadece 2 sûre yâ eyyuhâ"/≥10; "sadece 2 sıddîk" (İbrahim 19:41+Meryem 5:75 karşı-örnek) | kanonik sayı | benim wf |
-| 12 | Diğer ayet-ref/atıf | Tâhâ kapanış لِتَرْضٰى→اهْتَدٰى; yakîn/Tekâsür 102; koyun davası Süleyman→**Dâvûd** (38:21-24); diyalog 27:39↔27:40 keyPhrase/summary; Kemâl hadisi conflation; Rum 30:3 kip; tefsir-per-verse 113/114 hiza | her biri kanonikten | benim wf |
-| 13 | "Sıfır Varyasyon" (anasayfa/Koruma) | **Kıraat gerçeğiyle çelişir** (Hafs/Warsh varyasyon); Kıraat Atlası'yla iç çelişki | "Tek konsonantal iskelet (rasm)" | ChatGPT C04 + Claude + Gemini |
-| 14 | `layout.js:28`, `page.js:57` meta | **"sayısal mucize"** (Reşad Halife 19'culuk çağrışımı) | çıkar/yeniden ifade | Claude |
+| # | Durum | Dosya · konum | Hata | Doğru | Kaynak |
+|---|---|---|---|---|---|
+| 1 | ✅ `2c51826` | `SesMimarisi.jsx:71-92` | **Nâziât 79:2 ters meal** | 79:1'e hizalandı (sayfa nâziât temalı) | ChatGPT C01 + kanonik |
+| 2 | ✅ `c794236` | `DuaDili.jsx:243`, `InsanTanimi.jsx:173` | **404 link** `/atlas/psikoloji` | `/atlas/insan-psikolojisi` | ChatGPT C02 + me |
+| 3 | ✅ `dd0a6e6` | `kiyamet-sahneleri.json` gruplar-ayrilma | Arapça 6:22 değil **10:28** | primaryRef: Yûnus 10:28 | benim wf |
+| 4 | ⏳ | `quran-commands.json` iletisim | **Hadis, sahte 49:12 ile ayet olarak `verified:true`** | verified:false + hadis etiketi | benim wf |
+| 5 | ⏳ | `CennetCehennem.jsx:1290` | **55:54 (cennet ayeti) cehennem sütununda**; zakkum Rahmân'da yok | satırı kaldır / 55:43-44 kullan | benim wf |
+| 6 | ⏳ | `cennet-cehennem.json` rahmanSimetrisi | **Uydurma "19 cennet + 12 cehennem"** nakarat statı | bölümlemeyi kaldır | benim wf |
+| 7 | ⏳ | `kuran-retorigi.json` q31 | **Bakara 2:9 uydurma Arapça form** (أَيَحْسَبُونَ mushafta yok); soru değil haber | gerçek 2:9 ibaresi / kaldır | benim wf |
+| 8 | ✅ `c794236` | `nefis-mertebeleri(-ext).json` emmare | **Kök عمر yanlış → أمر** (ammâra) 2 yerde | kök أ-م-ر | benim wf |
+| 9 | ✅ `c794236` | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim replace bug) | "spiritüalite" | benim wf |
+| 10 | 🔸 `7205b46` (kısmi) | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding** (۝ ۚ ۗ → tofu) | cennet-cehennem + kiyamet ✅; geniş U+06EA'lı set (ilk-son 1150, semantic-map 498…) AYRI (U+06EA "korunur" çelişkisi) | benim wf |
+| 11 | ⏳ | İstatistik tutarsızlıkları | Sunnetullah "4 kanun"/12, "6 kavim"/10; sebeb-i-nuzul 28≠30; "sadece 2 sûre yâ eyyuhâ"/≥10; "sadece 2 sıddîk" (İbrahim 19:41+Meryem 5:75 karşı-örnek) | kanonik sayı | benim wf |
+| 12 | ⏳ | Diğer ayet-ref/atıf | Tâhâ kapanış لِتَرْضٰى→اهْتَدٰى; yakîn/Tekâsür 102; koyun davası Süleyman→**Dâvûd** (38:21-24); diyalog 27:39↔27:40; Kemâl hadisi; Rum 30:3 kip; tefsir-per-verse hiza | her biri kanonikten | benim wf |
+| 13 | ⚠ kullanıcı | "Sıfır Varyasyon" (anasayfa/Koruma) | **Kıraat gerçeğiyle çelişir**; Kıraat Atlası'yla iç çelişki | "Tek konsonantal iskelet (rasm)" | ChatGPT C04 + Claude + Gemini |
+| 14 | ⏳ | `layout.js:28`, `page.js:57` meta | **"sayısal mucize"** (Reşad Halife çağrışımı) | çıkar/yeniden ifade | Claude |
+
+> **İlerleme (2026-07-24):** ✅ **6 done** (1,2,3,8,9 + 10-kısmi) · ⏳ 7 kaldı (4,5,6,7,11,12,14) · ⚠ 1 kullanıcı-incelemesi (13 = editoryal). Detay+kanıt: changelog.
 
 ## P0 — KRİTİK: Teknik / SEO
 
