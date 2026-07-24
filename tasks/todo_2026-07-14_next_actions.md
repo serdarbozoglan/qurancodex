@@ -2,20 +2,32 @@
 
 ---
 
-# 🚨 PLANLI — KAPSAMLI 2. TUR TARAMA (HAYATİ ÖNEMDE, mevcut bulgular bitince)
+# 🎯 YAPILMASI GEREKENLER — SIRADAKI (2026-07-24 güncel değerlendirme)
 
-> **Kullanıcı direktifi (2026-07-24):** Mevcut bulgular bittikten SONRA tüm site didik didik yeniden taranacak. Odak **semantik eşleme DEĞİL** — çok daha temel/fahiş hata sınıfları:
->
-> 1. **OLMAYAN HİTAPLAR** — Kur'an'da **direkt vokatif hitabı bulunmayan** kategoriler. Örnek: "Ey münafıklar" (يا أيها المنافقون Kur'an'da YOK). Muhataplar sisteminde bu yüzden 14→11 indirdik (munafik/musrik/muminat vokatif hitabı yok). Sitede başka "olmayan hitap" kategorisi var mı?
-> 2. **OLMAYAN AYETLER** — Kur'an'da var olmayan ayet gösterimi.
-> 3. **UYDURULMUŞ AYET METNİ** — yanlış/uydurma Arapça ayet metni (kanonik metinle bire bir uyuşmayan).
-> 4. **YANLIŞ REFERANSLAR** — hatalı ayet atıfları (ref var ama başka ayete işaret ediyor, ya da hiç yok).
->
-> **Neden hayati:** Kur'an içeriği; olmayan bir hitabı/ayeti göstermek veya ayet metni uydurmak EN AĞIR hata. Yorum/istatistik hatasından çok daha vahim.
->
-> **Bu sınıf KANONİK DOĞRULANABİLİR:** `verse-graph-bgem3.json` 6236 ayetin tamamını Arapça'sıyla içerir. Yöntem: (a) sitedeki HER hardcoded Arapça ayet metnini kanonik korpusta ara → yoksa uydurma/olmayan; (b) HER ayet ref'i kanonikte var mı; (c) HER "hitap/vokatif" kategorisi gerçekten `يا أيها ...` olarak Kur'an'da geçiyor mu. Uydurma YASAK; her bulgu kanonik re-verify.
->
-> **Öncelikli şüpheli alanlar:** Muhataplar/AddresseeSystem (hitap kategorileri), DuaVerses/QuranDua (dua ayetleri), tüm hardcoded Arapça ayet gösteren section/component, "örnek ayetler" listeleri.
+> **DURUM: Kritik ve yüksek-değer işlerin TAMAMI bitti + push edildi (`500d232`).**
+> P0 içerik (14) + P0 SEO (duplicate H1, SSR) + inline-JSX audit (38 fix) + Arabic-fidelity audit (1883 field → 3 fix) + editoryal (retorik/kanıt/jargon hafif dokunuş) + Hakkında/Metodoloji sayfası + Kur'an-üstünlüğü ilkesi (memory) + embedding rebuild — **hepsi done.** İçerik bütünlüğü **3 bağımsız audit turuyla** sağlamlaştırıldı; ref-varlığı + vokatif hitaplar + uydurma-metin taraması TEMİZ.
+
+**Sence yapılmalı (opsiyonel — feature, fix değil; öncelik sırası):**
+1. ⏳ **Güven kutusu** (P2) — her iddiada kaynak + tür + güven düzeyi + tarih. Şeffaflığı iddia düzeyine indirir (Hakkında sayfası bunu site düzeyinde yaptı). Orta değer, büyük sistem işi.
+2. ⏳ **Morfoloji tooltip** (P2) — Leeds corpus: kelime kök/fiil/şahıs. Kullanıcı-değeri yüksek, bağımsız feature.
+
+**Skip (değeri düşük / öznel / zaten karşılandı) — geç:**
+- Six Gates hover chip · Kontrast WCAG (AAA geçiyor) · İkincil accent — değerlendirildi, gerekli değil.
+- Thumbnail preview (kullanıcı: atla) · Konumlandırma tutarlılığı (bilim-hakem çerçevesi zaten kaldırıldı).
+- Veri şeffaflığı model card (P3) · token-hardcode-hex (P3, görsel-etkisiz kod hijyeni).
+- Karşı-argümanlar → **YASAK** (Kur'an-üstünlüğü ilkesi; bilimsel karşı-görüşü Kur'an'a denk gösterir).
+
+**Kural (her yeni içerik/kod için):** §13.22 embedding rebuild + §13.23 regresyon verify zorunlu; içerik değişikliği kanonik'e karşı %100 doğrulanır (uydurma YASAK).
+
+---
+
+# ✅ KAPSAMLI 2. TUR TARAMA — TAMAMLANDI (2026-07-24)
+
+> **✅ Arabic-fidelity audit yapıldı** (`wf_c5dcfc26-69f`, 43 ajan, 1883 ayet-field): olmayan hitap / olmayan ayet / uydurma metin / yanlış ref tarandı.
+> - **Ref-varlığı:** 26769 ref → 0 olmayan-ayet (temiz).
+> - **Vokatif hitaplar:** addressees 11/11 gerçek; "Ey münafıklar" tipi olmayan hitap YOK (14→11 fix tuttu).
+> - **Uydurma/yanlış:** 3 REAL_ERROR bulundu + düzeltildi (`f1c8374`): belagat ref 19:5→19:4; kuran-retorigi 12:109 أَوَلَمْ→أَفَلَمْ; münafık grubunda 2:9 uydurma soru kaldırıldı.
+> - **Sonuç: %99.84 temiz** — içerik çok sağlam.
 
 ---
 
@@ -88,7 +100,7 @@
 - ⏳ Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence.
 - ⏭ token-hardcode-hex (25 — görsel-etkisiz §13.1 kod hijyeni). Düşük değer, ertelendi.
 
-## ▶ SIRADAKİ = 🚨 2. TUR KAPSAMLI İÇERİK TARAMASI (yukarıdaki 🚨 bölüm). P0 + P1 kritik + editoryal + inline audit BİTTİ. Kalan P1/P2/P3 opsiyonel polish. En yüksek değer: olmayan/uydurma ayet + olmayan hitap taraması.
+## ▶ SIRADAKİ → en üstteki 🎯 bölüme bak. 2. tur tarama ✅ TAMAMLANDI. Kalan işler opsiyonel feature (güven kutusu, morfoloji tooltip); gerisi skip.
 
 ## ✅ META — KAPSAM BOŞLUĞU KAPANDI (2026-07-24)
 
