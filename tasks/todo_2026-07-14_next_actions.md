@@ -2,6 +2,23 @@
 
 ---
 
+# 🚨 PLANLI — KAPSAMLI 2. TUR TARAMA (HAYATİ ÖNEMDE, mevcut bulgular bitince)
+
+> **Kullanıcı direktifi (2026-07-24):** Mevcut bulgular bittikten SONRA tüm site didik didik yeniden taranacak. Odak **semantik eşleme DEĞİL** — çok daha temel/fahiş hata sınıfları:
+>
+> 1. **OLMAYAN HİTAPLAR** — Kur'an'da **direkt vokatif hitabı bulunmayan** kategoriler. Örnek: "Ey münafıklar" (يا أيها المنافقون Kur'an'da YOK). Muhataplar sisteminde bu yüzden 14→11 indirdik (munafik/musrik/muminat vokatif hitabı yok). Sitede başka "olmayan hitap" kategorisi var mı?
+> 2. **OLMAYAN AYETLER** — Kur'an'da var olmayan ayet gösterimi.
+> 3. **UYDURULMUŞ AYET METNİ** — yanlış/uydurma Arapça ayet metni (kanonik metinle bire bir uyuşmayan).
+> 4. **YANLIŞ REFERANSLAR** — hatalı ayet atıfları (ref var ama başka ayete işaret ediyor, ya da hiç yok).
+>
+> **Neden hayati:** Kur'an içeriği; olmayan bir hitabı/ayeti göstermek veya ayet metni uydurmak EN AĞIR hata. Yorum/istatistik hatasından çok daha vahim.
+>
+> **Bu sınıf KANONİK DOĞRULANABİLİR:** `verse-graph-bgem3.json` 6236 ayetin tamamını Arapça'sıyla içerir. Yöntem: (a) sitedeki HER hardcoded Arapça ayet metnini kanonik korpusta ara → yoksa uydurma/olmayan; (b) HER ayet ref'i kanonikte var mı; (c) HER "hitap/vokatif" kategorisi gerçekten `يا أيها ...` olarak Kur'an'da geçiyor mu. Uydurma YASAK; her bulgu kanonik re-verify.
+>
+> **Öncelikli şüpheli alanlar:** Muhataplar/AddresseeSystem (hitap kategorileri), DuaVerses/QuranDua (dua ayetleri), tüm hardcoded Arapça ayet gösteren section/component, "örnek ayetler" listeleri.
+
+---
+
 # 🔴 2026-07-24 — DÖRT DENETİM KONSOLİDE YOL HARİTASI (EN ÖNCELİKLİ)
 
 > **Kaynak:** 4 bağımsız denetim birleştirildi — (A) benim 24-ajanlı **kanonik workflow'um: 204 CONFIRMED** hata [`tasks/wtnjzwhs2.output`], (B) benim **görsel audit: 136 bulgu** [`tasks/w4dd32sfp.output`], (C) **ChatGPT PDF** (61 madde), (D) **Claude** raporu (strateji/anasayfa), (E) **Gemini** raporu (UI/UX/SEO). Detay + kanıt: `tasks/2026-07-24-premium-audit-changelog.md`.
@@ -70,9 +87,9 @@
 - Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence. (ChatGPT böl.9)
 - token-hardcode-hex (25 bulgu — görsel-etkisiz §13.1 kod hijyeni). (benim görsel audit)
 
-## ⚠ META — KAPSAM BOŞLUĞU (önce kapat)
+## ✅ META — KAPSAM BOŞLUĞU KAPANDI (2026-07-24)
 
-Benim content workflow'um **SesMimarisi + ~23 inline-content component + 42 section**'ı kapsamadı (Nâziât 79:2'yi bu yüzden kaçırdım; ChatGPT canlı-gezerek buldu). Kapsanmayanlar: SesMimarisi, Ritim, SoundExtensions, RingExtensions, HalkaKompozisyon, TekrarAnatomi, RetorikSorular, Mukattaa, AltiKonu, KorumaZinciri, IblisSatan, FurukAtlasi, MeselAtlasi, KiraatAtlasi, ZamanBoyutlari, WowFacts, QuranCommands(kısmen), ConceptGraph, WordHeatmap, SemanticMap, SurahComparator, MunasebatAtlasi, IbadetlerHub/Pillar, InsanPsikolojisi + tüm `sections/*.jsx`. **Aksiyon: bu inline component'ler için 2. tur içerik audit workflow'u çalıştır.**
+~~Benim content workflow'um SesMimarisi + ~23 inline-content component + 42 section'ı kapsamadı.~~ **ÇÖZÜLDÜ:** 47 dosya (26 section + 21 hardcoded component) çok-ajanlı tarandı (`wf_2d908475-652`, 87 ajan) → 38 CONFIRMED_ERROR, hepsi kanonik re-verify + düzeltildi (`f1310ce`..`a5c789d`, push `9fd9038`). SesMimarisi/Nâziât sınıfı inline hatalar artık kapsandı. Detay: changelog "İçerik Audit Workflow (inline-JSX)".
 
 ---
 
