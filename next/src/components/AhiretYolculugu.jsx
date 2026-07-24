@@ -20,6 +20,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { COLORS, FONTS } from '../tokens';
+import { surahName } from '../lib/surahNames';
 import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
@@ -343,7 +344,12 @@ export default function AhiretYolculugu({ onClose }) {
               key={stage.id}
               ref={el => stageRefs.current[stage.id] = el}
               data-idx={i}
-              style={{ marginBottom: i === data.stages.length - 1 ? 0 : (isMobile ? 32 : 44) }}
+              style={{
+                marginBottom: i === data.stages.length - 1 ? 0 : (isMobile ? 32 : 44),
+                // Menüden atlayınca aşama sabit Navbar (62) + ToolHeader (48)
+                // arkasına yapışmasın diye nefes payı (2026-07-23 kullanıcı bug).
+                scrollMarginTop: isMobile ? '96px' : '130px',
+              }}
             >
               <StageCard
                 stage={stage}
@@ -420,7 +426,10 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
   const anchorArabic = anchor.arabic || '';
   const anchorTr = firstStage?.anchorVerseTr || '';
   const anchorEn = firstStage?.anchorVerseEn || '';
-  const anchorRef = anchor.surah && anchor.ayah ? `${anchor.surah}:${anchor.ayah}` : '';
+  // Sûre adı her zaman numaranın önünde — bkz. MiniRef notu.
+  const anchorRef = anchor.surah && anchor.ayah
+    ? `${surahName(anchor.surah, tr ? 'tr' : 'en')} ${anchor.surah}:${anchor.ayah}`
+    : '';
 
   const revealVariants = {
     hidden: { opacity: 0, y: reducedMotion ? 0 : 24, filter: reducedMotion ? 'none' : 'blur(6px)' },
@@ -551,7 +560,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 40px',
-          }}>— {tr ? `Kâf ${anchorRef}` : `Sūrat Qāf ${anchorRef}`}</motion.p>
+          }}>— {anchorRef}</motion.p>
 
         {/* Framing whisper */}
         <motion.p
@@ -732,7 +741,6 @@ function IndexRail({ stages, activeIdx, onJump, tr }) {
 // ─── StageCard ───────────────────────────────────────────────────────────────
 function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, router, reducedMotion }) {
   const Icon = StageIcons[stage.iconKey] || StageIcons.sekerat;
-  const isNew = stage.category === 'yeni-icerik';
   const [hover, setHover] = useState(false);
 
   return (
@@ -868,22 +876,10 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
               <span dir="rtl" lang="ar" style={{
                 fontFamily: FONTS.quran,
                 color: COLORS.gold,
-                fontSize: isMobile ? '0.95rem' : '1.05rem',
-                lineHeight: 1.4,
+                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                lineHeight: 1.6,
                 opacity: 0.9,
               }}>{stage.arabicTerm}</span>
-              {isNew && (
-                <span style={{
-                  padding: '2px 7px',
-                  borderRadius: 4,
-                  background: `${COLORS.gold}18`,
-                  color: COLORS.gold,
-                  fontSize: '0.58rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                }}>{tr ? 'derin' : 'deep'}</span>
-              )}
             </div>
             <h2 style={{
               fontFamily: FONTS.display,
@@ -942,14 +938,13 @@ function StageBody({ stage, isMobile, tr, language, router }) {
 
   return (
     <div style={{ paddingTop: 20, borderTop: `1px solid ${COLORS.gold}18`, marginTop: 18 }}>
-      {/* Anchor verse */}
+      {/* Anchor verse — sûre adı locale'e göre (data'daki surahName Arapça
+          tutuyordu, TR/EN görünmüyordu). surahName helper ile 2026-07-23. */}
       {anchor && (
         <VerseBlock
           arabic={anchor.arabic}
           translation={anchorText}
-          reference={tr
-            ? `${anchor.surahName || ''} ${anchor.surah}:${anchor.ayah}`.trim()
-            : `Sūrah ${anchor.surahNameEn || anchor.surah} ${anchor.surah}:${anchor.ayah}`}
+          reference={`${surahName(anchor.surah, tr ? 'tr' : 'en')} ${anchor.surah}:${anchor.ayah}`}
           isMobile={isMobile}
           isAnchor
         />
@@ -1146,9 +1141,10 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
 
 // ─── MiniRef ─────────────────────────────────────────────────────────────────
 function MiniRef({ ref_, isMobile, tr }) {
-  const refLabel = ref_.range
-    ? `${ref_.surah}:${ref_.range}`
-    : `${ref_.surah}:${ref_.ayah}`;
+  // Referans yalnızca sûre NUMARASI ile gösterilmez — okuyucu "56:83" ifadesinden
+  // hangi sûre olduğunu çıkaramıyor. Sûre adı her zaman önde (2026-07-23).
+  const ayahPart = ref_.range ? ref_.range : ref_.ayah;
+  const refLabel = `${surahName(ref_.surah, tr ? 'tr' : 'en')} ${ref_.surah}:${ayahPart}`;
   return (
     <div style={{
       padding: isMobile ? '12px 14px' : '14px 16px',
@@ -1170,7 +1166,7 @@ function MiniRef({ ref_, isMobile, tr }) {
         {ref_.surahName && (
           <span dir="rtl" lang="ar" style={{
             fontFamily: FONTS.quran,
-            fontSize: '0.82rem',
+            fontSize: '1rem',
             color: COLORS.silver,
             opacity: 0.75,
           }}>{ref_.surahName}</span>
@@ -1179,11 +1175,11 @@ function MiniRef({ ref_, isMobile, tr }) {
       {ref_.arabic && (
         <p dir="rtl" lang="ar" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '0.95rem' : '1.02rem',
+          fontSize: isMobile ? '1.15rem' : '1.3rem',
           color: COLORS.gold,
           opacity: 0.9,
-          lineHeight: 1.95,
-          margin: '0 0 8px',
+          lineHeight: 2.05,
+          margin: '0 0 10px',
         }}>{ref_.arabic}</p>
       )}
       <p style={{
