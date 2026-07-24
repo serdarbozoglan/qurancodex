@@ -894,8 +894,8 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
         maxWidth: '760px',
       }}>
         {language === 'tr'
-          ? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı dört tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle — ama hepsi aynı ilke etrafında."
-          : "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as four thematic laws. Each illustrated by different peoples — all revolving around the same principle."
+          ? "Lafzî geçişlerin ötesinde, Kur'ân sünnetullâh'ı on iki tematik kanun olarak ortaya koyar. Her biri farklı bir kavim örneğiyle — ama hepsi aynı ilke etrafında."
+          : "Beyond literal occurrences, the Qur'an presents *sunnatullāh* as twelve thematic laws. Each illustrated by different peoples — all revolving around the same principle."
         }
       </p>
 
@@ -1560,14 +1560,14 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 6 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
+          ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
           : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 6 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
         <a href={`/${language}/atlas/kavim`} style={{ color: COLORS.gold, borderBottom: `1px dashed ${COLORS.gold}55`, textDecoration: 'none' }}>
           {tr ? 'Kavimler Atlası' : 'the Nations Atlas'}
         </a>.
       </p>
 
-      {/* Comparison grid — 6 kavim at once */}
+      {/* Comparison grid — 10 kavim at once */}
       <KavimComparisonGrid patterns={patterns} language={language} isMobile={isMobile} />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -1579,7 +1579,7 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
   );
 }
 
-// KavimComparisonGrid — 6 kavim tek görünümde, mode-icon vurgulu.
+// KavimComparisonGrid — 10 kavim tek görünümde, mode-icon vurgulu.
 // Amaç: tab'a girer girmez görsel bir "aynı örüntü, farklı sahne" özeti.
 function KavimComparisonGrid({ patterns, language, isMobile }) {
   const tr = language === 'tr';
@@ -1597,7 +1597,7 @@ function KavimComparisonGrid({ patterns, language, isMobile }) {
         fontFamily: FONTS.body, fontWeight: 700,
         opacity: 0.85, marginBottom: '18px', textAlign: 'center',
       }}>
-        {tr ? 'Örüntü Panoraması — Altı Kavim, Tek Yasa' : 'Pattern Panorama — Six Nations, One Law'}
+        {tr ? 'Örüntü Panoraması — On Kavim, Tek Yasa' : 'Pattern Panorama — Ten Nations, One Law'}
       </div>
       <div style={{
         display: 'grid',
