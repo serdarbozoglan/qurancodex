@@ -10,9 +10,9 @@
 > **✅ OTURUM 2 (2026-07-24 devam) — ChatGPT canlı-site denetimi (8.5/10) triyaj + fix, hepsi PUSH edildi:**
 > - **SSR-0 sayaç (#1)** `4d5b901`: AnimatedCounter `useState(0)→useState(target)` — server HTML gerçek değeri içeriyor (SEO/crawler/no-JS); count-up yalnız below-fold scroll'da. Verify: /tr+/en 200, lone-zero=0.
 > - **Kırık route/link (#4)** `5786f48`: 74 route'a karşı 85 iç link tarandı → **8 kırık CrossToolCTA** (404) düzeltildi (`/atlas/`↔`/arac/` prefix + tekil/çoğul). 13 route 200.
-> - **Renk / "dark discovery + light reading" (#6/#7)** `309264a`: **KEŞİF — `/oku` day-mode teması ZATEN tam kurulu** (262 dayMode dalı, cream/bronz/koyu-mürekkep, Sun/Moon toggle). Sıfırdan tema kurulmadı; **varsayılan gündüz** yapıldı (1 satır `?? 'true'`). Gece seçen kullanıcı korunur (SETTINGS_VERSION bump YOK). Desktop+mobil doğrulandı. Revert-tag: `pre-oku-light-theme-2026-07-24`.
-> - **Kararlar:** Anasayfa uzun formatta KALIYOR (§17 kısaltma rafta). Karşı-argüman ekleme YASAK (Kur'an üstünlüğü). Toggle-yok/varsayılan-açık ChatGPT önerisi → toggle zaten var, sadece default flip yapıldı.
-> - **KALAN (ChatGPT sıra adım 7 — opsiyonel):** açık temayı uzun-metin route'larına genişletme (`/hakkinda`, `/kaynakca`, tefsir) — bunlarda day-mode YOK, ReadingShell (scoped CSS token) gerekir = gerçek iş. Pilot (`/oku`) sonucuna göre karar. Diğer ChatGPT triyaj: psikoloji çerçeve, Kaynakça Wikipedia→akademik kaynak — kullanıcı onayı bekliyor.
+> - **Renk / "dark discovery + light reading" (#6/#7) — ❌ İPTAL, TAMAMEN GERİ ALINDI (`0c30f2a`):** `/oku` day-mode varsayılanı gündüz yapıldı (`309264a`) + `/hakkinda` açık okuma pilotu (cream/bronz) + navbar solid-koyu denendi. Kullanıcı beğenmedi ("çok açık, menüler okunmuyor") → **hepsi revert.** `/hakkinda`+navbar commit edilmemişti (git checkout); `/oku` push edilmişti → `git revert 309264a` + push (`0c30f2a`). **KARAR: site TAMAMEN KOYU kalır; açık tema yönü kapandı.** (/oku'daki mevcut Sun/Moon toggle dokunulmadı — kullanıcı isterse elle geçebilir; varsayılan gece.)
+> - **Kararlar:** Anasayfa uzun formatta KALIYOR (§17 kısaltma rafta). Karşı-argüman ekleme YASAK (Kur'an üstünlüğü). **Açık/light tema YASAK — site koyu kalır (2026-07-24 kullanıcı kararı).**
+> - **KALAN geçerli işler:** ChatGPT triyaj (kullanıcı onayı bekliyor): psikoloji sayfası çerçeve, Kaynakça Wikipedia→akademik kaynak. Puan-sıralı liste (aşağıda) hâlâ geçerli.
 
 **KALAN TÜM AÇIK İŞLER — PUAN SIRALI (yüksek→düşük). Puan = Değer + ROI(düşük efor) + Düşük-risk + Hazırlık/aciliyet (0-100). TÜM 389 satır tarandı.**
 
