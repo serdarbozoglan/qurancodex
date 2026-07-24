@@ -626,13 +626,13 @@ function LoadingState({ language }) {
   // "sistem çalışıyor" hissi verir (fake spinner değil).
   const stages = tr
     ? [
-        { text: 'Sorun BGE-M3 vektörüne dönüştürülüyor', dur: 1400 },
+        { text: 'Sorunun anlamı çözümleniyor', dur: 1400 },
         { text: 'Kur\'an ve içerik havuzu taranıyor', dur: 1600 },
         { text: 'En yakın 12 aday seçildi', dur: 1200 },
         { text: 'Yanıt hazırlanıyor', dur: 3000 },
       ]
     : [
-        { text: 'Encoding your query into BGE-M3 vector', dur: 1400 },
+        { text: 'Analysing the meaning of your question', dur: 1400 },
         { text: 'Scanning Quran and content pool', dur: 1600 },
         { text: 'Selecting the 12 closest candidates', dur: 1200 },
         { text: 'Composing the response', dur: 3000 },

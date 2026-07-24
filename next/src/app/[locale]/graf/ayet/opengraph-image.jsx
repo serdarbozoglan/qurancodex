@@ -13,8 +13,8 @@ export default async function Image({ params }) {
     category: isEn ? 'VERSE · GRAPH' : 'AYET · GRAF',
     title: isEn ? 'Verse Graph' : 'Ayet Grafiği',
     subtitle: isEn
-      ? '6,236 verses on a 3D semantic similarity graph (bgem3 embeddings)'
-      : '6.236 ayet — 3B semantik benzerlik grafiği (bgem3 embeddings)',
+      ? '6,236 verses mapped by meaning — a 3D web of similar verses'
+      : '6.236 ayet anlamına göre haritalandı — benzer ayetlerin 3B ağı',
     glyph: 'آيَة',
     accentColor: '#34d399', // audit §4.2 — Kur'anî soft emerald
   });

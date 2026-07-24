@@ -1123,7 +1123,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'BGE-M3 + Louvain ile 20 anlamsal küme — kavramların otomatik gruplaşması.', descEn: 'BGE-M3 + Louvain — 20 semantic clusters, the automatic grouping of concepts.' },
+            { href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Anlamca yakın ayetlerin oluşturduğu 20 küme — kavramların kendiliğinden gruplaşması.', descEn: 'Twenty clusters formed by verses close in meaning — concepts grouping on their own.' },
             { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı — bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept — neighborhood analysis of a concept\'s verses.' },
             { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler — kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words — the word-level foundation of the concept graph.' },
           ]}

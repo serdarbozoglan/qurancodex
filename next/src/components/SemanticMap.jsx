@@ -87,8 +87,8 @@ export default function SemanticMap({ onClose }) {
       }
       titleTr="Semantik Harita"
       titleEn="Semantic Map"
-      subtitleTr="20 küme · BGE-M3 + Louvain"
-      subtitleEn="20 clusters · BGE-M3 + Louvain"
+      subtitleTr="Anlamca yakın ayetlerin 20 kümesi"
+      subtitleEn="20 clusters of verses close in meaning"
       language={language}
     />
   );
@@ -102,7 +102,7 @@ export default function SemanticMap({ onClose }) {
         links={[
           { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — anlamsal kümelerin insan-tanımlı karşılığı.', descEn: 'Concept connections — human-defined counterpart of semantic clusters.' },
           { href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions Atlas', descTr: 'Yakın anlamlı kelimeler — kümelenmenin kelime düzeyindeki mekaniği.', descEn: 'Near-synonym words — the word-level mechanics of clustering.' },
-          { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Tek ayet düzeyinde semantik komşuları görselleştir (BGE-M3).', descEn: 'Visualize semantic neighbors at single-verse level (BGE-M3).' },
+          { href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Tek ayet düzeyinde anlamca yakın ayetleri görselleştir.', descEn: 'Visualize the verses closest in meaning to a single verse.' },
         ]}
       />
     </div>
@@ -150,8 +150,8 @@ export default function SemanticMap({ onClose }) {
           fontFamily: FONTS.body, lineHeight: 1.55,
         }}>
           {language === 'tr'
-            ? `${data.total_verses.toLocaleString('tr')} ayet · ${data.meaningful_communities} anlamlı küme · BGE-M3 embedding · NetworkX Louvain (sem ≥ ${data.threshold})`
-            : `${data.total_verses.toLocaleString('en')} verses · ${data.meaningful_communities} meaningful clusters · BGE-M3 embedding · NetworkX Louvain (sem ≥ ${data.threshold})`}
+            ? `${data.total_verses.toLocaleString('tr')} ayet · ${data.meaningful_communities} anlamlı küme · anlam benzerliği ≥ ${data.threshold}`
+            : `${data.total_verses.toLocaleString('en')} verses · ${data.meaningful_communities} meaningful clusters · meaning similarity ≥ ${data.threshold}`}
           {themedCount < data.clusters.length && (
             <span style={{ marginLeft: '8px', color: COLORS.gold, opacity: 0.7 }}>
               · {language === 'tr' ? `${themedCount}/${data.clusters.length} tema'lı` : `${themedCount}/${data.clusters.length} themed`}
