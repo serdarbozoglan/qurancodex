@@ -137,7 +137,6 @@
       "isTartismaali": true
     }
   ],
-
   "cehennemIsimleri": [
     {
       "id": "cehennem",
@@ -246,7 +245,6 @@
       "isHadis": false
     }
   ],
-
   "cennetDetaylari": {
     "nehirler": [
       {
@@ -435,7 +433,6 @@
       }
     ]
   },
-
   "cehennemDetaylari": {
     "yiyecekler": [
       {
@@ -485,7 +482,7 @@
         "id": "isitme",
         "duyuTr": "İşitme",
         "duyuEn": "Hearing",
-        "verseAr": "تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ ۚ كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ",
+        "verseAr": "تَكَادُ تَمَيَّزُ مِنَ الْغَيْظِ  كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ سَأَلَهُمْ خَزَنَتُهَا أَلَمْ يَأْتِكُمْ نَذِيرٌ",
         "verseTr": "Neredeyse öfkesinden parçalanacak. İçine her topluluk atıldığında, bekçileri onlara sorar: 'Size uyarıcı gelmedi mi?'",
         "verseEn": "It almost bursts with rage. Every time a group is cast into it, its keepers ask them: 'Did no warner come to you?'",
         "notTr": "Teke-yûz (تَمَيَّزُ): 'öfkesinden parçalanmak' — dilbilimsel olarak son derece güçlü bir imge.",
@@ -496,7 +493,7 @@
         "id": "tatma",
         "duyuTr": "Tatma",
         "duyuEn": "Taste",
-        "verseAr": "إِنَّهَا شَجَرَةٌ تَخْرُجُ فِي أَصْلِ الْجَحِيمِ ۝ طَلْعُهَا كَأَنَّهُ رُءُوسُ الشَّيَاطِينِ",
+        "verseAr": "إِنَّهَا شَجَرَةٌ تَخْرُجُ فِي أَصْلِ الْجَحِيمِ  طَلْعُهَا كَأَنَّهُ رُءُوسُ الشَّيَاطِينِ",
         "verseTr": "Şüphesiz o, cehennemin dibinden çıkan bir ağaçtır. Tomurcukları şeytanların başları gibidir.",
         "verseEn": "Indeed, it is a tree issuing from the bottom of the Hellfire. Its fruit is as if it were the heads of the devils.",
         "notTr": "Sâffât 37:62–67 arasında zakkum ağacının kurgusal anatomisi ayrıntılı anlatılır.",
@@ -519,7 +516,7 @@
         "id": "dokunma",
         "duyuTr": "Dokunma",
         "duyuEn": "Touch",
-        "verseAr": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ ۗ إِنَّ اللَّهَ كَانَ عَزِيزًا حَكِيمًا",
+        "verseAr": "كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَاهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا الْعَذَابَ  إِنَّ اللَّهَ كَانَ عَزِيزًا حَكِيمًا",
         "verseTr": "Derileri her yandıkça, azabı tattırmak için onları başka derilerle değiştiririz. Şüphesiz Allah mutlak güç sahibidir, hüküm ve hikmet sahibidir.",
         "verseEn": "Every time their skins are roasted through, We will replace them with other skins so they may taste the punishment. Indeed, Allah is ever Exalted in Might and Wise.",
         "notTr": "Modern sinir bilimi: acı hissi deri almaçlarıyla taşınır. Kur'an bu mekanizmayı ayet içinde sorgulatan bir sonuca bağlar.",
@@ -537,7 +534,6 @@
       "aciklamaEn": "Immediately after giving this number (74:31), the Quran adds: 'We have made their number a trial for the disbelievers, a certainty for those given the Scripture, and an increase in faith for the believers.' One number — three distinct effects on three different audiences. A perfect example of the Quran's addressee system."
     }
   },
-
   "araf": {
     "verseAr": "وَبَيْنَهُمَا حِجَابٌ وَعَلَى الْأَعْرَافِ رِجَالٌ",
     "verseTr": "İkisi arasında bir perde vardır. A'râf'ta birtakım adamlar vardır.",
@@ -594,7 +590,6 @@
       }
     ]
   },
-
   "rahmanSimetrisi": {
     "aciklamaTr": "Rahman sûresi cennet ve cehennem tasvirini art arda sunar. İkisi arasında her seferinde aynı nakarat tekrarlanır. Bu nakarat 31 kez geçer. Cennet ayetlerinin ardından da cehennem ayetlerinin ardından da sorulan bu soru şunu söyler: nimetin farkında olmak, azabı hatırlamakla da başlar.",
     "aciklamaEn": "Surah Rahman presents descriptions of Paradise and Hell in succession. Between each description, the same refrain is repeated 31 times. Asked after both Paradise and Hell verses, this question conveys: awareness of blessing also begins with remembering punishment.",
@@ -621,7 +616,6 @@
       }
     ]
   },
-
   "kaynaklar": {
     "klasikTefsir": [
       {
