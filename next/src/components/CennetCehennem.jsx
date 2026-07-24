@@ -1285,11 +1285,9 @@ function TabRahman({ data, language, isMobile }) {
             {tr ? 'Cehennem Tasvirleri' : 'Hell Descriptions'}
           </p>
           {[
-            { tr: 'Ateş ve kaynar su', en: 'Fire and boiling water', ref: '55:44' },
             { tr: 'Günahkârların yüzüyle bilinen işaretler', en: 'Marks by which sinners are known', ref: '55:41' },
-            { tr: 'Zakkum ve kaynar su içmek', en: 'Zaqqum tree and boiling water to drink', ref: '55:54' },
-            { tr: 'Cehennemin aşırı sıcağı', en: 'The intense heat of Hell', ref: '55:44' },
-            { tr: 'Suçlular yalanlayıp duruyor', en: 'The guilty persist in denial', ref: '55:43-45' },
+            { tr: 'İşte bu, suçluların yalanladığı cehennem', en: 'This is the Hell the guilty deny', ref: '55:43' },
+            { tr: 'Cehennemle kaynar su arasında dolaşırlar', en: 'They circle between it and scalding water', ref: '55:44' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
               <span style={{ fontSize: '0.78rem', color: COLORS.silver }}>{language === 'tr' ? item.tr : item.en}</span>
