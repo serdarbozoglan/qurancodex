@@ -688,17 +688,26 @@ function TabLafziAyetler({ items, language, isMobile }) {
 
 function LiteralVerseCard({ item, language, isMobile }) {
   const [hover, setHover] = useState(false);
+  // GLASS_CARD spread'inden `border` ve `borderRadius`'u ayır: shorthand `border`
+  // ile aşağıdaki per-side long-form (borderLeftWidth/borderLeftColor) karışırsa
+  // React "Updating a style property during rerender (border) when a conflicting
+  // property is set (borderLeftColor/Left/LeftWidth) can lead to styling bugs"
+  // uyarısı verir. Fix: long-form-only pattern.
+  const { border: _b, ...glassBase } = GLASS_CARD;
   return (
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        ...GLASS_CARD,
-        borderLeft: `3px solid ${COLORS.gold}`,
-        border: hover
-          ? `1px solid ${COLORS.gold}55`
-          : `1px solid ${COLORS.glassBorder}`,
+        ...glassBase,
+        borderStyle: 'solid',
+        borderTopWidth: '1px',
+        borderRightWidth: '1px',
+        borderBottomWidth: '1px',
         borderLeftWidth: '3px',
+        borderTopColor: hover ? `${COLORS.gold}55` : COLORS.glassBorder,
+        borderRightColor: hover ? `${COLORS.gold}55` : COLORS.glassBorder,
+        borderBottomColor: hover ? `${COLORS.gold}55` : COLORS.glassBorder,
         borderLeftColor: COLORS.gold,
         padding: isMobile ? '16px 16px 14px' : '20px 22px 18px',
         transform: hover ? 'translateY(-2px)' : 'translateY(0)',
