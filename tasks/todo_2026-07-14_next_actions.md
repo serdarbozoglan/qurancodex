@@ -24,12 +24,12 @@
 | 8 | ✅ `c794236` | `nefis-mertebeleri(-ext).json` emmare | **Kök عمر yanlış → أمر** (ammâra) 2 yerde | kök أ-م-ر | benim wf |
 | 9 | ✅ `c794236` | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim replace bug) | "spiritüalite" | benim wf |
 | 10 | 🔸 `7205b46` (kısmi) | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding** (۝ ۚ ۗ → tofu) | cennet-cehennem + kiyamet ✅; geniş U+06EA'lı set (ilk-son 1150, semantic-map 498…) AYRI (U+06EA "korunur" çelişkisi) | benim wf |
-| 11 | ⏳ | İstatistik tutarsızlıkları | Sunnetullah "4 kanun"/12, "6 kavim"/10; sebeb-i-nuzul 28≠30; "sadece 2 sûre yâ eyyuhâ"/≥10; "sadece 2 sıddîk" (İbrahim 19:41+Meryem 5:75 karşı-örnek) | kanonik sayı | benim wf |
-| 12 | ⏳ | Diğer ayet-ref/atıf | Tâhâ kapanış لِتَرْضٰى→اهْتَدٰى; yakîn/Tekâsür 102; koyun davası Süleyman→**Dâvûd** (38:21-24); diyalog 27:39↔27:40; Kemâl hadisi; Rum 30:3 kip; tefsir-per-verse hiza | her biri kanonikten | benim wf |
+| 11 | ✅ `a137971`,`7c109ef`,`2ec5fa8` | İstatistik tutarsızlıkları | Sunnetullah 4→12/6→10; sebeb-i-nuzul mecciCount 5→7; yâ eyyuhâ 2→10 (+Hac tag); sıddîk 2→4 (İbrahim+Meryem) | kanonik sayı | benim wf |
+| 12 | 🔸 çoğu done | Diğer ayet-ref/atıf | ✅ Tâhâ اهْتَدٰى `306b4eb`; ✅ koyun→Dâvûd `306b4eb`; ✅ diyalog 27:40 `6ba8be9`; ✅ Kemâl hadisi 2-hadis `0a87c57`; ✅ Rum 30:3 gelecek kip `21692ee`. **⚠ tefsir-per-verse:** 66 hayalî anahtar (sûre-giriş tefsiri "sûre:sûre" mis-key) — sistematik pipeline sorunu, kullanıcı incelemesi | benim wf |
 | 13 | ⚠ kullanıcı | "Sıfır Varyasyon" (anasayfa/Koruma) | **Kıraat gerçeğiyle çelişir**; Kıraat Atlası'yla iç çelişki | "Tek konsonantal iskelet (rasm)" | ChatGPT C04 + Claude + Gemini |
 | 14 | ✅ `be423b2` | `layout.js`, `page.js` meta | **"sayısal mucize"** (Reşad Halife çağrışımı) | → 'sayısal örüntü' (EN'le tutarlı) | Claude |
 
-> **İlerleme (2026-07-24):** ✅ **11 done** (1-10 + 14) · ⏳ 2 kaldı (11 istatistik, 12 diğer ayet-ref) · ⚠ 1 kullanıcı-incelemesi (13 = editoryal 'Sıfır Varyasyon'). Detay+kanıt: changelog.
+> **İlerleme (2026-07-24 güncel):** ✅ **13 done** (1-12 + 14; 12'nin tefsir-per-verse alt-maddesi hariç). ⚠ **kullanıcı incelemesi (3):** #10 geniş U+06EA encoding (korunur çelişkisi), #12 tefsir-per-verse (66 hayalî anahtar = pipeline sorunu), #13 "Sıfır Varyasyon" (editoryal). Bunlar %100 elle-doğrulanamaz/pipeline/ton → uydurma riski, değiştirilmedi. Detay+kanıt: changelog.
 
 ## P0 — KRİTİK: Teknik / SEO
 
