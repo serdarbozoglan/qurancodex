@@ -602,11 +602,11 @@ const PROPHETS_REF = [
       "Included in Allah's mercy; among the righteous (21:86)",
     ],
     giftsTooltipsTr:{
-      0: "Kur'an'da yalnızca iki kişiye 'sıddık' unvanı verilmiştir: Hz. İdris (Meryem 56) ve Hz. Yusuf (Yusuf 46). Nadir bir ayrıcalık.",
+      0: "Kur'an'da dört kişi 'sıddîk/sıddîka' vasfıyla anılır: Hz. İdris (19:56), Hz. İbrahim (19:41), Hz. Yusuf (12:46) ve Hz. Meryem (5:75, 'sıddîka'). Nadir bir vasıf.",
       1: "Müfessirler arasında tartışmalıdır: bir görüşe göre diri olarak göklere yükseltildi (Hz. İsa ile benzer); diğer görüşe göre makam ve derece yüksekliği kastedilmektedir.",
     },
     giftsTooltipsEn:{
-      0: "Only two people are given the title 'siddiq' in the Quran: Idris (Maryam 56) and Yusuf (Yusuf 46). A rare distinction.",
+      0: "Four figures are described as 'siddiq/siddiqa' in the Quran: Idris (19:56), Ibrahim (19:41), Yusuf (12:46), and Maryam (5:75, 'siddiqa'). A rare distinction.",
       1: "Debated among scholars: one view holds he was raised alive to the heavens (similar to Jesus); another holds it refers to exalted rank and station.",
     },
     noteTr: "Kur'an'ın en az söz ettiği peygamberlerden biri — sadece 2 kez geçer. Her kelimesi özenle seçilmiş.",
