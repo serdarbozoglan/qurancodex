@@ -7,15 +7,29 @@
 > **DURUM: Kritik ve yüksek-değer işlerin TAMAMI bitti + push edildi (`500d232`).**
 > P0 içerik (14) + P0 SEO (duplicate H1, SSR) + inline-JSX audit (38 fix) + Arabic-fidelity audit (1883 field → 3 fix) + editoryal (retorik/kanıt/jargon hafif dokunuş) + Hakkında/Metodoloji sayfası + Kur'an-üstünlüğü ilkesi (memory) + embedding rebuild — **hepsi done.** İçerik bütünlüğü **3 bağımsız audit turuyla** sağlamlaştırıldı; ref-varlığı + vokatif hitaplar + uydurma-metin taraması TEMİZ.
 
-**Sence yapılmalı (opsiyonel — feature, fix değil; öncelik sırası):**
-1. ⏳ **Güven kutusu** (P2) — her iddiada kaynak + tür + güven düzeyi + tarih. Şeffaflığı iddia düzeyine indirir (Hakkında sayfası bunu site düzeyinde yaptı). Orta değer, büyük sistem işi.
-2. ⏳ **Morfoloji tooltip** (P2) — Leeds corpus: kelime kök/fiil/şahıs. Kullanıcı-değeri yüksek, bağımsız feature.
+**KALAN TÜM AÇIK İŞLER — PUAN SIRALI (yüksek→düşük). Puan = Değer + ROI(düşük efor) + Düşük-risk + Hazırlık/aciliyet (0-100). TÜM 389 satır tarandı.**
 
-**Skip (değeri düşük / öznel / zaten karşılandı) — geç:**
-- Six Gates hover chip · Kontrast WCAG (AAA geçiyor) · İkincil accent — değerlendirildi, gerekli değil.
-- Thumbnail preview (kullanıcı: atla) · Konumlandırma tutarlılığı (bilim-hakem çerçevesi zaten kaldırıldı).
-- Veri şeffaflığı model card (P3) · token-hardcode-hex (P3, görsel-etkisiz kod hijyeni).
-- Karşı-argümanlar → **YASAK** (Kur'an-üstünlüğü ilkesi; bilimsel karşı-görüşü Kur'an'a denk gösterir).
+| Puan | İş (efor) | Değer | Risk | Not (neden bu puan) |
+|---|---|---|---|---|
+| **92** | 🔴 **#206 VerseGraph Hero** (2-3h) | ⭐⭐⭐⭐⭐ | Düşük | **Amiral gemisi** araç, §13.18 hero'su olmayan tek büyük tool → tutarsızlık en görünür burada. ConceptGraph pattern'ı (`7e404b2`) hazır şablon; 3D logic'e dokunulmaz. Yüksek değer + düşük efor + düşük risk + hazır şablon = **en yüksek getiri.** |
+| **80** | **#205 EsmaFrekans Hero + ToolHeader** (2-3h) | ⭐⭐⭐⭐ | Orta | Sitedeki **en büyük tool** (3797 satır), çok ziyaret edilen esmâ aracı; premium çerçevesi yok. Aynı iş, dosya büyük olduğu için biraz daha dikkat → risk orta. |
+| **78** | **#203 SourcesCitation — 4 tool** (~3h) | ⭐⭐⭐⭐ | Düşük | Akademik güvenilirlik. Net kapsam: AddresseeSystem/DiyalogAgi/WordHeatmap (0 kaynak) + QuranCommands (2). Düşük risk, net iş. |
+| **65** | **Atmosfer raporu madde 4** (15 dk) | ⭐⭐ | Çok düşük | Değer küçük ama efor **15 dk** → ROI yüksek. Anasayfa 5 section `borderRadius 20→12px`. Görsel karar senin. |
+| **58** | **#202 CrossToolCTA kalanı** (~5h) | ⭐⭐⭐ | Düşük | Keşif/çapraz-navigasyon → oturum derinliği. Zaten 18/34 done; ~16 tool verify+kapat. Değer orta (yarısı bitmiş), efor orta. |
+| **52** | **Morfoloji tooltip** (P2, ~8-12h) | ⭐⭐⭐⭐ | Orta | Eğitsel derinlik (kelime→kök/fiil/şahıs, Leeds corpus). Kullanıcı-değeri yüksek ama efor+entegrasyon orta → puan orta. |
+| **48** | **Güven kutusu** (P2, ~15-20h) | ⭐⭐⭐⭐ | Orta | Epistemik şeffaflık iddia-düzeyinde. Hakkında sayfası site-düzeyinde yaptı → marj azaldı. Değerli ama büyük sistem işi. |
+| **38** | **Periyodik kalite audit** (değişken) | ⭐⭐⭐ | — | qc-content/visual/mobil full pass. Bakım; içerik bu oturum **zaten 3 tur** denetlendi → aciliyet düşük. |
+| **33** | **#179 Tecvid mic input** (1-2 hafta) | ⭐⭐⭐⭐ | Yüksek | Novel feature (mikrofonla tecvid pratiği) ama tek başına sprint, yüksek efor/risk → puan düşer. |
+| **32** | **#180 Root explorer** (1-2 hafta) | ⭐⭐⭐⭐ | Yüksek | Kök-tabanlı kelime keşfi. Aynı: değerli ama uzun-vade sprint. |
+| **28** | **RAG v2** (veri biriktikçe) | ⭐⭐⭐ | Orta | Reranker/multi-turn/prompt-evolution/external-vector. Şu an Concierge yeterli; data biriktikçe anlamlı. |
+| **22** | **#204 Tab refactor** (25-30h) | ⭐⭐ | Yüksek | Sadece 3 tool gerçekten aday (KissaAtlas/Kadinlar/DuaVerses); çoğunda tab yapay katman. Toplu ÖNERİLMİYOR. |
+| **18** | **Sensitive/uzun-vade** | ⭐⭐ | Yüksek | Yorum sistemi, personalization, çok-dil (Arapça RTL UI). Büyük ürün kararları. |
+
+**❌ SKIP (puan yok — değerlendirildi=gereksiz):** Six Gates hover · Kontrast (AAA geçiyor) · İkincil accent · Thumbnail (atla) · Konumlandırma tutarlılığı (kaldırıldı) · token-hardcode-hex (görsel-etkisiz) · **Karşı-argümanlar (YASAK — Kur'an üstünlüğü ilkesi)**.
+
+**Öneri:** İlk 3 (puan 92/80/78 — VerseGraph + EsmaFrekans hero + 4 SourcesCitation, toplam ~8h) somut, düşük-risk, yüksek-getiri; sitenin son 2 çerçevesiz büyük aracını premium yapar + kaynak boşluğunu kapatır. + 15 dk'lık atmosfer madde 4 (puan 65) hızlı kazanç.
+
+> **NOT (2026-07-24):** İlk 🎯 taslağımda yalnızca premium-denetim (P0-P3) bölümünü değerlendirmiş, alttaki Araçlar-Audit yol haritasını (Kat. F/G) atlamıştım. Kullanıcı uyardı → tüm 389 satır okundu; liste puan-sıralı tamamlandı.
 
 **Kural (her yeni içerik/kod için):** §13.22 embedding rebuild + §13.23 regresyon verify zorunlu; içerik değişikliği kanonik'e karşı %100 doğrulanır (uydurma YASAK).
 
