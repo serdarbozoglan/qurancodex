@@ -414,9 +414,9 @@ export default function KaynakcaRoute() {
     ? 'Tafsir, academic studies, hadith, rhetoric and the data sources powering QuranCodex.'
     : "Tefsir, akademik çalışmalar, hadis, belağat ve QuranCodex'in dayandığı veri kaynakları.";
   const introTr =
-    "Bu sayfa, sitede dolaylı veya doğrudan başvurulan kitap, makale ve veri kaynaklarının kategorize edilmiş listesidir. Liste niyet beyanı taşır: site, hiçbir yorumu kendisinden çıkarmaz; klasik ve modern alimler ile akademik araştırmacıların eserlerine atıfta bulunur. Tartışmalı alanlar (özellikle bilimsel mucize literatürü) ayrı bir başlıkta kümelenmiş ve metodolojik nüansla işaretlenmiştir.";
+    "Bu sayfa, sitede dolaylı veya doğrudan başvurulan kitap, makale ve veri kaynaklarının kategorize edilmiş listesidir. Site özgün sentez, sınıflandırma ve görselleştirmeler üretir; bunları klasik ve modern âlimlerin ve akademik araştırmacıların eserlerine dayandırır. Tartışmalı alanlar (özellikle bilimsel mucize literatürü) ayrı bir başlıkta kümelenmiş ve metodolojik nüansla işaretlenmiştir.";
   const introEn =
-    "This page is a categorised list of books, articles, and data sources referenced — directly or indirectly — across the site. It is a statement of intent: the site does not derive interpretations on its own; rather, it cites the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodological nuance.";
+    "This page is a categorised list of books, articles, and data sources referenced — directly or indirectly — across the site. The site produces original synthesis, classifications, and visualizations, grounding them in the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodological nuance.";
 
   return (
     <div

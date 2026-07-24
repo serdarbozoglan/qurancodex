@@ -236,7 +236,7 @@ export default function QuranDua() {
           color: COLORS.gold, fontFamily: "'Inter', sans-serif", fontWeight: 700,
           marginBottom: '12px', opacity: 0.85,
         }}>
-          {tr ? "Linguistik Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
+          {tr ? "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
         </p>
         <div style={{
           display: 'grid',
