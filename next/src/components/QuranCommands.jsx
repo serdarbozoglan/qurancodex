@@ -6,6 +6,7 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens'
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -544,6 +545,17 @@ export default function QuranCommands({ onClose }) {
             </>
           )}
         </div>
+      </div>
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 24px', width: '100%' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            { author: 'Ebû Bekr el-Cessâs', workTr: "Ahkâmü'l-Kur'ân", workEn: 'Aḥkām al-Qurʾān', period: 'ö. 981 (Bağdat)', noteTr: 'Hanefî fıkhı zemininde âyet-i ahkâm tefsirinin temel eseri.', noteEn: 'A foundational verse-of-rulings tafsir on Ḥanafī ground.' },
+            { author: "Ebû Bekr İbnü'l-Arabî", workTr: "Ahkâmü'l-Kur'ân", workEn: 'Aḥkām al-Qurʾān', period: 'ö. 1148 (Endülüs)', noteTr: "Mâlikî fıkhı açısından Kur'ân'ın hüküm âyetlerini sistematik inceler.", noteEn: "Systematic study of the Qur'an's legal verses from the Mālikī perspective." },
+            { author: 'el-Kurtubî', workTr: "el-Câmi' li-Ahkâmi'l-Kur'ân", workEn: 'al-Jāmiʿ li-Aḥkām al-Qurʾān', period: 'ö. 1273 (Endülüs)', noteTr: 'Ahkâm âyetlerini mezhepler-arası karşılaştırmayla ele alan klasik ansiklopedik tefsir.', noteEn: 'Classical encyclopedic tafsir treating legal verses with cross-school comparison.' },
+          ]}
+        />
       </div>
       {RELATED_CTA}
     </div>
