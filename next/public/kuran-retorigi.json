@@ -176,7 +176,7 @@
           "ayah": 25
         },
         {
-          "ar": "أَوَلَمْ يَسِيرُوا فِي الْأَرْضِ",
+          "ar": "أَفَلَمْ يَسِيرُوا فِي الْأَرْضِ",
           "tr": "Yeryüzünde gezmediler mi?",
           "en": "Have they not traveled through the earth?",
           "ref": "Yusuf 12:109",
@@ -1026,14 +1026,6 @@
       "descTr": "Kur'an'ın en keskin soruları. Çifte standartı yüzlerine vuran, dış görünüş ile iç gerçeği karşılaştıran sorular.",
       "descEn": "The Quran's sharpest questions. Questions that confront hypocrisy with its own double standard, comparing external appearance with inner reality.",
       "verses": [
-        {
-          "ar": "أَيَحْسَبُونَ أَنَّهُمْ يُخَادِعُونَ اللَّهَ",
-          "tr": "Allah'ı aldattıklarını mı sanıyorlar?",
-          "en": "Do they think they deceive Allah?",
-          "ref": "Bakara 2:9",
-          "noteTr": "Yüzeysel imanın içini boşaltır — gerçekte kimi aldatıyorlar?",
-          "noteEn": "Hollows out superficial faith — who are they really deceiving?"
-        },
         {
           "ar": "أَبِاللَّهِ وَآيَاتِهِ وَرَسُولِهِ كُنتُمْ تَسْتَهْزِئُونَ",
           "tr": "Allah'la, O'nun ayetleriyle ve Peygamber'le mi alay ediyordunuz?",
