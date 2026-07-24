@@ -1613,30 +1613,33 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
         </div>
       )}
 
-      {/* ── Sayfa aralığı ── */}
-      {p1 && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-          <span style={{ color: '#3d4f63', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{language === 'tr' ? 'Sayfa' : 'Pages'}</span>
-          <span style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: '#7a8fa6', fontSize: '0.85rem', padding: '3px 10px', fontVariantNumeric: 'tabular-nums' }}>
-            {p1 - 1 === 0 ? (language === 'tr' ? 'Açılış' : 'Opening') : (p1 === p2 ? p1 - 1 : `${p1 - 1} – ${p2 - 1}`)}
-          </span>
-          {pageCount > 1 && (
-            <span style={{ color: '#3d4f63', fontSize: '0.82rem' }}>{pageCount} {language === 'tr' ? 'sayfa' : 'pages'}</span>
-          )}
-        </div>
-      )}
+      {/* ── Künye tek satır ──
+          Önce iki ayrı blok vardı: "SAYFA 76–104 · 29 sayfa" satırı + altında
+          iki büyük stat kartı. Toplam ~120px dikey yer kaplıyor, asıl içerik
+          (Ana Temalar, Güçlü Bağlantılar) katlanın altında kalıyordu.
+          Tek satıra indirildi (2026-07-23).
 
-      {/* ── Stat grid ── */}
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
-        {[
-          { val: primaryCount, lbl: language === 'tr' ? 'ayet' : 'verses', accent: gold },
-          { val: linkCount, lbl: language === 'tr' ? 'anlamsal bağ' : 'semantic links', accent: gold },
-        ].map(({ val, lbl, accent }, i) => (
-          <div key={i} style={{ flex: 1, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.md, padding: '5px 6px', textAlign: 'center' }}>
-            <div style={{ color: accent, fontSize: '1rem', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>{val}</div>
-            <div style={{ color: dim, fontSize: '0.68rem', marginTop: '3px', letterSpacing: '0.04em' }}>{lbl}</div>
-          </div>
-        ))}
+          "anlamsal bağ" → "benzer ayet çifti": ziyaretçi için soyut bir
+          terimdi; grafikte bir çizginin ne anlama geldiğini doğrudan söyler. */}
+      <div style={{
+        display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px 10px',
+        marginBottom: '18px', color: '#7a8fa6', fontSize: '0.82rem',
+        fontVariantNumeric: 'tabular-nums',
+      }}>
+        <span><strong style={{ color: gold, fontWeight: 700 }}>{primaryCount}</strong> {language === 'tr' ? 'ayet' : 'verses'}</span>
+        {p1 && (
+          <>
+            <span style={{ color: '#3d4f63' }}>·</span>
+            <span>
+              {pageCount > 1 && `${pageCount} ${language === 'tr' ? 'sayfa' : 'pages'} `}
+              <span style={{ color: '#3d4f63' }}>
+                ({p1 - 1 === 0 ? (language === 'tr' ? 'Açılış' : 'Opening') : (p1 === p2 ? p1 - 1 : `${p1 - 1}–${p2 - 1}`)})
+              </span>
+            </span>
+          </>
+        )}
+        <span style={{ color: '#3d4f63' }}>·</span>
+        <span><strong style={{ color: gold, fontWeight: 700 }}>{linkCount}</strong> {language === 'tr' ? 'benzer ayet çifti' : 'similar verse pairs'}</span>
       </div>
 
       {/* ── Ana Temalar ── */}
@@ -2074,7 +2077,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const [filterSurah, setFilterSurah] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [dim, setDim] = useState({ w: 0, h: 0 });
-  const [muted, setMuted] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   /* eslint-disable react-hooks/refs -- resetting fit flag when graph data recomputes is intentional */
   const graphData = useMemo(() => {
@@ -2193,28 +2196,38 @@ function FullGraph({ verses, onBack, language, onClose }) {
     };
   }, [verses]);
 
-  // Audio: auto-play tilawat when rotation starts, cleanup on unmount
+  // Tilâvet — YALNIZCA kullanıcı isteğiyle başlar.
+  //
+  // Eskiden mount'tan 1.5sn sonra otomatik çalmaya çalışıyordu; tarayıcılar
+  // kullanıcı etkileşimi olmadan sesi engellediği için hata `catch(() => {})`
+  // ile yutuluyor ve ses çoğu ziyarette hiç çalmıyordu. Buton da o durumda
+  // hiçbir şeyi kontrol etmiyordu. Artık habersiz autoplay yok; buton net bir
+  // "tilâveti başlat / durdur" anlamı taşıyor (2026-07-23).
   useEffect(() => {
     const audio = new Audio('/audio/alak-1-5.mp3');
     audio.volume = 0.25;
-    audio.preload = 'auto';
+    audio.preload = 'none'; // kullanıcı basmadan indirme yapma
+    const onEnded = () => setPlaying(false);
+    audio.addEventListener('ended', onEnded);
     audioRef.current = audio;
 
-    const playTimer = setTimeout(() => {
-      audio.play().catch(() => {}); // silently ignore browser autoplay block
-    }, 1500);
-
     return () => {
-      clearTimeout(playTimer);
+      audio.removeEventListener('ended', onEnded);
       audio.pause();
       audio.currentTime = 0;
     };
   }, []);
 
-  // Sync mute state to audio element
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.muted = muted;
-  }, [muted]);
+  const toggleAudio = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+    } else {
+      audio.pause();
+      setPlaying(false);
+    }
+  }, []);
 
   // filterSurah değişince selected/focused'ı temizle ve kamerayı node verilerinden hesapla
   useEffect(() => {
@@ -2222,38 +2235,58 @@ function FullGraph({ verses, onBack, language, onClose }) {
     setFocusedNodeId(null);
     if (!graphRef.current || !graphData.nodes.length) return;
 
-    // Use zoomToFit with node filter (primary only) after nodes are definitely rendered
-    // padding=30 → tighter zoom so embedding clusters are more visible
+    // TEK kamera hareketi.
+    //
+    // Önce zoomToFit(bbox merkezi) + 950ms sonra medyan eksene düzeltme vardı;
+    // iki ayrı hareket olduğu için sayfa yenilenince küme gözle görülür biçimde
+    // "zıplıyordu". Artık hedef ve mesafe tek seferde hesaplanıp tek animasyonla
+    // uygulanıyor (2026-07-23).
     const fitTimer = setTimeout(() => {
-      graphRef.current?.zoomToFit(900, 30, node => !node.ghost);
-    }, 1200);
-
-    // After zoomToFit settles, nudge the lookAt target upward so the cluster
-    // drops into the visible viewport. The canvas reports full height, but
-    // the fixed header overlays the top ~56px — zoomToFit centers on the raw
-    // canvas so clusters with high-Y positions (e.g. Surah 31-32) end up
-    // visually clipped behind the header. Offsetting the target +Y tilts the
-    // camera up, which pushes content down into the usable area.
-    const offsetTimer = setTimeout(() => {
       const g = graphRef.current;
       if (!g) return;
       const cam = g.camera?.();
       const ctrl = g.controls?.();
       if (!cam || !ctrl) return;
-      const target = ctrl.target;
-      const dist = cam.position.distanceTo(target);
-      const yOffset = dist * 0.07; // ~56px at typical camera distances
-      g.cameraPosition(
-        { x: cam.position.x, y: cam.position.y, z: cam.position.z },
-        { x: target.x, y: target.y + yOffset, z: target.z },
-        400,
-      );
-    }, 2150); // 1200 (pre-fit) + 900 (fit duration) + 50 (settle margin)
 
-    return () => {
-      clearTimeout(fitTimer);
-      clearTimeout(offsetTimer);
-    };
+      const pts = graphData.nodes.filter(n => !n.ghost && Number.isFinite(n.x));
+      if (!pts.length) return;
+
+      // Eksen: MEDYAN konum. bbox merkezi aykırı (çok uzak) ayetlerden etkilenip
+      // kümenin görsel ağırlık merkezinden kayıyor; dönüş de o kaymış eksenin
+      // çevresinde olduğu için küme "dünya gibi" savruluyordu.
+      const median = (key) => {
+        const sorted = pts.map(n => n[key]).sort((a, b) => a - b);
+        return sorted[Math.floor(sorted.length / 2)];
+      };
+      const pivot = { x: median('x'), y: median('y'), z: median('z') };
+
+      // Yarıçap: 90. persentil — birkaç uzak ayet yüzünden gereksiz uzaklaşma olmasın.
+      const radii = pts
+        .map(n => Math.hypot(n.x - pivot.x, n.y - pivot.y, n.z - pivot.z))
+        .sort((a, b) => a - b);
+      const radius = radii[Math.floor(radii.length * 0.9)] || radii[radii.length - 1] || 100;
+
+      const fovRad = ((cam.fov || 50) * Math.PI) / 180;
+      const dist = (radius / Math.tan(fovRad / 2)) * 1.15; // 1.15 → kenar payı
+
+      // Mevcut bakış yönünü koru, sadece uzaklığı ayarla.
+      const dx = cam.position.x - ctrl.target.x;
+      const dy = cam.position.y - ctrl.target.y;
+      const dz = cam.position.z - ctrl.target.z;
+      const len = Math.hypot(dx, dy, dz) || 1;
+
+      // Header canvas'ın üst ~56px'ini örtüyor; hedefi biraz yukarı alınca
+      // içerik kullanılabilir alana iner.
+      const yOffset = dist * 0.07;
+
+      g.cameraPosition(
+        { x: pivot.x + (dx / len) * dist, y: pivot.y + (dy / len) * dist, z: pivot.z + (dz / len) * dist },
+        { x: pivot.x, y: pivot.y + yOffset, z: pivot.z },
+        900,
+      );
+    }, 1200);
+
+    return () => clearTimeout(fitTimer);
   }, [filterSurah, graphData]);
 
   const searchResults = useMemo(() => {
@@ -2549,10 +2582,12 @@ function FullGraph({ verses, onBack, language, onClose }) {
 
       <ZoomControls graphRef={graphRef} language={language} />
 
-      {/* Mekkî / Medenî legend + mute button */}
+      {/* Mekkî / Medenî legend + tilâvet butonu.
+          Sol panel açıkken panelin üstüne binmesin diye kaydırılır. */}
       <div style={{
-        position: 'absolute', bottom: '24px', left: '20px', zIndex: 25,
+        position: 'absolute', bottom: '24px', left: `${leftPad + 20}px`, zIndex: 25,
         display: 'flex', alignItems: 'flex-end', gap: '8px',
+        transition: `left ${TRANSITION.base}`,
       }}>
         <div style={{
           display: 'flex', flexDirection: 'column', gap: '5px',
@@ -2572,28 +2607,37 @@ function FullGraph({ verses, onBack, language, onClose }) {
               {language === 'tr' ? 'Medenî' : 'Medinan'}
             </span>
           </div>
+
+          {/* Çizginin ne demek olduğu hiçbir yerde yazmıyordu — grafiğin tek
+              anlam taşıyıcısı bu (2026-07-23). */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '7px', paddingTop: '5px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+            <span style={{ width: '8px', height: '1px', background: COLORS.goldAlpha45, flexShrink: 0 }} />
+            <span style={{ color: COLORS.slate500, fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.4, maxWidth: '150px' }}>
+              {language === 'tr' ? 'Çizgi: anlamca yakın iki ayet. Parlaksa benzerlik güçlü.' : 'A line: two verses close in meaning. Brighter = stronger.'}
+            </span>
+          </div>
         </div>
 
         {/* Mute / unmute tilawat */}
         <button
-          onClick={() => setMuted(m => !m)}
-          title={muted ? (language === 'tr' ? 'Sesi aç' : 'Unmute') : (language === 'tr' ? 'Sesi kapat' : 'Mute')}
-          aria-label={muted ? (language === 'tr' ? 'Tilâvet sesini aç' : 'Unmute recitation') : (language === 'tr' ? 'Tilâvet sesini kapat' : 'Mute recitation')}
+          onClick={toggleAudio}
+          title={playing ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation') : (language === 'tr' ? 'Tilâveti dinle' : 'Play recitation')}
+          aria-label={playing ? (language === 'tr' ? 'Tilâveti durdur' : 'Stop recitation') : (language === 'tr' ? 'Tilâveti dinle (Alak 1-5)' : 'Play recitation (Alaq 1-5)')}
           style={{
             width: '34px', height: '34px',
             background: 'rgba(5,5,16,0.72)', backdropFilter: 'blur(8px)',
             border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.md,
-            color: muted ? COLORS.slate600 : '#c9a227',
+            color: playing ? '#c9a227' : COLORS.slate600,
             cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: `all ${TRANSITION.fast}`, flexShrink: 0,
           }}
           onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(201,162,39,0.35)'; }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'; }}
         >
-          {muted ? (
-            <VolumeOffIcon size={15} />
-          ) : (
+          {playing ? (
             <VolumeOnIcon size={15} />
+          ) : (
+            <VolumeOffIcon size={15} />
           )}
         </button>
       </div>
