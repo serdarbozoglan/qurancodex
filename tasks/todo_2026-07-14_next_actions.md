@@ -59,8 +59,8 @@
 
 ## P1 — YÜKSEK: Görsel (ÜÇ denetim birleşiyor → en güçlü)
 
-- **🔴 Arapça font çok küçük** — Gemini (≥1.3x) + benim görsel audit (`arapca-font-kucuk` ~20+ dosya) + ChatGPT. **EN GÜÇLÜ KONVERGANS.** Ayet metni desktop ≥1.3-1.6rem, line-height ≥1.8. [Batch başladı: YAN done; changelog RESUME listesi]
-- **Tool kartlarına thumbnail/mockup preview** (Ayet Haritası, Kavram Ağı…) — Gemini
+- ✅ **Arapça font çok küçük — BİTTİ** (`3b8b272` + kullanıcı-onaylı batch, 2026-07-24). RESUME listesindeki 20+ dosya: 17 font büyütme (≥1.1-1.6rem) + FONTS.arabic swap + clamp responsive + dir=rtl. Mobil 390px overflow yok, 21 route 200. (VerseGraph dropdown chip bilinçli küçük bırakıldı — overflow riski.)
+- ⏳ **Tool kartlarına thumbnail/mockup preview** (Ayet Haritası, Kavram Ağı…) — Gemini. **YAPILMADI** — tasarım/build işi (kart önizleme görseli/mockup).
 - **Six Gates bilişsel yük** — alt başlık yığını yerine hover chip/badge — Gemini
 - CrossToolCTA locale-prefix (✅ done `dde3503`), scroll-ofset (✅ `7b41387`), responsive (kısmen `4069ba5`)
 
