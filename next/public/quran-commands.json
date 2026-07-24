@@ -1073,10 +1073,10 @@
           "summaryEn": "Do not bear hatred toward one another",
           "verseAr": "وَلَا تَحَاسَدُوا وَلَا تَبَاغَضُوا",
           "verseTr": "Birbirinize haset etmeyin, birbirinize kin gütmeyin...",
-          "verseRef": "49:12",
-          "surahName": "Hucurât",
-          "verified": true,
-          "note": "Bu ayet hadis kaynaklı bir ilkeyi de içermektedir; Kur'an'da benzer ifade 49:12'de geçer."
+          "verseRef": "Buhârî · Müslim",
+          "surahName": "Hadis",
+          "verified": false,
+          "note": "\"لا تحاسدوا ولا تباغضوا\" bir hadistir (Buhârî, Edeb; Müslim, Birr) — Kur'an ayeti değildir. Kur'an 49:12 zannı ve gıybeti yasaklar; kin/haset yasağı bu hadise dayanır."
         },
         {
           "id": "ses-alcalt",
