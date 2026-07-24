@@ -2080,6 +2080,26 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const [dim, setDim] = useState({ w: 0, h: 0 });
   const [playing, setPlaying] = useState(false);
 
+  // Dar ekran: dim zaten resize ile güncelleniyor (SSR'da 0 → geniş kabul).
+  const isNarrow = dim.w > 0 && dim.w < 780;
+
+  // §13.18 açılış katmanı — grafiğin üstünde, yalnızca ilk ziyarette.
+  // SSR-safe: sunucuda false, mount sonrası localStorage'a bakılır (§16.6).
+  const [showIntro, setShowIntro] = useState(false);
+  useEffect(() => {
+    if (!localStorage.getItem('qurancodex_graph_intro_seen')) setShowIntro(true);
+  }, []);
+  const dismissIntro = useCallback(() => {
+    localStorage.setItem('qurancodex_graph_intro_seen', '1');
+    setShowIntro(false);
+  }, []);
+  useEffect(() => {
+    if (!showIntro) return;
+    const onKey = (e) => { if (e.key === 'Escape') dismissIntro(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [showIntro, dismissIntro]);
+
   /* eslint-disable react-hooks/refs -- resetting fit flag when graph data recomputes is intentional */
   const graphData = useMemo(() => {
     initialFitDone.current = false;
@@ -2598,6 +2618,107 @@ function FullGraph({ verses, onBack, language, onClose }) {
       </div>
 
       <ZoomControls graphRef={graphRef} language={language} />
+
+      {/* ── §13.18 Açılış katmanı ──
+          Grafik arkada dönmeye devam ederken üstüne biner; "Haritayı keşfet"
+          veya Escape ile kapanır ve bir daha gösterilmez. Immersive giriş
+          korunsun diye ayrı bir karşılama görünümü yerine katman tercih edildi
+          (§13.17 VerseGraph immersive istisnası). */}
+      {showIntro && (
+        <div
+          onClick={dismissIntro}
+          style={{
+            position: 'absolute', inset: 0, zIndex: 60,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: isNarrow ? '24px 16px' : '40px 32px',
+            background: 'radial-gradient(ellipse at center, rgba(6,8,14,0.86) 0%, rgba(6,8,14,0.94) 70%)',
+            backdropFilter: 'blur(3px)',
+            textAlign: 'center',
+            cursor: 'pointer',
+          }}
+        >
+          <div onClick={e => e.stopPropagation()} style={{ maxWidth: '780px', cursor: 'default' }}>
+            {/* Anchor verse — Zümer 39:23 (müteşâbih · mesânî).
+                §13.15: standart Unicode, U+06EA yok. */}
+            <p dir="rtl" lang="ar" style={{
+              fontFamily: FONTS.quran, color: COLORS.gold,
+              fontSize: isNarrow ? '1.05rem' : '1.4rem',
+              lineHeight: 2.1, margin: '0 auto 14px', maxWidth: '760px', opacity: 0.95,
+            }}>
+              اَللّٰهُ نَزَّلَ اَحْسَنَ الْحَدِيثِ كِتَاباً مُتَشَابِهاً مَثَانِيَ
+            </p>
+            <p style={{
+              color: COLORS.offWhiteAlpha78, fontFamily: FONTS.display, fontStyle: 'italic',
+              fontSize: isNarrow ? '0.92rem' : '1.02rem', lineHeight: 1.6,
+              margin: '0 auto 6px', maxWidth: '660px',
+            }}>
+              {language === 'tr'
+                ? '"Allah sözün en güzelini, birbiriyle uyumlu, ikişerli bir kitap olarak indirdi."'
+                : '"God has sent down the finest discourse — a Book consistent within itself, paired."'}
+            </p>
+            <p style={{
+              color: COLORS.silver, opacity: 0.65, fontSize: '0.68rem', fontWeight: 600,
+              letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 22px',
+            }}>
+              — {language === 'tr' ? 'Zümer 39:23' : 'az-Zumar 39:23'}
+            </p>
+
+            <div style={{
+              width: '120px', height: '1px', margin: '0 auto 22px',
+              background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
+            }} />
+
+            <p style={{
+              color: COLORS.gold, opacity: 0.72, fontSize: '0.68rem', fontWeight: 700,
+              letterSpacing: '0.24em', textTransform: 'uppercase', margin: '0 0 12px',
+            }}>
+              {language === 'tr' ? 'AYET HARİTASI · ANLAMIN AĞI' : 'VERSE MAP · THE WEB OF MEANING'}
+            </p>
+
+            <p style={{
+              color: COLORS.offWhiteAlpha78, fontFamily: FONTS.display, fontStyle: 'italic',
+              fontSize: isNarrow ? '0.98rem' : '1.15rem', lineHeight: 1.55,
+              margin: '0 auto 22px', maxWidth: '640px',
+            }}>
+              {language === 'tr'
+                ? 'Anlamca yakın ayetler birbirine çizgiyle bağlı. Bir ayete dokunun — ona en çok benzeyen ayetleri görün.'
+                : 'Verses close in meaning are joined by a line. Touch any verse to see the ones most like it.'}
+            </p>
+
+            {/* Micro-stat ribbon */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: isNarrow ? '10px' : '18px',
+              padding: '8px 18px', marginBottom: '26px',
+              background: COLORS.goldAlpha04, border: `1px solid ${COLORS.goldAlpha15}`,
+              borderRadius: RADIUS.pill, color: COLORS.silver,
+              fontSize: isNarrow ? '0.68rem' : '0.72rem', fontVariantNumeric: 'tabular-nums',
+            }}>
+              <span><strong style={{ color: COLORS.gold, fontWeight: 700 }}>6.236</strong> {language === 'tr' ? 'ayet' : 'verses'}</span>
+              <span style={{ opacity: 0.35 }}>·</span>
+              <span><strong style={{ color: COLORS.gold, fontWeight: 700 }}>{graphData.links.length.toLocaleString(language === 'tr' ? 'tr-TR' : 'en-US')}</strong> {language === 'tr' ? 'benzer ayet çifti' : 'similar verse pairs'}</span>
+              <span style={{ opacity: 0.35 }}>·</span>
+              <span>114 {language === 'tr' ? 'sûre' : 'surahs'}</span>
+            </div>
+
+            <div>
+              <button
+                onClick={dismissIntro}
+                style={{
+                  background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
+                  borderRadius: RADIUS.pill, color: COLORS.gold,
+                  fontFamily: FONTS.body, fontSize: isNarrow ? '0.82rem' : '0.88rem', fontWeight: 600,
+                  letterSpacing: '0.06em', padding: isNarrow ? '11px 26px' : '13px 34px',
+                  cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = COLORS.goldAlpha25; }}
+                onMouseLeave={e => { e.currentTarget.style.background = COLORS.goldAlpha15; }}
+              >
+                {language === 'tr' ? 'Haritayı keşfet →' : 'Explore the map →'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mekkî / Medenî legend + tilâvet butonu.
           Sol panel açıkken panelin üstüne binmesin diye kaydırılır. */}
