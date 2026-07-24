@@ -943,7 +943,9 @@
         "meaning": null,
         "root": null
       },
-      "openerTags": [],
+      "openerTags": [
+        "vocative"
+      ],
       "closerTags": [
         "divine-name-closer"
       ],

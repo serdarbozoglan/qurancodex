@@ -1031,7 +1031,7 @@
       {
         "category": "hypocrite-response",
         "approxCount": 80,
-        "percent": 14.0
+        "percent": 14
       },
       {
         "category": "ahl-kitab",
@@ -1067,7 +1067,7 @@
       }
     ],
     "totalOccasions": 30,
-    "mecciCount": 5,
+    "mecciCount": 7,
     "madaniCount": 23
   }
 }

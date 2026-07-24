@@ -1266,8 +1266,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'vocativeOpener',
       count: surahs.filter(s => (s.openerTags || []).includes('vocative')).length,
       labelTr: '"Yâ eyyuhâ" ile açılan', labelEn: '"Yā ayyuhā" opener',
-      insightTr: 'Yalnız 2 sûre "Yâ eyyuhâ" çağrısıyla açar — Müzzemmil ve Müddessir. Her ikisi de erken Mekkî dönemde Hz. Peygamber\'e doğrudan hitap.',
-      insightEn: 'Only two surahs open with "Yā ayyuhā" — al-Muzzammil and al-Muddaththir. Both are early Meccan, addressing the Prophet directly.',
+      insightTr: '10 sûre "Yâ eyyuhâ" vokatifiyle açar; yalnız 2\'si — Müzzemmil ve Müddessir — Hz. Peygamber\'e kişisel bir lakapla (örtüsüne bürünen) doğrudan seslenir. Her ikisi de erken Mekkî döneme aittir.',
+      insightEn: 'Ten surahs open with the "Yā ayyuhā" vocative; only two — al-Muzzammil and al-Muddaththir — address the Prophet by a personal epithet. Both belong to the early Meccan period.',
     },
     {
       filterId: 'imperativeOpener',
