@@ -1513,7 +1513,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
       {/* Tab bar */}
       <div style={{
         display: 'flex', gap: 0, overflowX: 'auto', scrollbarWidth: 'none',
-        background: 'rgba(8,9,26,0.8)', flexShrink: 0,
+        background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)', flexShrink: 0,
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       }}>
         {tabs.map((label, i) => (
