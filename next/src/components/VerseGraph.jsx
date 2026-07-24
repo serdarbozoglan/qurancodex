@@ -1473,6 +1473,15 @@ function linkEndId(endpoint) {
   return typeof endpoint === 'object' ? endpoint.id : endpoint;
 }
 
+// Grafiğin üstünü örten sabit panel genişlikleri.
+// Sol: SurahInfoPanel (aşağıda), sağ: VersePanel.
+//
+// zoomToFit kümeyi CANVAS'ın tam ortasına hizalar. Canvas panellerin altına
+// kadar uzanırsa küme panelin arkasında kalır — dar pencerede tamamen kaybolur.
+// Bu yüzden canvas, açık panellerin arasındaki görünür alana daraltılır.
+const LEFT_PANEL_W = 480;
+const RIGHT_PANEL_W = 680;
+
 function SurahInfoPanel({ surah, language, graphData, showName = false, onNavigate = null }) {
   const [info, setInfo] = useState(null);
   const [notes, setNotes] = useState(null);
@@ -2005,10 +2014,13 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
         </div>
       )}
 
+      {/* Canvas, sol SurahInfoPanel'in (her zaman açık) ve varsa sağ VersePanel'in
+          arasındaki görünür alana oturur — bkz. LEFT_PANEL_W notu. */}
+      <div style={{ position: 'absolute', top: 0, left: `${LEFT_PANEL_W}px` }}>
       <ForceGraph3D
         ref={graphRef}
         graphData={graphData}
-        width={selected ? Math.max(380, dim.w - 680) : dim.w} height={dim.h}
+        width={Math.max(380, dim.w - LEFT_PANEL_W - (selected ? RIGHT_PANEL_W : 0))} height={dim.h}
         backgroundColor={COLORS.cosmicBlack}
         d3AlphaDecay={1} d3VelocityDecay={1}
         nodeThreeObject={nodeThreeObject}
@@ -2036,6 +2048,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           }
         }}
       />
+      </div>
 
       <ZoomControls graphRef={graphRef} language={language} rightOffset={selected ? 704 : 24} />
 
@@ -2334,6 +2347,9 @@ function FullGraph({ verses, onBack, language, onClose }) {
     return 0.12 + (link.score - 0.55) * 0.9;
   }, [focusedSet]);
 
+  // Sol panel SurahInfoPanel ile aynı koşulda açılır (aşağıdaki render'a bak).
+  const leftPad = (filterSurah || selected) ? LEFT_PANEL_W : 0;
+
   return (
     <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
@@ -2490,10 +2506,13 @@ function FullGraph({ verses, onBack, language, onClose }) {
         </div>
       )}
 
+      {/* Sol panel yalnızca sûre filtresi veya seçili ayet varken açılır —
+          canvas ofseti de aynı koşula bağlı. */}
+      <div style={{ position: 'absolute', top: 0, left: `${leftPad}px` }}>
       <ForceGraph3D
         ref={graphRef}
         graphData={graphData}
-        width={selected ? dim.w - 680 : dim.w} height={dim.h}
+        width={Math.max(380, dim.w - leftPad - (selected ? RIGHT_PANEL_W : 0))} height={dim.h}
         backgroundColor={COLORS.cosmicBlack}
         d3AlphaDecay={1} d3VelocityDecay={1}
         warmupTicks={0} cooldownTicks={10}
@@ -2526,6 +2545,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           }
         }}
       />
+      </div>
 
       <ZoomControls graphRef={graphRef} language={language} />
 
