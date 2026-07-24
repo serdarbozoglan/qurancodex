@@ -146,9 +146,10 @@ export default function InsanTanimi({ onClose }) {
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: active ? 700 : 500,
                 color: active ? COLORS.gold : COLORS.silver,
+                border: 'none',
                 borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 background: active ? COLORS.goldAlpha15 : 'transparent',
-                border: 'none', cursor: 'pointer', flexShrink: 0,
+                cursor: 'pointer', flexShrink: 0,
                 fontFamily: FONTS.body, whiteSpace: 'nowrap',
               }}>
               {tr ? tab.labelTr : tab.labelEn}

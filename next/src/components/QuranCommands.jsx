@@ -423,8 +423,9 @@ export default function QuranCommands({ onClose }) {
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   width: '100%', padding: '10px 20px',
                   background: isActive ? cat.accent + '14' : 'transparent',
+                  border: 'none',
                   borderLeft: isActive ? `3px solid ${cat.accent}` : '3px solid transparent',
-                  border: 'none', cursor: 'pointer',
+                  cursor: 'pointer',
                   transition: `all ${TRANSITION.fast}`, textAlign: 'left',
                 }}
                 onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}

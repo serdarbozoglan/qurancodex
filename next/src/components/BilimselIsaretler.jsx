@@ -261,9 +261,10 @@ export default function BilimselIsaretler({ onClose }) {
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? COLORS.gold : COLORS.silver,
+                  border: 'none',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                  border: 'none', cursor: 'pointer', whiteSpace: 'nowrap',
+                  cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'inline-flex', alignItems: 'center', gap: '6px',
                 }}>
                 <span style={{ opacity: isActive ? 1 : 0.6 }}>{t.icon}</span>
