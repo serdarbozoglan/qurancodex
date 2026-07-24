@@ -74,20 +74,21 @@
 - **Konumlandırma tutarlılığı** — kısmen (bilim-hakem çerçevesi kaldırıldı). Kalan: genel akademik↔apolojetik ses tutarlılığı.
 - ✅ **Jargon Türkçeleştirme — BİTTİ (`a968d4d`).** refrain→nakarat, foundational→temel, mainstream→ana akım, redundancy→gereksiz tekrar, word-order→kelime dizimi (17 yer, yalnız TR). pasaj/ritüel zaten yasaklıydı (memory).
 
-## P2 — ORTA
+## P2 — ORTA  (opsiyonel polish — içerik bütünlüğü yanında kritik değil, sonraya ertelendi)
 
-- **Hakkında / Metodoloji sayfası** (yazar, kaynak, kıraat=Hafs, meal, sınırlar). (Claude + Gemini) — /kaynakca var, /hakkinda YOK.
-- Her iddiada **kaynak + tür + güven düzeyi + son güncelleme** (güven kutusu şablonu). (ChatGPT böl.8)
-- **Morfoloji tooltip** (Leeds corpus — kök/fiil/şahıs). (Gemini)
-- **EN parity** — interaktif araç etiketleri %100 İngilizce. (Gemini + ChatGPT R02)
-- SEO H1/H2 akademik keyword; hreflang/canonical/schema. (Gemini + ChatGPT)
-- Kontrast WCAG AA + erişilebilirlik denetimi.
-- İkincil soğuk accent + bölüm zemin katmanı (monoton altın). (Claude 2.2 + atmosfer raporu)
+- ⏳ **Hakkında / Metodoloji sayfası** (yazar, kaynak, kıraat=Hafs, meal, sınırlar). Değerli ama **kullanıcı içerik kararı gerek** (yazar kimliği, çerçeve). Not: Kur'an üstünlüğü ilkesi (memory) metodoloji dilinde yansımalı.
+- ⏳ Her iddiada güven kutusu (kaynak+tür+güven+tarih). Büyük sistem işi.
+- ⏳ Morfoloji tooltip (Leeds corpus). Feature.
+- ✅ **EN parity — ESASEN TEMİZ** (2026-07-24 tarandı: yapısal EN alanlarında 0 Türkçe-kalıntı; çeviriler yerinde). Kritik gap yok.
+- SEO H1/H2 (duplicate H1 ✅ `822d634` düzeltildi); hreflang/canonical/schema mevcut.
+- ⏳ Kontrast WCAG AA. ⏳ İkincil soğuk accent (monoton altın).
 
-## P3 — DÜŞÜK
+## P3 — DÜŞÜK (ertelendi)
 
-- Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence. (ChatGPT böl.9)
-- token-hardcode-hex (25 bulgu — görsel-etkisiz §13.1 kod hijyeni). (benim görsel audit)
+- ⏳ Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence.
+- ⏭ token-hardcode-hex (25 — görsel-etkisiz §13.1 kod hijyeni). Düşük değer, ertelendi.
+
+## ▶ SIRADAKİ = 🚨 2. TUR KAPSAMLI İÇERİK TARAMASI (yukarıdaki 🚨 bölüm). P0 + P1 kritik + editoryal + inline audit BİTTİ. Kalan P1/P2/P3 opsiyonel polish. En yüksek değer: olmayan/uydurma ayet + olmayan hitap taraması.
 
 ## ✅ META — KAPSAM BOŞLUĞU KAPANDI (2026-07-24)
 
