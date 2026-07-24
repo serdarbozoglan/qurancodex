@@ -1222,13 +1222,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return 1.0; }
   });
   // ── Day / Night mode (persisted) ───────────────────────────────────────────
-  // Varsayılan GÜNDÜZ (açık/cream): /oku okuma konforu için ilk açılış açık tema
-  // (2026-07-24 kullanıcı kararı — "dark discovery + light reading"). Kayıtlı
-  // tercih (localStorage) korunur; toggle her durumda mevcut. ?? kullanımı: yalnız
-  // hiç kayıt yoksa 'true'; kullanıcı geceyi seçtiyse ('false') o korunur.
   const [dayMode, setDayMode] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') ?? 'true'); }
-    catch { return true; }
+    try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') || 'false'); }
+    catch { return false; }
   });
   // ── Tajweed coloring toggle ────────────────────────────────────────────────
   const [showTajweed, setShowTajweed] = useState(() => {
