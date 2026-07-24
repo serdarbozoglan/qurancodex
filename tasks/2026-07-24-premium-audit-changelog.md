@@ -42,6 +42,10 @@ Düzeltilecekler (dosya · konum · hedef):
 
 **Sonra:** görsel LOW net olanlar. **token-hardcode-hex (25) ERTELENDİ** (aşağı bak).
 
+**✅ TAMAMLANDI — CennetCehennem `lang: 'ar'` a11y bug (15 yer).** `lang: 'ar'` style objesi İÇİNDE yazılmıştı → CSS'te no-op; element'te gerçek `lang` attr yoktu (screen-reader Arapçayı doğru seslendiremiyordu). 15 element'e `dir="rtl" lang="ar"` JSX attr eklendi + style'dan no-op `lang:'ar'` çıkarıldı (13'ü attr ekleme, 2'si zaten attr'lı → sadece style temizliği). Görsel etki sıfır (`direction:'rtl'` CSS zaten vardı). Route 200, 0 kalıntı. (Aynı bug QuranCommands'te de → `3b8b272`.)
+
+**§13.18 anchor-renk sweep SONUCU:** Tüm component'ler tarandı — CennetCehennem tek gerçek ihlaldi (düzeltildi). Melekler `GOLD=softGold` var ama anchor verse'i zaten `COLORS.gold` (softGold sadece genel VerseBlock accent'inde = meşru). Başka ihlal yok.
+
 **İçerik audit workflow** (`wf_c9754a28-30a`) bittiğinde bulguları işle: her CONFIRMED'i KENDİN kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı tekrar doğrula, sonra düzelt. Doğrulayamadığın skolastik bulguyu DEĞİŞTİRME → "⚠ kullanıcı incelemesi" bölümüne yaz. Bulguları todo_2026-07-14 BAŞINA yaz.
 
 **Doğrulama helper'ları hazır:** `scratchpad/verify-addressees.mjs` (kod-noktası norm + kanonik yükleme pattern'ı). Kanonik Arapça karşılaştırmada hareke/waqf'i norm ile sök.

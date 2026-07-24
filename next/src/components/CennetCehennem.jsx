@@ -96,7 +96,7 @@ function VerseBlock({ ar, tr, en, kaynak, language, color }) {
       marginBottom: '12px',
       direction: 'rtl',
     }}>
-      <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: c, lineHeight: 2, margin: '0 0 8px', textAlign: 'right', direction: 'rtl', lang: 'ar' }}>
+      <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: c, lineHeight: 2, margin: '0 0 8px', textAlign: 'right', direction: 'rtl' }}>
         {ar}
       </p>
       <p style={{ fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 4px', direction: 'ltr', textAlign: 'left' }}>
@@ -543,11 +543,11 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
       </div>
 
       {/* Arabic name */}
-      <p style={{
+      <p dir="rtl" lang="ar" style={{
         fontFamily: FONTS.quran,
         fontSize: '1.4rem', lineHeight: 1.8,
         color: GOLD,
-        textAlign: 'right', direction: 'rtl', lang: 'ar',
+        textAlign: 'right', direction: 'rtl',
         margin: '0 0 6px',
         paddingRight: '32px',
       }}>
@@ -657,9 +657,9 @@ function HeroBanner({ data, language, isMobile }) {
           alignItems: 'center', justifyContent: 'center',
           padding: '20px 24px', gap: '10px',
         }}>
-          <div style={{
+          <div dir="rtl" lang="ar" style={{
             fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD,
-            direction: 'rtl', textAlign: 'center', lineHeight: 1.9, lang: 'ar',
+            direction: 'rtl', textAlign: 'center', lineHeight: 1.9,
           }}>
             وَبَيْنَهُمَا حِجَابٌ
           </div>
@@ -683,7 +683,7 @@ function HeroBanner({ data, language, isMobile }) {
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', padding: '16px 24px', gap: '8px',
         }}>
-          <div style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 1.9, lang: 'ar' }}>
+          <div dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 1.9 }}>
             وَبَيْنَهُمَا حِجَابٌ
           </div>
           <div style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', textAlign: 'center' }}>
@@ -749,7 +749,7 @@ function TabCennet({ data, language, isMobile }) {
             borderRadius: RADIUS.chip, padding: '12px 14px',
             textAlign: 'center',
           }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 6px' }}>{n.nameAr}</p>
+            <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 6px' }}>{n.nameAr}</p>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
             <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
             {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148,163,184,0.5)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
@@ -770,7 +770,7 @@ function TabCennet({ data, language, isMobile }) {
             borderRadius: RADIUS.chip, padding: '12px 14px',
           }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: 0 }}>{b.nameAr}</p>
+              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: 0 }}>{b.nameAr}</p>
               <div style={{ display: 'flex', gap: '4px', flexShrink: 0, marginTop: '4px' }}>
                 {b.isHapax && <HapaxBadge language={language} />}
               </div>
@@ -793,7 +793,7 @@ function TabCennet({ data, language, isMobile }) {
             border: `1px solid ${CENNET.border}`,
             borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{s.nameAr}</p>
+            <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 8px' }}>{s.nameAr}</p>
             <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? s.nameTr : s.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? s.descTr : s.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${CENNET.accent}80`, fontWeight: 500, margin: '0 0 6px' }}>{s.kaynak}</p>
@@ -862,7 +862,7 @@ function TabCennet({ data, language, isMobile }) {
           },
         ].map((g, i) => (
           <div key={i} style={{ background: g.bg, border: `1px solid ${g.border}`, borderRadius: RADIUS.chip, padding: '14px 16px' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{g.nameAr}</p>
+            <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 8px' }}>{g.nameAr}</p>
             <p style={{ fontSize: '0.88rem', fontWeight: 700, color: g.color, margin: '0 0 6px' }}>{language === 'tr' ? g.nameTr : g.nameEn}</p>
             <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{language === 'tr' ? g.descTr : g.descEn}</p>
             <p style={{ fontSize: '0.7rem', color: `${g.color}80`, fontWeight: 500, margin: 0 }}>{g.kaynak}</p>
@@ -965,7 +965,7 @@ function TabCehennem({ data, language, isMobile }) {
             borderRadius: RADIUS.chip, padding: '14px 16px',
           }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: 0 }}>{y.nameAr}</p>
+              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: 0 }}>{y.nameAr}</p>
               {y.isHapax && <div style={{ flexShrink: 0, marginTop: '4px' }}><HapaxBadge language={language} /></div>}
             </div>
             <p style={{ fontSize: '0.9rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>{tr ? y.nameTr : y.nameEn}</p>
@@ -987,7 +987,7 @@ function TabCehennem({ data, language, isMobile }) {
             borderRadius: RADIUS.lg, padding: '20px 24px',
             marginBottom: '8px',
           }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 10px' }}>
+            <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 10px' }}>
               {d.bekciMelekler.verseAr}
             </p>
             <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
@@ -1082,7 +1082,7 @@ function TabAraf({ data, language, isMobile }) {
         borderRadius: RADIUS.lg, padding: '22px 24px',
         marginBottom: '20px',
       }}>
-        <p style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 10px', lineHeight: 2 }}>
+        <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 10px', lineHeight: 2 }}>
           {araf.verseAr}
         </p>
         <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
@@ -1178,7 +1178,7 @@ function TabAraf({ data, language, isMobile }) {
               border: `1px solid ${c.border}`,
               borderRadius: RADIUS.chip, padding: '16px 18px',
             }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, textAlign: 'right', direction: 'rtl', lang: 'ar', margin: '0 0 8px' }}>{item.nameAr}</p>
+              <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 8px' }}>{item.nameAr}</p>
               <p style={{ fontSize: '0.9rem', fontWeight: 700, color: c.accent, margin: '0 0 6px' }}>{tr ? item.nameTr : item.nameEn}</p>
               <p style={{ fontSize: '0.8rem', color: COLORS.silver, margin: '0 0 8px', lineHeight: 1.55 }}>{tr ? item.descTr : item.descEn}</p>
               <p style={{ fontSize: '0.7rem', color: `${c.accent}80`, fontWeight: 500, margin: 0 }}>{item.kaynak}</p>
@@ -1213,7 +1213,7 @@ function TabRahman({ data, language, isMobile }) {
         marginBottom: '20px',
         textAlign: 'center',
       }}>
-        <p style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, direction: 'rtl', lang: 'ar', margin: '0 0 10px', lineHeight: 2, textAlign: 'center' }}>
+        <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: GOLD, direction: 'rtl', margin: '0 0 10px', lineHeight: 2, textAlign: 'center' }}>
           {rs.nakaratAr}
         </p>
         <p style={{ fontSize: '0.92rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
@@ -1508,7 +1508,7 @@ function NineCennetLayers({ language, isMobile, names }) {
               }} />
               <div style={{
                 fontFamily: FONTS.quran, fontSize: '1.1rem',
-                color: isPeak ? GOLD : CENNET.accent, direction: 'rtl', lang: 'ar',
+                color: isPeak ? GOLD : CENNET.accent, direction: 'rtl',
                 flexShrink: 0,
               }} dir="rtl" lang="ar">{n.nameAr}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -1597,7 +1597,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
               }} />
               <div style={{
                 fontFamily: FONTS.quran, fontSize: '1.1rem',
-                color: shades[idx], direction: 'rtl', lang: 'ar', flexShrink: 0,
+                color: shades[idx], direction: 'rtl', flexShrink: 0,
                 filter: 'brightness(1.4)',
               }} dir="rtl" lang="ar">{n.nameAr}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
