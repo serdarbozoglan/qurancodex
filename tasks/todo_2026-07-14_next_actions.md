@@ -1,8 +1,10 @@
 # QuranCodex — Next Action Items
 
-> **Son güncelleme:** 2026-07-15 (öğle — #172 SEO polish tamamlandı: sitemap 302→416 URL) · **Toplam pending:** 30+ iş
+> **Son güncelleme:** 2026-07-23 (masa temizliği — 07-17→07-23 arası 13 iş done işaretlendi, kalanlar kod taramasıyla yeniden ölçüldü) · **Gerçek pending:** 7 iş
 >
-> RAG Semantic Concierge v1.0 tamamlandı. Aşağıdaki liste bir sonraki iş sırası. **Araçlar audit tamamlandı** (2026-07-14) → 46 tool audit edildi, 21 zayıf (%44), sistemsel eksikler (CTA %74, Src %89, Tab %44). Action item'lar Kategori F'e eklendi.
+> RAG Semantic Concierge v1.0 tamamlandı. **Kategori B, C, G tamamen bitti** (2026-07-17 → 07-21). **Araçlar audit tamamlandı** (2026-07-14) → 46 tool audit edildi; Kategori F'in Phase 1 + Phase 2'nin büyük kısmı kapandı.
+>
+> **2026-07-23 kod taraması:** 63 tool component'i ToolHeader / CrossToolCTA / SourcesCitation / BookmarkButton / tab kapsamı için tarandı. Sonuçlar Kategori F altındaki tablolara işlendi — özellikle Phase 3'ün "41 tool / 30 saat" tahmini gerçeği yansıtmıyordu: kaynak boşluğu **gerçekte 4 tool**.
 
 ---
 
@@ -44,6 +46,25 @@
 - **BookmarkButton — ReadingMode VerseRow** — ana kullanım akışında her ayet satırında BookmarkButton; audio bar yanı, stopPropagation; ID: verse:S:A, URL: /ayet/S/A. Kritik entegrasyon — user Kur'an okurken direkt kaydediyor (a5cea23, 2026-07-16)
 - **/kutuphanem TYPE_LABELS bug fix** — 22 tip için TR/EN çeviri; önceden 15 yeni tip raw string ('sebeb-nuzul', 'kiyamet-scene') olarak görünüyordu; RecentBookmarksStrip.jsx ile senkron (0e4cc9c, 2026-07-16)
 
+### 2026-07-17 → 07-23 dalgası (todo'ya geç işlendi)
+
+- **#187 Peygamber Atlası** — 5 → 12 peygamber + coğrafi harita (509c70d, 2026-07-17)
+- **#177 Sebebi-Nüzul** — 20 → 30 vaka + RAG corpus pipeline (d810547, 2026-07-17)
+- **#186 Diyalog Ağı** — 15 → 23 dialogue + 6 axis + 6 speaker (c1a354f, 2026-07-17)
+- **#185 Muhatap Sistemi** — 11 → 14 kategori, 36 → 55 örnek ayet (96ab266, 2026-07-17)
+- **#183 Kavram Ağı** — 65 → 78 kavram (06b1a1c) + görsel wow katmanı ~850 satır (fbddcca) + §13.18 premium landing hero: anchor verse Bakara 2:269 + micro-stat ribbon (7e404b2)
+- **#178 Search Modu 2** — klasik anahtar-kelime tam metin arama (624a165, 2026-07-17)
+- **#181 Sure DNA + #184 Münâsebât** — SurahComparator sources + münâsebât 10 → 16 (4174130, 2026-07-17)
+- **#207 Eleştirel Çerçeve** — `/arac/elestirel-cerceve`; + Ses Mimarisi audio-metin parity bug fixleri (f012a1d, 2026-07-19)
+- **#211 Kitap Kavramı** — `/arac/kitap-kavrami`, 10 self-name (9ce6b82, 2026-07-19)
+- **#208 Cause→Effect Atlas** — `/arac/neden-sonuc`, 10 Kur'ânî zincir (c86e8ab, 2026-07-19)
+- **#209 İnsan Yolculuğu Atlası** — `/atlas/insan-yolculugu`, Fıtrattan Cemâlullah'a 10 aşama (a50aad2, 2026-07-21)
+- **#210 Yakın Anlamlı Nüanslar** — `/arac/yakin-anlamli-nuanslar`, 10 nüans seti / 32 terim (2ccfb08, 2026-07-21)
+- **#207 Sünnetullah genişletme** — +4 kanun (istidrâc/tedrîc/değişim/duâ-icâbet) +4 kavim (Sebe'/Fîl/Sebt/Uhdûd) +4 ulema (ee670c8, 2026-07-21)
+- **Atmosfer / manuscript denetimi + uygulama** — rapor `docs/reviews/2026-07-21-atmosfer-premium-denetimi.md`; 7 katman uygulandı: grain (feTurbulence, `globals.css:118`) + candlelight + watermark + hairline + inset + motion + colophon (7c573f7) → auditor #1-#5 + tur 3 particle fix + navbar reorder (0124b4c, 2026-07-23)
+- **#182 VerseGraph "Güçlü Bağlantılar" — PROD/LOCAL DOĞRULANDI (2026-07-23)** — Playwright ile `/tr/graf/ayet` → Sûre Haritası → En-Nisâ paneli sürüldü. Sonuç: Bakara 118 · Ahzâb 112 · Feth 52 · Âl-i İmrân 49. Eski bug'daki "Şuarâ 1117" şişkinliği yok; Nisâ'nın toplam 1399 anlamsal bağıyla tutarlı, semantik olarak da doğru (aile-miras hukuku + münafıklık). Sayfada pageerror yok.
+- **SunnetullahAtlasi LiteralVerseCard style-conflict fix (2026-07-23)** — `GLASS_CARD` shorthand `border`'ı ile per-side `borderLeftColor/Width` karışıyordu. Playwright ile reprodüksiyon: fix öncesi **6 React error** ("don't mix shorthand and non-shorthand properties") + gerçek görsel bug — hover'da sol altın kenar `rgb(212,165,116)` → `rgba(212,165,116,0.333)` soluyordu. Fix sonrası: 0 uyarı, sol kenar solid altın kalıyor, hover sadece diğer 3 kenarı gold55 yapıyor.
+
 ---
 
 ## 🔥 Sıradaki İş Sırası — user belirledi (2026-07-14)
@@ -64,34 +85,40 @@
 | # | İş | Efor | Öncelik |
 |---|---|---|---|
 | **#176** | ✅ **Kissa Atlas genişletme** — 4 → 12 peygamber + 68 → 104 sahne (45a1b66) | done | 2026-07-15 |
-| **#187** | **Peygamber Atlası** — 25 peygamber (soykütüğü + kavim + mucize + timeline + coğrafi harita + nesep) — ⚠ **mevcut ProphetAtlas.jsx 3221 satır, 25 peygamber zaten mevcut**; enhancement = soykütüğü tree + nesep visualization + mucize dedicated section | 2-3 gün | Yüksek |
-| **#189** | **Ahiret Yolculuğu Atlası** — `/atlas/ahiret-yolculugu` meta-timeline hub; 11 aşama (sekerât → berzah → sûr → diriliş → mahşer → mîzân → havz+şefâat → sırât → cennet/cehennem → rü'yetullâh); mevcut tool'lara deep-link + 4 yeni içerik (sekerât, kabir sorusu, havz+şefâat, rü'yetullâh); CriticalNote pattern ile mezhebî yorum + literal/mecaz ayrıştır | 6-8 saat | Yüksek |
-| **#177** | **Sebebi-Nüzul tool** — historical context aggregation (Vahidi, Suyuti) | 1-2 gün | Orta |
-| **#185** | **Muhatap sistemi** — ayet başına muhatap etiketi + istatistik + filter | 1 gün | Orta |
+| **#187** | ✅ **Peygamber Atlası** — 5 → 12 peygamber + coğrafi harita (509c70d) | done | 2026-07-17 |
+| **#189** | ✅ **Ahiret Yolculuğu Atlası** — `/atlas/ahiret-yolculugu` live, 11 aşama | done | 2026-07-15 |
+| **#177** | ✅ **Sebebi-Nüzul tool** — 20 → 30 vaka + RAG corpus (d810547) | done | 2026-07-17 |
+| **#185** | ✅ **Muhatap sistemi** — 11 → 14 kategori, 36 → 55 ayet (96ab266) | done | 2026-07-17 |
+
+**Kategori B tamamen bitti (2026-07-17).**
 
 ### Kategori C — Mevcut zayıf sayfaların iyileştirilmesi
 
 | # | İş | Efor | Not |
 |---|---|---|---|
 | **#188** | ✅ Araçlar audit tamamlandı | ✅ done | 46 tool → `docs/reviews/2026-07-14-araclar-audit.md` |
-| **#181** | Sure DNA sayfası — güçlendirme | 1 gün | fingerprint metaforu net değil |
-| **#183** | Kavram Ağı (ConceptGraph) sayfası — geliştirme | 1 gün | force-simulation + cluster + side panel |
-| **#184** | Münâsebât Atlası — klasik tefsir gelenekleri (Râzî, Zerkeşî, Bikâî) | 2 gün | içerik + görsel + interaktif |
-| **#186** | Diyalog ağı sayfası — network view + katılımcı analizi | 1-2 gün | Musa-Firavun, İbrahim-babası, İblis-Allah, Yusuf-Züleyha |
+| **#181** | ✅ Sure DNA — SurahComparator sources (4174130) | done | 2026-07-17 |
+| **#183** | ✅ Kavram Ağı — 65→78 kavram + görsel wow katmanı + §13.18 premium hero (06b1a1c, fbddcca, 7e404b2) | done | 2026-07-17/21 |
+| **#184** | ✅ Münâsebât Atlası — 10 → 16 (4174130) | done | 2026-07-17 |
+| **#186** | ✅ Diyalog ağı — 15 → 23 dialogue + 6 axis + 6 speaker (c1a354f) | done | 2026-07-17 |
+
+**Kategori C tamamen bitti (2026-07-17).**
 
 ### Kategori D — Teknik büyük iş (uzun vade)
 
 | # | İş | Efor |
 |---|---|---|
-| **#178** | Search modu 2 — klasik keyword full-text (RAG dışı) | 3-4 saat |
+| **#178** | ✅ Search modu 2 — klasik keyword full-text (624a165, 2026-07-17) | done |
 | **#179** | Tecvid interaktif dersler — mic input + Web Speech API | 1-2 hafta |
 | **#180** | Root word explorer — Semitic root analysis + türev graph | 1-2 hafta |
+
+**Kalan:** #179 + #180 — her biri tek başına sprint. Kısa işlerle karıştırılmamalı.
 
 ### Kategori E — Meta / Denetim
 
 | # | İş | Efor |
 |---|---|---|
-| **#182** | Ayet Haritası "Güçlü Bağlantılar" verify — ilk fix push edildi, prod'da rakamlar doğru mu doğrula | ilk kontrol |
+| **#182** | ✅ Ayet Haritası "Güçlü Bağlantılar" verify — **2026-07-23 Playwright ile doğrulandı**. En-Nisâ: Bakara 118 · Ahzâb 112 · Feth 52 · Âl-i İmrân 49 (toplam 1399 bağ ile tutarlı). Eski "Şuarâ 1117" şişkinliği yok. | done |
 | **#171** | Anasayfa /sor CTA — Concierge'in varlığı daha güçlü sinyal | ⚠ **ConciergePrompt zaten hero altında güçlü form (input + rotating placeholder + 6 chip + trust footer); pratikte done** — belki: Hero'ya küçük CTA button eklemek? kararsız |
 | **#172** | ✅ SEO polish — sitemap 302→416 URL (+114); 32 tefekkur + 25 tool + 5 üst route + hreflang; /arac/wow legacy dışı (e30e18f, 2026-07-15) | done |
 
@@ -133,32 +160,47 @@ Kalan CTA-eksik tool'lar (verify pending): VerseGraph (Phase 5 target #206), Mun
 
 **Not:** Bu batch'lerde yeni content JSON eklenmedi — CTA link component değişikliği. §13.22 embedding rebuild gerek YOK.
 
-#### Phase 3 — SourcesCitation Curation (41 tool, ~30 saat)
+#### Phase 3 — SourcesCitation Curation ⚠ YENİDEN ÖLÇÜLDÜ (2026-07-23): 41 tool / 30h → **4 tool / ~3h**
 
 | # | İş | Efor |
 |---|---|---|
-| **#203** | SourcesCitation curated liste + 41 tool'a add (2-3 tool/saat rate) | 30h |
+| **#203** | SourcesCitation — **gerçek kaynak boşluğu olan 4 tool'a** add | ~3h |
+
+**2026-07-23 taraması:** `SourcesCitation` import etmeyen 22 tool tarandı; çoğunda **inline kaynak atfı zaten var** (Râzî/Suyûtî/Zerkeşî/Kurtubî/İbn Kesîr geçen satır sayısı). Gerçek boşluk sadece şunlarda:
+
+| Tool | Inline kaynak bahsi | Durum |
+|---|---|---|
+| `AddresseeSystem.jsx` | **0** | 🔴 gerçek boşluk |
+| `DiyalogAgi.jsx` | **0** | 🔴 gerçek boşluk |
+| `WordHeatmap.jsx` | **0** | 🔴 gerçek boşluk |
+| `QuranCommands.jsx` | 2 | 🟡 zayıf, eklenebilir |
+
+Yeterli inline kaynağı olanlar (SourcesCitation gereksiz): KuranYeminleri (41), CennetCehennem (37), KavimlerAtlasi (35), ZamanBoyutlari (21), Melekler (17), DogaAtlasi (10), KiyametSahneleri (10), SebebiNuzul (10), TarihselKanitlar (9), FurukAtlasi (8), MunasebatAtlasi (7), IlkSonKelimeler (5), KiraatAtlasi (5), ConceptGraph (4), RetorikSorular (4), SemanticMap (4), DuaVerses (2), RevelationTimeline (2).
 
 Kaynak curation: Râzî *Mefâtîh*, Kurtubî *Câmi'*, Zamahşerî *Keşşâf*, Bikâî *Nazm'ud-Durer*, İbn Kesîr *Tefsîr*, Zerkeşî *Burhân*, Suyûtî *Itkân*.
 
-**İstisna:** İçsel "Kaynaklar" tab'ı olan sayfalar (KavimlerAtlasi, KiyametSahneleri, Melekler, CennetCehennem, ZamanBoyutlari, KuranYeminleri, SebebiNuzul) — SourcesCitation eklenmez (duplicate).
+**İstisna:** İçsel "Kaynaklar" tab'ı olan sayfalar (KavimlerAtlasi, KiyametSahneleri, Melekler, CennetCehennem, ZamanBoyutlari, KuranYeminleri, SebebiNuzul) — SourcesCitation eklenmez (duplicate). Ayrıca memory `feedback_sources_citation_exceptions`.
 
-#### Phase 4 — Tab Refactor (15-18 tool, ~25-30 saat)
+#### Phase 4 — Tab Refactor (11 flat tool, ~25-30 saat) ⚠ ÖNCE GEREKLİLİK SORGULA
 
 | # | İş | Efor |
 |---|---|---|
 | **#204** | Tab yapısı — flat single-view'dan multi-tab'a taşı | 25-30h |
 
-Öncelik listesi: KissaAtlas (dynamic filter tab), KadinlarAtlasi (tema tab), ConceptGraph (view mode tab), SemanticMap (kök tab), SurahComparator (metrik tab), WordHeatmap (kavram tab), DiyalogAgi (katılımcı tab), FurukAtlasi (kelime grup tab), ...
+**2026-07-23 taraması** (`activeTab` referansı olmayan tool'lar): KissaAtlas, KadinlarAtlasi, ConceptGraph, SemanticMap, SurahComparator, WordHeatmap, RetorikSorular, AddresseeSystem, RevelationTimeline, QuranCommands, DuaVerses. Tab'ı **zaten olanlar**: DiyalogAgi (9), MunasebatAtlasi (8), FurukAtlasi (7), TarihselKanitlar (7).
 
-#### Phase 5 — EsmaFrekans + VerseGraph Polish (~5 saat)
+⚠ **Toplu refactor önerilmiyor.** SemanticMap / WordHeatmap gibi tek-görselleştirme araçlarında tab yapay katman olur. Tool-tool karar verilmeli; sadece gerçekten çok-boyutlu içeriği olanlar (KissaAtlas, KadinlarAtlasi, DuaVerses) aday.
 
-| # | İş | Efor |
-|---|---|---|
-| **#205** | EsmaFrekans → ToolHeader + Hero + CTA + metodoloji intro | 2-3h |
-| **#206** | VerseGraph → ToolHeader + Hero + CTA + metodoloji intro | 2-3h |
+#### Phase 5 — EsmaFrekans + VerseGraph Polish (~5 saat) — 🔴 KALAN EN YÜKSEK GETİRİLİ İŞ
 
-**Not:** 3D/heatmap logic dokunulmayacak — sadece page-UX çerçevesi eklenecek.
+| # | İş | Kod durumu (2026-07-23) | Efor |
+|---|---|---|---|
+| **#206** | VerseGraph → Hero + CTA + metodoloji intro | 3287 satır; ToolHeader ❌ CTA ❌ hero ❌; hâlâ `position:fixed; top:62px` (`VerseGraph.jsx:1054`) | 2-3h |
+| **#205** | EsmaFrekans → ToolHeader + Hero + CTA + metodoloji intro | 3797 satır (sitedeki en büyük tool); ToolHeader ❌ CTA ❌ tab ❌; CTA kısmen `ClosingReflection` içinde karşılanmış | 2-3h |
+
+**#206 neden önce:** Pattern kanıtlanmış — ConceptGraph 3 gün önce (7e404b2) tam bu işlemden geçti: anchor verse + italik çeviri + UPPERCASE ref label + filigree divider + eyebrow + micro-stat ribbon. Aynı şablon tek dosyaya uygulanır.
+
+**Not:** 3D/heatmap logic dokunulmayacak — sadece page-UX çerçevesi eklenecek. §13.17 modal istisnası VerseGraph'i kapsıyor, `position:fixed` yapısına dokunulmaz → düşük risk.
 
 ### Kategori G — Dış AI Görüşlerinden Süzülen Yeni Fikirler (2026-07-14)
 
@@ -166,16 +208,13 @@ Kaynak curation: Râzî *Mefâtîh*, Kurtubî *Câmi'*, Zamahşerî *Keşşâf*,
 
 | # | İş | Kaynak | Değer | Efor |
 |---|---|---|---|---|
-| **#207** | **Eleştirel Çerçeve / Zorlu Sorular** — müsteşrik itirazları, iç çelişki iddiaları, "cherry-picking mi?" sorusu — sakin akademik cevaplar. Kredibilite katmanı. Şüpheci okuyucuya kapı. Riskli ama dönüştürücü | Claude#3 | ⭐⭐⭐⭐⭐ | 3-5 gün |
-| **#208** | **Cause→Effect Atlas** — "Kim X yaparsa Y olur" zincirleri (sabır→yardım→başarı; kibir→mühürleme→sapma). Sünnetullah tool'unun uzantısı, akıcı narrative. Yüzlerce Kur'ânî zincir | GPT#4 | ⭐⭐⭐⭐⭐ | 2-3 gün |
-| **#209** | **İnsan Yolculuğu / Journey Atlas** — fıtrat → iman → takva → ibadet → sabır → ihsan → cennet meta-narrative. Nefis + İbadet + Ahiret Yolculuğu'nun ayna hub'ı (insanın iç dünyada yolculuğu) | GPT#10 | ⭐⭐⭐⭐ | 2 gün |
-| **#210** | **Yakın Anlamlı Nüanslar** — insan/beşer/nâs, kalb/fu'âd/sadr, hüb/mahabbet, ceza/ikâb/nikâm — sistematik nüans karşılaştırması. Furûk'un derin extension'ı ama ayrı tool (Furûk kelime farkları, bu semantic nuance haritaları) | Gemini#1 | ⭐⭐⭐⭐ | 2-3 gün |
-| **#211** | **Kitap Kavramı** — Kur'an kendini nasıl tanımlar: hüdâ, furkân, zikr, nûr, şifâ, mev'iza, beyân, tebyân, mübîn. İnsan Tanımı tool'unun ayna eşi. Küçük ama zarif | Claude#4 | ⭐⭐⭐⭐ | 1-2 gün |
+| **#207** | ✅ **Eleştirel Çerçeve** — `/arac/elestirel-cerceve` (f012a1d) | Claude#3 | ⭐⭐⭐⭐⭐ | done 07-19 |
+| **#208** | ✅ **Cause→Effect Atlas** — `/arac/neden-sonuc`, 10 zincir (c86e8ab) | GPT#4 | ⭐⭐⭐⭐⭐ | done 07-19 |
+| **#209** | ✅ **İnsan Yolculuğu Atlası** — `/atlas/insan-yolculugu`, 10 aşama (a50aad2) | GPT#10 | ⭐⭐⭐⭐ | done 07-21 |
+| **#210** | ✅ **Yakın Anlamlı Nüanslar** — `/arac/yakin-anlamli-nuanslar`, 10 set / 32 terim (2ccfb08) | Gemini#1 | ⭐⭐⭐⭐ | done 07-21 |
+| **#211** | ✅ **Kitap Kavramı** — `/arac/kitap-kavrami`, 10 self-name (9ce6b82) | Claude#4 | ⭐⭐⭐⭐ | done 07-19 |
 
-**Kategori G notları:**
-- Öncelik: #207 (kredibilite) > #208 (yeni içerik değeri) > #211 (küçük efor, high polish) > #209 > #210
-- #207 en riskli — kullanıcıyla konsept konuşulmadan başlama. Editoryal ton çok kritik (apolojetik değil, entelektüel dürüstlük)
-- #208 zaten Sünnetullah Atlası'nda kısmen var — extend mi ayrı tool mu karar verilecek
+**Kategori G tamamen bitti (2026-07-19 → 07-21).** 5 fikir de tool'a dönüştü; hepsi ToolHeader + CTA + SourcesCitation + BookmarkButton ile tam pattern uyumlu (2026-07-23 taraması).
 
 **Reddedilenler (düşük ROI veya duplikat):**
 - Mushaf karşılaştırması — akademik değerli ama yatırım yüksek, marj düşük
@@ -185,33 +224,24 @@ Kaynak curation: Râzî *Mefâtîh*, Kurtubî *Câmi'*, Zamahşerî *Keşşâf*,
 
 ---
 
-## 🎯 Önerilen Sprint Sırası
+## 🎯 Önerilen Sprint Sırası (2026-07-23 revizyonu)
 
-**Bu hafta (WIP):**
-1. ✅ #188 Araçlar audit — tamamlandı
-2. ✅ #189 Ahiret Yolculuğu Atlası MVP — live (2026-07-15); Faz 2 (visual polish) + Faz 3 (auditor pass) kalan
-3. #173 Bookmark bitir (Navbar + AtlasCard/ArticleCard extension)
-4. #182 Ayet Haritası fix doğrula
+Kategori A, B, C, G ve F/Phase-1 kapandı. Kalan **7 iş** şu sırayla:
 
-**Gelecek hafta — Phase 1 quick wins (Kategori F #190-201):**
-5. #190-193 en zayıf 4 tool (AltiKonu, KorumaZinciri, Ritim, SesMimarisi) → 5-8 saat
-6. #175 Reading progress tracker (paralel, 2-3h)
-7. #194-201 kalan quick wins (10-12 saat)
+**Sıradaki (bu hafta):**
+1. **#206 VerseGraph Hero** (2-3h) — kalan en yüksek getirili tek iş. ConceptGraph pattern'ı (7e404b2) hazır şablon; sitenin amiral gemisi aracı §13.18 hero'su olmayan tek büyük tool.
+2. **#205 EsmaFrekans Hero + ToolHeader** (2-3h) — aynı iş, 3797 satır olduğu için daha dikkatli.
+3. **#203 SourcesCitation — 4 gerçek boşluk** (~3h): AddresseeSystem, DiyalogAgi, WordHeatmap, QuranCommands.
 
-**Ay içi — İçerik büyütme + audit follow-up:**
-8. #176 Kissa Atlas genişletme + #187 Peygamber Atlası (paralel)
-9. #202 CrossToolCTA batch (10 saat, kolay iş)
-10. #174 Share cards + #178 Keyword search
+**Sonra:**
+4. **#202 CrossToolCTA kalanı** — 18/34 done; kalanlar tek tek verify edilip kapatılır.
+5. **Atmosfer raporu madde 4** (15 dk) — anasayfa section'larında `borderRadius: '20px'` hâlâ 5 yerde; rapor 12px öneriyor. Görsel karar user'ın.
 
-**Ay sonu:**
-11. #177 Sebebi-Nüzul + #185 Muhatap sistemi
-12. #184 Münâsebât + #186 Diyalog ağı + #183 Kavram Ağı + #181 Sure DNA
-13. #203 SourcesCitation curation (30 saat, yavaş rollout)
+**Sorgulanacak (otomatik başlama):**
+6. **#204 Tab refactor** — 11 flat tool, ama toplu refactor önerilmiyor (yukarıdaki nota bak). Tool-tool karar.
 
-**Uzun vade:**
-- #204 Tab refactor (25-30 saat, 3-4 tool/sprint)
-- #205-206 EsmaFrekans + VerseGraph polish
-- #179 Tecvid, #180 Root explorer — 1-2 hafta each
+**Uzun vade (her biri tek başına sprint):**
+7. #179 Tecvid mic input, #180 Root explorer — 1-2 hafta each.
 
 ---
 
