@@ -128,43 +128,59 @@ export default function RevelationTimeline({ onClose }) {
 
       {!loading && orderData && (
         <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '20px' }}>
-          {/* Legend */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '16px', fontSize: '0.72rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: mekiColor, opacity: 0.8 }} />
-              <span style={{ color: COLORS.silver }}>{language === 'tr' ? 'Mekkî (610–622)' : 'Meccan (610–622)'}</span>
+          {/* Reading key — tek, taranabilir okuma anahtarı (eski düz efsane +
+              tekrarlayan açıklama paragrafı birleştirildi, 2026-07-24). */}
+          <div style={{
+            marginBottom: '18px',
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: RADIUS.md,
+            padding: '14px 18px',
+          }}>
+            <div style={{ color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.6, marginBottom: '13px', maxWidth: '680px' }}>
+              {language === 'tr'
+                ? <>Kur'an'ın <strong style={{ color: gold, fontWeight: 600 }}>mushaf sırası</strong> (1–114), <strong style={{ color: gold, fontWeight: 600 }}>nüzul (vahiy) sırasından</strong> farklıdır. Her kart bir sûreyi gösterir:</>
+                : <>The Quran's <strong style={{ color: gold, fontWeight: 600 }}>mushaf order</strong> (1–114) differs from its <strong style={{ color: gold, fontWeight: 600 }}>revelation order</strong>. Each card is one surah:</>}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: medeniColor, opacity: 0.8 }} />
-              <span style={{ color: COLORS.silver }}>{language === 'tr' ? 'Medenî (622–632)' : 'Medinan (622–632)'}</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ color: '#4a6568', fontSize: '0.68rem', fontWeight: 700 }}>▲▼</span>
-              <span style={{ color: COLORS.silver }}>
-                {language === 'tr'
-                  ? 'Mushaf–nüzul farkı (▲ = mushafta daha geride, ▼ = mushafta daha önde)'
-                  : 'Mushaf vs revelation gap (▲ = placed later in mushaf, ▼ = placed earlier)'}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '11px 22px', fontSize: '0.73rem', alignItems: 'center' }}>
+              {/* Dönem renkleri */}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                <span style={{ width: '11px', height: '11px', borderRadius: '3px', background: mekiColor }} />
+                {language === 'tr' ? 'Mekkî · 610–622' : 'Meccan · 610–622'}
               </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                <span style={{ width: '11px', height: '11px', borderRadius: '3px', background: medeniColor }} />
+                {language === 'tr' ? 'Medenî · 622–632' : 'Medinan · 622–632'}
+              </span>
+              <span style={{ width: '1px', height: '16px', background: 'rgba(255,255,255,0.08)' }} />
+              {/* # rozeti */}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                <span style={{ background: 'rgba(212,165,116,0.2)', color: gold, fontSize: '0.66rem', fontWeight: 700, padding: '1px 6px', borderRadius: '3px' }}>#12</span>
+                {language === 'tr' ? 'nüzul sırası' : 'revelation rank'}
+              </span>
+              {/* ▲ ▼ */}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                <span style={{ color: '#7a8a70', fontSize: '0.72rem', fontWeight: 700 }}>▲</span>
+                {language === 'tr' ? 'mushafta daha geride' : 'later in mushaf'}
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                <span style={{ color: '#7a8a70', fontSize: '0.72rem', fontWeight: 700 }}>▼</span>
+                {language === 'tr' ? 'mushafta daha önde' : 'earlier in mushaf'}
+              </span>
+              {viewMode === 'timeline' && (
+                <>
+                  <span style={{ width: '1px', height: '16px', background: 'rgba(255,255,255,0.08)' }} />
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '7px', color: COLORS.silver }}>
+                    <span style={{ color: '#7a8a70', fontSize: '0.72rem' }}>↕</span>
+                    {language === 'tr' ? 'bar yüksekliği = ayet sayısı' : 'bar height = verse count'}
+                  </span>
+                </>
+              )}
             </div>
-            {viewMode === 'timeline' && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ color: '#4a6568', fontSize: '0.68rem' }}>↕</span>
-                <span style={{ color: COLORS.silver }}>
-                  {language === 'tr' ? 'Bar yüksekliği = ayet sayısı' : 'Bar height = verse count'}
-                </span>
-              </div>
-            )}
           </div>
 
           {viewMode === 'grid' && (
             <>
-              {/* Explanation */}
-              <div style={{ background: 'rgba(212,165,116,0.05)', border: '1px solid rgba(212,165,116,0.1)', borderRadius: RADIUS.chip, padding: '12px 16px', marginBottom: '16px', color: COLORS.silver, fontSize: '0.8rem', lineHeight: 1.7 }}>
-                {language === 'tr'
-                  ? 'Mushaf sırası ile vahiy sırası farklıdır. Sol üstteki # rozeti nüzul sırasını, sağ üstteki ▲▼ ise mushaf konumunun nüzul sırasından ne kadar saptığını göstermektedir. Sûre adının altında Kur\'an\'daki sûre numarası ve ayet sayısı yer almaktadır.'
-                  : 'The Quran\'s chapter order (mushaf) differs from the revelation order. The # badge (top-left) shows the revelation rank; the ▲▼ (top-right) shows how far the mushaf position differs from the revelation rank. Below the name: mushaf chapter number and verse count.'}
-              </div>
-
               {/* Grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '8px' }}>
                 {displayed.map(s => {
