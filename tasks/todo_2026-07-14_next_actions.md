@@ -1,6 +1,76 @@
 # QuranCodex — Next Action Items
 
-> **Son güncelleme:** 2026-07-23 (masa temizliği — 07-17→07-23 arası 13 iş done işaretlendi, kalanlar kod taramasıyla yeniden ölçüldü) · **Gerçek pending:** 7 iş
+---
+
+# 🔴 2026-07-24 — DÖRT DENETİM KONSOLİDE YOL HARİTASI (EN ÖNCELİKLİ)
+
+> **Kaynak:** 4 bağımsız denetim birleştirildi — (A) benim 24-ajanlı **kanonik workflow'um: 204 CONFIRMED** hata [`tasks/wtnjzwhs2.output`], (B) benim **görsel audit: 136 bulgu** [`tasks/w4dd32sfp.output`], (C) **ChatGPT PDF** (61 madde), (D) **Claude** raporu (strateji/anasayfa), (E) **Gemini** raporu (UI/UX/SEO). Detay + kanıt: `tasks/2026-07-24-premium-audit-changelog.md`.
+>
+> **Güven kuralı:** İçerik değişikliği YALNIZCA kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı %100 doğrulanınca yapılır. Skolastik/ton bulguları → "⚠ kullanıcı incelemesi" (uydurma riski). **Commit YAP, PUSH ETME.**
+>
+> **Konverjans = en güçlü sinyal:** birden çok denetimin aynı bulguyu vermesi öncelik yükseltir.
+
+## P0 — KRİTİK: Faktüel içerik hataları (kanonik-doğrulandı → DÜZELT)
+
+| # | Dosya · konum | Hata | Doğru | Kaynak |
+|---|---|---|---|---|
+| 1 | `SesMimarisi.jsx:71-92` | **Nâziât 79:2 ters meal** — Arapça 79:2 (nazik çekiş) ama çeviri "şiddetle çekip" | 79:2="Yavaşça çekenlere"; şiddet 79:1'e ait | ChatGPT C01 + kanonik |
+| 2 | `DuaDili.jsx:243`, `InsanTanimi.jsx:173` | **404 link** `/atlas/psikoloji` | `/atlas/insan-psikolojisi` | ChatGPT C02 + me |
+| 3 | `kiyamet-sahneleri.json` gruplar-ayrilma | Arapça 6:22 değil **10:28** | primaryRef: Yûnus 10:28 | benim wf |
+| 4 | `quran-commands.json` iletisim | **Hadis, sahte 49:12 ile ayet olarak `verified:true`** | verified:false + hadis etiketi | benim wf |
+| 5 | `CennetCehennem.jsx:1290` | **55:54 (cennet ayeti) cehennem sütununda**; zakkum Rahmân'da yok | satırı kaldır / 55:43-44 kullan | benim wf |
+| 6 | `cennet-cehennem.json` rahmanSimetrisi | **Uydurma "19 cennet + 12 cehennem"** nakarat statı | bölümlemeyi kaldır | benim wf |
+| 7 | `kuran-retorigi.json` q31 | **Bakara 2:9 uydurma Arapça form** (أَيَحْسَبُونَ mushafta yok); soru değil haber | gerçek 2:9 ibaresi / kaldır | benim wf |
+| 8 | `nefis-mertebeleri(-ext).json` emmare | **Kök عمر yanlış → أمر** (ammâra) 2 yerde | kök أ-م-ر | benim wf |
+| 9 | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim global replace bug) | "spiritüalite" | benim wf |
+| 10 | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding HÂLÂ var** (۝ ۚ ۗ → tofu): cennet-cehennem, kiyamet-sahneleri, ahiret-yolculugu… | cleanArabicForDisplay + "Problem chars: 0" | benim wf |
+| 11 | İstatistik tutarsızlıkları | Sunnetullah "4 kanun"/12, "6 kavim"/10; sebeb-i-nuzul 28≠30; "sadece 2 sûre yâ eyyuhâ"/≥10; "sadece 2 sıddîk" (İbrahim 19:41+Meryem 5:75 karşı-örnek) | kanonik sayı | benim wf |
+| 12 | Diğer ayet-ref/atıf | Tâhâ kapanış لِتَرْضٰى→اهْتَدٰى; yakîn/Tekâsür 102; koyun davası Süleyman→**Dâvûd** (38:21-24); diyalog 27:39↔27:40 keyPhrase/summary; Kemâl hadisi conflation; Rum 30:3 kip; tefsir-per-verse 113/114 hiza | her biri kanonikten | benim wf |
+| 13 | "Sıfır Varyasyon" (anasayfa/Koruma) | **Kıraat gerçeğiyle çelişir** (Hafs/Warsh varyasyon); Kıraat Atlası'yla iç çelişki | "Tek konsonantal iskelet (rasm)" | ChatGPT C04 + Claude + Gemini |
+| 14 | `layout.js:28`, `page.js:57` meta | **"sayısal mucize"** (Reşad Halife 19'culuk çağrışımı) | çıkar/yeniden ifade | Claude |
+
+## P0 — KRİTİK: Teknik / SEO
+
+- **SSR/"Yükleniyor" iç sayfalar** — `/arac/*`, `/atlas/*` client-render → SEO + LLM görünürlüğü + OG kaybı. (ChatGPT C03 + Claude 2.1 + Gemini; **DOĞRULA**: gerçekten SSR eksik mi yoksa sadece veri client-fetch mi — bazı tool'lar zaten PageHeading/JsonLd SSR ediyor.)
+- **Duplicate H1** — SEO H1 + görsel hero H1 aynı sayfada. (ChatGPT C05)
+
+## P1 — YÜKSEK: Görsel (ÜÇ denetim birleşiyor → en güçlü)
+
+- **🔴 Arapça font çok küçük** — Gemini (≥1.3x) + benim görsel audit (`arapca-font-kucuk` ~20+ dosya) + ChatGPT. **EN GÜÇLÜ KONVERGANS.** Ayet metni desktop ≥1.3-1.6rem, line-height ≥1.8. [Batch başladı: YAN done; changelog RESUME listesi]
+- **Tool kartlarına thumbnail/mockup preview** (Ayet Haritası, Kavram Ağı…) — Gemini
+- **Six Gates bilişsel yük** — alt başlık yığını yerine hover chip/badge — Gemini
+- CrossToolCTA locale-prefix (✅ done `dde3503`), scroll-ofset (✅ `7b41387`), responsive (kısmen `4069ba5`)
+
+## P1 — YÜKSEK: Epistemik / editoryal (⚠ KULLANICI İNCELEMESİ — ton/skolastik, uydurma riski)
+
+- **Mutlak retorik yumuşat** ("her yapı bilinçli", "sıfır gereksiz kelime", "bilim doğrular/tarih eğilir") → "önerilen okuma / gözlenen örüntü". (ChatGPT H03 + Claude 1.1)
+- **"Kanıt" → "İz/İşaret/Paralellik"** terminoloji. (ChatGPT H04 + Claude 1.3)
+- **Bilimsel İşaretler karşı-argümanları** aynı görsel ağırlıkta: Hâmân, Rûm 30 (sayuğlebûn/seyaġlibûn), Birmingham C14, Moore embriyoloji. (ChatGPT + Claude + Gemini)
+- **Konumlandırma tutarlılığı** (akademik ↔ apolojetik ses gerilimi). (Claude 1.1)
+- **Jargon sözlüğü**: pasaj/ritüel (YASAK) + tool/refrain/redundancy/mainstream/foundational Türkçeleştir. (ChatGPT + benim jargon bulguları)
+
+## P2 — ORTA
+
+- **Hakkında / Metodoloji sayfası** (yazar, kaynak, kıraat=Hafs, meal, sınırlar). (Claude + Gemini) — /kaynakca var, /hakkinda YOK.
+- Her iddiada **kaynak + tür + güven düzeyi + son güncelleme** (güven kutusu şablonu). (ChatGPT böl.8)
+- **Morfoloji tooltip** (Leeds corpus — kök/fiil/şahıs). (Gemini)
+- **EN parity** — interaktif araç etiketleri %100 İngilizce. (Gemini + ChatGPT R02)
+- SEO H1/H2 akademik keyword; hreflang/canonical/schema. (Gemini + ChatGPT)
+- Kontrast WCAG AA + erişilebilirlik denetimi.
+- İkincil soğuk accent + bölüm zemin katmanı (monoton altın). (Claude 2.2 + atmosfer raporu)
+
+## P3 — DÜŞÜK
+
+- Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence. (ChatGPT böl.9)
+- token-hardcode-hex (25 bulgu — görsel-etkisiz §13.1 kod hijyeni). (benim görsel audit)
+
+## ⚠ META — KAPSAM BOŞLUĞU (önce kapat)
+
+Benim content workflow'um **SesMimarisi + ~23 inline-content component + 42 section**'ı kapsamadı (Nâziât 79:2'yi bu yüzden kaçırdım; ChatGPT canlı-gezerek buldu). Kapsanmayanlar: SesMimarisi, Ritim, SoundExtensions, RingExtensions, HalkaKompozisyon, TekrarAnatomi, RetorikSorular, Mukattaa, AltiKonu, KorumaZinciri, IblisSatan, FurukAtlasi, MeselAtlasi, KiraatAtlasi, ZamanBoyutlari, WowFacts, QuranCommands(kısmen), ConceptGraph, WordHeatmap, SemanticMap, SurahComparator, MunasebatAtlasi, IbadetlerHub/Pillar, InsanPsikolojisi + tüm `sections/*.jsx`. **Aksiyon: bu inline component'ler için 2. tur içerik audit workflow'u çalıştır.**
+
+---
+
+
 >
 > RAG Semantic Concierge v1.0 tamamlandı. **Kategori B, C, G tamamen bitti** (2026-07-17 → 07-21). **Araçlar audit tamamlandı** (2026-07-14) → 46 tool audit edildi; Kategori F'in Phase 1 + Phase 2'nin büyük kısmı kapandı.
 >
