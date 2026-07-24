@@ -3614,7 +3614,7 @@ function Methodology({ data, tr }) {
           }}
         >
           <span style={{ flex: 1, fontWeight: 600 }}>
-            {tr ? 'Bu sayfa nasıl hesaplandı?' : 'How was this page calculated?'}
+            {tr ? 'Bu sayfa nasıl hazırlandı?' : 'How was this page prepared?'}
           </span>
           <span style={{ color: COLORS.gold, transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>▾</span>
         </button>
