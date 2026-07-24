@@ -60,7 +60,7 @@ export default function KitapKavrami() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/arac/insan-tanimi`, titleTr: 'İnsan Tanımı', titleEn: "Definition of the Human", descTr: "Kur'ân insanı nasıl tanımlar — bu sayfanın ayna eşi.", descEn: "How the Quran defines the human — the mirror pair to this page." },
+          { href: `/${language}/atlas/insan-tanimi`, titleTr: 'İnsan Tanımı', titleEn: "Definition of the Human", descTr: "Kur'ân insanı nasıl tanımlar — bu sayfanın ayna eşi.", descEn: "How the Quran defines the human — the mirror pair to this page." },
           { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Hüdâ, nûr, zikr, hikmet — Kur\'ânî kavramların bağlantı haritası.', descEn: 'Hudā, nūr, dhikr, ḥikma — the connection map of Quranic concepts.' },
           { href: `/${language}/atlas/furuk`, titleTr: 'Furûk Atlası', titleEn: 'Furūq Atlas', descTr: "Yakın anlamlı kelime nüansları — beyân ↔ tibyân ↔ mübîn farkı.", descEn: 'Nuances between near-synonyms — the difference between bayān ↔ tibyān ↔ mubīn.' },
         ]}

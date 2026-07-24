@@ -263,7 +263,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             isMobile={isMobile}
             links={[
               { href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: '100+ Kur\'ânî kavramın birbirine bağlandığı ağ.', descEn: 'The network of 100+ Quranic concepts.' },
-              { href: `/${language}/arac/furuk-atlasi`, titleTr: 'Fürûk Atlası', titleEn: 'Furūq Atlas', descTr: 'Yakın anlamlı kelimeler — klasik fürûk geleneği.', descEn: 'Near-synonymous words — the classical furūq tradition.' },
+              { href: `/${language}/atlas/furuk`, titleTr: 'Fürûk Atlası', titleEn: 'Furūq Atlas', descTr: 'Yakın anlamlı kelimeler — klasik fürûk geleneği.', descEn: 'Near-synonymous words — the classical furūq tradition.' },
               { href: `/${language}/atlas/insan-yolculugu`, titleTr: 'İnsan Yolculuğu', titleEn: 'The Human Journey', descTr: "Fıtrattan Cemâlullah'a — kavramların hayattaki karşılığı.", descEn: 'From Fiṭra to Jamāl Allāh — the concepts embodied in life.' },
             ]}
           />

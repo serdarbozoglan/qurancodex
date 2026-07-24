@@ -130,7 +130,7 @@ export default function TekrarAnatomi({ onClose }) {
           language={language} isMobile={isMobile}
           links={[
             { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Refrenin geometrik karşılığı — sûre-içi ayna simetrisi.', descEn: 'The geometric counterpart of refrain — intra-surah mirror symmetry.' },
-            { href: `/${language}/arac/kuran-retorigi`, titleTr: "Kur'ân'ın Belağatı", titleEn: "Rhetoric of the Qur'an", descTr: 'İltifât ve tekrar — belağatın canlı dokusu.', descEn: 'Iltifāt and repetition — the living tissue of Qur\'anic eloquence.' },
+            { href: `/${language}/arac/retorik`, titleTr: "Kur'ân'ın Belağatı", titleEn: "Rhetoric of the Qur'an", descTr: 'İltifât ve tekrar — belağatın canlı dokusu.', descEn: 'Iltifāt and repetition — the living tissue of Qur\'anic eloquence.' },
             { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '29 sûrede tekrar eden 14 harf — tekrarın dilsel çekirdeği.', descEn: '14 letters recurring in 29 suras — the linguistic kernel of repetition.' },
           ]}
         />

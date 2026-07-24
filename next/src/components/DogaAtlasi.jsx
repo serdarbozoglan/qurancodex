@@ -1677,7 +1677,7 @@ export default function DogaAtlasi({ onClose }) {
           <CrossToolCTA
             language={language} isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: '16 âyet · 5 alan — Kur\'ân\'ın kevnî işaretlerinin klasik + modern okuması.', descEn: '16 verses · 5 domains — the Qur\'an\'s cosmic signs read classically and scientifically.' },
+              { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: '16 âyet · 5 alan — Kur\'ân\'ın kevnî işaretlerinin klasik + modern okuması.', descEn: '16 verses · 5 domains — the Qur\'an\'s cosmic signs read classically and scientifically.' },
               { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa — tabiat panelinin arkasındaki metafizik çerçeve.', descEn: 'Divine law — the metaphysical frame behind the nature panel.' },
               { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Prophet Stories Atlas', descTr: 'Kıssaların doğa referansları — anlatı içinde kevnî işaret.', descEn: 'Nature references in prophet narratives — cosmic signs embedded in stories.' },
             ]}
