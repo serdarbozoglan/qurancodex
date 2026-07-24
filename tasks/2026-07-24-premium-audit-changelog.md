@@ -108,7 +108,10 @@ Workflow `wf_2d908475-652`: 47 dosya (26 section + 21 hardcoded component), 87 a
 **✅ Uygulandı (30) — `f1310ce` + `662f491` + `1b536b2`:**
 Ayet-ref/atıf/Arapça: SesMimarisiCard 79:2→79:1 + ص "sert", ProphetAtlas 21:87→37:143-144, CennetCehennem 15:44 hadis→Kur'an + 37:64→37:27, HumanDefinition Muʿridûn, EsmaFrekans 20:82→16:110 + 34:2 sıra, KuranRenkleri (Musa el Bakara→Şuarâ, 56:23→37:49, 3:106 فأما, İnsan gümüş, altın 3 sûre), Melekler 42:51 vahiy, KiyametSahneleri 56:5 بُسَّتْ, IlkSonKelimeler Sebbih(A'lâ). İstatistik/dil: LinguisticDNA tilke 5/5→3/5, DuaDili 11→10, KadinlarAtlasi 7→14, SunnetullahAtlasi EN 6→10, SoundExtensions şedîde, DogaAtlasi Z.Naik "astronom" kaldırıldı, ZamanBoyutlari 309.017→309.21.
 
-**⚠ KULLANICI İNCELEMESİ (8) — skolastik/harici/yorumsal, kanonik'e karşı doğrulanamaz, DEĞİŞTİRİLMEDİ:**
+**✅ KULLANICI ONAYIYLA UYGULANDI (8) — `a5c789d`** (skolastik/harici; kullanıcı 2026-07-24 onayladı):
+Risale-i Nur: Onuncu Söz 9→12 hakikat, Âyetü'l-Kübrâ Lem'alar→Şualar (TR+EN). Aruz: el-Halîl 16→"Aruzun 16 Vezni" + Ahfeş notu, Kâmil "çoğu Muallakât"→"bazı (Lebîd/Antere)". Mukattaa: "diğer 28 tek ayet" genellemesi düzeltildi + faydalı not (bağımsız ayet vs ilk ayete gömülü). ZamanBoyutlari: ~1.8×10¹⁰→~1.8×10⁷ (≈7 basamak).
+
+<details><summary>Orijinal kullanıcı-inceleme detayı (referans)</summary>
 
 1. **LinguisticDNA.jsx:158** — mukattaa ayet-sayımı. "Şûrâ hariç diğer 28 sûrede mukattaa tek ayet sayılır" genellemesi kısmen hatalı: الر grubu (10,11,12,14,15), المر(13), طس(27), ص(38), ق(50), ن(68) mukattaayı 1. ayete GÖMER, bağımsız ayet saymaz. Kûfî/Hafs sayımı skolastik — kesin sayı (18 vs 28) tartışmalı.
 
@@ -122,4 +125,5 @@ Ayet-ref/atıf/Arapça: SesMimarisiCard 79:2→79:1 + ص "sert", ProphetAtlas 21
 
 8. **ZamanBoyutlari.jsx:537** — "Kadr gecesi ↔ 50.000 yıllık gün farkı ~1.8×10¹⁰" → karşılaştırma tabanına göre ~1.8×10⁷ (50.000 yıl ≈ 1.8×10⁷ gün) olabilir; mertebe belirsiz, apolojetik.
 
-**Not:** Risale-i Nur (2-5) ve edebiyat tarihi (6-7) bulguları harici kaynaklara ait — Kur'an kanonik verisiyle doğrulanamadığı için uygulanmadı; onayınızla düzeltilebilir.
+**Not:** Risale-i Nur (2-5) ve edebiyat tarihi (6-7) bulguları harici kaynaklara ait — Kur'an kanonik verisiyle doğrulanamadığı için ilk turda uygulanmadı; **kullanıcı onayıyla `a5c789d`'de düzeltildi.**
+</details>

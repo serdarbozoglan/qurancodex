@@ -8,7 +8,9 @@
 >
 > **Güven kuralı:** İçerik değişikliği YALNIZCA kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı %100 doğrulanınca yapılır. Skolastik/ton bulguları → "⚠ kullanıcı incelemesi" (uydurma riski).
 >
-> **✅ PUSH EDİLDİ (2026-07-24, `c3a7844..bb31c80`):** P0 içerik (13 fix) + görsel font/RTL/anchor (`3b8b272`) + a11y lang (`3d65a8c`) + kalan 3 madde (U+06EA doc `4c21293`, tefsir-per-verse `ea37022`, Sıfır Varyasyon rasm `b391f17`) — 21 commit prod'da. **Kalan iş için kural yine: commit YAP, PUSH kullanıcı onayıyla.**
+> **✅ PUSH EDİLDİ (2026-07-24, `c3a7844..bb31c80`):** P0 içerik (13 fix) + görsel font/RTL/anchor (`3b8b272`) + a11y lang (`3d65a8c`) + kalan 3 madde (U+06EA doc `4c21293`, tefsir-per-verse `ea37022`, Sıfır Varyasyon rasm `b391f17`) — 21 commit prod'da.
+>
+> **✅ İNLİNE-JSX İÇERİK AUDIT (META task) — TAMAM:** İlk audit'in kaçırdığı 47 dosya (26 section + 21 hardcoded component) çok-ajanlı tarandı (`wf_2d908475-652`, 87 ajan) → **38 CONFIRMED_ERROR**, hepsi kanonik'e karşı benim tarafımdan re-verify edildi → **38'i de uygulandı** (`f1310ce`,`662f491`,`1b536b2`,`a5c789d` + 8'i kullanıcı onayıyla). SesMimarisi/Nâziât sınıfı inline hatalar artık kapsandı. Detay: changelog "İçerik Audit Workflow (inline-JSX)".
 >
 > **Konverjans = en güçlü sinyal:** birden çok denetimin aynı bulguyu vermesi öncelik yükseltir.
 
