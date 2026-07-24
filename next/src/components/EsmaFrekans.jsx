@@ -1916,7 +1916,7 @@ function PairCard({ pair, tr, index, verseData }) {
                       lang="ar"
                       style={{
                         fontFamily: FONTS.quran,
-                        fontSize: '1.05rem',
+                        fontSize: 'clamp(1.15rem, 2vw, 1.4rem)',
                         color: COLORS.offWhite,
                         lineHeight: 2,
                         margin: '0 0 8px',

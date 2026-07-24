@@ -221,8 +221,8 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
         {language === 'tr' ? conn.nameTr : conn.nameEn}
         {conn.nameAr && (
           <span style={{
-            marginLeft: '10px', fontFamily: FONTS.quran, color: COLORS.silver,
-            fontSize: '0.9rem', fontWeight: 400,
+            marginLeft: '10px', fontFamily: FONTS.arabic, color: COLORS.silver,
+            fontSize: '1.05rem', fontWeight: 400,
           }} dir="rtl" lang="ar">
             {conn.nameAr}
           </span>
@@ -435,8 +435,8 @@ function TypeList({ types, language, isMobile }) {
               dir="rtl"
               lang="ar"
               style={{
-                fontFamily: FONTS.quran,
-                fontSize: '1rem',
+                fontFamily: FONTS.arabic,
+                fontSize: '1.05rem',
                 color: t.color,
               }}
             >

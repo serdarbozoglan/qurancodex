@@ -529,7 +529,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
               background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
               borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', color: GOLD }} lang="ar">{n.arabic}</span>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar">{n.arabic}</span>
               <span style={{ fontSize: '0.65rem', color: COLORS.slate500 }}>{n.ref}</span>
               {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü — Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view — Quran does not equate explicitly'} language={language} />}
             </span>

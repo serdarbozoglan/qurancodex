@@ -1067,7 +1067,7 @@ function MukabeleCard({ data, language, isMobile }) {
       {/* Mirror verse Arabic */}
       <div dir="rtl" lang="ar" style={{
         fontFamily: FONTS.quran,
-        fontSize: '1.15rem',
+        fontSize: 'clamp(1.2rem, 2vw, 1.4rem)',
         color: COLORS.gold,
         lineHeight: 1.85,
         textAlign: 'right',

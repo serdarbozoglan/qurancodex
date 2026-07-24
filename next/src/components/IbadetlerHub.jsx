@@ -448,7 +448,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
               <div style={{
                 fontFamily: FONTS.quran, color: COLORS.gold,
                 fontSize: '1.5rem', direction: 'rtl', minWidth: '80px', textAlign: 'right',
-              }} lang="ar">{n.ar}</div>
+              }} dir="rtl" lang="ar">{n.ar}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '6px' }}>
                   <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '0.95rem' }}>{n.labelTr}</span>
@@ -653,7 +653,7 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
               borderRadius: RADIUS.md,
             }}>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '10px' }}>
-                <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.4rem', direction: 'rtl' }} lang="ar">{r.arabic}</span>
+                <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.4rem', direction: 'rtl' }} dir="rtl" lang="ar">{r.arabic}</span>
                 <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '1rem' }}>{tr ? r.labelTr : r.labelEn}</span>
               </div>
               <div style={{ display: 'grid', gap: '6px', fontSize: '0.82rem' }}>
@@ -692,7 +692,7 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
                 >
                   <td style={{ padding: '14px', borderLeft: `4px solid ${r.yukumlulukColor}` }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-                      <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.25rem', direction: 'rtl' }} lang="ar">{r.arabic}</span>
+                      <span style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.25rem', direction: 'rtl' }} dir="rtl" lang="ar">{r.arabic}</span>
                       <span style={{ color: COLORS.offWhite, fontWeight: 700 }}>{tr ? r.labelTr : r.labelEn}</span>
                     </div>
                   </td>

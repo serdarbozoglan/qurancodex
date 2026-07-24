@@ -240,7 +240,7 @@ function EquationTab({ tr, isMobile, data }) {
               textAlign: 'right',
             }}>
               <p dir="rtl" lang="ar" style={{
-                fontFamily: FONTS.quran, fontSize: '1rem',
+                fontFamily: FONTS.quran, fontSize: 'clamp(1.1rem, 2vw, 1.25rem)',
                 color: el.color, lineHeight: 1.9, margin: '0 0 6px',
               }}>{el.arabic}</p>
               <p style={{

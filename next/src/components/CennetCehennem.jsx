@@ -267,11 +267,11 @@ export default function CennetCehennem({ onClose }) {
               style={{
                 fontFamily: FONTS.quran,
                 fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
-                color: GOLD,
+                color: COLORS.gold,
                 lineHeight: 2.1,
                 margin: '0 auto 16px',
                 maxWidth: '820px',
-                textShadow: `0 0 20px ${GOLD}1c`,
+                textShadow: `0 0 20px ${COLORS.gold}1c`,
               }}
             >
               وَلِمَنْ خَافَ مَقَامَ رَبِّهِ جَنَّتَانِ

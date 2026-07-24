@@ -1278,7 +1278,7 @@ export default function ZamanBoyutlari({ onClose }) {
                   </div>
                   {expandedRow === row.id && (
                     <div style={{ background: 'rgba(0,0,0,0.25)', borderLeft: `2px solid ${COLORS.gold}`, borderRadius: '6px', padding: '10px 12px', marginBottom: '8px' }}>
-                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', margin: '0 0 6px', lineHeight: 1.9 }} dir="rtl" lang="ar">
+                      <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', margin: '0 0 6px', lineHeight: 1.9 }} dir="rtl" lang="ar">
                         {row.arabic}
                       </p>
                       <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>

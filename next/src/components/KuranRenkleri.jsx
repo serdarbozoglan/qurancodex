@@ -493,7 +493,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                       </div>
                       {/* Keyword + note */}
                       <div style={{ flex: 1 }}>
-                        <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: stageColors[s.stage], direction: 'rtl', marginRight: '8px' }} lang="ar">
+                        <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: stageColors[s.stage], direction: 'rtl', marginRight: '8px' }} lang="ar">
                           {s.keywordAr}
                         </span>
                         <span style={{ fontSize: '0.75rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>

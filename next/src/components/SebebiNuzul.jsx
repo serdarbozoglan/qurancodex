@@ -1119,9 +1119,9 @@ function TabKaynaklar({ data, language, isMobile }) {
                   {scholar.nameTr}
                 </span>
                 <span style={{
-                  fontFamily: FONTS.quran,
+                  fontFamily: FONTS.arabic,
                   color: COLORS.gold,
-                  fontSize: '1rem',
+                  fontSize: '1.05rem',
                   lineHeight: 1.6,
                   direction: 'rtl',
                 }} dir="rtl" lang="ar">
@@ -1154,9 +1154,9 @@ function TabKaynaklar({ data, language, isMobile }) {
                   {scholar.workTr}
                 </span>
                 <span style={{
-                  fontFamily: FONTS.quran,
+                  fontFamily: FONTS.arabic,
                   color: COLORS.gold,
-                  fontSize: '0.9rem',
+                  fontSize: '1.05rem',
                   direction: 'rtl',
                 }} dir="rtl" lang="ar">
                   {cleanArabic(scholar.workAr)}

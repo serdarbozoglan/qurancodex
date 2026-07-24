@@ -1144,7 +1144,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                 <tr key={i} style={{ borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
                   <td style={{ padding: '8px 12px', fontSize: '0.8rem', color: GOLD, whiteSpace: 'nowrap' }}>{row.ayet}</td>
                   <td style={{ padding: '8px 12px', fontSize: '0.82rem', color: COLORS.offWhite }}>{row.imge}</td>
-                  <td style={{ padding: '8px 12px', fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.silver, direction: 'rtl' }} dir="rtl" lang="ar">{row.kelime}</td>
+                  <td style={{ padding: '8px 12px', fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl' }} dir="rtl" lang="ar">{row.kelime}</td>
                 </tr>
               ))}
             </tbody>

@@ -106,7 +106,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             <p dir="rtl" lang="ar" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              fontSize: isMobile ? '1.1rem' : '1.35rem',
+              fontSize: 'clamp(1.4rem, 3vw, 1.9rem)',
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>

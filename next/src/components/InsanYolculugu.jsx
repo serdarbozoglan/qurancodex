@@ -541,7 +541,7 @@ function StageDetail({ stage, isEn, isMobile }) {
             <div style={{ marginTop: '14px', display: 'grid', gap: '12px' }}>
               {stage.supportingVerses.map((v, i) => (
                 <div key={i} style={VERSE_BLOCK}>
-                  <p dir="rtl" lang="ar" style={{ ...TEXT.verseArabic, margin: '0 0 8px', fontSize: '1.1rem' }}>{v.arabic}</p>
+                  <p dir="rtl" lang="ar" style={{ ...TEXT.verseArabic, margin: '0 0 8px' }}>{v.arabic}</p>
                   <p style={{ fontSize: '0.85rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.65 }}>
                     {isEn ? v.english : v.turkish}
                   </p>

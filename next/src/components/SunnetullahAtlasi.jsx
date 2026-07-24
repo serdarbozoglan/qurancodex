@@ -778,7 +778,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
           lang="ar"
           style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1rem' : '1.1rem',
+            fontSize: isMobile ? '1.05rem' : '1.25rem',
             color: COLORS.gold,
             direction: 'rtl',
             textAlign: 'right',

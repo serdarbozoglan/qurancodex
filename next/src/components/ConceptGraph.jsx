@@ -635,8 +635,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
                           }}
                         >
                           <span style={{
-                            fontFamily: FONTS.quran, fontSize: '1rem',
-                            color: catColor, opacity: 0.68, direction: 'rtl',
+                            fontFamily: FONTS.quran, fontSize: '1.1rem',
+                            color: catColor, opacity: 0.8, direction: 'rtl',
                           }}>{c.ar}</span>
                           <span style={{
                             color: catColor,

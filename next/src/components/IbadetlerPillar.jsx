@@ -493,7 +493,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
                 <span style={{
                   fontFamily: FONTS.quran, color: COLORS.gold,
                   fontSize: '1rem', direction: 'rtl', lineHeight: 1,
-                }} lang="ar">{t.ar}</span>
+                }} dir="rtl" lang="ar">{t.ar}</span>
                 <span style={{
                   color: COLORS.offWhite, fontSize: '0.78rem',
                   fontWeight: 600, letterSpacing: '0.02em',
@@ -662,7 +662,7 @@ function SemanticTermCard({ term, language, isMobile }) {
           margin: 0,
           direction: 'rtl',
           lineHeight: 1,
-        }} lang="ar">{term.ar}</h3>
+        }} dir="rtl" lang="ar">{term.ar}</h3>
         <span style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.15rem', fontWeight: 700 }}>{language === 'tr' ? (term.termTr ?? term.term) : (term.termEn ?? term.term)}</span>
         {term.root && (
           <span style={{

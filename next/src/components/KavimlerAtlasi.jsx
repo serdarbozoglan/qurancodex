@@ -1044,7 +1044,6 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
             <div style={{ ...VERSE_BLOCK, padding: '12px 14px', marginBottom: '10px' }}>
               <div style={{
                 ...TEXT.verseArabic,
-                fontSize: '1.1rem',
                 lineHeight: 1.8,
                 marginBottom: '6px',
               }} dir="rtl" lang="ar">

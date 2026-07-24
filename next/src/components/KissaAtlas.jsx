@@ -832,7 +832,7 @@ export default function KissaAtlas({ onClose }) {
                                         </div>
                                         <p style={{
                                           fontFamily: FONTS.quran,
-                                          fontSize: '1.2rem', lineHeight: 2.1, direction: 'rtl',
+                                          fontSize: 'clamp(1.25rem, 2vw, 1.4rem)', lineHeight: 2.1, direction: 'rtl',
                                           color: COLORS.gold, margin: '0 0 8px', textAlign: 'right',
                                         }}>{cleanArabic(v.arabic)}</p>
                                         <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem', lineHeight: 1.6, margin: 0, fontStyle: 'italic' }}>

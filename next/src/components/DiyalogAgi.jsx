@@ -1052,7 +1052,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                               {d.turns?.slice(0, 2).map((turn, i) => (
                                 <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
                                   {turn.keyPhrase && (
-                                    <div style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.8 }} dir="rtl" lang="ar">
+                                    <div style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.15rem, 2vw, 1.3rem)', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.8 }} dir="rtl" lang="ar">
                                       {cleanArabic(turn.keyPhrase)}
                                     </div>
                                   )}

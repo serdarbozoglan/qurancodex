@@ -1163,7 +1163,7 @@ function TabBaglamAnalizi({ contexts, language }) {
             <p style={{
               fontFamily: FONTS.quran,
               color: COLORS.offWhite,
-              fontSize: '1.2rem',
+              fontSize: '1.35rem',
               direction: 'rtl',
               margin: 0,
               lineHeight: 1.6,

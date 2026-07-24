@@ -598,13 +598,12 @@ function CommandCard({ cmd, accent, language, L }) {
       </div>
 
       {/* Arabic verse */}
-      <div style={{
+      <div dir="rtl" lang="ar" style={{
         fontFamily: FONTS.quran,
-        fontSize: '1.15rem', lineHeight: 2,
+        fontSize: 'clamp(1.2rem, 1.8vw, 1.45rem)', lineHeight: 2,
         color: accent,
         textAlign: 'right',
         direction: 'rtl',
-        lang: 'ar',
       }}>
         {cmd.verseAr}
       </div>
