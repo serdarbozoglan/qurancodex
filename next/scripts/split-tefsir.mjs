@@ -26,16 +26,40 @@ const ROOT = path.resolve(__dirname, '..');
 const ELMALILI_DIR = path.join(ROOT, 'public/tafsir/elmalili');
 const IBNKATHIR_DIR = path.join(ROOT, 'public/tafsir/ibnkathir-en');
 const OUT = path.join(ROOT, 'public/tefsir-per-verse.json');
+const VERSE_GRAPH = path.join(ROOT, 'public/verse-graph-bgem3.json');
 
 const MAX_WORDS = 200; // her segment max 200 kelimeye truncate
 const MIN_CHARS = 40;  // çok kısa segment'i skip et (muhtemelen boş marker)
+
+// Kanonik ayet sayıları (verse-graph-bgem3.json = proje SSOT). Marker parse'ında
+// ayet numarası bu sınırı aşarsa → o "N-" Elmalılı'nın satır-içi numaralı listesi
+// (ayet değil); atlanır. Aksi halde 113:6-12, 62:12-15 gibi HAYALÎ anahtarlar oluşur.
+const AYAH_COUNT = (() => {
+  const map = {};
+  try {
+    const g = JSON.parse(fs.readFileSync(VERSE_GRAPH, 'utf8'));
+    const arr = Array.isArray(g) ? g : Object.values(g);
+    for (const v of arr) {
+      if (!v || !v.id) continue;
+      const [s, a] = v.id.split(':').map(Number);
+      if (a > (map[s] || 0)) map[s] = a;
+    }
+  } catch (err) {
+    console.warn(`   ⚠  verse-graph yüklenemedi, ayet-sayısı sınırı devre dışı: ${err.message}`);
+  }
+  return map;
+})();
 
 // Segment splitter: text içindeki "N-" marker'larına göre parse et,
 // aynı ayet için tüm segment'leri BİRLEŞTİRİR.
 // matchStart = marker'ın BAŞLANGICI (satırbaşı dahil).
 // contentStart = marker'ın SONRASI (segment metni başlangıcı).
-function splitByVerse(text) {
+function splitByVerse(text, maxAyah) {
   if (!text || typeof text !== 'string') return {};
+  // Baştaki sûre başlığını ("50-KAF:", "3-AL-İ İMRAN:", "1-FÂTİHA:") strip et —
+  // aksi halde "50-" ayet 50 marker'ı sanılıp "50:50" (sûre:sûre) HAYALÎ anahtarı
+  // ve sûre-giriş metni ona atanır. TafsirPanel de aynı stripi uygular (§FLAT-PROSE).
+  text = text.replace(/^\s*\d+\s*-\s*[\p{Lu}\p{M}][\p{L}\p{M}\s\-'()]*:\s*/u, '');
   const rx = /(?:^|\n)(\d+)-/g;
   const matches = [];
   let m;
@@ -50,6 +74,8 @@ function splitByVerse(text) {
   for (let i = 0; i < matches.length; i++) {
     const { verse, contentStart } = matches[i];
     const end = i + 1 < matches.length ? matches[i + 1].matchStart : text.length;
+    // Ayet sayısını aşan marker = satır-içi numaralı liste, ayet değil → atla.
+    if (maxAyah && verse > maxAyah) continue;
     const raw = text.slice(contentStart, end).trim();
     if (raw.length < 5) continue;
     if (!segments[verse]) segments[verse] = [];
@@ -98,7 +124,7 @@ async function loadElmaliliDir(dir) {
     const surahNum = parseInt(f.replace('.json', ''));
     const raw = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     const text = raw.text || '';
-    const segs = splitByVerse(text);
+    const segs = splitByVerse(text, AYAH_COUNT[surahNum]);
     for (const [v, t] of Object.entries(segs)) {
       result[`${surahNum}:${v}`] = t;
     }
@@ -121,7 +147,11 @@ async function loadIbnKathirDir(dir) {
     const surahNum = parseInt(f.replace('.json', ''));
     const raw = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
     const versesDict = raw.verses || {};
+    const maxAyah = AYAH_COUNT[surahNum];
     for (const [v, html] of Object.entries(versesDict)) {
+      const vNum = parseInt(v);
+      // Geçersiz / ayet sayısını aşan anahtar (giriş "0" veya taşma) → atla.
+      if (!Number.isInteger(vNum) || vNum < 1 || (maxAyah && vNum > maxAyah)) continue;
       const plain = stripHtml(html);
       if (plain.length < MIN_CHARS) continue;
       const truncated = truncateWords(plain);
