@@ -2069,6 +2069,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const initialFitDone = useRef(false);
   const controlsRef = useRef(null);
   const rotateTimerRef = useRef(null);
+  const fitKeyRef = useRef(null); // kamera hangi filtre için yerleştirildi
   const selectedRef = useRef(null);
   const audioRef = useRef(null);
   const [selected, setSelected] = useState(null);
@@ -2255,6 +2256,15 @@ function FullGraph({ verses, onBack, language, onClose }) {
       const pts = graphData.nodes.filter(n => !n.ghost && Number.isFinite(n.x));
       if (!pts.length) return;
 
+      // IDEMPOTENT: her filtre değeri için kamerayı YALNIZCA bir kez yerleştir.
+      // Bu efekt [filterSurah, graphData]'ya bağlı; graphData kimliği yeniden
+      // üretilirse (veri yüklenmesi, üst bileşen render'ı) efekt tekrar çalışıp
+      // kamerayı ikinci kez oynatıyor ve küme zıplamış gibi görünüyordu.
+      // Filtre değişmediği sürece ikinci yerleştirme yapılmaz (2026-07-23).
+      const fitKey = String(filterSurah);
+      if (fitKeyRef.current === fitKey) return;
+      fitKeyRef.current = fitKey;
+
       // Eksen: MEDYAN konum. bbox merkezi aykırı (çok uzak) ayetlerden etkilenip
       // kümenin görsel ağırlık merkezinden kayıyor; dönüş de o kaymış eksenin
       // çevresinde olduğu için küme "dünya gibi" savruluyordu.
@@ -2280,9 +2290,10 @@ function FullGraph({ verses, onBack, language, onClose }) {
       const dz = cam.position.z - ctrl.target.z;
       const len = Math.hypot(dx, dy, dz) || 1;
 
-      // Header canvas'ın üst ~56px'ini örtüyor; hedefi biraz yukarı alınca
-      // içerik kullanılabilir alana iner.
-      const yOffset = dist * 0.07;
+      // Dikey konum: hedefin +Y'ye kayması içeriği AŞAĞI iter, -Y yukarı çeker.
+      // Önce header'ı (üst ~56px) telafi etmek için +0.07 kullanılıyordu, ama
+      // küme sayfanın altına düşüyordu. Hafif yukarı alındı (2026-07-23).
+      const yOffset = dist * -0.05;
 
       g.cameraPosition(
         { x: pivot.x + (dx / len) * dist, y: pivot.y + (dy / len) * dist, z: pivot.z + (dz / len) * dist },
