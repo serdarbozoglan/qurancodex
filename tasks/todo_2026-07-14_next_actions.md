@@ -13,7 +13,7 @@
 |---|---|---|---|---|
 | ✅ done | ~~#206 VerseGraph Hero~~ | — | — | **ZATEN YAPILMIŞ** (git `40763af` feat #206 §13.18 premium açılış katmanı). Todo maddesi eskiydi. Landing: Zümer 39:23 anchor + eyebrow + micro-stat + "Haritayı keşfet" CTA mevcut. Rotasyon (yörünge) kullanıcı onayladı=böyle iyi. |
 | ✅ done | ~~#205 EsmaFrekans Hero~~ | — | — | **ZATEN YAPILMIŞ + §13.17 istisnası.** Tam flagship §13.18 hero mevcut (bismillah + Şûrâ 42:11 + framing whisper + ESMÂ-İ HÜSNÂ + 4 Temel Ayet + ClosingReflection CTA). Todo Phase 5 eskiydi. Dokunulmadı (flagship). |
-| **78** | **#203 SourcesCitation — 4 tool** (~3h) | ⭐⭐⭐⭐ | Düşük | Akademik güvenilirlik. Net kapsam: AddresseeSystem/DiyalogAgi/WordHeatmap (0 kaynak) + QuranCommands (2). Düşük risk, net iş. |
+| ✅ done | ~~#203 SourcesCitation — 4 tool~~ | — | — | **3/4 EKLENDİ** (QuranCommands `b1d2e8e` + AddresseeSystem/DiyalogAgi `0ee95e4`). WordHeatmap = §13.21 istisnası (immersive fullscreen; Leeds Corpus zaten /kaynakca+/hakkinda'da). |
 | **65** | **Atmosfer raporu madde 4** (15 dk) | ⭐⭐ | Çok düşük | Değer küçük ama efor **15 dk** → ROI yüksek. Anasayfa 5 section `borderRadius 20→12px`. Görsel karar senin. |
 | **58** | **#202 CrossToolCTA kalanı** (~5h) | ⭐⭐⭐ | Düşük | Keşif/çapraz-navigasyon → oturum derinliği. Zaten 18/34 done; ~16 tool verify+kapat. Değer orta (yarısı bitmiş), efor orta. |
 | **52** | **Morfoloji tooltip** (P2, ~8-12h) | ⭐⭐⭐⭐ | Orta | Eğitsel derinlik (kelime→kök/fiil/şahıs, Leeds corpus). Kullanıcı-değeri yüksek ama efor+entegrasyon orta → puan orta. |
@@ -286,7 +286,7 @@ Kalan CTA-eksik tool'lar (verify pending): VerseGraph (Phase 5 target #206), Mun
 
 | # | İş | Efor |
 |---|---|---|
-| **#203** | SourcesCitation — **gerçek kaynak boşluğu olan 4 tool'a** add | ~3h |
+| **#203** | ✅ 3/4 done — QuranCommands+AddresseeSystem+DiyalogAgi SourcesCitation eklendi; WordHeatmap istisna (immersive) | ~done |
 
 **2026-07-23 taraması:** `SourcesCitation` import etmeyen 22 tool tarandı; çoğunda **inline kaynak atfı zaten var** (Râzî/Suyûtî/Zerkeşî/Kurtubî/İbn Kesîr geçen satır sayısı). Gerçek boşluk sadece şunlarda:
 
