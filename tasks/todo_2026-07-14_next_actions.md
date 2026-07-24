@@ -60,17 +60,19 @@
 ## P1 — YÜKSEK: Görsel (ÜÇ denetim birleşiyor → en güçlü)
 
 - ✅ **Arapça font çok küçük — BİTTİ** (`3b8b272` + kullanıcı-onaylı batch, 2026-07-24). RESUME listesindeki 20+ dosya: 17 font büyütme (≥1.1-1.6rem) + FONTS.arabic swap + clamp responsive + dir=rtl. Mobil 390px overflow yok, 21 route 200. (VerseGraph dropdown chip bilinçli küçük bırakıldı — overflow riski.)
-- ⏳ **Tool kartlarına thumbnail/mockup preview** (Ayet Haritası, Kavram Ağı…) — Gemini. **YAPILMADI** — tasarım/build işi (kart önizleme görseli/mockup).
-- **Six Gates bilişsel yük** — alt başlık yığını yerine hover chip/badge — Gemini
+- ⏭ **Tool kartlarına thumbnail/mockup preview** — ATLANDI (kullanıcı: "şu anda atla", 2026-07-24). Tasarım/build işi; sonraya bırakıldı.
+- ⏳ **Six Gates bilişsel yük** — alt başlık yığını yerine hover chip/badge — Gemini. YAPILMADI.
 - CrossToolCTA locale-prefix (✅ done `dde3503`), scroll-ofset (✅ `7b41387`), responsive (kısmen `4069ba5`)
 
-## P1 — YÜKSEK: Epistemik / editoryal (⚠ KULLANICI İNCELEMESİ — ton/skolastik, uydurma riski)
+## P1 — YÜKSEK: Epistemik / editoryal
 
-- **Mutlak retorik yumuşat** ("her yapı bilinçli", "sıfır gereksiz kelime", "bilim doğrular/tarih eğilir") → "önerilen okuma / gözlenen örüntü". (ChatGPT H03 + Claude 1.1)
-- **"Kanıt" → "İz/İşaret/Paralellik"** terminoloji. (ChatGPT H04 + Claude 1.3)
-- **Bilimsel İşaretler karşı-argümanları** aynı görsel ağırlıkta: Hâmân, Rûm 30 (sayuğlebûn/seyaġlibûn), Birmingham C14, Moore embriyoloji. (ChatGPT + Claude + Gemini)
-- **Konumlandırma tutarlılığı** (akademik ↔ apolojetik ses gerilimi). (Claude 1.1)
-- **Jargon sözlüğü**: pasaj/ritüel (YASAK) + tool/refrain/redundancy/mainstream/foundational Türkçeleştir. (ChatGPT + benim jargon bulguları)
+> **⚠ İLKE (memory `quran-supremacy-framing`, 2026-07-24):** Kur'an Allah kelamı, HARFİ HARFİNE doğru. Örtüşmezlik = bilim/yorum eksikliği, ASLA Kur'an metni değil. Yumuşatma sadece "bilim-hakem" çerçevesini kaldırır, Kur'an'a şüphe düşürmez.
+
+- ✅ **Mutlak retorik yumuşat — BİTTİ (hafif dokunuş, `a5c3c98`).** "bilimin doğruladığı"→"bilimle örtüşen", "Bir Tarihin Doğrulaması"→"Tarihsel İzler". Tool/section adları korundu. Kullanıcı "hafif dokunuş" seçti.
+- ✅ **"Kanıt/bilim doğrular" çerçevesi — BİTTİ (hafif dokunuş + criticalNote reframe `56aa302`).** Bilim-hakem çerçevesi kaldırıldı; İki Deniz/Yörünge notları ilke #2'ye göre reframe (eksiklik ayete değil bilime yüklendi). Tüm content JSON tarandı: Kur'an metnini kusurlu gösteren ifade YOK.
+- ❌ **Bilimsel İşaretler karşı-argümanları — YAPILMAYACAK (YASAK).** İlke gereği: karşı-argüman bilimsel görüşü Kur'an'a denk/üstün gösterir. Kullanıcı reddetti. Mevcut criticalNote'lar zaten yorumu/apolojetik aşırılığı sınırlar (Kur'an'ı korur).
+- **Konumlandırma tutarlılığı** — kısmen (bilim-hakem çerçevesi kaldırıldı). Kalan: genel akademik↔apolojetik ses tutarlılığı.
+- ✅ **Jargon Türkçeleştirme — BİTTİ (`a968d4d`).** refrain→nakarat, foundational→temel, mainstream→ana akım, redundancy→gereksiz tekrar, word-order→kelime dizimi (17 yer, yalnız TR). pasaj/ritüel zaten yasaklıydı (memory).
 
 ## P2 — ORTA
 
