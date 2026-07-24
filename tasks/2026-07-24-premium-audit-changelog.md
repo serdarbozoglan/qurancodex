@@ -4,7 +4,11 @@
 
 **Protokol:** yalnızca %100 doğrulanmış değişiklik; asla uydurma; commit YAP, push YAPMA; mobil (390px) overflow kontrol et.
 
-**Sıradaki iş — görsel MEDIUM `arapca-font-kucuk` (aşağıdaki liste).** Her biri: mevcut değeri dosyada DOĞRULA (satır no kaymış olabilir → grep ile bul), sonra fontu büyüt. Kur'an AYET metni ideal 1.3-1.6rem; kompakt terim/chip ≥1.1rem. `...TEXT.verseArabic` + `fontSize` override varsa override'ı KALDIR (token clamp 1.4-1.9rem kullansın).
+**✅ TAMAMLANDI (`3b8b272`) — görsel MEDIUM `arapca-font-kucuk` + FONTS.arabic + RTL + anchor-gold.** 22 dosya: 17 font büyütme, 4 FONTS.arabic swap (Munasebat/SebebiNuzul isim-eser), 6 dir="rtl" attr (QuranCommands lang-bug dahil), 1 renk (CennetCehennem hero anchor→COLORS.gold). Localhost 200 (21 route), mobil 390px overflow yok. **P0 içerik tablosu da tamam:** 13 done + 3 kullanıcı-incelemesi (#10 U+06EA, #12 tefsir-per-verse 66 hayalî anahtar, #13 Sıfır Varyasyon) — `85434d6`.
+
+**Sıradaki iş — görsel LOW (sadece net olanlar), sonra P1 editoryal (⚠ çoğu kullanıcı-incelemesi).** token-hardcode-hex (25) ERTELENDİ (görsel-etkisiz). Aşağıdaki eski liste referans amaçlı korundu.
+
+<details><summary>Tamamlanan font listesi (referans)</summary>
 
 Düzeltilecekler (dosya · konum · hedef):
 - KavimlerAtlasi ~1044-1051 `...TEXT.verseArabic` + `'1.1rem'` override → override kaldır
@@ -33,7 +37,10 @@ Düzeltilecekler (dosya · konum · hedef):
 **RTL erişilebilirlik (`dir="rtl"` HTML attr eksik, §9/§13.2):**
 - QuranCommands ~600-609; IbadetlerHub ~451/656/695; IbadetlerPillar ~494/660 → `dir="rtl"` ekle
 
-**Sonra:** görsel `renk-tutarsizlik` (5 — sadece net olanlar: CennetCehennem Hero anchor GOLD→COLORS.gold), sonra görsel LOW net olanlar. **token-hardcode-hex (25) ERTELENDİ** (aşağı bak).
+**NOT:** VerseGraph ~804 dropdown chip (0.9rem) UYGULANMADI — maxWidth:72px truncate'li kompakt chip, büyütme overflow riski; RESUME'da "düşük öncelik/bilinçli küçük" işaretliydi, dokunulmadı.
+</details>
+
+**Sonra:** görsel LOW net olanlar. **token-hardcode-hex (25) ERTELENDİ** (aşağı bak).
 
 **İçerik audit workflow** (`wf_c9754a28-30a`) bittiğinde bulguları işle: her CONFIRMED'i KENDİN kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı tekrar doğrula, sonra düzelt. Doğrulayamadığın skolastik bulguyu DEĞİŞTİRME → "⚠ kullanıcı incelemesi" bölümüne yaz. Bulguları todo_2026-07-14 BAŞINA yaz.
 
