@@ -25,11 +25,11 @@
 | 9 | ✅ `c794236` | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim replace bug) | "spiritüalite" | benim wf |
 | 10 | 🔸 `7205b46` (kısmi) | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding** (۝ ۚ ۗ → tofu) | cennet-cehennem + kiyamet ✅; geniş U+06EA'lı set (ilk-son 1150, semantic-map 498…) AYRI (U+06EA "korunur" çelişkisi) | benim wf |
 | 11 | ✅ `a137971`,`7c109ef`,`2ec5fa8` | İstatistik tutarsızlıkları | Sunnetullah 4→12/6→10; sebeb-i-nuzul mecciCount 5→7; yâ eyyuhâ 2→10 (+Hac tag); sıddîk 2→4 (İbrahim+Meryem) | kanonik sayı | benim wf |
-| 12 | 🔸 çoğu done | Diğer ayet-ref/atıf | ✅ Tâhâ اهْتَدٰى `306b4eb`; ✅ koyun→Dâvûd `306b4eb`; ✅ diyalog 27:40 `6ba8be9`; ✅ Kemâl hadisi 2-hadis `0a87c57`; ✅ Rum 30:3 gelecek kip `21692ee`. **⚠ tefsir-per-verse:** 66 hayalî anahtar (sûre-giriş tefsiri "sûre:sûre" mis-key) — sistematik pipeline sorunu, kullanıcı incelemesi | benim wf |
-| 13 | ⚠ kullanıcı | "Sıfır Varyasyon" (anasayfa/Koruma) | **Kıraat gerçeğiyle çelişir**; Kıraat Atlası'yla iç çelişki | "Tek konsonantal iskelet (rasm)" | ChatGPT C04 + Claude + Gemini |
+| 12 | ✅ tam done | Diğer ayet-ref/atıf | ✅ Tâhâ اهْتَدٰى `306b4eb`; ✅ koyun→Dâvûd `306b4eb`; ✅ diyalog 27:40 `6ba8be9`; ✅ Kemâl hadisi 2-hadis `0a87c57`; ✅ Rum 30:3 gelecek kip `21692ee`. ✅ **tefsir-per-verse `ea37022`:** kök-neden fix (split-tefsir.mjs — sûre başlığı strip + ayet-sayısı cap); 66 hayalî anahtar silindi + 39 N:N kirliliği temizlendi, 0 gerçek kayıp. Embedding rebuild'e dahil. | benim wf |
+| 13 | ✅ done `b391f17` | "Sıfır Varyasyon" (Koruma) | Başlık korundu + **rasm framing whisper** eklendi: sıfır varyasyon tek konsonantal iskelette (rasm); mütevâtir kıraat ayrı belgeli sözlü katman (çelişki değil kanıt). Araç zaten kıraat-farkındalıklı (Kıraat Atlası linki). | ChatGPT C04 + Claude + Gemini |
 | 14 | ✅ `be423b2` | `layout.js`, `page.js` meta | **"sayısal mucize"** (Reşad Halife çağrışımı) | → 'sayısal örüntü' (EN'le tutarlı) | Claude |
 
-> **İlerleme (2026-07-24 güncel):** ✅ **13 done** (1-12 + 14; 12'nin tefsir-per-verse alt-maddesi hariç). ⚠ **kullanıcı incelemesi (3):** #10 geniş U+06EA encoding (korunur çelişkisi), #12 tefsir-per-verse (66 hayalî anahtar = pipeline sorunu), #13 "Sıfır Varyasyon" (editoryal). Bunlar %100 elle-doğrulanamaz/pipeline/ton → uydurma riski, değiştirilmedi. Detay+kanıt: changelog.
+> **İlerleme (2026-07-24 final):** ✅ **P0 tablosu TAM** (1-14 done). Eski "kullanıcı incelemesi (3)" maddeleri kullanıcı onayıyla çözüldü: **#10** U+06EA → CLAUDE.md §13.15 bağlam-bağımlı düzeltildi (`4c21293`; kod otorite = ReadingMode korur, display dönüştürür — çelişki yoktu). **#12** tefsir-per-verse → kök-neden fix + regen (`ea37022`). **#13** "Sıfır Varyasyon" → rasm framing whisper (`b391f17`). Detay+kanıt: changelog. **NOT:** tefsir-per-verse.json değişti → §13.22 embedding rebuild'e dahil (EN SONDA).
 
 ## P0 — KRİTİK: Teknik / SEO
 
