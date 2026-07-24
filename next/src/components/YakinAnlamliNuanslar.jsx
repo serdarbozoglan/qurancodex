@@ -378,7 +378,7 @@ function SetDetail({ nset, isEn, isMobile }) {
             {/* Verse */}
             {t.verse && (
               <div style={{ ...VERSE_BLOCK, marginTop: '12px' }}>
-                <p dir="rtl" lang="ar" style={{ ...TEXT.verseArabic, margin: '0 0 8px', fontSize: '1.05rem' }}>
+                <p dir="rtl" lang="ar" style={{ ...TEXT.verseArabic, margin: '0 0 8px' }}>
                   {t.verse.arabic}
                 </p>
                 <p style={{ fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', lineHeight: 1.65 }}>

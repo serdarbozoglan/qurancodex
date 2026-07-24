@@ -122,21 +122,21 @@ export default function AltiKonu({ onClose }) {
           isMobile={isMobile}
           links={[
             {
-              href: '/atlas/insan-tanimi',
+              href: `/${language}/atlas/insan-tanimi`,
               titleTr: "Kur'an'da İnsan",
               titleEn: 'The Human in the Quran',
               descTr: 'Nefs, kalp, ruh, akıl — insanın çok-boyutlu tanımı.',
               descEn: 'Nafs, qalb, rūḥ, ʿaql — the multi-dimensional definition of the human.',
             },
             {
-              href: '/atlas/insan-psikolojisi',
+              href: `/${language}/atlas/insan-psikolojisi`,
               titleTr: 'İnsan Psikolojisi',
               titleEn: 'Human Psychology',
               descTr: "Kur'an'ın iç dünya haritası — 7 psikolojik davranış deseni.",
               descEn: "The Quran's inner-world map — 7 psychological behavior patterns.",
             },
             {
-              href: '/graf/kavram',
+              href: `/${language}/graf/kavram`,
               titleTr: 'Kavram Ağı',
               titleEn: 'Concept Network',
               descTr: '65 kavramın Kur\'an içindeki bağlantı haritası.',

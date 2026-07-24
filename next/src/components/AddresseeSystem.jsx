@@ -84,21 +84,21 @@ export default function AddresseeSystem({ onClose }) {
         isMobile={isMobile}
         links={[
           {
-            href: '/graf/diyalog',
+            href: `/${language}/graf/diyalog`,
             titleTr: 'Diyalog Ağı',
             titleEn: 'Dialogue Network',
             descTr: 'Kur\'an\'da ~300 diyalog — muhatap sistemi\'nin canlı sahneleri.',
             descEn: '~300 dialogues in the Quran — the addressee system in living scenes.',
           },
           {
-            href: '/arac/retorik',
+            href: `/${language}/arac/retorik`,
             titleTr: "Kur'an Belâgatı",
             titleEn: 'Quranic Rhetoric',
             descTr: 'Muhatap seçimi retoriğin çekirdeğidir — iltifât, takdîm-tehîr.',
             descEn: 'Choice of addressee is the core of rhetoric — iltifāt, syntactic shifts.',
           },
           {
-            href: '/arac/dua-dili',
+            href: `/${language}/arac/dua-dili`,
             titleTr: 'Dua Dili',
             titleEn: 'Language of Prayer',
             descTr: 'İnsanın Allah\'a hitabı — muhatap sisteminin özel bir alt-tipi.',

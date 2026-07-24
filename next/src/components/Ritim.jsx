@@ -136,21 +136,21 @@ export default function Ritim({ onClose }) {
           isMobile={isMobile}
           links={[
             {
-              href: '/arac/ses-mimarisi',
+              href: `/${language}/arac/ses-mimarisi`,
               titleTr: 'Ses Mimarisi',
               titleEn: 'Sound Architecture',
               descTr: 'Sert ve yumuşak ünsüzler — ritmin fonetik alt-yapısı.',
               descEn: 'Hard and soft consonants — the phonetic infrastructure of rhythm.',
             },
             {
-              href: '/arac/yeminler',
+              href: `/${language}/arac/yeminler`,
               titleTr: "Kur'an'ın Yeminleri",
               titleEn: 'Quranic Oaths',
               descTr: '40+ yeminin ritim ve fasıla ekseninde okunması.',
               descEn: 'Reading 40+ oaths along the axis of rhythm and cadence.',
             },
             {
-              href: '/arac/retorik',
+              href: `/${language}/arac/retorik`,
               titleTr: "Kur'an Belâgatı",
               titleEn: 'Quranic Rhetoric',
               descTr: 'Fâsıla, iltifât, takdîm-tehîr — ritmi anlama dönüştüren sanatlar.',

@@ -171,14 +171,14 @@ export default function KorumaZinciri({ onClose }) {
               descEn: 'The living experience carried by the huffāẓ chain today — 114 sūras, multi-meal + tafsir.',
             },
             {
-              href: '/atlas/kiraat',
+              href: `/${language}/atlas/kiraat`,
               titleTr: 'Kıraat Atlası',
               titleEn: 'Qirāʾāt Atlas',
               descTr: '10 imam · 20 râvî · coğrafi dağılım — sıfır-varyasyon prensibinin canlı manzarası.',
               descEn: '10 readers · 20 transmitters · geographic spread — the living face of the zero-variation principle.',
             },
             {
-              href: '/arac/sebebi-nuzul',
+              href: `/${language}/arac/sebebi-nuzul`,
               titleTr: 'Sebeb-i Nüzûl',
               titleEn: 'Occasions of Revelation',
               descTr: 'Ayetlerin ilk inişindeki bağlam — koruma zincirinin başlangıç noktası.',

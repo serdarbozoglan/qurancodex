@@ -125,21 +125,21 @@ export default function SesMimarisi({ onClose }) {
           isMobile={isMobile}
           links={[
             {
-              href: '/arac/retorik',
+              href: `/${language}/arac/retorik`,
               titleTr: "Kur'an Belâgatı",
               titleEn: 'Quranic Rhetoric',
               descTr: 'Tezat, istiare, teşbih, iltifât — sesle taşınan retorik güç.',
               descEn: 'Antithesis, metaphor, simile, iltifāt — the rhetorical power carried by sound.',
             },
             {
-              href: '/arac/yeminler',
+              href: `/${language}/arac/yeminler`,
               titleTr: "Kur'an'ın Yeminleri",
               titleEn: 'Quranic Oaths',
               descTr: 'Vâv-ı kasem — 40+ yeminin ses ve ritim mimarisi.',
               descEn: 'Wāw al-qasam — the sound and rhythm architecture of 40+ oaths.',
             },
             {
-              href: '/arac/ritim',
+              href: `/${language}/arac/ritim`,
               titleTr: 'İmkansız Ritim',
               titleEn: 'Impossible Rhythm',
               descTr: 'Ne şiir ne düzyazı — Kur\'ânî fasıla ve prozodinin analizi.',
