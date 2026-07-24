@@ -724,8 +724,8 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'İnce ipek ve kalın ipekten yeşil elbiseler giyerler.',
           verseEn: 'They wear green garments of fine silk and brocade.',
           ref: 'Kehf 18:31',
-          noteTr: "Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — Kehf ve İnsan (Dehr) sûrelerinde tekrar eder.",
-          noteEn: "Green + gold is the Quran's paradise color pairing — repeating in Al-Kahf and Al-Insan (Ad-Dahr).",
+          noteTr: "Yeşil giysi ile altın bilezik Kehf 18:31'de bir arada anılır — cennet ehlinin giysisi ve süsü. (İnsan 76:21'de yeşil giysiye gümüş bilezik eşlik eder.)",
+          noteEn: "Green garment and gold bracelet appear together in Al-Kahf 18:31 — the dress and adornment of Paradise's people. (In Al-Insan 76:21, silver bracelets accompany the green garments.)",
         },
         {
           hex: KURANI_COLORS.altin, nameTr: 'Altın — Bilezikler', nameEn: 'Gold — Bracelets',
@@ -829,7 +829,7 @@ function TabBaglam({ language, isMobile }) {
         },
         {
           hex: KURANI_COLORS.siyahKaranlik, nameTr: 'Siyah — Azap Görenler', nameEn: 'Black — The Punished',
-          verseAr: 'وَأَمَّا الَّذِينَ اسْوَدَّتْ وُجُوهُهُمْ أَكَفَرْتُم بَعْدَ إِيمَانِكُمْ',
+          verseAr: 'فَأَمَّا الَّذِينَ اسْوَدَّتْ وُجُوهُهُمْ أَكَفَرْتُمْ بَعْدَ إِيمَانِكُمْ',
           verseTr: 'Yüzleri kararan kimseler ise: "İman ettikten sonra mı inkâr ettiniz?"',
           verseEn: 'As for those whose faces turn black: "Did you disbelieve after your faith?"',
           ref: 'Âl-i İmrân 3:106',
@@ -896,8 +896,8 @@ function TabBaglam({ language, isMobile }) {
           verseTr: 'Elini koynuna sok; hastalıksız beyaz olarak çıksın.',
           verseEn: 'Put your hand into your garment; it will come out white without disease.',
           ref: 'Neml 27:12',
-          noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Bakara, Araf, Taha, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
-          noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-Baqarah, Al-A'raf, Ta-Ha, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
+          noteTr: "Hz. Musa'nın eli 5 sûrede beyaz mucize olarak geçer: Araf, Taha, Şuarâ, Neml, Kasas. 'Hastalıksız beyaz' — hastalık (alacalık/lepra) beyazından ayrımak için özel vurgu.",
+          noteEn: "Moses' hand appears as a white miracle in 5 suras: Al-A'raf, Ta-Ha, Ash-Shu'ara, An-Naml, Al-Qasas. 'White without disease' — special emphasis to distinguish from disease (vitiligo/leprosy).",
         },
         {
           hex: KURANI_COLORS.sariKivilcim, nameTr: "Sarı — Bakara'nın İneği", nameEn: "Yellow — Al-Baqarah's Cow",
@@ -1182,8 +1182,8 @@ function TabCennet({ language, isMobile }) {
       verseAr: 'يَلْبَسُونَ ثِيَابًا خُضْرًا مِّن سُندُسٍ وَإِسْتَبْرَقٍ',
       verseTr: 'İnce ipekten yeşil elbiseler giyerler.',
       verseEn: 'They wear green garments of fine silk and brocade.',
-      noteTr: "Cennetin 3 unsuru bir ayette: yeşil elbise + altın bilezik + taht. Yeşil + altın ikilisi Kur'an'ın cennet renk çiftidir — üç sûrede tekrar eder.",
-      noteEn: "Three elements of paradise in one verse: green garment + gold bracelet + throne. Green + gold is the Quran's paradise color pairing — repeating across three suras.",
+      noteTr: "Cennetin 3 unsuru bir ayette: yeşil elbise + altın bilezik + taht (Kehf 18:31). Altın bilezik cennet tasvirinde üç sûrede geçer: Kehf, Hac, Fâtır.",
+      noteEn: "Three elements of paradise in one verse: green garment + gold bracelet + throne (Al-Kahf 18:31). Gold bracelets recur in three suras' paradise imagery: Al-Kahf, Al-Hajj, Fatir.",
     },
     {
       ref: 'Rahman 55:64',
@@ -2430,8 +2430,8 @@ function TabDilbilim({ language, isMobile }) {
           borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
         }}>
           {tr
-            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Vâkıa 56:23'te cennet sakinleri 'saklı yumurta gibi' (beyaz). Renk kelimesi anlam genişlemesiyle imge üretiyor."
-            : "'Bayda' also means egg — whiteness and egg share the same root. In Al-Wâqi'a 56:23, paradise companions are 'like hidden eggs' (white). The color word generates imagery through semantic extension."}
+            ? "'Beyza' yumurta anlamına da gelir — beyazlık ve yumurta aynı kökten. Sâffât 37:49'da cennet ehlinin eşleri 'saklı yumurta gibi' (كَأَنَّهُنَّ بَيْضٌ مَكْنُونٌ) tarif edilir. Renk kelimesi anlam genişlemesiyle imge üretiyor."
+            : "'Bayda' also means egg — whiteness and egg share the same root. In As-Sâffât 37:49, the companions of Paradise are described as 'like hidden eggs' (kaʾannahunna bayḍun maknūn). The color word generates imagery through semantic extension."}
         </p>
       </SectionShell>
 

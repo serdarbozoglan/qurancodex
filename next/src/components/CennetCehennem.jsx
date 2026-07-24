@@ -1568,8 +1568,8 @@ function SevenCehennemLayers({ language, isMobile, names }) {
         fontFamily: FONTS.body,
       }}>
         {tr
-          ? "Kur'ân cehenneme 7 farklı isim verir — her isim ayrı bir kelime kökü ve azap sahnesi. Hz. Peygamber 'cehennemin yedi kapısı vardır' buyurur (Hicr 15:44). Aşağıdaki inen düzen klasik tefsir (İbn Kesîr, Bidâye) sıralamasına uyar."
-          : "The Qur'ān gives Hell 7 distinct names — each with its own root and scene of torment. The Prophet said 'Hell has seven gates' (al-Ḥijr 15:44). The descending order below follows the classical tafsīr (Ibn Kathīr, Bidāya)."}
+          ? "Kur'ân cehenneme 7 farklı isim verir — her isim ayrı bir kelime kökü ve azap sahnesi. Kur'ân, cehennemin yedi kapısı olduğunu bildirir (Hicr 15:44). Aşağıdaki inen düzen klasik tefsir (İbn Kesîr, Bidâye) sıralamasına uyar."
+          : "The Qur'ān gives Hell 7 distinct names — each with its own root and scene of torment. The Qur'ān states that Hell has seven gates (al-Ḥijr 15:44). The descending order below follows the classical tafsīr (Ibn Kathīr, Bidāya)."}
       </p>
 
       {/* Descending circles */}

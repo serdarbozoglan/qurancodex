@@ -87,7 +87,7 @@ export default function SesMimarisiCard() {
               textShadow: `0 0 24px ${COLORS.gold}22`,
             }}
           >
-            وَالنَّاشِطَاتِ نَشْطًا
+            وَالنَّازِعَاتِ غَرْقًا
           </p>
           <p style={{
             color: COLORS.offWhite,
@@ -110,7 +110,7 @@ export default function SesMimarisiCard() {
             margin: 0,
             opacity: 0.7,
           }}>
-            — {tr ? "Nâziât 79:2" : "an-Nāziʿāt 79:2"}
+            — {tr ? "Nâziât 79:1" : "an-Nāziʿāt 79:1"}
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export default function SesMimarisiCard() {
           maxWidth: '620px',
           margin: '0 auto 40px',
         }}>
-          {tr ? "Azap ayetlerini yüksek sesle oku — patlayıcı ünsüzler duyarsın: ق · ك · ط · ص. Boğazda, dişte sert. Rahmet ayetlerinde akıcı sesler: ل · م · ن · ر · ي. Bu tesadüf değil — ses ile anlam paralel, fonetik mimarinin parçası." : "Read the verses of wrath aloud — you hear plosive consonants: ق · ك · ط · ص. Harsh in the throat, sharp at the teeth. In verses of mercy, the liquids flow: ل · م · ن · ر · ي. This is not coincidence — sound and meaning parallel, part of a phonetic architecture."}
+          {tr ? "Azap ayetlerini yüksek sesle oku — sert ünsüzler duyarsın: ق · ك · ط · ص. Boğazda, dişte sert. Rahmet ayetlerinde akıcı sesler: ل · م · ن · ر · ي. Bu tesadüf değil — ses ile anlam paralel, fonetik mimarinin parçası." : "Read the verses of wrath aloud — you hear harsh consonants: ق · ك · ط · ص. Harsh in the throat, sharp at the teeth. In verses of mercy, the liquids flow: ل · م · ن · ر · ي. This is not coincidence — sound and meaning parallel, part of a phonetic architecture."}
         </p>
 
         <motion.div

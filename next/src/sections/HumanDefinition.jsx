@@ -113,7 +113,7 @@ const MUMIN_TRAITS = [
     traitTr: 'Boş şeylerden yüz çeviren',
     traitEn: 'Turning away from idle speech',
     ref: '23:3',
-    noteTr: 'Aktif bir ibadet değil, pasif bir erdem. "Muridûn" — kaçınan, yüz çeviren. Kur\'an\'da ne yapmamak da o kadar önemli.',
+    noteTr: 'Aktif bir ibadet değil, pasif bir erdem. "Muʿridûn" — kaçınan, yüz çeviren. Kur\'an\'da ne yapmamak da o kadar önemli.',
     noteEn: 'Not an active act of worship — a passive virtue. What you refrain from matters as much as what you do.',
   },
   {

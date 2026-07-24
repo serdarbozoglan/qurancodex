@@ -110,10 +110,10 @@ const GROUPS = [
       { num: 14, name: 'İbrâhîm' },
       { num: 15, name: 'Hicr' },
     ],
-    pattern: '5/5 sûrede istisnasız "Kitab\'ın ayetleri" ile başlar — en katı linguistik parmak izi',
-    patternEn: 'All 5 suras open without exception with "verses of the Book" — the strictest linguistic fingerprint',
+    pattern: '5/5 sûrede Elif-Lâm-Râ\'yı hemen "Kitab" (kitâb) vurgusu izler — güçlü linguistik parmak izi',
+    patternEn: 'In all 5 suras Elif-Lâm-Râ is immediately followed by an emphasis on "the Book" (kitāb) — a strong linguistic fingerprint',
     bullets: [
-      '→ not: 5\'inin 5\'inde de Elif-Lâm-Râ\'den hemen sonra "tilke âyâtu\'l-kitâb" (Kitab\'ın ayetleri) gelir — %100 oran',
+      '→ not: 5 sûrenin 3\'ünde (Yûnus, Yûsuf, Hicr) tam "tilke âyâtu\'l-kitâb" (Kitab\'ın ayetleri) ibaresi gelir; Hûd ve İbrâhîm ise "kitâbun" ile açılır — ortak payda hep "Kitab" vurgusu',
       'Hepsi Mekkî — baskı ve zulüm döneminin sûreleri',
       'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'da eşsiz',
       'Yûnus & Hûd: birden fazla peygamber kıssası ve Hz. Muhammed\'e teselli',
@@ -121,7 +121,7 @@ const GROUPS = [
       '→ not: Ra\'d sûresi (13) dört harfli Elif-Lâm-Mîm-Râ (الـمر) ile açılır; saf Elif-Lâm-Râ grubuna dahil değildir',
     ],
     bulletsEn: [
-      '→ note: In all 5 suras, Elif-Lâm-Râ is immediately followed by "tilka āyātu\'l-kitāb" (verses of the Book) — a 100% rate',
+      '→ note: In 3 of the 5 suras (Yūnus, Yūsuf, al-Ḥijr) the exact phrase "tilka āyātu\'l-kitāb" (verses of the Book) follows; Hūd and Ibrāhīm open with "kitābun" — the common thread is always the emphasis on "the Book"',
       'All Meccan — suras from the period of persecution and pressure',
       'Yusuf: a single, continuous narrative from beginning to end — unique in the Quran',
       'Yunus & Hud: multiple prophetic stories with consolation to the Prophet',
