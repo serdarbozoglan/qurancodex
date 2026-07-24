@@ -158,8 +158,8 @@ export default function AddresseeSystem({ onClose }) {
         </p>
         <p style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {language === 'tr'
-            ? <>Kur'an üç ayrı sesle hitap eder: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nebî</em> (Resul). Hitap değişimi anlam değişimidir.</>
-            : <>The Quran addresses in three voices: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nabī</em> (the Messenger). A shift in address is a shift in meaning.</>}
+            ? <>Kur'an'ın en sık üç hitap ekseni <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ'n-nebî</em> (Resul) — ama sesleniş bununla bitmez: İsrailoğulları'ndan Ehl-i Kitap'a, Âdemoğulları'ndan Peygamber'in eşlerine <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 farklı muhatap</em> vardır. Hitap değişimi anlam değişimidir.</>
+            : <>The Quran's three most frequent registers are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā'n-nabī</em> (the Messenger) — yet the address goes further: from the Children of Israel to the People of the Book, the children of Adam to the wives of the Prophet, there are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 distinct addressees</em>. A shift in address is a shift in meaning.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
@@ -173,10 +173,13 @@ export default function AddresseeSystem({ onClose }) {
         </p>
       </div>
 
-      {/* ── CHIP ROW ─────────────────────────────────────────────────────────── */}
+      {/* ── CHIP ROW — yalnızca mobil ───────────────────────────────────────────
+          Masaüstünde sayılı sidebar navigasyonu üstleniyor; çip sırası da
+          görününce çift navigasyon oluyordu (§14.3 sidebar kuralı: sidebar
+          desktop, chip row mobil). Masaüstünde gizlendi (2026-07-24). */}
       <div style={{
         flexShrink: 0,
-        display: 'flex', gap: '6px', overflowX: 'auto',
+        display: isMobile ? 'flex' : 'none', gap: '6px', overflowX: 'auto',
         padding: '10px 20px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
         background: 'rgba(0,0,0,0.2)',
