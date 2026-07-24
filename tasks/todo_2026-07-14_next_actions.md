@@ -6,7 +6,9 @@
 
 > **Kaynak:** 4 bağımsız denetim birleştirildi — (A) benim 24-ajanlı **kanonik workflow'um: 204 CONFIRMED** hata [`tasks/wtnjzwhs2.output`], (B) benim **görsel audit: 136 bulgu** [`tasks/w4dd32sfp.output`], (C) **ChatGPT PDF** (61 madde), (D) **Claude** raporu (strateji/anasayfa), (E) **Gemini** raporu (UI/UX/SEO). Detay + kanıt: `tasks/2026-07-24-premium-audit-changelog.md`.
 >
-> **Güven kuralı:** İçerik değişikliği YALNIZCA kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı %100 doğrulanınca yapılır. Skolastik/ton bulguları → "⚠ kullanıcı incelemesi" (uydurma riski). **Commit YAP, PUSH ETME.**
+> **Güven kuralı:** İçerik değişikliği YALNIZCA kanonik `verse-graph-bgem3.json` + `surah-info.json`'a karşı %100 doğrulanınca yapılır. Skolastik/ton bulguları → "⚠ kullanıcı incelemesi" (uydurma riski).
+>
+> **✅ PUSH EDİLDİ (2026-07-24, `c3a7844..bb31c80`):** P0 içerik (13 fix) + görsel font/RTL/anchor (`3b8b272`) + a11y lang (`3d65a8c`) + kalan 3 madde (U+06EA doc `4c21293`, tefsir-per-verse `ea37022`, Sıfır Varyasyon rasm `b391f17`) — 21 commit prod'da. **Kalan iş için kural yine: commit YAP, PUSH kullanıcı onayıyla.**
 >
 > **Konverjans = en güçlü sinyal:** birden çok denetimin aynı bulguyu vermesi öncelik yükseltir.
 
@@ -23,7 +25,7 @@
 | 7 | ✅ `3fe8513` | `kuran-retorigi.json` q31 | **Bakara 2:9 uydurma soru formu** (أَيَحْسَبُونَ mushafta yok; 2:9 haber) | uydurma girdi kaldırıldı | benim wf |
 | 8 | ✅ `c794236` | `nefis-mertebeleri(-ext).json` emmare | **Kök عمر yanlış → أمر** (ammâra) 2 yerde | kök أ-م-ر | benim wf |
 | 9 | ✅ `c794236` | `tr.json` psychology.modern | **"spibiçimite" bozuk kelime** (ritual→biçim replace bug) | "spiritüalite" | benim wf |
-| 10 | 🔸 `7205b46` (kısmi) | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding** (۝ ۚ ۗ → tofu) | cennet-cehennem + kiyamet ✅; geniş U+06EA'lı set (ilk-son 1150, semantic-map 498…) AYRI (U+06EA "korunur" çelişkisi) | benim wf |
+| 10 | 🔸 `7205b46` + çelişki çözüldü | Çok sayıda `*.json` verseAr/keyVerseAr | **§13.15 encoding** (۝ ۚ ۗ → tofu) | cennet-cehennem + kiyamet ✅. U+06EA çelişkisi ÇÖZÜLDÜ (`4c21293` — display'de U+0650'ye dönüşür). **Kalan (ayrı, düşük öncelik → DOĞRULA):** ilk-son 1150 / semantic-map 498 U+06EA — ama IlkSonKelimeler runtime'da `cleanArabicMinimal` ile zaten dönüştürüyor (tofu yok); build-time normalize opsiyonel. Diğer bileşenler runtime-clean mi kontrol et, değilse normalize et. | benim wf |
 | 11 | ✅ `a137971`,`7c109ef`,`2ec5fa8` | İstatistik tutarsızlıkları | Sunnetullah 4→12/6→10; sebeb-i-nuzul mecciCount 5→7; yâ eyyuhâ 2→10 (+Hac tag); sıddîk 2→4 (İbrahim+Meryem) | kanonik sayı | benim wf |
 | 12 | ✅ tam done | Diğer ayet-ref/atıf | ✅ Tâhâ اهْتَدٰى `306b4eb`; ✅ koyun→Dâvûd `306b4eb`; ✅ diyalog 27:40 `6ba8be9`; ✅ Kemâl hadisi 2-hadis `0a87c57`; ✅ Rum 30:3 gelecek kip `21692ee`. ✅ **tefsir-per-verse `ea37022`:** kök-neden fix (split-tefsir.mjs — sûre başlığı strip + ayet-sayısı cap); 66 hayalî anahtar silindi + 39 N:N kirliliği temizlendi, 0 gerçek kayıp. Embedding rebuild'e dahil. | benim wf |
 | 13 | ✅ done `b391f17` | "Sıfır Varyasyon" (Koruma) | Başlık korundu + **rasm framing whisper** eklendi: sıfır varyasyon tek konsonantal iskelette (rasm); mütevâtir kıraat ayrı belgeli sözlü katman (çelişki değil kanıt). Araç zaten kıraat-farkındalıklı (Kıraat Atlası linki). | ChatGPT C04 + Claude + Gemini |
