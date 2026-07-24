@@ -33510,8 +33510,8 @@
     "type": "atlas-kavram"
   },
   "tefsir:1:1": {
-    "hash": "831cc848338a8eef",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "3f07feade08a0ac5",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:1:2": {
@@ -33541,11 +33541,6 @@
   },
   "tefsir:1:7": {
     "hash": "cb0c78711ca62b9d",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:1:8": {
-    "hash": "48c84b471132c0e8",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -33595,8 +33590,8 @@
     "type": "tefsir"
   },
   "tefsir:10:10": {
-    "hash": "71cf611553f31054",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "7c899be1ee72a696",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:10:11": {
@@ -34124,11 +34119,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:100:100": {
-    "hash": "3bfbbe990ca9d22e",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:101:1": {
     "hash": "24eb0dda90762d89",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34184,16 +34174,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:103:4": {
-    "hash": "69fa610e55c2ad2e",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:103:103": {
-    "hash": "a2d06d0afd22b05f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:104:1": {
     "hash": "97d9e14960ba9c00",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34239,11 +34219,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:105:105": {
-    "hash": "299aa997de01323b",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:106:1": {
     "hash": "8cdeb3f63e0b84cc",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34259,16 +34234,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:106:106": {
-    "hash": "26216ed996445ed8",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:107:107": {
-    "hash": "87697058ff245eae",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:108:1": {
     "hash": "53576ffd0a042674",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34281,16 +34246,6 @@
   },
   "tefsir:108:3": {
     "hash": "4cfd538edbfbe5c4",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:108:4": {
-    "hash": "687a11a2617e55f1",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:108:108": {
-    "hash": "41c3fade46d7bf03",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -34311,11 +34266,6 @@
   },
   "tefsir:109:6": {
     "hash": "5b3470b82086ccfa",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:109:109": {
-    "hash": "8bd82f41b411236e",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -34370,8 +34320,8 @@
     "type": "tefsir"
   },
   "tefsir:11:11": {
-    "hash": "8afc4124af37b234",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "6a1e62f7ee1a3288",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:11:12": {
@@ -34919,11 +34869,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:110:110": {
-    "hash": "52c474fce532c1dd",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:111:1": {
     "hash": "f1be740d3f026b6e",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34934,11 +34879,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:111:111": {
-    "hash": "359bb4eb814fa4a9",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:112:1": {
     "hash": "7d8bca97a1114a7f",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -34946,11 +34886,6 @@
   },
   "tefsir:112:2": {
     "hash": "0b08079e3b50fdd3",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:112:112": {
-    "hash": "66edb2ab1481a3e7",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -34979,41 +34914,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:113:6": {
-    "hash": "79bdc85e42da6b24",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:7": {
-    "hash": "0cf215a0761483ca",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:8": {
-    "hash": "dd72035f9807a1dd",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:10": {
-    "hash": "6d58db29fc249990",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:11": {
-    "hash": "feb8058533e0cfbc",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:12": {
-    "hash": "895b2a7de6f3b2f0",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:113:113": {
-    "hash": "0e2973ba97fd89d4",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:114:1": {
     "hash": "94402b9a7e7d4a39",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -35021,11 +34921,6 @@
   },
   "tefsir:114:2": {
     "hash": "3318f718c70bd4e8",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:114:114": {
-    "hash": "961bc53f2c7da1f0",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -35450,8 +35345,8 @@
     "type": "tefsir"
   },
   "tefsir:13:13": {
-    "hash": "99b1e20eead25d9a",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "e6995d82c7ad88ec",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:13:14": {
@@ -35655,8 +35550,8 @@
     "type": "tefsir"
   },
   "tefsir:14:14": {
-    "hash": "3f4de7ddb848a331",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "58d25c7edbdddcf8",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:14:15": {
@@ -35915,8 +35810,8 @@
     "type": "tefsir"
   },
   "tefsir:15:15": {
-    "hash": "c690871576c8320a",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "50c4a213c24ad8ef",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:15:16": {
@@ -36400,8 +36295,8 @@
     "type": "tefsir"
   },
   "tefsir:16:16": {
-    "hash": "0e0cb8c08a878283",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "7abb99e6bfd2ba58",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:16:17": {
@@ -37045,8 +36940,8 @@
     "type": "tefsir"
   },
   "tefsir:17:17": {
-    "hash": "7481ac4be6b86258",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "3e22a093f461cc22",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:17:18": {
@@ -37600,8 +37495,8 @@
     "type": "tefsir"
   },
   "tefsir:18:18": {
-    "hash": "726aaab1cabc3d0b",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "3999e06835c0d8f7",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:18:19": {
@@ -38085,8 +37980,8 @@
     "type": "tefsir"
   },
   "tefsir:19:19": {
-    "hash": "9187a80d53b67a83",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "340eba9ab257033f",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:19:20": {
@@ -38485,8 +38380,8 @@
     "type": "tefsir"
   },
   "tefsir:2:2": {
-    "hash": "8800d2b94a9c797f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "0a83570bc8f8bf81",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:2:3": {
@@ -39955,8 +39850,8 @@
     "type": "tefsir"
   },
   "tefsir:20:20": {
-    "hash": "cfdf37acb370090f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "b7078168dd52f444",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:20:21": {
@@ -40535,8 +40430,8 @@
     "type": "tefsir"
   },
   "tefsir:21:21": {
-    "hash": "839155c368d45d90",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "c8cd3d4e92bc85cb",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:21:22": {
@@ -41485,8 +41380,8 @@
     "type": "tefsir"
   },
   "tefsir:23:23": {
-    "hash": "23b0a7972b9a4720",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "5192235f2f8b6509",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:23:24": {
@@ -42375,8 +42270,8 @@
     "type": "tefsir"
   },
   "tefsir:25:25": {
-    "hash": "3fe2d385af3c12e2",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "0f693df122d289f9",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:25:26": {
@@ -42740,8 +42635,8 @@
     "type": "tefsir"
   },
   "tefsir:26:26": {
-    "hash": "b616b63e1a6a2d7d",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "4097b77b7881add8",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:26:27": {
@@ -43765,8 +43660,8 @@
     "type": "tefsir"
   },
   "tefsir:27:27": {
-    "hash": "0ddc0da9917131c5",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "f6f855580a72158c",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:27:28": {
@@ -44195,8 +44090,8 @@
     "type": "tefsir"
   },
   "tefsir:28:28": {
-    "hash": "09ae7047967c2a67",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "f4febe47b76fd8e8",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:28:29": {
@@ -44610,8 +44505,8 @@
     "type": "tefsir"
   },
   "tefsir:29:29": {
-    "hash": "a238aee04ac214e2",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "cc68d2c0ee66e154",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:29:30": {
@@ -44825,8 +44720,8 @@
     "type": "tefsir"
   },
   "tefsir:3:3": {
-    "hash": "d4c79d9f0f6c3607",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "ec65b9b822a8e11b",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:3:4": {
@@ -46215,8 +46110,8 @@
     "type": "tefsir"
   },
   "tefsir:31:31": {
-    "hash": "03afdcf5ae604549",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "10bfdeb7c08e944e",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:31:32": {
@@ -46505,8 +46400,8 @@
     "type": "tefsir"
   },
   "tefsir:33:33": {
-    "hash": "d0ab9b1501e75001",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "dc798ba110075bf3",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:33:34": {
@@ -46855,8 +46750,8 @@
     "type": "tefsir"
   },
   "tefsir:34:34": {
-    "hash": "a10c8929279dd218",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "7fe21885100cec69",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:34:35": {
@@ -47110,8 +47005,8 @@
     "type": "tefsir"
   },
   "tefsir:35:35": {
-    "hash": "1e5e4b827620fd08",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "a5bcd8babab53868",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:35:37": {
@@ -47320,8 +47215,8 @@
     "type": "tefsir"
   },
   "tefsir:36:36": {
-    "hash": "de26ddceb45f0291",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "6483371f432383a4",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:36:37": {
@@ -47655,8 +47550,8 @@
     "type": "tefsir"
   },
   "tefsir:37:37": {
-    "hash": "3da4932df11d6fb7",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "6b4b3c1f6b448389",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:37:39": {
@@ -48745,8 +48640,8 @@
     "type": "tefsir"
   },
   "tefsir:39:39": {
-    "hash": "2f4f9ea055a68742",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "e7dd5a32dc5b36b9",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:39:40": {
@@ -48945,8 +48840,8 @@
     "type": "tefsir"
   },
   "tefsir:4:4": {
-    "hash": "517ab45367d6eff3",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "52f3223120e5106f",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:4:5": {
@@ -49950,8 +49845,8 @@
     "type": "tefsir"
   },
   "tefsir:40:40": {
-    "hash": "f81b5ba3d76e441a",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "e9403bf82842975d",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:40:41": {
@@ -50350,8 +50245,8 @@
     "type": "tefsir"
   },
   "tefsir:41:41": {
-    "hash": "9f4ab1299749f008",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "ae3689b68e2525d0",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:41:42": {
@@ -50585,8 +50480,8 @@
     "type": "tefsir"
   },
   "tefsir:42:42": {
-    "hash": "dea7f44bad510e4f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "86c1e0b0caeb14ff",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:42:43": {
@@ -50815,8 +50710,8 @@
     "type": "tefsir"
   },
   "tefsir:43:43": {
-    "hash": "ca83fc9461e831f0",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "1af4c8db1f13186b",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:43:44": {
@@ -51959,11 +51854,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:49:49": {
-    "hash": "04631768b546689b",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:5:1": {
     "hash": "6db85c51165975f2",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -51985,8 +51875,8 @@
     "type": "tefsir"
   },
   "tefsir:5:5": {
-    "hash": "d40a6ba83cc5c4cc",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "dd11161faa1f5371",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:5:6": {
@@ -52769,11 +52659,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:50:50": {
-    "hash": "86f0ac8faa1f479c",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:51:2": {
     "hash": "bc816fb27f74374e",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -53000,8 +52885,8 @@
     "type": "tefsir"
   },
   "tefsir:51:51": {
-    "hash": "46e16cd9ae20e619",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "935647427a7075b5",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:51:52": {
@@ -53510,8 +53395,8 @@
     "type": "tefsir"
   },
   "tefsir:53:53": {
-    "hash": "ff044e34122a8ac5",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "236810768b7d2505",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:53:54": {
@@ -53644,11 +53529,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:55:55": {
-    "hash": "b77464a6b2c0c1c8",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:55:56": {
     "hash": "a3d58a1de8b2f64c",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -53706,11 +53586,6 @@
   },
   "tefsir:56:52": {
     "hash": "c4a357e335535e41",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:56:56": {
-    "hash": "fbf61e044a293aae",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -53781,11 +53656,6 @@
   },
   "tefsir:57:29": {
     "hash": "9d24f64ae07bd325",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:57:57": {
-    "hash": "98bffd2b425a2557",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -53869,11 +53739,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:58:58": {
-    "hash": "e5966ba15323d820",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:59:1": {
     "hash": "a3cd877de486adab",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -53891,11 +53756,6 @@
   },
   "tefsir:59:4": {
     "hash": "c92078c0ccb3b021",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:59:59": {
-    "hash": "f5f24cbd79715470",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -53925,8 +53785,8 @@
     "type": "tefsir"
   },
   "tefsir:6:6": {
-    "hash": "1d66fd9211fde455",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "44ef57afc9ec1242",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:6:7": {
@@ -54709,11 +54569,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:60:60": {
-    "hash": "88654d34f4b54d02",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:61:1": {
     "hash": "ade48529385b5f67",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -54819,31 +54674,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:62:12": {
-    "hash": "daaab539e3af346c",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:62:13": {
-    "hash": "1ab32ad5bd43a799",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:62:14": {
-    "hash": "88d6c1bb68f4ec54",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:62:15": {
-    "hash": "a6117c98a871efed",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:62:62": {
-    "hash": "39162150c5db39f1",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:63:9": {
     "hash": "9a0c1f5fcd67b310",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -54856,11 +54686,6 @@
   },
   "tefsir:63:11": {
     "hash": "f6a15862f3c8f965",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:63:63": {
-    "hash": "da1ab5727a3afc05",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -54904,11 +54729,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:64:64": {
-    "hash": "a17b54b880ee6574",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:65:7": {
     "hash": "a2add42e7eeac824",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -54939,11 +54759,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:65:65": {
-    "hash": "2f8bdfc7c455b12d",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:66:8": {
     "hash": "30e2e928b19254dc",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -54966,11 +54781,6 @@
   },
   "tefsir:66:12": {
     "hash": "dc2c29ced9f28925",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:66:66": {
-    "hash": "b3b76bb6a04bf8da",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -55074,11 +54884,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:67:67": {
-    "hash": "3c7698a4908529ef",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:68:26": {
     "hash": "7da681bf0efcc684",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -55174,11 +54979,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:68:68": {
-    "hash": "6f9fecf8a913fde9",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:69:6": {
     "hash": "5c0c10c3c77b02b0",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -55269,11 +55069,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:69:69": {
-    "hash": "56389d85d18f9020",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:7:1": {
     "hash": "e6b740746ee2da8f",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -55305,8 +55100,8 @@
     "type": "tefsir"
   },
   "tefsir:7:7": {
-    "hash": "c7bb39c6311dc843",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "9f40b674dca7c6d9",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:7:8": {
@@ -56319,11 +56114,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:70:70": {
-    "hash": "5f6525fa5a8af542",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:71:1": {
     "hash": "359c39bc602eba83",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -56399,16 +56189,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:72:72": {
-    "hash": "911f1908ec0cda7f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:73:73": {
-    "hash": "eb3d7d18bb3ea2c2",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:74:32": {
     "hash": "afcdeb574dea0061",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -56469,11 +56249,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:74:74": {
-    "hash": "0b2932715b8faa46",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:75:31": {
     "hash": "05382ecef7873b0d",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -56486,11 +56261,6 @@
   },
   "tefsir:75:37": {
     "hash": "e6ed7bf600d2e7a2",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:75:75": {
-    "hash": "218ef3b426d3953c",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -56536,11 +56306,6 @@
   },
   "tefsir:76:31": {
     "hash": "7be65080f0d87afc",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:76:76": {
-    "hash": "2c9add256f4145a2",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -56684,11 +56449,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:78:78": {
-    "hash": "c0438db2bf5199e7",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:79:1": {
     "hash": "3cac251170097004",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -56820,8 +56580,8 @@
     "type": "tefsir"
   },
   "tefsir:8:8": {
-    "hash": "7b8a947b4c0fe95b",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "847c75de3ba848bf",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:8:9": {
@@ -57369,11 +57129,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:80:80": {
-    "hash": "e4d0f692af600a6c",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:81:5": {
     "hash": "4a9e243937ff4be2",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -57434,11 +57189,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:81:81": {
-    "hash": "d1f8eced15e15165",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:82:4": {
     "hash": "56150821f81f6f2f",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -57481,11 +57231,6 @@
   },
   "tefsir:82:19": {
     "hash": "d4136a928811de51",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:82:82": {
-    "hash": "996fcec553becfdb",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -57614,26 +57359,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:83:83": {
-    "hash": "8ab8c8a8a4448710",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:84:84": {
-    "hash": "54b4d849d49622ca",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:85:85": {
-    "hash": "09b9a38a767f0f21",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:86:86": {
-    "hash": "f371f37406ddd119",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:87:5": {
     "hash": "344933161dd9b357",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -57674,23 +57399,8 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:87:87": {
-    "hash": "82cbe9eee4524374",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:88:88": {
-    "hash": "fa7ef06b255eb913",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:89:25": {
     "hash": "6d7dc2526bdaf64f",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:89:89": {
-    "hash": "45481cd258195509",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -57735,8 +57445,8 @@
     "type": "tefsir"
   },
   "tefsir:9:9": {
-    "hash": "4040ae95c76787d8",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
+    "hash": "ebac39130a859c2a",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "tefsir"
   },
   "tefsir:9:10": {
@@ -58334,31 +58044,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:90:90": {
-    "hash": "5ba47a4afffebb1d",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:91:91": {
-    "hash": "f572cde39454ec29",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:92:92": {
-    "hash": "f8b3c403eea2ed39",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:93:93": {
-    "hash": "282dfaa4e6c34661",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:94:94": {
-    "hash": "4822d00fdda0ef59",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:95:1": {
     "hash": "b3fecb8f1d472d49",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -58371,11 +58056,6 @@
   },
   "tefsir:95:3": {
     "hash": "bbb96099de21bf8d",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:95:95": {
-    "hash": "965159b8eb3373a1",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -58434,11 +58114,6 @@
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
-  "tefsir:96:96": {
-    "hash": "051191119c016f20",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
   "tefsir:97:1": {
     "hash": "c4be54dd983a8630",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
@@ -58456,21 +58131,6 @@
   },
   "tefsir:97:4": {
     "hash": "ac3568ba29247cfb",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:97:97": {
-    "hash": "43d81379eb659a90",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:98:98": {
-    "hash": "5ec635631a0e22d6",
-    "embeddedAt": "2026-07-14T12:38:20.102Z",
-    "type": "tefsir"
-  },
-  "tefsir:99:99": {
-    "hash": "caad7c044d03e27b",
     "embeddedAt": "2026-07-14T12:38:20.102Z",
     "type": "tefsir"
   },
@@ -63035,23 +62695,13 @@
     "type": "addressee"
   },
   "addressee:peygamber": {
-    "hash": "d98e79dfab31d32c",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "1f60afb0a4835f56",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "addressee:kafirler": {
-    "hash": "edb192563e6d1a81",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
-    "type": "addressee"
-  },
-  "addressee:munafik": {
-    "hash": "e6f6cb86b39cef5f",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
-    "type": "addressee"
-  },
-  "addressee:musrik": {
-    "hash": "545c795790a261b0",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "2eb9a3f1be387668",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "addressee:israil": {
@@ -63065,28 +62715,23 @@
     "type": "addressee"
   },
   "addressee:resul": {
-    "hash": "940bb9b095e6653a",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "af2a3a15f73fd2c8",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "addressee:insan": {
-    "hash": "07032fbac73d231c",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "2839eb675ea767f2",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "addressee:muzzammil": {
-    "hash": "48a507fda2fa545c",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "f1627e9e1f95181f",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "addressee:azvac-nebi": {
-    "hash": "9fb6ccdbaf18ce0f",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
-    "type": "addressee"
-  },
-  "addressee:muminat": {
-    "hash": "2138117531577396",
-    "embeddedAt": "2026-07-17T19:40:45.235Z",
+    "hash": "d5959f1365963532",
+    "embeddedAt": "2026-07-24T16:31:24.027Z",
     "type": "addressee"
   },
   "atlas-kavram:fitrat": {
