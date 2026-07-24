@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
       : "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
     description: isEN
       ? "Discover the hidden architecture of the Quran — mathematical patterns, linguistic DNA, ring composition, and scientific signs — through interactive visualizations."
-      : "Kur'an'ın gizli mimarisini, sayısal mucizesini, dilsel DNA'sını ve halka kompozisyonunu interaktif görsellerle keşfedin.",
+      : "Kur'an'ın gizli mimarisini, sayısal örüntülerini, dilsel DNA'sını ve halka kompozisyonunu interaktif görsellerle keşfedin.",
   });
 }
 

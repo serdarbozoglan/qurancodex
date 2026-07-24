@@ -25,7 +25,7 @@ export const metadata = {
     default: "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
     template: '%s | QuranCodex',
   },
-  description: "Kur'an'ın gizli mimarisini, sayısal mucizesini, dilsel DNA'sını ve halka kompozisyonunu interaktif görsellerle keşfedin.",
+  description: "Kur'an'ın gizli mimarisini, sayısal örüntülerini, dilsel DNA'sını ve halka kompozisyonunu interaktif görsellerle keşfedin.",
   applicationName: 'QuranCodex',
   authors: [{ name: 'QuranCodex' }],
   keywords: ['Kuran', 'tefsir', 'ayet', 'sure', 'kıssa', 'mucize', 'dilsel analiz', 'halka kompozisyon', 'ring composition'],
