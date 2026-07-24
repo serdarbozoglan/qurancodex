@@ -9,6 +9,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
@@ -314,6 +315,17 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
         )}
       </div>
 
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 24px', width: '100%' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            { author: 'Muhammed b. Cerîr et-Taberî', workTr: "Câmiu'l-Beyân an Te'vîli Âyi'l-Kur'ân", workEn: 'Jāmiʿ al-Bayān', period: 'ö. 923 (Bağdat)', noteTr: 'Kıssa ve diyalog rivayetlerinin temel toplayıcı kaynağı.', noteEn: 'The foundational collection of narrative and dialogue reports.' },
+            { author: 'el-Kurtubî', workTr: "el-Câmi' li-Ahkâmi'l-Kur'ân", workEn: 'al-Jāmiʿ li-Aḥkām al-Qurʾān', period: 'ö. 1273 (Endülüs)', noteTr: 'Diyalogların bağlamını ve konuşmacıları ayrıntılı ele alan klasik tefsir.', noteEn: 'Classical tafsir detailing the context and speakers of the dialogues.' },
+            { author: 'Fahreddin er-Râzî', workTr: "Mefâtîhu'l-Gayb", workEn: 'Mafātīḥ al-Ghayb', period: 'ö. 1210 (Herat)', noteTr: 'Konuşma ve diyalog çözümlemesini derinleştiren büyük dirâyet tefsiri.', noteEn: 'Major analytical tafsir deepening the analysis of speech and dialogue.' },
+          ]}
+        />
+      </div>
       {/* Cross-tool CTA — #202 (2026-07-16) */}
       <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
         <CrossToolCTA

@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import SourcesCitation from './SourcesCitation';
 
 const INITIAL_SHOW = 2;
 
@@ -389,6 +390,17 @@ export default function AddresseeSystem({ onClose }) {
         </div>
       </div>
 
+      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 32px', width: '100%' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            { author: 'Bedreddin ez-Zerkeşî', workTr: "el-Burhân fî Ulûmi'l-Kur'ân", workEn: 'al-Burhān fī ʿUlūm al-Qurʾān', period: 'ö. 1392 (Kahire)', noteTr: "Kur'ân ilimlerinde hitâb (muhâtab) türlerini sistematik işleyen klasik eser.", noteEn: 'Classical work systematically treating the types of Qur\'anic address (khiṭāb).' },
+            { author: 'Celâleddin es-Süyûtî', workTr: "el-İtkân fî Ulûmi'l-Kur'ân", workEn: 'al-Itqān fī ʿUlūm al-Qurʾān', period: 'ö. 1505 (Kahire)', noteTr: 'Âmm-hâss ve muhâtab çeşitlerine dair kapsamlı Kur\'ân ilimleri ansiklopedisi.', noteEn: 'Encyclopedic Qur\'anic sciences work on general/specific and types of addressee.' },
+            { author: 'Fahreddin er-Râzî', workTr: "Mefâtîhu'l-Gayb", workEn: 'Mafātīḥ al-Ghayb', period: 'ö. 1210 (Herat)', noteTr: 'Hitap çözümlemesini tefsir içinde derinleştiren büyük dirâyet tefsiri.', noteEn: 'Major analytical tafsir deepening the analysis of address within exegesis.' },
+          ]}
+        />
+      </div>
       {/* CrossToolCTA — RELATED_CTA sabiti kullanılıyor (loading skeleton ile aynı,
           duplikasyon önlendi). */}
       {RELATED_CTA}
