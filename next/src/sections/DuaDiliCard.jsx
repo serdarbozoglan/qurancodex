@@ -169,7 +169,7 @@ export default function DuaDiliCard() {
             lineHeight: 1.6,
           }}
         >
-          {tr ? "11 tematik dua · 1 ortak gramatik DNA · sınırsız diyalog" : "11 thematic duʿās · 1 shared grammatical DNA · limitless dialogue"}
+          {tr ? "10 tematik dua · 1 ortak gramatik DNA · sınırsız diyalog" : "10 thematic duʿās · 1 shared grammatical DNA · limitless dialogue"}
         </motion.p>
       </motion.div>
     </section>

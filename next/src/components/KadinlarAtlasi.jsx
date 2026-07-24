@@ -1409,7 +1409,7 @@ function CaprazOkumaSection({ language, isMobile }) {
         color: COLORS.offWhite, margin: '0 0 12px',
         lineHeight: 1.2,
       }}>
-        {tr ? 'Yedi Figürün Örüntüleri' : 'Patterns Across the Seven'}
+        {tr ? '14 Figürün Örüntüleri' : 'Patterns Across the 14'}
       </h3>
       <p style={{
         fontFamily: FONTS.body,
@@ -1418,8 +1418,8 @@ function CaprazOkumaSection({ language, isMobile }) {
         maxWidth: '780px',
       }}>
         {tr
-          ? "Yedi kadını yan yana koyduğumuzda ortaya çıkan örüntüler: kim adıyla anılıyor, kim doğrudan vahiy alıyor, kim sarayda iman ediyor, hangi soy zinciri kuruluyor."
-          : "Patterns that emerge when the seven women are placed side by side: who is named, who receives waḥy directly, who believes within a palace, what lineage chain is built."}
+          ? "14 kadını yan yana koyduğumuzda ortaya çıkan örüntüler: kim adıyla anılıyor, kim doğrudan vahiy alıyor, kim sarayda iman ediyor, hangi soy zinciri kuruluyor."
+          : "Patterns that emerge when the 14 women are placed side by side: who is named, who receives waḥy directly, who believes within a palace, what lineage chain is built."}
       </p>
 
       {/* Observation grid */}

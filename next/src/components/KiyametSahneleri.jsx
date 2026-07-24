@@ -1055,7 +1055,7 @@ function TabSureler({ data, language, isMobile }) {
 function TabKozmikSahneler({ language, isMobile }) {
   const DAG_TABLOSI = [
     { ayet: 'Tekvir 81:3', imge: language === 'tr' ? 'Yürütüldü' : 'Set in motion', kelime: 'سُيِّرَتْ (suyyirat)' },
-    { ayet: 'Vakıa 56:5', imge: language === 'tr' ? 'Ufalandı' : 'Crumbled', kelime: 'فُدَّتْ (fuddat)' },
+    { ayet: 'Vakıa 56:5', imge: language === 'tr' ? 'Ufalandı' : 'Crumbled', kelime: 'بُسَّتْ (bussat)' },
     { ayet: 'Taha 20:105', imge: language === 'tr' ? 'Savuruldu' : 'Scattered', kelime: 'يَنسِفُهَا (yansifuha)' },
     { ayet: 'Nebe 78:20', imge: language === 'tr' ? 'Yürütüldü' : 'Set in motion', kelime: 'سُيِّرَتْ (suyyirat)' },
     { ayet: 'Karia 101:5', imge: language === 'tr' ? 'Renkli yün gibi' : 'Like scattered wool', kelime: 'كَالْعِهْنِ الْمَنفُوشِ' },

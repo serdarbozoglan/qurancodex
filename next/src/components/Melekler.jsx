@@ -632,7 +632,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
               {tr ? "1. Vahy-i Şer'î (peygamberlere)" : "1. Waḥy-i Sharʿī (to prophets)"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
-              {tr ? "Cibrîl aracılığıyla peygamberlere indirilen şeriat vahyi. Şûrâ 42:51-52 üç tarz tanımlar: arkadan, perde ardından, elçi ile." : "Sharia revelation sent down to prophets via Jibrīl. Shūrā 42:51-52 names three modes: from behind, behind a veil, through an envoy."}
+              {tr ? "Cibrîl aracılığıyla peygamberlere indirilen şeriat vahyi. Şûrâ 42:51-52 üç tarz tanımlar: vahiyle (ilham), perde ardından, elçi ile." : "Sharia revelation sent down to prophets via Jibrīl. Shūrā 42:51-52 names three modes: by inspiration, behind a veil, through an envoy."}
             </p>
           </div>
           <div>

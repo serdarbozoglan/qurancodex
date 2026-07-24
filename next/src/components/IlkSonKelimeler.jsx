@@ -1273,8 +1273,8 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       filterId: 'imperativeOpener',
       count: surahs.filter(s => (s.openerTags || []).includes('imperative') && !(s.openerTags || []).includes('kul-opener')).length,
       labelTr: 'Emir fiili ile açılan', labelEn: 'Imperative opener',
-      insightTr: '"Kul" dışı emir fiilleriyle açan sûreler — "İqra\'" (Alak), "Kum" (Müddessir). Mutlak emir kipinde başlayan tebliğ.',
-      insightEn: 'Surahs that open with imperatives other than "Qul" — "Iqraʾ" (al-ʿAlaq), "Qum" (al-Muddaththir). Proclamation that begins in pure command form.',
+      insightTr: '"Kul" dışı emir fiilleriyle açan sûreler — "İqra\'" (Alak), "Sebbih" (A\'lâ). Mutlak emir kipinde başlayan tebliğ.',
+      insightEn: 'Surahs that open with imperatives other than "Qul" — "Iqraʾ" (al-ʿAlaq), "Sabbiḥ" (al-Aʿlā). Proclamation that begins in pure command form.',
     },
   ].filter(ins => ins.count > 0);
 

@@ -1561,7 +1561,7 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
       }}>
         {tr
           ? 'Kur\'ân, sünnetullah kanununun somut kayıtlarını 10 kavim üzerinden gösterir. Her biri farklı bir peygamberin uyarısına, farklı bir helâk biçimine ve farklı bir sebebe sahiptir — ama örüntü aynıdır: peygamber → uyarı → yalanlama → delil → sonuç. Bu tab bu örüntüyü kavim kavim açar; daha kapsamlı arkeoloji ve tarihsel tartışma için '
-          : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 6 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
+          : 'The Qur\'an demonstrates the concrete records of the sunnatullāh law through 10 nations. Each has a different prophet\'s warning, a different mode of destruction, and a different cause — but the pattern is identical: prophet → warning → rejection → sign → outcome. This tab unfolds the pattern nation by nation; for more extensive archaeology and historical discussion, see '}
         <a href={`/${language}/atlas/kavim`} style={{ color: COLORS.gold, borderBottom: `1px dashed ${COLORS.gold}55`, textDecoration: 'none' }}>
           {tr ? 'Kavimler Atlası' : 'the Nations Atlas'}
         </a>.

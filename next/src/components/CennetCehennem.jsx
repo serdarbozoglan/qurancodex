@@ -1752,8 +1752,8 @@ function FiveSenseGrid({ language, isMobile }) {
       icon: 'M18 8h1a4 4 0 0 1 0 8h-1M11 5v14l-5-4V9z',
       cennetTr: "Selâm (barış) selâmlaşması, boş söz yok (Vâkıa 56:25-26, Mü'min 40:8).",
       cennetEn: "Greeting of peace (salām), no idle talk (al-Wāqiʿa 56:25-26, Ghāfir 40:8).",
-      cehennemTr: "Uğultu, ah-vah, kaynayan sesler, birbirini kınama (Furkân 25:12, Sâffât 37:64).",
-      cehennemEn: "Roaring, wailing, boiling sounds, mutual reproach (al-Furqān 25:12, al-Ṣāffāt 37:64).",
+      cehennemTr: "Uğultu, ah-vah, kaynayan sesler, birbirini kınama (Furkân 25:12, Sâffât 37:27).",
+      cehennemEn: "Roaring, wailing, boiling sounds, mutual reproach (al-Furqān 25:12, al-Ṣāffāt 37:27).",
     },
     {
       id: 'taste', labelTr: 'TATMA', labelEn: 'TASTE',

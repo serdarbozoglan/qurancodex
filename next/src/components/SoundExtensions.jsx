@@ -124,7 +124,7 @@ const CONTRAST_PAIRS = [
 
 // ── Fonetik spektrum: 8 grup — hangi harfler hangi ses karakterine ait ──
 const PHONETIC_SPECTRUM = [
-  { groupTr: 'Patlayıcılar (harşiyye)', groupEn: 'Explosives (ḥarshiyya)', letters: ['ق','ك','ط','د','ت','ب'], color: '#e74c3c', descTr: 'Ani hava kesilmesiyle çıkan sesler; azap, uyarı, emir bağlamında yoğun.', descEn: 'Sounds produced by sudden air arrest; dense in punishment, warning, and command contexts.' },
+  { groupTr: 'Patlayıcılar (şedîde)', groupEn: 'Plosives (shadīda)', letters: ['ق','ك','ط','د','ت','ب'], color: '#e74c3c', descTr: 'Ani hava kesilmesiyle çıkan sesler; azap, uyarı, emir bağlamında yoğun.', descEn: 'Sounds produced by sudden air arrest; dense in punishment, warning, and command contexts.' },
   { groupTr: 'Sürtünmeliler (rehâviyye)', groupEn: 'Fricatives (rakhāwiyya)', letters: ['ف','ث','ذ','ح','خ','ز','س','ش','ص','ض','ظ','ه'], color: '#f39c12', descTr: 'Havanın darlıktan geçmesiyle çıkan sesler; anlamı taşıyan geniş bir orta ton.', descEn: 'Sounds from air passing through constriction; a broad mid-tone that carries meaning.' },
   { groupTr: 'Nazaller (ğunneli)', groupEn: 'Nasals (ghunna)', letters: ['م','ن'], color: '#3498db', descTr: 'Burun boşluğunda rezonans; rahmet, huzur, yakarış ile eşleşir.', descEn: 'Resonance in the nasal cavity; pairs with mercy, peace, invocation.' },
   { groupTr: 'Akıcılar (mâyi\')', groupEn: 'Liquids (māʾiʿ)', letters: ['ل','ر'], color: '#2ecc71', descTr: 'Kesintisiz akıcı sesler; anlatının müzik damarını taşır.', descEn: 'Continuous flowing sounds; carrying the melodic vein of narrative.' },
