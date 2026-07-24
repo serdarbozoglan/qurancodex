@@ -427,7 +427,7 @@ ShaykhHamdullah ve KFGQPC fontları **yalnızca standart Arabic Unicode** ile d�
 |----------|---------|-------|-------|
 | ۡ (Uthmani sükun) | `U+06E1` | Cezm dairesi yarım görünür | `U+0652` (ْ standart sükun) ile değiştir |
 | ٱ (Alef wasla) | `U+0671` | ص işareti render eder | `U+0627` (ا düz alef) ile değiştir |
-| ۪ (Uthmani kasra/asar) | `U+06EA` | Asar (küçük çizgi) kasra formu | **Korunur** — font asar şeklinde render eder. Dönüştürülmez. Tecvid DIAC/HAREKE aralıklarına dahil edilmiştir. |
+| ۪ (Uthmani kasra/asar) | `U+06EA` | Asar (küçük çizgi) kasra formu | **BAĞLAMA BAĞLI** (mutlak değildir): ① **ReadingMode / InterlinearView** (CSS tecvid overlay pipeline VAR) → `cleanArabic()` **KORUR**; font `subscriptalef` glyph'i ile dikey küçük çizgi (asar) olarak render eder. ② **Diğer TÜM bileşenler** (section, atlas kartı, ayet listesi, graf — overlay YOK) → `cleanArabicForDisplay/Graph/Minimal` **U+0650 (ِ) standart kasra'ya DÖNÜŞTÜRÜR**; aksi halde daire/tofu görünür. Otorite = `next/src/lib/arabic.js` (kod). Build script'leri overlay'siz olduğu için **her zaman dönüştürür** (§13.15 build kuralı, satır ~365). |
 | ی (Farsi Yeh) | `U+06CC` | Siyah tofu üretir | `U+064A` (ي standart Yeh) ile değiştir |
 
 #### Veri Kaynakları
