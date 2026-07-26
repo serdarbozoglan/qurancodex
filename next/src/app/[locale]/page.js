@@ -13,6 +13,7 @@ import RecentQueriesStrip from '@/components/RecentQueriesStrip';
 // Navigasyon
 import SixGates from '@/sections/SixGates';
 import ConciergePrompt from '@/sections/ConciergePrompt';
+import MethodologyRibbon from '@/sections/MethodologyRibbon';
 import CardSeam from '@/sections/CardSeam';
 import ClusterWhisper from '@/sections/ClusterWhisper';
 import QuietParticles from '@/sections/QuietParticles';
@@ -83,6 +84,9 @@ export default async function Home({ params }) {
 
       {/* Semantik Concierge — Hero altı cinematic prompt (RAG) */}
       <ConciergePrompt />
+
+      {/* Metodoloji güven şeridi — "örtüşme ≠ kanıt" (GPT-5.2 review A1) */}
+      <MethodologyRibbon />
 
       {/* 6 Kapı — kategorize edici navigasyon */}
       <SixGates />
