@@ -12,7 +12,7 @@
 
 ## 🟢 P0 — Hızlı kazanç (renk-nötr)
 - [x] **A1. Metodoloji görünürlüğü** ✅ `27659db` (2026-07-25) — Anasayfa Hero+Concierge sonrası **MethodologyRibbon** ("Örtüşme ≠ Kanıt" + 3 chip: Hafs mushafı/klasik tefsir+akademik/örtüşme≠kanıt + /hakkinda linki). Renk-nötr, TR/EN, desktop+mobil 200. **Header linki YAPILMADI** (navbar dolu + risk; footer'da site-geneli link zaten var). [GPT #1 kısmen + #12]
-- [ ] **A2. /sor Concierge güven katmanı** (~2-3s) — Cevap formatına sabit **"Sınırlar"** bölümü + "Bu fıkhî bir hüküm değildir; uygulama için ehil âlime danışın" uyarısı. Ops: "sadece kaynak göster" modu. [GPT #4]
+- [x] **A2. /sor Concierge güven katmanı** ✅ (2026-07-25) — Sonuçların sonuna kalıcı "Sınırlar" notu (fetva değildir + ehil âlime danışın). Kart-Concierge zaten yorum katmıyor (kaynak gösterir) → "sadece kaynak göster" default. Desktop+mobil 200. [GPT #4]
 - [ ] **A3. Mobil hero CTA** (~1s) — Mobilde 2 net buton ("Kur'an'ı Oku" + "Keşfe Başla") + "Devam" dokunma hedefi ≥44px. [GPT #8]
 
 ## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
