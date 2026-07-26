@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
@@ -840,6 +841,26 @@ export default function KissaAtlas({ onClose }) {
                                         </p>
                                       </div>
                                     ))}
+                                  </div>
+                                )}
+                                {/* B4: Atlas → Oku moduna köprü (GPT-5.2 review) */}
+                                {!versePeek.loading && versePeek.verses?.length > 0 && (
+                                  <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${prophet.color}22`, display: 'flex' }}>
+                                    <Link
+                                      href={`/${language}/oku/${versePeek.surah}`}
+                                      style={{
+                                        display: 'inline-flex', alignItems: 'center', gap: '7px',
+                                        color: prophet.color, fontSize: '0.78rem', fontWeight: 600,
+                                        textDecoration: 'none', fontFamily: "'Inter', sans-serif",
+                                      }}
+                                    >
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                                      </svg>
+                                      {language === 'tr' ? 'Bu sûreyi Oku modunda aç (tam metin + tefsir)' : 'Open this surah in Reading Mode (full text + tafsir)'}
+                                      <span style={{ fontSize: '0.9rem' }}>→</span>
+                                    </Link>
                                   </div>
                                 )}
                               </div>
