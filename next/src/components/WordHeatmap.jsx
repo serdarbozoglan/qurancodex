@@ -826,7 +826,7 @@ export default function WordHeatmap({ onClose }) {
                 },
                 {
                   labelTr: 'Sayım birimi', labelEn: 'Counting unit',
-                  valueTr: 'Arapça metin üzerinde harakat-duyarsız eşleşme. Bir terimin bitişik ekli/çekimli formları da sayılır (kök-benzeri davranış). Meal/çeviri metni sayılmaz.',
+                  valueTr: 'Arapça metin üzerinde harekesiz eşleşme (harekeler yok sayılır). Bir terimin bitişik ekli/çekimli formları da sayılır (kök-benzeri davranış). Meal/çeviri metni sayılmaz.',
                   valueEn: 'Harakat-insensitive matching over the Arabic text. Attached/inflected forms of a term are also counted (root-like behavior). Translation text is not counted.',
                 },
                 {
@@ -836,7 +836,7 @@ export default function WordHeatmap({ onClose }) {
                 },
               ]}
               note={{
-                tr: 'Harakat-duyarsız alt-dizi eşleşmesi olduğundan eş-yazımlı (homograf) formlar da yakalanabilir; sayı kesin bir lemma konkordansı değil, lafzın sûrelere dağılımının göstergesidir.',
+                tr: 'Harekesiz alt-dizi eşleşmesi olduğundan eş-yazımlı (homograf) formlar da yakalanabilir; sayı kesin bir lemma konkordansı değil, lafzın sûrelere dağılımının göstergesidir.',
                 en: 'Because matching is a harakat-insensitive substring search, homographic forms may also be caught; the figure is not a definitive lemma concordance but an indicator of how the wording is distributed across surahs.',
               }}
             />
