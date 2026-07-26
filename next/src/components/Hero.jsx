@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 import ParticleBackground from './ParticleBackground';
+import Link from 'next/link';
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -271,6 +272,57 @@ export default function Hero() {
           — {language === 'tr' ? 'Alak 96:1-2 · İlk İnen Ayetler' : 'al-ʿAlaq 96:1-2 · The First Revealed Verses'}
         </motion.p>
 
+        {/* Mobil CTA — navbar "Kur'an'ı Oku" mobilde hamburger'da gizli olduğu
+            için hero'da 2 net aksiyon (GPT-5.2 review A3). Desktop'ta chevron
+            scroll-cue yeterli; butonlar yalnız mobilde. Tap hedefi ≥44px. */}
+        {isMobile && (
+          <motion.div
+            style={{
+              display: 'flex',
+              gap: '10px',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              margin: '4px 0 0',
+            }}
+            {...entrance(
+              { opacity: 0, y: 8 },
+              { opacity: 1, y: 0 },
+              { duration: 0.7, delay: showIntro ? 3.7 : 1.0 }
+            )}
+          >
+            <Link
+              href={`/${language}/oku`}
+              style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                minHeight: '44px', padding: '11px 20px',
+                background: `${COLORS.gold}1c`,
+                border: `1px solid ${COLORS.gold}66`,
+                borderRadius: '999px',
+                color: COLORS.gold,
+                fontFamily: FONTS.body, fontSize: '0.86rem', fontWeight: 600,
+                letterSpacing: '0.03em', textDecoration: 'none',
+              }}
+            >
+              {language === 'tr' ? "Kur'an'ı Oku" : 'Read the Qur’an'}
+            </Link>
+            <button
+              onClick={scrollToScene2}
+              style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                minHeight: '44px', padding: '11px 20px',
+                background: 'transparent',
+                border: `1px solid ${COLORS.gold}2e`,
+                borderRadius: '999px',
+                color: COLORS.offWhite,
+                fontFamily: FONTS.body, fontSize: '0.86rem', fontWeight: 600,
+                letterSpacing: '0.03em', cursor: 'pointer',
+              }}
+            >
+              {language === 'tr' ? 'Keşfe Başla' : 'Start Exploring'}
+            </button>
+          </motion.div>
+        )}
+
         </div>
 
         {/* Animated chevron — hem tıklanabilir buton hem scroll-cue.
@@ -288,7 +340,7 @@ export default function Hero() {
             bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '40px',
             left: 0,
             right: 0,
-            display: 'flex',
+            display: isMobile ? 'none' : 'flex',
             justifyContent: 'center',
             pointerEvents: 'none',
           }}
