@@ -16,7 +16,7 @@
 - [x] **A3. Mobil hero CTA** ✅ (2026-07-25) — Mobil sahne 1'e 2 buton (Kur'an'ı Oku + Keşfe Başla, ≥44px); mobilde Devam chevron gizlendi (butonlar yerini aldı). Desktop değişmedi. [GPT #8]
 
 ## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
-- [ ] **B1. Araç "Veri Sözlüğü (i)" paneli** (~1g, reusable) — Sayım araçlarına (önce Esmâ-frekans + Kelime Isı Haritası) üstte açılır panel: mushaf · kıraat (Hafs) · sayım kuralı (kelime/kök/lemma) · dahil-hariç (besmele, tekrar). [GPT #3] ← **en güçlü güvenilirlik kaldıracı** ("seçmeci istatistik" eleştirisini kapatır)
+- [x] **B1. Araç "Veri Sözlüğü (i)" paneli** ✅ (2026-07-25) — Reusable DataDictionary + WordHeatmap entegrasyonu (kaynak/birim/girdi/not, sayım kuralları KODDAN). Esmâ-frekans ZATEN kendi Methodology+Metodolojik Nüans'ına sahip → duplike edilmedi. Desktop+mobil 200. [GPT #3]
 - [ ] **B2. "Örtüşme / Yorum Katmanı" etiketi** (~yarım g, reusable) — "işaret/örüntü" bölümlerine (Bilimsel İşaretler öncelikli) standart badge + Gözlem/Metin/Örtüşme çerçevesi. Mevcut token, **yeni renk yok.** [GPT #1 + #9]
 - [ ] **B4. Atlas → okuma köprüsü** (~yarım g) — Kıssa Atlası (ve benzerleri) seçili sahnede belirgin **"Ayetleri Oku"** + "Tefsire git" CTA. [GPT #10]
 
