@@ -1141,6 +1141,41 @@ function ResponseView({ data, language, feedback, setFeedback }) {
         </motion.p>
       )}
 
+      {/* Sınırlar — kalıcı epistemik/fıkhî sınır notu (GPT-5.2 review A2) */}
+      <div style={{
+        marginTop: '40px',
+        padding: '15px 18px',
+        border: `1px solid ${COLORS.gold}1c`,
+        borderRadius: '12px',
+        background: 'rgba(255,255,255,0.015)',
+        maxWidth: '640px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}>
+        <div style={{
+          color: `${COLORS.gold}bb`,
+          fontFamily: FONTS.body,
+          fontSize: '0.66rem',
+          fontWeight: 600,
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          marginBottom: '8px',
+        }}>
+          {tr ? 'Sınırlar' : 'Limits'}
+        </div>
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.82rem',
+          lineHeight: 1.65,
+          margin: 0,
+        }}>
+          {tr
+            ? 'Bu sonuçlar ilgili ayetleri, sayfaları ve kaynakları gösterir — fıkhî bir hüküm ya da fetva değildir. Sistem yorum katmaz; kaynaklara yönlendirir. Amel ve uygulama için ehil bir âlime danışınız.'
+            : 'These results point to relevant verses, pages, and sources — they are not a legal ruling or fatwa. The system adds no interpretation; it guides you to sources. For practice and application, consult a qualified scholar.'}
+        </p>
+      </div>
+
       {/* Feedback */}
       <FeedbackRow
         feedback={feedback}
