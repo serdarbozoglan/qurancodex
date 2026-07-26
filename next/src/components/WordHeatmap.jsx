@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
 import ToolHeader from './ToolHeader';
+import DataDictionary from './DataDictionary';
 import LoadingOverlay from './LoadingOverlay';
 
 // Strip footnote refs and parenthetical translator additions
@@ -810,6 +811,35 @@ export default function WordHeatmap({ onClose }) {
                 ? 'Türkçe veya Arapça yazabilirsiniz — yaygın kavramlar otomatik Arapça\'ya yönlendirilir.'
                 : 'Type in Latin or Arabic — common concepts auto-redirect to Quranic Arabic.'
             )}
+          </div>
+
+          {/* Veri Sözlüğü — sayım kuralı şeffaflığı (GPT-5.2 review B1) */}
+          <div style={{ flexShrink: 0 }}>
+            <DataDictionary
+              language={language}
+              isMobile={isMobile}
+              rows={[
+                {
+                  labelTr: 'Kaynak metin', labelEn: 'Source text',
+                  valueTr: 'Kanonik Kur\'ân metni (6236 âyet), Hafs an Âsım kıraati — Diyanet resmî mushaf standardı.',
+                  valueEn: 'The canonical Qur\'anic text (6236 verses), Ḥafṣ ʿan ʿĀṣim reading — the Diyanet official muṣḥaf standard.',
+                },
+                {
+                  labelTr: 'Sayım birimi', labelEn: 'Counting unit',
+                  valueTr: 'Arapça metin üzerinde harakat-duyarsız eşleşme. Bir terimin bitişik ekli/çekimli formları da sayılır (kök-benzeri davranış). Meal/çeviri metni sayılmaz.',
+                  valueEn: 'Harakat-insensitive matching over the Arabic text. Attached/inflected forms of a term are also counted (root-like behavior). Translation text is not counted.',
+                },
+                {
+                  labelTr: 'Girdi', labelEn: 'Input',
+                  valueTr: 'Latince (TR/EN) arama, yaygın kavramlarda kanonik Arapça forma yönlendirilir — böylece çevirmen eklemeleri değil, âyetteki lafız sayılır. Doğrudan Arapça da yazılabilir.',
+                  valueEn: 'Latin (TR/EN) queries for common concepts auto-redirect to the canonical Arabic form — so the count reflects the Qur\'anic wording, not translator additions. Arabic input is also supported.',
+                },
+              ]}
+              note={{
+                tr: 'Harakat-duyarsız alt-dizi eşleşmesi olduğundan eş-yazımlı (homograf) formlar da yakalanabilir; sayı kesin bir lemma konkordansı değil, lafzın sûrelere dağılımının göstergesidir.',
+                en: 'Because matching is a harakat-insensitive substring search, homographic forms may also be caught; the figure is not a definitive lemma concordance but an indicator of how the wording is distributed across surahs.',
+              }}
+            />
           </div>
 
           {/* Presets */}
