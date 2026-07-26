@@ -10,6 +10,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import { COLORS, FONTS, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
 import ToolHeader from './ToolHeader';
+import FramingBadge from './FramingBadge';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -215,6 +216,12 @@ export default function BilimselIsaretler({ onClose }) {
               color: COLORS.gold, margin: '0 auto 28px',
               lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92,
             }}>{tr ? intro.subtitleTr : intro.subtitleEn}</p>
+            <FramingBadge
+              language={language}
+              isMobile={isMobile}
+              labelTr="Örtüşme Okuması — 'Bilimsel Mucize' İddiası Değil"
+              labelEn="Alignment Reading — Not a 'Scientific Miracle' Claim"
+            />
             <p style={{
               color: COLORS.silver, fontSize: '0.9rem',
               fontFamily: FONTS.body, margin: '0 auto 28px',
