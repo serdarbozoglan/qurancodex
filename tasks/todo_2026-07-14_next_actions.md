@@ -11,7 +11,7 @@
 > **Çalışma ritmi:** Her madde → uygula → localhost test (desktop + mobil 390px) → commit → **push için ayrı onay.**
 
 ## 🟢 P0 — Hızlı kazanç (renk-nötr)
-- [ ] **A1. Metodoloji görünürlüğü** (~1-2s) — Header'a "Metodoloji" linki (Hakkında sayfası var ama footer'da saklı) + anasayfa hero-sonrası mini **"Örtüşme ≠ Kanıt"** güven bloğu (kullandığımız mushaf · tefsir külliyatı · "kanıt değil örtüşme"). [GPT #1 kısmen + #12]
+- [x] **A1. Metodoloji görünürlüğü** ✅ `27659db` (2026-07-25) — Anasayfa Hero+Concierge sonrası **MethodologyRibbon** ("Örtüşme ≠ Kanıt" + 3 chip: Hafs mushafı/klasik tefsir+akademik/örtüşme≠kanıt + /hakkinda linki). Renk-nötr, TR/EN, desktop+mobil 200. **Header linki YAPILMADI** (navbar dolu + risk; footer'da site-geneli link zaten var). [GPT #1 kısmen + #12]
 - [ ] **A2. /sor Concierge güven katmanı** (~2-3s) — Cevap formatına sabit **"Sınırlar"** bölümü + "Bu fıkhî bir hüküm değildir; uygulama için ehil âlime danışın" uyarısı. Ops: "sadece kaynak göster" modu. [GPT #4]
 - [ ] **A3. Mobil hero CTA** (~1s) — Mobilde 2 net buton ("Kur'an'ı Oku" + "Keşfe Başla") + "Devam" dokunma hedefi ≥44px. [GPT #8]
 
