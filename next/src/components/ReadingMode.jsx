@@ -2337,6 +2337,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return pageVerses.length > 0 ? pageVerses : surahVerses;
   }, [bookMode, verses, surahVerses, currentPage]);
 
+  // ── Secde madalyonu (Arapça sütun) ──────────────────────────────────────
+  // Arapça ayetler satır-içi aktığı için, sağ dış margindeki secde madalyonunu
+  // ayet hizasına koymak ölçüm gerektirir. Aktif sayfadaki secde ayetinin dikey
+  // merkezini Arapça sütuna göre ölçeriz; font-size/sayfa/mod değişince yeniden.
+  const [arSajdaTop, setArSajdaTop] = useState(null);
+  const arSajdaVerse = useMemo(
+    () => versesOnPage.find(v => SAJDA_VERSES.has(`${v.surah}:${v.ayah}`)) || null,
+    [versesOnPage]
+  );
+  useEffect(() => {
+    if (!arSajdaVerse) { setArSajdaTop(null); return; }
+    let raf1, raf2;
+    const measure = () => {
+      const el = document.getElementById(`rm-verse-${arSajdaVerse.id}`);
+      const col = el?.closest('[data-ar-col="1"]');
+      if (!el || !col) { setArSajdaTop(null); return; }
+      const er = el.getBoundingClientRect();
+      const cr = col.getBoundingClientRect();
+      const top = er.top - cr.top + er.height / 2;
+      setArSajdaTop(prev => (prev != null && Math.abs(prev - top) < 0.5) ? prev : top);
+    };
+    raf1 = requestAnimationFrame(() => { raf2 = requestAnimationFrame(measure); });
+    const onResize = () => measure();
+    window.addEventListener('resize', onResize);
+    return () => { cancelAnimationFrame(raf1); cancelAnimationFrame(raf2); window.removeEventListener('resize', onResize); };
+  }, [arSajdaVerse, arabicFontSize, showTranslation, currentPage, isMobile, showPageFrame, showTajweed]);
+
   // 2-page spread mode: only active in book mode when meal is hidden AND
   // viewport is wide enough. Renders currentPage (right, RTL-first) plus
   // currentPage+1 (left) side-by-side, mirroring a physical mushaf opening.
@@ -6419,17 +6446,43 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           key={verse.id}
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
+                            position: 'relative',
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
                             padding: isMobile ? '10px 8px' : '8px 12px',
                             marginBottom: longSurah ? (isMobile ? '10px' : '14px') : 0,
                             background: isActive ? C.activeHighlight : 'transparent',
                             boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
-                            borderLeft: `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
+                            // Secde âyeti — yeşil kenar rayı (Diyanet yan-kenar işareti muadili).
+                            borderLeft: `3px solid ${isSajdaTr ? (dayMode ? '#1a7a4c' : '#2ecc71') : (isActive ? C.activeBorder : 'transparent')}`,
                             transition: 'all 0.18s',
                           }}
                           onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
                           onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                         >
+                          {/* Sayfa dış-kenar SECDE ribbon'u (Diyanet mushaf kenar-notu muadili).
+                              Karta CSS ile bağlı → ayet font-size değişince otomatik hizalı kalır (JS yok).
+                              Masaüstünde dış margine taşar; mobilde gizli (dar ekranda taşma önlemi §14). */}
+                          {isSajdaTr && !isMobile && (
+                            <span aria-hidden="true" style={{
+                              // Secde madalyonu — sayfa dış kenarında (frame border'a DEĞMEZ),
+                              // ayete hizalı. Dış margin ~32px olduğu için daire 28px: kart-relative
+                              // left:-48 + width:28 → x∈[kart-48, kart-20] = frame kenarından 2px içeride
+                              // biter, viewport kenarından 2px açık. Karta CSS-anchored → font-robust.
+                              position: 'absolute', left: '-72px', top: '50%', transform: 'translateY(-50%)',
+                              width: '44px', height: '44px', borderRadius: '50%',
+                              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+                              gap: '0', paddingTop: '6px',
+                              background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
+                              border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
+                              color: dayMode ? '#1a7a4c' : '#2ecc71',
+                              boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
+                              fontFamily: "'Inter', sans-serif",
+                              textAlign: 'center', pointerEvents: 'none', boxSizing: 'border-box', zIndex: 2,
+                            }}>
+                              <span style={{ fontSize: '1.8rem', lineHeight: 0.8, marginTop: '-6px' }}>۩</span>
+                              <span style={{ fontSize: '0.54rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1, marginTop: '0px', color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>{contentLang === 'tr' ? 'SECDE' : 'SAJDA'}</span>
+                            </span>
+                          )}
                           <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
                             <button
                               type="button"
@@ -6440,15 +6493,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // Hover keeps the double-ring (page-bg ring +
                                 // gold ring) and adds an outer glow halo so
                                 // the gülçe stays intact instead of collapsing
-                                // back to a flat circle.
+                                // back to a flat circle. Secde → yeşil halka.
                                 e.currentTarget.style.transform = 'scale(1.08)';
-                                e.currentTarget.style.borderColor = `${C.gold}`;
-                                e.currentTarget.style.boxShadow = `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}88, 0 0 8px ${C.gold}55`;
+                                e.currentTarget.style.borderColor = isSajdaTr ? (dayMode ? '#1a7a4c' : '#2ecc71') : `${C.gold}`;
+                                e.currentTarget.style.boxShadow = isSajdaTr
+                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.6)' : 'rgba(46,204,113,0.6)'}, 0 0 8px ${dayMode ? 'rgba(26,122,76,0.5)' : 'rgba(46,204,113,0.5)'}`
+                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}88, 0 0 8px ${C.gold}55`;
                               }}
                               onMouseLeave={e => {
                                 e.currentTarget.style.transform = 'scale(1)';
-                                e.currentTarget.style.borderColor = `${C.gold}${isActive ? 'cc' : 'aa'}`;
-                                e.currentTarget.style.boxShadow = `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`;
+                                e.currentTarget.style.borderColor = isSajdaTr ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : 'aa'}`;
+                                e.currentTarget.style.boxShadow = isSajdaTr
+                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
+                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`;
                               }}
                               style={{
                                 // Visually unified with the Arabic-side ayet
@@ -6457,18 +6514,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // Arabic badges their 'gülçe' / mushaf-rosette
                                 // feel. Active state still bumps the border
                                 // to cc for stronger emphasis.
+                                // Secde âyeti → DOLGULU yeşil daire + beyaz rakam.
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                                 borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
-                                border: `1.5px solid ${C.gold}${isActive ? 'cc' : 'aa'}`,
-                                boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                                background: dayMode
-                                  ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                  : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                                color: C.gold,
+                                border: `1.5px solid ${isSajdaTr ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : 'aa'}`}`,
+                                boxShadow: isSajdaTr
+                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
+                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
+                                background: isSajdaTr
+                                  ? (dayMode ? '#1a7a4c' : '#1f8f59')
+                                  : (dayMode
+                                      ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                      : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
+                                color: isSajdaTr ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
                                 fontSize: verse.ayah >= 100 ? (isMobile ? '0.66rem' : '0.74rem') : verse.ayah >= 10 ? (isMobile ? '0.72rem' : '0.82rem') : (isMobile ? '0.8rem' : '0.94rem'),
                                 fontFamily: currentFont,
-                                fontWeight: dayMode ? 600 : 400,
+                                fontWeight: isSajdaTr ? 700 : (dayMode ? 600 : 400),
                                 cursor: 'pointer',
                                 padding: 0,
                                 transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
@@ -6502,17 +6564,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 flex: 1,
                               }}>
                                 <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
-                                {isSajdaTr && (
-                                  <span style={{
-                                    display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
-                                    fontSize: '0.72rem', padding: '2px 8px', borderRadius: RADIUS.xs,
-                                    background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
-                                    border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
-                                    color: dayMode ? COLORS.emerald : COLORS.softEmerald,
-                                    fontFamily: currentFont,
-                                    fontStyle: 'normal',
+                                {/* Satır-içi pill yalnızca mobilde — desktop'ta kenar madalyonu var (çift işaret olmasın). */}
+                                {isSajdaTr && isMobile && (
+                                  <span aria-hidden="true" style={{
+                                    // Mobilde dış margin yok → madalyon satır-içi (kompakt 34px).
+                                    display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+                                    verticalAlign: 'middle', marginLeft: '8px', paddingTop: '3px',
+                                    width: '34px', height: '34px', borderRadius: '50%', boxSizing: 'border-box',
+                                    background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
+                                    border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
+                                    color: dayMode ? '#1a7a4c' : '#2ecc71',
+                                    boxShadow: `0 0 0 2px ${C.bg}, 0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
+                                    fontFamily: "'Inter', sans-serif", fontStyle: 'normal',
                                   }}>
-                                    {language === 'tr' ? 'Secde' : 'Sajda'} ۩
+                                    <span style={{ fontSize: '1.15rem', lineHeight: 0.8, marginTop: '-4px' }}>۩</span>
+                                    <span style={{ fontSize: '0.34rem', fontWeight: 800, lineHeight: 1, color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>{contentLang === 'tr' ? 'SECDE' : 'SAJDA'}</span>
                                   </span>
                                 )}
                               </p>
@@ -6837,15 +6903,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                             width: '1.72em', height: '1.72em',
                             textAlign: 'center', borderRadius: RADIUS.full,
-                            border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
+                            // Secde âyeti → DOLGULU yeşil rozet + beyaz rakam (Diyanet renkli-numara muadili).
+                            border: `1.5px solid ${isSajdaBook ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
                             boxShadow: isSajdaBook
-                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
+                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
                               : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                            color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                            color: isSajdaBook ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
                             fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
                             fontFamily: currentFont,
                             background: isSajdaBook
-                              ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                              ? (dayMode ? '#1a7a4c' : '#1f8f59')
                               : dayMode
                                 ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
                                 : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
@@ -6963,7 +7030,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   doesn't shorten any verse line. We reserve a right-side
                   gutter (mushaf outer margin) and position the medallion
                   absolutely inside it. */}
-              <div style={(() => {
+              <div data-ar-col="1" style={(() => {
                 const firstPage = versesOnPage[0]?.page;
                 const hasMarker = !!firstPage && firstPage !== 1 && (
                   JUZ_PAGES.indexOf(firstPage) > 0 ||
@@ -7002,6 +7069,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   textAlign: isMobile ? 'right' : 'justify',
                 };
               })()}>
+                {/* Secde madalyonu — sağ dış margin, secde ayeti hizasında (ölçümlü).
+                    Meal tarafının aynadaki eşi; Arapça "سجدة" içerir. */}
+                {arSajdaTop != null && !isMobile && (
+                  <span aria-hidden="true" style={{
+                    // Meal madalyonuyla BİREBİR aynı: 44px, aynı ۩ (Inter fallback),
+                    // aynı çerçeve-mesafesi. Fark yalnızca metin: سجدة (Arapça).
+                    position: 'absolute', top: `${arSajdaTop}px`, right: '-51px', transform: 'translateY(-50%)',
+                    width: '44px', height: '44px', borderRadius: '50%',
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
+                    gap: '0', paddingTop: '6px',
+                    background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
+                    border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
+                    color: dayMode ? '#1a7a4c' : '#2ecc71',
+                    boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
+                    fontFamily: "'Inter', sans-serif",
+                    pointerEvents: 'none', boxSizing: 'border-box', zIndex: 2,
+                  }}>
+                    <span style={{ fontSize: '1.8rem', lineHeight: 0.8, marginTop: '-6px' }}>۩</span>
+                    <span style={{ fontSize: '1.1rem', fontWeight: 400, lineHeight: 1, fontFamily: currentFont, marginTop: '-6px', color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>سجدة</span>
+                  </span>
+                )}
                 {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
                     right-side gutter so verse lines remain full width. Single
                     hairline ring, navbar-amber saturation, page-corner anchor
@@ -7371,7 +7459,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               margin: '0 18px',
                               gap: '2px',
                             }}>
-                              {isSajdaBook && (
+                              {/* Numara üstü inline "سجدة" — masaüstünde sağ marj madalyonu
+                                  gösterir; mobilde (madalyon yok) inline kalır. */}
+                              {isSajdaBook && isMobile && (
                                 <span style={{
                                   fontSize: '0.48em', lineHeight: 1,
                                   color: dayMode ? '#1a7a4c' : '#2ecc71',
@@ -7383,15 +7473,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: '1.72em', height: '1.72em',
                                 textAlign: 'center', borderRadius: RADIUS.full,
-                                border: `1.5px solid ${isSajdaBook ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : C.gold + 'aa'}`,
+                                // Secde âyeti → DOLGULU yeşil rozet + beyaz rakam.
+                                border: `1.5px solid ${isSajdaBook ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
                                 boxShadow: isSajdaBook
-                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`
+                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
                                   : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                                color: isSajdaBook ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                                color: isSajdaBook ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
                                 fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
                                 fontFamily: currentFont,
                                 background: isSajdaBook
-                                  ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.18) 0%, rgba(26,122,76,0.05) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                                  ? (dayMode ? '#1a7a4c' : '#1f8f59')
                                   : dayMode
                                     ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
                                     : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
@@ -8329,8 +8420,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
                     boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
-                    borderLeft: isMobile ? 'none' : `3px solid ${isActive ? C.activeBorder : 'transparent'}`,
-                    borderRight: isMobile && isActive ? `3px solid ${C.activeBorder}` : 'none',
+                    // Secde âyeti — yeşil kenar rayı (Diyanet mushaf yan-kenar işareti muadili).
+                    // Hem mobil hem masaüstünde: aktif/pasif ayrımından bağımsız, secde her zaman işaretli.
+                    borderLeft: isSajda
+                      ? `4px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`
+                      : (isMobile ? 'none' : `3px solid ${isActive ? C.activeBorder : 'transparent'}`),
+                    borderRight: isMobile && isActive && !isSajda ? `3px solid ${C.activeBorder}` : 'none',
                     cursor: 'pointer', transition: 'all 0.18s',
                   }}
                   onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
@@ -8487,28 +8582,35 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       aria-label={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
                       onMouseEnter={e => {
                         e.currentTarget.style.transform = 'scale(1.08)';
-                        e.currentTarget.style.borderColor = `${C.gold}`;
-                        e.currentTarget.style.boxShadow = `0 0 0 3px ${C.gold}22`;
+                        e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : `${C.gold}`;
+                        e.currentTarget.style.boxShadow = isSajda
+                          ? `0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.28)' : 'rgba(46,204,113,0.32)'}`
+                          : `0 0 0 3px ${C.gold}22`;
                       }}
                       onMouseLeave={e => {
                         e.currentTarget.style.transform = 'scale(1)';
-                        e.currentTarget.style.borderColor = `${C.gold}${isActive ? 'cc' : '88'}`;
-                        e.currentTarget.style.boxShadow = 'none';
+                        e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : '88'}`;
+                        e.currentTarget.style.boxShadow = isSajda
+                          ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}`
+                          : 'none';
                       }}
                       style={{
                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                         width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
                         borderRadius: RADIUS.full, flexShrink: 0,
-                        border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.gold}${isActive ? 'cc' : '88'}`}`,
+                        // Secde âyeti — DOLGULU yeşil daire + beyaz rakam (Diyanet'in renkli
+                        // ayet numarası yaklaşımının muadili; renk seçimi yeşil, §4 Kur'anî yeşil).
+                        border: `1.5px solid ${isSajda ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : '88'}`}`,
                         background: isSajda
-                          ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
+                          ? (dayMode ? '#1a7a4c' : '#1f8f59')
                           : (dayMode
                               ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
                               : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
-                        color: isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.gold,
+                        boxShadow: isSajda ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}` : 'none',
+                        color: isSajda ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
                         fontSize: verse.ayah >= 100 ? (isMobile ? '0.82rem' : '0.94rem') : verse.ayah >= 10 ? (isMobile ? '0.94rem' : '1.08rem') : (isMobile ? '1.04rem' : '1.2rem'),
                         fontFamily: "'Inter', sans-serif", lineHeight: 1, letterSpacing: '-0.01em',
-                        fontWeight: dayMode ? 600 : 400,
+                        fontWeight: isSajda ? 700 : (dayMode ? 600 : 400),
                         cursor: 'pointer',
                         padding: 0,
                         transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
@@ -8533,7 +8635,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
                               color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
                             }}>
-                              {language === 'tr' ? 'Secde' : 'Sajda'} ۩
+                              {contentLang === 'tr' ? 'Secde' : 'Sajda'} ۩
                             </span>
                           )}
                         </p>
