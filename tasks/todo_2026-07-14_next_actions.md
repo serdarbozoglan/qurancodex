@@ -13,7 +13,7 @@
 ## 🟢 P0 — Hızlı kazanç (renk-nötr)
 - [x] **A1. Metodoloji görünürlüğü** ✅ `27659db` (2026-07-25) — Anasayfa Hero+Concierge sonrası **MethodologyRibbon** ("Örtüşme ≠ Kanıt" + 3 chip: Hafs mushafı/klasik tefsir+akademik/örtüşme≠kanıt + /hakkinda linki). Renk-nötr, TR/EN, desktop+mobil 200. **Header linki YAPILMADI** (navbar dolu + risk; footer'da site-geneli link zaten var). [GPT #1 kısmen + #12]
 - [x] **A2. /sor Concierge güven katmanı** ✅ (2026-07-25) — Sonuçların sonuna kalıcı "Sınırlar" notu (fetva değildir + ehil âlime danışın). Kart-Concierge zaten yorum katmıyor (kaynak gösterir) → "sadece kaynak göster" default. Desktop+mobil 200. [GPT #4]
-- [ ] **A3. Mobil hero CTA** (~1s) — Mobilde 2 net buton ("Kur'an'ı Oku" + "Keşfe Başla") + "Devam" dokunma hedefi ≥44px. [GPT #8]
+- [x] **A3. Mobil hero CTA** ✅ (2026-07-25) — Mobil sahne 1'e 2 buton (Kur'an'ı Oku + Keşfe Başla, ≥44px); mobilde Devam chevron gizlendi (butonlar yerini aldı). Desktop değişmedi. [GPT #8]
 
 ## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
 - [ ] **B1. Araç "Veri Sözlüğü (i)" paneli** (~1g, reusable) — Sayım araçlarına (önce Esmâ-frekans + Kelime Isı Haritası) üstte açılır panel: mushaf · kıraat (Hafs) · sayım kuralı (kelime/kök/lemma) · dahil-hariç (besmele, tekrar). [GPT #3] ← **en güçlü güvenilirlik kaldıracı** ("seçmeci istatistik" eleştirisini kapatır)
