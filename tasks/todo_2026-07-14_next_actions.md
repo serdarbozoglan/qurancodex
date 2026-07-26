@@ -18,7 +18,7 @@
 ## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
 - [x] **B1. Araç "Veri Sözlüğü (i)" paneli** ✅ (2026-07-25) — Reusable DataDictionary + WordHeatmap entegrasyonu (kaynak/birim/girdi/not, sayım kuralları KODDAN). Esmâ-frekans ZATEN kendi Methodology+Metodolojik Nüans'ına sahip → duplike edilmedi. Desktop+mobil 200. [GPT #3]
 - [x] **B2. "Örtüşme / Yorum Katmanı" etiketi** ✅ (2026-07-25) — Reusable FramingBadge + BilimselIsaretler hero ("Örtüşme Okuması — 'Bilimsel Mucize' İddiası Değil"). Derin framing (descTr + Bucaillism tab + criticalNote) zaten vardı → badge taranabilir kıldı. Desktop+mobil 200. [GPT #1 + #9]
-- [ ] **B4. Atlas → okuma köprüsü** (~yarım g) — Kıssa Atlası (ve benzerleri) seçili sahnede belirgin **"Ayetleri Oku"** + "Tefsire git" CTA. [GPT #10]
+- [x] **B4. Atlas → okuma köprüsü** ✅ (2026-07-25) — KissaAtlas versePeek paneline "Bu sûreyi Oku modunda aç (tam metin + tefsir)" köprüsü → /oku/[surah]. Tefsir Reading Mode'da (ayrı route uydurulmadı). Desktop+mobil 200. [GPT #10]
 
 ## 🟠 P2 — Daha büyük / sonraya (renk-nötr)
 - [ ] **C1. İddia kartlarına 3'lü kaynak rozeti** (Ayet · Tefsir · Akademik) — SourcesCitation'ı genişlet; tam citation drawer sonra. [GPT #2]
