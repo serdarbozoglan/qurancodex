@@ -2,6 +2,52 @@
 
 ---
 
+# 🟣 GPT-5.2 REVIEW — ACTION ITEMS (2026-07-25) — AKTİF, ADIM ADIM
+
+> **Kaynak:** GPT-5.2 (`gpt-5.2`), 5 ekran görüntüsü + site brief ile içerik+görsel review (~$0.04 · 9.370 token). Epistemik kısıta tam uyumlu — **karşı-argüman YOK, Kur'an üstünlüğü korunur.**
+>
+> **🎨 RENK-FREEZE KURALI (2026-07-25 kullanıcı kararı):** Palet/tema **DONUK.** Koyu kozmik (#0a0a1a) + antika altın (#d4a574) kimliği değişmez. Yeni bileşenler **mevcut token'ları** kullanır, yeni renk üretmez. Palete dokunan 2 madde parklandı (aşağıda ⛔). Açık/light tema YASAK (denendi, reddedildi).
+>
+> **Çalışma ritmi:** Her madde → uygula → localhost test (desktop + mobil 390px) → commit → **push için ayrı onay.**
+
+## 🟢 P0 — Hızlı kazanç (renk-nötr)
+- [ ] **A1. Metodoloji görünürlüğü** (~1-2s) — Header'a "Metodoloji" linki (Hakkında sayfası var ama footer'da saklı) + anasayfa hero-sonrası mini **"Örtüşme ≠ Kanıt"** güven bloğu (kullandığımız mushaf · tefsir külliyatı · "kanıt değil örtüşme"). [GPT #1 kısmen + #12]
+- [ ] **A2. /sor Concierge güven katmanı** (~2-3s) — Cevap formatına sabit **"Sınırlar"** bölümü + "Bu fıkhî bir hüküm değildir; uygulama için ehil âlime danışın" uyarısı. Ops: "sadece kaynak göster" modu. [GPT #4]
+- [ ] **A3. Mobil hero CTA** (~1s) — Mobilde 2 net buton ("Kur'an'ı Oku" + "Keşfe Başla") + "Devam" dokunma hedefi ≥44px. [GPT #8]
+
+## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
+- [ ] **B1. Araç "Veri Sözlüğü (i)" paneli** (~1g, reusable) — Sayım araçlarına (önce Esmâ-frekans + Kelime Isı Haritası) üstte açılır panel: mushaf · kıraat (Hafs) · sayım kuralı (kelime/kök/lemma) · dahil-hariç (besmele, tekrar). [GPT #3] ← **en güçlü güvenilirlik kaldıracı** ("seçmeci istatistik" eleştirisini kapatır)
+- [ ] **B2. "Örtüşme / Yorum Katmanı" etiketi** (~yarım g, reusable) — "işaret/örüntü" bölümlerine (Bilimsel İşaretler öncelikli) standart badge + Gözlem/Metin/Örtüşme çerçevesi. Mevcut token, **yeni renk yok.** [GPT #1 + #9]
+- [ ] **B4. Atlas → okuma köprüsü** (~yarım g) — Kıssa Atlası (ve benzerleri) seçili sahnede belirgin **"Ayetleri Oku"** + "Tefsire git" CTA. [GPT #10]
+
+## 🟠 P2 — Daha büyük / sonraya (renk-nötr)
+- [ ] **C1. İddia kartlarına 3'lü kaynak rozeti** (Ayet · Tefsir · Akademik) — SourcesCitation'ı genişlet; tam citation drawer sonra. [GPT #2]
+- [ ] **C2. Anasayfa "Keşif Rotası" progress UI** + bölüm sonu tek CTA. [GPT #5]
+- [ ] **C3. "Araçlar" menüsü: editoryal Top 5** + kartlara "kime uygun?" etiketi (Yeni başlayan/Araştırmacı/Hafız). [GPT #7]
+- [ ] **C4. Kaynakça'yı filtrelenebilir yap** (Tefsir/Ulûmü'l-Kur'ân/Dilbilim/Tarih). [GPT #12b]
+
+## 🔵 D — Senin editoryal kararın (otomatik YAPMA, onay bekler)
+- [ ] **D1. Başlık yumuşatma** — "İmkansız Ritim"→"Ritmin İncelikleri", "Sıfır Gereksizlik"→**"Metinsel Ekonomi (İcâz)"**. `no-downgrade` ile gerilim (bu *çerçeveleme*, içerik zayıflatma değil). [GPT #1 titles]
+
+## ⛔ PARKLANDI (renk-freeze)
+- **B3. Metin kontrastı (griyi açma)** — ERTELE. Yalnız ölçülmüş bir WCAG hatası bulunursa, tek token'da izole + geri-alınabilir tık. Site-geneli tarama YAPMA. Reading Mode + mobil font sistemine **DOKUNMA** (memory kuralı). [GPT #6]
+- **C5. Chip/ikon paleti konsolidasyonu** — SKIP. Daha önce de "atla" denmişti; kritik değil, çok bileşene dokunur, renk-freeze kapsamında. [GPT #11]
+
+## 🎨 RENK DEĞERLENDİRMESİ (Claude — kendi analizim, 2026-07-25)
+**Genel yargı:** Koyu kozmik (#0a0a1a) + antika altın (#d4a574) palet **güçlü, tutarlı, premium** — kimlik doğru, DEĞİŞTİRME. Estetik renk/tema **donuk** kalır.
+- Altın accent tek ve tutarlı → iyi. Glassmorphism + gold-glow "wow" üretiyor → koru.
+- Chip çok-renkliliği (mor/mavi/altın): GPT tutarsız buldu; bence **kategorik anlam taşıyor** (kabul edilebilir) → konsolidasyon kozmetik, SKIP.
+- **Estetik hiçbir renk değişikliği önermiyorum.** Açık tema fiyaskosu (bu oturum) bunu doğruladı: renk = regresyon riski + öznel anlaşmazlık.
+
+**TEK meşru renk action item'ı — estetik DEĞİL, ERİŞİLEBİLİRLİK (correctness):**
+- [x] **E1. Ölçülmüş WCAG kontrast denetimi** ✅ ÖLÇÜLDÜ (2026-07-25) → **KAPALI, freeze doğrulandı.** Ana gövde (offWhite %100 = 15.74) + ikincil (silver %100 = 7.65) + gold (%100 = 8.81) **AA'yı rahat geçiyor.** Tek zayıflık: %55-70 opaklıklı KÜÇÜK etiketler (eyebrow/caption/whisper) AA-normal altı ama çoğu AA-large (3:1) geçiyor ve bilinçle soluk. **Sistematik değişiklik YOK** (over-correction riski). Opsiyonel marjinal mikro-dokunuş (en soluk küçük etiketleri %70'e / `offWhiteAlpha72`) — değmez, itilmedi. **Renkler sağlam, freeze kalıcı.**
+
+**Sonuç:** Estetik renk = **donuk**. Dokunulabilir tek renk konusu = ölçülmüş WCAG kontrast (E1) — o da yalnız ölçüm gerçekten fail verirse; aksi halde renk işi YOK.
+
+**Önerilen sıra:** A1 → A2 → A3 → B1 → B2 → B4 → (P2). E1 istenirse önce ölçüm. GPT-5.2 tam feedback + maliyet: bu oturum kaydı.
+
+---
+
 # 🎯 YAPILMASI GEREKENLER — SIRADAKI (2026-07-24 güncel değerlendirme)
 
 > **DURUM: Kritik ve yüksek-değer işlerin TAMAMI bitti + push edildi (`500d232`).**
