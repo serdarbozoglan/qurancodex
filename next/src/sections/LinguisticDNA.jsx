@@ -81,8 +81,8 @@ const GROUPS = [
       '🔹 Bakara & Âl-i İmrân (Medenî): Kitap ile toplumsal ve hukuki inşa',
       '🔹 Lokmân & Secde (Mekkî): Kozmik deliller, hikmet ve yaratılışa secde',
       '🔸 Ankebût (Mekkî): İmanın sarsıcı sınavı — "Sınanmayacaklarını mı sandılar?" (29:2)',
-      '🔸 Rûm (Mekkî): Bizans-Pers savaşı kehanetinin doğrulanması — modern okumayla "vahyin tarihsel ispatı" olarak yorumlanır',
-      '→ not: 4+2 yapısı — vahyin hem metin (Kitap) hem hayat (İmtihan & Tarih) olarak ispatı',
+      '🔸 Rûm (Mekkî): Bizans-Pers savaşına dair haberin tarihsel gerçekleşmesi — modern okumayla tarihsel bir teyit/temas noktası olarak değerlendirilir',
+      '→ not: 4+2 yapısı — vahyin hem metin (Kitap) hem hayat (İmtihan & Tarih) boyutu',
     ],
     bulletsEn: [
       '🔹 Al-Baqarah & Al-Imran (Medinan): Building society and law through the Book',
@@ -221,8 +221,8 @@ const DISCOVERIES = [
     desc: '114 sûrelik dizilimde, 7 sûre hiç bölünmeden aynı kodla (حم) art arda sıralanıyor. Bir "aile", bir yazılım modülü gibi.',
     descEn: 'In a sequence of 114 suras, 7 run consecutively with the same code (حم) — like a family, like a software module.',
     sequence: [40, 41, 42, 43, 44, 45, 46],
-    footnote: 'Rastgele 114 birimlik bir kümede, aynı işaretli 7 birimin kesintisiz dizilme olasılığı istatistiksel olarak bir anomalidir.',
-    footnoteEn: 'In a random set of 114 units, the probability of 7 identically-marked units lining up without interruption is a statistical anomaly.',
+    footnote: '114 sûrelik dizide aynı mukattaa harflerini (حم) taşıyan 7 sûrenin ardışık gelmesi, dikkat çekici yapısal bir örüntüdür.',
+    footnoteEn: 'In a sequence of 114 suras, 7 consecutive suras sharing the same disconnected letters (حم) form a striking structural pattern.',
   },
   {
     num: '1.400+',

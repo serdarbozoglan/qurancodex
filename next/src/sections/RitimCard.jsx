@@ -127,8 +127,8 @@ export default function RitimCard() {
           margin: '0 auto 40px',
         }}>
           {tr
-            ? "7. yüzyıl Arabistanı'nda dil iki kutuptan ibaretti: 16 vezne sahip katı şiir, ya da serbest düzyazı. Kur'an her ikisinden de farklı — ritmik ama vezinsiz, disiplinli ama özgür. Dilbilimciler buna sui generis (eşsiz tür) diyor."
-            : "In 7th-century Arabia, language had two poles: rigid poetry with 16 meters, or free prose. The Quran is neither — rhythmic yet meterless, disciplined yet free. Linguists call this sui generis (a unique kind)."}
+            ? "7. yüzyıl Arabistanı'nda dil iki kutuptan ibaretti: 16 vezne sahip katı şiir, ya da serbest düzyazı. Kur'an her ikisinden de farklı — ritmik ama vezinsiz, disiplinli ama özgür. Klasik belâgat geleneği bunu i'câz-ı beyân çerçevesinde eşsiz bir form sayar."
+            : "In 7th-century Arabia, language had two poles: rigid poetry with 16 meters, or free prose. The Quran is neither — rhythmic yet meterless, disciplined yet free. The classical rhetorical tradition regards this as a unique form within iʿjāz al-bayān."}
         </p>
 
         <motion.div

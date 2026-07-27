@@ -4,12 +4,12 @@
     "linguistic": "Dilsel DNA",
     "sounds": "Ses Mimarisi",
     "science": "Bilimsel İşaretler",
-    "history": "Tarihsel Kanıtlar",
+    "history": "Tarihsel İzler",
     "conclusion": "Sonuç"
   },
   "hero": {
     "title": "KUR’AN-I KERİM’İN GÖRÜNMEYEN MİMARİSİ",
-    "subtitle": "Dilbilimsel, Matematiksel ve Bilimsel Kanıtlarla",
+    "subtitle": "Dilbilimsel, Matematiksel ve Yapısal Katmanlarıyla",
     "description": "Bazı metinler okunur. Bazıları ise incelendikçe derinleşir.\n\nKur’an, 1.400 yıldır dilbilimsel, matematiksel ve yapısal katmanlarıyla araştırılan benzersiz bir metin.\n\nHer kelime yerli yerinde. Her yapı bilinçli. Ve keşfedilmeyi bekleyen hâlâ çok şey var.",
     "cta": "İlk Kapıyı Aç",
     "ctaRead": "Kur’an’ı Oku",
@@ -50,7 +50,7 @@
   "impossibleRhythm": {
     "badge": "İmkansız Ritim",
     "title": "Ne Şiir, Ne Düzyazı",
-    "intro": "7. yüzyıl Arabistan'ında dil iki kutuptan ibaretti: 16 farklı vezne sahip katı şiir geleneği, ya da serbest düzyazı. Başka bir form düşünülemezdi. Kur'an geldiğinde, Araplar şaşkına döndü. Bu metin 16 vezinden hiçbirine uymuyordu - ama düzyazı da değildi. Ritmiydi ama ölçüsüzdü. Disiplinliydi ama özgürdü. Daha önce hiç duyulmamış bir formdu. Dilbilimciler buna sui generis (eşsiz, benzersiz tür) diyor. Kur'an'ın dili, edebiyat tarihinde kendi kategorisini yarattı.",
+    "intro": "7. yüzyıl Arabistan'ında baskın edebî formlar ölçülü şiir ve secili/serbest hitabetti; Kur'an'ın üslubu ise çağdaşlarınca bu kalıplarla tam örtüşmeyen, ritmik ama ölçüye indirgenemeyen bir söyleyiş olarak algılandı. Klasik belâgat geleneği (Bâkıllânî, Cürcânî) bu 'ne şiir ne düzyazı' formunu i'câz-ı beyân çerçevesinde eşsiz sayar — kendine özgü bir kategori.",
     "poetry": "Şiir",
     "poetryDesc": "16 farklı vezne bağlı katı yapı",
     "quran": "KUR'AN",
@@ -96,8 +96,8 @@
   },
   "soundArchitecture": {
     "badge": "Ses Mimarisi",
-    "title": "Sesler Tesadüf Değil",
-    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Yoğun, patlayıcı ünsüzler duyarsınız: ق ك ط — boğazda, dilde, damakta gerilim. Şimdi rahmet ve cennet ayetlerini okuyun. Akıcı sesler duyarsınız: م ن (nazal), ل ر (likit). Nefes yumuşar. Bu kontrast tesadüf değil — modern dilbilim buna 'ses sembolizmi' der; klasik İslamî gelenek ise bunu yüzyıllar önce tafhîm ve tarqîq adıyla kodlamıştı.",
+    "title": "Seslerin Mimarisi",
+    "intro": "Kur'an'da azap ve cehennem anlatan ayetleri yüksek sesle okuyun. Yoğun, patlayıcı ünsüzler duyarsınız: ق ك ط — boğazda, dilde, damakta gerilim. Şimdi rahmet ve cennet ayetlerini okuyun. Akıcı sesler duyarsınız: م ن (nazal), ل ر (likit). Nefes yumuşar. Bu kontrast dikkat çekicidir — modern dilbilim benzer olguları 'ses sembolizmi' başlığında inceler. (Not: klasik tecvidin tafhîm/tarqîq'i harflerin kalın/ince telaffuz kuralıdır; modern ses-anlam sembolizmiyle birebir aynı olgu değildir.)",
     "phonetics": {
       "title": "Ses Sembolizmi — İki Gelenek, Tek Olgu",
       "description": "Modern fonetik (Sapir 1929; Köhler'in bouba/kiki etkisi, 1929) seslerin kendi başlarına anlam taşıdığını gösterir: patlayıcı ünsüzler (ق ك ط) gerilim, nazaller (م ن) ve likitler (ل ر) gevşeme çağrıştırır. Klasik İslamî tecvid bilimi ise aynı olguyu çok daha önce kategorilere ayırmıştı — kalın/ince (tafhīm/tarqīq), sert/yumuşak (şiddet/rahâvet), titrek/durağan (qalqala). Kur'an'da bu örüntü, sözün konusuyla sesin dokusu arasındaki sistematik uyumu işaret eder."
@@ -206,7 +206,7 @@
       "title": "Klasik Tanıklık",
       "authorTr": "Ebû Bekir el-Bâkıllânî (ö. 1013)",
       "workTr": "İ'câzü'l-Kur'an",
-      "quoteTr": "\"Kur'an'ın nazmı, Arapların kelâmının ne şiirine ne hutbesine ne de seclerine benzer; her birinden ayrı, kendine özgü bir nizamı vardır. Sesin diziminde bile bir mucize taşır.\"",
+      "quoteTr": "Bâkıllânî'ye göre Kur'an'ın nazmı, Arap kelâmının ne şiirine ne hutbesine ne de secîne benzer; her birinden ayrı, kendine özgü bir nizamı vardır.",
       "noteTr": "Bâkıllânî 11. yüzyılda Kur'an'ın i'câzını (eşsizliğini) ses-mâna uyumuna dayandıran ilk sistematik çalışmayı yazdı. Cürcânî bunu 'nazm teorisi' ile genişletti."
     },
     "closing": "Kur'an'da ses ve anlam tek bir dokunun iki yüzüdür — biri diğerini taşır."
@@ -700,7 +700,7 @@
       }
     },
     "termsTitle": "4 Farklı İnsan Kelimesi",
-    "termsSubtitle": "Kur'an insan için 4 farklı Arapça kelime kullanır. Her biri farklı bir anlam katmanı taşır — bu tesadüf değil, bilinçli bir terminoloji sistemidir.",
+    "termsSubtitle": "Kur'an insan için 4 farklı Arapça kelime kullanır. Her biri farklı bir anlam katmanı taşır — her biri farklı bir anlam katmanı taşır.",
     "termsSourceNote": "Kelime sayıları: Quranic Arabic Corpus, Leeds Üniversitesi (corpus.quran.com)",
     "termsCountLabel": "kez geçiyor",
     "termsNoteLabel": "Bağlam",
@@ -1182,7 +1182,7 @@
             "arabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
             "translation": "Ey iman edenler! Sabır ve namazla (Allah'tan) yardım isteyin.",
             "reference": "Bakara, 2:153",
-            "description": "Sabır Türkçede 'katlanmak' çağrışımı taşır ama Kur'an'da aktif bir dirençtir. Sebat etmek, vazgeçmemek, ilerlemeye devam etmek. Kur'an sabırsızlıktan değil, korkakça teslimiyetten kaçınmamızı ister. Sabrın 90'dan fazla ayette geçmesi tesadüf değildir.",
+            "description": "Sabır Türkçede 'katlanmak' çağrışımı taşır ama Kur'an'da aktif bir dirençtir. Sebat etmek, vazgeçmemek, ilerlemeye devam etmek. Kur'an sabırsızlıktan değil, korkakça teslimiyetten kaçınmamızı ister. Kur'an sabra belirgin bir ağırlık verir; doksanı aşkın ayette geçer.",
             "modernNote": "Klinik psikolojideki 'distress tolerance' (sıkıntıya tahammül) ve ACT terapisindeki 'psikolojik esneklik' kavramlarıyla örtüşür."
           },
           {
