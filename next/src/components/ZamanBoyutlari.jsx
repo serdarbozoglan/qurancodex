@@ -245,9 +245,9 @@ const ACCORDION_ITEMS = [
     titleTr: 'Zaman Göreli midir?',
     titleEn: 'Is Time Relative?',
     bodyTr:
-      "Meâric 70:4'teki 50.000 yıllık gün ve Einstein'ın görelilik teorisi arasında çarpıcı bir felsefi örtüşme var: gravitational time dilation, kütlenin zamanı büktüğünü söyler. Kur'an Allah katındaki zamanın insan zamanından farklı aktığını söyler. İkisi aynı şeyi mi söylüyor?",
+      "Meâric 70:4'teki 50.000 yıllık gün ve Einstein'ın görelilik teorisi arasında felsefî düzeyde çağrıştırıcı bir benzerlik kurulur: gravitational time dilation, kütlenin zamanı büktüğünü söyler. Kur'an Allah katındaki zamanın insan zamanından farklı aktığını söyler. Bu bir özdeşlik değil, düşündürücü bir çağrışımdır.",
     bodyEn:
-      "There is a striking philosophical overlap between the 50,000-year day of Meâric 70:4 and Einstein's theory of relativity: gravitational time dilation says mass bends time. The Quran says time near God flows differently than human time. Do they say the same thing?",
+      "There is a philosophically evocative resemblance between the 50,000-year day of Meâric 70:4 and Einstein's theory of relativity: gravitational time dilation says mass bends time. The Quran says time near God flows differently than human time. This is not an identity but a thought-provoking resonance.",
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
     mealTr: 'Süresi elli bin yıl olan bir günde.',
     mealEn: 'On a day whose measure is fifty thousand years.',
@@ -1117,8 +1117,8 @@ export default function ZamanBoyutlari({ onClose }) {
               </p>
               <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
                 {language === 'tr'
-                  ? "Özel görelilik: hıza bağlı zaman uzaması. Genel görelilik: kütle çekimi zamanı yavaşlatır. Saat, gözlemcinin durumuna göre değişir — bir saat gerçekten 1.000 yıl gibi geçebilir. Kur'an'ın \"bir gün Rabbinin katında bin yıl gibidir\" (Hac 22:47) ifadesi, modern fizik perspektifinden çağrışım uyandırır — ama bu nedensel bir çıkarsama değil, kavramsal bir resonanstır."
-                  : "Special relativity: time dilation with velocity. General relativity: gravity slows time. A clock varies with the observer's frame — a day really can pass like 1,000 years. The Quran's 'a day with your Lord is like a thousand years' (Ḥajj 22:47) resonates conceptually with modern physics — but the link is one of evocation, not causal inference."}
+                  ? "Özel görelilik: hıza bağlı zaman uzaması. Genel görelilik: kütle çekimi zamanı yavaşlatır. Saat, gözlemcinin durumuna göre değişir — iki gözlemcinin saatleri koşullarına göre belirgin biçimde ayrışabilir. Kur'an'ın \"bir gün Rabbinin katında bin yıl gibidir\" (Hac 22:47) ifadesi, modern fizik perspektifinden çağrışım uyandırır — ama bu nedensel bir çıkarsama değil, kavramsal bir resonanstır."
+                  : "Special relativity: time dilation with velocity. General relativity: gravity slows time. A clock varies with the observer's frame — two observers' clocks can diverge markedly depending on their conditions. The Quran's 'a day with your Lord is like a thousand years' (Ḥajj 22:47) resonates conceptually with modern physics — but the link is one of evocation, not causal inference."}
               </p>
             </div>
           </div>
