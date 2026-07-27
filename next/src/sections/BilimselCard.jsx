@@ -68,7 +68,7 @@ export default function BilimselCard() {
           letterSpacing: '-0.015em',
           margin: '0 0 36px',
         }}>
-          {tr ? "Klasik Tefsir + Modern Paralel + Eleştirel Çerçeve" : "Classical Tafsir + Modern Parallel + Critical Frame"}
+          {tr ? "Kur'an Haber Verir; Gerisi Tefekkürdür" : "The Quran Informs; The Rest Is Reflection"}
         </h2>
 
         <div style={{ marginBottom: '36px' }}>

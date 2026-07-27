@@ -1025,6 +1025,7 @@ Kur'an Allah kelamıdır ve harfi harfine doğrudur; hakikati **beşerî keşifl
 - ❌ Kur'an'ı belirli/çürük/tartışmalı bir bilimsel iddiaya **bağlamak** (bilim değişince Kur'an düşmüş görünür).
 - ❌ Bucaille'ı omurga referans yapmak; "akademik olarak kabul görür" gibi **yanlış** genellemeler.
 - ❌ Doğrulayamadığın spesifik atıf (sayfa no, tarih-kişi eşleştirmesi) yazmak — genel atıf ver.
+- ❌ **TASDİKİN YÖNÜ — "bilim/tarih/arkeoloji tasdik eder / confirms / proves"** (bilimi/arkeolojiyi Kur'an'ın **hakemi/doğrulayanı** yapan her ifade). Tasdikin öznesi bilim/arkeoloji **olamaz**. Yalnızca şu geçerli: **"Kur'ân haber verir, BİZ tasdik ederiz; bulgu tefekküre vesiledir."** "Bilim tasdik eder" dersen Kur'an'ın doğruluğu bilimin onayına **bağımlı** hâle gelir; bilim değişince Kur'an düşmüş görünür (çürüyen bizim iddiamızdır, Kur'an değil). Aynı yasak: "confirmed by archaeology", "kanıt/proof/evidence" başlık dili, "bilimin X yıl sonra keşfettikleri" (= gizli "bilinemezdi→mucize" çerçevesi). Örtüşme ifade edilecekse **"örtüşür / coincides / aligns / dikkat çekici uyum"** kullanılır — asla "doğrular/confirms/proves". Bu incelik iki kez ihlal edildi (Kehf 300/309; "Bilim Tasdik Eder" başlık önerisi), kullanıcı 2026-07-26 explicit uyardı.
 
 #### YASAK — ters uç (gereksiz reddediş)
 - ❌ Bulguları "hiçbir şekilde ilişkilendirilemez" diye **gereksiz reddetmek.**

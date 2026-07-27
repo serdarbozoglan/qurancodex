@@ -97,7 +97,7 @@ const GATES = [
     titleEn: 'Discover by Data, Understand by Visual',
     descTr: 'Ayet graf · kavram ağı · kelime ısı haritası · sûre DNA · semantik harita',
     descEn: 'Verse graph · concept network · word heatmap · sura DNA · semantic map',
-    chipsTr: ['Ayet Graph', 'Kavram', 'Kelime Isı', 'Sûre DNA', 'Semantik'],
+    chipsTr: ['Ayet Grafı', 'Kavram', 'Kelime Isı', 'Sûre DNA', 'Semantik'],
     chipsEn: ['Verse Graph', 'Concept', 'Word Heat', 'Sura DNA', 'Semantic'],
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
@@ -295,7 +295,7 @@ function Gate({ gate, isMobile, language }) {
         textTransform: 'uppercase',
         paddingTop: '6px',
       }}>
-        <span>{gate.scrollTo ? (tr ? 'Bu yola atla' : 'Jump to path') : (tr ? 'Sayfaya git' : 'Visit page')}</span>
+        <span>{tr ? 'Keşfet' : 'Explore'}</span>
         <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>→</span>
       </div>
     </motion.div>

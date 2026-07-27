@@ -119,7 +119,7 @@ export default function TarihselCard() {
           maxWidth: '620px',
           margin: '0 auto 40px',
         }}>
-          {tr ? "Firavun'un bedeninin korunacağı (Yûnus 10:92) — 1881'de Maspero'nun Deir el-Bahari kazısı. Hâmân ismi Kur'an'da Firavun'un veziri — 1799'da Rosetta Taşı'na kadar bilinmiyordu. Rûm 30:2-4 Bizans'ın yenilgisinin ardından zaferini önceden bildirir — yıllar sonra gerçekleşti." : "The preservation of Pharaoh's body (Yūnus 10:92) — Maspero's 1881 excavation at Deir el-Bahari. The name Hāmān as Pharaoh's minister in the Quran — unknown until the 1799 Rosetta Stone. Ar-Rūm 30:2-4 foretells the Byzantine victory after their defeat — fulfilled years later."}
+          {tr ? "Firavun'un bedeninin ibret için korunacağı (Yûnus 10:92) — 1881'de Maspero'nun Deir el-Bahari keşifleriyle modern literatürde daha görünür hâle gelen kraliyet mumyaları. Hâmân, Kur'an'da Firavun'un çevresinden biri olarak anılır. Rûm 30:2-4 Bizans'ın yenilgisinin ardından galip geleceğini önceden bildirir — birkaç yıl içinde gerçekleşti." : "The preservation of Pharaoh's body as a lesson (Yūnus 10:92) — the royal mummies that became more visible in modern literature through Maspero's 1881 Deir el-Bahari excavation. Hāmān is mentioned in the Quran as one of Pharaoh's circle. Ar-Rūm 30:2-4 foretells a Byzantine victory after their defeat — fulfilled within a few years."}
         </p>
 
         <motion.div
@@ -169,7 +169,7 @@ export default function TarihselCard() {
             lineHeight: 1.6,
           }}
         >
-          {tr ? "Firavun · Hâmân · Bizans — üç tartışmalı iz, üç doğrulama" : "Pharaoh · Hāmān · Byzantium — three debated traces, three confirmations"}
+          {tr ? "Firavun · Hâmân · Bizans — Kur'ân'ın haber verdiği üç iz" : "Pharaoh · Hāmān · Byzantium — three traces the Qur'an relates"}
         </motion.p>
       </motion.div>
     </section>
