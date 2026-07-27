@@ -12,7 +12,7 @@ const CHAPTERS = [
   { id: 'sounds',              labelTr: 'Ses Mimarisi',         labelEn: 'Sound Architecture'      },
   { id: 'hidden-architecture', labelTr: 'Yapısal Mimari',       labelEn: 'Structural Architecture' },
   { id: 'science',             labelTr: 'Bilimsel İşaretler',   labelEn: 'Scientific Signs'        },
-  { id: 'history',             labelTr: 'Tarihsel Kanıtlar',    labelEn: 'Historical Proof'        },
+  { id: 'history',             labelTr: 'Tarihsel İzler',    labelEn: 'Historical Traces'        },
   { id: 'preservation',        labelTr: 'Yaşayan Koruma',       labelEn: 'Living Preservation'     },
   { id: 'redundancy',          labelTr: 'Sıfır Gereksizlik',    labelEn: 'Zero Redundancy'         },
   { id: 'highlights',          labelTr: 'Öne Çıkanlar',         labelEn: 'Highlights'              },

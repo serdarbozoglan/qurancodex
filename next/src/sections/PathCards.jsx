@@ -95,13 +95,13 @@ const PATHS = [
     titleEn: 'Universe and Science',
     descTr: 'Kâinat ayetleri ve bilim — paralellikler ve sınırlar',
     descEn: 'Cosmic verses and science — parallels and limits',
-    // Pill preview must match paths.jsx step order. Tarihsel Kanıtlar moved
+    // Pill preview must match paths.jsx step order. Tarihsel İzler moved
     // here from the Prophets path because its content is archaeological
     // verification (same epistemic category as Scientific Signs). Cennet &
     // Cehennem removed — eschatology, not physical cosmos.
     steps: [
       { tr: 'Bilimsel İşaretler', en: 'Scientific Signs' },
-      { tr: 'Tarihsel Kanıtlar',  en: 'Historical Proof' },
+      { tr: 'Tarihsel İzler',  en: 'Historical Traces' },
       { tr: 'Kevni Ayetler',      en: 'Cosmic Signs' },
       { tr: 'Zaman Boyutları',    en: 'Dimensions of Time' },
     ],

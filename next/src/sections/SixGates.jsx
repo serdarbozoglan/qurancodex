@@ -41,8 +41,8 @@ const GATES = [
     titleEn: 'Cosmic Signs 1,400 Years Earlier',
     descTr: 'Demir · genişleyen evren · iki deniz · embriyoloji · Firavun · Hâmân · hâfız zinciri',
     descEn: 'Iron · expanding universe · two seas · embryology · Pharaoh · Hāmān · ḥuffāẓ chain',
-    chipsTr: ['Bilimsel İşaretler', 'Tarihsel Kanıtlar', 'Yaşayan Koruma'],
-    chipsEn: ['Scientific Signs', 'Historical Proofs', 'Living Preservation'],
+    chipsTr: ['Bilimsel İşaretler', 'Tarihsel İzler', 'Yaşayan Koruma'],
+    chipsEn: ['Scientific Signs', 'Historical Traces', 'Living Preservation'],
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>

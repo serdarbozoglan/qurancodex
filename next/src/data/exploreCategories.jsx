@@ -401,7 +401,7 @@ export const EXPLORE_CATEGORIES = [
   {
     // 2026-07-10 revizyonu: 'İNSAN & TOPLUM'. Önceki adı 'TARİH & İNSAN'dı;
     // 10 item'ın 8'i iç dünya/toplum (Sünnetullah, İblis, Münâfık dahil), sadece
-    // 2'si tarih (Kavimler, Tarihsel Kanıtlar) — başlıkla içerik uyumsuzdu.
+    // 2'si tarih (Kavimler, Tarihsel İzler) — başlıkla içerik uyumsuzdu.
     // İbadetler kolondan çıkarıldı → FEATURED_EXPLORE_ITEM (mega-menu banner).
     id: 'history',
     titleTr: 'İNSAN & TOPLUM',
@@ -486,7 +486,7 @@ export const EXPLORE_CATEGORIES = [
         kind:   'section',
         target: 'tarih-card',
         icon:   LandmarkIcon,
-        titleTr: 'Tarihsel Kanıtlar',     titleEn: 'Historical Proof',
+        titleTr: 'Tarihsel İzler',     titleEn: 'Historical Traces',
         descTr: 'Firavun, Haman, Roma',
         descEn: 'Pharaoh, Haman, Rome',
       },

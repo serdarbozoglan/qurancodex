@@ -18,7 +18,7 @@ const CHAPTERS = [
   { id: 'halka-card',          labelTr: 'Yapısal Mimari',       labelEn: 'Structural Architecture' },
   { id: 'tekrar-card',         labelTr: 'Sıfır Gereksizlik',    labelEn: 'Zero Redundancy'         },
   { id: 'bilimsel-card',       labelTr: 'Bilimsel İşaretler',   labelEn: 'Scientific Signs'        },
-  { id: 'tarih-card',          labelTr: 'Tarihsel Kanıtlar',    labelEn: 'Historical Proof'        },
+  { id: 'tarih-card',          labelTr: 'Tarihsel İzler',    labelEn: 'Historical Traces'        },
   { id: 'koruma-card',         labelTr: 'Yaşayan Koruma',       labelEn: 'Living Preservation'     },
   { id: 'dua-card',            labelTr: 'Dua Dili',             labelEn: 'Language of Prayer'      },
   { id: 'alti-konu-card',      labelTr: 'Öne Çıkanlar',         labelEn: 'Highlights'              },

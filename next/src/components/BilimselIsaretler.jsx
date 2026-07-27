@@ -310,7 +310,7 @@ export default function BilimselIsaretler({ onClose }) {
             links={[
               { href: `/${language}/atlas/doga`, titleTr: 'Doğa Atlası', titleEn: 'Nature Atlas', descTr: '55 hayvan · bitki · gök cismi — Kur\'ân\'ın tabiat panelinin genişliği.', descEn: '55 animals · plants · celestial objects — the breadth of the Qur\'an\'s nature panel.' },
               { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa — kâinatın işleyişinin metafizik çerçevesi.', descEn: 'Divine law — the metaphysical frame of the cosmos\'s workings.' },
-              { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Proofs', descTr: 'Kur\'ân\'ın arkeoloji + metin filolojisi ile örtüşen kanıtları.', descEn: 'Qur\'anic correspondences with archaeology and text philology.' },
+              { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Kur\'ân\'ın arkeoloji + metin filolojisi ile örtüşen kanıtları.', descEn: 'Qur\'anic correspondences with archaeology and text philology.' },
             ]}
           />
         </div>
