@@ -1010,6 +1010,53 @@ Geçmişte (2026-07-14) admin panel infinite render loop → 500K KV limit excee
 
 ---
 
+### 13.24 İ'câz-ı İlmî / Bucaillism Çerçevesi — İÇERİK TONU (ENFORCE ALWAYS) (2026-07-26+)
+
+**Kur'an ile bilim / tarih / arkeoloji ilişkisine değinen HER içerik** (`bilimsel-isaretler`, `tarihsel-kanitlar`, `MathMiracle` ve benzeri her yeni/mevcut madde) aşağıdaki çerçeveyle yazılır. İstisnasız.
+
+#### İlke
+Kur'an Allah kelamıdır ve harfi harfine doğrudur; hakikati **beşerî keşiflere / değişken bilime muhtaç değildir.** İçerik, bilimi/arkeolojiyi Kur'an'ın "hakemi" konumuna **koymaz.**
+
+#### YASAK — apolojetik aşırılık (Bucaillism)
+- ❌ "Bilim/arkeoloji Kur'an'ı **ispatladı/kanıtladı**" çerçevesi.
+- ❌ "Bu bilgi 7. yy'da **bilinemezdi** → mucize" argümanı (çoğu kez tarihsel olarak yanlış; örn. mumyalamayı Herodot MÖ 5. yy'da anlatmış).
+- ❌ Muğlak bir kelimeye modern bilimsel anlamı **geriye-yükleme** ("kesin karşılığı budur").
+- ❌ Modern bulguyu/ismi (Ramesses, Hubble, Moore, Galton…) **klasik tefsirin ağzına koymak** ("klasik tefsirde de tartışıldı").
+- ❌ Kur'an'ı belirli/çürük/tartışmalı bir bilimsel iddiaya **bağlamak** (bilim değişince Kur'an düşmüş görünür).
+- ❌ Bucaille'ı omurga referans yapmak; "akademik olarak kabul görür" gibi **yanlış** genellemeler.
+- ❌ Doğrulayamadığın spesifik atıf (sayfa no, tarih-kişi eşleştirmesi) yazmak — genel atıf ver.
+
+#### YASAK — ters uç (gereksiz reddediş)
+- ❌ Bulguları "hiçbir şekilde ilişkilendirilemez" diye **gereksiz reddetmek.**
+- ❌ Kur'an metnine/hakikatine **şüphe** düşürecek karşı-argüman **eklemek** (kesinlikle yasak — bkz. memory `feedback_quran_supremacy_framing`).
+
+#### DOĞRU çerçeve (orta yol)
+- ✅ "**Kur'an haber verir, biz tasdik ederiz; bulgular tefekküre vesiledir.**"
+- ✅ Örtüşme "**kanıt**" değil, "**uyum / temas / tefekkür**" seviyesinde sunulur.
+- ✅ **Klasik tefsir asıl/otoritedir**; modern okuma en fazla "bir anlam katmanı / ihtimal."
+- ✅ Tartışmalı yer açıkça "ihtilaflı / kesinleşmemiş" diye işaretlenir (`criticalNote`).
+- ✅ Başlık/dil "Kanıt/Mucize" yerine "Tarihsel Bağlam / Temas Noktaları / İşaretler."
+
+> **Yön:** Bu yumuşatma **Kur'an lehinedir** — zayıf apolojetik halkaları (Bucaillism) kaldırıp Kur'an'ı değişken bilime rehin olmaktan kurtarır. **Karşı tarafa (eleştirmene) taviz DEĞİLDİR.**
+
+#### Framing mantığı (neden bu tutum Kur'an LEHİNE — taviz değil)
+1. **Bucaillism nedir:** Maurice Bucaille (1976) tezi — "Kur'an modern bilimle örtüşür ve bu 7. yy'da bilinemezdi → bilimsel mucize/ispat." Yöntemi seçmeci + geriye-yükleme; hem akademi hem birçok ehl-i ilim eleştirir.
+2. **Apolojetik overclaim = Kur'an'ın zayıf karnı:** "Bilim şunu **kanıtladı**" dersen, o bilimsel iddia çürütüldüğünde (ör. embriyoloji 'kan pıhtısı' eleştirisi, Hâmân-hiyeroglif iddiasının fringe'liği) naif okuyucu **"Kur'an çürütüldü"** sanır. Çürüyen bizim iddiamızdır, Kur'an değil — ama zarar Kur'an'a yazılır. Zayıf halkayı kaldırınca eleştirmenin saldıracağı yüzey kalmaz.
+3. **Rehin verme sorunu:** Kur'an'ı belirli/değişken bir bilimsel iddiaya **bağlamak**, itibarını o iddianın kaderine rehin eder. Bilim değişir; bağ düşerse Kur'an düşmüş görünür.
+4. **Ayrıştırma stratejisi:** Kur'an'ı savunmak ≠ Bucaille'ı savunmak. İkisi ayrılınca, iddia/Bucaille saldırıya uğrasa bile **Kur'an sağlam kalır.** Güçlü savunma budur.
+5. **Daha güçlü teolojik konum:** "Kur'an haber verir, biz tasdik ederiz; bilim olsa olsa tefekküre vesiledir" — Kur'an'ı **kendi kendine yeten hakikat** kılar, bilimin onayına muhtaç bir metin olmaktan çıkarır (yükseltir).
+6. **Sıfır taviz:** Hiçbir ayet "yanlış" denmez, Kur'an'a şüphe düşürecek hiçbir karşı-argüman eklenmez. Yalnızca **bizim beşerî ispat iddiamız** uyum/tefekkür seviyesine çekilir. Kur'an'ın içeriğinde/hakikatinde taviz **yoktur.**
+
+> Bu mantık GPT-5.2 hakem incelemesinde de teyit edildi: *"iddia seviyesini doğru ölçekliyor; Kur'an'ı zayıflatmak sayılmaz, bilakis Kur'an'ı modern teyide mahkûm etmeme ilkesi makuldür"* — ve fazla reddedişe (bulguları "hiç ilişkilendirilemez" demeye) de kaçmamak gerektiği notuyla.
+
+#### Süreç — MUTLAK
+Bu tür hassas içerikte (yeni veya revizyon): **GPT-5.2 hakem incelemesi (klasik tefsir + akademik) ZORUNLUDUR**; mümkünse âlim geri bildirimiyle birlikte. **TR ve EN eş güncellenir ve ChatGPT her ikisini de onaylamadan ASLA push/merge edilmez** (kullanıcı direktifi 2026-07-26). Konular tek tek, sırayla ele alınır.
+
+#### Neden yazıldı
+2026-07-26'da bir âlimin Firavun bölümü eleştirisi üzerine `tarihsel-kanitlar` (Firavun/Hâmân) ve `bilimsel-isaretler` (embriyoloji, süt, demir, genişleyen evren vd.) yeniden çerçevelendi. Bkz. `docs/reviews/` ve memory `feedback_quran_supremacy_framing`.
+
+---
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
