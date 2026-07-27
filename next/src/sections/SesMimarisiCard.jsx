@@ -122,7 +122,7 @@ export default function SesMimarisiCard() {
           maxWidth: '620px',
           margin: '0 auto 40px',
         }}>
-          {tr ? "Azap ayetlerini yüksek sesle oku — sert ünsüzler duyarsın: ق · ك · ط · ص. Boğazda, dişte sert. Rahmet ayetlerinde akıcı sesler: ل · م · ن · ر · ي. Bu tesadüf değil — ses ile anlam paralel, fonetik mimarinin parçası." : "Read the verses of wrath aloud — you hear harsh consonants: ق · ك · ط · ص. Harsh in the throat, sharp at the teeth. In verses of mercy, the liquids flow: ل · م · ن · ر · ي. This is not coincidence — sound and meaning parallel, part of a phonetic architecture."}
+          {tr ? "Azap ayetlerini yüksek sesle oku — sert ünsüzler duyarsın: ق · ك · ط · ص. Boğazda, dişte sert. Rahmet ayetlerinde akıcı sesler: ل · م · ن · ر · ي. Dikkat çekici bir işitsel doku — ses ile anlam arasında bir paralellik." : "Read the verses of wrath aloud — you hear harsh consonants: ق · ك · ط · ص. Harsh in the throat, sharp at the teeth. In verses of mercy, the liquids flow: ل · م · ن · ر · ي. A striking auditory texture — a parallel between sound and meaning."}
         </p>
 
         <motion.div

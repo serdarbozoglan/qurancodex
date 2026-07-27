@@ -4,12 +4,12 @@
     "linguistic": "Linguistic DNA",
     "sounds": "Sound Architecture",
     "science": "Scientific Signs",
-    "history": "Historical Evidence",
+    "history": "Historical Context",
     "conclusion": "Conclusion"
   },
   "hero": {
     "title": "THE INVISIBLE ARCHITECTURE OF THE QURAN",
-    "subtitle": "Linguistic, Mathematical & Scientific Evidence",
+    "subtitle": "Through Its Linguistic, Mathematical & Structural Layers",
     "description": "Some texts are read. Others deepen as you examine them.\n\nFor 1,400 years, the Quran has been studied through its linguistic, mathematical, and structural layers — a singular text.\n\nEvery word in its place. Every structure deliberate. And much still waits to be discovered.",
     "cta": "Open the First Gate",
     "ctaRead": "Read Quran",
@@ -50,7 +50,7 @@
   "impossibleRhythm": {
     "badge": "The Impossible Rhythm",
     "title": "Neither Poetry Nor Prose",
-    "intro": "In 7th-century Arabia, language existed in two forms: rigid poetry bound to 16 strict meters, or free-form prose. No other category was conceivable. When the Quran arrived, the Arabs were stunned. This text fit none of the 16 meters - yet it was not prose either. It was rhythmic but unmeasured. Disciplined yet free. A form never heard before. Linguists call it sui generis - a category unto itself. The Quran's language created its own genre in the history of literature.",
+    "intro": "In 7th-century Arabia, the dominant literary forms were metrical poetry and rhymed/free oratory; the Quran's style was perceived by many contemporaries as not fully fitting these molds — rhythmic yet not reducible to a fixed meter. The classical rhetorical tradition (al-Bāqillānī, al-Jurjānī) regards this 'neither poetry nor prose' form as unique within the framework of iʿjāz al-bayān — a category of its own.",
     "poetry": "Poetry",
     "poetryDesc": "Rigid structure bound to 16 strict meters",
     "quran": "QURAN",
@@ -96,8 +96,8 @@
   },
   "soundArchitecture": {
     "badge": "Sound Architecture",
-    "title": "These Sounds Are No Coincidence",
-    "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط — tension in throat, tongue, palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. This contrast is not accidental — modern linguistics calls it 'phonetic symbolism'; the classical Islamic tradition had codified the same phenomenon centuries earlier under the names tafhīm and tarqīq.",
+    "title": "The Architecture of Sound",
+    "intro": "Read the verses of punishment aloud. You hear dense, plosive consonants: ق ك ط — tension in throat, tongue, palate. Now read the verses of mercy. You hear flowing sounds: م ن (nasals), ل ر (liquids). The breath softens. This contrast is striking — modern linguistics studies similar phenomena under 'phonetic symbolism.' (Note: the classical tajwīd terms tafhīm/tarqīq are rules for the heavy/light articulation of letters, not the same thing as modern sound-meaning symbolism.)",
     "phonetics": {
       "title": "Phonetic Symbolism — Two Traditions, One Phenomenon",
       "description": "Modern phonetics (Sapir 1929; Köhler's bouba/kiki effect, 1929) shows that sounds carry meaning in themselves: plosives (ق ك ط) evoke tension; nasals (م ن) and liquids (ل ر) evoke release. The classical Islamic science of tajwid had already classified the same phenomenon — thick/thin (tafhīm/tarqīq), hard/soft (shidda/rakhāwa), echoing/static (qalqala). In the Quran, this pattern reveals a systematic correspondence between subject matter and sonic texture."
@@ -206,7 +206,7 @@
       "title": "Classical Witness",
       "authorEn": "Abū Bakr al-Bāqillānī (d. 1013)",
       "workEn": "Iʿjāz al-Qurʾān",
-      "quoteEn": "\"The composition of the Quran resembles neither the poetry, the oratory, nor the rhymed prose of the Arabs. It has its own order, distinct from each. Even in the arrangement of its sounds it carries a miracle.\"",
+      "quoteEn": "According to al-Bāqillānī, the Qur'an's composition resembles neither the poetry, the oratory, nor the rhymed prose of the Arabs; it has a distinct order of its own.",
       "noteEn": "In the 11th century, al-Bāqillānī wrote the first systematic study grounding Quranic iʿjāz (inimitability) in the harmony of sound and meaning. Al-Jurjānī later expanded this with his 'theory of nazm.'"
     },
     "closing": "In the Quran, sound and meaning are two faces of one fabric — each carries the other."
