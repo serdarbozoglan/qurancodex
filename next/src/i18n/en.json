@@ -158,7 +158,10 @@
       "items": [
         {
           "id": "q1",
-          "audioKey": ["069001", "069002"],
+          "audioKey": [
+            "069001",
+            "069002"
+          ],
           "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
           "verseRef": "Al-Ḥāqqa 69:1-2",
           "answer": "punishment",
@@ -320,7 +323,7 @@
     },
     "iron": {
       "title": "The Cosmic Journey of Iron",
-      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. In the 7th century, this would have seemed illogical; iron comes from the ground, found in mines. Modern astrophysics explains why this choice is correct. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives — in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017) — and scattered into space. The iron on Earth arrived via meteorites from such events billions of years ago. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
+      "content": "The Quran chooses an extraordinary verb for iron: anzalnā — We sent down. Not created, not formed: sent down. At first glance, since iron is a metal 'extracted from the ground,' this expression may evoke different associations for some readers. Modern astrophysics offers a background that makes this word choice notable. Iron cannot form in medium-sized stars like our Sun — the required fusion energy is simply not available. Iron-group elements are synthesized at the end of massive stars' lives — in supernova explosions and in neutron-star mergers (kilonovae; the GW170817 event observed in 2017) — and scattered into space. The iron on Earth comes from material produced by stellar processes before the Solar System formed; Earth inherited this cosmic material at its formation. The correspondence between this word choice and astrophysical reality is something scholars have interpreted in various ways across centuries.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "We sent down iron, wherein is great might and benefits for humanity.",
@@ -330,22 +333,22 @@
         "Hadid 57:25 — the verb 'anzalnā' (We sent down) is used specifically for iron",
         "Iron cannot form in stars like our Sun: insufficient temperature and pressure for fusion",
         "Iron-group elements are produced in supernovae and in neutron-star mergers (kilonovae) — the 2017 GW170817 event directly observed this process",
-        "All iron on Earth arrived via meteorites billions of years ago"
+        "Iron entered Earth's composition as star-forged heavy elements mixed into the primordial material of the Solar System; meteorites carry samples of that material to the present"
       ],
       "criticalNote": "Whether 'anzalnā' in this context signifies cosmic origin is disputed. The majority of classical commentators interpreted this verb to mean 'We bestowed' or 'We provided.' Important linguistic nuance: the same verb is used in the Quran for rain, the Book, clothing (Al-An'ām 7:26), and animals (Al-Zumar 39:6) — meaning 'anzalnā' is not a special term reserved for cosmic origin, but a broad pattern of 'We bestowed / We brought into being.' The astrophysical interpretation is a reading that became prominent in the 20th century."
     },
     "universe": {
       "title": "The Expanding Universe",
-      "content": "In 1929, Edwin Hubble measured that galaxies are moving away from us. The universe was not static — it was expanding in every direction. This was one of the greatest discoveries in the history of science. Verse 47 of Sura Al-Dhariyat states: 'We constructed the heaven with power, and indeed We are its expander.' The Arabic word mūsi'ūn is grammatically notable: in the active participle form, it denotes present tense and continuity — not a completed past action, but an ongoing, active process. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
+      "content": "In 1929, Edwin Hubble reported a relation between galaxies' distances and the redshift in their spectra. This finding provided a strong observational basis that the universe may not be static, and it became one of the cornerstones of modern cosmology. Verse 47 of Sura Al-Dhariyat states: 'We constructed the heaven with power, and indeed We are its expander.' The Arabic word mūsi'ūn is grammatically notable and can be read in more than one way — e.g., as 'One who expands / gives breadth' or as 'One of vast power'; linking it specifically to cosmic expansion depends on linguistic and contextual judgment. In Sura Al-Anbiya 21:30, the words ratq (joined) and fatq (split apart) point to the heavens and earth separating from a single whole. The correspondence between this linguistic structure and modern cosmological findings is an area of ongoing academic interest.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
         "translation": "We constructed the heaven with power, and indeed We are its expander.",
         "reference": "Zariyat, 51:47"
       },
       "facts": [
-        "1929: Edwin Hubble observed galaxies receding, proving the universe is expanding",
+        "1929: Edwin Hubble established the redshift–distance relation, providing strong observational support for cosmic expansion",
         "Mūsi'ūn — active participle, present tense, indicating continuous and active expansion",
-        "Not a static description — an ongoing process, linguistically aligned with Hubble's dynamics",
+        "In some contemporary readings this expression has been associated with the idea of cosmic expansion; the choice of meaning, however, depends on linguistic and contextual assessment",
         "Al-Anbiya 21:30 — ratq (joined) and fatq (split apart): heavens and earth separating from a single whole",
         "This interpretation became prominent in the 20th century; classical commentaries read it in different contexts"
       ],
@@ -370,7 +373,7 @@
     },
     "embryo": {
       "title": "Embryology — The Word 'Alaqah'",
-      "content": "The Quran describes the second stage of the human embryo with the word alaqah. This word simultaneously means three different things in Arabic: a clinging substance, a blood clot, and a leech. Physical parallels can be drawn between the early embryo and all three of these senses. In the 7th century, there were no microscopes; the implantation process was invisible to the eye; the embryo measured just 1-2 millimeters. Meanwhile, the era's medical authority Galen taught that muscles form before bones. The Quran in Al-Mu'minun 23:14 states that bones form first, then flesh covers them. The alignment of modern embryological chronology with this sequence is striking — though whether this constitutes 'scientific verification' or 'parallel' remains academically debated.",
+      "content": "The Quran describes the second stage of the human embryo with the word alaqah. In classical lexicons this word is glossed with senses such as 'a clinging/attaching thing' and 'leech'; readings that associate it with 'blood/blood clot' also appear in the literature. Some analogies have been drawn between the early embryo and these senses; whether this is a technical embryological description or a descriptive simile is open to interpretive difference. In the 7th century, there were no microscopes; the implantation process was invisible to the eye; the embryo measured just 1-2 millimeters. In the Late Antique medical tradition (including Galen), various schemes of embryonic development were transmitted; but these views are not given with the same clarity or order in every text. Al-Mu'minun 23:14 mentions 'bones' and then 'clothing with flesh' (lahm); whether this is a chronological sequence or a descriptive account has been discussed in exegesis and linguistics. In modern embryology, skeletal and muscular tissues largely develop in parallel; the relationship drawn with the verse should therefore be stated as, at most, a limited parallel/interpretation rather than a definite verification.",
       "verse": {
         "arabic": "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
         "translation": "Then We made the sperm-drop into a clinging clot, and We made the clot into a lump of flesh, and We made the flesh into bones, and We covered the bones with flesh.",
@@ -392,10 +395,10 @@
         }
       ],
       "facts": [
-        "Alaqah — three simultaneous definitions: clinging substance / blood clot / leech; all three apply to the early embryo",
+        "Alaqah — glossed in classical lexicons as 'clinging substance' and 'leech' (and, in some readings, blood/clot); analogies with the early embryo have been drawn",
         "Days 6–12: embryo clings to the uterine wall — matches 'clinging substance'",
         "Al-Mu'minun 23:14: the 'bones → flesh' sequence is roughly compatible with modern embryology (bone and muscle develop in parallel, though the skeletal framework is generally observable a little earlier)",
-        "Dr. Keith L. Moore (The Developing Human, 5th ed.): noted the correspondence between Quranic embryological descriptions and modern science as remarkable"
+        "Dr. Keith L. Moore referred to correspondences between Qur'anic descriptions and modern science; this, however, has no probative status in the scientific literature"
       ],
       "criticalNote": "Keith Moore's interpretations are disputed regarding academic independence: the 'Islamic Additions to Embryology' sections appear only in the Saudi Arabia edition of The Developing Human and were supported by King Abdulaziz University (source: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). This does not question Moore's anatomical expertise but does open the independence of his interpretations to debate. The Galen comparison also requires nuance: Galen's embryological views are inconsistent across his works (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — the one-way claim 'Galen was wrong, the Quran corrected him' is not academically defensible. In modern embryology, bone and muscle tissue develop in parallel; the Quran's 'bones → flesh' sequence is not a literal chronology but a roughly compatible phrasing. The linguistic richness of alaqah, however, can be evaluated independently of Moore."
     }

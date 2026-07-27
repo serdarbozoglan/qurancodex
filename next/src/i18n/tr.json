@@ -158,7 +158,10 @@
       "items": [
         {
           "id": "q1",
-          "audioKey": ["069001", "069002"],
+          "audioKey": [
+            "069001",
+            "069002"
+          ],
           "arabic": "الْحَاقَّةُ ۝ مَا الْحَاقَّةُ",
           "verseRef": "Hâkka 69:1-2",
           "answer": "punishment",
@@ -320,7 +323,7 @@
     },
     "iron": {
       "title": "Demirin Kozmik Yolculuğu",
-      "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. 7. yüzyılda bu ifade mantıksız görünürdü; demir yerden çıkar, madenlerde bulunur. Modern astrofizik ise bu seçimin neden doğru olduğunu açıklıyor. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir-grup elementler dev yıldızların ömürlerinin sonunda gerçekleşen süpernova patlamalarında ve nötron yıldızı çarpışmalarında (kilonova; 2017'de gözlemlenen GW170817 olayı) sentezlenir ve uzaya saçılır. Dünya'daki demir, milyarlarca yıl önce böyle olaylardan gelen meteorlarla taşındı. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
+      "content": "Kur'an demir için sıradışı bir fiil seçer: enzelnâ — indirdik. Yarattık değil, inşa ettik değil: indirdik. İlk bakışta demir 'yerden çıkarılan' bir maden olduğu için bu ifade bazı okuyuculara farklı çağrışımlar yapabilir. Modern astrofizik ise bu seçimi neden dikkat çekici kıldığını gösteren bir arka plan sunar. Demir, Güneş gibi orta büyüklükteki yıldızlarda oluşamaz — bunun için gereken füzyon enerjisi mevcut değildir. Demir-grup elementler dev yıldızların ömürlerinin sonunda gerçekleşen süpernova patlamalarında ve nötron yıldızı çarpışmalarında (kilonova; 2017'de gözlemlenen GW170817 olayı) sentezlenir ve uzaya saçılır. Dünya'daki demir, Güneş Sistemi oluşmadan önceki yıldız süreçlerinde üretilmiş maddeden gelir; Dünya da oluştuğu bu kozmik malzemeyi miras almıştır. Kelime seçimi ile astrofizik gerçeği arasındaki bu örtüşme, müfessirlerin yüzyıllar boyunca farklı biçimlerde yorumladığı bir meseledir.",
       "verse": {
         "arabic": "وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ",
         "translation": "Biz demiri indirdik; onda büyük bir güç ve insanlar için faydalar vardır.",
@@ -330,22 +333,22 @@
         "Hadid 57:25 — demir için özellikle 'enzelnâ' (indirdik) fiili kullanılır",
         "Demir, Güneş gibi yıldızlarda oluşamaz: füzyon için yeterli sıcaklık ve basınç yoktur",
         "Demir-grup elementler süpernovalarda ve nötron yıldızı çarpışmalarında (kilonova) üretilir — 2017 GW170817 olayı bu süreci doğrudan gözlemledi",
-        "Dünya'daki tüm demir milyarlarca yıl önce meteorlarla gelmiştir"
+        "Dünya'daki demir, yıldız kökenli ağır elementlerin Güneş Sistemi'ni oluşturan ilk malzemeye karışmasıyla Dünya'nın bileşimine girmiştir; meteorlar bu malzemenin örneklerini günümüze taşır"
       ],
       "criticalNote": "'Enzelnâ' kelimesinin bu bağlamda kozmik bir köken bildirip bildirmediği tartışmalıdır. Klasik müfessirlerin büyük çoğunluğu bu fiili 'lütfettik, ihsan ettik' anlamında yorumlamıştır. Önemli bir dilsel nüans: aynı fiil Kur'an'da yağmur, Kitap, elbise (En'âm 7:26) ve hayvanlar (Zümer 39:6) için de kullanılır — yani 'enzelnâ' demir için kozmik köken bildiren özel bir kullanım değil, geniş bir 'ihsan ettik / var ettik' kalıbıdır. Modern astrofizik yorumu, 20. yüzyıldan itibaren öne çıkan bir okumadır."
     },
     "universe": {
       "title": "Genişleyen Evren",
-      "content": "1929'da Edwin Hubble, galaksilerin bizden uzaklaştığını ölçtü. Evren statik değil, her yönde genişliyordu — bu, bilim tarihinin en büyük keşiflerinden biriydi. Zariyat Sûresi 47. ayette şu ifade geçer: 'Göğü kudretimizle bina ettik; ve şüphesiz onu genişletmekteyiz.' Arapçadaki mûsi'ûn kelimesi dilbilgisi açısından dikkat çekicidir: ism-i fail kalıbında, şimdiki zaman ve süreklilik bildirir. Tamamlanmış geçmiş bir eylem değil — devam eden, aktif bir süreç. Enbiya 21:30'da ratk (birleşik) ve fetk (ayrılmış) kelimeleri, gökler ve yerin bir bütünden ayrıldığına işaret eder. Bu dil yapısının modern kozmoloji bulgularıyla örtüşmesi, akademisyenlerin ilgisini çeken bir alandır.",
+      "content": "1929'da Edwin Hubble, galaksilerin uzaklıkları ile tayflarındaki kırmızıya kayma arasında bir ilişki raporladı. Bu bulgu, evrenin durağan olmayabileceğine dair güçlü bir gözlemsel zemin oluşturdu ve modern kozmolojinin temel taşlarından biri hâline geldi. Zariyat Sûresi 47. ayette şu ifade geçer: 'Göğü kudretimizle bina ettik; ve şüphesiz onu genişletmekteyiz.' Arapçadaki mûsi'ûn kelimesi dilbilgisi açısından dikkat çekicidir; 'genişleten/genişlik veren' veya 'kudreti geniş olan' gibi anlamlara elverişli yorumları vardır. Enbiya 21:30'da ratk (birleşik) ve fetk (ayrılmış) kelimeleri, gökler ve yerin bir bütünden ayrıldığına işaret eder. Bu dil yapısının modern kozmoloji bulgularıyla örtüşmesi, akademisyenlerin ilgisini çeken bir alandır.",
       "verse": {
         "arabic": "وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ وَإِنَّا لَمُوسِعُونَ",
         "translation": "Göğü kudretimizle bina ettik ve şüphesiz onu genişletmekteyiz.",
         "reference": "Zariyat, 51:47"
       },
       "facts": [
-        "1929: Edwin Hubble galaksilerin uzaklaştığını gözlemledi, evrenin genişlediğini kanıtladı",
+        "1929: Edwin Hubble kırmızıya kayma–uzaklık ilişkisini ortaya koyarak evrenin genişlemesi fikrine güçlü gözlemsel dayanak sağladı",
         "Mûsi'ûn — ism-i fail, şimdiki zaman kipi, sürekli ve aktif bir genişlemeyi ifade eder",
-        "Statik değil, devam eden bir süreç — Hubble'ın ölçtüğü dinamikle dilbilgisel uyum",
+        "Bu ifade, bazı çağdaş yorumlarda kozmik genişleme fikriyle ilişkilendirilmiştir; ancak anlam tercihi dil ve bağlam değerlendirmesine bağlıdır",
         "Enbiya 21:30 — ratk (birleşik) ve fetk (ayrılmış): gökler ve yerin tek bir bütünden ayrılması",
         "Bu yorum 20. yüzyılda öne çıkmıştır; klasik tefsirler farklı bağlamlarda yorumlamıştır"
       ],
@@ -370,7 +373,7 @@
     },
     "embryo": {
       "title": "Embriyoloji — Alaka Kelimesi",
-      "content": "Kur'an, insan embriyosunun ikinci evresini alaka kelimesiyle tanımlar. Bu kelime Arapçada aynı anda üç farklı şey demektir: yapışan şey, kan pıhtısı ve sülük. Erken embriyoyla bu üç tanım arasında fiziksel paralellikler kurulabilir. 7. yüzyılda mikroskop yoktu; implantasyon süreci gözle görülemezdi; embriyo 1-2 milimetre boyutundaydı. Aynı dönemde tıp otoritesi Galen, kasların kemiklerden önce oluştuğunu öğretiyordu. Kur'an Mü'minun 23:14'te kemiklerin önce oluştuğunu, ardından etin kapladığını söyler. Modern embriyolojik kronolojinin bu dizilimle uyumu dikkat çekicidir — ancak bu 'bilimsel doğrulama' mı yoksa 'paralellik' mi olduğu akademik tartışmaya açıktır.",
+      "content": "Kur'an, insan embriyosunun ikinci evresini alaka kelimesiyle tanımlar. Bu kelimenin klasik sözlüklerde 'tutunan/yapışan şey' ve 'sülük' gibi anlamları zikredilir; 'kan/kan pıhtısı' ile ilişkilendirilen okumalar da literatürde yer alır. Erken embriyoyla bu anlam alanları arasında bazı benzetmeler kurulmuştur; bunun teknik bir embriyoloji tarifi mi yoksa betimleyici bir teşbih mi olduğu yorum farkına açıktır. 7. yüzyılda mikroskop yoktu; implantasyon süreci gözle görülemezdi; embriyo 1-2 milimetre boyutundaydı. Geç Antik tıp geleneğinde (Galen dâhil) embriyo gelişimine dair çeşitli şemalar aktarılmıştır; ancak bu görüşler her metinde aynı açıklık ve sırayla verilmez. Mü'minun 23:14'te 'kemikler' ve ardından 'etle giydirme' (lahm) ifadeleri geçer; bunun kronolojik bir sıra mı yoksa tasviri bir anlatım mı olduğu tefsir ve dil açısından tartışılmıştır. Modern embriyolojide iskelet ve kas dokuları büyük ölçüde paralel gelişir; bu nedenle ayetle kurulacak ilişkinin 'kesin doğrulama' değil, en fazla sınırlı bir paralellik/yorum olduğu belirtilmelidir.",
       "verse": {
         "arabic": "ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا",
         "translation": "Sonra nutfeyi alaka olarak yarattık; alakayı mudğa olarak yarattık; mudğadan kemikler yarattık; kemikleri etle kapladık.",
@@ -392,10 +395,10 @@
         }
       ],
       "facts": [
-        "Alaka — üç eş anlamlı tanım: yapışan şey / kan pıhtısı / sülük; üçü de erken embriyoya uyar",
+        "Alaka — klasik sözlüklerde 'yapışan şey' ve 'sülük' gibi anlamlarla anılır; 'kan/pıhtı' ilişkisi de literatürde geçer, erken embriyoyla benzetmeler kurulmuştur",
         "Gün 6-12: embriyo rahim duvarına yapışır — 'yapışan şey' tanımıyla örtüşür",
         "Mü'minun 23:14: 'kemik → et' ifadesi modern embriyolojiyle kabaca uyumludur (kemik ve kas paralel gelişir, ancak iskelet yapı genelde belirginleşmede önce gözlemlenir)",
-        "Dr. Keith L. Moore (The Developing Human, 5. baskı): Kur'an'daki embriyolojik tanımların modern bilimle uyumunu incelemiş, örtüşmeleri dikkat çekici bulduğunu belirtmiştir"
+        "Dr. Keith L. Moore, Kur'an'daki tanımlarla modern bilim arasındaki örtüşmelere değinmiştir; ancak bunun bilimsel literatürde 'kanıtlayıcı' bir statüsü yoktur"
       ],
       "criticalNote": "Keith Moore'un yorumları akademik bağımsızlık açısından tartışmalıdır: 'Islamic Additions to Embryology' bölümleri yalnızca The Developing Human'ın Suudi Arabistan baskısında bulunur ve King Abdulaziz Üniversitesi tarafından desteklenmiştir (kaynak: Marwa Elshakry, Reading Darwin in Arabic, Chicago University Press, 2013). Bu, Moore'un anatomik uzmanlığını sorgulamaz ama yorumlarının bağımsızlığını tartışmaya açar. Galen karşılaştırması da nüans gerektirir: Galen'in embriyoloji görüşleri çelişkilidir (Basim Musallam, Sex and Society in Islam, Cambridge University Press, 1983) — 'Galen tamamen yanlış, Kur'an doğru' tek-yönlü iddia akademik olarak desteklenmez. Modern embriyolojide kemik ve kas dokusu paralel gelişir; Kur'an'ın 'kemik → et' sırası literal bir kronoloji değil, kabaca uyumlu bir ifadedir. Alaka kelimesinin dilbilimsel zenginliği ise Moore'dan bağımsız olarak değerlendirilebilir."
     }
