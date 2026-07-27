@@ -31,7 +31,7 @@ export const PATH_OVERLAY_EVENTS = {
 
 // Path step lists revised after content-accuracy review (2026-04-10):
 //
-// - "Tarihsel Kanıtlar" moved from the Prophets path to the Universe path.
+// - "Tarihsel İzler" moved from the Prophets path to the Universe path.
 //   Its content (Pharaoh's mummy, Haman's name, Rome's prophecy) is about
 //   archaeological/historical *verification*, not prophet narratives —
 //   same epistemic category as Scientific Signs ("1400 years later,
@@ -83,7 +83,7 @@ export const PATHS = [
     titleEn: 'Universe and Science',
     steps: [
       { id: 'science', kind: 'section', target: 'science', labelTr: 'Bilimsel İşaretler', labelEn: 'Scientific Signs'   },
-      { id: 'history', kind: 'section', target: 'history', labelTr: 'Tarihsel Kanıtlar',  labelEn: 'Historical Proof'   },
+      { id: 'history', kind: 'section', target: 'history', labelTr: 'Tarihsel İzler',  labelEn: 'Historical Traces'   },
       { id: 'kevni',   kind: 'overlay', target: 'kevni',   labelTr: 'Kevni Ayetler',      labelEn: 'Cosmic Signs'       },
       { id: 'zaman',   kind: 'overlay', target: 'zaman',   labelTr: 'Zaman Boyutları',    labelEn: 'Dimensions of Time' },
     ],

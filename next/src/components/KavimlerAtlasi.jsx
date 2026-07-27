@@ -494,7 +494,7 @@ export default function KavimlerAtlasi({ onClose }) {
           isMobile={isMobile}
           links={[
             { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: "Allah'ın toplumsal yasaları — kavimlerin akıbeti bu yasalara bağlıdır.", descEn: "God's social laws — the fate of nations is bound to these laws." },
-            { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel Kanıtlar', titleEn: 'Historical Proof', descTr: "Arkeoloji, Firavun'un cesedi, Roma kehâneti.", descEn: "Archaeology, Pharaoh's body, Roman prophecy." },
+            { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: "Arkeoloji, Firavun'un cesedi, Roma kehâneti.", descEn: "Archaeology, Pharaoh's body, Roman prophecy." },
           ]}
         />
       </div>

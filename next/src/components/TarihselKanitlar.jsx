@@ -144,10 +144,10 @@ export default function TarihselKanitlar({ onClose }) {
           <path d="M2 22h20"/><path d="M6 18V8l6-4 6 4v10"/><path d="M9 22V13h6v9"/>
         </svg>
       }
-      titleTr="Tarihsel Kanıtlar"
-      titleEn="Historical Proofs"
-      subtitleTr="10 kanıt · 4 kategori · arkeoloji · metin filolojisi · kehânet"
-      subtitleEn="10 evidences · 4 categories · archaeology · text philology · prophecy"
+      titleTr="Tarihsel İzler"
+      titleEn="Historical Traces"
+      subtitleTr="10 iz · 4 kategori · arkeoloji · metin filolojisi · kehânet"
+      subtitleEn="10 traces · 4 categories · archaeology · text philology · prophecy"
       language={language}
     />
   );
@@ -771,8 +771,8 @@ function ScholarsTab({ scholars, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? 'Klasik tefsir (İbn Kesîr, Elmalılı) ve modern akademik Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) alanının önde gelen 6 referansı — Tarihsel Kanıtlar araştırmasının epistemik omurgası.'
-          : 'Six leading references from classical tafsir (Ibn Kathīr, Elmalılı) and modern academic Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) — the epistemic backbone of Historical Proof research.'}
+          ? 'Klasik tefsir (İbn Kesîr, Elmalılı) ve modern akademik Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) alanının önde gelen 6 referansı — Tarihsel İzler araştırmasının epistemik omurgası.'
+          : 'Six leading references from classical tafsir (Ibn Kathīr, Elmalılı) and modern academic Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) — the epistemic backbone of Historical Traces research.'}
       </p>
       <div style={{
         display: 'grid',
