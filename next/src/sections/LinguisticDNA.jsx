@@ -88,8 +88,8 @@ const GROUPS = [
       '🔹 Al-Baqarah & Al-Imran (Medinan): Building society and law through the Book',
       '🔹 Luqman & As-Sajdah (Meccan): Cosmic signs, wisdom, and prostration before creation',
       '🔸 Al-Ankabut (Meccan): The shattering trial of faith — "Do people think they will not be tested?" (29:2)',
-      '🔸 Ar-Rum (Meccan): Fulfillment of the Byzantine-Persian prophecy — read in modern scholarship as a "historical proof" of revelation',
-      '→ note: A 4+2 structure — revelation proven both as text (Book) and lived reality (Trial & History)',
+      '🔸 Ar-Rum (Meccan): The historical fulfillment of the Byzantine–Persian prophecy — often cited as a historical point of corroboration',
+      '→ note: A 4+2 structure — revelation as both text (Book) and lived reality (Trial & History)',
     ],
   },
   {

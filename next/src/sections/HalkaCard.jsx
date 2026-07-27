@@ -119,7 +119,7 @@ export default function HalkaCard() {
           maxWidth: '620px',
           margin: '0 auto 40px',
         }}>
-          {tr ? "Fâtiha'nın 7 ayeti tesadüf değil — A-B-C-D-C'-B'-A' formülünde mükemmel ayna simetrisi. Âyetel Kürsî tek bir ayet ama 7 bölüme bölünmüş, aynı simetri. Farrin (2014) bunu \"ring composition\" olarak tarif etti — Kur'an'ın gizli mimarisi." : "The 7 verses of al-Fātiḥa are no coincidence — perfect mirror symmetry in the A-B-C-D-C'-B'-A' formula. Āyat al-Kursī, a single verse, divides into 7 parts with the same symmetry. Farrin (2014) called this \"ring composition\" — the Quran's hidden architecture."}
+          {tr ? "Fâtiha'nın 7 ayeti A-B-C-D-C'-B'-A' formülünde mükemmel bir ayna simetrisi taşır. Âyetel Kürsî tek bir ayet ama 7 bölüme bölünür, aynı simetri. Farrin (2014) bunu \"ring composition\" olarak tarif etti — Kur'an'ın edebî mimarisi." : "The 7 verses of al-Fātiḥa carry a perfect mirror symmetry in the A-B-C-D-C'-B'-A' formula. Āyat al-Kursī, a single verse, divides into 7 parts with the same symmetry. Farrin (2014) called this \"ring composition\" — the Quran's literary architecture."}
         </p>
 
         <motion.div
