@@ -9,7 +9,7 @@ import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
 import HifzPanel from './hifz/HifzPanel';
 import HifzIcon from './hifz/HifzIcon';
-import { rampVolume, restoreVolume, FADE_MS } from '../lib/audio-fade';
+import { setVolumeNow, restoreVolume } from '../lib/audio-fade';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
@@ -2008,33 +2008,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Ezber: mevcut sûre audio elementini verilen noktaya sarıp rampayla başlat.
   // Oturum sırasında element zaten var (playVerseKaraoke oluşturdu), o yüzden
   // element yaratma/fallback zincirine gerek yok — sadece seek + fade-in.
+  // Ezber: mevcut sûre audio elementini verilen noktaya sarıp başlat.
+  // Seek noktası (`from`) ölçümle sessizlikte — ayet sesi 10-60 ms sonra
+  // başlıyor — bu yüzden rampa gerekmiyor, tam sesle girmek tık üretmez.
   const hifzResume = useCallback((seekTo) => {
     const cur = surahAudioRef.current;
     if (!cur) return;
     cur.currentTime = seekTo;
-    try { cur.volume = 0; } catch { /* iOS: salt-okunur */ }
-    cur.play()
-      .then(() => rampVolume(cur, 1, FADE_MS))
-      .catch(err => {
-        restoreVolume(cur);
-        if (err?.name === 'AbortError') return;
-        stopAudio();
-      });
+    setVolumeNow(cur, 1);
+    cur.play().catch(err => {
+      if (err?.name === 'AbortError') return;
+      stopAudio();
+    });
   }, [stopAudio]);
 
-  // Ezber: sesi rampayla söndür, duraklat, `waitMs` bekle, sonra `then()`.
+  // Ezber: sesi kes, `waitMs` bekle, sonra `then()`.
   // Tekrar (nefes payı) ve adım geçişi (gap) aynı iskeleti kullanır.
+  //
+  // pause() SENKRON — asenkron bir rampanın tamamlanmasını BEKLEMEZ. Eski
+  // sürüm beklerdi ve bu ölçülebilir bir hataydı: sınır anında setSession
+  // ReadingMode'un dev ağacını render ediyor, main thread ~70 ms bloke
+  // oluyor, rampa hiç çalışamıyor ve kesme `to`yu aşıyordu (2026-08-01
+  // ölçümü). Kesme noktası zaten sessiz pencerede (useHifzSession.LEAD_MS),
+  // o yüzden anında kesmek doğru ve jank'ten bağımsız.
   const hifzPauseThen = useCallback((audio, waitMs, then) => {
     clearHifzBreath();
-    rampVolume(audio, 0, FADE_MS).then(() => {
+    setVolumeNow(audio, 0);   // ucuz sigorta — sessizlikte kesiyoruz zaten
+    audio.pause();            // onpause rAF döngüsünü iptal eder
+    hifzBreathRef.current = setTimeout(() => {
+      hifzBreathRef.current = null;
       if (surahAudioRef.current !== audio) return;   // kârî/sûre değişti
-      audio.pause();                                  // onpause rAF'ı iptal eder
-      hifzBreathRef.current = setTimeout(() => {
-        hifzBreathRef.current = null;
-        if (surahAudioRef.current !== audio) return;
-        then();
-      }, waitMs);
-    });
+      then();
+    }, waitMs);
   }, [clearHifzBreath]);
 
   const playVerseWithFallback = useCallback((verse, urlIdx, urls) => {
@@ -2100,9 +2105,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const action = hifzTick(tMs);
     if (action) {
       if (action.type === 'done') {
-        // Oturum sonunda da rampa — son tekrarın kesilişi de tık üretiyordu.
-        // stopAudio zaten clearHifzBreath → restoreVolume çağırır.
-        rampVolume(audio, 0, FADE_MS).then(() => stopAudio());
+        // Oturum sonu da sessiz pencerede kesilir; stopAudio zaten
+        // clearHifzBreath → restoreVolume çağırır.
+        stopAudio();
         return;                       // rAF yeniden kurulmaz — oturum bitti
       }
       if (action.type === 'gap') {

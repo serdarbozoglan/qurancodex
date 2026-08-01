@@ -32,17 +32,30 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { FADE_MS } from '../lib/audio-fade';
 
-// Rampa süresi + timer/promise zamanlama payı.
-// Ölçüm kalibrasyonu (2026-07-31):
-//   pay 0  → duraklama `to`yu 24-44 ms aşıyor
-//   pay 45 → çoğu turda altında ama jitter'da 12.7 ms taşma görüldü
-//   pay 90 → gözlenen en kötü gecikmede (~127 ms) bile güvenli marj
-// Bütçenin cömert olması bedava değil: `to`dan bu kadar önce sönmeye
-// başlarız. Ama boşluklar 0 olduğu için `to` zaten SONRAKİ ayetin konuşma
-// başlangıcıdır; erken sönmek geç sönmekten iyidir.
-const LEAD_MS = FADE_MS + 90;
+// ── LEAD_MS — SESSİZ PENCEREYE KESME (genlik ölçümü, 2026-08-01) ───────────
+// Kesme noktası, ayetin ses kuyruğu bittikten SONRA ve sonraki ayetin sesi
+// başlamadan ÖNCE olmalı. Orada genlik zaten sıfırdır: ne tık çıkar, ne
+// kırpma olur — ve ses rampasına hiç ihtiyaç kalmaz (bkz. lib/audio-fade.js).
+//
+// A'lâ 87 / Meşarî mp3'ü OfflineAudioContext ile çözülüp RMS zarfı çıkarıldı:
+//   • `from` damgası HER ayette gerçek ses başlangıcının 10-60 ms ÖNCESİNDE
+//     → seek noktası sessizlikte, ayet başı kırpılmıyor (0/19)
+//   • Ses kuyruğunun bitişi ile `to` arası EN DAR marj: 80 ms (87:18)
+//   • `to` ile sonraki ayetin ses başlangıcı arası EN DAR marj: 10 ms (87:3)
+//   → sessiz pencere en kötü durumda [to-80, to+10]
+//
+// LEAD = 40 → kesme `to-40`'ta, pencerenin ortasına yakın; iki yönde de
+// ~40 ms marj. Ölçümle doğrulandı: 19/19 ayette ne baş ne kuyruk kırpılıyor.
+//
+// Önceki değer 160 ms idi ve YANLIŞTI — yalnızca "`to`yu aşmayalım" kriterine
+// göre seçilmişti, sesin gerçekte nerede bittiğine bakılmadan; 16/19 ayette
+// kuyruğu kesiyordu (kullanıcı raporu: "başka bir harf sesi truncate edilmiş
+// gibi" — duyulan şey bir ÖNCEKİ tekrarın kırpılmış kuyruğuydu).
+//
+// ⚠ Kalibrasyon TEK kârî (Meşarî) ve TEK sûre (87) ölçümünden. Başka
+// kârîlerde marj daha dar olabilir; şikâyet gelirse aynı probe ile ölçülmeli.
+const LEAD_MS = 40;
 
 // Sınır `from`a bu kadar yaklaşamaz — aşırı kısa ayetlerde sınırın pencere
 // başına düşüp anında tetiklenmesini engeller.

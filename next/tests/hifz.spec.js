@@ -168,7 +168,7 @@ test('vurgu pencere dışına taşmaz (sayfa zıplamaz)', async ({ page }) => {
 // taşıyor ve sert pause() tık üretiyordu.
 // Beklenen: duraklama `to`dan ÖNCE ve volume 0'a rampalanmış olarak gerçekleşir,
 // ayetin ortası ise tam sesle çalar.
-test('duraklama ayet sınırını aşmaz ve sesi rampayla keser', async ({ page }) => {
+test('kesme sessiz pencerede — kuyruk kırpılmaz, sonraki ayet duyulmaz', async ({ page }) => {
   const TO_87_3 = 11050;   // qdc damgası — Meşarî/87
 
   await openSurah(page);
@@ -181,10 +181,11 @@ test('duraklama ayet sınırını aşmaz ve sesi rampayla keser', async ({ page 
       window.__a = el;
       return el;
     };
+    // 10 ms — rampa 25 ms sürüyor; 50 ms'lik örnekleme onu tamamen kaçırır.
     setInterval(() => {
       const a = window.__a;
       if (a && !a.paused) window.__ts.push([a.currentTime * 1000, a.volume]);
-    }, 50);
+    }, 10);
   });
 
   await page.getByRole('button', { name: /^Ezber$/ }).click();
@@ -201,23 +202,37 @@ test('duraklama ayet sınırını aşmaz ve sesi rampayla keser', async ({ page 
 
   const { ev, ts } = await page.evaluate(() => ({ ev: window.__ev, ts: window.__ts }));
 
-  // (a) Taşma yok — her duraklama ayetin `to` damgasından önce.
   const endPauses = ev.filter(x => x.ct > 9000);
   expect(endPauses.length, 'tekrar döngüsü duraklamaları gözlenmeli').toBeGreaterThan(0);
-  for (const x of endPauses) {
-    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — sonraki ayete taşıyor`).toBeLessThanOrEqual(TO_87_3);
-  }
 
-  // (b) Kesmeden önce rampa çalışmış — ses ZAMAN SERİSİNDEN ölçülür.
-  // `pause` olayındaki volume'e BAKILMAZ: olay asenkron dispatch edilir ve
-  // oturum sonunda stopAudio → restoreVolume(1) araya girip 1 okutur. Ses
-  // fiilen rampalanmıştır; doğru ölçüm noktası çalma anındaki son örneklerdir.
-  const tail = ts.filter(([ct]) => ct > TO_87_3 - 250 && ct <= TO_87_3);
-  expect(tail.length, 'ayet kuyruğu örneklenebilmeli').toBeGreaterThan(0);
+  // (a) Sınırı geçen ses DUYULMAMALI.
+  // Ölçüt "duraklama `to`dan önce olsun" DEĞİL — rampa sürerken ses birkaç ms
+  // `to`yu aşabilir, ama seviye o noktada zaten 0'dır. Asıl akustik değişmez:
+  // `to`dan sonra duyulabilir hiçbir örnek olmayacak. (Kullanıcı raporu
+  // 2026-07-31: "ikinci ayetin ilk harfi duyuluyor".)
+  const audibleAfter = ts.filter(([ct, v]) => ct > TO_87_3 && v > 0.15);
+  expect(audibleAfter, 'ayet sınırından sonra duyulabilir ses kalmamalı').toEqual([]);
+
+  // (b) Ses kuyruğu KIRPILMAMALI — rampa çok erken başlamamalı.
+  // Genlik ölçümü (2026-08-01): 87:3'ün duyulabilir kuyruğu 10905 ms'de
+  // bitiyor, `to` 11050. Rampa bundan önce başlarsa son harf kesilir
+  // (kullanıcı raporu: "başka bir harf sesi truncate edilmiş gibi").
+  const beforeTail = ts.filter(([ct]) => ct > 10600 && ct < 10905);
+  expect(beforeTail.length, 'kuyruk bölgesi örneklenebilmeli').toBeGreaterThan(0);
   expect(
-    Math.min(...tail.map(([, v]) => v)),
-    'kesmeden önce ses 0\'a rampalanmalı (aksi halde tık sesi)',
-  ).toBeLessThan(0.2);
+    Math.min(...beforeTail.map(([, v]) => v)),
+    'ayetin ses kuyruğu tam seviyede çalmalı (rampa erken başlamamalı)',
+  ).toBeGreaterThan(0.9);
+
+  // (c) Kesme SESSİZ pencerede — ne kuyruğa ne sonraki ayete değiyor.
+  // Ölçüm (2026-08-01): 87:3'ün duyulabilir kuyruğu 10905'te bitiyor,
+  // sonraki ayetin sesi 11060'ta başlıyor → sessiz pencere [10905, 11060].
+  // Her duraklama bu aralıkta olmalı. Rampaya İHTİYAÇ YOK: genlik zaten
+  // sıfır olduğu için kesme duyulmaz (bkz. lib/audio-fade.js gerekçesi).
+  for (const x of endPauses) {
+    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — ses kuyruğunu kesiyor`).toBeGreaterThan(10905);
+    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — sonraki ayetin sesine giriyor`).toBeLessThan(11060);
+  }
 
   // Ayetin ORTASI tam sesle çalmalı — fade-in çalışmazsa burası kısık kalır
   const mid = ts.filter(([ct]) => ct > 8200 && ct < 10500);
