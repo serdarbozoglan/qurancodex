@@ -70,12 +70,14 @@ export default function HifzPanel({
     ['Ne yapar', 'Seçtiğin ayeti belirlediğin sayıda tekrar tekrar dinletir.'],
     ['Kartopu', 'Ayet 1 ×5 → Ayet 2 ×5 → 1–2 birlikte ×5 → Ayet 3 ×5 → 1–3 birlikte ×5 … Ezberin zor kısmı ayetleri birbirine bağlamaktır; birleştirme adımları bunun içindir.'],
     ['Bloklar', 'Beşer ayetlik bloklar hâlinde ilerler. Blok dolunca sonraki bloğa geçer.'],
+    ['"adım 5/34" ne demek', 'Program adımını gösterir, ayet numarasını değil. Adım sayısı ayet sayısından fazladır: her ayetin kendi adımı vardır, üstüne birleştirme adımları eklenir. A\'lâ 19 ayet → 34 adım.'],
     ['Geçişlerde', 'Her adım arasında iki saniye durur. O anda "Tekrarla"ya basarsan aynı adımı baştan çalar — henüz oturmadıysa.'],
     ['Kârî', 'Kelime takibi olan (♪) kârîlerde çalışır. Kârîyi üstteki menüden değiştirebilirsin.'],
   ] : [
     ['What it does', 'Repeats the verse you selected as many times as you choose.'],
     ['Snowball', 'Verse 1 ×5 → Verse 2 ×5 → 1–2 together ×5 → Verse 3 ×5 → 1–3 together ×5 … The hard part of memorising is linking verses; the joining steps are for that.'],
     ['Blocks', 'Advances in blocks of five verses, then moves to the next block.'],
+    ['What "step 5/34" means', 'It is the position in the plan, not a verse number. There are more steps than verses: each verse has its own step, plus the joining steps. Al-A\'la has 19 verses → 34 steps.'],
     ['Between steps', 'Pauses two seconds between steps. Press "Again" during that pause to redo the step.'],
     ['Reciter', 'Works with reciters that have word timing (♪). Change the reciter from the menu above.'],
   ];
@@ -204,12 +206,23 @@ export default function HifzPanel({
               {stepLabel({ from: session.fromAyah, to: session.toAyah }, tr)}
             </span>
 
-            {/* Program içindeki konum */}
-            <span style={{
-              fontFamily: FONTS.body, fontSize: '0.66rem', color: theme.muted,
-              flexShrink: 0, fontVariantNumeric: 'tabular-nums', opacity: 0.8,
-            }}>
-              {session.stepIndex + 1}/{session.stepCount}
+            {/* Program içindeki konum — "adım" etiketi ZORUNLU. Etiketsiz
+                "5/34" ayet numarası gibi okunuyordu; A'lâ 19 ayet olduğu için
+                kullanıcı "34 ayet mi var?" diye takılıyordu (rapor 2026-07-31).
+                34 = 19 tek ayet + 15 birleştirme adımı. */}
+            <span
+              title={tr
+                ? `Kartopu programında ${session.stepIndex + 1}. adım (toplam ${session.stepCount}). Adım sayısı ayet sayısından fazladır: her ayet için bir tek-ayet adımı, ayrıca birleştirme adımları vardır.`
+                : `Step ${session.stepIndex + 1} of ${session.stepCount} in the snowball plan. There are more steps than verses: each verse gets its own step, plus the joining steps.`}
+              style={{
+                fontFamily: FONTS.body, fontSize: '0.66rem', color: theme.muted,
+                flexShrink: 0, opacity: 0.85, whiteSpace: 'nowrap',
+              }}
+            >
+              {tr ? 'adım' : 'step'}{' '}
+              <span style={{ fontVariantNumeric: 'tabular-nums' }}>
+                {session.stepIndex + 1}/{session.stepCount}
+              </span>
             </span>
 
             {inGap ? (

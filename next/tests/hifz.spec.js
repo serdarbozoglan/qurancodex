@@ -299,7 +299,33 @@ test('geçiş penceresinde sıradaki adım duyurulur ve Tekrarla adımı geri al
   expect(t).toContain('Ayet 1');
   expect(t).not.toContain('Ayet 2');
   // Program konumu ilerlememeli — ilk adımdayız
-  expect(t).toMatch(/\b1\/\d+/);
+  expect(t).toMatch(/adım\s+1\/\d+/);
+});
+
+// Regresyon — 2026-07-31 kullanıcı raporu: A'lâ 19 ayet olmasına rağmen
+// panelde etiketsiz "5/34" görünüyordu ve ayet numarası gibi okunuyordu.
+// 34 = 19 tek ayet adımı + 15 birleştirme adımı. Sayı "adım" etiketiyle
+// gelmeli, aksi halde kullanıcı sûrenin 34 ayeti olduğunu sanır.
+test('program konumu "adım" olarak etiketlenir (ayet numarasıyla karışmasın)', async ({ page }) => {
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await disableAuto(panel);
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+  await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 20_000 });
+
+  const t = await panelText(panel);
+  // Sayı MUTLAKA "adım" etiketiyle gelmeli
+  expect(t).toMatch(/adım\s+\d+\/\d+/);
+  // A'lâ 19 ayet: 19 tek + 15 birleştirme = 34 adım
+  expect(t).toContain('adım 1/34');
+
+  // Yardım baloncuğunda da açıklanmalı
+  await panel.getByRole('button', { name: 'Nasıl çalışır?' }).click();
+  expect(await panelText(panel)).toMatch(/adım.*ne demek|Program adımını gösterir/s);
 });
 
 test('otomatik ilerleme kapalıyken adım sonunda durur', async ({ page }) => {
