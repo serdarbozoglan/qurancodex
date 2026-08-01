@@ -9,6 +9,7 @@ import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
 import HifzPanel from './hifz/HifzPanel';
 import HifzIcon from './hifz/HifzIcon';
+import { rampVolume, restoreVolume, FADE_MS } from '../lib/audio-fade';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
@@ -925,7 +926,14 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 // incompatible way (default flip, enum rename, type change). On mismatch we
 // silently reset settings to defaults — user navigation state (last_position,
 // last_read, bookmarks) and API caches (meal:*, corpus:*) are preserved.
-const SETTINGS_VERSION = 2;
+// v3 (2026-07-31): qurancodex_day_mode varsayılanı false → true (gündüz).
+//   Default flip → bump ZORUNLU. Bump olmadan, mount'taki persist effect'i
+//   yüzünden okuma modunu bir kez açmış HER kullanıcıda anahtar zaten
+//   'false' yazılıdır; yeni varsayılan onlara hiç ulaşmazdı.
+//   Bedeli: bu listedeki tüm ayarlar bir kereliğine sıfırlanır (kârî, font
+//   boyutu, tecvid, kitap modu, meal seçimi…). Kullanıcı verisi (yer imleri,
+//   son konum, okuma ilerlemesi) ve API cache'leri KORUNUR.
+const SETTINGS_VERSION = 3;
 const SETTINGS_VERSION_KEY = 'qurancodex_settings_version';
 const VERSIONED_SETTINGS_KEYS = [
   'qurancodex_show_translation',
@@ -1239,9 +1247,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     catch { return 1.0; }
   });
   // ── Day / Night mode (persisted) ───────────────────────────────────────────
+  // Varsayılan GÜNDÜZ (kâğıt/mushaf paleti) — kullanıcı direktifi 2026-07-31:
+  // "default görünüm gündüz modu olmalı Kur'an okumada". Basılı mushaf
+  // metaforu okuma modunun temel kimliği; gece modu tercih edilen bir
+  // sapma, varsayılan değil.
   const [dayMode, setDayMode] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') || 'false'); }
-    catch { return false; }
+    try { return JSON.parse(localStorage.getItem('qurancodex_day_mode') || 'true'); }
+    catch { return true; }
   });
   // ── Tajweed coloring toggle ────────────────────────────────────────────────
   const [showTajweed, setShowTajweed] = useState(() => {
@@ -1914,6 +1926,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       clearTimeout(hifzBreathRef.current);
       hifzBreathRef.current = null;
     }
+    // KRİTİK: yarıda kesilen bir fade-out elementi volume=0'da bırakır ve
+    // sonraki çalma sessiz olur. Her durdurma yolunda seviye geri verilir.
+    restoreVolume(surahAudioRef.current);
   }, []);
   useEffect(() => () => clearHifzBreath(), [clearHifzBreath]);
 
@@ -2044,23 +2059,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const action = hifzTick(tMs);
     if (action) {
       if (action.type === 'done') {
-        stopAudio();
+        // Oturum sonunda da rampa — son tekrarın kesilişi de tık üretiyordu.
+        // stopAudio zaten clearHifzBreath → restoreVolume çağırır.
+        rampVolume(audio, 0, FADE_MS).then(() => stopAudio());
         return;                       // rAF yeniden kurulmaz — oturum bitti
       }
-      // 'repeat' — nefes payı boyunca duraklat, sonra pencere başına geri sar.
-      // pause() → onpause rAF'ı iptal eder; play() → onplaying yeniden kurar.
-      audio.pause();
+      // 'repeat' — sesi rampayla indir, duraklat, nefes payı, sonra pencere
+      // başına geri sarıp rampayla geri çık. Sert pause()/play() tık üretir
+      // (kullanıcı raporu: "teyp kapanışı gibi ses").
       clearHifzBreath();
-      hifzBreathRef.current = setTimeout(() => {
-        hifzBreathRef.current = null;
-        const cur = surahAudioRef.current;
-        if (!cur || cur !== audio) return;   // kârî/sûre değişti — iptal
-        cur.currentTime = action.seekTo;
-        cur.play().catch(err => {
-          if (err?.name === 'AbortError') return;
-          stopAudio();
-        });
-      }, action.pauseMs);
+      rampVolume(audio, 0, FADE_MS).then(() => {
+        if (surahAudioRef.current !== audio) return;   // kârî/sûre değişti
+        audio.pause();                                  // onpause rAF'ı iptal eder
+        hifzBreathRef.current = setTimeout(() => {
+          hifzBreathRef.current = null;
+          const cur = surahAudioRef.current;
+          if (!cur || cur !== audio) return;
+          cur.currentTime = action.seekTo;
+          cur.play()
+            // play() sonrası rampala — onplaying rAF döngüsünü yeniden kurar
+            .then(() => rampVolume(cur, 1, FADE_MS))
+            .catch(err => {
+              restoreVolume(cur);
+              if (err?.name === 'AbortError') return;
+              stopAudio();
+            });
+        }, action.pauseMs);
+      });
       return;
     }
 
@@ -2133,11 +2158,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             const cur = surahAudioRef.current;
             if (!cur || cur !== audio) return;
             cur.currentTime = action.seekTo;
-            cur.play().catch(err => {
-              if (err?.name === 'AbortError') return;
-              stopKaraokeLoop();
-              setPlayingVerseId(null);
-            });
+            // Dosya bittiği için fade-out gerekmedi; başlangıç tıkını
+            // önlemek için yine 0'dan rampalayarak gir.
+            try { cur.volume = 0; } catch { /* iOS: salt-okunur */ }
+            cur.play()
+              .then(() => rampVolume(cur, 1, FADE_MS))
+              .catch(err => {
+                restoreVolume(cur);
+                if (err?.name === 'AbortError') return;
+                stopKaraokeLoop();
+                setPlayingVerseId(null);
+              });
           }, action.pauseMs);
           return;
         }

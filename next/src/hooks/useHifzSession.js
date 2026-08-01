@@ -28,10 +28,31 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { FADE_MS } from '../lib/audio-fade';
 
-// Ayetin son hecesi kırpılmasın diye `to` damgasından sonra bırakılan pay.
-// Ayetler arası sessizlikten çalınır; boşluk yoksa 0'a iner (aşağıda clamp).
-const TAIL_MS = 260;
+// ── Sınır neden `to`'nun GERİSİNDE? ─────────────────────────────────────────
+// qdc damgaları sesi BİTİŞİK böler: her ayetin `to`'su bir sonraki ayetin
+// `from`'una eşittir (A'lâ 87'de 19/19 ayette boşluk = 0 ms; 2026-07-31
+// ölçümü). Yani `to` ayet sonu sessizliği DEĞİL, sonraki ayetin konuşma
+// başlangıcıdır.
+//
+// rAF ~16 ms adımlarla örneklediği için `tMs >= to` koşulu ateşlendiğinde
+// zaten sonraki ayetin ilk milisaniyelerini çalmış oluruz — kullanıcı bunu
+// "ikinci ayetin ilk harfi duyuluyor" diye raporladı (2026-07-31). Üstüne
+// sert `pause()` tık sesi üretir ("teyp kapanışı").
+//
+// Çözüm: sınırı `to`'dan LEAD_MS geri çek. Rampa bu pencerede sesi 0'a
+// indirir, `to`'ya varmadan duraklarız. Taşma yok, tık yok.
+//
+// LEAD_MS rampa süresinden BÜYÜK olmalı: tetikleme ile duraklama arasında
+// rampanın kendisi (FADE_MS) + timer/promise zamanlama payı geçer. Ölçüm
+// (2026-07-31): LEAD = FADE = 70 iken duraklama `to`yu 24-44 ms aşıyordu.
+// 45 ms pay ile duraklama `to`nun hemen altına iniyor.
+const LEAD_MS = FADE_MS + 45;
+
+// Sınır `from`'a bu kadar yaklaşamaz — aşırı kısa ayetlerde (~200 ms)
+// sınırın pencere başına düşüp anında tetiklenmesini engeller.
+const MIN_WINDOW_MS = 400;
 
 // Tekrarlar arası nefes payı. Sıfır olursa tekrarlar birbirine yapışır ve
 // ezber için yorucu olur; 400ms doğal bir "tekrar ediyorum" ritmi verir.
@@ -91,14 +112,13 @@ export default function useHifzSession({ timings, enabled, breathMs = DEFAULT_BR
     const last = timings[`${surah}:${toAyah}`];
     if (!first || !last) return null;
 
-    // Kuyruk payı, bir sonraki ayete taşmayacak kadar. Ayetler arası boşluk
-    // yoksa (to === nextFrom) pay 0 olur — taşma yerine kırpmayı tercih ederiz,
-    // çünkü sonraki ayetin ilk hecesini duymak ezberde kafa karıştırır.
-    const next = timings[`${surah}:${toAyah + 1}`];
-    const gap = next ? Math.max(0, next.from - last.to) : TAIL_MS;
-    const tail = Math.min(TAIL_MS, gap);
+    // Sınırı `to`'nun gerisine çek (yukarıdaki LEAD_MS gerekçesi). Sûrenin
+    // SON ayetinde taşacak bir sonraki ayet yok — orada `to`'ya kadar
+    // çalınabilir, ama tık sesi için rampa yine gerekli, o yüzden aynı
+    // geri çekme uygulanır (tutarlı davranış).
+    const boundary = Math.max(first.from + MIN_WINDOW_MS, last.to - LEAD_MS);
 
-    return { from: first.from, to: last.to, boundary: last.to + tail };
+    return { from: first.from, to: last.to, boundary };
   }, [timings]);
 
   /** Ezber oturumunu başlat. Pencere kurulamazsa false döner. */

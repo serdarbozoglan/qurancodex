@@ -144,6 +144,69 @@ test('vurgu pencere dışına taşmaz (sayfa zıplamaz)', async ({ page }) => {
   expect(leaked, 'ezber penceresi dışındaki ayet vurgulanmamalı').toEqual([]);
 });
 
+// Regresyon — 2026-07-31 kullanıcı raporu: "ayet sonunda teyp kapanışı gibi
+// bir ses" + "ikinci ayetin ilk harfinin bir kısmı duyuluyor".
+// Kök neden: qdc damgaları BİTİŞİK (to === sonraki from; A'lâ'da 19/19 ayette
+// boşluk 0 ms), sınır `to`da olunca rAF granülerliği yüzünden sonraki ayete
+// taşıyor ve sert pause() tık üretiyordu.
+// Beklenen: duraklama `to`dan ÖNCE ve volume 0'a rampalanmış olarak gerçekleşir,
+// ayetin ortası ise tam sesle çalar.
+test('duraklama ayet sınırını aşmaz ve sesi rampayla keser', async ({ page }) => {
+  const TO_87_3 = 11050;   // qdc damgası — Meşarî/87
+
+  await openSurah(page);
+  await page.evaluate(() => {
+    window.__ev = []; window.__ts = [];
+    const Orig = window.Audio;
+    window.Audio = function (...a) {
+      const el = new Orig(...a);
+      el.addEventListener('pause', () => window.__ev.push({ ct: el.currentTime * 1000, v: el.volume }));
+      window.__a = el;
+      return el;
+    };
+    setInterval(() => {
+      const a = window.__a;
+      if (a && !a.paused) window.__ts.push([a.currentTime * 1000, a.volume]);
+    }, 50);
+  });
+
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await page.getByText(VERSE_3_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+
+  for (let i = 0; i < 70; i++) {
+    await page.waitForTimeout(500);
+    if (i > 4 && await panel.getByRole('button', { name: 'Başlat' }).isVisible().catch(() => false)) break;
+  }
+
+  const { ev, ts } = await page.evaluate(() => ({ ev: window.__ev, ts: window.__ts }));
+
+  // (a) Taşma yok — her duraklama ayetin `to` damgasından önce.
+  const endPauses = ev.filter(x => x.ct > 9000);
+  expect(endPauses.length, 'tekrar döngüsü duraklamaları gözlenmeli').toBeGreaterThan(0);
+  for (const x of endPauses) {
+    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — sonraki ayete taşıyor`).toBeLessThanOrEqual(TO_87_3);
+  }
+
+  // (b) Kesmeden önce rampa çalışmış — ses ZAMAN SERİSİNDEN ölçülür.
+  // `pause` olayındaki volume'e BAKILMAZ: olay asenkron dispatch edilir ve
+  // oturum sonunda stopAudio → restoreVolume(1) araya girip 1 okutur. Ses
+  // fiilen rampalanmıştır; doğru ölçüm noktası çalma anındaki son örneklerdir.
+  const tail = ts.filter(([ct]) => ct > TO_87_3 - 250 && ct <= TO_87_3);
+  expect(tail.length, 'ayet kuyruğu örneklenebilmeli').toBeGreaterThan(0);
+  expect(
+    Math.min(...tail.map(([, v]) => v)),
+    'kesmeden önce ses 0\'a rampalanmalı (aksi halde tık sesi)',
+  ).toBeLessThan(0.2);
+
+  // Ayetin ORTASI tam sesle çalmalı — fade-in çalışmazsa burası kısık kalır
+  const mid = ts.filter(([ct]) => ct > 8200 && ct < 10500);
+  expect(mid.length, 'ayet ortası örneklenebilmeli').toBeGreaterThan(10);
+  expect(mid.filter(([, v]) => v < 0.9), 'ayet ortasında ses kısılmamalı').toEqual([]);
+});
+
 test('Durdur oturumu sonlandırır ve sesi keser', async ({ page }) => {
   await openSurah(page);
   await instrumentAudio(page);
