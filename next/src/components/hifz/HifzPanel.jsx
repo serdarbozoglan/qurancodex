@@ -106,13 +106,22 @@ export default function HifzPanel({
         position: 'fixed',
         left: '50%',
         transform: 'translateX(-50%)',
-        bottom: isMobile ? '12px' : '18px',
+        // Mobilde global BugReportFab (fixed, bottom:20px left:20px, ~44px)
+        // şeridin sol ucuyla çakışıyor. Panel tam genişlik olduğu için yana
+        // kaçamıyoruz — FAB'ın üstüne çıkıyoruz. Masaüstünde şerit dar ve
+        // ortalı olduğu için çakışma yok, 18px kalıyor.
+        bottom: isMobile ? '76px' : '18px',
         zIndex: 201,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'stretch',
         gap: '8px',
-        maxWidth: 'calc(100vw - 24px)',
+        // Mobilde SABİT tam genişlik. `auto` bırakılırsa fixed konumlu kutu
+        // içeriğine göre büzülür (390px ekranda 192px ölçüldü) ve her şey dar
+        // bir sütuna sarar — okunaksız, ayet metnini de kötü kapatır.
+        // Masaüstünde içerik kadar genişlik doğru davranış.
+        width: isMobile ? 'calc(100vw - 16px)' : 'auto',
+        maxWidth: 'calc(100vw - 16px)',
       }}
     >
       {/* ── Yardım baloncuğu — şeridin ÜSTÜNDE ─────────────────────────── */}
@@ -157,10 +166,11 @@ export default function HifzPanel({
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        gap: isMobile ? '9px' : '13px',
+        gap: isMobile ? '8px' : '13px',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        padding: isMobile ? '9px 12px' : '10px 18px',
+        rowGap: isMobile ? '10px' : '8px',
+        padding: isMobile ? '10px 12px' : '10px 18px',
         background: theme.bg,
         border: `1px solid ${theme.border}`,
         borderRadius: RADIUS.chip,

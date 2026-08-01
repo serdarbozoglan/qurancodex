@@ -360,3 +360,47 @@ test('yardım baloncuğu kartopu yöntemini açıklar', async ({ page }) => {
   expect(t).toContain('Bloklar');
   expect(t).toContain('Geçişlerde');
 });
+
+// ─── Mobil giriş (390px — CLAUDE.md §14 minimum genişlik) ───────────────────
+// Toolbar'da yer olmadığı için buton masaüstüne özel; mobilde AYAR panelinden
+// açılır (Tahta ile aynı kalıp).
+test.describe('mobil', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+
+  test('Ezber, toolbar yerine AYAR panelinden açılır', async ({ page }) => {
+    await page.goto(`/tr/oku/${SURAH}`);
+    await expect(page.getByRole('button', { name: /AYAR/i })).toBeVisible({ timeout: 30_000 });
+
+    // Masaüstü toolbar butonu mobilde OLMAMALI (yer yok)
+    await expect(page.getByRole('button', { name: /^Ezber$/ })).toHaveCount(0);
+
+    await page.getByRole('button', { name: /AYAR/i }).click();
+    const entry = page.getByRole('button', { name: /Ezber/ });
+    await expect(entry.first()).toBeVisible();
+    await entry.first().click();
+
+    await expect(page.getByRole('region', { name: 'Ezber' })).toBeVisible();
+  });
+
+  test('panel ekrana sığar, yatay taşma yapmaz', async ({ page }) => {
+    await page.goto(`/tr/oku/${SURAH}`);
+    await expect(page.getByRole('button', { name: /AYAR/i })).toBeVisible({ timeout: 30_000 });
+    await page.getByRole('button', { name: /AYAR/i }).click();
+    await page.getByRole('button', { name: /Ezber/ }).first().click();
+
+    const panel = page.getByRole('region', { name: 'Ezber' });
+    const box = await panel.boundingBox();
+    expect(box.x, 'sol kenar ekran içinde').toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width, 'sağ kenar ekran içinde').toBeLessThanOrEqual(390);
+    // Dar sütuna sarmamalı — tam genişliğe yakın olmalı (regresyon: 192px ölçülmüştü)
+    expect(box.width, 'panel tam genişliğe yayılmalı').toBeGreaterThan(320);
+
+    // §14: mobilde yatay sayfa kaydırması olmamalı
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)).toBe(false);
+
+    // Yardım baloncuğu da ekrana sığmalı
+    await panel.getByRole('button', { name: 'Nasıl çalışır?' }).click();
+    const box2 = await panel.boundingBox();
+    expect(box2.height, 'yardım açıkken ekranı taşırmamalı').toBeLessThan(844);
+  });
+});

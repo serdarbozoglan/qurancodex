@@ -4602,6 +4602,40 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </span>
               </button>
 
+              {/* Ezber — mobil giriş noktası. Toolbar butonu masaüstüne özel
+                  (yer yok); mobilde Tahta ile aynı kalıpta buradan açılır.
+                  Karaoke desteklemeyen kârîlerde kapalı görünür ve sebebi
+                  sağdaki etikette yazar — buton gizlemek "özellik yok"
+                  izlenimi verirdi. */}
+              <button
+                onClick={() => {
+                  if (!karaokeActive) return;
+                  if (hifzOpen) { stopAudio(); setHifzOpen(false); }
+                  else setHifzOpen(true);
+                  setShowSettingsPicker(false);
+                }}
+                disabled={!karaokeActive}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  padding: '8px 12px', borderRadius: RADIUS.md,
+                  cursor: karaokeActive ? 'pointer' : 'not-allowed',
+                  opacity: karaokeActive ? 1 : 0.5,
+                  border: `1px solid ${hifzOpen ? navC.btnBorderActive : dropC.btnBorder}`,
+                  background: hifzOpen ? dropC.itemBgActive : dropC.btnBg,
+                  transition: `all ${TRANSITION.fast}`,
+                }}
+              >
+                <span style={{ fontSize: '0.82rem', color: hifzOpen ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <HifzIcon size={13} />
+                  {language === 'tr' ? 'Ezber' : 'Memorize'}
+                </span>
+                <span style={{ fontSize: '0.7rem', color: hifzOpen ? gold : dropC.textMuted, fontWeight: 600 }}>
+                  {!karaokeActive
+                    ? (language === 'tr' ? 'Kârî desteklemiyor' : 'Reciter n/a')
+                    : hifzOpen ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
+                </span>
+              </button>
+
               {/* NOTE: Dil (TR/EN) and Ara are intentionally NOT here — both
                   remain visible on the mobile toolbar itself (Dil as the TR/EN
                   pill, Ara as the magnifier icon). Putting them in Settings as
