@@ -1,5 +1,10 @@
-// ─── Ezber modu (Faz 1) — uçtan uca doğrulama ───────────────────────────────
-// A'lâ sûresi (87) üzerinde tek ayet A–B tekrarını gerçek tarayıcıda sınar.
+// ─── Ezber modu — uçtan uca doğrulama ───────────────────────────────────────
+// A'lâ sûresi (87) üzerinde A–B tekrarını ve kartopu programını gerçek
+// tarayıcıda sınar.
+//
+// ⚠ Tek-adım davranışını ölçen testler otomatik ilerlemeyi KAPATIR
+// (`disableAuto`). Açıkken adım bitince programa devam edilir — bu doğru
+// davranıştır ama tek pencerelik ölçümü bozar.
 //
 // Ses <audio> DOM elementi DEĞİL — ReadingMode `new Audio()` ile imperatif
 // oluşturur. Testler window.Audio'yu sarmalayıp örneği yakalar; böylece
@@ -35,6 +40,16 @@ const audioState = (page) => page.evaluate(() => {
   return a ? { ct: a.currentTime, paused: a.paused } : null;
 });
 
+// Tek adımı izole et — otomatik ilerleme kapalıysa adım bitince oturum durur.
+async function disableAuto(panel) {
+  const btn = panel.getByRole('button', { name: /Otomatik/ });
+  if ((await btn.getAttribute('aria-pressed')) === 'true') await btn.click();
+  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+}
+
+// Panelin görünen metni — adım etiketi, konum ve geçiş bilgisini içerir.
+const panelText = (panel) => panel.innerText();
+
 test('toolbar butonu paneli açar, tekrar ön ayarları görünür', async ({ page }) => {
   await openSurah(page);
   await page.getByRole('button', { name: /^Ezber$/ }).click();
@@ -69,6 +84,7 @@ test('A–B döngüsü: ses pencereye geri sarar, sayaç ilerler, hedefte durur'
   const panel = page.getByRole('region', { name: 'Ezber' });
 
   await panel.getByRole('button', { name: '3', exact: true }).click();  // test süresi kısalsın
+  await disableAuto(panel);
   await page.getByText(VERSE_1_MEAL).click();
   await panel.getByRole('button', { name: 'Başlat' }).click();
 
@@ -112,6 +128,7 @@ test('vurgu pencere dışına taşmaz (sayfa zıplamaz)', async ({ page }) => {
   const panel = page.getByRole('region', { name: 'Ezber' });
 
   await panel.getByRole('button', { name: '3', exact: true }).click();
+  await disableAuto(panel);
   await page.getByText(VERSE_3_MEAL).click();
   await page.waitForTimeout(1200);   // tıklama kaynaklı scroll otursun
 
@@ -173,6 +190,7 @@ test('duraklama ayet sınırını aşmaz ve sesi rampayla keser', async ({ page 
   await page.getByRole('button', { name: /^Ezber$/ }).click();
   const panel = page.getByRole('region', { name: 'Ezber' });
   await panel.getByRole('button', { name: '3', exact: true }).click();
+  await disableAuto(panel);
   await page.getByText(VERSE_3_MEAL).click();
   await panel.getByRole('button', { name: 'Başlat' }).click();
 
@@ -224,4 +242,95 @@ test('Durdur oturumu sonlandırır ve sesi keser', async ({ page }) => {
   // (400ms'lik pauseMs'in iki katından fazlasını bekle.)
   await page.waitForTimeout(1500);
   expect((await audioState(page))?.paused, 'durdurulduktan sonra ses çalmamalı').toBe(true);
+});
+
+// ─── Faz 2 — kartopu programı + otomatik ilerleme ───────────────────────────
+
+test('kartopu programı sırayla ilerler: Ayet 1 → Ayet 2 → 1–2 birlikte', async ({ page }) => {
+  test.setTimeout(180_000);   // 3 adım × 3 tekrar + geçişler
+
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  // Otomatik ilerleme AÇIK kalmalı — test edilen şey bu.
+  await expect(panel.getByRole('button', { name: /Otomatik/ })).toHaveAttribute('aria-pressed', 'true');
+
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+
+  // Panelde görülen adım etiketlerini sırayla topla
+  const seq = [];
+  for (let i = 0; i < 300; i++) {
+    await page.waitForTimeout(400);
+    const t = await panelText(panel).catch(() => '');
+    const m = t.match(/Ayet \d+|\d+–\d+ birlikte/);
+    if (m && seq[seq.length - 1] !== m[0]) seq.push(m[0]);
+    if (seq.length >= 3) break;
+  }
+
+  // Kartopu sırası: tek ayet, tek ayet, sonra birleştirme
+  expect(seq.slice(0, 3)).toEqual(['Ayet 1', 'Ayet 2', '1–2 birlikte']);
+});
+
+test('geçiş penceresinde sıradaki adım duyurulur ve Tekrarla adımı geri alır', async ({ page }) => {
+  test.setTimeout(180_000);
+
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+
+  // İlk adım bitince geçiş penceresi açılır: "Tekrarla" belirir
+  const again = panel.getByRole('button', { name: /Tekrarla/ });
+  await expect(again).toBeVisible({ timeout: 90_000 });
+
+  // Sıradaki adım duyurulmalı
+  expect(await panelText(panel)).toContain('Sıradaki');
+
+  // Kaçışa bas → aynı adım (Ayet 1) baştan çalmalı, Ayet 2'ye GEÇMEMELİ
+  await again.click();
+  await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 15_000 });
+  const t = await panelText(panel);
+  expect(t).toContain('Ayet 1');
+  expect(t).not.toContain('Ayet 2');
+  // Program konumu ilerlememeli — ilk adımdayız
+  expect(t).toMatch(/\b1\/\d+/);
+});
+
+test('otomatik ilerleme kapalıyken adım sonunda durur', async ({ page }) => {
+  test.setTimeout(120_000);
+
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await disableAuto(panel);
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+
+  // 3 tekrar sonunda boşta duruma dönmeli — geçiş penceresi AÇILMAMALI
+  await expect(panel.getByRole('button', { name: 'Başlat' })).toBeVisible({ timeout: 90_000 });
+  expect(await panelText(panel)).not.toContain('Sıradaki');
+});
+
+test('yardım baloncuğu kartopu yöntemini açıklar', async ({ page }) => {
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  const help = panel.getByRole('button', { name: 'Nasıl çalışır?' });
+  await expect(help).toHaveAttribute('aria-expanded', 'false');
+  await help.click();
+  await expect(help).toHaveAttribute('aria-expanded', 'true');
+
+  const t = await panelText(panel);
+  expect(t).toContain('Kartopu');
+  expect(t).toContain('Bloklar');
+  expect(t).toContain('Geçişlerde');
 });

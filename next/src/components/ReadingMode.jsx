@@ -956,6 +956,7 @@ const VERSIONED_SETTINGS_KEYS = [
   // kullanıcıda karşılığı yok, okunduğunda default'a düşer). Listede olması
   // bir sonraki bump'ta temizlenmesini garanti eder.
   'qurancodex_hifz_repeat',
+  'qurancodex_hifz_auto',
 ];
 // Module-level guard so the migration runs at most once per browser session
 // even if ReadingMode is mounted/unmounted multiple times.
@@ -1045,6 +1046,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const raw = parseInt(localStorage.getItem('qurancodex_hifz_repeat'), 10);
       return Number.isFinite(raw) && raw > 0 && raw <= 99 ? raw : DEFAULT_REPEAT;
     } catch { return DEFAULT_REPEAT; }
+  });
+  // Otomatik ilerleme — varsayılan AÇIK. Ezber elleri boş yapılan bir iştir;
+  // her ayet sonunda fareye uzanmak konsantrasyonu böler. Kapatma imkânı
+  // yine de duruyor: yeni başlayan bir ayette 20 kere takılmak isteyebilir.
+  const [hifzAuto, setHifzAuto] = useState(() => {
+    try { return localStorage.getItem('qurancodex_hifz_auto') !== '0'; } catch { return true; }
   });
   // Corpus Quran (Leeds) — kelime düzeyinde tıklama + WordPopover.
   // Surah 1 (Fâtiha) hand-curated (tr/en + ince sarf), 2..114 auto-generated.
@@ -1850,6 +1857,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
   useEffect(() => { localStorage.setItem('qurancodex_karaoke_on', karaokeEnabled ? '1' : '0'); }, [karaokeEnabled]);
   useEffect(() => { localStorage.setItem('qurancodex_hifz_repeat', String(hifzRepeat)); }, [hifzRepeat]);
+  useEffect(() => { localStorage.setItem('qurancodex_hifz_auto', hifzAuto ? '1' : '0'); }, [hifzAuto]);
   useEffect(() => { localStorage.setItem('qurancodex_show_translation', JSON.stringify(showTranslation)); }, [showTranslation]);
   useEffect(() => { localStorage.setItem('qurancodex_tajweed', JSON.stringify(showTajweed)); }, [showTajweed]);
   useEffect(() => { localStorage.setItem('qurancodex_prefer_single_page', JSON.stringify(preferSinglePage)); }, [preferSinglePage]);
@@ -1917,6 +1925,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const {
     tick: hifzTick, stop: hifzStop, start: hifzStart,
     forceBoundary: hifzForceBoundary, getWindow: hifzWindow,
+    commitAdvance: hifzCommit, restartStep: hifzRestart,
   } = hifz;
   // Tekrarlar arası nefes payı timer'ı — durdurma/unmount'ta temizlenmeli,
   // aksi halde durdurulmuş oturum 400ms sonra sesi geri başlatır.
@@ -1996,6 +2005,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     setKaraokeFallbackActive(false);
   }, [stopKaraokeLoop, clearHifzBreath, hifzStop]);
 
+  // Ezber: mevcut sûre audio elementini verilen noktaya sarıp rampayla başlat.
+  // Oturum sırasında element zaten var (playVerseKaraoke oluşturdu), o yüzden
+  // element yaratma/fallback zincirine gerek yok — sadece seek + fade-in.
+  const hifzResume = useCallback((seekTo) => {
+    const cur = surahAudioRef.current;
+    if (!cur) return;
+    cur.currentTime = seekTo;
+    try { cur.volume = 0; } catch { /* iOS: salt-okunur */ }
+    cur.play()
+      .then(() => rampVolume(cur, 1, FADE_MS))
+      .catch(err => {
+        restoreVolume(cur);
+        if (err?.name === 'AbortError') return;
+        stopAudio();
+      });
+  }, [stopAudio]);
+
+  // Ezber: sesi rampayla söndür, duraklat, `waitMs` bekle, sonra `then()`.
+  // Tekrar (nefes payı) ve adım geçişi (gap) aynı iskeleti kullanır.
+  const hifzPauseThen = useCallback((audio, waitMs, then) => {
+    clearHifzBreath();
+    rampVolume(audio, 0, FADE_MS).then(() => {
+      if (surahAudioRef.current !== audio) return;   // kârî/sûre değişti
+      audio.pause();                                  // onpause rAF'ı iptal eder
+      hifzBreathRef.current = setTimeout(() => {
+        hifzBreathRef.current = null;
+        if (surahAudioRef.current !== audio) return;
+        then();
+      }, waitMs);
+    });
+  }, [clearHifzBreath]);
+
   const playVerseWithFallback = useCallback((verse, urlIdx, urls) => {
     if (urlIdx >= urls.length) {
       setFailedVerseId(verse.id);
@@ -2064,28 +2105,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         rampVolume(audio, 0, FADE_MS).then(() => stopAudio());
         return;                       // rAF yeniden kurulmaz — oturum bitti
       }
+      if (action.type === 'gap') {
+        // Adım tamamlandı — geçiş penceresi. Bu süre boyunca panel
+        // "Tekrarla" kaçışını gösterir; kullanıcı basmazsa sıradaki adım.
+        hifzPauseThen(audio, action.gapMs, () => {
+          const nx = hifzCommit();
+          if (nx) hifzResume(nx.seekTo);
+          else stopAudio();            // program bitti
+        });
+        return;
+      }
       // 'repeat' — sesi rampayla indir, duraklat, nefes payı, sonra pencere
-      // başına geri sarıp rampayla geri çık. Sert pause()/play() tık üretir
-      // (kullanıcı raporu: "teyp kapanışı gibi ses").
-      clearHifzBreath();
-      rampVolume(audio, 0, FADE_MS).then(() => {
-        if (surahAudioRef.current !== audio) return;   // kârî/sûre değişti
-        audio.pause();                                  // onpause rAF'ı iptal eder
-        hifzBreathRef.current = setTimeout(() => {
-          hifzBreathRef.current = null;
-          const cur = surahAudioRef.current;
-          if (!cur || cur !== audio) return;
-          cur.currentTime = action.seekTo;
-          cur.play()
-            // play() sonrası rampala — onplaying rAF döngüsünü yeniden kurar
-            .then(() => rampVolume(cur, 1, FADE_MS))
-            .catch(err => {
-              restoreVolume(cur);
-              if (err?.name === 'AbortError') return;
-              stopAudio();
-            });
-        }, action.pauseMs);
-      });
+      // başına geri sar. Sert pause()/play() tık üretir (kullanıcı raporu:
+      // "teyp kapanışı gibi ses").
+      hifzPauseThen(audio, action.pauseMs, () => hifzResume(action.seekTo));
       return;
     }
 
@@ -2131,7 +2164,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     }
 
     karaokeRAFRef.current = requestAnimationFrame(karaokeFrame);
-  }, [surahTimings, hifzTick, hifzWindow, stopAudio, clearHifzBreath]);
+  }, [surahTimings, hifzTick, hifzWindow, stopAudio, hifzPauseThen, hifzResume, hifzCommit]);
 
   const playVerseKaraoke = useCallback((verse) => {
     const timings = surahTimings;
@@ -2151,25 +2184,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         // Sûrenin son ayetinde ezber penceresinin sınırı dosya süresini
         // aşabilir — tick sınırı hiç görmez. onended bu boşluğu kapatır.
         const action = hifzForceBoundary();
-        if (action?.type === 'repeat') {
+        // Dosya bittiği için fade-out gerekmiyor; hifzResume zaten 0'dan
+        // rampalayarak girer (başlangıç tıkını önler).
+        if (action?.type === 'repeat' || action?.type === 'gap') {
           clearHifzBreath();
           hifzBreathRef.current = setTimeout(() => {
             hifzBreathRef.current = null;
-            const cur = surahAudioRef.current;
-            if (!cur || cur !== audio) return;
-            cur.currentTime = action.seekTo;
-            // Dosya bittiği için fade-out gerekmedi; başlangıç tıkını
-            // önlemek için yine 0'dan rampalayarak gir.
-            try { cur.volume = 0; } catch { /* iOS: salt-okunur */ }
-            cur.play()
-              .then(() => rampVolume(cur, 1, FADE_MS))
-              .catch(err => {
-                restoreVolume(cur);
-                if (err?.name === 'AbortError') return;
-                stopKaraokeLoop();
-                setPlayingVerseId(null);
-              });
-          }, action.pauseMs);
+            if (surahAudioRef.current !== audio) return;
+            if (action.type === 'repeat') { hifzResume(action.seekTo); return; }
+            const nx = hifzCommit();
+            if (nx) hifzResume(nx.seekTo);
+            else stopAudio();
+          }, action.type === 'gap' ? action.gapMs : action.pauseMs);
           return;
         }
         stopKaraokeLoop();
@@ -2244,17 +2270,29 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     karaokeLiveRef.current = { verseId: verse.id, wordIdx: null };
     return true;
   }, [surahTimings, surahAudioUrl, reciterIdx, karaokeFrame, stopKaraokeLoop, playVerseWithFallback,
-      hifzForceBoundary, clearHifzBreath, hifzStop]);
+      hifzForceBoundary, clearHifzBreath, hifzStop, hifzResume, hifzCommit, stopAudio]);
 
   // ── Ezber başlat ──────────────────────────────────────────────────────────
-  // Aktif ayet üzerinde çalışır. stopAudio() ÖNCE gelir (o da hifzStop çağırır),
-  // oturum ondan SONRA kurulur — ters sırada yeni oturum anında silinirdi.
+  // Aktif ayetten başlayarak sûre sonuna kadar kartopu programı kurar.
+  // stopAudio() ÖNCE gelir (o da hifzStop çağırır); oturum ondan SONRA
+  // kurulur — ters sırada yeni oturum anında silinirdi.
   const handleHifzStart = useCallback(() => {
     if (!karaokeActive || !activeVerse) return;
     stopAudio();
-    if (!hifzStart(activeVerse, hifzRepeat)) return;
+    const lastAyah = surahVerses.length > 0
+      ? surahVerses[surahVerses.length - 1].ayah
+      : activeVerse.ayah;
+    if (!hifzStart(activeVerse, hifzRepeat, { lastAyah, autoAdvance: hifzAuto })) return;
     playVerseKaraoke(activeVerse);
-  }, [karaokeActive, activeVerse, stopAudio, hifzStart, hifzRepeat, playVerseKaraoke]);
+  }, [karaokeActive, activeVerse, stopAudio, hifzStart, hifzRepeat, hifzAuto, surahVerses, playVerseKaraoke]);
+
+  // "Bu ayeti tekrarla" — geçiş penceresindeki kaçış. Bekleyen ilerlemeyi
+  // iptal edip aynı adımı baştan çalar.
+  const handleHifzRepeatStep = useCallback(() => {
+    clearHifzBreath();
+    const r = hifzRestart();
+    if (r) hifzResume(r.seekTo);
+  }, [clearHifzBreath, hifzRestart, hifzResume]);
 
   const handleAudioToggle = useCallback((verse) => {
     if (playingVerseId === verse.id) {
@@ -3458,7 +3496,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onMouseLeave={e => { e.currentTarget.style.background = hifzOpen ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = hifzOpen ? navC.btnBorderActive : navC.btnBorder; }}
                 title={hifzOpen
                   ? (language === 'tr' ? 'Ezber modunu kapat' : 'Close memorization mode')
-                  : (language === 'tr' ? 'Ezber — ayeti seçtiğin sayıda tekrar dinle' : 'Memorize — repeat a verse as many times as you choose')}
+                  : (language === 'tr'
+                      ? 'Ezber modu\n\nSeçtiğin ayeti belirlediğin sayıda tekrarlar, sonra kartopu yöntemiyle ilerler:\nAyet 1 ×5 → Ayet 2 ×5 → 1–2 birlikte ×5 → Ayet 3 ×5 …\n\nAç, bir ayet seç, tekrar sayısını belirle. Ayrıntı için paneldeki ? işareti.'
+                      : 'Memorization mode\n\nRepeats the verse you pick, then advances snowball-style:\nVerse 1 ×5 → Verse 2 ×5 → 1–2 together ×5 → Verse 3 ×5 …\n\nOpen it, select a verse, set the count. See the ? in the panel for details.')}
               >
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <HifzIcon size={isMobile ? 15 : 18} />
@@ -9432,10 +9472,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           session={hifz.session}
           repeat={hifzRepeat}
           onRepeatChange={setHifzRepeat}
+          auto={hifzAuto}
+          onAutoChange={setHifzAuto}
           activeVerse={activeVerse}
           available={karaokeActive}
           onStart={handleHifzStart}
           onStop={stopAudio}
+          onRepeatStep={handleHifzRepeatStep}
           onClose={() => { stopAudio(); setHifzOpen(false); }}
         />
       )}
