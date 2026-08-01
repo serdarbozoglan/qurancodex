@@ -53,7 +53,23 @@ export default function useHifzSession({ timings, enabled, breathMs = DEFAULT_BR
   // rAF-sıcak durum. tick her karede buraya bakar, React'e dokunmaz.
   //   armed:  sınır aksiyonu ateşlenmeye hazır mı (çift tetikleme guard'ı)
   //   count:  tamamlanan tekrar sayısı
-  const live = useRef({ active: false, from: 0, to: 0, boundary: 0, target: 0, count: 0, armed: true });
+  const live = useRef({
+    active: false, from: 0, to: 0, boundary: 0, target: 0, count: 0, armed: true,
+    surah: 0, fromAyah: 0, toAyah: 0,
+  });
+
+  /**
+   * Aktif pencereyi ref'ten okur — STABİL kimlik (deps'e girebilir).
+   * rAF döngüsü bunu her karede çağırır; `session` state'ini deps'e koymak
+   * sayaç her arttığında karaokeFrame'i yeniden kurar ve çalışan döngü eski
+   * closure'da kalırdı.
+   */
+  const getWindow = useCallback(() => {
+    const s = live.current;
+    return s.active
+      ? { active: true, surah: s.surah, fromAyah: s.fromAyah, toAyah: s.toAyah }
+      : { active: false };
+  }, []);
 
   // Karaoke kapanır/kârî değişirse oturum geçersizdir — A–B penceresi artık
   // ölçülemez. Guard'lı: zaten oturum yoksa setState hiç çağrılmaz.
@@ -92,7 +108,10 @@ export default function useHifzSession({ timings, enabled, breathMs = DEFAULT_BR
     if (!win) return false;
 
     const target = Math.max(1, Math.floor(repeat) || DEFAULT_REPEAT);
-    live.current = { active: true, ...win, target, count: 0, armed: true };
+    live.current = {
+      active: true, ...win, target, count: 0, armed: true,
+      surah: verse.surah, fromAyah: verse.ayah, toAyah: verse.ayah,
+    };
     setSession({
       surah: verse.surah,
       fromAyah: verse.ayah,
@@ -165,5 +184,6 @@ export default function useHifzSession({ timings, enabled, breathMs = DEFAULT_BR
     stop,
     tick,
     forceBoundary,
+    getWindow,
   };
 }

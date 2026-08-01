@@ -13,7 +13,8 @@
 import { test, expect } from '@playwright/test';
 
 const SURAH = 87;                          // A'lâ — kısa, ezber için tipik
-const VERSE_1_MEAL = 'Yüce Rabbinin adını,'; // 87:1 meali (Suat Yıldırım, varsayılan)
+const VERSE_1_MEAL = 'Yüce Rabbinin adını,';      // 87:1 meali (Suat Yıldırım, varsayılan)
+const VERSE_3_MEAL = 'Takdir edip yol gösteren,'; // 87:3 — öncesi ve sonrası ayet var
 
 async function openSurah(page) {
   await page.goto(`/tr/oku/${SURAH}`);
@@ -99,6 +100,48 @@ test('A–B döngüsü: ses pencereye geri sarar, sayaç ilerler, hedefte durur'
   await expect(panel.getByRole('button', { name: 'Başlat' })).toBeVisible({ timeout: 90_000 });
 
   expect(errors.filter(e => !/favicon|manifest/i.test(e))).toEqual([]);
+});
+
+// Regresyon — 2026-07-31 kullanıcı raporu: "ayet bitince öbürüne geçiyormuş
+// gibi oluyor ve sayfa zıplıyor ileri ve geri". Kök neden: sınır karesinde
+// highlight kodu tick'ten önce çalışıp setActiveVerse(N+1) ateşliyordu.
+// Oturum boyunca aktif ayet vurgusu pencerede SABİT kalmalı.
+test('vurgu pencere dışına taşmaz (sayfa zıplamaz)', async ({ page }) => {
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await page.getByText(VERSE_3_MEAL).click();
+  await page.waitForTimeout(1200);   // tıklama kaynaklı scroll otursun
+
+  // Arapça sütunda ARKA PLANI OLAN (vurgulu) metinleri sürekli örnekle —
+  // aktif ayetin gerçek görsel imzası budur.
+  await page.evaluate(() => {
+    window.__hi = [];
+    window.__tick = setInterval(() => {
+      Array.from(document.querySelectorAll('span,div')).forEach(e => {
+        const bg = getComputedStyle(e).backgroundColor;
+        if (!bg || bg === 'rgba(0, 0, 0, 0)') return;
+        const t = (e.textContent || '').trim();
+        if (t.length > 2 && t.length < 60 && /[ء-ي]/.test(t)) window.__hi.push(t);
+      });
+    }, 120);
+  });
+
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+  for (let i = 0; i < 70; i++) {
+    await page.waitForTimeout(500);
+    if (i > 4 && await panel.getByRole('button', { name: 'Başlat' }).isVisible().catch(() => false)) break;
+  }
+  const seen = await page.evaluate(() => { clearInterval(window.__tick); return window.__hi; });
+
+  expect(seen.length, 'vurgu örneklenebilmeli').toBeGreaterThan(10);
+  // 87:4'ün ayırt edici kelimesi (اَخْرَجَ / الْمَرْعٰى). Düzeltme öncesi
+  // sınır karesinde setActiveVerse(87:4) ateşleniyordu ve bu kelimeler
+  // vurgulanıyordu — sayfa ileri-geri zıplamasının kök nedeni.
+  const leaked = seen.filter(t => /اَخْرَجَ|الْمَرْعٰى/.test(t));
+  expect(leaked, 'ezber penceresi dışındaki ayet vurgulanmamalı').toEqual([]);
 });
 
 test('Durdur oturumu sonlandırır ve sesi keser', async ({ page }) => {

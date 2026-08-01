@@ -1902,7 +1902,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Fonksiyonlar destructure edilir (hepsi stabil useCallback) — `hifz` nesnesi
   // her render'da yenidir, doğrudan deps'e konulursa aşağıdaki tüm useCallback
   // zinciri her render'da yeniden kurulur.
-  const { tick: hifzTick, stop: hifzStop, start: hifzStart, forceBoundary: hifzForceBoundary } = hifz;
+  const {
+    tick: hifzTick, stop: hifzStop, start: hifzStart,
+    forceBoundary: hifzForceBoundary, getWindow: hifzWindow,
+  } = hifz;
   // Tekrarlar arası nefes payı timer'ı — durdurma/unmount'ta temizlenmeli,
   // aksi halde durdurulmuş oturum 400ms sonra sesi geri başlatır.
   const hifzBreathRef = useRef(null);
@@ -2031,37 +2034,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       return;
     }
     const tMs = audio.currentTime * 1000;
-    const timings = surahTimings;
-    const verses = surahVersesRef.current;
-    if (timings && verses.length > 0) {
-      let nextVerse = null;
-      let nextWord = null;
-      for (const v of verses) {
-        const vt = timings[`${v.surah}:${v.ayah}`];
-        if (!vt) continue;
-        if (tMs >= vt.from && tMs < vt.to) {
-          nextVerse = v;
-          for (const seg of vt.segments) {
-            if (tMs >= seg[1] && tMs < seg[2]) { nextWord = seg[0]; break; }
-          }
-          break;
-        }
-      }
-      const live = karaokeLiveRef.current;
-      if (nextVerse && nextVerse.id !== live.verseId) {
-        live.verseId = nextVerse.id;
-        setPlayingVerseId(nextVerse.id);
-        setActiveVerse(nextVerse); // page flip + center scroll existing useEffect tarafından
-      }
-      if (nextWord !== live.wordIdx) {
-        live.wordIdx = nextWord;
-        setKaraokeActiveWordIdx(nextWord);
-      }
-    }
 
-    // ── Ezber A–B sınırı ────────────────────────────────────────────────────
-    // Highlight güncellemesinden SONRA bakılır ki geri sarmadan önce son
-    // kelime bir kare de olsa vurgulanmış olsun.
+    // ── Ezber A–B sınırı — highlight'tan ÖNCE ───────────────────────────────
+    // Sıra kritik: sınır damgası (to + tail) bir sonraki ayetin from'una
+    // dayanabilir. Highlight önce çalışırsa o tek karede setActiveVerse(N+1)
+    // ateşlenir → sayfa ileri kayar, geri sarınca geri kayar (kullanıcı
+    // raporu 2026-07-31: "sayfa zıplıyor ileri ve geri"). Sınırı önce
+    // ölçüp erken dönerek o kareyi hiç render etmiyoruz.
     const action = hifzTick(tMs);
     if (action) {
       if (action.type === 'done') {
@@ -2085,8 +2064,49 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       return;
     }
 
+    const timings = surahTimings;
+    const verses = surahVersesRef.current;
+    if (timings && verses.length > 0) {
+      let nextVerse = null;
+      let nextWord = null;
+      for (const v of verses) {
+        const vt = timings[`${v.surah}:${v.ayah}`];
+        if (!vt) continue;
+        if (tMs >= vt.from && tMs < vt.to) {
+          nextVerse = v;
+          for (const seg of vt.segments) {
+            if (tMs >= seg[1] && tMs < seg[2]) { nextWord = seg[0]; break; }
+          }
+          break;
+        }
+      }
+      // Ezber penceresi kilidi — ikinci savunma hattı. Sınır kontrolü yukarıda
+      // erken dönse de, seek gecikmesi veya damga yuvarlaması yüzünden tMs bir
+      // kare komşu ayete düşebilir. Oturum açıkken pencere DIŞINDAKİ ayete ait
+      // hiçbir highlight yazılmaz — ne ayet ne kelime. Böylece sayfa akışı
+      // oturum boyunca sabit kalır.
+      const w = hifzWindow();
+      const outside = w.active && nextVerse
+        && !(nextVerse.surah === w.surah && nextVerse.ayah >= w.fromAyah && nextVerse.ayah <= w.toAyah);
+      if (w.active && (outside || !nextVerse)) {
+        karaokeRAFRef.current = requestAnimationFrame(karaokeFrame);
+        return;
+      }
+
+      const live = karaokeLiveRef.current;
+      if (nextVerse && nextVerse.id !== live.verseId) {
+        live.verseId = nextVerse.id;
+        setPlayingVerseId(nextVerse.id);
+        setActiveVerse(nextVerse); // page flip + center scroll existing useEffect tarafından
+      }
+      if (nextWord !== live.wordIdx) {
+        live.wordIdx = nextWord;
+        setKaraokeActiveWordIdx(nextWord);
+      }
+    }
+
     karaokeRAFRef.current = requestAnimationFrame(karaokeFrame);
-  }, [surahTimings, hifzTick, stopAudio, clearHifzBreath]);
+  }, [surahTimings, hifzTick, hifzWindow, stopAudio, clearHifzBreath]);
 
   const playVerseKaraoke = useCallback((verse) => {
     const timings = surahTimings;
