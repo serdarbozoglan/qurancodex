@@ -9497,7 +9497,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           language={language}
           isMobile={isMobile}
           theme={{
-            bg: dayMode ? 'rgba(249,245,232,0.97)' : 'rgba(12,16,28,0.97)',
+            // §13.1: ham rgba YOK. Panel, okuma modunun footer yüzeyiyle aynı
+            // katman — C.footerBg/footerBorder gündüz/gece paletini zaten taşır.
+            bg: C.footerBg,
             border: C.footerBorder,
             text: dayMode ? COLORS.paperSepia : COLORS.offWhite,
             muted: C.muted,

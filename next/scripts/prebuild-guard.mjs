@@ -39,13 +39,44 @@ function trySoft(cmd, args) {
   return true;
 }
 
+// Throwing variant — try/catch ile yakalanabilir.
+//
+// ⚠ `run()` başarısızlıkta process.exit() çağırır, THROW ETMEZ. Bu yüzden
+// aşağıdaki fallback bloklarını saran try/catch'ler ÖLÜ KODDU: niyet "deploy
+// başarılı olsun, sadece concierge çalışmasın" iken build sert düşüyordu.
+// 2026-08-01'de Vercel preview deploy'u tam bu yüzden patladı: LFS pointer →
+// fallback → DeepInfra HTTP 429 (Model busy) → run() exit(1) → build FAILED.
+function runOrThrow(cmd, args) {
+  console.log(`\n▶ ${cmd} ${args.join(' ')}`);
+  const res = spawnSync(cmd, args, { cwd: ROOT, stdio: 'inherit' });
+  if (res.status !== 0) {
+    throw new Error(`${cmd} ${args.join(' ')} → exit ${res.status}`);
+  }
+}
+
+// Corpus'u yeniden üretmeyi dene. Başarısız olursa build'i DÜŞÜRME —
+// Concierge dışındaki her şey (okuma modu, atlaslar, araçlar) corpus'a
+// bağlı değil; 12.660 item'lık embedding yüzünden tüm siteyi kaybetmek
+// orantısız.
+function tryRebuildCorpus(reason) {
+  try {
+    runOrThrow('node', ['scripts/build-corpus.mjs']);
+    runOrThrow('node', ['scripts/build-embeddings.mjs']);
+    runOrThrow('node', ['scripts/reencode-embeddings.mjs']);
+    console.log(`\n✅ Corpus generated (${reason}).`);
+    return true;
+  } catch (err) {
+    console.error(`❌ Corpus rebuild failed: ${err.message}`);
+    console.warn('   Build DEVAM EDİYOR — yalnızca /sor (Concierge) devre dışı kalır.');
+    console.warn('   Kalıcı çözüm: Vercel → Settings → Git → Git LFS aktif et.');
+    return false;
+  }
+}
+
 // ── Check 1: corpus file exists?
 if (!fs.existsSync(CORPUS)) {
   console.log('🚧 corpus-embeddings.json missing → running full pipeline');
-  run('node', ['scripts/build-corpus.mjs']);
-  run('node', ['scripts/build-embeddings.mjs']);
-  run('node', ['scripts/reencode-embeddings.mjs']);
-  console.log('\n✅ Corpus generated.');
+  tryRebuildCorpus('missing file');
   process.exit(0);
 }
 
@@ -72,17 +103,9 @@ if (corpusSize < 1024) {
       process.exit(0);
     }
 
-    // Full fallback — 8 dk + $0.007
-    try {
-      run('node', ['scripts/build-corpus.mjs']);
-      run('node', ['scripts/build-embeddings.mjs']);
-      run('node', ['scripts/reencode-embeddings.mjs']);
-      console.log('\n✅ Corpus regenerated via fallback.');
-    } catch (err) {
-      console.error(`❌ Fallback pipeline failed: ${err.message}`);
-      console.warn('   Continuing build — concierge route will 500 until corpus available.');
-      process.exit(0); // Deploy başarılı, sadece concierge çalışmaz
-    }
+    // Full fallback — 8 dk + $0.007 + DeepInfra rate limit riski.
+    // Başarısızlık build'i DÜŞÜRMEZ (bkz. tryRebuildCorpus).
+    tryRebuildCorpus('LFS fallback');
   } else {
     console.log('\n✅ LFS pull successful.');
   }
@@ -100,17 +123,13 @@ if (fs.existsSync(MANIFEST)) {
 
     if (Math.abs(manifestCount - corpusCount) > 5) {
       console.log(`⚠  Manifest/corpus mismatch: manifest=${manifestCount} corpus=${corpusCount}. Rebuilding...`);
-      run('node', ['scripts/build-corpus.mjs']);
-      run('node', ['scripts/build-embeddings.mjs']);
-      run('node', ['scripts/reencode-embeddings.mjs']);
+      tryRebuildCorpus('manifest/corpus mismatch');
       process.exit(0);
     }
     console.log(`✓ Consistency check passed (manifest ${manifestCount} items, corpus ${corpusCount} items)`);
   } catch (err) {
     console.log(`⚠  Corpus parse error: ${err.message}. Rebuilding...`);
-    run('node', ['scripts/build-corpus.mjs']);
-    run('node', ['scripts/build-embeddings.mjs']);
-    run('node', ['scripts/reencode-embeddings.mjs']);
+    tryRebuildCorpus('corpus parse error');
     process.exit(0);
   }
 }
