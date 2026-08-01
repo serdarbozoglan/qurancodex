@@ -217,14 +217,19 @@ export default function useHifzSession({ timings, enabled, breathMs = DEFAULT_BR
       s.active = false;
       s.phase = 'idle';
       setSession(null);
-      return { type: 'done' };
+      // done da flush ister — oturum sonu kesiminde de kuyrukta sonraki
+      // ayetin sesi bekliyor olabilir.
+      return { type: 'done', flushTo: s.from / 1000 };
     }
 
     // Geçiş penceresi — idx HENÜZ ilerletilmez. Kullanıcı bu pencerede
     // "Tekrarla"ya basabilir; commitAdvance/restartStep kararı verir.
     s.phase = 'gap';
     setSession(snapshot());
-    return { type: 'gap', gapMs };
+    // flushTo: duraklatmadan önce buraya sarılır — ses çıkış tamponunu
+    // boşaltıp kuyruktaki sonraki-ayet sesini atmak için (bkz. ReadingMode
+    // hifzPauseThen gerekçesi). Mevcut adımın başı her zaman güvenli.
+    return { type: 'gap', gapMs, flushTo: s.from / 1000 };
   }, [breathMs, gapMs, snapshot]);
 
   /**

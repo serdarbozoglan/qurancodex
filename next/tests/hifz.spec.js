@@ -168,7 +168,7 @@ test('vurgu pencere dışına taşmaz (sayfa zıplamaz)', async ({ page }) => {
 // taşıyor ve sert pause() tık üretiyordu.
 // Beklenen: duraklama `to`dan ÖNCE ve volume 0'a rampalanmış olarak gerçekleşir,
 // ayetin ortası ise tam sesle çalar.
-test('kesme sessiz pencerede — kuyruk kırpılmaz, sonraki ayet duyulmaz', async ({ page }) => {
+test('duraklatmadan önce flush seek — sonraki ayetin sesi kuyruktan atılır', async ({ page }) => {
   const TO_87_3 = 11050;   // qdc damgası — Meşarî/87
 
   await openSurah(page);
@@ -202,37 +202,37 @@ test('kesme sessiz pencerede — kuyruk kırpılmaz, sonraki ayet duyulmaz', asy
 
   const { ev, ts } = await page.evaluate(() => ({ ev: window.__ev, ts: window.__ts }));
 
-  const endPauses = ev.filter(x => x.ct > 9000);
-  expect(endPauses.length, 'tekrar döngüsü duraklamaları gözlenmeli').toBeGreaterThan(0);
+  const FROM_87_3 = 7550;
+  const TAIL_END = 10905;    // 87:3'ün duyulabilir ses kuyruğunun bitişi (ölçüm)
 
-  // (a) Sınırı geçen ses DUYULMAMALI.
-  // Ölçüt "duraklama `to`dan önce olsun" DEĞİL — rampa sürerken ses birkaç ms
-  // `to`yu aşabilir, ama seviye o noktada zaten 0'dır. Asıl akustik değişmez:
-  // `to`dan sonra duyulabilir hiçbir örnek olmayacak. (Kullanıcı raporu
-  // 2026-07-31: "ikinci ayetin ilk harfi duyuluyor".)
-  const audibleAfter = ts.filter(([ct, v]) => ct > TO_87_3 && v > 0.15);
-  expect(audibleAfter, 'ayet sınırından sonra duyulabilir ses kalmamalı').toEqual([]);
+  // (a) FLUSH SEEK ÇALIŞMIŞ OLMALI — her duraklama pencere BAŞINDA.
+  //
+  // Kritik değişmez budur. `pause()` tek başına yetmiyor: ses donanım
+  // kuyruğunda ~100-200 ms içerik varken duraklatılırsa o içerik yine
+  // çalınır ve sonraki ayetin ilk harfi duyulur (kullanıcı raporu
+  // 2026-08-01, iPhone). Duraklatmadan ÖNCE pencere başına seek edilirse
+  // çıkış tamponu boşalır ve kuyruktaki ses atılır.
+  //
+  // Duraklamanın `from`da gerçekleşmesi = seek'in pause'dan önce çalıştığının
+  // gözlemlenebilir kanıtı. `to` civarında bir duraklama görülürse flush
+  // atlanmış demektir.
+  expect(ev.length, 'duraklama gözlenmeli').toBeGreaterThan(0);
+  for (const x of ev) {
+    expect(
+      Math.abs(x.ct - FROM_87_3),
+      `duraklama ct=${Math.round(x.ct)} — pencere başında değil, flush seek atlanmış`,
+    ).toBeLessThan(300);
+  }
 
-  // (b) Ses kuyruğu KIRPILMAMALI — rampa çok erken başlamamalı.
-  // Genlik ölçümü (2026-08-01): 87:3'ün duyulabilir kuyruğu 10905 ms'de
-  // bitiyor, `to` 11050. Rampa bundan önce başlarsa son harf kesilir
-  // (kullanıcı raporu: "başka bir harf sesi truncate edilmiş gibi").
-  const beforeTail = ts.filter(([ct]) => ct > 10600 && ct < 10905);
+  // (b) Ses kuyruğu KIRPILMAMALI — kesme, konuşma bitmeden başlamamalı.
+  // 87:3'ün duyulabilir kuyruğu 10905'te bitiyor (genlik ölçümü). O ana
+  // kadar tam seviyede çalınmış olmalı.
+  const beforeTail = ts.filter(([ct]) => ct > 10600 && ct < TAIL_END);
   expect(beforeTail.length, 'kuyruk bölgesi örneklenebilmeli').toBeGreaterThan(0);
   expect(
     Math.min(...beforeTail.map(([, v]) => v)),
-    'ayetin ses kuyruğu tam seviyede çalmalı (rampa erken başlamamalı)',
+    'ayetin ses kuyruğu tam seviyede çalmalı',
   ).toBeGreaterThan(0.9);
-
-  // (c) Kesme SESSİZ pencerede — ne kuyruğa ne sonraki ayete değiyor.
-  // Ölçüm (2026-08-01): 87:3'ün duyulabilir kuyruğu 10905'te bitiyor,
-  // sonraki ayetin sesi 11060'ta başlıyor → sessiz pencere [10905, 11060].
-  // Her duraklama bu aralıkta olmalı. Rampaya İHTİYAÇ YOK: genlik zaten
-  // sıfır olduğu için kesme duyulmaz (bkz. lib/audio-fade.js gerekçesi).
-  for (const x of endPauses) {
-    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — ses kuyruğunu kesiyor`).toBeGreaterThan(10905);
-    expect(x.ct, `duraklama ${Math.round(x.ct)}ms — sonraki ayetin sesine giriyor`).toBeLessThan(11060);
-  }
 
   // Ayetin ORTASI tam sesle çalmalı — fade-in çalışmazsa burası kısık kalır
   const mid = ts.filter(([ct]) => ct > 8200 && ct < 10500);

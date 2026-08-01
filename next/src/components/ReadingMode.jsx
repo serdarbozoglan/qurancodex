@@ -2025,16 +2025,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Ezber: sesi kes, `waitMs` bekle, sonra `then()`.
   // Tekrar (nefes payı) ve adım geçişi (gap) aynı iskeleti kullanır.
   //
-  // pause() SENKRON — asenkron bir rampanın tamamlanmasını BEKLEMEZ. Eski
-  // sürüm beklerdi ve bu ölçülebilir bir hataydı: sınır anında setSession
-  // ReadingMode'un dev ağacını render ediyor, main thread ~70 ms bloke
-  // oluyor, rampa hiç çalışamıyor ve kesme `to`yu aşıyordu (2026-08-01
-  // ölçümü). Kesme noktası zaten sessiz pencerede (useHifzSession.LEAD_MS),
-  // o yüzden anında kesmek doğru ve jank'ten bağımsız.
-  const hifzPauseThen = useCallback((audio, waitMs, then) => {
+  // ⚠ SIRA KRİTİK: önce SEEK, sonra pause.
+  //
+  // `pause()` tek başına yetmiyor — ölçüm (2026-08-01, 87:1):
+  //     duraklama ct=4071, o noktada genlik 0.002 (sessiz)
+  //     ama +40 ms'te 0.020, +80 ms'te 0.095 → 2. ayetin sesi
+  // Sebep iki katmanlı: (a) duraklama sınırdan ~60 ms geç gerçekleşiyor
+  // (rAF granülerliği + React render'ı), (b) `pause()` çağrıldığında ses
+  // donanım kuyruğunda ZATEN ~100-200 ms içerik var ve o çalınmaya devam
+  // ediyor. Kullanıcı bunu "1. ayetin sonunda 2. ayetin ilk harfi
+  // duyuluyor" diye raporladı.
+  //
+  // Sessiz pencere en dar yerde ~140 ms; çıkış gecikmesi ondan geniş
+  // olabildiği için HİÇBİR kesme noktası tek başına yeterli değil.
+  //
+  // Çözüm: duraklatmadan önce pencere başına geri sar. Seek, çıkış
+  // tamponunu boşaltır → kuyruktaki sonraki-ayet sesi duyulmadan atılır.
+  // Son duyulan örnek sessizlik olduğu için tık da çıkmaz.
+  const hifzPauseThen = useCallback((audio, flushSeekSec, waitMs, then) => {
     clearHifzBreath();
-    setVolumeNow(audio, 0);   // ucuz sigorta — sessizlikte kesiyoruz zaten
-    audio.pause();            // onpause rAF döngüsünü iptal eder
+    audio.currentTime = flushSeekSec;   // çıkış tamponunu boşalt — ÖNCE
+    setVolumeNow(audio, 0);
+    audio.pause();                       // onpause rAF döngüsünü iptal eder
     hifzBreathRef.current = setTimeout(() => {
       hifzBreathRef.current = null;
       if (surahAudioRef.current !== audio) return;   // kârî/sûre değişti
@@ -2105,15 +2117,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const action = hifzTick(tMs);
     if (action) {
       if (action.type === 'done') {
-        // Oturum sonu da sessiz pencerede kesilir; stopAudio zaten
-        // clearHifzBreath → restoreVolume çağırır.
+        // Oturum sonunda da ÖNCE flush seek — kuyruktaki sonraki-ayet sesi
+        // atılsın. stopAudio zaten clearHifzBreath → restoreVolume çağırır.
+        audio.currentTime = action.flushTo;
         stopAudio();
         return;                       // rAF yeniden kurulmaz — oturum bitti
       }
       if (action.type === 'gap') {
         // Adım tamamlandı — geçiş penceresi. Bu süre boyunca panel
         // "Tekrarla" kaçışını gösterir; kullanıcı basmazsa sıradaki adım.
-        hifzPauseThen(audio, action.gapMs, () => {
+        // flush seek: mevcut adımın başına — kuyruktaki sonraki-ayet sesini at
+        hifzPauseThen(audio, action.flushTo, action.gapMs, () => {
           const nx = hifzCommit();
           if (nx) hifzResume(nx.seekTo);
           else stopAudio();            // program bitti
@@ -2123,7 +2137,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       // 'repeat' — sesi rampayla indir, duraklat, nefes payı, sonra pencere
       // başına geri sar. Sert pause()/play() tık üretir (kullanıcı raporu:
       // "teyp kapanışı gibi ses").
-      hifzPauseThen(audio, action.pauseMs, () => hifzResume(action.seekTo));
+      hifzPauseThen(audio, action.seekTo, action.pauseMs, () => hifzResume(action.seekTo));
       return;
     }
 
