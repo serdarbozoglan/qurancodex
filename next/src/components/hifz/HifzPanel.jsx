@@ -60,10 +60,9 @@ export default function HifzPanel({
     autoTitle: tr
       ? 'Açık: bir adım bitince sıradakine kendiliğinden geçer. Kapalı: her adımdan sonra durur.'
       : 'On: moves to the next step automatically. Off: stops after each step.',
-    // Karaoke desteklemeyen kârîlerde ayet ayet mp3 zinciri kullanılır; A–B
-    // döngüsü için gereken ms damgaları yoktur (bkz. RECITERS.quranComId).
-    noReciter: tr ? 'Bu kârîde ezber modu yok — ♪ işaretli bir kârî seç'
-                  : 'Not available for this reciter — pick one marked ♪',
+    // Ezber ayet ayet dosya çaldığı için TÜM kârîlerde çalışır; tek şart
+    // sûre verisinin yüklenmiş olması.
+    noReciter: tr ? 'Sûre yükleniyor…' : 'Loading surah…',
   };
 
   const HELP = tr ? [
@@ -72,14 +71,14 @@ export default function HifzPanel({
     ['Bloklar', 'Beşer ayetlik bloklar hâlinde ilerler. Blok dolunca sonraki bloğa geçer.'],
     ['"adım 5/34" ne demek', 'Program adımını gösterir, ayet numarasını değil. Adım sayısı ayet sayısından fazladır: her ayetin kendi adımı vardır, üstüne birleştirme adımları eklenir. A\'lâ 19 ayet → 34 adım.'],
     ['Geçişlerde', 'Her adım arasında iki saniye durur. O anda "Tekrarla"ya basarsan aynı adımı baştan çalar — henüz oturmadıysa.'],
-    ['Kârî', 'Kelime takibi olan (♪) kârîlerde çalışır. Kârîyi üstteki menüden değiştirebilirsin.'],
+    ['Kârî', 'Tüm kârîlerde çalışır; üstteki menüden değiştirebilirsin. Ezberde kelime kelime vurgu yoktur — ayet ayet ses dosyaları kullanılır, böylece ayet sonları temiz kesilir.'],
   ] : [
     ['What it does', 'Repeats the verse you selected as many times as you choose.'],
     ['Snowball', 'Verse 1 ×5 → Verse 2 ×5 → 1–2 together ×5 → Verse 3 ×5 → 1–3 together ×5 … The hard part of memorising is linking verses; the joining steps are for that.'],
     ['Blocks', 'Advances in blocks of five verses, then moves to the next block.'],
     ['What "step 5/34" means', 'It is the position in the plan, not a verse number. There are more steps than verses: each verse has its own step, plus the joining steps. Al-A\'la has 19 verses → 34 steps.'],
     ['Between steps', 'Pauses two seconds between steps. Press "Again" during that pause to redo the step.'],
-    ['Reciter', 'Works with reciters that have word timing (♪). Change the reciter from the menu above.'],
+    ['Reciter', 'Works with every reciter; change it from the menu above. Word-level highlighting is off in this mode — it plays per-verse files so verse endings stay clean.'],
   ];
 
   const btnBase = {
