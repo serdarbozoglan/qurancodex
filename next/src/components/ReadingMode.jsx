@@ -1949,6 +1949,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const hifzPlayRef = useRef(null);    // her render'da tazelenir (aşağıda)
   const hifzCurRef = useRef({ ayah: 0, urlIdx: 0 });  // onerror fallback için
   // Başlangıç ayeti — aşağıda (versesOnPage tanımlandıktan sonra) doldurulur.
+  // ── Ayet modu Arapça boyutu ──────────────────────────────────────────────
+  // Mobilde ayet modunda Arapça bir tık büyük (kullanıcı isteği 2026-08-02:
+  // "ayet modda ise ezber olsun olmasın default Arapça size biraz daha büyük
+  // olsun"). Kitap modu mushaf sayfası düzenini korur — orada büyütmek satır
+  // kırılımını ve sayfa hizasını bozar, dokunulmaz.
+  // ⚠ Bu değeri kullanan HER yer — font boyutu VE ona bağlı yükseklik/satır
+  // hesapları — aynı ifadeyi kullanmak zorunda; biri geride kalırsa rozet ve
+  // meal hizası Arapça satırla uyuşmaz.
+  const ARABIC_VERSE_MODE_BOOST = 1.15;
+  const arabicSizeVerse = (isMobile && !bookMode)
+    ? +(arabicFontSize * ARABIC_VERSE_MODE_BOOST).toFixed(2)
+    : arabicFontSize;
+
   const hifzStartVerseRef = useRef(null);
   // Oturumun sûresi. `selectedSurah` DEĞİL: bir mushaf sayfası birden çok
   // sûre içerebilir (örn. s.591 = A'lâ + Ğâşiye) ve oturum sayfadaki başka
@@ -8783,7 +8796,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       // 1.35rem'e kırpılıyordu (tüm kırpmaların en düşüğü):
                       // varsayılan 1.8 iken 1.35 render ediliyor, ayar da
                       // etkisiz kalıyordu. Kullanıcı raporu 2026-08-02.
-                      fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: 1.9,
+                      fontFamily: currentFont, fontSize: `${arabicSizeVerse}rem`, lineHeight: 1.9,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', width: '100%',
                     }}>
@@ -8913,7 +8926,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       Both badge wrapper and TR text padding computed from AR first-line
                       height so TR content visually centers with AR's first line. */}
                   {(() => {
-                    const arLineHeightRem = (arabicFontSize) * (isMobile ? 1.7 : 2.0);
+                    const arLineHeightRem = (arabicSizeVerse) * (isMobile ? 1.7 : 2.0);
                     const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
                     const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
                     return (
@@ -9001,7 +9014,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         Prevents badge from sitting visually between lines on multi-line verses. */}
                     <div style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      height: `${(arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
+                      height: `${(arabicSizeVerse) * (isMobile ? 1.7 : 2.0)}rem`,
                       flexShrink: 0,
                     }}>
                     <span style={{
@@ -9024,7 +9037,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       // 1.8rem olmasına rağmen 1.5 gösteriliyor, kullanıcının font
                       // ayarı ayet modunda etkisiz kalıyordu (rapor 2026-08-02:
                       // "ayet modunda Arapça font küçük değil mi"). Kırpma kaldırıldı.
-                      fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: isMobile ? 1.85 : 2.0,
+                      fontFamily: currentFont, fontSize: `${arabicSizeVerse}rem`, lineHeight: isMobile ? 1.85 : 2.0,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', flex: 1,
                     }}>
