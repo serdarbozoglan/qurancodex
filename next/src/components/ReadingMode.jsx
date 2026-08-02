@@ -8240,7 +8240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       <div style={{
                         textAlign: 'center', direction: 'rtl',
                         fontFamily: currentFont,
-                        fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                        fontSize: `${arabicFontSize}rem`,
                         color: C.bismillah,
                         marginTop: isMobile ? '16px' : '24px',
                         marginBottom: isMobile ? '20px' : '28px',
@@ -8622,7 +8622,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <div style={{
                       textAlign: 'center', direction: 'rtl',
                       fontFamily: currentFont,
-                      fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                      fontSize: `${arabicFontSize}rem`,
                       color: C.bismillah,
                       marginTop: isMobile ? '16px' : '24px',
                       marginBottom: isMobile ? '20px' : '28px',
@@ -8771,7 +8771,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {/* On mobile+translation: Arabic first (top), then badge+translation below */}
                   {isMobile && showTranslation && (
                     <div spellCheck={false} style={{
-                      fontFamily: currentFont, fontSize: `${Math.min(arabicFontSize, 1.35)}rem`, lineHeight: 1.9,
+                      // Mobil + meal açık yolu — ezberin VARSAYILAN yapılandırması.
+                      // 1.35rem'e kırpılıyordu (tüm kırpmaların en düşüğü):
+                      // varsayılan 1.8 iken 1.35 render ediliyor, ayar da
+                      // etkisiz kalıyordu. Kullanıcı raporu 2026-08-02.
+                      fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: 1.9,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', width: '100%',
                     }}>
@@ -8901,7 +8905,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       Both badge wrapper and TR text padding computed from AR first-line
                       height so TR content visually centers with AR's first line. */}
                   {(() => {
-                    const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
+                    const arLineHeightRem = (arabicFontSize) * (isMobile ? 1.7 : 2.0);
                     const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
                     const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
                     return (
@@ -8989,7 +8993,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         Prevents badge from sitting visually between lines on multi-line verses. */}
                     <div style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      height: `${(isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
+                      height: `${(arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
                       flexShrink: 0,
                     }}>
                     <span style={{

@@ -98,7 +98,12 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
   const color = palette[(colorIdx !== undefined ? colorIdx : idx) % palette.length];
   const rawGloss = lang === 'tr' ? (word.tr || word.en) : (word.en || word.tr);
   const gloss = rawGloss ? rawGloss.replace(/^\.{2,}\s*/, '') : rawGloss;
-  const fontSize = arabicFontSize ? `${isMobile ? Math.min(arabicFontSize, 1.6) : arabicFontSize}rem` : (isMobile ? '1.6rem' : '2.2rem');
+  // Mobilde `Math.min(arabicFontSize, 1.6)` ile kırpılıyordu: varsayılan
+  // 1.8rem olmasına rağmen 1.6 render ediliyor ve kullanıcı font ayarını
+  // 1.6'nın üstüne çıkardığında kırık mealde HİÇBİR etkisi olmuyordu
+  // (kullanıcı raporu 2026-08-02: "Arapça font hâlâ küçük ve büyümüyor").
+  // Kırpma kaldırıldı — ayar her iki modda da aynı şekilde uygulanır.
+  const fontSize = arabicFontSize ? `${arabicFontSize}rem` : (isMobile ? '1.8rem' : '2.2rem');
   const fontFamily = arabicFont || DEFAULT_ARABIC_FONT;
 
   return (
