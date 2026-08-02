@@ -42,9 +42,10 @@ const audioState = (page) => page.evaluate(() => {
 
 // Tek adımı izole et — otomatik ilerleme kapalıysa adım bitince oturum durur.
 async function disableAuto(panel) {
-  const btn = panel.getByRole('button', { name: /Otomatik/ });
-  if ((await btn.getAttribute('aria-pressed')) === 'true') await btn.click();
-  await expect(btn).toHaveAttribute('aria-pressed', 'false');
+  // Alt sayfa tasarımında (2026-08-02) gerçek bir anahtar: role=switch.
+  const sw = panel.getByRole('switch');
+  if ((await sw.getAttribute('aria-checked')) === 'true') await sw.click();
+  await expect(sw).toHaveAttribute('aria-checked', 'false');
 }
 
 // Panelin görünen metni — adım etiketi, konum ve geçiş bilgisini içerir.
@@ -265,7 +266,7 @@ test('kartopu programı sırayla ilerler: Ayet 1 → Ayet 2 → 1–2 birlikte',
 
   await panel.getByRole('button', { name: '3', exact: true }).click();
   // Otomatik ilerleme AÇIK kalmalı — test edilen şey bu.
-  await expect(panel.getByRole('button', { name: /Otomatik/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(panel.getByRole('switch')).toHaveAttribute('aria-checked', 'true');
 
   await page.getByText(VERSE_1_MEAL).click();
   await panel.getByRole('button', { name: 'Başlat' }).click();
@@ -392,7 +393,7 @@ test.describe('mobil', () => {
     await expect(page.getByRole('region', { name: 'Ezber' })).toBeVisible();
   });
 
-  test('panel ekrana sığar, yatay taşma yapmaz', async ({ page }) => {
+  test('alt sayfa tam genişlikte, yatay taşma yapmaz', async ({ page }) => {
     await page.goto(`/tr/oku/${SURAH}`);
     await expect(page.getByRole('button', { name: /AYAR/i })).toBeVisible({ timeout: 30_000 });
     await page.getByRole('button', { name: /AYAR/i }).click();
@@ -400,17 +401,51 @@ test.describe('mobil', () => {
 
     const panel = page.getByRole('region', { name: 'Ezber' });
     const box = await panel.boundingBox();
-    expect(box.x, 'sol kenar ekran içinde').toBeGreaterThanOrEqual(0);
-    expect(box.x + box.width, 'sağ kenar ekran içinde').toBeLessThanOrEqual(390);
-    // Dar sütuna sarmamalı — tam genişliğe yakın olmalı (regresyon: 192px ölçülmüştü)
-    expect(box.width, 'panel tam genişliğe yayılmalı').toBeGreaterThan(320);
+
+    // Alt sayfa BİLEREK tam kenara taşar (100vw) — ekranın altına yapışık,
+    // kenar boşluğu yok. Eski "x >= 0" kuralı yüzen şerit içindi.
+    // Neredeyse tam genişlik: `fixed` kutu transform'lu ataya göre çözüldüğü
+    // için containing block 390 değil ~384px. Her iki yanda eşit ~3px kalır.
+    expect(box.width, 'neredeyse tam genişlik olmalı').toBeGreaterThanOrEqual(380);
+    expect(box.x, 'sol kenarı aşmamalı').toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width, 'sağ kenarı aşmamalı').toBeLessThanOrEqual(390);
+    // Ekranın ALTINA yapışık
+    expect(box.y + box.height, 'alta yapışık olmalı').toBeGreaterThanOrEqual(840);
 
     // §14: mobilde yatay sayfa kaydırması olmamalı
     expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)).toBe(false);
 
-    // Yardım baloncuğu da ekrana sığmalı
+    // Yardım sayfanın İÇİNDE açılır, ayrı yüzen kutu değil
     await panel.getByRole('button', { name: 'Nasıl çalışır?' }).click();
     const box2 = await panel.boundingBox();
     expect(box2.height, 'yardım açıkken ekranı taşırmamalı').toBeLessThan(844);
+    expect(await panelText(panel)).toContain('Kartopu');
+  });
+
+  test('çalışırken ince şerite döner (metni az kapatır)', async ({ page }) => {
+    await page.goto(`/tr/oku/${SURAH}`);
+    await expect(page.getByRole('button', { name: /AYAR/i })).toBeVisible({ timeout: 30_000 });
+    await page.getByRole('button', { name: /AYAR/i }).click();
+    await page.getByRole('button', { name: /Ezber/ }).first().click();
+
+    const panel = page.getByRole('region', { name: 'Ezber' });
+    const sheetH = (await panel.boundingBox()).height;
+
+    await page.getByText(VERSE_1_MEAL).click();
+    await panel.getByRole('button', { name: '3', exact: true }).click();
+    await panel.getByRole('button', { name: 'Başlat' }).click();
+    await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 20_000 });
+
+    // Kurulum sayfası kapanır, yerine ince şerit gelir — metin açılır.
+    const stripH = (await panel.boundingBox()).height;
+    expect(stripH, 'çalışma şeridi kurulum sayfasından belirgin kısa olmalı').toBeLessThan(sheetH * 0.5);
+    expect(stripH, 'şerit makul yükseklikte olmalı').toBeLessThan(90);
+
+    // Duraklat / devam
+    await panel.getByRole('button', { name: 'Duraklat' }).click();
+    await expect(panel.getByRole('button', { name: 'Devam et' })).toBeVisible();
+    expect(await panelText(panel)).toContain('Duraklatıldı');
+    await panel.getByRole('button', { name: 'Devam et' }).click();
+    await expect(panel.getByRole('button', { name: 'Duraklat' })).toBeVisible();
   });
 });
