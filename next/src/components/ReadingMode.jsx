@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
-import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
+import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias } from '../lib/surahNames';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
 import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
@@ -4051,7 +4051,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             const num = parseInt(q, 10);
             const isNum = q !== '' && !isNaN(num) && String(num) === q.replace(/^0+/, '');
             // Normalize query for name matching (strip apostrophes, hyphens, diacritics)
-            const qNorm = normalizeText(q).replace(/['\u2019\u02bc`-]/g, '');
+            // Takma ad katmanı: "Kadir" → "kadr" gibi yaygın alternatif
+            // okunuşlar resmî ada çevrilir (lib/surahNames.js).
+            const qNorm = resolveSurahAlias(normalizeText(q).replace(/['\u2019\u02bc`-]/g, ''));
 
             // ── VERSE REFERENCE PATTERN (Dalga 2026-07-07: bakara:5 desteği) ──
             // Kabul edilen formatlar: "2:5" · "bakara:5" · "bakara 5" · "al-baqara:5"
@@ -4067,7 +4069,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               // "bakara:5" · "bakara 5" — name + separator + verse
               const nameRefMatch = q.match(/^([A-Za-z\u00c0-\u024f\u1e00-\u1eff\s'\u2019\u02bc\-]+?)\s*[:\s]\s*(\d+)$/);
               if (nameRefMatch) {
-                const namePart = normalizeText(nameRefMatch[1].trim()).replace(/['\u2019\u02bc`-]/g, '');
+                const namePart = resolveSurahAlias(normalizeText(nameRefMatch[1].trim()).replace(/['\u2019\u02bc`-]/g, ''));
                 const ayahNum = parseInt(nameRefMatch[2], 10);
                 if (namePart.length >= 2 && !isNaN(ayahNum) && ayahNum > 0) {
                   for (let i = 0; i < 114; i++) {
@@ -6455,7 +6457,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div ref={inlineMealPickerRef} style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0,
-                    zIndex: 5,
+                    // ⚠ YIĞIN BAĞLAMI: bu sarmalayıcı z:5 ile kendi bağlamını
+                    // açıyor; içindeki dropdown'ın z:20'si SADECE burada
+                    // geçerli. Dışarıdan bakınca tüm blok z:5 olarak yarışır
+                    // ve sayfadaki z>5 katmanlar (Arapça sûre başlığı) üstüne
+                    // çizilir — dropdown hem görsel olarak eziliyor hem
+                    // dokunuşları o katman yakaladığı için kaydırılamıyordu
+                    // (kullanıcı raporu 2026-08-02, mobil).
+                    // Açıkken yükseltilir; kapalıyken 5'te kalır ki kardeş
+                    // katmanlarla mevcut sıralama bozulmasın.
+                    zIndex: showInlineMealPicker ? 50 : 5,
                   }}>
                     <button
                       onClick={() => setShowInlineMealPicker(p => !p)}

@@ -38,6 +38,35 @@
 
 ---
 
+---
+
+# 🔒 KARAR — İçerik dili meale bağlıdır (2026-08-02, HATA DEĞİL)
+
+**Davranış:** Okuma modunda sûre başlığı, nüzul/mekkî bilgisi ve besmele
+çevirisi site diline DEĞİL, seçili **meal yazarının diline** göre görüntülenir.
+Kaynak: `ReadingMode.jsx` → `contentLang` (satır ~1160):
+
+```js
+const contentLang = MEAL_AUTHORS.find(a => a.id === selectedMealId)?.lang || language;
+```
+
+**Gözlenen sonuç:** Kullanıcı EN'e geçer ama meal TR (ör. Suat Yıldırım)
+kalırsa navbar İngilizce, sûre başlığı bloğu Türkçe görünür.
+
+**Bu bilinçli bir tercihtir — kullanıcı kararı 2026-08-02: "tam kalsın o
+şekilde meale bağlı olarak."** Mantığı: içerik dili = okuduğun metnin dili.
+TR meal okurken başlığın da Türkçe olması tutarlıdır.
+
+⚠ **DÜZELTMEYE ÇALIŞMA.** İlgili yerler zaten `contentLang === 'tr' ? … : …`
+ile doğru dallanıyor (8297/8319/8329 sûre başlığı, 8680/8702 kitap modu sol
+sayfa, 6688 arama paleti); mantık doğru, girdi bilinçli.
+
+Değiştirilmek istenirse asıl soru şudur ve önce ONA karar verilmelidir:
+*dil değişince kullanıcının meal seçimi ezilmeli mi?* (Örn. Elmalılı seçmiş
+biri EN'e gidip dönünce seçimini kaybetmemeli → dil başına ayrı meal
+tercihi saklamak gerekir.) `contentLang`'i tek başına `language`'a bağlamak
+yanlış çözümdür.
+
 # 🤖 CHATGPT BULGULARI — Ezber Modülü Kod İncelemesi (2026-08-02)
 
 > **Kaynak:** `gpt-5.2-2025-12-11`, ~12.9K girdi / 2.5K çıktı token.
