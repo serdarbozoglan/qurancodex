@@ -1928,18 +1928,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const {
     stop: hifzStop, start: hifzStart, onVerseEnded: hifzEnded,
     commitAdvance: hifzCommit, restartStep: hifzRestart,
-    pause: hifzPause, resume: hifzResume,
+    pause: hifzPause, resume: hifzResume, isStale: hifzIsStale,
   } = hifz;
 
   // Alt sayfa AÇIK ve oturum YOKKEN body işaretlenir; globals.css sol alttaki
   // hata bildirim FAB'ını gizler (tam genişlik sayfa onun üstüne oturuyor).
   // ⚠ Bu effect `hifz`ten SONRA gelmeli — deps dizisi render sırasında
   // değerlendiği için daha yukarıda TDZ ReferenceError verir (lint yakaladı).
+  // Ezber paneli GÖRÜNÜR OLDUĞU SÜRECE (hem alt sayfa hem çalışma şeridi).
+  // Önce yalnız alt sayfa için işaretleniyordu; şeritte FAB'ın üstüne
+  // biniyordu (kullanıcı ekran görüntüsü 2026-08-02).
   useEffect(() => {
-    if (hifzOpen && !hifz.session) document.body.dataset.hifzSheet = '1';
+    if (hifzOpen) document.body.dataset.hifzSheet = '1';
     else delete document.body.dataset.hifzSheet;
     return () => { delete document.body.dataset.hifzSheet; };
-  }, [hifzOpen, hifz.session]);
+  }, [hifzOpen]);
 
   const hifzAudioRef = useRef(null);   // ezbere ait <audio> — karaoke'den ayrı
   const hifzGapRef = useRef(null);     // nefes payı / geçiş timer'ı
@@ -2080,6 +2083,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         hifzGapRef.current = setTimeout(() => {
           hifzGapRef.current = null;
           if (hifzAudioRef.current !== audio) return;   // kârî/sûre değişti
+          // G4: element oturum boyunca YENİDEN KULLANILDIĞI için yukarıdaki
+          // kontrol eski/yeni oturumu ayırt edemez. Oturum kimliği kesin ayrım.
+          if (hifzIsStale(action.sid)) return;
           if (action.type === 'gap') {
             const nx = hifzCommit();
             if (nx) hifzPlayRef.current?.(nx.ayah);
@@ -2106,7 +2112,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const cur = hifzCurRef.current;
       hifzPlayRef.current?.(cur.ayah, cur.urlIdx + 1);
     });
-  }, [selectedSurah, reciterIdx, hifzEnded, hifzCommit, clearHifzTimers, stopAudio]);
+  }, [selectedSurah, reciterIdx, hifzEnded, hifzCommit, clearHifzTimers, stopAudio, hifzIsStale]);
 
   // onended/onerror closure'ları güncel fonksiyonu ref üzerinden çağırır —
   // aksi halde ilk render'ın closure'ında donar (kârî değişince eski kârîyi
@@ -8234,7 +8240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       <div style={{
                         textAlign: 'center', direction: 'rtl',
                         fontFamily: currentFont,
-                        fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                        fontSize: `${arabicFontSize}rem`,
                         color: C.bismillah,
                         marginTop: isMobile ? '16px' : '24px',
                         marginBottom: isMobile ? '20px' : '28px',
@@ -8616,7 +8622,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     <div style={{
                       textAlign: 'center', direction: 'rtl',
                       fontFamily: currentFont,
-                      fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`,
+                      fontSize: `${arabicFontSize}rem`,
                       color: C.bismillah,
                       marginTop: isMobile ? '16px' : '24px',
                       marginBottom: isMobile ? '20px' : '28px',
@@ -8765,7 +8771,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {/* On mobile+translation: Arabic first (top), then badge+translation below */}
                   {isMobile && showTranslation && (
                     <div spellCheck={false} style={{
-                      fontFamily: currentFont, fontSize: `${Math.min(arabicFontSize, 1.35)}rem`, lineHeight: 1.9,
+                      // Mobil + meal açık yolu — ezberin VARSAYILAN yapılandırması.
+                      // 1.35rem'e kırpılıyordu (tüm kırpmaların en düşüğü):
+                      // varsayılan 1.8 iken 1.35 render ediliyor, ayar da
+                      // etkisiz kalıyordu. Kullanıcı raporu 2026-08-02.
+                      fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: 1.9,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', width: '100%',
                     }}>
@@ -8895,7 +8905,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       Both badge wrapper and TR text padding computed from AR first-line
                       height so TR content visually centers with AR's first line. */}
                   {(() => {
-                    const arLineHeightRem = (isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0);
+                    const arLineHeightRem = (arabicFontSize) * (isMobile ? 1.7 : 2.0);
                     const trLineHeightRem = (isMobile ? 0.82 : 1) * (isMobile ? 1.55 : 1.8);
                     const trPaddingTopRem = Math.max(0, (arLineHeightRem - trLineHeightRem) / 2);
                     return (
@@ -8983,7 +8993,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         Prevents badge from sitting visually between lines on multi-line verses. */}
                     <div style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      height: `${(isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
+                      height: `${(arabicFontSize) * (isMobile ? 1.7 : 2.0)}rem`,
                       flexShrink: 0,
                     }}>
                     <span style={{
