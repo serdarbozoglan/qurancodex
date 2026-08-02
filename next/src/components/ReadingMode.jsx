@@ -1925,11 +1925,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const {
     stop: hifzStop, start: hifzStart, onVerseEnded: hifzEnded,
     commitAdvance: hifzCommit, restartStep: hifzRestart,
+    pause: hifzPause, resume: hifzResume,
   } = hifz;
+
+  // Alt sayfa AÇIK ve oturum YOKKEN body işaretlenir; globals.css sol alttaki
+  // hata bildirim FAB'ını gizler (tam genişlik sayfa onun üstüne oturuyor).
+  // ⚠ Bu effect `hifz`ten SONRA gelmeli — deps dizisi render sırasında
+  // değerlendiği için daha yukarıda TDZ ReferenceError verir (lint yakaladı).
+  useEffect(() => {
+    if (hifzOpen && !hifz.session) document.body.dataset.hifzSheet = '1';
+    else delete document.body.dataset.hifzSheet;
+    return () => { delete document.body.dataset.hifzSheet; };
+  }, [hifzOpen, hifz.session]);
 
   const hifzAudioRef = useRef(null);   // ezbere ait <audio> — karaoke'den ayrı
   const hifzGapRef = useRef(null);     // nefes payı / geçiş timer'ı
   const hifzPlayRef = useRef(null);    // her render'da tazelenir (aşağıda)
+  const hifzCurRef = useRef({ ayah: 0, urlIdx: 0 });  // onerror fallback için
 
   const clearHifzTimers = useCallback(() => {
     if (hifzGapRef.current) {
@@ -2021,40 +2033,54 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const surah = selectedSurah;
     const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, surah, ayah);
     if (urlIdx >= urls.length) { stopAudio(); return; }   // tüm CDN'ler düştü
+    hifzCurRef.current = { ayah, urlIdx };
 
-    const prev = hifzAudioRef.current;
-    if (prev) { prev.onerror = null; prev.onended = null; prev.pause(); }
+    // ⚠ TEK ELEMENT — her tekrar için YENİ `new Audio()` YARATMA.
+    //
+    // Tarayıcı otomatik-çalma politikası elementi kullanıcı hareketiyle
+    // "kilitten açar". Başlat tıklamasıyla yaratılan element çalabilir, ama
+    // sonradan yaratılan HER YENİ element hareket dışı sayılır ve play()
+    // NotAllowedError ile reddedilir. Kullanıcı raporu (2026-08-02): "her
+    // ayet tekrarından sonra duruyor, otomatik başlatmıyor / her tekrar için
+    // onay bekliyor" — tam olarak buydu.
+    //
+    // Aynı elementin `src`ini değiştirip tekrar play() etmek kilidi korur.
+    let audio = hifzAudioRef.current;
+    if (!audio) {
+      audio = new Audio();
+      audio.preload = 'auto';
+      hifzAudioRef.current = audio;
 
-    const audio = new Audio(urls[urlIdx]);
-    hifzAudioRef.current = audio;
+      // CDN düşerse zincirdeki sonraki URL — normal oynatmadaki davranışın aynısı
+      audio.onerror = () => {
+        if (hifzAudioRef.current !== audio) return;
+        const cur = hifzCurRef.current;
+        hifzPlayRef.current?.(cur.ayah, cur.urlIdx + 1);
+      };
 
-    // CDN düşerse zincirdeki sonraki URL — normal oynatmadaki davranışın aynısı
-    audio.onerror = () => {
-      if (hifzAudioRef.current !== audio) return;
-      audio.onerror = null; audio.onended = null;
-      hifzPlayRef.current?.(ayah, urlIdx + 1);
-    };
+      audio.onended = () => {
+        if (hifzAudioRef.current !== audio) return;
+        const action = hifzEnded();
+        if (!action) return;
+        if (action.type === 'done') { stopAudio(); return; }
 
-    audio.onended = () => {
-      if (hifzAudioRef.current !== audio) return;
-      const action = hifzEnded();
-      if (!action) return;
-      if (action.type === 'done') { stopAudio(); return; }
+        clearHifzTimers();
+        const waitMs = action.type === 'gap' ? action.gapMs : action.pauseMs;
+        hifzGapRef.current = setTimeout(() => {
+          hifzGapRef.current = null;
+          if (hifzAudioRef.current !== audio) return;   // kârî/sûre değişti
+          if (action.type === 'gap') {
+            const nx = hifzCommit();
+            if (nx) hifzPlayRef.current?.(nx.ayah);
+            else stopAudio();
+            return;
+          }
+          hifzPlayRef.current?.(action.ayah);           // 'repeat' | 'next-verse'
+        }, waitMs);
+      };
+    }
 
-      clearHifzTimers();
-      const waitMs = action.type === 'gap' ? action.gapMs : action.pauseMs;
-      hifzGapRef.current = setTimeout(() => {
-        hifzGapRef.current = null;
-        if (hifzAudioRef.current !== audio) return;   // kârî/sûre değişti
-        if (action.type === 'gap') {
-          const nx = hifzCommit();
-          if (nx) hifzPlayRef.current?.(nx.ayah);
-          else stopAudio();
-          return;
-        }
-        hifzPlayRef.current?.(action.ayah);           // 'repeat' | 'next-verse'
-      }, waitMs);
-    };
+    audio.src = urls[urlIdx];
 
     // Ayet düzeyi vurgu — kelime düzeyi ezberde yok (bkz. hook başlığı).
     const v = surahVersesRef.current.find(x => x.surah === surah && x.ayah === ayah);
@@ -2063,8 +2089,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     audio.play().catch(err => {
       if (err?.name === 'AbortError') return;
       if (hifzAudioRef.current !== audio) return;
-      audio.onerror = null;
-      hifzPlayRef.current?.(ayah, urlIdx + 1);
+      // NotAllowedError = otomatik-çalma engeli. Zincirde ilerlemek fayda
+      // etmez (sorun URL değil izin) — oturumu bitir, sessizce takılma.
+      if (err?.name === 'NotAllowedError') { stopAudio(); return; }
+      const cur = hifzCurRef.current;
+      hifzPlayRef.current?.(cur.ayah, cur.urlIdx + 1);
     });
   }, [selectedSurah, reciterIdx, hifzEnded, hifzCommit, clearHifzTimers, stopAudio]);
 
@@ -2258,6 +2287,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     const r = hifzRestart();
     if (r) hifzPlayAyah(r.ayah);
   }, [clearHifzTimers, hifzRestart, hifzPlayAyah]);
+
+  // Duraklat — oturum korunur, yalnızca ses durur.
+  const handleHifzPause = useCallback(() => {
+    if (!hifzPause()) return;
+    clearHifzTimers();
+    const a = hifzAudioRef.current;
+    if (a) a.pause();
+  }, [hifzPause, clearHifzTimers]);
+
+  // Devam — duraklatılan ayeti BAŞTAN çalar (yarısından değil; ezberde
+  // ayetin ortasından girmek akışı bozar).
+  const handleHifzResume = useCallback(() => {
+    const r = hifzResume();
+    if (r) hifzPlayAyah(r.ayah);
+  }, [hifzResume, hifzPlayAyah]);
 
   const handleAudioToggle = useCallback((verse) => {
     if (playingVerseId === verse.id) {
@@ -9474,6 +9518,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           available={surahVerses.length > 0}
           onStart={handleHifzStart}
           onStop={stopAudio}
+          onPause={handleHifzPause}
+          onResume={handleHifzResume}
           onRepeatStep={handleHifzRepeatStep}
           onClose={() => { stopAudio(); setHifzOpen(false); }}
         />

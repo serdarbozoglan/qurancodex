@@ -111,7 +111,7 @@ export default function useHifzSession({
       count: s.count,
       stepIndex: s.idx,
       stepCount: s.steps.length,
-      phase: s.phase,                       // 'playing' | 'gap'
+      phase: s.phase,                       // 'playing' | 'gap' | 'paused'
       autoAdvance: s.autoAdvance,
       next: s.steps[s.idx + 1] || null,
     };
@@ -158,6 +158,27 @@ export default function useHifzSession({
     live.current.phase = 'idle';
     setSession(null);
   }, []);
+
+  /**
+   * Duraklat — oturum KORUNUR, sadece ses durur. Ezber uzun bir iş; araya
+   * giren bir kesinti (kapı, telefon) programı sıfırlamamalı.
+   */
+  const pause = useCallback(() => {
+    const s = live.current;
+    if (!s.active || s.phase !== 'playing') return false;
+    s.phase = 'paused';
+    setSession(snapshot());
+    return true;
+  }, [snapshot]);
+
+  /** Devam et — duraklatılan ayeti BAŞTAN çalar (yarısından değil). */
+  const resume = useCallback(() => {
+    const s = live.current;
+    if (!s.active || s.phase !== 'paused') return null;
+    s.phase = 'playing';
+    setSession(snapshot());
+    return { ayah: s.ayahs[s.pos] };
+  }, [snapshot]);
 
   /**
    * Çalan ayet dosyası bitti — sırada ne var?
@@ -238,6 +259,8 @@ export default function useHifzSession({
     isRunning: !!session,
     start,
     stop,
+    pause,
+    resume,
     onVerseEnded,
     commitAdvance,
     restartStep,

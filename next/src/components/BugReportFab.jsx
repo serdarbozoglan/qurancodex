@@ -20,6 +20,22 @@ export default function BugReportFab() {
 
   useEffect(() => { setMounted(true); }, []);
 
+  // Ezber alt sayfası açıkken gizlen — tam genişlik sayfa bu FAB'ın üstüne
+  // oturup ana butonu örtüyordu (mobil 390px, kullanıcı raporu 2026-08-02).
+  //
+  // CSS ile çözmeyi denedim ve ÇALIŞMADI: FAB'ın `display`i inline style'dan
+  // geliyor, inline stil normal kuralı yener; `!important` da Turbopack'in
+  // globals.css cache'i yüzünden tarayıcıya ulaşmadı. Durumu bileşenin kendi
+  // okuması hem daha sağlam hem de test edilebilir.
+  const [hifzSheetOpen, setHifzSheetOpen] = useState(false);
+  useEffect(() => {
+    const read = () => setHifzSheetOpen(document.body.dataset.hifzSheet === '1');
+    read();
+    const mo = new MutationObserver(read);
+    mo.observe(document.body, { attributes: true, attributeFilter: ['data-hifz-sheet'] });
+    return () => mo.disconnect();
+  }, []);
+
   // ESC key closes modal
   useEffect(() => {
     if (!open) return;
@@ -54,6 +70,9 @@ export default function BugReportFab() {
         onClick={handleOpen}
         aria-label={label}
         title={label}
+        // Ezber alt sayfası açıkken gizlenir — tam genişlik sayfa bu FAB'ın
+        // üstüne oturuyor ve ana butonu örtüyor (globals.css kuralı).
+        data-fab="bug-report"
         style={{
           position: 'fixed',
           bottom: 'max(20px, env(safe-area-inset-bottom, 20px))',
@@ -72,6 +91,7 @@ export default function BugReportFab() {
           cursor: 'pointer',
           padding: 0,
           zIndex: 50,
+          display: hifzSheetOpen ? 'none' : 'flex',
           opacity: mounted ? 0.6 : 0,
           transition: 'opacity 0.25s ease-out, background 0.2s, transform 0.25s ease-out',
           boxShadow: '0 6px 18px rgba(0,0,0,0.3)',
