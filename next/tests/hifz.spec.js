@@ -500,3 +500,59 @@ test('çok sûreli sayfada oturum doğru sûreye bağlanır', async ({ page }) =
   const surahs = [...new Set(src.map(x => Number(x.split(':')[0])))];
   expect(surahs, 'yalnız tek sûre çalmalı (sayfadaki diğer sûreler sızmamalı)').toEqual([112]);
 });
+
+// ─── G1–G4 sertleştirmeleri (ChatGPT incelemesi, 2026-08-02) ────────────────
+
+test('G1: Tekrarla yalnız geçiş/duraklama fazında etkili', async ({ page }) => {
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+  await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 20_000 });
+
+  // 'playing' fazında "Tekrarla" UI'da GÖSTERİLMEZ — kaçış yalnız geçişte.
+  await expect(panel.getByRole('button', { name: /Tekrarla/ })).toHaveCount(0);
+});
+
+test('adımlar arası geçiş 1.5 sn (kaçış penceresi)', async ({ page }) => {
+  test.setTimeout(120_000);
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await page.getByText(VERSE_1_MEAL).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+
+  // İlk adım bitince geçiş penceresi açılır
+  const again = panel.getByRole('button', { name: /Tekrarla/ });
+  await expect(again).toBeVisible({ timeout: 90_000 });
+  const t0 = Date.now();
+  // Pencere kapanana kadar (Tekrarla kaybolur) geçen süre ~1.5 sn olmalı
+  await expect(again).toHaveCount(0, { timeout: 10_000 });
+  const dur = Date.now() - t0;
+  expect(dur, `geçiş penceresi ${dur}ms — 1.5 sn civarı bekleniyor`).toBeGreaterThan(900);
+  expect(dur, `geçiş penceresi ${dur}ms — 1.5 sn civarı bekleniyor`).toBeLessThan(2600);
+});
+
+// Regresyon — 2026-08-02: hata bildirim FAB'ı çalışma şeridiyle çakışıyordu.
+// Panel GÖRÜNÜR olduğu sürece (alt sayfa VE şerit) gizlenmeli.
+test.describe('mobil FAB', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+  test('ezber şeridi açıkken hata bildirim FAB gizlenir', async ({ page }) => {
+    await page.goto(`/tr/oku/${SURAH}`);
+    await expect(page.getByRole('button', { name: /AYAR/i })).toBeVisible({ timeout: 30_000 });
+    await page.getByRole('button', { name: /AYAR/i }).click();
+    await page.getByRole('button', { name: /Ezber/ }).first().click();
+
+    const fab = page.locator('[data-fab="bug-report"]');
+    await expect(fab, 'alt sayfa açıkken gizli').toBeHidden();
+
+    const panel = page.getByRole('region', { name: 'Ezber' });
+    await panel.getByRole('button', { name: '3', exact: true }).click();
+    await panel.getByRole('button', { name: 'Başlat' }).click();
+    await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 20_000 });
+    await expect(fab, 'çalışma şeridinde de gizli kalmalı').toBeHidden();
+  });
+});

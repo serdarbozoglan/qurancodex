@@ -1928,18 +1928,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const {
     stop: hifzStop, start: hifzStart, onVerseEnded: hifzEnded,
     commitAdvance: hifzCommit, restartStep: hifzRestart,
-    pause: hifzPause, resume: hifzResume,
+    pause: hifzPause, resume: hifzResume, isStale: hifzIsStale,
   } = hifz;
 
   // Alt sayfa AÇIK ve oturum YOKKEN body işaretlenir; globals.css sol alttaki
   // hata bildirim FAB'ını gizler (tam genişlik sayfa onun üstüne oturuyor).
   // ⚠ Bu effect `hifz`ten SONRA gelmeli — deps dizisi render sırasında
   // değerlendiği için daha yukarıda TDZ ReferenceError verir (lint yakaladı).
+  // Ezber paneli GÖRÜNÜR OLDUĞU SÜRECE (hem alt sayfa hem çalışma şeridi).
+  // Önce yalnız alt sayfa için işaretleniyordu; şeritte FAB'ın üstüne
+  // biniyordu (kullanıcı ekran görüntüsü 2026-08-02).
   useEffect(() => {
-    if (hifzOpen && !hifz.session) document.body.dataset.hifzSheet = '1';
+    if (hifzOpen) document.body.dataset.hifzSheet = '1';
     else delete document.body.dataset.hifzSheet;
     return () => { delete document.body.dataset.hifzSheet; };
-  }, [hifzOpen, hifz.session]);
+  }, [hifzOpen]);
 
   const hifzAudioRef = useRef(null);   // ezbere ait <audio> — karaoke'den ayrı
   const hifzGapRef = useRef(null);     // nefes payı / geçiş timer'ı
@@ -2080,6 +2083,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         hifzGapRef.current = setTimeout(() => {
           hifzGapRef.current = null;
           if (hifzAudioRef.current !== audio) return;   // kârî/sûre değişti
+          // G4: element oturum boyunca YENİDEN KULLANILDIĞI için yukarıdaki
+          // kontrol eski/yeni oturumu ayırt edemez. Oturum kimliği kesin ayrım.
+          if (hifzIsStale(action.sid)) return;
           if (action.type === 'gap') {
             const nx = hifzCommit();
             if (nx) hifzPlayRef.current?.(nx.ayah);
@@ -2106,7 +2112,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const cur = hifzCurRef.current;
       hifzPlayRef.current?.(cur.ayah, cur.urlIdx + 1);
     });
-  }, [selectedSurah, reciterIdx, hifzEnded, hifzCommit, clearHifzTimers, stopAudio]);
+  }, [selectedSurah, reciterIdx, hifzEnded, hifzCommit, clearHifzTimers, stopAudio, hifzIsStale]);
 
   // onended/onerror closure'ları güncel fonksiyonu ref üzerinden çağırır —
   // aksi halde ilk render'ın closure'ında donar (kârî değişince eski kârîyi

@@ -47,9 +47,12 @@ import { useState, useRef, useCallback } from 'react';
 export const DEFAULT_BREATH_MS = 400;
 
 // Adımlar arası (yeni ayete / birleştirmeye geçiş) duraklama. Nefes payından
-// belirgin uzun olmalı — kulak "yeni bir şey başlıyor" sinyalini almalı.
-// Bu pencere aynı zamanda "Tekrarla" kaçışının aktif olduğu süredir.
-export const DEFAULT_GAP_MS = 2000;
+// (400 ms) belirgin uzun olmalı — kulak "yeni bir şey başlıyor" sinyalini
+// almalı. Bu pencere aynı zamanda "Tekrarla" kaçışının aktif olduğu süredir.
+// 2000 → 1500 (kullanıcı geri bildirimi 2026-08-02: 2 sn fazla geliyordu).
+// ⚠ Bu aynı zamanda "Tekrarla" kaçışının açık kaldığı süre; daha da
+// düşürülürse butona yetişmek zorlaşır.
+export const DEFAULT_GAP_MS = 1500;
 
 // Birleştirme adımında ayetler arası kısa soluk. Dosyaların kendi son
 // sessizliği zaten var (85-425 ms), bu yüzden küçük tutulur.
@@ -92,7 +95,12 @@ export default function useHifzSession({
 } = {}) {
   const [session, setSession] = useState(null);
 
+  // G4: her oturuma artan bir kimlik. Ses elementi artık oturum boyunca
+  // YENİDEN KULLANILDIĞI için (otomatik-çalma kilidi), ReadingMode'daki
+  // zamanlayıcıların `ref === element` kontrolü eski/yeni oturumu ayırt
+  // edemiyor. Aksiyonlar `sid` taşır, callback'ler onu doğrular.
   const live = useRef({
+    sid: 0,
     active: false, surah: 0,
     steps: [], idx: 0, autoAdvance: true,
     ayahs: [], pos: 0,
@@ -111,7 +119,7 @@ export default function useHifzSession({
       count: s.count,
       stepIndex: s.idx,
       stepCount: s.steps.length,
-      phase: s.phase,                       // 'playing' | 'gap' | 'paused'
+      phase: s.phase,                       // 'idle' | 'playing' | 'gap' | 'paused'
       autoAdvance: s.autoAdvance,
       next: s.steps[s.idx + 1] || null,
     };
@@ -135,13 +143,19 @@ export default function useHifzSession({
    * @returns {{ayah:number}|null} ilk çalınacak ayet
    */
   const start = useCallback((verse, repeat, opts = {}) => {
-    if (!verse) return null;
+    // G3: `!verse` truthy kontrolü yetmiyordu — {surah:87, ayah:0} veya
+    // ayah:NaN geçip plana 0. ayeti sokuyor, `087000.mp3` gibi olmayan
+    // dosyaya gidiyordu.
+    if (!verse
+      || !Number.isFinite(verse.surah) || verse.surah < 1
+      || !Number.isFinite(verse.ayah) || verse.ayah < 1) return null;
     const lastAyah = Number.isFinite(opts.lastAyah) ? opts.lastAyah : verse.ayah;
     const steps = buildSnowballPlan(verse.ayah, lastAyah, opts.blockSize);
     if (steps.length === 0) return null;
 
     live.current = {
       ...live.current,
+      sid: live.current.sid + 1,
       active: true,
       surah: verse.surah,
       steps,
@@ -200,7 +214,7 @@ export default function useHifzSession({
     if (s.pos + 1 < s.ayahs.length) {
       s.pos += 1;
       setSession(snapshot());
-      return { type: 'next-verse', ayah: s.ayahs[s.pos], pauseMs: joinGapMs };
+      return { type: 'next-verse', ayah: s.ayahs[s.pos], pauseMs: joinGapMs, sid: s.sid };
     }
 
     // Adımın bir turu tamamlandı.
@@ -209,7 +223,7 @@ export default function useHifzSession({
     if (s.count < s.target) {
       s.pos = 0;
       setSession(snapshot());
-      return { type: 'repeat', ayah: s.ayahs[0], pauseMs: breathMs };
+      return { type: 'repeat', ayah: s.ayahs[0], pauseMs: breathMs, sid: s.sid };
     }
 
     const hasNext = s.idx + 1 < s.steps.length;
@@ -224,7 +238,7 @@ export default function useHifzSession({
     // "Tekrarla"ya basabilir; commitAdvance/restartStep kararı verir.
     s.phase = 'gap';
     setSession(snapshot());
-    return { type: 'gap', gapMs };
+    return { type: 'gap', gapMs, sid: s.sid };
   }, [breathMs, gapMs, joinGapMs, snapshot]);
 
   /** Geçiş penceresi doldu — sıradaki adıma geç. null ise program bitti. */
@@ -248,15 +262,22 @@ export default function useHifzSession({
    */
   const restartStep = useCallback(() => {
     const s = live.current;
-    if (!s.active) return null;
+    // G1: yalnız geçiş penceresinde veya duraklatılmışken. 'playing' iken
+    // çağrılırsa hook başa sarar ama ses ortada devam eder → UI/ses
+    // senkronu bozulur.
+    if (!s.active || (s.phase !== 'gap' && s.phase !== 'paused')) return null;
     if (!loadStep(s.idx)) return null;
     setSession(snapshot());
     return { ayah: s.ayahs[0] };
   }, [loadStep, snapshot]);
 
+  /** G4: bu aksiyon hâlâ geçerli oturuma mı ait? */
+  const isStale = useCallback((sid) => sid !== live.current.sid || !live.current.active, []);
+
   return {
     session,
     isRunning: !!session,
+    isStale,
     start,
     stop,
     pause,
