@@ -1,4 +1,3 @@
-# QuranCodex — Next Action Items
 
 ---
 
@@ -9,16 +8,6 @@
 > **🎨 RENK-FREEZE KURALI (2026-07-25 kullanıcı kararı):** Palet/tema **DONUK.** Koyu kozmik (#0a0a1a) + antika altın (#d4a574) kimliği değişmez. Yeni bileşenler **mevcut token'ları** kullanır, yeni renk üretmez. Palete dokunan 2 madde parklandı (aşağıda ⛔). Açık/light tema YASAK (denendi, reddedildi).
 >
 > **Çalışma ritmi:** Her madde → uygula → localhost test (desktop + mobil 390px) → commit → **push için ayrı onay.**
-
-## 🟢 P0 — Hızlı kazanç (renk-nötr)
-- [x] **A1. Metodoloji görünürlüğü** ✅ `27659db` (2026-07-25) — Anasayfa Hero+Concierge sonrası **MethodologyRibbon** ("Örtüşme ≠ Kanıt" + 3 chip: Hafs mushafı/klasik tefsir+akademik/örtüşme≠kanıt + /hakkinda linki). Renk-nötr, TR/EN, desktop+mobil 200. **Header linki YAPILMADI** (navbar dolu + risk; footer'da site-geneli link zaten var). [GPT #1 kısmen + #12]
-- [x] **A2. /sor Concierge güven katmanı** ✅ (2026-07-25) — Sonuçların sonuna kalıcı "Sınırlar" notu (fetva değildir + ehil âlime danışın). Kart-Concierge zaten yorum katmıyor (kaynak gösterir) → "sadece kaynak göster" default. Desktop+mobil 200. [GPT #4]
-- [x] **A3. Mobil hero CTA** ✅ (2026-07-25) — Mobil sahne 1'e 2 buton (Kur'an'ı Oku + Keşfe Başla, ≥44px); mobilde Devam chevron gizlendi (butonlar yerini aldı). Desktop değişmedi. [GPT #8]
-
-## 🟡 P1 — Orta efor, yüksek değer (renk-nötr)
-- [x] **B1. Araç "Veri Sözlüğü (i)" paneli** ✅ (2026-07-25) — Reusable DataDictionary + WordHeatmap entegrasyonu (kaynak/birim/girdi/not, sayım kuralları KODDAN). Esmâ-frekans ZATEN kendi Methodology+Metodolojik Nüans'ına sahip → duplike edilmedi. Desktop+mobil 200. [GPT #3]
-- [x] **B2. "Örtüşme / Yorum Katmanı" etiketi** ✅ (2026-07-25) — Reusable FramingBadge + BilimselIsaretler hero ("Örtüşme Okuması — 'Bilimsel Mucize' İddiası Değil"). Derin framing (descTr + Bucaillism tab + criticalNote) zaten vardı → badge taranabilir kıldı. Desktop+mobil 200. [GPT #1 + #9]
-- [x] **B4. Atlas → okuma köprüsü** ✅ (2026-07-25) — KissaAtlas versePeek paneline "Bu sûreyi Oku modunda aç (tam metin + tefsir)" köprüsü → /oku/[surah]. Tefsir Reading Mode'da (ayrı route uydurulmadı). Desktop+mobil 200. [GPT #10]
 
 ## 🟠 P2 — Daha büyük / sonraya (renk-nötr)
 - [ ] **C1. İddia kartlarına 3'lü kaynak rozeti** (Ayet · Tefsir · Akademik) — SourcesCitation'ı genişlet; tam citation drawer sonra. [GPT #2]
@@ -40,13 +29,36 @@
 - **Estetik hiçbir renk değişikliği önermiyorum.** Açık tema fiyaskosu (bu oturum) bunu doğruladı: renk = regresyon riski + öznel anlaşmazlık.
 
 **TEK meşru renk action item'ı — estetik DEĞİL, ERİŞİLEBİLİRLİK (correctness):**
-- [x] **E1. Ölçülmüş WCAG kontrast denetimi** ✅ ÖLÇÜLDÜ (2026-07-25) → **KAPALI, freeze doğrulandı.** Ana gövde (offWhite %100 = 15.74) + ikincil (silver %100 = 7.65) + gold (%100 = 8.81) **AA'yı rahat geçiyor.** Tek zayıflık: %55-70 opaklıklı KÜÇÜK etiketler (eyebrow/caption/whisper) AA-normal altı ama çoğu AA-large (3:1) geçiyor ve bilinçle soluk. **Sistematik değişiklik YOK** (over-correction riski). Opsiyonel marjinal mikro-dokunuş (en soluk küçük etiketleri %70'e / `offWhiteAlpha72`) — değmez, itilmedi. **Renkler sağlam, freeze kalıcı.**
 
 **Sonuç:** Estetik renk = **donuk**. Dokunulabilir tek renk konusu = ölçülmüş WCAG kontrast (E1) — o da yalnız ölçüm gerçekten fail verirse; aksi halde renk işi YOK.
 
 **Önerilen sıra:** A1 → A2 → A3 → B1 → B2 → B4 → (P2). E1 istenirse önce ölçüm. GPT-5.2 tam feedback + maliyet: bu oturum kaydı.
 
 ---
+
+---
+
+# 🤖 CHATGPT BULGULARI — Ezber Modülü Kod İncelemesi (2026-08-02)
+
+> **Kaynak:** `gpt-5.2-2025-12-11`, ~12.9K girdi / 2.5K çıktı token.
+> **Kapsam:** `useHifzSession.js` + `HifzPanel.jsx` + `ReadingMode.jsx`'in yalnız ezber bölgesi (dosya 10K satır, tamamı gönderilmedi).
+> **Durum:** Bulgular **kodla karşılaştırılıp doğrulandı**; ham liste değil. Hiçbiri henüz UYGULANMADI.
+
+## ❌ Yanlış alarm (doğrulandı, iş yok)
+- **Durdur'a basınca timer temizlenmiyor** — ChatGPT `onStop`'un neye bağlı olduğunu göremediği için varsaydı. Gerçek: `onStop={stopAudio}` (ReadingMode:9520) ve `stopAudio` → `stopHifzAudio()` → `clearHifzTimers()`. Zincir sağlam.
+
+## 🔴 Gerçek — doğrulandı, yapılmalı
+- [ ] **G1. `restartStep()` faz kontrolü yok** — `useHifzSession.js:249`; yalnız `if (!s.active)` bakıyor. "Tekrarla" UI'da sadece gap'te görünüyor ama API açık; `phase === 'playing'` iken çağrılırsa hook başa sarar, ses ortada kalır → UI/ses senkronu bozulur. Fix: `phase` `'gap' | 'paused'` değilse reddet.
+- [ ] **G2. `phase` union'ı eksik belgelenmiş** — kod 3 yerde `phase='idle'` atıyor (satır 158, 218, 236) ama `snapshot()` yorumu `'playing' | 'gap' | 'paused'` diyor. Şu an zararsız; TS'ye geçişte veya runtime assert eklenince gerçek hataya döner. Fix: yorumu `'idle' | 'playing' | 'gap' | 'paused'` yap.
+- [ ] **G3. `start()` ayet doğrulaması zayıf** — `if (!verse)` truthy kontrolü; `{surah:87, ayah:0}` veya `ayah:NaN` geçer, plan 0. ayeti içerir, `087000.mp3` gibi olmayan dosyaya gider. Fix: `Number.isFinite(verse.ayah) && verse.ayah >= 1`.
+- [ ] **G4. Oturum kimliği yok (race)** — `audio.onended` → `setTimeout` kurulur; callback yalnız `hifzAudioRef.current === audio` kontrol eder. Element artık YENİDEN KULLANILDIĞI için (otomatik-çalma kilidi gerekçesi) bu kontrol yeni oturumu eski oturumdan ayırt edemez. Kullanıcı gap sırasında yeni oturum başlatırsa eski `action` yeni oturuma uygulanabilir. Fix: artan `hifzSessionIdRef`, action ile birlikte kapat, callback'te karşılaştır. *(Şu an `stopAudio` timer'ı temizlediği için pratikte tetiklenmesi zor — ama gerçek bir açık.)*
+
+## 🟡 İyileştirme — geçerli ama acil değil
+- [ ] **G5. `start()` tam reset yapmıyor** — `live.current = { ...live.current, ... }` eski alanları taşıyor; `loadStep(0)` çoğunu düzeltiyor ama yeni alan eklenirse sızabilir. Fix: spread'siz tam obje.
+- [ ] **G6. `hifzPlayAyah` her ayette O(n) arama** — `surahVersesRef.current.find(...)`; Bakara'da yüzlerce adım × lineer arama, üstüne 2 state update. Fix: `ayah → verse` map'i.
+- [ ] **G7. Progressbar ARIA fazı** — `aria-valuenow={count}` ancak adım bitince `valuemax`a eşit oluyor; ekran okuyucu "5/5" derken oturum geçişe hazırlanıyor. Fix: `aria-valuetext` ekle.
+- [ ] **G8. "Tekrarla" butonunda `aria-label` yok** — ekran okuyucu "↺ Tekrarla" der, neyi tekrarladığı belirsiz. Fix: `aria-label="Bu adımı tekrar çal"`.
+- [ ] **G9. `stopHifzAudio` `load()` çağırmıyor** *(ChatGPT "düşük güven" dedi, ben de doğrulamadım)* — `src=''` bazı tarayıcılarda decoder/ağ kaynağını hemen bırakmayabilir. Fix: `removeAttribute('src'); load()`.
 
 # 🎯 YAPILMASI GEREKENLER — SIRADAKI (2026-07-24 güncel değerlendirme)
 
@@ -64,10 +76,6 @@
 
 | Puan | İş (efor) | Değer | Risk | Not (neden bu puan) |
 |---|---|---|---|---|
-| ✅ done | ~~#206 VerseGraph Hero~~ | — | — | **ZATEN YAPILMIŞ** (git `40763af` feat #206 §13.18 premium açılış katmanı). Todo maddesi eskiydi. Landing: Zümer 39:23 anchor + eyebrow + micro-stat + "Haritayı keşfet" CTA mevcut. Rotasyon (yörünge) kullanıcı onayladı=böyle iyi. |
-| ✅ done | ~~#205 EsmaFrekans Hero~~ | — | — | **ZATEN YAPILMIŞ + §13.17 istisnası.** Tam flagship §13.18 hero mevcut (bismillah + Şûrâ 42:11 + framing whisper + ESMÂ-İ HÜSNÂ + 4 Temel Ayet + ClosingReflection CTA). Todo Phase 5 eskiydi. Dokunulmadı (flagship). |
-| ✅ done | ~~#203 SourcesCitation — 4 tool~~ | — | — | **3/4 EKLENDİ** (QuranCommands `b1d2e8e` + AddresseeSystem/DiyalogAgi `0ee95e4`). WordHeatmap = §13.21 istisnası (immersive fullscreen; Leeds Corpus zaten /kaynakca+/hakkinda'da). |
-| ✅ done | ~~Atmosfer raporu madde 4~~ | — | — | **`200af63`** — kontrol sonucu rapor fazla kabaymış: 5'ten sadece 1'i (AllahKendiniTanitir büyük kartı) gerçekten fazla bulbous'tu → 12px. Diğer 4'ü küçük pill/chip (20px=pill doğru), dokunulmadı. |
 | **58** | **#202 CrossToolCTA kalanı** (~5h) | ⭐⭐⭐ | Düşük | Keşif/çapraz-navigasyon → oturum derinliği. Zaten 18/34 done; ~16 tool verify+kapat. Değer orta (yarısı bitmiş), efor orta. |
 | **52** | **Morfoloji tooltip** (P2, ~8-12h) | ⭐⭐⭐⭐ | Orta | Eğitsel derinlik (kelime→kök/fiil/şahıs, Leeds corpus). Kullanıcı-değeri yüksek ama efor+entegrasyon orta → puan orta. |
 | **48** | **Güven kutusu** (P2, ~15-20h) | ⭐⭐⭐⭐ | Orta | Epistemik şeffaflık iddia-düzeyinde. Hakkında sayfası site-düzeyinde yaptı → marj azaldı. Değerli ama büyük sistem işi. |
@@ -85,16 +93,6 @@
 > **NOT (2026-07-24):** İlk 🎯 taslağımda yalnızca premium-denetim (P0-P3) bölümünü değerlendirmiş, alttaki Araçlar-Audit yol haritasını (Kat. F/G) atlamıştım. Kullanıcı uyardı → tüm 389 satır okundu; liste puan-sıralı tamamlandı.
 
 **Kural (her yeni içerik/kod için):** §13.22 embedding rebuild + §13.23 regresyon verify zorunlu; içerik değişikliği kanonik'e karşı %100 doğrulanır (uydurma YASAK).
-
----
-
-# ✅ KAPSAMLI 2. TUR TARAMA — TAMAMLANDI (2026-07-24)
-
-> **✅ Arabic-fidelity audit yapıldı** (`wf_c5dcfc26-69f`, 43 ajan, 1883 ayet-field): olmayan hitap / olmayan ayet / uydurma metin / yanlış ref tarandı.
-> - **Ref-varlığı:** 26769 ref → 0 olmayan-ayet (temiz).
-> - **Vokatif hitaplar:** addressees 11/11 gerçek; "Ey münafıklar" tipi olmayan hitap YOK (14→11 fix tuttu).
-> - **Uydurma/yanlış:** 3 REAL_ERROR bulundu + düzeltildi (`f1c8374`): belagat ref 19:5→19:4; kuran-retorigi 12:109 أَوَلَمْ→أَفَلَمْ; münafık grubunda 2:9 uydurma soru kaldırıldı.
-> - **Sonuç: %99.84 temiz** — içerik çok sağlam.
 
 ---
 
@@ -131,14 +129,8 @@
 
 > **İlerleme (2026-07-24 final):** ✅ **P0 tablosu TAM** (1-14 done). Eski "kullanıcı incelemesi (3)" maddeleri kullanıcı onayıyla çözüldü: **#10** U+06EA → CLAUDE.md §13.15 bağlam-bağımlı düzeltildi (`4c21293`; kod otorite = ReadingMode korur, display dönüştürür — çelişki yoktu). **#12** tefsir-per-verse → kök-neden fix + regen (`ea37022`). **#13** "Sıfır Varyasyon" → rasm framing whisper (`b391f17`). Detay+kanıt: changelog. **NOT:** tefsir-per-verse.json değişti → §13.22 embedding rebuild'e dahil (EN SONDA).
 
-## P0 — KRİTİK: Teknik / SEO
-
-- ✅ **SSR/"Yükleniyor" — DOĞRULANDI: yanlış alarm.** Tüm tool sayfaları H1 + meta-description + JsonLd(3 şema) server-render ediyor (PageHeading/JsonLd pattern §16.8/§16.12 çalışıyor). "Yükleniyor" sadece interaktif içeriğin client loading fallback'i — SEO-kritik sinyaller server'da. Fix gerekmedi. (ChatGPT C03 + Claude 2.1 + Gemini)
-- ✅ **Duplicate H1 — DÜZELTİLDİ `822d634`.** 34 tool component'inin görsel hero `<h1>` → `<h2>`; PageHeading sr-only h1 tek kanonik başlık. 32 route doğrulandı: hepsi 200 + h1×1. Görsel değişiklik yok. (ChatGPT C05)
-
 ## P1 — YÜKSEK: Görsel (ÜÇ denetim birleşiyor → en güçlü)
 
-- ✅ **Arapça font çok küçük — BİTTİ** (`3b8b272` + kullanıcı-onaylı batch, 2026-07-24). RESUME listesindeki 20+ dosya: 17 font büyütme (≥1.1-1.6rem) + FONTS.arabic swap + clamp responsive + dir=rtl. Mobil 390px overflow yok, 21 route 200. (VerseGraph dropdown chip bilinçli küçük bırakıldı — overflow riski.)
 - ⏭ **Tool kartlarına thumbnail/mockup preview** — ATLANDI (kullanıcı: "şu anda atla", 2026-07-24). Tasarım/build işi; sonraya bırakıldı.
 - ⏭ **Six Gates hover chip** — DEĞERLENDİRİLDİ: minör UX polish, gerekli değil (kullanıcı yargı bıraktı 2026-07-24). Geç.
 - CrossToolCTA locale-prefix (✅ done `dde3503`), scroll-ofset (✅ `7b41387`), responsive (kısmen `4069ba5`)
@@ -147,18 +139,13 @@
 
 > **⚠ İLKE (memory `quran-supremacy-framing`, 2026-07-24):** Kur'an Allah kelamı, HARFİ HARFİNE doğru. Örtüşmezlik = bilim/yorum eksikliği, ASLA Kur'an metni değil. Yumuşatma sadece "bilim-hakem" çerçevesini kaldırır, Kur'an'a şüphe düşürmez.
 
-- ✅ **Mutlak retorik yumuşat — BİTTİ (hafif dokunuş, `a5c3c98`).** "bilimin doğruladığı"→"bilimle örtüşen", "Bir Tarihin Doğrulaması"→"Tarihsel İzler". Tool/section adları korundu. Kullanıcı "hafif dokunuş" seçti.
-- ✅ **"Kanıt/bilim doğrular" çerçevesi — BİTTİ (hafif dokunuş + criticalNote reframe `56aa302`).** Bilim-hakem çerçevesi kaldırıldı; İki Deniz/Yörünge notları ilke #2'ye göre reframe (eksiklik ayete değil bilime yüklendi). Tüm content JSON tarandı: Kur'an metnini kusurlu gösteren ifade YOK.
 - ❌ **Bilimsel İşaretler karşı-argümanları — YAPILMAYACAK (YASAK).** İlke gereği: karşı-argüman bilimsel görüşü Kur'an'a denk/üstün gösterir. Kullanıcı reddetti. Mevcut criticalNote'lar zaten yorumu/apolojetik aşırılığı sınırlar (Kur'an'ı korur).
 - **Konumlandırma tutarlılığı** — kısmen (bilim-hakem çerçevesi kaldırıldı). Kalan: genel akademik↔apolojetik ses tutarlılığı.
-- ✅ **Jargon Türkçeleştirme — BİTTİ (`a968d4d`).** refrain→nakarat, foundational→temel, mainstream→ana akım, redundancy→gereksiz tekrar, word-order→kelime dizimi (17 yer, yalnız TR). pasaj/ritüel zaten yasaklıydı (memory).
 
 ## P2 — ORTA  (opsiyonel polish — içerik bütünlüğü yanında kritik değil, sonraya ertelendi)
 
-- ✅ **Hakkında / Metodoloji sayfası — BİTTİ (`6ede6bb`).** `/hakkinda` TR+EN: Amaç + ⭐Epistemik Duruş (Kur'an üstünlüğü) + Metodoloji (Hafs/6 meâl/tefsir) + Sınırlar + Yazar(anonim)/İletişim. Footer'a "Hakkında·Kaynakça" link, sitemap.
 - ⏳ Her iddiada güven kutusu (kaynak+tür+güven+tarih). Büyük sistem işi.
 - ⏳ Morfoloji tooltip (Leeds corpus). Feature.
-- ✅ **EN parity — ESASEN TEMİZ** (2026-07-24 tarandı: yapısal EN alanlarında 0 Türkçe-kalıntı; çeviriler yerinde). Kritik gap yok.
 - SEO H1/H2 (duplicate H1 ✅ `822d634` düzeltildi); hreflang/canonical/schema mevcut.
 - ⏭ Kontrast WCAG — DEĞERLENDİRİLDİ: temel renkler AAA geçiyor (offWhite 15.7/silver 7.65/gold 8.81); sistemik sorun yok, geç. ⏭ İkincil accent — öznel estetik, geç.
 
@@ -166,81 +153,6 @@
 
 - ⏳ Veri araçları şeffaflığı: model card, "neden bu ayet?", no-answer/confidence.
 - ⏭ token-hardcode-hex (25 — görsel-etkisiz §13.1 kod hijyeni). Düşük değer, ertelendi.
-
-## ▶ SIRADAKİ → en üstteki 🎯 bölüme bak. 2. tur tarama ✅ TAMAMLANDI. Kalan işler opsiyonel feature (güven kutusu, morfoloji tooltip); gerisi skip.
-
-## ✅ META — KAPSAM BOŞLUĞU KAPANDI (2026-07-24)
-
-~~Benim content workflow'um SesMimarisi + ~23 inline-content component + 42 section'ı kapsamadı.~~ **ÇÖZÜLDÜ:** 47 dosya (26 section + 21 hardcoded component) çok-ajanlı tarandı (`wf_2d908475-652`, 87 ajan) → 38 CONFIRMED_ERROR, hepsi kanonik re-verify + düzeltildi (`f1310ce`..`a5c789d`, push `9fd9038`). SesMimarisi/Nâziât sınıfı inline hatalar artık kapsandı. Detay: changelog "İçerik Audit Workflow (inline-JSX)".
-
----
-
-
->
-> RAG Semantic Concierge v1.0 tamamlandı. **Kategori B, C, G tamamen bitti** (2026-07-17 → 07-21). **Araçlar audit tamamlandı** (2026-07-14) → 46 tool audit edildi; Kategori F'in Phase 1 + Phase 2'nin büyük kısmı kapandı.
->
-> **2026-07-23 kod taraması:** 63 tool component'i ToolHeader / CrossToolCTA / SourcesCitation / BookmarkButton / tab kapsamı için tarandı. Sonuçlar Kategori F altındaki tablolara işlendi — özellikle Phase 3'ün "41 tool / 30 saat" tahmini gerçeği yansıtmıyordu: kaynak boşluğu **gerçekte 4 tool**.
-
----
-
-## ✅ Tamamlanan (referans)
-
-- **RAG Concierge Faz 2 tam paketi** — 7 chunk katmanı (12,495 chunk), multi-vector meal, metadata enrichment, tefsir dual, kissa scene, article section, sure özet, pericope
-- **Guardrails** — 3-katmanlı adaptive (K1 regex + K2 classifier + K3 rewrite)
-- **Feedback Loop** — 3-faz (KV log + response cache + item boost/demote)
-- **Admin Dashboard** — `/admin/queries` password-auth, 5 tab
-- **Query Language Detection** — LLM'siz heuristic
-- **HTML Referans Dokümanı** — private: `docs/rag-architecture.html`
-- **VerseCard meal display parity** — Reading Mode selected meal
-- **localStorage cache upgrade** — 24h cross-tab
-- **Mukattaa Deep-Dive tool** — `/arac/mukattaa` (mevcut, ayrı sayfa)
-- **VerseGraph "Güçlü Bağlantılar" sayı fix** — double counting + cross-surah link bug (2026-07-14 akşam) ⚠ prod'da doğrula
-- **#188 Araçlar audit** — 46 tool audit edildi, rapor: `docs/reviews/2026-07-14-araclar-audit.md` (2026-07-14)
-- **#189 Ahiret Yolculuğu Atlası — MVP + Faz 2 + Faz 3 auditor pass + tüm fixler** — `/atlas/ahiret-yolculugu` live; 11 aşama · 46 ayet · §13.15 normalize · cinematic hero · dikey timeline · expandable stages · 6 CriticalNote · 6 klasik kaynak · Râzî+Kurtubî+İbn Kesîr+Gazâlî+İbn Kayyim+Suyûtî (2026-07-15). ✅ Faz 2 world-class polish (scroll progress + particle field + node pulse + stage motion + smooth rail indicator) · ✅ Faz 3 audit (content K1-3 + O1-6 + visual K1-3 + O1-7) · ✅ Menü sıralama (Explore DİL/RETORİK + Tools VIZ/RESEARCH) · ✅ Path banner kaldırıldı (Önerilen Yollar visual illusion) · ✅ RAG corpus + embedding registered (§13.22) · ✅ SSR-safe static JSON import (SEO fix — 2599e5a)
-- **4 kritik bug fix (2599e5a, 2026-07-15)** — SourcesCitation `s.note` render bug (14 kaynak notu invisible idi), AddresseeSystem `/atlas/diyalog` 404 broken link → `/graf/diyalog`, AddresseeSystem SSR loading skeleton CTA visibility, Ahiret Yolculuğu fetch→static import (SSR SourcesCitation gösterimi)
-- **RAG corpus + embedding pipeline** — atlas-ahiret-yolculugu-stage (11 chunk) + /atlas/ahiret-yolculugu tool catalog registered; incremental embed (12 new / 12495 reused / $0.00) (2026-07-15)
-- **CLAUDE.md §13.22** — yeni content JSON → corpus + embedding rebuild MUTLAKA (kural yazıldı, gelecek eklemeler için pipeline korunacak)
-- **#173 Global bookmark** — Navbar Kütüphanem link + AtlasCard/ArticleCard BookmarkButton (fe849bd, 2026-07-15)
-- **#174 Verse share cards** — `/ayet/[s]/[a]` landing + OG image (1200×630 PNG) + Web Share/clipboard button (d0cce18, 2026-07-15)
-- **#175 Reading progress tracker** — ReadingProgressCard anasayfa + timestamp storage + relative time (TR/EN) (3f50517, 2026-07-15)
-- **#176 Kissa Atlas genişletme** — 4 → 12 peygamber (Nûh, Âdem, Süleyman, Dâvud, Yunus, Eyyub, Lût, Zekeriya/Yahyâ +36 sahne); RAG incremental embed (44 chunk / $0.0001) (45a1b66, 2026-07-15)
-- **#172 SEO polish — sitemap coverage** — 302 → 416 URL (+114); 32 tefekkur slug dinamik + 25 tool + `/sor` `/kaynakca` `/tefekkur` üst route eklendi; /arac/wow legacy redirect sitemap dışı; hreflang alternates korunmuş (e30e18f, 2026-07-15)
-- **#202 Phase 2 CrossToolCTA batch 1 (4/34)** — KissaAtlas + KadinlarAtlasi + FurukAtlasi + SebebiNuzul CTA eklendi; SSR-safe RELATED_CTA pattern (loading + main return); EsmaFrekans hariç (kendi ClosingReflection'da custom 3 tool linki mevcut) (1e03e39, 2026-07-16)
-- **#202 Phase 2 CrossToolCTA batch 2 (8/34)** — SemanticMap + ConceptGraph + QuranCommands + DiyalogAgi CTA eklendi; aynı SSR-safe pattern (b7d37e5, 2026-07-16)
-- **#202 Phase 2 CrossToolCTA batch 3 (12/34)** — SurahComparator + WordHeatmap + ZamanBoyutlari + MeselAtlasi CTA eklendi (7056b55, 2026-07-16)
-- **#202 Phase 2 CrossToolCTA batch 4 (16/34)** — AhiretYolculugu + KiraatAtlasi + MunafikProfili + WowFacts; KiraatAtlasi ssr:false (leaflet) → CTA client-only bilinen istisna (06186a5, 2026-07-16)
-- **#202 Phase 2 CrossToolCTA batch 5 (18/34)** — IbadetlerHub + IbadetlerPillar (7 pillar tek CTA paylaşır); route client-fetch → CTA client-only (e060b80, 2026-07-16)
-- **RecentBookmarksStrip (homepage)** — 3 chip son bookmark, sadece bookmark varsa render; library-changed + storage event sync; ReadingProgressCard pattern (be6f81f, 2026-07-16)
-- **RecentQueriesStrip (homepage)** — 3 chip son Concierge sorgusu, sadece geçmiş varsa render; SorRoute pushHistory'nin lokal impl'i `lib/query-history.js`'e taşındı (shared util); chip click → /sor?q=... (9bf9294, 2026-07-16)
-- **BookmarkButton — KissaAtlas scenes + SebebiNuzul occasions** — bookmark ekosistemini kıssa sahnelerine (12 peygamber × ~9 sahne = 100+) + sebeb kayıtlarına genişletti; RecentBookmarksStrip TYPE_LABELS uzatıldı (sebeb-nuzul ⌛, wowfact ✨) (0f7f2b0, 2026-07-16)
-- **BookmarkButton — WowFacts fact cards** (a455c16, 2026-07-16)
-- **BookmarkButton — KadinlarAtlasi + KavimlerAtlasi + MeselAtlasi** — 3 atlas'a bookmark; TYPE_LABELS +3 (☙/⚑/❈) (b8672a8, 2026-07-16)
-- **BookmarkButton — Melekler + CennetCehennem + KuranYeminleri** — eskatoloji + dilbilim tool'ları; TYPE_LABELS +4 (☽ angel · ❀ cennet · ☒ cehennem · ⚝ yemin); IsimCard'a kind prop eklendi (ccfe6a7, 2026-07-16)
-- **BookmarkButton — KiyametSahneleri + SunnetullahAtlasi + DogaAtlasi** — kıyamet sahneleri + sünnetullah pattern'ları + tabiat item'ları; TYPE_LABELS +3 (☄ kıyamet · ☯ sünnetullah · ❋ tabiat) (9e22128, 2026-07-16)
-- **BookmarkButton — IlkSonKelimeler + IblisSatan + KuranRetorigi** — dilbilim + kelâm tool'ları; TYPE_LABELS +3 (⇋ ilk-son · ☠ iblis · ❊ belâgat). Toplam 21 bookmark tipi. (488c7df, 2026-07-16)
-- **BookmarkButton — ReadingMode VerseRow** — ana kullanım akışında her ayet satırında BookmarkButton; audio bar yanı, stopPropagation; ID: verse:S:A, URL: /ayet/S/A. Kritik entegrasyon — user Kur'an okurken direkt kaydediyor (a5cea23, 2026-07-16)
-- **/kutuphanem TYPE_LABELS bug fix** — 22 tip için TR/EN çeviri; önceden 15 yeni tip raw string ('sebeb-nuzul', 'kiyamet-scene') olarak görünüyordu; RecentBookmarksStrip.jsx ile senkron (0e4cc9c, 2026-07-16)
-
-### 2026-07-17 → 07-23 dalgası (todo'ya geç işlendi)
-
-- **#187 Peygamber Atlası** — 5 → 12 peygamber + coğrafi harita (509c70d, 2026-07-17)
-- **#177 Sebebi-Nüzul** — 20 → 30 vaka + RAG corpus pipeline (d810547, 2026-07-17)
-- **#186 Diyalog Ağı** — 15 → 23 dialogue + 6 axis + 6 speaker (c1a354f, 2026-07-17)
-- **#185 Muhatap Sistemi** — 11 → 14 kategori, 36 → 55 örnek ayet (96ab266, 2026-07-17)
-- **#183 Kavram Ağı** — 65 → 78 kavram (06b1a1c) + görsel wow katmanı ~850 satır (fbddcca) + §13.18 premium landing hero: anchor verse Bakara 2:269 + micro-stat ribbon (7e404b2)
-- **#178 Search Modu 2** — klasik anahtar-kelime tam metin arama (624a165, 2026-07-17)
-- **#181 Sure DNA + #184 Münâsebât** — SurahComparator sources + münâsebât 10 → 16 (4174130, 2026-07-17)
-- **#207 Eleştirel Çerçeve** — `/arac/elestirel-cerceve`; + Ses Mimarisi audio-metin parity bug fixleri (f012a1d, 2026-07-19)
-- **#211 Kitap Kavramı** — `/arac/kitap-kavrami`, 10 self-name (9ce6b82, 2026-07-19)
-- **#208 Cause→Effect Atlas** — `/arac/neden-sonuc`, 10 Kur'ânî zincir (c86e8ab, 2026-07-19)
-- **#209 İnsan Yolculuğu Atlası** — `/atlas/insan-yolculugu`, Fıtrattan Cemâlullah'a 10 aşama (a50aad2, 2026-07-21)
-- **#210 Yakın Anlamlı Nüanslar** — `/arac/yakin-anlamli-nuanslar`, 10 nüans seti / 32 terim (2ccfb08, 2026-07-21)
-- **#207 Sünnetullah genişletme** — +4 kanun (istidrâc/tedrîc/değişim/duâ-icâbet) +4 kavim (Sebe'/Fîl/Sebt/Uhdûd) +4 ulema (ee670c8, 2026-07-21)
-- **Atmosfer / manuscript denetimi + uygulama** — rapor `docs/reviews/2026-07-21-atmosfer-premium-denetimi.md`; 7 katman uygulandı: grain (feTurbulence, `globals.css:118`) + candlelight + watermark + hairline + inset + motion + colophon (7c573f7) → auditor #1-#5 + tur 3 particle fix + navbar reorder (0124b4c, 2026-07-23)
-- **#182 VerseGraph "Güçlü Bağlantılar" — PROD/LOCAL DOĞRULANDI (2026-07-23)** — Playwright ile `/tr/graf/ayet` → Sûre Haritası → En-Nisâ paneli sürüldü. Sonuç: Bakara 118 · Ahzâb 112 · Feth 52 · Âl-i İmrân 49. Eski bug'daki "Şuarâ 1117" şişkinliği yok; Nisâ'nın toplam 1399 anlamsal bağıyla tutarlı, semantik olarak da doğru (aile-miras hukuku + münafıklık). Sayfada pageerror yok.
-- **SunnetullahAtlasi LiteralVerseCard style-conflict fix (2026-07-23)** — `GLASS_CARD` shorthand `border`'ı ile per-side `borderLeftColor/Width` karışıyordu. Playwright ile reprodüksiyon: fix öncesi **6 React error** ("don't mix shorthand and non-shorthand properties") + gerçek görsel bug — hover'da sol altın kenar `rgb(212,165,116)` → `rgba(212,165,116,0.333)` soluyordu. Fix sonrası: 0 uyarı, sol kenar solid altın kalıyor, hover sadece diğer 3 kenarı gold55 yapıyor.
-
----
 
 ## 🔥 Sıradaki İş Sırası — user belirledi (2026-07-14)
 

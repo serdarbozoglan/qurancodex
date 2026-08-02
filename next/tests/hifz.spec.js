@@ -449,3 +449,54 @@ test.describe('mobil', () => {
     await expect(panel.getByRole('button', { name: 'Duraklat' })).toBeVisible();
   });
 });
+
+// Kullanıcı önerisi 2026-08-02: "manuel seçmeyi zorunlu kılmak yerine"
+// Başlat'a doğrudan basılabilmeli. Başlangıç şu sırayla çözülür:
+//   seçili ayet → açık sayfadaki İLK ayet → sûrenin ilk ayeti
+test('ayet seçmeden Başlat çalışır (sayfadaki ilk ayetten başlar)', async ({ page }) => {
+  await openSurah(page);
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+
+  // Hiçbir ayet seçilmedi — yine de başlatılabilmeli
+  await expect(panel.getByRole('button', { name: 'Başlat' })).toBeEnabled();
+  expect(await panelText(panel), 'başlangıç ayeti gösterilmeli').toMatch(/Başlangıç[\s\S]*Ayet \d+/);
+});
+
+// Bir mushaf sayfası birden çok sûre içerebilir (s.604 = İhlâs+Felak+Nâs).
+// Oturum, başlangıç ayetinin KENDİ sûresine kurulmalı; ses URL'si
+// `selectedSurah`tan kurulursa yanlış sûre çalar.
+test('çok sûreli sayfada oturum doğru sûreye bağlanır', async ({ page }) => {
+  await page.goto('/tr/oku/112');                       // son sayfa: İhlâs+Felak+Nâs
+  await expect(page.getByRole('button', { name: /^Ezber$/ })).toBeVisible({ timeout: 30_000 });
+
+  await page.evaluate(() => {
+    window.__src = [];
+    const O = window.Audio;
+    window.Audio = function (...a) {
+      const el = new O(...a);
+      el.addEventListener('play', () => {
+        const m = (el.currentSrc || el.src || '').match(/(\d{3})(\d{3})\.mp3/);
+        if (m) window.__src.push(`${Number(m[1])}:${Number(m[2])}`);
+      });
+      return el;
+    };
+  });
+
+  await page.getByRole('button', { name: /^Ezber$/ }).click();
+  const panel = page.getByRole('region', { name: 'Ezber' });
+  await panel.getByRole('button', { name: '3', exact: true }).click();
+  await panel.getByRole('button', { name: 'Başlat' }).click();
+  await expect(panel.getByRole('progressbar', { name: 'Tekrar' })).toBeVisible({ timeout: 20_000 });
+
+  // Adım sayısı HEMEN okunur: geçiş fazında (gap) şerit adım sayacı yerine
+  // "Sıradaki …" gösterir, o an ölçmek yanıltıcı olur.
+  // İhlâs 4 ayet → 4 tek + 3 birleştirme = 7 adım.
+  expect(await panelText(panel), 'plan İhlâs için kurulmalı').toMatch(/adım \d+\/7/);
+
+  await page.waitForTimeout(12_000);
+  const src = await page.evaluate(() => window.__src);
+  expect(src.length, 'ses çalınmalı').toBeGreaterThan(0);
+  const surahs = [...new Set(src.map(x => Number(x.split(':')[0])))];
+  expect(surahs, 'yalnız tek sûre çalmalı (sayfadaki diğer sûreler sızmamalı)').toEqual([112]);
+});

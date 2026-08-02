@@ -1117,9 +1117,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_interlinear_mode') || 'false'); }
     catch { return false; }
   });
+  // Varsayılan SİTE DİLİNİ izler. Önceden koşulsuz 'en' idi: TR kullanıcı
+  // kırık meali İngilizce görüyordu (kullanıcı raporu 2026-08-02).
   const [interlinearLang, setInterlinearLang] = useState(() => {
-    try { return localStorage.getItem('qurancodex_interlinear_lang') || 'en'; }
-    catch { return 'en'; }
+    const fallback = language === 'tr' ? 'tr' : 'en';
+    try { return localStorage.getItem('qurancodex_interlinear_lang') || fallback; }
+    catch { return fallback; }
   });
   // bookPage — localStorage'daki son pozisyon, ANCAK initialSurah açıkça
   // verilmişse (URL'den /oku/11 gibi) ve farklı bir sureye işaret ediyorsa
@@ -1942,6 +1945,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const hifzGapRef = useRef(null);     // nefes payı / geçiş timer'ı
   const hifzPlayRef = useRef(null);    // her render'da tazelenir (aşağıda)
   const hifzCurRef = useRef({ ayah: 0, urlIdx: 0 });  // onerror fallback için
+  // Başlangıç ayeti — aşağıda (versesOnPage tanımlandıktan sonra) doldurulur.
+  const hifzStartVerseRef = useRef(null);
+  // Oturumun sûresi. `selectedSurah` DEĞİL: bir mushaf sayfası birden çok
+  // sûre içerebilir (örn. s.591 = A'lâ + Ğâşiye) ve oturum sayfadaki başka
+  // bir sûrenin ayetinden başlayabilir. URL bu ref'ten kurulur; aksi halde
+  // yanlış sûrenin sesi çalardı.
+  const hifzSurahRef = useRef(null);
 
   const clearHifzTimers = useCallback(() => {
     if (hifzGapRef.current) {
@@ -1952,6 +1962,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   const stopHifzAudio = useCallback(() => {
     clearHifzTimers();
+    hifzSurahRef.current = null;
     const a = hifzAudioRef.current;
     if (a) { a.onerror = null; a.onended = null; a.pause(); a.src = ''; hifzAudioRef.current = null; }
   }, [clearHifzTimers]);
@@ -2030,7 +2041,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // ve çıkış-tamponu hilelerinin HİÇBİRİ gerekmiyor — dosya doğal sonunda
   // biter, `onended` tetiklenir. Karaoke'nin sûre elementine dokunulmaz.
   const hifzPlayAyah = useCallback((ayah, urlIdx = 0) => {
-    const surah = selectedSurah;
+    const surah = hifzSurahRef.current || selectedSurah;
     const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, surah, ayah);
     if (urlIdx >= urls.length) { stopAudio(); return; }   // tüm CDN'ler düştü
     hifzCurRef.current = { ayah, urlIdx };
@@ -2269,16 +2280,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Aktif ayetten başlayarak sûre sonuna kadar kartopu programı kurar.
   // stopAudio() ÖNCE gelir (o da hifzStop çağırır); oturum ondan SONRA
   // kurulur — ters sırada yeni oturum anında silinirdi.
+  // Ayet seçmek ZORUNLU DEĞİL (kullanıcı önerisi 2026-08-02: "manuel seçmeyi
+  // zorunlu kılmak yerine"). Başlangıç şu sırayla çözülür:
+  //   seçili ayet → açık sayfadaki ilk ayet → sûrenin ilk ayeti
+  // "Her zaman 1. ayet" yanlış olurdu: kitap modunda uzun bir sûrenin
+  // ortasındaki sayfadaysan baştan başlamak istemezsin.
   const handleHifzStart = useCallback(() => {
-    if (!activeVerse) return;
+    const startVerse = hifzStartVerseRef.current;
+    if (!startVerse) return;
     stopAudio();
-    const lastAyah = surahVerses.length > 0
-      ? surahVerses[surahVerses.length - 1].ayah
-      : activeVerse.ayah;
-    const first = hifzStart(activeVerse, hifzRepeat, { lastAyah, autoAdvance: hifzAuto });
+    // Program başlangıç ayetinin KENDİ sûresine kurulur; son ayet de o
+    // sûreden hesaplanır. Sayfada birden çok sûre varsa `selectedSurah`
+    // yanlış cevap verirdi.
+    hifzSurahRef.current = startVerse.surah;
+    const own = (verses || []).filter(v => v.surah === startVerse.surah);
+    const lastAyah = own.length > 0
+      ? own.reduce((m, v) => (v.ayah > m ? v.ayah : m), 0)
+      : startVerse.ayah;
+    const first = hifzStart(startVerse, hifzRepeat, { lastAyah, autoAdvance: hifzAuto });
     if (!first) return;
     hifzPlayAyah(first.ayah);
-  }, [activeVerse, stopAudio, hifzStart, hifzRepeat, hifzAuto, surahVerses, hifzPlayAyah]);
+  }, [stopAudio, hifzStart, hifzRepeat, hifzAuto, verses, hifzPlayAyah]);
 
   // "Bu ayeti tekrarla" — geçiş penceresindeki kaçış. Bekleyen ilerlemeyi
   // iptal edip aynı adımı baştan çalar.
@@ -2542,6 +2564,48 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah));
     return pageVerses.length > 0 ? pageVerses : surahVerses;
   }, [bookMode, verses, surahVerses, currentPage]);
+
+  // ── Ezber başlangıç ayeti ────────────────────────────────────────────────
+  // Seçili ayet varsa o; yoksa AÇIK SAYFADAKİ ilk ayet (seçili sûreye ait);
+  // o da yoksa sûrenin ilk ayeti. Böylece kullanıcı ayet seçmeden Başlat'a
+  // basabilir. Kitap modunda bir mushaf sayfası birden çok sûre içerebildiği
+  // için sayfadaki ilk ayet seçili sûreye göre filtrelenir.
+  const hifzStartVerse = useMemo(() => {
+    if (activeVerse) return activeVerse;
+    // Sayfadaki İLK ayet — sûre filtresi YOK. Kullanıcı hangi sayfaya
+    // bakıyorsa oradan başlasın; sayfa iki sûre içeriyorsa (örn. s.591
+    // A'lâ + Ğâşiye) sayfanın ilk ayeti doğru sezgidir. Program o ayetin
+    // kendi sûresine kurulur (handleHifzStart).
+    return versesOnPage[0] || surahVerses[0] || null;
+  }, [activeVerse, versesOnPage, surahVerses]);
+  // handleHifzStart yukarıda tanımlı (versesOnPage'ten önce) — ref ile köprü.
+  useEffect(() => { hifzStartVerseRef.current = hifzStartVerse; }, [hifzStartVerse]);
+
+  // ── Ezber açılınca okuma düzenini ezbere uygun hâle getir ────────────────
+  // Kullanıcı direktifi (2026-08-02): "ezber modunda default ayet modu olsun,
+  // meal açık". Gerekçe: ezber ayet ayet ilerler; kitap modunda ayetler satır
+  // içi aktığı için aktif ayeti takip etmek zor. Meal de açık olmalı — ne
+  // ezberlediğini anlamadan tekrar etmek faydasız.
+  // Kapanışta ÖNCEKİ tercihler geri verilir (kullanıcının ayarını kalıcı
+  // olarak değiştirmeyiz).
+  const hifzPrevViewRef = useRef(null);
+  useEffect(() => {
+    if (hifzOpen) {
+      if (!hifzPrevViewRef.current) {
+        hifzPrevViewRef.current = { bookMode, showTranslation };
+        setBookMode(false);
+        setShowTranslation(true);
+      }
+    } else if (hifzPrevViewRef.current) {
+      const prev = hifzPrevViewRef.current;
+      hifzPrevViewRef.current = null;
+      setBookMode(prev.bookMode);
+      setShowTranslation(prev.showTranslation);
+    }
+    // bookMode/showTranslation deps'e KONULMAZ: kullanıcı ezber açıkken elle
+    // değiştirebilmeli, effect onu geri almamalı.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hifzOpen]);
 
   // ── Secde madalyonu (Arapça sütun) ──────────────────────────────────────
   // Arapça ayetler satır-içi aktığı için, sağ dış margindeki secde madalyonunu
@@ -8938,7 +9002,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
 
                     <div spellCheck={false} style={{
-                      fontFamily: currentFont, fontSize: `${isMobile ? Math.min(arabicFontSize, 1.5) : arabicFontSize}rem`, lineHeight: isMobile ? 1.7 : 2.0,
+                      // Mobilde `Math.min(arabicFontSize, 1.5)` ile kırpılıyordu: varsayılan
+                      // 1.8rem olmasına rağmen 1.5 gösteriliyor, kullanıcının font
+                      // ayarı ayet modunda etkisiz kalıyordu (rapor 2026-08-02:
+                      // "ayet modunda Arapça font küçük değil mi"). Kırpma kaldırıldı.
+                      fontFamily: currentFont, fontSize: `${arabicFontSize}rem`, lineHeight: isMobile ? 1.85 : 2.0,
                       color: (verse.surah === 1 && verse.ayah === 1) ? C.bismillah : (isActive ? C.arabicActive : C.arabic),
                       textAlign: 'right', direction: 'rtl', flex: 1,
                     }}>
@@ -9514,7 +9582,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           onRepeatChange={setHifzRepeat}
           auto={hifzAuto}
           onAutoChange={setHifzAuto}
-          activeVerse={activeVerse}
+          activeVerse={hifzStartVerse}
           available={surahVerses.length > 0}
           onStart={handleHifzStart}
           onStop={stopAudio}
