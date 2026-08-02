@@ -153,14 +153,22 @@ export default function useHifzSession({
     const steps = buildSnowballPlan(verse.ayah, lastAyah, opts.blockSize);
     if (steps.length === 0) return null;
 
+    // G5: spread YOK — tam reset. `...live.current` eski oturumun alanlarını
+    // (pos/ayahs/count/phase) taşıyordu; loadStep(0) çoğunu düzeltiyordu ama
+    // ileride alan eklendiğinde sessizce sızardı. Alanları burada açıkça
+    // saymak, hook'un durum yüzeyini de tek yerde görünür kılar.
     live.current = {
-      ...live.current,
       sid: live.current.sid + 1,
       active: true,
       surah: verse.surah,
       steps,
+      idx: 0,
       autoAdvance: opts.autoAdvance !== false,
+      ayahs: [],
+      pos: 0,
       target: Math.max(1, Math.floor(repeat) || DEFAULT_REPEAT),
+      count: 0,
+      phase: 'idle',
     };
     if (!loadStep(0)) { live.current.active = false; return null; }
     setSession(snapshot());
