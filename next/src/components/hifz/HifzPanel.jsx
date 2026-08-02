@@ -163,7 +163,7 @@ export default function HifzPanel({
     return shell(
       <div style={{
         display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : '14px',
-        padding: isMobile ? '8px 10px 8px 14px' : '8px 10px 8px 16px',
+        padding: isMobile ? '12px 12px 12px 18px' : '8px 10px 8px 16px',
       }}>
         <span aria-hidden style={{ color: theme.gold, display: 'flex', flexShrink: 0 }}>
           <HifzIcon size={15} />
@@ -198,16 +198,16 @@ export default function HifzPanel({
             {/* Hangi adım + kaçıncı tekrar — tek satır, okunur hiyerarşi */}
             <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, minWidth: 0 }}>
               <span style={{
-                fontFamily: FONTS.body, fontSize: isMobile ? '0.8rem' : '0.85rem',
+                fontFamily: FONTS.body, fontSize: isMobile ? '0.98rem' : '0.9rem',
                 fontWeight: 700, color: theme.text,
                 overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
               }}>
                 {stepLabel({ from: session.fromAyah, to: session.toAyah }, tr)}
                 {isPaused && <span style={{ color: theme.muted, fontWeight: 500 }}> · {L.paused}</span>}
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '8px' }}>
                 <span
-                  style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '6px' : '4px' }}
                   role="progressbar"
                   aria-valuemin={0} aria-valuemax={session.target} aria-valuenow={session.count}
                   aria-label={tr ? 'Tekrar' : 'Repeat'}
@@ -217,7 +217,7 @@ export default function HifzPanel({
                 >
                   {Array.from({ length: session.target }, (_, i) => (
                     <span key={i} style={{
-                      width: '6px', height: '6px', borderRadius: RADIUS.full,
+                      width: isMobile ? '8px' : '6px', height: isMobile ? '8px' : '6px', borderRadius: RADIUS.full,
                       background: i < session.count ? theme.gold : 'transparent',
                       border: `1px solid ${i < session.count ? theme.gold : theme.border}`,
                       transition: `background ${TRANSITION.fast}`,
@@ -228,7 +228,7 @@ export default function HifzPanel({
                   title={tr
                     ? `Kartopu programında ${session.stepIndex + 1}. adım (toplam ${session.stepCount}). Adım sayısı ayet sayısından fazladır: her ayetin kendi adımı vardır, üstüne birleştirme adımları eklenir.`
                     : `Step ${session.stepIndex + 1} of ${session.stepCount} in the plan. There are more steps than verses: each verse has its own step, plus the joining steps.`}
-                  style={{ fontFamily: FONTS.body, fontSize: '0.68rem', color: theme.muted, whiteSpace: 'nowrap' }}
+                  style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.8rem' : '0.68rem', color: theme.muted, whiteSpace: 'nowrap' }}
                 >
                   {L.step} {session.stepIndex + 1}/{session.stepCount}
                 </span>
