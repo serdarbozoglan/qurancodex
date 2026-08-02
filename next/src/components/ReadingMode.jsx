@@ -6457,7 +6457,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div ref={inlineMealPickerRef} style={{
                     position: 'absolute',
                     top: 0, left: 0, right: 0,
-                    zIndex: 5,
+                    // ⚠ YIĞIN BAĞLAMI: bu sarmalayıcı z:5 ile kendi bağlamını
+                    // açıyor; içindeki dropdown'ın z:20'si SADECE burada
+                    // geçerli. Dışarıdan bakınca tüm blok z:5 olarak yarışır
+                    // ve sayfadaki z>5 katmanlar (Arapça sûre başlığı) üstüne
+                    // çizilir — dropdown hem görsel olarak eziliyor hem
+                    // dokunuşları o katman yakaladığı için kaydırılamıyordu
+                    // (kullanıcı raporu 2026-08-02, mobil).
+                    // Açıkken yükseltilir; kapalıyken 5'te kalır ki kardeş
+                    // katmanlarla mevcut sıralama bozulmasın.
+                    zIndex: showInlineMealPicker ? 50 : 5,
                   }}>
                     <button
                       onClick={() => setShowInlineMealPicker(p => !p)}
