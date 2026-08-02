@@ -8119,7 +8119,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
                   marginBottom: '6px',
                   borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
-                  zIndex: 1,
+                  // ⚠ YIĞIN BAĞLAMI: z:1 kendi bağlamını açıyor; içindeki
+                  // dropdown'ın z:20'si sadece burada geçerli. Dışarıdan blok
+                  // z:1 olarak yarışır ve sayfadaki z>1 katmanlar (Arapça sûre
+                  // başlığı) üstüne çizilir. Ayet modu + meal açık = ezberin
+                  // varsayılan görünümü olduğu için kullanıcının gördüğü hal
+                  // buydu (rapor 2026-08-02, mobil).
+                  zIndex: showInlineMealPicker ? 50 : 1,
                 }}>
                   <button
                     onClick={() => setShowInlineMealPicker(p => !p)}
@@ -8472,6 +8478,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
                 marginBottom: '6px',
                 borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                // Kardeş bloklarla aynı sıralama garantisi — açıkken yükselir.
+                zIndex: showInlineMealPicker ? 50 : undefined,
               }}>
                 <button
                   onClick={() => setShowInlineMealPicker(p => !p)}
