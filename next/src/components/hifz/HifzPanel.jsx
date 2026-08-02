@@ -180,6 +180,7 @@ export default function HifzPanel({
             </span>
             <button
               onClick={onRepeatStep}
+              aria-label={tr ? 'Tekrarla — bu adımı baştan çal' : 'Again — replay this step'}
               style={{
                 fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 700,
                 letterSpacing: '0.06em', textTransform: 'uppercase',
@@ -210,6 +211,9 @@ export default function HifzPanel({
                   role="progressbar"
                   aria-valuemin={0} aria-valuemax={session.target} aria-valuenow={session.count}
                   aria-label={tr ? 'Tekrar' : 'Repeat'}
+                  aria-valuetext={tr
+                    ? `${session.count}/${session.target} tekrar tamamlandı`
+                    : `${session.count} of ${session.target} repetitions done`}
                 >
                   {Array.from({ length: session.target }, (_, i) => (
                     <span key={i} style={{

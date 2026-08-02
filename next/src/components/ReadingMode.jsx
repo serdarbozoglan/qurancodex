@@ -1231,7 +1231,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const [arabicFontSize, setArabicFontSize] = useState(() => {
     try {
       if (typeof window === 'undefined') return 2.8;
-      const ARABIC_SIZE_VERSION = '2';
+      const ARABIC_SIZE_VERSION = '3';
       const v = localStorage.getItem('qurancodex_arabic_size_v');
       if (v !== ARABIC_SIZE_VERSION) {
         localStorage.removeItem('qurancodex_font_size_mobile');
@@ -1243,7 +1243,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       const key = isMobileNow ? 'qurancodex_font_size_mobile' : 'qurancodex_font_size_desktop';
       const saved = localStorage.getItem(key);
       if (saved) return parseFloat(saved);
-      return isMobileNow ? 1.8 : 2.8;
+      return isMobileNow ? 2.1 : 2.8;
     } catch {
       return 2.8;
     }
@@ -1967,7 +1967,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     clearHifzTimers();
     hifzSurahRef.current = null;
     const a = hifzAudioRef.current;
-    if (a) { a.onerror = null; a.onended = null; a.pause(); a.src = ''; hifzAudioRef.current = null; }
+    if (a) {
+      // G9: `src = ''` bazı tarayıcılarda boş stringi göreli URL sayıp sayfa
+      // adresini medya olarak yüklemeye çalışır ve kaynağı hemen bırakmaz.
+      // removeAttribute + load() belgelenmiş temiz kapatma kalıbı; handler'lar
+      // önce sıfırlandığı için load() sahte olay üretmez.
+      a.onerror = null; a.onended = null; a.pause();
+      a.removeAttribute('src'); a.load();
+      hifzAudioRef.current = null;
+    }
   }, [clearHifzTimers]);
 
   useEffect(() => () => stopHifzAudio(), [stopHifzAudio]);
@@ -4274,9 +4282,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             {(() => {
-              // Baseline = cihaz default'u (mobile=1.8rem, desktop=2.8rem). User'a
+              // Baseline = cihaz default'u (mobile=2.1rem, desktop=2.8rem). User'a
               // % cinsinden gösterilir (100% = baseline). Range 50%-150% (step 5%).
-              const baseline = isMobile ? 1.8 : 2.8;
+              const baseline = isMobile ? 2.1 : 2.8;
               const minPct = 50, maxPct = 150, stepPct = 5;
               const remStep = baseline * stepPct / 100;
               const minRem = +(baseline * minPct / 100).toFixed(2);
@@ -4326,7 +4334,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           {/* Current value + reset */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
-              {Math.round((arabicFontSize / (isMobile ? 1.8 : 2.8)) * 100)}%
+              {Math.round((arabicFontSize / (isMobile ? 2.1 : 2.8)) * 100)}%
             </span>
             <button
               onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
@@ -4875,9 +4883,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               {(() => {
-                // Baseline = cihaz default'u (mobile=1.8rem, desktop=2.8rem).
+                // Baseline = cihaz default'u (mobile=2.1rem, desktop=2.8rem).
                 // % cinsinden gösterim — 100% = baseline; range 50%-150% (step 5%).
-                const baseline = isMobile ? 1.8 : 2.8;
+                const baseline = isMobile ? 2.1 : 2.8;
                 const minPct = 50, maxPct = 150, stepPct = 5;
                 const remStep = baseline * stepPct / 100;
                 const minRem = +(baseline * minPct / 100).toFixed(2);
@@ -4912,7 +4920,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
-                {Math.round((arabicFontSize / (isMobile ? 1.8 : 2.8)) * 100)}%
+                {Math.round((arabicFontSize / (isMobile ? 2.1 : 2.8)) * 100)}%
               </span>
               <button
                 onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
