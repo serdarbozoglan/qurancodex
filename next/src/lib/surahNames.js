@@ -60,3 +60,20 @@ export function surahNameEn(surahNumber) {
 export function surahName(surahNumber, locale) {
   return locale === 'en' ? surahNameEn(surahNumber) : surahNameTr(surahNumber);
 }
+
+// ─── Sûre adı takma adları ──────────────────────────────────────────────────
+// Halk arasında yaygın alternatif okunuşlar → resmî ad. Anahtar ve değer
+// NORMALİZE edilmiş biçimde (küçük harf, kesme/tire yok) tutulur; arama
+// tarafı sorguyu normalize ettikten sonra buradan geçirir.
+//
+// Yalnız EMİN olunan eşlemeler eklenir — yanlış bir takma ad kullanıcıyı
+// sessizce başka sûreye götürür. Yeni madde eklerken kaynağı doğrula.
+// Kullanıcı isteği 2026-08-02: "Kadir" yazınca Kadr bulunsun.
+export const SURAH_NAME_ALIASES = {
+  kadir: 'kadr',
+};
+
+/** Normalize edilmiş sorguyu resmî ada çevirir; eşleşme yoksa aynen döner. */
+export function resolveSurahAlias(qNorm) {
+  return SURAH_NAME_ALIASES[qNorm] || qNorm;
+}
