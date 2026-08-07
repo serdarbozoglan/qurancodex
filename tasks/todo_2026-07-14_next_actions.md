@@ -117,7 +117,9 @@ yanlış çözümdür.
 
 **❌ SKIP (puan yok — değerlendirildi=gereksiz):** Six Gates hover · Kontrast (AAA geçiyor) · İkincil accent · Thumbnail (atla) · Konumlandırma tutarlılığı (kaldırıldı) · token-hardcode-hex (görsel-etkisiz) · **Karşı-argümanlar (YASAK — Kur'an üstünlüğü ilkesi)**.
 
-**Öneri:** #206 zaten yapılmış (todo eskiydi) → yeni ilk 2: **#205 EsmaFrekans hero (80)** + **#203 SourcesCitation 4-tool (78)** (~5h) somut, düşük-risk, yüksek-getiri; sitenin son 2 çerçevesiz büyük aracını premium yapar + kaynak boşluğunu kapatır. + 15 dk'lık atmosfer madde 4 (puan 65) hızlı kazanç.
+**Öneri (2026-08-07 güncel):** #206 ve #205 kapandı. Kalan ilk sıra: **#203 SourcesCitation 4-tool (78)** (~3h) + 15 dk'lık atmosfer madde 4 (puan 65).
+
+> ⚠ **DERS — todo eskimesi:** Hem #206 hem #205'te "yapılacak" diye listelenen işin büyük kısmı çoktan yapılmıştı. Yeni bir maddeye başlamadan ÖNCE kodu oku; todo'nun iddiasını doğrulanmış kabul etme.
 
 > **NOT (2026-07-24):** İlk 🎯 taslağımda yalnızca premium-denetim (P0-P3) bölümünü değerlendirmiş, alttaki Araçlar-Audit yol haritasını (Kat. F/G) atlamıştım. Kullanıcı uyardı → tüm 389 satır okundu; liste puan-sıralı tamamlandı.
 
@@ -312,7 +314,7 @@ Kaynak curation: Râzî *Mefâtîh*, Kurtubî *Câmi'*, Zamahşerî *Keşşâf*,
 | # | İş | Kod durumu (2026-07-23) | Efor |
 |---|---|---|---|
 | **#206** | ✅ DONE (40763af) VerseGraph → Hero + CTA + metodoloji intro | 3287 satır; ToolHeader ❌ CTA ❌ hero ❌; hâlâ `position:fixed; top:62px` (`VerseGraph.jsx:1054`) | 2-3h |
-| **#205** | EsmaFrekans → ToolHeader + Hero + CTA + metodoloji intro | 3797 satır (sitedeki en büyük tool); ToolHeader ❌ CTA ❌ tab ❌; CTA kısmen `ClosingReflection` içinde karşılanmış | 2-3h |
+| **#205** | ✅ **DONE (e1be8b9, 2026-08-07)** — EsmaFrekans klasik kaynak listesi (§13.21) | Todo'nun 4 kaleminden 3'ü ZATEN YAPILMIŞTI (#206 ile aynı durum): Hero §13.18 tam, CTA `ClosingReflection` içinde var, ToolHeader §13.17'de bu sayfa için istisna. Gerçek boşluk kaynak atfıydı: 3800 satırda tek klasik müellif anılıyordu → 4 eser eklendi (Zeccâc · Beyhakî · Gazâlî · İbnü'l-Kayyim), GPT-5.2 hakeminden 3 tur geçti, 2 şüpheli atıf (Râzî, Kurtubî) elendi. BookmarkButton eklenmedi: sayfanın kendi `useFavorites` yıldızlaması var. | done |
 
 **#206 neden önce:** Pattern kanıtlanmış — ConceptGraph 3 gün önce (7e404b2) tam bu işlemden geçti: anchor verse + italik çeviri + UPPERCASE ref label + filigree divider + eyebrow + micro-stat ribbon. Aynı şablon tek dosyaya uygulanır.
 
@@ -346,7 +348,7 @@ Kategori A, B, C, G ve F/Phase-1 kapandı. Kalan **7 iş** şu sırayla:
 
 **Sıradaki (bu hafta):**
 1. **#206 VerseGraph Hero** (2-3h) — kalan en yüksek getirili tek iş. ConceptGraph pattern'ı (7e404b2) hazır şablon; sitenin amiral gemisi aracı §13.18 hero'su olmayan tek büyük tool.
-2. **#205 EsmaFrekans Hero + ToolHeader** (2-3h) — aynı iş, 3797 satır olduğu için daha dikkatli.
+2. ~~#205 EsmaFrekans~~ ✅ done (e1be8b9, 2026-08-07) — kaynak listesi; Hero/CTA zaten vardı.
 3. **#203 SourcesCitation — 4 gerçek boşluk** (~3h): AddresseeSystem, DiyalogAgi, WordHeatmap, QuranCommands.
 
 **Sonra:**
