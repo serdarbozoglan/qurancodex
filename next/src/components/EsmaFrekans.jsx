@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
+import SourcesCitation from './SourcesCitation';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
 
@@ -159,7 +160,10 @@ export default function EsmaFrekans({ onClose }) {
       {/* ═══ SECTION 10: KAPANIŞ + İLGİLİ ARAÇLAR ═══ */}
       <ClosingReflection tr={tr} language={language} />
 
-      {/* ═══ SECTION 11: METODOLOJİ ve KAYNAK ═══ */}
+      {/* ═══ SECTION 11: KLASİK KAYNAKLAR (§13.21) ═══ */}
+      <EsmaSources language={language} />
+
+      {/* ═══ SECTION 12: METODOLOJİ ve KAYNAK ═══ */}
       <Methodology data={data} tr={tr} />
     </div>
   );
@@ -3579,6 +3583,74 @@ function ClosingReflection({ tr, language }) {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── EsmaSources — klasik esmâ-i hüsnâ literatürü (§13.21) ──────────────────
+// Sayfa 3800 satır boyunca yalnız BİR klasik müellif anıyordu; metodoloji
+// bölümü veri kaynağını (korpus, sayım yöntemi) anlatıyor ama esmânın kendi
+// ilim geleneğini göstermiyordu. Kaynak listesi bu boşluğu kapatır.
+//
+// ⚠ Liste GPT-5.2 hakemine doğrulatıldı (2026-08-07). İki aday ELENDİ, çünkü
+// iki bağımsız değerlendirme çelişti ve proje kuralı şüpheli atıfta yayın
+// yapmamayı emrediyor:
+//   · er-Râzî — "Levâmiu'l-beyyinât"  → nisbeti kesin bulunmadı
+//   · el-Kurtubî — "el-Esnâ"          → Gazâlî'nin eseriyle karışma şüphesi
+// Beyhakî'nin ölüm yeri hakem uyarısıyla Nîsâbûr → Beyhak olarak düzeltildi.
+// Eklenmesi önerilen İbn Berrecân ve İbnü'l-Arabî bilinçli olarak ALINMADI:
+// ikincisi kelâmî tartışma yükü taşıyor, bu sayfanın kapsamı değil.
+function EsmaSources({ language }) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
+
+  return (
+    <section style={{ padding: '0 24px 40px', background: COLORS.cosmicBlack }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <SourcesCitation
+          language={language}
+          isMobile={isMobile}
+          sources={[
+            {
+              author: 'ez-Zeccâc',
+              workTr: "Tefsîru esmâillâhi'l-hüsnâ",
+              workEn: 'Tafsīr asmāʾ Allāh al-ḥusnā',
+              period: 'ö. 923 (Bağdat)',
+              noteTr: 'Esmâyı iştikak ve anlam tahlilleriyle ele alan erken dönem müstakil çalışmalardan biri.',
+              noteEn: 'One of the early standalone works treating the names through etymology and semantic analysis.',
+            },
+            {
+              author: 'el-Beyhakî',
+              workTr: "el-Esmâ ve's-sıfât",
+              workEn: 'Al-Asmāʾ wa-l-ṣifāt',
+              period: 'ö. 1066 (Horasan)',
+              noteTr: 'İsim ve sıfat bahislerini hadis rivayetleriyle derleyen erken dönem kaynaklardandır; esmânın sayımına dair rivayetleri de ele alır.',
+              noteEn: 'An early source compiling the names and attributes from hadith reports; it also treats the narrations on enumerating them.',
+            },
+            {
+              author: 'el-Gazâlî',
+              workTr: "el-Maksadü'l-esnâ fî şerhi esmâillâhi'l-hüsnâ",
+              workEn: 'Al-Maqṣad al-asnā fī sharḥ asmāʾ Allāh al-ḥusnā',
+              period: '1058–1111 (Tûs)',
+              noteTr: 'Esmâ şerhi literatürünün en yaygın ve etkili klasiklerinden; her ismin anlamı, kulun ondan alacağı pay ve tanzîh sınırını işler.',
+              noteEn: 'Among the most widespread and influential classics of commentary on the names; it treats each name’s meaning, the servant’s share in it, and the limits of transcendence.',
+            },
+            {
+              author: 'İbnü’l-Kayyim el-Cevziyye',
+              workTr: "Bedâi'u'l-fevâid",
+              workEn: 'Badāʾiʿ al-fawāʾid',
+              period: '1292–1350 (Şam)',
+              noteTr: 'Müstakil bir esmâ şerhi değildir; ancak bazı bölümlerinde isim–sıfat–fiil ilişkisine dair kapsamlı tartışmalar yer alır.',
+              noteEn: 'Not a standalone commentary on the names, but some of its chapters contain extensive discussions of the name–attribute–act relation.',
+            },
+          ]}
+        />
       </div>
     </section>
   );
