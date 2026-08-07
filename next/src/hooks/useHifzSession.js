@@ -39,24 +39,43 @@
 // Kümülatif pencere sınırsız büyüyemez (Bakara'da imkânsız), o yüzden
 // BLOK bazlı: blok içinde kartopu, blok dolunca sonraki bloğa geçilir.
 // Blok son birleştirmesi (`[b0-b1]`) aynı zamanda blok pekiştirmesidir.
+//
+// ── Blok dikişi (2026-08-07) ────────────────────────────────────────────────
+// Blok sınırı pencereyi sınırlıyordu ama blokları BİRBİRİNE bağlamıyordu:
+// [1-5] ve [6-10] çalışılıyor, 5→6 geçişi hiç çalışılmıyordu. Klasik hıfzda
+// en çok unutulan yer tam bu dikiştir ("beşinciye kadar akıcıyım, sonra
+// takılıyorum"). Her blok bitince biten blok bir öncekiyle birleştirilir:
+//
+//   … [6-10] → [1-10] → … [11-15] → [6-15] → … [16-20] → [11-20] …
+//
+// Pencere iki blokta SABİT kalır (kayan zincir), sınırsız büyümez.
+// Dikiş adımının amacı ezberlemek değil bağı kurmak; bu yüzden tekrar
+// sayısı oturumunkinden bağımsız ve sabittir (SEAM_REPEAT). Aksi halde
+// tekrar 5'te tek bir dikiş 50 ayet okuması eder ve oturum şişer.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useRef, useCallback } from 'react';
 
 // Tekrarlar arası nefes payı. 0 olursa tekrarlar birbirine yapışır.
-export const DEFAULT_BREATH_MS = 400;
+// 400 → 350 (kullanıcı 2026-08-07). Dosyanın kendi son sessizliği (85-425 ms)
+// bunun üstüne bindiği için algılanan duraklama zaten daha uzun.
+export const DEFAULT_BREATH_MS = 350;
 
 // Adımlar arası (yeni ayete / birleştirmeye geçiş) duraklama. Nefes payından
 // (400 ms) belirgin uzun olmalı — kulak "yeni bir şey başlıyor" sinyalini
 // almalı. Bu pencere aynı zamanda "Tekrarla" kaçışının aktif olduğu süredir.
-// 2000 → 1500 (kullanıcı geri bildirimi 2026-08-02: 2 sn fazla geliyordu).
+// 2000 → 1500 (2026-08-02) → 1200 (2026-08-07) — kullanıcı geri bildirimi.
 // ⚠ Bu aynı zamanda "Tekrarla" kaçışının açık kaldığı süre; daha da
 // düşürülürse butona yetişmek zorlaşır.
-export const DEFAULT_GAP_MS = 1500;
+export const DEFAULT_GAP_MS = 1200;
 
 // Birleştirme adımında ayetler arası kısa soluk. Dosyaların kendi son
 // sessizliği zaten var (85-425 ms), bu yüzden küçük tutulur.
 export const DEFAULT_JOIN_GAP_MS = 250;
+
+// Dikiş adımının tekrar sayısı — oturumun tekrar ayarından BAĞIMSIZ, sabit.
+// Kullanıcı kararı 2026-08-07: "dikişte 2 olsun her zaman."
+export const SEAM_REPEAT = 2;
 
 export const REPEAT_PRESETS = [3, 5, 7, 10];
 export const DEFAULT_REPEAT = 5;
@@ -65,7 +84,8 @@ export const DEFAULT_BLOCK = 5;
 /**
  * Kartopu programını üret.
  * Blok içinde: her ayet tek tek, ardından blok başından o ayete birleştirme.
- * @returns {{kind:'single'|'join', from:number, to:number}[]}
+ * Blok sonunda: bir önceki blokla dikiş (sabit SEAM_REPEAT tekrar).
+ * @returns {{kind:'single'|'join'|'seam', from:number, to:number, repeat?:number}[]}
  */
 export function buildSnowballPlan(fromAyah, lastAyah, blockSize = DEFAULT_BLOCK) {
   const steps = [];
@@ -78,6 +98,9 @@ export function buildSnowballPlan(fromAyah, lastAyah, blockSize = DEFAULT_BLOCK)
       // Blok başındaki ayette birleştirilecek bir önceki yok.
       if (v > b0) steps.push({ kind: 'join', from: b0, to: v });
     }
+    // Dikiş: biten bloğu bir öncekiyle bağla. İlk blokta önceki yok.
+    const prevB0 = b0 - k;
+    if (prevB0 >= fromAyah) steps.push({ kind: 'seam', from: prevB0, to: b1, repeat: SEAM_REPEAT });
   }
   return steps;
 }
@@ -104,7 +127,9 @@ export default function useHifzSession({
     active: false, surah: 0,
     steps: [], idx: 0, autoAdvance: true,
     ayahs: [], pos: 0,
-    target: 0, count: 0, phase: 'idle',
+    // `repeat` = oturumun ayarı; `target` = YÜRÜRLÜKTEKİ adımın hedefi.
+    // Dikiş adımları kendi sabit tekrarını taşıdığı için ikisi ayrı.
+    repeat: 0, target: 0, count: 0, phase: 'idle',
   });
 
   const snapshot = useCallback(() => {
@@ -134,6 +159,8 @@ export default function useHifzSession({
     s.ayahs = ayahsOf(step);
     s.pos = 0;
     s.count = 0;
+    // Adım kendi tekrarını dayatabilir (dikiş); yoksa oturumun ayarı.
+    s.target = Math.max(1, Math.floor(step.repeat) || s.repeat);
     s.phase = 'playing';
     return true;
   }, []);
@@ -166,7 +193,8 @@ export default function useHifzSession({
       autoAdvance: opts.autoAdvance !== false,
       ayahs: [],
       pos: 0,
-      target: Math.max(1, Math.floor(repeat) || DEFAULT_REPEAT),
+      repeat: Math.max(1, Math.floor(repeat) || DEFAULT_REPEAT),
+      target: 0,          // loadStep(0) adımın hedefini kurar
       count: 0,
       phase: 'idle',
     };
