@@ -31,6 +31,8 @@ const stepLabel = (step, tr) => {
   // bağlar, tekrarı da sabittir. Etiketi ayrı olmazsa kullanıcı neden birden
   // 10 ayet çaldığını anlamaz.
   if (step.kind === 'seam') return tr ? `${step.from}–${step.to} bağlantı` : `${step.from}–${step.to} link`;
+  // Kapanış — programın son adımı, aralığın tamamı.
+  if (step.kind === 'final') return tr ? `${step.from}–${step.to} baştan sona` : `${step.from}–${step.to} full`;
   return tr ? `${step.from}–${step.to} birlikte` : `${step.from}–${step.to} together`;
 };
 
@@ -87,7 +89,8 @@ export default function HifzPanel({
     ['Kartopu', 'Ayet 1 ×5 → Ayet 2 ×5 → 1–2 birlikte ×5 → Ayet 3 ×5 → 1–3 birlikte ×5 … Ezberin zor kısmı ayetleri birbirine bağlamaktır; birleştirme adımları bunun içindir.'],
     ['Bloklar', 'Beşer ayetlik bloklar hâlinde ilerler. Blok dolunca sonraki bloğa geçer.'],
     ['Bağlantı', 'Her blok bitince o blok bir öncekiyle birlikte 2 kez çalınır (ör. 6–10 bitince 1–10 bağlantı). Blok dikişi ezberde en çok unutulan yerdir; bu adım onu kapatır.'],
-    ['"adım 5/37" ne demek', 'Program adımını gösterir, ayet numarasını değil. Her ayetin kendi adımı vardır, üstüne birleştirme ve bağlantı adımları eklenir. A\'lâ 19 ayet → 37 adım.'],
+    ['Kapanış', 'Program biterken tüm aralık baştan sona 3 kez okunur. Dikişler komşu blokları bağlar; kapanış ise ezberin bütününü tek akışta sınar. Çok uzun aralıklarda (20 ayetten fazla) eklenmez.'],
+    ['"adım 5/38" ne demek', 'Program adımını gösterir, ayet numarasını değil. Her ayetin kendi adımı vardır, üstüne birleştirme, bağlantı ve kapanış adımları eklenir. A\'lâ 19 ayet → 38 adım.'],
     ['Geçişlerde', 'Her adım arasında kısa bir süre durur. O anda "Tekrarla"ya basarsan aynı adımı baştan çalar.'],
     ['Kârî', 'Tüm kârîlerde çalışır. Ezberde kelime kelime vurgu yoktur — ayet ayet ses dosyaları kullanılır, böylece ayet sonları temiz kesilir.'],
   ] : [
@@ -95,7 +98,8 @@ export default function HifzPanel({
     ['Snowball', 'Verse 1 ×5 → Verse 2 ×5 → 1–2 together ×5 → Verse 3 ×5 → 1–3 together ×5 … The hard part of memorising is linking verses; the joining steps are for that.'],
     ['Blocks', 'Advances in blocks of five verses, then moves to the next block.'],
     ['Link', 'When a block ends it is played twice together with the previous one (e.g. after 6–10 comes the 1–10 link). The seam between blocks is where memory fails most; this step closes it.'],
-    ['What "step 5/37" means', 'It is the position in the plan, not a verse number. Each verse has its own step, plus the joining and link steps. Al-A\'la has 19 verses → 37 steps.'],
+    ['Closing', 'As the plan ends, the whole range is recited from start to finish 3 times. Links join neighbouring blocks; the closing tests the whole memorisation in one flow. It is omitted for very long ranges (over 20 verses).'],
+    ['What "step 5/38" means', 'It is the position in the plan, not a verse number. Each verse has its own step, plus the joining, link and closing steps. Al-A\'la has 19 verses → 38 steps.'],
     ['Between steps', 'Pauses briefly between steps. Press "Again" during that pause to redo the step.'],
     ['Reciter', 'Works with every reciter. Word-level highlighting is off here — it plays per-verse files so verse endings stay clean.'],
   ];

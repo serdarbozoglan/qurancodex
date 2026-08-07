@@ -315,9 +315,9 @@ test('geçiş penceresinde sıradaki adım duyurulur ve Tekrarla adımı geri al
 
 // Regresyon — 2026-07-31 kullanıcı raporu: A'lâ 19 ayet olmasına rağmen
 // panelde etiketsiz "5/34" görünüyordu ve ayet numarası gibi okunuyordu.
-// 37 = 19 tek ayet + 15 birleştirme + 3 blok bağlantısı. Sayı "adım"
-// etiketiyle gelmeli, aksi halde kullanıcı sûrenin 37 ayeti olduğunu sanır.
-// (34 → 37: blok dikişi eklendi, 2026-08-07.)
+// 38 = 19 tek ayet + 15 birleştirme + 3 blok bağlantısı + 1 kapanış. Sayı
+// "adım" etiketiyle gelmeli, aksi halde kullanıcı sûrenin 38 ayeti olduğunu
+// sanır. (34 → 37 dikiş, → 38 kapanış; 2026-08-07.)
 test('program konumu "adım" olarak etiketlenir (ayet numarasıyla karışmasın)', async ({ page }) => {
   await openSurah(page);
   await page.getByRole('button', { name: /^Ezber$/ }).click();
@@ -332,8 +332,8 @@ test('program konumu "adım" olarak etiketlenir (ayet numarasıyla karışmasın
   const t = await panelText(panel);
   // Sayı MUTLAKA "adım" etiketiyle gelmeli
   expect(t).toMatch(/adım\s+\d+\/\d+/);
-  // A'lâ 19 ayet: 19 tek + 15 birleştirme + 3 bağlantı = 37 adım
-  expect(t).toContain('adım 1/37');
+  // A'lâ 19 ayet: 19 tek + 15 birleştirme + 3 bağlantı + 1 kapanış = 38 adım
+  expect(t).toContain('adım 1/38');
 
   // Yardım baloncuğunda da açıklanmalı
   await panel.getByRole('button', { name: 'Nasıl çalışır?' }).click();
@@ -371,9 +371,14 @@ test('yardım baloncuğu kartopu yöntemini açıklar', async ({ page }) => {
   expect(t).toContain('Kartopu');
   expect(t).toContain('Bloklar');
   expect(t).toContain('Bağlantı');   // blok dikişi (2026-08-07)
+  expect(t).toContain('Kapanış');    // baştan sona okuma (2026-08-07)
   expect(t).toContain('Geçişlerde');
 });
 
+// ⚠ Kapanış adımını ([1-19] ×3) da uçtan uca sınamıyoruz — programın EN
+// sonunda geldiği için tüm oturumu beklemek gerekir. Varlığı yine adım
+// sayısıyla kanıtlanıyor (37 → 38).
+//
 // ⚠ Blok dikişini ([1-10] gibi) uçtan uca sınamıyoruz: ilk dikiş İKİ tam
 // bloktan sonra gelir — A'lâ'da en düşük tekrar ayarıyla bile ~7 dakikalık
 // ses. Dikişin varlığını ADIM SAYISI kanıtlıyor (yukarıdaki 'adım 1/37'

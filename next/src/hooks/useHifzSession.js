@@ -77,6 +77,16 @@ export const DEFAULT_JOIN_GAP_MS = 250;
 // Kullanıcı kararı 2026-08-07: "dikişte 2 olsun her zaman."
 export const SEAM_REPEAT = 2;
 
+// Kapanış: programın en sonunda tüm aralık baştan sona okunur.
+// Kullanıcı kararı 2026-08-07. Dikişler komşu blokları bağlar ama hiçbir adım
+// aralığın TAMAMINI tek akışta okumaz; ezberin son sınavı budur.
+export const FINAL_REPEAT = 3;
+
+// Kapanış yalnızca aralık makul uzunluktaysa eklenir. Üst sınır olmazsa
+// Bakara'da tek adım 286 × 3 = 858 ayet okuması eder ve program hiç bitmez.
+// Sınırı aşan oturumlarda dikişler zaten bağlama işini görüyor.
+export const FINAL_MAX_SPAN = 20;
+
 export const REPEAT_PRESETS = [3, 5, 7, 10];
 export const DEFAULT_REPEAT = 5;
 export const DEFAULT_BLOCK = 5;
@@ -85,7 +95,8 @@ export const DEFAULT_BLOCK = 5;
  * Kartopu programını üret.
  * Blok içinde: her ayet tek tek, ardından blok başından o ayete birleştirme.
  * Blok sonunda: bir önceki blokla dikiş (sabit SEAM_REPEAT tekrar).
- * @returns {{kind:'single'|'join'|'seam', from:number, to:number, repeat?:number}[]}
+ * Programın sonunda: tüm aralık baştan sona (sabit FINAL_REPEAT tekrar).
+ * @returns {{kind:'single'|'join'|'seam'|'final', from:number, to:number, repeat?:number}[]}
  */
 export function buildSnowballPlan(fromAyah, lastAyah, blockSize = DEFAULT_BLOCK) {
   const steps = [];
@@ -101,6 +112,15 @@ export function buildSnowballPlan(fromAyah, lastAyah, blockSize = DEFAULT_BLOCK)
     // Dikiş: biten bloğu bir öncekiyle bağla. İlk blokta önceki yok.
     const prevB0 = b0 - k;
     if (prevB0 >= fromAyah) steps.push({ kind: 'seam', from: prevB0, to: b1, repeat: SEAM_REPEAT });
+  }
+
+  // Kapanış — tüm aralık baştan sona.
+  // İki koşul: (1) aralık tek bloktan uzun olmalı, aksi halde son birleştirme
+  // (`[b0-b1]`) zaten tüm aralık demektir ve kapanış onun kopyası olurdu;
+  // (2) FINAL_MAX_SPAN'i aşmamalı, yoksa uzun sûrede program bitmez.
+  const span = lastAyah - fromAyah + 1;
+  if (span > k && span <= FINAL_MAX_SPAN) {
+    steps.push({ kind: 'final', from: fromAyah, to: lastAyah, repeat: FINAL_REPEAT });
   }
   return steps;
 }
