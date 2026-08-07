@@ -76,18 +76,18 @@ yanlış çözümdür.
 ## ❌ Yanlış alarm (doğrulandı, iş yok)
 - **Durdur'a basınca timer temizlenmiyor** — ChatGPT `onStop`'un neye bağlı olduğunu göremediği için varsaydı. Gerçek: `onStop={stopAudio}` (ReadingMode:9520) ve `stopAudio` → `stopHifzAudio()` → `clearHifzTimers()`. Zincir sağlam.
 
-## 🔴 Gerçek — doğrulandı, yapılmalı
-- [ ] **G1. `restartStep()` faz kontrolü yok** — `useHifzSession.js:249`; yalnız `if (!s.active)` bakıyor. "Tekrarla" UI'da sadece gap'te görünüyor ama API açık; `phase === 'playing'` iken çağrılırsa hook başa sarar, ses ortada kalır → UI/ses senkronu bozulur. Fix: `phase` `'gap' | 'paused'` değilse reddet.
-- [ ] **G2. `phase` union'ı eksik belgelenmiş** — kod 3 yerde `phase='idle'` atıyor (satır 158, 218, 236) ama `snapshot()` yorumu `'playing' | 'gap' | 'paused'` diyor. Şu an zararsız; TS'ye geçişte veya runtime assert eklenince gerçek hataya döner. Fix: yorumu `'idle' | 'playing' | 'gap' | 'paused'` yap.
-- [ ] **G3. `start()` ayet doğrulaması zayıf** — `if (!verse)` truthy kontrolü; `{surah:87, ayah:0}` veya `ayah:NaN` geçer, plan 0. ayeti içerir, `087000.mp3` gibi olmayan dosyaya gider. Fix: `Number.isFinite(verse.ayah) && verse.ayah >= 1`.
-- [ ] **G4. Oturum kimliği yok (race)** — `audio.onended` → `setTimeout` kurulur; callback yalnız `hifzAudioRef.current === audio` kontrol eder. Element artık YENİDEN KULLANILDIĞI için (otomatik-çalma kilidi gerekçesi) bu kontrol yeni oturumu eski oturumdan ayırt edemez. Kullanıcı gap sırasında yeni oturum başlatırsa eski `action` yeni oturuma uygulanabilir. Fix: artan `hifzSessionIdRef`, action ile birlikte kapat, callback'te karşılaştır. *(Şu an `stopAudio` timer'ı temizlediği için pratikte tetiklenmesi zor — ama gerçek bir açık.)*
+## 🔴 Gerçek — doğrulandı ✅ HEPSİ UYGULANDI (2026-08-02)
+- [x] **G1. `restartStep()` faz kontrolü yok** — `useHifzSession.js:249`; yalnız `if (!s.active)` bakıyor. "Tekrarla" UI'da sadece gap'te görünüyor ama API açık; `phase === 'playing'` iken çağrılırsa hook başa sarar, ses ortada kalır → UI/ses senkronu bozulur. Fix: `phase` `'gap' | 'paused'` değilse reddet.
+- [x] **G2. `phase` union'ı eksik belgelenmiş** — kod 3 yerde `phase='idle'` atıyor (satır 158, 218, 236) ama `snapshot()` yorumu `'playing' | 'gap' | 'paused'` diyor. Şu an zararsız; TS'ye geçişte veya runtime assert eklenince gerçek hataya döner. Fix: yorumu `'idle' | 'playing' | 'gap' | 'paused'` yap.
+- [x] **G3. `start()` ayet doğrulaması zayıf** — `if (!verse)` truthy kontrolü; `{surah:87, ayah:0}` veya `ayah:NaN` geçer, plan 0. ayeti içerir, `087000.mp3` gibi olmayan dosyaya gider. Fix: `Number.isFinite(verse.ayah) && verse.ayah >= 1`.
+- [x] **G4. Oturum kimliği yok (race)** — `audio.onended` → `setTimeout` kurulur; callback yalnız `hifzAudioRef.current === audio` kontrol eder. Element artık YENİDEN KULLANILDIĞI için (otomatik-çalma kilidi gerekçesi) bu kontrol yeni oturumu eski oturumdan ayırt edemez. Kullanıcı gap sırasında yeni oturum başlatırsa eski `action` yeni oturuma uygulanabilir. Fix: artan `hifzSessionIdRef`, action ile birlikte kapat, callback'te karşılaştır. *(Şu an `stopAudio` timer'ı temizlediği için pratikte tetiklenmesi zor — ama gerçek bir açık.)*
 
-## 🟡 İyileştirme — geçerli ama acil değil
-- [ ] **G5. `start()` tam reset yapmıyor** — `live.current = { ...live.current, ... }` eski alanları taşıyor; `loadStep(0)` çoğunu düzeltiyor ama yeni alan eklenirse sızabilir. Fix: spread'siz tam obje.
-- [ ] **G6. `hifzPlayAyah` her ayette O(n) arama** — `surahVersesRef.current.find(...)`; Bakara'da yüzlerce adım × lineer arama, üstüne 2 state update. Fix: `ayah → verse` map'i.
-- [ ] **G7. Progressbar ARIA fazı** — `aria-valuenow={count}` ancak adım bitince `valuemax`a eşit oluyor; ekran okuyucu "5/5" derken oturum geçişe hazırlanıyor. Fix: `aria-valuetext` ekle.
-- [ ] **G8. "Tekrarla" butonunda `aria-label` yok** — ekran okuyucu "↺ Tekrarla" der, neyi tekrarladığı belirsiz. Fix: `aria-label="Bu adımı tekrar çal"`.
-- [ ] **G9. `stopHifzAudio` `load()` çağırmıyor** *(ChatGPT "düşük güven" dedi, ben de doğrulamadım)* — `src=''` bazı tarayıcılarda decoder/ağ kaynağını hemen bırakmayabilir. Fix: `removeAttribute('src'); load()`.
+## 🟡 İyileştirme — G6 hariç hepsi uygulandı (2026-08-02)
+- [x] **G5. `start()` tam reset yapmıyor** — `live.current = { ...live.current, ... }` eski alanları taşıyor; `loadStep(0)` çoğunu düzeltiyor ama yeni alan eklenirse sızabilir. Fix: spread'siz tam obje.
+- [ ] **G6. `hifzPlayAyah` her ayette O(n) arama** ⏭ BİLİNÇLİ ATLANDI — erken optimizasyon; ölçülmüş jank yok. Gerçek yavaşlık gözlenirse yap. — `surahVersesRef.current.find(...)`; Bakara'da yüzlerce adım × lineer arama, üstüne 2 state update. Fix: `ayah → verse` map'i.
+- [x] **G7. Progressbar ARIA fazı** — `aria-valuenow={count}` ancak adım bitince `valuemax`a eşit oluyor; ekran okuyucu "5/5" derken oturum geçişe hazırlanıyor. Fix: `aria-valuetext` ekle.
+- [x] **G8. "Tekrarla" butonunda `aria-label` yok** — ekran okuyucu "↺ Tekrarla" der, neyi tekrarladığı belirsiz. Fix: `aria-label="Bu adımı tekrar çal"`.
+- [x] **G9. `stopHifzAudio` `load()` çağırmıyor** *(ChatGPT "düşük güven" dedi, ben de doğrulamadım)* — `src=''` bazı tarayıcılarda decoder/ağ kaynağını hemen bırakmayabilir. Fix: `removeAttribute('src'); load()`.
 
 # 🎯 YAPILMASI GEREKENLER — SIRADAKI (2026-07-24 güncel değerlendirme)
 

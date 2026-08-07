@@ -315,8 +315,9 @@ test('geçiş penceresinde sıradaki adım duyurulur ve Tekrarla adımı geri al
 
 // Regresyon — 2026-07-31 kullanıcı raporu: A'lâ 19 ayet olmasına rağmen
 // panelde etiketsiz "5/34" görünüyordu ve ayet numarası gibi okunuyordu.
-// 34 = 19 tek ayet adımı + 15 birleştirme adımı. Sayı "adım" etiketiyle
-// gelmeli, aksi halde kullanıcı sûrenin 34 ayeti olduğunu sanır.
+// 37 = 19 tek ayet + 15 birleştirme + 3 blok bağlantısı. Sayı "adım"
+// etiketiyle gelmeli, aksi halde kullanıcı sûrenin 37 ayeti olduğunu sanır.
+// (34 → 37: blok dikişi eklendi, 2026-08-07.)
 test('program konumu "adım" olarak etiketlenir (ayet numarasıyla karışmasın)', async ({ page }) => {
   await openSurah(page);
   await page.getByRole('button', { name: /^Ezber$/ }).click();
@@ -331,8 +332,8 @@ test('program konumu "adım" olarak etiketlenir (ayet numarasıyla karışmasın
   const t = await panelText(panel);
   // Sayı MUTLAKA "adım" etiketiyle gelmeli
   expect(t).toMatch(/adım\s+\d+\/\d+/);
-  // A'lâ 19 ayet: 19 tek + 15 birleştirme = 34 adım
-  expect(t).toContain('adım 1/34');
+  // A'lâ 19 ayet: 19 tek + 15 birleştirme + 3 bağlantı = 37 adım
+  expect(t).toContain('adım 1/37');
 
   // Yardım baloncuğunda da açıklanmalı
   await panel.getByRole('button', { name: 'Nasıl çalışır?' }).click();
@@ -369,8 +370,15 @@ test('yardım baloncuğu kartopu yöntemini açıklar', async ({ page }) => {
   const t = await panelText(panel);
   expect(t).toContain('Kartopu');
   expect(t).toContain('Bloklar');
+  expect(t).toContain('Bağlantı');   // blok dikişi (2026-08-07)
   expect(t).toContain('Geçişlerde');
 });
+
+// ⚠ Blok dikişini ([1-10] gibi) uçtan uca sınamıyoruz: ilk dikiş İKİ tam
+// bloktan sonra gelir — A'lâ'da en düşük tekrar ayarıyla bile ~7 dakikalık
+// ses. Dikişin varlığını ADIM SAYISI kanıtlıyor (yukarıdaki 'adım 1/37'
+// testi: 34 → 37, üç dikiş). Dikişin sabit tekrarı (SEAM_REPEAT) ise
+// loadStep'te tek satır; e2e'de gözlemlemenin bedeli faydasından büyük.
 
 // ─── Mobil giriş (390px — CLAUDE.md §14 minimum genişlik) ───────────────────
 // Toolbar'da yer olmadığı için buton masaüstüne özel; mobilde AYAR panelinden
@@ -516,7 +524,7 @@ test('G1: Tekrarla yalnız geçiş/duraklama fazında etkili', async ({ page }) 
   await expect(panel.getByRole('button', { name: /Tekrarla/ })).toHaveCount(0);
 });
 
-test('adımlar arası geçiş 1.5 sn (kaçış penceresi)', async ({ page }) => {
+test('adımlar arası geçiş 1.2 sn (kaçış penceresi)', async ({ page }) => {
   test.setTimeout(120_000);
   await openSurah(page);
   await page.getByRole('button', { name: /^Ezber$/ }).click();
@@ -529,11 +537,11 @@ test('adımlar arası geçiş 1.5 sn (kaçış penceresi)', async ({ page }) => 
   const again = panel.getByRole('button', { name: /Tekrarla/ });
   await expect(again).toBeVisible({ timeout: 90_000 });
   const t0 = Date.now();
-  // Pencere kapanana kadar (Tekrarla kaybolur) geçen süre ~1.5 sn olmalı
+  // Pencere kapanana kadar (Tekrarla kaybolur) geçen süre ~1.2 sn olmalı
   await expect(again).toHaveCount(0, { timeout: 10_000 });
   const dur = Date.now() - t0;
-  expect(dur, `geçiş penceresi ${dur}ms — 1.5 sn civarı bekleniyor`).toBeGreaterThan(900);
-  expect(dur, `geçiş penceresi ${dur}ms — 1.5 sn civarı bekleniyor`).toBeLessThan(2600);
+  expect(dur, `geçiş penceresi ${dur}ms — 1.2 sn civarı bekleniyor`).toBeGreaterThan(900);
+  expect(dur, `geçiş penceresi ${dur}ms — 1.2 sn civarı bekleniyor`).toBeLessThan(2600);
 });
 
 // Regresyon — 2026-08-02: hata bildirim FAB'ı çalışma şeridiyle çakışıyordu.
