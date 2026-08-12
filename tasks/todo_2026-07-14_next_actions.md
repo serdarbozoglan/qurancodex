@@ -117,7 +117,7 @@ yanlış çözümdür.
 
 **❌ SKIP (puan yok — değerlendirildi=gereksiz):** Six Gates hover · Kontrast (AAA geçiyor) · İkincil accent · Thumbnail (atla) · Konumlandırma tutarlılığı (kaldırıldı) · token-hardcode-hex (görsel-etkisiz) · **Karşı-argümanlar (YASAK — Kur'an üstünlüğü ilkesi)**.
 
-**Öneri (2026-08-07 güncel):** #206 ve #205 kapandı. Kalan ilk sıra: **#203 SourcesCitation 4-tool (78)** (~3h) + 15 dk'lık atmosfer madde 4 (puan 65).
+**Öneri (2026-08-12 güncel):** #206, #205 ve #203 kapandı. Kalan ilk sıra: 15 dk'lık atmosfer madde 4 (puan 65) + **#202 CrossToolCTA kalanı (58)**.
 
 > ⚠ **DERS — todo eskimesi:** Hem #206 hem #205'te "yapılacak" diye listelenen işin büyük kısmı çoktan yapılmıştı. Yeni bir maddeye başlamadan ÖNCE kodu oku; todo'nun iddiasını doğrulanmış kabul etme.
 
@@ -282,7 +282,7 @@ Kalan CTA-eksik tool'lar (verify pending): VerseGraph (Phase 5 target #206), Mun
 
 | # | İş | Efor |
 |---|---|---|
-| **#203** | ✅ 3/4 done — QuranCommands+AddresseeSystem+DiyalogAgi SourcesCitation eklendi; WordHeatmap istisna (immersive) | ~done |
+| **#203** | ✅ **TAM done** — kodla doğrulandı 2026-08-12. QuranCommands + AddresseeSystem + DiyalogAgi'de `SourcesCitation` var. WordHeatmap istisnası gerekçelendirildi: "immersive" değil asıl sebep — frekans aracı tefsirî iddia taşımaz, kaynağı klasik tefsir değil metin+sayım yöntemidir ve bu zaten `DataDictionary` ile (kaynak metin · sayım birimi · girdi · homograf sınırlaması) beyan edilmiş. SourcesCitation eklemek dekoratif olurdu. | done |
 
 **2026-07-23 taraması:** `SourcesCitation` import etmeyen 22 tool tarandı; çoğunda **inline kaynak atfı zaten var** (Râzî/Suyûtî/Zerkeşî/Kurtubî/İbn Kesîr geçen satır sayısı). Gerçek boşluk sadece şunlarda:
 
@@ -349,7 +349,7 @@ Kategori A, B, C, G ve F/Phase-1 kapandı. Kalan **7 iş** şu sırayla:
 **Sıradaki (bu hafta):**
 1. **#206 VerseGraph Hero** (2-3h) — kalan en yüksek getirili tek iş. ConceptGraph pattern'ı (7e404b2) hazır şablon; sitenin amiral gemisi aracı §13.18 hero'su olmayan tek büyük tool.
 2. ~~#205 EsmaFrekans~~ ✅ done (e1be8b9, 2026-08-07) — kaynak listesi; Hero/CTA zaten vardı.
-3. **#203 SourcesCitation — 4 gerçek boşluk** (~3h): AddresseeSystem, DiyalogAgi, WordHeatmap, QuranCommands.
+3. ~~#203 SourcesCitation~~ ✅ done — kodla doğrulandı (2026-08-12): AddresseeSystem, DiyalogAgi, QuranCommands'ta `SourcesCitation` mevcut. WordHeatmap'te bilinçli YOK ve doğrusu bu: frekans aracı tefsirî iddiada bulunmuyor, kaynağı metin + sayım yöntemi — zaten `DataDictionary` ile beyan edilmiş (kaynak metin, sayım birimi, girdi, sınırlama notu).
 
 **Sonra:**
 4. **#202 CrossToolCTA kalanı** — 18/34 done; kalanlar tek tek verify edilip kapatılır.
