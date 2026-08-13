@@ -1,5 +1,7 @@
 'use client';
 
+import SiblingPageLink from '@/components/SiblingPageLink';
+
 // Kaynakça / Bibliography — statik akademik kaynak listesi.
 // Footer'daki kompakt liste yerine, kategorize edilmiş tam bibliyografya.
 // İçerik component-içi (i18n JSON'a yeni key eklenmedi).
@@ -485,6 +487,17 @@ export default function KaynakcaRoute() {
           >
             {isEn ? introEn : introTr}
           </p>
+
+          {/* Kardeş sayfa geçişi (2026-08-13). Bu sayfa 5.039px ve
+              /hakkinda'ya HİÇ dönüş bağlantısı yoktu — çıkmaz sokaktı. */}
+          <div style={{ marginTop: '26px' }}>
+            <SiblingPageLink
+              href={`/${language}/hakkinda`}
+              labelTr="Metodoloji & Çerçeve"
+              labelEn="Methodology & Framework"
+              language={language}
+            />
+          </div>
         </header>
 
         {/* Categories */}

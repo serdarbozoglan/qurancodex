@@ -1,5 +1,7 @@
 'use client';
 
+import SiblingPageLink from '@/components/SiblingPageLink';
+
 // Hakkında / Metodoloji — QuranCodex'in amacı, epistemik duruşu, kaynakları ve sınırları.
 // İçerik component-içi (i18n JSON'a key eklenmedi). Pattern: KaynakcaRoute ile aynı
 // (glass card bölümler, altın eyebrow, bilingual useLanguage).
@@ -116,6 +118,19 @@ export default function HakkindaRoute() {
               ? 'Its purpose, epistemic stance, sources, and limits — stated openly.'
               : 'Amacı, epistemik duruşu, kaynakları ve sınırları — açıkça.'}
           </p>
+
+          {/* Kardeş sayfa geçişi (2026-08-13). Kaynakça bağlantısı sayfada
+              zaten vardı ama y=1530px'te (sayfanın %64'ü) gövde metninin
+              içinde gömülüydü — pratikte görünmüyordu. Başlığın altına alındı;
+              aşağıdaki satır içi atıf da yerinde duruyor. */}
+          <div style={{ marginTop: '26px' }}>
+            <SiblingPageLink
+              href={`/${language}/kaynakca`}
+              labelTr="Kaynakça"
+              labelEn="Bibliography"
+              language={language}
+            />
+          </div>
         </header>
 
         {SECTIONS.map((s) => (

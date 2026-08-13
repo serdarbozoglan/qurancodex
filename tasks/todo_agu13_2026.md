@@ -128,7 +128,7 @@
 
 ---
 
-## 🟠 P5b — METODOLOJİ ↔ KAYNAKÇA GEÇİŞİ KIRIK (kullanıcı raporu, ~1 saat)
+## ✅ P5b — METODOLOJİ ↔ KAYNAKÇA GEÇİŞİ — TAMAMLANDI
 
 Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 `/hakkinda`'ya götürüyor. Ölçüm:
@@ -138,35 +138,11 @@ Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 | `/tr/hakkinda` | 2.387px | **1 tane** — `y=1530px` (sayfanın %64'ü), gövde metni içinde gömülü: *"Tam ve kategorize kaynakça için **Kaynakça sayfası**"* |
 | `/tr/kaynakca` | 5.039px | **HİÇ YOK** ✖ çıkmaz sokak |
 
-- [ ] `/kaynakca` → `/hakkinda` karşılıklı bağlantı ekle (öncelikli — 5.000px'lik sayfa şu an çıkmaz sokak)
-- [ ] `/hakkinda` → `/kaynakca` bağlantısını yukarı taşı / görünür kıl
-  (şu an paragraf içinde, ekranın çok altında)
-- [ ] İki sayfayı **kardeş sayfa** gibi ele al — şerit ikisini birden vaat ediyor.
-  Öneri: her iki sayfanın üstünde küçük, karşılıklı bir "diğer sayfa" bağlantısı
-- [ ] Alternatif: şeridin etiketini tek hedefe indir (*"Metodoloji"*) — ama
-  kaynakça sitenin akademik iddiasının dayanağı, gizlenmemeli. Karşılıklı bağlantı daha iyi.
-
----
-
-## 🔵 P5c — BEŞ SAYFA DETAYLANDIRILACAK (kullanıcı talebi 2026-08-13)
-
-Bu beş sayfa mevcut hâliyle yetersiz; içerik ve etkileşim olarak **belirgin
-şekilde derinleştirilecek.**
-
-| Sayfa | Rota | Bileşen | Veri |
-|---|---|---|---|
-| Semantik Harita | `/graf/semantik` | `SemanticMap.jsx` — 585 satır | UMAP projeksiyonu |
-| Münâsebât Atlası | `/atlas/munasebat` | `MunasebatAtlasi.jsx` — 795 satır | — |
-| Diyalog Ağı | `/graf/diyalog` | `DiyalogAgi.jsx` — 1.253 satır | 5 JSON · ~81 KB |
-| Kitap Kavramı | `/arac/kitap-kavrami` | `KitapKavrami.jsx` — 382 satır | `kitap-kavrami.json` 18 KB |
-| Sûre DNA | `/graf/karsilastir` | `SurahComparator.jsx` | — |
-
-- [ ] Her sayfa için önce **içerik envanteri** çıkar: şu an ne gösteriyor, ne eksik
-- [ ] `KitapKavrami` (382 satır) ve `SemanticMap` (585 satır) en zayıf ikisi — önce onlar
-- [ ] ⚠ **Adlandırma tutarsızlığı:** menüde *"Sûre DNA"*, rota `/graf/karsilastir`,
-      bileşen `SurahComparator`, katalogda *"Sûre Karşılaştırıcı"*. Aynı şey üç
-      farklı adla anılıyor — detaylandırma sırasında tek ada karar verilmeli.
-- [ ] Detaylandırma sonrası `TOOL_CATALOG` açıklamalarını güncelle (`/sor` bunları okuyor)
+- [x] Yeni bileşen `src/components/SiblingPageLink.jsx` — iki sayfada da başlığın altında
+- [x] `/kaynakca` → `/hakkinda`: **yoktu**, eklendi (y=383px)
+- [x] `/hakkinda` → `/kaynakca`: y=1530px'ten **y=226px**'e taşındı
+- [x] Eski satır içi atıf korundu (y=1596) — içerik kaybı yok
+- [x] Doğrulandı: iki yön × iki viewport (1440px + 390px), dördü de tıklanıp gidiyor
 
 ---
 
@@ -185,6 +161,31 @@ Bu beş sayfa mevcut hâliyle yetersiz; içerik ve etkileşim olarak **belirgin
 - [ ] **19 `<h2>` çok** — kart başlıklarının bir kısmını `h3`'e indir
 - [ ] **CLAUDE.md §4 palet tablosu koddan kopmuş** — 10 renk listeliyor, `tokens.js`'te 48 var; tablodan üret
 - [ ] P4 sonrası: `MobileSectionChipNav` / `DesktopSidebarTOC` / `ScrollToTopFab` üçü de hâlâ gerekli mi, gözden geçir
+
+---
+
+## 🔵 P8 — BEŞ SAYFA DETAYLANDIRILACAK (kullanıcı talebi 2026-08-13)
+
+> **Öncelik kararı (2026-08-13):** Kullanıcı bu maddenin **en sona** alınmasını,
+> önce denetimden çıkan kendi bulgularımızın (P2–P7) kapatılmasını istedi.
+
+Bu beş sayfa mevcut hâliyle yetersiz; içerik ve etkileşim olarak **belirgin
+şekilde derinleştirilecek.**
+
+| Sayfa | Rota | Bileşen | Veri |
+|---|---|---|---|
+| Semantik Harita | `/graf/semantik` | `SemanticMap.jsx` — 585 satır | UMAP projeksiyonu |
+| Münâsebât Atlası | `/atlas/munasebat` | `MunasebatAtlasi.jsx` — 795 satır | — |
+| Diyalog Ağı | `/graf/diyalog` | `DiyalogAgi.jsx` — 1.253 satır | 5 JSON · ~81 KB |
+| Kitap Kavramı | `/arac/kitap-kavrami` | `KitapKavrami.jsx` — 382 satır | `kitap-kavrami.json` 18 KB |
+| Sûre DNA | `/graf/karsilastir` | `SurahComparator.jsx` | — |
+
+- [ ] Her sayfa için önce **içerik envanteri** çıkar: şu an ne gösteriyor, ne eksik
+- [ ] `KitapKavrami` (382 satır) ve `SemanticMap` (585 satır) en zayıf ikisi — önce onlar
+- [ ] ⚠ **Adlandırma tutarsızlığı:** menüde *"Sûre DNA"*, rota `/graf/karsilastir`,
+      bileşen `SurahComparator`, katalogda *"Sûre Karşılaştırıcı"*. Aynı şey üç
+      farklı adla anılıyor — detaylandırma sırasında tek ada karar verilmeli.
+- [ ] Detaylandırma sonrası `TOOL_CATALOG` açıklamalarını güncelle (`/sor` bunları okuyor)
 
 ---
 
