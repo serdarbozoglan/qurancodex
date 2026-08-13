@@ -5,6 +5,108 @@
 
 ---
 
+# 📊 TARAFSIZ YENİDEN PUANLAMA — 13 Ağustos 2026, akşam
+
+> **Yöntem:** Dünkü not referans ALINMADI. Sıfırdan ölçüldü:
+> 3 genişlik × 2 dil = 6 koşu + 8 dilim ekran görüntüsü gözle incelendi.
+> "Değişiklik yaptım, o hâlde iyileşmiştir" varsayımı kurulmadı.
+
+**GENEL: 76 / 100**
+
+| Eksen | Not | Neden bu not |
+|---|---:|---|
+| İçerik | **76** | Anlatı gerçek ve 14 kartın 14'ü de gerçek bir âyete bağlı. Ama sayfa hâlâ 18–24 ekran ve **özet yok** — ziyaretçi kaydırmadan sitede ne olduğunu öğrenemiyor. Compact kademede 8 konu artık yalnız âyet + tek satır alıyor: ritim kazandı, derinlik kaybetti. |
+| Görsel tasarım | **72** | Kimlik tutarlı (koyu/altın, Playfair+Inter, KFGQPC). Ritim artık var. **Ama tek bir düzen fikri tekrarlanıyor:** ortalanmış kart + altın kenar + radyal parıltı. Hiç görsel yok — ne fotoğraf ne illüstrasyon. Her şey aynı kontrast değerinde: hiçbir şey gerçekten yüksek sesli olmadığı için hiçbir şey gerçekten sessiz değil. |
+| Bilgi mimarisi | **80** | SixGates iyi bir giriş aygıtı. Artık breakpoint başına tek raf + içinde "başa dön". 17 araç bağlantısının hepsi yerinde. Ama raftaki 15 bölüm çok ve adları SixGates kapı adlarıyla birebir örtüşmüyor. |
+| Teknik | **82** | 14 hydration adası → 1, framer-motion kartlardan çıktı, 6 kombinasyonda **0 console error**, hiçbir yerde yatay kaydırma yok, build temiz. ⚠ **Uyarı: LCP/CLS ÖLÇMEDİM** — "hızlı" diyemem, yalnız "hydration yüzeyi küçüldü" diyebilirim. |
+| Erişilebilirlik | **68** | h1=1, seviye atlaması yok, etiketsiz buton 0, boş bağlantı 0, alt'sız görsel 0, `prefers-reduced-motion` karşılanıyor. **AMA: 25 Arapça öge `aria-label` taşımıyor** — ekran okuyucu Arapça metni Türkçe/İngilizce sesle okuyor. En büyük açık ve hiç dokunulmadı. Kontrast oranları da formel ölçülmedi. |
+| Tutarlılık | **74** | Token katmanı + CI kapısı + §13.25 + anasayfada 0 ham hex + kategori paleti ayıklandı. Ama site genelinde **184 token dışı renk** duruyor ve İngilizce sayfada **"TEFEKKÜR"** çevrilmemiş (navbar "Reflections" diyor). |
+| Editoryal dürüstlük | **85** | Sitenin en güçlü yanı. §13.24 disiplini ("bilim doğrular" yasak), "örtüşme ≠ kanıt", klasik+modern+eleştirel not yan yana. Türünde nadir. Tek çekince: "1.400 Yıl · 1 Metin · **Sıfır Varyasyon**" anasayfada kayıtsız şartsız duruyor. |
+
+### Bu turda ölçülen yeni bulgular
+
+- [ ] **25 Arapça öge `aria-label` taşımıyor** — en yüksek etkili açık kalem
+- [ ] **İngilizce sayfada "TEFEKKÜR"** — navbar "Reflections" diyor, bölüm başlığı Türkçe
+- [ ] **EN mobil 20.307px** — TR 19.669px; İngilizce metin uzun, hedefi aşıyor
+- [ ] **`TefekkurHighlight` sola dayalı**, sayfadaki her şey ortalanmış — hizasız duruyor
+- [ ] **Hero altında ~200px boş bant** (ConciergePrompt'tan önce)
+- [ ] LCP / CLS **hiç ölçülmedi** — puanın teknik ayağı bu yüzden eksik temelli
+
+### Doğrulanan (ölçüldü, sorun yok)
+`\"` ters bölü 0 · ekranda `**` 0 · yatay kaydırma yok (6/6) · console error 0 (6/6)
+etiketsiz buton 0 · boş bağlantı 0 · alt'sız görsel 0 · reveal 14/14 açılıyor
+
+---
+
+# 🔬 NASIL DENETLEDİM — YÖNTEM
+
+> Bu bölüm diğer 73 sayfaya aynı süreci uygulamak için yazıldı.
+> Sayfa-sayfa uygulanacak **ayrıntılı kontrol listesi** ayrı dosyada:
+> **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)**
+> Aşağıdaki 9 adım o listenin *nasıl* çalıştırılacağını anlatır.
+
+### 1 · Önce ölç, sonra konuş
+Hiçbir bulgu "bence" ile başlamadı. Her biri bir **sayı**, bir **seçici** veya
+bir **ekran görüntüsü** taşıdı. Bu disiplini iki kez ihlal ettim ve ikisinde de
+yanıldım: (a) *"tüm renkler token'dan geliyor"* dedim — ölçünce **184 token
+dışı renk** çıktı; (b) *"`/arac/tum-araclar` yok"* dedim — vardı ve 21 araç
+gösteriyordu. İkincisi kullanıcının kararını değiştirebilecek bir yanlıştı.
+
+### 2 · Değişiklikten ÖNCE gerçek temel çizgi
+`git stash` ile "önce" değeri ölçüldü, sonra değişiklik uygulandı. Emniyet
+ağları (`homepage-link-inventory`, `homepage-card-text`) taşımadan **önce**
+kuruldu. Bu koruma marka adı değişikliğinde bir bağlantı kaybını gerçekten
+**yakaladı**; kasıtlı olduğu doğrulanıp temel çizgi güncellendi.
+> ⚠ Bir kez bunu ihlal ettim: `color-before` görüntülerini değişiklikten sonra
+> yakalayıp gerçek "önce" halini kaybettim.
+
+### 3 · Üç genişlik × iki dil = 6 koşu
+`1440` · **`1024`** · `390`, hem `/tr` hem `/en`.
+**1024 atlanamaz** — bu turda bulunan iki ciddi hata yalnız orada vardı:
+navbarın chip rafını **31px örtmesi** ve SixGates'in 1.334px'e çıkması.
+
+### 4 · DOM yetmez, render'a bak
+`\"bilimsel mucize\"` diye ekranda **ters bölüler** görünüyordu; baseline testi
+yeşildi çünkü yalnız âyet/başlık/bağlantı tutuyordu. Hata **ekran görüntüsüne
+gözle bakınca** bulundu. Artık her sayfada en az bir tam ekran görüntüsü
+gözle inceleniyor ve baseline gövde metnini de tutuyor.
+
+### 5 · "Görünüyor" ≠ "tıklanabilir"
+`getBoundingClientRect` chip rafını görünür gösteriyordu; gerçekte üst yarısı
+navbarın (`z-9999`) altındaydı. Kanıt aracı:
+```js
+document.elementFromPoint(x, y)   // o noktada gerçekte kim var?
+```
+
+### 6 · Sabit sayıları ölçülen gerçekle karşılaştır
+Bu tur **en verimli** hata sınıfı buydu: `NAVBAR_HEIGHT = 62` (gerçek 69/93),
+`padding: 64` (navbar altı 82), `isMobile={false}` sabit prop (mobil dal hiç
+çalışmamış), `minHeight: 320px` (kısaltma kazancını yutuyordu),
+`PLANNED_TOTAL = 44` (52 makale → "0 planlanan").
+
+### 7 · Kırmızı testin sebebini kanıtla
+`concierge.spec.js:240` kırmızıydı. Değişikliğimi suçlamadan önce API'ye istek
+atıldı: `meta.budget = {"reason":"ip"}` + `X-Degraded: 1` → sebep kendi test
+koşularımın IP kotasını (50/gün) tüketmesiydi.
+**Ama tersi de oldu:** `SEMANTIC is not defined` ile sayfa 500 döndü, sebep
+bendim — toplu düzenleme `FeaturedWrap`'e import eklemeden kullanmıştı.
+
+### 8 · İçerik koruyan refactor'da git geçmişiyle karşılaştır
+14 kart dosyası silindikten sonra **210 metin alanı** `git show 1a1cd26:...`
+ile tek tek karşılaştırıldı → **0 fark**. Böylece "bozulan tek şey `\"`
+kaçışıydı" cümlesi tahmin değil, ölçüm oldu.
+
+### 9 · Her turda: build + tam test + renk denetimi
+```bash
+npm run build
+npx playwright test
+node scripts/audit-colors.mjs --ci
+```
+Build'in geçmesi yetmez — dev sunucusu ayrı kırılabiliyor:
+`.next/dev/logs/next-development.log` okunur.
+
+---
+
 ## ✅ TAMAMLANDI (2026-08-13)
 
 - [x] **Okuma modu sûre araması: "Ala" yazınca A'lâ çıkmıyordu**
