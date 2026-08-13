@@ -20,7 +20,11 @@
     "21:30",
     "30:20"
   ],
-  "previousArticle": null,
+  "previousArticle": {
+    "slug": "evrim-dinsizligi-projesi",
+    "titleTr": "Evrim Dinsizliği Yayma Projesidir!",
+    "titleEn": "Evolution Is a Project to Spread Godlessness!"
+  },
   "nextArticle": null,
   "blocks": [
     {

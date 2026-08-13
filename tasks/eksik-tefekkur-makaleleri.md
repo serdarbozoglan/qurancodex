@@ -3,7 +3,7 @@
 > **Oluşturma:** 2026-08-12
 > **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` ile karşılaştırıldı.
 >
-> **📌 Son durum (2026-08-12):** Site **42 makale**. `833176e`'de 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı (41'e çıktı); ardından *Hâlâ mı Evrim?* eklenerek 42 oldu. Tamamı `status: "published"`.
+> **📌 Son durum (2026-08-12):** Site **43 makale**. `833176e`'de 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı (41'e çıktı); ardından *Hâlâ mı Evrim?* (42) ve *Evrim Dinsizliği Yayma Projesidir!* (43) eklendi. Tamamı `status: "published"`. Kategori dağılımı: sûre-hermenötik 12 · idrak-şuur 9 · terminoloji 7 · kozmoloji 6 · semantik 5 · kavramsal 4.
 >
 > ⚠ **Neden ekran görüntüsünden:** Medium arşivi programatik olarak taranamıyor. Profil sayfası sonsuz kaydırma ile yalnız son ~10 yazıyı, RSS beslemesi (`/feed`) 9 kaydı veriyor; `/archive` 404 dönüyor. 2025 arşivi bu uçların hiçbirinde görünmüyor — kanıt: 2025-09 ve 2025-10 tarihli iki yazı feed'de yoktu.
 >
@@ -31,31 +31,40 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ---
 
-## 🟠 B — YARATILIŞ HİKÂYESİ SERİSİ (2/6 eklendi)
+## ✅ B — YARATILIŞ HİKÂYESİ — **HATALI VARSAYIM DÜZELTİLDİ** (2026-08-12)
 
-| Tarih | Başlık | Öneri kategori |
-|---|---|---|
-🔴 **YENİ BULGU (2026-08-12):** Seri **6 yazı** — Medium'un kendi liste sayfası ("Yaratılış Hikayesi · 6 stories") böyle diyor. Arşiv ekran görüntülerinde yalnız ikisi görünmüştü; **3, 4, 5 ve 6 hâlâ eksik ve arşiv taramasında hiç çıkmadı.**
+🔴 **Önceki kayıt yanlıştı.** "Yaratılış Hikayesi · 6 stories" ifadesini *altı bölümlük numaralı bir seri* sandım ve `seriesTotal: 6` yazdım; seri notuna da "3, 4, 5 ve 6 henüz eklenmedi" cümlesi girdi. **Bu cümle canlı sitede yanlış bilgi olarak yayımlandı.**
 
-| # | Tarih | Başlık | Durum |
-|---|---|---|---|
-| 1 | 2025-07-27 | Yaratılış Hikâyesi-1: Giriş | ✅ `yaratilis-hikayesi-1-giris` |
-| 2 | 2025-07-27 | Yaratılış Hikâyesi-2: Kâinatın Katmanlı Yaratılışı | ✅ `yaratilis-hikayesi-2-katmanli-yaratilis` |
-| 3-6 | ? | **Başlıkları bilinmiyor** | ❌ eksik |
-
-`seriesTotal: 6` yazıldı (kaynak: yazarın kendi Medium listesi). `kozmoloji` kategorisi 5 makaleye çıktı (*Hâlâ mı Evrim?* dâhil).
-
-⚠ **Bu, arşiv envanterimin eksik olduğunun kanıtı.** Ekran görüntüleri Medium'un gösterdiği kadarını veriyordu; yazarın kendi seri listeleri daha fazlasını içeriyor. Diğer seriler için de aynısı geçerli olabilir — Medium'daki **liste (list) sayfalarını** kontrol etmek envanteri tamamlamanın en güvenilir yolu.
-
----
-
-## 🟡 C — EVRİM ÜÇLEMESİ (biri eksik)
+**Gerçek:** Medium'daki "Yaratılış Hikayesi", tematik bir **okuma listesi** (list) — numaralı bir seri değil. Kullanıcının paylaştığı liste ekran görüntüsündeki altı yazı:
 
 | Tarih | Başlık | Durum |
 |---|---|---|
-| 2024-11-12 | Hâlâ mı Evrim? — Bir Müslümanın Bakış Açısından | ✅ `hala-mi-evrim` (2026-08-12) |
-| 2025-05-14 | Evrim dinsizliği yayma projesidir! | ❌ eksik |
+| 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` |
+| 2024-11-12 | Hâlâ mı Evrim? | ✅ `hala-mi-evrim` |
+| 2024-12-18 | **Anlam, Yaratılış ve Senteninin Bariz İmzası** | ❌ **eksik** (D bölümünde de var) |
+| 2025-05-14 | Evrim dinsizliği yayma projesidir! | ✅ `evrim-dinsizligi-projesi` |
+| 2025-07-27 | Yaratılış Hikayesi-2: Kâinatın Katmanlı Yaratılışı | ✅ `yaratilis-hikayesi-2-katmanli-yaratilis` |
+| 2025-07-27 | Yaratılış Hikayesi-1: Giriş | ✅ `yaratilis-hikayesi-1-giris` |
+
+**Yani listedeki altı yazının yalnız ikisi numaralı seri parçası.** `seriesTotal` 6 → **2** düzeltildi (iki makalede de), `sync-series-notes.mjs` yeniden çalıştırıldı; seri notu artık "eksik bölüm var" demiyor. Listeden gerçekten eksik olan **tek** yazı: *Anlam, Yaratılış ve Senteninin Bariz İmzası*.
+
+⚠ **Ders:** Medium'da "N stories" ifadesi bir serinin bölüm sayısı DEĞİL, listedeki yazı sayısıdır. Liste başlığının bir seri adıyla aynı olması yanıltıcı. Bir sonraki sefere **listenin içeriğini görmeden** `seriesTotal` yazma.
+
+---
+
+## ✅ C — EVRİM ÜÇLEMESİ — **TAMAMLANDI** (2026-08-12)
+
+| Tarih | Başlık | Durum |
+|---|---|---|
+| 2024-11-12 | Hâlâ mı Evrim? — Bir Müslümanın Bakış Açısından | ✅ `hala-mi-evrim` |
+| 2025-05-14 | Evrim Dinsizliği Yayma Projesidir! | ✅ `evrim-dinsizligi-projesi` |
 | 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` (TR + EN çeviri) |
+
+Üçü `previousArticle`/`nextArticle` ile kronolojik olarak zincirlendi (`seriesTotal` yok — yazarın ilan ettiği numaralı bir seri değil, tematik küme).
+
+`evrim-dinsizligi-projesi`: 35 blok, **14'ü görsel** — iki `hierarchyTree` (bilimin üç felsefî kabulü; menfi harekete düşen üç akım), üç `contrastDuo` (fizikalizm ⇄ idealizm, iddia ⇄ fiilî tavır, bilimin sahası ⇄ metafiziğin sahası), `flowChain` (bir iddianın bilimde yol alışı), üç `pullQuote`, dört `criticalNote`. **Ayet yok** — yazı bir bilim felsefesi metni; yazarın alıntılamadığı ayet eklenmedi.
+
+⚠ **Üslup kararı:** Yazar metni bilinçli olarak ham bıraktığını söylüyor (*"perişanlığıyla yayımlayacağım"*). Cümleler düzleştirilmedi, araya girmeler ve şakalar (bilim insanı/Fenike dili esprisi dâhil) korundu; bu tercih ilk `criticalNote`'ta okura açıklandı. **Başlık yazarın çürüttüğü iddiadır** — tldr bunu ilk cümlede belirtiyor ki listede yanlış anlaşılmasın.
 
 Üçü birlikte tutarlı bir küme oluşturur. **§13.24 tefekkür istisnası geçerli** — yazarın kendi görüşü, GPT hakem turu ÇALIŞTIRILMAZ (kullanıcı kararı 2026-08-12, CLAUDE.md'ye işlendi).
 
@@ -107,12 +116,13 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ~~1. Okuma Prensipleri EN gövdeleri~~ · ~~2. Terminoloji 1-4~~ ✅ · ~~3. Yaratılış Hikâyesi 1-2~~ ✅ (kısmen — 3-6 kaldı)
 
+~~Yaratılış Hikâyesi 3-6~~ ✅ (böyle bölümler yok — B bölümüne bak) · ~~Evrim üçlemesi~~ ✅
+
 **Güncel sıra (2026-08-12):**
-1. **Yaratılış Hikâyesi 3-4-5-6** — seri yarım kaldı, `seriesTotal: 6` yazılı ama 4 bölüm yok. Başlıkları bile bilinmiyor; **Medium'daki liste sayfasından** alınmalı.
-2. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. En ucuz kazanç, hâlâ yapılmadı.
-3. **"Evrim dinsizliği yayma projesidir!"** (2025-05-14) — üçlemenin son eksiği; eklenince küme tamamlanır.
-4. D bölümündeki tekil yazılar (8 adet).
-5. E bölümündeki İngilizce sürümler.
+1. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. Yazarın kendi İngilizcesi mevcut. En ucuz kazanç, hâlâ yapılmadı.
+2. **Anlam, Yaratılış ve Senteninin Bariz İmzası** (2024-12-18) — hem B listesinde hem D'de; iki kümeyi birden kapatır. İngilizce sürümü de var (*Meaning, Creation, and the Telltale Signature of Synteny*), ikisi birlikte eklenebilir.
+3. D bölümündeki kalan tekil yazılar (7 adet).
+4. E bölümündeki İngilizce sürümler.
 
 ---
 

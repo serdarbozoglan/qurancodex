@@ -63400,13 +63400,13 @@
     "type": "article"
   },
   "article:yaratilis-hikayesi-1-giris": {
-    "hash": "edab64379c86dce8",
-    "embeddedAt": "2026-08-13T02:19:56.930Z",
+    "hash": "5f645b202016ed54",
+    "embeddedAt": "2026-08-13T02:59:33.028Z",
     "type": "article"
   },
   "article:yaratilis-hikayesi-2-katmanli-yaratilis": {
-    "hash": "3cafed049a7640b6",
-    "embeddedAt": "2026-08-13T02:19:56.930Z",
+    "hash": "033369e612a3af37",
+    "embeddedAt": "2026-08-13T02:59:33.028Z",
     "type": "article"
   },
   "article-section:terminoloji-1-lokal-global#intro-0": {
@@ -63442,6 +63442,11 @@
   "article:hala-mi-evrim": {
     "hash": "7fce83f801874545",
     "embeddedAt": "2026-08-13T02:50:04.459Z",
+    "type": "article"
+  },
+  "article:evrim-dinsizligi-projesi": {
+    "hash": "0d5fb838475caf2a",
+    "embeddedAt": "2026-08-13T02:59:33.028Z",
     "type": "article"
   }
 }

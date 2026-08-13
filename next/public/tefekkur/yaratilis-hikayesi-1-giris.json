@@ -245,11 +245,11 @@
       "type": "criticalNote",
       "headingTr": "Seri hakkında",
       "headingEn": "About the series",
-      "tr": "Bu yazı **Yaratılış Hikâyesi** serisinin girişidir. Seri, Bakara 2:29-39 anlatısını merkeze alarak halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesi gibi konuları işler. Sitede şu an serinin 1 ve 2. yazıları bulunuyor; 3, 4, 5 ve 6 henüz eklenmedi. — Bu giriş yazısı doğrudan ayet alıntılamaz, merkez aldığı aralığı adlandırır.",
-      "en": "This is the introduction to the **Story of Creation** series. Taking al-Baqara 2:29-39 as its centre, the series treats vicegerency, the problem of evil, the teaching of the names and the angels' prostration. Essays 1 and 2 of the series are on the site; 3, 4, 5 and 6 not yet added. — This introduction quotes no verses directly; it names the range it takes as centre.",
+      "tr": "Bu yazı **Yaratılış Hikâyesi** serisinin girişidir. Seri, Bakara 2:29-39 anlatısını merkeze alarak halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesi gibi konuları işler. Serinin 2 yazısının tamamı sitede. — Bu giriş yazısı doğrudan ayet alıntılamaz, merkez aldığı aralığı adlandırır.",
+      "en": "This is the introduction to the **Story of Creation** series. Taking al-Baqara 2:29-39 as its centre, the series treats vicegerency, the problem of evil, the teaching of the names and the angels' prostration. All 2 essays of the series are on the site. — This introduction quotes no verses directly; it names the range it takes as centre.",
       "tplTR": "Bu yazı **Yaratılış Hikâyesi** serisinin girişidir. Seri, Bakara 2:29-39 anlatısını merkeze alarak halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesi gibi konuları işler. {{seri}} — Bu giriş yazısı doğrudan ayet alıntılamaz, merkez aldığı aralığı adlandırır.",
       "tplEN": "This is the introduction to the **Story of Creation** series. Taking al-Baqara 2:29-39 as its centre, the series treats vicegerency, the problem of evil, the teaching of the names and the angels' prostration. {{seri}} — This introduction quotes no verses directly; it names the range it takes as centre."
     }
   ],
-  "seriesTotal": 6
+  "seriesTotal": 2
 }
