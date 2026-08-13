@@ -111,9 +111,22 @@ export default function DesktopSidebarTOC() {
         scrollbarWidth: 'none',
       }}
     >
-      {/* Eyebrow */}
-      <div
+      {/* Eyebrow — aynı zamanda "başa dön".
+          2026-08-13: ayrı bir yüzen <ScrollToTopFab> vardı ve raf ile aynı anda
+          ekranda duruyordu. Uzun anlatı sayfalarında dünya standardı (Apple ürün
+          sayfaları, editoryal long-form) breakpoint başına TEK kalıcı gezinme
+          ögesidir; "başa dön" o ögenin İÇİNDE durur, yanında ikinci bir düğme
+          olarak değil. Rafın ilk maddesi `mukattaa-card` — yani hero'ya dönüş
+          yolu yoktu; bu başlık artık o yolu veriyor. */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label={tr ? 'Sayfa başına dön' : 'Back to top'}
+        title={tr ? 'Sayfa başına dön' : 'Back to top'}
         style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '7px',
           fontSize: '0.6rem',
           fontWeight: 700,
           letterSpacing: '0.22em',
@@ -123,10 +136,23 @@ export default function DesktopSidebarTOC() {
           marginBottom: '14px',
           fontFamily: FONTS.body,
           paddingLeft: '12px',
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          transition: 'opacity 0.18s, transform 0.18s',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = '1';
+          e.currentTarget.style.transform = 'translateY(-1px)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = '0.55';
+          e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
+        <span aria-hidden="true" style={{ fontSize: '0.8rem', lineHeight: 1 }}>↑</span>
         {tr ? 'Bölümler' : 'Chapters'}
-      </div>
+      </button>
 
       <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '2px' }}>
         {CHAPTERS.map(({ id, labelTr, labelEn }) => {

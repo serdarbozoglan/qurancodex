@@ -35,7 +35,6 @@ import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
 import MobileSectionChipNav from '@/components/MobileSectionChipNav';
 import DesktopSidebarTOC from '@/components/DesktopSidebarTOC';
-import ScrollToTopFab from '@/components/ScrollToTopFab';
 import HashAnchorScroll from '@/components/HashAnchorScroll';
 
 export async function generateMetadata({ params }) {
@@ -63,7 +62,13 @@ export default async function Home({ params }) {
       <ScrollRevealRoot />
       <MobileSectionChipNav />
       <DesktopSidebarTOC />
-      <ScrollToTopFab />
+      {/* <ScrollToTopFab /> KALDIRILDI (2026-08-13, P7).
+          Sağ altta yüzen ayrı bir "başa dön" düğmesiydi; bölüm rafıyla aynı
+          anda ekranda duruyor ve mobilde kart CTA'larının üzerine biniyordu.
+          Uzun anlatı sayfalarında dünya standardı breakpoint başına TEK kalıcı
+          gezinme ögesidir. İşlev kaybolmadı — "başa dön" artık rafın kendi
+          içinde: <MobileSectionChipNav>'de sabit ↑ düğmesi,
+          <DesktopSidebarTOC>'ta "↑ BÖLÜMLER" başlığı. */}
 
       <Hero />
 

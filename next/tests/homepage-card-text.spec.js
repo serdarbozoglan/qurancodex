@@ -37,6 +37,14 @@ for (const locale of ['tr', 'en']) {
         // izliyor). Baseline'daki METİN değişmedi — bu yüzden temel çizgi
         // yenilenmedi, yalnız seçici genişletildi.
         heading: (await el.locator('h2, h3').first().innerText()).trim(),
+        // GÖVDE METNİ — 2026-08-13'te eklendi ve sebebi somut:
+        // İlk sürüm yalnız âyet/başlık/bağlantı tutuyordu. Veri dosyası
+        // üretilirken `\"` kaçışı bozulmuş, sayfada `\"bilimsel mucize\"`
+        // diye TERS BÖLÜLER görünüyordu — ve baseline bunu YAKALAMADI,
+        // ekran görüntüsüne bakınca fark edildi. Artık kartın tüm metni
+        // kilitli. (Düzeltme sonrası 210 alan git geçmişiyle karşılaştırıldı,
+        // 0 fark — bu temel çizgi doğrulanmış metnin üzerine kuruldu.)
+        body: (await el.innerText()).replace(/\s+/g, ' ').trim(),
         // kart içindeki tüm bağlantı hedefleri
         links: await el.locator('a[href]').evaluateAll(
           (as) => as.map((a) => new URL(a.href).pathname)

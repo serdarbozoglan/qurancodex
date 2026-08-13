@@ -29,10 +29,24 @@ const CHAPTERS = [
 ];
 
 const DESKTOP_BREAKPOINT = 1024;
-const NAVBAR_HEIGHT = 62; // Navbar scrolled-state (py-3) ~56px + 6px nefes (görsel ayrım)
 const CHIP_NAV_HEIGHT = 48; // chip-nav padding + chip yüksekliği approx.
-const SCROLL_OFFSET = NAVBAR_HEIGHT + CHIP_NAV_HEIGHT + 12; // section üst kenarına nefes
 const SCROLL_DURATION = 500; // ms — sabit süre (uzun mesafelerde de hızlı biter)
+
+// ─── Navbar yüksekliği ARTIK ÖLÇÜLÜYOR, sabit değil ─────────────────────────
+// 2026-08-13. Sabit `NAVBAR_HEIGHT = 62` idi ve gerçek yükseklikle tutmuyordu:
+//   390px → navbar altı 69, raf üstü 62 →  7px örtüşme
+//   1024px → navbar altı 93, raf üstü 62 → 31px ÖRTÜŞME
+// 1024'te rafın üst şeridi tamamen navbarın (z-9999) altında kalıyor ve
+// chip'lerin üst yarısı TIKLANAMIYORDU. Ölçüm: elementFromPoint rafın
+// ortasında `NAV[aria-label="Main navigation"]` döndürüyordu.
+const NAVBAR_FALLBACK = 62;
+function measureNavbarBottom() {
+  if (typeof document === 'undefined') return NAVBAR_FALLBACK;
+  const nav = document.querySelector('nav[aria-label="Main navigation"]');
+  if (!nav) return NAVBAR_FALLBACK;
+  const b = nav.getBoundingClientRect().bottom;
+  return b > 0 ? Math.round(b) : NAVBAR_FALLBACK;
+}
 
 // Custom RAF-based smooth scroll. Native scrollIntoView({behavior:'smooth'})
 // Safari/iOS'ta uzun mesafelerde yavaş + bouncy çalışıyor.
@@ -75,6 +89,8 @@ export default function MobileSectionChipNav() {
   const [isWideDesktop, setIsWideDesktop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [activeId, setActiveId] = useState(null);
+  // SSR'de ölçüm yok — fallback ile başlar, mount'ta gerçek değere oturur.
+  const [navbarBottom, setNavbarBottom] = useState(NAVBAR_FALLBACK);
   const railRef = useRef(null);
   const chipRefs = useRef({});
 
@@ -82,10 +98,31 @@ export default function MobileSectionChipNav() {
     const check = () => {
       setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
       setIsWideDesktop(window.innerWidth >= 1280);
+      setNavbarBottom(measureNavbarBottom());
     };
     check();
     window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+
+    // Navbar scroll'da kompaktlaşıyor (1024px'te 108 → 93) ve bu bir CSS
+    // geçişi. Ölçüm zamanlaması iki kez yanlış çıktı, ikisi de ölçülerek
+    // görüldü:
+    //   1) Sabit 62 → 1024'te 31px ÖRTÜŞME, chip'lerin üst yarısı tıklanamıyor
+    //   2) Sadece scroll olayında ölçmek → olay geçiş BAŞLAMADAN tetikleniyor,
+    //      eski (108) değer okunuyor, sonra bir daha scroll gelmezse 15px
+    //      BOŞLUK kalıcı kalıyor
+    // Bu yüzden hem scroll'da hem de geçiş bittikten sonra ölçüyoruz.
+    let settle;
+    const onScroll = () => {
+      setNavbarBottom(measureNavbarBottom());
+      clearTimeout(settle);
+      settle = setTimeout(() => setNavbarBottom(measureNavbarBottom()), 420);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', check);
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(settle);
+    };
   }, []);
 
   useEffect(() => {
@@ -141,7 +178,8 @@ export default function MobileSectionChipNav() {
     const el = document.getElementById(id);
     if (!el) return;
     const elTop = el.getBoundingClientRect().top + window.scrollY;
-    const targetY = Math.max(0, elTop - SCROLL_OFFSET);
+    // Ölçülen navbar + raf yüksekliği + nefes payı
+    const targetY = Math.max(0, elTop - (measureNavbarBottom() + CHIP_NAV_HEIGHT + 12));
     smoothScrollTo(targetY);
   }
 
@@ -153,7 +191,7 @@ export default function MobileSectionChipNav() {
       aria-label={language === 'tr' ? 'Bölüm gezintisi' : 'Section navigation'}
       style={{
         position: 'fixed',
-        top: `${NAVBAR_HEIGHT}px`,
+        top: `${navbarBottom}px`,
         left: 0,
         right: 0,
         zIndex: 30,
@@ -167,15 +205,68 @@ export default function MobileSectionChipNav() {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       }}
     >
+      {/* "Başa dön" — rafın İÇİNDE ama kaydırma alanının DIŞINDA sabit.
+          2026-08-13: bu iş ayrı bir yüzen <ScrollToTopFab>'daydı; sağ altta
+          içeriğin (mobilde kart CTA'larının) üzerine biniyordu ve raf ile aynı
+          anda ekranda duruyordu. Uzun anlatı sayfalarında dünya standardı
+          breakpoint başına TEK kalıcı gezinme ögesidir. Kaydırma alanının
+          dışında çünkü raf yatay kayınca ilk chip gözden kaybolurdu. */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'stretch',
+          maxWidth: isDesktop ? '1280px' : '100%',
+          margin: '0 auto',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => smoothScrollTo(0)}
+          aria-label={language === 'tr' ? 'Sayfa başına dön' : 'Back to top'}
+          title={language === 'tr' ? 'Sayfa başına dön' : 'Back to top'}
+          className="qc-focus-ring"
+          style={{
+            flexShrink: 0,
+            alignSelf: 'center',
+            marginLeft: isDesktop ? '24px' : '14px',
+            marginRight: isDesktop ? '10px' : '8px',
+            width: '30px',
+            height: '30px',
+            borderRadius: RADIUS.full,
+            background: 'transparent',
+            border: `1px solid ${COLORS.goldAlpha25}`,
+            color: COLORS.gold,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '0.85rem',
+            lineHeight: 1,
+            cursor: 'pointer',
+            padding: 0,
+            opacity: 0.7,
+            transition: 'opacity 0.18s, background 0.18s',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.background = COLORS.goldAlpha15;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '0.7';
+            e.currentTarget.style.background = 'transparent';
+          }}
+        >
+          <span aria-hidden="true">↑</span>
+        </button>
+
       <div
         ref={railRef}
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: isDesktop ? '8px' : '6px',
-          padding: isDesktop ? '12px 24px 14px' : '11px 14px 13px',
-          maxWidth: isDesktop ? '1280px' : '100%',
-          margin: '0 auto',
+          padding: isDesktop ? '12px 24px 14px 0' : '11px 14px 13px 0',
+          flex: 1,
+          minWidth: 0,
           overflowX: 'auto',
           overflowY: 'hidden',
           scrollbarWidth: 'none',
@@ -217,6 +308,7 @@ export default function MobileSectionChipNav() {
             </button>
           );
         })}
+        </div>
       </div>
     </nav>
   );
