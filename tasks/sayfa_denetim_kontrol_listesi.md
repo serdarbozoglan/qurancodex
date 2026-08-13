@@ -219,6 +219,11 @@ grep -rn "Tanrı" src/components src/sections src/i18n/tr.json      # "Allah" ol
 grep -rn "Quran Codex" src public                                   # "QuranCodex" olmalı
 grep -rn "\bKuran\b" src public                                     # "Kur'an" olmalı
 grep -rn "\bsure\b\|\bSure\b" src/i18n/tr.json                       # "sûre" olmalı
+
+# GPT-5.4 eklemesi: Türkçe karakter taraması ASCII İngilizce sızıntıları
+# KAÇIRIR. Tamamlayıcı kontrol — i18n dışı sabit dize envanteri:
+grep -R "\"[A-Za-z][^\"]\{6,\}\"" src/components src/sections --include='*.jsx' \
+  | grep -v "className\|aria-\|import\|href\|role=\|type=\|rel=" | head -40
 ```
 - [ ] `/en/<route>` tam metni tarandı, Türkçe karakter içeren dize var mı?
 - [ ] `/tr/<route>` içinde çevrilmemiş İngilizce dize var mı?
@@ -269,7 +274,11 @@ done
 **Her sayfa için:**
 - [ ] Bu sayfaya **nereden** girilir? En az bir keşfedilebilir yol var mı?
 - [ ] Bu sayfadan **nasıl** çıkılır? (navbar dışında)
-- [ ] "← ANASAYFA" çıkışı var mı? Diğer sayfalarla tutarlı mı?
+- [ ] **Site bu soruyu daha önce cevaplamış mı?** Araç sayfalarının hepsinde
+      "← ANASAYFA" var. Bu sayfa o karara uyuyor mu?
+      *(Evrensel kural değil — TUTARLILIK kontrolü. GPT-5.4 haklı olarak "bu bir
+      ürün tercihi" dedi; ama tercih zaten verilmişken iki sayfanın dışarıda
+      kalması hatadır.)*
 - [ ] Kapat/geri butonu geçmiş yoksa ne yapıyor? (boş sayfa bırakmamalı)
 - [ ] Başlıkta geçen her kavramın hedefi var mı? ("X & Y" diyorsa Y'ye de gidilmeli)
 - [ ] Kardeş sayfalar karşılıklı bağlı mı?
@@ -344,6 +353,194 @@ node scripts/audit-colors.mjs --ci       # taban aşılırsa / §4 saparsa exit 
 
 ---
 
+### L · HYDRATION UYUŞMAZLIĞI (SSR/SSG ↔ istemci)
+> **Kaynak: GPT-5.4 hakem turu.** Bizim listede yoktu — ve bu sitede risk yüksek:
+> iki dil + `toLocaleString` + `Intl` + ağır görselleştirme.
+
+Bu turda yaşadığımız hydration hatası "hook sırası" tipindeydi (`useMemo` erken
+`return`'ün altında → sayfa hiç açılmadı). GPT'nin işaret ettiği **metin/sayı
+uyuşmazlığı** tipi ise hiç aranmadı.
+
+```bash
+grep -rn "Math.random\|Date.now()\|new Date()\|Intl\.\|toLocaleString\|toLocaleDate" src --include='*.jsx' --include='*.js'
+```
+```js
+page.on('console', m => { if (/Hydration|did not match/i.test(m.text())) console.log(m.text()); });
+const before = await page.locator('main').innerText();
+await page.waitForTimeout(1500);
+const after = await page.locator('main').innerText();
+console.log(before === after ? 'kararlı' : 'DEĞİŞTİ');
+```
+- [ ] Sunucu HTML'i ile hydrate sonrası DOM anlamlı biçimde değişiyor mu?
+- [ ] Console'da `Hydration` uyarısı var mı?
+- [ ] Sayı/tarih biçimi sunucu ile istemcide aynı mı? (`toLocaleString('tr-TR')`
+      sunucu ICU'su ile tarayıcınınki farklı olabilir)
+- [ ] ⚠ **`npm run build && npm run start` ile test et** — dev sunucusu bazı
+      uyuşmazlıkları maskeliyor
+
+---
+
+### M · DİNAMİK ROTALARDA LOCALE-AWARE 404
+> **Kaynak: GPT-5.4.** Hiç aranmadı. Sitede 5 dinamik rota var:
+> `/tefekkur/[slug]` · `/atlas/peygamber/[id]` · `/oku/[surah]` ·
+> `/ayet/[surah]/[ayah]` · `/api/meal/[author]/[surah]`
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/tr/tefekkur/olmayan-slug
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/en/atlas/peygamber/9999
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/tr/oku/115
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/tr/ayet/2/300
+```
+- [ ] Olmayan slug/id gerçekten **404** mü? (200 + boş içerik **hata**)
+- [ ] Hata sayfası **doğru dilde** mi?
+- [ ] `notFound()` çağrılıyor mu, yoksa sessizce boş mu render ediliyor?
+- [ ] Sınır değerler: sûre 0, sûre 115, âyet 0, negatif sayı, çok uzun string
+
+---
+
+### N · CANONICAL / HREFLANG / ALTERNATES
+> **Kaynak: GPT-5.4.** İki dilli sitede bu SEO'dan fazlası — kullanıcı yanlış
+> dil sayfasına düşüyor ve o URL'yi paylaşıyor.
+
+```js
+await page.locator('head link[rel="canonical"], head link[rel="alternate"]')
+  .evaluateAll(els => els.map(e => ({ rel: e.rel, href: e.href, lang: e.hreflang })));
+```
+- [ ] `rel="canonical"` **kendi locale'ine** mi işaret ediyor?
+- [ ] `hreflang="tr"` ve `hreflang="en"` karşılıklı eşlenmiş mi?
+- [ ] Dinamik sayfalarda slug **iki dilde de aynı mı**? (tefekkür slug'ları ortak)
+- [ ] `x-default` var mı?
+- [ ] OG/Twitter görselleri doğru dilde mi?
+
+---
+
+### O · BIDI — Arapça/Latin karışık satırlar
+> **Kaynak: GPT-5.4.** Bizde `dir`/`lang` kontrolü vardı ama **karışık satır**
+> riski yoktu. Bu sitenin en özel riski.
+
+- [ ] `<html lang>` locale'e göre doğru mu?
+- [ ] Arapça metnin **içinde** sayı/parantez/alıntı var mı? Sıralama bozuluyor mu?
+      (âyet numarası, sûre adı + numara, `(2:255)`, tırnaklı Arapça)
+- [ ] Latin metnin **içinde** Arapça kelime → `<bdi>` gerekiyor mu?
+- [ ] Kopyala-yapıştır doğru sırada mı geliyor?
+- [ ] ⚠ **Bu madde gözle bakılmadan kapatılamaz** — DOM doğru görünürken
+      ekranda ters çıkabilir
+
+---
+
+### P · KLAVYE ODAĞI · FOCUS TRAP · SKIP LINK
+> **Kaynak: GPT-5.4.** Bizde "tıklanabilir mi" vardı, "klavyeyle erişilebilir mi"
+> yoktu. `globals.css`'te `.skip-link` mevcut ama **hiç test edilmedi.**
+
+```js
+await page.keyboard.press('Tab');
+console.log(await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 120)));
+```
+- [ ] İlk `Tab` "İçeriğe geç" bağlantısını getiriyor mu? Görünür oluyor mu?
+- [ ] Overlay/mega-menü/çekmece açılınca **focus trap** çalışıyor mu?
+- [ ] Kapanınca odak **tetikleyen ögeye** dönüyor mu?
+- [ ] `Escape` her overlay'de kapatıyor mu?
+- [ ] Odak halkası her etkileşimli ögede görünür mü? (`:focus-visible`)
+- [ ] Tab sırası görsel sırayla aynı mı?
+
+---
+
+### R · URL DURUMU · GERİ/İLERİ
+> **Kaynak: GPT-5.4.** Hiç aranmadı. Atlas filtreleri, graf etkileşimleri ve
+> `/sor` sorguları için kritik.
+
+- [ ] Filtre/sekme/arama seçimi URL'ye yazılıyor mu?
+- [ ] Tarayıcı **geri** tuşu önceki duruma dönüyor mu?
+- [ ] URL'yi kopyalayıp yeni sekmede açınca **aynı durum** geliyor mu?
+- [ ] Dil değiştirince `searchParams` korunuyor mu? (⚠ `LanguageContext` bunu
+      bilerek yapıyor — kırılmadığını doğrula)
+
+---
+
+### S · AĞ HATASI · API BAŞARISIZLIĞI
+> **Kaynak: GPT-5.4.** Hiç aranmadı. "Kullanıcı cevap yok görür ama sistem
+> başarı sanır" senaryosu.
+
+```js
+await page.route('**/api/**', route => route.abort());       // ağı kes
+page.on('response', r => { if (r.url().includes('/api/') && r.status() >= 400) console.log(r.status(), r.url()); });
+```
+- [ ] API başarısız olunca kullanıcı **ne görüyor?** (boş mu, hata mı, sonsuz spinner mı)
+- [ ] Hata mesajı **iki dilde** doğru mu? (⚠ bilinen açık: `/sor`'da EN sayfada
+      Türkçe "Bu sorguya yakın içerik bulunamadı.")
+- [ ] Yeniden dene seçeneği var mı?
+- [ ] Yavaş ağda (`--throttle`) iskelet/yükleniyor durumu var mı?
+
+---
+
+### T · FONT GERÇEKTEN YÜKLENİYOR MU
+> **Kaynak: GPT-5.4.** §13.2 font **zincirini** tanımlıyor ama zincirin ilk
+> halkasının yüklendiği **hiç doğrulanmadı** — sessizce fallback'e düşüyor olabilir.
+
+```js
+page.on('response', r => { if (/\.(woff2?|ttf)$/.test(r.url())) console.log(r.status(), r.url()); });
+await page.evaluate(() => document.fonts.ready.then(() =>
+  [...document.fonts].map(f => `${f.family} ${f.status}`)));
+```
+- [ ] `KFGQPC` / `ShaykhHamdullah` / `Amiri Quran` **200** dönüyor mu?
+- [ ] `document.fonts` içinde `loaded` mı, yoksa hiç yok mu?
+- [ ] Fallback'e düşerse satır yüksekliği ve mushaf görünümü bozuluyor mu?
+
+---
+
+### U · RAG İNDEKS TAZELİĞİ
+> **Kaynak: GPT-5.4.** Bizde "corpus'a giriyor mu" vardı; **bayat/ölü kayıt**
+> kontrolü yoktu.
+
+```bash
+find "src/app/[locale]" -name page.js | sed 's|src/app/\[locale\]||;s|/page.js||' | sort > /tmp/routes.txt
+node -e "import('./src/data/toolCatalog.js').then(m=>m.TOOL_CATALOG.forEach(t=>console.log(t.route)))" | sort > /tmp/rag.txt
+comm -13 /tmp/rag.txt /tmp/routes.txt   # rotada var, corpus'ta yok
+comm -23 /tmp/rag.txt /tmp/routes.txt   # corpus'ta var, ROTADA YOK → 404'e götürür
+```
+- [ ] Corpus'ta olup **artık var olmayan** rota var mı? (arama 404'e götürür)
+- [ ] Yeni/taşınmış içerik indekste güncel mi?
+- [ ] Embedding dosyası Git LFS pointer'ı mı? (`version https://git-lfs...`)
+
+---
+
+### V · GEREKSİZ PREFETCH
+> **Kaynak: GPT-5.4.**
+
+```js
+page.on('request', r => { if (['script','fetch'].includes(r.resourceType())) console.log(r.url()); });
+await page.goto('/tr'); await page.waitForTimeout(3000);
+```
+- [ ] Anasayfa, ağır atlas/graf route'larını tıklanmadan prefetch ediyor mu?
+- [ ] Mobil veri ölçüldü mü? (ilk 3sn'de kaç KB)
+
+---
+
+### Y · GÖRSEL SEMANTİĞİ · TABLO/LİSTE
+> **Kaynak: GPT-5.4.**
+- [ ] Anlam taşıyan `img`'de `alt` var mı, **dekoratif olanda `alt=""`** mi?
+      (bizim kontrol yalnız "alt var mı" diyordu — ikisi farklı hata)
+- [ ] Tablo gibi görünen şey gerçekten `<table>` mi, div yığını mı?
+- [ ] `await page.accessibility.snapshot()` ile ağaç anlamlı mı?
+
+---
+
+## 2.5 · GPT-5.4'ÜN İTİRAZLARI — hangisini kabul ettim
+
+| İtiraz | Karar |
+|---|---|
+| *"`/en`'de Türkçe karakter aramak zayıf sinyal — ASCII İngilizce sızıntılar kaçar"* | **Kabul, ama madde kalıyor.** Bu sinyal gerçekten "TEFEKKÜR"ü yakaladı. Tamamlayıcı olarak **E'ye eklendi:** i18n dışı sabit dize envanteri (`grep -R "\"[A-Za-z][^\"]*\"" src/components --include='*.jsx'`). |
+| *"`<20.000px` eşiği keyfî, tefekkür/atlas'ta yanlış alarm üretir"* | **Kabul.** Eşik anasayfa için konmuştu, genel kural değil. Yeniden çerçevelendi → aşağıya bak. |
+| *"Başlık seviyesi atlamama kuralı fazla katı"* | **Kısmen kabul.** Katı kırmızı yerine `page.accessibility.snapshot()` ile doğrulama önerisi eklendi. Ama seviye atlaması gerçek bir okunabilirlik sorunudur, madde kalıyor. |
+| *"'← ANASAYFA her sayfada olmalı' ürün tercihi, hata sınıfı değil"* | **Katılmıyorum.** Genel bir kural olarak doğru — ama bu sitede zaten **verilmiş bir karar** vardı: tüm araç sayfalarında var, iki sayfada yoktu. Bu bir *tutarlılık* kontrolü, evrensel kural değil. Madde yeniden yazıldı: *"Site bu soruyu daha önce cevaplamış mı? Cevabıysa bu sayfa ona uyuyor mu?"* |
+
+**Sayfa uzunluğu maddesinin yeni hâli** (H bölümünün yerine geçer):
+- [ ] Sayfanın **ilk anlamlı eylemi** ilk ekranda mı? (uzunluk tek başına hata değil)
+- [ ] Uzun sayfada atlama aracı var mı? (raf/ToC/çapa)
+- [ ] Uzunluk **artıyor mu**? (regresyon; mutlak eşik değil)
+
+---
+
 ## 3. SAYFA TİPİNE GÖRE EK KONTROLLER
 
 ### 3.1 Araç sayfaları (`/arac/*` — 32 sayfa)
@@ -381,6 +578,61 @@ node scripts/audit-colors.mjs --ci       # taban aşılırsa / §4 saparsa exit 
 - [ ] Bütçe/kota gerçekten çalışıyor mu? (`meta.budget`, `X-Degraded`)
 - [ ] Degrade modda kullanıcı ne görüyor? Metin **iki dilde** doğru mu?
 - [ ] Degrade yanıt cache'lenmiyor mu?
+
+---
+
+## 3.7 · ÖNCEDEN BİLİNEN AÇIKLAR (anasayfa todo'sundan taşındı)
+
+> Bunlar diğer sayfalara ait ve **zaten ölçülmüş** açıklar. Denetime bu
+> sayfalardan başlarken hazır bulgu olarak elde var.
+
+### Beş sayfa içerik olarak yetersiz — derinleştirilecek
+
+| Sayfa | Rota | Bileşen | Veri |
+|---|---|---|---|
+| Kitap Kavramı | `/arac/kitap-kavrami` | `KitapKavrami.jsx` — 382 satır | `kitap-kavrami.json` 18 KB |
+| Semantik Harita | `/graf/semantik` | `SemanticMap.jsx` — 585 satır | UMAP projeksiyonu |
+| Münâsebât Atlası | `/atlas/munasebat` | `MunasebatAtlasi.jsx` — 795 satır | — |
+| Diyalog Ağı | `/graf/diyalog` | `DiyalogAgi.jsx` — 1.253 satır | 5 JSON · ~81 KB |
+| Sûre DNA | `/graf/karsilastir` | `SurahComparator.jsx` | — |
+
+- [ ] Her biri için önce **içerik envanteri**: şu an ne gösteriyor, ne eksik
+- [ ] `KitapKavrami` (382 satır) ve `SemanticMap` (585 satır) en zayıf ikisi — önce onlar
+- [ ] Detaylandırma sonrası `TOOL_CATALOG` açıklamalarını güncelle (`/sor` bunları okuyor)
+
+### Adlandırma tutarsızlığı — aynı şey dört adla anılıyor
+Menüde **"Sûre DNA"** · rota `/graf/karsilastir` · bileşen `SurahComparator`
+· katalogda **"Sûre Karşılaştırıcı"**.
+- [ ] Tek ada karar ver, dördünü de hizala
+- [ ] Aynı hatayı diğer rotalarda da ara:
+```bash
+# Katalog adı ile rota adı örtüşmeyenler
+node -e "import('./src/data/toolCatalog.js').then(m=>m.TOOL_CATALOG.forEach(t=>{
+  const slug=t.route.split('/').pop();
+  const norm=(t.titleTr||'').toLowerCase().replace(/[^a-zçğıöşü]/g,'');
+  if(!norm.includes(slug.replace(/-/g,'').slice(0,5))) console.log(t.route,'|',t.titleTr);
+}))"
+```
+
+### `/sor` — test sağlığı ve dil sızıntısı
+- [ ] **`concierge.spec.js:240` degrade moduna dayanıksız.** Günün test koşuları
+      IP kotasını (50/gün) tüketince kırmızıya dönüyor. Kanıt:
+      `meta.budget = {"used":65,"limit":500,"reason":"ip"}` · `X-Degraded: 1`
+      Koruma doğru çalışıyor; dayanıksız olan test.
+- [ ] **`concierge.spec.js:112` bayat assertion.** Test `tarıyorum|scanning|
+      matching|arıyor` bekliyor; bu kelimeler `/sor` kaynağında **hiç yok**.
+- [ ] **Degrade/hata metni İngilizce sayfada Türkçe:** başlık "Something went
+      wrong", altı **"Bu sorguya yakın içerik bulunamadı."** (bkz. **S** ve **E**)
+- [ ] Degrade modda İngilizce anahtar kelime araması **0 sonuç** döndürüyor —
+      ayrıca incelenecek
+
+### Site genelinde 184 token dışı renk
+Anasayfa temiz, gerisi değil. En sık: `#4a5568` ×34 · `#f87171` ×16 ·
+`#60a5fa` ×14 · `#f39c12` ×14 · `#c084fc` ×14 → `node scripts/audit-colors.mjs --list`
+
+⚠ **Bu bir temizlik işi değil, önce karar gerekiyor** — bkz. bölüm **I**'nin
+son maddesi ve `todo_agu13_2026.md` → **C2**. Veri paleti (graf/atlas) UI
+paletiyle aynı kurala tabi olmamalı.
 
 ---
 
