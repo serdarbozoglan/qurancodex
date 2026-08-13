@@ -289,5 +289,8 @@ export default function ToolsHighlight() {
 function getColumnCount(width) {
   if (width >= 1024) return 3;
   if (width >= 640)  return 2;
-  return 1;
+  // Mobilde de 2 sütun (2026-08-13). Tek sütunda 6 kart bölümü 889px'ten
+  // 1.580px'e çıkarıyordu (+78%). Kart sayısını azaltmak yerine sütun
+  // sayısı artırıldı — hiçbir araç bağlantısı kaybolmuyor.
+  return 2;
 }

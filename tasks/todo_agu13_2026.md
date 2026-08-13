@@ -94,13 +94,23 @@
 
 ---
 
-## 🟠 P3 — Mobil uzunluk (~yarım gün)
+## 🟡 P3 — MOBİL UZUNLUK — BÖLÜMLER KÜÇÜLDÜ, SAYFA HEDEFİ P4'E BAĞLI
 
-- [ ] **`SixGates` mobilde 2.395px** (masaüstünde 1.006px, +138%)
-  `next/src/sections/SixGates.jsx` → akordeon veya yatay kaydırmalı şerit
-- [ ] **`ToolsHighlight` mobilde 1.580px** (masaüstünde 889px, +78%)
-  `next/src/sections/ToolsHighlight.jsx` → 6 kart yerine 3 + "tümünü gör" bağlantısı
-- [ ] Değişiklik sonrası ölçümü tekrarla, mobil toplam < 20.000px hedefi
+- [x] **`SixGates` mobilde 2.395px → 1.859px** (−22%)
+      - `desc` satırı mobilde gizlendi: chip'lerle **aynı bilgiyi** veriyordu
+        (desc "14 mukattaa harfi · 16 vezin…", chip'ler "Dilsel DNA", "İmkânsız Ritim"…)
+      - ⚠ Yol boyunca bir hata bulundu: `Gate`'e `isMobile={false}` **sabit**
+        geçiliyordu — bileşenin mobil dalı hiç çalışmıyormuş. SSR-safe state eklendi.
+      - `minHeight: 320px` mobilde kaldırıldı; desc gizlenince boşalan yeri
+        chip'lerin `flexGrow`'u yutuyordu, kart yine 320px kalıyordu
+- [x] **`ToolsHighlight` mobilde 1.580px → 1.119px** (−29%)
+      - Kart sayısını azaltmak yerine **sütun sayısı** 1 → 2 yapıldı;
+        hiçbir araç bağlantısı kaybolmadı (envanter 17 → 17)
+- [ ] **Sayfa hedefi (<20.000px) TUTMADI:** 24.912 → **23.915px** (−4%)
+      Kalan yığın 14 kartta (mobilde her biri ~950-1.050px). Bu **P4'ün işi** —
+      ritim kademelenmesi yapılmadan sayfa hedefi tutmaz.
+
+**Masaüstü etkilenmedi:** six-gates 1.006px, tools-highlight 889px — aynı.
 
 ---
 

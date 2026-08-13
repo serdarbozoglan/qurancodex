@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 // ─── SixGates — 6 Kapı (kategorize edici kapı navigasyonu) ─────────────────────
 // Hero'nun hemen altında. 14 anlatı kartını 3 cluster'a + 3 tool kategorisi
 // linkine yönlendirir. Anasayfa "katalog/giriş" karakteri buradan başlar.
@@ -159,7 +161,11 @@ function Gate({ gate, isMobile, language }) {
         // Grid cell stretch + explicit minHeight — kısa içerikli kartların uzun kartlarla
         // balanced grid görünümünü korumak için (Visual audit O-10, 2026-07-12).
         height: '100%',
-        minHeight: '320px',
+        // Mobilde 320px sabit yükseklik kartları gereksiz uzatıyordu: desc
+        // gizlenince boşalan yeri chip'lerin flexGrow'u yutuyor, kart yine
+        // 320px kalıyordu. Mobilde eşit yükseklik zorlamasına gerek yok —
+        // kartlar tek sütunda alt alta, hizalanacak komşusu yok. (2026-08-13)
+        minHeight: isMobile ? 0 : '320px',
         display: 'flex',
         flexDirection: 'column',
         padding: isMobile ? '22px 20px' : '26px 24px',
@@ -250,20 +256,27 @@ function Gate({ gate, isMobile, language }) {
         {tr ? gate.titleTr : gate.titleEn}
       </h3>
 
-      {/* Description */}
-      <p style={{
-        color: COLORS.silver,
-        fontFamily: FONTS.body,
-        fontSize: '0.82rem',
-        lineHeight: 1.55,
-        margin: '0 0 14px',
-        opacity: 0.9,
-      }}>
-        {tr ? gate.descTr : gate.descEn}
-      </p>
+      {/* Description — mobilde gizli (2026-08-13, todo P3).
+          Bu satır chip'lerle AYNI bilgiyi veriyor: desc "14 mukattaa harfi ·
+          16 vezin · ritim…", chip'ler "Dilsel DNA", "İmkânsız Ritim"…
+          Mobilde 6 kapı alt alta gelince bu çift gösterim bölümü 1.006px'ten
+          2.395px'e çıkarıyordu. İçerik kaybı yok — chip'ler aynı araçları
+          zaten adlandırıyor. Gizleme globals.css'te @media ile. */}
+      {!isMobile && (
+        <p style={{
+          color: COLORS.silver,
+          fontFamily: FONTS.body,
+          fontSize: '0.82rem',
+          lineHeight: 1.55,
+          margin: '0 0 14px',
+          opacity: 0.9,
+        }}>
+          {tr ? gate.descTr : gate.descEn}
+        </p>
+      )}
 
       {/* Chips */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px', flexGrow: 1, alignContent: 'flex-start' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px', flexGrow: isMobile ? 0 : 1, alignContent: 'flex-start' }}>
         {chips.map((chip, i) => (
           <span key={i} style={{
             padding: '3px 9px',
@@ -323,6 +336,16 @@ export default function SixGates() {
   const { language } = useLanguage();
   const reduced = useReducedMotion();
   const tr = language === 'tr';
+
+  // SSR-safe mobil algılama (§16.6). 2026-08-13'e kadar Gate'e isMobile={false}
+  // SABİT geçiliyordu — yani bileşenin mobil dalı hiç çalışmıyordu.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < 640);
+    h();
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
 
   return (
     <section
@@ -399,7 +422,7 @@ export default function SixGates() {
         className="six-gates-grid"
         >
           {GATES.map(gate => (
-            <Gate key={gate.id} gate={gate} isMobile={false} language={language} />
+            <Gate key={gate.id} gate={gate} isMobile={isMobile} language={language} />
           ))}
         </div>
       </div>
