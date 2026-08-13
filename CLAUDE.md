@@ -39,20 +39,29 @@ A mesmerizing, cinematic single-page website that reveals the hidden architectur
 ## 4. DESIGN SYSTEM
 
 ### Color Palette
-| Role | Color | Hex | Usage Standardı |
+
+> ⚠ **Otorite `next/src/tokens.js`'tir, bu tablo değil.**
+> 2026-08-13 denetimi: tablo 10 renk listeliyordu, `tokens.js`'te **100 token**
+> var (46 düz hex + 54 rgba). Doküman koddan kopmuştu. **Renk sistemi kuralları
+> için §13.25'e bak** — UI kodunda ham renk adı değil semantik token kullanılır.
+
+**Çekirdek roller**
+
+| Role | Token | Hex | Usage Standardı |
 |------|-------|-----|---|
-| Background (deep) | Cosmic Black | `#0a0a1a` | Tüm tool sayfası body bg |
-| Background (section) | Deep Navy | `#0d1b2a` | Section gradient'leri |
-| **Primary accent** | **Antique Gold** | **`#d4a574`** | **Anchor verse · Hero başlık · Eyebrow · Tab active · Tüm UI accent** |
-| Secondary accent | Royal Gold | `#c9a227` | **Sadece** stat sayıları, sekonder vurgular — anchor verse veya Hero için **YASAK** (2026-06-15 standartlaştırıldı) |
-| Quranic Green | Emerald | `#1a7a4c` |
-| Quranic Green (light) | Soft Emerald | `#2ecc71` |
-| Text (primary) | Off-White | `#e8e6e3` |
-| Text (muted) | Silver | `#94a3b8` |
-| Danger/Warning accent | Soft Red | `#e74c3c` |
-| Calm/Mercy accent | Sky Blue | `#3498db` |
-| Card background | Glass | `rgba(255,255,255,0.05)` |
-| Card border | Glass edge | `rgba(255,255,255,0.1)` |
+| Background (deep) | `SEMANTIC.surface` | `#0a0a1a` | Tüm tool sayfası body bg |
+| Background (section) | `SEMANTIC.surfaceRaised` | `#0d1b2a` | Section gradient'leri |
+| **Ayet / kutsal metin** | **`SEMANTIC.scriptureText`** | **`#d4a574`** | **Anchor verse, ayet metni** |
+| **UI aksanı** | **`SEMANTIC.accentPrimary`** | **`#d4a574`** | **Eyebrow, aktif sekme, UI vurgusu** |
+| İstatistik vurgusu | `SEMANTIC.accentStats` | `#c9a227` | **Sadece** stat sayıları — anchor verse/Hero için **YASAK** |
+| Text (primary) | `SEMANTIC.textPrimary` | `#e8e6e3` | |
+| Text (muted) | `SEMANTIC.textMuted` | `#94a3b8` | |
+| Durum | `STATUS.{error,success,info,warning}` | — | Kategori paletinden bağımsız |
+| Kategori | `CATEGORY.{emerald,blue,violet,orange,red,rose}` | — | Atlas/tefekkür/graf kategorileri |
+
+> `scriptureText` ve `accentPrimary` **aynı hex, ayrı token**. Ayrım bilinçli:
+> tek token olursa ayet rengi ayırt ediciliğini kaybeder, buton/badge/link/ayet
+> aynı görünür ve hiyerarşi çöker.
 
 ### Typography
 - **Hero Title:** Playfair Display, 900 weight, 4-6rem
@@ -1064,6 +1073,74 @@ Bu tür hassas içerikte (yeni veya revizyon): **GPT-5.2 hakem incelemesi (klasi
 
 #### Neden yazıldı
 2026-07-26'da bir âlimin Firavun bölümü eleştirisi üzerine `tarihsel-kanitlar` (Firavun/Hâmân) ve `bilimsel-isaretler` (embriyoloji, süt, demir, genişleyen evren vd.) yeniden çerçevelendi. Bkz. `docs/reviews/` ve memory `feedback_quran_supremacy_framing`.
+
+---
+
+### 13.25 Renk Sistemi — ENFORCE ALWAYS (2026-08-13)
+
+**Ölçülen sorun:** `tokens.js`'te 100 renk token'ı olmasına rağmen kod tabanında
+**186 token dışı hex** kullanılıyordu (çoğu Tailwind'den ad-hoc). Yakın-tekrarlar:
+**7 yeşil, 7 turkuaz, 6 kırmızı, 81 turuncu/altın tonu.** Anasayfa tek başına 18
+farklı hex kullanıyordu. Kök sebep: `COLORS` ham renk adı veriyordu (`gold`,
+`violet`, `orange`) ama **rolü** söylemiyordu; rol belirsiz olunca herkes kendi
+tonunu uydurdu.
+
+#### Mutlak kurallar
+
+1. **Uygulama kodunda ham renk YASAK.** Yasaklı: `#hex` · `rgb()/rgba()` ·
+   `hsl()/hsla()` · Tailwind arbitrary (`text-[#...]`, `bg-[#...]`, `border-[#...]`).
+   Tek istisna: `next/src/tokens.js`'in kendisi.
+2. **Rol bazlı token kullan, ham renk adı değil.**
+   - ✅ `SEMANTIC.textPrimary` · `SEMANTIC.accentPrimary` · `CATEGORY.blue`
+   - ❌ `COLORS.violet` · `COLORS.orange` · `'#d4a574'`
+3. **Kategori rengi tek kaynaktan:** `CATEGORY` (veya sıralı dağıtım için
+   `CATEGORY_SCALE`). Yeni kategori rengi **uydurulmaz**.
+4. **Kategori ölçeği sert üst sınır 6, hedef 4-5.** Altıdan sonra renk tek başına
+   ayırt etmez — ikon/etiket zorunlu hâle gelir.
+5. **Kategori rengi tek sinyal olamaz.** Her kategori kartı renkle BİRLİKTE
+   etiket veya ikon taşır (renk körlüğü).
+6. **`STATUS.error` ile `CATEGORY.red` aynı ekranda kullanılmaz** — kırmızı ya
+   hata demektir ya kategori, ikisi birden değil.
+7. **`accentStats` (`#c9a227`) yalnız istatistik sayılarında.** Anchor verse ve
+   Hero için **YASAK** (§13.18).
+8. **Bir ekranda aynı anda en fazla 3 kategori aksanı.** Anasayfada bu kural
+   küme başına tek renk demektir.
+
+#### Denetim
+
+```bash
+cd next && node scripts/audit-colors.mjs          # özet
+cd next && node scripts/audit-colors.mjs --list   # token dışı renklerin listesi
+cd next && node scripts/audit-colors.mjs --ci     # taban aşılırsa exit 1
+```
+
+2026-08-13 taban değerleri: **184 farklı token dışı renk**, **1.195 ham hex
+kullanımı**. Bu sayılar **artmamalı**; her PR'da azalmalı. Script taban aşılırsa
+kırmızı yanar.
+
+> Tek satırlık `grep` bilinçli olarak kullanılmıyor: "satır sayısı" ile "farklı
+> renk sayısı" birbirine karışıyordu (1.080 vs 186 gibi tutarsız rakamlar).
+
+#### Göç sırası (tek seferde yapma)
+
+1. **Yeni kaçakları durdur** — yukarıdaki denetim komutu her PR'da koşulur
+2. Rol katmanını kur (`SEMANTIC` / `STATUS` / `CATEGORY`) — ✅ yapıldı
+3. En yüksek frekanslı renkleri map et (`#d4a574`, `#3498db`, `#2ecc71`, `#94a3b8`…)
+4. **Anasayfayı temizle** — vitrin; 18 hex → 2 surface + 2 text + 1 border +
+   1 scripture gold + max 3 kategori
+5. Kategorileri `CATEGORY`'ye bağla
+6. Status renklerini ayır
+7. Kalan düşük frekanslı rogue renkleri sil
+
+#### Gerekçe kaydı
+
+Bu kural GPT-5.5 hakem turuyla doğrulandı. İki noktada hakemden ayrışıldı:
+- Hakem `accentPrimary`'yi `royalGold`'a çevirmeyi önerdi — **uygulanmadı**;
+  antika altın sitenin görsel kimliği ve §13.18 royalGold'u hero/anchor için
+  ismen yasaklıyor. Hakemin kendi çıkışı kullanıldı: *"aynı hex kalabilir, aynı
+  token olamaz"* → ayrım token seviyesinde, piksel değişmedi.
+- Hakem turkuazı (`#1abc9c`) attırdı (→ `rose`) ve `#8b5cf6` yerine `#a78bfa`
+  önerdi (küçük metinde kontrast sınırdaydı) — **ikisi de uygulandı**.
 
 ---
 

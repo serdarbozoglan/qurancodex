@@ -146,13 +146,28 @@ Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 
 ---
 
-## 🟡 P6 — Renk (~2 saat, bağımsız)
+## 🟡 P6 — RENK SİSTEMİ — TEMEL ATILDI, GÖÇ SÜRÜYOR
 
-- [ ] **Küme başına tek aksan rengi**
-  - Şu an anasayfada 12 aksan: `#d4a574`×294, `#e67e22`×41, `#e74c3c`×23, `#3498db`×23, `#27ae60`×23, `#9b59b6`×17, `#c9a227`×9, `#8b5cf6`×9 …
-  - Hedef: hayranlık = altın · hayret = mavi · içe bakış = yeşil
-  - Kart içi ikincil renkler kalabilir; sayfa üç renkli okunsun
-  - Not: hepsi `tokens.js`'ten geliyor, §13.1 ihlali yok — sorun sayıda
+- [x] **Gerçek durum ölçüldü** (ilk raporda yanlış söylemiştim: "hepsi token'dan
+      geliyor, §13.1 ihlali yok" demiştim — **yanlıştı**):
+      `tokens.js`'te 100 token var ama kodda **184 token dışı renk** kullanılıyor.
+      Yakın tekrarlar: **7 yeşil, 7 turkuaz, 6 kırmızı, 81 turuncu/altın tonu.**
+      Anasayfa tek başına 18 farklı hex kullanıyor.
+- [x] **Rol katmanı kuruldu** — `tokens.js`'e `SEMANTIC` / `STATUS` / `CATEGORY` eklendi
+      - `scriptureText` ve `accentPrimary` aynı hex, **ayrı token** (ayet rengi
+        ayırt ediciliğini kaybetmesin)
+      - `CATEGORY`: emerald · blue · violet · orange · red · rose (sert sınır 6)
+      - Turkuaz `#1abc9c` **atıldı** (emerald'a fazla yakındı), `#8b5cf6` yerine
+        `#a78bfa` (küçük metinde kontrast sınırdaydı)
+- [x] **Kural yazıldı** — CLAUDE.md **§13.25**, 8 mutlak madde + göç sırası
+- [x] **Denetim script'i** — `next/scripts/audit-colors.mjs` (`--list`, `--ci`)
+      Taban: 184 farklı renk / 1.195 kullanım. Artmamalı.
+- [x] GPT-5.5 hakem turu; iki noktada ayrışıldı, gerekçeler §13.25'te yazılı
+- [ ] **Göç adım 3:** en yüksek frekanslı renkleri `SEMANTIC`/`CATEGORY`'ye map et
+- [ ] **Göç adım 4:** anasayfayı temizle — 18 hex → 2 surface + 2 text + 1 border
+      + 1 scripture gold + max 3 kategori
+- [ ] **Göç adım 5-7:** kategorileri `CATEGORY`'ye bağla, status ayır, kalan rogue'ları sil
+- [ ] `audit-colors.mjs --ci` pre-merge kontrolüne eklensin
 
 ---
 

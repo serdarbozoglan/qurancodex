@@ -442,3 +442,71 @@ export const IBADET_CONFIDENCE_STYLES = {
   medium: { icon: '●●○', opacity: 0.7 },
   low:    { icon: '●○○', opacity: 0.5 },
 };
+
+// ─── SEMANTİK RENK KATMANI (2026-08-13) ─────────────────────────────────────
+//
+// Neden eklendi — ölçülen durum:
+//   · tokens.js'te 100 renk token'ı var
+//   · buna RAĞMEN kod tabanında 186 token DIŞI hex kullanılıyor
+//   · yakın-tekrarlar: 7 yeşil, 7 turkuaz, 6 kırmızı, 81 turuncu/altın tonu
+//   · anasayfa tek başına 18 farklı hex kullanıyor
+// Kök sebep: COLORS ham renk adları veriyor (gold, violet, orange) — hangi
+// rolde kullanılacağını söylemiyor. Rol belirsiz olunca herkes kendi tonunu
+// uyduruyor. Aşağıdaki katman rolü adlandırır.
+//
+// GPT-5.5 hakem turunda doğrulandı; iki noktada ayrışıldı, gerekçeleri yazılı:
+//   1. Hakem accent.primary'yi royalGold (#c9a227) yapmayı önerdi. Uygulanmadı:
+//      antika altın (#d4a574) sitenin görsel kimliği ve §13.18 royalGold'u
+//      hero/anchor için ismen yasaklıyor. Hakem "aynı hex kalabilir, aynı token
+//      olamaz" dediği için ayrım TOKEN seviyesinde yapıldı — piksel değişmedi.
+//   2. Kategori kırmızısı korundu ama status.error ile aynı ekranda
+//      kullanılmaması kural olarak yazıldı (bkz. CLAUDE.md §13.25).
+// ────────────────────────────────────────────────────────────────────────────
+
+// Rol bazlı semantik takma adlar. UI kodunda BUNLAR kullanılır, ham renk
+// adları (COLORS.violet gibi) değil.
+export const SEMANTIC = {
+  surface:        COLORS.cosmicBlack,   // sayfa zemini
+  surfaceRaised:  COLORS.deepNavy,      // yükseltilmiş bölüm zemini
+  textPrimary:    COLORS.offWhite,
+  textMuted:      COLORS.silver,
+
+  // Kutsal metin ile UI aksanı AYNI HEX ama AYRI ROL. Ayrım bilinçli:
+  // ikisi aynı token olursa "ayet rengi" ayırt ediciliğini kaybeder ve
+  // buton/badge/link/ayet aynı görünür — hiyerarşi çöker.
+  scriptureText:  COLORS.gold,          // #d4a574 — ayet metni, anchor verse
+  accentPrimary:  COLORS.gold,          // #d4a574 — UI vurgusu, eyebrow, aktif sekme
+  accentStats:    COLORS.royalGold,     // #c9a227 — YALNIZ istatistik sayıları (§4)
+};
+
+// Durum renkleri — kategori paletinden BAĞIMSIZ olmalı.
+export const STATUS = {
+  error:   COLORS.softRed,     // #e74c3c
+  success: COLORS.emerald,     // #1a7a4c
+  info:    COLORS.skyBlue,     // #3498db
+  warning: COLORS.orange,      // #e67e22
+};
+
+// Kategorik ölçek — atlas / tefekkür / graf kategorileri için TEK KAYNAK.
+// Sert üst sınır 6; hedef 4-5. Altıdan sonra kullanıcı renkle ayırt etmiyor,
+// ikon/etiket zorunlu hâle geliyor (hakem notu).
+//
+// Seçim gerekçeleri:
+//   emerald — koyu zeminde güçlü, sitede zaten en çok kullanılan yeşil (x20)
+//   blue    — güvenli, ayırt edilebilir
+//   violet  — #8b5cf6 yerine #a78bfa: küçük metinde kontrast sınırdaydı
+//   orange  — altından net ayrışıyor
+//   red     — kategori olarak kullanılabilir ama STATUS.error ile aynı ekranda YASAK
+//   rose    — turkuaz (#1abc9c) yerine: turkuaz #1D9E75'e fazla yakındı ve
+//             renk körlüğünde zayıf ayrışıyordu
+export const CATEGORY = {
+  emerald: '#1D9E75',
+  blue:    '#3498DB',
+  violet:  '#A78BFA',
+  orange:  '#E67E22',
+  red:     '#E74C3C',
+  rose:    '#F472B6',
+};
+
+// Sırayla dağıtım gerektiğinde (kategori listesi renklendirme) bu diziyi kullan.
+export const CATEGORY_SCALE = Object.values(CATEGORY);
