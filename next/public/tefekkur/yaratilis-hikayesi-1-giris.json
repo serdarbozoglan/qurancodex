@@ -1,0 +1,255 @@
+{
+  "slug": "yaratilis-hikayesi-1-giris",
+  "titleTr": "Yaratılış Hikâyesi 1: Giriş",
+  "titleEn": "The Story of Creation 1: Introduction",
+  "category": "kozmoloji",
+  "template": "series-hero",
+  "seriesId": "yaratilis-hikayesi",
+  "seriesNumber": 1,
+  "publishedDate": "2025-07-27",
+  "readingMinutes": 2,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-1-giri%C5%9F-54d8985e35b4",
+  "tldrTr": "Serinin giriş yazısı. Merkeze alınan anlatı **Bakara 2:29-39**; oradan halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesine uzanan bir kavramsal harita çıkarılacak. Yöntem bilinçli olarak **lineer değil**: Kur'an, Kâinat ve İnsan arasında sürekli geçişlerle ilerleyen organik bir yapı. Yazarın kendi koyduğu ölçü dikkat çekici — bilimsel bulgular **destekleyici değil, açıklayıcı** araç olarak kullanılacak; Kur'an'ın iç tutarlılığı pusula, bilim rehber.",
+  "tldrEn": "The series' opening. Its centre is the narrative of **al-Baqara 2:29-39**, from which a conceptual map will be drawn out — vicegerency, the problem of evil, the teaching of the names, the angels' prostration. The method is deliberately **non-linear**: an organic structure advancing by continual passage between Qur'an, Cosmos and Human. The author's own measure is notable — scientific findings are to serve **not as corroboration but as explication**; the Qur'an's coherence is the compass, science the guide.",
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "2:30"
+  ],
+  "previousArticle": null,
+  "nextArticle": {
+    "slug": "yaratilis-hikayesi-2-katmanli-yaratilis",
+    "titleTr": "Yaratılış Hikâyesi 2: Kâinatın Katmanlı Yaratılışı",
+    "titleEn": "The Story of Creation 2: The Layered Creation of the Cosmos"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Modern insanın belki de en temel ihtiyacı, **kendi varlığının anlamını kavramak**. Teknolojik ilerlemeler evrenin fiziksel yasalarını açıklarken, ruhumuz hâlâ “Nereden geldik?” sorusunun peşinde.",
+      "en": "Perhaps modern man's most basic need is **to grasp the meaning of his own existence**. While technological advance explains the physical laws of the universe, the soul is still in pursuit of the question: where did we come from?"
+    },
+    {
+      "type": "section",
+      "id": "metod",
+      "titleTr": "Metodolojik Yaklaşım — Yeni Bir Anlatı Denemesi",
+      "titleEn": "Method — An Attempt at a New Narrative"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu seriye farklı bir perspektifle yaklaşıyorum. **Bakara Sûresi'nin 29-39. ayetleri** arasındaki fundamental anlatıyı merkeze alarak, insanın yeryüzündeki halifeliğinden kötülük problemine, isimlerin öğretilmesinden meleklerin secdesine kadar geniş bir kavramsal haritayı keşfedeceğiz.",
+      "en": "I approach this series from a different vantage. Taking as centre the fundamental narrative in **verses 29-39 of Sūrat al-Baqara**, we will explore a broad conceptual map: from the human vicegerency on earth to the problem of evil, from the teaching of the names to the prostration of the angels."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Serinin Kavramsal Haritası",
+      "titleEn": "The Series' Conceptual Map",
+      "root": {
+        "tr": "Bakara 2:29-39 — merkeze alınan anlatı",
+        "en": "Al-Baqara 2:29-39 — the narrative taken as centre"
+      },
+      "branches": [
+        {
+          "id": "halife",
+          "labelTr": "Halifelik",
+          "labelEn": "Vicegerency",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "İnsanın yeryüzündeki konumu ve rolü",
+              "en": "The human's position and role on the earth"
+            }
+          ]
+        },
+        {
+          "id": "kotuluk",
+          "labelTr": "Kötülük problemi",
+          "labelEn": "The problem of evil",
+          "accent": "#e74c3c",
+          "children": [
+            {
+              "tr": "Meleklerin “kan dökecek mi?” sorusu",
+              "en": "The angels' question: “will he shed blood?”"
+            }
+          ]
+        },
+        {
+          "id": "isimler",
+          "labelTr": "İsimlerin öğretilmesi",
+          "labelEn": "The teaching of the names",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Bilginin ve dilin ontolojik yeri",
+              "en": "The ontological place of knowledge and language"
+            }
+          ]
+        },
+        {
+          "id": "secde",
+          "labelTr": "Meleklerin secdesi",
+          "labelEn": "The angels' prostration",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Kozmik hiyerarşi ve insanın oradaki yeri",
+              "en": "Cosmic hierarchy and the human's place within it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Nasıl anlatılacak ⇄ Neye dayanılacak",
+      "captionEn": "How it will be told ⇄ What it will rest on",
+      "left": {
+        "titleTr": "Anlatımın karakteristikleri",
+        "titleEn": "Characteristics of the telling",
+        "accent": "#3498db",
+        "descTr": "Serinin biçimi hakkında yazarın kendi beyanı.",
+        "descEn": "The author's own statement about the form of the series.",
+        "bullets": [
+          {
+            "tr": "**Lineer olmayan** — düşünce akışına göre yön değiştiren bir yolculuk",
+            "en": "**Non-linear** — a journey that turns with the flow of thought"
+          },
+          {
+            "tr": "Yeni kavram ve terminolojiler",
+            "en": "New concepts and terminologies"
+          },
+          {
+            "tr": "Kur'an, Kâinat ve İnsan arasında **sürekli geçişler**",
+            "en": "**Continual passage** between Qur'an, Cosmos and Human"
+          },
+          {
+            "tr": "Her kavramın diğerini beslediği **organik** yapı",
+            "en": "An **organic** structure where each concept feeds the next"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Temel yaklaşım",
+        "titleEn": "The basic approach",
+        "accent": "#d4a574",
+        "descTr": "Kur'an'ın iç tutarlılığı pusula, modern bilim rehber.",
+        "descEn": "The Qur'an's internal coherence as compass, modern science as guide.",
+        "bullets": [
+          {
+            "tr": "Kelimelerin arkasındaki **derin anlamları** keşfetmek",
+            "en": "To discover the **deeper meanings** behind words"
+          },
+          {
+            "tr": "Bilimsel bulguları **destekleyici değil, açıklayıcı** araç olarak kullanmak",
+            "en": "To use scientific findings **not as corroboration but as explication**"
+          },
+          {
+            "tr": "Evrenin çok katmanlı yapısını **bütüncül** perspektifle anlamak",
+            "en": "To understand the universe's many-layered structure from an **integral** perspective"
+          }
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "tr": "Anlaşılmayan kavramlar veya terimler olursa yorumlarda belirtmenizi rica ediyorum; bu, gelecekteki yazıların yön bulmasına yardımcı olacak. Bu çok boyutlu anlayış, belki de günümüzün parçalanmış düşünce yapısına karşı bir alternatif sunabilir. Haydi, bismillâh…",
+      "en": "If any concept or term remains unclear, please say so in the comments; it will help future essays find their direction. This many-dimensioned understanding may perhaps offer an alternative to the fragmented thought of our day. So then — in the name of God…"
+    },
+    {
+      "type": "section",
+      "id": "cerceve",
+      "titleTr": "Kavramsal Çerçeve — Bilim ve Metafizik Arasında",
+      "titleEn": "The Frame — Between Science and Metaphysics"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Yaratılış Hikâyesi** serisi, kâinatın derinliklerine doğru bir **semantik keşif** yolculuğu sunuyor. Bu yolculukta Kur'an'ın iç tutarlılığını pusula olarak kullanırken, modern bilimin bulgularını da rehber ediniyoruz.",
+      "en": "The **Story of Creation** series offers a journey of **semantic exploration** into the depths of the cosmos. On this journey we take the Qur'an's internal coherence as our compass, while making the findings of modern science our guide."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Bilimsel bulguları destekleyici değil, **açıklayıcı** araç olarak kullanmak.",
+      "en": "To use scientific findings not as corroboration but as **explication**."
+    },
+    {
+      "type": "section",
+      "id": "gozlem",
+      "titleTr": "Gözlemler — Kozmik Merakın Kökleri",
+      "titleEn": "Observations — The Roots of Cosmic Wonder"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsanlık tarih boyunca göklere bakmış, sonsuzluk karşısında kendi konumunu sorgulamış. Bu merak sadece bilimsel değil; aynı zamanda **varoluşsal bir ihtiyaç**.\n\nSemâvâtın yaratılışı meselesi ile kâinatın işleyişini zihnen modelleyip kalbin genişlemesine bereketli bir zemin oluşturmak ve varlık içindeki rolümüzü anlamak adına önemli bir konu.",
+      "en": "Throughout history humanity has looked to the heavens and questioned its own position before the infinite. This wonder is not merely scientific; it is also **an existential need**.\n\nTo model, in the mind, the creation of the heavens and the workings of the cosmos — thereby preparing fertile ground for the heart's expansion and for understanding our role within existence — is a matter of importance."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Her yıldız, her parçacık büyük bir bütünün parçası. Bu farkındalık, günlük yaşamımızdaki anlam arayışımızı nasıl etkiliyor? Meleklerin varlığı, insanın kozmik rolü, fiziksel ve metafiziksel boyutlar arasındaki köprüler… Bunlar sadece teorik kavramlar değil; yaşamımızın her anında karşılaştığımız **gerçekliklerdir**.",
+      "en": "Every star, every particle is part of a great whole. How does that awareness affect our daily search for meaning? The existence of angels, the human's cosmic role, the bridges between physical and metaphysical dimensions — these are not merely theoretical concepts but **realities** we meet at every moment of our lives."
+    },
+    {
+      "type": "section",
+      "id": "kesif",
+      "titleTr": "Kendimizi Keşfetme Yolculuğu",
+      "titleEn": "A Journey of Self-Discovery"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu giriş, bilgi birikiminden çok daha fazlasını hedefliyor: kendimizi, ruhumuzu ve evrenle olan derin bağımızı anlama çabası.",
+      "en": "This introduction aims at far more than an accumulation of knowledge: it is an effort to understand ourselves, our souls, and our deep bond with the universe."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Sorgulamamız gereken üç soru",
+      "captionEn": "Three questions we must ask",
+      "nodes": [
+        {
+          "titleTr": "Anlam",
+          "titleEn": "Meaning",
+          "tone": "trigger",
+          "subtitleTr": "Kozmosun büyüklüğü karşısında bireysel varoluşumuzun anlamı nedir?",
+          "subtitleEn": "What is the meaning of our individual existence before the vastness of the cosmos?"
+        },
+        {
+          "titleTr": "Buluşma",
+          "titleEn": "Meeting",
+          "tone": "state",
+          "subtitleTr": "Bilimsel gerçeklikler ile metafiziksel derinlik nasıl buluşur?",
+          "subtitleEn": "How do scientific realities meet metaphysical depth?"
+        },
+        {
+          "titleTr": "Yer",
+          "titleEn": "Place",
+          "tone": "result",
+          "subtitleTr": "Bu büyük anlatının içinde bizim hikâyemiz nerede başlıyor?",
+          "subtitleEn": "Where, within this great narrative, does our own story begin?"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, kâinatın sırlarını keşfetmekten çok, **o sırların içindeki yerimizi** anlama çabası. Bilimsel bulgular ve Kur'an'ın derinlikleri, hayatın büyük resmini görmemiz için birer mercek olacak.",
+      "en": "This is less about discovering the secrets of the cosmos than about understanding **our place within those secrets**. Scientific findings and the depths of the Qur'an will each be a lens for seeing the larger picture of life."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Belki de asıl soru şu: Bu kozmik hikâyeyi anlama çabamız, günlük yaşamımızdaki anlam arayışımızı nasıl dönüştürüyor?",
+      "en": "Perhaps the real question is this: how does our effort to understand this cosmic story transform the search for meaning in our daily lives?"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında",
+      "headingEn": "About the series",
+      "tr": "Bu yazı **Yaratılış Hikâyesi** serisinin girişidir. Seri, Bakara 2:29-39 anlatısını merkeze alarak halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesi gibi konuları işler. Sitede şu an serinin 1 ve 2. yazıları bulunuyor; 3, 4, 5 ve 6 henüz eklenmedi. — Bu giriş yazısı doğrudan ayet alıntılamaz, merkez aldığı aralığı adlandırır.",
+      "en": "This is the introduction to the **Story of Creation** series. Taking al-Baqara 2:29-39 as its centre, the series treats vicegerency, the problem of evil, the teaching of the names and the angels' prostration. Essays 1 and 2 of the series are on the site; 3, 4, 5 and 6 not yet added. — This introduction quotes no verses directly; it names the range it takes as centre.",
+      "tplTR": "Bu yazı **Yaratılış Hikâyesi** serisinin girişidir. Seri, Bakara 2:29-39 anlatısını merkeze alarak halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesi gibi konuları işler. {{seri}} — Bu giriş yazısı doğrudan ayet alıntılamaz, merkez aldığı aralığı adlandırır.",
+      "tplEN": "This is the introduction to the **Story of Creation** series. Taking al-Baqara 2:29-39 as its centre, the series treats vicegerency, the problem of evil, the teaching of the names and the angels' prostration. {{seri}} — This introduction quotes no verses directly; it names the range it takes as centre."
+    }
+  ],
+  "seriesTotal": 6
+}

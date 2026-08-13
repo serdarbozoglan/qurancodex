@@ -1,0 +1,294 @@
+{
+  "slug": "evrim-inanc-resimler",
+  "titleTr": "Evrim, İnanç ve Aklımızdaki Resimler",
+  "titleEn": "Evolution, Belief, and the Pictures in Our Minds",
+  "category": "kozmoloji",
+  "publishedDate": "2025-10-25",
+  "readingMinutes": 4,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/evrim-i%CC%87nan%C3%A7-ve-akl%C4%B1m%C4%B1zdaki-resimler-cf8054324c01",
+  "tldrTr": "Evrim ile din arasındaki çelişki teorinin kendisinde değil, okuma biçimimizde olabilir. Dört engel: (1) her nesil hakikati kendi çağının gözlüğüyle görür; (2) tefsir Kur'an değildir — Râzî'nin “dünya dönmez”i, Bediüzzaman'ın “esir”i o günün bilimidir; (3) metni okurken kafamızda oluşan resmi metnin kendisi sanırız (“topraktan yarattı” → çömlekçi resmi); (4) teorileri doğruluğuna değil neye hizmet ettiğine bakarak yargılarız. Çarpıcı kanıt: Big Bang'i inananlar savundu, evrimi inanmayanlar — iki teori de “tek noktadan gelişme” dediği hâlde saflar ters.",
+  "tldrEn": "The clash between evolution and religion may lie not in the theory but in how we read. Four obstacles: (1) every generation sees truth through the spectacles of its age; (2) commentary is not the Qur'an — al-Rāzī's “the earth cannot rotate” and Nursî's “ether” were the science of their day; (3) we mistake the picture forming in our minds for the text itself (“created from clay” → the potter image); (4) we judge theories by whose cause they serve rather than by whether they are true. The telling evidence: believers defended the Big Bang while non-believers defended evolution — though both describe development from a single point, the camps are reversed.",
+  "relatedTools": [
+    "verse-graph",
+    "concept-graph"
+  ],
+  "relatedVerses": [
+    "21:30",
+    "30:20"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "criticalNote",
+      "headingTr": "Yazarın notu — kaynak",
+      "headingEn": "Author's note — provenance",
+      "tr": "Bu yazı 2019'da Seyeran beyin yaptığı bir konuşmanın yazıya dökülüp düzenlenmiş hâlidir. Evrim konusunu çok farklı bir açıdan ele aldığı için paylaşılmıştır. — Felsufi",
+      "en": "This piece is an edited transcript of a 2019 talk by Seyeran Bey, shared because it approaches the question of evolution from an unusual angle. — Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Türkçe yazı",
+      "headingEn": "Essay in Turkish",
+      "tr": "Yazı Türkçe kaleme alınmıştır ve bu sayfadaki Türkçe metin yazarın kendi kalemidir. İngilizce sürümdeki metin ise bir **çeviridir**. Yazar serinin devamını da transkript edip paylaşacağını belirtmiştir.",
+      "en": "The author wrote this essay in Turkish; the English here is a **translation** for readers of this edition. The original stands, in his own hand, on the Turkish version of this page."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bugün biraz kafamızı karıştıracak bir konudan bahsedeceğim. Evrim teorisi ve din arasında gerçekten bir çelişki var mı? Yoksa sorun başka bir yerde mi? Hemen belirteyim, bu yazıda tüm meseleyi çözmeyeceğim. Öyle bir şey için hem bilim felsefesinden, hem İslami mantıktan, hem de evrim teorisinin detaylarından bahsetmek gerekir.\n\nBunun yerine daha temel bir soruya odaklanacağım: **Neden bu çelişki varmış gibi görünüyor?** Son yıllarda neden böyle bir tepki oluşmuş?",
+      "en": "Today I want to raise something that will unsettle us a little. Is there really a contradiction between the theory of evolution and religion? Or does the problem lie somewhere else? Let me say at once: this essay will not settle the whole matter. That would take philosophy of science, Islamic reasoning, and the details of evolutionary theory all together.\n\nInstead I want to focus on a more basic question: **why does the contradiction appear to be there at all?** Why has this reaction formed in recent years?"
+    },
+    {
+      "type": "section",
+      "id": "fil-korler",
+      "titleTr": "Fil ve Körler Hikâyesi",
+      "titleEn": "The Elephant and the Blind Men"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hepimiz o meşhur hikâyeyi biliriz. Körler bir ahıra girer, fille tanışır. Biri hortumuna dokunur “fil su hortumu gibi” der. Öbürü bacağına dokunur “hayır ağaç gibi” der. Başkası kulağına dokunur bambaşka bir şey söyler.\n\nİşte biz de böyleyiz. Bir konuya bakarken çoğu zaman tek açıdan bakarız. Daha doğrusu, yaşadığımız çağın, kültürümüzün, hatta kendi mizacımızın bize verdiği açıdan bakarız.",
+      "en": "We all know the famous story. Blind men enter a stable and meet an elephant. One touches the trunk: “an elephant is like a hose.” Another touches a leg: “no, like a tree.” A third touches an ear and says something else entirely.\n\nWe are like this too. When we look at a matter, we mostly look from a single angle — more precisely, from the angle our age, our culture, even our temperament has handed us."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Mesela 1970'lerde herkes İslam'ı kapitalizm ve komünizm ile karşılaştırıyordu. Bugün o kitaplara baktığınızda “ne gerek varmış” diyebilirsiniz. Ama o dönem için çok mantıklıydı. Çünkü insanlar o günün sorunlarıyla boğuşuyordu.\n\nYa da daha yakın bir örnek: Son 20–30 yılda “İslam barış dinidir” vurgusu çok arttı. Peki 1. Dünya Savaşı öncesinde böyle mi konuşulurdu? Hayır. O zamanlar bütün dünya savaşıyordu, kimsenin aklına böyle bir vurgu gelmezdi.",
+      "en": "In the 1970s, for instance, everyone was comparing Islam against capitalism and communism. Look at those books today and you may think, “what was the need?” But for that period it made perfect sense; people were wrestling with the problems of their day.\n\nOr take a nearer example: over the last twenty or thirty years the emphasis that “Islam is a religion of peace” has grown enormously. Was it spoken of this way before the First World War? No. The whole world was at war then; the emphasis would not have occurred to anyone."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Her nesil, hakikati kendi çağının gözlüğüyle görüyor.",
+      "en": "Every generation sees the truth through the spectacles of its own age."
+    },
+    {
+      "type": "section",
+      "id": "kutsal",
+      "titleTr": "Kutsaldan Bahsetmek Kutsallık Değildir",
+      "titleEn": "Speaking of the Sacred Is Not Itself Sacred"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İkinci önemli nokta şu: **Kur'an'dan bahseden her şey Kur'an gibi değildir.** Bir tefsir kitabı okuduğunuzda, o kitaptaki her şey Kur'an ayeti değildir.\n\nMesela Fahrettin Râzî'nin meşhur tefsirinde “dünyanın dönmesi mümkün değildir” diye bir açıklama var. Mantığı şu: Eğer dünya dönüyor olsaydı, gemide zıplayan insan daha ileriye düşerdi. Çünkü o sırada gemi hareket etmiş olurdu.\n\nBugün “ama eylemsizlik prensibi!” diye düşünüyoruz. Ama o dönemde böyle bir bilgi yoktu. Adam mantıklı olanı yazmış.",
+      "en": "The second important point: **not everything that speaks of the Qur'an is like the Qur'an.** When you read a work of tafsīr, not everything in that book is a Qur'anic verse.\n\nIn Fakhr al-Dīn al-Rāzī's famous commentary, for example, there is an explanation that “it is impossible for the earth to rotate.” The reasoning: if the earth were turning, a man jumping on a ship would land further forward, because the ship would have moved meanwhile.\n\nToday we think, “but the principle of inertia!” In his day there was no such knowledge. The man wrote what was reasonable."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Peki bu ne demek? Tefsir yazan zatın Kur'an yorumları, ayetin kendisi kadar doğru değildir.\n\nBediüzzaman'ın eserlerinde “esir maddesi”nden bahsedilir. Çünkü o dönemin fiziğinde ışığın boşlukta iletilmesi için “esir” diye bir madde varsayılıyordu. Sonra deneylerle bunun gerekli olmadığı anlaşıldı.\n\nBen bazı insanların şöyle dediğini duydum: “Madem Bediüzzaman esirden bahsetmiş, demek ki esir vardır!”\n\nHayır arkadaşım, hayır. Bediüzzaman Allah'ın kudretini anlatmak için o günün biliminden örnek vermiş. Bu çok normal. Ben şimdi kuantum fiziğinden örnek verirsem, 100 yıl sonra o teoriler değişse, benim verdiğim örnek de hatalı olacak. Ama bu, benim anlatmak istediğim hakikati değiştirmez.",
+      "en": "So what does this mean? The Qur'anic interpretations of the one who writes the commentary are not as true as the verse itself.\n\nIn Nursî's works there is talk of “the ether.” In the physics of that period, a substance called ether was assumed necessary for light to travel through the void. Experiment later showed it was not needed.\n\nI have heard some people say: “Since Nursî spoke of ether, ether must exist!”\n\nNo, my friend, no. He gave an example from the science of his day in order to convey God's power. This is entirely normal. If I now give an example from quantum physics and those theories change a hundred years from now, my example will be wrong too. But that does not change the truth I was trying to convey."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Metin ⇄ Yorum",
+      "captionEn": "Text ⇄ Commentary",
+      "left": {
+        "titleTr": "Kur'an",
+        "titleEn": "The Qur'an",
+        "accent": "#d4a574",
+        "descTr": "Değişmeyen metin. Ayetin kendisi.",
+        "descEn": "The unchanging text. The verse itself.",
+        "bullets": [
+          {
+            "tr": "Hakikat iddiası mutlaktır",
+            "en": "Its truth-claim is absolute"
+          },
+          {
+            "tr": "Çağa göre değişmez",
+            "en": "It does not shift with the age"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Tefsir",
+        "titleEn": "Commentary",
+        "accent": "#94a3b8",
+        "descTr": "O metni okuyan âlimin, kendi çağının bilgisiyle kurduğu yorum.",
+        "descEn": "A scholar's reading, built with the knowledge of his own age.",
+        "bullets": [
+          {
+            "tr": "Râzî: “dünya dönemez” — o günün fiziği",
+            "en": "Al-Rāzī: “the earth cannot rotate” — the physics of his day"
+          },
+          {
+            "tr": "Bediüzzaman: “esir maddesi” — o günün fiziği",
+            "en": "Nursî: “the ether” — the physics of his day"
+          },
+          {
+            "tr": "Örnek eskir, anlatılan hakikat durur",
+            "en": "The example ages; the truth it served remains"
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "id": "resimler",
+      "titleTr": "Kafamızdaki Resimler",
+      "titleEn": "The Pictures in Our Minds"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Üçüncü mevzu biraz daha derin. İnsanlar metinleri okurken kafalarında resimler oluşturur. Ve bu resimleri gerçeğin ta kendisi sanırlar.\n\n“Allah canlıları sudan yarattı” ayetini duyunca ne anlıyorsunuz? Belki suyun hayat için önemini, belki ilk canlıların denizde ortaya çıkmasını.\n\nAma “Allah insanı topraktan yarattı” deyince? Ah, orada hemen kafamızda bir resim belirir: Çömlekçi gibi çamuru alıp şekil veriyor, sonra can veriyor.",
+      "en": "The third matter runs deeper. People form pictures in their minds as they read, and they take those pictures for reality itself.\n\nWhen you hear “God made every living thing from water,” what do you understand? Perhaps the importance of water for life; perhaps that the first living things appeared in the sea.\n\nBut when it is said “God created man from dust”? Ah — there a picture appears at once: a potter taking clay, giving it shape, then giving it life."
+    },
+    {
+      "type": "verseInline",
+      "ref": "21:30",
+      "ar": "اَوَلَمْ يَرَ الَّذِينَ كَفَرٓوا اَنَّ السَّمٰوَاتِ وَالْاَرْضَ كَانَتَا رَتْقاً فَفَتَقْنَاهُمَا وَجَعَلْنَا مِنَ الْمٓاءِ كُلَّ شَيْءٍ حَيٍّ اَفَلَا يُؤْمِنُونَ",
+      "noteTr": "“…her canlı şeyi sudan yarattık.” Bu ifade kafamızda dirençsiz bir resim kurmaz — suyun hayattaki yerini düşünürüz, o kadar.",
+      "noteEn": "“…We made every living thing from water.” This sentence raises no stubborn picture — we simply consider the place of water in life."
+    },
+    {
+      "type": "verseInline",
+      "ref": "30:20",
+      "ar": "وَمِنْ اٰيَاتِهٓ اَنْ خَلَقَكُمْ مِنْ تُرَابٍ ثُمَّ اِذٓا اَنْتُمْ بَشَرٌ تَنْتَشِرُونَ",
+      "noteTr": "“Sizi topraktan yaratması…” Aynı yapıdaki bu ifade ise anında bir resim çağırır: çamuru alıp şekil veren bir el. Fark ayette değil, bizde.",
+      "noteEn": "“That He created you from dust…” The same grammatical shape, yet this one summons an image at once: a hand shaping clay. The difference is not in the verse but in us."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Resmin metnin yerine geçişi",
+      "captionEn": "How the picture replaces the text",
+      "nodes": [
+        {
+          "titleTr": "Metin",
+          "titleEn": "The text",
+          "tone": "trigger",
+          "subtitleTr": "Ayet ne diyorsa o — sınırları geniş.",
+          "subtitleEn": "What the verse says — its bounds are wide."
+        },
+        {
+          "titleTr": "Kafadaki resim",
+          "titleEn": "The picture in the mind",
+          "tone": "state",
+          "subtitleTr": "Kendi çağımızın malzemesiyle kurulur (çömlekçi, kalıp, el).",
+          "subtitleEn": "Built from the materials of our own age (the potter, the mould, the hand)."
+        },
+        {
+          "titleTr": "Resim = gerçek sanılır",
+          "titleEn": "The picture is taken for the truth",
+          "tone": "result",
+          "subtitleTr": "Artık ayeti değil, resmi savunuruz. Çelişki de burada doğar.",
+          "subtitleEn": "Now we defend the picture, not the verse. This is where the clash is born."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Peki bu resim kesinlikle o mu demek? Belki insanların çömlekçilik yaptıkları bir dönemde yaşadıkları için böyle anlatılmıştır. Belki çok daha derin bir anlam vardır.\n\nSorun şu: **Bir metni okuyunca kafamızda oluşan resim ile metnin kendisini karıştırıyoruz.**",
+      "en": "Does that picture certainly mean that? Perhaps it was told that way because people lived in an age of pottery. Perhaps there is a far deeper meaning.\n\nThe problem is this: **we confuse the picture that forms in our minds when we read a text with the text itself.**"
+    },
+    {
+      "type": "paragraph",
+      "tr": "“Çocuklarınız 7 yaşına itibaren namazı öğretin, istikrarını sağlamaya çalışın ve namaza başladıktan sonra onları bir daha dövmeyin.” Fakat aynı hadisi, aynı metinde başka bir insan o resim çerçevesinde 7 yaşında bir çocuğa namazı emredin ve kılmıyorsa dövün. Veya daha da ötesi, namazı emredin ve döve döve kıldırın diye anlıyor ve kafasında öyle bir resim canlanıyor.",
+      "en": "“Teach your children the prayer from the age of seven, work to make it steady, and once they have begun praying do not strike them again.” Yet another person, reading the very same hadith through the frame of his own picture, understands it as: order a seven-year-old to pray and beat him if he does not — or further still, order the prayer and make him pray by beating. That is the picture that comes alive in his head."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Bir metni okuyunca kafamızda oluşan resim ile metnin kendisini karıştırıyoruz.",
+      "en": "We confuse the picture that forms in our minds with the text itself."
+    },
+    {
+      "type": "section",
+      "id": "taraf",
+      "titleTr": "Teorilere Taraf Tutarak Bakmak",
+      "titleEn": "Reading Theories with a Side Already Chosen"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Son maddem en kritik: İnsanlar teorileri genelde doğru mu yanlış mı diye değil, **hangi amaca hizmet ediyor** diye değerlendirirler.\n\nMesela biri çıkıp “kadınlar özgür bireydir, o yüzden özgür cinsel yaşam hakkı vardır” dese, karşı çıkan kişi genelde şöyle der: “Hayır, kadınlar özgür mözgür değil!”\n\nAma doğru cevap şu olmalı: “Evet, kadınlar özgürdür ama bu senin dediğin şeyi gerektirmez.”",
+      "en": "My last point is the most critical: people generally evaluate theories not by whether they are true or false, but by **what purpose they serve**.\n\nIf someone says “women are free individuals, therefore they have a right to a free sexual life,” the one who objects usually answers: “No, women are not free at all!”\n\nBut the correct answer should be: “Yes, women are free — but that does not entail what you are claiming.”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evrim konusunda da ateist birileri çıkıp “bak canlılar evrimleşmiş, o hâlde Allah yaratmamıştır” deyince ona verilecek cevap “hayır, kesinlikle evrim yoktur” değildir. Doğru yaklaşım şudur: “evet, canlılar evrimleşmiş görünüyor ve bu bize Allah'ın canlıları evrim ile yarattığını gösteriyor”.",
+      "en": "The same holds for evolution. When an atheist says “look, living things evolved, therefore God did not create them,” the answer to give is not “no, evolution definitely does not exist.” The right approach is: “yes, living things appear to have evolved, and this shows us that God created living things by means of evolution.”"
+    },
+    {
+      "type": "section",
+      "id": "bigbang",
+      "titleTr": "Big Bang ve Evrim: İlginç Bir Çelişki",
+      "titleEn": "Big Bang and Evolution: A Curious Reversal"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Şimdi gelelim asıl konuya. Big Bang teorisini bilirsiniz: Kâinat tek bir noktaydı, bir anda var oldu, genişlemeye devam ediyor.\n\nEvrim teorisi de benzer: İlk basit canlı vardı, zaman içinde daha kompleks canlılar oluştu.\n\nİki teori de “tek noktadan başlayıp gelişme” diyor. Ama ilginç olan şu:",
+      "en": "Now to the main matter. You know the Big Bang theory: the cosmos was a single point, came into being in an instant, and goes on expanding.\n\nThe theory of evolution is similar: there was a first simple organism, and over time more complex organisms arose.\n\nBoth theories say “development beginning from a single point.” But here is the interesting part:"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı şekil, ters saflar",
+      "captionEn": "Same shape, opposite camps",
+      "left": {
+        "titleTr": "Big Bang",
+        "titleEn": "The Big Bang",
+        "descTr": "Kâinat tek bir noktadan başladı ve genişlemeye devam ediyor.",
+        "descEn": "The cosmos began from a single point and keeps expanding.",
+        "accent": "#3498db",
+        "bullets": [
+          {
+            "tr": "İnanan insanlar savundu",
+            "en": "Defended by believers"
+          },
+          {
+            "tr": "İnanmayanlar karşı çıktı",
+            "en": "Opposed by non-believers"
+          },
+          {
+            "tr": "İlk öne süren Georges Lemaître bir papazdı",
+            "en": "First proposed by Georges Lemaître, a priest"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Evrim",
+        "titleEn": "Evolution",
+        "descTr": "İlk basit canlıdan zaman içinde daha kompleks canlılar oluştu.",
+        "descEn": "From the first simple organism, more complex life arose over time.",
+        "accent": "#1D9E75",
+        "bullets": [
+          {
+            "tr": "İnanmayanlar savundu",
+            "en": "Defended by non-believers"
+          },
+          {
+            "tr": "İnananlar karşı çıktı",
+            "en": "Opposed by believers"
+          },
+          {
+            "tr": "Çelişki teoride değil, kafadaki resimde",
+            "en": "The clash is not in the theory but in the inherited picture"
+          }
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "tr": "Neden? Çünkü insanlar teorilerin doğruluğuna değil, neye hizmet ettiklerine bakıyorlar.\n\nKlasik ateist (materyalist) düşünce şöyle diyordu: “Evren ezelîdir, hep vardı. O yüzden yaratıcıya gerek yok.”\n\nBig Bang çıkınca bu bozuldu. “Başlangıç var” demek “yaratıcı var” demekti. O yüzden ateistler karşı çıktı. Big Bang teorisini ilk öne süren Georges Lemaître bir papazdı!",
+      "en": "Why? Because people look not at whether theories are true but at what they serve.\n\nClassical atheist (materialist) thought used to say: “the universe is eternal, it always was. So there is no need for a creator.”\n\nThe Big Bang broke this. To say “there is a beginning” was to say “there is a creator.” So atheists objected. And Georges Lemaître, who first proposed the Big Bang, was a priest!"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evrim teorisi ise inananları rahatsız etti. Çünkü insanların zihninde büyük ölçüde Eski Ahit'ten gelen resimlerle çelişiyordu. “Allah çamuru aldı, şekil verdi” resmi vardı kafada. Evrim farklı bir şey anlatıyordu.",
+      "en": "The theory of evolution, on the other hand, disturbed believers — because it clashed with pictures largely inherited from the Old Testament. In the mind stood the image: “God took clay and gave it shape.” Evolution was telling a different story."
+    },
+    {
+      "type": "section",
+      "id": "ne-yapmali",
+      "titleTr": "Peki Ne Yapmalıyız?",
+      "titleEn": "So What Should We Do?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Birkaç basit ama önemli ilke:\n\n**1.** Okuduğumuz her şey mutlak gerçek değildir. Tefsir Kur'an değildir. Yorumdur.\n\n**2.** Kafamızdaki resimler, gerçeğin kendisi değildir. Metni anlamamıza yardımcı olur ama bizi kısıtlar da.\n\n**3.** Teorileri tarafsız değerlendirmeye çalışalım. “Bu teoriye kim sahip çıkıyor” değil, “bu teori ne diyor ve doğru mu” diye bakalım.\n\n**4.** Çağımızın gözlüğünün farkında olalım. Biz de tek açıdan bakıyoruz. Ama en azından bunun farkında olabiliriz.",
+      "en": "A few simple but important principles:\n\n**1.** Not everything we read is absolute truth. Commentary is not the Qur'an. It is interpretation.\n\n**2.** The pictures in our minds are not reality itself. They help us understand the text, but they also confine us.\n\n**3.** Let us try to weigh theories impartially. Not “who champions this theory,” but “what does this theory say, and is it true?”\n\n**4.** Let us be aware of the spectacles of our own age. We too are looking from a single angle. But we can at least be aware of that."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Sonuç olarak: Evrim teorisi ile İslam arasındaki çelişki belki de düşündüğümüz kadar büyük değil. Belki sorun, kafamızdaki eski resimlerle yeni bilgileri uzlaştıramamamız. Belki sorun, teorilere saf bir gözle değil, taraf tutarak bakmamız.\n\nHakikati aramak kolay değil. Ama en azından engellerin ne olduğunu bilmek, yolun yarısını almak demektir.",
+      "en": "In conclusion: the contradiction between the theory of evolution and Islam may not be as great as we suppose. Perhaps the problem is that we cannot reconcile new knowledge with the old pictures in our minds. Perhaps the problem is that we look at theories with a side already chosen rather than with a clear eye.\n\nSeeking the truth is not easy. But knowing at least what the obstacles are means covering half the road."
+    }
+  ]
+}

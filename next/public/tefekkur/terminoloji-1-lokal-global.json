@@ -1,0 +1,401 @@
+{
+  "slug": "terminoloji-1-lokal-global",
+  "titleTr": "Terminoloji 1: Lokal ve Global Perspektifler",
+  "titleEn": "Terminology 1: Local and Global Perspectives",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 1,
+  "seriesTotal": 7,
+  "publishedDate": "2024-10-11",
+  "readingMinutes": 9,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/i%CC%87nsan-ve-kainat%C4%B1-okuma-terminolojisi-1-lokal-ve-global-perspektifler-d0d3c7e3ea8b",
+  "tldrTr": "**Lokal perspektif**: zaman, zemin ve ilişkiler dünyasında çekilen hayalî bir sınırın içine odaklanmak. **Global**: o sınırı genişletip bakmak. Çerçeve genişledikçe hüküm değişir — arıza yapan araba örneğinde “kötü”, bilgi eklendikçe “iyi”ye kayar. Bu çerçeveyle üç kavram yeniden okunur: **benlik** (iç-dış ayrımı yaptıran hayalî sınır, *vâhid-i kıyasî*), **kötülük** (cüz'îde beliren, globalde hayra dönüşen), **rastgelelik** (sistemin dışındaki etkilerin modeli; çerçeve genişledikçe zayıflar). Yazı-tura lokal tanımda %50, fizik dâhil edilince %95 üzeri.",
+  "tldrEn": "The **local perspective** focuses inside an imagined boundary drawn in time, place and relation; the **global** widens it. As the frame widens the verdict changes — the broken-down car reads “bad” narrowly, “good” once more is known. Three concepts are re-read through this frame: **selfhood** (the imagined inner/outer boundary, a unit of measure), **evil** (arising in the particular, turning to good in the global), and **randomness** (a model of influences outside the system, weakening as the frame widens). A coin toss is 50% under the local definition, over 95% once the physics is included.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "28:88",
+    "55:26",
+    "55:27",
+    "2:29",
+    "2:30"
+  ],
+  "previousArticle": null,
+  "nextArticle": {
+    "slug": "terminoloji-2-parcalanamaz-butunler",
+    "titleTr": "Terminoloji 2: Parçalanamaz Bütünlerin Hikâyesi",
+    "titleEn": "Terminology 2: The Story of Indivisible Wholes"
+  },
+  "blocks": [
+    {
+      "type": "verseInline",
+      "ref": "28:88",
+      "ar": "وَلَا تَدْعُ مَعَ اللّٰهِ اِلٰهاً اٰخَرَ  لٓا اِلٰهَ اِلَّا هُوَ۠   كُلُّ شَيْءٍ هَالِكٌ اِلَّا وَجْهَهُ  لَهُ الْحُكْمُ وَاِلَيْهِ تُرْجَعُونَ",
+      "noteTr": "“O'ndan başka ilah yoktur. O'nun yüzünden (zatından) başka her şey helâk olucudur. Hüküm O'nundur ve siz O'na döndürüleceksiniz.” — Kasas 28:88",
+      "noteEn": "“There is no god but He. Everything perishes except His Face. His is the judgement, and to Him you will be returned.” — Al-Qaṣaṣ 28:88"
+    },
+    {
+      "type": "verseInline",
+      "ref": "55:26",
+      "ar": "كُلُّ مَنْ عَلَيْهَا فَانٍ",
+      "noteTr": "“Üzerindeki her şey yok olucudur.” — Rahmân 55:26",
+      "noteEn": "“All that is upon it will perish.” — Al-Raḥmān 55:26"
+    },
+    {
+      "type": "verseInline",
+      "ref": "55:27",
+      "ar": "وَيَبْقٰى وَجْهُ رَبِّكَ ذُوالْجَلَالِ وَالْاِكْرَامِ",
+      "noteTr": "“Celâl ve ikram sahibi olan Rabbinin yüzü bâki kalacaktır.” — Rahmân 55:27",
+      "noteEn": "“And there remains the Face of your Lord, Owner of Majesty and Honour.” — Al-Raḥmān 55:27"
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:29",
+      "ar": "هُوَ الَّذِي خَلَقَ لَكُمْ مَا فِي الْاَرْضِ جَمِيعاً ثُمَّ اسْتَوٰٓى اِلَى السَّمٓاءِ فَسَوّٰيهُنَّ سَبْعَ سَمٰوَاتٍ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ۟",
+      "noteTr": "“Yeryüzünde ne varsa hepsini sizin için var etti. Ayrıca es-semâya yönelip (istivâ) onu yedi sema olarak düzenledi. O her şeyi bilendir.” — Bakara 2:29",
+      "noteEn": "“He created for you all that is on the earth, then turned to the heaven and fashioned it into seven heavens. He is Knowing of all things.” — Al-Baqara 2:29"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Lokal, *locus* kökünden gelir; belli bir yer, bir nokta anlamındadır. Türkçeye bazen *yerel* diye çevrilir. Global bunun zıddı olarak kullanılır — *küresel*, bazen *evrensel/universal*. Fizikte lokallik prensibi, bir objenin yalnızca hemen yakın çevresinden etkilenmesi anlamında tanımlanır ve nedenselliğin ışık hızıyla sınırlandırılmasına bağlıdır. Burada bu kavramı biraz daha genel bir anlamda, **topolojik açıdan** ele alacağız: şeyleri uzayda, zamanda veya ilişkiler dünyasındaki komşulukları, yan yanalıkları, yakınlıkları üzerinden.",
+      "en": "“Local” comes from *locus* — a particular place, a point. “Global” is used as its opposite: universal, all-encompassing. In physics the principle of locality holds that an object is influenced only by its immediate surroundings, tied to the limitation of causality by the speed of light. Here we take the concept more generally, **topologically**: things considered through their adjacencies, neighbourhoods and proximities in space, in time, or in the world of relations."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Önce kısaca tanım yapıp sonra benlik kavramına değineceğiz — çünkü lokal-global perspektifler benlik kavramı ile beliriyor. Daha sonra iyilik-kötülük, tesadüf/random, irade-kader ilişkisi gibi nice fenomeni bu ortak çerçeve (framework) ile anlamaya çalışacağız. Bu yazı tüm bu konuları detaylarıyla taşıyamaz; kısaca değinip gerisini okuyucunun istifhamına havale edeceğiz. Niyetimiz **lokal** ve **global** kelimelerini sözlük anlamından alıp kavramsallaştırmak, ileride çok referans vereceğimiz terim anlamına — ıstılaha — çıkarmak.",
+      "en": "We will first define, then turn to selfhood — for the local–global perspectives emerge precisely through the concept of the self. Afterwards we will try to understand good and evil, randomness, and the relation of will and destiny through this shared framework. This essay cannot carry all of it in detail; we will touch briefly and leave the rest to the reader's reflection. The aim is to lift “local” and “global” out of the dictionary and raise them into technical terms we will refer back to often."
+    },
+    {
+      "type": "section",
+      "id": "tanim",
+      "titleTr": "Lokal ve Global Perspektif Nedir?",
+      "titleEn": "What Are the Local and Global Perspectives?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Lokal perspektif** derken kastettiğimiz, gerek uzayda, gerek zamanda, gerekse ilişkiler dünyasında sınırlı, kısıtlı bir çerçeve içinden konuya bakılmasıdır. Zıddı olarak kullandığımız **global** ise — bazen evrensel de diyebiliriz — uzayda, zamanda ve ilişkiler dünyasında sınırı olmayan, her şeyi kapsayan geniş bir perspektifle konuyu ele almaktır.",
+      "en": "By the **local perspective** we mean looking at a matter from within a bounded, restricted frame — in space, in time, or in the world of relations. By its opposite, the **global**, we mean taking up the matter from a perspective without bound in space, time and relation: one that encompasses everything."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki bakış, tek hadise",
+      "captionEn": "Two views, one event",
+      "left": {
+        "titleTr": "Lokal perspektif",
+        "titleEn": "The local perspective",
+        "accent": "#3498db",
+        "descTr": "Zaman, zemin ve ilişkiler dünyasında çekilen hayali bir sınırın **içine** odaklanmak.",
+        "descEn": "Focusing **inside** an imagined boundary drawn in time, place and the world of relations.",
+        "bullets": [
+          {
+            "tr": "Dar zaman dilimi, az sayıda ilişki",
+            "en": "A narrow slice of time, few relations"
+          },
+          {
+            "tr": "Sınır çizmek kötü değil — kullanışlı bir araç",
+            "en": "Drawing the boundary is not bad — it is a useful tool"
+          },
+          {
+            "tr": "Ama sınırı **gerçek** sanmak yanıltır",
+            "en": "But taking the boundary for **real** misleads"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Global perspektif",
+        "titleEn": "The global perspective",
+        "accent": "#d4a574",
+        "descTr": "Aynı sınırı **genişletip** bakmak; uzayda, zamanda ve ilişkilerde sınırsıza doğru.",
+        "descEn": "**Widening** that same boundary; toward the unbounded in space, time and relation.",
+        "bullets": [
+          {
+            "tr": "Çerçeve genişledikçe anlam da dönüşür",
+            "en": "As the frame widens, meaning transforms"
+          },
+          {
+            "tr": "Lokaldeki çirkinlik globalde güzelliğe dönebilir",
+            "en": "Ugliness in the local can become beauty in the global"
+          },
+          {
+            "tr": "Mutlak global insan zihni için erişilmez olabilir",
+            "en": "The absolute global may be beyond the human mind"
+          }
+        ]
+      }
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Çerçeve genişledikçe hüküm değişir — arıza yapan araba",
+      "captionEn": "As the frame widens the verdict changes — the car that broke down",
+      "nodes": [
+        {
+          "titleTr": "1–2 saat",
+          "titleEn": "One or two hours",
+          "tone": "trigger",
+          "subtitleTr": "Araba arıza yaptı, önemli toplantı kaçtı. Bu dar dilimde hadise **kötü**.",
+          "subtitleEn": "The car broke down, the important meeting was missed. In this narrow slice the event is **bad**."
+        },
+        {
+          "titleTr": "1–2 hafta",
+          "titleEn": "One or two weeks",
+          "tone": "state",
+          "subtitleTr": "Toplantıya katılanlardan birinin taşıyıcı olduğu bilgisi çerçeveye girer. İbre **iyiliğe** kayar.",
+          "subtitleEn": "The knowledge that a participant was a carrier enters the frame. The needle swings toward **good**."
+        },
+        {
+          "titleTr": "Ömür ve ötesi",
+          "titleEn": "A lifetime and beyond",
+          "tone": "state",
+          "subtitleTr": "Musibet olgunlaştırır, çevrede yardım duygusunu canlandırır, kefaret olur.",
+          "subtitleEn": "Affliction matures; it stirs compassion around one; it becomes expiation."
+        },
+        {
+          "titleTr": "Sonsuz çerçeve",
+          "titleEn": "The infinite frame",
+          "tone": "result",
+          "subtitleTr": "Zaman, mekân ve ilişki boyutlarını sonsuza taşıdığımızda **mutlak hayra** dönüşeceğini varsayabiliriz.",
+          "subtitleEn": "Carrying time, place and relation to infinity, we may suppose it turns into **absolute good**."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ufak bir not: henüz benlik kavramını anlatmadık ama perspektifi genişletirken bazen **'ben'in kapsamı da değişir**. Lokalden globale geçtikçe aileyi, toplumu, insanlığı, tabiatı, varlığı — ve belki tamamen silinip fenâfillâh mertebesinde her şeyin ötesini — algılayabiliriz.",
+      "en": "A small note: we have not yet treated selfhood, but as the perspective widens **the scope of the “I” shifts too**. Moving from local to global we may take in the family, society, humanity, nature, existence — and perhaps, effaced entirely, what lies beyond all of it."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Vücud (varlık) hayr-ı mahz, adem (yokluk) şerr-i mahz olduğuna, bütün mehâsin ve kemâlâtın vücuda rücûu ve bütün maâsi ve mesâib ve nekàisin esâsı adem olduğu delildir. — *Yirmialtıncı Söz*",
+      "en": "That existence is pure good and non-existence pure evil is evidenced by this: all beauties and perfections return to existence, while the basis of all sins, afflictions and deficiencies is non-existence. — *The Twenty-Sixth Word*"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Yazıdaki şema",
+      "headingEn": "The diagram in the essay",
+      "tr": "Özgün yazıda bu noktada bir şema yer alır: ortada kesik çizgili bir daire (**lokal**) ve içinde birbirine oklarla bağlanmış düğümler; daireden dışarı dört yöne uzanan kalın oklar ise **global**. Altındaki açıklama şudur: *“Zaman, zemin ve ilişkiler dünyasında çekilen hayali bir sınırın içine odaklanmak lokal perspektif, bu sınırı genişletip bakmak global perspektif.”* Şemanın kendisi bu sayfaya aktarılmamıştır; yukarıdaki karşılaştırma kutusu aynı ayrımı taşır.",
+      "en": "At this point the original essay carries a diagram: a dashed circle at the centre (**local**) enclosing nodes joined by arrows, with heavy arrows reaching outward in four directions (**global**). Its caption reads: *“To focus inside an imagined boundary drawn in time, place and the world of relations is the local perspective; to widen that boundary and look is the global perspective.”* The diagram itself has not been carried over to this page; the contrast box above holds the same distinction."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Peki mutlak global bir perspektif — tüm zamanları, tüm mekânları ve parça-bütün ilişkilerini aynı anda değerlendirecek bir bakış — insan için mümkün müdür?\n\nMutlak evrensel bakışa ulaşmak insan zihni ve hisleri açısından mümkün olmayabilir. Ancak herhangi lokal bir çerçeveyi biraz genişlettiğimizde, o da hâlâ lokal olsa bile, önceki dar çerçeveden daha geniş ve globale daha yakındır. Anlamların daha geniş çerçeveye geçtiğindeki **dönüşümünün yönüne** bakarak mutlak globalde nereye evrileceğini tahmin edebiliriz — tıpkı *calculus*'ta limit alarak bir fonksiyonun sonsuzdaki davranışını çıkardığımız gibi.",
+      "en": "Is an absolute global perspective — one weighing all times, all places and all part-whole relations at once — possible for a human being?\n\nReaching the absolutely universal view may not be possible for the human mind and feeling. Yet whenever we widen a local frame a little, even while it remains local, it is broader than the previous one and nearer the global. By watching **the direction in which meanings transform** as the frame widens, we can infer where they tend in the absolute global — much as in calculus we derive a function's behaviour at infinity by taking a limit."
+    },
+    {
+      "type": "section",
+      "id": "benlik",
+      "titleTr": "Benlik (Ene) — Varlığa Çekilen Hayalî Sınır",
+      "titleEn": "Selfhood (Ene) — The Imagined Boundary Drawn Across Existence"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Ene, künûz-u mahfiye olan esmâ-i İlâhiyenin anahtarı olduğu gibi, kâinatın tılsım-ı muğlâkının dahi anahtarı olarak bir muammâ-i müşkülküşâdır. — *Otuzuncu Söz*",
+      "en": "Just as the “I” is the key to the Divine Names, those hidden treasuries, so it is the key to the locked talisman of the cosmos — a riddle that opens what is difficult. — *The Thirtieth Word*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Lokal perspektiften bakarken, bazen açıktan (*explicit*) bazen ima ederek (*implicit*), bir takım şeylerin, kavramların, ilişkilerin etrafına hayalî bir sınır çizeriz. Bir ağacın sararıp düşen yaprağına odaklanınca — sadece o yaprağın etrafında dar bir zamanda, birkaç ilişkiyi düşününce — hüzünlenebiliriz. Yaprağı ağaçtan ayrı, ağacı tabiattan ayrı, tabiatı varlıktan ayrı tahayyül ettiğimiz sürece hep sınır çiziyoruz demektir. **Bu sınırların çizilmesi kötü bir şey değil, kullanışlı bir araçtır.** Ancak gerçek olduğunu farz etmek insanı yanıltır; düşünce ve his sıhhatine zarar verir, kâinatı, kendini ve yaratıcısını anlamlandırmakta zorlanır.",
+      "en": "Looking from the local perspective we draw an imagined boundary — sometimes explicitly, sometimes by implication — around certain things, concepts and relations. Focusing on a yellowing leaf as it falls from a tree, considering only a narrow span of time and a few relations around it, we may be saddened. So long as we picture the leaf apart from the tree, the tree apart from nature, nature apart from existence, we are drawing boundaries. **Drawing them is not a bad thing; it is a useful tool.** But to suppose them real misleads a person: it harms the health of thought and feeling, and one struggles to make sense of the cosmos, of oneself, and of one's Creator."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Dışarıda yaprağı ağaçtan ayıran sınırın kaynağı — ve çektiğimiz sınırların en önemlisi, aslında esası — **iç-dış ayrımı yaptıran sınırdır**. Bu iç dünya / dış dünya ayrımını yaptıran sınıra **benlik (ene)** diyoruz. Bediüzzaman'ın ene'yi anlatırken kullandığı *vâhid-i kıyasî* kavramı da, lokal perspektifteki bakışla (cüz'î nazar) ortaya çıkan; varlığı göreceli, geçici, tebeî olan ama kavram olarak kullanışlı bir zihin objesidir.",
+      "en": "The source of the boundary that separates the leaf from the tree out there — and the most important of the boundaries we draw, indeed their basis — is **the boundary that produces the inner/outer division**. This boundary, which divides an inner world from an outer, is what we call **selfhood (ene)**. The notion of a *unit of measure* which Nursî uses in expounding the “I” is likewise a mental object: it arises with the local, particular gaze; its existence is relative, temporary, secondary — yet it is useful as a concept."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Fakat vâhid-i kıyasî, bir mevcud-u hakikî olmak lâzım değil. Belki, hendesedeki farazî hatlar gibi, farz ve tevehhümle bir vâhid-i kıyasî teşkil edilebilir. — *Otuzuncu Söz*",
+      "en": "But a unit of measure need not be a real existent. Like the hypothetical lines of geometry, it may be constituted by supposition and imagination. — *The Thirtieth Word*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "TED konuşmalarının en çok izlenenlerinden biri, nörobilimci Jill Bolte Taylor'ın *My Stroke of Insight* konuşmasıdır. Taylor, yaşadığı beyin kanamasını bir nörobilimci olarak **içeriden** gözlemler ve benlik silinince deneyimlediği hâli aktarmaya çalışır: sağ yarım kürenin bilinci üzerinden çevredeki enerjiye bağlı bir varlık olduğunu, sol yarım küre “ben” dediği anda ise ayrıldığını, etrafındaki akıştan kopup tek başına katı bir birey hâline geldiğini anlatır.",
+      "en": "One of the most-watched TED talks is neuroscientist Jill Bolte Taylor's *My Stroke of Insight*. Taylor observes her own brain haemorrhage **from the inside**, as a neuroscientist, and tries to convey what she experienced when selfhood was effaced: that through the right hemisphere's consciousness she was an energy being connected to the energy around her, and that the moment the left hemisphere said “I,” she separated — cut off from that flow, becoming a solid individual, alone."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Taylor'ın konuşması 2008'den; o günden bu yana nörobilimde yeni gelişmeler oldu. Yaşadığı deneyimin sebebi muhtemelen **Default Mode Network (DMN)** diye bilinen bir nöral ağın kanama nedeniyle baskılanmasıydı. Kişiye benlik hissini de kazandıran DMN aktivitesi; antidepresan, meditasyon, psilocybin, ve *kıllet-i taâm, kıllet-i kelâm, kıllet-i menâm, uzlet ani'l-enâm* (az yeme, az konuşma, az uyuma, halktan uzlet) ile de baskılanabilir — 'ben'liğin her şeyi lokalize eden sahte duvarlarını yıkıp varlığın bütüncül hakikatine dair yeni bir perspektif sunabilir.",
+      "en": "Taylor's talk is from 2008; neuroscience has moved since. The likely cause of her experience was the suppression, by the haemorrhage, of a neural network known as the **Default Mode Network (DMN)**. DMN activity — which also furnishes the sense of selfhood — can be suppressed by antidepressants, meditation, psilocybin, and by eating little, speaking little, sleeping little and withdrawing from company; it can tear down the false walls by which the “I” localises everything, and open a new perspective on the integral reality of existence."
+    },
+    {
+      "type": "section",
+      "id": "kotuluk",
+      "titleTr": "Kötülük Lokaldir, Cüz'îdir",
+      "titleEn": "Evil Is Local, Particular"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'ân-ı Hakîm'de Cenâb-ı Allah beşeri yeryüzünde halife kıldığını belirtince, melekler beşerin kan döküp fesat çıkaracağını söyleyip hikmetini sormuşlardı. Cevaben “ben sizin bilmediklerinizi bilirim” diyerek, meleklerin perspektifinin **eksik, yani lokal** kaldığını; bakış çerçevelerinde bilmedikleri ilişkiler olduğuna işaret etmişti.",
+      "en": "When God declared that He was appointing a vicegerent on the earth, the angels spoke of bloodshed and corruption and asked after the wisdom in it. The answer — “I know what you do not know” — indicated that the angels' perspective was **deficient, that is, local**: there were relations within their frame of view that they did not know."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:30",
+      "ar": "وَاِذْ قَالَ رَبُّكَ لِلْمَلٰٓئِكَةِ اِنِّي جَاعِلٌ فِي الْاَرْضِ خَلِيفَةً  قَالٓوا اَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمٓاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ اِنِٓي اَعْلَمُ مَا لَا تَعْلَمُونَ",
+      "noteTr": "“Hani Rabbin meleklere: ‘Muhakkak ben yeryüzünde bir halife yapıyorum' demişti. Onlar da: ‘Biz seni hamd ile tesbih eder ve takdis ederken, orada bozgunculuk çıkaracak ve kan dökecek birini mi yapıyorsun?' dediler. (Allah:) ‘Şüphesiz sizin bilmediğinizi ben bilirim' dedi.”",
+      "noteEn": "“When your Lord said to the angels: I am placing a vicegerent on the earth — they said: will You place therein one who will spread corruption and shed blood, while we glorify You with praise and sanctify You? He said: I know what you do not know.”"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Şerler, kubuhlar, noksanlar… hüsünlerin, hayırların, kemallerin mertebelerini, nevilerini, kısımlarını göstermeye vesile olsunlar ve hakaik-i nisbiyenin vücuduna bir mukaddeme ve bir **vâhid-i kıyasî** olsunlar diye… tebeî olarak yaratılmışlardır. — *Mesnevî-i Nûriye*",
+      "en": "Evils, uglinesses and deficiencies were created secondarily — so that they might serve to display the degrees, kinds and divisions of beauties, goods and perfections, and be a preface and a **unit of measure** for the existence of relative realities. — *Mathnawī al-Nūriya*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bediüzzaman başka bir yerde, bilimlerin küllî kaidelerine — yani evrensel prensiplerine — bakarak, **globalde** hayır, hüsün, güzellik ve mükemmellik olduğunu söyler. Şer, kubh, çirkinlik, bâtıl, fenalık ise cüz'îde, *vâhid-i kıyasî* olarak, yani **lokal perspektifte** ortaya çıkar der: çirkinlik çirkinlik için kâinata girmemiş; güzelliğin bir hakikati çok hakikatlere inkılâp etsin diye bir ölçü birimi olarak hilkate girmiştir.",
+      "en": "Elsewhere Nursî argues from the universal principles of the sciences that in **the global** there is good, beauty and perfection; whereas evil, ugliness, falsehood and badness arise in the particular, as a *unit of measure* — that is, in **the local perspective**. Ugliness did not enter the cosmos for its own sake; it entered creation as a measure, so that one reality of beauty might unfold into many realities."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Konumuz asırlarca kelâmcı ve felsefeci tarafından tartışılmış **kötülük problemi** değil; onu ayrı bir yazıda ele alalım. Burada lokal-global çerçevesinden şunu izah ediyoruz: benlik, kötülük, rastgelelik gibi bir çok kavram **ontolojik temelde birer hakikat değil**, göreceli ve zihnî birer araç olarak kullanılıyor.",
+      "en": "Our subject is not the problem of evil, debated for centuries by theologians and philosophers; let that have its own essay. What we are setting out here, from within the local–global frame, is this: many concepts — selfhood, evil, randomness — are **not realities at the ontological level** but are used as relative, mental instruments."
+    },
+    {
+      "type": "section",
+      "id": "rastgelelik",
+      "titleTr": "Rastgelelik (Randomness)",
+      "titleEn": "Randomness"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Gündelik hayatta *random / rastgele* kavramını amaçsız, hedefsiz, hikmetsiz anlamlarında kullanıyor olabiliriz. Ancak teknik olarak bu yanlış bir kullanımdır. Bilimde **random variable** dediğimiz şey, aslında incelediğimiz **sistemin dışındaki etkilerin bir modelidir**. Her random düz (uniform) ya da normal (Gaussian) dağılım değildir; random değişkenlerin bile kendi içinde bir yapısı vardır.",
+      "en": "In everyday speech we may use “random” to mean purposeless, aimless, devoid of wisdom. Technically this is a misuse. What we call a **random variable** in science is in fact **a model of influences outside the system under study**. Not every random variable is uniform or Gaussian; even random variables have a structure of their own."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Dikkatsiz insanlar teknik anlamdaki *random* ile gündelik anlamdaki *hikmetsiz* randomu şurada kesiştirip yanlış hükme varırlar: bir sistemi tarif ederken deterministik kısımlarını mekanizmaya, indeterministik kısımlarını random değişkenlere verirler; sonra “sistemi açıklamada gaye, hikmet gibi kavramlara gerek yok” derler. Bir adım daha atıp “o hâlde sistemde gaye, hikmet **yoktur**” sonucuna ulaşırlar.\n\nHâlbuki sistemin mekanistik açıklamasında hikmetli olduğu varsayımına gerek olmayabilir — ama gerek olmaması, **hikmetsiz olduğu sonucuna** götürmez. İnsanların davranışlarının toplumsal ortalamasını tahmin edebiliyoruz diye bütün insanların amaçsızca hareket ettiğini söyleyemeyiz.",
+      "en": "The careless conflate the technical “random” with the everyday “purposeless” and reach a false verdict: describing a system, they assign its deterministic parts to mechanism and its indeterministic parts to random variables; then they say that explaining the system requires no notion of purpose or wisdom. Then they take one step further and conclude that the system therefore **has** no purpose or wisdom.\n\nYet the mechanistic account may not need the assumption of wisdom — and not needing it does not license **the conclusion that there is none**. That we can predict the social average of human behaviour does not let us say that all people act without purpose."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Yazı-tura: çerçeve genişledikçe rastgelelik zayıflar",
+      "captionEn": "The coin toss: as the frame widens, randomness weakens",
+      "nodes": [
+        {
+          "titleTr": "Sadece sonuç",
+          "titleEn": "The outcome alone",
+          "tone": "trigger",
+          "subtitleTr": "Sistemi “atılan paranın sonucu” diye lokal tanımlarsak: %50. Azamî rastgele.",
+          "subtitleEn": "Define the system locally as “the result of the tossed coin”: 50%. Maximally random."
+        },
+        {
+          "titleTr": "Fizik dâhil",
+          "titleEn": "Physics included",
+          "tone": "state",
+          "subtitleTr": "Lineer ve açısal hız, hava sürtünmesi, atış yüksekliği, çarpışma elastikliği çerçeveye girer: %95 üzeri tahmin.",
+          "subtitleEn": "Linear and angular velocity, air resistance, height, elasticity of impact enter the frame: over 95% predictable."
+        },
+        {
+          "titleTr": "Mutlak global",
+          "titleEn": "The absolute global",
+          "tone": "result",
+          "subtitleTr": "Bilmediklerimizi modelleyen “random” parametresi tamamen ortadan kalkar.",
+          "subtitleEn": "The “random” parameter — our model of what we do not know — disappears entirely."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kısmî bilgiye sahip olduğumuz **her** sistem, bilgi eksikliğine göre lokaldir; bu yüzden mutlaka random değişken kullanarak açıklamaya çalışırız. Kuantum mekaniğindeki belirsizlik de bu yüzden, kâinatın kapalı bir sistem olmadığını — Yaratıcı'nın tercih ve iradesini içine alamadığı için en temel seviyedeki bilgi eksikliğinden kaynaklanan bir belirsizlik olması gerektiğini — gösterir.",
+      "en": "**Every** system of which we have partial knowledge is local in proportion to that deficiency; hence we necessarily explain it using random variables. The indeterminacy of quantum mechanics likewise indicates that the cosmos is not a closed system — that this must be an uncertainty arising from a deficiency of knowledge at the most fundamental level, since it cannot enclose the choice and will of the Creator."
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Şimdilik Sonuç",
+      "titleEn": "A Conclusion, For Now"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda bir **zihin aracı** olarak Lokal Perspektif ve Global Perspektif kavramlarını anlatmaya çalıştık; bunu yaparken benlik, kötülük problemi, rastgelelik gibi temel konular üzerinden örnekler verdik. Uzatmamak için değinmediğimiz **Meşîet (lokal) – İrade (global)** ayrımı, şuur, gözlem (şuhûd), fıkıhtaki umumî ve hususî hükümler ve daha nice kavramı bu zihin objesiyle daha iyi anlamak mümkün.",
+      "en": "In this essay we have tried to set out the Local and Global Perspectives as **instruments of thought**, giving examples through fundamentals such as selfhood, the problem of evil, and randomness. Many more — the distinction between decree (local) and will (global), consciousness, witnessing, the general and particular rulings of jurisprudence — can be better understood through this same mental object."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Tek Çerçeve, Çok Kavram",
+      "titleEn": "One Frame, Many Concepts",
+      "root": {
+        "tr": "Lokal ⇄ Global perspektif — bir zihin aracı",
+        "en": "Local ⇄ Global perspective — an instrument of thought"
+      },
+      "branches": [
+        {
+          "id": "islenen",
+          "labelTr": "Bu yazıda işlenen",
+          "labelEn": "Treated here",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Benlik (ene)** — varlığa çekilen hayalî iç-dış sınırı",
+              "en": "**Selfhood** — the imagined inner/outer boundary"
+            },
+            {
+              "tr": "**Kötülük** — cüz'îde, vâhid-i kıyasî olarak beliren",
+              "en": "**Evil** — appearing in the particular, as a unit of measure"
+            },
+            {
+              "tr": "**Rastgelelik** — bilgi eksikliğinin modeli",
+              "en": "**Randomness** — a model of missing knowledge"
+            }
+          ]
+        },
+        {
+          "id": "deginilmeyen",
+          "labelTr": "Değinilmeyen",
+          "labelEn": "Left untouched",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Meşîet (lokal) ⇄ İrade (global)**",
+              "en": "**Decree (local) ⇄ Will (global)**"
+            },
+            {
+              "tr": "Şuur ve gözlem (şuhûd)",
+              "en": "Consciousness and witnessing"
+            },
+            {
+              "tr": "Fıkıhta umumî ve hususî hükümler",
+              "en": "General and particular rulings in jurisprudence"
+            }
+          ]
+        },
+        {
+          "id": "seri",
+          "labelTr": "Serinin devamı",
+          "labelEn": "Rest of the series",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Obje merkezli ⇄ proses merkezli düşünce",
+              "en": "Object-centred ⇄ process-centred thought"
+            },
+            {
+              "tr": "Emergence ve çok ölçekli yapılar",
+              "en": "Emergence and multi-scale structures"
+            },
+            {
+              "tr": "Gözlemsel denklik · kümeler, mapping, homeomorphism",
+              "en": "Observational equivalence · sets, mappings, homeomorphism"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında · alıntılar",
+      "headingEn": "About the series · citations",
+      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin ilkidir. Serinin 7 yazısının tamamı sitede. — Metindeki *Yirmialtıncı Söz*, *Otuzuncu Söz*, *Mesnevî-i Nûriye* ve *Hutbe-i Şâmiye* alıntıları Bediüzzaman Said Nursî'ye aittir ve yazarın kendi seçimidir. Ayetlerin Arapça metinleri sitenin kanonik kaynağından alınıp normalize edilmiştir.",
+      "en": "This is the first essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. All 7 essays of the series are on the site. — The citations from *The Twenty-Sixth Word*, *The Thirtieth Word*, *Mathnawī al-Nūriya* and *The Damascus Sermon* are Said Nursî's, selected by the author. The Arabic of the verses is drawn from the site's canonical source and normalised.",
+      "tplTR": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin ilkidir. {{seri}} — Metindeki *Yirmialtıncı Söz*, *Otuzuncu Söz*, *Mesnevî-i Nûriye* ve *Hutbe-i Şâmiye* alıntıları Bediüzzaman Said Nursî'ye aittir ve yazarın kendi seçimidir. Ayetlerin Arapça metinleri sitenin kanonik kaynağından alınıp normalize edilmiştir.",
+      "tplEN": "This is the first essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. {{seri}} — The citations from *The Twenty-Sixth Word*, *The Thirtieth Word*, *Mathnawī al-Nūriya* and *The Damascus Sermon* are Said Nursî's, selected by the author. The Arabic of the verses is drawn from the site's canonical source and normalised."
+    }
+  ]
+}

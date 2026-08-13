@@ -1,0 +1,326 @@
+{
+  "slug": "terminoloji-2-parcalanamaz-butunler",
+  "titleTr": "Terminoloji 2: Parçalanamaz Bütünlerin Hikâyesi",
+  "titleEn": "Terminology 2: The Story of Indivisible Wholes",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 2,
+  "seriesTotal": 7,
+  "publishedDate": "2024-11-19",
+  "readingMinutes": 5,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-2-par%C3%A7alanamaz-b%C3%BCt%C3%BCnlerin-hikayesi-5f71607e4d78",
+  "tldrTr": "**Emergence**: parçalar belirli bir düzenle birleşince, bileşenlerde bulunmayan ve onlardan öngörülemeyen yeni bir özellik belirir — aynı karbon atomları ya elmas olur ya kömür. Sık karıştırılan iki kavram ayrılır: **indirgenemezlik** (bölünebilir ama davranışı parçalarla açıklanamaz — senfoni, internet) ve **parçalanamazlık** / *küll-ü lâ yetecezzâ* (bölününce kimlik ve anlam yok olur — insanın özü, aile bağı). Kuantumun garipliği de indirgenemezliktir. Cüz-küll ve cüz'î-küllî ayrımı bakış açısına görelidir: bir kaşık çorbaya göre tencere küllîdir. Sonuç: anlam (melekût) maddeden (mülk) varoluşsal olarak önce gelir.",
+  "tldrEn": "**Emergence**: when parts combine in a particular order, a property appears that none of them holds and none of them predicts — the same carbon atoms give either diamond or coal. Two often-confused notions are separated: **irreducibility** (divisible, yet its behaviour is unaccountable by its parts — a symphony, the internet) and **indivisibility** / *kull lā yatajazzā* (divided, identity and meaning vanish — the human essence, a family bond). The strangeness of quantum systems is irreducibility. Part/whole and particular/universal are relative to vantage: to a spoonful, the pot is a universal. The upshot: meaning precedes matter existentially.",
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [],
+  "previousArticle": {
+    "slug": "terminoloji-1-lokal-global",
+    "titleTr": "Terminoloji 1: Lokal ve Global Perspektifler",
+    "titleEn": "Terminology 1: Local and Global Perspectives"
+  },
+  "nextArticle": {
+    "slug": "terminoloji-3-fizikalizm",
+    "titleTr": "Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları",
+    "titleEn": "Terminology 3: The Fragility and Limits of Physicalism"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Bu hesabın takipçileri biliyordur artık: **İnsanı** (Gözlemciyi), **Kâinatı** (Gözlemleneni) ve **Kur'an'ı** (Anlamlandıranı) beraber okumaya çalışıyor; bu okuyuşu disiplinize edecek, sonraki nesil için bazı kavramsal malzemeler ve araçlar geliştirmeye uğraşıyoruz. Esasında bu işin daha verimli olması için yorumlar ve sorular konulara açıklık getirecek, gayrete katkıda bulunacaktır.",
+      "en": "Followers of this account will know by now: we are trying to read the **Human** (the observer), the **Cosmos** (the observed) and the **Qur'an** (that which gives meaning) together, and to develop conceptual materials and instruments that might discipline such a reading for the next generation. Comments and questions would clarify these matters and contribute to the effort."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda **emergence**, küll-cüz, küllî-cüz'î, **irreducibility** ve **indivisibility** kavramlarına — çok yüzeysel de olsa — bir giriş yapacağız. İçimizdeki mükemmeliyetçi hisleri bastırarak, “tam anlatamıyoruz” diye uzun zamandır beklettiğimiz onlarca konudan birini daha yazıya döktük.",
+      "en": "Here we make an introduction — however superficial — to **emergence**, part and whole, particular and universal, **irreducibility** and **indivisibility**. Suppressing our perfectionist instincts, we have committed to writing one more of the dozens of subjects long deferred because “we cannot yet tell it fully.”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu kavramları anladıktan sonra, **anlamın (melekût) maddeden (mülk) daha önemli ve varoluşsal açıdan daha öncelikli** olduğunu görmemiz kolaylaşacak. Yazı, fizikalist bakıştan kurtulup duanın, ruhun, güzel bir sözün maddenin birer konfigürasyonu **sonucu** değil, tam aksine maddenin konfigürasyonunu **etkileyen** bir varlık seviyesinde olduklarını anlamak için hafif bir giriş sunuyor. Ayrıca anlam dünyasının, homo sapiens'in hayatta kalmak için evrimleşen neokorteksinin bir yan etkisi olmadığını; aksine maddenin — hususan insanın — bu anlam dünyasına köprü olacak şekilde evrimleştiği bakış açısına bir adım daha yaklaşmış olacağız.",
+      "en": "Once these concepts are grasped, it becomes easier to see that **meaning (malakūt) is more important than matter (mulk), and existentially prior to it**. This essay offers a light introduction to escaping the physicalist view: to understanding that prayer, the spirit and a beautiful word are not the **result** of a configuration of matter but stand at a level of being that **shapes** the configuration of matter. We also draw a step nearer the view that the world of meaning is not a side effect of the neocortex that evolved for the survival of homo sapiens — rather, matter, and the human in particular, evolved so as to bridge into that world of meaning."
+    },
+    {
+      "type": "section",
+      "id": "giris",
+      "titleTr": "Giriş — Basit Parçalardan Olağanüstü Bir Şey",
+      "titleEn": "Introduction — Something Extraordinary from Simple Parts"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Basit parçalar bir araya gelip nasıl olağanüstü bir şey ortaya çıkarıyor? Bireysel unsurlar nasıl olur da kendi bileşenlerinden daha zengin ve anlamlı bir bütün oluşturur?\n\nHiç kek yaptınız mı? Un, yumurta ve şeker tek başına pek tat vermez. Ancak bir araya gelip pişirildiğinde tamamen yeni bir şeye dönüşürler. Bütünün, parçalarının toplamından daha fazlası olduğu bu dönüşüme **emergence** (ortaya çıkış) denir.",
+      "en": "How do simple parts come together and produce something extraordinary? How do individual elements form a whole richer and more meaningful than their own components?\n\nHave you ever baked a cake? Flour, eggs and sugar have little taste on their own. Yet brought together and baked, they turn into something entirely new. This transformation, in which the whole is more than the sum of its parts, is called **emergence**."
+    },
+    {
+      "type": "section",
+      "id": "emergence",
+      "titleTr": "Emergence — Parçaların Yeni Bir Düzenle Ortaya Çıkışı",
+      "titleEn": "Emergence — Parts Arising in a New Order"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Emergence, parçaların **belirli bir düzenle** bir araya gelip, kendi başlarına sahip olmadıkları yeni özellikler sergiledikleri durumu ifade eder. Bir yapboz gibidir: her parça tek başına anlamsız görünebilir, ancak birlikte geldiklerinde tamamlanmış bir resim ortaya çıkar.",
+      "en": "Emergence names the case in which parts, coming together **in a particular order**, display properties none of them possesses alone. It is like a jigsaw: each piece may look meaningless by itself, yet together a completed picture appears."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Emergence'ın üç adımı",
+      "captionEn": "The three steps of emergence",
+      "nodes": [
+        {
+          "titleTr": "Parçalar",
+          "titleEn": "The parts",
+          "tone": "trigger",
+          "subtitleTr": "Tek başlarına aradığımız özelliği taşımazlar. Un, yumurta, şeker — kek değildir.",
+          "subtitleEn": "On their own they do not carry the property sought. Flour, egg, sugar — these are not a cake."
+        },
+        {
+          "titleTr": "Belirli bir düzen",
+          "titleEn": "A particular order",
+          "tone": "state",
+          "subtitleTr": "Fark tamamen dizilişte. Aynı karbon atomları ya elmas olur ya kömür.",
+          "subtitleEn": "The difference lies wholly in the arrangement. The same carbon atoms yield either diamond or coal."
+        },
+        {
+          "titleTr": "Yeni özellik",
+          "titleEn": "A new property",
+          "tone": "result",
+          "subtitleTr": "Bileşenlerden **öngörülemeyen** bir şey belirir: canlılık, senfoni, lezzet, melodi.",
+          "subtitleEn": "Something **unpredictable** from the components appears: life, a symphony, a flavour, a melody."
+        }
+      ]
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Aynı İlke, Dört Alan",
+      "titleEn": "One Principle, Four Domains",
+      "root": {
+        "tr": "Bütün, parçalarının toplamından fazlasıdır",
+        "en": "The whole is more than the sum of its parts"
+      },
+      "branches": [
+        {
+          "id": "madde",
+          "labelTr": "Madde",
+          "labelEn": "Matter",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Elmas ve kömür** — aynı karbon atomları, farklı diziliş",
+              "en": "**Diamond and coal** — the same carbon atoms, a different arrangement"
+            }
+          ]
+        },
+        {
+          "id": "hayat",
+          "labelTr": "Hayat",
+          "labelEn": "Life",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "**Hücre** — proteinler ve lipitler birleşir, moleküllerde bulunmayan *canlılık* belirir",
+              "en": "**The cell** — proteins and lipids combine, and *life*, absent in the molecules, appears"
+            }
+          ]
+        },
+        {
+          "id": "sanat",
+          "labelTr": "Sanat",
+          "labelEn": "Art",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "**Orkestra** — keman tek başına güzeldir; uyum bambaşka bir deneyim üretir",
+              "en": "**The orchestra** — a violin is beautiful alone; harmony produces a wholly different experience"
+            },
+            {
+              "tr": "**Melodi** — notaların akışı, tek tek notaların ötesine geçer",
+              "en": "**Melody** — the flow of notes passes beyond the individual notes"
+            }
+          ]
+        },
+        {
+          "id": "gundelik",
+          "labelTr": "Gündelik",
+          "labelEn": "The everyday",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Lezzet** — malzemeleri sayabilirsiniz; lezzet ancak bir araya geliş ve hazırlanış biçiminde belirir",
+              "en": "**Flavour** — you can list the ingredients; the taste appears only in their coming together and preparation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Emergence, parçaların etkileşiminin tamamen yeni ve bileşenlerden öngörülemeyen bir şeyi nasıl ortaya çıkarabileceğini öğretir.",
+      "en": "Emergence teaches how the interaction of parts can bring forth something entirely new and unforeseeable from the components."
+    },
+    {
+      "type": "section",
+      "id": "indirgeme",
+      "titleTr": "İndirgenemezlik ve Parçalanamazlık — Farkı Anlamak",
+      "titleEn": "Irreducibility and Indivisibility — Telling Them Apart"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki ayrı kavram, sık karıştırılır",
+      "captionEn": "Two distinct concepts, often confused",
+      "left": {
+        "titleTr": "İndirgenemezlik",
+        "titleEn": "Irreducibility",
+        "accent": "#3498db",
+        "descTr": "Bir şeyin daha basit bileşenlere **indirgenerek tam açıklanamaması**. Parçalara bölünebilir — ama davranışı parçaların ayrı ayrı davranışıyla açıklanamaz.",
+        "descEn": "That a thing **cannot be fully explained** by reduction to simpler components. It may be divisible — yet its behaviour cannot be accounted for by the separate behaviour of its parts.",
+        "bullets": [
+          {
+            "tr": "**Senfoni** — uyandırdığı duygu tek bir sesle açıklanamaz",
+            "en": "**A symphony** — the feeling it raises cannot be explained by a single sound"
+          },
+          {
+            "tr": "**Tablo** — anlamı tek tek fırça darbeleriyle tüketilemez",
+            "en": "**A painting** — its meaning is not exhausted by individual brushstrokes"
+          },
+          {
+            "tr": "**İnternet** — tek bir sunucuya bakarak anlaşılmaz",
+            "en": "**The internet** — not understood by looking at one server"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Parçalanamazlık",
+        "titleEn": "Indivisibility",
+        "accent": "#d4a574",
+        "descTr": "*Küll-ü lâ yetecezzâ.* Bir şeyin **bölünmeden bütünlüğünü koruyamaması**. Parçalandığında kimlik ve anlam yok olur.",
+        "descEn": "*Kull lā yatajazzā.* That a thing **cannot preserve its wholeness once divided**. Broken apart, identity and meaning vanish.",
+        "bullets": [
+          {
+            "tr": "**İnsanın özü** — el, ayak, böbrek kaybedilse de kişi aynı kişidir",
+            "en": "**The human essence** — losing a hand, a foot, a kidney, one is the same person"
+          },
+          {
+            "tr": "**Aile bağı** — bireysel ilişkilere ayrılamaz",
+            "en": "**Family bond** — cannot be separated into individual relationships"
+          },
+          {
+            "tr": "**Tamamlanmış yapboz** — tek parça çıkınca bütün eksik kalır",
+            "en": "**A completed jigsaw** — remove one piece and the whole is wanting"
+          }
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu üç kavram — emergence, küll-ü lâ yetecezzâ ve indirgenemezlik — parçaların bir araya gelerek anlamlı bütünler oluşturmasını anlamamıza yardım eder. **Emergence** parçaların bir araya gelmesiyle bir anlamın yaratılmasıdır; **küll-ü lâ yetecezzâ** o kimlik ve anlamdır, parçalandığında yok olur. **İndirgenemez** bir bütün ya da sistem ise, parçalara bölünebilse bile davranışı parçaların ayrı ayrı davranışlarıyla açıklanamaz. Kuantum sistemlerinin bize garip gelmesinin sebebi aslında budur; klasik fizikten farkı, esasında onları daha temel sistemlere indirgeyemiyor olmamızdır.",
+      "en": "These three — emergence, the indivisible whole, and irreducibility — help us understand how parts compose meaningful wholes. **Emergence** is the creation of a meaning through the coming together of parts; the **indivisible whole** is that identity and meaning, which vanishes once divided. An **irreducible** whole or system, even where it can be divided, has a behaviour unaccountable by the separate behaviour of its parts. This is in fact why quantum systems strike us as strange; their difference from classical physics is essentially that we cannot reduce them to more fundamental systems."
+    },
+    {
+      "type": "section",
+      "id": "cuz-kull",
+      "titleTr": "Cüz-Cüz'î ve Küll-Küllî — Parçalar ve Bütünler",
+      "titleEn": "Part and Particular, Whole and Universal"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İslâm felsefesinde **cüz** (parça) ve **küll** (bütün), parçaların bir araya gelerek tamamlanmış ve anlamlı bir bütün oluşturmasını açıklar. Cürcânî ve Bediüzzaman bu kavramları çok kullanır.",
+      "en": "In Islamic philosophy **juzʾ** (part) and **kull** (whole) explain how parts come together into a completed and meaningful whole. Al-Jurjānī and Nursî use these terms often."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Sen şecere-i hilkatin ya bir semeresi veya bir çekirdeğisin. Cismin itibarıyla küçük, âciz, zayıf bir cüzsün. Lâkin Sâni-i Hakîm lütfuyla, lâtif san'atıyla seni cüzlükten küllîliğe çıkartmıştır. — *Mesnevî-i Nûriye*",
+      "en": "You are either a fruit or a seed of the tree of creation. In respect of your body you are a small, powerless, weak part. Yet the All-Wise Maker, through His grace and subtle art, has raised you from partness to universality. — *Mathnawī al-Nūriya*"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Dünyaya ve cismanî lezâize meyledersen, âciz, zelil bir 'cüz'î' olursun. Eğer cihazatını insaniyet-i kübrâ denilen İslâmiyet hesabına sarf edersen, bir 'küllî' ve bir 'küll' olursun. — *Mesnevî-i Nûriye*",
+      "en": "If you incline to the world and bodily pleasures, you become a powerless, abased 'particular.' If you spend your faculties on the account of that greater humanity called Islam, you become a 'universal' and a 'whole.' — *Mathnawī al-Nūriya*"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Bir Tencere Mercimek Çorbası",
+      "titleEn": "A Pot of Lentil Soup",
+      "root": {
+        "tr": "Aynı şey, bakış açısına göre cüz de olur küll de",
+        "en": "The same thing is a part or a whole according to the vantage"
+      },
+      "branches": [
+        {
+          "id": "kull",
+          "labelTr": "Küll — bütün",
+          "labelEn": "Kull — the whole",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Bir tencere çorba** bir küll ve küllîdir",
+              "en": "**A pot of soup** is a whole and a universal"
+            },
+            {
+              "tr": "Cüzleri: soğan, salça, tuz, su",
+              "en": "Its parts: onion, paste, salt, water"
+            }
+          ]
+        },
+        {
+          "id": "cuzi",
+          "labelTr": "Cüz'î — parça örneği",
+          "labelEn": "Juzʾī — a particular instance",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Bir kaşık çorba** çorbanın bir cüz'îsidir",
+              "en": "**A spoonful** is a particular of the soup"
+            },
+            {
+              "tr": "O kaşığa göre tencere yeniden **küllî** olur",
+              "en": "Relative to that spoonful, the pot is again a **universal**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Sâni-i Hakîm lütfetmiş, ince sanatıyla beşeri bir kimyasal torba olmaktan kurtarıp insanlık anlamını **küll-ü lâ yetecezzâ** — parçalanamaz bir bütün — yapmış. Hayat emergent bir kavramdır; cansız kimyasalların hassas, latîf, ince bir konfigürasyonuyla belirir. Bu da latîf bir sanattır. Kompleks adaptif bir sistem olarak küll, üstüne iman ve İslâm ile *insan-ı ekber* olan tüm kâinatın fertlerini kulluk açısından temsil edecek bir **küllî** olur; namaz miracıyla huzura çıkar, *ettehiyyâtü lillâh* diyerek bu küllî ibadet içinde kâinatın tüm fertlerinin ibadetini Allah'a sunar.",
+      "en": "The All-Wise Maker has, by His subtle art, delivered the human from being a sack of chemicals and made the meaning of humanity an **indivisible whole**. Life is an emergent concept; it appears through a delicate, fine configuration of lifeless chemicals — and this too is a subtle art. As a complex adaptive system the whole becomes, with faith and submission, a **universal** representing in worship all the individuals of the cosmos — that greater human; it ascends in the prayer and, saying *at-taḥiyyātu lillāh*, presents within this universal worship the worship of every individual of the cosmos to God."
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç — Parçaların Ardındaki Bütün",
+      "titleEn": "Conclusion — The Whole Behind the Parts"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Parçaların nasıl anlamlı bütünler oluşturduğunu anlamak, hem bilimi hem felsefeyi daha derinlemesine kavramamıza yardım eder. Hayatınızdaki ilişkiler nasıl olur da bireysel parçaları aşan bir şey yaratır? İster bir senfoninin uyumu, ister bir ailenin sevgisi, isterse kâinatın ve hayatın azametli tasarımı olsun — bu fikirler bize bütünün her zaman daha büyük, daha zengin ve daha güzel olduğunu öğretir.",
+      "en": "Understanding how parts compose meaningful wholes deepens our grasp of both science and philosophy. How is it that the relationships in your life create something exceeding their individual parts? Whether the harmony of a symphony, the love of a family, or the majestic design of the cosmos and of life — these ideas teach us that the whole is always greater, richer and more beautiful."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Hayatta anlam parçalanamaz; birliktelik indirgenemez.",
+      "en": "In life, meaning is indivisible; togetherness is irreducible."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu fikirler, fiziksel dünyanın ötesine geçerek tüm varlıkları birleştiren daha derin bir hakikati keşfetmemize, melekût âleminin sakinleriyle tanışmamıza olanak tanır.",
+      "en": "These ideas let us pass beyond the physical world to discover a deeper reality uniting all beings — and to make the acquaintance of the dwellers of the realm of malakūt."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında · alıntılar",
+      "headingEn": "About the series · citations",
+      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin ikincisidir; önceki yazı *Lokal ve Global Perspektifler*'dir. Serinin 7 yazısının tamamı sitede. — Metindeki *Mesnevî-i Nûriye* alıntıları Bediüzzaman Said Nursî'ye aittir ve yazarın kendi seçimidir. Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "en": "This is the second essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**; the previous is *Local and Global Perspectives*. All 7 essays of the series are on the site. — The citations from *Mathnawī al-Nūriya* are Said Nursî's, selected by the author. This essay quotes no verses directly; it belongs to the series' conceptual preparations.",
+      "tplTR": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin ikincisidir; önceki yazı *Lokal ve Global Perspektifler*'dir. {{seri}} — Metindeki *Mesnevî-i Nûriye* alıntıları Bediüzzaman Said Nursî'ye aittir ve yazarın kendi seçimidir. Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "tplEN": "This is the second essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**; the previous is *Local and Global Perspectives*. {{seri}} — The citations from *Mathnawī al-Nūriya* are Said Nursî's, selected by the author. This essay quotes no verses directly; it belongs to the series' conceptual preparations."
+    }
+  ]
+}

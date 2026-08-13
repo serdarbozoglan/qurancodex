@@ -1050,7 +1050,16 @@ Kur'an Allah kelamıdır ve harfi harfine doğrudur; hakikati **beşerî keşifl
 
 > Bu mantık GPT-5.2 hakem incelemesinde de teyit edildi: *"iddia seviyesini doğru ölçekliyor; Kur'an'ı zayıflatmak sayılmaz, bilakis Kur'an'ı modern teyide mahkûm etmeme ilkesi makuldür"* — ve fazla reddedişe (bulguları "hiç ilişkilendirilemez" demeye) de kaçmamak gerektiği notuyla.
 
-#### Süreç — MUTLAK
+#### İSTİSNA — Tefekkür bölümü (kullanıcı kararı 2026-08-12)
+**`/tefekkur` altındaki yazılar bu hakem sürecinin DIŞINDADIR.** Gerekçe: bunlar
+sitenin editoryal iddiaları değil, **yazarın (Felsufi) kendi imzalı görüşleridir**;
+`canonicalUrl` ile özgün yayına bağlıdır ve `author` alanı taşır. Bir yazarın kendi
+düşüncesini ChatGPT'ye onaylatmak anlamsızdır. Yazı bilim–din ilişkisine değse bile
+(ör. `evrim-inanc-resimler`) hakem turu ÇALIŞTIRILMAZ.
+Bu istisna **yalnız `/tefekkur`** içindir; `bilimsel-isaretler`, `tarihsel-kanitlar`
+ve diğer tüm site içeriğinde §13.24 süreci aynen geçerlidir.
+
+#### Süreç — MUTLAK (tefekkür hariç, yukarı bak)
 Bu tür hassas içerikte (yeni veya revizyon): **GPT-5.2 hakem incelemesi (klasik tefsir + akademik) ZORUNLUDUR**; mümkünse âlim geri bildirimiyle birlikte. **TR ve EN eş güncellenir ve ChatGPT her ikisini de onaylamadan ASLA push/merge edilmez** (kullanıcı direktifi 2026-07-26). Konular tek tek, sırayla ele alınır.
 
 #### Neden yazıldı

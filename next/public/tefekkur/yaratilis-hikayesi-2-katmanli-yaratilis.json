@@ -1,0 +1,416 @@
+{
+  "slug": "yaratilis-hikayesi-2-katmanli-yaratilis",
+  "titleTr": "Yaratılış Hikâyesi 2: Kâinatın Katmanlı Yaratılışı",
+  "titleEn": "The Story of Creation 2: The Layered Creation of the Cosmos",
+  "category": "kozmoloji",
+  "template": "series-hero",
+  "seriesId": "yaratilis-hikayesi",
+  "seriesNumber": 2,
+  "seriesTotal": 6,
+  "publishedDate": "2025-07-27",
+  "readingMinutes": 5,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/yarat%C4%B1l%C4%B1%C5%9F-hikayesi-2-kainat%C4%B1n-katmanl%C4%B1-yarat%C4%B1l%C4%B1%C5%9F%C4%B1-6f43313d3e60",
+  "tldrTr": "Yaratılış, **tekil bir cevherden sonsuz renkliliğe** uzanan tecellîler silsilesi olarak okunur. **Nûr** (lâ-taayyün · Ehadiyyet) → **es-Semâ** (Cem) → **Semâvât** (Fark): Nûr yaratılış içinde *quantize* edilir; belirsizlikten belirliliğe, Ehadiyyet'ten Vâhidiyet'e geçilir. Tasavvufun yedi mertebesi baştan sona haritalanır; her semâda bir ilâhî isim hâkimdir, melekler Cem'in Fark'a ayrışmasını örgütler. Çarpıcı bir dil gözlemi: Allah meleklere **“Ben”** (Cem makamı), insanlara **“Biz”** (Fark makamı) diye hitap eder.",
+  "tldrEn": "Creation is read as a chain of manifestations reaching **from a single substance to endless colour**. **Light** (indetermination · Aḥadiyya) → **al-Samāʾ** (union) → **Samāwāt** (distinction): the Light is *quantised*, passing from the indefinite to the definite, from Aḥadiyya to Wāḥidiyya. The seven Sufi degrees of descent are mapped throughout; in each heaven one divine name is sovereign, and the angels organise the differentiation of union into distinction. A striking observation on language: God addresses the angels as **“I”** and humankind as **“We”**.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "24:35",
+    "2:29",
+    "11:7",
+    "65:12",
+    "38:71",
+    "23:12"
+  ],
+  "previousArticle": {
+    "slug": "yaratilis-hikayesi-1-giris",
+    "titleTr": "Yaratılış Hikâyesi 1: Giriş",
+    "titleEn": "The Story of Creation 1: Introduction"
+  },
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Kâinatın yaratılış hikâyesi, **tekil bir cevherden sonsuz renkliliğe** uzanan bir tecellîler silsilesidir. Bu yazıda Kur'an kozmolojisinin merkez kavramlarından **Semâ** ve **Semâvât** üzerinden; Vâhidiyet'ten Ehadiyyet'e, Cem'den Fark'a, Nûr'dan kesifliğe doğru katmanlı bir varoluş haritası çıkarmaya çalışacağız.",
+      "en": "The story of the cosmos' creation is a chain of manifestations reaching **from a single substance to endless colour**. Through **Samāʾ** and **Samāwāt**, central concepts of Qur'anic cosmology, we will draw a layered map of existence: from Wāḥidiyya to Aḥadiyya, from union to distinction, from Light toward density."
+    },
+    {
+      "type": "section",
+      "id": "nur",
+      "titleTr": "Nûr — Tek ve Homojen Kaynak",
+      "titleEn": "Light — the Single, Homogeneous Source"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kâinatın başlangıcında **Nûr** adı verilen bir teklik vardır: *mümtezic* (iç içe geçmiş) ve *lâ-taayyün* (kavramlarla tayin edilmemiş, sınırları çizilmemiş) bir cevher.\n\n**Lâ taayyün**, Zât-ı İlâhî'nin herhangi bir isim, sıfat ya da tecellîde görünmeden, hiçbir belirlenime sahip olmadan bulunduğu en yüce varlık mertebesidir. Bu mertebeye bazen **Ehadiyyet** de denir.",
+      "en": "At the beginning there is a oneness called **Light**: a substance interfused and *without determination* — unfixed by concepts, without drawn boundaries.\n\n**Lā taʿayyun** is the highest degree of being, where the Divine Essence stands without appearing in any name, attribute or manifestation. This degree is sometimes called **Aḥadiyya**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "24:35",
+      "ar": "اَللّٰهُ نُورُ السَّمٰوَاتِ وَالْاَرْضِ مَثَلُ نُورِهِ كَمِشْكٰوةٍ فِيهَا مِصْبَاحٌ  اَلْمِصْبَاحُ فِي زُجَاجَةٍ اَلزُّجَاجَةُ  كَاَنَّهَا كَوْكَبٌ دُرِّيٌّ يُوقَدُ مِنْ شَجَرَةٍ مُبَارَكَةٍ زَيْتُونَةٍ لَا شَرْقِيَّةٍ وَلَا غَرْبِيَّةٍ يَكَادُ زَيْتُهَا يُضِٓيءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ  نُورٌ عَلٰى نُورٍ يَهْدِي اللّٰهُ لِنُورِهِ مَنْ يَشٓاءُ وَيَضْرِبُ اللّٰهُ الْاَمْثَالَ لِلنَّاسِ وَاللّٰهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
+      "noteTr": "“Allah, göklerin ve yerin nûrudur.” — Nûr 24:35",
+      "noteEn": "“God is the Light of the heavens and the earth.” — Al-Nūr 24:35"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu en yüksek *hazret*, mutlak vücûd'un hiçbir izâfîlik, ilişki, sıfat ya da kesret içermeksizin mevcut olduğu mertebedir. Hiçbir isim, fiil ya da ilişki henüz zuhûr etmemiştir. Bediüzzaman ve büyük mutasavvıflar bu hâli **gaybu'l-gayb** (gizlinin de gizlisi) ya da **kenz-i mahfî** (gizli hazine) diye nitelerler. Burada *vücûd* dahi henüz isim kazanmış değildir; çünkü hiçbir “bilinme” veya “belirlenme” yoktur.",
+      "en": "This highest presence is the degree at which absolute being subsists without relativity, relation, attribute or multiplicity. No name, act or relation has yet appeared. Nursî and the great Sufis call this **the unseen of the unseen** or **the hidden treasure**. Here even *being* has not taken a name, for there is no knowing and no determining."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Yedi Mertebe — Zât'tan Kevne İniş",
+      "titleEn": "Seven Degrees — Descent from Essence to Cosmos",
+      "root": {
+        "tr": "Tenezzülât silsilesi — varlığın iniş zinciri",
+        "en": "The chain of descent — existence in procession"
+      },
+      "branches": [
+        {
+          "id": "m1",
+          "labelTr": "1 · Lâ taayyün",
+          "labelEn": "1 · Indetermination",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Ehadiyyet — Zât'ın saf hâli · **Nûr**",
+              "en": "Aḥadiyya — the Essence in purity · **Light**"
+            }
+          ]
+        },
+        {
+          "id": "m2",
+          "labelTr": "2 · Taayyün-i evvel",
+          "labelEn": "2 · First determination",
+          "accent": "#c9a227",
+          "children": [
+            {
+              "tr": "Esmânın **icmâlî** bilinmesi · **es-Semâ**",
+              "en": "The names known **summarily** · **al-Samāʾ**"
+            }
+          ]
+        },
+        {
+          "id": "m3",
+          "labelTr": "3 · Taayyün-i sânî",
+          "labelEn": "3 · Second determination",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Esmânın **tafsîlî** zuhûru · **Semâvât ve İsimler**",
+              "en": "The names in **detail** · **Samāwāt and the Names**"
+            }
+          ]
+        },
+        {
+          "id": "m4",
+          "labelTr": "4 · Âlem-i ervâh",
+          "labelEn": "4 · World of spirits",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Melekût — **melekler, anlam, semantik dünya**",
+              "en": "Malakūt — **angels, meaning, the semantic world**"
+            }
+          ]
+        },
+        {
+          "id": "m5",
+          "labelTr": "5 · Âlem-i misâl",
+          "labelEn": "5 · World of images",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Analojiler, ilişki, sembolik dünya**",
+              "en": "**Analogies, relation, the symbolic world**"
+            }
+          ]
+        },
+        {
+          "id": "m6",
+          "labelTr": "6 · Âlem-i şehâdet",
+          "labelEn": "6 · World of witnessing",
+          "accent": "#94a3b8",
+          "children": [
+            {
+              "tr": "**Materyal, gözlem, sentaktik dünya**",
+              "en": "**The material, observation, the syntactic world**"
+            }
+          ]
+        },
+        {
+          "id": "m7",
+          "labelTr": "7 · İnsan-ı kâmil",
+          "labelEn": "7 · The perfected human",
+          "accent": "#e74c3c",
+          "children": [
+            {
+              "tr": "Tüm mertebeleri içinde temsil eden **kâinat modeli**",
+              "en": "A **model of the cosmos** representing every degree within"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "quantize",
+      "titleTr": "Semâ'dan Semâvât'a — Quantizasyon",
+      "titleEn": "From Samāʾ to Samāwāt — Quantisation"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu tekil homojen Nûr'dan yine tekil homojen **es-Semâ** yaratılır; henüz *fark*'a uğramamış, **Cem** hâlindedir. Ancak bu Nûr yaratılış içinde **quantize** edilir — kesikli formlara bölünür:",
+      "en": "From this homogeneous Light the equally homogeneous **al-Samāʾ** is created; not yet subject to distinction, it is in **union**. Yet this Light is **quantised** within creation — divided into discrete forms:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:29",
+      "ar": "هُوَ الَّذِي خَلَقَ لَكُمْ مَا فِي الْاَرْضِ جَمِيعاً ثُمَّ اسْتَوٰٓى اِلَى السَّمٓاءِ فَسَوّٰيهُنَّ سَبْعَ سَمٰوَاتٍ وَهُوَ بِكُلِّ شَيْءٍ عَلِيمٌ۟",
+      "noteTr": "“Sonra es-semâya yöneldi ve onu yedi semâvât olarak tesviye etti.” — Bakara 2:29",
+      "noteEn": "“Then He turned to the heaven and fashioned it into seven heavens.” — Al-Baqara 2:29"
+    },
+    {
+      "type": "verseInline",
+      "ref": "11:7",
+      "ar": "وَهُوَ الَّذِي خَلَقَ السَّمٰوَاتِ وَالْاَرْضَ فِي سِتَّةِ اَيَّامٍ وَكَانَ عَرْشُهُ عَلَى الْمٓاءِ لِيَبْلُوَكُمْ اَيُّكُمْ اَحْسَنُ عَمَلاً وَلَئِنْ قُلْتَ اِنَّكُمْ مَبْعُوثُونَ مِنْ بَعْدِ الْمَوْتِ لَيَقُولَنَّ الَّذِينَ كَفَرٓوا اِنْ هٰذٓا اِلَّا سِحْرٌ مُبِينٌ",
+      "noteTr": "“Gökleri ve yeri altı günde yarattı; Arş'ı da su üstündeydi…” — Hûd 11:7",
+      "noteEn": "“He created the heavens and the earth in six days, and His Throne was upon the water…” — Hūd 11:7"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Semâ, dalgaları karardâde olmuş bir denizdir. — *Bediüzzaman*",
+      "en": "The heaven is a sea whose waves have come to rest. — *Nursî*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu quantizasyon, metafizik anlamda **lâ-taayyün → taayyün**, yani belirsizlikten belirliliğe geçiştir; aynı zamanda **Ehadiyyet'ten Vâhidiyet'e** geçiştir. Artık Nûr, *Semâvât* adıyla çoğulluk kazanmıştır.",
+      "en": "This quantisation is the passage from **indetermination to determination**, and likewise from **Aḥadiyya to Wāḥidiyya**. The Light has now taken plurality under the name *Samāwāt*."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Modern fizik paraleli — yazarın okuması",
+      "headingEn": "A parallel with modern physics — the author's reading",
+      "tr": "Kuantum alan teorisine göre parçacıklar, henüz parçacık değilken **alan dalgalarıdır**; henüz isimleri yoktur. Bu dalgaların belli özelliklerle titreşmesiyle iki etkileşimli (leptonlar), üç etkileşimli (quarklar) ve aradaki etkileşimi kolaylaştıran bozonlar oluşur. Nihayetinde **ortak bir denizden farklı dalgalarla** quantizasyon doğar. Bu, yazarın kurduğu **analojik** bir okumadır; klasik tasavvuf literatürü bu modern kavramları kullanmaz.",
+      "en": "In quantum field theory, particles before they are particles are **field waves** without names. As these waves vibrate with particular properties there arise two-interaction particles (leptons), three-interaction particles (quarks), and the bosons mediating between them. Quantisation thus arises **as differing waves upon a shared sea**. This is the author's **analogical** reading; classical Sufi literature does not use these modern concepts."
+    },
+    {
+      "type": "section",
+      "id": "semavat",
+      "titleTr": "Semâvât — Tefrik ve Katmanlı Yapı",
+      "titleEn": "Samāwāt — Distinction and the Layered Structure"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Semâvât**, fiziksel katmanlardan öte kozmik ve metafiziksel bir **çoğulluğu** anlatır. Her semâ, bir üst katmana göre *arz*, bir alt katmana göre *semâ* konumundadır.",
+      "en": "**Samāwāt** names a cosmic and metaphysical **plurality** beyond physical layers. Each heaven is *earth* relative to the layer above and *heaven* relative to the layer below."
+    },
+    {
+      "type": "verseInline",
+      "ref": "65:12",
+      "ar": "اَللّٰهُ الَّذِي خَلَقَ سَبْعَ سَمٰوَاتٍ وَمِنَ الْاَرْضِ مِثْلَهُنَّ يَتَنَزَّلُ الْاَمْرُ بَيْنَهُنَّ لِتَعْلَمٓوا اَنَّ اللّٰهَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ وَاَنَّ اللّٰهَ قَدْ اَحَاطَ بِكُلِّ شَيْءٍ عِلْماً",
+      "noteTr": "“Allah, yedi göğü ve yerden de onların benzerini yarattı.” — Talâk 65:12",
+      "noteEn": "“God created seven heavens, and of the earth their like.” — Al-Ṭalāq 65:12"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, sadece mekânsal değil **ontolojik** bir çoğulluktur. Her semâ bir *emr*, bir ilâhî isim, bir hikmet taşır. Bediüzzaman Mîrac Risâlesi'nde kâinatın ferşten arşa, zerreden Süreyyâ'ya tabaka tabaka yaratıldığını; **her semâda bir ismin hâkim**, diğer isimlerin ona tâbi olduğunu ifade eder.",
+      "en": "This is an **ontological**, not merely spatial, plurality. Each heaven carries a command, a divine name, a wisdom. In his treatise on the Ascension, Nursî states the cosmos was created layer upon layer, and that **in each heaven one name is sovereign**, the others subordinate to it."
+    },
+    {
+      "type": "section",
+      "id": "melekler",
+      "titleTr": "Melekler — Varlık Ağacının Dalları",
+      "titleEn": "The Angels — Branches of the Tree of Being"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Melekler, bu quantize olmuş, ayrık ve fonksiyonel kâinatın **nûrdan yaratılmış aracı varlıklarıdır**.",
+      "en": "The angels are the **intermediary beings created from light** within this quantised, discrete and functional cosmos."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Melekler sayesinde ne olur",
+      "captionEn": "What comes about through the angels",
+      "nodes": [
+        {
+          "titleTr": "Eşya isim kazanır",
+          "titleEn": "Things receive names",
+          "tone": "trigger",
+          "subtitleTr": "*Taayyün* — belirsizlikten belirliliğe.",
+          "subtitleEn": "Determination — from indefinite to definite."
+        },
+        {
+          "titleTr": "Lokallik–globallik",
+          "titleEn": "Local and global",
+          "tone": "state",
+          "subtitleTr": "Sınırlar ve çerçeveler oluşur.",
+          "subtitleEn": "Boundaries and frames come into being."
+        },
+        {
+          "titleTr": "İç–dış ayrışması",
+          "titleEn": "Inner and outer part",
+          "tone": "state",
+          "subtitleTr": "Benlik ve öteki mümkün hâle gelir.",
+          "subtitleEn": "Selfhood and other become possible."
+        },
+        {
+          "titleTr": "Sayılar anlam kazanır",
+          "titleEn": "Numbers gain meaning",
+          "tone": "result",
+          "subtitleTr": "1, 2, 3… Çokluk artık sayılabilirdir.",
+          "subtitleEn": "One, two, three… multiplicity is now countable."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Allah her göğe özel bir emr ulaştırdı ve o emri melekler aracılığıyla uygulattı. — *İbn Arabî, Fütûhât-ı Mekkiyye*",
+      "en": "God conveyed to each heaven a particular command, and had it carried out through the angels. — *Ibn ʿArabī, al-Futūḥāt al-Makkiyya*"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, her semâvî katmanda bir ilâhî ismin **fâil** olarak tecellî ettiğini gösterir. Melekler, **Cem'in Fark'a ayrışmasını organize eden** kozmik arabuluculardır.",
+      "en": "This shows that in each celestial layer a divine name manifests as **agent**. The angels are the cosmic mediators who **organise the differentiation of union into distinction**."
+    },
+    {
+      "type": "section",
+      "id": "zamir",
+      "titleTr": "Nahnu Makamı — Allah'ın Zamirleri",
+      "titleEn": "The Station of “We” — the Divine Pronouns"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "“Ben” ⇄ “Biz” — hitabın makamı",
+      "captionEn": "“I” ⇄ “We” — the station of address",
+      "left": {
+        "titleTr": "Ene — “Ben”",
+        "titleEn": "Ana — “I”",
+        "accent": "#d4a574",
+        "descTr": "Meleklerle konuşurken. **Metatemporal** — **Cem makamından** gelen hitap.",
+        "descEn": "When addressing the angels. **Metatemporal** — an address from the **station of union**.",
+        "bullets": [
+          {
+            "tr": "*“Ben bir beşer yaratıcıyım”* — Sâd 38:71",
+            "en": "*“I am creating a human being”* — Ṣād 38:71"
+          },
+          {
+            "tr": "Teklik · Ehadiyyet",
+            "en": "Oneness · Aḥadiyya"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Nahnu — “Biz”",
+        "titleEn": "Naḥnu — “We”",
+        "accent": "#3498db",
+        "descTr": "İnsanlarla konuşurken. **Fark makamından** gelen, Semâvât'ın çeşitliliğine gönderme yapan üslup.",
+        "descEn": "When addressing humankind. A style from the **station of distinction**, referring to the plurality of the heavens.",
+        "bullets": [
+          {
+            "tr": "*“Ve andolsun biz insanı yarattık”* — Mü'minûn 23:12",
+            "en": "*“And We indeed created the human”* — Al-Muʾminūn 23:12"
+          },
+          {
+            "tr": "Birlik-içinde-çokluk · Vâhidiyet",
+            "en": "Multiplicity-in-unity · Wāḥidiyya"
+          }
+        ]
+      }
+    },
+    {
+      "type": "verseInline",
+      "ref": "38:71",
+      "ar": "اِذْ قَالَ رَبُّكَ لِلْمَلٰٓئِكَةِ اِنِّي خَالِقٌ بَشَراً مِنْ طِينٍ",
+      "noteTr": "Meleklere hitap — **Ene** zamiriyle.",
+      "noteEn": "Addressed to the angels — in the pronoun **I**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "23:12",
+      "ar": "وَلَقَدْ خَلَقْنَا الْاِنْسَانَ مِنْ سُلَالَةٍ مِنْ طِينٍ",
+      "noteTr": "İnsana hitap — **Nahnu** zamiriyle.",
+      "noteEn": "Addressed to humankind — in the pronoun **We**."
+    },
+    {
+      "type": "section",
+      "id": "cem-fark",
+      "titleTr": "Cem ve Fark — Kozmik Diyalektik",
+      "titleEn": "Union and Distinction — the Cosmic Dialectic"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Devran — beş adımlı döngü",
+      "captionEn": "The cycle — in five steps",
+      "nodes": [
+        {
+          "titleTr": "Nûr → Semâ",
+          "titleEn": "Light → Heaven",
+          "tone": "trigger",
+          "subtitleTr": "**Cem** — birlik.",
+          "subtitleEn": "**Union**."
+        },
+        {
+          "titleTr": "Semâ → Semâvât",
+          "titleEn": "Heaven → Heavens",
+          "tone": "state",
+          "subtitleTr": "**Fark** — ayrışma.",
+          "subtitleEn": "**Distinction**."
+        },
+        {
+          "titleTr": "Emirler, melekler, katmanlar",
+          "titleEn": "Commands, angels, layers",
+          "tone": "state",
+          "subtitleTr": "**Tefrik** — örgütlenme.",
+          "subtitleEn": "**Separation** — organisation."
+        },
+        {
+          "titleTr": "Her varlık Ehadiyyet'i yansıtır",
+          "titleEn": "Each being reflects Aḥadiyya",
+          "tone": "state",
+          "subtitleTr": "**Taayyün** — biriciklik.",
+          "subtitleEn": "**Determination** — singularity."
+        },
+        {
+          "titleTr": "Ayrışmanın dönüşü",
+          "titleEn": "The return of the differentiated",
+          "tone": "result",
+          "subtitleTr": "**Cem** — hepsi yeniden Cemiyete döner.",
+          "subtitleEn": "**Union** — all returns to the gathering."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç — Nûr'dan Semâvât'a",
+      "titleEn": "Conclusion — From Light to the Heavens"
+    },
+    {
+      "type": "paragraph",
+      "tr": "“Semâ'dan Semâvât'a” uzanan süreç bir **tecellîler metafiziğidir**. Nûr, Semâ hâlinde Cem olur; sonra Semâvât hâlinde Fark'a ayrışır. Her varlık *taayyün* ederek biricikliğini kazanır — ama hepsi özde **aynı Nûr'un tecellîgâhıdır**.",
+      "en": "The process reaching “from heaven to the heavens” is a **metaphysics of manifestation**. The Light is united as Heaven, then differentiated as the Heavens. Each being attains singularity by determination — yet all are in essence **the place of manifestation of one and the same Light**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Nûr'dan Semâvât'a, birlikten çokluğa, vahdetten kesrete, sonsuz olandan sayılabilir olana uzanan bu ebedî yolculuk — bu mîrac — her an içimizde de devam eden varoluşun derin hatırasıdır.",
+      "en": "This eternal journey from Light to the Heavens, from unity to multiplicity, from the infinite to the countable — this ascension — is the deep memory of an existence continuing within us at every moment."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında · alıntılar",
+      "headingEn": "About the series · citations",
+      "tplTR": "Bu yazı **Yaratılış Hikâyesi** serisinin ikincisidir. {{seri}} — Metindeki *Fütûhât-ı Mekkiyye* alıntısı İbn Arabî'ye, “dalgaları karardâde olmuş deniz” ifadesi Bediüzzaman Said Nursî'ye aittir; ikisi de yazarın kendi seçimidir. Yazıda ayrıca es-Semâ'ya dair bir hadis rivayeti anılır (Ahmed b. Hanbel, Tirmizî). Arapça metinler sitenin kanonik kaynağından alınıp §13.15 uyarınca normalize edilmiştir.",
+      "tplEN": "This is the second essay in the **Story of Creation** series. {{seri}} — The citation from *al-Futūḥāt al-Makkiyya* is Ibn ʿArabī's, and “a sea whose waves have come to rest” is Nursî's; both are the author's own selections. The essay also cites a hadith report concerning al-Samāʾ (Aḥmad b. Ḥanbal, al-Tirmidhī). The Arabic is drawn from the site's canonical source and normalised per §13.15.",
+      "tr": "Bu yazı **Yaratılış Hikâyesi** serisinin ikincisidir. Sitede şu an serinin 1 ve 2. yazıları bulunuyor; 3, 4, 5 ve 6 henüz eklenmedi. — Metindeki *Fütûhât-ı Mekkiyye* alıntısı İbn Arabî'ye, “dalgaları karardâde olmuş deniz” ifadesi Bediüzzaman Said Nursî'ye aittir; ikisi de yazarın kendi seçimidir. Yazıda ayrıca es-Semâ'ya dair bir hadis rivayeti anılır (Ahmed b. Hanbel, Tirmizî). Arapça metinler sitenin kanonik kaynağından alınıp §13.15 uyarınca normalize edilmiştir.",
+      "en": "This is the second essay in the **Story of Creation** series. Essays 1 and 2 of the series are on the site; 3, 4, 5 and 6 not yet added. — The citation from *al-Futūḥāt al-Makkiyya* is Ibn ʿArabī's, and “a sea whose waves have come to rest” is Nursî's; both are the author's own selections. The essay also cites a hadith report concerning al-Samāʾ (Aḥmad b. Ḥanbal, al-Tirmidhī). The Arabic is drawn from the site's canonical source and normalised per §13.15."
+    }
+  ]
+}

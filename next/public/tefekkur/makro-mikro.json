@@ -20,7 +20,11 @@
     "concept-graph"
   ],
   "relatedVerses": [],
-  "previousArticle": null,
+  "previousArticle": {
+    "slug": "terminoloji-4-varliklarin-ayna-olusu",
+    "titleTr": "Terminoloji 4: Varlıkların Ayna Oluşu",
+    "titleEn": "Terminology 4: How Beings Are Mirrors"
+  },
   "nextArticle": {
     "slug": "sema-isim",
     "titleTr": "Terminoloji 6: Sema ve İsim"

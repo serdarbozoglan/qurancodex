@@ -83,20 +83,21 @@ export default function Navbar() {
   // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
   const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
   // Tefekkür stats — total + per-category counts.
-  // Initial state: /tefekkur/_index.json'ın 2026-06-16 snapshot'ı. Fetch
+  // Initial state: /tefekkur/_index.json'ın 2026-08-12 snapshot'ı. Fetch
   // tamamlanmadan render edilirse boş 0 yerine gerçek sayıları gösterir;
   // fetch tamamlanınca üzerine yazılır (gerçek-zamanlı senkron).
-  // Önceden 9 yayında · 44 planlanan ve 5/8/11/5/6/7 hardcoded'tı,
-  // gerçek JSON ile uyuşmuyordu (kullanıcı raporu 2026-06-16).
+  // ⚠ Yeni makale eklenince BURAYI DA güncelle — yoksa ilk boyamada eski
+  // sayı görünür. (2026-06-16'da 23/5/7/0 kalmıştı; 2026-08-12'de 32'ye
+  // çekildi: iki-nedensellik + evrim-inanc-resimler eklendi.)
   const [tefekkurStats, setTefekkurStats] = useState({
-    total: 23,
+    total: 41,
     counts: {
-      'kavramsal':       3,
-      'terminoloji':     3,
-      'sure-hermenotik': 5,
+      'kavramsal':       4,
+      'terminoloji':     7,
+      'sure-hermenotik': 12,
       'semantik':        5,
-      'idrak-suur':      7,
-      'kozmoloji':       0,
+      'idrak-suur':      9,
+      'kozmoloji':       4,
     },
     planned: 21, // 44 - 23
   });

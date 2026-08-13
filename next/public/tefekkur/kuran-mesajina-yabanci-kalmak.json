@@ -1,0 +1,500 @@
+{
+  "slug": "kuran-mesajina-yabanci-kalmak",
+  "titleTr": "Kur'an Mesajına Yabancı Kalmak",
+  "titleEn": "Remaining a Stranger to the Qur'an's Message",
+  "category": "idrak-suur",
+  "template": "root-tree",
+  "publishedDate": "2025-09-05",
+  "readingMinutes": 5,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": null,
+  "root": {
+    "letters": "ك ن ن",
+    "transliteration": "k-n-n (K-N-N)",
+    "coreMeaningTr": "Bir şeyi koruyacak bir yere saklamak; örtmek, gizlemek",
+    "coreMeaningEn": "To hide a thing in a place that protects it; to cover, to conceal",
+    "derivatives": [
+      {
+        "ar": "كَنَّ",
+        "translit": "kenne",
+        "tr": "Sakladı, örttü (fiil)",
+        "en": "Hid, covered (verb)"
+      },
+      {
+        "ar": "كِنّ",
+        "translit": "kinn",
+        "tr": "Barınak, sığınak, siper — koruyan örtü",
+        "en": "Shelter, refuge, screen — the covering that protects"
+      },
+      {
+        "ar": "اَكِنَّة",
+        "translit": "ekinne",
+        "tr": "Kabuklar — kalbi anlayıştan yalıtan örtüler (çoğul)",
+        "en": "Coverings — the shells that insulate the heart from understanding (plural)"
+      },
+      {
+        "ar": "مَكْنُون",
+        "translit": "meknûn",
+        "tr": "Saklanmış, korunmuş — gizli tutulan",
+        "en": "Kept hidden, guarded — held in concealment"
+      }
+    ]
+  },
+  "tldrTr": "Mesajı anlamamak zekâ meselesi değil, **epistemik kafes** meselesidir. Kur'an bu kapanmayı üç katmanda anlatır: kalpte **ekinne** (kabuk), kulakta **vakra** (ağırlık), arada **hicâb** (perde). Hûd ve Fussilet'te bunu inkâr edenler kendileri söyler; İsrâ, En'âm ve Kehf'te ise Cenâb-ı Hak “**ve cealnâ** — biz kıldık” der: sorumluluk değil, işleyen bir kanun. Sebep Kehf'te açıklanır: hakkı bâtılla çürütmeye çalışmak, âyetleri hafife alıp cedele girmek. Aynı örüntü Elif-Lâm-Râ, Hâ-Mîm, Elif-Lâm-Mîm ve Tâ-Sîn ailelerinde tekrarlanır.",
+  "tldrEn": "Failing to understand the message is not a matter of intelligence but of the **epistemic cage**. The Qur'an describes this closure in three layers: **akinna** (a shell) on the heart, **waqr** (a weight) in the ear, a **ḥijāb** (veil) between. In Hūd and Fuṣṣilat the deniers say it themselves; in al-Isrāʾ, al-Anʿām and al-Kahf God says “**wa jaʿalnā** — We placed” — not accountability but a law in operation. Al-Kahf names the cause: disputing truth with falsehood, taking the signs lightly. The same pattern recurs across the Alif-Lām-Rā, Ḥā-Mīm, Alif-Lām-Mīm and Ṭā-Sīn families.",
+  "relatedTools": [
+    "verse-graph",
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "11:91",
+    "41:5",
+    "45:8",
+    "17:46",
+    "6:25",
+    "18:57",
+    "2:7",
+    "27:81"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Hani bazen bir şeyi dinlersiniz ama anlamazsınız. Kelimeler yabancı olduğundan değil. Anlatılanlar düşünce yapınızdan uzak olduğu için konuşulanlar size yabancı gelir; ilginiz de yoksa anlamaya çalışmazsınız. Ötelerden gelen mesaj, ayetler için de bunu yaşıyor olabiliriz — yaşayanlar var.",
+      "en": "Sometimes you listen to something and do not understand it. Not because the words are foreign: what is being said lies far from your frame of thought, so it arrives as strange — and if you have no interest, you do not try. The same may happen with a message from beyond. It does happen."
+    },
+    {
+      "type": "section",
+      "id": "hud",
+      "titleTr": "Medyen'in Cevabı — “Kavrayıp anlamıyoruz”",
+      "titleEn": "Midian's Answer — “We do not grasp”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir Elif-Lâm-Râ sûresi olan Hûd'da, Medyen halkı kendi içlerinden gönderilen Şuayb'a (a.s.) şöyle demişti:",
+      "en": "In Hūd — an Alif-Lām-Rā sura — the people of Midian said this to Shuʿayb (peace be upon him), sent from among themselves:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "11:91",
+      "ar": "قَالُوا يَا شُعَيْبُ مَا نَفْقَهُ۬ كَثِيراً مِمَّا تَقُولُ وَاِنَّا لَنَرٰيكَ فِينَا ضَعِيفاً وَلَوْلَا رَهْطُكَ لَرَجَمْنَاكَ وَمٓا اَنْتَ عَلَيْنَا بِعَزِيزٍ",
+      "noteTr": "“Ey Şuayb, senin söylediklerinin çoğunu biz **kavrayıp anlamıyoruz** (fekaha). Doğrusu biz seni içimizde zayıf biri görüyoruz. Eğer yakın çevren olmasaydı, gerçekten seni taşa tutardık. Sen bize karşı güçlü ve üstün değilsin.”",
+      "noteEn": "“O Shuʿayb, we do not **grasp** much of what you say (faqiha). Indeed we see you as weak among us. Were it not for your kin we would have stoned you. You hold no power over us.”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu algı yoksunluğu zekânın geriliğinden değil, **“epistemik kafese”** hapsoldukları için.",
+      "en": "This failure of perception is not a deficiency of intelligence; they are locked inside an **epistemic cage**."
+    },
+    {
+      "type": "section",
+      "id": "fussilet",
+      "titleTr": "Kabuk, Ağırlık, Perde",
+      "titleEn": "The Shell, the Weight, the Veil"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir Hâ-Mîm sûresi olan Fussilet'in girişi bunu anlatır:",
+      "en": "The opening of Fuṣṣilat — a Ḥā-Mīm sura — describes it:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "41:4",
+      "ar": "بَشِيراً وَنَذِيراً فَاَعْرَضَ اَكْثَرُهُمْ فَهُمْ لَا يَسْمَعُونَ",
+      "noteTr": "“(Bu kitap) bir müjde verici ve bir uyarıcı olarak. Ama çoğu yüz çevirdiler. Artık onlar dinlemezler.”",
+      "noteEn": "“…as a bearer of glad tidings and a warner. Yet most turned away; they will not listen.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "41:5",
+      "ar": "وَقَالُوا قُلُوبُنَا فِٓي اَكِنَّةٍ مِمَّا تَدْعُونٓا اِلَيْهِ وَفِٓي اٰذَانِنَا وَقْرٌ وَمِنْ بَيْنِنَا وَبَيْنِكَ حِجَابٌ فَاعْمَلْ اِنَّـنَا عَامِلُونَ",
+      "noteTr": "“Dediler ki: Bizi kendisine çağırdığın şeye karşı kalplerimizde **kabuk** (ekinne), kulaklarımızda bir **ağırlık** (vakra), bizimle senin aranda bir **perde** (hicâb) vardır. Artık sen yap, biz de yapıyoruz.”",
+      "noteEn": "“They said: our hearts are under **coverings** (akinna) against what you call us to, in our ears is a **heaviness** (waqr), and between us and you a **veil** (ḥijāb). So act — we too are acting.”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Yine bir Hâ-Mîm sûresi olan Câsiye'nin girişinde de — ki Fussilet'in girişiyle paraleldir — benzer bir mesaj vardır:",
+      "en": "The opening of al-Jāthiya, also a Ḥā-Mīm sura and parallel to Fuṣṣilat's, carries a similar message:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "45:8",
+      "ar": "يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِراً كَاَنْ لَمْ يَسْمَعْهَا فَبَشِّرْهُ بِعَذَابٍ اَلِيمٍ",
+      "noteTr": "“(Bu tip) Allah'ın kendisine okunan âyetlerini işitir de, sonra onu hiç işitmemiş gibi kibirli bir şekilde ısrar eder. Artık böylesini elem verici bir azap ile müjdele!”",
+      "noteEn": "“He hears God's verses recited to him, then persists arrogantly as though he never heard them. So give him tidings of a painful punishment.”"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Üç katmanlı kapanma",
+      "captionEn": "A closure in three layers",
+      "nodes": [
+        {
+          "ar": "اَكِنَّة",
+          "transliteration": "ekinne",
+          "titleTr": "Kalpte kabuk",
+          "titleEn": "A shell on the heart",
+          "tone": "trigger",
+          "subtitleTr": "Kavrayışı (fıkh) engelleyen örtü — anlam içeri girmez.",
+          "subtitleEn": "A covering that blocks understanding (fiqh) — meaning cannot enter."
+        },
+        {
+          "ar": "وَقْر",
+          "transliteration": "vakra",
+          "titleTr": "Kulakta ağırlık",
+          "titleEn": "A weight in the ear",
+          "tone": "state",
+          "subtitleTr": "Ses ulaşır ama işitme gerçekleşmez.",
+          "subtitleEn": "The sound arrives, yet no hearing occurs."
+        },
+        {
+          "ar": "حِجَاب",
+          "transliteration": "hicâb",
+          "titleTr": "Arada perde",
+          "titleEn": "A veil between",
+          "tone": "result",
+          "subtitleTr": "Konuşanla dinleyen arasında görünmez bir ayrım.",
+          "subtitleEn": "An unseen partition between speaker and listener."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kalplerin kabuk bağladığını, bir kap içinde olduğunu ifade eden **ekinne** kelimesi, köken itibariyle bir şeyin içinde muhafaza edildiği, saklandığı, gizlendiği şeydir — barınak, sığınak, siper, ev, çardak gibi. Bu anlamda *kenentü'ş-şey'e kennen* denir ki, bir şeyi koruyacak bir yere saklamak anlamına gelir. *Kenentü* fiili özellikle bir ev, bir elbise ve benzeri bir şeyle örtünen, saklanan şey için kullanılır. *(Râgıb el-Isfahânî, el-Müfredât)*",
+      "en": "**Akinna** — the word for the hearts being shelled, held inside a vessel — denotes at root that within which a thing is kept, hidden, concealed: a shelter, a refuge, a screen, a house, a canopy. Hence *kanantu'sh-shay'a kannan*, to hide a thing in a place that protects it. The verb is used especially of what is covered by a house, a garment, and the like. *(al-Rāghib al-Iṣfahānī, al-Mufradāt)*"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kabuk, kalbi dışarıdan korumak için değil — anlamı içeri almamak için oradadır.",
+      "en": "The shell is not there to protect the heart from without — it is there to keep meaning from entering."
+    },
+    {
+      "type": "section",
+      "id": "ilgi",
+      "titleTr": "İlgi Alanının Başkalaşması",
+      "titleEn": "When the Field of Interest Shifts"
+    },
+    {
+      "type": "paragraph",
+      "tr": "İnsanın ilgi alanının tamamen başkalaşması ile anlatılan mesajların ona çok yabancı kalması. Elhamdülillah sûrelerinden İsrâ ve En'âm'da da bu mesele işlenir:",
+      "en": "When a person's field of interest shifts entirely, the message becomes wholly foreign to him. Al-Isrāʾ and al-Anʿām — both Alḥamdulillāh suras — take up the same matter:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "17:45",
+      "ar": "وَاِذَا قَرَأْتَ الْقُرْاٰنَ جَعَلْنَا بَيْنَكَ وَبَيْنَ الَّذِينَ لَا يُؤْمِنُونَ بِالْاٰخِرَةِ حِجَاباً مَسْتُوراً",
+      "noteTr": "“Kur'an okuduğun zaman seninle âhirete inanmayanlar arasında görünmez bir **perde** (hicâb) kıldık.”",
+      "noteEn": "“When you recite the Qur'an, We place between you and those who do not believe in the Hereafter a concealed **veil**.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "17:46",
+      "ar": "وَجَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِذَا ذَكَرْتَ رَبَّكَ فِي الْقُرْاٰنِ وَحْدَهُ وَلَّوْا عَلٰٓى اَدْبَارِهِمْ نُفُوراً",
+      "noteTr": "“Ve onların kalpleri üzerine, onu **kavrayıp anlamalarını** (fıkh) engelleyen **kabuklar** (ekinne), kulaklarına da bir **ağırlık** (vakra) koyduk…”",
+      "noteEn": "“And We placed upon their hearts **coverings**, lest they **understand** it, and in their ears a **heaviness**…”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:25",
+      "ar": "وَمِنْهُمْ مَنْ يَسْتَمِعُ اِلَيْكَ وَجَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ يَرَوْا كُلَّ اٰيَةٍ لَا يُؤْمِنُوا بِهَا حَتّٰٓى اِذَا جٓاؤُ۫كَ يُجَادِلُونَكَ يَقُولُ الَّذِينَ كَفَرٓوا اِنْ هٰذٓا اِلّٓا اَسَاطِيرُ الْاَوَّلِينَ",
+      "noteTr": "“Onlardan seni dinleyenler vardır; oysa biz, onu kavrayıp anlamalarına engel kalplerinde kabuk ve kulaklarında bir ağırlık kıldık… ‘Bu, öncekilerin uydurma masallarından başka bir şey değildir’ derler.”",
+      "noteEn": "“Among them are those who listen to you — yet We placed coverings on their hearts lest they understand it… they say: this is nothing but the legends of the ancients.”"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "“Dediler” ⇄ “Biz kıldık”",
+      "captionEn": "“They said” ⇄ “We placed”",
+      "left": {
+        "titleTr": "Hûd · Fussilet — kendi beyanları",
+        "titleEn": "Hūd · Fuṣṣilat — their own statement",
+        "accent": "#3498db",
+        "descTr": "Kapanmayı **kendileri** dile getirir: “kalplerimizde kabuk var.”",
+        "descEn": "They articulate the closure **themselves**: “our hearts are covered.”",
+        "bullets": [
+          {
+            "tr": "Özne: inkâr edenler",
+            "en": "Subject: those who reject"
+          },
+          {
+            "tr": "Bir durum tespiti, bir itiraf",
+            "en": "A statement of fact, an admission"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "İsrâ · En'âm · Kehf — “ve cealnâ”",
+        "titleEn": "Al-Isrāʾ · al-Anʿām · al-Kahf — “wa jaʿalnā”",
+        "accent": "#d4a574",
+        "descTr": "Aynı kapanmayı bu kez Cenâb-ı Hak **kendine nispet eder**: “biz kıldık.”",
+        "descEn": "The same closure is now **ascribed by God to Himself**: “We placed.”",
+        "bullets": [
+          {
+            "tr": "İrade ve sorumluluk değil — meşîet ve icra",
+            "en": "Not will and accountability — but decree and execution"
+          },
+          {
+            "tr": "Dilekçeyi değil, yönergeyi yürürlüğe koymak gibi",
+            "en": "Like enacting the regulation, not filing the petition"
+          },
+          {
+            "tr": "Bu alanda bir **kanun** olduğuna işaret eder",
+            "en": "It points to a **law** operating in this domain"
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "id": "sebep",
+      "titleTr": "Peki Sebep Nedir?",
+      "titleEn": "So What Is the Cause?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu okuyuş bize şu soruyu sordurur: kalplerin kabuk bağlamasına, algıların kapanmasına ileten sebep nedir? Yine Elhamdülillah sûrelerinden Kehf'de şöyle geçer:",
+      "en": "This reading raises a question: what leads hearts to be shelled, perceptions to close? Al-Kahf — again an Alḥamdulillāh sura — answers:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "18:56",
+      "ar": "وَمَا نُرْسِلُ الْمُرْسَلِينَ اِلَّا مُبَشِّرِينَ وَمُنْذِرِينَ وَيُجَادِلُ الَّذِينَ كَفَرُوا بِالْبَاطِلِ لِيُدْحِضُوا بِهِ الْحَقَّ وَاتَّخَذٓوا اٰيَاتِي وَمٓا اُنْذِرُوا هُزُواً",
+      "noteTr": "“Biz elçileri, müjde vericiler ve uyarıcılar olmak dışında göndermeyiz. İnkâr edenler ise, hakkı bâtıl ile çürütmek için **diyalektik** yapıyorlar (cedel). Benim âyetlerimi ve uyarıldıklarını hafife alıyor, alay ediyorlar.”",
+      "noteEn": "“We send the messengers only as bearers of glad tidings and warners. Yet those who reject dispute with falsehood to refute the truth, and take My signs and warnings in mockery.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "18:57",
+      "ar": "وَمَنْ اَظْلَمُ مِمَّنْ ذُكِّرَ بِاٰيَاتِ رَبِّهِ فَاَعْرَضَ عَنْهَا وَنَسِيَ مَا قَدَّمَتْ يَدَاهُ اِنَّا جَعَلْنَا عَلٰى قُلُوبِهِمْ اَكِنَّةً اَنْ يَفْقَهُوهُ وَفِٓي اٰذَانِهِمْ وَقْراً وَاِنْ تَدْعُهُمْ اِلَى الْهُدٰى فَلَنْ يَهْتَدٓوا اِذاً اَبَداً",
+      "noteTr": "“Kendisine Rabbinin âyetleri hatırlatıldığı zaman sırt çeviren ve ellerinin önden gönderdiklerini unutandan daha zalim kim vardır? Biz gerçekten kalpleri üzerinde onu kavramalarını engelleyen bir kabuk, kulaklarında bir ağırlık kıldık…”",
+      "noteEn": "“Who is more unjust than one reminded of his Lord's signs who turns away and forgets what his hands sent forth? We have placed coverings on their hearts lest they understand it, and heaviness in their ears…”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hakkı bâtıl ile çürütmeye çalışmak; realiteyi, ontolojik esasları varsayımlar ve hayallerle çatıştırıp geçersiz olduğunu iddia etmektir. Mesela mesajı hafife alarak “bunlar öncekilerin — antik Mısır'ın, antik Yunan'ın, Sümerlerin, Akadların, Tevrat'ın — efsanelerinde de var, oradan alıntılanmış” derler. Konudaki **confounder** etkiyi, yani aynı Yaratıcı'nın aynı mesajı tarih boyunca defalarca göndermiş olabileceğini — ki Kur'an bunu zaten söylüyor — düşünecek kadar bile konuyu ciddiye almazlar.",
+      "en": "To refute truth with falsehood is to set reality and ontological ground against assumptions and imaginings, then declare them void. Taking the message lightly, they say: “this is in the legends of the ancients — Egypt, Greece, Sumer, Akkad, the Torah — it was borrowed from there.” They do not take the matter seriously enough even to weigh the **confounder**: that the same Creator may have sent the same message repeatedly through history — which is precisely what the Qur'an says of itself."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Sonra yine alaycı bir üslupla “Allah madem her şeye kadir, neden doğrudan yazılı bir kitap vermemiş de 23 sene içinde parça parça indirmiş?” yahut “neden doğrudan melek göndermedi?” gibi cerbezeye, cedele girerler. Hâlbuki:",
+      "en": "Then, again in a mocking register: “if God is capable of all things, why not hand down a written book at once instead of piecemeal over twenty-three years?” or “why not send an angel directly?” — sophistry, disputation. Yet:"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:7",
+      "ar": "وَلَوْ نَزَّلْنَا عَلَيْكَ كِتَاباً فِي قِرْطَاسٍ فَلَمَسُوهُ بِاَيْدِيهِمْ لَقَالَ الَّذِينَ كَفَرٓوا اِنْ هٰذٓا اِلَّا سِحْرٌ مُبِينٌ",
+      "noteTr": "“Biz kitabı üzerine yazılı bir kâğıtta göndersek ve onlar elleriyle dokunsalar bile, inkâr edenler tartışmasız: ‘Bu apaçık bir büyüden başkası değildir’ derler.”",
+      "noteEn": "“Had We sent down to you a book on paper, and had they touched it with their hands, those who reject would still say: this is nothing but plain sorcery.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:8",
+      "ar": "وَقَالُوا لَوْلٓا اُنْزِلَ عَلَيْهِ مَلَكٌ وَلَوْ اَنْزَلْنَا مَلَكاً لَقُضِيَ الْاَمْرُ ثُمَّ لَا يُنْظَرُونَ",
+      "noteTr": "“Ve derler ki: ‘Ona bir melek indirilmeli değil miydi?’ Eğer bir melek indirilseydi, elbette iş bitirilmiş olurdu da sonra kendilerine göz açtırılmazdı.”",
+      "noteEn": "“They say: why was an angel not sent down to him? Had We sent an angel, the matter would have been decided, and they would be given no respite.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:9",
+      "ar": "وَلَوْ جَعَلْنَاهُ مَلَكاً لَجَعَلْنَاهُ رَجُلاً وَلَلَبَسْنَا عَلَيْهِمْ مَا يَلْبِسُونَ",
+      "noteTr": "“Ve biz bir meleği elçi tayin etmiş olsaydık, onun kesinlikle bir insan olarak görünmesini sağlardık ve böylece onları, şimdi içinde bulundukları şaşkınlığa yine düşürürdük.”",
+      "noteEn": "“Had We made him an angel, We would have made him a man, and confounded them again in the very confusion they are in.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:10",
+      "ar": "وَلَقَدِ اسْتُهْزِئَ بِرُسُلٍ مِنْ قَبْلِكَ فَحَاقَ بِالَّذِينَ سَخِرُوا مِنْهُمْ مَا كَانُوا بِهِ يَسْتَهْزِؤُ۫نَ۟",
+      "noteTr": "“Gerçekte senden önce de peygamberler alaya alındılar; ama onları küçümseyip alay edenleri, sonunda alay ettikleri şey kuşatıp mahvetti.”",
+      "noteEn": "“Messengers before you were mocked; but those who scoffed were encompassed by the very thing they mocked.”"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Böyle bir yaklaşımda olanlar kendi varsayımları içinde kaldıkları için, kâinatta işleyen kanunlara karşı tevazu gösterip “yahu bilmediğim çok şey var, belki de varsayımlarım yanlış” demedikleri için **epistemik kafeste** hapsolmuşlardır; kalplerinde bir kabuk vardır.",
+      "en": "Those who take this stance remain inside their own assumptions. Because they will not show humility before the laws at work in the cosmos — will not say “there is much I do not know; perhaps my assumptions are wrong” — they are locked in the **epistemic cage**. There is a shell upon their hearts."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Anlayışların kapanması, varsayımlarını sorgulamadan mesajı hafife almak ve onunla mücadeleye girmekten geçiyor.",
+      "en": "Understanding closes by way of belittling the message without questioning one's assumptions — and setting out to fight it."
+    },
+    {
+      "type": "section",
+      "id": "bakara",
+      "titleTr": "Bakara'nın Girişi — Aynı Konu",
+      "titleEn": "The Opening of al-Baqara — the Same Subject"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hatırlarsanız bir Elif-Lâm-Mîm sûresi olan Bakara'nın girişi de bu konuyu işler. Uyarsan da uyarmasan da iman etmezler (2:6). Kalplerinde ve kulaklarında mühür vardır, gözleri de perdelidir (2:7). Allah'a ve âhirete iman ettik deyip Allah'ı ve müminleri aldattıklarını zannetseler de aslında kendilerini aldatırlar ve bunun farkında değillerdir (2:8-9). Kalplerinde iki yüzlülük, yalancılık hastalığı vardır; öyle bir hastalıktır ki, Allah bu hastalık nedeniyle onu daha da artırır (2:10).",
+      "en": "The opening of al-Baqara — an Alif-Lām-Mīm sura — takes up the same matter. Whether you warn them or not, they will not believe (2:6). There is a seal on their hearts and their hearing, and a covering over their eyes (2:7). Saying “we believe in God and the Last Day,” they think they deceive God and the believers, but deceive only themselves without perceiving it (2:8-9). In their hearts is a disease of duplicity, and God increases it by that very disease (2:10)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Meselâ bu yalancılığın derecesi artınca, “yaptıklarınız yanlış, ifsat etmeyin, yıkım taraftarı olmayın” denildiğinde, *hayâtü'd-dünyâ* akışı içinde kapitalist sistemde ekonomik değer ürettiklerini düşünüp kendilerini ıslahçı görürler. Kalp hastalığı o derecededir ki yıkımın taraftarı olduklarının farkında bile değillerdir (2:11-12). “Siz de iman edenler gibi iman edin” denildiğinde, elitizm kibri içinde “göbeğini kaşıyan adamlar, beyinsizler gibi mi iman edelim” derler. Bu davranış kendilerini beyinsiz yapar da farkında olmazlar (2:13).",
+      "en": "As that duplicity deepens: told “what you do is wrong, do not spread corruption,” they consider themselves reformers — reasoning that within the flow of *ḥayāt al-dunyā* they produce economic value in the capitalist order. The heart's disease runs so deep that they do not perceive they are partisans of ruin (2:11-12). Told “believe as the people believe,” elitist pride answers: “shall we believe as the foolish believe?” The very posture makes them the foolish ones, unperceived (2:13)."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Hatta bu şekilde düşünenler bu ifadelerden de rahatsız olurlar. Çünkü dağdaki çobanla kendini Allah karşısında bir tutan bu öğreti, kendi değerler sistemini sarsacaktır. Küçük gördüğü müminlerle bir araya geldiğinde konuşur, hoş beş eder, “biz de iman ediyoruz” mesajını verir. Ama içten içe, onu Allah'tan uzaklaştıran dürtüleri veya kendi gibi arkadaşları yanındayken “onlarla eğleniyorum, alay ediyorum” der (2:14). Hâlbuki daha geniş çerçeveden bakılsa, asıl bu hareketler kendilerini alay konusu yapmıştır; tuğyan içinde bocalayıp yerinde sayarlar (2:15).",
+      "en": "Such thinking is itself irritated by these statements — for a teaching that levels the shepherd on the mountain with oneself before God unsettles one's whole value system. Meeting the believers he looks down on, he talks, exchanges pleasantries, signals “we believe too.” Yet inwardly, or among companions of his own kind, he says: “we are only mocking them” (2:14). Seen from a wider frame, it is this very posture that has made them the object of mockery; they flounder in transgression, going nowhere (2:15)."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Aynı Mesaj, Farklı Sûre Aileleri",
+      "titleEn": "One Message Across Sura Families",
+      "root": {
+        "tr": "Kapanan kalp · ağırlaşan kulak · perdelenen göz",
+        "en": "The shelled heart · the heavy ear · the veiled eye"
+      },
+      "branches": [
+        {
+          "id": "elr",
+          "labelTr": "الر",
+          "labelEn": "الر",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "**Elif-Lâm-Râ** ailesi",
+              "en": "The **Alif-Lām-Rā** family"
+            },
+            {
+              "tr": "**Hûd 11:91** — “söylediklerinin çoğunu kavrayamıyoruz”",
+              "en": "**Hūd 11:91** — “we do not grasp much of what you say”"
+            },
+            {
+              "tr": "**Yûnus 10:42** — sağırlara sen mi duyuracaksın?",
+              "en": "**Yūnus 10:42** — will you make the deaf hear?"
+            }
+          ]
+        },
+        {
+          "id": "hm",
+          "labelTr": "حم",
+          "labelEn": "حم",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Hâ-Mîm** ailesi",
+              "en": "The **Ḥā-Mīm** family"
+            },
+            {
+              "tr": "**Fussilet 41:4-5** — kabuk · ağırlık · perde, kendi ağızlarından",
+              "en": "**Fuṣṣilat 41:4-5** — shell · weight · veil, in their own words"
+            },
+            {
+              "tr": "**Câsiye 45:8** — işitir de hiç işitmemiş gibi ısrar eder",
+              "en": "**Al-Jāthiya 45:8** — he hears, then persists as if he never heard"
+            },
+            {
+              "tr": "**Zuhruf 43:40** — sağıra işittirebilir misin?",
+              "en": "**Al-Zukhruf 43:40** — can you make the deaf hear?"
+            }
+          ]
+        },
+        {
+          "id": "elm",
+          "labelTr": "الم",
+          "labelEn": "الم",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "**Elif-Lâm-Mîm** ailesi",
+              "en": "The **Alif-Lām-Mīm** family"
+            },
+            {
+              "tr": "**Bakara 2:6-15** — mühür, hastalık, farkında olmayış",
+              "en": "**Al-Baqara 2:6-15** — the seal, the disease, the unawareness"
+            },
+            {
+              "tr": "**Rûm 30:52-53** — ölülere ve sağırlara duyuramazsın",
+              "en": "**Al-Rūm 30:52-53** — you cannot make the dead or the deaf hear"
+            }
+          ]
+        },
+        {
+          "id": "hamd",
+          "labelTr": "الحمد",
+          "labelEn": "الحمد",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Elhamdülillah** ailesi",
+              "en": "The **Alḥamdulillāh** family"
+            },
+            {
+              "tr": "**İsrâ 17:45-46 · En'âm 6:24-25 · Kehf 18:56-57** — bu kez “ve cealnâ”: biz kıldık",
+              "en": "**Al-Isrāʾ 17:45-46 · Al-Anʿām 6:24-25 · Al-Kahf 18:56-57** — now “wa jaʿalnā”: We placed"
+            }
+          ]
+        },
+        {
+          "id": "ts",
+          "labelTr": "طس",
+          "labelEn": "طس",
+          "accent": "#c9a227",
+          "children": [
+            {
+              "tr": "**Tâ-Sîn** ailesi",
+              "en": "The **Ṭā-Sīn** family"
+            },
+            {
+              "tr": "**Neml 27:81** — ancak iman edenlere duyurabilirsin",
+              "en": "**Al-Naml 27:81** — you can make only the believers hear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "kapanis",
+      "titleTr": "Sen Ancak İnananlara Duyurabilirsin",
+      "titleEn": "You Can Make Only the Believers Hear"
+    },
+    {
+      "type": "verseInline",
+      "ref": "10:42",
+      "ar": "وَمِنْهُمْ مَنْ يَسْتَمِعُونَ اِلَيْكَ اَفَاَنْتَ تُسْمِـعُ الصُّمَّ وَلَوْ كَانُوا لَا يَعْقِلُونَ",
+      "noteTr": "“Onlardan seni dinleyecekler vardır. Ama hiç duymayan sağırlara — üstelik hiç akılları da ermiyorsa — sen mi duyuracaksın?”",
+      "noteEn": "“Among them are those who listen to you. But can you make the deaf hear, when they do not use reason?”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "27:81",
+      "ar": "وَمٓا اَنْتَ بِهَادِي الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِــعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ",
+      "noteTr": "“Yoldan çıkan körleri doğru yola getirecek olan da sen değilsin. Sen ancak âyetlerimize inananlara (**mümin**) duyurabilirsin; ki zaten onlar gönülden teslim olan (**müslim**) kimselerdir.”",
+      "noteEn": "“Nor can you guide the blind out of their error. You can make only those hear who believe in Our signs — those who have surrendered.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "30:52",
+      "ar": "فَاِنَّكَ لَا تُسْمِعُ الْمَوْتٰى وَلَا تُسْمِعُ الصُّمَّ الدُّعٓاءَ اِذَا وَلَّوْا مُدْبِرِينَ",
+      "noteTr": "“Elbette sen ölülere asla duyuramazsın; sırtlarını dönüp uzaklaşan sağırlara da.”",
+      "noteEn": "“You cannot make the dead hear, nor the deaf hear the call when they turn away in retreat.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "30:53",
+      "ar": "وَمٓا اَنْـتَ بِهَادِ الْعُمْيِ عَنْ ضَلَالَتِهِمْ اِنْ تُسْمِعُ اِلَّا مَنْ يُؤْمِنُ بِاٰيَاتِنَا فَهُمْ مُسْلِمُونَ۟",
+      "noteTr": "“Ve yine, kör olanları sapıklıklarından döndürüp doğru yola iletemezsin. Sen ancak mesajlarımıza inananlara ve kendilerini bize teslim edenlere duyurabilirsin.”",
+      "noteEn": "“Nor can you guide the blind out of their error. You can make hear only those who believe in Our signs and have surrendered.”"
+    },
+    {
+      "type": "verseInline",
+      "ref": "43:40",
+      "ar": "اَفَاَنْتَ تُسْمِــعُ الصُّمَّ اَوْ تَهْدِي الْعُمْيَ وَمَنْ كَانَ فِي ضَلَالٍ مُبِينٍ",
+      "noteTr": "“Sen sağıra işittirebilir misin, yahut köre doğru yolu gösterebilir misin, ya da sapkınlığa gömülmüş olana?”",
+      "noteEn": "“Can you make the deaf hear, or guide the blind — or one sunk in manifest error?”"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Bu yazı Türkçe yayımlanmıştır",
+      "headingEn": "This essay was published in Turkish",
+      "tr": "Gövde metni yazarın kaleminden çıktığı hâliyle korunmuştur; İngilizce sürümdeki çeviri gezinme içindir. Ayet mealleri yazarın kendi tercihidir. Arapça metinler sitenin kanonik kaynağından (`verse-graph-bgem3.json`) alınıp §13.15 uyarınca normalize edilmiştir.",
+      "en": "The body is preserved as the author wrote it in Turkish; the English rendering is for navigation. The verse translations are the author's own choices. The Arabic is taken from the site's canonical source and normalised per §13.15."
+    }
+  ]
+}

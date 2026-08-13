@@ -1,0 +1,261 @@
+{
+  "slug": "terminoloji-4-varliklarin-ayna-olusu",
+  "titleTr": "Terminoloji 4: Varlıkların Ayna Oluşu",
+  "titleEn": "Terminology 4: How Beings Are Mirrors",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 4,
+  "seriesTotal": 7,
+  "publishedDate": "2024-12-22",
+  "readingMinutes": 5,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/i%CC%87nsan-k%C3%A2inat-ve-kuran-%C4%B1-okuma-terminolojisi-4-varl%C4%B1klar%C4%B1n-ayna-olu%C5%9Fu-6848108b778c",
+  "tldrTr": "**Anlam maddeye ontolojik olarak önce gelir**: bina tuğladan, söz harften önce vardır. Ama anlam parçalanmaz bir bütünken madde bölünebilir — insan organını kaybeder, “insan” kimliği değişmez. Madde-mânâ ilişkisi **sentaks ⇄ semantik** ilişkisidir; maddenin vasfı **ayna olmak**tır (Nursî), Hoffman'ın *headset*'i de benzer. Eş'arîlerin *cüz-ü lâ yetecezzâ*sı uzayın içinde değil, uzayı **kuran** partiküllerdir: aralarındaki ilişkiler mekân algısını, ilişkilerin güncellenmesi (*levh-i mahv u isbat*) zaman algısını doğurur. Kapanış sorusu: bir topluluk **vahdet-i ruhiyeye** nasıl ulaşır?",
+  "tldrEn": "**Meaning is ontologically prior to matter**: the building precedes the brick, the word the letter. Yet meaning is indivisible while matter divides — one loses an organ, the identity “human” does not change. The matter–meaning relation is that of **syntax ⇄ semantics**; matter's attribute is **to be a mirror** (Nursî), and Hoffman's *headset* runs parallel. The Ashʿarī indivisible particle is not within space but **constitutes** it: relations among particles yield the perception of place, their updating yields the perception of time. The closing question: how does a community attain **unity of spirit**?",
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [],
+  "previousArticle": {
+    "slug": "terminoloji-3-fizikalizm",
+    "titleTr": "Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları",
+    "titleEn": "Terminology 3: The Fragility and Limits of Physicalism"
+  },
+  "nextArticle": {
+    "slug": "makro-mikro",
+    "titleTr": "Terminoloji 5: Makro ve Mikro Durumlar",
+    "titleEn": "Terminology 5: Macro and Micro States"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Bu seri boyunca; kâinatı, insanı ve hayatı anlama çabamızda Kur'an'ı merkeze alan, bilimsel ve manevî ilkeleri harmanlayan bir **terminoloji** inşa etmeyi hedefliyoruz. Fizik, biyoloji, sosyoloji ve tasavvuf gibi disiplinlerden kavramları birleştirerek fizik ve metafiziği ortak bir perspektiften okuyabilmek istiyoruz. Arzumuz, Kur'an'ın hikmetlerini geleneğin tasrifiyle ele almanın yanında modern bilimlerin sunduğu araçları da sonuna kadar kullanıp hem maddî hem manevî boyutlarda keşfetmektir.",
+      "en": "Throughout this series we aim to build a **terminology** that places the Qur'an at the centre of our effort to understand the cosmos, the human and life, blending scientific and spiritual principles. By joining concepts from physics, biology, sociology and Sufism we hope to read the physical and the metaphysical from a shared vantage. Our wish is to treat the Qur'an's wisdom through the tradition's own handling while also using, to the full, the instruments modern sciences offer — exploring both the material and the spiritual."
+    },
+    {
+      "type": "section",
+      "id": "anlam-madde",
+      "titleTr": "Anlam ve Madde İlişkisi",
+      "titleEn": "Meaning and Matter"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an; meleklerden, cinlerden ve ruhtan bahsederek varlık âleminin **görünmeyen boyutlarına** dikkat çeker. Bu boyutlar, sadece maddenin temsilini değil, maddenin varoluşunu anlamlı kılan ilâhî hikmetin birer tecellîsidir. Ancak bu varlıkların maddede nasıl temsil edildiği, hangi **konfigürasyonlarla** maddeyle etkileşim kurduğu — çoğumuz için — bilgimiz dâhilinde değildir. Aynı şekilde dağlar, yıldızlar ve meyveler gibi varlıkların *âlem-i mânâ* ile ilişkileri konusunda da sınırlı bilgiye sahibiz. Ses dalgalarının hava basıncı değişimi olarak algılanan bir Kur'an tilâvetinin manevî âlemde neleri değiştirdiğini bilebilmemiz, ancak çok özel bir ilimle mümkündür.",
+      "en": "The Qur'an draws attention to the **unseen dimensions** of existence by speaking of angels, jinn and the spirit. These dimensions are manifestations of a divine wisdom that renders not merely the representation of matter but its very existence meaningful. Yet how such beings are represented in matter — through which **configurations** they interact with it — lies, for most of us, outside our knowledge. Our knowledge of how mountains, stars and fruits relate to the *world of meaning* is likewise limited. To know what a Qur'anic recitation — perceived as variations of air pressure — alters in the spiritual realm is possible only through a very particular knowledge."
+    },
+    {
+      "type": "section",
+      "id": "oncelik",
+      "titleTr": "Anlamın Ontolojik Önceliği",
+      "titleEn": "The Ontological Priority of Meaning"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Biz bir şeyi düşünürken veya tasarlarken **harfler üzerinden değil, anlam üzerinden** düşünürüz. Planlar yapar, tasarımlar oluşturur, sonra bu anlamları cümlelere, kelimelere ve harflere dökeriz. Bu süreçte evrensel imlâ ve gramer kurallarına riayet ederiz ki aynı kuralları bilen okuyucu anlamı deşifre edebilsin. Benzer şekilde bir bina inşa etmeden önce bir **tasarım** oluştururuz. Yani anlam ve tasarım, maddeye göre **ontolojik olarak daha önce** gelir.",
+      "en": "When we think or design, we think **through meaning, not through letters**. We make plans, form designs, then pour those meanings into sentences, words and letters — observing shared rules of spelling and grammar so that a reader who knows the same rules can decipher the meaning. Likewise, before erecting a building we produce a **design**. Meaning and design therefore come **ontologically prior** to matter."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Anlamdan maddeye — hangisi önce?",
+      "captionEn": "From meaning to matter — which comes first?",
+      "nodes": [
+        {
+          "titleTr": "Anlam",
+          "titleEn": "Meaning",
+          "tone": "trigger",
+          "subtitleTr": "Zihinde bölünmez bir bütün: “ev” fikri, söylenecek söz.",
+          "subtitleEn": "An indivisible whole in the mind: the idea of “house,” the word to be said."
+        },
+        {
+          "titleTr": "Tasarım",
+          "titleEn": "Design",
+          "tone": "state",
+          "subtitleTr": "Anlamın kurallı ifadesi: mimarî plan, cümle ve gramer.",
+          "subtitleEn": "The rule-governed expression of meaning: the architectural plan, the sentence and its grammar."
+        },
+        {
+          "titleTr": "Madde",
+          "titleEn": "Matter",
+          "tone": "result",
+          "subtitleTr": "Tuğla, beton, harf, ses dalgası. Anlamı **taşır** — üretmez.",
+          "subtitleEn": "Brick, concrete, letter, sound wave. It **carries** the meaning — it does not produce it."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ancak burada şu soru doğar: **Anlam parçalanmayan bir bütün iken, maddede neden parçalanabilir bir yapıya dönüşür?** İnsan elini, ayağını veya bir organını kaybetse bile anlam dünyasındaki “insan” kimliği değişmez. Aynı şekilde yüksek sesle “Elhamdülillah” demekle alçak sesle demek arasında anlam bakımından fark yoktur.",
+      "en": "But a question arises here: **if meaning is an indivisible whole, why does it become divisible in matter?** Though a person lose a hand, a foot or an organ, the identity “human” in the world of meaning does not change. Likewise there is no difference in meaning between saying “Praise be to God” loudly or softly."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu geçişin nasıl gerçekleştiği, maddenin sınırlarının nasıl çizildiği, madde ile mânâ arasındaki **taşıyıcılık ilişkisinin** hangi durumlarda başarıyla gerçekleşip hangilerinde başarısız kaldığı çözülmesi gereken derin meselelerdir. Eğer her şeyin bir kaderi varsa, bu kader maddedeki temsilini deterministik bir kalıpta mı bulur? Deterministik bir kalıp, o şeyin maddesini oluşturan parçaların durumunu da kesin şekilde belirler mi? Bir cemaatin kaderi varsa, o cemaatin bireylerinin kaderi de aynı şekilde kesin mi belirlenir?",
+      "en": "How this transition occurs, how the boundaries of matter are drawn, and in which cases the **carrying relation** between matter and meaning succeeds or fails — these are deep questions still to be resolved. If everything has a destiny, does that destiny find its representation in matter within a deterministic mould? Does a deterministic mould fix, exactly, the state of the parts composing that thing's matter? If a community has a destiny, are the destinies of its individuals thereby fixed as well?"
+    },
+    {
+      "type": "section",
+      "id": "ayna",
+      "titleTr": "Madde ve Mânâ — Ayna Oluş",
+      "titleEn": "Matter and Meaning — Being a Mirror"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Sentaks ⇄ Semantik",
+      "captionEn": "Syntax ⇄ Semantics",
+      "left": {
+        "titleTr": "Sentaks — madde",
+        "titleEn": "Syntax — matter",
+        "accent": "#3498db",
+        "descTr": "Kelimelerin ve harflerin **düzeni**. Tuğla, beton, ses dalgası, partikül konfigürasyonu.",
+        "descEn": "The **arrangement** of words and letters. Brick, concrete, sound wave, particle configuration.",
+        "bullets": [
+          {
+            "tr": "Bölünebilir, ölçülebilir, sayılabilir",
+            "en": "Divisible, measurable, countable"
+          },
+          {
+            "tr": "Anlamın **taşıyıcısı**dır",
+            "en": "It is the **carrier** of meaning"
+          },
+          {
+            "tr": "Vasfı: **ayna olmak**",
+            "en": "Its attribute: **to be a mirror**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Semantik — mânâ",
+        "titleEn": "Semantics — meaning",
+        "accent": "#d4a574",
+        "descTr": "O düzenin **taşıdığı anlam**. Mimarın zihnindeki bina, söylenmek istenen söz.",
+        "descEn": "The **meaning that arrangement carries**. The building in the architect's mind, the word intended.",
+        "bullets": [
+          {
+            "tr": "Parçalanamaz — *küll-ü lâ yetecezzâ*",
+            "en": "Indivisible — *kull lā yatajazzā*"
+          },
+          {
+            "tr": "Maddeye göre **ontolojik olarak önce**",
+            "en": "**Ontologically prior** to matter"
+          },
+          {
+            "tr": "Maddede form bularak görünür olur",
+            "en": "It becomes visible by finding form in matter"
+          }
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bediüzzaman Said Nursî bu ilişkiyi **“ayna olmak”** kavramıyla açıklar. Donald Hoffman ise insan şuurunu açıklarken maddenin belirli konfigürasyonlarının bir VR gözlüğü gibi *headset* oluşturduğunu ifade eder.",
+      "en": "Nursî explains this relation through the notion of **“being a mirror.”** Donald Hoffman, expounding human consciousness, says that particular configurations of matter constitute a *headset*, like a VR visor."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an, arzı ve semâyı **aynı özden** yarattığını ifade eder. Eş'arîler bu özün *cüz-ü lâ yetecezzâ* dedikleri, parçalanamayan temel partiküllerden oluştuğunu söylerler. Ancak bu partiküller, bilinen anlamıyla uzayın **içinde** yer alan varlıklar değildir; aksine **uzayın kendisini** ve algıladığımız üç boyutlu mekânı şekillendirirler. Partiküllerin kendi aralarındaki ilişkileri uzaydaki yakınlık-uzaklık algısını oluşturduğu gibi, bu ilişkilerin güncellenmesi — bir takım kurallara göre silinip yazılması (*levh-i mahv u isbat*) — **zaman algısını** oluşturur.",
+      "en": "The Qur'an states that it created the earth and the heaven **from a single substance**. The Ashʿarīs held that this substance consists of indivisible fundamental particles. Yet these particles are not entities located **within** space as ordinarily understood; rather they shape **space itself** and the three-dimensional place we perceive. Just as the relations among the particles constitute the perception of nearness and distance in space, the updating of those relations — their erasure and inscription according to certain rules — constitutes **the perception of time**."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Temsilin Katmanları",
+      "titleEn": "The Layers of Representation",
+      "root": {
+        "tr": "Partikül konfigürasyonları — sürekli güncellenen ilişkiler",
+        "en": "Particle configurations — continually updated relations"
+      },
+      "branches": [
+        {
+          "id": "uzay",
+          "labelTr": "Uzay",
+          "labelEn": "Space",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Partiküller arası **ilişkiler** → yakınlık-uzaklık algısı",
+              "en": "**Relations** among particles → the perception of near and far"
+            }
+          ]
+        },
+        {
+          "id": "zaman",
+          "labelTr": "Zaman",
+          "labelEn": "Time",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "İlişkilerin **güncellenmesi** → *levh-i mahv u isbat*",
+              "en": "The **updating** of relations → the tablet of effacement and affirmation"
+            }
+          ]
+        },
+        {
+          "id": "varlik",
+          "labelTr": "Varlıklar",
+          "labelEn": "Beings",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Konfigürasyonlar **elektron, quark, foton** anlamlarını temsil eder",
+              "en": "Configurations represent the meanings **electron, quark, photon**"
+            },
+            {
+              "tr": "Onların konfigürasyonları da **atom, molekül, protein**i",
+              "en": "And their configurations represent **atom, molecule, protein**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tıpkı bir radyonun doğru frekansı ayarladığında ortamda bulunan ama gözle görülmeyen elektromanyetik dalgaları sese dönüştürmesi gibi, mânâ da maddeyle görünür hâle gelir.",
+      "en": "Just as a radio, tuned to the right frequency, turns into sound the electromagnetic waves present but unseen, so meaning becomes visible through matter."
+    },
+    {
+      "type": "section",
+      "id": "vahdet",
+      "titleTr": "Ontolojik Bütünlük ve Vahdet-i Ruhiye",
+      "titleEn": "Ontological Wholeness and Unity of Spirit"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir topluluğun veya bir varlığın **kaderinin olması**, onun üst bir gerçekliğe — yani anlam düzeyine — sahip olduğunu gösterir. Ancak bir cemaatin kaderi bireylerin kaderlerini de kesin olarak belirler mi? Topluluk ile toplum, yığın ile yapı, kömür ile elmas, beş dakika önce ölmüş bir insan ile şu anki ölü hâli arasındaki fark nedir?",
+      "en": "That a community or a being **has a destiny** shows it possesses a higher reality — a level of meaning. But does a community's destiny fix the destinies of its individuals? What is the difference between a crowd and a society, a heap and a structure, coal and diamond, a person dead five minutes ago and their present dead state?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bir grup insan bir işi gerçekleştirmek üzere bir araya geldiğinde, **vahdet-i ruhiyenin** oluşması için ne yapılabilir? Bu ruh birliği nasıl gelir? *Yedullah*'ın teyidini alacak ve *İsm-i Âzam*'ın tecellîsini yansıtacak bir ayna nasıl olunabilir? Bir anlamda parça/cüz olan benliğimizi *insan-ı kâmil* küllî hakikatinin içinde eritip, kâinatı yazan kalemin mürekkebi olan o nur ile nasıl bütünleşebiliriz?",
+      "en": "When a group of people gather to accomplish a work, what may be done for a **unity of spirit** to form? How does that unity come? How may one become a mirror that receives divine confirmation and reflects the manifestation of the Greatest Name? How may we dissolve our selfhood — in one sense a part — within the universal reality of the perfected human, and unite with that light which is the ink of the pen that writes the cosmos?"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tıpkı birbirinden bağımsız gibi görülen renklerin bir tabloda uyumla büyük bir resim oluşturması gibi — ya da her biri kendine has bir sesi olan onlarca enstrümanın bir senfoni oluşturduğu gibi — bizler de özgür irademizle seçtiğimiz büyük bir anlam dünyasının parçaları olabiliriz. Ama nasıl ve hangi şartları yerine getirirsek?",
+      "en": "Just as colours that seem independent compose, in harmony, a great picture on a canvas — just as dozens of instruments, each with its own voice, compose a symphony — so we too may become parts of a great world of meaning chosen by our own free will. But how, and on fulfilling which conditions?"
+    },
+    {
+      "type": "section",
+      "id": "sonraki",
+      "titleTr": "Bir Sonraki Yazıda",
+      "titleEn": "In the Next Essay"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda varlığın mânâ ve madde bağlamında okunmasına dair bir **girizgâh**, bir çerçeve sunmaya çalıştık. Ancak bu çerçevenin daha derinlemesine anlaşılması için terminolojimizi genişletmemiz gerekiyor. Bir sonraki yazıda **makro ve mikro durumlar**, **faz geçişleri**, indirgenemezlik, emergence, **entropi**, **bilgi** ve **Markov Zarfı** gibi kavramları ele alarak tartışmayı derinleştireceğiz.",
+      "en": "In this essay we have tried to offer a **preface**, a frame, for reading existence in terms of meaning and matter. To grasp that frame more deeply we must widen our terminology. In the next essay we will deepen the discussion with concepts such as **macro and micro states**, **phase transitions**, irreducibility, emergence, **entropy**, **information** and the **Markov blanket**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında",
+      "headingEn": "About the series",
+      "tplTR": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin dördüncüsüdür ve serinin ilk bölümünü kapatan çerçeve metnidir; sonundaki başlıklar doğrudan 5. yazıya devredilir. {{seri}} — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "tplEN": "This is the fourth essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**, and the framing text that closes its first movement; the topics it names at the end pass directly to the fifth. {{seri}} — This essay quotes no verses directly; it belongs to the series' conceptual preparations.",
+      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin dördüncüsüdür ve serinin ilk bölümünü kapatan çerçeve metnidir; sonundaki başlıklar doğrudan 5. yazıya devredilir. Serinin 7 yazısının tamamı sitede. — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "en": "This is the fourth essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**, and the framing text that closes its first movement; the topics it names at the end pass directly to the fifth. All 7 essays of the series are on the site. — This essay quotes no verses directly; it belongs to the series' conceptual preparations."
+    }
+  ]
+}

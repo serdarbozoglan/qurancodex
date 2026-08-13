@@ -1,0 +1,281 @@
+{
+  "slug": "terminoloji-3-fizikalizm",
+  "titleTr": "Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları",
+  "titleEn": "Terminology 3: The Fragility and Limits of Physicalism",
+  "category": "terminoloji",
+  "template": "series-hero",
+  "seriesId": "terminoloji",
+  "seriesNumber": 3,
+  "seriesTotal": 7,
+  "publishedDate": "2024-11-27",
+  "readingMinutes": 3,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/i%CC%87nsan-kainat-ve-kuran%C4%B1-okuma-terminolojisi-3-fizikalizmin-k%C4%B1r%C4%B1lganl%C4%B1%C4%9F%C4%B1-ve-s%C4%B1n%C4%B1rlar%C4%B1-c073fafb8876",
+  "tldrTr": "İnsan-Kâinat-Kur'an üçlüsü, **gözlemci · gözlemlenen · anlamlandıran** kategorilerinin en kâmil temsilcisidir. Fizikalizm ise yalnız **gözlemleneni** var sayar. Üç zorluk: (1) **Kuantum** — madde katılıktan çıkıp soyut matematiksel yapıya döner; (2) **zuhur (emergence)** — bilinç ve sosyal davranış parçaların toplamına indirgenemez; (3) **soyut varlıklar** — matematiksel kalıplar da kapsama alınırsa Platonizm'den farkı kalmaz. Fizikalizm her yeni keşifte “fiziksel”i yeniden tanımlar; hiçbir şeyi dışarıda bırakmayan bir tez hiçbir şey iddia etmez. Kuantumdaki ölçüm problemi ise **gözlemciyi indirgenemez bir kategori** olarak öne çıkarır.",
+  "tldrEn": "The Human–Cosmos–Qur'an triad is the fullest representative of the categories **observer · observed · meaning-giver**. Physicalism admits only **the observed**. Three difficulties: (1) **quantum** — matter ceases to be solid and becomes abstract mathematical structure; (2) **emergence** — consciousness and social behaviour do not reduce to the sum of parts; (3) **abstract entities** — if mathematical patterns are included too, what separates it from Platonism? Physicalism redefines “physical” at each new discovery; a thesis that excludes nothing asserts nothing. The measurement problem, meanwhile, brings forward **the observer as an irreducible category**.",
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [],
+  "previousArticle": {
+    "slug": "terminoloji-2-parcalanamaz-butunler",
+    "titleTr": "Terminoloji 2: Parçalanamaz Bütünlerin Hikâyesi",
+    "titleEn": "Terminology 2: The Story of Indivisible Wholes"
+  },
+  "nextArticle": {
+    "slug": "terminoloji-4-varliklarin-ayna-olusu",
+    "titleTr": "Terminoloji 4: Varlıkların Ayna Oluşu",
+    "titleEn": "Terminology 4: How Beings Are Mirrors"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Bu seride daha önce de kısaca **İnsan-Kâinat-Kur'an tek bir hakikatin üç yüzüdür** demiştik. Bu üçlü aslında **gözlemci**, **gözlemlenen** ve **anlamlandıran** ontolojik kategorilerinin en kâmil temsilcileridir. Ancak günümüzde yaygın olan modern anlayış, sadece gözlemleneni var sayan — onu da madde ve enerjiden ibaret sayan — **fizikalizm**dir. Bu yazıda fizikalizmin ne olduğunu ve neden sorunlu olduğunu anlatacağız.",
+      "en": "Earlier in this series we said briefly that **the Human, the Cosmos and the Qur'an are three faces of a single reality**. This triad is in fact the most complete representative of the ontological categories of **observer**, **observed** and **that which gives meaning**. Yet the modern understanding prevalent today is **physicalism**, which posits only the observed — and takes even that to consist of matter and energy. In this essay we set out what physicalism is and why it is problematic."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Tek Hakikatin Üç Yüzü",
+      "titleEn": "Three Faces of a Single Reality",
+      "root": {
+        "tr": "Tek hakikat — üç ontolojik kategori",
+        "en": "One reality — three ontological categories"
+      },
+      "branches": [
+        {
+          "id": "gozlemci",
+          "labelTr": "İnsan",
+          "labelEn": "The Human",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "**Gözlemci** — indirgenemeyen bir bilgi işleme sistemi",
+              "en": "**The observer** — an irreducible information-processing system"
+            }
+          ]
+        },
+        {
+          "id": "gozlemlenen",
+          "labelTr": "Kâinat",
+          "labelEn": "The Cosmos",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Gözlemlenen** — fizikalizmin var saydığı **tek** kategori",
+              "en": "**The observed** — the **only** category physicalism admits"
+            }
+          ]
+        },
+        {
+          "id": "anlamlandiran",
+          "labelTr": "Kur'an",
+          "labelEn": "The Qur'an",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Anlamlandıran** — fizikalizmin çerçevesine hiç girmez",
+              "en": "**That which gives meaning** — never enters physicalism's frame at all"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "fizikalizm",
+      "titleTr": "Fizikalizm Nedir?",
+      "titleEn": "What Is Physicalism?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Fizikalizm, var olan her şeyin temelde **fiziksel** olduğu fikridir. Başka bir deyişle; zihinsel, sosyal veya biyolojik olsun, her şey bilim tarafından tanımlanabilen fiziksel süreçlere indirgenebilir. Bu bakış açısı dünyayı anlamamıza yardımcı olmuş ve bilimin gerçeklikle ilgili birçok şeyi açıklamasında oldukça etkili olmuştur. Ancak cazip görünmesine rağmen fizikalizmin bazı büyük zorlukları vardır.",
+      "en": "Physicalism is the idea that everything that exists is fundamentally **physical**. In other words, everything — mental, social or biological — reduces to physical processes definable by science. This view has helped us understand the world and has been highly effective in letting science explain a great deal about reality. Yet for all its appeal, physicalism faces some large difficulties."
+    },
+    {
+      "type": "section",
+      "id": "zorluklar",
+      "titleTr": "Üç Zorluk",
+      "titleEn": "Three Difficulties"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Fizikalizmin Karşılaştığı Üç Zorluk",
+      "titleEn": "Three Difficulties Physicalism Faces",
+      "root": {
+        "tr": "“Her şey temelde fiziksel”",
+        "en": "“Everything is fundamentally physical”"
+      },
+      "branches": [
+        {
+          "id": "kuantum",
+          "labelTr": "Kuantum",
+          "labelEn": "Quantum",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Madde katı ve somut olmaktan çıkar; **dalga fonksiyonları** ve **kuantum alanları** gibi soyut matematiksel yapılara dönüşür.",
+              "en": "Matter ceases to be solid and concrete; it becomes abstract mathematical structure — **wave functions**, **quantum fields**."
+            }
+          ]
+        },
+        {
+          "id": "emergence",
+          "labelTr": "Zuhur (emergence)",
+          "labelEn": "Emergence",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Bilinç nöral ağlardan, sosyal davranış bireysel etkileşimlerden doğar — ama **parçaların toplamına indirgenemez**.",
+              "en": "Consciousness arises from neural networks, social behaviour from individual interactions — yet **neither reduces to the sum of its parts**."
+            },
+            {
+              "tr": "Farklı **gerçeklik düzeyleri** olduğunu gösterir.",
+              "en": "This shows there are distinct **levels of reality**."
+            }
+          ]
+        },
+        {
+          "id": "soyut",
+          "labelTr": "Soyut varlıklar",
+          "labelEn": "Abstract entities",
+          "accent": "#c9a227",
+          "children": [
+            {
+              "tr": "Matematiksel kalıplar da çerçeveye alınırsa, **Platonizm** veya **nötr monizm**den farkı ne kalır?",
+              "en": "If mathematical patterns are taken in too, what distinguishes it from **Platonism** or **neutral monism**?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Maddenin iki hâli",
+      "captionEn": "Two states of matter",
+      "left": {
+        "titleTr": "Klasik bakış",
+        "titleEn": "The classical view",
+        "accent": "#3498db",
+        "descTr": "Madde **katı ve somut**tur. Ölçülür, yer kaplar, elle tutulur.",
+        "descEn": "Matter is **solid and concrete**. It is measured, occupies space, can be handled.",
+        "bullets": [
+          {
+            "tr": "“Fiziksel” kelimesi net bir şeye işaret eder",
+            "en": "The word “physical” points at something definite"
+          },
+          {
+            "tr": "İndirgeme sezgisel görünür",
+            "en": "Reduction looks intuitive"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Kuantum bakış",
+        "titleEn": "The quantum view",
+        "accent": "#9b59b6",
+        "descTr": "Madde kesin bir şeyden çok **olasılıklar bulutu** gibidir; soyut matematiksel yapıya döner.",
+        "descEn": "Matter is less a definite thing than **a cloud of probabilities**; it turns into abstract mathematical structure.",
+        "bullets": [
+          {
+            "tr": "“Fiziksel” tanımı soyutlamaları da kapsayacak şekilde genişletilir",
+            "en": "“Physical” is widened to include the abstractions"
+          },
+          {
+            "tr": "Tanım esnedikçe **ayırt ediciliğini yitirir**",
+            "en": "As the definition stretches it **loses its distinctness**"
+          }
+        ]
+      }
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Tanımlama oyunu — fizikalizmin savunma refleksi",
+      "captionEn": "The definition game — physicalism's defensive reflex",
+      "nodes": [
+        {
+          "titleTr": "Yeni bir soyutluk keşfedilir",
+          "titleEn": "A new abstraction is discovered",
+          "tone": "trigger",
+          "subtitleTr": "Dalga fonksiyonu, alan, matematiksel ilişki — katı maddeye benzemez.",
+          "subtitleEn": "Wave function, field, mathematical relation — nothing like solid matter."
+        },
+        {
+          "titleTr": "“Fiziksel” yeniden tanımlanır",
+          "titleEn": "“Physical” is redefined",
+          "tone": "state",
+          "subtitleTr": "Ölçülebiliyor ve deneyden geliyorsa fizikseldir denir; kapsam genişletilir.",
+          "subtitleEn": "If it is measurable and comes from experiment, it counts as physical; the scope widens."
+        },
+        {
+          "titleTr": "Bilimin incelediği HER ŞEY fiziksel olur",
+          "titleEn": "EVERYTHING science studies becomes physical",
+          "tone": "state",
+          "subtitleTr": "Tez artık her yeni keşfe uyacak kadar esnektir.",
+          "subtitleEn": "The thesis is now elastic enough to fit any new discovery."
+        },
+        {
+          "titleTr": "Tez anlamını yitirir",
+          "titleEn": "The thesis loses its meaning",
+          "tone": "result",
+          "subtitleTr": "Hiçbir şeyi dışarıda bırakmayan bir iddia, hiçbir şey iddia etmiyor demektir.",
+          "subtitleEn": "A claim that excludes nothing is a claim that asserts nothing."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Tanımını bilimin ele aldığı her şeyi içerecek şekilde genişletmek, fizikalizmi kendine özgü olmaktan çıkarıp belirsiz, her şeyi kapsayan bir terime dönüştürür.",
+      "en": "Widening its definition to include whatever science takes up strips physicalism of its distinctness and turns it into a vague, all-encompassing term."
+    },
+    {
+      "type": "section",
+      "id": "gozlemci",
+      "titleTr": "Gözlemci — Ayrı Bir Ontolojik Kategori",
+      "titleEn": "The Observer — A Distinct Ontological Category"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Esasında dış dünyadaki varlık bir **deniz gibi birbiri içindedir**; objelerin etrafına sınır çizmek zordur. Bir yaprağı ağaçtan ayırmak, ağacı ormandan, ormanı doğadan, doğayı dünyadan ayırmak — bunu yapan **gözlemcidir**.",
+      "en": "In truth, existence out there is **interfused like a sea**; drawing boundaries around objects is hard. To separate a leaf from the tree, the tree from the forest, the forest from nature, nature from the world — this is the work of **the observer**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kuantum mekaniğindeki **ölçüm problemi** de gözlemcinin bu temel rolünü vurgular: gözlemci, ölçüm eylemiyle sistemin durumunu belirler. Bu da bizi gözlemciyi ayrı ve temel bir varlık olarak kabul etmeye zorlar — **başka bir şeye indirgenemeyen bir bilgi işleme sistemi** olarak. Gözlemcinin gerçekliği şekillendirmede önemli bir rol oynadığı, fizikalizmin basit indirgemeciliğine doğrudan meydan okur. Bu konuyu ileride daha detaylı ele alacağız.",
+      "en": "The **measurement problem** in quantum mechanics underscores this fundamental role: through the act of measurement the observer determines the state of the system. This forces us to admit the observer as a distinct and fundamental existent — **an information-processing system irreducible to anything else**. That the observer plays a significant part in shaping reality challenges physicalism's simple reductionism head-on. We will treat this in more detail later."
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç",
+      "titleEn": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Varlık, fizikalizmin izin verdiğinden çok daha karmaşıktır. Fizikalizmin ötesine geçmek, evreni daha derinlemesine anlamanın kapılarını açar. Her şeyi “fiziksel” dar tanımına sıkıştırmak yerine, **fiziksel, zihinsel ve soyut arasındaki etkileşimi** kabul ederek gerçekliğin zenginliğini ve karmaşıklığını daha iyi takdir edebiliriz.",
+      "en": "Existence is far more complex than physicalism allows. Passing beyond it opens doors to a deeper understanding of the universe. Rather than compressing everything into the narrow definition of “physical,” we can better appreciate the richness and complexity of reality by admitting **the interplay of the physical, the mental and the abstract**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Bakış açımızı genişleterek, varlığın çok katmanlı doğasını — tek bir çerçeve tarafından tamamen kavranamayan bir şeyi — görmeye başlayabiliriz.",
+      "en": "By widening our view we may begin to see the many-layered nature of existence — something no single frame can wholly grasp."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Varlıktaki **gözlemci (insan) – gözlemlenen (kâinat) – anlamlandıran (Kur'an)** üçlüsünü anlama yolunda yazacağımız diğer yazılar için takipte kalın. Konunun farklı açılardan da açıklanmasına yol açacak yorum ve sorularınızı bekliyoruz.",
+      "en": "Stay tuned for the further essays on the way to understanding the triad in existence: **observer (human) – observed (cosmos) – meaning-giver (Qur'an)**. We welcome the comments and questions that will open the subject from other angles."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Seri hakkında",
+      "headingEn": "About the series",
+      "tr": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin üçüncüsüdür. Önceki yazı *Parçalanamaz Bütünlerin Hikâyesi*'dir ve buradaki “zuhur eden fenomenler” tartışması doğrudan oraya dayanır. Serinin 7 yazısının tamamı sitede. — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "en": "This is the third essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. The previous is *The Story of Indivisible Wholes*, on which the discussion of emergent phenomena here directly rests. All 7 essays of the series are on the site. — This essay quotes no verses directly; it belongs to the series' conceptual preparations.",
+      "tplTR": "Bu yazı **İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi** serisinin üçüncüsüdür. Önceki yazı *Parçalanamaz Bütünlerin Hikâyesi*'dir ve buradaki “zuhur eden fenomenler” tartışması doğrudan oraya dayanır. {{seri}} — Bu yazı doğrudan ayet alıntılamaz; serinin kavramsal hazırlık metinlerindendir.",
+      "tplEN": "This is the third essay in the series **Terminology for Reading the Human, the Cosmos and the Qur'an**. The previous is *The Story of Indivisible Wholes*, on which the discussion of emergent phenomena here directly rests. {{seri}} — This essay quotes no verses directly; it belongs to the series' conceptual preparations."
+    }
+  ]
+}

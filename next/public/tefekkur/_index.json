@@ -51,6 +51,28 @@
   ],
   "articles": [
     {
+      "slug": "yapilanlarin-suslu-gorulmesi",
+      "titleTr": "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi",
+      "titleEn": "When One's Acts Appear Beautified — The Anatomy of Tazyīn",
+      "category": "kavramsal",
+      "publishedDate": "2024-07-15",
+      "readingMinutes": 8,
+      "tldrTr": "Kur'an insanın yanlışını içeriden doğru, çirkinini güzel görme halini tek kavramla karşılar: tezyîn. Bu sadece dış aldanma değil — zihnin kendisini ikna edebilme kudretidir. Mekanizma çok katmanlı işler: (1) bireysel (En'âm 6:43, Fâtır 35:8); (2) kolektif/toplumsal (Tevbe 9:37, Enfâl 8:48); (3) epistemik karanlık (echo chambers, ideolojik tarafgirlik — 6:122, 27:4); (4) heva merkezliği (Muhammed 47:14). Salınım dinamiği: zarar→dua, genişlik→gaflet (Yunus 10:12). İki kalkan: beyyine (dış delil) + ihlâs (iç berrak) — kaynak kısıtlandığında (Fecr 89:16) gayeler teke düşer; her imtihan ihlâs imtihanıdır. Pratik soru: 'Bu bana niçin mantıklı göründü?'",
+      "tldrEn": "The Quran names the state of seeing one's own wrong as right, the ugly as beautiful with a single term: tazyīn. This is not merely outer deception — it is the mind's power to persuade itself. The mechanism works on many layers: (1) individual (Al-Anʿām 6:43, Fāṭir 35:8); (2) collective/social (Al-Tawba 9:37, Al-Anfāl 8:48); (3) epistemic darkness (echo chambers, ideological partiality — 6:122, Al-Naml 27:4); **(4) the centrality of hawā (Muḥammad 47:14). The oscillation: harm→prayer, ease→heedlessness (Yūnus 10:12). Two shields:** bayyina (outer evidence) + ikhlāṣ (inner clarity) — when resources are constrained (Al-Fajr 89:16), aims collapse to one; every trial is a trial of ikhlāṣ. The practical question: 'Why did this seem reasonable to me?'",
+      "status": "draft"
+    },
+    {
+      "slug": "emrin-mahiyeti",
+      "titleTr": "Emrin Ontolojik Mahiyeti — Aktualizasyon ve İşleyiş Prensibi",
+      "titleEn": "The Ontological Nature of Amr — The Principle of Actualization and Operation",
+      "category": "kozmoloji",
+      "publishedDate": "2024-07-25",
+      "readingMinutes": 7,
+      "tldrTr": "Kur'an'da Emr kavramı, varlığın statik mevcudiyeti (Halk) ile sürekli işleyişi arasındaki köprüdür. A'râf 7:54 — 'Halk da Emr de O'nundur': iki ayrı kategori. Halk = mevcudiyet tahsisi; Emr = o varlığın işleyişi, kanunu, fonksiyonu. Üç boyutta tezahür: (1) İmperatif — kün feyekün (Nahl 16:40); (2) Operasyonel — her göğe emreha vahyedildi (Fussilet 41:12), fiziksel yasalar; (3) İdari — İleyhi yurca'ul emru kulluhu (Hud 11:123), İsm-i Kayyûm sırrı. Epistemik: Emr, gayb ↔ şehadet arayüzü. İnsani: karar (Neml 27:32) + nefs-i emmâre (Yusuf 12:53). Emr kesilse, varlığın kıyamı çöker.",
+      "tldrEn": "In the Quran, Amr is the bridge between the static existence (khalq) and the continuous operation of being. Al-Aʿrāf 7:54 — 'To Him belong both khalq and amr': two distinct categories. Khalq = the assignment of existence; amr = the operation, the law, the function of what exists. It appears in three dimensions: (1) imperative — kun fa-yakūn (Al-Naḥl 16:40); (2) operational — to each heaven, its amr was revealed (Fuṣṣilat 41:12), the physical laws; (3) governing — ilayhi yurjaʿu l-amru kulluh (Hūd 11:123), the secret of Ism al-Qayyūm. Epistemic: amr is the interface between ghayb ↔ shahāda. Human: decision (Al-Naml 27:32) + al-nafs al-ammāra (Yūsuf 12:53). If amr were severed, the qiyām of being would collapse.",
+      "status": "draft"
+    },
+    {
       "slug": "ayet-koprusu",
       "titleTr": "Ayet — Gözlemden Hakikate Köprü",
       "titleEn": "Āya — The Bridge from Observation to Reality",
@@ -110,6 +132,29 @@
       "status": "draft"
     },
     {
+      "slug": "okuma-prensipleri-1",
+      "titleTr": "Kur'an Okuma Prensiplerimiz-1: Epistemik Prensipler",
+      "titleEn": "Our Principles for Reading the Quran-1: Epistemic Principles",
+      "category": "sure-hermenotik",
+      "publishedDate": "2024-09-15",
+      "readingMinutes": 6,
+      "tldrTr": "Kur'an okumayı sağlıklı yapabilmek için 5 epistemik prensip: (1) Kapsayıcılık (Kur'an her şeyi kapsar), (2) Genelleme (genel bırakılan kapsayıcı olmasını dilemiştir), (3) Tutarlılık (farklı ayet grupları tutarlı işler — tedebbür gerekir), (4) Precision (tam eş anlamlı kelime yok), (5) Modelleme (Kur'an iç+dış dünyayı Allah ile irtibatlandıran okuma modelidir — 'asâ-yı Mûsâ').",
+      "tldrEn": "Five epistemic principles for sound Quran reading: (1) Comprehensiveness, (2) Generalization, (3) Consistency, (4) Precision, (5) Modeling (the Quran as the model linking inner+outer observation to God — the 'staff of Moses').",
+      "status": "draft"
+    },
+    {
+      "slug": "alak-suresi-1",
+      "titleTr": "Alak Sûresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma",
+      "titleEn": "Sūrah Al-ʿAlaq 1: The First Bismillah, the Big Picture, and the Metaphysical Paradigm",
+      "category": "sure-hermenotik",
+      "pinned": true,
+      "publishedDate": "2024-09-21",
+      "readingMinutes": 4,
+      "tldrTr": "Alak Sûresi 96:1 — İlk gelen âyet, sembolleri 'Yaratan Rabbinin İsmi' çerçevesinde bir araya getirip büyük resmi görmenin emridir. Besmele bir okuma çerçevesi — bir metafizik paradigmadır. Mana-yı ismî'den mana-yı harfî'ye, tilavetten kıraate yükseliş.",
+      "tldrEn": "Sūrah Al-ʿAlaq 96:1 — The first verse is the command to gather symbols within the frame of 'the Name of the Lord who Created' and see the big picture. Bismillah is a reading-frame — a metaphysical paradigm. The ascent from manā-ʾi ismī to manā-ʾi ḥarfī, from tilāwa to qirāʾa.",
+      "status": "draft"
+    },
+    {
       "slug": "sonsuz-nasil-bilinir",
       "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak",
       "titleEn": "Cognition 2: How Is the Infinite Known — Directional Cognition",
@@ -119,6 +164,50 @@
       "readingMinutes": 6,
       "tldrTr": "Sınırlı zihin sınırsızı nasıl idrak eder? Yönelimsel idrak: X=100 (kesin/sınırlı) ↔ X∈ℤ (vague) ↔ X→∞ (yönü bilinir). 'Allâhu Ekber' dinamik idrak formülü: Kıyas + Aşkınlık. Tenzih-teşbih dengesi (Şura 42:11, İhlâs 112:4). Elhamdülillah=teşbih, Subhânallah=tenzih.",
       "tldrEn": "How does a finite mind grasp the infinite? Directional cognition: X=100 (definite/bounded) ↔ X∈ℤ (vague) ↔ X→∞ (direction known). 'Allāhu Akbar' = dynamic-cognition formula: Comparison + Transcendence. Tanzīh-tashbīh balance (42:11, 112:4). Alḥamdulillāh=tashbīh, Subḥānallāh=tanzīh.",
+      "status": "draft"
+    },
+    {
+      "slug": "okuma-prensipleri-2",
+      "titleTr": "Kur'an Okuma Prensiplerimiz-2: Hermenötik Prensipler",
+      "titleEn": "Our Principles for Reading the Quran-2: Hermeneutic Principles",
+      "category": "sure-hermenotik",
+      "publishedDate": "2024-09-25",
+      "readingMinutes": 9,
+      "tldrTr": "4 hermenötik prensip: (1) Metnin Lokasyonu (sibâk-siyâk + parça-bütün), (2) Mesajın Vektörelliği (esbâb-ı nüzûl + transformatif fonksiyon — trajectory hermeneutics değil), (3) Anlamsal+Yapısal İlişki Ağı (ayet öbekleri network'ü; raghaden örneği), (4) Murakabe-Muhasebe (iç hâl bağlamı — Müzzemmil örneği).",
+      "tldrEn": "Four hermeneutic principles: (1) Textual Location (siyāq + part-whole), (2) Vectoriality of the Message (asbāb al-nuzūl + transformative function — not trajectory hermeneutics), (3) Semantic-Structural Relational Web (verse-cluster network; raghadan example), (4) Murāqaba-Muḥāsaba (inner state as context — Muzzammil example).",
+      "status": "draft"
+    },
+    {
+      "slug": "alak-suresi-2-3",
+      "titleTr": "Alak Sûresi 2-3: Fetüs ve Ontolojik Öncelik",
+      "titleEn": "Sūrah Al-ʿAlaq 2-3: The Fetus and Ontological Priority",
+      "category": "sure-hermenotik",
+      "publishedDate": "2024-09-28",
+      "readingMinutes": 6,
+      "tldrTr": "Halaqa'l-insâne min alak + İkra ve rabbüke'l-ekrem. Alak ('kan pıhtısı' değil, asılan/tutunan/muallak — küçüklük, muhtaçlık) → İnsana ontolojik öncelik kazandırma. Kerem = teleolojik nedensellik. Mimar saray analojisi. En kerim İnsan; insanlar arasında Resul-u Ekrem.",
+      "tldrEn": "Khalaqa al-insāna min ʿalaq + Iqraʾ wa rabbuka al-akram. ʿAlaq — not 'blood-clot' but suspended/hanging/muʿallaq (smallness, neediness) → conferring ontological priority on the human. Karam = teleological causality. The architect-and-palace analogy. The most karīm: the Human; among humans, Rasūl al-Akram.",
+      "status": "draft"
+    },
+    {
+      "slug": "alak-suresi-4-5",
+      "titleTr": "Alak Sûresi 4-5: Prefrontal Korteks, Yapay Zekâ ve Kuantum Dalga Fonksiyonu",
+      "titleEn": "Sūrah Al-ʿAlaq 4-5: The Prefrontal Cortex, Artificial Intelligence, and the Quantum Wave Function",
+      "category": "sure-hermenotik",
+      "publishedDate": "2024-10-02",
+      "readingMinutes": 8,
+      "tldrTr": "Alleme bi'l-kalem + alleme'l-insâne mâ lem ya'lem. Kalem = encoder + recorder — bilgiyi soyutlayıp sembolize edip kaydeden her şey: tahta kalem, klavye, yapay zekâ encoder'ı, prefrontal korteks, ve kâinatın kader kalemi (kuantum measurement problem). İlim = soyutlama + genelleme + kayıt.",
+      "tldrEn": "ʿAllama bi'l-qalam + ʿallama al-insāna mā lam yaʿlam. The Pen = encoder + recorder — anything that abstracts and encodes information: wooden pen, keyboard, AI encoder, the prefrontal cortex, the cosmic pen of destiny (the quantum measurement problem). Knowledge = abstraction + generalization + record.",
+      "status": "draft"
+    },
+    {
+      "slug": "terminoloji-1-lokal-global",
+      "titleTr": "Terminoloji 1: Lokal ve Global Perspektifler",
+      "titleEn": "Terminology 1: Local and Global Perspectives",
+      "category": "terminoloji",
+      "publishedDate": "2024-10-11",
+      "readingMinutes": 9,
+      "tldrTr": "**Lokal perspektif**: zaman, zemin ve ilişkiler dünyasında çekilen hayalî bir sınırın içine odaklanmak. **Global**: o sınırı genişletip bakmak. Çerçeve genişledikçe hüküm değişir — arıza yapan araba örneğinde “kötü”, bilgi eklendikçe “iyi”ye kayar. Bu çerçeveyle üç kavram yeniden okunur: **benlik** (iç-dış ayrımı yaptıran hayalî sınır, *vâhid-i kıyasî*), **kötülük** (cüz'îde beliren, globalde hayra dönüşen), **rastgelelik** (sistemin dışındaki etkilerin modeli; çerçeve genişledikçe zayıflar). Yazı-tura lokal tanımda %50, fizik dâhil edilince %95 üzeri.",
+      "tldrEn": "The **local perspective** focuses inside an imagined boundary drawn in time, place and relation; the **global** widens it. As the frame widens the verdict changes — the broken-down car reads “bad” narrowly, “good” once more is known. Three concepts are re-read through this frame: **selfhood** (the imagined inner/outer boundary, a unit of measure), **evil** (arising in the particular, turning to good in the global), and **randomness** (a model of influences outside the system, weakening as the frame widens). A coin toss is 50% under the local definition, over 95% once the physics is included.",
       "status": "draft"
     },
     {
@@ -133,6 +222,17 @@
       "status": "draft"
     },
     {
+      "slug": "kaynak-yuzey",
+      "titleTr": "Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü",
+      "titleEn": "Source and Surface — The Common Pathology of Every Failing System",
+      "category": "kavramsal",
+      "publishedDate": "2024-10-30",
+      "readingMinutes": 12,
+      "tldrTr": "Âl-i İmrân 3:7'deki muhkem↔müteşabih ayrımı tefsir kuralı değil — her başarısız sistemin teşhis eksenidir. Mesele hiyerarşi değil güven: varoluşsal ağırlık üretici kaynakta mı, ölçülebilir yüzeyde mi? Uhud, akademik atıf, biçim-ezbercilik, Hanoi sıçan ödülü, komplo teorisi — hepsinde aynı patoloji.",
+      "tldrEn": "The muḥkam↔mutashābih distinction in Āl ʿImrān 3:7 is not a hermeneutic rule but the diagnostic axis of every failing system. Not hierarchy but trust: is your weight in the generative source or the measurable surface? Uḥud, academic citation, ritualism, the Hanoi rat bounty, conspiracy — the same pathology.",
+      "status": "draft"
+    },
+    {
       "slug": "enerji-krizi",
       "titleTr": "Enerji Krizi — Odaklanmayı Yakıt Yönetimi Olarak Anlamak",
       "titleEn": "The Energy Crisis — Reading Focus as Fuel Management",
@@ -144,14 +244,14 @@
       "status": "draft"
     },
     {
-      "slug": "kaynak-yuzey",
-      "titleTr": "Kaynak ve Yüzey — Başarısız Olan Her Sistemin Ortak Yönü",
-      "titleEn": "Source and Surface — The Common Pathology of Every Failing System",
-      "category": "kavramsal",
-      "publishedDate": "2024-10-30",
-      "readingMinutes": 12,
-      "tldrTr": "Âl-i İmrân 3:7'deki muhkem↔müteşabih ayrımı tefsir kuralı değil — her başarısız sistemin teşhis eksenidir. Mesele hiyerarşi değil güven: varoluşsal ağırlık üretici kaynakta mı, ölçülebilir yüzeyde mi? Uhud, akademik atıf, biçim-ezbercilik, Hanoi sıçan ödülü, komplo teorisi — hepsinde aynı patoloji.",
-      "tldrEn": "The muḥkam↔mutashābih distinction in Āl ʿImrān 3:7 is not a hermeneutic rule but the diagnostic axis of every failing system. Not hierarchy but trust: is your weight in the generative source or the measurable surface? Uḥud, academic citation, ritualism, the Hanoi rat bounty, conspiracy — the same pathology.",
+      "slug": "terminoloji-2-parcalanamaz-butunler",
+      "titleTr": "Terminoloji 2: Parçalanamaz Bütünlerin Hikâyesi",
+      "titleEn": "Terminology 2: The Story of Indivisible Wholes",
+      "category": "terminoloji",
+      "publishedDate": "2024-11-19",
+      "readingMinutes": 5,
+      "tldrTr": "**Emergence**: parçalar belirli bir düzenle birleşince, bileşenlerde bulunmayan ve onlardan öngörülemeyen yeni bir özellik belirir — aynı karbon atomları ya elmas olur ya kömür. Sık karıştırılan iki kavram ayrılır: **indirgenemezlik** (bölünebilir ama davranışı parçalarla açıklanamaz — senfoni, internet) ve **parçalanamazlık** / *küll-ü lâ yetecezzâ* (bölününce kimlik ve anlam yok olur — insanın özü, aile bağı). Kuantumun garipliği de indirgenemezliktir. Cüz-küll ve cüz'î-küllî ayrımı bakış açısına görelidir: bir kaşık çorbaya göre tencere küllîdir. Sonuç: anlam (melekût) maddeden (mülk) varoluşsal olarak önce gelir.",
+      "tldrEn": "**Emergence**: when parts combine in a particular order, a property appears that none of them holds and none of them predicts — the same carbon atoms give either diamond or coal. Two often-confused notions are separated: **irreducibility** (divisible, yet its behaviour is unaccountable by its parts — a symphony, the internet) and **indivisibility** / *kull lā yatajazzā* (divided, identity and meaning vanish — the human essence, a family bond). The strangeness of quantum systems is irreducibility. Part/whole and particular/universal are relative to vantage: to a spoonful, the pot is a universal. The upshot: meaning precedes matter existentially.",
       "status": "draft"
     },
     {
@@ -166,63 +266,14 @@
       "status": "draft"
     },
     {
-      "slug": "sefer",
-      "titleTr": "Kur'an Kavramları Semantik Analizi-1: Sefer",
-      "titleEn": "Semantic Analysis-1: Safar",
-      "category": "semantik",
-      "seriesNumber": 1,
-      "publishedDate": "2025-12-30",
+      "slug": "terminoloji-3-fizikalizm",
+      "titleTr": "Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları",
+      "titleEn": "Terminology 3: The Fragility and Limits of Physicalism",
+      "category": "terminoloji",
+      "publishedDate": "2024-11-27",
       "readingMinutes": 3,
-      "tldrTr": "Kök: س ف ر (S-F-R) — Proto-Sami dil ailesinden. Akadca šapārum (göndermek, mesaj iletmek), İbranice séfer (kitap), Aramice sāp̄ərā (yazıcı) ile akrabadır. Asıl anlamı: örtüyü kaldırmak, açığa çıkarmak.",
-      "tldrEn": "Root: س ف ر (S-F-R) — from the Proto-Semitic family. Cognate with Akkadian šapārum (to send a message), Hebrew séfer (book), Aramaic sāp̄ərā (scribe). Primary meaning: to remove a covering, to bring forth into light.",
-      "status": "draft"
-    },
-    {
-      "slug": "lehv",
-      "titleTr": "Kur'an Kavramları Semantik Analizi-2: Lehv",
-      "titleEn": "Semantic Analysis-2: Lahw",
-      "category": "semantik",
-      "seriesNumber": 2,
-      "publishedDate": "2025-12-30",
-      "readingMinutes": 5,
-      "tldrTr": "Kök: ل ه و (L-H-W) — Triliteral Arapça kök. Somut imge kökenli: lahwa (değirmen tıpası, akışı düzenleyen mandal). Bu 'engelleme' imgesi, kökün semantik çekirdeğini oluşturur: dikkat akışını kesen şey.",
-      "tldrEn": "Root: ل ه و (L-H-W) — a triliteral Arabic root. Of concrete-image origin: lahwa (the mill-stopper that regulates grain flow). This image of 'blocking' forms the semantic core: that which interrupts the flow of attention.",
-      "status": "draft"
-    },
-    {
-      "slug": "cennet-cin-mecnun",
-      "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
-      "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",
-      "category": "semantik",
-      "seriesNumber": 3,
-      "publishedDate": "2026-01-01",
-      "readingMinutes": 11,
-      "tldrTr": "Cennet, cin, mecnun, kalkan, cenin, kalp — hepsi ج-ن-ن kökünden. Ortak payda: gizlilik. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner, kalkan korur, cenin rahimde saklıdır, kalp göğüste gizlidir.",
-      "tldrEn": "Garden, jinn, majnun, shield, fetus, heart — all from j-n-n. Common thread: concealment. Garden covers with leaves, jinn is invisible, majnun has a veil over intellect, shield protects, fetus hides in womb, heart is concealed in chest.",
-      "status": "draft"
-    },
-    {
-      "slug": "tugyan",
-      "titleTr": "Semantik Analizi-4: Tuğyan",
-      "titleEn": "Semantic Analysis-4: Tughyan",
-      "category": "semantik",
-      "seriesNumber": 4,
-      "publishedDate": "2026-01-17",
-      "readingMinutes": 8,
-      "tldrTr": "Tuğyan — ط-غ-و kökü, fiziksel taşkınlık ile ahlâkî sınır aşımının ortak şemsiyesi; istiğnâ → tuğyan → tâğût zinciri; sarhoş yürüyüşü (random walk) ve Risale'nin iki tâğutu (ENE & TABİAT).",
-      "tldrEn": "Tughyan — the ṭ-ġ-w root joining physical overflow with moral transgression; the istighnā → tughyān → tāghūt chain; the drunken gait (random walk) and Risale's two tāghūts (ENE & NATURE).",
-      "status": "draft"
-    },
-    {
-      "slug": "siccin",
-      "titleTr": "Siccin Nedir? Hapis mi, Kitap mı?",
-      "titleEn": "What is Sijjin? Prison or Book?",
-      "category": "semantik",
-      "seriesNumber": 5,
-      "publishedDate": "2025-12-31",
-      "readingMinutes": 4,
-      "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.",
-      "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say 'Prison'. But context says 'Book'.",
+      "tldrTr": "İnsan-Kâinat-Kur'an üçlüsü, **gözlemci · gözlemlenen · anlamlandıran** kategorilerinin en kâmil temsilcisidir. Fizikalizm ise yalnız **gözlemleneni** var sayar. Üç zorluk: (1) **Kuantum** — madde katılıktan çıkıp soyut matematiksel yapıya döner; (2) **zuhur (emergence)** — bilinç ve sosyal davranış parçaların toplamına indirgenemez; (3) **soyut varlıklar** — matematiksel kalıplar da kapsama alınırsa Platonizm'den farkı kalmaz. Fizikalizm her yeni keşifte “fiziksel”i yeniden tanımlar; hiçbir şeyi dışarıda bırakmayan bir tez hiçbir şey iddia etmez. Kuantumdaki ölçüm problemi ise **gözlemciyi indirgenemez bir kategori** olarak öne çıkarır.",
+      "tldrEn": "The Human–Cosmos–Qur'an triad is the fullest representative of the categories **observer · observed · meaning-giver**. Physicalism admits only **the observed**. Three difficulties: (1) **quantum** — matter ceases to be solid and becomes abstract mathematical structure; (2) **emergence** — consciousness and social behaviour do not reduce to the sum of parts; (3) **abstract entities** — if mathematical patterns are included too, what separates it from Platonism? Physicalism redefines “physical” at each new discovery; a thesis that excludes nothing asserts nothing. The measurement problem, meanwhile, brings forward **the observer as an irreducible category**.",
       "status": "draft"
     },
     {
@@ -250,6 +301,17 @@
       "status": "draft"
     },
     {
+      "slug": "terminoloji-4-varliklarin-ayna-olusu",
+      "titleTr": "Terminoloji 4: Varlıkların Ayna Oluşu",
+      "titleEn": "Terminology 4: How Beings Are Mirrors",
+      "category": "terminoloji",
+      "publishedDate": "2024-12-22",
+      "readingMinutes": 5,
+      "tldrTr": "**Anlam maddeye ontolojik olarak önce gelir**: bina tuğladan, söz harften önce vardır. Ama anlam parçalanmaz bir bütünken madde bölünebilir — insan organını kaybeder, “insan” kimliği değişmez. Madde-mânâ ilişkisi **sentaks ⇄ semantik** ilişkisidir; maddenin vasfı **ayna olmak**tır (Nursî), Hoffman'ın *headset*'i de benzer. Eş'arîlerin *cüz-ü lâ yetecezzâ*sı uzayın içinde değil, uzayı **kuran** partiküllerdir: aralarındaki ilişkiler mekân algısını, ilişkilerin güncellenmesi (*levh-i mahv u isbat*) zaman algısını doğurur. Kapanış sorusu: bir topluluk **vahdet-i ruhiyeye** nasıl ulaşır?",
+      "tldrEn": "**Meaning is ontologically prior to matter**: the building precedes the brick, the word the letter. Yet meaning is indivisible while matter divides — one loses an organ, the identity “human” does not change. The matter–meaning relation is that of **syntax ⇄ semantics**; matter's attribute is **to be a mirror** (Nursî), and Hoffman's *headset* runs parallel. The Ashʿarī indivisible particle is not within space but **constitutes** it: relations among particles yield the perception of place, their updating yields the perception of time. The closing question: how does a community attain **unity of spirit**?",
+      "status": "draft"
+    },
+    {
       "slug": "kader",
       "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
       "titleEn": "Terminology 7: The Resolution of Destiny — Design, Will, and Soft Determinism",
@@ -263,59 +325,107 @@
       "status": "draft"
     },
     {
-      "slug": "alak-suresi-1",
-      "titleTr": "Alak Sûresi 1: İlk Besmele, Büyük Resim, ve Metafizik Paradigma",
-      "titleEn": "Sūrah Al-ʿAlaq 1: The First Bismillah, the Big Picture, and the Metaphysical Paradigm",
-      "category": "sure-hermenotik",
-      "pinned": true,
-      "publishedDate": "2024-09-21",
+      "slug": "yaratilis-hikayesi-1-giris",
+      "titleTr": "Yaratılış Hikâyesi 1: Giriş",
+      "titleEn": "The Story of Creation 1: Introduction",
+      "category": "kozmoloji",
+      "publishedDate": "2025-07-27",
+      "readingMinutes": 2,
+      "tldrTr": "Serinin giriş yazısı. Merkeze alınan anlatı **Bakara 2:29-39**; oradan halifelik, kötülük problemi, isimlerin öğretilmesi ve meleklerin secdesine uzanan bir kavramsal harita çıkarılacak. Yöntem bilinçli olarak **lineer değil**: Kur'an, Kâinat ve İnsan arasında sürekli geçişlerle ilerleyen organik bir yapı. Yazarın kendi koyduğu ölçü dikkat çekici — bilimsel bulgular **destekleyici değil, açıklayıcı** araç olarak kullanılacak; Kur'an'ın iç tutarlılığı pusula, bilim rehber.",
+      "tldrEn": "The series' opening. Its centre is the narrative of **al-Baqara 2:29-39**, from which a conceptual map will be drawn out — vicegerency, the problem of evil, the teaching of the names, the angels' prostration. The method is deliberately **non-linear**: an organic structure advancing by continual passage between Qur'an, Cosmos and Human. The author's own measure is notable — scientific findings are to serve **not as corroboration but as explication**; the Qur'an's coherence is the compass, science the guide.",
+      "status": "draft"
+    },
+    {
+      "slug": "yaratilis-hikayesi-2-katmanli-yaratilis",
+      "titleTr": "Yaratılış Hikâyesi 2: Kâinatın Katmanlı Yaratılışı",
+      "titleEn": "The Story of Creation 2: The Layered Creation of the Cosmos",
+      "category": "kozmoloji",
+      "publishedDate": "2025-07-27",
+      "readingMinutes": 5,
+      "tldrTr": "Yaratılış, **tekil bir cevherden sonsuz renkliliğe** uzanan tecellîler silsilesi olarak okunur. **Nûr** (lâ-taayyün · Ehadiyyet) → **es-Semâ** (Cem) → **Semâvât** (Fark): Nûr yaratılış içinde *quantize* edilir; belirsizlikten belirliliğe, Ehadiyyet'ten Vâhidiyet'e geçilir. Tasavvufun yedi mertebesi baştan sona haritalanır; her semâda bir ilâhî isim hâkimdir, melekler Cem'in Fark'a ayrışmasını örgütler. Çarpıcı bir dil gözlemi: Allah meleklere **“Ben”** (Cem makamı), insanlara **“Biz”** (Fark makamı) diye hitap eder.",
+      "tldrEn": "Creation is read as a chain of manifestations reaching **from a single substance to endless colour**. **Light** (indetermination · Aḥadiyya) → **al-Samāʾ** (union) → **Samāwāt** (distinction): the Light is *quantised*, passing from the indefinite to the definite, from Aḥadiyya to Wāḥidiyya. The seven Sufi degrees of descent are mapped throughout; in each heaven one divine name is sovereign, and the angels organise the differentiation of union into distinction. A striking observation on language: God addresses the angels as **“I”** and humankind as **“We”**.",
+      "status": "draft"
+    },
+    {
+      "slug": "kuran-mesajina-yabanci-kalmak",
+      "titleTr": "Kur'an Mesajına Yabancı Kalmak",
+      "titleEn": "Remaining a Stranger to the Qur'an's Message",
+      "category": "idrak-suur",
+      "publishedDate": "2025-09-05",
+      "readingMinutes": 5,
+      "tldrTr": "Mesajı anlamamak zekâ meselesi değil, **epistemik kafes** meselesidir. Kur'an bu kapanmayı üç katmanda anlatır: kalpte **ekinne** (kabuk), kulakta **vakra** (ağırlık), arada **hicâb** (perde). Hûd ve Fussilet'te bunu inkâr edenler kendileri söyler; İsrâ, En'âm ve Kehf'te ise Cenâb-ı Hak “**ve cealnâ** — biz kıldık” der: sorumluluk değil, işleyen bir kanun. Sebep Kehf'te açıklanır: hakkı bâtılla çürütmeye çalışmak, âyetleri hafife alıp cedele girmek. Aynı örüntü Elif-Lâm-Râ, Hâ-Mîm, Elif-Lâm-Mîm ve Tâ-Sîn ailelerinde tekrarlanır.",
+      "tldrEn": "Failing to understand the message is not a matter of intelligence but of the **epistemic cage**. The Qur'an describes this closure in three layers: **akinna** (a shell) on the heart, **waqr** (a weight) in the ear, a **ḥijāb** (veil) between. In Hūd and Fuṣṣilat the deniers say it themselves; in al-Isrāʾ, al-Anʿām and al-Kahf God says “**wa jaʿalnā** — We placed” — not accountability but a law in operation. Al-Kahf names the cause: disputing truth with falsehood, taking the signs lightly. The same pattern recurs across the Alif-Lām-Rā, Ḥā-Mīm, Alif-Lām-Mīm and Ṭā-Sīn families.",
+      "status": "draft"
+    },
+    {
+      "slug": "evrim-inanc-resimler",
+      "titleTr": "Evrim, İnanç ve Aklımızdaki Resimler",
+      "titleEn": "Evolution, Belief, and the Pictures in Our Minds",
+      "category": "kozmoloji",
+      "publishedDate": "2025-10-25",
       "readingMinutes": 4,
-      "tldrTr": "Alak Sûresi 96:1 — İlk gelen âyet, sembolleri 'Yaratan Rabbinin İsmi' çerçevesinde bir araya getirip büyük resmi görmenin emridir. Besmele bir okuma çerçevesi — bir metafizik paradigmadır. Mana-yı ismî'den mana-yı harfî'ye, tilavetten kıraate yükseliş.",
-      "tldrEn": "Sūrah Al-ʿAlaq 96:1 — The first verse is the command to gather symbols within the frame of 'the Name of the Lord who Created' and see the big picture. Bismillah is a reading-frame — a metaphysical paradigm. The ascent from manā-ʾi ismī to manā-ʾi ḥarfī, from tilāwa to qirāʾa.",
+      "tldrTr": "Evrim ile din arasındaki çelişki teorinin kendisinde değil, okuma biçimimizde olabilir. Dört engel: (1) her nesil hakikati kendi çağının gözlüğüyle görür; (2) tefsir Kur'an değildir — Râzî'nin “dünya dönmez”i, Bediüzzaman'ın “esir”i o günün bilimidir; (3) metni okurken kafamızda oluşan resmi metnin kendisi sanırız (“topraktan yarattı” → çömlekçi resmi); (4) teorileri doğruluğuna değil neye hizmet ettiğine bakarak yargılarız. Çarpıcı kanıt: Big Bang'i inananlar savundu, evrimi inanmayanlar — iki teori de “tek noktadan gelişme” dediği hâlde saflar ters.",
+      "tldrEn": "The clash between evolution and religion may lie not in the theory but in how we read. Four obstacles: (1) every generation sees truth through the spectacles of its age; (2) commentary is not the Qur'an — al-Rāzī's “the earth cannot rotate” and Nursî's “ether” were the science of their day; (3) we mistake the picture forming in our minds for the text itself (“created from clay” → the potter image); (4) we judge theories by whose cause they serve rather than by whether they are true. The telling evidence: believers defended the Big Bang while non-believers defended evolution — though both describe development from a single point, the camps are reversed.",
       "status": "draft"
     },
     {
-      "slug": "alak-suresi-2-3",
-      "titleTr": "Alak Sûresi 2-3: Fetüs ve Ontolojik Öncelik",
-      "titleEn": "Sūrah Al-ʿAlaq 2-3: The Fetus and Ontological Priority",
-      "category": "sure-hermenotik",
-      "publishedDate": "2024-09-28",
-      "readingMinutes": 6,
-      "tldrTr": "Halaqa'l-insâne min alak + İkra ve rabbüke'l-ekrem. Alak ('kan pıhtısı' değil, asılan/tutunan/muallak — küçüklük, muhtaçlık) → İnsana ontolojik öncelik kazandırma. Kerem = teleolojik nedensellik. Mimar saray analojisi. En kerim İnsan; insanlar arasında Resul-u Ekrem.",
-      "tldrEn": "Khalaqa al-insāna min ʿalaq + Iqraʾ wa rabbuka al-akram. ʿAlaq — not 'blood-clot' but suspended/hanging/muʿallaq (smallness, neediness) → conferring ontological priority on the human. Karam = teleological causality. The architect-and-palace analogy. The most karīm: the Human; among humans, Rasūl al-Akram.",
+      "slug": "sefer",
+      "titleTr": "Kur'an Kavramları Semantik Analizi-1: Sefer",
+      "titleEn": "Semantic Analysis-1: Safar",
+      "category": "semantik",
+      "seriesNumber": 1,
+      "publishedDate": "2025-12-30",
+      "readingMinutes": 3,
+      "tldrTr": "Kök: س ف ر (S-F-R) — Proto-Sami dil ailesinden. Akadca šapārum (göndermek, mesaj iletmek), İbranice séfer (kitap), Aramice sāp̄ərā (yazıcı) ile akrabadır. Asıl anlamı: örtüyü kaldırmak, açığa çıkarmak.",
+      "tldrEn": "Root: س ف ر (S-F-R) — from the Proto-Semitic family. Cognate with Akkadian šapārum (to send a message), Hebrew séfer (book), Aramaic sāp̄ərā (scribe). Primary meaning: to remove a covering, to bring forth into light.",
       "status": "draft"
     },
     {
-      "slug": "alak-suresi-4-5",
-      "titleTr": "Alak Sûresi 4-5: Prefrontal Korteks, Yapay Zekâ ve Kuantum Dalga Fonksiyonu",
-      "titleEn": "Sūrah Al-ʿAlaq 4-5: The Prefrontal Cortex, Artificial Intelligence, and the Quantum Wave Function",
-      "category": "sure-hermenotik",
-      "publishedDate": "2024-10-02",
+      "slug": "lehv",
+      "titleTr": "Kur'an Kavramları Semantik Analizi-2: Lehv",
+      "titleEn": "Semantic Analysis-2: Lahw",
+      "category": "semantik",
+      "seriesNumber": 2,
+      "publishedDate": "2025-12-30",
+      "readingMinutes": 5,
+      "tldrTr": "Kök: ل ه و (L-H-W) — Triliteral Arapça kök. Somut imge kökenli: lahwa (değirmen tıpası, akışı düzenleyen mandal). Bu 'engelleme' imgesi, kökün semantik çekirdeğini oluşturur: dikkat akışını kesen şey.",
+      "tldrEn": "Root: ل ه و (L-H-W) — a triliteral Arabic root. Of concrete-image origin: lahwa (the mill-stopper that regulates grain flow). This image of 'blocking' forms the semantic core: that which interrupts the flow of attention.",
+      "status": "draft"
+    },
+    {
+      "slug": "siccin",
+      "titleTr": "Siccin Nedir? Hapis mi, Kitap mı?",
+      "titleEn": "What is Sijjin? Prison or Book?",
+      "category": "semantik",
+      "seriesNumber": 5,
+      "publishedDate": "2025-12-31",
+      "readingMinutes": 4,
+      "tldrTr": "Kur'an'daki en gizemli terimlerden birinin içine iniyoruz. Çoğu çeviri 'Hapishane' der. Ama bağlam 'Kitap' diyor.",
+      "tldrEn": "We descend into one of the most enigmatic terms in the Quran. Most translations say 'Prison'. But context says 'Book'.",
+      "status": "draft"
+    },
+    {
+      "slug": "cennet-cin-mecnun",
+      "titleTr": "Semantik Analizi-3: Cennet, Cin, Mecnun",
+      "titleEn": "Semantic Analysis-3: Jannah, Jinn, Majnun",
+      "category": "semantik",
+      "seriesNumber": 3,
+      "publishedDate": "2026-01-01",
+      "readingMinutes": 11,
+      "tldrTr": "Cennet, cin, mecnun, kalkan, cenin, kalp — hepsi ج-ن-ن kökünden. Ortak payda: gizlilik. Bahçe yapraklarıyla örter, cin görünmezdir, mecnunda akla perde iner, kalkan korur, cenin rahimde saklıdır, kalp göğüste gizlidir.",
+      "tldrEn": "Garden, jinn, majnun, shield, fetus, heart — all from j-n-n. Common thread: concealment. Garden covers with leaves, jinn is invisible, majnun has a veil over intellect, shield protects, fetus hides in womb, heart is concealed in chest.",
+      "status": "draft"
+    },
+    {
+      "slug": "tugyan",
+      "titleTr": "Semantik Analizi-4: Tuğyan",
+      "titleEn": "Semantic Analysis-4: Tughyan",
+      "category": "semantik",
+      "seriesNumber": 4,
+      "publishedDate": "2026-01-17",
       "readingMinutes": 8,
-      "tldrTr": "Alleme bi'l-kalem + alleme'l-insâne mâ lem ya'lem. Kalem = encoder + recorder — bilgiyi soyutlayıp sembolize edip kaydeden her şey: tahta kalem, klavye, yapay zekâ encoder'ı, prefrontal korteks, ve kâinatın kader kalemi (kuantum measurement problem). İlim = soyutlama + genelleme + kayıt.",
-      "tldrEn": "ʿAllama bi'l-qalam + ʿallama al-insāna mā lam yaʿlam. The Pen = encoder + recorder — anything that abstracts and encodes information: wooden pen, keyboard, AI encoder, the prefrontal cortex, the cosmic pen of destiny (the quantum measurement problem). Knowledge = abstraction + generalization + record.",
-      "status": "draft"
-    },
-    {
-      "slug": "okuma-prensipleri-1",
-      "titleTr": "Kur'an Okuma Prensiplerimiz-1: Epistemik Prensipler",
-      "titleEn": "Our Principles for Reading the Quran-1: Epistemic Principles",
-      "category": "sure-hermenotik",
-      "publishedDate": "2024-09-15",
-      "readingMinutes": 6,
-      "tldrTr": "Kur'an okumayı sağlıklı yapabilmek için 5 epistemik prensip: (1) Kapsayıcılık (Kur'an her şeyi kapsar), (2) Genelleme (genel bırakılan kapsayıcı olmasını dilemiştir), (3) Tutarlılık (farklı ayet grupları tutarlı işler — tedebbür gerekir), (4) Precision (tam eş anlamlı kelime yok), (5) Modelleme (Kur'an iç+dış dünyayı Allah ile irtibatlandıran okuma modelidir — 'asâ-yı Mûsâ').",
-      "tldrEn": "Five epistemic principles for sound Quran reading: (1) Comprehensiveness, (2) Generalization, (3) Consistency, (4) Precision, (5) Modeling (the Quran as the model linking inner+outer observation to God — the 'staff of Moses').",
-      "status": "draft"
-    },
-    {
-      "slug": "okuma-prensipleri-2",
-      "titleTr": "Kur'an Okuma Prensiplerimiz-2: Hermenötik Prensipler",
-      "titleEn": "Our Principles for Reading the Quran-2: Hermeneutic Principles",
-      "category": "sure-hermenotik",
-      "publishedDate": "2024-09-25",
-      "readingMinutes": 9,
-      "tldrTr": "4 hermenötik prensip: (1) Metnin Lokasyonu (sibâk-siyâk + parça-bütün), (2) Mesajın Vektörelliği (esbâb-ı nüzûl + transformatif fonksiyon — trajectory hermeneutics değil), (3) Anlamsal+Yapısal İlişki Ağı (ayet öbekleri network'ü; raghaden örneği), (4) Murakabe-Muhasebe (iç hâl bağlamı — Müzzemmil örneği).",
-      "tldrEn": "Four hermeneutic principles: (1) Textual Location (siyāq + part-whole), (2) Vectoriality of the Message (asbāb al-nuzūl + transformative function — not trajectory hermeneutics), (3) Semantic-Structural Relational Web (verse-cluster network; raghadan example), (4) Murāqaba-Muḥāsaba (inner state as context — Muzzammil example).",
+      "tldrTr": "Tuğyan — ط-غ-و kökü, fiziksel taşkınlık ile ahlâkî sınır aşımının ortak şemsiyesi; istiğnâ → tuğyan → tâğût zinciri; sarhoş yürüyüşü (random walk) ve Risale'nin iki tâğutu (ENE & TABİAT).",
+      "tldrEn": "Tughyan — the ṭ-ġ-w root joining physical overflow with moral transgression; the istighnā → tughyān → tāghūt chain; the drunken gait (random walk) and Risale's two tāghūts (ENE & NATURE).",
       "status": "draft"
     },
     {
@@ -407,6 +517,17 @@
       "readingMinutes": 4,
       "tldrTr": "Sentez. Beş mercek prizmadan geçen tek bir ışığın renkleridir. Kâinatın en temel dinamiği tekâmüldür — doğurgan gelişim. Aile, bu prensibin ya tohumlandığı ya da küle çevrildiği yerdir. Bahçe (2:261, 14:24-25) ile kül (14:18) iki dinamizmdir; ailenin molekül parametreleri (iki yıl, üç kur', mehrin yarısı, ma'rûf) bu eğrinin katsayılarıdır. Fussilet 41:53: âfâk ile enfüsün yazımı, tek yasadır.",
       "tldrEn": "Synthesis. The five lenses are colors of a single light through a prism. The deepest cosmic dynamic is takāmul — generative development. The family is where this principle is seeded or reduced to ash. Orchard (2:261, 14:24-25) and ash (14:18) are the two dynamics; the family's molecular parameters (two years, three cycles, half the dower, maʿrūf) are its coefficients. Fuṣṣilat 41:53: the writing of āfāq and anfus is one law.",
+      "status": "draft"
+    },
+    {
+      "slug": "iki-nedensellik",
+      "titleTr": "İki Nedensellik — Kusursuz Açıklamalar Neden Berbat Tahminler Yapar?",
+      "titleEn": "The Two Causalities — Why Perfect Explanations Make Terrible Predictions",
+      "category": "idrak-suur",
+      "publishedDate": "2026-08-09",
+      "readingMinutes": 8,
+      "tldrTr": "Nedenselliğin iki yönü aynı şey değildir. Geriye dönük (retrospective) çıkarım yapraktan gövdeye tek bir yol bulur — hep bulur. İleriye dönük (prospective) tahmin ise gövdeden yaprağa gider ve orada bin tane açık kapı vardır. Tanımın iki şartı (“X olursa Y olur” + “X olmasaydı Y olmazdı”) ancak kapalı ve determinist bir dünyada birbirinin aynadaki görüntüsüdür. Piyasa yorumcusu geriye dönük hikâyeyi ileri okuduğu için yanılır; hikâye yanlış çıkınca da yeni bir geriye dönük anlatı üretir. Teşhis sorusu: bu iddia hangi yönde kurulmuş?",
+      "tldrEn": "The two directions of causality are not the same operation. Retrospective reasoning traces a leaf back to the trunk and always finds a single path. Prospective prediction runs the other way, from trunk to leaf, where a thousand doors stand open. The definition's two clauses (“if X then Y” + “without X, no Y”) mirror each other only in a closed, deterministic world. The pundit errs by reading a backward-verified narrative forward, then patches each failure with a fresh backward story. The diagnostic: in which direction was this claim built?",
       "status": "draft"
     }
   ]
