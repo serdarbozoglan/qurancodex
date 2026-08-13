@@ -64193,5 +64193,65 @@
     "hash": "6aedbadebcdd8b8d",
     "embeddedAt": "2026-08-13T03:59:09.739Z",
     "type": "article-section"
+  },
+  "tool:/arac/ses-mimarisi": {
+    "hash": "f827ebfb7ca2281e",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/tarihsel-kanitlar": {
+    "hash": "1b4a5c0e38e75b3b",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/zaman-boyutlari": {
+    "hash": "44a853963b7ac727",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/yeminler": {
+    "hash": "ef3e58cf26676eca",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/neden-sonuc": {
+    "hash": "72b576cae43d30be",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/kitap-kavrami": {
+    "hash": "114d57395dc87ab1",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/arac/elestirel-cerceve": {
+    "hash": "616695a4405bdf5b",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/graf/kelime-isi": {
+    "hash": "f8d9b0a29186c6b4",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/graf/semantik": {
+    "hash": "b3243161bc305164",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/graf/zaman": {
+    "hash": "60d5781affd0fabb",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/graf/karsilastir": {
+    "hash": "23597f00334a0e03",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
+  },
+  "tool:/graf/diyalog": {
+    "hash": "1dc8b78ec454b2b7",
+    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "type": "tool"
   }
 }
