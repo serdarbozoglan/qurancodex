@@ -88,10 +88,21 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       `Conclusion` kapanış âyetinin çift katmanlı glow'u.
       Ölçüm: âyet ögelerinde `textShadow` **4 → 0**.
 
-- [ ] **B0c · KARAR GEREKİYOR: Hero'daki ışık süpürmesi (light sweep)**
-      Besmelenin üzerinden sağ→sol bir kez geçen parıltı **duruyor.**
-      Aynı gerekçeyle kaldırılabilir ama bu senin kurduğun giriş anı —
-      tek başıma silmedim. `Hero.jsx` → `showIntro && !reduced` dalı.
+- [x] **B0c · Işık süpürmesi YAZILMA AÇILIŞI ile değiştirildi**
+      Kullanıcının şartı: *"daha iyi bir efekt koyacaksan kaldır, yoksa kalsın."*
+      Öncesi: besmelenin ÜZERİNDEN geçen `mixBlendMode: screen` parlaklık bandı.
+      Kodun kendi yorumu "kalem ucundan harf doğar hissi" diyordu ama yaptığı
+      iş bu değildi — harfler zaten oradaydı, üstlerinden parıltı geçiyordu.
+      **Niyet "yazı", çıktı "parıltı".** Üzerinden geçen shimmer ayrıca yükleme
+      iskeletlerinin ve parlayan CTA butonlarının deyimi.
+      Şimdi: glyph'in KENDİSİ sağdan sola beliriyor (CSS maskesi) — Arapçanın
+      yazılma yönü. Metnin üstüne yeni ışık kaynağı eklenmiyor, metin var oluyor.
+      Hemen altındaki Alak 96:1 zaten harf harf beliriyordu; ikisi artık aynı
+      şeyi söylüyor: **metin yazılıyor.**
+      ⚠ İlk maske matematiğim YANLIŞTI — %25 ve %50'de glyph zaten tamamen
+      görünüyordu. Kare kare ekran görüntüsü almasam fark etmeyecektim.
+      Düzeltildi: `mask-size 300%`, geçiş %33→%67. Doğrulandı:
+      pos 0 → tamamen gizli · pos 50 → sağ yarı görünür · pos 100 → tam.
 
 - [ ] **B0d · Sayfa uzunluğu maliyeti** — kanıt bölümü mobilde **+2.400px**
       getirdi: 19.669 → **22.092px**. Masaüstü 15.988 → 17.872px.

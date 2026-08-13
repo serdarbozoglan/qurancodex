@@ -109,8 +109,10 @@ export default function Hero() {
       >
         <div className="text-center max-w-4xl mx-auto w-full">
 
-        {/* Bismillah ornament — cinematic intro (showIntro ? glow pulse + light sweep : sade).
-            Reverence sinyali; meta-discovery framing'i bozmadan ekler. */}
+        {/* Bismillah ornament — cinematic intro (showIntro ? yazılma açılışı : sade).
+            Reverence sinyali; meta-discovery framing'i bozmadan ekler.
+            2026-08-13: glow nabzı ve ışık süpürmesi kaldırıldı; yerine
+            metnin kendisinin sağdan sola belirmesi geldi. Gerekçe aşağıda. */}
         <motion.div
           dir="rtl"
           lang="ar"
@@ -146,26 +148,50 @@ export default function Hero() {
               ? { duration: 1.6, delay: 0.3, ease: 'easeOut' }
               : { duration: 1.1, delay: 0.15, ease: 'easeOut' })}
         >
-          {/* Light sweep — sadece showIntro'da, bir kez sağ→sol geçer
-              (Arapça akış yönüyle uyum: kalem ucundan harf doğar hissi). */}
-          {showIntro && !reduced && (
+          {/* ─── Yazılma açılışı (2026-08-13) ──────────────────────────────
+              ÖNCESİ: besmelenin ÜZERİNDEN geçen `mixBlendMode: screen`
+              parlaklık bandı vardı. Yorumu "kalem ucundan harf doğar hissi"
+              diyordu ama yaptığı iş bu değildi — harfler zaten oradaydı,
+              üstlerinden bir parıltı geçiyordu. Yani niyet "yazı", çıktı
+              "parıltı"ydı. Üzerinden geçen shimmer bandı ayrıca yükleme
+              iskeletlerinin ve parlayan CTA butonlarının deyimi; ﷽ üzerine
+              uygulanınca o kelime dağarcığı ödünç alınıyordu.
+
+              ŞİMDİ: glyph'in KENDİSİ sağdan sola beliriyor — Arapçanın
+              yazılma yönü. Metnin üstüne yeni bir ışık kaynağı eklenmiyor;
+              metin var oluyor. Hemen altındaki Alak 96:1 zaten harf harf
+              beliriyordu; ikisi artık aynı şeyi söylüyor: metin yazılıyor.
+
+              Maske mekaniği (ilk denemem YANLIŞTI, kare kare ölçünce görüldü:
+              %25 ve %50'de glyph zaten tamamen görünüyordu):
+              mask 300% geniş, geçiş %33 → %67 arasında.
+              `background-position` formülü offset = (1 − S)·X olduğu için
+              S=3'te element, maskenin [2X/3, (1+2X)/3] aralığını görür:
+                X=0   → [0, 0.33]  tamamı şeffaf  → glyph GİZLİ
+                X=0.5 → [0.33, 0.67] geçiş        → sağ yarı görünür
+                X=1   → [0.67, 1]  tamamı opak    → glyph TAM
+              Yani görünür alan sağ kenardan başlayıp sola büyüyor.
+              `reduced` veya `showIntro` yoksa maske hiç uygulanmaz. */}
+          {showIntro && !reduced ? (
             <motion.span
-              aria-hidden="true"
               style={{
-                position: 'absolute',
-                top: 0, left: 0, bottom: 0,
-                width: '60%',
-                background: 'linear-gradient(90deg, transparent, rgba(255,224,180,0.55), transparent)',
-                mixBlendMode: 'screen',
-                pointerEvents: 'none',
-                borderRadius: '4px',
+                display: 'inline-block',
+                WebkitMaskImage: 'linear-gradient(90deg, transparent 33%, #000 67%)',
+                maskImage: 'linear-gradient(90deg, transparent 33%, #000 67%)',
+                WebkitMaskSize: '300% 100%',
+                maskSize: '300% 100%',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
               }}
-              initial={{ x: '200%', opacity: 0 }}
-              animate={{ x: ['200%', '-200%'], opacity: [0, 1, 0] }}
-              transition={{ duration: 1.6, delay: 1.3, ease: 'easeInOut', times: [0, 0.5, 1] }}
-            />
+              initial={{ WebkitMaskPosition: '0% 0%', maskPosition: '0% 0%' }}
+              animate={{ WebkitMaskPosition: '100% 0%', maskPosition: '100% 0%' }}
+              transition={{ duration: 1.9, delay: 0.9, ease: [0.32, 0.72, 0, 1] }}
+            >
+              ﷽
+            </motion.span>
+          ) : (
+            '﷽'
           )}
-          ﷽
         </motion.div>
 
         {/* Anchor verse — Alak 96:1 (Kur'an'ın ilk inen vahyi: "Oku!").
