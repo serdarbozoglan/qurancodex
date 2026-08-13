@@ -18,7 +18,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import TefekkurCategoryCard from '../components/TefekkurCategoryCard';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, SEMANTIC, CATEGORY } from '../tokens';
 
 // ── Featured essays — the 2 articles currently published.
 // Each shows the Arabic root prominently (mirroring the article's RootHero
@@ -33,7 +33,7 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 const FEATURED_ESSAYS = [
   {
     slug: 'okuma-prensipleri-1',
-    categoryAccent: '#c9a227', // sure-hermenotik kategori rengi
+    categoryAccent: SEMANTIC.accentPrimary, // sure-hermenotik — §13.25 göç: #c9a227 idi
     rootAr: 'تَدَبُّر',
     rootTranslit: 'tadabbur',
     seriesNumber: 1,
@@ -47,7 +47,7 @@ const FEATURED_ESSAYS = [
   },
   {
     slug: 'cennet-cin-mecnun',
-    categoryAccent: '#8b5cf6',
+    categoryAccent: CATEGORY.violet,  // semantik — #8b5cf6 idi (kontrast)
     rootAr: 'ج ن ن',
     rootTranslit: 'j-n-n',
     seriesNumber: 3,
@@ -65,7 +65,7 @@ const FEATURED_ESSAYS = [
 const TEFEKKUR_CATEGORIES = [
   {
     id: 'kavramsal',
-    accent: '#3498db',
+    accent: CATEGORY.blue,            // aynı hex
     count: 5,
     titleTr: 'Kavramsal Tahlil',
     titleEn: 'Conceptual Analysis',
@@ -80,7 +80,7 @@ const TEFEKKUR_CATEGORIES = [
   },
   {
     id: 'terminoloji',
-    accent: '#d4a574',
+    accent: CATEGORY.orange,          // terminoloji — altın kategori rengi olamaz
     count: 8,
     titleTr: 'Terminoloji Serisi',
     titleEn: 'Terminology Series',
@@ -97,7 +97,7 @@ const TEFEKKUR_CATEGORIES = [
   },
   {
     id: 'sure-hermenotik',
-    accent: '#c9a227',
+    accent: SEMANTIC.accentPrimary,   // sure-hermenotik — çekirdek kategori altın kalıyor
     count: 11,
     titleTr: 'Sûre & Hermenötik',
     titleEn: 'Surah & Hermeneutics',
@@ -112,7 +112,7 @@ const TEFEKKUR_CATEGORIES = [
   },
   {
     id: 'semantik',
-    accent: '#8b5cf6',
+    accent: CATEGORY.violet,          // semantik
     count: 5,
     titleTr: 'Semantik Seri',
     titleEn: 'Semantic Series',
@@ -131,7 +131,7 @@ const TEFEKKUR_CATEGORIES = [
   },
   {
     id: 'idrak-suur',
-    accent: '#1D9E75',
+    accent: CATEGORY.emerald,         // aynı hex
     count: 6,
     titleTr: 'İdrak & Şuur',
     titleEn: 'Cognition & Consciousness',
@@ -146,7 +146,7 @@ const TEFEKKUR_CATEGORIES = [
   },
   {
     id: 'kozmoloji',
-    accent: '#9b59b6',
+    accent: CATEGORY.rose,            // kozmoloji — mor ikizi çözüldü
     count: 7,
     titleTr: 'Kozmoloji & Yaratılış',
     titleEn: 'Cosmology & Creation',

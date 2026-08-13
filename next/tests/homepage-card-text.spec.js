@@ -33,7 +33,10 @@ for (const locale of ['tr', 'en']) {
       actual[id] = {
         // Arapça âyet — birebir korunmalı
         arabic: await el.locator('[lang="ar"]').allInnerTexts(),
-        heading: (await el.locator('h2').first().innerText()).trim(),
+        // `h2, h3`: P7'de compact kartların başlığı h3'e indi (seviye kademeyi
+        // izliyor). Baseline'daki METİN değişmedi — bu yüzden temel çizgi
+        // yenilenmedi, yalnız seçici genişletildi.
+        heading: (await el.locator('h2, h3').first().innerText()).trim(),
         // kart içindeki tüm bağlantı hedefleri
         links: await el.locator('a[href]').evaluateAll(
           (as) => as.map((a) => new URL(a.href).pathname)

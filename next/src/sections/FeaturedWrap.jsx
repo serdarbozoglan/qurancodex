@@ -10,6 +10,7 @@
 // ──────────────────────────────────────────────────────────────────────────────
 
 import HeroGeometricBackground from '../components/HeroGeometricBackground';
+import { SEMANTIC } from '../tokens';
 
 export default function FeaturedWrap({ children, locale = 'tr' }) {
   const label = locale === 'tr' ? 'ÖNE ÇIKAN' : 'FEATURED';
@@ -31,7 +32,7 @@ export default function FeaturedWrap({ children, locale = 'tr' }) {
           transform: 'translateX(-50%)',
           padding: '5px 16px',
           background: 'linear-gradient(135deg, rgba(212,165,116,0.95), rgba(232,184,96,0.85))',
-          color: '#0a0a1a',
+          color: SEMANTIC.surface,
           fontFamily: "'Inter', sans-serif",
           fontSize: '0.62rem',
           fontWeight: 800,

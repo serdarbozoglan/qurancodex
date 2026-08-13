@@ -4,7 +4,7 @@
       "id": "kavramsal",
       "labelTr": "Kavramsal Tahlil",
       "labelEn": "Conceptual Analysis",
-      "accent": "#3498db",
+      "accent": "#3498DB",
       "descTr": "Psikolojik, içsel ve pratik tefekkür denemeleri",
       "descEn": "Reflections on psychology, inner life, and practice"
     },
@@ -12,7 +12,7 @@
       "id": "terminoloji",
       "labelTr": "Terminoloji Serisi",
       "labelEn": "Terminology Series",
-      "accent": "#d4a574",
+      "accent": "#E67E22",
       "descTr": "İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi",
       "descEn": "Terminology for Reading Human, Universe & Quran"
     },
@@ -20,7 +20,7 @@
       "id": "sure-hermenotik",
       "labelTr": "Sûre & Hermenötik",
       "labelEn": "Surah & Hermeneutics",
-      "accent": "#c9a227",
+      "accent": "#d4a574",
       "descTr": "Sûre tahlilleri ve yorum prensipleri",
       "descEn": "Surah analyses and interpretive principles"
     },
@@ -28,7 +28,7 @@
       "id": "semantik",
       "labelTr": "Semantik Seri",
       "labelEn": "Semantic Series",
-      "accent": "#8b5cf6",
+      "accent": "#A78BFA",
       "descTr": "Arapça kök etimolojisi ve Kur'ani semantik haritalama",
       "descEn": "Arabic root etymology & Quranic semantic mapping"
     },
@@ -44,7 +44,7 @@
       "id": "kozmoloji",
       "labelTr": "Kozmoloji & Yaratılış",
       "labelEn": "Cosmology & Creation",
-      "accent": "#9b59b6",
+      "accent": "#F472B6",
       "descTr": "Yaratılış, kuantum ve evrim üzerine düşünce",
       "descEn": "Creation, quantum & evolution"
     }

@@ -65,14 +65,20 @@ grep -rn "ShaykhHamdullah\|Scheherazade\|Amiri" src/components/ReadingMode.jsx s
 - Reading mode'da `'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif` zinciri OK (§13.15)
 - Diğer bileşenlerde yalnızca `FONTS.quran` OK
 
-#### 4b. Design tokens (§13.1)
+#### 4b. Design tokens (§13.1, §13.25) — **script ile ölç, grep ile değil**
 ```bash
-# Ham hex
-grep -rn "color: *'#[0-9a-fA-F]" src/components src/sections | grep -v "// " | head -20
-# Ham rgba
-grep -rn "rgba([0-9]" src/components src/sections | grep -v "// " | head -20
+node scripts/audit-colors.mjs --ci
 ```
-**FAIL** if ham hex/rgba found outside tokens.js.
+**FAIL** (exit 1) iki durumda:
+1. Token dışı renk sayısı veya ham hex kullanımı **tabanı aşarsa**
+   (taban 2026-08-13: 184 farklı / 1.176 kullanım — bu sayılar yalnız AZALIR).
+2. **CLAUDE.md §4 palet tablosu `tokens.js`ten sapmışsa.**
+
+Ayrıntı için `node scripts/audit-colors.mjs --list`.
+
+> Grep kullanma: eski talimat satır sayıyordu, script eşleşme sayıyor.
+> "1.080 ihlal" ile "186 farklı renk" bir noktada birbirine karıştı ve rapor
+> yanlış çıktı — ölçüm tek yerden gelmeli.
 
 #### 4c. Arabic encoding violations (§13.15)
 ```bash

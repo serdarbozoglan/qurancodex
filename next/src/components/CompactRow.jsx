@@ -9,14 +9,14 @@
 // düşer, sayfa hedefine (<20.000px) esas katkı buradan gelir.
 // ────────────────────────────────────────────────────────────────────────────
 
-import { COLORS } from '../tokens';
+import { COLORS, SEMANTIC } from '../tokens';
 
 export default function CompactRow({ children, cols = 2 }) {
   return (
     <div
       className="portal-compact-row"
       style={{
-        background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
+        background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 50%, ${SEMANTIC.surface} 100%)`,
         padding: '72px 24px',
         position: 'relative',
         overflow: 'hidden',

@@ -7,7 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, STATUS } from '../tokens';
 import { useLanguage } from '../i18n/LanguageContext';
 import { readReadingProgress, formatRelativeTime, clearReadingProgress } from '../lib/reading-progress';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
@@ -157,7 +157,7 @@ export default function ReadingProgressCard() {
                 justifyContent: 'center',
                 transition: 'all 0.15s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(231,76,60,0.5)'; e.currentTarget.style.color = '#e74c3c'; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(231,76,60,0.5)'; e.currentTarget.style.color = STATUS.error; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = COLORS.silver; }}
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

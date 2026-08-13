@@ -23,13 +23,22 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import Link from 'next/link';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function PortalCard({ card, locale = 'tr', extra = null }) {
   const tr = locale === 'tr';
   const pick = (o) => (tr ? o.tr : o.en);
   const { id, weight = 'medium', href } = card;
   const compact = weight === 'compact';
+
+  // P7 (2026-08-13) — başlık SEVİYESİ kademeyi izler.
+  // Öncesinde 14 kartın 14'ü de <h2>ydi; anasayfada 19 düz h2 vardı ve
+  // hiçbiri diğerinden daha önemli görünmüyordu. P4 ritmi kartları üç
+  // ağırlığa ayırdıktan sonra bunu başlık ağacına da yansıtmamak tutarsız
+  // kalıyordu. compact kartlar ızgarada, kendilerinden ÖNCE gelen feature/
+  // medium kartın altına düşüyor — seviye atlaması yok (h2 → h3).
+  // Sonuç: 19 h2 → 11. Görsel değişiklik YOK, font boyutu inline.
+  const Heading = compact ? 'h3' : 'h2';
 
   return (
     <section
@@ -39,7 +48,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
         compact
           ? { position: 'relative' }
           : {
-              background: 'linear-gradient(180deg, #0a0a1a 0%, #0d1b2a 50%, #0a0a1a 100%)',
+              background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 50%, ${SEMANTIC.surface} 100%)`,
               padding: weight === 'feature' ? '110px 24px' : '90px 24px',
               position: 'relative',
               overflow: 'hidden',
@@ -93,7 +102,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
           {pick(card.eyebrow)}
         </div>
 
-        <h2
+        <Heading
           style={{
             fontFamily: FONTS.display,
             fontWeight: 700,
@@ -107,7 +116,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
           }}
         >
           {pick(card.title)}
-        </h2>
+        </Heading>
 
         {/* Çıpa âyet — §13.15: metin homeCards.js'ten gelir, hafızadan yazılmaz */}
         <div style={{ marginBottom: compact ? '20px' : '36px' }}>

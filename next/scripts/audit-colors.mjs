@@ -18,7 +18,11 @@ import path from 'node:path';
 // Ölçülen gerçek değerler (grep satır sayıyordu, bu script eşleşme sayıyor —
 // bir satırda birden fazla hex olabilir; ayrıca CATEGORY renkleri token'a
 // eklenince token dışı sayı 186'dan 184'e düştü).
-const BASELINE = { distinct: 184, occurrences: 1195 };
+// 2026-08-13 ikinci tur (P6 göç adım 3–5): anasayfa katmanı token'landı.
+// Anasayfayı besleyen 22 dosyada artık **0 ham hex** var (yorumlar hariç).
+// `distinct` düşmedi çünkü ayıklanan renkler (#27ae60, #9b59b6, #8b5cf6)
+// site genelinde başka dosyalarda da geçiyor — onlar sonraki turların işi.
+const BASELINE = { distinct: 184, occurrences: 1176 };
 
 const ROOT = path.resolve(process.cwd(), 'src');
 const TOKENS = path.join(ROOT, 'tokens.js');
@@ -72,4 +76,38 @@ if (process.argv.includes('--list')) {
   }
 }
 
-if (process.argv.includes('--ci') && worse) process.exit(1);
+// ─── CLAUDE.md §4 tablosu ile tokens.js sürüklenmesin ───────────────────────
+// P7 (2026-08-13): "§4 palet tablosu koddan kopmuş" bulgusu. Tabloyu koddan
+// ÜRETMEK yerine (100 satır mükerrer olurdu) tabloda YAZILI hex'lerin hâlâ
+// tokens.js'teki değerle aynı olduğunu doğruluyoruz. Ucuz ve yeterli.
+const CLAUDE_MD = path.resolve(process.cwd(), '..', 'CLAUDE.md');
+let driftCount = 0;
+if (fs.existsSync(CLAUDE_MD)) {
+  const md = fs.readFileSync(CLAUDE_MD, 'utf8');
+  const src = fs.readFileSync(TOKENS, 'utf8');
+  // `COLORS` içinden ad → hex haritası
+  const colorMap = Object.fromEntries(
+    [...src.matchAll(/^\s{2}([a-zA-Z][\w]*):\s*'(#[0-9a-fA-F]{6})'/gm)].map((m) => [m[1], m[2].toLowerCase()])
+  );
+  // `SEMANTIC.x: COLORS.y` → x'in gerçek hex'i
+  const semantic = Object.fromEntries(
+    [...src.matchAll(/^\s{2}([a-zA-Z][\w]*):\s*COLORS\.([a-zA-Z][\w]*),/gm)]
+      .map((m) => [m[1], colorMap[m[2]]])
+      .filter(([, hex]) => hex)
+  );
+  // §4 tablosundaki `SEMANTIC.token` … `#hex` satırları
+  const drift = [];
+  for (const m of md.matchAll(/`?SEMANTIC\.(\w+)`?[^|]*\|[^|]*`(#[0-9a-fA-F]{6})`/g)) {
+    const [, name, hex] = m;
+    const real = semantic[name];
+    if (real && real !== hex.toLowerCase()) drift.push(`SEMANTIC.${name}: tablo ${hex} ≠ tokens ${real}`);
+    if (!real) drift.push(`SEMANTIC.${name}: tabloda var, tokens.js'te YOK`);
+  }
+  driftCount = drift.length;
+  console.log(`\n  CLAUDE.md §4 ↔ tokens.js : ${drift.length ? '❌ ' + drift.length + ' sapma' : '✓ uyumlu'}`);
+  drift.forEach((d) => console.log('   ! ' + d));
+} else {
+  console.log('\n  CLAUDE.md bulunamadı — §4 kontrolü atlandı');
+}
+
+if (process.argv.includes('--ci') && (worse || driftCount)) process.exit(1);

@@ -213,11 +213,44 @@ Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 - [x] **Denetim script'i** — `next/scripts/audit-colors.mjs` (`--list`, `--ci`)
       Taban: 184 farklı renk / 1.195 kullanım. Artmamalı.
 - [x] GPT-5.5 hakem turu; iki noktada ayrışıldı, gerekçeler §13.25'te yazılı
-- [ ] **Göç adım 3:** en yüksek frekanslı renkleri `SEMANTIC`/`CATEGORY`'ye map et
-- [ ] **Göç adım 4:** anasayfayı temizle — 18 hex → 2 surface + 2 text + 1 border
-      + 1 scripture gold + max 3 kategori
-- [ ] **Göç adım 5-7:** kategorileri `CATEGORY`'ye bağla, status ayır, kalan rogue'ları sil
-- [ ] `audit-colors.mjs --ci` pre-merge kontrolüne eklensin
+- [x] **Göç adım 3–5 TAMAM (2026-08-13)** — anasayfa katmanı + tefekkür kategorileri
+
+  **Anasayfa: 15 farklı ham hex → 0.** (P5'ten sonra 18 değil 15'ti; 14 kart
+  dosyası silinince üçü zaten gitmişti.) Anasayfayı besleyen 22 dosyada
+  yorumlar hariç **tek bir ham hex kalmadı.**
+
+  | Dosya | Önce | Sonra |
+  |---|---|---|
+  | `SixGates` | 6 kapı accent'i + gradyan, hepsi ham | `SEMANTIC.accentPrimary` + `CATEGORY.*` |
+  | `ConciergePrompt` · `Conclusion` | `#c9973a #b8860b #9a6f0a #1c0f00` | `COLORS.btnGold*` (zaten vardı, kullanılmıyordu) |
+  | `PortalCard` · `CompactRow` · `FeaturedWrap` | `#0a0a1a` `#0d1b2a` | `SEMANTIC.surface` / `surfaceRaised` |
+  | `ReadingProgressCard` | `#e74c3c` | `STATUS.error` |
+  | `TefekkurHighlight` | 6 ham kategori rengi | `CATEGORY.*` |
+
+  **Tefekkür kategori paleti — 4'ü değişti** (`public/tefekkur/_index.json`):
+
+  | Kategori | Önce | Sonra | Neden |
+  |---|---|---|---|
+  | Kavramsal | `#3498db` | `CATEGORY.blue` | aynı hex |
+  | Terminoloji | `#d4a574` | `CATEGORY.orange` `#E67E22` | **iki altın vardı**, ayırt edilemiyordu |
+  | Sûre & Hermenötik | `#c9a227` | `SEMANTIC.accentPrimary` `#d4a574` | çekirdek kategori altın kalıyor |
+  | Semantik | `#8b5cf6` | `CATEGORY.violet` `#A78BFA` | §13.25: küçük metinde kontrast sınırda |
+  | İdrak & Şuur | `#1D9E75` | `CATEGORY.emerald` | aynı hex |
+  | Kozmoloji | `#9b59b6` | `CATEGORY.rose` `#F472B6` | **iki mor vardı** (semantik ile ikiz) |
+
+  **Canlı doğrulandı** — filtre pilleri tıklanıp `getComputedStyle().color`
+  okundu, altı ton da birbirinden ayrı:
+  `rgb(52,152,219)` · `rgb(230,126,34)` · `rgb(212,165,116)` ·
+  `rgb(167,139,250)` · `rgb(29,158,117)` · `rgb(244,114,182)`
+  ⚠ **Geri almak kolay:** `_index.json` içindeki 6 `accent` alanı + `TefekkurHighlight.jsx`.
+
+- [x] **`audit-colors.mjs --ci` pre-merge kontrolüne eklendi**
+      `.claude/skills/pre-merge-review/SKILL.md` §4b artık grep değil script
+      çağırıyor. Taban güncellendi: **1.195 → 1.176 kullanım** (184 farklı renk
+      değişmedi — ayıklanan renkler site genelinde başka dosyalarda da geçiyor).
+- [ ] **Göç adım 6–7 (kalan):** anasayfa dışındaki ~180 rogue renk.
+      En sık geçenler: `#4a5568` ×34 · `#f87171` ×16 · `#60a5fa` ×14 ·
+      `#f39c12` ×14 · `#c084fc` ×14. `node scripts/audit-colors.mjs --list`
 
 ---
 
@@ -255,9 +288,24 @@ kalıyordu. Navbar + tarayıcı geri + yeni eklenen kardeş sayfa bağlantısı 
 
 ## 🟡 P7 — Küçükler
 
-- [ ] **19 `<h2>` çok** — kart başlıklarının bir kısmını `h3`'e indir
-- [ ] **CLAUDE.md §4 palet tablosu koddan kopmuş** — 10 renk listeliyor, `tokens.js`'te 48 var; tablodan üret
-- [ ] P4 sonrası: `MobileSectionChipNav` / `DesktopSidebarTOC` / `ScrollToTopFab` üçü de hâlâ gerekli mi, gözden geçir
+- [x] **19 `<h2>` → 11.** Başlık SEVİYESİ artık P4 kademesini izliyor:
+      `feature`/`medium` → `h2`, `compact` → `h3`. Ölçülen: h2 19→11, h3 15→23.
+      Her `h3` kendinden önce gelen bir `h2`yi takip ediyor — **seviye atlaması yok.**
+      Görsel değişiklik yok (font boyutu inline, etiketten bağımsız).
+      `homepage-card-text` baseline'ı yenilenmedi; yalnız seçici `h2` → `h2, h3`
+      oldu — başlık METİNLERİ değişmedi, temel çizgi hâlâ eşleşiyor.
+- [x] **CLAUDE.md §4 ↔ `tokens.js` sapma koruması.** Tabloyu koddan üretmek
+      yerine (100 satır mükerrer olurdu) tablodaki 7 hex'in tokens.js'teki
+      değerle aynı olduğu `audit-colors.mjs` içinde doğrulanıyor. `--ci`'de
+      sapma varsa exit 1. Şu an: **7/7 uyumlu.**
+      > §4 tablosu bu turdan önce zaten rol tabanlıya çevrilmişti (madde bayattı);
+      > eksik olan tek şey **kontroldü** — o eklendi.
+- [ ] P4 sonrası: `MobileSectionChipNav` / `DesktopSidebarTOC` / `ScrollToTopFab`
+      üçü de hâlâ gerekli mi? **İnceleme yapıldı, karar KULLANICIYA bırakıldı:**
+      sayfa 23.704 → 19.547px'e indi ama hâlâ ~23 ekran. Üç bileşen de farklı
+      iş yapıyor (mobil çip = yatay atlama, masaüstü TOC = konum göstergesi,
+      FAB = başa dön) ve hiçbiri diğerinin yerini tutmuyor. **Silmedim** —
+      görsel yoğunluk kararı, ölçüm kararı değil.
 
 ---
 

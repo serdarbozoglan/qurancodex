@@ -238,9 +238,9 @@ export default function ConciergePrompt() {
               alignItems: 'center',
               gap: '6px',
               background: query.trim().length >= 3
-                ? `linear-gradient(135deg, ${COLORS.gold} 0%, #b8860b 100%)`
+                ? `linear-gradient(135deg, ${COLORS.gold} 0%, ${COLORS.btnGoldMid} 100%)`
                 : `${COLORS.gold}22`,
-              color: query.trim().length >= 3 ? '#1c0f00' : `${COLORS.gold}88`,
+              color: query.trim().length >= 3 ? COLORS.btnGoldText : `${COLORS.gold}88`,
               border: 'none',
               borderRadius: '999px',
               padding: '11px 18px',

@@ -189,8 +189,8 @@ export default function Conclusion() {
             padding: '14px 36px',
             borderRadius: '10px',
             border: 'none',
-            background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
-            color: '#1c0f00',
+            background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 60%, ${COLORS.btnGoldEnd} 100%)`,
+            color: COLORS.btnGoldText,
             fontFamily: FONTS.body,
             fontSize: '0.9rem', fontWeight: 700,
             letterSpacing: '0.08em',
@@ -201,7 +201,7 @@ export default function Conclusion() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: '#1c0f00', opacity: 0.5, lineHeight: 1 }}>اقرأ</span>
+          <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 0.5, lineHeight: 1 }}>اقرأ</span>
           {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
         </motion.button>
       </motion.div>

@@ -11,13 +11,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC, CATEGORY } from '../tokens';
 
 const GATES = [
   {
     id: 'gate-fascination',
     scrollTo: 'mukattaa-card',
-    accent: '#d4a574',
+    accent: SEMANTIC.accentPrimary,   // #d4a574 — aynı hex, UI aksanı rolü
     eyebrowTr: 'KAPI 01',  eyebrowEn: 'GATE 01',
     titleTr: 'Arapça Bilmeden Görebileceğin Mimari',
     titleEn: 'Architecture Visible Without Arabic',
@@ -37,7 +37,7 @@ const GATES = [
   {
     id: 'gate-astonishment',
     scrollTo: 'bilimsel-card',
-    accent: '#9b59b6',
+    accent: CATEGORY.violet,          // #9b59b6 → #a78bfa (§13.25: küçük metinde kontrast)
     eyebrowTr: 'KAPI 02',  eyebrowEn: 'GATE 02',
     titleTr: '1.400 Yıl Önceki Kevnî İşaretler',
     titleEn: 'Cosmic Signs 1,400 Years Earlier',
@@ -55,7 +55,7 @@ const GATES = [
   {
     id: 'gate-reflection',
     scrollTo: 'dua-card',
-    accent: '#3498db',
+    accent: CATEGORY.blue,            // aynı hex
     eyebrowTr: 'KAPI 03',  eyebrowEn: 'GATE 03',
     titleTr: "Kur'an Seni Nasıl Tanımlıyor?",
     titleEn: 'How Does the Quran Define You?',
@@ -73,7 +73,7 @@ const GATES = [
   {
     id: 'gate-stories',
     href: '/atlas/kissa',
-    accent: '#27ae60',
+    accent: CATEGORY.emerald,         // #27ae60 → #1d9e75 (yakın-tekrar yeşil ayıklandı)
     eyebrowTr: 'KAPI 04',  eyebrowEn: 'GATE 04',
     titleTr: '23 Yıla Yayılan İnsan Hikâyeleri',
     titleEn: '23 Years of Human Stories',
@@ -93,7 +93,7 @@ const GATES = [
   {
     id: 'gate-data',
     href: '/graf/ayet',
-    accent: '#e67e22',
+    accent: CATEGORY.orange,          // aynı hex
     eyebrowTr: 'KAPI 05',  eyebrowEn: 'GATE 05',
     titleTr: 'Veriyle Keşfet, Görselle Anla',
     titleEn: 'Discover by Data, Understand by Visual',
@@ -118,7 +118,7 @@ const GATES = [
   {
     id: 'gate-tools',
     href: '/atlas/sunnetullah',
-    accent: '#e74c3c',
+    accent: CATEGORY.red,             // aynı hex
     eyebrowTr: 'KAPI 06',  eyebrowEn: 'GATE 06',
     titleTr: 'Atlaslarda Detayda Kaybol',
     titleEn: 'Lose Yourself in Atlas Detail',
@@ -351,7 +351,7 @@ export default function SixGates() {
     <section
       id="six-gates"
       style={{
-        background: 'linear-gradient(180deg, #0d1b2a 0%, #0a0a1a 100%)',
+        background: `linear-gradient(180deg, ${SEMANTIC.surfaceRaised} 0%, ${SEMANTIC.surface} 100%)`,
         padding: '70px 24px 60px',
         position: 'relative',
         overflow: 'hidden',
