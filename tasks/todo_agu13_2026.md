@@ -193,8 +193,9 @@ Kullanıcı sordu: *"QuranCodex mi Quran Codex mi, tutarsızlık var"*. Sayım:
 
 - [x] 6 boşluklu kullanım `QuranCodex`e çevrildi (tr.json ×2, en.json ×3, OG görseli ×1)
 - [x] Logo kelime markasından literal boşluk kaldırıldı → **QURANCODEX**
-      İki yarı aralıkla değil **tonla** ayrışıyor (QURAN altın, CODEX kırık beyaz);
-      harf aralığı (tracking .12–.18em) optik nefesi zaten veriyor
+      İki yarıyı tonla ayırmak denendi (QURAN altın / CODEX kırık beyaz),
+      **kullanıcı tek renk istedi** → tamamı `#d4a574`. Harf aralığı
+      (tracking .12–.18em) optik ayrımı zaten veriyor.
 - [x] Envanter testi bu değişikliği **kayıp olarak yakaladı** — kasıtlı olduğu
       doğrulanıp temel çizgi güncellendi (koruma çalışıyor)
 

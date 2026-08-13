@@ -738,10 +738,10 @@ export default function Navbar() {
           <img src="/logo-mark.png" alt="" aria-hidden="true" width="32" height="32" style={{ display: 'block', flexShrink: 0 }} />
           {/* Kelime markası (2026-08-13). Önce "QURAN CODEX" idi — literal
               boşluk taşıyordu ve marka adı kod tabanında 78 kez tek kelime
-              "QuranCodex" olarak geçtiği için tutarsızdı. Boşluk kaldırıldı;
-              iki yarı ARALIKLA değil TONLA ayrışıyor — harf aralığı (tracking
-              0.12-0.18em) zaten optik nefesi veriyor. */}
-          <span>QURAN<span style={{ color: COLORS.offWhite, opacity: 0.92 }}>CODEX</span></span>
+              "QuranCodex" olarak geçtiği için tutarsızdı. Boşluk kaldırıldı.
+              İki yarıyı tonla ayırmak denendi, kullanıcı tek renk istedi:
+              harf aralığı (tracking .12-.18em) optik ayrımı zaten veriyor. */}
+          <span>QURANCODEX</span>
         </button>
 
         {/* Nav links */}
@@ -1830,7 +1830,7 @@ export default function Navbar() {
             aria-label={language === 'tr' ? 'Ana sayfaya dön' : 'Back to home'}
           >
             <img src="/logo-mark.png" alt="" aria-hidden="true" width="26" height="26" style={{ display: 'block', flexShrink: 0 }} />
-            <span>QURAN<span style={{ color: COLORS.offWhite, opacity: 0.92 }}>CODEX</span></span>
+            <span>QURANCODEX</span>
           </button>
 
           {/* Close button */}
