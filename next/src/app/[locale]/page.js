@@ -22,20 +22,14 @@ import ToolsHighlight from '@/sections/ToolsHighlight';
 import TefekkurHighlight from '@/sections/TefekkurHighlight';
 
 // 14 tanıtıcı kart (anlatı bölümleri → tool sayfasına yönlendiren portal)
-import MukattaaCard from '@/sections/MukattaaCard';
-import RitimCard from '@/sections/RitimCard';
-import RetorikSorularCard from '@/sections/RetorikSorularCard';
-import SesMimarisiCard from '@/sections/SesMimarisiCard';
-import HalkaCard from '@/sections/HalkaCard';
-import TekrarCard from '@/sections/TekrarCard';
-import BilimselCard from '@/sections/BilimselCard';
-import TarihselCard from '@/sections/TarihselCard';
-import KorumaCard from '@/sections/KorumaCard';
-import DuaDiliCard from '@/sections/DuaDiliCard';
-import AltiKonuCard from '@/sections/AltiKonuCard';
-import AllahKendiniTanitir from '@/sections/AllahKendiniTanitir';
-import InsanTanimiCard from '@/sections/InsanTanimiCard';
-import PsikolojiCard from '@/sections/PsikolojiCard';
+// ─── Anlatı kartları — 14 dosya yerine tek sunucu bileşeni + veri (P4+P5) ───
+// Öncesinde 14 ayrı 'use client' dosyası vardı (2.742 satır, 14 hydration
+// adası). Yapı %95 aynıydı; yalnız veri değişiyordu. Bkz. src/data/homeCards.js
+import { CARD_BY_ID } from '@/data/homeCards';
+import PortalCard from '@/components/PortalCard';
+import CompactRow from '@/components/CompactRow';
+import EsmaTeaser from '@/components/EsmaTeaser';
+import ScrollRevealRoot from '@/components/ScrollRevealRoot';
 
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
@@ -65,6 +59,8 @@ export default async function Home({ params }) {
     <>
       <JsonLd schemas={buildBreadcrumb(locale, '')} />
       <HashAnchorScroll />
+      {/* Tek IntersectionObserver — 14 kartın framer-motion adasının yerine */}
+      <ScrollRevealRoot />
       <MobileSectionChipNav />
       <DesktopSidebarTOC />
       <ScrollToTopFab />
@@ -91,20 +87,23 @@ export default async function Home({ params }) {
       {/* 6 Kapı — kategorize edici navigasyon */}
       <SixGates />
 
-      {/* ─── Hayranlık cluster — dil ve mimari (6 kart) ─── */}
+      {/* ─── Hayranlık cluster — dil ve mimari (6 kart) ───
+          P4 ritmi: ÇIPA (feature) → YANKI (medium) → IZGARA (compact ×4).
+          Kart sırası ve içeriği değişmedi; yalnız ölçek kademelendi. */}
       <div className="cluster-fascination">
         <QuietParticles />
-        <FeaturedWrap><MukattaaCard /></FeaturedWrap>
+        <FeaturedWrap locale={locale}>
+          <PortalCard card={CARD_BY_ID['mukattaa-card']} locale={locale} />
+        </FeaturedWrap>
         <CardSeam />
-        <RitimCard />
+        <PortalCard card={CARD_BY_ID['ritim-card']} locale={locale} />
         <CardSeam />
-        <RetorikSorularCard />
-        <CardSeam />
-        <SesMimarisiCard />
-        <CardSeam />
-        <HalkaCard />
-        <CardSeam />
-        <TekrarCard />
+        <CompactRow cols={2}>
+          <PortalCard card={CARD_BY_ID['retorik-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['ses-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['halka-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['tekrar-card']} locale={locale} />
+        </CompactRow>
         <ClusterWhisper
           tr="Yorum çok, örüntü tek. Dil bir kapı; girene yeni bir oda açılır."
           en="Many interpretations, one pattern. Language is a door; for those who enter, a new room opens."
@@ -115,11 +114,16 @@ export default async function Home({ params }) {
       {/* ─── Hayret cluster — bilim ve tarih (3 kart) ─── */}
       <div className="cluster-astonishment">
         <QuietParticles />
-        <FeaturedWrap><BilimselCard /></FeaturedWrap>
+        {/* Bu kümede yalnız 3 kart var — araya "medium" bir yankı sığmıyor,
+            ritim ÇIPA → IZGARA (×2) olarak kısalıyor. Bilinçli istisna. */}
+        <FeaturedWrap locale={locale}>
+          <PortalCard card={CARD_BY_ID['bilimsel-card']} locale={locale} />
+        </FeaturedWrap>
         <CardSeam />
-        <TarihselCard />
-        <CardSeam />
-        <KorumaCard />
+        <CompactRow>
+          <PortalCard card={CARD_BY_ID['tarih-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['koruma-card']} locale={locale} />
+        </CompactRow>
         {/* §13.24 (2026-08-13): önceki metin "Bilim bir gün gelir, DOĞRULAR /
             Science ... CONFIRMS" idi. Kural tasdikin öznesini bilim/tarih
             yapmayı ismen yasaklıyor — "Kur'ân haber verir, BİZ tasdik ederiz;
@@ -138,15 +142,25 @@ export default async function Home({ params }) {
       {/* ─── İçe Bakış cluster — insan ve Yaratıcı (5 kart) ─── */}
       <div className="cluster-reflection">
         <QuietParticles />
-        <DuaDiliCard />
+        {/* Çıpa ortada: "dua → öne çıkanlar → Yaratıcı → insan → nefis"
+            anlatı sırası yazarın kurduğu sıra. Kademe uygulanırken kart
+            TAŞINMADI; Esmâ köprüsü kümenin ortasında kalıyor. */}
+        <PortalCard card={CARD_BY_ID['dua-card']} locale={locale} />
         <CardSeam />
-        <AltiKonuCard />
+        <PortalCard card={CARD_BY_ID['alti-konu-card']} locale={locale} />
         <CardSeam />
-        <FeaturedWrap><AllahKendiniTanitir /></FeaturedWrap>
+        <FeaturedWrap locale={locale}>
+          <PortalCard
+            card={CARD_BY_ID['allah-kendini-tanitir']}
+            locale={locale}
+            extra={<EsmaTeaser locale={locale} />}
+          />
+        </FeaturedWrap>
         <CardSeam />
-        <InsanTanimiCard />
-        <CardSeam />
-        <PsikolojiCard />
+        <CompactRow>
+          <PortalCard card={CARD_BY_ID['insan-tanimi-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['psikoloji-card']} locale={locale} />
+        </CompactRow>
         <ClusterWhisper
           tr="O seni yarattı, bilir; çağrını bilir, yakındır. İçe baktıkça O'nu görürsün."
           en="He created you, He knows; He hears your call, He is near. As you look within, you see Him."

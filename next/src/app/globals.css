@@ -522,47 +522,107 @@ body::after {
 details > summary::-webkit-details-marker { display: none; }
 details[open] .ilk-son-chevron { transform: rotate(180deg); }
 
-/* ─── Anasayfa kart enhance — hover + featured + Islamic pattern bg (2026-06-15) ─── */
+/* ─── Anasayfa anlatı kartları — <PortalCard> (2026-08-13, P4+P5) ───────────
+   ÖNCESİ (2026-06-15): seçiciler `section[id$="-card"] > div > div[style*=
+   "border-radius: 20px"]` idi. Hiçbir kart 20px yarıçap kullanmıyordu (14'ü
+   de 12px) ve panel `section > div`, `section > div > div` değildi — yani bu
+   hover kuralı iki ayrı sebeple ÖLÜYDÜ, sitede hiç çalışmadı. Inline stile
+   göre eşleşen seçiciler yerine gerçek sınıf adlarına geçildi.        */
 
-/* Tüm anlatı kartları için subtle hover lift + glow yoğunlaşma */
-section[id$="-card"] > div > div[style*="border-radius: 20px"] {
-  transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1),
+/* Girişte açılma — tek IntersectionObserver (<ScrollRevealRoot>) sınıf ekler.
+   Öncesinde her kart kendi framer-motion `whileInView`ini taşıyordu. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.32, 0.72, 0, 1),
+              transform 0.75s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: opacity, transform;
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hover lift + glow yoğunlaşma.
+   `!important`: panelin border/box-shadow'u PortalCard'da INLINE (tokens'tan
+   geliyor, §13.1). Inline stil sınıf kuralını yener — hover'ın görünmesi için
+   şart. Eski kural da aynı sebeple !important taşıyordu. */
+.portal-card__panel {
+  transition: transform 0.75s cubic-bezier(0.32, 0.72, 0, 1),
+              opacity 0.75s cubic-bezier(0.32, 0.72, 0, 1),
               box-shadow 0.4s ease,
-              border-color 0.4s ease !important;
+              border-color 0.4s ease;
 }
-section[id$="-card"]:hover > div > div[style*="border-radius: 20px"] {
-  transform: translateY(-4px) scale(1.005);
-  box-shadow:
-    inset 0 0 0 1px rgba(212, 165, 116, 0.30),
-    0 38px 90px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(212, 165, 116, 0.10) !important;
-  border-color: rgba(212, 165, 116, 0.55) !important;
+@media (hover: hover) {
+  .portal-card:hover .portal-card__panel.is-revealed {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow:
+      inset 0 0 0 1px rgba(212, 165, 116, 0.30),
+      0 38px 90px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(212, 165, 116, 0.10) !important;
+    border-color: rgba(212, 165, 116, 0.55) !important;
+    transition: transform 0.4s cubic-bezier(0.2, 0.6, 0.2, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+  }
+  .portal-card__cta {
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .portal-card:hover .portal-card__cta,
+  .portal-card__cta:hover {
+    background: rgba(212, 165, 116, 0.20) !important;
+    border-color: rgba(212, 165, 116, 0.67) !important;
+  }
+}
+.portal-card__cta:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }
 
-/* Featured kart — Mukatta, Esmâ, Bilimsel İşaretler için "öne çıkan" stil */
+/* Hafif kademe ızgarası — masaüstünde 2–3 sütun, mobilde tek sütun */
+.portal-compact-row__grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(var(--portal-cols, 2), minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+/* Tablette en fazla 2 sütun. NOT: repeat()'in sayaç argümanı <integer> olmak
+   zorunda — calc()/min() geçersizdir ve kural sessizce düşer. O yüzden sabit. */
+@media (max-width: 1023px) {
+  .portal-compact-row__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 719px) {
+  .portal-compact-row__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Featured kart — Mukattaa, Bilimsel İşaretler, Esmâ köprüsü */
 .featured-card-wrap {
   position: relative;
 }
-.featured-card-wrap::before {
-  content: 'ÖNE ÇIKAN';
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 4px 14px;
-  background: linear-gradient(135deg, rgba(212,165,116,0.85), rgba(232,184,96,0.75));
-  color: #0a0a1a;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.24em;
-  border-radius: 999px;
-  z-index: 5;
-  box-shadow: 0 4px 14px rgba(212,165,116,0.4);
-  pointer-events: none;
-}
-.featured-card-wrap > section[id$="-card"] > div > div[style*="border-radius: 20px"] {
-  border-color: rgba(212,165,116,0.55) !important;
+/* NOT: buradaki `::before { content: 'ÖNE ÇIKAN' }` kaldırıldı (2026-08-13).
+   FeaturedWrap.jsx aynı konuma (top:70px, left:50%) kendi rozetini basıyor;
+   ikisi üst üste geliyordu ve pseudo-element İNGİLİZCE sayfada da Türkçe
+   "ÖNE ÇIKAN" yazıyordu. Rozet artık tek yerde: FeaturedWrap. */
+.featured-card-wrap .portal-card__panel {
+  border-color: rgba(212, 165, 116, 0.55) !important;
   box-shadow:
     inset 0 0 0 1px rgba(212, 165, 116, 0.28),
     0 30px 80px rgba(0, 0, 0, 0.45),

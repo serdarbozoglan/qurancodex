@@ -114,27 +114,67 @@
 
 ---
 
-## 🟠 P4 — Ritim (P2 kararına bağlı, ~yarım gün)
+## ✅ P4 — RİTİM — TAMAMLANDI (2026-08-13)
 
-- [ ] **Üç kademeli kart ritmi tasarla**
-  - Şu an 13 kart 852–931px bandında (%9 fark), tek istisna `allah-kendini-tanitir` 1314px
-  - Ağır: küme başına 1 (mevcut `FeaturedWrap`) — tam genişlik, diyagram taşısın
-  - Orta: ~6 — mevcut 760px format
-  - Hafif: ~5 — iki sütunlu kompakt çift
-- [ ] Kademeleri önce statik mockup olarak doğrula, sonra kodla
+- [x] **Üç kademeli kart ritmi**
+  Kademe her kümede aynı cümleyi kuruyor: **ÇIPA → YANKI → IZGARA**.
+
+  | Kademe | Kart | Ne değişti |
+  |---|---|---|
+  | `feature` (3) | Mukattaa · Bilimsel · Esmâ köprüsü | Değişmedi, `FeaturedWrap` rozeti kaldı |
+  | `medium` (3) | Ritim · Dua Dili · Öne Çıkanlar | Eski 760px format, aynen |
+  | `compact` (8) | Retorik · Ses · Halka · Tekrar · Tarihsel · Koruma · İnsan Tanımı · Psikoloji | `CompactRow` ızgarasında 2 sütun |
+
+  **Compact'te düşen tek şey uzun blurb paragrafı.** Eyebrow · başlık · **Arapça
+  âyet** · çeviri · referans · kicker · CTA duruyor. Derin metin zaten CTA'nın
+  gittiği araç sayfasında — kapı mantığı bu.
+  ⚠ Hiçbir kart TAŞINMADI. Esmâ köprüsü hâlâ reflection kümesinin ortasında,
+  yazarın kurduğu "dua → öne çıkanlar → Yaratıcı → insan → nefis" sırası duruyor.
+  Hayret kümesi 3 kartlı olduğu için araya `medium` sığmadı — bilinçli istisna.
+
+- [x] **Ölçüm (Playwright, ölçülen gerçek render):**
+
+  | | önce | sonra | fark |
+  |---|---:|---:|---:|
+  | masaüstü 1440 | 21.363px | **15.988px** | −25% |
+  | dizüstü 1024 | 21.381px | **16.059px** | −25% |
+  | **mobil 390** | 23.704px | **19.547px** | **−18% — <20.000 hedefi TUTTU** |
+
+  Yatay kaydırma yok · console error 0 · h1=1, h2=19 (değişmedi) · araç bağlantısı 17 → 17
+
+- [x] `auto-fit` ilk denemede 1440px'de **3+1 asimetrisi** üretti (ekran
+      görüntüsüyle görüldü). Sütun sayısı artık `CompactRow`'a prop olarak
+      veriliyor, CSS yalnız daraltıyor (≤1023px → 2, ≤719px → 1).
 
 ---
 
-## 🟠 P5 — `<PortalCard>` bileşeni (P4'e bağlı, ~1 gün)
+## ✅ P5 — `<PortalCard>` — TAMAMLANDI (2026-08-13)
 
-- [ ] **Ortak bileşen çıkar — SERVER COMPONENT olarak**
-  - Şu an: 14 dosya, 2.603 satır, ortak bileşen yok
-  - Şu an: **14/14 kart `'use client'`** + her biri `framer-motion` → 14 hydration adası
-  - Props: `{ eyebrow, title, verseAr, verseTr, blurb, href, accent, weight }`
-  - Animasyonu tek bir ince client sarmalayıcıya devret (`FeaturedWrap` benzeri)
-  - Hedef: 14 hydration adası → 1
-- [ ] 14 dosyayı sil, yerine 14 veri nesnesi koy
-- [ ] ⚠ **P4'ten önce yapma** — monoton yapıyı bileşene çimentolar
+- [x] **Ortak bileşen çıkarıldı — SUNUCU BİLEŞENİ**
+  - `src/data/homeCards.js` — 14 veri nesnesi
+  - `src/components/PortalCard.jsx` — sunucu; `locale` prop'u, `useLanguage()` yok
+  - `src/components/CompactRow.jsx` · `EsmaTeaser.jsx` — ikisi de sunucu
+  - `src/sections/FeaturedWrap.jsx` — client → **sunucu**
+  - `src/components/ScrollRevealRoot.jsx` — TEK IntersectionObserver
+  - **14 hydration adası → 1.** Anasayfa kartlarında framer-motion kalmadı.
+- [x] **14 dosya silindi** (2.742 satır). Silmeden önce emniyet ağı kuruldu:
+      `tests/homepage-card-text.spec.js` — TR+EN, 14 kartın **Arapça âyetleri**,
+      `<h2>` başlıkları ve bağlantı hedefleri baseline'a alındı. Refactor sonrası
+      **birebir eşleşiyor** (§13.15: âyetler dosyalardan mekanik çıkarıldı,
+      elle yazılmadı — `scratchpad/extract-cards.mjs`).
+
+### Yol boyunca bulunan iki ölü/çift kod
+
+- [x] **Kart hover efekti sitede HİÇ çalışmıyormuş.** `globals.css` seçicisi
+      `section[id$="-card"] > div > div[style*="border-radius: 20px"]` idi;
+      14 kartın 14'ü de `12px` yarıçap kullanıyordu **ve** panel `section > div`
+      seviyesindeydi, `section > div > div` değil. İki ayrı sebeple ölü.
+      Artık gerçek sınıf adı: `.portal-card:hover .portal-card__panel`.
+- [x] **"ÖNE ÇIKAN" rozeti iki kez basılıyormuş.** `globals.css`'teki
+      `.featured-card-wrap::before` ile `FeaturedWrap.jsx`'in inline rozeti aynı
+      konumda (top:70px, left:50%) üst üste geliyordu — ve pseudo-element
+      **İngilizce sayfada da Türkçe** "ÖNE ÇIKAN" yazıyordu. CSS rozeti kaldırıldı;
+      EN ekran görüntüsüyle doğrulandı: tek "FEATURED".
 
 ---
 
@@ -281,3 +321,17 @@ set -a && . /Users/serdar/Developer/01_qurancodex/.env && set +a && npm run dev
 - [x] **Bütçe koruması yerelde doğrulandı** — `74b9ccf`'te "yerelde doğrulanamadı" notu düşülmüştü.
       KV artık yerelde bağlı; canlı istek `meta.budget = {"used":14,"limit":500,"reason":null}`
       döndürüyor, sayaç çalışıyor.
+
+- [ ] **`concierge.spec.js` degrade moduna dayanıklı değil** (P4/P5 turunda ortaya çıktı)
+  `tests/concierge.spec.js:240` ("EN /sor page çalışıyor") kırmızıya döndü.
+  **Sebep bulundu, anasayfa refactor'ıyla ilgisi yok:** günün test koşuları
+  IP başına 50'lik kotayı tüketmiş. Canlı kanıt:
+  `meta.budget = {"used":65,"limit":500,"reason":"ip"}` · `X-Degraded: 1`
+  Yani koruma **tasarlandığı gibi çalışıyor** — kırmızı yanan şey testin
+  varsayımı. Test, degrade modda anlamlı sonuç bekliyor.
+  Seçenekler: (a) test kendi IP kotasını bypass eden bir başlık kullansın,
+  (b) `X-Degraded: 1` gelirse test `skip` etsin, (c) degrade modda İngilizce
+  anahtar kelime aramasının niye 0 sonuç döndüğü ayrıca incelensin.
+- [ ] **Degrade/hata metni İngilizce sayfada Türkçe** — aynı ekran görüntüsünde:
+  başlık "Something went wrong", altındaki satır **"Bu sorguya yakın içerik
+  bulunamadı."** i18n'e bağlanmamış bir dize var.

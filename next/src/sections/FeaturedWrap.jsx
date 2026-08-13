@@ -1,16 +1,18 @@
-'use client';
-
 // ─── FeaturedWrap — Featured kartı sarmalayan div + "ÖNE ÇIKAN" badge ─────────
 // CSS pseudo-element badge dev server'da hot-reload edilmedi; inline component
 // ile garantili render. Kart yapısını değiştirmez — sadece sarmalar.
+//
+// 2026-08-13 · P5 — SUNUCU BİLEŞENİ oldu. `useLanguage()` yerine `locale`
+// prop'u alıyor (dil URL'den türüyor, değişince tam navigasyon var).
+// globals.css'teki ikiz `::before` rozeti de bu turda kaldırıldı: aynı
+// konuma iki rozet basılıyordu ve pseudo-element İngilizce sayfada bile
+// Türkçe "ÖNE ÇIKAN" yazıyordu.
 // ──────────────────────────────────────────────────────────────────────────────
 
-import { useLanguage } from '../i18n/LanguageContext';
 import HeroGeometricBackground from '../components/HeroGeometricBackground';
 
-export default function FeaturedWrap({ children }) {
-  const { language } = useLanguage();
-  const label = language === 'tr' ? 'ÖNE ÇIKAN' : 'FEATURED';
+export default function FeaturedWrap({ children, locale = 'tr' }) {
+  const label = locale === 'tr' ? 'ÖNE ÇIKAN' : 'FEATURED';
   return (
     <div
       className="featured-card-wrap"

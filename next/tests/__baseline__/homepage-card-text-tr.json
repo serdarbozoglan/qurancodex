@@ -1,0 +1,132 @@
+{
+  "mukattaa-card": {
+    "arabic": [
+      "الٓمٓ · ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ"
+    ],
+    "heading": "14 Gizemli Harf · 29 Sûrenin İmzası",
+    "links": [
+      "/tr/arac/mukattaa"
+    ]
+  },
+  "ritim-card": {
+    "arabic": [
+      "وَالنَّجْمِ اِذَا هَوٰى"
+    ],
+    "heading": "Ne Şiir, Ne Düzyazı",
+    "links": [
+      "/tr/arac/ritim"
+    ]
+  },
+  "retorik-card": {
+    "arabic": [
+      "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ"
+    ],
+    "heading": "Bir Soru, Bin Cevap",
+    "links": [
+      "/tr/arac/retorik-sorular"
+    ]
+  },
+  "ses-card": {
+    "arabic": [
+      "وَالنَّازِعَاتِ غَرْقًا"
+    ],
+    "heading": "Sert Ünsüzler Korku · Yumuşak Akıcılar Şefkat",
+    "links": [
+      "/tr/arac/ses-mimarisi"
+    ]
+  },
+  "halka-card": {
+    "arabic": [
+      "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+    ],
+    "heading": "Aynalarda Ayna · Halka Kompozisyon",
+    "links": [
+      "/tr/arac/halka-kompozisyon"
+    ]
+  },
+  "tekrar-card": {
+    "arabic": [
+      "فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ"
+    ],
+    "heading": "Tekrar Değil — Nakarat",
+    "links": [
+      "/tr/arac/tekrar-anatomi"
+    ]
+  },
+  "bilimsel-card": {
+    "arabic": [
+      "وَالسَّمَاءَ بَنَيْنَاهَا بِاَيْدٍ وَاِنَّا لَمُوسِعُونَ"
+    ],
+    "heading": "Kur'an Haber Verir; Gerisi Tefekkürdür",
+    "links": [
+      "/tr/arac/bilimsel-isaretler"
+    ]
+  },
+  "tarih-card": {
+    "arabic": [
+      "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ"
+    ],
+    "heading": "Üç İddia · Tarihsel İzler",
+    "links": [
+      "/tr/arac/tarihsel-kanitlar"
+    ]
+  },
+  "koruma-card": {
+    "arabic": [
+      "اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهُ لَحَافِظُونَ"
+    ],
+    "heading": "1.400 Yıl · 1 Metin · Sıfır Varyasyon",
+    "links": [
+      "/tr/arac/koruma-zinciri"
+    ]
+  },
+  "dua-card": {
+    "arabic": [
+      "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ"
+    ],
+    "heading": "Kul ile Rabbin Doğrudan Diyaloğu",
+    "links": [
+      "/tr/arac/dua-dili"
+    ]
+  },
+  "alti-konu-card": {
+    "arabic": [
+      "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا"
+    ],
+    "heading": "Derinlere Daha Derinler",
+    "links": [
+      "/tr/arac/alti-konu"
+    ]
+  },
+  "allah-kendini-tanitir": {
+    "arabic": [
+      "وَلِلّٰهِ الْاَسْمَٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا",
+      "اللَّه",
+      "الرَّحْمَٰن",
+      "الْعَلِيم",
+      "الْحَكِيم"
+    ],
+    "heading": "Yaratılışı gördünüz. Şimdi Yaratıcıyı tanıyın.",
+    "links": [
+      "/tr/arac/esma-frekans"
+    ]
+  },
+  "insan-tanimi-card": {
+    "arabic": [
+      "لَقَدْ خَلَقْنَا الْاِنْسَانَ فِٓي اَحْسَنِ تَقْوِيمٍ"
+    ],
+    "heading": "Yedi Mertebede İnsanın Haritası",
+    "links": [
+      "/tr/atlas/insan-tanimi"
+    ]
+  },
+  "psikoloji-card": {
+    "arabic": [
+      "اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّٓوءِ"
+    ],
+    "heading": "Hz. Yûsuf'tan Modern Travma Teorisine",
+    "links": [
+      "/tr/atlas/insan-psikolojisi"
+    ]
+  }
+}

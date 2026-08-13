@@ -1,0 +1,132 @@
+{
+  "mukattaa-card": {
+    "arabic": [
+      "الٓمٓ · ذٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ"
+    ],
+    "heading": "14 Mysterious Letters · 29 Suras' Signature",
+    "links": [
+      "/en/arac/mukattaa"
+    ]
+  },
+  "ritim-card": {
+    "arabic": [
+      "وَالنَّجْمِ اِذَا هَوٰى"
+    ],
+    "heading": "Neither Poetry, Nor Prose",
+    "links": [
+      "/en/arac/ritim"
+    ]
+  },
+  "retorik-card": {
+    "arabic": [
+      "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ"
+    ],
+    "heading": "One Question, a Thousand Answers",
+    "links": [
+      "/en/arac/retorik-sorular"
+    ]
+  },
+  "ses-card": {
+    "arabic": [
+      "وَالنَّازِعَاتِ غَرْقًا"
+    ],
+    "heading": "Hard Consonants Fear · Soft Liquids Mercy",
+    "links": [
+      "/en/arac/ses-mimarisi"
+    ]
+  },
+  "halka-card": {
+    "arabic": [
+      "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ"
+    ],
+    "heading": "Mirrors in Mirrors · Ring Composition",
+    "links": [
+      "/en/arac/halka-kompozisyon"
+    ]
+  },
+  "tekrar-card": {
+    "arabic": [
+      "فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ"
+    ],
+    "heading": "Not Repetition — Refrain (Nakarat)",
+    "links": [
+      "/en/arac/tekrar-anatomi"
+    ]
+  },
+  "bilimsel-card": {
+    "arabic": [
+      "وَالسَّمَاءَ بَنَيْنَاهَا بِاَيْدٍ وَاِنَّا لَمُوسِعُونَ"
+    ],
+    "heading": "The Quran Informs; The Rest Is Reflection",
+    "links": [
+      "/en/arac/bilimsel-isaretler"
+    ]
+  },
+  "tarih-card": {
+    "arabic": [
+      "فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ"
+    ],
+    "heading": "Three Claims · Historical Traces",
+    "links": [
+      "/en/arac/tarihsel-kanitlar"
+    ]
+  },
+  "koruma-card": {
+    "arabic": [
+      "اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهُ لَحَافِظُونَ"
+    ],
+    "heading": "1,400 Years · 1 Text · Zero Variation",
+    "links": [
+      "/en/arac/koruma-zinciri"
+    ]
+  },
+  "dua-card": {
+    "arabic": [
+      "وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ"
+    ],
+    "heading": "The Direct Dialogue Between Servant and Lord",
+    "links": [
+      "/en/arac/dua-dili"
+    ]
+  },
+  "alti-konu-card": {
+    "arabic": [
+      "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا"
+    ],
+    "heading": "Deeper Into the Depths",
+    "links": [
+      "/en/arac/alti-konu"
+    ]
+  },
+  "allah-kendini-tanitir": {
+    "arabic": [
+      "وَلِلّٰهِ الْاَسْمَٓاءُ الْحُسْنٰى فَادْعُوهُ بِهَا",
+      "اللَّه",
+      "الرَّحْمَٰن",
+      "الْعَلِيم",
+      "الْحَكِيم"
+    ],
+    "heading": "You've seen the creation. Now meet the Creator.",
+    "links": [
+      "/en/arac/esma-frekans"
+    ]
+  },
+  "insan-tanimi-card": {
+    "arabic": [
+      "لَقَدْ خَلَقْنَا الْاِنْسَانَ فِٓي اَحْسَنِ تَقْوِيمٍ"
+    ],
+    "heading": "The Map of the Human in Seven Stations",
+    "links": [
+      "/en/atlas/insan-tanimi"
+    ]
+  },
+  "psikoloji-card": {
+    "arabic": [
+      "اِنَّ النَّفْسَ لَاَمَّارَةٌ بِالسُّٓوءِ"
+    ],
+    "heading": "From Yūsuf (AS) to Modern Trauma Theory",
+    "links": [
+      "/en/atlas/insan-psikolojisi"
+    ]
+  }
+}
