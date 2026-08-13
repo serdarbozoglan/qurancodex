@@ -99,7 +99,7 @@ export default function Navbar() {
       'idrak-suur':     10,
       'kozmoloji':      8,
     },
-    planned: 21, // 44 - 23
+    categoryCount: 6,
   });
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);
@@ -259,22 +259,28 @@ export default function Navbar() {
         setTefekkurStats({
           total: allArticles.length,
           counts,
-          planned: Math.max(0, 44 - allArticles.length),
+          categoryCount: Object.keys(counts).length,
         });
 
-        // Featured: publishedDate olan en yeni makale
+        // Son eklenenler — publishedDate'e göre en yeni 3 makale.
+        // (2026-08-13: önceden tek makale gösteriliyordu; sağ sütun boş
+        // kalıyordu. Bkz. kullanıcı ekran görüntüsü.)
         const published = allArticles.filter(a => a.publishedDate);
         if (!published.length) return;
         published.sort((a, b) => (b.publishedDate || '').localeCompare(a.publishedDate || ''));
-        const latest = published[0];
-        const catAccent = (data?.categories || []).find(c => c.id === latest.category)?.accent || '#d4a574';
-        setTefekkurFeatured({
-          slug: latest.slug,
-          titleTr: latest.titleTr,
-          titleEn: latest.titleEn,
-          meta: `${latest.readingMinutes || '~5'} dk`,
-          accent: catAccent,
-        });
+        const cats = data?.categories || [];
+        setTefekkurFeatured(published.slice(0, 3).map(a => {
+          const cat = cats.find(c => c.id === a.category);
+          return {
+            slug: a.slug,
+            titleTr: a.titleTr,
+            titleEn: a.titleEn,
+            minutes: a.readingMinutes || 5,
+            catLabelTr: cat?.labelTr || '',
+            catLabelEn: cat?.labelEn || '',
+            accent: cat?.accent || '#d4a574',
+          };
+        }));
       })
       .catch(err => console.warn('[Navbar] tefekkur _index fetch failed:', err));
     return () => { cancelled = true; };
@@ -1207,7 +1213,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '680px', padding: 0 }}
+                  style={{ ...dropdownStyle, left: 0, minWidth: '740px', padding: 0 }}
                 >
                   {(() => {
                     const colLabel = {
@@ -1259,7 +1265,20 @@ export default function Navbar() {
                             {language === 'tr' ? cat.descTr : cat.descEn}
                           </span>
                         </span>
-                        <span style={{ fontSize: '0.66rem', fontWeight: 700, color: 'rgba(148,163,184,0.5)', fontFamily: "'Inter', sans-serif" }}>{cat.count}</span>
+                        {/* Sayı rozeti — düz sayı okunmuyordu (0.5 opacity, 0.66rem).
+                            Kategori aksanıyla tonlanmış pill + tabular figures. */}
+                        <span className="tcount" style={{
+                          minWidth: '24px', padding: '2px 7px',
+                          borderRadius: '999px', flexShrink: 0,
+                          background: `${cat.accent}18`,
+                          border: `1px solid ${cat.accent}2e`,
+                          color: cat.accent,
+                          fontSize: '0.68rem', fontWeight: 700, lineHeight: 1.5,
+                          fontFamily: "'Inter', sans-serif",
+                          fontVariantNumeric: 'tabular-nums',
+                          textAlign: 'center',
+                          transition: 'background 0.15s, border-color 0.15s',
+                        }}>{cat.count}</span>
                         <span className="tarr" style={{
                           color: 'rgba(148,163,184,0.55)',
                           opacity: 0.35,
@@ -1282,11 +1301,11 @@ export default function Navbar() {
                       { id: 'kozmoloji',       accent: '#9b59b6', labelTr: 'Kozmoloji & Yaratılış',labelEn: 'Cosmology & Creation',    descTr: 'Yaratılış, kuantum, evrim',                descEn: 'Creation, quantum & evolution' },
                     ].map(c => ({ ...c, count: tefekkurStats.counts[c.id] || 0 }));
 
-                    // Dynamic featured — _index.json'dan en yeni makale.
-                    // Fetch henüz tamamlanmadıysa fallback olarak Tuğyan.
-                    const featuredArticles = tefekkurFeatured
-                      ? [tefekkurFeatured]
-                      : [{ slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', meta: '3 dk', accent: '#8b5cf6' }];
+                    // Son eklenenler — _index.json'dan en yeni 3 makale.
+                    // Fetch henüz tamamlanmadıysa tek fallback göster.
+                    const featuredArticles = (tefekkurFeatured && tefekkurFeatured.length)
+                      ? tefekkurFeatured
+                      : [{ slug: 'tugyan', titleTr: 'Tuğyan (Semantik 4)', titleEn: 'Tughyan (Semantic 4)', minutes: 3, catLabelTr: 'Semantik Seri', catLabelEn: 'Semantic Series', accent: '#8b5cf6' }];
 
                     return (
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -1323,8 +1342,8 @@ export default function Navbar() {
                               </span>
                               <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: 1.3 }}>
                                 {language === 'tr'
-                                  ? `${tefekkurStats.total} yayında · ${tefekkurStats.planned} planlanan · Felsufi · tefekkür`
-                                  : `${tefekkurStats.total} live · ${tefekkurStats.planned} planned · Felsufi · reflection`}
+                                  ? `${tefekkurStats.total} yazı · ${tefekkurStats.categoryCount} kategori · Felsufi`
+                                  : `${tefekkurStats.total} essays · ${tefekkurStats.categoryCount} categories · Felsufi`}
                               </span>
                             </span>
                           </span>
@@ -1336,7 +1355,7 @@ export default function Navbar() {
                         {/* 2-column layout: kategoriler | öne çıkanlar */}
                         <div style={{ display: 'flex', marginTop: '-2px' }}>
                           {/* Col 1: 6 kategori */}
-                          <div style={{ flex: 1.4, padding: '8px' }}>
+                          <div style={{ flex: 1.25, padding: '8px' }}>
                             <div style={colLabel}>{language === 'tr' ? 'Kategoriler' : 'Categories'}</div>
                             {tefekkurCategories.map(categoryBtn)}
                           </div>
@@ -1344,7 +1363,7 @@ export default function Navbar() {
                           <div style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '12px 0' }} />
                           {/* Col 2: Öne çıkanlar + yazar */}
                           <div style={{ flex: 1, padding: '8px', display: 'flex', flexDirection: 'column' }}>
-                            <div style={colLabel}>{language === 'tr' ? 'Öne Çıkanlar' : 'Featured'}</div>
+                            <div style={colLabel}>{language === 'tr' ? 'Son Eklenenler' : 'Latest'}</div>
                             {featuredArticles.map(art => (
                               <button
                                 key={art.slug}
@@ -1373,11 +1392,22 @@ export default function Navbar() {
                                 }}
                               >
                                 <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
-                                  <span style={{ color: '#e8e6e3', fontSize: '0.84rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                                  <span style={{
+                                    color: '#e8e6e3', fontSize: '0.82rem',
+                                    fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.35,
+                                    display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                  }}>
                                     {language === 'tr' ? art.titleTr : art.titleEn}
                                   </span>
-                                  <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif" }}>
-                                    {art.meta} · {language === 'tr' ? 'okuma' : 'read'}
+                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
+                                    <span style={{ color: art.accent, fontWeight: 600 }}>
+                                      {language === 'tr' ? art.catLabelTr : art.catLabelEn}
+                                    </span>
+                                    <span style={{ color: 'rgba(148,163,184,0.35)' }}>·</span>
+                                    <span style={{ color: 'rgba(148,163,184,0.7)', fontVariantNumeric: 'tabular-nums' }}>
+                                      {language === 'tr' ? `${art.minutes} dk okuma` : `${art.minutes} min read`}
+                                    </span>
                                   </span>
                                 </span>
                                 <span className="farr" style={{
@@ -1392,7 +1422,7 @@ export default function Navbar() {
                               </button>
                             ))}
 
-                            <div style={{ ...colLabel, marginTop: '8px' }}>{language === 'tr' ? 'Yazar' : 'Author'}</div>
+                            <div style={{ ...colLabel, marginTop: 'auto', paddingTop: '14px' }}>{language === 'tr' ? 'Yazar' : 'Author'}</div>
                             <a
                               href="https://sufist.medium.com"
                               target="_blank"
@@ -2103,8 +2133,8 @@ export default function Navbar() {
                   }
                   titleTr="Tüm Yazılar"
                   titleEn="All Essays"
-                  descTr={`${tefekkurStats.total} yayında · ${tefekkurStats.planned} planlanan`}
-                  descEn={`${tefekkurStats.total} live · ${tefekkurStats.planned} planned`}
+                  descTr={`${tefekkurStats.total} yazı · ${tefekkurStats.categoryCount} kategori`}
+                  descEn={`${tefekkurStats.total} essays · ${tefekkurStats.categoryCount} categories`}
                   onClick={() => router.push(`/${language}/tefekkur`)}
                 />
 
