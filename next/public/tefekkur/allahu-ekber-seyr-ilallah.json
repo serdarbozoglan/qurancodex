@@ -1,0 +1,430 @@
+{
+  "slug": "allahu-ekber-seyr-ilallah",
+  "titleTr": "Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma",
+  "titleEn": "Allāhu Akbar and the Journey to God: Escaping the Distractions of the Surface",
+  "category": "idrak-suur",
+  "publishedDate": "2024-10-22",
+  "readingMinutes": 6,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/allahu-ekber-ile-seyr-i%CC%87lallah-y%C3%BCzeydeki-dikkat-da%C4%9F%C4%B1tanlardan-kurtulma-bcfb003cdc11",
+  "tldrTr": "*“Allahu ekber”* bir **kıyas cümlesi değildir** — ne cisimler arasında, ne ilahlar arasında bir sıralama yapar. Cümlenin gerçek yükü **itiraf** tarafındadır: perspektifimiz lokaldir, hakikati global açıdan göremeyiz, dolayısıyla Allah *bizim algımızdaki Allah'tan* daha büyüktür. En'âm 103 bunu tam olarak söyler: idrak O'nu kuşatamaz, O idraki kuşatır. Bediüzzaman'ın *mevcud-u meçhul* tabiri ile On Altıncı Söz'ün *basamak-ı miraciye* tarifi aynı noktada buluşur — namazdaki her tekbir, cüz'iyattan **devâir-i külliyeye** çıkılan bir basamaktır. Ankebût 45'in *zikrullahi ekber* ifadesi ise bunu gündem hiyerarşisine çevirir. Yazının sonunda anlam denizine dalış temsili gelir: derinleştikçe isimler ve objeler silinir, **temsilciler** kalır, nihayetinde *sidretü'l-müntehâ*da hakikat-ı ahmediye kalır. **Objeler önemini yitirirken fiiller kalır.**",
+  "tldrEn": "*“Allāhu akbar”* is **not a statement of comparison** — it ranks God neither among objects nor among gods. The weight of the sentence falls on **confession**: our perspective is local, we cannot see the truth from the global vantage, and therefore God is greater than *the God of our own perception*. Al-Anʿām 103 says exactly this: sight cannot encompass Him, while He encompasses sight. Bediüzzaman's phrase *the known-unknown* and the *step of ascent* described in the Sixteenth Word meet at the same point — every takbīr in the prayer is a rung climbed from the particulars to **the universal circles**. Al-ʿAnkabūt 45's *the remembrance of God is greater* then translates this into a hierarchy of attention. The piece closes with the image of a dive into the sea of meaning: as one descends, names and objects dissolve and **representatives** remain, until at *the Lote Tree of the Farthest Boundary* only the Muhammadan reality is left. **As objects lose their weight, acts remain.**",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "74:1-3",
+    "6:103",
+    "29:45"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "verseInline",
+      "ref": "74:1-3",
+      "ar": "يٓا اَيُّهَا الْمُدَّثِّرُ قُمْ فَاَنْذِرْ وَرَبَّكَ فَـكَبِّرْ",
+      "noteTr": "“Ey örtünüp bürünen, kalk ve uyar! Sadece Rabbinin büyüklüğünü (*rabbike fekebbir*) dile getir.” — Vahyin ilk emirlerinden biri, bir **bilgi aktarımı değil, bir tavır talimidir**: *kebbir* — büyüt, büyüklüğünü ilân et.",
+      "noteEn": "“O you who are wrapped in a cloak, arise and warn! And magnify your Lord alone (*rabbika fa-kabbir*).” — One of the earliest commands of revelation is not **a transfer of information but a training of posture**: *kabbir* — magnify, proclaim His greatness."
+    },
+    {
+      "type": "paragraph",
+      "tr": "*Allahu ekber* (Allah en büyüktür) ifadesini “bütün cisimler, gördüğümüz bildiğimiz her şey ile kıyaslayınca en büyük Allah'tır” şeklinde anlamak doğru olmaz. **Eşya cinsi ile kıyaslanır** — Allah'ın ise cinsi yoktur. “Allah tüm ilahlar arasında en büyük olandır” ifadesi de tam yerine oturmuyor; çünkü bu okuma, kıyasa girecek bir *ilahlar kümesi* varsayar.",
+      "en": "It is not right to understand *Allāhu akbar* (God is greatest) as “God is the greatest when compared with all bodies, with everything we see and know.” **A thing is compared with things of its own kind** — and God has no kind. “God is the greatest among all the gods” does not sit properly either, for that reading presupposes *a set of gods* to enter the comparison."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Daha güzeli ise **bizim perspektifimizin lokal olduğunu hatırlamak** ve global perspektiften hakikati göremeyeceğimizi itiraf etmektir.",
+      "en": "Better by far is **to remember that our perspective is local** and to confess that we cannot see the truth from the global vantage point."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "“Ekber” nedir, ne değildir",
+      "captionEn": "What “akbar” is and is not",
+      "left": {
+        "titleTr": "Kıyas okuması",
+        "titleEn": "The comparative reading",
+        "accent": "#c0554d",
+        "descTr": "*Ekber*'i bir **sıralama sıfatı** sayan okuma: bir kümedeki en büyük öğeyi işaret ettiği varsayılır.",
+        "descEn": "The reading that takes *akbar* as **a ranking adjective**: it is assumed to point at the largest member of a set.",
+        "bullets": [
+          {
+            "tr": "“Bütün cisimlerle kıyaslayınca en büyük” — fakat **eşya kendi cinsi ile kıyaslanır**",
+            "en": "“The greatest compared with all bodies” — but **a thing is compared with its own kind**"
+          },
+          {
+            "tr": "“Tüm ilahlar arasında en büyük” — fakat bu, kıyasa girecek **bir ilahlar kümesi** varsayar",
+            "en": "“The greatest among all gods” — but this presupposes **a set of gods** to be compared"
+          },
+          {
+            "tr": "Her iki halde de Allah, **ölçeğimizin içine** yerleştirilmiş olur",
+            "en": "In either case God is placed **inside our own scale**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Perspektif itirafı",
+        "titleEn": "The confession of perspective",
+        "accent": "#1D9E75",
+        "descTr": "*Ekber*'i **kendi ölçeğimizin sınırının beyanı** sayan okuma: cümlenin öznesi Allah, yükü ise bizim idrakimizdir.",
+        "descEn": "The reading that takes *akbar* as **a declaration of the limit of our own scale**: the subject of the sentence is God, its weight is our own comprehension.",
+        "bullets": [
+          {
+            "tr": "Allah, **zatı ile alternatifi olmadığı için**, kıyasa girecek bir cinse sahip değildir",
+            "en": "God, **having no alternative in His essence**, possesses no kind to enter comparison"
+          },
+          {
+            "tr": "Allah, **bizim algımızdaki Allah'tan** daha öte, daha büyüktür",
+            "en": "God is beyond, is greater than, **the God within our own perception**"
+          },
+          {
+            "tr": "Cümle bir bilgi değil, bir **itiraf** taşır: perspektifim lokaldir",
+            "en": "The sentence carries not information but **a confession**: my perspective is local"
+          }
+        ]
+      },
+      "bridgeTr": "*Ekber*'in muhatabı Allah'ın büyüklüğünün derecesi değil, **bizim ölçeğimizin sınırıdır**. Bu yüzden tekbir bir ölçüm değil, bir teslimiyet cümlesidir.",
+      "bridgeEn": "What *akbar* addresses is not the degree of God's greatness but **the limit of our own scale**. The takbīr is therefore not a measurement but a sentence of surrender."
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:103",
+      "ar": "لَا تُدْرِكُهُ الْاَبْصَارُ وَهُوَ يُدْرِكُ الْاَبْصَارَ وَهُوَ اللَّطِيفُ الْخَبِيرُ",
+      "noteTr": "“Hiçbir beşerî görüş ve tasavvur O'nu kuşatamaz, hâlbuki O her türlü beşerî görüş ve tasavvuru çevreleyip kuşatır: zira yalnız O'dur (hikmetine) tam nüfûz edilemez olan, her şeyden haberdar bulunan.” — Âyet **çift yönlüdür**: idrakin O'na ulaşamayışı ile O'nun idraki kuşatması aynı cümlede durur.",
+      "noteEn": "“No human vision can encompass Him, whereas He encompasses all human vision: for He alone is unfathomable, all-aware.” — The verse is **two-directional**: the failure of comprehension to reach Him and His encompassing of comprehension stand in the same sentence."
+    },
+    {
+      "type": "paragraph",
+      "tr": "*Allahu ekber*, Allah zatı ile alternatifi olmadığı için, **bizim algımızdaki Allah'tan daha öte, daha büyüktür** şeklinde okunabilir. Yani bir anlamda *“Mâ arafnâke hakka marifetike Yâ Ma'rûf”* hissiyatı ile **mevcud-u meçhul** kabul etmektir.",
+      "en": "*Allāhu akbar* may be read thus: since God has no alternative in His essence, He is **beyond, and greater than, the God within our perception**. In this sense it is to accept Him as **the known-unknown**, in the spirit of *“We have not known You as You deserve to be known, O Known One.”*"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "*“Mâ arafnâke hakka marifetike Yâ Ma'rûf”* — **Seni hakkıyla tanıyamadık ey bilinen!**",
+      "en": "*“Mā ʿarafnāka ḥaqqa maʿrifatika yā Maʿrūf”* — **We have not known You as You deserve to be known, O Known One!**",
+      "source": "Klasik münâcât ifadesi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "“Mevcud-u meçhul” neden daha isabetli bir ünvandır?",
+      "headingEn": "Why “the known-unknown” is the more accurate title",
+      "tr": "Bediüzzaman'ın buradaki ayrımı ince: Allah'a **malûm ve mâruf** (bilinen, tanınan) ünvanıyla bakmak, aslında *örfî bir ülfet* ve *taklidî bir sema*' üretir — yani alışkanlığın ürettiği sahte bir yakınlık. Oysa aynı Zât'a **mevcud-u meçhul** (var olduğu bilinen, fakat mahiyeti bilinmeyen) ünvanıyla bakmak, mârifetin önünü açar. **Bilmediğini bilmek, yanlış bildiğini bilmekten daha çok bilgidir.**",
+      "en": "Bediüzzaman's distinction here is fine-grained: to look upon God under the title of **the known and the recognised** in fact produces *a customary familiarity* and *an imitative hearing* — an intimacy manufactured by habit. To look upon the same Essence under the title of **the known-unknown** (One whose existence is known, whose quiddity is not) opens the way to real knowledge. **To know that you do not know is more knowledge than to know wrongly.**"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "*İ'lem eyyühe'l-aziz! Cenâb-ı Hakk'a malûm (bilinen) ve mâruf (tanınan) ünvanıyla bakacak olursan, meçhul ve menkûr (bilinmeyen) olur. Çünkü, bu malûmiyet, örfî bir ülfet, taklidî bir sema'dır. Hakikati ilâm edecek bir ifade de değildir. Maahaza, o unvan ile fehme gelen mânâ, sıfât-ı mutlakayı beraberce alıp zihne ilka edemez. Ancak, Zât-ı Akdes'i mülâhaza için bir nevi ünvandır. Amma Cenâb-ı Hakk'a **mevcud-u meçhul** ünvanıyla bakılırsa, mârufiyet şuâları bir derece tebarüz eder.*",
+      "en": "*Know, O noble one! If you look upon Almighty God under the title of the known and the recognised, He becomes unknown and unacknowledged. For this “being known” is a customary familiarity, an imitative hearing; it is not an expression that can proclaim the reality. Moreover, the meaning that arrives at the understanding through that title cannot carry the absolute attributes together and cast them into the mind. It is merely a sort of title for contemplating the Most Holy Essence. But if Almighty God is regarded under the title of **the known-unknown**, the rays of His being known emerge to a degree.*",
+      "source": "Bediüzzaman — Mesnevî-i Nûriye, Habbe"
+    },
+    {
+      "type": "section",
+      "id": "basamak-i-miraciye",
+      "titleTr": "Namazda Her Tekbir Bir Basamak",
+      "titleEn": "In the Prayer, Every Takbīr Is a Rung"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Öte yandan kendi dünyamıza projeksiyonu ile Allah'ın zikri farklı açılardan kıyaslanabilir. Bediüzzaman hazretleri namazı anlattığı **On Altıncı Söz**'de, namazın hareketlerinde *Allahu ekber* diyerek **mertebe katettiğimizi** anlatır. Bunu da cüz'iyatta olduğumuzu — yani kendi algımızın lokal perspektifte kaldığını — itiraf ederek yaparız; küllî dairelere, yani global perspektife ancak *“bildiğimiz kadarından daha büyüktür”* itirafı ile çıkılabilir.",
+      "en": "Projected onto our own world, on the other hand, the remembrance of God can be compared from several angles. In the **Sixteenth Word**, where he expounds the prayer, Bediüzzaman describes how by saying *Allāhu akbar* in the movements of the prayer we **traverse degrees**. And we do so by confessing that we stand among particulars — that our own perception remains at the local perspective; one ascends to the universal circles, to the global perspective, only by the confession that *“He is greater than what we know of Him.”*"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Tekbirle yükselen mertebeler",
+      "captionEn": "The degrees ascended by takbīr",
+      "nodes": [
+        {
+          "titleTr": "Cüz'iyat",
+          "titleEn": "The particulars",
+          "tone": "trigger",
+          "subtitleTr": "Başlangıç hâli: idrak **lokal perspektiftedir**, tek tek objelerin arasındadır.",
+          "subtitleEn": "The starting state: comprehension is **at the local perspective**, among individual objects."
+        },
+        {
+          "titleTr": "“Allahu ekber”",
+          "titleEn": "“Allāhu akbar”",
+          "tone": "state",
+          "subtitleTr": "Bir **itiraf** telaffuz edilir: *bildiğimden büyüktür*. Bu, bilgi eklemez — **sınırı beyan eder**.",
+          "subtitleEn": "**A confession** is uttered: *He is greater than what I know*. This adds no information — it **declares the limit**."
+        },
+        {
+          "titleTr": "Kat'-ı merâtip",
+          "titleEn": "Traversing the degrees",
+          "tone": "state",
+          "subtitleTr": "Her tekbir **bir basamak-ı miraciye**dir; terakkiyat-ı mâneviye bu basamaklarla katedilir.",
+          "subtitleEn": "Each takbīr is **a rung of the ascent**; spiritual progress is traversed by these rungs."
+        },
+        {
+          "titleTr": "Devâir-i külliye",
+          "titleEn": "The universal circles",
+          "tone": "outcome",
+          "subtitleTr": "Varış: **global perspektif**. Namaz bu hâliyle bir **miraç**tır.",
+          "subtitleEn": "The arrival: **the global perspective**. In this aspect the prayer is **an ascension**."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "*Adeta, harekât-ı salâtiyede tekrarla “Allahu ekber, Allahu ekber” demekle **kat'-ı merâtip ve terakkiyat-ı mâneviyeye** ve cüz'iyattan **devâir-i külliyeye** çıkmasına bir işarettir; ve marifetimiz haricindeki kemâlât-ı kibriyâsının mücmel bir ünvanıdır. Güya her bir “Allahu ekber” **bir basamak-ı miraciyeyi** kat'ına işarettir.*",
+      "en": "*It is as though repeatedly saying “Allāhu akbar, Allāhu akbar” in the movements of the prayer is a sign of **traversing degrees and of spiritual progress**, and of rising from the particulars **to the universal circles**; and it is a summary title for the perfections of His grandeur that lie beyond our knowledge. As if each “Allāhu akbar” signals **the traversing of one rung of the ascent**.*",
+      "source": "Bediüzzaman — Sözler, On Altıncı Söz, Dördüncü Şuâ"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Namaz bu hâliyle bir miraçtır ve kulun herhangi bir andaki **en büyük, en önemli gündemi**, içinde bulunduğu vaktin namazını ikame etmektir. *Allahu ekber*'in bir anlamı da **Zikrullahi ekber**'dir: Allah'ın hatırlanması, gündem yapılması en büyük meseledir. Yani Allah'ın hatırlanması, başka şeylerin hatırlanmasından **daha büyük bir iştir**, daha önemlidir anlamını da içerir.",
+      "en": "In this aspect the prayer is an ascension, and the servant's **greatest, most important item of business** at any given moment is to establish the prayer of the time he is in. One meaning of *Allāhu akbar* is therefore **the remembrance of God is greater**: that God be remembered, that He be made the agenda, is the greatest matter. It carries the sense that remembering God is **a greater work** than remembering anything else, and more important."
+    },
+    {
+      "type": "verseInline",
+      "ref": "29:45",
+      "ar": "اُتْلُ مٓا اُوحِيَ اِلَيْكَ مِنَ الْكِتَابِ وَاَقِمِ الصَّلٰوةَ اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشٓاءِ وَالْمُنْكَرِ وَلَذِكْرُ اللّٰهِ اَكْبَرُ وَاللّٰهُ يَعْلَمُ مَا تَصْنَعُونَ",
+      "noteTr": "“Sana Kitap'tan vahyedileni oku ve namazı dosdoğru kıl. Gerçekten namaz, çirkin utanmazlıklardan (*fahşâ*) ve kötülüklerden alıkoyar. **Allah'ı hatırlamak ise muhakkak en büyüktür** (*ve lezikrullâhi ekber*). Allah yaptıklarınızı bilir.” — Yani insanın gündemleri arasında Allah'ın anılması **en üst sırada** olmalıdır.",
+      "noteEn": "“Recite what has been revealed to you of the Book and establish the prayer. Truly the prayer restrains from indecency (*faḥshāʾ*) and wrong. **And the remembrance of God is greater still** (*wa la-dhikru'llāhi akbar*). And God knows what you do.” — That is: among a person's items of business, the remembrance of God must stand **at the very top**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı kökün iki yüzü: *ekber*",
+      "captionEn": "Two faces of the same root: *akbar*",
+      "left": {
+        "titleTr": "Allahu ekber",
+        "titleEn": "Allāhu akbar",
+        "accent": "#9b59b6",
+        "descTr": "**Ontolojik** yön: Allah'ın, benim O'na dair tasavvurumdan büyük oluşu.",
+        "descEn": "The **ontological** face: that God is greater than my conception of Him.",
+        "bullets": [
+          {
+            "tr": "Muhatap: **idrakin sınırı**",
+            "en": "Addresses: **the limit of comprehension**"
+          },
+          {
+            "tr": "Ürettiği hâl: **acz ve teslimiyet**",
+            "en": "The state it produces: **impotence and surrender**"
+          },
+          {
+            "tr": "En'âm 103'ün *lâ tüdrikühü'l-ebsâr*ı",
+            "en": "The *lā tudrikuhu'l-abṣār* of al-Anʿām 103"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Zikrullahi ekber",
+        "titleEn": "Dhikru'llāhi akbar",
+        "accent": "#d4a574",
+        "descTr": "**Pratik** yön: Allah'ın anılmasının, gündemlerimiz arasında en üstte oluşu.",
+        "descEn": "The **practical** face: that the remembrance of God stands highest among our concerns.",
+        "bullets": [
+          {
+            "tr": "Muhatap: **dikkatin hiyerarşisi**",
+            "en": "Addresses: **the hierarchy of attention**"
+          },
+          {
+            "tr": "Ürettiği hâl: **huzur farkındalığı**",
+            "en": "The state it produces: **awareness of standing in His presence**"
+          },
+          {
+            "tr": "Ankebût 45'in *ve lezikrullâhi ekber*i",
+            "en": "The *wa la-dhikru'llāhi akbar* of al-ʿAnkabūt 45"
+          }
+        ]
+      },
+      "bridgeTr": "İki yön ayrı değildir: **O'nun bildiğimden büyük olduğunu itiraf ettiğim ölçüde**, O'nu anmak gündemimin en üstüne çıkar.",
+      "bridgeEn": "The two faces are not separate: **to the degree that I confess Him greater than what I know**, remembering Him rises to the top of my concerns."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu anlayış ve hissiyat çerçevesinde, namazdaki *Allahu ekber*'ler ile sık sık hatırımıza gelen dünyevî hatıraları, görüntüleri yahut iç sesleri fark edip, *“şu anda Allah'a odaklanmam gerekir, zira en önemli ve tek önemli şey odur”* telkinini yaparak zihni ve kalbi **Allah'ın huzurunda olma farkındalığına** getiririz. Bu da aynı zamanda kişinin şuur, bilinç, farkındalık anlamında gelişmesi; hâdiselerin ve musibetlerin tazyiki ile günahların ve dünyeviliklerin çağırısı içinde **lokal perspektife saplanmama**, maddenin ötesine geçip global perspektife çıkabilme temrini olur.",
+      "en": "Within this understanding and this feeling, by means of the *Allāhu akbar*s of the prayer we notice the worldly memories, images or inner voices that keep arriving, and by suggesting to ourselves *“right now I must focus on God, for He is the most important and the only important thing,”* we bring mind and heart **to the awareness of standing in God's presence**. This is at once a growth of the person in consciousness and awareness, and an exercise in **not being pinned to the local perspective** under the pressure of events and afflictions and the summons of sins and worldliness — an exercise in passing beyond matter to the global perspective."
+    },
+    {
+      "type": "section",
+      "id": "anlam-denizi",
+      "titleTr": "Anlam Denizinde Derinlere Dalmak",
+      "titleEn": "Diving Deep in the Sea of Meaning"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Gerçekler, gördüklerimizin **objelere isimlerle ayrıştırıldığı yerde** değildir. Ağacın kesretli yapraklarını tek tek isimlendirmek, her birini ayrı birer varlık farzetmek ve böylece **ağacın vahdet ruhunu gözden kaybetmek**, gerçekliği kavrayamaz. Kişi anlam denizinde derinlere daldıkça, isimlerin, tasniflerin, objelerin yavaşça yok olduğu ve geriye onları üreten, yaratan **isimsiz ortak fonksiyonların** göründüğü bir hâl kalır.",
+      "en": "Realities do not lie where what we see is **partitioned into objects by names**. To name the many leaves of a tree one by one, to posit each as a separate entity, and thereby **to lose sight of the tree's spirit of unity**, cannot grasp reality. As one dives deeper into the sea of meaning, there remains a state in which names, classifications and objects slowly vanish, and what appears behind them are **the nameless shared functions** that produce and create them."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Derinliğe dalmanın üç temsili",
+      "titleEn": "Three images of the descent",
+      "root": {
+        "tr": "Mesafe arttıkça **teker teker görünenler silinir**",
+        "en": "As distance grows, **what is seen one by one is erased**"
+      },
+      "branches": [
+        {
+          "id": "kalabalik",
+          "labelTr": "Kalabalık",
+          "labelEn": "The crowd",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Yüzeyde sanki **yüzlerce kişi, yüzlerce âlem** varmış gibi gelir",
+              "en": "At the surface it feels as though there were **hundreds of people, hundreds of worlds**"
+            },
+            {
+              "tr": "Bir iki tabaka derinde bunların ekserisi **görünmez olur**; belki bir iki kişi kalır",
+              "en": "A layer or two down most of them **become invisible**; perhaps one or two remain"
+            },
+            {
+              "tr": "Dalmayı bilmeyen için yüzeydeki kalabalık **distraction**tır",
+              "en": "For one who cannot dive, the crowd at the surface is **distraction**"
+            }
+          ]
+        },
+        {
+          "id": "roket",
+          "labelTr": "Roket",
+          "labelEn": "The rocket",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Dünyadan uzaklaşırken insanlar **karıncalar gibi** görünür",
+              "en": "As one leaves the earth, people appear **like ants**"
+            },
+            {
+              "tr": "Belli bir mesafeden sonra **görünmez olurlar**",
+              "en": "Past a certain distance **they become invisible**"
+            }
+          ]
+        },
+        {
+          "id": "genis-aci",
+          "labelTr": "Geniş açılı zaman",
+          "labelEn": "Wide-angle time",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Zaman çizgisine **binlerce yıl öncesini ve sonrasını** görecek şekilde bakmak",
+              "en": "To look along the timeline so as to see **thousands of years before and after**"
+            },
+            {
+              "tr": "Kişiler önemsizleşmeye başlar — **ama bazıları hâlâ görünür**",
+              "en": "Individuals begin to lose their weight — **yet some are still visible**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Yüzey ve derinlik",
+      "captionEn": "Surface and depth",
+      "left": {
+        "titleTr": "Yüzey — dünya hayatı",
+        "titleEn": "The surface — the life of this world",
+        "accent": "#c0554d",
+        "descTr": "İsimlerin ve objelerin **çokluk** olarak göründüğü katman.",
+        "descEn": "The layer where names and objects appear as **multiplicity**.",
+        "bullets": [
+          {
+            "tr": "Yüzlerce yüz, yüzlerce ayrı âlem hissi",
+            "en": "Hundreds of faces, the sense of hundreds of separate worlds"
+          },
+          {
+            "tr": "*“Aldatıcı bir meta”* — dikkat, ayrıştırılmış objeler arasında dağılır",
+            "en": "*“A deceptive commodity”* — attention scatters among partitioned objects"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Derinlik — ahiret",
+        "titleEn": "The depth — the hereafter",
+        "accent": "#1D9E75",
+        "descTr": "Objeleri üreten **isimsiz ortak fonksiyonların** göründüğü katman.",
+        "descEn": "The layer where **the nameless shared functions** producing the objects appear.",
+        "bullets": [
+          {
+            "tr": "**Ahiret bu suyun altındadır** — yüzeyde değil",
+            "en": "**The hereafter lies beneath this water** — not at the surface"
+          },
+          {
+            "tr": "İsimler silinir, ağacın **vahdet ruhu** görünür",
+            "en": "Names are erased; the tree's **spirit of unity** appears"
+          }
+        ]
+      },
+      "bridgeTr": "Suyun altına dalmayı bilmeyen için yüzeyde gördüğü yüzlerce kişi **dikkat dağıtandır**. Dünya hayatı da böyle aldatıcı bir metadır.",
+      "bridgeEn": "For one who does not know how to dive beneath the water, the hundreds of people seen at the surface are **a distraction**. The life of this world is just such a deceptive commodity."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Yüzeydeki bazı kişiler ve şeyler ise **derinde de hâlâ birey olarak görünebilir**. Bunlar uluhiyet açısından önemli kişiler ve şeylerdir. En önce birçok şey yok olur, o şeylerin **cinsinin ismi** kalır. O şey kendi cinsini temsil edecek seviyede ise, o şey üzerinden cinsi görülür.",
+      "en": "Yet some persons and things at the surface **may still appear as individuals down in the depth**. These are the persons and things that matter from the standpoint of divinity. First many things vanish and **the name of their kind** remains. If a thing stands at the level of representing its own kind, its kind is then seen through it."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Derinlikte kalan şey: **temsil**",
+      "headingEn": "What remains in the depth: **representation**",
+      "tr": "Buradaki ölçü büyüklük değil **temsil kabiliyetidir**. Kişi de takvâ ile derinleşirse daha derinlerde de isim kazanır; yüzeydeki birçok eşyanın ve kişinin **temsilcisi** olur. *Himmeti milleti olan tek başına bir millet* gibidir. Bu, sitedeki **Kerîm ve ontolojik öncelik** bahsiyle aynı ekseni paylaşır: varlıklar, kendi cinslerini ne kadar temsil ediyorlarsa o kadar *önce* gelirler.",
+      "en": "The measure here is not magnitude but **capacity to represent**. If a person too deepens through God-consciousness, he acquires a name at greater depths as well; he becomes **the representative** of many things and people at the surface. *One whose aspiration is his nation is, alone, a nation.* This shares an axis with the discussion of **the Generous and ontological priority** on this site: beings come *first* to the degree that they represent their own kind."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Derinleştikçe geriye kalanlar",
+      "captionEn": "What remains as the descent continues",
+      "nodes": [
+        {
+          "titleTr": "Eşya yok olur",
+          "titleEn": "Things vanish",
+          "tone": "trigger",
+          "subtitleTr": "İsimler ve tasnifler silinir; **objeler tek tek görünürlüğünü kaybeder**.",
+          "subtitleEn": "Names and classifications are erased; **objects lose their one-by-one visibility**."
+        },
+        {
+          "titleTr": "Cinsin ismi kalır",
+          "titleEn": "The name of the kind remains",
+          "tone": "state",
+          "subtitleTr": "Tek tek yapraklar yerine **ağaç**; tek tek fertler yerine **nev'in ismi**.",
+          "subtitleEn": "Instead of individual leaves, **the tree**; instead of individual members, **the name of the species**."
+        },
+        {
+          "titleTr": "Temsilci kalır",
+          "titleEn": "The representative remains",
+          "tone": "state",
+          "subtitleTr": "Cinsini temsil edecek seviyedeki fert, **cinsi kendi üzerinden gösterir**.",
+          "subtitleEn": "The individual at the level of representing his kind **displays that kind through himself**."
+        },
+        {
+          "titleTr": "Üst temsilciye devir",
+          "titleEn": "Handover to a higher representative",
+          "tone": "state",
+          "subtitleTr": "Bir yerden sonra o da yok olur; **daha üst seviyede bir temsilci** görüntüde kalır.",
+          "subtitleEn": "Past a certain point he too vanishes, and **a representative at a higher level** remains in view."
+        },
+        {
+          "titleTr": "Sidretü'l-müntehâ",
+          "titleEn": "The Lote Tree of the Farthest Boundary",
+          "tone": "outcome",
+          "subtitleTr": "Nihayette ilk yaratılan nur, **hakikat-ı ahmediye** kalır; Vâcibü'l-vücûd'un huzuruna o nur çıkabilir — *kāb-ı kavseyni ev ednâ*.",
+          "subtitleEn": "At the end there remains the first-created light, **the Muhammadan reality**; that light alone may come before the Necessarily Existent — *at the distance of two bow-lengths or nearer*."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "İşte *Allah'ın zikri en büyüktür* niyetiyle, *Allahu ekber* diye diye **derinlere dalınır o suya**. Zira Allah'ın zikrinin büyüklüğü anılırken **başka şeyin önemi kalmaz**. Geriye sadece O'nun zikri kalır: sadece O istenir, O görülür, O bilinir, O duyulur. İsteyen de istenen de, gören de görülen de O olur.",
+      "en": "And so, with the intention that *the remembrance of God is greatest*, one dives **deep into that water** saying *Allāhu akbar*, again and again. For while the greatness of God's remembrance is being recalled, **nothing else retains its importance**. Only His remembrance remains: only He is sought, only He is seen, known, heard. The one who seeks and the one sought, the one who sees and the one seen, become He."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Objeler önemini yitirirken fiiller kalır.** Fâil de, mef'ûl de, mekân da, zaman da artık ayrı şeyler olmaz; o fiilin, o prosesin **bir özelliği** olur. *Allahu ekber*, kelime-i tevhid burcunda parlar.",
+      "en": "**As objects lose their weight, acts remain.** Agent and object, place and time are no longer separate things; they become **a property** of that act, of that process. *Allāhu akbar* shines upon the tower of the word of unity.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Metin hakkında",
+      "headingEn": "About this text",
+      "tr": "**Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.** Yazının omurgasındaki üç kaynak — Müddessir 74:1-3, En'âm 6:103 ve Ankebût 29:45 — sitedeki **âyet grafiğinden** doğrudan alınmış, Osmanlı imlâsı görüntü için normalize edilmiştir. Bediüzzaman alıntıları *Mesnevî-i Nûriye* (Habbe) ve *Sözler* (On Altıncı Söz, Dördüncü Şuâ) metinlerindendir.",
+      "en": "**The Turkish is the author's own pen; the English is a translation.** The three scriptural anchors of the piece — al-Muddaththir 74:1-3, al-Anʿām 6:103 and al-ʿAnkabūt 29:45 — are taken directly from **the verse graph** on this site, with the Uthmani orthography normalised for display. The Bediüzzaman citations are from *al-Mathnawī al-Nūrī* (Habbe) and *The Words* (Sixteenth Word, Fourth Ray)."
+    }
+  ]
+}
