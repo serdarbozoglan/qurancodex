@@ -1,0 +1,178 @@
+# ✅ ANASAYFA — YAPILACAKLAR
+
+> Kaynak: 13 Ağustos 2026 Playwright ölçümü + GPT-5.5 hakem turu.
+> Ölçümü tekrarla: `cd next && npx playwright test tests/homepage-audit.spec.js --project=desktop`
+
+---
+
+## ✅ TAMAMLANDI (2026-08-13)
+
+- [x] **Okuma modu sûre araması: "Ala" yazınca A'lâ çıkmıyordu**
+  `next/src/components/ReadingMode.jsx` — sorun eşleşmede değil **sıradaydı**.
+  "ala" 17 sûre eşleştiriyordu (İngilizce `Al-` öneki → `Al-Anam` = `alanam` ⊃ `ala`),
+  El-A'lâ 11. sıraya düşüyordu. Alâka sıralaması eklendi: harf-i tarif atıldıktan
+  sonra ad sorguyla başlıyorsa öne çıkar. Canlı doğrulandı → `El-A'lâ · El-Alak · El-En'âm`
+- [x] **Emniyet ağı: anasayfa bağlantı envanteri**
+  `next/tests/homepage-link-inventory.spec.js` + `tests/__baseline__/homepage-links.json`
+  17 araç bağlantısı · 19 sayfa-içi çapa kilitlendi. Taşıma sırasında bir tanesi
+  düşerse test kırmızı yanar. Kasten güncelleme: `UPDATE_BASELINE=1`
+
+---
+
+## 🔴 P0 — ARAÇ KATALOĞU (anasayfa değişikliğinin ÖNKOŞULU)
+
+> **Neden önce bu:** Anasayfadan kart indirmeden önce ziyaretçinin gidebileceği
+> çalışan bir "tüm araçlar" yüzeyi olmalı. Şu an yok — ve bozuk.
+
+**Tespit:** Araç kataloğu **dört ayrı yerde** tutuluyor, hiçbiri tam değil:
+
+| Kaynak | Kapsam | Durum |
+|---|---|---|
+| `src/data/tools.jsx` → `/arac/tum-araclar` | 21/56 | **23 event'ten 17'sinin dinleyicisi yok** |
+| `src/data/exploreCategories.jsx` → navbar | 31/56 | çalışıyor |
+| `scripts/corpus-sources.mjs` → `TOOL_CATALOG` | 43/56 | çalışıyor, §13.22 ile zorunlu bakımlı |
+| Diskteki gerçek rotalar | 56 | — |
+
+- [x] **`TOOL_CATALOG`'u 43 → 55'e tamamla** ✅ (13 araç eklendi) — `scripts/corpus-sources.mjs`
+  Eksik 14: `/arac/elestirel-cerceve` · `/arac/kitap-kavrami` · `/arac/neden-sonuc` ·
+  `/arac/ses-mimarisi` · `/arac/tarihsel-kanitlar` · `/arac/wow` · `/arac/yeminler` ·
+  `/arac/zaman-boyutlari` · `/graf/diyalog` · `/graf/karsilastir` · `/graf/kelime-isi` ·
+  `/graf/semantik` · `/graf/zaman` · (`/arac/tum-araclar` katalog sayfasının kendisi — hariç)
+  Yan fayda: `/sor` bu 13 aracı da bulmaya başladı. `/arac/wow` (legacy 308 redirect)
+  ve `/arac/tum-araclar` (katalog sayfasının kendisi) bilinçli olarak dışarıda → 55 giriş, 0 mükerrer.
+- [x] **`/arac/tum-araclar` canlı hatası: tıklamalar ölü** ✅ **düzeltildi**
+  `src/components/ToolsBrowser.jsx:115` → `window.dispatchEvent(new CustomEvent(eventName))`
+  Vite döneminden kalma; araçlar §16.5 ile route'a dönüşünce dinleyiciler kalkmış.
+  Canlı test: "Peygamber" ve "Kitap Kavramı" tıklandı → URL değişmedi, hata da yok
+  - [x] `event` tabanlı gezinme `router.push(route)` ile değiştirildi.
+        Navbar'ın `TOOL_ROUTES` haritası `src/lib/toolRoutes.js`'e taşındı; iki tüketici
+        de aynı kaynağı kullanıyor. Eşleşme yoksa eski davranışa düşer (geriye dönük güvenli).
+  - [ ] Sayfayı `TOOL_CATALOG`'tan besle (21 → 55) — **henüz yapılmadı**, ayrı iş.
+        Şu an sayfa hâlâ `src/data/tools.jsx`'ten (21 araç) besleniyor; tıklamalar artık
+        çalışıyor ama sayfa hâlâ araçların %38'ini gösteriyor.
+- [x] **Regresyon koruması kuruldu** — `next/tests/tools-navigation.spec.js`
+      Değişiklik öncesi/sonrası `git stash` ile gerçek baseline alındı:
+      navbar **22 → 22** · mobil çekmece (390px) **71 → 71** · tum-araclar **38 → 38** ·
+      tıklama **kırık → `/atlas/kissa`**. 42 Playwright testi yeşil.
+
+---
+
+## 🔴 P1 — Hemen (bağımsız, toplam ~35 dk)
+
+- [ ] **§13.24 ihlalini düzelt**
+  `next/src/app/[locale]/page.js` → `cluster-astonishment` içindeki `ClusterWhisper`
+  - Şu an: `"Bilim bir gün gelir, doğrular."` / `"Science arrives one day and confirms."`
+  - Kural: tasdikin öznesi bilim olamaz; `confirms/proves` yasak
+  - Yeni TR: `"Bulgular örtüşebilir; hüküm metne değil, tefekküre aittir."`
+  - Yeni EN: `"Findings may align; the verdict belongs not to the text but to reflection."`
+  - [ ] `"Tarih bir gün gelir, eğilir"` cümlesini de yumuşat (aynı zaferci ton)
+
+- [ ] **Hero'ya "burası ne" satırı ekle**
+  `next/src/components/Hero.jsx`
+  - Sorun: ilk ekranda `<h1>` görünmüyor, ziyaretçi sitenin ne olduğunu anlamıyor
+  - Âyet referansı ile `DEVAM` arasına tek satır: `0.8rem`, `COLORS.silver`, letterSpacing
+  - Kompozisyonu bozma — bismillah + âyet + çeviri hiyerarşisi korunacak
+
+---
+
+## 🟠 P2 — Karar gerektiren (kod yazmadan önce)
+
+- [x] **IA kararı verildi: C — 3 kart kalsın, kapılar tutarlı olsun**
+  - Küme başına 1 ağır kart (Mukattaa · Bilimsel · Esmâ — `page.js` zaten bu üçünü
+    `FeaturedWrap` ile sarmış, karar mevcut niyeti güçlendiriyor)
+  - Kalan 11 kart mini satıra iner; altı kapının altısı da link olur
+  - Beklenen: ~21.300px → ~11.000px
+  - ⚠ **Önkoşul: P0.** Kart indirmeden önce `/arac/tum-araclar` çalışır ve 56 araç
+    göstermeli — yoksa "hepsini gör" diyecek yer bozuk kalır
+  - ⚠ **Önkoşul 2:** Kapı chip'leri `<span>`, tıklanamıyor. Mini satırlar gerçek
+    link olmalı, yoksa envanter testi kırmızı yanar
+
+---
+
+## 🟠 P3 — Mobil uzunluk (~yarım gün)
+
+- [ ] **`SixGates` mobilde 2.395px** (masaüstünde 1.006px, +138%)
+  `next/src/sections/SixGates.jsx` → akordeon veya yatay kaydırmalı şerit
+- [ ] **`ToolsHighlight` mobilde 1.580px** (masaüstünde 889px, +78%)
+  `next/src/sections/ToolsHighlight.jsx` → 6 kart yerine 3 + "tümünü gör" bağlantısı
+- [ ] Değişiklik sonrası ölçümü tekrarla, mobil toplam < 20.000px hedefi
+
+---
+
+## 🟠 P4 — Ritim (P2 kararına bağlı, ~yarım gün)
+
+- [ ] **Üç kademeli kart ritmi tasarla**
+  - Şu an 13 kart 852–931px bandında (%9 fark), tek istisna `allah-kendini-tanitir` 1314px
+  - Ağır: küme başına 1 (mevcut `FeaturedWrap`) — tam genişlik, diyagram taşısın
+  - Orta: ~6 — mevcut 760px format
+  - Hafif: ~5 — iki sütunlu kompakt çift
+- [ ] Kademeleri önce statik mockup olarak doğrula, sonra kodla
+
+---
+
+## 🟠 P5 — `<PortalCard>` bileşeni (P4'e bağlı, ~1 gün)
+
+- [ ] **Ortak bileşen çıkar — SERVER COMPONENT olarak**
+  - Şu an: 14 dosya, 2.603 satır, ortak bileşen yok
+  - Şu an: **14/14 kart `'use client'`** + her biri `framer-motion` → 14 hydration adası
+  - Props: `{ eyebrow, title, verseAr, verseTr, blurb, href, accent, weight }`
+  - Animasyonu tek bir ince client sarmalayıcıya devret (`FeaturedWrap` benzeri)
+  - Hedef: 14 hydration adası → 1
+- [ ] 14 dosyayı sil, yerine 14 veri nesnesi koy
+- [ ] ⚠ **P4'ten önce yapma** — monoton yapıyı bileşene çimentolar
+
+---
+
+## 🟡 P6 — Renk (~2 saat, bağımsız)
+
+- [ ] **Küme başına tek aksan rengi**
+  - Şu an anasayfada 12 aksan: `#d4a574`×294, `#e67e22`×41, `#e74c3c`×23, `#3498db`×23, `#27ae60`×23, `#9b59b6`×17, `#c9a227`×9, `#8b5cf6`×9 …
+  - Hedef: hayranlık = altın · hayret = mavi · içe bakış = yeşil
+  - Kart içi ikincil renkler kalabilir; sayfa üç renkli okunsun
+  - Not: hepsi `tokens.js`'ten geliyor, §13.1 ihlali yok — sorun sayıda
+
+---
+
+## 🟡 P7 — Küçükler
+
+- [ ] **19 `<h2>` çok** — kart başlıklarının bir kısmını `h3`'e indir
+- [ ] **CLAUDE.md §4 palet tablosu koddan kopmuş** — 10 renk listeliyor, `tokens.js`'te 48 var; tablodan üret
+- [ ] P4 sonrası: `MobileSectionChipNav` / `DesktopSidebarTOC` / `ScrollToTopFab` üçü de hâlâ gerekli mi, gözden geçir
+
+---
+
+## 📌 Notlar
+
+- Ölçüm dosyası `next/tests/homepage-audit.spec.js` regresyon testi değil, ölçüm aracıdır — istenirse silinebilir
+- Ekran görüntüleri: `next/test-results/home-{desktop-1440,laptop-1024,mobile-390}[-full].png`
+- Doğrulanan ve **sorun olmayan** alanlar: 0 console error, 0 yatay kaydırma (3 viewport), etiketsiz buton yok, `<main>` landmark mevcut, reduced-motion desteği var, 26/26 Arapça blokta `lang`+`dir` doğru
+
+---
+
+## 🧪 TEST DURUMU (2026-08-13)
+
+| Spec | Durum |
+|---|---|
+| `homepage-audit.spec.js` | ✅ 3/3 — ölçüm aracı |
+| `homepage-link-inventory.spec.js` | ✅ 17 bağlantı · 19 çapa kilitli |
+| `tools-navigation.spec.js` | ✅ 4/4 |
+| `hifz.spec.js` | ✅ |
+| `concierge.spec.js` | ⚠ 20/21 — aşağıya bak |
+
+- [ ] **`concierge.spec.js:112` bayat assertion** — düzeltilmeli
+  Test `tarıyorum|scanning|matching|arıyor` dönen yükleme metnini bekliyor;
+  bu kelimeler `/sor` sayfasının kaynağında **hiç yok** (grep: 0 dosya).
+  Yükleme arayüzünün metni bir noktada değişmiş, test güncellenmemiş.
+  **Bugünkü değişikliklerle ilgisi yok** — concierge dosyaları `74b9ccf`'te commit'li ve temiz.
+
+**Yerel test için gereken anahtarlar** (`/Users/serdar/Developer/01_qurancodex/.env`):
+`ANTHROPIC_API_KEY` · `DEEPINFRA_API_KEY` · `KV_REST_API_URL` · `KV_REST_API_TOKEN`
+Dev sunucusu bunlar yüklenmeden başlatılırsa 7 concierge testi ortam yüzünden kırılır.
+Doğru başlatma:
+```bash
+set -a && . /Users/serdar/Developer/01_qurancodex/.env && set +a && npm run dev
+```
+
+- [x] **Bütçe koruması yerelde doğrulandı** — `74b9ccf`'te "yerelde doğrulanamadı" notu düşülmüştü.
+      KV artık yerelde bağlı; canlı istek `meta.budget = {"used":14,"limit":500,"reason":null}`
+      döndürüyor, sayaç çalışıyor.

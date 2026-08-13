@@ -1,0 +1,42 @@
+{
+  "links": [
+    "/arac/alti-konu",
+    "/arac/bilimsel-isaretler",
+    "/arac/dua-dili",
+    "/arac/esma-frekans",
+    "/arac/halka-kompozisyon",
+    "/arac/koruma-zinciri",
+    "/arac/mukattaa",
+    "/arac/retorik-sorular",
+    "/arac/ritim",
+    "/arac/ses-mimarisi",
+    "/arac/tarihsel-kanitlar",
+    "/arac/tekrar-anatomi",
+    "/atlas/insan-psikolojisi",
+    "/atlas/insan-tanimi",
+    "/atlas/kissa",
+    "/atlas/sunnetullah",
+    "/graf/ayet"
+  ],
+  "anchors": [
+    "alti-konu-card",
+    "bilimsel-card",
+    "concierge-prompt",
+    "conclusion",
+    "dua-card",
+    "halka-card",
+    "hero",
+    "insan-tanimi-card",
+    "koruma-card",
+    "mukattaa-card",
+    "psikoloji-card",
+    "retorik-card",
+    "ritim-card",
+    "ses-card",
+    "six-gates",
+    "tarih-card",
+    "tefekkur-highlight",
+    "tekrar-card",
+    "tools-highlight"
+  ]
+}
