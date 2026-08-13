@@ -224,7 +224,13 @@ export const FETVA_DISCLAIMER = {
  * `query` in "proceed" is either the original or the rewritten version.
  * Caller should pass this to embed/search/curate.
  */
-export async function runGuardrails(originalQuery, lang) {
+// opts.skipLlm — günlük bütçe tükendiğinde true gelir. K2 (classifier) ve
+// K3 (rewrite) katmanları da Anthropic çağırdığı için, bütçe kapısı yalnız
+// curate adımını kesseydi saldırgan her isteğinde regex'i "flag"e düşüren bir
+// sorgu göndererek yine iki LLM çağrısı ürettirebilirdi. skipLlm=true iken
+// yalnız regex prefilter çalışır — sıfır maliyet. (2026-08-13)
+export async function runGuardrails(originalQuery, lang, opts = {}) {
+  const skipLlm = !!opts.skipLlm;
   const timings = {};
   const meta = { originalQuery };
 
@@ -255,7 +261,13 @@ export async function runGuardrails(originalQuery, lang) {
     categoryReason = 'fetva_pattern';
   }
 
-  if (pre.verdict === 'flag') {
+  if (pre.verdict === 'flag' && skipLlm) {
+    // Bütçe modu: sınıflandırıcı çalıştırılmaz, sorgu olduğu gibi geçer.
+    // Regex zaten 'reject' demediyse içerik açıkça yasaklı değil demektir.
+    meta.classifierSkipped = 'budget';
+  }
+
+  if (pre.verdict === 'flag' && !skipLlm) {
     const t1 = Date.now();
     try {
       const cls = await runLLMClassifier(originalQuery, lang);
@@ -296,7 +308,9 @@ export async function runGuardrails(originalQuery, lang) {
   // K3: Rewrite — only if classifier said "rewrite"
   let finalQuery = originalQuery;
   let rewritten = false;
-  if (category === 'rewrite') {
+  if (category === 'rewrite' && skipLlm) {
+    meta.rewriteSkipped = 'budget';
+  } else if (category === 'rewrite') {
     const t2 = Date.now();
     try {
       const rw = await runQueryRewrite(originalQuery, lang);

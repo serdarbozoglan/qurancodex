@@ -11,6 +11,7 @@ import { conciergeKeywordSearch } from '@/lib/concierge-keyword-search';
 import { runConcierge } from '@/lib/concierge-claude';
 import { hydrateResponse } from '@/lib/concierge-hydrate';
 import { checkRateLimit, getClientIp } from '@/lib/concierge-ratelimit';
+import { consumeBudget, checkRateLimitKv } from '@/lib/concierge-budget';
 import { runGuardrails, FETVA_DISCLAIMER } from '@/lib/concierge-guardrails';
 import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } from '@/lib/concierge-kv';
 
@@ -19,6 +20,36 @@ import { logQuery, getResponseCache, setResponseCache, getItemQualityScores } fr
 function computeQueryHash(query, lang) {
   const normalized = query.toLowerCase().trim().replace(/\s+/g, ' ');
   return crypto.createHash('sha256').update(`${normalized}|${lang}`).digest('hex').slice(0, 16);
+}
+
+// Günlük bütçe dolduğunda LLM'siz sonuç üretir. `grouped` (retrieval çıktısı)
+// doğrudan hydrateResponse'un beklediği şemaya çevrilir; Claude çağrılmaz.
+// Sıralama retrieval skorundan gelir, bu yüzden "curate" edilmemiş ama alâkalı
+// sonuçlar döner. `reason` alanı boş bırakılır — uydurma gerekçe yazmıyoruz.
+const DEGRADED_BUCKETS = {
+  verses: ['verse'],
+  tafsirs: ['tefsir'],
+  articles: ['article', 'article-section'],
+  tools: ['tool'],
+  atlases: ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma',
+    'atlas-dua', 'atlas-kavram', 'atlas-ahiret-yolculugu-stage'],
+};
+
+function buildDegradedResult(grouped, lang) {
+  const out = { intro: '', closing: '' };
+  for (const [field, types] of Object.entries(DEGRADED_BUCKETS)) {
+    const seen = new Set();
+    out[field] = types
+      .flatMap(t => grouped[t] || [])
+      .map(entry => entry?.item?.id)
+      .filter(id => id && !seen.has(id) && seen.add(id))
+      .slice(0, 5)
+      .map(id => ({ id, reason: '' }));
+  }
+  out.intro = lang === 'tr'
+    ? 'Bugünkü yapay zekâ kotası doldu; aşağıdakiler doğrudan arama sonuçlarıdır. Yarın tekrar deneyebilirsin.'
+    : "Today's AI quota is used up; the results below come straight from search. Please try again tomorrow.";
+  return out;
 }
 
 // Node runtime — corpus JSON file access + big memory
@@ -38,9 +69,12 @@ function validateQuery(q, lang) {
 export async function POST(request) {
   const startTs = Date.now();
 
-  // Rate limit
+  // Rate limit — önce KV (örnekler arası GERÇEK limit), KV yoksa in-memory.
+  // In-memory Map her serverless örneğinde ayrı yaşadığı ve cold start'ta
+  // sıfırlandığı için tek başına yeterli değildi (2026-08-13).
   const ip = getClientIp(request);
-  const rl = checkRateLimit(ip);
+  const rlKv = await checkRateLimitKv(ip, { max: 20, windowSeconds: 60, prefix: 'rl:concierge' });
+  const rl = rlKv.enabled ? rlKv : checkRateLimit(ip);
   if (!rl.ok) {
     return Response.json(
       { error: 'rate_limited', message: 'Too many requests. Try again later.', resetAt: rl.resetAt },
@@ -117,11 +151,22 @@ export async function POST(request) {
       });
     }
 
-    // 0b. Guardrails — 3-katmanlı adaptive pipeline
+    // 0b. Bütçe — bu noktaya gelen istek cache'te YOK, yani para harcayacak.
+    // Sayaç tam burada artırılır; cache hit'lerde artırılmaz (bedava istek
+    // ücretli sayılmasın). Guardrails'ten ÖNCE olmalı: K2/K3 katmanları da
+    // Anthropic çağırıyor. Tavan dolduysa istek reddedilmez — LLM'siz
+    // anahtar kelime moduna düşer. Kullanıcı sonuç alır, fatura büyümez.
+    const budget = await consumeBudget(ip);
+    const degraded = !budget.ok;
+    if (degraded) {
+      console.warn(`[concierge] budget exhausted (${budget.reason}) — degrading to keyword. global=${budget.globalUsed}/${budget.limit} ip=${budget.ipUsed}/${budget.ipLimit}`);
+    }
+
+    // 0c. Guardrails — 3-katmanlı adaptive pipeline
     // (regex prefilter → LLM classifier (adaptive) → LLM rewrite (adaptive))
     // Rejected queries returned early with warm message + suggestion chips.
     const tG = Date.now();
-    const guard = await runGuardrails(query, lang);
+    const guard = await runGuardrails(query, lang, { skipLlm: degraded });
     timings.guardrails = Date.now() - tG;
 
     if (guard.verdict === 'reject') {
@@ -182,9 +227,11 @@ export async function POST(request) {
     // but preserve original for logging/UX.
     const effectiveQuery = guard.query;
 
-    // 1. Embed query (semantic mode only)
+    const effectiveMode = degraded ? 'keyword' : mode;
+
+    // 1. Embed query (semantic mode only) — degraded modda embed de atlanır
     let queryEmb = null;
-    if (mode === 'semantic') {
+    if (effectiveMode === 'semantic') {
       const t0 = Date.now();
       queryEmb = await embedQuery(effectiveQuery);
       timings.embed = Date.now() - t0;
@@ -195,7 +242,7 @@ export async function POST(request) {
     // 2. Search — mode branch
     const t1 = Date.now();
     let grouped;
-    if (mode === 'keyword') {
+    if (effectiveMode === 'keyword') {
       grouped = conciergeKeywordSearch(effectiveQuery, lang);
     } else {
       grouped = conciergeSearch(queryEmb, lang);
@@ -226,10 +273,18 @@ export async function POST(request) {
       }, { status: 404 });
     }
 
-    // 3. Claude curate
+    // 3. Claude curate — bütçe dolmuşsa ATLANIR.
+    // Maliyetin tamamı bu adımda; degraded modda retrieval sonuçları
+    // doğrudan hydrate şemasına çevrilip döndürülür (LLM çağrısı yok).
     const t2 = Date.now();
-    const { parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang });
-    timings.claude = Date.now() - t2;
+    let parsed, usage = null;
+    if (degraded) {
+      parsed = buildDegradedResult(grouped, lang);
+      timings.claude = 0;
+    } else {
+      ({ parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang }));
+      timings.claude = Date.now() - t2;
+    }
 
     // 4. Hydrate with full item details (halisinasyon guard)
     const hydrated = hydrateResponse(parsed, lang);
@@ -251,6 +306,7 @@ export async function POST(request) {
         category: guard.category,
         rejected: false,
         cacheHit: false,
+        degraded,
         candidateCount,
         resultsCount: {
           verses: hydrated.verses?.length || 0,
@@ -281,11 +337,17 @@ export async function POST(request) {
         queryHash,
         rateLimit: { remaining: rl.remaining, resetAt: rl.resetAt },
         guardrails: { category: guard.category, reason: guard.reason },
+        degraded,
+        budget: budget.enabled
+          ? { used: budget.globalUsed, limit: budget.limit, reason: budget.reason || null }
+          : null,
       },
     };
 
-    // Faz 2: cache'e yaz (sadece ok + fetva_talebi, TTL 7 gün) — await ile safe
-    if (guard.category === 'ok' || guard.category === 'fetva_talebi') {
+    // Faz 2: cache'e yaz (sadece ok + fetva_talebi, TTL 7 gün) — await ile safe.
+    // DEGRADED sonuç ASLA cache'lenmez: 7 gün boyunca LLM'siz cevabı servis
+    // etmek, bütçe ertesi gün sıfırlansa bile kaliteyi kalıcı düşürürdü.
+    if (!degraded && (guard.category === 'ok' || guard.category === 'fetva_talebi')) {
       try {
         await setResponseCache(preHash, responsePayload);
       } catch (err) {
@@ -298,6 +360,7 @@ export async function POST(request) {
         'X-RateLimit-Remaining': String(rl.remaining),
         'X-RateLimit-Reset': String(rl.resetAt),
         'X-Cache': 'MISS',
+        'X-Degraded': degraded ? '1' : '0',
         'Cache-Control': 'private, no-store',
       },
     });
