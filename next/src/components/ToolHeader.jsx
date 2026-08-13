@@ -18,6 +18,7 @@
 
 import Link from 'next/link';
 import { COLORS, FONTS, OVERLAY_TITLE, RADIUS } from '../tokens';
+import useNavbarOffset from './useNavbarOffset';
 
 export default function ToolHeader({
   icon,                  // JSX (SVG veya text)
@@ -29,12 +30,14 @@ export default function ToolHeader({
   language,
   hideHomeLink = false,  // opsiyonel — bazı sayfalarda home link istenmeyebilir
 }) {
+  // Navbar yüksekliği sabit değil — ölç. Bkz. useNavbarOffset.
+  const navTop = useNavbarOffset(0, 62);
   const homePath = `/${language || 'tr'}`;
   return (
     <div
       style={{
         position: 'sticky',
-        top: '62px',
+        top: `${navTop}px`,
         zIndex: 40,
         background: 'rgba(8,10,18,0.94)',
         backdropFilter: 'blur(20px)',

@@ -232,7 +232,7 @@ export default function KuranRetorigi({ onClose }) {
 
       {/* ── BODY ───────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
-        {activeTab === 0 && <TabKategoriler data={data} tr={tr} isMobile={isMobile} />}
+        {activeTab === 0 && <TabKategoriler data={data} tr={tr} isMobile={isMobile} language={language} />}
         {activeTab === 1 && <TabMuhatap data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 2 && <TabSorular data={data} tr={tr} isMobile={isMobile} />}
         {activeTab === 3 && <TabSureHaritasi data={data} tr={tr} isMobile={isMobile} />}
@@ -264,7 +264,13 @@ const SURAH_NAMES_TR = [
 
 const SPECIAL_PATTERN_IDS = ['ve-ma-edrake', 'efela-takılun-ozel', 'eleyse'];
 
-function TabKategoriler({ data, tr, isMobile }) {
+// `language` PROP OLARAK ALINIR — 2026-08-13 tarama bulgusu.
+// Öncesinde bu bileşen 517 ve 520. satırlarda `language` kullanıyordu ama
+// ne prop alıyordu ne de useLanguage() çağırıyordu; `language` yalnız ana
+// bileşenin (KuranRetorigi) kapsamındaydı. Sonuç: sayfa açılır açılmaz
+// `ReferenceError: language is not defined` ve TÜM SAYFA ÇÖKÜYORDU —
+// <html lang="null">, canonical yok, 0 bağlantı. Sessiz değil, tam çökme.
+function TabKategoriler({ data, tr, isMobile, language }) {
   // activeItem: category id (erotema/irsad/tevbih/taaccub) veya special pattern id
   const [activeItem, setActiveItem] = useState(data.categories[0].id);
 
