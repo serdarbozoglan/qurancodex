@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 // ─── ToolsBrowser ─────────────────────────────────────────────────────────────
 // Centered modal that lists all 16 interactive tools in a browse-friendly
 // layout. Triggered by the "Tüm Araçları Gör" CTA on ToolsHighlight and the
@@ -77,6 +79,28 @@ const EXTRA_TOOLS = TOOL_CATALOG
     descTr: t.descTr,   descEn: t.descEn,
     keywords: t.keywords || [],
   }));
+
+// Aile bazında gruplama (2026-08-13, kullanıcı raporu: "sıralama bir mantık
+// çerçevesinde mi, random mı?"). Sıra gerçekten rastgeleydi — TOOL_CATALOG'un
+// ham dizi sırasıydı: atlaslar iki ayrı bloğa bölünmüş, araya arac girişleri
+// girmiş, sonradan eklenen 13 kayıt da sona iliştirilmişti.
+// Artık: aile (atlas / arac / graf) + her grup içinde Türkçe alfabetik.
+const EXTRA_GROUPS = [
+  { key: 'atlas', labelTr: 'Atlaslar',  labelEn: 'Atlases' },
+  { key: 'arac',  labelTr: 'Araçlar',   labelEn: 'Tools' },
+  { key: 'graf',  labelTr: 'Graflar',   labelEn: 'Graphs' },
+].map((g) => ({
+  ...g,
+  tools: EXTRA_TOOLS
+    .filter((t) => t.route.startsWith(`/${g.key}/`))
+    .sort((a, b) => a.titleTr.localeCompare(b.titleTr, 'tr')),
+})).filter((g) => g.tools.length > 0);
+
+// Başlıktaki sayı. Dizileri toplamak yanlış sonuç veriyordu (DOM'da 50 kart
+// varken 52 yazıyordu); id üzerinden tekilleştirilmiş sayım tek doğru yol.
+const TOTAL_TOOL_COUNT = new Set(
+  [...FEATURED_TOOLS, ...ALL_TOOLS, ...EXTRA_TOOLS].map((t) => t.id)
+).size;
 
 // ── Component ────────────────────────────────────────────────────────────────
 export default function ToolsBrowser({ onClose, defaultOpen = false }) {
@@ -252,8 +276,26 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                 flexShrink: 0,
               }}
             >
-              <span id="tools-browser-title" style={OVERLAY_TITLE}>
-                {language === 'tr' ? 'Tüm İnteraktif Araçlar' : 'All Interactive Tools'}
+              {/* Başlık (2026-08-13). Önceki: "Tüm İnteraktif Araçlar".
+                  Üç sorunu vardı: (a) sayfanın metadata başlığı zaten
+                  "Tüm Araçlar" — sekme ile ekran farklı şey söylüyordu;
+                  (b) "interaktif" fazla iddiaydı — listedeki Tabiat Atlası,
+                  Tarihsel İzler gibi girişler okuma yüzeyi, interaktif araç
+                  değil; (c) sayfa 21'den 50 öğeye çıkınca araç+atlas+graf
+                  karışımı oldu. "Araçlar" sitenin kendi kapsayıcı terimi —
+                  navbar menüsünün adı da bu ve atlasları da içeriyor. */}
+              <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+                <span id="tools-browser-title" style={OVERLAY_TITLE}>
+                  {language === 'tr' ? 'Tüm Araçlar' : 'All Tools'}
+                </span>
+                <span style={{
+                  color: COLORS.silver, fontFamily: FONTS.body,
+                  fontSize: '0.7rem', letterSpacing: '0.04em', opacity: 0.75,
+                }}>
+                  {language === 'tr'
+                    ? `${TOTAL_TOOL_COUNT} araç · atlas · graf`
+                    : `${TOTAL_TOOL_COUNT} tools · atlases · graphs`}
+                </span>
               </span>
               <button
                 onClick={close}
@@ -419,14 +461,15 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                     katalogda 55, diskte 56 rota var. Yukarıdaki 21 kart ikonlu
                     ve gruplu olduğu için korundu; kalan araçlar burada daha
                     sade satırlarla listeleniyor. Kaynak: data/toolCatalog.js */}
-                {visibleExtras.length > 0 && (
-                  <>
+                {visibleExtras.length > 0 && EXTRA_GROUPS.map((g) => {
+                  const shown = g.tools.filter((t) => visibleExtras.includes(t));
+                  if (!shown.length) return null;
+                  return (
+                  <React.Fragment key={g.key}>
                     <CategoryHeader
-                      label={language === 'tr'
-                        ? `Diğer Araçlar · ${visibleExtras.length}`
-                        : `More Tools · ${visibleExtras.length}`}
+                      label={`${language === 'tr' ? g.labelTr : g.labelEn} · ${shown.length}`}
                     />
-                    {visibleExtras.map((t) => (
+                    {shown.map((t) => (
                       <button
                         key={t.id}
                         onClick={() => { router.push(`/${language}${t.route}`); setOpen(false); }}
@@ -465,8 +508,9 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                         </span>
                       </button>
                     ))}
-                  </>
-                )}
+                  </React.Fragment>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
