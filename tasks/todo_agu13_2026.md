@@ -8,19 +8,29 @@
 
 ---
 
-## 📊 MEVCUT DURUM — 76/100 (13 Ağustos 2026 akşamı, sıfırdan ölçüm)
+## 📊 MEVCUT DURUM — **73/100** (13 Ağustos 2026 akşamı, GPT-5.4 bölümleri dahil)
 
-| Eksen | Not | Bu notu aşağı çeken |
-|---|---:|---|
-| Erişilebilirlik | **68** | 25 Arapça öge `aria-label` taşımıyor · kontrast hiç ölçülmedi |
-| Görsel tasarım | **72** | Tek düzen fikri tekrarlanıyor · hiç görsel yok · her şey aynı kontrast değerinde |
-| Tutarlılık | **74** | Site genelinde 184 token dışı renk · EN/TR arası "Tefekkür ↔ Reflections" çelişkisi |
-| İçerik | **76** | Özet yok — 18–24 ekran kaydırmadan sitede ne olduğu anlaşılmıyor |
-| Bilgi mimarisi | **80** | Rafta 15 bölüm · adlar SixGates kapı adlarıyla örtüşmüyor |
-| Teknik | **82** | ⚠ LCP/CLS **hiç ölçülmedi** — bu notun temeli eksik |
-| Editoryal dürüstlük | **85** | "Sıfır Varyasyon" kayıtsız şartsız duruyor |
+> **Not DÜŞTÜ: 76 → 73.** Sabahki 76, GPT turundan çıkan altı alan
+> **bilinmezken** verilmişti; "ölçülünce değişebilir, muhtemelen aşağı" demiştim.
+> Ölçüldü, dört gerçek hata çıktı, hepsi erişilebilirlikte.
 
-Ölçüm: 3 genişlik × 2 dil = 6 koşu + 8 dilim ekran görüntüsü gözle incelendi.
+| Eksen | Önce | **Şimdi** | Bu notu aşağı çeken |
+|---|---:|---:|---|
+| Erişilebilirlik | 68 | **58** ▼ | 25 Arapça öge `aria-label`sız · **+23 svg etiketsiz** · **+16 görünmez düğme klavye sırasında** · **+skip link odağı taşımıyor** · **+`Escape` mega-menüyü kapatmıyor** · kontrast hâlâ ölçülmedi |
+| Tutarlılık | 74 | **72** ▼ | **+`/en` sayfası `lang="tr"` ile sunuluyor** · site genelinde 184 token dışı renk · "Tefekkür ↔ Reflections" çelişkisi |
+| Teknik | 82 | **80** ▼ | **+SSR `lang` hydration'da düzeliyor** (sunulan HTML yanlış) · ⚠ LCP/CLS **hâlâ ölçülmedi** |
+| Görsel tasarım | 72 | **72** | Tek düzen fikri tekrarlanıyor · hiç görsel yok · her şey aynı kontrast değerinde |
+| İçerik | 76 | **76** | Özet yok — 18–24 ekran kaydırmadan sitede ne olduğu anlaşılmıyor |
+| Bilgi mimarisi | 80 | **80** | Rafta 15 bölüm · adlar SixGates kapı adlarıyla örtüşmüyor |
+| Editoryal dürüstlük | 85 | **85** | "Sıfır Varyasyon" kayıtsız şartsız duruyor |
+
+**Yeni turda sorun ÇIKMAYANLAR** (puanı ayakta tutan taraf):
+canonical/hreflang/x-default eksiksiz · Arapça font gerçekten yükleniyor
+(fallback'e düşmüyor) · JS kapalıyken içerik görünür · API kesikken sayfa
+tam render · gereksiz prefetch yok · odak halkası 12/12 · `img alt` doğru.
+
+Ölçüm: 3 genişlik × 2 dil = 6 koşu + 8 dilim ekran görüntüsü gözle incelendi
++ GPT-5.4 bölümleri (L,N,O,P,S,T,V,Y) ayrı tur.
 Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
@@ -150,41 +160,72 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
 
-# 🧭 G — HİÇ BAKILMAMIŞ ALANLAR (GPT-5.4 hakem turu, 13 Ağustos akşamı)
+# 🧭 G — GPT-5.4 BÖLÜMLERİ ÖLÇÜLDÜ (13 Ağustos akşamı) — 4 GERÇEK HATA ÇIKTI
 
-> Bunlar **anasayfada da** hiç ölçülmedi. Puanlamada bu yüzden yer almadılar —
-> yani 76/100 bu alanlar **bilinmezken** verildi. Ölçülünce not değişebilir.
-> Yöntem ve komutlar: `sayfa_denetim_kontrol_listesi.md` → **L, N, P, T, V, R**
+> Bu bölümler daha önce **hiç** bakılmamıştı. Ölçüldü. Beklediğim oldu:
+> **not düştü (76 → 73)**, çünkü erişilebilirlikte dört yeni hata çıktı.
 
-- [ ] **G1 · Hydration uyuşmazlığı hiç aranmadı.**
-      Bu turdaki hydration hatamız "hook sırası" tipindeydi. **Metin/sayı**
-      uyuşmazlığı tipi hiç kontrol edilmedi ve sitede riskli çağrılar var:
-      `EsmaTeaser` → `n.count.toLocaleString('tr-TR')` sunucuda çalışıyor.
-      Node ICU'su ile tarayıcı ICU'su farklı biçimlendirebilir.
-      ⚠ `npm run build && npm run start` ile bak — **dev sunucusu maskeliyor.**
+## ❌ Bulunan hatalar
 
-- [ ] **G2 · `canonical` / `hreflang` doğrulanmadı.**
-      İki dilli sitede kullanıcı yanlış dil sayfasına düşer ve o URL'yi paylaşır.
-      `pageMetadata()` bunları üretiyor ama **çıktısı hiç okunmadı.**
+- [ ] **G1 · Skip link odağı `<main>`'e taşımıyor** ← *klavye kullanıcısı için işlevsiz*
+      Ölçüm: ilk `Tab` → "Ana içeriğe geç" **görünür oluyor** (geçiş 300ms'de
+      `translateY(0)`'a oturuyor, doğru). Ama `Enter`'a basınca:
+      `location.hash = "#main"` oluyor, odak ise **`<body>`'ye** düşüyor.
+      Sebep: `layout.js:36` → `<main id="main">` **`tabindex="-1"` taşımıyor.**
+      Sonuç: kullanıcı "içeriğe geç" der, odak baştan başlar. Bağlantı boşuna.
+      Düzeltme: `<main id="main" tabIndex={-1}>`
+      > ⚠ İlk ölçümümde "görünmüyor" demiştim — **yanlıştı**, geçişin ortasında
+      > ölçmüşüm (−44.8px, %99.5). Bu sabah kendi yazdığım kurala takıldım.
 
-- [ ] **G3 · Skip link hiç test edilmedi.**
-      `globals.css`'te `.skip-link` var ve `transform: translateY(-100%)` ile
-      gizli. İlk `Tab`'da gerçekten görünür oluyor mu, odağı `<main>`'e taşıyor
-      mu — bilinmiyor.
+- [ ] **G2 · Gizli chip rafının 16 düğmesi klavye sırasında**
+      Sayfa başındayken raf `opacity: 0` + `pointer-events: none` ama
+      `inert` yok, `aria-hidden` yok → **16 düğmenin 16'sı da `tabbable`.**
+      Klavye kullanıcısı içeriğe varmadan **görünmeyen 16 durakta** geziniyor.
+      Düzeltme: görünmezken `inert` (veya `visibility: hidden`).
 
-- [ ] **G4 · Arapça fontun yüklendiği doğrulanmadı.**
-      §13.2 `KFGQPC → Amiri Quran → serif` zincirini tanımlıyor. Zincirin **ilk
-      halkası yükleniyor mu**, yoksa sessizce fallback'e mi düşüyor?
-      `document.fonts` ile bakılmalı. Fallback'e düşüyorsa mushaf görünümü bozuk.
+- [ ] **G3 · Mega-menü `Escape` ile kapanmıyor**
+      Ölçüm: Tefekkür menüsü açıldı → panel `736×59 visible opacity:1`.
+      `Escape` sonrası **hâlâ `736×59 visible opacity:1`.**
+      Ayrıca panelde `role="menu"` / `role="dialog"` **yok** ve **focus trap yok** —
+      Tab menüden dışarı kaçıyor.
 
-- [ ] **G5 · Prefetch maliyeti ölçülmedi.**
-      Anasayfada 23–24 bağlantı var; Next varsayılan olarak görünür `<Link>`leri
-      prefetch eder. Ağır atlas/graf route'ları tıklanmadan indiriliyor olabilir.
-      İlk 3 saniyede kaç KB indiğini ölç.
+- [ ] **G4 · İngilizce sayfa `<html lang="tr">` ile SUNULUYOR**
+      `app/layout.js:84` → `<html lang="tr" ...>` **sabit.**
+      `LanguageContext` bunu `useEffect` ile düzeltiyor — yani **yalnız hydration
+      sonrası.** Ölçüm: `/en` SSR `lang="tr"` → hydration sonrası `lang="en"`.
+      Sonuç: ekran okuyucu ve arama motoru **Türkçe** görüyor; İngilizce metin
+      Türkçe ses motoruyla okunuyor.
+      Düzeltme: `[locale]/layout.js`'te `params.locale` zaten var — kök
+      `layout.js` yerine oradan `lang` verilmeli (ya da `generateMetadata` ile).
 
-- [ ] **G6 · Bidi (Arapça+Latin karışık satır) gözle kontrol edilmedi.**
-      `dir`/`lang` doğru — ama âyet + sûre adı + numara aynı satırdayken sıralama
-      bozulabilir. DOM doğru görünürken ekran ters çıkabilir.
+- [ ] **G5 · 23 `<svg>` erişilebilirlik etiketi taşımıyor** (49'un 23'ü)
+      `aria-hidden` de yok, `aria-label` de, `<title>` de. Ekran okuyucu
+      "graphic" deyip geçiyor. Dağılım: `main` 9 · `six-gates` 6 · `NAV` 4 ·
+      `concierge-prompt` 2 · `hero-scene-1` 1 · `conclusion` 1.
+      Çoğu dekoratif → `aria-hidden="true"` yeterli; anlam taşıyanlara `<title>`.
+
+## ✅ Ölçüldü, sorun ÇIKMADI
+
+| Kontrol | Sonuç |
+|---|---|
+| **N · canonical / hreflang** | Doğru. Her iki dilde `canonical` kendi locale'ine, `alternate[tr]`, `alternate[en]`, `x-default` eksiksiz |
+| **T · Arapça font** | `kfgqpc-hafs.otf` **200** · `document.fonts` → `KFGQPC \| loaded` · âyet `<p>` computed `KFGQPC, "Amiri Quran", serif`. **Fallback'e düşmüyor.** |
+| **S · API kesik** | Sayfa tam render: h1=1, 14 kart, 10.166 karakter, **0 pageerror**. Anasayfa API'ye bağımlı değil |
+| **L-JS · JS kapalı** | İçerik **görünür**: 14 kart, 10.208 karakter, `[data-reveal]` opacity=1. `<noscript>` yedeği çalışıyor |
+| **V · prefetch** | İlk 3 sn'de **0 RSC prefetch** isteği. Ağır rotalar tıklanmadan indirilmiyor. ⚠ Dev sunucusu `content-length` vermiyor — KB ölçümü prod'da tekrarlanmalı |
+| **Y · `<img alt>`** | 2 görsel, ikisi de logo, `alt=""` — **doğru** (sarmalayan bağlantıda `aria-label` var) |
+| **P · odak halkası** | İlk 12 durakta 12/12 `ring=true` |
+
+## ⏳ Hâlâ ölçülmedi
+
+- [ ] **G6 · Hydration metin/sayı uyuşmazlığı** — `npm run build && npm run start`
+      ile bakılmalı; dev sunucusu maskeliyor. Riskli çağrı: `EsmaTeaser` →
+      `toLocaleString('tr-TR')` sunucuda çalışıyor (Node ICU ≠ tarayıcı ICU).
+      *(G4 zaten bir SSR/hydration farkı — aynı aileden.)*
+- [ ] **G7 · Bidi gözle kontrol** — otomatik tarama 2 aday buldu ama ikisi de
+      yanlış pozitif (`innerText` çocukları da alıyor). **Gözle bakılmalı:**
+      âyet + sûre adı + numara aynı satırdayken sıralama.
+- [ ] **G8 · LCP / CLS / INP** — hâlâ ölçülmedi (bkz. E1)
 
 ---
 
