@@ -663,7 +663,7 @@
     "ctaRead": "Read the Quran",
     "discovery": {
       "title": "You've only seen the surface",
-      "desc": "Quran Codex contains 25+ interactive tools and 8 in-depth discovery sections. From variant readings to dialogue networks, parables to occasions of revelation — each a distinct journey.",
+      "desc": "QuranCodex contains 25+ interactive tools and 8 in-depth discovery sections. From variant readings to dialogue networks, parables to occasions of revelation — each a distinct journey.",
       "stat1": "tools",
       "stat2": "discovery sections",
       "stat3": "verses",
@@ -774,7 +774,7 @@
     "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdTarPNPX7WfsgxtdXTLMZNYdgX6_f4wsVvdDCS6abu8sr6WQ/viewform?embedded=true"
   },
   "footer": {
-    "title": "Quran Codex",
+    "title": "QuranCodex",
     "tagline": "Hidden Architecture of the Quran",
     "methodology": "The analyses on this site are drawn from academic sources, classical exegetical tradition, and Quranic corpus studies. Claims in each section are grounded in the sources relevant to that section; academic debates and nuances are noted within the relevant sections.",
     "support": {
@@ -855,7 +855,7 @@
         "link": "https://tanzil.net"
       }
     ],
-    "copyright": "Quran Codex. All rights reserved."
+    "copyright": "QuranCodex. All rights reserved."
   },
   "psychology": {
     "badge": "Human Psychology",

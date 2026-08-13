@@ -181,6 +181,37 @@ Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 
 ---
 
+## ✅ MARKA ADI TUTARLILIĞI — TAMAMLANDI (2026-08-13)
+
+Kullanıcı sordu: *"QuranCodex mi Quran Codex mi, tutarsızlık var"*. Sayım:
+
+| Biçim | Kullanım |
+|---|---|
+| `QuranCodex` (tek kelime) | **78** ← baskın |
+| `QURAN CODEX` (logo, versal) | 25 |
+| `Quran Codex` (boşluklu) | 6 ← azınlık, tutarsız |
+
+- [x] 6 boşluklu kullanım `QuranCodex`e çevrildi (tr.json ×2, en.json ×3, OG görseli ×1)
+- [x] Logo kelime markasından literal boşluk kaldırıldı → **QURANCODEX**
+      İki yarı aralıkla değil **tonla** ayrışıyor (QURAN altın, CODEX kırık beyaz);
+      harf aralığı (tracking .12–.18em) optik nefesi zaten veriyor
+- [x] Envanter testi bu değişikliği **kayıp olarak yakaladı** — kasıtlı olduğu
+      doğrulanıp temel çizgi güncellendi (koruma çalışıyor)
+
+---
+
+## ❌ KAPAT BUTONU — /hakkinda ve /kaynakca'ya EKLENMEYECEK
+
+Kullanıcı sordu. Cevap: hayır. CLAUDE.md §13.11 ismen yasaklıyor —
+*"Tool sayfaları full-page route'tur (modal değil), × close button gerekmez."*
+Bu ikisi de içerik sayfası, modal değil.
+
+Somut gerekçe: bugün `/arac/tum-araclar`'da tam bu yüzden hata yaşandı — kapat
+butonu *"nereye kapatacak?"* sorusunu doğuruyor ve geçmiş yoksa boş sayfa
+kalıyordu. Navbar + tarayıcı geri + yeni eklenen kardeş sayfa bağlantısı yeterli.
+
+---
+
 ## 🟡 P7 — Küçükler
 
 - [ ] **19 `<h2>` çok** — kart başlıklarının bir kısmını `h3`'e indir
