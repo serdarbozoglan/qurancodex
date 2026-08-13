@@ -21,7 +21,8 @@
     "Dua Ayetleri",
     "Kitap Kavramı",
     "Yakın Anlamlı Nüanslar",
-    "Eleştirel Çerçeve"
+    "Eleştirel Çerçeve",
+    "TÜM ARAÇLAR"
   ],
   "mobileDrawer": [
     "Ana içeriğe geç",
@@ -66,6 +67,7 @@
     "KAPI 04",
     "KAPI 05",
     "KAPI 06",
+    "HALKA KOMPOZİSYON SAYFASINA GİT",
     "MUKATTAA SAYFASINI KEŞFET",
     "RİTİM SAYFASINI KEŞFET",
     "RETORİK SORULAR SAYFASINI KEŞFET",
@@ -96,5 +98,5 @@
     "Kaynakça",
     "info@qurancodex.com"
   ],
-  "allToolsCount": 38
+  "allToolsCount": 68
 }

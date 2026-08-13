@@ -87,8 +87,12 @@ test('/arac/tum-araclar: araç sayısı azalmamalı', async ({ page }) => {
   await page.goto('/tr/arac/tum-araclar', { waitUntil: 'networkidle' });
   await page.waitForTimeout(1500);
 
+  // ÖGE TÜRÜNDEN BAĞIMSIZ. 2026-08-13: araç kartları <button>'dan <Link>'e
+  // geçti (orta tık / yeni sekmede aç / URL önizlemesi çalışsın diye). Test
+  // "kaç araç var" sorusunu koruyor, "hangi etiketle" sorusunu değil —
+  // yoksa her doğru semantik iyileştirme testi kırar.
   const count = await page.evaluate(() =>
-    [...document.querySelectorAll('button')]
+    [...document.querySelectorAll('button, a[href]')]
       .filter(b => (b.innerText || '').trim().length > 3).length
   );
 
@@ -109,7 +113,8 @@ test('/arac/tum-araclar: araç kartına tıklayınca gezinmeli', async ({ page }
   const start = page.url();
 
   // Kart etiketi sayfadan doğrulandı: "Kıssa Atlası" (→ /atlas/kissa)
-  const target = page.getByRole('button', { name: /Kıssa Atlası/ }).first();
+  // rol belirtilmiyor: kart <button> ya da <Link> olabilir (bkz. yukarıdaki not)
+  const target = page.getByText(/^Kıssa Atlası/).first();
   const has = await target.count();
   if (!has) { console.log('  "Kıssa Atlası" kartı bulunamadı — seçici gözden geçirilmeli'); }
   await target.click({ timeout: 4000 }).catch((e) => console.log('  tıklama hatası: ' + e.message.slice(0, 70)));

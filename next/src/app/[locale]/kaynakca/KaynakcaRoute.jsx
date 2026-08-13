@@ -15,6 +15,7 @@ import HomeLinkPill from '@/components/HomeLinkPill';
 
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD } from '@/tokens';
+import useNavbarOffset from '@/components/useNavbarOffset';
 
 // ─── Kaynak Verisi ──────────────────────────────────────────────────────────
 // Yapı: her item { author, work, year?, note?, link? }
@@ -409,6 +410,9 @@ const CATEGORIES = [
 // ─── Component ──────────────────────────────────────────────────────────────
 
 export default function KaynakcaRoute() {
+  // Navbar yüksekliği dile/genişliğe göre değişiyor — ölç, tahmin etme.
+  // 1024px'te İngilizce navbar 104px sabitini aşıyor ve başlığı örtüyordu.
+  const navPad = useNavbarOffset(24, 104);
   const { language } = useLanguage();
   const isEn = language === 'en';
 
@@ -428,7 +432,7 @@ export default function KaynakcaRoute() {
         background: COLORS.cosmicBlack,
         // Bkz. HakkindaRoute'daki not — navbar alt kenarı 82px, içerik
         // 64px'ten başlayınca eyebrow navbar'ın altında kalıyordu.
-        padding: '104px 0 96px',
+        padding: `${navPad}px 0 96px`,
       }}
     >
       <div

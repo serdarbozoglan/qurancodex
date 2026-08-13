@@ -12,6 +12,7 @@ import HomeLinkPill from '@/components/HomeLinkPill';
 
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD } from '@/tokens';
+import useNavbarOffset from '@/components/useNavbarOffset';
 
 const SECTIONS = [
   {
@@ -100,6 +101,9 @@ const SECTIONS = [
 ];
 
 export default function HakkindaRoute() {
+  // Navbar yüksekliği dile/genişliğe göre değişiyor — ölç, tahmin etme.
+  // 1024px'te İngilizce navbar 104px sabitini aşıyor ve başlığı örtüyordu.
+  const navPad = useNavbarOffset(24, 104);
   const { language } = useLanguage();
   const isEn = language === 'en';
 
@@ -109,7 +113,7 @@ export default function HakkindaRoute() {
     // 18px navbar'ın ALTINDA kalıyordu. Görsel olarak fark edilmiyordu çünkü
     // orada tıklanabilir bir şey yoktu; "← Anasayfa" eklenince Playwright
     // tıklamayı navbar'ın yuttuğunu gösterdi. Bu ÖNCEDEN VAR OLAN bir hataydı.
-    <div style={{ minHeight: 'calc(100vh - 54px)', background: COLORS.cosmicBlack, padding: '104px 0 96px' }}>
+    <div style={{ minHeight: 'calc(100vh - 54px)', background: COLORS.cosmicBlack, padding: `${navPad}px 0 96px` }}>
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: '0 20px' }}>
         {/* Header */}
         <header style={{ marginBottom: '48px' }}>

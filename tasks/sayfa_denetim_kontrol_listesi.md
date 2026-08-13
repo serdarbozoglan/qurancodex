@@ -691,3 +691,33 @@ Anasayfada bulunan hataların en çok tekrar edeceği yerlerden başla:
 
 **Ekran görüntüsü gözle incelendi:** evet/hayır
 ```
+
+---
+
+## 6. DENETİM GÜNLÜĞÜ
+
+Taranan sayfalar ve bulunanlar. Her satır `AUDIT_ROUTES=... npx playwright test
+tests/page-audit.spec.js` ile tekrarlanabilir.
+
+### Parti 1 — 2026-08-13 · `/arac/tum-araclar` · `/hakkinda` · `/kaynakca`
+
+| Sayfa | Bulgu | Durum |
+|---|---|---|
+| `/arac/tum-araclar` | **Gezinme `<button>` ile yapılıyordu** — 73 buton / 2 bağlantı. Orta tık, "yeni sekmede aç", URL önizlemesi, bağ grafiği hepsi kayıptı | ✅ `<Link>`e çevrildi → 54 bağlantı / 21 buton |
+| `/arac/tum-araclar` | Overlay üst dolgusu sabit `96px`; **1024px'te İNGİLİZCE navbar** (menü uzun, sarıyor) "All Tools" başlığını 21px örtüyordu. **Türkçede görünmüyordu** | ✅ `useNavbarOffset` ile ölçülüyor |
+| `/arac/tum-araclar` | 52/62 `<svg>` erişilebilirlik etiketi yok | ✅ `aria-hidden` (32 kaynakta) |
+| `/hakkinda`, `/kaynakca` | Üst dolgu `104px` sabit; 1024px'te EN navbar "← ANASAYFA" bağlantısını **30px örtüyordu** | ✅ `useNavbarOffset` |
+| `/hakkinda`, `/kaynakca` | EN'de Türkçe karakter | ⚪ **Yanlış pozitif** — özel adlar (Elmalılı Hamdi Yazır, Zemahşerî, Beydâvî). GPT-5.4 bu sinyalin zayıflığını önceden söylemişti |
+
+**Bu partinin dersi:** navbar yüksekliğini sabit sayıyla tahmin etme hatası
+sitede **üç ayrı yerde** vardı ve üçü de farklı sabitlerle "düzeltilmişti"
+(62 · 96 · 104). Hepsi `src/components/useNavbarOffset.js`'e toplandı.
+**Tek dilde test etmek bu hatayı kaçırırdı** — Türkçe navbar dar, İngilizce
+navbar 1024px'te sarıyor.
+
+### Sıradaki partiler
+- [ ] En çok trafik alan 6 `/arac/*`
+- [ ] `/graf/*` (7 sayfa) — renk + erişilebilirlik yoğun
+- [ ] `/atlas/*` (25 sayfa) — en kalabalık grup
+- [ ] `/tefekkur/*`
+- [ ] `/oku`, `/sor`, `/kutuphanem`

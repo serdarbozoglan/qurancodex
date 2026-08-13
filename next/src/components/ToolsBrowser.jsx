@@ -37,6 +37,7 @@ import {
   ANALYSIS_TOOLS,
   RESEARCH_TOOLS,
 } from '../data/tools';
+import Link from 'next/link';
 import { routeForToolEvent } from '../lib/toolRoutes';
 import { TOOL_ROUTES } from '../lib/toolRoutes';
 import { TOOL_CATALOG } from '../data/toolCatalog';
@@ -90,17 +91,17 @@ const EXTRA_TOOLS = TOOL_CATALOG
 // eşitliği sağlar, sahte çeşitlilik üretmez.
 const FAMILY_ICON = {
   atlas: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
     </svg>
   ),
   arac: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14.5 5.5a4 4 0 0 0 5 5L21 9l-6-6-1.5 1.5zM12 8l-8 8v4h4l8-8" />
     </svg>
   ),
   graf: (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="6" cy="7" r="2" /><circle cx="18" cy="7" r="2" /><circle cx="12" cy="18" r="2" />
       <path d="M7.7 8.4 10.5 16M16.3 8.4 13.5 16M8 7h8" />
     </svg>
@@ -194,6 +195,29 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   // ŞİMDİ: Navbar'ın zaten kullandığı event→route haritası paylaşılıyor
   // (lib/toolRoutes.js). Haritada karşılığı olmayan bir event kalırsa eski
   // davranışa düşülür — geriye dönük güvenli.
+  // Navbar'ın gerçek yüksekliği + nefes payı. Navbar dile ve genişliğe göre
+  // yükseklik değiştiriyor; sabit sayı tutmuyor.
+  const [navPad, setNavPad] = useState(96);
+  useEffect(() => {
+    const measure = () => {
+      const nav = document.querySelector('nav[aria-label="Main navigation"]');
+      const b = nav ? Math.round(nav.getBoundingClientRect().bottom) : 0;
+      setNavPad(Math.max(96, b + 24));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    // Navbar scroll'da kompaktlaşıyor; geçiş bittikten sonra da ölç.
+    const t = setTimeout(measure, 450);
+    return () => { window.removeEventListener('resize', measure); clearTimeout(t); };
+  }, []);
+
+  // Araç kartlarının <Link> hedefi. Rota bulunamazsa null döner ve kart
+  // eski <button> davranışına düşer (geriye dönük güvenli).
+  const hrefForTool = (t) => {
+    const route = t.route || routeForToolEvent(t.event);
+    return route ? `/${language}${route}` : null;
+  };
+
   const triggerTool = (eventName) => {
     const route = routeForToolEvent(eventName);
     if (route) {
@@ -261,7 +285,12 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
             // inset:0 + dikey ortalama + maxHeight:88vh kombinasyonu 900px'lik
             // ekranda modalin üst kenarını 54px'e koyuyordu; navbar 62px, yani
             // 8px örtüşme oluşuyordu. Üst padding navbar yüksekliği + nefes payı.
-            padding: '96px 24px 24px',
+            // Üst dolgu ÖLÇÜLÜR, sabit değil. 2026-08-13 denetimi: sabit 96px
+            // idi ve 1024px'te İNGİLİZCE navbar (menü öğeleri daha uzun →
+            // iki satıra sarıyor, alt kenar 134px) "All Tools" başlığını
+            // 21px örtüyordu. Türkçede sorun görünmüyordu; tek dilde test
+            // etmek bu hatayı kaçırırdı.
+            padding: `${navPad}px 24px 24px`,
             boxSizing: 'border-box',
           }}
         >
@@ -422,6 +451,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                 <FeaturedBanner
                   key={ft.id}
                   tool={ft}
+                  href={hrefForTool(ft)}
                   onClick={() => triggerTool(ft.event)}
                   language={language}
                 />
@@ -455,6 +485,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                           <BigToolCard
                             key={tool.id}
                             tool={tool}
+                            href={hrefForTool(tool)}
                             onClick={() => triggerTool(tool.event)}
                             language={language}
                             // Last card in an odd-sized category spans both
@@ -471,6 +502,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                         <BigToolCard
                           key={tool.id}
                           tool={tool}
+                          href={hrefForTool(tool)}
                           onClick={() => triggerTool(tool.event)}
                           language={language}
                           fullWidth={odd && i === visibleTools.length - 1}
@@ -492,9 +524,10 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                       label={`${language === 'tr' ? g.labelTr : g.labelEn} · ${shown.length}`}
                     />
                     {shown.map((t) => (
-                      <button
+                      <Link
                         key={t.id}
-                        onClick={() => { router.push(`/${language}${t.route}`); setOpen(false); }}
+                        href={`/${language}${t.route}`}
+                        onClick={() => setOpen(false)}
                         style={{
                           display: 'flex', alignItems: 'flex-start', gap: '12px',
                           textAlign: 'left', width: '100%',
@@ -546,7 +579,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                             {language === 'tr' ? t.descTr : t.descEn}
                           </span>
                         </span>
-                      </button>
+                      </Link>
                     ))}
                   </React.Fragment>
                   );
@@ -669,13 +702,16 @@ function FilterButton({ active, label, onClick }) {
   );
 }
 
-function FeaturedBanner({ tool, onClick, language }) {
+function FeaturedBanner({ tool, onClick, href, language }) {
   // tools.jsx exposes icon as a React component (takes `size` prop)
   const Icon = tool.icon;
+  const As = href ? Link : 'button';
+  const navProps = href ? { href } : { type: 'button', onClick };
   return (
-    <button
-      onClick={onClick}
+    <As
+      {...navProps}
       style={{
+        textDecoration: 'none',
         width: 'calc(100% - 48px)',
         margin: '20px 24px 4px',
         padding: '18px 22px',
@@ -727,18 +763,30 @@ function FeaturedBanner({ tool, onClick, language }) {
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginLeft: '12px' }}>
         <path d="M9 18l6-6-6-6" />
       </svg>
-    </button>
+    </As>
   );
 }
 
-function BigToolCard({ tool, onClick, language, fullWidth = false }) {
+// ─── Gezinme <button> ile DEĞİL <Link> ile ──────────────────────────────────
+// 2026-08-13 denetimi: bu sayfada 73 <button>, 2 <a> vardı. Tıklama
+// `router.push` ile çalışıyordu ama semantik yanlıştı ve şunlar KAYIPTI:
+//   · orta tık / cmd+tık ile yeni sekmede açma
+//   · tarayıcının durum çubuğunda hedef URL önizlemesi
+//   · bağlantıyı kopyala / yeni pencerede aç bağlam menüsü
+//   · tarayıcı ve tarama motorları için sayfanın bağ grafiği
+// `href` verilirse <Link>, verilmezse eski <button> davranışı korunur —
+// rotası olmayan bir araç kalırsa kırılmasın diye.
+// ────────────────────────────────────────────────────────────────────────────
+function BigToolCard({ tool, onClick, href, language, fullWidth = false }) {
   // tools.jsx exposes icon as a React component
   const Icon = tool.icon;
+  const As = href ? Link : 'button';
+  const navProps = href ? { href } : { type: 'button', onClick };
   return (
-    <button
-      type="button"
-      onClick={onClick}
+    <As
+      {...navProps}
       style={{
+        textDecoration: 'none',
         // When this card is the orphan last item of an odd-sized category,
         // span both grid columns so it doesn't sit alone in a half-row.
         gridColumn: fullWidth ? '1 / -1' : 'auto',
@@ -827,6 +875,6 @@ function BigToolCard({ tool, onClick, language, fullWidth = false }) {
           {language === 'tr' ? tool.descLongTr : tool.descLongEn}
         </span>
       </div>
-    </button>
+    </As>
   );
 }
