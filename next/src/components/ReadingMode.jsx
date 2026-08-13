@@ -4085,16 +4085,46 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             }
 
             // Collect surah name/number matches — hem TR hem EN (Dalga 2026-07-07)
-            const surahMatches = [];
+            //
+            // ALÂKA SIRALAMASI (2026-08-13, kullanıcı raporu: "Ala yazınca
+            // A'lâ çıkmıyor"). Sorun eşleşmede DEĞİL sıradaydı: "ala" sorgusu
+            // 17 sûre döndürüyordu, çünkü İngilizce adlardaki "Al-" öneki
+            // normalize edilince "al" oluyor ve "Al-Anam" -> "alanam" içinde
+            // "ala" geçiyor. El-A'lâ 11. sıraya düşüp kaydırmalı kutunun
+            // altında kalıyor, kullanıcı "hiç çıkmıyor" sanıyordu.
+            //
+            // Çözüm: harf-i tarif (El-/Al-/Er-/Es-/Et-...) atıldıktan sonra
+            // adın kendisi sorguyla BAŞLIYORSA en üste çıkar.
+            //   "ala" -> El-A'lâ (ala...) ve El-Alak (alak...) basa
+            //         -> El-En'âm (enam...) sona
+            const stripArticle = (x) => {
+              const m = x.match(/^(?:el|al|er|ar|es|as|et|at|ez|az|en|an|ed|ad|ash|adh)-(.+)$/);
+              return m ? m[1] : x;
+            };
+            const dropMarks = (x) => x.replace(/['\u2019\u02bc`-]/g, '');
+            const scoreName = (raw) => {
+              if (!raw) return 0;
+              const norm = normalizeText(raw);              // tire KORUNUR
+              const bare = dropMarks(stripArticle(norm));   // harf-i tarifsiz ad
+              const full = dropMarks(norm);
+              if (bare === qNorm) return 4;                          // tam ad
+              if (bare.startsWith(qNorm)) return 3;                  // ad ile basliyor
+              if (full.startsWith(qNorm)) return 2;                  // harf-i tarifle basliyor
+              if (full.includes(qNorm) || bare.includes(qNorm)) return 1; // iceriyor
+              return 0;
+            };
+
+            const scoredSurahs = [];
             SURAH_NAMES_TR.forEach((name, i) => {
               const surah = i + 1;
-              const nameTrNorm = normalizeText(name).replace(/['\u2019\u02bc`-]/g, '');
-              const nameEnNorm = normalizeText(SURAH_NAMES_EN[i] || '').replace(/['\u2019\u02bc`-]/g, '');
-              if ((isNum && surah === num)
-                  || (qNorm.length >= 1 && (nameTrNorm.includes(qNorm) || nameEnNorm.includes(qNorm)))) {
-                surahMatches.push(surah);
-              }
+              if (isNum && surah === num) { scoredSurahs.push({ surah, score: 5 }); return; }
+              if (qNorm.length < 1) return;
+              const score = Math.max(scoreName(name), scoreName(SURAH_NAMES_EN[i] || ''));
+              if (score > 0) scoredSurahs.push({ surah, score });
             });
+            // Skor azalan; esit skorda sure numarasi artan (kararli sira).
+            scoredSurahs.sort((a, b) => b.score - a.score || a.surah - b.surah);
+            const surahMatches = scoredSurahs.map(x => x.surah);
 
             // Shared row styles for search results
             const srRow = {
