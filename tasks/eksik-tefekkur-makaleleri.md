@@ -3,7 +3,7 @@
 > **Oluşturma:** 2026-08-12
 > **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` ile karşılaştırıldı.
 >
-> **📌 Son durum (2026-08-12):** Site **44 makale**. `833176e`'de 6 yeni makale + indekste kayıp 2 makale kurtarıldı (41); ardından *Hâlâ mı Evrim?* (42), *Evrim Dinsizliği Yayma Projesidir!* (43), *Anlam, Yaratılış ve Senteninin Bariz İmzası* (44). Tamamı `status: "published"`. Kategori dağılımı: sûre-hermenötik 12 · idrak-şuur 9 · kozmoloji 7 · terminoloji 7 · semantik 5 · kavramsal 4.
+> **📌 Son durum (2026-08-12):** Site **48 makale**. `833176e`'de 6 yeni makale + indekste kayıp 2 makale kurtarıldı (41); ardından *Hâlâ mı Evrim?* (42), *Evrim Dinsizliği Yayma Projesidir!* (43), *Anlam, Yaratılış ve Senteninin Bariz İmzası* (44), *Kaderin Çözünürlüğü (devam)* (45), *Allahu Ekber ile Seyr İlallah* (46), *Kâinat Kitabının Kuantum Bölümü-1* (47), *Kur'an'ın Ruhsal Coğrafyası* (48). Tamamı `status: "published"`. Kategori dağılımı: sûre-hermenötik 12 · idrak-şuur 10 · kozmoloji 8 · terminoloji 8 · semantik 5 · kavramsal 5.
 >
 > **✍ Atıf temizliği (2026-08-12):** Alıntı bloklarındaki `source` alanlarından *"(Felsufi aktarımı)"* eki kaldırıldı — 8 dosyada 12 yer. Atıf artık doğrudan kaynağı gösteriyor (ör. *Bediüzzaman — Sözler*).
 >
@@ -80,14 +80,14 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 | Tarih | Başlık | Öneri kategori |
 |---|---|---|
-| 2024-10-22 | Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma | `idrak-suur` |
-| 2024-12-07 | Kâinat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi | `kozmoloji` |
+| ~~2024-10-22~~ | ~~Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma~~ | ✅ `allahu-ekber-seyr-ilallah` |
+| ~~2024-12-07~~ | ~~Kâinat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi~~ | ✅ `kainat-kuantum-1` |
 | ~~2024-12-18~~ | ~~Anlam, Yaratılış ve Senteninin Bariz İmzası~~ | ✅ `anlam-yaratilis-senteni` |
-| 2025-04-16 | Alâ Sûresi-1: Tesbih ve Soyutlama | `sure-hermenotik` |
-| ~2025-04 | Kaderin Çözünürlüğü ve Esnek Determinizm **(devam)** | `terminoloji` |
-| 2025-05-31 | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | `kavramsal` |
-| 2025-06-10 | Asr Sûresinden Çıkarılan Temel Prensipler | `sure-hermenotik` |
-| 2025-11-09 | Vicdan: Evrensel Tercümanımız | `kavramsal` |
+| **2025-04-16** | **Alâ Sûresi-1: Tesbih ve Soyutlama** | `sure-hermenotik` — ⏳ metin bekleniyor |
+| ~~2025-04-27~~ | ~~Kaderin Çözünürlüğü ve Esnek Determinizm **(devam)**~~ | ✅ `kaderin-cozunurlugu-devam` |
+| ~~2025-05-31~~ | ~~Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi~~ | ✅ `ruhsal-cografya` |
+| **2025-06-10** | **Asr Sûresinden Çıkarılan Temel Prensipler** | `sure-hermenotik` — ⏳ metin bekleniyor |
+| **2025-11-09** | **Vicdan: Evrensel Tercümanımız** | `kavramsal` — ⏳ metin bekleniyor |
 
 ✅ **Eklendi (bu oturumda, D listesinde değildi):** *Kur'an Mesajına Yabancı Kalmak* (2025-09-05) → `kuran-mesajina-yabanci-kalmak`. 18 verseInline + ك ن ن kök ağacı; sitenin en ayet-yoğun tefekkür yazısı. ⚠ `canonicalUrl` hâlâ BOŞ — Medium linki verilmedi.
 
@@ -203,3 +203,10 @@ Yedek etiket: `backup-pre-lfs-78a3b18` (migrate öncesi hâl).
 - ~~**`status: "draft"`**~~ ✅ **çözüldü** (`652bc85`) — tamamı `published` yapıldı. Sorun: `TefekkurIndexRoute.jsx:224` yalnız `published`/`live` sayıyor, ama sayı 0 olunca `published || data.articles.length` yedeğe düşüyordu; sayfa aynı anda "41 yayında" **ve** "41 taslak" gösteriyordu.
 - **`kuran-mesajina-yabanci-kalmak`** — `canonicalUrl` boş, Medium linki verilmedi.
 - **Tarih tutarsızlığı** — bazı makalelerin `_index.json` tarihi Medium'daki tarihle uyuşmuyor (ör. Ruhun Termostatı: sitede 2024-11-20, Medium'da 2026-02-04). Toplu bir denetim gerekebilir.
+- 🔴 **RAG CORPUS BOŞLUĞU — görsel blokların metni indekslenmiyor** (2026-08-12'de tespit edildi, **düzeltilmedi**).
+  `scripts/corpus-sources.mjs` içindeki `extractBlocksText()` yalnız şu blok tiplerini okur: `paragraph`, `pullQuote`, `criticalNote`, `section`, `verseInline`. **`contrastDuo`, `flowChain`, `hierarchyTree`, `morphologyTable`, `sources` hiç okunmuyor.**
+  İki sonucu var:
+  1. **`searchText` eksik kalıyor** → Concierge (`/sor`) o içeriği bulamıyor.
+  2. **`article-section` chunk'ları üretilmiyor** — 800 kelime eşiği de aynı dar sayımı kullandığı için görsel yoğun makaleler eşiğin altında kalıyor.
+  Ölçülen kanıt: `allahu-ekber-seyr-ilallah` (32 blok, 18'i görsel) corpus'a **yalnız 1 item** olarak girdi; `kainat-kuantum-1` ve `ruhsal-cografya` 8'er item. Yani **en görsel makale en az aranabilir olan.**
+  Bu, "en yüksek görsellikle ekle" talimatının doğrudan yan etkisidir — düzeltme, `extractBlocksText()` ve kelime sayacına yapısal blok tiplerini eklemekten ibaret; fakat ~40 makalenin embedding'ini yeniden üretir (LFS'te ~175 MB'lık yeni blob). **Kullanıcı onayı bekliyor.**
