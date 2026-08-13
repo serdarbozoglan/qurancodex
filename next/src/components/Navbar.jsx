@@ -15,6 +15,7 @@ import {
 } from '../data/tools';
 // v1.1 — single source of truth for explore categories, shared with AllTopics
 import { EXPLORE_CATEGORIES, FEATURED_EXPLORE_ITEM } from '../data/exploreCategories';
+import Link from 'next/link';
 import { TOOL_ROUTES } from '../lib/toolRoutes';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
@@ -717,18 +718,24 @@ export default function Navbar() {
 
         {/* Logo — web UX standardı: ana sayfadaysa scroll-to-top, alt sayfada
             ise homepage'e navigate. Önceki davranış sadece scrollTo idi → alt
-            sayfada logo "tool'un üstüne kaydır" oluyordu (yanıltıcı). */}
-        <button
-          onClick={() => {
+            sayfada logo "tool'un üstüne kaydır" oluyordu (yanıltıcı).
+            2026-08-13: <button> iken <Link> yapıldı. Ölçüm: /hakkinda ve
+            /kaynakca'da anasayfaya giden HİÇ <a> yoktu (anasayfa<a>=0) —
+            logo buton olduğu için orta tuşla yeni sekmede açılmıyor, sağ tıkla
+            kopyalanamıyor, SEO'da iç bağlantı sinyali üretmiyor ve ekran
+            okuyucu "bağlantı" değil "buton" diye okuyordu. Anasayfadayken
+            scroll-to-top davranışı korundu (preventDefault ile). */}
+        <Link
+          href={`/${language}`}
+          onClick={(e) => {
             const homePath = `/${language}`;
             if (pathname === homePath || pathname === `${homePath}/`) {
+              e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-              router.push(homePath);
             }
           }}
           className="text-gold font-display font-bold tracking-[0.12em] sm:tracking-[0.18em] hover:text-royal-gold transition-colors"
-          style={{ fontSize: '1.05rem', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px', background: 'transparent', border: 'none', padding: 0, cursor: 'pointer' }}
+          style={{ fontSize: '1.05rem', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px', background: 'transparent', border: 'none', padding: 0, cursor: 'pointer', textDecoration: 'none' }}
           aria-label="QuranCodex — Ana sayfa"
         >
           {/* Standalone mark — Q + 8-fold star (brand identity at any scale).
@@ -742,7 +749,7 @@ export default function Navbar() {
               İki yarıyı tonla ayırmak denendi, kullanıcı tek renk istedi:
               harf aralığı (tracking .12-.18em) optik ayrımı zaten veriyor. */}
           <span>QURANCODEX</span>
-        </button>
+        </Link>
 
         {/* Nav links */}
         <div className="hidden lg:flex items-center gap-1">

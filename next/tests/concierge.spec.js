@@ -113,8 +113,17 @@ test.describe('/sor page', () => {
     await page.goto(`${SOR}?q=sabir`);
     // Query title
     await expect(page.getByText('"sabir"')).toBeVisible({ timeout: 5000 });
-    // Loading state — rotating text
-    await expect(page.getByText(/tarıyorum|scanning|matching|arıyor/i).first()).toBeVisible({ timeout: 3000 });
+    // Loading state — dönen aşama metni.
+    // 2026-08-13: eski regex /tarıyorum|scanning|matching|arıyor/ idi ve
+    // HİÇBİRİ kaynakta yoktu ("tarıyorum" yanlış çekim; doğrusu "taranıyor").
+    // Gerçek aşamalar SorRoute.jsx LoadingState'te:
+    //   TR: "Sorunun anlamı çözümleniyor" / "…havuzu taranıyor" /
+    //       "En yakın 12 aday seçildi" / "Yanıt hazırlanıyor"
+    //   EN: "Analysing…" / "Scanning…" / "Selecting…" / "Composing…"
+    // Aşamalar 1.2-3sn'de döndüğü için hepsini kabul eden regex kullanılıyor.
+    await expect(
+      page.getByText(/çözümleniyor|taranıyor|seçildi|hazırlanıyor|Analysing|Scanning|Selecting|Composing/i).first()
+    ).toBeVisible({ timeout: 5000 });
     // Response cards yüklenir
     await expect(page.getByText(/İlgili Ayetler|Relevant Verses/i)).toBeVisible({ timeout: 30_000 });
   });

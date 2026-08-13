@@ -1,6 +1,7 @@
 'use client';
 
 import SiblingPageLink from '@/components/SiblingPageLink';
+import HomeLinkPill from '@/components/HomeLinkPill';
 
 // Kaynakça / Bibliography — statik akademik kaynak listesi.
 // Footer'daki kompakt liste yerine, kategorize edilmiş tam bibliyografya.
@@ -425,7 +426,9 @@ export default function KaynakcaRoute() {
       style={{
         minHeight: 'calc(100vh - 54px)',
         background: COLORS.cosmicBlack,
-        padding: '64px 0 96px',
+        // Bkz. HakkindaRoute'daki not — navbar alt kenarı 82px, içerik
+        // 64px'ten başlayınca eyebrow navbar'ın altında kalıyordu.
+        padding: '104px 0 96px',
       }}
     >
       <div
@@ -437,18 +440,22 @@ export default function KaynakcaRoute() {
       >
         {/* Header */}
         <header style={{ marginBottom: '48px' }}>
-          <div
-            style={{
-              color: COLORS.gold,
-              fontFamily: FONTS.body,
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}
-          >
-            {isEn ? 'Sources' : 'Kaynaklar'}
+          {/* Eyebrow + "← Anasayfa" (2026-08-13) — bkz. HakkindaRoute notu. */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+            <div
+              style={{
+                color: COLORS.gold,
+                fontFamily: FONTS.body,
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {isEn ? 'Sources' : 'Kaynaklar'}
+            </div>
+            <span style={{ flex: 1 }} />
+            <HomeLinkPill language={language} />
           </div>
           <h2
             style={{

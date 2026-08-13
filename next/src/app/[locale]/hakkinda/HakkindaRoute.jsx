@@ -1,6 +1,7 @@
 'use client';
 
 import SiblingPageLink from '@/components/SiblingPageLink';
+import HomeLinkPill from '@/components/HomeLinkPill';
 
 // Hakkında / Metodoloji — QuranCodex'in amacı, epistemik duruşu, kaynakları ve sınırları.
 // İçerik component-içi (i18n JSON'a key eklenmedi). Pattern: KaynakcaRoute ile aynı
@@ -103,12 +104,24 @@ export default function HakkindaRoute() {
   const isEn = language === 'en';
 
   return (
-    <div style={{ minHeight: 'calc(100vh - 54px)', background: COLORS.cosmicBlack, padding: '64px 0 96px' }}>
+    // ÜST PADDING 64 -> 104px (2026-08-13). Navbar `position: fixed` ve alt
+    // kenarı 82px'te; sayfa içeriği 64px'ten başlıyordu, yani eyebrow satırı
+    // 18px navbar'ın ALTINDA kalıyordu. Görsel olarak fark edilmiyordu çünkü
+    // orada tıklanabilir bir şey yoktu; "← Anasayfa" eklenince Playwright
+    // tıklamayı navbar'ın yuttuğunu gösterdi. Bu ÖNCEDEN VAR OLAN bir hataydı.
+    <div style={{ minHeight: 'calc(100vh - 54px)', background: COLORS.cosmicBlack, padding: '104px 0 96px' }}>
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: '0 20px' }}>
         {/* Header */}
         <header style={{ marginBottom: '48px' }}>
-          <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: '16px' }}>
-            {isEn ? 'About & Methodology' : 'Hakkında & Metodoloji'}
+          {/* Eyebrow + "← Anasayfa" (2026-08-13). Tool sayfalarında bu buton
+              ToolHeader içinde zaten vardı; bu sayfa ToolHeader kullanmadığı
+              için yoktu — site geneliyle tutarsızdı. */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+            <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>
+              {isEn ? 'About & Methodology' : 'Hakkında & Metodoloji'}
+            </div>
+            <span style={{ flex: 1 }} />
+            <HomeLinkPill language={language} />
           </div>
           <h2 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 2.75rem)', margin: '0 0 18px', lineHeight: 1.15 }}>
             {isEn ? 'About QuranCodex' : 'QuranCodex Hakkında'}
