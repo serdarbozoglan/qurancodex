@@ -37,7 +37,11 @@
     "slug": "sema-isim",
     "titleTr": "Terminoloji 6: Sema ve İsim"
   },
-  "nextArticle": null,
+  "nextArticle": {
+    "slug": "kaderin-cozunurlugu-devam",
+    "titleTr": "Kaderin Çözünürlüğü ve Esnek Determinizm (devam)",
+    "titleEn": "The Resolution of Destiny and Flexible Determinism (continued)"
+  },
   "blocks": [
     {
       "type": "section",

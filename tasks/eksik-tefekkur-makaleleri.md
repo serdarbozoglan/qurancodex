@@ -145,6 +145,21 @@ Kanıt (üç bağımsız örnek):
 
 ---
 
+## ✍ YAZIM KURALI — **Kur'an** (2026-08-12, kullanıcı talimatı)
+
+Türkçe metinde **her zaman `Kur'an`** — kesme işaretli. `Kuran`, `KURAN`, `Kur-an` yazılmaz. İngilizce metinde `Quran` doğrudur, dokunulmaz.
+
+⚠ **Önemli:** Yazar Medium'da çoğunlukla **`Kuran`** yazıyor. Yeni makale eklerken yazarın metnindeki bu yazım **`Kur'an`a çevrilecek** — anlam değişmediği, yalnız imlâ düzeltmesi olduğu için üslup koruma kararının istisnasıdır.
+
+**Denetim (2026-08-12):** 44 makale tarandı — görünür metinde **yanlış yazım yok**, 267 doğru `Kur'an` geçişi var. Küçük harfli 28 `kuran` eşleşmesinin tamamı ya URL/slug/blok-id (`kuran-mesajina-yabanci-kalmak`, `canonicalUrl`, `id: "kurani-kullanim"`) ya da **"kurmak" fiili** (*"uzayı kuran partiküller"*, *"hayali kuran kişi"*, *"göklerin nizamını kuran kalem"*) — hiçbiri düzeltilmeyecek.
+
+Denetimi tekrarlamak için:
+```bash
+grep -l "Kuran" next/public/tefekkur/*.json   # çıktı boş olmalı
+```
+
+---
+
 ## ⚙ HER EKLEMEDE YAPILACAKLAR
 
 - [ ] `public/tefekkur/<slug>.json` — blok yapısı, görsel blok sayısı ≥ 11 hedef
