@@ -167,8 +167,10 @@ const TEFEKKUR_CATEGORIES = [
 //                grid'i yok, sadece headline + 2 essay + CTA)
 // compact=false → /tefekkur rotasında full render (mevcut hali)
 // Hardcoded fallback'ler — runtime fetch hata verirse kullanılır.
-// PLANNED_TOTAL: Felsufi'nin bilinen makale planı (44 hedef — vizyon).
-const PLANNED_TOTAL = 44;
+// PLANNED_TOTAL kaldırıldı (2026-08-13). 44'lük hedef AŞILDI (52 makale),
+// dolayısıyla plannedRemaining = max(0, 44-52) = 0 oluyordu ve anasayfada
+// "52 yayında, 0 planlanan" gibi anlamsız bir cümle çıkıyordu. Aynı hata
+// navbar'da da vardı, orada da kaldırıldı. Yerine kategori sayısı geldi.
 
 export default function TefekkurHighlight({ compact = false }) {
   const { language } = useLanguage();
@@ -207,7 +209,7 @@ export default function TefekkurHighlight({ compact = false }) {
   }, []);
 
   const liveCount = dynamic?.total ?? 0;
-  const plannedRemaining = Math.max(0, PLANNED_TOTAL - liveCount);
+  const categoryCount = dynamic?.categories ?? 6;   // fetch 'categories' yazıyor
 
   const handleViewAll = () => router.push(`/${language}/tefekkur`);
 
@@ -263,8 +265,8 @@ export default function TefekkurHighlight({ compact = false }) {
           }}
         >
           {language === 'tr'
-            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an {liveCount} yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{plannedRemaining} planlanan</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
-            : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>{liveCount} currently live</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{plannedRemaining} planned</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
+            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an {liveCount} yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{categoryCount} kategoride</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
+            : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>{liveCount} currently live</strong>, across <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{categoryCount} categories</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
         </motion.p>
       )}
 

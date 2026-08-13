@@ -157,7 +157,7 @@ function Bridge({ bridgeTr, bridgeEn, mode = 'arrow', language }) {
           textAlign: 'center', lineHeight: 1.4,
           maxWidth: '140px',
         }}>
-          {label}
+          {renderInlineMarkdown(label)}
         </span>
       )}
     </motion.div>
@@ -188,7 +188,7 @@ export default function ContrastDuo({ captionTr, captionEn, left, right, bridgeT
           textTransform: 'uppercase', color: COLORS.gold,
           fontFamily: FONTS.body, marginBottom: '20px', textAlign: 'center',
         }}>
-          {tr ? (captionTr || 'İkili Karşılaştırma') : (captionEn || 'Dual Contrast')}
+          {renderInlineMarkdown(tr ? (captionTr || 'İkili Karşılaştırma') : (captionEn || 'Dual Contrast'))}
         </div>
       )}
 

@@ -1,5 +1,25 @@
 # Tefekkür — Felsufi/Sufist Makale Migration Plan
 
+> **📌 DURUM (2026-08-13): 52 makale yayında.** Kategori dağılımı:
+> sûre-hermenötik 14 · idrak-şuur 11 · kozmoloji 8 · terminoloji 8 ·
+> kavramsal 6 · semantik 5. Tamamı `status: "published"`.
+>
+> **Kaynak platform artık tek değil:** 50 makale Medium'da, 2 makale
+> **Substack**'te (`iki-nedensellik`, `gecmis-klasik-gelecek-kuantum`).
+> Atıf metinlerindeki platform adı artık `canonicalUrl`'den türetiliyor
+> (`platformName()` — TefekkurArticleRoute). Sabit "Medium" yazımı kaldırıldı.
+>
+> **Yeni seri:** *Yazılan ve Yazılmayan* (`seriesId: yazilan-yazilmayan`) —
+> İngilizce asıllı, 2 parça yayında, toplam sayı yazar tarafından ilân edilmedi.
+> ⚠ Bu seride **dil yönü terstir**: İngilizce asıl, Türkçe çeviri.
+>
+> **Markdown render kuralı (2026-08-13'te düzeltildi):** `tldr` ve blok alt
+> alanları markdown içerir. Görünür her yer `renderInlineMarkdown`'dan geçmeli;
+> metadata / JSON-LD / sr-only başlık ise `stripMarkdown()` kullanır.
+> Bir kez kaçırılan yerler: indeks kartı tldr'ı, `contrastDuo` caption+bridge,
+> `criticalNote` heading, makale metadata'sı.
+
+
 > **Bağlam:** QuranCodex'e 3. top-level navigation: **Tefekkür** (Keşfet · Araçlar · **Tefekkür**)
 > **Toplam korpus:** 49 makale — 41 Türkçe + 8 İngilizce
 > **Yazar:** Felsufi (https://sufist.medium.com/)

@@ -30,6 +30,17 @@ export async function generateStaticParams() {
   }
 }
 
+// tldr'lar markdown içerir (**kalın**, *italik*). Metadata, JSON-LD ve
+// sr-only PageHeading bunları HAM basıyordu: arama sonuçlarında ve yapısal
+// veride literal yıldızlar görünüyordu (2026-08-13). Görsel katman zaten
+// renderInlineMarkdown kullanıyor; düz metin isteyen yerler burayı kullanır.
+function stripMarkdown(s) {
+  return (s || '')
+    .replace(/\*\*\*(.+?)\*\*\*/g, '$1')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1');
+}
+
 export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
   const article = loadArticle(slug);
@@ -40,8 +51,8 @@ export async function generateMetadata({ params }) {
     path: `/tefekkur/${slug}`,
     titleTr: article.titleTr,
     titleEn: article.titleEn,
-    descTr: article.tldrTr,
-    descEn: article.tldrEn,
+    descTr: stripMarkdown(article.tldrTr),
+    descEn: stripMarkdown(article.tldrEn),
   });
 }
 
@@ -51,7 +62,7 @@ export default async function Page({ params }) {
   if (!article) notFound();
   const isEn = locale === 'en';
   const title = isEn ? article.titleEn : article.titleTr;
-  const desc = isEn ? article.tldrEn : article.tldrTr;
+  const desc = stripMarkdown(isEn ? article.tldrEn : article.tldrTr);
   return (
     <>
       <JsonLd

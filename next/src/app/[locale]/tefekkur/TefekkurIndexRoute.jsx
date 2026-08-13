@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '../../../i18n/LanguageContext';
+import { renderInlineMarkdown } from '@/components/tefekkur/inlineMarkdown';
 import { COLORS, FONTS, RADIUS, TRANSITION } from '../../../tokens';
 import ToolHeader from '../../../components/ToolHeader';
 
@@ -29,6 +30,29 @@ export default function TefekkurIndexRoute() {
       .catch(err => console.error('[Tefekkür] index load failed:', err));
   }, []);
 
+  // Sıralama (2026-08-13). Önceden HİÇ sıralama yoktu — kartlar
+  // _index.json'daki ham dizi sırasında, yani "eklenme sırasına" göre
+  // çıkıyordu. Kullanıcı haklı olarak sordu: aynı kategorinin bir yazısı
+  // başta, diğeri en sonda görünüyordu.
+  // Kural: önce sabitlenmiş (pinned), sonra yayın tarihi YENİDEN ESKİYE;
+  // tarih eşitse başlığa göre (kararlı sıra).
+  //
+  // ⚠ Hook, `if (!data) return` erken çıkışının ÜSTÜNDE olmak zorunda —
+  // altına konunca "Rendered more hooks than during the previous render"
+  // hatası veriyor ve sayfa hiç açılmıyor (2026-08-13'te bir kez yaşandı).
+  const sortedArticles = useMemo(() => {
+    const all = data?.articles || [];
+    const list = activeCategory === 'all'
+      ? [...all]
+      : all.filter(a => a.category === activeCategory);
+    return list.sort((a, b) => {
+      if (!!b.pinned !== !!a.pinned) return b.pinned ? 1 : -1;
+      const d = (b.publishedDate || '').localeCompare(a.publishedDate || '');
+      if (d) return d;
+      return (a.titleTr || '').localeCompare(b.titleTr || '', 'tr');
+    });
+  }, [data, activeCategory]);
+
   if (!data) {
     return (
       <div style={{
@@ -46,9 +70,7 @@ export default function TefekkurIndexRoute() {
     );
   }
 
-  const filteredArticles = activeCategory === 'all'
-    ? data.articles
-    : data.articles.filter(a => a.category === activeCategory);
+  const filteredArticles = sortedArticles;
 
   return (
     <div style={{
@@ -328,7 +350,7 @@ export default function TefekkurIndexRoute() {
           </div>
           <p style={{ margin: 0 }}>
             {tr
-              ? <>Bu seçilmiş yazıları paylaşmamıza <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izin</strong> verdiği için <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a>&apos;ye minnetle teşekkür ederiz. Yazılardaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Kanonik kaynak Medium&apos;da korunmakta ve site araçlarıyla çift yönlü bağlıdır.</>
+              ? <>Bu seçilmiş yazıları paylaşmamıza <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izin</strong> verdiği için <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a>&apos;ye minnetle teşekkür ederiz. Yazılardaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Kanonik kaynak Medium veya Substack&apos;te korunmakta ve site araçlarıyla çift yönlü bağlıdır.</>
               : <>We extend our heartfelt gratitude to <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> to share these selected essays. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s personal reflection</strong>; QuranCodex carries these texts respectfully as an <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>invitation to think</em>. The canonical source remains on Medium or Substack and is bidirectionally linked with site tools.</>}
           </p>
         </div>
@@ -443,7 +465,10 @@ function ArticleCard({ article, category, language }) {
         fontFamily: FONTS.body,
         lineHeight: 1.65,
       }}>
-        {tr ? article.tldrTr : article.tldrEn}
+        {/* 2026-08-13: ham metin basılıyordu, tldr'lar markdown içerdiği için
+            kartlarda literal ** ve * görünüyordu. Makale gövdesindeki bloklar
+            zaten renderInlineMarkdown'dan geçiyordu; kart atlanmıştı. */}
+        {renderInlineMarkdown(tr ? article.tldrTr : article.tldrEn)}
       </p>
 
       {/* Meta footer */}

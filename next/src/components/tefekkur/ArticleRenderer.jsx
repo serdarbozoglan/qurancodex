@@ -208,7 +208,7 @@ function CriticalNote({ tr: trText, en: enText, headingTr, headingEn, language }
           color: COLORS.gold, textTransform: 'uppercase',
           fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.9,
         }}>
-          {heading}
+          {renderInlineMarkdown(heading)}
         </div>
         <div style={{
           fontSize: '0.85rem', color: COLORS.offWhite,
