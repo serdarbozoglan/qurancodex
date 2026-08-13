@@ -1,0 +1,395 @@
+{
+  "slug": "anlam-yaratilis-senteni",
+  "titleTr": "Anlam, Yaratılış ve Senteninin Bariz İmzası",
+  "titleEn": "Meaning, Creation, and the Telltale Signature of Synteny",
+  "category": "kozmoloji",
+  "publishedDate": "2024-12-18",
+  "readingMinutes": 6,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/anlam-yarat%C4%B1l%C4%B1%C5%9F-ve-senteninin-bariz-i%CC%87mzas%C4%B1-dd2abbbe9a19",
+  "tldrTr": "Genomlarda **senteni** (synteny) diye bilinen bir düzen vardır: türler arasında yalnız benzer genler değil, o genlerin **aynı sıradaki dizilişi** de korunur. Şüpheci itiraz — “benzer işlev, benzer gen; yaratıcı araçları yeniden kullanmıştır” — benzerliği açıklar ama **düzeni** açıklamaz. Yazar burada belirleyici noktayı vurgular: bir genin kromozom üzerindeki tam yeri işlevi için genellikle kritik değildir; laboratuvarda gen taşınabilir, gen tedavisi konum belirlemeden hatta plazmitle gen ekler ve hücre proteini yine üretir. **Düzen işlevsel bir zorunluluk değilse, korunmuş olması ortak bir soya işaret eder.** Yazarın vardığı sonuç yaratılışı reddetmek değil genişletmektir: yaratılış tek bir an değil, anlamın her doğal süreçte dokunduğu sürekli bir yöntemdir.",
+  "tldrEn": "Genomes exhibit a pattern known as **synteny**: across species it is not only similar genes that are preserved, but **the order in which those genes are arranged**. The sceptical objection — “similar function, similar genes; the creator reused his tools” — accounts for the similarity but not for the **order**. The author presses the decisive point: a gene's exact position on a chromosome is usually not critical to its function; genes can be relocated in the laboratory, gene therapy inserts genes without specifying a location — even via a plasmid — and the cell still produces the protein. **If the ordering is not a functional necessity, its preservation points to common descent.** The author's conclusion is not to reject creation but to widen it: creation is not a single instant but a continuous method in which meaning is woven through every natural process.",
+  "relatedTools": ["concept-graph", "reading-mode"],
+  "relatedVerses": [],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "*“Yaratılış”* dediğimizde çoğunlukla kozmik, ihtişamlı bir çerçevede düşünürüz: evrenin var edilişi, dünyanın özenle şekillendirilmesi, yaşamın ortaya çıkışı ve gelişmesi, nihayetinde de insanlığın varoluş sahnesine çıkışı. Birçok kişi için bu olaylar sadece rastgele kozmik tesadüfler değil; **derin bir anlam taşır**.",
+      "en": "When we say *“creation”* we mostly think within a cosmic, majestic frame: the bringing-into-being of the universe, the careful shaping of the earth, the emergence and development of life, and finally humanity's entrance onto the stage of existence. For many people these events are not merely random cosmic coincidences; **they carry a deep meaning**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Anlamı ontolojik bir seviyede kabul etmek, amacı insan yapımı bir kavram olmaktan öte **temel bir gerçeklik** olarak görmek, bizi şu anlayışa götürür: **anlam taşıyan her şey yaratılmıştır.** Yaratılış, tek bir anlık olay olmak zorunda değildir.",
+      "en": "To accept meaning at an ontological level — to see purpose as a **fundamental reality** rather than a human-made concept — leads us to this understanding: **everything that bears meaning has been created.** Creation need not be a single instantaneous event."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Dil notu",
+      "headingEn": "A note on language",
+      "tr": "**Türkçe metin yazarın kendi kalemidir.** Yazarın bu yazının İngilizcesini de kaleme aldığı biliniyor (*Meaning, Creation, and the Telltale Signature of Synteny*), ancak özgün İngilizce metin henüz elimizde olmadığı için buradaki **İngilizce sürüm çeviridir**; yazarın kendi metni temin edildiğinde değiştirilecektir.",
+      "en": "**The Turkish text is the author's own pen.** The author is known to have written an English version of this piece as well (*Meaning, Creation, and the Telltale Signature of Synteny*), but since that original is not yet in our hands, **the English here is a translation**; it will be replaced once the author's own text is obtained."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Devasa zaman dilimlerine yayılan bir yaratılış",
+      "captionEn": "A creation spread across vast stretches of time",
+      "nodes": [
+        {
+          "titleTr": "Galaksiler",
+          "titleEn": "Galaxies",
+          "tone": "trigger",
+          "subtitleTr": "Yaratılış tek bir an değil, **süreçlerle** gerçekleşebilir.",
+          "subtitleEn": "Creation may occur not in a single instant but **through processes**."
+        },
+        {
+          "titleTr": "Okyanuslar",
+          "titleEn": "Oceans",
+          "tone": "state",
+          "subtitleTr": "Dünyanın özenle şekillendirilmesi.",
+          "subtitleEn": "The careful shaping of the earth."
+        },
+        {
+          "titleTr": "Ormanlar",
+          "titleEn": "Forests",
+          "tone": "state",
+          "subtitleTr": "Yaşamın ortaya çıkışı ve gelişmesi.",
+          "subtitleEn": "The emergence and development of life."
+        },
+        {
+          "titleTr": "Ve nihayetinde biz",
+          "titleEn": "And finally, us",
+          "tone": "outcome",
+          "subtitleTr": "İnsanlığın varoluş sahnesine çıkışı.",
+          "subtitleEn": "Humanity's entrance onto the stage of existence."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu geniş yaratılış anlayışı içerisinde tartışmalı bir nokta mevcuttur. Eski Ahit'teki **Tekvin (Genesis)** anlatısını kelime kelime okuyan bazı gelenekler, insanlığın aniden, diğer yaşam formlarından tamamen bağımsız bir şekilde ortaya çıktığını tasvir eder. Bu yorumda ilk insanlar — Âdem ve Havvâ — diğer canlılarla **hiçbir ortak geçmişi olmadan** doğrudan yaratılmıştır. Bu doğrudan yaratılış görüşü, yüzyıllardır süregelen tartışmalarda modern bilimsel bulgularla sık sık çatışmıştır.",
+      "en": "Within this broad understanding of creation there is a contested point. Some traditions that read the **Genesis** narrative of the Old Testament word for word depict humanity as appearing suddenly, wholly independent of other life forms. On this reading the first humans — Adam and Eve — were created directly, **with no shared history** with other living things. This direct-creation view has repeatedly clashed with modern scientific findings across centuries of debate."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu mesele etrafında kutsal metin yorumlarından felsefî yaklaşımlara, bilimsel verilerden diğer birçok argümana kadar pek çok tartışma döner. Ancak popüler söylemlerde çoğu zaman göz ardı edilen güçlü bir kanıt vardır: **genetik senteni (synteny)**.",
+      "en": "Around this question turn a great many debates — from scriptural interpretation to philosophical approaches, from scientific data to many further arguments. Yet there is one powerful piece of evidence that popular discourse mostly overlooks: **genetic synteny**."
+    },
+    {
+      "type": "section",
+      "id": "ortak-miras",
+      "titleTr": "Ortak Bir Mirasın İmzasını Görmek",
+      "titleEn": "Seeing the Signature of a Shared Inheritance"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Genomu bir metin olarak okumak",
+      "titleEn": "Reading the genome as a text",
+      "root": {
+        "tr": "İnsan genomu — **büyük ve anlamlı bir metin**",
+        "en": "The human genome — **a large and meaningful text**"
+      },
+      "branches": [
+        {
+          "id": "gen",
+          "labelTr": "Gen",
+          "labelEn": "Gene",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Bir **cümle** gibidir",
+              "en": "Is like a **sentence**"
+            }
+          ]
+        },
+        {
+          "id": "kromozom",
+          "labelTr": "Kromozom",
+          "labelEn": "Chromosome",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Bir **bölüm** gibidir",
+              "en": "Is like a **chapter**"
+            }
+          ]
+        },
+        {
+          "id": "senteni",
+          "labelTr": "Senteni",
+          "labelEn": "Synteny",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Cümlelerin **aynı sırada ve düzende** dizilmiş olması",
+              "en": "The sentences being arranged **in the same order and pattern**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "En yakın biyolojik akrabalarımız olan şempanzelerin, gorillerin ve diğer primatların genomlarına baktığımızda, sadece **benzer kelimeler (genler)** bulmakla kalmaz, aynı zamanda bu *“cümlelerin”* **benzer sırada ve düzenlerde** dizildiğini görürüz. Türler arasındaki gen düzeninin bu korunumu, genetikçiler tarafından **senteni** olarak adlandırılır.",
+      "en": "When we look at the genomes of our closest biological relatives — chimpanzees, gorillas and other primates — we do not merely find **similar words (genes)**; we find that those *“sentences”* are laid out **in a similar order and arrangement**. This conservation of gene order across species is what geneticists call **synteny**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Terim — senteni (synteny)",
+      "headingEn": "The term — synteny",
+      "tr": "Genetikte **senteni**, iki ya da daha fazla türde aynı genlerin aynı göreli sırayla, aynı kromozomal bölgelerde bulunmasıdır. Yazının bütün ağırlığı bu ayrımda toplanır: mesele genlerin **benzerliği** değil, **dizilişlerinin korunmuş olması**dır. Geniş genom bölgelerinin çarpıcı biçimde hizalanması, ortak bir geçmişe işaret eder.",
+      "en": "In genetics, **synteny** is the presence of the same genes in the same relative order, in the same chromosomal regions, across two or more species. The whole weight of this essay rests on that distinction: the point is not the **similarity** of genes but **the preservation of their ordering**. The striking alignment of broad genomic regions points to a shared past."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Sanki milyonlarca yıl boyunca ufak değişikliklerle düzenlenmiş, ama yine de **aynı edebî soydan geldiği açıkça belli olan** eski bir el yazmasının farklı baskılarını inceliyor gibiyiz.",
+      "en": "It is as though we were examining different editions of an ancient manuscript — edited with small changes over millions of years, yet **plainly descended from the same literary lineage**."
+    },
+    {
+      "type": "section",
+      "id": "sadece-benzer-genler-degil",
+      "titleTr": "Senteni: Sadece Benzer Genler Değil",
+      "titleEn": "Synteny: Not Merely Similar Genes"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İtiraz neyi açıklar, neyi açıklamaz",
+      "captionEn": "What the objection explains, and what it does not",
+      "left": {
+        "titleTr": "Şüphecinin itirazı",
+        "titleEn": "The sceptic's objection",
+        "accent": "#3498db",
+        "descTr": "İnsanlar ve maymunlar **benzer işlevlere** sahip — nefes alma, sindirim, üreme — o hâlde benzer genlere sahip olmaları mantıklıdır.",
+        "descEn": "Humans and apes have **similar functions** — respiration, digestion, reproduction — so it is reasonable that they have similar genes.",
+        "bullets": [
+          {
+            "tr": "Pratik bir yaratıcı, biyolojik *“araçları”* yeniden kullanmıştır",
+            "en": "A practical creator has reused the biological *“tools”*"
+          },
+          {
+            "tr": "✔ Bu, **benzerliği** açıklar",
+            "en": "✔ This does explain the **similarity**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Açıklanmayan kalıp",
+        "titleEn": "The pattern left unexplained",
+        "accent": "#d4a574",
+        "descTr": "Ama bu mantık, daha derin bir kalıbı — **genlerin düzenini** — tam olarak ele almaz.",
+        "descEn": "But this reasoning does not fully address a deeper pattern — **the ordering of the genes**.",
+        "bullets": [
+          {
+            "tr": "Her tür *“sıfırdan”* başlatılsaydı, geniş gen düzenlerini korumanın **hiçbir mantıksal nedeni olmazdı**",
+            "en": "If each species were begun *“from scratch”*, there would be **no logical reason** to preserve broad gene orderings"
+          },
+          {
+            "tr": "**Sınırsız bir yaratıcı** bu genetik *“bölümleri”* istediği gibi yeniden düzenleyebilirdi",
+            "en": "**An unbounded creator** could have rearranged these genetic *“chapters”* at will"
+          },
+          {
+            "tr": "✘ Düzen **açıklanmadan kalır**",
+            "en": "✘ The ordering **remains unexplained**"
+          }
+        ]
+      },
+      "bridgeTr": "Benzer genlerin varlığını açıklamak, o genlerin niçin aynı sırada dizildiğini açıklamaz — asıl soru buradadır.",
+      "bridgeEn": "Explaining the presence of similar genes does not explain why those genes lie in the same order — and that is where the real question sits."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Bir kitabı yazmayı düşünün: belirli kelime veya ifadeleri yeniden kullanmak anlamlı olabilir. Ancak **neden tüm paragrafları veya bölümleri tam olarak aynı sırayla kopyalayasınız?**",
+      "en": "Think of writing a book: reusing particular words or phrases may well make sense. But **why would you copy whole paragraphs or chapters in exactly the same order?**"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu düzenin **işlevsel bir gereklilik olmadığını biliyoruz**, çünkü bir genin kromozom üzerindeki tam pozisyonu genellikle o genin işlevi için kritik değildir.",
+      "en": "We know this ordering is **not a functional requirement**, because a gene's exact position on the chromosome is usually not critical to that gene's function."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Düzenin işlevsel zorunluluk olmadığının delilleri",
+      "captionEn": "The evidence that the ordering is no functional necessity",
+      "nodes": [
+        {
+          "titleTr": "Gen taşınabilir",
+          "titleEn": "A gene can be moved",
+          "tone": "trigger",
+          "subtitleTr": "Laboratuvar deneyleri, bir genin bir konumdan başka bir konuma taşınmasının **organizmanın işlevini bozmadığını** göstermiştir.",
+          "subtitleEn": "Laboratory experiments have shown that relocating a gene from one position to another **does not disrupt the organism's function**."
+        },
+        {
+          "titleTr": "Gen tedavisi konum belirlemez",
+          "titleEn": "Gene therapy specifies no location",
+          "tone": "state",
+          "subtitleTr": "Yeni genler hastaların hücrelerine **belirli bir yere konmadan** eklenir.",
+          "subtitleEn": "New genes are inserted into patients' cells **without being placed at any particular site**."
+        },
+        {
+          "titleTr": "Plazmitle bile çalışır",
+          "titleEn": "It works even on a plasmid",
+          "tone": "state",
+          "subtitleTr": "Terapötik genler bazen **ayrı bir dairesel DNA molekülüyle** (plazmit) iletilir; hücreler yine de gereken proteini üretir.",
+          "subtitleEn": "Therapeutic genes are sometimes delivered on **a separate circular DNA molecule** (a plasmid); the cells still produce the required protein."
+        },
+        {
+          "titleTr": "Öyleyse düzen mirastır",
+          "titleEn": "Therefore the ordering is inheritance",
+          "tone": "outcome",
+          "subtitleTr": "Benzer genler tamamen farklı kalıplarla yerleştirilmiş olabilirdi ve **yaşam yine de devam ederdi**.",
+          "subtitleEn": "Similar genes could have been arranged in entirely different patterns and **life would have carried on regardless**."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Senteni, iyi *“araçların”* yeniden kullanımıyla ilgili değildir; **aynı eski metinden okunmasıyla** ilgilidir.",
+      "en": "Synteny is not about the reuse of good *“tools”*; it is about **being read from the same ancient text**."
+    },
+    {
+      "type": "section",
+      "id": "surec-yoluyla-yaratilis",
+      "titleTr": "Süreç Yoluyla Yaratılış: Anlamın Derinliğini Kucaklamak",
+      "titleEn": "Creation Through Process: Embracing the Depth of Meaning"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı delil, iki farklı yaratılış tasavvuru",
+      "captionEn": "The same evidence, two conceptions of creation",
+      "left": {
+        "titleTr": "Ani ve izole yaratılış",
+        "titleEn": "Sudden, isolated creation",
+        "accent": "#e74c3c",
+        "descTr": "İnsan, diğer yaşam formlarından **tamamen bağımsız** olarak bir anda ortaya çıkar.",
+        "descEn": "The human appears all at once, **wholly independent** of other life forms.",
+        "bullets": [
+          {
+            "tr": "Senteni bu tasavvura **meydan okur**",
+            "en": "Synteny **challenges** this conception"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Süreç yoluyla yaratılış",
+        "titleEn": "Creation through process",
+        "accent": "#1D9E75",
+        "descTr": "Yaratıcı yöntem **süreklilik dokusunu** içerir; her yeni form eski genetik temeller üzerine inşa edilir.",
+        "descEn": "The creative method includes **a fabric of continuity**; each new form is built upon older genetic foundations.",
+        "bullets": [
+          {
+            "tr": "Senteninin tanınması yaratılışı **reddetmez** — anlayışı zenginleştirir",
+            "en": "Recognising synteny does **not reject** creation — it enriches the understanding"
+          },
+          {
+            "tr": "Yaşamın zamanla **çeşitlenmesine** izin verir",
+            "en": "It allows life **to diversify** over time"
+          }
+        ]
+      },
+      "bridgeTr": "Senteni yaratılış kavramını dışlamaz; daha geniş bir yaratılış anlayışını benimsememizi teşvik eder.",
+      "bridgeEn": "Synteny does not exclude the concept of creation; it urges us to adopt a wider understanding of it."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Terim — teistik evrim / evrimsel yaratılış",
+      "headingEn": "The term — theistic evolution / evolutionary creation",
+      "tr": "Yazarın andığı bu perspektife göre, sentenide görülen **ortak atalık, yaratıcı tarafından seçilen bir yöntemin parçası** hâline gelir: basit yaşam formlarından köken alarak, kökenlerini, anlamlarını ve nihaî amaçlarını düşünen insanlara doğru ilerleyen uzun bir anlatı. Bu, yazının kendi ifadesiyle, inançla **çelişmek zorunda değildir**.",
+      "en": "On the perspective the author invokes, the **common ancestry visible in synteny becomes part of a method chosen by the creator**: a long narrative originating in simple life forms and moving toward beings who reflect on their origins, their meaning and their final purpose. This, in the essay's own words, **need not conflict** with faith."
+    },
+    {
+      "type": "section",
+      "id": "insan-hikayesi",
+      "titleTr": "İnsan Hikâyesini Yeniden Yorumlamak",
+      "titleEn": "Reinterpreting the Human Story"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Senteninin kanıtını kabul etmek, kutsal metinlerin bazı **literalist okumalarını zorlayabilir**; ancak aynı zamanda daha derin bir manevî ve entelektüel takdire kapı açar. İnsanları izole bir şekilde aniden ortaya çıkmış olarak görmek yerine, bizi — en azından şu ana kadar — **anlamlı, ilâhî bir süreçle yönlendirilen bir sürecin zirvesi** olarak görebiliriz.",
+      "en": "Accepting the evidence of synteny may **strain certain literalist readings** of scripture; yet it also opens the door to a deeper spiritual and intellectual appreciation. Instead of seeing humans as having appeared suddenly and in isolation, we may see ourselves — at least so far — as **the summit of a process guided by a meaningful, divine one**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Hem **yaratılmışız** hem de **ilişkilendirilmişiz** — genetik düzeyde diğer yaşam formlarına bağlanmışız.",
+      "en": "We are both **created** and **related** — bound at the genetic level to other forms of life."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu içgörüleri uzlaştırdığımızda, insan yaşamının amacı ve kutsallığının diğer canlılarla olan bağlantımız tarafından **azaltılması gerekmez**. Aksine, atalarımızın genomik planını paylaştığımızı anlamak, bir **birlik ve sorumluluk** hissi davet eder.",
+      "en": "When we reconcile these insights, the purpose and sanctity of human life **need not be diminished** by our connection to other living beings. On the contrary, understanding that we share our ancestors' genomic plan invites a sense of **unity and responsibility**."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Bizi ayıran nitelikler — ve ait oluşumuz",
+      "titleEn": "The qualities that set us apart — and our belonging",
+      "root": {
+        "tr": "Birçok yönden farklıyız; **ama bu nitelikler, yaşamın geniş ve sürekli dokusuna ait olduğumuzu kabul ederek var olabilir ve hatta güçlenebilir.**",
+        "en": "We differ in many ways; **yet these qualities can exist, and even be strengthened, by acknowledging that we belong to the vast and continuous fabric of life.**"
+      },
+      "branches": [
+        {
+          "id": "soyut",
+          "labelTr": "Soyut düşünce",
+          "labelEn": "Abstract thought",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Kökenlerini ve nihaî amacını düşünebilme",
+              "en": "The capacity to reflect on one's origins and final purpose"
+            }
+          ]
+        },
+        {
+          "id": "oz-yansitma",
+          "labelTr": "Öz-yansıtma",
+          "labelEn": "Self-reflection",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Kendine dönüp kendini konu edebilme",
+              "en": "The capacity to turn back on oneself and take oneself as subject"
+            }
+          ]
+        },
+        {
+          "id": "ahlaki",
+          "labelTr": "Ahlâkî yargı",
+          "labelEn": "Moral judgement",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Sorumluluk duygusunun zemini",
+              "en": "The ground of the sense of responsibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç: Senteni Daha Derin Bir Gerçeğin İşareti Olarak",
+      "titleEn": "Conclusion: Synteny as the Sign of a Deeper Reality"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Genomlardaki senteninin varlığı, insanların ve diğer canlıların sadece benzer genleri değil, **karmaşık ve katmanlı bir genetik geçmişi** paylaştığının incelikli ancak derin bir göstergesidir. Bu gerçeklik, ani ve izole bir yaratılış yorumlarına meydan okur — ancak yaratılış kavramını **dışlamaz**.",
+      "en": "The presence of synteny in genomes is a subtle yet profound indication that humans and other living beings share not merely similar genes but **a complex, layered genetic past**. This reality challenges interpretations of a sudden, isolated creation — yet it does **not exclude** the concept of creation."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Senteni sadece genetikte teknik bir terim değildir; **dinamik, sürekli ve derin anlamlı bir yaratılış görüşüne işaret eden bir yol işaretidir.**",
+      "en": "Synteny is not merely a technical term in genetics; **it is a signpost pointing toward a view of creation that is dynamic, continuous and profoundly meaningful.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Yazar hakkında · küme",
+      "headingEn": "About the author · cluster",
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Yazı, yazarın Medium'da *Yaratılış Hikâyesi* adıyla topladığı okuma listesinde yer alır; aynı listedeki diğer yazılar sitede mevcuttur: **evrim üçlemesi** (*Hâlâ mı Evrim?* → *Evrim Dinsizliği Yayma Projesidir!* → *Evrim, İnanç ve Aklımızdaki Resimler*) ve **Yaratılış Hikâyesi 1-2**. Metindeki ERV/ortak ata tartışmasının devamı *Hâlâ mı Evrim?* yazısında bulunabilir.",
+      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. It belongs to the reading list the author gathered on Medium under the name *The Story of Creation*; the other pieces in that list are available here: the **evolution trilogy** (*Evolution, Again?* → *Evolution Is a Project to Spread Godlessness!* → *Evolution, Belief and the Pictures in Our Minds*) and **The Story of Creation 1-2**. The continuation of the ERV / common-ancestry discussion touched on here may be found in *Evolution, Again?*"
+    }
+  ]
+}

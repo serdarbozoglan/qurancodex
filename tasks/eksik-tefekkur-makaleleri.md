@@ -3,7 +3,9 @@
 > **Oluşturma:** 2026-08-12
 > **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` ile karşılaştırıldı.
 >
-> **📌 Son durum (2026-08-12):** Site **43 makale**. `833176e`'de 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı (41'e çıktı); ardından *Hâlâ mı Evrim?* (42) ve *Evrim Dinsizliği Yayma Projesidir!* (43) eklendi. Tamamı `status: "published"`. Kategori dağılımı: sûre-hermenötik 12 · idrak-şuur 9 · terminoloji 7 · kozmoloji 6 · semantik 5 · kavramsal 4.
+> **📌 Son durum (2026-08-12):** Site **44 makale**. `833176e`'de 6 yeni makale + indekste kayıp 2 makale kurtarıldı (41); ardından *Hâlâ mı Evrim?* (42), *Evrim Dinsizliği Yayma Projesidir!* (43), *Anlam, Yaratılış ve Senteninin Bariz İmzası* (44). Tamamı `status: "published"`. Kategori dağılımı: sûre-hermenötik 12 · idrak-şuur 9 · kozmoloji 7 · terminoloji 7 · semantik 5 · kavramsal 4.
+>
+> **✍ Atıf temizliği (2026-08-12):** Alıntı bloklarındaki `source` alanlarından *"(Felsufi aktarımı)"* eki kaldırıldı — 8 dosyada 12 yer. Atıf artık doğrudan kaynağı gösteriyor (ör. *Bediüzzaman — Sözler*).
 >
 > ⚠ **Neden ekran görüntüsünden:** Medium arşivi programatik olarak taranamıyor. Profil sayfası sonsuz kaydırma ile yalnız son ~10 yazıyı, RSS beslemesi (`/feed`) 9 kaydı veriyor; `/archive` 404 dönüyor. 2025 arşivi bu uçların hiçbirinde görünmüyor — kanıt: 2025-09 ve 2025-10 tarihli iki yazı feed'de yoktu.
 >
@@ -31,7 +33,7 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ---
 
-## ✅ B — YARATILIŞ HİKÂYESİ — **HATALI VARSAYIM DÜZELTİLDİ** (2026-08-12)
+## ✅ B — YARATILIŞ HİKÂYESİ LİSTESİ — **TAMAMLANDI + HATALI VARSAYIM DÜZELTİLDİ** (2026-08-12)
 
 🔴 **Önceki kayıt yanlıştı.** "Yaratılış Hikayesi · 6 stories" ifadesini *altı bölümlük numaralı bir seri* sandım ve `seriesTotal: 6` yazdım; seri notuna da "3, 4, 5 ve 6 henüz eklenmedi" cümlesi girdi. **Bu cümle canlı sitede yanlış bilgi olarak yayımlandı.**
 
@@ -41,12 +43,12 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 |---|---|---|
 | 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` |
 | 2024-11-12 | Hâlâ mı Evrim? | ✅ `hala-mi-evrim` |
-| 2024-12-18 | **Anlam, Yaratılış ve Senteninin Bariz İmzası** | ❌ **eksik** (D bölümünde de var) |
+| 2024-12-18 | Anlam, Yaratılış ve Senteninin Bariz İmzası | ✅ `anlam-yaratilis-senteni` |
 | 2025-05-14 | Evrim dinsizliği yayma projesidir! | ✅ `evrim-dinsizligi-projesi` |
 | 2025-07-27 | Yaratılış Hikayesi-2: Kâinatın Katmanlı Yaratılışı | ✅ `yaratilis-hikayesi-2-katmanli-yaratilis` |
 | 2025-07-27 | Yaratılış Hikayesi-1: Giriş | ✅ `yaratilis-hikayesi-1-giris` |
 
-**Yani listedeki altı yazının yalnız ikisi numaralı seri parçası.** `seriesTotal` 6 → **2** düzeltildi (iki makalede de), `sync-series-notes.mjs` yeniden çalıştırıldı; seri notu artık "eksik bölüm var" demiyor. Listeden gerçekten eksik olan **tek** yazı: *Anlam, Yaratılış ve Senteninin Bariz İmzası*.
+**Yani listedeki altı yazının yalnız ikisi numaralı seri parçası.** `seriesTotal` 6 → **2** düzeltildi (iki makalede de), `sync-series-notes.mjs` yeniden çalıştırıldı; seri notu artık "eksik bölüm var" demiyor. Listeden eksik olan tek yazı *Anlam, Yaratılış ve Senteninin Bariz İmzası* idi; **o da eklendi — liste artık eksiksiz.**
 
 ⚠ **Ders:** Medium'da "N stories" ifadesi bir serinin bölüm sayısı DEĞİL, listedeki yazı sayısıdır. Liste başlığının bir seri adıyla aynı olması yanıltıcı. Bir sonraki sefere **listenin içeriğini görmeden** `seriesTotal` yazma.
 
@@ -80,7 +82,7 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 |---|---|---|
 | 2024-10-22 | Allahu Ekber ile Seyr İlallah: Yüzeydeki Dikkat Dağıtanlardan Kurtulma | `idrak-suur` |
 | 2024-12-07 | Kâinat Kitabının Kuantum Bölümü-1: Kuantum Mekaniğinin Beş Büyük Gizemi | `kozmoloji` |
-| 2024-12-18 | Anlam, Yaratılış ve Sentenin Bariz İmzası | `kozmoloji` |
+| ~~2024-12-18~~ | ~~Anlam, Yaratılış ve Senteninin Bariz İmzası~~ | ✅ `anlam-yaratilis-senteni` |
 | 2025-04-16 | Alâ Sûresi-1: Tesbih ve Soyutlama | `sure-hermenotik` |
 | ~2025-04 | Kaderin Çözünürlüğü ve Esnek Determinizm **(devam)** | `terminoloji` |
 | 2025-05-31 | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | `kavramsal` |
@@ -95,20 +97,36 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ## 🟢 E — İNGİLİZCE SÜRÜMLER (yeni makale DEĞİL)
 
-**Bunların çoğu mevcut/eklenecek Türkçe yazıların yazar tarafından yazılmış İngilizce sürümüdür.** Ayrı makale açılmamalı; ilgili makalenin `en` alanlarına girmeli.
+🔴 **"Hazır kazanç" varsayımı ÇÜRÜDÜ (2026-08-12).** Kullanıcı, *Our Principles for Reading the Quran* Part 1 ve Part 2'nin yazar tarafından yazılmış tam İngilizce metinlerini paylaştı. Karşılaştırma sonucu: **sitedeki mevcut İngilizce, yazarın kendi İngilizcesinden DAHA DOLU.** Değiştirmek içerik kaybı olurdu — yapılmadı.
+
+Kanıt (üç bağımsız örnek):
+
+| Konu | Yazarın İngilizcesi | Sitedeki İngilizce |
+|---|---|---|
+| Yağmur kelimeleri (Precision prensibi) | 3 kelime: *matar, vabil, gays* | **6 kelime**: *maṭar, wābil, māʾ al-samāʾ, wadq, ghayth, midrār* + "hadis külliyatında böyle bir ayrım yok" notu |
+| 25. Söz alıntısı | 3 cümle | **4 cümle** — *"Kısa keser, tâ herkesin hissesi bulunsun"* fazladan |
+| İşârâtü'l-İcâz örneği | 2 kelime: *yuzakkūna, yuʾtūna al-zakāh* | **3 kelime** — *yataṣaddaqūna* fazladan |
+
+**Sebep:** Sitenin metinleri yazarın **Türkçe** özgün yazılarından (*Kuran Okuma Prensiplerimiz-1/2*) kurulmuş; yazarın Türkçesi kendi İngilizcesinden daha ayrıntılı. Sitedeki İngilizce bu dolu Türkçenin çevirisi olduğu için yazarın İngilizcesini geçiyor.
+
+**Ek olarak sitede olup yazarın İngilizcesinde HİÇ olmayanlar:** ChatGPT/1536 boyutlu anlam uzayı notu, *Vektörel Okuma ⇄ Trajectory Hermeneutics* karşılaştırma bloğu. Tam kapsam denetimi yapıldı — *zümrüt tepeler*, *altın iklim*, *Muʿcizu'l-Beyân*, mensûh tartışması, *fecr/fetih/fısk* örnekleri, ophthalmos etimolojisi: **hepsi sitede mevcut.**
+
+➡ **Sonuç: Okuma Prensipleri 1-2 için yapılacak bir şey yok.** Aşağıdaki tablonun ilk iki satırı kapandı. Diğer satırlar için de aynı kontrolü yapmadan "hazır kazanç" varsayma.
+
+**Kalanlar için kural:** Ayrı makale açılmamalı; ilgili makalenin `en` alanlarına girmeli — **ama önce mevcut `en` ile karşılaştır**, kısa olanı uzun olanın yerine koyma.
 
 | İngilizce başlık | Tarih | Karşılığı | Not |
 |---|---|---|---|
-| Our Principles for Reading the Quran — Part 1: Epistemic | 2024-10-12 | `okuma-prensipleri-1` ✅ sitede | **Hazır kazanç** |
-| Our Principles for Reading the Quran — Part 2: Hermeneutic | 2024-10-12 | `okuma-prensipleri-2` ✅ sitede | **Hazır kazanç** |
+| ~~Our Principles… Part 1: Epistemic~~ | 2024-10-12 | `okuma-prensipleri-1` | ✅ **kapandı** — site metni daha dolu |
+| ~~Our Principles… Part 2: Hermeneutic~~ | 2024-10-12 | `okuma-prensipleri-2` | ✅ **kapandı** — site metni daha dolu |
 | Contemporary Quran Readings-1: Local and Global Perspectives | 2024-10-11 | Terminoloji 1 (A bölümü) | TR ile birlikte |
 | Physicalism and Its Fragility | 2024-11-27 | Terminoloji 3 (A bölümü) | TR ile birlikte |
 | The Five Biggest Mysteries in Quantum Mechanics | 2024-12-07 | Kuantum Bölümü-1 (D bölümü) | TR ile birlikte |
-| Meaning, Creation, and the Telltale Signature of Synteny | 2024-12-18 | Anlam/Yaratılış/Synteny (D bölümü) | TR ile birlikte |
+| Meaning, Creation, and the Telltale Signature of Synteny | 2024-12-18 | `anlam-yaratilis-senteni` ✅ sitede | ⚠ EN şu an **çeviri**; yazarın özgün metni gelirse değiştirilecek |
 | Contemporary Quran Readings: Emergence, Irreducibility, and Meaning | — | Türkçesi görünmüyor | Bağımsız olabilir |
 | A New Cosmology: Understanding Existence Through Three Worlds | 2024-12-02 | Türkçesi görünmüyor | Bağımsız olabilir |
 
-> **Neden önemli:** `okuma-prensipleri-1/2`'nin İngilizce gövdeleri şu an ya boş ya çeviri. Yazarın kendi İngilizcesi varken çeviri kullanmak gereksiz — bu iki makale için **anında** kalite artışı.
+> ~~**Neden önemli:** yazarın kendi İngilizcesi varken çeviri kullanmak gereksiz.~~ **Bu gerekçe geçersiz** — yukarıdaki karşılaştırmaya bakınız.
 
 ---
 
@@ -119,10 +137,11 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 ~~Yaratılış Hikâyesi 3-6~~ ✅ (böyle bölümler yok — B bölümüne bak) · ~~Evrim üçlemesi~~ ✅
 
 **Güncel sıra (2026-08-12):**
-1. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. Yazarın kendi İngilizcesi mevcut. En ucuz kazanç, hâlâ yapılmadı.
-2. **Anlam, Yaratılış ve Senteninin Bariz İmzası** (2024-12-18) — hem B listesinde hem D'de; iki kümeyi birden kapatır. İngilizce sürümü de var (*Meaning, Creation, and the Telltale Signature of Synteny*), ikisi birlikte eklenebilir.
-3. D bölümündeki kalan tekil yazılar (7 adet).
-4. E bölümündeki İngilizce sürümler.
+~~Okuma Prensipleri 1-2 EN~~ ✅ (gerek yokmuş — E bölümüne bak) · ~~Anlam/Yaratılış/Senteni~~ ✅
+
+1. **D bölümündeki kalan tekil yazılar (7 adet)** — sırayı kullanıcı belirleyecek; metinler elde olmadan eklenemez.
+2. **E bölümündeki kalan İngilizce sürümler** — her biri için önce mevcut `en` ile uzunluk/kapsam karşılaştırması yapılacak.
+3. **Tarih denetimi** — `_index.json` tarihleri ile Medium tarihleri arasında tutarsızlık var (aşağıya bak).
 
 ---
 
