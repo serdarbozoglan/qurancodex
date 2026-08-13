@@ -1160,6 +1160,45 @@ export default function Navbar() {
                       </div>
                     );
                   })()}
+                {/* Katalog şeridi (2026-08-13). /arac/tum-araclar sayfasına
+                    sitede TEK giriş vardı: anasayfadaki ToolsHighlight'ın
+                    "Tüm Araçları Gör" düğmesi. Navbar'da, footer'da, hiçbir
+                    yerde link yoktu — 50 aracı listeleyen sayfa pratikte
+                    gizliydi. Menünün dibine kalıcı bir giriş eklendi. */}
+                <button
+                  onClick={() => { router.push(`/${language}/arac/tum-araclar`); setToolsOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    width: '100%', gap: '10px',
+                    padding: '11px 16px', border: 'none',
+                    borderTop: '1px solid rgba(255,255,255,0.055)',
+                    background: 'transparent', cursor: 'pointer',
+                    borderRadius: '0 0 13px 13px',
+                    transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1)',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(212,165,116,0.07)';
+                    const a = e.currentTarget.querySelector('.tallarr');
+                    if (a) a.style.transform = 'translateX(3px)';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'transparent';
+                    const a = e.currentTarget.querySelector('.tallarr');
+                    if (a) a.style.transform = 'translateX(0)';
+                  }}
+                >
+                  <span style={{
+                    color: COLORS.gold, fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.76rem', fontWeight: 700,
+                    letterSpacing: '0.1em', textTransform: 'uppercase',
+                  }}>
+                    {language === 'tr' ? 'Tüm Araçlar' : 'All Tools'}
+                  </span>
+                  <span className="tallarr" style={{
+                    color: COLORS.gold, fontSize: '0.85rem', lineHeight: 1,
+                    transition: 'transform 0.45s cubic-bezier(0.32,0.72,0,1)',
+                  }}>→</span>
+                </button>
                 </div>
                 </motion.div>
               )}

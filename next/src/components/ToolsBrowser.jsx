@@ -101,7 +101,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   // ESC closes
   useEffect(() => {
     if (!open) return;
-    const h = (e) => { if (e.key === 'Escape') setOpen(false); };
+    const h = (e) => { if (e.key === 'Escape') { setOpen(false); onClose?.(); } };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [open]);
@@ -132,7 +132,11 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  const close = () => setOpen(false);
+  // Kapanış (2026-08-13, kullanıcı raporu: "kapatınca arkada boş sayfa kalıyor").
+  // Önceden yalnız setOpen(false) yapıyordu; ToolsBrowser bir ROTA'nın
+  // (/arac/tum-araclar) tek içeriği olduğu için modal gizlenince geriye
+  // bomboş bir sayfa kalıyordu. onClose artık her kapanışta çağrılıyor.
+  const close = () => { setOpen(false); onClose?.(); };
 
   // Araç tıklaması → route navigasyonu (2026-08-13).
   //
@@ -207,7 +211,11 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            // Navbar payı (2026-08-13, kullanıcı raporu: "bu kısımda overlap var").
+            // inset:0 + dikey ortalama + maxHeight:88vh kombinasyonu 900px'lik
+            // ekranda modalin üst kenarını 54px'e koyuyordu; navbar 62px, yani
+            // 8px örtüşme oluşuyordu. Üst padding navbar yüksekliği + nefes payı.
+            padding: '96px 24px 24px',
             boxSizing: 'border-box',
           }}
         >
@@ -223,7 +231,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
             aria-labelledby="tools-browser-title"
             style={{
               width: 'min(1080px, 92vw)',
-              maxHeight: '88vh',
+              maxHeight: 'calc(100vh - 120px)',   // 96 üst + 24 alt padding
               background: COLORS.cosmicBlack,
               border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: '16px',
