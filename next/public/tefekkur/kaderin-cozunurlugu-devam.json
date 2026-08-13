@@ -12,12 +12,15 @@
   "canonicalUrl": "https://sufist.medium.com/kaderin-%C3%A7%C3%B6z%C3%BCn%C3%BCrl%C3%BC%C4%9F%C3%BC-ve-esnek-determinizm-devam-ea6be8305bf2",
   "tldrTr": "Terminoloji 7'nin devamı: aynı hakikat bu kez **çok-ölçekli** bir mercekle — bilgi teorisi, emergent kavramlar ve kuantum fiziği üzerinden — inceleniyor. Ana tez şu: kaderi *“tam yazmak”* fikri bilgi-içeriği açısından kendini boşa çıkarır. Doğal dil şişer; matematiğe sıkıştırılırsa hesaplamak yaşamaya eşdeğer olur (**computational irreducibility**); doğrudan kayıt ise hadiseyi ikinci kez yaşamak demektir. Öyleyse kaderi bizim ölçeğimizde kodlamak **zorunlu olarak özetleyici** bir işlemdir — kader bitmiş bir metin değil, bir oyunun kaynak kodu gibi **üretken ve dinamik bir kalıptır**. Emergent kavramlar bunu somutlaştırır: makro ölçekteki tek bir hüküm (*“30 °C”*), mikro ölçekte devasa bir faz uzayı hacmine karşılık gelir. Bediüzzaman'ın *kalem-i kader* tabiri de bunu imler: kader yazılan değil, **yazandır**.",
   "tldrEn": "A continuation of Terminology 7: the same truth examined through a **multi-scale** lens — information theory, emergent concepts and quantum physics. The central thesis: the idea of *“writing destiny out in full”* defeats itself on informational grounds. Natural language inflates; compressed into mathematics, computing every event becomes equivalent to living it (**computational irreducibility**); and direct recording would mean living the event a second time. Encoding destiny at our scale is therefore **necessarily a summarising operation** — destiny is not a finished text but **a generative, dynamic pattern**, like the source code of a game. Emergent concepts make this concrete: a single macro-level statement (*“30 °C”*) corresponds to an enormous volume of micro-level phase space. Bediüzzaman's phrase *the pen of destiny* points to the same thing: destiny is not what is written but **what writes**.",
-  "relatedTools": ["concept-graph", "reading-mode"],
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
   "relatedVerses": [],
   "previousArticle": {
     "slug": "kader",
     "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
-    "titleEn": "Terminology 7: The Resolution of Destiny, Design, Will and Flexible Determinism"
+    "titleEn": "Terminology 7: The Resolution of Destiny — Design, Will, and Soft Determinism"
   },
   "nextArticle": null,
   "blocks": [

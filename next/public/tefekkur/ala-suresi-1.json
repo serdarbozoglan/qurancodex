@@ -1,0 +1,347 @@
+{
+  "slug": "ala-suresi-1",
+  "titleTr": "A'lâ Sûresi-1: Tesbih ve Soyutlama",
+  "titleEn": "Sūrat al-Aʿlā-1: Glorification and Abstraction",
+  "category": "sure-hermenotik",
+  "publishedDate": "2025-04-16",
+  "readingMinutes": 7,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/ala-suresi-1-tesbih-ve-soyutlama-d2a03a40ebf9",
+  "tldrTr": "*Tesbih*, **sebbeha** kökünden gelir: bir kuşun uçup, bir balığın yüzüp **uzaklaşması**. Buradan kavramın çekirdeği çıkar — kusur ve noksan sıfatlarını **zihinsel olarak uluhiyet kavramından uzaklaştırmak**. Âyet *“Rabbini tesbih et”* demez, ***“Rabbinin ismini”*** der: gözlem dünyasında bizim muhatap olduğumuz şey **isimdir**, ve onun da tesbih edilmesi gerekir. Bunun iki yönü var: ① zâhirde görünen kusuru **perspektifimizin darlığına hamletmek** — Wolfram'ın diliyle, gözlemci *computationally bounded* olduğu için *computationally irreducible* olanı “rastgele” sanır; ② **fâilin Allah olduğunu ikrar edip sebeplere tesir-i hakikî vermemek** — nitekim Kur'an'da *sübhânehû* geçen her yerde şirk konusu işlenir. Yazının ikinci yarısı *a'lâ*yı **azîm, kebîr, mecîd**den ayırır: *a'lâ*da **tecerrüd, yani soyutlama yoluyla yücelik** vardır. Fincancı → seramikçi → sanatçı örneği bu **ontolojik genelleştirmeyi** somutlaştırır.",
+  "tldrEn": "*Tasbīḥ* derives from the root **sabbaḥa**: a bird flying, a fish swimming — **away**. From this the core of the concept emerges: **to distance, mentally, every attribute of defect and deficiency from the concept of divinity**. The verse does not say *“glorify your Lord”* but ***“the name of your Lord”***: in the world of observation what we deal with is **the name**, and it too must be glorified. This has two faces: ① to refer apparent defect **to the narrowness of our own perspective** — in Wolfram's terms, an observer who is *computationally bounded* mistakes what is *computationally irreducible* for randomness; ② **to confess that the agent is God and to grant no real efficacy to secondary causes** — indeed, wherever *subḥānahu* occurs in the Qur'an, the question of associating partners is at issue. The second half distinguishes *aʿlā* from **ʿaẓīm, kabīr, majīd**: in *aʿlā* the elevation comes **through abstraction, through detachment**. The potter → ceramicist → artist example makes this **ontological generalisation** concrete.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "87:1",
+    "87:2",
+    "87:3",
+    "96:1",
+    "13:13",
+    "17:44",
+    "6:100",
+    "16:1",
+    "16:3"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "verseInline",
+      "ref": "87:1",
+      "ar": "سَبِّحِ اسْمَ رَبِّكَ الْاَعْلٰى",
+      "noteTr": "“**A'lâ olan, yüce Rabbinin ismini tesbih et!**” — Emrin nesnesi Rabb değil, **Rabbin ismidir**; sıfatı da *azîm* yahut *kebîr* değil, ***a'lâ***. Yazının bütün argümanı bu iki tercihin üzerine kurulur.",
+      "noteEn": "“**Glorify the name of your Lord, the Most High!**” — The object of the command is not the Lord but **the name of the Lord**; and the attribute is neither *ʿaẓīm* nor *kabīr* but ***aʿlā***. The whole argument of the piece rests on these two choices."
+    },
+    {
+      "type": "section",
+      "id": "sebbeha-koku",
+      "titleTr": "Tesbih: Uzaklaştırma Fiili",
+      "titleEn": "Tasbīḥ: The Act of Distancing"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*Tesbih*, **sebbeha** kökünden gelir. *Sebbeha* ise **bir kuşun uçup uzaklaşması**, **bir balığın yüzüp uzaklaşması** anlamlarında kullanılmış. Genel olarak **kusur ve noksan sıfatlarını Allah'a yakıştırmamak**, onları **zihinsel olarak uluhiyet kavramından uzaklaştırmak** demektir.",
+      "en": "*Tasbīḥ* comes from the root **sabbaḥa**. And *sabbaḥa* was used for **a bird flying away**, **a fish swimming away**. In general it means **not to ascribe attributes of defect and deficiency to God** — **to distance them, mentally, from the concept of divinity**."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Kökten kavrama: *sebbeha*",
+      "titleEn": "From root to concept: *sabbaḥa*",
+      "root": {
+        "tr": "Ortak çekirdek: **bir ortamda süzülerek uzaklaşmak**",
+        "en": "The shared core: **to glide away through a medium**"
+      },
+      "branches": [
+        {
+          "id": "kus",
+          "labelTr": "Kuş",
+          "labelEn": "The bird",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Havada **uçup uzaklaşması**",
+              "en": "**Flying away** through the air"
+            }
+          ]
+        },
+        {
+          "id": "balik",
+          "labelTr": "Balık",
+          "labelEn": "The fish",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Suda **yüzüp uzaklaşması**",
+              "en": "**Swimming away** through the water"
+            }
+          ]
+        },
+        {
+          "id": "zihin",
+          "labelTr": "Zihin",
+          "labelEn": "The mind",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**Kusur ve noksanı** uluhiyet kavramından **uzaklaştırması**",
+              "en": "**Distancing defect and deficiency** from the concept of divinity"
+            },
+            {
+              "tr": "Yani tesbih, bir **övgü** kadar bir **arındırma** fiilidir",
+              "en": "Tasbīḥ, that is, is as much an act of **purification** as of **praise**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "verseInline",
+      "ref": "13:13",
+      "ar": "وَيُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلٰٓئِكَةُ مِنْ خِيفَتِهِ",
+      "noteTr": "“**Gök gürültüsü** O'nu hamd ile tesbih eder, **melekler de** O'nun heybetinden dolayı.” — Tesbihin öznesi yalnız insan değildir; **cansız görünen bir hâdise** ile **mücerret bir varlık** aynı cümlede yer alır.",
+      "noteEn": "“**The thunder** glorifies Him with praise, **and the angels** out of awe of Him.” — The subject of glorification is not man alone; **a seemingly inanimate event** and **an immaterial being** stand in the same sentence."
+    },
+    {
+      "type": "verseInline",
+      "ref": "17:44",
+      "ar": "تُسَبِّحُ لَهُ السَّمٰوَاتُ السَّبْعُ وَالْاَرْضُ وَمَنْ فِيهِنَّ وَاِنْ مِنْ شَيْءٍ اِلَّا يُسَبِّحُ بِحَمْدِهِ وَلٰكِنْ لَا تَفْقَهُونَ تَسْبِيحَهُمْ",
+      "noteTr": "“Yedi gök, yer ve bunlarda bulunan herkes O'nu tesbih eder; **O'nu övgü ile tesbih etmeyen hiçbir şey yoktur. Ne var ki siz onların tesbihini anlamazsınız.**” — Tesbih **evrenseldir**, fakat **doğrudan anlaşılmaz**; anlaşılmaması onun yokluğuna delil değildir.",
+      "noteEn": "“The seven heavens and the earth and all within them glorify Him; **there is not a thing but glorifies Him with praise. Yet you do not comprehend their glorification.**” — Glorification is **universal**, yet **not directly comprehended**; and our failure to comprehend it is no proof of its absence."
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Lokal bakıldığında** — yani zamansal, mekânsal ve ilişkisel olarak kısıtlı bir açıdan bakılınca, yahut **ehadiyyet çerçevesinden** bakılınca — hâdiselerde **kusurlar, eksiklikler görünür**. Bir balık yüzlerce yumurta çıkarır, bunların çok azından balık çıkar. **Sebepler ve aracılar bu kusur ve eksiklikleri üstlerine çekerler.** İlk olarak göze de akla da **onlar** görünür, kusurların kaynağı olarak. **Bu şekilde, şuurlu olmasa da tesbih etmiş olurlar.**",
+      "en": "**Viewed locally** — that is, from a vantage constrained in time, place and relation, or viewed **through the frame of oneness in particulars** — **defects and deficiencies appear** in events. A fish lays hundreds of eggs, and very few of them become fish. **Secondary causes and intermediaries draw those defects and deficiencies onto themselves.** It is **they** that first appear to eye and mind as the source of the flaws. **And in this way, though without consciousness, they perform glorification.**"
+    },
+    {
+      "type": "section",
+      "id": "rabbin-ismi",
+      "titleTr": "Neden “Rabbini” Değil, “Rabbinin İsmini”?",
+      "titleEn": "Why “the Name of Your Lord,” Not “Your Lord”?"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Âyette *“Rabbini tesbih et”* demiyor, ***“Rabbinin ismini”*** diyor. Bu kullanımı **Alak 96:1**'de *bismi rabbikellezî halak* olarak görmüştük. Bu bağlam özelinde doğrudan Rabbi değil **Rabbin ismini** demesi, nihayetinde **gözlem dünyasında bizim Rabb'in ismi ile muhatap olduğumuza** işaret eder ve hatırlatır. Onun da tesbih edilmesi gerektiği — yani **gözlemlerimiz lokal perspektifte kaldığı için** ve gerçekliği bütünüyle bir anda göremediğimiz için, **dış dünyada yapılan gözlemleri tesbih ile proses etmemiz gerektiği** bildirilir.",
+      "en": "The verse does not say *“glorify your Lord”* but ***“the name of your Lord.”*** We had met this usage in **al-ʿAlaq 96:1** as *bi-smi rabbika'lladhī khalaq*. That in this context it says not the Lord directly but **the name of the Lord** points to, and reminds us of, the fact that **in the world of observation it is the name of the Lord with which we deal**. And that the name too must be glorified — that is, since **our observations remain within a local perspective** and we cannot see reality whole in a single moment, **the observations we make in the outer world must be processed through glorification.**"
+    },
+    {
+      "type": "verseInline",
+      "ref": "96:1",
+      "ar": "اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+      "noteTr": "“**Yaratan Rabbinin ismiyle oku.**” — İki sûre aynı kalıbı paylaşır: *bismi rabbike* / *isme rabbike*. **Yaratılanı her türlü okursun**; fakat **Rabbin ismi ile** okuman isteniyor.",
+      "noteEn": "“**Read in the name of your Lord who created.**” — The two suras share the same construction: *bi-smi rabbika* / *isma rabbika*. **You may read the created thing in any manner you like**; but you are asked to read it **in the name of your Lord.**"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Tesbihin iki yönü",
+      "titleEn": "The two faces of glorification",
+      "root": {
+        "tr": "Gözlemleri **tesbih ile proses etmek** ne demektir?",
+        "en": "What does it mean to **process observations through glorification**?"
+      },
+      "branches": [
+        {
+          "id": "perspektif",
+          "labelTr": "1 · Kusuru perspektife hamletmek",
+          "labelEn": "1 · Referring defect to perspective",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Zâhirde görünen kusur ve noksanlıkları — yani **yokluk işaretlerini** — **perspektifimizin darlığına** hamletmek",
+              "en": "To refer apparent defects and deficiencies — **the signs of non-being** — **to the narrowness of our own perspective**"
+            },
+            {
+              "tr": "**Rabbini, zâhirde gördüğün kusurlu ve noksan işlerle tesmiye etme**, isimlendirme, bunu O'na yakıştırma",
+              "en": "**Do not name your Lord by the defective and deficient works you see on the surface**, do not ascribe them to Him"
+            },
+            {
+              "tr": "**Lokal ve global perspektifleri** göz önünde bulundur; gördüğün kusuru **perspektifinin lokalliğine** bağla",
+              "en": "Keep **the local and the global perspectives** in view; bind the defect you see **to the locality of your own vantage**"
+            }
+          ]
+        },
+        {
+          "id": "fail",
+          "labelTr": "2 · Fâilin kim olduğunu ikrar",
+          "labelEn": "2 · Confessing who the agent is",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Gördüğümüz fenomenlerde **gerçekte yapanın, işleyenin Allah olduğunu** kabul ve ikrar etmek",
+              "en": "To accept and confess that in the phenomena we see **the one who truly does and works is God**"
+            },
+            {
+              "tr": "**Sebeplere tesir-i hakikî vermemek**",
+              "en": "**To grant no real efficacy to secondary causes**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Wolfram: sınırlı gözlemci, indirgenemez hesap",
+      "headingEn": "Wolfram: the bounded observer, the irreducible computation",
+      "tr": "Stephen Wolfram bu anlam için şunu söylüyor: **insan yahut herhangi bir gözlemci *computationally bounded*** — hesaplama kapasitesi sınırlı — **olduğu için**, ***computationally irreducible*** — hesabı kısaltılamaz — **olan bazı şeyleri anlamlandıramaz, onlara “rastgele” der.** Yani **rastgelelik, sistemin bir özelliği değil; gözlemcinin kapasitesiyle sistemin karmaşıklığı arasındaki farkın adıdır.** Âyetin *“siz onların tesbihini anlamazsınız”* (İsrâ 17:44) ifadesiyle aynı yere bakar.",
+      "en": "Stephen Wolfram puts the same sense thus: **because a human being, or any observer, is *computationally bounded*** — limited in computational capacity — **there are things that are *computationally irreducible*** — whose computation cannot be short-cut — **which he cannot make sense of, and which he therefore calls “random.”** Randomness, that is, **is not a property of the system but the name of the gap between the observer's capacity and the system's complexity.** It looks to the same place as the verse's *“you do not comprehend their glorification”* (al-Isrāʾ 17:44)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "6:100",
+      "ar": "سُبْحَانَهُ وَتَعَالٰى عَمَّا يَصِفُونَ",
+      "noteTr": "“**Sübhândır ve yücedir onların tavsiflerinden**” (*sübhânehû ve teâlâ ammâ yasifûn*). — Cinleri Allah'a ortak koşmaları ve O'na oğullar-kızlar yakıştırmalarının hemen ardından gelir.",
+      "noteEn": "“**Glory be to Him, and exalted is He above what they describe**” (*subḥānahu wa taʿālā ʿammā yaṣifūn*). — It comes immediately after their setting up jinn as partners to God and ascribing sons and daughters to Him."
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:1",
+      "ar": "سُبْحَانَهُ وَتَعَالٰى عَمَّا يُشْرِكُونَ",
+      "noteTr": "“**Sübhândır ve yücedir onların şirklerinden**” (*sübhânehû ve teâlâ ammâ yüşrikûn*). — Aynı kalıp **Nahl 16:3**'te de tekrarlanır: *teâlâ ammâ yüşrikûn.*",
+      "noteEn": "“**Glory be to Him, and exalted is He above what they associate**” (*subḥānahu wa taʿālā ʿammā yushrikūn*). — The same construction recurs at **al-Naḥl 16:3**: *taʿālā ʿammā yushrikūn.*"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Bir örüntü: *sübhânehû* nerede geçerse",
+      "headingEn": "A pattern: wherever *subḥānahu* occurs",
+      "tr": "**Kur'an'da *sübhânehû* geçen her yerde şirk konusu işlenir.** Bu tesadüfî bir yan yanalık değil, tesbihin ikinci yönünün doğrudan ifadesidir: **sebebe tesir-i hakikî vermek**, yani fâili yanlış adreslemek, tam da şirkin tarifidir. Tesbih bu yüzden **bir övgü formülü değil, bir fâil düzeltmesidir.**",
+      "en": "**Wherever *subḥānahu* occurs in the Qur'an, the question of associating partners with God is at issue.** This is no accidental juxtaposition but the direct expression of glorification's second face: **to grant real efficacy to a secondary cause** — to misaddress the agent — is precisely the definition of associating partners. Glorification is therefore **not a formula of praise but a correction of agency.**"
+    },
+    {
+      "type": "section",
+      "id": "yaratan-rab",
+      "titleTr": "Devamı Nazarı Dış Dünyaya Çevirir",
+      "titleEn": "What Follows Turns the Gaze to the Outer World"
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:2",
+      "ar": "اَلَّذِي خَلَقَ فَسَوّٰى",
+      "noteTr": "“**O ki yarattı ve tesviye etti**” — yani tasarladı, düzenledi. Emirden hemen sonra gelen bu cümle, **nazarı dış dünyadaki gözlemlerimize çevirir.**",
+      "noteEn": "“**He who created and proportioned**” — that is, designed and ordered. Coming immediately after the command, this clause **turns the gaze to our observations in the outer world.**"
+    },
+    {
+      "type": "verseInline",
+      "ref": "87:3",
+      "ar": "وَالَّذِي قَدَّرَ فَهَدٰى",
+      "noteTr": "“**O ki takdir etti ve yol gösterdi**” — ölçüyü koydu, yolu çizdi ve **yoluna iletti**. Kader ve *“kolay olana yolunu kolaylaştırmak”* bahsi ayrıca ele alınmayı hak eder.",
+      "noteEn": "“**And He who determined and guided**” — set the measure, drew the path and **led along it**. The question of destiny and of *“easing one's way toward what is easy”* deserves separate treatment."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, **Alak 96:1**'deki *ikra' bismi rabbikellezî halak* âyetine paraleldir. **Yaratılanı her türlü okursun**; ama yaratılanı **Rabbin ismi ile** okumamız isteniyor — yani **belli bir paradigma ile**: yaratılan-yaratılış-yaratan ilişkilerini **rububiyet çatısı altında**, yani **tekâmül, gelişme, kemaline doğru ilerleme** çerçevesiyle okumamız isteniyor. Şimdi de: **A'lâ olan Rabbinin ismini tesbih et ki O yarattı, tesviye etti; O ki takdir etti, yol çizdi ve yoluna iletti.**",
+      "en": "This runs parallel to **al-ʿAlaq 96:1**, *iqraʾ bi-smi rabbika'lladhī khalaq*. **You may read the created thing in any manner**; but we are asked to read it **in the name of the Lord** — that is, **through a particular paradigm**: to read the relations of created, creation and Creator **under the roof of lordship**, within the frame of **maturation, development, advance toward perfection**. And now: **glorify the name of your Lord, the Most High, who created and proportioned; who determined, drew the path and guided along it.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "“**Senin** Rabbin” — rububiyetin geldiği yer",
+      "headingEn": "“**Your** Lord” — where lordship enters",
+      "tr": "Âyette ***senin* Rabbin** diyor. **Rububiyetin geldiği yerde**, mahlûk ile insan arasındaki ilişki, **mahlûk üzerinden insanın terbiyesi** ve neticesinde de **tekâmülü** anlatılır. **Rububiyet yaratılanı kemaline iletir.** *Alak Sûresi 1-5* okumalarında görüldüğü üzere, **her şeyi yaratan ile insanı yaratan aynı Zât'tır** — bu da **insan, kâinat ve uluhiyet** arasında bir **mütekabiliyet** ilişkisi kurar.",
+      "en": "The verse says ***your* Lord.** **Where lordship enters**, what is described is the relation between creature and man — **man's nurture by way of the creature**, and in consequence **his maturation**. **Lordship brings the created thing to its perfection.** As was seen in the readings of *Sūrat al-ʿAlaq 1-5*, **He who created all things is the same One who created man** — which establishes a relation of **correspondence** between **man, the universe and divinity.**"
+    },
+    {
+      "type": "section",
+      "id": "ala-soyutlama",
+      "titleTr": "A'lâ: Soyutlama Yoluyla Yücelik",
+      "titleEn": "Aʿlā: Elevation Through Abstraction"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*A'lâ*ya Türkçede **yüce** diyoruz. Esasında **azîm/azamet**, **kebîr/kibriyâ**, **mecîd** kavramlarından farklıdır. *A'lâ*da, ulviyette, **soyutlama (tecerrüd) ile bir yücelik verme** anlamı vardır. **Soyutlama ise ontolojik genelleştirme ile olur.**",
+      "en": "In Turkish we render *aʿlā* as **exalted**. In truth it differs from the concepts of **ʿaẓīm/ʿaẓama**, **kabīr/kibriyāʾ** and **majīd**. In *aʿlā*, in this loftiness, there is the sense of **an elevation conferred by abstraction, by detachment**. And **abstraction proceeds by ontological generalisation.**"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Yücelik nasıl kurulur?",
+      "captionEn": "How is elevation constituted?",
+      "left": {
+        "titleTr": "Azîm · Kebîr · Mecîd",
+        "titleEn": "ʿAẓīm · Kabīr · Majīd",
+        "accent": "#d4a574",
+        "descTr": "Yücelik **büyüklük, azamet, şeref** ekseninde kurulur.",
+        "descEn": "Elevation is constituted along the axis of **magnitude, grandeur, honour**.",
+        "bullets": [
+          {
+            "tr": "Ölçek **aynı kalır**, derece yükselir",
+            "en": "The scale **remains the same**; the degree rises"
+          },
+          {
+            "tr": "Kavram, **verili çerçevenin içinde** büyür",
+            "en": "The concept grows **within the given frame**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "A'lâ",
+        "titleEn": "Aʿlā",
+        "accent": "#1D9E75",
+        "descTr": "Yücelik **tecerrüd**, yani **soyutlama** ile kurulur.",
+        "descEn": "Elevation is constituted through **detachment**, that is, **abstraction**.",
+        "bullets": [
+          {
+            "tr": "**Çerçevenin kendisi genişler** — ontolojik genelleştirme",
+            "en": "**The frame itself widens** — ontological generalisation"
+          },
+          {
+            "tr": "Lokalden globale doğru **anlam sınırlarının açılması**",
+            "en": "**The opening of the bounds of meaning** from local toward global"
+          }
+        ]
+      },
+      "bridgeTr": "Bu yüzden âyet *“Rabbinin ismini tesbih et”* derken **a'lâ** sıfatını seçer: **tesbih zaten bir uzaklaştırma, bir soyutlama fiilidir** — ve *a'lâ*, o fiilin varacağı yönün adıdır.",
+      "bridgeEn": "This is why, in saying *“glorify the name of your Lord,”* the verse selects the attribute **aʿlā**: **glorification is already an act of distancing, of abstraction** — and *aʿlā* is the name of the direction in which that act travels."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Fincancıdan sanatçıya — ontolojik genelleştirme",
+      "captionEn": "From potter to artist — ontological generalisation",
+      "nodes": [
+        {
+          "titleTr": "“Fincancı”",
+          "titleEn": "“The cup-maker”",
+          "tone": "trigger",
+          "subtitleTr": "Kahve fincanını yaratan ve şekillendiren ustayı **bu isimle** tanıdık. **Bildiğimiz tek eser fincandır.**",
+          "subtitleEn": "We came to know the master who makes and shapes the coffee cup **by this name**. **The only work we know of is the cup.**"
+        },
+        {
+          "titleTr": "“Seramikçi”",
+          "titleEn": "“The ceramicist”",
+          "tone": "state",
+          "subtitleTr": "Dükkânına gittik: sadece fincan değil, **başka kap kacaklar da** yapıyormuş. İsmi **fincandan soyutlayıp genelleştirdik.**",
+          "subtitleEn": "We went to his shop: not only cups — **he makes other vessels too**. We **abstracted the name from the cup and generalised it.**"
+        },
+        {
+          "titleTr": "“Sanatçı”",
+          "titleEn": "“The artist”",
+          "tone": "state",
+          "subtitleTr": "Sonra baktık ki **yandaki marangozluk dükkânı da ona ait.** Demek ki bu usta seramikçiden de a'lâ imiş: **her şeyi yapan bir sanatçı.**",
+          "subtitleEn": "Then we found that **the carpentry shop next door is his as well.** So this master was more exalted still than a ceramicist: **an artist who makes everything.**"
+        },
+        {
+          "titleTr": "“Daha a'lâ”",
+          "titleEn": "“More exalted still”",
+          "tone": "outcome",
+          "subtitleTr": "Her adımda **isim daha kapsayıcı**, usta **daha a'lâ** oldu — ama usta değişmedi. **Değişen, bizim anlam çerçevemizin sınırıdır.**",
+          "subtitleEn": "At each step **the name grew more encompassing** and the master **more exalted** — yet the master did not change. **What changed is the boundary of our own frame of meaning.**"
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Soyutlama derken bunu kastediyorum: **daha kapsamlı bir anlam seviyesinden anlamaya çalışma. Lokalden globale doğru anlam çerçevesinin sınırlarını genişletme.**",
+      "en": "By abstraction I mean this: **the attempt to understand from a more encompassing level of meaning. The widening of the bounds of one's frame of meaning, from local toward global.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "İlgili okuma ve metin hakkında",
+      "headingEn": "Related reading, and about this text",
+      "tr": "Bu yazı, sitedeki **Alak Sûresi 1: İlk Besmele, Büyük Resim ve Metafizik Paradigma** okumasının doğrudan devamı sayılabilir — *bismi rabbike* kalıbı iki sûrede de aynı işi görür. **Terminoloji 6: Sema ve İsim Kavramları** ise buradaki *isim* tartışmasını kök düzeyinde sürdürür. Yazar bu metni bir **seri**nin ilk parçası olarak numaralandırmıştır (*A'lâ Sûresi-1*); devamı henüz sitede yok. Âyet metinleri sitedeki **âyet grafiğinden** alınmış, Osmanlı imlâsı görüntü için normalize edilmiştir. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.**",
+      "en": "This piece may be read as the direct continuation of **Sūrat al-ʿAlaq 1: The First Basmala, the Big Picture and the Metaphysical Paradigm** on this site — the construction *bi-smi rabbika* does the same work in both suras. **Terminology 6: The Concepts of Sky and Name** carries the discussion of *name* here further at root level. The author has numbered this text as the first part of **a series** (*Sūrat al-Aʿlā-1*); its sequel is not yet on the site. The verse texts are taken from **the verse graph** on this site, with the Uthmani orthography normalised for display. **The Turkish is the author's own pen; the English is a translation.**"
+    }
+  ]
+}

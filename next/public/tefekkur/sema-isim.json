@@ -1,7 +1,7 @@
 {
   "slug": "sema-isim",
-  "titleTr": "İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi 6 — Sema ve İsim Kavramları",
-  "titleEn": "Human, Cosmos, and Quranic Terminology 6 — The Concepts of Samāʾ and Ism",
+  "titleTr": "Terminoloji 6: Sema ve İsim Kavramları",
+  "titleEn": "Terminology 6: The Concepts of Samāʾ and Ism",
   "category": "terminoloji",
   "template": "series-hero",
   "seriesId": "terminoloji",
@@ -34,11 +34,11 @@
   ],
   "previousArticle": {
     "slug": "makro-mikro",
-    "titleTr": "Terminoloji 5: Makro/Mikro Durumlar"
+    "titleTr": "Terminoloji 5: Makro/Mikro Durumlar, Emergence ve Faz Geçişi"
   },
   "nextArticle": {
     "slug": "kader",
-    "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü"
+    "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm"
   },
   "blocks": [
     {

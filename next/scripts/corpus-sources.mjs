@@ -93,6 +93,99 @@ export { MEALS_MULTI, VERSE_META, VERSE_TEXT_INDEX, TEFSIR_INDEX, RUKUS };
 //   textBuilder: (item) => — text field'ından embedding için string üretimi
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Tefekkür blok metni çıkarıcı — TEK OTORİTE.
+//
+// 2026-08-12: Önceden yalnız paragraph / pullQuote / criticalNote / section /
+// verseInline okunuyordu. contrastDuo, flowChain, hierarchyTree,
+// morphologyTable ve sources blokları HİÇ okunmuyordu — dolayısıyla görsel
+// yoğun makalelerin gövdesinin büyük kısmı Concierge aramasında görünmüyor,
+// article-section chunk eşiği (800 kelime) de aynı dar sayım yüzünden
+// tetiklenmiyordu. Ölçülen kanıt: `allahu-ekber-seyr-ilallah` (32 blok, 18'i
+// görsel) corpus'a tek bir parent item olarak giriyordu.
+//
+// Yeni blok tipi eklenirse buraya da eklenmesi ZORUNLUDUR — aksi halde
+// içerik sessizce indekslenmez.
+// ─────────────────────────────────────────────────────────────────────────────
+export function tefekkurBlockText(b, lang) {
+  if (!b || typeof b !== 'object') return '';
+  const k = lang === 'tr' ? 'tr' : 'en';          // { tr, en }
+  const K = lang === 'tr' ? 'Tr' : 'En';          // { titleTr, titleEn }
+  const parts = [];
+  const push = (v) => { if (typeof v === 'string' && v.trim()) parts.push(v.trim()); };
+
+  switch (b.type) {
+    case 'paragraph':
+    case 'pullQuote':
+    case 'criticalNote':
+    case 'footnote':
+      push(b[`heading${K}`]);
+      push(b[k]);
+      push(b.source);
+      break;
+
+    case 'section':
+      push(b[`title${K}`]);
+      break;
+
+    case 'verseInline':
+      // Ayet gövdesi ayrıca verse chunk'ta var; yalnız not metni alınır.
+      push(b[`note${K}`]);
+      push(b[k]);
+      break;
+
+    case 'contrastDuo':
+      push(b[`caption${K}`]);
+      for (const side of [b.left, b.right]) {
+        if (!side) continue;
+        push(side[`title${K}`]);
+        push(side[`desc${K}`]);
+        for (const bl of (side.bullets || [])) push(bl?.[k]);
+      }
+      push(b[`bridge${K}`]);
+      break;
+
+    case 'flowChain':
+      push(b[`caption${K}`]);
+      for (const n of (b.nodes || [])) {
+        push(n?.[`title${K}`]);
+        push(n?.[`subtitle${K}`]);
+      }
+      break;
+
+    case 'hierarchyTree':
+      push(b[`title${K}`]);
+      push(b.root?.[k]);
+      for (const br of (b.branches || [])) {
+        push(br?.[`label${K}`]);
+        for (const c of (br?.children || [])) push(c?.[k]);
+      }
+      break;
+
+    case 'morphologyTable':
+      push(b[`caption${K}`]);
+      for (const r of (b.rows || [])) {
+        push(r?.[`pattern${K}`]);
+        push(r?.[`meaning${K}`]);
+      }
+      break;
+
+    case 'sources':
+      for (const it of (b.items || [])) {
+        push(it?.name);
+        push(it?.[`detail${K}`]);
+      }
+      break;
+
+    default:
+      // Bilinmeyen blok tipi: TR/EN düz alanları varsa yine de al.
+      push(b[`title${K}`]);
+      push(b[k]);
+      break;
+  }
+  return parts.join(' ');
+}
+
 export const CONTENT_SOURCES = [
   // ─── Ayetler — 6236 verse
   {
@@ -164,7 +257,7 @@ export const CONTENT_SOURCES = [
     },
   },
 
-  // ─── Tefekkür yazıları — 33 makale (parent chunks)
+  // ─── Tefekkür yazıları — parent chunks
   // Faz 2c-D: blocks-based extraction. Mevcut extractSectionsText legacy
   // format için, blocks format için ise flat paragraph extraction eklendi.
   {
@@ -195,25 +288,12 @@ export const CONTENT_SOURCES = [
       };
 
       // Faz 2c-D: New blocks-based extraction — flat block list ile çalışır.
-      // Block types: paragraph, section, pullQuote, criticalNote, verseInline
-      const extractBlocksText = (lang) => {
-        const blocks = article.blocks || [];
-        const key = lang === 'tr' ? 'tr' : 'en';
-        const titleKey = lang === 'tr' ? 'titleTr' : 'titleEn';
-        const parts = [];
-        for (const b of blocks) {
-          const t = b.type;
-          if (t === 'paragraph' || t === 'pullQuote' || t === 'criticalNote') {
-            if (b[key]) parts.push(b[key]);
-          } else if (t === 'section') {
-            if (b[titleKey]) parts.push(b[titleKey]);
-          } else if (t === 'verseInline') {
-            // Ayet gövdesi ayrıca verse chunk'ta var; kısa özet varsa ekle.
-            if (b[key]) parts.push(b[key]);
-          }
-        }
-        return parts.join(' ');
-      };
+      // TÜM blok tipleri tefekkurBlockText() üzerinden okunur (2026-08-12).
+      const extractBlocksText = (lang) =>
+        (article.blocks || [])
+          .map((b) => tefekkurBlockText(b, lang))
+          .filter(Boolean)
+          .join(' ');
 
       const bodyTr = (extractLegacySections('tr') + ' ' + extractBlocksText('tr')).trim().slice(0, 5000);
       const bodyEn = (extractLegacySections('en') + ' ' + extractBlocksText('en')).trim().slice(0, 5000);
@@ -245,11 +325,14 @@ export const CONTENT_SOURCES = [
     extract: (article) => {
       const blocks = article.blocks || [];
       // Word count gate: sadece uzun makaleler section'lara bölünür.
+      // 2026-08-12: sayım artık TÜM blok tiplerini kapsar — görsel yoğun
+      // makaleler (contrastDuo/flowChain/hierarchyTree ağırlıklı) eskiden
+      // eşiğin altında kalıp hiç bölünmüyordu.
       let wc = 0;
       for (const b of blocks) {
-        if (b.type === 'paragraph' || b.type === 'pullQuote' || b.type === 'criticalNote') {
-          wc += (b.tr || '').split(/\s+/).length;
-        }
+        if (b.type === 'section') continue; // başlık gövde sayılmaz
+        const t = tefekkurBlockText(b, 'tr');
+        if (t) wc += t.split(/\s+/).length;
       }
       if (wc < 800) return []; // parent chunk yeterli
 
@@ -273,17 +356,14 @@ export const CONTENT_SOURCES = [
         const sectionId = g.section?.id || `intro-${i}`;
         const sectionTitleTr = g.section?.titleTr || (i === 0 ? 'Giriş' : `Bölüm ${i}`);
         const sectionTitleEn = g.section?.titleEn || (i === 0 ? 'Introduction' : `Section ${i}`);
-        // Body: paragraph + pullQuote + criticalNote text (skip verseInline — verse chunk'ta var)
-        const buildBody = (lang) => {
-          const key = lang;
-          const parts = [];
-          for (const b of g.blocks) {
-            if (b.type === 'paragraph' || b.type === 'pullQuote' || b.type === 'criticalNote') {
-              if (b[key]) parts.push(b[key]);
-            }
-          }
-          return parts.join(' ').slice(0, 3000);
-        };
+        // Body: tüm blok tipleri (verseInline'ın yalnız notu — ayet gövdesi
+        // zaten verse chunk'ta). 2026-08-12'de tefekkurBlockText'e bağlandı.
+        const buildBody = (lang) =>
+          g.blocks
+            .map((b) => tefekkurBlockText(b, lang))
+            .filter(Boolean)
+            .join(' ')
+            .slice(0, 3000);
         const bodyTr = buildBody('tr');
         const bodyEn = buildBody('en');
         // Skip nearly-empty groups

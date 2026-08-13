@@ -1,7 +1,7 @@
 {
   "slug": "kader",
-  "titleTr": "İnsan, Kainat ve Kur'an Terminolojisi 7 — Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
-  "titleEn": "Human, Cosmos, and Quranic Terminology 7 — The Resolution of Destiny: Design, Will, and Soft Determinism",
+  "titleTr": "Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm",
+  "titleEn": "Terminology 7: The Resolution of Destiny — Design, Will, and Soft Determinism",
   "category": "terminoloji",
   "template": "series-hero",
   "seriesId": "terminoloji",
@@ -35,7 +35,7 @@
   ],
   "previousArticle": {
     "slug": "sema-isim",
-    "titleTr": "Terminoloji 6: Sema ve İsim"
+    "titleTr": "Terminoloji 6: Sema ve İsim Kavramları"
   },
   "nextArticle": {
     "slug": "kaderin-cozunurlugu-devam",

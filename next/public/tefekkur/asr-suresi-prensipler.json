@@ -1,0 +1,678 @@
+{
+  "slug": "asr-suresi-prensipler",
+  "titleTr": "Asr Sûresinden Çıkarılan Temel Prensipler",
+  "titleEn": "Fundamental Principles Drawn from Sūrat al-ʿAṣr",
+  "category": "sure-hermenotik",
+  "publishedDate": "2025-06-10",
+  "readingMinutes": 9,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/asr-suresinden-%C3%A7%C4%B1kar%C4%B1lan-temel-prensipler-461317c53682",
+  "tldrTr": "Üç âyetlik bir sûre, **tam bir etik işletim sistemi**. Kök anlamıyla *ʿaṣr* “özünü sıkıp çıkarmak”tır: değer zamanla **birikmez**, sıkılarak çıkarılır — ve *dehr*den farklı olarak asır, **teslim tarihi yaklaşan**, sonu bilinen zamandır. İkinci âyet varsayılan rotayı koyar: **insan husrdadır**; kayıp varoluşsaldır, çünkü bütün kompleks adaptif sistemler ancak **aksiyonla** ayakta kalır. Üçüncü âyet ise bir **istisna merdiveni** kurar: **îmân → sâlihât → tavâsî bi'l-hakk → tavâsî bi's-sabr.** Yazar bu dört basamağı sekiz başlıkta okur — zaman ekonomisi, beşerî sermaye, kârlılık, örgütsel davranış, sosyo-etik sürdürülebilirlik, psikolojik direnç, anlatı stratejisi, risk yönetimi. *Tavâsî* tek yönlü emir değil, **çok yönlü mentörlük**tir: yankı odasına karşı tasarlanmış yedekleme. *Sabır* ise durmak değil, **termostat gibi aktif denge**dir. Netice: sûre, kaçıcı anları sermayeye çeviren **dört vitesli bir şanzıman**.",
+  "tldrEn": "A sura of three verses, **a complete ethical operating system**. In its root sense *ʿaṣr* means “to press out the essence”: value does **not accumulate** with time — it is pressed out of it; and unlike *dahr*, ʿaṣr is time **with a deadline drawing near**, time whose end is known. The second verse sets the default trajectory: **man is in loss**; the loss is existential, because every complex adaptive system stays alive only through **action**. The third verse then erects **a ladder of exception**: **īmān → ṣāliḥāt → tawāṣī bi'l-ḥaqq → tawāṣī bi'ṣ-ṣabr.** The author reads these four rungs under eight headings — the economics of time, human capital, profitability, organisational behaviour, socio-ethical sustainability, psychological resilience, narrative strategy, risk management. *Tawāṣī* is not one-way command but **multi-directional mentorship**: redundancy engineered against the echo chamber. *Ṣabr* is not standing still but **active equilibrium, like a thermostat**. The upshot: the sura is **a four-speed gearbox** that turns fleeting moments into capital.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph"
+  ],
+  "relatedVerses": [
+    "103:1",
+    "103:2",
+    "103:3"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Dünya hayatı içinde hepimizin çeşitli projeleri, hedefleri var. Bunlar **mânevî** olabilir: marifetullaha, aşk-ı ilâhîye ve ötesinde çok farklı sezişlere erişmek, rızâ-yı ilâhîyi kazanmak, cennetin koridorlarına girmek gibi. Yahut **maddî kişisel gelişim** olabilir: bir ev almak, düzen kurmak, çocuk yetiştirmek gibi. Ya da **profesyonel** olabilir: bol kazançlı iş kurmak, şirkette terfi etmek, insanlığa yeni bir değer sunacak bir organizasyon kurmak gibi.",
+      "en": "In the life of this world we all have projects and aims of various kinds. They may be **spiritual**: attaining knowledge of God, divine love and, beyond these, quite other perceptions; earning God's good pleasure; entering the corridors of paradise. Or they may be **material and personal**: buying a house, establishing order, raising children. Or they may be **professional**: founding a profitable business, gaining promotion, building an organisation that offers humanity some new value."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Üç tür proje, tek prensipler kümesi",
+      "titleEn": "Three kinds of project, one set of principles",
+      "root": {
+        "tr": "Ne olursa olsun, tümü **ortak kavram ve prensipler** ile ele alınabilir",
+        "en": "Whatever they may be, all of them can be handled with **a shared set of concepts and principles**"
+      },
+      "branches": [
+        {
+          "id": "manevi",
+          "labelTr": "Mânevî",
+          "labelEn": "Spiritual",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Marifetullah, aşk-ı ilâhî ve **ötesindeki sezişler**",
+              "en": "Knowledge of God, divine love and **the perceptions beyond them**"
+            },
+            {
+              "tr": "Rızâ-yı ilâhîyi kazanmak, **cennetin koridorlarına girmek**",
+              "en": "Earning God's good pleasure, **entering the corridors of paradise**"
+            }
+          ]
+        },
+        {
+          "id": "maddi",
+          "labelTr": "Maddî kişisel gelişim",
+          "labelEn": "Material and personal",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Bir ev almak, **düzen kurmak**",
+              "en": "Buying a house, **establishing order**"
+            },
+            {
+              "tr": "Çocuk yetiştirmek",
+              "en": "Raising children"
+            }
+          ]
+        },
+        {
+          "id": "profesyonel",
+          "labelTr": "Profesyonel",
+          "labelEn": "Professional",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Bol kazançlı iş kurmak, **şirkette terfi etmek**",
+              "en": "Founding a profitable business, **gaining promotion**"
+            },
+            {
+              "tr": "İnsanlığa **yeni bir değer sunacak** bir organizasyon kurmak",
+              "en": "Building an organisation that **offers humanity a new value**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kâinat kitabının okunuşu olan **Kur'an** — ki literal olarak *sürekli okuyuş*, kıraattir — bize bu temel prensipleri temel kavramlarla anlatır ve yol gösterir. Meselâ **Asr sûresi üç âyettir**, ezberi kolaydır ve bu sayede temel prensipleri sürekli hatırlatır. Aşağıda, semantik okuma metoduyla çıkarılan prensipler sekiz alt başlıkta duruyor.",
+      "en": "The **Qur'an** — the reading of the book of the universe, and literally *a continual reciting* — sets out these fundamental principles for us through fundamental concepts, and shows the way. **Sūrat al-ʿAṣr is three verses long**; it is easily memorised, and by that very fact keeps reminding us of the basic principles. What follows are the principles drawn out by the method of semantic reading, under eight headings."
+    },
+    {
+      "type": "verseInline",
+      "ref": "103:1",
+      "ar": "وَالْعَصْرِ",
+      "noteTr": "“**Akıp giden, ezici zaman hakkı için** (*ve'l-ʿasr*)…” — Sûre bir **yeminle** açılır. Yemin edilen şey, sûrenin bütün argümanının zeminidir: zamanın kendisi.",
+      "noteEn": "“**By the passing, pressing time** (*wa'l-ʿaṣr*)…” — The sura opens with **an oath**. What is sworn by is the ground of the sura's whole argument: time itself."
+    },
+    {
+      "type": "verseInline",
+      "ref": "103:2",
+      "ar": "اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ",
+      "noteTr": "“**Şüphesiz insan husrdadır**.” — Bu bir tehdit değil, bir **varsayılan durum** bildirimidir: müdahale edilmediğinde rota budur.",
+      "noteEn": "“**Truly man is in loss.**” — This is not a threat but the statement of **a default state**: absent intervention, this is the trajectory."
+    },
+    {
+      "type": "verseInline",
+      "ref": "103:3",
+      "ar": "اِلَّا الَّذِينَ اٰمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+      "noteTr": "“**Ancak** iman edenler, sâlih ameller işleyenler, **birbirlerine hakkı tavsiye edenler** ve **birbirlerine sabrı tavsiye edenler müstesnâ.**” — *İllâ* (ancak) ile açılan bu âyet, husrdan çıkışın **dört basamaklı merdivenini** kurar.",
+      "noteEn": "“**Except** those who believe, do righteous deeds, **enjoin the truth upon one another** and **enjoin patience upon one another.**” — Opening with *illā* (except), this verse erects **the four-runged ladder** out of loss."
+    },
+    {
+      "type": "section",
+      "id": "zaman-ekonomisi",
+      "titleTr": "1 · Zaman Ekonomisi",
+      "titleEn": "1 · The Economics of Time"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Değer zamanla birikmez, sıkılarak çıkarılır.**",
+      "en": "**Value does not accumulate with time; it is pressed out of it.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*ʿAṣr* kökü **“özünü sıkıp çıkarmak”** demektir — üzümden şıra çıkarır gibi. Birinci âyetteki yemin bu kelimeyle yapılır: *“Ve'l-ʿaṣr”*. **Dehr**den farklı olarak asır, **sonlu olan, sonu bilinen** bir zaman dilimine işaret eder. **Deadline'ı yaklaşan zamandır.** Gerek kıyamete yakın olan zaman için, gerekse gün içindeki kıyameti temsil eden **akşam vakti** için, yahut **ölüm öncesi ömrün son demleri** için, veya **projelerin yaklaşan teslim tarihi** için olsun — elden avuçtan akan ve bu akışla kişiyi sıkıştıran bir zamandır asır.",
+      "en": "The root *ʿaṣr* means **“to press out the essence”** — as juice is pressed from grapes. The oath of the first verse is sworn by this very word: *“wa'l-ʿaṣr.”* Unlike **dahr**, ʿaṣr points to a stretch of time that is **finite, whose end is known**. It is **time with a deadline drawing near**. Whether it be the time near the Hour, or **the hour of evening** that figures the Hour within the day, or **the last stretch of a lifetime before death**, or **a project's approaching delivery date** — ʿaṣr is time running through the fingers, and by that running, pressing upon a person."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki zaman kelimesi",
+      "captionEn": "Two words for time",
+      "left": {
+        "titleTr": "Dehr",
+        "titleEn": "Dahr",
+        "accent": "#3498db",
+        "descTr": "Uzun, **sınırı çizilmemiş** zaman; sürenin kendisi.",
+        "descEn": "Long time, **with no boundary drawn**; duration as such.",
+        "bullets": [
+          {
+            "tr": "Sonu **görünmez**; baskı üretmez",
+            "en": "Its end is **out of sight**; it exerts no pressure"
+          },
+          {
+            "tr": "İçinde durulan **ortam** gibidir",
+            "en": "It is like **the medium** one stands within"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "ʿAṣr",
+        "titleEn": "ʿAṣr",
+        "accent": "#c0554d",
+        "descTr": "**Sonlu**, sonu bilinen; **sıkan** ve **sıkılan** zaman.",
+        "descEn": "**Finite**, its end known; time that **presses** and is **pressed**.",
+        "bullets": [
+          {
+            "tr": "Kök anlamı: **özünü sıkıp çıkarmak**",
+            "en": "Root sense: **to press out the essence**"
+          },
+          {
+            "tr": "**Teslim tarihi yaklaşan** zaman — akşam vakti, ömrün son demleri",
+            "en": "Time whose **delivery date approaches** — the evening hour, the last stretch of a life"
+          }
+        ]
+      },
+      "bridgeTr": "Yemin **dehr**e değil **asr**a edilir. Çünkü argümanın işlemesi için zamanın *bitiyor olması* gerekir: sıkılacak bir şey ancak **sonu olan** şeydir.",
+      "bridgeEn": "The oath is sworn not by *dahr* but by *ʿaṣr*. For the argument to work, time must be *running out*: only what **has an end** can be pressed."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Her planlama döngüsünü **“hasat”** kabul et; tefekkür-sentez için bilinçli **“sıkım seansları”** — programlı içe-bakış — koy. **Aksi hâlde zaman “pişmanlık”a fermente olur.**",
+      "en": "Treat every planning cycle as **a harvest**; schedule deliberate **“pressing sessions”** — programmed introspection — for reflection and synthesis. **Otherwise time ferments into regret.**"
+    },
+    {
+      "type": "section",
+      "id": "beseri-sermaye",
+      "titleTr": "2 · Beşerî Sermaye",
+      "titleEn": "2 · Human Capital"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**İnsanın doğal rotası net kayıptır.**",
+      "en": "**Man's natural trajectory is net loss.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*“Şüphesiz insan husrdadır”* (103:2). Buradaki kayıp **varoluşsaldır**, saf malî değildir. Tüm **kompleks adaptif sistemler aksiyon ile ayakta kalır.** İnsanı beşerden ayıran, homo sapiensliğinden daha sofistike ve değerli kılan şey; **soyut düşünce ve aşkın tecrübeleridir** — yani ilim ve marifetullah, yani mânevî hayatıdır. Bu hayatın da dinamikleri **kendi hâline bırakıldığında maneviyatı söner.**",
+      "en": "*“Truly man is in loss”* (103:2). The loss here is **existential**, not merely financial. All **complex adaptive systems stay alive through action.** What separates man from the merely human animal, what makes him more sophisticated and more valuable than his status as homo sapiens, is **abstract thought and transcendent experience** — knowledge and knowledge of God, that is, his spiritual life. And the dynamics of that life too, **left to themselves, let the spirit go out.**"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Aksiyon kesilince ne olur — üç ölçek",
+      "titleEn": "What happens when action ceases — three scales",
+      "root": {
+        "tr": "Kompleks adaptif sistemlerde **durmak, kalmak değildir**",
+        "en": "In complex adaptive systems, **to stop is not to remain**"
+      },
+      "branches": [
+        {
+          "id": "hucre",
+          "labelTr": "Hücre",
+          "labelEn": "The cell",
+          "accent": "#c0554d",
+          "children": [
+            {
+              "tr": "Metabolizmayı durdurduğunuzda **hücre ölür**",
+              "en": "Halt the metabolism and **the cell dies**"
+            }
+          ]
+        },
+        {
+          "id": "habitat",
+          "labelTr": "Habitat",
+          "labelEn": "The habitat",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Besin zincirini bir süre engellerseniz **tüm dengeler alt üst olur**, habitat dağılır",
+              "en": "Block the food chain for a while and **every balance is upset**; the habitat disintegrates"
+            }
+          ]
+        },
+        {
+          "id": "maneviyat",
+          "labelTr": "Mânevî hayat",
+          "labelEn": "The spiritual life",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Kendi hâline bırakıldığında **maneviyat söner** — *husr* budur",
+              "en": "Left to itself **the spirit goes out** — this is *ḥusr*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Gösterge panolarında **etik ve mânevî sapmayı finansal zarar kadar kırmızı** işaretle; bilanço yanında **“kültür ve kalp denetimi”** yap.",
+      "en": "On your dashboards, flag **ethical and spiritual drift as red as financial loss**; alongside the balance sheet, run **an audit of culture and of the heart**."
+    },
+    {
+      "type": "section",
+      "id": "dort-unsur",
+      "titleTr": "3 · Dört Unsurla Kârlılık",
+      "titleEn": "3 · Profitability Through Four Elements"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kalıcı kazanç için birbiri üstünde **dört ahlâkî yapı** gerekir: **İnanç → İş → Hak tavsiyesi → Sabır tavsiyesi.**",
+      "en": "Lasting gain requires **four moral structures stacked upon one another**: **belief → work → enjoining truth → enjoining patience.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Üçüncü âyetteki **istisna merdiveni** şudur: **îmân → sâlihât** (ıslah edici fiiller) **→ tavâsî bi'l-hakk** (karşılıklı hak hatırlatması) **→ tavâsî bi's-sabr** (topluca sebat). Hayatınızda deadline'ı olan, zaman baskısı hissettiğiniz hangi proje olursa olsun — gerek kurduğunuz iş, gerekse Allah'ın rızasını kazanıp cennete girme projesi — hepsinde **aynı temel prensipler geçerlidir.**",
+      "en": "The **ladder of exception** in the third verse runs thus: **īmān → ṣāliḥāt** (deeds that set right) **→ tawāṣī bi'l-ḥaqq** (mutual reminding of the truth) **→ tawāṣī bi'ṣ-ṣabr** (steadfastness held in common). Whatever project in your life carries a deadline and the pressure of time — the business you have founded, or the project of earning God's pleasure and entering paradise — **the same fundamental principles hold in all of them.**"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "İstisna merdiveni — dört basamak",
+      "titleEn": "The ladder of exception — four rungs",
+      "root": {
+        "tr": "*İllâ* — **husrdan çıkışın tek kapısı**, ve o kapı dört basamaklıdır",
+        "en": "*Illā* — **the one door out of loss**, and that door has four rungs"
+      },
+      "branches": [
+        {
+          "id": "iman",
+          "labelTr": "1 · Îmân",
+          "labelEn": "1 · Īmān",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "**İnanmadan yola çıkamazsın.** İlk planda sağlam iman.",
+              "en": "**You cannot set out without believing.** First and foremost, sound belief."
+            }
+          ]
+        },
+        {
+          "id": "salihat",
+          "labelTr": "2 · Sâlih amel",
+          "labelEn": "2 · Ṣāliḥ deeds",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "**Yapıcı, kurucu, tamir odaklı, üretken iş** demektir",
+              "en": "It means **work that builds, founds, repairs and produces**"
+            },
+            {
+              "tr": "**Fesadın, ifsadın, yıkımın, kaosun zıddıdır** — kaostan düzene ileten işler",
+              "en": "**The opposite of corruption, spoiling, destruction and chaos** — work that leads from chaos to order"
+            }
+          ]
+        },
+        {
+          "id": "hak",
+          "labelTr": "3 · Hak tavsiyesi",
+          "labelEn": "3 · Enjoining truth",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "**Hak**: şartlardan, kişilerden, duygusal veya çıkarcı bakış açılarından **bağımsız gerçeklik**",
+              "en": "**Ḥaqq**: reality **independent** of circumstances, persons, and emotional or interested points of view"
+            },
+            {
+              "tr": "Gerçekliği **hatırlatma, tavsiye etme** — üçüncü kat esas",
+              "en": "**Reminding of, and enjoining,** that reality — the third storey"
+            }
+          ]
+        },
+        {
+          "id": "sabir",
+          "labelTr": "4 · Sabır tavsiyesi",
+          "labelEn": "4 · Enjoining patience",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Her projenin inişi çıkışı vardır; **dış şartlar sürekli değişir**",
+              "en": "Every project has its rises and falls; **external conditions change constantly**"
+            },
+            {
+              "tr": "**Duygusal stabilite** projenin tamamlanması için olmazsa olmazdır",
+              "en": "**Emotional stability** is indispensable to a project's completion"
+            },
+            {
+              "tr": "Dördüncü katta yalnız sabretmek değil, **sabrı başkalarına tavsiye ve teşvik** de var",
+              "en": "At the fourth storey it is not only to be patient but **to enjoin and encourage patience in others**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Sabır: hiçbir şey yapmamak değil, **termostat**",
+      "headingEn": "Patience: not doing nothing, but **a thermostat**",
+      "tr": "**Sabır bir şey yapmamak, tepki vermemek değildir.** Sabır **evin termostatı gibidir**: dıştaki sıcaklık artsa da azalsa da evdeki sıcaklık belli bir aralıkta sabit tutulur. Bu da **aktif bir duruşu gerektirir.** Bugün gaza gelip yarın motivasyon gittiğinde o proje neticelenmez, **hüsranla sonuçlanır.**",
+      "en": "**Patience is not doing nothing, not refusing to react.** Patience is **like the thermostat of a house**: whether the temperature outside rises or falls, the temperature indoors is held within a certain band. And that **requires an active stance.** If one is fired up today and the motivation is gone tomorrow, the project does not come to term — **it ends in loss.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Proje sözleşmesinin dört sütunu",
+      "headingEn": "The four columns of a project charter",
+      "tr": "Proje sözleşmelerinde dört sütun şart: **“Neye inanıyoruz”**, **“Ne inşa ediyoruz”**, **“Bunu içeride nasıl vaaz ediyoruz”**, **“Baskı altında nasıl sürdürüyoruz”**. **Biri düşerse teşebbüs tekrar husra döner.**",
+      "en": "Four columns are required in a project charter: **“what we believe”**, **“what we are building”**, **“how we preach it internally”**, **“how we sustain it under pressure”**. **If one falls, the enterprise returns to loss.**"
+    },
+    {
+      "type": "section",
+      "id": "orgutsel-davranis",
+      "titleTr": "4 · Örgütsel Davranış",
+      "titleEn": "4 · Organisational Behaviour"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Karşılıklı öğüt, eğilimlere karşı tasarlanmış yedeklemedir.** — *Mutual counsel is engineered redundancy against bias.*",
+      "en": "**Mutual counsel is engineered redundancy against bias.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "*Tavâsî* kökü **“vasiyet etmek, miras bırakmak, öğütleşmek”** demektir. Kelimenin kalıbı karşılıklılık taşır: **tek yönlü emir değil, çok yönlü mentörlük**, sürekli geri bildirim mekanizmasıdır. **Bu bir kültür kodudur.** Yankı odalarından, fildişi kulelerinden ve yanlış varsayımlardan kişiyi ve toplumu kurtaracak şey, **çok yönlü tavsiye akışıdır.**",
+      "en": "The root *tawāṣī* means **“to bequeath, to leave as legacy, to counsel one another.”** The form of the word carries reciprocity: it is **not one-way command but multi-directional mentorship**, a continuous feedback mechanism. **It is a cultural code.** What will rescue a person and a society from echo chambers, ivory towers and false assumptions is **a multi-directional flow of counsel.**"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki öğüt biçimi",
+      "captionEn": "Two forms of counsel",
+      "left": {
+        "titleTr": "Tek yönlü emir",
+        "titleEn": "One-way command",
+        "accent": "#c0554d",
+        "descTr": "Yukarıdan aşağı akar; **geri dönüş kanalı yoktur.**",
+        "descEn": "Flows from top to bottom; **there is no return channel.**",
+        "bullets": [
+          {
+            "tr": "Yanlış varsayım **hiyerarşinin tepesinde donar**",
+            "en": "A false assumption **freezes at the top of the hierarchy**"
+          },
+          {
+            "tr": "Sonuç: **yankı odası**, fildişi kulesi, group-think",
+            "en": "The result: **the echo chamber**, the ivory tower, group-think"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Tavâsî — çok yönlü mentörlük",
+        "titleEn": "Tawāṣī — multi-directional mentorship",
+        "accent": "#1D9E75",
+        "descTr": "Karşılıklıdır; **her düğüm hem verici hem alıcıdır.**",
+        "descEn": "Reciprocal; **every node both gives and receives.**",
+        "bullets": [
+          {
+            "tr": "Sürekli **geri bildirim mekanizması** (*continuous feedback*)",
+            "en": "A continuous **feedback mechanism**"
+          },
+          {
+            "tr": "Eğilime (*bias*) karşı **tasarlanmış yedekleme**",
+            "en": "**Engineered redundancy** against bias"
+          }
+        ]
+      },
+      "bridgeTr": "Âyetin *tavâsî* kalıbını seçmesi tesadüf değildir: **husra karşı sigorta, tek bir doğru bilene değil, akan bir tavsiye ağına bağlanmıştır.**",
+      "bridgeEn": "The verse's choice of the *tawāṣī* form is no accident: **the insurance against loss is bound not to one person who knows, but to a flowing network of counsel.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "**Kıdemsizlerin kıdemlileri uyardığı** ve rotasyonla yenilenen **“hak halkaları”** kur; tabana yayılmış **çok yönlü feedback akışı group-think'i kırar.**",
+      "en": "Establish **“circles of truth”** — renewed by rotation, in which **juniors warn seniors**; a multi-directional feedback flow spread through the base **breaks group-think.**"
+    },
+    {
+      "type": "section",
+      "id": "sosyo-etik",
+      "titleTr": "5 · Sosyo-Etik Sürdürülebilirlik",
+      "titleEn": "5 · Socio-Ethical Sustainability"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Islah (*salâh*), îmânın toplumsal temettüsüdür.**",
+      "en": "**Setting right (*ṣalāḥ*) is the social dividend of belief.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "***Sâlih*: düzensizlikten düzene geçiş.** Âyette **îmândan hemen sonra** gelmesi anlamlıdır — inanç, ilk meyvesini fiilde verir. Kişisel, mânevî, profesyonel yahut toplumsal bir projeyi gerçekleştirmek için yapılan işlerin; **iş akışına uygun ve düzeni artıran — entropiyi azaltan — işler** olması gerekir.",
+      "en": "***Ṣāliḥ*: the passage from disorder to order.** That it comes **immediately after īmān** in the verse is significant — belief yields its first fruit in action. The work done to realise any project, personal, spiritual, professional or social, must be **work that fits the workflow and increases order — that is, reduces entropy.**"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki yön: entropi artışı ve azalışı",
+      "captionEn": "Two directions: entropy rising and falling",
+      "left": {
+        "titleTr": "Fesad / ifsad",
+        "titleEn": "Fasād / ifsād",
+        "accent": "#c0554d",
+        "descTr": "Düzenden düzensizliğe; **yıkım ve kaos** yönü.",
+        "descEn": "From order to disorder; the direction of **destruction and chaos**.",
+        "bullets": [
+          {
+            "tr": "Günah, israf, çatışma, yolsuzluk — hepsi **entropi üretir**",
+            "en": "Sin, waste, conflict, corruption — all of them **produce entropy**"
+          },
+          {
+            "tr": "Çıktı hacmi büyük olabilir, **düzen yine de azalır**",
+            "en": "Output volume may be large, yet **order still decreases**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Sâlih / ıslah",
+        "titleEn": "Ṣāliḥ / iṣlāḥ",
+        "accent": "#1D9E75",
+        "descTr": "Düzensizlikten düzene; **yapıcı, kurucu, tamir edici** yön.",
+        "descEn": "From disorder to order; the direction that **builds, founds and repairs**.",
+        "bullets": [
+          {
+            "tr": "İş akışına uygun, **düzeni artıran** fiiller",
+            "en": "Deeds that fit the workflow and **increase order**"
+          },
+          {
+            "tr": "Îmânın **toplumsal temettüsü** budur",
+            "en": "This is the **social dividend** of belief"
+          }
+        ]
+      },
+      "bridgeTr": "Ölçü hacim değil **yön**dür: bir iş, ürettiği çıktının büyüklüğüyle değil, **entropiyi ne kadar azalttığıyla** sâlih olur.",
+      "bridgeEn": "The measure is not volume but **direction**: a work is *ṣāliḥ* not by the size of what it produces but by **how much entropy it reduces.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Politikaları **entropiyi** — günahlar, israf, çatışma, yolsuzluk — **ne kadar azalttığıyla ölç ve değerlendir**; salt çıktı hacmiyle değil.",
+      "en": "Measure and assess policies by **how far they reduce entropy** — sin, waste, conflict, corruption — **not by sheer output volume.**"
+    },
+    {
+      "type": "section",
+      "id": "psikolojik-direnc",
+      "titleTr": "6 · Psikolojik Direnç",
+      "titleEn": "6 · Psychological Resilience"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Sabır, hak söylemini kalıcı pratiğe çeviren volandır** (çark, *flywheel*).",
+      "en": "**Patience is the flywheel that turns the discourse of truth into lasting practice.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Âyette *sabr*, **çalkantıdan sükûnete geçiş**tir ve doğrudan *hakk* ile eşleştirilir: **hak, sebat olmadan söner.** Kelimenin kökünde **dar bir alanda tutmak**, *constrain* gibi anlamlar vardır — yine termostat aklınıza gelsin. Canlılık, ya da daha genel ve teknik tabirle **adaptif kompleks sistemler, homeostasis** yani **aktif denge** gerektirir. Tüm bu sistemlerde, termostatta olduğu gibi, **geri bildirim mekanizmasıyla sürekli hakta kalmak için gösterilen aktif çabadır sabır.**",
+      "en": "In the verse *ṣabr* is **the passage from turbulence to stillness**, and it is paired directly with *ḥaqq*: **truth goes out without steadfastness.** In the root of the word lie senses such as **holding within a narrow space**, constraining — think of the thermostat again. Life, or in more general and technical terms **complex adaptive systems, require homeostasis**, that is **active equilibrium**. In all such systems, as in a thermostat, patience is **the active effort to remain continually upon the truth by way of a feedback mechanism.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Her yeni politika ve plan için bir **“dayanıklılık planı”** ekle — mentorluk, kademeli hedefler — ki **idealler geri tepmeye dayanabilsin.**",
+      "en": "For every new policy and plan, add **a resilience plan** — mentorship, staged targets — so that **ideals can withstand the backlash.**"
+    },
+    {
+      "type": "section",
+      "id": "anlati-stratejisi",
+      "titleTr": "7 · Anlatı Stratejisi",
+      "titleEn": "7 · Narrative Strategy"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Kur'an kısa söyler, ta ki uzun olsun.** Sıkıştırma güçlendirir: üç âyet **tam bir etik işletim sistemidir.**",
+      "en": "**The Qur'an speaks briefly, that it may be long.** Compression strengthens: three verses are **a complete ethical operating system.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Sûrenin **mikro-formatı mesajını harika bir şekilde yansıtır** — minimum kelimeden maksimum öz; yani **yine *ʿaṣr*.** Her proje için az ve öz, **kompres edilmiş ölçüler** veya gidilen yol için **ışıklar** oluşturmak; kendimizi sürekli ölçeceğimiz ve yolu hatırlatacak bir **geri bildirim mekanizması** verir. Tabii **lâakal on beş günde yahut ayda bir** gözden geçirmek gerekir.",
+      "en": "The sura's **micro-format reflects its message admirably** — maximum essence from minimum words; that is, **ʿaṣr once again.** To form, for each project, brief and compressed measures, or **lights along the road travelled**, gives us **a feedback mechanism** by which to gauge ourselves continually and to be reminded of the way. And of course it needs reviewing **at least every fortnight, or once a month.**"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Misyon, yöntem, kültür ve zihniyeti **tek sayfalık yoğun metinlerde** topla; **ezberlenebilir “nükleer özet”ler** kullan.",
+      "en": "Gather mission, method, culture and mindset into **dense single-page texts**; use **memorisable “nuclear summaries.”**"
+    },
+    {
+      "type": "section",
+      "id": "risk-yonetimi",
+      "titleTr": "8 · Risk Yönetimi",
+      "titleEn": "8 · Risk Management"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Emniyet supabı, kişisel ve toplu sigortayı eş-zamanlı gerektirir.**",
+      "en": "**The safety valve requires personal and collective insurance simultaneously.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Üçüncü âyetteki fiiller **çoğul formdadır**: bireysel îmân ve amel, **cemaat devresi olmadan husru telâfi etmez.** Batı modernizminin **bireysellik** vurgusu ile doğu geleneğinin **kitlesellik** vurgusu, ifrat ve tefrit oluşturuyor. İnsanın maddî ve mânevî potansiyelleri **ne tam bireysellikle ne de tam kitlesellikle** açığa çıkar; istikamet bu ikisinin dengesiyledir.",
+      "en": "The verbs in the third verse stand in **the plural**: individual belief and deed **do not make good the loss without the circuit of community.** Western modernity's stress on **individuality** and the Eastern tradition's stress on **collectivity** together form an excess and a deficiency. Man's material and spiritual potentials come to light **neither through pure individuality nor through pure collectivity**; the straight course lies in the balance of the two."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İfrat ve tefrit — ve aradaki istikamet",
+      "captionEn": "Excess and deficiency — and the course between",
+      "left": {
+        "titleTr": "Tam bireysellik",
+        "titleEn": "Pure individuality",
+        "accent": "#3498db",
+        "descTr": "Batı modernizminin vurgusu: **birey, ölçünün kendisidir.**",
+        "descEn": "The stress of Western modernity: **the individual is the measure itself.**",
+        "bullets": [
+          {
+            "tr": "Cemaat devresi yok — **husr telâfi edilmez**",
+            "en": "No circuit of community — **the loss is not made good**"
+          },
+          {
+            "tr": "Ekip yok; **tökezleyen tek başına batar**",
+            "en": "No team; **whoever stumbles sinks alone**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Tam kitlesellik",
+        "titleEn": "Pure collectivity",
+        "accent": "#d4a574",
+        "descTr": "Doğu geleneğinin vurgusu: **birey kalabalıkta erir.**",
+        "descEn": "The stress of the Eastern tradition: **the individual dissolves in the crowd.**",
+        "bullets": [
+          {
+            "tr": "Biricik rol **keşfedilmez**, temsil edilmez",
+            "en": "The unique role is **never discovered**, never represented"
+          },
+          {
+            "tr": "Kompleks adaptif sistemler **homojen parçalardan oluşmaz**",
+            "en": "Complex adaptive systems are **not made of homogeneous parts**"
+          }
+        ]
+      },
+      "bridgeTr": "**Denge, “biraz ondan biraz bundan” değildir** — ortalamasını almak değil, **farklı alanlarda ikisini de maksimize etmektir.** Büyük projelerde muhteşem bir uyum içinde takım oyuncusu olmak, ama aynı zamanda takımdaki **biricik rolünü** de keşfedip nihaî seviyede temsil etmek.",
+      "bridgeEn": "**Balance is not “a little of this and a little of that”** — not taking the average, but **maximising both, in different domains.** To be a team player in magnificent concord on great projects, and at the same time to discover **one's unique role** within that team and represent it at the highest level."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Pratik karşılık",
+      "headingEn": "The practical counterpart",
+      "tr": "Sözleşmelere ve takımlara **karşılıklı destek maddeleri** koy: eşli kod incelemesi, ***buddy system*** — **bir üyenin tökezlemesi tüm ekibi batırmasın.**",
+      "en": "Put **mutual-support clauses** into contracts and teams: paired code review, a **buddy system** — so that **one member's stumble does not sink the whole crew.**"
+    },
+    {
+      "type": "section",
+      "id": "kavramsal-akis",
+      "titleTr": "Kavramsal Akış — Hatırlatma Şeması",
+      "titleEn": "The Conceptual Flow — A Reminder Schema"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Zaman presinden sürdürülebilir net kâra",
+      "captionEn": "From the press of time to sustainable net gain",
+      "nodes": [
+        {
+          "titleTr": "Zaman presi (*ʿAṣr*)",
+          "titleEn": "The press of time (*ʿAṣr*)",
+          "tone": "trigger",
+          "subtitleTr": "Sonlu, **teslim tarihi yaklaşan** zaman. Özü **sıkılarak** çıkarılır.",
+          "subtitleEn": "Finite time, **its delivery date approaching**. Its essence is drawn out **by pressing**."
+        },
+        {
+          "titleTr": "Varsayılan: kayıp (*Husr*)",
+          "titleEn": "Default: loss (*Ḥusr*)",
+          "tone": "state",
+          "subtitleTr": "Müdahale edilmezse rota budur. Kayıp **varoluşsaldır**, malî değil.",
+          "subtitleEn": "Absent intervention, this is the trajectory. The loss is **existential**, not financial."
+        },
+        {
+          "titleTr": "İnanç (*Îmân*)",
+          "titleEn": "Belief (*Īmān*)",
+          "tone": "state",
+          "subtitleTr": "Merdivenin ilk basamağı: **inanmadan yola çıkamazsın.**",
+          "subtitleEn": "The ladder's first rung: **you cannot set out without believing.**"
+        },
+        {
+          "titleTr": "Islah fiilleri (*Sâlihât*)",
+          "titleEn": "Deeds that set right (*Ṣāliḥāt*)",
+          "tone": "state",
+          "subtitleTr": "**Kaostan düzene** ileten, entropiyi azaltan üretken iş.",
+          "subtitleEn": "Productive work that leads **from chaos to order** and reduces entropy."
+        },
+        {
+          "titleTr": "Hak tavsiyesi (*Tavâsî bi'l-hakk*)",
+          "titleEn": "Enjoining truth (*Tawāṣī bi'l-ḥaqq*)",
+          "tone": "state",
+          "subtitleTr": "Şartlardan ve çıkarlardan bağımsız gerçekliğin **karşılıklı hatırlatılması**.",
+          "subtitleEn": "**The mutual reminding** of a reality independent of circumstance and interest."
+        },
+        {
+          "titleTr": "Sabır döngüsü (*Tavâsî bi's-sabr*)",
+          "titleEn": "The patience loop (*Tawāṣī bi'ṣ-ṣabr*)",
+          "tone": "state",
+          "subtitleTr": "Termostat: geri bildirimle **hakta kalmak için aktif çaba** — ve bunun başkalarına tavsiyesi. Döngü buradan **hak tavsiyesine geri besler.**",
+          "subtitleEn": "The thermostat: **active effort to remain upon the truth** through feedback — and the enjoining of it upon others. From here the loop **feeds back into enjoining truth.**"
+        },
+        {
+          "titleTr": "Sürdürülebilir net kâr",
+          "titleEn": "Sustainable net gain",
+          "tone": "outcome",
+          "subtitleTr": "**Evrensel kayıp akışı**, bütüncül kazanca çevrilmiş olur.",
+          "subtitleEn": "**The universal current of loss** is turned into an integral gain."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Böylece Sûre-i ʿAsr, ham ve kaçıcı anları **ahlâkî, sosyal, zihinsel ve rûhânî sermayeye** dönüştüren **dört vitesli bir şanzıman** sunar; evrensel kayıp akışını **bütüncül kazanca** çevirir.",
+      "en": "And so Sūrat al-ʿAṣr offers **a four-speed gearbox** that converts raw and fleeting moments into **moral, social, mental and spiritual capital**; it turns the universal current of loss into **an integral gain.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Metin hakkında",
+      "headingEn": "About this text",
+      "tr": "Yazının prensipleri **semantik okuma metoduyla** çıkarılmıştır; sekiz başlığın her biri âyetin bir kelimesini modern bir alana (zaman ekonomisi, örgütsel davranış, risk yönetimi) tercüme eder. Bu **bir tefsir iddiası değil**, sûrenin kavram örgüsünden çıkarılmış bir **pratik prensipler haritasıdır**. Âyet metinleri sitedeki **âyet grafiğinden** doğrudan alınmış, Osmanlı imlâsı görüntü için normalize edilmiştir. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.**",
+      "en": "The principles here are drawn out **by the method of semantic reading**; each of the eight headings translates a word of the verses into a modern domain (the economics of time, organisational behaviour, risk management). This is **not a claim to exegesis** but **a map of practical principles** derived from the sura's conceptual weave. The verse texts are taken directly from **the verse graph** on this site, with the Uthmani orthography normalised for display. **The Turkish is the author's own pen; the English is a translation.**"
+    }
+  ]
+}

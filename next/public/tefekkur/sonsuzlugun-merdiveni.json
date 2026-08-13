@@ -1,7 +1,7 @@
 {
   "slug": "sonsuzlugun-merdiveni",
-  "titleTr": "Sonsuzluğun Merdiveni — Analojilerden Hakikate Yolculuk",
-  "titleEn": "The Ladder of the Infinite — From Analogies to Truth",
+  "titleTr": "İdrak 1: Sonsuzluğun Merdiveni",
+  "titleEn": "Cognition 1: The Ladder of the Infinite",
   "category": "idrak-suur",
   "template": "series-hero",
   "seriesId": "recursive-idrak",
@@ -25,7 +25,7 @@
   "previousArticle": null,
   "nextArticle": {
     "slug": "sonsuz-nasil-bilinir",
-    "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir?"
+    "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak"
   },
   "blocks": [
     {

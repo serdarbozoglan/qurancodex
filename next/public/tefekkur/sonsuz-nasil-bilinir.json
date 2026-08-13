@@ -1,7 +1,7 @@
 {
   "slug": "sonsuz-nasil-bilinir",
-  "titleTr": "Sonsuz Nasıl Bilinir — Yönelimsel İdrak",
-  "titleEn": "How Is the Infinite Known? — Directional Cognition",
+  "titleTr": "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak",
+  "titleEn": "Cognition 2: How Is the Infinite Known — Directional Cognition",
   "category": "idrak-suur",
   "template": "series-hero",
   "seriesId": "recursive-idrak",
@@ -30,7 +30,7 @@
   },
   "nextArticle": {
     "slug": "inception-hayatlar",
-    "titleTr": "İdrak 3: Inception Hayatlar"
+    "titleTr": "Inception Hayatlar — Recursive Düşüncenin Pratiği"
   },
   "blocks": [
     {
