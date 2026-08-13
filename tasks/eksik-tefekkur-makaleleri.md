@@ -1,7 +1,9 @@
 # 📝 EKSİK TEFEKKÜR MAKALELERİ
 
 > **Oluşturma:** 2026-08-12
-> **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` (35 makale) ile karşılaştırıldı.
+> **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` ile karşılaştırıldı.
+>
+> **📌 Son durum (2026-08-12, `833176e` main'e push edildi):** Site **42 makale**. Bu oturumda 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı.
 >
 > ⚠ **Neden ekran görüntüsünden:** Medium arşivi programatik olarak taranamıyor. Profil sayfası sonsuz kaydırma ile yalnız son ~10 yazıyı, RSS beslemesi (`/feed`) 9 kaydı veriyor; `/archive` 404 dönüyor. 2025 arşivi bu uçların hiçbirinde görünmüyor — kanıt: 2025-09 ve 2025-10 tarihli iki yazı feed'de yoktu.
 >
@@ -53,7 +55,7 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 |---|---|---|
 | 2024-11-12 | Hâlâ mı Evrim? | ❌ eksik |
 | 2025-05-14 | Evrim dinsizliği yayma projesidir! | ❌ eksik |
-| 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` |
+| 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` (TR + EN çeviri) |
 
 Üçü birlikte tutarlı bir küme oluşturur. **§13.24 tefekkür istisnası geçerli** — yazarın kendi görüşü, GPT hakem turu ÇALIŞTIRILMAZ (kullanıcı kararı 2026-08-12, CLAUDE.md'ye işlendi).
 
@@ -71,6 +73,8 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 | 2025-05-31 | Kur'an'ın Ruhsal Coğrafyası: Doğru Yoldan Sapmanın Anatomisi | `kavramsal` |
 | 2025-06-10 | Asr Sûresinden Çıkarılan Temel Prensipler | `sure-hermenotik` |
 | 2025-11-09 | Vicdan: Evrensel Tercümanımız | `kavramsal` |
+
+✅ **Eklendi (bu oturumda, D listesinde değildi):** *Kur'an Mesajına Yabancı Kalmak* (2025-09-05) → `kuran-mesajina-yabanci-kalmak`. 18 verseInline + ك ن ن kök ağacı; sitenin en ayet-yoğun tefekkür yazısı. ⚠ `canonicalUrl` hâlâ BOŞ — Medium linki verilmedi.
 
 **"Kaderin Çözünürlüğü (devam)"** dikkat: sitedeki `kader` makalesinin devamı. Ayrı makale mi yoksa `kader`'in ikinci parçası mı — metni görünce karar verilecek.
 
@@ -97,11 +101,14 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ## 🎯 ÖNERİLEN SIRA
 
-1. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. En ucuz, anında kazanç.
-2. **Terminoloji 1-4** — yarım seriyi kapatır, seri navigasyonunu düzeltir.
-3. **Yaratılış Hikâyesi 1-2** — `kozmoloji` kategorisini besler.
-4. **Evrim üçlemesinin kalan ikisi** — mevcut yazıyla küme tamamlanır.
-5. D bölümündeki tekil yazılar.
+~~1. Okuma Prensipleri EN gövdeleri~~ · ~~2. Terminoloji 1-4~~ ✅ · ~~3. Yaratılış Hikâyesi 1-2~~ ✅ (kısmen — 3-6 kaldı)
+
+**Güncel sıra (2026-08-12):**
+1. **Yaratılış Hikâyesi 3-4-5-6** — seri yarım kaldı, `seriesTotal: 6` yazılı ama 4 bölüm yok. Başlıkları bile bilinmiyor; **Medium'daki liste sayfasından** alınmalı.
+2. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. En ucuz kazanç, hâlâ yapılmadı.
+3. **Evrim üçlemesinin kalan ikisi** — mevcut yazıyla küme tamamlanır.
+4. D bölümündeki tekil yazılar (8 adet).
+5. E bölümündeki İngilizce sürümler.
 
 ---
 
@@ -120,8 +127,31 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 
 ---
 
+## 🔴 OPERASYONEL DERS — GIT LFS (2026-08-12, acı deneyim)
+
+**`git-lfs` bu makinede KURULU DEĞİLDİ.** `.gitattributes` `corpus-embeddings.json`'ı LFS'e yönlendiriyor ama filtre çalışmadığı için **10 commit'e 166 MB ham JSON girdi**; GitHub 100 MB sınırıyla push'u reddetti (`pre-receive hook declined`).
+
+**Yapılan hata:** `git check-attr filter` çıktısına (`filter: lfs`) bakıp "LFS aktif" sanmak. **Attribute'un varlığı, filtrenin çalıştığı anlamına gelmez.** Doğru kontrol: `which git-lfs`.
+
+**Kurtarma denemesi ve sonucu:** `git lfs migrate import` çalıştırıldı → **1565 commit'i yeniden yazdı**, `origin/main` ata olmaktan çıktı, force push gerekti. YAPILMADI. Bunun yerine `git reset --soft origin/main` ile iş **tek temiz commit**e toplandı; geçmiş yeniden yazılmadı, push fast-forward oldu. Bedeli: o günün granüler commit'leri kayboldu.
+
+**Bundan sonra — embedding çalıştırmadan ÖNCE:**
+```bash
+which git-lfs || brew install git-lfs   # kurulu değilse ham blob commit'lenir
+git lfs install
+```
+Commit sonrası doğrula — pointer olmalı, JSON değil:
+```bash
+git cat-file -p HEAD:next/src/lib/corpus-embeddings.json | head -c 40
+# beklenen: version https://git-lfs.github.com/spec/v1
+```
+
+Yedek etiket: `backup-pre-lfs-78a3b18` (migrate öncesi hâl).
+
+---
+
 ## 📌 BİLİNEN AÇIK KONULAR
 
-- **`status: "draft"`** — 35 makalenin tamamı taslak. `TefekkurIndexRoute.jsx:224` yalnız `published`/`live` sayıyor, yani sayaç 0 gösteriyor. Bilinçli mi, karar bekliyor (4 kez soruldu, cevaplanmadı).
+- **`status: "draft"`** — 42 makalenin tamamı taslak. `TefekkurIndexRoute.jsx:224` yalnız `published`/`live` sayıyor, yani sayaç 0 gösteriyor. Bilinçli mi, karar bekliyor (**5 kez soruldu, cevaplanmadı** — cevap gelmezse dokunulmayacak).
 - **`kuran-mesajina-yabanci-kalmak`** — `canonicalUrl` boş, Medium linki verilmedi.
 - **Tarih tutarsızlığı** — bazı makalelerin `_index.json` tarihi Medium'daki tarihle uyuşmuyor (ör. Ruhun Termostatı: sitede 2024-11-20, Medium'da 2026-02-04). Toplu bir denetim gerekebilir.
