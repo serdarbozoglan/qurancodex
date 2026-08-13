@@ -896,3 +896,30 @@ _(taslak henüz hazırlanmadı)_
 6. **Navbar konumu:** "Tefekkür" sağa mı (EN/Kur'an'ı Oku öncesi) sola mı (Keşfet/Araçlar yanına)?
 
 Onayını alır almaz infra to-do'ya geçiyorum (§6).
+
+---
+
+## 🎯 AÇIK İŞ — 34 makalenin özetinde vurgu yok (2026-08-13)
+
+Kartlardaki `tldr` metinleri markdown'ı **artık render ediyor** (önce ham
+basılıyordu, literal `**` görünüyordu). Render düzelince tutarsızlık ortaya çıktı:
+
+| Durum | Adet |
+|---|---|
+| Kalın vurgu **hiç yok** | **34** |
+| 3+ vurgu (iyi) | 18 |
+| Arada (1-2) | 0 |
+
+Ya tamamen var ya tamamen yok — çünkü vurgulu olan 18'i son dönemde yazıldı,
+kalan 34'ü daha eski ve o dönem `tldr`'lar düz metin yazılmış. **Bilinçli bir
+tercih değil, biriken tutarsızlık.**
+
+- [ ] 34 makalenin `tldrTr` + `tldrEn` metinlerine vurgu ekle
+- [ ] ⚠ **Bu mekanik bir dönüşüm DEĞİL** — her özette hangi 3-4 kavramın öne
+      çıkacağına karar vermek gerekir. Yanlış kelimeyi vurgulamak hiç
+      vurgulamamaktan kötüdür. Toplu regex ile yapılmamalı.
+- [ ] Vurgusuz olanlar: `yapilanlarin-suslu-gorulmesi`, `emrin-mahiyeti`,
+      `ayet-koprusu`, `analitik-icgoru-1..3`, `sonsuzlugun-merdiveni`,
+      `okuma-prensipleri-1..2`, `alak-suresi-1`, `alak-suresi-2-3`,
+      `sonsuz-nasil-bilinir` … (tam liste için:
+      `node -e` ile `_index.json` üzerinde `tldrTr` içinde `**` araması)
