@@ -47,9 +47,12 @@
   - [x] `event` tabanlı gezinme `router.push(route)` ile değiştirildi.
         Navbar'ın `TOOL_ROUTES` haritası `src/lib/toolRoutes.js`'e taşındı; iki tüketici
         de aynı kaynağı kullanıyor. Eşleşme yoksa eski davranışa düşer (geriye dönük güvenli).
-  - [ ] Sayfayı `TOOL_CATALOG`'tan besle (21 → 55) — **henüz yapılmadı**, ayrı iş.
-        Şu an sayfa hâlâ `src/data/tools.jsx`'ten (21 araç) besleniyor; tıklamalar artık
-        çalışıyor ama sayfa hâlâ araçların %38'ini gösteriyor.
+  - [x] **Katalog ortak dosyaya ayrıldı** — `src/data/toolCatalog.js` (55 giriş).
+        Önceden yalnız `corpus-sources.mjs` içindeydi, tarayıcı erişemiyordu.
+        `corpus-sources.mjs` artık oradan import ediyor; corpus birebir aynı (55 item, 12.851 toplam).
+  - [ ] **Sayfayı bu katalogdan besle (21 → 55)** — sıradaki iş.
+        Mevcut 21 araç ikon + gruplu zengin kartlarla geliyor; onları KALDIRMA
+        (kayıp olur). Kalan 34'ü ek bölüm olarak ekle.
 - [x] **Regresyon koruması kuruldu** — `next/tests/tools-navigation.spec.js`
       Değişiklik öncesi/sonrası `git stash` ile gerçek baseline alındı:
       navbar **22 → 22** · mobil çekmece (390px) **71 → 71** · tum-araclar **38 → 38** ·
@@ -57,21 +60,23 @@
 
 ---
 
-## 🔴 P1 — Hemen (bağımsız, toplam ~35 dk)
+## ✅ P1 — TAMAMLANDI (`9a5c827`)
 
-- [ ] **§13.24 ihlalini düzelt**
+- [x] **§13.24 ihlali düzeltildi**
   `next/src/app/[locale]/page.js` → `cluster-astonishment` içindeki `ClusterWhisper`
   - Şu an: `"Bilim bir gün gelir, doğrular."` / `"Science arrives one day and confirms."`
   - Kural: tasdikin öznesi bilim olamaz; `confirms/proves` yasak
-  - Yeni TR: `"Bulgular örtüşebilir; hüküm metne değil, tefekküre aittir."`
-  - Yeni EN: `"Findings may align; the verdict belongs not to the text but to reflection."`
-  - [ ] `"Tarih bir gün gelir, eğilir"` cümlesini de yumuşat (aynı zaferci ton)
+  - Yeni TR: `"Bulgular örtüşebilir, izler çoğalabilir; hüküm metne değil, tefekküre aittir. Metin değişmez."`
+  - Yeni EN: `"Findings may align and traces may multiply; the verdict belongs not to the text but to reflection..."`
+  - [x] `"Tarih bir gün gelir, eğilir"` de aynı cümlede yumuşatıldı
 
-- [ ] **Hero'ya "burası ne" satırı ekle**
+- [x] **Hero'ya "burası ne" satırı eklendi**
   `next/src/components/Hero.jsx`
   - Sorun: ilk ekranda `<h1>` görünmüyor, ziyaretçi sitenin ne olduğunu anlamıyor
   - Âyet referansı ile `DEVAM` arasına tek satır: `0.8rem`, `COLORS.silver`, letterSpacing
-  - Kompozisyonu bozma — bismillah + âyet + çeviri hiyerarşisi korunacak
+  - Eklendi: *"Kur'an'ın dilsel, sayısal ve yapısal mimarisi — 6.236 âyet, interaktif görsellerle."*
+  - Başlık değil, âyet referansının altında sessiz tek satır (0.72–0.8rem, silver, opacity .55)
+  - Canlı doğrulandı 1440px + 390px; mobilde iki satıra sarıyor, yatay taşma yok
 
 ---
 
@@ -120,6 +125,26 @@
   - Hedef: 14 hydration adası → 1
 - [ ] 14 dosyayı sil, yerine 14 veri nesnesi koy
 - [ ] ⚠ **P4'ten önce yapma** — monoton yapıyı bileşene çimentolar
+
+---
+
+## 🟠 P5b — METODOLOJİ ↔ KAYNAKÇA GEÇİŞİ KIRIK (kullanıcı raporu, ~1 saat)
+
+Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
+`/hakkinda`'ya götürüyor. Ölçüm:
+
+| Sayfa | Uzunluk | Karşı sayfaya link |
+|---|---|---|
+| `/tr/hakkinda` | 2.387px | **1 tane** — `y=1530px` (sayfanın %64'ü), gövde metni içinde gömülü: *"Tam ve kategorize kaynakça için **Kaynakça sayfası**"* |
+| `/tr/kaynakca` | 5.039px | **HİÇ YOK** ✖ çıkmaz sokak |
+
+- [ ] `/kaynakca` → `/hakkinda` karşılıklı bağlantı ekle (öncelikli — 5.000px'lik sayfa şu an çıkmaz sokak)
+- [ ] `/hakkinda` → `/kaynakca` bağlantısını yukarı taşı / görünür kıl
+  (şu an paragraf içinde, ekranın çok altında)
+- [ ] İki sayfayı **kardeş sayfa** gibi ele al — şerit ikisini birden vaat ediyor.
+  Öneri: her iki sayfanın üstünde küçük, karşılıklı bir "diğer sayfa" bağlantısı
+- [ ] Alternatif: şeridin etiketini tek hedefe indir (*"Metodoloji"*) — ama
+  kaynakça sitenin akademik iddiasının dayanağı, gizlenmemeli. Karşılıklı bağlantı daha iyi.
 
 ---
 

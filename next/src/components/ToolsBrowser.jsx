@@ -36,6 +36,8 @@ import {
   RESEARCH_TOOLS,
 } from '../data/tools';
 import { routeForToolEvent } from '../lib/toolRoutes';
+import { TOOL_ROUTES } from '../lib/toolRoutes';
+import { TOOL_CATALOG } from '../data/toolCatalog';
 import { useRouter } from 'next/navigation';
 
 // ── Popular search suggestions (W20-Ö10) ────────────────────────────────────
@@ -57,6 +59,24 @@ const FILTERS = [
 ];
 
 const ALL_TOOLS = [...VIZ_TOOLS, ...ANALYSIS_TOOLS, ...RESEARCH_TOOLS];
+
+// ── Katalogdaki AMA yukarıdaki 21 kartta yer almayan araçlar (2026-08-13) ────
+// Sayfanın adı "Tüm Araçlar" ve açıklaması "kapsamlı katalog" ama yalnız 21
+// aracı gösteriyordu; diskte 56 rota var. Mevcut 21 kart ikonlu + gruplu ve
+// zengin — onlar KALDIRILMADI (kayıp olurdu). Kalan araçlar altta ayrı, daha
+// sade bir bölümde listeleniyor.
+//
+// Kaynak: src/data/toolCatalog.js (corpus ile paylaşılan tek otorite).
+const COVERED_ROUTES = new Set(Object.values(TOOL_ROUTES));
+const EXTRA_TOOLS = TOOL_CATALOG
+  .filter((t) => !COVERED_ROUTES.has(t.route) && t.route !== '/tefekkur')
+  .map((t) => ({
+    id: `cat:${t.route}`,
+    route: t.route,
+    titleTr: t.titleTr, titleEn: t.titleEn,
+    descTr: t.descTr,   descEn: t.descEn,
+    keywords: t.keywords || [],
+  }));
 
 // ── Component ────────────────────────────────────────────────────────────────
 export default function ToolsBrowser({ onClose, defaultOpen = false }) {
@@ -152,6 +172,19 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
       return haystack.includes(q);
     });
   }, [filteredByCategory, query]);
+
+  // Ek araçlar aynı sorguyla süzülür; kategori filtresi seçiliyse gizlenir
+  // (bu araçların grup bilgisi yok, yanlış gruba düşmesin).
+  const visibleExtras = useMemo(() => {
+    if (activeFilter !== 'all') return [];
+    const q = query.trim().toLowerCase();
+    if (!q) return EXTRA_TOOLS;
+    return EXTRA_TOOLS.filter((t) =>
+      `${t.titleTr} ${t.titleEn} ${t.descTr} ${t.descEn} ${(t.keywords || []).join(' ')}`
+        .toLowerCase()
+        .includes(q)
+    );
+  }, [activeFilter, query]);
 
   return (
     <AnimatePresence>
@@ -372,6 +405,60 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                         />
                       ));
                     })()}
+
+                {/* ── Diğer Araçlar (2026-08-13) ─────────────────────────────
+                    Sayfanın adı "Tüm Araçlar" ama yalnız 21 aracı gösteriyordu;
+                    katalogda 55, diskte 56 rota var. Yukarıdaki 21 kart ikonlu
+                    ve gruplu olduğu için korundu; kalan araçlar burada daha
+                    sade satırlarla listeleniyor. Kaynak: data/toolCatalog.js */}
+                {visibleExtras.length > 0 && (
+                  <>
+                    <CategoryHeader
+                      label={language === 'tr'
+                        ? `Diğer Araçlar · ${visibleExtras.length}`
+                        : `More Tools · ${visibleExtras.length}`}
+                    />
+                    {visibleExtras.map((t) => (
+                      <button
+                        key={t.id}
+                        onClick={() => { router.push(`/${language}${t.route}`); setOpen(false); }}
+                        style={{
+                          display: 'flex', flexDirection: 'column', gap: '4px',
+                          textAlign: 'left', width: '100%',
+                          padding: '13px 15px',
+                          borderRadius: RADIUS.md,
+                          background: 'rgba(255,255,255,0.025)',
+                          border: `1px solid ${COLORS.glassBorderSoft}`,
+                          cursor: 'pointer',
+                          transition: 'background 0.18s, border-color 0.18s',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = `${COLORS.gold}12`;
+                          e.currentTarget.style.borderColor = `${COLORS.gold}44`;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                          e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
+                        }}
+                      >
+                        <span style={{
+                          color: COLORS.offWhite, fontFamily: FONTS.body,
+                          fontSize: '0.86rem', fontWeight: 600, lineHeight: 1.35,
+                        }}>
+                          {language === 'tr' ? t.titleTr : t.titleEn}
+                        </span>
+                        <span style={{
+                          color: COLORS.silver, fontFamily: FONTS.body,
+                          fontSize: '0.75rem', lineHeight: 1.5,
+                          display: '-webkit-box', WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                        }}>
+                          {language === 'tr' ? t.descTr : t.descEn}
+                        </span>
+                      </button>
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           </motion.div>
