@@ -15,6 +15,7 @@ import {
 } from '../data/tools';
 // v1.1 — single source of truth for explore categories, shared with AllTopics
 import { EXPLORE_CATEGORIES, FEATURED_EXPLORE_ITEM } from '../data/exploreCategories';
+import { TOOL_ROUTES } from '../lib/toolRoutes';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
@@ -591,35 +592,7 @@ export default function Navbar() {
   // (single source of truth, shared with the ToolsBrowser modal).
   // Next.js migration: event-based dispatch → route navigation. URL artık her
   // tool tıklamasında değişir, SEO + paylaşım + browser back/forward çalışır.
-  const TOOL_ROUTES = {
-    openWowFacts:        '/arac/kurani-tani',
-    openVerseGraph:      '/graf/ayet',
-    openHeatmap:         '/graf/kelime-isi',
-    openRevelationOrder: '/graf/zaman',
-    openProphetAtlas:    '/atlas/peygamber',
-    openConceptGraph:    '/graf/kavram',
-    openKissaAtlas:      '/atlas/kissa',
-    openSurahComparator: '/graf/karsilastir',
-    openSurahCommands:   '/arac/buyruklar',
-    openDuaVerses:       '/arac/dualar',
-    openAddresseeSystem: '/arac/muhataplar',
-    openEsmaFrekans:     '/arac/esma-frekans',
-    openKiraatAtlas:     '/atlas/kiraat',
-    openDiyalogAgi:      '/graf/diyalog',
-    openMeselAtlas:      '/atlas/mesel',
-    openSebebNuzul:      '/arac/sebebi-nuzul',
-    openFurukAtlasi:     '/atlas/furuk',
-    openMunasebatAtlasi: '/atlas/munasebat',
-    openIblisSatan:      '/arac/iblis-seytan',
-    openKadinlarAtlasi:  '/atlas/kadinlar',
-    openIlkSonKelimeler: '/arac/ilk-son-kelimeler',
-    // #207 #208 #211 (2026-07-19) — Yeni 3 tool route mapping
-    openElestirelCerceve: '/arac/elestirel-cerceve',
-    openNedenSonuc:      '/arac/neden-sonuc',
-    openKitapKavrami:    '/arac/kitap-kavrami',
-    // #210 (2026-07-21) — Yakın Anlamlı Nüanslar
-    openYakinAnlamliNuanslar: '/arac/yakin-anlamli-nuanslar',
-  };
+  // TOOL_ROUTES artik lib/toolRoutes.js'te — ToolsBrowser ile paylasiliyor.
   // Backwards-compat alias — bazı yerlerde TOOL_TRIGGERS kullanıyor olabilir.
   const TOOL_TRIGGERS = Object.fromEntries(
     Object.entries(TOOL_ROUTES).map(([event, route]) => [event, () => router.push(`/${language}${route}`)])
@@ -662,6 +635,40 @@ export default function Navbar() {
     zIndex: 100,
     overflow: 'hidden',
     padding: '8px',
+  };
+
+  // ── Mega-menü panel dili — ÜÇ MENÜ İÇİN ORTAK (2026-08-13) ────────────────
+  // Önce yalnız Tefekkür menüsüne uygulanmıştı; üç menüden birinin farklı
+  // davranması, hepsinin sade olmasından daha kötü olduğu için ortak sabitlere
+  // çıkarıldı. Keşfet / Araçlar / Tefekkür aynı kabuk, aynı eğri, aynı giriş.
+  //
+  // "Double-bezel": panel arka plana düz oturmuyor — dış kabuk (tepsi) içinde
+  // duran bir iç çekirdek. Yarıçaplar eşmerkezli: 20 - 6 = 14.
+  const MENU_EASE = [0.32, 0.72, 0, 1];
+  const menuPanelMotion = {
+    initial: { opacity: 0, y: -10, scale: 0.985 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    exit: { opacity: 0, y: -8, scale: 0.99 },
+    transition: { duration: 0.42, ease: MENU_EASE },
+  };
+  // Dış kabuk — saydam zemin + altın saç teli, 6px "tepsi" boşluğu.
+  const menuShellStyle = {
+    ...dropdownStyle,
+    left: 0,
+    padding: '6px',
+    borderRadius: '20px',
+    background: 'rgba(255,255,255,0.035)',
+    border: '1px solid rgba(212,165,116,0.14)',
+    boxShadow: '0 10px 20px rgba(0,0,0,0.28), 0 32px 80px rgba(0,0,0,0.55)',
+    transformOrigin: 'top left',
+  };
+  // İç çekirdek — kendi opak zemini + üst kenarda inset ışık çizgisi.
+  const menuCoreStyle = {
+    borderRadius: '14px',
+    background: 'rgba(6,8,20,0.96)',
+    border: '1px solid rgba(255,255,255,0.045)',
+    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)',
+    overflow: 'hidden',
   };
 
   // Reading mode kendi tam ekran chrome'una sahip — site Navbar'ını render etme.
@@ -758,13 +765,8 @@ export default function Navbar() {
 
             <AnimatePresence>
               {exploreOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '860px', padding: 0 }}
-                >
+                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '872px' }}>
+                <div style={menuCoreStyle}>
                   {/* Mega-menu: two columns */}
                   {(() => {
                     const colLabel = {
@@ -931,7 +933,7 @@ export default function Navbar() {
                         onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.querySelector('.pi').style.color = 'rgba(212,165,116,0.6)'; e.currentTarget.querySelector('.pl').style.color = '#e8e6e3'; }}
                       >
                         <span className="pi" style={{ color: 'rgba(212,165,116,0.6)', flexShrink: 0, transition: 'color 0.15s' }}>{path.icon}</span>
-                        <span className="pl" style={{ color: '#e8e6e3', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.2, transition: 'color 0.15s', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <span className="pl" style={{ color: '#e8e6e3', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.2, transition: 'color 0.45s cubic-bezier(0.32,0.72,0,1)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {language === 'tr' ? path.labelTr : path.labelEn}
                         </span>
                       </button>
@@ -957,7 +959,7 @@ export default function Navbar() {
                           borderRadius: '8px 8px 0 0',
                           boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                          cursor: 'pointer', transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                          cursor: 'pointer', transition: 'background 0.5s cubic-bezier(0.32,0.72,0,1), box-shadow 0.5s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
                         }}
                         onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
                         onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
@@ -1011,6 +1013,7 @@ export default function Navbar() {
                       </div>
                     );
                   })()}
+                </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1039,13 +1042,8 @@ export default function Navbar() {
 
             <AnimatePresence>
               {toolsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '660px', padding: 0 }}
-                >
+                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '672px' }}>
+                <div style={menuCoreStyle}>
                   {/* Mega-menu: three columns */}
                   {(() => {
                     const colLabel = {
@@ -1162,6 +1160,7 @@ export default function Navbar() {
                       </div>
                     );
                   })()}
+                </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1209,13 +1208,8 @@ export default function Navbar() {
 
             <AnimatePresence>
               {tefekkurOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.15 }}
-                  style={{ ...dropdownStyle, left: 0, minWidth: '740px', padding: 0 }}
-                >
+                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '752px' }}>
+                <div style={menuCoreStyle}>
                   {(() => {
                     const colLabel = {
                       color: 'rgba(148,163,184,0.4)',
@@ -1226,16 +1220,23 @@ export default function Navbar() {
                       textTransform: 'uppercase',
                       padding: '10px 12px 6px',
                     };
-                    const categoryBtn = (cat) => (
-                      <button
+                    // Kademeli açılış — panel tek blok hâlinde belirmiyor,
+                    // satırlar 28ms arayla sırayla giriyor.
+                    const categoryBtn = (cat, i) => (
+                      <motion.div
                         key={cat.id}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.05 + i * 0.028, ease: [0.32, 0.72, 0, 1] }}
+                      >
+                      <button
                         onClick={() => { router.push(`/${language}/tefekkur?cat=${cat.id}`); setTefekkurOpen(false); }}
                         style={{
                           display: 'flex', alignItems: 'center', gap: '12px',
                           width: '100%', textAlign: 'left',
                           padding: '10px 12px', borderRadius: '10px', border: '1px solid transparent',
                           background: 'transparent', cursor: 'pointer',
-                          transition: 'background 0.15s, border-color 0.15s, transform 0.12s',
+                          transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
                         }}
                         onMouseEnter={e => {
                           e.currentTarget.style.background = `${cat.accent}14`;
@@ -1256,7 +1257,7 @@ export default function Navbar() {
                       >
                         <span className="tdot" style={{
                           width: '8px', height: '8px', borderRadius: '50%',
-                          background: cat.accent, flexShrink: 0, transition: 'box-shadow 0.15s',
+                          background: cat.accent, flexShrink: 0, transition: 'box-shadow 0.45s cubic-bezier(0.32,0.72,0,1)',
                         }} />
                         <span style={{ display: 'flex', flexDirection: 'column', gap: '1px', flex: 1, minWidth: 0 }}>
                           <span style={{ color: '#e8e6e3', fontSize: '0.86rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
@@ -1278,17 +1279,18 @@ export default function Navbar() {
                           fontFamily: "'Inter', sans-serif",
                           fontVariantNumeric: 'tabular-nums',
                           textAlign: 'center',
-                          transition: 'background 0.15s, border-color 0.15s',
+                          transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1)',
                         }}>{cat.count}</span>
                         <span className="tarr" style={{
                           color: 'rgba(148,163,184,0.55)',
                           opacity: 0.35,
                           fontSize: '0.85rem', lineHeight: 1,
-                          transition: 'opacity 0.15s, transform 0.15s, color 0.15s',
+                          transition: 'opacity 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.45s cubic-bezier(0.32,0.72,0,1), color 0.45s cubic-bezier(0.32,0.72,0,1)',
                           fontFamily: "'Inter', sans-serif",
                           flexShrink: 0,
                         }}>→</span>
                       </button>
+                      </motion.div>
                     );
 
                     // Kategoriler — count'lar tefekkurStats'ten dinamik (fallback: 0).
@@ -1323,10 +1325,23 @@ export default function Navbar() {
                             borderRadius: '8px 8px 0 0',
                             boxShadow: 'inset 0 0 0 1px rgba(201,162,39,0.10)',
                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                            cursor: 'pointer', transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                            cursor: 'pointer', transition: 'background 0.5s cubic-bezier(0.32,0.72,0,1), box-shadow 0.5s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
                           }}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)'; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)'; e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)'; }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.background = 'rgba(201, 162, 39, 0.14)';
+                            e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.22)';
+                            const chip = e.currentTarget.querySelector('.tbanner-chip');
+                            if (chip) { chip.style.transform = 'translateX(3px)'; chip.style.background = 'rgba(201,162,39,0.20)'; }
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.background = 'rgba(201, 162, 39, 0.08)';
+                            e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(201,162,39,0.10)';
+                            e.currentTarget.style.transform = 'scale(1)';
+                            const chip = e.currentTarget.querySelector('.tbanner-chip');
+                            if (chip) { chip.style.transform = 'translateX(0)'; chip.style.background = 'rgba(201,162,39,0.10)'; }
+                          }}
+                          onMouseDown={e => { e.currentTarget.style.transform = 'scale(0.988)'; }}
+                          onMouseUp={e => { e.currentTarget.style.transform = 'scale(1)'; }}
                         >
                           <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>
@@ -1348,9 +1363,20 @@ export default function Navbar() {
                               </span>
                             </span>
                           </span>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                            <path d="M9 18l6-6-6-6" />
-                          </svg>
+                          {/* Button-in-button: chevron çıplak durmuyor, kendi
+                              dairesel yuvasında. Hover'da yuva birlikte kayıyor. */}
+                          <span className="tbanner-chip" style={{
+                            width: '28px', height: '28px', borderRadius: '999px',
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                            background: 'rgba(201,162,39,0.10)',
+                            border: '1px solid rgba(201,162,39,0.20)',
+                            flexShrink: 0,
+                            transition: 'transform 0.5s cubic-bezier(0.32,0.72,0,1), background 0.5s cubic-bezier(0.32,0.72,0,1)',
+                          }}>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M9 18l6-6-6-6" />
+                            </svg>
+                          </span>
                         </button>
 
                         {/* 2-column layout: kategoriler | öne çıkanlar */}
@@ -1383,7 +1409,7 @@ export default function Navbar() {
                                   borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.055)',
                                   borderRadius: '8px',
                                   background: 'transparent', cursor: 'pointer',
-                                  transition: 'background 0.15s',
+                                  transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
                                 }}
                                 onMouseEnter={e => {
                                   e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
@@ -1406,7 +1432,7 @@ export default function Navbar() {
                                     fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.4,
                                     display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
                                     overflow: 'hidden',
-                                    transition: 'color 0.15s',
+                                    transition: 'color 0.45s cubic-bezier(0.32,0.72,0,1)',
                                   }}>
                                     {language === 'tr' ? art.titleTr : art.titleEn}
                                   </span>
@@ -1433,7 +1459,7 @@ export default function Navbar() {
                                   color: 'rgba(148,163,184,0.7)',
                                   opacity: 0,
                                   fontSize: '0.85rem', lineHeight: 1,
-                                  transition: 'opacity 0.15s, transform 0.15s',
+                                  transition: 'opacity 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.45s cubic-bezier(0.32,0.72,0,1)',
                                   fontFamily: "'Inter', sans-serif",
                                   flexShrink: 0,
                                   marginTop: '2px',
@@ -1476,6 +1502,7 @@ export default function Navbar() {
                       </div>
                     );
                   })()}
+                </div>
                 </motion.div>
               )}
             </AnimatePresence>

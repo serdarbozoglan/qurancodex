@@ -35,6 +35,8 @@ import {
   ANALYSIS_TOOLS,
   RESEARCH_TOOLS,
 } from '../data/tools';
+import { routeForToolEvent } from '../lib/toolRoutes';
+import { useRouter } from 'next/navigation';
 
 // ── Popular search suggestions (W20-Ö10) ────────────────────────────────────
 // Empty-state hints shown beneath the search input when query is blank.
@@ -59,6 +61,7 @@ const ALL_TOOLS = [...VIZ_TOOLS, ...ANALYSIS_TOOLS, ...RESEARCH_TOOLS];
 // ── Component ────────────────────────────────────────────────────────────────
 export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   const { language } = useLanguage();
+  const router = useRouter();
   const [open, setOpen] = useState(defaultOpen);
   const [activeFilter, setActiveFilter] = useState('all');
   const [query, setQuery] = useState('');
@@ -111,9 +114,24 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
 
   const close = () => setOpen(false);
 
-  // Click handler for any tool: dispatch its event and close the modal
+  // Araç tıklaması → route navigasyonu (2026-08-13).
+  //
+  // ÖNCEDEN: window.dispatchEvent(new CustomEvent(eventName)) — Vite döneminde
+  // overlay'leri açıyordu. §16.5 ile araçlar tam sayfa route'a dönüşünce o
+  // dinleyiciler kalktı; 23 event'ten 17'sinin karşılığı kalmamıştı. Sonuç:
+  // bu sayfada araç kartına tıklamak SESSİZCE hiçbir şey yapmıyordu.
+  //
+  // ŞİMDİ: Navbar'ın zaten kullandığı event→route haritası paylaşılıyor
+  // (lib/toolRoutes.js). Haritada karşılığı olmayan bir event kalırsa eski
+  // davranışa düşülür — geriye dönük güvenli.
   const triggerTool = (eventName) => {
-    window.dispatchEvent(new CustomEvent(eventName));
+    const route = routeForToolEvent(eventName);
+    if (route) {
+      router.push(`/${language}${route}`);
+    } else {
+      console.warn('[ToolsBrowser] route eşleşmesi yok, event fallback:', eventName);
+      window.dispatchEvent(new CustomEvent(eventName));
+    }
     setOpen(false);
   };
 
