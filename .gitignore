@@ -72,3 +72,6 @@ next/qc-*.mjs
 next/check-*.mjs
 qc-*.mjs
 check-*.mjs
+
+# Playwright artifacts (repo kökünde de oluşabiliyor)
+test-results/
