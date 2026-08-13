@@ -48,11 +48,21 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       > Bu, sabah yazdığım "ölçmeden konuşma" kuralına ikinci kez takılmam.
       > "25 öge etiketsiz" doğru bir sayıydı ama **yanlış bir sonuç** çıkardım.
 
-- [ ] **A2 · Kontrast oranları hiç ölçülmedi** — §13.25 md. 9 AA istiyor (4.5:1
-      normal, 3:1 büyük/ikon) ama **doğrulanmadı.** Şüpheli adaylar: `COLORS.silver`
-      (`#94a3b8`) koyu zeminde gövde metni, `opacity: 0.7` uygulanan referans satırları,
-      `${COLORS.gold}cc` eyebrow'lar.
-      Araç: axe-core veya Playwright + hesaplanan `getComputedStyle` çifti.
+- [x] **A2 · Kontrast ÖLÇÜLDÜ ve düzeltildi** → `tests/lib/contrast.mjs`
+      **Teşhisim yanlıştı: token'da sorun yok.** `COLORS.silver` (#94a3b8)
+      cosmic-black üstünde **7.65** — AA'yı rahat geçiyor. Suçlu **opacity**.
+      Ölçülen eşikler (cosmic-black zemin):
+      | renk | AA (4.5) için gereken en düşük opaklık |
+      |---|---|
+      | silver `#94a3b8` | **0.75** (`bf`) — .70'te 4.23 ile kalıyor |
+      | gold `#d4a574` | **0.70** (`b3`) — .667'de 4.26 ile kalıyor |
+      Düzeltilenler: `Hero` açıklama satırı (.55 → .78) · `Hero` âyet referansı
+      (.65 → .78) · `PortalCard` âyet referansı (.70 → .75) · `ProofSection`
+      4 alfa · `EsmaTeaser` "N geçiş" (`aa` → `bf`).
+      **Sonuç: kesin ihlal 2 → 0**, "yaklaşık" 24 → 1.
+      Kalan 1 bilinen yanlış pozitif: "ÖNE ÇIKAN" rozeti — altın gradyan
+      üstünde koyu metin, yani zaten YÜKSEK kontrast; probe gradyanı tek renkle
+      temsil edemediği için `ratio 1` diyor.
 
 - [x] **A3 · Klavye gezintisi test edildi** — skip link, tab sırası, gizli raf
       ve `Escape` ölçüldü ve düzeltildi (bkz. G bölümü). **Kalan:** mega-menüde
@@ -186,10 +196,21 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 # 🔵 E — TEKNİK (82) — notun temeli eksik
 
-- [ ] **E1 · LCP / CLS / INP hiç ölçülmedi** ← *bu ölçülmeden teknik not güvenilmez*
-      "14 hydration adası → 1" yapısal bir kazanım ama **kullanıcının hissettiği
-      hız değil.** Lighthouse veya `web-vitals` ile üç metrik ölçülmeli,
-      P4/P5 öncesi ile karşılaştırılamıyorsa en azından taban kaydedilmeli.
+- [x] **E1 · Core Web Vitals ÖLÇÜLDÜ** → `scripts/measure-vitals.mjs`
+      Üretim build'inde, mobilde CPU ×4 kısıtıyla. **Dört eşiğin dördü de geçti:**
+
+      | | LCP | CLS | TBT | FCP |
+      |---|---:|---:|---:|---:|
+      | /tr mobil-390 (CPU ×4) | 2.220ms | 0.008 | 17ms | 340ms |
+      | /tr masaüstü-1440 | 1.736ms | 0 | 0ms | 88ms |
+      | /en mobil-390 (CPU ×4) | 2.016ms | 0 | 0ms | 296ms |
+      | /en masaüstü-1440 | 1.728ms | 0 | 0ms | 96ms |
+      | **eşik** | 2.500 | 0.1 | 200 | 1.800 |
+
+      Ağırlık: 27–33 istek · ~1.7MB toplam · **293–333KB JS**.
+      LCP ögesi her koşuda bir `<P>` — yani metin, görsel değil.
+      ⚠ **Bu bir LABORATUVAR ölçümü.** Gerçek kullanıcı verisi (CrUX/RUM) yok;
+      canlıda CDN, gerçek cihaz ve ağ farklı davranabilir.
 
 - [ ] **E2 · EN mobil 20.307px** — hedef <20.000. TR 19.669 ile geçiyor,
       İngilizce metin uzun olduğu için aşıyor. Küçük fark; ya hedefi dile göre

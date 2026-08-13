@@ -288,11 +288,12 @@ export default function Hero() {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            // .65 → 3.79, AA altı. Ölçülen eşik: silver .75.
+            opacity: 0.78,
           }}
           {...entrance(
             { opacity: 0 },
-            { opacity: 0.6 },
+            { opacity: 0.78 },
             { duration: 0.7, delay: showIntro ? 3.5 : 0.85 }
           )}
         >
@@ -316,11 +317,12 @@ export default function Hero() {
             lineHeight: 1.7,
             maxWidth: '540px',
             margin: '-22px auto 34px',
-            opacity: 0.55,
+            // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
+            opacity: 0.78,
           }}
           {...entrance(
             { opacity: 0 },
-            { opacity: 0.55 },
+            { opacity: 0.78 },
             { duration: 0.8, delay: showIntro ? 3.9 : 1.05 }
           )}
         >

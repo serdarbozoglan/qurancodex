@@ -64,7 +64,9 @@ export default function EsmaTeaser({ locale = 'tr' }) {
           </p>
           <p
             style={{
-              color: `${COLORS.gold}aa`,
+              // aa (.667) idi → 4.26, AA'nın (4.5) hemen altı. Ölçülen eşik:
+              // gold #d4a574 cosmic-black üstünde .70'ten (b3) itibaren geçiyor.
+              color: `${COLORS.gold}bf`,
               fontFamily: FONTS.body,
               fontSize: '0.74rem',
               letterSpacing: '0.06em',

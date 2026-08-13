@@ -217,7 +217,7 @@ export default function ProofSection({ locale = 'tr' }) {
                     x={p.x}
                     y={p.y + 26}
                     textAnchor="middle"
-                    style={{ fill: `${COLORS.silver}aa`, fontFamily: FONTS.body, fontSize: '11px' }}
+                    style={{ fill: `${COLORS.silver}d9`, fontFamily: FONTS.body, fontSize: '11px' }}
                   >
                     1:{r.ayah}
                   </text>
@@ -225,7 +225,7 @@ export default function ProofSection({ locale = 'tr' }) {
                     x={p.x}
                     y={p.y + 42}
                     textAnchor="middle"
-                    style={{ fill: `${COLORS.silver}88`, fontFamily: FONTS.body, fontSize: '10px' }}
+                    style={{ fill: `${COLORS.silver}d9`, fontFamily: FONTS.body, fontSize: '10px' }}
                   >
                     {tr ? r.theme.tr : r.theme.en}
                   </text>
@@ -276,7 +276,8 @@ export default function ProofSection({ locale = 'tr' }) {
             <div key={s.n} className="proof-step">
               <div
                 style={{
-                  color: `${COLORS.gold}99`,
+                  // 99 (.60) idi → 3.76. gold AA'yı .70'ten (b3) itibaren geçiyor.
+                  color: `${COLORS.gold}bf`,
                   fontFamily: FONTS.body,
                   fontSize: '0.68rem',
                   fontWeight: 700,
@@ -339,7 +340,8 @@ export default function ProofSection({ locale = 'tr' }) {
           </Link>
           <p
             style={{
-              color: `${COLORS.silver}99`,
+              // 99 (.60) idi → 3.39. silver AA'yı .75'ten (bf) itibaren geçiyor.
+              color: `${COLORS.silver}bf`,
               fontFamily: FONTS.body,
               fontSize: '0.74rem',
               lineHeight: 1.6,
