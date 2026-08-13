@@ -63463,5 +63463,85 @@
     "hash": "3b2b90fbb50d6d07",
     "embeddedAt": "2026-08-13T03:30:14.876Z",
     "type": "article"
+  },
+  "article:kainat-kuantum-1": {
+    "hash": "bd2d24dbfd0eaee5",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article"
+  },
+  "article:ruhsal-cografya": {
+    "hash": "e28366478bcfe6ec",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article"
+  },
+  "article-section:kainat-kuantum-1#intro-0": {
+    "hash": "4b94455d3d6058e2",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#olcum-problemi": {
+    "hash": "0ebbcdd9cf99582d",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#kuantum-klasik-gecis": {
+    "hash": "b4fc3d6d9c4a3ea2",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#kuantum-gravitasyon": {
+    "hash": "a6d1eaeca3e0c440",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#dolaniklik-non-lokalite": {
+    "hash": "755862d3c1316493",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#gozlemcinin-rolu": {
+    "hash": "91eb4aa3a83354cc",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:kainat-kuantum-1#arac-mi-hakikat-mi": {
+    "hash": "41ae2afd9ba6b0b2",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#intro-0": {
+    "hash": "418692a46d38f7ac",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#kendi-tuzagimiz": {
+    "hash": "a8b6ee1861a20d68",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#takva-istigna": {
+    "hash": "39423d5a570fe9ad",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#dalaletin-anatomisi": {
+    "hash": "37472a76b4769221",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#hidayet-sirat": {
+    "hash": "e10a9cc072c7d4db",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#bes-dinamik": {
+    "hash": "4919600e46b707d8",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
+  },
+  "article-section:ruhsal-cografya#cikis-rotalari": {
+    "hash": "efa0046a0090de28",
+    "embeddedAt": "2026-08-13T03:40:06.719Z",
+    "type": "article-section"
   }
 }
