@@ -3,7 +3,7 @@
 > **Oluşturma:** 2026-08-12
 > **Kaynak:** Kullanıcının paylaştığı `sufist.medium.com` arşiv ekran görüntüleri, sitedeki `public/tefekkur/_index.json` ile karşılaştırıldı.
 >
-> **📌 Son durum (2026-08-12, `833176e` main'e push edildi):** Site **42 makale**. Bu oturumda 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı.
+> **📌 Son durum (2026-08-12):** Site **42 makale**. `833176e`'de 6 yeni makale eklendi + indekste kayıp 2 makale kurtarıldı (41'e çıktı); ardından *Hâlâ mı Evrim?* eklenerek 42 oldu. Tamamı `status: "published"`.
 >
 > ⚠ **Neden ekran görüntüsünden:** Medium arşivi programatik olarak taranamıyor. Profil sayfası sonsuz kaydırma ile yalnız son ~10 yazıyı, RSS beslemesi (`/feed`) 9 kaydı veriyor; `/archive` 404 dönüyor. 2025 arşivi bu uçların hiçbirinde görünmüyor — kanıt: 2025-09 ve 2025-10 tarihli iki yazı feed'de yoktu.
 >
@@ -43,21 +43,25 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 | 2 | 2025-07-27 | Yaratılış Hikâyesi-2: Kâinatın Katmanlı Yaratılışı | ✅ `yaratilis-hikayesi-2-katmanli-yaratilis` |
 | 3-6 | ? | **Başlıkları bilinmiyor** | ❌ eksik |
 
-`seriesTotal: 6` yazıldı (kaynak: yazarın kendi Medium listesi). `kozmoloji` kategorisi 4 makaleye çıktı.
+`seriesTotal: 6` yazıldı (kaynak: yazarın kendi Medium listesi). `kozmoloji` kategorisi 5 makaleye çıktı (*Hâlâ mı Evrim?* dâhil).
 
 ⚠ **Bu, arşiv envanterimin eksik olduğunun kanıtı.** Ekran görüntüleri Medium'un gösterdiği kadarını veriyordu; yazarın kendi seri listeleri daha fazlasını içeriyor. Diğer seriler için de aynısı geçerli olabilir — Medium'daki **liste (list) sayfalarını** kontrol etmek envanteri tamamlamanın en güvenilir yolu.
 
 ---
 
-## 🟡 C — EVRİM ÜÇLEMESİ (ikisi eksik)
+## 🟡 C — EVRİM ÜÇLEMESİ (biri eksik)
 
 | Tarih | Başlık | Durum |
 |---|---|---|
-| 2024-11-12 | Hâlâ mı Evrim? | ❌ eksik |
+| 2024-11-12 | Hâlâ mı Evrim? — Bir Müslümanın Bakış Açısından | ✅ `hala-mi-evrim` (2026-08-12) |
 | 2025-05-14 | Evrim dinsizliği yayma projesidir! | ❌ eksik |
 | 2025-10-25 | Evrim, İnanç ve Aklımızdaki Resimler | ✅ `evrim-inanc-resimler` (TR + EN çeviri) |
 
 Üçü birlikte tutarlı bir küme oluşturur. **§13.24 tefekkür istisnası geçerli** — yazarın kendi görüşü, GPT hakem turu ÇALIŞTIRILMAZ (kullanıcı kararı 2026-08-12, CLAUDE.md'ye işlendi).
+
+`hala-mi-evrim`: 26 blok, 8'i görsel — `flowChain` (üç kanıt katmanı: mikro evrim → fosil kaydı → ERV), `contrastDuo` (çifte standart: ateist ⇄ bazı Müslümanlar), `hierarchyTree` (cevapsız üç soru), 36:38 `verseInline`, iki `pullQuote`, `criticalNote`. Kategori `kozmoloji` (5'e çıktı).
+
+⚠ **Yanlış alarm kaydı (2026-08-12):** Bu makalede "Arapça render olmuyor" diye bir hata teşhis edilmişti. **Hata yoktu.** Ölçüm tabanı yanlıştı: sayfadaki `lang="ar"` sayımında navigasyonun **2** öge kattığı varsayılmıştı, gerçekte **1** katıyor. Tek `verseInline` içeren makalede beklenen sayı 1 (nav) + 1 (ayet) = 2 idi; ölçülen de 2'ydi. Doğru kontrol yöntemi: `next build` sonrası `.next/server/app/<locale>/tefekkur/<slug>.html` içinde ayetin **birebir metnini** aramak — canlı dev sunucusunda öge saymak değil (derleme sırasında yanıltıcı sonuç verir).
 
 ---
 
@@ -106,7 +110,7 @@ Seri yedi parçanın tamamıyla sitede. 1→2→3→4→5→6→7 `previousArtic
 **Güncel sıra (2026-08-12):**
 1. **Yaratılış Hikâyesi 3-4-5-6** — seri yarım kaldı, `seriesTotal: 6` yazılı ama 4 bölüm yok. Başlıkları bile bilinmiyor; **Medium'daki liste sayfasından** alınmalı.
 2. **Okuma Prensipleri 1-2 → EN gövdeleri** — yeni makale yok, sadece `en` alanları. En ucuz kazanç, hâlâ yapılmadı.
-3. **Evrim üçlemesinin kalan ikisi** — mevcut yazıyla küme tamamlanır.
+3. **"Evrim dinsizliği yayma projesidir!"** (2025-05-14) — üçlemenin son eksiği; eklenince küme tamamlanır.
 4. D bölümündeki tekil yazılar (8 adet).
 5. E bölümündeki İngilizce sürümler.
 
@@ -152,6 +156,6 @@ Yedek etiket: `backup-pre-lfs-78a3b18` (migrate öncesi hâl).
 
 ## 📌 BİLİNEN AÇIK KONULAR
 
-- **`status: "draft"`** — 42 makalenin tamamı taslak. `TefekkurIndexRoute.jsx:224` yalnız `published`/`live` sayıyor, yani sayaç 0 gösteriyor. Bilinçli mi, karar bekliyor (**5 kez soruldu, cevaplanmadı** — cevap gelmezse dokunulmayacak).
+- ~~**`status: "draft"`**~~ ✅ **çözüldü** (`652bc85`) — tamamı `published` yapıldı. Sorun: `TefekkurIndexRoute.jsx:224` yalnız `published`/`live` sayıyor, ama sayı 0 olunca `published || data.articles.length` yedeğe düşüyordu; sayfa aynı anda "41 yayında" **ve** "41 taslak" gösteriyordu.
 - **`kuran-mesajina-yabanci-kalmak`** — `canonicalUrl` boş, Medium linki verilmedi.
 - **Tarih tutarsızlığı** — bazı makalelerin `_index.json` tarihi Medium'daki tarihle uyuşmuyor (ör. Ruhun Termostatı: sitede 2024-11-20, Medium'da 2026-02-04). Toplu bir denetim gerekebilir.

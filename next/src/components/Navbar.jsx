@@ -90,14 +90,14 @@ export default function Navbar() {
   // sayı görünür. (2026-06-16'da 23/5/7/0 kalmıştı; 2026-08-12'de 32'ye
   // çekildi: iki-nedensellik + evrim-inanc-resimler eklendi.)
   const [tefekkurStats, setTefekkurStats] = useState({
-    total: 41,
+    total: 42,
     counts: {
       'kavramsal':       4,
       'terminoloji':     7,
       'sure-hermenotik': 12,
       'semantik':        5,
       'idrak-suur':      9,
-      'kozmoloji':       4,
+      'kozmoloji':       5,
     },
     planned: 21, // 44 - 23
   });

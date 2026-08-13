@@ -1,0 +1,270 @@
+{
+  "slug": "hala-mi-evrim",
+  "titleTr": "Hâlâ mı Evrim? — Bir Müslümanın Bakış Açısından",
+  "titleEn": "Evolution, Again? — From a Muslim's Perspective",
+  "category": "kozmoloji",
+  "publishedDate": "2024-11-12",
+  "readingMinutes": 5,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.medium.com"
+  },
+  "canonicalUrl": "https://sufist.medium.com/neden-evrim-bir-m%C3%BCsl%C3%BCman%C4%B1n-bak%C4%B1%C5%9F-a%C3%A7%C4%B1s%C4%B1ndan-519dc599092b",
+  "tldrTr": "Bir Müslümanın evrimi neden kabul edebileceği dört açıdan ele alınıyor. **Bilimsel:** mikro evrim, fosil kayıtları ve ERV'ler — şempanze ile insan genomunda aynı bölgeye yerleşmiş aynı retrovirüs izleri. **Mantıksal:** çifte standart — ateist evrime işaretlerle inanıp tevhide matematiksel ispat isterken, bazı Müslümanlar tersini yapıyor. **Naslara dayalı:** Kur'an fizik değil, fizikî gözlemi yorumlayacak metafizik model sunar (*güneş akar* örneği); Âdem a.s. vahye muhatap olabilecek bir toplumun babası olarak okunabilir. **Maslahat:** evrimi yaratılışın alternatifi göstermek gençlere din-bilim arasında yapay bir seçim dayatır.",
+  "tldrEn": "Four perspectives on why a Muslim might accept evolution. **Scientific:** microevolution, the fossil record and ERVs — the same retroviral traces at the same loci in chimpanzee and human genomes. **Logical:** a double standard — the atheist believes in evolution on signs yet demands mathematical proof for tawḥīd, while some Muslims do the reverse. **Scriptural:** the Qur'an offers not physics but a metaphysical model for reading physical observation (the “sun runs” example); Adam may be read as the father of a society developed enough to receive revelation. **Public benefit:** presenting evolution as an alternative to creation forces a false choice between religion and science upon the young.",
+  "relatedTools": [
+    "concept-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "36:38"
+  ],
+  "previousArticle": null,
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "paragraph",
+      "tr": "Üzerine yüzlerce kez yazılmış ve konuşulmuş bir konu. Bizim ekip gibi birçokları “Mesele bu kadar açıkken neden hâlâ bu konuyu tartışıyoruz?” diye soruyordur. Ama bazı gençlerin hâlâ *“evrim varsa din yanlış”* ikilemine girdiğini, hâlbuki evrimin aslında dinle çok uyumlu olduğunu bilmediklerini görüyoruz. O hâlde bir kere daha yazmak gerekir diye düşündük.",
+      "en": "A subject written and spoken about hundreds of times. Many — our own circle among them — must be asking: “if the matter is this clear, why are we still debating it?” Yet we see young people still caught in the dilemma *“if evolution is true, religion is false,”* unaware that evolution is in fact quite compatible with religion. So we thought it worth writing once more."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evrim, Müslümanlar için sıklıkla tartışma ve kafa karışıklığı yaratan bir mesele olmuş. Hristiyan dünyasından ödünç alınan bu tartışma zemininde **Katolik kilisesi 1996'da evrimin inançla çelişmediğini açıkça karara bağlarken**, bazı evanjelik gruplar ve Müslümanların çoğu Eski Ahit'in Yaratılış hikâyesini birebir yaratılış teorisi olarak kabul ediyor.",
+      "en": "Evolution has often been a source of dispute and confusion for Muslims. On this ground borrowed from the Christian world, **the Catholic Church declared plainly in 1996 that evolution does not conflict with faith**, while some evangelical groups and most Muslims take the Genesis account of the Old Testament literally, as a theory of creation."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu yazıda, bir Müslümanın evrimi neden kabul etmesi gerektiğine dair argümanları **bilimsel**, **mantıksal**, **naslara dayalı** ve **maslahat** perspektifinden ele alacağım.",
+      "en": "In this essay I take up the arguments for why a Muslim should accept evolution, from four perspectives: **scientific**, **logical**, **scriptural**, and that of **public benefit**."
+    },
+    {
+      "type": "section",
+      "id": "bilim",
+      "titleTr": "Bilimsel Delillerin İşaret Ettiği Hakikat",
+      "titleEn": "What the Scientific Evidence Points To"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Delilin üç katmanı",
+      "captionEn": "Three layers of evidence",
+      "nodes": [
+        {
+          "titleTr": "Mikro evrim",
+          "titleEn": "Microevolution",
+          "tone": "trigger",
+          "subtitleTr": "Tür içi çeşitliliğin zamanla değişimi — laboratuvarda ve doğada defalarca gözlendi.",
+          "subtitleEn": "Change in within-species variation over time — observed repeatedly in the lab and in nature."
+        },
+        {
+          "titleTr": "Fosil kayıtları",
+          "titleEn": "The fossil record",
+          "tone": "state",
+          "subtitleTr": "Teoriyle büyük oranda uyum içinde.",
+          "subtitleEn": "Broadly consistent with the theory."
+        },
+        {
+          "titleTr": "ERV ve sinteni",
+          "titleEn": "ERVs and synteny",
+          "tone": "result",
+          "subtitleTr": "Şempanze ile insan genomunda **aynı bölgeye yerleşmiş aynı** endojen retrovirüs izleri — ortak ata için en net işaretlerden.",
+          "subtitleEn": "The **same** endogenous retrovirus traces lodged at the **same** loci in the chimpanzee and human genomes — among the clearest signs of common ancestry."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "tr": "ERV'ler, virüslerin bir zamanlar atalarımızın DNA'sına entegre olup nesilden nesile aktarılan kalıtsal genetik izleridir. Aynı ERV'lerin iki türde aynı sintenide bulunması, ortak evrimsel sürecin en net kanıtlarından biridir.",
+      "en": "ERVs are inherited genetic traces of viruses that once integrated into our ancestors' DNA and were passed down through generations. Finding the same ERVs at the same synteny in two species is among the clearest evidences of a shared evolutionary process."
+    },
+    {
+      "type": "section",
+      "id": "tutarlilik",
+      "titleTr": "Tutarlı Olmak — Tevhid ve Evrim",
+      "titleEn": "Being Consistent — Tawḥīd and Evolution"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı hata, iki yönde — çifte standart",
+      "captionEn": "The same error, in two directions — a double standard",
+      "left": {
+        "titleTr": "Ateist / agnostik",
+        "titleEn": "The atheist / agnostic",
+        "accent": "#3498db",
+        "descTr": "Evrime **işaretlerle** inanır — ama tevhid için **matematiksel netlikte ispat** talep eder.",
+        "descEn": "Believes in evolution **on the strength of signs** — yet demands **proof of mathematical clarity** for tawḥīd.",
+        "bullets": [
+          {
+            "tr": "Delil eşiği konuya göre değişiyor",
+            "en": "The evidential threshold shifts with the topic"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Bazı Müslümanlar",
+        "titleEn": "Some Muslims",
+        "accent": "#d4a574",
+        "descTr": "Tevhidi **delillerle** kabul eder — ama evrim için **doğrudan gözlem veya laboratuvar sonucu** bekler.",
+        "descEn": "Accepts tawḥīd **on evidence** — yet awaits **direct observation or a laboratory result** for evolution.",
+        "bullets": [
+          {
+            "tr": "Aynı eşik kayması, ters yönde",
+            "en": "The same shifting threshold, in reverse"
+          }
+        ]
+      }
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'an'ın *“in kuntum sâdıkîn”* — “eğer doğrulardansanız” — çağrısı, hep tutarlı olmaya vurgu yapar.",
+      "en": "The Qur'anic call *“in kuntum ṣādiqīn”* — “if you are truthful” — always presses toward consistency."
+    },
+    {
+      "type": "section",
+      "id": "ayetler",
+      "titleTr": "Ayetler Evrime Daha Uyumlu",
+      "titleEn": "The Verses Sit More Easily with Evolution"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Eski Ahit'teki bir kısım hakikatli hikâyeyi Kur'an da bize aktarır. Aktarırken hikâyenin **yanlışa iten detaylarını aktarmaz**; aktardığı kısmı da itinalı bir kelime seçimiyle tüm asırlardaki anlayışa hitap edecek şekilde sunar. Zira Kur'an'da esas olan fizikten metafiziğe geçiş, Allah'ın isim ve sıfatlarıyla tanınması ve O'na kullukla yaklaşmaktır.",
+      "en": "The Qur'an also relays some of the true accounts found in the Old Testament. In relaying them it **omits the details that mislead**, and presents what it does relay with a careful choice of words that addresses the understanding of every age. For what is essential in the Qur'an is the passage from physics to metaphysics, knowing God by His names and attributes, and drawing near to Him in worship."
+    },
+    {
+      "type": "verseInline",
+      "ref": "36:38",
+      "ar": "وَالشَّمْسُ تَجْرِي لِمُسْتَقَرٍّ لَهَا ذٰلِكَ تَقْدِيرُ الْعَزِيزِ الْعَلِيمِ",
+      "noteTr": "“Güneş, kendisi için belirlenen yerde **akar** (tecrî).” — Yâsîn 36:38. Dünya merkezli bir gözlem bu ifadeden nasibini alır; güneş merkezli bir gözlem de güneşin sistemi peşinden sürükleyerek uzayda ilerlediğini düşünüp kendi nasibini alır. Kur'an bize fizik değil, **fizikî gözlemleri yorumlayacak metafizik model** sunar.",
+      "noteEn": "“The sun **runs** to a resting place appointed for it.” — Yā-Sīn 36:38. A geocentric observer takes his share from this phrase; a heliocentric observer takes his, reading the sun as travelling through space and drawing its system behind it. The Qur'an offers us not physics but **a metaphysical model by which to read physical observation**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu bağlamda ayetlere baktığımızda insanın **evrimsel bir süreçle** yaratılmasına dair birçok işaret buluruz; bazı Müslüman âlimler bu yönde görüş bildirmiştir. Hazret-i Âdem için alegorik bir anlatım diyenler olsa da öyle bir yoruma gerek bile yok: Âdem aleyhisselâm'ı **vahye muhatap olabilecek kadar gelişmiş bir toplumun babası ve peygamberi** olarak görmek yeterli. Biyolojik olarak ilk homo sapiens'tir demeye gerek yok.",
+      "en": "Looking at the verses in this light we find many indications that the human was created **through an evolutionary process**; a number of Muslim scholars have said as much. Some read the account of Adam allegorically, but even that is unnecessary: it suffices to see Adam, peace be upon him, as **the father and prophet of a society developed enough to be addressed by revelation**. There is no need to claim he was biologically the first homo sapiens."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Ayetlerde yaratılış çoğu zaman **bir süreç** olarak ifade edilir: kâinatın yaratılışı, yıldızların oluşumu, her bir insanın embriyo olarak gelişimi, toplumların evrimi. Bu sürecin insanlığın tümü için de geçerli olması, ilâhî esmânın tecellîleri açısından hem makul hem gereklidir. 21. yüzyılda muvahhid ve bütüncül bir kozmoloji için ortak ata teorisi neredeyse zorunludur; aksi hâlde zihinlerde **parçalı, eklektik, ad hoc** bir kâinat tasavvuru oluşur.",
+      "en": "In the verses, creation is most often expressed as **a process**: the creation of the cosmos, the forming of stars, the development of each human from an embryo, the evolution of societies. That this process should hold for humanity as a whole is both reasonable and necessary in view of the manifestations of the divine names. For a monotheistic and integral cosmology in the twenty-first century, common ancestry is nearly indispensable; otherwise the mind is left with a **fragmented, eclectic, ad hoc** picture of the cosmos."
+    },
+    {
+      "type": "section",
+      "id": "maslahat",
+      "titleTr": "Maslahat — Yapay Bir Seçim Yaptırmamak",
+      "titleEn": "Public Benefit — Not Forcing a False Choice"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evrim, Allah'ın yarattığı dünyadaki süreçlerden biridir; bu sanata karşı durmak yerine anlamaya çalışmak, çocuklarımızın **bilimle barışık** büyümesi için çok önemlidir. Kâinatı objeler yerine **süreçler** perspektifinden okumak ve eserden fiillere geçmek, yaratılışı anlamak için önemli bir yaklaşımdır.",
+      "en": "Evolution is one of the processes within the world God created; seeking to understand this art, rather than standing against it, matters greatly if our children are to grow up **at peace with science**. Reading the cosmos through **processes** rather than objects, and passing from the work to the acts, is an important approach to understanding creation."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Dinî hareketleri temsil eden bazı şahıslar biyolojik kökenin temellerini anlatmayı hedeflememiş — bu gayet doğal. Müslümanların *cadde-i kübrâ*sından ayrılmamak, yani *i'lâ-yı kelimetullah* olan asıl maksattan dikkati dağıtacak ayrılıklar oluşturmamak için tartışmalı söylemlere girmemeyi tercih etmişler. Meselâ **Risale-i Nur külliyatı**, inkâr-ı ulûhiyete karşı mücadele ederken evrim teorisine hiç değinmemiş; sadece *tesadüf* ve *tabiat yarattı* metafiziğine karşı çıkmıştır.",
+      "en": "Some figures representing religious movements did not set out to expound the foundations of biological origins — quite naturally. Wishing not to depart from the broad highway of the Muslims, that is, not to create divisions distracting from the principal aim, they preferred to avoid contentious discourse. The *Risale-i Nur* corpus, for instance, contends against the denial of divinity without ever taking up the theory of evolution; it opposes only the metaphysics of *chance* and *nature created it*."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Evrimi yaratılışın alternatifi gibi sunmak, gençlere din ya da bilim arasında **yapay bir tercih** yaptırmak demektir. Hâlbuki evrim, yaratılış teorilerinden sadece biridir.",
+      "en": "To present evolution as an alternative to creation is to force upon the young **an artificial choice** between religion and science. Evolution is only one theory of how creation proceeds."
+    },
+    {
+      "type": "section",
+      "id": "alimler",
+      "titleTr": "Evrimi Kabul Eden Müslüman Âlimler",
+      "titleEn": "Muslim Scholars Who Accepted Evolution"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Tarih boyunca evrimi kabul eden çok sayıda Müslüman âlim olmuştur; hatta Darwin'den önce bile *“Mohammedan Theory of Evolution”* diye anılan görüşler mevcuttur. İslâm tarihinde âlimlerin çok büyük kısmı, hayvanların ve insanların **manevî evrimleri** olduğu ve bu süreçte bazı hayvan tabakalarından geçildiği konusunda hemfikirdir; bir kısmı biyolojik olarak da böyle bir süreci savunur.\n\nMuhammed Hamîdullah · Muhammed İkbal · Seyyid Emîr Ali · İsmail Hakkı İzmirli · Maurice Bucaille · Muhammed Esed · Bahaeddin Sağlam · Süleyman Ateş · Cafer Sadık Yaran · Mehmed Bayraktar · İsmail Yakıt · Shabir Ally — bu isimler evrimi, yaratılışı anlamanın bir yolu olarak görmüştür.",
+      "en": "Many Muslim scholars through history have accepted evolution; indeed even before Darwin there were views known as the “Mohammedan Theory of Evolution.” The great majority of scholars in Islamic history agree that animals and humans undergo a **spiritual evolution**, passing through certain animal strata in the process; some defend such a process biologically as well.\n\nMuhammad Hamidullah · Muhammad Iqbal · Syed Ameer Ali · İsmail Hakkı İzmirli · Maurice Bucaille · Muhammad Asad · Bahaeddin Sağlam · Süleyman Ateş · Cafer Sadık Yaran · Mehmed Bayraktar · İsmail Yakıt · Shabir Ally — these have seen evolution as one way of understanding creation."
+    },
+    {
+      "type": "section",
+      "id": "uc-argüman",
+      "titleTr": "Reddiyecilerin Cevap Veremediği Üç Argüman",
+      "titleEn": "Three Arguments the Rejectionists Do Not Answer"
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Üç Soru",
+      "titleEn": "Three Questions",
+      "root": {
+        "tr": "Evrime şiddetle karşı çıkanlara sorulması gerekenler",
+        "en": "What should be asked of those who vehemently reject evolution"
+      },
+      "branches": [
+        {
+          "id": "a1",
+          "labelTr": "1 · Evrim yoksa ne var?",
+          "labelEn": "1 · If not evolution, what?",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Balinanın evrimsel sürecini açıklayan makaleleri beğenmiyorsanız, **alternatif açıklama sunan** bir makale paylaşmalısınız.",
+              "en": "If the papers explaining the whale's evolutionary process do not satisfy you, you should share one offering **an alternative explanation**."
+            },
+            {
+              "tr": "Terazinin iki tarafına da bir şey koymak gerekir; sadece reddetmek açıklama değildir.",
+              "en": "Something must be placed on both pans of the scale; mere rejection is not an explanation."
+            }
+          ]
+        },
+        {
+          "id": "a2",
+          "labelTr": "2 · Her teorinin reddiyecisi vardır",
+          "labelEn": "2 · Every theory has its rejectors",
+          "accent": "#3498db",
+          "children": [
+            {
+              "tr": "Einstein ve çevresi kuantum teorisine yüz yıldır reddiye yazdı — bu onu geçersiz kılmadı.",
+              "en": "Einstein and his circle have written against quantum theory for a century — this has not invalidated it."
+            },
+            {
+              "tr": "Bir teoriyi çürütmek için **alternatif bir teori** ortaya koymak gerekir.",
+              "en": "To refute a theory one must put forward **an alternative theory**."
+            }
+          ]
+        },
+        {
+          "id": "a3",
+          "labelTr": "3 · Makroevrim yok mu?",
+          "labelEn": "3 · Is there no macroevolution?",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Taksonomide **tam olarak neyi** reddettikleri belli değil: türler arası mı, cinsler arası mı, aileler arası mı?",
+              "en": "It is unclear **precisely what** in the taxonomy they reject: between species, between genera, between families?"
+            },
+            {
+              "tr": "Leopar ile jaguar akraba değil mi? Aslan ile kaplan? Kutup ayısı ile Amerikan kara ayısı?",
+              "en": "Are the leopard and jaguar not related? The lion and tiger? The polar bear and the American black bear?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "sonuc",
+      "titleTr": "Sonuç",
+      "titleEn": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Evrim, çoğu kişi için kafa karıştıran ve bazen korkutucu bir konu olabilir. Ancak bu süreci anlamak, çelişkileri gidermek ve Allah'ın yarattığı kâinatın nasıl işlediğini kavramak, bir Müslüman olarak bize daha derin bir tefekkür ve tutarlı bir yaklaşım sunar. Evrimi Allah'ın bir yaratılış süreci olarak kabul etmek, bizi **dual düşünceden ve doublethink'ten** kurtarır.",
+      "en": "Evolution can be a confusing and at times frightening subject for many. Yet understanding this process, resolving the contradictions, and grasping how the cosmos God created actually works offers us, as Muslims, a deeper reflection and a more consistent approach. Accepting evolution as one of God's processes of creation frees us from **dual thinking and doublethink**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Evrim Allah'ın sanatıdır; doğal seçilim de ilâhî bir maksatla bir gayeye doğru çalışan bir **ıstıfâ** mekanizmasıdır.",
+      "en": "Evolution is God's art; and natural selection a mechanism of **selection** working toward an end, by a divine purpose."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Yazar hakkında · seri",
+      "headingEn": "About the author · the series",
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yayınına bağlıdır. Sitede evrim konusunu işleyen üç yazıdan ikincisidir; diğerleri *Evrim, İnanç ve Aklımızdaki Resimler* (2025) ve henüz eklenmemiş olan *Evrim dinsizliği yayma projesidir!* (2025). Metinde anılan âlim listesi ve Risale-i Nur değerlendirmesi yazarın kendi seçimi ve yorumudur.",
+      "en": "This text is **Felsufi's own view**, linked to its original publication on Medium. It is the second of three essays on the site treating evolution; the others are *Evolution, Belief and the Pictures in Our Minds* (2025) and, not yet added, *Evolution is a project for spreading irreligion!* (2025). The list of scholars and the assessment of the Risale-i Nur are the author's own selection and reading."
+    }
+  ]
+}

@@ -244,6 +244,17 @@
       "status": "published"
     },
     {
+      "slug": "hala-mi-evrim",
+      "titleTr": "Hâlâ mı Evrim? — Bir Müslümanın Bakış Açısından",
+      "titleEn": "Evolution, Again? — From a Muslim's Perspective",
+      "category": "kozmoloji",
+      "publishedDate": "2024-11-12",
+      "readingMinutes": 5,
+      "tldrTr": "Bir Müslümanın evrimi neden kabul edebileceği dört açıdan ele alınıyor. **Bilimsel:** mikro evrim, fosil kayıtları ve ERV'ler — şempanze ile insan genomunda aynı bölgeye yerleşmiş aynı retrovirüs izleri. **Mantıksal:** çifte standart — ateist evrime işaretlerle inanıp tevhide matematiksel ispat isterken, bazı Müslümanlar tersini yapıyor. **Naslara dayalı:** Kur'an fizik değil, fizikî gözlemi yorumlayacak metafizik model sunar (*güneş akar* örneği); Âdem a.s. vahye muhatap olabilecek bir toplumun babası olarak okunabilir. **Maslahat:** evrimi yaratılışın alternatifi göstermek gençlere din-bilim arasında yapay bir seçim dayatır.",
+      "tldrEn": "Four perspectives on why a Muslim might accept evolution. **Scientific:** microevolution, the fossil record and ERVs — the same retroviral traces at the same loci in chimpanzee and human genomes. **Logical:** a double standard — the atheist believes in evolution on signs yet demands mathematical proof for tawḥīd, while some Muslims do the reverse. **Scriptural:** the Qur'an offers not physics but a metaphysical model for reading physical observation (the “sun runs” example); Adam may be read as the father of a society developed enough to receive revelation. **Public benefit:** presenting evolution as an alternative to creation forces a false choice between religion and science upon the young.",
+      "status": "published"
+    },
+    {
       "slug": "terminoloji-2-parcalanamaz-butunler",
       "titleTr": "Terminoloji 2: Parçalanamaz Bütünlerin Hikâyesi",
       "titleEn": "Terminology 2: The Story of Indivisible Wholes",
