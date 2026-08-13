@@ -21,6 +21,21 @@ const CATEGORY_LABELS = {
   kozmoloji:        { tr: 'Kozmoloji & Yaratılış',    en: 'Cosmology & Creation', accent: '#9b59b6' },
 };
 
+// Yayın platformunun adını canonicalUrl'den türetir (2026-08-13).
+// Önceden metinde sabit "Medium" yazıyordu; sitedeki 51 yazının 49'u Medium
+// ama `iki-nedensellik` Substack'te — o yazının altında yanlış platform
+// gösteriliyordu. Yeni platform eklenirse buraya bir satır yeter.
+function platformName(url) {
+  try {
+    const h = new URL(url).hostname;
+    if (h.includes('substack.com')) return 'Substack';
+    if (h.includes('medium.com')) return 'Medium';
+    return h.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+}
+
 export default function TefekkurArticleRoute({ article }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
@@ -249,7 +264,9 @@ export default function TefekkurArticleRoute({ article }) {
                           borderBottom: '1px dashed rgba(148,163,184,0.3)',
                         }}
                       >
-                        {tr ? 'Medium\'da görüntüle ↗' : 'View on Medium ↗'}
+                        {tr
+                          ? `${platformName(article.canonicalUrl) || 'Kaynağında'}'da görüntüle ↗`
+                          : `View on ${platformName(article.canonicalUrl) || 'source'} ↗`}
                       </a>
                     </>
                   )}
@@ -424,8 +441,8 @@ export default function TefekkurArticleRoute({ article }) {
                   </div>
                   <p style={{ margin: 0 }}>
                     {tr
-                      ? <>Bu yazı, <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>&apos;nin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izni</strong> ve cömertliğiyle QuranCodex&apos;te yer alıyor. Yazıdaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Orijinal metin <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>&apos;da yayımlanmıştır.</>
-                      : <>This essay appears on QuranCodex with the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> and generosity of <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s personal reflection</strong>; QuranCodex carries these texts respectfully as an <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>invitation to think</em>. The original text is published on <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>Medium</a>.</>}
+                      ? <>Bu yazı, <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>&apos;nin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>sıfahi izni</strong> ve cömertliğiyle QuranCodex&apos;te yer alıyor. Yazıdaki yorum ve sentezler tamamen <strong style={{ color: COLORS.gold, fontWeight: 600 }}>yazarın şahsi tefekkürünü</strong> yansıtır; QuranCodex bu metinleri bir <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>düşünce daveti</em> olarak saygıyla aktarır. Orijinal metin <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>{platformName(article.canonicalUrl) || 'kaynağında'}</a>&apos;da yayımlanmıştır.</>
+                      : <>This essay appears on QuranCodex with the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> and generosity of <a href={article.author?.url} target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>{article.author?.name}</a>. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s personal reflection</strong>; QuranCodex carries these texts respectfully as an <em style={{ color: COLORS.offWhite, fontStyle: 'italic' }}>invitation to think</em>. The original text is published on <a href={article.canonicalUrl} target="_blank" rel="noopener noreferrer canonical" style={{ color: COLORS.gold }}>{platformName(article.canonicalUrl) || 'the original source'}</a>.</>}
                   </p>
                 </div>
               )}

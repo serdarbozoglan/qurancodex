@@ -64253,5 +64253,50 @@
     "hash": "1dc8b78ec454b2b7",
     "embeddedAt": "2026-08-13T05:12:42.342Z",
     "type": "tool"
+  },
+  "article:gecmis-klasik-gelecek-kuantum": {
+    "hash": "126f74b084b9ac24",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#intro-0": {
+    "hash": "ab073c308c48a472",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#gecmisi-gormedin": {
+    "hash": "d047fed7beaa5047",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#cizgiyi-ceken-deney": {
+    "hash": "7bf6f2d17a3882cb",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#gozunu-kirpmayan-tanik": {
+    "hash": "39bad0cbb7aa2adf",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#cehalet-degil-yokluk": {
+    "hash": "c28e1a72a6232066",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#neden-tek-gecmis": {
+    "hash": "f2cb0159b96a2bdb",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#tek-mekanizma-iki-yuz": {
+    "hash": "9a1c9bbaf8100e11",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
+  },
+  "article-section:gecmis-klasik-gelecek-kuantum#gevsek-uc": {
+    "hash": "488bf517c435ea30",
+    "embeddedAt": "2026-08-13T11:23:21.910Z",
+    "type": "article-section"
   }
 }

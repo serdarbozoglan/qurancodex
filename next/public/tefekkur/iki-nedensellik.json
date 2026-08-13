@@ -18,7 +18,11 @@
   "relatedTools": [],
   "relatedVerses": [],
   "previousArticle": null,
-  "nextArticle": null,
+  "nextArticle": {
+    "slug": "gecmis-klasik-gelecek-kuantum",
+    "titleTr": "Geçmiş Klasik, Gelecek Kuantum Mekaniksel — Evren Kayıtlarını Nasıl Tutuyor?",
+    "titleEn": "The Past Is Classical, the Future Is Quantum Mechanical: How the Universe Keeps Its Records"
+  },
   "blocks": [
     {
       "type": "criticalNote",

@@ -1,0 +1,558 @@
+{
+  "slug": "gecmis-klasik-gelecek-kuantum",
+  "titleTr": "Geçmiş Klasik, Gelecek Kuantum Mekaniksel — Evren Kayıtlarını Nasıl Tutuyor?",
+  "titleEn": "The Past Is Classical, the Future Is Quantum Mechanical: How the Universe Keeps Its Records",
+  "category": "idrak-suur",
+  "seriesId": "yazilan-yazilmayan",
+  "seriesNumber": 2,
+  "publishedDate": "2026-08-13",
+  "readingMinutes": 9,
+  "author": {
+    "name": "Felsufi",
+    "url": "https://sufist.substack.com"
+  },
+  "canonicalUrl": "https://sufist.substack.com/p/the-past-is-classical-the-future",
+  "tldrTr": "Dünün fotoğrafı var, yarının yok. Mikroskobik yasalar iki yönde de eşit çalıştığı hâlde evren bir zaman yönünün izleriyle dolu, öteki hakkında tamamen sessiz. Önceki yazı bu asimetriyi **mantıksal** olarak izlemişti; bu yazı **fiziğini** veriyor ve tez daha sert: geçmiş ile gelecek ne kadar bildiğimizle değil, **ne oldukları** bakımından farklı. **Geçmiş klasiktir, gelecek kuantum mekanikseldir.** Çift yarık deneyi çizgiyi tam olarak buraya çeker: girişim deseni, evrende yolun **kaydı bulunmadığı sürece** yaşar — kimsenin bakması gerekmez, kaydın var olması yeter. Beyzbol topu klasiktir çünkü büyük olduğu için değil, **iz bırakmadan hiçbir yere gidemediği** için. *Klasik = kayıt var. Kuantum = kayıt yok.* Buradan üç sonuç çıkar: geçmişin tekliği bir **tutarlılık şartıdır** (kayıtlar çelişemezse nesnellik doğar), enerji dağılımı yani **entropi** ile kayıt oku aynı oktur, ve kayıtlar **kayıplıdır** — çünkü onları yazan süreç, ayrıntıyı silen süreçle aynıdır.",
+  "tldrEn": "There are photographs of yesterday and none of tomorrow. Nothing in the microscopic laws explains this: they run equally well in both directions, yet the universe is littered with traces of one temporal direction and silent about the other. The previous essay traced the asymmetry **logically**; this one gives its **physics**, and the thesis is sharper: past and future differ not in how much we know but in **what exists**. **The past is classical. The future is quantum mechanical.** The double slit draws the line precisely here: interference survives exactly as long as **no record of the path exists** anywhere — no one needs to look; it is enough that the record exists. A baseball is classical not because of its size but because it **cannot go anywhere without leaving a record**. *Classical means: the record exists. Quantum means: it does not.* Three consequences follow: the uniqueness of the past is a **consistency condition** (objectivity is what reconcilable records look like from inside), the arrow of entropy and the arrow of records are **the same arrow**, and records are **lossy** — written by the very process that erased the detail.",
+  "relatedTools": [
+    "concept-graph"
+  ],
+  "relatedVerses": [],
+  "previousArticle": {
+    "slug": "iki-nedensellik",
+    "titleTr": "İki Nedensellik — Kusursuz Açıklamalar Neden Berbat Tahminler Yapar?",
+    "titleEn": "The Two Causalities — Why Perfect Explanations Make Terrible Predictions"
+  },
+  "nextArticle": null,
+  "blocks": [
+    {
+      "type": "criticalNote",
+      "headingTr": "Serinin ikinci yazısı",
+      "headingEn": "The second essay in the series",
+      "tr": "Bu metin **Yazılan ve Yazılmayan** serisinin ikinci parçasıdır; birincisi sitedeki **İki Nedensellik — Kusursuz Açıklamalar Neden Berbat Tahminler Yapar?** yazısıdır. Yazar serinin devamını ilân eder (son bölümdeki *“gevşek uç”*) fakat **toplam parça sayısını belirtmez** — bu yüzden burada numaralı bir bitiş gösterilmiyor.\n\n⚠ **Dil notu — bu yazıda yön terstir:** Sitedeki tefekkür yazılarının çoğunda Türkçe yazarın kendi kalemidir. Bu metin ise **aslen İngilizce yazılmıştır**; buradaki Türkçe sürüm çeviridir.",
+      "en": "This text is the second part of the series **The Written and the Unwritten**; the first is **The Two Causalities — Why Perfect Explanations Make Terrible Predictions** on this site. The author announces a continuation (the *“loose thread”* in the closing section) but **does not state a total number of parts** — hence no numbered ending is shown here.\n\n⚠ **A note on language — the direction is reversed here:** In most reflection essays on this site the Turkish is the author's own pen. This text was **written originally in English**; the Turkish version here is a translation."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Dünün fotoğrafları var, yarının yok. Böyle söylenince, ikinci bir bakışı hak etmeyecek kadar aşikâr görünür — ki bu genellikle **birkaç bakışı hak ettiğinin** işaretidir. Fiziğin mikroskobik yasalarında bunu açıklayan hiçbir şey yoktur: o yasalar iki yönde de eşit derecede iyi işler, çarpışan iki parçacığın filmi geri sarıldığında kusursuz derecede meşru başka bir çarpışma görünür. Buna rağmen evren bir zaman yönünün izleriyle **dolup taşar** ve öteki hakkında **tamamen sessizdir**. Kraterler, ağaç halkaları, buz karotları, hatıralar, bu cümle. Hepsi geriye işaret eder. Hiçbiri ileriye işaret etmez.",
+      "en": "There are photographs of yesterday and none of tomorrow. Put that way, the fact sounds too obvious to deserve a second look, which is usually the sign that it deserves several. Nothing in the microscopic laws of physics explains it: those laws run equally well in both directions, and a film of two colliding particles played backward shows another perfectly legal collision. Yet the universe is littered with traces of one temporal direction and utterly silent about the other. Craters, tree rings, ice cores, memories, this sentence. All of them point backward. Nothing points forward."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı yasalar, iki yön — ama tek taraf iz taşıyor",
+      "captionEn": "The same laws, two directions — yet only one side bears traces",
+      "left": {
+        "titleTr": "Geriye bakan taraf",
+        "titleEn": "The side that looks back",
+        "accent": "#3498db",
+        "descTr": "Evren bu yönün izleriyle **dolup taşıyor**.",
+        "descEn": "The universe is **littered** with traces of this direction.",
+        "bullets": [
+          {
+            "tr": "Kraterler · ağaç halkaları · buz karotları",
+            "en": "Craters · tree rings · ice cores"
+          },
+          {
+            "tr": "Hatıralar · belgeler · yıldız ışığı",
+            "en": "Memories · documents · starlight"
+          },
+          {
+            "tr": "**Bu cümle** — o da bir kayıt",
+            "en": "**This sentence** — itself a record"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "İleriye bakan taraf",
+        "titleEn": "The side that looks forward",
+        "accent": "#9b59b6",
+        "descTr": "Evren bu yön hakkında **tamamen sessiz**.",
+        "descEn": "The universe is **utterly silent** about this direction.",
+        "bullets": [
+          {
+            "tr": "Yarının fotoğrafı **yok**",
+            "en": "There is **no** photograph of tomorrow"
+          },
+          {
+            "tr": "Hiçbir iz ileriye işaret **etmez**",
+            "en": "**Nothing** points forward"
+          }
+        ]
+      },
+      "bridgeTr": "Mikroskobik yasalar bu farkı **üretmez** — çarpışmanın filmi geri sarıldığında yine meşru bir çarpışma görünür. Öyleyse fark yasalarda değil, **kayıtlarda**.",
+      "bridgeEn": "The microscopic laws do **not** produce this difference — the film of a collision played backward shows another legal collision. So the difference lies not in the laws but in **the records**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Önceki yazı bu asimetriyi **mantıksal olarak** izlemişti. Bir yapraktan geriye bakınca ağaç bir **koridordur**; gövdeden ileriye bakınca **açık kapılar salonudur**. Fakat mantık asimetriyi yalnızca tarif eder; evrende neden koridor bulunduğunu **açıklamaz**. O açıklama fiziktir ve ağacın düşündürdüğünden daha tuhaftır. Geçmiş ile gelecek yalnızca **ne kadar bildiğimiz** bakımından farklı değildir. **Ne oldukları** bakımından farklıdır.",
+      "en": "The previous essay traced this asymmetry logically. Backward from a leaf, a tree is a **corridor**; forward from the trunk, it is a **hall of open doors**. But logic only describes the asymmetry; it does not explain why the universe should contain corridors at all. That explanation is physics, and it is stranger than the tree suggests. The past and the future do not merely differ in **how much we happen to know** about them. They differ in **what exists**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Geçmiş klasiktir. Gelecek kuantum mekanikseldir.**",
+      "en": "**The past is classical. The future is quantum mechanical.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "gecmisi-gormedin",
+      "titleTr": "Geçmişi Hiç Görmedin",
+      "titleEn": "You Have Never Seen the Past"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Rahatsız edici bir envanterle başlayın. Geçmiş hakkında bildiğiniz **her şeyi kayıtlardan** biliyorsunuz. Hatıra, nöronlarda tutulan bir kayıttır. Belge, mürekkepte tutulan bir kayıttır. Yıldız ışığı, siz doğmadan önce kaynağından ayrılmış fotonlarda tutulan bir kayıttır. Krater kayada, ağaç halkası odunda, kül tabakası tortuda tutulan birer kayıttır.",
+      "en": "Start with an uncomfortable inventory. Everything you know about the past, you know **from records**. A memory is a record kept in neurons. A document is a record kept in ink. Starlight is a record kept in photons that left their source before you were born. A crater is a record kept in rock, a tree ring in wood, an ash layer in sediment."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Geçmiş nerede duruyor",
+      "titleEn": "Where the past is kept",
+      "root": {
+        "tr": "Geçmiş bir **yer** değil, **kayıtların toplamıdır**",
+        "en": "The past is not a **place** but **the sum of the records**"
+      },
+      "branches": [
+        {
+          "id": "canli",
+          "labelTr": "Canlı taşıyıcı",
+          "labelEn": "Living carrier",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "Hatıra → **nöronlarda**",
+              "en": "Memory → **in neurons**"
+            },
+            {
+              "tr": "Ağaç halkası → **odunda**",
+              "en": "Tree ring → **in wood**"
+            }
+          ]
+        },
+        {
+          "id": "cansiz",
+          "labelTr": "Cansız taşıyıcı",
+          "labelEn": "Inanimate carrier",
+          "accent": "#d4a574",
+          "children": [
+            {
+              "tr": "Belge → **mürekkepte**",
+              "en": "Document → **in ink**"
+            },
+            {
+              "tr": "Krater → **kayada**, kül tabakası → **tortuda**",
+              "en": "Crater → **in rock**, ash layer → **in sediment**"
+            }
+          ]
+        },
+        {
+          "id": "kozmik",
+          "labelTr": "Kozmik taşıyıcı",
+          "labelEn": "Cosmic carrier",
+          "accent": "#9b59b6",
+          "children": [
+            {
+              "tr": "Yıldız ışığı → **siz doğmadan yola çıkmış fotonlarda**",
+              "en": "Starlight → **in photons that left before you were born**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Kayıtları kaldırın — geçmiş bulanıklaşmaz, **erişilemez** olur",
+      "headingEn": "Remove the records — the past does not blur, it becomes **inaccessible**",
+      "tr": "Kayıtları kaldırdığınızda geçmiş **puslu hâle gelmez; ilkece erişilemez hâle gelir**, çünkü geriye çıkarım (*retrodiction*) **kayıt okumaktır**. Başka bir türü yoktur.\n\nBu, ilk yazının koridorunu tam olarak **kayıtların bulunduğu yere** yerleştirir. Ve soruyu tersine çevirir: mesele artık yapraktan gövdeye nasıl geri gittiğimiz değil, **evrenin kaleminin neden yazdığı** ve neden **yalnız tek yöne** yazdığıdır.",
+      "en": "Remove the records and the past **does not become hazy; it becomes inaccessible in principle**, because retrodiction is **record-reading**. There is no other kind.\n\nThis places the corridor of the first essay exactly **where records exist**. And it turns the question around: the mystery is no longer how we trace the leaf back to the trunk, but **why the pen of the universe writes at all**, and why in **only one direction**."
+    },
+    {
+      "type": "section",
+      "id": "cizgiyi-ceken-deney",
+      "titleTr": "Çizgiyi Çeken Deney",
+      "titleEn": "The Experiment That Draws the Line"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Fiziğin, **yazılan ile yazılmayan arasındaki sınırı bulmak** dışında bir işi olmayan bir deneyi vardır ve o deney başka sebeplerle ünlüdür: **çift yarık**.",
+      "en": "Physics has an experiment whose entire job is to locate the boundary between **the written and the unwritten**, and it is famous for other reasons: **the double slit**."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Çift yarık — kaydın varlığı deseni öldürür",
+      "captionEn": "The double slit — the existence of a record kills the pattern",
+      "nodes": [
+        {
+          "titleTr": "Teker teker elektron",
+          "titleEn": "Electrons one at a time",
+          "tone": "trigger",
+          "subtitleTr": "İki yarıklı bir engele doğru **birer birer** elektron gönderilir.",
+          "subtitleEn": "Electrons are sent **one at a time** toward a barrier with two slits."
+        },
+        {
+          "titleTr": "Tek tek parlamalar",
+          "titleEn": "Single flashes",
+          "tone": "state",
+          "subtitleTr": "Her elektron ekrana **tek bir parlama** olarak varır — parçacık gibi.",
+          "subtitleEn": "Each electron arrives at the screen as **a single flash** — like a particle."
+        },
+        {
+          "titleTr": "Girişim deseni",
+          "titleEn": "Interference pattern",
+          "tone": "state",
+          "subtitleTr": "Parlamalar birikince **girişim deseni** çıkar: her iki yarıktan geçip yeniden birleşen bir dalganın imzası. Elektron, bir anlamda **kendisiyle girişir**.",
+          "subtitleEn": "The flashes accumulate into **an interference pattern**: the signature of a wave that passed through both slits and recombined. Each electron, in a serviceable sense, **interferes with itself**."
+        },
+        {
+          "titleTr": "Dedektör eklenir",
+          "titleEn": "A detector is added",
+          "tone": "state",
+          "subtitleTr": "Her elektronun **hangi yarığı** kullandığını kaydeden bir dedektör konur.",
+          "subtitleEn": "A detector is added that registers **which slit** each electron used."
+        },
+        {
+          "titleTr": "Desen kaybolur",
+          "titleEn": "The pattern vanishes",
+          "tone": "outcome",
+          "subtitleTr": "Girişim **yok olur**. Elektronlar küçük taşlar gibi davranmaya başlar; desen **iki düz yığına** döner.",
+          "subtitleEn": "The interference **vanishes**. The electrons begin behaving like little stones, and the pattern becomes **two plain heaps**."
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Kimsenin bakması gerekmez",
+      "headingEn": "No one needs to look",
+      "tr": "Standart ders **ölçüm** hakkındadır, ama sonucun keskin sürümü daha özgüldür: **hangi-yol dedektörüne kimsenin bakması gerekmez.** Evrenin yolun bir **kaydını tutması yeter** — okunmuş olsun ya da olmasın. Girişim, dünyanın **hiçbir yerinde** böyle bir kayıt bulunmadığı sürece yaşar.\n\nTersi de aynı ölçüde katıdır. Laplace'ın şeytanı tarzında bir varlık düşünün: ekrandaki parlamadan **bir an sonra** gelip evrendeki her parçacığın envanterini çıkarsın. **Size o elektronun hangi yarıktan geçtiğini söyleyemez.** Hesap zor olduğu için değil — hiçbir ölçüm, ne kadar eksiksiz olursa olsun, o rotayı geri getiremeyeceği için. **Evren o rotanın kaydını tutmadı.**\n\nKuantum mekaniğinin bazı yorumları yine de bir vakıa bulunduğunda, elektronun gizlice belirli bir yol izlediğinde ısrar eder; ama bu vakıayı **ilkece geri getirilemez** kılma pahasına satın alırlar — bu serinin ihtiyaç duyduğu her şey için ikisi **aynı şeydir**. Kaydın bulunmadığı ve yeniden kurulamadığı yerde, **geçmiş okunacak bir şey sunmaz**.",
+      "en": "The standard moral concerns **measurement**, but the sharp version of the result is more specific: **no one needs to look at the which-way detector.** It is enough that **the universe holds a record** of the path, read or unread. Interference survives exactly as long as **no such record exists anywhere** in the world.\n\nAnd the converse is just as strict. Imagine a being in the style of Laplace's demon that arrives **one instant after** the flash on the screen and takes stock of every particle in the universe. **It cannot tell you which slit that electron used.** Not because the computation is hard, but because no measurement, however complete, could recover the route. **The universe kept no record of it.**\n\nSome interpretations of quantum mechanics insist there was nonetheless a fact of the matter, a definite path the electron secretly took; they purchase that fact at the price of making it **unrecoverable in principle** — and for everything this series needs, that is **the same thing**. Where no record exists and none can be reconstructed, **the past offers nothing to read**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Elektron ile beyzbol topu — fark boyut değil, **iz**",
+      "captionEn": "Electron and baseball — the difference is not size but **trace**",
+      "left": {
+        "titleTr": "Elektron",
+        "titleEn": "The electron",
+        "accent": "#9b59b6",
+        "descTr": "Aygıtın içinde **kimse not tutmadı**.",
+        "descEn": "**Nothing inside the apparatus took notes.**",
+        "bullets": [
+          {
+            "tr": "Yolun kaydı **hiçbir yerde yok**",
+            "en": "The record of the path exists **nowhere**"
+          },
+          {
+            "tr": "Birden çok tarihi **aynı anda açık** tutabilir",
+            "en": "It can hold several histories **open at once**"
+          },
+          {
+            "tr": "Bu yüzden **kuantum**",
+            "en": "This is why it is **quantum**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Beyzbol topu",
+        "titleEn": "The baseball",
+        "accent": "#d4a574",
+        "descTr": "**İz bırakmadan hiçbir yere gidemez.**",
+        "descEn": "**It cannot go anywhere without leaving a record.**",
+        "bullets": [
+          {
+            "tr": "İttiği **her hava molekülü**, dikişlerinden saçılan **her foton** nereye uçtuğunu taşır",
+            "en": "**Every air molecule** it shoves aside, **every photon** that scatters off its seams, carries away where it flew"
+          },
+          {
+            "tr": "Hangi-yol kaydı dünyaya **milyarlarca fazlalıklı kopya** hâlinde yazılır",
+            "en": "The which-way record is written into the world in **a billion redundant copies**"
+          },
+          {
+            "tr": "Yeterince sabırlı bir dedektif rotayı **bir gün sonra havanın ifadesinden** kurabilir",
+            "en": "A sufficiently patient detective could reconstruct the path **a day later from the testimony of the air**"
+          }
+        ]
+      },
+      "bridgeTr": "Bir şeyin klasik mi kuantum mu davranacağını belirleyen şey **yolunun ölçülmüş olması değil, sonradan geri getirilebilir olmasıdır.** Beyzbol topunu klasik yapan, büyüklüğü değil — **iz bırakmadan gidememesi**.",
+      "bridgeEn": "What decides whether a thing behaves classically or quantum mechanically is **not whether its path was measured, but whether its path could later be recovered.** What makes the baseball classical is not its size as such — it is **its inability to go anywhere without leaving a record**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Klasik demek: kayıt var. Kuantum demek: kayıt yok.**",
+      "en": "**Classical means: the record exists. Quantum means: it does not.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "gozunu-kirpmayan-tanik",
+      "titleTr": "Gözünü Kırpmayan Tanık",
+      "titleEn": "The Unblinking Witness"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Fizikçiler beyzbol topunun bu hâline **dekoherans** der ve mekanizma bir an durmayı hak eder, çünkü bütün serinin menteşesi burasıdır. **Makroskobik bir nesne yayın yapmayı durduramaz.** Hava molekülleri ona çarpar, fotonlar yüzeyinden saçılır ve her biri konumunun bir kopyasını taşıyarak ayrılır. **Çevre, gözünü hiç kırpmayan bir tanıktır** — ve böyle bir tanığın karşısında elektronun numarası, yani birkaç olası tarihi aynı anda açık tutmak, **imkânsızdır**.",
+      "en": "Physicists call the baseball's condition **decoherence**, and the mechanism deserves a moment, because it is the hinge of this whole series. **A macroscopic object cannot stop publishing.** Air molecules bounce off it, photons scatter off its surface, and every one leaves carrying a copy of its position. **The environment is a witness that never blinks** — and against such a witness the electron's trick (holding several possible histories open at once) is **impossible**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Yazmak **çift iş** görür",
+      "headingEn": "The writing does **double duty**",
+      "tr": "Alternatifler yalnızca **gözlenmemiş** değildir; odanın yarısına çoktan dağılmış kayıtlar tarafından **yalanlanmıştır**. **Klasik davranış, bütün alternatif tarihler var olmaktan çıkarıldıktan sonra geriye kalandır.**\n\nYazmak çift iş görür: alternatif yolları **silerken**, aynı hamlede hayatta kalan yolu **zaten yazılmış olan her şeyle tutarlı olmaya bağlar**. Kalemin neden bu satırı yazdığı, ötekini değil — bu, fiziğin hâlâ tartıştığı bir sorudur. Burada önemli olan tek şey şu: **bir kez yazıldığında, herkes için yazılmıştır.**",
+      "en": "The alternatives are not merely **unobserved**; they are **contradicted** by records already distributed across half the room. **Classical behavior is what remains when every alternative history has been written out of existence.**\n\nThe writing does double duty: it **erases** the alternative paths even as it commits the surviving one to **consistency with everything already written**. Why the pen writes this line rather than that one is a question physics still argues about; what matters here is only that **once written, it is written for everyone**."
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu, ağaca fiziksel açıklamasını verir. **Geriye giden koridor tektir çünkü onun bir kaydı vardır**: geçmiş, evrenin **yazılmış olan** kısmıdır. İleri kapılar açık durur çünkü onlar hakkında henüz **hiçbir şey yazılmamıştır**: gelecek gizli değildir, **yazılmamıştır**. İki nedenselliğin asimetrisi, bir **defterin** asimetrisidir: yer imlerinin bir yanında girdilerle dolu, öteki yanında bomboş.",
+      "en": "This gives the tree its physical explanation. **The backward corridor is unique because a record of it exists**: the past is the part of the universe that **has been written**. The forward doors stand open because nothing about them **has been written yet**; the future is not hidden, it is **unwritten**. The asymmetry of the two causalities is the asymmetry of **a ledger**: dense with entries on one side of the bookmark, blank on the other."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Serinin adı da buradan gelir. **Yazılan ile yazılmayan, zamanın iki bölgesi değildir. İki farklı türden şeydir.**",
+      "en": "That is also where this series takes its name. **The written and the unwritten are not two regions of time. They are two different kinds of thing.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "cehalet-degil-yokluk",
+      "titleTr": "Cehalet Değil — Yokluk",
+      "titleEn": "Not Ignorance — Absence"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bütün bunları bizim **sınırlarımız** hakkında bir ifade gibi duymak doğal olurdu: gelecek, gelecek haftanın hava durumu gibi *“belirsizdir”* — eksik veri meselesi. Kuantum mekaniğini kuran fizikçiler bunun **yanlış okuma** olduğunda alışılmadık biçimde ısrarcıydılar.",
+      "en": "It would be natural to hear all this as a statement about **our limitations**: the future is *“uncertain”* the way next week's weather is uncertain, a matter of missing data. The physicists who built quantum mechanics were unusually insistent that **this is the wrong reading**."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "*“Bu formülasyon açıkça gösterir ki **belirsizlik bağıntısı geçmişe ilişkin değildir**.”*",
+      "en": "*“This formulation makes it clear that **the uncertainty relation does not refer to the past**.”*",
+      "source": "Werner Heisenberg — The Physical Principles of the Quantum Theory (1930), s. 20"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Belirsizlik yalnız **yazılmamış** tarafın özelliğidir",
+      "headingEn": "Uncertainty is a property of **the unwritten side** only",
+      "tr": "Heisenberg'in cümlesi ince ama kesindir: belirsizlik **geriye doğru sis atmaz**. Çoktan olmuş olanın üzerine bir bulanıklık düşürmez. Belirsizlik, defterin **boş sayfasına** aittir — dolu sayfasına değil.",
+      "en": "Heisenberg's sentence is subtle but decisive: uncertainty **casts no fog backward**. It does not blur what has already happened. Uncertainty belongs to the **blank page** of the ledger — not to the written one."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Yarın bozunabilecek bir uranyum çekirdeği için bir **dalga fonksiyonu** yazabiliriz — ihtimaller üzerine bir dağılım. Ama hiçbir dalga fonksiyonu *“bu çekirdek dün sabah 9'da bozundu”* ifadesini dile getiremez. *“**Geçmiş hakkındaki bilgi ancak klasik terimlerle ifade edilebilir.**”*",
+      "en": "We can write a **wave function** for a uranium nucleus that may decay tomorrow, a distribution over possibilities. But no wave function expresses the statement *“this nucleus decayed yesterday at 9 a.m.”* — *“**Knowledge about the past can only be expressed in classical terms.**”*",
+      "source": "Freeman J. Dyson — Thought-Experiments in Honor of John Archibald Wheeler (2004), böl. 4"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Dyson'ın kaçırılması kolay ikinci sonucu",
+      "headingEn": "Dyson's second conclusion, easy to miss",
+      "tr": "Zamanın iki yönü **aynı dilde yazılmamıştır**: bir yanda **olgular**, öte yanda **genlikler** — ve aralarında çeviri yoktur.\n\nDyson'ın ikinci sonucu kaçırılması kolaydır ve saklamaya değer: **kuantum mekaniğinde gözlemcinin rolü, dalganın ani bir çöküşüne sebep olmak değildir.** Rolü *“**yalnızca geçmiş ile gelecek arasındaki ayrımı yapmaktır**”* — olguları ihtimallerden ayıran referans noktasında durmak.",
+      "en": "The two directions of time are **not written in the same language**: **facts** on one side, **amplitudes** on the other, and **no translation** between them.\n\nDyson drew a second conclusion that is easy to miss and worth keeping: **the observer's role in quantum mechanics is not to cause some abrupt collapse of the wave.** It is *“**solely to make the distinction between past and future**”* — to stand at the point of reference that separates facts from probabilities."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Geçmiş, şimdi ve gelecek **hiç de temel değildir**; daha temel olan **belirli ile belirsiz** ayrımından türerler. Bir olay, birinden ötekine geçiştir ve *“bir şeyi gözlediğimizde bunu **belirsiz ile belirli arasındaki geçişin seyircileri** olarak yaparız.”*",
+      "en": "Past, present and future are **not fundamental at all**, but derived from the more basic distinction between **definite and indefinite**. An event is the transition from one to the other, and *“when we observe something we do so as **spectators to the transition between indefinite and definite**.”*",
+      "source": "Lee Smolin & Clelia Verde — The Quantum Mechanics of the Present, arXiv:2104.09945 (2021)"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Şimdi bir **yer** değil, **yazan uç**",
+      "headingEn": "The present is not a **place** but **the writing head**",
+      "tr": "Bu görüşe göre **şimdi, zamanda bir konum değildir.** **Yazan uçtur** — yazılmamışın yazılmışa dönüştüğü, hareket hâlindeki kenar.",
+      "en": "On this view **the present is not a location in time.** It is **the writing head** — the moving edge where the unwritten becomes the written."
+    },
+    {
+      "type": "section",
+      "id": "neden-tek-gecmis",
+      "titleTr": "Neden Tek Bir Geçmiş Var",
+      "titleEn": "Why There Is One Past"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Resmi bir parça daha tamamlar: **yazılmış taraf neden tek olmak zorunda?** Ağaç ileriye doğru dallanır; neden geriye doğru hiç dallanmaz?",
+      "en": "One more piece completes the picture: **why must the written side be single?** The tree branches forward; why does it never branch backward?"
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Geçmiş dallansaydı ne olurdu",
+      "captionEn": "What if the past branched",
+      "left": {
+        "titleTr": "Dallanan geçmiş (varsayım)",
+        "titleEn": "A branching past (hypothetical)",
+        "accent": "#c0554d",
+        "descTr": "Geçmiş de gelecek gibi **bir alternatifler dağılımı** olsaydı.",
+        "descEn": "If the past were like the future, **a distribution of alternatives**.",
+        "bullets": [
+          {
+            "tr": "**Kayıtlar birbiriyle çelişebilirdi**",
+            "en": "**Records could disagree**"
+          },
+          {
+            "tr": "Senin dünün ile benim dünüm **farklı ama ikisi de doğru** olurdu",
+            "en": "Your yesterday and mine could be **different yet both correct**"
+          },
+          {
+            "tr": "*“Ne oldu?”* dünyanın değil, **sorulan kişinin** özelliği olurdu",
+            "en": "*“What happened”* would be a property of **the person asked**, not of the world"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "Tek geçmiş (gerçek)",
+        "titleEn": "A single past (actual)",
+        "accent": "#1D9E75",
+        "descTr": "Kayıtlar **milyarlarca fazlalıklı kopya** hâlinde yazılır.",
+        "descEn": "Records are written in **a billion redundant copies**.",
+        "bullets": [
+          {
+            "tr": "Aynı girdinin çok sayıda kopyasını okuyan çok sayıda gözlemci **anlaşmaktan başka bir şey yapamaz**",
+            "en": "Many observers reading many copies of the same entry **cannot help but agree**"
+          },
+          {
+            "tr": "**Nesnellik fazladan bir varsayım değildir** — içeriden bakıldığında fazlalığın göründüğü hâldir",
+            "en": "**Objectivity is not an extra assumption** — it is what redundancy looks like from inside"
+          }
+        ]
+      },
+      "bridgeTr": "**Nesnel gerçeklik, özünde, bütün kayıtların birbiriyle uzlaştırılabilir olması şartıdır.** Notlarını karşılaştıran gözlemcilere sahip bir evren **çok sayıda geleceği kaldırabilir, ama yalnızca tek bir geçmişi**.",
+      "bridgeEn": "**Objective reality is, at bottom, the requirement that all records be reconcilable.** A universe whose observers compare notes **can afford many futures, but only one past**."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Bir **tutarlılık şartı**, geometrik kaza değil",
+      "headingEn": "A **consistency condition**, not an accident of geometry",
+      "tr": "Geriye giden koridorun tekliği **geometrik bir kaza değildir.** Bir tutarlılık şartıdır. Eşzamanlılığı neşeyle görecelileştiren **görelilik bile**, birbirini etkileyecek kadar yakın olayların **neden-sonuç sırasının her gözlemci için aynı olduğu** postülası üzerine kuruludur.\n\n**Evren bundan sonra ne yazacağı konusunda muazzam bir özgürlüğe izin verir. Zaten yazmış olduğuyla asla çelişmez.**",
+      "en": "The uniqueness of the backward corridor is **not an accident of geometry.** It is a consistency condition. Even **relativity**, which cheerfully relativizes simultaneity, is built on the postulate that **the order of cause and effect** — of events close enough to influence one another — **is the same for every observer**.\n\n**The universe permits enormous freedom about what to write next. It never contradicts what it has already written.**"
+    },
+    {
+      "type": "section",
+      "id": "tek-mekanizma-iki-yuz",
+      "titleTr": "Tek Mekanizma, İki Yüz",
+      "titleEn": "One Mechanism, Two Faces"
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "Bilgi dağılımı — aynı hamlede iki sonuç",
+      "captionEn": "Information diffusion — two results in one stroke",
+      "nodes": [
+        {
+          "titleTr": "Sistem bilgisini saçar",
+          "titleEn": "The system scatters its information",
+          "tone": "trigger",
+          "subtitleTr": "Kayıt, **bilgi dağılımıyla** yapılır: sistem kendisi hakkındaki bilgiyi çevreye saçar. **Yazma budur.**",
+          "subtitleEn": "A record is made by **information diffusion**: the system scatters information about itself into the environment. **That is the writing.**"
+        },
+        {
+          "titleTr": "Geriye doğru: kayıt doğar",
+          "titleEn": "Backward: a record is born",
+          "tone": "state",
+          "subtitleTr": "Çevre artık bir kayıt tutuyor; **kayıt okumak mümkün hâle gelir** → geriye dönük nedensellik.",
+          "subtitleEn": "The environment now holds a record; **record-reading becomes possible** → retrospective causality."
+        },
+        {
+          "titleTr": "İleriye doğru: belirlenim ölür",
+          "titleEn": "Forward: determinism dies",
+          "tone": "state",
+          "subtitleTr": "Milyarlarca hava molekülüne dağılan ince ayrıntılar, **kusursuz bir ileri tahminin tam da ihtiyaç duyacağı** ayrıntılardır.",
+          "subtitleEn": "The fine details that diffused into a billion air molecules are **exactly the details a perfect forward prediction would have needed**."
+        },
+        {
+          "titleTr": "Tek hamle, iki karakter",
+          "titleEn": "One stroke, two characters",
+          "tone": "outcome",
+          "subtitleTr": "Açıklık iki nedenselliği ayırmakla kalmaz — **ikisinin karakterini de aynı anda imal eder**: belirli bir geçmiş, açık bir gelecek.",
+          "subtitleEn": "Openness does more than separate the two causalities — it **manufactures both of their characters at once**: a definite past, an open future."
+        }
+      ]
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Entropi**, özünde, bir sistemin bilgisinin ne kadar geniş yayıldığının sayımıdır; ikinci yasa da **evrenin yazmayı sürdürdüğü ve asla geri silmediği** ifadesidir. **Zaman oku ile kayıt oku iki ayrı muamma değildir; aynı oktur.**",
+      "en": "**Entropy** is, at bottom, a count of how widely a system's information has spread, and the second law is the statement that **the universe keeps writing and never unwrites**. **The arrow of time and the arrow of records are not two mysteries; they are the same arrow.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Ve yazma **kayıplıdır**",
+      "headingEn": "And the writing is **lossy**",
+      "tr": "Hava, beyzbol topunun **geçtiğini** hatırlar — geçişinin her moleküler nüansını değil. **Kayıtlar sıkıştırmalardır**: sistemin verdiğinin kaba taneli özetleri.\n\nKayıtların neden eksik olmak zorunda olduğunun vaat edilen cevabı budur. İlk yazı, hayatta kalan delile **birbiriyle bağdaşmayan birkaç anlatının** uyabileceğini kabul etmişti; sebebi işte burada: **defter zaten hiçbir zaman bir tutanak değildi.** Onu yazan süreç, ayrıntıları **silen süreçle aynıydı**.",
+      "en": "The air remembers **that** the baseball passed, not every molecular nuance of its passage. **Records are compressions**: coarse-grained summaries of what the system gave up.\n\nThis is the promised answer to why records must be incomplete. The first essay conceded that **several incompatible narratives** can fit the surviving evidence, and here is the reason: **the register was never a transcript.** It was written by **the same diffusive process that erased the details**."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "İki nedensellik — aynı ilişkinin iki okunuşu değil",
+      "captionEn": "The two causalities — not one relation read two ways",
+      "left": {
+        "titleTr": "Geriye dönük nedensellik",
+        "titleEn": "Retrospective causality",
+        "accent": "#3498db",
+        "descTr": "**Defter üzerinde** tanımlıdır.",
+        "descEn": "Defined **on the register**.",
+        "bullets": [
+          {
+            "tr": "Olgular · klasik ifadeler · **yazılan**",
+            "en": "Facts · classical statements · **the written**"
+          }
+        ]
+      },
+      "right": {
+        "titleTr": "İleriye dönük nedensellik",
+        "titleEn": "Prospective causality",
+        "accent": "#9b59b6",
+        "descTr": "**Dağılım üzerinde** tanımlıdır.",
+        "descEn": "Defined **on the distribution**.",
+        "bullets": [
+          {
+            "tr": "İmkân · genlik · **yazılmayan**",
+            "en": "Possibility · amplitude · **the unwritten**"
+          }
+        ]
+      },
+      "bridgeTr": "İkisi **aynı ilişkinin iki yönden okunuşu değildir**, çünkü **aynı türden nesne hakkında değillerdir.** İlk yazının ahkâm kesen uzmanı defteri akıcı biçimde okur, sonra onu yazılmamışın bir tarifi diye alıntılar — **yazılmamışın konuşmadığı bir dilde**.",
+      "bridgeEn": "They are **not one relation read in two directions**, because **they are not about the same kind of object at all**. The pundit of the first essay reads the register fluently, then quotes it as a description of the unwritten, **in a language the unwritten does not speak**."
+    },
+    {
+      "type": "section",
+      "id": "gevsek-uc",
+      "titleTr": "Gevşek Uç",
+      "titleEn": "The Loose Thread"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Fakat bir ayrıntı baştan beri sessizce **yük taşıyordu**. Beyzbol topu klasikti çünkü **havanın tanıklık etmesine izin verdik**. Elektron kuantumdu çünkü **aygıtın içinde kimse not tutmadı**. Yazılan ve yazılmayan, meğer **bir sınıra göre** hükme bağlanmış: kutuyu *“sistem”*in etrafına nereye çizdiğimize ve geri kalan her şeye *“çevre”* dediğimiz yere göre.",
+      "en": "But a detail has been quietly **load-bearing** throughout. The baseball was classical because **we let the air testify**. The electron was quantum because **nothing inside the apparatus took notes**. Written and unwritten, it turns out, were judged **relative to a boundary** — to where we drew the box around *“the system”* and declared everything else environment."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kutuyu farklı çizin, hüküm değişir: atışı kutunuzun hemen dışındaki gizli bir mekanizmayla yönetilen bir zar, **içeriden rastgele, bir adım geriden saat gibi** görünür. **Bir şeyin rastgele olup olmadığı, anlaşılan o ki, o şey hakkında bir olgu değil.**",
+      "en": "Draw the box differently and the verdict changes: a die whose throw is governed by a hidden mechanism just outside your box **looks random from inside and clockwork from one step back**. **Whether a thing is random, it seems, is not a fact about the thing.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "sources",
+      "items": [
+        {
+          "name": "Werner Heisenberg — The Physical Principles of the Quantum Theory",
+          "detailTr": "Çev. Carl Eckart ve F. C. Hoyt (University of Chicago Press, 1930), s. 20. Belirsizlik bağıntısının geçmişe ilişkin olmadığı ifadesi.",
+          "detailEn": "Trans. Carl Eckart and F. C. Hoyt (University of Chicago Press, 1930), p. 20. The statement that the uncertainty relation does not refer to the past."
+        },
+        {
+          "name": "Freeman J. Dyson — Thought-Experiments in Honor of John Archibald Wheeler",
+          "detailTr": "Science and Ultimate Reality: Quantum Theory, Cosmology, and Complexity içinde, ed. John D. Barrow, Paul C. W. Davies, Charles L. Harper Jr. (Cambridge University Press, 2004), böl. 4.",
+          "detailEn": "In Science and Ultimate Reality: Quantum Theory, Cosmology, and Complexity, eds. John D. Barrow, Paul C. W. Davies and Charles L. Harper Jr. (Cambridge University Press, 2004), ch. 4."
+        },
+        {
+          "name": "Lee Smolin & Clelia Verde — The Quantum Mechanics of the Present",
+          "detailTr": "arXiv:2104.09945 (2021). Geçmiş/şimdi/gelecek ayrımının belirli–belirsiz ayrımından türediği tezi.",
+          "detailEn": "arXiv:2104.09945 (2021). The thesis that past/present/future derive from the distinction between definite and indefinite."
+        }
+      ]
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Devamı ve metin hakkında",
+      "headingEn": "What follows, and about this text",
+      "tr": "Yazar, **kutunun nereye çizildiği** meselesini — yani rastgeleliğin gözlemcinin sınırına göreliliğini — **bir sonraki yazıya** bırakır.\n\n**Bu metin aslen İngilizce yazılmıştır; buradaki Türkçe sürüm çeviridir.** Sitedeki tefekkür yazılarının çoğunda yön terstir (Türkçe asıl, İngilizce çeviri) — bu yazıda ve serinin ilk parçasında değil. Özgün metin **Substack**'te yayımlanmıştır.",
+      "en": "The author leaves the question of **where the box is drawn** — the relativity of randomness to the observer's boundary — **to the next essay**.\n\n**This text was written originally in English; the Turkish version here is a translation.** In most reflection essays on this site the direction is reversed (Turkish original, English translation) — not in this one, nor in the first part of the series. The original text is published on **Substack**."
+    }
+  ]
+}
