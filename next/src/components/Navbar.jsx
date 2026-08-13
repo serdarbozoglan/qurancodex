@@ -276,6 +276,7 @@ export default function Navbar() {
             titleTr: a.titleTr,
             titleEn: a.titleEn,
             minutes: a.readingMinutes || 5,
+            publishedDate: a.publishedDate || '',
             catLabelTr: cat?.labelTr || '',
             catLabelEn: cat?.labelEn || '',
             accent: cat?.accent || '#d4a574',
@@ -1364,60 +1365,78 @@ export default function Navbar() {
                           {/* Col 2: Öne çıkanlar + yazar */}
                           <div style={{ flex: 1, padding: '8px', display: 'flex', flexDirection: 'column' }}>
                             <div style={colLabel}>{language === 'tr' ? 'Son Eklenenler' : 'Latest'}</div>
-                            {featuredArticles.map(art => (
+                            {/* Editoryal liste (2026-08-13). Önceki hâlde her kartın
+                                solunda kategori renginde 2px dikey şerit vardı; kategori
+                                adı da aynı renkte kalın yazılıyordu — renk iki kez
+                                tekrarlanıyor, sonuç şablon görüntüsü veriyordu.
+                                Şerit kaldırıldı: ayrım saç teli yatay çizgiyle, kategori
+                                ise sönük versal etiket + küçük renk noktasıyla veriliyor.
+                                Renk vurgusu yalnız hover'da başlığa taşınır. */}
+                            {featuredArticles.map((art, i) => (
                               <button
                                 key={art.slug}
                                 onClick={() => { router.push(`/${language}/tefekkur/${art.slug}`); setTefekkurOpen(false); }}
                                 style={{
                                   display: 'flex', alignItems: 'flex-start', gap: '10px',
                                   width: '100%', textAlign: 'left',
-                                  padding: '10px 12px', borderRadius: '10px', border: 'none',
+                                  padding: '11px 12px', border: 'none',
+                                  borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.055)',
+                                  borderRadius: '8px',
                                   background: 'transparent', cursor: 'pointer',
-                                  borderLeft: `2px solid ${art.accent}55`,
-                                  transition: 'background 0.15s, border-color 0.15s, transform 0.12s',
+                                  transition: 'background 0.15s',
                                 }}
                                 onMouseEnter={e => {
-                                  e.currentTarget.style.background = `${art.accent}10`;
-                                  e.currentTarget.style.borderLeftColor = art.accent;
-                                  e.currentTarget.style.transform = 'translateX(2px)';
+                                  e.currentTarget.style.background = 'rgba(255,255,255,0.035)';
+                                  const t = e.currentTarget.querySelector('.ftitle');
+                                  if (t) t.style.color = art.accent;
                                   const arr = e.currentTarget.querySelector('.farr');
-                                  if (arr) { arr.style.opacity = '1'; arr.style.transform = 'translateX(2px)'; arr.style.color = art.accent; }
+                                  if (arr) { arr.style.opacity = '1'; arr.style.transform = 'translateX(3px)'; }
                                 }}
                                 onMouseLeave={e => {
                                   e.currentTarget.style.background = 'transparent';
-                                  e.currentTarget.style.borderLeftColor = `${art.accent}55`;
-                                  e.currentTarget.style.transform = 'translateX(0)';
+                                  const t = e.currentTarget.querySelector('.ftitle');
+                                  if (t) t.style.color = '#e8e6e3';
                                   const arr = e.currentTarget.querySelector('.farr');
-                                  if (arr) { arr.style.opacity = '0.35'; arr.style.transform = 'translateX(0)'; arr.style.color = 'rgba(148,163,184,0.55)'; }
+                                  if (arr) { arr.style.opacity = '0'; arr.style.transform = 'translateX(0)'; }
                                 }}
                               >
-                                <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
-                                  <span style={{
-                                    color: '#e8e6e3', fontSize: '0.82rem',
-                                    fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.35,
+                                <span style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1, minWidth: 0 }}>
+                                  <span className="ftitle" style={{
+                                    color: '#e8e6e3', fontSize: '0.83rem',
+                                    fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.4,
                                     display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
                                     overflow: 'hidden',
+                                    transition: 'color 0.15s',
                                   }}>
                                     {language === 'tr' ? art.titleTr : art.titleEn}
                                   </span>
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.68rem', fontFamily: "'Inter', sans-serif" }}>
-                                    <span style={{ color: art.accent, fontWeight: 600 }}>
+                                  <span style={{
+                                    display: 'flex', alignItems: 'center', gap: '7px',
+                                    fontSize: '0.61rem', fontFamily: "'Inter', sans-serif",
+                                    letterSpacing: '0.07em', textTransform: 'uppercase',
+                                    color: 'rgba(148,163,184,0.5)', fontWeight: 500,
+                                  }}>
+                                    <span style={{
+                                      width: '5px', height: '5px', borderRadius: '50%',
+                                      background: art.accent, flexShrink: 0, opacity: 0.85,
+                                    }} />
+                                    <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                       {language === 'tr' ? art.catLabelTr : art.catLabelEn}
                                     </span>
-                                    <span style={{ color: 'rgba(148,163,184,0.35)' }}>·</span>
-                                    <span style={{ color: 'rgba(148,163,184,0.7)', fontVariantNumeric: 'tabular-nums' }}>
-                                      {language === 'tr' ? `${art.minutes} dk okuma` : `${art.minutes} min read`}
+                                    <span style={{ opacity: 0.4 }}>·</span>
+                                    <span style={{ fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>
+                                      {language === 'tr' ? `${art.minutes} dk` : `${art.minutes} min`}
                                     </span>
                                   </span>
                                 </span>
                                 <span className="farr" style={{
-                                  color: 'rgba(148,163,184,0.55)',
-                                  opacity: 0.35,
+                                  color: 'rgba(148,163,184,0.7)',
+                                  opacity: 0,
                                   fontSize: '0.85rem', lineHeight: 1,
-                                  transition: 'opacity 0.15s, transform 0.15s, color 0.15s',
+                                  transition: 'opacity 0.15s, transform 0.15s',
                                   fontFamily: "'Inter', sans-serif",
                                   flexShrink: 0,
-                                  marginTop: '3px',
+                                  marginTop: '2px',
                                 }}>→</span>
                               </button>
                             ))}
