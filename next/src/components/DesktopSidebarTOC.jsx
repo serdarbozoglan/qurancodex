@@ -97,6 +97,12 @@ export default function DesktopSidebarTOC() {
   return (
     <nav
       aria-label={tr ? 'Bölüm navigasyonu' : 'Chapter navigation'}
+      // ─── inert ŞART — 2026-08-13 ölçümü ─────────────────────────────────
+      // Raf görünmezken `opacity: 0` + `pointerEvents: none` ile fare için
+      // kapalıydı ama KLAVYE İÇİN AÇIKTI: 16 düğmenin 16'sı da `tabbable`.
+      // Klavye kullanıcısı içeriğe varmadan görünmeyen duraklarda geziniyordu.
+      inert={!show || undefined}
+      aria-hidden={!show || undefined}
       style={{
         position: 'fixed',
         left: '24px',

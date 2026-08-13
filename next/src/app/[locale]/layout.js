@@ -2,8 +2,17 @@
 // params.locale = 'tr' veya 'en' (middleware.js yalnızca bu ikisine izin verir).
 // LanguageProvider initialLocale prop'unu URL'den alır; client'ta localStorage
 // hydrate edilmez (hidrasyon mismatch yok).
+//
+// 2026-08-13 — bu dosya artık bir KÖK LAYOUT. `app/layout.js` kaldırıldı ve
+// <html>/<body> buraya geldi; sebebi `<html lang>`in locale'i bilmesi.
+// Öncesinde `lang="tr"` sabitti ve `/en` de Türkçe olarak sunuluyordu
+// (ölçüldü: SSR lang="tr" → hydration sonrası lang="en"). Next.js 16 bunu
+// ismen destekliyor: "The root layout can be under a dynamic segment ...
+// with app/[lang]/layout.js" (docs .../file-conventions/layout.md:146).
+// Ortak iskelet `app/_shell.jsx`'te — /admin kök layout'u ile paylaşılıyor.
 
 import { notFound } from 'next/navigation';
+import Shell, { sharedMetadata, sharedViewport } from '../_shell';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { PathProvider } from '@/contexts/PathContext';
 import Navbar from '@/components/Navbar';
@@ -11,6 +20,9 @@ import ScrollProgress from '@/components/ScrollProgress';
 import BugReportFab from '@/components/BugReportFab';
 
 const SUPPORTED_LOCALES = ['tr', 'en'];
+
+export const metadata = sharedMetadata;
+export const viewport = sharedViewport;
 
 export async function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
@@ -25,7 +37,7 @@ export default async function LocaleLayout({ children, params }) {
   }
 
   return (
-    <>
+    <Shell lang={locale}>
       <a href="#main" className="skip-link">
         {locale === 'en' ? 'Skip to main content' : 'Ana içeriğe geç'}
       </a>
@@ -33,10 +45,15 @@ export default async function LocaleLayout({ children, params }) {
         <PathProvider>
           <ScrollProgress />
           <Navbar />
-          <main id="main">{children}</main>
+          {/* tabIndex={-1} ŞART — 2026-08-13 ölçümü:
+              Skip link'e Enter'a basınca `location.hash` `#main` oluyordu ama
+              odak <body>'ye düşüyordu, çünkü <main> odaklanabilir değildi.
+              Kullanıcı "içeriğe geç" diyor, sonraki Tab yine en baştan
+              başlıyordu — bağlantı işlevsizdi. */}
+          <main id="main" tabIndex={-1} style={{ outline: 'none' }}>{children}</main>
           <BugReportFab />
         </PathProvider>
       </LanguageProvider>
-    </>
+    </Shell>
   );
 }

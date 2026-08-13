@@ -189,6 +189,13 @@ export default function MobileSectionChipNav() {
   return (
     <nav
       aria-label={language === 'tr' ? 'Bölüm gezintisi' : 'Section navigation'}
+      // ─── inert ŞART — 2026-08-13 ölçümü ─────────────────────────────────
+      // Raf görünmezken `opacity: 0` + `pointerEvents: none` ile fare için
+      // kapalıydı ama KLAVYE İÇİN AÇIKTI: 16 düğmenin 16'sı da `tabbable`.
+      // Klavye kullanıcısı sayfanın içeriğine varmadan görünmeyen 16 durakta
+      // geziniyordu. `inert` hem odağı hem erişilebilirlik ağacını kapatır.
+      inert={!visible || undefined}
+      aria-hidden={!visible || undefined}
       style={{
         position: 'fixed',
         top: `${navbarBottom}px`,

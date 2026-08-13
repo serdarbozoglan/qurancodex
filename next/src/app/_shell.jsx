@@ -1,8 +1,21 @@
-// Root layout — Next.js zorunlu html/body + global font/metadata
-// Locale-spesifik provider'lar (LanguageProvider + PathProvider + Navbar)
-// app/[locale]/layout.js'ye taşındı (Faz 5 URL-prefix routing).
-// Bu root layout tüm route'lar için ortak kalır; lang attr [locale] layout'ta
-// document.documentElement.lang ile güncellenir.
+// ─── AppShell — <html>/<body> iskeleti, İKİ kök layout tarafından paylaşılır ─
+//
+// 2026-08-13. Öncesinde tek bir `app/layout.js` vardı ve `<html lang="tr">`
+// **sabitti.** `/en` sayfası da `lang="tr"` ile sunuluyordu; doğru değere
+// ancak hydration'dan sonra (`LanguageContext`'in useEffect'i) geliyordu.
+// Ölçüm: `/en` SSR `lang="tr"` → hydration sonrası `lang="en"`.
+// Sonuç: ekran okuyucu ve JS çalıştırmayan tarayıcılar/kazıyıcılar İngilizce
+// metni Türkçe dilinde görüyordu.
+//
+// Next.js 16 çözümü (docs/01-app/.../layout.md:146): *"The root layout can be
+// under a dynamic segment, for example when implementing internationalization
+// with `app/[lang]/layout.js`."* Yani `app/layout.js` kaldırıldı; iki kök
+// layout var:
+//   app/[locale]/layout.js  → <Shell lang={locale}>   (sitenin tamamı)
+//   app/admin/layout.js     → <Shell lang="tr">       (yalnız /admin/*)
+// Ortak olan her şey (fontlar, metadata, viewport, preload, JSON-LD) burada
+// tek yerde durur — iki kök layout arasında sürüklenme olmasın diye.
+// ────────────────────────────────────────────────────────────────────────────
 
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
@@ -19,7 +32,7 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-export const metadata = {
+export const sharedMetadata = {
   metadataBase: new URL('https://qurancodex.com'),
   title: {
     default: "QuranCodex — Kur'an-ı Kerim'in Görünmeyen Mimarisi",
@@ -53,7 +66,7 @@ export const metadata = {
   manifest: '/manifest.json',
 };
 
-export const viewport = {
+export const sharedViewport = {
   themeColor: '#0a0a1a',
   width: 'device-width',
   initialScale: 1,
@@ -79,9 +92,9 @@ const WEBSITE_JSONLD = {
   inLanguage: ['tr', 'en'],
 };
 
-export default function RootLayout({ children }) {
+export default function Shell({ lang = 'tr', children }) {
   return (
-    <html lang="tr" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang={lang} className={`${inter.variable} ${playfair.variable}`}>
       <head>
         {/* LCP optimization — Faz 7.10. KFGQPC is used on every route that
             renders an Arabic verse (homepage Hero/sections, all tool pages,

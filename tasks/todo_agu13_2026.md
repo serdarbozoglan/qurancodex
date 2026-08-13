@@ -8,52 +8,45 @@
 
 ---
 
-## 📊 MEVCUT DURUM — **73/100** (13 Ağustos 2026 akşamı, GPT-5.4 bölümleri dahil)
+## 📊 MEVCUT DURUM — **78/100** (13 Ağustos 2026 gecesi, düzeltmelerden sonra)
 
-> **Not DÜŞTÜ: 76 → 73.** Sabahki 76, GPT turundan çıkan altı alan
-> **bilinmezken** verilmişti; "ölçülünce değişebilir, muhtemelen aşağı" demiştim.
-> Ölçüldü, dört gerçek hata çıktı, hepsi erişilebilirlikte.
+> Gün içindeki seyir: **76 → 73 → 78.**
+> 76'yı GPT bölümleri bilinmezken vermiştim. Ölçünce 73'e düştü (5 hata).
+> Beşi de düzeltildi ve bir bulgunun **yanlış** olduğu ortaya çıktı → 78.
 
-| Eksen | Önce | **Şimdi** | Bu notu aşağı çeken |
-|---|---:|---:|---|
-| Erişilebilirlik | 68 | **58** ▼ | 25 Arapça öge `aria-label`sız · **+23 svg etiketsiz** · **+16 görünmez düğme klavye sırasında** · **+skip link odağı taşımıyor** · **+`Escape` mega-menüyü kapatmıyor** · kontrast hâlâ ölçülmedi |
-| Tutarlılık | 74 | **72** ▼ | **+`/en` sayfası `lang="tr"` ile sunuluyor** · site genelinde 184 token dışı renk · "Tefekkür ↔ Reflections" çelişkisi |
-| Teknik | 82 | **80** ▼ | **+SSR `lang` hydration'da düzeliyor** (sunulan HTML yanlış) · ⚠ LCP/CLS **hâlâ ölçülmedi** |
-| Görsel tasarım | 72 | **72** | Tek düzen fikri tekrarlanıyor · hiç görsel yok · her şey aynı kontrast değerinde |
-| İçerik | 76 | **76** | Özet yok — 18–24 ekran kaydırmadan sitede ne olduğu anlaşılmıyor |
-| Bilgi mimarisi | 80 | **80** | Rafta 15 bölüm · adlar SixGates kapı adlarıyla örtüşmüyor |
-| Editoryal dürüstlük | 85 | **85** | "Sıfır Varyasyon" kayıtsız şartsız duruyor |
+| Eksen | Sabah | Ölçüm sonrası | **Şimdi** | Kalan |
+|---|---:|---:|---:|---|
+| Erişilebilirlik | 68 | 58 | **76** ▲ | Kontrast **hâlâ ölçülmedi** · mega-menüde focus trap yok · 2 svg etiketsiz |
+| Tutarlılık | 74 | 72 | **76** ▲ | 184 token dışı renk (diğer sayfalar) · "Tefekkür ↔ Reflections" |
+| Teknik | 82 | 80 | **82** | ⚠ LCP/CLS **hâlâ ölçülmedi** — bu notun temeli eksik |
+| İçerik | 76 | 76 | **76** | Özet yok — 18–24 ekran kaydırmadan sitede ne olduğu anlaşılmıyor |
+| Bilgi mimarisi | 80 | 80 | **80** | Rafta 15 bölüm · adlar SixGates kapı adlarıyla örtüşmüyor |
+| Görsel tasarım | 72 | 72 | **72** | Tek düzen fikri tekrarlanıyor · hiç görsel yok |
+| Editoryal dürüstlük | 85 | 85 | **85** | "Sıfır Varyasyon" kayıtsız şartsız duruyor |
 
-**Yeni turda sorun ÇIKMAYANLAR** (puanı ayakta tutan taraf):
-canonical/hreflang/x-default eksiksiz · Arapça font gerçekten yükleniyor
-(fallback'e düşmüyor) · JS kapalıyken içerik görünür · API kesikken sayfa
-tam render · gereksiz prefetch yok · odak halkası 12/12 · `img alt` doğru.
+**Neden 90 değil:** erişilebilirlikte kontrast **hiç ölçülmedi** ve teknikte
+LCP/CLS **hiç ölçülmedi**. İki eksen de kısmen bilinmeyen üstünde duruyor.
+Görsel tasarım 72'de çünkü asıl sorun (tek kompozisyon fikri, hiç görsel yok)
+kod değil **tasarım kararı** gerektiriyor ve o karar verilmedi.
 
 Ölçüm: 3 genişlik × 2 dil = 6 koşu + 8 dilim ekran görüntüsü gözle incelendi
-+ GPT-5.4 bölümleri (L,N,O,P,S,T,V,Y) ayrı tur.
++ GPT-5.4 bölümleri (L,N,O,P,S,T,V,Y) ayrı tur + düzeltme sonrası doğrulama turu.
 Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
 
 # 🔴 A — ERİŞİLEBİLİRLİK (68 → en yüksek kazanç burada)
 
-- [ ] **A1 · 25 Arapça öge `aria-label` taşımıyor** ← *tek maddede en yüksek etki*
-      Ekran okuyucu Kur'an metnini Türkçe/İngilizce ses motoruyla okuyor.
-      Ölçülen dağılım:
-
-      | Konum | Adet |
-      |---|---:|
-      | `allah-kendini-tanitir` (4 isim ızgarası + âyet) | 5 |
-      | 12 anlatı kartının çıpa âyeti (`PortalCard`) | 12 |
-      | `conclusion` | 3 |
-      | `tefekkur-highlight` (kök rozetleri) | 2 |
-      | `hero-scene-1` | 1 |
-      | id'siz `<span>` | 1 |
-
-      Yapılacak: `PortalCard`'da âyet `<p>`'sine `aria-label={çeviri + " — " + referans}`.
-      Tek yerde düzeltmek 12'sini birden kapatır (P5 refactoru bunu ucuzlattı).
-      Kalan 13 için `EsmaTeaser`, `Conclusion`, `TefekkurHighlight`, `Hero`.
-      ⚠ **Ölç:** düzeltmeden önce ve sonra sayıyı yaz (25 → ?).
+- [x] ~~**A1 · 25 Arapça öge `aria-label` taşımıyor**~~ — **BULGU YANLIŞTI, geri alındı**
+      Ölçtüm: **26 ögenin 26'sında da `lang="ar"` VE `dir="rtl"` var.** Bu zaten
+      standardın istediği işaretleme; ekran okuyucu `lang="ar"` görünce Arapça
+      sesine geçer.
+      `aria-label` eklemek **içeriği EZER** — ekran okuyucu âyeti değil etiketi
+      okur. Yani "düzeltme" kör kullanıcıdan Kur'an metnini almak olurdu.
+      `pre-merge-review` skill'i de bunu FAIL değil **WARN — kullanıcı takdiri**
+      diye listeliyor. Mevcut işaretleme doğru; **değişiklik yapılmadı.**
+      > Bu, sabah yazdığım "ölçmeden konuşma" kuralına ikinci kez takılmam.
+      > "25 öge etiketsiz" doğru bir sayıydı ama **yanlış bir sonuç** çıkardım.
 
 - [ ] **A2 · Kontrast oranları hiç ölçülmedi** — §13.25 md. 9 AA istiyor (4.5:1
       normal, 3:1 büyük/ikon) ama **doğrulanmadı.** Şüpheli adaylar: `COLORS.silver`
@@ -61,9 +54,11 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       `${COLORS.gold}cc` eyebrow'lar.
       Araç: axe-core veya Playwright + hesaplanan `getComputedStyle` çifti.
 
-- [ ] **A3 · Klavye gezintisi test edilmedi** — 15 bölümlü raf, mega-menü ve
-      `/arac/tum-araclar` yalnız fareyle denendi. Tab sırası, focus tuzağı,
-      `Escape` davranışı sınanmalı.
+- [x] **A3 · Klavye gezintisi test edildi** — skip link, tab sırası, gizli raf
+      ve `Escape` ölçüldü ve düzeltildi (bkz. G bölümü). **Kalan:** mega-menüde
+      hâlâ **focus trap yok** — `Escape` kapatıyor ama `Tab` menüden dışarı
+      kaçıyor. Panellerde `role` da yok (disclosure kalıbı bilinçli tercih).
+- [ ] **A4 · Mega-menüde focus trap** — açıkken `Tab` panel içinde dönmeli.
 
 ---
 
@@ -160,72 +155,58 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
 
-# 🧭 G — GPT-5.4 BÖLÜMLERİ ÖLÇÜLDÜ (13 Ağustos akşamı) — 4 GERÇEK HATA ÇIKTI
+# ✅ G — GPT-5.4 BÖLÜMLERİ: ÖLÇÜLDÜ VE DÜZELTİLDİ
 
-> Bu bölümler daha önce **hiç** bakılmamıştı. Ölçüldü. Beklediğim oldu:
-> **not düştü (76 → 73)**, çünkü erişilebilirlikte dört yeni hata çıktı.
+- [x] **G1 · Skip link odağı `<main>`'e taşımıyordu** → `<main id="main" tabIndex={-1}>`
+      Öncesi: `Enter` → `location.hash="#main"` ama odak `<body>`.
+      Sonrası ölçüm: `Enter` → odak **`MAIN#main`**. Link artık işlevini görüyor.
+      > İlk ölçümde "skip link görünmüyor" da demiştim — **yanlıştı**, geçişin
+      > ortasında ölçmüşüm (−44.8px = %99.5). Doğrusu: 300ms'de `translateY(0)`.
 
-## ❌ Bulunan hatalar
+- [x] **G2 · Gizli gezinme rafının 16 düğmesi klavye sırasındaydı** → `inert`
+      Öncesi: `opacity:0` + `pointerEvents:none` ama 16/16 `tabbable`.
+      Sonrası: `inert=true`, `aria-hidden=true`, ilk 14 Tab'da rafa **0 durak**.
+      > ⚠ **Yanlış bileşeni suçlamıştım.** İlk ölçümde `MobileSectionChipNav`
+      > sandım; test seçicim `aria-label*="Bölüm"` ile aslında
+      > **`DesktopSidebarTOC`**'u yakalıyormuş (1440'ta chip rafı `null` dönüyor).
+      > İkisine birden eklendi.
+      > İkinci hata: `inert={''}` yazmıştım — React 19 boş dizeyi **false**
+      > sayıyor ve konsola uyarı basıyor. `inert={!show || undefined}` oldu.
 
-- [ ] **G1 · Skip link odağı `<main>`'e taşımıyor** ← *klavye kullanıcısı için işlevsiz*
-      Ölçüm: ilk `Tab` → "Ana içeriğe geç" **görünür oluyor** (geçiş 300ms'de
-      `translateY(0)`'a oturuyor, doğru). Ama `Enter`'a basınca:
-      `location.hash = "#main"` oluyor, odak ise **`<body>`'ye** düşüyor.
-      Sebep: `layout.js:36` → `<main id="main">` **`tabindex="-1"` taşımıyor.**
-      Sonuç: kullanıcı "içeriğe geç" der, odak baştan başlar. Bağlantı boşuna.
-      Düzeltme: `<main id="main" tabIndex={-1}>`
-      > ⚠ İlk ölçümümde "görünmüyor" demiştim — **yanlıştı**, geçişin ortasında
-      > ölçmüşüm (−44.8px, %99.5). Bu sabah kendi yazdığım kurala takıldım.
+- [x] **G3 · Mega-menü `Escape` ile kapanmıyordu** → `keydown` işleyicisi + odak iadesi
+      Öncesi: açıkken panel `736×59 visible`, `Escape` sonrası **hâlâ** `736×59`.
+      Sonrası: `Escape` → panel yüksekliği **0**, odak **tetikleyiciye** dönüyor.
+      Ayrıca üç tetikleyiciye `aria-expanded` + `aria-haspopup` eklendi.
 
-- [ ] **G2 · Gizli chip rafının 16 düğmesi klavye sırasında**
-      Sayfa başındayken raf `opacity: 0` + `pointer-events: none` ama
-      `inert` yok, `aria-hidden` yok → **16 düğmenin 16'sı da `tabbable`.**
-      Klavye kullanıcısı içeriğe varmadan **görünmeyen 16 durakta** geziniyor.
-      Düzeltme: görünmezken `inert` (veya `visibility: hidden`).
+- [x] **G4 · İngilizce sayfa `<html lang="tr">` ile sunuluyordu** → iki kök layout
+      `app/layout.js` kaldırıldı. Next.js 16 bunu ismen destekliyor: *"The root
+      layout can be under a dynamic segment ... `app/[lang]/layout.js`"*
+      (`docs/.../file-conventions/layout.md:146`).
+      Ortak iskelet `app/_shell.jsx`'te; iki kök layout onu kullanıyor:
+      `app/[locale]/layout.js` → `<Shell lang={locale}>` ·
+      `app/admin/layout.js` → `<Shell lang="tr">`
+      Sonrası ölçüm: `/tr` → `lang="tr"` · `/en` → **`lang="en"`** · `/admin/queries` → `lang="tr"`
+      **SSG korundu** — build hâlâ 74 route'u prerender ediyor.
 
-- [ ] **G3 · Mega-menü `Escape` ile kapanmıyor**
-      Ölçüm: Tefekkür menüsü açıldı → panel `736×59 visible opacity:1`.
-      `Escape` sonrası **hâlâ `736×59 visible opacity:1`.**
-      Ayrıca panelde `role="menu"` / `role="dialog"` **yok** ve **focus trap yok** —
-      Tab menüden dışarı kaçıyor.
+- [x] **G5 · 26 `<svg>` erişilebilirlik etiketi taşımıyordu** → `aria-hidden="true"`
+      49'un 23'ü etiketsizdi; kaynakta 26 açılış etiketi bulundu ve düzeltildi.
+      Sonrası: **2/49** kaldı · adsız buton **0** (etiket ezilmedi).
 
-- [ ] **G4 · İngilizce sayfa `<html lang="tr">` ile SUNULUYOR**
-      `app/layout.js:84` → `<html lang="tr" ...>` **sabit.**
-      `LanguageContext` bunu `useEffect` ile düzeltiyor — yani **yalnız hydration
-      sonrası.** Ölçüm: `/en` SSR `lang="tr"` → hydration sonrası `lang="en"`.
-      Sonuç: ekran okuyucu ve arama motoru **Türkçe** görüyor; İngilizce metin
-      Türkçe ses motoruyla okunuyor.
-      Düzeltme: `[locale]/layout.js`'te `params.locale` zaten var — kök
-      `layout.js` yerine oradan `lang` verilmeli (ya da `generateMetadata` ile).
-
-- [ ] **G5 · 23 `<svg>` erişilebilirlik etiketi taşımıyor** (49'un 23'ü)
-      `aria-hidden` de yok, `aria-label` de, `<title>` de. Ekran okuyucu
-      "graphic" deyip geçiyor. Dağılım: `main` 9 · `six-gates` 6 · `NAV` 4 ·
-      `concierge-prompt` 2 · `hero-scene-1` 1 · `conclusion` 1.
-      Çoğu dekoratif → `aria-hidden="true"` yeterli; anlam taşıyanlara `<title>`.
-
-## ✅ Ölçüldü, sorun ÇIKMADI
-
-| Kontrol | Sonuç |
-|---|---|
-| **N · canonical / hreflang** | Doğru. Her iki dilde `canonical` kendi locale'ine, `alternate[tr]`, `alternate[en]`, `x-default` eksiksiz |
-| **T · Arapça font** | `kfgqpc-hafs.otf` **200** · `document.fonts` → `KFGQPC \| loaded` · âyet `<p>` computed `KFGQPC, "Amiri Quran", serif`. **Fallback'e düşmüyor.** |
-| **S · API kesik** | Sayfa tam render: h1=1, 14 kart, 10.166 karakter, **0 pageerror**. Anasayfa API'ye bağımlı değil |
-| **L-JS · JS kapalı** | İçerik **görünür**: 14 kart, 10.208 karakter, `[data-reveal]` opacity=1. `<noscript>` yedeği çalışıyor |
-| **V · prefetch** | İlk 3 sn'de **0 RSC prefetch** isteği. Ağır rotalar tıklanmadan indirilmiyor. ⚠ Dev sunucusu `content-length` vermiyor — KB ölçümü prod'da tekrarlanmalı |
-| **Y · `<img alt>`** | 2 görsel, ikisi de logo, `alt=""` — **doğru** (sarmalayan bağlantıda `aria-label` var) |
-| **P · odak halkası** | İlk 12 durakta 12/12 `ring=true` |
-
-## ⏳ Hâlâ ölçülmedi
+## ⏳ Bu turda da ölçülmedi
 
 - [ ] **G6 · Hydration metin/sayı uyuşmazlığı** — `npm run build && npm run start`
       ile bakılmalı; dev sunucusu maskeliyor. Riskli çağrı: `EsmaTeaser` →
       `toLocaleString('tr-TR')` sunucuda çalışıyor (Node ICU ≠ tarayıcı ICU).
-      *(G4 zaten bir SSR/hydration farkı — aynı aileden.)*
-- [ ] **G7 · Bidi gözle kontrol** — otomatik tarama 2 aday buldu ama ikisi de
-      yanlış pozitif (`innerText` çocukları da alıyor). **Gözle bakılmalı:**
-      âyet + sûre adı + numara aynı satırdayken sıralama.
-- [ ] **G8 · LCP / CLS / INP** — hâlâ ölçülmedi (bkz. E1)
+- [ ] **G7 · Bidi gözle kontrol** — otomatik tarama 2 aday buldu, ikisi de yanlış
+      pozitif (`innerText` çocukları da alıyor). Gözle bakılmalı.
+- [ ] **G8 · LCP / CLS / INP** — bkz. E1.
+
+## 📌 Not: `hifz.spec.js:321` kırmızısı bu turun eseri DEĞİL
+
+`git stash` ile kanıtlandı: **değişiklik öncesi kodda 3 koşudan 2'si kırmızı**,
+değişiklik sonrası 3'te 1. Yani test **flaky** ve sorun önceden var.
+Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor.
+- [ ] `hifz.spec.js:321` flaky — düğmenin oturum sırasında render koşulu incelenmeli
 
 ---
 

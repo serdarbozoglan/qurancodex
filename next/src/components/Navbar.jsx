@@ -54,7 +54,7 @@ const KadinlarAtlasi    = lazy(() => import('./KadinlarAtlasi'));
 const IlkSonKelimeler   = lazy(() => import('./IlkSonKelimeler'));
 
 const ChevronDown = () => (
-  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+  <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
     <path d="M6 9l6 6 6-6" />
   </svg>
 );
@@ -81,6 +81,10 @@ export default function Navbar() {
   const [toolsOpen, setToolsOpen]       = useState(false);
   const [exploreOpen, setExploreOpen]   = useState(false);
   const [tefekkurOpen, setTefekkurOpen] = useState(false);
+  // Escape ile kapanınca odak buraya döner (2026-08-13 a11y düzeltmesi).
+  const exploreBtnRef  = useRef(null);
+  const toolsBtnRef    = useRef(null);
+  const tefekkurBtnRef = useRef(null);
   // Dynamic featured tefekkur article — _index.json'dan publishedDate DESC en yeni 1 makale.
   // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
   const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
@@ -544,6 +548,26 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', h);
   }, [toolsOpen, exploreOpen, tefekkurOpen]);
 
+  // ─── Escape ile kapat + odağı tetikleyiciye geri ver ──────────────────────
+  // 2026-08-13 ölçümü: Tefekkür menüsü açıldı → panel 736×59 `visible`,
+  // `opacity: 1`. Escape'ten SONRA hâlâ 736×59 `visible`. Yani üç mega-menünün
+  // hiçbiri klavyeyle kapanmıyordu; dışarı tıklamak tek çıkış yoluydu.
+  // Odağı tetikleyiciye döndürmek de şart — aksi halde menü kapanınca
+  // klavye kullanıcısı belgenin başına savruluyor.
+  useEffect(() => {
+    if (!toolsOpen && !exploreOpen && !tefekkurOpen) return;
+    const h = (e) => {
+      if (e.key !== 'Escape') return;
+      const wasOpen = exploreOpen ? exploreBtnRef : toolsOpen ? toolsBtnRef : tefekkurBtnRef;
+      setToolsOpen(false);
+      setExploreOpen(false);
+      setTefekkurOpen(false);
+      wasOpen.current?.focus();
+    };
+    document.addEventListener('keydown', h);
+    return () => document.removeEventListener('keydown', h);
+  }, [toolsOpen, exploreOpen, tefekkurOpen]);
+
   // ESC handler for overlays rendered by the Navbar wrapper (not the
   // overlay components themselves). ProphetAtlas is the notable case:
   // the component doesn't own its own wrapper, so it has no useEffect to
@@ -757,6 +781,9 @@ export default function Navbar() {
           {/* Keşfet dropdown */}
           <div className="relative" data-dropdown>
             <button
+              ref={exploreBtnRef}
+              aria-expanded={exploreOpen}
+              aria-haspopup="true"
               onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
@@ -877,7 +904,7 @@ export default function Navbar() {
                         id: 'dil', target: 'linguistic',
                         labelTr: "Kur'an'ın Dili", labelEn: "Quranic Language",
                         icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M2 12h2M6 7v10M10 4v16M14 7v10M18 10v4M22 12h-2"/>
                           </svg>
                         ),
@@ -889,7 +916,7 @@ export default function Navbar() {
                         id: 'peygamberler', route: '/atlas/peygamber',
                         labelTr: 'Peygamberler', labelEn: 'Prophets',
                         icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="12" cy="5"  r="1.6" fill="currentColor"/>
                             <circle cx="7"  cy="11" r="1.4" fill="currentColor"/>
                             <circle cx="16" cy="13" r="1.4" fill="currentColor"/>
@@ -902,7 +929,7 @@ export default function Navbar() {
                         id: 'insan', target: 'human-definition',
                         labelTr: 'İnsan & Ruh', labelEn: 'Human & Soul',
                         icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <circle cx="12" cy="12" r="9"/>
                             <path d="M12 16s-4-2.5-4-5.5A2.5 2.5 0 0 1 12 8a2.5 2.5 0 0 1 4 2.5C16 13.5 12 16 12 16z"/>
                           </svg>
@@ -912,7 +939,7 @@ export default function Navbar() {
                         id: 'evren', target: 'science',
                         labelTr: 'Evren & Bilim', labelEn: 'Cosmos & Science',
                         icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polygon points="12 2 15 8.5 22 9.3 17 14 18 21 12 17.7 6 21 7 14 2 9.3 9 8.5 12 2"/>
                           </svg>
                         ),
@@ -989,7 +1016,7 @@ export default function Navbar() {
                             </span>
                           </span>
                         </span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                           <path d="M9 18l6-6-6-6" />
                         </svg>
                       </button>
@@ -1034,6 +1061,9 @@ export default function Navbar() {
           {/* Araçlar dropdown */}
           <div className="relative" data-dropdown>
             <button
+              ref={toolsBtnRef}
+              aria-expanded={toolsOpen}
+              aria-haspopup="true"
               onClick={() => { setToolsOpen(p => !p); setExploreOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
@@ -1140,7 +1170,7 @@ export default function Navbar() {
                                   </span>
                                 </span>
                               </span>
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                                 <path d="M9 18l6-6-6-6" />
                               </svg>
                             </button>
@@ -1239,6 +1269,9 @@ export default function Navbar() {
           {/* Tefekkür — Felsufi makaleler — 3. top-level mega-menu */}
           <div className="relative" data-dropdown>
             <button
+              ref={tefekkurBtnRef}
+              aria-expanded={tefekkurOpen}
+              aria-haspopup="true"
               onClick={() => { setTefekkurOpen(p => !p); setExploreOpen(false); setToolsOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
@@ -1396,7 +1429,7 @@ export default function Navbar() {
                         >
                           <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                             <span style={{ color: COLORS.royalGold, flexShrink: 0, display: 'inline-flex' }}>
-                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                                 {/* Açık kitap — okuma + tefekkür */}
                                 <path d="M12 6 L4 5 L4 18 L12 19" />
                                 <path d="M12 6 L20 5 L20 18 L12 19" />
@@ -1424,7 +1457,7 @@ export default function Navbar() {
                             flexShrink: 0,
                             transition: 'transform 0.5s cubic-bezier(0.32,0.72,0,1), background 0.5s cubic-bezier(0.32,0.72,0,1)',
                           }}>
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M9 18l6-6-6-6" />
                             </svg>
                           </span>
@@ -1749,7 +1782,7 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {mobileOpen ? (
                 <path d="M6 6l12 12M6 18L18 6" />
               ) : (
@@ -1981,7 +2014,7 @@ export default function Navbar() {
                   </span>
                   <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
                 </span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.royalGold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                   <path d="M9 18l6-6-6-6" />
                 </svg>
               </button>
@@ -2037,7 +2070,7 @@ export default function Navbar() {
                   }}
                 >
                   <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="7" />
                       <path d="M21 21l-4.35-4.35" />
                     </svg>
@@ -2067,7 +2100,7 @@ export default function Navbar() {
                   }}
                 >
                   <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
                     </svg>
                   </span>
@@ -2095,7 +2128,7 @@ export default function Navbar() {
                   }}
                 >
                   <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                   </span>
@@ -2222,7 +2255,7 @@ export default function Navbar() {
 
                 <MobileFeatured
                   icon={
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                    <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 6 L4 5 L4 18 L12 19" />
                       <path d="M12 6 L20 5 L20 18 L12 19" />
                       <line x1="12" y1="6" x2="12" y2="19" />
@@ -2380,7 +2413,7 @@ export default function Navbar() {
               }}
               aria-label={language === 'tr' ? 'Kapat' : 'Close'}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
               </svg>
             </button>

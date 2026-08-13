@@ -219,7 +219,7 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-5 mb-10 mt-2">
           <div aria-hidden="true" className="flex items-center justify-center gap-4">
             <span className="block" style={{ width: 'clamp(56px, 11vw, 96px)', height: '1px', background: 'linear-gradient(to right, transparent, rgba(212,165,116,0.35), rgba(212,165,116,0.15))' }} />
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.7 }}>
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.7 }}>
               <path d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10Z" fill="none" stroke="rgba(212, 165, 116, 0.6)" strokeWidth="0.8" strokeLinejoin="round" />
               <circle cx="12" cy="12" r="1.6" fill="rgba(212, 165, 116, 0.4)" />
             </svg>

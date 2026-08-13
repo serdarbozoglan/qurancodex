@@ -26,7 +26,7 @@ const GATES = [
     chipsTr: ['Dilsel DNA', 'İmkânsız Ritim', 'Retorik', 'Ses Mimarisi', 'Halka Komp.', 'Sıfır Gereksizlik'],
     chipsEn: ['Linguistic DNA', 'Impossible Rhythm', 'Rhetoric', 'Sound', 'Ring Comp.', 'Zero Redundancy'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
         <ellipse cx="12" cy="12" rx="10" ry="4.5"/>
         <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/>
@@ -46,7 +46,7 @@ const GATES = [
     chipsTr: ['Bilimsel İşaretler', 'Tarihsel İzler', 'Yaşayan Koruma'],
     chipsEn: ['Scientific Signs', 'Historical Traces', 'Living Preservation'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
         <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
       </svg>
@@ -64,7 +64,7 @@ const GATES = [
     chipsTr: ['Dua Dili', 'Öne Çıkanlar', 'Esmâ', 'İnsan Tanımı', 'Psikoloji'],
     chipsEn: ['Prayer', 'Highlights', 'Names', 'Human Def.', 'Psychology'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="4"/>
         <path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/>
       </svg>
@@ -82,7 +82,7 @@ const GATES = [
     chipsTr: ['Kıssa Atlası', 'Peygamberler', 'Kavimler', 'Kadınlar', 'Münâfık'],
     chipsEn: ['Stories', 'Prophets', 'Peoples', 'Women', 'Hypocrites'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
         <polyline points="14 2 14 8 20 8"/>
         <line x1="8" y1="13" x2="16" y2="13"/>
@@ -102,7 +102,7 @@ const GATES = [
     chipsTr: ['Ayet Grafı', 'Kavram', 'Kelime Isı', 'Sûre DNA', 'Semantik'],
     chipsEn: ['Verse Graph', 'Concept', 'Word Heat', 'Sura DNA', 'Semantic'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="6" cy="6" r="2"/>
         <circle cx="18" cy="6" r="2"/>
         <circle cx="6" cy="18" r="2"/>
@@ -127,7 +127,7 @@ const GATES = [
     chipsTr: ['Sünnetullah', 'Tabiat', 'Zaman', 'Yeminler', 'Renkler'],
     chipsEn: ['Sunnatullāh', 'Nature', 'Time', 'Oaths', 'Colors'],
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 2 7 12 12 22 7 12 2"/>
         <polyline points="2 17 12 22 22 17"/>
         <polyline points="2 12 12 17 22 12"/>

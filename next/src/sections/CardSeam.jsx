@@ -53,7 +53,7 @@ export default function CardSeam({ variant = 'normal' }) {
         )}
 
         {/* Merkezi ornament — 8-köşeli yıldız (Islamic motif) */}
-        <svg
+        <svg aria-hidden="true"
           width={big ? '20' : '14'}
           height={big ? '20' : '14'}
           viewBox="0 0 24 24"
