@@ -682,3 +682,28 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
   z-index: 1;
 }
 
+
+/* ─── ProofSection — dört adım ızgarası (2026-08-13) ────────────────────────
+   Sayfanın tezinin GÖSTERİLDİĞİ tek bölüm. Animasyon bilinçli olarak yok:
+   dini metinde hareket kolayca "mucize pazarlaması" estetiğine kayıyor. */
+.proof-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+.proof-step {
+  border-top: 1px solid rgba(212, 165, 116, 0.22);
+  padding-top: 16px;
+}
+/* Son adım — "neden kesin kanıt değil" — görsel olarak da ayrılır.
+   Bu bölümün varlık şartı; kaybolmaması gerekiyor. */
+.proof-step:last-child {
+  border-top-color: rgba(212, 165, 116, 0.55);
+}
+@media (max-width: 900px) {
+  .proof-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+@media (max-width: 560px) {
+  .proof-steps { grid-template-columns: 1fr; gap: 20px; }
+  .proof-verses li { grid-template-columns: 1fr !important; gap: 6px !important; }
+}

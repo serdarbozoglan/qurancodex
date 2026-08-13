@@ -131,7 +131,11 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 0 14px',
-              textShadow: `0 0 24px ${COLORS.gold}22`,
+              // 2026-08-13 — âyet metnindeki dekoratif `textShadow` KALDIRILDI.
+              // GPT-5.4 hakem turu: "Ayetin kendisini efekt nesnesi yapmak en
+              // riskli olanı; glow/particle/reveal efektleri kutsal metni
+              // ucuzlaştırır." Sitenin kendi §13.24 disiplini de aynı yöne
+              // bakıyor. Âyet altın rengiyle zaten ayrışıyor; parıltıya gerek yok.
             }}
           >
             {card.verseAr}

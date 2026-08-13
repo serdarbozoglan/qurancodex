@@ -127,7 +127,10 @@ export default function Conclusion() {
         <p dir="rtl" lang="ar" style={{
           fontFamily: FONTS.quran,
           fontSize: 'clamp(2.1rem, 6vw, 2.6rem)', color: COLORS.gold,
-          textShadow: `0 0 20px ${COLORS.goldAlpha45}, 0 0 60px ${COLORS.goldAlpha25}`,
+          // 2026-08-13 — çift katmanlı glow KALDIRILDI (0 0 20px + 0 0 60px).
+          // "Fe'ttebiûhu" sayfanın kapanış âyeti; en güçlü glow buradaydı.
+          // GPT-5.4: "Ayet üstünde glow/particle/reveal efektleri ucuzlaşır."
+          // Punto (2.6rem) ve altın renk vurguyu zaten veriyor.
           lineHeight: 1.3, letterSpacing: '0.02em',
           margin: 0,
         }}>

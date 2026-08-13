@@ -39,6 +39,24 @@ Chip rafı 1024px'te **görünüyordu** ama üst yarısı navbarın altındaydı
 document.elementFromPoint(x, y)   // gerçekte tıklanan öge kim?
 ```
 
+### 0.4b · Dev sunucusu YALAN SÖYLEYEBİLİR — iki tuzak ölçüldü
+**(a) Bayat CSS chunk.** `globals.css`'e eklenen kural sayfada uygulanmıyordu:
+`getComputedStyle` `display: block` diyordu, `grid` değil. Kural doğruydu —
+**üretim build'i içeriyordu**, dev sunucusunun `.next/dev` önbelleği içermiyordu.
+Sunucuyu yeniden başlatmak yetmedi; `.next/dev` silinince düzeldi.
+```bash
+# Servis edilen CSS gerçekten kuralı içeriyor mu?
+node -e "const h=await (await fetch('http://localhost:3000/tr')).text();
+const l=[...h.matchAll(/href=\"([^\"]*\.css[^\"]*)\"/g)].map(m=>m[1])[0];
+console.log((await (await fetch('http://localhost:3000'+l)).text()).includes('SENIN-SINIFIN'))" --input-type=module
+```
+**(b) `.env` yüklenmemiş sunucu.** Sunucuyu `set -a && . .env` olmadan
+başlatınca 6 concierge testi kırmızıya döndü; sebep `DEEPINFRA_API_KEY not set`.
+Kod değişikliği sanılabilirdi. Doğru başlatma:
+```bash
+set -a && . /Users/serdar/Developer/01_qurancodex/.env && set +a && npm run dev
+```
+
 ### 0.5 · Kırmızı testin sebebini bul, değişikliğini suçlama (ve tersi)
 `concierge.spec.js:240` kırmızıydı. Suçlamadan önce API'ye istek atıp
 `meta.budget = {"reason":"ip"}` ve `X-Degraded: 1` görüldü → sebep benim

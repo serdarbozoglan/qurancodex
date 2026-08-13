@@ -132,17 +132,18 @@ export default function Hero() {
             ? {
                 opacity: 0.85,
                 scale: 1,
-                textShadow: [
-                  `0 0 22px ${COLORS.gold}28`,
-                  `0 0 42px ${COLORS.gold}66`,
-                  `0 0 28px ${COLORS.gold}3a`,
-                ],
+                // 2026-08-13 — NABIZ KALDIRILDI. Öncesinde üç kareli bir
+                // textShadow dizisiydi: besmele 2,2 saniye boyunca parlayıp
+                // sönüyordu. GPT-5.4: "Harflerin parlayıp sönmesi kutsal metni
+                // 'loading screen' estetiğine sokar." Giriş belirmesi kalıyor,
+                // nefes alma efekti gidiyor — tek sabit değer.
+                textShadow: `0 0 24px ${COLORS.gold}30`,
               }
             : { opacity: 0.85, y: 0, textShadow: `0 0 22px ${COLORS.gold}28` })}
           transition={reduced
             ? { duration: 0 }
             : (showIntro
-              ? { duration: 1.6, delay: 0.3, ease: 'easeOut', textShadow: { duration: 2.2, delay: 0.3, times: [0, 0.45, 1] } }
+              ? { duration: 1.6, delay: 0.3, ease: 'easeOut' }
               : { duration: 1.1, delay: 0.15, ease: 'easeOut' })}
         >
           {/* Light sweep — sadece showIntro'da, bir kez sağ→sol geçer
@@ -182,7 +183,7 @@ export default function Hero() {
             lineHeight: 2.1,
             margin: '0 auto 24px',
             maxWidth: '920px',
-            textShadow: `0 0 20px ${COLORS.gold}1c`,
+            // 2026-08-13 — dekoratif glow kaldırıldı (bkz. PortalCard notu).
           }}
           {...(showIntro && !reduced
             ? { initial: { opacity: 1 }, animate: { opacity: 1 } }

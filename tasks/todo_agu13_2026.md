@@ -64,6 +64,43 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 # 🟠 B — GÖRSEL TASARIM (72)
 
+## ✅ Bu turda yapıldı — GPT-5.4 tasarım hakem turu sonrası
+
+- [x] **B0 · "Kanıt bölümü" eklendi** → `src/sections/ProofSection.jsx`
+      Teşhis: site "görünmeyen mimariyi görünür kılıyoruz" diyordu ama
+      anasayfada **tek bir görselleştirme yoktu** — halka kompozisyonunu
+      anlatıyor, hiç göstermiyordu. GPT bunu "tek hamle seçmek zorunda olsan
+      bu" diye işaretledi.
+      Yapılan: Fâtiha'nın A-B-C-D-C'-B'-A' yapısı **statik SVG** olarak, 7
+      âyetin gerçek Arapçasıyla + **dört adımlı** editoryal çerçeve:
+      örüntü ne → metinde nerede → neden anlamlı olabilir → **neden kesin
+      kanıt değil.** Dördüncüsü bu bölümün varlık şartı; CSS'te bile ayrı
+      kenarlıkla işaretli.
+      §13.15: Arapça `verse-graph`ten mekanik çekildi + `cleanArabicForDisplay`.
+      ⚠ İlk denemede normalizasyonu atlamıştım, ekranda **◉ tofu kutuları**
+      çıktı — ekran görüntüsüne bakınca görüldü.
+
+- [x] **B0b · Âyet metnindeki dekoratif efektler kaldırıldı**
+      GPT'nin en sert uyarısı: *"Ayetin kendisini efekt nesnesi yapmak en
+      riskli olanı; glow/particle/reveal efektleri kutsal metni ucuzlaştırır."*
+      Kaldırılanlar: `PortalCard` âyet glow'u · `Hero` çıpa âyeti glow'u ·
+      **`Hero` besmelesinin 2,2 sn'lik NABZI** (parlayıp sönme) ·
+      `Conclusion` kapanış âyetinin çift katmanlı glow'u.
+      Ölçüm: âyet ögelerinde `textShadow` **4 → 0**.
+
+- [ ] **B0c · KARAR GEREKİYOR: Hero'daki ışık süpürmesi (light sweep)**
+      Besmelenin üzerinden sağ→sol bir kez geçen parıltı **duruyor.**
+      Aynı gerekçeyle kaldırılabilir ama bu senin kurduğun giriş anı —
+      tek başıma silmedim. `Hero.jsx` → `showIntro && !reduced` dalı.
+
+- [ ] **B0d · Sayfa uzunluğu maliyeti** — kanıt bölümü mobilde **+2.400px**
+      getirdi: 19.669 → **22.092px**. Masaüstü 15.988 → 17.872px.
+      GPT: *"uzunluk tek başına problem değil, tekrarlanan argüman uzunluğu
+      problem."* Bu bölüm tekrar değil — sayfanın eksik olan tek parçası.
+      Yine de karar senin: kabul mü, yoksa başka yerden kısaltma mı?
+
+## Kalan
+
 - [ ] **B1 · Sayfa tek bir düzen fikrini tekrarlıyor**
       Ortalanmış kart + altın kenar + radyal parıltı — 14 kartın 14'ünde aynı.
       P4 ritmi ölçeği kademelendirdi ama **kompozisyonu** değil.
@@ -71,10 +108,13 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       diyagram, ya da sola dayalı editoryal blok).
       ⚠ **Bu görsel bir karar — önce statik mockup, sonra kod.**
 
-- [ ] **B2 · Sayfada hiç görsel yok** — ne fotoğraf, ne illüstrasyon, ne diyagram.
-      Yalnız metin + %3 opaklıkta SVG desen. Türünün dünya standardı sayfalarda
-      en az bir çarpıcı görsel an var. **Karar gerekiyor:** hangi bölüm bunu taşır?
-      (Aday: Hero veya `mukattaa-card` — 14 harfin görsel haritası)
+- [x] ~~**B2 · Sayfada hiç görsel yok**~~ — **B0 ile karşılandı.** Sayfada artık
+      bir diyagram var ve o diyagram sitenin tezini gösteriyor.
+      ⚠ GPT'nin uyarısı kayda geçsin: *"eksik olan foto/illüstrasyon değil,
+      **epistemik arayüz** — iddiayı denetlenebilir şekilde gösteren yapı.
+      Bunu 'şık motion' diye çözersen teşhis doğru, çözüm yanlış olur."*
+      Bu yüzden Hero'ya animasyon **eklenmedi**; GPT onu "en riskli madde"
+      olarak işaretledi (dini metinde açılışı motion ile yapmak güveni azaltır).
 
 - [ ] **B3 · Her şey aynı kontrast değerinde** — hiçbir şey gerçekten yüksek sesli
       olmadığı için hiçbir şey gerçekten sessiz değil. `feature` kademesi

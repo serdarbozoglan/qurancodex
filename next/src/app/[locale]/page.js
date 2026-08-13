@@ -30,6 +30,7 @@ import PortalCard from '@/components/PortalCard';
 import CompactRow from '@/components/CompactRow';
 import EsmaTeaser from '@/components/EsmaTeaser';
 import ScrollRevealRoot from '@/components/ScrollRevealRoot';
+import ProofSection from '@/sections/ProofSection';
 
 import Conclusion from '@/sections/Conclusion';
 import Footer from '@/components/Footer';
@@ -91,6 +92,15 @@ export default async function Home({ params }) {
 
       {/* 6 Kapı — kategorize edici navigasyon */}
       <SixGates />
+
+      {/* ─── Kanıt bölümü (2026-08-13) ───
+          Site "görünmeyen mimariyi görünür kılıyoruz" diyordu ama anasayfada
+          tek bir görselleştirme yoktu — halka kompozisyonunu ANLATIYOR, hiç
+          GÖSTERMİYORDU. Burası tezin sayfada gösterildiği yer.
+          Kapılardan HEMEN SONRA: ziyaretçi hangi kapıyı seçeceğine karar
+          vermeden önce "burada gerçekten bir şey gösteriliyor mu?" sorusunun
+          cevabını görmeli. */}
+      <ProofSection locale={locale} />
 
       {/* ─── Hayranlık cluster — dil ve mimari (6 kart) ───
           P4 ritmi: ÇIPA (feature) → YANKI (medium) → IZGARA (compact ×4).
