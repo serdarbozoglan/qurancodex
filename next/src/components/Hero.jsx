@@ -272,6 +272,36 @@ export default function Hero() {
           — {language === 'tr' ? 'Alak 96:1-2 · İlk İnen Ayetler' : 'al-ʿAlaq 96:1-2 · The First Revealed Verses'}
         </motion.p>
 
+        {/* Konumlandırma satırı (2026-08-13).
+            Ölçüm: 1440×900 ilk ekranda <h1> GÖRÜNMÜYOR — "KUR'AN-I KERİM'İN
+            GÖRÜNMEYEN MİMARİSİ" DOM'da var ama hero-scene-1/2 içinde, yani
+            ancak kaydırınca geliyor. Açılış cesur ve güzel; fakat ilk gelen
+            ziyaretçi sitenin ne olduğunu ilk ekranda öğrenemiyordu.
+            Bismillah + âyet + çeviri hiyerarşisini bozmamak için bir başlık
+            değil, âyetin altında duran sessiz tek satır olarak eklendi. */}
+        <motion.p
+          style={{
+            fontFamily: FONTS.body,
+            fontSize: 'clamp(0.72rem, 1.5vw, 0.8rem)',
+            fontWeight: 400,
+            color: COLORS.silver,
+            letterSpacing: '0.06em',
+            lineHeight: 1.7,
+            maxWidth: '540px',
+            margin: '-22px auto 34px',
+            opacity: 0.55,
+          }}
+          {...entrance(
+            { opacity: 0 },
+            { opacity: 0.55 },
+            { duration: 0.8, delay: showIntro ? 3.9 : 1.05 }
+          )}
+        >
+          {language === 'tr'
+            ? "Kur'an'ın dilsel, sayısal ve yapısal mimarisi — 6.236 âyet, interaktif görsellerle."
+            : "The linguistic, numerical and structural architecture of the Qur'an — 6,236 verses, explored interactively."}
+        </motion.p>
+
         {/* Mobil CTA — navbar "Kur'an'ı Oku" mobilde hamburger'da gizli olduğu
             için hero'da 2 net aksiyon (GPT-5.2 review A3). Desktop'ta chevron
             scroll-cue yeterli; butonlar yalnız mobilde. Tap hedefi ≥44px. */}

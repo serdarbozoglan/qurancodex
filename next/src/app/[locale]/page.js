@@ -120,9 +120,17 @@ export default async function Home({ params }) {
         <TarihselCard />
         <CardSeam />
         <KorumaCard />
+        {/* §13.24 (2026-08-13): önceki metin "Bilim bir gün gelir, DOĞRULAR /
+            Science ... CONFIRMS" idi. Kural tasdikin öznesini bilim/tarih
+            yapmayı ismen yasaklıyor — "Kur'ân haber verir, BİZ tasdik ederiz;
+            bulgu tefekküre vesiledir." Sayfa bu kuralı zaten başka yerde
+            uyguluyordu (MethodologyRibbon "örtüşme ≠ kanıt"; BilimselCard
+            "bu sayfa bir 'bilimsel mucize' iddiası değil"), tek bu cümle
+            kendi şeridiyle çelişiyordu. "Tarih ... eğilir" de aynı zaferci
+            tonu taşıdığı için birlikte yumuşatıldı. */}
         <ClusterWhisper
-          tr="Bilim bir gün gelir, doğrular. Tarih bir gün gelir, eğilir. Metin değişmez."
-          en="Science arrives one day and confirms. History arrives one day and bows. The text does not change."
+          tr="Bulgular örtüşebilir, izler çoğalabilir; hüküm metne değil, tefekküre aittir. Metin değişmez."
+          en="Findings may align and traces may multiply; the verdict belongs not to the text but to reflection. The text does not change."
         />
         <CardSeam variant="seal" />
       </div>
