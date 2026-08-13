@@ -85,6 +85,28 @@ const EXTRA_TOOLS = TOOL_CATALOG
 // ham dizi sırasıydı: atlaslar iki ayrı bloğa bölünmüş, araya arac girişleri
 // girmiş, sonradan eklenen 13 kayıt da sona iliştirilmişti.
 // Artık: aile (atlas / arac / graf) + her grup içinde Türkçe alfabetik.
+// Aile ikonları (2026-08-13). Katalogda ikon alanı yok; 29 araca tek tek ikon
+// çizmek yerine aile başına bir sembol kullanılıyor — üstteki kartlarla görsel
+// eşitliği sağlar, sahte çeşitlilik üretmez.
+const FAMILY_ICON = {
+  atlas: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
+    </svg>
+  ),
+  arac: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14.5 5.5a4 4 0 0 0 5 5L21 9l-6-6-1.5 1.5zM12 8l-8 8v4h4l8-8" />
+    </svg>
+  ),
+  graf: (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="6" cy="7" r="2" /><circle cx="18" cy="7" r="2" /><circle cx="12" cy="18" r="2" />
+      <path d="M7.7 8.4 10.5 16M16.3 8.4 13.5 16M8 7h8" />
+    </svg>
+  ),
+};
+
 const EXTRA_GROUPS = [
   { key: 'atlas', labelTr: 'Atlaslar',  labelEn: 'Atlases' },
   { key: 'arac',  labelTr: 'Araçlar',   labelEn: 'Tools' },
@@ -474,37 +496,55 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                         key={t.id}
                         onClick={() => { router.push(`/${language}${t.route}`); setOpen(false); }}
                         style={{
-                          display: 'flex', flexDirection: 'column', gap: '4px',
+                          display: 'flex', alignItems: 'flex-start', gap: '12px',
                           textAlign: 'left', width: '100%',
-                          padding: '13px 15px',
+                          padding: '15px 16px',
                           borderRadius: RADIUS.md,
                           background: 'rgba(255,255,255,0.025)',
                           border: `1px solid ${COLORS.glassBorderSoft}`,
                           cursor: 'pointer',
-                          transition: 'background 0.18s, border-color 0.18s',
+                          transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = `${COLORS.gold}12`;
                           e.currentTarget.style.borderColor = `${COLORS.gold}44`;
+                          const ic = e.currentTarget.querySelector('.famicon');
+                          if (ic) { ic.style.background = `${COLORS.gold}22`; ic.style.borderColor = `${COLORS.gold}55`; }
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
                           e.currentTarget.style.borderColor = COLORS.glassBorderSoft;
+                          const ic = e.currentTarget.querySelector('.famicon');
+                          if (ic) { ic.style.background = `${COLORS.gold}10`; ic.style.borderColor = `${COLORS.gold}26`; }
                         }}
                       >
-                        <span style={{
-                          color: COLORS.offWhite, fontFamily: FONTS.body,
-                          fontSize: '0.86rem', fontWeight: 600, lineHeight: 1.35,
+                        <span className="famicon" style={{
+                          flexShrink: 0, width: '30px', height: '30px',
+                          borderRadius: '9px',
+                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                          background: `${COLORS.gold}10`,
+                          border: `1px solid ${COLORS.gold}26`,
+                          color: COLORS.gold,
+                          transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1)',
                         }}>
-                          {language === 'tr' ? t.titleTr : t.titleEn}
+                          {FAMILY_ICON[g.key]}
                         </span>
-                        <span style={{
-                          color: COLORS.silver, fontFamily: FONTS.body,
-                          fontSize: '0.75rem', lineHeight: 1.5,
-                          display: '-webkit-box', WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical', overflow: 'hidden',
-                        }}>
-                          {language === 'tr' ? t.descTr : t.descEn}
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: 0 }}>
+                          <span style={{
+                            color: COLORS.offWhite, fontFamily: FONTS.body,
+                            fontSize: '0.88rem', fontWeight: 600, lineHeight: 1.35,
+                            letterSpacing: '-0.005em',
+                          }}>
+                            {language === 'tr' ? t.titleTr : t.titleEn}
+                          </span>
+                          <span style={{
+                            color: COLORS.silver, fontFamily: FONTS.body,
+                            fontSize: '0.75rem', lineHeight: 1.55, opacity: 0.85,
+                            display: '-webkit-box', WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                          }}>
+                            {language === 'tr' ? t.descTr : t.descEn}
+                          </span>
                         </span>
                       </button>
                     ))}

@@ -148,6 +148,28 @@ Anasayfadaki `MethodologyRibbon` **"Metodoloji & Kaynaklar"** diyor ama yalnız
 
 ---
 
+## 🔵 P5c — BEŞ SAYFA DETAYLANDIRILACAK (kullanıcı talebi 2026-08-13)
+
+Bu beş sayfa mevcut hâliyle yetersiz; içerik ve etkileşim olarak **belirgin
+şekilde derinleştirilecek.**
+
+| Sayfa | Rota | Bileşen | Veri |
+|---|---|---|---|
+| Semantik Harita | `/graf/semantik` | `SemanticMap.jsx` — 585 satır | UMAP projeksiyonu |
+| Münâsebât Atlası | `/atlas/munasebat` | `MunasebatAtlasi.jsx` — 795 satır | — |
+| Diyalog Ağı | `/graf/diyalog` | `DiyalogAgi.jsx` — 1.253 satır | 5 JSON · ~81 KB |
+| Kitap Kavramı | `/arac/kitap-kavrami` | `KitapKavrami.jsx` — 382 satır | `kitap-kavrami.json` 18 KB |
+| Sûre DNA | `/graf/karsilastir` | `SurahComparator.jsx` | — |
+
+- [ ] Her sayfa için önce **içerik envanteri** çıkar: şu an ne gösteriyor, ne eksik
+- [ ] `KitapKavrami` (382 satır) ve `SemanticMap` (585 satır) en zayıf ikisi — önce onlar
+- [ ] ⚠ **Adlandırma tutarsızlığı:** menüde *"Sûre DNA"*, rota `/graf/karsilastir`,
+      bileşen `SurahComparator`, katalogda *"Sûre Karşılaştırıcı"*. Aynı şey üç
+      farklı adla anılıyor — detaylandırma sırasında tek ada karar verilmeli.
+- [ ] Detaylandırma sonrası `TOOL_CATALOG` açıklamalarını güncelle (`/sor` bunları okuyor)
+
+---
+
 ## 🟡 P6 — Renk (~2 saat, bağımsız)
 
 - [ ] **Küme başına tek aksan rengi**
