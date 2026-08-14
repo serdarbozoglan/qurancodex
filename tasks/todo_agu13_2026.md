@@ -978,6 +978,38 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       sönük/aktif ayrımının bozulmadığını doğruladı. Kullanıcı onayıyla
       yapıldı ("2 numara, düzelt") — dosya normalde başka bir agent'ın
       alanı, bu tur idle olduğu teyit edilip elle üstlenildi.
+- [x] ~~**Uzun kuyruk — ilk 4 sayfa**~~ — **KAPANDI** `7b0f83d` + `369b485` + `9f750e5`.
+      `/arac/iblis-seytan` **20→0** (chip.muted çifte-solukluk deseni —
+      KadinlarAtlasi'nin daha önceki fixiyle aynı kalıp — + `COLORS.violet`
+      token'ının zaten düzeltilmiş olmasının otomatik kapattığı sure-rengi
+      efsanesi), `/atlas/ahiret-yolculugu` **20→0** (aşama-nav butonunda
+      aynı çifte-solukluk: buton `opacity` + çocuk `span`'in KENDİ `opacity`'si
+      bileşik çarpıyordu), `iblis/OnIkiHileWidget.jsx` + `VesveseKanaliWidget.jsx`
+      (beyaz-metin rozet zemininin biri turuncu tonda AA'yı geçmiyordu, ratio
+      2.85 — koyulaştırıldı), `/atlas/nefs-mertebeleri` **17→0** ve
+      `/arac/ilk-son-kelimeler` **18→0** — ikisi de aynı yeni desen: **iç içe
+      "self-tint" zemin** (bir kapsayıcı `${color}NN` düşük-alfa zeminliyken
+      İÇİNDEKİ öge de kendi `${color}MM` zemini ekliyor, iki ton üst üste
+      binince efektif zemin saf siyahtan hafifçe açılıyor ve aynı-tonlu metnin
+      oranını 4.0-4.3'e düşürüyor) — `chipStyle()`'daki gereksiz ek `opacity`
+      kaldırıldı, filtre-sayacı chip'inin kendi iç-içe zemini kaldırıldı
+      (dış buton zemini tek başına yeterliydi).
+      ⚠ **Ayrı bulunan gerçek üretim açığı:** bu turun renkleri (KiyametSahneleri
+      PHASE_COLORS, İblis kanal renkleri, MeselAtlasi domain renkleri, `softRed`)
+      `tokens.js`'e hiç kaydedilmemiş, ham hex olarak kalmıştı — `audit-colors.mjs
+      --ci` **182→189** ile yakaladı. Daha ciddisi: `softRed`'in token değeri
+      (`#e74c3c → #EB695B`) hiç commitlenmemiş olduğu için `InsanYolculugu.jsx`'in
+      ENGEL etiketi (K5 turunda opaklığı kaldırılmıştı, `8c6fded`) **production'da
+      hâlâ eski, AA-altı renkle** render oluyordu — kimse fark etmemişti çünkü
+      hook bu oturumda aktif değildi. 7 yeni token eklenip (`crimsonTextSafe`,
+      `rustTextSafe`, `amberBadgeSafe`, `indigoTextSafe`, `sageTextSafe`,
+      `orchidTextSafe`, `terracottaTextSafe`) `audit-colors --ci` 182/182'ye
+      çekildi, düzeltme push edildi.
+      Doğrulama: build temiz, `audit-colors.mjs --ci` geçti, 6 rota (kiyamet,
+      mesel, iblis-seytan, insan-yolculugu, nefs-mertebeleri, ilk-son-kelimeler)
+      masaüstü+mobil TR+EN sıfır ihlal (disabled "Önceki" butonu hariç).
+      **Kalan tahmini ~530, ~74 sayfaya yayılmış** (kissa hariç; taze `--full`
+      taramasıyla teyit edilmedi, bir sonraki turun ilk işi bu olmalı).
 
 ### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
 
