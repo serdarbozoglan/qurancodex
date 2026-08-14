@@ -391,7 +391,48 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
 - [ ] **Z1g · Etiketsiz svg (~~46~~ → **44 rota**)** — ⚠ **en yoğunu
       `bilimsel-isaretler` (20/50) DEĞİL:** `ilk-son-kelimeler` **122/137**,
       sonra `kurani-tani` ve `wow` 50/58. Sıralama Z3 turunda düzeltildi.
-- [ ] **Z1h · `/kutuphanem` canonical + hreflang yok**
+
+## Z1i · NAVBAR SABİTİ — "450 → 0" İDDİAM YANLIŞTI, DÜZELTİLDİ (13 Ağustos gecesi)
+
+- [x] **Örtüşme sınıfı gerçekten kapandı — ama önce yanlış rapor verdim.**
+      *"450 → 0"* demiştim; yalnız `ToolHeader` kullanan sayfalarda ölçmüş,
+      bütün sınıfa genellemiştim. **Paralel tur haklı çıktı:** kullanmayan
+      sayfalarda örtüşme duruyordu (`/en/graf/ayet` 62px · `/en/sor` 58px ·
+      `/tr/sor` 32px · `/en/graf/diyalog` 24px · `/en/atlas/kissa` 18px —
+      beşinin dördü İngilizce, çünkü EN navbar 1024px'te sarıp 134px'e çıkıyor).
+      Kapatılanlar: `SorRoute` · `VerseGraph` (5 sabit) · `KissaAtlas` ·
+      `DiyalogAgi` (padding **ve** minHeight). Ölçüm: dört rotada `[B]` = 0.
+      **Sabit sayı bu sitede sekizinci kez aynı hatayı üretti**
+      (62 · 96 · 104 · 62 · 62 · 62 · 110 · 62).
+
+- [x] **`CrossToolCTA` başlık zinciri** — 54 dosya kullanıyor. Bölüm etiketi
+      `<span>`di, kartlar `<h4>`. Sayfa `h1`/`h2`'sinden doğrudan `h4`'e
+      atlıyordu; **29 rotadaki başlık bulgusunun tek kaynağı buydu.**
+      Etiket `<h2>`, kartlar `<h3>` oldu. Ölçüm: 12 rotanın 8'i temizlendi.
+      Kalan 4'ü sayfaya özgü (`elestirel-cerceve` · `kitap-kavrami` ·
+      `neden-sonuc` 1→3 · `iblis-seytan` 2→4) — ayrı iş.
+
+- [ ] **Kalan başlık bulguları** — yukarıdaki 4 rota + `/oku` ve `/ayet`'te
+      `h1` yok, `/tefekkur` ve `/atlas/ahiret-yolculugu`'nda iki `h1`.
+
+### ⚠ Bu turda dört kez aynı hatayı yaptım — kayda geçsin
+
+Hepsi tek sınıf: **toplu string değişikliği yapıp eşleştiğini doğrulamamak.**
+1. `ToolHeader`'a import eklenmedi → tüm araç sayfaları **500**
+2. `ToolHeader`'da `top` değeri hiç değişmedi → "düzelttim" sandım, ölçüm yalanladı
+3. `page-audit.spec.js`'te şablon literaline backtick'li yorum → "No tests found"
+4. `SorRoute`'ta kancayı **yanlış bileşene** koydum (`SorInner` olmalıydı) →
+   `/sor` boş render etti, 3 concierge testi kırmızıya döndü
+
+**GPT-5.4 kod incelemesi beşincisini yakaladı ve o bloklayıcıydı:**
+`VerseGraph.jsx`'te `navTop` üç ayrı üst-seviye bileşende (`ClusterView`,
+`VerseView`, `FullGraph`) kapsam dışıydı. **Testlerim yakalayamazdı** — o üç
+görünüm ancak kullanıcı tıklayınca mount oluyor, denetim varsayılan görünümü
+yüklüyor. Kullanıcı ilk tıklamada çökecekti.
+→ Artık statik kontrol var: her `navTop` kullanımının kapsayan bileşeninde
+   kanca çağrısı olduğu tüm dosyalarda doğrulanıyor (site geneli: 0 ihlal).
+
+---
 
 ## Z3 · TAM SİTE TARAMASI — 13 Ağustos gecesi (Claude, bağımsız tur)
 
@@ -400,6 +441,12 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
 > görüntüsü gözle inceleme + 7 etkileşim testi.
 > **Aşağıdakiler Z1'de ve kontrol listesinde YOK.** Z1'de belirtisi olup burada
 > **sebebi** bulunanlar ayrıca işaretli.
+>
+> ⚠ **Bu tur, 4-ajanlı Z1 turuyla ÇAKIŞTI.** Ölçümlerim 20:26–20:55 arasında
+> alındı; `3f9eed2` (20:56, 23 dosya) araya girdi. **Commit sonrası her madde
+> canlı olarak yeniden kontrol edildi** — kapanmış olan 2'si `[x]` işaretli
+> (Z3a2, Z3c2), kalan 23'ü **hâlâ açık ve doğrulandı**. Örtüşme rastlantı değil:
+> iki bağımsız tur aynı iki hatayı buldu; kalan 23'ü yalnız bu tur buldu.
 > Tekrarla: `/tmp/crawl-{1440,1024,390}.json`, `/tmp/ssr-sweep.json`, `/tmp/eslint.json`
 
 ### 🔴 Z3-A · Ekranda GÖRÜNEN kırıklar
@@ -419,13 +466,16 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
       bu **navbarın kendi iç düzeni**. Ayrı hata.
       → §13.13 "tüm butonlar 32px" kuralı sarma ile çelişiyor; kural revize edilmeli.
 
-- [ ] **Z3a2 · `/graf/semantik` — 60 çipin 60'ı ekranda ": " diye görünüyor**
-      **Veri şeması sürüklenmesi (sınıf C).** `SemanticMap.jsx:335-341`
-      `s.surah_id` ve `s.verse_count` okuyor; `public/semantic-map.json`'da alanlar
-      **`surah`** ve **`count`**. Sonuç: 20 kartın 3'er çipi `undefined: undefined`.
-      Aynı sebep `key={s.surah_id}` → `undefined` → **Z1c'deki "eksik key" konsol
-      hatasının sebebi budur.** (Z1c belirtiyi listeliyordu, sebebi değil.)
-      Ekran görüntüsü: `_tr_graf_semantik_1440.png`.
+- [x] ~~**Z3a2 · `/graf/semantik` — 60 çipin 60'ı ekranda ": " diye görünüyor**~~
+      **KAPANDI — `3f9eed2` (Z1-bonus ile aynı bulgu, bağımsız olarak da bulundu).**
+      Sebep: `s.surah_id`/`s.verse_count` ↔ JSON `surah`/`count`.
+      Doğrulama (21:0x, canlı): ilk kart artık `Eş-Şuarâ · 56 | Es-Sâffât · 37`,
+      konsol hatası **0**.
+      - [ ] **Z3a2-kalıntı · Arama indeksinde aynı sürüklenme DURUYOR**
+            `SemanticMap.jsx:87` → `` `${s.surah_id} ${s.verse_count}` `` — fallback
+            eklenmemiş. 20 kümenin 20'sinde haystack'e `"undefined undefined"`
+            giriyor; **sûre numarasıyla arama hiçbir zaman eşleşmez.**
+            Düzeltme satır 40-41'deki `s.surah ?? s.surah_id` kalıbının aynısı.
 
 - [ ] **Z3a3 · `VerseChip ref={v}` — `ref` veri prop'u olarak kullanılmış**
       `SemanticMap.jsx:452` + `:536`. `ref` React'te ayrılmış bir addır; çipin
@@ -464,11 +514,9 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
       hiç açılmaz. Kontrol listesi F bölümündeki `useMemo` hatasının **birebir
       aynısı**; o zaman sayfa hiç açılmamıştı.
       `eslint`: 2 × `react-hooks/rules-of-hooks`.
-- [ ] **Z3c2 · `/arac/kiyamet` — iç içe `<button>` (Z1c'nin sebebi)**
-      `KiyametSahneleri.jsx:~268` — akordiyon `<button>`'un **içinde**
-      `BookmarkButton` (`<button>`). Geçersiz HTML + her yüklemede 2 konsol
-      hatası (3 genişlikte, 2 dilde de). `stopPropagation` sarmalayıcısı sorunu
-      gizliyor ama HTML'i düzeltmiyor.
+- [x] ~~**Z3c2 · `/arac/kiyamet` — iç içe `<button>`**~~ — **KAPANDI, `3f9eed2`**
+      (Z1c ile aynı bulgu). `KiyametSahneleri.jsx:248`'de düzeltme notu duruyor;
+      `BookmarkButton` akordiyon `<button>`'ın dışına alınmış.
 - [ ] **Z3c3 · `/ayet/[surah]/[ayah]` sınır doğrulaması YOK**
       ```
       /tr/ayet/115/1  → 200   <title>Sure 115 115:1 — QuranCodex | QuranCodex</title>
@@ -479,6 +527,9 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
       rota) **doğru 404 veriyor** — yalnız bu ikisi kaçmış. Üstelik
       `generateMetadata` var olmayan âyet için canonical + OG üretiyor →
       **indekslenebilir çöp sayfa.**
+      ⚠ **`3f9eed2` sonrası yeniden ölçüldü (21:0x): hâlâ 200.** O commit
+      (`Z1c-ek`) aynı rotadaki **400 dönen fetch**'leri düzeltti — sınır
+      doğrulaması ayrı iş, açık kalıyor.
 
 ### 🟠 Z3-D · Sistem/kural ihlalleri
 

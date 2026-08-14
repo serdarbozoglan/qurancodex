@@ -14,6 +14,7 @@ import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import { VolumeOnIcon, VolumeOffIcon } from './icons';
+import useNavbarOffset from './useNavbarOffset';
 // ─── Graph-local slate scale ──────────────────────────────────────────────────
 // VerseGraph'a özel dark slate palette — graph tooltip/dropdown/muted text
 // için kullanılır. Global tokens.js'e katılmadı çünkü sadece bu tool içinde
@@ -816,6 +817,13 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
 
 // ─── ClusterView — SVG bubble map ────────────────────────────────────────────
 function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, language, onClose, onOpenFullGraph, initialSearch = '', onSearchConsumed }) {
+  // navTop BU BİLEŞENDE de çağrılmalı — üst bileşenin kapsamı buraya ulaşmıyor.
+  // 2026-08-13: ilk denemede kanca yalnız VerseGraph'taydı; ClusterView,
+  // VerseView ve FullGraph ayrı üst-seviye fonksiyonlar olduğu için
+  // `navTop is not defined` ile çökeceklerdi. Testler yakalamadı çünkü bu üç
+  // görünüm ancak kullanıcı tıklayınca mount oluyor. GPT-5.4 kod incelemesi
+  // yakaladı.
+  const navTop = useNavbarOffset(0, 62);
   const svgRef = useRef(null);
   const headerRef = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
@@ -1051,7 +1059,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
   }, [onWheel]);
 
   return (
-    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
+    <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, overflow: 'hidden' }}>
       {/* Header */}
       <div ref={headerRef} style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
@@ -1817,6 +1825,13 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
 }
 
 function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVerseId, onSurahChange, onClose }) {
+  // navTop BU BİLEŞENDE de çağrılmalı — üst bileşenin kapsamı buraya ulaşmıyor.
+  // 2026-08-13: ilk denemede kanca yalnız VerseGraph'taydı; ClusterView,
+  // VerseView ve FullGraph ayrı üst-seviye fonksiyonlar olduğu için
+  // `navTop is not defined` ile çökeceklerdi. Testler yakalamadı çünkü bu üç
+  // görünüm ancak kullanıcı tıklayınca mount oluyor. GPT-5.4 kod incelemesi
+  // yakaladı.
+  const navTop = useNavbarOffset(0, 62);
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const [selected, setSelected] = useState(null);
@@ -1943,7 +1958,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
   }, [focusedSet]);
 
   return (
-    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre info panel — left side; follows selected verse's surah when cross-surah */}
       <SurahInfoPanel
         surah={selected?.surah ?? surah} language={language} graphData={graphData} showName={true}
@@ -2065,6 +2080,13 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
 
 // ─── Full 3D view (all verses) ────────────────────────────────────────────────
 function FullGraph({ verses, onBack, language, onClose }) {
+  // navTop BU BİLEŞENDE de çağrılmalı — üst bileşenin kapsamı buraya ulaşmıyor.
+  // 2026-08-13: ilk denemede kanca yalnız VerseGraph'taydı; ClusterView,
+  // VerseView ve FullGraph ayrı üst-seviye fonksiyonlar olduğu için
+  // `navTop is not defined` ile çökeceklerdi. Testler yakalamadı çünkü bu üç
+  // görünüm ancak kullanıcı tıklayınca mount oluyor. GPT-5.4 kod incelemesi
+  // yakaladı.
+  const navTop = useNavbarOffset(0, 62);
   const graphRef = useRef(null);
   const initialFitDone = useRef(false);
   const controlsRef = useRef(null);
@@ -2420,7 +2442,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const leftPad = (filterSurah || selected) ? LEFT_PANEL_W : 0;
 
   return (
-    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
+    <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack }}>
       {/* Sûre bilgi paneli — sûre filtresi aktifken veya ayet seçilince */}
       {(filterSurah || selected) && (
         <SurahInfoPanel
@@ -2815,6 +2837,11 @@ function FullGraph({ verses, onBack, language, onClose }) {
 const IS_MOBILE_3D_BLOCKED = typeof window !== 'undefined' && window.innerWidth < 640;
 
 export default function VerseGraph({ onClose, initialSearch = '', onRegisterBackHandler = null }) {
+  // Navbar yüksekliği sabit DEĞİL — ölç. Bkz. src/components/useNavbarOffset.js
+  // Bu sabit sitede yedinci kez aynı hatayı üretti (62 · 96 · 104 · 62 · 62 ·
+  // 62 · 110). 2026-08-13: "450 → 0" diye raporlamıştım ama yalnız ToolHeader
+  // kullanan sayfalarda ölçmüştüm; kullanmayanlarda örtüşme duruyordu.
+  const navTop = useNavbarOffset(0, 62);
   const { language } = useLanguage();
   // If opened with a specific verse to find (e.g. from ConceptGraph), always start at clusters
   // so ClusterView can parse initialSearch and call onSelectVerse → sets autoFocusVerseId.
@@ -2918,7 +2945,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   }, [view, onRegisterBackHandler, initialSearch, onClose]);
 
   if (loading) return (
-    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
       <div style={{ width: '44px', height: '44px', border: '2px solid rgba(212,165,116,0.15)', borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 1s linear infinite' }} />
       <span style={{ color: COLORS.silver, fontSize: '0.85rem' }}>{language === 'tr' ? 'Harita yükleniyor…' : 'Loading map…'}</span>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -2926,7 +2953,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   );
 
   if (error) return (
-    <div style={{ position: 'fixed', top: '62px', left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
+    <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
       <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
       <span style={{ color: COLORS.slate500, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>

@@ -27,6 +27,7 @@ import { COLORS, FONTS } from '../../../tokens';
 import { detectQueryLang } from '../../../lib/query-lang';
 import BookmarkButton from '../../../components/BookmarkButton';
 import { readQueryHistory, pushQueryHistory as sharedPushHistory, removeQueryHistory as sharedRemoveHistory } from '../../../lib/query-history';
+import useNavbarOffset from '../../../components/useNavbarOffset';
 
 export default function SorRoute() {
   return (
@@ -37,6 +38,11 @@ export default function SorRoute() {
 }
 
 function SorInner() {
+  // Navbar yüksekliği sabit DEĞİL — ölç. Bkz. src/components/useNavbarOffset.js
+  // 2026-08-13: kancayı ilk denemede SorRoute'a (dış sarmalayıcı) koymuştum;
+  // `top` ise SorInner'da kullanılıyor → `navTop is not defined`, sayfa boş.
+  // Aynı dosyada iki bileşen varken "ilk export default"a yazmak yetmiyor.
+  const navTop = useNavbarOffset(0, 62);
   const { language } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -232,7 +238,7 @@ function SorInner() {
       <div
         style={{
           position: 'sticky',
-          top: '62px',
+          top: `${navTop}px`,
           zIndex: 40,
           background: 'rgba(10,10,26,0.92)',
           backdropFilter: 'blur(20px)',

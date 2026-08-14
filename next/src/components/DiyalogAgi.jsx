@@ -11,6 +11,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
 const TEMPORAL = { ezel: '#9b59b6', dunya: '#3498db', ahiret: '#f39c12' };
@@ -114,6 +115,7 @@ function getNodeLabel(speaker) {
 }
 
 export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
+  const navTop = useNavbarOffset(0, 62);
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [activeTab, setActiveTab] = useState(0);
@@ -215,9 +217,13 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   return (
     <div ref={trapRef} style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      // Sekizinci kez aynı sabit. Navbar yüksekliği dile göre değişiyor:
+      // 1024px'te İngilizce menü sarıyor ve 62px yetmiyor — sekme düğmeleri
+      // ("Network Map", "Dialogues"…) navbarın altında kalıyordu. Türkçede
+      // görünmüyordu. Ölç, tahmin etme.
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         icon={

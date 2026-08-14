@@ -21,9 +21,15 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
       padding: isMobile ? '28px 0 8px' : '36px 0 12px',
       borderTop: `1px solid ${COLORS.goldAlpha15}`,
     }}>
-      {/* Eyebrow */}
+      {/* Eyebrow — <h2>, <span> DEĞİL.
+          2026-08-13: bu bölüm 54 dosyada kullanılıyor ve kartları <h4> basıyordu.
+          Bölüm etiketi ise başlık değil <span>'di. Sonuç: sayfa h1/h2'sinden
+          doğrudan h4'e atlıyordu — 29 rotada "başlık seviyesi atlaması" bulgusu
+          bunun tek kaynağıydı. Etiket h2, kartlar h3 olunca zincir tamamlanıyor.
+          Görsel çıktı AYNI: stiller birebir taşındı, margin sıfırlandı. */}
       <div style={{ textAlign: 'center', marginBottom: '22px' }}>
-        <span style={{
+        <h2 style={{
+          margin: 0,
           fontSize: '0.68rem',
           fontFamily: FONTS.body,
           fontWeight: 700,
@@ -33,7 +39,7 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
           opacity: 0.72,
         }}>
           {tr ? (labelTr || 'Daha Derine — İlgili Araçlar') : (labelEn || 'Go Deeper — Related Tools')}
-        </span>
+        </h2>
       </div>
 
       {/* Grid */}
@@ -75,7 +81,7 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
               marginBottom: '8px',
               gap: '10px',
             }}>
-              <h4 style={{
+              <h3 style={{
                 fontFamily: FONTS.body,
                 fontWeight: 700,
                 fontSize: '0.95rem',
@@ -84,7 +90,7 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
                 lineHeight: 1.3,
               }}>
                 {tr ? link.titleTr : link.titleEn}
-              </h4>
+              </h3>
               <span style={{ color: ACC, opacity: 0.65, fontSize: '1.05rem', flexShrink: 0 }}>→</span>
             </div>
             <p style={{

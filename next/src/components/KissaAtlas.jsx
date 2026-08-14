@@ -14,6 +14,7 @@ import useFocusTrap from '../hooks/useFocusTrap';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
+import useNavbarOffset from './useNavbarOffset';
 // Surah names (Türkçe kısa)
 const SURAH_NAMES_TR = [
   '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
@@ -79,6 +80,11 @@ function parseVerseRef(ref) {
 }
 
 export default function KissaAtlas({ onClose }) {
+  // Navbar yüksekliği sabit DEĞİL — ölç. Bkz. src/components/useNavbarOffset.js
+  // Bu sabit sitede yedinci kez aynı hatayı üretti (62 · 96 · 104 · 62 · 62 ·
+  // 62 · 110). 2026-08-13: "450 → 0" diye raporlamıştım ama yalnız ToolHeader
+  // kullanan sayfalarda ölçmüştüm; kullanmayanlarda örtüşme duruyordu.
+  const navTop = useNavbarOffset(0, 62);
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
@@ -284,7 +290,7 @@ export default function KissaAtlas({ onClose }) {
         backgroundColor: 'rgb(6, 8, 14)',
         flexShrink: 0,
         position: 'sticky',
-        top: '110px',
+        top: `${navTop}px`,
         zIndex: 20,
         isolation: 'isolate',
       }}>
