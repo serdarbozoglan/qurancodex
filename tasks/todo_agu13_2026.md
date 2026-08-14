@@ -1010,6 +1010,36 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       masaüstü+mobil TR+EN sıfır ihlal (disabled "Önceki" butonu hariç).
       **Kalan tahmini ~530, ~74 sayfaya yayılmış** (kissa hariç; taze `--full`
       taramasıyla teyit edilmedi, bir sonraki turun ilk işi bu olmalı).
+- [x] ~~**Uzun kuyruk — SIFIRLANDI**~~ — **KAPANDI** `fda9616` + `022ebc6` +
+      `8b47e4e` + `1435e60` (4 ardışık tur, aynı oturum). **412 → 198 → 126 →
+      74 → 48.** Kalan 48'in TAMAMI ya `/oku` (40 — CLS kök #2 ile aynı alan,
+      paralel ajanla çakışmamak için bilinçli dokunulmadı) ya da 4 doğrulanmış
+      `disabled` buton (Önceki/Temizle/İki sûre seçin/Sor × 2 dil, hepsi
+      gerçek `disabled={...}` attribute'üyle — WCAG'ın inert-öge muafiyeti).
+      **Kissa + /oku hariç: uzun kuyruk sıfırlandı.**
+      En sık tekrar eden kalıplar (tek düzeltme çok sayfaya yayıldı):
+      · `COLORS.silverAlpha70` metin rengi olarak kullanımı (§13.26 md.4
+        ihlali — alfa token'ı metin için yasak) — 10 dosyada tek token
+        değişikliğiyle (`SEMANTIC.textFaint`) kapandı.
+      · "İnaktif sekme" deseni: `COLORS.slate500` veya ham `#64748b`/
+        `rgba(148,163,184,0.5-0.7)` — 8+ dosyada aynı `isActive ? accent :
+        X` kalıbı, hepsi `SEMANTIC.textFaint`'e bağlandı.
+      · Kategori/kimlik renkleri hâlâ eski (tokenize-öncesi) hex taşıyordu
+        (`#8b5cf6`, `#e74c3c`, `#9b59b6`, `#1D9E75`, `#c0392b`, `#8e44ad`) —
+        JS fallback'lerinde VE JSON veri dosyalarında (aynı kalıp, K7'de
+        keşfedilmişti) bu oturumda zaten açılmış karşılıklarına taşındı.
+      · Kapsayıcı `opacity` + rozet/kategori kendi rengi bileşik çarpımı
+        (bilimsel-isaretler + tarihsel-kanitlar'da AYNI kalıp iki ayrı
+        dosyada) ve "self-tint" iç-içe zemin (renkler/nefs-mertebeleri/
+        ilk-son-kelimeler) — üçüncü kez görülünce kalıp olarak tanındı.
+      **Ders (regresyon, düzeltildi):** `DuaVerses.jsx`'te bir rengi hem
+      RGB hem alfa yükseltmek, aynı dosyadaki `cfg.color.replace('0.8)', ...)`
+      kırılgan string-eşlemesini kırdı — rozet zemini neredeyse opak aynı
+      renge dönüp metni GÖRÜNMEZ yaptı (ölçülen 1.13, önceki 3.13'ten kötü).
+      Alfa geri alındı, yalnız RGB açıldı. **Ders: `.replace('X)', ...)` gibi
+      kırılgan string kalıpları olan dosyalarda bir rengi değiştirirken
+      dosyanın TAMAMINDA o rengin başka nerede/nasıl kullanıldığını
+      (grep ile) kontrol et — yalnız hedef satırı değil.**
 
 ### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
 
