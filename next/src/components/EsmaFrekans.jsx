@@ -178,7 +178,10 @@ export default function EsmaFrekans({ onClose }) {
 const HIGHLIGHT_AR = /الْاَسْم[َٓ]{0,2}اءُ\s+الْحُسْنٰى/gu;
 const HIGHLIGHT_TR = /en güzel isimler/giu;
 const HIGHLIGHT_EN = /best names/giu;
-const FADE_OPACITY = 0.55;
+// 14 Ağustos: 0.55 iken 22.4px altın metin "büyük metin" muafiyetini
+// (bold değil) taşımıyordu, gerçek oran 3.33 — §13.26'nın altın tabanı
+// olan 0.75'e çekildi (oran ~5.3).
+const FADE_OPACITY = 0.75;
 
 function highlightPhrase(text, regex) {
   const matches = [...text.matchAll(regex)];
@@ -2547,6 +2550,15 @@ function SurahNameHeatmap({ tr, heatmapData }) {
                 </div>
                 {counts.map((c, ci) => {
                   const intensity = c === 0 ? 0 : Math.min(1, Math.log(1 + c) / Math.log(1 + maxCount));
+                  // 14 Ağustos: eski `0.1 + intensity*0.7` tek-eğimli alfa,
+                  // orta yoğunlukta (i≈0.32–0.83) ne altın ne koyu metnin
+                  // 4.5'i geçemediği bir "ölü bölge" üretiyordu (en kötü
+                  // 2.03). İki ayrı bant: düşük yoğunluk altın-metne uygun
+                  // dar alfa aralığında kalır, yüksek yoğunluk koyu-metne
+                  // uygun alfaya SIÇRAR — aradaki ölü bölge atlanmış olur.
+                  const cellAlpha = intensity <= 0.5
+                    ? 0.12 + (intensity / 0.5) * 0.18
+                    : 0.68 + ((intensity - 0.5) / 0.5) * 0.17;
                   return (
                     <div
                       key={ci}
@@ -2554,7 +2566,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
                       style={{
                         background: c === 0
                           ? 'rgba(255,255,255,0.03)'
-                          : `rgba(212,165,116,${0.1 + intensity * 0.7})`,
+                          : `rgba(212,165,116,${cellAlpha})`,
                         border: c === 0
                           ? '1px solid rgba(255,255,255,0.04)'
                           : `1px solid rgba(212,165,116,${0.2 + intensity * 0.3})`,

@@ -37,7 +37,7 @@
       "id": "kehanet",
       "titleTr": "Tarih-Öncesi Kehânet",
       "titleEn": "Pre-Event Prophecy",
-      "color": "#8b5cf6",
+      "color": "#a78bfa",
       "descTr": "Kur'ân'ın nüzul zamanında olayın geleceğe ait olduğu, sonradan gerçekleştiği tarih kayıtlarıyla doğrulanan ayet grupları.",
       "descEn": "Passages where an event was future at the time of revelation and later confirmed by historical records."
     },
@@ -45,7 +45,7 @@
       "id": "kulturel-kesisim",
       "titleTr": "Kültürel-Tarihsel Kesişim",
       "titleEn": "Cross-Cultural Intersection",
-      "color": "#1D9E75",
+      "color": "#2BA47D",
       "descTr": "Kur'ân'ın öncesi/çağdaş kültürlerdeki tarihsel bilgiyle etkileştiği ve modern akademik çalışmalarla ilişkilendirilen anlatılar.",
       "descEn": "Narratives where the Qur'an interacts with historical knowledge from prior/contemporary cultures and which modern academic work relates to."
     }
@@ -366,7 +366,7 @@
       "eventEn": "Persia takes Jerusalem",
       "year": 614,
       "category": "olay",
-      "color": "#8b5cf6"
+      "color": "#a78bfa"
     },
     {
       "eventTr": "Rûm suresi nazil (Mekke)",
@@ -380,21 +380,21 @@
       "eventEn": "Heraclius counterattacks",
       "year": 622,
       "category": "olay",
-      "color": "#8b5cf6"
+      "color": "#a78bfa"
     },
     {
       "eventTr": "Nineveh Muharebesi — Bizans zaferi",
       "eventEn": "Battle of Nineveh — Byzantine victory",
       "year": 627,
       "category": "olay",
-      "color": "#8b5cf6"
+      "color": "#a78bfa"
     },
     {
       "eventTr": "Kudüs Bizans'a geri döndü + Bedir zaferi",
       "eventEn": "Jerusalem retaken by Byzantium + Battle of Badr",
       "year": 628,
       "category": "olay",
-      "color": "#8b5cf6"
+      "color": "#a78bfa"
     },
     {
       "eventTr": "Osman standardizasyonu",
@@ -408,7 +408,7 @@
       "eventEn": "Birmingham folios (center of radiocarbon range)",
       "year": 606,
       "category": "kesif",
-      "color": "#1D9E75"
+      "color": "#2BA47D"
     },
     {
       "eventTr": "Charles Doughty Meda'in Salih raporu",

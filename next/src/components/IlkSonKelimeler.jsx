@@ -1432,7 +1432,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Family Signature',
     },
     {
-      themeColor: '#3BBBA8',      // teal — classical scholarship
+      themeColor: COLORS.tealBadgeSafe,      // teal — classical scholarship
       themeBg: 'rgba(42,181,160,0.05)',
       themeBorder: 'rgba(42,181,160,0.28)',
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
@@ -1443,7 +1443,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Classical Munāsabah',
     },
     {
-      themeColor: '#63B0E3',      // sky blue — tasbîh/takbîr remembrance
+      themeColor: COLORS.skyBadgeSafe,      // sky blue — tasbîh/takbîr remembrance
       themeBg: 'rgba(52,152,219,0.05)',
       themeBorder: 'rgba(52,152,219,0.28)',
       headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
@@ -1454,7 +1454,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Intra-Surah Ring',
     },
     {
-      themeColor: '#B698F9',      // violet — cipher mystery
+      themeColor: COLORS.violetBadgeSafe,      // violet — cipher mystery
       themeBg: 'rgba(139,92,246,0.05)',
       themeBorder: 'rgba(139,92,246,0.28)',
       headlineTr: 'Mukattaa harfleriyle açılan sûreler hemen ardından neredeyse hep Kitap/vahiy atfıyla devam eder.',

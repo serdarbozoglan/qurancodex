@@ -465,7 +465,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', fontSize: '0.7rem', color: COLORS.silver }}>
                   <span>~{n.freq} {language === 'tr' ? 'geçiş' : 'occurrences'}</span>
-                  <span style={{ opacity: 0.7 }}>{n.period} · {n.anchorRef}</span>
+                  <span style={{ opacity: 0.85 }}>{n.period} · {n.anchorRef}</span>
                 </div>
               </div>
             </button>

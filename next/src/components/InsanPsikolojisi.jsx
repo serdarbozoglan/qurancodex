@@ -275,7 +275,7 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
               </div>
               <span style={{
                 fontSize: '0.62rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-                color: s.color, opacity: 0.75, fontWeight: 700,
+                color: s.color, opacity: 0.9, fontWeight: 700,
                 fontFamily: FONTS.body, whiteSpace: 'nowrap',
               }}>{s.period}</span>
             </div>
@@ -392,8 +392,11 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
 
 function YusufIyilesmeArc({ tr, isMobile }) {
   const stages = [
-    { n: 1, tr: 'KAYIP', en: 'LOSS', descTr: 'Ailesinden kopuş, kıskançlıkla dışlanma (Yûsuf 12:8-10).', descEn: 'Rupture from family, exclusion through envy (Yūsuf 12:8-10).', color: '#c0392b' },
-    { n: 2, tr: 'KUYU', en: 'THE WELL', descTr: 'İzole edilme, karanlık, ölüm eşiği. İlk travma (Yûsuf 12:15).', descEn: 'Isolation, darkness, threshold of death. First trauma (Yūsuf 12:15).', color: '#8b0000' },
+    // renk rozet zemininde (beyaz metinle) koyu kalmalı — etiket metninde ise
+    // AYNI renk AA'yı geçmiyor (c0392b 3.49, 8b0000 1.89). textColor yalnız
+    // etiket/başlık metni için, rozet zemini/kenarlık `color` ile aynı kalır.
+    { n: 1, tr: 'KAYIP', en: 'LOSS', descTr: 'Ailesinden kopuş, kıskançlıkla dışlanma (Yûsuf 12:8-10).', descEn: 'Rupture from family, exclusion through envy (Yūsuf 12:8-10).', color: '#c0392b', textColor: COLORS.rustTextSafe },
+    { n: 2, tr: 'KUYU', en: 'THE WELL', descTr: 'İzole edilme, karanlık, ölüm eşiği. İlk travma (Yûsuf 12:15).', descEn: 'Isolation, darkness, threshold of death. First trauma (Yūsuf 12:15).', color: '#8b0000', textColor: COLORS.crimsonTextSafe },
     { n: 3, tr: 'KÖLE', en: 'ENSLAVEMENT', descTr: 'Kimlik kaybı, meta olarak satılma (Yûsuf 12:19-20).', descEn: 'Loss of identity, sold as commodity (Yūsuf 12:19-20).', color: '#94a3b8' },
     { n: 4, tr: 'İTHÂM', en: 'ACCUSATION', descTr: 'İftira, adaletsiz hükm — kendi ahlâkına karşı saldırı (Yûsuf 12:25-26).', descEn: 'Slander, unjust ruling — attack on one\'s own morality (Yūsuf 12:25-26).', color: '#a78bfa' },
     { n: 5, tr: 'HAPİS', en: 'IMPRISONMENT', descTr: 'Sonuç: özgürlüğün alınması. Ama iç dünya derinleşir — rüyalar, bilgelik (Yûsuf 12:36).', descEn: 'Consequence: freedom taken. But the inner world deepens — dreams, wisdom (Yūsuf 12:36).', color: '#3498db' },
@@ -455,7 +458,7 @@ function YusufIyilesmeArc({ tr, isMobile }) {
               <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700,
-                color: s.color, letterSpacing: '0.06em',
+                color: s.textColor || s.color, letterSpacing: '0.06em',
               }}>{tr ? s.tr : s.en}</div>
             )}
             <div style={{
@@ -467,7 +470,7 @@ function YusufIyilesmeArc({ tr, isMobile }) {
             }}>
               {isMobile && (
                 <div style={{
-                  fontSize: '0.72rem', fontWeight: 700, color: s.color,
+                  fontSize: '0.72rem', fontWeight: 700, color: s.textColor || s.color,
                   letterSpacing: '0.08em', marginBottom: '4px', fontFamily: FONTS.body,
                 }}>{tr ? s.tr : s.en}</div>
               )}

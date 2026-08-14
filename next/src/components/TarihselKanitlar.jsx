@@ -298,7 +298,7 @@ export default function TarihselKanitlar({ onClose }) {
                 { value: meta.totalKanitlar, tr: 'kanıt', en: 'evidences', color: COLORS.gold },
                 { value: meta.totalCategories, tr: 'kategori', en: 'categories', color: COLORS.emerald },
                 { value: meta.totalScholars, tr: 'akademisyen', en: 'scholars', color: COLORS.skyBlue },
-                { value: timeline.length, tr: 'timeline', en: 'timeline', color: '#8b5cf6' },
+                { value: timeline.length, tr: 'timeline', en: 'timeline', color: '#a78bfa' },
               ].map((s, i) => (
                 <div key={i} style={{
                   padding: isMobile ? '8px 14px' : '10px 18px',
@@ -509,7 +509,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
             color: cat.color, textTransform: 'uppercase',
-            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.85,
+            fontFamily: FONTS.body, marginBottom: '6px',
           }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -737,7 +737,7 @@ function TimelineTab({ timeline, language, isMobile }) {
       <div style={{ marginTop: '20px', display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
           { color: COLORS.gold, tr: 'Kur\'ânî Kaynak', en: 'Qur\'anic Source' },
-          { color: '#8b5cf6', tr: 'Tarihsel Olay', en: 'Historical Event' },
+          { color: '#a78bfa', tr: 'Tarihsel Olay', en: 'Historical Event' },
           { color: '#e74c3c', tr: 'Sabai Olayı', en: 'Sabaic Event' },
           { color: '#3498db', tr: 'Modern Keşif', en: 'Modern Discovery' },
           { color: '#1D9E75', tr: 'Elyazması', en: 'Manuscript' },

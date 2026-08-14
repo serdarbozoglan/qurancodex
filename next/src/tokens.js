@@ -137,6 +137,9 @@ export const COLORS = {
   navyTextSafe:        '#439cd6',   // 1a5276'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.deniz)
   orchidLightTextSafe: '#b67ece',   // 8e44ad'nin metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.mesh)
   siennaTextSafe:      '#c7926b',   // a0785a'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.tas)
+  tealBadgeSafe:       '#3BBBA8',   // 2ab5a0'ın 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)
+  skyBadgeSafe:        '#63B0E3',   // 3498db'nin 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)
+  violetBadgeSafe:     '#B698F9',   // 8b5cf6'nın 0.75 opaklıkta metin-güvenli hâli (IlkSonKelimeler themeColor)
 
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',
@@ -467,7 +470,7 @@ export const BREAKPOINT_TABLET = 768;
 // LLM hallüsinasyonuna karşı kullanıcıya "bu iddia hangi düzlemde geliyor" işaret et.
 export const IBADET_CLAIM_TYPE_STYLES = {
   quran_explicit:     { color: '#22d3ee', labelTr: 'Kur\'ân',      labelEn: 'Qur\'an' },
-  quran_semantic:     { color: '#8b5cf6', labelTr: 'Semantik',     labelEn: 'Semantic' },
+  quran_semantic:     { color: '#a78bfa', labelTr: 'Semantik',     labelEn: 'Semantic' },
   tafsir_tradition:   { color: '#d4a574', labelTr: 'Tefsir',       labelEn: 'Tafsir' },
   fiqh_tafsil:        { color: '#2ecc71', labelTr: 'Sünnet',       labelEn: 'Sunnah' },
   semantic_inference: { color: '#94a3b8', labelTr: 'Çıkarım',      labelEn: 'Inference' },
