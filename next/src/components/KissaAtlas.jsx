@@ -581,7 +581,7 @@ export default function KissaAtlas({ onClose }) {
                 } else {
                   bg = 'rgba(255,255,255,0.03)';
                   border = `1px solid ${COLORS.glassBg}`;
-                  color = '#1e293b';
+                  color = '#666D7A';
                   shadow = 'none';
                 }
 
@@ -643,7 +643,7 @@ export default function KissaAtlas({ onClose }) {
                     <span style={{ display: 'block', fontSize: '0.7rem', fontWeight: isHighlighted ? 700 : 500, color, lineHeight: 1.2 }}>
                       {num}
                     </span>
-                    <span style={{ display: 'block', fontSize: '0.58rem', color: isActive ? `${prophet.color}80` : '#1e293b', lineHeight: 1.3, marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <span style={{ display: 'block', fontSize: '0.58rem', color: isActive ? `${prophet.color}80` : '#666D7A', lineHeight: 1.3, marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {(language === 'tr' ? SURAH_NAMES_TR[num] : SURAH_NAMES_EN[num])?.slice(0, 6)}
                     </span>
                   </motion.button>
@@ -955,7 +955,7 @@ export default function KissaAtlas({ onClose }) {
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
           <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
         </div>
-        <span style={{ color: '#1e293b', fontSize: '0.72rem', marginLeft: 'auto' }}>
+        <span style={{ color: '#666D7A', fontSize: '0.72rem', marginLeft: 'auto' }}>
           {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
         </span>
       </div>}

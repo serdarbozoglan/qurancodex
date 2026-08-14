@@ -777,8 +777,11 @@ soluklaştırılmış (bir tür ısı haritası). Yani tasarım niyeti meşru �
 uygulama oran **1.27**'ye inmiş, yani bilgi herkes için kayboluyor, sadece
 az gören kullanıcı için değil. Soluklaştırma bir "yok" sinyali taşıdığı için
 WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
-- [ ] Karar: soluk durum oran **≥3.0**'a çekilsin (hâlâ belirgin biçimde
-      sönük ama okunur) — ya da renk yerine ikon/opaklık dışı bir sinyal
+- [x] ~~Karar: soluk durum oran **≥3.0**'a çekilsin~~ — **KAPANDI** (kullanıcı
+      kararı, 14 Ağustos). `KissaAtlas.jsx`'te sahnesiz sûre hücrelerinin rengi
+      `#1e293b` (oran 1.27) → `#666D7A` (gerçek sayfada ölçülen: **3.57**) —
+      ısı haritası etkisi ve "az gören için de değil, herkes için soluk"
+      niyeti korunuyor, sadece artık okunuyor.
 
 **Yapılacaklar (öncelik sırasıyla):**
 - [x] ~~**K1 · Opaklık taban kuralı 73 sayfaya yayılsın**~~ — **KAPANDI** `5d966f7`
@@ -858,7 +861,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       **Kalan 608 (kissa hariç), 78 sayfaya yayılmış, en büyüğü 20** — aynı
       kalıplardan (kategori rengi, `${x}alpha` idiyomu, ata-opacity) ama
       artık uzun kuyruk. Ayrı bir tur gerektirir.
-- [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar — kullanıcıya soruldu)
+- [x] ~~**K4 · `/atlas/kissa` soluk durumu**~~ — **KAPANDI** (yukarıdaki karar)
 - [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
       "büyük metin" muafiyeti bazı yerlerde kalkabilir
 
