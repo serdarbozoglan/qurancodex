@@ -932,7 +932,15 @@ function VerseRow({ verse, isActive, onSelect, onAudioToggle, audioPlaying, audi
 //   Bedeli: bu listedeki tüm ayarlar bir kereliğine sıfırlanır (kârî, font
 //   boyutu, tecvid, kitap modu, meal seçimi…). Kullanıcı verisi (yer imleri,
 //   son konum, okuma ilerlemesi) ve API cache'leri KORUNUR.
-const SETTINGS_VERSION = 3;
+// v4 (2026-08-13): v3 damgası bazı kullanıcılarda gündüz varsayılanından
+//   ÖNCE basılmış. Sebep: sürüm damgası ile varsayılan çevrimi aynı anda
+//   canlıya çıkmamış olabiliyor — arada siteyi açan kullanıcıda
+//   `settings_version = 3` yazıldı ama `day_mode` hâlâ 'false'ta kaldı ve
+//   sürüm eşleştiği için bir daha temizlenmiyor. Kilitleniyorlar.
+//   Kullanıcı bugün bunu bildirdi: "hâlâ gece modu default".
+//   Temiz tarayıcıda gündüz geldiği ÖLÇÜLDÜ (ekran görüntüsüyle) — yani kod
+//   doğru, takılan şey eski kayıttı. Tek çare yeni bir bump.
+const SETTINGS_VERSION = 4;
 const SETTINGS_VERSION_KEY = 'qurancodex_settings_version';
 const VERSIONED_SETTINGS_KEYS = [
   'qurancodex_show_translation',
@@ -3165,7 +3173,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       transition: `opacity ${TRANSITION.fast}`,
                     }}
                   >
-                    QURAN CODEX
+                    {/* 2026-08-13: burada "QURAN CODEX" yazıyordu — LİTERAL
+                        BOŞLUKLA. Marka adı bu sabah kod tabanında tekilleştirildi
+                        (78 kullanım "QuranCodex") ve navbar logosundan boşluk
+                        kaldırıldı, ama okuma modundaki bu ikinci kelime markası
+                        atlanmış. Kullanıcı iki logoyu yan yana görünce fark etti.
+                        Optik ayrımı harf aralığı veriyor, boşluk değil. */}
+                    QURANCODEX
                   </span>
                 </button>
               )}
