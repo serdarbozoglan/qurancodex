@@ -1163,6 +1163,32 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     flex-direction: column;
   }
 }
+.qd-tri-minmax {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+.ks-phase-grid {
+  grid-template-columns: 48px 1fr 90px;
+}
+.ka2-body-grid {
+  grid-template-columns: 1.1fr 1fr;
+}
+.ip-stage-grid {
+  grid-template-columns: 40px 100px 1fr;
+}
+@media (max-width: 640px) {
+  .qd-tri-minmax {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ks-phase-grid {
+    grid-template-columns: 32px 1fr;
+  }
+  .ka2-body-grid {
+    grid-template-columns: 1fr;
+  }
+  .ip-stage-grid {
+    grid-template-columns: 32px 1fr;
+  }
+}
 .cc-hero-banner {
   display: grid;
   grid-template-columns: 1fr 260px 1fr;

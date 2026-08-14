@@ -659,9 +659,7 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile
-              ? 'repeat(auto-fill, minmax(150px, 1fr))'
-              : 'repeat(auto-fill, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
             gap: '10px',
           }}>
             {KIYAMET_ISIMLERI.map((isim) => (
@@ -820,9 +818,8 @@ function TabKronoloji({ data, language, isMobile }) {
             const sceneCount = data.scenes.filter(s => s.phase === pn).length;
             const barWidthPct = Math.min(100, 40 + sceneCount * 12);
             return (
-              <div key={pn} style={{
+              <div key={pn} className="ks-phase-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '32px 1fr' : '48px 1fr 90px',
                 gap: '12px', alignItems: 'stretch',
                 padding: '10px 6px',
               }}>
@@ -917,9 +914,8 @@ function TabKronoloji({ data, language, isMobile }) {
               ? "Kıyamet sahnesi barındıran sûrelerin yoğunluk skoru — Kur'ân'ın kıyamet dilinin en yoğun coğrafyası."
               : "Density scores of suras containing eschatological scenes — the densest geography of the Qur'ān's language of the Hour."}
           </p>
-          <div style={{
+          <div className="g-3-6" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(6, 1fr)',
             gap: '8px',
           }}>
             {data.surahs.map((s, i) => {

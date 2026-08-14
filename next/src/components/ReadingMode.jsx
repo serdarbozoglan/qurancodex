@@ -3434,12 +3434,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 title={language === 'tr' ? 'Ara — sûre, ayet, cüz, sayfa, kelime (⌘K)' : 'Search — surah, verse, juz, page, word (⌘K)'}
                 aria-label={language === 'tr' ? 'Ara' : 'Search'}
+                className="fd-row"
                 style={{
                   // 2026-07-08 kullanıcı feedback: desktop search bar → icon-only
                   // (GitHub/Linear/Notion pattern). ⌘K klavye shortcut'ı hâlâ çalışır,
                   // hover tooltip discoverability sağlar. ~230px viewport kazancı.
-                  display: 'flex', alignItems: isMobile ? 'center' : 'center',
-                  flexDirection: isMobile ? 'column' : 'row',
+                  display: 'flex', alignItems: 'center',
                   justifyContent: 'center',
                   gap: isMobile ? '5px' : '0',
                   width: isMobile ? '46px' : '34px',

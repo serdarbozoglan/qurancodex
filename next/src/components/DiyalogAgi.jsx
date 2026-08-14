@@ -450,9 +450,8 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
       </div>
 
       <div className="fd-row" style={{ display: 'flex',  gap: '16px', flex: 1, alignItems: 'flex-start' }}>
-        <div style={{
+        <div className="fd-col-reverse" style={{
           display: 'flex',
-          flexDirection: isMobile ? 'row' : 'column',
           gap: '6px',
           flexShrink: 0,
           overflowX: isMobile ? 'auto' : 'visible',
@@ -997,9 +996,8 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                 </div>
               </div>
 
-              <div style={{
+              <div className="fd-row" style={{
                 display: 'flex',
-                flexDirection: isMobile ? 'column' : 'row',
                 gap: isMobile ? '6px' : '4px',
                 overflowX: isMobile ? 'visible' : 'auto',
                 scrollbarWidth: 'none',
@@ -1148,12 +1146,11 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
         ))}
       </div>
 
-      <div style={{
+      <div className="g-1-2" style={{
         flex: 1,
         overflowY: 'auto',
         padding: isMobile ? '12px 16px' : '16px 24px',
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '12px',
         alignContent: 'start',
       }}>

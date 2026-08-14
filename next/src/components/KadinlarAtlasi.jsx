@@ -385,10 +385,9 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         )}
 
         {/* Cards grid — Meryem hariç (spotlight'tayken) */}
-        <div style={{
+        <div className="g-1-4" style={{
           padding: isMobile ? '20px 16px 40px' : '20px 32px 60px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
           gap: isMobile ? '14px' : '18px',
         }}>
           {filteredFigures
@@ -1225,10 +1224,9 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
       </div>
 
       {/* Body — two-column on desktop, stacked on mobile */}
-      <div style={{
+      <div className="ka2-body-grid" style={{
         padding: isMobile ? '20px 20px 24px' : '28px 32px 32px',
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1.1fr 1fr',
         gap: isMobile ? '20px' : '36px',
       }}>
         {/* Left column: Arabic verse + meal + ref */}
@@ -1414,9 +1412,8 @@ function CaprazOkumaSection({ language, isMobile }) {
       </p>
 
       {/* Observation grid */}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '14px',
       }}>
         {OBSERVATIONS.map(obs => (

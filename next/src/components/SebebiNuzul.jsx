@@ -716,9 +716,8 @@ function TabIstatistik({ data, language, isMobile }) {
     <div style={{ padding: pad }}>
 
       {/* A. Hero Stats */}
-      <div style={{
+      <div className="g-2-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
         gap: '12px',
         marginBottom: '32px',
       }}>
@@ -757,9 +756,8 @@ function TabIstatistik({ data, language, isMobile }) {
         }}>
           {language === 'tr' ? 'Kategorilere Göre Dağılım' : 'Distribution by Category'}
         </h3>
-        <div style={{
+        <div className="fd-row" style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
           alignItems: 'center',
           gap: '24px',
         }}>
@@ -1024,9 +1022,8 @@ function TabIlkeler({ data, language, isMobile }) {
     <div style={{ padding: pad }}>
       {/* Majority vs Minority */}
       {(majority.length > 0 || minority.length > 0) && (
-        <div style={{
+        <div className="g-1-2" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
           gap: '16px',
           marginBottom: '20px',
         }}>

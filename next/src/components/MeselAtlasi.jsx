@@ -473,11 +473,10 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
           () => COLORS.violet)}
       </div>
 
-      <div style={{
+      <div className="g-1-2" style={{
         flex: 1, overflowY: 'auto',
         padding: isMobile ? '12px' : '20px 24px',
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '12px',
         alignContent: 'start',
       }}>
@@ -781,8 +780,8 @@ function TabNurZulumat({ data, language, isMobile }) {
     <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '28px', maxWidth: '960px', margin: '0 auto', width: '100%' }}>
 
       {/* Split stat */}
-      <div style={{
-        display: 'flex', flexDirection: isMobile ? 'column' : 'row',
+      <div className="fd-row" style={{
+        display: 'flex',
         borderRadius: '12px', overflow: 'hidden',
         border: `1px solid ${COLORS.glassBorder}`,
       }}>
@@ -796,8 +795,8 @@ function TabNurZulumat({ data, language, isMobile }) {
           <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Nûr</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.nurForm}</div>
         </div>
-        <div style={{
-          display: 'flex', flexDirection: isMobile ? 'row' : 'column',
+        <div className="fd-col-reverse" style={{
+          display: 'flex',
           alignItems: 'center', justifyContent: 'center',
           padding: isMobile ? '10px 16px' : '20px 16px',
           background: 'rgba(255,255,255,0.02)',

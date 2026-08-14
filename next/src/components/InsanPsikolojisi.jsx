@@ -255,9 +255,8 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
           ? "Modern psikolojinin (CBT, pozitif psikoloji, Freud tipolojisi) 8. yüzyıldan itibaren klasik ulema tarafından farklı isimlerle geliştirilmiş versiyonları — kalp psikolojisinin bin yıllık silsilesi."
           : "Versions of what modern psychology (CBT, positive psych, Freud typology) later called by different names — developed by classical scholars from the 8th century onward. A millennium-long lineage of the psychology of the heart."}</p>
       </div>
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '14px',
       }}>
         {scholars.map((s, i) => (
@@ -323,9 +322,8 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
           ? "Klasik nefs psikolojisinde iç denge 4 kutupsal elementin uyumundan doğar. Havf ↔ recâ (dikey eksen), sabır ↔ şükür (yatay eksen). Dördü de dengede ise itmi'nân doğar."
           : "In classical psychology of the self, inner balance arises from harmony of 4 polar elements. Fear ↔ hope (vertical axis), patience ↔ gratitude (horizontal axis). When all four balance, iṭmiʾnān is born."}</p>
       </div>
-      <div style={{
+      <div className="g-2-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
         gap: '10px', marginBottom: '20px',
       }}>
         {inputs.map((el, i) => (
@@ -431,9 +429,8 @@ function YusufIyilesmeArc({ tr, isMobile }) {
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '780px', margin: '0 auto' }}>
         {stages.map((s, i) => (
-          <div key={s.n} style={{
+          <div key={s.n} className="ip-stage-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '32px 1fr' : '40px 100px 1fr',
             gap: isMobile ? '10px' : '16px',
             alignItems: 'stretch',
           }}>

@@ -238,9 +238,8 @@ export default function QuranDua() {
         }}>
           {tr ? "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
         </p>
-        <div style={{
+        <div className="qd-tri-minmax" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'minmax(0,1fr)' : 'minmax(0,1fr) auto minmax(0,1fr)',
           gap: '14px',
           alignItems: 'stretch',
         }}>
@@ -283,8 +282,8 @@ export default function QuranDua() {
           </div>
 
           {/* Center: bağlaç sembolü — desktop only (vertical text doesn't fit narrow mobile) */}
-          <div style={{
-            display: isMobile ? 'none' : 'flex', flexDirection: 'column', alignItems: 'center',
+          <div className="dsp-flex" style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', minWidth: '36px',
           }}>
             <span style={{
@@ -357,7 +356,7 @@ export default function QuranDua() {
         <div style={{
           marginTop: '20px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'minmax(0,1fr)' : 'repeat(auto-fit, minmax(380px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
           gap: '14px',
         }}>
           {/* Pencere 2: "Yâ" Edatının Yokluğu */}
