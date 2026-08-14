@@ -8,6 +8,9 @@ import { PlayIcon, PauseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SurahLink from './SurahLink';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import duaVersesDataStatic from '../../public/dua-verses.json';
 
 const SURAH_NAMES = [
   'El-Fâtiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide','El-En\'âm','El-A\'râf','El-Enfâl','Et-Tevbe','Yûnus',
@@ -229,20 +232,13 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
 
 export default function DuaVerses({ onClose }) {
   const { language } = useLanguage();
-  const [duas, setDuas] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [duas] = useState(duaVersesDataStatic.duas || []);
+  const [loading] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchValue, setSearchValue] = useState('');
   const [playingId, setPlayingId] = useState(null);
   const [failedIds, setFailedIds] = useState(new Set());
   const audioRef = useRef(null);
-
-  useEffect(() => {
-    fetch('/dua-verses.json')
-      .then(r => r.json())
-      .then(d => { setDuas(d.duas || []); setLoading(false); })
-      .catch(() => setLoading(false));
-  }, []);
 
   useEffect(() => {
     const h = (e) => { if (e.key === 'Escape') onClose(); };

@@ -9,6 +9,9 @@ import useFocusTrap from '../hooks/useFocusTrap';
 import ScientificSigns from '../sections/ScientificSigns';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import dogaDataStatic from '../../public/doga-atlasi.json';
 
 // ── Context badge color map ───────────────────────────────────────────────────
 const ANIMAL_CONTEXT_COLORS = {
@@ -1517,7 +1520,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
 export default function DogaAtlasi({ onClose }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
-  const [data, setData]       = useState(null);
+  const [data]       = useState(dogaDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
@@ -1539,13 +1542,6 @@ export default function DogaAtlasi({ onClose }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  // Fetch data
-  useEffect(() => {
-    fetch('/doga-atlasi.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
-  }, []);
 
   // Scroll body to top on tab change
   useEffect(() => {

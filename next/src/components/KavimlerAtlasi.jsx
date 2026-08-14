@@ -9,6 +9,9 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import kavimlerDataStatic from '../../public/kavimler.json';
 
 const TABS_TR = ['KAVİMLER', 'HELAK DESENİ', 'ARKEOLOJİ', 'BÖLGE HARİTASI', 'KARŞILAŞTIR', 'KAYNAKLAR'];
 const TABS_EN = ['NATIONS', 'DESTRUCTION PATTERN', 'ARCHAEOLOGY', 'REGION MAP', 'COMPARE', 'SOURCES'];
@@ -320,7 +323,7 @@ function InfoTip({ textTr, textEn, language }) {
 
 export default function KavimlerAtlasi({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData] = useState(null);
+  const [data] = useState(kavimlerDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [filter, setFilter] = useState('tumu');
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
@@ -346,13 +349,6 @@ export default function KavimlerAtlasi({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/kavimler.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
   }, []);
 
   useEffect(() => {

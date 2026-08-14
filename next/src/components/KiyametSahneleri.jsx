@@ -7,6 +7,9 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import kiyametDataStatic from '../../public/kiyamet-sahneleri.json';
 
 // Local base style for verse blocks (VERSE_BLOCK not exported from tokens)
 const VERSE_BLOCK_BASE = {
@@ -455,17 +458,9 @@ const KIYAMET_ISIMLERI = [
 export default function KiyametSahneleri({ onClose }) {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
-  const [data, setData] = useState(null);
+  const [data] = useState(kiyametDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/kiyamet-sahneleri.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(() => setData(null));
-  }, []);
 
   // Escape key handler
   useEffect(() => {

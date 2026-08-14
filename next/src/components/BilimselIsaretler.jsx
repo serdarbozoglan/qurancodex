@@ -14,6 +14,9 @@ import FramingBadge from './FramingBadge';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import bilimselDataStatic from '../../public/bilimsel-isaretler.json';
 
 const DOMAIN_ICONS = {
   'astronomi': (color) => (
@@ -76,7 +79,7 @@ export default function BilimselIsaretler({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
-  const [data, setData] = useState(null);
+  const [data] = useState(bilimselDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [activeDomainId, setActiveDomainId] = useState(null);
   const [expandedId, setExpandedId] = useState(null);
@@ -93,9 +96,6 @@ export default function BilimselIsaretler({ onClose }) {
     h();
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-  useEffect(() => {
-    fetch('/bilimsel-isaretler.json').then(r => r.json()).then(setData).catch(() => {});
   }, []);
   useEffect(() => { if (bodyRef.current) bodyRef.current.scrollTop = 0; }, [activeTab]);
 

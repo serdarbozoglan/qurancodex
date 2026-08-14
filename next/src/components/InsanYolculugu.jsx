@@ -16,6 +16,9 @@ import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import insanYolculuguDataStatic from '../../public/insan-yolculugu.json';
 
 // ── Icons keyed by stage.iconMode
 const ICONS = {
@@ -41,18 +44,10 @@ function StageIcon({ mode, color, size = 22 }) {
 
 export default function InsanYolculugu({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData] = useState(null);
+  const [data] = useState(insanYolculuguDataStatic);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const detailRef = useRef(null);
-
-  // Data load
-  useEffect(() => {
-    fetch('/insan-yolculugu.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('insan-yolculugu load failed', err));
-  }, []);
 
   // SSR-safe mobile detection
   useEffect(() => {

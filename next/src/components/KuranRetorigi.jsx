@@ -11,7 +11,9 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
-
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import retorikDataStatic from '../../public/kuran-retorigi.json';
 
 const TABS_TR = ['Kategoriler & Kalıplar', 'Muhatap Analizi', 'Seçilmiş Sorular', 'Sûre Haritası'];
 const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', 'Selected Questions', 'Surah Map'];
@@ -19,7 +21,7 @@ const TABS_EN = ['Categories & Patterns', 'Addressee Analysis', 'Selected Questi
 export default function KuranRetorigi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const [data, setData] = useState(null);
+  const [data] = useState(retorikDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
@@ -39,14 +41,6 @@ export default function KuranRetorigi({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/kuran-retorigi.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
   }, []);
 
   // Scroll to top on tab change

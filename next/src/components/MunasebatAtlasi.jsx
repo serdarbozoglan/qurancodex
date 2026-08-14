@@ -8,6 +8,9 @@ import {
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import munasebatDataStatic from '../../public/surah-connections.json';
 
 const SURAH_NAMES_EN = [
   'Al-Fātiḥa','Al-Baqara','Āl ʿImrān','An-Nisāʾ','Al-Māʾida',
@@ -539,7 +542,7 @@ export default function MunasebatAtlasi({ onClose }) {
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab] = useState(0);
-  const [data, setData] = useState(null);
+  const [data] = useState(munasebatDataStatic);
   const [typeFilter, setTypeFilter] = useState(null);
   const [strengthFilter, setStrengthFilter] = useState(null);
 
@@ -558,14 +561,6 @@ export default function MunasebatAtlasi({ onClose }) {
   }, [onClose]);
 
   // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/surah-connections.json')
-      .then((r) => r.json())
-      .then(setData)
-      .catch((err) => console.error('Münâsebât data load failed', err));
-  }, []);
 
   const typesById = useMemo(() => {
     if (!data?.types) return {};

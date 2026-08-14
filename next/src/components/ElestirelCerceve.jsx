@@ -16,11 +16,14 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import elestirelDataStatic from '../../public/elestirel-cerceve.json';
 
 export default function ElestirelCerceve() {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const [data, setData] = useState(null);
+  const [data] = useState(elestirelDataStatic);
   const [activeCat, setActiveCat] = useState('all');
   const [expandedId, setExpandedId] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -30,13 +33,6 @@ export default function ElestirelCerceve() {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/elestirel-cerceve.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('[ElestirelCerceve] fetch error:', err));
   }, []);
 
   const TOOL_HEADER = (

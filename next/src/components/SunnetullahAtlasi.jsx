@@ -18,6 +18,9 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import sunnetullahDataStatic from '../../public/sunnetullah-atlasi.json';
 
 
 // ─── Tab definitions ──────────────────────────────────────────────────────────
@@ -197,9 +200,9 @@ function LawIcon({ id, color, size = 24 }) {
 export default function SunnetullahAtlasi({ onClose }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
-  const [data, setData] = useState(null);
+  const [data] = useState(sunnetullahDataStatic);
   const [activeTab, setActiveTab] = useState(0);
-  const [activeCategoryId, setActiveCategoryId] = useState(null);
+  const [activeCategoryId, setActiveCategoryId] = useState(sunnetullahDataStatic.thematicCategories?.[0]?.id ?? null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
 
@@ -218,17 +221,6 @@ export default function SunnetullahAtlasi({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Data loading
-  useEffect(() => {
-    fetch('/sunnetullah-atlasi.json')
-      .then(r => r.json())
-      .then(d => {
-        setData(d);
-        setActiveCategoryId(d.thematicCategories?.[0]?.id ?? null);
-      })
-      .catch(() => {});
   }, []);
 
   // Scroll to top on tab change

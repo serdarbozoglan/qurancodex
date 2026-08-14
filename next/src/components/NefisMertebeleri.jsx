@@ -18,6 +18,9 @@ import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
 import extData from '../../public/nefis-mertebeleri-ext.json';
+// 2026-08-14 (Z3f2) — ana veri de aynı şekilde statik import edildi; fetch
+// SSR'da "Yükleniyor" iskeleti döndürüyordu.
+import nefisDataStatic from '../../public/nefis-mertebeleri.json';
 
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
@@ -50,7 +53,7 @@ export default function NefisMertebeleri({ onClose }) {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
   const trapRef = useFocusTrap(true);
-  const [data, setData] = useState(null);
+  const [data] = useState(nefisDataStatic);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [activeTab, setActiveTab] = useState('journey');  // Dalga 2.2 tab state
   const bodyRef = useRef(null);
@@ -70,14 +73,6 @@ export default function NefisMertebeleri({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/nefis-mertebeleri.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
   }, []);
 
   const NEFIS_TOOL_HEADER = (

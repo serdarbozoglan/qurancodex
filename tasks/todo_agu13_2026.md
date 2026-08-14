@@ -1147,11 +1147,41 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       arama motoru taraması **hepsi kayıp**. Z1f "31 rota" diyor ama navbar
       **74 rotanın hepsinde** var; sitenin birincil keşif yüzeyi bu.
       ✅ `Escape` kapatıyor + odak tetikleyiciye dönüyor (G3 **doğrulandı**).
-- [ ] **Z3f2 · 74/140 sayfa sunucuda yalnız "Yükleniyor…" döndürüyor**
-      `/tr/atlas/kiraat` 224 karakter · `/tr/atlas/peygamber` 237 ·
-      `/tr/graf/ayet` 296 · `/tr/atlas/nefs-mertebeleri` 287…
-      `PageHeading` (sr-only h1 + desc) SEO sinyalini kurtarıyor ama **gövde
-      içeriği sunucuda yok**. JS başarısız olursa sayfa boş.
+- [~] **Z3f2 · 74/140 sayfa sunucuda yalnız "Yükleniyor…" döndürüyor** — **KISMEN KAPANDI** (14 Ağustos, 22/38 dosya)
+      Kök sebep: `useEffect` içinde `fetch('/x.json')` — sunucu `useEffect`
+      çalıştıramaz, ilk render'da veri yok. `PageHeading` SEO sinyalini
+      kurtarıyor ama gövde içeriği sunucuda yoktu; JS başarısız olursa sayfa
+      boş kalıyordu. Toplam **38 bileşen** bu kalıbı kullanıyor.
+      Düzeltme deseni: `fetch` → build-time `import x from '../../public/x.json'`
+      (AhiretYolculugu.jsx'teki 2026-07-15 audit fix'iyle aynı — o dosyada
+      zaten kanıtlanmıştı). Tüm JSON'lar 8KB-204KB, bundle'a eklemek güvenli
+      (`verse-graph-bgem3.json` 12MB HARİÇ — o dosyaları statik import ETMEDİM).
+      - [x] **22 dosya düzeltildi**: KiraatAtlasi, BilimselIsaretler, DogaAtlasi,
+            DuaVerses, ElestirelCerceve, AddresseeSystem, InsanYolculugu,
+            NedenSonuc, KavimlerAtlasi, KiyametSahneleri, KuranYeminleri,
+            KuranRetorigi, KitapKavrami, RetorikSorular, NefisMertebeleri,
+            MunafikProfili, RevelationTimeline, MunasebatAtlasi,
+            SunnetullahAtlasi, QuranCommands, TarihselKanitlar,
+            YakinAnlamliNuanslar. Doğrulama: 22 rotanın 22'sinde de SSR HTML
+            50-233KB gerçek içerik (50-233KB), "Yükleniyor" **0**, konsol
+            hatası **0** (Playwright canlı test).
+      - [ ] **16 dosya kaldı** — hepsi daha riskli/farklı bir yaklaşım istiyor:
+            - `ConceptGraph`, `EsmaFrekans`, `VerseGraph` → `verse-graph-bgem3.json`
+              (12MB) tüketiyor, statik import bundle'ı şişirir — sayfa
+              seviyesinde sunucu-tarafı fetch + prop olarak geçirme gerekir
+              (bkz. `/ayet/[surah]/[ayah]/page.js`'teki 2026-08-13 çözüm).
+            - `SebebiNuzul`, `EsmaFrekans` → çoklu `fetch` (2-6 dosya),
+              tek tek elden geçirilmeli.
+            - `ReadingMode` (11.289 satır, Z3g2) → çok büyük, izole risk.
+            - `Navbar` → içerik değil, muhtemelen farklı bir amaç (kontrol edilmedi).
+            - `KissaAtlas.jsx`, `Melekler.jsx` → **dokunulmadı**, başka bir
+              agent bu dosyalarda aktif çalışıyordu.
+            - `KadinlarAtlasi.jsx`, `KuranRenkleri.jsx`, `SemanticMap.jsx` →
+              bugün (Z3d3) farklı bir düzeltme için zaten değiştirildi, aynı
+              turda ikinci kez dokunmadım — ayrı bir işlem olarak yapılmalı.
+            - `CennetCehennem`, `DiyalogAgi`, `FurukAtlasi`, `IlkSonKelimeler`,
+              `MeselAtlasi`, `SurahComparator`, `WordHeatmap` → henüz
+              incelenmedi, muhtemelen aynı basit desen.
 - [ ] **Z3f3 · Sekme/filtre durumu URL'ye yazılmıyor (kontrol listesi R)**
       `/tr/atlas/melekler` — sekme değiştirildi, URL sabit kaldı. Geri tuşu
       önceki sekmeye dönmez, URL paylaşılınca durum kaybolur. Atlas/graf

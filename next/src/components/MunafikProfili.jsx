@@ -15,6 +15,9 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import munafikDataStatic from '../../public/munafik-profili.json';
 
 
 // ─── Tabs ────────────────────────────────────────────────────────────────────
@@ -210,7 +213,7 @@ const TABS = [
 // ─── Main overlay ────────────────────────────────────────────────────────────
 export default function MunafikProfili({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData] = useState(null);
+  const [data] = useState(munafikDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [expandedProfileId, setExpandedProfileId] = useState(null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
@@ -233,14 +236,6 @@ export default function MunafikProfili({ onClose }) {
   }, []);
 
   // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
-
-  // Data load
-  useEffect(() => {
-    fetch('/munafik-profili.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(() => {});
-  }, []);
 
   // Reset body scroll on tab change
   useEffect(() => {

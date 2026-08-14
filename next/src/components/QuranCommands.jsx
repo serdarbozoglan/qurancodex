@@ -7,6 +7,9 @@ import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import commandsDataStatic from '../../public/quran-commands.json';
 
 // ── Category SVG Icons (20×20, thin stroke, amber) ──────────────────────────
 const CATEGORY_ICONS = {
@@ -84,18 +87,13 @@ const BADGE = {
 
 export default function QuranCommands({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData]           = useState(null);
+  const [data]           = useState(commandsDataStatic);
   const [activeId, setActiveId]   = useState('ibadet');
   const [filter, setFilter]       = useState('all'); // 'all' | 'emir' | 'nehiy'
   const [expanded, setExpanded]   = useState(false);
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
 
   useEffect(() => {
-    fetch('/quran-commands.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
-
     const h = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);

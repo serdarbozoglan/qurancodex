@@ -6,12 +6,15 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import addresseesDataStatic from '../../public/addressees.json';
 
 const INITIAL_SHOW = 2;
 
 export default function AddresseeSystem({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData]         = useState(null);
+  const [data]         = useState(addresseesDataStatic);
   const [activeId, setActiveId] = useState('iman');
   const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
@@ -21,13 +24,6 @@ export default function AddresseeSystem({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/addressees.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('[AddresseeSystem] fetch failed:', err));
   }, []);
 
   // Escape to close (§13.3)

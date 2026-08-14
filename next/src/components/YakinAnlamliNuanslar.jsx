@@ -16,6 +16,9 @@ import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import nuanslarDataStatic from '../../public/yakin-anlamli-nuanslar.json';
 
 const CATEGORY_COLORS = {
   'iç-dünya':      '#e84a7c',
@@ -32,17 +35,10 @@ const CATEGORY_COLORS = {
 
 export default function YakinAnlamliNuanslar({ onClose }) {
   const { language } = useLanguage();
-  const [data, setData] = useState(null);
+  const [data] = useState(nuanslarDataStatic);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const detailRef = useRef(null);
-
-  useEffect(() => {
-    fetch('/yakin-anlamli-nuanslar.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('yakin-anlamli-nuanslar load failed', err));
-  }, []);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 900);

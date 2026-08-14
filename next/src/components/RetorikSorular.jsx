@@ -13,6 +13,9 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import QuranRhetoric from '../sections/QuranRhetoric';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import ailelerDataStatic from '../../public/belagat-aileleri.json';
 
 const FAMILY_ICONS = {
   'istifham': (color) => (
@@ -71,7 +74,7 @@ export default function RetorikSorular({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
-  const [aileler, setAileler] = useState(null);
+  const [aileler] = useState(ailelerDataStatic);
   const [activeFamilyId, setActiveFamilyId] = useState('istifham');
   const [expandedIdx, setExpandedIdx] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -87,9 +90,6 @@ export default function RetorikSorular({ onClose }) {
     h();
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-  useEffect(() => {
-    fetch('/belagat-aileleri.json').then(r => r.json()).then(setAileler).catch(() => {});
   }, []);
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = 0;

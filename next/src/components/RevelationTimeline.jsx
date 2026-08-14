@@ -5,6 +5,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import revelationOrderDataStatic from '../../public/revelation-order.json';
 
 const SURAH_NAMES_TR = [
   'El-Fatiha','El-Bakara','Âl-i İmrân','En-Nisâ','El-Mâide',
@@ -47,14 +50,13 @@ const AYAH_COUNTS = [
 
 export default function RevelationTimeline({ onClose }) {
   const { language } = useLanguage();
-  const [orderData, setOrderData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [orderData] = useState(revelationOrderDataStatic.order);
+  const [loading] = useState(false);
   const [filter, setFilter] = useState('all'); // 'all' | 'mekki' | 'medeni'
   const [hovered, setHovered] = useState(null);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'timeline'
 
   useEffect(() => {
-    fetch('/revelation-order.json').then(r => r.json()).then(d => { setOrderData(d.order); setLoading(false); }).catch(() => setLoading(false));
     const h = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);

@@ -12,6 +12,9 @@ import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import tarihselDataStatic from '../../public/tarihsel-kanitlar.json';
 
 // ─── Confidence chip system ──────────────────────────────────────────────────
 const CONFIDENCE_META = {
@@ -106,7 +109,7 @@ export default function TarihselKanitlar({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
-  const [data, setData] = useState(null);
+  const [data] = useState(tarihselDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [expandedKanitId, setExpandedKanitId] = useState(null);
@@ -124,13 +127,6 @@ export default function TarihselKanitlar({ onClose }) {
     h();
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/tarihsel-kanitlar.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
   }, []);
 
   useEffect(() => {

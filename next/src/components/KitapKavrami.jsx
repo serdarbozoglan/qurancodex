@@ -16,11 +16,14 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import kitapKavramiDataStatic from '../../public/kitap-kavrami.json';
 
 export default function KitapKavrami() {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const [data, setData] = useState(null);
+  const [data] = useState(kitapKavramiDataStatic);
   const [expandedId, setExpandedId] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -29,13 +32,6 @@ export default function KitapKavrami() {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/kitap-kavrami.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('[KitapKavrami] fetch error:', err));
   }, []);
 
   const TOOL_HEADER = (

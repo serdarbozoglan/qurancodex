@@ -12,6 +12,10 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — client-side fetch yerine static import: SSR'da içerik
+// boştu ("Yükleniyor…" iskeleti), JS başarısız olursa sayfa hiç dolmuyordu.
+// AhiretYolculugu.jsx'teki 2026-07-15 audit fix'iyle aynı desen.
+import kiraatDataStatic from '../../public/kiraat-atlasi.json';
 
 
 // ── City colour map ───────────────────────────────────────────────────────────
@@ -1523,7 +1527,7 @@ function TabTecvid({ isMobile, language }) {
 export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
-  const [data, setData] = useState(null);
+  const [data] = useState(kiraatDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const tabHistoryRef = useRef([]);
   const onRegisterBackHandlerRef = useRef(onRegisterBackHandler);
@@ -1565,14 +1569,6 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/kiraat-atlasi.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
   }, []);
 
   // Scroll body to top on tab change
