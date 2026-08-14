@@ -48,5 +48,18 @@
       "WebFetch(domain:api.quran.com)",
       "WebFetch(domain:api.qurancdn.com)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/serdar/Developer/01_qurancodex/qurancodex/.claude/hooks/pre-push-guard.mjs"
+          }
+        ]
+      }
+    ]
   }
 }

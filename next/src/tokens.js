@@ -80,6 +80,10 @@ export const COLORS = {
   slate600:      '#475569',
   slate700:      '#334155',
   slate800:      '#1e293b',
+  // slate500'ün AA-güvenli açılmış hâli — SEMANTIC.textFaint'in kaynağı.
+  // Ayrı token: §13.25 denetimi §4 tablosu ↔ tokens.js sapmasını
+  // `SEMANTIC.x: COLORS.y` biçiminde arıyor, doğrudan hex ataması değil.
+  textFaint:     '#7e8fa6',
 
   // Semantic
   // 14 Ağustos: #1a7a4c metin olarak AA'yı geçmiyordu (3.06-3.67, kart
@@ -102,6 +106,17 @@ export const COLORS = {
   violet:        '#9b59b6',
   purple:        '#a78bfa',
   amber:         '#f0b429',
+
+  // 14 Ağustos — kontrast turunda AA'yı geçmeyen kategori/kimlik renklerinin
+  // açılmış hâlleri (Melekler/CennetCehennem'de bilerek icat edilmiş yerel
+  // paletlerdi, tokens.js'te karşılıkları yoktu — §13.25 md.2). Aynı hue
+  // ailesini korur, yalnızca metin olarak AA geçecek kadar açık.
+  coralBright:   '#DE734F',   // coral'ın metin-güvenli hâli (orig. 5.06 solid, gerçek sayfada 4.39'a düşüyordu)
+  emeraldBright: '#2BA47D',   // koruyucu/cennet yeşili — 1D9E75'in metin-güvenli hâli
+  slateTextSafe: '#8C919C',   // gizemli/hadis grisi — 6B7280 tam opaklıkta bile 4.05'te kalıyordu
+  slateTextSoft: '#878E97',   // ikincil muted gri — Melekler'in "isHadithOnly" metinleri
+  violetTextSafe:'#8F89D0',   // kayıt meleği moru — 534AB7 tam opaklıkta 2.83'tü
+  heatmapFaint:  '#666D7A',   // /atlas/kissa sahnesiz hücreler (K4) — 1e293b'nin 1.27'si okunmuyordu
 
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',
@@ -499,7 +514,7 @@ export const SEMANTIC = {
   // ⚠ `COLORS.slate500-800` SİLİNMEDİ — kenarlık, ayraç ve ikon zemini
   // olarak hâlâ doğrular (onlar metin değil, AA eşiğine tabi değil).
   // Yasak olan: bunları METİN rengi olarak kullanmak.
-  textFaint:      '#7e8fa6',
+  textFaint:      COLORS.textFaint,
 
   // Kutsal metin ile UI aksanı AYNI HEX ama AYRI ROL. Ayrım bilinçli:
   // ikisi aynı token olursa "ayet rengi" ayırt ediciliğini kaybeder ve

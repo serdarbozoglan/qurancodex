@@ -22,7 +22,11 @@ import path from 'node:path';
 // Anasayfayı besleyen 22 dosyada artık **0 ham hex** var (yorumlar hariç).
 // `distinct` düşmedi çünkü ayıklanan renkler (#27ae60, #9b59b6, #8b5cf6)
 // site genelinde başka dosyalarda da geçiyor — onlar sonraki turların işi.
-const BASELINE = { distinct: 184, occurrences: 1176 };
+// 2026-08-14: kontrast turunda 6 kategori/kimlik rengi AA için açıldı
+// (Melekler/CennetCehennem/KissaAtlas) ve tokens.js'e (`coralBright` vb.)
+// eklendi — token dışı 188'e çıkmıştı (yeni ham renkler), tokenlanınca
+// 182'ye düştü. `pre-push-guard.mjs` hook'u bunu canlı yakaladı.
+const BASELINE = { distinct: 182, occurrences: 1144 };
 
 const ROOT = path.resolve(process.cwd(), 'src');
 const TOKENS = path.join(ROOT, 'tokens.js');

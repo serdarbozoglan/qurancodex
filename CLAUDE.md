@@ -189,7 +189,7 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
 üretirken veya mevcut birini genişletirken bu listeyi tara:
 
 1. **Metin rengi — ham hex/rgb DEĞİL, üç kademeden biri.**
-   `SEMANTIC.textPrimary` (15.74) / `textMuted` (7.65) / `textFaint` (5.02).
+   `SEMANTIC.textPrimary` (15.74) / `textMuted` (7.65) / `textFaint` (5.94).
    Silver opaklığı ≥0.78, gold ≥0.75 — altı AA'yı kırar. → §13.26
 
 2. **Kategori/kimlik rengi de metin olacaksa AA'ya tabidir.** Bir renk
@@ -258,6 +258,14 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
    atlanamaz. Yeni bir sayfa/bileşen bunlardan birini büyütüyorsa
    (yeni renk, yeni metin alanı, yeni veri dosyası), ilgili script'i
    **o sayfaya karşı** çalıştır, tabanın büyümediğini doğrula.
+   > **Renk sistemi ve iç mimari sızıntısı artık otomatik.** `git push`
+   > denemesi `.claude/hooks/pre-push-guard.mjs` (PreToolUse hook)
+   > tarafından yakalanır, ikisi de kırmızıysa push **engellenir** — agent
+   > "unuttum" diyemez. Kontrast sunucu gerektirdiği için hook'un
+   > kapsamı DIŞINDA, elle çalıştırılması gerekir (hook bunu hatırlatır).
+   > 14 Ağustos'ta kayda değer: hook ilk çalıştığında GERÇEK bir ihlal
+   > yakaladı — aynı turda eklenen 6 yeni kategori rengi token'a
+   > bağlanmadan raw hex olarak kalmıştı (§13.25 taban 184→188).
 
 ### 13.1 Design Token Kuralı
 
@@ -1284,7 +1292,7 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
 |---|---|---|---|
 | Ana metin | `SEMANTIC.textPrimary` | `#e8e6e3` | 15.74 |
 | İkincil | `SEMANTIC.textMuted` | `#94a3b8` | 7.65 |
-| **Üçüncül** | **`SEMANTIC.textFaint`** | **`#70829c`** | **5.02** |
+| **Üçüncül** | **`SEMANTIC.textFaint`** | **`#7e8fa6`** | **5.94** (14 Ağustos: `#70829c`'ten açıldı, bkz. tokens.js yorumu) |
 
 #### Mutlak kurallar
 
