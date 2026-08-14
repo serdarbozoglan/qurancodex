@@ -1100,9 +1100,31 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       ReadingMode'un ÇEKİRDEK render alanına (11k+ satır) sentetik
       `minHeight` eklemeyi gerektiriyor — kısa sûrelerde "boş görünme"
       riski taşıyan, daha derin bir müdahale; kullanıcı onayıyla BURADA
-      DURULDU. **Sonraki tur (hâlâ açık):** bu içerik-alanı minHeight'ı +
-      `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/*` ailesi
-      (aynı `useState(null)+useEffect fetch` kalıbı, henüz hiç dokunulmadı).
+      DURULDU. **Sonraki tur (hâlâ açık):** bu içerik-alanı minHeight'ı.
+- [x] ~~**`neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/karsilastir`/
+      `graf/kavram` ailesi**~~ — **KISMEN KAPANDI** `048414b`. Bulgu güncel
+      değilmiş: bu 5 sayfa daha önceki bir turda (`f9d9e36`, "Z3f2") zaten
+      `fetch()`'ten static import'a geçirilmişti — `useState(null)+useEffect
+      fetch` kalıbı ARTIK yok. Taze ölçümde (`scratch-cls.mjs`, throttled
+      mobil 390px) FARKLI bir kök çıktı: `padding: isMobile ? '16px' :
+      '24px 32px'` — CrossToolCTA'nın 14 Ağustos'ta düzeltilen AYNI
+      §14.2 kalıbı, ama bu kez §14.6'nın kendi önerdiği standart mobil-
+      padding idiyomunda. Grep site genelinde **70 dosyada** gösterdi —
+      kullanıcı kapsamı bugün ölçülen 5 sayfaya sınırladı (tam site
+      taraması ayrı, büyük bir tur gerektiriyor, henüz yapılmadı).
+      `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve` üç kardeş dosya
+      aynı şablonu paylaşıyordu → `globals.css`'e `.zf2-tool-*` paylaşılan
+      sınıfları: **0.116-0.178 → 0.007-0.019** (eşik altı, fiilen sıfır).
+      `graf/karsilastir` (`SurahComparator.jsx`, 6 özellik) ve `graf/kavram`
+      (`ConceptGraph.jsx`, 4 özellik) kendi `.sc-*`/`.cg-*` sınıflarına
+      bağlandı — ama kalan büyük sıçrama (0.780 / 0.318) KAPANMADI: bu
+      ikisi hâlâ GERÇEK `fetch()` kullanıyor (`verse-graph-bgem3.json`
+      **12.3 MB** — static import'a taşımak JS bundle'ı şişirir, mimari
+      doğru; sadece skeleton-boyutu yetersiz). ReadingMode'daki AYNI
+      kategori — derin müdahale kapsam dışı bırakıldı.
+      **Kalan açık:** ReadingMode içerik-minHeight'ı + SurahComparator/
+      ConceptGraph'ın gerçek fetch-remount'u + 70 dosyalık site-geneli
+      `padding: isMobile ?` taraması (ayrı, büyük bir tur).
 - [ ] TBT ihlalleri (7 ölçüm) — ayrıca incelenmedi, CLS'in yanında ikincil.
 - [ ] Kullanıcı notu: **"mobildeki yavaşlığı da çözelim"** — CWV'de LCP/FCP
       temiz çıktığı için bu his muhtemelen CLS'in kendisi (sayfa "zıplıyor"
