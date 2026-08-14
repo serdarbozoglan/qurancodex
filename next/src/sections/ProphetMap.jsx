@@ -460,7 +460,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
 
       {/* Ordering note */}
       <p style={{
-        textAlign: 'center', color: 'rgba(212,165,116,0.65)',
+        textAlign: 'center', color: 'rgba(212,165,116,0.8)',
         fontSize: '0.82rem', marginTop: '10px', marginBottom: '0',
         fontStyle: 'italic',
       }}>

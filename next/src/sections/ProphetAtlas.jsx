@@ -1960,7 +1960,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                 <g key={rank}>
                   <line x1={x} y1={NODE_Y - 5} x2={x} y2={NODE_Y + 5}
                     stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" />
-                  <text x={x} y={NODE_Y + 20} fill={COLORS.silverAlpha70}
+                  <text x={x} y={NODE_Y + 20} fill={SEMANTIC.textFaint}
                     fontSize="11" textAnchor="middle" fontFamily={FONTS.body} fontWeight="500">
                     {language === 'tr' ? labels[rank].tr : labels[rank].en}
                   </text>
@@ -2608,7 +2608,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                   background: isActive ? `${p.color}22` : 'rgba(255,255,255,0.04)',
                   border: `1.5px solid ${isActive ? p.color : COLORS.glassBorder}`,
                   borderRadius: RADIUS.pill,
-                  color: isActive ? p.color : COLORS.slate500,
+                  color: isActive ? p.color : SEMANTIC.textFaint,
                   fontSize: '0.8rem', fontWeight: isActive ? 700 : 400,
                   cursor: 'pointer', transition: `all ${TRANSITION.base}`,
                   boxShadow: isActive ? `0 0 12px ${p.glow}` : 'none',
@@ -2699,7 +2699,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         {p.detailed && (
                           <span style={{
                             fontSize: '0.6rem', fontWeight: 700,
-                            color: 'rgba(212,165,116,0.7)',
+                            color: 'rgba(212,165,116,0.8)',
                             background: 'rgba(212,165,116,0.12)',
                             border: `1px solid ${COLORS.goldAlpha25}`,
                             borderRadius: RADIUS.xs, padding: '1px 5px',

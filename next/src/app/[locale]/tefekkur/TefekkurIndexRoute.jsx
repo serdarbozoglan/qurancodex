@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { renderInlineMarkdown } from '@/components/tefekkur/inlineMarkdown';
-import { COLORS, FONTS, RADIUS, TRANSITION } from '../../../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../../../tokens';
 import ToolHeader from '../../../components/ToolHeader';
 
 export default function TefekkurIndexRoute() {
@@ -368,7 +368,7 @@ function FilterPill({ label, isActive, onClick, accent }) {
         borderRadius: RADIUS.pillSm,
         border: `1px solid ${isActive ? `${accent}66` : 'rgba(255,255,255,0.07)'}`,
         background: isActive ? `${accent}15` : 'transparent',
-        color: isActive ? accent : (COLORS.silverAlpha70 || COLORS.silver),
+        color: isActive ? accent : (SEMANTIC.textFaint),
         fontSize: '0.78rem',
         fontFamily: FONTS.body,
         fontWeight: isActive ? 600 : 500,
@@ -384,7 +384,7 @@ function FilterPill({ label, isActive, onClick, accent }) {
       onMouseLeave={e => {
         if (!isActive) {
           e.currentTarget.style.background = 'transparent';
-          e.currentTarget.style.color = COLORS.silverAlpha70 || COLORS.silver;
+          e.currentTarget.style.color = SEMANTIC.textFaint;
         }
       }}
     >

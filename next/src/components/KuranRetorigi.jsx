@@ -207,7 +207,7 @@ export default function KuranRetorigi({ onClose }) {
               fontSize: isMobile ? '0.74rem' : '0.82rem',
               fontFamily: FONTS.body,
               fontWeight: activeTab === i ? 700 : 500,
-              color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+              color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
               background: 'transparent',
               border: 'none',
               borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -309,7 +309,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       <span style={{
         flex: 1,
         minWidth: 0,
-        color: isActive ? color : `${color}c0`,
+        color: isActive ? color : SEMANTIC.textFaint,
         fontSize: '0.82rem',
         fontFamily: FONTS.body,
         fontWeight: isActive ? 600 : 500,
@@ -321,7 +321,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       {/* Secondary (pct) */}
       {secondary && (
         <span style={{
-          color: isActive ? color : COLORS.slate500,
+          color: isActive ? color : SEMANTIC.textFaint,
           fontSize: '0.72rem',
           fontFamily: FONTS.body,
           fontWeight: 500,

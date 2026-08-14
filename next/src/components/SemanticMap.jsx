@@ -338,7 +338,7 @@ function ClusterCard({ cluster, onClick, selected, language, maxVerseCount }) {
       }}>
         <span><b style={{ color: COLORS.offWhite }}>{c.verse_count}</b> {language === 'tr' ? 'ayet' : 'verses'}</span>
         <span><b style={{ color: COLORS.offWhite }}>{c.distinct_surahs}</b> {language === 'tr' ? 'sûre' : 'surahs'}</span>
-        <span style={{ opacity: 0.65 }}>ρ {c.avg_semantic_density.toFixed(3)}</span>
+        <span>ρ {c.avg_semantic_density.toFixed(3)}</span>
       </div>
 
       {/* Size bar */}

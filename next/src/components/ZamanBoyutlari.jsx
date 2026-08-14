@@ -562,9 +562,12 @@ export default function ZamanBoyutlari({ onClose }) {
                     <div key={i} style={{
                       position: 'absolute',
                       left: `calc(${((i - minLog) / range) * 100}% - 1px)`,
-                      top: '-3px', width: '1px', height: '8px',
-                      background: COLORS.silver, opacity: 0.4,
+                      top: '-3px', width: '1px', height: '18px',
                     }}>
+                      <div style={{
+                        width: '1px', height: '8px',
+                        background: COLORS.silver, opacity: 0.4,
+                      }} />
                       <div style={{
                         position: 'absolute', top: '10px', left: '50%',
                         transform: 'translateX(-50%)',

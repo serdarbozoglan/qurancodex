@@ -388,7 +388,7 @@ export default function KuranYeminleri({ onClose }) {
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: '0',
-                  color: isActive ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                  color: isActive ? COLORS.gold : SEMANTIC.textFaint,
                   fontSize: isMobile ? '0.78rem' : '0.82rem',
                   fontWeight: isActive ? 700 : 500,
                   letterSpacing: isActive ? '0.14em' : '0.12em',

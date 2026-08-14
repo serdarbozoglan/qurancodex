@@ -501,7 +501,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               { value: meta.totalLiteralOccurrences, tr: 'lafzî ayet', en: 'literal verses', color: COLORS.gold },
               { value: meta.totalThematicCategories, tr: 'tematik kanun', en: 'thematic laws', color: COLORS.emerald },
               { value: scholarViews.length, tr: 'ulema', en: 'scholars', color: COLORS.skyBlue },
-              { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: '#8b5cf6' },
+              { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: '#a78bfa' },
             ].map((s, i) => (
               <div key={i} style={{
                 padding: isMobile ? '8px 14px' : '10px 18px',

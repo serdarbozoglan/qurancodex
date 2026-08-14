@@ -21,14 +21,18 @@ const HELAK_COLORS = {
   su:       '#3498db',
   ses:      '#a78bfa',
   sarsinti: '#f39c12',
-  tas:      '#a0785a',
-  batirma:  '#c0392b',
-  deniz:    '#1a5276',
+  // 14 Ağustos: tas/deniz/mesh/batirma metin olarak AA'yı geçmiyordu (1.a0785a
+  // 4.14, 1a5276 2.04, 8e44ad 2.86, c0392b 3.11) — aynı ton ailesi korunarak
+  // açıldı. batirma, KiyametSahneleri faz 1'le aynı orijinal renk (c0392b)
+  // olduğu için oradaki token (rustTextSafe) tekrar kullanıldı.
+  tas:      '#c7926b',
+  batirma:  COLORS.rustTextSafe,
+  deniz:    '#439cd6',
   golge:    '#b8860b',
   ates:     '#ff6348',
-  mesh:     '#8e44ad',
+  mesh:     '#b67ece',
   kurtulan: '#2ecc71',
-  gizemli:  COLORS.slate500,
+  gizemli:  SEMANTIC.textFaint,
 };
 
 // ── HELAK MODE-ICON SET (Dalga 3.1 — unique SVG per destruction type) ──
@@ -448,7 +452,7 @@ export default function KavimlerAtlasi({ onClose }) {
                 padding: isMobile ? '14px 14px' : '15px 20px',
                 border: 'none', background: 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-                color: activeTab === i ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
                 fontSize: isMobile ? '0.74rem' : '0.82rem',
                 fontWeight: activeTab === i ? 700 : 500,
                 fontFamily: FONTS.body,

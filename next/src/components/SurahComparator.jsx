@@ -738,7 +738,7 @@ export default function SurahComparator({ onClose }) {
                     background: (surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.12)' : 'rgba(255,255,255,0.04)',
                     border: `1px solid ${(surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
                     borderRadius: RADIUS.lg, cursor: 'pointer',
-                    color: (surahA === p.a && surahB === p.b) ? '#a78bfa' : COLORS.slate500,
+                    color: (surahA === p.a && surahB === p.b) ? '#a78bfa' : SEMANTIC.textFaint,
                     fontSize: '0.82rem', fontWeight: 500, transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
                   }}
@@ -746,12 +746,12 @@ export default function SurahComparator({ onClose }) {
                   onMouseLeave={e => {
                     const isSelected = surahA === p.a && surahB === p.b;
                     e.currentTarget.style.borderColor = isSelected ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)';
-                    e.currentTarget.style.color = isSelected ? '#a78bfa' : COLORS.slate500;
+                    e.currentTarget.style.color = isSelected ? '#a78bfa' : SEMANTIC.textFaint;
                   }}
                 >
                   <span style={{ display: 'block' }}>{language === 'tr' ? p.labelTr : p.labelEn}</span>
                   {(language === 'tr' ? p.reasonTr : p.reasonEn) && (
-                    <span style={{ display: 'block', fontSize: '0.68rem', opacity: 0.6, marginTop: '1px' }}>
+                    <span style={{ display: 'block', fontSize: '0.68rem', marginTop: '1px' }}>
                       {language === 'tr' ? p.reasonTr : p.reasonEn}
                     </span>
                   )}

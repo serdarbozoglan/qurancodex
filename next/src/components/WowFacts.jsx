@@ -1354,7 +1354,7 @@ export default function WowFacts({ onClose }) {
                   <span style={{
                     background: isActive ? tabColor + '30' : 'rgba(255,255,255,0.08)',
                     borderRadius: RADIUS.sm,
-                    color: isActive ? tabColor : 'rgba(148,163,184,0.7)',
+                    color: isActive ? tabColor : SEMANTIC.textFaint,
                     fontSize: '0.66rem', fontWeight: 700,
                     padding: '1px 7px',
                     transition: `all ${TRANSITION.fast}`,

@@ -1331,12 +1331,12 @@ function TabZaman({ language, isMobile }) {
                     fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
                     border: 'none',
                     background: active ? `${f.color}28` : 'transparent',
-                    color: active ? f.color : COLORS.silverAlpha70,
+                    color: active ? f.color : SEMANTIC.textFaint,
                     boxShadow: active ? `0 0 12px ${f.color}22` : 'none',
                     transition: 'all 0.15s', fontFamily: FONTS.body,
                   }}
                   onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.offWhite; }}}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silverAlpha70; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = SEMANTIC.textFaint; }}}
                 >
                   {language === 'tr' ? f.tr : f.en}
                 </button>
@@ -1367,12 +1367,12 @@ function TabZaman({ language, isMobile }) {
                     fontSize: '0.8rem', fontWeight: active ? 600 : 400, cursor: 'pointer',
                     border: active ? `1px solid ${v.color}55` : `1px solid ${COLORS.glassBgStrong}`,
                     background: active ? `${v.color}18` : 'rgba(255,255,255,0.03)',
-                    color: active ? v.color : COLORS.silverAlpha70,
+                    color: active ? v.color : SEMANTIC.textFaint,
                     boxShadow: active ? `0 0 10px ${v.color}20` : 'none',
                     transition: 'all 0.15s', fontFamily: FONTS.body,
                   }}
                   onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.offWhite; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}}
-                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = COLORS.silverAlpha70; e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}}
+                  onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.color = SEMANTIC.textFaint; e.currentTarget.style.borderColor = COLORS.glassBgStrong; }}}
                 >
                   <span style={{
                     width: '7px', height: '7px', borderRadius: RADIUS.full,

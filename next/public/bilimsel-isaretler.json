@@ -20,7 +20,7 @@
       "id": "astronomi",
       "titleTr": "Astronomi & Kozmoloji",
       "titleEn": "Astronomy & Cosmology",
-      "color": "#8b5cf6",
+      "color": "#a78bfa",
       "descTr": "Gökyüzü, yıldızlar, gezegenler, yörünge, evrenin genişlemesi.",
       "descEn": "Sky, stars, planets, orbits, cosmic expansion."
     },
@@ -36,7 +36,7 @@
       "id": "biyoloji",
       "titleTr": "Biyoloji & Botanik",
       "titleEn": "Biology & Botany",
-      "color": "#1D9E75",
+      "color": "#2BA47D",
       "descTr": "Hayvanlar, bitkiler, yaşam biçimleri.",
       "descEn": "Animals, plants, life forms."
     },
@@ -44,7 +44,7 @@
       "id": "insan",
       "titleTr": "İnsan & Embriyoloji",
       "titleEn": "Human & Embryology",
-      "color": "#e74c3c",
+      "color": "#EB695B",
       "descTr": "İnsan anatomisi, gelişim, biyoloji.",
       "descEn": "Human anatomy, development, biology."
     },

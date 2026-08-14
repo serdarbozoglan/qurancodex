@@ -650,16 +650,16 @@ function SemanticMap({ group, language, isMobile }) {
           <line x1={pad} y1={size / 2} x2={size - pad} y2={size / 2} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
           <line x1={size / 2} y1={pad} x2={size / 2} y2={size - pad} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
           {/* Axis labels */}
-          <text x={pad - 4} y={size / 2 - 6} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={pad - 4} y={size / 2 - 6} fill={SEMANTIC.textFaint} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Somut' : 'Concrete'}
           </text>
-          <text x={size - pad + 4} y={size / 2 - 6} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="end">
+          <text x={size - pad + 4} y={size / 2 - 6} fill={SEMANTIC.textFaint} fontSize="10" fontFamily={FONTS.body} textAnchor="end">
             {tr ? 'Soyut' : 'Abstract'}
           </text>
-          <text x={size / 2 + 6} y={pad + 4} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={size / 2 + 6} y={pad + 4} fill={SEMANTIC.textFaint} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Yoğun' : 'Intense'}
           </text>
-          <text x={size / 2 + 6} y={size - pad - 2} fill={COLORS.silverAlpha70} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
+          <text x={size / 2 + 6} y={size - pad - 2} fill={SEMANTIC.textFaint} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Hafif' : 'Light'}
           </text>
 

@@ -409,7 +409,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
             color: dom.color, textTransform: 'uppercase',
-            fontFamily: FONTS.body, marginBottom: '6px', opacity: 0.85,
+            fontFamily: FONTS.body, marginBottom: '6px',
           }}>
             <span style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',

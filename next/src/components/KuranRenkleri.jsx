@@ -4,7 +4,7 @@ import { useState, useEffect, useId } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS,
+  FONTS, COLORS, TRANSITION, BREAKPOINT_MOBILE, RADIUS, SEMANTIC,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -91,7 +91,12 @@ function InfoPopover({ text }) {
 }
 
 const CONTEXT_BADGES = {
-  cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.15)',  color: KURANI_COLORS.yesilYaprak },
+  // Rozet metni olarak KURANI_COLORS.yesilYaprak (#1D9E75, ratio 4.2) AA'yı
+  // geçmiyordu — bu yalnızca UI kategori rozeti, sayfanın "âyetten
+  // yeniden inşa edilen renk" içeriği değil, o yüzden ayrı bir metin-güvenli
+  // token (emeraldBright) kullanılıyor; KURANI_COLORS.yesilYaprak'ın kendisi
+  // (swatch/hex gösterimi) dokunulmadan kalıyor.
+  cennet:   { labelTr: 'Cennet',   labelEn: 'Paradise',  bg: 'rgba(29,158,117,0.06)',  color: COLORS.emeraldBright },
   kiyamet:  { labelTr: 'Kıyamet',  labelEn: 'Judgment',  bg: 'rgba(200,50,50,0.12)',   color: COLORS.softRed },
   doga:     { labelTr: 'Tabiat',     labelEn: 'Nature',    bg: 'rgba(59,130,246,0.10)',  color: '#60a5fa' },
   kissa:    { labelTr: 'Kıssa',    labelEn: 'Narrative', bg: 'rgba(212,165,116,0.12)', color: COLORS.gold },
@@ -287,7 +292,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 borderRadius: RADIUS.pillSm,
                 border: `1px solid ${isActive ? (COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)') : 'rgba(255,255,255,0.07)'}`,
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
-                color: isActive ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+                color: isActive ? COLORS.gold : SEMANTIC.textFaint,
                 fontFamily: FONTS.body,
                 fontSize: '0.72rem',
                 fontWeight: isActive ? 600 : 500,
@@ -303,7 +308,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
               onMouseLeave={e => {
                 if (!isActive) {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = COLORS.silverAlpha70 || COLORS.silver;
+                  e.currentTarget.style.color = SEMANTIC.textFaint || COLORS.silver;
                 }
               }}
             >
@@ -969,7 +974,7 @@ function TabBaglam({ language, isMobile }) {
                 </div>
                 <span style={{
                   fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.08em',
-                  color: COLORS.silverAlpha70 || COLORS.silver,
+                  color: SEMANTIC.textFaint || COLORS.silver,
                   fontFamily: FONTS.body, textTransform: 'uppercase',
                   padding: '3px 9px', background: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.06)',
@@ -2552,7 +2557,7 @@ function TabKaynaklar({ language }) {
               <span style={{
                 marginLeft: 'auto',
                 fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.08em',
-                color: COLORS.silverAlpha70 || COLORS.silver,
+                color: SEMANTIC.textFaint || COLORS.silver,
                 fontFamily: FONTS.body,
                 padding: '3px 9px', background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.06)',
@@ -2651,7 +2656,7 @@ export default function KuranRenkleri({ onClose }) {
       background: active
         ? `linear-gradient(180deg, ${COLORS.goldAlpha15} 0%, rgba(212,165,116,0.04) 100%)`
         : 'transparent',
-      color: active ? COLORS.gold : (COLORS.silverAlpha70 || COLORS.silver),
+      color: active ? COLORS.gold : SEMANTIC.textFaint,
       fontSize: isMobile ? '0.78rem' : '0.82rem',
       fontWeight: active ? 700 : 500,
       letterSpacing: active ? '0.14em' : '0.12em',
@@ -2952,7 +2957,7 @@ export default function KuranRenkleri({ onClose }) {
                   onMouseLeave={e => {
                     if (!active) {
                       e.currentTarget.style.background = 'transparent';
-                      e.currentTarget.style.color = COLORS.silverAlpha70 || COLORS.silver;
+                      e.currentTarget.style.color = SEMANTIC.textFaint || COLORS.silver;
                     }
                   }}
                 >

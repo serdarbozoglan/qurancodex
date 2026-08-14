@@ -226,7 +226,7 @@ export default function Conclusion() {
         className="flex flex-col items-center mt-16 gap-3"
       >
         <p style={{
-          color: COLORS.silverAlpha70,
+          color: SEMANTIC.textFaint,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
           fontSize: '0.95rem',

@@ -4,7 +4,7 @@
       "id": "yesil",
       "colorNameTr": "Yeşil",
       "colorNameEn": "Green",
-      "hexColor": "#1D9E75",
+      "hexColor": "#2BA47D",
       "tintBg": "rgba(29, 158, 117, 0.12)",
       "tintBorder": "rgba(29, 158, 117, 0.25)",
       "contexts": [
@@ -633,7 +633,7 @@
     "descEn": "The Quran narrates worldly transience in two patterns: the full three-stage sequence (green → yellow → dry) appears in Az-Zumar 39:21 and Al-Ḥadīd 57:20; the two-stage sequence (green → dry, yellow skipped) appears in Al-Kahf 18:45 and Yūnus 10:24. The first group has yellow (مُصْفَرًّا) explicitly; the second skips the withering and goes straight to ruin — حُطَامًا (debris) or هَشِيمًا (dry stubble). Both patterns work the same thesis: the transience of worldly life.",
     "stages": [
       {
-        "hexColor": "#1D9E75",
+        "hexColor": "#2BA47D",
         "labelTr": "Yeşil — Çıktı",
         "labelEn": "Green — Sprouted",
         "noteTr": "Gençlik, güç, büyüme",
