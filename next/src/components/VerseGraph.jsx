@@ -10,7 +10,7 @@ import {
 } from 'three';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildFallbackUrlsFromReciter } from '../hooks/useAudioWithFallback';
-import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import { VolumeOnIcon, VolumeOffIcon } from './icons';
@@ -745,7 +745,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
         onClick={() => setOpen(o => !o)}
         style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: value ? COLORS.offWhite : COLORS.slate500, padding: '0 26px 0 10px', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', height: '36px', minWidth: '155px', maxWidth: '195px', textAlign: 'left', position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', boxSizing: 'border-box' }}>
         {currentLabel}
-        <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: COLORS.slate500, fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
+        <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: SEMANTIC.textFaint, fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
       </button>
       {open && (
         <div style={{ position: 'absolute', top: 'calc(100% + 4px)', right: 0, left: 'auto', background: SLATE.deepBg, border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.chip, zIndex: 200, boxShadow: '0 12px 40px rgba(0,0,0,0.95)', overflow: 'hidden', width: '260px', maxWidth: 'calc(100vw - 24px)', display: 'flex', flexDirection: 'column' }}>
@@ -1137,7 +1137,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                     onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                       <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.78rem' }}>{v.id}</span>
-                      <span style={{ color: COLORS.slate500, fontSize: '0.7rem' }}>{surahNameTr(v.surah, language === 'en')}</span>
+                      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>{surahNameTr(v.surah, language === 'en')}</span>
                     </div>
                     <div style={{ color: COLORS.silver, fontSize: '0.71rem', lineHeight: 1.4 }}>{vt?.slice(0, 70)}...</div>
                   </button>
@@ -1169,7 +1169,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         <button
           onClick={onClose}
           aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
-          style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.full, color: COLORS.slate500, cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
+          style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.full, color: SEMANTIC.textFaint, cursor: 'pointer', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, order: 10 }}
           onMouseEnter={e => { e.currentTarget.style.background = COLORS.glassBorder; e.currentTarget.style.color = COLORS.offWhite; }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = COLORS.slate500; }}
         >
@@ -1464,7 +1464,7 @@ function ZoomControls({ graphRef, language, rightOffset = 24 }) {
         onClick={() => zoomBy(1.54)}
       >−</button>
       <button
-        style={{ ...btnStyle, fontSize: '0.7rem', color: COLORS.slate500 }}
+        style={{ ...btnStyle, fontSize: '0.7rem', color: SEMANTIC.textFaint }}
         title={language === 'tr' ? 'Tümünü göster' : 'Fit all'}
         aria-label={language === 'tr' ? 'Grafın tümünü göster' : 'Fit graph to view'}
         onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.5)'; }}
@@ -1546,7 +1546,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
   });
 
   const sectionLabel = (tr, en) => (
-    <div style={{ color: COLORS.slate600, fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '10px' }}>
+    <div style={{ color: SEMANTIC.textFaint, fontSize: '12px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '10px' }}>
       {label(tr, en)}
     </div>
   );
@@ -1599,7 +1599,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
       {/* ── Anlamı ── */}
       {info && (
         <div style={{ marginBottom: '16px' }}>
-          <div style={{ color: COLORS.slate600, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
+          <div style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>{label('Anlamı', 'Meaning')}</div>
           <div style={{ color: '#c8c0b4', fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.4, fontFamily: FONTS.display }}>
             {label(info.meaning.tr, info.meaning.en)}
           </div>
@@ -1684,7 +1684,7 @@ function SurahInfoPanel({ surah, language, graphData, showName = false, onNaviga
                   <div style={{ height: '100%', background: `linear-gradient(to right, rgba(212,165,116,0.5), ${gold})`, width: `${pct}%`, borderRadius: RADIUS.xs }} />
                 </div>
                 <span style={{ color: '#8fa3b8', fontSize: '14px', whiteSpace: 'nowrap', minWidth: '80px', textAlign: 'right' }}>{s}. {surahNameTr(s, language === 'en')}</span>
-                <span style={{ color: COLORS.slate500, fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '13px', minWidth: '20px', textAlign: 'right' }}>{count}</span>
               </div>
                 );
               });
@@ -1772,7 +1772,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
         background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`,
         borderRadius: RADIUS.md, overflow: 'visible', boxSizing: 'border-box',
       }}>
-        <span style={{ color: COLORS.slate600, fontSize: '0.68rem', padding: '0 6px 0 10px', whiteSpace: 'nowrap', userSelect: 'none' }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', padding: '0 6px 0 10px', whiteSpace: 'nowrap', userSelect: 'none' }}>
           {language === 'tr' ? 'Ayet' : 'Verse'}
         </span>
         <input
@@ -1814,7 +1814,7 @@ function VerseJumpSelector({ surah, language, verses, onFocus, selectedAyah = nu
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,165,116,0.08)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'none'}>
                 <span style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 700, flexShrink: 0, minWidth: '26px' }}>{n}</span>
-                <span style={{ color: COLORS.slate500, fontSize: '0.7rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text?.slice(0, 55)}</span>
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{text?.slice(0, 55)}</span>
               </button>
             );
           })}
@@ -2006,7 +2006,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
-        borderRadius: RADIUS.pillSm, padding: '6px 16px', color: COLORS.slate500, fontSize: '0.7rem',
+        borderRadius: RADIUS.pillSm, padding: '6px 16px', color: SEMANTIC.textFaint, fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showHint ? 1 : 0, transition: 'opacity 0.8s ease',
       }}>
@@ -2772,7 +2772,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
               anlam taşıyıcısı bu (2026-07-23). */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '7px', paddingTop: '5px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
             <span style={{ width: '8px', height: '1px', background: COLORS.goldAlpha45, flexShrink: 0 }} />
-            <span style={{ color: COLORS.slate500, fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.4, maxWidth: '150px' }}>
+            <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', lineHeight: 1.4, maxWidth: '150px' }}>
               {language === 'tr' ? 'Çizgi: anlamca yakın iki ayet. Parlaksa benzerlik güçlü.' : 'A line: two verses close in meaning. Brighter = stronger.'}
             </span>
           </div>
@@ -2955,7 +2955,7 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
   if (error) return (
     <div style={{ position: 'fixed', top: `${navTop}px`, left: 0, right: 0, bottom: 0, zIndex: 50, background: COLORS.cosmicBlack, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px' }}>
       <span style={{ color: '#e74c3c', fontSize: '1rem', fontWeight: 600 }}>Veri Bulunamadı</span>
-      <span style={{ color: COLORS.slate500, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
+      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.82rem', textAlign: 'center', maxWidth: '480px' }}>{error}</span>
     </div>
   );
 
@@ -3249,7 +3249,7 @@ function ShareModal({ node, language, onClose }) {
             aria-label={language === 'en' ? 'Close panel' : 'Paneli kapat'}
             style={{
               background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
-              borderRadius: RADIUS.md, color: COLORS.slate500,
+              borderRadius: RADIUS.md, color: SEMANTIC.textFaint,
               padding: '10px 12px', cursor: 'pointer', fontSize: '0.8rem',
             }}
           >✕</button>
@@ -3352,7 +3352,7 @@ function VersePanel({ node, verses, language, onClose, onNavigate }) {
           <button
             onClick={onClose}
             aria-label={language === 'en' ? 'Close verse detail' : 'Ayet detayını kapat'}
-            style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: COLORS.slate500, cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}
+            style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBgStrong}`, borderRadius: RADIUS.sm, color: SEMANTIC.textFaint, cursor: 'pointer', fontSize: '0.8rem', padding: '3px 8px' }}
           >✕</button>
         </div>
       </div>

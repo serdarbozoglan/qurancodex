@@ -10,8 +10,7 @@ import {
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
-  TEXT,
-} from '../tokens';
+  TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -1790,7 +1789,7 @@ function HadithTab({ hadith, language, isMobile }) {
         }}>
           <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
             <div style={{
-              color: COLORS.slate500,
+              color: SEMANTIC.textFaint,
               fontSize: '0.66rem',
               fontFamily: FONTS.body,
               fontWeight: 700,
@@ -1820,7 +1819,7 @@ function HadithTab({ hadith, language, isMobile }) {
 
           <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
             <div style={{
-              color: COLORS.slate500,
+              color: SEMANTIC.textFaint,
               fontSize: '0.66rem',
               fontFamily: FONTS.body,
               fontWeight: 700,

@@ -471,6 +471,24 @@ export const SEMANTIC = {
   textPrimary:    COLORS.offWhite,
   textMuted:      COLORS.silver,
 
+  // ÜÇÜNCÜ METİN KATMANI (2026-08-14, K2+K3).
+  // Ölçüm: kod tabanı üçüncü kademe için `COLORS.slate500/600/700/800`
+  // kullanıyordu ve DÖRDÜ DE AA'yı geçmiyordu — cosmic-black üstünde
+  // 4.12 · 2.59 · 1.89 · 1.34. Yalnız `slate500` 173 yerde metin rengiydi.
+  // Sorun tek tek kullanımlarda değil, KATMANIN OLMAMASINDAYDI: ham
+  // palet (Tailwind slate) rol yerine kullanılmıştı (§13.25 md. 2).
+  //
+  // `#70829c` slate tonunu korur ama AA'yı geçer (5.02). Böylece üç
+  // kademe gerçekten üç kademe olur ve üçü de okunabilir:
+  //   textPrimary #e8e6e3 → 15.74
+  //   textMuted   #94a3b8 →  7.65
+  //   textFaint   #70829c →  5.02
+  //
+  // ⚠ `COLORS.slate500-800` SİLİNMEDİ — kenarlık, ayraç ve ikon zemini
+  // olarak hâlâ doğrular (onlar metin değil, AA eşiğine tabi değil).
+  // Yasak olan: bunları METİN rengi olarak kullanmak.
+  textFaint:      '#70829c',
+
   // Kutsal metin ile UI aksanı AYNI HEX ama AYRI ROL. Ayrım bilinçli:
   // ikisi aynı token olursa "ayet rengi" ayırt ediciliğini kaybeder ve
   // buton/badge/link/ayet aynı görünür — hiyerarşi çöker.

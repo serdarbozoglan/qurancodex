@@ -9,7 +9,7 @@ import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
 import HifzPanel from './hifz/HifzPanel';
 import HifzIcon from './hifz/HifzIcon';
-import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import InterlinearView from './InterlinearView';
 import TafsirPanel from './TafsirPanel';
 import WordTooltip from './WordTooltip';
@@ -802,7 +802,7 @@ function AudioBar({ surah: _surah, ayah: _ayah, playing, failed, onToggle, langu
           {playing ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
         </button>
       </div>
-      <span style={{ color: COLORS.slate500, fontSize: '0.65rem' }}>
+      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem' }}>
         {language === 'tr' ? reciter.labelTr : reciter.labelEn}
       </span>
     </div>
@@ -4336,7 +4336,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           padding: '12px 16px', boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
           display: 'flex', flexDirection: 'column', gap: '10px', width: '220px',
         }}>
-          <span style={{ fontSize: '0.62rem', color: COLORS.slate500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.62rem', color: SEMANTIC.textFaint, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             {language === 'tr' ? 'Yazı Boyutu' : 'Font Size'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -4397,7 +4397,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </span>
             <button
               onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
-              style={{ fontSize: '0.65rem', color: COLORS.slate500, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               onMouseEnter={e => { e.currentTarget.style.color = '#a0abb8'; }}
               onMouseLeave={e => { e.currentTarget.style.color = COLORS.slate500; }}
             >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>

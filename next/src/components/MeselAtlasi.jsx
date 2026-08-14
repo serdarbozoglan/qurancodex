@@ -5,8 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
-} from '../tokens';
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -806,9 +805,9 @@ function TabNurZulumat({ data, language, isMobile }) {
           background: 'linear-gradient(135deg, rgba(30,30,60,0.5) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
-          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: COLORS.slate500, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
-          <div style={{ color: COLORS.slate500, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
-          <div style={{ color: COLORS.slate500, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
+          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
+          <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
+          <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.zulumatForm}</div>
         </div>
       </div>

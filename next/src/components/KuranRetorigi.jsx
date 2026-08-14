@@ -6,8 +6,7 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 import {
   COLORS, FONTS,
   BREAKPOINT_MOBILE, RADIUS,
-  VERSE_BLOCK, TEXT,
-} from '../tokens';
+  VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -398,7 +397,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       </div>
       <p style={{ color: catColor, fontSize: '0.82rem', fontWeight: 600, margin: '0 0 4px', fontFamily: FONTS.body }}>
         {tr ? sp.nameTr : sp.nameEn}
-        <span style={{ color: COLORS.slate500, fontWeight: 400, marginLeft: 8 }}>{tr ? sp.countTr : sp.countEn}</span>
+        <span style={{ color: SEMANTIC.textFaint, fontWeight: 400, marginLeft: 8 }}>{tr ? sp.countTr : sp.countEn}</span>
       </p>
       <p style={{ color: COLORS.silver, fontSize: '0.8rem', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.5 }}>
         {tr ? sp.noteTr : sp.noteEn}
@@ -429,7 +428,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
           flexShrink: 0,
         }}>
           {/* Kategoriler */}
-          <div style={{ padding: '12px 16px 6px', color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+          <div style={{ padding: '12px 16px 6px', color: SEMANTIC.textFaint, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
             {tr ? 'Soru Türleri' : 'Question Types'}
           </div>
           {data.categories.map(c => {
@@ -439,7 +438,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
           })}
 
           {/* Özel Kalıplar */}
-          <div style={{ padding: '16px 16px 6px', color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4, borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
+          <div style={{ padding: '16px 16px 6px', color: SEMANTIC.textFaint, fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4, borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
             {tr ? 'Özel Kalıplar' : 'Special Patterns'}
           </div>
           {data.specialPatterns.map(p =>
@@ -528,7 +527,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
               </div>
             </div>
             {(activeCategory.aliasTr || activeCategory.aliasEn) && (
-              <p style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, margin: '0 0 16px' }}>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body, margin: '0 0 16px' }}>
                 {tr ? activeCategory.aliasTr : activeCategory.aliasEn}
               </p>
             )}
@@ -564,7 +563,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
               </span>
             </div>
             {(activeSpecial.countSourceTr || activeSpecial.countSourceEn) && (
-              <p style={{ color: COLORS.slate500, fontSize: '0.74rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.5 }}>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.74rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.5 }}>
                 {tr ? activeSpecial.countSourceTr : activeSpecial.countSourceEn}
               </p>
             )}
@@ -673,7 +672,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                   <div>
                     <p style={{ color: activeSpecial.color, fontSize: '0.85rem', fontWeight: 600, margin: '0 0 3px', fontFamily: FONTS.body }}>
                       {tr ? f.nameTr : f.nameEn}
-                      <span style={{ color: COLORS.slate500, fontWeight: 400, marginLeft: 8 }}>{tr ? f.countTr : f.countEn}</span>
+                      <span style={{ color: SEMANTIC.textFaint, fontWeight: 400, marginLeft: 8 }}>{tr ? f.countTr : f.countEn}</span>
                     </p>
                     <p style={{ color: COLORS.silver, fontSize: '0.8rem', margin: '0 0 6px', fontFamily: FONTS.body, lineHeight: 1.5, maxWidth: 480 }}>
                       {tr ? f.roleTr : f.roleEn}
@@ -933,7 +932,7 @@ function TabSorular({ data, tr, isMobile }) {
           {Object.entries(PATTERN_LABELS_TR).map(([id, labelTr]) =>
             pill(tr ? labelTr : PATTERN_LABELS_EN[id], id, patternFilter, setPatternFilter, PATTERN_COLORS[id])
           )}
-          <span style={{ color: COLORS.slate500, padding: '4px 4px', fontSize: '0.75rem', alignSelf: 'center' }}>|</span>
+          <span style={{ color: SEMANTIC.textFaint, padding: '4px 4px', fontSize: '0.75rem', alignSelf: 'center' }}>|</span>
           {pill(tr ? 'Tüm Muhatap' : 'All Addressees', 'all', addressFilter, setAddressFilter, COLORS.silver)}
           {['humanity', 'mushrikeen', 'prophet'].map(id =>
             pill(tr ? ADDRESS_LABELS_TR[id] : ADDRESS_LABELS_EN[id], id, addressFilter, setAddressFilter, ADDRESS_COLORS[id])
@@ -1173,7 +1172,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
                 <div>
-                  <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body }}>{s.number}. </span>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body }}>{s.number}. </span>
                   <span style={{ color: COLORS.offWhite, fontSize: '0.95rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                     {tr ? s.nameTr : s.nameEn}
                   </span>

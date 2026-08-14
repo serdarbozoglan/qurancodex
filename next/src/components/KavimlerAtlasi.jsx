@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -293,7 +293,7 @@ function InfoTip({ textTr, textEn, language }) {
         onClick={() => setVisible(v => !v)}
         style={{
           background: 'none', border: 'none', cursor: 'pointer',
-          color: COLORS.slate500, fontSize: '0.7rem', padding: '0 2px',
+          color: SEMANTIC.textFaint, fontSize: '0.7rem', padding: '0 2px',
           lineHeight: 1,
         }}
       >ℹ</button>
@@ -810,7 +810,7 @@ function HeroSection({ meta, language, isMobile }) {
             <div style={{ color: s.color, fontSize: '1.7rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
             </div>
-            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px', lineHeight: 1.3 }}>
+            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px', lineHeight: 1.3 }}>
               {language === 'tr' ? s.labelTr : s.labelEn}
             </div>
           </div>
@@ -865,7 +865,7 @@ function TabNations({ nations, language, isMobile, filter, setFilter, onArchClic
       </div>
 
       {/* Count */}
-      <p style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, marginBottom: '16px' }}>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body, marginBottom: '16px' }}>
         {filtered.length} {language === 'tr' ? 'kavim gösteriliyor' : 'nations shown'}
       </p>
 
@@ -950,7 +950,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           <div style={{ color: COLORS.gold, fontSize: '1.4rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
             {nation.mentionCount}×
           </div>
-          <div style={{ color: COLORS.slate500, fontSize: '0.62rem', fontFamily: FONTS.body }}>
+          <div style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'geçiş' : 'refs'}
           </div>
         </div>
@@ -1018,13 +1018,13 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
           <circle cx="12" cy="9" r="2.5" fill={COLORS.slate500} stroke="none"/>
         </svg>
-        <span style={{ color: COLORS.slate500, fontSize: '0.73rem', fontFamily: FONTS.body }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.73rem', fontFamily: FONTS.body }}>
           {geo}
         </span>
       </div>
 
       {/* Main surah — mainSurahEn TR transliteration'ının EN karşılığıyla değiştirir */}
-      <div style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '10px' }}>
+      <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, marginBottom: '10px' }}>
         {language === 'tr' ? 'Ana sûre: ' : 'Main surah: '}
         <span style={{ color: COLORS.silver }}>
           {language === 'en' ? (nation.mainSurahEn || nation.mainSurah) : nation.mainSurah}
@@ -1067,8 +1067,8 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               display: 'flex', gap: '6px', alignItems: 'flex-start',
               background: 'rgba(100,116,139,0.08)', borderRadius: RADIUS.md, padding: '8px 10px',
             }}>
-              <span style={{ color: COLORS.slate500, fontSize: '0.75rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
-              <p style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.6 }}>
+              <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', flexShrink: 0, marginTop: '1px' }}>ℹ</span>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, lineHeight: 1.6 }}>
                 {info}
               </p>
             </div>
@@ -1079,7 +1079,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
       {/* Expand toggle */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        marginTop: '10px', color: COLORS.slate500, fontSize: '0.72rem',
+        marginTop: '10px', color: SEMANTIC.textFaint, fontSize: '0.72rem',
         fontFamily: FONTS.body, gap: '4px',
       }}>
         <span>{expanded
@@ -1526,7 +1526,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
                 <div style={{ color: COLORS.offWhite, fontSize: '0.92rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
                   {card.title}
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body }}>
                   <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
                     <circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none"/>
@@ -1554,7 +1554,7 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
               {card.body}
             </p>
             {card.bodyNote && (
-              <p style={{ color: COLORS.slate500, fontSize: '0.76rem', fontFamily: FONTS.body, margin: '0 0 10px', lineHeight: 1.6, fontStyle: 'italic' }}>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.76rem', fontFamily: FONTS.body, margin: '0 0 10px', lineHeight: 1.6, fontStyle: 'italic' }}>
                 {card.bodyNote}
               </p>
             )}
@@ -1767,7 +1767,7 @@ function TabHarita({ language, isMobile }) {
                       ? (tr ? 'Teyitli' : 'Confirmed')
                       : (tr ? 'Tartışmalı' : 'Debated')}
                   </div>
-                  <div style={{ fontSize: '0.72rem', color: COLORS.slate500, lineHeight: 1.5 }}>
+                  <div style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, lineHeight: 1.5 }}>
                     {tr ? region.sourceTr : region.sourceEn}
                   </div>
                 </div>
@@ -1796,7 +1796,7 @@ function TabHarita({ language, isMobile }) {
 
       {/* Kaynak tablosu */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.slate500, marginBottom: '4px' }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: SEMANTIC.textFaint, marginBottom: '4px' }}>
           {tr ? 'Bölge Kaynakları' : 'Region Sources'}
         </div>
         {NATION_REGIONS.map(r => (
@@ -1815,7 +1815,7 @@ function TabHarita({ language, isMobile }) {
               <span style={{ fontSize: '0.72rem', color: `${STATUS_COLOR[r.status]}`, fontFamily: FONTS.body, marginLeft: '6px' }}>
                 {r.status === 'confirmed' ? (tr ? '✓ Teyitli' : '✓ Confirmed') : (tr ? '~ Tartışmalı' : '~ Debated')}
               </span>
-              <p style={{ fontSize: '0.73rem', color: COLORS.slate500, margin: '2px 0 0', lineHeight: 1.55, fontFamily: FONTS.body }}>
+              <p style={{ fontSize: '0.73rem', color: SEMANTIC.textFaint, margin: '2px 0 0', lineHeight: 1.55, fontFamily: FONTS.body }}>
                 {tr ? r.sourceTr : r.sourceEn}
               </p>
             </div>
@@ -1904,7 +1904,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Helak Biçimleri' : 'Types of Destruction'}
         </div>
-        <p style={{ color: COLORS.slate500, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 18px', lineHeight: 1.5 }}>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 18px', lineHeight: 1.5 }}>
           {language === 'tr'
             ? 'Her daire bir kavmi temsil eder. Renk, helak biçimini gösterir.'
             : 'Each circle represents one nation. Color indicates the type of destruction.'}
@@ -1961,7 +1961,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
               <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: HELAK_COLORS.kurtulan, flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
-                <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
               </div>
             </div>
           ))}
@@ -1982,7 +1982,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
               <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: HELAK_COLORS.gizemli, flexShrink: 0, marginTop: '4px' }} />
               <div>
                 <span style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontFamily: FONTS.body }}>{language === 'tr' ? n.tr : n.en}</span>
-                <span style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.71rem', fontFamily: FONTS.body, display: 'block', lineHeight: 1.4 }}>{language === 'tr' ? n.noteTr : n.noteEn}</span>
               </div>
             </div>
           ))}
@@ -1998,7 +1998,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Kavim Frekans Tablosu' : 'Nation Frequency Table'}
         </div>
-        <p style={{ color: COLORS.slate500, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 14px', lineHeight: 1.5 }}>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.73rem', fontFamily: FONTS.body, margin: '0 0 14px', lineHeight: 1.5 }}>
           {language === 'tr' ? 'Kur\'an\'daki anlatı yoğunluğuna göre azalan sırayla.' : 'Sorted descending by narrative frequency in the Quran.'}
         </p>
         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: isMobile ? '360px' : 'auto' }}>
@@ -2011,7 +2011,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
                 { label: language === 'tr' ? 'Akıbet' : 'Fate', align: 'left' },
               ].map((h, i) => (
                 <th key={i} style={{
-                  color: COLORS.slate500, fontSize: '0.68rem', fontFamily: FONTS.body,
+                  color: SEMANTIC.textFaint, fontSize: '0.68rem', fontFamily: FONTS.body,
                   fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
                   padding: '6px 8px', textAlign: h.align,
                   borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
@@ -2050,7 +2050,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
             })}
           </tbody>
         </table>
-        <p style={{ color: COLORS.slate500, fontSize: '0.71rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.71rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
           {language === 'tr'
             ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder — iki farklı ölçüm, doğrudan karşılaştırılamaz.'
             : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people — two different metrics, not directly comparable.'}
@@ -2084,7 +2084,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
                 <div style={{ color: COLORS.offWhite, fontSize: '0.83rem', fontFamily: FONTS.body, marginBottom: '3px' }}>
                   {obj.text}
                 </div>
-                <div style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body }}>
                   {obj.refs}
                 </div>
               </div>
@@ -2170,7 +2170,7 @@ function TabKaynaklar({ language }) {
                     <div style={{ color: COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: 500 }}>
                       {item.label}
                     </div>
-                    <div style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, marginTop: '2px' }}>
+                    <div style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body, marginTop: '2px' }}>
                       {item.detail}
                     </div>
                   </div>

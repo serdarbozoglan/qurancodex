@@ -3,7 +3,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
@@ -649,7 +649,7 @@ export default function ZamanBoyutlari({ onClose }) {
               ? '"Rabbinin katında bir gün, sizin saydıklarınızdan bin yıl gibidir."'
               : '"A day with your Lord is like a thousand years of what you count."'}
           </p>
-          <span style={{ color: COLORS.slate500, fontSize: '0.8rem', fontFamily: FONTS.body }}>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', fontFamily: FONTS.body }}>
             Hac 22:47
           </span>
         </div>
@@ -715,7 +715,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     )}
 
                     {/* Note */}
-                    <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.slate500, margin: 0, lineHeight: 1.5 }}>
+                    <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: SEMANTIC.textFaint, margin: 0, lineHeight: 1.5 }}>
                       {language === 'tr' ? item.noteTr : item.noteEn}
                     </p>
 
@@ -1039,7 +1039,7 @@ export default function ZamanBoyutlari({ onClose }) {
               <p style={{
                 fontFamily: FONTS.body,
                 fontSize: '0.78rem',
-                color: COLORS.slate500,
+                color: SEMANTIC.textFaint,
                 margin: 0,
                 fontStyle: 'italic',
                 lineHeight: 1.5,

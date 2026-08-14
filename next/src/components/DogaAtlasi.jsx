@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -1126,7 +1126,7 @@ function TabSureIsimleri({ sureNames, isMobile, language }) {
           <p style={{ margin: 0, color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.85rem', lineHeight: 1.6 }}>
             {language === 'tr' ? s.storyTr : (s.storyEn ?? s.storyTr)}
           </p>
-          <p style={{ margin: 0, color: COLORS.slate500, fontFamily: FONTS.body, fontSize: '0.75rem' }}>
+          <p style={{ margin: 0, color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.75rem' }}>
             {s.keyRef}
           </p>
         </div>
@@ -1193,7 +1193,7 @@ function TabBaglamAnalizi({ contexts, language }) {
               </span>
             ))}
           </div>
-          <p style={{ margin: 0, color: COLORS.slate500, fontFamily: FONTS.body, fontSize: '0.78rem', fontStyle: 'italic' }}>
+          <p style={{ margin: 0, color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.78rem', fontStyle: 'italic' }}>
             {language === 'tr' ? ctx.keyVerseTr : (ctx.keyVerseEn ?? ctx.keyVerseTr)}
           </p>
         </div>
@@ -1244,7 +1244,7 @@ function TabTefsirNotlari({ tefsirNotes, sources, language }) {
       </div>
 
       <p style={{
-        color: COLORS.slate500,
+        color: SEMANTIC.textFaint,
         fontFamily: FONTS.body,
         fontSize: '0.78rem',
         fontStyle: 'italic',

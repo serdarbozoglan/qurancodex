@@ -11,8 +11,7 @@ import {
   GLASS_CARD,
   BREAKPOINT_TABLET,
   RADIUS,
-  TEXT,
-} from '../tokens';
+  TEXT, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -1319,7 +1318,7 @@ function ScholarCard({ view, language, isMobile }) {
       {/* Source */}
       <div style={{
         fontSize: '0.75rem',
-        color: COLORS.slate500,
+        color: SEMANTIC.textFaint,
         fontFamily: FONTS.body,
         lineHeight: 1.55,
         paddingTop: '4px',

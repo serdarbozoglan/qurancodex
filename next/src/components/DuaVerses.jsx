@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import { PlayIcon, PauseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -144,7 +144,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
         <SurahLink
           surah={dua.surah}
           ayah={dua.ayah}
-          style={{ color: '#4a5568', fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }}
+          style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', fontFamily: 'Inter, sans-serif', whiteSpace: 'nowrap' }}
           ariaLabel={language === 'tr'
             ? `${ref} — oku`
             : `${ref} — read`}
@@ -180,7 +180,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
       {/* Note */}
       {note && (
         <div style={{
-          color: '#4a6080',
+          color: SEMANTIC.textFaint,
           fontSize: '0.75rem',
           fontStyle: 'italic',
         }}>
@@ -219,7 +219,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
         >
           {isPlaying ? <PauseIcon size={11} /> : <PlayIcon size={11} />}
         </button>
-        <span style={{ color: '#4a5568', fontSize: '0.65rem' }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem' }}>
           {language === 'tr' ? 'Tilâvet' : 'Recitation'}
         </span>
       </div>
@@ -507,7 +507,7 @@ export default function DuaVerses({ onClose }) {
         )}
 
         {!loading && filtered.length === 0 && (
-          <div style={{ color: '#4a5568', fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>
+          <div style={{ color: SEMANTIC.textFaint, fontSize: '0.85rem', textAlign: 'center', padding: '60px' }}>
             {language === 'tr' ? 'Sonuç bulunamadı.' : 'No results found.'}
           </div>
         )}

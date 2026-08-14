@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
 import { routeForToolEvent } from '../lib/toolRoutes';
-import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -570,7 +570,7 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
         </span>
       </div>
 
-      <p style={{ fontSize: '0.8rem', color: COLORS.slate500, margin: '0 0 8px', fontStyle: 'italic' }}>
+      <p style={{ fontSize: '0.8rem', color: SEMANTIC.textFaint, margin: '0 0 8px', fontStyle: 'italic' }}>
         {tr ? item.meaningTr : item.meaningEn}
       </p>
 
@@ -616,7 +616,7 @@ function StatPill({ value, label, color, isMobile }) {
       minWidth: '60px',
     }}>
       <div style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', fontWeight: 800, color, lineHeight: 1.1 }}>{value}</div>
-      <div style={{ fontSize: '0.62rem', color: COLORS.slate600, marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
+      <div style={{ fontSize: '0.62rem', color: SEMANTIC.textFaint, marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
     </div>
   );
 }
@@ -753,7 +753,7 @@ function TabCennet({ data, language, isMobile }) {
           }}>
             <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 6px' }}>{n.nameAr}</p>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
-            <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
+            <p style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
             {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148, 163, 184, 0.78)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
           </div>
         ))}
@@ -815,7 +815,7 @@ function TabCennet({ data, language, isMobile }) {
             border: `1px solid ${f.isSessizlik ? 'rgba(255,255,255,0.06)' : CENNET.border}`,
             borderRadius: RADIUS.chip, padding: '12px 14px',
           }}>
-            <p style={{ fontSize: '0.72rem', color: COLORS.slate500, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 600 }}>
+            <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 4px', fontWeight: 600 }}>
               {tr ? f.labelTr : f.labelEn}
             </p>
             <p style={{ fontSize: '0.88rem', fontWeight: 700, color: f.isSessizlik ? COLORS.slate600 : COLORS.offWhite, margin: '0 0 6px', lineHeight: 1.4 }}>
@@ -871,7 +871,7 @@ function TabCennet({ data, language, isMobile }) {
           </div>
         ))}
       </div>
-      <p style={{ fontSize: '0.78rem', color: COLORS.slate600, marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
+      <p style={{ fontSize: '0.78rem', color: SEMANTIC.textFaint, marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
         {language === 'tr'
           ? "Vâkıa sûresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir — her biri farklı nimetlerle."
           : "Surah Al-Waqi'a divides humanity into these three groups. The first two groups are rewarded with detailed descriptions of Paradise — each with distinct blessings."}
@@ -913,7 +913,7 @@ function TabCehennem({ data, language, isMobile }) {
               </p>
             ) : (
               /* Sessizlik placeholder */
-              <p style={{ fontSize: '1.1rem', color: COLORS.slate600, textAlign: 'center', letterSpacing: '0.3em', margin: '4px 0 12px', fontStyle: 'italic' }}>— — —</p>
+              <p style={{ fontSize: '1.1rem', color: SEMANTIC.textFaint, textAlign: 'center', letterSpacing: '0.3em', margin: '4px 0 12px', fontStyle: 'italic' }}>— — —</p>
             )}
             {/* Translation */}
             {(tr ? item.verseTr : item.verseEn) ? (
@@ -1049,7 +1049,7 @@ function TabCehennem({ data, language, isMobile }) {
                   {tr ? item.nameTr : item.nameEn}
                 </span>
                 {(tr ? item.meaningTr : item.meaningEn) && (
-                  <span style={{ fontSize: '0.72rem', color: COLORS.slate500, marginLeft: '8px', fontStyle: 'italic' }}>
+                  <span style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, marginLeft: '8px', fontStyle: 'italic' }}>
                     {tr ? item.meaningTr : item.meaningEn}
                   </span>
                 )}
@@ -1225,7 +1225,7 @@ function TabRahman({ data, language, isMobile }) {
           <span style={{
             fontSize: '1.1rem', fontWeight: 800, color: GOLD,
           }}>{rs.nakaratCount}×</span>
-          <span style={{ fontSize: '0.75rem', color: COLORS.slate500 }}>
+          <span style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint }}>
             {tr ? rs.nakaratKaynak : rs.nakaratKaynakEn}
           </span>
         </div>
@@ -1341,7 +1341,7 @@ const CROSS_LINKS = [
 function SourceSection({ titleTr, titleEn, items, tr }) {
   return (
     <div style={{ marginBottom: '20px' }}>
-      <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: COLORS.slate500, margin: '0 0 10px' }}>
+      <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: SEMANTIC.textFaint, margin: '0 0 10px' }}>
         {tr ? titleTr : titleEn}
       </h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -1411,7 +1411,7 @@ function TabKaynaklar({ data, language }) {
 
       {/* Cross-tool links */}
       <div style={{ marginTop: '28px' }}>
-        <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: COLORS.slate500, margin: '0 0 10px' }}>
+        <h3 style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: SEMANTIC.textFaint, margin: '0 0 10px' }}>
           {tr ? 'İlgili Araçlar' : 'Related Tools'}
         </h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>

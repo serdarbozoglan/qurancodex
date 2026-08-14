@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
+import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -530,7 +530,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
               borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
               <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar" dir="rtl">{n.arabic}</span>
-              <span style={{ fontSize: '0.65rem', color: COLORS.slate500 }}>{n.ref}</span>
+              <span style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint }}>{n.ref}</span>
               {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü — Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view — Quran does not equate explicitly'} language={language} />}
             </span>
           ))}
@@ -601,7 +601,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: SEMANTIC.textFaint, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr ? "Kur'an melekleri tanım değil görev üzerinden anlatır." : 'The Quran defines angels by function, not by description.'}
       </p>
 
@@ -678,7 +678,7 @@ function TabGorevler({ data, language, isMobile: _isMobile }) {
               <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 {tr ? g.titleTr : g.titleEn}
               </p>
-              <p style={{ fontSize: '0.72rem', color: COLORS.slate500, margin: 0, marginLeft: 'auto', whiteSpace: 'nowrap' }}>{g.melek}</p>
+              <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, margin: 0, marginLeft: 'auto', whiteSpace: 'nowrap' }}>{g.melek}</p>
             </div>
             <VerseBlock arabic={g.arabic} translation={tr ? g.turkish : g.english} ref={g.ref} accent={accent} />
             <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '10px 0 0', lineHeight: 1.65 }}>
@@ -699,7 +699,7 @@ function TabKissalar({ data, language, isMobile }) {
 
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: SEMANTIC.textFaint, fontStyle: 'italic', margin: '0 0 20px', lineHeight: 1.6 }}>
         {tr
           ? 'Melekler kıssalarda pasif değil — müjde taşır, şehri helak eder, peygambere yoldaş olur.'
           : 'Angels in Quranic narratives are not passive — they announce, destroy cities, accompany prophets.'}
@@ -824,7 +824,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{ fontSize: '0.85rem', color: COLORS.slate500, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.85rem', color: SEMANTIC.textFaint, fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.6 }}>
         {tr
           ? "Bu sekme sitenin en kritik akademik katkısıdır: Kur'an'da olan ile hadis geleneğinde olan ayrı gösterilir."
           : "This tab is the most critical academic contribution of this page: what is in the Quran vs. what the hadith tradition adds."}
@@ -900,7 +900,7 @@ function TabDilbilim({ data, language, isMobile }) {
               <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>
                 {tr ? d.kokAnalizi?.rootMeaningTr : d.kokAnalizi?.rootMeaningEn}
               </p>
-              <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: 0 }}>
+              <p style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, margin: 0 }}>
                 {tr ? d.kokAnalizi?.kuranicFrequencyTr : d.kokAnalizi?.kuranicFrequencyEn}
               </p>
             </div>
@@ -908,11 +908,11 @@ function TabDilbilim({ data, language, isMobile }) {
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar" dir="rtl">{d.kokAnalizi?.tekil}</p>
-              <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'tekil' : 'singular'}</p>
+              <p style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint, margin: 0 }}>{tr ? 'tekil' : 'singular'}</p>
             </div>
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar" dir="rtl">{d.kokAnalizi?.cogul}</p>
-              <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'çoğul' : 'plural'}</p>
+              <p style={{ fontSize: '0.65rem', color: SEMANTIC.textFaint, margin: 0 }}>{tr ? 'çoğul' : 'plural'}</p>
             </div>
           </div>
         </div>
@@ -1038,7 +1038,7 @@ function TabKaynaklar({ data, language }) {
                         <ExternalLinkIcon size={10} strokeWidth={2.5} />
                       </a>
                     ) : (
-                      <span style={{ fontSize: '0.75rem', color: COLORS.slate500 }}>{item.eser}</span>
+                      <span style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint }}>{item.eser}</span>
                     )
                   )}
                 </div>
@@ -1478,7 +1478,7 @@ export default function Melekler({ onClose }) {
           {/* Description (left-aligned body) */}
           <p style={{
             fontSize: '0.86rem',
-            color: COLORS.slate500,
+            color: SEMANTIC.textFaint,
             margin: '0 auto 20px',
             lineHeight: 1.75,
             maxWidth: '720px',
@@ -1541,7 +1541,7 @@ export default function Melekler({ onClose }) {
         {/* Tab content */}
         <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
           {!data ? (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', color: COLORS.slate600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', color: SEMANTIC.textFaint }}>
               {tr ? 'Yükleniyor…' : 'Loading…'}
             </div>
           ) : (

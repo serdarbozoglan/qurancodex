@@ -13,8 +13,7 @@ import {
   COLORS, FONTS,
   OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
-  VERSE_BLOCK, TEXT,
-} from '../tokens';
+  VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 
 // ─── İlk ve Son Kelimeler (F-11) ──────────────────────────────────────────────
 // 114 sûrenin açılış ve kapanış kelimelerini aynı ekranda gösterir.
@@ -446,8 +445,8 @@ function Header({ language, onClose }) {
         <span style={OVERLAY_TITLE}>
           {language === 'tr' ? 'İlk ve Son Kelimeler' : 'First and Last Words'}
         </span>
-        <span style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
-        <span style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {language === 'tr' ? '114 sûre · açılış-kapanış kelimesi' : '114 surahs · opening-closing word'}
         </span>
       </div>

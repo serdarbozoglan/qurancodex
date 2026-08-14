@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -226,7 +226,7 @@ export default function AddresseeSystem({ onClose }) {
           <div style={{
             padding: '0 16px 8px',
             fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em',
-            textTransform: 'uppercase', color: COLORS.slate500,
+            textTransform: 'uppercase', color: SEMANTIC.textFaint,
             fontFamily: FONTS.body,
           }}>
             {language === 'tr' ? 'Muhataplar' : 'Addressees'}
@@ -429,7 +429,7 @@ function StatBox({ label, value, valueColor, small = false }) {
         {value}
       </div>
       <div style={{
-        color: COLORS.slate500,
+        color: SEMANTIC.textFaint,
         fontSize: '0.72rem',
         fontFamily: FONTS.body,
         letterSpacing: '0.03em',
@@ -484,14 +484,14 @@ function VerseCard({ verse, accent, language }) {
         marginBottom: '6px',
       }}>
         <span style={{
-          color: COLORS.slate500, fontSize: '0.72rem',
+          color: SEMANTIC.textFaint, fontSize: '0.72rem',
           fontFamily: FONTS.body,
         }}>
           {verse.surah} {verse.ref}
         </span>
         {verse.topic && (
           <>
-            <span style={{ color: COLORS.slate500, fontSize: '0.7rem' }}>·</span>
+            <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>·</span>
             <span style={{
               color: COLORS.silver, fontSize: '0.72rem',
               fontFamily: FONTS.body,

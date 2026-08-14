@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '@/hooks/useQuranNav';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -103,7 +103,7 @@ function InfoTip({ textTr, textEn, language }) {
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
         onClick={() => setVisible(v => !v)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', color: COLORS.slate500, fontSize: '0.7rem', padding: '0 2px', lineHeight: 1 }}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', color: SEMANTIC.textFaint, fontSize: '0.7rem', padding: '0 2px', lineHeight: 1 }}
       >ℹ</button>
       {visible && (
         <span style={{
@@ -225,7 +225,7 @@ function VerseBlock({ ar, tr, en, verseRef, language, color }) {
         </p>
       )}
       {verseRef && (
-        <p style={{ fontSize: '0.78rem', color: COLORS.slate500, margin: 0, fontFamily: FONTS.body }}>
+        <p style={{ fontSize: '0.78rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>
           — {verseRef}
         </p>
       )}
@@ -321,7 +321,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
             </p>
           )}
           {scene.additionalRefs && scene.additionalRefs.length > 0 && (
-            <p style={{ fontSize: '0.72rem', color: COLORS.slate500, margin: '8px 0 0', fontFamily: FONTS.body }}>
+            <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, margin: '8px 0 0', fontFamily: FONTS.body }}>
               {language === 'tr' ? 'Ayrıca:' : 'Also:'} {scene.additionalRefs.join(' · ')}
             </p>
           )}
@@ -360,7 +360,7 @@ function SurahCard({ surah, language }) {
           </p>
         </div>
         <span style={{
-          fontSize: '0.7rem', color: COLORS.slate500, background: COLORS.glassBg,
+          fontSize: '0.7rem', color: SEMANTIC.textFaint, background: COLORS.glassBg,
           border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.sm,
           padding: '2px 8px', flexShrink: 0, fontFamily: FONTS.body,
         }}>
@@ -372,7 +372,7 @@ function SurahCard({ surah, language }) {
         {[1, 2, 3, 4, 5].map(i => (
           <span key={i} style={{ color: i <= surah.densityScore ? GOLD : COLORS.slate500, fontSize: '0.8rem' }}>★</span>
         ))}
-        <span style={{ fontSize: '0.68rem', color: COLORS.slate500, marginLeft: '4px', fontFamily: FONTS.body }}>
+        <span style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, marginLeft: '4px', fontFamily: FONTS.body }}>
           {surah.verseCount} {language === 'tr' ? 'ayet' : 'verses'}
         </span>
       </div>
@@ -679,7 +679,7 @@ export default function KiyametSahneleri({ onClose }) {
                 <p style={{ fontSize: '0.72rem', color: COLORS.silver, margin: '0 0 4px', lineHeight: 1.4, fontFamily: FONTS.body }}>
                   {language === 'tr' ? isim.meaningTr : isim.meaningEn}
                 </p>
-                <p style={{ fontSize: '0.68rem', color: COLORS.slate500, margin: 0, fontFamily: FONTS.body }}>{isim.ref}</p>
+                <p style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>{isim.ref}</p>
               </div>
             ))}
           </div>
@@ -1102,7 +1102,7 @@ function TabKozmikSahneler({ language, isMobile }) {
               padding: '10px 12px',
               background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md,
             }}>
-              <span style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, fontFamily: FONTS.body, minWidth: '28px', paddingTop: '2px' }}>
+              <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, fontFamily: FONTS.body, minWidth: '28px', paddingTop: '2px' }}>
                 {i + 1}.
               </span>
               <div style={{ flex: 1 }}>
@@ -1111,7 +1111,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                     {item.ar}
                   </span>
                   {item.isHapax && <HapaxBadge language={language} />}
-                  <span style={{ fontSize: '0.7rem', color: COLORS.slate500, fontFamily: FONTS.body }}>
+                  <span style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
                     {item.ref}
                   </span>
                 </div>
@@ -1147,7 +1147,7 @@ function TabKozmikSahneler({ language, isMobile }) {
             <thead>
               <tr>
                 {[language === 'tr' ? 'Ayet' : 'Verse', language === 'tr' ? 'İmge' : 'Image', language === 'tr' ? 'Kelime' : 'Word'].map(h => (
-                  <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: '0.72rem', color: COLORS.slate500, textTransform: 'uppercase', letterSpacing: '0.07em', borderBottom: `1px solid ${COLORS.glassBorder}`, background: COLORS.overlayBg }}>
+                  <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: '0.72rem', color: SEMANTIC.textFaint, textTransform: 'uppercase', letterSpacing: '0.07em', borderBottom: `1px solid ${COLORS.glassBorder}`, background: COLORS.overlayBg }}>
                     {h}
                   </th>
                 ))}
@@ -1184,7 +1184,7 @@ function TabKozmikSahneler({ language, isMobile }) {
               <p style={{ fontSize: '0.78rem', color: COLORS.silver, margin: '0 0 4px', fontFamily: FONTS.body }}>
                 {language === 'tr' ? w.meaningTr : w.meaningEn}
               </p>
-              <p style={{ fontSize: '0.7rem', color: COLORS.slate500, margin: 0, fontFamily: FONTS.body }}>
+              <p style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, margin: 0, fontFamily: FONTS.body }}>
                 {w.ref} · {w.note}
               </p>
             </div>
@@ -1335,7 +1335,7 @@ function TabKuranHadis({ language, isMobile: _isMobile }) {
             <thead>
               <tr>
                 {[language === 'tr' ? 'Konu' : 'Topic', language === 'tr' ? "Kur'an" : 'Quran', 'Hadis / Hadith'].map(h => (
-                  <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: '0.72rem', color: COLORS.slate500, textTransform: 'uppercase', letterSpacing: '0.07em', borderBottom: `1px solid ${COLORS.glassBorder}`, background: COLORS.overlayBg }}>
+                  <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: '0.72rem', color: SEMANTIC.textFaint, textTransform: 'uppercase', letterSpacing: '0.07em', borderBottom: `1px solid ${COLORS.glassBorder}`, background: COLORS.overlayBg }}>
                     {h}
                   </th>
                 ))}

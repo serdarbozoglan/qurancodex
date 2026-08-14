@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 
@@ -121,7 +121,7 @@ export default function RevelationTimeline({ onClose }) {
       </div>
 
       {loading && (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.slate500 }}>
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: SEMANTIC.textFaint }}>
           {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
         </div>
       )}
@@ -223,7 +223,7 @@ export default function RevelationTimeline({ onClose }) {
                               title={language === 'tr'
                                 ? 'Fâtiha\'nın nüzul sırası tartışmalıdır. İlk inen sûre (1. sıra) olduğunu söyleyenler olduğu gibi, 5. sırada indiğini aktaran rivayetler de mevcuttur.'
                                 : "Al-Fatiha's revelation order is debated. Some accounts say it was the very first surah revealed; others place it 5th in the revelation sequence."}
-                              style={{ color: COLORS.slate500, fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
+                              style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem', cursor: 'help', lineHeight: 1 }}
                             >ⓘ</span>
                           )}
                         </div>
@@ -238,14 +238,14 @@ export default function RevelationTimeline({ onClose }) {
                                     ? `Mushaf sırası nüzul sırasından ${Math.abs(diffFromMushaf)} pozisyon öndedir`
                                     : `Placed ${Math.abs(diffFromMushaf)} positions earlier in the mushaf than revealed`)
                             }
-                            style={{ color: '#4a5568', fontSize: '0.62rem', cursor: 'help' }}
+                            style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', cursor: 'help' }}
                           >
                             {diffFromMushaf > 0 ? `▲${diffFromMushaf}` : `▼${Math.abs(diffFromMushaf)}`}
                           </span>
                         )}
                       </div>
                       <div style={{ color: COLORS.goldWarm, fontSize: '0.8rem', fontWeight: 600, lineHeight: 1.2, marginBottom: '3px' }}>{name}</div>
-                      <div style={{ color: '#4a5568', fontSize: '0.65rem' }}>{language === 'tr' ? `Sûre` : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'v.'}</div>
+                      <div style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem' }}>{language === 'tr' ? `Sûre` : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'v.'}</div>
                     </div>
                   );
                 })}
@@ -282,13 +282,13 @@ export default function RevelationTimeline({ onClose }) {
                 <div style={{ height: '2px', background: 'rgba(255,255,255,0.06)', marginTop: '1px' }} />
                 {/* Chart legend */}
                 <div style={{ display: 'flex', gap: '16px', marginTop: '6px', flexWrap: 'wrap' }}>
-                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>
                     ↕ {language === 'tr' ? 'Bar yüksekliği = ayet sayısı' : 'Bar height = verse count'}
                   </span>
-                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>
                     ← {language === 'tr' ? 'Sol = ilk nâzil olan' : 'Left = first revealed'}
                   </span>
-                  <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>
                     {language === 'tr' ? 'Renk yoğunluğu = nüzul sırası' : 'Color intensity = revelation rank'}
                   </span>
                 </div>
@@ -309,13 +309,13 @@ export default function RevelationTimeline({ onClose }) {
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
                       <span style={{ background: `rgba(${s.period === 'mekki' ? '201,162,39' : '46,204,113'},0.2)`, color: periodColor(s.period), fontSize: '0.65rem', fontWeight: 700, padding: '2px 7px', borderRadius: RADIUS.xs }}>#{s.rank}</span>
                       <span style={{ color: gold, fontWeight: 700, fontSize: '0.9rem' }}>{name}</span>
-                      <span style={{ color: COLORS.slate500, fontSize: '0.72rem' }}>{language === 'tr' ? 'Sûre' : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</span>
+                      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Sûre' : 'Surah'} {s.surah} · {ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</span>
                       <span style={{ color: periodColor(s.period), fontSize: '0.72rem' }}>{s.period === 'mekki' ? (language === 'tr' ? 'Mekkî' : 'Meccan') : (language === 'tr' ? 'Medenî' : 'Medinan')}</span>
                       {delta !== 0 && (
-                        <span style={{ color: COLORS.slate500, fontSize: '0.7rem', marginLeft: 'auto' }}>
+                        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', marginLeft: 'auto' }}>
                           {language === 'tr' ? 'Mushaf farkı:' : 'Mushaf gap:'}{' '}
                           <span style={{ color: COLORS.silver, fontWeight: 600 }}>{delta > 0 ? `▲${delta}` : `▼${Math.abs(delta)}`}</span>
-                          <span style={{ color: '#4a5568', fontSize: '0.62rem', marginLeft: '4px' }}>
+                          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', marginLeft: '4px' }}>
                             {delta > 0
                               ? (language === 'tr' ? '(mushafta daha geride)' : '(placed later in mushaf)')
                               : (language === 'tr' ? '(mushafta daha önde)' : '(placed earlier in mushaf)')}
@@ -332,31 +332,31 @@ export default function RevelationTimeline({ onClose }) {
                   return (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center' }}>
                       <div>
-                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Gösterilen sûre' : 'Shown surahs'}</div>
+                        <div style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Gösterilen sûre' : 'Shown surahs'}</div>
                         <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>{shownMekki + shownMedeni}</div>
                       </div>
                       <div>
-                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Toplam ayet' : 'Total verses'}</div>
+                        <div style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'Toplam ayet' : 'Total verses'}</div>
                         <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>{totalAyah.toLocaleString()}</div>
                       </div>
                       <div>
-                        <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Mekkî / Medenî</div>
+                        <div style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>Mekkî / Medenî</div>
                         <div style={{ fontSize: '0.82rem', fontWeight: 600 }}>
                           <span style={{ color: mekiColor }}>{shownMekki}</span>
-                          <span style={{ color: '#4a5568' }}> / </span>
+                          <span style={{ color: SEMANTIC.textFaint }}> / </span>
                           <span style={{ color: medeniColor }}>{shownMedeni}</span>
                         </div>
                       </div>
                       {maxAyahSurah && (
                         <div>
-                          <div style={{ color: '#4a5568', fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'En uzun sûre' : 'Longest surah'}</div>
+                          <div style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '2px' }}>{language === 'tr' ? 'En uzun sûre' : 'Longest surah'}</div>
                           <div style={{ color: COLORS.silver, fontSize: '0.82rem', fontWeight: 600 }}>
                             {SURAH_NAMES_TR[maxAyahSurah.surah - 1]}
-                            <span style={{ color: '#4a5568', fontWeight: 400, fontSize: '0.72rem', marginLeft: '4px' }}>({AYAH_COUNTS[maxAyahSurah.surah - 1]} {language === 'tr' ? 'ayet' : 'v.'})</span>
+                            <span style={{ color: SEMANTIC.textFaint, fontWeight: 400, fontSize: '0.72rem', marginLeft: '4px' }}>({AYAH_COUNTS[maxAyahSurah.surah - 1]} {language === 'tr' ? 'ayet' : 'v.'})</span>
                           </div>
                         </div>
                       )}
-                      <div style={{ marginLeft: 'auto', color: '#4a5568', fontSize: '0.68rem', fontStyle: 'italic' }}>
+                      <div style={{ marginLeft: 'auto', color: SEMANTIC.textFaint, fontSize: '0.68rem', fontStyle: 'italic' }}>
                         {language === 'tr' ? 'Detay için bir bara tıklayın' : 'Hover a bar for details'}
                       </div>
                     </div>
@@ -365,7 +365,7 @@ export default function RevelationTimeline({ onClose }) {
               </div>
 
               {/* Axis labels */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#4a5568', fontSize: '0.62rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>
                 <span>{language === 'tr' ? '← İlk Vahiy (Alak)' : '← First Revelation (Alaq)'}</span>
                 <span>{language === 'tr' ? 'Son Vahiy (Nasr) →' : 'Last Revelation (Nasr) →'}</span>
               </div>
@@ -386,11 +386,11 @@ export default function RevelationTimeline({ onClose }) {
 
           {/* Source note */}
           <div style={{ marginTop: '10px', padding: '10px 14px', background: 'rgba(255,255,255,0.02)', border: `1px solid ${COLORS.glassBg}`, borderRadius: RADIUS.md }}>
-            <div style={{ color: '#4a5568', fontSize: '0.7rem', lineHeight: 1.6 }}>
-              <span style={{ color: COLORS.slate500, fontWeight: 600 }}>{language === 'tr' ? 'Kaynak:' : 'Source:'}</span>{' '}
+            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', lineHeight: 1.6 }}>
+              <span style={{ color: SEMANTIC.textFaint, fontWeight: 600 }}>{language === 'tr' ? 'Kaynak:' : 'Source:'}</span>{' '}
               {language === 'tr'
-                ? <>Nüzul sırası: İmam Celâlüddin es-Süyûtî, <em>el-İtkan fî Ulûmi'l-Kur'an</em> (ö. 1505); İbn Abbas'tan gelen rivayete dayanır. Bazı sûreler için âlimler arasında farklı görüşler mevcuttur; bu en yaygın kabul gören versiyondur. Tertîb tartışması (tevkîfî / içtihadî) ve derleme tarihi: Süyûtî, <em>el-İtkan</em>; Zerkeşî, <em>el-Burhân fî Ulûmi'l-Kur'an</em>. Dijital veri: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.slate500, textDecoration: 'underline' }}>tanzil.net</a>.</>
-                : <>Revelation order: Imam Jalal al-Din al-Suyuti, <em>al-Itqan fi Ulum al-Quran</em> (d. 1505), based on the narration attributed to Ibn Abbas. Minor scholarly differences exist for some surahs; this is the most widely accepted sequence. On the ordering debate (tawqīfī / ijtihādī) and compilation history: al-Suyuti, <em>al-Itqan</em>; al-Zarkashi, <em>al-Burhan fi Ulum al-Quran</em>. Digital reference: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.slate500, textDecoration: 'underline' }}>tanzil.net</a>.</>}
+                ? <>Nüzul sırası: İmam Celâlüddin es-Süyûtî, <em>el-İtkan fî Ulûmi'l-Kur'an</em> (ö. 1505); İbn Abbas'tan gelen rivayete dayanır. Bazı sûreler için âlimler arasında farklı görüşler mevcuttur; bu en yaygın kabul gören versiyondur. Tertîb tartışması (tevkîfî / içtihadî) ve derleme tarihi: Süyûtî, <em>el-İtkan</em>; Zerkeşî, <em>el-Burhân fî Ulûmi'l-Kur'an</em>. Dijital veri: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: SEMANTIC.textFaint, textDecoration: 'underline' }}>tanzil.net</a>.</>
+                : <>Revelation order: Imam Jalal al-Din al-Suyuti, <em>al-Itqan fi Ulum al-Quran</em> (d. 1505), based on the narration attributed to Ibn Abbas. Minor scholarly differences exist for some surahs; this is the most widely accepted sequence. On the ordering debate (tawqīfī / ijtihādī) and compilation history: al-Suyuti, <em>al-Itqan</em>; al-Zarkashi, <em>al-Burhan fi Ulum al-Quran</em>. Digital reference: <a href="https://tanzil.net/docs/revelation_order" target="_blank" rel="noopener noreferrer" style={{ color: SEMANTIC.textFaint, textDecoration: 'underline' }}>tanzil.net</a>.</>}
             </div>
           </div>
         </div>

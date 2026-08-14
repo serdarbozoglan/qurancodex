@@ -17,7 +17,7 @@
 // CLAUDE.md §13.15 Arapça font kurallarına dokunmaz (icon JSX olarak alır).
 
 import Link from 'next/link';
-import { COLORS, FONTS, OVERLAY_TITLE, RADIUS } from '../tokens';
+import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, SEMANTIC } from '../tokens';
 import useNavbarOffset from './useNavbarOffset';
 
 export default function ToolHeader({
@@ -74,11 +74,11 @@ export default function ToolHeader({
           <>
             {/* Mobil'de subtitle gizlenir — hero eyebrow ile duplicate + overflow */}
             {/* (Visual audit K-02, 2026-07-12). Desktop'ta (sm:) inline gösterilir. */}
-            <span className="hidden sm:inline" style={{ color: COLORS.slate500, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
+            <span className="hidden sm:inline" style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', flexShrink: 0 }}>·</span>
             <span
               className="hidden sm:inline"
               style={{
-                color: COLORS.slate500,
+                color: SEMANTIC.textFaint,
                 fontSize: '0.78rem',
                 fontFamily: FONTS.body,
                 whiteSpace: 'nowrap',

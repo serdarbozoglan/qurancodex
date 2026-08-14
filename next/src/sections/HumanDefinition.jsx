@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 
 // ─────────────────────────────────────────────
@@ -434,7 +434,7 @@ export default function HumanDefinition() {
               </h3>
               <button
                 onClick={() => setShow6666(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: COLORS.slate500, fontSize: '1.2rem', lineHeight: 1, flexShrink: 0 }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: SEMANTIC.textFaint, fontSize: '1.2rem', lineHeight: 1, flexShrink: 0 }}
               >✕</button>
             </div>
             <div style={{ fontFamily: FONTS.body, fontSize: '0.875rem', color: COLORS.silver, lineHeight: 1.75, whiteSpace: 'pre-line' }}>

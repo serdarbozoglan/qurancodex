@@ -4,8 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
-} from '../tokens';
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -342,7 +341,7 @@ function OccasionCard({ occ, language, isMobile }) {
             {occ.tags.map((tag, i) => (
               <span key={i} style={{
                 fontSize: '0.7rem',
-                color: COLORS.slate500,
+                color: SEMANTIC.textFaint,
                 fontFamily: FONTS.body,
               }}>
                 #{tag}
@@ -353,7 +352,7 @@ function OccasionCard({ occ, language, isMobile }) {
 
         {/* Source */}
         {occ.source && (
-          <p style={{ margin: '0 0 10px', fontSize: '0.72rem', color: COLORS.slate500, fontFamily: FONTS.body }}>
+          <p style={{ margin: '0 0 10px', fontSize: '0.72rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Kaynak:' : 'Source:'} {occ.source}
           </p>
         )}
@@ -433,7 +432,7 @@ function OccasionCard({ occ, language, isMobile }) {
                     {ve.turkish}
                   </p>
                 )}
-                <p style={{ fontSize: '0.75rem', color: COLORS.slate500, fontFamily: FONTS.body, margin: 0 }}>
+                <p style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, margin: 0 }}>
                   {ve.surah}:{ve.num}
                 </p>
               </div>
@@ -806,7 +805,7 @@ function TabIstatistik({ data, language, isMobile }) {
                   <span style={{ fontSize: '0.78rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
                     {item.percent}%
                   </span>
-                  <span style={{ fontSize: '0.72rem', color: COLORS.slate500, fontFamily: FONTS.body }}>
+                  <span style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
                     (~{item.approxCount})
                   </span>
                 </div>
@@ -892,7 +891,7 @@ function TabIstatistik({ data, language, isMobile }) {
             <div style={{ fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.9rem', marginBottom: '4px' }}>
               Alî b. Ahmed el-Vâhidî
             </div>
-            <div style={{ fontSize: '0.75rem', color: COLORS.slate500, fontFamily: FONTS.body, marginBottom: '12px' }}>
+            <div style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, marginBottom: '12px' }}>
               {language === 'tr' ? 'Vefat: H. 468 / M. 1075' : 'Died: AH 468 / CE 1075'}
             </div>
             <div style={{ display: 'flex', gap: '12px' }}>
@@ -924,7 +923,7 @@ function TabIstatistik({ data, language, isMobile }) {
             <div style={{ fontWeight: 700, color: COLORS.skyBlue, fontFamily: FONTS.body, fontSize: '0.9rem', marginBottom: '4px' }}>
               Celâlüddîn es-Süyûtî
             </div>
-            <div style={{ fontSize: '0.75rem', color: COLORS.slate500, fontFamily: FONTS.body, marginBottom: '12px' }}>
+            <div style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, marginBottom: '12px' }}>
               {language === 'tr' ? 'Vefat: H. 911 / M. 1505' : 'Died: AH 911 / CE 1505'}
             </div>
             <div style={{ display: 'flex', gap: '12px' }}>
@@ -980,7 +979,7 @@ function PrincipleCard({ principle, badge, badgeColor, language, isMobile }) {
       <p style={{
         textAlign: 'center',
         fontStyle: 'italic',
-        color: COLORS.slate500,
+        color: SEMANTIC.textFaint,
         fontSize: '0.8rem',
         fontFamily: FONTS.body,
         margin: '0 0 12px',
@@ -1144,7 +1143,7 @@ function TabKaynaklar({ data, language, isMobile }) {
               </div>
 
               {/* Death + city */}
-              <p style={{ margin: '0 0 8px', fontSize: '0.78rem', color: COLORS.slate500, fontFamily: FONTS.body }}>
+              <p style={{ margin: '0 0 8px', fontSize: '0.78rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
                 {language === 'tr' ? 'Vefat:' : 'Died:'} H. {scholar.deathH} / M. {scholar.deathM} · {scholar.city}
               </p>
 

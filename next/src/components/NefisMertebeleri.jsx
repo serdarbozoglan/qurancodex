@@ -11,8 +11,7 @@ import {
   VERSE_DISPLAY_CARD,
   GLASS_CARD,
   BREAKPOINT_TABLET,
-  RADIUS,
-} from '../tokens';
+  RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -292,12 +291,12 @@ export default function NefisMertebeleri({ onClose }) {
             <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>
               {language === 'tr' ? "Kur'ânî" : "Qur'anic"}
             </span>
-            <span style={{ color: COLORS.slate500 }}>+</span>
+            <span style={{ color: SEMANTIC.textFaint }}>+</span>
             <span style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>4</span>
             <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>
               {language === 'tr' ? 'tasavvufî' : 'Sufi'}
             </span>
-            <span style={{ color: COLORS.slate500 }}>=</span>
+            <span style={{ color: SEMANTIC.textFaint }}>=</span>
             <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>7</span>
             <span style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body }}>
               {language === 'tr' ? 'basamak' : 'steps'}
@@ -346,7 +345,7 @@ export default function NefisMertebeleri({ onClose }) {
               flexDirection: 'row',
               gap: '16px',
               fontSize: '0.72rem',
-              color: COLORS.slate500,
+              color: SEMANTIC.textFaint,
               fontFamily: FONTS.body,
             }}>
               <span>

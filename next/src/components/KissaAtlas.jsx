@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -444,7 +444,7 @@ export default function KissaAtlas({ onClose }) {
                 {prophet.nameAr}
               </span>
             </div>
-            <p style={{ color: COLORS.slate600, fontSize: '0.78rem', margin: '4px 0 0' }}>
+            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', margin: '4px 0 0' }}>
               {language === 'tr'
                 ? `${prophet.scenes.length} ana sahne · ${prophet.surahCount} sûrede`
                 : `${prophet.scenes.length} key scenes · across ${prophet.surahCount} surahs`}
@@ -512,7 +512,7 @@ export default function KissaAtlas({ onClose }) {
                       {language === 'tr' ? scene.titleTr : scene.titleEn}
                     </p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ color: COLORS.slate700, fontSize: '0.7rem' }}>
+                      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>
                         {scene.verseRef.replace(/^(\d+):/, (_, n) => `${language === 'tr' ? SURAH_NAMES_TR[+n] : SURAH_NAMES_EN[+n]}:`)}
                       </span>
                     </div>
@@ -533,7 +533,7 @@ export default function KissaAtlas({ onClose }) {
           <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
             {/* Instructions */}
-            <p style={{ color: COLORS.slate700, fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
+            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
               {selectedScene
                 ? (language === 'tr'
                     ? `"${selectedScene.titleTr}" sahnesi şu sûrelerde anlatılıyor:`
@@ -656,7 +656,7 @@ export default function KissaAtlas({ onClose }) {
           <AnimatePresence>
             {isMobile && mobileTab === 'detail' && !selectedScene && !selectedSurah && (
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '40px 20px' }}>
-                <p style={{ color: COLORS.slate700, fontSize: '0.85rem', textAlign: 'center' }}>
+                <p style={{ color: SEMANTIC.textFaint, fontSize: '0.85rem', textAlign: 'center' }}>
                   {language === 'tr' ? 'Bir sahne veya sûre seçin' : 'Select a scene or surah'}
                 </p>
                 <button
@@ -694,7 +694,7 @@ export default function KissaAtlas({ onClose }) {
                       style={{
                         display: 'flex', alignItems: 'center', gap: '6px',
                         background: 'transparent', border: 'none',
-                        color: COLORS.slate500, fontSize: '0.78rem', cursor: 'pointer',
+                        color: SEMANTIC.textFaint, fontSize: '0.78rem', cursor: 'pointer',
                         padding: '0 0 12px', fontFamily: "'Inter', sans-serif",
                       }}
                     >
@@ -730,7 +730,7 @@ export default function KissaAtlas({ onClose }) {
                             <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 2px' }}>
                               {language === 'tr' ? selectedScene.titleTr : selectedScene.titleEn}
                             </h4>
-                            <span style={{ color: COLORS.slate600, fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
+                            <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem' }}>{selectedScene.verseRef}</span>
                           </div>
                           <BookmarkButton item={bookmarkItem} size="sm" language={language} />
                         </div>
@@ -742,7 +742,7 @@ export default function KissaAtlas({ onClose }) {
 
                         {/* Surah badges — clickable, show verse range for primary surah */}
                         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '8px' }}>
-                          <span style={{ color: COLORS.slate700, fontSize: '0.72rem', alignSelf: 'center' }}>
+                          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', alignSelf: 'center' }}>
                             {language === 'tr' ? 'Sûreler:' : 'Surahs:'}
                           </span>
                           {selectedScene.surahs.map(s => {
@@ -811,12 +811,12 @@ export default function KissaAtlas({ onClose }) {
                                 borderRadius: RADIUS.chip,
                               }}>
                                 {versePeek.loading ? (
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: COLORS.slate600, fontSize: '0.8rem' }}>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: SEMANTIC.textFaint, fontSize: '0.8rem' }}>
                                     <div style={{ width: '16px', height: '16px', border: `2px solid ${COLORS.goldAlpha20}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite', flexShrink: 0 }} />
                                     {language === 'tr' ? 'Ayetler yükleniyor…' : 'Loading verses…'}
                                   </div>
                                 ) : versePeek.verses?.length === 0 ? (
-                                  <p style={{ color: COLORS.slate600, fontSize: '0.8rem', margin: 0 }}>
+                                  <p style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', margin: 0 }}>
                                     {language === 'tr' ? 'Ayet yüklenemedi.' : 'Could not load verses.'}
                                   </p>
                                 ) : (
@@ -833,7 +833,7 @@ export default function KissaAtlas({ onClose }) {
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             fontSize: '0.62rem', fontWeight: 700,
                                           }}>{v.num}</span>
-                                          <span style={{ color: COLORS.slate700, fontSize: '0.68rem' }}>
+                                          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem' }}>
                                             {language === 'tr' ? SURAH_NAMES_TR[versePeek.surah] : SURAH_NAMES_EN[versePeek.surah]} {versePeek.surah}:{v.num}
                                           </span>
                                         </div>
@@ -883,12 +883,12 @@ export default function KissaAtlas({ onClose }) {
                       <div>
                         <h4 style={{ color: prophet.color, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 10px' }}>
                           {language === 'tr' ? SURAH_NAMES_TR[selectedSurah] : SURAH_NAMES_EN[selectedSurah]}
-                          <span style={{ color: COLORS.slate600, fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
+                          <span style={{ color: SEMANTIC.textFaint, fontWeight: 400, fontSize: '0.82rem', marginLeft: '8px' }}>
                             ({selectedSurah}. Sûre)
                           </span>
                         </h4>
                         {scenes.length === 0 ? (
-                          <p style={{ color: COLORS.slate700, fontSize: '0.82rem', margin: 0 }}>
+                          <p style={{ color: SEMANTIC.textFaint, fontSize: '0.82rem', margin: 0 }}>
                             {language === 'tr' ? 'Bu sûrede bu peygambere ait sahne yok.' : 'No scenes of this prophet in this surah.'}
                           </p>
                         ) : (
@@ -919,7 +919,7 @@ export default function KissaAtlas({ onClose }) {
                                 <span style={{ color: '#cbd5e1', fontSize: '0.82rem', fontWeight: 500 }}>
                                   {language === 'tr' ? s.titleTr : s.titleEn}
                                 </span>
-                                <span style={{ color: COLORS.slate700, fontSize: '0.72rem', marginLeft: 'auto' }}>
+                                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginLeft: 'auto' }}>
                                   {s.verseRef}
                                 </span>
                               </button>
@@ -945,15 +945,15 @@ export default function KissaAtlas({ onClose }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}35`, border: `1.5px solid ${prophet.color}` }} />
-          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}12`, border: `1px solid ${prophet.color}30` }} />
-          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
-          <span style={{ color: COLORS.slate600, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
         </div>
         <span style={{ color: '#1e293b', fontSize: '0.72rem', marginLeft: 'auto' }}>
           {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}

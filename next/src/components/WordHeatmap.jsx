@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, BREAKPOINT_MOBILE, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import DataDictionary from './DataDictionary';
 import LoadingOverlay from './LoadingOverlay';
@@ -808,7 +808,7 @@ export default function WordHeatmap({ onClose }) {
               <button
                 onClick={clearSearch}
                 aria-label={language === 'tr' ? 'Aramayı temizle' : 'Clear search'}
-                style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: RADIUS.md, color: '#4a5568', cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}
+                style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', borderRadius: RADIUS.md, color: SEMANTIC.textFaint, cursor: 'pointer', padding: '7px 10px', fontSize: '0.82rem', flexShrink: 0 }}
               >
                 ✕
               </button>
@@ -881,7 +881,7 @@ export default function WordHeatmap({ onClose }) {
               if (!allGroupPresets.length) return null;
               return (
                 <div key={group.key}>
-                  <div style={{ color: '#4a5568', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{group.label}</div>
+                  <div style={{ color: SEMANTIC.textFaint, fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{group.label}</div>
                   <div style={{
                     display: 'flex', gap: '4px',
                     flexWrap: isKalipGroup ? 'wrap' : 'nowrap',
@@ -917,7 +917,7 @@ export default function WordHeatmap({ onClose }) {
                     {isKalipGroup && allGroupPresets.length > KALIP_VISIBLE && (
                       <button onClick={() => setShowAllKalip(v => !v)} style={{
                         background: 'transparent', border: '1px solid rgba(255,255,255,0.08)',
-                        borderRadius: RADIUS.chip, color: '#4a5568', cursor: 'pointer',
+                        borderRadius: RADIUS.chip, color: SEMANTIC.textFaint, cursor: 'pointer',
                         padding: '5px 12px', fontSize: '0.72rem', alignSelf: 'center',
                       }}>
                         {showAllKalip
@@ -1020,7 +1020,7 @@ export default function WordHeatmap({ onClose }) {
                       <div style={{ color: 'rgba(52,152,219,0.7)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>
                         {language === 'tr' ? '114 sûre · 6.236 âyet · her hücre = 1 sûre' : '114 surahs · 6,236 verses · each cell = 1 surah'}
                       </div>
-                      <div style={{ color: '#4a5568', fontSize: '0.72rem' }}>
+                      <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>
                         {language === 'tr' ? 'Renk yoğunluğu → âyet sayısı' : 'Color intensity → verse count'}
                       </div>
                     </div>
@@ -1032,23 +1032,23 @@ export default function WordHeatmap({ onClose }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end', flexShrink: 0 }}>
                 {searchTerm ? (
                   <>
-                    <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>{language === 'tr' ? 'Frekans: Az' : 'Frequency: Less'}</span>
+                    <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>{language === 'tr' ? 'Frekans: Az' : 'Frequency: Less'}</span>
                     <div style={{ display: 'flex', gap: '2px' }}>
                       {[0.05, 0.2, 0.4, 0.65, 1.0].map((v, i) => (
                         <div key={i} style={{ width: '18px', height: '8px', borderRadius: '2px', background: `rgba(${Math.round(180+v*32)},${Math.round(120+v*45)},${Math.round(60+v*16)},${0.15+v*0.7})` }} />
                       ))}
                     </div>
-                    <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>{language === 'tr' ? 'Çok' : 'More'}</span>
+                    <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>{language === 'tr' ? 'Çok' : 'More'}</span>
                   </>
                 ) : (
                   <>
-                    <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>{language === 'tr' ? 'Âyet sayısı: Az' : 'Verse count: Few'}</span>
+                    <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>{language === 'tr' ? 'Âyet sayısı: Az' : 'Verse count: Few'}</span>
                     <div style={{ display: 'flex', gap: '2px' }}>
                       {[0.1, 0.25, 0.45, 0.65, 1.0].map((v, i) => (
                         <div key={i} style={{ width: '18px', height: '8px', borderRadius: '2px', background: `rgba(52,152,219,${0.06 + v * 0.38})` }} />
                       ))}
                     </div>
-                    <span style={{ color: '#4a5568', fontSize: '0.62rem' }}>{language === 'tr' ? 'Çok' : 'Many'}</span>
+                    <span style={{ color: SEMANTIC.textFaint, fontSize: '0.62rem' }}>{language === 'tr' ? 'Çok' : 'Many'}</span>
                   </>
                 )}
               </div>
@@ -1079,12 +1079,12 @@ export default function WordHeatmap({ onClose }) {
                   <button onClick={() => { setSelectedSurah(null); setVersePage(0); }}
                     type="button"
                     aria-label={language === 'tr' ? 'Âyet panelini kapat' : 'Close verse panel'}
-                    style={{ background: 'none', border: 'none', color: '#4a5568', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
+                    style={{ background: 'none', border: 'none', color: SEMANTIC.textFaint, cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
                     onMouseLeave={e => e.currentTarget.style.color = '#4a5568'}>✕</button>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ color: '#4a5568', fontSize: '0.68rem' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem' }}>
                     {matchingVerses.length} {language === 'tr' ? 'ayet' : 'verses'}
                     {surahOccurrences !== matchingVerses.length && (
                       <span style={{ color: '#3a4555', marginLeft: '4px' }}>· {surahOccurrences} {language === 'tr' ? 'kez' : 'times'}</span>
@@ -1099,7 +1099,7 @@ export default function WordHeatmap({ onClose }) {
                         type="button"
                         aria-label={language === 'tr' ? 'Önceki âyet sayfası' : 'Previous verse page'}
                         style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === 0 ? '#2a3040' : '#94a3b8', cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
-                      <span style={{ color: '#4a5568', fontSize: '0.68rem', minWidth: '44px', textAlign: 'center' }}>
+                      <span style={{ color: SEMANTIC.textFaint, fontSize: '0.68rem', minWidth: '44px', textAlign: 'center' }}>
                         {versePage + 1} / {totalPages}
                       </span>
                       <button
@@ -1149,7 +1149,7 @@ export default function WordHeatmap({ onClose }) {
                     style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: RADIUS.sm, color: versePage === 0 ? '#2a3040' : gold, cursor: versePage === 0 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
                     ‹ {language === 'tr' ? 'Önceki' : 'Prev'}
                   </button>
-                  <span style={{ color: '#4a5568', fontSize: '0.72rem' }}>{versePage + 1} / {totalPages}</span>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{versePage + 1} / {totalPages}</span>
                   <button onClick={() => setVersePage(p => Math.min(totalPages - 1, p + 1))} disabled={versePage === totalPages - 1}
                     style={{ background: 'rgba(212,165,116,0.06)', border: '1px solid rgba(212,165,116,0.18)', borderRadius: RADIUS.sm, color: versePage === totalPages - 1 ? '#2a3040' : gold, cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '4px 14px', fontSize: '0.8rem' }}>
                     {language === 'tr' ? 'Sonraki' : 'Next'} ›

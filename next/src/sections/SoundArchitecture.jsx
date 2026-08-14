@@ -7,7 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
-import { FONTS, COLORS, RADIUS, TRANSITION } from '../tokens';
+import { FONTS, COLORS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 
 // Splits text at Arabic character sequences and wraps them with styled spans.
 // Keeps spaces between Arabic letters/punctuation so "ق، ك، ط" stays one span.
@@ -1240,7 +1240,7 @@ export default function SoundArchitecture() {
                     );
                   })}
                 </p>
-                <p style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
+                <p style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: 'Inter, sans-serif', textAlign: 'right', direction: 'ltr' }}>
                   {language === 'tr' ? activeSura.numTr : activeSura.numEn} · {activeSura.verseRef}
                 </p>
               </div>
@@ -1337,10 +1337,10 @@ export default function SoundArchitecture() {
                   />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
-                  <span style={{ color: COLORS.slate600, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
                     {language === 'tr' ? 'Hafif' : 'Light'}
                   </span>
-                  <span style={{ color: COLORS.slate600, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.6rem', fontFamily: 'Inter, sans-serif' }}>
                     {language === 'tr' ? 'Ağır' : 'Heavy'}
                   </span>
                 </div>

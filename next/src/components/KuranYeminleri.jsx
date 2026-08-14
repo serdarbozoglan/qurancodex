@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION } from '../tokens';
+import { COLORS, FONTS, VERSE_DISPLAY_CARD, BREAKPOINT_TABLET, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -305,7 +305,7 @@ export default function KuranYeminleri({ onClose }) {
                 <div style={{ color: s.color, fontSize: '1.8rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
                   {s.value}
                 </div>
-                <div style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, marginTop: '5px' }}>
+                <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, marginTop: '5px' }}>
                   {language === 'tr' ? s.labelTr : s.labelEn}
                 </div>
               </div>
@@ -709,7 +709,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
 function MobileAccordion({ categories, expanded, onToggle, language }) {
   return (
     <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
-      <div style={{ color: COLORS.slate500, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '4px' }}>
+      <div style={{ color: SEMANTIC.textFaint, fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '4px' }}>
         {language === 'tr' ? 'Kategorilere göz at' : 'Browse categories'}
       </div>
       {categories.map(cat => {
@@ -731,7 +731,7 @@ function MobileAccordion({ categories, expanded, onToggle, language }) {
               <span style={{ flex: 1, color: isOpen ? cat.accent : COLORS.offWhite, fontSize: '0.85rem', fontFamily: FONTS.body, fontWeight: isOpen ? 600 : 400, textAlign: 'left' }}>
                 {language === 'tr' ? cat.tr : cat.en}
               </span>
-              <span style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>{cat.items.length}</span>
+              <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body }}>{cat.items.length}</span>
               <span style={{ color: COLORS.silver, fontSize: '0.8rem', transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>
             </button>
             {isOpen && (
@@ -834,7 +834,7 @@ function OathCard({ item, accent, language, compact = false }) {
             {language === 'tr' ? item.tr : item.en}
           </span>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', flexShrink: 0 }}>
-            <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, paddingTop: '2px' }}>
+            <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, paddingTop: '2px' }}>
               {item.ref}
             </span>
             {/* #199 (2026-07-16) — Bookmark this oath */}
@@ -863,7 +863,7 @@ function OathCard({ item, accent, language, compact = false }) {
                 {language === 'tr' ? `🔗 Bileşik · ${item.compoundParts.length} öğe` : `🔗 Compound · ${item.compoundParts.length} parts`}
               </span>
             )}
-            <span style={{ color: COLORS.slate500, fontSize: '0.72rem', fontFamily: FONTS.body, flex: 1, minWidth: 0 }}>
+            <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontFamily: FONTS.body, flex: 1, minWidth: 0 }}>
               {language === 'tr' ? item.purposeTr : item.purposeEn}
             </span>
           </div>
@@ -1282,7 +1282,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
             <div style={{ color: s.color, fontSize: s.small ? '1rem' : '1.6rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1 }}>
               {s.value}
             </div>
-            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px' }}>
+            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '5px' }}>
               {language === 'tr' ? s.labelTr : s.labelEn}
             </div>
           </div>
@@ -1365,7 +1365,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
                 </span>
               </div>
             </div>
-            <span style={{ width: '24px', color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body, textAlign: 'right' }}>
+            <span style={{ width: '24px', color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body, textAlign: 'right' }}>
               {count}
             </span>
           </div>
@@ -1389,7 +1389,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
         padding: isMobile ? '18px 16px' : '24px 28px',
         marginBottom: '24px',
       }}>
-        <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '12px' }}>
+        <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '12px' }}>
           {language === 'tr' ? 'İbn Kayyim el-Cevziyye — Temel Tez' : 'Ibn Qayyim al-Jawziyya — Core Thesis'}
         </div>
         <p style={{ color: COLORS.offWhite, fontSize: isMobile ? '0.95rem' : '1.05rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 16px', fontStyle: 'italic' }}>
@@ -1397,7 +1397,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
         </p>
         {/* Book name */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ color: COLORS.slate500, fontSize: '0.75rem', fontFamily: FONTS.body }}>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem', fontFamily: FONTS.body }}>
             {language === 'tr' ? 'Kaynak:' : 'Source:'}
           </span>
           <span style={{ color: COLORS.gold, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: 600 }}>
@@ -1523,7 +1523,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             borderBottom: `1px solid ${COLORS.goldAlpha25}`,
             marginBottom: '20px',
           }}>
-            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
+            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
               {language === 'tr' ? "İbn Kayyim'in Tasnifleri" : "Ibn Qayyim's Classifications"}
             </div>
             <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
@@ -1549,7 +1549,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                   <div style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.6, marginBottom: '8px' }} dir="rtl" lang="ar">
                     {pattern.arabicName}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: COLORS.slate500, fontFamily: FONTS.body, fontStyle: 'italic', marginBottom: '10px', letterSpacing: '0.04em' }}>
+                  <div style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontStyle: 'italic', marginBottom: '10px', letterSpacing: '0.04em' }}>
                     {pattern.transliteration}
                   </div>
                   <h4 style={{ color: COLORS.gold, fontSize: '1rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 10px' }}>
@@ -1582,7 +1582,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                             <div style={{ color: COLORS.gold, fontSize: '0.88rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.3 }}>
                               {language === 'tr' ? pair.firstLabelTr : pair.firstLabelEn}
                             </div>
-                            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
+                            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
                               {pair.firstVerseRef}
                             </div>
                           </div>
@@ -1597,7 +1597,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                             <div style={{ color: COLORS.gold, fontSize: '0.88rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.3 }}>
                               {language === 'tr' ? pair.secondLabelTr : pair.secondLabelEn}
                             </div>
-                            <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
+                            <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontFamily: FONTS.body, marginTop: '2px' }}>
                               {pair.secondVerseRef}
                             </div>
                           </div>
@@ -1669,7 +1669,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
           borderBottom: `1px solid ${COLORS.goldAlpha25}`,
           marginBottom: '20px',
         }}>
-          <div style={{ color: COLORS.slate500, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
+          <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
             {language === 'tr' ? "Yöntem Uygulamada" : "The Method in Action"}
           </div>
           <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
@@ -2141,8 +2141,8 @@ function TabKaynaklar({ sources, language, isMobile }) {
         display: 'flex',
         gap: '10px',
       }}>
-        <span style={{ color: COLORS.slate500, fontSize: '0.85rem', flexShrink: 0 }}>ℹ</span>
-        <p style={{ color: COLORS.slate500, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.85rem', flexShrink: 0 }}>ℹ</span>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
           {language === 'tr'
             ? 'Bu sayfadaki yemin listesi temel kaynaklara dayanan küratörlü bir seçkidir. Tam bir akademik corpus çalışması için İbn Kayyim\'in et-Tibyân ve Suyûtî\'nin el-İtkân (bâb 60) eserlerine başvurulmalıdır.'
             : 'The oath list on this page is a curated selection based on primary sources. For a complete academic corpus study, refer to Ibn Qayyim\'s al-Tibyan and Suyuti\'s al-Itqan (chapter 60).'
