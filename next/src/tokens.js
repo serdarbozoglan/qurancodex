@@ -134,6 +134,9 @@ export const COLORS = {
   sageTextSafe:        '#5A9E8A',   // 1d7a5f'in metin-güvenli hâli (KiyametSahneleri faz 3)
   orchidTextSafe:      '#A384D2',   // 7b4fbf'nin metin-güvenli hâli (KiyametSahneleri faz 5)
   terracottaTextSafe:  '#A28F77',   // 8b7355'in metin-güvenli hâli (MeselAtlasi 'earth-rock' domaini)
+  navyTextSafe:        '#439cd6',   // 1a5276'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.deniz)
+  orchidLightTextSafe: '#b67ece',   // 8e44ad'nin metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.mesh)
+  siennaTextSafe:      '#c7926b',   // a0785a'nın metin-güvenli hâli (KavimlerAtlasi HELAK_COLORS.tas)
 
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',

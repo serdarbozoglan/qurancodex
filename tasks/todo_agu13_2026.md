@@ -1079,13 +1079,21 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       anasayfadan kaldırılalı beri **hiç yoktu**, kod her seferinde fallback'e
       düşüp `scrollTo(0)` yapıyordu. Buton çalışıyor **görünüyordu** — sessiz
       bozulma. Hedef `#six-gates` oldu. (Ölü kod taraması sırasında çıktı.)
-- [ ] **Z3c5 · `/arac/tum-araclar` katalogun tamamını göstermiyor: 50/55**
-      Sayfa 50 araç bağlantısı render ediyor, `toolCatalog.js`'te **55 giriş** var.
-      Sınıf C (veri sürüklenmesi): `ToolsBrowser` `tools.jsx`'ten besleniyor,
-      `/sor` ve `TOOL_CATALOG` başka dosyadan → iki liste ayrışmış.
-      Kontrol listesi §3.7 zaten "araç kataloğu 4 ayrı yerde" diyordu; bu onun
-      ölçülmüş hâli.
-      - [ ] Tek kaynağa indir (`toolCatalog.js` otorite olsun)
+- [x] ~~**Z3c5 · `/arac/tum-araclar` katalogun tamamını göstermiyor**~~ — **KAPANDI** `afc09f2`
+      **Bulgu bayatlamıştı** — 13 Ağustos'ta `ToolsBrowser` zaten `TOOL_CATALOG`'u
+      `EXTRA_TOOLS` bölümüyle devreye almıştı (50/55 artık geçerli değildi;
+      ölçülen: `TOOL_CATALOG.length` **62**, sayfa **57** gösteriyordu).
+      Gerçek kök neden: `COVERED_ROUTES = new Set(Object.values(TOOL_ROUTES))`
+      TOOL_ROUTES haritasının **tamamını** (27 rota — bazıları
+      PsychologySection/CennetCehennem/iblis gibi başka sayfalardaki butonlar
+      için) "üstte kart var" sayıyordu; üstteki 21 kart aslında yalnız 23
+      event kullanıyordu. Fazladan 4 rota (Tabiat Atlası, Nefs Mertebeleri,
+      İblis & Şeytan, İlk-Son Kelimeler) `EXTRA_TOOLS`'tan yanlışlıkla
+      filtrelenip sayfada **hiç görünmüyordu**. Düzeltme: `COVERED_ROUTES`
+      artık yalnız üstteki kartların gerçekten kullandığı event'lerin
+      rotalarından türetiliyor.
+      Doğrulama: TR+EN link sayısı **61**, başlık "61 araç" yazıyor, konsol
+      hatası yok, eslint temiz.
 
 - [x] ~~**Z3c7 · `/graf/semantik` panelinde ham `**` markdown**~~ — **KAPANDI** `0767c51`
       **Denetim taraması bunu KAÇIRMIŞTI.** Probe `/tr/graf/semantik`'te

@@ -25,12 +25,12 @@ const HELAK_COLORS = {
   // 4.14, 1a5276 2.04, 8e44ad 2.86, c0392b 3.11) — aynı ton ailesi korunarak
   // açıldı. batirma, KiyametSahneleri faz 1'le aynı orijinal renk (c0392b)
   // olduğu için oradaki token (rustTextSafe) tekrar kullanıldı.
-  tas:      '#c7926b',
+  tas:      COLORS.siennaTextSafe,
   batirma:  COLORS.rustTextSafe,
-  deniz:    '#439cd6',
+  deniz:    COLORS.navyTextSafe,
   golge:    '#b8860b',
   ates:     '#ff6348',
-  mesh:     '#b67ece',
+  mesh:     COLORS.orchidLightTextSafe,
   kurtulan: '#2ecc71',
   gizemli:  SEMANTIC.textFaint,
 };
