@@ -162,5 +162,23 @@
    "/en/tefekkur": 6
   },
   "at": "2026-08-14"
+ },
+ "mobile-sample": {
+  "total": 100,
+  "perPage": {
+   "/tr": 0,
+   "/en": 0,
+   "/tr/atlas/kissa": 29,
+   "/tr/graf/zaman": 3,
+   "/tr/arac/dualar": 4,
+   "/tr/arac/sebebi-nuzul": 4,
+   "/tr/arac/ilk-son-kelimeler": 18,
+   "/tr/atlas/kavim": 11,
+   "/tr/graf/karsilastir": 17,
+   "/tr/arac/melekler": 0,
+   "/tr/oku": 13,
+   "/tr/sor": 1
+  },
+  "at": "2026-08-14"
  }
 }

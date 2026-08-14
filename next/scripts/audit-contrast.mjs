@@ -24,6 +24,13 @@
 //   node scripts/audit-contrast.mjs --full   → 70 rota × 2 dil (~4 dk)
 //   node scripts/audit-contrast.mjs --ci     → taban aşılırsa exit 1
 //   node scripts/audit-contrast.mjs --update → tabanı GÜNCELLE (bilinçli)
+//   node scripts/audit-contrast.mjs --mobile [--full]  → 390px görünüm (K5)
+//
+// K5 (14 Ağustos): masaüstünde (1440px) ölçülen "büyük metin" muafiyeti
+// (≥24px veya ≥18.66px+bold → eşik 3.0, yoksa 4.5) mobilde `clamp()`
+// yüzünden punto küçülünce KALKABİLİR — aynı öge masaüstünde muaf,
+// mobilde muaf değil olabilir. `--mobile` bunu ayrı bir taban altında
+// (`mobile-sample`/`mobile-full`) ölçer; `full`/`sample` tabanlarına karışmaz.
 //
 // ⚠ Çalışan bir sunucu ister (dev yeterli): http://localhost:3000
 //
@@ -44,6 +51,7 @@ const args = process.argv.slice(2);
 const FULL = args.includes('--full');
 const CI = args.includes('--ci');
 const UPDATE = args.includes('--update');
+const MOBILE = args.includes('--mobile');
 
 // Örneklem: en çok ihlal üreten sayfa tipleri (atlas / graf / arac / okuma / kök)
 const SAMPLE = [
@@ -77,8 +85,9 @@ const urls = FULL
   ? ['tr', 'en'].flatMap((l) => allRoutes().map((r) => `/${l}${r}`))
   : SAMPLE;
 
+const VIEWPORT = MOBILE ? { width: 390, height: 844 } : { width: 1440, height: 900 };
 const browser = await chromium.launch();
-const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' })).newPage();
+const page = await (await browser.newContext({ viewport: VIEWPORT, reducedMotion: 'reduce' })).newPage();
 const perPage = {};
 let total = 0;
 
@@ -98,7 +107,7 @@ for (const u of urls) {
 }
 await browser.close();
 
-const key = FULL ? 'full' : 'sample';
+const key = (MOBILE ? 'mobile-' : '') + (FULL ? 'full' : 'sample');
 let base = {};
 try { base = JSON.parse(fs.readFileSync(BASELINE, 'utf8')); } catch {}
 const prev = base[key]?.total;
@@ -121,9 +130,10 @@ if (total > prev) {
   const worse = Object.entries(perPage).filter(([u, n]) => n > (base[key].perPage?.[u] ?? 0));
   worse.slice(0, 8).forEach(([u, n]) => console.log(`     ${u}: ${base[key].perPage?.[u] ?? 0} → ${n}`));
   console.log('\n  Kural: bu sayı ARTMAZ. Yeni metin rengi eklerken:');
-  console.log('    · üçüncü kademe → SEMANTIC.textFaint (#70829c, oran 5.02)');
+  console.log('    · üçüncü kademe → SEMANTIC.textFaint (#7e8fa6, oran 5.94)');
   console.log('    · silver opaklığı ≥ 0.78 · gold opaklığı ≥ 0.75');
   console.log('    · ham slate500-800 METİN rengi olamaz (kenarlık olabilir)');
+  console.log('    · kategori/kimlik renkleri de bu eşiklere tabidir (§13.26 md.6)');
   if (CI) process.exit(1);
 } else if (total < prev) {
   console.log(`\n  ✅ İYİLEŞME: ${prev} → ${total}  (−${prev - total})`);
