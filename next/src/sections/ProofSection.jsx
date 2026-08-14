@@ -83,8 +83,8 @@ export default function ProofSection({ locale = 'tr' }) {
         n: '04',
         h: tr ? 'Neden kesin kanıt değil?' : 'Why is this not proof?',
         p: tr
-          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Bu şema Farrin\'in yönteminden esinlenen, sitenin kendi düzenlemesidir — Farrin\'in kitabındaki tam yapının birebir kopyası değil (o, daha ayrıntılı iki ayrı ayna öneriyor). Halka/tenâsüb okuması Farrin\'e özgü de değil: Cuypers, Islahi ve klasik müfessirler (el-Bikâî, Süyûtî, Râzî) de benzer ama farklı bölümlemeler önermiştir; bu şema onları çürütmez.'
-          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement — not a verbatim copy of his book\'s structure (his own reading proposes two separate, more granular mirror groups). Nor is ring/coherence reading unique to Farrin: Cuypers, Islahi, and classical exegetes (al-Biqāʿī, al-Suyūṭī, al-Rāzī) have proposed related but different divisions; this diagram does not refute them.',
+          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Bu şema Farrin\'in yönteminden esinlenen, sitenin kendi düzenlemesidir — kitabındaki tam yapının birebir kopyası değil. Halka okuması da tek bir isme özgü değil (bkz. aşağıdaki kaynak notu); bu şema başka bölümlemeleri çürütmez.'
+          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement — not a verbatim copy of his book. Nor is ring reading unique to one scholar (see the source note below); this diagram does not refute other divisions.',
       },
     ],
     cta: tr ? 'Halka kompozisyon sayfasına git' : 'Open the ring composition page',
