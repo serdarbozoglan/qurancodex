@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulama geneli: 74 → 82/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
+> **Uygulama geneli: 74 → 80/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -667,6 +667,69 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       (`Z1c-ek`) aynı rotadaki **400 dönen fetch**'leri düzeltti — sınır
       doğrulaması ayrı iş, açık kalıyor.
 
+### 🔴 Z3-K · KONTRAST 73 SAYFADA ÖLÇÜLDÜ (14 Ağustos) — **en büyük açık bu**
+
+> Bu, gecenin başından beri "hiç ölçülmedi" diye işaretli olan iki bilinmeyenden
+> biriydi. Ölçüldü ve **beklediğimden kötü çıktı**: erişilebilirlik notu bu
+> boşluğun üstünde duruyordu, şimdi gerçek zemine oturdu.
+> Araç: `tests/lib/contrast.mjs` (zaten yazılmıştı, 74 sayfa için tasarlanmış).
+> Tekrarla: 70 rota × 2 dil × 1440px → `/tmp/contrast-desktop.json`
+
+**Ham sayı 3.997 — ama hepsi hata değil. Ayıklanmış hâli:**
+
+| | adet |
+|---|---:|
+| Ham bulgu | 3.997 |
+| − gradyan rozeti (bilinen yanlış pozitif, A2'de kayıtlı) | 2 |
+| − ≥24px dev/dekoratif rakam | 24 |
+| − `/atlas/kissa` **kasıtlı soluk** hücreler (aş. bak) | 463 |
+| **= gerçek, kazara ihlal** | **3.508** |
+| bunun gradyansız (kesin) olanı | 3.035 |
+| etkilenen sayfa | **134 / 140** |
+| temiz sayfa | yalnız `/hakkinda` ve `/kaynakca` (tr+en) |
+
+**Şiddet:** okunamaz (<2.0) **86** · çok zayıf (2.0–3.0) **1.174** ·
+AA altı (3.0–4.5) **2.246**
+
+**Kök sebep dar bir renk kümesi — 3.508'in %85'i altı renkten geliyor:**
+
+| renk | oran (cosmic-black üstünde) | adet | 4.5 için gereken |
+|---|---:|---:|---|
+| `rgb(100,116,139)` slate-500 | **4.12** | 675 | `#697a93` |
+| `rgb(74,85,104)` `#4a5568` | **2.60** | 554 | `#6a7a95` |
+| `#94a3b8` @ opaklık 0.70 | **3.99** | 594 | opaklık **≥0.75** (A2'de zaten yazılı) |
+| `rgba(148,163,184,0.45)` | **2.42** | 136 | opaklık ≥0.75 |
+| `#94a3b8` @ 0.65 / 0.60 | 3.62 / 3.4 | 210 | opaklık ≥0.75 |
+| `rgb(74,96,128)` | **3.06** | 96 | `#5e7ba3` |
+
+> `#4a5568` **C2'de zaten "en sık token dışı renk (×34)" diye kayıtlıydı** —
+> o zaman yalnız "token değil" diye işaretlenmişti; şimdi **AA'yı da geçmediği**
+> ölçüldü. İki madde aynı köke bakıyormuş.
+> Opaklık tarafı da yeni değil: **A2** zaten "silver ≥0.75, gold ≥0.70" eşiğini
+> ölçmüştü — ama yalnız **anasayfada** uygulanmış; diğer 73 sayfa dışarıda kalmış.
+
+**⚠ `/atlas/kissa`'nın 463'ü ayrı bir mesele — ölçüm değil KARAR gerektiriyor.**
+Ekran görüntüsüyle bakıldı: sahnenin geçmediği sûre hücreleri **bilerek**
+soluklaştırılmış (bir tür ısı haritası). Yani tasarım niyeti meşru — ama
+uygulama oran **1.27**'ye inmiş, yani bilgi herkes için kayboluyor, sadece
+az gören kullanıcı için değil. Soluklaştırma bir "yok" sinyali taşıdığı için
+WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
+- [ ] Karar: soluk durum oran **≥3.0**'a çekilsin (hâlâ belirgin biçimde
+      sönük ama okunur) — ya da renk yerine ikon/opaklık dışı bir sinyal
+
+**Yapılacaklar (öncelik sırasıyla):**
+- [ ] **K1 · Opaklık taban kuralı 73 sayfaya yayılsın** — A2'nin eşiği
+      (`silver ≥0.75`, `gold ≥0.70`) yalnız anasayfada uygulanmış.
+      Tek başına ~940 ihlali kapatıyor. Mekanik, düşük risk.
+- [ ] **K2 · `#4a5568` ve `rgb(74,96,128)` token'a taşınsın ve açılsın**
+      (`#6a7a95` / `#5e7ba3`). C2 ile aynı iş — birlikte yapılmalı.
+- [ ] **K3 · slate-500 (`#64748b`) kararı** — 4.12, yani yalnız küçük metinde
+      düşüyor. Ya `#697a93`'e açılır ya da kullanıldığı yerlerde ≥18.66px'e
+      çıkarılır. 675 örnek; en yaygın tek kalem.
+- [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar)
+- [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
+      "büyük metin" muafiyeti bazı yerlerde kalkabilir
+
 ### 🔴 Z3-C2 · Z3b turunda ÇIKAN YENİ BULGULAR (2026-08-13 gecesi)
 
 - [ ] **Z3c4 · `/arac/tum-araclar` — REGRESYON: tıklanabilir öge 68 → 66**
@@ -855,7 +918,7 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **Düzeltmelerden sonra: 74 → 82/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
+- [x] **Düzeltmelerden sonra: 74 → 80/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
 
       Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
 
@@ -882,16 +945,21 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
       | Bilgi mimarisi | 76 | **85** ▲9 | `/arac/tum-araclar` 50/55 · Z3c4 regresyonu |
-      | Erişilebilirlik | 66 | **86** ▲20 | kontrast 73 sayfada **hiç ölçülmedi** |
+      | Erişilebilirlik | 66 | **72** ▲6 | ⬇ kontrast ÖLÇÜLDÜ: **3.508 gerçek ihlal / 134 sayfa** (Z3-K) |
       | SEO / sunucu render | 70 | **79** ▲9 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
 
-      **85+ için sırayla gereken:** ~~① etiketsiz svg~~ ✅ `f4491e0`
-      ① gezinme `<button>` → `<Link>` (Z1f + Z3f1, site geneli — navbar
-      mega-menüsü ve mobil çekmece dahil) ② renk kararı + göç (C2)
-      ③ EN sızıntıları (Z3e2) ④ kontrast + CWV'nin 73 sayfada **hiç
-      ölçülmemiş** olması — iki eksen hâlâ kısmen bilinmeyen üstünde.
+      **85+ için sırayla gereken:** ~~① etiketsiz svg~~ ✅ `f4491e0` ·
+      ~~② navbar gezinmesi~~ ✅ `bbbd3ec` · ~~③ ibadetler RAG~~ ✅ `1d5fdd8`
+      ① **KONTRAST — Z3-K** (3.508 ihlal / 134 sayfa; K1 tek başına ~940'ını
+      kapatıyor) ② renk kararı + göç (C2 — K2 ile aynı kök)
+      ③ EN sızıntıları (Z3e2) ④ sayfa-içi gezinme `<button>`ları (Z1f kalanı)
+      ⑤ **CWV hâlâ 73 sayfada ölçülmedi** — geriye tek bilinmeyen eksen bu.
+
+      ⚠ **Not düştü, çünkü bilinmeyen ölçüldü.** Erişilebilirlik 86 iken 72'ye
+      indi: 86 sayısı "kontrast bilinmiyor" varsayımının üstünde duruyordu.
+      Gerçek zemine oturmak puanı düşürdü ama tahmini gerçeğe çevirdi.
 
       | Eksen | Anasayfa | **Uygulama** | Farkın sebebi |
       |---|---:|---:|---|
