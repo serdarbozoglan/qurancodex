@@ -1020,10 +1020,14 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
             "netice", "nعیm" = "naîm" olmalı, klavye dili yanlışlıkla
             değişmiş). §13.15 kapsamı dışı, ayrı bir veri kalitesi hatası —
             düzeltilmedi, burada not edildi.
-- [ ] **Z3d4 · `DesktopSidebarTOC.jsx:38` — `NAVBAR_HEIGHT = 62` (dördüncü kardeş)**
-      `useNavbarOffset` üç yerde topladı; bu dosya dışarıda kaldı. Ölçülen gerçek
-      navbar 82px (1280+), yani çapa kaydırması **20px eksik** iniyor.
-      Ayrıca `AhiretYolculugu.jsx:200` → `HEADER_OFFSET = 180` sabit.
+- [x] ~~**Z3d4 · `DesktopSidebarTOC.jsx:38` — `NAVBAR_HEIGHT = 62` (dördüncü kardeş)**~~ — **KAPANDI** (14 Ağustos)
+      Her iki dosya da `useNavbarOffset(0, 62)` kullanacak şekilde değiştirildi
+      (`ToolHeader.jsx`'teki aynı çağrı biçimi — `min=62` yalnız ilk render'da).
+      `DesktopSidebarTOC.jsx`: çapa kaydırma + `maxHeight` artık ölçülen değeri
+      kullanıyor. `AhiretYolculugu.jsx:200`: `HEADER_OFFSET` sabiti
+      `navTop + 48 + 70`'e çevrildi, `useEffect` bağımlılığına `navTop` eklendi.
+      Doğrulama: gerçek navbar altı 62-82px arasında ölçüldü (kaydırma
+      durumuna göre), iki sayfada da 0 konsol hatası.
 
 ### 🟠 Z3-E · İki dillilik (Z1'de yok)
 

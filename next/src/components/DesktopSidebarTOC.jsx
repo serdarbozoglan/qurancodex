@@ -13,6 +13,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
+import useNavbarOffset from './useNavbarOffset';
 
 // CHAPTERS — homepage section order ile birebir uyumlu olmalı. Eksik bölüm
 // olursa visitor "atlandı mı?" hissi yaşar (UX hatası).
@@ -35,7 +36,6 @@ const CHAPTERS = [
   { id: 'conclusion',          labelTr: 'Sonuç',                labelEn: 'Conclusion'              },
 ];
 
-const NAVBAR_HEIGHT = 62;
 const SHOW_BREAKPOINT = 1280; // sadece desktop wide+
 
 export default function DesktopSidebarTOC() {
@@ -43,6 +43,11 @@ export default function DesktopSidebarTOC() {
   const tr = language === 'tr';
   const [show, setShow] = useState(false);
   const [activeId, setActiveId] = useState(null);
+  // 2026-08-14 (Z3d4) — sabit 62 "dördüncü kardeş" hatasıydı (bkz.
+  // useNavbarOffset.js başlık yorumu): gerçek navbar 1280+'ta 82px,
+  // çapa kaydırması 20px eksik iniyordu. min=62 yalnız ilk render'da
+  // (ölçüm sonuçlanmadan önce) kullanılır.
+  const navTop = useNavbarOffset(0, 62);
 
   // Viewport check — sadece ≥1280px göster
   const [isWide, setIsWide] = useState(false);
@@ -90,7 +95,7 @@ export default function DesktopSidebarTOC() {
   const handleClick = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - (NAVBAR_HEIGHT + 16);
+    const top = el.getBoundingClientRect().top + window.scrollY - (navTop + 16);
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
@@ -112,7 +117,7 @@ export default function DesktopSidebarTOC() {
         opacity: show ? 1 : 0,
         pointerEvents: show ? 'auto' : 'none',
         transition: 'opacity 0.35s ease',
-        maxHeight: `calc(100vh - ${NAVBAR_HEIGHT + 48}px)`,
+        maxHeight: `calc(100vh - ${navTop + 48}px)`,
         overflowY: 'auto',
         scrollbarWidth: 'none',
       }}

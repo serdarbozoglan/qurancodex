@@ -25,6 +25,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
+import useNavbarOffset from './useNavbarOffset';
 // SSR-safe: JSON'u module-level import et. Fetch pattern SSR'da null döndürüyordu
 // → SourcesCitation + CTA'lar SEO HTML'de görünmüyordu (2026-07-15 audit bug).
 // Bundle'a ~90KB static content ekler; ancak initial render tam olur.
@@ -153,6 +154,10 @@ export default function AhiretYolculugu({ onClose }) {
   const router = useRouter();
   const [data, setData] = useState(ahiretDataStatic);
   const [isMobile, setIsMobile] = useState(false);
+  // 2026-08-14 (Z3d4) — navbar sabit 62 varsayımı "dördüncü kardeş" hatasıydı
+  // (bkz. useNavbarOffset.js). toolheader (48) + hero comfort (70) sabit
+  // kalıyor, yalnız navbar kısmı artık ölçülüyor.
+  const navTop = useNavbarOffset(0, 62);
   const [openStage, setOpenStage] = useState(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -197,7 +202,7 @@ export default function AhiretYolculugu({ onClose }) {
   const programmaticScrollLock = useRef(false);
   useEffect(() => {
     if (!data || isMobile) return;
-    const HEADER_OFFSET = 180; // navbar 62 + toolheader 48 + hero comfort 70
+    const HEADER_OFFSET = navTop + 48 + 70; // navbar (ölçülen) + toolheader 48 + hero comfort 70
     const compute = () => {
       if (programmaticScrollLock.current) return;
       let closestIdx = 0;
@@ -229,7 +234,7 @@ export default function AhiretYolculugu({ onClose }) {
       window.removeEventListener('scroll', onScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [data, isMobile]);
+  }, [data, isMobile, navTop]);
 
   const jumpTo = (id) => {
     const el = stageRefs.current[id];
