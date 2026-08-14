@@ -126,7 +126,7 @@ function InfoNote({ text }) {
   return (
     <div style={{
       display: 'flex', gap: '6px', alignItems: 'flex-start',
-      fontSize: '0.73rem', color: COLORS.silverAlpha70,
+      fontSize: '0.73rem', color: SEMANTIC.textFaint,
       background: 'rgba(148,163,184,0.05)',
       border: `1px solid ${COLORS.silverAlpha12}`,
       borderRadius: RADIUS.sm, padding: '8px 10px',

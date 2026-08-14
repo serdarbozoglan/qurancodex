@@ -30,7 +30,7 @@ import React from 'react';
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET } from '../tokens';
+import { COLORS, FONTS, RADIUS, CLOSE_BTN, OVERLAY_TITLE, BREAKPOINT_TABLET, SEMANTIC } from '../tokens';
 import {
   FEATURED_TOOLS,
   VIZ_TOOLS,
@@ -755,7 +755,7 @@ function FeaturedBanner({ tool, onClick, href, language }) {
           <span style={{ color: COLORS.offWhite, fontSize: '1rem', fontFamily: FONTS.body, fontWeight: 700 }}>
             {language === 'tr' ? tool.titleTr : tool.titleEn}
           </span>
-          <span style={{ color: COLORS.silverAlpha70, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.4 }}>
+          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', fontFamily: FONTS.body, lineHeight: 1.4 }}>
             {language === 'tr' ? tool.descLongTr : tool.descLongEn}
           </span>
         </span>
@@ -865,7 +865,7 @@ function BigToolCard({ tool, onClick, href, language, fullWidth = false }) {
         </span>
         <span
           style={{
-            color: COLORS.silverAlpha70,
+            color: SEMANTIC.textFaint,
             fontSize: '0.78rem',
             fontFamily: FONTS.body,
             fontWeight: 400,

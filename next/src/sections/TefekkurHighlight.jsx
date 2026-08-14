@@ -61,12 +61,23 @@ const FEATURED_ESSAYS = [
   },
 ];
 
+// Kategori sayıları _index.json'DAN TÜRETİLİR — elle yazılmaz.
+// 2026-08-14: burada 5/8/11/5/6/7 (toplam 42) yazılıydı; gerçek 53'tü.
+// Bu sabitler her yeni makalede bayatlıyordu ve kimse fark etmiyordu.
+// Aynı sınıf hata bu sitede navbar yüksekliğinde sekiz kez yaşandı.
+import TEFEKKUR_INDEX from '../../public/tefekkur/_index.json';
+
+const COUNT_BY_CAT = TEFEKKUR_INDEX.articles.reduce((m, a) => {
+  m[a.category] = (m[a.category] || 0) + 1;
+  return m;
+}, {});
+
 // ── 6 essay categories — mirrors public/tefekkur/_index.json categories ──────
 const TEFEKKUR_CATEGORIES = [
   {
     id: 'kavramsal',
     accent: CATEGORY.blue,            // aynı hex
-    count: 5,
+    count: COUNT_BY_CAT['kavramsal'] ?? 0,
     titleTr: 'Kavramsal Tahlil',
     titleEn: 'Conceptual Analysis',
     descTr: 'Psikolojik, içsel ve pratik tefekkür denemeleri',
@@ -81,7 +92,7 @@ const TEFEKKUR_CATEGORIES = [
   {
     id: 'terminoloji',
     accent: CATEGORY.orange,          // terminoloji — altın kategori rengi olamaz
-    count: 8,
+    count: COUNT_BY_CAT['terminoloji'] ?? 0,
     titleTr: 'Terminoloji Serisi',
     titleEn: 'Terminology Series',
     descTr: "İnsan, Kâinat ve Kur'an'ı Okuma Terminolojisi",
@@ -98,7 +109,7 @@ const TEFEKKUR_CATEGORIES = [
   {
     id: 'sure-hermenotik',
     accent: SEMANTIC.accentPrimary,   // sure-hermenotik — çekirdek kategori altın kalıyor
-    count: 11,
+    count: COUNT_BY_CAT['sure-hermenotik'] ?? 0,
     titleTr: 'Sûre & Hermenötik',
     titleEn: 'Surah & Hermeneutics',
     descTr: 'Sûre tahlilleri ve yorum prensipleri',
@@ -113,7 +124,7 @@ const TEFEKKUR_CATEGORIES = [
   {
     id: 'semantik',
     accent: CATEGORY.violet,          // semantik
-    count: 5,
+    count: COUNT_BY_CAT['semantik'] ?? 0,
     titleTr: 'Semantik Seri',
     titleEn: 'Semantic Series',
     descTr: 'Arapça kök etimolojisi ve Kur\'ani semantik haritalama',
@@ -132,7 +143,7 @@ const TEFEKKUR_CATEGORIES = [
   {
     id: 'idrak-suur',
     accent: CATEGORY.emerald,         // aynı hex
-    count: 6,
+    count: COUNT_BY_CAT['idrak-suur'] ?? 0,
     titleTr: 'İdrak & Şuur',
     titleEn: 'Cognition & Consciousness',
     descTr: 'Epistemoloji, metafizik ve recursive düşünce',
@@ -147,7 +158,7 @@ const TEFEKKUR_CATEGORIES = [
   {
     id: 'kozmoloji',
     accent: CATEGORY.rose,            // kozmoloji — mor ikizi çözüldü
-    count: 7,
+    count: COUNT_BY_CAT['kozmoloji'] ?? 0,
     titleTr: 'Kozmoloji & Yaratılış',
     titleEn: 'Cosmology & Creation',
     descTr: 'Yaratılış, kuantum ve evrim üzerine düşünce',

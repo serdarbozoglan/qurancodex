@@ -1,0 +1,519 @@
+{
+  "slug": "dusunme-fiilleri-zihnin-isletim-sistemi",
+  "titleTr": "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi",
+  "titleEn": "The Quran's Verbs of Thinking: The Operating System of the Mind",
+  "category": "semantik",
+  "publishedDate": "2026-08-14",
+  "readingMinutes": 7,
+  "author": "Felsufi",
+  "canonicalUrl": "https://sufist.medium.com/kuran%C4%B1n-d%C3%BC%C5%9F%C3%BCnme-fiilleri-zihnin-i%CC%87%C5%9Fletim-sistemi-3f70213d8758",
+  "tldrTr": "Tefekkür, taakkul, tedebbür, tezekkür, tefakkuh — meallerde çoğu zaman birbirinin yerine geçer. Oysa Kur'an bu fiilleri titizlikle kullanır: aynı sûrede, ardarda gelen âyetlerde bile **fiil değiştirir**. Ortaya çıkan yapı **üç katmanlı bir işletim sistemidir**: altta **donanım** (tefakkuh — 20 geçişin 17'si olumsuz), ortada **üç ayrı işlem** (model kurma · bağ kurma · sözün arkasını açma), üstte **çıktı** (tezekkür — 51 geçiş ve **hiç emredilmez**). Nahl 11–13 üç ardışık âyette üç farklı fiille biter: fiili seçen, bakılan şey değil, **o an istenen zihinsel iştir**.",
+  "tldrEn": "Tafakkur, taʿaqqul, tadabbur, tadhakkur, tafaqquh — translations usually treat them as interchangeable. Yet the Quran uses them with precision, **switching verbs** even in consecutive verses of the same sura. The resulting structure is **a three-layer operating system**: **hardware** at the bottom (tafaqquh — 17 of 20 occurrences negative), **three distinct operations** in the middle (model-building · binding · opening what lies behind speech), and the **output** on top (tadhakkur — 51 occurrences and **never commanded**). An-Nahl 11–13 ends three consecutive verses with three different verbs: what selects the verb is not the object looked at, but **the mental work demanded at that moment**.",
+  "relatedTools": [
+    "concept-graph",
+    "verse-graph",
+    "reading-mode"
+  ],
+  "relatedVerses": [
+    "7:179",
+    "17:44",
+    "59:21",
+    "2:219",
+    "2:164",
+    "2:44",
+    "4:82",
+    "47:24",
+    "7:201",
+    "56:62",
+    "38:29",
+    "16:11",
+    "16:12",
+    "16:13"
+  ],
+  "blocks": [
+    {
+      "type": "criticalNote",
+      "headingTr": "Bu yazı bir iddia taşıyor",
+      "headingEn": "This essay carries a claim",
+      "tr": "Meallerde **tefekkür · taakkul · tedebbür · tezekkür · tefakkuh** çoğu zaman birbirinin yerine geçen sözcüklerle çevrilir: “düşünmek”, “akletmek”, “ibret almak”. Bu yazının tezi şu: bunlar eş anlamlı değil, **insan zihninin işletim sistemine ait ayrı katmanlardır.** Kur'an aynı sûrede, ardarda gelen âyetlerde, benzer konulardan söz ederken bile fiil değiştirir — ve değiştirdiği yer tesadüf değildir.\n\n⚠ Aşağıdaki mimari bir **okuma önerisidir**, metnin zorunlu tek bölümlemesi değil. Sayımlar sabittir; yorum yazara aittir.",
+      "en": "Translations often render **tafakkur · taʿaqqul · tadabbur · tadhakkur · tafaqquh** with interchangeable words: “think”, “reason”, “take heed”. This essay's claim: they are not synonyms but **distinct layers of the mind's operating system.** The Quran switches verbs even within the same sura, in consecutive verses, while speaking of similar matters — and where it switches is not accidental.\n\n⚠ The architecture below is a **proposed reading**, not the text's only necessary division. The counts are fixed; the interpretation is the author's."
+    },
+    {
+      "type": "section",
+      "id": "mimari",
+      "titleTr": "Üç Katmanlı Mimari",
+      "titleEn": "A Three-Layer Architecture"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Sonda söyleyeceğimizi başta söyleyelim. En altta **donanım** vardır: *tefakkuh*, kalbin anlama kapasitesidir ve Kur'an ondan çoğunlukla **arızasını teşhis ederken** söz eder. Ortada **işlemler** durur: *tefekkür* model kurar, *taakkul* bağ kurar, *tedebbür* sözün arkasını açar. Hangisinin istendiğini, o bağlamda muhataptan beklenen zihinsel iş belirler. En üstte **çıktı** vardır: *tezekkür* — bütün bu işlemlerin bizi ulaştırması umulan hâl. Zaten içimizde duran bilginin geri çağrılması.",
+      "en": "Let us state the conclusion first. At the bottom sits **hardware**: *tafaqquh*, the heart's capacity to penetrate — and the Quran speaks of it mostly **while diagnosing its failure**. In the middle sit **operations**: *tafakkur* builds models, *taʿaqqul* binds, *tadabbur* opens what lies behind speech. Which one is asked for depends on the mental work expected in that context. At the top sits the **output**: *tadhakkur* — the state these operations are hoped to reach. The retrieval of knowledge already held."
+    },
+    {
+      "type": "hierarchyTree",
+      "titleTr": "Zihnin işletim sistemi — üç katman",
+      "titleEn": "The mind's operating system — three layers",
+      "root": {
+        "tr": "Kur'an'ın sorusu her âyette aynıdır: **bu insan, şu an, zihniyle ne yapmalı?**",
+        "en": "The Quran's question in every verse is the same: **what should this person do with their mind, right now?**"
+      },
+      "branches": [
+        {
+          "id": "donanim",
+          "labelTr": "DONANIM — kapasite",
+          "labelEn": "HARDWARE — capacity",
+          "accent": "#E74C3C",
+          "children": [
+            {
+              "tr": "**Tefakkuh** (ف ق ه) — kalbin nüfuz kapasitesi. 20 geçişin **17'si olumsuz**: arızasıyla tanınır.",
+              "en": "**Tafaqquh** (f-q-h) — the heart's capacity to penetrate. **17 of 20** occurrences are negative: known by its failure."
+            }
+          ]
+        },
+        {
+          "id": "islemler",
+          "labelTr": "İŞLEMLER — üç ayrı iş",
+          "labelEn": "OPERATIONS — three distinct jobs",
+          "accent": "#3498DB",
+          "children": [
+            {
+              "tr": "**Tefekkür** (ف ك ر) — model kur, senaryo çalıştır, kefeleri tart. 18 geçiş.",
+              "en": "**Tafakkur** (f-k-r) — build a model, run a scenario, weigh the pans. 18 occurrences."
+            },
+            {
+              "tr": "**Taakkul** (ع ق ل) — iki ucu düğümle: sebebi sonuca, bugünü akıbete. 49 geçiş.",
+              "en": "**Taʿaqqul** (ʿ-q-l) — tie two ends: cause to effect, today to outcome. 49 occurrences."
+            },
+            {
+              "tr": "**Tedebbür** (د ب ر) — sözün arka odasına gir. 4 geçiş, **dördü de söz hakkında**.",
+              "en": "**Tadabbur** (d-b-r) — enter the room behind the words. 4 occurrences, **all four about speech**."
+            }
+          ]
+        },
+        {
+          "id": "cikti",
+          "labelTr": "ÇIKTI — varılan hâl",
+          "labelEn": "OUTPUT — the state reached",
+          "accent": "#1D9E75",
+          "children": [
+            {
+              "tr": "**Tezekkür** (ذ ك ر) — geri çağırma. 51 geçiş ve **hiç emredilmez**: umulur, davet edilir.",
+              "en": "**Tadhakkur** (dh-k-r) — retrieval. 51 occurrences and **never commanded**: hoped for, invited."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "tefakkuh",
+      "titleTr": "Donanım: Tefakkuh — kalbin nüfuz kapasitesi",
+      "titleEn": "Hardware: Tafaqquh — the Heart's Capacity to Penetrate"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**F-K-H** kökü bir şeyi yarıp içine ulaşmayı anlatır; sonradan *fıkıh* diye terimleşen kelimenin aslı, sözün ve olgunun içindeki maksada nüfuz etmektir. Sistemi, ana prensipleri, ortak çatıyı görebilmek.",
+      "en": "The root **f-q-h** denotes splitting something open and reaching inside; the word later crystallised as *fiqh* originally meant penetrating to the intent inside speech and fact. Seeing the system, the governing principles, the shared frame."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Bir kapasiteyi en iyi arızası görünür kılar",
+      "headingEn": "A capacity is made visible by its failure",
+      "tr": "Tefakkuh **20 kez** geçer; **17'si olumsuzdur** — *fıkhetmezler*, *fıkhetmeyen topluluk*, *kalpleri var ama onunla fıkhetmezler*. Kur'an anlama donanımını çalıştığı yerde değil, **bozulduğu yerde** gösterir. Bu kullanımların büyük bölümü münâfıkları anlatır: sûre indiğinde birbirine bakıp sıvışanlar (9:127), “Allah'tan çok sizden korkanlar” (59:13), “infak etmeyin ki dağılsınlar” diyenler (63:7) — hep aynı teşhisle anılır.",
+      "en": "Tafaqquh occurs **20 times**; **17 are negative** — *they do not comprehend*, *a people who do not comprehend*, *they have hearts but do not comprehend with them*. The Quran shows the faculty of understanding not where it works but **where it breaks**. Most of these describe the hypocrites: those who glance at one another and slip away when a sura is revealed (9:127), those who “fear you more than Allah” (59:13), those who say “do not spend, so they disperse” (63:7) — all named with the same diagnosis."
+    },
+    {
+      "type": "verseInline",
+      "ref": "7:179",
+      "ar": "وَلَقَدْ ذَرَأْنَا لِجَهَنَّمَ كَثِيراً مِنَ الْجِنِّ وَالْاِنْسِ  لَهُمْ قُلُوبٌ لَا يَفْقَهُونَ بِهَا وَلَهُمْ اَعْيُنٌ لَا يُبْصِرُونَ بِهَا وَلَهُمْ اٰذَانٌ لَا يَسْمَعُونَ بِهَا  اُولٰٓئِكَ كَالْاَنْعَامِ بَلْ هُمْ اَضَلُّ اُولٰٓئِكَ هُمُ الْغَافِلُونَ",
+      "noteTr": "“**Kalpleri vardır, onunla fıkhetmezler; gözleri vardır, onunla görmezler; kulakları vardır, onunla işitmezler.**” — Organ yerinde, işlev yok. Fakülte hep **kalptir**: Kur'an'da kalp, düşünce ile hissi birlikte kapsayan iç âlemdir.",
+      "noteEn": "“**They have hearts with which they do not comprehend, eyes with which they do not see, ears with which they do not hear.**” — The organ is present, the function absent. The faculty is always the **heart**: in the Quran the heart is the inner world encompassing both thought and feeling."
+    },
+    {
+      "type": "verseInline",
+      "ref": "17:44",
+      "ar": "تُسَبِّحُ لَهُ السَّمٰوَاتُ السَّبْعُ وَالْاَرْضُ وَمَنْ فِيهِنَّ وَاِنْ مِنْ شَيْءٍ اِلَّا يُسَبِّحُ بِحَمْدِهِ وَلٰكِنْ لَا تَفْقَهُونَ تَسْبِيحَهُمْ اِنَّهُ كَانَ حَلِيماً غَفُوراً",
+      "noteTr": "“**…fakat siz onların tesbihini fıkhetmezsiniz.**” — Duymak ya da görmek değil; **özüyle kavramak**. Varlığın iç konuşması sürekli yayındadır; alıcı kalptir. Bu, kapasitenin üst sınırını çizen âyettir.",
+      "noteEn": "“**…but you do not comprehend their glorification.**” — Not hearing or seeing, but **grasping in essence**. Existence broadcasts its inner speech continuously; the receiver is the heart. This verse marks the ceiling of the capacity."
+    },
+    {
+      "type": "verseInline",
+      "ref": "9:122",
+      "ar": "وَمَا كَانَ الْمُؤْمِنُونَ لِيَنْفِرُوا كٓافَّةً فَلَوْلَا نَفَرَ مِنْ كُلِّ فِرْقَةٍ مِنْهُمْ طٓائِفَةٌ لِيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنْذِرُوا قَوْمَهُمْ اِذَا رَجَعٓوا اِلَيْهِمْ لَعَلَّهُمْ يَحْذَرُونَ",
+      "noteTr": "Donanım **sabit değildir**. Kur'an *tefakkuh* için emek verilmesini ister — “dinde derinleşmek” bir çağrıdır. Kapasite bakımla gelişir.",
+      "noteEn": "The hardware is **not fixed**. The Quran calls for effort towards *tafaqquh* — “to gain deep understanding in religion” is an invitation. Capacity grows with maintenance."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "Kur'an anlama donanımını çalıştığı yerde değil, **bozulduğu yerde** gösterir.",
+      "en": "The Quran shows the faculty of understanding not where it works, but **where it breaks**.",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "tefekkur",
+      "titleTr": "Birinci İşlem: Tefekkür — simülasyon motoru",
+      "titleEn": "First Operation: Tafakkur — the Simulation Engine"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**F-K-R** kökü zihnin bir malzemeyi evirip çevirmesini, içini eşelemesini anlatır. Kur'an'da tefekkür, elindeki veriden zihinde **model kuran**, senaryo çalıştıran, kefeleri tartan işlemin adıdır. Ona en çok **meseller** eşlik eder — çünkü bir temsil ancak zihinde canlandırılırsa çalışır.",
+      "en": "The root **f-k-r** denotes turning material over in the mind, digging into it. In the Quran *tafakkur* names the operation that **builds a model** from the data at hand, runs a scenario, weighs the pans. It is most often accompanied by **parables** — because a likeness only works if it is staged in the mind."
+    },
+    {
+      "type": "verseInline",
+      "ref": "59:21",
+      "ar": "لَوْ اَنْزَلْنَا هٰذَا الْقُرْاٰنَ عَلٰى جَبَلٍ لَرَاَيْتَهُ خَاشِعاً مُتَصَدِّعاً مِنْ خَشْيَةِ اللّٰهِ وَتِلْكَ الْاَمْثَالُ نَضْرِبُهَا لِلنَّاسِ لَعَلَّهُمْ يَتَفَكَّرُونَ",
+      "noteTr": "“**İndirseydik… görürdün.**” Burada bir **karşı-olgu** kuruluyor: hiç yaşanmamış bir sahneyi zihninde inşa et, dağın kütlesini hayal et, sözün ağırlığını ona bindir, çatlamayı seyret. Âyet kendi amacını da söylüyor: *“ki tefekkür etsinler”*.",
+      "noteEn": "“**Had We sent it down… you would have seen.**” A **counterfactual** is constructed: build in your mind a scene that never occurred, imagine the mass of the mountain, load the weight of the word onto it, watch it split. The verse states its own purpose: *“that they may reflect”*."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:219",
+      "ar": "يَسْـَٔلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ قُلْ فِيهِمٓا اِثْمٌ  كَبِيرٌ وَمَنَافِـعُ لِلنَّاسِ وَاِثْمُهُمٓا اَكْبَرُ مِنْ نَفْعِهِمَا وَيَسْـَٔلُونَكَ مَاذَا يُنْفِقُونَ قُلِ الْعَفْوَ كَذٰلِكَ يُبَيِّنُ اللّٰهُ لَكُمُ الْاٰيَاتِ لَعَلَّكُمْ تَتَفَكَّرُونَ",
+      "noteTr": "Dikkat: âyet “içki kötüdür, bırak” demekle yetinmiyor; **günahı ve faydayı aynı cümleye koyup teraziyi insanın eline veriyor.** İki değişkenli bir modeli tartmak — tefekkürün tam da kendisi.",
+      "noteEn": "Note: the verse does not merely say “wine is bad, abandon it”; it **places the sin and the benefit in one sentence and hands the scale to the reader.** Weighing a two-variable model — this is precisely *tafakkur*."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Tefekkürün operasyon alanı",
+      "headingEn": "The operating domain of tafakkur",
+      "tr": "Üzerinde **model kurulabilen** her şey: göklerin ve yerin yaratılışı (3:191), arının vadileri (16:69), uykuyla ölümde nefislerin alınışı (39:42), eşler arasındaki sevgi (30:21) — ve insanın **kendi içi**: *“kendi nefislerinde hiç tefekkür etmediler mi?”* (30:8).",
+      "en": "Anything a **model can be built upon**: the creation of the heavens and the earth (3:191), the valleys of the bee (16:69), the taking of souls in sleep and in death (39:42), the affection between spouses (30:21) — and the human **interior**: *“Do they not reflect within themselves?”* (30:8)."
+    },
+    {
+      "type": "section",
+      "id": "taakkul",
+      "titleTr": "İkinci İşlem: Taakkul — bağ kurma",
+      "titleEn": "Second Operation: Taʿaqqul — Binding"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**A-K-L** kökünün kök imgesi meşhurdur: *ikāl*, devenin dizini bağlayan köstektir. **Akletmek, bağlamaktır.** Zihnin iki ucu birbirine düğümlemesi: sebebi sonuca, delili hükme, bugünü akıbete, sözü anlama, görüleni görülmeyene. Ama bu, hayalî ya da zorlama bir bağ kurmak değildir — aklın bağ kurabilmesi için bakılan şeyde **âyet**, işaret, delil olması gerekir.",
+      "en": "The root image of **ʿ-q-l** is well known: *ʿiqāl* is the hobble that ties a camel's knee. **To reason is to bind.** The mind knots two ends together: cause to effect, evidence to ruling, today to outcome, word to meaning, the seen to the unseen. But this is not an imagined or forced link — for reason to bind, what is looked at must carry an **āya**, a sign, a proof."
+    },
+    {
+      "type": "contrastDuo",
+      "captionTr": "Aynı işlem, iki ton — biri davet eder, öteki hesap sorar",
+      "captionEn": "One operation, two tones — one invites, the other calls to account",
+      "left": {
+        "titleTr": "Davet tonu",
+        "titleEn": "The tone of invitation",
+        "accent": "#1D9E75",
+        "descTr": "Bağlanacak uçlar **tabiata serilmiştir**. Yağmur ölü toprağı diriltiyor; bu gözlemi haşre bağlayacak düğümü atması **dinleyiciden beklenir**.",
+        "descEn": "The ends to be tied are **spread across nature**. Rain revives dead earth; tying that observation to the resurrection is **left to the listener**."
+      },
+      "right": {
+        "titleTr": "İkaz tonu",
+        "titleEn": "The tone of reproof",
+        "accent": "#E74C3C",
+        "descTr": "**Kopmuş bir bağın hesabı sorulur.** Sözünle eylemin arasındaki bağ kopmuşsa, *“efelâ ta'kılûn”* o kopukluğa vurulan neşterdir.",
+        "descEn": "**A broken link is called to account.** When word and deed have come apart, *“afalā taʿqilūn”* is the scalpel laid to that rupture."
+      }
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:164",
+      "ar": "اِنَّ فِي خَلْقِ السَّمٰوَاتِ وَالْاَرْضِ وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ وَالْفُلْكِ الَّتِي تَجْرِي فِي الْبَحْرِ بِمَا يَنْفَعُ النَّاسَ وَمٓا اَنْزَلَ اللّٰهُ مِنَ السَّمٓاءِ مِنْ مٓاءٍ فَاَحْيَا بِهِ الْاَرْضَ بَعْدَ مَوْتِهَا وَبَثَّ فِيهَا مِنْ كُلِّ دٓابَّةٍ وَتَصْرِيفِ الرِّيَاحِ وَالسَّحَابِ الْمُسَخَّرِ بَيْنَ السَّمٓاءِ وَالْاَرْضِ لَاٰيَاتٍ لِقَوْمٍ يَعْقِلُونَ",
+      "noteTr": "Göklerin ve yerin yaratılışı, gece ile gündüzün ardarda gelişi, denizde akan gemiler, ölümünden sonra yeryüzünü dirilten su, yayılan canlılar, rüzgârların çevrilişi — hepsi **akleden bir topluluk için** sıralanır. Uçlar serilmiştir; düğümü atmak okuyucunun işidir.",
+      "noteEn": "The creation of the heavens and the earth, the alternation of night and day, ships running upon the sea, water that revives the earth after its death, the creatures scattered abroad, the shifting of the winds — all listed **for a people who reason**. The ends are laid out; tying the knot is the reader's work."
+    },
+    {
+      "type": "verseInline",
+      "ref": "2:44",
+      "ar": "اَتَأْمُرُونَ النَّاسَ بِالْبِرِّ وَتَنْسَوْنَ اَنْفُسَكُمْ وَاَنْتُمْ تَتْلُونَ الْكِتَابَ اَفَلَا تَعْقِلُونَ",
+      "noteTr": "“**İnsanlara iyiliği emrediyor da kendinizi unutuyor musunuz? Üstelik Kitab'ı da okuyorsunuz. Hiç akletmez misiniz?**” — Aynı neşter İbrâhîm tartışmasındaki anakronizme (3:65), fayda da zarar da veremeyen putlara (21:67) ve “işitseydik veya akletseydik” itirafına (67:10) iner.",
+      "noteEn": "“**Do you enjoin righteousness upon people and forget yourselves, while you recite the Scripture? Will you not reason?**” — The same scalpel cuts into the anachronism in the Abraham argument (3:65), into idols that can neither benefit nor harm (21:67), and into the confession “had we listened or reasoned” (67:10)."
+    },
+    {
+      "type": "verseInline",
+      "ref": "12:2",
+      "ar": "اِنّٓا اَنْزَلْنَاهُ قُرْءٰناً عَرَبِياًّ لَعَلَّـكُمْ تَعْقِلُونَ",
+      "noteTr": "Taakkulun az bilinen bir yüzü: **Kur'an'ın Arapça indirilmesinin gerekçesi de odur** (ayrıca 43:3). **Çözülebilir bir dil**, söz ile anlam arasında bağ kurulmasını mümkün kılar.",
+      "noteEn": "A lesser-known face of *taʿaqqul*: **it is also the stated reason the Quran was sent down in Arabic** (also 43:3). **A decipherable language** makes it possible to bind word to meaning."
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Âyet, fiziği metafiziğe bağlayan köprüdür. Bu köprüden yürüyüp karşıya geçmeye akletmek denir.**",
+      "en": "**An āya is the bridge that binds the physical to the metaphysical. Walking across that bridge is what reasoning means.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "section",
+      "id": "tedebbur",
+      "titleTr": "Üçüncü İşlem: Tedebbür — sözün arkasını açmak",
+      "titleEn": "Third Operation: Tadabbur — Opening What Lies Behind Speech"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Beş fiil içinde tek katı nesne kuralı buna aittir",
+      "headingEn": "The one strict object rule among the five verbs",
+      "tr": "**D-B-R** kökü *arka*yı anlatır: bir şeyin ardını, ardından geleni, âkıbetini. Tedebbür yüzeyin arkasına geçme işlemidir — ve Kur'an'da **yalnız söz** tedebbür edilir. Fiil **dört kez** geçer; **dördünde de nesne Kur'an ya da sözdür** (4:82 · 23:68 · 38:29 · 47:24). Tabiat tedebbür edilmez; tefekkür ve taakkul edilir. Bu ayrım, fiillerin eş anlamlı olmadığının en sert delilidir.",
+      "en": "The root **d-b-r** denotes the *back*: what lies behind a thing, what follows it, its outcome. *Tadabbur* is the operation of passing behind the surface — and in the Quran **only speech** is subjected to it. The verb occurs **four times**; **in all four the object is the Quran or the word** (4:82 · 23:68 · 38:29 · 47:24). Nature is not *tadabbur*-ed; it is reflected upon and reasoned about. This distinction is the hardest evidence that the verbs are not synonyms."
+    },
+    {
+      "type": "verseInline",
+      "ref": "4:82",
+      "ar": "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً",
+      "noteTr": "Âyet tedebbürün **ne olduğunu tarif de eder**: metnin yüzeyindeki cümleleri değil, **cümleler arası tutarlılığın mimarisini** görmek. Ölçüt verilir: başkasından olsaydı içinde çok çelişki bulunurdu.",
+      "noteEn": "The verse also **defines** *tadabbur*: seeing not the sentences on the surface of the text but **the architecture of coherence between them**. A criterion is supplied: were it from other than Allah, they would find much contradiction within it."
+    },
+    {
+      "type": "verseInline",
+      "ref": "47:24",
+      "ar": "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا",
+      "noteTr": "“**…yoksa kalpler üzerinde kilitleri mi var?**” — İşlemin önündeki engel **donanımdır**. Kilitli kalp, tedebbürün çalışmasını engeller. Üç katman burada birbirine değiyor.",
+      "noteEn": "“**…or are there locks upon their hearts?**” — The obstacle before the operation is the **hardware**. A locked heart prevents *tadabbur* from running. Here the three layers touch."
+    },
+    {
+      "type": "section",
+      "id": "tezekkur",
+      "titleTr": "Çıktı: Tezekkür — geri çağırma",
+      "titleEn": "Output: Tadhakkur — Retrieval"
+    },
+    {
+      "type": "paragraph",
+      "tr": "**Z-K-R** kökü hatırlamayı, zihnin arkasındakini öne getirmeyi anlatır. Tezekkür bir işlem değil, **işlemlerin varması istenen duraktır**: hakikatin yeni öğrenilmesi değil, **üstü örtülmüş olanın geri çağrılması.** Fıtrat doğruyu zaten taşır; dünya tozu üstünü örter; meseller, yağmurlar, hükümler, musibetler o tozu silmek içindir.",
+      "en": "The root **dh-k-r** denotes remembering, bringing what lies at the back of the mind to the front. *Tadhakkur* is not an operation but **the stop the operations are meant to reach**: not learning truth anew but **retrieving what has been covered over.** Innate nature already carries the truth; the dust of the world covers it; parables, rains, rulings and afflictions are there to wipe that dust away."
+    },
+    {
+      "type": "verseInline",
+      "ref": "7:201",
+      "ar": "اِنَّ الَّذِينَ اتَّقَوْا اِذَا مَسَّهُمْ طٓائِفٌ مِنَ الشَّيْطَانِ تَذَكَّرُوا فَاِذَا هُمْ مُبْصِرُونَ",
+      "noteTr": "“**…bir de bakarsın, görüyorlar.**” Perdelenme **anlıktır**; geri çağırma gerçekleşir gerçekleşmez görüş geri gelir. Bilgi hiç gitmemiştir — sadece **erişim kesilmiştir**.",
+      "noteEn": "“**…and at once they see.**” The veiling is **momentary**; the instant retrieval occurs, sight returns. The knowledge never left — only **access was cut**."
+    },
+    {
+      "type": "verseInline",
+      "ref": "56:62",
+      "ar": "وَلَقَدْ عَلِمْتُمُ النَّشْاَةَ الْاُولٰى فَلَوْلَا تَذَكَّرُونَ",
+      "noteTr": "“**İlk yaratılışı bildiniz; tezekkür etmeniz gerekmez mi?**” — Yeniden dirilişe iman için **yeni veri gerekmez**; elinizdeki veriyi geri çağırmanız yeter.",
+      "noteEn": "“**You have already known the first creation; will you not then remember?**” — Faith in the resurrection needs **no new data**; retrieving what you already hold suffices."
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Kur'an tezekküru HİÇ emretmez",
+      "headingEn": "The Quran never commands tadhakkur",
+      "tr": "Dilbilgisi de kimliğini ele verir. *“Tezekkür et!”* diye bir buyruk **yoktur**; *“umulur ki tezekkür ederler”* diye umulur, *“tezekkür etmek isteyen için”* (25:62) diye kapı aralanır ve en çok da **kimlerin erdiği** söylenir: *“Ancak **ulü'l-elbâb** tezekkür eder”* (2:269 · 3:7 · 13:19 · 39:9).\n\n**Lübb**, kabuğun içindeki özdür. Öz sahiplerinin fiilinin “geri çağırma” olması, aranan hazinenin **nerede gömülü olduğunu** söyler.",
+      "en": "Its grammar gives away its identity. There is **no imperative** *“remember!”*; it is hoped for — *“that they may remember”* — a door is opened *“for whoever wishes to remember”* (25:62), and above all **who attains it** is named: *“Only **those of understanding** remember”* (2:269 · 3:7 · 13:19 · 39:9).\n\n**Lubb** is the kernel inside the shell. That the verb of those who possess the kernel is “retrieval” tells us **where the sought treasure lies buried**."
+    },
+    {
+      "type": "flowChain",
+      "captionTr": "İşlem ve durak — 38:29 ikisini tek âyette birleştirir",
+      "captionEn": "Operation and stop — 38:29 joins the two in a single verse",
+      "nodes": [
+        {
+          "titleTr": "Mübarek bir kitap indirildi",
+          "titleEn": "A blessed Book was sent down",
+          "tone": "trigger",
+          "subtitleTr": "Malzeme verilir: **söz**.",
+          "subtitleEn": "The material is given: **the word**."
+        },
+        {
+          "titleTr": "Âyetlerini **tedebbür** etsinler",
+          "titleEn": "That they may **reflect** upon its verses",
+          "tone": "state",
+          "subtitleTr": "İşlem çalışır: sözün arka odası açılır.",
+          "subtitleEn": "The operation runs: the room behind the words opens."
+        },
+        {
+          "titleTr": "**Ulü'l-elbâb tezekkür** etsin",
+          "titleEn": "That **those of understanding may remember**",
+          "tone": "outcome",
+          "subtitleTr": "Durağa varılır: içerideki bilgi **uyanır**.",
+          "subtitleEn": "The stop is reached: the knowledge within **awakens**."
+        }
+      ]
+    },
+    {
+      "type": "verseInline",
+      "ref": "38:29",
+      "ar": "كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ مُبَارَكٌ لِيَدَّبَّرٓوا اٰيَاتِهِ وَلِيَتَذَكَّرَ اُولُوا الْاَلْبَابِ",
+      "noteTr": "Önce işlem, sonra durak. **Sözün arkası açılır, açılınca içerideki bilgi uyanır.** Mimarinin tamamı tek âyette.",
+      "noteEn": "First the operation, then the stop. **What lies behind the word is opened, and when it opens the knowledge within awakens.** The whole architecture in a single verse."
+    },
+    {
+      "type": "section",
+      "id": "nahl",
+      "titleTr": "Mimarinin İş Başında Hâli: Nahl 11–13",
+      "titleEn": "The Architecture at Work: an-Nahl 11–13"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Bu ayrımların kitabî bir zarafet ya da zorlama olmadığını görmek için tek bir diziye bakmak yeter. **Üç ardışık âyet**, üç tabiat tablosu çizer ve **üçü üç ayrı fiille biter.** Konu alanı aynıdır — nimetler — ama **istenen iş değişir.**",
+      "en": "To see that these distinctions are neither bookish elegance nor forcing, one sequence suffices. **Three consecutive verses** paint three tableaux of nature and **each ends with a different verb.** The subject domain is identical — blessings — but **the work demanded changes.**"
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:11",
+      "ar": "يُنْبِتُ لَكُمْ بِهِ الزَّرْعَ وَالزَّيْتُونَ وَالنَّخِيلَ وَالْاَعْنَابَ وَمِنْ كُلِّ الثَّمَرَاتِ اِنَّ فِي ذٰلِكَ لَاٰيَةً لِقَوْمٍ يَتَفَكَّرُونَ",
+      "noteTr": "Ekin, zeytin, hurma, üzüm — **insanın eliyle yürüyen çok adımlı bir süreç.** Kişi süreci kendi kontrolünde sanıp gaflete düşebilir; bu yüzden zihinden **model kurması** istenir: *“yağmur olmasaydı bu bereket olmazdı.”* → **tefekkür**",
+      "noteEn": "Crops, olives, palms, grapes — **a multi-step process that runs through human hands.** One may mistake the process for one's own control and fall into heedlessness; hence the mind is asked to **build a model**: *“without the rain, none of this abundance.”* → **tafakkur**"
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:12",
+      "ar": "وَسَخَّرَ لَكُمُ الَّيْلَ وَالنَّهَارَ وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومُ مُسَخَّرَاتٌ بِاَمْرِهِ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَعْقِلُونَ",
+      "noteTr": "Gece, gündüz, güneş, ay, yıldızlar — **el değmez.** Burada yalnız kusursuz bir mekanik gözlenir ve o mekanik, *“hizmetinize verdi”* ifadesiyle ortak bir kanuna ve **kanunun sahibine bağlanır.** Uçlar açıktır, düğüm atılacaktır. → **taakkul**",
+      "noteEn": "Night, day, sun, moon, stars — **no human hand touches them.** Here only a flawless mechanism is observed, and that mechanism is bound, through *“He subjected for you”*, to a shared law and **to the owner of the law.** The ends are exposed; the knot is to be tied. → **taʿaqqul**"
+    },
+    {
+      "type": "verseInline",
+      "ref": "16:13",
+      "ar": "وَمَا ذَرَاَ لَكُمْ فِي الْاَرْضِ مُخْتَلِفاً اَلْوَانُهُ اِنَّ فِي ذٰلِكَ لَاٰيَةً لِقَوْمٍ يَذَّكَّرُونَ",
+      "noteTr": "Yeryüzünün **renk renk** çeşitliliği — ne hesap ister ne model. Çeşitlilik dikkati dağıtabilir. Ama önceki iki işlem yapılmışsa, çokluğun içinde birliği **hatırlamak** yeter. → **tezekkür**",
+      "noteEn": "The **many-coloured** variety of the earth — it demands neither calculation nor model. Variety can scatter attention. But if the two prior operations have been performed, it suffices to **remember** the unity within the multiplicity. → **tadhakkur**"
+    },
+    {
+      "type": "pullQuote",
+      "tr": "**Fiili seçen, bakılan şey değil — o an insandan istenen zihinsel iştir.**",
+      "en": "**What selects the verb is not the object looked at, but the mental work demanded at that moment.**",
+      "source": "Felsufi"
+    },
+    {
+      "type": "criticalNote",
+      "headingTr": "Aynı ilke bir başka ince ayrımda",
+      "headingEn": "The same principle in another fine distinction",
+      "tr": "Helâk olmuş şehirlerin kalıntıları üzerinden *“sabah akşam geçenlere”* Kur'an **akletmeyi** söyler (37:138 · 22:46): onların âkıbetini **kendi geleceğine bağlaman** gerekir. Ama musibeti **bizzat yaşayana** — kıtlık yıllarıyla sarsılan Firavun ailesine (7:130) — **tezekkür** umulur: kırılganlığını sana kimse öğretmeyecek; **zaten biliyorsun, hatırlaman yeter.**",
+      "en": "To those who *“pass by morning and night”* the ruins of destroyed towns, the Quran says **reason** (37:138 · 22:46): you must **bind their outcome to your own future**. But of those who **live the affliction themselves** — Pharaoh's people shaken by years of famine (7:130) — **remembrance** is hoped for: no one will teach you your own fragility; **you already know it, you need only recall it.**"
+    },
+    {
+      "type": "section",
+      "id": "tablo",
+      "titleTr": "Beş Fiil, Tek Bakışta",
+      "titleEn": "The Five Verbs at a Glance"
+    },
+    {
+      "type": "morphologyTable",
+      "titleTr": "Kök · katman · beklenen iş · geçiş sayısı",
+      "titleEn": "Root · layer · work demanded · occurrences",
+      "columnsTr": [
+        "Fiil",
+        "Kök",
+        "Katman",
+        "İstenen zihinsel iş",
+        "Geçiş"
+      ],
+      "columnsEn": [
+        "Verb",
+        "Root",
+        "Layer",
+        "Mental work demanded",
+        "Count"
+      ],
+      "rows": [
+        {
+          "cellsTr": [
+            "Tefakkuh",
+            "ف ق ه",
+            "Donanım",
+            "Nüfuz et — özüne ulaş",
+            "20 (17'si olumsuz)"
+          ],
+          "cellsEn": [
+            "Tafaqquh",
+            "f-q-h",
+            "Hardware",
+            "Penetrate — reach the essence",
+            "20 (17 negative)"
+          ]
+        },
+        {
+          "cellsTr": [
+            "Tefekkür",
+            "ف ك ر",
+            "İşlem",
+            "Model kur, senaryo çalıştır",
+            "18"
+          ],
+          "cellsEn": [
+            "Tafakkur",
+            "f-k-r",
+            "Operation",
+            "Build a model, run a scenario",
+            "18"
+          ]
+        },
+        {
+          "cellsTr": [
+            "Taakkul",
+            "ع ق ل",
+            "İşlem",
+            "İki ucu düğümle",
+            "49"
+          ],
+          "cellsEn": [
+            "Taʿaqqul",
+            "ʿ-q-l",
+            "Operation",
+            "Tie the two ends",
+            "49"
+          ]
+        },
+        {
+          "cellsTr": [
+            "Tedebbür",
+            "د ب ر",
+            "İşlem",
+            "Sözün arkasına geç (**yalnız söz**)",
+            "4"
+          ],
+          "cellsEn": [
+            "Tadabbur",
+            "d-b-r",
+            "Operation",
+            "Pass behind the word (**speech only**)",
+            "4"
+          ]
+        },
+        {
+          "cellsTr": [
+            "Tezekkür",
+            "ذ ك ر",
+            "Çıktı",
+            "Geri çağır (**hiç emredilmez**)",
+            "51"
+          ],
+          "cellsEn": [
+            "Tadhakkur",
+            "dh-k-r",
+            "Output",
+            "Retrieve (**never commanded**)",
+            "51"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "toparlarken",
+      "titleTr": "Toparlarken",
+      "titleEn": "In Closing"
+    },
+    {
+      "type": "paragraph",
+      "tr": "Kur'an'ın düşünme fiilleri, tek bir *“düşün”* buyruğunun süslü varyasyonları değildir. Ortada bir **mimari** vardır: kalbin nüfuz kapasitesi ayrı, o kapasite üzerinde koşan işlemler ayrı, işlemlerin varması istenen çözünürlük durumu ayrı adlandırılır. Kimi zaman bir **senaryo kurmak** istenir. Kimi zaman **iki ucu düğümlemek**. Kimi zaman bir cümlenin **arka odasına girmek**. Ve hepsinin sonunda, zaten bildiğini **hatırlamak**.",
+      "en": "The Quran's verbs of thinking are not ornamental variations on a single command to *“think”*. What stands before us is an **architecture**: the heart's capacity to penetrate is named separately, the operations that run upon that capacity separately, and the state of resolution they are meant to reach separately. Sometimes you are asked to **stage a scenario**. Sometimes to **tie two ends**. Sometimes to **enter the room behind a sentence**. And at the end of all of them, to **remember** what you already knew."
+    },
+    {
+      "type": "sources",
+      "items": [
+        {
+          "name": "Kur'an-ı Kerîm — fiil geçişleri",
+          "detailTr": "Tefekkür (ف ك ر) 18 · Taakkul (ع ق ل) 49 · Tedebbür (د ب ر, V. bab) 4 · Tezekkür (ذ ك ر, V. bab) 51 · Tefakkuh (ف ق ه) 20. Sayımlar kök ve bab bazında yapılmıştır; tam âyet listesi kanonik Medium metnindedir.",
+          "detailEn": "Tafakkur (f-k-r) 18 · Taʿaqqul (ʿ-q-l) 49 · Tadabbur (d-b-r, form V) 4 · Tadhakkur (dh-k-r, form V) 51 · Tafaqquh (f-q-h) 20. Counts are by root and verbal form; the full verse list is in the canonical Medium text."
+        },
+        {
+          "name": "Arapça metin — âyet grafiği",
+          "detailTr": "Bu sayfadaki Arapça âyetler `public/verse-graph-bgem3.json`'dan mekanik olarak çekilmiş ve `cleanArabicForDisplay` ile normalize edilmiştir (CLAUDE.md §13.15). Hafızadan yazılmamıştır.",
+          "detailEn": "The Arabic verses on this page are drawn mechanically from `public/verse-graph-bgem3.json` and normalised with `cleanArabicForDisplay` (CLAUDE.md §13.15). None were typed from memory."
+        },
+        {
+          "name": "Kök anlamları",
+          "detailTr": "F-K-H (yarıp içine ulaşmak), F-K-R (evirip çevirmek), A-K-L (bağlamak — *ikāl*, deve kösteği), D-B-R (arka, âkıbet), Z-K-R (hatırlamak, öne getirmek). Klasik sözlük geleneği: Râgıb el-İsfahânî, *el-Müfredât*; Ibn Manzûr, *Lisânü'l-Arab*.",
+          "detailEn": "F-Q-H (to split and reach inside), F-K-R (to turn over), ʿ-Q-L (to bind — *ʿiqāl*, the camel hobble), D-B-R (the back, the outcome), DH-K-R (to remember, to bring forward). Classical lexicography: al-Rāghib al-Iṣfahānī, *al-Mufradāt*; Ibn Manẓūr, *Lisān al-ʿArab*."
+        }
+      ]
+    }
+  ]
+}

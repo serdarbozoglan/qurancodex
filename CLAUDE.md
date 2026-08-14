@@ -1190,6 +1190,60 @@ Bu kural GPT-5.5 hakem turuyla doğrulandı. İki noktada hakemden ayrışıldı
 
 ---
 
+### 13.26 Metin Kontrastı — ENFORCE ALWAYS (2026-08-14)
+
+**Ölçülen sorun:** kontrast bu tarihe kadar **yalnız anasayfada** ölçülmüştü.
+73 sayfa ölçülünce **3.508 gerçek AA ihlali / 134 sayfa** çıktı; 140 sayfanın
+yalnız 4'ü temizdi. Kök sebep tek tek kullanımlar değil, **üçüncü metin
+katmanının olmamasıydı**: ham Tailwind slate paleti rol yerine kullanılmış ve
+dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
+`slate700` 1.89 · `slate800` **1.34** (yani neredeyse görünmez).
+
+#### Üç metin kademesi — hepsi AA geçer
+
+| rol | token | hex | oran (cosmic-black) |
+|---|---|---|---|
+| Ana metin | `SEMANTIC.textPrimary` | `#e8e6e3` | 15.74 |
+| İkincil | `SEMANTIC.textMuted` | `#94a3b8` | 7.65 |
+| **Üçüncül** | **`SEMANTIC.textFaint`** | **`#70829c`** | **5.02** |
+
+#### Mutlak kurallar
+
+1. **Metin rengi bu üç token'dan biridir.** Dördüncü, daha sönük bir kademe
+   YOKTUR — ihtiyaç varsa punto/ağırlık ile ayrış, renkle değil.
+2. **`COLORS.slate500-800` metin rengi OLAMAZ.** Kenarlık, ayraç ve ikon
+   zemini olarak doğrudur (AA eşiği metne aittir) — bu yüzden silinmediler.
+3. **Opaklık tabanı:** `silver` ≥ **0.78** · `gold` ≥ **0.75**.
+   Altına inen her metin AA'yı kırar (silver 0.70 → 4.23).
+   Bu, hem `opacity` prop'u hem de `rgba(...)` alfası için geçerlidir.
+4. **Alfa token'ları metin rengi olarak kullanılamaz** (`silverAlpha70` = 4.23,
+   `silverAlpha40` çok daha kötü). Bunlar zemin/kenarlık token'larıdır.
+5. **Kasıtlı sönük durum** (devre dışı, "bu öge burada yok" gibi) oran
+   **≥3.0**'ın altına inemez. Bilgi taşıyan bir sönüklük, WCAG'ın "devre dışı
+   öge" muafiyetine girmez — bkz. `/atlas/kissa` ısı haritası.
+
+#### Denetim
+
+```bash
+cd next && node scripts/audit-contrast.mjs            # örneklem (12 rota, ~40 sn)
+cd next && node scripts/audit-contrast.mjs --full     # 70 rota × 2 dil (~4 dk)
+cd next && node scripts/audit-contrast.mjs --ci       # taban aşılırsa exit 1
+cd next && node scripts/audit-contrast.mjs --update   # tabanı bilinçli düşür
+```
+
+**Bu sayı ARTMAZ.** Taban `tests/__baseline__/contrast.json`'da.
+⚠ Çalışan sunucu ister; ölçüm mantığı `tests/lib/contrast.mjs`'te.
+
+#### Neden ham sayıya güvenilmez
+
+Probe üç şeyi ayırt edemez, rakam onlarla şişer: **gradyan zeminli koyu metin**
+(altın rozet üstünde koyu yazı — yüksek kontrasttır ama probe `1` der),
+**≥24px dev dekoratif rakamlar**, ve **kasıtlı sönük durumlar**. İlk ikisi
+`audit-contrast.mjs`'te ayıklanır; üçüncüsü karar gerektirir.
+Ham 3.997 → ayıklanmış **3.508** farkı buradan gelir.
+
+---
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

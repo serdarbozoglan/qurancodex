@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import MeselAtlasi from '@/components/MeselAtlasi';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function MeselAtlasiRoute() {
   const router = useRouter();
-  return <MeselAtlasi onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <MeselAtlasi onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

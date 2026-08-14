@@ -1,7 +1,10 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import RetorikSorular from '@/components/RetorikSorular';
+import { closeToPrevious } from '@/lib/navOrigin';
 export default function RetorikSorularRoute() {
   const router = useRouter();
-  return <RetorikSorular onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <RetorikSorular onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

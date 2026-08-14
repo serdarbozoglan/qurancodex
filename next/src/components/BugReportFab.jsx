@@ -11,7 +11,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, RADIUS, FONTS } from '../tokens';
+import { COLORS, RADIUS, FONTS, SEMANTIC } from '../tokens';
 
 export default function BugReportFab() {
   const { language, t } = useLanguage();
@@ -295,7 +295,7 @@ export default function BugReportFab() {
               background: `linear-gradient(0deg, ${COLORS.gold}05 0%, transparent 100%)`,
             }}>
               <p style={{
-                color: COLORS.silverAlpha70,
+                color: SEMANTIC.textFaint,
                 fontFamily: FONTS.body,
                 fontSize: '0.7rem',
                 margin: 0,

@@ -4,8 +4,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import useFocusTrap from '../hooks/useFocusTrap';
 import {
-  COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS,
-} from '../tokens';
+  COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
@@ -702,7 +701,7 @@ function SemanticMap({ group, language, isMobile }) {
 
       {/* Legend / hovered info */}
       <div style={{ flex: 1, minWidth: 200 }}>
-        <div style={{ fontSize: '0.68rem', color: COLORS.silverAlpha70, textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
+        <div style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
           {tr ? 'Anlam Haritası' : 'Semantic Map'}
         </div>
         {hovered ? (() => {

@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import KuranYeminleri from '@/components/KuranYeminleri';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function KuranYeminleriRoute() {
   const router = useRouter();
-  return <KuranYeminleri onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <KuranYeminleri onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

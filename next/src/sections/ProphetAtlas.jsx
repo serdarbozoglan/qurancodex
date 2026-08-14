@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN } from '../tokens';
+import { COLORS, FONTS, RADIUS, TRANSITION, CLOSE_BTN, SEMANTIC } from '../tokens';
 import ProphetMap from './ProphetMap';
 import BookmarkButton from '../components/BookmarkButton';
 import CrossToolCTA from '../components/CrossToolCTA';
@@ -2243,7 +2243,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                           </span>
                           <span style={{
                             fontSize: '0.68rem', fontFamily: FONTS.body,
-                            color: COLORS.silverAlpha40, fontWeight: 400,
+                            color: SEMANTIC.textFaint, fontWeight: 400,
                           }}>
                             {item.s}
                           </span>
@@ -2497,7 +2497,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                         {tr(p.nameTr, p.nameEn)}
                       </span>
                       <span style={{
-                        color: COLORS.silverAlpha40, fontSize: '0.72rem',
+                        color: SEMANTIC.textFaint, fontSize: '0.72rem',
                         fontFamily: FONTS.body,
                         marginLeft: 'auto',
                       }}>
@@ -2746,7 +2746,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                     </div>
                     {/* Chevron */}
                     <span style={{
-                      color: COLORS.silverAlpha40, fontSize: '0.7rem',
+                      color: SEMANTIC.textFaint, fontSize: '0.7rem',
                       transition: 'transform 0.2s',
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                       flexShrink: 0, marginTop: '2px',
@@ -3012,7 +3012,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
                     stroke={color} strokeWidth="1.5"
                     strokeDasharray={dashed ? '4,3' : undefined}/>
                 </svg>
-                <span style={{ fontSize: '0.72rem', color: COLORS.silverAlpha70, fontFamily: FONTS.body }}>
+                <span style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body }}>
                   {label}
                 </span>
               </div>

@@ -5,7 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
 import HeroGeometricBackground from '../components/HeroGeometricBackground';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 export default function Conclusion() {
   const { t, language } = useLanguage();
@@ -140,7 +140,7 @@ export default function Conclusion() {
           فَاتَّبِعُوهُ
         </p>
         <p style={{
-          color: COLORS.silverAlpha70, fontSize: '1.05rem',
+          color: SEMANTIC.textFaint, fontSize: '1.05rem',
           fontFamily: FONTS.body, fontStyle: 'italic',
           letterSpacing: '0.01em',
           margin: 0, textAlign: 'center',

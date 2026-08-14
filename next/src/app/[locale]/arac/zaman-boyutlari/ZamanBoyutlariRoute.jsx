@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import ZamanBoyutlari from '@/components/ZamanBoyutlari';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function ZamanBoyutlariRoute() {
   const router = useRouter();
-  return <ZamanBoyutlari onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <ZamanBoyutlari onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

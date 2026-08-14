@@ -1,7 +1,10 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import TekrarAnatomi from '@/components/TekrarAnatomi';
+import { closeToPrevious } from '@/lib/navOrigin';
 export default function TekrarAnatomiRoute() {
   const router = useRouter();
-  return <TekrarAnatomi onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <TekrarAnatomi onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

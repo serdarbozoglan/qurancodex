@@ -1,7 +1,10 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import TarihselKanitlar from '@/components/TarihselKanitlar';
+import { closeToPrevious } from '@/lib/navOrigin';
 export default function TarihselKanitlarRoute() {
   const router = useRouter();
-  return <TarihselKanitlar onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <TarihselKanitlar onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

@@ -1,8 +1,9 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import { Suspense } from 'react';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 // VerseGraph three.js / react-force-graph-3d kullanıyor — WebGL canvas
 // module-level. SSR'da window erişir, ssr: false zorunlu.
@@ -15,11 +16,13 @@ const VerseGraph = dynamic(() => import('@/components/VerseGraph'), { ssr: false
 // bağlantı paylaşılabilir ve geri tuşu çalışır.
 function VerseGraphInner() {
   const router = useRouter();
-  const params = useSearchParams();
+  const routeParams = useParams();
+  const locale = routeParams?.locale === 'en' ? 'en' : 'tr';
+  const search = useSearchParams();
   return (
     <VerseGraph
-      initialSearch={params.get('q') || ''}
-      onClose={() => router.back()}
+      initialSearch={search.get('q') || ''}
+      onClose={() => closeToPrevious(router, `/${locale}`)}
     />
   );
 }

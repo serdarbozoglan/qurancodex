@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import SebebiNuzul from '@/components/SebebiNuzul';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function SebebiNuzulRoute() {
   const router = useRouter();
-  return <SebebiNuzul onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <SebebiNuzul onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

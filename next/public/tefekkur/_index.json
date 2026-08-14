@@ -51,6 +51,17 @@
   ],
   "articles": [
     {
+      "slug": "dusunme-fiilleri-zihnin-isletim-sistemi",
+      "titleTr": "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi",
+      "titleEn": "The Quran's Verbs of Thinking: The Operating System of the Mind",
+      "category": "semantik",
+      "publishedDate": "2026-08-14",
+      "readingMinutes": 7,
+      "tldrTr": "Tefekkür, taakkul, tedebbür, tezekkür, tefakkuh — meallerde çoğu zaman birbirinin yerine geçer. Oysa Kur'an bu fiilleri titizlikle kullanır: aynı sûrede, ardarda gelen âyetlerde bile **fiil değiştirir**. Ortaya çıkan yapı **üç katmanlı bir işletim sistemidir**: altta **donanım** (tefakkuh — 20 geçişin 17'si olumsuz), ortada **üç ayrı işlem** (model kurma · bağ kurma · sözün arkasını açma), üstte **çıktı** (tezekkür — 51 geçiş ve **hiç emredilmez**). Nahl 11–13 üç ardışık âyette üç farklı fiille biter: fiili seçen, bakılan şey değil, **o an istenen zihinsel iştir**.",
+      "tldrEn": "Tafakkur, taʿaqqul, tadabbur, tadhakkur, tafaqquh — translations usually treat them as interchangeable. Yet the Quran uses them with precision, **switching verbs** even in consecutive verses of the same sura. The resulting structure is **a three-layer operating system**: **hardware** at the bottom (tafaqquh — 17 of 20 occurrences negative), **three distinct operations** in the middle (model-building · binding · opening what lies behind speech), and the **output** on top (tadhakkur — 51 occurrences and **never commanded**). An-Nahl 11–13 ends three consecutive verses with three different verbs: what selects the verb is not the object looked at, but **the mental work demanded at that moment**.",
+      "status": "published"
+    },
+    {
       "slug": "yapilanlarin-suslu-gorulmesi",
       "titleTr": "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi",
       "titleEn": "When One's Acts Appear Beautified — The Anatomy of Tazyīn",

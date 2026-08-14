@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import KuranRenkleri from '@/components/KuranRenkleri';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function KuranRenkleriRoute() {
   const router = useRouter();
-  return <KuranRenkleri onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <KuranRenkleri onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

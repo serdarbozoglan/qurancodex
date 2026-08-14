@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
-import { COLORS, FONTS } from '../tokens';
+import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
 // 300 solar → 309 lunar year converter widget
 const SOLAR_YEAR = 365.25;
@@ -44,7 +44,7 @@ function SolarLunarConverter({ accent }) {
       padding: '14px 16px',
       marginTop: '4px',
     }}>
-      <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: COLORS.silverAlpha40, marginBottom: '10px', fontFamily: FONTS.body }}>
+      <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: SEMANTIC.textFaint, marginBottom: '10px', fontFamily: FONTS.body }}>
         {language === 'tr' ? 'Güneş → Ay Takvimi Dönüştürücü' : 'Solar → Lunar Calendar Converter'}
       </p>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
@@ -380,7 +380,7 @@ export default function Highlights() {
 
                         {/* Stats note */}
                         {card.statsNote && (
-                          <p style={{ color: COLORS.silverAlpha40, fontSize: '0.72rem', fontStyle: 'italic', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
+                          <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontStyle: 'italic', lineHeight: 1.6, fontFamily: FONTS.body, margin: 0 }}>
                             {card.statsNote}
                           </p>
                         )}

@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import CennetCehennem from '@/components/CennetCehennem';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function CennetCehennemRoute() {
   const router = useRouter();
-  return <CennetCehennem onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <CennetCehennem onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

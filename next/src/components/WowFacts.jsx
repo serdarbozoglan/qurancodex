@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
-import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
+import { CLOSE_BTN, OVERLAY_TITLE, COLORS, FONTS, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -1362,7 +1362,7 @@ export default function WowFacts({ onClose }) {
             <div style={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               height: '200px', gap: '8px',
-              color: COLORS.silverAlpha40, fontFamily: "'Inter', sans-serif", fontSize: '0.9rem',
+              color: SEMANTIC.textFaint, fontFamily: "'Inter', sans-serif", fontSize: '0.9rem',
             }}>
               <span style={{ fontSize: '1.5rem', opacity: 0.3 }}>✦</span>
               {language === 'tr' ? 'Sonuç bulunamadı.' : 'No results found.'}

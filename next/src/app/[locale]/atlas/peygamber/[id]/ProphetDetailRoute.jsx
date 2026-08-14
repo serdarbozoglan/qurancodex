@@ -10,7 +10,8 @@
 // ana sayfa veya peygamberler atlas kartına) döner.
 
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 // ProphetAtlas dolaylı leaflet bağımlısı (ProphetMap içinden). ssr: false ile
 // yalnızca client tarafında render.
@@ -18,5 +19,7 @@ const ProphetAtlas = dynamic(() => import('@/sections/ProphetAtlas'), { ssr: fal
 
 export default function ProphetDetailRoute({ id }) {
   const router = useRouter();
-  return <ProphetAtlas onClose={() => router.back()} initialProphetId={id} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <ProphetAtlas onClose={() => closeToPrevious(router, `/${locale}`)} initialProphetId={id} />;
 }

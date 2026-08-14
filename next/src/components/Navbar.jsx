@@ -17,6 +17,7 @@ import {
 import { EXPLORE_CATEGORIES, FEATURED_EXPLORE_ITEM } from '../data/exploreCategories';
 import Link from 'next/link';
 import { TOOL_ROUTES } from '../lib/toolRoutes';
+import TEFEKKUR_INDEX from '../../public/tefekkur/_index.json';
 
 const VerseGraph = lazy(() => import('./VerseGraph'));
 const ReadingMode = lazy(() => import('./ReadingMode'));
@@ -95,17 +96,19 @@ export default function Navbar() {
   // ⚠ Yeni makale eklenince BURAYI DA güncelle — yoksa ilk boyamada eski
   // sayı görünür. (2026-06-16'da 23/5/7/0 kalmıştı; 2026-08-12'de 32'ye
   // çekildi: iki-nedensellik + evrim-inanc-resimler eklendi.)
-  const [tefekkurStats, setTefekkurStats] = useState({
-    total: 52,
-    counts: {
-      'kavramsal':       6,
-      'terminoloji':     8,
-      'sure-hermenotik': 14,
-      'semantik':        5,
-      'idrak-suur':     11,
-      'kozmoloji':      8,
-    },
-    categoryCount: 6,
+  // 2026-08-14: bu blok elle yazılıyordu ve her yeni makalede bayatlıyordu
+  // (52 yazılıyken gerçek 53'tü; semantik 5 yazılıyken 6'ydı). Artık ilk
+  // boyamada gösterilen değer de _index.json'DAN TÜRETİLİYOR — tek kaynak.
+  const [tefekkurStats, setTefekkurStats] = useState(() => {
+    const counts = TEFEKKUR_INDEX.articles.reduce((m, a) => {
+      m[a.category] = (m[a.category] || 0) + 1;
+      return m;
+    }, {});
+    return {
+      total: TEFEKKUR_INDEX.articles.length,
+      counts,
+      categoryCount: (TEFEKKUR_INDEX.categories || []).length || Object.keys(counts).length,
+    };
   });
   // Faz 4.5 — overlay state localStorage'dan hydrate edilmez; graf artık route'tur.
   const [graphOpen, setGraphOpen]       = useState(false);

@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import InsanYolculugu from '@/components/InsanYolculugu';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function InsanYolculuguRoute() {
   const router = useRouter();
-  return <InsanYolculugu onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <InsanYolculugu onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

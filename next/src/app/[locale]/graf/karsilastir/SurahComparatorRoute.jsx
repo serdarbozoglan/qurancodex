@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import SurahComparator from '@/components/SurahComparator';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function SurahComparatorRoute() {
   const router = useRouter();
-  return <SurahComparator onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <SurahComparator onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

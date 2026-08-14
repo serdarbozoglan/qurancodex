@@ -1,7 +1,10 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import KorumaZinciri from '@/components/KorumaZinciri';
+import { closeToPrevious } from '@/lib/navOrigin';
 export default function KorumaZinciriRoute() {
   const router = useRouter();
-  return <KorumaZinciri onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <KorumaZinciri onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

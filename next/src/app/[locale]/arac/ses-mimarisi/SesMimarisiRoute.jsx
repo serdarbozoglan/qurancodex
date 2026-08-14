@@ -1,7 +1,10 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import SesMimarisi from '@/components/SesMimarisi';
+import { closeToPrevious } from '@/lib/navOrigin';
 export default function SesMimarisiRoute() {
   const router = useRouter();
-  return <SesMimarisi onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <SesMimarisi onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

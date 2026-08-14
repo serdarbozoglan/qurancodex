@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import KadinlarAtlasi from '@/components/KadinlarAtlasi';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function KadinlarAtlasiRoute() {
   const router = useRouter();
-  return <KadinlarAtlasi onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <KadinlarAtlasi onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

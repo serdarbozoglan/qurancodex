@@ -15,6 +15,7 @@ import { notFound } from 'next/navigation';
 import Shell, { sharedMetadata, sharedViewport } from '../_shell';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import Navbar from '@/components/Navbar';
+import InAppNavMarker from '@/components/InAppNavMarker';
 import ScrollProgress from '@/components/ScrollProgress';
 import BugReportFab from '@/components/BugReportFab';
 
@@ -47,6 +48,7 @@ export default async function LocaleLayout({ children, params }) {
             dinleyicisi kuruyordu — sıfır kullanıcı değeri karşılığında bedel.
             Kürasyon arşivlendi: docs/arsiv/rehberli-yol-kurasyonu.md */}
         <>
+          <InAppNavMarker />
           <ScrollProgress />
           <Navbar />
           {/* tabIndex={-1} ŞART — 2026-08-13 ölçümü:

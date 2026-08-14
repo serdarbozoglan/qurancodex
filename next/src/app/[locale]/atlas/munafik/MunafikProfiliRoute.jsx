@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import MunafikProfili from '@/components/MunafikProfili';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function MunafikProfiliRoute() {
   const router = useRouter();
-  return <MunafikProfili onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <MunafikProfili onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

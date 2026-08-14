@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import IlkSonKelimeler from '@/components/IlkSonKelimeler';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function IlkSonKelimelerRoute() {
   const router = useRouter();
-  return <IlkSonKelimeler onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <IlkSonKelimeler onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

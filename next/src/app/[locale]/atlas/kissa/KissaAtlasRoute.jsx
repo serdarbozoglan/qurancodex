@@ -5,10 +5,13 @@
 // döner. Görsel olarak KissaAtlas overlay'inin TAM aynısı (CLAUDE.md §13.3
 // OVERLAY_BASE pattern).
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import KissaAtlas from '@/components/KissaAtlas';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function KissaAtlasRoute() {
   const router = useRouter();
-  return <KissaAtlas onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <KissaAtlas onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

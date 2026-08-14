@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import SemanticMap from '@/components/SemanticMap';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function SemanticMapRoute() {
   const router = useRouter();
-  return <SemanticMap onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <SemanticMap onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

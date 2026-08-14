@@ -1,9 +1,12 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import SunnetullahAtlasi from '@/components/SunnetullahAtlasi';
+import { closeToPrevious } from '@/lib/navOrigin';
 
 export default function SunnetullahAtlasiRoute() {
   const router = useRouter();
-  return <SunnetullahAtlasi onClose={() => router.back()} />;
+  const params = useParams();
+  const locale = params?.locale === 'en' ? 'en' : 'tr';
+  return <SunnetullahAtlasi onClose={() => closeToPrevious(router, `/${locale}`)} />;
 }

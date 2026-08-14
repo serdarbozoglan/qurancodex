@@ -1,0 +1,20 @@
+{
+ "sample": {
+  "total": 383,
+  "perPage": {
+   "/tr": 2,
+   "/en": 2,
+   "/tr/atlas/kissa": 248,
+   "/tr/graf/zaman": 3,
+   "/tr/arac/dualar": 4,
+   "/tr/arac/sebebi-nuzul": 4,
+   "/tr/arac/ilk-son-kelimeler": 18,
+   "/tr/atlas/kavim": 11,
+   "/tr/graf/karsilastir": 17,
+   "/tr/arac/melekler": 53,
+   "/tr/oku": 20,
+   "/tr/sor": 1
+  },
+  "at": "2026-08-14"
+ }
+}
