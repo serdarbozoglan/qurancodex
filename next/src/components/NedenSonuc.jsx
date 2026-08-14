@@ -54,7 +54,7 @@ export default function NedenSonuc() {
   );
 
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="zf2-tool-cta-wrap" style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -101,11 +101,10 @@ export default function NedenSonuc() {
     }}>
       {TOOL_HEADER}
 
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '40px 16px 32px' : '56px 32px 48px' }}>
+      <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
 
         {/* Framing */}
-        <div style={{
-          padding: isMobile ? '20px 18px' : '28px 32px',
+        <div className="zf2-tool-hero-card" style={{
           background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, transparent 100%)`,
           border: `1px solid ${COLORS.gold}22`,
           borderRadius: 14,
@@ -182,7 +181,7 @@ export default function NedenSonuc() {
       </div>
 
       {/* Sayfa-genel kaynak */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 32px' : '0 32px 48px' }}>
+      <div className="zf2-tool-body-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}
@@ -263,9 +262,9 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
+      className="zf2-tool-chain-card"
       style={{
         position: 'relative',
-        padding: isMobile ? '18px 18px' : '24px 28px',
         background: 'rgba(255,255,255,0.03)',
         border: `1px solid ${expanded ? `${catColor}55` : 'rgba(255,255,255,0.08)'}`,
         borderRadius: 14,

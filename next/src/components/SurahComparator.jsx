@@ -611,7 +611,7 @@ export default function SurahComparator({ onClose }) {
 
       {/* "Yeni Karşılaştırma" geri tuşu — sadece result view'da */}
       {view === 'result' && (
-        <div style={{ padding: isMobile ? '12px 16px 0' : '14px 32px 0', flexShrink: 0 }}>
+        <div className="sc-toolbar" style={{ flexShrink: 0 }}>
           <button
             onClick={() => setView('landing')}
             style={{
@@ -643,7 +643,7 @@ export default function SurahComparator({ onClose }) {
 
       {/* ── LANDING ───────────────────────────────────────────────────── */}
       {!loading && view === 'landing' && (
-        <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '20px 16px' : '32px 28px', maxWidth: '800px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
+        <div className="sc-landing-wrap" style={{ flex: 1, overflowY: 'auto', maxWidth: '800px', width: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
 
           <p style={{ color: COLORS.silver, fontSize: '0.98rem', lineHeight: 1.8, marginBottom: '36px', maxWidth: '620px' }}>
             {language === 'tr'
@@ -652,7 +652,7 @@ export default function SurahComparator({ onClose }) {
           </p>
 
           {/* Two selectors */}
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr', gap: isMobile ? '12px' : '0', alignItems: 'center', marginBottom: '32px' }}>
+          <div className="sc-selector-grid" style={{ display: 'grid', alignItems: 'center', marginBottom: '32px' }}>
             <div>
               <p style={{ color: COLOR_A, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '8px' }}>
                 {language === 'tr' ? 'Birinci Sûre' : 'First Surah'}
@@ -671,7 +671,7 @@ export default function SurahComparator({ onClose }) {
 
             {/* VS divider */}
             {isMobile && null}
-            <div style={{ padding: '0 20px', textAlign: 'center', paddingTop: '24px', display: isMobile ? 'none' : 'block' }}>
+            <div className="sc-vs-divider" style={{ padding: '0 20px', textAlign: 'center', paddingTop: '24px' }}>
               <div style={{
                 width: '36px', height: '36px', borderRadius: RADIUS.full,
                 background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`,
@@ -802,11 +802,11 @@ export default function SurahComparator({ onClose }) {
 
       {/* ── RESULT ────────────────────────────────────────────────────── */}
       {!loading && view === 'result' && analysis && (
-        <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px 16px 40px' : '24px 24px 40px' }}>
+        <div className="sc-result-wrap" style={{ flex: 1, overflowY: 'auto' }}>
           <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
             {/* ── ROW 1: Stats cards + Similarity gauge ── */}
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr', gap: '16px', alignItems: 'stretch' }}>
+            <div className="sc-selector-grid" style={{ display: 'grid', gap: '16px', alignItems: 'stretch' }}>
 
               {/* Surah A card */}
               <div style={{
@@ -885,7 +885,7 @@ export default function SurahComparator({ onClose }) {
 
             {/* ── ROW 2: Themes ── */}
             {(analysis.themesA.length > 0 || analysis.themesB.length > 0) && (
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px' }}>
+              <div className="sc-compare-grid-2" style={{ display: 'grid', gap: '16px' }}>
                 <ThemeBlock themes={analysis.themesA} sharedThemes={analysis.themesShared} color={COLOR_A} title={SURAH_NAMES_TR[surahA]} language={language} />
                 <ThemeBlock themes={analysis.themesB} sharedThemes={analysis.themesShared} color={COLOR_B} title={SURAH_NAMES_TR[surahB]} language={language} />
               </div>
@@ -986,7 +986,7 @@ export default function SurahComparator({ onClose }) {
               {/* Theme Venn: A (left) | B (right) top row; Shared (centered) bottom row */}
               <div style={{ border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden' }}>
                 {/* Top row: Only A | Only B */}
-                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', borderBottom: analysis.themesShared.length > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
+                <div className="sc-compare-grid-2" style={{ display: 'grid', borderBottom: analysis.themesShared.length > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
                   {/* Only A */}
                   <div style={{ padding: '16px', background: `${COLOR_A}08`, borderRight: '1px solid rgba(255,255,255,0.07)' }}>
                     <p style={{ color: COLOR_A, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
@@ -1045,7 +1045,7 @@ export default function SurahComparator({ onClose }) {
 
             {/* ── ROW 6: Fadail / Description ── */}
             {(analysis.infoA.fadail || analysis.infoB.fadail) && (
-              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px' }}>
+              <div className="sc-compare-grid-2" style={{ display: 'grid', gap: '16px' }}>
                 {[{ info: analysis.infoA, num: surahA, color: COLOR_A }, { info: analysis.infoB, num: surahB, color: COLOR_B }].map(({ info, num, color }) =>
                   info.fadail ? (
                     <div key={num} style={{ padding: '16px', borderRadius: RADIUS.lg, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -1065,7 +1065,7 @@ export default function SurahComparator({ onClose }) {
       )}
 
       {/* Cross-tool CTA — #202 (2026-07-16) */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <div className="zf2-tool-cta-wrap" style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
         <CrossToolCTA
           language={language}
           isMobile={isMobile}

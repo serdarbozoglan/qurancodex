@@ -311,9 +311,8 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
       {/* ── DYNAMIC SUB-HEADER (graph view: back + central concept + connected) ── */}
       {view === 'graph' && (
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : '14px',
-        padding: isMobile ? '10px 14px' : '11px 22px',
+      <div className="cg-subheader" style={{
+        display: 'flex', alignItems: 'center',
         borderBottom: `1px solid ${COLORS.goldAlpha15}`,
         background: COLORS.panelBg,
         backdropFilter: 'blur(16px)',
@@ -426,8 +425,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
           {/* Hero strip — §13.18 Premium: anchor verse + eyebrow + Playfair italic + micro-stats */}
-          <div style={{
-            padding: isMobile ? '30px 16px 22px' : '44px 32px 30px',
+          <div className="cg-hero-strip" style={{
             borderBottom: `1px solid ${COLORS.goldAlpha15}`,
             background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, transparent 100%)`,
             flexShrink: 0,
@@ -524,8 +522,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
           </div>
 
           {/* Search bar — centered premium glass */}
-          <div style={{
-            padding: isMobile ? '14px 16px 12px' : '18px 28px 14px',
+          <div className="cg-search-bar" style={{
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             flexShrink: 0,
             display: 'flex',
@@ -566,12 +563,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
           </div>
 
           {/* 2-column concept grid — collapses to single column on mobile */}
-          <div style={{
+          <div className="cg-concept-grid" style={{
             flex: 1, overflowY: 'auto',
-            padding: isMobile ? '20px 16px 32px' : '28px 32px 40px',
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-            gap: isMobile ? '0' : '0 40px',
             alignContent: 'start',
             maxWidth: '1180px',
             width: '100%',
@@ -1123,7 +1117,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
       )}
 
       {/* Cross-tool CTA — #202 (2026-07-16) */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <div className="zf2-tool-cta-wrap" style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
         <CrossToolCTA
           language={language}
           isMobile={isMobile}
