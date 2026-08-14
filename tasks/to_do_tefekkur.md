@@ -1,8 +1,10 @@
 # Tefekkür — Felsufi/Sufist Makale Migration Plan
 
-> **📌 DURUM (2026-08-13): 52 makale yayında.** Kategori dağılımı:
+> **📌 DURUM (2026-08-14): 53 makale yayında.** Kategori dağılımı:
 > sûre-hermenötik 14 · idrak-şuur 11 · kozmoloji 8 · terminoloji 8 ·
-> kavramsal 6 · semantik 5. Tamamı `status: "published"`.
+> kavramsal 6 · semantik 6. Tamamı `status: "published"`.
+> (Bu sayaç elle yazılıyor — `_index.json`'a göre doğrula, bkz. §13.29'daki
+> "sayaçlar elle yazılmaz" dersi.)
 >
 > **Kaynak platform artık tek değil:** 50 makale Medium'da, 2 makale
 > **Substack**'te (`iki-nedensellik`, `gecmis-klasik-gelecek-kuantum`).
@@ -646,28 +648,42 @@ Bu 6 canlıya alındıktan sonra kalan 43 makale batch-import scripti ile MDX'e 
 
 ## 6. 🛠️ Frontend Infrastructure To-Do
 
-- [ ] **Navbar update** — 3. menu item "Tefekkür" eklenmesi (`Navbar.jsx`)
-  - Dropdown: 7 kategori + "Tüm Yazılar" + "Yazar Hakkında"
-- [ ] **`/tefekkur` route** — index page (kategori filter + makale grid)
-- [ ] **`/tefekkur/[slug]` route** — article page (MDX rendering)
-- [ ] **MDX setup** — `@next/mdx` veya `next-mdx-remote` kurulum
-- [ ] **JSON-LD schemas** — Article + Breadcrumb + Author (Person schema for Felsufi)
-- [ ] **Sitemap güncelleme** — 49 makale URL'i
-- [ ] **i18n pattern** — `/tr/tefekkur/[slug]` + `/en/tefekkur/[slug]` (bilingual destek)
-- [ ] **Inline JSX components:**
-  - `<VerseInline ref="X:Y" />` — hover ayet preview
-  - `<RootHero root="ج-ن-ن" forms={...} />` — büyük root display
-  - `<RootTree root="..." derivatives={[...]} />` — branching diagram
-  - `<PullQuote author="..." source="...">...</PullQuote>` — museum quote
-  - `<CalloutBox type="caveat|info|warning|hadith">...</CalloutBox>`
-  - `<RelatedToolCard tool="concept-graph" />`
-  - `<SeriesNav seriesId="..." position={4} total={7} />`
-  - `<SurahCTA surah={96} />` — Reading Mode pill button
-  - `<ConceptDiagram concept="..." />` — interactive concept map
-- [ ] **Sticky TOC component** — desktop sidebar
-- [ ] **Reading progress bar** — mevcut `ScrollProgress.jsx` reuse
-- [ ] **Theme/typography toggle** — fontsize + day/night
-- [ ] **Author profile page** — `/tefekkur/yazar/felsufi` (bio + tüm makaleleri)
+> **Durum kontrolü 14 Ağustos'ta yapıldı** — bu liste migration BAŞLAMADAN
+> önce yazılmıştı, çoğu zaten kuruldu ama işaretlenmemişti. Aşağıda gerçek
+> durum; gerçekten eksik olanlar `[ ]` kaldı.
+
+- [x] ~~**Navbar update** — "Tefekkür" eklenmesi~~ — canlı, 3. ana menü.
+- [x] ~~**`/tefekkur` route** — index page~~ — canlı, kategori filtreli.
+- [x] ~~**`/tefekkur/[slug]` route** — article page**~~ — canlı ama **MDX
+      değil, JSON** (aşağıya bak).
+- [ ] ~~**MDX setup**~~ — **TERK EDİLDİ.** Yaklaşım JSON'a döndü (her makale
+      `public/tefekkur/[slug].json`), `@next/mdx` hiç kurulmadı. Bu satır
+      artık geçersiz — plan değişti, iş eksik değil.
+- [x] ~~**JSON-LD schemas**~~ — canlı (Article + Breadcrumb, doğrulandı:
+      makale sayfası HTML'inde `application/ld+json` blokları var).
+- [x] ~~**Sitemap güncelleme**~~ — `src/app/sitemap.js` tefekkür rotalarını
+      içeriyor (53 makale × 2 dil).
+- [x] ~~**i18n pattern**~~ — `/tr/tefekkur/[slug]` + `/en/tefekkur/[slug]`
+      canlı, doğrulandı.
+- **Inline JSX components** — kurulanlar (`src/components/tefekkur/`):
+  - [x] `VerseInline.jsx` · `RootHero.jsx` · `PullQuote.jsx` ·
+        `RelatedToolCard.jsx` · `SeriesTimeline.jsx` (SeriesNav'ın yerini
+        aldı) · `HierarchyTree.jsx` · `MorphologyTable.jsx` ·
+        `FlowChain.jsx` · `ContrastDuo.jsx` · `ArticleRenderer.jsx` ·
+        `inlineMarkdown.jsx`
+  - [ ] `RootTree` (ayrı component değil — `RootHero` yeterli görülmüş)
+  - [ ] `CalloutBox` (ayrı component değil — `ArticleRenderer`'ın
+        `criticalNote` blok tipi bu işi görüyor)
+  - [ ] `SurahCTA` — kurulmadı
+  - [ ] `ConceptDiagram` — kurulmadı, `RelatedToolCard` ile ConceptGraph'a
+        link veriliyor onun yerine
+- [ ] **Sticky TOC component** — kurulmadı, gerçekten eksik.
+- [ ] **Reading progress bar** — kurulmadı (`ScrollProgress.jsx` tefekkür'e
+      bağlanmamış), gerçekten eksik.
+- [ ] **Theme/typography toggle** — kurulmadı, gerçekten eksik.
+- [ ] **Author profile page** (`/tefekkur/yazar/felsufi`) — kurulmadı,
+      gerçekten eksik — her makalede canonicalUrl ile atıf var ama merkezi
+      bir yazar sayfası yok.
 
 ---
 
@@ -886,43 +902,53 @@ _(taslak henüz hazırlanmadı)_
 
 ---
 
-## 11. ⚠️ Açık Sorular (Karar Bekleyen)
+## 11. ✅ Açık Sorular — TARİHSEL, hepsi uygulamada cevaplandı (2026-08-14 not düşüldü)
 
-1. **Yazar izni:** Felsufi sen mi (yazar sen misin), yoksa ayrı yazar mı? Yazılı izin var mı?
-2. **MDX vs JSON:** Yukarıda MDX önerdim (inline JSX component'ler için) — onaylıyor musun?
-3. **Bilingual scope:** TR-only / TR+EN parallel / TR-default + EN-where-exists?
-4. **Pilot scope:** §5'teki 6 pilot mantıklı mı, farklı seçim mi tercih edersin?
-5. **Visualization detayı:** §4'teki 4 template prototip onayı — daha fazla detay ister misin?
-6. **Navbar konumu:** "Tefekkür" sağa mı (EN/Kur'an'ı Oku öncesi) sola mı (Keşfet/Araçlar yanına)?
+Bu 6 soru migration BAŞLAMADAN önce yazılmıştı. Site artık 53 makaleyle
+canlı; her soru pratikte cevabını buldu — burada tarih için bırakılıyor:
 
-Onayını alır almaz infra to-do'ya geçiyorum (§6).
+1. ~~**Yazar izni**~~ → Her makalede epistemik disclaimer + canonicalUrl
+   (Medium/Substack) atıfı var (§4 Katman 1).
+2. ~~**MDX vs JSON**~~ → **JSON** (her makale `public/tefekkur/[slug].json`,
+   `_index.json` ile aggregate). MDX kullanılmadı.
+3. ~~**Bilingual scope**~~ → **TR-default + EN-where-exists**, `tldrEn`/
+   `titleEn` alanları makale bazında opsiyonel doldurulur.
+4. ~~**Pilot scope**~~ → 6 pilotla sınırlı kalmadı, **53 makalenin tamamı**
+   yayında.
+5. ~~**Visualization detayı**~~ → §4'teki template'ler (`hierarchyTree`,
+   `morphologyTable`, `flowChain`, `contrastDuo`, vb.) uygulandı, her
+   makale kendi görsel blok karışımını kullanıyor.
+6. ~~**Navbar konumu**~~ → "Tefekkür" canlı navbar'da 3. ana menü.
 
 ---
 
-## 🎯 AÇIK İŞ — 34 makalenin özetinde vurgu yok (2026-08-13)
+## ✅ KAPANDI — 34 makalenin özetinde vurgu yok (2026-08-13 açıldı, 2026-08-14 kapandı)
 
 Kartlardaki `tldr` metinleri markdown'ı **artık render ediyor** (önce ham
 basılıyordu, literal `**` görünüyordu). Render düzelince tutarsızlık ortaya çıktı:
 
-| Durum | Adet |
-|---|---|
-| Kalın vurgu **hiç yok** | **34** |
-| 3+ vurgu (iyi) | 18 |
-| Arada (1-2) | 0 |
+| Durum | Adet (önce) | Adet (şimdi) |
+|---|---|---|
+| Kalın vurgu **hiç yok** | **34** | **0** |
+| 3+ vurgu (iyi) | 18 | 53 |
+| Arada (1-2) | 0 | 0 |
 
 Ya tamamen var ya tamamen yok — çünkü vurgulu olan 18'i son dönemde yazıldı,
 kalan 34'ü daha eski ve o dönem `tldr`'lar düz metin yazılmış. **Bilinçli bir
 tercih değil, biriken tutarsızlık.**
 
-- [ ] 34 makalenin `tldrTr` + `tldrEn` metinlerine vurgu ekle
-- [ ] ⚠ **Bu mekanik bir dönüşüm DEĞİL** — her özette hangi 3-4 kavramın öne
-      çıkacağına karar vermek gerekir. Yanlış kelimeyi vurgulamak hiç
-      vurgulamamaktan kötüdür. Toplu regex ile yapılmamalı.
-- [ ] Vurgusuz olanlar: `yapilanlarin-suslu-gorulmesi`, `emrin-mahiyeti`,
-      `ayet-koprusu`, `analitik-icgoru-1..3`, `sonsuzlugun-merdiveni`,
-      `okuma-prensipleri-1..2`, `alak-suresi-1`, `alak-suresi-2-3`,
-      `sonsuz-nasil-bilinir` … (tam liste için:
-      `node -e` ile `_index.json` üzerinde `tldrTr` içinde `**` araması)
+- [x] ~~34 makalenin `tldrTr` + `tldrEn` metinlerine vurgu ekle~~ — **KAPANDI**
+      (14 Ağustos). Mekanik yapılmadı — her özet tek tek okundu, 3-4 gerçek
+      kavram seçildi (ör. `siccin`: **'Hapishane'** / **'Kitap'** karşıtlığı;
+      `ruhun-termostati`: **"Sabır pasif dayanma değil, ruhun aktif
+      homeostatik regülasyonudur"** tez cümlesi). 32 makalede hem TR hem EN
+      güncellendi; 2'sinde (`yapilanlarin-suslu-gorulmesi`,
+      `okuma-prensipleri-2`) EN zaten vurguluydu, yalnız TR eklendi.
+      Hem `_index.json` hem ilgili makale JSON'u güncellendi (iki kopya —
+      drift olmasın diye eşzamanlı yazıldı). Doğrulama: `<strong>` tag'i
+      makale sayfasında render oluyor (renderInlineMarkdown), meta/JSON-LD
+      hâlâ düz metin (stripMarkdown) — 4 sayfada canlı kontrol edildi,
+      konsol hatası yok, `audit-internal-leak.mjs --ci` temiz, build temiz.
 
 ---
 
