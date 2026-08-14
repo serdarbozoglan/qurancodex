@@ -252,7 +252,7 @@ export default function SemanticMap({ onClose }) {
           flex: 1, overflowY: 'auto',
           padding: isMobile ? '14px' : '18px 24px 32px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '12px',
           alignContent: 'start',
         }}>

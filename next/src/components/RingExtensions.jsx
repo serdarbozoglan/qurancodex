@@ -410,7 +410,7 @@ export default function RingExtensions({ language, isMobile }) {
             ? "Klasik İslâm geleneği munâsabât (ayet-ayet ve sûre-sûre ilişkileri) alanında büyük bir birikime sahipti: Biqâʿî'nin Nazmü'd-Dürer'i, Suyûtî'nin el-İtkân'ı, Râzî'nin Mefâtîhu'l-Ğayb'ı bu ilişkileri sistematik olarak incelemiştir. Modern katkı: bu ilişkileri A-B-C-D-C'-B'-A' gibi şematik notasyona çevirmek."
             : "Classical Islamic tradition already possessed a large corpus on munāsabāt (inter-verse and inter-surah relations): Biqāʿī's Naẓm al-Durar, Suyūṭī's al-Itqān, Rāzī's Mafātīḥ al-Ghayb studied these systematically. The modern contribution: translating those relations into schematic notation like A-B-C-D-C'-B'-A'."}
           </p>
-          <div style={{ display: 'grid', gap: '10px', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', marginTop: '14px' }}>
+          <div className="g-1-2" style={{ display: 'grid', gap: '10px',  marginTop: '14px' }}>
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}` }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Michel Cuypers</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>

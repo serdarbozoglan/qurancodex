@@ -222,7 +222,7 @@ export default function SoundExtensions({ language, isMobile }) {
 
           <div style={{
             display: 'grid', gap: '12px',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           }}>
             {PHONETIC_SPECTRUM.map((g, i) => {
               const isActive = activeSpec === i;

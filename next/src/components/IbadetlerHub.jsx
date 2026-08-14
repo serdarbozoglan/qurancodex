@@ -266,7 +266,7 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
       </div>
       <div style={{
         display: 'grid', gap: isMobile ? '14px' : '18px',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
       }}>
         {pillars.map(p => (
           <PillarCard key={p.id} pillar={p} language={language} isMobile={isMobile} router={router} />
@@ -426,7 +426,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
       </p>
       <div style={{
         display: 'grid', gap: '10px',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       }}>
         {data.nodes.map((n, i) => {
           const pct = (n.freq / maxFreq) * 100;
@@ -1008,7 +1008,7 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
       }}>{language === 'tr' ? "Kur'ân'ın Açtığı Pencereler" : "Windows the Qur'an Opens"}</h2>
       <div style={{
         display: 'grid', gap: '18px',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       }}>
         {wowFacts.map((w, i) => {
           const style = IBADET_CLAIM_TYPE_STYLES[w.claimType];

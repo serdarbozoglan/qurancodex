@@ -287,7 +287,7 @@ export default function RetorikSorular({ onClose }) {
               color: COLORS.gold, textTransform: 'uppercase',
               fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
             }}>{tr ? 'Klasik & Modern Kaynaklar' : 'Classical & Modern Sources'}</div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
+            <div className="g-1-2" style={{ display: 'grid',  gap: '10px' }}>
               {aileler.kaynaklar.map((k, i) => (
                 <div key={i} style={{
                   padding: '10px 14px',

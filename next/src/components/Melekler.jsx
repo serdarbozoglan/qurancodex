@@ -576,7 +576,7 @@ function TabMelekler({ data, language, isMobile }) {
       </div>
 
       {/* Cards grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '14px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
         {filtered.map(angel => (
           <AngelCard key={angel.id} angel={angel} language={language} isMobile={isMobile} />
         ))}
@@ -737,7 +737,7 @@ function TabKissalar({ data, language, isMobile }) {
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0, paddingTop: '2px' }}>
-                  <span style={{ fontSize: '0.66rem', color: `${GOLD}60`, whiteSpace: 'nowrap', display: isMobile ? 'none' : 'block' }}>{k.ayetler}</span>
+                  <span className="dsp-block" style={{ fontSize: '0.66rem', color: `${GOLD}60`, whiteSpace: 'nowrap',  }}>{k.ayetler}</span>
                   <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.5" style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }}>
                     <path d="M6 9l6 6 6-6" />
                   </svg>
@@ -920,7 +920,7 @@ function TabDilbilim({ data, language, isMobile }) {
       {/* Benzersiz sıfatlar */}
       <div>
         <SectionTitle>{tr ? "B. Kur'an'da Benzersiz Melek Sıfatları" : 'B. Unique Angel Attributes in the Quran'}</SectionTitle>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '10px' }}>
+        <div className="g-1-2" style={{ display: 'grid',  gap: '10px' }}>
           {(d.benzersizSifatlar || []).map((s, i) => (
             <div key={i} style={{
               background: 'rgba(255,255,255,0.03)',
@@ -963,7 +963,7 @@ function TabDilbilim({ data, language, isMobile }) {
         <p style={{ fontSize: '0.75rem', color: `${GOLD}70`, fontStyle: 'italic', margin: '0 0 12px', lineHeight: 1.5 }}>
           ℹ️ {tr ? d.karsilastirmaNotTr : d.karsilastirmaNotEn}
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '10px' }}>
+        <div className="g-2-4" style={{ display: 'grid',  gap: '10px' }}>
           {(d.cebrailIsimleri || []).map((n, i) => (
             <div key={i} style={{
               background: n.isHadisConnection ? 'rgba(255,255,255,0.02)' : 'rgba(184,134,11,0.08)',

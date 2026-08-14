@@ -97,7 +97,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       {/* 5 kanal grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: '12px', marginBottom: '24px',
       }}>
         {paths.map((p, i) => (

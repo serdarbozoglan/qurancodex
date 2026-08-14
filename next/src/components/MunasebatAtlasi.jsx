@@ -417,7 +417,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
 // ── Type List ────────────────────────────────────────────────────────────────
 function TypeList({ types, language, isMobile }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px' }}>
+    <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
       {types.map((t) => (
         <div
           key={t.id}
@@ -500,7 +500,7 @@ function GroupList({ groups, language, isMobile }) {
 // ── Scholar List ─────────────────────────────────────────────────────────────
 function ScholarList({ scholars, language, isMobile }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px' }}>
+    <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
       {scholars.map((s) => (
         <div key={s.id} style={{ ...GLASS_CARD, padding: '16px 20px' }}>
           <div style={{

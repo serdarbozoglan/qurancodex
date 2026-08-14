@@ -319,7 +319,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
       </div>
 
       {/* Card grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '12px', marginBottom: '32px', alignItems: 'stretch' }}>
+      <div className="g-1-3" style={{ display: 'grid', gap: '12px', marginBottom: '32px', alignItems: 'stretch' }}>
         {filtered.map(renk => (
           <ColorCard
             key={renk.id}
@@ -378,10 +378,9 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                 />
 
                 {/* Stage markers — circular dots positioned along the gradient bar */}
-                <div style={{
+                <div className="fd-row" style={{
                   position: 'relative', zIndex: 2,
                   display: 'flex',
-                  flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'stretch' : 'flex-start',
                   justifyContent: isMobile ? 'flex-start' : 'space-around',
                   gap: isMobile ? '20px' : '16px',
@@ -392,9 +391,9 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.45, delay: 0.25 + i * 0.18, ease: [0.4, 0, 0.2, 1] }}
+                      className="fd-col-reverse"
                       style={{
                         display: 'flex',
-                        flexDirection: isMobile ? 'row' : 'column',
                         alignItems: isMobile ? 'flex-start' : 'center',
                         gap: isMobile ? '14px' : '10px',
                         maxWidth: isMobile ? 'none' : '180px',
@@ -556,9 +555,8 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
       </div>
 
       {/* Swatch grid — mobile 2-col, desktop 4-col */}
-      <div style={{
+      <div className="g-2-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
         gap: isMobile ? '14px' : '20px',
       }}>
         {colors.map(c => {
@@ -1308,7 +1306,7 @@ function TabCennet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, transparent, ${ACCENT}55, transparent)` }} />
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)', gap: '12px' }}>
+        <div className="g-2-3" style={{ display: 'grid', gap: '12px' }}>
           {swatches.map((s, i) => (
             <div
               key={i}
@@ -1588,10 +1586,7 @@ function TabKiyamet({ language, isMobile }) {
         </h3>
 
         {/* Two-pole comparison */}
-        <div style={{
-          display: isMobile ? 'flex' : 'grid',
-          flexDirection: isMobile ? 'column' : undefined,
-          gridTemplateColumns: isMobile ? undefined : '1fr auto 1fr',
+        <div className="tri-col-vs" style={{
           alignItems: 'stretch',
           gap: isMobile ? '14px' : '24px',
         }}>
@@ -1730,10 +1725,9 @@ function TabKiyamet({ language, isMobile }) {
           />
 
           {/* Markers — color dots + labels */}
-          <div style={{
+          <div className="fd-row" style={{
             position: 'relative', zIndex: 2,
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
             alignItems: isMobile ? 'stretch' : 'flex-start',
             justifyContent: isMobile ? 'flex-start' : 'space-between',
             gap: isMobile ? '20px' : '10px',
@@ -1744,9 +1738,9 @@ function TabKiyamet({ language, isMobile }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.25 + i * 0.18, ease: [0.4, 0, 0.2, 1] }}
+                className="fd-col-reverse"
                 style={{
                   display: 'flex',
-                  flexDirection: isMobile ? 'row' : 'column',
                   alignItems: isMobile ? 'flex-start' : 'center',
                   gap: isMobile ? '14px' : '8px',
                   flex: isMobile ? 'unset' : 1,
@@ -1990,9 +1984,7 @@ function TabDilbilim({ language, isMobile }) {
             { normalAr: 'أَخْضَر', normalTrans: 'ahdar', intenseAr: 'مُدْهَامَّتَانِ', intenseTrans: 'mudhammatân', meaningTr: 'Yeşil → Koyu Yoğun Yeşil', meaningEn: 'Green → Intensely Dark Green', hex: KURANI_COLORS.yesilKoyu },
             { normalAr: 'أَسْوَد', normalTrans: 'esvad',  intenseAr: 'غَرَابِيبُ سُودٌ', intenseTrans: 'garâbîb sûd', meaningTr: 'Siyah → Kuzgun Siyahı', meaningEn: 'Black → Raven Black', hex: KURANI_COLORS.siyahKaranlik },
           ].map((row, i) => (
-            <div key={i} style={{
-              display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+            <div key={i} className="tri-col-vs" style={{
               gap: isMobile ? '10px' : '18px',
               alignItems: 'center',
               padding: isMobile ? '14px' : '16px 18px',
@@ -2163,9 +2155,8 @@ function TabDilbilim({ language, isMobile }) {
         descTr="'Zurk' kelimesi Arapça'da hem mavi hem donuk/bulanık anlamına gelir. Taha 20:102 bağlamında üç klasik yorum:"
         descEn="'Zurq' in Arabic means both blue and glazed/cloudy. Three classical interpretations in the context of Ta-Ha 20:102:"
       >
-        <div style={{
+        <div className="g-1-3" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: '12px',
         }}>
           {[
@@ -2388,9 +2379,8 @@ function TabDilbilim({ language, isMobile }) {
         titleTr="Beyaz'ın Kök Genişlemesi — بيض → Yumurta"
         titleEn="White's Root Expansion — بيض → Egg"
       >
-        <div style={{
+        <div className="g-2-4" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
           gap: '10px',
           marginBottom: '16px',
         }}>
@@ -3204,9 +3194,8 @@ function ColorsClosing({ language, isMobile }) {
           </span>
         </div>
 
-        <div style={{
+        <div className="g-1-3" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: '12px',
         }}>
           {[

@@ -716,7 +716,7 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
               {pair.themeTr}
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '1px' : 0 }}>
+          <div className="fd-row" style={{ display: 'flex',  gap: isMobile ? '1px' : 0 }}>
             <SideCard pairId={pair.id} side="A" sideData={pair.sideA} label={language === 'tr' ? 'Birinci Mesel' : 'First Parable'} />
             {!isMobile ? (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '48px', flexShrink: 0, gap: '4px' }}>
@@ -984,7 +984,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
 
   return (
     <div style={{ padding: isMobile ? '12px' : '20px 24px' }}>
-      <div style={{ ...GLASS_CARD, padding: '12px 16px', marginBottom: '12px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: '10px', justifyContent: 'space-between' }}>
+      <div className="fd-row" style={{ ...GLASS_CARD, padding: '12px 16px', marginBottom: '12px', display: 'flex',  alignItems: isMobile ? 'flex-start' : 'center', gap: '10px', justifyContent: 'space-between' }}>
         <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.82rem' }}>
           {language === 'tr'
             ? "Bu tabloda yalnızca mesel ve kıssa bağlamındaki hayvanlar yer alır."
@@ -1141,7 +1141,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           </span>
           <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '14px' }}>
+        <div className="g-1-3" style={{ display: 'grid',  gap: '14px' }}>
           {PARABLE_TYPES_DATA.map((t, i) => (
             <div key={t.key} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
               {/* Numbered header */}
@@ -1187,7 +1187,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           </span>
           <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '14px' }}>
+        <div className="g-1-3" style={{ display: 'grid',  gap: '14px' }}>
           {metaVerses.map(mv => (
             <div key={mv.ref} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
               {/* Principle label + ref */}
@@ -1227,7 +1227,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           </span>
           <div style={{ height: '1px', flex: 1, background: COLORS.glassBorder }} />
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '14px' }}>
+        <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
           {scholars.map(s => (
             <div key={s.id} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
               {/* Quote mark */}

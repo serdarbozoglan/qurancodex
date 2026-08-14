@@ -1300,7 +1300,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       {/* Insights grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         gap: '12px',
       }}>
         {insights.map(ins => {

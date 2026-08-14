@@ -449,7 +449,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
         ))}
       </div>
 
-      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '16px', flex: 1, alignItems: 'flex-start' }}>
+      <div className="fd-row" style={{ display: 'flex',  gap: '16px', flex: 1, alignItems: 'flex-start' }}>
         <div style={{
           display: 'flex',
           flexDirection: isMobile ? 'row' : 'column',

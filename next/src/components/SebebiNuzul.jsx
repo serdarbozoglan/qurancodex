@@ -880,9 +880,7 @@ function TabIstatistik({ data, language, isMobile }) {
         }}>
           {language === 'tr' ? 'Vâhidî → Süyûtî Karşılaştırması' : 'Wahidi → Suyuti Comparison'}
         </h3>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+        <div className="tri-col-vs" style={{
           gap: '16px',
           alignItems: 'center',
         }}>

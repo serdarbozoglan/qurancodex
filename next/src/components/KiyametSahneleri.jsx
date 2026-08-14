@@ -1056,7 +1056,7 @@ function TabSureler({ data, language, isMobile }) {
       <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 20px', fontFamily: FONTS.body }}>
         {language === 'tr' ? '★★★★★ = kıyamet sahnesi yoğunluğu en yüksek' : '★★★★★ = highest density of judgment scenes'}
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '12px' }}>
         {data.surahs.map(surah => (
           <SurahCard key={surah.id} surah={surah} language={language} />
         ))}
@@ -1170,7 +1170,7 @@ function TabKozmikSahneler({ language, isMobile }) {
         <h2 style={{ fontFamily: FONTS.display, fontSize: '1.2rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
           {language === 'tr' ? "Kıyamette Kullanılan Nadir Kelimeler" : "Rare Words Used in Judgment Scenes"}
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '10px' }}>
+        <div className="g-1-2" style={{ display: 'grid',  gap: '10px' }}>
           {HAPAX_WORDS.map(w => (
             <div key={w.tr} style={{ background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.chip, padding: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>

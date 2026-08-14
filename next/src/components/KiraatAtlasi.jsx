@@ -607,7 +607,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
       </div>
 
       {/* ── Donut + Besmele two-col ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 12, marginBottom: 24 }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: 12, marginBottom: 24 }}>
         <div style={{ ...GLASS_CARD, padding: '18px 20px' }}>
           <DonutChart language={language} />
         </div>
@@ -887,7 +887,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                         Hz. Osman'ın mushafları (651 M) yalnızca ünsüz iskeletle — <strong style={{ color: COLORS.offWhite }}>rasm</strong> — yazıldı. Bugünkü hareke (ü/i/a sesleri) ve nokta (ب/ت/ث ayrımı) sistemi henüz mevcut değildi. Bu yüzden aynı harf dizisi birden fazla okuyuşu barındırabiliyordu:
                       </p>
                       {/* Example box */}
-                      <div style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
+                      <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
                         <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
                         <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
                           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
@@ -939,7 +939,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     {/* ── 4. İbn Mücâhid + İbn el-Cezerî ── */}
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>④ İki Dönüm Noktası</div>
-                      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12 }}>
+                      <div className="fd-row" style={{ display: 'flex',  gap: 12 }}>
                         <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
                           <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>İbn Mücâhid — 936 M</div>
                           <div style={{ color: COLORS.silver }}>Bağdat'ta <em>Kitâbü's-Seb'a</em>'yı kaleme aldı. Yüzlerce aktarımı üç kritere göre eledi ve <strong style={{ color: COLORS.offWhite }}>7 kıraati</strong> kanonik ilan etti. Kanonik olmayan okuyuşları okuyan iki âlim yargılandı ve geri adım atmaya zorlandı.</div>
@@ -997,7 +997,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                       <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
                         Uthman's manuscripts (651 CE) were written with only a consonantal skeleton — the <strong style={{ color: COLORS.offWhite }}>rasm</strong>. The vowel marks (ḥarakāt) and distinguishing dots we see today did not yet exist. The same letter sequence could therefore represent multiple valid readings:
                       </p>
-                      <div style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
+                      <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
                         <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
                         <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
                           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
@@ -1049,7 +1049,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     {/* ── 4. Two Turning Points ── */}
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>④ Two Turning Points</div>
-                      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12 }}>
+                      <div className="fd-row" style={{ display: 'flex',  gap: 12 }}>
                         <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
                           <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>Ibn Mujāhid — 936 CE</div>
                           <div style={{ color: COLORS.silver }}>In Baghdad he wrote <em>Kitāb al-Sab'a</em>, filtering hundreds of transmissions by the three criteria and canonising <strong style={{ color: COLORS.offWhite }}>7 readings</strong>. Two scholars who continued to recite non-canonical readings were put on trial and compelled to recant.</div>

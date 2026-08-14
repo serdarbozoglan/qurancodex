@@ -664,7 +664,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
 
       {/* ── GRAPH VIEW ────────────────────────────────────────────────── */}
       {view === 'graph' && !buildingGraph && !loadingData && graphRef.current && (
-        <div style={{ flex: 1, display: 'flex', flexDirection: isMobile ? 'column' : 'row', overflow: 'hidden' }}>
+        <div className="fd-row" style={{ flex: 1, display: 'flex',  overflow: 'hidden' }}>
 
           {/* SVG Graph */}
           <div

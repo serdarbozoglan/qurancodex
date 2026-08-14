@@ -786,7 +786,7 @@ function TabKategoriler({ categories, activeCategoryId, onSelect, language, isMo
           {/* Oath cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(380px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
             gap: '14px',
           }}>
             {active.items.map(item => (
@@ -1263,7 +1263,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
       </p>
 
       {/* Stat callouts */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '12px', marginBottom: '20px' }}>
+      <div className="g-2-4" style={{ display: 'grid',  gap: '12px', marginBottom: '20px' }}>
         {[
           { value: sorted.length, labelTr: 'Sûre', labelEn: 'Surahs', color: COLORS.gold },
           { value: total, labelTr: 'Bileşik Yemin', labelEn: 'Compound Oaths', color: '#3498db' },
@@ -1567,9 +1567,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                         padding: '14px 16px',
                       }}>
                         {/* Pair header — two opposing items */}
-                        <div style={{
-                          display: 'grid',
-                          gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr',
+                        <div className="tri-col-vs" style={{
                           gap: isMobile ? '10px' : '14px',
                           alignItems: 'center',
                           marginBottom: '12px',
@@ -1727,7 +1725,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                 <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.2rem' : '1.4rem', color: COLORS.gold, lineHeight: 2.0, margin: '0 0 18px', textAlign: 'right', textShadow: `0 0 14px ${COLORS.gold}1a` }}>
                   {ex.ar}
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                <div className="g-1-2" style={{ display: 'grid',  gap: '12px', marginBottom: '16px' }}>
                   <div style={{ background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
                     <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Bihi · Yemin Objesi" : "Muqsam Bihi · The Oath-Object"}
@@ -1866,7 +1864,7 @@ function TabTahaddi({ language, isMobile }) {
       </div>
 
       {/* Verse cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '14px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
         {TAHADDI_VERSES.map((v, i) => {
           const isMedinan = v.period === 'medine';
           const accent = isMedinan ? '#3B82F6' : COLORS.gold;

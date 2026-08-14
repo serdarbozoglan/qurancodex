@@ -763,7 +763,7 @@ export default function WordHeatmap({ onClose }) {
       />
 
       {/* Main layout: sidebar for verses + full-height grid area */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: isMobile ? 'column' : 'row', overflow: 'hidden', minHeight: 0 }}>
+      <div className="fd-row" style={{ flex: 1, display: 'flex',  overflow: 'hidden', minHeight: 0 }}>
 
         {/* Left: controls + grid */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: isMobile ? '10px 12px' : '14px 16px', gap: '10px', overflow: 'hidden', minHeight: 0 }}>

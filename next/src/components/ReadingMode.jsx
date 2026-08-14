@@ -2882,10 +2882,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           chip strip containing all other controls. The §14.5 split keeps the
           title legible at one glance and avoids cramming 4–5 36px-wide
           buttons + a wide pill into a single 52px row. */}
-      <div style={{
-        display: isMobile ? 'flex' : 'grid',
-        flexDirection: isMobile ? 'column' : undefined,
-        gridTemplateColumns: isMobile ? undefined : '1fr auto 1fr',
+      <div className="tri-col-vs" style={{
         gridTemplateRows: isMobile ? undefined : 'auto',
         alignItems: isMobile ? 'stretch' : 'center',
         padding: isMobile ? 0 : '0 16px', height: isMobile ? 'auto' : '64px', flexShrink: 0,

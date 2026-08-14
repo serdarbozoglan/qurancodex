@@ -469,9 +469,8 @@ function TabIsimler({ data, language, isMobile }) {
       </div>
 
       {/* Two-column grid */}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '24px',
       }}>
         {/* Cennet column */}
@@ -626,10 +625,7 @@ function HeroBanner({ data, language, isMobile }) {
   const cehennemCount = data.cehennemIsimleri?.length ?? 7;
 
   return (
-    <div style={{
-      display: isMobile ? 'flex' : 'grid',
-      flexDirection: isMobile ? 'column' : undefined,
-      gridTemplateColumns: isMobile ? undefined : '1fr 260px 1fr',
+    <div className="cc-hero-banner" style={{
       marginBottom: '28px',
       borderRadius: RADIUS.xl,
       overflow: 'hidden',
@@ -736,9 +732,8 @@ function TabCennet({ data, language, isMobile }) {
         language={language}
         color={CENNET.accent}
       />
-      <div style={{
+      <div className="g-2-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
         gap: '10px',
         marginBottom: '8px',
       }}>
@@ -761,7 +756,7 @@ function TabCennet({ data, language, isMobile }) {
       <SectionTitle color={CENNET.accent}>
         {tr ? 'B. Cennet Bitkileri & Pınarları' : 'B. Plants & Springs of Paradise'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '10px', marginBottom: '8px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '10px', marginBottom: '8px' }}>
         {(d.bitkiler || []).map(b => (
           <div key={b.id} style={{
             background: 'rgba(255,255,255,0.03)',
@@ -786,7 +781,7 @@ function TabCennet({ data, language, isMobile }) {
       <SectionTitle color={CENNET.accent}>
         {tr ? 'C. Cennet Sakinleri' : 'C. The Inhabitants of Paradise'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '10px', marginBottom: '8px' }}>
+      <div className="g-1-3" style={{ display: 'grid',  gap: '10px', marginBottom: '8px' }}>
         {(d.sakinler || []).map(s => (
           <div key={s.id} style={{
             background: CENNET.bg,
@@ -806,7 +801,7 @@ function TabCennet({ data, language, isMobile }) {
       <SectionTitle color={CENNET.accent}>
         {tr ? 'D. Fiziksel Özellikler' : 'D. Physical Properties'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, 1fr)', gap: '10px', marginBottom: '8px' }}>
+      <div className="g-2-3" style={{ display: 'grid', gap: '10px', marginBottom: '8px' }}>
         {(d.fiziksel || []).map(f => (
           <div key={f.id} style={{
             background: f.isSessizlik ? 'rgba(255,255,255,0.02)' : CENNET.bg,
@@ -831,7 +826,7 @@ function TabCennet({ data, language, isMobile }) {
       <SectionTitle color={CENNET.accent}>
         {tr ? "E. Vâkıa Sûresi'nin Üçlü Sınıflandırması" : 'E. The Tripartite Classification of Al-Waqi\'a'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '10px' }}>
+      <div className="g-1-3" style={{ display: 'grid',  gap: '10px' }}>
         {[
           {
             nameAr: 'السَّابِقُونَ',
@@ -892,7 +887,7 @@ function TabCehennem({ data, language, isMobile }) {
       <SectionTitle color={CEHENNEM.accent}>
         {tr ? 'A. Beş Duyuyla Cehennem' : 'A. Hell Through the Five Senses'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: '10px', marginBottom: '8px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '10px', marginBottom: '8px' }}>
         {(d.duyusal || []).map(item => (
           <div key={item.id} style={{
             background: item.isSessizlik ? 'rgba(255,255,255,0.03)' : CEHENNEM.bg,
@@ -956,7 +951,7 @@ function TabCehennem({ data, language, isMobile }) {
       <SectionTitle color={CEHENNEM.accent}>
         {tr ? 'B. Cehennem Yiyecekleri' : 'B. Food of Hell'}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '10px', marginBottom: '8px' }}>
+      <div className="g-1-3" style={{ display: 'grid',  gap: '10px', marginBottom: '8px' }}>
         {(d.yiyecekler || []).map(y => (
           <div key={y.id} style={{
             background: CEHENNEM.bg,
@@ -1169,7 +1164,7 @@ function TabAraf({ data, language, isMobile }) {
       <SectionTitle color={ARAF.accent}>
         {tr ? "İlliyyûn & Siccîn — Öteki Alemin Kayıt Sistemi" : "Illiyyun & Sijjin — The Record System of the Hereafter"}
       </SectionTitle>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px' }}>
+      <div className="g-1-2" style={{ display: 'grid',  gap: '12px' }}>
         {(araf.illiyyunSiccin || []).map(item => {
           const c = item.taraf === 'cennet' ? CENNET : CEHENNEM;
           return (
@@ -1238,9 +1233,8 @@ function TabRahman({ data, language, isMobile }) {
       <SectionTitle color={GOLD}>
         {tr ? "Cennet & Cehennem: Paralel Tasvirler" : "Paradise & Hell: Parallel Descriptions"}
       </SectionTitle>
-      <div style={{
+      <div className="cc-symmetry-grid" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 28px 1fr',
         gap: '0',
         marginBottom: '24px',
         border: '1px solid rgba(255,255,255,0.07)',
@@ -1716,9 +1710,8 @@ function Rahman31Viz({ language, isMobile, rs }) {
       </div>
 
       {/* Stats row */}
-      <div style={{
+      <div className="g-2-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
         gap: '10px', marginTop: '22px', maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
       }}>
         {[
@@ -1823,9 +1816,8 @@ function FiveSenseGrid({ language, isMobile }) {
       {/* Grid rows */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {SENSES.map(s => (
-          <div key={s.id} style={{
+          <div key={s.id} className="cc-domain-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '110px 1fr 1fr',
             gap: '10px', alignItems: 'stretch',
           }}>
             {/* Sense label */}

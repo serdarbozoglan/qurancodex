@@ -795,7 +795,7 @@ function TabMuhatap({ data, tr, isMobile }) {
             </p>
 
             {/* Verse cards */}
-            <div style={{ display: isMobile ? 'flex' : 'grid', flexDirection: isMobile ? 'column' : undefined, gridTemplateColumns: isMobile ? undefined : 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
+            <div className="fd-row dsp-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
               {group.verses.map((v, vi) => (
                 <div
                   key={vi}
@@ -942,7 +942,7 @@ function TabSorular({ data, tr, isMobile }) {
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: 14,
         }}>
           {filtered.map(q => {
@@ -1204,7 +1204,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
           </p>
         </div>
         {/* 3 analiz kartı */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 14, marginBottom: 20 }}>
+        <div className="g-1-3" style={{ display: 'grid',  gap: 14, marginBottom: 20 }}>
           {data.comparativeAnalysis.cards.map((card, ci) => {
             const color = TYPE_COLORS[card.type] || COLORS.silver;
             return (

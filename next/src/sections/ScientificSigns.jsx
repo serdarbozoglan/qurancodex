@@ -277,7 +277,7 @@ export default function ScientificSigns() {
                   </span>
 
                   {/* Timeline line — hidden on mobile, badges sufficient */}
-                  <div style={{ flex: 1, position: 'relative', height: '2px', display: isMobile ? 'none' : 'block' }}>
+                  <div className="dsp-block" style={{ flex: 1, position: 'relative', height: '2px',  }}>
                     <div style={{
                       position: 'absolute', inset: 0,
                       background: `linear-gradient(to right, rgba(255,255,255,0.06), ${meta.color}80, rgba(255,255,255,0.06))`,
