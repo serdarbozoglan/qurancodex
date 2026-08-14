@@ -1018,7 +1018,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
             )}
             {stage.linguisticBasis && (
               <span style={chipStyle(COLORS.silver)}>
-                <span style={{ opacity: 0.7 }}>{language === 'tr' ? 'Dayanak:' : 'Basis:'}</span>
+                <span>{language === 'tr' ? 'Dayanak:' : 'Basis:'}</span>
                 <span>{stage.linguisticBasis}</span>
               </span>
             )}
@@ -1166,7 +1166,7 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
                 ...chipStyle(isSufi ? COLORS.silver : accent),
                 fontSize: '0.7rem',
               }}>
-                <span style={{ opacity: 0.6 }}>{language === 'tr' ? 'Ekol:' : 'School:'}</span>
+                <span>{language === 'tr' ? 'Ekol:' : 'School:'}</span>
                 <span>{stage.ekolEtiketi}</span>
               </span>
             </div>
@@ -1434,7 +1434,7 @@ function FrameworkCard({ framework, isMobile, language }) {
       {framework.ekolEtiketi && (
         <div>
           <span style={{ ...chipStyle(COLORS.gold), fontSize: '0.7rem' }}>
-            <span style={{ opacity: 0.6 }}>{language === 'tr' ? 'Ekol:' : 'School:'}</span>
+            <span>{language === 'tr' ? 'Ekol:' : 'School:'}</span>
             <span>{framework.ekolEtiketi}</span>
           </span>
         </div>

@@ -253,7 +253,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                   padding: '5px 12px', borderRadius: RADIUS.md,
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   border: `1px solid ${isActive ? (COLORS.goldAlpha45 || COLORS.goldAlpha45) : 'rgba(255,255,255,0.07)'}`,
-                  color: isActive ? COLORS.gold : COLORS.silverAlpha70,
+                  color: isActive ? COLORS.gold : 'rgba(148,163,184,0.85)',
                   fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'flex', alignItems: 'center', gap: '6px',
@@ -268,15 +268,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
                 onMouseLeave={e => {
                   if (!isActive) {
                     e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = COLORS.silverAlpha70;
+                    e.currentTarget.style.color = 'rgba(148,163,184,0.85)';
                   }
                 }}
               >
                 {language === 'tr' ? f.labelTr : f.labelEn}
                 <span style={{
-                  background: isActive ? (COLORS.goldAlpha25 || COLORS.goldAlpha25) : 'rgba(255,255,255,0.06)',
+                  background: isActive ? 'transparent' : 'rgba(255,255,255,0.06)',
                   borderRadius: RADIUS.xs,
-                  color: isActive ? COLORS.gold : 'rgba(148,163,184,0.5)',
+                  color: isActive ? COLORS.gold : 'rgba(148,163,184,0.85)',
                   fontSize: '0.62rem', fontWeight: 600,
                   padding: '1px 6px',
                 }}>
@@ -1432,7 +1432,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Family Signature',
     },
     {
-      themeColor: '#2ab5a0',      // teal — classical scholarship
+      themeColor: '#3BBBA8',      // teal — classical scholarship
       themeBg: 'rgba(42,181,160,0.05)',
       themeBorder: 'rgba(42,181,160,0.28)',
       headlineTr: '"Sapanların yolu" Fâtiha\'da bitince, Bakara hemen "işte doğru yol" der.',
@@ -1443,7 +1443,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Classical Munāsabah',
     },
     {
-      themeColor: '#3498db',      // sky blue — tasbîh/takbîr remembrance
+      themeColor: '#63B0E3',      // sky blue — tasbîh/takbîr remembrance
       themeBg: 'rgba(52,152,219,0.05)',
       themeBorder: 'rgba(52,152,219,0.28)',
       headlineTr: 'İsrâ tesbih ile açılır, tekbir ile mühürlenir — namaz sonrası tesbihâtın iki ucu.',
@@ -1454,7 +1454,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
       tagEn: 'Intra-Surah Ring',
     },
     {
-      themeColor: '#8b5cf6',      // violet — cipher mystery
+      themeColor: '#B698F9',      // violet — cipher mystery
       themeBg: 'rgba(139,92,246,0.05)',
       themeBorder: 'rgba(139,92,246,0.28)',
       headlineTr: 'Mukattaa harfleriyle açılan sûreler hemen ardından neredeyse hep Kitap/vahiy atfıyla devam eder.',
