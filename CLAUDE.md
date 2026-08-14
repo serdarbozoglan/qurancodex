@@ -1244,6 +1244,46 @@ Ham 3.997 → ayıklanmış **3.508** farkı buradan gelir.
 
 ---
 
+
+### 13.27 İç Mimari Sızıntısı — ENFORCE ALWAYS (2026-08-14)
+
+**Kullanıcıya görünen hiçbir metinde geliştirici jargonu bulunamaz.**
+
+Yasak — makale gövdesi, kaynakça, başlık, özet, i18n dizeleri, kısacası
+**ekrana çıkan her alan** için:
+
+| Yasak | Örnek |
+|---|---|
+| İç doküman referansı | `CLAUDE.md`, `§13.15` |
+| Dosya adı / yolu | `verse-graph-bgem3.json`, `src/lib/arabic.js` |
+| Fonksiyon adı | `cleanArabicForDisplay`, `renderInlineMarkdown` |
+| Kod terimi | `useState`, `localStorage`, `dispatchEvent` |
+| Sürüm kontrolü jargonu | `commit`, `git push` |
+
+**Neden bu kural var.** 2026-08-14'te yeni bir tefekkür makalesinin kaynakça
+bölümünde şu cümle **yayındaydı**:
+
+> *"Bu sayfadaki Arapça âyetler `public/verse-graph-bgem3.json`'dan mekanik
+> olarak çekilmiş ve `cleanArabicForDisplay` ile normalize edilmiştir
+> (CLAUDE.md §13.15). Hafızadan yazılmamıştır."*
+
+Okuyucu için anlamsız. Kuralın kendisine uyulduğunu **kanıtlama refleksi**,
+kanıtı okuyucunun önüne koymaya dönüşmüş. Kural mühendisin işidir; **okuyucu
+sonucu görür, süreci değil.** Üç makalede altı alan bulundu ve temizlendi.
+
+**Doğrusu:** aynı bilgi okuyucunun dilinde verilir —
+*"Âyetlerin Arapça metni sitenin kanonik Kur'an kaynağından alınmış ve
+mushaf imlâsına göre normalize edilmiştir."*
+
+**Zorunlu kontrol — HER PUSH'TAN ÖNCE:**
+```bash
+node scripts/audit-internal-leak.mjs --ci
+```
+Sızıntı varsa **exit 1**. Yalnız ekrana çıkan alanlar taranır; `relatedTools:
+["verse-graph"]` gibi **araç kimlikleri meşrudur** ve elenir.
+> ⚠ İlk tarayıcım bu ayrımı yapmıyordu ve *"38/53 makale bozuk"* diye yanlış
+> alarm verdi; gerçek sayı **3**'tü. Tarayıcı yazarken de ölç, varsayma.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

@@ -80,6 +80,22 @@ Ayrıntı için `node scripts/audit-colors.mjs --list`.
 > "1.080 ihlal" ile "186 farklı renk" bir noktada birbirine karıştı ve rapor
 > yanlış çıktı — ölçüm tek yerden gelmeli.
 
+#### 4b-2. İç mimari sızıntısı (§13.27) — **HER PUSH'TAN ÖNCE ZORUNLU**
+```bash
+node scripts/audit-internal-leak.mjs --ci
+```
+**FAIL** (exit 1) — kullanıcıya görünen metinde geliştirici jargonu varsa:
+`CLAUDE.md`, `§13.x`, dosya adı/yolu, fonksiyon adı, `useState`, `commit`…
+
+Gerekçe: 2026-08-14'te bir tefekkür makalesinin **kaynakça bölümünde**
+*"…`public/verse-graph-bgem3.json`'dan mekanik olarak çekilmiş ve
+`cleanArabicForDisplay` ile normalize edilmiştir (CLAUDE.md §13.15)"*
+cümlesi yayındaydı. Kullanıcı fark etti, tarama değil.
+Okuyucu **sonucu** görür, süreci değil.
+
+> Yalnız ekrana çıkan alanlar taranır; `relatedTools: ["verse-graph"]` gibi
+> araç kimlikleri meşrudur ve elenir.
+
 #### 4c. Arabic encoding violations (§13.15)
 ```bash
 # Uthmani-özel karakterler JSON'larda olmamalı

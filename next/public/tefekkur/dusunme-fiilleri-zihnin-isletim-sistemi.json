@@ -470,9 +470,9 @@
           "detailEn": "Tafakkur (f-k-r) 18 · Taʿaqqul (ʿ-q-l) 49 · Tadabbur (d-b-r, form V) 4 · Tadhakkur (dh-k-r, form V) 51 · Tafaqquh (f-q-h) 20. Counts are by root and verbal form; the full verse list is in the canonical Medium text."
         },
         {
-          "name": "Arapça metin — âyet grafiği",
-          "detailTr": "Bu sayfadaki Arapça âyetler `public/verse-graph-bgem3.json`'dan mekanik olarak çekilmiş ve `cleanArabicForDisplay` ile normalize edilmiştir (CLAUDE.md §13.15). Hafızadan yazılmamıştır.",
-          "detailEn": "The Arabic verses on this page are drawn mechanically from `public/verse-graph-bgem3.json` and normalised with `cleanArabicForDisplay` (CLAUDE.md §13.15). None were typed from memory."
+          "name": "Arapça metin",
+          "detailTr": "Âyetlerin Arapça metni sitenin kanonik Kur'an kaynağından alınmış ve mushaf imlâsına göre normalize edilmiştir.",
+          "detailEn": "The Arabic of the verses is taken from the site's canonical Qur'anic source and normalised to muṣḥaf orthography."
         },
         {
           "name": "Kök anlamları",
