@@ -18,6 +18,22 @@ const CATEGORY_CONFIG = {
 
 const CATEGORY_ORDER = ['sayisal', 'yapisal', 'peygamberler', 'azBilinen'];
 
+// ─── surahRef dil yerelleştirmesi (2026-08-14, Z3e2) ────────────────────────
+// `surahRef` tek dilli tutulmuş ve İngilizce sayfada da Türkçe basılıyordu:
+// `/en/arac/kurani-tani` ve `/en/arac/wow`'da "Çeşitli sûreler" görünüyordu
+// (ölçüldü, iki rotada da doğrulandı).
+// Yalnız JENERİK ifadeler çevrilir — sûre adlarının Türkçe transliterasyonu
+// (El-Fâtiha, Er-Rahmân…) ayrı bir adlandırma kararıdır, buradan değiştirmem
+// tutarsızlık üretirdi (bkz. todo: sûre adı konvansiyonu).
+const SURAHREF_EN = [
+  [/Çeşitli sûreler/g, 'Various surahs'],
+  [/(\d+)\.\s*sûre/g, 'surah $1'],
+];
+function localizeSurahRef(ref, language) {
+  if (language !== 'en' || !ref) return ref;
+  return SURAHREF_EN.reduce((acc, [re, to]) => acc.replace(re, to), ref);
+}
+
 const FACTS = [
   // ── SAYISAL ──────────────────────────────────────────────────────────────────
   {
@@ -1014,7 +1030,7 @@ function WowCard({ fact, language, onClose }) {
             fontFamily: "'Inter', sans-serif",
             whiteSpace: 'nowrap',
           }}>
-            {fact.surahRef}
+            {localizeSurahRef(fact.surahRef, language)}
           </span>
           {/* #197 (2026-07-16) — Bookmark this wow fact */}
           <BookmarkButton
@@ -1022,7 +1038,7 @@ function WowCard({ fact, language, onClose }) {
               id: `wowfact:${fact.titleTr?.slice(0, 40) || fact.titleEn?.slice(0, 40) || fact.surahRef}`,
               type: 'wowfact',
               title: language === 'tr' ? fact.titleTr : fact.titleEn,
-              subtitle: fact.surahRef,
+              subtitle: localizeSurahRef(fact.surahRef, language),
               description: (language === 'tr' ? fact.wowTr : fact.wowEn) || (language === 'tr' ? fact.bodyTr : fact.bodyEn) || '',
               url: `/${language}/arac/kurani-tani`,
             }}
@@ -1397,7 +1413,13 @@ export default function WowFacts({ onClose }) {
               links={[
                 { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: 'Wow-Facts\'in kapsamlı hâli — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: 'The comprehensive version of Wow-Facts — Quran\'s structure, architecture, language and content.' },
                 { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimsel okumalarla örtüşen Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs that align with modern scientific readings — with all their nuances.' },
-                { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Arkeoloji ve tarihin onayladığı Kur\'ânî iddialar — Firavun\'un bedeni, Hâmân.', descEn: 'Quranic claims confirmed by archaeology and history — Pharaoh\'s body, Hāmān.' },
+                // §13.24 (2026-08-14): "arkeolojinin ONAYLADIĞI" / "confirmed by
+                // archaeology" tasdikin öznesini arkeoloji yapıyordu — kural bu
+                // kalıbı ismen yasaklıyor. Hedef sayfanın içeriği 26 Temmuz'da
+                // yeniden çerçevelenmiş, ama ona giden KARTIN metni atlanmış.
+                // Doğru çerçeve: "Kur'ân haber verir, biz tasdik ederiz;
+                // bulgular tefekküre vesiledir" → örtüşme/temas dili.
+                { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Kur\'ânî anlatılarla tarihsel bulguların temas noktaları — Firavun\'un bedeni, Hâmân.', descEn: 'Where Quranic narratives and historical findings touch — Pharaoh\'s body, Hāmān.' },
               ]}
             />
 

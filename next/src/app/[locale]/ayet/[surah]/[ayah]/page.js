@@ -54,8 +54,12 @@ export async function generateMetadata({ params }) {
   }
   const nameTr = SURAH_NAMES_TR?.[s - 1] || `Sure ${s}`;
   const nameEn = SURAH_NAMES_EN?.[s - 1] || `Sūrah ${s}`;
-  const titleTr = `${nameTr} ${s}:${a} — QuranCodex`;
-  const titleEn = `${nameEn} ${s}:${a} — QuranCodex`;
+  // Marka soneki EKLENMEZ: `_shell.jsx` başlık şablonu zaten `%s | QuranCodex`
+  // uyguluyor. Elle eklenince ekranda "… — QuranCodex | QuranCodex" çıkıyordu
+  // (2026-08-13 ölçümü). Paylaşım metinlerinde (VerseShareRoute, /sor) marka
+  // KALIR — orası site dışına gider, orada sonek doğrudur.
+  const titleTr = `${nameTr} ${s}:${a}`;
+  const titleEn = `${nameEn} ${s}:${a}`;
   const descTr = `Kur'an-ı Kerim, ${nameTr} sûresi ${a}. ayet — Arapça asıl metin, meal ve klasik tefsir kaynakları.`;
   const descEn = `The Holy Qur'an, Sūrah ${nameEn} verse ${a} — original Arabic, translation, and classical tafsir sources.`;
   return pageMetadata({

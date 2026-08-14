@@ -923,3 +923,32 @@ tercih değil, biriken tutarsızlık.**
       `okuma-prensipleri-1..2`, `alak-suresi-1`, `alak-suresi-2-3`,
       `sonsuz-nasil-bilinir` … (tam liste için:
       `node -e` ile `_index.json` üzerinde `tldrTr` içinde `**` araması)
+
+---
+
+## 📌 2026-08-14 — 53. makale eklendi
+
+**Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi** · `semantik` · 7 dk
+`dusunme-fiilleri-zihnin-isletim-sistemi`
+
+- **46 blok · 30 görsel blok** (site ortancası 11) — `hierarchyTree` (üç katman),
+  `contrastDuo` (davet/ikaz tonu), `flowChain` (38:29 işlem→durak),
+  `morphologyTable` (beş fiil tek bakışta), 16 `verseInline`, 6 `criticalNote`
+- **§13.15 uygulandı:** 16 âyetin Arapçası `verse-graph-bgem3.json`'dan
+  **mekanik** çekilip `cleanArabicForDisplay` ile normalize edildi. Elle
+  yazılmadı. Ölçüm: 22 Arapça ögenin **22'sinde** `lang="ar"`+`dir="rtl"`.
+- Yazım kuralı: Medium'da "Kuran", sitede **Kur'an** — doğrulandı (0 eşleşme).
+- Ham `**` 0 · tofu 0 · console error 0 (TR ve EN).
+- RAG corpus yeniden üretildi: **12.860 → 12.885** item, makaleden 10 kayıt.
+
+### ⚠ Yol boyunca bulunan iki şey
+
+- **`relatedTools` DİZE dizisi olmalı**, nesne değil. Nesne verdiğimde
+  renderer'ın `key={tool}` ifadesi üçünde de `[object Object]` üretip
+  "duplicate key" hatası verdi. Geçerli id'ler: `concept-graph` ·
+  `verse-graph` · `reading-mode`.
+- **Kategori sayaçları elle yazılıyordu ve bayattı.** `TefekkurHighlight`'ta
+  5/8/11/5/6/7 (toplam 42) yazılıyken gerçek 53'tü; navbar'da `total: 52`.
+  İkisi de artık **`_index.json`'dan türetiliyor** — her yeni makalede
+  kendiliğinden doğru. (Bu, navbar yüksekliğinde sekiz kez yaşanan
+  "sabit sayı" hatasının aynısıydı.)

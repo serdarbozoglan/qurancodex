@@ -469,7 +469,7 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
         {c.central_verses?.length > 0 && (
           <Block label={language === 'tr' ? 'Merkezi Ayetler' : 'Central Verses'}>
             <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-              {c.central_verses.map(v => <VerseChip key={v} ref={v} />)}
+              {c.central_verses.map(v => <VerseChip key={v} verseRef={v} />)}
             </div>
           </Block>
         )}
@@ -554,7 +554,11 @@ function Block({ label, accent, children }) {
   );
 }
 
-function VerseChip({ ref: verseRef }) {
+// `ref` React'te AYRILMIŞ bir prop adıdır — veri taşımak için kullanılamaz
+// (2026-08-14). Bileşen `{ ref: verseRef }` diye yeniden adlandırsa bile React
+// onu prop olarak geçirmeyi garanti etmez; çip metni boş kalıyordu.
+// Prop adı `verseRef` yapıldı.
+function VerseChip({ verseRef }) {
   return (
     <span style={{
       padding: '3px 8px', borderRadius: '4px',
