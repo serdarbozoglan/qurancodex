@@ -82,7 +82,9 @@ export const COLORS = {
   slate800:      '#1e293b',
 
   // Semantic
-  emerald:       '#1a7a4c',
+  // 14 Ağustos: #1a7a4c metin olarak AA'yı geçmiyordu (3.06-3.67, kart
+  // zeminine göre değişken). Aynı yeşil aileyi korurken açıldı (6.16).
+  emerald:       '#589E7C',
   softEmerald:   '#2ecc71',
   teal:          '#1abc9c',
   tealDark:      '#2ab5a0',
@@ -482,12 +484,22 @@ export const SEMANTIC = {
   // kademe gerçekten üç kademe olur ve üçü de okunabilir:
   //   textPrimary #e8e6e3 → 15.74
   //   textMuted   #94a3b8 →  7.65
-  //   textFaint   #70829c →  5.02
+  //   textFaint   #7e8fa6 →  5.94  (14 Ağustos: #70829c'ten hafifçe açıldı)
+  //
+  // ⚠ 14 Ağustos, K'nin devamı: `#70829c`'nin 5.02'si SADECE saf
+  // cosmic-black zemine karşı geçerliydi. Gerçek sayfalarda textFaint çoğu
+  // zaman iç içe yarı saydam kart/glass katmanları üstünde duruyor (ör.
+  // `rgba(255,255,255,0.04)` kart + üstüne `rgba(201,169,110,0.05)` info
+  // kutusu) — bunlar zemini gözle fark edilmeyecek kadar hafif açıyor ama
+  // 5.02'nin ince payını 4.12'ye kadar düşürebiliyor (ölçülen: Melekler
+  // sayfasında bir ayet referansı). `#7e8fa6` aynı slate tonunu korur,
+  // saf zeminde 5.94'e çıkarır — gerçekçi katman birikmesinde bile 4.5
+  // payı kalır.
   //
   // ⚠ `COLORS.slate500-800` SİLİNMEDİ — kenarlık, ayraç ve ikon zemini
   // olarak hâlâ doğrular (onlar metin değil, AA eşiğine tabi değil).
   // Yasak olan: bunları METİN rengi olarak kullanmak.
-  textFaint:      '#70829c',
+  textFaint:      '#7e8fa6',
 
   // Kutsal metin ile UI aksanı AYNI HEX ama AYRI ROL. Ayrım bilinçli:
   // ikisi aynı token olursa "ayet rengi" ayırt ediciliğini kaybeder ve

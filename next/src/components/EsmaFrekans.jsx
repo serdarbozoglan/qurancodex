@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
@@ -85,7 +85,7 @@ function FiligreeDivider({ delay = 0, mt = 0, mb = 0 }) {
 // ── Styles ────────────────────────────────────────────────────────────────────
 
 const sectionLabel = {
-  color: `${COLORS.gold}99`,
+  color: `${COLORS.gold}C7`,
   fontSize: '0.7rem',
   fontFamily: FONTS.body,
   fontWeight: 600,
@@ -209,6 +209,11 @@ function highlightPhrase(text, regex) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 function Hero({ tr }) {
+  // 14 Ağustos: gecikmeli fade-up zinciri (delay 0.5-2.1s) prefers-reduced-motion'ı
+  // dinlemiyordu — hem a11y açığı (§9) hem de altın metnin uzunca düşük
+  // opaklıkta kalması (kontrast ihlali). `reduced` true olunca animasyon hiç
+  // başlamadan son haliyle render olur (bkz. SectionWrapper.jsx pattern).
+  const reduced = useReducedMotion();
   return (
     <section style={{
       minHeight: 'calc(100vh - 62px)',
@@ -233,7 +238,7 @@ function Hero({ tr }) {
             tek glyph için 'Amiri Quran' override; metin DEĞİL, dekoratif
             sembol (Kur'an metni değil, mushaf açılış ornamenti). */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={reduced ? false : { opacity: 0, scale: 0.92 }}
           animate={{ opacity: 0.85, scale: 1 }}
           transition={{ duration: 1.4, ease: 'easeOut' }}
           style={{
@@ -252,7 +257,7 @@ function Hero({ tr }) {
 
         {/* Şûrâ 42:11 — hero anchor verse */}
         <motion.blockquote
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
           cite="https://quran.com/42/11"
@@ -304,7 +309,7 @@ function Hero({ tr }) {
         {/* Framing whisper — tanzîh köprüsü. Şûrâ 42:11 → 114 isim
             geçişinin teolojik çerçevesini visitor'a önceden açar. */}
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 0.85, y: 0 }}
           transition={{ duration: 0.9, delay: 0.75 }}
           style={{
@@ -328,7 +333,7 @@ function Hero({ tr }) {
 
         {/* Çift-katman başlık */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.9 }}
           style={{ textAlign: 'center', marginBottom: '56px', position: 'relative' }}
@@ -387,7 +392,7 @@ function Hero({ tr }) {
 
         {/* 4 temel ayet — actual unique quotes from each verse */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={reduced ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.1 }}
           style={{ width: '100%', maxWidth: '900px', marginBottom: '40px' }}
@@ -396,7 +401,7 @@ function Hero({ tr }) {
               caps (ne tip kümeleme), altında orta Playfair italik başlık. */}
           <div style={{ textAlign: 'center', marginBottom: '24px' }}>
             <div style={{
-              color: `${COLORS.gold}aa`,
+              color: `${COLORS.gold}C7`,
               fontSize: '0.7rem',
               fontFamily: FONTS.body,
               fontWeight: 700,
@@ -427,7 +432,7 @@ function Hero({ tr }) {
             {(tr ? TEMEL_AYETLER_TR : TEMEL_AYETLER_EN).map((ayet, i) => (
               <motion.div
                 key={ayet.ref}
-                initial={{ opacity: 0, y: 12 }}
+                initial={reduced ? false : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 1.25 + i * 0.1 }}
                 style={{
@@ -486,7 +491,7 @@ function Hero({ tr }) {
             tipografik ağırlıkta, sayı vurgulu (Playfair display), kategori
             altta küçük caps (Inter). Üçü görsel olarak eşit. */}
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
+          initial={reduced ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.7 }}
           style={{
@@ -1577,7 +1582,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
             : 'Some names appear back-to-back at verse endings throughout the Quran. This pairing is not accidental: each pair carries a meaning neither name could carry alone. Below are the five most frequent pairs from classical concordance.'}
         </p>
         <p style={{
-          color: `${COLORS.gold}99`,
+          color: `${COLORS.gold}C7`,
           fontSize: '0.78rem',
           fontFamily: FONTS.body,
           letterSpacing: '0.08em',
@@ -1677,7 +1682,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
         {triplesData?.triples?.length > 0 && (
           <div style={{ marginTop: '48px' }}>
             <div style={{
-              color: `${COLORS.gold}aa`,
+              color: `${COLORS.gold}C7`,
               fontFamily: FONTS.body,
               fontSize: '0.7rem',
               fontWeight: 700,
@@ -1779,7 +1784,7 @@ function PairCard({ pair, tr, index, verseData }) {
             {foundCount}
           </span>
           <span style={{
-            color: `${COLORS.gold}aa`,
+            color: `${COLORS.gold}C7`,
             fontFamily: FONTS.body,
             fontSize: '0.66rem',
             letterSpacing: '0.12em',
@@ -2208,7 +2213,7 @@ function AxisCard({ eks, tr }) {
             <p style={{ color: COLORS.silver, fontSize: 'clamp(0.84rem, 1.2vw, 0.92rem)', lineHeight: 1.7, margin: '0 0 6px', fontStyle: 'italic' }}>
               "{tr ? a.tr : a.en}"
             </p>
-            <p style={{ color: `${COLORS.gold}99`, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
+            <p style={{ color: `${COLORS.gold}C7`, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
               — {tr ? (a.sureAdTr || a.sure) : (a.sureAdEn || a.sure)} {a.sure}:{a.ayet}
             </p>
           </div>
@@ -2254,7 +2259,7 @@ function KokAileleri({ tr, koklerData }) {
             : "Every Arabic name traces back to a 3-letter root. Different names emerge from the same root, but all are faces of a single semantic family. Below: 25 canonical roots and the Beautiful Names that derive from them."}
         </p>
         <p style={{
-          color: `${COLORS.gold}99`,
+          color: `${COLORS.gold}C7`,
           fontSize: '0.78rem',
           fontFamily: FONTS.body,
           letterSpacing: '0.08em',
@@ -2331,7 +2336,7 @@ function KokCard({ kok, tr, index }) {
             display: 'inline-flex',
             alignItems: 'baseline',
             gap: '5px',
-            color: `${COLORS.gold}aa`,
+            color: `${COLORS.gold}C7`,
             fontFamily: FONTS.body,
             fontSize: '0.72rem',
             letterSpacing: '0.06em',
@@ -2471,7 +2476,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             : "Distribution of the most frequent names across the 20 most name-dense surahs. Name columns are ordered by descending frequency (within top-20 surahs). Deeper gold cells mark clustering — Bakara leans on jurisprudence, Shūrā on mercy, Ḥadīd on power."}
         </p>
         <p style={{
-          color: `${COLORS.gold}99`,
+          color: `${COLORS.gold}C7`,
           fontSize: '0.78rem',
           fontFamily: FONTS.body,
           letterSpacing: '0.08em',
@@ -3125,7 +3130,7 @@ function VerseChipGrid({ ayetler, tr }) {
                     "{tr ? verse.turkish : verse.english}"
                   </p>
                   <p style={{
-                    color: `${COLORS.gold}99`,
+                    color: `${COLORS.gold}C7`,
                     fontFamily: FONTS.body,
                     fontSize: '0.72rem',
                     letterSpacing: '0.1em',

@@ -88,15 +88,15 @@ const MELEK_ICONS = {
 const CAT = {
   vahiy:    { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)',  border: 'rgba(184,134,11,0.28)',  labelTr: 'Vahiy Meleği',    labelEn: 'Revelation',   icon: MELEK_ICONS.vahiy },
   yardim:   { accent: '#3B82F6', bg: 'rgba(59,130,246,0.10)', border: 'rgba(59,130,246,0.28)',  labelTr: 'Yardım Meleği',   labelEn: 'Helper',       icon: MELEK_ICONS.yardim },
-  azap:     { accent: '#D85A30', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
-  koruyucu: { accent: '#1D9E75', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
-  kayit:    { accent: '#534AB7', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
+  azap:     { accent: '#DE734F', bg: 'rgba(216,90,48,0.10)',  border: 'rgba(216,90,48,0.28)',   labelTr: 'Azap Meleği',     labelEn: 'Punishment',   icon: MELEK_ICONS.azap },
+  koruyucu: { accent: '#2BA47D', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)',  labelTr: 'Koruyucu Melek',  labelEn: 'Guardian',     icon: MELEK_ICONS.koruyucu },
+  kayit:    { accent: '#8F89D0', bg: 'rgba(83,74,183,0.10)',  border: 'rgba(83,74,183,0.28)',   labelTr: 'Kayıt Meleği',    labelEn: 'Recorder',     icon: MELEK_ICONS.kayit },
   yuceltme: { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28, labelTr: 'Yüceltme Meleği', labelEn: 'Glorification', icon: MELEK_ICONS.yuceltme },
-  gizemlI:  { accent: '#6B7280', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious',   icon: MELEK_ICONS.gizemlI },
-  hadis:    { accent: '#6B7280', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source', icon: MELEK_ICONS.hadis },
+  gizemlI:  { accent: '#8C919C', bg: 'rgba(107,114,128,0.08)',border: 'rgba(107,114,128,0.22)', labelTr: 'Gizemli',         labelEn: 'Mysterious',   icon: MELEK_ICONS.gizemlI },
+  hadis:    { accent: '#8C919C', bg: 'rgba(107,114,128,0.06)',border: 'rgba(107,114,128,0.15)', labelTr: 'Hadis Kaynağı',   labelEn: 'Hadith Source', icon: MELEK_ICONS.hadis },
 };
 
-const HAPAX_COLOR = '#534AB7';
+const HAPAX_COLOR = '#A78BFA';
 const GOLD = COLORS.softGold;
 
 // ── KanatMotif — hero'nun görsel imzası ──────────────────────────────────────
@@ -233,7 +233,7 @@ function QuranicBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.62rem', fontWeight: 700,
-      color: '#1D9E75',
+      color: '#2BA47D',
       background: 'rgba(29,158,117,0.10)',
       border: '1px solid rgba(29,158,117,0.25)',
       borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
@@ -248,7 +248,7 @@ function HadithOnlyBadge({ language }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: '3px',
       fontSize: '0.62rem', fontWeight: 600,
-      color: '#6B7280',
+      color: '#8C919C',
       background: 'rgba(107,114,128,0.08)',
       border: '1px solid rgba(107,114,128,0.2)',
       borderRadius: RADIUS.pillSm, padding: '1px 8px', whiteSpace: 'nowrap',
@@ -260,10 +260,10 @@ function HadithOnlyBadge({ language }) {
 
 // Hadith grade sub-badge (Münâfık Profili 'mütefekkun aleyh' standartının melek sayfasına uygulanması)
 const HADITH_GRADE_META = {
-  'mutefekkun-aleyh': { color: '#1D9E75', tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
+  'mutefekkun-aleyh': { color: '#2BA47D', tr: 'Mütefekkun Aleyh', en: 'Muttafaqun Alayh', noteTr: 'Buhârî + Müslim ortak', noteEn: 'Bukhari + Muslim agreed' },
   'sahih':            { color: '#3B82F6', tr: 'Sahih',            en: 'Sahih',           noteTr: 'Sahih kaynak',       noteEn: 'Sahih source' },
   'hasen':            { color: '#B8860B', tr: 'Hasen',            en: 'Hasan',           noteTr: 'Hasen seviye',       noteEn: 'Hasan grade' },
-  'tartismali':       { color: '#D85A30', tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
+  'tartismali':       { color: '#DE734F', tr: 'Tartışmalı',       en: 'Disputed',        noteTr: 'Sened/sıhhati tartışmalı', noteEn: 'Chain/grade disputed' },
 };
 
 function HadithGradeBadge({ grade, source, language }) {
@@ -372,7 +372,7 @@ function VerseBlock({ arabic, translation, verseRef, accent }) {
         </p>
       )}
       {verseRef && (
-        <p style={{ fontSize: '0.68rem', color: `${accent || GOLD}80`, fontWeight: 600, margin: 0 }}>
+        <p style={{ fontSize: '0.68rem', color: SEMANTIC.textMuted, fontWeight: 600, margin: 0 }}>
           {verseRef}
         </p>
       )}
@@ -413,10 +413,9 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
     <div style={{
       background: isHadithOnly ? 'rgba(216,90,48,0.04)' : cat.bg,
       border: `1px solid ${isHadithOnly ? 'rgba(216,90,48,0.15)' : cat.border}`,
-      borderLeft: `3px solid ${isHadithOnly ? '#D85A30' : cat.accent}`,
+      borderLeft: `3px solid ${isHadithOnly ? '#DE734F' : cat.accent}`,
       borderRadius: RADIUS.lg, padding: '16px',
       display: 'flex', flexDirection: 'column', gap: '10px',
-      opacity: isHadithOnly ? 0.75 : 1,
     }}>
       {/* Top row: category mode-icon + Arabic + mention count + bookmark */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
@@ -434,11 +433,11 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
           </span>
         )}
         {angel.arabicName ? (
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right', flex: 1, minWidth: 0 }} lang="ar" dir="rtl">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#878E97' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right', flex: 1, minWidth: 0 }} lang="ar" dir="rtl">
             {angel.arabicName}
           </p>
         ) : (
-          <p style={{ fontSize: '1rem', color: '#374151', fontStyle: 'italic', margin: 0, flex: 1 }}>—</p>
+          <p style={{ fontSize: '1rem', color: '#878E97', fontStyle: 'italic', margin: 0, flex: 1 }}>—</p>
         )}
         {angel.mentionCount > 0 && (
           <span style={{
@@ -467,7 +466,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
 
       {/* Names + badges */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: isHadithOnly ? '#6B7280' : COLORS.offWhite, margin: 0 }}>
+        <p style={{ fontSize: '0.95rem', fontWeight: 700, color: isHadithOnly ? '#8C919C' : COLORS.offWhite, margin: 0 }}>
           {tr ? angel.nameTr : angel.nameEn}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', alignItems: 'center' }}>
@@ -488,13 +487,13 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
 
       {/* Key surah */}
       {angel.mainSurah && (
-        <p style={{ fontSize: '0.7rem', color: `${cat.accent}80`, fontWeight: 600, margin: 0 }}>
+        <p style={{ fontSize: '0.7rem', color: SEMANTIC.textMuted, fontWeight: 600, margin: 0 }}>
           {angel.mainSurah}
         </p>
       )}
 
       {/* Summary */}
-      <p style={{ fontSize: '0.80rem', color: isHadithOnly ? '#4B5563' : COLORS.silver, margin: 0, lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.80rem', color: isHadithOnly ? '#878E97' : COLORS.silver, margin: 0, lineHeight: 1.6 }}>
         {tr ? angel.summaryTr : angel.summaryEn}
       </p>
 
@@ -511,7 +510,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
       {/* ℹ️ Note */}
       {(tr ? angel.infoTr : angel.infoEn) && (
         <div style={{
-          fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
+          fontSize: '0.75rem', color: COLORS.softGoldAlpha75,
           background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
           borderRadius: RADIUS.md, padding: '8px 12px', lineHeight: 1.6,
         }}>
@@ -589,10 +588,10 @@ function TabMelekler({ data, language, isMobile }) {
 // ── TAB 2: GÖREVLER ────────────────────────────────────────────────────────────
 const GOREV_COLORS = {
   'vahiy-tasimak':   '#B8860B',
-  'can-almak':       '#D85A30',
-  'korunak-saglamak':'#1D9E75',
-  'kayit-tutmak':    '#534AB7',
-  'azap-uygulamak':  '#D85A30',
+  'can-almak':       '#DE734F',
+  'korunak-saglamak':'#2BA47D',
+  'kayit-tutmak':    '#8F89D0',
+  'azap-uygulamak':  '#DE734F',
   'savasta-yardim':  '#3B82F6',
   'tesbih-ibadet':   COLORS.softGold,
 };
@@ -731,7 +730,7 @@ function TabKissalar({ data, language, isMobile }) {
                       {tr ? k.titleTr : k.titleEn}
                     </p>
                     {!isOpen && (
-                      <p style={{ fontSize: '0.75rem', color: '#4B5563', margin: 0, lineHeight: 1.4, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                      <p style={{ fontSize: '0.75rem', color: '#878E97', margin: 0, lineHeight: 1.4, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                         {(tr ? k.anlatimTr : k.anlatimEn)?.split('.')[0] + '.'}
                       </p>
                     )}
@@ -754,7 +753,7 @@ function TabKissalar({ data, language, isMobile }) {
                   </p>
                   {(tr ? k.infoTr : k.infoEn) && (
                     <div style={{
-                      fontSize: '0.75rem', color: COLORS.softGoldAlpha65,
+                      fontSize: '0.75rem', color: COLORS.softGoldAlpha75,
                       background: COLORS.softGoldAlpha05, border: `1px solid ${COLORS.softGoldAlpha12}`,
                       borderRadius: RADIUS.md, padding: '8px 12px', lineHeight: 1.6, marginTop: '8px',
                     }}>
@@ -839,7 +838,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
                 <th key={i} style={{
                   padding: '8px 12px', textAlign: 'left',
                   fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase',
-                  letterSpacing: '0.1em', color: i === 1 ? '#1D9E75' : i === 2 ? GOLD : COLORS.slate500,
+                  letterSpacing: '0.1em', color: i === 1 ? '#2BA47D' : i === 2 ? GOLD : COLORS.slate500,
                 }}>
                   {h}
                 </th>
@@ -850,7 +849,7 @@ function TabSinir({ language, isMobile: _isMobile }) {
             {COMPARISON_ROWS.map((row, i) => (
               <tr key={i} style={{ borderBottom: `1px solid ${COLORS.glassBg}`, background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}>
                 <td style={{ padding: '9px 12px', fontSize: '0.78rem', color: COLORS.offWhite, fontWeight: 500 }}>{tr ? row.konuTr : row.konuEn}</td>
-                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: (tr ? row.quranTr : row.quranEn).startsWith('✓') ? '#1D9E75' : '#D85A30' }}>
+                <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: (tr ? row.quranTr : row.quranEn).startsWith('✓') ? '#2BA47D' : '#DE734F' }}>
                   {tr ? row.quranTr : row.quranEn}
                 </td>
                 <td style={{ padding: '9px 12px', fontSize: '0.75rem', color: COLORS.silver }}>{tr ? row.hadisTr : row.hadisEn}</td>
@@ -972,11 +971,11 @@ function TabDilbilim({ data, language, isMobile }) {
               borderRadius: RADIUS.chip, padding: '14px',
               display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center', textAlign: 'center',
             }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar" dir="rtl">{n.arabic}</p>
-              <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#6B7280' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#878E97' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar" dir="rtl">{n.arabic}</p>
+              <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#8C919C' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
               <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}>{n.ref}</p>
               {n.isHadisConnection && (
-                <span style={{ fontSize: '0.6rem', color: '#6B7280', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
+                <span style={{ fontSize: '0.6rem', color: '#8C919C', background: 'rgba(107,114,128,0.08)', border: '1px solid rgba(107,114,128,0.15)', borderRadius: RADIUS.pillSm, padding: '1px 7px' }}>
                   {tr ? 'tefsir' : 'tafsir'}
                 </span>
               )}
@@ -1118,7 +1117,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
       </p>
       {/* Surah ref */}
       {(refTr || refEn) && (
-        <p style={{ fontSize: '0.65rem', color: `${color}70`, fontWeight: 500, margin: 0 }}>
+        <p style={{ fontSize: '0.65rem', color: SEMANTIC.textMuted, fontWeight: 500, margin: 0 }}>
           {tr ? refTr : refEn}
         </p>
       )}
@@ -1146,7 +1145,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
             {tr ? tooltipTr : tooltipEn}
           </p>
           {(refTr || refEn) && (
-            <p style={{ fontSize: '0.65rem', color: `${color}70`, fontWeight: 600, margin: 0 }}>
+            <p style={{ fontSize: '0.65rem', color: SEMANTIC.textMuted, fontWeight: 600, margin: 0 }}>
               {tr ? refTr : refEn}
             </p>
           )}
@@ -1171,7 +1170,7 @@ function HeroStats({ language }) {
     },
     {
       value: '2',
-      color: '#6B7280',
+      color: '#8C919C',
       labelTr: 'İsimli ama Kimliği Tartışmalı',
       labelEn: 'Named but Identity Debated',
       refTr: 'Harut + Marut — melek mi, değil mi?',
@@ -1182,7 +1181,7 @@ function HeroStats({ language }) {
     },
     {
       value: '1',
-      color: '#D85A30',
+      color: '#DE734F',
       labelTr: 'Cehennemde İsmi Geçen Melek',
       labelEn: 'Angel Named in Hell',
       refTr: 'Malik — Zuhruf 43:77',
@@ -1193,7 +1192,7 @@ function HeroStats({ language }) {
     },
     {
       value: '19',
-      color: '#D85A30',
+      color: '#DE734F',
       labelTr: 'Cehennem Bekçilerinin Sayısı',
       labelEn: 'Keepers of Hell',
       refTr: 'Müddessir 74:30',
@@ -1215,7 +1214,7 @@ function HeroStats({ language }) {
     },
     {
       value: '~90',
-      color: '#1D9E75',
+      color: '#2BA47D',
       labelTr: 'Melek Geçen Ayet Sayısı',
       labelEn: 'Verses Mentioning Angels',
       refTr: 'el-Melâike / Ruh / Cebrail dahil',

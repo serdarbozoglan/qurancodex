@@ -61,7 +61,7 @@ const CATEGORY_COLORS = {
   'peygamber-esi': '#a78bfa',          // peygamber eşi — purple (ortaklık)
   anne:            '#2ecc71',          // anne — emerald (yaşam)
   hukumdar:        '#e67e22',          // hükümdar — turuncu (otorite)
-  'karsi-ornek':   '#D85A30',          // karşıt örnek (Lût/Nuh eşi) — coral (uyarı)
+  'karsi-ornek':   '#DE734F',          // karşıt örnek (Lût/Nuh eşi) — coral (uyarı)
   diger:           COLORS.silver,      // diğer
 };
 
@@ -544,7 +544,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
           <p style={{
             color: COLORS.gold, fontSize: '0.7rem',
             fontFamily: FONTS.body, fontWeight: 600,
-            letterSpacing: '0.08em', margin: 0, opacity: 0.85,
+            letterSpacing: '0.08em', margin: 0,
           }}>
             — {v10Ref}
           </p>
@@ -604,7 +604,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
           <p style={{
             color: COLORS.gold, fontSize: '0.7rem',
             fontFamily: FONTS.body, fontWeight: 600,
-            letterSpacing: '0.08em', margin: 0, opacity: 0.85,
+            letterSpacing: '0.08em', margin: 0,
           }}>
             — {v12Ref}
           </p>
@@ -1507,14 +1507,13 @@ function CaprazOkumaSection({ language, isMobile }) {
                           background: chip.muted ? 'rgba(148,163,184,0.06)' : 'rgba(212,165,116,0.08)',
                           border: `1px solid ${chip.muted ? 'rgba(148,163,184,0.18)' : COLORS.goldAlpha25}`,
                           color: chip.muted ? COLORS.silver : COLORS.offWhite,
-                          opacity: chip.muted ? 0.7 : 1,
                         }}>
                           <span style={{ color: chip.muted ? COLORS.silver : COLORS.gold }}>
                             {chip.name}
                           </span>
                           {chip.ref && chip.ref !== '—' && (
                             <span style={{
-                              fontSize: '0.64rem', opacity: 0.75,
+                              fontSize: '0.64rem', opacity: 0.78,
                               letterSpacing: '0.02em',
                             }}>
                               {chip.ref}

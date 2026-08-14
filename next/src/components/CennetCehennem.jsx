@@ -12,10 +12,10 @@ import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
 
 // ── Color system ──────────────────────────────────────────────────────────────
-const CENNET   = { accent: '#1D9E75', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
-const CEHENNEM = { accent: '#D85A30', bg: 'rgba(153,60,29,0.12)',   border: 'rgba(216,90,48,0.28)' };
+const CENNET   = { accent: '#2BA47D', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
+const CEHENNEM = { accent: '#DE734F', bg: 'rgba(153,60,29,0.12)',   border: 'rgba(216,90,48,0.28)' };
 const ARAF     = { accent: COLORS.softGold, bg: COLORS.softGoldAlpha10, border: COLORS.softGoldAlpha28 };
-const HAPAX    = '#8b5cf6';
+const HAPAX    = '#a78bfa';
 const GOLD     = COLORS.softGold;
 
 // ── Reusable components ───────────────────────────────────────────────────────
@@ -575,13 +575,13 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
       </p>
 
       {/* Source */}
-      <p style={{ fontSize: '0.72rem', color: `${color}90`, margin: '0 0 8px', fontWeight: 500 }}>
+      <p style={{ fontSize: '0.72rem', color: `${color}EE`, margin: '0 0 8px', fontWeight: 500 }}>
         {tr ? item.kaynak : item.kaynakEn}
       </p>
 
       {/* Note */}
       {(tr ? item.notTr : item.notEn) && (
-        <p style={{ fontSize: '0.78rem', color: 'rgba(148, 163, 184, 0.78)', lineHeight: 1.55, margin: '0 0 6px' }}>
+        <p style={{ fontSize: '0.78rem', color: 'rgba(148, 163, 184, 0.82)', lineHeight: 1.55, margin: '0 0 6px' }}>
           {tr ? item.notTr : item.notEn}
         </p>
       )}
@@ -592,7 +592,7 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
         {item.isTartismaali && (
           <span style={{
             fontSize: '0.65rem', fontWeight: 600,
-            color: 'rgba(148, 163, 184, 0.78)',
+            color: 'rgba(148, 163, 184, 0.82)',
             background: 'rgba(148,163,184,0.07)',
             border: '1px solid rgba(148,163,184,0.15)',
             borderRadius: RADIUS.pillSm, padding: '1px 7px',
@@ -673,7 +673,7 @@ function HeroBanner({ data, language, isMobile }) {
               ? '"İkisi arasında bir perde vardır."'
               : '"Between them is a barrier."'}
           </div>
-          <div style={{ fontSize: '0.68rem', color: `${GOLD}70`, fontWeight: 600, letterSpacing: '0.04em' }}>
+          <div style={{ fontSize: '0.68rem', color: `${GOLD}C7`, fontWeight: 600, letterSpacing: '0.04em' }}>
             {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
           </div>
         </div>
@@ -691,7 +691,7 @@ function HeroBanner({ data, language, isMobile }) {
           <div style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', textAlign: 'center' }}>
             {tr ? '"İkisi arasında bir perde vardır."' : '"Between them is a barrier."'}
           </div>
-          <div style={{ fontSize: '0.65rem', color: `${GOLD}70`, fontWeight: 600 }}>
+          <div style={{ fontSize: '0.65rem', color: `${GOLD}C7`, fontWeight: 600 }}>
             {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
           </div>
         </div>
@@ -754,7 +754,7 @@ function TabCennet({ data, language, isMobile }) {
             <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 6px' }}>{n.nameAr}</p>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
             <p style={{ fontSize: '0.75rem', color: SEMANTIC.textFaint, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
-            {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148, 163, 184, 0.78)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
+            {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148, 163, 184, 0.82)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
           </div>
         ))}
       </div>
@@ -928,7 +928,7 @@ function TabCehennem({ data, language, isMobile }) {
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', gap: '4px',
                     fontSize: '0.62rem', fontWeight: 600,
-                    color: 'rgba(148, 163, 184, 0.78)',
+                    color: 'rgba(148, 163, 184, 0.82)',
                     background: 'rgba(148,163,184,0.07)',
                     border: '1px solid rgba(148,163,184,0.18)',
                     borderRadius: RADIUS.pillSm, padding: '1px 8px',
@@ -941,14 +941,14 @@ function TabCehennem({ data, language, isMobile }) {
                     {tr ? 'Tefsir Görüşü' : 'Scholarly Interpretation'}
                   </span>
                 )}
-                <p style={{ fontSize: '0.75rem', color: item.isSessizlik ? COLORS.slate500 : `${CEHENNEM.accent}90`, margin: 0, lineHeight: 1.55, fontStyle: 'italic' }}>
+                <p style={{ fontSize: '0.75rem', color: item.isSessizlik ? COLORS.slate500 : `${CEHENNEM.accent}EE`, margin: 0, lineHeight: 1.55, fontStyle: 'italic' }}>
                   {tr ? item.notTr : item.notEn}
                 </p>
               </div>
             )}
             {/* Source */}
             {item.kaynak !== '—' && (
-              <p style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}70`, fontWeight: 600, margin: 0 }}>{item.kaynak}</p>
+              <p style={{ fontSize: '0.68rem', color: `${CEHENNEM.accent}C7`, fontWeight: 600, margin: 0 }}>{item.kaynak}</p>
             )}
           </div>
         ))}
@@ -1055,7 +1055,7 @@ function TabCehennem({ data, language, isMobile }) {
                 )}
               </div>
               {/* Frequency */}
-              <div style={{ fontSize: '0.65rem', color: `${CEHENNEM.accent}70`, flexShrink: 0, textAlign: 'right' }}>
+              <div style={{ fontSize: '0.65rem', color: `${CEHENNEM.accent}C7`, flexShrink: 0, textAlign: 'right' }}>
                 {tr ? item.frequency : item.frequencyEn}
               </div>
             </div>
@@ -1090,7 +1090,7 @@ function TabAraf({ data, language, isMobile }) {
         <p style={{ fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px' }}>
           {tr ? araf.verseTr : araf.verseEn}
         </p>
-        <p style={{ fontSize: '0.72rem', color: `${ARAF.accent}90`, fontWeight: 600, margin: 0 }}>
+        <p style={{ fontSize: '0.72rem', color: `${ARAF.accent}EE`, fontWeight: 600, margin: 0 }}>
           — {araf.kaynak}
         </p>
       </div>

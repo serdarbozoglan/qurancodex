@@ -36,7 +36,7 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
           letterSpacing: '0.24em',
           textTransform: 'uppercase',
           color: ACC,
-          opacity: 0.72,
+          opacity: 0.78,
         }}>
           {tr ? (labelTr || 'Daha Derine — İlgili Araçlar') : (labelEn || 'Go Deeper — Related Tools')}
         </h2>

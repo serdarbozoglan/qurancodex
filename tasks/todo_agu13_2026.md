@@ -61,6 +61,57 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
 
+## ✅ 14 AĞUSTOS'TA EK KAPANANLAR (plansız, canlı kullanıcı raporu)
+
+> Bu ikisi önceden todo'da madde olarak yoktu — kullanıcı ekran görüntüsüyle
+> canlıda yakaladı, aynı oturumda kapatıldı.
+
+- [x] **53. tefekkür makalesi — `morphologyTable` boş görünüyordu** — **KAPANDI** `0bfe356`
+      Şema uydurulmuştu (`columnsTr`/`cellsTr`), gerçek şema `rows: [{ar,
+      patternTr, meaningTr, verses}]`. Beş fiilin Arapça kalıpları da hafızadan
+      yazılmıştı (§13.15 ihlali) — ilgili âyetlerin gerçek metninden
+      diacritic-duyarsız eşleşmeyle çekilerek düzeltildi.
+- [x] **İç mimari sızıntısı — 2. kez, kökten kapatıldı** — **KAPANDI** `0bfe356`
+      Aynı makalenin kaynakçasında `CLAUDE.md`, `§13.15`, dosya yolu, fonksiyon
+      adı yayındaydı. 74 rota + 53 tefekkür makalesinin TAMAMI render edilmiş
+      DOM üzerinden tarandı, 0 sızıntı doğrulandı. Kalıcı kural: **CLAUDE.md
+      §13.27** + `scripts/audit-internal-leak.mjs --ci`, pre-merge-review
+      skill'ine 4b-2 olarak eklendi (her push'tan önce zorunlu).
+- [x] **`/sor` — kota mesajı + Hûd 11:24 ayet sonunda daire (U+06DF)** — **KAPANDI** `e992d9e`
+      Degrade mesajı sistem iç mekaniğini gösteriyordu, kişisel/site geneli
+      kota ayrımı yoktu → iki ayrı, kullanıcı diline çevrilmiş metin. Daire
+      hatası: `concierge-hydrate.js`'in kendi `normalizeArabic` kopyası
+      U+06DF–U+06ED aralığını içermiyordu; kopya silindi, `lib/arabic.js`'ten
+      import ediliyor (§13.15 tek-kaynak ilkesi).
+- [x] **B1/B3/B4/B5 — görsel tasarım, mockup turu onaylandıktan sonra uygulandı**
+      Beş statik mockup (Artifact) önce onaya sunuldu, sonra koda geçirildi:
+      - **B1a** — `bilimsel-card` artık `ScienceTimelineCard` — ortalı/altın
+        çerçeveli panel yerine kronolojik zaman çizelgesi (4 keşif, 4 âyet).
+        Âyetler `data/scienceTimeline.js`'te mekanik çekilip
+        `cleanArabicForDisplay` ile doğrulandı (§13.15).
+      - **B1b/B4** — `tarih-card` + `koruma-card` artık `EditorialCard` —
+        sola dayalı, asılı sûre numarası, dergi düzeni. 2'li `CompactRow`
+        ızgarasından çıkıp tam genişliğe alındı (dar sütunda çalışmıyordu).
+        Karar: kanıt/analiz kümesi sola dayalı, devotional küme ortalı kalır.
+      - **B3** — `PortalCard`'da `feature` kademesi artık `medium`'dan
+        gerçekten farklı bir tipografik ölçek kullanıyor (clamp 2.2–3.4rem,
+        önceden ikisi de 1.7–2.6rem'di). Yalnız 2 kalan feature kartını
+        etkiler (`mukattaa-card`, `allah-kendini-tanitir`).
+      - **B5** — `InventoryStrip` (yeni bölüm), Hero altındaki ~200px amaçsız
+        boşluğun yerine: 62 araç · 53 tefekkür yazısı · 6.236 âyet. Sayılar
+        ölçüldü (`toolCatalog.js`, `tefekkur/_index.json`, `verse-graph`).
+      Doğrulama: build temiz, lint temiz (yeni dosyalarda 0), TR/EN + masaüstü/
+      mobil Playwright ile görsel + metin doğrulandı, 0 konsol hatası,
+      `homepage-card-text.spec.js` baseline'ı BİLEREK güncellendi (içerik
+      kasıtlı değişti — âyet metinleri birebir korundu, yalnız yerleşim
+      değişti), `homepage-audit.spec.js` 3/3 geçti.
+      ⚠ Sayfa uzunluğu maliyeti: masaüstü 17.872 → **19.186px** (+1.314px) —
+      B0d'nin aynı bilinçli tercihi: iki kartı 2'li ızgaradan tam genişliğe
+      çıkarmak okunabilirliği artırdı ama sayfa uzadı. Karar onaylıydı, gizli
+      değil.
+
+---
+
 # 🔴 A — ERİŞİLEBİLİRLİK (68 → en yüksek kazanç burada)
 
 - [x] ~~**A1 · 25 Arapça öge `aria-label` taşımıyor**~~ — **BULGU YANLIŞTI, geri alındı**
@@ -174,12 +225,13 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ## Kalan
 
-- [ ] **B1 · Sayfa tek bir düzen fikrini tekrarlıyor**
+- [x] ~~**B1 · Sayfa tek bir düzen fikrini tekrarlıyor**~~ — **KAPANDI** (14 Ağustos)
+      Statik mockup önce onaya sunuldu, sonra 2 karta uygulandı:
+      `bilimsel-card` → zaman çizelgesi, `tarih-card`+`koruma-card` → sola
+      dayalı editoryal blok. Ayrıntı: bkz. "14 AĞUSTOS'TA EK KAPANANLAR".
+      *Aşağıdaki özgün bulgu kaydı arşiv olarak duruyor:*
       Ortalanmış kart + altın kenar + radyal parıltı — 14 kartın 14'ünde aynı.
       P4 ritmi ölçeği kademelendirdi ama **kompozisyonu** değil.
-      En az bir kart tipi farklı bir kompozisyon almalı (asimetrik, tam genişlik
-      diyagram, ya da sola dayalı editoryal blok).
-      ⚠ **Bu görsel bir karar — önce statik mockup, sonra kod.**
 
 - [x] ~~**B2 · Sayfada hiç görsel yok**~~ — **B0 ile karşılandı.** Sayfada artık
       bir diyagram var ve o diyagram sitenin tezini gösteriyor.
@@ -189,16 +241,26 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       Bu yüzden Hero'ya animasyon **eklenmedi**; GPT onu "en riskli madde"
       olarak işaretledi (dini metinde açılışı motion ile yapmak güveni azaltır).
 
-- [ ] **B3 · Her şey aynı kontrast değerinde** — hiçbir şey gerçekten yüksek sesli
-      olmadığı için hiçbir şey gerçekten sessiz değil. `feature` kademesi
-      `medium`'dan yalnız dolgu ile ayrılıyor; tipografik ölçek aynı.
+- [x] ~~**B3 · Her şey aynı kontrast değerinde**~~ — **KAPANDI** (14 Ağustos)
+      `PortalCard`'da `feature` artık `medium`'dan gerçekten farklı bir
+      tipografik ölçek kullanıyor (clamp 2.2–3.4rem vs 1.7–2.6rem). Yalnız
+      2 kalan feature kartını etkiler.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
+      `feature` kademesi `medium`'dan yalnız dolgu ile ayrılıyordu; tipografik
+      ölçek aynıydı.
 
-- [ ] **B4 · `TefekkurHighlight` sola dayalı, sayfadaki her şey ortalanmış**
+- [x] ~~**B4 · `TefekkurHighlight` sola dayalı, sayfadaki her şey ortalanmış**~~ — **KAPANDI** (14 Ağustos)
+      Karar verildi: rastgele değil, kümeye göre. Kanıt/analiz kümesi
+      (`tarih-card`, `koruma-card`) artık `EditorialCard` ile sola dayalı;
+      devotional/anlatı kümesi (mukattaa, dua, halka) ortalı kalıyor —
+      `TefekkurHighlight` artık istisna değil, ikinci bir dilin parçası.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       Ölçüldü: metin çakışması **yok** (0 çakışma, 1280 ve 1440'ta) ama hiza
-      kırılıyor. Ya ortala ya da sola dayalılığı bilinçli bir bölüm dili yap.
+      kırılıyordu.
 
-- [ ] **B5 · Hero altında ~200px boş bant** (`ConciergePrompt`'tan önce).
-      Nefes payı mı, artık boşluk mu — karar ver.
+- [x] ~~**B5 · Hero altında ~200px boş bant**~~ — **KAPANDI** (14 Ağustos)
+      `InventoryStrip` eklendi: 62 araç · 53 tefekkür yazısı · 6.236 âyet.
+      Aynı zamanda D1'i kısmen karşılıyor (ziyaretçi kaydırmadan kapsamı görür).
 
 ---
 
@@ -752,7 +814,51 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       **Kalan 1.394'ün kökü:** `rgba(148,163,184,0.7)` literalleri (142) ve
       **ata `opacity` zinciri** — K1'in AST'i erişemedi çünkü opaklık metnin
       stil nesnesinde değil, üstteki kapsayıcıda. Ayrı bir tur gerektirir.
-- [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar)
+- [x] ~~**K6 · Ölçüm düzeltmesi + kalan ihlallerin büyük kısmı**~~ — **KAPANDI** (14 Ağustos, bu tur)
+      **Önce ölçümün kendisi yanlıştı.** `--full` ilk kez koşulunca **1.894**
+      çıktı — K2+K3'ten SONRAKİ artışı "yeni bulgu" sandım, ama gerçek sebep
+      probe'un `SectionWrapper`/`fadeUpItem` scroll-reveal animasyonlarını
+      hâlâ geçiş hâlindeyken (1.6sn bekleme + gecikmeli/kademeli `delay`
+      zincirleri 2sn'yi buluyor) ölçmesiydi. Kanıt: `/tr/arac/tekrar-anatomi`
+      normal ölçümde 27, sayfa gerçekten kaydırılıp animasyon oturmaya
+      bırakılınca **4**'e düşüyor. Site zaten `useReducedMotion()` ile bu
+      animasyonları TAMAMEN atlıyor (bkz. `SectionWrapper.jsx`) — çözüm
+      Playwright context'ini `reducedMotion: 'reduce'` ile açmak oldu:
+      animasyon hiç başlamıyor, öge doğrudan son hâliyle render oluyor.
+      Sekiz sayfada doğrulandı: ritim 70→7, dua-dili 52→0, insan-tanımı
+      28→0, tekrar-anatomi 27→0 — ama melekler/kadınlar/kavram (53/36/32)
+      **hiç değişmedi**, yani gerçek ihlaldi. **Gerçek taban: 1.465**
+      (`scripts/audit-contrast.mjs`'e kalıcı olarak eklendi).
+      **Sonra gerçek ihlaller tek tek kapatıldı** (`/atlas/kissa` = K4
+      hariç): `/arac/melekler` **53→0** (kategori rengi çok koyuydu — kayıt
+      #534AB7 ratio 2.83, gizemli #6B7280 ratio 4.05, **ikisi de tam
+      opaklıkta bile AA'yı geçmiyordu**; ayrıca `isHadithOnly` kartının
+      TÜMÜNE uygulanan `opacity: 0.75` zaten muted renklerle ÇİFTE
+      solukluk yaratıyordu — kart-seviyesi opaklık kaldırıldı, sinyal
+      zaten renk+ikon+etiketle veriliyor); `SEMANTIC.textFaint` **#70829c
+      (5.02) → #7e8fa6 (5.94)** — saf siyah zemine göre hesaplanan 5.02'nin
+      payı gerçek sayfalarda (iç içe yarı saydam kart katmanları) 4.12'ye
+      kadar düşüyordu, tek token değişikliği birden çok sayfaya yayıldı;
+      `HapaxBadge`'in İKİ ayrı kopyası (Melekler + CennetCehennem, ikisi de
+      kendi mor tonunu icat etmişti) → `#a78bfa`; `CrossToolCTA` eyebrow'u
+      **54 dosyada** `opacity: 0.72` idi (gold floor 0.75'in altında) →
+      **0.78**; `/atlas/kadinlar` **36→0**; `/graf/kavram` **32→0**
+      (`concept-graph.json`'daki 3 küme rengi AA'yı geçmiyordu — veri
+      dosyası, kod değil); `/arac/esma-frekans` **32→7** (kalan 5'i
+      `FADE_OPACITY=0.55` — bilinçli "vurgu dışını soluklaştır" deseni,
+      zaten §13.26 md. 4'ün ≥3.0 tabanının üstünde, dokunulmadı; ayrıca bu
+      sayfanın Hero'su `useReducedMotion()` hiç dinlemiyordu → eklendi, hem
+      a11y açığı hem ölçüm gürültüsü kapandı); `/arac/cennet-cehennem`
+      **24→0**. **Sonuç: gerçek taban 1.465 → 1.095** (kissa hariç 976 →
+      608). Doğrulama: `npm run build` temiz, ilgili dosyalarda yeni eslint
+      hatası yok, `npx playwright test tools-navigation concierge _a11y`
+      24/26 yeşil (2 kırmızı bu turdan ÖNCE de vardı: concierge IP kotası
+      + paralel turun bitmemiş navbar değişikliği — ayrıntı: bu maddenin
+      commit mesajı).
+      **Kalan 608 (kissa hariç), 78 sayfaya yayılmış, en büyüğü 20** — aynı
+      kalıplardan (kategori rengi, `${x}alpha` idiyomu, ata-opacity) ama
+      artık uzun kuyruk. Ayrı bir tur gerektirir.
+- [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar — kullanıcıya soruldu)
 - [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
       "büyük metin" muafiyeti bazı yerlerde kalkabilir
 

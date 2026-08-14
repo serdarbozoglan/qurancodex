@@ -5,6 +5,20 @@
 // 73 sayfa bilinmiyordu. Ölçülünce 3.508 gerçek ihlal çıktı. K1+K2+K3 ile
 // 1.394'e indi. Bu script o sayının bir daha YÜKSELMEMESİ için var.
 //
+// ⚠ 14 Ağustos, ikinci tur: ilk `--full` koşusu 1.894 verdi ve bu şişikti —
+// `SectionWrapper`/`fadeUpItem` gibi scroll-reveal bileşenleri ölçüm anında
+// (domcontentloaded + 1.6sn) hâlâ fade-up ortasındaydı, opaklık düşük
+// yakalanıyordu. Kanıt: `/tr/arac/tekrar-anatomi` normal ölçümde 27,
+// sayfa gerçekten kaydırılıp animasyon oturmaya bırakılınca **4**'e düşüyor.
+// Site zaten `useReducedMotion()` ile bu animasyonları TAMAMEN atlıyor
+// (bkz. `SectionWrapper.jsx`: `initial={reduced ? false : 'hidden'}`) —
+// yani gerçek çözüm scroll simülasyonu değil, context'i
+// `reducedMotion: 'reduce'` ile açmak: animasyon hiç başlamıyor, öge
+// doğrudan son (görünür) hâliyle render oluyor. Aynı sekiz sayfada
+// doğrulandı: ritim 70→7, dua-dili 52→0, insan-tanımı 28→0, tekrar-anatomi
+// 27→0 — ama melekler/kadınlar/kavram (53/36/32) **hiç değişmedi**, yani
+// oradaki ihlaller animasyon değil GERÇEK.
+//
 // `audit-colors.mjs` ile aynı sözleşme:
 //   node scripts/audit-contrast.mjs          → örneklem (12 rota, ~40 sn)
 //   node scripts/audit-contrast.mjs --full   → 70 rota × 2 dil (~4 dk)
@@ -64,7 +78,7 @@ const urls = FULL
   : SAMPLE;
 
 const browser = await chromium.launch();
-const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' })).newPage();
 const perPage = {};
 let total = 0;
 

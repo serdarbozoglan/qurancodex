@@ -1642,12 +1642,12 @@
     "mind": {
       "tr": "Akıl",
       "en": "Mind",
-      "color": "#9B59B6"
+      "color": "#BB8ECD"
     },
     "inner": {
       "tr": "İç Dünya",
       "en": "Inner",
-      "color": "#E84A7C"
+      "color": "#EE799E"
     },
     "eschato": {
       "tr": "Âhiret",
@@ -1657,7 +1657,7 @@
     "vice": {
       "tr": "Kötülük",
       "en": "Vice",
-      "color": "#E84A4A"
+      "color": "#EE7D7D"
     },
     "prophet": {
       "tr": "Peygamberlik",
