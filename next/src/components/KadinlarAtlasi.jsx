@@ -12,6 +12,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import { renderInlineMarkdown } from './tefekkur/inlineMarkdown';
+import { cleanArabicForDisplay } from '../lib/arabic';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
 const SURAH_NAMES_TR = {
@@ -36,24 +37,13 @@ function formatRef(ref, language) {
   return name ? `${name} ${ref}` : ref;
 }
 
-// ── Arabic display normalizer ─────────────────────────────────────────────────
-// Strips Uthmani recitation marks (waqf, end-of-ayah, asar) that fall back
-// to tofu in KFGQPC outside the ReadingMode tajweed pipeline. Keeps standard
-// harakat (U+064B–U+0652), maddah (U+0653), dagger alef (U+0670).
-// CLAUDE.md §13.14 + §13.15 — Uthmani encoding → standard + Maddah render fix
-function normalizeAr(s) {
-  if (!s) return '';
-  return s
-    .replace(/\u06EA/g, '\u0650')                                  // asar → kasra
-    .replace(/\u06E1/g, '\u0652')                                  // Uthmani sukun → standart sukun
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')                  // CLAUDE.md §13.14 — Maddah render fix
-    .replace(/[\u06D6-\u06DC]/g, '')                              // small high marks (waqf etc.)
-    .replace(/[\u06DD\u06DE]/g, '')                                // end-of-ayah, rub el hizb
-    // eslint-disable-next-line no-misleading-character-class -- Arabic combining marks intentionally stripped via escape sequence; see CLAUDE.md section 13.15.
-    .replace(/[\u06E0\u06E2-\u06E4\u06E7-\u06E9\u06EB-\u06ED]/g, '') // misc Uthmani marks
-    .replace(/\u0671/g, '\u0627')                                  // alef wasla → alef
-    .replace(/\u06CC/g, '\u064A');                                 // farsi yeh → arabic yeh
-}
+// 2026-08-14 (Z3d3) — yerel normalizeAr kopyası SİLİNDİ. Kanonik
+// cleanArabicForDisplay'den EKSİKTİ: U+06DF, U+06E5, U+06E6 strip
+// listesinde yoktu — concierge-hydrate.js'teki Hûd 11:24 hatasıyla
+// (bkz. lib/arabic.js §13.15 tek-kaynak ilkesi) aynı hata sınıfı. Şu an
+// kadinlar.json'da bu karakterler yok (ölçüldü) ama gelecekte veri
+// güncellenirse aynı tofu hatası sessizce geri gelirdi.
+const normalizeAr = cleanArabicForDisplay;
 
 // ── Kategori → renk eşleşmesi (semantik) ─────────────────────────────────────
 const CATEGORY_COLORS = {

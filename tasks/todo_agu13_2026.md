@@ -978,23 +978,39 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       §13.24 "confirmed by archaeology" kalıbını **isim isim** yasaklıyor
       (tasdikin öznesi arkeoloji olamaz). Hedef sayfanın (`tarihsel-kanitlar`)
       içeriği 26 Temmuz'da düzeltilmiş; **ona giden kartın metni düzeltilmemiş.**
-- [ ] **Z3d3 · §13.15 — 9 okuma-dışı JSON'da Uthmani karakter**
+- [~] **Z3d3 · §13.15 — 9 okuma-dışı JSON'da Uthmani karakter** — **KISMEN KAPANDI** (14 Ağustos)
       472 JSON tarandı. `corpus/*` ve `verse-graph-bgem3` **muaf** (CSS tecvid
-      overlay pipeline'ı). Kalan ihlaller:
-      | dosya | sorunlu karakter | tüketen bileşen | runtime `cleanArabic` |
-      |---|---:|---|---|
-      | `ilk-son-kelimeler.json` | **1.062** | `IlkSonKelimeler.jsx` | ✅ var (8×) |
-      | `semantic-map.json` | **466** | `SemanticMap.jsx` | ❌ **YOK** |
-      | `dua-arabic.json` | 71 | `ProphetAtlas.jsx` | — |
-      | `kadinlar.json` | 44 | `KadinlarAtlasi.jsx` | ❌ **YOK** |
-      | `ilk-son-kelimeler-spotlights.json` | 21 | ↑ | ✅ |
-      | `nefis-mertebeleri.json` | 17 | `NefisMertebeleri.jsx` | ✅ (2×) |
-      | `kuranin-renkleri.json` | 2 (`۝`) | `KuranRenkleri.jsx` | — |
-      | `verse-metadata.json` | 2 (`ی` Farsî yeh) | — | — |
-      Ekranda **tofu 0** çıktı (140 sayfa) — yani şu an görünür hasar yok; ama
-      §13.15 build kuralı "JSON'a yazmadan ÖNCE normalize" diyor ve bu 9 dosya
-      kuralın dışında. `SemanticMap` + `KadinlarAtlasi` runtime temizliği de
-      yapmadığı için tek koruma katmanı font'un toleransı.
+      overlay pipeline'ı).
+      - [x] **`semantic-map.json`** (466) — normalize edildi (192 alan). Not:
+            `central_verses_full.arabic/.surahName` alanları şu an **hiçbir
+            yerde render edilmiyor** (ölü veri, `VerseChip` kanonik grafikten
+            okuyor) — risk yoktu ama JSON yine de kirliydi, düzeltildi.
+      - [x] **`kadinlar.json`** (44) — normalize edildi (14 alan). Ayrıca
+            **`KadinlarAtlasi.jsx`'in kendi `normalizeAr` kopyası** kanonik
+            `cleanArabicForDisplay`'den EKSİKTİ (U+06DF/06E5/06E6 yok) —
+            concierge-hydrate.js'teki Hûd 11:24 hatasıyla AYNI SINIF. Kopya
+            silindi, `lib/arabic.js`'ten import ediliyor (§13.15 tek-kaynak).
+      - [x] **`kuranin-renkleri.json`** (2) — normalize edildi. Ayrıca
+            **`KuranRenkleri.jsx`'te 5 âyet JSON'dan DEĞİL, component içine
+            hardcode edilmiş** (`verseAr:` sözlük literalleri) ve hiç runtime
+            koruması yoktu — bu GERÇEK, canlı bir tofu riskiydi (ölü veri
+            değil). 8 render noktası (`verseAr`×4, `arabic`×4)
+            `cleanArabicForDisplay` ile sarıldı. Doğrulama: "Cennet" ve
+            "Kıyamet" sekmeleri canlı test edildi, 0 sorunlu karakter, 0 hata.
+      - [ ] **`ilk-son-kelimeler.json`** (1.062) + **`-spotlights.json`** (21) +
+            **`nefis-mertebeleri.json`** (17) — JSON henüz normalize edilmedi.
+            Düşük öncelik: her ikisinin de runtime koruması VAR (`IlkSonKelimeler.jsx`
+            8× `cleanArabicMinimal`, `NefisMertebeleri.jsx` 2× `cleanArabicForDisplay`)
+            — ekranda risk yok, yalnız "JSON'a yazmadan önce normalize" kuralı
+            teknik olarak hâlâ ihlalde. Ayrı bir turda kapatılabilir.
+      - **`dua-arabic.json`** (71) — todo'daki "runtime: —" notu YANLIŞTI:
+            `ProphetAtlas.jsx`'in kendi `cleanDuaAr` fonksiyonu var (kasıtlı,
+            "lib'den FARKLI" diye belgelenmiş) — risk düşük, dokunulmadı.
+      - **`verse-metadata.json`** (2) — bunlar Kur'an metni DEĞİL: "concepts"
+            anahtar kelime dizisindeki bozuk Türkçe kelimeler ("nتیجe" =
+            "netice", "nعیm" = "naîm" olmalı, klavye dili yanlışlıkla
+            değişmiş). §13.15 kapsamı dışı, ayrı bir veri kalitesi hatası —
+            düzeltilmedi, burada not edildi.
 - [ ] **Z3d4 · `DesktopSidebarTOC.jsx:38` — `NAVBAR_HEIGHT = 62` (dördüncü kardeş)**
       `useNavbarOffset` üç yerde topladı; bu dosya dışarıda kaldı. Ölçülen gerçek
       navbar 82px (1280+), yani çapa kaydırması **20px eksik** iniyor.

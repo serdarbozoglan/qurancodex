@@ -10,6 +10,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
+import { cleanArabicForDisplay } from '../lib/arabic';
 
 // ─── KURANI_COLORS — Kur'ani semantik renk paleti ─────────────────────────────
 // Bu paleti tokens.js'e katmadık çünkü sadece bu tool'da semantik anlam
@@ -132,7 +133,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
       <div style={{ padding: '14px', flex: 1, display: 'flex', flexDirection: 'column' }}>
         {/* Primary Arabic term — offWhite for contrast across all tinted bgs */}
         <p style={{ fontFamily: FONTS.quran, fontSize: '1.7rem', color: COLORS.offWhite, textAlign: 'right', direction: 'rtl', margin: '0 0 6px', lineHeight: 1.6 }} lang="ar" dir="rtl">
-          {primaryTerm.arabic}
+          {cleanArabicForDisplay(primaryTerm.arabic)}
         </p>
 
         {/* Name + transliteration */}
@@ -177,7 +178,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
                 {renk.arabicTerms.map(t => (
                   <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: `1px solid ${COLORS.glassBg}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.4 }} lang="ar" dir="rtl">{t.arabic}</span>
+                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.4 }} lang="ar" dir="rtl">{cleanArabicForDisplay(t.arabic)}</span>
                       <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
                       {t.isHapax && <HapaxBadge />}
                     </div>
@@ -1108,7 +1109,7 @@ function TabBaglam({ language, isMobile }) {
                             textAlign: 'right', direction: 'rtl',
                             lineHeight: 2, margin: 0,
                           }} lang="ar" dir="rtl">
-                            {c.verseAr}
+                            {cleanArabicForDisplay(c.verseAr)}
                           </p>
                         </div>
 
@@ -1452,7 +1453,7 @@ function TabCennet({ language, isMobile }) {
                   textAlign: 'right', direction: 'rtl',
                   lineHeight: 2, margin: 0,
                 }} lang="ar" dir="rtl">
-                  {a.verseAr}
+                  {cleanArabicForDisplay(a.verseAr)}
                 </p>
               </div>
 
@@ -1852,7 +1853,7 @@ function TabKiyamet({ language, isMobile }) {
                 textAlign: 'right', direction: 'rtl',
                 lineHeight: 2, margin: 0,
               }} lang="ar" dir="rtl">
-                {s.verseAr}
+                {cleanArabicForDisplay(s.verseAr)}
               </p>
             </div>
 
@@ -2099,7 +2100,7 @@ function TabDilbilim({ language, isMobile }) {
                   textAlign: 'right', direction: 'rtl', lineHeight: 1.8,
                   margin: 0,
                 }} lang="ar" dir="rtl">
-                  {h.arabic}
+                  {cleanArabicForDisplay(h.arabic)}
                 </p>
                 <span style={{
                   fontSize: '0.78rem', color: COLORS.silver,
@@ -2335,7 +2336,7 @@ function TabDilbilim({ language, isMobile }) {
                   textAlign: 'right', direction: 'rtl',
                   lineHeight: 1.95, margin: 0,
                 }} lang="ar" dir="rtl">
-                  {row.verseAr}
+                  {cleanArabicForDisplay(row.verseAr)}
                 </p>
               </div>
 
@@ -2842,7 +2843,7 @@ export default function KuranRenkleri({ onClose }) {
                 border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : 'rgba(255,255,255,0.08)'}`,
               }}>
                 {s.arabic ? (
-                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.purple, direction: 'rtl' }} lang="ar" dir="rtl">{s.arabic}</span>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.purple, direction: 'rtl' }} lang="ar" dir="rtl">{cleanArabicForDisplay(s.arabic)}</span>
                 ) : (
                   <span style={{ fontSize: '1.1rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>{s.num}</span>
                 )}
