@@ -767,7 +767,14 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       (`Z1c-ek`) aynı rotadaki **400 dönen fetch**'leri düzeltti — sınır
       doğrulaması ayrı iş, açık kalıyor.
 
-### 🔴 Z3-K · KONTRAST 73 SAYFADA ÖLÇÜLDÜ (14 Ağustos) — **en büyük açık bu**
+### 🟡 Z3-K · KONTRAST 73 SAYFADA ÖLÇÜLDÜ (14 Ağustos) — K1-K4+K6 kapandı, K5 + uzun kuyruk açık
+
+> **Güncelleme (14 Ağustos, K6 turu):** ilk `--full` ölçümü kendisi
+> yanıltıcıydı (scroll-reveal animasyonu geçiş hâlindeyken ölçülüyordu,
+> bkz. K6 aşağıda). Düzeltilince gerçek taban **1.465** çıktı, tur sonunda
+> **1.095**'e indi (kissa hariç **976 → 608**, 78 sayfaya yayılmış). K4
+> (kissa'nın soluk hücreleri) kullanıcı kararıyla kapandı. Kalan: K5 (mobil
+> ölçüm) + 608'lik uzun kuyruk — aynı kalıplar, artık küçük parçalar.
 
 > Bu, gecenin başından beri "hiç ölçülmedi" diye işaretli olan iki bilinmeyenden
 > biriydi. Ölçüldü ve **beklediğimden kötü çıktı**: erişilebilirlik notu bu
@@ -1149,17 +1156,19 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
       | Bilgi mimarisi | 76 | **85** ▲9 | `/arac/tum-araclar` 50/55 · Z3c4 regresyonu |
-      | Erişilebilirlik | 66 | **80** ▲14 | kontrast **1.394** (−%60) · kalan: ata-opacity zinciri + K4 |
+      | Erişilebilirlik | 66 | **80** ▲14 | kontrast gerçek taban **1.095** (K1-K4+K6 kapandı) · kalan: K5 (mobil) + 608'lik uzun kuyruk |
       | SEO / sunucu render | 70 | **79** ▲9 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
 
       **85+ için sırayla gereken:** ~~① etiketsiz svg~~ ✅ `f4491e0` ·
-      ~~② navbar gezinmesi~~ ✅ `bbbd3ec` · ~~③ ibadetler RAG~~ ✅ `1d5fdd8`
-      ① **KONTRAST — Z3-K** (3.508 ihlal / 134 sayfa; K1 tek başına ~940'ını
-      kapatıyor) ② renk kararı + göç (C2 — K2 ile aynı kök)
-      ③ EN sızıntıları (Z3e2) ④ sayfa-içi gezinme `<button>`ları (Z1f kalanı)
-      ⑤ **CWV hâlâ 73 sayfada ölçülmedi** — geriye tek bilinmeyen eksen bu.
+      ~~② navbar gezinmesi~~ ✅ `bbbd3ec` · ~~③ ibadetler RAG~~ ✅ `1d5fdd8` ·
+      ~~④ KONTRAST — Z3-K (K1-K4+K6)~~ ✅ `5d966f7`+`b142302`+`0a002b6`+`d44abb4`
+      (1.465 gerçek taban → **1.095**; kissa hariç 976 → 608, K5 + uzun
+      kuyruk hâlâ açık ama artık öncelik değil)
+      ① renk kararı + göç (C2 — K2 ile aynı kök)
+      ② EN sızıntıları (Z3e2) ③ sayfa-içi gezinme `<button>`ları (Z1f kalanı)
+      ④ **CWV hâlâ 73 sayfada ölçülmedi** — geriye tek bilinmeyen eksen bu.
 
       ⚠ **Not düştü, çünkü bilinmeyen ölçüldü.** Erişilebilirlik 86 iken 72'ye
       indi: 86 sayısı "kontrast bilinmiyor" varsayımının üstünde duruyordu.
