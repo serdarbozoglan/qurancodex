@@ -180,6 +180,85 @@ These rules apply to ALL sections and must be followed consistently:
 
 Bu kurallar her yeni bileşen, feature veya düzeltmede **istisnasız** uygulanır.
 
+### 13.0 YENİ SAYFA/BİLEŞEN ÜRETİRKEN — HIZLI KONTROL LİSTESİ (2026-08-14+)
+
+**Bu bölüm, 13-14 Ağustos turlarında (kontrast, CLS, iç mimari sızıntısı,
+renk sistemi) tekrar tekrar aynı hata sınıflarına düşülmesinden sonra
+yazıldı.** Her biri kendi alt-bölümünde ayrıntılı anlatılıyor; burası
+yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
+üretirken veya mevcut birini genişletirken bu listeyi tara:
+
+1. **Metin rengi — ham hex/rgb DEĞİL, üç kademeden biri.**
+   `SEMANTIC.textPrimary` (15.74) / `textMuted` (7.65) / `textFaint` (5.02).
+   Silver opaklığı ≥0.78, gold ≥0.75 — altı AA'yı kırar. → §13.26
+
+2. **Kategori/kimlik rengi de metin olacaksa AA'ya tabidir.** Bir renk
+   "kategori kimliği" diye icat edildiğinde (örn. `{ accent: '#534AB7' }`
+   gibi bir palet objesi) — o renk yalnızca ikon/arkaplan/kenarlık DEĞİL,
+   aynı zamanda `color:` olarak da kullanılacaksa **cosmic-black üstünde
+   ≥4.5 (veya kasıtlı sönük ise ≥3.0) olduğunu ÖLÇ.** 14 Ağustos'ta
+   `Melekler.jsx`'in kendi kategori paleti, `CennetCehennem.jsx`'in
+   `CENNET`/`CEHENNEM` sabitleri ve `concept-graph.json`'daki küme
+   renklerinin **hiçbiri** doğrulanmadan eklenmişti; ikisi tam opaklıkta
+   bile AA'yı geçmiyordu (violet 2.83, gray 4.05). JSON veri dosyasına
+   yazılan renkler için de aynı kural geçerli — bkz. madde 5.
+   → §13.26 md. 2
+
+3. **Bir kapsayıcıya `opacity` verirken, içindeki metnin KENDİ rengiyle
+   ÇARPILACAĞINI unutma.** "Bu kart/durum ikincil" demek için hem metne
+   soluk bir renk vermek HEM DE kapsayıcıya `opacity:0.75` eklemek —
+   iki katmanlı, ölçülmeyen bir solukluk üretir (14 Ağustos'ta
+   `isHadithOnly` kartında görüldü: zaten muted renk + kart opaklığı
+   birlikte AA'nın çok altına indi). Kural: solukluğu YA renkte YA
+   `opacity`'de ver, ikisinde birden değil; verdiğin yerde ölç.
+
+4. **`isMobile` YALNIZCA davranış için güvenlidir, DÜZEN için değil.**
+   `useState(false)+useEffect` ile SSR-safe okunan `isMobile` (§14.1),
+   hydration ANINDA her zaman `false`'tur. Bunu `gridTemplateColumns`,
+   `display`, `flexDirection` gibi **düzeni değiştiren** bir CSS
+   özelliğine bağlarsan, mobilde sayfa önce masaüstü düzeniyle render
+   olur, hydration'dan hemen sonra yeniden dizilir — bu bir CLS (Cumulative
+   Layout Shift) kaynağıdır, kozmetik değil. 14 Ağustos'ta `CrossToolCTA`
+   (54 dosyada kullanılan paylaşılan bileşen) tam olarak bunu yapıyordu;
+   bazı sayfalarda CLS **1.0'ı aştı** (eşik 0.1). **Düzen-kritik özellikler
+   için CSS media query kullan** (`@media (max-width: 640px)`), `isMobile`
+   prop'unu yalnızca JS davranışı (touch handler, koşullu render, event
+   listener) için sakla. → §14.2, örnek: `CrossToolCTA.jsx` +
+   `globals.css`'teki `.cross-tool-cta__*` kuralları
+
+5. **Yeni bir JSON veri dosyasına Arapça metin VEYA renk yazıyorsan,
+   yazmadan önce doğrula, yazdıktan sonra değil.** Arapça için §13.15'in
+   `cleanArabicForDisplay` zorunluluğu zaten var; renk için aynı disiplin
+   şimdi burada da geçerli — bir hex/rgb değeri JSON'a gömülüp `color:`
+   olarak tüketilecekse, gömmeden önce cosmic-black üstünde oranını hesapla
+   (bkz. madde 2). Veri dosyası koddan daha az görünür olduğu için gözden
+   kaçması daha kolay — `concept-graph.json`'daki 3 küme rengi tam da bu
+   yüzden aylarca fark edilmeden durdu.
+
+6. **Client-side veri çeken bileşenlerde yükleme iskeleti, gerçek
+   içerikle YAKLAŞIK AYNI boyutta olmalı.** `useState(null)` + `useEffect`
+   içinde `fetch(...)` ile veri çekip `if (!data) return <Skeleton/>`
+   yapan her bileşen, veri gelince FARKLI bir DOM ağacına geçer — bu bir
+   stil değişikliği değil, remount'tur, CSS ile önlenemez. İskelet gerçek
+   içeriğin yaklaşık yüksekliğini ayırmazsa büyük bir CLS üretir. 14
+   Ağustos'ta bu, `/oku` dahil onlarca sayfada ölçülen ikinci büyük CLS
+   kaynağıydı (henüz tam kapanmadı — bkz. `tasks/todo_agu13_2026.md` Z3-V).
+   Mümkünse veriyi sunucu tarafında sağla (RSC/build-time fetch); istemci
+   tarafı fetch şartsa, iskelete `minHeight` ile gerçekçi bir yer ayır.
+
+7. **Sayfaya çıkan HİÇBİR metinde geliştirici jargonu olamaz.** Dosya
+   yolu, fonksiyon adı, `CLAUDE.md`/`§13.x` referansı, `useState`/`commit`
+   gibi kod terimleri — makale gövdesi, kaynakça, i18n dizesi FARK ETMEZ,
+   ekrana çıkan hiçbir alanda olamaz. → §13.27, push öncesi zorunlu:
+   `node scripts/audit-internal-leak.mjs --ci`
+
+8. **Push'tan önce ölç, iddia etme.** Kontrast (`audit-contrast.mjs`),
+   renk sistemi (`audit-colors.mjs`), iç mimari sızıntısı
+   (`audit-internal-leak.mjs`) — üçü de scriptli, üçü de "bence" ile
+   atlanamaz. Yeni bir sayfa/bileşen bunlardan birini büyütüyorsa
+   (yeni renk, yeni metin alanı, yeni veri dosyası), ilgili script'i
+   **o sayfaya karşı** çalıştır, tabanın büyümediğini doğrula.
+
 ### 13.1 Design Token Kuralı
 
 **Tüm renkler, fontlar ve UI sabitleri merkezi tokens dosyasından import edilir** (`src/tokens.js` Vite'ta, `next/src/tokens.js` Next.js'te).
@@ -1221,6 +1300,21 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
 5. **Kasıtlı sönük durum** (devre dışı, "bu öge burada yok" gibi) oran
    **≥3.0**'ın altına inemez. Bilgi taşıyan bir sönüklük, WCAG'ın "devre dışı
    öge" muafiyetine girmez — bkz. `/atlas/kissa` ısı haritası.
+6. **Kategori/kimlik renkleri de bu kurala tabidir.** Bir bileşen kendi
+   kategori paletini icat ettiğinde (`{ accent: '#534AB7', ... }` gibi bir
+   obje) — o `accent` değeri `color:` olarak kullanılacaksa yukarıdaki
+   eşiklere **cosmic-black üstünde ölçülerek** uymalı. `SEMANTIC` üçlüsü
+   yalnızca "genel metin" içindir; her yeni renk ailesi (kategori, durum,
+   veri kümesi) kendi ayrı doğrulamasını ister. 14 Ağustos'ta `Melekler.jsx`,
+   `CennetCehennem.jsx` ve `concept-graph.json`'daki kategori/küme renkleri
+   hiç doğrulanmadan eklenmişti; birden fazlası tam opaklıkta bile AA'yı
+   geçmiyordu (ör. violet `#534AB7` → 2.83). Aynı kural JSON veri
+   dosyalarına gömülen renkler için de geçerli — yazmadan önce ölç.
+7. **Bir kapsayıcının `opacity`'si, içindeki metnin KENDİ renk/opaklığıyla
+   çarpılır.** İkisini aynı anda soluklaştırma — hangisini kullandığını
+   bil ve NET oranı (çarpım sonrası) ölç, yalnız metnin kendi değerini değil.
+   14 Ağustos'ta `isHadithOnly` kartında ikisi birden uygulanmış, sonuç
+   ölçülmeden AA'nın çok altına inmişti.
 
 #### Denetim
 
@@ -1337,8 +1431,38 @@ useEffect(() => {
 - ❌ YASAK: `width: '220px'` gibi sabit sidebar genişlikleri (overflow yapar)
 - ❌ YASAK: `gridTemplateColumns: '1fr 1fr'` (mobilde çok dar)
 - ❌ YASAK: `gridTemplateColumns: '1fr auto 1fr'` (mobilde 3 sütun sığmaz)
-- ✅ DOĞRU: `gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr'`
-- ✅ DOĞRU: Sabit sidebar'ı mobilde `display: isMobile ? 'none' : 'flex'` ile gizle
+
+#### ⚠ `gridTemplateColumns: isMobile ? '1fr' : '...'` YASAK — CLS üretir (2026-08-14)
+
+Bu satır burada uzun süre **"✅ DOĞRU"** diye duruyordu; 14 Ağustos'ta
+`CrossToolCTA.jsx`'te (54 dosyada kullanılan paylaşılan bileşen) tam bu
+kalıp ölçülünce bazı sayfalarda **CLS 1.0'ı aştı** (eşik 0.1). Sebep:
+`isMobile`, §14.1'in SSR-safe kalıbıyla (`useState(false)+useEffect`)
+geliyor — hydration anında **her zaman `false`**. Mobilde sayfa önce
+masaüstü ızgarasıyla render olur, hydration'dan hemen sonra tek sütuna
+yeniden dizilir. Bu bir kozmetik gecikme değil, ölçülen bir CWV ihlalidir.
+
+- ❌ YASAK: `gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)'`
+  (JS state'e bağlı **düzen-kritik** CSS özelliği)
+- ✅ DOĞRU: CSS class + media query — tarayıcı JS'i beklemeden çözer:
+  ```css
+  .my-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 640px) {
+    .my-grid { grid-template-columns: 1fr; }
+  }
+  ```
+  Sütun sayısı dinamikse (`Math.min(links.length, 3)` gibi), CSS custom
+  property ile taşı: `style={{ '--cols': n }}` + CSS'te
+  `repeat(var(--cols, 3), 1fr)`. Referans uygulama: `CrossToolCTA.jsx` +
+  `globals.css`'teki `.cross-tool-cta__*` / `.sources-citation__*` kuralları.
+- ⚠ **`display: isMobile ? 'none' : 'flex'` ile sidebar/panel gizleme de
+  aynı riski taşır** (§14.3) — henüz ölçülüp düzeltilmedi. Yeni kod için
+  mümkünse burada da CSS media query tercih edilmeli; mevcut kullanımlar
+  bir sonraki CWV turunda gözden geçirilecek (`tasks/todo_agu13_2026.md`
+  Z3-V, kök #2).
+- ✅ `isMobile`'ı JS DAVRANIŞI için kullanmaya devam et — touch handler,
+  koşullu render mantığı, event listener seçimi gibi düzeni DEĞİŞTİRMEYEN
+  yerlerde risksizdir.
 
 ### 14.3 Sidebar Pattern
 
