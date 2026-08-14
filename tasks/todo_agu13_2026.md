@@ -449,6 +449,28 @@ yüklüyor. Kullanıcı ilk tıklamada çökecekti.
 > iki bağımsız tur aynı iki hatayı buldu; kalan 23'ü yalnız bu tur buldu.
 > Tekrarla: `/tmp/crawl-{1440,1024,390}.json`, `/tmp/ssr-sweep.json`, `/tmp/eslint.json`
 
+### ⏸ ERTELENDİ — UNUTMA: `Z3d1` embedding rebuild
+
+> **Kullanıcı 13 Ağustos gecesi "sonra, ama not al" dedi.** Sıradaki turda ilk
+> iş bu. Ertelenme sebebi teknik değil **maliyet**: corpus + embedding rebuild
+> OpenAI API çağrısı yapıyor.
+>
+> **Yapılacak (§13.22 pipeline'ı, 5 adım):**
+> 1. `scripts/corpus-sources.mjs` → 8 ibadetler JSON'u `CONTENT_SOURCES`'a,
+>    8 rota `TOOL_CATALOG`'a (`/arac/wow` da eksik)
+> 2. `cd next && npm run embed:corpus` → yeni tiplerin count'unu doğrula
+> 3. `node scripts/build-embeddings.mjs` → **incremental**; log'da
+>    `New/changed: N` yalnız yeni item olmalı, `Reused ~12.860` görülmeli
+> 4. `wc -c next/src/lib/corpus-embeddings.json` → **250 MB Vercel sınırı**
+>    (şu an 168 MB, 82 MB marj)
+> 5. Deploy sonrası `/tr/sor`'da "oruç nedir" sorup sonucu gör
+>
+> **Şimdiki zarar:** `/sor` 724 KB içeriği (namaz, oruç, zekât, hac, kurban,
+> tövbe, zikir) **hiç bilmiyor** — kullanıcı sorar, site kendi en iyi
+> sayfasını öneremez.
+
+---
+
 ### 🎯 UYGULAMA SIRASI — hangi madde neden önce
 
 > Ölçüt sırası: **(1)** kullanıcı şu anda kırık görüyor/kullanamıyor mu ·
@@ -547,7 +569,18 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       Okuma Modu içinden tıklayarak UI testi yapılmadı** — ReadingMode'da
       kelime popover'ını otomatize edemedim. Elle bakılmalı.
 
-- [ ] **Z3b3b · `PathContext.jsx:144` — düzeltilmedi, çünkü ÖZELLİĞİN KENDİSİ ÖLÜ**
+- [x] ~~**Z3b3b · `PathContext.jsx` — özellik ölü**~~ — **SİLİNDİ** `1f3c412`
+      Karar: **SİL**. GPT-5.2 hakem turu aynı sonuca vardı: *"feature flag
+      kapalı değil, FEATURE YOK; canlandırma refactor değil yeniden yazım."*
+      916 satır (`PathContext` 608 + `PathCards` 212 + `paths.jsx` 96) +
+      layout'taki provider kaldırıldı.
+      **Kürasyon silinmedi** → `next/docs/arsiv/rehberli-yol-kurasyonu.md`.
+      İleride gerekirse `/yol/[id]` **gerçek rota** olarak sıfırdan yazılmalı.
+      GPT'nin S3 cevabı D1/F1 için doğrudan kullanılabilir: *"guided path"
+      yerine "guided entry points"* — kapıları niyet-tabanlı yap, her kapıya
+      3'lü mikro-onboarding (1 hızlı aksiyon + 1 örnek sorgu + 1 popüler araç).
+      - [ ] **Bu öneri D1'e taşınacak** (anasayfada özet yok maddesi)
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       Kod düzeltmeye başlarken daha büyük bir şey çıktı: **rehberli "yol"
       özelliğinin hiçbir girişi yok.** `PathCards.jsx` duruyor ama
       `grep -rn "<PathCards"` → **0 sonuç**; `page.js`'teki nota göre
@@ -590,7 +623,24 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 - [x] ~~**Z3c2 · `/arac/kiyamet` — iç içe `<button>`**~~ — **KAPANDI, `3f9eed2`**
       (Z1c ile aynı bulgu). `KiyametSahneleri.jsx:248`'de düzeltme notu duruyor;
       `BookmarkButton` akordiyon `<button>`'ın dışına alınmış.
-- [ ] **Z3c3 · `/ayet/[surah]/[ayah]` sınır doğrulaması YOK**
+- [x] ~~**Z3c3 · `/ayet/[surah]/[ayah]` sınır doğrulaması YOK**~~ — **KAPANDI** `414c779`
+      `verse-graph` otorite alındı (6.236 kayıt, 114 sûre, boşluk 0 — doğrulandı),
+      module-level `Set` + `notFound()`. Geçersiz âyette `robots: noindex`.
+      Test: `115/1 · 2/300 · 2/287 · 0/1 · 2/0 · abc/1` → **404**;
+      `2/255 · 1/7 · 114/6 · en/9/129` → **200** (sınırlar dahil).
+      **İki yan bulgu daha çıktı ve düzeltildi:**
+      - **404 sayfasının kendisi bozuktu.** Yalnız `/oku/[surah]` için özel bir
+        `not-found` vardı; diğer TÜM 404'ler Next'in çıplak varsayılanına
+        düşüyordu — `<html lang>` YOK, navbar yok, çıkış bağlantısı yok,
+        **İngilizce sayfada Türkçe metin**. → `[locale]/not-found.jsx` eklendi
+        (dilinde, navbar'lı, 3 çıkışlı).
+      - `atlas/peygamber/[id]`'de `dynamicParams = false` bilinmeyen id'yi çıplak
+        404'e düşürüyordu → kaldırıldı, `notFound()` zaten vardı. SSG kaybı yok.
+      - [ ] **Kalan açık:** tamamen eşleşmeyen yol (`/tr/olmayan-sayfa`) hâlâ
+            çıplak 404. Kök `app/not-found.js` gerekiyor, o da **G4'teki
+            iki-kök-layout** düzeniyle çakışıyor (`app/layout.js` `lang` hatası
+            için bilerek kaldırılmıştı). Çözüm araştırılmalı.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       ```
       /tr/ayet/115/1  → 200   <title>Sure 115 115:1 — QuranCodex | QuranCodex</title>
       /tr/ayet/2/300  → 200   <title>El-Bakara 2:300 …</title>   (Bakara 286 âyet)
@@ -617,6 +667,11 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       **Temel çizgi bilerek güncellenmedi** — güncellenirse başkasının
       regresyonu silinmiş olur (kontrol listesi §J).
       - [ ] Kaybolan 2 ögeyi bul: `git bisect` ya da ara commit'lerde ölç
+- [x] ~~**Z3c6 · `Conclusion` CTA'sı kullanıcıyı EN BAŞA götürüyordu**~~ — **KAPANDI** `1f3c412`
+      `handleScrollToPaths` `#path-cards`'a scroll ediyordu; o id PathCards
+      anasayfadan kaldırılalı beri **hiç yoktu**, kod her seferinde fallback'e
+      düşüp `scrollTo(0)` yapıyordu. Buton çalışıyor **görünüyordu** — sessiz
+      bozulma. Hedef `#six-gates` oldu. (Ölü kod taraması sırasında çıktı.)
 - [ ] **Z3c5 · `/arac/tum-araclar` katalogun tamamını göstermiyor: 50/55**
       Sayfa 50 araç bağlantısı render ediyor, `toolCatalog.js`'te **55 giriş** var.
       Sınıf C (veri sürüklenmesi): `ToolsBrowser` `tools.jsx`'ten besleniyor,
