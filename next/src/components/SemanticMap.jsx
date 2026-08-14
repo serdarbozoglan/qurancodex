@@ -88,7 +88,10 @@ export default function SemanticMap({ onClose }) {
         const haystack = [
           String(c.id),
           c.tr, c.en, c.theme, c.summary_tr, c.summary_en,
-          ...(c.top_surahs || []).map(s => `${s.surah_id} ${s.verse_count}`),
+          // 2026-08-14 (Z3a2-kalıntı) — alan adı `surah_id`/`verse_count` değil
+          // `surah`/`count` (bkz. satır 44-45'teki aynı fallback). Düzeltilmeden
+          // önce 20 kümenin 20'sinde haystack'e "undefined undefined" giriyordu.
+          ...(c.top_surahs || []).map(s => `${s.surah ?? s.surah_id} ${s.count ?? s.verse_count}`),
         ].filter(Boolean).join(' ').toLowerCase();
         return haystack.includes(q);
       });

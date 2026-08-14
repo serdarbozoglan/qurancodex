@@ -644,11 +644,11 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       Sebep: `s.surah_id`/`s.verse_count` ↔ JSON `surah`/`count`.
       Doğrulama (21:0x, canlı): ilk kart artık `Eş-Şuarâ · 56 | Es-Sâffât · 37`,
       konsol hatası **0**.
-      - [ ] **Z3a2-kalıntı · Arama indeksinde aynı sürüklenme DURUYOR**
-            `SemanticMap.jsx:87` → `` `${s.surah_id} ${s.verse_count}` `` — fallback
-            eklenmemiş. 20 kümenin 20'sinde haystack'e `"undefined undefined"`
-            giriyor; **sûre numarasıyla arama hiçbir zaman eşleşmez.**
-            Düzeltme satır 40-41'deki `s.surah ?? s.surah_id` kalıbının aynısı.
+      - [x] ~~**Z3a2-kalıntı · Arama indeksinde aynı sürüklenme DURUYOR**~~ — **KAPANDI** (14 Ağustos)
+            `SemanticMap.jsx:91` → satır 44-45'teki aynı fallback kalıbı (`s.surah ?? s.surah_id`,
+            `s.count ?? s.verse_count`) uygulandı. Doğrulama: "37" araması artık
+            Sâffât'ı (sûre 37) içeren kümeleri doğru filtreliyor (önce/boş-eşleşme/37
+            için metin uzunluğu 2865/673/1659 — filtre gerçekten çalışıyor).
 
 - [x] ~~**Z3a3 · `VerseChip ref={v}`**~~ — **KAPANDI** `0767c51` → `verseRef`
       *Aşağıdaki özgün bulgu kaydı arşiv:*
