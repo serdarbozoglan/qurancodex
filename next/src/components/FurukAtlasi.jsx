@@ -11,6 +11,9 @@ import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import wordGroupsDataStatic from '../../public/word-groups.json';
 // Strip meal footnote markers like [1], [12] from Turkish translation text
 function stripFootnotes(str) {
   if (!str) return str;
@@ -83,9 +86,9 @@ async function loadVerse(surah, ayah) {
 export default function FurukAtlasi({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const [data, setData] = useState(null);
+  const [data] = useState(wordGroupsDataStatic);
   const [activeTab, setActiveTab] = useState(0);
-  const [selectedGroupId, setSelectedGroupId] = useState(null);
+  const [selectedGroupId, setSelectedGroupId] = useState(wordGroupsDataStatic.groups?.length ? wordGroupsDataStatic.groups[0].id : null);
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
   const trapRef = useFocusTrap(true);
@@ -105,17 +108,6 @@ export default function FurukAtlasi({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/word-groups.json')
-      .then(r => r.json())
-      .then(d => {
-        setData(d);
-        if (d.groups?.length) setSelectedGroupId(d.groups[0].id);
-      })
-      .catch(() => {});
   }, []);
 
   // Scroll to top on tab change

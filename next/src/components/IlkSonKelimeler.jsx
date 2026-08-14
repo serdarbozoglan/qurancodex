@@ -14,6 +14,10 @@ import {
   OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
   BREAKPOINT_MOBILE,
   VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import ilkSonDataStatic from '../../public/ilk-son-kelimeler.json';
+import ilkSonSpotlightsDataStatic from '../../public/ilk-son-kelimeler-spotlights.json';
 
 // ─── İlk ve Son Kelimeler (F-11) ──────────────────────────────────────────────
 // 114 sûrenin açılış ve kapanış kelimelerini aynı ekranda gösterir.
@@ -38,8 +42,8 @@ const FILTERS = [
 
 export default function IlkSonKelimeler({ onClose, backRef }) {
   const { language } = useLanguage();
-  const [data, setData]           = useState(null);
-  const [spotlights, setSpotlights] = useState([]);
+  const [data]           = useState(ilkSonDataStatic);
+  const [spotlights] = useState(ilkSonSpotlightsDataStatic.spotlights || []);
   const [activeFilter, setFilter] = useState('all');
   const [searchValue, setSearch]  = useState('');
   const [selected, setSelected]   = useState(null);
@@ -69,20 +73,6 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  useEffect(() => {
-    fetch('/ilk-son-kelimeler.json')
-      .then(r => r.json())
-      .then(setData)
-      .catch(err => console.error('[IlkSonKelimeler] fetch failed:', err));
-  }, []);
-
-  useEffect(() => {
-    fetch('/ilk-son-kelimeler-spotlights.json')
-      .then(r => r.json())
-      .then(d => setSpotlights(d.spotlights || []))
-      .catch(err => console.error('[IlkSonKelimeler] spotlights fetch failed:', err));
   }, []);
 
   useEffect(() => {

@@ -10,6 +10,9 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import cennetCehennemDataStatic from '../../public/cennet-cehennem.json';
 
 // ── Color system ──────────────────────────────────────────────────────────────
 const CENNET   = { accent: '#2BA47D', bg: 'rgba(27,110,86,0.12)',   border: 'rgba(29,158,117,0.28)' };
@@ -158,17 +161,12 @@ const TABS = [
 export default function CennetCehennem({ onClose }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
-  const [data, setData]           = useState(null);
+  const [data]           = useState(cennetCehennemDataStatic);
   const [activeTab, setActiveTab] = useState('isimler');
   const [isMobile, setIsMobile]   = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const bodyRef = useRef(null);
 
   useEffect(() => {
-    fetch('/cennet-cehennem.json')
-      .then(r => r.json())
-      .then(d => setData(d))
-      .catch(() => {});
-
     const h = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);

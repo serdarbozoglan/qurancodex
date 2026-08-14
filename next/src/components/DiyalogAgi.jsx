@@ -12,6 +12,13 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
 import useNavbarOffset from './useNavbarOffset';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import speakersDataStatic from '../../public/diyalog-speakers.json';
+import axesDataStatic from '../../public/diyalog-axes.json';
+import dialoguesDataStatic from '../../public/diyalog-dialogues.json';
+import afterlifeDataStatic from '../../public/diyalog-afterlife.json';
+import megaDataStatic from '../../public/diyalog-mega.json';
 
 // ── Temporal layer colors ────────────────────────────────────────────────────
 const TEMPORAL = { ezel: '#9b59b6', dunya: '#3498db', ahiret: '#f39c12' };
@@ -157,13 +164,13 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   const _localBackRef = useRef(null); // mirrors onRegisterBackHandler for ESC key use
 
   // Data states
-  const [speakers, setSpeakers]   = useState([]);
-  const [axes, setAxes]           = useState([]);
-  const [dialogues, setDialogues] = useState([]);
-  const [afterlife, setAfterlife] = useState([]);
-  const [mega, setMega]           = useState([]);
-  const [loading, setLoading]     = useState(true);
-  const [loadError, setLoadError] = useState(false);
+  const [speakers]   = useState(speakersDataStatic.speakers || []);
+  const [axes]           = useState(axesDataStatic.axes || []);
+  const [dialogues] = useState(dialoguesDataStatic.dialogues || []);
+  const [afterlife] = useState(afterlifeDataStatic.scenes || []);
+  const [mega]           = useState(megaDataStatic.megaDialogues || []);
+  const [loading]     = useState(false);
+  const [loadError]     = useState(false);
   const trapRef = useFocusTrap(true);
 
   // isMobile detector
@@ -182,28 +189,6 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
   }, [onClose]);
 
   // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
-
-  // Load all data
-  useEffect(() => {
-    Promise.all([
-      fetch('/diyalog-speakers.json').then(r => r.json()),
-      fetch('/diyalog-axes.json').then(r => r.json()),
-      fetch('/diyalog-dialogues.json').then(r => r.json()),
-      fetch('/diyalog-afterlife.json').then(r => r.json()),
-      fetch('/diyalog-mega.json').then(r => r.json()),
-    ]).then(([s, a, d, af, m]) => {
-      setSpeakers(s.speakers || []);
-      setAxes(a.axes || []);
-      setDialogues(d.dialogues || []);
-      setAfterlife(af.scenes || []);
-      setMega(m.megaDialogues || []);
-      setLoading(false);
-    }).catch((err) => {
-      console.error('[DiyalogAgi] data load failed:', err);
-      setLoadError(true);
-      setLoading(false);
-    });
-  }, []);
 
   // Navigate to Dialogues tab with axis pre-filtered (called by network diagram)
   const openAxisInDialogues = useCallback((speakerId, addresseeId) => {

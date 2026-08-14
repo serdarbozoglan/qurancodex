@@ -13,6 +13,15 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import parablesDataStatic from '../../public/amthal/parables.json';
+import imageryNetworksDataStatic from '../../public/amthal/imagery-networks.json';
+import pairedParablesDataStatic from '../../public/amthal/paired-parables.json';
+import nurZulumatDataStatic from '../../public/amthal/nur-zulumat.json';
+import animalsDataStatic from '../../public/amthal/animals.json';
+import metaVersesDataStatic from '../../public/amthal/meta-verses.json';
+import scholarsDataStatic from '../../public/amthal/scholars.json';
 
 // ── Arabic text cleanup ──────────────────────────────────────────────────────
 // NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
@@ -1336,14 +1345,14 @@ export default function MeselAtlasi({ onClose, backRef }) {
   const [domainFilter, setDomainFilter] = useState(null);
   const [scrollToPairId, setScrollToPairId] = useState(null);
 
-  const [parables,   setParables]   = useState([]);
-  const [networks,   setNetworks]   = useState(null);
-  const [pairs,      setPairs]      = useState([]);
-  const [nurData,    setNurData]    = useState(null);
-  const [animals,    setAnimals]    = useState([]);
-  const [metaVerses, setMetaVerses] = useState([]);
-  const [scholars,   setScholars]   = useState([]);
-  const [loading,    setLoading]    = useState(true);
+  const [parables]   = useState(parablesDataStatic.parables ?? []);
+  const [networks]   = useState(imageryNetworksDataStatic);
+  const [pairs]      = useState(pairedParablesDataStatic.pairs ?? []);
+  const [nurData]    = useState(nurZulumatDataStatic);
+  const [animals]    = useState(animalsDataStatic.animals ?? []);
+  const [metaVerses] = useState(metaVersesDataStatic.metaVerses ?? []);
+  const [scholars]   = useState(scholarsDataStatic.scholars ?? []);
+  const [loading]    = useState(false);
 
   useEffect(() => {
     const h = (e) => {
@@ -1372,26 +1381,6 @@ export default function MeselAtlasi({ onClose, backRef }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  useEffect(() => {
-    Promise.all([
-      fetch('/amthal/parables.json').then(r => r.json()),
-      fetch('/amthal/imagery-networks.json').then(r => r.json()),
-      fetch('/amthal/paired-parables.json').then(r => r.json()),
-      fetch('/amthal/nur-zulumat.json').then(r => r.json()),
-      fetch('/amthal/animals.json').then(r => r.json()),
-      fetch('/amthal/meta-verses.json').then(r => r.json()),
-      fetch('/amthal/scholars.json').then(r => r.json()),
-    ]).then(([p, n, pa, nur, a, mv, sc]) => {
-      setParables(p.parables ?? []);
-      setNetworks(n);
-      setPairs(pa.pairs ?? []);
-      setNurData(nur);
-      setAnimals(a.animals ?? []);
-      setMetaVerses(mv.metaVerses ?? []);
-      setScholars(sc.scholars ?? []);
-      setLoading(false);
-    }).catch(() => setLoading(false));
-  }, []);
 
   const handleDomainFilter = (domainId) => {
     setDomainFilter(domainId);

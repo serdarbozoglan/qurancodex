@@ -13,6 +13,10 @@ import useFocusTrap from '../hooks/useFocusTrap';
 
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
+// 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
+// döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
+import esbabinNuzulDataStatic from '../../public/esbabin-nuzul.json';
+import sebebINuzulDataStatic from '../../public/sebeb-i-nuzul.json';
 // ── Category / reliability / period metadata ──────────────────────────────────
 const CATEGORY_META = {
   'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: '#e67e22' },
@@ -1244,20 +1248,13 @@ function TabKaynaklar({ data, language, isMobile }) {
 
 // ── TabZaman ──────────────────────────────────────────────────────────────────
 function TabZaman({ language, isMobile }) {
-  const [timeEvents, setTimeEvents] = useState([]);
-  const [timeLoading, setTimeLoading] = useState(true);
+  const [timeEvents] = useState(esbabinNuzulDataStatic.events || []);
+  const [timeLoading] = useState(false);
   const [timeSelected, setTimeSelected] = useState(null);
   const [timeFilter, setTimeFilter] = useState('all');
   const [timeSearch, setTimeSearch] = useState('');
   const [expandedSecondary, setExpandedSecondary] = useState(null);
   const detailRef = useRef(null);
-
-  useEffect(() => {
-    fetch('/esbabin-nuzul.json')
-      .then(r => r.json())
-      .then(d => { setTimeEvents(d.events || []); setTimeLoading(false); })
-      .catch(() => setTimeLoading(false));
-  }, []);
 
   /* eslint-disable react-hooks/set-state-in-effect -- resetting derived state when selection changes */
   useEffect(() => {
@@ -1662,8 +1659,8 @@ export default function SebebiNuzul({ onClose }) {
   const { language } = useLanguage();
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [activeTab, setActiveTab] = useState(0);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data] = useState(sebebINuzulDataStatic);
+  const [loading] = useState(false);
   const contentRef = useRef(null);
   const trapRef = useFocusTrap(true);
 
@@ -1673,14 +1670,6 @@ export default function SebebiNuzul({ onClose }) {
     h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
-  }, []);
-
-  // Fetch data
-  useEffect(() => {
-    fetch('/sebeb-i-nuzul.json')
-      .then(r => r.json())
-      .then(d => { setData(d); setLoading(false); })
-      .catch(() => setLoading(false));
   }, []);
 
   // Escape key
