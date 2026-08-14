@@ -793,7 +793,7 @@ function RingVisual({ segments, highlight, labelTr, labelEn, language, cardColor
       border: `1px solid ${cardColor + '22'}`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-        <svg width={size} height={size} style={{ flexShrink: 0 }}>
+        <svg aria-hidden="true" width={size} height={size} style={{ flexShrink: 0 }}>
           <g transform={`translate(${center} ${center}) rotate(-90)`}>
             {Array.from({ length: segments }).map((_, i) => {
               const isHi = i === highlight - 1;

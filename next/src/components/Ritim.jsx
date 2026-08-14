@@ -32,7 +32,7 @@ export default function Ritim({ onClose }) {
     }}>
       <ToolHeader
         icon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 12h3l3-9 3 18 3-9h6" />
           </svg>
         }

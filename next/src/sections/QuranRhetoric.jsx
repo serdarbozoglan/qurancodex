@@ -112,7 +112,7 @@ function DonutChart({ activeType, onHover }) {
 
   return (
     <div ref={ref} style={{ position: 'relative', width: DONUT_SIZE, height: DONUT_SIZE }}>
-      <svg
+      <svg aria-hidden="true"
         width={DONUT_SIZE}
         height={DONUT_SIZE}
         viewBox={`0 0 ${DONUT_SIZE} ${DONUT_SIZE}`}

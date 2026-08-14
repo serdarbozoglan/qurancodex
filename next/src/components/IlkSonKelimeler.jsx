@@ -1714,7 +1714,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
             opacity: 0.85,
           }}>
             <span>{tr ? 'Saklı Detay' : 'Hidden Detail'}</span>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+            <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2.5"
               strokeLinecap="round" strokeLinejoin="round"
               style={{ transition: 'transform 0.2s', flexShrink: 0 }}

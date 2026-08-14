@@ -538,7 +538,7 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
             {/* Yol tipine göre brand-tutarlı SVG line-icon (emoji → SVG, Visual O-09 2026-07-12) */}
             <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center' }}>
               {y.id === 'ilk-defa' && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   {/* Seedling / new beginning */}
                   <path d="M12 20V10" />
                   <path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5z" />
@@ -547,14 +547,14 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
                 </svg>
               )}
               {y.id === 'kavram-calisan' && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   {/* Compass */}
                   <circle cx="12" cy="12" r="9" />
                   <polygon points="16,8 12,14 8,16 12,10" />
                 </svg>
               )}
               {y.id === 'fikih-calisan' && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   {/* Scale / balance */}
                   <path d="M12 3v18" />
                   <path d="M6 21h12" />

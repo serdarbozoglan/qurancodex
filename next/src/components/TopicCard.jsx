@@ -127,7 +127,7 @@ export default function TopicCard({
       >
         {isOverlay ? (
           // External-link / open-in-new icon
-          <svg
+          <svg aria-hidden="true"
             width="14"
             height="14"
             viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ export default function TopicCard({
           </svg>
         ) : (
           // Right arrow
-          <svg
+          <svg aria-hidden="true"
             width="12"
             height="12"
             viewBox="0 0 24 24"

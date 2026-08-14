@@ -654,7 +654,17 @@ export default function HiddenArchitecture() {
 
           {/* Prism SVG */}
           <div className="glass-card-strong p-4 mb-3">
-            <svg width="100%" viewBox="-80 -5 330 300" style={{ display: 'block' }}>
+            {/* GİZLENMEZ — bölümün merkezî illüstrasyonu, dekoratif ikon değil.
+                İçinde gerçek metin var (نور / "Nur (Işık)") ve yedi katmanı
+                gösteriyor. `aria-hidden` verseydik ekran okuyucu bu bölümün
+                görsel argümanını hiç görmezdi. Doğru kalıp: role="img" +
+                diyagramın NE GÖSTERDİĞİNİ söyleyen aria-label. */}
+            <svg
+              role="img"
+              aria-label={language === 'tr'
+                ? 'Diyagram: tek bir nur (ışık) huzmesi prizmadan geçerek yedi katmana ayrışıyor'
+                : 'Diagram: a single beam of nūr (light) passing through a prism and dispersing into seven layers'}
+              width="100%" viewBox="-80 -5 330 300" style={{ display: 'block' }}>
               <defs>
                 {/* Ray glow */}
                 <filter id="ray-glow" x="-80%" y="-80%" width="260%" height="260%">

@@ -184,8 +184,8 @@ export default function WordTooltip({ word, anchorRect, onClose, language, dayMo
           }}
         >
           {playing
-            ? <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
-            : <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>}
+            ? <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+            : <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>}
           <span>{playing ? (language === 'tr' ? 'Durdur' : 'Stop') : (language === 'tr' ? 'Dinle' : 'Play')}</span>
         </button>
       )}

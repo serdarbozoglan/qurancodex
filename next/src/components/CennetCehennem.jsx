@@ -1838,7 +1838,7 @@ function FiveSenseGrid({ language, isMobile }) {
               border: `1px solid ${COLORS.glassBorderSoft}`,
               borderRadius: RADIUS.md,
             }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                 <path d={s.icon} />
               </svg>
               <span style={{

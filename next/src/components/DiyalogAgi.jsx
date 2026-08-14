@@ -463,7 +463,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
         </div>
 
         <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <svg
+          <svg aria-hidden="true"
             width={svgSize}
             height={svgSize}
             viewBox="0 0 800 800"

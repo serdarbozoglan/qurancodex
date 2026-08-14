@@ -69,7 +69,7 @@ function FiligreeDivider({ delay = 0, mt = 0, mb = 0 }) {
         height: '1px',
         background: `linear-gradient(90deg, transparent, ${COLORS.gold}99)`,
       }} />
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" style={{ flexShrink: 0, opacity: 0.85 }}>
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" style={{ flexShrink: 0, opacity: 0.85 }}>
         <path d="M12 3 L14 10 L21 12 L14 14 L12 21 L10 14 L3 12 L10 10 Z" />
       </svg>
       <span style={{
@@ -1121,12 +1121,12 @@ function FlagshipCard({ verse, index, tr }) {
           >
             {playing ? (
               // Stop icon (square)
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="5" y="5" width="14" height="14" rx="1.5" />
               </svg>
             ) : (
               // Play icon (triangle)
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7 4.5v15l13-7.5z" />
               </svg>
             )}

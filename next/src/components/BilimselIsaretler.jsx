@@ -62,13 +62,13 @@ function DomainIcon({ id, color, size = 24 }) {
 
 const TABS = [
   { tr: 'İşaretler', en: 'Signs',
-    icon: (<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 15 L7 18 L9 12 L4 8 L10 8 Z"/></svg>),
+    icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 15 L7 18 L9 12 L4 8 L10 8 Z"/></svg>),
   },
   { tr: 'Keşif Timeline', en: 'Discovery Timeline',
-    icon: (<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg>),
+    icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg>),
   },
   { tr: 'Bucaillism Nüansı', en: 'Bucaillism Nuance',
-    icon: (<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>),
+    icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>),
   },
 ];
 
@@ -101,7 +101,7 @@ export default function BilimselIsaretler({ onClose }) {
 
   const TOOL_HEADER = (
     <ToolHeader
-      icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2 A10 10 0 0 1 12 22 M2 12 A10 10 0 0 1 22 12"/></svg>}
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2 A10 10 0 0 1 12 22 M2 12 A10 10 0 0 1 22 12"/></svg>}
       titleTr="Bilimsel İşaretler"
       titleEn="Scientific Signs"
       subtitleTr="16 âyet · 5 alan · astronomi · yer · biyoloji · insan · meteoroloji"
@@ -459,7 +459,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
           position: 'relative', zIndex: 1,
         }}>
         {isOpen ? (tr ? 'Nüans & Kaynakları kapat' : 'Close nuance & sources') : (tr ? 'Nüans & Kaynaklar' : 'Nuance & Sources')}
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
           style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       {isOpen && (

@@ -654,7 +654,7 @@ function SemanticMap({ group, language, isMobile }) {
       alignItems: 'center', gap: 20,
     }}>
       <div style={{ flexShrink: 0 }}>
-        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <svg aria-hidden="true" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           {/* Axes */}
           <line x1={pad} y1={size / 2} x2={size - pad} y2={size / 2} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
           <line x1={size / 2} y1={pad} x2={size / 2} y2={size - pad} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />

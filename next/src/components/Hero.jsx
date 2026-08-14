@@ -439,7 +439,11 @@ export default function Hero() {
             >
               {language === 'tr' ? 'Devam' : 'More'}
             </span>
+            {/* aria-hidden: butonun metni ("DEVAM") zaten adı veriyor.
+                NOT: `<motion.svg>` — codemod yalnız `<svg` arıyordu ve bunu
+                kaçırmıştı; sitedeki iki `motion.svg`'den biri buydu. */}
             <motion.svg
+              aria-hidden="true"
               width="40"
               height="40"
               viewBox="0 0 24 24"

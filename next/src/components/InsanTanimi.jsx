@@ -22,7 +22,7 @@ const TABS = [
   { id: 'sources', labelTr: 'Kaynaklar', labelEn: 'Sources' },
 ];
 
-const GEOMETRIC_PATTERN = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'>
+const GEOMETRIC_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'>
 <g fill='none' stroke='%23d4a574' stroke-width='0.4' opacity='0.5'>
 <polygon points='36,8 44,20 60,20 52,32 60,44 44,44 36,56 28,44 12,44 20,32 12,20 28,20' />
 <circle cx='36' cy='36' r='10'/></g></svg>`;
@@ -47,7 +47,7 @@ export default function InsanTanimi({ onClose }) {
       paddingTop: '62px',
     }}>
       <ToolHeader
-        icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>}
+        icon={<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>}
         titleTr="Kur'an'da İnsan — Sizi Nasıl Görüyor?"
         titleEn="Humanity in the Quran — How Does It See You?"
         subtitleTr="4 kavram · 7 vasıf · İnsan denklemi · 6 ulema"
@@ -259,7 +259,7 @@ function EquationTab({ tr, isMobile, data }) {
 
       {/* Arrow */}
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.72 }}>
+        <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.72 }}>
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
       </div>

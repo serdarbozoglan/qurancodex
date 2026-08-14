@@ -344,7 +344,15 @@ function SimilarityGauge({ score }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-      <svg width="110" height="90" viewBox="-10 -10 120 95" style={{ overflow: 'visible' }}>
+      {/* GİZLENMEZ — bu bir veri görselleştirmesi, dekoratif ikon değil.
+          İçindeki <text> gerçek veri taşıyor (yüzde). `aria-hidden` verseydik
+          ekran okuyucudan SKORU almış olurduk; alttaki <p> yalnız niteliksel
+          bandı söylüyor ("Yüksek benzerlik"), sayıyı değil.
+          Doğru kalıp: role="img" + sayıyı içeren aria-label. */}
+      <svg
+        role="img"
+        aria-label={`${score}% ${score >= 65 ? 'benzerlik — yüksek' : score >= 35 ? 'benzerlik — orta' : score >= 15 ? 'benzerlik — düşük' : 'benzerlik — minimal'}`}
+        width="110" height="90" viewBox="-10 -10 120 95" style={{ overflow: 'visible' }}>
         {/* Background arc */}
         <circle
           cx="55" cy="55" r={r}

@@ -7,12 +7,12 @@ import { useAudioWithFallback, buildFallbackUrls } from '../hooks/useAudioWithFa
 import { FONTS, COLORS, RADIUS } from '../tokens';
 
 const PlayIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
     <polygon points="6,3 20,12 6,21" />
   </svg>
 );
 const PauseIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
     <rect x="6" y="4" width="4" height="16" rx="1" />
     <rect x="14" y="4" width="4" height="16" rx="1" />
   </svg>

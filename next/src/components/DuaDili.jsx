@@ -28,7 +28,7 @@ const TABS = [
 ];
 
 // Islamic geometric pattern (subtle)
-const GEOMETRIC_PATTERN = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'>
+const GEOMETRIC_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'>
 <g fill='none' stroke='%23d4a574' stroke-width='0.4' opacity='0.5'>
 <circle cx='30' cy='30' r='14'/><circle cx='30' cy='30' r='7'/>
 <polygon points='30,10 40,25 50,30 40,35 30,50 20,35 10,30 20,25' opacity='0.4'/>
@@ -55,7 +55,7 @@ export default function DuaDili({ onClose }) {
       position: 'relative',
     }}>
       <ToolHeader
-        icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8M8 6l4-4 4 4M12 22V12M16 18l-4 4-4-4"/></svg>}
+        icon={<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8M8 6l4-4 4 4M12 22V12M16 18l-4 4-4-4"/></svg>}
         titleTr="Dua Dili — Yakarışın Gramatik Kalıbı"
         titleEn="Language of Prayer — The Grammar of Supplication"
         subtitleTr="10 peygamber · Fâtiha · Bakara 2:186 · Rabbenâ zinciri"
@@ -168,7 +168,7 @@ export default function DuaDili({ onClose }) {
                 fontFamily: FONTS.body,
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{tab.icon}</svg>
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{tab.icon}</svg>
               <span>{tr ? tab.labelTr : tab.labelEn}</span>
             </button>
           );
@@ -336,7 +336,7 @@ function ProphetCard({ p, tr, isMobile }) {
         position: 'relative', fontFamily: FONTS.body,
       }}>
         <span>{tr ? (expanded ? 'DAHA AZ GÖSTER' : 'DAHA FAZLA GÖSTER') : (expanded ? 'SHOW LESS' : 'READ MORE')}</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
           <path d="M6 9l6 6 6-6"/>
         </svg>
       </button>

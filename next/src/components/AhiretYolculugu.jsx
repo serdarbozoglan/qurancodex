@@ -33,7 +33,7 @@ import ahiretDataStatic from '../data/ahiret-yolculugu.json';
 // ─── Stage icons — her aşama için custom minimal SVG ─────────────────────────
 const StageIcons = {
   sekerat: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3v8" />
       <path d="M8 7l4 4l4 -4" opacity="0.5" />
       <circle cx="12" cy="16" r="4" strokeDasharray="2 2" />
@@ -41,7 +41,7 @@ const StageIcons = {
     </svg>
   ),
   berzah: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="4" width="18" height="16" rx="1" opacity="0.35" />
       <line x1="12" y1="4" x2="12" y2="20" strokeWidth="1.8" />
       <line x1="5" y1="8" x2="10" y2="8" opacity="0.5" />
@@ -51,7 +51,7 @@ const StageIcons = {
     </svg>
   ),
   sur: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 10v4l9 -3v-2l-9 1z" />
       <path d="M12 11v2l4 -1v0l-4 -1z" opacity="0.7" />
       <path d="M18 7c1.5 1.5 1.5 8.5 0 10" opacity="0.4" />
@@ -59,7 +59,7 @@ const StageIcons = {
     </svg>
   ),
   dirilis: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 20h16" />
       <path d="M8 20v-5" />
       <path d="M12 20v-8" />
@@ -69,7 +69,7 @@ const StageIcons = {
     </svg>
   ),
   mahser: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <line x1="2" y1="18" x2="22" y2="18" opacity="0.5" />
       <circle cx="6" cy="15" r="1" fill="currentColor" />
       <circle cx="10" cy="15" r="1" fill="currentColor" />
@@ -83,7 +83,7 @@ const StageIcons = {
     </svg>
   ),
   kitap: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 5a2 2 0 0 1 2 -2h11v16h-11a2 2 0 0 1 -2 -2v-12z" />
       <line x1="8" y1="7" x2="14" y2="7" opacity="0.5" />
       <line x1="8" y1="11" x2="14" y2="11" opacity="0.5" />
@@ -92,7 +92,7 @@ const StageIcons = {
     </svg>
   ),
   mizan: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <line x1="12" y1="3" x2="12" y2="20" />
       <line x1="4" y1="7" x2="20" y2="7" />
       <path d="M4 7l-2 5a3 3 0 0 0 4 0z" />
@@ -101,7 +101,7 @@ const StageIcons = {
     </svg>
   ),
   havz: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <ellipse cx="12" cy="15" rx="9" ry="3" />
       <path d="M3 15v3a9 3 0 0 0 18 0v-3" opacity="0.5" />
       <path d="M6 10l1 3" opacity="0.6" />
@@ -110,7 +110,7 @@ const StageIcons = {
     </svg>
   ),
   sirat: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 8l18 0" strokeWidth="2" />
       <path d="M3 8v10" opacity="0.4" />
       <path d="M21 8v10" opacity="0.4" />
@@ -118,7 +118,7 @@ const StageIcons = {
     </svg>
   ),
   'cennet-cehennem': ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 20v-12a2 2 0 0 1 2 -2h4v14" />
       <path d="M20 20v-12a2 2 0 0 0 -2 -2h-4v14" opacity="0.6" />
       <circle cx="7" cy="12" r="0.8" fill="currentColor" opacity="0.6" />
@@ -126,7 +126,7 @@ const StageIcons = {
     </svg>
   ),
   ruyet: ({ size = 20 }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="3" />
       <circle cx="12" cy="12" r="7" opacity="0.4" strokeDasharray="2 3" />
       <circle cx="12" cy="12" r="10" opacity="0.2" strokeDasharray="1 4" />
@@ -137,7 +137,7 @@ const StageIcons = {
 
 // ─── Tool header icon ────────────────────────────────────────────────────────
 const AtlasIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="12" y1="4" x2="12" y2="20" />
     <circle cx="12" cy="5" r="1.6" fill="currentColor" />
     <circle cx="12" cy="12" r="1.6" fill="currentColor" />
@@ -905,7 +905,7 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
             marginTop: 4,
           }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </div>
@@ -1211,7 +1211,7 @@ function CriticalNoteBlock({ note, isMobile, tr }) {
         gap: 8,
         marginBottom: 10,
       }}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.skyBlue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.skyBlue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="8" x2="12" y2="12" />
           <line x1="12" y1="16" x2="12.01" y2="16" />

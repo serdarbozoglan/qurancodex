@@ -32,7 +32,7 @@ export default function InsanPsikolojisi({ onClose }) {
     }}>
       <ToolHeader
         icon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M12 12c-2.7 0-5-0.6-6-1.5"/><path d="M12 2c5 0 9 1.34 9 3s-4 3-9 3-9-1.34-9-3 4-3 9-3z"/></svg>
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M12 12c-2.7 0-5-0.6-6-1.5"/><path d="M12 2c5 0 9 1.34 9 3s-4 3-9 3-9-1.34-9-3 4-3 9-3z"/></svg>
         }
         titleTr="İnsan Psikolojisi — İç Dünyanın Haritası"
         titleEn="Human Psychology — Map of the Inner World"
@@ -349,7 +349,7 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
         ))}
       </div>
       <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.72 }}>
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.72 }}>
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
       </div>

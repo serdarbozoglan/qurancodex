@@ -218,7 +218,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
   return (
     <div style={{ padding: isMobile ? '12px 8px' : '20px 24px' }}>
       <div style={{ width: '100%', maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
-        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
+        <svg aria-hidden="true" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
           <defs>
             <filter id="glow-gold">
               <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -825,7 +825,7 @@ function TabNurZulumat({ data, language, isMobile }) {
           {language === 'tr' ? "Âyet en-Nûr'un Anatomisi (24:35)" : 'Anatomy of Āyat al-Nūr (24:35)'}
         </div>
         <div style={{ width: isMobile ? '100%' : '400px', flexShrink: 0 }}>
-          <svg viewBox="0 0 320 320" style={{ width: '100%', display: 'block' }}>
+          <svg aria-hidden="true" viewBox="0 0 320 320" style={{ width: '100%', display: 'block' }}>
             <defs>
               <radialGradient id="glow-centre" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#c9a227" stopOpacity="0.6"/>

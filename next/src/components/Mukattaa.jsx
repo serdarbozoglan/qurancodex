@@ -37,7 +37,7 @@ export default function Mukattaa({ onClose }) {
     }}>
       <ToolHeader
         icon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round">
             <circle cx="12" cy="12" r="1.6" fill={COLORS.gold} stroke="none" />
             <ellipse cx="12" cy="12" rx="10" ry="4.5" />
             <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)" />

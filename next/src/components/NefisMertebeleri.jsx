@@ -1258,17 +1258,17 @@ function VerseBlock({ verse, accent, isMobile, language }) {
             }}
           >
             {loading ? (
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <circle cx="12" cy="12" r="9" opacity="0.25" />
                 <path d="M21 12a9 9 0 0 1-9 9" />
               </svg>
             ) : playing ? (
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="6" y="5" width="4" height="14" rx="1" />
                 <rect x="14" y="5" width="4" height="14" rx="1" />
               </svg>
             ) : (
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+              <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />
               </svg>
             )}

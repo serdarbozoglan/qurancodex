@@ -18,7 +18,7 @@ import HeroGeometricBackground from './HeroGeometricBackground';
 const MELEK_ICONS = {
   // vahiy — downward beam with radiating rays (revelation from above)
   vahiy: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3v14" />
       <path d="M8 7l4-4 4 4" />
       <line x1="5" y1="19" x2="19" y2="19" opacity="0.55" />
@@ -28,7 +28,7 @@ const MELEK_ICONS = {
   ),
   // yardim — supportive shield with rising arrow inside
   yardim: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 21s7-3.5 7-9V5l-7-2-7 2v7c0 5.5 7 9 7 9z" />
       <path d="M12 15v-6" opacity="0.85" />
       <path d="M9 12l3-3 3 3" opacity="0.85" />
@@ -36,20 +36,20 @@ const MELEK_ICONS = {
   ),
   // azap — stylized flame (destructive fire)
   azap: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1-2-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
     </svg>
   ),
   // koruyucu — closed shield (guardian)
   koruyucu: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       <path d="M9 12l2 2 4-4" opacity="0.75" />
     </svg>
   ),
   // kayit — quill on parchment
   kayit: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 20 L20 4" />
       <path d="M14 4h6v6" opacity="0.75" />
       <path d="M5 18 L4 20 L6 19" />
@@ -58,7 +58,7 @@ const MELEK_ICONS = {
   ),
   // yuceltme — ascending halo / concentric arcs
   yuceltme: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 15a8 8 0 0 1 16 0" />
       <path d="M7 15a5 5 0 0 1 10 0" opacity="0.75" />
       <path d="M10 15a2 2 0 0 1 4 0" opacity="0.55" />
@@ -67,7 +67,7 @@ const MELEK_ICONS = {
   ),
   // gizemlI — subtle veil / question mark
   gizemlI: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="9" opacity="0.4" />
       <path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5" />
       <circle cx="12" cy="17" r="0.5" fill="currentColor" />
@@ -75,7 +75,7 @@ const MELEK_ICONS = {
   ),
   // hadis — book with an info dot (hadith-tradition source)
   hadis: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z" opacity="0.5" />
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z" />
       <line x1="8" y1="8" x2="16" y2="8" opacity="0.7" />

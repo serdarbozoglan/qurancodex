@@ -98,7 +98,7 @@ export default function RetorikSorular({ onClose }) {
 
   const TOOL_HEADER = (
     <ToolHeader
-      icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 8 Q9.5 5 12 5 Q14.5 5 14.5 8 Q14.5 10 12 11 L12 13"/><circle cx="12" cy="17" r="1" fill={COLORS.gold}/></svg>}
+      icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 8 Q9.5 5 12 5 Q14.5 5 14.5 8 Q14.5 10 12 11 L12 13"/><circle cx="12" cy="17" r="1" fill={COLORS.gold}/></svg>}
       titleTr="Kur'an'ın Belağatı"
       titleEn="Belāġa of the Qur'an"
       subtitleTr="6 belâgat ailesi · İstifhâm · İltifât · Tibâk · İstiʿâre · Kinâye · Cinâs"
@@ -466,7 +466,7 @@ function OrnekCard({ ornek, index, color, isOpen, onToggle, language, isMobile }
           fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600,
         }}>
         {isOpen ? (tr ? 'Analizi kapat' : 'Close analysis') : (tr ? 'Belâgat Analizi' : 'Rhetorical Analysis')}
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
           style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       {isOpen && (

@@ -1181,7 +1181,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
       {/* SVG canvas */}
       {/* eslint-disable react-hooks/refs -- drag.current is read for cursor style, intentional */}
-      <svg ref={svgRef} width={W} height={H}
+      <svg aria-hidden="true" ref={svgRef} width={W} height={H}
         style={{ cursor: drag.current ? 'grabbing' : 'grab', display: 'block' }}
         onMouseDown={onMouseDown} onMouseMove={onMouseMove}
         onMouseUp={onMouseUp} onMouseLeave={onMouseUp}

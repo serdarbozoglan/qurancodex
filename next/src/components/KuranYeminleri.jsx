@@ -556,7 +556,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
     }}>
       {/* SVG donut */}
       <div style={{ flexShrink: 0, position: 'relative' }}>
-        <svg width="400" height="400" viewBox="0 0 400 400">
+        <svg aria-hidden="true" width="400" height="400" viewBox="0 0 400 400">
           <defs>
             {categories.map(cat => (
               <filter key={`glow-${cat.id}`} id={`glow-${cat.id}`}>

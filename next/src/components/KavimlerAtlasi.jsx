@@ -32,71 +32,71 @@ const HELAK_COLORS = {
 // Sünnetullah Atlası + Münâfık Profili pattern.
 const HELAK_ICONS = {
   ruzgar: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 8h11a3 3 0 1 0 -3 -3M3 16h15a3 3 0 1 1 -3 3M3 12h18" />
     </svg>
   ),
   su: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2c3 5 6 9 6 13a6 6 0 0 1 -12 0c0 -4 3 -8 6 -13z" />
       <path d="M9 15a3 3 0 0 0 3 3" opacity="0.5" />
     </svg>
   ),
   ses: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M6 9v6M9 6v12M12 3v18M15 6v12M18 9v6" />
     </svg>
   ),
   sarsinti: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 12l3 -4l3 8l3 -12l3 12l3 -8l3 4h2" />
     </svg>
   ),
   tas: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="12 3 20 10 17 20 7 20 4 10" />
       <line x1="12" y1="3" x2="12" y2="20" opacity="0.4" />
     </svg>
   ),
   batirma: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 8h18M5 8v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4 -4v-6" />
       <path d="M12 12v6M9 15h6" opacity="0.5" />
     </svg>
   ),
   deniz: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 6c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
       <path d="M2 12c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
       <path d="M2 18c2 -2 4 -2 6 0s4 2 6 0s4 -2 6 0" />
     </svg>
   ),
   golge: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="6" r="3" />
       <path d="M8 20h8l-2 -8h-4z" />
       <ellipse cx="12" cy="20" rx="6" ry="1.5" opacity="0.4" />
     </svg>
   ),
   ates: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2c2 4 5 6 5 10a5 5 0 0 1 -10 0c0 -2 1 -4 3 -6c-1 3 1 4 2 4c0 -3 -1 -5 0 -8z" />
     </svg>
   ),
   mesh: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="9" cy="9" r="3" />
       <path d="M17 6l4 -4M17 6l4 4M17 6c-2 3 -1 6 1 8s5 3 8 1M13 14l-2 6l-3 -2l-4 5" opacity="0.7" />
     </svg>
   ),
   kurtulan: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M20 6L9 17l-5 -5" />
       <circle cx="12" cy="12" r="10" opacity="0.35" />
     </svg>
   ),
   gizemli: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M9 9a3 3 0 1 1 5 2c-1 1 -2 2 -2 3M12 17h.01" />
     </svg>
   ),
@@ -110,7 +110,7 @@ const HELAK_ICONS = {
 const NATION_ICONS = {
   // Nûh — gemi (Hûd 11:37-44)
   nuh: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 17c1 1 2 1.5 3 1.5s2-.5 3-.5 2 .5 3 .5 2-.5 3-.5 2 .5 3 .5 2-.5 3-.5" opacity="0.55" />
       <path d="M3 14h18l-2 5H5z" />
       <line x1="12" y1="14" x2="12" y2="6" />
@@ -119,7 +119,7 @@ const NATION_ICONS = {
   ),
   // Âd — rüzgârda eğilen palm (Kâmer 54:19-20)
   ad: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 22C14 15 15 10 17 4" />
       <path d="M17 4c-2 1-4 2-6 3" opacity="0.75" />
       <path d="M17 4c1 1 3 2 4 4" opacity="0.75" />
@@ -129,7 +129,7 @@ const NATION_ICONS = {
   ),
   // Semûd — dağa oyulmuş ev (A'râf 7:74)
   semud: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 20 L12 5 L22 20z" />
       <rect x="9" y="13" width="6" height="7" rx="1" />
       <path d="M12 13a3 3 0 0 1 3 3" opacity="0.6" />
@@ -137,7 +137,7 @@ const NATION_ICONS = {
   ),
   // Lût — devrik şehir (Hûd 11:82)
   lut: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 4h4v6H4z" />
       <path d="M10 4h4v6h-4z" opacity="0.8" />
       <path d="M16 4h4v6h-4z" opacity="0.6" />
@@ -148,7 +148,7 @@ const NATION_ICONS = {
   ),
   // Firavun — piramit + taç (Kasas 28:38, Bakara 2:49)
   firavun: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 20 L12 3 L21 20z" />
       <line x1="12" y1="3" x2="12" y2="20" opacity="0.5" />
       <path d="M8 14h8" opacity="0.65" />
@@ -156,7 +156,7 @@ const NATION_ICONS = {
   ),
   // Medyen — terazi (Şuarâ 26:181-183 mizan)
   medyen: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <line x1="12" y1="3" x2="12" y2="21" />
       <line x1="4" y1="8" x2="20" y2="8" />
       <path d="M4 8L1.5 14a3 3 0 0 0 5 0z" />
@@ -166,7 +166,7 @@ const NATION_ICONS = {
   ),
   // Eyke — sık ağaç kümesi (Şuarâ 26:176)
   eyke: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7 14a4 4 0 1 1 4-6 4 4 0 0 1 6 6z" />
       <line x1="12" y1="14" x2="12" y2="21" />
       <path d="M8 21h8" opacity="0.5" />
@@ -174,7 +174,7 @@ const NATION_ICONS = {
   ),
   // İbrahim kavmi — kırık put (Enbiyâ 21:58)
   'ibrahim-kavmi': (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="8" r="3" />
       <path d="M9 14l1 4h4l1-4" />
       <path d="M8 21h8" opacity="0.55" />
@@ -183,7 +183,7 @@ const NATION_ICONS = {
   ),
   // Karun — hazine kesesi + para (Kasas 28:76)
   karun: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M6 8h12l-1.5 12H7.5z" />
       <path d="M8 5c1-1 2.5-1 4-1s3 0 4 1l-1 3H9z" />
       <circle cx="12" cy="14" r="2.5" opacity="0.7" />
@@ -191,7 +191,7 @@ const NATION_ICONS = {
   ),
   // Ress — kuyu (Furkan 25:38)
   ress: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <ellipse cx="12" cy="6" rx="7" ry="2" />
       <path d="M5 6v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6" />
       <path d="M5 12h14" opacity="0.5" />
@@ -200,7 +200,7 @@ const NATION_ICONS = {
   ),
   // Tübba — çift boynuzlu taç (Duhân 44:37 · Yemen kralları)
   tubba: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 10l3 6h10l3-6-4 3-4-5-4 5z" />
       <line x1="4" y1="20" x2="20" y2="20" />
       <circle cx="9" cy="8" r="0.8" fill="currentColor" />
@@ -209,7 +209,7 @@ const NATION_ICONS = {
   ),
   // İrem — çoklu sütun (Fecr 89:7 zâti'l-imâd)
   irem: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <line x1="3" y1="22" x2="21" y2="22" />
       <line x1="3" y1="4" x2="21" y2="4" opacity="0.55" />
       <line x1="6" y1="4" x2="6" y2="22" />
@@ -219,7 +219,7 @@ const NATION_ICONS = {
   ),
   // Yunus kavmi — balık + tevbe halkası (Yunus 10:98)
   'yunus-kavmi': (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M15 12c-3-3-8-3-11 0 3 3 8 3 11 0z" />
       <path d="M15 12l6-4v8z" />
       <circle cx="7" cy="12" r="0.7" fill="currentColor" />
@@ -228,7 +228,7 @@ const NATION_ICONS = {
   ),
   // Sebe — baraj / su seddi (Sebe 34:16 seylü'l-arim)
   sebe: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 14 L4 6 L20 6 L20 14z" />
       <path d="M2 20c1-1 2.5-1 3.5 0s2.5 1 3.5 0 2.5-1 3.5 0 2.5 1 3.5 0 2.5-1 3.5 0" />
       <line x1="9" y1="6" x2="9" y2="14" opacity="0.55" />
@@ -237,7 +237,7 @@ const NATION_ICONS = {
   ),
   // Ashâb-ı Uhdud — ateş çukuru / hendek (Bürûc 85:4-6)
   uhdud: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 14l3 6h12l3-6z" />
       <path d="M9 6c1 2 2 3 3 6-3 0-5-2-5-4z" opacity="0.75" />
       <path d="M13 4c1 3 3 4 3 7-2 0-4-2-4-4z" opacity="0.65" />
@@ -245,7 +245,7 @@ const NATION_ICONS = {
   ),
   // Ashâb-ı Sebt — balık ağı + su (A'râf 7:163)
   sebt: (size = 20) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 5l16 6-16 6z" />
       <path d="M4 5v12" opacity="0.5" />
       <path d="M9 8l7 6" opacity="0.35" />
@@ -272,7 +272,7 @@ function HelakIcon({ type, size = 16, color }) {
 }
 
 // Sünnetullah pattern — Islamic geometric hero background
-const KAVIM_HERO_PATTERN = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'>
+const KAVIM_HERO_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'>
 <g fill='none' stroke='%23d4a574' stroke-width='0.5' opacity='0.5'>
 <polygon points='40,8 56,20 62,40 56,60 40,72 24,60 18,40 24,20' />
 <polygon points='40,20 52,28 56,40 52,52 40,60 28,52 24,40 28,28' opacity='0.5' />

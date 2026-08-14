@@ -380,28 +380,28 @@ const BISMILLAH_AR = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ ال�
   .replace(/\u0670\u064E/g, '\u0670');
 
 const SearchIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
   </svg>
 );
 
 const ChevronLeft = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="15 18 9 12 15 6" />
   </svg>
 );
 const ChevronRight = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="9 18 15 12 9 6" />
   </svg>
 );
 const BookmarkIcon = ({ size = 14, filled = false }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
   </svg>
 );
 const SunIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
     <circle cx="12" cy="12" r="5"/>
     <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
     <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
@@ -410,12 +410,12 @@ const SunIcon = ({ size = 14 }) => (
   </svg>
 );
 const MoonIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 );
 const GlobeIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="9"/>
     <path d="M3 12h18"/>
     <path d="M12 3a14 14 0 0 1 0 18"/>
@@ -423,7 +423,7 @@ const GlobeIcon = ({ size = 16 }) => (
   </svg>
 );
 const PenIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 19l7-7 3 3-7 7-3-3z"/>
     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
     <path d="M2 2l7.586 7.586"/>
@@ -431,32 +431,32 @@ const PenIcon = ({ size = 16 }) => (
   </svg>
 );
 const EraserIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 20H7L3 16c-1-1-1-3 0-4l9-9c1-1 3-1 4 0l5 5c1 1 1 3 0 4L11 20"/>
     <path d="M6 11l8 8"/>
   </svg>
 );
 const TrashIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="3 6 5 6 21 6"/>
     <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
     <path d="M10 11v6M14 11v6"/>
   </svg>
 );
 const GripIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/>
     <circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/>
     <circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/>
   </svg>
 );
 const TextIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M5 5h14M12 5v14M9 19h6"/>
   </svg>
 );
 const WarningIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2L2 21h20L12 2z"/>
     <line x1="12" y1="10" x2="12" y2="14"/>
     <circle cx="12" cy="17.5" r="0.6" fill="currentColor"/>
@@ -466,7 +466,7 @@ const HighlighterIcon = ({ size = 16 }) => (
   // 2026-07-08: Marker + baseline underline + filled highlight rectangle behind
   // the tip → visually communicates "highlighter draws a translucent bar" so
   // user doesn't confuse it with the freehand pen (color chips).
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <rect x="3" y="14" width="10" height="4" fill="currentColor" opacity="0.32" stroke="none"/>
     <path d="M9 11l-4 4 1 4 4 1 4-4"/>
     <path d="M14 6l4 4-7 7-4-4z"/>
@@ -474,73 +474,73 @@ const HighlighterIcon = ({ size = 16 }) => (
   </svg>
 );
 const BookOpenIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
   </svg>
 );
 const ShareIcon = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
     <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
   </svg>
 );
 const MicIcon = ({ size = 15 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
     <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
     <line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
   </svg>
 );
 const BookIcon = ({ size = 15 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
   </svg>
 );
 const ListIcon = ({ size = 15 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
     <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
   </svg>
 );
 const TranslateIcon = ({ size = 15 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/>
     <path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/>
   </svg>
 );
 const CloseIcon = ({ size = 13 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
   </svg>
 );
 const GearIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="3"/>
     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
   </svg>
 );
 const TahtaIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14 4l6 6-9 9-6 1 1-6z"/>
     <path d="M14 4l3-3 6 6-3 3"/>
     <path d="M3 21h7"/>
   </svg>
 );
 const LayoutIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
     <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
   </svg>
 );
 const PlayIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <polygon points="5,3 19,12 5,21" />
   </svg>
 );
 const PauseIcon = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/>
   </svg>
 );
@@ -2988,7 +2988,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 display: 'inline-flex', alignItems: 'center', gap: '4px',
               }}>
                 {surahName}
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
+                <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </span>
@@ -3059,7 +3059,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 e.currentTarget.style.color = navC.label;
               }}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
@@ -3223,7 +3223,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ fontSize: '0.78rem', color: gold, fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap' }}>
                   {surahName}
                 </span>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
+                <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showSurahPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </button>
@@ -3280,7 +3280,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       {language === 'tr' ? 'Cüz' : 'Juz'}
                     </span>
                     <span style={{ color: gold, fontWeight: 700 }}>{currentDisplayJuz}</span>
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showJuzPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                    <svg aria-hidden="true" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showJuzPicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
                       <polyline points="6 9 12 15 18 9"/>
                     </svg>
                   </button>
@@ -3349,7 +3349,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               ? `${currentPage + 1}–${currentPage}` /* Mushaf spread: sol=büyük, sağ=küçük */
                               : currentPage)}
                       </span>
-                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showPagePicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
+                      <svg aria-hidden="true" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={navC.chevron} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showPagePicker ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}>
                         <polyline points="6 9 12 15 18 9"/>
                       </svg>
                     </button>
@@ -3834,7 +3834,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 transform: showTajweedLegend ? 'rotate(180deg)' : 'rotate(0deg)',
                 display: 'inline-flex',
               }}>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </span>
@@ -3947,7 +3947,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             // Shared: arrow icon
             const arrowIcon = (
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
                 <path d="M6 4l4 4-4 4" stroke={gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             );
@@ -4026,7 +4026,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseEnter={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.14)' : 'rgba(212,165,116,0.14)'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = dropC.itemBgActive; }}
                 >
-                  <svg width="13" height="16" viewBox="0 0 14 18" fill="none" style={{ flexShrink: 0 }}>
+                  <svg aria-hidden="true" width="13" height="16" viewBox="0 0 14 18" fill="none" style={{ flexShrink: 0 }}>
                     <path d="M1 1h12v16l-6-4-6 4V1z" fill={gold} fillOpacity="0.15" stroke={gold} strokeWidth="1.5" strokeLinejoin="round"/>
                     <path d="M4 6h6M4 9h4" stroke={gold} strokeWidth="1.2" strokeLinecap="round"/>
                   </svg>
@@ -4170,7 +4170,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                   >
                     <div style={srIcon}>
-                      <svg width="13" height="16" viewBox="0 0 14 18" fill="none">
+                      <svg aria-hidden="true" width="13" height="16" viewBox="0 0 14 18" fill="none">
                         <path d="M1 1h12v16l-6-4-6 4V1z" fill={gold} fillOpacity="0.13" stroke={gold} strokeWidth="1.5" strokeLinejoin="round"/>
                         <path d="M4 6h6M4 9h4" stroke={gold} strokeWidth="1.1" strokeLinecap="round"/>
                       </svg>
@@ -4197,7 +4197,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     style={{ ...srRow, background: `${gold}0e` }} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                   >
                     <div style={srIcon}>
-                      <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
+                      <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="none">
                         <path d="M3 2h14v16l-7-5-7 5V2z" fill={gold} fillOpacity="0.18" stroke={gold} strokeWidth="1.4" strokeLinejoin="round"/>
                         <text x="10" y="12" textAnchor="middle" fontSize="7" fontWeight="700" fill={gold} fontFamily="Inter,sans-serif">A</text>
                       </svg>
@@ -4219,7 +4219,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                   >
                     <div style={srIcon}>
-                      <svg width="15" height="17" viewBox="0 0 16 18" fill="none">
+                      <svg aria-hidden="true" width="15" height="17" viewBox="0 0 16 18" fill="none">
                         <rect x="1" y="1" width="14" height="16" rx="2" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                         <path d="M4 5.5h8M4 8.5h6M4 11.5h4" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
                       </svg>
@@ -4240,7 +4240,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                   >
                     <div style={srIcon}>
-                      <svg width="17" height="17" viewBox="0 0 20 20" fill="none">
+                      <svg aria-hidden="true" width="17" height="17" viewBox="0 0 20 20" fill="none">
                         <circle cx="10" cy="10" r="9" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                         <text x="10" y="14" textAnchor="middle" fontSize="8" fontWeight="700" fill={gold} fontFamily="Inter,sans-serif">{num}</text>
                       </svg>
@@ -4263,7 +4263,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
                   <div style={srIcon}>
-                    <svg width="15" height="17" viewBox="0 0 16 18" fill="none">
+                    <svg aria-hidden="true" width="15" height="17" viewBox="0 0 16 18" fill="none">
                       <rect x="1" y="1" width="14" height="16" rx="2" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                       <path d="M4 5.5h8M4 8.5h8M4 11.5h6" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
                       <circle cx="13" cy="3" r="3.2" fill={dayMode ? '#f5efe2' : COLORS.cosmicBlack} stroke={gold} strokeWidth="1"/>
@@ -4538,7 +4538,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.color = dropC.text; }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = dropC.textMuted; }}
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
@@ -5666,7 +5666,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   cursor: 'pointer', flexShrink: 0,
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
@@ -5732,7 +5732,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const iconMescid = <img src="/icons/masjid-al-nabawi.png" alt="" width="17" height="17" style={{ display: 'block', objectFit: 'contain' }} />;
               const iconKaabe  = <img src="/icons/kaaba.png" alt="" width="15" height="15" style={{ display: 'block', objectFit: 'contain' }} />;
               const arrowIcon  = (
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, opacity: 0.4 }}>
                   <path d="M6 4l4 4-4 4" stroke={gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               );
@@ -5826,7 +5826,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(154,111,16,0.10)' : 'rgba(212,165,116,0.08)'; }}
                 >
                   <div style={srIcon}>
-                    <svg width="12" height="14" viewBox="0 0 14 18" fill="none">
+                    <svg aria-hidden="true" width="12" height="14" viewBox="0 0 14 18" fill="none">
                       <path d="M1 1h12v16l-6-4-6 4V1z" fill={gold} fillOpacity="0.15" stroke={gold} strokeWidth="1.5" strokeLinejoin="round"/>
                       <path d="M4 6h6M4 9h4" stroke={gold} strokeWidth="1.2" strokeLinecap="round"/>
                     </svg>
@@ -5873,7 +5873,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
                   <div style={srIcon}>
-                    <svg width="17" height="19" viewBox="0 0 16 18" fill="none">
+                    <svg aria-hidden="true" width="17" height="19" viewBox="0 0 16 18" fill="none">
                       <path d="M3 2v14M13 2v14" stroke={gold} strokeWidth="1.3" strokeLinecap="round"/>
                       <path d="M3 5h10M3 9h7M3 13h10" stroke={gold} strokeWidth="1" strokeLinecap="round" strokeOpacity="0.85"/>
                     </svg>
@@ -5898,7 +5898,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
                   <div style={srIcon}>
-                    <svg width="17" height="19" viewBox="0 0 16 18" fill="none">
+                    <svg aria-hidden="true" width="17" height="19" viewBox="0 0 16 18" fill="none">
                       <rect x="1" y="1" width="14" height="16" rx="2" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                       <path d="M4 5.5h8M4 8.5h6M4 11.5h4" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
                     </svg>
@@ -5919,7 +5919,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
                   <div style={srIcon}>
-                    <svg width="19" height="19" viewBox="0 0 20 20" fill="none">
+                    <svg aria-hidden="true" width="19" height="19" viewBox="0 0 20 20" fill="none">
                       <circle cx="10" cy="10" r="9" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                       <text x="10" y="14" textAnchor="middle" fontSize="8" fontWeight="700" fill={gold} fontFamily="Inter,sans-serif">{num}</text>
                     </svg>
@@ -5986,7 +5986,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                 >
                   <span>{language === 'tr' ? 'Tüm 114 sûreyi göster' : 'Show all 114 surahs'}</span>
-                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                  <svg aria-hidden="true" width="11" height="11" viewBox="0 0 12 12" fill="none">
                     <path d="M3 4l3 3 3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
@@ -6061,7 +6061,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   style={srRow} onMouseEnter={hoverOn} onMouseLeave={hoverOff}
                 >
                   <div style={srIcon}>
-                    <svg width="17" height="19" viewBox="0 0 16 18" fill="none">
+                    <svg aria-hidden="true" width="17" height="19" viewBox="0 0 16 18" fill="none">
                       <rect x="1" y="1" width="14" height="16" rx="2" fill={gold} fillOpacity="0.1" stroke={gold} strokeWidth="1.2"/>
                       <path d="M4 5.5h8M4 8.5h8M4 11.5h6" stroke={gold} strokeWidth="1" strokeLinecap="round"/>
                       <circle cx="13" cy="3" r="3.2" fill={dayMode ? '#f5efe2' : COLORS.cosmicBlack} stroke={gold} strokeWidth="1"/>
@@ -6182,7 +6182,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Gold ornament */}
               <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-                <svg width="120" height="16" viewBox="0 0 120 16" fill="none">
+                <svg aria-hidden="true" width="120" height="16" viewBox="0 0 120 16" fill="none">
                   <line x1="0" y1="8" x2="48" y2="8" stroke={gold} strokeWidth="0.8" strokeOpacity="0.4"/>
                   <circle cx="60" cy="8" r="4" fill={gold} fillOpacity="0.3" stroke={gold} strokeWidth="1" strokeOpacity="0.6"/>
                   <circle cx="60" cy="8" r="1.5" fill={gold} fillOpacity="0.8"/>
@@ -6301,7 +6301,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 border: `1px solid ${dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.12)'}`,
                 display: 'flex', alignItems: 'center', gap: '10px',
               }}>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <circle cx="8" cy="8" r="7" stroke={gold} strokeWidth="1.2" strokeOpacity="0.6"/>
                   <path d="M8 5v4M8 11v.5" stroke={gold} strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
@@ -6314,7 +6314,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Bottom ornament */}
               <div style={{ textAlign: 'center', marginTop: '48px' }}>
-                <svg width="80" height="12" viewBox="0 0 80 12" fill="none">
+                <svg aria-hidden="true" width="80" height="12" viewBox="0 0 80 12" fill="none">
                   <line x1="0" y1="6" x2="30" y2="6" stroke={gold} strokeWidth="0.8" strokeOpacity="0.3"/>
                   <circle cx="40" cy="6" r="3" fill={gold} fillOpacity="0.25" stroke={gold} strokeWidth="1" strokeOpacity="0.5"/>
                   <circle cx="40" cy="6" r="1" fill={gold} fillOpacity="0.7"/>
@@ -10689,7 +10689,7 @@ function VerseCompareModal({
         }}
       >
         {isSelected && (
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         )}
@@ -10888,7 +10888,7 @@ function VerseCompareModal({
               onMouseEnter={(e) => { if (!canPrev) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { if (!canPrev) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
@@ -10911,7 +10911,7 @@ function VerseCompareModal({
               onMouseEnter={(e) => { if (!canNext) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { if (!canNext) return; e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
@@ -10934,7 +10934,7 @@ function VerseCompareModal({
               onMouseEnter={(e) => { e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.20)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.text; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = dayMode ? 'rgba(180,140,80,0.10)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = C.textMuted; }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
@@ -11193,11 +11193,11 @@ function VerseCompareModal({
                         }}
                       >
                         {copiedAuthorId === authorId ? (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         ) : (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                           </svg>

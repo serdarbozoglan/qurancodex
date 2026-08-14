@@ -77,7 +77,15 @@ export default function BookmarkButton({ item, size = 'sm', language = 'tr' }) {
         e.currentTarget.style.color = saved ? COLORS.gold : COLORS.silver;
       }}
     >
-      <svg width={iconSize} height={iconSize} viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {/* aria-hidden ŞART (2026-08-13): butonun kendisinde zaten `aria-label`
+          + `title` var (52-53. satır). İkon etiketlenmezse ekran okuyucu önce
+          butonun adını, sonra adsız bir grafik ögesini okur — çift duyuru.
+          İkona AYRI bir `aria-label` vermek de yanlış olurdu: §A1'de öğrenildi,
+          etiket içeriği EZER. Doğru olan dekoratifi gizlemek.
+          Bu tek satır sitedeki etiketsiz svg'lerin çoğunu kapatıyor: bileşen
+          kart başına bir kez render oluyor → /arac/ilk-son-kelimeler'de 114,
+          /arac/kurani-tani'da 50, /arac/kiyamet'te 26, /atlas/kadinlar'da 13. */}
+      <svg aria-hidden="true" width={iconSize} height={iconSize} viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
       </svg>
     </button>

@@ -162,7 +162,7 @@ function IsnadTree({ onImamClick, highlightedImam, onRawiClick }) {
 
   return (
     <div style={{ overflowX: 'auto', scrollbarWidth: 'none', marginBottom: 24, display: 'flex', justifyContent: 'center' }}>
-      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ minWidth: W, display: 'block' }}>
+      <svg aria-hidden="true" width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ minWidth: W, display: 'block' }}>
         {/* Prophet → all Sahabî */}
         {TREE_NODES.sahabi.map(s => (
           <line key={s.id} x1={TREE_NODES.prophet.x} y1={TREE_NODES.prophet.y + 16}

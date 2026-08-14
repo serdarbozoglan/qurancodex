@@ -677,7 +677,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             ref={containerRef}
             style={{ flex: 1, position: 'relative', minWidth: 0, minHeight: 0 }}
           >
-            <svg
+            <svg aria-hidden="true"
               ref={svgRef}
               width="100%" height="100%"
               style={{ display: 'block' }}

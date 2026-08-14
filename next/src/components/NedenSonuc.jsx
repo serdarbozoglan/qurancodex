@@ -41,7 +41,7 @@ export default function NedenSonuc() {
   const TOOL_HEADER = (
     <ToolHeader
       icon={
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="6" cy="6" r="3" />
           <circle cx="18" cy="18" r="3" />
           <path d="M8.5 8.5l7 7" />

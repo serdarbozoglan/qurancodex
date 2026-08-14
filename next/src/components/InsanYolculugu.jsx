@@ -88,7 +88,7 @@ export default function InsanYolculugu({ onClose }) {
       paddingTop: '62px',
     }}>
       <ToolHeader
-        icon={<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18" /></svg>}
+        icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18" /></svg>}
         titleTr="İnsan Yolculuğu"
         titleEn="The Human Journey"
         subtitleTr="Fıtrattan Cemâlullah'a — 10 aşama"

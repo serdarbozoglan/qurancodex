@@ -236,7 +236,7 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
                 onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = `${COLORS.gold}12`; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = `${COLORS.gold}44`; e.currentTarget.style.background = 'transparent'; }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="18" cy="5" r="3" />
                   <circle cx="6" cy="12" r="3" />
                   <circle cx="18" cy="19" r="3" />
