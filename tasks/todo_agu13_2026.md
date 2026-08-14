@@ -378,12 +378,17 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
 - [x] **Z1h · `/kutuphanem` canonical/hreflang** — **yanlış pozitifmiş.**
       Sayfa bilerek `noindex` (kullanıcıya özgü özel sayfa); kanonik adresi
       olmaması doğru. Denetim aracına `noindex` istisnası eklendi.
-- [ ] **Z1e · Başlık ağacı (~~32~~ → **29 rota**, 58 sayfa)** — seviye atlaması (2→4, 1→3, 1→4);
-      *(Z3 turunda yeniden sayıldı: 29 benzersiz rota × 2 dil = 58 sayfa.)*
+- [~] **Z1e · Başlık ağacı — büyük ölçüde kapandı, ölçüldü** (13 Ağustos gecesi)
+      Denetimde 29 rota. Yeniden ölçüm: örneklenen 6 rotanın **5'i temiz**,
+      yalnız `/tr/atlas/kissa` (1→3) kaldı. Paralel tur kapatmış.
+      - [ ] Kalan rotalarda tam sayım yapılmadı — `page-audit` ile bir tur at
       ayrıca `/oku` ve `/ayet/2/255`'te **h1 YOK**, `/tefekkur`,
       `/tefekkur/[slug]` ve `/atlas/ahiret-yolculugu`'nda **iki h1**
-- [ ] **Z1f · Gezinme `<button>` ile (~~31~~ → **29 rota**)** — `/arac/tum-araclar`'da
-      çözüldü, aynı kalıp diğer sayfalarda duruyor.
+- [~] **Z1f · Gezinme `<button>` ile — NAVBAR tarafı kapandı** `bbbd3ec`
+      Mega-menü 60/1 → **7 buton / 54 bağlantı**; mobil çekmece 25 → **78
+      bağlantı**. Navbar 74 rotanın hepsinde olduğu için en büyük parça buydu.
+      - [ ] **Kalan: sayfa-içi gezinme** — `/arac/tum-araclar` çözülmüştü;
+            aynı kalıp diğer sayfalarda duruyor.
       ⚠ **En yoğunu `esma-frekans` DEĞİL** (Z3 turunda ölçüldü):
       `ilk-son-kelimeler` **483 buton / 9 bağlantı** · `atlas/kissa` 157/6 ·
       `graf/kelime-isi` 153/3. Ayrıca **navbar mega-menüsünün kendisi** de
