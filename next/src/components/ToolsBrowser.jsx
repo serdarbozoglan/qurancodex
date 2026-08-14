@@ -39,7 +39,6 @@ import {
 } from '../data/tools';
 import Link from 'next/link';
 import { routeForToolEvent } from '../lib/toolRoutes';
-import { TOOL_ROUTES } from '../lib/toolRoutes';
 import { TOOL_CATALOG } from '../data/toolCatalog';
 import { useRouter } from 'next/navigation';
 
@@ -70,7 +69,19 @@ const ALL_TOOLS = [...VIZ_TOOLS, ...ANALYSIS_TOOLS, ...RESEARCH_TOOLS];
 // sade bir bölümde listeleniyor.
 //
 // Kaynak: src/data/toolCatalog.js (corpus ile paylaşılan tek otorite).
-const COVERED_ROUTES = new Set(Object.values(TOOL_ROUTES));
+//
+// ⚠ 14 Ağustos: `Object.values(TOOL_ROUTES)` YANLIŞTI — o harita 27 rota
+// taşıyor (PsychologySection/CennetCehennem/iblis gibi başka yerlerdeki
+// butonlar için de kayıt var), ama üstteki 21 kartın kapsadığı rota sayısı
+// yalnızca 23. Fazladan kapsanan rotalar EXTRA_TOOLS'tan yanlışlıkla
+// filtrelenip 4 araç (Tabiat Atlası, Nefs Mertebeleri, İblis & Şeytan,
+// İlk-Son Kelimeler) sayfada hiç görünmüyordu. Doğrusu: yalnız üstteki
+// kartların GERÇEKTEN kullandığı event'lerin rotaları.
+const COVERED_ROUTES = new Set(
+  [...FEATURED_TOOLS, ...ALL_TOOLS]
+    .map((t) => routeForToolEvent(t.event))
+    .filter(Boolean)
+);
 const EXTRA_TOOLS = TOOL_CATALOG
   .filter((t) => !COVERED_ROUTES.has(t.route) && t.route !== '/tefekkur')
   .map((t) => ({
