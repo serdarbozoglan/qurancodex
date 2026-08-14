@@ -1004,6 +1004,26 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .g-3-6 {
   grid-template-columns: repeat(6, 1fr);
 }
+.g-2-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.ilk-grid-fill {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.ilk-item-grid {
+  grid-template-columns: 110px 1fr 24px 1.4fr;
+}
+.dd-breakdown-grid {
+  grid-template-columns: 160px auto 1fr;
+}
+.dd-anatomy-grid {
+  grid-template-columns: 180px 1fr 1fr 1fr;
+}
+.g-dyn {
+  /* Sütun sayısı veriye göre değişen gridler için — CSS custom property
+     ile `style={{ '--cols': n }}` üzerinden geçirilir. */
+  grid-template-columns: repeat(var(--cols, 3), 1fr);
+}
 .g-1-5 {
   grid-template-columns: repeat(5, 1fr);
 }
@@ -1032,6 +1052,10 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   /* flexDirection: isMobile ? 'row' : 'column' (ters kalıp — masaüstü
      column, mobil row) */
   flex-direction: column;
+}
+.fd-row-colreverse {
+  /* flexDirection: isMobile ? 'column-reverse' : 'row' */
+  flex-direction: row;
 }
 .dsp-flex {
   display: flex;
@@ -1070,6 +1094,24 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .g-3-6 {
     grid-template-columns: repeat(3, 1fr);
   }
+  .g-2-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .g-dyn {
+    grid-template-columns: 1fr;
+  }
+  .ilk-grid-fill {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ilk-item-grid {
+    grid-template-columns: 92px 1fr 16px 1.4fr;
+  }
+  .dd-breakdown-grid {
+    grid-template-columns: auto 1fr;
+  }
+  .dd-anatomy-grid {
+    grid-template-columns: 1fr;
+  }
   .g-1-5 {
     grid-template-columns: 1fr;
   }
@@ -1093,6 +1135,9 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   }
   .fd-col-reverse {
     flex-direction: row;
+  }
+  .fd-row-colreverse {
+    flex-direction: column-reverse;
   }
   .dsp-flex {
     display: none;

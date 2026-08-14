@@ -665,9 +665,8 @@ function TabLafziAyetler({ items, language, isMobile }) {
         }
       </p>
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: isMobile ? '14px' : '18px',
       }}>
         {items.map((item) => (
@@ -1429,9 +1428,8 @@ function FormulaBox({ formula, language, isMobile }) {
       </p>
 
       {/* 4-part breakdown */}
-      <div style={{
+      <div className="g-1-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
         gap: isMobile ? '8px' : '10px',
         marginBottom: '18px',
       }}>
@@ -1590,9 +1588,8 @@ function KavimComparisonGrid({ patterns, language, isMobile }) {
       }}>
         {tr ? 'Örüntü Panoraması — On Kavim, Tek Yasa' : 'Pattern Panorama — Ten Nations, One Law'}
       </div>
-      <div style={{
+      <div className="g-2-6" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(6, 1fr)',
         gap: isMobile ? '10px' : '14px',
       }}>
         {patterns.map(p => {
@@ -1746,9 +1743,8 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
       </div>
 
       {/* 3-stage flow */}
-      <div style={{
+      <div className="g-1-3" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
         gap: '10px',
       }}>
         {[
@@ -1787,8 +1783,8 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
       </div>
 
       {/* Bottom row: verses + laws invoked */}
-      <div style={{
-        display: 'flex', flexDirection: isMobile ? 'column' : 'row',
+      <div className="fd-row" style={{
+        display: 'flex',
         gap: '14px', paddingTop: '12px',
         borderTop: `1px solid ${COLORS.glassBorderSoft}`,
       }}>

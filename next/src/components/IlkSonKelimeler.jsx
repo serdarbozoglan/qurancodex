@@ -293,11 +293,10 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           sticky:top:62 gerçekten çalışır. */}
       <div style={{ flex: 1, display: 'flex' }}>
         {/* Grid */}
-        <div id="ilk-son-grid-container" style={{
+        <div id="ilk-son-grid-container" className="ilk-grid-fill" style={{
           flex: 1,
           padding: isMobile ? '14px' : '18px 24px 32px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(200px, 1fr))',
           gap: '10px',
           alignContent: 'start',
         }}>
@@ -1146,9 +1145,8 @@ function ClosingSynthesis({ language, isMobile }) {
           </span>
         </div>
 
-        <div style={{
+        <div className="g-1-3" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: '12px',
         }}>
           {[
@@ -1617,13 +1615,12 @@ function SpotlightCard({ spotlight, language, isMobile }) {
       scrollMarginTop: '120px',
     }}>
       {/* Header: title (left) + category chip (right) */}
-      <header style={{
+      <header className="fd-row-colreverse" style={{
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         gap: '14px',
         marginBottom: isMobile ? '20px' : '24px',
-        flexDirection: isMobile ? 'column-reverse' : 'row',
       }}>
         <h3 style={{
           fontFamily: FONTS.display, fontWeight: 700,
@@ -1958,9 +1955,9 @@ function SpotlightList({ spotlight, language, isMobile }) {
       {spotlight.items.map((item, i) => (
         <div
           key={i}
+          className="ilk-item-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '92px 1fr 16px 1.4fr' : '110px 1fr 24px 1.4fr',
             gap: isMobile ? '6px' : '10px',
             alignItems: 'center',
             padding: '8px 0',

@@ -222,9 +222,8 @@ function ProphetsTab({ tr, isMobile }) {
           </p>
         </div>
 
-        <div style={{
+        <div className="g-1-2" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
           gap: '18px',
         }}>
           {data.additionalProphets.map(p => (
@@ -391,9 +390,8 @@ function AnatomyTab({ tr, isMobile }) {
       </div>
 
       {/* Layer Legend */}
-      <div style={{
+      <div className="g-1-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
         gap: '12px', marginBottom: '32px',
       }}>
         {layers.map(l => (
@@ -469,9 +467,8 @@ function AnatomyTab({ tr, isMobile }) {
           {example.breakdown.map((b, i) => {
             const layer = layers.find(l => l.id === b.layerId);
             return (
-              <div key={i} style={{
+              <div key={i} className="dd-breakdown-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? 'auto 1fr' : '160px auto 1fr',
                 gap: '14px', alignItems: 'center',
                 padding: '12px 14px',
                 background: `${layer.color}0c`,
@@ -554,9 +551,8 @@ function ResponseTab({ tr, isMobile }) {
       {/* Grid */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {rows.map((r, i) => (
-          <div key={i} style={{
+          <div key={i} className="dd-anatomy-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '180px 1fr 1fr 1fr',
             gap: '14px', alignItems: 'stretch',
             padding: isMobile ? '16px 14px' : '18px 20px',
             background: 'rgba(255,255,255,0.03)',

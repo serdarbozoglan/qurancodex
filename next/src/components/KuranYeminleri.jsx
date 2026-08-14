@@ -280,9 +280,8 @@ export default function KuranYeminleri({ onClose }) {
           </p>
 
           {/* Stat cards */}
-          <div style={{
+          <div className="g-2-4" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
             gap: '12px',
           }}>
             {[
@@ -1048,9 +1047,9 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
 
             {/* Structured examples: subject → purpose */}
             {item.examples && item.examples.length > 0 && (
-              <div style={{
+              <div className="g-dyn" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : `repeat(${item.examples.length}, 1fr)`,
+                '--cols': item.examples.length,
                 gap: '10px', marginTop: '16px',
               }}>
                 {item.examples.map((ex, j) => (
@@ -1173,9 +1172,9 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
 
             {/* Structured functions: 3 distinct roles of the oath */}
             {item.functions && item.functions.length > 0 && (
-              <div style={{
+              <div className="g-dyn" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : `repeat(${item.functions.length}, 1fr)`,
+                '--cols': item.functions.length,
                 gap: '10px', marginTop: '16px',
               }}>
                 {item.functions.map((fn, j) => (
@@ -2212,9 +2211,8 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
           </span>
         </div>
 
-        <div style={{
+        <div className="g-1-3" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: '12px',
         }}>
           {[
