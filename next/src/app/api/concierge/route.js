@@ -35,7 +35,7 @@ const DEGRADED_BUCKETS = {
     'atlas-dua', 'atlas-kavram', 'atlas-ahiret-yolculugu-stage'],
 };
 
-function buildDegradedResult(grouped, lang) {
+function buildDegradedResult(grouped, lang, reason) {
   const out = { intro: '', closing: '' };
   for (const [field, types] of Object.entries(DEGRADED_BUCKETS)) {
     const seen = new Set();
@@ -46,9 +46,25 @@ function buildDegradedResult(grouped, lang) {
       .slice(0, 5)
       .map(id => ({ id, reason: '' }));
   }
+  // Degrade metni (2026-08-14 yeniden yazıldı — kullanıcı geri bildirimi).
+  //
+  // Öncesi: "Bugünkü yapay zekâ kotası doldu; ... Yarın tekrar deneyebilirsin."
+  // Üç sorun vardı:
+  //   1. Sistemin iç mekaniğini ("yapay zekâ kotası") kullanıcının önüne
+  //      koyuyordu — okuyan "site bozuldu" sanıyor.
+  //   2. KİŞİSEL kota ile SİTE GENELİ bütçeyi ayırt etmiyordu; oysa çoğu
+  //      durumda dolan yalnız o kullanıcının günlük payı (`reason === 'ip'`).
+  //   3. Kaybedileni söylüyordu, VERİLENİ değil. Oysa degrade modda âyetler
+  //      hâlâ gerçek arama sonucudur; eksik olan yalnız yorum/giriş metni —
+  //      ki sitenin kendi duruşu zaten "sistem yorum katmaz, rehberlik eder".
+  const personal = reason === 'ip';
   out.intro = lang === 'tr'
-    ? 'Bugünkü yapay zekâ kotası doldu; aşağıdakiler doğrudan arama sonuçlarıdır. Yarın tekrar deneyebilirsin.'
-    : "Today's AI quota is used up; the results below come straight from search. Please try again tomorrow.";
+    ? (personal
+        ? 'Bugünlük rehber notların tamamlandı — aşağıdakiler doğrudan âyet ve içerik eşleşmeleri. Arama tam çalışıyor; yalnız yorum katmanı yarın yenileniyor.'
+        : 'Rehber notları şu an yoğunluk nedeniyle kapalı — aşağıdakiler doğrudan âyet ve içerik eşleşmeleri. Arama tam çalışıyor.')
+    : (personal
+        ? "You've used today's guided notes — the results below are direct verse and content matches. Search is fully working; the commentary layer refreshes tomorrow."
+        : 'Guided notes are paused due to load — the results below are direct verse and content matches. Search is fully working.');
   return out;
 }
 
@@ -279,7 +295,7 @@ export async function POST(request) {
     const t2 = Date.now();
     let parsed, usage = null;
     if (degraded) {
-      parsed = buildDegradedResult(grouped, lang);
+      parsed = buildDegradedResult(grouped, lang, budget.reason);
       timings.claude = 0;
     } else {
       ({ parsed, usage } = await runConcierge({ query: effectiveQuery, grouped, lang }));

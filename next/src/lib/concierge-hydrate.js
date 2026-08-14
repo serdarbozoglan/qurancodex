@@ -5,24 +5,18 @@
 
 import { loadCorpus } from './concierge-search.js';
 
-// ── §13.15 Arabic normalization — KFGQPC fontunda daire/tofu render'ı önler.
-// verse-graph-bgem3.json'da Uthmani-özel karakterler (U+06EA, U+06E1, U+0671
-// vs.) mevcut. Concierge response'ta ayet gösterilirken normalize edilmeli.
-function normalizeArabic(text) {
-  if (!text) return text;
-  return text
-    .replace(/۪/g, 'ِ')                        // U+06EA → U+0650 (kasra)
-    .replace(/ۡ/g, 'ْ')                        // U+06E1 → U+0652 (sukun)
-    .replace(/[ً-ْ]ٓ/gu, 'ٓ')                  // §13.14 hareke+maddah fix
-    .replace(/ٱ/g, 'ا')                        // Alef wasla → düz alef
-    .replace(/ی/g, 'ي')                        // Farsi yeh → Arabic yeh
-    .replace(/[ؐ-ؔؖؗ]/g, '')                   // İslami kısaltma işaretleri
-    .replace(/[؀-؅]/g, '')                     // Kur'anî numara/dipnot
-    .replace(/[۝۞۩]/g, '')                     // ayet sonu, rub el hizb, secde
-    .replace(/ۦ/g, ' ')                        // small yeh → boşluk
-    .replace(/[ۖ-ۜۢۨ]/g, '')                   // waqf + dekoratif tajwid
-    .replace(/[﴾﴿]/g, '');                     // süslü parantezler
-}
+// ── §13.15 Arapça normalizasyonu — KANONİK fonksiyondan (2026-08-14)
+//
+// Burada YEREL BİR KOPYA vardı ve EKSİKTİ: strip aralığı `[ۖ-ۜۢۨ]` ile
+// sınırlıydı, kanonik listedeki `۟-ۭ` (U+06DF–U+06ED) aralığı YOKTU.
+// Sonuç (kullanıcı raporu 2026-08-14): `/sor` sonuçlarında Hûd 11:24 gibi
+// âyetlerin sonunda `۟` (U+06DF, küçük yuvarlak sıfır) **◉ daire** olarak
+// render oluyordu. Aynı hata sınıfı §13.15'te zaten kayıtlı — U+06E0 için
+// 2026-07'de bir kez düzeltilmiş, ama düzeltme yalnız kanonik dosyaya
+// uygulanmış, bu kopya güncellenmemişti.
+//
+// Kopya yerine `lib/arabic.js` import ediliyor: §13.15'in tek-kaynak ilkesi.
+import { cleanArabicForDisplay as normalizeArabic } from './arabic.js';
 
 // URL builders per type
 function buildUrl(item, lang = 'tr') {
