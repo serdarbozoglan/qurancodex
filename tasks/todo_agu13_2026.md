@@ -523,14 +523,45 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 > Kontrol listesi A bölümü bu sınıfı "23 araç tıklaması ölü" diye kaydetmiş ve
 > `ToolsBrowser` düzeltilmiş. **Aynı kalıp üç yerde daha duruyor.**
 
-- [ ] **Z3b1 · `/atlas/insan-psikolojisi` — CTA tıklaması ÖLÜ (ölçüldü)**
+- [x] ~~**Z3b1 · `/atlas/insan-psikolojisi` — CTA tıklaması ÖLÜ**~~ — **KAPANDI** `c26c157`
+      `<Link href={/tr/atlas/nefs-mertebeleri}>` oldu. Tıklama testi:
+      URL gerçekten değişiyor, `<a>` (orta tık çalışır), pageerror 0.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `PsychologySection.jsx:277` → `openNefisMertebeleri` · `openProphetAtlas`,
       ikisinin de **0 dinleyicisi** var. Playwright ile tıklandı: **URL değişmedi,
       hata da vermedi.** Kullanıcı için "buton bozuk" bile değil — hiçbir şey yok.
-- [ ] **Z3b2 · `CennetCehennem.jsx:1419` — "İlgili Araçlar" 4 butonu ölü**
+- [x] ~~**Z3b2 · `CennetCehennem.jsx:1419` — "İlgili Araçlar" butonları ölü**~~ — **KAPANDI** `c26c157`
+      ⚠ **Bulgum eksikti: 4 değil BEŞ rozet ölüymüş.** Beşincisinin
+      (`İmkânsız Ritim`) `event` alanı hiç yoktu, `link.event &&` guard'ı
+      sessizce yutuyordu. Hepsi `<Link>` oldu; hedefi olmayan rozet artık
+      hiç render edilmiyor. Tıklama testi: "Tabiat Atlası" → `/tr/atlas/doga`.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `openNatureAtlas` · `openAddresseeSystem` · `openConceptGraph` ·
       `openQuranCommands` → hepsi 0 dinleyici.
-- [ ] **Z3b3 · `PathContext.jsx:144` + `WordPopover.jsx:432`** — Vite dönemi
+- [x] ~~**Z3b3a · `WordPopover.jsx:432`**~~ — **KAPANDI** `c26c157`
+      3 rozet (`openConceptGraph` · `openHeatmap` · `openVerseGraph`) route'a
+      bağlandı. Ek kazanç: `?q=2:255` desteği `VerseGraphRoute`'a eklendi —
+      rozet önceden kullanıcıyı **tıkladığı âyeti kaybederek** genel grafiğe
+      düşürüyordu; durum artık URL'de (§16.9), bağlantı paylaşılabilir.
+      ⚠ Rota erişilebilirliği doğrulandı (`?q=2:255` → 200) ama **rozete
+      Okuma Modu içinden tıklayarak UI testi yapılmadı** — ReadingMode'da
+      kelime popover'ını otomatize edemedim. Elle bakılmalı.
+
+- [ ] **Z3b3b · `PathContext.jsx:144` — düzeltilmedi, çünkü ÖZELLİĞİN KENDİSİ ÖLÜ**
+      Kod düzeltmeye başlarken daha büyük bir şey çıktı: **rehberli "yol"
+      özelliğinin hiçbir girişi yok.** `PathCards.jsx` duruyor ama
+      `grep -rn "<PathCards"` → **0 sonuç**; `page.js`'teki nota göre
+      *"PathCards + AllTopics + ToolsShowcase kaldırıldı — SixGates bunları
+      konsolide eder"*. `PathProvider` hâlâ `layout.js`'te mount ediliyor,
+      `usePath()` tek tüketicisi de mount edilmeyen `PathCards`.
+      Ayrıca `PATH_OVERLAY_EVENTS`'in 6 hedefinden 3'ünün (`openProphetAtlas`,
+      `openDogaAtlasi`, `openZamanBoyutlari`) zaten dinleyicisi yok.
+      **Ölü kodu "doğru" hâle getirmek boşa iş** — önce karar:
+      - [ ] Özelliği geri getir (PathCards'ı mount et) → o zaman route'a bağla
+      - [ ] Ya da tamamen sil (`PathContext` + `PathCards` + `paths.jsx` +
+            `layout.js`'teki provider) — şu an ölü ağırlık
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
+      Vite dönemi
       `dispatchOverlayEvent` kalıntısı; `PATH_OVERLAY_EVENTS` haritasının
       karşılığı kalkmış.
       Toplu doğrulama: `openIblisSatan`, `openIlkSonKelimeler`,
@@ -572,6 +603,27 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       ⚠ **`3f9eed2` sonrası yeniden ölçüldü (21:0x): hâlâ 200.** O commit
       (`Z1c-ek`) aynı rotadaki **400 dönen fetch**'leri düzeltti — sınır
       doğrulaması ayrı iş, açık kalıyor.
+
+### 🔴 Z3-C2 · Z3b turunda ÇIKAN YENİ BULGULAR (2026-08-13 gecesi)
+
+- [ ] **Z3c4 · `/arac/tum-araclar` — REGRESYON: tıklanabilir öge 68 → 66**
+      `tools-navigation.spec.js:85` emniyet ağı yakaladı. **Sebep Z3a1/Z3b
+      commit'leri DEĞİL**, iki yolla kanıtlandı:
+      (a) kendi CSS'imi tarayıcıda açıp kapattım → sayı iki durumda da **66**;
+      (b) o sayfayı besleyen üç dosya (`tools.jsx`, `toolCatalog.js`,
+      `ToolsBrowser.jsx`) temel çizgi commit'inden (`901b7d5`) beri **hiç
+      değişmemiş**.
+      Yani regresyon `901b7d5..HEAD` arasında, paralel turda oluşmuş.
+      **Temel çizgi bilerek güncellenmedi** — güncellenirse başkasının
+      regresyonu silinmiş olur (kontrol listesi §J).
+      - [ ] Kaybolan 2 ögeyi bul: `git bisect` ya da ara commit'lerde ölç
+- [ ] **Z3c5 · `/arac/tum-araclar` katalogun tamamını göstermiyor: 50/55**
+      Sayfa 50 araç bağlantısı render ediyor, `toolCatalog.js`'te **55 giriş** var.
+      Sınıf C (veri sürüklenmesi): `ToolsBrowser` `tools.jsx`'ten besleniyor,
+      `/sor` ve `TOOL_CATALOG` başka dosyadan → iki liste ayrışmış.
+      Kontrol listesi §3.7 zaten "araç kataloğu 4 ayrı yerde" diyordu; bu onun
+      ölçülmüş hâli.
+      - [ ] Tek kaynağa indir (`toolCatalog.js` otorite olsun)
 
 ### 🟠 Z3-D · Sistem/kural ihlalleri
 
