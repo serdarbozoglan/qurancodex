@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulamanın tamamı 13 Ağustos gecesi ilk kez puanlandı: 74/100** →
+> **Uygulama geneli: 74 → 79/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -831,7 +831,39 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **İlk uygulama-geneli puan verildi: 74/100** (13 Ağustos gecesi, Z3 turu)
+- [x] **Düzeltmelerden sonra: 74 → 79/100** (13 Ağustos gecesi, `038f346..f0aa71f` push edildi)
+
+      Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
+
+      | Gösterge | Denetimde | Şimdi |
+      |---|---:|---:|
+      | Adsız buton | 114 (tek sayfada) | **0** |
+      | Arapça `lang`/`dir` eksik | 260 öge | **0/471** |
+      | Ekranda ham `**` | 3 rota | **0** |
+      | Konsol hatası | 5 rota | **0** |
+      | Başlık seviyesi atlaması | 29 rota | 6 örneğin **1'i** |
+      | Navbar kırılması (1024–1180) | 148 sayfa | **0** (font büyütmede de) |
+      | Ölü tıklama | 10 düğme | **0** |
+      | Geçersiz âyet URL'i | 200 + indekslenebilir | **404 + noindex** |
+      | 404 sayfası | çıplak, dilsiz, çıkışsız | **dilinde, navbar'lı, 3 çıkışlı** |
+      | Ölü kod | 916 satır + her sayfada provider | **silindi** |
+      | **Etiketsiz svg** | 166/285 | **166/285 — DEĞİŞMEDİ** |
+
+      | Eksen | Denetim | **Şimdi** | Kalan engel |
+      |---|---:|---:|---|
+      | İçerik & editoryal | 86 | **86** | §13.24 ihlali (Z3d2) hâlâ açık |
+      | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
+      | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
+      | Bilgi mimarisi | 76 | **80** ▲4 | 8 rota katalog/corpus dışında · 50/55 |
+      | Erişilebilirlik | 66 | **78** ▲12 | **166 etiketsiz svg** · gezinme `<button>` |
+      | SEO / sunucu render | 70 | **76** ▲6 | 74 sayfa SSR'da boş · kök 404 çıplak |
+      | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
+      | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
+
+      **85+ için sırayla gereken:** ① etiketsiz svg (166 — mekanik, tek tur)
+      ② gezinme `<button>` → `<Link>` (Z1f + Z3f1, site geneli)
+      ③ renk kararı + göç (C2) ④ EN sızıntıları (Z3e2) ⑤ kontrast + CWV'nin
+      73 sayfada **hiç ölçülmemiş** olması — iki eksen kısmen bilinmeyen üstünde.
 
       | Eksen | Anasayfa | **Uygulama** | Farkın sebebi |
       |---|---:|---:|---|
