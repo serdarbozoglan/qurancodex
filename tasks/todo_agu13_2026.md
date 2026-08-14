@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulama geneli: 74 → 81/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
+> **Uygulama geneli: 74 → 82/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -734,11 +734,23 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       Kovalar: 3.0–4.5 → 2.246'dan **1.544**'e · 2.0–3.0 → 1.174'ten **1.002**'ye.
       Gözle: `/tr/atlas/munafik` ekran görüntüsü — metin okunur, ikincil
       hiyerarşi korunmuş, solma yok.
-- [ ] **K2 · `#4a5568` (554 kalan) ve `rgb(74,96,128)` (96) token'a taşınsın ve açılsın**
-      (`#6a7a95` / `#5e7ba3`). C2 ile aynı iş — birlikte yapılmalı.
-- [ ] **K3 · slate-500 (`#64748b`) kararı** — 4.12, yani yalnız küçük metinde
-      düşüyor. Ya `#697a93`'e açılır ya da kullanıldığı yerlerde ≥18.66px'e
-      çıkarılır. **675 kalan örnek — K1 sonrası en büyük tek kalem.**
+- [x] ~~**K2 + K3 · üçüncü metin katmanı**~~ — **KAPANDI** `b142302` · **2.634 → 1.394**
+      **Kök sebep literal değil TOKEN'di.** Kod tabanı üçüncü kademe için
+      `COLORS.slate500/600/700/800` kullanıyordu ve **dördü de** AA'yı
+      geçmiyordu (4.12 · 2.59 · 1.89 · 1.34). Sorun tek tek kullanımlarda
+      değil, **katmanın olmamasındaydı**: ham palet (Tailwind slate) rol
+      yerine kullanılmış — §13.25 md. 2'nin tam yasakladığı şey.
+      Çözüm: `SEMANTIC.textFaint = '#70829c'` (slate tonu korunur, **5.02**).
+      Üç kademe artık gerçekten üç kademe: **15.74 / 7.65 / 5.02**.
+      AST ile **207 `color:` konumu / 25 dosya**.
+      **Dokunulmayanlar (bilinçli):** `slate500-800` token'ları silinmedi —
+      kenarlık/ayraç olarak hâlâ doğrular, AA eşiği metne aittir.
+      `/atlas/kissa`'nın ham literalleri de muaf kaldı (K4'ün konusu).
+      ⚠ **Kendi hatam:** import enjeksiyonum 7 dosyada `TEXT,, SEMANTIC`
+      üretti, site **500** döndü; rota sağlık kontrolü yakaladı.
+      **Kalan 1.394'ün kökü:** `rgba(148,163,184,0.7)` literalleri (142) ve
+      **ata `opacity` zinciri** — K1'in AST'i erişemedi çünkü opaklık metnin
+      stil nesnesinde değil, üstteki kapsayıcıda. Ayrı bir tur gerektirir.
 - [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar)
 - [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
       "büyük metin" muafiyeti bazı yerlerde kalkabilir
@@ -755,6 +767,10 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       Yani regresyon `901b7d5..HEAD` arasında, paralel turda oluşmuş.
       **Temel çizgi bilerek güncellenmedi** — güncellenirse başkasının
       regresyonu silinmiş olur (kontrol listesi §J).
+      ⚠ **14 Ağustos: test artık YEŞİL ama regresyon DÜZELMEDİ, MASKELENDİ.**
+      Araç bağlantısı 50 → **57**, çünkü ibadetler'in 7 rotası eklendi
+      (`1d5fdd8`); **+7, eksik −2'yi örttü**. Emniyet ağı artık bu kaybı
+      koruyamıyor — testin sabit bir alt kümeyi sayması gerek.
       - [ ] Kaybolan 2 ögeyi bul: `git bisect` ya da ara commit'lerde ölç
 - [x] ~~**Z3c6 · `Conclusion` CTA'sı kullanıcıyı EN BAŞA götürüyordu**~~ — **KAPANDI** `1f3c412`
       `handleScrollToPaths` `#path-cards`'a scroll ediyordu; o id PathCards
@@ -931,7 +947,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **Düzeltmelerden sonra: 74 → 81/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
+- [x] **Düzeltmelerden sonra: 74 → 82/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
 
       Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
 
@@ -958,7 +974,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
       | Bilgi mimarisi | 76 | **85** ▲9 | `/arac/tum-araclar` 50/55 · Z3c4 regresyonu |
-      | Erişilebilirlik | 66 | **75** ▲9 | kontrast **2.634** ihlal (K1 ile −874) · K2/K3 sırada |
+      | Erişilebilirlik | 66 | **80** ▲14 | kontrast **1.394** (−%60) · kalan: ata-opacity zinciri + K4 |
       | SEO / sunucu render | 70 | **79** ▲9 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
