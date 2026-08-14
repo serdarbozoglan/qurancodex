@@ -8,6 +8,7 @@ import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import { useAudioWithFallback } from '../hooks/useAudioWithFallback';
 import { PlayIcon, PauseIcon } from '../components/icons';
 import { COLORS, FONTS, RADIUS, BREAKPOINT_MOBILE } from '../tokens';
+import { routeForToolEvent } from '../lib/toolRoutes';
 
 // Parse references like "Yusuf, 12:84", "Tawba 9:128", or "12:84"
 function parseRef(ref) {
@@ -271,10 +272,20 @@ const TAB_CTA = {
   },
 };
 
+// 2026-08-13 (Z3b) — ÖLÜ TIKLAMA düzeltmesi.
+// Öncesi: `<button onClick={() => window.dispatchEvent(new CustomEvent(cfg.event))}>`
+// `openNefisMertebeleri` ve `openProphetAtlas` dinleyicileri Vite→Next göçünde
+// (§16.5) kalkmıştı; ölçüldü → tıklandığında URL DEĞİŞMİYOR, konsol hatası da
+// yok. Kullanıcı için buton "bozuk" bile görünmüyor, hiçbir şey olmuyor.
+// Şimdi: `ToolsBrowser`'da kanıtlanmış kalıp — `routeForToolEvent` + `<Link>`.
+// `<button>` değil `<Link>`: orta tık, "yeni sekmede aç", URL önizlemesi ve
+// tarayıcı taraması ancak böyle çalışır (bkz. Z1f/Z3f1).
 function TabCTA({ cfg, accentColor, language }) {
+  const route = routeForToolEvent(cfg.event);
+  if (!route) return null;   // haritada yoksa ÖLÜ buton gösterme
   return (
-    <button
-      onClick={() => window.dispatchEvent(new CustomEvent(cfg.event))}
+    <Link
+      href={`/${language}${route}`}
       style={{
         marginTop: '20px',
         width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -282,6 +293,7 @@ function TabCTA({ cfg, accentColor, language }) {
         background: `${accentColor}10`,
         border: `1px solid ${accentColor}40`,
         cursor: 'pointer', textAlign: 'left',
+        textDecoration: 'none',
         transition: 'all 0.2s',
       }}
       onMouseEnter={e => {
@@ -304,7 +316,7 @@ function TabCTA({ cfg, accentColor, language }) {
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={accentColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7, marginLeft: 12 }}>
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
-    </button>
+    </Link>
   );
 }
 

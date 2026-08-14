@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../i18n/LanguageContext';
+import { routeForToolEvent } from '../lib/toolRoutes';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
@@ -1413,11 +1415,24 @@ function TabKaynaklar({ data, language }) {
           {tr ? 'İlgili Araçlar' : 'Related Tools'}
         </h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-          {CROSS_LINKS.map((link, i) => (
-            <button
+          {/* 2026-08-13 (Z3b) — beş rozetin BEŞİ DE ölüydü.
+              Dördü `dispatchEvent` ediyordu ama dinleyicileri Vite→Next
+              göçünde (§16.5) kalkmıştı; beşincisinin (`İmkânsız Ritim`)
+              `event` alanı hiç yoktu, `link.event &&` guard'ı sessizce
+              yutuyordu. Tıklama → hiçbir şey, hata da yok.
+              Şimdi `<Link>`: orta tık ve "yeni sekmede aç" da çalışır. */}
+          {CROSS_LINKS.map((link, i) => {
+            const route = link.event ? routeForToolEvent(link.event) : null;
+            const href = route ? `/${language}${route}`
+              : link.section ? `/${language}${link.section}`
+              : null;
+            if (!href) return null;   // hedefi olmayan rozeti GÖSTERME
+            return (
+            <Link
               key={i}
-              onClick={() => link.event && window.dispatchEvent(new CustomEvent(link.event))}
+              href={href}
               style={{
+                textDecoration: 'none',
                 display: 'inline-flex', alignItems: 'center', gap: '5px',
                 padding: '6px 14px',
                 background: 'rgba(255,255,255,0.04)',
@@ -1436,8 +1451,9 @@ function TabKaynaklar({ data, language }) {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
               {tr ? link.labelTr : link.labelEn}
-            </button>
-          ))}
+            </Link>
+            );
+          })}
         </div>
       </div>
     </div>

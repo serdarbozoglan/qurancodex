@@ -43,6 +43,16 @@ export const TOOL_ROUTES = {
   openKitapKavrami:    '/arac/kitap-kavrami',
   // #210 (2026-07-21) — Yakın Anlamlı Nüanslar
   openYakinAnlamliNuanslar: '/arac/yakin-anlamli-nuanslar',
+
+  // 2026-08-13 (Z3b) — haritada KARŞILIĞI OLMAYAN üç event daha bulundu.
+  // Bu üçü hiç eşlenmediği için `PsychologySection` ve `CennetCehennem`
+  // butonları tıklanınca SESSİZCE hiçbir şey yapmıyordu (ölçüldü: URL
+  // değişmiyor, konsol hatası da yok).
+  openNefisMertebeleri: '/atlas/nefs-mertebeleri',
+  openNatureAtlas:      '/atlas/doga',
+  // `openQuranCommands` ↔ `openSurahCommands`: aynı sayfaya iki ad takılmış.
+  // İkisi de korunuyor, yoksa eski çağrı yerleri tekrar ölür.
+  openQuranCommands:    '/arac/buyruklar',
 };
 
 // Bir event adının route karşılığını verir; eşleşme yoksa null.

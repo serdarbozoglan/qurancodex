@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
+import { routeForToolEvent } from '../lib/toolRoutes';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import { posLabel } from '../lib/corpusPos';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -85,6 +87,7 @@ const isMakki = (surah) => !MADANI.has(surah);
  */
 export default function WordPopover({ word, surah, ayah, onClose, dayMode = false }) {
   const { language } = useLanguage();
+  const router = useRouter();   // Z3b: rozetler artık route'a gidiyor
   const tr = language === 'tr';
   // W22-U3 focus trap — WordPopover is rendered conditionally by parents
   // (early-return on `!word` below), so the panel only mounts when active.
@@ -423,13 +426,18 @@ export default function WordPopover({ word, surah, ayah, onClose, dayMode = fals
             <button
               key={cta.event}
               onClick={() => {
-                // Preserve the current word so Navbar can re-open this popover
-                // when the user backs out of the target overlay (parity with
-                // returnToConcept / returnToWow patterns, CLAUDE.md §13.12).
-                const wordRestore = { word, surah, ayah };
-                const detail = { ...(cta.detail || {}), returnToWord: true, wordRestore };
+                // 2026-08-13 (Z3b): önceden `dispatchEvent` ediyordu; bu üç
+                // event'in dinleyicileri Vite→Next göçünde (§16.5) kalktığı
+                // için üç rozet de ÖLÜYDÜ — popover kapanıyor, başka hiçbir
+                // şey olmuyordu. Şimdi route'a gidiyor.
+                // `?q=2:255` VerseGraph'ın `initialSearch`'ine bağlandı;
+                // yoksa kullanıcı tıkladığı kelimeyi kaybedip genel grafiğe
+                // düşüyordu (§16.9: durum URL'de taşınır).
+                const route = routeForToolEvent(cta.event);
                 onClose();
-                window.dispatchEvent(new CustomEvent(cta.event, { detail }));
+                if (!route) return;
+                const q = cta.detail?.search ? `?q=${encodeURIComponent(cta.detail.search)}` : '';
+                router.push(`/${language}${route}${q}`);
               }}
               style={{
                 fontSize: '0.7rem',
