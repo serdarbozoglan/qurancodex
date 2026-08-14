@@ -323,7 +323,7 @@ export default function ImpossibleRhythm() {
             <p className="text-gold/50 text-xs font-body uppercase tracking-[0.25em] mb-4">
               {language === 'tr' ? 'Aşağıdaki ayetleri inceleyin' : 'Examine the verses below'}
             </p>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.offWhite }}>
+            <p lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', lineHeight: 2.2, color: COLORS.offWhite }}>
               وَالضُّحَىٰ ﴿١﴾ وَاللَّيْلِ إِذَا سَجَىٰ ﴿٢﴾ مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ ﴿٣﴾
             </p>
             {/* Play button centered, then reference below */}
@@ -637,7 +637,7 @@ export default function ImpossibleRhythm() {
               <p className="text-sm font-body mb-3" style={{ color: sura.color }}>
                 {t('impossibleRhythm.fasila.soundLabel')}: <strong style={{ fontSize: '1rem' }}>{sura.sound}</strong>
               </p>
-              <div className="flex flex-col gap-0" dir="rtl">
+              <div className="flex flex-col gap-0" lang="ar" dir="rtl">
                 {sura.examples.map((ex, j) => (
                   <span
                     key={j}
@@ -709,7 +709,7 @@ export default function ImpossibleRhythm() {
                 </span>
               </div>
               {/* Right: Arabic verse — always right-aligned */}
-              <div className="flex-1 text-right" dir="rtl">
+              <div className="flex-1 text-right" lang="ar" dir="rtl">
                 <span
                   className="text-3xl md:text-4xl leading-loose"
                   style={{ fontFamily: FONTS.quran, color: COLORS.offWhite }}

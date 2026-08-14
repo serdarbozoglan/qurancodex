@@ -177,7 +177,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
                 {renk.arabicTerms.map(t => (
                   <div key={t.arabic} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: `1px solid ${COLORS.glassBg}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.4 }} lang="ar">{t.arabic}</span>
+                      <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.4 }} lang="ar" dir="rtl">{t.arabic}</span>
                       <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>{t.transliteration}</span>
                       {t.isHapax && <HapaxBadge />}
                     </div>
@@ -493,7 +493,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                       </div>
                       {/* Keyword + note */}
                       <div style={{ flex: 1 }}>
-                        <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: stageColors[s.stage], direction: 'rtl', marginRight: '8px' }} lang="ar">
+                        <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: stageColors[s.stage], direction: 'rtl', marginRight: '8px' }} lang="ar" dir="rtl">
                           {s.keywordAr}
                         </span>
                         <span style={{ fontSize: '0.75rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600 }}>
@@ -2001,7 +2001,7 @@ function TabDilbilim({ language, isMobile }) {
                   {tr ? 'Normal' : 'Normal'}
                 </span>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1.3 }} lang="ar">{row.normalAr}</span>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1.3 }} lang="ar" dir="rtl">{row.normalAr}</span>
                   <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>{row.normalTrans}</span>
                 </div>
               </div>
@@ -2022,7 +2022,7 @@ function TabDilbilim({ language, isMobile }) {
                   <HapaxBadge />
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.3 }} lang="ar">{row.intenseAr}</span>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: COLORS.gold, direction: 'rtl', lineHeight: 1.3 }} lang="ar" dir="rtl">{row.intenseAr}</span>
                   <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>{row.intenseTrans}</span>
                 </div>
               </div>
@@ -2407,7 +2407,7 @@ function TabDilbilim({ language, isMobile }) {
                 fontFamily: FONTS.quran, fontSize: '1.85rem',
                 color: w.highlight ? COLORS.gold : COLORS.offWhite,
                 direction: 'rtl', lineHeight: 1.3,
-              }} lang="ar">
+              }} lang="ar" dir="rtl">
                 {w.ar}
               </span>
               <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontStyle: 'italic', fontFamily: FONTS.body }}>
@@ -2842,7 +2842,7 @@ export default function KuranRenkleri({ onClose }) {
                 border: `1px solid ${s.arabic ? 'rgba(83,74,183,0.25)' : 'rgba(255,255,255,0.08)'}`,
               }}>
                 {s.arabic ? (
-                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.purple, direction: 'rtl' }} lang="ar">{s.arabic}</span>
+                  <span style={{ fontFamily: FONTS.quran, fontSize: '0.95rem', color: COLORS.purple, direction: 'rtl' }} lang="ar" dir="rtl">{s.arabic}</span>
                 ) : (
                   <span style={{ fontSize: '1.1rem', fontWeight: 800, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>{s.num}</span>
                 )}
@@ -2893,7 +2893,7 @@ export default function KuranRenkleri({ onClose }) {
                   background: p.swatch, border: p.dotBorder,
                   boxShadow: `0 0 14px ${p.glow}`,
                 }} />
-                <span style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1 }} lang="ar">{p.ar}</span>
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.offWhite, direction: 'rtl', lineHeight: 1 }} lang="ar" dir="rtl">{p.ar}</span>
                 <span style={{ fontSize: '0.85rem', color: COLORS.silver, fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.02em' }}>{p.label}</span>
               </div>
             ))}

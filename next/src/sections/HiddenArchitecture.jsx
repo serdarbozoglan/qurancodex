@@ -7,6 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import QuranVerse from '../components/QuranVerse';
 import { COLORS, FONTS, RADIUS } from '../tokens';
+import { renderInlineMarkdown } from '../components/tefekkur/inlineMarkdown';
 
 // ── Pair colors: A/A' = gold, B/B' = emerald, C/C' = sky-blue ──
 // COLORS token'ından türetilir (§13.1) — Visual audit O-04 (2026-07-12).
@@ -518,10 +519,14 @@ export default function HiddenArchitecture() {
         <p className="text-gold text-xs uppercase tracking-[0.25em] font-body mb-2">
           {language === 'tr' ? 'Neden şaşırtıcı?' : 'Why is this surprising?'}
         </p>
+        {/* renderInlineMarkdown (2026-08-13): bu paragrafta `**A-B-C-D-C'-B'-A'**`
+            ve `*Thinking in Circles*` gibi markdown işaretleri vardı ve EKRANA
+            HAM YILDIZ olarak basılıyordu. 74 sayfalık tarama yakaladı.
+            Metin değişmedi, yalnız render yolu. */}
         <p className="text-off-white/80 text-sm leading-relaxed font-body italic">
-          {language === 'tr'
+          {renderInlineMarkdown(language === 'tr'
             ? 'Halka kompozisyon — klasik retorikte chiasmus olarak biliniyordu — büyük ölçekli metinlere sistematik uygulanması 20. yüzyıl ürünüdür: Cedric Whitman\'ın Homer çalışması (1958) ve Mary Douglas\'ın *Thinking in Circles*\'ı (2007). Klasik İslam geleneği bu yapıları görmedi mi? Hayır — Bikâî *Nazmü\'d-Dürer*\'de, Suyûtî *İtkân*\'da ve Râzî *Mefâtîhu\'l-Gayb*\'da ayetler/sûreler arası bağlantıları (münâsebât) kapsamlı çalıştı. Modern akademinin asıl katkısı: varolan örüntüleri **A-B-C-D-C\'-B\'-A\'** gibi şematik bir dile çevirmek. 23 yıl boyunca parça parça inen bir metnin bu denli tutarlı mimariyi nasıl taşıdığı sorusu ise hâlâ yanıtsız.'
-            : 'Ring composition — known in classical rhetoric as chiasmus — was systematically applied to large-scale texts only in the 20th century: Cedric Whitman\'s Homer studies (1958) and Mary Douglas\'s *Thinking in Circles* (2007). Did classical Islamic tradition miss these structures? No — Biqāʿī in *Naẓm al-Durar*, Suyūṭī in *al-Itqān*, and Rāzī in *Mafātīḥ al-Ghayb* extensively studied inter-verse and inter-sura connections (munāsabāt). The real contribution of modern scholarship: translating existing patterns into schematic notation like **A-B-C-D-C\'-B\'-A\'**. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.'}
+            : 'Ring composition — known in classical rhetoric as chiasmus — was systematically applied to large-scale texts only in the 20th century: Cedric Whitman\'s Homer studies (1958) and Mary Douglas\'s *Thinking in Circles* (2007). Did classical Islamic tradition miss these structures? No — Biqāʿī in *Naẓm al-Durar*, Suyūṭī in *al-Itqān*, and Rāzī in *Mafātīḥ al-Ghayb* extensively studied inter-verse and inter-sura connections (munāsabāt). The real contribution of modern scholarship: translating existing patterns into schematic notation like **A-B-C-D-C\'-B\'-A\'**. How a text revealed in fragments over 23 years carries such consistent architecture remains an open question.')}
         </p>
       </motion.div>
 

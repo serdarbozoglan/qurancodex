@@ -868,7 +868,7 @@ export default function QuranDua() {
               }}
             >
               <p
-                dir="rtl"
+                lang="ar" dir="rtl"
                 style={{
                   fontFamily: FONTS.quran,
                   fontSize: '1.55rem',

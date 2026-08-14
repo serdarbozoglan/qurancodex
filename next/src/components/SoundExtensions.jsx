@@ -262,7 +262,7 @@ export default function SoundExtensions({ language, isMobile }) {
                         border: `1px solid ${g.color}55`,
                         borderRadius: '6px',
                         direction: 'rtl',
-                      }} lang="ar">{l}</span>
+                      }} lang="ar" dir="rtl">{l}</span>
                     ))}
                   </div>
                   {isActive && (
@@ -358,7 +358,7 @@ function SideCard({ side, language, label }) {
             border: `1px solid ${side.color}66`,
             borderRadius: '6px',
             direction: 'rtl',
-          }} lang="ar">{l}</span>
+          }} lang="ar" dir="rtl">{l}</span>
         ))}
       </div>
       <p style={{

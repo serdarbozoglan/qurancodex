@@ -139,11 +139,16 @@ export default function ConceptGraph({ onClose, restore = null }) {
   const [verses, setVerses] = useState(_versesCache);
   const [concepts, setConcepts] = useState(_conceptsCache);
   const [groups, setGroups] = useState(_groupsCache);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  // §16.6 — SSR-safe: server ve client ilk render'ı aynı olmalı (false).
+  // Gerçek genişlik post-mount useEffect içinde okunur; aksi halde <640px
+  // viewport'ta sunucu (false) ile istemci (true) farklı style üretir ve
+  // "tree hydrated but some attributes ... didn't match" hatası oluşur.
+  const [isMobile, setIsMobile] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    h(); // post-mount hydrate
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

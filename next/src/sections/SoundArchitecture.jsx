@@ -1210,9 +1210,9 @@ export default function SoundArchitecture() {
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             {/* Verse display */}
             <div className="flex-1" style={{ minWidth: 0, width: '100%' }}>
-              <div dir="rtl" style={{ width: '100%', textAlign: 'right' }}>
+              <div lang="ar" dir="rtl" style={{ width: '100%', textAlign: 'right' }}>
                 <p
-                  lang="ar"
+                  lang="ar" dir="rtl"
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',

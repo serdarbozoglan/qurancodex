@@ -13,11 +13,13 @@ import { cleanArabicForDisplay } from '../../../../../lib/arabic';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../../../../../lib/surahNames';
 import BookmarkButton from '../../../../../components/BookmarkButton';
 
-export default function VerseShareRoute({ surah, ayah }) {
+export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  const [verse, setVerse] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Sunucudan gelir; istemci yüklemesi yok. `loading` yalnız geriye dönük
+  // uyum için duruyor ve daima false — âyet ilk boyamada zaten ekranda.
+  const verse = verseProp;
+  const loading = false;
   const [isMobile, setIsMobile] = useState(false);
   const [shareStatus, setShareStatus] = useState(null); // 'copied' | 'shared' | null
 
@@ -32,28 +34,14 @@ export default function VerseShareRoute({ surah, ayah }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    // Fetch verse metnini iki dil için proxy API üzerinden çek
-    Promise.all([
-      fetch(`/api/meal/suat_yildirim/${surah}`).then(r => r.ok ? r.json() : null).catch(() => null),
-      fetch(`/api/meal/sahih_international/${surah}`).then(r => r.ok ? r.json() : null).catch(() => null),
-    ]).then(([trData, enData]) => {
-      if (cancelled) return;
-      const trVerse = trData?.data?.verses?.find(v => v.verse_number === ayah);
-      const enVerse = enData?.data?.verses?.find(v => v.verse_number === ayah);
-      setVerse({
-        arabic: trVerse?.verse ? cleanArabicForDisplay(trVerse.verse) : '',
-        tr: trVerse?.translation?.text || '',
-        en: enVerse?.translation?.text || '',
-      });
-      setLoading(false);
-    }).catch(() => {
-      if (!cancelled) setLoading(false);
-    });
-    return () => { cancelled = true; };
-  }, [surah, ayah]);
+  // ─── Âyet artık SUNUCUDAN prop olarak geliyor (2026-08-13) ───────────────
+  // Öncesinde burada iki `fetch` vardı ve İKİSİ DE 400 dönüyordu:
+  // `/api/meal/suat_yildirim/{s}` — API sayısal `author` id bekliyor
+  // (`parseInt(author)`), gönderilen slug NaN'e düşüyordu. Üstelik bu iki
+  // meal upstream'de hiç yok (MEAL_AUTHORS'ta `apiId: null`, yerel veri).
+  // İki `.catch(() => null)` hatayı yutuyordu; sonuç: sayfa sessizce BOŞ
+  // âyet gösteriyordu. Paylaşım sayfasının tek işi âyeti göstermekti.
+  // Ölçüm: /tr/ayet/2/255 → 6 console error, h1 yok, âyet boş.
 
   const shareUrl = typeof window !== 'undefined'
     ? `${window.location.origin}/${language}/ayet/${surah}/${ayah}`

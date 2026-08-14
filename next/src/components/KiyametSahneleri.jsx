@@ -245,24 +245,38 @@ function PhaseScene({ scene, language, defaultOpen }) {
       marginBottom: '8px',
       overflow: 'hidden',
     }}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        aria-expanded={open}
-        style={{
-          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '10px 14px', background: 'none', border: 'none', cursor: 'pointer',
-          textAlign: 'left', gap: '8px', minHeight: '44px',
-        }}
-      >
-        <span style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1 }}>
+      {/* Geçersiz HTML iç içeliği düzeltmesi: BookmarkButton kendi <button>'ını
+          render ediyor; eskiden aç/kapa <button>'ının İÇİNDE duruyordu
+          (<button> içinde <button> → hydration hatası). Artık toggle butonu ile
+          kardeş. Kutu modeli aynı kalsın diye padding satır kapsayıcısına değil,
+          sol butona (10px 0 10px 14px) ve sağ gruba (10px 14px 10px 0) bölündü. */}
+      <div style={{
+        width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        gap: '8px', minHeight: '44px',
+      }}>
+        <button
+          onClick={() => setOpen(o => !o)}
+          aria-expanded={open}
+          style={{
+            flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: '8px',
+            padding: '10px 0 10px 14px', background: 'none', border: 'none', cursor: 'pointer',
+            textAlign: 'left', alignSelf: 'stretch',
+          }}
+        >
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: COLORS.offWhite, fontFamily: FONTS.body }}>
             {language === 'tr' ? scene.sceneTr : scene.sceneEn}
           </span>
           {scene.quranicStatus === 'implied' && <StatusBadge status="implied" />}
           {scene.quranicStatus === 'hadith-only' && <HadisBadge language={language} />}
           {scene.isHapax && <HapaxBadge language={language} />}
-        </span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        </button>
+        <span
+          onClick={() => setOpen(o => !o)}
+          style={{
+            display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0,
+            padding: '10px 14px 10px 0', cursor: 'pointer',
+          }}
+        >
           {/* #200 (2026-07-16) — Bookmark this scene */}
           <span onClick={e => e.stopPropagation()} style={{ display: 'inline-flex' }}>
             <BookmarkButton
@@ -284,7 +298,7 @@ function PhaseScene({ scene, language, defaultOpen }) {
             transition: 'transform 0.2s',
           }}>▼</span>
         </span>
-      </button>
+      </div>
 
       {open && (
         <div style={{ padding: '0 14px 14px' }}>

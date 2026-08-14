@@ -673,6 +673,30 @@ export default function WordHeatmap({ onClose }) {
     return `rgba(52,152,219,${0.06 + intensity * 0.38})`;
   };
 
+  // Accessible name for a heatmap cell. Screen readers must hear which surah the
+  // cell is and what the number behind its colour means — the colour alone carries
+  // the whole meaning visually, so it has to be spoken.
+  const cellLabel = (surah, count, isBaseline) => {
+    const tr = language === 'tr';
+    const name = tr
+      ? `${surah}. ${SURAH_NAMES_TR[surah - 1]} sûresi`
+      : `Surah ${surah}, ${SURAH_NAMES_TR[surah - 1]}`;
+    if (isBaseline) {
+      const verseCount = surahVerseCounts[surah] || 0;
+      return tr
+        ? `${name} — ${verseCount} âyet`
+        : `${name} — ${verseCount} verses`;
+    }
+    if (count > 0) {
+      return tr
+        ? `${name} — "${searchTerm}" ${count} kez geçiyor`
+        : `${name} — "${searchTerm}" occurs ${count} times`;
+    }
+    return tr
+      ? `${name} — "${searchTerm}" geçmiyor`
+      : `${name} — "${searchTerm}" not found`;
+  };
+
   // Color: dark-blue (zero) → gold based on normalized frequency
   const cellColor = (surah) => {
     const count = freqMap[surah] || 0;
@@ -957,6 +981,9 @@ export default function WordHeatmap({ onClose }) {
                     return (
                       <button
                         key={surah}
+                        type="button"
+                        aria-label={cellLabel(surah, count, isBaseline)}
+                        aria-pressed={isBaseline ? undefined : isSelected}
                         onClick={() => {
                           if (isBaseline) return; // no selection in baseline mode
                           setSelectedSurah(isSelected ? null : surah);
@@ -1049,7 +1076,10 @@ export default function WordHeatmap({ onClose }) {
               <div style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.05)', flexShrink: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ color: gold, fontSize: '0.82rem', fontWeight: 700 }}>{selectedSurah}. {SURAH_NAMES_TR[selectedSurah - 1]}</span>
-                  <button onClick={() => { setSelectedSurah(null); setVersePage(0); }} style={{ background: 'none', border: 'none', color: '#4a5568', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
+                  <button onClick={() => { setSelectedSurah(null); setVersePage(0); }}
+                    type="button"
+                    aria-label={language === 'tr' ? 'Âyet panelini kapat' : 'Close verse panel'}
+                    style={{ background: 'none', border: 'none', color: '#4a5568', cursor: 'pointer', fontSize: '1rem', padding: '0 4px' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#94a3b8'}
                     onMouseLeave={e => e.currentTarget.style.color = '#4a5568'}>✕</button>
                 </div>
@@ -1066,6 +1096,8 @@ export default function WordHeatmap({ onClose }) {
                       <button
                         onClick={() => setVersePage(p => Math.max(0, p - 1))}
                         disabled={versePage === 0}
+                        type="button"
+                        aria-label={language === 'tr' ? 'Önceki âyet sayfası' : 'Previous verse page'}
                         style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === 0 ? '#2a3040' : '#94a3b8', cursor: versePage === 0 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>‹</button>
                       <span style={{ color: '#4a5568', fontSize: '0.68rem', minWidth: '44px', textAlign: 'center' }}>
                         {versePage + 1} / {totalPages}
@@ -1073,6 +1105,8 @@ export default function WordHeatmap({ onClose }) {
                       <button
                         onClick={() => setVersePage(p => Math.min(totalPages - 1, p + 1))}
                         disabled={versePage === totalPages - 1}
+                        type="button"
+                        aria-label={language === 'tr' ? 'Sonraki âyet sayfası' : 'Next verse page'}
                         style={{ background: 'none', border: '1px solid rgba(212,165,116,0.2)', borderRadius: RADIUS.xs, color: versePage === totalPages - 1 ? '#2a3040' : '#94a3b8', cursor: versePage === totalPages - 1 ? 'default' : 'pointer', padding: '2px 8px', fontSize: '0.8rem' }}>›</button>
                     </div>
                   )}

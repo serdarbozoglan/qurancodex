@@ -10,6 +10,7 @@ import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
+import { renderInlineMarkdown } from './tefekkur/inlineMarkdown';
 
 // Overlay-local fadeUp — used for individual blocks; overlay has no parent stagger container.
 // PASSAGES — 7 anlatım verisi src/data/iblis-passages.js'ten import edilir.
@@ -807,7 +808,7 @@ export default function IblisSatan({ onClose }) {
                   {lang === 'tr' ? obs.labelTr : obs.labelEn}
                 </h4>
                 <p className="text-silver text-sm font-body leading-relaxed">
-                  {lang === 'tr' ? obs.bodyTr : obs.bodyEn}
+                  {renderInlineMarkdown(lang === 'tr' ? obs.bodyTr : obs.bodyEn)}
                 </p>
               </div>
             </div>

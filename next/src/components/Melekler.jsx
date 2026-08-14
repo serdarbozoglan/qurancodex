@@ -362,7 +362,7 @@ function VerseBlock({ arabic, translation, verseRef, accent }) {
       borderRadius: RADIUS.md, padding: '12px 14px', margin: '8px 0',
     }}>
       {arabic && (
-        <p style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD, textAlign: 'right', direction: 'rtl', lineHeight: 2.0, margin: '0 0 10px' }} lang="ar">
+        <p style={{ fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD, textAlign: 'right', direction: 'rtl', lineHeight: 2.0, margin: '0 0 10px' }} lang="ar" dir="rtl">
           {arabic}
         </p>
       )}
@@ -434,7 +434,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
           </span>
         )}
         {angel.arabicName ? (
-          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right', flex: 1, minWidth: 0 }} lang="ar">
+          <p style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: isHadithOnly ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.4, textAlign: 'right', flex: 1, minWidth: 0 }} lang="ar" dir="rtl">
             {angel.arabicName}
           </p>
         ) : (
@@ -529,7 +529,7 @@ function AngelCard({ angel, language, isMobile: _isMobile }) {
               background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBgStrong}`,
               borderRadius: RADIUS.md, padding: '4px 10px',
             }}>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar">{n.arabic}</span>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: GOLD, lineHeight: 1.6 }} lang="ar" dir="rtl">{n.arabic}</span>
               <span style={{ fontSize: '0.65rem', color: COLORS.slate500 }}>{n.ref}</span>
               {n.isHadisConnection && <InfoPopover text={tr ? 'Tefsir görüşü — Kur\'an doğrudan özdeşleştirmez' : 'Tafsir view — Quran does not equate explicitly'} language={language} />}
             </span>
@@ -893,7 +893,7 @@ function TabDilbilim({ data, language, isMobile }) {
           borderRadius: RADIUS.lg, padding: '18px 20px',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '14px', flexWrap: 'wrap' }}>
-            <p style={{ fontFamily: FONTS.quran, fontSize: '2rem', color: GOLD, direction: 'rtl', margin: 0, lineHeight: 1 }} lang="ar">
+            <p style={{ fontFamily: FONTS.quran, fontSize: '2rem', color: GOLD, direction: 'rtl', margin: 0, lineHeight: 1 }} lang="ar" dir="rtl">
               م-ل-ك
             </p>
             <div>
@@ -907,11 +907,11 @@ function TabDilbilim({ data, language, isMobile }) {
           </div>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar">{d.kokAnalizi?.tekil}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar" dir="rtl">{d.kokAnalizi?.tekil}</p>
               <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'tekil' : 'singular'}</p>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar">{d.kokAnalizi?.cogul}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', margin: '0 0 4px' }} lang="ar" dir="rtl">{d.kokAnalizi?.cogul}</p>
               <p style={{ fontSize: '0.65rem', color: COLORS.slate500, margin: 0 }}>{tr ? 'çoğul' : 'plural'}</p>
             </div>
           </div>
@@ -929,7 +929,7 @@ function TabDilbilim({ data, language, isMobile }) {
               borderLeft: `2px solid ${COLORS.softGoldAlpha30}`,
               borderRadius: RADIUS.chip, padding: '12px 14px',
             }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar">{s.arabic}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: GOLD, direction: 'rtl', margin: '0 0 6px', lineHeight: 1.7 }} lang="ar" dir="rtl">{s.arabic}</p>
               <p style={{ fontSize: '0.78rem', color: COLORS.offWhite, margin: '0 0 4px', fontWeight: 600 }}>{tr ? s.meaningTr : s.meaningEn}</p>
               <p style={{ fontSize: '0.68rem', color: `${GOLD}60`, margin: 0 }}>{s.ref}</p>
               {s.isHapax && <div style={{ marginTop: '6px' }}><HapaxBadge language={language} /></div>}
@@ -947,7 +947,7 @@ function TabDilbilim({ data, language, isMobile }) {
               background: 'rgba(83,74,183,0.08)', border: '1px solid rgba(83,74,183,0.2)',
               borderRadius: RADIUS.chip, padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px',
             }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl', margin: 0 }} lang="ar">{n.arabic}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: GOLD, direction: 'rtl', margin: 0 }} lang="ar" dir="rtl">{n.arabic}</p>
               <div>
                 <p style={{ fontSize: '0.75rem', color: COLORS.silver, margin: '0 0 3px' }}>{tr ? n.notTr : n.notEn}</p>
                 <p style={{ fontSize: '0.65rem', color: `${GOLD}60`, margin: 0 }}>{n.ref}</p>
@@ -972,7 +972,7 @@ function TabDilbilim({ data, language, isMobile }) {
               borderRadius: RADIUS.chip, padding: '14px',
               display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center', textAlign: 'center',
             }}>
-              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar">{n.arabic}</p>
+              <p style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: n.isHadisConnection ? '#4B5563' : GOLD, direction: 'rtl', margin: 0, lineHeight: 1.5 }} lang="ar" dir="rtl">{n.arabic}</p>
               <p style={{ fontSize: '0.78rem', fontWeight: 600, color: n.isHadisConnection ? '#6B7280' : COLORS.offWhite, margin: 0 }}>{n.nameTr}</p>
               <p style={{ fontSize: '0.65rem', color: `${GOLD}50`, margin: 0 }}>{n.ref}</p>
               {n.isHadisConnection && (
@@ -1139,7 +1139,7 @@ function StatCard({ value, color, labelTr, labelEn, refTr, refEn, tooltipAr, too
             fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD,
             textAlign: 'right', direction: 'rtl', lineHeight: 2.0,
             margin: '0 0 8px', whiteSpace: 'pre-wrap',
-          }} lang="ar">
+          }} lang="ar" dir="rtl">
             {tooltipAr}
           </p>
           <p style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.55 }}>

@@ -445,7 +445,7 @@ function GroupCard({ group, language, onClick }) {
                 style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: dotColor, flexShrink: 0 }}
                 title={tr ? CONTEXT_LABELS[w.patternStat.dominantPattern]?.tr : CONTEXT_LABELS[w.patternStat.dominantPattern]?.en}
               />
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl', minWidth: 70, textAlign: 'right' }} lang="ar">
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl', minWidth: 70, textAlign: 'right' }} lang="ar" dir="rtl">
                 {cleanArabic(w.ar)}
               </span>
               <span style={{ fontSize: '0.8rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 500, flex: 1 }}>
@@ -574,7 +574,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
                   background: w.color, flexShrink: 0,
                   boxShadow: `0 0 8px ${w.color}80`,
                 }} />
-                <span style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: w.color, direction: 'rtl' }} lang="ar">
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: w.color, direction: 'rtl' }} lang="ar" dir="rtl">
                   {cleanArabic(w.ar)}
                 </span>
                 <span style={{ fontSize: '0.82rem', color: COLORS.offWhite, fontWeight: 600, fontFamily: FONTS.body }}>
@@ -711,7 +711,7 @@ function SemanticMap({ group, language, isMobile }) {
           return (
             <div style={{ padding: 14, background: 'rgba(0,0,0,0.25)', border: `1px solid ${w.color}40`, borderRadius: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-                <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: w.color, direction: 'rtl' }} lang="ar">{cleanArabic(w.ar)}</span>
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: w.color, direction: 'rtl' }} lang="ar" dir="rtl">{cleanArabic(w.ar)}</span>
                 <span style={{ fontSize: '0.9rem', color: COLORS.offWhite, fontWeight: 600, fontFamily: FONTS.body }}>{w.tr}</span>
                 <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, marginLeft: 'auto' }}>{w.frequency}×</span>
               </div>
@@ -773,7 +773,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
             flexShrink: 0,
             boxShadow: `0 0 24px ${word.color}20`,
           }}>
-            <span style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.9rem' : '2.1rem', color: word.color, direction: 'rtl', lineHeight: 1 }} lang="ar">
+            <span style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.9rem' : '2.1rem', color: word.color, direction: 'rtl', lineHeight: 1 }} lang="ar" dir="rtl">
               {cleanArabic(word.ar)}
             </span>
           </div>

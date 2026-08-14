@@ -154,7 +154,7 @@ export default function RhythmExtensions({ language, isMobile }) {
                     fontFamily: FONTS.quran, color: COLORS.offWhite,
                     fontSize: '0.85rem', direction: 'rtl',
                     marginTop: '6px', opacity: 0.85, lineHeight: 1.6,
-                  }} lang="ar">{m.tef}</div>
+                  }} lang="ar" dir="rtl">{m.tef}</div>
                   {isActive && (
                     <p style={{
                       color: COLORS.silver, opacity: 0.9,
@@ -208,7 +208,7 @@ export default function RhythmExtensions({ language, isMobile }) {
               fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.75rem)' : 'clamp(1.65rem, 2.6vw, 2.05rem)',
               lineHeight: 2, direction: 'rtl',
               marginBottom: '14px',
-            }} lang="ar">فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ</div>
+            }} lang="ar" dir="rtl">فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ</div>
             <p style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.offWhite, fontSize: '1rem',

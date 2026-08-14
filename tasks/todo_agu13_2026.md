@@ -7,8 +7,9 @@
 > Sayfa-sayfa denetim ve **74 rotanın rota-rota açık bulguları**:
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
-> ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir.** Uygulamanın tamamı
-> hiç puanlanmadı — bkz. **Z2**.
+> ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
+> **Uygulamanın tamamı 13 Ağustos gecesi ilk kez puanlandı: 74/100** →
+> bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
 
@@ -340,33 +341,320 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
 
 ## Z1 · Kalan gerçek hatalar — öncelik sırasıyla
 
-- [ ] **Z1a · `/graf/kelime-isi` — 114 adsız buton**
-      Tek sayfada 114 öge; ekran okuyucu hepsini "button" diye okur.
-      Sitedeki en yoğun tekil erişilebilirlik açığı.
-- [ ] **Z1b · `/atlas/furuk` — 109 Arapça ögenin 108'inde `lang`/`dir` eksik**
-      §13.15 ile doğrudan ilgili. Diğerleri: `ses-mimarisi` 58/75 ·
-      `melekler` 27/30 · `insan-tanimi` 25/28 · `ritim` 24/27 (toplam 9 rota)
-- [ ] **Z1c · Console error'lar (5 rota)**
-      `/graf/kavram` hydration uyuşmazlığı · `/graf/semantik` eksik `key` prop ·
-      `/arac/kiyamet` geçersiz HTML iç içeliği · `/ayet/[s]/[a]` 400 dönen istek
-- [ ] **Z1d · Ekranda ham `**` (3 rota)** — `halka-kompozisyon` ·
-      `iblis-seytan` · `atlas/kadinlar`. Anasayfada aynı hata vardı, düzeltildi;
-      bu üçü kaçmış.
-- [ ] **Z1e · Başlık ağacı (32 rota)** — seviye atlaması (2→4, 1→3, 1→4);
+> **13 Ağustos akşamı: Z1a–Z1d KAPANDI.** Dört alt-ajan paralel çalıştı,
+> kesişmeyen dosya kümeleriyle; her sonucu ayrıca kendim ölçtüm.
+
+- [x] **Z1a · `/graf/kelime-isi` 114 adsız buton → 0**
+      Ajan ayrıca denetimin GÖREMEDİĞİ 4 buton daha buldu (âyet panelindeki
+      kapat ve sayfalama düğmeleri yalnız sûre seçilince mount oluyor).
+      Etiketler anlamlı: *"2. El-Bakara sûresi — 286 âyet"*, aramada
+      *"…'rahmet' 2 kez geçiyor"*. Etiketsiz svg de 1 → 0.
+- [x] **Z1b · Arapça `lang`/`dir`: 260 eksik öge → 0** (9 rotanın 9'u temiz)
+      Eksik olan hep `dir="rtl"` idi; RTL yalnız CSS ile veriliyordu, DOM
+      niteliği yoktu. Ajan Arapça metnin değişmediğini üç bağımsız yolla
+      kanıtladı (karakter sayımı · dizi eşitliği · nitelik-normalize diff).
+      Kalan 46 öge `src/sections/*` altındaydı — **o sınırı ben koymuştum**,
+      ajanların çakışmaması için. Ajanlar bitince altı section dosyasını
+      kendim kapattım.
+- [x] **Z1c · Console error 10 → 0** (`/graf/kavram` · `/graf/semantik` ·
+      `/arac/kiyamet`), üretim build'inde de doğrulandı.
+      Kök sebepler: `useState(() => window.innerWidth < N)` SSR'de false /
+      istemcide true (§16.6'da zaten yasak) · `key={s.surah_id}` ama JSON
+      alanı `surah` · `<button>` içinde `<BookmarkButton>`'ın `<button>`'ı.
+- [x] **Z1c-ek · `/ayet/[s]/[a]` iki `fetch` de 400 dönüyordu**
+      `/api/meal/suat_yildirim/{s}` — API sayısal `author` id bekliyor,
+      gönderilen slug. Üstelik bu iki meal upstream'de **hiç yok**
+      (`apiId: null`, yerel veri). İki `.catch(()=>null)` hatayı yutuyordu ve
+      paylaşım sayfası sessizce **BOŞ âyet** gösteriyordu.
+      Âyet artık sunucuda `verse-graph`ten okunup prop olarak geçiyor:
+      400'ler bitti, metin HTML'e girdi, yükleme durumu kalktı.
+- [x] **Z1d · Ekranda ham `**` → 0** (3 rota). Metin silinmedi, render yoluna
+      bağlandı; `<strong>` olarak `fontWeight 700` doğrulandı.
+- [x] **Z1-bonus · `/graf/semantik` sûre çipleri BOŞTU** — ajanın yan bulgusu.
+      `s.surah_id` / `s.verse_count` okunuyordu, JSON alanları `surah` / `count`.
+      100 kaydın 100'ünde `undefined` → ekranda `": "` görünüyordu.
+      Veri kaynak sayıldı, bileşen ona uyduruldu; ayrıca sayı yerine **sûre adı**:
+      `"26: 56"` → `"Eş-Şuarâ · 56"` / `"Ash-Shuara · 56"`.
+- [x] **Z1h · `/kutuphanem` canonical/hreflang** — **yanlış pozitifmiş.**
+      Sayfa bilerek `noindex` (kullanıcıya özgü özel sayfa); kanonik adresi
+      olmaması doğru. Denetim aracına `noindex` istisnası eklendi.
+- [ ] **Z1e · Başlık ağacı (~~32~~ → **29 rota**, 58 sayfa)** — seviye atlaması (2→4, 1→3, 1→4);
+      *(Z3 turunda yeniden sayıldı: 29 benzersiz rota × 2 dil = 58 sayfa.)*
       ayrıca `/oku` ve `/ayet/2/255`'te **h1 YOK**, `/tefekkur`,
       `/tefekkur/[slug]` ve `/atlas/ahiret-yolculugu`'nda **iki h1**
-- [ ] **Z1f · Gezinme `<button>` ile (31 rota)** — `/arac/tum-araclar`'da
-      çözüldü, aynı kalıp diğer sayfalarda duruyor. En yoğunu
-      `esma-frekans` 91 buton / 7 bağlantı
-- [ ] **Z1g · Etiketsiz svg (46 rota)** — en yoğunu `bilimsel-isaretler` 20/50
+- [ ] **Z1f · Gezinme `<button>` ile (~~31~~ → **29 rota**)** — `/arac/tum-araclar`'da
+      çözüldü, aynı kalıp diğer sayfalarda duruyor.
+      ⚠ **En yoğunu `esma-frekans` DEĞİL** (Z3 turunda ölçüldü):
+      `ilk-son-kelimeler` **483 buton / 9 bağlantı** · `atlas/kissa` 157/6 ·
+      `graf/kelime-isi` 153/3. Ayrıca **navbar mega-menüsünün kendisi** de
+      `<button>` — 74 rotanın hepsini etkiliyor, bkz. **Z3f1**.
+- [ ] **Z1g · Etiketsiz svg (~~46~~ → **44 rota**)** — ⚠ **en yoğunu
+      `bilimsel-isaretler` (20/50) DEĞİL:** `ilk-son-kelimeler` **122/137**,
+      sonra `kurani-tani` ve `wow` 50/58. Sıralama Z3 turunda düzeltildi.
 - [ ] **Z1h · `/kutuphanem` canonical + hreflang yok**
+
+## Z3 · TAM SİTE TARAMASI — 13 Ağustos gecesi (Claude, bağımsız tur)
+
+> **Kapsam:** 70 statik rota × 2 dil × 3 genişlik (1440 · 1024 · 390) = **420 sayfa
+> yüklemesi** + 140 sunucu HTML taraması + eslint + renk denetimi + 9 ekran
+> görüntüsü gözle inceleme + 7 etkileşim testi.
+> **Aşağıdakiler Z1'de ve kontrol listesinde YOK.** Z1'de belirtisi olup burada
+> **sebebi** bulunanlar ayrıca işaretli.
+> Tekrarla: `/tmp/crawl-{1440,1024,390}.json`, `/tmp/ssr-sweep.json`, `/tmp/eslint.json`
+
+### 🔴 Z3-A · Ekranda GÖRÜNEN kırıklar
+
+- [ ] **Z3a1 · Navbar 1024–1180px arasında kırılıyor — HER SAYFADA**
+      Ölçüldü (`nav[aria-label="Main navigation"]` yüksekliği + CTA metin kutusu):
+      | genişlik | TR navH | TR taşma | EN navH | EN taşma |
+      |---|---:|---:|---:|---:|
+      | 1024 | **108px** | **+3px** | **134px** | **+3px** |
+      | 1100 | 82 | −1 | **108px** | **+3px** |
+      | 1180+ | 82 | −1 | 82 | −1 |
+      "Kur'an'ı Oku" / "Read Quran" metni **iki satıra sarıyor**, buton
+      `height:32px`'te sabit (§13.13) → **metin butonun kenarlığının dışına
+      taşıyor.** "Esmâ-i Hüsnâ" / "The Beautiful Names" 2–3 satıra sarıyor.
+      Ekran görüntüsüyle doğrulandı (`_tr_sor_1024.png`, `_en_graf_ayet_1024.png`).
+      ⚠ Z1 "navbar örtüşmesi 450 → 0" diyor — o **sayfa içeriğinin** örtülmesiydi;
+      bu **navbarın kendi iç düzeni**. Ayrı hata.
+      → §13.13 "tüm butonlar 32px" kuralı sarma ile çelişiyor; kural revize edilmeli.
+
+- [ ] **Z3a2 · `/graf/semantik` — 60 çipin 60'ı ekranda ": " diye görünüyor**
+      **Veri şeması sürüklenmesi (sınıf C).** `SemanticMap.jsx:335-341`
+      `s.surah_id` ve `s.verse_count` okuyor; `public/semantic-map.json`'da alanlar
+      **`surah`** ve **`count`**. Sonuç: 20 kartın 3'er çipi `undefined: undefined`.
+      Aynı sebep `key={s.surah_id}` → `undefined` → **Z1c'deki "eksik key" konsol
+      hatasının sebebi budur.** (Z1c belirtiyi listeliyordu, sebebi değil.)
+      Ekran görüntüsü: `_tr_graf_semantik_1440.png`.
+
+- [ ] **Z3a3 · `VerseChip ref={v}` — `ref` veri prop'u olarak kullanılmış**
+      `SemanticMap.jsx:452` + `:536`. `ref` React'te ayrılmış bir addır; çipin
+      metni bu yüzden boş. Detay panelindeki "Merkezî Ayetler" bloğu etkileniyor.
+      Aynı sınıf eslint'te de var: **18 × `react-hooks/refs`** (aş. Z3d3).
+
+### 🔴 Z3-B · ÖLÜ TIKLAMALAR — `/arac/tum-araclar`'da düzeltilenin kardeşleri
+
+> Kontrol listesi A bölümü bu sınıfı "23 araç tıklaması ölü" diye kaydetmiş ve
+> `ToolsBrowser` düzeltilmiş. **Aynı kalıp üç yerde daha duruyor.**
+
+- [ ] **Z3b1 · `/atlas/insan-psikolojisi` — CTA tıklaması ÖLÜ (ölçüldü)**
+      `PsychologySection.jsx:277` → `openNefisMertebeleri` · `openProphetAtlas`,
+      ikisinin de **0 dinleyicisi** var. Playwright ile tıklandı: **URL değişmedi,
+      hata da vermedi.** Kullanıcı için "buton bozuk" bile değil — hiçbir şey yok.
+- [ ] **Z3b2 · `CennetCehennem.jsx:1419` — "İlgili Araçlar" 4 butonu ölü**
+      `openNatureAtlas` · `openAddresseeSystem` · `openConceptGraph` ·
+      `openQuranCommands` → hepsi 0 dinleyici.
+- [ ] **Z3b3 · `PathContext.jsx:144` + `WordPopover.jsx:432`** — Vite dönemi
+      `dispatchOverlayEvent` kalıntısı; `PATH_OVERLAY_EVENTS` haritasının
+      karşılığı kalkmış.
+      Toplu doğrulama: `openIblisSatan`, `openIlkSonKelimeler`,
+      `openNefisMertebeleri` → **0 dinleyici** (`grep addEventListener`).
+      → Çözüm zaten var: `ToolsBrowser`'daki `routeForToolEvent` + `<Link>` kalıbı.
+
+### 🔴 Z3-C · Gizli bombalar (bugün patlamıyor, yarın patlar)
+
+- [ ] **Z3c1 · `IbadetlerHub.jsx:489` ve `:786` — KOŞULLU `useState`**
+      ```js
+      function YolHaritasiSection({ data }) {
+        if (!data?.yollar?.length) return null;   // ← erken return
+        const [active, setActive] = useState(0);  // ← hook ALTINDA
+      ```
+      Aynısı `PeygamberIzleriSection`'da (`data.prophets`). JSON'dan `yollar`
+      veya `prophets` düşerse **"Rendered fewer hooks than expected"** → sayfa
+      hiç açılmaz. Kontrol listesi F bölümündeki `useMemo` hatasının **birebir
+      aynısı**; o zaman sayfa hiç açılmamıştı.
+      `eslint`: 2 × `react-hooks/rules-of-hooks`.
+- [ ] **Z3c2 · `/arac/kiyamet` — iç içe `<button>` (Z1c'nin sebebi)**
+      `KiyametSahneleri.jsx:~268` — akordiyon `<button>`'un **içinde**
+      `BookmarkButton` (`<button>`). Geçersiz HTML + her yüklemede 2 konsol
+      hatası (3 genişlikte, 2 dilde de). `stopPropagation` sarmalayıcısı sorunu
+      gizliyor ama HTML'i düzeltmiyor.
+- [ ] **Z3c3 · `/ayet/[surah]/[ayah]` sınır doğrulaması YOK**
+      ```
+      /tr/ayet/115/1  → 200   <title>Sure 115 115:1 — QuranCodex | QuranCodex</title>
+      /tr/ayet/2/300  → 200   <title>El-Bakara 2:300 …</title>   (Bakara 286 âyet)
+      ```
+      Kontrol listesi **M** bölümü tam olarak bunu soruyor. Diğer dört dinamik
+      rota (`tefekkur/[slug]`, `atlas/peygamber/[id]`, `oku/[surah]`, geçersiz
+      rota) **doğru 404 veriyor** — yalnız bu ikisi kaçmış. Üstelik
+      `generateMetadata` var olmayan âyet için canonical + OG üretiyor →
+      **indekslenebilir çöp sayfa.**
+
+### 🟠 Z3-D · Sistem/kural ihlalleri
+
+- [ ] **Z3d1 · §13.22 ihlali — `/atlas/ibadetler/*` RAG corpus'unda YOK**
+      `grep -n "ibadetler" scripts/corpus-sources.mjs` → **0 sonuç.**
+      8 JSON · **724 KB** içerik (namaz, oruç, zekât, hac, kurban, tövbe, zikir,
+      hub) ne `TOOL_CATALOG`'da (55 giriş) ne corpus'ta. `/arac/wow` da yok.
+      Sonuç: `/sor`'a "oruç nedir" diye sorulunca bu sayfalar **hiç önerilmiyor.**
+      §13.22 bu pipeline'ı "MUTLAK" diye tanımlıyor ve "İstisna: Yok" diyor.
+      ✅ Ters yön temiz: corpus'ta olup rotası olmayan giriş **0** (404 riski yok).
+- [ ] **Z3d2 · §13.24 ihlali — `WowFacts.jsx:1400`**
+      > `descTr: "Arkeoloji ve tarihin **onayladığı** Kur'ânî iddialar…"`
+      > `descEn: "Quranic claims **confirmed by archaeology** and history…"`
+      §13.24 "confirmed by archaeology" kalıbını **isim isim** yasaklıyor
+      (tasdikin öznesi arkeoloji olamaz). Hedef sayfanın (`tarihsel-kanitlar`)
+      içeriği 26 Temmuz'da düzeltilmiş; **ona giden kartın metni düzeltilmemiş.**
+- [ ] **Z3d3 · §13.15 — 9 okuma-dışı JSON'da Uthmani karakter**
+      472 JSON tarandı. `corpus/*` ve `verse-graph-bgem3` **muaf** (CSS tecvid
+      overlay pipeline'ı). Kalan ihlaller:
+      | dosya | sorunlu karakter | tüketen bileşen | runtime `cleanArabic` |
+      |---|---:|---|---|
+      | `ilk-son-kelimeler.json` | **1.062** | `IlkSonKelimeler.jsx` | ✅ var (8×) |
+      | `semantic-map.json` | **466** | `SemanticMap.jsx` | ❌ **YOK** |
+      | `dua-arabic.json` | 71 | `ProphetAtlas.jsx` | — |
+      | `kadinlar.json` | 44 | `KadinlarAtlasi.jsx` | ❌ **YOK** |
+      | `ilk-son-kelimeler-spotlights.json` | 21 | ↑ | ✅ |
+      | `nefis-mertebeleri.json` | 17 | `NefisMertebeleri.jsx` | ✅ (2×) |
+      | `kuranin-renkleri.json` | 2 (`۝`) | `KuranRenkleri.jsx` | — |
+      | `verse-metadata.json` | 2 (`ی` Farsî yeh) | — | — |
+      Ekranda **tofu 0** çıktı (140 sayfa) — yani şu an görünür hasar yok; ama
+      §13.15 build kuralı "JSON'a yazmadan ÖNCE normalize" diyor ve bu 9 dosya
+      kuralın dışında. `SemanticMap` + `KadinlarAtlasi` runtime temizliği de
+      yapmadığı için tek koruma katmanı font'un toleransı.
+- [ ] **Z3d4 · `DesktopSidebarTOC.jsx:38` — `NAVBAR_HEIGHT = 62` (dördüncü kardeş)**
+      `useNavbarOffset` üç yerde topladı; bu dosya dışarıda kaldı. Ölçülen gerçek
+      navbar 82px (1280+), yani çapa kaydırması **20px eksik** iniyor.
+      Ayrıca `AhiretYolculugu.jsx:200` → `HEADER_OFFSET = 180` sabit.
+
+### 🟠 Z3-E · İki dillilik (Z1'de yok)
+
+- [ ] **Z3e1 · `/en/oku` metadata'sı TAMAMEN Türkçe**
+      `<title>Kur'an'ı Oku | QuranCodex</title>` ·
+      `description: "Per-sure tilavet (6 kâri) + karaoke kelime senkronizasyonu +
+      tajweed + Elmalılı/Ibn Kathir tefsir paneli + interlinear kelime-kelime
+      çeviri."` — sitenin **amiral gemisi sayfası**, İngilizce aramada böyle çıkar.
+- [ ] **Z3e2 · 9 EN rotasında etiket sızıntısı (tek tek doğrulandı)**
+      | rota | sızan dize |
+      |---|---|
+      | `/en/atlas/doga` | **"Sûre Adı"** (tablo başlığı) · "Kıssa" · "Arı" |
+      | `/en/arac/buyruklar` | âyet **çevirileri Türkçe**: "Namazı kılın…", "Oruç sizden…" |
+      | `/en/arac/wow`, `/en/arac/kurani-tani` | "Çeşitli sûreler" |
+      | `/en/atlas/ibadetler` | "Oruç" |
+      | `/en/graf/diyalog` | **"DiğerPeygamberler"** (ayrıca **boşluk da yok**) · "Münafıklar" |
+      | `/en/arac/ilk-son-kelimeler` | "mukattaa (şifre)" · "kurtuluşa erersiniz" |
+      | `/en/atlas/kadinlar` | "Mûsâ'nın annesi" |
+      | `/en/arac/iblis-seytan` | "3 farklı" |
+      ⚠ Not: Türkçe-karakter taraması 47 rota işaretledi ama **38'i yanlış pozitif**
+      (Zemahşerî, İbn Kesîr gibi özel adlar) — GPT-5.4'ün uyarısı doğruymuş.
+      Yukarıdaki 9'u cümle/etiket düzeyinde tek tek doğrulandı.
+- [ ] **Z3e3 · EN'de sayı biçimi karışık — aynı satırda**
+      `/en/graf/ayet`: "**6.236** verses · **10,653** similar verse pairs".
+      Biri TR ayracı, öbürü EN. (Kontrol listesi E: `toLocaleString`.)
+- [ ] **Z3e4 · 5 sayfada başlıkta çift marka**
+      `Kütüphanem — QuranCodex | QuranCodex`. Sayfa `— QuranCodex` ekliyor,
+      `_shell.jsx:39` `template: '%s | QuranCodex'` bir kez daha ekliyor.
+      Manuel sonek kullanan 5 dosya: `grep -rl "— QuranCodex" src/app/\[locale\]`
+
+### 🟡 Z3-F · Mimari / SEO
+
+- [ ] **Z3f1 · Mega-menü ögeleri `<a>` değil `<button>`**
+      DOM zinciri: `SPAN < SPAN < BUTTON < DIV` (öge: "Dilsel DNA").
+      Anasayfada menü kapalı 24 `<a>`, açık **yine 24** — yani 36+ keşif ögesinin
+      **hiçbiri bağlantı değil.** Orta tık · "yeni sekmede aç" · URL önizlemesi ·
+      arama motoru taraması **hepsi kayıp**. Z1f "31 rota" diyor ama navbar
+      **74 rotanın hepsinde** var; sitenin birincil keşif yüzeyi bu.
+      ✅ `Escape` kapatıyor + odak tetikleyiciye dönüyor (G3 **doğrulandı**).
+- [ ] **Z3f2 · 74/140 sayfa sunucuda yalnız "Yükleniyor…" döndürüyor**
+      `/tr/atlas/kiraat` 224 karakter · `/tr/atlas/peygamber` 237 ·
+      `/tr/graf/ayet` 296 · `/tr/atlas/nefs-mertebeleri` 287…
+      `PageHeading` (sr-only h1 + desc) SEO sinyalini kurtarıyor ama **gövde
+      içeriği sunucuda yok**. JS başarısız olursa sayfa boş.
+- [ ] **Z3f3 · Sekme/filtre durumu URL'ye yazılmıyor (kontrol listesi R)**
+      `/tr/atlas/melekler` — sekme değiştirildi, URL sabit kaldı. Geri tuşu
+      önceki sekmeye dönmez, URL paylaşılınca durum kaybolur. Atlas/graf
+      sayfalarının çoğunda aynı kalıp.
+
+### 🟠 Z3-F2 · 1024px'te kalan navbar örtüşmesi (5 rota)
+
+- [ ] **Z3f4 · Navbar hâlâ içerik örtüyor — yalnız 1024px'te, 5 rotada**
+      1440 ve 390'da **0** örtüşme; kırılma penceresi Z3a1 ile aynı (sarma).
+      `document.elementFromPoint` ile doğrulandı — "görünüyor ama tıklanamıyor":
+      | rota | örtüşme | örtülen öge |
+      |---|---:|---|
+      | `/en/graf/ayet` | **62px** | "← Surahs" butonu · "All Surahs ▾" · "Clear" |
+      | `/en/sor` | **58px** | "← HOME" bağlantısı · "Press ESC to close" |
+      | `/tr/sor` | **32px** | "← ANASAYFA" · "ESC ile kapat" |
+      | `/en/graf/diyalog` | **24px** | 5 sekme butonu (Network Map, Dialogues…) |
+      | `/en/atlas/kissa` | **18px** | 8 peygamber çipi (Moses, Joseph…) |
+      **Beşinin dördü İngilizce** — tek dilde test bunu kaçırırdı (kontrol
+      listesi Parti 1'in dersinin aynısı). Z3a1 düzeltilirse bu da düşer.
+
+- [ ] **Z3f5 · Mobil sayfa uzunluğu — 8 rota 23.000px üstünde (karar gerekiyor)**
+      `/en/arac/dualar` **36.755px** (~43 ekran) · `esma-frekans` 36.743 ·
+      `/en/tefekkur` 32.286 · `atlas/kadinlar` 28.153 · `ilk-son-kelimeler` 25.041 ·
+      `kurani-tani`/`wow` 24.370 · `/en` 23.001.
+      Kontrol listesi 2.5'te eşik kaldırıldı; sorulacak soru: **atlama aracı var mı**
+      (raf/ToC/çapa) ve **uzunluk artıyor mu**. Bu 8 rotada ikisi de bakılmadı.
+
+### 🟡 Z3-G · Kod sağlığı
+
+- [ ] **Z3g1 · eslint: 541 hata + 35 uyarı, 89 dosya**
+      | kural | adet | not |
+      |---|---:|---|
+      | `react/no-unescaped-entities` | 451 | kozmetik, `--fix` yok |
+      | `react-hooks/set-state-in-effect` | **50** | gereksiz render turu |
+      | `react-hooks/refs` | **18** | render sırasında ref okuma (17'si `ReadingMode`) |
+      | `react-hooks/static-components` | 7 | her renderda yeni bileşen tipi |
+      | `react-hooks/rules-of-hooks` | **2** | → Z3c1 |
+      | `@next/next/no-img-element` | 10 | `<img>` yerine `next/image` |
+- [ ] **Z3g2 · `ReadingMode.jsx` 11.289 satır** (sonraki en büyük 3.869).
+      Tek dosyada 18 `react-hooks` ihlali; sitenin en kritik sayfası.
+- [ ] **Z3g3 · 4 gereksiz `'use client'`** — `FramingBadge` · `SiblingPageLink` ·
+      `SourcesCitation` · `StatCard` (hook/olay/window yok).
+
+### ✅ Z3-H · ÖLÇÜLDÜ ve TEMİZ ÇIKTI (tekrar denetlemeye gerek yok)
+
+| Kontrol | Sonuç |
+|---|---|
+| HTTP durumu | **140/140 → 200** |
+| Yatay kaydırma | **0** (140 sayfa × 3 genişlik) |
+| Tofu / replacement karakter | **0** |
+| `alt`'sız görsel | **0** |
+| Adsız bağlantı | **0** |
+| Navbar sayfa içeriğini örtüyor (1440 · 390) | **0** |
+| Navbar örtüşmesi 1024 | ❌ **5 rota — temiz DEĞİL**, ayrı madde: **Z3f4** |
+| `canonical` | 138/140 (yalnız `/kutuphanem` yok — **`noindex:true`, doğru davranış**) |
+| `hreflang` tr/en/x-default | **140/140 doğru** ⚠ Next `hrefLang` (camelCase) basıyor; küçük harf arayan regex **yanlış negatif** verir — 0.1 tuzağı |
+| Font zinciri (kontrol listesi T) | `kfgqpc-hafs.otf` 200 · `ShaykhHamdullah.ttf` 200 · `document.fonts` → **loaded** |
+| Skip link | odakta `translateY(0)`, görünür, odağı `<main>`'e taşıyor |
+| Mega-menü `Escape` | panel opacity **1 → 0**, odak **tetikleyiciye** dönüyor |
+| Dinamik rota 404 | `tefekkur/olmayan-slug` · `peygamber/9999` · `oku/115` · `oku/0` · `peygamber/abc` → **404** |
+| Dil değiştirici | `/tr/atlas/kissa` → `/en/atlas/kissa` — rota korunuyor |
+| `/sor` iki dilde | TR + EN çalışıyor · API 200 · **576ms** · `X-Degraded` yok |
+| i18n anahtar paritesi | tr 398 ↔ en 398, gerçek eksik **0** (`*Tr`/`*En` sonekleri kasıtlı) |
+| Renk denetimi | taban aşılmadı (184 / 1.176) · CLAUDE.md §4 ↔ `tokens.js` uyumlu |
+| `prefers-reduced-motion` | 3 kural · `:focus-visible` 5 kural |
+| Mobil sayfa uzunluğu | ⚠ karar bekliyor, ayrı madde: **Z3f5** |
+
+---
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [ ] **Bugüne kadar verilen HER puan yalnız anasayfaydı** (76 → 73 → 78).
-      Diğer 73 sayfa ilk kez bugün tarandı ve o tarama yalnız otomatik
-      kontrolleri kapsıyor — kontrast, CWV, görsel inceleme ve içerik
-      kalitesi 73 sayfada **hiç** ölçülmedi.
+- [x] **İlk uygulama-geneli puan verildi: 74/100** (13 Ağustos gecesi, Z3 turu)
+
+      | Eksen | Anasayfa | **Uygulama** | Farkın sebebi |
+      |---|---:|---:|---|
+      | İçerik & editoryal dürüstlük | 85 | **86** | §13.24 disiplini gerçekten uygulanmış; 1 ihlal (Z3d2) |
+      | Teknik sağlamlık | 82 | **72** | 140/140 200 ama Z3c1/c2/c3 gizli bombaları + 541 lint hatası |
+      | Görsel tasarım | 72 | **76** | Araç sayfaları anasayfadan **daha** çeşitli; 1024 navbar kırığı düşürüyor |
+      | Bilgi mimarisi | 80 | **76** | Mega-menü zengin ama 8 rota katalog/corpus dışında |
+      | Tutarlılık | 76 | **70** | 184 token dışı renk + şema sürüklenmesi (Z3a2) + 4 kopya katalog |
+      | İki dillilik | — | **72** | Parite tam ama EN'de 9 rota sızıntı + `/en/oku` metadata TR |
+      | Erişilebilirlik | 76 | **66** | 114 adsız buton · 88 rotada etiketsiz svg · 20 rotada `lang`/`dir` eksik · gezinme `<button>` |
+      | SEO / sunucu render | — | **70** | canonical+hreflang kusursuz; 74 sayfa SSR'da boş, geçersiz âyet indekslenebilir |
+
+      **Neden 74:** iskelet sağlam (0 yatay kaydırma, 0 tofu, 140/140 200,
+      hreflang kusursuz, fontlar yükleniyor, `/sor` iki dilde çalışıyor) ve
+      **içerik sitenin en güçlü tarafı**. Notu düşüren şey yeni özellik eksikliği
+      değil, **anasayfada çözülmüş hataların diğer sayfalarda kardeşlerinin
+      durması**: ölü tıklamalar (3 yer), sabit navbar yüksekliği (4. yer),
+      gezinmenin `<button>` ile yapılması (navbarın kendisi), ham `**`.
+      **80'e giden en kısa yol:** Z3a1 + Z3a2 + Z3b (ölü tıklamalar) + Z3c1 —
+      dördü de küçük, dördü de görünür.
+
+- [ ] Kalan ölçülmemiş: **kontrast** ve **CWV** yalnız anasayfada ölçüldü;
+      diğer 73 sayfada hiç bakılmadı (`measure-vitals.mjs` üretim build'i ister).
 - [ ] Uygulama puanı için gereken: `measure-vitals.mjs` tüm rotalarda +
       her sayfa tipinden en az bir örneğin gözle incelenmesi
 - [ ] ⚠ Tam tarama bir turda **10 dakikayı aşıyor** — parti parti yürütülmeli

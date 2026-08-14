@@ -11,6 +11,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+import { renderInlineMarkdown } from './tefekkur/inlineMarkdown';
 
 // ── Sûre isimleri (TR + EN) ──────────────────────────────────────────────────
 const SURAH_NAMES_TR = {
@@ -1469,7 +1470,7 @@ function CaprazOkumaSection({ language, isMobile }) {
                   fontFamily: FONTS.body, fontSize: '0.85rem',
                   color: COLORS.silver, lineHeight: 1.6,
                 }}>
-                  {tr ? obs.bodyTr : obs.bodyEn}
+                  {renderInlineMarkdown(tr ? obs.bodyTr : obs.bodyEn)}
                 </p>
               </div>
             </div>

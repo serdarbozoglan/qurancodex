@@ -545,7 +545,7 @@ export default function HumanDefinition() {
                         <p
                           className="text-xl leading-loose mb-2 text-right"
                           style={{ fontFamily: FONTS.quran, color: term.color }}
-                          dir="rtl"
+                          lang="ar" dir="rtl"
                         >
                           {term.verse.ar}
                         </p>
@@ -627,7 +627,7 @@ export default function HumanDefinition() {
           <p
             className="text-2xl md:text-3xl leading-loose mb-2"
             style={{ fontFamily: FONTS.quran, color: COLORS.gold }}
-            dir="rtl"
+            lang="ar" dir="rtl"
           >
             {tr('muminHeaderVerse')}
           </p>
@@ -680,7 +680,7 @@ export default function HumanDefinition() {
                 {/* Arabic text — prominent */}
                 <p
                   className="text-right leading-loose mb-4 flex-1"
-                  dir="rtl"
+                  lang="ar" dir="rtl"
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
@@ -767,7 +767,7 @@ export default function HumanDefinition() {
                 {/* Right: Arabic text */}
                 <p
                   className="text-right leading-loose flex-shrink-0 md:max-w-[46%]"
-                  dir="rtl"
+                  lang="ar" dir="rtl"
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
@@ -875,7 +875,7 @@ export default function HumanDefinition() {
                     <span
                       className="text-2xl md:text-3xl flex-shrink-0"
                       style={{ fontFamily: FONTS.quran, color: '#0D9E73', textShadow: isOpen ? '0 0 16px rgba(13,158,115,0.3)' : 'none' }}
-                      dir="rtl"
+                      lang="ar" dir="rtl"
                     >
                       {pair.pos.ar}
                     </span>
@@ -969,7 +969,7 @@ export default function HumanDefinition() {
                       <span
                         className="text-2xl md:text-3xl flex-shrink-0"
                         style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
-                        dir="rtl"
+                        lang="ar" dir="rtl"
                       >
                         {pair.neg.ar}
                       </span>
@@ -988,7 +988,7 @@ export default function HumanDefinition() {
                       <span
                         className="text-2xl md:text-3xl flex-shrink-0"
                         style={{ fontFamily: FONTS.quran, color: '#E07A5F', textShadow: isOpen ? '0 0 16px rgba(212,82,62,0.3)' : 'none' }}
-                        dir="rtl"
+                        lang="ar" dir="rtl"
                       >
                         {pair.neg.ar}
                       </span>
@@ -1021,7 +1021,7 @@ export default function HumanDefinition() {
           <p
             className="text-xl md:text-2xl leading-loose text-center mb-4"
             style={{ fontFamily: FONTS.quran, color: COLORS.offWhite }}
-            dir="rtl"
+            lang="ar" dir="rtl"
           >
             {tr('istikaametVerse')}
           </p>
@@ -1123,7 +1123,7 @@ export default function HumanDefinition() {
                 <p
                   className="text-3xl md:text-4xl mb-3 text-center"
                   style={{ fontFamily: FONTS.quran, color: stage.color }}
-                  dir="rtl"
+                  lang="ar" dir="rtl"
                 >
                   {stage.arabic}
                 </p>
@@ -1165,7 +1165,7 @@ export default function HumanDefinition() {
                   <p
                     className="text-sm leading-loose text-right mb-2"
                     style={{ fontFamily: FONTS.quran, color: stage.color }}
-                    dir="rtl"
+                    lang="ar" dir="rtl"
                   >
                     {stage.verse.ar}
                   </p>

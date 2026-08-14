@@ -10,6 +10,7 @@ import {
 import LoadingOverlay from './LoadingOverlay';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
 
 // ─── Semantic Map (F-2) ──────────────────────────────────────────────────────
 // 6.236 ayet üzerinde BGE-M3 embedding'i ile NetworkX Louvain topluluk
@@ -25,6 +26,23 @@ const SORT_OPTIONS = [
   { id: 'density',  labelTr: 'Yoğunluk',      labelEn: 'Density',         fn: (a, b) => b.avg_semantic_density - a.avg_semantic_density },
   { id: 'id',       labelTr: 'Sıra (ID)',     labelEn: 'Order (ID)',      fn: (a, b) => a.id - b.id },
 ];
+
+// ─── Sûre çipi metni ────────────────────────────────────────────────────────
+// 2026-08-13: bu çipler EKRANDA BOŞ görünüyordu — ": " ve " ()" basıyorlardı.
+// Sebep: bileşen `s.surah_id` ve `s.verse_count` okuyordu, oysa
+// `public/semantic-map.json` alanları `surah` ve `count`. 100 kaydın
+// 100'ünde `surah_id` undefined'dı. React'in "unique key" uyarısı da aynı
+// kökten geliyordu; uyarı düzeltilince asıl hata ortaya çıktı.
+// Veri kaynak, bileşen ona uyar — JSON'a dokunulmadı.
+// Ayrıca sayı yerine SÛRE ADI gösteriliyor: "26: 56" kimseye bir şey
+// söylemiyordu, "Şuarâ · 56" söylüyor.
+function surahChip(s, tr) {
+  const n = s.surah ?? s.surah_id;
+  const count = s.count ?? s.verse_count;
+  const names = tr ? SURAH_NAMES_TR : SURAH_NAMES_EN;
+  const name = Number.isInteger(n) ? (names?.[n - 1] || `${n}`) : null;
+  return { n, count, name };
+}
 
 export default function SemanticMap({ onClose }) {
   const { language } = useLanguage();
@@ -328,15 +346,17 @@ function ClusterCard({ cluster, onClick, selected, language, maxVerseCount }) {
       {/* Top surahs preview */}
       {topPreview.length > 0 && (
         <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
-          {topPreview.map(s => (
-            <span key={s.surah_id} style={{
+          {/* key: veri dosyasında alan adı `surah`; `surah_id` fallback + son çare index
+              (aksi halde key undefined olur ve React "unique key prop" uyarısı verir) */}
+          {topPreview.map((s, i) => (
+            <span key={s.surah ?? s.surah_id ?? `top-${i}`} style={{
               padding: '2px 7px', borderRadius: '4px',
               background: 'rgba(212,165,116,0.07)',
               color: COLORS.gold, fontSize: '0.66rem',
               fontWeight: 500,
               border: '1px solid rgba(212,165,116,0.12)',
             }}>
-              {s.surah_id}: {s.verse_count}
+              {(() => { const c = surahChip(s, language === 'tr'); return `${c.name ?? '?'} · ${c.count ?? 0}`; })()}
             </span>
           ))}
           {(c.top_surahs?.length || 0) > 3 && (
@@ -458,14 +478,15 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
         {c.top_surahs?.length > 0 && (
           <Block label={language === 'tr' ? 'Öne çıkan sûreler' : 'Top surahs'}>
             <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-              {c.top_surahs.map(s => (
-                <span key={s.surah_id} style={{
+              {c.top_surahs.map((s, i) => (
+                <span key={s.surah ?? s.surah_id ?? `top-${i}`} style={{
                   padding: '3px 8px', borderRadius: '4px',
                   background: 'rgba(212,165,116,0.07)',
                   color: COLORS.gold, fontSize: '0.72rem',
                   border: '1px solid rgba(212,165,116,0.15)',
                 }}>
-                  {s.surah_id} <span style={{ opacity: 0.65 }}>({s.verse_count})</span>
+                  {(() => { const c = surahChip(s, language === 'tr'); return c.name ?? '?'; })()}{' '}
+                  <span style={{ opacity: 0.65 }}>({(() => surahChip(s, language === 'tr').count ?? 0)()})</span>
                 </span>
               ))}
             </div>

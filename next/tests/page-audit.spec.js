@@ -116,6 +116,7 @@ const PROBE = `(() => {
     navClearance: clearance,
     anchors: links.length,
     buttons: btns.length,
+    noindex: /noindex/i.test((document.querySelector('meta[name="robots"]') || {}).content || ''),
     canonical: (document.querySelector('link[rel="canonical"]') || {}).href || null,
     hreflang: [...document.querySelectorAll('link[rel="alternate"][hreflang]')].map((l) => l.hreflang).join(','),
     internalLinks: [...new Set(links.map((a) => a.getAttribute('href')).filter((h) => h && h.startsWith('/')))],
@@ -161,8 +162,14 @@ for (const route of ROUTES) {
       if (f.backslash) findings.push(`[D] ekranda ters bölü: ${f.backslash}`);
       if (f.stars) findings.push(`[D] ekranda ham **: ${f.stars}`);
       if (f.tofu) findings.push(`[D] tofu/replacement karakter: ${f.tofu}`);
-      if (!f.canonical) findings.push(`[N] canonical YOK`);
-      if (!/tr/.test(f.hreflang) || !/en/.test(f.hreflang)) findings.push(`[N] hreflang eksik: "${f.hreflang}"`);
+      // noindex sayfalarda canonical/hreflang ARANMAZ. /kutuphanem bilerek
+      // noindex — kullanıcıya özgü özel sayfa; arama motoruna verilecek
+      // kanonik adresi yok. 2026-08-13 taramasında bunu bulgu diye
+      // raporlamıştım, yanlış pozitifti.
+      if (!f.noindex) {
+        if (!f.canonical) findings.push(`[N] canonical YOK`);
+        if (!/tr/.test(f.hreflang) || !/en/.test(f.hreflang)) findings.push(`[N] hreflang eksik: "${f.hreflang}"`);
+      }
       if (errors.length) findings.push(`[F] console error ${errors.length}: ${errors[0].slice(0, 90)}`);
 
       // EN sayfasında Türkçe'ye özgü harf

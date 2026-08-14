@@ -589,7 +589,7 @@ export default function QuranRhetoric() {
                 </span>
                 {/* Arapça */}
                 <p
-                  dir="rtl"
+                  lang="ar" dir="rtl"
                   style={{
                     fontFamily: FONTS.quran,
                     fontSize: '1.5rem',
