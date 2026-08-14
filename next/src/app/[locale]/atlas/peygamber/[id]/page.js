@@ -21,7 +21,15 @@ export async function generateStaticParams() {
   return PROPHETS.map(p => ({ id: p.id }));
 }
 
-export const dynamicParams = false;
+// `dynamicParams = false` KALDIRILDI (2026-08-13, Z3c3 yan bulgusu).
+// Nedeni: bu bayrak açıkken listede olmayan bir id Next'in ÇIPLAK 404'ünü
+// veriyordu — `<html lang>` yok, navbar yok, çıkış bağlantısı yok, İngilizce
+// sayfada Türkçe metin. Ölçüldü: `/en/atlas/peygamber/9999` → lang=YOK,
+// çıkış bağlantısı 0. Oysa 50. satırdaki `notFound()` zaten doğru işi
+// yapıyor ve artık `[locale]/not-found.jsx`'e düşüyor (dilinde, navbar'lı,
+// üç çıkışlı).
+// SSG kaybı yok: `generateStaticParams` bilinen id'leri önceden üretmeye
+// devam ediyor; yalnız bilinmeyen id dinamik çalışıp 404 veriyor.
 
 export async function generateMetadata({ params }) {
   const { id, locale } = await params;

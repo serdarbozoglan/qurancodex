@@ -20,13 +20,38 @@ import VerseShareRoute from './VerseShareRoute';
 // sayfa yalnızca BOŞ âyet gösteriyordu — paylaşım sayfasının tek işi buydu.
 // Sunucudan okumak ayrıca: h1 kazandırıyor, metni HTML'e koyuyor (paylaşım
 // önizlemesi ve tarayıcılar için) ve yükleme durumunu ortadan kaldırıyor.
+import { notFound } from 'next/navigation';
 import VERSE_GRAPH from '../../../../../../public/verse-graph-bgem3.json';
+
+// ─── Sınır doğrulaması (2026-08-13, Z3c3) ──────────────────────────────────
+// Öncesi: `/tr/ayet/115/1` ve `/tr/ayet/2/300` **200** dönüyordu. Sûre 115 yok,
+// Bakara 286 âyet. Sayfa boş render ediyor, ama `generateMetadata` var olmayan
+// âyet için başlık + canonical + OG üretiyordu → **indekslenebilir çöp sayfa**
+// (`<title>Sure 115 115:1 — QuranCodex</title>`). Eski kontrol yalnız
+// `s<=114 && a>=1` bakıyordu ve `notFound()` yerine `return null` yapıyordu —
+// `return null` 404 DEĞİLDİR, 200 + boş gövdedir.
+//
+// Otorite: `verse-graph-bgem3.json`. Doğrulandı — 6.236 kayıt, 114 sûre,
+// numara boşluğu 0 (yani "grafikte yoksa âyet yoktur" güvenli bir çıkarım).
+// Set module-level: istek başına 6.236 kayıtta `find` çalıştırmaya gerek yok.
+const VERSE_KEYS = new Set(VERSE_GRAPH.map((v) => `${v.surah}:${v.ayah}`));
+const verseExists = (s, a) =>
+  Number.isInteger(s) && Number.isInteger(a) && VERSE_KEYS.has(`${s}:${a}`);
 
 export async function generateMetadata({ params }) {
   const { surah, ayah, locale } = await params;
   const s = parseInt(surah, 10);
   const a = parseInt(ayah, 10);
   const isEn = locale === 'en';
+
+  // Var olmayan âyet için canonical/OG üretme — sayfa zaten notFound() verecek,
+  // ama metadata paralel çalıştığı için burada da kapatılır.
+  if (!verseExists(s, a)) {
+    return {
+      title: isEn ? 'Verse not found' : 'Âyet bulunamadı',
+      robots: { index: false, follow: false },
+    };
+  }
   const nameTr = SURAH_NAMES_TR?.[s - 1] || `Sure ${s}`;
   const nameEn = SURAH_NAMES_EN?.[s - 1] || `Sūrah ${s}`;
   const titleTr = `${nameTr} ${s}:${a} — QuranCodex`;
@@ -44,8 +69,8 @@ export default async function Page({ params }) {
   const { surah, ayah, locale } = await params;
   const s = parseInt(surah, 10);
   const a = parseInt(ayah, 10);
-  const valid = !Number.isNaN(s) && !Number.isNaN(a) && s >= 1 && s <= 114 && a >= 1;
-  if (!valid) return null;
+  // `return null` YERİNE `notFound()` — bkz. dosya başındaki not.
+  if (!verseExists(s, a)) notFound();
 
   const row = VERSE_GRAPH.find((v) => v.surah === s && v.ayah === a) || null;
   const verse = row
