@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulama geneli: 74 → 80/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
+> **Uygulama geneli: 74 → 82/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -458,25 +458,24 @@ yüklüyor. Kullanıcı ilk tıklamada çökecekti.
 > iki bağımsız tur aynı iki hatayı buldu; kalan 23'ü yalnız bu tur buldu.
 > Tekrarla: `/tmp/crawl-{1440,1024,390}.json`, `/tmp/ssr-sweep.json`, `/tmp/eslint.json`
 
-### ⏸ ERTELENDİ — UNUTMA: `Z3d1` embedding rebuild
+### ✅ `Z3d1` KAPANDI — ibadetler RAG corpus'a girdi (`1d5fdd8`)
 
-> **Kullanıcı 13 Ağustos gecesi "sonra, ama not al" dedi.** Sıradaki turda ilk
-> iş bu. Ertelenme sebebi teknik değil **maliyet**: corpus + embedding rebuild
-> OpenAI API çağrısı yapıyor.
+> 724 KB içerik (7 ibadet + hub) artık `/sor`'da bulunuyor.
+> Canlı test: *"namaz nedir"* → `/tr/atlas/ibadetler/namaz` ·
+> *"oruç neden farz kılındı"* → `.../oruc` · *"zekât kimlere verilir"* →
+> `.../zekat` · EN: *"what is fasting"* → `/en/atlas/ibadetler/oruc`.
+> Embedding **artımlı**: yeni 15, dokunulmayan 12.860, **2.0s, $0.0000**.
+> Dosya 168.96 MB (Vercel 250 MB sınırına 81 MB marj).
 >
-> **Yapılacak (§13.22 pipeline'ı, 5 adım):**
-> 1. `scripts/corpus-sources.mjs` → 8 ibadetler JSON'u `CONTENT_SOURCES`'a,
->    8 rota `TOOL_CATALOG`'a (`/arac/wow` da eksik)
-> 2. `cd next && npm run embed:corpus` → yeni tiplerin count'unu doğrula
-> 3. `node scripts/build-embeddings.mjs` → **incremental**; log'da
->    `New/changed: N` yalnız yeni item olmalı, `Reused ~12.860` görülmeli
-> 4. `wc -c next/src/lib/corpus-embeddings.json` → **250 MB Vercel sınırı**
->    (şu an 168 MB, 82 MB marj)
-> 5. Deploy sonrası `/tr/sor`'da "oruç nedir" sorup sonucu gör
+> **İlk bulgumda iki yanlış vardı, düzeltildi:** hub zaten katalogdaydı
+> (eksik olan 7 alt rota), ve `/arac/wow` katalog dışı olmalı — 307
+> yönlendirme, sayfa değil.
 >
-> **Şimdiki zarar:** `/sor` 724 KB içeriği (namaz, oruç, zekât, hac, kurban,
-> tövbe, zikir) **hiç bilmiyor** — kullanıcı sorar, site kendi en iyi
-> sayfasını öneremez.
+> **Embed etmeden önce iki hata yakalandı** (chunk'ları gözle okuyarak):
+> `hub.json`'un id'si `ibadetler-hub` olduğu için üretilen rota
+> `/atlas/ibadetler/ibadetler-hub` = **404'e götüren corpus kaydı**
+> (kontrol listesi §U); ve dil sızıntısı — `anchorVerse` `tr`/`en` küçük
+> harf kullandığı için Türkçe chunk'ta İngilizce meal vardı.
 
 ---
 
@@ -492,9 +491,9 @@ yüklüyor. Kullanıcı ilk tıklamada çökecekti.
 | **1** | **Z3a1** (+**Z3f4** ücretsiz kapanır) | **148 sayfanın hepsi.** Kullanıcı kırık **görüyor** (CTA metni kenarlığın dışında) ve `/en/graf/ayet`'te kontroller **tıklanamıyor**. Tek kök: 1024–1180'de sarma. iPad Pro 12.9" portrait = tam 1024px |
 | **2** | **Z3c1** | 2 satır · 5 dk. Patlarsa sayfa **hiç açılmaz**. Tetikleyici teorik değil — alan adı sürüklenmesi bu hafta yaşandı (Z3a2) |
 | **3** | **Z3b1 · Z3b2 · Z3b3** | Kullanıcı tıklıyor, **hiçbir şey olmuyor** — hata bile vermiyor. Çözüm kalıbı hazır: `routeForToolEvent` + `<Link>` (`ToolsBrowser`'da uygulandı) |
-| **4** | **Z3d1** | §13.22 "MUTLAK, istisna yok" diyor; `/sor` **724 KB** içeriği bilmiyor. ⚠ embedding rebuild maliyeti var, önce onay |
+| ~~4~~ ✅ | ~~**Z3d1**~~ `1d5fdd8` | §13.22 "MUTLAK, istisna yok" diyor; `/sor` **724 KB** içeriği bilmiyor. ⚠ embedding rebuild maliyeti var, önce onay |
 | **5** | **Z3c3** | Geçersiz âyet için canonical+OG üretiliyor → indekslenebilir çöp. Düzeltme: aralık kontrolü + `notFound()` |
-| **6** | **Z3f1** | Geniş ama zararı **SEO değil** — ölçüldü: `sitemap.xml` **458 URL** döndürüyor, keşif kayıp değil. Kalan zarar UX (orta tık / yeni sekme) + anchor-text |
+| ~~6~~ ✅ | ~~**Z3f1**~~ `bbbd3ec` | Geniş ama zararı **SEO değil** — ölçüldü: `sitemap.xml` **458 URL** döndürüyor, keşif kayıp değil. Kalan zarar UX (orta tık / yeni sekme) + anchor-text |
 
 **Bilerek geriye atılanlar:** `C2` (184 renk) → önce **karar**, temizlik değil ·
 `B1/B3/B4` (görsel) → kod değil **tasarım kararı**, statik mockup olmadan başlama ·
@@ -691,7 +690,9 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ### 🟠 Z3-D · Sistem/kural ihlalleri
 
-- [ ] **Z3d1 · §13.22 ihlali — `/atlas/ibadetler/*` RAG corpus'unda YOK**
+- [x] ~~**Z3d1 · §13.22 ihlali — `/atlas/ibadetler/*` RAG corpus'unda YOK**~~
+      **KAPANDI** `1d5fdd8`. Ayrıntı yukarıda (Z3 başındaki blok).
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `grep -n "ibadetler" scripts/corpus-sources.mjs` → **0 sonuç.**
       8 JSON · **724 KB** içerik (namaz, oruç, zekât, hac, kurban, tövbe, zikir,
       hub) ne `TOOL_CATALOG`'da (55 giriş) ne corpus'ta. `/arac/wow` da yok.
@@ -757,7 +758,16 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ### 🟡 Z3-F · Mimari / SEO
 
-- [ ] **Z3f1 · Mega-menü ögeleri `<a>` değil `<button>`**
+- [x] ~~**Z3f1 · Mega-menü ögeleri `<a>` değil `<button>`**~~ — **KAPANDI** `bbbd3ec`
+      Masaüstü mega-menü **60 buton/1 bağlantı → 7 buton/54 bağlantı**;
+      mobil çekmece **25 → 78 bağlantı**. Kalan butonlar bilinçli (akordiyon
+      gibi gerçek eylemler).
+      **Yan kazanç — sessiz bir hata daha kapandı:** "bölüm" ögeleri
+      `scrollTo(id)` çağırıyordu; anasayfada çalışıyor ama **başka bir
+      sayfadan tıklanınca hiçbir şey yapmıyordu** (id DOM'da yok). Artık
+      gerçek çapa: `/tr/sor`'dan "Dilsel DNA" → `/tr#mukattaa-card`,
+      scrollY 5522. Escape hâlâ kapatıyor.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       DOM zinciri: `SPAN < SPAN < BUTTON < DIV` (öge: "Dilsel DNA").
       Anasayfada menü kapalı 24 `<a>`, açık **yine 24** — yani 36+ keşif ögesinin
       **hiçbiri bağlantı değil.** Orta tık · "yeni sekmede aç" · URL önizlemesi ·
@@ -840,7 +850,7 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **Düzeltmelerden sonra: 74 → 80/100** (13 Ağustos gecesi, `038f346..f4491e0` push edildi)
+- [x] **Düzeltmelerden sonra: 74 → 82/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
 
       Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
 
@@ -857,15 +867,18 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       | 404 sayfası | çıplak, dilsiz, çıkışsız | **dilinde, navbar'lı, 3 çıkışlı** |
       | Ölü kod | 916 satır + her sayfada provider | **silindi** |
       | Etiketsiz svg | 166/285 | **0/901** |
+      | Gezinme `<button>` (mega-menü) | 60 buton / 1 bağlantı | **7 / 54** |
+      | Gezinme `<button>` (mobil çekmece) | 25 bağlantı | **78 bağlantı** |
+      | `/sor` ibadetler içeriğini biliyor mu | hayır (724 KB görünmez) | **evet** |
 
       | Eksen | Denetim | **Şimdi** | Kalan engel |
       |---|---:|---:|---|
       | İçerik & editoryal | 86 | **86** | §13.24 ihlali (Z3d2) hâlâ açık |
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
-      | Bilgi mimarisi | 76 | **80** ▲4 | 8 rota katalog/corpus dışında · 50/55 |
-      | Erişilebilirlik | 66 | **84** ▲18 | gezinme `<button>` · kontrast 73 sayfada ölçülmedi |
-      | SEO / sunucu render | 70 | **76** ▲6 | 74 sayfa SSR'da boş · kök 404 çıplak |
+      | Bilgi mimarisi | 76 | **85** ▲9 | `/arac/tum-araclar` 50/55 · Z3c4 regresyonu |
+      | Erişilebilirlik | 66 | **86** ▲20 | kontrast 73 sayfada **hiç ölçülmedi** |
+      | SEO / sunucu render | 70 | **79** ▲9 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
 
