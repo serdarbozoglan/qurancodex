@@ -637,6 +637,11 @@ export default function Navbar() {
       descTr:  t.id === 'dua-verses' ? `Kur'an'dan ${duaCount ?? '...'} seçilmiş dua` : t.descTr,
       descEn:  t.id === 'dua-verses' ? `${duaCount ?? '...'} selected supplications from the Quran` : t.descEn,
       icon:    <Icon size={14} />,
+      // Z1f (2026-08-13): `action` yetmiyor — <button> orta tık, "yeni sekmede
+      // aç", bağlantı kopyala ve tarayıcı taramasını öldürüyor. `href` eklendi;
+      // `toolBtn` bu varsa <Link> render ediyor. `action` geriye dönük kalıyor
+      // (haritada karşılığı olmayan bir event kalırsa buton davranışı sürsün).
+      href:    TOOL_ROUTES[t.event] ? `/${language}${TOOL_ROUTES[t.event]}` : null,
       action:  () => {
         const trigger = TOOL_TRIGGERS[t.event];
         if (trigger) trigger();
@@ -857,24 +862,44 @@ export default function Navbar() {
                       ibadetler:        '/atlas/ibadetler',
                       addresseeSystem:  '/arac/muhataplar',
                     };
+                    // 2026-08-13 (Z1f/Z3f1) — mega-menü ögeleri <button> idi.
+                    // Ölçüm: menü açıkken panelde 27 buton / 0 bağlantı. Sonuç:
+                    // orta tık, "yeni sekmede aç", bağlantıyı kopyala, durum
+                    // çubuğunda hedef önizlemesi ve arama motoru iç-link grafiği
+                    // — hepsi kayıptı. Ve bu navbar 74 rotanın HEPSİNDE var.
+                    // Şimdi <Link>. Bölüm ögeleri de gerçek çapa alıyor
+                    // (`/tr#linguistic`): anasayfadaysak yumuşak kaydırma için
+                    // preventDefault, değilsek normal navigasyon çalışır —
+                    // önceden başka bir sayfadan bölüm ögesine tıklamak HİÇBİR
+                    // ŞEY yapmıyordu (scrollTo o id'yi bulamıyordu).
+                    const itemHref = (item) => {
+                      if (item.kind === 'section') return `/${language}#${item.target}`;
+                      const route = OVERLAY_ROUTE_BY_TARGET[item.target];
+                      return route ? `/${language}${route}` : null;
+                    };
                     const itemBtn = (item) => {
                       const Icon = item.icon;
-                      const handleClick = () => {
+                      const href = itemHref(item);
+                      const onHome = pathname === `/${language}`;
+                      const handleClick = (e) => {
                         if (item.kind === 'section') {
-                          scrollTo(item.target);
-                        } else {
+                          // Anasayfadaysak yumuşak kaydır; değilsek <Link> çalışsın.
+                          if (onHome) { e.preventDefault(); scrollTo(item.target); }
+                        } else if (!href) {
                           const route = OVERLAY_ROUTE_BY_TARGET[item.target];
                           if (route) router.push(`/${language}${route}`);
                         }
                         setExploreOpen(false);
                       };
+                      const El = href ? Link : 'button';
                       return (
-                        <button
+                        <El
                           key={item.id}
+                          {...(href ? { href } : {})}
                           onClick={handleClick}
                           style={{
                             display: 'flex', alignItems: 'center', gap: '12px',
-                            width: '100%', textAlign: 'left',
+                            width: '100%', textAlign: 'left', textDecoration: 'none',
                             padding: '9px 12px', borderRadius: '10px', border: 'none',
                             background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                           }}
@@ -892,7 +917,7 @@ export default function Navbar() {
                               {language === 'tr' ? item.descTr : item.descEn}
                             </span>
                           </span>
-                        </button>
+                        </El>
                       );
                     };
 
@@ -1097,13 +1122,17 @@ export default function Navbar() {
                       textTransform: 'uppercase',
                       padding: '10px 12px 6px',
                     };
-                    const toolBtn = (tool) => (
-                      <button
+                    // href varsa <Link>, yoksa eski <button> davranışı (Z1f).
+                    const toolBtn = (tool) => {
+                      const El = tool.href ? Link : 'button';
+                      return (
+                      <El
                         key={tool.labelTr}
-                        onClick={tool.action}
+                        {...(tool.href ? { href: tool.href } : {})}
+                        onClick={() => { if (!tool.href) tool.action(); else setToolsOpen(false); }}
                         style={{
                           display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
+                          width: '100%', textAlign: 'left', textDecoration: 'none',
                           padding: '9px 12px', borderRadius: '10px', border: 'none',
                           background: 'transparent', cursor: 'pointer', transition: 'background 0.15s',
                         }}
@@ -1119,8 +1148,9 @@ export default function Navbar() {
                             {language === 'tr' ? tool.descTr : tool.descEn}
                           </span>
                         </span>
-                      </button>
+                      </El>
                     );
+                    };
                     // featuredTool, vizTools, analysisTools, researchTools are
                     // now defined at the component-top from src/data/tools.jsx
                     // (single source of truth — see line ~493)
@@ -1313,11 +1343,15 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.05 + i * 0.028, ease: [0.32, 0.72, 0, 1] }}
                       >
-                      <button
-                        onClick={() => { router.push(`/${language}/tefekkur?cat=${cat.id}`); setTefekkurOpen(false); }}
+                      {/* Z1f: <button> + router.push → <Link>. Kategori
+                          filtresi zaten URL'de (`?cat=`), yani paylaşılabilir
+                          bir hedefti; yalnız bağlantı olarak sunulmuyordu. */}
+                      <Link
+                        href={`/${language}/tefekkur?cat=${cat.id}`}
+                        onClick={() => setTefekkurOpen(false)}
                         style={{
                           display: 'flex', alignItems: 'center', gap: '12px',
-                          width: '100%', textAlign: 'left',
+                          width: '100%', textAlign: 'left', textDecoration: 'none',
                           padding: '10px 12px', borderRadius: '10px', border: '1px solid transparent',
                           background: 'transparent', cursor: 'pointer',
                           transition: 'background 0.45s cubic-bezier(0.32,0.72,0,1), border-color 0.45s cubic-bezier(0.32,0.72,0,1), transform 0.35s cubic-bezier(0.32,0.72,0,1)',
@@ -1373,7 +1407,7 @@ export default function Navbar() {
                           fontFamily: "'Inter', sans-serif",
                           flexShrink: 0,
                         }}>→</span>
-                      </button>
+                      </Link>
                       </motion.div>
                     );
 
@@ -1984,10 +2018,16 @@ export default function Navbar() {
             };
 
             // ── Reusable item renderer ─────────────────────────────────────────
-            const MobileItem = ({ icon, titleTr, titleEn, descTr, descEn, onClick, dotColor }) => (
-              <button
-                onClick={() => { onClick(); setMobileOpen(false); }}
-                style={ITEM_BTN}
+            // Z1f (2026-08-13): `href` verilirse <Link>, verilmezse eski <button>.
+            // Mobil çekmece TELEFONDA BİRİNCİL GEZİNME — burada da orta tık /
+            // "yeni sekmede aç" / bağlantı kopyala çalışmalı.
+            const MobileItem = ({ icon, titleTr, titleEn, descTr, descEn, onClick, dotColor, href }) => {
+              const El = href ? Link : 'button';
+              return (
+              <El
+                {...(href ? { href } : {})}
+                onClick={() => { if (onClick) onClick(); setMobileOpen(false); }}
+                style={href ? { ...ITEM_BTN, textDecoration: 'none' } : ITEM_BTN}
                 aria-label={language === 'tr' ? titleTr : titleEn}
               >
                 <span style={ITEM_ICON}>
@@ -2004,8 +2044,9 @@ export default function Navbar() {
                     <span style={ITEM_DESC}>{language === 'tr' ? descTr : descEn}</span>
                   )}
                 </span>
-              </button>
-            );
+              </El>
+              );
+            };
 
             // ── Featured banner (Kur'an'ı Tanı / Tüm Yazılar) ─────────────────
             const MobileFeatured = ({ icon, titleTr, titleEn, descTr, descEn, onClick }) => (
@@ -2212,8 +2253,11 @@ export default function Navbar() {
                           titleEn={item.titleEn}
                           descTr={item.descTr}
                           descEn={item.descEn}
+                          href={item.kind === 'section'
+                            ? `/${language}#${item.target}`
+                            : (OVERLAY_ROUTE_MOBILE[item.target] ? `/${language}${OVERLAY_ROUTE_MOBILE[item.target]}` : null)}
                           onClick={() => {
-                            if (item.kind === 'section') { scrollTo(item.target); }
+                            if (item.kind === 'section' && pathname === `/${language}`) { scrollTo(item.target); }
                             else {
                               const route = OVERLAY_ROUTE_MOBILE[item.target];
                               if (route) router.push(`/${language}${route}`);
@@ -2256,7 +2300,8 @@ export default function Navbar() {
                         titleEn={tool.labelEn}
                         descTr={tool.descTr}
                         descEn={tool.descEn}
-                        onClick={tool.action}
+                        href={tool.href}
+                        onClick={tool.href ? undefined : tool.action}
                       />
                     ))}
                   </div>
@@ -2293,7 +2338,7 @@ export default function Navbar() {
                     titleEn={cat.labelEn}
                     descTr={cat.descTr}
                     descEn={cat.descEn}
-                    onClick={() => router.push(`/${language}/tefekkur?cat=${cat.id}`)}
+                    href={`/${language}/tefekkur?cat=${cat.id}`}
                   />
                 ))}
               </div>
