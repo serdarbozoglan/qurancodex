@@ -14,7 +14,6 @@
 import { notFound } from 'next/navigation';
 import Shell, { sharedMetadata, sharedViewport } from '../_shell';
 import { LanguageProvider } from '@/i18n/LanguageContext';
-import { PathProvider } from '@/contexts/PathContext';
 import Navbar from '@/components/Navbar';
 import ScrollProgress from '@/components/ScrollProgress';
 import BugReportFab from '@/components/BugReportFab';
@@ -42,7 +41,12 @@ export default async function LocaleLayout({ children, params }) {
         {locale === 'en' ? 'Skip to main content' : 'Ana içeriğe geç'}
       </a>
       <LanguageProvider initialLocale={locale}>
-        <PathProvider>
+        {/* PathProvider KALDIRILDI (2026-08-13). "Rehberli yol" özelliği ölüydü:
+            PathCards hiçbir yerde render edilmiyordu (SixGates yerine geçmiş),
+            ama provider HER SAYFADA mount olup sessionStorage okuyor ve olay
+            dinleyicisi kuruyordu — sıfır kullanıcı değeri karşılığında bedel.
+            Kürasyon arşivlendi: docs/arsiv/rehberli-yol-kurasyonu.md */}
+        <>
           <ScrollProgress />
           <Navbar />
           {/* tabIndex={-1} ŞART — 2026-08-13 ölçümü:
@@ -52,7 +56,7 @@ export default async function LocaleLayout({ children, params }) {
               başlıyordu — bağlantı işlevsizdi. */}
           <main id="main" tabIndex={-1} style={{ outline: 'none' }}>{children}</main>
           <BugReportFab />
-        </PathProvider>
+        </>
       </LanguageProvider>
     </Shell>
   );

@@ -10,13 +10,16 @@ import { COLORS, FONTS } from '../tokens';
 export default function Conclusion() {
   const { t, language } = useLanguage();
 
-  // v1.1 redesign: jump to discovery layer (PathCards), not the very top
+  // Keşif katmanına atlar — sayfanın en başına DEĞİL.
+  // 2026-08-13: hedef `#path-cards` idi ama PathCards anasayfadan kaldırılalı
+  // beri o id hiç yoktu; kod her seferinde fallback'e düşüp kullanıcıyı EN
+  // BAŞA götürüyordu. Sessiz bir bozulma — buton çalışıyor görünüyordu.
+  // Yeni hedef, PathCards'ın yerine geçen bölüm: SixGates (`#six-gates`).
   const handleScrollToPaths = () => {
-    const el = document.getElementById('path-cards');
+    const el = document.getElementById('six-gates');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Fallback for pages where PathCards isn't mounted
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };

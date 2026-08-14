@@ -1,3 +1,19 @@
+# Arşiv — "Rehberli Yol" (guided path) kürasyonu
+
+> **Kod 2026-08-13'te SİLİNDİ** (`PathContext.jsx` 608 · `PathCards.jsx` 212 ·
+> `paths.jsx` 96 satır). Sebep: özellik hiçbir yerde render edilmiyordu
+> (`grep "<PathCards"` → 0), yerine **SixGates** geçmişti, ve dayandığı
+> overlay-event mimarisi Vite→Next göçünde kaldırıldığı için kod
+> canlandırılabilir değildi — yeniden yazım gerektiriyordu.
+>
+> **Silinen KOD; kürasyon değil.** Aşağıdaki yol/adım kurgusu editoryal bir
+> değer taşıyor. İleride rehberli yol istenirse `/yol/[id]` gibi **gerçek
+> rota** olarak sıfırdan yazılmalı — event/overlay state'i olarak değil.
+>
+> İlgili açık maddeler: `todo_agu13_2026.md` → **D1** (anasayfada özet yok),
+> **F1** (raf adları SixGates kapılarıyla örtüşmüyor).
+
+```jsx
 // ─── Discovery paths data — single source of truth ───────────────────────────
 // Path-aware navigation (v1.2). Each path is an ordered list of steps.
 // Activating a path puts the page into "path mode": the PathBreadcrumb
@@ -94,3 +110,4 @@ export const PATHS = [
 export function getPathById(id) {
   return PATHS.find((p) => p.id === id) || null;
 }
+```
