@@ -716,17 +716,16 @@ function IndexRail({ stages, activeIdx, onJump, tr }) {
                     textAlign: 'left',
                     cursor: 'pointer',
                     transition: 'color 0.2s ease, opacity 0.2s ease',
-                    opacity: active ? 1 : 0.6,
+                    opacity: active ? 1 : 0.85,
                   }}
                   onMouseEnter={(e) => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = COLORS.offWhite; } }}
-                  onMouseLeave={(e) => { if (!active) { e.currentTarget.style.opacity = '0.6'; e.currentTarget.style.color = COLORS.silver; } }}
+                  onMouseLeave={(e) => { if (!active) { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.color = COLORS.silver; } }}
                 >
                   <span style={{
                     fontFamily: FONTS.body,
                     fontSize: '0.6rem',
                     fontWeight: 700,
                     color: active ? COLORS.gold : COLORS.silver,
-                    opacity: active ? 0.75 : 0.4,
                     minWidth: 18,
                     letterSpacing: '0.06em',
                   }}>{String(i + 1).padStart(2, '0')}</span>

@@ -103,7 +103,9 @@ export const COLORS = {
   skyBlue:       '#3498db',
   cyan:          '#06b6d4',
   orange:        '#e67e22',
-  violet:        '#9b59b6',
+  // 14 Ağustos: metin olarak AA'yı geçmiyordu (solid 4.20). Aynı ton
+  // ailesi korunarak açıldı (6.23) — bkz. §13.26 md.6.
+  violet:        '#B17EC6',
   purple:        '#a78bfa',
   amber:         '#f0b429',
 

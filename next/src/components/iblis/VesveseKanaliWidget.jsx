@@ -40,7 +40,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'Yalancı vaadler verir: "Ben senin dostunum." Elde etmeyeceği şeyi vaad eder.',
       descEn: 'He gives false promises: "I am your friend." He promises what he cannot deliver.',
       verseRef: 'Nisâ 4:120, İbrâhim 14:22',
-      color: '#8b0000',
+      color: '#C58080',
     },
     {
       id: 'vesvese-icten',
@@ -48,7 +48,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
       descTr: 'İnsanların göğüslerine fısıldayan sinsi vesveseci — cin ve insanlardan olabilir. Zayıf anlarda saldırır.',
       descEn: 'The sly whisperer who whispers into human hearts — may be from jinn or humans. Attacks in moments of weakness.',
       verseRef: 'Nâs 114:4-6',
-      color: '#c0392b',
+      color: '#D4786F',
     },
   ];
 

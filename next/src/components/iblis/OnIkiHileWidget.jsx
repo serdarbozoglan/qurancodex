@@ -73,7 +73,7 @@ function OnIkiHileWidget({ language, isMobile }) {
           }}>
             <div style={{
               width: '24px', height: '24px', borderRadius: '50%',
-              background: m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : '#e67e22',
+              background: m.n <= 4 ? '#8b0000' : m.n <= 8 ? '#c0392b' : '#A85C19',
               color: '#fff', fontSize: '0.7rem', fontWeight: 800,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontFamily: FONTS.body, flexShrink: 0,

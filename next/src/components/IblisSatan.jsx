@@ -536,7 +536,7 @@ export default function IblisSatan({ onClose }) {
                   fontWeight: 700,
                   letterSpacing: '0.15em',
                   color: isOpen ? p.accent : COLORS.silver,
-                  opacity: isOpen ? 1 : 0.55,
+                  opacity: isOpen ? 1 : 0.78,
                   width: '22px',
                   transition: 'all 0.2s',
                 }}>
@@ -563,7 +563,7 @@ export default function IblisSatan({ onClose }) {
                       {p.verseRange}
                     </span>
                     <span style={{
-                      color: p.accent, opacity: 0.95,
+                      color: p.accent,
                       fontSize: '0.7rem',
                       fontFamily: FONTS.body, fontWeight: 600,
                       letterSpacing: '0.14em', textTransform: 'uppercase',
@@ -854,7 +854,6 @@ export default function IblisSatan({ onClose }) {
                               background: baseBg,
                               border: `1px solid ${baseBorder}`,
                               color: chip.muted ? COLORS.silver : COLORS.offWhite,
-                              opacity: chip.muted ? 0.65 : 1,
                               cursor: 'pointer',
                               transition: 'background 0.15s, border-color 0.15s',
                             }}
@@ -871,7 +870,7 @@ export default function IblisSatan({ onClose }) {
                               {chip.surah}
                             </span>
                             <span style={{
-                              fontSize: '0.66rem', opacity: 0.75,
+                              fontSize: '0.66rem', opacity: 0.78,
                               letterSpacing: '0.02em',
                             }}>
                               {chip.verse}
