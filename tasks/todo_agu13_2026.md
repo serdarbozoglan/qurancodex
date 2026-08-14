@@ -937,9 +937,24 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       renklerini (mavi #3B4BC8, mor #7B4FBF, kırmızı #C0392B, teşil
       #1D7A5F) Melekler/CennetCehennem'dekiyle AYNI şekilde hiç
       doğrulanmadan kullanmış, düşük opaklıkla birleşince mobilde açığa
-      çıkıyor. **Henüz düzeltilmedi** — aynı kalıp (kategori rengi AA'ya
-      tabi, §13.26 md.6), ayrı bir bileşen (`Kıyamet` veya benzeri),
-      küçük kapsam (3 rota) — sonraki turun ilk maddesi olabilir.
+      çıkıyor.
+- [x] ~~**3 rotanın kategori renkleri**~~ — **KAPANDI** `8c6fded`.
+      `KiyametSahneleri.jsx` (7 fazlık PHASE_COLORS: kırmızı/teal/mavi/mor
+      açıldı), `MeselAtlasi.jsx` + **veri dosyaları**
+      (`public/amthal/paired-parables.json`, `imagery-networks.json` —
+      aynı renk JS fallback'inde DEĞİL, JSON'a da gömülüymüş, ikisi de
+      düzeltildi) ve `InsanYolculugu.jsx` (iki fazla-soluk kapsayıcı
+      opacity + iki sınırdaki gold/silver opacity).
+      ⚠ **Yan bulgu:** `KiyametSahneleri.jsx`'te aynı renk hem "metin
+      cosmic-black üstünde" HEM "beyaz metin rozet zemini" olarak
+      kullanılıyordu — matematiksel olarak **ikisi aynı anda AA geçemez**
+      (biri L≥0.216 ister, öbürü L≤0.183 — kesişim yok). Rozet metni
+      beyaz yerine `COLORS.cosmicBlack` yapıldı.
+      Bilerek dokunulmayan: `/atlas/insan-yolculugu`'daki "Önceki" butonu
+      (ratio 2.13) — gerçekten `disabled`, WCAG metni okunması beklenmeyen
+      inert ögeleri kapsamaz.
+      Doğrulama: production build (ayrı port), 6 sayfa (TR+EN×3) sıfır
+      ihlal (Önceki hariç), konsol hatası yok.
 
 ### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
 
