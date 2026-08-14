@@ -4,10 +4,23 @@
 // Renkler/İlk-Son pattern: sayfa altında "Daha Derine — İlgili Araçlar" eyebrow
 // + 2-3 deep link kart grid. Her kart: gold title + → + gri açıklama.
 // Hover: lift + brighten.
+//
+// 14 Ağustos — CLS düzeltmesi: grid-template-columns/padding/marginTop artık
+// JS `isMobile` prop'undan DEĞİL, CSS media query'den geliyor (globals.css,
+// `.cross-tool-cta__*` kuralları). Sebep: `isMobile` her çağıran sayfada
+// §14.1'in zorunlu koştuğu `useState(false)+useEffect` kalıbıyla geliyor —
+// yani hydration ANINDA hep `false`. Mobilde sayfa önce 3 sütunlu masaüstü
+// ızgarasıyla render oluyor, hydration'dan hemen sonra `isMobile` true
+// olunca 1 sütuna yeniden diziliyor. Bu tam olarak `/graf/karsilastir`
+// (CLS 0.78), `/arac/neden-sonuc` (0.68) gibi sayfalardaki en büyük kayma
+// kaynağıydı — 54 dosyada kullanılan paylaşılan bileşen olduğu için etkisi
+// geniş. CSS media query tarayıcı tarafından JS beklenmeden çözülür, kayma
+// olmaz. `isMobile` prop'u geriye dönük uyumluluk için imzada kalıyor ama
+// artık kullanılmıyor — 54 çağıran yer dokunulmadan çalışmaya devam eder.
 
 import { COLORS, FONTS, RADIUS, TRANSITION } from '../tokens';
 
-export default function CrossToolCTA({ language, isMobile, links, labelTr, labelEn, accent }) {
+export default function CrossToolCTA({ language, isMobile: _isMobile, links, labelTr, labelEn, accent }) {
   const tr = language === 'tr';
   const ACC = accent || COLORS.gold;
   const ACC_BG = `${ACC}10`;
@@ -16,9 +29,7 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
   const ACC_BORDER_HOVER = `${ACC}80`;
 
   return (
-    <div style={{
-      marginTop: isMobile ? '36px' : '56px',
-      padding: isMobile ? '28px 0 8px' : '36px 0 12px',
+    <div className="cross-tool-cta__wrap" style={{
       borderTop: `1px solid ${COLORS.goldAlpha15}`,
     }}>
       {/* Eyebrow — <h2>, <span> DEĞİL.
@@ -43,23 +54,23 @@ export default function CrossToolCTA({ language, isMobile, links, labelTr, label
       </div>
 
       {/* Grid */}
-      <div style={{
+      <div className="cross-tool-cta__grid" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : `repeat(${Math.min(links.length, 3)}, 1fr)`,
         gap: '12px',
         maxWidth: '960px',
         margin: '0 auto',
+        '--cta-cols': Math.min(links.length, 3),
       }}>
         {links.map((link, i) => (
           <a
             key={i}
             href={link.href}
+            className="cross-tool-cta__card"
             style={{
               display: 'block',
               background: `linear-gradient(180deg, ${ACC_BG} 0%, rgba(255,255,255,0.02) 100%)`,
               border: `1px solid ${ACC_BORDER}`,
               borderRadius: RADIUS.lg,
-              padding: isMobile ? '18px 16px' : '22px 22px',
               textDecoration: 'none',
               transition: `all ${TRANSITION.base}`,
             }}

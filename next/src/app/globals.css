@@ -802,3 +802,48 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     gap: 10px;
   }
 }
+
+/* ─── CrossToolCTA / SourcesCitation — CLS düzeltmesi (14 Ağustos) ──────────
+   Bu iki bileşen 54+ sayfada kullanılıyor ve grid-template-columns'u JS
+   `isMobile` prop'undan alıyordu. `isMobile` her çağıran sayfada §14.1'in
+   zorunlu koştuğu `useState(false)+useEffect` kalıbıyla geliyor — yani
+   hydration ANINDA hep `false`. Mobilde sayfa önce masaüstü ızgarasıyla
+   render olup hydration'dan hemen sonra yeniden diziliyordu (CLS 0.68-0.78,
+   `/arac/neden-sonuc` ve `/graf/karsilastir` gibi sayfalarda ölçüldü).
+   CSS media query tarayıcı tarafından JS beklenmeden çözülür, kayma sıfırlanır. */
+.cross-tool-cta__wrap {
+  margin-top: 56px;
+  padding: 36px 0 12px;
+}
+.cross-tool-cta__grid {
+  grid-template-columns: repeat(var(--cta-cols, 3), 1fr);
+}
+.cross-tool-cta__card {
+  padding: 22px 22px;
+}
+.sources-citation__wrap {
+  margin-top: 52px;
+  padding: 32px 28px;
+}
+.sources-citation__grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 640px) {
+  .cross-tool-cta__wrap {
+    margin-top: 36px;
+    padding: 28px 0 8px;
+  }
+  .cross-tool-cta__grid {
+    grid-template-columns: 1fr;
+  }
+  .cross-tool-cta__card {
+    padding: 18px 16px;
+  }
+  .sources-citation__wrap {
+    margin-top: 36px;
+    padding: 24px 18px;
+  }
+  .sources-citation__grid {
+    grid-template-columns: 1fr;
+  }
+}

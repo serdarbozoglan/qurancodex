@@ -3,15 +3,19 @@
 // ─── SourcesCitation — Klasik tefsir kaynak listesi callout ─────────────────
 // Sayfa sonunda "Klasik Kaynaklar" eyebrow + 2-col kaynak grid.
 // Her kaynak: author + work + period + (opsiyonel) note.
+//
+// 14 Ağustos — CLS düzeltmesi: bkz. `CrossToolCTA.jsx`'in aynı tarihli notu.
+// Aynı kök sebep (isMobile SSR-safe pattern, §14.1) burada da grid/padding/
+// marginTop'u hydration sonrası yeniden diziyordu — artık CSS media query
+// (`globals.css`, `.sources-citation__*`). `isMobile` prop'u geriye dönük
+// uyumluluk için imzada kalıyor, artık kullanılmıyor.
 
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
-export default function SourcesCitation({ language, isMobile, sources }) {
+export default function SourcesCitation({ language, isMobile: _isMobile, sources }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      marginTop: isMobile ? '36px' : '52px',
-      padding: isMobile ? '24px 18px' : '32px 28px',
+    <div className="sources-citation__wrap" style={{
       background: 'rgba(212,165,116,0.03)',
       border: `1px solid ${COLORS.goldAlpha15}`,
       borderRadius: RADIUS.lg,
@@ -29,9 +33,8 @@ export default function SourcesCitation({ language, isMobile, sources }) {
           {tr ? 'Klasik Kaynaklar' : 'Classical Sources'}
         </span>
       </div>
-      <div style={{
+      <div className="sources-citation__grid" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '14px',
       }}>
         {sources.map((s, i) => (
