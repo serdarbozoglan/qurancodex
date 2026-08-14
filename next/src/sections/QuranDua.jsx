@@ -267,7 +267,7 @@ export default function QuranDua() {
             <div style={{ textAlign: 'center', color: '#3498db', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbî · Rabbim' : 'Rabbī · my Lord'}
             </div>
-            <div style={{ textAlign: 'center', color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+            <div style={{ textAlign: 'center', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
               {tr ? 'tekil · ~40 yer' : 'singular · ~40 occurrences'}
             </div>
             <div style={{
@@ -288,7 +288,7 @@ export default function QuranDua() {
             justifyContent: 'center', minWidth: '36px',
           }}>
             <span style={{
-              color: COLORS.gold, fontSize: '1.6rem', opacity: 0.55,
+              color: COLORS.gold, fontSize: '1.6rem', opacity: 0.75,
               fontFamily: "'Inter', sans-serif", lineHeight: 1,
             }}>⇋</span>
             <span style={{
@@ -325,7 +325,7 @@ export default function QuranDua() {
             <div style={{ textAlign: 'center', color: COLORS.gold, fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px', fontFamily: "'Inter', sans-serif" }}>
               {tr ? 'Rabbenâ · Rabbimiz' : 'Rabbanā · our Lord'}
             </div>
-            <div style={{ textAlign: 'center', color: 'rgba(148,163,184,0.7)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
+            <div style={{ textAlign: 'center', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.72rem', fontFamily: "'Inter', sans-serif", marginBottom: '12px', fontStyle: 'italic' }}>
               {tr ? 'çoğul · ~38 yer' : 'plural · ~38 occurrences'}
             </div>
             <div style={{
@@ -497,7 +497,7 @@ export default function QuranDua() {
             <div style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontWeight: 600, fontFamily: "'Inter', sans-serif" }}>
               {tr ? s.labelTr : s.labelEn}
             </div>
-            <div style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
+            <div style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.7rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', lineHeight: 1.4 }}>
               {tr ? s.subTr : s.subEn}
             </div>
           </div>
@@ -558,7 +558,7 @@ export default function QuranDua() {
                 <h3 style={{ color: p.emojiColor, fontFamily: FONTS.display, fontSize: '1.3rem', fontWeight: 700, margin: '0 0 4px' }}>
                   {tr ? p.nameTr : p.nameEn}
                 </h3>
-                <p style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
+                <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem', fontFamily: "'Inter', sans-serif", fontStyle: 'italic', margin: 0 }}>
                   {tr ? p.profileTr : p.profileEn}
                 </p>
               </div>
@@ -600,7 +600,7 @@ export default function QuranDua() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 {/* Temalar */}
                 <div>
-                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148,163,184,0.4)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
+                  <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)', marginBottom: '10px', fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
                     {tr ? 'Dua Temaları' : 'Prayer Themes'}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -675,7 +675,7 @@ export default function QuranDua() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {tr ? "Dua'nın Anatomisi — Dört Aşama" : "Anatomy of a Prayer — Four Stages"}
         </h3>
-        <p style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
+        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
           {tr
             ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur — bu sıra rastgele değil, içsel bir mimari. Tek bir kısa dua dördünü birden açıkça taşımaz; aşağıda Bakara 2:201 ile Hz. Eyyub'un duası (Enbiyâ 21:83) bileşik bir örnek olarak kullanılmıştır:"
             : "In the Qur'anic prayer tradition, every prayer comprises four core stages — not random but an inner architecture. No single short prayer makes all four explicit; below, Al-Baqara 2:201 and Hz. Job's prayer (Al-Anbiya 21:83) are used as a composite example:"
@@ -794,7 +794,7 @@ export default function QuranDua() {
                 marginTop: 'auto',
                 paddingTop: '8px',
                 borderTop: `1px dashed ${stage.color}25`,
-                color: 'rgba(148,163,184,0.7)',
+                color: 'rgba(148, 163, 184, 0.78)',
                 fontSize: '0.72rem',
                 lineHeight: 1.55,
                 fontFamily: "'Inter', sans-serif",
@@ -813,7 +813,7 @@ export default function QuranDua() {
           border: '1px solid rgba(255,255,255,0.05)',
           borderLeft: '2px solid rgba(212,165,116,0.4)',
           borderRadius: RADIUS.md,
-          color: 'rgba(148,163,184,0.65)',
+          color: 'rgba(148, 163, 184, 0.78)',
           fontSize: '0.78rem',
           fontFamily: "'Inter', sans-serif",
           fontStyle: 'italic',
@@ -830,7 +830,7 @@ export default function QuranDua() {
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
           {tr ? 'Seçilmiş Rabbena Duaları' : 'Selected Rabbana Prayers'}
         </h3>
-        <p style={{ color: 'rgba(148,163,184,0.6)', fontSize: '0.9375rem', lineHeight: 1.6, fontFamily: "'Inter', sans-serif", marginBottom: '12px' }}>
+        <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.9375rem', lineHeight: 1.6, fontFamily: "'Inter', sans-serif", marginBottom: '12px' }}>
           {tr
             ? "Her biri farklı bir ihtiyacın, farklı bir anın dile gelişi."
             : 'Each one a different need, a different moment finding voice.'}
@@ -845,7 +845,7 @@ export default function QuranDua() {
           ].map(item => (
             <div key={item.color} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
               <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: 2, background: item.color, flexShrink: 0 }} />
-              <span style={{ color: 'rgba(148,163,184,0.55)', fontSize: '0.69rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
+              <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.69rem', fontFamily: "'Inter', sans-serif", fontWeight: 500, letterSpacing: '0.05em' }}>
                 {tr ? item.labelTr : item.labelEn}
               </span>
             </div>
@@ -1008,7 +1008,7 @@ export default function QuranDua() {
       {/* ── Cross-tool CTA strip — 3 anchor sûre ─────────────────────────── */}
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {tr ? 'Daha Derine — Duanın Mührü' : 'Go Deeper — The Seal of Prayer'}
           </span>
         </div>
@@ -1047,7 +1047,7 @@ export default function QuranDua() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {tr ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {tr ? tt.descTr : tt.descEn}

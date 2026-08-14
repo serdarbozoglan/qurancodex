@@ -152,7 +152,7 @@ export function toolOgCard({ category, title, subtitle, glyph, accentColor }) {
             bottom: 36,
             right: 60,
             color: COLORS.silver,
-            opacity: 0.6,
+            opacity: 0.78,
             fontSize: 20,
             letterSpacing: '0.18em',
           }}

@@ -175,7 +175,7 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               fontWeight: 600,
-              opacity: 0.72,
+              opacity: 0.78,
               marginBottom: 36,
             }}>
               — {surahName} {surah}:{ayah}
@@ -266,7 +266,7 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
         fontSize: '0.72rem',
         letterSpacing: '0.28em',
         fontWeight: 600,
-        opacity: 0.6,
+        opacity: 0.75,
       }}>
         QURAN CODEX
       </div>

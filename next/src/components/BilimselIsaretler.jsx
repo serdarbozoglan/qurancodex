@@ -184,7 +184,7 @@ export default function BilimselIsaretler({ onClose }) {
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 36px', opacity: 0.65,
+              margin: '0 0 36px', opacity: 0.78,
             }}>— {tr ? 'Zâriyât 51:47' : 'al-Dhāriyāt 51:47'}</p>
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',
@@ -201,7 +201,7 @@ export default function BilimselIsaretler({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72,
+              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
               marginBottom: '14px',
             }}>{tr ? 'ÂYÂT-I KEVNİYYE · TABİAT İŞARETLERİ' : 'ĀYĀT KAWNIYYA · SIGNS OF NATURE'}</div>
             <h2 style={{

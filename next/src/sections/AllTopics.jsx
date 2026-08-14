@@ -54,7 +54,7 @@ export default function AllTopics() {
         <span
           style={{
             color: COLORS.gold,
-            opacity: 0.6,
+            opacity: 0.75,
             fontSize: '0.75rem',
             fontFamily: FONTS.body,
             textTransform: 'uppercase',

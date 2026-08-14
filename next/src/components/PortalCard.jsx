@@ -168,7 +168,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
               // 0.7 idi → 4.23 kontrast, AA'nın (4.5) altında. Ölçüldü:
               // silver #94a3b8 cosmic-black üstünde opaklık .75'ten itibaren
               // geçiyor (4.70). Renk tokenı değil, OPAKLIK sorunuydu.
-              opacity: 0.75,
+              opacity: 0.78,
             }}
           >
             — {pick(card.verseRef)}

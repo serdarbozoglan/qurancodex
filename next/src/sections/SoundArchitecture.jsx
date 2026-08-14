@@ -1446,7 +1446,7 @@ export default function SoundArchitecture() {
         <div className="text-center mb-5">
           <span
             className="font-body uppercase tracking-[0.24em] text-xs"
-            style={{ color: COLORS.gold, opacity: 0.7 }}
+            style={{ color: COLORS.gold, opacity: 0.75 }}
           >
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
@@ -1504,7 +1504,7 @@ export default function SoundArchitecture() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

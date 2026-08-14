@@ -181,7 +181,7 @@ export default function PathCard({
                 {language === 'tr' ? step.tr : step.en}
               </span>
               {i < steps.length - 1 && (
-                <span style={{ color: COLORS.silver, opacity: 0.5, fontSize: '0.75rem' }}>·</span>
+                <span style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.75rem' }}>·</span>
               )}
             </span>
           ))}

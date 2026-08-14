@@ -123,7 +123,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
                 : '"Ve Âdem\'e (varlıkların) bütün isimlerini öğretti."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.65,
+              color: COLORS.silver, opacity: 0.78,
               fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 22px',
@@ -135,7 +135,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.72,
+              color: COLORS.gold, opacity: 0.75,
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 12px',
@@ -354,7 +354,7 @@ function SetDetail({ nset, isEn, isMobile }) {
                 }}>{isEn ? t.termEn : t.termTr}</p>
               </div>
               <p style={{
-                color: COLORS.silver, opacity: 0.65,
+                color: COLORS.silver, opacity: 0.78,
                 fontSize: '0.72rem',
                 letterSpacing: '0.06em',
                 fontFamily: FONTS.body,
@@ -440,7 +440,7 @@ function SetDetail({ nset, isEn, isMobile }) {
       {/* Source citation */}
       {(nset.sourceTr || nset.sourceEn) && (
         <p style={{
-          color: COLORS.silver, opacity: 0.55,
+          color: COLORS.silver, opacity: 0.78,
           fontSize: '0.75rem',
           lineHeight: 1.6,
           margin: '24px 0 0',

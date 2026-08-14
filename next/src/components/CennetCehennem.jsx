@@ -301,7 +301,7 @@ export default function CennetCehennem({ onClose }) {
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               margin: '0 0 36px',
-              opacity: 0.65,
+              opacity: 0.78,
             }}>
               — {language === 'tr' ? 'Rahmân 55:46' : 'Ar-Raḥmān 55:46'}
             </p>
@@ -581,7 +581,7 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
 
       {/* Note */}
       {(tr ? item.notTr : item.notEn) && (
-        <p style={{ fontSize: '0.78rem', color: 'rgba(148,163,184,0.75)', lineHeight: 1.55, margin: '0 0 6px' }}>
+        <p style={{ fontSize: '0.78rem', color: 'rgba(148, 163, 184, 0.78)', lineHeight: 1.55, margin: '0 0 6px' }}>
           {tr ? item.notTr : item.notEn}
         </p>
       )}
@@ -592,7 +592,7 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
         {item.isTartismaali && (
           <span style={{
             fontSize: '0.65rem', fontWeight: 600,
-            color: 'rgba(148,163,184,0.6)',
+            color: 'rgba(148, 163, 184, 0.78)',
             background: 'rgba(148,163,184,0.07)',
             border: '1px solid rgba(148,163,184,0.15)',
             borderRadius: RADIUS.pillSm, padding: '1px 7px',
@@ -754,7 +754,7 @@ function TabCennet({ data, language, isMobile }) {
             <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: GOLD, textAlign: 'right', direction: 'rtl', margin: '0 0 6px' }}>{n.nameAr}</p>
             <p style={{ fontSize: '0.85rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 4px' }}>{tr ? n.nameTr : n.nameEn}</p>
             <p style={{ fontSize: '0.75rem', color: COLORS.slate500, margin: '0 0 4px', lineHeight: 1.4 }}>{tr ? n.descTr : n.descEn}</p>
-            {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148,163,184,0.5)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
+            {n.notTr && <p style={{ fontSize: '0.7rem', color: 'rgba(148, 163, 184, 0.78)', fontStyle: 'italic', margin: 0, lineHeight: 1.4 }}>{tr ? n.notTr : n.notEn}</p>}
           </div>
         ))}
       </div>
@@ -928,7 +928,7 @@ function TabCehennem({ data, language, isMobile }) {
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', gap: '4px',
                     fontSize: '0.62rem', fontWeight: 600,
-                    color: 'rgba(148,163,184,0.6)',
+                    color: 'rgba(148, 163, 184, 0.78)',
                     background: 'rgba(148,163,184,0.07)',
                     border: '1px solid rgba(148,163,184,0.18)',
                     borderRadius: RADIUS.pillSm, padding: '1px 8px',
@@ -1534,7 +1534,7 @@ function NineCennetLayers({ language, isMobile, names }) {
                 }}>{tr ? n.nameTr : n.nameEn}</div>
                 {!isMobile && (
                   <div style={{
-                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
                     fontFamily: FONTS.body, marginTop: '2px',
                   }}>{tr ? n.meaningTr : n.meaningEn}</div>
                 )}
@@ -1623,7 +1623,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
                 }}>{tr ? n.nameTr : n.nameEn}</div>
                 {!isMobile && (
                   <div style={{
-                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+                    fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
                     fontFamily: FONTS.body, marginTop: '2px',
                   }}>{tr ? n.meaningTr : n.meaningEn}</div>
                 )}
@@ -1641,7 +1641,7 @@ function SevenCehennemLayers({ language, isMobile, names }) {
 
       <p style={{
         marginTop: '18px', textAlign: 'center', fontSize: '0.75rem',
-        color: COLORS.silver, opacity: 0.7, fontStyle: 'italic',
+        color: COLORS.silver, opacity: 0.78, fontStyle: 'italic',
         fontFamily: FONTS.body, maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto',
       }}>
         {tr
@@ -1708,7 +1708,7 @@ function Rahman31Viz({ language, isMobile, rs }) {
       </div>
       <div style={{
         display: 'flex', justifyContent: 'space-between',
-        fontSize: '0.65rem', color: COLORS.silver, opacity: 0.6,
+        fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78,
         fontFamily: FONTS.body,
         maxWidth: '820px', marginLeft: 'auto', marginRight: 'auto',
       }}>

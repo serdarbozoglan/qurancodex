@@ -398,7 +398,7 @@ function QuestionCard({ q, tr, language, isMobile, cat, expanded, onToggle }) {
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
                     color: COLORS.silver,
-                    opacity: 0.6,
+                    opacity: 0.78,
                     fontWeight: 700,
                     marginBottom: 8,
                   }}>
@@ -464,7 +464,7 @@ function QuestionCard({ q, tr, language, isMobile, cat, expanded, onToggle }) {
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
                     color: COLORS.silver,
-                    opacity: 0.6,
+                    opacity: 0.78,
                     fontWeight: 700,
                     marginBottom: 8,
                   }}>
@@ -546,7 +546,7 @@ function SourceBlock({ tr, labelTr, labelEn, sources, color }) {
                 {tr ? s.workTr : (s.workEn || s.workTr)}
               </span>
               {s.period && (
-                <span style={{ color: COLORS.silver, opacity: 0.6, fontSize: '0.7rem' }}>
+                <span style={{ color: COLORS.silver, opacity: 0.78, fontSize: '0.7rem' }}>
                   · {s.period}
                 </span>
               )}

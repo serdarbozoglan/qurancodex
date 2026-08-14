@@ -227,7 +227,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           </div>
           {/* Helper text — kullanıcıya örnek terimler ipucu verir + scope açıklar */}
           <p style={{
-            fontSize: '0.68rem', color: 'rgba(148,163,184,0.55)',
+            fontSize: '0.68rem', color: 'rgba(148, 163, 184, 0.78)',
             fontFamily: FONTS.body, margin: '0 0 0 2px',
             fontStyle: 'italic',
           }}>
@@ -355,7 +355,7 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               <span style={{
                 fontSize: '0.64rem', fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.3em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.65, whiteSpace: 'nowrap',
+                color: COLORS.gold, opacity: 0.75, whiteSpace: 'nowrap',
               }}>
                 {language === 'tr' ? '114 Sûrenin Tamamı' : 'All 114 Surahs'}
               </span>
@@ -747,7 +747,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
                   <span style={{
                     fontSize: '0.58rem', fontFamily: FONTS.body, fontWeight: 700,
                     letterSpacing: '0.18em', textTransform: 'uppercase',
-                    color: COLORS.gold, opacity: 0.7,
+                    color: COLORS.gold, opacity: 0.75,
                   }}>
                     {tr ? sp.categoryLabelTr : sp.categoryLabelEn}
                   </span>
@@ -758,7 +758,7 @@ function DetailPanel({ surah, spotlights, onClose, language, isMobile }) {
                     {tr ? sp.titleTr : sp.titleEn}
                   </span>
                   <span style={{
-                    fontSize: '0.7rem', color: COLORS.gold, opacity: 0.7,
+                    fontSize: '0.7rem', color: COLORS.gold, opacity: 0.75,
                     fontWeight: 600, letterSpacing: '0.02em',
                   }}>
                     {tr ? 'Spotlight\'a Git →' : 'Go to Spotlight →'}
@@ -836,7 +836,7 @@ function AyahBlock({ label, verseRef, word, ayahAr, ayahTr, language }) {
         <div style={{ flex: 1, minWidth: 0 }}>
           {word?.translit && <div style={{ color: COLORS.gold, fontSize: '0.82rem', fontStyle: 'italic', fontWeight: 500 }}>{word.translit}</div>}
           {word?.meaning && <div style={{ color: COLORS.offWhite, fontSize: '0.78rem', marginTop: '2px' }}>{word.meaning}</div>}
-          {word?.root && <div style={{ color: COLORS.silver, fontSize: '0.7rem', marginTop: '4px', opacity: 0.75 }}>
+          {word?.root && <div style={{ color: COLORS.silver, fontSize: '0.7rem', marginTop: '4px', opacity: 0.78 }}>
             {language === 'tr' ? 'kök' : 'root'}: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>{word.root}</span>
           </div>}
         </div>
@@ -946,7 +946,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 36px',
-          opacity: 0.65,
+          opacity: 0.78,
         }}>
           — {tr ? 'Nisâ 4:82' : 'al-Nisāʾ 4:82'}
         </p>
@@ -979,7 +979,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <div style={{
           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72, marginBottom: '14px',
+          color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
         }}>
           {tr ? 'Münâsebât-ı Süver · 114 Mührün Şifresi' : 'Munāsabāt al-Suwar · The Cipher of 114 Seals'}
         </div>
@@ -1105,7 +1105,7 @@ function ClosingSynthesis({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.72,
+        color: COLORS.gold, opacity: 0.75,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -1151,7 +1151,7 @@ function ClosingSynthesis({ language, isMobile }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.7,
+            color: COLORS.gold, opacity: 0.75,
           }}>
             {tr ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
           </span>
@@ -1201,7 +1201,7 @@ function ClosingSynthesis({ language, isMobile }) {
                 }}>
                   {tr ? t.titleTr : t.titleEn}
                 </h4>
-                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+                <span style={{ color: COLORS.gold, opacity: 0.75, fontSize: '1rem' }}>→</span>
               </div>
               <p style={{
                 fontFamily: FONTS.body,
@@ -1285,7 +1285,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
         <div style={{
           fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.65, marginBottom: '8px',
+          color: COLORS.gold, opacity: 0.75, marginBottom: '8px',
         }}>
           {tr ? 'Çapraz Okuma' : 'Cross Reading'}
         </div>
@@ -1374,7 +1374,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
                 </span>
                 <span style={{
                   fontSize: '0.78rem', fontFamily: FONTS.body,
-                  color: COLORS.silver, opacity: 0.7,
+                  color: COLORS.silver, opacity: 0.78,
                 }}>
                   {tr ? 'sûre' : 'surahs'}
                 </span>
@@ -1484,7 +1484,7 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         <div style={{
           fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72, marginBottom: '12px',
+          color: COLORS.gold, opacity: 0.75, marginBottom: '12px',
         }}>
           {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>
@@ -1745,7 +1745,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
         <div style={{
           marginTop: '14px',
           fontSize: '0.74rem', fontFamily: FONTS.body,
-          color: COLORS.silver, opacity: 0.6,
+          color: COLORS.silver, opacity: 0.78,
           fontStyle: 'italic', letterSpacing: '0.02em',
         }}>
           — {spotlight.sources.join(' · ')}
@@ -1920,7 +1920,7 @@ function SpotlightSurahPanel({ surah, language, side }) {
       <div style={{
         fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.2em', textTransform: 'uppercase',
-        color: COLORS.silver, opacity: 0.7, marginBottom: '12px',
+        color: COLORS.silver, opacity: 0.78, marginBottom: '12px',
       }}>
         {surah.num}. {tr ? surah.nameTr : surah.nameEn} · {positionLabel}
       </div>
@@ -1988,7 +1988,7 @@ function SpotlightList({ spotlight, language, isMobile }) {
           }}>
             <span style={{
               fontSize: '0.72rem',
-              color: COLORS.silver, opacity: 0.6,
+              color: COLORS.silver, opacity: 0.78,
               fontWeight: 600,
               flexShrink: 0,
             }}>
@@ -2017,7 +2017,7 @@ function SpotlightList({ spotlight, language, isMobile }) {
           </div>
           {/* Arrow */}
           <div style={{
-            color: COLORS.gold, opacity: 0.45,
+            color: COLORS.gold, opacity: 0.75,
             fontSize: '0.85rem',
             textAlign: 'center',
             userSelect: 'none',
@@ -2150,7 +2150,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
     }}>
       {/* Section header */}
       <div style={{ textAlign: 'center', marginBottom: isMobile ? '14px' : '18px' }}>
-        <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.7, marginBottom: '6px' }}>
+        <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '6px' }}>
           {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
         </div>
         <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4 }}>
@@ -2174,7 +2174,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
       </div>
 
       {/* Row labels */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: COLORS.silver, opacity: 0.55, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px', padding: '0 4px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.62rem', color: COLORS.silver, opacity: 0.78, letterSpacing: '0.14em', textTransform: 'uppercase', marginTop: '10px', padding: '0 4px' }}>
         <span>{tr ? '1. Fâtiha' : '1. Al-Fatiha'}</span>
         <span>{tr ? '↑ açılış · kapanış ↓' : '↑ opener · closer ↓'}</span>
         <span>{tr ? '114. Nâs' : '114. An-Nās'}</span>
@@ -2211,7 +2211,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
                 {activeWord.ar}
               </span>
               <span style={{ color: COLORS.silver, fontSize: '0.78rem' }}>{activeWord.meaning}</span>
-              <span style={{ color: COLORS.silver, fontSize: '0.68rem', opacity: 0.6, fontFamily: 'ui-monospace, monospace' }}>{activeWord.root}</span>
+              <span style={{ color: COLORS.silver, fontSize: '0.68rem', opacity: 0.78, fontFamily: 'ui-monospace, monospace' }}>{activeWord.root}</span>
             </div>
           </div>
           <span style={{
@@ -2232,7 +2232,7 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
         {ROOT_FAMILIES.map(f => (
           <span key={f.hex} style={{
             display: 'inline-flex', alignItems: 'center', gap: '5px',
-            fontSize: '0.62rem', color: COLORS.silver, opacity: 0.72,
+            fontSize: '0.62rem', color: COLORS.silver, opacity: 0.78,
             padding: '2px 8px',
             border: `1px solid ${f.hex}30`,
             background: `${f.hex}0a`,

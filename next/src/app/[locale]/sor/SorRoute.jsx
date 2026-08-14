@@ -288,7 +288,7 @@ function SorInner() {
                 fontFamily: FONTS.body,
                 fontSize: '0.66rem',
                 color: COLORS.silver,
-                opacity: 0.55,
+                opacity: 0.78,
                 letterSpacing: '0.04em',
               }}
               className="hidden sm:inline"
@@ -550,7 +550,7 @@ function IdleState({ language, onSelect }) {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: COLORS.silver,
-            opacity: 0.7,
+            opacity: 0.78,
             marginBottom: '14px',
           }}>
             {tr ? 'Son sorularınız' : 'Recent questions'}
@@ -607,7 +607,7 @@ function IdleState({ language, onSelect }) {
                     border: 'none',
                     padding: '4px 10px 4px 4px',
                     color: COLORS.silver,
-                    opacity: 0.5,
+                    opacity: 0.78,
                     cursor: 'pointer',
                     fontSize: '0.9rem',
                     lineHeight: 1,
@@ -778,7 +778,7 @@ function LoadingState({ language }) {
         fontFamily: FONTS.body,
         fontSize: '0.7rem',
         color: COLORS.silver,
-        opacity: 0.55,
+        opacity: 0.78,
         letterSpacing: '0.06em',
       }}>
         {tr ? 'Sistem yorum katmaz — sadece rehberler.' : 'The system adds no commentary — it only guides.'}
@@ -936,7 +936,7 @@ function RejectedState({ language, rejection, onSuggestion }) {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: COLORS.silver,
-            opacity: 0.7,
+            opacity: 0.78,
             margin: '0 0 12px',
           }}>
             {tr ? 'Örnek konular' : 'Example topics'}
@@ -1198,7 +1198,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
           fontFamily: FONTS.body,
           fontSize: '0.68rem',
           color: COLORS.silver,
-          opacity: 0.4,
+          opacity: 0.78,
           letterSpacing: '0.08em',
         }}>
           {(meta.timings.total / 1000).toFixed(1)}s · {meta.candidateCount} {language === 'tr' ? 'aday' : 'candidates'}
@@ -1414,7 +1414,7 @@ function VerseCard({ verse, delay, language }) {
             fontFamily: FONTS.body,
             fontSize: '0.7rem',
             color: COLORS.silver,
-            opacity: 0.6,
+            opacity: 0.78,
             margin: '0 0 14px',
             letterSpacing: '0.04em',
           }}>
@@ -1780,7 +1780,7 @@ function ArticleCard({ article, delay, language }) {
                 fontFamily: FONTS.body,
                 fontSize: '0.7rem',
                 color: COLORS.silver,
-                opacity: 0.7,
+                opacity: 0.78,
               }}>
                 {article.readingMinutes} {tr ? 'dk okuma' : 'min read'}
               </span>
@@ -1877,7 +1877,7 @@ function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
         gap: '14px',
       }}
     >
-      <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, opacity: 0.7 }}>
+      <span style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.silver, opacity: 0.78 }}>
         {tr ? 'Bu yardımcı oldu mu?' : 'Was this helpful?'}
       </span>
       <button

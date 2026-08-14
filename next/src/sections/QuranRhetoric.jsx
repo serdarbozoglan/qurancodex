@@ -184,7 +184,7 @@ function DonutChart({ activeType, onHover }) {
       >
         <AnimatedCounter target={1200} prefix="~" suffix="+" className="text-4xl md:text-5xl text-gold" />
         <span style={{
-          color: 'rgba(148,163,184,0.55)',
+          color: 'rgba(148, 163, 184, 0.78)',
           fontSize: '0.75rem',
           fontWeight: 600,
           letterSpacing: '0.15em',
@@ -422,7 +422,7 @@ export default function QuranRhetoric() {
                     </span>
                     <span style={{
                       display: 'block',
-                      color: 'rgba(148,163,184,0.65)',
+                      color: 'rgba(148, 163, 184, 0.78)',
                       fontSize: '0.72rem',
                       fontWeight: 400,
                       fontFamily: "'Inter', sans-serif",
@@ -528,7 +528,7 @@ export default function QuranRhetoric() {
           {/* Label below donut */}
           <p style={{
             textAlign: 'center', marginTop: 12,
-            color: 'rgba(148,163,184,0.5)', fontSize: '0.75rem',
+            color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.75rem',
             fontFamily: "'Inter', sans-serif", fontWeight: 600,
             letterSpacing: '0.12em', textTransform: 'uppercase',
           }}>
@@ -536,7 +536,7 @@ export default function QuranRhetoric() {
           </p>
           <p style={{
             textAlign: 'center', marginTop: 6, maxWidth: 320, marginLeft: 'auto', marginRight: 'auto',
-            color: 'rgba(148,163,184,0.45)', fontSize: '0.7rem',
+            color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.7rem',
             fontFamily: "'Inter', sans-serif", lineHeight: 1.55,
             fontStyle: 'italic',
           }}>
@@ -721,7 +721,7 @@ export default function QuranRhetoric() {
         {/* Methodology footnote */}
         <p style={{
           marginTop: 14,
-          color: 'rgba(148,163,184,0.5)',
+          color: 'rgba(148, 163, 184, 0.78)',
           fontSize: '0.72rem',
           fontFamily: "'Inter', sans-serif",
           fontStyle: 'italic',
@@ -779,7 +779,7 @@ export default function QuranRhetoric() {
       {/* ── Cross-tool CTA strip — retoriği yoğun 3 sûre ──────────────── */}
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {tr ? 'Daha Derine — Retoriği Yoğun Sûreler' : 'Go Deeper — Suras Rich in Rhetoric'}
           </span>
         </div>
@@ -818,7 +818,7 @@ export default function QuranRhetoric() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {tr ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {tr ? tt.descTr : tt.descEn}

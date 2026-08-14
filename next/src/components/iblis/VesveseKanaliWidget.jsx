@@ -130,7 +130,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
             }}>{tr ? p.descTr : p.descEn}</p>
             <p style={{
               fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: COLORS.silver, opacity: 0.7, margin: 0,
+              color: COLORS.silver, opacity: 0.78, margin: 0,
               fontFamily: FONTS.body,
             }}>— {p.verseRef}</p>
           </div>
@@ -163,7 +163,7 @@ function VesveseKanaliWidget({ language, isMobile }) {
                   fontFamily: FONTS.body,
                 }}>{tr ? a.tr : a.en}</div>
                 <div style={{
-                  fontSize: '0.68rem', color: COLORS.silver, opacity: 0.7,
+                  fontSize: '0.68rem', color: COLORS.silver, opacity: 0.78,
                   fontFamily: FONTS.body,
                 }}>{tr ? a.descTr : a.descEn}</div>
               </>

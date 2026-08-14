@@ -657,7 +657,7 @@ export default function PsychologySection() {
       {/* ── Cross-tool CTA strip — 3 anchor psikolojik sûre ───────────── */}
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {language === 'tr' ? 'Daha Derine — Psikolojik Derinliği Yüksek Sûreler' : 'Go Deeper — Suras of Psychological Depth'}
           </span>
         </div>
@@ -696,7 +696,7 @@ export default function PsychologySection() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

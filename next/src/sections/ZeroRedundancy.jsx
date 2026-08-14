@@ -367,7 +367,7 @@ export default function ZeroRedundancy() {
               {t('zeroRedundancy.icaz.card1.body2')}
             </p>
             <p style={{
-              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card1.source')}
@@ -417,7 +417,7 @@ export default function ZeroRedundancy() {
                           <span style={{ color: a.color, fontWeight: 700, fontSize: '1.05rem', fontFamily: FONTS.body }}>
                             {fn.name}
                           </span>
-                          <span style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.85rem', fontFamily: FONTS.body }}>
+                          <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.85rem', fontFamily: FONTS.body }}>
                             {fn.subtitle}
                           </span>
                         </div>
@@ -442,7 +442,7 @@ export default function ZeroRedundancy() {
               );
             })()}
             <p style={{
-              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card2.source')}
@@ -475,7 +475,7 @@ export default function ZeroRedundancy() {
               {t('zeroRedundancy.icaz.card3.body2')}
             </p>
             <p style={{
-              color: 'rgba(148,163,184,0.6)', fontSize: '0.78rem',
+              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem',
               fontFamily: FONTS.body, marginTop: 16, fontStyle: 'italic',
             }}>
               {t('zeroRedundancy.icaz.card3.source')}
@@ -510,7 +510,7 @@ export default function ZeroRedundancy() {
       {/* ── Cross-tool CTA strip — 3 refrain sûresi ──────────────────────── */}
       <motion.div variants={fadeUpItem} className="mt-10">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
         </div>
@@ -549,7 +549,7 @@ export default function ZeroRedundancy() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

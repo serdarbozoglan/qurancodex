@@ -182,7 +182,7 @@ export default function RetorikSorular({ onClose }) {
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 36px', opacity: 0.65,
+              margin: '0 0 36px', opacity: 0.78,
             }}>— {tr ? 'Muhammed 47:24' : 'Muḥammad 47:24'}</p>
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',
@@ -199,7 +199,7 @@ export default function RetorikSorular({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72,
+              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
               marginBottom: '14px',
             }}>{tr ? "BELÂGAT · CÜRCÂNÎ'DEN NEUWIRTH'E" : "BALĀGHA · FROM AL-JURJĀNĪ TO NEUWIRTH"}</div>
             <h2 style={{

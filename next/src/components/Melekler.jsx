@@ -1411,7 +1411,7 @@ export default function Melekler({ onClose }) {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {tr ? 'Fâtır 35:1' : 'Fāṭir 35:1'}
           </p>
@@ -1441,7 +1441,7 @@ export default function Melekler({ onClose }) {
           }} />
 
           {/* Eyebrow */}
-          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', color: COLORS.gold, opacity: 0.72, margin: '0 0 12px' }}>
+          <p style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.3em', color: COLORS.gold, opacity: 0.75, margin: '0 0 12px' }}>
             {tr ? "KUR'AN'DA MELEKLER · GÖRÜNMEYEN ELÇİLER" : 'ANGELS IN THE QURAN · UNSEEN MESSENGERS'}
           </p>
 

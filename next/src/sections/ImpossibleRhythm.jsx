@@ -373,7 +373,7 @@ export default function ImpossibleRhythm() {
                   className="font-body italic text-sm mx-auto mb-4"
                   style={{
                     color: COLORS.silver,
-                    opacity: 0.7,
+                    opacity: 0.78,
                     maxWidth: '520px',
                     lineHeight: 1.6,
                   }}
@@ -509,10 +509,10 @@ export default function ImpossibleRhythm() {
             {discoveryStep === 4 && (
               <div className="text-center">
                 <div className="mb-6 flex flex-col sm:flex-row gap-3 justify-center text-sm font-body">
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148,163,184,0.6)', border: '1px solid rgba(148,163,184,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148, 163, 184, 0.78)', border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Şiir değil' : 'Not poetry'}
                   </span>
-                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148,163,184,0.6)', border: '1px solid rgba(148,163,184,0.2)' }}>
+                  <span className="px-3 py-1 rounded-full" style={{ background: 'rgba(148,163,184,0.08)', color: 'rgba(148, 163, 184, 0.78)', border: '1px solid rgba(148,163,184,0.2)' }}>
                     ✗ {language === 'tr' ? 'Düzyazı değil' : 'Not prose'}
                   </span>
                 </div>
@@ -990,7 +990,7 @@ export default function ImpossibleRhythm() {
         <div className="text-center mb-5">
           <span
             className="font-body uppercase tracking-[0.24em] text-xs"
-            style={{ color: COLORS.gold, opacity: 0.7 }}
+            style={{ color: COLORS.gold, opacity: 0.75 }}
           >
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
@@ -1048,7 +1048,7 @@ export default function ImpossibleRhythm() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? t.titleTr : t.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? t.descTr : t.descEn}

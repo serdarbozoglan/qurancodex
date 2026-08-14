@@ -158,7 +158,7 @@ export default function TefekkurArticleRoute({ article }) {
               fontSize: '0.78rem', color: COLORS.silver,
               fontFamily: FONTS.body, textDecoration: 'none',
               marginBottom: '12px',
-              opacity: 0.75, transition: 'opacity 0.15s, color 0.15s',
+              opacity: 0.78, transition: 'opacity 0.15s, color 0.15s',
               justifySelf: 'start',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = COLORS.gold; e.currentTarget.style.opacity = '1'; }}
@@ -369,7 +369,7 @@ export default function TefekkurArticleRoute({ article }) {
                       <div style={{
                         fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
                         color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                        marginBottom: '6px', opacity: 0.7,
+                        marginBottom: '6px', opacity: 0.78,
                       }}>
                         ← {tr ? 'Önceki' : 'Previous'}
                       </div>
@@ -394,7 +394,7 @@ export default function TefekkurArticleRoute({ article }) {
                       <div style={{
                         fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
                         color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                        marginBottom: '6px', opacity: 0.7,
+                        marginBottom: '6px', opacity: 0.78,
                       }}>
                         {tr ? 'Sonraki' : 'Next'} →
                       </div>
@@ -468,7 +468,7 @@ export default function TefekkurArticleRoute({ article }) {
                 <div style={{
                   fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.16em',
                   color: COLORS.silver, textTransform: 'uppercase', fontFamily: FONTS.body,
-                  marginBottom: '12px', opacity: 0.7,
+                  marginBottom: '12px', opacity: 0.78,
                 }}>
                   {tr ? 'İçindekiler' : 'Contents'}
                 </div>

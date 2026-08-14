@@ -88,7 +88,7 @@ export default function HalkaKompozisyon({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Fâtiha 1:2" : "al-Fātiḥa 1:2"}</p>
 

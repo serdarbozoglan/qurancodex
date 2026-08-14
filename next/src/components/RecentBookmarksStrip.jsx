@@ -103,7 +103,7 @@ export default function RecentBookmarksStrip() {
           style={{
             fontSize: '0.7rem',
             color: COLORS.silver,
-            opacity: 0.7,
+            opacity: 0.78,
             fontFamily: FONTS.body,
             textDecoration: 'none',
             marginLeft: 'auto',
@@ -153,7 +153,7 @@ export default function RecentBookmarksStrip() {
               <span style={{
                 color: COLORS.gold,
                 fontSize: '1rem',
-                opacity: 0.7,
+                opacity: 0.75,
                 flexShrink: 0,
                 width: 20,
                 textAlign: 'center',
@@ -167,7 +167,7 @@ export default function RecentBookmarksStrip() {
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   color: COLORS.gold,
-                  opacity: 0.7,
+                  opacity: 0.75,
                   fontFamily: FONTS.body,
                   fontWeight: 700,
                   marginBottom: 2,
@@ -188,7 +188,7 @@ export default function RecentBookmarksStrip() {
               </div>
               <span style={{
                 color: COLORS.gold,
-                opacity: 0.55,
+                opacity: 0.75,
                 fontSize: '0.9rem',
                 flexShrink: 0,
               }}>→</span>

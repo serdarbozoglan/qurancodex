@@ -93,14 +93,14 @@ export default function InsanTanimi({ onClose }) {
         <p style={{
           color: COLORS.silver, fontFamily: FONTS.body,
           fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.65, marginBottom: '24px',
+          opacity: 0.78, marginBottom: '24px',
         }}>— {tr ? "Tîn 95:4" : "at-Tīn 95:4"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "FIṬRAT + AKIL + İRADE + VAHY = İSTİKÂMET" : "FIṬRA + ʿAQL + IRĀDA + WAḤY = ISTIQĀMA"}
@@ -186,7 +186,7 @@ function EquationTab({ tr, isMobile, data }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İNSAN DENKLEMİ · 4 ELEMENT" : "THE HUMAN EQUATION · 4 ELEMENTS"}
@@ -250,7 +250,7 @@ function EquationTab({ tr, isMobile, data }) {
               }}>"{tr ? el.translationTr : el.translationEn}"</p>
               <p style={{
                 fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: COLORS.silver, opacity: 0.72, margin: 0, textAlign: 'left',
+                color: COLORS.silver, opacity: 0.78, margin: 0, textAlign: 'left',
               }}>{tr ? el.refTr : el.refEn}</p>
             </div>
           </div>
@@ -309,7 +309,7 @@ function EquationTab({ tr, isMobile, data }) {
           }}>{data.resultVerseAr}</p>
           <p style={{
             fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-            color: COLORS.silver, opacity: 0.75, margin: 0,
+            color: COLORS.silver, opacity: 0.78, margin: 0,
           }}>— {tr ? data.resultVerseRefTr : data.resultVerseRefEn}</p>
         </div>
       </div>
@@ -324,7 +324,7 @@ function ScholarsTab({ tr, isMobile, scholars }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İNSAN TANIMINDA 6 SES" : "6 VOICES ON HUMAN NATURE"}
@@ -390,7 +390,7 @@ function SourcesTab({ language, isMobile, sources }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {language === 'tr' ? "KUR'ÂN'DA İNSAN LİTERATÜRÜ" : "LITERATURE ON HUMAN NATURE IN THE QUR'ĀN"}

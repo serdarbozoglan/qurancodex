@@ -417,7 +417,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Fâtır 35:43' : 'Fāṭir 35:43'}
           </p>
@@ -451,7 +451,7 @@ export default function SunnetullahAtlasi({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.72,
+            opacity: 0.75,
             marginBottom: '14px',
           }}>
             {language === 'tr' ? 'İLAHÎ ÖRÜNTÜ · TARİHİN YASASI' : 'DIVINE PATTERN · LAW OF HISTORY'}
@@ -1431,7 +1431,7 @@ function FormulaBox({ formula, language, isMobile }) {
       <p style={{
         color: COLORS.silver, fontSize: '0.66rem',
         letterSpacing: '0.14em', textTransform: 'uppercase',
-        textAlign: 'center', margin: '0 0 22px', opacity: 0.6,
+        textAlign: 'center', margin: '0 0 22px', opacity: 0.78,
         fontFamily: FONTS.body,
       }}>
         — {formula.sourceRef}
@@ -1475,7 +1475,7 @@ function FormulaBox({ formula, language, isMobile }) {
               <div style={{
                 fontSize: '0.68rem', color: COLORS.silver,
                 fontStyle: 'italic', letterSpacing: '0.04em',
-                marginBottom: '4px', opacity: 0.75,
+                marginBottom: '4px', opacity: 0.78,
               }}>
                 {p.translit}
               </div>
@@ -1538,7 +1538,7 @@ function FormulaBox({ formula, language, isMobile }) {
         <p style={{
           fontSize: '0.7rem', color: COLORS.silver,
           fontFamily: FONTS.body, fontStyle: 'italic',
-          textAlign: 'center', margin: '14px 0 0', opacity: 0.6,
+          textAlign: 'center', margin: '14px 0 0', opacity: 0.78,
         }}>
           {tr ? '↑ bir parçaya tıkla — dilbilim analizini aç' : '↑ click any part to reveal the linguistic analysis'}
         </p>
@@ -1849,7 +1849,7 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
       <p style={{
         margin: 0, fontSize: '0.7rem', color: COLORS.silver,
         fontFamily: FONTS.body, lineHeight: 1.5,
-        opacity: 0.7, fontStyle: 'italic',
+        opacity: 0.78, fontStyle: 'italic',
       }}>
         {tr ? pattern.sourceTr : pattern.sourceEn}
       </p>

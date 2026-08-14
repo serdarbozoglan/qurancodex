@@ -164,14 +164,14 @@ export default function SemanticMap({ onClose }) {
       }}>
         {/* Methodology summary */}
         <div style={{
-          fontSize: '0.7rem', color: COLORS.silver, opacity: 0.75,
+          fontSize: '0.7rem', color: COLORS.silver, opacity: 0.78,
           fontFamily: FONTS.body, lineHeight: 1.55,
         }}>
           {language === 'tr'
             ? `${data.total_verses.toLocaleString('tr')} ayet · ${data.meaningful_communities} anlamlı küme · anlam benzerliği ≥ ${data.threshold}`
             : `${data.total_verses.toLocaleString('en')} verses · ${data.meaningful_communities} meaningful clusters · meaning similarity ≥ ${data.threshold}`}
           {themedCount < data.clusters.length && (
-            <span style={{ marginLeft: '8px', color: COLORS.gold, opacity: 0.7 }}>
+            <span style={{ marginLeft: '8px', color: COLORS.gold, opacity: 0.75 }}>
               · {language === 'tr' ? `${themedCount}/${data.clusters.length} tema'lı` : `${themedCount}/${data.clusters.length} themed`}
             </span>
           )}
@@ -209,7 +209,7 @@ export default function SemanticMap({ onClose }) {
           scrollbarWidth: 'none',
         }}>
           <span style={{
-            color: COLORS.silver, opacity: 0.55, fontSize: '0.68rem',
+            color: COLORS.silver, opacity: 0.78, fontSize: '0.68rem',
             letterSpacing: '0.18em', textTransform: 'uppercase',
             fontFamily: FONTS.body, alignSelf: 'center', marginRight: '6px',
           }}>
@@ -360,7 +360,7 @@ function ClusterCard({ cluster, onClick, selected, language, maxVerseCount }) {
             </span>
           ))}
           {(c.top_surahs?.length || 0) > 3 && (
-            <span style={{ color: COLORS.silver, fontSize: '0.66rem', opacity: 0.55, alignSelf: 'center' }}>
+            <span style={{ color: COLORS.silver, fontSize: '0.66rem', opacity: 0.78, alignSelf: 'center' }}>
               +{c.top_surahs.length - 3}
             </span>
           )}

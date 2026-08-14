@@ -1309,7 +1309,7 @@ function TabZaman({ language, isMobile }) {
         }}>
           <span style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: 'rgba(148,163,184,0.35)',
+            textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)',
             whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
           }}>
             {language === 'tr' ? 'Dönem' : 'Period'}
@@ -1352,7 +1352,7 @@ function TabZaman({ language, isMobile }) {
 
           <span style={{
             fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.12em',
-            textTransform: 'uppercase', color: 'rgba(148,163,184,0.35)',
+            textTransform: 'uppercase', color: 'rgba(148, 163, 184, 0.78)',
             whiteSpace: 'nowrap', marginRight: '10px', flexShrink: 0,
           }}>
             {language === 'tr' ? 'Konu' : 'Topic'}
@@ -1786,14 +1786,14 @@ export default function SebebiNuzul({ onClose }) {
         <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           "{language === 'tr' ? "İnkâr edenler, 'Kur'an ona bir defada toptan indirilseydi ya' dediler. Biz onu kalbine sağlam yerleştirelim diye böyle yaptık." : "The disbelievers said, 'Why was the Quran not sent down to him all at once?' We have done it this way to firmly establish your heart with it."}"
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.65 }}>
+        <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
           — {language === 'tr' ? 'Furkân 25:32' : 'Al-Furqān 25:32'}
         </p>
         <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {language === 'tr' ? <>Kur'an <em style={{ fontStyle: 'normal', color: COLORS.gold }}>23 yılda</em> ayet ayet indi. Her ayetin bir <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iniş anı</em> var. Sebeb-i Nüzul bilmek, anlamı bağlamına yerleştirmektir.</> : <>The Quran descended <em style={{ fontStyle: 'normal', color: COLORS.gold }}>over 23 years</em>, verse by verse. Each verse has a <em style={{ fontStyle: 'normal', color: COLORS.gold }}>moment of descent</em>. To know its occasion is to place meaning in its context.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
-        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72, marginBottom: '14px' }}>
+        <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
           {language === 'tr' ? "İNİŞ BAĞLAMI · VÂHİDÎ · SUYÛTÎ" : "OCCASION OF REVELATION · AL-WĀḤIDĪ · AL-SUYŪṬĪ"}
         </div>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>

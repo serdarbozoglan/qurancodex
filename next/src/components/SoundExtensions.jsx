@@ -279,7 +279,7 @@ export default function SoundExtensions({ language, isMobile }) {
 
           <p style={{
             color: COLORS.silver, fontSize: '0.78rem', fontStyle: 'italic',
-            textAlign: 'center', marginTop: '20px', opacity: 0.7,
+            textAlign: 'center', marginTop: '20px', opacity: 0.78,
           }}>{tr
             ? "Kaynak: Klasik Arap fonetiği (Sibeveyhi, el-Kitâb); modern Kur'ân retoriği: Michael Sells, Approaching the Qur'an."
             : "Source: Classical Arabic phonetics (Sībawayhi, al-Kitāb); modern Qur'anic rhetoric: Michael Sells, Approaching the Qur'an."}</p>

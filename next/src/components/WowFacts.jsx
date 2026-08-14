@@ -760,7 +760,7 @@ function CounterVisual({ value, suffixTr, suffixEn, labelTr, labelEn, language, 
       </span>
       {label && (
         <span style={{
-          fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+          fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
           fontFamily: "'Inter', sans-serif",
           letterSpacing: '0.05em', textTransform: 'uppercase',
           marginTop: '6px', fontWeight: 600,
@@ -830,7 +830,7 @@ function RingVisual({ segments, highlight, labelTr, labelEn, language, cardColor
         </svg>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1, minWidth: 0 }}>
           <span style={{
-            fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+            fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
             fontFamily: "'Inter', sans-serif",
             letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
           }}>
@@ -860,7 +860,7 @@ function TimelineVisual({ events, highlightIndex, labelTr, labelEn, language, ca
       border: `1px solid ${cardColor + '22'}`,
     }}>
       <span style={{
-        fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+        fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
         fontFamily: "'Inter', sans-serif",
         letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
         marginBottom: '10px',
@@ -943,7 +943,7 @@ function CalligraphyVisual({ text, transliteration, labelTr, labelEn, language, 
         </span>
       )}
       <span style={{
-        fontSize: '0.66rem', color: 'rgba(148,163,184,0.65)',
+        fontSize: '0.66rem', color: 'rgba(148, 163, 184, 0.78)',
         fontFamily: "'Inter', sans-serif",
         letterSpacing: '0.05em', textTransform: 'uppercase', fontWeight: 600,
         marginTop: '4px',
@@ -1009,7 +1009,7 @@ function WowCard({ fact, language, onClose }) {
         </span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginLeft: 'auto' }}>
           <span style={{
-            color: 'rgba(148,163,184,0.45)',
+            color: 'rgba(148, 163, 184, 0.78)',
             fontSize: '0.68rem',
             fontFamily: "'Inter', sans-serif",
             whiteSpace: 'nowrap',
@@ -1240,7 +1240,7 @@ export default function WowFacts({ onClose }) {
           <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>
             "{language === 'tr' ? "Hâlâ Kur'an'ı düşünüp anlamaya çalışmıyorlar mı? Eğer Allah'tan başkasından gelseydi onda birçok tutarsızlık bulurlardı." : "Then do they not reflect upon the Quran? Had it been from any other than Allah, they would have found in it many discrepancies."}"
           </p>
-          <p style={{ color: COLORS.silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px', opacity: 0.65 }}>
+          <p style={{ color: COLORS.silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px', opacity: 0.78 }}>
             — {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}
           </p>
           <p style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>

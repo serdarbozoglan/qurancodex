@@ -202,7 +202,7 @@ export default function NefisMertebeleri({ onClose }) {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Fecr 89:27-28' : 'Al-Fajr 89:27-28'}
           </p>
@@ -632,7 +632,7 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "7 MERTEBE × 6 BOYUT KARŞILAŞTIRMA" : "7 STAGES × 6 DIMENSIONS COMPARISON"}
@@ -757,7 +757,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "KUR'ÂN'IN ÜÇ KELİMESİ · ÜÇ SAHNE" : "THE QUR'AN'S THREE WORDS · THREE SCENES"}
@@ -797,7 +797,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
               fontFamily: FONTS.body, position: 'relative',
             }}>{tr ? v.labelTr : v.labelEn}</div>
             <div style={{
-              fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7,
+              fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78,
               marginBottom: '18px', letterSpacing: '0.06em',
               fontFamily: FONTS.body, position: 'relative',
             }}>{tr ? v.refTr : v.refEn}</div>

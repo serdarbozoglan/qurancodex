@@ -87,7 +87,7 @@ export default function KorumaZinciri({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Hicr 15:9" : "al-Ḥijr 15:9"}</p>
 

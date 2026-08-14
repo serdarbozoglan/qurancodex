@@ -138,7 +138,7 @@ export default function InsanYolculugu({ onClose }) {
                 : '"Ey mutmain nefis! Sen Rabbinden razı, O da senden razı olarak Rabbine dön."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.65,
+              color: COLORS.silver, opacity: 0.78,
               fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 22px',
@@ -150,7 +150,7 @@ export default function InsanYolculugu({ onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.72,
+              color: COLORS.gold, opacity: 0.75,
               fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase',
               margin: '0 0 12px',
@@ -267,7 +267,7 @@ export default function InsanYolculugu({ onClose }) {
               }}>
                 <div style={{ position: 'sticky', top: '130px' }}>
                   <p style={{
-                    color: COLORS.gold, opacity: 0.6,
+                    color: COLORS.gold, opacity: 0.75,
                     fontSize: '0.65rem', fontWeight: 700,
                     letterSpacing: '0.24em', textTransform: 'uppercase',
                     margin: '0 0 18px',
@@ -395,7 +395,7 @@ export default function InsanYolculugu({ onClose }) {
               maxWidth: '900px', margin: '0 auto', textAlign: 'center',
             }}>
               <p style={{
-                color: COLORS.gold, opacity: 0.6,
+                color: COLORS.gold, opacity: 0.75,
                 fontSize: '0.65rem', fontWeight: 700,
                 letterSpacing: '0.28em', textTransform: 'uppercase',
                 margin: '0 0 20px',

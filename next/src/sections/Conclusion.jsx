@@ -41,7 +41,7 @@ export default function Conclusion() {
         <span
           style={{
             color: COLORS.gold,
-            opacity: 0.6,
+            opacity: 0.75,
             fontFamily: FONTS.body,
             fontSize: '0.75rem',
             fontWeight: 700,

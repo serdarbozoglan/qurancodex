@@ -478,7 +478,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
                     color: COLORS.silver,
-                    opacity: 0.6,
+                    opacity: 0.78,
                     fontWeight: 700,
                     marginBottom: 8,
                   }}>

@@ -270,7 +270,7 @@ export default function ConciergePrompt() {
             fontFamily: FONTS.body,
             fontSize: '0.68rem',
             color: COLORS.silver,
-            opacity: 0.55,
+            opacity: 0.78,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             marginBottom: '10px',
@@ -323,7 +323,7 @@ export default function ConciergePrompt() {
           fontFamily: FONTS.body,
           fontSize: '0.74rem',
           color: COLORS.silver,
-          opacity: 0.7,
+          opacity: 0.78,
           letterSpacing: '0.04em',
         }}>
           {tr

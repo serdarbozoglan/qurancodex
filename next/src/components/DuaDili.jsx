@@ -103,14 +103,14 @@ export default function DuaDili({ onClose }) {
         <p style={{
           color: COLORS.silver, fontFamily: FONTS.body,
           fontSize: '0.7rem', letterSpacing: '0.16em', textTransform: 'uppercase',
-          opacity: 0.65, marginBottom: '24px',
+          opacity: 0.78, marginBottom: '24px',
         }}>— {tr ? "Bakara 2:186" : "al-Baqara 2:186"}</p>
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "YAKARIŞIN GRAMERİ · 4 KATMAN" : "GRAMMAR OF SUPPLICATION · 4 LAYERS"}
@@ -201,7 +201,7 @@ function ProphetsTab({ tr, isMobile }) {
         <div style={{ textAlign: 'center', marginBottom: '28px', marginTop: '8px' }}>
           <p style={{
             fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.72,
+            color: COLORS.gold, opacity: 0.75,
             fontFamily: FONTS.body, fontWeight: 700, marginBottom: '10px',
           }}>
             {tr ? "4 EK PROFİL · TAMAMLANMIŞ ZİNCİR" : "4 ADDITIONAL PROFILES · COMPLETED CHAIN"}
@@ -322,7 +322,7 @@ function ProphetCard({ p, tr, isMobile }) {
         }}>"{tr ? p.translationTr : p.translationEn}"</p>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-          color: COLORS.silver, opacity: 0.72,
+          color: COLORS.silver, opacity: 0.78,
           margin: 0, textAlign: 'left',
         }}>— {tr ? p.refTr : p.refEn}</p>
       </div>
@@ -379,7 +379,7 @@ function AnatomyTab({ tr, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "GRAMATİK KALIP · 4 KATMAN" : "GRAMMAR TEMPLATE · 4 LAYERS"}
@@ -461,7 +461,7 @@ function AnatomyTab({ tr, isMobile }) {
         <div style={{
           fontSize: '0.72rem', letterSpacing: '0.18em', textTransform: 'uppercase',
           color: COLORS.silver, marginBottom: '12px',
-          fontFamily: FONTS.body, fontWeight: 700, opacity: 0.7,
+          fontFamily: FONTS.body, fontWeight: 700, opacity: 0.78,
         }}>
           {tr ? "KATMAN AYRIŞTIRMASI" : "LAYER BREAKDOWN"}
         </div>
@@ -540,7 +540,7 @@ function ResponseTab({ tr, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {tr ? "İSTEK → CEVAP → SÜRE · 10 PEYGAMBER" : "PETITION → RESPONSE → TIME · 10 PROPHETS"}
@@ -568,7 +568,7 @@ function ResponseTab({ tr, isMobile }) {
             <div>
               <div style={{
                 fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase',
-                color: COLORS.gold, opacity: 0.7, marginBottom: '4px',
+                color: COLORS.gold, opacity: 0.75, marginBottom: '4px',
                 fontFamily: FONTS.body, fontWeight: 700,
               }}>{tr ? "PEYGAMBER" : "PROPHET"}</div>
               <div style={{
@@ -576,7 +576,7 @@ function ResponseTab({ tr, isMobile }) {
                 color: COLORS.offWhite, fontWeight: 600, marginBottom: '4px',
               }}>{tr ? r.prophetTr : r.prophetEn}</div>
               <div style={{
-                fontSize: '0.68rem', color: COLORS.silver, opacity: 0.75,
+                fontSize: '0.68rem', color: COLORS.silver, opacity: 0.78,
                 fontFamily: FONTS.body,
               }}>{tr ? r.verseTr : r.verseEn}</div>
             </div>
@@ -636,7 +636,7 @@ function SourcesTab({ language, isMobile }) {
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           fontFamily: FONTS.body, fontWeight: 700, marginBottom: '14px',
         }}>
           {language === 'tr' ? "DUA LİTERATÜRÜ · KLASİK KAYNAKLAR" : "PRAYER LITERATURE · CLASSICAL SOURCES"}

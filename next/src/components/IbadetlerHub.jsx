@@ -99,7 +99,7 @@ function HubHero({ hubData, language, isMobile }) {
 
       <p style={{
         textTransform: 'uppercase', letterSpacing: '0.18em',
-        color: COLORS.silver, opacity: 0.7,
+        color: COLORS.silver, opacity: 0.78,
         fontSize: '0.75rem', marginBottom: '32px',
       }}>— {language === 'tr' ? anchor.refTr : anchor.refEn}</p>
 
@@ -247,7 +247,7 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
         }}>{language === 'tr' ? 'Sekiz Sütun' : 'The Eight Pillars of Worship'}</h2>
         <div style={{
           color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', opacity: 0.75,
+          fontStyle: 'italic', opacity: 0.78,
         }}>
           {(() => {
             const readyCount = pillars.filter(p => p.status === 'ready').length;
@@ -371,7 +371,7 @@ function PillarCard({ pillar, language, isMobile, router }) {
         {pillar.anchorRef && (
           <div style={{
             color: COLORS.silver, fontSize: '0.7rem',
-            fontStyle: 'italic', opacity: 0.7,
+            fontStyle: 'italic', opacity: 0.78,
           }}>{pillar.anchorRef}</div>
         )}
         {isReady && (
@@ -475,7 +475,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
       {data.notTr && (
         <p style={{
           color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', marginTop: '16px', opacity: 0.75,
+          fontStyle: 'italic', marginTop: '16px', opacity: 0.78,
         }}>{language === 'tr' ? data.notTr : (data.notEn ?? data.notTr)}</p>
       )}
     </div>
@@ -663,9 +663,9 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
                 <span style={{ color: COLORS.offWhite, fontWeight: 700, fontSize: '1rem' }}>{tr ? r.labelTr : r.labelEn}</span>
               </div>
               <div style={{ display: 'grid', gap: '6px', fontSize: '0.82rem' }}>
-                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Yükümlülük' : 'Degree'}:</span> <span style={{ color: r.yukumlulukColor, fontWeight: 700 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</span></div>
-                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Kategori' : 'Category'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.kategoriTr : r.kategoriEn}</span></div>
-                <div><span style={{ color: COLORS.silver, opacity: 0.7 }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</span></div>
+                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Yükümlülük' : 'Degree'}:</span> <span style={{ color: r.yukumlulukColor, fontWeight: 700 }}>{tr ? r.yukumlulukTr : r.yukumlulukEn}</span></div>
+                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Kategori' : 'Category'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.kategoriTr : r.kategoriEn}</span></div>
+                <div><span style={{ color: COLORS.silver, opacity: 0.78 }}>{tr ? 'Sünnet Tafsili' : 'Sunnah Detail'}:</span> <span style={{ color: COLORS.offWhite }}>{tr ? r.sunnetTafsilTr : r.sunnetTafsilEn}</span></div>
               </div>
             </div>
           ))}
@@ -715,7 +715,7 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
       {data.notTr && (
         <p style={{
           color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', marginTop: '14px', opacity: 0.75,
+          fontStyle: 'italic', marginTop: '14px', opacity: 0.78,
         }}>{tr ? data.notTr : (data.notEn ?? data.notTr)}</p>
       )}
     </div>
@@ -802,7 +802,7 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
         }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
         <div style={{
           color: COLORS.silver, fontSize: '0.78rem',
-          fontStyle: 'italic', opacity: 0.75,
+          fontStyle: 'italic', opacity: 0.78,
         }}>
           {data.totalProphets} {tr ? 'peygamber' : 'prophets'} · {data.totalRecords} {tr ? 'kayıt' : 'records'}
         </div>

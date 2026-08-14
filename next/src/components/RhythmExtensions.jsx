@@ -146,7 +146,7 @@ export default function RhythmExtensions({ language, isMobile }) {
                     <span style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem' }}>
                       {i + 1}. {tr ? m.tr : m.en}
                     </span>
-                    <span style={{ color: COLORS.silver, fontSize: '0.72rem', opacity: 0.75 }}>
+                    <span style={{ color: COLORS.silver, fontSize: '0.72rem', opacity: 0.78 }}>
                       {tr ? 'Aruz' : 'ʿArūḍ'}
                     </span>
                   </div>
@@ -168,7 +168,7 @@ export default function RhythmExtensions({ language, isMobile }) {
           </div>
           <p style={{
             color: COLORS.silver, fontSize: '0.78rem',
-            fontStyle: 'italic', marginTop: '16px', opacity: 0.7,
+            fontStyle: 'italic', marginTop: '16px', opacity: 0.78,
           }}>{tr
             ? "Kaynak: el-Halîl b. Ahmed, Kitâbü'l-ʿArûḍ; Salwa El-Awa, Textual Relations in the Qur'ān (Routledge, 2006)."
             : "Sources: al-Khalīl ibn Aḥmad, Kitāb al-ʿArūḍ; Salwa El-Awa, Textual Relations in the Qur'an (Routledge, 2006)."}</p>
@@ -264,7 +264,7 @@ export default function RhythmExtensions({ language, isMobile }) {
           </div>
           <p style={{
             color: COLORS.silver, fontSize: '0.78rem',
-            fontStyle: 'italic', marginTop: '18px', opacity: 0.75,
+            fontStyle: 'italic', marginTop: '18px', opacity: 0.78,
           }}>{tr
             ? "Refrain sayısı klasik tefsirlerde (Râzî, Kurtubî) ve modern akademik çalışmalarda (Angelika Neuwirth, Studien zur Komposition der mekkanischen Suren, 1981) 31 olarak zikredilir."
             : "The refrain is counted at 31 in classical tafsir (Rāzī, Qurṭubī) and in modern academic studies (Angelika Neuwirth, Studien zur Komposition der mekkanischen Suren, 1981)."}

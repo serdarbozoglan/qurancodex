@@ -197,7 +197,7 @@ export default function KuranYeminleri({ onClose }) {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Şems 91:1-2' : 'al-Shams 91:1-2'}
           </p>
@@ -231,7 +231,7 @@ export default function KuranYeminleri({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.72,
+            opacity: 0.75,
             marginBottom: '14px',
           }}>
             {language === 'tr' ? `AKSÂMÜ'L-KUR'ÂN · ${meta.totalOaths} BİLEŞİK YEMİN` : `AQSĀM AL-QUR'ĀN · ${meta.totalOaths} COMPOUND OATHS`}
@@ -651,7 +651,7 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
       {/* Legend */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '220px' }}>
         <div style={{
-          color: 'rgba(148,163,184,0.5)', fontSize: '0.6rem', fontWeight: 700,
+          color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.6rem', fontWeight: 700,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: FONTS.body,
           marginBottom: '8px', paddingLeft: '12px',
         }}>
@@ -1165,7 +1165,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
                       <div style={{
                         fontSize: '0.65rem', color: COLORS.silver,
                         fontFamily: FONTS.body, fontWeight: 600,
-                        marginTop: '2px', opacity: 0.7,
+                        marginTop: '2px', opacity: 0.78,
                       }}>
                         {ex.refShort}
                       </div>
@@ -1439,7 +1439,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                   {i < clauses.length - 1 && (
                     <div style={{
                       color: COLORS.gold, fontSize: '0.9rem',
-                      opacity: 0.55, lineHeight: 1,
+                      opacity: 0.75, lineHeight: 1,
                     }}>
                       ↓
                     </div>
@@ -1587,7 +1587,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                             </div>
                           </div>
                           <div style={{
-                            color: COLORS.gold, fontSize: '0.95rem', opacity: 0.6,
+                            color: COLORS.gold, fontSize: '0.95rem', opacity: 0.75,
                             fontFamily: FONTS.body, textAlign: 'center',
                             transform: isMobile ? 'rotate(90deg)' : 'none',
                           }}>
@@ -1741,7 +1741,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                     </p>
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.md, padding: '12px 14px' }}>
-                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.75, marginBottom: '6px', fontFamily: FONTS.body }}>
+                    <div style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.78, marginBottom: '6px', fontFamily: FONTS.body }}>
                       {language === 'tr' ? "Muksam Aleyhi · Yeminin Vurguladığı" : "Muqsam ʿAlayhi · What It Affirms"}
                     </div>
                     <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', lineHeight: 1.6, margin: 0 }}>
@@ -1852,7 +1852,7 @@ function TabTahaddi({ language, isMobile }) {
     <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
       <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin ↔ Tahaddi Paraleli' : 'The Oath–Challenge Parallel'}
         </div>
         <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -1932,7 +1932,7 @@ function TabTahaddi({ language, isMobile }) {
               </div>
 
               {/* Source */}
-              <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.55, fontStyle: 'italic' }}>
+              <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78, fontStyle: 'italic' }}>
                 {v.kaynak}
               </div>
             </div>
@@ -2052,7 +2052,7 @@ function TabKozmoloji({ language, isMobile }) {
     <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
       <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin Edilen Kâinat' : 'The Cosmos Sworn By'}
         </div>
         <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -2097,7 +2097,7 @@ function TabKozmoloji({ language, isMobile }) {
             <p style={{ fontSize: '0.8rem', color: COLORS.silver, lineHeight: 1.65, margin: 0 }}>
               {tr ? it.obsTr : it.obsEn}
             </p>
-            <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.55, fontStyle: 'italic', marginTop: '6px' }}>
+            <div style={{ fontSize: '0.65rem', color: COLORS.silver, opacity: 0.78, fontStyle: 'italic', marginTop: '6px' }}>
               {it.kaynak}
             </div>
           </div>
@@ -2171,7 +2171,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.72,
+        color: COLORS.gold, opacity: 0.75,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -2212,7 +2212,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.7,
+            color: COLORS.gold, opacity: 0.75,
           }}>
             {tr ? 'Daha Derine — Yemin-Yoğun Sûreler' : 'Go Deeper — Oath-Rich Suras'}
           </span>
@@ -2262,7 +2262,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
                 }}>
                   {tr ? tt.titleTr : tt.titleEn}
                 </h4>
-                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+                <span style={{ color: COLORS.gold, opacity: 0.75, fontSize: '1rem' }}>→</span>
               </div>
               <p style={{
                 fontFamily: FONTS.body,
@@ -2308,7 +2308,7 @@ function VakiaSpotlight({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           marginBottom: '14px',
         }}>
           {tr ? "Kur'an Kendi Yeminini Tefsir Ediyor" : "The Quran Interprets Its Own Oath"}
@@ -2352,7 +2352,7 @@ function VakiaSpotlight({ language, isMobile }) {
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 20px',
-          opacity: 0.7,
+          opacity: 0.78,
         }}>
           — {tr ? 'Vâkıa 56:75-76' : 'al-Wāqiʿa 56:75-76'}
         </p>
@@ -2440,7 +2440,7 @@ function YeminCevapReveal({ language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72,
+          color: COLORS.gold, opacity: 0.75,
           marginBottom: '12px',
         }}>
           {tr ? 'Yeminin Ardındaki Mesaj' : 'The Message Behind the Oath'}
@@ -2504,7 +2504,7 @@ function YeminCevapReveal({ language, isMobile }) {
                     {tr ? 'Yemin' : 'Oath'}
                   </span>
                   <span style={{
-                    fontSize: '0.74rem', color: COLORS.silver, opacity: 0.75,
+                    fontSize: '0.74rem', color: COLORS.silver, opacity: 0.78,
                     fontFamily: FONTS.body,
                   }}>
                     {tr ? item.oathRefTr : item.oathRefEn}
@@ -2590,7 +2590,7 @@ function YeminCevapReveal({ language, isMobile }) {
                       {tr ? 'Yeminin Vurguladığı' : 'What It Affirms'}
                     </span>
                     <span style={{
-                      fontSize: '0.74rem', color: COLORS.silver, opacity: 0.75,
+                      fontSize: '0.74rem', color: COLORS.silver, opacity: 0.78,
                       fontFamily: FONTS.body,
                     }}>
                       {tr ? item.answerRefTr : item.answerRefEn}

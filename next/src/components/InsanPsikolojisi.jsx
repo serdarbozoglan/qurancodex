@@ -92,7 +92,7 @@ export default function InsanPsikolojisi({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Yûsuf 12:53" : "Yūsuf 12:53"}</p>
 
@@ -105,7 +105,7 @@ export default function InsanPsikolojisi({ onClose }) {
           fontWeight: 700,
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
-          opacity: 0.72,
+          opacity: 0.75,
           margin: '0 0 14px',
         }}>
           {tr ? "İÇ HARİTA · NEFSİN GRAMERİ" : "INNER MAP · GRAMMAR OF THE NAFS"}

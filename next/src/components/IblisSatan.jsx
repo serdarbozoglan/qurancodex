@@ -160,7 +160,7 @@ export default function IblisSatan({ onClose }) {
           color: COLORS.gold,
           fontFamily: FONTS.body,
           fontWeight: 700,
-          opacity: 0.72,
+          opacity: 0.75,
           marginBottom: '18px',
         }}
       >
@@ -212,7 +212,7 @@ export default function IblisSatan({ onClose }) {
           textTransform: 'uppercase',
           margin: '0 0 28px',
           textAlign: 'center',
-          opacity: 0.65,
+          opacity: 0.78,
         }}
       >
         — {t('iblisSatan.anchorVerseRef')}
@@ -232,7 +232,7 @@ export default function IblisSatan({ onClose }) {
         }}
       >
         <div style={{
-          fontSize: '0.6rem', color: COLORS.gold, opacity: 0.65,
+          fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
           letterSpacing: '0.25em', textTransform: 'uppercase',
           fontFamily: FONTS.body, fontWeight: 700,
           marginBottom: '10px',
@@ -258,7 +258,7 @@ export default function IblisSatan({ onClose }) {
                 ({language === 'tr' ? v.tr : v.en})
               </span>
               {i < arr.length - 1 && (
-                <span style={{ color: COLORS.silver, opacity: 0.4, marginLeft: '4px' }}>·</span>
+                <span style={{ color: COLORS.silver, opacity: 0.78, marginLeft: '4px' }}>·</span>
               )}
             </span>
           ))}
@@ -332,7 +332,7 @@ export default function IblisSatan({ onClose }) {
                   flexShrink: 0,
                 }}
               />
-              <span style={{ color: COLORS.silver, opacity: 0.7, letterSpacing: '0.04em' }}>
+              <span style={{ color: COLORS.silver, opacity: 0.78, letterSpacing: '0.04em' }}>
                 {s.name}
               </span>
             </span>
@@ -340,7 +340,7 @@ export default function IblisSatan({ onClose }) {
         </div>
         <div style={{
           marginTop: '6px',
-          color: COLORS.silver, opacity: 0.4,
+          color: COLORS.silver, opacity: 0.78,
           fontSize: '0.6rem', letterSpacing: '0.18em',
           fontFamily: FONTS.body, textTransform: 'uppercase',
         }}>
@@ -409,7 +409,7 @@ export default function IblisSatan({ onClose }) {
             >
               <div style={{
                 fontSize: '0.62rem',
-                color: COLORS.gold, opacity: 0.65,
+                color: COLORS.gold, opacity: 0.75,
                 fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: '14px',
@@ -486,7 +486,7 @@ export default function IblisSatan({ onClose }) {
             }}
           >
             <span style={{
-              fontSize: '0.7rem', color: COLORS.silver, opacity: 0.7,
+              fontSize: '0.7rem', color: COLORS.silver, opacity: 0.78,
               fontFamily: FONTS.body, fontWeight: 700,
             }}>
               {String(i + 1).padStart(2, '0')}
@@ -555,7 +555,7 @@ export default function IblisSatan({ onClose }) {
                       {p.surahName}
                     </span>
                     <span style={{
-                      color: COLORS.silver, opacity: 0.65,
+                      color: COLORS.silver, opacity: 0.78,
                       fontSize: '0.78rem',
                       fontFamily: FONTS.body,
                       letterSpacing: '0.04em',
@@ -573,7 +573,7 @@ export default function IblisSatan({ onClose }) {
                   </div>
                   {!isOpen && (
                     <p style={{
-                      color: COLORS.silver, opacity: 0.75,
+                      color: COLORS.silver, opacity: 0.78,
                       fontSize: '0.84rem', fontFamily: FONTS.body,
                       lineHeight: 1.55,
                       margin: '6px 0 0',
@@ -697,7 +697,7 @@ export default function IblisSatan({ onClose }) {
                       {/* Nuance */}
                       <div>
                         <p style={{
-                          color: COLORS.gold, opacity: 0.65,
+                          color: COLORS.gold, opacity: 0.75,
                           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600,
                           letterSpacing: '0.22em', textTransform: 'uppercase',
                           margin: '0 0 10px',
@@ -718,7 +718,7 @@ export default function IblisSatan({ onClose }) {
                       {/* Distinct chips */}
                       <div>
                         <p style={{
-                          color: COLORS.gold, opacity: 0.65,
+                          color: COLORS.gold, opacity: 0.75,
                           fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 600,
                           letterSpacing: '0.22em', textTransform: 'uppercase',
                           margin: '0 0 12px',
@@ -826,7 +826,7 @@ export default function IblisSatan({ onClose }) {
                   }}>
                     <span style={{
                       flexShrink: 0,
-                      color: COLORS.gold, opacity: 0.7,
+                      color: COLORS.gold, opacity: 0.75,
                       fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
                       letterSpacing: '0.18em',
                       minWidth: '92px',
@@ -879,7 +879,7 @@ export default function IblisSatan({ onClose }) {
                             {tag && (
                               <span style={{
                                 fontSize: '0.62rem',
-                                color: COLORS.silver, opacity: 0.7,
+                                color: COLORS.silver, opacity: 0.78,
                                 marginLeft: '2px',
                               }}>
                                 · {tag}

@@ -250,7 +250,7 @@ export default function MobileSectionChipNav() {
             lineHeight: 1,
             cursor: 'pointer',
             padding: 0,
-            opacity: 0.7,
+            opacity: 0.75,
             transition: 'opacity 0.18s, background 0.18s',
           }}
           onMouseEnter={(e) => {

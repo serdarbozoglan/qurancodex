@@ -67,7 +67,7 @@ export default function RecentQueriesStrip() {
           style={{
             fontSize: '0.7rem',
             color: COLORS.silver,
-            opacity: 0.7,
+            opacity: 0.78,
             fontFamily: FONTS.body,
             textDecoration: 'none',
             marginLeft: 'auto',

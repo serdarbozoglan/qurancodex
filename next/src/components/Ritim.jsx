@@ -90,7 +90,7 @@ export default function Ritim({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? 'Necm 53:1' : 'an-Najm 53:1'}</p>
 
@@ -99,7 +99,7 @@ export default function Ritim({ onClose }) {
         <div style={{
           fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.3em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72, marginBottom: '14px',
+          color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
         }}>
           {tr ? 'İMKÂNSIZ RİTİM · 16 VEZİN · SUİ GENERİS' : 'IMPOSSIBLE RHYTHM · 16 METERS · SUI GENERIS'}
         </div>

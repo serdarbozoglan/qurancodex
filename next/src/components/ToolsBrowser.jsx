@@ -341,7 +341,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                 </span>
                 <span style={{
                   color: COLORS.silver, fontFamily: FONTS.body,
-                  fontSize: '0.7rem', letterSpacing: '0.04em', opacity: 0.75,
+                  fontSize: '0.7rem', letterSpacing: '0.04em', opacity: 0.78,
                 }}>
                   {language === 'tr'
                     ? `${TOTAL_TOOL_COUNT} araç · atlas · graf`

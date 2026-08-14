@@ -111,7 +111,7 @@ function SolarLunarConverter({ accent }) {
         </p>
       )}
 
-      <p style={{ marginTop: '8px', fontSize: '0.65rem', color: 'rgba(148,163,184,0.35)', fontFamily: FONTS.body }}>
+      <p style={{ marginTop: '8px', fontSize: '0.65rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: FONTS.body }}>
         {language === 'tr' ? 'Formül: güneş yılı × 365.25 ÷ 354.37' : 'Formula: solar years × 365.25 ÷ 354.37'}
       </p>
     </div>
@@ -420,7 +420,7 @@ export default function Highlights() {
       {/* ── Cross-tool CTA strip — 3 sûre kart ─────────────────────────── */}
       <motion.div variants={fadeUpItem} className="mt-12">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {language === 'tr' ? 'Daha Derine — Wow Anlarının Bağlamı' : 'Go Deeper — Context for the Wow Moments'}
           </span>
         </div>
@@ -459,7 +459,7 @@ export default function Highlights() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

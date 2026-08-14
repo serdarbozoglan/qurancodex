@@ -97,7 +97,7 @@ export default async function Image({ params }) {
             position: 'absolute',
             bottom: 36,
             color: '#94a3b8',
-            opacity: 0.6,
+            opacity: 0.78,
             fontSize: 20,
             letterSpacing: '0.18em',
           }}

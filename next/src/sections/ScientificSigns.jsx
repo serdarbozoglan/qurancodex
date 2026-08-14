@@ -267,7 +267,7 @@ export default function ScientificSigns() {
                   {/* Century badge */}
                   <span style={{
                     fontSize: '0.68rem', fontFamily: "'Inter', sans-serif", fontWeight: 600,
-                    color: 'rgba(148,163,184,0.55)',
+                    color: 'rgba(148, 163, 184, 0.78)',
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.08)',
                     borderRadius: '20px', padding: '4px 12px',
@@ -288,7 +288,7 @@ export default function ScientificSigns() {
                       position: 'absolute', left: '50%', top: '50%',
                       transform: 'translate(-50%, -50%)',
                       fontSize: '0.6rem', fontFamily: "'Inter', sans-serif",
-                      color: 'rgba(148,163,184,0.35)', letterSpacing: '0.1em',
+                      color: 'rgba(148, 163, 184, 0.78)', letterSpacing: '0.1em',
                       background: 'rgba(13,27,42,0.95)', padding: '0 8px',
                       whiteSpace: 'nowrap',
                     }}>
@@ -302,7 +302,7 @@ export default function ScientificSigns() {
                   {isMobile && (
                     <span style={{
                       fontSize: '0.6rem', fontFamily: "'Inter', sans-serif",
-                      color: 'rgba(148,163,184,0.35)', letterSpacing: '0.1em',
+                      color: 'rgba(148, 163, 184, 0.78)', letterSpacing: '0.1em',
                       whiteSpace: 'nowrap', flexShrink: 0,
                     }}>
                       {language === 'tr' ? '↔ 1.400 yıl' : '↔ 1,400 yrs'}
@@ -347,7 +347,7 @@ export default function ScientificSigns() {
                         }}>
                           {isExpanded ? tabData.content : preview}
                           {!isExpanded && hasMore && (
-                            <span style={{ color: 'rgba(148,163,184,0.4)' }}> …</span>
+                            <span style={{ color: 'rgba(148, 163, 184, 0.78)' }}> …</span>
                           )}
                         </p>
                         {hasMore && (
@@ -391,7 +391,7 @@ export default function ScientificSigns() {
                       <p style={{
                         fontSize: '0.65rem', fontFamily: "'Inter', sans-serif",
                         letterSpacing: '0.2em', textTransform: 'uppercase',
-                        color: 'rgba(148,163,184,0.45)', marginBottom: '14px',
+                        color: 'rgba(148, 163, 184, 0.78)', marginBottom: '14px',
                       }}>
                         {tabData.meaningsTitle}
                       </p>
@@ -444,7 +444,7 @@ export default function ScientificSigns() {
                       <p style={{
                         fontSize: '0.65rem', fontFamily: "'Inter', sans-serif",
                         letterSpacing: '0.2em', textTransform: 'uppercase',
-                        color: 'rgba(148,163,184,0.45)', marginBottom: '14px',
+                        color: 'rgba(148, 163, 184, 0.78)', marginBottom: '14px',
                       }}>
                         {language === 'tr' ? 'Önemli Detaylar' : 'Key Details'}
                       </p>
@@ -492,14 +492,14 @@ export default function ScientificSigns() {
                         <span style={{
                           fontSize: '0.62rem', fontFamily: "'Inter', sans-serif",
                           letterSpacing: '0.16em', textTransform: 'uppercase',
-                          color: 'rgba(148,163,184,0.4)', fontWeight: 600,
+                          color: 'rgba(148, 163, 184, 0.78)', fontWeight: 600,
                         }}>
                           {language === 'tr' ? 'Eleştirel Not' : 'Critical Note'}
                         </span>
                       </div>
                       <p style={{
                         fontSize: '0.82rem', fontFamily: "'Inter', sans-serif",
-                        lineHeight: 1.78, color: 'rgba(148,163,184,0.58)',
+                        lineHeight: 1.78, color: 'rgba(148, 163, 184, 0.78)',
                         fontStyle: 'italic', margin: 0,
                       }}>
                         {tabData.criticalNote}
@@ -517,7 +517,7 @@ export default function ScientificSigns() {
       {/* ── Cross-tool CTA strip — 4 anchor sûre ──────────────────────── */}
       <motion.div variants={fadeUpItem} className="mt-12">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
         </div>
@@ -557,7 +557,7 @@ export default function ScientificSigns() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

@@ -26,7 +26,7 @@ export default function SurahNotFound() {
           fontFamily: FONTS.quran,
           color: COLORS.gold,
           marginBottom: '24px',
-          opacity: 0.6,
+          opacity: 0.75,
         }}
         dir="rtl"
         lang="ar"

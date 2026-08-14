@@ -358,7 +358,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
         ))}
       </div>
 
-      <p style={{ textAlign: 'center', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, marginTop: '10px', opacity: 0.7 }}>
+      <p style={{ textAlign: 'center', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, marginTop: '10px', opacity: 0.78 }}>
         {language === 'tr' ? 'Bir imge alanına tıkla → Mesel Kataloğu\'na filtreli geç' : 'Click an imagery domain → go to filtered Parable Catalogue'}
       </p>
     </div>
@@ -1146,7 +1146,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
                     {t.labelTr}
                   </div>
                 </div>
-                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.2rem', direction: 'rtl', lineHeight: 1.3, opacity: 0.7 }} dir="rtl" lang="ar">
+                <div style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.2rem', direction: 'rtl', lineHeight: 1.3, opacity: 0.75 }} dir="rtl" lang="ar">
                   {cleanArabic(t.labelAr)}
                 </div>
               </div>

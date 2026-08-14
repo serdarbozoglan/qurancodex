@@ -322,7 +322,7 @@ export default function ProphetMap({ activeProphet, prophet }) {
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <div style={{
           color: COLORS.gold,
-          opacity: 0.6,
+          opacity: 0.75,
           fontSize: '0.75rem',
           fontWeight: 700,
           fontFamily: FONTS.body,

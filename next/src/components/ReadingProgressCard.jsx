@@ -129,7 +129,7 @@ export default function ReadingProgressCard() {
               <div style={{
                 fontSize: '0.72rem',
                 color: COLORS.silver,
-                opacity: 0.7,
+                opacity: 0.78,
                 marginTop: 3,
                 fontFamily: FONTS.body,
               }}>

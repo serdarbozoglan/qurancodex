@@ -87,7 +87,7 @@ export default function SesMimarisi({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Nâziât 79:1" : "an-Nāziʿāt 79:1"}</p>
 

@@ -934,7 +934,7 @@ export default function HiddenArchitecture() {
                   ))}
                 </svg>
                 <div>
-                  <p style={{ fontSize: '14px', color: 'rgba(148,163,184,0.45)', fontFamily: "'Inter', sans-serif", marginBottom: '6px' }}>
+                  <p style={{ fontSize: '14px', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif", marginBottom: '6px' }}>
                     {language === 'tr' ? 'Bir katman seçin' : 'Select a layer'}
                   </p>
                   <p style={{ fontSize: '12px', color: 'rgba(148,163,184,0.22)', fontFamily: "'Inter', sans-serif" }}>
@@ -974,7 +974,7 @@ export default function HiddenArchitecture() {
                         <h4 style={{ fontSize: '22px', fontWeight: 700, color: layer.color, fontFamily: FONTS.display, lineHeight: 1.2, marginBottom: '3px' }}>
                           {language === 'tr' ? layer.nameTr : layer.nameEn}
                         </h4>
-                        <p style={{ fontSize: '11px', color: 'rgba(148,163,184,0.5)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                        <p style={{ fontSize: '11px', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif", letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                           {language === 'tr' ? layer.subTr : layer.subEn}
                         </p>
                       </div>
@@ -1019,7 +1019,7 @@ export default function HiddenArchitecture() {
                       {(language === 'tr' ? layer.noteTr : layer.noteEn) && (
                         <p style={{
                           marginTop: '10px',
-                          fontSize: '11px', color: 'rgba(148,163,184,0.55)',
+                          fontSize: '11px', color: 'rgba(148, 163, 184, 0.78)',
                           fontStyle: 'italic', lineHeight: 1.6,
                           fontFamily: "'Inter', sans-serif",
                           borderTop: '1px solid rgba(255,255,255,0.05)',
@@ -1058,7 +1058,7 @@ export default function HiddenArchitecture() {
         <div className="text-center mb-5">
           <span
             className="font-body uppercase tracking-[0.24em] text-xs"
-            style={{ color: COLORS.gold, opacity: 0.7 }}
+            style={{ color: COLORS.gold, opacity: 0.75 }}
           >
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
@@ -1116,7 +1116,7 @@ export default function HiddenArchitecture() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

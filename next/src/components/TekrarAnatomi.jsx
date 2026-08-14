@@ -87,7 +87,7 @@ export default function TekrarAnatomi({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>— {tr ? "Rahmân 55 (31 kez)" : "ar-Raḥmān 55 (31 times)"}</p>
 

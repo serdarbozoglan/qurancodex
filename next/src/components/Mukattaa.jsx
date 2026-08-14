@@ -100,7 +100,7 @@ export default function Mukattaa({ onClose }) {
           fontSize: '0.7rem',
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          opacity: 0.65,
+          opacity: 0.78,
           marginBottom: '24px',
         }}>
           — {tr ? 'Bakara 2:1-2' : 'al-Baqara 2:1-2'}
@@ -115,7 +115,7 @@ export default function Mukattaa({ onClose }) {
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          opacity: 0.72,
+          opacity: 0.75,
           marginBottom: '14px',
         }}>
           {tr ? 'DİLSEL DNA · 1.400 YIL · 14 HARF' : 'LINGUISTIC DNA · 1,400 YEARS · 14 LETTERS'}

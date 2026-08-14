@@ -248,7 +248,7 @@ function PillarHero({ pillarData, language, isMobile }) {
         textTransform: 'uppercase',
         letterSpacing: '0.16em',
         color: COLORS.silver,
-        opacity: 0.65,
+        opacity: 0.78,
         fontSize: '0.72rem',
         marginBottom: '28px',
       }}>
@@ -269,7 +269,7 @@ function PillarHero({ pillarData, language, isMobile }) {
           textTransform: 'uppercase',
           letterSpacing: '0.3em',
           color: COLORS.gold,
-          opacity: 0.72,
+          opacity: 0.75,
           fontSize: '0.72rem',
           marginBottom: '12px',
         }}>
@@ -441,7 +441,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
             <span style={{
               color: COLORS.silver, fontSize: '0.7rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              marginRight: '4px', opacity: 0.75,
+              marginRight: '4px', opacity: 0.78,
             }}>{language === 'tr' ? 'Anılan Ayetler' : 'Cited Verses'}:</span>
             {foundRefs.map((r, i) => (
               <span key={i} style={{
@@ -477,7 +477,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
               opacity: 0.85, fontWeight: 700,
             }}>{language === 'tr' ? 'Semantik Alan Haritası' : 'Semantic Field Map'}</div>
             <div style={{
-              color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.7,
+              color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.78,
             }}>{language === 'tr' ? `${terms.length} terim` : `${terms.length} terms`}</div>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>

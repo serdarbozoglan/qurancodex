@@ -617,7 +617,7 @@ export default function LinguisticDNA() {
                       className="text-xs font-body px-2 py-0.5 rounded-full"
                       style={{
                         background: 'rgba(255,255,255,0.05)',
-                        color: 'rgba(148,163,184,0.7)',
+                        color: 'rgba(148, 163, 184, 0.78)',
                         border: '1px solid rgba(255,255,255,0.1)',
                       }}
                     >
@@ -899,7 +899,7 @@ export default function LinguisticDNA() {
         <div className="text-center mb-5">
           <span
             className="font-body uppercase tracking-[0.24em] text-xs"
-            style={{ color: COLORS.gold, opacity: 0.7 }}
+            style={{ color: COLORS.gold, opacity: 0.75 }}
           >
             {language === 'tr' ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
           </span>
@@ -960,7 +960,7 @@ export default function LinguisticDNA() {
                   >
                     {language === 'tr' ? t.titleTr : t.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p
                   className="font-body text-sm leading-relaxed"

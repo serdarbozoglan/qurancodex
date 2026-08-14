@@ -24,7 +24,7 @@ export default function SourcesCitation({ language, isMobile, sources }) {
           letterSpacing: '0.24em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          opacity: 0.7,
+          opacity: 0.75,
         }}>
           {tr ? 'Klasik Kaynaklar' : 'Classical Sources'}
         </span>
@@ -68,7 +68,7 @@ export default function SourcesCitation({ language, isMobile, sources }) {
                   <div style={{
                     fontSize: '0.7rem',
                     color: COLORS.silver,
-                    opacity: 0.7,
+                    opacity: 0.78,
                     fontFamily: FONTS.body,
                     marginBottom: hasNote ? '6px' : 0,
                   }}>

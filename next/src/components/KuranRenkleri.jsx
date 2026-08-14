@@ -222,7 +222,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
             {/* All refs */}
             {renk.allRefs && renk.allRefs.length > 1 && (
               <div style={{ marginBottom: '10px' }}>
-                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.7 }}>
+                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: COLORS.silver, fontFamily: FONTS.body, margin: '0 0 8px', opacity: 0.78 }}>
                   {tr ? 'Diğer Ayetler' : 'Other Verses'}
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -532,7 +532,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
     <div style={{ padding: isMobile ? '20px 12px 32px' : '32px 24px 48px', maxWidth: '1080px', margin: '0 auto' }}>
       {/* Section header */}
       <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '36px' }}>
-        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.72, marginBottom: '10px' }}>
+        <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? "Kur'ân'ın Renk Paleti" : "The Qur'anic Color Palette"}
         </div>
         <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.7rem)' : 'clamp(1.8rem, 3vw, 2.2rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
@@ -649,7 +649,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
                 fontFamily: 'ui-monospace, SFMono-Regular, monospace',
                 fontSize: '0.66rem',
                 color: COLORS.silver,
-                opacity: 0.55,
+                opacity: 0.78,
                 letterSpacing: '0.04em',
                 marginBottom: '10px',
               }}>
@@ -694,7 +694,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
         textAlign: 'center',
         color: COLORS.silver,
         fontSize: '0.75rem',
-        opacity: 0.55,
+        opacity: 0.78,
         marginTop: isMobile ? '28px' : '40px',
         fontStyle: 'italic',
       }}>
@@ -1776,7 +1776,7 @@ function TabKiyamet({ language, isMobile }) {
                   </span>
                   <span style={{
                     fontSize: '0.66rem', color: COLORS.silver,
-                    fontFamily: FONTS.body, opacity: 0.75,
+                    fontFamily: FONTS.body, opacity: 0.78,
                   }}>
                     {s.ref}
                   </span>
@@ -2007,7 +2007,7 @@ function TabDilbilim({ language, isMobile }) {
               </div>
               {/* Arrow */}
               {!isMobile && (
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.gold, opacity: 0.5 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.gold, opacity: 0.75 }}>
                   <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M5 12h14M13 6l6 6-6 6"/>
                   </svg>
@@ -2751,7 +2751,7 @@ export default function KuranRenkleri({ onClose }) {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             margin: '0 0 36px',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {tr ? 'Fâtır 35:27' : 'Fāṭir 35:27'}
           </p>
@@ -2785,7 +2785,7 @@ export default function KuranRenkleri({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.gold, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.72,
+            opacity: 0.75,
             marginBottom: '14px',
           }}>
             {tr ? "KUR'AN'IN RENK PALETİ · 14 KELİME, 8 TON" : "THE QURAN'S COLOR PALETTE · 14 WORDS, 8 TONES"}
@@ -3134,7 +3134,7 @@ function ColorsClosing({ language, isMobile }) {
             ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem tefsire hem ayetlere aykırıdır.</>
             : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
         </p>
-        <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.7, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
+        <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.78, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
             ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
             : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
@@ -3145,7 +3145,7 @@ function ColorsClosing({ language, isMobile }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.72,
+        color: COLORS.gold, opacity: 0.75,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -3192,7 +3192,7 @@ function ColorsClosing({ language, isMobile }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.7,
+            color: COLORS.gold, opacity: 0.75,
           }}>
             {tr ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
@@ -3242,7 +3242,7 @@ function ColorsClosing({ language, isMobile }) {
                 }}>
                   {tr ? tt.titleTr : tt.titleEn}
                 </h4>
-                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+                <span style={{ color: COLORS.gold, opacity: 0.75, fontSize: '1rem' }}>→</span>
               </div>
               <p style={{
                 fontFamily: FONTS.body,

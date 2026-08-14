@@ -556,7 +556,7 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             fontFamily: FONTS.body,
             fontSize: isMobile ? '0.7rem' : '0.75rem',
             color: COLORS.silver,
-            opacity: 0.65,
+            opacity: 0.78,
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 40px',
@@ -1013,7 +1013,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
               }}>
                 <div style={{ marginBottom: 4 }}>
                   <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600 }}>{t.source}</span>
-                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.7, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
                 </div>
                 <p style={{
                   fontFamily: FONTS.body,
@@ -1128,7 +1128,7 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
           fontFamily: FONTS.body,
           fontSize: '0.68rem',
           color: COLORS.silver,
-          opacity: 0.7,
+          opacity: 0.78,
           letterSpacing: '0.14em',
           textTransform: 'uppercase',
           margin: 0,
@@ -1168,7 +1168,7 @@ function MiniRef({ ref_, isMobile, tr }) {
             fontFamily: FONTS.quran,
             fontSize: '1rem',
             color: COLORS.silver,
-            opacity: 0.75,
+            opacity: 0.78,
           }}>{ref_.surahName}</span>
         )}
       </div>

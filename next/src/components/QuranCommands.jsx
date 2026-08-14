@@ -263,7 +263,7 @@ export default function QuranCommands({ onClose }) {
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
           margin: '0 0 36px',
-          opacity: 0.65,
+          opacity: 0.78,
         }}>
           — {language === 'tr' ? 'Nahl 16:90' : 'An-Naḥl 16:90'}
         </p>
@@ -294,7 +294,7 @@ export default function QuranCommands({ onClose }) {
 
         {/* Eyebrow */}
         <div style={{ marginBottom: '12px' }}>
-          <span style={{ fontSize: '0.68rem', color: COLORS.gold, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, opacity: 0.72, fontFamily: "'Inter', sans-serif" }}>
+          <span style={{ fontSize: '0.68rem', color: COLORS.gold, letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, opacity: 0.75, fontFamily: "'Inter', sans-serif" }}>
             {language === 'tr' ? "KUR'AN'IN EMİRLERİ · 5 HÜKÜM" : "QURAN COMMANDS · 5 RULINGS"}
           </span>
         </div>
@@ -353,7 +353,7 @@ export default function QuranCommands({ onClose }) {
         </div>
 
         {/* Curated note + disclaimer */}
-        <p style={{ fontSize: '0.75rem', color: 'rgba(148,163,184,0.55)', lineHeight: 1.5 }}>
+        <p style={{ fontSize: '0.75rem', color: 'rgba(148, 163, 184, 0.78)', lineHeight: 1.5 }}>
           ℹ {L.curatedNote} {L.disclaimer}
         </p>
       </div>
@@ -466,7 +466,7 @@ export default function QuranCommands({ onClose }) {
                 <h2 style={{ fontSize: '1.15rem', fontWeight: 700, color: accent, margin: 0, lineHeight: 1.2 }}>
                   {language === 'tr' ? activeCategory?.titleTr : activeCategory?.titleEn}
                 </h2>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(148,163,184,0.55)', margin: '2px 0 0' }}>
+                <p style={{ fontSize: '0.78rem', color: 'rgba(148, 163, 184, 0.78)', margin: '2px 0 0' }}>
                   {(activeCategory?.commands || []).length} {language === 'tr' ? 'madde' : 'items'}
                 </p>
               </div>
@@ -654,7 +654,7 @@ function CommandCard({ cmd, accent, language, L }) {
       {/* Academic note */}
       {cmd.note && (
         <div style={{
-          fontSize: '0.73rem', color: 'rgba(148,163,184,0.7)',
+          fontSize: '0.73rem', color: 'rgba(148, 163, 184, 0.78)',
           background: 'rgba(148,163,184,0.06)',
           border: '1px solid rgba(148,163,184,0.12)',
           borderRadius: RADIUS.sm, padding: '7px 10px',

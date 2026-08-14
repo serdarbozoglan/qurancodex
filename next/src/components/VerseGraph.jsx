@@ -534,7 +534,7 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
     // Second ring at 45°
     const ring2 = new Mesh(
       new TorusGeometry(size * 3.2, 0.2, 6, 48),
-      new MeshLambertMaterial({ color: hex(COLORS.gold), transparent: true, opacity: 0.35, depthWrite: false })
+      new MeshLambertMaterial({ color: hex(COLORS.gold), transparent: true, opacity: 0.75, depthWrite: false })
     );
     ring2.rotation.x = Math.PI / 4;
     group.add(ring2);
@@ -1307,7 +1307,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
       <div style={{
         position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)',
         zIndex: 20, background: COLORS.cosmicBlackAlpha85, border: `1px solid ${COLORS.glassBgStrong}`,
-        borderRadius: RADIUS.pillSm, padding: '6px 18px', color: 'rgba(148,163,184,0.75)', fontSize: '0.7rem',
+        borderRadius: RADIUS.pillSm, padding: '6px 18px', color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.7rem',
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
       }}>
@@ -1316,11 +1316,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
 
       {/* Legend */}
       <div style={{ position: 'absolute', bottom: '24px', left: '24px', display: 'flex', gap: '12px', alignItems: 'center', pointerEvents: 'none' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif" }}>
           <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEKKI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Mekkî' : 'Meccan'}
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148,163,184,0.6)', fontFamily: "'Inter', sans-serif" }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', color: 'rgba(148, 163, 184, 0.78)', fontFamily: "'Inter', sans-serif" }}>
           <div style={{ width: '9px', height: '9px', borderRadius: RADIUS.full, background: MEDENI_COLOR, flexShrink: 0 }} />
           {language === 'tr' ? 'Medenî' : 'Medinan'}
         </div>
@@ -1368,7 +1368,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         position: 'absolute', bottom: '24px', right: '24px', zIndex: 20,
         display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'flex-end',
       }}>
-        <span style={{ color: 'rgba(148,163,184,0.45)', fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", userSelect: 'none' }}>
+        <span style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: "'Inter', sans-serif", userSelect: 'none' }}>
           {language === 'tr' ? 'Görünüm' : 'View'}
         </span>
         <div style={{
@@ -1991,7 +1991,7 @@ function VerseView({ verses, surah, onBack, onOpenFull3D, language, autoFocusVer
           <button
             onClick={onClose}
             aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
-            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.78, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
@@ -2560,7 +2560,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           <button
             onClick={onClose}
             aria-label={language === 'en' ? 'Close verse graph' : 'Ayet grafiğini kapat'}
-            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.5, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
+            style={{ background: 'none', border: 'none', color: COLORS.silver, padding: '8px', cursor: 'pointer', opacity: 0.78, display: 'flex', alignItems: 'center', transition: 'opacity 0.15s' }}
             onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
             onMouseLeave={e => { e.currentTarget.style.opacity = '0.5'; }}
           >
@@ -2580,7 +2580,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           alignItems: 'center', justifyContent: 'center', gap: '8px',
           padding: '24px', overflowY: 'auto',
         }}>
-          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.7 }}>
+          <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.75 }}>
             {surahNameTr(filterSurah, language === 'en')} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%', maxWidth: '480px' }}>
@@ -2679,7 +2679,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
                 : '"God has sent down the finest discourse — a Book consistent within itself, paired."'}
             </p>
             <p style={{
-              color: COLORS.silver, opacity: 0.65, fontSize: '0.68rem', fontWeight: 600,
+              color: COLORS.silver, opacity: 0.78, fontSize: '0.68rem', fontWeight: 600,
               letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 22px',
             }}>
               — {language === 'tr' ? 'Zümer 39:23' : 'az-Zumar 39:23'}
@@ -2691,7 +2691,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
             }} />
 
             <p style={{
-              color: COLORS.gold, opacity: 0.72, fontSize: '0.68rem', fontWeight: 700,
+              color: COLORS.gold, opacity: 0.75, fontSize: '0.68rem', fontWeight: 700,
               letterSpacing: '0.24em', textTransform: 'uppercase', margin: '0 0 12px',
             }}>
               {language === 'tr' ? 'AYET HARİTASI · ANLAMIN AĞI' : 'VERSE MAP · THE WEB OF MEANING'}

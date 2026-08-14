@@ -115,7 +115,7 @@ export default function LivingPreservation() {
             </div>
 
             <p style={{
-              color: 'rgba(148,163,184,0.55)', fontSize: '0.6rem',
+              color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.6rem',
               fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase',
               fontFamily: FONTS.body, marginBottom: '8px',
             }}>
@@ -140,7 +140,7 @@ export default function LivingPreservation() {
 
             {(key === 'variation' || key === 'sanaa') && (
               <p style={{
-                color: 'rgba(148,163,184,0.4)', fontSize: '0.68rem',
+                color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.68rem',
                 fontFamily: FONTS.body, fontStyle: 'italic',
                 marginTop: '8px', lineHeight: 1.5,
               }}>
@@ -210,7 +210,7 @@ export default function LivingPreservation() {
                 <h4 style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.82rem', color: COLORS.gold, margin: '0 0 4px' }}>
                   {t('livingPreservation.birmingham.title')}
                 </h4>
-                <p style={{ color: 'rgba(148,163,184,0.65)', fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
+                <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.6, margin: 0 }}>
                   {t('livingPreservation.birmingham.description')}
                 </p>
               </div>
@@ -305,7 +305,7 @@ export default function LivingPreservation() {
       {/* ── Cross-tool CTA strip — Hicr 15:9 + Fâtiha + Bakara ──────────── */}
       <motion.div variants={fadeUpItem} className="mt-10">
         <div className="text-center mb-5">
-          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.7 }}>
+          <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
             {language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}
           </span>
         </div>
@@ -344,7 +344,7 @@ export default function LivingPreservation() {
                   <h4 className="font-body font-bold text-base" style={{ color: COLORS.gold, margin: 0 }}>
                     {language === 'tr' ? tt.titleTr : tt.titleEn}
                   </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.7 }}>→</span>
+                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
                 </div>
                 <p className="font-body text-sm leading-relaxed" style={{ color: COLORS.silver, margin: 0 }}>
                   {language === 'tr' ? tt.descTr : tt.descEn}

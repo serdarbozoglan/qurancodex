@@ -138,7 +138,7 @@ export default function DesktopSidebarTOC() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: COLORS.gold,
-          opacity: 0.55,
+          opacity: 0.75,
           marginBottom: '14px',
           fontFamily: FONTS.body,
           paddingLeft: '12px',

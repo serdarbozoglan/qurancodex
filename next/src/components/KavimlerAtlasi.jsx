@@ -518,7 +518,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
       <div style={{
         fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.72,
+        color: COLORS.gold, opacity: 0.75,
         marginBottom: '20px', textAlign: 'center',
       }}>
         {tr ? 'Tefekkür' : 'Reflection'}
@@ -559,7 +559,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
           <span style={{
             fontSize: '0.68rem', fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
-            color: COLORS.gold, opacity: 0.7,
+            color: COLORS.gold, opacity: 0.75,
           }}>
             {tr ? 'Daha Derine — Kıssa-Yoğun Sûreler' : 'Go Deeper — Narrative-Rich Suras'}
           </span>
@@ -609,7 +609,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
                 }}>
                   {tr ? tt.titleTr : tt.titleEn}
                 </h4>
-                <span style={{ color: COLORS.gold, opacity: 0.65, fontSize: '1rem' }}>→</span>
+                <span style={{ color: COLORS.gold, opacity: 0.75, fontSize: '1rem' }}>→</span>
               </div>
               <p style={{
                 fontFamily: FONTS.body,
@@ -709,7 +709,7 @@ function HeroSection({ meta, language, isMobile }) {
         letterSpacing: '0.16em',
         textTransform: 'uppercase',
         margin: '0 0 36px',
-        opacity: 0.65,
+        opacity: 0.78,
       }}>
         — {language === 'tr' ? 'Yûsuf 12:109' : 'Yūsuf 12:109'}
       </p>
@@ -743,7 +743,7 @@ function HeroSection({ meta, language, isMobile }) {
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
         fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.72,
+        opacity: 0.75,
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `TARİH & İNSAN · ${meta.totalMentioned} KAVİM` : `HISTORY & HUMAN · ${meta.totalMentioned} NATIONS`}
@@ -1228,7 +1228,7 @@ function TabHelakDesen({ language, isMobile }) {
       }}>
         <div style={{
           fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.72, fontWeight: 700,
+          color: COLORS.gold, opacity: 0.75, fontWeight: 700,
           marginBottom: '12px', fontFamily: FONTS.body, textAlign: 'center',
         }}>
           {tr ? "HELAK BİÇİMLERİ · MOD İKONOGRAFİSİ" : "MODES OF DESTRUCTION · ICONOGRAPHY"}
@@ -1267,7 +1267,7 @@ function TabHelakDesen({ language, isMobile }) {
                 color: HELAK_COLORS[m.type], fontFamily: FONTS.body,
               }}>{tr ? m.tr : m.en}</div>
               <div style={{
-                fontSize: '0.58rem', color: COLORS.silver, opacity: 0.7,
+                fontSize: '0.58rem', color: COLORS.silver, opacity: 0.78,
                 fontFamily: FONTS.body, fontStyle: 'italic',
               }}>{m.ex}</div>
             </div>

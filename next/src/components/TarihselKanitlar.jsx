@@ -242,7 +242,7 @@ export default function TarihselKanitlar({ onClose }) {
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
-              margin: '0 0 36px', opacity: 0.65,
+              margin: '0 0 36px', opacity: 0.78,
             }}>— {tr ? 'Yûnus 10:92' : 'Yūnus 10:92'}</p>
 
             {/* Framing whisper */}
@@ -267,7 +267,7 @@ export default function TarihselKanitlar({ onClose }) {
             <div style={{
               fontSize: '0.68rem', letterSpacing: '0.3em',
               color: COLORS.gold, textTransform: 'uppercase',
-              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.72,
+              fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
               marginBottom: '14px',
             }}>
               {tr ? 'ZAMANDA GÖMÜLÜ · METİNDE KAYITLI' : 'BURIED IN TIME · INSCRIBED IN TEXT'}
@@ -800,7 +800,7 @@ function ScholarsTab({ scholars, language, isMobile }) {
               }}>{tr ? s.work : s.workEn}</p>
               <p style={{
                 margin: '4px 0 0', fontSize: '0.7rem',
-                color: COLORS.silver, opacity: 0.7,
+                color: COLORS.silver, opacity: 0.78,
                 fontFamily: FONTS.body, letterSpacing: '0.06em',
               }}>{s.century}</p>
             </div>

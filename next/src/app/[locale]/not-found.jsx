@@ -45,7 +45,7 @@ export default function LocaleNotFound() {
           fontFamily: FONTS.quran,
           color: COLORS.gold,
           marginBottom: '20px',
-          opacity: 0.55,
+          opacity: 0.75,
         }}
         dir="rtl"
         lang="ar"

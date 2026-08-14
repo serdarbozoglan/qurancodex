@@ -253,7 +253,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         }}>
           <span style={{
             fontSize: '0.6rem',
-            color: COLORS.gold, opacity: 0.55,
+            color: COLORS.gold, opacity: 0.75,
             fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
             marginRight: '6px', flexShrink: 0,
@@ -302,7 +302,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
           }}>
             <span style={{
               fontSize: '0.62rem',
-              color: COLORS.gold, opacity: 0.7,
+              color: COLORS.gold, opacity: 0.75,
               fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
             }}>
@@ -354,7 +354,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         }}>
           <span style={{
             fontSize: '0.6rem',
-            color: COLORS.gold, opacity: 0.6,
+            color: COLORS.gold, opacity: 0.75,
             fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
           }}>
@@ -466,7 +466,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.72, marginBottom: '14px',
+        color: COLORS.gold, opacity: 0.75, marginBottom: '14px',
       }}>
         {tr ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
       </div>
@@ -503,7 +503,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', margin: '0 0 28px' }}>
         <div style={{ flex: 1, height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.goldAlpha25}, transparent)` }} />
         <span style={{
-          color: COLORS.gold, opacity: 0.7,
+          color: COLORS.gold, opacity: 0.75,
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.25em', textTransform: 'uppercase',
         }}>
@@ -525,7 +525,7 @@ function Hero({ meta, figureCount, language, isMobile }) {
         <div style={{
           fontSize: '0.62rem', fontFamily: FONTS.body, fontWeight: 700,
           letterSpacing: '0.32em', textTransform: 'uppercase',
-          color: COLORS.gold, opacity: 0.6,
+          color: COLORS.gold, opacity: 0.75,
           marginBottom: '24px',
         }}>
           {tr ? 'Dört Kadın · Üç Ayet · Tek Çerçeve' : 'Four Women · Three Verses · One Frame'}
@@ -802,7 +802,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
         {themes.length > 0 && (
           <div>
             <div style={{
-              fontSize: '0.6rem', color: COLORS.gold, opacity: 0.55,
+              fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
               fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
               marginBottom: '8px',
@@ -843,7 +843,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
         {figure.verseRefs && figure.verseRefs.length > 0 && (
           <div>
             <div style={{
-              fontSize: '0.6rem', color: COLORS.gold, opacity: 0.55,
+              fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
               fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
               marginBottom: '8px',
@@ -879,7 +879,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
             borderRadius: RADIUS.sm,
           }}>
             <div style={{
-              fontSize: '0.6rem', color: COLORS.silver, opacity: 0.7,
+              fontSize: '0.6rem', color: COLORS.silver, opacity: 0.78,
               fontFamily: FONTS.body, fontWeight: 700,
               letterSpacing: '0.22em', textTransform: 'uppercase',
               marginBottom: '6px',
@@ -1290,7 +1290,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
           {themes.length > 0 && (
             <div>
               <div style={{
-                fontSize: '0.6rem', color: COLORS.gold, opacity: 0.6,
+                fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
                 fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: '8px',
@@ -1330,7 +1330,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
           {figure.verseRefs && figure.verseRefs.length > 0 && (
             <div>
               <div style={{
-                fontSize: '0.6rem', color: COLORS.gold, opacity: 0.6,
+                fontSize: '0.6rem', color: COLORS.gold, opacity: 0.75,
                 fontFamily: FONTS.body, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: '8px',
@@ -1368,7 +1368,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
           borderRadius: RADIUS.sm,
         }}>
           <div style={{
-            fontSize: '0.6rem', color: COLORS.silver, opacity: 0.7,
+            fontSize: '0.6rem', color: COLORS.silver, opacity: 0.78,
             fontFamily: FONTS.body, fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
             marginBottom: '6px',
@@ -1400,7 +1400,7 @@ function CaprazOkumaSection({ language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.gold, opacity: 0.7, marginBottom: '8px',
+        color: COLORS.gold, opacity: 0.75, marginBottom: '8px',
       }}>
         {tr ? 'Çapraz Okuma' : 'Cross-Reading'}
       </div>
@@ -1488,7 +1488,7 @@ function CaprazOkumaSection({ language, isMobile }) {
                   }}>
                     <span style={{
                       flexShrink: 0,
-                      color: COLORS.gold, opacity: 0.7,
+                      color: COLORS.gold, opacity: 0.75,
                       fontSize: '0.6rem', fontFamily: FONTS.body, fontWeight: 700,
                       letterSpacing: '0.18em',
                       minWidth: isMobile ? 'auto' : '108px',
@@ -1569,7 +1569,7 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
       <div style={{
         fontSize: '0.66rem', fontFamily: FONTS.body, fontWeight: 700,
         letterSpacing: '0.3em', textTransform: 'uppercase',
-        color: COLORS.silver, opacity: 0.7, marginBottom: '8px',
+        color: COLORS.silver, opacity: 0.78, marginBottom: '8px',
       }}>
         {tr ? data.titleTr : data.titleEn}
       </div>

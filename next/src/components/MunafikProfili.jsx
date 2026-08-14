@@ -403,7 +403,7 @@ export default function MunafikProfili({ onClose }) {
             textTransform: 'uppercase',
             margin: '0 0 32px',
             textAlign: 'center',
-            opacity: 0.65,
+            opacity: 0.78,
           }}>
             — {language === 'tr' ? 'Bakara 2:8' : 'Al-Baqarah 2:8'}
           </p>
@@ -1054,7 +1054,7 @@ function MukabeleCard({ data, language, isMobile }) {
               {language === 'tr' ? pair.munafikTr : pair.munafikEn}
             </span>
             {!isMobile && (
-              <span style={{ color: COLORS.gold, textAlign: 'center', fontWeight: 700, opacity: 0.6 }}>↔</span>
+              <span style={{ color: COLORS.gold, textAlign: 'center', fontWeight: 700, opacity: 0.75 }}>↔</span>
             )}
             <span style={{ color: COLORS.offWhite }}>
               <strong style={{ color: COLORS.gold, fontSize: '0.65rem', letterSpacing: '0.1em', display: 'block', textTransform: 'uppercase', marginBottom: '2px' }}>Mü'min</strong>
@@ -1469,7 +1469,7 @@ function KissaCard({ kissa, index, language, isMobile }) {
       <p style={{
         margin: 0, fontSize: '0.72rem', color: COLORS.silver,
         fontFamily: FONTS.body, lineHeight: 1.5,
-        opacity: 0.7, fontStyle: 'italic',
+        opacity: 0.78, fontStyle: 'italic',
         position: 'relative', zIndex: 1,
         paddingTop: '10px',
         borderTop: `1px solid ${COLORS.glassBorderSoft}`,

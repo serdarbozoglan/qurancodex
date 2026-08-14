@@ -1355,7 +1355,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         letterSpacing: '0.16em',
         textTransform: 'uppercase',
         margin: '0 0 36px',
-        opacity: 0.65,
+        opacity: 0.78,
       }}>
         — {language === 'tr' ? 'Ğâşiye 88:17' : 'Al-Ghāshiyah 88:17'}
       </p>
@@ -1389,7 +1389,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         fontSize: '0.68rem', letterSpacing: '0.3em',
         color: COLORS.gold, textTransform: 'uppercase',
         fontFamily: FONTS.body, fontWeight: 700,
-        opacity: 0.72,
+        opacity: 0.75,
         marginBottom: '14px',
       }}>
         {language === 'tr' ? `KEVNÎ AYETLER · ${counts.animals + counts.plants + counts.celestial}+ DELİL` : `COSMIC SIGNS · ${counts.animals + counts.plants + counts.celestial}+ PROOFS`}
