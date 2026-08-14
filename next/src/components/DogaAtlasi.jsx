@@ -911,9 +911,8 @@ function TabHayvanlar({ animals, isMobile, language }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {/* Featured spotlights — only when no filter/search */}
       {filter === 'Tümü' && !query && featured.length > 0 && (
-        <div style={{
+        <div className="g-1-2" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
           gap: '12px',
           marginBottom: '4px',
         }}>
@@ -929,9 +928,8 @@ function TabHayvanlar({ animals, isMobile, language }) {
 
       <FilterPills filters={ANIMAL_FILTERS} labels={labels} counts={counts} active={filter} onChange={setFilter} />
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '12px',
       }}>
         {filtered.map(a => <AnimalCard key={a.id} item={a} language={language} maxFreq={Math.max(...animals.map(x => x.freqNumeric || 0), 1)} />)}
@@ -981,9 +979,8 @@ function TabBitkiler({ plants, isMobile, language }) {
 
       <FilterPills filters={PLANT_FILTERS} labels={labels} counts={counts} active={filter} onChange={setFilter} />
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '12px',
       }}>
         {filtered.map(p => <PlantCard key={p.id} item={p} language={language} maxFreq={Math.max(...plants.map(x => x.freqNumeric || 0), 1)} />)}
@@ -1008,9 +1005,8 @@ function TabGokCisimleri({ bodies, isMobile, language }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       {/* Featured spotlights */}
       {featured.length > 0 && (
-        <div style={{
+        <div className="g-1-2" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
           gap: '12px',
           marginBottom: '4px',
         }}>
@@ -1018,9 +1014,8 @@ function TabGokCisimleri({ bodies, isMobile, language }) {
         </div>
       )}
       {/* Rest */}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '12px',
       }}>
         {others.map(b => <CelestialCard key={b.id} body={b} language={language} />)}
@@ -1100,9 +1095,8 @@ function TabBilimselIsaretler() {
 // ── Tab 3: Sûre İsimleri ──────────────────────────────────────────────────────
 function TabSureIsimleri({ sureNames, isMobile, language }) {
   return (
-    <div style={{
+    <div className="g-1-2" style={{
       display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
       gap: '16px',
     }}>
       {sureNames.map(s => (
@@ -1497,9 +1491,8 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </p>
 
       {/* Stat cards — clickable */}
-      <div style={{
+      <div className="g-2-5" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
         gap: '8px',
       }}>
         {stats.map((s, i) => (

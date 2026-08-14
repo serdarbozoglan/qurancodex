@@ -565,9 +565,8 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
           </span>
         </div>
 
-        <div style={{
+        <div className="g-1-3" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: '12px',
         }}>
           {[
@@ -795,9 +794,8 @@ function HeroSection({ meta, language, isMobile }) {
       </p>
 
       {/* Stat cards */}
-      <div style={{
+      <div className="g-2-5" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
         gap: '10px',
         maxWidth: '900px',
         margin: '0 auto',
@@ -870,9 +868,8 @@ function TabNations({ nations, language, isMobile, filter, setFilter, onArchClic
       </p>
 
       {/* Card grid */}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '16px',
         alignItems: 'start',
       }}>
@@ -1179,9 +1176,8 @@ function TabHelakDesen({ language, isMobile }) {
         }}>
           {tr ? "HELAK FORMÜLÜ · 7 EVRE" : "DESTRUCTION FORMULA · 7 STAGES"}
         </div>
-        <div style={{
+        <div className="g-4-7" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(4, 1fr)' : 'repeat(7, 1fr)',
           gap: '6px', alignItems: 'stretch',
         }}>
           {steps.map((s, i) => (
@@ -1233,9 +1229,8 @@ function TabHelakDesen({ language, isMobile }) {
         }}>
           {tr ? "HELAK BİÇİMLERİ · MOD İKONOGRAFİSİ" : "MODES OF DESTRUCTION · ICONOGRAPHY"}
         </div>
-        <div style={{
+        <div className="g-3-6" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(6, 1fr)',
           gap: '8px',
         }}>
           {[
@@ -1942,8 +1937,8 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       </div>
 
       {/* Saved / Mystery nations callout */}
-      <div style={{
-        display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+      <div className="g-1-2" style={{
+        display: 'grid',
         gap: '12px', marginBottom: '24px',
       }}>
         <div style={{

@@ -620,9 +620,8 @@ function TabKategoriler({ data, tr, isMobile, language }) {
             </p>
             {/* Compact 5-faculty summary grid */}
             {activeSpecial.summaryGrid && (
-              <div style={{
+              <div className="g-2-5" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
                 gap: 8,
                 marginBottom: 24,
               }}>
@@ -1146,9 +1145,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
       <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 14 }}>
         {tr ? 'En Yoğun 5 Sure' : 'Top 5 Most Dense Surahs'}
       </h3>
-      <div style={{
+      <div className="g-1-5" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(5, 1fr)',
         gap: 12,
         marginBottom: 48,
       }}>

@@ -493,8 +493,8 @@ export default function MunafikProfili({ onClose }) {
               display: 'flex',
               gap: isMobile ? '14px' : '20px',
               alignItems: 'flex-start',
-              flexDirection: isMobile ? 'column' : 'row',
-            }}>
+            }}
+            className="fd-row">
               {/* Nafak burrow illustration — iki kapılı yuva */}
               <div style={{
                 flexShrink: 0,
@@ -734,9 +734,8 @@ function PsychologyCTA({ onClose, language, isMobile }) {
 // ─── Tab 1: Profiles accordion ───────────────────────────────────────────────
 function ProfilesTab({ profiles, expandedId, onToggle, language, isMobile }) {
   return (
-    <div style={{
+    <div className="g-1-2" style={{
       display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
       gap: '16px',
       alignItems: 'start',
     }}>
@@ -1032,9 +1031,8 @@ function MukabeleCard({ data, language, isMobile }) {
       {/* 4-pair grid — desktop'ta 2 sütun, mobilde tek sütun */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
         {data.pairs?.map((pair, i) => (
-          <div key={i} style={{
+          <div key={i} className="mp-pair-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 24px 1fr',
             alignItems: 'center',
             gap: isMobile ? '4px' : '8px',
             padding: '8px 10px',
@@ -1217,9 +1215,9 @@ function SurahDistributionTab({ dist, language, isMobile }) {
               <div key={i}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
+                className="mp-legend-grid"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: isMobile ? '110px 1fr 32px' : '160px 1fr 40px',
                   gap: '10px', alignItems: 'center',
                   padding: '4px 0',
                   cursor: 'default',
@@ -1564,9 +1562,8 @@ function TypologyTab({ typology, language, isMobile }) {
       </div>
 
       {/* Categories — 2 columns desktop, 1 column mobile */}
-      <div style={{
+      <div className="fd-row" style={{
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
         alignItems: 'stretch',
         gap: isMobile ? '14px' : '0',
         position: 'relative',
@@ -1773,9 +1770,8 @@ function HadithTab({ hadith, language, isMobile }) {
         </p>
 
         {/* Metadata row */}
-        <div style={{
+        <div className="fd-row" style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'center',
           alignItems: 'center',
           gap: isMobile ? '10px' : '16px',

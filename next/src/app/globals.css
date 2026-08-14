@@ -995,6 +995,33 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .g-2-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+.g-2-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.g-4-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+.g-3-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.g-1-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.nm-sidebar-grid {
+  grid-template-columns: 220px 1fr;
+}
+.mp-pair-grid {
+  grid-template-columns: 1fr 24px 1fr;
+}
+.mp-legend-grid {
+  grid-template-columns: 160px 1fr 40px;
+}
+.ka-4col-grid {
+  grid-template-columns: 110px 1fr 120px 1fr;
+}
+.ka-3col-grid {
+  grid-template-columns: 160px 1fr 1fr;
+}
 .fd-row {
   /* flexDirection: isMobile ? 'column' : 'row' (en sık kalıp, 27+ örnek) —
      ve flexDirection: isMobile ? 'column' : undefined (undefined = CSS
@@ -1033,6 +1060,33 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   }
   .g-2-3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .g-2-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .g-4-7 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .g-3-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .g-1-5 {
+    grid-template-columns: 1fr;
+  }
+  .nm-sidebar-grid {
+    grid-template-columns: 1fr;
+  }
+  .mp-pair-grid {
+    grid-template-columns: 1fr;
+  }
+  .mp-legend-grid {
+    grid-template-columns: 110px 1fr 32px;
+  }
+  .ka-4col-grid {
+    grid-template-columns: 90px 1fr;
+  }
+  .ka-3col-grid {
+    grid-template-columns: 1fr;
   }
   .fd-row {
     flex-direction: column;

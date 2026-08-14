@@ -424,9 +424,8 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
         onRawiClick={setActiveTab ? () => setActiveTab(2) : undefined}
       />
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: 12,
       }}>
         {data.readers.map(r => (
@@ -592,7 +591,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
       </p>
 
       {/* ── Stat cards ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : '1fr 1fr 1fr', gap: 10, marginBottom: 20 }}>
+      <div className="g-2-3" style={{ display: 'grid', gap: 10, marginBottom: 20 }}>
         {[
           { value: '51',     labelTr: 'kelime varyantı',     labelEn: 'word variants',       sub: 'Hafs ↔ Verş' },
           { value: '77.400+', labelTr: 'toplam kelime',      labelEn: 'total words',         sub: language === 'tr' ? 'Kur\'an geneli' : "Quran total" },
@@ -635,9 +634,8 @@ function TabFarkAnalizi({ data, isMobile, language }) {
       {/* Variant rows */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {/* Header */}
-        <div style={{
+        <div className="ka-4col-grid" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '90px 1fr' : '110px 1fr 120px 1fr',
           gap: '0 12px',
           padding: '6px 14px',
           borderBottom: `1px solid ${COLORS.glassBorder}`,
@@ -655,9 +653,9 @@ function TabFarkAnalizi({ data, isMobile, language }) {
         {filtered.map((v) => (
           <div
             key={v.id}
+            className="ka-4col-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '90px 1fr' : '110px 1fr 120px 1fr',
               gap: '0 12px',
               alignItems: 'center',
               padding: '12px 14px',
@@ -1449,7 +1447,7 @@ function TabTecvid({ isMobile, language }) {
       {sectionTitle(language === 'tr' ? 'Hafs & Verş — Tecvid Farkları' : 'Ḥafs & Warsh — Tajweed Differences')}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 36 }}>
         {/* Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '160px 1fr 1fr', gap: '0 12px', padding: '6px 14px', borderBottom: `1px solid ${COLORS.glassBorder}` }}>
+        <div className="ka-3col-grid" style={{ display: 'grid', gap: '0 12px', padding: '6px 14px', borderBottom: `1px solid ${COLORS.glassBorder}` }}>
           {!isMobile && [language === 'tr' ? 'Kural' : 'Rule', 'Hafs', 'Verş'].map(h => (
             <div key={h} style={{ fontFamily: FONTS.body, fontSize: '0.72rem', fontWeight: 700, color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.07em' }}>{h}</div>
           ))}
@@ -1457,9 +1455,8 @@ function TabTecvid({ isMobile, language }) {
         {tajweedDiffs.map((row) => {
           const hafsNA = row.hafs === 'Uygulanmaz' || row.hafs === 'Not applied';
           return (
-            <div key={row.ruleTr} style={{
+            <div key={row.ruleTr} className="ka-3col-grid" style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : '160px 1fr 1fr',
               gap: isMobile ? 8 : '0 12px',
               alignItems: 'center',
               padding: '12px 14px',

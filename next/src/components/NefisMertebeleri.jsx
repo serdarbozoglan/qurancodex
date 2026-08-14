@@ -299,9 +299,8 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
 
           {/* Visual legend — 7-dot vertical ladder */}
-          <div style={{
+          <div className="fd-row" style={{
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
             alignItems: isMobile ? 'flex-start' : 'center',
             gap: isMobile ? '14px' : '24px',
             marginTop: '6px',
@@ -493,10 +492,9 @@ export default function NefisMertebeleri({ onClose }) {
           isMobile={isMobile}
         />
 
-        <div style={{
+        <div className="g-1-2" style={{
           padding: isMobile ? '0 16px 32px' : '0 40px 40px',
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
           gap: isMobile ? '16px' : '20px',
         }}>
           {classicalFrameworks.map(fw => (
@@ -661,9 +659,8 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
         maxWidth: '980px', margin: '0 auto',
       }}>
         {rows.map((row, i) => (
-          <div key={row.stageId} style={{
+          <div key={row.stageId} className="nm-sidebar-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '220px 1fr',
             gap: isMobile ? '10px' : '20px',
             alignItems: 'stretch',
             padding: isMobile ? '16px 14px' : '18px 22px',
@@ -763,9 +760,8 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
       </div>
 
       {/* 3-column grid */}
-      <div style={{
+      <div className="g-1-3" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
         gap: isMobile ? '18px' : '20px',
         maxWidth: '1240px', margin: '0 auto',
       }}>
@@ -914,9 +910,8 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
 
   return (
     <>
-      <div style={{
+      <div className="nm-sidebar-grid" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '220px 1fr',
         gap: isMobile ? '16px' : '32px',
         padding: isMobile ? '20px 18px' : '28px 32px',
         background: cardBg,
@@ -1286,9 +1281,8 @@ function TransitionBand({ note, isMobile, language }) {
       position: 'relative',
     }}>
       {/* Top row: arrows + title */}
-      <div style={{
+      <div className="fd-row" style={{
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
         alignItems: 'center',
         justifyContent: 'center',
         gap: isMobile ? '12px' : '24px',
