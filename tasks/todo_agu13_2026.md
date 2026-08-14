@@ -11,6 +11,17 @@
 > **Uygulama geneli: 74 → 82/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
+**Kullanıcının 14 Ağustos'ta kuyruğa aldığı iki ayrı iş:**
+- [ ] **CLAUDE.md gözden geçirme** — bugün (kontrast K1-K6, CLS, K4) ve
+      bundan sonra todo'da yapılacaklar dikkate alınarak, yeni bir sayfa/
+      konu üretilirken nelere dikkat edilmesi gerektiğine dair bir
+      kontrol listesi/kriter bölümü eklenmeli — aynı hataların (isMobile
+      SSR kalıbının CLS'e yol açması, kategori renginin AA'yı geçmemesi,
+      iç mimari sızıntısı, vb.) yeniden yaşanmaması için.
+- [ ] **Mobilde hissedilen yavaşlık** — CWV'de LCP/FCP temiz çıktı, TBT
+      de büyük ölçüde temiz; kullanıcının hissi muhtemelen CLS'in kendisi
+      (Z3-V) veya ölçülmeyen bir etkileşim senaryosu. Ayrı incelenecek.
+
 ---
 
 ## 📊 MEVCUT DURUM — **78/100** (13 Ağustos 2026 gecesi, düzeltmelerden sonra)
@@ -917,6 +928,52 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
 - [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
       "büyük metin" muafiyeti bazı yerlerde kalkabilir
 
+### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
+
+> Bu tarihe kadar CWV **yalnız anasayfada** (`/tr`, `/en`) ölçülmüştü;
+> kontrastta olduğu gibi 73 sayfa tamamen bilinmeyendi. `measure-vitals.mjs`
+> `--full` moduna kavuştu (`audit-contrast.mjs`'teki `allRoutes()` ile aynı
+> keşif), sonuç `tests/__baseline__/vitals.json`'a yazılıyor.
+
+**İlk tur — 280 ölçüm (140 sayfa × mobil-390 + masaüstü-1440):**
+**78 ölçüm bir eşiği aşıyor — hepsi CLS (75) veya TBT (7). LCP/FCP'de SIFIR
+ihlal** — yani site hızlı, sorun kayma (layout shift), yavaşlık değil.
+
+**Kök sebep #1 — BULUNDU ve KAPATILDI:** `layout-shift` kaynak izlemesi
+(`sources[].node`) 3 bağımsız sayfada aynı deseni gösterdi: `CrossToolCTA`
+(54 dosyada) ve `SourcesCitation`, `grid-template-columns`'u JS `isMobile`
+prop'undan alıyordu. `isMobile` her çağıran sayfada §14.1'in **zorunlu
+koştuğu** `useState(false)+useEffect` kalıbıyla geliyor — yani hydration
+ANINDA hep `false`. Mobilde sayfa önce 3 sütunlu masaüstü ızgarasıyla
+render olup hydration'dan hemen sonra 1 sütuna yeniden diziliyordu.
+- [x] ~~**Düzeltme: CSS media query'ye taşındı**~~ — **KAPANDI** `d1ca000`.
+      `/atlas/kadinlar` CLS **0.191 → 0.000** (tam kapandı). Genel: **78 → 59**
+      ihlal (−19). `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/*`
+      kısmen iyileşti ama tam kapanmadı — Kök #2'nin de etkisi var (aşağı bak).
+
+**Kök sebep #2 — BULUNDU, henüz KAPANMADI:** kalan en büyük ihlaller
+(`/tr/oku` 0.918 · `/graf/karsilastir` 0.81 · `/arac/neden-sonuc` 0.76 ·
+`/arac/kitap-kavrami` 0.76 · `/arac/elestirel-cerceve` 0.75 · `/graf/zaman`
+0.73 · `/graf/diyalog` 0.55 · `/graf/kavram` 0.47 …) hepsi aynı mimari
+kalıbı paylaşıyor: `useState(null)` + `useEffect(() => fetch(...))` ile
+veri istemci tarafında çekiliyor, veri gelene kadar **ayrı bir `if (!data)
+return (...)` dalı** (yükleme iskeleti) render ediliyor, veri gelince
+**farklı bir ağaca** geçiliyor. Bu bir stil değişikliği değil — DOM'un
+kendisi değişiyor (remount), bu yüzden CSS media query bunu çözemez.
+`/tr/oku`'nun "Yükleniyor" spinner'ının meal/sûre başlığıyla değişmesi
+aynı ailenin bir örneği. Gerçek çözüm ya veriyi sunucu tarafında
+(RSC/`fetch` build-time) sağlamak ya da iskeletin son içerikle **aynı
+boyutu** ayırması — ikisi de bu turun kapsamı dışında, kendi turunu
+gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
+- [ ] **Sonraki tur:** veri-yükleme iskeleti ↔ gerçek içerik boyut
+      uyuşmazlığı — önce `/tr/oku` (korunan amiral gemisi sayfa), sonra
+      `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/*` ailesi.
+- [ ] TBT ihlalleri (7 ölçüm) — ayrıca incelenmedi, CLS'in yanında ikincil.
+- [ ] Kullanıcı notu: **"mobildeki yavaşlığı da çözelim"** — CWV'de LCP/FCP
+      temiz çıktığı için bu his muhtemelen CLS'in kendisi (sayfa "zıplıyor"
+      hissi) ya da TBT'nin ölçülmediği bir etkileşim senaryosu; ayrı
+      incelenmeli, varsayımla kapatılmadı.
+
 ### 🔴 Z3-C2 · Z3b turunda ÇIKAN YENİ BULGULAR (2026-08-13 gecesi)
 
 - [ ] **Z3c4 · `/arac/tum-araclar` — REGRESYON: tıklanabilir öge 68 → 66**
@@ -1203,9 +1260,11 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       ~~④ KONTRAST — Z3-K (K1-K4+K6)~~ ✅ `5d966f7`+`b142302`+`0a002b6`+`d44abb4`
       (1.465 gerçek taban → **1.095**; kissa hariç 976 → 608, K5 + uzun
       kuyruk hâlâ açık ama artık öncelik değil)
+      ~~⑤ CWV — Z3-V (kısmen)~~ ✅ `3278f4f`+`d1ca000` (140 sayfada ilk kez
+      ölçüldü: 78 ihlal, hepsi CLS/TBT, sıfır LCP/FCP; kök #1 kapandı,
+      78→59; kök #2 — veri-yükleme iskeleti remount'u — sonraki tur)
       ① renk kararı + göç (C2 — K2 ile aynı kök)
       ② EN sızıntıları (Z3e2) ③ sayfa-içi gezinme `<button>`ları (Z1f kalanı)
-      ④ **CWV hâlâ 73 sayfada ölçülmedi** — geriye tek bilinmeyen eksen bu.
 
       ⚠ **Not düştü, çünkü bilinmeyen ölçüldü.** Erişilebilirlik 86 iken 72'ye
       indi: 86 sayısı "kontrast bilinmiyor" varsayımının üstünde duruyordu.
