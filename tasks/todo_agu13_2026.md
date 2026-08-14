@@ -786,14 +786,19 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       (`Z1c-ek`) aynı rotadaki **400 dönen fetch**'leri düzeltti — sınır
       doğrulaması ayrı iş, açık kalıyor.
 
-### 🟡 Z3-K · KONTRAST 73 SAYFADA ÖLÇÜLDÜ (14 Ağustos) — K1-K4+K6 kapandı, K5 + uzun kuyruk açık
+### 🟡 Z3-K · KONTRAST 73 SAYFADA ÖLÇÜLDÜ (14 Ağustos) — K1-K7 kapandı, uzun kuyruk açık
 
 > **Güncelleme (14 Ağustos, K6 turu):** ilk `--full` ölçümü kendisi
 > yanıltıcıydı (scroll-reveal animasyonu geçiş hâlindeyken ölçülüyordu,
 > bkz. K6 aşağıda). Düzeltilince gerçek taban **1.465** çıktı, tur sonunda
 > **1.095**'e indi (kissa hariç **976 → 608**, 78 sayfaya yayılmış). K4
-> (kissa'nın soluk hücreleri) kullanıcı kararıyla kapandı. Kalan: K5 (mobil
-> ölçüm) + 608'lik uzun kuyruk — aynı kalıplar, artık küçük parçalar.
+> (kissa'nın soluk hücreleri) kullanıcı kararıyla kapandı.
+>
+> **Güncelleme (14 Ağustos, taze tam tarama + K7):** ayrı bir tam-site
+> taramasında `/atlas/kissa`'nın **487 gerçek ihlal** taşıdığı görüldü —
+> K4'ün kapsamadığı dört yeni kalıp (bkz. K7 aşağıda). K7 ile kissa
+> **247+240 → 0**'a indi. Kalan: K5 (mobil ölçüm) + 608'lik uzun kuyruk
+> (kissa hariç) — aynı kalıplar, artık küçük parçalar.
 
 > Bu, gecenin başından beri "hiç ölçülmedi" diye işaretli olan iki bilinmeyenden
 > biriydi. Ölçüldü ve **beklediğimden kötü çıktı**: erişilebilirlik notu bu
@@ -955,6 +960,24 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       inert ögeleri kapsamaz.
       Doğrulama: production build (ayrı port), 6 sayfa (TR+EN×3) sıfır
       ihlal (Önceki hariç), konsol hatası yok.
+- [x] ~~**K7 · `/atlas/kissa` gerçek ihlalleri**~~ — **KAPANDI** `5357068`.
+      14 Ağustos'un taze tam taramasında (`--full`) kissa **247 (tr) + 240
+      (en) = 487** gerçek ihlal taşıdığı görüldü — K4'ün "kasıtlı soluk"
+      kararı yalnız ısı haritası hücrelerini kapsıyordu, dört farklı kalıp
+      hiç ölçülmemişti: ham `#666D7A` hex (171) · `COLORS.slate600` (16) ·
+      `COLORS.slate500` + kapsayıcı `opacity` çarpımı (11) · peygamber
+      renginin alfa-sufiksinin (`${prophet.color}80`/`cc`) `isDimmed`
+      opacity ile bileşik çarpımı (46 — en çok Musa'nın mavisinde
+      eşiğin altına düşüyordu, ölçülen 1.34–2.71).
+      Fayans sönükleştirmesi metinden ayrıştırıldı: `isDimmed` artık
+      yalnız bg/border alfasını etkiliyor, metin sabit tam opak (fayans
+      zemini renk-tonlu olduğu için `cc` alfa bile eşiği geçmiyordu).
+      Üç ham/slate metin katmanı `SEMANTIC.textFaint`'e bağlandı.
+      Doğrulama: `CONTRAST_PROBE` (`audit-contrast.mjs` ile aynı context)
+      — tr **247→0**, en **240→0**. eslint temiz, 1440+390 ekran görüntüsü
+      sönük/aktif ayrımının bozulmadığını doğruladı. Kullanıcı onayıyla
+      yapıldı ("2 numara, düzelt") — dosya normalde başka bir agent'ın
+      alanı, bu tur idle olduğu teyit edilip elle üstlenildi.
 
 ### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
 
