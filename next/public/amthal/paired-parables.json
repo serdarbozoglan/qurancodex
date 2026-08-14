@@ -68,14 +68,14 @@
       "sideA": {
         "parableId": "free-slave",
         "ref": "16:75",
-        "domainColor": "#9b59b6",
+        "domainColor": "#B17EC6",
         "keyPhrase": "عَبْدًا مَّمْلُوكًا لَّا يَقْدِرُ عَلَى شَيْءٍ",
         "angleTr": "Hiçbir şey yapamayan köle vs. nimet sahibi özgür — eşit olurlar mı?"
       },
       "sideB": {
         "parableId": "deaf-dumb-man",
         "ref": "16:76",
-        "domainColor": "#9b59b6",
+        "domainColor": "#B17EC6",
         "keyPhrase": "أَبْكَمُ لَا يَقْدِرُ عَلَى شَيْءٍ",
         "angleTr": "Dilsiz, beceriksiz adam vs. adalet emreden — eşit olurlar mı?"
       }
@@ -88,14 +88,14 @@
       "sideA": {
         "parableId": "rock-soil",
         "ref": "2:264",
-        "domainColor": "#8B7355",
+        "domainColor": "#A28F77",
         "keyPhrase": "كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌ",
         "angleTr": "Riyâ — yağmurdan sonra çıplak kalan kaya"
       },
       "sideB": {
         "parableId": "fertile-hill",
         "ref": "2:265",
-        "domainColor": "#8B7355",
+        "domainColor": "#A28F77",
         "keyPhrase": "وَمَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ",
         "angleTr": "İhlas — yağmur alınca iki kat ürün veren tepe"
       }

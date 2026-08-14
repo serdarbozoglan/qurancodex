@@ -26,17 +26,21 @@ const VERSE_BLOCK_BASE = {
 const TABS_TR = ['KRONOLOJİ', 'SURELER', 'KOZMİK SAHNELER', 'HESAP & MİZAN', "KUR'AN / HADİS", 'KAYNAKLAR'];
 const TABS_EN = ['CHRONOLOGY', 'SURAHS', 'COSMIC SCENES', 'RECKONING', 'QURAN / HADITH', 'SOURCES'];
 
+// 14 Ağustos (K5): accent'lerin çoğu tam opaklıkta bile AA'yı geçmiyordu
+// (kırmızı 3.60, teal 3.74/5.79, mavi 2.83, mor 3.47 — cosmic-black üstünde).
+// Aynı ton ailesi korunarak açıldı; bg/border (düşük alfa, metin değil)
+// dokunulmadı.
 const PHASE_COLORS = {
-  1: { accent: '#C0392B', bg: 'rgba(192,57,43,0.10)',  border: 'rgba(192,57,43,0.28)' },
+  1: { accent: '#D4786F', bg: 'rgba(192,57,43,0.10)',  border: 'rgba(192,57,43,0.28)' },
   2: { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
-  3: { accent: '#1D7A5F', bg: 'rgba(29,122,95,0.10)',  border: 'rgba(29,122,95,0.28)'  },
-  4: { accent: '#3B4BC8', bg: 'rgba(59,75,200,0.10)',  border: 'rgba(59,75,200,0.28)'  },
-  5: { accent: '#7B4FBF', bg: 'rgba(123,79,191,0.10)', border: 'rgba(123,79,191,0.28)' },
-  6: { accent: '#1D9E75', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)' },
+  3: { accent: '#5A9E8A', bg: 'rgba(29,122,95,0.10)',  border: 'rgba(29,122,95,0.28)'  },
+  4: { accent: '#828CDC', bg: 'rgba(59,75,200,0.10)',  border: 'rgba(59,75,200,0.28)'  },
+  5: { accent: '#A384D2', bg: 'rgba(123,79,191,0.10)', border: 'rgba(123,79,191,0.28)' },
+  6: { accent: '#2BA47D', bg: 'rgba(29,158,117,0.10)', border: 'rgba(29,158,117,0.28)' },
   7: { accent: '#B8860B', bg: 'rgba(184,134,11,0.10)', border: 'rgba(184,134,11,0.28)' },
 };
 
-const HAPAX_COLOR = '#8b5cf6';
+const HAPAX_COLOR = '#a78bfa';
 const GOLD = COLORS.gold;
 
 // Soft-gold note boxes (semantic "annotation" role).
@@ -49,7 +53,7 @@ const NOTE_BOX = {
 
 const NOTE_BOX_INLINE = {
   fontSize: '0.78rem',
-  color: COLORS.softGoldAlpha70,
+  color: COLORS.softGoldAlpha75,
   lineHeight: 1.6,
   background: COLORS.softGoldAlpha06,
   border: `1px solid ${COLORS.softGoldAlpha15}`,
@@ -1019,7 +1023,7 @@ function TabKronoloji({ data, language, isMobile }) {
             <div style={{ borderLeft: `4px solid ${pc.accent}`, paddingLeft: '14px', marginBottom: '12px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
                 <span style={{
-                  background: pc.accent, color: '#fff',
+                  background: pc.accent, color: COLORS.cosmicBlack,
                   fontSize: '0.65rem', fontWeight: 700,
                   borderRadius: RADIUS.xs, padding: '1px 7px', fontFamily: FONTS.body,
                 }}>
@@ -1115,7 +1119,7 @@ function TabKozmikSahneler({ language, isMobile }) {
                 </p>
                 {(item.noteTr || item.noteEn) && (
                   <p style={{
-                    fontSize: '0.75rem', color: item.isInfo ? COLORS.softGoldAlpha70 : COLORS.silver,
+                    fontSize: '0.75rem', color: item.isInfo ? COLORS.softGoldAlpha75 : COLORS.silver,
                     margin: '4px 0 0', lineHeight: 1.5, fontFamily: FONTS.body,
                   }}>
                     {item.isInfo ? 'ℹ ' : ''}{language === 'tr' ? item.noteTr : item.noteEn}

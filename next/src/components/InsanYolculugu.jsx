@@ -235,7 +235,7 @@ export default function InsanYolculugu({ onClose }) {
                     display: 'inline-flex', alignItems: 'center', gap: '6px',
                   }}
                 >
-                  <span style={{ opacity: 0.6 }}>{s.order}.</span>
+                  <span style={{ opacity: 0.85 }}>{s.order}.</span>
                   <span>{isEn ? s.titleEn.split(' (')[0] : s.titleTr.split(' (')[0]}</span>
                 </button>
               ))}
@@ -262,7 +262,7 @@ export default function InsanYolculugu({ onClose }) {
               }}>
                 <div style={{ position: 'sticky', top: '130px' }}>
                   <p style={{
-                    color: COLORS.gold, opacity: 0.75,
+                    color: COLORS.gold, opacity: 0.85,
                     fontSize: '0.65rem', fontWeight: 700,
                     letterSpacing: '0.24em', textTransform: 'uppercase',
                     margin: '0 0 18px',
@@ -556,7 +556,7 @@ function StageDetail({ stage, isEn, isMobile }) {
       }}>
         <div style={{ ...GLASS_CARD, padding: '18px' }}>
           <p style={{
-            color: COLORS.emerald, opacity: 0.85,
+            color: COLORS.emerald,
             fontSize: '0.62rem', fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
             margin: '0 0 10px',
@@ -567,7 +567,7 @@ function StageDetail({ stage, isEn, isMobile }) {
         </div>
         <div style={{ ...GLASS_CARD, padding: '18px' }}>
           <p style={{
-            color: COLORS.softRed, opacity: 0.85,
+            color: COLORS.softRed,
             fontSize: '0.62rem', fontWeight: 700,
             letterSpacing: '0.22em', textTransform: 'uppercase',
             margin: '0 0 10px',

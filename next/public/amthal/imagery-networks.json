@@ -77,7 +77,7 @@
       "id": "society-city",
       "labelTr": "Toplum / Şehir / Bina",
       "labelEn": "Society / City / Building",
-      "color": "#9b59b6",
+      "color": "#B17EC6",
       "nodes": [
         { "id": "safe-city-node", "labelTr": "Güvenli şehir", "symbolises": "Nankörlüğün bedeli", "refs": ["16:112"] },
         { "id": "ruined-town-node", "labelTr": "Harabe kasaba", "symbolises": "İlahi diriltme kudretinin delili", "refs": ["2:259"] },
@@ -90,7 +90,7 @@
       "id": "earth-rock",
       "labelTr": "Toprak / Kaya",
       "labelEn": "Earth / Rock",
-      "color": "#8B7355",
+      "color": "#A28F77",
       "nodes": [
         { "id": "rock-soil-node", "labelTr": "Kayaya düşen toprak", "symbolises": "Riyânın boşluğu", "refs": ["2:264"] },
         { "id": "fertile-hill-node", "labelTr": "Verimli tepe", "symbolises": "İhlasla verilen sadaka", "refs": ["2:265"] },

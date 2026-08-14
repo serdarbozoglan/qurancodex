@@ -98,8 +98,8 @@ const DOMAIN_COLORS = {
   'plant-tree':   '#2ecc71',
   'animal':       '#e67e22',
   'human-senses': '#e74c3c',
-  'society-city': '#9b59b6',
-  'earth-rock':   '#8B7355',
+  'society-city': '#B17EC6',
+  'earth-rock':   '#A28F77',
 };
 
 const DOMAIN_LABELS_TR = {
