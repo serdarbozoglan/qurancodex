@@ -86,6 +86,11 @@ export default function Navbar() {
   const exploreBtnRef  = useRef(null);
   const toolsBtnRef    = useRef(null);
   const tefekkurBtnRef = useRef(null);
+  // Focus trap (A4, 2026-08-14) — panel'in kendisine referans, Tab'ı
+  // içeride tutmak için. Buton refleriyle karışmasın diye ayrı isimlendirildi.
+  const exploreMenuRef  = useRef(null);
+  const toolsMenuRef    = useRef(null);
+  const tefekkurMenuRef = useRef(null);
   // Dynamic featured tefekkur article — _index.json'dan publishedDate DESC en yeni 1 makale.
   // Önce hardcoded 'tugyan' idi; yeni makale eklenince auto-update edemiyordu.
   const [tefekkurFeatured, setTefekkurFeatured] = useState(null);
@@ -571,6 +576,37 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', h);
   }, [toolsOpen, exploreOpen, tefekkurOpen]);
 
+  // ─── Mega-menü focus trap (A4, 2026-08-14) ─────────────────────────────
+  // Önceki durum: Escape kapatıyordu ama açıkken Tab panelden dışarı
+  // kaçıyordu — panelin arkasındaki sayfa içeriğine odaklanılabiliyordu,
+  // klavye kullanıcısı menünün "içinde" olduğunu kaybediyordu.
+  // İlk/son odaklanabilir öge arasında döngü: Tab son ögeden ilk ögeye,
+  // Shift+Tab ilk ögeden son ögeye sarar (standart dialog/menu davranışı).
+  useEffect(() => {
+    const activeRef = exploreOpen ? exploreMenuRef : toolsOpen ? toolsMenuRef : tefekkurOpen ? tefekkurMenuRef : null;
+    if (!activeRef) return;
+    const h = (e) => {
+      if (e.key !== 'Tab') return;
+      const panel = activeRef.current;
+      if (!panel) return;
+      const focusable = panel.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', h);
+    return () => document.removeEventListener('keydown', h);
+  }, [toolsOpen, exploreOpen, tefekkurOpen]);
+
   // ESC handler for overlays rendered by the Navbar wrapper (not the
   // overlay components themselves). ProphetAtlas is the notable case:
   // the component doesn't own its own wrapper, so it has no useEffect to
@@ -812,7 +848,7 @@ export default function Navbar() {
 
             <AnimatePresence>
               {exploreOpen && (
-                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '872px' }}>
+                <motion.div ref={exploreMenuRef} {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '872px' }}>
                 <div style={menuCoreStyle}>
                   {/* Mega-menu: two columns */}
                   {(() => {
@@ -1112,7 +1148,7 @@ export default function Navbar() {
 
             <AnimatePresence>
               {toolsOpen && (
-                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '672px' }}>
+                <motion.div ref={toolsMenuRef} {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '672px' }}>
                 <div style={menuCoreStyle}>
                   {/* Mega-menu: three columns */}
                   {(() => {
@@ -1325,7 +1361,7 @@ export default function Navbar() {
 
             <AnimatePresence>
               {tefekkurOpen && (
-                <motion.div {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '752px' }}>
+                <motion.div ref={tefekkurMenuRef} {...menuPanelMotion} style={{ ...menuShellStyle, minWidth: '752px' }}>
                 <div style={menuCoreStyle}>
                   {(() => {
                     const colLabel = {

@@ -21,7 +21,7 @@
 
 | Eksen | Sabah | Ölçüm sonrası | **Şimdi** | Kalan |
 |---|---:|---:|---:|---|
-| Erişilebilirlik | 68 | 58 | **76** ▲ | Kontrast **hâlâ ölçülmedi** · mega-menüde focus trap yok · 2 svg etiketsiz |
+| Erişilebilirlik | 68 | 58 | **76** ▲ | Kontrast **hâlâ ölçülmedi** · 2 svg etiketsiz |
 | Tutarlılık | 74 | 72 | **76** ▲ | 184 token dışı renk (diğer sayfalar) · "Tefekkür ↔ Reflections" |
 | Teknik | 82 | 80 | **82** | ⚠ LCP/CLS **hâlâ ölçülmedi** — bu notun temeli eksik |
 | İçerik | 76 | 76 | **76** | Özet yok — 18–24 ekran kaydırmadan sitede ne olduğu anlaşılmıyor |
@@ -178,11 +178,16 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       üstünde koyu metin, yani zaten YÜKSEK kontrast; probe gradyanı tek renkle
       temsil edemediği için `ratio 1` diyor.
 
-- [x] **A3 · Klavye gezintisi test edildi** — skip link, tab sırası, gizli raf
-      ve `Escape` ölçüldü ve düzeltildi (bkz. G bölümü). **Kalan:** mega-menüde
-      hâlâ **focus trap yok** — `Escape` kapatıyor ama `Tab` menüden dışarı
-      kaçıyor. Panellerde `role` da yok (disclosure kalıbı bilinçli tercih).
-- [ ] **A4 · Mega-menüde focus trap** — açıkken `Tab` panel içinde dönmeli.
+- [x] **A3 · Klavye gezintisi test edildi** — skip link, tab sırası, gizli raf,
+      `Escape` ve focus trap (A4) ölçüldü ve düzeltildi (bkz. G bölümü).
+      Panellerde `role` yok (disclosure kalıbı bilinçli tercih).
+- [x] ~~**A4 · Mega-menüde focus trap**~~ — **KAPANDI** (14 Ağustos)
+      Üç mega-menü (Keşfet/Araçlar/Tefekkür) panel'ine ref eklendi, ortak bir
+      Tab-trap efekti yazıldı: son ögeden `Tab` ilk ögeye, ilk ögeden
+      `Shift+Tab` son ögeye sarıyor. `Escape` davranışı (kapat + odağı
+      tetikleyiciye döndür) dokunulmadı, hâlâ çalışıyor. Doğrulama: Keşfet
+      panelinde 28 odaklanabilir öge, ileri/geri sarma ve Escape sonrası
+      odak canlı test edildi, 0 konsol hatası.
 
 ---
 
