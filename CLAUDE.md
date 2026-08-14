@@ -190,7 +190,9 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
 
 1. **Metin rengi — ham hex/rgb DEĞİL, üç kademeden biri.**
    `SEMANTIC.textPrimary` (15.74) / `textMuted` (7.65) / `textFaint` (5.94).
-   Silver opaklığı ≥0.78, gold ≥0.75 — altı AA'yı kırar. → §13.26
+   Silver opaklığı ≥0.78, gold ≥0.75 — altı AA'yı kırar. Büyük punto
+   (`clamp()`) kullanan metni **hem masaüstünde hem mobilde** ölç —
+   "büyük metin" muafiyeti mobilde kalkabilir. → §13.26 md.8
 
 2. **Kategori/kimlik rengi de metin olacaksa AA'ya tabidir.** Bir renk
    "kategori kimliği" diye icat edildiğinde (örn. `{ accent: '#534AB7' }`
@@ -266,6 +268,12 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
    > 14 Ağustos'ta kayda değer: hook ilk çalıştığında GERÇEK bir ihlal
    > yakaladı — aynı turda eklenen 6 yeni kategori rengi token'a
    > bağlanmadan raw hex olarak kalmıştı (§13.25 taban 184→188).
+
+9. **Bir Tefekkür makalesi ekliyor/düzenliyorsan önce
+   `tasks/to_do_tefekkur.md`'yi oku.** O dosyanın kendi ENFORCE ALWAYS
+   kuralları var (epistemik disclaimer sistemi, Felsufi'ye sadakat, ayet
+   referans formatı, `relatedTools` dize-dizisi zorunluluğu…) — buraya
+   kopyalanmadı, tek kaynak orada. → §13.29
 
 ### 13.1 Design Token Kuralı
 
@@ -1323,6 +1331,15 @@ dördü de eşiğin altındaydı — `slate500` 4.12 · `slate600` 2.59 ·
    bil ve NET oranı (çarpım sonrası) ölç, yalnız metnin kendi değerini değil.
    14 Ağustos'ta `isHadithOnly` kartında ikisi birden uygulanmış, sonuç
    ölçülmeden AA'nın çok altına inmişti.
+8. **"Büyük metin" muafiyeti (≥24px veya ≥18.66px+bold → eşik 3.0 yerine
+   4.5) mobilde KALKABİLİR.** `clamp(1.4rem, 4vw, 1.9rem)` gibi responsive
+   font boyutları masaüstünde ≥24px'e ulaşırken mobilde 22-23px'te kalabilir
+   — aynı metin masaüstünde muaf, mobilde muaf DEĞİL olur. K5'te (14
+   Ağustos) `/arac/kiyamet` bu yüzden mobilde 13→17 ihlale çıktı; metin
+   masaüstünde geçiyordu, mobilde eşiği kaybetti. Büyük punto + düşük
+   opaklık/kategori rengi kombinasyonu kullanan her bileşen **hem
+   masaüstünde hem mobilde** ölçülmeli: `node scripts/audit-contrast.mjs
+   --mobile [--full]`.
 
 #### Denetim
 
@@ -1416,6 +1433,47 @@ sayıyı göstermeye devam eder; ziyaretçiye yanlış bir "kapsam" iddiası sun
 
 **Kural ihlali sonucu:** Katalog 65'e çıkar, şerit hâlâ "62 Araç" der —
 kullanıcının kendi ölçüp doğruladığı bir sayı sessizce yalan söylemeye başlar.
+
+### 13.29 Tefekkür Makaleleri — Kurallar `tasks/to_do_tefekkur.md`'de (ENFORCE ALWAYS)
+
+**Yeni bir Tefekkür makalesi eklerken veya mevcut birini düzenlerken önce
+`tasks/to_do_tefekkur.md`'yi oku.** İçeriği buraya kopyalanmadı — o dosya
+zaten canlı tutuluyor (her yeni makalede güncelleniyor, §10 Change Log +
+en alttaki tarihli notlar), CLAUDE.md'ye kopyalarsak iki kaynak birbirinden
+sürüklenir (bkz. §13.25'in aynı gerekçesi: "tabloyu üretmek yerine
+doğrula"). Bu bölüm yalnız **ne var, nerede** diye işaret eder.
+
+**`tasks/to_do_tefekkur.md`'de bulunan ENFORCE ALWAYS kurallar (§4 altında):**
+
+| Kural | Özet |
+|---|---|
+| Medium Görselliğini Yansıtma | Her Medium şema/tablo/akış diyagramı site bileşeniyle (HierarchyTree, MorphologyTable, FlowChain, ContrastDuo…) yeniden inşa edilir — ham screenshot YASAK |
+| Ayet Referansı Formatı | TR'de her zaman sûre adı + numara (`Bakara 2:8`), sade numara değil |
+| Makale Sayım Politikası | TR+EN aynı içerik **tek** makale sayılır — "49 makale" değil "44 unique" |
+| Kök Çoklu-Alomorf | Defektif kökler (`ط غ و / ط غ ي` gibi) TÜM alomorflarıyla gösterilir, tek form eksik sayılır |
+| Tefekkür Tipografi | Body `1.08rem`/`1.85` line-height, H2 `≥1.55rem` — sitenin geri kalanından bilinçli büyük (uzun-form okuma) |
+| "Kur'an" Yazımı | Medium'da "Kuran" geçse de site her zaman "Kur'an" (bkz. genel kural, madde aşağıda) |
+| Epistemik Disclaimer Sistemi | 3 katman: her makalede uniform top disclaimer + tartışmalı pasajlarda `criticalNote` + index sayfasında banner |
+| Felsufi Metnine Sadıklık | Yazarın yazmadığı hiçbir yorum/tefsir/kavram eklenmez — "bunu Felsufi mi yazdı, ben mi ekledim" testi |
+| VerseInline Ref Tekrarı Yasağı | Badge zaten sûre+numara gösteriyor, `noteTr` içinde tekrar yazılmaz |
+
+**Ayrıca en altta (§10 sonrası), her yeni makalede güncellenen iki canlı ders:**
+- `relatedTools` **dize dizisi** olmalı (`["concept-graph"]`), nesne dizisi
+  DEĞİL — nesne verilirse renderer `[object Object]` + duplicate-key hatası
+  üretir.
+- Kategori sayaçları (`TefekkurHighlight`, navbar) **elle yazılmaz**,
+  `_index.json`'dan türetilir — elle yazılan sayı bayatlar (bir örnek:
+  42 yazıyordu, gerçek 53'tü). Aynı hata sınıfı navbar yüksekliğinde
+  sekiz kez, `InventoryStrip`'te bir kez daha yaşandı (§13.28) — üçü de
+  "türetilmesi gereken sayı elle yazılmış" kalıbı.
+
+**Genel site kuralı (CLAUDE.md'nin kendi kapsamı, tefekkür'e de uygulanır):**
+Kur'an yazımı sitede daima **Kur'an** (kesme işaretiyle), Medium kaynağında
+"Kuran" geçse bile migration'da normalize edilir.
+
+**İstisna hatırlatması:** Tefekkür makaleleri §13.24'ün (İ'câz-ı İlmî hakem
+süreci) **DIŞINDADIR** — yazarın kendi imzalı görüşleridir, ChatGPT
+onayına sokulmaz. Bkz. §13.24'ün istisna maddesi.
 
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
