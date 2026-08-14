@@ -548,7 +548,8 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
             giriyor; **sûre numarasıyla arama hiçbir zaman eşleşmez.**
             Düzeltme satır 40-41'deki `s.surah ?? s.surah_id` kalıbının aynısı.
 
-- [ ] **Z3a3 · `VerseChip ref={v}` — `ref` veri prop'u olarak kullanılmış**
+- [x] ~~**Z3a3 · `VerseChip ref={v}`**~~ — **KAPANDI** `0767c51` → `verseRef`
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `SemanticMap.jsx:452` + `:536`. `ref` React'te ayrılmış bir addır; çipin
       metni bu yüzden boş. Detay panelindeki "Merkezî Ayetler" bloğu etkileniyor.
       Aynı sınıf eslint'te de var: **18 × `react-hooks/refs`** (aş. Z3d3).
@@ -785,6 +786,16 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       ölçülmüş hâli.
       - [ ] Tek kaynağa indir (`toolCatalog.js` otorite olsun)
 
+- [x] ~~**Z3c7 · `/graf/semantik` panelinde ham `**` markdown**~~ — **KAPANDI** `0767c51`
+      **Denetim taraması bunu KAÇIRMIŞTI.** Probe `/tr/graf/semantik`'te
+      ham `**` = 0 diyordu; çünkü küme detay paneli **varsayılan olarak
+      KAPALI** ve probe onu hiç açmadı. Ekran görüntüsüne bakınca göründü:
+      özet, wow notu ve kaynaklar ham markdown basıyordu (14 örnek).
+      `renderInlineMarkdown`'a bağlandı → 0, `<strong>` 9 + `<em>` 20.
+      - [ ] **Ders, kontrol listesine eklenecek:** "sayfa açık" ile "her
+            DURUM açık" aynı şey değil. Sekme/panel/akordiyon arkasındaki
+            içerik otomatik taramada görünmez.
+
 ### 🟠 Z3-D · Sistem/kural ihlalleri
 
 - [x] ~~**Z3d1 · §13.22 ihlali — `/atlas/ibadetler/*` RAG corpus'unda YOK**~~
@@ -796,7 +807,11 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       Sonuç: `/sor`'a "oruç nedir" diye sorulunca bu sayfalar **hiç önerilmiyor.**
       §13.22 bu pipeline'ı "MUTLAK" diye tanımlıyor ve "İstisna: Yok" diyor.
       ✅ Ters yön temiz: corpus'ta olup rotası olmayan giriş **0** (404 riski yok).
-- [ ] **Z3d2 · §13.24 ihlali — `WowFacts.jsx:1400`**
+- [x] ~~**Z3d2 · §13.24 ihlali — `WowFacts.jsx:1400`**~~ — **KAPANDI** `0767c51`
+      "Arkeoloji ve tarihin onayladığı" → "Kur'ânî anlatılarla tarihsel
+      bulguların **temas noktaları**". Hedef sayfa 26 Temmuz'da düzeltilmiş,
+      ona giden kartın metni atlanmıştı.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       > `descTr: "Arkeoloji ve tarihin **onayladığı** Kur'ânî iddialar…"`
       > `descEn: "Quranic claims **confirmed by archaeology** and history…"`
       §13.24 "confirmed by archaeology" kalıbını **isim isim** yasaklıyor
@@ -826,12 +841,23 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
 
 ### 🟠 Z3-E · İki dillilik (Z1'de yok)
 
-- [ ] **Z3e1 · `/en/oku` metadata'sı TAMAMEN Türkçe**
+- [x] ~~**Z3e1 · `/en/oku` metadata'sı TAMAMEN Türkçe**~~ — **KAPANDI** `0767c51`
+      §16.3'ün bilingual biçimine geçirildi. Artık "Read the Quran" +
+      tam İngilizce açıklama.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `<title>Kur'an'ı Oku | QuranCodex</title>` ·
       `description: "Per-sure tilavet (6 kâri) + karaoke kelime senkronizasyonu +
       tajweed + Elmalılı/Ibn Kathir tefsir paneli + interlinear kelime-kelime
       çeviri."` — sitenin **amiral gemisi sayfası**, İngilizce aramada böyle çıkar.
-- [ ] **Z3e2 · 9 EN rotasında etiket sızıntısı (tek tek doğrulandı)**
+- [x] ~~**Z3e2 · 9 EN rotasında etiket sızıntısı**~~ — **KAPANDI** `0767c51`
+      Üç kök: `WowFacts.surahRef` tek dilli · `DogaAtlasi.CTX_LABELS` tek dilli
+      (dosyada EN haritası zaten vardı, bağlam rozetleri unutulmuş) ·
+      `DiyalogAgi` **iki katmanlı** — `getNodeLabel` hep `nameTr` okuyordu ve
+      ondan önce devreye giren `NODE_LABELS` tamamen Türkçeydi.
+      Ölçüm: 4 EN rotası temiz, `/tr/graf/diyalog` Türkçe korundu.
+      ⚠ Sûre adlarının Türkçe transliterasyonu (`Eş-Şems`, `El-İnşirah`)
+      **bilerek dokunulmadı** — ayrı bir adlandırma kararı.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       | rota | sızan dize |
       |---|---|
       | `/en/atlas/doga` | **"Sûre Adı"** (tablo başlığı) · "Kıssa" · "Arı" |
@@ -848,7 +874,10 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
 - [ ] **Z3e3 · EN'de sayı biçimi karışık — aynı satırda**
       `/en/graf/ayet`: "**6.236** verses · **10,653** similar verse pairs".
       Biri TR ayracı, öbürü EN. (Kontrol listesi E: `toLocaleString`.)
-- [ ] **Z3e4 · 5 sayfada başlıkta çift marka**
+- [x] ~~**Z3e4 · 5 sayfada başlıkta çift marka**~~ — **KAPANDI** `0767c51`
+      `ayet` + `kutuphanem` düzeltildi. **Paylaşım metinlerinde marka KALDI**
+      (VerseShareRoute, /sor) — orası site dışına gider, sonek orada doğru.
+      *Aşağıdaki özgün bulgu kaydı arşiv:*
       `Kütüphanem — QuranCodex | QuranCodex`. Sayfa `— QuranCodex` ekliyor,
       `_shell.jsx:39` `template: '%s | QuranCodex'` bir kez daha ekliyor.
       Manuel sonek kullanan 5 dosya: `grep -rl "— QuranCodex" src/app/\[locale\]`
