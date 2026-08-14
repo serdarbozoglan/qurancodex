@@ -449,9 +449,45 @@ yüklüyor. Kullanıcı ilk tıklamada çökecekti.
 > iki bağımsız tur aynı iki hatayı buldu; kalan 23'ü yalnız bu tur buldu.
 > Tekrarla: `/tmp/crawl-{1440,1024,390}.json`, `/tmp/ssr-sweep.json`, `/tmp/eslint.json`
 
+### 🎯 UYGULAMA SIRASI — hangi madde neden önce
+
+> Ölçüt sırası: **(1)** kullanıcı şu anda kırık görüyor/kullanamıyor mu ·
+> **(2)** kaç sayfaya yayılıyor · **(3)** maliyet · **(4)** kaç maddeyi birden
+> kapatıyor. "Önemli ama karar gerektiren" işler (renk göçü, görsel kompozisyon)
+> bilinçli olarak geriye atıldı — onlar kod işi değil.
+
+| # | Madde | Neden bu sırada |
+|---:|---|---|
+| **1** | **Z3a1** (+**Z3f4** ücretsiz kapanır) | **148 sayfanın hepsi.** Kullanıcı kırık **görüyor** (CTA metni kenarlığın dışında) ve `/en/graf/ayet`'te kontroller **tıklanamıyor**. Tek kök: 1024–1180'de sarma. iPad Pro 12.9" portrait = tam 1024px |
+| **2** | **Z3c1** | 2 satır · 5 dk. Patlarsa sayfa **hiç açılmaz**. Tetikleyici teorik değil — alan adı sürüklenmesi bu hafta yaşandı (Z3a2) |
+| **3** | **Z3b1 · Z3b2 · Z3b3** | Kullanıcı tıklıyor, **hiçbir şey olmuyor** — hata bile vermiyor. Çözüm kalıbı hazır: `routeForToolEvent` + `<Link>` (`ToolsBrowser`'da uygulandı) |
+| **4** | **Z3d1** | §13.22 "MUTLAK, istisna yok" diyor; `/sor` **724 KB** içeriği bilmiyor. ⚠ embedding rebuild maliyeti var, önce onay |
+| **5** | **Z3c3** | Geçersiz âyet için canonical+OG üretiliyor → indekslenebilir çöp. Düzeltme: aralık kontrolü + `notFound()` |
+| **6** | **Z3f1** | Geniş ama zararı **SEO değil** — ölçüldü: `sitemap.xml` **458 URL** döndürüyor, keşif kayıp değil. Kalan zarar UX (orta tık / yeni sekme) + anchor-text |
+
+**Bilerek geriye atılanlar:** `C2` (184 renk) → önce **karar**, temizlik değil ·
+`B1/B3/B4` (görsel) → kod değil **tasarım kararı**, statik mockup olmadan başlama ·
+`Z3g1` (541 lint) → 451'i kozmetik `no-unescaped-entities`, sinyal/gürültü düşük.
+
+⚠ **Z3a1 düzeltilirken CLAUDE.md §13.13 de revize edilmeli** — "tüm navbar
+butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri gelir.
+
 ### 🔴 Z3-A · Ekranda GÖRÜNEN kırıklar
 
-- [ ] **Z3a1 · Navbar 1024–1180px arasında kırılıyor — HER SAYFADA**
+- [x] ~~**Z3a1 · Navbar 1024–1180px arasında kırılıyor — HER SAYFADA**~~
+      **KAPANDI 2026-08-13 gecesi.** GPT-5.2 hakem turu: *KOŞULLU ONAY* →
+      itirazları ölçüldü, biri çürütüldü, biri **daha derin bir hatayı** açtı.
+      Yapılan dört parça (ayrıntı: CLAUDE.md §13.13):
+      `minHeight` (sabit `height` değil) + `white-space:nowrap` +
+      1024–1279 kompakt katman (CSS değişkeni köprüsü, `!important` YOK) +
+      `flex-wrap` emniyet ağı.
+      **Teşhisim başta eksikti:** bu bir breakpoint hatası değil, **sabit
+      yükseklik** hatasıymış — root font 20px'te **1440px'te bile** taşıyordu.
+      Doğrulama: 7 genişlik × 2 dil × 3 root font = **22/22 geçti**;
+      3 ekran görüntüsü gözle incelendi.
+      ⚠ İki kez sayısal test "geçti" dedi, ekran görüntüsü hatayı gösterdi
+      (kırpılan öge yatay kaydırma üretmiyor) → §13.13'e ölçüt olarak eklendi.
+      *Aşağıdaki özgün bulgu kaydı arşiv olarak duruyor:*
       Ölçüldü (`nav[aria-label="Main navigation"]` yüksekliği + CTA metin kutusu):
       | genişlik | TR navH | TR taşma | EN navH | EN taşma |
       |---|---:|---:|---:|---:|
@@ -503,7 +539,13 @@ yüklüyor. Kullanıcı ilk tıklamada çökecekti.
 
 ### 🔴 Z3-C · Gizli bombalar (bugün patlamıyor, yarın patlar)
 
-- [ ] **Z3c1 · `IbadetlerHub.jsx:489` ve `:786` — KOŞULLU `useState`**
+- [x] ~~**Z3c1 · `IbadetlerHub.jsx:489` ve `:786` — KOŞULLU `useState`**~~
+      **KAPANDI 2026-08-13 gecesi.** Hook'lar erken `return`'ün üstüne alındı.
+      GPT-5.2 hakem turu: **ONAY** (koşulsuz). Doğrulama: `eslint
+      rules-of-hooks` **2 → 0**; `/tr` + `/en` `/atlas/ibadetler` ve
+      `/atlas/ibadetler/namaz` → **200**; iki bölüm de tarayıcıda render
+      ediyor; konsol hatası **0**.
+      *Aşağıdaki özgün bulgu kaydı arşiv olarak duruyor:*
       ```js
       function YolHaritasiSection({ data }) {
         if (!data?.yollar?.length) return null;   // ← erken return

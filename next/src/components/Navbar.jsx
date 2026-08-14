@@ -787,10 +787,10 @@ export default function Navbar() {
               onClick={() => { setExploreOpen(p => !p); setToolsOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
-                padding: '8px 14px', borderRadius: '8px', border: 'none',
+                padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: exploreOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1067,10 +1067,10 @@ export default function Navbar() {
               onClick={() => { setToolsOpen(p => !p); setExploreOpen(false); setTefekkurOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
-                padding: '8px 14px', borderRadius: '8px', border: 'none',
+                padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: toolsOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: toolsOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1254,10 +1254,10 @@ export default function Navbar() {
             onClick={() => { router.push(`/${language}/arac/esma-frekans`); setExploreOpen(false); setToolsOpen(false); setTefekkurOpen(false); }}
             style={{
               display: 'flex', alignItems: 'center', gap: '5px',
-              padding: '8px 14px', borderRadius: '8px', border: 'none',
+              padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
               background: pathname.includes('/arac/esma-frekans') ? 'rgba(255,255,255,0.06)' : 'transparent',
               color: pathname.includes('/arac/esma-frekans') ? '#d4a574' : '#d4d8e0',
-              fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
             onMouseEnter={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1275,10 +1275,10 @@ export default function Navbar() {
               onClick={() => { setTefekkurOpen(p => !p); setExploreOpen(false); setToolsOpen(false); }}
               style={{
                 display: 'flex', alignItems: 'center', gap: '5px',
-                padding: '8px 14px', borderRadius: '8px', border: 'none',
+                padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: tefekkurOpen || pathname.includes('/tefekkur') ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: tefekkurOpen || pathname.includes('/tefekkur') ? '#d4a574' : '#d4d8e0',
-                fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1681,7 +1681,7 @@ export default function Navbar() {
             className="hidden lg:flex items-center gap-1.5 transition-all duration-200"
             style={{
               padding: '0 12px',
-              height: '32px',
+              minHeight: '32px',   // sabit height değil — gerekçe CTA'da (§13.13)
               borderRadius: '6px',
               border: `1px solid ${COLORS.goldAlpha45}`,
               background: 'transparent',
@@ -1712,7 +1712,7 @@ export default function Navbar() {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0 10px',
-              height: '32px',
+              minHeight: '32px',   // sabit height değil — gerekçe CTA'da (§13.13)
               borderRadius: '6px',
               border: `1px solid ${COLORS.goldAlpha45}`,
               background: 'transparent',
@@ -1747,8 +1747,24 @@ export default function Navbar() {
               fontSize: '0.82rem',
               fontWeight: 700,
               letterSpacing: '0.07em',
-              padding: '6px 24px',
-              height: '32px',
+              // Dikey dolgu 3px — beş kombinasyon ölçülerek seçildi:
+              //   6px → varsayılan fontta buton 38px, §13.13 eşitliği bozulur
+              //   0px → eşitlik tamam ama büyütülmüş fontta kutu BÜYÜMÜYOR,
+              //         metin 4-5px dışarı taşıyor
+              //   3px → varsayılan fontta 32px (eşit ✓), root 20px'te kutu
+              //         38px'e büyüyor, kalan taşma 1-2px (Arapça glifin
+              //         normal boya taşkınlığı, düzen kırılması değil)
+              padding: 'var(--nav-cta-pad, 3px 24px)',
+              // `height` DEĞİL `minHeight` (2026-08-13, GPT-5.2 hakem turu bunu
+              // ortaya çıkardı): sabit yükseklik + büyüyebilen metin = metin
+              // kutunun DIŞINA taşar. Ölçüldü — kullanıcı tarayıcı fontunu
+              // 20px'e çıkarınca metin 42px oluyor, kutu 32px'te kalıyordu ve
+              // 1440px'te bile taşıyordu. Yani hata breakpoint hatası değil,
+              // sabit-yükseklik hatasıydı; kompakt katman yalnız 1024 vakasını
+              // örtüyordu. minHeight ile kutu metinle birlikte büyür.
+              // §13.13'ün "hepsi eşit yükseklik" amacı korunur: varsayılan
+              // fontta hepsi yine 32px.
+              minHeight: '32px',
               cursor: 'pointer',
               boxShadow: 'inset 0 0 12px rgba(180,130,40,0.06)',
               transition: `all ${TRANSITION.fast}`,

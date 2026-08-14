@@ -336,6 +336,52 @@ Navbar sağındaki tüm butonlar aynı yükseklikte olmalıdır.
 - **Dil seçici (TR/EN) butonu:** `height: '32px'`
 - ❌ YASAK: Farklı yükseklikler (örn. biri 30px diğeri 36px)
 
+#### ⚠ Sabit yükseklik `white-space: nowrap` OLMADAN geçerli değildir (2026-08-13)
+
+Sabit `height:32px` + sarabilen metin = **metin butonun kenarlığının dışına
+taşar.** Ölçülen: 1024px'te "Kur'an'ı Oku" / "Read Quran" iki satıra sarıyor
+(metin kutusu 40px), buton 32px'te kalıyor → **+3px taşma**, navbar 82px'ten
+TR 108 / EN 134px'e şişiyor. İki dilde, 74 rotanın hepsinde.
+
+Kural bu yüzden **dört** parçalıdır — biri eksik olursa hata geri gelir:
+
+1. **`minHeight: '32px'`** — `height` DEĞİL. Sabit yükseklik, büyüyebilen içeriği
+   kutunun dışına iter. `minHeight` ile kutu içerikle birlikte büyür.
+   Dikey dolgu **3px** (beş kombinasyon ölçüldü: 6px → varsayılan fontta buton
+   38px olur ve eşitlik kuralı bozulur; 0px → büyütülmüş fontta kutu büyümez,
+   metin 4-5px taşar; **3px → varsayılan 32px eşit, büyütmede kutu büyüyor**).
+2. **`white-space: nowrap`** — navbar'daki her buton/bağlantı için zorunlu
+   (`globals.css`, mega-menü panelleri hariç: orada çok satırlı açıklama var).
+3. **1024–1279 kompakt ölçek** — nowrap tek başına yatay taşma üretir. Ölçülen
+   ihtiyaç: nowrap ile satır TR 1.044px, EN 1.113px; masaüstü navbar `lg:`
+   (1024) açılırken içeriği o genişliğe **sığmıyordu**. Uygulama: `globals.css`
+   media query'si üç CSS değişkeni set eder (`--nav-trigger-pad`,
+   `--nav-trigger-fs`, `--nav-cta-pad`). Inline stiller bu değişkenleri
+   fallback'li okur → **`!important` gerekmez**.
+4. **`flex-wrap: wrap` emniyet ağı** — içerik gerçekten sığmazsa satır sarsın,
+   öge ekran dışına **taşmasın**. Kullanıcı tarayıcı fontunu 20px'e çıkarınca
+   1024'te CTA ekranın sağından taşıp **kırpılıyordu**; kırpılma yatay kaydırma
+   üretmediği için sayısal test kaçırdı, **ekran görüntüsü yakaladı**.
+   Varsayılan fontta bu kural hiç devreye girmez.
+
+> **Ders:** hata bir "breakpoint hatası" sanılmıştı; ölçünce **sabit-yükseklik
+> hatası** olduğu görüldü — root font 20px'te 1440px'te bile taşıyordu.
+> Kompakt katman yalnız 1024 vakasını örtüyordu.
+
+**Doğrulama (her navbar değişikliğinde) — 22 koşu:**
+genişlik `1024 · 1080 · 1180 · 1279 · 1280 · 1440 · 390` × dil `tr/en`
+× root font `16px · 20px · 22px`
+```js
+nav.getBoundingClientRect().height                    // varsayılan fontta 81–82px
+range.getBoundingClientRect().bottom - btn.bottom     // ≤ 2px (Arapça glif payı)
+el.getBoundingClientRect().right <= innerWidth        // ← EN KRİTİK ölçüt
+document.documentElement.scrollWidth === clientWidth  // true
+new Set(butonYükseklikleri).size === 1                // varsayılan fontta eşitlik
+```
+⚠ **`scrollWidth === clientWidth` TEK BAŞINA YETMEZ.** Kırpılan öge yatay
+kaydırma üretmez; iki kez bu yüzden "geçti" dedim, ikisinde de **ekran
+görüntüsü** hatayı gösterdi. Sağ-kenar kapsama ölçütünü ve gözle bakmayı atlama.
+
 ---
 
 ### 13.14 Arapça Maddah Rendering Fix

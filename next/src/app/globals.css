@@ -707,3 +707,69 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
   .proof-steps { grid-template-columns: 1fr; gap: 20px; }
   .proof-verses li { grid-template-columns: 1fr !important; gap: 6px !important; }
 }
+
+/* ─── Navbar 1024–1279 kompakt katmanı (Z3a1 · 2026-08-13) ──────────────────
+   ÖLÇÜLEN SORUN: masaüstü navbar `lg:` (1024px) açılıyor ama içeriği o
+   genişliğe SIĞMIYOR — nowrap ile gereken genişlik TR 1044px, EN 1113px.
+   Sonuç: ögeler sarıyordu, navbar 82px → TR 108px / EN 134px'e şişiyordu ve
+   `height:32px` sabit CTA'nın metni kenarlığın DIŞINA taşıyordu (+3px).
+   İki dilde de, 74 rotanın hepsinde.
+
+   ÇÖZÜM İKİ PARÇALI — biri tek başına yetmez:
+   (1) `white-space: nowrap` — hiçbir navbar ögesi kendi kutusunu kıramaz.
+       (§13.13 "tüm butonlar 32px" kuralının çalışabilmesinin ön şartı.)
+   (2) 1024–1279 arası kompakt ölçek — nowrap tek başına yatay taşma yapardı.
+       Ölçülen kazanç ~143px: EN 1113 → ~970 (1024'e 54px pay).
+   Breakpoint'i `xl`e itmek (tablette hamburger) bilinçli olarak SEÇİLMEDİ:
+   iPad Pro 12.9" portrait tam 1024px ve mega-menü o cihazda en çok işe yarıyor.
+
+   Ölçüm: `nav[aria-label="Main navigation"]` yüksekliği 1024'te 82px olmalı
+   (masaüstü referansıyla aynı) ve `document.scrollWidth === clientWidth`. */
+
+nav[aria-label="Main navigation"] button,
+nav[aria-label="Main navigation"] a {
+  white-space: nowrap;
+}
+
+/* Emniyet ağı: içerik gerçekten sığmazsa satır SARSIN, ögeler ekran dışına
+   TAŞMASIN. Ölçülerek bulundu — kullanıcı tarayıcı fontunu 20px'e çıkarınca
+   1024px'te "Kur'an'ı Oku" butonu ekranın sağından taşıp KIRPILIYORDU;
+   sayısal testler kaçırdı çünkü kırpılma yatay kaydırma üretmiyor, ekran
+   görüntüsü yakaladı. Varsayılan fontta bu kural hiç devreye girmez (satır
+   tek sırada kalır); yalnız erişilebilirlik amaçlı font büyütmesinde
+   navbar iki sıraya iner — ögeler görünür ve tıklanabilir kalır. */
+nav[aria-label="Main navigation"] > div {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+/* Mega-menü panelleri hariç: içeride çok satırlı açıklama metni var. */
+nav[aria-label="Main navigation"] [data-dropdown] div button,
+nav[aria-label="Main navigation"] [data-dropdown] div a {
+  white-space: normal;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Inline stil, stylesheet kuralını HER ZAMAN ezer. Bu yüzden Navbar.jsx'teki
+     üç ölçü inline `var()` okuyacak şekilde yazıldı:
+       padding:  var(--nav-trigger-pad, 8px 14px)
+       fontSize: var(--nav-trigger-fs,  0.9rem)
+       CTA pad:  var(--nav-cta-pad,     6px 24px)
+     Böylece duyarlı karar CSS'te kalır ve `!important` GEREKMEZ.
+     (İlk sürüm `!important` kullanıyordu — patch'ti, sistem değil. Fallback
+     değerler inline'da durduğu için bu blok silinse bile navbar bozulmaz.) */
+  nav[aria-label="Main navigation"] {
+    --nav-trigger-pad: 8px 9px;
+    --nav-trigger-fs: 0.86rem;
+    --nav-cta-pad: 3px 14px;
+  }
+  /* dış satır: yatay dolgu 32 → 16 (Tailwind sınıfı; seçici özgüllüğü yeterli) */
+  nav[aria-label="Main navigation"] > div {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 10px;
+  }
+  /* sol grup (logo + nav) ve sağ grup (araçlar + CTA) */
+  nav[aria-label="Main navigation"] > div > div {
+    gap: 10px;
+  }
+}

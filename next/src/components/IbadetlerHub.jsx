@@ -484,9 +484,15 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
 
 // ─── Yol Haritası — Nereden Başlamalı? 3 önerilen yolculuk ──────────────
 function YolHaritasiSection({ data, language, isMobile, router }) {
+  // Hook'lar erken return'ün ÜSTÜNDE (Rules of Hooks · 2026-08-13).
+  // Önceden `if (!data?.yollar?.length) return null;` useState'in üstündeydi:
+  // veri dosyasından `yollar` düşerse React "Rendered fewer hooks than
+  // expected" ile patlar ve /atlas/ibadetler HİÇ açılmaz. Tetikleyici teorik
+  // değil — aynı sınıf alan-adı sürüklenmesi bu hafta yaşandı (semantic-map
+  // `surah_id` → `surah`).
+  const [active, setActive] = useState(0);
   if (!data?.yollar?.length) return null;
   const tr = language === 'tr';
-  const [active, setActive] = useState(0);
 
   return (
     <div style={{ marginBottom: '48px' }}>
@@ -781,9 +787,10 @@ function ZamanEkseniSection({ data, language, isMobile }) {
 
 // ─── Peygamber İzleri — 21 peygamber × 41 kayıt aggregation ──────────────
 function PeygamberIzleriSection({ data, language, isMobile, router }) {
+  // Hook erken return'ün ÜSTÜNDE — gerekçe için YolHaritasiSection'a bak.
+  const [expanded, setExpanded] = useState(null);
   if (!data?.prophets?.length) return null;
   const tr = language === 'tr';
-  const [expanded, setExpanded] = useState(null);
 
   return (
     <div style={{ marginBottom: '56px' }}>
