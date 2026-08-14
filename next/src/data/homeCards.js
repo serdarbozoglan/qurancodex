@@ -80,7 +80,7 @@ export const HOME_CARDS = [
     verseAr:     'اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',
     verseTrans:  { tr: 'Hamd, âlemlerin Rabbi Allah\'a mahsustur.', en: 'All praise belongs to Allah, Lord of the worlds.' },
     verseRef:    { tr: 'Fâtiha 1:2', en: 'al-Fātiḥa 1:2' },
-    blurb:       { tr: 'Fâtiha\'nın 7 ayeti A-B-C-D-C\'-B\'-A\' formülünde mükemmel bir ayna simetrisi taşır. Âyetel Kürsî tek bir ayet ama 7 bölüme bölünür, aynı simetri. Farrin (2014) bunu "ring composition" olarak tarif etti — Kur\'an\'ın edebî mimarisi.', en: 'The 7 verses of al-Fātiḥa carry a perfect mirror symmetry in the A-B-C-D-C\'-B\'-A\' formula. Āyat al-Kursī, a single verse, divides into 7 parts with the same symmetry. Farrin (2014) called this "ring composition" — the Quran\'s literary architecture.' },
+    blurb:       { tr: 'Fâtiha\'nın Besmele hariç 6 ayeti A-B-C-D-C\'-B\'-A\' formülünde bir ayna simetrisi taşır. Âyetel Kürsî tek bir ayet ama 7 bölüme bölünür, aynı simetri. Farrin (2014) bu tür yapıları "ring composition" olarak tarif etti — Kur\'an\'ın edebî mimarisi.', en: 'Al-Fātiḥa\'s 6 verses (excluding the basmala) carry a mirror symmetry in the A-B-C-D-C\'-B\'-A\' formula. Āyat al-Kursī, a single verse, divides into 7 parts with the same symmetry. Farrin (2014) described such structures as "ring composition" — the Quran\'s literary architecture.' },
     cta:         { tr: 'Halka Kompozisyon Sayfasını Keşfet', en: 'Explore the Ring Composition Page' },
     kicker:      { tr: 'Fâtiha · Âyetel Kürsî · Nûr 24 — üç ayna', en: 'al-Fātiḥa · Āyat al-Kursī · an-Nūr 24 — three mirrors' },
   },
