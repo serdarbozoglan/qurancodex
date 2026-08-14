@@ -1082,6 +1082,72 @@ export const CONTENT_SOURCES = [
       };
     },
   },
+
+  // ─── İbadetler Atlası — 7 ibadet + hub (2026-08-13, Z3d1 · §13.22)
+  //
+  // Bu 724 KB içerik corpus'ta HİÇ YOKTU: `grep ibadetler corpus-sources.mjs`
+  // → 0 sonuç. Kullanıcı /sor'a "namaz nedir" diye sorduğunda site kendi en
+  // derin sayfasını öneremiyordu — §13.22'nin "MUTLAK, istisnası yok" dediği
+  // pipeline atlanmıştı.
+  //
+  // Neden GENEL (deep-walk) metin toplama: yedi dosyanın şeması AYNI DEĞİL
+  // (namaz'da `ozelNamazlar`/`kiraatBoyutu`, oruç'ta başka alanlar…). Alan
+  // adlarını tek tek yazsaydım bir dosya şema değiştirdiğinde sessizce boş
+  // chunk üretirdi — sitede bu hafta tam olarak bu sınıf hata yaşandı
+  // (semantic-map `surah_id` ↔ `surah`). Deep-walk şemadan bağımsızdır.
+  {
+    type: 'atlas-ibadet',
+    dir: 'public/ibadetler/',
+    pattern: /\.json$/,
+    buildItem: (data) => {
+      // Dile göre derin metin toplama: `*Tr`/`*En` sonekli alanlar ayrıştırılır,
+      // soneksiz düz metin (ör. `term`, `ref`) her iki dile de girer.
+      const collect = (node, lang, out = [], depth = 0) => {
+        if (depth > 6 || out.length > 400) return out;
+        if (typeof node === 'string') { if (node.length > 2) out.push(node); return out; }
+        if (Array.isArray(node)) { for (const v of node) collect(v, lang, out, depth + 1); return out; }
+        if (node && typeof node === 'object') {
+          for (const [k, v] of Object.entries(node)) {
+            // Öteki dilin alanını atla — ÜÇ adlandırma da kullanılıyor:
+            //   `descTr`/`descEn` · `tr`/`en` (anchorVerse) · `desc_tr`/`desc_en`
+            // İlk sürümüm yalnız `*Tr`/`*En` bakıyordu ve `anchorVerse.tr` ile
+            // `anchorVerse.en` İKİSİ BİRDEN her iki chunk'a giriyordu; ölçünce
+            // Türkçe chunk'ta İngilizce meal göründü. Embed etmeden yakalandı.
+            // Doğrulandı: 8 dosyadaki 156 anahtarın `en`/`tr` ile biten
+            // HEPSİ gerçek dil alanı (`descEn`, `refTr`, `tr`, `en`…) —
+            // "children" gibi yanlış pozitif yok. Sade kural güvenli.
+            const other = lang === 'tr' ? 'en' : 'tr';
+            const kl = k.toLowerCase();
+            if (kl === other || kl.endsWith(other)) continue;
+            if (/^(id|refs?|claimid|claimtype|confidence|icon|color|accent)$/.test(kl)) continue;
+            collect(v, lang, out, depth + 1);
+          }
+        }
+        return out;
+      };
+      const tr = collect(data, 'tr').join(' · ');
+      const en = collect(data, 'en').join(' · ');
+      const titleTr = data.titleTr || data.id || '';
+      const titleEn = data.titleEn || data.id || '';
+      // hub.json'un `id`'si 'hub' DEĞİL 'ibadetler-hub' — ilk sürümde
+      // `/atlas/ibadetler/ibadetler-hub` üretiyordu, yani 404'e götüren bir
+      // corpus kaydı (kontrol listesi §U'nun tam olarak uyardığı hata).
+      const route = /hub/.test(data.id) ? '/atlas/ibadetler' : `/atlas/ibadetler/${data.id}`;
+      return {
+        id: `atlas-ibadet:${data.id}`,
+        type: 'atlas-ibadet',
+        subId: data.id,
+        route,
+        titleTr,
+        titleEn,
+        arabic: data.arabicName || '',
+        descTr: (data.hero?.framingTr || data.framingTr || tr).slice(0, 200),
+        descEn: (data.hero?.framingEn || data.framingEn || en).slice(0, 200),
+        searchTextTr: `${titleTr} (ibadet). ${tr}`.slice(0, 5000),
+        searchTextEn: `${titleEn} (act of worship). ${en}`.slice(0, 5000),
+      };
+    },
+  },
 ];
 
 // ─── Tool Catalog (statik registry) ──────────────────────────────────────────

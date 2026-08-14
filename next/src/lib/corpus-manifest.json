@@ -64298,5 +64298,80 @@
     "hash": "488bf517c435ea30",
     "embeddedAt": "2026-08-13T11:23:21.910Z",
     "type": "article-section"
+  },
+  "atlas-ibadet:hac": {
+    "hash": "6f5afb3e1f22c0d9",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:ibadetler-hub": {
+    "hash": "a29bb288d459b395",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:kurban": {
+    "hash": "1c54f4b2e0edacf5",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:namaz": {
+    "hash": "7bcc8951de5618ac",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:oruc": {
+    "hash": "053445aee06eedca",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:tovbe": {
+    "hash": "72c5beaf419aa28c",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:zekat": {
+    "hash": "cf6c85c460606cff",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "atlas-ibadet:zikir": {
+    "hash": "4a5eff67d3e4d26d",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "atlas-ibadet"
+  },
+  "tool:/atlas/ibadetler/namaz": {
+    "hash": "322dfc3fb270287c",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/oruc": {
+    "hash": "b9b1234c208f3279",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/zekat": {
+    "hash": "24ee884dbe5d46a8",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/hac": {
+    "hash": "251a5b42589c95ab",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/kurban": {
+    "hash": "6923ae64bad861d2",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/tovbe": {
+    "hash": "00bacc65c48959dc",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
+  },
+  "tool:/atlas/ibadetler/zikir": {
+    "hash": "d97827baf256c6cf",
+    "embeddedAt": "2026-08-14T04:19:20.518Z",
+    "type": "tool"
   }
 }
