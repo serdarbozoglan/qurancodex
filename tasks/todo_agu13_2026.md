@@ -925,8 +925,21 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       kalıplardan (kategori rengi, `${x}alpha` idiyomu, ata-opacity) ama
       artık uzun kuyruk. Ayrı bir tur gerektirir.
 - [x] ~~**K4 · `/atlas/kissa` soluk durumu**~~ — **KAPANDI** (yukarıdaki karar)
-- [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
-      "büyük metin" muafiyeti bazı yerlerde kalkabilir
+- [x] ~~**K5 · Mobilde (390px) tekrar ölç**~~ — **ÖLÇÜLDÜ** `ec5eb24`.
+      `audit-contrast.mjs --mobile --full` eklendi, ayrı taban
+      (`mobile-full`). Sonuç: **596** (masaüstü 1095'ten düşük — mobilde
+      daha az içerik aynı anda görünür oluyor, beklenen). Ama **3 rota
+      hipotezi doğruladı**: `/arac/kiyamet` (13→17), `/atlas/mesel` (0→2),
+      `/atlas/insan-yolculugu` (3→4) — masaüstünde ≥24px olup "büyük metin"
+      muafiyetinden (eşik 3.0) yararlanan âyet metni, mobilde `clamp()`
+      ile 22.4px'e düşünce muafiyeti kaybediyor (eşik 4.5'e çıkıyor).
+      Kanıt: `/arac/kiyamet`'te 17 ihlalin çoğu bu — kendi kategori
+      renklerini (mavi #3B4BC8, mor #7B4FBF, kırmızı #C0392B, teşil
+      #1D7A5F) Melekler/CennetCehennem'dekiyle AYNI şekilde hiç
+      doğrulanmadan kullanmış, düşük opaklıkla birleşince mobilde açığa
+      çıkıyor. **Henüz düzeltilmedi** — aynı kalıp (kategori rengi AA'ya
+      tabi, §13.26 md.6), ayrı bir bileşen (`Kıyamet` veya benzeri),
+      küçük kapsam (3 rota) — sonraki turun ilk maddesi olabilir.
 
 ### 🟡 Z3-V · CWV 140 SAYFADA İLK KEZ ÖLÇÜLDÜ (14 Ağustos) — kısmen kapandı
 
