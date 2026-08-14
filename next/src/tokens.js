@@ -92,7 +92,9 @@ export const COLORS = {
   softEmerald:   '#2ecc71',
   teal:          '#1abc9c',
   tealDark:      '#2ab5a0',
-  softRed:       '#e74c3c',
+  // 14 Ağustos: solid 5.13 idi, gerçek sayfalarda (hafif kırmızı tint'li
+  // zemin üstünde) 4.35'e düşüyordu — payı arttırıldı (6.26).
+  softRed:       '#EB695B',
   // skyBlue alpha varyantları — CriticalNote pattern (mezhepler-arası nüans
   // callout) için: Calm/Mercy accent. Kur'anî yorum farkını mavi glasscard ile
   // teolojik olarak nötr sunmak. Eklenme: Ahiret Yolculuğu visual audit K-01
@@ -119,6 +121,19 @@ export const COLORS = {
   slateTextSoft: '#878E97',   // ikincil muted gri — Melekler'in "isHadithOnly" metinleri
   violetTextSafe:'#8F89D0',   // kayıt meleği moru — 534AB7 tam opaklıkta 2.83'tü
   heatmapFaint:  '#666D7A',   // /atlas/kissa sahnesiz hücreler (K4) — 1e293b'nin 1.27'si okunmuyordu
+
+  // 14 Ağustos kontrast kuyruğu — İblis/Kıyamet/Mesel yerel paletleri
+  // (KiyametSahneleri PHASE_COLORS, VesveseKanaliWidget kanal renkleri,
+  // OnIkiHileWidget rozet, MeselAtlasi domain renkleri). Aynı yöntem:
+  // orijinal ton ailesi korunur, yalnızca metin/rozet olarak AA geçecek
+  // kadar açılır.
+  crimsonTextSafe:    '#C58080',   // 8b0000'ın metin-güvenli hâli (VesveseKanaliWidget, nefis-mertebeleri.json)
+  rustTextSafe:        '#D4786F',   // c0392b'nin metin-güvenli hâli (KiyametSahneleri faz 1, VesveseKanaliWidget)
+  amberBadgeSafe:      '#A85C19',   // e67e22 rozet zemini beyaz metinle 2.85'ti — koyulaştırıldı (OnIkiHileWidget)
+  indigoTextSafe:      '#828CDC',   // 3b4bc8'in metin-güvenli hâli (KiyametSahneleri faz 4)
+  sageTextSafe:        '#5A9E8A',   // 1d7a5f'in metin-güvenli hâli (KiyametSahneleri faz 3)
+  orchidTextSafe:      '#A384D2',   // 7b4fbf'nin metin-güvenli hâli (KiyametSahneleri faz 5)
+  terracottaTextSafe:  '#A28F77',   // 8b7355'in metin-güvenli hâli (MeselAtlasi 'earth-rock' domaini)
 
   // Gold alpha variants
   goldAlpha20:   'rgba(212,165,116,0.20)',
