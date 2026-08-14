@@ -312,22 +312,25 @@ export default function KissaAtlas({ onClose }) {
                     padding: '7px 14px', borderRadius: RADIUS.md,
                     border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
                     background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
-                    color: selectedProphetId === p.id ? p.color : COLORS.slate500,
+                    color: selectedProphetId === p.id ? p.color : SEMANTIC.textFaint,
                     fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
                     cursor: 'pointer', transition: 'all 0.18s',
                     fontFamily: "'Inter', sans-serif",
                   }}
                   onMouseEnter={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; } }}
-                  onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = COLORS.slate500; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
+                  onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = SEMANTIC.textFaint; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
                 >
-                  <span style={{ marginRight: '6px', opacity: 0.7 }}>
+                  {/* K7 (2026-08-14) — opacity:0.7 KALDIRILDI: SEMANTIC.textFaint
+                      zaten dar bir marjla AA geçiyor (5.01), 0.7 ile çarpılınca
+                      3.00'a düşüyordu. */}
+                  <span style={{ marginRight: '6px' }}>
                     {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
                   </span>
                   <span style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                     width: '18px', height: '18px', borderRadius: RADIUS.full,
                     background: selectedProphetId === p.id ? `${p.color}30` : COLORS.glassBg,
-                    fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : COLORS.slate600, fontWeight: 700,
+                    fontSize: '0.65rem', color: selectedProphetId === p.id ? p.color : SEMANTIC.textFaint, fontWeight: 700,
                   }}>
                     {p.surahCount}
                   </span>
@@ -354,7 +357,7 @@ export default function KissaAtlas({ onClose }) {
                   padding: '6px 12px', borderRadius: RADIUS.md,
                   border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
                   background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
-                  color: selectedProphetId === p.id ? p.color : COLORS.slate500,
+                  color: selectedProphetId === p.id ? p.color : SEMANTIC.textFaint,
                   fontSize: '0.8rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
                   cursor: 'pointer', transition: 'all 0.18s',
                   fontFamily: "'Inter', sans-serif",
@@ -366,7 +369,7 @@ export default function KissaAtlas({ onClose }) {
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                   width: '16px', height: '16px', borderRadius: RADIUS.full,
                   background: selectedProphetId === p.id ? `${p.color}30` : COLORS.glassBg,
-                  fontSize: '0.6rem', color: selectedProphetId === p.id ? p.color : COLORS.slate600, fontWeight: 700,
+                  fontSize: '0.6rem', color: selectedProphetId === p.id ? p.color : SEMANTIC.textFaint, fontWeight: 700,
                 }}>
                   {p.surahCount}
                 </span>
@@ -397,7 +400,7 @@ export default function KissaAtlas({ onClose }) {
                     background: 'transparent',
                     border: 'none',
                     borderBottom: isActive ? `2px solid ${prophet.color}` : '2px solid transparent',
-                    color: isActive ? prophet.color : COLORS.slate600,
+                    color: isActive ? prophet.color : SEMANTIC.textFaint,
                     fontSize: '0.78rem', fontWeight: isActive ? 700 : 500,
                     cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
@@ -440,7 +443,7 @@ export default function KissaAtlas({ onClose }) {
               <h3 style={{ color: prophet.color, fontSize: '1.1rem', fontWeight: 800, margin: 0 }}>
                 {language === 'tr' ? prophet.nameTr : prophet.nameEn}
               </h3>
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: `${prophet.color}80` }}>
+              <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: prophet.color }}>
                 {prophet.nameAr}
               </span>
             </div>
@@ -495,7 +498,7 @@ export default function KissaAtlas({ onClose }) {
                     flexShrink: 0, width: '24px', height: '24px',
                     borderRadius: RADIUS.full, display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: isActive ? prophet.color : 'rgba(255,255,255,0.06)',
-                    color: isActive ? COLORS.cosmicBlack : COLORS.slate600,
+                    color: isActive ? COLORS.cosmicBlack : SEMANTIC.textFaint,
                     fontSize: '0.7rem', fontWeight: 700, marginTop: '1px',
                   }}>
                     {scene.order}
@@ -574,14 +577,21 @@ export default function KissaAtlas({ onClose }) {
                   color = prophet.color;
                   shadow = 'none';
                 } else if (isActive) {
-                  bg = `${prophet.color}12`;
-                  border = `1px solid ${prophet.color}30`;
-                  color = `${prophet.color}cc`;
+                  // K7 (2026-08-14) — sönükleştirme (isDimmed) ARTIK metne değil
+                  // yalnız bg/border'a uygulanıyor. Önceden button'un tamamı
+                  // opacity:0.35 ile çarpılıyordu; metin rengi de alfa
+                  // taşıdığı için bileşik alfa çok düşüyor, bazı peygamber
+                  // renklerinde (örn. mavi) 4.5:1 eşiğinin altına iniyordu.
+                  // Fayans arka planı da renk-tonlu olduğundan (saf siyah
+                  // değil) metin artık tam opak — yalnızca bg/border soluk.
+                  bg = isDimmed ? `${prophet.color}06` : `${prophet.color}12`;
+                  border = `1px solid ${prophet.color}${isDimmed ? '18' : '30'}`;
+                  color = prophet.color;
                   shadow = 'none';
                 } else {
                   bg = 'rgba(255,255,255,0.03)';
                   border = `1px solid ${COLORS.glassBg}`;
-                  color = '#666D7A';
+                  color = SEMANTIC.textFaint;
                   shadow = 'none';
                 }
 
@@ -610,22 +620,19 @@ export default function KissaAtlas({ onClose }) {
                       cursor: isActive ? 'pointer' : 'default',
                       textAlign: 'center',
                       boxShadow: shadow,
-                      opacity: isDimmed ? 0.35 : 1,
-                      transition: 'background 0.2s, border-color 0.2s, opacity 0.2s',
+                      transition: 'background 0.2s, border-color 0.2s',
                       fontFamily: "'Inter', sans-serif",
                     }}
                     onMouseEnter={e => {
                       if (isActive && !isHighlighted) {
                         e.currentTarget.style.background = `${prophet.color}22`;
                         e.currentTarget.style.borderColor = `${prophet.color}55`;
-                        e.currentTarget.style.opacity = '1';
                       }
                     }}
                     onMouseLeave={e => {
                       if (isActive && !isHighlighted) {
-                        e.currentTarget.style.background = isSelectedSurah ? `${prophet.color}20` : `${prophet.color}12`;
-                        e.currentTarget.style.borderColor = isSelectedSurah ? `${prophet.color}80` : `${prophet.color}30`;
-                        e.currentTarget.style.opacity = isDimmed ? '0.35' : '1';
+                        e.currentTarget.style.background = bg;
+                        e.currentTarget.style.borderColor = isSelectedSurah ? `${prophet.color}80` : (isDimmed ? `${prophet.color}18` : `${prophet.color}30`);
                       }
                     }}
                   >
@@ -643,7 +650,7 @@ export default function KissaAtlas({ onClose }) {
                     <span style={{ display: 'block', fontSize: '0.7rem', fontWeight: isHighlighted ? 700 : 500, color, lineHeight: 1.2 }}>
                       {num}
                     </span>
-                    <span style={{ display: 'block', fontSize: '0.58rem', color: isActive ? `${prophet.color}80` : '#666D7A', lineHeight: 1.3, marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <span style={{ display: 'block', fontSize: '0.58rem', color: isActive ? prophet.color : SEMANTIC.textFaint, lineHeight: 1.3, marginTop: '1px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {(language === 'tr' ? SURAH_NAMES_TR[num] : SURAH_NAMES_EN[num])?.slice(0, 6)}
                     </span>
                   </motion.button>
@@ -780,8 +787,11 @@ export default function KissaAtlas({ onClose }) {
                                 onMouseLeave={e => { e.currentTarget.style.background = isActive ? `${prophet.color}30` : `${prophet.color}18`; }}
                               >
                                 <span>{surahName}</span>
+                                {/* K7 (2026-08-14) — opacity:0.7 kaldırıldı, aynı sebep:
+                                    ebeveyn rengi (prophet.color) zaten opak, 0.7 ile
+                                    çarpılınca bazı peygamber renklerinde AA altına düşüyordu. */}
                                 {rangeLabel && (
-                                  <span style={{ opacity: 0.7, fontSize: '0.7rem' }}>{rangeLabel}</span>
+                                  <span style={{ fontSize: '0.7rem' }}>{rangeLabel}</span>
                                 )}
                                 {hasRef && (
                                   <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ opacity: 0.6, transform: isActive ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
@@ -955,7 +965,7 @@ export default function KissaAtlas({ onClose }) {
           <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
           <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
         </div>
-        <span style={{ color: '#666D7A', fontSize: '0.72rem', marginLeft: 'auto' }}>
+        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginLeft: 'auto' }}>
           {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
         </span>
       </div>}
