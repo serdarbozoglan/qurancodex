@@ -1,10 +1,14 @@
-# 🎯 ANASAYFA — AÇIK İŞLER
+# 🎯 QURANCODEX — AÇIK İŞLER
 
 > Bu dosyada **yalnızca yapılacaklar** durur. Tamamlananlar 13 Ağustos 2026
 > akşamı silindi — kayıtları commit mesajlarında (`11c61b2..81fc1d1`, 40 commit).
 > Yarım kalanlar ve emin olmadıklarım **kaldı** ve öyle işaretli.
 >
-> Sayfa-sayfa denetim için: **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)**
+> Sayfa-sayfa denetim ve **74 rotanın rota-rota açık bulguları**:
+> **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
+>
+> ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir.** Uygulamanın tamamı
+> hiç puanlanmadı — bkz. **Z2**.
 
 ---
 
@@ -32,6 +36,27 @@ kod değil **tasarım kararı** gerektiriyor ve o karar verilmedi.
 Ölçüm: 3 genişlik × 2 dil = 6 koşu + 8 dilim ekran görüntüsü gözle incelendi
 + GPT-5.4 bölümleri (L,N,O,P,S,T,V,Y) ayrı tur + düzeltme sonrası doğrulama turu.
 Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
+
+---
+
+## ✅ 13 AĞUSTOS'TA KAPANANLAR (özet — ayrıntı commit mesajlarında)
+
+`11c61b2..84e88c2` · **50 commit**
+
+| | |
+|---|---|
+| P4 · P5 | 14 anlatı kartı → tek sunucu bileşeni + üç kademeli ritim. 14 hydration adası → 1. Sayfa −25% |
+| P6 | Anasayfada ham hex **15 → 0**. Tefekkür kategori paletindeki iki altın / iki mor çakışması çözüldü |
+| P7 | 19 `<h2>` → 11. Başlık seviyesi kademeyi izliyor. CLAUDE.md §4 ↔ tokens sapma koruması |
+| Gezinme | Yüzen `ScrollToTopFab` kaldırıldı, "başa dön" rafın içine alındı. Breakpoint başına tek kalıcı öge |
+| Erişilebilirlik | Skip link odağı `<main>`'e taşıyor · gizli rafın 16 düğmesi klavyeden çıktı · mega-menü `Escape` ile kapanıyor · `/en` artık `lang="en"` ile **sunuluyor** (iki kök layout) · 26 svg etiketlendi |
+| Ölçüm altyapısı | `scripts/measure-vitals.mjs` (LCP/CLS/TBT + kontrast, üretim build'i) · `tests/page-audit.spec.js` (16 kontrol × 3 genişlik × 2 dil) |
+| CWV | **Dört eşiğin dördü de geçildi** — LCP 2.220ms mobil (CPU ×4), CLS 0.008 |
+| Kontrast | Kesin AA ihlali **2 → 0**. Suçlu token değil **opacity**'ymiş: silver ≥.75, gold ≥.70 |
+| Kanıt bölümü | Fâtiha halka kompozisyonu statik SVG + dört adımlı çerçeve (sonuncusu "neden kesin kanıt değil") |
+| Hero | Âyet üzerindeki glow'lar ve nabız kaldırıldı; ışık süpürmesi yerine **yazılma açılışı** |
+| 74 sayfa | Hepsi tarandı. `/arac/retorik` çöküyordu — kurtarıldı. Navbar örtüşmesi **450 → 0** |
+| `/oku` | Logodaki literal boşluk · gece modunda kilitli kullanıcılar (`SETTINGS_VERSION` 3→4) |
 
 ---
 
@@ -72,7 +97,33 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 
 ---
 
-# 🟠 B — GÖRSEL TASARIM (72)
+# 🟠 B — GÖRSEL TASARIM (72) — **HEDEF: 90** ⭐
+
+> **Kullanıcı 13 Ağustos'ta açıkça istedi:** *"görsel tasarımda en az 90
+> olmasını çok isterdim sitenin."*
+>
+> **Dürüst değerlendirmem: 72 → 90 düzeltme işi DEĞİL, tasarım kararı işi.**
+> Bugün kapatılanların hepsi (ritim, renk, kontrast, kanıt bölümü) toplamda
+> notu 72'de bıraktı — çünkü asıl sorun bunların hiçbiri değil.
+>
+> Asıl sorun: **sayfa hâlâ tek bir kompozisyon fikrini tekrarlıyor.** Ortalanmış
+> kart + altın kenar + radyal parıltı. P4 ritmi ÖLÇEĞİ kademelendirdi,
+> KOMPOZİSYONU değil. Kanıt bölümü o duvarda ilk gedik oldu (ilk kez farklı
+> bir şey yapan bir bölüm) ama tek başına yeterli değil.
+>
+> GPT-5.4'ün uyarısı kayda değer: *"eksik olan foto/illüstrasyon değil,
+> **epistemik arayüz**. Bunu 'şık motion' diye çözersen teşhis doğru, çözüm
+> yanlış olur."* Bu yüzden Hero'ya animasyon EKLENMEDİ.
+>
+> **90'a giden yol (tahmini sıra):**
+> 1. B1 — en az iki kart tipi farklı bir kompozisyon alsın (asimetrik /
+>    tam genişlik diyagram / sola dayalı editoryal blok)
+> 2. B2b — kanıt bölümünün ikinci örneği (başka bir araç, başka bir kompozisyon)
+> 3. B3 — tipografik dinamik aralık (feature ile compact arasındaki fark)
+> 4. B4/B5 — hizalama ve boşluk temizliği
+>
+> ⚠ **Her biri statik mockup ile başlamalı.** Kod yazmadan önce görsel karar.
+> Bu maddeler benim tek başıma kapatabileceğim işler değil.
 
 ## ✅ Bu turda yapıldı — GPT-5.4 tasarım hakem turu sonrası
 
@@ -279,6 +330,46 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
 değişiklik sonrası 3'te 1. Yani test **flaky** ve sorun önceden var.
 Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor.
 - [ ] `hifz.spec.js:321` flaky — düğmenin oturum sırasında render koşulu incelenmeli
+
+---
+
+# 🔶 Z — SİTE GENELİ (74 rota taraması, 13 Ağustos)
+
+> Rota-rota açık liste: **`sayfa_denetim_kontrol_listesi.md` → §7** (130 madde)
+> Burada yalnız **öncelik ve karar** duruyor.
+
+## Z1 · Kalan gerçek hatalar — öncelik sırasıyla
+
+- [ ] **Z1a · `/graf/kelime-isi` — 114 adsız buton**
+      Tek sayfada 114 öge; ekran okuyucu hepsini "button" diye okur.
+      Sitedeki en yoğun tekil erişilebilirlik açığı.
+- [ ] **Z1b · `/atlas/furuk` — 109 Arapça ögenin 108'inde `lang`/`dir` eksik**
+      §13.15 ile doğrudan ilgili. Diğerleri: `ses-mimarisi` 58/75 ·
+      `melekler` 27/30 · `insan-tanimi` 25/28 · `ritim` 24/27 (toplam 9 rota)
+- [ ] **Z1c · Console error'lar (5 rota)**
+      `/graf/kavram` hydration uyuşmazlığı · `/graf/semantik` eksik `key` prop ·
+      `/arac/kiyamet` geçersiz HTML iç içeliği · `/ayet/[s]/[a]` 400 dönen istek
+- [ ] **Z1d · Ekranda ham `**` (3 rota)** — `halka-kompozisyon` ·
+      `iblis-seytan` · `atlas/kadinlar`. Anasayfada aynı hata vardı, düzeltildi;
+      bu üçü kaçmış.
+- [ ] **Z1e · Başlık ağacı (32 rota)** — seviye atlaması (2→4, 1→3, 1→4);
+      ayrıca `/oku` ve `/ayet/2/255`'te **h1 YOK**, `/tefekkur`,
+      `/tefekkur/[slug]` ve `/atlas/ahiret-yolculugu`'nda **iki h1**
+- [ ] **Z1f · Gezinme `<button>` ile (31 rota)** — `/arac/tum-araclar`'da
+      çözüldü, aynı kalıp diğer sayfalarda duruyor. En yoğunu
+      `esma-frekans` 91 buton / 7 bağlantı
+- [ ] **Z1g · Etiketsiz svg (46 rota)** — en yoğunu `bilimsel-isaretler` 20/50
+- [ ] **Z1h · `/kutuphanem` canonical + hreflang yok**
+
+## Z2 · Uygulamanın tamamı hiç puanlanmadı
+
+- [ ] **Bugüne kadar verilen HER puan yalnız anasayfaydı** (76 → 73 → 78).
+      Diğer 73 sayfa ilk kez bugün tarandı ve o tarama yalnız otomatik
+      kontrolleri kapsıyor — kontrast, CWV, görsel inceleme ve içerik
+      kalitesi 73 sayfada **hiç** ölçülmedi.
+- [ ] Uygulama puanı için gereken: `measure-vitals.mjs` tüm rotalarda +
+      her sayfa tipinden en az bir örneğin gözle incelenmesi
+- [ ] ⚠ Tam tarama bir turda **10 dakikayı aşıyor** — parti parti yürütülmeli
 
 ---
 

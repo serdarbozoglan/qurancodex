@@ -715,6 +715,194 @@ sitede **üç ayrı yerde** vardı ve üçü de farklı sabitlerle "düzeltilmi�
 **Tek dilde test etmek bu hatayı kaçırırdı** — Türkçe navbar dar, İngilizce
 navbar 1024px'te sarıyor.
 
+
+### Parti 2 — 2026-08-13 · **74 ROTANIN HEPSİ** (148 sayfa-dil kombinasyonu)
+
+Kullanıcı sordu: *"tüm sayfaları test ettin mi istisnasız"*. O anda 9'unu
+test etmiştim. Hepsi tarandı. **148 kombinasyonun yalnız 4'ü temizdi.**
+
+| Sınıf | Adet | Durum |
+|---|---:|---|
+| **[B]** navbar örtüşmesi | **450** | ✅ **0** — tek `ToolHeader` düzeltmesiyle |
+| [Y] etiketsiz svg | 92 | ⬜ açık |
+| [H] başlık seviyesi / h1 sayısı | 68 | ⬜ açık |
+| [G] gezinme `<button>` ile | 62 | ⬜ açık |
+| [E] EN'de Türkçe karakter | 52 | ⚪ çoğu özel ad — yanlış pozitif |
+| [O] Arapça `lang`/`dir` eksik | 18 | ⬜ açık |
+| [N] lang/canonical/hreflang | 16 | 🟡 1'i düzeldi (`/arac/retorik`) |
+| [F] console error | 12 | 🟡 1'i düzeldi (`/arac/retorik`) |
+| [D] ekranda ham `**` | 6 | ⬜ açık |
+| [M] HTTP hata | 2 | ⚪ benim yanlış parametrem |
+| [P] adsız buton | 2 | ⬜ açık |
+
+**Bu partide kapananlar:**
+- ✅ **`/arac/retorik` TAMAMEN ÇÖKÜYORDU.** `TabKategoriler` `language`
+  kullanıyordu ama ne prop alıyordu ne `useLanguage()` çağırıyordu.
+  `ReferenceError` → sayfa hiç açılmıyor, `<html lang="null">`, 0 bağlantı.
+  **Tarama olmasa bulunmazdı.**
+- ✅ **450 navbar bulgusunun tek kaynağı:** `ToolHeader` → `top: '62px'` sabiti,
+  57 dosya kullanıyor. Gerçek: 82 (1440) · 108 (1024 TR) · 134 (1024 EN).
+  `useNavbarOffset` ile ölçülüyor. **Aynı hatanın DÖRDÜNCÜ örneğiydi**
+  (62 · 96 · 104 · 62).
+- ✅ `/oku` kelime markasındaki literal boşluk (`QURAN CODEX` → `QURANCODEX`)
+- ✅ Gece modunda kilitli kullanıcılar: `SETTINGS_VERSION` 3 → 4
+
+---
+
+## 7. AÇIK BULGULAR — rota rota
+
+> Aşağıdaki liste tarama çıktısından **mekanik** üretildi (TR/EN birleştirildi).
+> Tekrar üret: `AUDIT_ROUTES=<rota> npx playwright test tests/page-audit.spec.js`
+
+
+#### [F] CONSOLE ERROR — 6 rota
+- [ ] `/arac/kiyamet` — console error 6: In HTML, %s cannot be a descendant of <%s>.
+- [ ] `/arac/retorik` — console error 3: pageerror: language is not defined
+- [ ] `/atlas/peygamber/1` — console error 3: Failed to load resource: the server responded with a status of 404 (Not F
+- [ ] `/ayet/2/255` — console error 6: Failed to load resource: the server responded with a status of 400 (Bad R
+- [ ] `/graf/kavram` — console error 1: A tree hydrated but some attributes of the server rendered HTML didn't ma
+- [ ] `/graf/semantik` — console error 3: Each child in a list should have a unique "key" prop.%s%s See https://rea
+
+#### [D] EKRANDA HAM ** — 3 rota
+- [ ] `/arac/halka-kompozisyon` — ekranda ham **: 2
+- [ ] `/arac/iblis-seytan` — ekranda ham **: 2
+- [ ] `/atlas/kadinlar` — ekranda ham **: 2
+
+#### [P] ADSIZ BUTON — 1 rota
+- [ ] `/graf/kelime-isi` — adsız buton: 114
+
+#### [N] canonical/hreflang — 3 rota
+- [ ] `/arac/retorik` — <html lang="null"> — "en" olmalı · <html lang="null"> — "tr" olmalı · canonical YOK · hreflang eksik:
+- [ ] `/atlas/peygamber/1` — <html lang="null"> — "en" olmalı · <html lang="null"> — "tr" olmalı · canonical YOK · hreflang eksik:
+- [ ] `/kutuphanem` — canonical YOK · hreflang eksik:
+
+#### [H] BAŞLIK AĞACI — 32 rota
+- [ ] `/arac/buyruklar` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/cennet-cehennem` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/dualar` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/elestirel-cerceve` — başlık seviyesi atlaması: 1→3
+- [ ] `/arac/iblis-seytan` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/kitap-kavrami` — başlık seviyesi atlaması: 1→3
+- [ ] `/arac/kurani-tani` — başlık seviyesi atlaması: 1→4
+- [ ] `/arac/melekler` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/muhataplar` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/neden-sonuc` — başlık seviyesi atlaması: 1→3
+- [ ] `/arac/sebebi-nuzul` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/wow` — başlık seviyesi atlaması: 1→4
+- [ ] `/arac/yakin-anlamli-nuanslar` — başlık seviyesi atlaması: 2→4
+- [ ] `/arac/zaman-boyutlari` — başlık seviyesi atlaması: 2→4
+- [ ] `/atlas/ahiret-yolculugu` — başlık seviyesi atlaması: 2→4 · h1 sayısı 2 — tam 1 olmalı
+- [ ] `/atlas/furuk` — başlık seviyesi atlaması: 2→4
+- [ ] `/atlas/insan-psikolojisi` — başlık seviyesi atlaması: 2→4
+- [ ] `/atlas/insan-yolculugu` — başlık seviyesi atlaması: 2→4
+- [ ] `/atlas/kiraat` — başlık seviyesi atlaması: 2→4
+- [ ] `/atlas/kissa` — başlık seviyesi atlaması: 1→3
+- [ ] `/atlas/mesel` — başlık seviyesi atlaması: 1→4
+- [ ] `/atlas/munasebat` — başlık seviyesi atlaması: 1→4
+- [ ] `/atlas/sunnetullah` — başlık seviyesi atlaması: 2→4
+- [ ] `/ayet/2/255` — h1 sayısı 0 — tam 1 olmalı
+- [ ] `/graf/diyalog` — başlık seviyesi atlaması: 1→4
+- [ ] `/graf/karsilastir` — başlık seviyesi atlaması: 1→4
+- [ ] `/graf/kavram` — başlık seviyesi atlaması: 1→4
+- [ ] `/graf/semantik` — başlık seviyesi atlaması: 1→4
+- [ ] `/graf/zaman` — başlık seviyesi atlaması: 1→4
+- [ ] `/oku` — h1 sayısı 0 — tam 1 olmalı
+- [ ] `/tefekkur` — başlık seviyesi atlaması: 1→3 · h1 sayısı 2 — tam 1 olmalı
+- [ ] `/tefekkur/yapilanlarin-suslu-gorulmesi` — h1 sayısı 2 — tam 1 olmalı
+
+#### [O] ARAPÇA lang/dir EKSİK — 9 rota
+- [ ] `/arac/dua-dili` — lang="ar"+dir="rtl" eksik Arapça öge: 7/24
+- [ ] `/arac/melekler` — lang="ar"+dir="rtl" eksik Arapça öge: 27/30
+- [ ] `/arac/renkler` — lang="ar"+dir="rtl" eksik Arapça öge: 4/20
+- [ ] `/arac/retorik-sorular` — lang="ar"+dir="rtl" eksik Arapça öge: 6/9
+- [ ] `/arac/ritim` — lang="ar"+dir="rtl" eksik Arapça öge: 24/27
+- [ ] `/arac/ses-mimarisi` — lang="ar"+dir="rtl" eksik Arapça öge: 58/75
+- [ ] `/arac/tekrar-anatomi` — lang="ar"+dir="rtl" eksik Arapça öge: 1/4
+- [ ] `/atlas/furuk` — lang="ar"+dir="rtl" eksik Arapça öge: 108/109
+- [ ] `/atlas/insan-tanimi` — lang="ar"+dir="rtl" eksik Arapça öge: 25/28
+
+#### [G] gezinme <button> ile — 30 rota
+- [ ] `/arac/bilimsel-isaretler` — gezinme <button> ile yapılıyor gibi: 34 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/cennet-cehennem` — gezinme <button> ile yapılıyor gibi: 32 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/dualar` — gezinme <button> ile yapılıyor gibi: 99 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/elestirel-cerceve` — gezinme <button> ile yapılıyor gibi: 31 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/esma-frekans` — gezinme <button> ile yapılıyor gibi: 91 buton / 7 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/iblis-seytan` — gezinme <button> ile yapılıyor gibi: 73 buton / 9 bağlantı — orta tık ve "yeni sekmede aç" · kırık bağlantı: /en/oku/16/98 → 404, 
+- [ ] `/arac/ilk-son-kelimeler` — gezinme <button> ile yapılıyor gibi: 483 buton / 9 bağlantı — orta tık ve "yeni sekmede aç
+- [ ] `/arac/kiyamet` — gezinme <button> ile yapılıyor gibi: 69 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/kurani-tani` — gezinme <button> ile yapılıyor gibi: 113 buton / 6 bağlantı — orta tık ve "yeni sekmede aç
+- [ ] `/arac/melekler` — gezinme <button> ile yapılıyor gibi: 36 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/muhataplar` — gezinme <button> ile yapılıyor gibi: 33 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/neden-sonuc` — gezinme <button> ile yapılıyor gibi: 34 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/sebebi-nuzul` — gezinme <button> ile yapılıyor gibi: 95 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/arac/wow` — gezinme <button> ile yapılıyor gibi: 113 buton / 6 bağlantı — orta tık ve "yeni sekmede aç
+- [ ] `/arac/yeminler` — gezinme <button> ile yapılıyor gibi: 50 buton / 9 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/ahiret-yolculugu` — gezinme <button> ile yapılıyor gibi: 32 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/doga` — gezinme <button> ile yapılıyor gibi: 51 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/furuk` — gezinme <button> ile yapılıyor gibi: 46 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/ibadetler` — gezinme <button> ile yapılıyor gibi: 50 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/kadinlar` — gezinme <button> ile yapılıyor gibi: 91 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/kavim` — gezinme <button> ile yapılıyor gibi: 46 buton / 8 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/kissa` — gezinme <button> ile yapılıyor gibi: 157 buton / 6 bağlantı — orta tık ve "yeni sekmede aç
+- [ ] `/atlas/munasebat` — gezinme <button> ile yapılıyor gibi: 41 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/nefs-mertebeleri` — gezinme <button> ile yapılıyor gibi: 21 buton / 3 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/atlas/peygamber` — gezinme <button> ile yapılıyor gibi: 62 buton / 7 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/graf/kavram` — gezinme <button> ile yapılıyor gibi: 88 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/graf/kelime-isi` — gezinme <button> ile yapılıyor gibi: 152 buton / 3 bağlantı — orta tık ve "yeni sekmede aç · gezinme <button> ile yapılıyor gibi: 
+- [ ] `/graf/semantik` — gezinme <button> ile yapılıyor gibi: 34 buton / 6 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/oku` — gezinme <button> ile yapılıyor gibi: 28 buton / 1 bağlantı — orta tık ve "yeni sekmede aç"
+- [ ] `/oku/1` — gezinme <button> ile yapılıyor gibi: 28 buton / 3 bağlantı — orta tık ve "yeni sekmede aç"
+
+#### [Y] etiketsiz svg — 46 rota
+- [ ] `` — etiketsiz svg: 2/50
+- [ ] `/arac/alti-konu` — etiketsiz svg: 1/20
+- [ ] `/arac/bilimsel-isaretler` — etiketsiz svg: 20/50
+- [ ] `/arac/cennet-cehennem` — etiketsiz svg: 16/30
+- [ ] `/arac/dua-dili` — etiketsiz svg: 9/19
+- [ ] `/arac/elestirel-cerceve` — etiketsiz svg: 9/16
+- [ ] `/arac/esma-frekans` — etiketsiz svg: 5/44
+- [ ] `/arac/halka-kompozisyon` — etiketsiz svg: 3/13
+- [ ] `/arac/iblis-seytan` — etiketsiz svg: 14/23
+- [ ] `/arac/ilk-son-kelimeler` — etiketsiz svg: 122/137
+- [ ] `/arac/kitap-kavrami` — etiketsiz svg: 11/18
+- [ ] `/arac/kiyamet` — etiketsiz svg: 26/34
+- [ ] `/arac/koruma-zinciri` — etiketsiz svg: 1/14
+- [ ] `/arac/kurani-tani` — etiketsiz svg: 50/58
+- [ ] `/arac/melekler` — etiketsiz svg: 30/46
+- [ ] `/arac/mukattaa` — etiketsiz svg: 1/8
+- [ ] `/arac/neden-sonuc` — etiketsiz svg: 11/18
+- [ ] `/arac/retorik` — etiketsiz svg: 1/1
+- [ ] `/arac/retorik-sorular` — etiketsiz svg: 2/25
+- [ ] `/arac/ritim` — etiketsiz svg: 1/10
+- [ ] `/arac/sebebi-nuzul` — etiketsiz svg: 30/74
+- [ ] `/arac/ses-mimarisi` — etiketsiz svg: 1/11
+- [ ] `/arac/tarihsel-kanitlar` — etiketsiz svg: 11/37
+- [ ] `/arac/tekrar-anatomi` — etiketsiz svg: 1/11
+- [ ] `/arac/wow` — etiketsiz svg: 50/58
+- [ ] `/arac/yakin-anlamli-nuanslar` — etiketsiz svg: 2/9
+- [ ] `/arac/yeminler` — etiketsiz svg: 9/25
+- [ ] `/atlas/ahiret-yolculugu` — etiketsiz svg: 23/30
+- [ ] `/atlas/doga` — etiketsiz svg: 22/38
+- [ ] `/atlas/ibadetler` — etiketsiz svg: 3/10
+- [ ] `/atlas/insan-psikolojisi` — etiketsiz svg: 2/27
+- [ ] `/atlas/insan-tanimi` — etiketsiz svg: 1/10
+- [ ] `/atlas/insan-yolculugu` — etiketsiz svg: 2/10
+- [ ] `/atlas/kadinlar` — etiketsiz svg: 13/21
+- [ ] `/atlas/kavim` — etiketsiz svg: 48/72
+- [ ] `/atlas/kiraat` — etiketsiz svg: 1/14
+- [ ] `/atlas/kissa` — etiketsiz svg: 1/11
+- [ ] `/atlas/mesel` — etiketsiz svg: 1/9
+- [ ] `/atlas/nefs-mertebeleri` — etiketsiz svg: 7/25
+- [ ] `/atlas/peygamber` — etiketsiz svg: 2/14
+- [ ] `/ayet/2/255` — etiketsiz svg: 2/9
+- [ ] `/graf/diyalog` — etiketsiz svg: 1/14
+- [ ] `/graf/kelime-isi` — etiketsiz svg: 1/9
+- [ ] `/oku` — etiketsiz svg: 17/19
+- [ ] `/oku/1` — etiketsiz svg: 17/19
+- [ ] `/sor` — etiketsiz svg: 1/8
+
+
+---
 ### Sıradaki partiler
 - [ ] En çok trafik alan 6 `/arac/*`
 - [ ] `/graf/*` (7 sayfa) — renk + erişilebilirlik yoğun
