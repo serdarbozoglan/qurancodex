@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulama geneli: 74 → 79/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
+> **Uygulama geneli: 74 → 80/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -388,9 +388,18 @@ Ezber panelindeki "Nasıl çalışır?" düğmesi oturum aktifken bazen gelmiyor
       `ilk-son-kelimeler` **483 buton / 9 bağlantı** · `atlas/kissa` 157/6 ·
       `graf/kelime-isi` 153/3. Ayrıca **navbar mega-menüsünün kendisi** de
       `<button>` — 74 rotanın hepsini etkiliyor, bkz. **Z3f1**.
-- [ ] **Z1g · Etiketsiz svg (~~46~~ → **44 rota**)** — ⚠ **en yoğunu
-      `bilimsel-isaretler` (20/50) DEĞİL:** `ilk-son-kelimeler` **122/137**,
-      sonra `kurani-tani` ve `wow` 50/58. Sıralama Z3 turunda düzeltildi.
+- [x] ~~**Z1g · Etiketsiz svg (44 rota)**~~ — **KAPANDI** `f4491e0` · **166 → 0**
+      Kaynak grep'i yanılttı (çok satırlı JSX). DOM'dan ölçüp parmak iziyle
+      kaynağa izlendi: neredeyse hepsini **tek bileşen** üretiyordu —
+      `BookmarkButton` ikonu, kart başına bir kez (ilk-son-kelimeler 114,
+      kurani-tani 50, kiyamet 26, kadinlar 13). Kalan kuyruk için `{}`
+      derinliği sayan bir codemod: 186 etiket / 50 dosya.
+      **İki svg gizlenmedi, ETİKETLENDİ** (§A1 dersi — dekoratifi gizle,
+      anlam taşıyanı etiketle): `HiddenArchitecture` prizma diyagramı ve
+      `SurahComparator` benzerlik göstergesi (içindeki `<text>` yüzde taşıyor).
+      `<motion.svg>` codemod'dan kaçtı, elle kapatıldı.
+      Doğrulama: **0/901** etiketsiz svg · **0/888** adsız etkileşimli öge
+      (asıl risk buydu) · pageerror 0 · 4 emniyet testi geçti · gözle bakıldı.
 
 ## Z1i · NAVBAR SABİTİ — "450 → 0" İDDİAM YANLIŞTI, DÜZELTİLDİ (13 Ağustos gecesi)
 
@@ -831,7 +840,7 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **Düzeltmelerden sonra: 74 → 79/100** (13 Ağustos gecesi, `038f346..f0aa71f` push edildi)
+- [x] **Düzeltmelerden sonra: 74 → 80/100** (13 Ağustos gecesi, `038f346..f4491e0` push edildi)
 
       Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
 
@@ -847,7 +856,7 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       | Geçersiz âyet URL'i | 200 + indekslenebilir | **404 + noindex** |
       | 404 sayfası | çıplak, dilsiz, çıkışsız | **dilinde, navbar'lı, 3 çıkışlı** |
       | Ölü kod | 916 satır + her sayfada provider | **silindi** |
-      | **Etiketsiz svg** | 166/285 | **166/285 — DEĞİŞMEDİ** |
+      | Etiketsiz svg | 166/285 | **0/901** |
 
       | Eksen | Denetim | **Şimdi** | Kalan engel |
       |---|---:|---:|---|
@@ -855,15 +864,16 @@ butonları 32px" kuralı sarma ile çelişiyor; kural düzeltilmezse hata geri g
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
       | Bilgi mimarisi | 76 | **80** ▲4 | 8 rota katalog/corpus dışında · 50/55 |
-      | Erişilebilirlik | 66 | **78** ▲12 | **166 etiketsiz svg** · gezinme `<button>` |
+      | Erişilebilirlik | 66 | **84** ▲18 | gezinme `<button>` · kontrast 73 sayfada ölçülmedi |
       | SEO / sunucu render | 70 | **76** ▲6 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
 
-      **85+ için sırayla gereken:** ① etiketsiz svg (166 — mekanik, tek tur)
-      ② gezinme `<button>` → `<Link>` (Z1f + Z3f1, site geneli)
-      ③ renk kararı + göç (C2) ④ EN sızıntıları (Z3e2) ⑤ kontrast + CWV'nin
-      73 sayfada **hiç ölçülmemiş** olması — iki eksen kısmen bilinmeyen üstünde.
+      **85+ için sırayla gereken:** ~~① etiketsiz svg~~ ✅ `f4491e0`
+      ① gezinme `<button>` → `<Link>` (Z1f + Z3f1, site geneli — navbar
+      mega-menüsü ve mobil çekmece dahil) ② renk kararı + göç (C2)
+      ③ EN sızıntıları (Z3e2) ④ kontrast + CWV'nin 73 sayfada **hiç
+      ölçülmemiş** olması — iki eksen hâlâ kısmen bilinmeyen üstünde.
 
       | Eksen | Anasayfa | **Uygulama** | Farkın sebebi |
       |---|---:|---:|---|
