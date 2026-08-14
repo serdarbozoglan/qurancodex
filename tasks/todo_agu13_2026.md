@@ -8,7 +8,7 @@
 > **[`sayfa_denetim_kontrol_listesi.md`](./sayfa_denetim_kontrol_listesi.md)** → §7
 >
 > ⚠ **Aşağıdaki puan tablosu YALNIZ ANASAYFA içindir (78/100).**
-> **Uygulama geneli: 74 → 80/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
+> **Uygulama geneli: 74 → 81/100** (13 Ağustos gecesi, düzeltmelerden sonra) →
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 ---
@@ -718,14 +718,27 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       sönük ama okunur) — ya da renk yerine ikon/opaklık dışı bir sinyal
 
 **Yapılacaklar (öncelik sırasıyla):**
-- [ ] **K1 · Opaklık taban kuralı 73 sayfaya yayılsın** — A2'nin eşiği
-      (`silver ≥0.75`, `gold ≥0.70`) yalnız anasayfada uygulanmış.
-      Tek başına ~940 ihlali kapatıyor. Mekanik, düşük risk.
-- [ ] **K2 · `#4a5568` ve `rgb(74,96,128)` token'a taşınsın ve açılsın**
+- [x] ~~**K1 · Opaklık taban kuralı 73 sayfaya yayılsın**~~ — **KAPANDI** `5d966f7`
+      **3.508 → 2.634 (−874, %25).** Tahmin ~940 idi, gerçekleşen 874.
+      İki geçiş, ikisi de **AST ile** (regex değil — `opacity` çoğu zaman metin
+      renginden satırlar sonra, ayrı bir prop):
+      ① aynı stil nesnesinde `color` silver/gold **ve** `opacity` taban altı
+      → **307 düzeltme / 93 dosya**
+      ② `color: 'rgba(148,163,184,α)'` — alfa **rengin içinde** olanlar
+      → **95 düzeltme / 19 dosya**. Aynı rgba dizesi `border`/`background`
+      olarak da kullanılıyor; AST sayesinde yalnız `color` konumundakiler
+      değişti (kenarlık metin değildir).
+      Taban **0.78** seçildi: 0.75 tam sınırda (4.70), 0.78 nefes payı (~5.0).
+      **0.35 altına dokunulmadı** — onlar bilinçli "neredeyse görünmez" süs,
+      ayrı karar (K4 ailesi).
+      Kovalar: 3.0–4.5 → 2.246'dan **1.544**'e · 2.0–3.0 → 1.174'ten **1.002**'ye.
+      Gözle: `/tr/atlas/munafik` ekran görüntüsü — metin okunur, ikincil
+      hiyerarşi korunmuş, solma yok.
+- [ ] **K2 · `#4a5568` (554 kalan) ve `rgb(74,96,128)` (96) token'a taşınsın ve açılsın**
       (`#6a7a95` / `#5e7ba3`). C2 ile aynı iş — birlikte yapılmalı.
 - [ ] **K3 · slate-500 (`#64748b`) kararı** — 4.12, yani yalnız küçük metinde
       düşüyor. Ya `#697a93`'e açılır ya da kullanıldığı yerlerde ≥18.66px'e
-      çıkarılır. 675 örnek; en yaygın tek kalem.
+      çıkarılır. **675 kalan örnek — K1 sonrası en büyük tek kalem.**
 - [ ] **K4 · `/atlas/kissa` soluk durumu** (yukarıdaki karar)
 - [ ] K5 · Mobilde (390px) tekrar ölç — `clamp()` yüzünden punto küçülüyor,
       "büyük metin" muafiyeti bazı yerlerde kalkabilir
@@ -918,7 +931,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
 
 ## Z2 · Uygulamanın tamamı hiç puanlanmadı
 
-- [x] **Düzeltmelerden sonra: 74 → 80/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
+- [x] **Düzeltmelerden sonra: 74 → 81/100** (13-14 Ağustos, `038f346..1d5fdd8` push edildi)
 
       Ölçüldü, tahmin edilmedi — 14 rotada göstergeler yeniden okundu:
 
@@ -945,7 +958,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       | Teknik sağlamlık | 72 | **82** ▲10 | 538 lint · 74 sayfa SSR'da boş · Z3c4 regresyonu |
       | Görsel tasarım | 76 | **80** ▲4 | B1 (tek kompozisyon fikri) — tasarım kararı |
       | Bilgi mimarisi | 76 | **85** ▲9 | `/arac/tum-araclar` 50/55 · Z3c4 regresyonu |
-      | Erişilebilirlik | 66 | **72** ▲6 | ⬇ kontrast ÖLÇÜLDÜ: **3.508 gerçek ihlal / 134 sayfa** (Z3-K) |
+      | Erişilebilirlik | 66 | **75** ▲9 | kontrast **2.634** ihlal (K1 ile −874) · K2/K3 sırada |
       | SEO / sunucu render | 70 | **79** ▲9 | 74 sayfa SSR'da boş · kök 404 çıplak |
       | İki dillilik | 72 | **74** ▲2 | 9 rotada EN sızıntı · `/en/oku` metadata TR |
       | Tutarlılık | 70 | **74** ▲4 | 184 token dışı renk (önce **karar** gerek) |
