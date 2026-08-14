@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 import { buildBreadcrumb } from '@/lib/jsonld';
 import JsonLd from '@/components/JsonLd';
 import Hero from '@/components/Hero';
+import InventoryStrip from '@/sections/InventoryStrip';
 import ReadingProgressCard from '@/components/ReadingProgressCard';
 import RecentBookmarksStrip from '@/components/RecentBookmarksStrip';
 import RecentQueriesStrip from '@/components/RecentQueriesStrip';
@@ -27,6 +28,8 @@ import TefekkurHighlight from '@/sections/TefekkurHighlight';
 // adası). Yapı %95 aynıydı; yalnız veri değişiyordu. Bkz. src/data/homeCards.js
 import { CARD_BY_ID } from '@/data/homeCards';
 import PortalCard from '@/components/PortalCard';
+import ScienceTimelineCard from '@/components/ScienceTimelineCard';
+import EditorialCard from '@/components/EditorialCard';
 import CompactRow from '@/components/CompactRow';
 import EsmaTeaser from '@/components/EsmaTeaser';
 import ScrollRevealRoot from '@/components/ScrollRevealRoot';
@@ -72,6 +75,10 @@ export default async function Home({ params }) {
           <DesktopSidebarTOC>'ta "↑ BÖLÜMLER" başlığı. */}
 
       <Hero />
+
+      {/* Envanter şeridi (2026-08-14, B5) — Hero altındaki amaçsız boşluğun
+          yerini alır; ziyaretçi kaydırmadan önce sitenin kapsamını görür. */}
+      <InventoryStrip locale={locale} />
 
       {/* Reading Progress — sadece progress varsa render (#175, 2026-07-15) */}
       <div style={{ marginTop: 24 }}>
@@ -132,13 +139,17 @@ export default async function Home({ params }) {
         {/* Bu kümede yalnız 3 kart var — araya "medium" bir yankı sığmıyor,
             ritim ÇIPA → IZGARA (×2) olarak kısalıyor. Bilinçli istisna. */}
         <FeaturedWrap locale={locale}>
-          <PortalCard card={CARD_BY_ID['bilimsel-card']} locale={locale} />
+          <ScienceTimelineCard card={CARD_BY_ID['bilimsel-card']} locale={locale} />
         </FeaturedWrap>
         <CardSeam />
-        <CompactRow>
-          <PortalCard card={CARD_BY_ID['tarih-card']} locale={locale} />
-          <PortalCard card={CARD_BY_ID['koruma-card']} locale={locale} />
-        </CompactRow>
+        {/* 2026-08-14 (B1b/B4, mockup turu onaylandı) — "kanıt" kümesi
+            (tarihsel izler, koruma zinciri) artık PortalCard'ın ortalı +
+            altın çerçeveli panelini DEĞİL, sola dayalı EditorialCard'ı
+            kullanıyor. Önceden 2'li CompactRow ızgarasındaydı; dergi
+            düzeni dar sütunda çalışmadığı için tam genişliğe alındı. */}
+        <EditorialCard card={CARD_BY_ID['tarih-card']} locale={locale} surahNum={10} />
+        <CardSeam />
+        <EditorialCard card={CARD_BY_ID['koruma-card']} locale={locale} surahNum={15} />
         {/* §13.24 (2026-08-13): önceki metin "Bilim bir gün gelir, DOĞRULAR /
             Science ... CONFIRMS" idi. Kural tasdikin öznesini bilim/tarih
             yapmayı ismen yasaklıyor — "Kur'ân haber verir, BİZ tasdik ederiz;

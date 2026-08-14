@@ -1284,6 +1284,37 @@ Sızıntı varsa **exit 1**. Yalnız ekrana çıkan alanlar taranır; `relatedTo
 > ⚠ İlk tarayıcım bu ayrımı yapmıyordu ve *"38/53 makale bozuk"* diye yanlış
 > alarm verdi; gerçek sayı **3**'tü. Tarayıcı yazarken de ölç, varsayma.
 
+### 13.28 Anasayfa Envanter Şeridi — Sayılar ELLE Güncellenir (2026-08-14+)
+
+**`next/src/sections/InventoryStrip.jsx`'teki üç sayı (araç, tefekkür yazısı,
+âyet) kaynaktan OTOMATİK okunmuyor — sunucu bileşeni derleme zamanında sabit
+değer render ediyor.** Yeni bir araç/atlas rotası veya tefekkür makalesi
+eklenip **push'tan önce** bu dosya güncellenmezse anasayfa yanlış sayı gösterir
+(§13.24'ün "ölçmeden konuşma" ilkesinin ihlali — bu sefer kod tarafında).
+
+**Push öncesi zorunlu kontrol** — üç kaynağı ölç, `InventoryStrip.jsx`'teki
+`STATS` dizisiyle karşılaştır:
+
+```bash
+cd next
+node -e "console.log('araç:', require('./src/data/toolCatalog.js').TOOL_CATALOG.length)"
+node -e "console.log('tefekkür:', require('./public/tefekkur/_index.json').articles.length)"
+node -e "console.log('âyet:', require('./public/verse-graph-bgem3.json').length)"
+```
+
+Fark varsa `STATS` dizisindeki ilgili `n` alanını güncelle. Âyet sayısı
+(6.236) pratikte hiç değişmez; araç ve tefekkür sayıları her yeni rota/makale
+ile artar.
+
+**Neden bu kural var.** 2026-08-14'te `/arac/*` + `/atlas/*` + `/graf/*`
+rotaları diskle karşılaştırılarak 62 olarak doğrulandı (bkz. §13.22'nin
+kendi katalog güncelleme adımı) — ama bu doğrulama **elle** yapıldı. Bir
+sonraki yeni rota eklendiğinde aynı elle kontrol tekrarlanmazsa şerit eski
+sayıyı göstermeye devam eder; ziyaretçiye yanlış bir "kapsam" iddiası sunar.
+
+**Kural ihlali sonucu:** Katalog 65'e çıkar, şerit hâlâ "62 Araç" der —
+kullanıcının kendi ölçüp doğruladığı bir sayı sessizce yalan söylemeye başlar.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

@@ -69,8 +69,8 @@ export default function ProofSection({ locale = 'tr' }) {
         n: '02',
         h: tr ? 'Metinde nerede?' : 'Where is it in the text?',
         p: tr
-          ? 'Şemadaki her düğüm gerçek bir âyet. 1:7 tek âyettir ama iki cümlecikten oluşur — eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
-          : 'Every node in the diagram is an actual verse. 1:7 is a single verse but contains two clauses — in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
+          ? 'Şemadaki her düğüm gerçek bir âyet. Besmele (1:1) dışarıda tutuldu — Farrin de kendi analizinde Besmele\'yi sûrenin yapısına saymaz. 1:7 tek âyettir ama iki cümlecikten oluşur — eşlemede B\' ve A\' bu iki cümleciktir. Arapça metin âyet grafiğinden alındı, elle yazılmadı.'
+          : 'Every node in the diagram is an actual verse. The basmala (1:1) is left out — Farrin himself does not count it as part of the sura\'s structure in his own analysis. 1:7 is a single verse but contains two clauses — in this mapping B\' and A\' are those two clauses. The Arabic is taken from the verse graph, not typed from memory.',
       },
       {
         n: '03',
@@ -83,14 +83,14 @@ export default function ProofSection({ locale = 'tr' }) {
         n: '04',
         h: tr ? 'Neden kesin kanıt değil?' : 'Why is this not proof?',
         p: tr
-          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Farrin\'in kendisi de bunu mümkün bir yapısal okuma olarak sunar, metnin zorunlu tek bölümlemesi olarak değil. Başka bölümlemeler önerilmiştir ve bu şema onları çürütmez.'
-          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". Farrin himself presents this as a possible structural reading, not as the text\'s only necessary division. Other divisions have been proposed, and this diagram does not refute them.',
+          ? 'Tematik eşleştirme bir yorum işlemidir; "hamd" ile "nimet" arasındaki bağı kuran okuyucudur. Bu şema Farrin\'in yönteminden esinlenen, sitenin kendi düzenlemesidir — Farrin\'in kitabındaki tam yapının birebir kopyası değil (o, daha ayrıntılı iki ayrı ayna öneriyor). Halka/tenâsüb okuması Farrin\'e özgü de değil: Cuypers, Islahi ve klasik müfessirler (el-Bikâî, Süyûtî, Râzî) de benzer ama farklı bölümlemeler önermiştir; bu şema onları çürütmez.'
+          : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement — not a verbatim copy of his book\'s structure (his own reading proposes two separate, more granular mirror groups). Nor is ring/coherence reading unique to Farrin: Cuypers, Islahi, and classical exegetes (al-Biqāʿī, al-Suyūṭī, al-Rāzī) have proposed related but different divisions; this diagram does not refute them.',
       },
     ],
     cta: tr ? 'Halka kompozisyon sayfasına git' : 'Open the ring composition page',
     source: tr
-      ? 'Yapı: Raymond Farrin, Structure and Qur\'anic Interpretation (2014). Arapça: âyet grafiği.'
-      : 'Structure: Raymond Farrin, Structure and Qur\'anic Interpretation (2014). Arabic: verse graph.',
+      ? 'Esin: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — kendisi Cuypers\'in retorik yönteminden besleniyor. Buradaki eşleme sitenin kendi düzenlemesi. Arapça: âyet grafiği.'
+      : 'Inspired by: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — itself building on Cuypers\' rhetorical method. The mapping shown here is the site\'s own arrangement. Arabic: verse graph.',
   };
 
   return (
@@ -162,8 +162,8 @@ export default function ProofSection({ locale = 'tr' }) {
             </title>
             <desc id="proof-svg-desc">
               {tr
-                ? 'Yedi konum simetrik bir çatı üzerinde diziliyor. 1:1 ile 1:7\'nin son cümleciği, 1:2 ile 1:7\'nin ilk cümleciği, 1:3 ile 1:6 eşleşiyor. Ortada 1:5 eşsiz duruyor.'
-                : 'Seven positions arranged on a symmetric chevron. 1:1 pairs with the final clause of 1:7, 1:2 with the first clause of 1:7, and 1:3 with 1:6. At the centre, 1:5 stands alone.'}
+                ? 'Yedi konum simetrik bir çatı üzerinde diziliyor (Besmele hariç). 1:2 ile 1:7\'nin son cümleciği, 1:3 ile 1:7\'nin ilk cümleciği, 1:4 ile 1:6 eşleşiyor. Ortada 1:5 eşsiz duruyor.'
+                : 'Seven positions arranged on a symmetric chevron (basmala excluded). 1:2 pairs with the final clause of 1:7, 1:3 with the first clause of 1:7, and 1:4 with 1:6. At the centre, 1:5 stands alone.'}
             </desc>
 
             {/* eşleşme bağları — dıştan içe */}
@@ -263,7 +263,7 @@ export default function ProofSection({ locale = 'tr' }) {
               >
                 {r.pos} · 1:{r.ayah}
               </span>
-              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', color: COLORS.offWhite, lineHeight: 2 }}>
+              <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)', color: r.pair === null ? COLORS.gold : COLORS.offWhite, lineHeight: 2 }}>
                 {r.ar}
               </span>
             </li>

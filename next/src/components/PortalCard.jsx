@@ -106,12 +106,17 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
           style={{
             fontFamily: FONTS.display,
             fontWeight: 700,
+            // 2026-08-14 (B3, mockup turu onaylandı) — feature ve medium
+            // öncesi AYNI ölçeği kullanıyordu, tek fark dolgu (110px/90px)
+            // idi. Küme çıpası (feature) artık gerçekten daha büyük konuşur.
             fontSize: compact
               ? 'clamp(1.2rem, 2.4vw, 1.45rem)'
-              : 'clamp(1.7rem, 4vw, 2.6rem)',
+              : weight === 'feature'
+                ? 'clamp(2.2rem, 5vw, 3.4rem)'
+                : 'clamp(1.7rem, 4vw, 2.6rem)',
             color: COLORS.offWhite,
-            lineHeight: 1.2,
-            letterSpacing: '-0.015em',
+            lineHeight: 1.15,
+            letterSpacing: weight === 'feature' ? '-0.02em' : '-0.015em',
             margin: compact ? '0 0 22px' : '0 0 36px',
           }}
         >
@@ -125,9 +130,12 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
             lang="ar"
             style={{
               fontFamily: FONTS.quran,
-              fontSize: compact
-                ? 'clamp(1.1rem, 2.2vw, 1.3rem)'
-                : 'clamp(1.4rem, 3.2vw, 1.95rem)',
+              // 2026-08-14 — kullanıcı geri bildirimi: anasayfada âyet
+              // boyutu kart tipine göre 4 farklı değere dağılmıştı (20.8 /
+              // 23.2 / 26.4 / 31.2px). Tek ortak boyuta indirildi — en dar
+              // bağlam (kompakt 2'li ızgara, 390px) 1.95rem'de test edildi,
+              // taşma yok (6/6 âyet, 40px+ pay).
+              fontSize: '1.95rem',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 0 14px',

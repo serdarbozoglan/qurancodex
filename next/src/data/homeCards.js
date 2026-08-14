@@ -108,7 +108,10 @@ export const HOME_CARDS = [
     verseRef:    { tr: 'Zâriyât 51:47', en: 'aẓ-Ẓāriyāt 51:47' },
     blurb:       { tr: 'Demir (Hadid 57:25 · 1957), evren genişlemesi (Zâriyât 51:47 · Hubble 1929), iki denizin barzahı (Rahmân 55:19-20 · oşinografi), embriyoloji (Mü\'minûn 23:14). Bu sayfa bir "bilimsel mucize" iddiası değil — klasik tefsir + modern paralel + eleştirel not yan yana.', en: 'Iron (Ḥadīd 57:25 · 1957), cosmic expansion (Ẓāriyāt 51:47 · Hubble 1929), the barrier between two seas (ar-Raḥmān 55:19-20 · oceanography), embryology (al-Muʾminūn 23:14). This page is not a "scientific miracle" claim — classical tafsir, modern parallel, and critical note side by side.' },
     cta:         { tr: 'Bilimsel İşaretler Sayfasını Keşfet', en: 'Explore the Scientific Signs Page' },
-    kicker:      { tr: '4 ayet · klasik + modern · eleştirel notlarla', en: '4 verses · classical + modern · with critical notes' },
+    // 2026-08-14 — "eleştirel notlarla" kicker'dan çıkarıldı: gövde metninde
+    // ("... eleştirel not yan yana") zaten söyleniyor, kicker'da tekrarı
+    // gereksizdi. İddia kaybolmadı, yalnız kicker sıkılaştı.
+    kicker:      { tr: '4 ayet · klasik + modern', en: '4 verses · classical + modern' },
   },
   {
     id: 'tarih-card',

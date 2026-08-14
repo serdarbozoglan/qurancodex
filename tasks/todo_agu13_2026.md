@@ -110,6 +110,43 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       çıkarmak okunabilirliği artırdı ama sayfa uzadı. Karar onaylıydı, gizli
       değil.
 
+- [x] **B-takip · Kullanıcı canlı incelemesinden 7 ince ayar** — kicker'dan
+      "eleştirel notlarla" çıktı (gövdede zaten vardı, tekrar) · hover
+      1.005→1.015 (1024/1440'ta çakışma yok, ölçüldü) · timeline âyetleri
+      1.3→1.45rem, editoryal kart âyetleri 1.5→1.65rem (taşma yok, ölçüldü) ·
+      `ProofSection`'da eksen (D) âyeti artık altın renkli (etiket ve şemayla
+      tutarlı) · adım 4'ün üst kenarlığı kalınlaştırıldı + fazladan boşlukla
+      ayrıldı (2x2 ızgarada kapatılıyor, ölçüldü).
+
+- [x] **Fâtiha halka kompozisyonu — YANLIŞ ATIF, 3 dosyada düzeltildi**
+      Kullanıcı ekran görüntüsünde "1:4 nerede?" diye sordu — araştırınca
+      ciddi bir hata çıktı. Hakemli bir kitap eleştirisi (Ersin Kabakcı,
+      Hitit Üniv. SBE Dergisi, 2018) doğruluyor: *"Farrin does not count the
+      invocation (basmala) as a verse for it does not contribute the
+      structure of the sura"* (Farrin 2014, s.3). Sitenin **üç ayrı**
+      implementasyonu da Besmele'yi "A" pozisyonuna koyuyordu ve 1:4'ü
+      ("Mâliki yevmi'd-dîn") hiç göstermiyordu — atfedilen kaynakla
+      doğrudan çelişiyordu. Ayrıca `HiddenArchitecture.jsx` eksen olarak
+      **1:4** derken `ProofSection`/`RingExtensions` **1:5** diyordu — aynı
+      tool sayfasında yan yana iki çelişkili iddia.
+      Düzeltilen: `data/fatihaRing.js`, `sections/ProofSection.jsx`,
+      `sections/HiddenArchitecture.jsx`, `components/RingExtensions.jsx`.
+      Yeni yapı: Besmele halkadan çıkarıldı, 1:4 doğru yerine eklendi
+      (C pozisyonu, C'=1:6 ile eşleşiyor), eksen 1:5'te sabitlendi (üç
+      dosyada tutarlı). `RingExtensions.jsx`'teki kaynağı doğrulanamayan
+      alıntı ("Farrin buna 'prelude to the pivot' der") silindi — hiçbir
+      aramada bu ifadeye rastlanmadı.
+      **Atıf da yumuşatıldı** — kullanıcının isteğiyle: bu şema artık
+      "Farrin'in TAM yapısının kopyası" değil, "sitenin kendi düzenlemesi,
+      Farrin'in yönteminden esinlenilmiş" diye tanımlanıyor; Cuypers, Islahi
+      ve klasik müfessirler (el-Bikâî, Süyûtî, Râzî) de metinde anılıyor —
+      tek âlime atıf yapılmıyor. Gerçek Farrin yapısı daha ayrıntılı (Besmele
+      hariç iki ayrı ayna + 10 alt-pozisyon) — sitenin tek-V'lik sade
+      diyagramına birebir oturmuyor; bu bilinçli bir basitleştirme olarak
+      metinde açıkça belirtiliyor, "budur" denmiyor.
+      Doğrulama: TR/EN + masaüstü/mobil, 0 konsol hatası, iki sayfada
+      (anasayfa + `/arac/halka-kompozisyon`) tutarlı.
+
 ---
 
 # 🔴 A — ERİŞİLEBİLİRLİK (68 → en yüksek kazanç burada)

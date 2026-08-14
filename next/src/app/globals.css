@@ -308,6 +308,17 @@ body::after {
   .esma-category-label {
     display: none;
   }
+
+  /* EditorialCard (2026-08-14, B1b) — asılı sûre numarası dar ekranda
+     gövde metnini sıkıştırıyordu; dekoratif olduğu için gizlenir, içerik
+     kaybı yok (sûre adı zaten eyebrow + başlıkta var). */
+  .editorial-card__surah-num {
+    display: none;
+  }
+  .editorial-card__grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
 }
 
 /* ---- Section Seam (CLAUDE.md §4: 200px gradient overlap between sections) ----
@@ -564,7 +575,10 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
 }
 @media (hover: hover) {
   .portal-card:hover .portal-card__panel.is-revealed {
-    transform: translateY(-4px) scale(1.005);
+    /* 2026-08-14 — 1.005 kullanıcı testinde "hover hiç çalışmıyor gibi"
+       hissettirdi (kalkış vardı ama büyüme neredeyse görünmezdi). 1.015'e
+       çıkarıldı — 1024px'te komşu karta çakışma ölçüldü, yok. */
+    transform: translateY(-4px) scale(1.015);
     box-shadow:
       inset 0 0 0 1px rgba(212, 165, 116, 0.30),
       0 38px 90px rgba(0, 0, 0, 0.5),
@@ -699,6 +713,21 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
    Bu bölümün varlık şartı; kaybolmaması gerekiyor. */
 .proof-step:last-child {
   border-top-color: rgba(212, 165, 116, 0.55);
+  /* 2026-08-14 — kullanıcı geri bildirimi: yalnız renk farkı yeterince
+     ayırt edilmiyordu, kalınlık da eklendi. padding-top 1px azaltıldı ki
+     metin toplam yükseklik değişmesin. */
+  border-top-width: 2px;
+  padding-top: 15px;
+  /* Fazladan boşluk — 1-3 "açıklama", 4 "çekince" iki grup hissi versin.
+     Normal grid `gap` (28px) üstüne eklenir, yalnız bu sütunu etkiler. */
+  margin-left: 16px;
+}
+@media (max-width: 900px) {
+  /* 2x2 ızgarada margin-left yanlış kenara iner (2. satır, 2. sütun hâlâ
+     sağda) — anlamı korumak için mobil/tablet'te kapatılır. */
+  .proof-step:last-child {
+    margin-left: 0;
+  }
 }
 @media (max-width: 900px) {
   .proof-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }

@@ -24,33 +24,41 @@ const SURAHS = {
     refTr: '7 ayet', refEn: '7 verses',
     titleTr: 'Fatiha Sûresi\'nde Halka Kompozisyon',
     titleEn: 'Ring Composition in Al-Fatiha',
-    subtitleTr: 'A-B-C-D-C\'-B\'-A\' — Yedi ayetin ayna simetrisi',
-    subtitleEn: 'A-B-C-D-C\'-B\'-A\' — Mirror symmetry across seven verses',
+    subtitleTr: 'A-B-C-D-C\'-B\'-A\' — Altı ayetin ayna simetrisi (Besmele hariç)',
+    subtitleEn: 'A-B-C-D-C\'-B\'-A\' — Mirror symmetry across six verses (basmala excluded)',
+    // 2026-08-14 — DÜZELTİLDİ. Önceki sürüm Besmele'yi (1:1) "A" pozisyonuna
+    // koyuyordu; Farrin'in kendi analizi Besmele'yi sûrenin yapısına
+    // SAYMIYOR (Ersin Kabakcı, kitap eleştirisi, Hitit Üniv. SBE Dergisi,
+    // 2018, Farrin 2014 s.3'ten aktarıyor: "Farrin does not count the
+    // invocation (basmala) as a verse"). Ayrıca eksen yanlışlıkla 1:4
+    // gösteriliyordu; doğrusu 1:5 (bkz. ProofSection.jsx, aynı düzeltme).
+    // Bu eşleme Farrin'in TAM yapısının kopyası değil — sitenin kendi
+    // düzenlemesi, ayrıntı için ProofSection'daki kaynak notuna bakın.
     pairs: [
       { idx: 0,
-        left:  { label: 'A',   ar: 'بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ',         themeTr: 'İlahî İsim',  themeEn: 'Divine Name' },
-        right: { label: "A'",  ar: 'صِرَٰطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',          themeTr: 'İlahî Nimet', themeEn: 'Divine Grace' } },
+        left:  { label: 'A',   ar: 'اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',       themeTr: 'Rab', themeEn: 'Lord' },
+        right: { label: "A'",  ar: 'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ', themeTr: 'Gazap ve Dalâl', themeEn: 'Wrath and Straying' } },
       { idx: 1,
-        left:  { label: 'B',   ar: 'الْحَمْدُ لِلَّهِ رَبِّ الْعَـٰلَمِينَ',           themeTr: 'Rubûbiyet',   themeEn: 'Lordship' },
-        right: { label: "B'",  ar: 'اهْدِنَا الصِّرَٰطَ الْمُسْتَقِيمَ',               themeTr: 'Hidayet',     themeEn: 'Guidance' } },
+        left:  { label: 'B',   ar: 'اَلرَّحْمٰنِ الرَّحِيمِ',                     themeTr: 'Rahmet',   themeEn: 'Mercy' },
+        right: { label: "B'",  ar: 'صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ',       themeTr: 'Nimet Verilenler', themeEn: 'The Favoured' } },
       { idx: 2,
-        left:  { label: 'C',   ar: 'الرَّحْمَـٰنِ الرَّحِيمِ',                         themeTr: 'Rahmet',      themeEn: 'Mercy' },
-        right: { label: "C'",  ar: 'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',           themeTr: 'Kulluk',      themeEn: 'Worship' } },
+        left:  { label: 'C',   ar: 'مَالِكِ يَوْمِ الدِّينِ',                      themeTr: 'Din Günü', themeEn: 'Day of Judgment' },
+        right: { label: "C'",  ar: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',           themeTr: 'Hidayet',  themeEn: 'Guidance' } },
     ],
-    center: { label: 'D', ar: 'مَـٰلِكِ يَوْمِ الدِّينِ', themeTr: 'Din Günü', themeEn: 'Day of Judgment' },
-    introTr: "Fatiha'nın 7 ayeti bir ayna gibi yapılanmış: ilk ayet son ayetle, ikincisi sondan ikinciyle eşleşiyor. Ortadaki 4. ayet ise döngünün eksenini oluşturuyor.",
-    introEn: "Al-Fatiha's 7 verses are structured like a mirror: the first corresponds to the last, the second to the second-to-last. The 4th verse in the middle is the pivot of the ring.",
+    center: { label: 'D', ar: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ', themeTr: 'Eksen — "Sana"', themeEn: 'Pivot — "You"' },
+    introTr: "Fatiha'nın Besmele hariç 6 ayeti bir ayna gibi yapılanmış: ikinci ayet sonuncuyla, üçüncüsü sondan ikinciyle eşleşiyor. Ortadaki 5. ayet ise döngünün eksenini oluşturuyor.",
+    introEn: "Al-Fatiha's 6 verses (excluding the basmala) are structured like a mirror: the second corresponds to the last, the third to the second-to-last. The 5th verse in the middle is the pivot of the ring.",
     pairsTr: [
-      { label: "A ↔ A'", desc: "Her iki uçta üçlü yapı: A'da Allah'ın 3 ismi/sıfatı (Allah, Rahmân, Rahîm); A'nda insanların 3 kategorisi (mun'am aleyhim, mağdûb aleyhim, dâllîn). 3+3 paralelliği — ilahî isimden insan tipolojisine yansıyan ayna. Sûre 'Bismillah' ile açılır, 'nimetlendirdiklerin/gazaba uğrayanlar/sapanlar' ile kapanır." },
-      { label: "B ↔ B'", desc: "B, Allah'ı Rab olarak tanımlar. B' ise o Rab'den bir şey ister: 'Bizi doğru yola ilet.' Önce kim olduğu söylenir, sonra Ona yönelilir." },
-      { label: "C ↔ C'", desc: "C, Allah'ın Rahman ve Rahim olduğunu bildirir. C' buna cevap verir: 'Yalnız Sana ibadet ederiz.' Merhamet beyanı ibadeti doğurur." },
-      { label: "D — Merkez", desc: "'Din Gününün Sahibi.' D'den önce Allah tanımlanır, D'den sonra biz konuşmaya başlarız. Hesap günü bilinci tüm duanın dönüm noktasıdır." },
+      { label: "A ↔ A'", desc: "A, Allah'ı bütün âlemlerin Rabbi olarak tanıtır — evrensel bir açılış. A' ise sûrenin kapanışında insanları ayıran iki olumsuz kategoriyi anar: gazaba uğrayanlar ve sapanlar. Rablik iddiası hesap verilebilirlikle kapanıyor." },
+      { label: "B ↔ B'", desc: "B, Allah'ın Rahmân ve Rahîm olduğunu bildirir. B' bu rahmetin somut karşılığını gösterir: nimet verilenlerin yolu. Merhamet soyut bir sıfat değil, yönlendirdiği bir sonuç." },
+      { label: "C ↔ C'", desc: "C, hesap gününün sahibini anar. C' buna hazırlık ister: doğru yola iletilme talebi. Hesap bilinci duayı doğuruyor." },
+      { label: "D — Merkez", desc: "'Yalnız Sana kulluk eder, yalnız Senden yardım dileriz.' D'den önce Allah üçüncü şahısla anlatılır, D'den sonra doğrudan Ona seslenilir. Dilbilgisel dönüm noktası, sûrenin yapısal merkeziyle aynı âyete düşüyor." },
     ],
     pairsEn: [
-      { label: "A ↔ A'", desc: "Both ends mirror a triadic structure: A names Allah's three attributes (Allah, al-Raḥmān, al-Raḥīm); A' names three human categories (the favored, those who incur wrath, those who go astray). A 3+3 parallelism — the divine name reflected in human typology. The sura opens with 'Bismillah' and closes with 'those You have blessed / those who incur wrath / those who go astray.'" },
-      { label: "B ↔ B'", desc: "B declares Allah as Lord. B' makes a request to that Lord: 'Guide us to the straight path.' First who He is, then we turn to Him." },
-      { label: "C ↔ C'", desc: "C proclaims Allah's mercy. C' responds: 'You alone we worship.' The declaration of mercy produces the act of worship." },
-      { label: "D — Center", desc: "'Master of the Day of Judgment.' Before D, Allah is described. After D, we begin to speak. Accountability is the turning point of the prayer." },
+      { label: "A ↔ A'", desc: "A introduces Allah as Lord of all the worlds — a universal opening. A' names two negative categories at the sura's close: those who incur wrath and those who go astray. The claim of Lordship closes with accountability." },
+      { label: "B ↔ B'", desc: "B declares Allah as al-Raḥmān and al-Raḥīm. B' shows this mercy's concrete counterpart: the path of those who have been favoured. Mercy is not an abstract attribute but a result it directs toward." },
+      { label: "C ↔ C'", desc: "C names the Master of the Day of Judgment. C' asks for preparation for that reckoning: guidance to the straight path. Awareness of accountability gives rise to prayer." },
+      { label: "D — Center", desc: "'You alone we worship, You alone we ask for help.' Before D, Allah is described in the third person; after D, we address Him directly. The grammatical turning point falls on the same verse as the structural centre." },
     ],
   },
   ayetelkursi: {
@@ -297,8 +305,8 @@ export default function HiddenArchitecture() {
           {activeSurah === 'fatiha' && (
             <p className="text-silver/40 text-xs mb-5 font-body italic max-w-3xl leading-relaxed">
               {language === 'tr'
-                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfada Şafiî sayımı kullanılmaktadır (7 ayet, Bismillah dahil).'
-                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. This page follows the Shāfiʿī count (7 verses, Bismillah included).'}
+                ? 'ℹ Bismillah\'ın ayet sayımı mezhep meselesidir: Şafiî mezhebinde Fatiha\'nın 1. ayetidir; Hanefî mezhebinde bağımsızdır. Bu sayfadaki âyet numaraları (1:2, 1:3 …) Şafiî sayımını izler — ama Bismillah\'ın kendisi bu halka şemasının bir pozisyonu DEĞİL: Farrin\'in kendi analizi de Bismillah\'ı sûrenin yapısına saymaz.'
+                : 'ℹ Counting Bismillah as a verse is a matter of legal school: in Shāfiʿī it is verse 1 of al-Fātiḥa; in Ḥanafī it is independent. The verse numbers here (1:2, 1:3, …) follow the Shāfiʿī count — but Bismillah itself is not a position in this ring: Farrin\'s own analysis likewise does not count it as part of the sura\'s structure.'}
             </p>
           )}
 

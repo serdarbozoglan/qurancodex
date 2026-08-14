@@ -5,40 +5,45 @@
 import { useState } from 'react';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
-// ── Fatiha halka yapısı — Raymond Farrin (Structure and Qur'anic Interpretation, 2014) ──
-// A-B-C-D-C'-B'-A' pattern, D pivot (İyyâke naʿbudu ve iyyâke nesteʿîn — 1:5)
+// ── Fatiha halka yapısı ──────────────────────────────────────────────────
+// 2026-08-14 — DÜZELTİLDİ, bkz. ProofSection.jsx ve HiddenArchitecture.jsx
+// aynı tarihli notları. Önceki sürüm Besmele'yi (1:1) "A"ya koyuyor, 1:4'ü
+// ("Mâliki yevmi'd-dîn") hiç göstermiyor ve kaynağı doğrulanamayan bir
+// alıntı taşıyordu ("Farrin buna 'prelude to the pivot' der" — hiçbir
+// aramada bu ifadeye rastlanmadı, silindi). Farrin'in kendi analizi
+// Besmele'yi sûrenin yapısına saymaz (Kabakcı, 2018 kitap eleştirisi,
+// Farrin 2014 s.3'ten aktarıyor). Bu dizi Farrin'in TAM yapısının kopyası
+// değil — sitenin kendi düzenlemesi (gerçek yapı iki ayrı ayna önerir).
 const FATIHA_RING = [
-  { pos: 'A',  ayah: 1, arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحٖيمِ',
-    themeTr: 'Bismillâh', themeEn: 'Bismillāh',
-    tr: 'Rahmân ve Rahîm olan Allah\'ın adıyla', en: 'In the name of Allah, the Most Merciful',
-    color: '#d4a574' },
-  { pos: 'B',  ayah: 2, arabic: 'اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمٖينَ',
-    themeTr: 'Hamd', themeEn: 'Praise',
+  { pos: 'A',  ayah: 2, arabic: 'اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',
+    themeTr: 'Rab', themeEn: 'Lord',
     tr: 'Hamd âlemlerin Rabbi Allah\'a mahsustur', en: 'Praise be to Allah, Lord of the Worlds',
     color: '#f39c12' },
-  { pos: 'C',  ayah: 3, arabic: 'اَلرَّحْمٰنِ الرَّحٖيمِ',
+  { pos: 'B',  ayah: 3, arabic: 'اَلرَّحْمٰنِ الرَّحِيمِ',
     themeTr: 'Rahmet', themeEn: 'Mercy',
     tr: 'Rahmân ve Rahîm', en: 'The Most Merciful, the Especially Merciful',
     color: '#2ecc71' },
-  { pos: 'D',  ayah: 5, arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعٖينُ', center: true,
-    themeTr: '★ Kalp — İbadet-Yardım', themeEn: '★ Heart — Worship-Help',
+  { pos: 'C',  ayah: 4, arabic: 'مَالِكِ يَوْمِ الدِّينِ',
+    themeTr: 'Din Günü', themeEn: 'Day of Judgment',
+    tr: 'Din gününün mâliki', en: 'Master of the Day of Judgment',
+    color: '#d4a574' },
+  { pos: 'D',  ayah: 5, arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ', center: true,
+    themeTr: '★ Eksen — İbadet-Yardım', themeEn: '★ Pivot — Worship-Help',
     tr: 'Yalnız sana kulluk eder, yalnız senden yardım dileriz', en: 'You alone we worship, You alone we ask for help',
     color: COLORS.gold },
-  { pos: 'C\'', ayah: 6, arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقٖيمَ',
+  { pos: 'C\'', ayah: 6, arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
     themeTr: 'Hidayet', themeEn: 'Guidance',
     tr: 'Bizi dosdoğru yola ilet', en: 'Guide us to the straight path',
-    color: '#2ecc71' },
-  { pos: 'B\'', ayah: 7, arabic: 'صِرَاطَ الَّذٖينَ اَنْعَمْتَ عَلَيْهِمْ',
+    color: '#d4a574' },
+  { pos: 'B\'', ayah: 7, arabic: 'صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ',
     themeTr: 'Nimet Verilenler', themeEn: 'The Favoured',
     tr: 'Nimet verdiklerinin yoluna', en: 'The path of those You have blessed',
-    color: '#f39c12' },
-  { pos: 'A\'', ayah: 7, arabic: 'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّآلّٖينَ',
+    color: '#2ecc71' },
+  { pos: 'A\'', ayah: 7, arabic: 'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ',
     themeTr: 'Gazab & Dalâl', themeEn: 'Wrath & Straying',
     tr: 'Gazab edilenlerin ve sapmışların değil', en: 'Not those upon whom is wrath, nor those astray',
-    color: '#d4a574' },
+    color: '#f39c12' },
 ];
-// Note: Fâtiha 4. ayet (Mâliki yevmi'd-dîn) Ayet 5'in hemen öncesinde D pivot'a
-// dahil bir "yakınlaştırıcı" işlev görür — Farrin buna "prelude to the pivot" der.
 
 // ── 4 ek halka örneği (mevcut Fatiha + Ayetu'l-Kürsi'ye ek) ──
 const ADDITIONAL_RINGS = [
