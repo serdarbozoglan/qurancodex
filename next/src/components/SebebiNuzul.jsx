@@ -22,13 +22,13 @@ const CATEGORY_META = {
   'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: '#e67e22' },
   'question-answer':    { tr: 'Soruya Cevap',       en: 'Question Answer',       color: '#3498db' },
   'need-response':      { tr: 'İhtiyaca Cevap',     en: 'Need Response',         color: '#2ecc71' },
-  'hypocrite-response': { tr: 'Münafık/Müşrik',     en: 'Hypocrite/Polytheist',  color: '#e74c3c' },
-  'companion-case':     { tr: 'Sahabî Durumu',      en: 'Companion Case',        color: '#9b59b6' },
+  'hypocrite-response': { tr: 'Münafık/Müşrik',     en: 'Hypocrite/Polytheist',  color: COLORS.softRed },
+  'companion-case':     { tr: 'Sahabî Durumu',      en: 'Companion Case',        color: COLORS.violet },
   'ahl-kitab':          { tr: 'Ehl-i Kitap',        en: 'People of the Book',    color: '#1abc9c' },
   'family-law':         { tr: 'Aile/Toplum Hukuku', en: 'Family/Social Law',     color: '#f39c12' },
   'revelation-onset':   { tr: 'Vahyin Başlangıcı',  en: 'Onset of Revelation',   color: '#d4a574' },
-  'mecca-persecution':  { tr: 'Mekke\'de Ezâ',      en: 'Persecution in Mecca',  color: '#c0392b' },
-  'treaty-context':     { tr: 'Anlaşma Bağlamı',    en: 'Treaty Context',        color: '#8e44ad' },
+  'mecca-persecution':  { tr: 'Mekke\'de Ezâ',      en: 'Persecution in Mecca',  color: COLORS.rustTextSafe },
+  'treaty-context':     { tr: 'Anlaşma Bağlamı',    en: 'Treaty Context',        color: COLORS.orchidLightTextSafe },
 };
 
 const RELIABILITY_META = {

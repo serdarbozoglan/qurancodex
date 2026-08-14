@@ -16,7 +16,7 @@ const CONTRAST_PAIRS = [
       surahTr: 'Kâfirûn 109:1', surahEn: 'Al-Kāfirūn 109:1',
       verse: 'قُلْ يَا اَيُّهَا الْكَافِرُونَ',
       translitTr: 'Kul yâ eyyuhe\'l-kâfirûn',
-      color: '#e74c3c',
+      color: COLORS.softRed,
       letters: ['ق', 'ك', 'ف', 'ر'],
       descTr: 'Patlayıcı ق ve ك, sürtünmeli ف, tınlayan ر — inkârın sesli sertliği kelimede yankılanır.',
       descEn: 'Explosive ق and ك, fricative ف, rolling ر — the audible harshness of denial resonates in the word itself.',
@@ -72,7 +72,7 @@ const CONTRAST_PAIRS = [
       surahTr: 'Vâkıa 56:52', surahEn: 'Al-Wāqiʿa 56:52',
       verse: 'لَاٰكِلُونَ مِنْ شَجَرٍ مِنْ زَقُّومٍ',
       translitTr: 'Le âkilûne min şecerin min zakkûm',
-      color: '#e74c3c',
+      color: COLORS.softRed,
       letters: ['ز', 'ق', 'ش', 'ك'],
       descTr: 'Ağır ز, patlayıcı ق (şeddeli), gıcırdayan ش — zakkumun kelime tadı bile acıdır.',
       descEn: 'Heavy ز, doubled explosive ق (shaddah), grating ش — the word taste of Zaqqūm is bitter.',
@@ -124,12 +124,12 @@ const CONTRAST_PAIRS = [
 
 // ── Fonetik spektrum: 8 grup — hangi harfler hangi ses karakterine ait ──
 const PHONETIC_SPECTRUM = [
-  { groupTr: 'Patlayıcılar (şedîde)', groupEn: 'Plosives (shadīda)', letters: ['ق','ك','ط','د','ت','ب'], color: '#e74c3c', descTr: 'Ani hava kesilmesiyle çıkan sesler; azap, uyarı, emir bağlamında yoğun.', descEn: 'Sounds produced by sudden air arrest; dense in punishment, warning, and command contexts.' },
+  { groupTr: 'Patlayıcılar (şedîde)', groupEn: 'Plosives (shadīda)', letters: ['ق','ك','ط','د','ت','ب'], color: COLORS.softRed, descTr: 'Ani hava kesilmesiyle çıkan sesler; azap, uyarı, emir bağlamında yoğun.', descEn: 'Sounds produced by sudden air arrest; dense in punishment, warning, and command contexts.' },
   { groupTr: 'Sürtünmeliler (rehâviyye)', groupEn: 'Fricatives (rakhāwiyya)', letters: ['ف','ث','ذ','ح','خ','ز','س','ش','ص','ض','ظ','ه'], color: '#f39c12', descTr: 'Havanın darlıktan geçmesiyle çıkan sesler; anlamı taşıyan geniş bir orta ton.', descEn: 'Sounds from air passing through constriction; a broad mid-tone that carries meaning.' },
   { groupTr: 'Nazaller (ğunneli)', groupEn: 'Nasals (ghunna)', letters: ['م','ن'], color: '#3498db', descTr: 'Burun boşluğunda rezonans; rahmet, huzur, yakarış ile eşleşir.', descEn: 'Resonance in the nasal cavity; pairs with mercy, peace, invocation.' },
   { groupTr: 'Akıcılar (mâyi\')', groupEn: 'Liquids (māʾiʿ)', letters: ['ل','ر'], color: '#2ecc71', descTr: 'Kesintisiz akıcı sesler; anlatının müzik damarını taşır.', descEn: 'Continuous flowing sounds; carrying the melodic vein of narrative.' },
-  { groupTr: 'Yarı Ünlüler (leyyine)', groupEn: 'Semi-vowels (līyyina)', letters: ['و','ي'], color: '#a855f7', descTr: 'Ünlü-benzeri geçiş sesleri; kelimeye uzunluk ve akıcılık verir.', descEn: 'Vowel-like transition sounds; giving words length and fluency.' },
-  { groupTr: 'Boğazsallar (halkiyye)', groupEn: 'Gutturals (ḥalqiyya)', letters: ['ء','ه','ع','ح','غ','خ'], color: '#8b5cf6', descTr: 'Boğazdan çıkan derin sesler; kadim, arketipal, çekim gücü taşır.', descEn: 'Deep sounds from the throat; carrying archaic, archetypal weight.' },
+  { groupTr: 'Yarı Ünlüler (leyyine)', groupEn: 'Semi-vowels (līyyina)', letters: ['و','ي'], color: '#a78bfa', descTr: 'Ünlü-benzeri geçiş sesleri; kelimeye uzunluk ve akıcılık verir.', descEn: 'Vowel-like transition sounds; giving words length and fluency.' },
+  { groupTr: 'Boğazsallar (halkiyye)', groupEn: 'Gutturals (ḥalqiyya)', letters: ['ء','ه','ع','ح','غ','خ'], color: COLORS.violetTextSafe, descTr: 'Boğazdan çıkan derin sesler; kadim, arketipal, çekim gücü taşır.', descEn: 'Deep sounds from the throat; carrying archaic, archetypal weight.' },
   { groupTr: 'Diş-Dil (esneviyye)', groupEn: 'Dental-Lingual (asnawiyya)', letters: ['ث','ذ','ظ','ص','ض','ز','س','ت','د','ط','ن','ل','ر'], color: '#c9a227', descTr: 'Diş ve dil ucu birlikte üreten sesler; en kalabalık grup.', descEn: 'Sounds produced with teeth and tongue-tip together; the most populous group.' },
   { groupTr: 'Emphatikler (musta\'liyye)', groupEn: 'Emphatics (mustaʿliyya)', letters: ['ص','ض','ط','ظ','ق','غ','خ'], color: '#d4a574', descTr: 'Ağzı yükseltirken çıkan "koyu" sesler; azap ayetlerinde yoğunlaşır.', descEn: 'Sounds produced with raised palate — "heavy" — density in punishment verses.' },
 ];

@@ -17,21 +17,21 @@ import dogaDataStatic from '../../public/doga-atlasi.json';
 const ANIMAL_CONTEXT_COLORS = {
   'delil':           '#f59e0b',
   'kissa':           '#14b8a6',
-  'haram-helal':     '#ef4444',
+  'haram-helal':     COLORS.softRed,
   'cennet-cehennem': '#22c55e',
   'sure-adi':        '#fbbf24',
   'mecaz':           '#60a5fa',
-  'hapax':           '#a855f7',
+  'hapax':           '#a78bfa',
 };
 
 const PLANT_CONTEXT_COLORS = {
   'cennet': '#22c55e',
-  'cehennem': '#ef4444',
+  'cehennem': COLORS.softRed,
   'dunya': COLORS.gold,
-  'yemin': '#a855f7',
+  'yemin': '#a78bfa',
   'kissa': '#14b8a6',
   'mecaz': '#60a5fa',
-  'hapax': '#a855f7',
+  'hapax': '#a78bfa',
 };
 
 // ── Filter option lists ───────────────────────────────────────────────────────
@@ -356,7 +356,7 @@ function FilterPills({ filters, labels, counts, active, onChange }) {
           >
             {labels[f] ?? f}
             {count !== undefined && (
-              <span style={{ marginLeft: '6px', fontSize: '0.7rem', opacity: 0.7 }}>
+              <span style={{ marginLeft: '6px', fontSize: '0.7rem', opacity: 0.85 }}>
                 {count}
               </span>
             )}
@@ -598,7 +598,7 @@ function AnimalCard({ item, language, maxFreq }) {
         {item.nameTr}
       </p>
       {/* Frequency bar chart */}
-      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a855f7' : COLORS.gold} />
+      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a78bfa' : COLORS.gold} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
           <ContextBadge key={ctx} ctx={ctx} colorMap={ANIMAL_CONTEXT_COLORS} language={language} />
@@ -676,7 +676,7 @@ function PlantCard({ item, language, maxFreq }) {
         {item.nameTr}
       </p>
       {/* Frequency bar chart */}
-      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a855f7' : COLORS.gold} />
+      <FreqBar freq={item.freqNumeric} max={maxFreq} color={isHapax ? '#a78bfa' : COLORS.gold} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
         {item.contexts.map(ctx => (
           <ContextBadge key={ctx} ctx={ctx} colorMap={PLANT_CONTEXT_COLORS} language={language} />
@@ -718,7 +718,7 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
   }
   const letters = Object.keys(groups).sort((a, b) => a.localeCompare(b, language === 'tr' ? 'tr' : 'en'));
 
-  const PURPLE = '#a855f7';
+  const PURPLE = '#a78bfa';
   const PURPLE_LIGHT = '#c084fc';
 
   return (

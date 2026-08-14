@@ -32,12 +32,12 @@ const CATEGORY_CONFIG = {
   tovbe:    { color: 'rgba(236,72,153,0.8)',   label_tr: 'Tevbe',      label_en: 'Repentance'  },
   siginma:  { color: 'rgba(20,184,166,0.8)',   label_tr: 'Sığınma',    label_en: 'Refuge'      },
   hidayet:  { color: 'rgba(52,152,219,0.8)',   label_tr: 'Hidayet',    label_en: 'Guidance'    },
-  sabir:    { color: 'rgba(155,89,182,0.8)',   label_tr: 'Sabır',      label_en: 'Patience'    },
+  sabir:    { color: 'rgba(177,126,198,0.8)',  label_tr: 'Sabır',      label_en: 'Patience'    },
   sikinit:  { color: 'rgba(230,126,34,0.8)',   label_tr: 'Sıkıntıda',  label_en: 'In Distress' },
   aile:     { color: 'rgba(46,204,113,0.8)',   label_tr: 'Aile',       label_en: 'Family'      },
   sukur:    { color: 'rgba(212,165,116,0.8)',  label_tr: 'Şükür',      label_en: 'Gratitude'   },
-  rizik:    { color: 'rgba(26,122,76,0.8)',    label_tr: 'Rızık',      label_en: 'Provision'   },
-  ilim:     { color: 'rgba(99,102,241,0.8)',   label_tr: 'İlim',       label_en: 'Knowledge'   },
+  rizik:    { color: 'rgba(88,158,124,0.8)',   label_tr: 'Rızık',      label_en: 'Provision'   },
+  ilim:     { color: 'rgba(139,143,245,0.8)',  label_tr: 'İlim',       label_en: 'Knowledge'   },
   genel:    { color: 'rgba(149,165,166,0.8)',  label_tr: 'Genel',      label_en: 'General'     },
 };
 
@@ -405,7 +405,7 @@ export default function DuaVerses({ onClose }) {
         <p style={{ color: '#e8e6e3', fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
           "{language === 'tr' ? 'Kullarım sana benden sorduklarında, ben yakınım. Bana dua ettiğinde dua edenin duasına icabet ederim.' : "When My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls Me."}"
         </p>
-        <p style={{ color: silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px', opacity: 0.65 }}>
+        <p style={{ color: silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px', opacity: 0.85 }}>
           — {language === 'tr' ? 'Bakara 2:186' : 'Al-Baqarah 2:186'}
         </p>
         <div aria-hidden="true" style={{ width: '100px', height: '1px', background: `linear-gradient(to right, transparent, ${gold}66, transparent)`, margin: '0 auto 18px' }} />

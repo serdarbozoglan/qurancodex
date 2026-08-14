@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS } from '../tokens';
+import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
@@ -381,11 +381,11 @@ export default function QuranCommands({ onClose }) {
                   display: 'flex', alignItems: 'center', gap: '5px',
                 }}
               >
-                <CategoryIcon id={cat.id} color={isActive ? cat.accent : '#64748b'} />
+                <CategoryIcon id={cat.id} color={isActive ? cat.accent : SEMANTIC.textFaint} />
                 <span>{language === 'tr' ? cat.titleTr : cat.titleEn}</span>
                 <span style={{
                   background: isActive ? cat.accent + '30' : 'rgba(255,255,255,0.08)',
-                  color: isActive ? cat.accent : '#64748b',
+                  color: isActive ? cat.accent : SEMANTIC.textFaint,
                   borderRadius: RADIUS.chip, padding: '0 5px',
                   fontSize: '0.7rem', fontWeight: 700,
                 }}>
@@ -436,12 +436,12 @@ export default function QuranCommands({ onClose }) {
                   color: isActive ? cat.accent : '#94a3b8',
                   lineHeight: 1.3,
                 }}>
-                  <CategoryIcon id={cat.id} color={isActive ? cat.accent : '#64748b'} />
+                  <CategoryIcon id={cat.id} color={isActive ? cat.accent : SEMANTIC.textFaint} />
                   {language === 'tr' ? cat.titleTr : cat.titleEn}
                 </span>
                 <span style={{
                   fontSize: '0.7rem', fontWeight: 600,
-                  color: isActive ? cat.accent : 'rgba(148,163,184,0.5)',
+                  color: isActive ? cat.accent : SEMANTIC.textFaint,
                   background: isActive ? cat.accent + '20' : 'rgba(255,255,255,0.05)',
                   borderRadius: RADIUS.chip, padding: '1px 7px',
                   flexShrink: 0,

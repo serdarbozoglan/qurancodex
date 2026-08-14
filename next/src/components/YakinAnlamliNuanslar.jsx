@@ -21,7 +21,7 @@ import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens'
 import nuanslarDataStatic from '../../public/yakin-anlamli-nuanslar.json';
 
 const CATEGORY_COLORS = {
-  'iç-dünya':      '#e84a7c',
+  'iç-dünya':      '#F286A8',
   'insan-tanımı':  '#3498db',
   'bilgi':         '#c9a96e',
   'duygu':         '#f472b6',
@@ -279,7 +279,7 @@ function SetDetail({ nset, isEn, isMobile }) {
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', marginBottom: '18px' }}>
         <div style={{ flex: 1 }}>
           <p style={{
-            color: color, opacity: 0.75,
+            color: color, opacity: 0.9,
             fontSize: '0.65rem', fontWeight: 700,
             letterSpacing: '0.24em', textTransform: 'uppercase',
             margin: 0,
@@ -396,7 +396,7 @@ function SetDetail({ nset, isEn, isMobile }) {
                 fontStyle: 'italic',
               }}>
                 <span style={{
-                  color: color, opacity: 0.8,
+                  color: color, opacity: 0.9,
                   fontSize: '0.62rem', fontWeight: 700,
                   letterSpacing: '0.2em', textTransform: 'uppercase',
                   marginRight: '8px',
@@ -417,7 +417,7 @@ function SetDetail({ nset, isEn, isMobile }) {
         borderLeft: `3px solid ${color}`,
       }}>
         <p style={{
-          color: color, opacity: 0.85,
+          color: color, opacity: 0.9,
           fontSize: '0.65rem', fontWeight: 700,
           letterSpacing: '0.24em', textTransform: 'uppercase',
           margin: '0 0 10px',
@@ -442,7 +442,7 @@ function SetDetail({ nset, isEn, isMobile }) {
           margin: '24px 0 0',
           fontStyle: 'italic',
         }}>
-          <span style={{ opacity: 0.8, fontWeight: 600 }}>{isEn ? 'Source: ' : 'Kaynak: '}</span>
+          <span style={{ fontWeight: 600 }}>{isEn ? 'Source: ' : 'Kaynak: '}</span>
           {isEn ? nset.sourceEn : nset.sourceTr}
         </p>
       )}

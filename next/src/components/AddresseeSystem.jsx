@@ -254,7 +254,7 @@ export default function AddresseeSystem({ onClose }) {
                 <span>{language === 'tr' ? cat.tr : cat.en}</span>
                 <span style={{
                   fontSize: '0.72rem',
-                  color: isActive ? cat.accent : COLORS.slate500,
+                  color: isActive ? cat.accent : SEMANTIC.textFaint,
                   fontWeight: 700,
                 }}>
                   {cat.stats.count}
