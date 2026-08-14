@@ -135,7 +135,11 @@ export const HOME_CARDS = [
     verseAr:     'اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهُ لَحَافِظُونَ',
     verseTrans:  { tr: 'Zikri (Kur\'an\'ı) Biz indirdik; koruyucusu da Biziz.', en: 'Indeed, We sent down the Reminder, and We shall preserve it.' },
     verseRef:    { tr: 'Hicr 15:9', en: 'al-Ḥijr 15:9' },
-    blurb:       { tr: 'Birmingham elyazması (2015 · karbon-14: 568-645) — Hz. Peygamber dönemiyle çakışan en eski parça. Bugün hâlâ milyonlarca hâfız bütün Kur\'an\'ı ezbere taşır; Mekke\'deki = İstanbul\'daki = Jakarta\'daki metin. İsnâd zinciri, sözel naklin bilim öncesi versiyonu.', en: 'The Birmingham manuscript (2015 · C-14: 568-645) — the oldest fragment dating to the Prophet\'s lifetime. Today millions of ḥuffāẓ still carry the entire Quran by heart; the text in Mecca = Istanbul = Jakarta. The isnād chain is the pre-scientific version of verified transmission.' },
+    // 2026-08-14 (D3) — "Sıfır Varyasyon" başlığı kayıtsız şartsız duruyordu;
+    // §13.24 disiplini kayıt istiyor. Nüans /arac/koruma-zinciri'nde zaten
+    // vardı (rasm sabit, kıraat farkları ayrı+belgeli), buraya taşındı —
+    // yeni bir iddia değil, sitenin kendi tool sayfasının özeti.
+    blurb:       { tr: 'Birmingham elyazması (2015 · karbon-14: 568-645) — Hz. Peygamber dönemiyle çakışan en eski parça. Bugün hâlâ milyonlarca hâfız bütün Kur\'an\'ı ezbere taşır; Mekke\'deki = İstanbul\'daki = Jakarta\'daki metin. İsnâd zinciri, sözel naklin bilim öncesi versiyonu. Sabit olan konsonantal iskelet (rasm); mütevâtir kıraat farklılıkları ayrı ve belgeli bir katmandır — çelişkisi değil, kanıtıdır.', en: 'The Birmingham manuscript (2015 · C-14: 568-645) — the oldest fragment dating to the Prophet\'s lifetime. Today millions of ḥuffāẓ still carry the entire Quran by heart; the text in Mecca = Istanbul = Jakarta. The isnād chain is the pre-scientific version of verified transmission. What stays fixed is the consonantal skeleton (rasm); the mutawātir qirāʾāt differences are a separate, documented layer — not a contradiction, but evidence of it.' },
     cta:         { tr: 'Koruma Zinciri Sayfasını Keşfet', en: 'Explore the Preservation Chain Page' },
     kicker:      { tr: 'Birmingham · hâfız · isnâd — üç sütun, bir koruma', en: 'Birmingham · ḥuffāẓ · isnād — three pillars, one preservation' },
   },

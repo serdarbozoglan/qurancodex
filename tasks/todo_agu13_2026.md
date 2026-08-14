@@ -338,10 +338,13 @@ Tekrarla: `npx playwright test tests/homepage-audit.spec.js`
       tıklanma oranı düştü mü? Düştüyse `kicker` metinleri güçlendirilmeli.
       *(Yarım karar — bilinçli verildi ama sonucu ölçülmedi.)*
 
-- [ ] **D3 · "1.400 Yıl · 1 Metin · Sıfır Varyasyon"** anasayfada kayıtsız şartsız
-      duruyor. Sayfanın kendi §13.24 disiplinine göre kayıt gerekiyor — kart
-      içeriğinde nüans var (`koruma-card` blurb'ü kıraat farklarına değiniyor)
-      ama **başlık** mutlak konuşuyor.
+- [x] ~~**D3 · "1.400 Yıl · 1 Metin · Sıfır Varyasyon"** anasayfada kayıtsız şartsız duruyor~~ — **KAPANDI** (14 Ağustos)
+      Kontrol ettim: nüans kartın kendi blurb'ünde değil, `/arac/koruma-zinciri`
+      tool sayfasında zaten vardı ("rasm sabit, mütevâtir kıraat farkları
+      ayrı ve belgeli bir katman — çelişkisi değil, kanıtı"). Bu cümle
+      `koruma-card` blurb'üne taşındı (yeni iddia değil, tool sayfasının
+      özeti). Başlık aynı kaldı (dikkat çekici kalsın), iki cümle sonra
+      nitelendiriliyor. Doğrulama: taşma yok, baseline güncellendi.
 
 ---
 
