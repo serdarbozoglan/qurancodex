@@ -9,6 +9,10 @@ import {
 } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
 import ToolHeader from './ToolHeader';
+// 2026-08-14 (sınıf D): küme detay panelinde ham `**` ekrana basılıyordu
+// ("**en büyük embedding kümesi**"). Denetim taraması bunu KAÇIRMIŞTI çünkü
+// panel varsayılan olarak KAPALI — probe hiç açmadı, ekran görüntüsü yakaladı.
+import { renderInlineMarkdown } from './tefekkur/inlineMarkdown';
 import CrossToolCTA from './CrossToolCTA';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN } from '../lib/surahNames';
 
@@ -445,14 +449,14 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
         {/* Summary */}
         {summary && (
           <Block label={language === 'tr' ? 'Özet' : 'Summary'}>
-            <div style={{ color: COLORS.offWhite, fontSize: '0.86rem', lineHeight: 1.65 }}>{summary}</div>
+            <div style={{ color: COLORS.offWhite, fontSize: '0.86rem', lineHeight: 1.65 }}>{renderInlineMarkdown(summary)}</div>
           </Block>
         )}
 
         {/* Wow note */}
         {wowNote && (
           <Block label={language === 'tr' ? 'Dikkat çekici' : 'Wow'} accent>
-            <div style={{ color: COLORS.offWhite, fontSize: '0.84rem', lineHeight: 1.65, fontStyle: 'italic' }}>{wowNote}</div>
+            <div style={{ color: COLORS.offWhite, fontSize: '0.84rem', lineHeight: 1.65, fontStyle: 'italic' }}>{renderInlineMarkdown(wowNote)}</div>
           </Block>
         )}
 
@@ -460,7 +464,7 @@ function DetailPanel({ cluster, onClose, language, isMobile, clustersById }) {
         {c.sources?.length > 0 && (
           <Block label={language === 'tr' ? 'Kaynaklar' : 'Sources'}>
             <ul style={{ margin: 0, padding: '0 0 0 18px', color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.65 }}>
-              {c.sources.map((s, i) => <li key={i}>{s}</li>)}
+              {c.sources.map((s, i) => <li key={i}>{renderInlineMarkdown(s)}</li>)}
             </ul>
           </Block>
         )}

@@ -196,6 +196,22 @@ function StatCard({ label, isMobile, onClick, active }) {
   );
 }
 
+// 2026-08-14 (Z3e2): bu harita tek dilliydi ve İngilizce sayfada da Türkçe
+// basıyordu — `/en/atlas/doga`'da "Sûre Adı", "Kıssa" görünüyordu (ölçüldü).
+// Dosyada zaten `ANIMAL_FILTER_LABELS_EN` vardı; bağlam rozetleri unutulmuş.
+const CTX_LABELS_EN = {
+  'delil':           'Evidence',
+  'kissa':           'Narrative',
+  'haram-helal':     'Lawful/Forbidden',
+  'cennet-cehennem': 'Paradise/Hell',
+  'sure-adi':        'Surah Name',
+  'mecaz':           'Metaphor',
+  'hapax':           'Hapax',
+  'cennet':          'Paradise',
+  'cehennem':        'Hell',
+  'dunya':           'World',
+  'yemin':           'Oath',
+};
 const CTX_LABELS = {
   'delil':           'Delil',
   'kissa':           'Kıssa',
@@ -260,7 +276,7 @@ function ContextBadge({ ctx, colorMap, language }) {
         color,
         border: `1px solid ${color}55`,
       }}>
-        {CTX_LABELS[ctx] ?? ctx}
+        {(language === 'en' ? CTX_LABELS_EN[ctx] : CTX_LABELS[ctx]) ?? CTX_LABELS[ctx] ?? ctx}
       </span>
       {showTooltipTrigger && (
         <span

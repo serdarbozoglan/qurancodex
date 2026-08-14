@@ -385,101 +385,67 @@
     },
     {
       "type": "morphologyTable",
-      "titleTr": "Kök · katman · beklenen iş · geçiş sayısı",
-      "titleEn": "Root · layer · work demanded · occurrences",
-      "columnsTr": [
-        "Fiil",
-        "Kök",
-        "Katman",
-        "İstenen zihinsel iş",
-        "Geçiş"
-      ],
-      "columnsEn": [
-        "Verb",
-        "Root",
-        "Layer",
-        "Mental work demanded",
-        "Count"
-      ],
+      "captionTr": "Kalıp · Anlam · Âyet Örnekleri",
+      "captionEn": "Pattern · Meaning · Verse Examples",
       "rows": [
         {
-          "cellsTr": [
-            "Tefakkuh",
-            "ف ق ه",
-            "Donanım",
-            "Nüfuz et — özüne ulaş",
-            "20 (17'si olumsuz)"
-          ],
-          "cellsEn": [
-            "Tafaqquh",
-            "f-q-h",
-            "Hardware",
-            "Penetrate — reach the essence",
-            "20 (17 negative)"
+          "ar": "يَفْقَهُونَ",
+          "patternTr": "**tefakkuh** · ف ق ه — DONANIM",
+          "patternEn": "**tafaqquh** · f-q-h — HARDWARE",
+          "meaningTr": "Nüfuz et, özüne ulaş. **20 geçişin 17'si olumsuz** — kapasite arızasıyla tanınır.",
+          "meaningEn": "Penetrate, reach the essence. **17 of 20 occurrences are negative** — the capacity is known by its failure.",
+          "verses": [
+            "7:179",
+            "17:44",
+            "9:122"
           ]
         },
         {
-          "cellsTr": [
-            "Tefekkür",
-            "ف ك ر",
-            "İşlem",
-            "Model kur, senaryo çalıştır",
-            "18"
-          ],
-          "cellsEn": [
-            "Tafakkur",
-            "f-k-r",
-            "Operation",
-            "Build a model, run a scenario",
-            "18"
+          "ar": "يَتَفَكَّرُونَ",
+          "patternTr": "**tefekkür** · ف ك ر — İŞLEM",
+          "patternEn": "**tafakkur** · f-k-r — OPERATION",
+          "meaningTr": "Model kur, senaryo çalıştır, kefeleri tart. Yanında **meseller** gelir.",
+          "meaningEn": "Build a model, run a scenario, weigh the pans. It comes with **parables**.",
+          "verses": [
+            "59:21",
+            "2:219",
+            "16:11"
           ]
         },
         {
-          "cellsTr": [
-            "Taakkul",
-            "ع ق ل",
-            "İşlem",
-            "İki ucu düğümle",
-            "49"
-          ],
-          "cellsEn": [
-            "Taʿaqqul",
-            "ʿ-q-l",
-            "Operation",
-            "Tie the two ends",
-            "49"
+          "ar": "تَعْقِلُونَ",
+          "patternTr": "**taakkul** · ع ق ل — İŞLEM",
+          "patternEn": "**taʿaqqul** · ʿ-q-l — OPERATION",
+          "meaningTr": "İki ucu düğümle. Kök imgesi ***ikāl***: devenin dizini bağlayan köstek.",
+          "meaningEn": "Tie the two ends. The root image is ***ʿiqāl***: the hobble that ties a camel's knee.",
+          "verses": [
+            "2:164",
+            "2:44",
+            "16:12"
           ]
         },
         {
-          "cellsTr": [
-            "Tedebbür",
-            "د ب ر",
-            "İşlem",
-            "Sözün arkasına geç (**yalnız söz**)",
-            "4"
-          ],
-          "cellsEn": [
-            "Tadabbur",
-            "d-b-r",
-            "Operation",
-            "Pass behind the word (**speech only**)",
-            "4"
+          "ar": "يَتَدَبَّرُونَ",
+          "patternTr": "**tedebbür** · د ب ر — İŞLEM",
+          "patternEn": "**tadabbur** · d-b-r — OPERATION",
+          "meaningTr": "Sözün arka odasına gir. **4 geçiş, dördünde de nesne söz** — tabiat tedebbür edilmez.",
+          "meaningEn": "Enter the room behind the words. **4 occurrences, in all four the object is speech** — nature is not subjected to it.",
+          "verses": [
+            "4:82",
+            "47:24",
+            "38:29"
           ]
         },
         {
-          "cellsTr": [
-            "Tezekkür",
-            "ذ ك ر",
-            "Çıktı",
-            "Geri çağır (**hiç emredilmez**)",
-            "51"
-          ],
-          "cellsEn": [
-            "Tadhakkur",
-            "dh-k-r",
-            "Output",
-            "Retrieve (**never commanded**)",
-            "51"
+          "ar": "تَذَكَّرُوا",
+          "patternTr": "**tezekkür** · ذ ك ر — ÇIKTI",
+          "patternEn": "**tadhakkur** · dh-k-r — OUTPUT",
+          "meaningTr": "Geri çağır. **51 geçiş ve hiç emredilmez** — umulur, davet edilir.",
+          "meaningEn": "Retrieve. **51 occurrences and never commanded** — hoped for, invited.",
+          "verses": [
+            "7:201",
+            "56:62",
+            "16:13"
           ]
         }
       ]

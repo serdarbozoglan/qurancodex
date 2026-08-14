@@ -106,10 +106,43 @@ const NODE_LABELS = {
   'son-nuh':           ["Nûh'un", 'Oğlu'],
 };
 
-function getNodeLabel(speaker) {
-  const mapped = NODE_LABELS[speaker.id];
+// EN karşılığı 2026-08-14'te eklendi. Öncesinde bu harita dil kontrolünden
+// ÖNCE devreye giriyordu, bu yüzden `nameEn` düzeltmesi tek başına yetmedi:
+// grafik düğümleri hâlâ "Münafıklar" yazıyordu (ölçüldü).
+const NODE_LABELS_EN = {
+  'allah':             ['Allah', ''],
+  'muhammad':          ['Muhammad', '(pbuh)'],
+  'adam':              ['Adam', ''],
+  'nuh':               ['Noah', ''],
+  'ibrahim':           ['Abraham', ''],
+  'musa':              ['Moses', ''],
+  'isa':               ['Jesus', ''],
+  'yusuf':             ['Joseph', ''],
+  'sulayman':          ['Solomon', ''],
+  'paradise-dwellers': ['People of', 'Paradise'],
+  'hell-dwellers':     ['People of', 'Hell'],
+  'araf-dwellers':     ['People of', "al-A'raf"],
+  'other-prophets':    ['Other', 'Prophets'],
+  'other-characters':  ['Other', 'Figures'],
+  'people-prophets':   ['Peoples', ''],
+  'munafiqun':         ['Hypocrites', ''],
+  'muminun':           ['Believers', ''],
+  'people-isa':        ['People of', 'Jesus'],
+  'brothers':          ["Joseph's", 'Brothers'],
+  'arrogant-leaders':  ['Arrogant', 'Leaders'],
+  'all-humanity':      ['All', 'Humanity'],
+  'son-nuh':           ["Noah's", 'Son'],
+};
+
+// `language` 2026-08-14'te eklendi (Z3e2): etiket HER ZAMAN `nameTr`'den
+// üretiliyordu, bu yüzden `/en/graf/diyalog`'un graf düğümlerinde Türkçe
+// adlar görünüyordu ("Diğer Peygamberler", "Münafıklar" — ölçüldü).
+// Veride `nameEn` zaten vardı, okunmuyordu.
+function getNodeLabel(speaker, language = 'tr') {
+  const mapped = (language === 'en' ? NODE_LABELS_EN[speaker.id] : null) || NODE_LABELS[speaker.id];
   if (mapped) return mapped;
-  const clean = speaker.nameTr.replace(/\s*\(.*?\)\s*$/, '').trim();
+  const raw = (language === 'en' ? speaker.nameEn : speaker.nameTr) || speaker.nameTr;
+  const clean = raw.replace(/\s*\(.*?\)\s*$/, '').trim();
   const parts = clean.split(' ');
   return parts.length <= 2 ? [clean, ''] : [parts.slice(0, 2).join(' '), parts.slice(2).join(' ')];
 }
@@ -513,7 +546,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
               const fontSize = isMobile ? 9 / scale : 11 / scale;
               const [line1, line2] = isMobile
                 ? [(language === 'tr' ? speaker.nameTr : speaker.nameEn).slice(0, 7), '']
-                : getNodeLabel(speaker);
+                : getNodeLabel(speaker, language);
 
               return (
                 <g key={speaker.id}
