@@ -4,7 +4,14 @@
 // Kullanım:
 //   node scripts/measure-vitals.mjs                    # varsayılan sayfa seti
 //   node scripts/measure-vitals.mjs /tr /tr/oku/1      # belirli rotalar
+//   node scripts/measure-vitals.mjs --full             # 70 rota × 2 dil (~140 sayfa)
 //   PORT=3210 node scripts/measure-vitals.mjs
+//
+// 14 Ağustos: CWV bu tarihe kadar YALNIZ anasayfada (/tr, /en) ölçülmüştü —
+// kontrastta olduğu gibi 73 sayfa tamamen bilinmeyendi. `--full` bunu kapatır:
+// `audit-contrast.mjs`'teki allRoutes() ile AYNI rota keşfi, sonuç
+// `tests/__baseline__/vitals.json`'a yazılır (analiz için, konsol taşmasın diye
+// --full modunda kontrast dökümü atlanır — o zaten audit-contrast.mjs'in işi).
 //
 // Neden ayrı script (Playwright spec değil): ölçüm ÜRETİM sunucusuna karşı
 // yapılmalı. Playwright config'i dev sunucusuna bağlı; oradan ölçmek yanıltır
@@ -14,14 +21,43 @@
 // ÖNCEDEN çalıştırılmış olmalı.
 // ────────────────────────────────────────────────────────────────────────────
 
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
 import { VITALS_INIT, VITALS_READ, verdict } from '../tests/lib/vitals.mjs';
 import { CONTRAST_PROBE } from '../tests/lib/contrast.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const BASELINE = path.join(ROOT, 'tests/__baseline__/vitals.json');
+
 const PORT = process.env.PORT || 3210;
 const BASE = `http://localhost:${PORT}`;
-const ROUTES = process.argv.slice(2).length ? process.argv.slice(2) : ['/tr', '/en'];
+const args = process.argv.slice(2);
+const FULL = args.includes('--full');
+const cliRoutes = args.filter((a) => !a.startsWith('--'));
+
+function allRoutes() {
+  const dir = path.join(ROOT, 'src/app/[locale]');
+  const out = [];
+  (function walk(d, rel = '') {
+    for (const f of fs.readdirSync(d)) {
+      const p = path.join(d, f);
+      if (fs.statSync(p).isDirectory()) {
+        if (f.startsWith('[')) continue;              // dinamik rota: örneklem dışı
+        walk(p, rel + '/' + f);
+      } else if (f === 'page.js') out.push(rel || '');
+    }
+  })(dir);
+  return out.sort();
+}
+
+const ROUTES = FULL
+  ? ['tr', 'en'].flatMap((l) => allRoutes().map((r) => `/${l}${r}`))
+  : (cliRoutes.length ? cliRoutes : ['/tr', '/en']);
+
 const VIEWPORTS = [
   { name: 'mobil-390', width: 390, height: 844, cpu: 4 },
   { name: 'masaüstü-1440', width: 1440, height: 900, cpu: 1 },
@@ -70,8 +106,11 @@ for (const route of ROUTES) {
     console.log(bad.length ? `   ❌ ${bad.join(' · ')}` : '   ✓ dört eşik de geçildi');
     summary.push({ route, vp: vp.name, ...m, bad });
 
-    // Kontrast yalnız masaüstünde (aynı DOM, iki kez taramaya gerek yok)
-    if (vp.width === 1440) {
+    // Kontrast yalnız masaüstünde (aynı DOM, iki kez taramaya gerek yok).
+    // --full modunda atlanır: kontrast zaten audit-contrast.mjs'in işi ve o
+    // reducedMotion context'i kullanıyor (bkz. K6), burada kullanmadığımız
+    // için sayı yanıltıcı olurdu.
+    if (vp.width === 1440 && !FULL) {
       const c = await page.evaluate(CONTRAST_PROBE);
       const sure = c.filter((x) => !x.approx);
       const approx = c.filter((x) => x.approx);
@@ -98,4 +137,16 @@ server.kill();
 const failing = summary.filter((s) => s.bad.length);
 console.log('═══ ÖZET ═══');
 console.log(`${summary.length} ölçüm · ${failing.length} tanesi bir veya daha fazla eşiği aşıyor`);
+
+if (FULL) {
+  fs.mkdirSync(path.dirname(BASELINE), { recursive: true });
+  fs.writeFileSync(BASELINE, JSON.stringify({
+    at: new Date().toISOString().slice(0, 10),
+    pages: ROUTES.length,
+    measurements: summary.length,
+    failing: failing.length,
+    summary,
+  }, null, 1));
+  console.log(`\n📌 yazıldı: ${BASELINE}`);
+}
 process.exit(0);
