@@ -6326,7 +6326,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         )}
 
         {loading && (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '20px' }}>
+          // minHeight: '100%' (60vh DEĞİL) — bu kapsayıcı zaten flex:1/
+          // overflowY:auto scroll alanının içinde; iskeletin en az o alan
+          // kadar yer kaplaması, gerçek ayet içeriği gelince kapsayıcının
+          // aniden büyümesini/küçülmesini önler (CLS, Z3-V kök #2).
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100%', gap: '20px' }}>
             <div style={{
               width: '48px', height: '48px', borderRadius: RADIUS.full,
               border: `3px solid ${dayMode ? 'rgba(100,60,10,0.12)' : 'rgba(212,165,116,0.12)'}`,
