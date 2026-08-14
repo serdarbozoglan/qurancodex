@@ -1078,9 +1078,31 @@ aynı ailenin bir örneği. Gerçek çözüm ya veriyi sunucu tarafında
 (RSC/`fetch` build-time) sağlamak ya da iskeletin son içerikle **aynı
 boyutu** ayırması — ikisi de bu turun kapsamı dışında, kendi turunu
 gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
-- [ ] **Sonraki tur:** veri-yükleme iskeleti ↔ gerçek içerik boyut
-      uyuşmazlığı — önce `/tr/oku` (korunan amiral gemisi sayfa), sonra
-      `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/*` ailesi.
+- [x] ~~**`/oku` — dış iskelet (kısmi)**~~ — **KAPANDI** `5064341`. İki
+      güvenli, izole düzeltme (kullanıcı onayıyla kapsam "sadece iskelet
+      boyutu"na sınırlandı): (1) `ReadingModeRoute.jsx` (× iki route,
+      `/oku` + `/oku/[surah]`) dynamic import'unun `loading: () => null`
+      fallback'i — JS chunk inene kadar ekranda HİÇBİR ŞEY yoktu, sonra
+      tam-viewport ReadingMode aniden beliriyordu (en sert sıçrama türü:
+      boş→dolu). Yeni `ReadingModeSkeleton.jsx` aynı konum/boyutu
+      (`position:fixed, inset:0`) ve gündüz-modu varsayılan zeminini
+      (`#f4f0e0`) taklit ediyor. (2) ReadingMode'un kendi iç `loading`
+      spinner'ı `height:'60vh'` sabitiydi (scroll container'ın gerçek
+      yüksekliğinden farklı) → `minHeight:'100%'`.
+      Ölçülen (`scratch-cls.mjs`, throttled mobil 390px): **0.918 → 0.788**
+      (~%14 iyileşme, regresyon yok — build temiz, 4 rota HTTP 200 + sıfır
+      konsol hatası, `audit-colors --ci` 179/182).
+      **Kalan asıl büyük sıçrama (0.716) FARKLI bir kaynaktan geliyor ve
+      kapsam dışı bırakıldı:** ayet-içerik sarmalayıcısı (`bookMode ? ... :
+      ...` dalı) her zaman DOM'da ama `verses` verisi (`useState(null)` +
+      `.then(setVerses)`) gelene kadar `.map()` boş dönüyor → 0-yükseklik;
+      veri gelince `390x714px`'e aniden sıçrıyor. Bunu kapatmak
+      ReadingMode'un ÇEKİRDEK render alanına (11k+ satır) sentetik
+      `minHeight` eklemeyi gerektiriyor — kısa sûrelerde "boş görünme"
+      riski taşıyan, daha derin bir müdahale; kullanıcı onayıyla BURADA
+      DURULDU. **Sonraki tur (hâlâ açık):** bu içerik-alanı minHeight'ı +
+      `neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/*` ailesi
+      (aynı `useState(null)+useEffect fetch` kalıbı, henüz hiç dokunulmadı).
 - [ ] TBT ihlalleri (7 ölçüm) — ayrıca incelenmedi, CLS'in yanında ikincil.
 - [ ] Kullanıcı notu: **"mobildeki yavaşlığı da çözelim"** — CWV'de LCP/FCP
       temiz çıktığı için bu his muhtemelen CLS'in kendisi (sayfa "zıplıyor"
