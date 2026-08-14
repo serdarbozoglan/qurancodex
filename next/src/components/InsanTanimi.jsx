@@ -198,9 +198,8 @@ function EquationTab({ tr, isMobile, data }) {
       </div>
 
       {/* Formula visual */}
-      <div style={{
+      <div className="g-1-4" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
         gap: isMobile ? '14px' : '14px',
         marginBottom: '28px',
       }}>
@@ -339,9 +338,8 @@ function ScholarsTab({ tr, isMobile, scholars }) {
         </p>
       </div>
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: isMobile ? '14px' : '18px',
       }}>
         {scholars.map((s, i) => (

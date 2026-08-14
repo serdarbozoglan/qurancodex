@@ -407,8 +407,8 @@ export default function QuranCommands({ onClose }) {
           padding: '20px 0',
           position: 'sticky', top: '110px', alignSelf: 'flex-start',
           maxHeight: 'calc(100vh - 220px)', overflowY: 'auto',
-          display: isMobile ? 'none' : 'block',
-        }}>
+        }}
+        className="dsp-block">
           {categories.map(cat => {
             const isActive = cat.id === activeId;
             const catCommands = cat.commands || [];

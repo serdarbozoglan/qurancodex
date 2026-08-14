@@ -138,14 +138,13 @@ function HubHero({ hubData, language, isMobile }) {
 function AbdCoreSection({ abdCore, language, isMobile }) {
   if (!abdCore) return null;
   return (
-    <div style={{
+    <div className="ih-abdcore-grid" style={{
       margin: '20px 0 56px',
       padding: isMobile ? '32px 20px' : '48px 40px',
       background: 'linear-gradient(135deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: RADIUS.md,
       display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : '260px 1fr',
       gap: isMobile ? '28px' : '48px',
       alignItems: 'center',
     }}>
@@ -735,9 +734,8 @@ function ZamanEkseniSection({ data, language, isMobile }) {
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
         {language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}
       </p>
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid', gap: '18px',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
       }}>
         {data.phases.map((p, i) => {
           const isMedina = p.phase === 'Medine';

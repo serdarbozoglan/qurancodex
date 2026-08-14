@@ -105,9 +105,8 @@ export default function AllTopics() {
           we stack them vertically with a horizontal divider. */}
       <motion.div
         variants={fadeUpItem}
+        className="at-inline-stack"
         style={{
-          display: isMobile ? 'flex' : 'inline-flex',
-          flexDirection: isMobile ? 'column' : 'row',
           alignItems: isMobile ? 'stretch' : 'center',
           gap: isMobile ? '10px' : '14px',
           flexWrap: isMobile ? 'nowrap' : 'wrap',

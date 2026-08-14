@@ -174,9 +174,9 @@ export default function AddresseeSystem({ onClose }) {
           Masaüstünde sayılı sidebar navigasyonu üstleniyor; çip sırası da
           görününce çift navigasyon oluyordu (§14.3 sidebar kuralı: sidebar
           desktop, chip row mobil). Masaüstünde gizlendi (2026-07-24). */}
-      <div style={{
+      <div className="dsp-flex-mobile-only" style={{
         flexShrink: 0,
-        display: isMobile ? 'flex' : 'none', gap: '6px', overflowX: 'auto',
+        gap: '6px', overflowX: 'auto',
         padding: '10px 20px',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
         background: 'rgba(0,0,0,0.2)',
@@ -211,12 +211,12 @@ export default function AddresseeSystem({ onClose }) {
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
         {/* Sidebar — hidden on mobile, chip row handles navigation there */}
-        <div style={{
+        <div className="dsp-flex" style={{
           width: '200px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.06)',
           background: 'rgba(255,255,255,0.02)',
           overflowY: 'auto',
-          display: isMobile ? 'none' : 'flex', flexDirection: 'column',
+          flexDirection: 'column',
           padding: '12px 0',
         }}>
           <div style={{

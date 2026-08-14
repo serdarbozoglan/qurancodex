@@ -365,9 +365,8 @@ function FamilyView({ aile, expandedIdx, onToggle, language, isMobile }) {
         </div>
       </div>
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '14px', marginBottom: '24px',
       }}>
         <div style={{

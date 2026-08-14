@@ -116,9 +116,9 @@ export default function RecentBookmarksStrip() {
         </Link>
       </div>
 
-      <div style={{
+      <div className="g-dyn" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : `repeat(${bookmarks.length}, 1fr)`,
+        '--cols': bookmarks.length,
         gap: 8,
       }}>
         {bookmarks.map((bm) => {

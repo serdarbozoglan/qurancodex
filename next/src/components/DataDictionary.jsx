@@ -62,9 +62,9 @@ export default function DataDictionary({
           }}
         >
           <div
+            className="ddict-term-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : '150px 1fr',
               gap: isMobile ? '4px 0' : '10px 18px',
             }}
           >

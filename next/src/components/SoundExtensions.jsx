@@ -293,9 +293,8 @@ export default function SoundExtensions({ language, isMobile }) {
 function PairDisplay({ pair, language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="g-1-2" style={{
       display: 'grid', gap: '18px',
-      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
       marginTop: '10px',
     }}>
       <SideCard side={pair.left}  language={language} label={tr ? 'SOL' : 'LEFT'} />

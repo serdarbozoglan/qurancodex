@@ -57,9 +57,8 @@ function OnIkiHileWidget({ language, isMobile }) {
         </p>
       </div>
 
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '8px',
       }}>
         {mechanisms.map(m => (

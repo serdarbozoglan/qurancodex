@@ -475,9 +475,9 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                   so they stretch across the full grid width even on desktop.
               */}
               <div
+                className="g-1-2"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
                   alignItems: 'stretch',
                   gap: '14px',
                   padding: '20px 24px 24px',

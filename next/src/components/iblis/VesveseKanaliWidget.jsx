@@ -149,9 +149,8 @@ function VesveseKanaliWidget({ language, isMobile }) {
           color: COLORS.gold, fontWeight: 700, marginBottom: '10px',
           fontFamily: FONTS.body, textAlign: 'center',
         }}>{tr ? "ANTİDOT · 4 KUR'ÂNÎ SIĞINAK" : "ANTIDOTE · 4 QUR'ĀNIC REFUGES"}</div>
-        <div style={{
+        <div className="g-2-4" style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
           gap: '8px',
         }}>
           {antidotes.map((a, i) => {

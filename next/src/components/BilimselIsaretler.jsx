@@ -531,9 +531,8 @@ function TimelineTab({ isaretler, domains, language, isMobile }) {
           {items.map((it, i) => {
             const domain = domains.find(d => d.id === it.domainId);
             return (
-              <div key={i} style={{
+              <div key={i} className="icon-label-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '64px 1fr' : '80px 1fr',
                 gap: '14px', alignItems: 'flex-start',
                 padding: '10px 12px', borderRadius: RADIUS.sm,
               }}>

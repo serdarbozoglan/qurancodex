@@ -512,8 +512,8 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
           pointerEvents: 'none',
         }} />
 
-        <div style={{
-          display: 'flex', flexDirection: isMobile ? 'column' : 'row',
+        <div className="fd-row" style={{
+          display: 'flex',
           alignItems: isMobile ? 'flex-start' : 'center',
           gap: isMobile ? 20 : 32, position: 'relative',
         }}>
@@ -637,11 +637,11 @@ function SemanticMap({ group, language, isMobile }) {
   const inner = size - pad * 2;
 
   return (
-    <div style={{
+    <div className="fd-row" style={{
       background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 100%)',
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: 12, padding: 20,
-      display: 'flex', flexDirection: isMobile ? 'column' : 'row',
+      display: 'flex',
       alignItems: 'center', gap: 20,
     }}>
       <div style={{ flexShrink: 0 }}>

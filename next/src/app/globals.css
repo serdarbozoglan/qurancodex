@@ -1060,6 +1060,11 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .dsp-flex {
   display: flex;
 }
+.dsp-flex-mobile-only {
+  /* isMobile ? 'flex' : 'none' — masaüstünde gizli, mobilde görünür
+     (chip-row / sidebar §14.3 kalıbının tersi). */
+  display: none;
+}
 .dsp-none {
   display: none;
 }
@@ -1142,6 +1147,9 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .dsp-flex {
     display: none;
   }
+  .dsp-flex-mobile-only {
+    display: flex;
+  }
   .dsp-block {
     display: none;
   }
@@ -1150,6 +1158,14 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   }
 }
 
+.zb-formula-grid {
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+}
+@media (max-width: 640px) {
+  .zb-formula-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* ─── "1fr auto 1fr" karşılaştırma düzeni — 7 dosyada tekrar eden 3'lü
    kombo (display + flexDirection + gridTemplateColumns birlikte
    `isMobile`'a bağlıydı). Tek sınıf üçünü birden kapsar. */
@@ -1175,6 +1191,25 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .ip-stage-grid {
   grid-template-columns: 40px 100px 1fr;
 }
+.icon-label-grid {
+  grid-template-columns: 80px 1fr;
+}
+.ddict-term-grid {
+  grid-template-columns: 150px 1fr;
+}
+.ih-abdcore-grid {
+  grid-template-columns: 260px 1fr;
+}
+.at-inline-stack {
+  display: inline-flex;
+  flex-direction: row;
+}
+@media (max-width: 640px) {
+  .at-inline-stack {
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media (max-width: 640px) {
   .qd-tri-minmax {
     grid-template-columns: minmax(0, 1fr);
@@ -1187,6 +1222,15 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   }
   .ip-stage-grid {
     grid-template-columns: 32px 1fr;
+  }
+  .icon-label-grid {
+    grid-template-columns: 64px 1fr;
+  }
+  .ddict-term-grid {
+    grid-template-columns: 1fr;
+  }
+  .ih-abdcore-grid {
+    grid-template-columns: 1fr;
   }
 }
 .cc-hero-banner {

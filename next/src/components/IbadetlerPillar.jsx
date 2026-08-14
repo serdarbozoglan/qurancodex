@@ -845,10 +845,9 @@ function TabMimari({ data, language, isMobile }) {
           </p>
         </div>
       )}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
         gap: '20px',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
       }}>
         <SidePanel side={data.kuraniSide} language={language} accent={COLORS.gold} />
         <SidePanel side={data.sunnetSide} language={language} accent="#2ecc71" />

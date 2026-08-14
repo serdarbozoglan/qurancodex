@@ -678,9 +678,8 @@ export default function ZamanBoyutlari({ onClose }) {
               </div>
 
               {/* Cards */}
-              <div style={{
+              <div className="g-1-2" style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
                 gap: '12px',
               }}>
                 {items.map(item => (
@@ -806,9 +805,8 @@ export default function ZamanBoyutlari({ onClose }) {
           </p>
 
           {/* 3-step formula */}
-          <div style={{
+          <div className="zb-formula-grid" style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr auto 1fr auto 1fr',
             gap: isMobile ? '10px' : '14px',
             alignItems: 'stretch',
             maxWidth: '840px', margin: '0 auto',

@@ -394,12 +394,12 @@ export default function Hero() {
             ─ Bottom: iOS safe-area-inset-bottom + 28px ile home indicator/Safari
               toolbar arkasında kalmaz. */}
         <div
+          className="dsp-flex"
           style={{
             position: 'absolute',
             bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '40px',
             left: 0,
             right: 0,
-            display: isMobile ? 'none' : 'flex',
             justifyContent: 'center',
             pointerEvents: 'none',
           }}

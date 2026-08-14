@@ -357,9 +357,9 @@ export default function HiddenArchitecture() {
             return (
               <div
                 key={pair.idx}
+                className="fd-row"
                 style={{
                   display: 'flex',
-                  flexDirection: isMobile ? 'column' : 'row',
                   alignItems: isMobile ? 'stretch' : 'center',
                   gap: isMobile ? '6px' : '10px',
                   marginBottom: isMobile ? '14px' : '10px',

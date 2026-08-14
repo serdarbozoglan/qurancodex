@@ -859,10 +859,9 @@ export default function HumanDefinition() {
               >
                 {/* M-Y1: §14.4 üçlü panel — mobile column stack, desktop row */}
                 <div
-                  className="flex items-stretch"
+                  className="flex items-stretch fd-row"
                   style={{
                     minHeight: '80px',
-                    flexDirection: isMobile ? 'column' : 'row',
                   }}
                 >
                   {/* Positive side — gradient background */}

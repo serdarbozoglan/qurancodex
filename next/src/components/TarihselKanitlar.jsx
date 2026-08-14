@@ -697,9 +697,9 @@ function TimelineTab({ timeline, language, isMobile }) {
               <div key={i}
                 onMouseEnter={() => setHoveredIdx(i)}
                 onMouseLeave={() => setHoveredIdx(null)}
+                className="icon-label-grid"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: isMobile ? '64px 1fr' : '80px 1fr',
                   gap: '12px', alignItems: 'center',
                   padding: '8px 10px', cursor: 'default',
                   background: isHover ? `${t.color}10` : 'transparent',
@@ -770,9 +770,8 @@ function ScholarsTab({ scholars, language, isMobile }) {
           ? 'Klasik tefsir (İbn Kesîr, Elmalılı) ve modern akademik Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) alanının önde gelen 6 referansı — Tarihsel İzler araştırmasının epistemik omurgası.'
           : 'Six leading references from classical tafsir (Ibn Kathīr, Elmalılı) and modern academic Islamic Studies (Christian Robin, Nicolai Sinai, François Déroche) — the epistemic backbone of Historical Traces research.'}
       </p>
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
         gap: '16px',
       }}>
         {scholars.map(s => (

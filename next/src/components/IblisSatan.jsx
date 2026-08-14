@@ -386,10 +386,9 @@ export default function IblisSatan({ onClose }) {
 
       <motion.div
         initial="hidden" animate="visible" variants={fadeUpItem}
-        className="mb-20"
+        className="mb-20 g-2-4"
         style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
           borderTop: `1px solid ${COLORS.goldAlpha25}`,
           borderBottom: `1px solid ${COLORS.goldAlpha25}`,
         }}

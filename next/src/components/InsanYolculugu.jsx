@@ -243,10 +243,9 @@ export default function InsanYolculugu({ onClose }) {
           )}
 
           {/* ─── Body: sticky timeline (desktop) + detail panel ─────── */}
-          <div style={{
+          <div className="fd-row" style={{
             flex: 1,
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
             minHeight: 0,
             maxWidth: '1280px',
             width: '100%',
@@ -549,9 +548,8 @@ function StageDetail({ stage, isEn, isMobile }) {
       )}
 
       {/* Practice + Obstacle 2-col grid */}
-      <div style={{
+      <div className="g-1-2" style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '16px', marginBottom: '20px',
       }}>
         <div style={{ ...GLASS_CARD, padding: '18px' }}>
