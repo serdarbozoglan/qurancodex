@@ -978,7 +978,7 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
       §13.24 "confirmed by archaeology" kalıbını **isim isim** yasaklıyor
       (tasdikin öznesi arkeoloji olamaz). Hedef sayfanın (`tarihsel-kanitlar`)
       içeriği 26 Temmuz'da düzeltilmiş; **ona giden kartın metni düzeltilmemiş.**
-- [~] **Z3d3 · §13.15 — 9 okuma-dışı JSON'da Uthmani karakter** — **KISMEN KAPANDI** (14 Ağustos)
+- [x] ~~**Z3d3 · §13.15 — 9 okuma-dışı JSON'da Uthmani karakter**~~ — **KAPANDI** (14 Ağustos)
       472 JSON tarandı. `corpus/*` ve `verse-graph-bgem3` **muaf** (CSS tecvid
       overlay pipeline'ı).
       - [x] **`semantic-map.json`** (466) — normalize edildi (192 alan). Not:
@@ -997,12 +997,21 @@ WCAG'ın "devre dışı öge" muafiyetine de girmiyor.
             değil). 8 render noktası (`verseAr`×4, `arabic`×4)
             `cleanArabicForDisplay` ile sarıldı. Doğrulama: "Cennet" ve
             "Kıyamet" sekmeleri canlı test edildi, 0 sorunlu karakter, 0 hata.
-      - [ ] **`ilk-son-kelimeler.json`** (1.062) + **`-spotlights.json`** (21) +
-            **`nefis-mertebeleri.json`** (17) — JSON henüz normalize edilmedi.
-            Düşük öncelik: her ikisinin de runtime koruması VAR (`IlkSonKelimeler.jsx`
-            8× `cleanArabicMinimal`, `NefisMertebeleri.jsx` 2× `cleanArabicForDisplay`)
-            — ekranda risk yok, yalnız "JSON'a yazmadan önce normalize" kuralı
-            teknik olarak hâlâ ihlalde. Ayrı bir turda kapatılabilir.
+      - [x] **`ilk-son-kelimeler.json`** + **`-spotlights.json`** — runtime'ın
+            kendi kullandığı **`cleanArabicMinimal`** ile (dosya bazında değil,
+            TÜM ham metne tek geçiş regex uygulanarak — alan-alan yaklaşım
+            deneme turunda substring çakışması yüzünden 74 alanı atlıyordu,
+            bu yöntem o riski tamamen ortadan kaldırıyor) normalize edildi.
+            ⚠ Kasıtlı: `cleanArabicMinimal` tajwid/waqf aralığını (ۖ-ۭ vb.)
+            hiç temizlemiyor — bu bilinçli, hafif bir fonksiyon (bkz.
+            `lib/arabic.js` başlık yorumu). Bu yüzden 545/1 karakter **kasıtlı
+            olarak kaldı** — bug değil, mevcut (ölçülmüş, 0 tofu) davranışla
+            birebir eşleşiyor. Daha güçlü bir fonksiyona geçmek ayrı, görsel
+            doğrulama gerektiren bir karar.
+      - [x] **`nefis-mertebeleri.json`** — `cleanArabicForDisplay` ile tam
+            temizlendi (kalan 0). Doğrulama: `/arac/ilk-son-kelimeler`
+            (275 [lang=ar] öge) ve nefis-mertebeleri sayfası canlı test
+            edildi, 0 hata.
       - **`dua-arabic.json`** (71) — todo'daki "runtime: —" notu YANLIŞTI:
             `ProphetAtlas.jsx`'in kendi `cleanDuaAr` fonksiyonu var (kasıtlı,
             "lib'den FARKLI" diye belgelenmiş) — risk düşük, dokunulmadı.
