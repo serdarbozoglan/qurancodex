@@ -816,7 +816,7 @@ export default function WordHeatmap({ onClose }) {
           </div>
 
           {/* Search-scope helper — explains whether we are searching Arabic Quranic text or the translation */}
-          <div style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic', maxWidth: '680px', marginTop: '-4px', flexShrink: 0 }}>
+          <div style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint, fontStyle: 'italic', maxWidth: '680px', marginTop: '-4px', flexShrink: 0 }}>
             {searchTerm && isArabicSearch && resolvedTerm !== searchTerm ? (
               <>
                 {language === 'tr' ? '→ Kur\'an metninde arandı: ' : '→ Searched in Quranic text: '}
@@ -1017,7 +1017,7 @@ export default function WordHeatmap({ onClose }) {
                       <div style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: 'rgba(212,165,116,0.45)', direction: 'rtl', marginBottom: '8px', lineHeight: 1.5 }}>
                         بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ
                       </div>
-                      <div style={{ color: 'rgba(52,152,219,0.7)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>
+                      <div style={{ color: 'rgba(52,152,219,0.9)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '4px' }}>
                         {language === 'tr' ? '114 sûre · 6.236 âyet · her hücre = 1 sûre' : '114 surahs · 6,236 verses · each cell = 1 surah'}
                       </div>
                       <div style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>

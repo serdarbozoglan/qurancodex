@@ -24,7 +24,7 @@ const CITY_COLORS = {
   mecca:    '#c9a227',
   kufa:     '#e67e22',
   basra:    '#3498db',
-  damascus: '#9b59b6',
+  damascus: COLORS.violet,
 };
 
 // ── Diff type colour map ──────────────────────────────────────────────────────
@@ -32,7 +32,7 @@ const DIFF_COLORS = {
   vowel:          '#c9a227',
   consonant:      '#e74c3c',
   pronoun:        '#3498db',
-  'active-passive': '#9b59b6',
+  'active-passive': COLORS.violet,
   word:           '#2ecc71',
 };
 

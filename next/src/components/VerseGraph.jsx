@@ -743,7 +743,7 @@ function SurahDropdown({ value, onChange, language, allowAll = false }) {
     <div ref={containerRef} style={{ position: 'relative' }}>
       <button tabIndex={-1}
         onClick={() => setOpen(o => !o)}
-        style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: value ? COLORS.offWhite : COLORS.slate500, padding: '0 26px 0 10px', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', height: '36px', minWidth: '155px', maxWidth: '195px', textAlign: 'left', position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', boxSizing: 'border-box' }}>
+        style={{ background: 'rgba(255,255,255,0.06)', border: `1px solid ${COLORS.goldAlpha20}`, borderRadius: RADIUS.md, color: value ? COLORS.offWhite : SEMANTIC.textFaint, padding: '0 26px 0 10px', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', height: '36px', minWidth: '155px', maxWidth: '195px', textAlign: 'left', position: 'relative', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', boxSizing: 'border-box' }}>
         {currentLabel}
         <span style={{ position: 'absolute', right: '8px', top: '50%', transform: `translateY(-50%) rotate(${open ? 180 : 0}deg)`, transition: 'transform 0.15s', color: SEMANTIC.textFaint, fontSize: '0.62rem', pointerEvents: 'none' }}>▾</span>
       </button>
@@ -1088,7 +1088,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
           </svg>
           {/* Hint */}
           {!searchQuery && (
-            <div style={{ position: 'absolute', top: '100%', left: '1px', marginTop: '5px', fontSize: '0.78rem', color: '#8a7355', whiteSpace: 'nowrap', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: '100%', left: '1px', marginTop: '5px', fontSize: '0.78rem', color: '#A6875C', whiteSpace: 'nowrap', pointerEvents: 'none' }}>
               {language === 'tr' ? 'örn: Bismillah · Bakara 5 · 2:286 · Fatiha · iman' : 'e.g. Bismillah · Bakara 5 · 2:286 · Fatiha · faith'}
             </div>
           )}
@@ -1397,7 +1397,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                 style={{
                   padding: '7px 14px', borderRadius: RADIUS.md, border: 'none', cursor: 'pointer',
                   background: active ? 'rgba(212,165,116,0.18)' : 'rgba(255,255,255,0.04)',
-                  color: active ? COLORS.gold : 'rgba(148,163,184,0.55)',
+                  color: active ? COLORS.gold : SEMANTIC.textFaint,
                   fontSize: '0.75rem', fontFamily: "'Inter', sans-serif",
                   fontWeight: active ? 600 : 400,
                   outline: active ? '1px solid rgba(212,165,116,0.3)' : '1px solid rgba(255,255,255,0.07)',
@@ -1405,7 +1405,7 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
                   backdropFilter: 'blur(12px)',
                 }}
                 onMouseEnter={e => { if (!active) { e.currentTarget.style.color = '#d4d8e0'; e.currentTarget.style.background = COLORS.glassBgStrong; }}}
-                onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'rgba(148,163,184,0.55)'; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}}
+                onMouseLeave={e => { if (!active) { e.currentTarget.style.color = SEMANTIC.textFaint; e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}}
               >
                 {language === 'tr' ? labelTr : labelEn}
               </button>
@@ -2490,7 +2490,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           </svg>
           {/* Hint text below search bar */}
           {!searchQuery && !selected && (
-            <div style={{ position: 'absolute', top: '100%', left: '1px', marginTop: '5px', fontSize: '0.78rem', color: '#8a7355', whiteSpace: 'nowrap', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: '100%', left: '1px', marginTop: '5px', fontSize: '0.78rem', color: '#A6875C', whiteSpace: 'nowrap', pointerEvents: 'none' }}>
               {language === 'tr' ? 'örn: Bismillah · Bakara 5 · 2:286 · Fatiha · iman' : 'e.g. Bismillah · Bakara 5 · 2:286 · Fatiha · faith'}
             </div>
           )}

@@ -105,7 +105,7 @@ export default function RevelationTimeline({ onClose }) {
             <button key={v} onClick={() => setFilter(v)} style={{
               background: filter === v ? 'rgba(212,165,116,0.18)' : 'transparent',
               border: `1px solid ${filter === v ? 'rgba(212,165,116,0.4)' : 'rgba(212,165,116,0.12)'}`,
-              borderRadius: RADIUS.sm, color: filter === v ? gold : COLORS.slate500,
+              borderRadius: RADIUS.sm, color: filter === v ? gold : SEMANTIC.textFaint,
               cursor: 'pointer', padding: '4px 12px', fontSize: '0.74rem', transition: `all ${TRANSITION.fast}`,
             }}>{l}</button>
           ))}
@@ -115,7 +115,7 @@ export default function RevelationTimeline({ onClose }) {
             <button key={m} onClick={() => setViewMode(m)} style={{
               background: viewMode === m ? COLORS.goldAlpha15 : 'transparent',
               border: `1px solid ${viewMode === m ? 'rgba(212,165,116,0.35)' : 'rgba(212,165,116,0.1)'}`,
-              borderRadius: '5px', color: viewMode === m ? gold : COLORS.slate500,
+              borderRadius: '5px', color: viewMode === m ? gold : SEMANTIC.textFaint,
               cursor: 'pointer', padding: '4px 10px', fontSize: '0.75rem', fontWeight: viewMode === m ? 600 : 400,
             }}>{label}</button>
           ))}

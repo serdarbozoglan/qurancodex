@@ -415,8 +415,8 @@ export default function MunafikProfili({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: '#e74c3c', opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur'an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
-              : <>Not denying belief but <em style={{ fontStyle: 'normal', color: '#e74c3c', opacity: 0.95 }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
+              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur'an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
+              : <>Not denying belief but <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
           </p>
 
           {/* Filigree divider */}
@@ -432,7 +432,7 @@ export default function MunafikProfili({ onClose }) {
             fontSize: '0.68rem', letterSpacing: '0.3em',
             color: COLORS.softRed, textTransform: 'uppercase',
             fontFamily: FONTS.body, fontWeight: 700,
-            opacity: 0.72,
+            opacity: 0.85,
             marginBottom: '14px',
             textAlign: 'center',
           }}>
