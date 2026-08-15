@@ -1895,11 +1895,14 @@ function TabKiyamet({ language, isMobile }) {
   );
 }
 
-function TabDilbilim({ language, isMobile }) {
-  const tr = language === 'tr';
-
-  // Premium section wrapper — reusable across all 5 sections
-  const SectionShell = ({ letter, accent, eyebrowTr, eyebrowEn, titleTr, titleEn, descTr, descEn, children }) => (
+// Premium section wrapper — reusable across all 5 TabDilbilim sections.
+// Modül seviyesinde — eskiden TabDilbilim'in içinde tanımlıydı, her
+// render'da (dil/viewport değişince) YENİ bir component tipi üretip 5
+// örneğin de unmount+remount olmasına yol açıyordu
+// (react-hooks/static-components). `tr`/`isMobile` artık closure değil,
+// prop.
+function SectionShell({ letter, accent, eyebrowTr, eyebrowEn, titleTr, titleEn, descTr, descEn, children, tr, isMobile }) {
+  return (
     <div style={{
       background: `linear-gradient(180deg, ${accent}0E 0%, rgba(255,255,255,0.022) 30%, rgba(255,255,255,0.022) 100%)`,
       border: `1px solid ${COLORS.glassBorder}`,
@@ -1965,12 +1968,18 @@ function TabDilbilim({ language, isMobile }) {
       </div>
     </div>
   );
+}
+
+function TabDilbilim({ language, isMobile }) {
+  const tr = language === 'tr';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
 
       {/* ── Section A: Renk Yoğunluğu Kelimeleri ── */}
       <SectionShell
+        tr={tr}
+        isMobile={isMobile}
         letter="A"
         accent={COLORS.purple}
         eyebrowTr="Renk Yoğunluğu" eyebrowEn="Color Intensity"
@@ -2043,6 +2052,8 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* ── Section B: Hapax Renk Kelimeleri ── */}
       <SectionShell
+        tr={tr}
+        isMobile={isMobile}
         letter="B"
         accent={COLORS.purple}
         eyebrowTr="Hapax Legomena" eyebrowEn="Hapax Legomena"
@@ -2147,6 +2158,8 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* ── Section C: 'Zurk' Tartışması ── */}
       <SectionShell
+        tr={tr}
+        isMobile={isMobile}
         letter="C"
         accent="#2563EB"
         eyebrowTr="Üç Yorum · Taha 20:102" eyebrowEn="Three Interpretations · Ta-Ha 20:102"
@@ -2225,6 +2238,8 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* ── Section D: Nesne Üzerinden İma Edilen Renkler ── */}
       <SectionShell
+        tr={tr}
+        isMobile={isMobile}
         letter="D"
         accent={COLORS.gold}
         eyebrowTr="Söylemeden Anlatmak" eyebrowEn="Showing Without Telling"
@@ -2373,6 +2388,8 @@ function TabDilbilim({ language, isMobile }) {
 
       {/* ── Section E: Beyazın Kök Genişlemesi ── */}
       <SectionShell
+        tr={tr}
+        isMobile={isMobile}
         letter="E"
         accent={COLORS.gold}
         eyebrowTr="بيض — Aynı Kökten Anlam Ailesi" eyebrowEn="بيض — Word Family of One Root"

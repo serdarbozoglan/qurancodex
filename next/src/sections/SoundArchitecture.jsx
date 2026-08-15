@@ -117,98 +117,13 @@ const COMPARISON_AUDIO = {
   mercy: ['055001', '055002', '055003', '055004'],
 };
 
-function ComparisonCard({ t, language }) {
-  const data = t('soundArchitecture.comparison');
-  const punishment = data.punishment;
-  const mercy = data.mercy;
-
-  // Audio state — only one side plays at a time
-  const [activeSide, setActiveSide] = useState(null); // 'punishment' | 'mercy' | null
-  const [audioFailed, setAudioFailed] = useState(null);
-  const audioRef = useRef(null);
-  const liveTokenRef = useRef(null);
-
-  useEffect(() => () => {
-    liveTokenRef.current = null;
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current = null;
-    }
-  }, []);
-
-  const stopAudio = () => {
-    liveTokenRef.current = null;
-    if (audioRef.current) {
-      audioRef.current.onerror = null;
-      audioRef.current.onended = null;
-      audioRef.current.pause();
-      audioRef.current = null;
-    }
-    setActiveSide(null);
-  };
-
-  const playUrlList = (urls, urlIdx, token, onDone) => {
-    if (liveTokenRef.current !== token) return;
-    if (urlIdx >= urls.length) {
-      setAudioFailed(token.split('-')[0]);
-      onDone();
-      return;
-    }
-    const audio = new Audio(urls[urlIdx]);
-    audioRef.current = audio;
-    audio.onended = () => {
-      if (liveTokenRef.current === token) onDone();
-    };
-    audio.onerror = () => {
-      if (audioRef.current !== audio) return;
-      audio.onerror = null;
-      playUrlList(urls, urlIdx + 1, token, onDone);
-    };
-    audio.play().catch(err => {
-      if (err?.name === 'AbortError') return;
-      if (audioRef.current !== audio) return;
-      playUrlList(urls, urlIdx + 1, token, onDone);
-    });
-  };
-
-  // Plays a sequence of ayahs (each ayah may have multiple fallback URLs)
-  const playAyahChain = (audioKeys, sideName) => {
-    // eslint-disable-next-line react-hooks/purity -- called from event handler, not during render; token uniqueness is the intent.
-    const token = `${sideName}-${Date.now()}`;
-    liveTokenRef.current = token;
-    setActiveSide(sideName);
-    setAudioFailed(null);
-
-    let ayahIdx = 0;
-    const playNextAyah = () => {
-      if (liveTokenRef.current !== token) return;
-      if (ayahIdx >= audioKeys.length) {
-        if (liveTokenRef.current === token) setActiveSide(null);
-        return;
-      }
-      const { surah, ayah } = parseAudioKey(audioKeys[ayahIdx]);
-      const urls = buildFallbackUrls(surah, ayah);
-      ayahIdx += 1;
-      playUrlList(urls, 0, token, playNextAyah);
-    };
-    playNextAyah();
-  };
-
-  const togglePlay = (sideName) => {
-    if (activeSide === sideName) {
-      stopAudio();
-      return;
-    }
-    stopAudio();
-    playAyahChain(COMPARISON_AUDIO[sideName], sideName);
-  };
-
-  const Side = ({ side, sideName, color, glow, border, pattern, accent }) => {
-    const isPlaying = activeSide === sideName;
-    const isFailed = audioFailed === sideName;
-    const labels = (t('soundArchitecture.discovery') || {}).labels || {};
-
-    return (
+// Modül seviyesinde — eskiden ComparisonCard'ın içinde tanımlıydı, bu her
+// render'da (ör. her play/stop tıklamasında) YENİ bir component tipi
+// üretip iki <Side> örneğinin de tamamen unmount+remount olmasına yol
+// açıyordu (react-hooks/static-components). Artık sabit tip, ihtiyaç
+// duyduğu durum (isPlaying/isFailed) prop olarak geliyor.
+function Side({ side, isPlaying, isFailed, onToggle, labels, language, color, glow, border, pattern, accent }) {
+  return (
     <div
       style={{
         background: glow,
@@ -244,7 +159,7 @@ function ComparisonCard({ t, language }) {
 
         {/* Play button */}
         <button
-          onClick={() => !isFailed && togglePlay(sideName)}
+          onClick={() => !isFailed && onToggle()}
           disabled={isFailed}
           aria-label={isPlaying ? labels.stopLabel : labels.listenLabel}
           title={isFailed ? (language === 'tr' ? 'Ses yüklenemedi' : 'Audio unavailable') : undefined}
@@ -329,8 +244,95 @@ function ComparisonCard({ t, language }) {
         lineHeight: 1.6, marginTop: '4px',
       }}>{language === 'tr' ? side.noteTr : side.noteEn}</p>
     </div>
-    );
+  );
+}
+
+function ComparisonCard({ t, language }) {
+  const data = t('soundArchitecture.comparison');
+  const punishment = data.punishment;
+  const mercy = data.mercy;
+
+  // Audio state — only one side plays at a time
+  const [activeSide, setActiveSide] = useState(null); // 'punishment' | 'mercy' | null
+  const [audioFailed, setAudioFailed] = useState(null);
+  const audioRef = useRef(null);
+  const liveTokenRef = useRef(null);
+
+  useEffect(() => () => {
+    liveTokenRef.current = null;
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+  }, []);
+
+  const stopAudio = () => {
+    liveTokenRef.current = null;
+    if (audioRef.current) {
+      audioRef.current.onerror = null;
+      audioRef.current.onended = null;
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    setActiveSide(null);
   };
+
+  const playUrlList = (urls, urlIdx, token, onDone) => {
+    if (liveTokenRef.current !== token) return;
+    if (urlIdx >= urls.length) {
+      setAudioFailed(token.split('-')[0]);
+      onDone();
+      return;
+    }
+    const audio = new Audio(urls[urlIdx]);
+    audioRef.current = audio;
+    audio.onended = () => {
+      if (liveTokenRef.current === token) onDone();
+    };
+    audio.onerror = () => {
+      if (audioRef.current !== audio) return;
+      audio.onerror = null;
+      playUrlList(urls, urlIdx + 1, token, onDone);
+    };
+    audio.play().catch(err => {
+      if (err?.name === 'AbortError') return;
+      if (audioRef.current !== audio) return;
+      playUrlList(urls, urlIdx + 1, token, onDone);
+    });
+  };
+
+  // Plays a sequence of ayahs (each ayah may have multiple fallback URLs)
+  const playAyahChain = (audioKeys, sideName) => {
+    const token = `${sideName}-${Date.now()}`;
+    liveTokenRef.current = token;
+    setActiveSide(sideName);
+    setAudioFailed(null);
+
+    let ayahIdx = 0;
+    const playNextAyah = () => {
+      if (liveTokenRef.current !== token) return;
+      if (ayahIdx >= audioKeys.length) {
+        if (liveTokenRef.current === token) setActiveSide(null);
+        return;
+      }
+      const { surah, ayah } = parseAudioKey(audioKeys[ayahIdx]);
+      const urls = buildFallbackUrls(surah, ayah);
+      ayahIdx += 1;
+      playUrlList(urls, 0, token, playNextAyah);
+    };
+    playNextAyah();
+  };
+
+  const togglePlay = (sideName) => {
+    if (activeSide === sideName) {
+      stopAudio();
+      return;
+    }
+    stopAudio();
+    playAyahChain(COMPARISON_AUDIO[sideName], sideName);
+  };
+
+  const labels = (t('soundArchitecture.discovery') || {}).labels || {};
 
   return (
     <motion.div variants={fadeUpItem} className="mb-12">
@@ -348,7 +350,11 @@ function ComparisonCard({ t, language }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Side
           side={punishment}
-          sideName="punishment"
+          isPlaying={activeSide === 'punishment'}
+          isFailed={audioFailed === 'punishment'}
+          onToggle={() => togglePlay('punishment')}
+          labels={labels}
+          language={language}
           color="#e74c3c"
           glow="rgba(231,76,60,0.08)"
           border="rgba(231,76,60,0.30)"
@@ -357,7 +363,11 @@ function ComparisonCard({ t, language }) {
         />
         <Side
           side={mercy}
-          sideName="mercy"
+          isPlaying={activeSide === 'mercy'}
+          isFailed={audioFailed === 'mercy'}
+          onToggle={() => togglePlay('mercy')}
+          labels={labels}
+          language={language}
           color="#2ecc71"
           glow="rgba(46,204,113,0.08)"
           border="rgba(46,204,113,0.30)"
