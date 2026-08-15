@@ -9,9 +9,11 @@ import {
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
+import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+import { cleanArabicForDisplay } from '../lib/arabic';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import parablesDataStatic from '../../public/amthal/parables.json';
@@ -22,32 +24,8 @@ import animalsDataStatic from '../../public/amthal/animals.json';
 import metaVersesDataStatic from '../../public/amthal/meta-verses.json';
 import scholarsDataStatic from '../../public/amthal/scholars.json';
 
-// ── Arabic text cleanup ──────────────────────────────────────────────────────
-// NOT: Ortak lib/arabic.js cleanArabicForDisplay'den FARKLI: api.acikkuran.com'dan
-// gelen canlı meal verisi için ek temizlikler (ayet-sonu-marker + Arabic-Indic
-// digit kombinasyonları, baş/son boşluk trim). Component-local bırakıldı.
-function cleanArabic(str) {
-  if (!str) return str;
-  return str
-    .replace(/\u06EA/g, '\u0650')
-    .replace(/\u06E1/g, '\u0652')
-    .replace(/[\u064B-\u0652]\u0653/gu, '\u0653')
-    .replace(/\u0671/g, '\u0627')
-    .replace(/\u06CC/g, '\u064A')
-    .replace(/[\u0610-\u0614\u0616\u0617]/g, '')
-    .replace(/[\u0600-\u0605]/g, '')
-    // eslint-disable-next-line no-misleading-character-class -- intentional: removing individual Arabic formatting chars
-    .replace(/[\u06DD\u06DE\u06E9\u06E0]/g, '')
-    .replace(/\s*[۞۝۩]\s*/g, ' ')
-    // Remove ayah end marker followed by Arabic-Indic digits (e.g. ۝١٧١)
-    .replace(/[\u06DD][\u0660-\u0669]*/g, '')
-    // Remove standalone Arabic-Indic digit sequences at end of verse
-    .replace(/\s*[\u0660-\u0669]+\s*$/g, '')
-    .replace(/\u06E6/g, ' ')
-    .replace(/[\u06D6-\u06DC\u06E0\u06E2-\u06E4\u06E7\u06E8\u06ED]/g, '')
-    .replace(/[\uFD3E\uFD3F]/g, '')
-    .trim();
-}
+// ── Arabic text cleanup — canonical §13.15 implementation (lib/arabic.js) ────
+const cleanArabic = cleanArabicForDisplay;
 
 // ── Translation cleanup (strips footnote markers like [1], [2] etc.) ─────────
 function cleanTranslation(str) {
@@ -271,7 +249,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
             background: 'rgba(212,165,116,0.08)', border: `1px solid ${COLORS.goldAlpha25}`,
             marginBottom: 14,
           }}>
-            <span style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: '1.05rem', color: COLORS.gold, letterSpacing: '0.02em' }}>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, lineHeight: 1 }}>
               أ
             </span>
           </div>
@@ -1291,6 +1269,14 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
 export default function MeselAtlasi({ onClose, backRef }) {
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
+  // ToolHeader'ın kendisi useNavbarOffset(0, 62) kullanıyor — navbar yüksekliği
+  // dile/genişliğe/scroll durumuna göre değişiyor (bkz. useNavbarOffset.js'in
+  // kendi yorumu: bu hata sitede 3+ kez ayrı ayrı yaşandı). Tab bar'ı ToolHeader
+  // ile AYNI ölçülen değere göre sticky yapmazsak, ToolHeader scroll'da
+  // yeniden konumlanırken tab bar'ın üstüne biner — üstteki harfler/noktalar
+  // kesilmiş görünür. extra=48 → ToolHeader'ın kendi yüksekliği.
+  const toolHeaderTop = useNavbarOffset(0, 62);
+  const tabBarTop = toolHeaderTop + 48;
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const [activeTab, setActiveTab]       = useState(0);
   const [domainFilter, setDomainFilter] = useState(null);
@@ -1453,11 +1439,12 @@ export default function MeselAtlasi({ onClose, backRef }) {
           "daha fazla sekme var, kaydır" ipucu verir; scrollbarWidth:'none'
           native scrollbar'ı tamamen gizlediği için tek görsel ipucu budur.
           CSS-only (JS scroll-state yok) — §14.2 CLS dersi gereği. */}
-      <div style={{ position: 'relative', flexShrink: 0 }}>
+      <div style={{ position: 'sticky', top: `${tabBarTop}px`, zIndex: 30, isolation: 'isolate', flexShrink: 0 }}>
         <div style={{
           display: 'flex', gap: 0, overflowX: 'auto', scrollbarWidth: 'none',
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+          lineHeight: 1.5,
         }}>
           {tabs.map((label, i) => (
             <button className="mq-box"

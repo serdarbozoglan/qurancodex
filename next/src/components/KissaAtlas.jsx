@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
-import { fetchMealSurah } from '../lib/mealCache';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
@@ -79,6 +78,22 @@ function parseVerseRef(ref) {
   return null;
 }
 
+// ── Local verse lookup — same canonical source as Reading Mode, no live API
+// dependency (verse-graph-bgem3.json is git-tracked, always present). ──────
+let verseGraphIndexPromise = null;
+async function loadVerseGraphIndex() {
+  if (!verseGraphIndexPromise) {
+    verseGraphIndexPromise = fetch('/verse-graph-bgem3.json')
+      .then(r => r.json())
+      .then(list => {
+        const map = new Map();
+        for (const v of list) map.set(v.id, v);
+        return map;
+      });
+  }
+  return verseGraphIndexPromise;
+}
+
 export default function KissaAtlas({ onClose }) {
   // Navbar yüksekliği sabit DEĞİL — ölç. Bkz. src/components/useNavbarOffset.js
   // Bu sabit sitede yedinci kez aynı hatayı üretti (62 · 96 · 104 · 62 · 62 ·
@@ -143,16 +158,13 @@ export default function KissaAtlas({ onClose }) {
       return;
     }
     setVersePeek({ surah, start, end, verses: null, loading: true });
-    // Local-first meal cache (author 105 = Erhan Aktaş); API fallback.
-    fetchMealSurah(surah, 105)
-      .then(d => {
-        const verses = (d.data?.verses || [])
-          .filter(v => v.verse_number >= start && v.verse_number <= end)
-          .map(v => ({
-            num: v.verse_number,
-            arabic: v.verse,
-            turkish: v.translation?.text || '',
-          }));
+    loadVerseGraphIndex()
+      .then(index => {
+        const verses = [];
+        for (let n = start; n <= end; n++) {
+          const v = index.get(`${surah}:${n}`);
+          if (v) verses.push({ num: n, arabic: v.arabic, turkish: v.turkish || '' });
+        }
         setVersePeek(prev => prev?.surah === surah ? { ...prev, verses, loading: false } : prev);
       })
       .catch(() => {
