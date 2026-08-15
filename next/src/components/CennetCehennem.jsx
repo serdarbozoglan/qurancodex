@@ -236,17 +236,17 @@ export default function CennetCehennem({ onClose }) {
       />
 
       {/* ── BODY ────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden', padding: isMobile ? '0 14px 48px' : '0 32px 48px' }}>
+      <div className="mq-box" ref={bodyRef} style={{ flex: 1, overflowX: 'hidden', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "14px", '--pb-d': "48px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "14px" }}>
         <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
 
           {/* ── HERO (Cinematic — Bismillah + Rahman 55:46 + framing + filigree) ─────── */}
-          <div style={{
-            padding: isMobile ? '40px 0 20px' : '56px 0 24px',
+          <div className="mq-box" style={{
+            '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "0", '--pl-m': "0",
             textAlign: 'center',
-            marginBottom: isMobile ? '20px' : '28px',
+            '--mb-d': '28px', '--mb-m': '20px',
           }}>
             {/* Bismillah */}
-            <div
+            <div className="mq-box"
               dir="rtl" lang="ar" aria-label="Bismillāh"
               style={{
                 fontFamily: FONTS.bismillah,
@@ -254,7 +254,7 @@ export default function CennetCehennem({ onClose }) {
                 color: GOLD,
                 opacity: 0.82,
                 lineHeight: 1,
-                marginBottom: isMobile ? '26px' : '36px',
+                '--mb-d': '36px', '--mb-m': '26px',
                 textShadow: `0 0 22px ${GOLD}28`,
               }}
             >
@@ -373,10 +373,10 @@ export default function CennetCehennem({ onClose }) {
           <HeroBanner data={data} language={language} isMobile={isMobile} />
 
           {/* Tab bar — STICKY (Melekler-reference) — sticky top:48 = ToolHeader yüksekliği */}
-          <div id="cennet-tab-bar" style={{
+          <div className="mq-box" id="cennet-tab-bar" style={{
             display: 'flex', gap: '2px',
-            padding: isMobile ? '0 8px' : '0 16px',
-            margin: isMobile ? '0 -14px 24px' : '0 -32px 28px',
+            '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
+            '--mt-d': "0", '--mt-m': "0", '--mr-d': "-32px", '--mr-m': "-14px", '--mb-d': "28px", '--mb-m': "24px", '--ml-d': "-32px", '--ml-m': "-14px",
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             background: 'rgb(6, 8, 14)',
             backgroundColor: 'rgb(6, 8, 14)',
@@ -393,7 +393,7 @@ export default function CennetCehennem({ onClose }) {
             {TABS.map(tab => {
               const isActive = activeTab === tab.id;
               return (
-                <button
+                <button className="mq-box"
                   key={tab.id}
                   onClick={() => {
                     setActiveTab(tab.id);
@@ -404,7 +404,7 @@ export default function CennetCehennem({ onClose }) {
                   }}
                   style={{
                     display: 'flex', alignItems: 'center', gap: '8px',
-                    padding: isMobile ? '14px 16px' : '16px 26px',
+                    '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                     border: 'none', borderRadius: '0', flexShrink: 0,
                     borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                     background: isActive ? COLORS.goldAlpha15 : 'transparent',
@@ -605,10 +605,10 @@ function IsimCard({ item, language, color, bg, border, kind = 'cennet' }) {
 // ── STAT PILL ────────────────────────────────────────────────────────────────
 function StatPill({ value, label, color, isMobile }) {
   return (
-    <div style={{
+    <div className="mq-box" style={{
       background: 'rgba(0,0,0,0.25)',
       borderRadius: RADIUS.md,
-      padding: isMobile ? '8px 10px' : '10px 14px',
+      '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "14px", '--pr-m': "10px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "14px", '--pl-m': "10px",
       textAlign: 'center',
       minWidth: '60px',
     }}>
@@ -632,7 +632,7 @@ function HeroBanner({ data, language, isMobile }) {
       border: `1px solid ${COLORS.glassBgStrong}`,
     }}>
       {/* Left: Cennet */}
-      <div style={{ background: CENNET.bg, padding: isMobile ? '16px' : '24px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px' }}>
+      <div className="mq-box" style={{ background: CENNET.bg, '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "28px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px' }}>
         <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CENNET.accent }}>
           {tr ? 'Cennet' : 'Paradise'}
         </div>
@@ -692,9 +692,9 @@ function HeroBanner({ data, language, isMobile }) {
       )}
 
       {/* Right: Cehennem */}
-      <div style={{
+      <div className="mq-box" style={{
         background: CEHENNEM.bg,
-        padding: isMobile ? '16px' : '24px 28px',
+        '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "28px", '--pl-m': "16px",
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '14px',
       }}>
         <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: CEHENNEM.accent }}>
@@ -1017,12 +1017,12 @@ function TabCehennem({ data, language, isMobile }) {
         {(data.cehennemIsimleri || []).map((item, idx) => {
           const depth = idx / 6; // 0 → 1 as we go deeper
           return (
-            <div key={item.id} style={{
+            <div className="mq-box" key={item.id} style={{
               display: 'flex', alignItems: 'center', gap: '12px',
               background: `rgba(153,60,29,${0.05 + depth * 0.12})`,
               border: `1px solid rgba(216,90,48,${0.12 + depth * 0.18})`,
               borderRadius: RADIUS.md,
-              padding: isMobile ? '9px 12px' : '10px 16px',
+              '--pt-d': "10px", '--pt-m': "9px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "10px", '--pb-m': "9px", '--pl-d': "16px", '--pl-m': "12px",
             }}>
               {/* Gate number badge */}
               <div style={{
@@ -1094,12 +1094,12 @@ function TabAraf({ data, language, isMobile }) {
       </p>
 
       {/* ── KLASİK TEFSİR TARTIŞMASI — A'râf Ehli Kimdir? ─── */}
-      <div style={{
+      <div className="mq-box" style={{
         background: `${ARAF.bg}`,
         border: `1px solid ${ARAF.border}`,
         borderLeft: `3px solid ${ARAF.accent}`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '18px 18px' : '22px 26px',
+        '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "18px",
         marginBottom: '24px',
         maxWidth: '760px',
       }}>
@@ -1463,9 +1463,9 @@ function NineCennetLayers({ language, isMobile, names }) {
   const rows = [...list].reverse(); // top = peak
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '28px',
-      padding: isMobile ? '20px 16px' : '28px 32px',
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(46,204,113,0.06) 0%, rgba(212,165,116,0.04) 100%)',
       border: `1px solid ${CENNET.border}`,
       borderRadius: RADIUS.lg,
@@ -1493,9 +1493,9 @@ function NineCennetLayers({ language, isMobile, names }) {
           const isPeak = idx === 0;
           const width = 100 - (idx * 8);
           return (
-            <div key={n.id} style={{
+            <div className="mq-box" key={n.id} style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
-              padding: isMobile ? '10px 14px' : '12px 18px',
+              '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "18px", '--pl-m': "14px",
               width: `${Math.max(width, 45)}%`,
               margin: '0 auto',
               background: isPeak
@@ -1556,9 +1556,9 @@ function SevenCehennemLayers({ language, isMobile, names }) {
   const shades = ['#e74c3c', '#c0392b', '#a63030', '#8B0000', '#6d0000', '#500000', '#2d0000'];
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '28px',
-      padding: isMobile ? '20px 16px' : '28px 32px',
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(139,0,0,0.08) 0%, rgba(0,0,0,0.4) 100%)',
       border: `1px solid ${CEHENNEM.border}`,
       borderRadius: RADIUS.lg,
@@ -1585,9 +1585,9 @@ function SevenCehennemLayers({ language, isMobile, names }) {
         {list.map((n, idx) => {
           const width = 100 - (idx * 6);
           return (
-            <div key={n.id} style={{
+            <div className="mq-box" key={n.id} style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px',
-              padding: isMobile ? '10px 14px' : '12px 18px',
+              '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "18px", '--pl-m': "14px",
               width: `${Math.max(width, 55)}%`,
               margin: '0 auto',
               background: `linear-gradient(90deg, ${shades[idx]}33 0%, rgba(0,0,0,0.3) 100%)`,
@@ -1651,9 +1651,9 @@ function Rahman31Viz({ language, isMobile, rs }) {
   const REFRAINS = [13, 16, 18, 21, 23, 25, 28, 30, 32, 34, 36, 38, 40, 42, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77];
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '28px',
-      padding: isMobile ? '20px 16px' : '28px 32px',
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, rgba(255,255,255,0.02) 100%)',
       border: `1px solid ${GOLD}44`,
       borderRadius: RADIUS.lg,
@@ -1789,9 +1789,9 @@ function FiveSenseGrid({ language, isMobile }) {
   ];
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '28px',
-      padding: isMobile ? '20px 16px' : '28px 32px',
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: RADIUS.lg,

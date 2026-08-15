@@ -65,8 +65,8 @@ export default function DuaDili({ onClose }) {
       />
 
       {/* Cinematic Hero */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
                      url("data:image/svg+xml;utf8,${GEOMETRIC_PATTERN}") repeat`,
         backgroundSize: 'auto, 60px 60px',
@@ -132,9 +132,9 @@ export default function DuaDili({ onClose }) {
       </div>
 
       {/* Sticky Tab Bar */}
-      <div id="dua-dili-tab-bar" style={{
+      <div className="mq-box" id="dua-dili-tab-bar" style={{
         display: 'flex', gap: '2px',
-        padding: isMobile ? '0 8px' : '0 16px',
+        '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
@@ -145,7 +145,7 @@ export default function DuaDili({ onClose }) {
         {TABS.map(tab => {
           const active = activeTab === tab.id;
           return (
-            <button
+            <button className="mq-box"
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -154,7 +154,7 @@ export default function DuaDili({ onClose }) {
                 }, 50);
               }}
               style={{
-                padding: isMobile ? '14px 14px' : '16px 24px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
                 fontSize: isMobile ? '0.7rem' : '0.76rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: active ? 700 : 500,
@@ -176,7 +176,7 @@ export default function DuaDili({ onClose }) {
       </div>
 
       {/* Tab Content */}
-      <div style={{ padding: isMobile ? '0' : '0' }}>
+      <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "0", '--pr-m': "0", '--pb-d': "0", '--pb-m': "0", '--pl-d': "0", '--pl-m': "0" }}>
         {activeTab === 'prophets' && <ProphetsTab tr={tr} isMobile={isMobile} />}
         {activeTab === 'anatomy' && <AnatomyTab tr={tr} isMobile={isMobile} />}
         {activeTab === 'response' && <ResponseTab tr={tr} isMobile={isMobile} />}
@@ -194,8 +194,8 @@ function ProphetsTab({ tr, isMobile }) {
       <QuranDua />
 
       {/* 4 New Prophets */}
-      <div style={{
-        padding: isMobile ? '20px 16px 48px' : '32px 32px 64px',
+      <div className="mq-box" style={{
+        '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "16px",
         maxWidth: '1180px', margin: '0 auto',
       }}>
         <div style={{ textAlign: 'center', marginBottom: '28px', marginTop: '8px' }}>
@@ -233,7 +233,7 @@ function ProphetsTab({ tr, isMobile }) {
       </div>
 
       {/* Cross-Tool CTA */}
-      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 64px', maxWidth: '1180px', margin: '0 auto' }}>
+      <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1180px', margin: '0 auto' }}>
         <CrossToolCTA
           language={tr ? 'tr' : 'en'}
           isMobile={isMobile}
@@ -251,11 +251,11 @@ function ProphetsTab({ tr, isMobile }) {
 function ProphetCard({ p, tr, isMobile }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div style={{
+    <div className="mq-box" style={{
       background: `linear-gradient(180deg, ${p.colorHex}12 0%, rgba(255,255,255,0.02) 100%)`,
       border: `1px solid ${p.colorHex}55`,
       borderRadius: RADIUS.lg,
-      padding: isMobile ? '20px 18px' : '24px 24px',
+      '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "24px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "24px", '--pl-m': "18px",
       position: 'relative', overflow: 'hidden',
     }}>
       <div style={{
@@ -370,8 +370,8 @@ function AnatomyTab({ tr, isMobile }) {
   const example = examples[activeExample];
 
   return (
-    <div style={{
-      padding: isMobile ? '28px 16px 60px' : '48px 32px 80px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
       maxWidth: '1180px', margin: '0 auto',
     }}>
       {/* Intro */}
@@ -435,11 +435,11 @@ function AnatomyTab({ tr, isMobile }) {
       </div>
 
       {/* Example Card */}
-      <div style={{
+      <div className="mq-box" style={{
         background: 'rgba(255,255,255,0.03)',
         border: `1px solid ${COLORS.glassBorderSoft}`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '20px 16px' : '32px 32px',
+        '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       }}>
         {/* Full Arabic */}
         <div style={{
@@ -530,8 +530,8 @@ function AnatomyTab({ tr, isMobile }) {
 function ResponseTab({ tr, isMobile }) {
   const { rows, introTr, introEn } = data.responsePatterns;
   return (
-    <div style={{
-      padding: isMobile ? '28px 16px 60px' : '48px 32px 80px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
       maxWidth: '1180px', margin: '0 auto',
     }}>
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
@@ -551,10 +551,10 @@ function ResponseTab({ tr, isMobile }) {
       {/* Grid */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {rows.map((r, i) => (
-          <div key={i} className="dd-anatomy-grid" style={{
+          <div key={i} className="dd-anatomy-grid mq-box" style={{
             display: 'grid',
             gap: '14px', alignItems: 'stretch',
-            padding: isMobile ? '16px 14px' : '18px 20px',
+            '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "14px",
             background: 'rgba(255,255,255,0.03)',
             border: `1px solid ${COLORS.glassBorderSoft}`,
             borderLeft: `3px solid ${COLORS.gold}`,
@@ -625,8 +625,8 @@ function ResponseTab({ tr, isMobile }) {
 // ─── Tab 4: Sources ────────────────────────────────────────────────
 function SourcesTab({ language, isMobile }) {
   return (
-    <div style={{
-      padding: isMobile ? '28px 16px 60px' : '48px 32px 80px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
       maxWidth: '1180px', margin: '0 auto',
     }}>
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>

@@ -94,10 +94,10 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
       alignItems: 'center',
       justifyContent: 'center',
     }}>
-      <div style={{
+      <div className="mq-box" style={{
         maxWidth: 720,
         width: '100%',
-        padding: isMobile ? '32px 20px' : '48px 40px',
+        '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "20px",
         background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, transparent 65%)`,
         borderTop: `1px solid ${COLORS.gold}22`,
         borderBottom: `1px solid ${COLORS.gold}22`,

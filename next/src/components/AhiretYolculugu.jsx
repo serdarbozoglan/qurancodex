@@ -314,11 +314,11 @@ export default function AhiretYolculugu({ onClose }) {
       />
 
       {/* ── Body: timeline + sticky index rail ──────────────────────────── */}
-      <div style={{
+      <div className="mq-box" style={{
         display: 'flex',
         maxWidth: 1240,
         margin: '0 auto',
-        padding: isMobile ? '32px 16px 80px' : '56px 32px 100px',
+        '--pt-d': "56px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "100px", '--pb-m': "80px", '--pl-d': "32px", '--pl-m': "16px",
         gap: 48,
         alignItems: 'flex-start',
       }}>
@@ -373,7 +373,7 @@ export default function AhiretYolculugu({ onClose }) {
       </div>
 
       {/* ── Sources ─────────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 40px' : '0 32px 40px' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "40px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px" }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}
@@ -391,7 +391,7 @@ export default function AhiretYolculugu({ onClose }) {
       </div>
 
       {/* Cross-tool CTA — #202 (2026-07-16) */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "100px", '--pb-m': "80px", '--pl-d': "32px", '--pl-m': "16px" }}>
         <CrossToolCTA
           language={language}
           isMobile={isMobile}
@@ -442,8 +442,8 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
   };
 
   return (
-    <section style={{
-      padding: isMobile ? '56px 20px 44px' : '86px 40px 62px',
+    <section className="mq-box" style={{
+      '--pt-d': "86px", '--pt-m': "56px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "62px", '--pb-m': "44px", '--pl-d': "40px", '--pl-m': "20px",
       background: `linear-gradient(180deg, ${COLORS.gold}0f 0%, transparent 65%)`,
       borderBottom: `1px solid ${COLORS.gold}18`,
       textAlign: 'center',
@@ -748,14 +748,14 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
   const [hover, setHover] = useState(false);
 
   return (
-    <motion.article
+    <motion.article className="mq-box"
       initial={reducedMotion ? {} : { opacity: 0, y: 32, filter: 'blur(6px)' }}
       whileInView={reducedMotion ? {} : { opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       style={{
         position: 'relative',
-        paddingLeft: isMobile ? 46 : 66,
+        '--pl-d': 66, '--pl-m': 46,
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -829,14 +829,14 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
       )}
 
       {/* Card */}
-      <div style={{
+      <div className="mq-box" style={{
         background: isOpen
           ? `linear-gradient(135deg, ${COLORS.glassBg}, ${COLORS.goldAlpha04})`
           : (hover ? COLORS.glassBg : COLORS.glassBgFaint),
         backdropFilter: 'blur(14px)',
         border: `1px solid ${isOpen ? `${COLORS.gold}55` : (hover ? `${COLORS.gold}30` : COLORS.glassBorderSoft)}`,
         borderRadius: 14,
-        padding: isMobile ? '18px 18px' : '24px 28px',
+        '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px",
         transition: 'border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
         transform: hover && !isOpen ? 'translateY(-2px)' : 'translateY(0)',
         boxShadow: isOpen
@@ -1100,8 +1100,8 @@ function StageBody({ stage, isMobile, tr, language, router }) {
 // ─── VerseBlock ──────────────────────────────────────────────────────────────
 function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
   return (
-    <div style={{
-      padding: isMobile ? '18px 16px' : '22px 24px',
+    <div className="mq-box" style={{
+      '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "24px", '--pl-m': "16px",
       background: isAnchor ? `linear-gradient(135deg, ${COLORS.gold}10, ${COLORS.gold}04)` : COLORS.glassBgFaint,
       border: `1px solid ${isAnchor ? COLORS.gold + '44' : COLORS.glassBorderSoft}`,
       borderRadius: 10,
@@ -1150,8 +1150,8 @@ function MiniRef({ ref_, isMobile, tr }) {
   const ayahPart = ref_.range ? ref_.range : ref_.ayah;
   const refLabel = `${surahName(ref_.surah, tr ? 'tr' : 'en')} ${ref_.surah}:${ayahPart}`;
   return (
-    <div style={{
-      padding: isMobile ? '12px 14px' : '14px 16px',
+    <div className="mq-box" style={{
+      '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "16px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "14px",
       background: COLORS.glassBgFaint,
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: 8,
@@ -1201,9 +1201,9 @@ function MiniRef({ ref_, isMobile, tr }) {
 // ─── CriticalNoteBlock ───────────────────────────────────────────────────────
 function CriticalNoteBlock({ note, isMobile, tr }) {
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: 22,
-      padding: isMobile ? '16px 18px' : '20px 22px',
+      '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "18px",
       background: COLORS.skyBlueAlpha06,
       border: `1px solid ${COLORS.skyBlueAlpha30}`,
       borderLeft: `3px solid ${COLORS.skyBlue}`,

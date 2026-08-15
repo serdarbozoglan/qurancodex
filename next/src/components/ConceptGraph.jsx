@@ -619,12 +619,12 @@ export default function ConceptGraph({ onClose, restore = null }) {
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                       {list.map(c => (
-                        <button
+                        <button className="mq-box"
                           key={c.id}
                           onClick={() => openConcept(c)}
                           style={{
                             display: 'flex', alignItems: 'center', gap: '8px',
-                            padding: isMobile ? '8px 13px' : '7px 14px',
+                            '--pt-d': "7px", '--pt-m': "8px", '--pr-d': "14px", '--pr-m': "13px", '--pb-d': "7px", '--pb-m': "8px", '--pl-d': "14px", '--pl-m': "13px",
                             minHeight: isMobile ? '38px' : 'auto',
                             background: `${catColor}0d`,
                             border: `1px solid ${catColor}33`,

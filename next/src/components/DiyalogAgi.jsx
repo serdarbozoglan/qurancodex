@@ -339,7 +339,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
         )}
       </div>
 
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 24px', width: '100%' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}
@@ -351,7 +351,7 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
         />
       </div>
       {/* Cross-tool CTA — #202 (2026-07-16) */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
         <CrossToolCTA
           language={language}
           isMobile={isMobile}
@@ -434,7 +434,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
   const scale   = svgSize / 800;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: isMobile ? '12px 16px' : '16px 24px', gap: '12px' }}>
+    <div className="mq-box" style={{ display: 'flex', flexDirection: 'column', flex: 1, '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "16px", gap: '12px' }}>
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
         {[
           { val: '~300+', label: language === 'tr' ? 'diyalog' : 'dialogues' },
@@ -658,8 +658,8 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-      <div style={{
-        padding: isMobile ? '10px 16px' : '12px 24px',
+      <div className="mq-box" style={{
+        '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "24px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         display: 'flex',
         flexDirection: 'column',
@@ -694,7 +694,7 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
         </div>
       </div>
 
-      <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '16px 24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="mq-box" style={{ flex: 1, overflowY: 'auto', '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {filtered.map(dialogue => {
           const isExpanded = expandedId === dialogue.id;
           const temporalColor = TEMPORAL_CHIP_COLORS[dialogue.temporalLayer] || COLORS.silver;
@@ -709,8 +709,8 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
                 transition: 'border-color 0.15s',
               }}
             >
-              <div
-                style={{ padding: isMobile ? '12px 14px' : '14px 20px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '8px' }}
+              <div className="mq-box"
+                style={{ '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px", cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '8px' }}
                 onClick={() => setExpandedId(isExpanded ? null : dialogue.id)}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
@@ -758,7 +758,7 @@ function TabDiyaloglar({ dialogues, axes: _axes, speakers, axisFilter, setAxisFi
               </div>
 
               {isExpanded && (
-                <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px", display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
 
                   {dialogue.turns.map((turn, i) => (
@@ -847,7 +847,7 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
   const categoryOrder = ['cennet', 'cehennem', 'araf', 'hesap'];
 
   return (
-    <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '20px 28px' }}>
+    <div className="mq-box" style={{ flex: 1, overflowY: 'auto', '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "28px", '--pl-m': "16px" }}>
       {categoryOrder.map(cat => {
         const catScenes = grouped[cat];
         if (!catScenes?.length) return null;
@@ -885,8 +885,8 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
                       } : {}),
                     }}
                   >
-                    <div
-                      style={{ padding: isMobile ? '12px 14px' : '16px 20px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
+                    <div className="mq-box"
+                      style={{ '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px", cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
                       onClick={() => setExpandedId(isExpanded ? null : scene.id)}
                     >
                       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
@@ -927,7 +927,7 @@ function TabAhiretSahneleri({ scenes, isMobile, language, cleanArabic }) {
                     </div>
 
                     {isExpanded && (
-                      <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px", display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
 
                         {scene.keyPhrase && (
@@ -967,14 +967,14 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
   const TEMPORAL_COLORS = { ezel: TEMPORAL.ezel, dunya: TEMPORAL.dunya, ahiret: TEMPORAL.ahiret };
 
   return (
-    <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px 16px' : '20px 28px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div className="mq-box" style={{ flex: 1, overflowY: 'auto', '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "28px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {mega.map(m => {
         const isExpanded = expandedId === m.id;
 
         return (
           <div key={m.id} style={{ ...GLASS_CARD, overflow: 'hidden', border: `1px solid ${COLORS.goldAlpha25}` }}>
-            <div
-              style={{ padding: isMobile ? '14px 16px' : '18px 24px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
+            <div className="mq-box"
+              style={{ '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "16px", cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '10px' }}
               onClick={() => setExpandedId(isExpanded ? null : m.id)}
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
@@ -996,12 +996,12 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
                 </div>
               </div>
 
-              <div className="fd-row" style={{
+              <div className="fd-row mq-box" style={{
                 display: 'flex',
                 gap: isMobile ? '6px' : '4px',
                 overflowX: isMobile ? 'visible' : 'auto',
                 scrollbarWidth: 'none',
-                paddingBottom: isMobile ? 0 : '4px',
+                '--pb-d': '4px', '--pb-m': 0,
               }}>
                 {m.phases?.map((phase, pi) => (
                   <div key={pi} style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
@@ -1033,7 +1033,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
             </div>
 
             {isExpanded && (
-              <div style={{ padding: isMobile ? '0 16px 16px' : '0 24px 20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ height: 1, background: COLORS.glassBorderSoft }} />
 
                 <div>
@@ -1129,8 +1129,8 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-      <div style={{
-        padding: isMobile ? '10px 16px' : '12px 24px',
+      <div className="mq-box" style={{
+        '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "24px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         display: 'flex', gap: '8px', flexWrap: 'wrap', flexShrink: 0,
       }}>
@@ -1146,10 +1146,10 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
         ))}
       </div>
 
-      <div className="g-1-2" style={{
+      <div className="g-1-2 mq-box" style={{
         flex: 1,
         overflowY: 'auto',
-        padding: isMobile ? '12px 16px' : '16px 24px',
+        '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "16px",
         display: 'grid',
         gap: '12px',
         alignContent: 'start',
@@ -1160,12 +1160,12 @@ function TabKonusanlar({ speakers, axes, onSpeakerClick, isMobile, language }) {
           const axesCount = dialogueAxesCount(speaker.id);
 
           return (
-            <div
+            <div className="mq-box"
               key={speaker.id}
               style={{
                 ...GLASS_CARD,
                 borderTop: `3px solid ${speaker.color || COLORS.gold}`,
-                padding: isMobile ? '12px 14px' : '16px 18px',
+                '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "14px",
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',

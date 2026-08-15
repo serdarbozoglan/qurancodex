@@ -75,7 +75,7 @@ export default function AddresseeSystem({ onClose }) {
   // Related-tool CTA — data'dan bağımsız, hem loading hem main return'de aynı.
   // SSR HTML'inde CTA görünür → SEO ve first paint için kritik (2026-07-15 audit fix).
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '32px 16px 80px' : '48px 32px 100px' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "100px", '--pb-m': "80px", '--pl-d': "32px", '--pl-m': "16px" }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -136,14 +136,14 @@ export default function AddresseeSystem({ onClose }) {
       {ADDR_TOOL_HEADER}
 
       {/* ── HERO (Cinematic) ────────────────────────────────────────────────── */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
         <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           يَٓا اَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
         </p>
@@ -265,7 +265,7 @@ export default function AddresseeSystem({ onClose }) {
         </div>
 
         {/* Detail panel */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '16px' : '28px 32px' }}>
+        <div className="mq-box" style={{ flex: 1, overflowY: 'auto', '--pt-d': "28px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
           {active && (
             <>
               {/* Arabic hitap */}
@@ -386,7 +386,7 @@ export default function AddresseeSystem({ onClose }) {
         </div>
       </div>
 
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 32px', width: '100%' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px", width: '100%' }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}

@@ -134,8 +134,8 @@ export default function BilimselIsaretler({ onClose }) {
       {TOOL_HEADER}
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
         {/* HERO */}
-        <div style={{
-          padding: isMobile ? '40px 20px 28px' : '56px 40px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(139,92,246,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center', position: 'relative', overflow: 'hidden',
@@ -162,11 +162,11 @@ export default function BilimselIsaretler({ onClose }) {
             filter: 'blur(4px)',
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
             <p dir="rtl" lang="ar" style={{
@@ -232,8 +232,8 @@ export default function BilimselIsaretler({ onClose }) {
                 { value: meta.totalIsaretler, tr: 'işaret', en: 'signs', color: COLORS.gold },
                 { value: meta.totalDomains, tr: 'alan', en: 'domains', color: COLORS.emerald },
               ].map((s, i) => (
-                <div key={i} style={{
-                  padding: isMobile ? '8px 14px' : '10px 18px',
+                <div className="mq-box" key={i} style={{
+                  '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                   background: `${s.color}12`, border: `1px solid ${s.color}30`,
                   borderRadius: RADIUS.pill, display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
@@ -246,9 +246,9 @@ export default function BilimselIsaretler({ onClose }) {
         </div>
 
         {/* TAB BAR */}
-        <div id="bilim-tab-bar" style={{
+        <div className="mq-box" id="bilim-tab-bar" style={{
           display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
@@ -258,12 +258,12 @@ export default function BilimselIsaretler({ onClose }) {
           {TABS.map((t, i) => {
             const isActive = activeTab === i;
             return (
-              <button key={i} onClick={() => {
+              <button className="mq-box" key={i} onClick={() => {
                 setActiveTab(i);
                 setTimeout(() => document.getElementById('bilim-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
                 style={{
-                  padding: isMobile ? '14px 14px' : '16px 22px',
+                  '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                   fontSize: isMobile ? '0.72rem' : '0.78rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
@@ -282,7 +282,7 @@ export default function BilimselIsaretler({ onClose }) {
         </div>
 
         {/* TAB CONTENT */}
-        <div style={{ padding: isMobile ? '20px 16px 48px' : '32px 40px 64px' }}>
+        <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "40px", '--pl-m': "16px" }}>
 
           {activeTab === 0 && (
             <IsaretlerTab
@@ -337,9 +337,9 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
         {domains.map(d => {
           const isActive = d.id === activeDomainId;
           return (
-            <button key={d.id} onClick={() => onDomainToggle(d.id)}
+            <button className="mq-box" key={d.id} onClick={() => onDomainToggle(d.id)}
               style={{
-                padding: isMobile ? '6px 12px' : '8px 16px',
+                '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? d.color : COLORS.glassBorder}`,
                 background: isActive ? `${d.color}22` : 'transparent',
@@ -355,9 +355,9 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
           );
         })}
         {activeDomainId && (
-          <button onClick={() => onDomainToggle(activeDomainId)}
+          <button className="mq-box" onClick={() => onDomainToggle(activeDomainId)}
             style={{
-              padding: isMobile ? '6px 12px' : '8px 14px', borderRadius: RADIUS.pill,
+              '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px", borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`, background: 'transparent',
               color: COLORS.gold, fontSize: isMobile ? '0.78rem' : '0.85rem',
               fontFamily: FONTS.body, cursor: 'pointer',
@@ -379,8 +379,8 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
   const tr = language === 'tr';
   const dom = domain || { color: COLORS.gold };
   return (
-    <div style={{
-      padding: isMobile ? '20px 18px' : '26px 30px',
+    <div className="mq-box" style={{
+      '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "18px",
       background: `linear-gradient(135deg, ${dom.color}0A 0%, rgba(255,255,255,0.02) 45%)`,
       border: `1px solid ${dom.color}35`, borderLeft: `3px solid ${dom.color}`,
       borderRadius: RADIUS.md, display: 'flex', flexDirection: 'column', gap: '14px',
@@ -522,8 +522,8 @@ function TimelineTab({ isaretler, domains, language, isMobile }) {
           ? 'Kur\'ân âyetlerindeki fenomenlerin modern bilim tarafından ilk keşfedildiği yıllar. Her nokta, bilimsel bulgunun 7. yy Kur\'ân metnine geriye dönük bir "izafi paralellik" sağladığı anı gösterir.'
           : 'The years when modern science first discovered the phenomena referenced in Qur\'anic verses. Each point marks the moment scientific finding provided a retrospective "relative parallel" to the 7th-century Qur\'anic text.'}
       </p>
-      <div style={{
-        padding: isMobile ? '22px 14px' : '32px 28px',
+      <div className="mq-box" style={{
+        '--pt-d': "32px", '--pt-m': "22px", '--pr-d': "28px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "22px", '--pl-d': "28px", '--pl-m': "14px",
         background: 'linear-gradient(180deg, rgba(139,92,246,0.05) 0%, rgba(139,92,246,0.01) 100%)',
         border: `1px solid #8b5cf640`, borderRadius: RADIUS.md,
       }}>

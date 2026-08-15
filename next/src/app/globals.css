@@ -1257,3 +1257,38 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobil-farkında padding/margin — §14.2: isMobile ile düzen-kritik CSS
+   YASAK (CLS üretir), ama padding/margin düzen-kritik DEĞİL (reflow yok,
+   sadece iç boşluk); yine de JS ile hydration sonrası değişmesi kısa bir
+   "zıplama" hissi verebiliyor. Tek class + CSS custom property ile
+   tarayıcı JS'i beklemeden çözer. `style={{ '--pt-d': desktopVal,
+   '--pt-m': mobileVal }}` — kullanılmayan değişkenler `unset` düşer,
+   element zaten inline başka bir padding/margin set ediyorsa (bu class'a
+   dokunulmamış longhand) inline her zaman kazanır, çakışma olmaz.
+   YALNIZCA longhand (top/right/bottom/left) — shorthand `padding` bu
+   kurallarla AYNI selector içinde karışırsa cascade'de longhand her zaman
+   kazanır ve shorthand'ı sessizce sıfırlar; bu yüzden shorthand değerler
+   codemod'da 4 longhand'a genişletilip yazılır, burada shorthand hiç yok. */
+.mq-box {
+  padding-top: var(--pt-d, unset);
+  padding-bottom: var(--pb-d, unset);
+  padding-left: var(--pl-d, unset);
+  padding-right: var(--pr-d, unset);
+  margin-top: var(--mt-d, unset);
+  margin-bottom: var(--mb-d, unset);
+  margin-left: var(--ml-d, unset);
+  margin-right: var(--mr-d, unset);
+}
+@media (max-width: 640px) {
+  .mq-box {
+    padding-top: var(--pt-m, var(--pt-d, unset));
+    padding-bottom: var(--pb-m, var(--pb-d, unset));
+    padding-left: var(--pl-m, var(--pl-d, unset));
+    padding-right: var(--pr-m, var(--pr-d, unset));
+    margin-top: var(--mt-m, var(--mt-d, unset));
+    margin-bottom: var(--mb-m, var(--mb-d, unset));
+    margin-left: var(--ml-m, var(--ml-d, unset));
+    margin-right: var(--mr-m, var(--mr-d, unset));
+  }
+}

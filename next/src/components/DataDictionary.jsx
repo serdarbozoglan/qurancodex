@@ -51,10 +51,10 @@ export default function DataDictionary({
       </button>
 
       {open && (
-        <div
+        <div className="mq-box"
           style={{
             marginTop: '10px',
-            padding: isMobile ? '16px 16px' : '18px 22px',
+            '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
             border: `1px solid ${COLORS.gold}1c`,
             borderRadius: '12px',
             background: 'rgba(255,255,255,0.015)',
@@ -70,25 +70,25 @@ export default function DataDictionary({
           >
             {rows.map((r, i) => (
               <div key={i} style={{ display: 'contents' }}>
-                <div
+                <div className="mq-box"
                   style={{
                     color: `${COLORS.gold}bb`,
                     fontFamily: FONTS.body,
                     fontSize: '0.72rem',
                     fontWeight: 700,
                     letterSpacing: '0.04em',
-                    paddingTop: isMobile ? '8px' : 0,
+                    '--pt-d': 0, '--pt-m': '8px',
                   }}
                 >
                   {tr ? r.labelTr : r.labelEn}
                 </div>
-                <div
+                <div className="mq-box"
                   style={{
                     color: COLORS.silver,
                     fontFamily: FONTS.body,
                     fontSize: '0.82rem',
                     lineHeight: 1.6,
-                    marginBottom: isMobile ? '6px' : 0,
+                    '--mb-d': 0, '--mb-m': '6px',
                   }}
                 >
                   {tr ? r.valueTr : r.valueEn}

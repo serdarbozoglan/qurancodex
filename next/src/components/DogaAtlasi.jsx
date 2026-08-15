@@ -175,13 +175,13 @@ function StatCard({ label, isMobile, onClick, active }) {
   const isClickable = !!onClick;
   const Tag = isClickable ? 'button' : 'div';
   return (
-    <Tag
+    <Tag className="mq-box"
       onClick={onClick}
       style={{
         ...GLASS_CARD,
         border: `1px solid ${active ? COLORS.gold : COLORS.goldAlpha25}`,
         background: active ? COLORS.goldAlpha15 : GLASS_CARD.background,
-        padding: isMobile ? '10px 12px' : '14px 20px',
+        '--pt-d': "14px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "14px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
         textAlign: 'center',
         flexShrink: 0,
         cursor: isClickable ? 'pointer' : 'default',
@@ -724,9 +724,9 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* Intro card */}
-      <div style={{
+      <div className="mq-box" style={{
         position: 'relative',
-        padding: isMobile ? '20px 20px 22px 26px' : '26px 30px 26px 34px',
+        '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "22px", '--pl-d': "34px", '--pl-m': "26px",
         background: `linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(255,255,255,0.02) 100%)`,
         border: `1px solid ${PURPLE}55`,
         borderRadius: RADIUS.md,
@@ -1305,14 +1305,14 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
   ];
 
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
+    <div className="mq-box" style={{
+      '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       background: 'linear-gradient(180deg, rgba(20,30,48,0.6) 0%, transparent 100%)',
       textAlign: 'center',
     }}>
       {/* Bismillah ornament — Amiri Quran ligature */}
-      <div
+      <div className="mq-box"
         dir="rtl"
         lang="ar"
         aria-label="Bismillāh"
@@ -1322,7 +1322,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
-          marginBottom: isMobile ? '28px' : '40px',
+          '--mb-d': '40px', '--mb-m': '28px',
           textShadow: `0 0 22px ${COLORS.gold}28`,
         }}
       >
@@ -1439,11 +1439,11 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </p>
 
       {/* Âyât-ı Kevniyye framing */}
-      <div style={{
+      <div className="mq-box" style={{
         background: COLORS.goldAlpha10 ?? 'rgba(212,165,116,0.06)',
         border: `1px solid ${COLORS.goldAlpha25}`,
         borderRadius: '10px',
-        padding: isMobile ? '12px 14px' : '14px 18px',
+        '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "14px",
         margin: '0 0 18px',
         maxWidth: '720px',
       }}>
@@ -1608,13 +1608,13 @@ export default function DogaAtlasi({ onClose }) {
         />
 
         {/* Tab bar — sticky, UPPERCASE pattern (site-wide consistency) */}
-        <div id="kevni-tab-bar" style={{
+        <div className="mq-box" id="kevni-tab-bar" style={{
           position: 'sticky',
           top: '110px',
           zIndex: 20,
           display: 'flex',
           gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -1626,7 +1626,7 @@ export default function DogaAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -1640,7 +1640,7 @@ export default function DogaAtlasi({ onClose }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: isMobile ? '14px 16px' : '16px 26px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none',
                 background: activeTab === i ? `${COLORS.goldAlpha15}` : 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -1669,7 +1669,7 @@ export default function DogaAtlasi({ onClose }) {
         </div>
 
         {/* Tab content */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px", flex: 1 }}>
           {activeTab === 0 && <TabHayvanlar      animals={animals}                   isMobile={isMobile} language={language} />}
           {activeTab === 1 && <TabBitkiler        plants={plants}                     isMobile={isMobile} language={language} />}
           {activeTab === 2 && <TabGokCisimleri    bodies={CELESTIAL_BODIES}           isMobile={isMobile} language={language} />}
