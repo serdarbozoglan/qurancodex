@@ -368,8 +368,8 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
 
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '16px' }}>
         {(language === 'tr'
-          ? ['42 Mesel', '7 İmge Alanı', '200+ Ayet', '6 Hayvan Sûresi']
-          : ['42 Parables', '7 Imagery Domains', '200+ Verses', '6 Animal Surahs']
+          ? ['72 Mesel', '8 İmge Alanı', '90+ Ayet', '7 Hayvan Sûresi']
+          : ['72 Parables', '8 Imagery Domains', '90+ Verses', '7 Animal Surahs']
         ).map(s => (
           <span key={s} style={{
             ...GLASS_CARD, padding: '5px 14px',
@@ -1141,8 +1141,8 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           lineHeight: 1.6,
         }}>
           ℹ {language === 'tr'
-            ? "Bu sayfa Kur'an'daki 42 meseli klasik tefsir ve Ulûm el-Kur'ân kaynaklarına (İbn Kayyim el-Cevziyye, Suyûtî, İbn Kesîr, Râzî, Zerkeşî) dayalı sunar. Yorum nüansları müfessirler arasında zaman zaman farklılık gösterir; mümkün olduğunda paralel pozisyonlar belirtilmiştir. Mealler Erhan Aktaş çevirisindendir."
-            : "This page presents the 42 parables in the Quran based on classical tafsīr and ʿUlūm al-Qurʾān sources (Ibn Qayyim al-Jawziyya, al-Suyūṭī, Ibn Kathīr, al-Rāzī, al-Zarkashī). Interpretive nuances vary among commentators; parallel positions are noted where possible. Translations are from Erhan Aktaş."}
+            ? "Bu sayfa Kur'an'daki 72 meseli klasik tefsir ve Ulûm el-Kur'ân kaynaklarına (İbn Kayyim el-Cevziyye, Suyûtî, İbn Kesîr, Râzî, Zemahşerî, Zerkeşî) dayalı sunar. Yorum nüansları müfessirler arasında zaman zaman farklılık gösterir; mümkün olduğunda paralel pozisyonlar belirtilmiştir. Mealler Erhan Aktaş çevirisindendir."
+            : "This page presents the 72 parables in the Quran based on classical tafsīr and ʿUlūm al-Qurʾān sources (Ibn Qayyim al-Jawziyya, al-Suyūṭī, Ibn Kathīr, al-Rāzī, al-Zamakhsharī, al-Zarkashī). Interpretive nuances vary among commentators; parallel positions are noted where possible. Translations are from Erhan Aktaş."}
         </p>
       </div>
 
@@ -1416,8 +1416,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
       }
       titleTr="Mesel Atlası"
       titleEn="Atlas of Quranic Parables"
-      subtitleTr="~50 mesel · 7 imge evreni"
-      subtitleEn="~50 parables · 7 image worlds"
+      subtitleTr="72 mesel · 8 imge evreni"
+      subtitleEn="72 parables · 8 image worlds"
       language={language}
     />
   );
