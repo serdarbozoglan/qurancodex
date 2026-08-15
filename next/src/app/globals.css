@@ -80,7 +80,23 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* overflow-x: hidden TEK BAŞINA overflow-y'yi CSS spec gereği 'auto'ya
+     zorluyor (bir eksen 'visible', diğeri değilse, tarayıcı 'visible' ekseni
+     'auto'ya çevirir — overflow-y'yi elle 'visible' yazmak bile bunu iptal
+     ETMEZ, denedik). html'in kendisi zaten bundan dolayı overflow-y:auto olup
+     gerçek scroll container (document.scrollingElement) oluyor — bu KASITLI
+     ve TEK scroll container burada olmalı. body'de AYRICA overflow-x:hidden
+     olması aynı otomatik dönüşümü body'de de tetikleyip ikinci, hiç scroll
+     etmeyen bir "hayalet" container yaratıyordu (body'nin kendi yüksekliği
+     içeriğe göre büyüdüğü için scrollTop'u hep 0 kalıyor) — position:sticky
+     kullanan her öge (ToolHeader, tab bar'lar, §13.17/13.19) en yakın scroll
+     container olarak bu hayalet body'yi buluyor, onun scrollTop'u hiç
+     değişmediği için asla sabitlenmiyor, sayfa kayarken position:static gibi
+     kayıp gidiyordu. §13.13/§13.19'da "yanlış offset" sanılan tekrarlayan
+     kesilme/kaybolma hatasının gerçek kök sebebi buydu. Çözüm: overflow-x
+     kısıtlamasını yalnız html'de tut, body'de hiç tanımlama (aşağıda). */
   overflow-x: hidden;
+  overflow-y: auto;
   /* Scrollbar gutter stable: modal açılışında veya kısa içeriklerde
      scrollbar oluşma/kaybolma kaynaklı layout shift'i (navbar sağa kayma)
      önler. */
@@ -108,7 +124,10 @@ body {
      kontrollü stacking context). */
   background: transparent;
   color: var(--color-off-white);
-  overflow-x: hidden;
+  /* overflow-x BİLİNÇLİ OLARAK burada YOK — html kuralının yorumuna bak.
+     body'de overflow tanımlamak ikinci bir (hayalet) scroll container
+     yaratıp position:sticky'yi kırıyordu; yatay taşma koruması tek başına
+     html'de yeterli. */
   line-height: 1.8;
   position: relative;
   z-index: 0;
