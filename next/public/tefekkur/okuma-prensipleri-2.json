@@ -86,8 +86,8 @@
     },
     {
       "type": "pullQuote",
-      "tr": "**Ek bilgi:** ChatGPT'nin temelindeki yapay zeka modeli bütün metinleri — harf, kelime, cümle vs. — **1536 boyutlu bir anlam uzayında (*semantic vector space*) birer noktaya denk gelecek ayrı ayrı vektörler** olarak ele alıyor. Üretken (*generative*) bir model olduğu için bu vektörleri **kontekste göre çalışma esnasında** üretiyor.",
-      "en": "**Side note:** the AI model underlying ChatGPT treats all texts — letters, words, sentences, etc. — as **distinct vectors mapped to points within a 1536-dimensional semantic vector space**. Being a *generative* model, it produces those vectors **on the fly, according to context**.",
+      "tr": "**Ek bilgi:** Büyük dil modellerinin (ChatGPT dahil) temelindeki yapay zeka mimarisi, bütün metinleri — harf, kelime, cümle vs. — çok boyutlu bir anlam uzayında (*semantic vector space* — bazı modellerde 1536 boyutlu) birer noktaya denk gelecek ayrı ayrı vektörler olarak ele alır. Üretken (*generative*) modeller bu vektörleri **kontekste göre çalışma esnasında** üretir.",
+      "en": "**Side note:** the architecture underlying large language models (including ChatGPT) treats all texts — letters, words, sentences, etc. — as distinct vectors mapped to points within a multi-dimensional semantic vector space (1536-dimensional in some models). Being *generative*, such models produce those vectors **on the fly, according to context**.",
       "source": "Felsufi (modern AI analoji)"
     },
     {
