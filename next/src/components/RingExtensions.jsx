@@ -97,7 +97,7 @@ const ADDITIONAL_RINGS = [
       'B\' · War, usury, the day of reckoning (2:243-283)',
       'A\' · Closing: faith, messengers, prayer (2:284-286)',
     ],
-    kaynak: 'Michel Cuypers, The Composition of the Qur\'an: Rhetorical Analysis (Bloomsbury, 2015), 200+ sayfalık Bakara analizi.',
+    kaynak: 'Michel Cuypers, The Composition of the Qur\'an: Rhetorical Analysis (Bloomsbury, 2015) — halka kompozisyon metodolojisinin kurucu eseri; Bakara sûresinin yapısal analizini de içerir.',
   },
   {
     id: 'maide',
