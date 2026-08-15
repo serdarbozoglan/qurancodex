@@ -105,13 +105,13 @@ export default function AllTopics() {
           we stack them vertically with a horizontal divider. */}
       <motion.div
         variants={fadeUpItem}
-        className="at-inline-stack"
+        className="at-inline-stack mq-box"
         style={{
           alignItems: isMobile ? 'stretch' : 'center',
           gap: isMobile ? '10px' : '14px',
           flexWrap: isMobile ? 'nowrap' : 'wrap',
           marginBottom: '28px',
-          padding: isMobile ? '12px 16px' : '10px 18px',
+          '--pt-d': "10px", '--pt-m': "12px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "10px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "16px",
           background: COLORS.glassBgFaint,
           border: `1px solid ${COLORS.glassBorderSoft}`,
           borderRadius: isMobile ? '12px' : RADIUS.pill,

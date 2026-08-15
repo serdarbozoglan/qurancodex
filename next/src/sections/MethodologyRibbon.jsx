@@ -27,14 +27,14 @@ export default function MethodologyRibbon() {
     : ['Text: Ḥafṣ muṣḥaf', 'Classical tafsir + academic sources', 'Alignment ≠ proof'];
 
   return (
-    <section
+    <section className="mq-box"
       aria-label={tr ? 'Yöntem ve çerçeve' : 'Method and framing'}
       style={{
-        padding: isMobile ? '26px 16px' : '38px 24px',
+        '--pt-d': "38px", '--pt-m': "26px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "38px", '--pb-m': "26px", '--pl-d': "24px", '--pl-m': "16px",
         background: `linear-gradient(180deg, transparent 0%, ${COLORS.gold}06 50%, transparent 100%)`,
       }}
     >
-      <div
+      <div className="mq-box"
         style={{
           maxWidth: '860px',
           margin: '0 auto',
@@ -42,7 +42,7 @@ export default function MethodologyRibbon() {
           border: `1px solid ${COLORS.gold}1f`,
           borderRadius: '14px',
           background: 'rgba(255,255,255,0.02)',
-          padding: isMobile ? '22px 18px' : '28px 34px',
+          '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "34px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "34px", '--pl-m': "18px",
         }}
       >
         <div

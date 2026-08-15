@@ -61,9 +61,9 @@ function VesveseKanaliWidget({ language, isMobile }) {
   ];
 
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '56px',
-      padding: isMobile ? '20px 16px' : '32px 32px',
+    <div className="mq-box" style={{
+      '--mt-d': '56px', '--mt-m': '40px',
+      '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(139,0,0,0.06) 0%, rgba(255,255,255,0.02) 100%)',
       border: `1px solid ${COLORS.gold}44`,
       borderRadius: RADIUS.lg,

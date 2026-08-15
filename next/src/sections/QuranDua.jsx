@@ -244,12 +244,12 @@ export default function QuranDua() {
           alignItems: 'stretch',
         }}>
           {/* Rabbî — tekil */}
-          <div style={{
+          <div className="mq-box" style={{
             background: 'rgba(52,152,219,0.06)',
             border: '1px solid rgba(52,152,219,0.25)',
             borderTop: '2px solid #3498db',
             borderRadius: RADIUS.chip,
-            padding: isMobile ? '14px 16px' : '16px 18px',
+            '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "16px",
             maxWidth: '100%',
             boxSizing: 'border-box',
             overflowWrap: 'break-word',
@@ -302,12 +302,12 @@ export default function QuranDua() {
           </div>
 
           {/* Rabbenâ — çoğul */}
-          <div style={{
+          <div className="mq-box" style={{
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.25)',
             borderTop: '2px solid #d4a574',
             borderRadius: RADIUS.chip,
-            padding: isMobile ? '14px 16px' : '16px 18px',
+            '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "16px",
             maxWidth: '100%',
             boxSizing: 'border-box',
             overflowWrap: 'break-word',
@@ -360,12 +360,12 @@ export default function QuranDua() {
           gap: '14px',
         }}>
           {/* Pencere 2: "Yâ" Edatının Yokluğu */}
-          <div style={{
+          <div className="mq-box" style={{
             background: 'rgba(167,139,250,0.05)',
             border: '1px solid rgba(167,139,250,0.22)',
             borderTop: '2px solid #a78bfa',
             borderRadius: RADIUS.chip,
-            padding: isMobile ? '14px 16px 12px' : '16px 18px 14px',
+            '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "16px",
             maxWidth: '100%',
             boxSizing: 'border-box',
             overflowWrap: 'break-word',
@@ -403,12 +403,12 @@ export default function QuranDua() {
           </div>
 
           {/* Pencere 3: Zalemnâ Enfusenâ Pişmanlık Formülü */}
-          <div style={{
+          <div className="mq-box" style={{
             background: 'rgba(231,76,60,0.05)',
             border: '1px solid rgba(231,76,60,0.22)',
             borderTop: '2px solid #e74c3c',
             borderRadius: RADIUS.chip,
-            padding: isMobile ? '14px 16px 12px' : '16px 18px 14px',
+            '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "16px",
             maxWidth: '100%',
             boxSizing: 'border-box',
             overflowWrap: 'break-word',

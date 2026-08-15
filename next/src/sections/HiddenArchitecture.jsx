@@ -357,12 +357,12 @@ export default function HiddenArchitecture() {
             return (
               <div
                 key={pair.idx}
-                className="fd-row"
+                className="fd-row mq-box"
                 style={{
                   display: 'flex',
                   alignItems: isMobile ? 'stretch' : 'center',
                   gap: isMobile ? '6px' : '10px',
-                  marginBottom: isMobile ? '14px' : '10px',
+                  '--mb-d': '10px', '--mb-m': '14px',
                   paddingLeft: isMobile ? 0 : indent,
                   paddingRight: isMobile ? 0 : indent,
                   opacity: isDimmed ? 0.22 : 1,
@@ -381,12 +381,12 @@ export default function HiddenArchitecture() {
                 </button>
 
                 {/* Connector — ↔ on desktop, ↕ vertically stacked on mobile */}
-                <div style={{
+                <div className="mq-box" style={{
                   flexShrink: 0,
                   width: isMobile ? '100%' : '36px',
                   textAlign: 'center',
                   lineHeight: 1,
-                  padding: isMobile ? '2px 0' : 0,
+                  '--pt-d': "0", '--pt-m': "2px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "0", '--pb-m': "2px", '--pl-d': "0", '--pl-m': "0",
                 }}>
                   <span style={{
                     fontSize: isMobile ? '1.1rem' : '1.25rem',

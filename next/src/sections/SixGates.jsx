@@ -150,7 +150,7 @@ function Gate({ gate, isMobile, language }) {
   };
 
   const inner = (
-    <motion.div
+    <motion.div className="mq-box"
       initial={reduced ? false : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={reduced ? undefined : { y: -4 }}
@@ -168,7 +168,7 @@ function Gate({ gate, isMobile, language }) {
         minHeight: isMobile ? 0 : '320px',
         display: 'flex',
         flexDirection: 'column',
-        padding: isMobile ? '22px 20px' : '26px 24px',
+        '--pt-d': "26px", '--pt-m': "22px", '--pr-d': "24px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "22px", '--pl-d': "24px", '--pl-m': "20px",
         background: `linear-gradient(180deg, ${gate.accent}10 0%, rgba(255,255,255,0.02) 100%)`,
         border: `1px solid ${gate.accent}40`,
         borderRadius: '16px',

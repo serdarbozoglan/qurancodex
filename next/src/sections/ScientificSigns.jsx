@@ -259,8 +259,8 @@ export default function ScientificSigns() {
               }}>
 
                 {/* ── Discovery timeline banner ── */}
-                <div style={{
-                  padding: isMobile ? '14px 16px' : '20px 36px',
+                <div className="mq-box" style={{
+                  '--pt-d': "20px", '--pt-m': "14px", '--pr-d': "36px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "14px", '--pl-d': "36px", '--pl-m': "16px",
                   borderBottom: '1px solid rgba(255,255,255,0.05)',
                   display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '14px',
                 }}>
@@ -323,7 +323,7 @@ export default function ScientificSigns() {
                 </div>
 
                 {/* ── Main content area ── */}
-                <div style={{ padding: isMobile ? '20px 16px' : '36px' }}>
+                <div className="mq-box" style={{ '--pt-d': "36px", '--pt-m': "20px", '--pr-d': "36px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "20px", '--pl-d': "36px", '--pl-m': "16px" }}>
 
                   {/* Title */}
                   <h3 style={{
