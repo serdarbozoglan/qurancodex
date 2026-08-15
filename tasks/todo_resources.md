@@ -1628,7 +1628,7 @@
 - **Konum**: satır 266-272 (SourcesCitation)
 - **Site iddiası (TR)**: "Modern Kurʾânî sosyoloji — sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik."
 - **Atfedilen kaynak**: Muhammed Bâkır es-Sadr, *Kurʾânî Sünnetler*, 1935–1980
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — es-Sadr'ın tarihleri doğru ve "sünnetullah/tarihin yasaları" konusuna gerçekten kapsamlı katkısı var. Ancak "Kurʾânî Sünnetler" (*al-Sunan al-Qurʾāniyya*) adında bağımsız bir kitap bulunamadı — içerik esasen *el-Medresetü'l-Kur'âniyye* adlı eserindeki bölümlerde işleniyor; site muhtemelen bir tema/bölümü bağımsız kitap adı gibi sunmuş.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — "Kurʾânî Sünnetler" → gerçek başlık "es-Sünenü't-Târîhiyye fi'l-Kur'ân" (R368 ile aynı hata, orada da düzeltildi).
 
 #### R241
 - **Konum**: satır 274-280 (SourcesCitation)
@@ -2107,19 +2107,19 @@
 - **Konum**: satır 190-196 (SourcesCitation)
 - **Site iddiası (TR)**: "Maksadî (amaç-odaklı) yorum çerçevesi — hükmün tarihsel bağlamı ile çağdaş uygulaması arasındaki mesafeyi işaret eden modern klasik."
 - **Atfedilen kaynak**: Fazlur Rahman, *İslâm ve Modernite*, 1982
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Fazlur Rahman'ın Islam and Modernity (1982, U. Chicago Press) kitabı gerçek — İngilizce başlık/tarih doğru. Ancak resmî Türkçe çevirisi "İslâm ve Modernite" değil, "İslam ve Çağdaşlık"tır (Ankara Okulu Yayınları, 2010) — sitedeki başlık hatalı.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — Türkçe başlık "İslâm ve Modernite"den resmî çeviri başlığı "İslam ve Çağdaşlık"a (Ankara Okulu Yayınları, 2010) değiştirildi.
 
 #### R316
 - **Konum**: satır 198-204 (SourcesCitation)
 - **Site iddiası (TR)**: "Klasik hukuk ile çağdaş etik arasında entelektüel dürüst bir köprü kurar."
 - **Atfedilen kaynak**: Khaled Abou El Fadl, *Vasat İslâm*, 2006
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Abou El Fadl'ın The Search for Beauty in Islam (2006) kitabı gerçek — İngilizce başlık/tarih doğru. Ama "Vasat İslâm" Türkçe başlığına karşılık gelen resmî bir çeviri bulunamadı; bu başlık gerçek eserin adıyla örtüşmüyor, uydurma/yanıltıcı görünüyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — Uydurma/yanıltıcı "Vasat İslâm" başlığı kaldırıldı, birebir çeviri "İslam'da Güzellik Arayışı" kullanıldı.
 
 #### R317
 - **Konum**: satır 206-212 (SourcesCitation)
 - **Site iddiası (TR)**: "İslâmî metin geleneğinin nasıl aktarıldığını + çağdaş yanlış anlamalarını akademik olarak çözümler."
 - **Atfedilen kaynak**: Jonathan A. C. Brown, *Kur'ân'ı Yanlış Alıntılamak*, 2014
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Brown'ın kitabı gerçekten "Misquoting Muhammad" (2014, Oneworld) — Hz. Muhammed'in mirasının yorumlanması/hadis geleneği hakkında (workEn alanı doğru). Ancak sitenin Türkçe başlığı "Kur'ân'ı Yanlış Alıntılamak" konuyu Kur'ân'a kaydırıyor; kitap Kur'ân değil Hz. Muhammed'in/hadis geleneğinin yanlış aktarımı hakkındadır — konu-değiştiren yanlış çeviri. **Düzeltilmeli.**
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — Konu-değiştiren "Kur'ân'ı Yanlış Alıntılamak" başlığı "Muhammed'i Yanlış Alıntılamak"a düzeltildi (kitabın gerçek konusu Hz. Muhammed/hadis, Kur'ân değil).
 
 #### R318
 - **Konum**: satır 214-220 (SourcesCitation)
@@ -2435,7 +2435,7 @@
 - **Konum**: satır 207-213 (SourcesCitation)
 - **Site iddiası (TR)**: "Toplumsal + tarihsel zincirlerin modern Kur'ânî sosyoloji çerçevesinden okunması."
 - **Atfedilen kaynak**: Muhammed Bâkır es-Sadr, *Kurʾânî Sünnetler*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — es-Sadr'ın toplumsal/tarihsel Kur'ânî yasalar üzerine gerçek bir eseri var, ama tam adı "Kurʾânî Sünnetler" değil "es-Sünenü't-Târîhiyye fi'l-Kur'ân" (Kur'ân'da Tarihsel Yasalar) — başlıktan "tarihsel" niteleyicisi düşürülmüş, R240'daki aynı hata ailesi.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — "Kurʾânî Sünnetler" → gerçek başlık "es-Sünenü't-Târîhiyye fi'l-Kur'ân" (R240 ile aynı hata, orada da düzeltildi).
 
 #### R369
 - **Konum**: satır 215-221 (SourcesCitation)
@@ -2888,7 +2888,7 @@
 - **Konum**: `questions[0]` id `miras-esitsizligi` (Nisâ 4:11)
 - **Site iddiası (TR)**: "Kadına neden yarım miras payı?" sorusunun klasik+modern kaynak çifti.
 - **Atfedilen kaynak**: Klasik: er-Râzî, el-Kurtubî. Modern: Fazlur Rahman (1982); Khaled Abou El Fadl (2006)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Fazlur Rahman'ın Islam and Modernity (1982) atfı doğru (bkz. R315'in çeviri-başlığı sorunu burada da geçerli). Abou El Fadl için "The Search for Beauty in Islam" (2006) gerçek bir kitap, ama site bu ismi "Vasat İslâm" olarak eşleştirmiş — bu başlık gerçek kitapla eşleşmiyor, muhtemelen farklı bir eseriyle (The Great Theft, 2005) karıştırılmış.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — R315/R316 ile aynı hatalar burada da vardı (elestirel-cerceve.json'daki paralel kayıt); ikisi de aynı oturumda düzeltildi.
 
 #### R442
 - **Konum**: `questions[1]` id `nisa-4-34-dovme`
@@ -2930,7 +2930,7 @@
 - **Konum**: `questions[7]` id `muhkem-mutesabih-hangisi`
 - **Site iddiası (TR)**: Muhkem-müteşâbih ayrımı hangi ayete uygulanır sorusu.
 - **Atfedilen kaynak**: Klasik: er-Râzî, ez-Zerkeşî. Modern: Mohammed Arkoun (1994); Farid Esack (1997)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî/Zerkeşî'nin muhkem-müteşâbih ayrımını işlemesi doğru; Esack'ın Qur'an, Liberation and Pluralism (1997) doğru. Ancak Arkoun için verilen "Rethinking the Qur'an" (1994) başlık-yıl eşleşmesi belirsiz — Arkoun'un bilinen 1994 eseri "Rethinking Islam: Common Questions, Uncommon Answers"dır; iki başlığın karıştırılıp karıştırılmadığı doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ✅ **DÜZELTİLDİ** — "Rethinking the Qur'an" başlığı Arkoun'un gerçek 1994 eseri "Rethinking Islam: Common Questions, Uncommon Answers" ile değiştirildi (Türkçe başlık da "İslam'ı Yeniden Düşünmek" olarak düzeltildi).
 
 # DENETİM DOKÜMANLARINDAN GÜNCEL/AÇIK BULGULAR (docs/reviews/)
 
