@@ -115,8 +115,8 @@ export const PASSAGES = [
     arabic: 'وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدُوا اِلَّا اِبْلِيسَ كَانَ مِنَ الْجِنِّ فَفَسَقَ عَنْ اَمْرِ رَبِّهِ',
     translationTr: '"Hani meleklere, \'Âdem\'e secde edin\' demiştik; İblis hariç secde ettiler. O cinlerdendi; Rabbinin emrinden çıktı." (Kehf 18:50)',
     translationEn: '"And [mention] when We said to the angels, \'Prostrate to Adam\'; so they prostrated, except for Iblis. He was of the jinn and departed from the command of his Lord."',
-    nuanceTr: 'Yedi anlatım içinde İblis\'in kimliğine dair tek açık ifade burada: kāne mine\'l-jinni — "o cinlerdendi." Diğer altı sûrede İblis\'in ne olduğu (melek mi, başka bir varlık mı) söylenmez. Ayetin ikinci yarısında geçen "soy" (ẕurriyye) kelimesinin kime ait olduğu klasik tefsirde tartışmalıdır — Taberî hem İblis hem Âdem yorumunu kaydeder.',
-    nuanceEn: 'The only explicit identity statement among the seven: kāna mina\'l-jinni — "he was of the jinn." The other six surahs do not say what Iblis is. The "progeny" (ẕurriyye) in the verse\'s second half has contested antecedent — al-Ṭabarī records both Iblis and Adam interpretations.',
+    nuanceTr: 'Yedi anlatım içinde İblis\'in kimliğine dair tek açık ifade burada: kāne mine\'l-jinni — "o cinlerdendi." Diğer altı sûrede İblis\'in ne olduğu (melek mi, başka bir varlık mı) söylenmez. Ayetin ikinci yarısında geçen "soy" (ẕurriyye) İblis\'in kendi soyudur (şeytanlar) — klasik tefsirde (Taberî dahil) zamirin İblis\'e ait olduğu nettir.',
+    nuanceEn: 'The only explicit identity statement among the seven: kāna mina\'l-jinni — "he was of the jinn." The other six surahs do not say what Iblis is. The "progeny" (ẕurriyye) in the verse\'s second half is Iblis\'s own offspring (the devils) — classical exegesis (including al-Ṭabarī) clearly reads the pronoun as referring to Iblis.',
     chips: [
       { tr: 'Cin kimliği açık (tek)', en: 'Jinn identity stated (only)', unique: true },
       { tr: 'İblis sessiz', en: 'Iblis silent' },

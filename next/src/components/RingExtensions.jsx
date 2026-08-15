@@ -71,7 +71,7 @@ const ADDITIONAL_RINGS = [
       'B\' · Trust and covenant (23:8)',
       'A\' · Guarding prayers / heirs (23:9-11)',
     ],
-    kaynak: 'Raymond Farrin, Structure and Qur\'anic Interpretation (White Cloud Press, 2014), Ch. 4.',
+    kaynak: 'Raymond Farrin, Structure and Qur\'anic Interpretation (White Cloud Press, 2014).',
   },
   {
     id: 'bakara',
@@ -149,7 +149,7 @@ const ADDITIONAL_RINGS = [
       'B\' · The Qur\'an\'s witness to earlier communities (28:43-56)',
       'A\' · Closing: destruction of Qārūn (28:57-88)',
     ],
-    kaynak: 'Raymond Farrin, Structure and Qur\'anic Interpretation, Ch. 6.',
+    kaynak: 'Raymond Farrin, Structure and Qur\'anic Interpretation (White Cloud Press, 2014).',
   },
 ];
 

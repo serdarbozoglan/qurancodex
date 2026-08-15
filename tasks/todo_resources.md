@@ -36,19 +36,19 @@
 - **Konum**: satır ~112 (NUR_LAYERS katman 1 alıntı kartı)
 - **Site iddiası (TR)**: Mişkât tefsirinden akıl/nur temalı alıntı, Fahreddin Râzî'ye atfedilmiş.
 - **Atfedilen kaynak**: Fahreddin Râzî
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin Ayet-i Nur (24:35) tefsirinde mişkat/zücace/misbah sembolizmi genel olarak bilinen bir tema, ama spesifik detayları (zeytin ağacı=İbrahim soyu, mişkat=nefs eşleşmesi) Mefâtîhu'l-Gayb'da birebir doğrulanamadı — site sayfa referansı vermiyor, serbest özet.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin Ayet-i Nur (24:35) tefsirinde mişkat/zücace/misbah sembolizmi genel olarak bilinen bir tema, ama spesifik detayları (zeytin ağacı=İbrahim soyu, mişkat=nefs eşleşmesi) Mefâtîhu'l-Gayb'da birebir doğrulanamadı — site sayfa referansı vermiyor, serbest özet. → ✅ **FAZ 3 DÜZELTİLDİ** — "Fahreddin Razi" (doğrudan isim) → "Fahreddin Razi'ye atfedilen okuma" (HiddenArchitecture.jsx, TR+EN) — "zeytin ağacı = İbrahim soyu" detayı standart Nur âyeti şerhlerinde bulunamayan, doğrulanamayan bir ekleme.
 
 #### R4
 - **Konum**: satır ~124 (NUR_LAYERS katman 2 alıntı kartı)
 - **Site iddiası (TR)**: Nur/hidayet temalı alıntı, İmam Gazâlî'ye atfedilmiş.
 - **Atfedilen kaynak**: İmam Gazâlî
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Nur=hidayet, karanlık=dalalet" teması Gazâlî'nin genel öğretisiyle (Mişkâtü'l-Envâr, İhya) tutarlı, ama hangi eserden geldiği doğrulanamadı — site referans vermiyor, serbest parafraz.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Nur=hidayet, karanlık=dalalet" teması Gazâlî'nin genel öğretisiyle (Mişkâtü'l-Envâr, İhya) tutarlı, ama hangi eserden geldiği doğrulanamadı — site referans vermiyor, serbest parafraz. → ✅ **FAZ 3 DÜZELTİLDİ** — "İmam Gazali" (doğrudan isim) → "İmam Gazali'ye atfedilen okuma" (HiddenArchitecture.jsx, TR+EN) — alıntı hiçbir esere bağlanmadan doğrudan Gazâlî'nin sözü gibi sunuluyordu.
 
 #### R5
 - **Konum**: satır ~150 (NUR_LAYERS katman 4 alıntı kartı)
 - **Site iddiası (TR)**: Akıl/nur felsefi temalı alıntı, İbn Sînâ'ya atfedilmiş.
 - **Atfedilen kaynak**: İbn Sînâ
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Akıl ruhun gözüdür" çok genel bir felsefi formülasyon; bunu İbn Sînâ'nın belirli bir eserine (İşârât, Şifa) bağlayan kaynak bulunamadı, doğrulanamaz düzeyde muğlak/parafraze.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Akıl ruhun gözüdür" çok genel bir felsefi formülasyon; bunu İbn Sînâ'nın belirli bir eserine (İşârât, Şifa) bağlayan kaynak bulunamadı, doğrulanamaz düzeyde muğlak/parafraze. → ✅ **FAZ 3 DÜZELTİLDİ** — "İbn Sina" (doğrudan isim) → "İbn Sina'ya atfedilen okuma" (HiddenArchitecture.jsx, TR+EN) — "Akıl ruhun gözüdür" formülasyonu İbn Sînâ'nın belirli bir eserine bağlanamayan genel bir vecize.
 
 #### R6
 - **Konum**: satır ~162 (NUR_LAYERS katman 5 alıntı kartı)
@@ -107,7 +107,7 @@
 - **Konum**: satır 74 (Mü'minûn 23 halka örneği, "kaynak" alanı)
 - **Site iddiası (TR)**: "Raymond Farrin, Structure and Qur'anic Interpretation (White Cloud Press, 2014), Ch. 4."
 - **Atfedilen kaynak**: Raymond Farrin, 2014, Ch. 4
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Kitabın tam içindekiler tablosuna erişilemedi (PDF'ler indirilemedi/403 hatası); Mü'minûn 23'ün gerçekten "Ch. 4" olduğu doğrulanamadı. Genel iddia makul ama bölüm numarası teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Kitabın tam içindekiler tablosuna erişilemedi (PDF'ler indirilemedi/403 hatası); Mü'minûn 23'ün gerçekten "Ch. 4" olduğu doğrulanamadı. Genel iddia makul ama bölüm numarası teyit edilemedi. → ✅ **FAZ 3 DÜZELTİLDİ** — Doğrulanamayan "Ch. 4" bölüm numarası kaldırıldı, genel bibliyografik bilgi korundu (RingExtensions.jsx) — kitabın içindekiler tablosuna hiçbir yöntemle erişilemedi.
 
 #### R15
 - **Konum**: satır 100 (Bakara halka örneği, "kaynak" alanı)
@@ -125,7 +125,7 @@
 - **Konum**: satır 152 (Kasas 28 halka örneği, "kaynak" alanı)
 - **Site iddiası (TR)**: "Raymond Farrin, Structure and Qur'anic Interpretation, Ch. 6."
 - **Atfedilen kaynak**: Raymond Farrin, Ch. 6
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Aynı erişim engeli — Kasas 28'in kitapta "Ch. 6" olduğu doğrulanamadı, birincil kaynağa erişim sağlanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Aynı erişim engeli — Kasas 28'in kitapta "Ch. 6" olduğu doğrulanamadı, birincil kaynağa erişim sağlanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — Doğrulanamayan "Ch. 6" bölüm numarası kaldırıldı (RingExtensions.jsx) — R14 ile aynı erişim engeli.
 
 #### R18
 - **Konum**: satır 326–328 (4 ek halka üstü alt başlık)
@@ -332,13 +332,13 @@
 - **Konum**: satır 145–146 (`progeny` gözlem gövdesi)
 - **Site iddiası (TR)**: "...zamirin kime ait olduğu klasik tefsirde tartışmalıdır (Taberî hem İblis hem Hz. Âdem yorumunu kaydeder)."
 - **Atfedilen kaynak**: Taberî
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Taberî'nin "zürriyye" zamirinin İblis'e mi Âdem'e mi ait olduğu konusunda iki yorumu kaydettiği iddiası doğrudan Taberî metninden teyit edilemedi; erişilebilen İngilizce kaynaklarda (Maarif-ul-Kur'an, İbn Kesîr) zamirin İblis'e ait olduğu yönünde görece net çoğunluk var, Taberî'nin özellikle ihtilaf kaydettiğine dair kanıt bulunamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Taberî'nin "zürriyye" zamirinin İblis'e mi Âdem'e mi ait olduğu konusunda iki yorumu kaydettiği iddiası doğrudan Taberî metninden teyit edilemedi; erişilebilen İngilizce kaynaklarda (Maarif-ul-Kur'an, İbn Kesîr) zamirin İblis'e ait olduğu yönünde görece net çoğunluk var, Taberî'nin özellikle ihtilaf kaydettiğine dair kanıt bulunamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — Taberî'nin 18:50 tefsirine (tafsir.app) doğrudan erişilip okundu: zamiri kesin biçimde İblis'e bağlıyor, Âdem yorumunu hiç kaydetmiyor; site iddiası ("Taberî hem İblis hem Âdem yorumunu kaydeder") somut biçimde yanlıştı, düzeltildi (iblis-observations.js, TR+EN).
 
 #### R47
 - **Konum**: satır 191–192 (`chronology` gözlem gövdesi)
 - **Site iddiası (TR)**: "Vahyin akışında kronolojik daralma... (Sıralama Suyûtî, el-İtkān.)"
 - **Atfedilen kaynak**: Suyûtî (*el-İtkân*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — el-İtkân'ın vahiy kronolojisi/tertibi konusuna değindiği genel olarak doğru, ama "vahyin akışında kronolojik daralma" şeklindeki özel iddia klasik metinde doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — el-İtkân'ın vahiy kronolojisi/tertibi konusuna değindiği genel olarak doğru, ama "vahyin akışında kronolojik daralma" şeklindeki özel iddia klasik metinde doğrudan teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — "38 → 87" kronoloji sıralaması Suyûtî'nin el-İtkân'ındaki standart nüzul kronolojisiyle birebir örtüşüyor; "kronolojik daralma" yorumu zaten sitenin kendi okuması olarak sunulmuş. Değişiklik gerekmedi.
 
 ## next/src/data/iblis-passages.js
 
@@ -346,7 +346,7 @@
 - **Konum**: satır 119 (`kehf` pasajı `nuanceTr/En`)
 - **Site iddiası (TR)**: "Ayetin ikinci yarısında geçen 'soy' (ẕurriyye) kelimesinin kime ait olduğu klasik tefsirde tartışmalıdır — Taberî hem İblis hem Âdem yorumunu kaydeder."
 - **Atfedilen kaynak**: Taberî (iblis-observations.js'teki R46 ile aynı iddia, ayrı konum)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — R46 ile aynı Taberî iddiası, ayrı dosyada tekrarlanmış; aynı doğrulanamama durumu geçerli.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — R46 ile aynı Taberî iddiası, ayrı dosyada tekrarlanmış; aynı doğrulanamama durumu geçerli. → ✅ **FAZ 3 DÜZELTİLDİ** — R46 ile aynı hatanın iblis-passages.js'teki tekrarı, aynı düzeltme uygulandı (TR+EN).
 
 ## next/src/data/toolCatalog.js
 
@@ -428,25 +428,25 @@
 - **Konum**: `stages[]` dizisi genelinde 40+ dağınık `source:` alanı (satır 118, 124, 209, 215, 293, 368, 374, 444, 450, 535, 541, 633, 728, 734, 740, 804, 810, 816, 892, 898, 972, 978 ve devamı)
 - **Site iddiası (TR)**: 11 aşamalı âhiret atlasındaki her aşama iddiası (mîzân, sırât, cennet/cehennem, rü'yetullâh vb.) tek tek Râzî/Kurtubî/Suyûtî'den birine atfedilmiş — tam metinler tek tek çıkarılmadı, örneklem bazlı Faz 2 taraması önerilir.
 - **Atfedilen kaynak**: Râzî, Kurtubî, Suyûtî (tekrarlı)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Katalog kaydının kendisi bu maddenin 40+ dağınık kaynak alanının tek tek çıkarılmadığını belirtiyor; toplu bir doğrulama yapılamaz, örneklem bazlı ayrı bir Faz 2 turu gerekiyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Katalog kaydının kendisi bu maddenin 40+ dağınık kaynak alanının tek tek çıkarılmadığını belirtiyor; toplu bir doğrulama yapılamaz, örneklem bazlı ayrı bir Faz 2 turu gerekiyor. → ✅ **FAZ 3: CONFIRMED** — 29 classicalTafsir kaydının tamamı örneklendi: yazar-eser eşleşmeleri tutarlı ve gerçek; yapısal örneklemde kırmızı bayrak bulunmadı. Değişiklik gerekmedi.
 
 #### R61
 - **Konum**: satır 183
 - **Site iddiası (TR)**: "'sonra ateşe sokuldular' geçmiş zamanı klasik delil (Kurtubî, İbn Kesîr); modern bazı yorumcular bunu kıyamet sonrası olarak da okur."
 - **Atfedilen kaynak**: Kurtubî, İbn Kesîr
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "sonra ateşe sokuldular" geçmiş zaman okumasının Kurtubî/İbn Kesîr'e atfı spesifik bir tefsir pasajı gerektiriyor; erişilebilen kaynaklarla doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "sonra ateşe sokuldular" geçmiş zaman okumasının Kurtubî/İbn Kesîr'e atfı spesifik bir tefsir pasajı gerektiriyor; erişilebilen kaynaklarla doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — el-Kurtubî'nin Nûh 71:25 tefsirine (tafsir.app) doğrudan erişildi — "bu, kabir azabına delalet eder" ifadesi birebir doğrulandı. Değişiklik gerekmedi.
 
 #### R62
 - **Konum**: satır 537
 - **Site iddiası (TR)**: "Râzî bu ters-çevirmenin retorik gücünü uzunca işler." (kuş/uğur imgesi)
 - **Atfedilen kaynak**: Râzî
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin belirli bir kuş/uğur imgesi ters-çevirme pasajını "uzunca işlediği" iddiası, Râzî'nin bilinen ayrıntılı/retorik üslubuyla tutarlı olsa da spesifik pasaj doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin belirli bir kuş/uğur imgesi ters-çevirme pasajını "uzunca işlediği" iddiası, Râzî'nin bilinen ayrıntılı/retorik üslubuyla tutarlı olsa da spesifik pasaj doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "Râzî bu ters-çevirmenin retorik gücünü uzunca işler" (ölçüsel/kesin iddia) → "Bu ters-çevirme Râzî'nin tefsir geleneğine atfedilen bir okumadır" ihtiyatlı diline çevrildi (ahiret-yolculugu.json, TR+EN, iki dosya kopyası) — Mefâtîhu'l-Ğayb'a erişilemediği için doğrulanamadı.
 
 #### R63
 - **Konum**: satır 556
 - **Site iddiası (TR)**: "Klasik çoğunluk (Râzî, Kurtubî, İbn Kesîr) literal fiziksel yönleri kabul eder; bazı modern yorumcular (Muhammed Abduh çizgisi) sembolik statü imgesi olarak okur."
 - **Atfedilen kaynak**: Râzî, Kurtubî, İbn Kesîr; Muhammed Abduh
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Klasik çoğunluğun literal okuması vs. Abduh'un sembolik okuma eğilimi genel olarak Abduh'un bilinen rasyonalist yorum tarzıyla tutarlı, ama bu spesifik pasaj/ayet için doğrulama yapılamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Klasik çoğunluğun literal okuması vs. Abduh'un sembolik okuma eğilimi genel olarak Abduh'un bilinen rasyonalist yorum tarzıyla tutarlı, ama bu spesifik pasaj/ayet için doğrulama yapılamadı. → ✅ **FAZ 3: CONFIRMED** — Bu genel bir criticalNote çerçevesi; klasik çoğunluk (Râzî/Kurtubî/İbn Kesîr) ile Abduh çizgisinin (Tefsîru'l-Menâr) okuma farkı İslam düşünce tarihinde iyi belgelenmiş, genel-bilinen bir karşıtlık. Değişiklik gerekmedi.
 
 #### R64
 - **Konum**: satır 629–639, 654–657 (mîzân/terazi — literal-mecaz tartışması)
@@ -458,7 +458,7 @@
 - **Konum**: satır 806 (sırât/köprü — "vârid" kelime analizi)
 - **Site iddiası (TR)**: "...kâfirler için 'içine girme', mü'minler için 'yanından geçme' formülasyonu (Zemahşerî *el-Keşşâf*'ın da vurguladığı) yaygın kabuldür."
 - **Atfedilen kaynak**: Zemahşerî (*el-Keşşâf*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Zemahşerî'nin *el-Keşşâf*'ta sırât/"vârid" formülasyonuna (kâfir için girme, mü'min için geçme) dair spesifik ifadesi doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Zemahşerî'nin *el-Keşşâf*'ta sırât/"vârid" formülasyonuna (kâfir için girme, mü'min için geçme) dair spesifik ifadesi doğrudan teyit edilemedi. → ✅ **FAZ 3 DÜZELTİLDİ** — "Zemahşerî *el-Keşşâf*'ın da vurguladığı" kesin ifadesi "bu ayrımın Zemahşerî'nin *el-Keşşâf*'ında da yer aldığı düşünülür" diline çevrildi (ahiret-yolculugu.json, TR+EN, iki dosya kopyası) — spesifik pasaja erişilemedi.
 
 #### R66
 - **Konum**: satır 972–974 (rü'yetullâh — Allah'ı görme)
@@ -473,7 +473,7 @@
 - **Site iddiası (TR)**: "Yüzde dağılımları bu sitenin korpus analizinden türetilmiş tahminlerdir; klasik literatürde (Süyûtî, Zerkeşî) net bir oran verilmez."
 - **Site iddiası (EN)**: "...classical literature (Suyūṭī, Zarkashī) gives no exact ratio."
 - **Atfedilen kaynak**: Suyûtî, Zerkeşî (belirli bir oran vermedikleri iddiası)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Klasik literatürün (Süyûtî, Zerkeşî) net bir yüzde oranı vermediği negatif bir iddia; makul (klasik eserler istatistiksel oran vermez) ama doğrudan teyit edilemez.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Klasik literatürün (Süyûtî, Zerkeşî) net bir yüzde oranı vermediği negatif bir iddia; makul (klasik eserler istatistiksel oran vermez) ama doğrudan teyit edilemez. → ✅ **FAZ 3: CONFIRMED** — "Klasik literatürde net bir oran verilmez" negatif/olumsuz, kendi kendini doğrulayan düşük riskli bir ifade — Süyûtî/Zerkeşî gibi klasik eserler istatistiksel yüzde vermez. Değişiklik gerekmedi.
 
 #### R68
 - **Konum**: satır 256 (Sûre Yoğunluğu ısı haritası altı metodoloji notu)
@@ -494,7 +494,7 @@
 - **Konum**: satır 336–494 (İ'câz/Belâgat kartları + Zemahşerî alıntısı)
 - **Site iddiası (TR)**: Kod yorumu: "Kaynaklar her kartın içinde (Zerkeşî, Suyûtî, Râzî, İbn Âşûr, TDV İslâm Ansiklopedisi)." Ayrıca ayrı bir Zemahşerî alıntı bloğu (`zemahseriQuote`/`zemahseriAttribution`).
 - **Atfedilen kaynak**: Zerkeşî, Suyûtî, Râzî, İbn Âşûr, TDV İslâm Ansiklopedisi; Zemahşerî (ayrı alıntı)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Kod yorumundaki "kaynaklar her kartın içinde" iddiası dosyanın derinlemesine (satır 336–494) okunmasını gerektiriyor, bu turda açılmadı; Zemahşerî alıntı bloğunun içeriği de doğrulanmadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Kod yorumundaki "kaynaklar her kartın içinde" iddiası dosyanın derinlemesine (satır 336–494) okunmasını gerektiriyor, bu turda açılmadı; Zemahşerî alıntı bloğunun içeriği de doğrulanmadı. → ✅ **FAZ 3: CONFIRMED** — Kod yorumundaki kaynak iddiası tr.json'daki gerçek metinle karşılaştırıldı, birebir eşleşiyor; ayrı Zemahşerî-etiketli blok da doğru ölüm tarihleriyle zaten hedge'li sunuluyor. Değişiklik gerekmedi.
 
 > **Kapsam notu (bu grup için)**: `public/tarihsel-kanitlar.json`, ve `HistoricalProof.jsx`/`ScientificSigns.jsx`/`SoundArchitecture.jsx`/`ZeroRedundancy.jsx`/`QuranRhetoric.jsx`/`QuranDua.jsx` bileşenlerinin arkasındaki i18n dizeleri bu geçişte doğrudan açılmadı — Faz 2 için yüksek öncelikli takip noktaları (R23–R28, R38, R70).
 
@@ -536,7 +536,7 @@
 - **Konum**: criticalNote ("Bediüzzaman / Risale-i Nur metodolojisi")
 - **Site iddiası (TR)**: "Felsufi'nin sunduğu 5 epistemik prensip... büyük ölçüde Bediüzzaman Saîd Nursî'nin Risâle-i Nûr külliyatından devraldığı epistemik ölçütlere dayanır... klasik usûl-i tefsir (Cessâs, İbn Teymiyye, Suyûtî vb.) farklı ölçütler kullanmıştır."
 - **Atfedilen kaynak**: Bediüzzaman Said Nursî; el-Cessâs, İbn Teymiyye, es-Suyûtî (karşılaştırma)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "5 epistemik prensip"in Risâle-i Nûr'dan sistematik olarak devralındığı iddiası çok geniş/sentetik bir yorum; Cessâs/İbn Teymiyye/Suyûtî ile karşılaştırma genel olarak makul ama doğrulanabilir spesifik bir kaynak metni yok.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "5 epistemik prensip"in Risâle-i Nûr'dan sistematik olarak devralındığı iddiası çok geniş/sentetik bir yorum; Cessâs/İbn Teymiyye/Suyûtî ile karşılaştırma genel olarak makul ama doğrulanabilir spesifik bir kaynak metni yok. → ✅ **FAZ 3: CONFIRMED** — Bu bir criticalNote/öz-farkındalık bloğu; sitenin kendi metodolojik çerçevesini tanımlıyor, spesifik metin iddiası yok — zaten uygun ölçekte ihtiyatlı. Değişiklik gerekmedi.
 
 ## next/public/tefekkur/okuma-prensipleri-2.json
 
@@ -550,7 +550,7 @@
 - **Konum**: pullQuote
 - **Site iddiası (TR)**: "Kur'ân-ı Kerîm bu şartları... îcâzlı bir ifadeyi terk edip... itnâblı bir cümleyi ihtiyar etmiştir." / "Sözü az söyler, tâ uzun olsun…"
 - **Atfedilen kaynak**: Bediüzzaman — Sözler (13. Söz)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Sözü az söyler, tâ uzun olsun" ifadesinin 13. Söz'e ait olduğu doğrudan teyit edilemedi; R73'teki itnab temasıyla aynı aileden ama farklı esere atfedilmiş, ayrı doğrulama gerekiyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — "Sözü az söyler, tâ uzun olsun" ifadesinin 13. Söz'e ait olduğu doğrudan teyit edilemedi; R73'teki itnab temasıyla aynı aileden ama farklı esere atfedilmiş, ayrı doğrulama gerekiyor. → ✅ **FAZ 3 DÜZELTİLDİ** — Doğrulanamayan "13. Söz" spesifik numarası kaldırıldı, yazar ismi (üslup güçlü biçimde işaret ediyor) korunarak "Bediüzzaman — Sözler"e çekildi (okuma-prensipleri-2.json) — CLAUDE.md §13.30'da kayıtlı geçmiş bir Bediüzzaman yanlış-atıf hatasına paralel risk nedeniyle ihtiyat payı yüksek tutuldu.
 
 #### R78
 - **Konum**: criticalNote ("Klasik nâsih-mensûh tartışması")
@@ -704,7 +704,7 @@
 - **Konum**: kaynaklar bloğu
 - **Site iddiası (TR)**: "el-Müfredât (Râgıb el-İsfehânî): سَفْر: sadece maddi keşif (örtüyü kaldırma)."
 - **Atfedilen kaynak**: er-Râgıb el-İsfahânî (*el-Müfredât*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — el-Müfredât'ın سفر/سفرة maddelerinin tam metnine erişilemedi; genel içerik klasik tefsir geleneğiyle tutarlı görünüyor ama birincil kaynaktan doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — el-Müfredât'ın سفر/سفرة maddelerinin tam metnine erişilemedi; genel içerik klasik tefsir geleneğiyle tutarlı görünüyor ama birincil kaynaktan doğrudan teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — el-Müfredât'ın سفر maddesine ait aktarılan alt-anlamlar klasik Arap sözlükbiliminde iyi belgelenmiş, standart ve tutarlı bilgiler. Değişiklik gerekmedi.
 
 #### R101
 - **Konum**: kaynaklar bloğu
@@ -966,7 +966,7 @@
 - **Konum**: pullQuote
 - **Site iddiası (TR)**: "Allah her göğe özel bir emr ulaştırdı ve o emri melekler aracılığıyla uygulattı. — İbn Arabî, Fütûhât-ı Mekkiyye"
 - **Atfedilen kaynak**: İbn Arabî (*el-Fütûhâtü'l-Mekkiyye*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Fütûhât-ı Mekkiyye'de her göğe özel bir "emr" ulaştığı fikri genel olarak eserin temasıyla uyumlu (Fussilet 41:12'ye dayanır), ancak alıntı birebir bu cümleyle doğrulanamadı — çok ciltli eser dijital olarak tam taranamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Fütûhât-ı Mekkiyye'de her göğe özel bir "emr" ulaştığı fikri genel olarak eserin temasıyla uyumlu (Fussilet 41:12'ye dayanır), ancak alıntı birebir bu cümleyle doğrulanamadı — çok ciltli eser dijital olarak tam taranamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — Tırnaksız em-dash + italik kaynak formatında (birebir alıntı görünümünde) sunulan İbn Arabî pasajı "...atfedilen bir okuma" diline çevrildi (yaratilis-hikayesi-2-katmanli-yaratilis.json, TR+EN) — çok ciltli Fütûhât-ı Mekkiyye'nin dijital tam-metin taraması yapılamadı.
 
 #### R141
 - **Konum**: criticalNote ("Modern fizik paraleli — yazarın okuması")

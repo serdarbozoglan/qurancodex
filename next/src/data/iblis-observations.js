@@ -142,8 +142,8 @@ export const OBSERVATIONS = [
     statValue: '1 / 7',
     labelTr: 'Soy hedefi açıkça vurgulanır',
     labelEn: 'Lineage target explicitly stated',
-    bodyTr: 'Yedi anlatımdan yalnız İsrâ\'da hedef bireyden soya kayar (lā-aḥtanikanne ẕurriyyatahu). Kehf\'te de "soy" geçer fakat zamirin kime ait olduğu klasik tefsirde tartışmalıdır (Taberî hem İblis hem Hz. Âdem yorumunu kaydeder).',
-    bodyEn: 'Only in Isra does the target shift from individual to lineage (lā-aḥtanikanne ẕurriyyatahu). Kahf also mentions "progeny," but its referent is contested in classical exegesis (al-Ṭabarī records both Iblis and Adam readings).',
+    bodyTr: 'Yedi anlatımdan yalnız İsrâ\'da hedef bireyden soya kayar (lā-aḥtanikanne ẕurriyyatahu). Kehf\'te de "soy" geçer, fakat bu İblis\'in kendi soyudur (şeytanlar) — İsrâ\'daki gibi doğrudan bir tehdit ifadesi değildir; klasik tefsirde (Taberî dahil) zamirin İblis\'e ait olduğu nettir.',
+    bodyEn: 'Only in Isra does the target shift from individual to lineage (lā-aḥtanikanne ẕurriyyatahu). Kahf also mentions "progeny," but this is Iblis\'s own offspring (the devils) — not a direct threat as in Isra; classical exegesis (including al-Ṭabarī) clearly reads the pronoun as referring to Iblis.',
     groups: [
       {
         labelTr: 'AÇIK İFADE', labelEn: 'EXPLICIT',
