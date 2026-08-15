@@ -6,15 +6,92 @@
       "labelEn": "Water / Rain / Sea",
       "color": "#3498db",
       "nodes": [
-        { "id": "rain-from-sky", "labelTr": "Gökten inen yağmur", "symbolises": "Vahiy / İlahi rehberlik", "refs": ["13:17", "39:21"] },
-        { "id": "flood-foam", "labelTr": "Sel köpüğü", "symbolises": "Bâtıl — yüze çıkar ama kaybolur", "refs": ["13:17"] },
-        { "id": "deep-sea-darkness-node", "labelTr": "Derin deniz karanlığı", "symbolises": "Kâfirin kat kat karanlığı", "refs": ["24:40"] },
-        { "id": "desert-mirage-node", "labelTr": "Çöldeki serap", "symbolises": "Kâfirin boşa giden amelleri", "refs": ["24:39"] },
-        { "id": "rain-vegetation-cycle", "labelTr": "Yağmurla yeşeren bitki", "symbolises": "Dünya hayatının geçiciliği", "refs": ["10:24", "18:45", "57:20"] },
-        { "id": "paradise-rivers-node", "labelTr": "Cennet nehirleri", "symbolises": "Sonsuz mükâfat", "refs": ["47:15"] }
+        {
+          "id": "rain-from-sky",
+          "labelTr": "Gökten inen yağmur",
+          "symbolises": "Vahiy / İlahi rehberlik",
+          "refs": [
+            "13:17",
+            "39:21"
+          ]
+        },
+        {
+          "id": "flood-foam",
+          "labelTr": "Sel köpüğü",
+          "symbolises": "Bâtıl — yüze çıkar ama kaybolur",
+          "refs": [
+            "13:17"
+          ]
+        },
+        {
+          "id": "deep-sea-darkness-node",
+          "labelTr": "Derin deniz karanlığı",
+          "symbolises": "Kâfirin kat kat karanlığı",
+          "refs": [
+            "24:40"
+          ]
+        },
+        {
+          "id": "desert-mirage-node",
+          "labelTr": "Çöldeki serap",
+          "symbolises": "Kâfirin boşa giden amelleri",
+          "refs": [
+            "24:39"
+          ]
+        },
+        {
+          "id": "rain-vegetation-cycle",
+          "labelTr": "Yağmurla yeşeren bitki",
+          "symbolises": "Dünya hayatının geçiciliği",
+          "refs": [
+            "10:24",
+            "18:45",
+            "57:20"
+          ]
+        },
+        {
+          "id": "paradise-rivers-node",
+          "labelTr": "Cennet nehirleri",
+          "symbolises": "Sonsuz mükâfat",
+          "refs": [
+            "47:15"
+          ]
+        },
+        {
+          "id": "revival-rain-node",
+          "labelTr": "Ölü toprağın dirilişi",
+          "symbolises": "Ba's'ın kıyası",
+          "refs": [
+            "30:19",
+            "41:39",
+            "50:9",
+            "50:11"
+          ]
+        },
+        {
+          "id": "ink-sea-node",
+          "labelTr": "Deniz mürekkep olsa",
+          "symbolises": "İlahi kelâmın sonsuzluğu",
+          "refs": [
+            "18:109",
+            "31:27"
+          ]
+        },
+        {
+          "id": "flood-waves-node",
+          "labelTr": "Dağ gibi dalgalar",
+          "symbolises": "Tûfanın büyüklüğü",
+          "refs": [
+            "11:42"
+          ]
+        }
       ],
       "crossLinks": [
-        { "from": "rain-vegetation-cycle", "toDomain": "plant-tree", "toNode": "drying-plant" }
+        {
+          "from": "rain-vegetation-cycle",
+          "toDomain": "plant-tree",
+          "toNode": "drying-plant"
+        }
       ]
     },
     {
@@ -23,12 +100,45 @@
       "labelEn": "Light / Darkness / Fire",
       "color": "#c9a227",
       "nodes": [
-        { "id": "nur-lamp", "labelTr": "Nûr Kandili", "symbolises": "Allah'ın nuru — mü'minin kalbi", "refs": ["24:35"] },
-        { "id": "fire-kindler-node", "labelTr": "Sönen ateş", "symbolises": "Münafığın ışığı — aydınlanır, söner", "refs": ["2:17"] },
-        { "id": "lightning-storm", "labelTr": "Şimşek fırtınası", "symbolises": "Münafığın parçalı imanı", "refs": ["2:19-20"] }
+        {
+          "id": "nur-lamp",
+          "labelTr": "Nûr Kandili",
+          "symbolises": "Allah'ın nuru — mü'minin kalbi",
+          "refs": [
+            "24:35"
+          ]
+        },
+        {
+          "id": "fire-kindler-node",
+          "labelTr": "Sönen ateş",
+          "symbolises": "Münafığın ışığı — aydınlanır, söner",
+          "refs": [
+            "2:17"
+          ]
+        },
+        {
+          "id": "lightning-storm",
+          "labelTr": "Şimşek fırtınası",
+          "symbolises": "Münafığın parçalı imanı",
+          "refs": [
+            "2:19-20"
+          ]
+        },
+        {
+          "id": "orphan-fire-node",
+          "labelTr": "Karında ateş",
+          "symbolises": "Yetim malının vebali",
+          "refs": [
+            "4:10"
+          ]
+        }
       ],
       "crossLinks": [
-        { "from": "fire-kindler-node", "toDomain": "water", "toNode": "flood-foam" }
+        {
+          "from": "fire-kindler-node",
+          "toDomain": "water",
+          "toNode": "flood-foam"
+        }
       ]
     },
     {
@@ -37,14 +147,86 @@
       "labelEn": "Plant / Tree / Agriculture",
       "color": "#2ecc71",
       "nodes": [
-        { "id": "good-tree-node", "labelTr": "Güzel ağaç", "symbolises": "Güzel söz / Kelime-i Tevhid", "refs": ["14:24-25"] },
-        { "id": "evil-tree-node", "labelTr": "Kötü ağaç", "symbolises": "Kötü söz / Küfür", "refs": ["14:26"] },
-        { "id": "seven-ears-node", "labelTr": "Yedi başak", "symbolises": "İnfakın katlanması", "refs": ["2:261"] },
-        { "id": "drying-plant", "labelTr": "Kuruyan bitki", "symbolises": "Dünya hayatı döngüsü", "refs": ["10:24", "57:20"] },
-        { "id": "believers-crop-node", "labelTr": "Güçlenen ekin", "symbolises": "Mü'minlerin büyümesi", "refs": ["48:29"] }
+        {
+          "id": "good-tree-node",
+          "labelTr": "Güzel ağaç",
+          "symbolises": "Güzel söz / Kelime-i Tevhid",
+          "refs": [
+            "14:24-25"
+          ]
+        },
+        {
+          "id": "evil-tree-node",
+          "labelTr": "Kötü ağaç",
+          "symbolises": "Kötü söz / Küfür",
+          "refs": [
+            "14:26"
+          ]
+        },
+        {
+          "id": "seven-ears-node",
+          "labelTr": "Yedi başak",
+          "symbolises": "İnfakın katlanması",
+          "refs": [
+            "2:261"
+          ]
+        },
+        {
+          "id": "drying-plant",
+          "labelTr": "Kuruyan bitki",
+          "symbolises": "Dünya hayatı döngüsü",
+          "refs": [
+            "10:24",
+            "57:20"
+          ]
+        },
+        {
+          "id": "believers-crop-node",
+          "labelTr": "Güçlenen ekin",
+          "symbolises": "Mü'minlerin büyümesi",
+          "refs": [
+            "48:29"
+          ]
+        },
+        {
+          "id": "vineyard-regret-node",
+          "labelTr": "Avuç ovuşturan pişmanlık",
+          "symbolises": "Kibrin sonu",
+          "refs": [
+            "18:42"
+          ]
+        },
+        {
+          "id": "garden-trial-node",
+          "labelTr": "Bahçe sahiplerinin imtihanı",
+          "symbolises": "Servetle sınanma",
+          "refs": [
+            "68:17"
+          ]
+        },
+        {
+          "id": "uprooted-palms-node",
+          "labelTr": "Sökülmüş hurma kütükleri",
+          "symbolises": "Âd kavminin helâki",
+          "refs": [
+            "54:20"
+          ]
+        },
+        {
+          "id": "eaten-leaves-node",
+          "labelTr": "Yenmiş ekin yaprağı",
+          "symbolises": "Fil ordusunun sonu",
+          "refs": [
+            "105:5"
+          ]
+        }
       ],
       "crossLinks": [
-        { "from": "drying-plant", "toDomain": "water", "toNode": "rain-vegetation-cycle" }
+        {
+          "from": "drying-plant",
+          "toDomain": "water",
+          "toNode": "rain-vegetation-cycle"
+        }
       ]
     },
     {
@@ -53,11 +235,55 @@
       "labelEn": "Animal / Insect",
       "color": "#e67e22",
       "nodes": [
-        { "id": "spider-house-node", "labelTr": "Örümcek evi", "symbolises": "Şirkin çürüklüğü — en zayıf barınak", "refs": ["29:41"] },
-        { "id": "fly-node", "labelTr": "Sinek", "symbolises": "Putların acizliği", "refs": ["22:73"] },
-        { "id": "mosquito-node", "labelTr": "Sivrisinek", "symbolises": "Meselin boyut tanımaz oluşu", "refs": ["2:26"] },
-        { "id": "dog-node", "labelTr": "Dilini sarkıtan köpek", "symbolises": "Ayetlerden sapan", "refs": ["7:176"] },
-        { "id": "donkey-node", "labelTr": "Kitap taşıyan eşek", "symbolises": "İlmi taşıyıp anlamayan", "refs": ["62:5"] }
+        {
+          "id": "spider-house-node",
+          "labelTr": "Örümcek evi",
+          "symbolises": "Şirkin çürüklüğü — en zayıf barınak",
+          "refs": [
+            "29:41"
+          ]
+        },
+        {
+          "id": "fly-node",
+          "labelTr": "Sinek",
+          "symbolises": "Putların acizliği",
+          "refs": [
+            "22:73"
+          ]
+        },
+        {
+          "id": "mosquito-node",
+          "labelTr": "Sivrisinek",
+          "symbolises": "Meselin boyut tanımaz oluşu",
+          "refs": [
+            "2:26"
+          ]
+        },
+        {
+          "id": "dog-node",
+          "labelTr": "Dilini sarkıtan köpek",
+          "symbolises": "Ayetlerden sapan",
+          "refs": [
+            "7:176"
+          ]
+        },
+        {
+          "id": "donkey-node",
+          "labelTr": "Kitap taşıyan eşek",
+          "symbolises": "İlmi taşıyıp anlamayan",
+          "refs": [
+            "62:5"
+          ]
+        },
+        {
+          "id": "fleeing-donkeys-node",
+          "labelTr": "Ürkmüş yaban eşekleri",
+          "symbolises": "Öğütten kaçış",
+          "refs": [
+            "74:50",
+            "74:51"
+          ]
+        }
       ],
       "crossLinks": []
     },
@@ -67,11 +293,49 @@
       "labelEn": "Human Senses",
       "color": "#e74c3c",
       "nodes": [
-        { "id": "blind-seeing-node", "labelTr": "Kör ile Gören", "symbolises": "İman-küfür algı uçurumu", "refs": ["11:24"] },
-        { "id": "deaf-dumb-node", "labelTr": "Sağır ve Dilsiz", "symbolises": "Şirk vs. tevhid", "refs": ["16:76"] },
-        { "id": "dry-bones-node", "labelTr": "Çürümüş kemikler", "symbolises": "Diriliş inkârı", "refs": ["36:78"] }
+        {
+          "id": "blind-seeing-node",
+          "labelTr": "Kör ile Gören",
+          "symbolises": "İman-küfür algı uçurumu",
+          "refs": [
+            "11:24"
+          ]
+        },
+        {
+          "id": "deaf-dumb-node",
+          "labelTr": "Sağır ve Dilsiz",
+          "symbolises": "Şirk vs. tevhid",
+          "refs": [
+            "16:76"
+          ]
+        },
+        {
+          "id": "dry-bones-node",
+          "labelTr": "Çürümüş kemikler",
+          "symbolises": "Diriliş inkârı",
+          "refs": [
+            "36:78"
+          ]
+        },
+        {
+          "id": "dual-contrasts-node",
+          "labelTr": "Dörtlü karşıtlık",
+          "symbolises": "Mümin-kâfir ayrımı",
+          "refs": [
+            "35:19",
+            "35:20",
+            "35:21",
+            "35:22"
+          ]
+        }
       ],
-      "crossLinks": []
+      "crossLinks": [
+        {
+          "from": "dual-contrasts-node",
+          "toDomain": "light-fire",
+          "toNode": "nur-lamp"
+        }
+      ]
     },
     {
       "id": "society-city",
@@ -79,10 +343,73 @@
       "labelEn": "Society / City / Building",
       "color": "#B17EC6",
       "nodes": [
-        { "id": "safe-city-node", "labelTr": "Güvenli şehir", "symbolises": "Nankörlüğün bedeli", "refs": ["16:112"] },
-        { "id": "ruined-town-node", "labelTr": "Harabe kasaba", "symbolises": "İlahi diriltme kudretinin delili", "refs": ["2:259"] },
-        { "id": "building-foundation-node", "labelTr": "Takva temeli", "symbolises": "İman üzerine kurulan hayat", "refs": ["9:109"] },
-        { "id": "two-slaves-node", "labelTr": "İki köle meseli", "symbolises": "Tevhid vs. şirk", "refs": ["39:29"] }
+        {
+          "id": "safe-city-node",
+          "labelTr": "Güvenli şehir",
+          "symbolises": "Nankörlüğün bedeli",
+          "refs": [
+            "16:112"
+          ]
+        },
+        {
+          "id": "ruined-town-node",
+          "labelTr": "Harabe kasaba",
+          "symbolises": "İlahi diriltme kudretinin delili",
+          "refs": [
+            "2:259"
+          ]
+        },
+        {
+          "id": "building-foundation-node",
+          "labelTr": "Takva temeli",
+          "symbolises": "İman üzerine kurulan hayat",
+          "refs": [
+            "9:109"
+          ]
+        },
+        {
+          "id": "two-slaves-node",
+          "labelTr": "İki köle meseli",
+          "symbolises": "Tevhid vs. şirk",
+          "refs": [
+            "39:29"
+          ]
+        },
+        {
+          "id": "trade-node",
+          "labelTr": "Kurtarıcı ticaret",
+          "symbolises": "İman + cihad = kâr",
+          "refs": [
+            "2:16",
+            "61:10",
+            "61:11"
+          ]
+        },
+        {
+          "id": "timber-hypocrites-node",
+          "labelTr": "Duvara dayanmış kütükler",
+          "symbolises": "Münafığın işlevsizliği",
+          "refs": [
+            "63:4"
+          ]
+        },
+        {
+          "id": "garment-tilth-node",
+          "labelTr": "Elbise ve tarla",
+          "symbolises": "Eşlerin karşılıklılığı",
+          "refs": [
+            "2:187",
+            "2:223"
+          ]
+        },
+        {
+          "id": "gossip-node",
+          "labelTr": "Ölü kardeş eti",
+          "symbolises": "Gıybetin çirkinliği",
+          "refs": [
+            "49:12"
+          ]
+        }
       ],
       "crossLinks": []
     },
@@ -92,13 +419,120 @@
       "labelEn": "Earth / Rock",
       "color": "#A28F77",
       "nodes": [
-        { "id": "rock-soil-node", "labelTr": "Kayaya düşen toprak", "symbolises": "Riyânın boşluğu", "refs": ["2:264"] },
-        { "id": "fertile-hill-node", "labelTr": "Verimli tepe", "symbolises": "İhlasla verilen sadaka", "refs": ["2:265"] },
-        { "id": "amels-ash-node", "labelTr": "Rüzgârda kül", "symbolises": "Boşa giden ameller", "refs": ["14:18"] },
-        { "id": "barren-land-node", "labelTr": "Çorak toprak", "symbolises": "Kapalı kalp — cılız ürün", "refs": ["7:58"] }
+        {
+          "id": "rock-soil-node",
+          "labelTr": "Kayaya düşen toprak",
+          "symbolises": "Riyânın boşluğu",
+          "refs": [
+            "2:264"
+          ]
+        },
+        {
+          "id": "fertile-hill-node",
+          "labelTr": "Verimli tepe",
+          "symbolises": "İhlasla verilen sadaka",
+          "refs": [
+            "2:265"
+          ]
+        },
+        {
+          "id": "amels-ash-node",
+          "labelTr": "Rüzgârda kül",
+          "symbolises": "Boşa giden ameller",
+          "refs": [
+            "14:18"
+          ]
+        },
+        {
+          "id": "barren-land-node",
+          "labelTr": "Çorak toprak",
+          "symbolises": "Kapalı kalp — cılız ürün",
+          "refs": [
+            "7:58"
+          ]
+        },
+        {
+          "id": "stone-heart-node",
+          "labelTr": "Taştan katı kalp",
+          "symbolises": "Katılaşan vicdan",
+          "refs": [
+            "2:74"
+          ]
+        },
+        {
+          "id": "mountain-quran-node",
+          "labelTr": "Dağa inen Kur'ân",
+          "symbolises": "Kur'ân'ın ağırlığı",
+          "refs": [
+            "59:21"
+          ]
+        }
       ],
       "crossLinks": [
-        { "from": "fertile-hill-node", "toDomain": "plant-tree", "toNode": "seven-ears-node" }
+        {
+          "from": "fertile-hill-node",
+          "toDomain": "plant-tree",
+          "toNode": "seven-ears-node"
+        },
+        {
+          "from": "stone-heart-node",
+          "toDomain": "water",
+          "toNode": "flood-foam"
+        }
+      ]
+    },
+    {
+      "id": "afterlife-scenes",
+      "labelTr": "Âhiret Sahneleri",
+      "labelEn": "Afterlife Scenes",
+      "color": "#F472B6",
+      "nodes": [
+        {
+          "id": "zaqqum-node",
+          "labelTr": "Zakkum ağacı",
+          "symbolises": "Cehennemin gıdası",
+          "refs": [
+            "37:64",
+            "37:65"
+          ]
+        },
+        {
+          "id": "qiyamah-transform-node",
+          "labelTr": "Gök ve dağların dönüşümü",
+          "symbolises": "Kıyametin kozmik altüst oluşu",
+          "refs": [
+            "70:8",
+            "70:9",
+            "101:4",
+            "101:5",
+            "77:32",
+            "77:33"
+          ]
+        },
+        {
+          "id": "locusts-node",
+          "labelTr": "Yayılmış çekirgeler",
+          "symbolises": "Haşir sahnesi",
+          "refs": [
+            "54:7"
+          ]
+        },
+        {
+          "id": "paradise-gems-node",
+          "labelTr": "Yakut, mercan, saklı inci",
+          "symbolises": "Cennet nimetlerinin değeri",
+          "refs": [
+            "55:58",
+            "56:23"
+          ]
+        }
+      ],
+      "crossLinks": [
+        {
+          "from": "zaqqum-node",
+          "toDomain": "plant-tree",
+          "toNode": "good-tree-node"
+        }
       ]
     }
   ]

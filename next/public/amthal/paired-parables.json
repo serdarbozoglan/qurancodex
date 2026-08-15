@@ -99,6 +99,126 @@
         "keyPhrase": "وَمَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمُ ابْتِغَاءَ مَرْضَاتِ اللَّهِ",
         "angleTr": "İhlas — yağmur alınca iki kat ürün veren tepe"
       }
+    },
+    {
+      "id": "garden-arrogance-regret",
+      "themeTr": "İki Bağ Sahibi: Kibir ve Pişmanlık",
+      "themeEn": "The Two Vineyard Owners: Arrogance and Regret",
+      "sharedThemeTr": "Aynı kıssanın iki ucu — önce kibirli meydan okuma, sonra çardakları çökmüş bağa bakıp avuç ovuşturma.",
+      "sideA": {
+        "parableId": "two-gardens-owner",
+        "ref": "18:32",
+        "domainColor": "#2ecc71",
+        "keyPhrase": "وَاضْرِبْ لَهُم مَّثَلًا رَّجُلَيْنِ",
+        "angleTr": "Kibir — zengin bahçe sahibi imanlı arkadaşına meydan okur"
+      },
+      "sideB": {
+        "parableId": "vineyard-regret",
+        "ref": "18:42",
+        "domainColor": "#2ecc71",
+        "keyPhrase": "وَأُحِيطَ بِثَمَرِهِ فَأَصْبَحَ يُقَلِّبُ كَفَّيْهِ عَلَىٰ مَآ أَنفَقَ فِيهَا وَهِىَ خَاوِيَةٌ",
+        "angleTr": "Pişmanlık — bağı bir gecede yok olunca avuçlarını ovuşturur"
+      }
+    },
+    {
+      "id": "infinite-words-scale",
+      "themeTr": "İlahi Kelâmın Sonsuzluğu: İki Ölçek",
+      "themeEn": "The Infinity of Divine Words: Two Scales",
+      "sharedThemeTr": "Aynı fikir iki farklı büyüklükte kurulur — biri tek deniz, diğeri ağaçlar + yedi deniz. İkisi de aynı sonuca varır: ölçeği büyütmek sonucu değiştirmez.",
+      "sideA": {
+        "parableId": "ink-sea",
+        "ref": "18:109",
+        "domainColor": "#3498db",
+        "keyPhrase": "قُل لَّوْ كَانَ الْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى",
+        "angleTr": "Tek deniz mürekkep olsa — yine tükenmez"
+      },
+      "sideB": {
+        "parableId": "pen-trees",
+        "ref": "31:27",
+        "domainColor": "#3498db",
+        "keyPhrase": "وَلَوْ أَنَّمَا فِى الْأَرْضِ مِن شَجَرَةٍ أَقْلَٰمٌ وَالْبَحْرُ يَمُدُّهُ مِن بَعْدِهِ سَبْعَةُ أَبْحُرٍ مَّا نَفِدَتْ كَلِمَٰتُ اللَّهِ إِنَّ اللَّهَ عَزِيزٌ حَكِيمٌ",
+        "angleTr": "Tüm ağaçlar kalem, sekiz deniz mürekkep olsa — yine tükenmez"
+      }
+    },
+    {
+      "id": "revival-proof-pair",
+      "themeTr": "Ölü Toprağın Dirilişi: İki Sûre, Aynı Kıyas",
+      "themeEn": "Revival of Dead Land: Same Analogy, Two Surahs",
+      "sharedThemeTr": "Her yıl gözlenen bir olay (yağmurla dirilen toprak), dirilişin (ba's) delili olarak sunulur.",
+      "sideA": {
+        "parableId": "dead-land-revival-1",
+        "ref": "30:19",
+        "domainColor": "#3498db",
+        "keyPhrase": "الْأَرْضَ بَعْدَ مَوْتِهَا وَكَذَٰلِكَ تُخْرَجُونَ",
+        "angleTr": "Rûm 30:19 — 'ölü toprağı diriltir; siz de böyle çıkarılacaksınız'"
+      },
+      "sideB": {
+        "parableId": "revival-proof",
+        "ref": "41:39",
+        "domainColor": "#3498db",
+        "keyPhrase": "إِنَّ الَّذِىٓ أَحْيَاهَا لَمُحْىِ الْمَوْتَىٰٓ",
+        "angleTr": "Fussilet 41:39 — 'onu dirilten, ölüleri de diriltir'"
+      }
+    },
+    {
+      "id": "paradise-gems-pair",
+      "themeTr": "Cennet Nimetleri: Yakut ve İnci",
+      "themeEn": "Paradise Rewards: Rubies and Pearls",
+      "sharedThemeTr": "Cennet nimetleri iki değerli, saklı nesneye benzetilir — değer, el değmemişlikten gelir.",
+      "sideA": {
+        "parableId": "rubies-coral",
+        "ref": "55:58",
+        "domainColor": "#F472B6",
+        "keyPhrase": "كَأَنَّهُنَّ الْيَاقُوتُ وَالْمَرْجَانُ",
+        "angleTr": "Rahmân 55:58 — 'sanki onlar yakut ve mercandır'"
+      },
+      "sideB": {
+        "parableId": "hidden-pearls",
+        "ref": "56:23",
+        "domainColor": "#F472B6",
+        "keyPhrase": "كَأَمْثَٰلِ اللُّؤْلُؤِ الْمَكْنُونِ",
+        "angleTr": "Vâkıa 56:23 — 'saklı inciler misali'"
+      }
+    },
+    {
+      "id": "qiyamah-transform-pair",
+      "themeTr": "Kıyamet Günü: Gök ve Dağların Dönüşümü",
+      "themeEn": "Judgment Day: The Transformation of Sky and Mountains",
+      "sharedThemeTr": "Aynı sûrede art arda gelen iki mesel — sağlam görünen gök ve dağlar bile Kıyamette akışkanlaşır.",
+      "sideA": {
+        "parableId": "sky-molten",
+        "ref": "70:8",
+        "domainColor": "#F472B6",
+        "keyPhrase": "يَوْمَ تَكُونُ السَّمَآءُ كَالْمُهْلِ",
+        "angleTr": "Gök erimiş maden gibi olur"
+      },
+      "sideB": {
+        "parableId": "mountains-wool-70",
+        "ref": "70:9",
+        "domainColor": "#F472B6",
+        "keyPhrase": "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ",
+        "angleTr": "Dağlar atılmış yün gibi olur"
+      }
+    },
+    {
+      "id": "qiyamah-scatter-pair",
+      "themeTr": "Kıyamet Günü: İnsanlar ve Dağlar",
+      "themeEn": "Judgment Day: People and Mountains",
+      "sharedThemeTr": "Kâria sûresinde art arda gelen iki mesel — insanlar dağılmış kelebekler, dağlar didiklenmiş yün gibi olur.",
+      "sideA": {
+        "parableId": "scattered-moths",
+        "ref": "101:4",
+        "domainColor": "#F472B6",
+        "keyPhrase": "يَوْمَ يَكُونُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوثِ",
+        "angleTr": "İnsanlar dağılmış kelebekler gibi olur"
+      },
+      "sideB": {
+        "parableId": "mountains-wool-101",
+        "ref": "101:5",
+        "domainColor": "#F472B6",
+        "keyPhrase": "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ الْمَنفُوشِ",
+        "angleTr": "Dağlar didiklenmiş renkli yün gibi olur"
+      }
     }
   ]
 }

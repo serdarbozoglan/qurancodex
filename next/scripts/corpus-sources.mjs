@@ -1148,6 +1148,32 @@ export const CONTENT_SOURCES = [
       };
     },
   },
+
+  // ─── Mesel Atlası — Emsâlü'l-Kur'ân (Kur'ân'daki benzetmeler/analojiler)
+  // 2026-08-15: 72 mesel (41 orijinal + 31 yeni), her biri belâgat yapısı
+  // (teşbih/istiâre/temsil/mukabele/kıyas) etiketiyle.
+  {
+    type: 'atlas-mesel',
+    file: 'public/amthal/parables.json',
+    extract: (data) => data.parables || [],
+    buildItem: (item) => {
+      const surahTr = SURAH_NAMES_TR[item.surah] || '';
+      const surahEn = SURAH_NAMES_EN[item.surah] || '';
+      const ref = `${item.surah}:${item.ayah}`;
+      return {
+        id: `atlas-mesel:${item.id}`,
+        type: 'atlas-mesel',
+        subId: item.id,
+        titleTr: item.nameTr || '',
+        titleEn: item.nameTr || '',
+        arabic: item.keyPhrase || '',
+        descTr: (item.summaryTr || '').slice(0, 200),
+        descEn: (item.summaryTr || '').slice(0, 200),
+        searchTextTr: `${item.nameTr || ''} — ${surahTr} ${ref}. ${item.keyPhrase || ''}. ${item.summaryTr || ''}`.slice(0, 5000),
+        searchTextEn: `${item.nameTr || ''} — ${surahEn} ${ref}. ${item.keyPhrase || ''}. ${item.summaryTr || ''}`.slice(0, 5000),
+      };
+    },
+  },
 ];
 
 // ─── Tool Catalog (statik registry) ──────────────────────────────────────────

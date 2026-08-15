@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC, CATEGORY } from '../tokens';
 import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
@@ -93,33 +93,36 @@ function firstAyah(ref) {
 
 // ── Domain colour / label maps ───────────────────────────────────────────────
 const DOMAIN_COLORS = {
-  'water':        '#3498db',
-  'light-fire':   '#c9a227',
-  'plant-tree':   '#2ecc71',
-  'animal':       '#e67e22',
-  'human-senses': '#e74c3c',
-  'society-city': '#B17EC6',
-  'earth-rock':   '#A28F77',
+  'water':            '#3498db',
+  'light-fire':       '#c9a227',
+  'plant-tree':       '#2ecc71',
+  'animal':           '#e67e22',
+  'human-senses':     '#e74c3c',
+  'society-city':     '#B17EC6',
+  'earth-rock':       '#A28F77',
+  'afterlife-scenes': CATEGORY.rose,
 };
 
 const DOMAIN_LABELS_TR = {
-  'water':        'Su / Yağmur / Deniz',
-  'light-fire':   'Işık / Karanlık / Ateş',
-  'plant-tree':   'Bitki / Ağaç / Tarım',
-  'animal':       'Hayvan / Böcek',
-  'human-senses': 'İnsan Duyuları',
-  'society-city': 'Toplum / Şehir / Bina',
-  'earth-rock':   'Toprak / Kaya',
+  'water':            'Su / Yağmur / Deniz',
+  'light-fire':       'Işık / Karanlık / Ateş',
+  'plant-tree':       'Bitki / Ağaç / Tarım',
+  'animal':           'Hayvan / Böcek',
+  'human-senses':     'İnsan Duyuları',
+  'society-city':     'Toplum / Şehir / Bina',
+  'earth-rock':       'Toprak / Kaya',
+  'afterlife-scenes': 'Âhiret Sahneleri',
 };
 
 const DOMAIN_LABELS_EN = {
-  'water':        'Water / Rain / Sea',
-  'light-fire':   'Light / Darkness / Fire',
-  'plant-tree':   'Plant / Tree / Agriculture',
-  'animal':       'Animal / Insect',
-  'human-senses': 'Human Senses',
-  'society-city': 'Society / City / Building',
-  'earth-rock':   'Earth / Rock',
+  'water':            'Water / Rain / Sea',
+  'light-fire':       'Light / Darkness / Fire',
+  'plant-tree':       'Plant / Tree / Agriculture',
+  'animal':           'Animal / Insect',
+  'human-senses':     'Human Senses',
+  'society-city':     'Society / City / Building',
+  'earth-rock':       'Earth / Rock',
+  'afterlife-scenes': 'Afterlife Scenes',
 };
 
 const CATEGORY_LABELS_TR = {
@@ -133,12 +136,24 @@ const CATEGORY_LABELS_TR = {
   'community':             'Toplum & Ümmet',
   'paradise-hereafter':    'Cennet & Ahiret',
   'fertile-barren':        'Verimli vs. Çorak',
+  'trade-commerce':        'Ticaret & Alışveriş',
+  'divine-attributes':     'İlahi Sıfatlar',
 };
 
 const PARABLE_TYPE_LABELS = {
   'sarih':  'Sarîh (Açık)',
   'kamin':  'Kâmin (Gizli)',
   'mursel': 'Mürsel',
+};
+
+// Belâgat yapısı — teşbih/istiâre/temsil taksonomisi (Emsâlü'l-Kur'ân çerçevesi)
+const RHETORIC_TYPE_LABELS = {
+  'tesbih':          'Teşbîh',
+  'tesbih-i-belig':  'Teşbîh-i Belîğ',
+  'istiare':         'İstiâre',
+  'temsil':          'Temsîl',
+  'mukabele':        'Mukabele',
+  'kiyas':           'Kıyas',
 };
 
 // ── Tab definitions ──────────────────────────────────────────────────────────
