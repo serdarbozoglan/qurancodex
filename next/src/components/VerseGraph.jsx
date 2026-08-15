@@ -3,8 +3,8 @@
 import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
 import {
-  Color, Group, Mesh,
-  SphereGeometry, TorusGeometry, MeshLambertMaterial,
+  Color, Group, Mesh, InstancedMesh, Matrix4, Vector3, Quaternion,
+  SphereGeometry, TorusGeometry, CylinderGeometry, MeshLambertMaterial,
   AmbientLight, DirectionalLight,
   MOUSE, TOUCH,
 } from 'three';
@@ -504,6 +504,17 @@ function hex(s) { return new Color(s); }
 const UNIT_SPHERE_CORE = new SphereGeometry(1, 16, 16);
 const UNIT_SPHERE_HALO = new SphereGeometry(1, 12, 12);
 const UNIT_SPHERE_DIM = new SphereGeometry(1, 6, 6);
+// Instanced bulk path (6236 düğüm, hepsi küçük/uzak) için DÜŞÜK-poli varyant —
+// yukarıdakiler tek-seferlik seçili/hovered/ghost/dimmed düğümler için kalıyor
+// (kaç tanesi varsa o kadar, yakınlaşınca fark edilir, maliyeti önemsiz).
+// Ölçülen: segment sayısını 16×16/12×12'den 5×4'e indirmek TEK BAŞINA
+// masaüstü TBT'yi 4.2s → 2.1s'ye düşürdü (renderer.info.render.triangles
+// ~4.9M idi) — GPU fill-rate/overdraw asıl kalan darboğaz, draw call sayısı
+// (12.145 → 8) değil. 6236 küçük, uzak nokta için 512 üçgenli küre (16×16)
+// gereksiz detay; ekranda birkaç piksel kaplıyorlar, görsel fark yok
+// (bkz. scratch-vg-nointro.png karşılaştırması).
+const UNIT_SPHERE_CORE_LOD = new SphereGeometry(1, 6, 5);
+const UNIT_SPHERE_HALO_LOD = new SphereGeometry(1, 6, 5);
 const _materialCache = new Map();
 function cachedLambertMaterial(key, params) {
   let m = _materialCache.get(key);
@@ -571,6 +582,158 @@ function makeNodeObject(node, isSelected, isHovered, isDimmed) {
     group.add(ring2);
   }
   return group;
+}
+
+// ─── Instanced fast path (2026-08-14) ─────────────────────────────────────────
+// Geometry/material paylaşımı allocation maliyetini kapattı ama TBT hemen hemen
+// aynı kaldı — CDP CPU profili darboğazın allocation değil, 6236 düğüm × 2
+// (core+halo) = 12.472 AYRI WebGL draw call'un kendisi olduğunu gösterdi.
+// react-force-graph'ın `nodeThreeObject` API'si her düğüm için bağımsız bir
+// Object3D döndürmeyi bekliyor — bunu değiştirmeden 12.472 draw call'u tek
+// bir çağrıya indirmenin yolu THREE.InstancedMesh: TÜM "normal" düğümlerin
+// görselini (renk yalnız Mekkî/Medenî ikili paletinden geldiği için 2 renk ×
+// 2 mesh = 4 InstancedMesh) sahneye DOĞRUDAN, react-force-graph'ın kendi
+// nesne yönetiminin DIŞINDA ekliyoruz.
+//
+// react-force-graph'ın hover/click/tooltip mantığını KIRMAMAK için
+// `nodeThreeObject` hâlâ HER düğüm için bir obje döndürüyor — ama "normal"
+// durumdaki düğümler için bu obje GÖRÜNMEZ bir proxy (raycasting/hover için
+// gerekli — Three.js Raycaster `.visible`e bakmaz, WebGLRenderer ise
+// `visible:false` objeleri draw call'dan tamamen atlıyor; ikisi doğrulandı:
+// node_modules/three-render-objects + three-forcegraph kaynağında `.visible`
+// filtresi YOK). Gerçek görsel (renkli küre) InstancedMesh'ten geliyor.
+//
+// Seçim/dimming durumları (`focusedSet !== null`) veya sûre filtresi
+// (`filterSurah`) aktifken InstancedMesh tamamen GİZLENİYOR ve orijinal
+// per-node render (makeNodeObject, değişmedi) devralıyor — bu durumlar
+// nadir (kullanıcı tıklaması gerektirir, sayfa yüklenirken DEĞİL) ve düğüm
+// sayısı zaten küçük (sûre modu) veya kısa ömürlü (bir tık sonrası), bu
+// yüzden ayrıca instance'lamaya değmedi — kapsam kasıtlı olarak asıl
+// şikayete (sayfa yükleme donması) odaklandı.
+const _invisibleProxyMaterial = new MeshLambertMaterial({ color: 0x000000 });
+function makeInvisibleProxy(node) {
+  const base = node.ghost ? 1.2 : (1.6 + Math.sqrt(node.degree || 1) * 0.65);
+  const mesh = new Mesh(UNIT_SPHERE_CORE, _invisibleProxyMaterial);
+  mesh.scale.setScalar(base);
+  mesh.visible = false;
+  return mesh;
+}
+
+// Bir renk grubu (Mekkî veya Medenî) için paylaşılan core+halo InstancedMesh
+// çifti. `count` verses.length'e (asla değişmeyen üst sınır) sabitleniyor,
+// `.count` her doldurmada gerçek kullanılan düğüm sayısına ayarlanıyor.
+function createInstancedPair(color, maxCount) {
+  const coreMat = new MeshLambertMaterial({ color: hex(color), emissive: hex(color), emissiveIntensity: 0.4 });
+  const haloMat = new MeshLambertMaterial({ color: hex(color), transparent: true, opacity: 0.05, depthWrite: false });
+  const core = new InstancedMesh(UNIT_SPHERE_CORE_LOD, coreMat, maxCount);
+  const halo = new InstancedMesh(UNIT_SPHERE_HALO_LOD, haloMat, maxCount);
+  core.count = 0;
+  halo.count = 0;
+  return { core, halo };
+}
+
+// `nodes` (tek renk grubuna ait, ghost hariç) için instance matrislerini
+// doldurur. Konumlar `buildGraphData`'da hesaplanan statik x/y/z'den gelir
+// (d3AlphaDecay=1, warmupTicks=0 → fizik motoru devre dışı, bkz. FullGraph
+// içindeki "Düzen statik" yorumu) — simülasyonun oturmasını beklemeye gerek
+// yok, react-force-graph'ın kendi per-node objeleri de aynı x/y/z'yi kullanıyor.
+function fillInstancedPair(pair, nodes) {
+  const { core, halo } = pair;
+  const m = new Matrix4();
+  for (let i = 0; i < nodes.length; i++) {
+    const n = nodes[i];
+    const base = 1.6 + Math.sqrt(n.degree || 1) * 0.65;
+    m.makeScale(base, base, base);
+    m.setPosition(n.x, n.y, n.z);
+    core.setMatrixAt(i, m);
+    m.makeScale(base * 2, base * 2, base * 2);
+    m.setPosition(n.x, n.y, n.z);
+    halo.setMatrixAt(i, m);
+  }
+  core.count = nodes.length;
+  halo.count = nodes.length;
+  core.instanceMatrix.needsUpdate = true;
+  halo.instanceMatrix.needsUpdate = true;
+}
+
+// ─── Instanced links (2026-08-14) ──────────────────────────────────────────────
+// Node instancing tek başına TBT'yi değiştirmedi — `renderer.info.render.calls`
+// ile ölçülünce sebep ortaya çıktı: react-force-graph her bağlantıyı (10.653
+// tanesi) KENDİ Line/Cylinder objesi olarak render ediyor, node'lardan TAMAMEN
+// bağımsız bir 10.653 draw call kaynağı. `linkWidth`'i 0'a çekmek YARDIMCI
+// OLMADI çünkü o zaman Cylinder yerine Line kullanılıyor — draw call sayısı
+// AYNI kalıyor, yalnızca geometry tipi değişiyor.
+//
+// Çözüm aynı mantık: `linkVisibility={() => false}` (fast path aktifken)
+// react-force-graph'ın TÜM link/particle objesi oluşturmasını baştan
+// engelliyor (kaynak: `visibleLinks = links.filter(visibilityAccessor)` —
+// filtre objelerin YARATILMASINDAN önce), sonra biz kendi InstancedMesh
+// silindirlerimizi sahneye ekliyoruz. Skor sürekli değiştiği için (renk/
+// opaklık) birkaç kovaya (tier) bölünüyor — küçük bir görsel sadeleşme,
+// ama 10.653 draw call → ~kova sayısı kadar.
+const UNIT_CYLINDER = new CylinderGeometry(1, 1, 1, 6, 1, false);
+const LINK_TIERS = [
+  { max: 0.65, opacity: 0.09, width: 0.14 },
+  { max: 0.72, opacity: 0.16, width: 0.20 },
+  { max: 0.80, opacity: 0.26, width: 0.28 },
+  { max: 1.01, opacity: 0.40, width: 0.38 }, // §13.1 istisna: tokens.js dışı — grafik-özel altın ton, aşağıdaki not
+];
+// COLORS.gold burada import edilmiyor (bu dosya kendi SLATE paletini
+// tanımlıyor gibi VerseGraph da kendi 'rgba(212,165,116,...)' altınını
+// zaten `linkColor`'da kullanıyor — bkz. az yukarıdaki useCallback);
+// instanced versiyon aynı hex'i kullanır, tutarlılık için.
+const LINK_GOLD = '#d4a574';
+
+function tierForScore(score) {
+  for (let i = 0; i < LINK_TIERS.length; i++) if (score < LINK_TIERS[i].max) return i;
+  return LINK_TIERS.length - 1;
+}
+
+function createInstancedLinkTiers(maxCount) {
+  return LINK_TIERS.map(t => {
+    const mat = new MeshLambertMaterial({ color: hex(LINK_GOLD), transparent: true, opacity: t.opacity, depthWrite: false });
+    const mesh = new InstancedMesh(UNIT_CYLINDER, mat, maxCount);
+    mesh.count = 0;
+    return mesh;
+  });
+}
+
+// `links` + `nodeById` (id → {x,y,z}) verilip her tier'in instance
+// matrislerini dolduruyor. Silindir Y ekseninde birim yükseklikte
+// (CylinderGeometry varsayılanı) — quaternion iki uç arasındaki yöne
+// hizalıyor, scale.y gerçek uzunluğa, scale.x/z tier genişliğine geriyor.
+function fillInstancedLinks(tierMeshes, links, nodeById) {
+  const counts = new Array(LINK_TIERS.length).fill(0);
+  const m = new Matrix4();
+  const pos = new Vector3();
+  const quat = new Quaternion();
+  const scale = new Vector3();
+  const from = new Vector3();
+  const to = new Vector3();
+  const dir = new Vector3();
+  const UP = new Vector3(0, 1, 0);
+
+  for (const link of links) {
+    const a = nodeById.get(linkEndId(link.source));
+    const b = nodeById.get(linkEndId(link.target));
+    if (!a || !b) continue;
+    const tier = tierForScore(link.score);
+    const i = counts[tier]++;
+    from.set(a.x, a.y, a.z);
+    to.set(b.x, b.y, b.z);
+    pos.addVectors(from, to).multiplyScalar(0.5);
+    dir.subVectors(to, from);
+    const length = dir.length() || 0.001;
+    quat.setFromUnitVectors(UP, dir.normalize());
+    const width = LINK_TIERS[tier].width;
+    scale.set(width, length, width);
+    m.compose(pos, quat, scale);
+    tierMeshes[tier].setMatrixAt(i, m);
+  }
+  tierMeshes.forEach((mesh, t) => {
+    mesh.count = counts[t];
+    mesh.instanceMatrix.needsUpdate = true;
+  });
 }
 
 // ─── Build graph data ─────────────────────────────────────────────────────────
@@ -2125,6 +2288,10 @@ function FullGraph({ verses, onBack, language, onClose }) {
   const fitKeyRef = useRef(null); // kamera hangi filtre için yerleştirildi
   const selectedRef = useRef(null);
   const audioRef = useRef(null);
+  // Instanced fast path — bkz. createInstancedPair üstündeki yorum.
+  const mekkiInstancedRef = useRef(null);
+  const medeniInstancedRef = useRef(null);
+  const linkTiersRef = useRef(null);
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [focusedNodeId, setFocusedNodeId] = useState(null);
@@ -2410,10 +2577,77 @@ function FullGraph({ verses, onBack, language, onClose }) {
     return { direct, surahs, verses: verseList };
   }, [verses, searchQuery]);
 
+  // Yalnız sûre filtresi YOKKEN ve hiçbir düğüm seçili değilken aktif —
+  // yani tam olarak sayfa yüklendiğinde/gezinirken (asıl TBT şikayeti).
+  // Bkz. createInstancedPair/fillInstancedPair üstündeki yorum.
+  const useInstancedFastPath = !filterSurah && focusedSet === null;
+
   const nodeThreeObject = useCallback((node) => {
+    if (useInstancedFastPath && !node.ghost && node !== hovered) {
+      return makeInvisibleProxy(node);
+    }
     const isDimmed = focusedSet !== null && !focusedSet.has(node.id);
     return makeNodeObject(node, node === selected, node === hovered, isDimmed);
-  }, [selected, hovered, focusedSet]);
+  }, [selected, hovered, focusedSet, useInstancedFastPath]);
+
+  // Instanced fast path'in gerçek render'ı — nodeThreeObject yalnız görünmez
+  // proxy'ler döndürüyor, asıl renkli küreler burada eklenen InstancedMesh
+  // çiftlerinden geliyor (bkz. createInstancedPair/fillInstancedPair). Sûre
+  // filtresi kalkıp/seçim temizlenip fast path devreye girdiğinde ya da
+  // graphData değiştiğinde (yalnız fast path aktifken — filterSurah null'ken
+  // düğüm sayısı zaten sabit `verses.length`) dolduruluyor; fast path kapanınca
+  // (seçim/sûre filtresi) gizleniyor, orijinal per-node render devralıyor.
+  useEffect(() => {
+    const scene = graphRef.current?.scene?.();
+    if (!scene) return;
+
+    if (!useInstancedFastPath) {
+      if (mekkiInstancedRef.current) { mekkiInstancedRef.current.core.visible = false; mekkiInstancedRef.current.halo.visible = false; }
+      if (medeniInstancedRef.current) { medeniInstancedRef.current.core.visible = false; medeniInstancedRef.current.halo.visible = false; }
+      if (linkTiersRef.current) linkTiersRef.current.forEach(m => { m.visible = false; });
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      const primary = graphData.nodes.filter(n => !n.ghost);
+      if (!primary.length) return;
+
+      if (!mekkiInstancedRef.current) {
+        mekkiInstancedRef.current = createInstancedPair(MEKKI_COLOR, verses.length);
+        medeniInstancedRef.current = createInstancedPair(MEDENI_COLOR, verses.length);
+        scene.add(mekkiInstancedRef.current.core, mekkiInstancedRef.current.halo);
+        scene.add(medeniInstancedRef.current.core, medeniInstancedRef.current.halo);
+      }
+      if (!linkTiersRef.current) {
+        linkTiersRef.current = createInstancedLinkTiers(graphData.links.length || 1);
+        linkTiersRef.current.forEach(m => scene.add(m));
+      }
+
+      const mekkiNodes = primary.filter(n => !isMedeni(n.surah));
+      const medeniNodes = primary.filter(n => isMedeni(n.surah));
+      fillInstancedPair(mekkiInstancedRef.current, mekkiNodes);
+      fillInstancedPair(medeniInstancedRef.current, medeniNodes);
+
+      const nodeById = new Map(primary.map(n => [n.id, n]));
+      fillInstancedLinks(linkTiersRef.current, graphData.links, nodeById);
+
+      mekkiInstancedRef.current.core.visible = true;
+      mekkiInstancedRef.current.halo.visible = true;
+      medeniInstancedRef.current.core.visible = true;
+      medeniInstancedRef.current.halo.visible = true;
+      linkTiersRef.current.forEach(m => { m.visible = true; });
+    }, 60); // graphData'nın kurulması için tek kare — kamera-fit efektiyle aynı payda
+
+    return () => clearTimeout(timer);
+  }, [useInstancedFastPath, graphData, verses]);
+
+  // Unmount'ta sahne zaten yok ediliyor (react-force-graph); yine de
+  // referansları temizle ki StrictMode/remount'ta stale instance kalmasın.
+  useEffect(() => () => {
+    mekkiInstancedRef.current = null;
+    medeniInstancedRef.current = null;
+    linkTiersRef.current = null;
+  }, []);
 
   const zoomToNode = useCallback((node) => {
     if (!graphRef.current) return;
@@ -2641,6 +2875,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
         nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
+        linkVisibility={() => !useInstancedFastPath}
         linkColor={linkColor}
         linkOpacity={1}
         linkWidth={linkWidth}

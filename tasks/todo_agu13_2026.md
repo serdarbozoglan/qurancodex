@@ -1272,14 +1272,87 @@ attribution değişimini gösterdi.
 
 **Doğrulama:** `npm run build` temiz, görsel karşılaştırma (öncesi/sonrası
 ekran görüntüsü) — renk/parlaklık/genel görünüm aynı, sıfır konsol hatası,
-hover/click etkileşimi çalışıyor. Commit edilmedi/push edilmediyse burası
-güncellenecek — bkz. commit hash'i için git log.
+hover/click etkileşimi çalışıyor.
 
-**Kalan (kullanıcı onayı gerekir):** `THREE.InstancedMesh`'e geçiş —
-draw call sayısını 12.472'den ~4'e indirir, TBT'yi muhtemelen yüzlerce
-ms'ye düşürür. Alternatif, daha düşük riskli ama ürün-davranışı değiştiren
-seçenek: varsayılan görünümü tüm-6236-ayet yerine daha küçük bir alt kümeye
-(örn. sûre filtresi zorunlu) çevirmek.
+#### 14 Ağustos (gece, devamı) · VerseGraph TBT — InstancedMesh uygulandı, kısmen çözdü
+
+Kullanıcı onayıyla ("VerseGraph InstancedMesh — Önerilen") yukarıdaki kalan
+işe devam edildi. Sonuç **beklenenden karmaşık** çıktı — iki ayrı kök sebep
+daha bulundu, biri instancing'le, biri instancing'le İLGİSİZ bir GPU
+darboğazıyla ilgili.
+
+**1) Node instancing uygulandı, TBT DEĞİŞMEDİ — ikinci kök sebep: LINKLER.**
+`nodeThreeObject` artık "normal" (seçili/hovered/ghost/dimmed olmayan)
+düğümler için görünmez bir proxy (`makeInvisibleProxy`, raycasting için
+gerekli — Three.js Raycaster `.visible`e bakmıyor, doğrulandı) döndürüyor;
+gerçek görsel `react-force-graph`'ın DIŞINDA, doğrudan sahneye eklenen 4
+`InstancedMesh` (Mekkî/Medenî × core/halo) üzerinden geliyor.
+`renderer.info.render.calls` ile ölçüldü: **12.145 → 8 draw call.** Ama
+TBT **hiç değişmedi** (~4.2-4.8s). Sebep: react-force-graph HER bağlantıyı
+(10.653 tanesi) de kendi Line/Cylinder objesi olarak render ediyor —
+node'lardan tamamen bağımsız, EŞ BÜYÜKLÜKTE bir draw-call kaynağı.
+`linkWidth`'i 0'a çekmek yardımcı olmadı (Cylinder→Line, draw call sayısı
+aynı kalıyor). Çözüm aynı desen: `linkVisibility={() => false}` (fast path
+aktifken) react-force-graph'ın link/particle objesi YARATMASINI baştan
+engelliyor (`visibleLinks = links.filter(visibilityAccessor)` — filtre
+yaratmadan ÖNCE), yerine skor bazlı 4 kovaya (tier) bölünmüş kendi
+`InstancedMesh` silindirlerimiz geliyor (pozisyon=orta nokta, quaternion
+ile yön hizalama, `scale.y`=uzunluk — bkz. `fillInstancedLinks`).
+**Sonuç: 8 draw call (4 node + 4 link tier'i), ama TBT YİNE hemen hemen
+aynı kaldı (~4.2s).**
+
+**2) Asıl darboğaz draw call değil, GPU fill-rate/overdraw çıktı.** CPU
+profilini (CDP `Profiler`) PARENT-CHILD call tree'siyle yeniden analiz
+edince "(program)" örneklerinin **%93.8'inin HİÇBİR JS call stack'i
+olmadığı** görüldü — yani bu zaman JS içinde değil, GPU tarafında
+(rasterizasyon/blend) geçiyor. `renderer.info.render.triangles`: **~4.9
+milyon** — 6.236 düğüm × 2 (core+halo, her biri `SphereGeometry(1,16,16)`
+= 512 üçgen) + 10.653 link (`CylinderGeometry` altıgen kesit) + hepsi
+YARı-SAYDAM (`transparent:true`, alpha blend gerektirir — opak render'dan
+çok daha pahalı, özellikle üst üste binen binlerce yarı-saydam yüzeyde/
+"overdraw"). **Doğrulama deneyi:** küre segment sayısını 16×16/12×12'den
+6×5'e indirmek TEK BAŞINA masaüstü TBT'yi **4.2s → 2.1s**'ye düşürdü —
+draw call sayısından bağımsız, saf GEOMETRİK KARMAŞIKLIK azaltması.
+Halo'ları veya linkleri TAMAMEN gizlemek (ayrı deneyler) yalnız ~150-300ms
+daha kazandırdı — yani ASIL kazanç segment azaltmasından geldi, overdraw
+katkısı ikincildi.
+
+**Uygulanan nihai çözüm:** İki ayrı geometry seti — `UNIT_SPHERE_CORE_LOD`/
+`UNIT_SPHERE_HALO_LOD` (6×5 segment, SADECE instanced toplu yol için,
+6236 düğümün TAMAMI küçük/uzak, fark edilmiyor — bkz. ekran görüntüsü
+karşılaştırması) ayrı tutuldu; `UNIT_SPHERE_CORE`/`UNIT_SPHERE_HALO`
+ORİJİNAL 16×16/12×12 detayında KALDI, yalnızca `makeNodeObject`'in tek-
+seferlik (seçili/hovered/ghost/dimmed) düğümleri için kullanılıyor — o
+düğümler yakınlaşınca (seçilince kamera zoom yapıyor) düşük-poli fark
+edilirdi, riske değmedi.
+
+**Ölçülen nihai sonuç:** masaüstü TBT **~4.7s → ~2.1-2.6s** (sistem
+yükünden kaynaklı gürültü var, bkz. yukarıdaki not — aynı anda 16
+`next start`/`next dev` süreci çalışıyordu; ~%45-55 iyileşme aralığı
+tutarlı ölçüldü). **Eşiğin (200ms) hâlâ üstünde — TAM çözülmedi.**
+Kalan maliyet muhtemelen: (a) hâlâ ~2.5M+ üçgen + binlerce yarı-saydam
+yüzeyin GPU-taraflı rasterizasyon maliyeti (segment sayısını DAHA da
+düşürmek mümkün ama getirisi azalıyordu — halo/link gizleme deneyleri
+küçük ek kazanç gösterdi), (b) sistem yükü gürültüsü (paylaşılan
+makinede eşzamanlı ajan sayısı), (c) henüz izole edilmemiş üçüncü bir
+faktör olabilir. **Daha fazla araştırma ayrı bir tur gerektirir** —
+bu oturumda kapsam kasıtlı olarak burada durduruldu (azalan getiri +
+zaten büyük bir iyileşme elde edildi).
+
+**Doğrulama:** `npm run build` temiz; tüm etkileşim durumları (varsayılan
+yükleme, hover, arama ile ayet seçimi → VersePanel/SurahInfoPanel açılması,
+sûre filtresi) ekran görüntüsüyle doğrulandı, sıfır konsol hatası; mobil
+(tr/en) 200 OK, sıfır hata; CLS 0.048 (regresyon yok); `audit-colors --ci`
+179/182 (yeni `LINK_GOLD` sabiti zaten var olan bir tona denk geldiği için
+taban değişmedi); `audit-internal-leak --ci` temiz.
+
+**Ders — draw call sayısı ≠ tek performans metriği.** CPU-taraflı
+optimizasyon (allocation, sonra draw call) her ikisi de GERÇEKTİ ve
+DOĞRUYDU ama TBT'yi tek başına hareket ettirmedi; asıl darboğaz GPU
+fill-rate'ti. Draw call profiline (`renderer.info.render.calls`) TEK
+BAŞINA güvenip "8 draw call, sorun bitti" denseydi yanlış olurdu — üçgen
+sayısı (`renderer.info.render.triangles`) ve CPU profilinin call-tree'si
+(flat self-time değil, parent-chain) ile çapraz doğrulama gerekti.
 
 #### 14 Ağustos (gece) · SurahComparator/ConceptGraph — sibling-position CLS kapatıldı
 
