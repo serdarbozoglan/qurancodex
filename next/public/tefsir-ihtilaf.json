@@ -1,0 +1,490 @@
+{
+  "scholars": [
+    {
+      "id": "taberi",
+      "nameTr": "et-Taberî",
+      "deathH": 310,
+      "deathM": 923,
+      "ekolTr": "Rivayet tefsiri, ehl-i hadîs",
+      "eserTr": "Câmiu'l-beyân",
+      "hamleTr": "Rivayetleri toplar, sonra gerekçeli tercih eder (“ve evlâ...”)",
+      "gucTr": "Rivayet arşivi eşsiz; tercihleri gerekçeli",
+      "zayifTr": "Belâgat teorisi yapmaz; ayrıştırmayı teorileştirmeden uygular"
+    },
+    {
+      "id": "zemahseri",
+      "nameTr": "ez-Zemahşerî",
+      "deathH": 538,
+      "deathM": 1144,
+      "ekolTr": "Mu'tezilî, belâgat merkezli",
+      "eserTr": "el-Keşşâf",
+      "hamleTr": "Mürekkeb temsil doktrini — meseli parçalamayı reddeder, kıssayı kıssaya benzetir",
+      "gucTr": "Belâgat analizinin zirvesi",
+      "zayifTr": "Kelâmî ön kabuller bazı yerlerde okumayı belirliyor"
+    },
+    {
+      "id": "razi",
+      "nameTr": "Fahreddin er-Râzî",
+      "deathH": 606,
+      "deathM": 1210,
+      "ekolTr": "Eş'arî, kelâm-felsefe merkezli",
+      "eserTr": "Mefâtîhu'l-gayb",
+      "hamleTr": "Tüm ihtimalleri sayar, sonra bağlamla eler; nadiren tek görüşte karar kılar",
+      "gucTr": "İtirazları en açık formüle eden; sistematik",
+      "zayifTr": "Ansiklopedik hacim, bazen tercihi gölgeliyor"
+    },
+    {
+      "id": "kurtubi",
+      "nameTr": "el-Kurtubî",
+      "deathH": 671,
+      "deathM": 1273,
+      "ekolTr": "Mâlikî, ahkâm merkezli",
+      "eserTr": "el-Câmi' li-ahkâmi'l-Kur'ân",
+      "hamleTr": "Fıkhî sonuç arar; azınlık görüşleri sadakatle kaydeder",
+      "gucTr": "Uygulamaya dönük; ihtilaf kataloğu geniş",
+      "zayifTr": "Bazı rivayet atıfları basılı neşirle karşılaştırma ister"
+    },
+    {
+      "id": "ibn-kesir",
+      "nameTr": "İbn Kesîr",
+      "deathH": 774,
+      "deathM": 1373,
+      "ekolTr": "Selefî-rivayet",
+      "eserTr": "Tefsîru'l-Kur'âni'l-Azîm",
+      "hamleTr": "Merfû/mevkuf ayrımına titiz; hadis senedini açıkça sorgular",
+      "gucTr": "Hadis kritiği güçlü; belirsizliği gizlemez",
+      "zayifTr": "Bazı yerde Taberî'nin rivayet yelpazesini daraltır"
+    },
+    {
+      "id": "ibn-kayyim",
+      "nameTr": "İbn Kayyım el-Cevziyye",
+      "deathH": 751,
+      "deathM": 1350,
+      "ekolTr": "Hanbelî, İbn Teymiyye ekolü",
+      "eserTr": "el-Emsâl fi'l-Kur'ân (İ'lâmü'l-Muvakkı'în'den)",
+      "hamleTr": "Emsâli kıyasın (analojik akıl yürütmenin) meşruiyet zemini yapar",
+      "gucTr": "Teolojik derinlik; ayetin ince ayrıntısını teze bağlıyor",
+      "zayifTr": "Müstakil eser statüsü tartışmalı; genel yöntemi sistematik değil"
+    },
+    {
+      "id": "ibn-asur",
+      "nameTr": "İbn Âşûr",
+      "deathH": 1393,
+      "deathM": 1973,
+      "ekolTr": "Modern, belâgat + tarih",
+      "eserTr": "et-Tahrîr ve't-tenvîr",
+      "hamleTr": "Ayrıştırma = kemal; selefleriyle açıkça ayrışır",
+      "gucTr": "Modern filolojik-tarihsel yöntem",
+      "zayifTr": "Bazı kimlik tercihleri çoğunluğa aykırı"
+    }
+  ],
+  "methodology": {
+    "titleTr": "Ana Metodolojik İhtilaf: Mürekkeb mi, Müferrak mı?",
+    "introTr": "Kur'ân mesellerinin belkemiği bu sorudadır: bir mesel parçalarına ayrılıp her unsurun bir karşılığı aranarak mı okunmalı, yoksa bütün olarak tek bir manaya mı işaret eder?",
+    "positions": [
+      {
+        "scholarId": "zemahseri",
+        "stanceTr": "Mürekkeb — parçalama yasak",
+        "quoteAr": "الصحيح الذي عليه علماء البيان لا يتخطونه: أنّ التمثيلين جميعاً من جملة التمثيلات المركبة دون المفرَّقة",
+        "quoteTr": "“Beyân âlimlerinin benimsediği ve dışına çıkmadıkları doğru görüş şudur: bu iki temsil de mürekkeb temsiller cümlesindendir, müferrak olanlardan değil.”",
+        "refTr": "el-Keşşâf, Bakara 2:19-20",
+        "confidence": "confirmed",
+        "noteTr": "İki bağımsız taramada birebir doğrulandı. Zemahşerî bunu “erkekçe görüş, sağlam mezhep” diye niteler; kişiler kişiye değil, kıssa kıssaya benzetilmiştir der."
+      },
+      {
+        "scholarId": "ibn-asur",
+        "stanceTr": "Müferrak — parçalama, teşbihin zirvesi",
+        "quoteAr": "هو تشبيه هيئة بهيئة هو أيضاً مفرَّق التشبيهات لأجزاء المركب المشبه مع أجزاء المركب المشبه به وذلك أقصى كمال التشبيه التمثيلي",
+        "quoteTr": "“Bu, bir heyetin bir heyete teşbihidir; aynı zamanda müşebbeh mürekkebin cüzleriyle müşebbehün bihin cüzlerinin ayrı ayrı eşleştiği bir teşbihtir — ve bu, temsîlî teşbihin en yüksek kemal derecesidir.”",
+        "refTr": "et-Tahrîr ve't-tenvîr, Nûr 24:35",
+        "confidence": "confirmed",
+        "noteTr": "İki bağımsız, nötr istemle doğrulandı. Zemahşerî'nin “yapmayın” dediği şey, İbn Âşûr'a göre teşbihin zirvesidir."
+      },
+      {
+        "scholarId": "razi",
+        "stanceTr": "Sayar, taraf tutmaz",
+        "quoteTr": "Âyetü'n-Nûr'da (24:35) kayda geçmiş her ayrıştırma şemasını sıralar — Gazzâlî'ninkini, İbn Sînâ'nınkini, sûfîlerinkini, Mukātil'inkini — ama kendi tercihi hiçbiri değil, ayrıştırmayı hiç kullanmayan sade “hidâyet” okumasıdır.",
+        "refTr": "Mefâtîhu'l-gayb, Nûr 24:35",
+        "confidence": "confirmed",
+        "noteTr": "İki bağımsız taramada doğrulandı — dört isimli şema ve Râzî'nin kendi tercihi metinde net."
+      }
+    ],
+    "closingTr": "Doktrin zinciri belâgat literatüründe Cürcânî → Sekkâkî → Kazvînî üzerinden kodifiye edilir: Cürcânî “teşbih geneldir, temsil ondan daha özeldir” der; Sekkâkî, benzetme yönü birden çok şeyden soyutlanmışsa buna “temsil” denileceğini şart koşar; Kazvînî bu şartı sadeleştirir. Bu, mezhep sınırlarını kesen belâgî bir tartışmadır — Eş'arî Râzî ile modern İbn Âşûr taban tabana zıt, oysa ikisi de aynı kelâmî çizgide sayılabilir."
+  },
+  "cases": [
+    {
+      "id": "nur-ayeti",
+      "verseRef": "24:35",
+      "titleTr": "Âyetü'n-Nûr — Allah'ın Nûru Ne Demektir?",
+      "introTr": "En yoğun ihtilaf alanı. Dört ayrı eksende ayrılıyorlar; en az ikisi tam metinden birebir doğrulandı.",
+      "axes": [
+        {
+          "titleTr": "“Allāhu nûru's-semâvâti ve'l-ard” ne demek?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteAr": "هادي من في السماوات والأرض، فهم بنوره إلى الحقّ يهتدون",
+              "quoteTr": "Göklerde ve yerde olanların hidayet vericisi — O'nun nûruyla hakka ererler.",
+              "confidence": "confirmed",
+              "noteTr": "Düpedüz hidâyet okuması; ontoloji yok."
+            },
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "ذو نور السماوات، وصاحب نور السماوات",
+              "quoteTr": "Göklerin nûru sahibi, göklerin nûrunun sahibi.",
+              "confidence": "confirmed",
+              "noteTr": "Muzâf hazfi yoluyla mecaz — Mu'tezilî tenzîh kaygısı hazfi zorunlu kılıyor."
+            },
+            {
+              "scholarId": "razi",
+              "quoteAr": "والأقرب هو القول الأول لأن قوله في آخر الآية: يهدي الله لنوره من يشاء يدل على أن المراد بالنور الهداية",
+              "quoteTr": "En yakın olan birinci görüştür; çünkü ayetin sonundaki ‘Allah dilediğini nûruna hidayet eder’ ifadesi, nûrdan kastın hidayet olduğunu gösterir.",
+              "confidence": "confirmed",
+              "noteTr": "Dört görüşü (münevvir/müdebbir/nâzım/hâdî) sıralar, hâdî'yi ayetin kendi kapanışıyla gerekçelendirerek seçer."
+            },
+            {
+              "scholarId": "ibn-asur",
+              "quoteAr": "الإخبار عن الله تعالى بأنه نور إخبار بمعنى مجازي للنور لا محالة",
+              "quoteTr": "Allah hakkında O'nun nûr olduğunu haber vermek, kaçınılmaz olarak mecazî bir anlamla nûru haber vermektir.",
+              "confidence": "confirmed",
+              "noteTr": "İki bağımsız nötr istemle doğrulandı. Mecaz zorunludur çünkü Allah cisim/cevher/araz değildir; ilişki sebebiyyettir — Allah, ‘nûr’ denen her şeyin var edicisidir."
+            }
+          ]
+        },
+        {
+          "titleTr": "“Nûrihî” zamiri kime dönüyor?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteTr": "Übey b. Ka'b'ın şâz kıraatini (“O'na iman edenin nûrunun misali”) Rebî' b. Enes ← Ebü'l-Âliye ← Übey zinciriyle nakleder.",
+              "confidence": "confirmed",
+              "noteTr": "İsnad zinciri tam metinden birebir doğrulandı: “حدثنا عبد الأعلى بن واصل... عن الربيع بن أنس، عن أبي العالية، عن أُبيّ بن كعب”."
+            },
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "وعن أبىّ بن كعب: مثل نور من آمن به",
+              "quoteTr": "Übey b. Ka'b'dan: O'na iman edenin nûrunun misali.",
+              "confidence": "confirmed",
+              "noteTr": "Aynı kıraati bağımsız olarak nakleder."
+            },
+            {
+              "scholarId": "ibn-kesir",
+              "quoteTr": "Yakın bir varyantla aynı kıraati nakleder (“nûru men âmene billâh”), İbn Abbas/Saîd b. Cübeyr'e de atfen.",
+              "confidence": "confirmed",
+              "noteTr": "Râzî de ~10 yorumdan biri olarak bu okumayı listeler."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ates-saganak",
+      "verseRef": "2:17-20",
+      "titleTr": "Ateş Yakan ile Sağanak — Tek Mesel mi, İki Mesel mi?",
+      "introTr": "Ardı ardına gelen iki münafık meseli. Üç soru üzerinde ayrılıyorlar; sekiz iddianın tamamı doğrulandı.",
+      "axes": [
+        {
+          "titleTr": "Aynı grup mu, iki alt-grup mu? (“أو” edatının okunuşu)",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteTr": "“أو” burada “vâv” gibi işler; her iki teşbih de aynı münafıklar içindir — şiir şâhitleriyle (Tevbe b. el-Humeyyir, Cerîr, Mütemmim b. Nüveyre) destekler.",
+              "confidence": "confirmed",
+              "noteTr": "Tabari 2:19'da bu soruyu açıkça sorup aynı şekilde cevaplıyor: “أهما مثلان للمنافقين أو أحدهما؟”"
+            },
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "أو في أصلها لتساوي شيئين فصاعداً في الشك، ثم اتُّسع فيها فاستعيرت للتساوي في غير الشك… وأن القصتين سواء في استقلال كل واحدة منهما بوجه التمثيل",
+              "quoteTr": "“أو aslında iki şeyi şüphede eşitlemek içindir... İki kıssa, her birinin temsil yönüyle müstakil olması bakımından eşittir.”",
+              "confidence": "confirmed",
+              "noteTr": "Taberî ile aynı tarafta: tek durum, iki bağımsız yeterli örnekleme."
+            },
+            {
+              "scholarId": "ibn-kesir",
+              "quoteAr": "وهذا مثل آخر ضربه الله تعالى لضربٍ آخر من المنافقين",
+              "quoteTr": "Bu, Allah'ın münafıkların başka bir türü için verdiği başka bir meseldir.",
+              "confidence": "confirmed",
+              "noteTr": "İki-alt-grup okumasını benimser — Taberî/Zemahşerî'nin tersi."
+            },
+            {
+              "scholarId": "razi",
+              "quoteTr": "“İkinci soru” olarak formüle eder: neden iki temsilden biri diğerine şüphe harfiyle atfedildi? Dört cevap sıralar (Zemahşerî'nin eşitlik okuması dahil, iki-grup okuması dahil) ve hiçbirini kesin benimsemez.",
+              "confidence": "confirmed",
+              "noteTr": "Sayan konumdadır, savunan değil."
+            }
+          ]
+        },
+        {
+          "titleTr": "Ateş meselindeki münafıklar gerçekten iman etmiş miydi?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteAr": "وأولى التأويلات بالآية ما قاله قتادة، والضحاك، وما رواه علي بن أبي طلحة عن ابن عباس",
+              "quoteTr": "Ayete en uygun tevil, Katâde ve Dahhâk'ın söylediği ve Ali b. Ebî Talha'nın İbn Abbâs'tan naklettiğidir.",
+              "confidence": "confirmed",
+              "noteTr": "Hiç iman etmediler kampını tercih eder — “nûr” yalnızca dünyevî bir sosyal fayda idi."
+            }
+          ]
+        },
+        {
+          "titleTr": "Neden “nur”, neden “dav'” değil?",
+          "positions": [
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "ذكر النور أبلغ لأنّ الضوء فيه دلالة على الزيادة... والغرض إزالة النور عنهم رأساً وطمسه أصلا",
+              "quoteTr": "Nûr'u zikretmek daha vurgulu; çünkü dav' fazlalık ifade eder... amaç nûru kökünden kaldırıp tamamen silmektir.",
+              "confidence": "confirmed",
+              "noteTr": "İnce bir dilbilimsel gözlem — zayıf ışığı bile bırakmama."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sivrisinek",
+      "verseRef": "2:26",
+      "titleTr": "Sivrisinek Meseli — Küçük İmge Bir Eksiklik mi?",
+      "introTr": "Müşriklerin meseller karşısındaki itirazına verilen cevap. Üç soruda ayrılıyorlar.",
+      "axes": [
+        {
+          "titleTr": "Sebeb-i nüzûl hangisi?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteAr": "أولى ذلك بالصواب وأشبهه بالحقّ، ما ذكرنا من قول ابن مسعود وابن عباس",
+              "quoteTr": "Doğruya en yakın ve hakka en uygun olanı, İbn Mes'ûd ve İbn Abbâs'ın söylediğidir.",
+              "confidence": "confirmed",
+              "noteTr": "Üç rakip rivayet arasından, bağlamsal yakınlık gerekçesiyle “münafıklar 2:17-20'ye itiraz etti” rivayetini tercih eder."
+            }
+          ]
+        },
+        {
+          "titleTr": "İmgenin küçüklüğü bir kusur mu?",
+          "positions": [
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "فليس العِظَم والحقارة في المضروب به المثل إذاً إلا أمراً تستدعيه حال المتمثَّل له",
+              "quoteTr": "Meselde kullanılan şeyin büyüklüğü ya da değersizliği, kendisine mesel verilenin durumunun gerektirdiği bir şeyden başkası değildir.",
+              "confidence": "confirmed",
+              "noteTr": "Tüm emsâl savunusunun en ekonomik cümlesi — imgenin bayağılığı, konu edilenin (putların) bayağılığının fonksiyonudur."
+            }
+          ]
+        },
+        {
+          "titleTr": "“Fe-mâ fevkahâ” — daha büyük mü, daha küçük mü?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteAr": "وهذا قولٌ خلافُ تأويل أهل العلم الذين تُرْتَضى معرفتهم",
+              "quoteTr": "Bu, marifetleri makbul sayılan ilim ehlinin tevilinin aksine bir sözdür.",
+              "confidence": "confirmed",
+              "noteTr": "“Ondan büyük olan” okumasını savunur; “küçük” okumasını sert reddeder."
+            },
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "فما تجاوزها وزاد عليها في المعنى الذي ضُربت فيه مثلاً، وهو القلّة والحقارة",
+              "quoteTr": "Kendisi için mesel verilen manada — yani azlık ve hakirlikte — onu aşan.",
+              "confidence": "confirmed",
+              "noteTr": "“Küçük/değersiz olan” okumasını önceliklendirir; “hacimce fazla” okumasını ikincil (“ve kīle”) sayar. Râzî de bu tarafı seçer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soluyan-kopek",
+      "verseRef": "7:175-176",
+      "titleTr": "Soluyan Köpek — Adam Kim, Neden Soluyor?",
+      "introTr": "Kimlik ve vech-i şebeh (benzetme noktası) üzerinde iki ayrı ihtilaf.",
+      "axes": [
+        {
+          "titleTr": "“Adam” kim?",
+          "positions": [
+            {
+              "scholarId": "taberi",
+              "quoteTr": "Bel'am b. Bâûrâ'ya (Mûsâ döneminden bir İsrailoğlu) atfını İbn Mes'ûd, İbn Abbâs, Mücâhid ve İkrime zincirleriyle nakleder.",
+              "confidence": "confirmed"
+            },
+            {
+              "scholarId": "kurtubi",
+              "quoteTr": "Ümeyye b. Ebi's-Salt'a atfını (Abdullah b. Amr, Zeyd b. Eslem) ve Ebû Âmir b. Sayfî “er-Râhib”'e atfını (Saîd b. el-Müseyyeb: “nezelet fî Ebî Âmir... fe-keferе bi'n-Nebî”) nakleder.",
+              "confidence": "confirmed"
+            },
+            {
+              "scholarId": "taberi",
+              "quoteTr": "Kendi tercihinde hiçbirini isimlendirmez: “Sahih olan, Allah'ın dediğini demek ve tenzilin zahirini kabul etmektir” — meseleyi tip olarak okur, birey olarak değil.",
+              "confidence": "confirmed",
+              "noteTr": "Genel-okuma tercihi tam metinden doğrulandı."
+            }
+          ]
+        },
+        {
+          "titleTr": "Köpek neden soluyor? (vech-i şebeh)",
+          "positions": [
+            {
+              "scholarId": "kurtubi",
+              "quoteAr": "كل شيء يلهث فإنما يلهث من إعياء أو عطش، إلا الكلب",
+              "quoteTr": "Her şey yorgunluktan veya susuzluktan solur, köpek hariç.",
+              "confidence": "confirmed",
+              "noteTr": "İbn Kuteybe'den nakil — köpek, dinlenmede de hastalıkta da solur; benzersiz bir yapısal özellik. (Not: “munkati'ul-fuâd” ifadesi kaynak metinde İbn Cüreyc'e aittir, bazı ikincil aktarımlarda İbn Abbâs'a yanlış atfedilir.)"
+            },
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "سائر الحيوان لا يكون منه اللهث إلا إذا هيج، والكلب يتصل لهثه في الحالتين جميعاً",
+              "quoteTr": "Diğer hayvanlar ancak tahrik olunca solur; köpek ise iki halde de kesintisiz solur.",
+              "confidence": "confirmed",
+              "noteTr": "Bu hâli “en aşağılık ve en zelil hâli” olarak niteler."
+            },
+            {
+              "scholarId": "razi",
+              "quoteTr": "Üç ayrı vecih sıralar: (i) soluma fıtrîdir, ihtiyaçtan değil; (ii) süreklilik — hırs hiç kesilmez; (iii) değişmezlik — teşvik edilse de bırakılsa da aynı.",
+              "confidence": "confirmed",
+              "noteTr": "Üçü de Mefâtîhu'l-gayb 7:176'da doğrulandı."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seytan-baslari",
+      "verseRef": "37:65",
+      "titleTr": "“Şeytanların Başları” — Görülmemiş Bir Şeye Benzetme",
+      "introTr": "Klasik belâgatin en meşhur problemi: müşebbehün bih hiç görülmemişse teşbih nasıl işler?",
+      "axes": [
+        {
+          "titleTr": "Çözüm: tehayyülî teşbih",
+          "positions": [
+            {
+              "scholarId": "zemahseri",
+              "quoteAr": "شبهت في الاستقباح بها لأنها موصوفة عند مستحسنها بالقبح في غاية الأمر",
+              "quoteTr": "Çirkinlikte onlara benzetildi; çünkü onları çirkin bulanların gözünde şeytanlar en uç noktada çirkin olarak nitelenir.",
+              "confidence": "confirmed",
+              "noteTr": "“تشبيه تخييلي” (imgesel/tehayyülî teşbih) terimini kullanır — benzetme görmeye değil, yerleşik zihinsel imgeye dayanır."
+            },
+            {
+              "scholarId": "razi",
+              "quoteAr": "هذا من باب التشبيه لا بالمحسوس بل بالمتخيل... كأنه قيل: إن أقبح الأشياء في الوهم والخيال هو رؤوس الشياطين",
+              "quoteTr": "Bu, mahsûsa değil mutehayyele (hayalde kurulmuş olana) teşbih babındandır... sanki denmiştir ki: vehim ve hayalde en çirkin şey şeytanların başlarıdır.",
+              "confidence": "confirmed",
+              "noteTr": "Mefâtîhu'l-gayb'da Zemahşerî'yi doğrudan alıntılayıp onaylar: “قال صاحب الكشاف...”. İki bağımsız kaynağın birbirini teyit ettiği güçlü bir örnek."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orumcek-agi",
+      "verseRef": "29:41",
+      "titleTr": "Örümcek Ağı — Fayda Varken Nasıl “En Zayıf Ev”?",
+      "introTr": "Ağın örümcek için gerçek bir faydası var; Kur'ân'ın “en zayıf ev” nitelemesiyle bu nasıl bağdaşır?",
+      "axes": [
+        {
+          "titleTr": "İtiraz ve cevap",
+          "positions": [
+            {
+              "scholarId": "razi",
+              "quoteAr": "أن نسجه فيه فائدة له، لولاه لما حصل وهو اصطيادها الذباب به",
+              "quoteTr": "Onu örmesinde kendisi için bir fayda vardır; o olmasaydı sinekleri onunla avlayamazdı.",
+              "confidence": "confirmed",
+              "noteTr": "Faydayı açıkça kabul eder. Çözüm kategoriktir: Kur'ân ağa “kötü ağ” değil, “en zayıf ev” diyor — ev barındırmalı, gölgelemeli, rüzgâr ve yağmurdan korumalı; ağ bunların hiçbirini yapmaz."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guzel-agac",
+      "verseRef": "14:24-26",
+      "titleTr": "Güzel Ağaç / Kötü Ağaç — Hangi Ağaç, Hangi Söz?",
+      "introTr": "Sahih bir hadisle doğrudan bağlantılı, zengin bir ihtilaf ağı.",
+      "axes": [
+        {
+          "titleTr": "Hangi ağaç? — Hurma hadisi",
+          "positions": [
+            {
+              "scholarId": "ibn-kesir",
+              "quoteAr": "أخبروني عن شجرة تشبه... المسلم لا يتحاتّ ورقها",
+              "quoteTr": "Bana öyle bir ağacı haber verin ki... Müslüman'a benzer, yaprağı dökülmez.",
+              "confidence": "confirmed",
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4698 (Ubeyd b. İsmâîl ← Ebû Üsâme ← Ubeydullah ← Nâfi' ← İbn Ömer zinciriyle). İbn Ömer içinden hurma olduğunu anlar ama en genç olduğu için susar; kimse bulamayınca Peygamber “O hurmadır” buyurur."
+            },
+            {
+              "scholarId": "kurtubi",
+              "quoteAr": "خَرَّجَهُ الدَّارَقُطْنِيُّ عَنِ ابْنِ عُمَرَ",
+              "quoteTr": "Dârekutnî bunu İbn Ömer'den tahric etti.",
+              "confidence": "confirmed",
+              "noteTr": "Peygamber'in önce 14:24'ü okuyup sonra sorduğu bir versiyon."
+            },
+            {
+              "scholarId": "ibn-asur",
+              "quoteAr": "وفي جامع الترمذي عن أنس بن مالك... رسول الله ﷺ قال «مثل كلمة طيبة كشجرة طيبة... قال: هي النخلة»",
+              "quoteTr": "Tirmizî'nin Câmi'inde Enes b. Mâlik'ten... Resûlullah ﷺ dedi: ‘Güzel söz güzel ağaç gibidir... O hurmadır.’",
+              "confidence": "confirmed",
+              "noteTr": "Aynı hadisi doğrudan 14:24'ün lafzına bağlayan bir versiyon."
+            }
+          ]
+        },
+        {
+          "titleTr": "“Kelime-i tayyibe” nedir?",
+          "positions": [
+            {
+              "scholarId": "ibn-kesir",
+              "quoteTr": "Dört görüş bir arada aktarılır: şehâdet (İbn Abbâs, birincil), iman (Mücâhid), müminin kendisi (Atıyye el-Avfî, Rebî' b. Enes), salih söz+amel (Dahhâk, Saîd b. Cübeyr, İkrime, Katâde).",
+              "confidence": "partial",
+              "noteTr": "Dört kamp da kaynaklarda gerçekten var; hangi âlimin tam olarak hangi kampa girdiği bazı yerlerde belirsiz — genel bir liste olarak sunuluyor, tek tek isim eşleştirmesi kesin değil."
+            }
+          ]
+        },
+        {
+          "titleTr": "“Şecere-i habîse” nedir?",
+          "positions": [
+            {
+              "scholarId": "ibn-kesir",
+              "quoteAr": "أحسبه رفعه",
+              "quoteTr": "Sanırım onu merfû rivayet etti.",
+              "confidence": "confirmed",
+              "noteTr": "Hanzal (ebûcehil karpuzu) okuması baskın; ama İbn Kesîr bu rivayetin merfû mu mevkuf mu olduğunu açıkça sorguluyor — “lem yerfa'hu ğayru Hammâd b. Seleme” diyerek tekilliğine dikkat çekiyor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yanan-bahce",
+      "verseRef": "2:266",
+      "titleTr": "Yanan Bahçe — Sözü Kim Söyledi: Ömer mi, İbn Abbâs mı?",
+      "introTr": "Meşhur bir sahâbe rivayetinde, popüler anlatımlarda sıkça karıştırılan bir nokta.",
+      "axes": [
+        {
+          "titleTr": "Buhârî'nin kendi lafzında konuşan kim?",
+          "positions": [
+            {
+              "scholarId": "ibn-kesir",
+              "quoteAr": "حدثنا إبراهيم بن موسى، حدثنا هشام -هو ابن يوسف- عن ابن جريج، عن ابن أبي مليكة، عن ابن عباس",
+              "quoteTr": "İsnad: İbrâhîm b. Mûsâ ← Hişâm (İbn Yûsuf) ← İbn Cüreyc ← İbn Ebî Müleyke ← İbn Abbâs.",
+              "confidence": "confirmed",
+              "noteTr": "Sahîh-i Buhârî, hadis no. 4538 (Kitâbü't-Tefsîr) — tam metinden doğrulandı."
+            },
+            {
+              "scholarId": "ibn-kesir",
+              "quoteAr": "ضُربت مثلاً لعمل",
+              "quoteTr": "İbn Abbâs sadece şunu söyleyebiliyor: ‘Bir amel için mesel verilmiştir.’",
+              "confidence": "confirmed",
+              "noteTr": "Ömer sıkıştırınca (“Ayyu amel?”) — asıl yorumu (“lerâculin ğaniyyin ya'melu bi-tâatillâh...” — zengin bir adam Allah'a itaatle amel eder, sonra şeytan gelir...) bizzat ÖMER verir, İbn Abbâs değil. Popüler anlatımlarda bu cümle rutin olarak İbn Abbâs'a mal ediliyor — bu bir düzeltmedir."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "titleTr": "Mezhep, ihtilafı sanıldığı kadar belirlemiyor",
+      "textTr": "Bu tartışma çoğunlukla kelâmî değil, belâgî bir tartışma — mezhep sınırlarını keserek geçiyor. Aynı Eş'arî çizgideki Râzî ile modern İbn Âşûr, mürekkeb/müferrak meselesinde taban tabana zıt duruyor."
+    },
+    {
+      "titleTr": "Benzetme noktası (vech-i şebeh) daima tek ve keskin",
+      "textTr": "Köpek örneğinde mesele köpeğin necisliği değil, soluma davranışının uyarandan bağımsızlığı. Eşek örneğinde eşeğin aptallığı değil, “taşımak” fiilinin iki anlamı arasındaki uçurum. Benzetmeyi hayvanın tümüne yaymak, klasik tefsirlerin sık düştüğü değil, sıkça uyardığı bir yorum riskidir."
+    }
+  ]
+}

@@ -1174,6 +1174,32 @@ export const CONTENT_SOURCES = [
       };
     },
   },
+
+  // ─── Tefsir İhtilafları — klasik/modern müfessirlerin mesel yorumlarındaki
+  // ayrılıkları karşılaştırır (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr,
+  // İbn Kayyım, İbn Âşûr). 2026-08-15.
+  {
+    type: 'tefsir-ihtilaf',
+    file: 'public/tefsir-ihtilaf.json',
+    extract: (data) => data.cases || [],
+    buildItem: (item) => {
+      const positionsText = (item.axes || [])
+        .flatMap(ax => (ax.positions || []).map(p => `${p.quoteTr || ''} ${p.noteTr || ''}`))
+        .join(' ');
+      return {
+        id: `tefsir-ihtilaf:${item.id}`,
+        type: 'tefsir-ihtilaf',
+        subId: item.id,
+        titleTr: item.titleTr || '',
+        titleEn: item.titleTr || '',
+        arabic: '',
+        descTr: (item.introTr || '').slice(0, 200),
+        descEn: (item.introTr || '').slice(0, 200),
+        searchTextTr: `${item.titleTr || ''} — ${item.verseRef || ''}. ${item.introTr || ''} ${positionsText}`.slice(0, 5000),
+        searchTextEn: `${item.titleTr || ''} — ${item.verseRef || ''}. ${item.introTr || ''} ${positionsText}`.slice(0, 5000),
+      };
+    },
+  },
 ];
 
 // ─── Tool Catalog (statik registry) ──────────────────────────────────────────

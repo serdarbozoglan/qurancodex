@@ -64788,5 +64788,50 @@
     "hash": "a41e2c65cb2f5af7",
     "embeddedAt": "2026-08-15T03:59:14.707Z",
     "type": "atlas-mesel"
+  },
+  "tefsir-ihtilaf:nur-ayeti": {
+    "hash": "eb28760502aeb80b",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:ates-saganak": {
+    "hash": "fac44115d914a7ba",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:sivrisinek": {
+    "hash": "48bd0bc72cbeca52",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:soluyan-kopek": {
+    "hash": "dbe9c391f8e56b0e",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:seytan-baslari": {
+    "hash": "1e1783181eee3510",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:orumcek-agi": {
+    "hash": "57aea0b3806bbec9",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:guzel-agac": {
+    "hash": "d32697cf16eb018f",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tefsir-ihtilaf:yanan-bahce": {
+    "hash": "b32be862ec33f3ec",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tefsir-ihtilaf"
+  },
+  "tool:/arac/tefsir-ihtilaflari": {
+    "hash": "304ce3347aaceaf1",
+    "embeddedAt": "2026-08-15T04:33:58.692Z",
+    "type": "tool"
   }
 }
