@@ -32,9 +32,9 @@ export default function IbadetlerHub({ hubData, language, isMobile }) {
 
       <HubHero hubData={hubData} language={language} isMobile={isMobile} />
 
-      <div style={{
+      <div className="mq-box" style={{
         maxWidth: '1200px', margin: '0 auto', width: '100%',
-        padding: isMobile ? '20px 16px 60px' : '48px 48px 80px',
+        '--pt-d': "48px", '--pt-m': "20px", '--pr-d': "48px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "48px", '--pl-m': "16px",
       }}>
         <AbdCoreSection abdCore={hubData.abdCore} language={language} isMobile={isMobile} />
         <YolHaritasiSection data={hubData.yolHaritasi} language={language} isMobile={isMobile} router={router} />
@@ -71,8 +71,8 @@ function HubHero({ hubData, language, isMobile }) {
   const hero = hubData.hero ?? {};
   if (!anchor) return null;
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 32px' : '56px 32px 40px',
+    <div className="mq-box" style={{
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "40px", '--pb-m': "32px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.07) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
@@ -138,9 +138,9 @@ function HubHero({ hubData, language, isMobile }) {
 function AbdCoreSection({ abdCore, language, isMobile }) {
   if (!abdCore) return null;
   return (
-    <div className="ih-abdcore-grid" style={{
+    <div className="ih-abdcore-grid mq-box" style={{
       margin: '20px 0 56px',
-      padding: isMobile ? '32px 20px' : '48px 40px',
+      '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "20px",
       background: 'linear-gradient(135deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: RADIUS.md,
@@ -283,13 +283,13 @@ function PillarCard({ pillar, language, isMobile, router }) {
     }
   };
   return (
-    <button
+    <button className="mq-box"
       onClick={handleClick}
       disabled={!isReady}
       aria-label={`${language === 'tr' ? pillar.titleTr : pillar.titleEn} · ${isReady ? (language === 'tr' ? 'Hazır — sayfaya git' : 'Ready — go to page') : (language === 'tr' ? 'Yakında' : 'Coming soon')}`}
       style={{
         display: 'flex', flexDirection: 'column',
-        padding: isMobile ? '22px 20px' : '24px 24px',
+        '--pt-d': "24px", '--pt-m': "22px", '--pr-d': "24px", '--pr-m': "20px", '--pb-d': "24px", '--pb-m': "22px", '--pl-d': "24px", '--pl-m': "20px",
         border: `1px solid ${isReady ? COLORS.goldAlpha25 : COLORS.glassBorderSoft}`,
         borderRadius: RADIUS.md,
         background: isReady
@@ -389,9 +389,9 @@ function PillarCard({ pillar, language, isMobile, router }) {
 function FramingNote({ framingTr, framingEn, language, isMobile }) {
   if (!framingTr && !framingEn) return null;
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '56px',
-      padding: isMobile ? '20px 22px' : '26px 32px',
+      '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "22px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "22px",
       background: 'rgba(212,165,116,0.06)',
       borderLeft: `3px solid ${COLORS.gold}`,
       borderRadius: '0 6px 6px 0',
@@ -570,8 +570,8 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
 
       {/* Active journey — steps */}
       {data.yollar[active] && (
-        <div style={{
-          padding: isMobile ? '22px 20px' : '28px 32px',
+        <div className="mq-box" style={{
+          '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "32px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
           border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: RADIUS.md,
@@ -814,8 +814,8 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
           const isOpen = expanded === i;
           const pillarChips = [...new Set(p.records.map(r => r.pillar))];
           return (
-            <div key={p.name} style={{
-              padding: isMobile ? '14px 16px' : '16px 20px',
+            <div className="mq-box" key={p.name} style={{
+              '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "16px",
               background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
               border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: RADIUS.md,
@@ -936,8 +936,8 @@ function OrtakFormullerSection({ data, language, isMobile }) {
       </p>
       <div style={{ display: 'grid', gap: '18px' }}>
         {data.formuller.map((f, i) => (
-          <div key={i} style={{
-            padding: isMobile ? '20px 20px' : '26px 30px',
+          <div className="mq-box" key={i} style={{
+            '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px",
             border: `1px solid ${COLORS.goldAlpha25}`,
             borderRadius: RADIUS.md,
             background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
@@ -1011,8 +1011,8 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
         {wowFacts.map((w, i) => {
           const style = IBADET_CLAIM_TYPE_STYLES[w.claimType];
           return (
-            <div key={i} style={{
-              padding: isMobile ? '20px 22px' : '24px 26px',
+            <div className="mq-box" key={i} style={{
+              '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "26px", '--pr-m': "22px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "26px", '--pl-m': "22px",
               border: `1px solid ${COLORS.glassBorderSoft}`,
               borderRadius: RADIUS.md,
               background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',

@@ -13,12 +13,12 @@ export default function FramingBadge({ language = 'tr', labelTr, labelEn, isMobi
   const tr = language === 'tr';
   return (
     <div style={{ textAlign: 'center', margin: '0 auto 24px' }}>
-      <span
+      <span className="mq-box"
         style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          padding: isMobile ? '6px 13px' : '7px 15px',
+          '--pt-d': "7px", '--pt-m': "6px", '--pr-d': "15px", '--pr-m': "13px", '--pb-d': "7px", '--pb-m': "6px", '--pl-d': "15px", '--pl-m': "13px",
           border: `1px solid ${COLORS.gold}33`,
           borderRadius: '999px',
           background: `${COLORS.gold}0d`,

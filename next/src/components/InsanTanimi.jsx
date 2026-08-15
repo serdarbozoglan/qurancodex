@@ -57,8 +57,8 @@ export default function InsanTanimi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: `linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%),
                      url("data:image/svg+xml;utf8,${GEOMETRIC_PATTERN}") repeat`,
         backgroundSize: 'auto, 72px 72px',
@@ -122,9 +122,9 @@ export default function InsanTanimi({ onClose }) {
       </div>
 
       {/* Sticky Tab Bar §13.19 */}
-      <div id="insan-tab-bar" style={{
+      <div className="mq-box" id="insan-tab-bar" style={{
         display: 'flex', gap: '2px',
-        padding: isMobile ? '0 8px' : '0 16px',
+        '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
@@ -135,13 +135,13 @@ export default function InsanTanimi({ onClose }) {
         {TABS.map(tab => {
           const active = activeTab === tab.id;
           return (
-            <button key={tab.id}
+            <button className="mq-box" key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
                 setTimeout(() => document.getElementById('insan-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
               style={{
-                padding: isMobile ? '14px 14px' : '16px 26px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "14px",
                 fontSize: isMobile ? '0.7rem' : '0.76rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: active ? 700 : 500,
@@ -165,7 +165,7 @@ export default function InsanTanimi({ onClose }) {
       {activeTab === 'sources' && <SourcesTab language={language} isMobile={isMobile} sources={extData.sources} />}
 
       {/* Cross-tool CTA */}
-      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 64px', maxWidth: '1180px', margin: '0 auto' }}>
+      <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1180px', margin: '0 auto' }}>
         <CrossToolCTA
           language={language} isMobile={isMobile}
           links={[
@@ -182,7 +182,7 @@ export default function InsanTanimi({ onClose }) {
 // ─── Tab 2: Human Equation ──────────────────────────────────────
 function EquationTab({ tr, isMobile, data }) {
   return (
-    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 32px 80px', maxWidth: '1180px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1180px', margin: '0 auto' }}>
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
@@ -204,12 +204,12 @@ function EquationTab({ tr, isMobile, data }) {
         marginBottom: '28px',
       }}>
         {data.elements.map((el, i) => (
-          <div key={el.id} style={{
+          <div className="mq-box" key={el.id} style={{
             background: `linear-gradient(180deg, ${el.color}15 0%, rgba(255,255,255,0.03) 100%)`,
             border: `1px solid ${el.color}55`,
             borderLeft: `4px solid ${el.color}`,
             borderRadius: RADIUS.md,
-            padding: isMobile ? '18px 16px' : '22px 20px',
+            '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "20px", '--pl-m': "16px",
             position: 'relative',
           }}>
             {/* Element number */}
@@ -264,11 +264,11 @@ function EquationTab({ tr, isMobile, data }) {
       </div>
 
       {/* Result */}
-      <div style={{
+      <div className="mq-box" style={{
         background: `linear-gradient(180deg, ${COLORS.gold}22 0%, ${COLORS.gold}0a 100%)`,
         border: `2px solid ${COLORS.gold}`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '26px 20px' : '36px 40px',
+        '--pt-d': "36px", '--pt-m': "26px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "26px", '--pl-d': "40px", '--pl-m': "20px",
         textAlign: 'center', position: 'relative', overflow: 'hidden',
       }}>
         <div style={{
@@ -319,7 +319,7 @@ function EquationTab({ tr, isMobile, data }) {
 // ─── Tab 3: Scholars Grid ──────────────────────────────────────
 function ScholarsTab({ tr, isMobile, scholars }) {
   return (
-    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 32px 80px', maxWidth: '1180px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1180px', margin: '0 auto' }}>
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',
@@ -343,12 +343,12 @@ function ScholarsTab({ tr, isMobile, scholars }) {
         gap: isMobile ? '14px' : '18px',
       }}>
         {scholars.map((s, i) => (
-          <div key={i} style={{
+          <div className="mq-box" key={i} style={{
             background: `linear-gradient(180deg, ${s.color}0e 0%, rgba(255,255,255,0.02) 100%)`,
             border: `1px solid ${s.color}44`,
             borderLeft: `3px solid ${s.color}`,
             borderRadius: RADIUS.md,
-            padding: isMobile ? '20px 18px' : '24px 24px',
+            '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "24px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "24px", '--pl-m': "18px",
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px', flexWrap: 'wrap' }}>
               <div>
@@ -384,7 +384,7 @@ function ScholarsTab({ tr, isMobile, scholars }) {
 // ─── Tab 4: Sources ──────────────────────────────────────
 function SourcesTab({ language, isMobile, sources }) {
   return (
-    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 32px 80px', maxWidth: '1180px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1180px', margin: '0 auto' }}>
       <div style={{ maxWidth: '820px', margin: '0 auto 24px', textAlign: 'center' }}>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase',

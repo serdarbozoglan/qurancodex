@@ -100,8 +100,8 @@ export default function InsanYolculugu({ onClose }) {
       {data && (
         <>
           {/* ─── Hero — §13.18 Premium ────────────────────────────── */}
-          <div style={{
-            padding: isMobile ? '32px 16px 24px' : '48px 32px 32px',
+          <div className="mq-box" style={{
+            '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
             background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
@@ -327,9 +327,9 @@ export default function InsanYolculugu({ onClose }) {
             )}
 
             {/* RIGHT — active stage detail */}
-            <main ref={detailRef} style={{
+            <main className="mq-box" ref={detailRef} style={{
               flex: 1,
-              padding: isMobile ? '20px 16px 40px' : '32px 40px 60px',
+              '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "40px", '--pl-m': "16px",
               overflowY: 'auto',
               minHeight: 0,
             }}>
@@ -384,8 +384,8 @@ export default function InsanYolculugu({ onClose }) {
 
           {/* Closing verse — Fecr 89:27-30 full */}
           {data.closingVerse && (
-            <section style={{
-              padding: isMobile ? '40px 16px' : '56px 40px',
+            <section className="mq-box" style={{
+              '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "40px", '--pl-m': "16px",
               maxWidth: '900px', margin: '0 auto', textAlign: 'center',
             }}>
               <p style={{

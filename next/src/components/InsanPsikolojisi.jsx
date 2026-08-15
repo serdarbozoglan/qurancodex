@@ -43,8 +43,8 @@ export default function InsanPsikolojisi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
@@ -150,7 +150,7 @@ export default function InsanPsikolojisi({ onClose }) {
       />
 
       {/* Klasik kaynaklar — İslâmî psikoloji-ahlâk geleneği */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '32px 16px 60px' : '48px 32px 80px' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px" }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}
@@ -230,9 +230,9 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
     },
   ];
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '20px 16px' : '32px 40px',
+    <div className="mq-box" style={{
+      '--mt-d': '60px', '--mt-m': '40px',
+      '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "40px", '--pl-m': "16px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: RADIUS.lg,
@@ -297,9 +297,9 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
     { labelTr: 'ŞÜKÜR', labelEn: 'SHUKR', descTr: 'Şükran · Bereketi çoğaltıcı akış', descEn: 'Gratitude · Blessing-multiplying flow', color: '#2ecc71' },
   ];
   return (
-    <div style={{
-      marginTop: isMobile ? '32px' : '48px',
-      padding: isMobile ? '24px 18px' : '36px 40px',
+    <div className="mq-box" style={{
+      '--mt-d': '48px', '--mt-m': '32px',
+      '--pt-d': "36px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "18px", '--pb-d': "36px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "18px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
       border: `1px solid ${COLORS.gold}44`,
       borderRadius: RADIUS.lg,
@@ -351,8 +351,8 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
       </div>
-      <div style={{
-        padding: isMobile ? '22px 18px' : '30px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "30px", '--pt-m': "22px", '--pr-d': "36px", '--pr-m': "18px", '--pb-d': "30px", '--pb-m': "22px", '--pl-d': "36px", '--pl-m': "18px",
         background: `linear-gradient(180deg, ${COLORS.gold}22 0%, ${COLORS.gold}0a 100%)`,
         border: `2px solid ${COLORS.gold}`,
         borderRadius: RADIUS.lg,
@@ -401,10 +401,10 @@ function YusufIyilesmeArc({ tr, isMobile }) {
     { n: 6, tr: 'KAVUŞMA + AF', en: 'REUNION + FORGIVENESS', descTr: 'Aile ile buluşma, kardeşleri affetme. Travma → bütünlük (Yûsuf 12:92, 100).', descEn: 'Reunion with family, forgiving the brothers. Trauma → wholeness (Yūsuf 12:92, 100).', color: '#2ecc71' },
   ];
   return (
-    <div style={{
-      marginTop: isMobile ? '32px' : '48px',
-      marginBottom: isMobile ? '32px' : '48px',
-      padding: isMobile ? '20px 16px' : '32px 40px',
+    <div className="mq-box" style={{
+      '--mt-d': '48px', '--mt-m': '32px',
+      '--mb-d': '48px', '--mb-m': '32px',
+      '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "40px", '--pl-m': "16px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: RADIUS.lg,

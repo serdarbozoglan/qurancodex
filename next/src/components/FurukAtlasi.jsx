@@ -128,7 +128,7 @@ export default function FurukAtlasi({ onClose }) {
 
   // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -181,8 +181,8 @@ export default function FurukAtlasi({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ────────────────────────────────────────────────────────── */}
-        <div style={{
-          padding: isMobile ? '24px 16px 20px' : '36px 40px 28px',
+        <div className="mq-box" style={{
+          '--pt-d': "36px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "40px", '--pl-m': "16px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
@@ -236,16 +236,16 @@ export default function FurukAtlasi({ onClose }) {
         <div style={{ position: 'sticky', top: '110px', zIndex: 20, background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate' }}>
-          <div id="furuk-tab-bar" style={{
+          <div className="mq-box" id="furuk-tab-bar" style={{
             display: 'flex', gap: 2,
-            padding: isMobile ? '0 8px' : '0 16px',
+            '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             overflowX: 'auto', scrollbarWidth: 'none',
           }}>
             {TABS.map((t, i) => {
               const active = activeTab === i;
               return (
-                <button
+                <button className="mq-box"
                   key={i}
                   onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('furuk-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
                   style={{
@@ -253,7 +253,7 @@ export default function FurukAtlasi({ onClose }) {
                     letterSpacing: '0.12em',
                     flexShrink: 0,
                     display: 'flex', alignItems: 'center', gap: 8,
-                    padding: isMobile ? '12px 14px' : '13px 22px',
+                    '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                     border: 'none',
                     background: active ? COLORS.goldAlpha15 : 'transparent',
                     borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -285,7 +285,7 @@ export default function FurukAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB CONTENT ─────────────────────────────────────────────────── */}
-        <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
+        <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px" }}>
           {activeTab === 0 && (
             <TabPanorama
               data={data}
@@ -496,11 +496,11 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
       </div>
 
       {/* Hero — translation + word cluster */}
-      <div style={{
+      <div className="mq-box" style={{
         background: `linear-gradient(135deg, ${COLORS.goldAlpha04} 0%, rgba(0,0,0,0.1) 100%)`,
         border: `1px solid ${COLORS.goldAlpha15}`,
         borderRadius: 14,
-        padding: isMobile ? '24px 20px' : '32px 40px',
+        '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "20px",
         marginBottom: 28,
         position: 'relative', overflow: 'hidden',
       }}>
@@ -586,11 +586,11 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
       </div>
 
       {/* Principle box */}
-      <div style={{
+      <div className="mq-box" style={{
         background: 'rgba(212,165,116,0.06)',
         border: `1px solid ${COLORS.goldAlpha25}`,
         borderLeft: `4px solid ${COLORS.gold}`,
-        borderRadius: 10, padding: isMobile ? '16px' : '20px 24px',
+        borderRadius: 10, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
         marginBottom: 28, textAlign: 'center',
       }}>
         <div style={{ fontSize: '0.68rem', color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
@@ -752,7 +752,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
       <div style={{ height: 3, background: `linear-gradient(90deg, ${word.color} 0%, ${word.color}40 100%)` }} />
 
       {/* Header */}
-      <div style={{ padding: isMobile ? '18px 16px 16px' : '22px 24px 18px' }}>
+      <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           {/* Arabic badge */}
           <div style={{
@@ -880,8 +880,8 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
 
       {/* Expanded */}
       {expanded && (
-        <div style={{
-          padding: isMobile ? '16px' : '20px 24px',
+        <div className="mq-box" style={{
+          '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
           background: 'rgba(0,0,0,0.15)',
           borderTop: `1px solid ${COLORS.glassBg}`,
         }}>
@@ -1131,10 +1131,10 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
         {principles.map(p => {
           const group = groups.find(g => g.id === p.groupId);
           return (
-            <div key={p.id} style={{
+            <div className="mq-box" key={p.id} style={{
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
-              borderRadius: 12, padding: isMobile ? '16px' : '20px 22px',
+              borderRadius: 12, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
               display: 'flex', flexDirection: 'column',
             }}>
               <p style={{
@@ -1200,10 +1200,10 @@ function TabSources({ sources, language, isMobile }) {
         const role = tr ? s.roleTr : s.roleEn;
         const roleColor = ROLE_COLORS[role] || COLORS.gold;
         return (
-          <div key={i} style={{
+          <div className="mq-box" key={i} style={{
             background: 'rgba(255,255,255,0.025)',
             border: '1px solid rgba(255,255,255,0.06)',
-            borderRadius: 12, padding: isMobile ? '16px' : '20px 24px',
+            borderRadius: 12, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 6 }}>
               <span style={{ fontSize: '1rem', fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.display }}>

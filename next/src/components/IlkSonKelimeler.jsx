@@ -150,11 +150,11 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
 
       {/* Search + Filter chip row — max-w-7xl container ile Navbar logoyla aynı hizada. */}
       <div
-        className="max-w-7xl mx-auto px-4 lg:px-8"
+        className="max-w-7xl mx-auto px-4 lg:px-8 mq-box"
         style={{
           flexShrink: 0,
           width: '100%', boxSizing: 'border-box',
-          paddingTop: isMobile ? 12 : 14,
+          '--pt-d': 14, '--pt-m': 12,
           borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
           background: 'rgba(8,10,18,0.92)',
           backdropFilter: 'blur(20px)',
@@ -293,9 +293,9 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           sticky:top:62 gerçekten çalışır. */}
       <div style={{ flex: 1, display: 'flex' }}>
         {/* Grid */}
-        <div id="ilk-son-grid-container" className="ilk-grid-fill" style={{
+        <div id="ilk-son-grid-container" className="ilk-grid-fill mq-box" style={{
           flex: 1,
-          padding: isMobile ? '14px' : '18px 24px 32px',
+          '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
           display: 'grid',
           gap: '10px',
           alignContent: 'start',
@@ -859,17 +859,17 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
   if (!spotlights || spotlights.length === 0) return null;
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       maxWidth: '960px',
       margin: '0 auto 32px',
-      padding: isMobile ? '0 4px' : 0,
+      '--pt-d': "0", '--pt-m': "0", '--pr-d': "0", '--pr-m': "4px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "0", '--pl-m': "4px",
     }}>
       {/* ════ CINEMATIC HERO — Premium Template Pilot ══════════════════════
           Bismillah ornament + Nisâ 4:82 (sayfanın tezi) + framing whisper.
           Premium tool page template'in ilk pilotu — Esma flagship pattern. */}
-      <div style={{
+      <div className="mq-box" style={{
         marginBottom: '36px',
-        padding: isMobile ? '40px 8px 24px' : '60px 0 32px',
+        '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "0", '--pr-m': "8px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "0", '--pl-m': "8px",
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -878,7 +878,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Bismillah ornament — small decorative, KFGQPC'de U+FDFD glyph yok,
             Amiri Quran ligature kullanılır (§13.2 documented exception) */}
-        <div
+        <div className="mq-box"
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
@@ -888,7 +888,7 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
-            marginBottom: isMobile ? '32px' : '44px',
+            '--mb-d': '44px', '--mb-m': '32px',
             textShadow: `0 0 20px ${COLORS.gold}22`,
           }}
         >
@@ -1081,9 +1081,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
 function ClosingSynthesis({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+    <div className="mq-box" style={{
+      '--mt-d': '60px', '--mt-m': '40px',
+      '--pt-d': "80px", '--pt-m': "50px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "20px",
       borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
       maxWidth: '900px',
       marginLeft: 'auto',
@@ -1154,7 +1154,7 @@ function ClosingSynthesis({ language, isMobile }) {
             { href: `/${language}/oku/114`, titleTr: 'Nâs ile Mührle', titleEn: 'Seal with An-Nās', descTr: 'Son sûre — "İnsanların Rabbi" sığınma mührüyle Mushafı kapat ve döngüyü yaşa.', descEn: 'The final sura — close the Mushaf with the refuge-seal of "the Lord of mankind."' },
             { href: `/${language}/graf/kavram`, titleTr: 'Sûreler Arası Ağı Gör', titleEn: 'See the Inter-Sura Network', descTr: 'Kavram Grafiği: 114 sûrenin tematik bağlantılarını ağ olarak gezin.', descEn: 'Concept Graph: explore the thematic connections between the 114 suras as a network.' },
           ].map((t, i) => (
-            <a
+            <a className="mq-box"
               key={i}
               href={t.href}
               style={{
@@ -1162,7 +1162,7 @@ function ClosingSynthesis({ language, isMobile }) {
                 background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
                 border: `1px solid ${COLORS.goldAlpha25}`,
                 borderRadius: RADIUS.lg,
-                padding: isMobile ? '20px 18px' : '22px 22px',
+                '--pt-d': "22px", '--pt-m': "20px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "20px", '--pl-d': "22px", '--pl-m': "18px",
                 textDecoration: 'none',
                 transition: `all ${TRANSITION.base}`,
               }}
@@ -1503,11 +1503,11 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         {items.map((it, i) => {
           const num = String(i + 1).padStart(2, '0');
           return (
-            <div
+            <div className="mq-box"
               key={i}
               style={{
                 position: 'relative',
-                padding: isMobile ? '32px 22px 26px' : '40px 44px 32px',
+                '--pt-d': "40px", '--pt-m': "32px", '--pr-d': "44px", '--pr-m': "22px", '--pb-d': "32px", '--pb-m': "26px", '--pl-d': "44px", '--pl-m': "22px",
                 background: `linear-gradient(135deg, ${it.themeBg} 0%, rgba(255,255,255,0.015) 100%)`,
                 border: `1px solid ${it.themeBorder}`,
                 borderLeft: `3px solid ${it.themeColor}`,
@@ -1607,20 +1607,20 @@ function SpotlightCard({ spotlight, language, isMobile }) {
   const hiddenText = tr ? spotlight.hiddenTr : spotlight.hiddenEn;
 
   return (
-    <div id={`spotlight-${spotlight.id}`} style={{
-      padding: isMobile ? '20px 18px' : '28px 32px',
+    <div className="mq-box" id={`spotlight-${spotlight.id}`} style={{
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "18px",
       background: COLORS.goldAlpha04,
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: RADIUS.lg,
       scrollMarginTop: '120px',
     }}>
       {/* Header: title (left) + category chip (right) */}
-      <header className="fd-row-colreverse" style={{
+      <header className="fd-row-colreverse mq-box" style={{
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         gap: '14px',
-        marginBottom: isMobile ? '20px' : '24px',
+        '--mb-d': '24px', '--mb-m': '20px',
       }}>
         <h3 style={{
           fontFamily: FONTS.display, fontWeight: 700,
@@ -1657,7 +1657,7 @@ function SpotlightCard({ spotlight, language, isMobile }) {
       {isList && <SpotlightList spotlight={spotlight} language={language} isMobile={isMobile} />}
 
       {/* Thematic prose — split on \n\n to render multiple paragraphs */}
-      <div style={{ marginTop: isMobile ? '20px' : '24px' }}>
+      <div className="mq-box" style={{ '--mt-d': '24px', '--mt-m': '20px' }}>
         {(tr ? spotlight.thematicTr : spotlight.thematicEn)
           .split('\n\n')
           .map((para, idx, arr) => (
@@ -1946,8 +1946,8 @@ function SpotlightSurahPanel({ surah, language, side }) {
 function SpotlightList({ spotlight, language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      padding: isMobile ? '10px 12px' : '14px 18px',
+    <div className="mq-box" style={{
+      '--pt-d': "14px", '--pt-m': "10px", '--pr-d': "18px", '--pr-m': "12px", '--pb-d': "14px", '--pb-m': "10px", '--pl-d': "18px", '--pl-m': "12px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBgStrong}`,
       borderRadius: RADIUS.md,
@@ -2126,16 +2126,16 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
   const activeFam = activeWord ? familyFor(activeWord.root) : null;
 
   return (
-    <div style={{
-      marginTop: isMobile ? '18px' : '28px',
-      marginBottom: isMobile ? '12px' : '20px',
-      padding: isMobile ? '18px 12px 16px' : '24px 20px 20px',
+    <div className="mq-box" style={{
+      '--mt-d': '28px', '--mt-m': '18px',
+      '--mb-d': '20px', '--mb-m': '12px',
+      '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "12px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.goldAlpha15}`,
       borderRadius: '14px',
     }}>
       {/* Section header */}
-      <div style={{ textAlign: 'center', marginBottom: isMobile ? '14px' : '18px' }}>
+      <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '18px', '--mb-m': '14px' }}>
         <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '6px' }}>
           {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
         </div>

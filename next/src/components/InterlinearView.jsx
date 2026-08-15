@@ -107,12 +107,12 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
   const fontFamily = arabicFont || DEFAULT_ARABIC_FONT;
 
   return (
-    <div
+    <div className="mq-box"
       style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: isMobile ? '6px 8px' : '8px 12px',
+        '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "12px", '--pr-m': "8px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "12px", '--pl-m': "8px",
         borderRadius: '8px',
         background: C.chipBg,
         textAlign: 'center',
@@ -205,7 +205,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
   });
 
   return (
-    <div
+    <div className="mq-box"
       ref={rowRef}
       onClick={onClick}
       style={{
@@ -220,7 +220,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
           : '1fr',
         gap: isMobile ? (translation ? '4px' : '8px') : '16px',
         alignItems: isMobile ? 'flex-start' : 'center',
-        padding: isMobile ? '10px 12px' : '0 20px',
+        '--pt-d': "0", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "0", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
         borderRadius: isMobile ? '0' : '6px',
         borderTop: isMobile && verseIdx > 0
           ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.05)'}`
@@ -263,7 +263,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
           Badge is interactive (compare button) with sajda variant in green. */}
       {translation && (
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
-          <button
+          <button className="mq-box"
             type="button"
             onClick={(e) => { e.stopPropagation(); if (onCompareClick) onCompareClick(verse.surah, verse.ayah); }}
             title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
@@ -285,7 +285,7 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
             style={{
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
               width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-              borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+              borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '1px', '--mt-m': '2px',
               border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.ayahNum}${isActive ? 'cc' : '88'}`}`,
               background: isSajda
                 ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
@@ -321,10 +321,10 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
       {/* Right column: word chips with Arabic numeral badge — desktop always, mobile only without translation */}
       {(!isMobile || !translation) && (
         <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '8px' }}>
-          <span style={{
+          <span className="mq-box" style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-            borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '14px' : '20px',
+            borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '20px', '--mt-m': '14px',
             border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
             background: dayMode
               ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`

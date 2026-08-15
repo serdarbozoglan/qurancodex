@@ -122,9 +122,9 @@ export default function IblisSatan({ onClose }) {
       />
 
       {/* ─── Scrollable Body ─────────────────────────────── */}
-      <div style={{
+      <div className="mq-box" style={{
         flex: 1,
-        padding: isMobile ? '24px 16px 60px' : '40px 60px 80px',
+        '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "60px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "60px", '--pl-m': "16px",
       }}>
 
       {/* ─── Hero region wrapper (additive — layers HeroGeometricBackground) ── */}
@@ -132,7 +132,7 @@ export default function IblisSatan({ onClose }) {
         <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1 }}>
       {/* ─── Bismillah ornament — Amiri Quran ligature ───── */}
-      <motion.div
+      <motion.div className="mq-box"
         initial="hidden" animate="visible" variants={fadeUpItem}
         dir="rtl" lang="ar" aria-label="Bismillāh"
         style={{
@@ -142,7 +142,7 @@ export default function IblisSatan({ onClose }) {
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
-          marginBottom: isMobile ? '28px' : '40px',
+          '--mb-d': '40px', '--mb-m': '28px',
           textShadow: `0 0 22px ${COLORS.gold}28`,
         }}
       >
@@ -219,11 +219,11 @@ export default function IblisSatan({ onClose }) {
       </motion.p>
 
       {/* ─── Anahtar Fiiller (key verbs callout) — compact ──── */}
-      <motion.div
+      <motion.div className="mq-box"
         initial="hidden" animate="visible" variants={fadeUpItem}
         style={{
           textAlign: 'center',
-          padding: isMobile ? '14px 16px' : '16px 24px',
+          '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "16px",
           background: COLORS.goldAlpha04,
           border: `1px solid ${COLORS.goldAlpha15}`,
           borderRadius: RADIUS.md,
@@ -397,10 +397,10 @@ export default function IblisSatan({ onClose }) {
           const isLastCol = isMobile ? (i % 2 === 1) : (i === stats.length - 1);
           const isBottomRow = isMobile ? i >= 2 : true;
           return (
-            <div
+            <div className="mq-box"
               key={i}
               style={{
-                padding: isMobile ? '22px 16px' : '28px 28px',
+                '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "28px", '--pl-m': "16px",
                 borderRight: isLastCol ? 'none' : `1px solid ${COLORS.goldAlpha15}`,
                 borderTop: isMobile && isBottomRow && i >= 2 ? `1px solid ${COLORS.goldAlpha15}` : 'none',
                 textAlign: 'center',
@@ -515,13 +515,13 @@ export default function IblisSatan({ onClose }) {
               }}
             >
               {/* Clickable header */}
-              <button
+              <button className="mq-box"
                 onClick={() => setOpenIdx(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
                 style={{
                   width: '100%',
                   display: 'flex', alignItems: 'center', gap: isMobile ? '14px' : '20px',
-                  padding: isMobile ? '16px 18px' : '20px 24px',
+                  '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "18px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "18px",
                   background: 'transparent', border: 'none',
                   cursor: 'pointer', textAlign: 'left',
                   fontFamily: 'inherit',
@@ -625,10 +625,10 @@ export default function IblisSatan({ onClose }) {
                     style={{ overflow: 'hidden' }}
                   >
                     <div
-                      className="space-y-7"
+                      className="space-y-7 mq-box"
                       style={{
-                        padding: isMobile ? '0 18px 22px' : '4px 24px 28px',
-                        marginLeft: isMobile ? '0' : '42px',
+                        '--pt-d': "4px", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "24px", '--pl-m': "18px",
+                        '--ml-d': '42px', '--ml-m': '0',
                       }}
                     >
                       {/* Teaser line at top of expanded body (since hidden in header when open) */}

@@ -113,10 +113,10 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
       <PillarHero pillarData={pillarData} language={language} isMobile={isMobile} />
 
       {/* Sticky Tab Bar — §13.19 */}
-      <div id="ibadet-tab-bar" style={{
+      <div className="mq-box" id="ibadet-tab-bar" style={{
         display: 'flex',
         gap: '2px',
-        padding: isMobile ? '0 8px' : '0 16px',
+        '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)',
         backgroundColor: 'rgb(6, 8, 14)',
@@ -130,7 +130,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
         flexShrink: 0,
       }}>
         {visibleTabs.map(tab => (
-          <button
+          <button className="mq-box"
             key={tab.key}
             onClick={() => {
               setActiveTab(tab.key);
@@ -146,7 +146,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
               }, 50);
             }}
             style={{
-              padding: isMobile ? '14px 16px' : '16px 26px',
+              '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
               fontSize: isMobile ? '0.72rem' : '0.78rem',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
@@ -169,10 +169,10 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
       </div>
 
       {/* Tab body */}
-      <div style={{
+      <div className="mq-box" style={{
         flex: 1,
         minHeight: 0,
-        padding: isMobile ? '20px 16px' : '32px 48px',
+        '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "48px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "48px", '--pl-m': "16px",
         maxWidth: '1200px',
         margin: '0 auto',
         width: '100%',
@@ -201,8 +201,8 @@ function PillarHero({ pillarData, language, isMobile }) {
   const hero = pillarData.hero ?? {};
   if (!anchor) return null;
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+    <div className="mq-box" style={{
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
@@ -395,9 +395,9 @@ function TabGenel({ data, language, isMobile, pillarData }) {
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
       {/* Intro paragraph — glassmorphism card with gold accent */}
-      <div style={{
+      <div className="mq-box" style={{
         position: 'relative',
-        padding: isMobile ? '24px 20px 24px 26px' : '32px 32px 28px 40px',
+        '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "26px",
         marginBottom: '36px',
         background: 'linear-gradient(135deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
         border: `1px solid ${COLORS.goldAlpha25}`,
@@ -460,8 +460,8 @@ function TabGenel({ data, language, isMobile, pillarData }) {
 
       {/* Semantik Alan Haritası — chip grid (auto-derive from kuraniIsimler) */}
       {terms.length > 0 && (
-        <div style={{
-          padding: isMobile ? '20px 18px' : '26px 28px',
+        <div className="mq-box" style={{
+          '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "18px",
           background: 'linear-gradient(135deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
           border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: RADIUS.md,
@@ -928,7 +928,7 @@ function TabPeygamberler({ data, language, isMobile }) {
           ? "Aynı ibadetin farklı peygamberlerdeki tezahürü. Katı takvim değil, kulluk mirasının Kur'ân'daki anlatı silsilesi."
           : "The same worship in different prophets. Not a strict timeline but the Qur'an's narrative lineage of worship."}
       </p>
-      <div style={{ position: 'relative', paddingLeft: isMobile ? '28px' : '36px' }}>
+      <div className="mq-box" style={{ position: 'relative', '--pl-d': '36px', '--pl-m': '28px' }}>
         {/* Timeline line */}
         <div style={{
           position: 'absolute',
@@ -1078,8 +1078,8 @@ function TabOzelNamazlar({ data, language, isMobile }) {
       </p>
       <div style={{ display: 'grid', gap: '24px' }}>
         {data.map((n, i) => (
-          <div key={i} style={{
-            padding: isMobile ? '22px 20px' : '28px 32px',
+          <div className="mq-box" key={i} style={{
+            '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "32px", '--pl-m': "20px",
             border: `1px solid ${COLORS.goldAlpha25}`,
             borderRadius: RADIUS.md,
             background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
@@ -1263,7 +1263,7 @@ function KibleHikayesiSection({ section, language, isMobile }) {
             width: '2px',
             background: `linear-gradient(180deg, ${COLORS.gold}, ${COLORS.gold}33)`,
           }} />
-          <div style={{ display: 'grid', gap: '16px', paddingLeft: isMobile ? '32px' : '40px' }}>
+          <div className="mq-box" style={{ display: 'grid', gap: '16px', '--pl-d': '40px', '--pl-m': '32px' }}>
             {section.pasaj.map((p, i) => (
               <div key={i} style={{ position: 'relative' }}>
                 <div style={{
@@ -1319,8 +1319,8 @@ function TabKiraat({ data, language, isMobile }) {
       }}>{language === 'tr' ? data.introTr : (data.introEn ?? data.introTr)}</p>
       <div style={{ display: 'grid', gap: '22px' }}>
         {(data.unsurlar ?? []).map((u, i) => (
-          <div key={i} style={{
-            padding: isMobile ? '20px 18px' : '26px 30px',
+          <div className="mq-box" key={i} style={{
+            '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "18px",
             border: `1px solid ${COLORS.goldAlpha25}`,
             borderRadius: RADIUS.md,
             background: 'rgba(212,165,116,0.03)',
@@ -1370,8 +1370,8 @@ function TabInsanEtkisi({ data, language, isMobile }) {
       </p>
       <div style={{ display: 'grid', gap: '22px' }}>
         {data.map((k, i) => (
-          <div key={i} style={{
-            padding: isMobile ? '22px 20px' : '28px 32px',
+          <div className="mq-box" key={i} style={{
+            '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "32px", '--pl-m': "20px",
             border: `1px solid ${COLORS.glassBorderSoft}`,
             borderRadius: RADIUS.md,
             background: 'linear-gradient(180deg, rgba(212,165,116,0.03) 0%, rgba(255,255,255,0.02) 100%)',

@@ -113,7 +113,7 @@ export default function Hero() {
             Reverence sinyali; meta-discovery framing'i bozmadan ekler.
             2026-08-13: glow nabzı ve ışık süpürmesi kaldırıldı; yerine
             metnin kendisinin sağdan sola belirmesi geldi. Gerekçe aşağıda. */}
-        <motion.div
+        <motion.div className="mq-box"
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
@@ -126,8 +126,8 @@ export default function Hero() {
             lineHeight: 1,
             // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.
             // Mobile'da chevron'a yer bırakmak için kısaltıldı.
-            marginTop: isMobile ? '24px' : '60px',
-            marginBottom: isMobile ? '24px' : '52px',
+            '--mt-d': '60px', '--mt-m': '24px',
+            '--mb-d': '52px', '--mb-m': '24px',
           }}
           initial={reduced ? false : (showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
           animate={reduced ? false : (showIntro
