@@ -275,6 +275,12 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
    referans formatı, `relatedTools` dize-dizisi zorunluluğu…) — buraya
    kopyalanmadı, tek kaynak orada. → §13.29
 
+10. **Bir kaynağa (âlim, kitap, makale, tarihî kayıt) atıf yazıyorsan,
+    yazmadan ÖNCE o kaynaktan bizzat doğrula.** "Muhtemelen doğrudur"
+    bir atıf için yeterli değil — WebSearch/WebFetch ile teyit
+    edilmeden yazar adı, eser adı, cilt/sayfa/yıl veya alıntı metni
+    yazılamaz. → §13.30
+
 ### 13.1 Design Token Kuralı
 
 **Tüm renkler, fontlar ve UI sabitleri merkezi tokens dosyasından import edilir** (`src/tokens.js` Vite'ta, `next/src/tokens.js` Next.js'te).
@@ -1474,6 +1480,53 @@ Kur'an yazımı sitede daima **Kur'an** (kesme işaretiyle), Medium kaynağında
 **İstisna hatırlatması:** Tefekkür makaleleri §13.24'ün (İ'câz-ı İlmî hakem
 süreci) **DIŞINDADIR** — yazarın kendi imzalı görüşleridir, ChatGPT
 onayına sokulmaz. Bkz. §13.24'ün istisna maddesi.
+
+### 13.30 Kaynak Atfı Doğrulama Kuralı — ENFORCE ALWAYS (2026-08-14)
+
+**Bir kaynağa (âlim, klasik eser, akademik makale/kitap, tarihî kayıt,
+dergi) dayandırılan HER iddia, sitede yazılmadan ÖNCE bizzat o kaynaktan
+doğrulanır.** "Muhtemelen doğrudur" ya da "genel bilgime göre doğru
+görünüyor" bir atıf yazmak için yeterli değildir — WebSearch/WebFetch ile
+(ya da doğrudan erişilebilen bir birincil kaynakla) teyit edilmeden hiçbir
+yazar adı, eser adı, cilt/sayfa/yıl bilgisi veya alıntı metni yazılamaz.
+
+**Neden bu kural var.** 14 Ağustos 2026'da sitedeki **453 kaynak-atıf
+iddiasının tamamı** taranıp gerçek kaynaklarıyla karşılaştırıldı (bkz.
+`tasks/todo_resources.md`). **11 gerçek hata** çıktı — hiçbiri kötü niyetli
+değildi, hepsi "makul görünen ama hiç doğrulanmamış" içerikti:
+
+- Napolyon'a atfedilen bir söz aslında Kardinal Richelieu'ye aitti.
+- Bir akademik dergi atfının cilt/yıl bilgisi yanlıştı (c.18/1995 yerine
+  gerçeği c.XXXIX/2006).
+- Gazâlî'nin İhyâ'daki dörtlü kalp modeli **iki ayrı dosyada** yanlış
+  aktarılmış — şeytânî unsur atlanıp yerine uydurma bir "rahmet" boyutu
+  eklenmişti (aynı hata iki kez, birbirinden habersiz iki bileşende).
+- Bir istatistik ("Cuypers'ın 200+ sayfalık Bakara analizi") kitabın
+  gerçek uzunluğuyla (224 sayfa, en kapsamlı örneği Mâide) doğrudan
+  çelişiyordu.
+- Bir Bediüzzaman alıntısı yanlış esere atfedilmişti (Mesnevî-i Nûriye
+  yerine gerçeği İşârâtü'l-İ'câz).
+- Feynman'a atfedilen ünlü ama kaynağı doğrulanamayan bir "internet
+  vecizesi" kesin bir alıntı gibi sunulmuştu.
+
+Bunların hiçbiri satır satır kontrol edilmeden yazılana kadar fark
+edilmedi — üçü aylarca canlıda durdu.
+
+**Kural:**
+- Yeni bir kaynak atfı (`SourcesCitation` girdisi, footnote, pullQuote,
+  `criticalNote`, veya satır-içi "X'e göre..." cümlesi) yazmadan önce
+  doğrula: yazar adı doğru mu, eser adı doğru mu, cilt/yıl/sayfa doğru
+  mu, alıntı metni birebir mi yoksa serbest parafraz mı.
+- Doğrulanamıyorsa (çoğu klasik Arapça metin dijital olarak erişilemez):
+  iddiayı KESİN dille yazma. "X der ki" yerine "X'e atfedilir" /
+  "rivayet edilir" gibi ihtiyatlı bir dil kullan, ya da iddiayı kaldır.
+- Ünlü ama kaynağı belirsiz "internet alıntıları" (Feynman, Einstein,
+  Napolyon gibi isimlere atfedilen vecizeler) özellikle risklidir — genelde
+  yanlış atfedilirler, doğrulamadan asla kesin bir kişiye bağlama.
+- Bir sayısal/yapısal iddia (cilt sayısı, sayfa sayısı, "N mertebe/N
+  basamak" gibi) kendi içinde tutarlı olmalı — yazarken hızlı bir zihinsel
+  çapraz kontrol yap (14 Ağustos'ta bir "3 mertebeli... 15 basamak" iddiası
+  aslında 5 mertebe listeliyordu, 3×3≠15).
 
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
