@@ -933,6 +933,15 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
 .sc-compare-grid-2 {
   grid-template-columns: 1fr 1fr;
 }
+/* Kelime DNA'sı (WordVenn) — 4 gerçek grid item'ı (Only A, ayraç, Shared,
+   Only B); masaüstünde yan yana, mobilde tek sütuna çöker (§14.2: grid
+   düzeni JS'e değil media query'ye bağlı). */
+.sc-word-venn {
+  grid-template-columns: 1fr auto auto 1fr;
+}
+.sc-preset-grid {
+  grid-template-columns: 1fr 1fr;
+}
 @media (max-width: 640px) {
   .sc-toolbar {
     padding: 12px 16px 0;
@@ -951,6 +960,12 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     padding: 16px 16px 40px;
   }
   .sc-compare-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .sc-word-venn {
+    grid-template-columns: 1fr;
+  }
+  .sc-preset-grid {
     grid-template-columns: 1fr;
   }
 }

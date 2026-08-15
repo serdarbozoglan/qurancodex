@@ -160,6 +160,36 @@ function wordFreq(verses) {
   return freq;
 }
 
+// tokenize() lowercases everything so "Allah" and "allah" count as the same
+// word (needed for frequency matching) — but that means the lowercase key
+// was also being used as the ON-SCREEN label, rendering "Allah" as "allah".
+// This walks the SAME words without lowercasing first, and for each key
+// keeps whichever original casing occurred most often — proper nouns like
+// "Allah" are capitalized in virtually every occurrence so the mode picks
+// the capitalized form automatically, while ordinary words (mostly
+// lowercase mid-sentence, only occasionally capitalized at a sentence
+// start) still resolve to lowercase.
+function wordDisplayForms(verses) {
+  const counts = {}; // key -> { variant: count }
+  for (const v of verses) {
+    const raw = (v.turkish || '')
+      .replace(/[^a-zA-ZâîûğşüöçıÂÎÛĞŞÜÖÇİ ]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean);
+    for (const rw of raw) {
+      const key = rw.toLowerCase();
+      if (key.length < 4 || STOP_TR.has(key) || STOP_TR.has(normalizeTr(key))) continue;
+      (counts[key] ||= {})[rw] = (counts[key][rw] || 0) + 1;
+    }
+  }
+  const display = {};
+  for (const key of Object.keys(counts)) {
+    const variants = counts[key];
+    display[key] = Object.keys(variants).sort((a, b) => variants[b] - variants[a])[0];
+  }
+  return display;
+}
+
 function detectFigures(verses) {
   const combined = verses.map(v => ' ' + (v.turkish || '').toLowerCase() + ' ').join(' ');
   return FIGURES_TR.filter(f => f.match.some(m => combined.includes(m)));
@@ -183,6 +213,46 @@ function computeSimilarity(versesA, versesB) {
   const avgScore = totalScore / crossLinks;
   const score = Math.round(Math.min(100, coverage * avgScore * 200));
   return { score, links: crossLinks, avgScore: Math.round(avgScore * 100) };
+}
+
+// ── VERSE-LEVEL LINK PAIRS — the actual cross-links behind the aggregate
+// score, kept individually so they can be drawn as a genome-alignment-style
+// arc diagram (which verse in A links to which verse in B, and how strongly)
+// instead of only ever being shown as a single percentage. ────────────────
+function computeLinkPairs(versesA, versesB, limit = 32) {
+  const indexB = new Map(versesB.map((v, i) => [v.id, i]));
+  const seen = new Set(); // avoid drawing both A→B and B→A for the same pair
+  const pairs = [];
+  versesA.forEach((va, ai) => {
+    for (const conn of (va.connections || [])) {
+      const bi = indexB.get(conn.id);
+      if (bi === undefined) continue;
+      const key = `${ai}:${bi}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      pairs.push({ ai, bi, score: conn.score || 0, ayahA: va.ayah, ayahB: versesB[bi].ayah });
+    }
+  });
+  pairs.sort((a, b) => b.score - a.score);
+  return pairs.slice(0, limit);
+}
+
+// ── STRUCTURAL PROFILE (verse rhythm, not translation-dependent) ─────────────
+// Arapça metin üzerinden kelime sayımı — çeviri uzunluğuna bağlı olmayan,
+// sûrenin kendi ayet ritmini yansıtan tek ölçüt. Render edilmediği için
+// cleanArabicForDisplay gerekmez (§13.15 yalnız EKRANA yazılan metin için).
+function arabicWordCount(str) {
+  return (str || '').trim().split(/\s+/).filter(Boolean).length;
+}
+
+function structuralProfile(verses) {
+  const verseCount = verses.length;
+  const wordCounts = verses.map(v => arabicWordCount(v.arabic));
+  const totalWords = wordCounts.reduce((a, b) => a + b, 0);
+  const avgWords = verseCount > 0 ? totalWords / verseCount : 0;
+  const vocab = new Set();
+  for (const v of verses) for (const w of tokenize(v.turkish || '')) vocab.add(w);
+  return { verseCount, totalWords, avgWords, vocabSize: vocab.size };
 }
 
 // ── SURAH SELECTOR ─────────────────────────────────────────────────────────────
@@ -391,8 +461,111 @@ function SimilarityGauge({ score }) {
   );
 }
 
+// ── GENOME ALIGNMENT — the actual verse-to-verse connections, drawn as a
+// two-track diagram (borrowed from how genome/sequence alignment browsers
+// show where two sequences match). Each arc is one real link between a
+// specific verse in A and a specific verse in B — this is the tool's answer
+// to "which parts of the two sûres relate, not just how much overall." ────
+function GenomeAlignment({ vA, vB, pairs, nameA, nameB, colorA, colorB, gradId, language }) {
+  const W = 900, H = 230, PAD = 26;
+  const trackAY = 46, trackBY = H - 46;
+  const usable = W - PAD * 2;
+  const xOf = (i, len) => PAD + (len > 1 ? (i / (len - 1)) * usable : usable / 2);
+
+  const scores = pairs.map(p => p.score);
+  const minS = scores.length ? Math.min(...scores) : 0;
+  const maxS = scores.length ? Math.max(...scores) : 1;
+  const norm = (s) => (maxS > minS ? (s - minS) / (maxS - minS) : 0.5);
+
+  const [hovered, setHovered] = useState(null);
+
+  return (
+    <div style={{ padding: '22px 20px 18px', borderRadius: RADIUS.xl, border: '1px solid rgba(255,255,255,0.09)', background: 'linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '4px' }}>
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', margin: 0 }}>
+          {language === 'tr' ? 'Bağlantı Haritası' : 'Connection Map'}
+        </p>
+        <span style={{ fontSize: '0.7rem', color: SEMANTIC.textFaint }}>
+          {language === 'tr' ? `en güçlü ${pairs.length} bağ gösteriliyor` : `showing the ${pairs.length} strongest links`}
+        </span>
+      </div>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '14px', opacity: 0.85, maxWidth: '640px' }}>
+        {language === 'tr'
+          ? 'Her ayet kendi sûresindeki sırasına göre hatta yerleşir; her kavis, iki ayet arasındaki gerçek anlamsal bağı temsil eder — parlaklık bağın gücünü gösterir.'
+          : 'Each verse sits on its line by position in its own sûrah; every arc is one real semantic link between two specific verses — brightness shows link strength.'}
+      </p>
+
+      {pairs.length === 0 ? (
+        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.85rem', textAlign: 'center', padding: '30px 0' }}>
+          {language === 'tr' ? 'Bu iki sûre arasında doğrudan ayet bağı bulunamadı.' : 'No direct verse-level links found between these two sûrahs.'}
+        </p>
+      ) : (
+        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block', height: 'auto', overflow: 'visible' }} role="img"
+          aria-label={language === 'tr' ? `${nameA} ve ${nameB} arasındaki ${pairs.length} en güçlü ayet bağının kavis diyagramı` : `Arc diagram of the ${pairs.length} strongest verse links between ${nameA} and ${nameB}`}
+        >
+          <defs>
+            <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={colorA} />
+              <stop offset="100%" stopColor={colorB} />
+            </linearGradient>
+          </defs>
+
+          {/* Base tracks */}
+          <rect x={PAD} y={trackAY - 3} width={usable} height="6" rx="3" fill={colorA} opacity="0.16" />
+          <rect x={PAD} y={trackBY - 3} width={usable} height="6" rx="3" fill={colorB} opacity="0.16" />
+
+          {/* Track labels */}
+          <text x={PAD} y={trackAY - 14} fontSize="13" fontWeight="800" fill={colorA} fontFamily="'Inter', sans-serif">{nameA}</text>
+          <text x={PAD} y={trackBY + 26} fontSize="13" fontWeight="800" fill={colorB} fontFamily="'Inter', sans-serif">{nameB}</text>
+          <text x={PAD + usable} y={trackAY - 14} textAnchor="end" fontSize="10" fill={SEMANTIC.textFaint} fontFamily="'Inter', sans-serif">{vA.length} {language === 'tr' ? 'ayet' : 'verses'}</text>
+          <text x={PAD + usable} y={trackBY + 26} textAnchor="end" fontSize="10" fill={SEMANTIC.textFaint} fontFamily="'Inter', sans-serif">{vB.length} {language === 'tr' ? 'ayet' : 'verses'}</text>
+
+          {/* Links, weakest first so strongest render on top */}
+          {[...pairs].sort((a, b) => a.score - b.score).map((p, idx) => {
+            const x1 = xOf(p.ai, vA.length), x2 = xOf(p.bi, vB.length);
+            const isHovered = hovered === idx;
+            const t = norm(p.score);
+            const opacity = isHovered ? 0.95 : 0.16 + t * 0.5;
+            const width = isHovered ? 3 : 1 + t * 1.6;
+            const midY = (trackAY + trackBY) / 2;
+            const d = `M ${x1} ${trackAY + 4} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${trackBY - 4}`;
+            return (
+              <path
+                key={`${p.ai}-${p.bi}`}
+                d={d}
+                fill="none"
+                stroke={isHovered ? COLORS.gold : `url(#${gradId})`}
+                strokeWidth={width}
+                strokeOpacity={opacity}
+                style={{ transition: 'stroke-opacity 0.15s, stroke-width 0.15s', cursor: 'pointer' }}
+                onMouseEnter={() => setHovered(idx)}
+                onMouseLeave={() => setHovered(h => h === idx ? null : h)}
+              >
+                <title>{`${nameA} ${p.ayahA} ↔ ${nameB} ${p.ayahB} · ${Math.round(p.score * 100)}%`}</title>
+              </path>
+            );
+          })}
+
+          {/* Endpoint dots */}
+          {pairs.map((p, idx) => (
+            <g key={`dots-${p.ai}-${p.bi}`}>
+              <circle cx={xOf(p.ai, vA.length)} cy={trackAY} r={hovered === idx ? 4 : 2.5} fill={colorA} />
+              <circle cx={xOf(p.bi, vB.length)} cy={trackBY} r={hovered === idx ? 4 : 2.5} fill={colorB} />
+            </g>
+          ))}
+        </svg>
+      )}
+      {hovered !== null && pairs[hovered] && (
+        <p style={{ textAlign: 'center', fontSize: '0.76rem', color: COLORS.gold, marginTop: '10px', fontWeight: 600 }}>
+          {nameA} {pairs[hovered].ayahA} ↔ {nameB} {pairs[hovered].ayahB} · {Math.round(pairs[hovered].score * 100)}% {language === 'tr' ? 'benzerlik' : 'similarity'}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ── WORD VENN ─────────────────────────────────────────────────────────────────
-function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
+function WordVenn({ wordsA, wordsB, display, colorA, colorB, nameA, nameB, language }) {
   const setA = new Set(Object.keys(wordsA));
   const setB = new Set(Object.keys(wordsB));
 
@@ -406,37 +579,51 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
     .sort((a, b) => (wordsA[b] + wordsB[b]) - (wordsA[a] + wordsB[a]))
     .slice(0, 12);
 
-  const col = (items, color, freqMap) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-      {items.map(w => (
-        <div key={w} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{
-            flex: 1, color: COLORS.silver, fontSize: '0.82rem',
-            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-          }}>{w}</span>
-          <span style={{
-            flexShrink: 0, fontSize: '0.68rem', color: color, fontWeight: 600,
-            background: color + '18', padding: '1px 6px', borderRadius: RADIUS.chip,
-          }}>{freqMap[w]}</span>
-        </div>
-      ))}
-      {items.length === 0 && (
-        <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', margin: 0 }}>—</p>
-      )}
-    </div>
-  );
+  // Kelime bulutu — satır listesi yerine sıklığa göre puntolanmış, sarıp
+  // kendi içeriği kadar yer kaplayan chip'ler. Geniş ekranda liste satırları
+  // kelime ile rakam arasında büyük boş aralık bırakıyordu (1fr sütun,
+  // içerik sabit genişlik) — bulut deseni bu sorunu yapısal olarak ortadan
+  // kaldırır: chip'ler ne kadar yer olursa olsun kendi genişliğinde kalır.
+  const cloud = (items, color, freqMap, align) => {
+    if (items.length === 0) {
+      return <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', margin: 0 }}>—</p>;
+    }
+    const freqs = items.map(w => freqMap[w]);
+    const min = Math.min(...freqs), max = Math.max(...freqs);
+    const size = (f) => {
+      const t = max > min ? (f - min) / (max - min) : 0.5;
+      return 0.74 + t * 0.56; // 0.74rem .. 1.30rem
+    };
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 8px', justifyContent: align }}>
+        {items.map(w => (
+          <span key={w} title={`${display?.[w] || w} — ${freqMap[w]}×`} style={{
+            color, fontSize: `${size(freqMap[w])}rem`, fontWeight: 600, lineHeight: 1.3,
+            background: `${color}14`, border: `1px solid ${color}30`,
+            padding: '3px 9px', borderRadius: RADIUS.pillSm, whiteSpace: 'nowrap',
+          }}>{display?.[w] || w}</span>
+        ))}
+      </div>
+    );
+  };
 
   return (
-    <div style={{
-      display: 'grid', gridTemplateColumns: '1fr auto 1fr',
-      gap: '0', border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden',
-    }}>
+    <div
+      className="sc-word-venn"
+      style={{
+        /* 4 gerçek grid item'ı var (Only A, ayraç, Shared, Only B) — kolon
+           sayısı .sc-word-venn'de (globals.css, §14.2) — mobilde tek sütuna
+           çöker. */
+        display: 'grid',
+        gap: '0', border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden',
+      }}
+    >
       {/* Only A */}
-      <div style={{ padding: '16px', background: `${colorA}08` }}>
+      <div style={{ padding: '16px' }}>
         <p style={{ color: colorA, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', margin: '0 0 10px' }}>
           {nameA} {language === 'tr' ? 'özgü' : 'only'}
         </p>
-        {col(onlyA, colorA, wordsA)}
+        {cloud(onlyA, colorA, wordsA, 'flex-start')}
       </div>
       {/* Divider */}
       <div style={{ width: '1px', background: 'rgba(255,255,255,0.07)' }} />
@@ -445,29 +632,206 @@ function WordVenn({ wordsA, wordsB, colorA, colorB, nameA, nameB, language }) {
         padding: '16px', background: 'rgba(212,165,116,0.05)',
         borderLeft: '1px solid rgba(255,255,255,0.07)',
         borderRight: '1px solid rgba(255,255,255,0.07)',
-        minWidth: '130px',
+        minWidth: '160px',
       }}>
         <p style={{ color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', margin: '0 0 10px', textAlign: 'center' }}>
           {language === 'tr' ? 'Ortak' : 'Shared'}
         </p>
-        {shared.map(w => (
-          <div key={w} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px', justifyContent: 'center' }}>
-            <span style={{ fontSize: '0.68rem', color: colorA + '99', fontWeight: 600 }}>{wordsA[w]}</span>
-            <span style={{ color: COLORS.gold, fontSize: '0.82rem', fontWeight: 600 }}>{w}</span>
-            <span style={{ fontSize: '0.68rem', color: colorB + '99', fontWeight: 600 }}>{wordsB[w]}</span>
-          </div>
-        ))}
-        {shared.length === 0 && (
+        {shared.length === 0 ? (
           <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', margin: 0, textAlign: 'center' }}>—</p>
+        ) : (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 10px', justifyContent: 'center' }}>
+            {shared.map(w => (
+              <span key={w} title={`${nameA}: ${wordsA[w]}× · ${nameB}: ${wordsB[w]}×`} style={{
+                display: 'inline-flex', alignItems: 'baseline', gap: '4px',
+                background: 'rgba(212,165,116,0.1)', border: '1px solid rgba(212,165,116,0.28)',
+                padding: '3px 9px', borderRadius: RADIUS.pillSm,
+              }}>
+                <span style={{ fontSize: '0.62rem', color: colorA, fontWeight: 700 }}>{wordsA[w]}</span>
+                <span style={{ color: COLORS.gold, fontSize: '0.84rem', fontWeight: 700 }}>{display?.[w] || w}</span>
+                <span style={{ fontSize: '0.62rem', color: colorB, fontWeight: 700 }}>{wordsB[w]}</span>
+              </span>
+            ))}
+          </div>
         )}
       </div>
       {/* Only B */}
-      <div style={{ padding: '16px', background: `${colorB}08` }}>
+      <div style={{ padding: '16px' }}>
         <p style={{ color: colorB, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px', margin: '0 0 10px', textAlign: 'right' }}>
           {nameB} {language === 'tr' ? 'özgü' : 'only'}
         </p>
-        {col(onlyB, colorB, wordsB)}
+        {cloud(onlyB, colorB, wordsB, 'flex-end')}
       </div>
+    </div>
+  );
+}
+
+// ── STRUCTURAL PROFILE BARS ────────────────────────────────────────────────────
+function ProfileBarRow({ label, valueA, valueB, displayA, displayB, colorA, colorB, unit }) {
+  const max = Math.max(valueA, valueB, 1);
+  const pctA = Math.max(4, Math.round((valueA / max) * 100));
+  const pctB = Math.max(4, Math.round((valueB / max) * 100));
+  return (
+    <div style={{ marginBottom: '16px' }}>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.74rem', marginBottom: '8px', textAlign: 'center' }}>
+        {label}{unit ? ` (${unit})` : ''}
+      </p>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', alignItems: 'center' }}>
+        {/* A bar — grows from right, aligned to center divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'flex-end' }}>
+          <span style={{ color: colorA, fontSize: '0.85rem', fontWeight: 700, flexShrink: 0, minWidth: '48px', textAlign: 'right' }}>{displayA}</span>
+          <div style={{ flex: 1, maxWidth: '160px', height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: RADIUS.pillSm, overflow: 'hidden', display: 'flex', justifyContent: 'flex-end' }}>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${pctA}%` }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              style={{ height: '100%', background: colorA, borderRadius: RADIUS.pillSm }}
+            />
+          </div>
+        </div>
+        {/* B bar — grows from left */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ flex: 1, maxWidth: '160px', height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: RADIUS.pillSm, overflow: 'hidden' }}>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${pctB}%` }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              style={{ height: '100%', background: colorB, borderRadius: RADIUS.pillSm }}
+            />
+          </div>
+          <span style={{ color: colorB, fontSize: '0.85rem', fontWeight: 700, flexShrink: 0, minWidth: '48px' }}>{displayB}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StructuralProfile({ profA, profB, colorA, colorB, language }) {
+  const fmt = (n) => Math.round(n).toLocaleString(language === 'tr' ? 'tr-TR' : 'en-US');
+  return (
+    <div style={{ padding: '20px', borderRadius: RADIUS.xl, border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '4px' }}>
+        {language === 'tr' ? 'Yapısal Profil' : 'Structural Profile'}
+      </p>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '18px', opacity: 0.85 }}>
+        {language === 'tr'
+          ? 'Arapça metne dayalı ölçümler — çeviriden bağımsız.'
+          : 'Measured from the Arabic text — independent of translation.'}
+      </p>
+      <ProfileBarRow
+        label={language === 'tr' ? 'Ayet sayısı' : 'Verse count'}
+        valueA={profA.verseCount} valueB={profB.verseCount}
+        displayA={fmt(profA.verseCount)} displayB={fmt(profB.verseCount)}
+        colorA={colorA} colorB={colorB}
+      />
+      <ProfileBarRow
+        label={language === 'tr' ? 'Ortalama ayet uzunluğu' : 'Average verse length'}
+        valueA={profA.avgWords} valueB={profB.avgWords}
+        displayA={profA.avgWords.toFixed(1)} displayB={profB.avgWords.toFixed(1)}
+        unit={language === 'tr' ? 'kelime' : 'words'}
+        colorA={colorA} colorB={colorB}
+      />
+      <ProfileBarRow
+        label={language === 'tr' ? 'Toplam kelime' : 'Total word count'}
+        valueA={profA.totalWords} valueB={profB.totalWords}
+        displayA={fmt(profA.totalWords)} displayB={fmt(profB.totalWords)}
+        colorA={colorA} colorB={colorB}
+      />
+      <ProfileBarRow
+        label={language === 'tr' ? 'Kelime çeşitliliği' : 'Vocabulary richness'}
+        valueA={profA.vocabSize} valueB={profB.vocabSize}
+        displayA={fmt(profA.vocabSize)} displayB={fmt(profB.vocabSize)}
+        unit={language === 'tr' ? 'benzersiz kök' : 'distinct terms'}
+        colorA={colorA} colorB={colorB}
+      />
+    </div>
+  );
+}
+
+// ── REVELATION-ORDER STRIP ─────────────────────────────────────────────────────
+function RevelationStrip({ order, rankA, rankB, nameA, nameB, colorA, colorB, language }) {
+  if (!order || order.length === 0 || !rankA || !rankB) return null;
+  const total = order.length;
+  const pos = (rank) => `${((rank - 1) / (total - 1)) * 100}%`;
+  // İki sûrenin nüzul sırası çok yakınsa (ör. #87/#89) iki etiket üst üste
+  // biner — bu durumda B'nin etiketini noktanın ALTINA taşı.
+  const closeMarkers = Math.abs(rankA - rankB) / total < 0.06;
+
+  return (
+    <div style={{ padding: '20px', borderRadius: RADIUS.xl, border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.02)' }}>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '4px' }}>
+        {language === 'tr' ? 'Nüzul Sırasındaki Konum' : 'Position in Revelation Order'}
+      </p>
+      <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '22px', opacity: 0.85 }}>
+        {language === 'tr'
+          ? `114 sûre, vahiy sırasına göre — 1 (${language === 'tr' ? 'ilk' : 'first'}) → ${total} (${language === 'tr' ? 'son' : 'last'}).`
+          : `All 114 surahs by revelation order — 1 (first) → ${total} (last).`}
+      </p>
+      <div style={{ position: 'relative', height: closeMarkers ? '56px' : '38px' }}>
+        {/* Base track — Mekkî/Medenî shading */}
+        <div style={{ position: 'absolute', top: closeMarkers ? '24px' : '16px', left: 0, right: 0, height: '6px', borderRadius: RADIUS.pillSm, overflow: 'hidden', display: 'flex' }}>
+          {order.map((o, i) => (
+            <div key={i} style={{
+              flex: 1, height: '100%',
+              background: o.period === 'mekki' ? 'rgba(212,165,116,0.18)' : 'rgba(96,165,250,0.14)',
+            }} />
+          ))}
+        </div>
+        {/* Marker A — always above the dot */}
+        <div title={`${nameA} — #${rankA}`} style={{
+          position: 'absolute', top: closeMarkers ? '8px' : 0, left: pos(rankA), transform: 'translateX(-50%)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',
+        }}>
+          <span style={{ fontSize: '0.62rem', fontWeight: 700, color: colorA, whiteSpace: 'nowrap' }}>{nameA}</span>
+          <span style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: colorA, border: '2px solid rgba(6,8,20,0.9)', boxShadow: `0 0 8px ${colorA}` }} />
+        </div>
+        {/* Marker B — flips below the dot when markers sit close together */}
+        <div title={`${nameB} — #${rankB}`} style={{
+          position: 'absolute', top: closeMarkers ? '30px' : 0, left: pos(rankB), transform: 'translateX(-50%)',
+          display: 'flex', flexDirection: closeMarkers ? 'column-reverse' : 'column', alignItems: 'center', gap: '2px',
+        }}>
+          <span style={{ fontSize: '0.62rem', fontWeight: 700, color: colorB, whiteSpace: 'nowrap' }}>{nameB}</span>
+          <span style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: colorB, border: '2px solid rgba(6,8,20,0.9)', boxShadow: `0 0 8px ${colorB}` }} />
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px' }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.68rem', color: SEMANTIC.textFaint }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '2px', background: 'rgba(212,165,116,0.5)' }} />
+          {language === 'tr' ? 'Mekkî' : 'Meccan'}
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.68rem', color: SEMANTIC.textFaint }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '2px', background: 'rgba(96,165,250,0.4)' }} />
+          {language === 'tr' ? 'Medenî' : 'Medinan'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ── THEME VENN (proportional overlap circles) ──────────────────────────────────
+function ThemeVennDiagram({ onlyA, onlyB, shared, colorA, colorB }) {
+  const totalA = onlyA + shared;
+  const totalB = onlyB + shared;
+  if (totalA === 0 && totalB === 0) return null;
+  const rA = 26 + Math.sqrt(totalA) * 11;
+  const rB = 26 + Math.sqrt(totalB) * 11;
+  const maxOverlap = Math.min(rA, rB) * 1.7;
+  const overlapFrac = shared > 0 ? Math.min(1, shared / Math.max(totalA, totalB, 1)) : 0;
+  const d = rA + rB - overlapFrac * maxOverlap;
+  const cx = 110, cy = 78;
+  const xA = cx - d / 2, xB = cx + d / 2;
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', padding: '4px 0 14px' }}>
+      <svg width="220" height="150" viewBox="0 0 220 150" aria-hidden="true">
+        <circle cx={xA} cy={cy} r={rA} fill={`${colorA}22`} stroke={`${colorA}70`} strokeWidth="1.5" />
+        <circle cx={xB} cy={cy} r={rB} fill={`${colorB}22`} stroke={`${colorB}70`} strokeWidth="1.5" />
+        <text x={xA - rA * 0.42} y={cy} textAnchor="middle" fontSize="15" fontWeight="800" fill={colorA} fontFamily="'Inter', sans-serif">{onlyA}</text>
+        <text x={xB + rB * 0.42} y={cy} textAnchor="middle" fontSize="15" fontWeight="800" fill={colorB} fontFamily="'Inter', sans-serif">{onlyB}</text>
+        {shared > 0 && (
+          <text x={cx} y={cy + 4} textAnchor="middle" fontSize="15" fontWeight="800" fill={COLORS.gold} fontFamily="'Inter', sans-serif">{shared}</text>
+        )}
+      </svg>
     </div>
   );
 }
@@ -528,15 +892,22 @@ export default function SurahComparator({ onClose }) {
   }, [loading]);
 
   // Quick preset pairs — ranked by actual cross-link count, diverse topics
+  // Bu 8 çift, `verse-graph-bgem3.json`'daki TÜM 4993 bağlantılı sûre
+  // çiftinden gerçek ayet-ayet bağ sayısına göre sıralanıp, konu çeşitliliği
+  // için elle seçilmiştir (ör. hepsi en tepede kümelenmiş "Ehl-i Kitap"
+  // temalı olmasın diye). `links` sayıları tek seferlik bir betikle
+  // gerçek veriden ölçülmüştür (§13.30) — 15 Ağustos'ta önceki sürümdeki
+  // 8 sayının 8'i de gerçek değerle uyuşmuyordu (ör. Bakara-Âl-i İmrân
+  // "854" yazıyordu, gerçeği 732), düzeltildi.
   const PRESETS = [
-    { a: 2,  b: 3,  labelTr: 'Bakara & Âl-i İmrân',  labelEn: 'Al-Baqara & Al-Imran',   reasonTr: '854 bağ · Ehl-i Kitap diyalogu, Medenî kardeş sûreler',      reasonEn: '854 links · People of the Book, sister Medinan surahs' },
-    { a: 26, b: 37, labelTr: "Şu'arâ & Sâffât",       labelEn: 'Ash-Shuara & As-Saffat', reasonTr: '491 bağ · Aynı peygamber kıssaları iki farklı anlatıyla',    reasonEn: '491 links · Same prophet stories in two different styles' },
-    { a: 2,  b: 5,  labelTr: 'Bakara & Mâide',        labelEn: 'Al-Baqara & Al-Maida',   reasonTr: '462 bağ · Yahudi-Hristiyan diyalogu, helal-haram hükümleri', reasonEn: '462 links · Jewish-Christian dialogue, food laws' },
-    { a: 3,  b: 5,  labelTr: 'Âl-i İmrân & Mâide',   labelEn: 'Al-Imran & Al-Maida',    reasonTr: '368 bağ · Hz. İsa teması, Ehl-i Kitap ile ortak zemin',      reasonEn: '368 links · Jesus theme, common ground with Scripture' },
-    { a: 4,  b: 33, labelTr: 'Nisâ & Ahzâb',          labelEn: 'An-Nisa & Al-Ahzab',     reasonTr: '341 bağ · Aile hukuku, münafıklar, kadın hakları',           reasonEn: '341 links · Family law, hypocrites, women\'s rights' },
-    { a: 7,  b: 26, labelTr: "A'râf & Şu'arâ",        labelEn: "Al-A'raf & Ash-Shuara",  reasonTr: '333 bağ · Helak edilen kavimler paralel anlatıyla',          reasonEn: '333 links · Destroyed nations told in parallel' },
-    { a: 6,  b: 10, labelTr: "En'âm & Yûnus",         labelEn: 'Al-Anam & Yunus',        reasonTr: '308 bağ · Tevhid delilleri, tabiat ayetleri, Mekkî inanç',  reasonEn: '308 links · Proofs of monotheism, nature signs' },
-    { a: 2,  b: 24, labelTr: 'Bakara & Nûr',          labelEn: 'Al-Baqara & An-Nur',     reasonTr: '267 bağ · İslam hukuku: aile ve toplum iki farklı açıdan',  reasonEn: '267 links · Islamic law: family & social dimensions' },
+    { a: 2,  b: 3,  links: 732, labelTr: 'Bakara & Âl-i İmrân',  labelEn: 'Al-Baqara & Al-Imran',   reasonTr: 'Ehl-i Kitap diyalogu, Medenî kardeş sûreler',      reasonEn: 'People of the Book, sister Medinan surahs' },
+    { a: 26, b: 37, links: 589, labelTr: "Şu'arâ & Sâffât",       labelEn: 'Ash-Shuara & As-Saffat', reasonTr: 'Aynı peygamber kıssaları iki farklı anlatıyla',    reasonEn: 'Same prophet stories in two different styles' },
+    { a: 2,  b: 5,  links: 451, labelTr: 'Bakara & Mâide',        labelEn: 'Al-Baqara & Al-Maida',   reasonTr: 'Yahudi-Hristiyan diyalogu, helal-haram hükümleri', reasonEn: 'Jewish-Christian dialogue, food laws' },
+    { a: 4,  b: 33, links: 370, labelTr: 'Nisâ & Ahzâb',          labelEn: 'An-Nisa & Al-Ahzab',     reasonTr: 'Aile hukuku, münafıklar, kadın hakları',           reasonEn: "Family law, hypocrites, women's rights" },
+    { a: 7,  b: 26, links: 312, labelTr: "A'râf & Şu'arâ",        labelEn: "Al-A'raf & Ash-Shuara",  reasonTr: 'Helak edilen kavimler paralel anlatıyla',          reasonEn: 'Destroyed nations told in parallel' },
+    { a: 3,  b: 5,  links: 290, labelTr: 'Âl-i İmrân & Mâide',   labelEn: 'Al-Imran & Al-Maida',    reasonTr: 'Hz. İsa teması, Ehl-i Kitap ile ortak zemin',      reasonEn: 'Jesus theme, common ground with Scripture' },
+    { a: 2,  b: 24, links: 277, labelTr: 'Bakara & Nûr',          labelEn: 'Al-Baqara & An-Nur',     reasonTr: 'İslam hukuku: aile ve toplum iki farklı açıdan',   reasonEn: 'Islamic law: family & social dimensions' },
+    { a: 6,  b: 10, links: 245, labelTr: "En'âm & Yûnus",         labelEn: 'Al-Anam & Yunus',        reasonTr: 'Tevhid delilleri, tabiat ayetleri, Mekkî inanç',   reasonEn: 'Proofs of monotheism, nature signs' },
   ];
 
   // Analysis result (computed when view === 'result')
@@ -558,6 +929,13 @@ export default function SurahComparator({ onClose }) {
 
       const freqA = wordFreq(vA);
       const freqB = wordFreq(vB);
+      // A'nın hakim casing'i öncelikli, B yalnız A'da bulunmayan anahtarlar için.
+      const wordDisplay = { ...wordDisplayForms(vB), ...wordDisplayForms(vA) };
+
+      const profA = structuralProfile(vA);
+      const profB = structuralProfile(vB);
+
+      const linkPairs = computeLinkPairs(vA, vB, 32);
 
       const infoA = cachedSurahInfo?.[surahA] || {};
       const infoB = cachedSurahInfo?.[surahB] || {};
@@ -573,7 +951,7 @@ export default function SurahComparator({ onClose }) {
       return {
         vA, vB, finalScore, sim, simReverse,
         figA, figB, figShared, figOnlyA, figOnlyB,
-        freqA, freqB,
+        freqA, freqB, wordDisplay, profA, profB, linkPairs,
         infoA, infoB, themesA, themesB, themesShared, themesOnlyA, themesOnlyB, themeJaccard,
       };
     } catch (err) {
@@ -736,38 +1114,51 @@ export default function SurahComparator({ onClose }) {
 
           {/* Presets */}
           <div>
-            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px' }}>
+            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '4px' }}>
               {language === 'tr' ? 'Önerilen Karşılaştırmalar' : 'Suggested Pairs'}
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {PRESETS.map(p => (
-                <button
-                  key={`${p.a}-${p.b}`}
-                  onClick={() => { setSurahA(p.a); setSurahB(p.b); }}
-                  style={{
-                    padding: '8px 14px', textAlign: 'left',
-                    background: (surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.12)' : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${(surahA === p.a && surahB === p.b) ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
-                    borderRadius: RADIUS.lg, cursor: 'pointer',
-                    color: (surahA === p.a && surahB === p.b) ? '#a78bfa' : SEMANTIC.textFaint,
-                    fontSize: '0.82rem', fontWeight: 500, transition: `all ${TRANSITION.fast}`,
-                    fontFamily: "'Inter', sans-serif",
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.color = COLORS.silver; }}
-                  onMouseLeave={e => {
-                    const isSelected = surahA === p.a && surahB === p.b;
-                    e.currentTarget.style.borderColor = isSelected ? 'rgba(150,170,255,0.35)' : 'rgba(255,255,255,0.08)';
-                    e.currentTarget.style.color = isSelected ? '#a78bfa' : SEMANTIC.textFaint;
-                  }}
-                >
-                  <span style={{ display: 'block' }}>{language === 'tr' ? p.labelTr : p.labelEn}</span>
-                  {(language === 'tr' ? p.reasonTr : p.reasonEn) && (
-                    <span style={{ display: 'block', fontSize: '0.68rem', marginTop: '1px' }}>
+            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '14px', opacity: 0.85, maxWidth: '560px' }}>
+              {language === 'tr'
+                ? "114 sûre arasındaki tüm ayet-ayet bağları tarandı; en güçlü bağlı çiftlerden konu çeşitliliği gözetilerek seçildi. Çubuk, bu 8 çift arasındaki göreli bağ yoğunluğunu gösterir."
+                : 'Scanned across every verse-level link among all 114 sûrahs; these are the most strongly linked pairs, picked for topical diversity. The bar shows relative link density among these 8.'}
+            </p>
+            <div className="sc-preset-grid" style={{ display: 'grid', gap: '10px' }}>
+              {PRESETS.map(p => {
+                const isSelected = surahA === p.a && surahB === p.b;
+                const barPct = Math.round((p.links / PRESETS[0].links) * 100);
+                return (
+                  <button
+                    key={`${p.a}-${p.b}`}
+                    onClick={() => { setSurahA(p.a); setSurahB(p.b); }}
+                    style={{
+                      padding: '14px 16px', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '8px',
+                      background: isSelected ? 'rgba(212,165,116,0.08)' : 'rgba(255,255,255,0.03)',
+                      border: `1px solid ${isSelected ? COLORS.goldAlpha30 : 'rgba(255,255,255,0.08)'}`,
+                      borderRadius: RADIUS.lg, cursor: 'pointer',
+                      transition: `all ${TRANSITION.fast}`, fontFamily: "'Inter', sans-serif",
+                    }}
+                    onMouseEnter={e => { if (!isSelected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+                    onMouseLeave={e => { if (!isSelected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '10px' }}>
+                      <span style={{ fontSize: '0.86rem', fontWeight: 700 }}>
+                        <span style={{ color: COLOR_A }}>{language === 'tr' ? p.labelTr.split(' & ')[0] : p.labelEn.split(' & ')[0]}</span>
+                        <span style={{ color: SEMANTIC.textFaint, fontWeight: 400 }}> & </span>
+                        <span style={{ color: COLOR_B }}>{language === 'tr' ? p.labelTr.split(' & ')[1] : p.labelEn.split(' & ')[1]}</span>
+                      </span>
+                      <span style={{ fontSize: '0.68rem', color: SEMANTIC.textFaint, flexShrink: 0, whiteSpace: 'nowrap' }}>
+                        {p.links} {language === 'tr' ? 'bağ' : 'links'}
+                      </span>
+                    </div>
+                    <div style={{ height: '4px', borderRadius: RADIUS.pillSm, background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${barPct}%`, borderRadius: RADIUS.pillSm, background: `linear-gradient(90deg, ${COLOR_A}, ${COLOR_B})` }} />
+                    </div>
+                    <span style={{ fontSize: '0.76rem', color: COLORS.silver, lineHeight: 1.4 }}>
                       {language === 'tr' ? p.reasonTr : p.reasonEn}
                     </span>
-                  )}
-                </button>
-              ))}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -894,36 +1285,42 @@ export default function SurahComparator({ onClose }) {
               </div>
             </div>
 
-            {/* ── ROW 2: Themes ── */}
-            {(analysis.themesA.length > 0 || analysis.themesB.length > 0) && (
-              <div className="sc-compare-grid-2" style={{ display: 'grid', gap: '16px' }}>
-                <ThemeBlock themes={analysis.themesA} sharedThemes={analysis.themesShared} color={COLOR_A} title={SURAH_NAMES_TR[surahA]} language={language} />
-                <ThemeBlock themes={analysis.themesB} sharedThemes={analysis.themesShared} color={COLOR_B} title={SURAH_NAMES_TR[surahB]} language={language} />
-              </div>
-            )}
+            {/* ── ROW 1.5: Genome Alignment — the centerpiece ── */}
+            <GenomeAlignment
+              vA={analysis.vA} vB={analysis.vB} pairs={analysis.linkPairs}
+              nameA={SURAH_NAMES_TR[surahA]} nameB={SURAH_NAMES_TR[surahB]}
+              colorA={COLOR_A} colorB={COLOR_B} gradId="sc-dna-grad"
+              language={language}
+            />
 
-            {/* ── ROW 3: Shared themes callout ── */}
-            {analysis.themesShared.length > 0 && (
-              <div style={{
-                padding: '14px 18px', borderRadius: RADIUS.lg,
-                background: 'rgba(212,165,116,0.07)', border: `1px solid ${COLORS.goldAlpha20}`,
-              }}>
-                <p style={{ color: COLORS.gold, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>
-                  {language === 'tr' ? 'Ortak Temalar' : 'Shared Themes'}
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                  {analysis.themesShared.map((t, i) => (
-                    <span key={i} style={{
-                      padding: '5px 12px',
-                      background: 'rgba(212,165,116,0.12)',
-                      border: '1px solid rgba(212,165,116,0.3)',
-                      borderRadius: RADIUS.pillSm, color: COLORS.gold,
-                      fontSize: '0.82rem', fontWeight: 600,
-                    }}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* ── ROW 2: Structural profile + revelation-order position ── */}
+            <div className="sc-compare-grid-2" style={{ display: 'grid', gap: '16px' }}>
+              <StructuralProfile profA={analysis.profA} profB={analysis.profB} colorA={COLOR_A} colorB={COLOR_B} language={language} />
+              <RevelationStrip
+                order={cachedRevOrder?.order}
+                rankA={revRankMap[surahA]} rankB={revRankMap[surahB]}
+                nameA={SURAH_NAMES_TR[surahA]} nameB={SURAH_NAMES_TR[surahB]}
+                colorA={COLOR_A} colorB={COLOR_B} language={language}
+              />
+            </div>
+
+            {/* ── ROW 3: Word DNA — shared/unique vocabulary ── */}
+            <div>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '4px' }}>
+                {language === 'tr' ? 'Kelime DNA\'sı' : 'Word DNA'}
+              </p>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '14px', opacity: 0.85 }}>
+                {language === 'tr'
+                  ? 'Çeviri metninde en sık geçen anlamlı kelimeler — hangileri özgü, hangileri paylaşılıyor.'
+                  : 'Most frequent significant words in the translated text — which are unique, which are shared.'}
+              </p>
+              <WordVenn
+                wordsA={analysis.freqA} wordsB={analysis.freqB} display={analysis.wordDisplay}
+                colorA={COLOR_A} colorB={COLOR_B}
+                nameA={SURAH_NAMES_TR[surahA]} nameB={SURAH_NAMES_TR[surahB]}
+                language={language}
+              />
+            </div>
 
             {/* ── ROW 4: Figures ── */}
             {(analysis.figShared.length > 0 || analysis.figOnlyA.length > 0 || analysis.figOnlyB.length > 0) && (
@@ -988,11 +1385,16 @@ export default function SurahComparator({ onClose }) {
               </div>
 
               {/* Jaccard explanation */}
-              <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, marginBottom: '14px', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.72rem', color: SEMANTIC.textFaint, marginBottom: '4px', lineHeight: 1.5 }}>
                 {language === 'tr'
                   ? `Benzerlik skoru: ${analysis.themesShared.length} ortak tema ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} toplam farklı tema (Jaccard katsayısı)`
                   : `Similarity score: ${analysis.themesShared.length} shared themes ÷ ${analysis.themesOnlyA.length + analysis.themesShared.length + analysis.themesOnlyB.length} total unique themes (Jaccard coefficient)`}
               </p>
+
+              <ThemeVennDiagram
+                onlyA={analysis.themesOnlyA.length} onlyB={analysis.themesOnlyB.length}
+                shared={analysis.themesShared.length} colorA={COLOR_A} colorB={COLOR_B}
+              />
 
               {/* Theme Venn: A (left) | B (right) top row; Shared (centered) bottom row */}
               <div style={{ border: '1px solid rgba(255,255,255,0.07)', borderRadius: RADIUS.xl, overflow: 'hidden' }}>
@@ -1136,31 +1538,6 @@ function StatRow({ label, value, color }) {
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '8px' }}>
       <span style={{ color: SEMANTIC.textFaint, fontSize: '0.75rem' }}>{label}</span>
       <span style={{ color: color || COLORS.silver, fontSize: '0.82rem', fontWeight: 600, textAlign: 'right' }}>{value || '—'}</span>
-    </div>
-  );
-}
-
-function ThemeBlock({ themes, sharedThemes, color, title, language }) {
-  const sharedSet = new Set(sharedThemes.map(t => normalizeTr(t)));
-  return (
-    <div style={{ padding: '16px', borderRadius: RADIUS.lg, background: `${color}07`, border: `1px solid ${color}20` }}>
-      <p style={{ color, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '10px' }}>
-        {title} — {language === 'tr' ? 'Temalar' : 'Themes'}
-      </p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-        {themes.map((t, i) => {
-          const isShared = sharedSet.has(normalizeTr(t));
-          return (
-            <span key={i} style={{
-              padding: '4px 10px', borderRadius: RADIUS.pillSm, fontSize: '0.78rem',
-              background: isShared ? 'rgba(212,165,116,0.12)' : `${color}12`,
-              border: `1px solid ${isShared ? 'rgba(212,165,116,0.3)' : color + '30'}`,
-              color: isShared ? COLORS.gold : color,
-              fontWeight: isShared ? 700 : 400,
-            }}>{t}</span>
-          );
-        })}
-      </div>
     </div>
   );
 }
