@@ -1798,7 +1798,7 @@ Commit: bkz. git log (`tests/__baseline__/tools-nav.json`).
       yoktu). Güncel dağılım:
       | kural | adet | not |
       |---|---:|---|
-      | `react/no-unescaped-entities` | 454 | kozmetik, `--fix` yok |
+      | ~~`react/no-unescaped-entities`~~ | ~~454~~ **0** | ✅ **KAPANDI** `7b41db9`+`ae85235`+`a90ef8f` |
       | `react-hooks/set-state-in-effect` | **50** | gereksiz render turu |
       | `react-hooks/refs` | **18** | render sırasında ref okuma (17'si `ReadingMode`) |
       | `react-hooks/exhaustive-deps` | 14 | eksik dependency |
@@ -1808,6 +1808,42 @@ Commit: bkz. git log (`tests/__baseline__/tools-nav.json`).
       | `react-hooks/preserve-manual-memoization` | 6 | React Compiler kuralı, incelenmedi |
       | `react-hooks/purity` | 1 | incelenmedi |
       | `react-hooks/rules-of-hooks` | ~~2~~ **0** | Z3c1'de zaten kapanmış |
+
+#### 15 Ağustos (gece) · react/no-unescaped-entities kapatıldı — AST codemod, 454→0
+
+AST tabanlı codemod (`scripts/_codemod-unescaped-entities.mjs`, tek seferlik
+araç) yalnız `JSXText` düğümlerindeki (etiketler arasındaki düz metin) ham
+`'`/`"` karakterlerini `&apos;`/`&quot;`'ye çevirdi — `{...}` içindeki JS
+string'lere dokunmadı (AST bu ayrımı kendiliğinden yapıyor). Tarayıcıda
+BİREBİR AYNI karakteri render eder (`textContent` karşılaştırmasıyla
+doğrulandı), sıfır görsel/metinsel fark. 58 dosya, 329 JSXText düğümü,
+3 batch halinde commit edildi.
+
+**⚠ Paylaşılan repo kazası — kayda değer, ders çıkarıldı:** Batch 2'de
+`MeselAtlasi.jsx`'i toplu `git add` ile stage ederken, o dosyada BAŞKA BİR
+ajanın (bu repoda eşzamanlı çalışan) commit edilmemiş, tamamlanmış görünen
+BİR REFACTORU (API tabanlı `fetchMealSurah`'tan yerel `verse-graph-
+bgem3.json`'a geçiş) da yanlışlıkla stage edilip BENİM commit'ime karıştı
+(`ae85235`). Fark edilmesi: `git show --numstat` her dosyanın simetrik
+(N ekleme/N silme) olmasını beklerken MeselAtlasi.jsx **23/8** (asimetrik)
+çıktı — tek anomali buydu, diğer 19 dosya temizdi. İçerik KAYBOLMADI (diff
+tam ve tutarlı görünüyor), yalnızca yanlış commit'e/attribution'a karıştı.
+Kullanıcı talimatıyla **MeselAtlasi.jsx'e daha fazla dokunulmadı** (geri
+alma denemesi, zaten çalışan başka bir ajanın working tree'sini karıştırma
+riski taşırdı). **Batch 3'ten itibaren süreç düzeltildi:** her batch'ten
+ÖNCE `git diff --numstat -- <dosya listesi>` ile TÜM dosyaların simetrik
+olduğu doğrulandı, `KissaAtlas.jsx`/`MeselAtlasi.jsx` bilinçli olarak batch
+listelerinin dışında tutuldu.
+**Ders (§13.0'a eklenmeli mi, ayrı değerlendirilecek):** paylaşılan repoda
+TOPLU `git add $(dosya listesi)` çalıştırmadan önce, her dosyanın
+`git diff --numstat` çıktısının BEKLENEN değişiklik büyüklüğüyle eşleştiğini
+doğrula — özellikle çok dosyalı bir codemod/sweep'te, tek tek `git add`
+yerine listeyi toptan eklemek bu riski taşıyor.
+
+Doğrulama: `npm run build` temiz (her 3 batch'te), eslint `no-unescaped-
+entities` 454→0, 17 rotada (tr/en) sıfır konsol hatası + entity-leak
+kontrolü (render'da literal `&quot;`/`&apos;` yok), CLS regresyon yok,
+`audit-colors --ci` 179/182, `audit-internal-leak --ci` temiz.
       **Kalan:** 454 unescaped-entities (kozmetik, düşük öncelik), 50
       set-state-in-effect + 18 refs + 14 exhaustive-deps + 10 img-element +
       13 React Compiler kuralı — henüz ele alınmadı, ayrı kapsam kararı
