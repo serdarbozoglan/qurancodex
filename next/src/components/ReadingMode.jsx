@@ -1683,6 +1683,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       }
     }
     return { hits, total };
+    // makeWordRe/parseReference/surahNameOf kasıtlı deps dışında: bunlar
+    // component gövdesinde plain fonksiyon (useCallback DEĞİL), her render'da
+    // yeniden yaratılıyor — deps'e eklenirse memo her render'da geçersiz
+    // olur, memoizasyon anlamsızlaşır. surahNameOf zaten `language`'a bağlı
+    // ve `language` deps'te var; diğer ikisinin reaktif kapanışı yok.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [verses, searchQuery, language]);
 
   useEffect(() => {
@@ -1830,6 +1836,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       setCopiedVerseId(verse.id);
       setTimeout(() => setCopiedVerseId(null), 2000);
     }).catch(() => {});
+    // surahNameOf kasıtlı deps dışında: plain fonksiyon, her render'da
+    // yeniden yaratılıyor — deps'e eklenirse bu callback her render'da
+    // yeniden oluşur, useCallback'in amacını boşa çıkarır.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getTranslation]);
 
   const handleSelectVerse = useCallback((verse) => {

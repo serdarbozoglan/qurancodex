@@ -661,7 +661,7 @@ function TabArama({ data, language, isMobile }) {
 function TabIstatistik({ data, language, isMobile }) {
   const stats = data.stats || {};
   const overview = stats.overview || {};
-  const byCategory = stats.byCategory || [];
+  const byCategory = useMemo(() => stats.byCategory || [], [stats.byCategory]);
   const byPeriod = stats.byPeriod || [];
 
   const pad = isMobile ? '16px' : '24px 32px';

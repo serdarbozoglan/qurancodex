@@ -205,6 +205,16 @@ export default function ConceptGraph({ onClose, restore = null }) {
     if (view === 'landing') setTimeout(() => searchRef.current?.focus(), 150);
   }, [view]);
 
+  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
+
+  const backToLanding = useCallback(() => {
+    setView('landing');
+    setCentralConcept(null);
+    setHoveredId(null);
+    setPinnedId(null);
+    graphRef.current = null;
+  }, []);
+
   // Keyboard
   useEffect(() => {
     const h = (e) => {
@@ -215,17 +225,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [view, onClose]);
-
-  // Body scroll lock kaldırıldı — WowFacts/IlkSon pattern: normal-flow document scroll.
-
-  const backToLanding = useCallback(() => {
-    setView('landing');
-    setCentralConcept(null);
-    setHoveredId(null);
-    setPinnedId(null);
-    graphRef.current = null;
-  }, []);
+  }, [view, onClose, backToLanding]);
 
   const openConcept = useCallback((concept) => {
     if (!_versesCache || !_conceptsCache) return;
@@ -238,7 +238,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
     setGraphVersion(v => v + 1); // force re-render so useMemos that read graphRef pick up new value
     setCentralConcept(concept);
     setView('graph');
-  });
+  }, []);
 
   // Focused node (hovered or pinned)
   const focusedId = hoveredId || pinnedId;

@@ -162,7 +162,7 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
     const h = (e) => { if (e.key === 'Escape') { setOpen(false); onClose?.(); } };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
-  }, [open]);
+  }, [open, onClose]);
 
   // Lock body scroll while open. Compensate for the disappearing scrollbar
   // (~15px) by adding equal paddingRight on body so page content doesn't
@@ -241,9 +241,11 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
   };
 
   // Active tool list driven by filter, then narrowed by search query.
-  const filteredByCategory = activeFilter === 'all'
-    ? ALL_TOOLS
-    : FILTERS.find((f) => f.id === activeFilter)?.tools ?? [];
+  const filteredByCategory = useMemo(() => (
+    activeFilter === 'all'
+      ? ALL_TOOLS
+      : FILTERS.find((f) => f.id === activeFilter)?.tools ?? []
+  ), [activeFilter]);
 
   const visibleTools = useMemo(() => {
     const q = query.trim().toLowerCase();

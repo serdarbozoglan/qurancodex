@@ -2416,15 +2416,16 @@ function FullGraph({ verses, onBack, language, onClose }) {
       }, 3000);
     };
 
+    // attachedCanvas: cleanup, listener'ları eklediğimiz ELEMENT'i doğrudan
+    // kullanmalı — cleanup anında graphRef.current farklı bir instance'a
+    // işaret ediyor olabilir (ref değeri "will likely have changed" uyarısı).
+    let attachedCanvas = null;
     const attachListeners = () => {
       const canvas = graphRef.current?.renderer?.()?.domElement;
       if (!canvas) return;
       canvas.addEventListener('pointerdown', pauseOnInteract);
       canvas.addEventListener('pointerup', resumeAfterIdle);
-      canvas._autoRotCleanup = () => {
-        canvas.removeEventListener('pointerdown', pauseOnInteract);
-        canvas.removeEventListener('pointerup', resumeAfterIdle);
-      };
+      attachedCanvas = canvas;
     };
     const listenerTimer = setTimeout(attachListeners, 2000);
 
@@ -2433,7 +2434,10 @@ function FullGraph({ verses, onBack, language, onClose }) {
       clearTimeout(listenerTimer);
       clearTimeout(rotateTimerRef.current);
       cancelAnimationFrame(rafId);
-      graphRef.current?.renderer?.()?.domElement?._autoRotCleanup?.();
+      if (attachedCanvas) {
+        attachedCanvas.removeEventListener('pointerdown', pauseOnInteract);
+        attachedCanvas.removeEventListener('pointerup', resumeAfterIdle);
+      }
     };
   }, [verses]);
 
@@ -3167,6 +3171,11 @@ export default function VerseGraph({ onClose, initialSearch = '', onRegisterBack
         }
       })
       .catch(err => { setError(err.message); setLoading(false); });
+    // onClose kasıtlı deps dışında: bu efekt yalnız mount'ta bir kez veri
+    // çekmeli (büyük JSON, tekrar fetch pahalı). Çağıranlar onClose'u inline
+    // arrow olarak geçiyor (Navbar.jsx, VerseGraphRoute.jsx) — deps'e
+    // eklenirse her re-render'da veri yeniden çekilir.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Persist view + surah to localStorage

@@ -18,7 +18,7 @@
 //   - Kavim/Kissa/Esma/Dua/Kavram merged "Atlas" section
 // ────────────────────────────────────────────────────────────────────────────
 
-import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -175,7 +175,7 @@ function SorInner() {
       setErrorMsg(err.message || 'Network error');
       setState('error');
     }
-  }, [language, getCachedResponse, setCachedResponse, searchMode]);
+  }, [getCachedResponse, setCachedResponse, searchMode]);
 
   // Fire on initial mount if q param present
   useEffect(() => {
@@ -630,7 +630,7 @@ function LoadingState({ language }) {
   const tr = language === 'tr';
   // Gerçek pipeline aşamalarını yansıtan aşamalı mesajlar — kullanıcıya
   // "sistem çalışıyor" hissi verir (fake spinner değil).
-  const stages = tr
+  const stages = useMemo(() => (tr
     ? [
         { text: 'Sorunun anlamı çözümleniyor', dur: 1400 },
         { text: 'Kur\'an ve içerik havuzu taranıyor', dur: 1600 },
@@ -642,7 +642,7 @@ function LoadingState({ language }) {
         { text: 'Scanning Quran and content pool', dur: 1600 },
         { text: 'Selecting the 12 closest candidates', dur: 1200 },
         { text: 'Composing the response', dur: 3000 },
-      ];
+      ]), [tr]);
   const [idx, setIdx] = useState(0);
   useEffect(() => {
     if (idx >= stages.length - 1) return; // Son aşamada takıl (Claude hala çalışıyor olabilir)

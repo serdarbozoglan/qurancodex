@@ -515,11 +515,16 @@ export default function SurahComparator({ onClose }) {
   }, []);
 
   // Build revolution order map: surah -> rank
+  // `loading` gövdede okunmuyor ama kasıtlı — cachedRevOrder modül seviyeli
+  // mutable bir cache (React state değil), fetch tamamlanıp `loading` false
+  // olduğunda dolduruluyor (satır ~496); bu memo'yu YENİDEN hesaplamanın tek
+  // sinyali bu. Kaldırılırsa revRankMap ilk (boş) haliyle donar.
   const revRankMap = useMemo(() => {
     if (!cachedRevOrder) return {};
     const m = {};
     (cachedRevOrder.order || []).forEach(item => { m[item.surah] = item.rank; });
     return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   // Quick preset pairs — ranked by actual cross-link count, diverse topics

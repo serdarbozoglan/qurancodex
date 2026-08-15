@@ -70,6 +70,7 @@ export function LanguageProvider({ children, initialLocale }) {
     return value ?? key;
     // enLoadedAt intentionally in deps: EN async yüklendiğinde t reference
     // yenilenmeli, aksi halde value memo aynı kalır ve consumer'lar re-render olmaz.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- kasıtlı: enLoadedAt gövdede okunmuyor ama t'nin reference'ını invalidate etmek için deps'te kalmalı.
   }, [language, enLoadedAt]);
 
   // Faz 5: dil değiştir → URL pathname'i locale prefix swap ile yeniden yönlendir.
@@ -84,7 +85,7 @@ export function LanguageProvider({ children, initialLocale }) {
     } else {
       setLanguage(next);
     }
-  }, [language, pathname, router]);
+  }, [language, pathname, router, setLanguage]);
 
   // setLanguage corollary: direct setter still works (overlay components that
   // call setLanguage('en') directly), but doesn't change URL. Caller's
