@@ -1103,7 +1103,52 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       ReadingMode'un ÇEKİRDEK render alanına (11k+ satır) sentetik
       `minHeight` eklemeyi gerektiriyor — kısa sûrelerde "boş görünme"
       riski taşıyan, daha derin bir müdahale; kullanıcı onayıyla BURADA
-      DURULDU. **Sonraki tur (hâlâ açık):** bu içerik-alanı minHeight'ı.
+      DURULDU. ~~**Sonraki tur:** bu içerik-alanı minHeight'ı.~~ **14 Ağustos
+      gecesi denendi, DUVARA TOSLADI — bulgular aşağıda, hiçbir kod değişikliği
+      commit edilmedi (revert edildi, ölçülemeyen fayda commit'lenmez).**
+
+#### 14 Ağustos (gece) · ReadingMode içerik-alanı minHeight — denendi, ÇÖZÜLEMEDİ
+
+Yukarıdaki "sonraki tur" ele alındı. `.mq-box` sınıflı iki muhtemel
+sarmalayıcıya (`bookMode` dış div'i `maxWidth:1800px` + içindeki "Left:
+Translation" kolonu) `minHeight: '70vh'` eklendi — her ikisi de doğru
+JSX konumunda, `getComputedStyle` ile DOĞRULANDI (canlı, kayma anında
+`minHeight: "590.8px"` okundu, yani stil GERÇEKTEN uygulanıyordu).
+**Ama ölçülen CLS bit-bir-bit AYNI kaldı: 0.705/0.776, üç ayrı testte
+(öncesi, iç-kolon-fix-sonrası, iç+dış-fix-sonrası) virgülden sonra bile
+değişmedi.**
+
+**Sebep bulundu, ama çözülemedi:** `layout-shift` olayının ham
+`source.previousRect` alanı **`{w:0, h:0, top:0}`** — bu, Chrome'un
+"bu obje bir ÖNCEKİ karede layout ağacında HİÇ YOKTU" durumunda verdiği
+imza. Yani bu bir "küçükten büyüğe BÜYÜME" değil, **sıfırdan bir anda
+TAM BOYUTLU EKLEME** (fresh insertion). `minHeight`, bir elementin
+VAROLDUKTAN SONRAKİ boyutunu etkiler — element henüz DOM'a hiç
+girmemişse hiçbir işe yaramaz. `{bookMode ? (...) : (...)}` JSX'i kod
+okumasında `loading`'den bağımsız, koşulsuz render ediliyormuş gibi
+görünüyordu (kaynak satırları doğrulandı) — ama çalışma zamanı davranışı
+bunun aksini gösteriyor: bu alt-ağaç GERÇEKTEN `loading` bitene kadar
+DOM'da yok, sonra TAM DOLU haliyle bir anda beliriyor. Aranan `if
+(!verses)`/`if (loading) return`/`display:'none'`/`key={...loading...}`
+kalıplarının HİÇBİRİ bulunamadı (dosya genelinde grep edildi) — yani
+gerçek mekanizma bu üç basit varsayımın DIŞINDA bir yerde (muhtemelen
+`dynamic(..., {ssr:false})` ile client-only mount zincirinin kendi iç
+işleyişinde, ya da React'ın reconciliation'ında henüz izole edilmemiş
+bir üçüncü etken).
+
+**Neden burada durduruldu:** Kök sebebi netleştirmek muhtemelen bu
+11k+ satırlık bileşenin TAM mount/render zincirini (React DevTools
+Profiler veya çok daha kapsamlı enstrümantasyon ile) izlemeyi
+gerektiriyor — bu, başta kabul edilen "sadece iskelet boyutu" kapsamının
+çok ötesine geçen, kendi başına büyük bir araştırma turu. Ölçülemeyen
+bir "fix" commit'lenmedi; iki deneme edit'i de **revert edildi**
+(kod tabanında iz yok).
+
+**Kalan (hâlâ açık, kapsamı netleşmeden ilerlenemez):** `/tr/oku` CLS'i
+0.705-0.776 aralığında kalmaya devam ediyor. Bir sonraki adım muhtemelen
+React DevTools Profiler ile gerçek mount/unmount olaylarını canlı izlemek
+veya ReadingMode'un `dynamic(..., {ssr:false})` sarmalayıcısının kendi
+davranışını incelemek olur — ikisi de bu turun kapsamı dışında bırakıldı.
 - [x] ~~**`neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/karsilastir`/
       `graf/kavram` ailesi**~~ — **KISMEN KAPANDI** `048414b`. Bulgu güncel
       değilmiş: bu 5 sayfa daha önceki bir turda (`f9d9e36`, "Z3f2") zaten
