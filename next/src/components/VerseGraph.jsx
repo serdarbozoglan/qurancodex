@@ -491,37 +491,68 @@ function isMedeni(n)   { return MEDANI_SURAHS.has(n); }
 function hex(s) { return new Color(s); }
 
 // ─── Glowing node object (Three.js) ──────────────────────────────────────────
+// react-force-graph çağırdığı `nodeThreeObject`'i her ayet düğümü için
+// (varsayılan modda 6236 düğüm) ayrı ayrı invoke ediyor. Eskiden her
+// çağrıda YENİ bir SphereGeometry + MeshLambertMaterial allocate edilip
+// GPU'ya upload ediliyordu — ölçülen masaüstü TBT 4.7 saniyeydi (CPU
+// profili ~%80 "(program)", yani WebGL buffer/program setup'ında). Kütüphane
+// hiçbir node objesini `.dispose()` etmiyor (kaynak taranmış, çağrı yok),
+// bu yüzden geometry/material paylaşımı güvenli — aşağıdaki birim-küreler
+// `mesh.scale` ile yarıçapa ölçekleniyor (görsel sonuç birebir aynı),
+// material'lar `node.color`un ikili paletinden (Medenî/Mekkî) geldiği için
+// küçük bir cache'te toplanıyor. TBT ~4.7s → düşük yüzler ms bekleniyor.
+const UNIT_SPHERE_CORE = new SphereGeometry(1, 16, 16);
+const UNIT_SPHERE_HALO = new SphereGeometry(1, 12, 12);
+const UNIT_SPHERE_DIM = new SphereGeometry(1, 6, 6);
+const _materialCache = new Map();
+function cachedLambertMaterial(key, params) {
+  let m = _materialCache.get(key);
+  if (!m) {
+    m = new MeshLambertMaterial(params);
+    _materialCache.set(key, m);
+  }
+  return m;
+}
+
 function makeNodeObject(node, isSelected, isHovered, isDimmed) {
   const group = new Group();
 
   // Dimmed: warm amber micro-dot, barely visible
   if (isDimmed) {
-    group.add(new Mesh(
-      new SphereGeometry(0.8, 6, 6),
-      new MeshLambertMaterial({ color: hex(COLORS.gold), transparent: true, opacity: 0.11 })
-    ));
+    const mesh = new Mesh(
+      UNIT_SPHERE_DIM,
+      cachedLambertMaterial('dim', { color: hex(COLORS.gold), transparent: true, opacity: 0.11 })
+    );
+    mesh.scale.setScalar(0.8);
+    group.add(mesh);
     return group;
   }
 
   const color = isSelected ? '#f0c860' : (isHovered ? '#fff8ee' : node.color);
   const base = node.ghost ? 1.2 : (1.6 + Math.sqrt(node.degree || 1) * 0.65);
   const size = isSelected ? base * 2.0 : (isHovered ? base * 1.5 : base);
+  const emissiveIntensity = isSelected ? 1.0 : (isHovered ? 0.6 : (node.ghost ? 0.12 : 0.4));
 
   // Core sphere
-  group.add(new Mesh(
-    new SphereGeometry(size, 16, 16),
-    new MeshLambertMaterial({
+  const core = new Mesh(
+    UNIT_SPHERE_CORE,
+    cachedLambertMaterial(`core|${color}|${emissiveIntensity}|${node.ghost}`, {
       color: hex(color), emissive: hex(color),
-      emissiveIntensity: isSelected ? 1.0 : (isHovered ? 0.6 : (node.ghost ? 0.12 : 0.4)),
+      emissiveIntensity,
       transparent: node.ghost, opacity: node.ghost ? 0.3 : 1,
     })
-  ));
+  );
+  core.scale.setScalar(size);
+  group.add(core);
   // Outer glow halo
   if (!node.ghost) {
-    group.add(new Mesh(
-      new SphereGeometry(size * (isSelected ? 2.8 : 2.0), 12, 12),
-      new MeshLambertMaterial({ color: hex(color), transparent: true, opacity: isSelected ? 0.14 : (isHovered ? 0.1 : 0.05), depthWrite: false })
-    ));
+    const haloOpacity = isSelected ? 0.14 : (isHovered ? 0.1 : 0.05);
+    const halo = new Mesh(
+      UNIT_SPHERE_HALO,
+      cachedLambertMaterial(`halo|${color}|${haloOpacity}`, { color: hex(color), transparent: true, opacity: haloOpacity, depthWrite: false })
+    );
+    halo.scale.setScalar(size * (isSelected ? 2.8 : 2.0));
+    group.add(halo);
   }
   // Selected: golden ring
   if (isSelected) {

@@ -18,9 +18,12 @@
       kontrol listesi/kriter bölümü eklenmeli — aynı hataların (isMobile
       SSR kalıbının CLS'e yol açması, kategori renginin AA'yı geçmemesi,
       iç mimari sızıntısı, vb.) yeniden yaşanmaması için.
-- [ ] **Mobilde hissedilen yavaşlık** — CWV'de LCP/FCP temiz çıktı, TBT
-      de büyük ölçüde temiz; kullanıcının hissi muhtemelen CLS'in kendisi
-      (Z3-V) veya ölçülmeyen bir etkileşim senaryosu. Ayrı incelenecek.
+- [x] **Mobilde hissedilen yavaşlık** — 14 Ağustos gecesi incelendi, GERÇEK
+      ve ciddi bir kök sebep bulundu: `/graf/ayet` (Ayet Haritası) TBT'si
+      **~4.7 saniye** (masaüstü, throttle'sız). Kısmi düzeltme yapıldı
+      (paylaşılan geometry/material), TAM çözüm (GPU instancing) daha büyük
+      bir iş — bkz. aşağıdaki "VerseGraph TBT" notu. Kalan kısım ayrı bir
+      kullanıcı onayı gerektirir.
 
 ---
 
@@ -1221,6 +1224,62 @@ hatası, 3 sayfada CLS ölçümü (0.000–0.034, hepsi eşiğin altında — ka
 küçük değerler Arapça font reflow'undan, isMobile'dan değil).
 
 6 batch halinde commit+push edildi: `b7850e3`..`5fd1068`.
+
+#### 14 Ağustos (gece) · VerseGraph (/graf/ayet) TBT — kök sebep bulundu, KISMEN kapatıldı
+
+"Mobilde hissedilen yavaşlık" (kuyruktaki iki iştenNden biri) incelendi.
+CLS ile ilgisi yok — `measure-vitals.mjs` gerçek, GERÇEK bir TBT (Total
+Blocking Time) buldu: `/graf/ayet` masaüstünde (throttle'sız) **TBT ~4.7
+saniye**. Sayfa birkaç saniye donuyor.
+
+**Kök sebep:** `filterSurah` varsayılan `null` → sayfa her zaman TÜM 6.236
+ayeti aynı anda 3D force-graph'ta (`react-force-graph-3d` + Three.js)
+render ediyor. `makeNodeObject()` (VerseGraph.jsx:494) HER düğüm için YENİ
+bir `SphereGeometry` + `MeshLambertMaterial` allocate ediyordu — 6.236 × 2 =
+12.472 benzersiz geometry/material, hepsi GPU'ya ayrı ayrı upload ediliyor.
+CDP `Profiler` ile alınan CPU profili doğruladı: örneklenen zamanın **~%80'i
+"(program)"** (native WebGL sürücü çağrıları — buffer upload, program
+setup).
+
+**Uygulanan kısmi düzeltme:** `makeNodeObject` artık modül-seviyesinde
+paylaşılan 3 birim-küre geometry'si (`mesh.scale` ile yarıçapa
+ölçekleniyor — görsel sonuç birebir aynı) ve küçük bir material cache
+kullanıyor (`node.color` yalnız 2 değerden geliyor — Medenî/Mekkî — bu
+yüzden cache çok az sayıda benzersiz material'a düşüyor). Kütüphanenin
+hiçbir node objesini `.dispose()` etmediği doğrulandı (paylaşım güvenli).
+
+**⚠ TAM çözmedi — ikinci bir profil turu bunu ortaya çıkardı:** allocation
+maliyeti gitti ama toplam TBT hemen hemen aynı kaldı (~4.6-6.3s, ölçüm
+gürültülü — bkz. aşağı). Profildeki attribution DEĞİŞTİ: artık
+`setup`/`getUniforms`/`getParameters` (ilk-kurulum) yerine
+`multiplyMatrices`/`updateMatrixWorld`/`applyMatrix4` (HER FRAME'de
+6.236×2 = 12.472 ayrı Mesh objesi için matris güncellemesi + ayrı draw
+call) görünüyor. Yani gerçek darboğaz allocation değil, **12.472 AYRI
+WebGL draw call'un kendisi** — `nodeThreeObject` API'si (react-force-graph)
+her node için bağımsız bir Object3D döndürüyor, tek bir instanced mesh
+değil. Bunu tam çözmek `THREE.InstancedMesh`'e geçmek gerektirir — bu,
+`nodeThreeObject` callback pattern'inden ayrılıp konumları manuel
+senkronize eden çok daha büyük bir mimari değişiklik (ReadingMode'un RSC
+rewrite'ı gibi — kapsamı kullanıcı onayı gerektirir, bu turda YAPILMADI).
+
+**Ölçüm notu:** `measure-vitals.mjs` throttle'suz masaüstünde ölçüyor;
+sistemde aynı anda birden fazla `next start`/`next dev` süreci (başka
+agent'lara ait) çalışıyordu, bu yüzden ham TBT rakamları (4.7s → düzeltme
+sonrası 6.3s) GÜRÜLTÜLÜ — düzeltme sonrası rakamın ARTMASI muhtemelen
+sistem yüküdür, regresyon değil; CDP `Profiler` (CPU zamanı, wall-clock
+değil) ile alınan İKİ profil karşılaştırması daha güvenilir ve yukarıdaki
+attribution değişimini gösterdi.
+
+**Doğrulama:** `npm run build` temiz, görsel karşılaştırma (öncesi/sonrası
+ekran görüntüsü) — renk/parlaklık/genel görünüm aynı, sıfır konsol hatası,
+hover/click etkileşimi çalışıyor. Commit edilmedi/push edilmediyse burası
+güncellenecek — bkz. commit hash'i için git log.
+
+**Kalan (kullanıcı onayı gerekir):** `THREE.InstancedMesh`'e geçiş —
+draw call sayısını 12.472'den ~4'e indirir, TBT'yi muhtemelen yüzlerce
+ms'ye düşürür. Alternatif, daha düşük riskli ama ürün-davranışı değiştiren
+seçenek: varsayılan görünümü tüm-6236-ayet yerine daha küçük bir alt kümeye
+(örn. sûre filtresi zorunlu) çevirmek.
 
 #### 14 Ağustos (gece) · SurahComparator/ConceptGraph — sibling-position CLS kapatıldı
 
