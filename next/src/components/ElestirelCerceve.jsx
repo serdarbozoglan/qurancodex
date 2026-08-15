@@ -187,7 +187,7 @@ export default function ElestirelCerceve() {
           sources={[
             {
               author: 'Fazlur Rahman',
-              workTr: 'İslâm ve Modernite',
+              workTr: 'İslam ve Çağdaşlık',
               workEn: 'Islam and Modernity',
               period: '1982 (Chicago UP)',
               noteTr: 'Maksadî (amaç-odaklı) yorum çerçevesi — hükmün tarihsel bağlamı ile çağdaş uygulaması arasındaki mesafeyi işaret eden modern klasik.',
@@ -195,7 +195,7 @@ export default function ElestirelCerceve() {
             },
             {
               author: 'Khaled Abou El Fadl',
-              workTr: 'Vasat İslâm',
+              workTr: 'İslam\'da Güzellik Arayışı',
               workEn: 'The Search for Beauty in Islam',
               period: '2006',
               noteTr: 'Klasik hukuk ile çağdaş etik arasında entelektüel dürüst bir köprü kurar — hem eleştirel hem imanî.',
@@ -203,7 +203,7 @@ export default function ElestirelCerceve() {
             },
             {
               author: 'Jonathan A. C. Brown',
-              workTr: 'Kur\'ân\'ı Yanlış Alıntılamak',
+              workTr: 'Muhammed\'i Yanlış Alıntılamak',
               workEn: 'Misquoting Muhammad',
               period: '2014 (Oneworld)',
               noteTr: 'İslâmî metin geleneğinin nasıl aktarıldığını + çağdaş yanlış anlamalarını akademik olarak çözümler.',

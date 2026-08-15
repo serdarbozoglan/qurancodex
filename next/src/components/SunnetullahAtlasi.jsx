@@ -264,8 +264,8 @@ export default function SunnetullahAtlasi({ onClose }) {
           },
           {
             author: 'Muhammed Bâkır es-Sadr',
-            workTr: "Kurʾânî Sünnetler",
-            workEn: 'al-Sunan al-Qurʾāniyya',
+            workTr: "es-Sünenü't-Târîhiyye fi'l-Kur'ân",
+            workEn: 'al-Sunan al-Tarikhiyya fi\'l-Qur\'an',
             period: '1935–1980 (Necef)',
             noteTr: "Modern Kurʾânî sosyoloji — sünnetullah kavramını tarihsel değişim yasaları çerçevesinde teorize eden çağdaş klasik.",
             noteEn: 'Modern Quranic sociology — contemporary classic theorizing sunnatullāh as historical laws of change.',

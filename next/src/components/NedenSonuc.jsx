@@ -204,8 +204,8 @@ export default function NedenSonuc() {
             },
             {
               author: 'Muhammed Bâkır es-Sadr',
-              workTr: "Kurʾânî Sünnetler",
-              workEn: 'al-Sunan al-Qurʾāniyya',
+              workTr: "es-Sünenü't-Târîhiyye fi'l-Kur'ân",
+              workEn: 'al-Sunan al-Tarikhiyya fi\'l-Qur\'an',
               period: '1935–1980 (Necef)',
               noteTr: 'Toplumsal + tarihsel zincirlerin modern Kur\'ânî sosyoloji çerçevesinden okunması.',
               noteEn: 'Reading of social + historical chains from a modern Quranic-sociology framework.',
