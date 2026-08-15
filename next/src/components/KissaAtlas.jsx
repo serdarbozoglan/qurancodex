@@ -296,13 +296,18 @@ export default function KissaAtlas({ onClose }) {
       {KISSA_TOOL_HEADER}
 
       {/* ── PROPHET TAB BAR — sticky §13.19 full hygiene guards ─────────────── */}
+      {/* top: navTop TEK BAŞINA YANLIŞTI — ToolHeader'ın kendisi de aynı
+          navTop'ta sticky (kendi 48px yüksekliğiyle); ikisi scroll'da aynı
+          y konumuna gelince bu bar ToolHeader'ın ARKASINDA tamamen kayboluyordu
+          ("truncated" görünümü — aslında %100 örtüşme). +48 ToolHeader'ın
+          kendi yüksekliği (bkz. MeselAtlasi.jsx'teki aynı fix). */}
       <div style={{
         borderBottom: '1px solid rgba(255,255,255,0.07)',
         background: 'rgb(6, 8, 14)',
         backgroundColor: 'rgb(6, 8, 14)',
         flexShrink: 0,
         position: 'sticky',
-        top: `${navTop}px`,
+        top: `${navTop + 48}px`,
         zIndex: 20,
         isolation: 'isolate',
       }}>
@@ -545,7 +550,14 @@ export default function KissaAtlas({ onClose }) {
         }}>
 
           {/* ── SURAH GRID ─────────────────────────────────────────── */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
+          {/* flex:1 grid'i (114 sabit fayans, her zaman aynı doğal yükseklik)
+              dış sarmalayıcının minHeight:100vh mirasından gelen boş alanı
+              doldurmaya zorluyordu — grid altındaki DETAIL PANEL (seçili
+              sûre/sahne) bu yüzden ekranın çok altında, büyük boş bir
+              aralıktan sonra başlıyordu. flex:'0 1 auto' grid'i kendi
+              içeriği kadar yükseklikte tutar, detail panel hemen altına
+              yapışır. */}
+          <div style={{ flex: '0 1 auto', overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
             {/* Instructions */}
             <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
