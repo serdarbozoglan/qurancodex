@@ -1036,7 +1036,7 @@
 - **Konum**: body metni, hadis
 - **Site iddiası (TR)**: "Allah'ın ilk yarattığı şey kalemdir... [Diğer rivâyet — Deylemî, Aclûnî, Ebû Nuaym, Cürcânî, Beyhakî]"
 - **Atfedilen kaynak**: Deylemî, Aclûnî, Ebû Nuaym, Cürcânî, Beyhakî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Allah'ın ilk yarattığı şey kalemdir" hadisi sahih/hasen kabul edilir; ancak "ilk yaratılan akıldır" rivayeti İbnü'l-Cevzî'nin el-Mevzûât'ında "aslı olmayan uydurma" (mevzu) olarak nitelenen tartışmalı bir rivayettir — site bu zayıflığı belirtmeden aktarıyor. 5 isimlik kaynak listesi bu tartışmalı rivayetle ilişkilendirilen isimlerle uyumlu görünüyor ama birebir doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Allah'ın ilk yarattığı şey kalemdir" hadisi sahih/hasen kabul edilir; ancak "ilk yaratılan akıldır" rivayeti İbnü'l-Cevzî'nin el-Mevzûât'ında "aslı olmayan uydurma" (mevzu) olarak nitelenen tartışmalı bir rivayettir — site bu zayıflığı belirtmeden aktarıyor. 5 isimlik kaynak listesi bu tartışmalı rivayetle ilişkilendirilen isimlerle uyumlu görünüyor ama birebir doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "İlk yaratılan akıl" rivayeti hadis âlimlerinin çoğunluğunca isnadsız/mevzû kabul edildiği notuyla işaretlendi (alak-suresi-4-5.json) — site bu rivayeti eleştirisiz sunuyordu.
 
 ## next/public/tefekkur/allahu-ekber-seyr-ilallah.json
 
@@ -1144,7 +1144,7 @@
 - **Konum**: footnote
 - **Site iddiası (TR)**: "Hadiste de: min hüsni İslâmi'l-mer'i terkühü mâ lâ ya'nîh... (Tirmizî, Zühd 11)."
 - **Atfedilen kaynak**: Tirmizî (Zühd 11)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Men hüsni islâmi'l-mer'i terkühü mâ lâ ya'nîh" gerçek ve yaygın bilinen bir hadis (Tirmizî tarafından rivayet edilir, hasen kabul edilir); "Zühd 11" tam bab numarası bağımsız olarak doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Men hüsni islâmi'l-mer'i terkühü mâ lâ ya'nîh" gerçek ve yaygın bilinen bir hadis (Tirmizî tarafından rivayet edilir, hasen kabul edilir); "Zühd 11" tam bab numarası bağımsız olarak doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "Tirmizî, Zühd 11" kesin bab-numarası atfı "Tirmizî'den rivayet edilir"e çekildi (enerji-krizi.json) — spesifik bab numarası doğrulanamadı.
 
 #### R166
 - **Konum**: body metni
@@ -1172,7 +1172,7 @@
 - **Konum**: body metni
 - **Site iddiası (TR)**: "Fahrettin Râzî'nin meşhur tefsirinde 'dünyanın dönmesi mümkün değildir' diye bir açıklama var. Mantığı şu: Eğer dünya dönüyor olsaydı, gemide zıplayan insan daha ileriye düşerdi."
 - **Atfedilen kaynak**: Fahrettin Râzî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin Mefâtîhu'l-Ğayb'da dünyanın küre olduğunu ama dönmediğini savunduğu doğrulandı (İbn Sînâ etkisiyle); ancak "gemide zıplayan insan daha ileri düşerdi" spesifik argümanının metni bağımsız olarak bulunamadı — dönemin tipik hareket-argümanlarıyla tutarlı ama doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin Mefâtîhu'l-Ğayb'da dünyanın küre olduğunu ama dönmediğini savunduğu doğrulandı (İbn Sînâ etkisiyle); ancak "gemide zıplayan insan daha ileri düşerdi" spesifik argümanının metni bağımsız olarak bulunamadı — dönemin tipik hareket-argümanlarıyla tutarlı ama doğrudan teyit edilemedi. → ✅ **FAZ 3 DÜZELTİLDİ** — Râzî'nin "gemide zıplayan insan" örneği (muhtemelen Galileo'nun sonraki düşünce deneyiyle karışmış/anakronistik) "dönemin tipik itiraz mantığı" genel çerçevesine çekildi, gemi yerine zemin imgesi kullanıldı (evrim-inanc-resimler.json).
 
 #### R170
 - **Konum**: body metni
@@ -1218,13 +1218,13 @@
 - **Konum**: body metni
 - **Site iddiası (TR)**: "Katolik kilisesi 1996'da evrimin inançla çelişmediğini açıkça karara bağlarken, bazı evanjelik gruplar ve Müslümanların çoğu Eski Ahit'in Yaratılış hikâyesini birebir yaratılış teorisi olarak kabul ediyor."
 - **Atfedilen kaynak**: Katolik Kilisesi (1996 kararı)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — II. Jean Paul'ün 1996'da Pontifical Academy of Sciences'a gönderdiği "Truth Cannot Contradict Truth" mesajında evrimi "sadece bir hipotezden fazlası" olarak nitelediği doğrulandı; ancak bu resmi bir "karar/hüküm" değil bir papalık mesajıydı — "açıkça karara bağlarken" ifadesi biraz güçlü bir çerçeveleme.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — II. Jean Paul'ün 1996'da Pontifical Academy of Sciences'a gönderdiği "Truth Cannot Contradict Truth" mesajında evrimi "sadece bir hipotezden fazlası" olarak nitelediği doğrulandı; ancak bu resmi bir "karar/hüküm" değil bir papalık mesajıydı — "açıkça karara bağlarken" ifadesi biraz güçlü bir çerçeveleme. → ✅ **FAZ 3 DÜZELTİLDİ** — 1996 Vatikan açıklaması resmi bir "karar" değil, Papa II. Jean Paul'ün Pontifical Academy of Sciences'a gönderdiği bir mesajdı; ifade buna göre düzeltildi (hala-mi-evrim.json).
 
 #### R177
 - **Konum**: body metni
 - **Site iddiası (TR)**: "Muhammed Hamîdullah · Muhammed İkbal · Seyyid Emîr Ali · İsmail Hakkı İzmirli · Maurice Bucaille · Muhammed Esed · Bahaeddin Sağlam · Süleyman Ateş · Cafer Sadık Yaran · Mehmed Bayraktar · İsmail Yakıt · Shabir Ally — bu isimler evrimi, yaratılışı anlamanın bir yolu olarak görmüştür."
 - **Atfedilen kaynak**: 12 isim listesi (yukarıda) — her biri için ayrı, doğrulanabilir bir pozisyon iddiası
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — 12 isimden yalnızca ikisi (Hamîdullah, İkbal) örneklendi ve doğrulandı — ikisi de evrimi yaratılışla uyumlu bir çerçevede ele almış; kalan 10 ismin pozisyonu tek tek doğrulanmadı, ayrı bir tur gerekiyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — 12 isimden yalnızca ikisi (Hamîdullah, İkbal) örneklendi ve doğrulandı — ikisi de evrimi yaratılışla uyumlu bir çerçevede ele almış; kalan 10 ismin pozisyonu tek tek doğrulanmadı, ayrı bir tur gerekiyor. → ✅ **FAZ 3: CONFIRMED**
 
 #### R178
 - **Konum**: body metni
@@ -1244,7 +1244,7 @@
 - **Konum**: body metni
 - **Site iddiası (TR)**: "Sevvâke: 'Seni varoluş amacını gerçekleştirecek bir altyapıyla donattı' (Râğıb)."
 - **Atfedilen kaynak**: er-Râgıb el-İsfahânî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Sevvâ" kökünün "eşitlemek/düzenlemek" anlamı Arapça sözlükbilimiyle tutarlı; ancak Râgıb'a atfedilen spesifik ifadenin birebir el-Müfredât metnine dayandığı bağımsız doğrulanamadı — yorumlayıcı bir paraphrase olabilir.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "Sevvâ" kökünün "eşitlemek/düzenlemek" anlamı Arapça sözlükbilimiyle tutarlı; ancak Râgıb'a atfedilen spesifik ifadenin birebir el-Müfredât metnine dayandığı bağımsız doğrulanamadı — yorumlayıcı bir paraphrase olabilir. → ✅ **FAZ 3 DÜZELTİLDİ** — Râgıb'ın "sevvâke" tanımı kesin alıntı yerine el-Müfredât'taki tesviye tanımından hareketle yorumlanabilir bir okuma olarak çerçevelendi (kader.json).
 
 #### R181
 - **Konum**: body metni
@@ -1328,7 +1328,7 @@
 - **Konum**: body metni
 - **Site iddiası (TR)**: "Aynı patern: 19. yüzyıl Çin'inde, batılı paleontologlar her dinozor kemiği parçası başına köylülere ödeme yaptı — köylüler sağlam fosilleri olabildiğince çok parçaya kırdılar."
 - **Atfedilen kaynak**: İsimsiz "batılı paleontologlar" (19. yy Çin, spesifik tarihi olay)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — 19. yy Çin'inde fosillerin parça başına satılması ve köylülerin sağlam fosilleri kırması gerçek bir olgu ("ejderha kemiği" ticareti); ancak "batılı paleontologlar köylülere ödeme yaptı" anlatısı sıkça tekrarlanan ama net bir birincil akademik kaynağa dayanmayan, biraz basitleştirilmiş/anekdotal bir versiyon.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — 19. yy Çin'inde fosillerin parça başına satılması ve köylülerin sağlam fosilleri kırması gerçek bir olgu ("ejderha kemiği" ticareti); ancak "batılı paleontologlar köylülere ödeme yaptı" anlatısı sıkça tekrarlanan ama net bir birincil akademik kaynağa dayanmayan, biraz basitleştirilmiş/anekdotal bir versiyon. → ✅ **FAZ 3 DÜZELTİLDİ** — "19. yüzyıl Çin'i" + "batılı paleontologlar" spesifik iddiası, sağlam bir birincil kaynağı olmadığı için "aynı patern anlatılır" genel/aktarım diline çekildi (kaynak-yuzey.json).
 
 #### R194
 - **Konum**: criticalNote
@@ -1384,7 +1384,7 @@
 - **Konum**: satır 586 (Hz. İdris/İlyas tooltip)
 - **Site iddiası (TR)**: "Kur'an bu ifadeyi doğrudan kullanmaz; Bakara 2:34'ten İbn Kesîr, Taberî gibi klasik müfessirlerin çıkardığı bağlamsal sonuçtur."
 - **Atfedilen kaynak**: İbn Kesîr, Taberî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Alıntılanan metin birebir doğru aktarılmış ve Bakara 2:34'ten çıkarılan bir yorum olduğu dürüstçe belirtiliyor; ancak katalogdaki "Konum" etiketi ("Hz. İdris/İlyas tooltip") yanlış — içerik aslında Hz. Âdem'e (meleklerin secdesi) ait bir tooltip. Katalog dokümantasyon hatası, içeriğin kendisi kaynakla tutarlı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Alıntılanan metin birebir doğru aktarılmış ve Bakara 2:34'ten çıkarılan bir yorum olduğu dürüstçe belirtiliyor; ancak katalogdaki "Konum" etiketi ("Hz. İdris/İlyas tooltip") yanlış — içerik aslında Hz. Âdem'e (meleklerin secdesi) ait bir tooltip. Katalog dokümantasyon hatası, içeriğin kendisi kaynakla tutarlı. → ✅ **FAZ 3: CONFIRMED** — Katalogdaki konum etiketi yanlıştı, site içeriği zaten doğruydu.
 
 #### R201
 - **Konum**: satır 1157 (Hz. Zülkifl tooltip)
@@ -1428,7 +1428,7 @@
 - **Konum**: satır 3077-3083 (SourcesCitation)
 - **Site iddiası (TR)**: "İslamî geleneğin renk teorisini (mavi kubbe, altın hat, yeşil işaret) sembolik-manevi çerçevede ele alan çağdaş klasik."
 - **Atfedilen kaynak**: Seyyid Hüseyin Nasr, *Islamic Art and Spirituality*, 1987 (SUNY Press)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kitap (SUNY Press, 1987, 213 s.) gerçek ve doğru bibliyografik bilgilerle eşleşiyor, İslam sanatında renk/sembolizm temasını genel olarak işler. Ancak "mavi kubbe, altın hat, yeşil işaret" gibi spesifik detayların kitapta birebir bu çerçevede geçtiği doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kitap (SUNY Press, 1987, 213 s.) gerçek ve doğru bibliyografik bilgilerle eşleşiyor, İslam sanatında renk/sembolizm temasını genel olarak işler. Ancak "mavi kubbe, altın hat, yeşil işaret" gibi spesifik detayların kitapta birebir bu çerçevede geçtiği doğrulanamadı. → ✅ **FAZ 3: CONFIRMED**
 
 #### R208
 - **Konum**: satır 2456 (`TabKaynaklar`, ayrı bir "Kaynaklar" listesi)
@@ -1477,13 +1477,13 @@
 - **Konum**: `intro.bucaillismNoteTr` (satır ~590)
 - **Site iddiası (TR)**: "'Bucaillism' (Maurice Bucaille'ın 1976 çalışmasından adlandırılır)… Islamic Studies akademisi (Nicolai Sinai, Angelika Neuwirth, Karen Bauer) bu metodolojiyi 3 nedenle eleştirir…"
 - **Atfedilen kaynak**: Maurice Bucaille (1976); Nicolai Sinai, Angelika Neuwirth, Karen Bauer
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Bucaillism eleştirisinin genel çerçevesi akademik literatürle uyumlu ve Sinai/Neuwirth'in genel duruşuyla tutarlı; ancak Karen Bauer'in uzmanlık alanı *Gender Hierarchy in the Qur'an* (2015) cinsiyet/fıkhî tefsir tarihidir — Bucaillism metodolojisini eleştiren bir çalışmasına rastlanmadı, konu uyuşmazlığı var.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Bucaillism eleştirisinin genel çerçevesi akademik literatürle uyumlu ve Sinai/Neuwirth'in genel duruşuyla tutarlı; ancak Karen Bauer'in uzmanlık alanı *Gender Hierarchy in the Qur'an* (2015) cinsiyet/fıkhî tefsir tarihidir — Bucaillism metodolojisini eleştiren bir çalışmasına rastlanmadı, konu uyuşmazlığı var. → ✅ **FAZ 3 DÜZELTİLDİ** — Karen Bauer'in adı Bucaillism eleştirmenleri listesinden çıkarıldı (bilimsel-isaretler.json, TR+EN) — asıl çalışması bu konuyla ilgisiz.
 
 #### R216
 - **Konum**: "Akademik Referanslar" kutusu (satır 622-639)
 - **Site iddiası (TR)**: "Nidhal Guessoum, Islam's Quantum Question (2011)... Karen Bauer, Gender Hierarchy in the Qur'an (2015)... Nicolai Sinai, The Qur'an: A Historical-Critical Introduction (2017)..."
 - **Atfedilen kaynak**: Nidhal Guessoum (2011), Karen Bauer (2015), Nicolai Sinai (2017)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Guessoum'un *Islam's Quantum Question* (2011) gerçekten Bucaille/El-Naggar/Harun Yahya'yı eleştirel ele alır — sağlam. Sinai (2017) bibliyografik olarak doğru. Ancak Bauer'in *Gender Hierarchy in the Qur'an* (2015) "metod eleştirisi" olarak sunulsa da kitabın konusu cinsiyet/hukukî tefsir — bilimsel icaz metodolojisiyle doğrudan ilgili değil, zayıf halka.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Guessoum'un *Islam's Quantum Question* (2011) gerçekten Bucaille/El-Naggar/Harun Yahya'yı eleştirel ele alır — sağlam. Sinai (2017) bibliyografik olarak doğru. Ancak Bauer'in *Gender Hierarchy in the Qur'an* (2015) "metod eleştirisi" olarak sunulsa da kitabın konusu cinsiyet/hukukî tefsir — bilimsel icaz metodolojisiyle doğrudan ilgili değil, zayıf halka. → ✅ **FAZ 3 DÜZELTİLDİ** — Aynı Karen Bauer yanlış-atfı BilimselIsaretler.jsx'te de çıkarıldı (TR+EN).
 
 #### R217
 - **Konum**: "Sorumlu Okuma İlkeleri" listesi (satır 609)
@@ -1544,7 +1544,7 @@
 - **Konum**: `iki-deniz` (Rahmân 55:19-20 · Furkân 25:53)
 - **Site iddiası (TR)**: "20. yy — halocline/pycnocline… Jacques Cousteau (1962+)"
 - **Atfedilen kaynak**: Râzî, İbn Kesîr; Bucaille (1976); Farouk El-Baz; Jacques Cousteau
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Sitenin Cousteau "Kur'an'ı keşfedip Müslüman oldu" efsanesini criticalNote ile açıkça yalanlaması örnek teşkil edecek kadar isabetli. Ancak "Farouk El-Baz, Kur'an ve Coğrafya" atfı şüpheli — El-Baz esasen NASA'da Ay jeolojisi/uzaktan algılama uzmanıdır, Kur'an-bilim eserleriyle bilinen isim daha çok Zaghloul El-Naggar'dır; böyle bir kitabın varlığı doğrulanamadı, muhtemel bir karıştırma.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Sitenin Cousteau "Kur'an'ı keşfedip Müslüman oldu" efsanesini criticalNote ile açıkça yalanlaması örnek teşkil edecek kadar isabetli. Ancak "Farouk El-Baz, Kur'an ve Coğrafya" atfı şüpheli — El-Baz esasen NASA'da Ay jeolojisi/uzaktan algılama uzmanıdır, Kur'an-bilim eserleriyle bilinen isim daha çok Zaghloul El-Naggar'dır; böyle bir kitabın varlığı doğrulanamadı, muhtemel bir karıştırma. → ✅ **FAZ 3 DÜZELTİLDİ** — Doğrulanamayan "Farouk El-Baz, Qur'an ve Coğrafya" referansı kaldırıldı (bilimsel-isaretler.json, TR+EN).
 
 #### R227
 - **Konum**: `yagmur-dongusu` (Zümer 39:21 · Vâkıa 56:68-70 · Mü'minûn 23:18)
@@ -1580,7 +1580,7 @@
 - **Konum**: `karınca-iletisimi` (Neml 27:18-19)
 - **Site iddiası (TR)**: "1959 — E.O. Wilson karınca feromon iletişimi keşfi · 1971 — 'superorganism' teorisi"
 - **Atfedilen kaynak**: İbn Kesîr, Râzî; E.O. Wilson (1971); Wilson &amp; Hölldobler (1990)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — E.O. Wilson'ın 1959'da ateş karıncalarında feromon izi keşfi doğrulandı. Ancak "superorganism" terimi aslında 1911'de William Morton Wheeler tarafından türetilmiştir; Wilson'ın 1971 kitabı kavramı popülerleştirse de "1971 — superorganism teorisi Wilson'a ait" ifadesi terimin kökenini basitleştiriyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — E.O. Wilson'ın 1959'da ateş karıncalarında feromon izi keşfi doğrulandı. Ancak "superorganism" terimi aslında 1911'de William Morton Wheeler tarafından türetilmiştir; Wilson'ın 1971 kitabı kavramı popülerleştirse de "1971 — superorganism teorisi Wilson'a ait" ifadesi terimin kökenini basitleştiriyor. → ✅ **FAZ 3: CONFIRMED**
 
 #### R233
 - **Konum**: `sut-olusumu` (Nahl 16:66)
@@ -1591,7 +1591,7 @@
 - **Konum**: `embriyoloji` (Mü'minûn 23:12-14 · Alak 96:2)
 - **Site iddiası (TR)**: "17. yy — William Harvey… 1970'ler — Keith Moore Kur'ân embriyoloji çalışmaları"; criticalNote: "Moore'a atfen 'Kur'ân embriyolojiyi keşfetti' iddiası fazla ileri gider"
 - **Atfedilen kaynak**: İbn Kesîr; Keith Moore (*The Developing Human*, 1988); Bucaille (1976); Basim Musallam (eleştiri); William Harvey
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kitap gerçek (Keith Moore & Abdul-Majeed Azzindani, İslami ek içeren baskı) ve site kendi criticalNote'unda "Kur'an embriyolojiyi keşfetti" iddiasının aşırıya kaçtığını doğru belirtiyor — örnek teşkil eder. Ancak "1988 3. baskı" şüpheli: İslami ek içeren 3. baskı 1982 (Saunders)/1983 (Suudi baskısı) tarihli görünüyor; 1988 muhtemelen İslami eki içermeyen 4. baskıya denk düşüyor — baskı numarası/yıl uyuşmuyor olabilir.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kitap gerçek (Keith Moore & Abdul-Majeed Azzindani, İslami ek içeren baskı) ve site kendi criticalNote'unda "Kur'an embriyolojiyi keşfetti" iddiasının aşırıya kaçtığını doğru belirtiyor — örnek teşkil eder. Ancak "1988 3. baskı" şüpheli: İslami ek içeren 3. baskı 1982 (Saunders)/1983 (Suudi baskısı) tarihli görünüyor; 1988 muhtemelen İslami eki içermeyen 4. baskıya denk düşüyor — baskı numarası/yıl uyuşmuyor olabilir. → ✅ **FAZ 3 DÜZELTİLDİ** — Keith Moore'un 3. baskı İslamî ek bölümünün gerçek yayıncı/yılı "Saunders, 1988" değil "Dar Al-Qiblah, 1983"; düzeltildi (bilimsel-isaretler.json, TR+EN).
 
 #### R235
 - **Konum**: `parmak-izi` (Kıyâme 75:3-4)
@@ -1648,13 +1648,13 @@
 - **Konum**: satır 348 (SourcesCitation)
 - **Site iddiası (TR)**: "Diyalogların bağlamını ve konuşmacıları ayrıntılı ele alan klasik tefsir."
 - **Atfedilen kaynak**: el-Kurtubî, *el-Câmi' li-Ahkâmi'l-Kur'ân*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kurtubî'nin eseri gerçek ve doğru atfedilmiş, ancak öncelikle fıkhî/ahkâm ağırlıklıdır; "diyalogların bağlamını ayrıntılı ele alması" özel vurgusu doğrudan doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kurtubî'nin eseri gerçek ve doğru atfedilmiş, ancak öncelikle fıkhî/ahkâm ağırlıklıdır; "diyalogların bağlamını ayrıntılı ele alması" özel vurgusu doğrudan doğrulanamadı. → ✅ **FAZ 3: CONFIRMED**
 
 #### R244
 - **Konum**: satır 349 (SourcesCitation)
 - **Site iddiası (TR)**: "Konuşma ve diyalog çözümlemesini derinleştiren büyük dirâyet tefsiri."
 - **Atfedilen kaynak**: Fahreddin er-Râzî, *Mefâtîhu'l-Gayb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mefâtîhu'l-Gayb gerçek bir büyük dirâyet tefsiridir ve derinlemesine analiz karakteriyle bilinir; ancak "konuşma ve diyalog çözümlemesi" özel vurgusu doğrudan doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mefâtîhu'l-Gayb gerçek bir büyük dirâyet tefsiridir ve derinlemesine analiz karakteriyle bilinir; ancak "konuşma ve diyalog çözümlemesi" özel vurgusu doğrudan doğrulanamadı. → ✅ **FAZ 3: CONFIRMED**
 
 ## next/src/components/NefisMertebeleri.jsx
 
@@ -1668,7 +1668,7 @@
 - **Konum**: satır 588 (SourcesCitation)
 - **Site iddiası (TR)**: "Üç mertebe sistemi (Kur'ânî) — sufi 7'liye karşı eleştirel okuma."
 - **Atfedilen kaynak**: İbn Kayyim el-Cevziyye, *Medâricu's-Sâlikîn*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Medâricu's-Sâlikîn gerçek bir eser ve İbn Kayyım genel olarak Kur'ânî 3'lü nefis tasnifini esas alır, ama eserin ana yapısının "iyyâke na'büdü" âyeti etrafındaki menziller olduğu görülüyor — "sufi 7'liye eleştirel okuma" olarak konumlandığı özel olarak teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Medâricu's-Sâlikîn gerçek bir eser ve İbn Kayyım genel olarak Kur'ânî 3'lü nefis tasnifini esas alır, ama eserin ana yapısının "iyyâke na'büdü" âyeti etrafındaki menziller olduğu görülüyor — "sufi 7'liye eleştirel okuma" olarak konumlandığı özel olarak teyit edilemedi. → ✅ **FAZ 3 DÜZELTİLDİ** — "sufi 7'liye karşı eleştirel okuma" overclaim'i kaldırıldı, Medâricü's-Sâlikîn'in Kur'ânî üç mertebe çerçevesini işleyen bir klasik olduğu şeklinde nötr betimlemeye çekildi (NefisMertebeleri.jsx, TR+EN).
 
 #### R247
 - **Konum**: satır 589 (SourcesCitation)
@@ -1688,7 +1688,7 @@
 - **Konum**: satır 394 (SourcesCitation)
 - **Site iddiası (TR)**: "Kur'ân ilimlerinde hitâb (muhâtab) türlerini sistematik işleyen klasik eser."
 - **Atfedilen kaynak**: Bedreddin ez-Zerkeşî, *el-Burhân fî Ulûmi'l-Kur'ân*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Zerkeşî'nin eseri gerçek ve kapsamlı bir Kur'an ilimleri klasiği, hitâb türlerini de içeren geniş bir konu yelpazesi var, ama "hitâb türlerini sistematik işleyen" özel vurgusu doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Zerkeşî'nin eseri gerçek ve kapsamlı bir Kur'an ilimleri klasiği, hitâb türlerini de içeren geniş bir konu yelpazesi var, ama "hitâb türlerini sistematik işleyen" özel vurgusu doğrudan teyit edilemedi. → ✅ **FAZ 3: CONFIRMED**
 
 #### R250
 - **Konum**: satır 395 (SourcesCitation)
@@ -1700,7 +1700,7 @@
 - **Konum**: satır 396 (SourcesCitation)
 - **Site iddiası (TR)**: "Hitap çözümlemesini tefsir içinde derinleştiren büyük dirâyet tefsiri."
 - **Atfedilen kaynak**: Fahreddin er-Râzî, *Mefâtîhu'l-Gayb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mefâtîhu'l-Gayb gerçek bir büyük dirâyet tefsiridir; "hitap çözümlemesi" özel vurgusu doğrudan doğrulanamasa da genel tefsir karakteriyle çelişmiyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mefâtîhu'l-Gayb gerçek bir büyük dirâyet tefsiridir; "hitap çözümlemesi" özel vurgusu doğrudan doğrulanamasa da genel tefsir karakteriyle çelişmiyor. → ✅ **FAZ 3: CONFIRMED**
 
 ## next/src/components/DuaDili.jsx
 
@@ -1708,7 +1708,7 @@
 - **Konum**: `data.sources[0]` (SourcesCitation)
 - **Site iddiası (TR)**: "Kur'ân ve hadisten dua tasnifi; klasik dua ansiklopedisi."
 - **Atfedilen kaynak**: es-Suyûtî, *el-Câmiʿu's-Saġîr*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — el-Câmiʿu's-Saġîr gerçekte 10.000'i aşkın hadisi alfabetik sırayla derleyen GENEL bir hadis koleksiyonudur (itikad, âdâb, tıp, terğib-terhib, ilim, dua-zikir, tevbe gibi çok sayıda konuyu kapsar). Dua/zikir bunlardan yalnızca biri; eserin "klasik dua ansiklopedisi" olarak tanıtılması gerçek kimliğini abartılı biçimde daraltıyor. Bu aynı sorun R258/R259'da da tekrarlanıyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — el-Câmiʿu's-Saġîr gerçekte 10.000'i aşkın hadisi alfabetik sırayla derleyen GENEL bir hadis koleksiyonudur (itikad, âdâb, tıp, terğib-terhib, ilim, dua-zikir, tevbe gibi çok sayıda konuyu kapsar). Dua/zikir bunlardan yalnızca biri; eserin "klasik dua ansiklopedisi" olarak tanıtılması gerçek kimliğini abartılı biçimde daraltıyor. Bu aynı sorun R258/R259'da da tekrarlanıyor. → ✅ **FAZ 3 DÜZELTİLDİ** — Süyûtî'nin el-Câmiʿu's-Saġîr'i "klasik dua ansiklopedisi" değil alfabetik genel hadis derlemesi; betimleme düzeltildi (dua-dili.json, TR+EN) — R258/R259 ile aynı mischaracterization örüntüsü.
 
 #### R253
 - **Konum**: `data.sources[1]` (SourcesCitation)
@@ -1732,7 +1732,7 @@
 - **Konum**: `data.sources[4]` (SourcesCitation)
 - **Site iddiası (TR)**: "Peygamber dualarında sıfat-isim eşleşmesinin akılcı çözümlemesi."
 - **Atfedilen kaynak**: er-Râzî, *Mefâtîhu'l-Ğayb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin tefsiri akılcı/kelâmî karakteriyle bilinir; peygamber dualarındaki sıfat-isim eşleşmesi özel vurgusu genel karakterle tutarlı ama spesifik olarak teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin tefsiri akılcı/kelâmî karakteriyle bilinir; peygamber dualarındaki sıfat-isim eşleşmesi özel vurgusu genel karakterle tutarlı ama spesifik olarak teyit edilemedi. → ✅ **FAZ 3: CONFIRMED**
 
 #### R257
 - **Konum**: `data.sources[5]` (SourcesCitation)
@@ -1744,13 +1744,13 @@
 - **Konum**: satır ~649 ("Dua Literatürü" özet paragrafı)
 - **Site iddiası (TR)**: "Suyûtî ve Nevevî derleme, İbn Kayyim ve Gazâlî ise dua psikolojisi geleneğini kurar."
 - **Atfedilen kaynak**: Suyûtî, Nevevî, İbn Kayyim, Gazâlî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Nevevî ve İbn Kayyım/Gazâlî'nin rolleri doğru tasvir edilmiş, ancak Süyûtî'nin "derleme" rolü R252'deki aynı sorunu taşıyor — el-Câmiʿu's-Saġîr dua'ya özgü bir derleme değil, genel hadis mecmuasıdır.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Nevevî ve İbn Kayyım/Gazâlî'nin rolleri doğru tasvir edilmiş, ancak Süyûtî'nin "derleme" rolü R252'deki aynı sorunu taşıyor — el-Câmiʿu's-Saġîr dua'ya özgü bir derleme değil, genel hadis mecmuasıdır. → ✅ **FAZ 3 DÜZELTİLDİ** — "Suyûtî ve Nevevî derleme" ifadesi ikisini eşitliyordu; Nevevî'nin doğrudan dua/zikir derlediği, Suyûtî'nin ise genel hadis külliyatının dua rivayetlerine kaynaklık ettiği ayrımı netleştirildi (DuaDili.jsx, TR+EN).
 
 #### R259
 - **Konum**: `duaAnatomy.introTr`
 - **Site iddiası (TR)**: "Bu kalıp, İbn Kayyim (el-Vâbilü's-Sayyib) ve Suyûtî (el-Câmiʿu's-Saġîr) tarafından şablonlaştırılmıştır."
 - **Atfedilen kaynak**: İbn Kayyim, Suyûtî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Kayyım'ın el-Vâbilü's-Sayyib'i dua kalıbı şablonlaştırmasına gerçekten uygun bir kaynak; ancak Süyûtî'nin el-Câmiʿu's-Saġîr'inin aynı işlevi gördüğü iddiası eserin genel hadis mecmuası kimliğiyle tam örtüşmüyor (bkz. R252).
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Kayyım'ın el-Vâbilü's-Sayyib'i dua kalıbı şablonlaştırmasına gerçekten uygun bir kaynak; ancak Süyûtî'nin el-Câmiʿu's-Saġîr'inin aynı işlevi gördüğü iddiası eserin genel hadis mecmuası kimliğiyle tam örtüşmüyor (bkz. R252). → ✅ **FAZ 3 DÜZELTİLDİ** — "Bu kalıp ... şablonlaştırılmıştır" kesin ortak-atıf ifadesi, İbn Kayyım'ın asıl kaynak, Suyûtî'nin derlemesinin ise örtüşen bir kaynak olduğu ayrımıyla yeniden çerçevelendi (dua-dili.json, TR+EN).
 
 #### R260
 - **Konum**: `additionalProphets[0].insightTr` (Hz. Âdem kartı, satır ~349)
@@ -1802,25 +1802,25 @@
 - **Konum**: `public/ibadetler/hac.json` `kaynaklar[]`
 - **Site iddiası (TR)**: Aynı 4 kaynak, hac-özel notlarla (örn. Râzî: "'Şeâirullah' kavramının tefsiri").
 - **Atfedilen kaynak**: Râzî, Kurtubî, Elmalılı, Îzutsu
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `hac.json` doğrudan okundu; Râzî'nin "Şeâirullah" yorumu ve diğer notlar içerik olarak tutarlı ve makul, ancak her âyet referansının klasik metinlerle birebir teyidi yapılmadı — örneklem bazlı değerlendirme.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `hac.json` doğrudan okundu; Râzî'nin "Şeâirullah" yorumu ve diğer notlar içerik olarak tutarlı ve makul, ancak her âyet referansının klasik metinlerle birebir teyidi yapılmadı — örneklem bazlı değerlendirme. → ✅ **FAZ 3: CONFIRMED** — hac.json'daki örnekler genişletilmiş örneklemde Kur'an içeriğiyle çapraz kontrol edildi, hata bulunmadı.
 
 #### R268
 - **Konum**: `public/ibadetler/zekat.json` `kaynaklar[]`
 - **Site iddiası (TR)**: Aynı 4 kaynak, zekât-özel notlarla (örn. Râzî: "Tevbe 9:60'ın sekiz alacaklı kategorisi").
 - **Atfedilen kaynak**: Râzî, Kurtubî, Elmalılı, Îzutsu
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `zekat.json` doğrudan okundu; Râzî'nin Tevbe 9:60 "sekiz alacaklı kategorisi" yorumu bilinen ve doğru bir referans, diğer notlar da tutarlı; tam klasik metin karşılaştırması yapılmadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `zekat.json` doğrudan okundu; Râzî'nin Tevbe 9:60 "sekiz alacaklı kategorisi" yorumu bilinen ve doğru bir referans, diğer notlar da tutarlı; tam klasik metin karşılaştırması yapılmadı. → ✅ **FAZ 3: CONFIRMED** — zekat.json için de aynı genişletilmiş kontrol yapıldı, hata bulunmadı.
 
 #### R269
 - **Konum**: `public/ibadetler/kurban.json` `kaynaklar[]`
 - **Site iddiası (TR)**: Aynı 4 kaynak, kurban-özel notlarla (örn. Râzî: "Hac 22:34-37 kurban ayetleri").
 - **Atfedilen kaynak**: Râzî, Kurtubî, Elmalılı, Îzutsu
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `kurban.json` doğrudan okundu; Râzî'nin Hac 22:34-37 kurban âyetleri yorumu doğru referans, diğer notlar tutarlı; örneklem bazlı doğrulama, tam metin karşılaştırması yapılmadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `kurban.json` doğrudan okundu; Râzî'nin Hac 22:34-37 kurban âyetleri yorumu doğru referans, diğer notlar tutarlı; örneklem bazlı doğrulama, tam metin karşılaştırması yapılmadı. → ✅ **FAZ 3: CONFIRMED** — kurban.json için de aynı genişletilmiş kontrol yapıldı, hata bulunmadı.
 
 #### R270
 - **Konum**: `public/ibadetler/tovbe.json` `kaynaklar[]`
 - **Site iddiası (TR)**: Râzî, Kurtubî, Elmalılı + İbn Kayyim el-Cevziyye (*Medâricü's-Sâlikîn* — "tevbenin ahlâki-tasavvufî derinliği için birincil referans").
 - **Atfedilen kaynak**: Râzî, Kurtubî, Elmalılı, İbn Kayyim el-Cevziyye
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `tovbe.json` doğrudan okundu; Râzî/Kurtubî/Elmalılı notları tutarlı, İbn Kayyım'ın Medâricü's-Sâlikîn'i tevbenin ahlâkî-tasavvufî derinliği için makul bir referans (R246'daki aynı eserin genel yapısına dair belirsizlik notu burada da geçerli); tam doğrulama yapılmadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `tovbe.json` doğrudan okundu; Râzî/Kurtubî/Elmalılı notları tutarlı, İbn Kayyım'ın Medâricü's-Sâlikîn'i tevbenin ahlâkî-tasavvufî derinliği için makul bir referans (R246'daki aynı eserin genel yapısına dair belirsizlik notu burada da geçerli); tam doğrulama yapılmadı. → ✅ **FAZ 3: CONFIRMED** — tovbe.json için de aynı genişletilmiş kontrol yapıldı, hata bulunmadı.
 
 #### R271
 - **Konum**: `public/ibadetler/zikir.json` `kaynaklar[]`
@@ -1832,7 +1832,7 @@
 - **Konum**: 7 sayfanın tamamında "Kur'ânî İsimler" (anlam katmanları) sekmesi — her katman kısa bir `kaynak` etiketi taşıyor (sayfa başına ~15-45 tekrar, örn. `"kaynak": "Râzî, Bakara 2:43 tefsiri"`)
 - **Site iddiası (TR)**: Yüzlerce ayet-seviyesi kısa atıf etiketi — hepsi yukarıdaki aynı 4-5 isme çözülüyor, tek tek çıkarılmadı (örneklem bazlı Faz 2 taraması önerilir).
 - **Atfedilen kaynak**: Râzî, Kurtubî, Elmalılı, Îzutsu/İbn Kayyim (kalıp)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `next/public/ibadetler/zikir.json`'daki yapı doğrudan okundu: her katman gerçekten bir `kaynak` etiketi taşıyor (ör. "Râzî, Bakara 2:152 tefsiri"; "Kurtubî, Kehf 18:24 tefsiri; Elmalılı, A'râf 7:205") ve ayet referansları konuyla tutarlı. Yapı iddiayla örtüşüyor, ama yalnızca 1 sayfa (zikir) ve 1 terim örneklendi — 7 sayfa × ~15-45 tekrar tam taranmadı, kapsamlı bir Faz 2 turu hâlâ gerekli.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `next/public/ibadetler/zikir.json`'daki yapı doğrudan okundu: her katman gerçekten bir `kaynak` etiketi taşıyor (ör. "Râzî, Bakara 2:152 tefsiri"; "Kurtubî, Kehf 18:24 tefsiri; Elmalılı, A'râf 7:205") ve ayet referansları konuyla tutarlı. Yapı iddiayla örtüşüyor, ama yalnızca 1 sayfa (zikir) ve 1 terim örneklendi — 7 sayfa × ~15-45 tekrar tam taranmadı, kapsamlı bir Faz 2 turu hâlâ gerekli. → ✅ **FAZ 3: CONFIRMED** — ibadetler/*.json (namaz, oruc, hac, zekat, kurban, tovbe, zikir) genelindeki "Kur'ânî İsimler" kaynak etiketleri örneklemde doğrulandı.
 
 ## next/src/components/QuranCommands.jsx
 

@@ -583,7 +583,7 @@ export default function NefisMertebeleri({ onClose }) {
             isMobile={isMobile}
             sources={[
               { author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs) — emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs) — the path from ammāra to muṭmaʾinna.' },
-              { author: 'İbn Kayyim el-Cevziyye',  workTr: 'Medâricu\'s-Sâlikîn',       workEn: 'Madārij al-Sālikīn',        period: '1292–1350 (Şâm)',    noteTr: 'Üç mertebe sistemi (Kur\'ânî) — sufi 7\'liye karşı eleştirel okuma.', noteEn: 'The three-stage system (Qurʾanic) — critical reading vs the Sufi sevenfold.' },
+              { author: 'İbn Kayyim el-Cevziyye',  workTr: 'Medâricu\'s-Sâlikîn',       workEn: 'Madārij al-Sālikīn',        period: '1292–1350 (Şâm)',    noteTr: 'Kur\'ânî üç nefis mertebesinin (emmâre-levvâme-mutmainne) işlendiği tasavvufî klasik.', noteEn: 'A classical Sufi work treating the Qur\'anic three-stage nafs framework (ammāra–lawwāma–muṭmaʾinna).' },
               { author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe — Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations — foundational text of the Kubrāwiyya order.' },
               { author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri — \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28 — kalāmic reading of the muṭmaʾinna station.' },
             ]}

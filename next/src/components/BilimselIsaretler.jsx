@@ -633,8 +633,8 @@ function BucaillismTab({ intro, language, isMobile }) {
           fontFamily: FONTS.body, lineHeight: 1.7,
         }}>
           {tr
-            ? 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — Bucaillism\'i eleştiren en detaylı Islamic Studies eseri. Karen Bauer, Gender Hierarchy in the Qur\'an (2015) — metod eleştirisi. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — akademik konsensüs.'
-            : 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — the most detailed Islamic Studies work critiquing Bucaillism. Karen Bauer, Gender Hierarchy in the Qur\'an (2015) — methodological critique. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — academic consensus.'}
+            ? 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — Bucaillism\'i eleştiren en detaylı Islamic Studies eseri. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — akademik konsensüs.'
+            : 'Nidhal Guessoum, Islam\'s Quantum Question (2011) — the most detailed Islamic Studies work critiquing Bucaillism. Nicolai Sinai, The Qur\'an: A Historical-Critical Introduction (2017) — academic consensus.'}
         </p>
       </div>
     </div>

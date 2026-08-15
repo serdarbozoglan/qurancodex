@@ -92,8 +92,8 @@
     }
   ],
   "duaAnatomy": {
-    "introTr": "Kur'ân duasının klasik gramatik kalıbı 4 katmanlıdır: NİDÂ (çağrı) → HÂCET (talep) → GEREKÇE / TESBİH (Allah'ın bir sıfatını hatırlatma) → İSİM İLE KAPATMA (esmâ-ı hüsnâ'dan iki tanımlayıcı). Bu kalıp, İbn Kayyim (`el-Vâbilü's-Sayyib`) ve Suyûtî (`el-Câmiʿu's-Saġîr`) tarafından şablonlaştırılmıştır. Aşağıda 4 örnek dua bu 4 katman üzerinden çözümlenir.",
-    "introEn": "The classical grammar of a Qur'anic prayer has four layers: VOCATIVE (call) → PETITION (request) → REASONING / EXALTATION (invoking a divine attribute) → SEALING WITH DIVINE NAMES (two descriptors from the Beautiful Names). This template is codified by Ibn al-Qayyim (`al-Wābil al-Ṣayyib`) and al-Suyūṭī (`al-Jāmiʿ al-Ṣaghīr`). Four examples below are analyzed across these four layers.",
+    "introTr": "Kur'ân duasının klasik gramatik kalıbı 4 katmanlıdır: NİDÂ (çağrı) → HÂCET (talep) → GEREKÇE / TESBİH (Allah'ın bir sıfatını hatırlatma) → İSİM İLE KAPATMA (esmâ-ı hüsnâ'dan iki tanımlayıcı). Bu kalıp, başta İbn Kayyim'in (`el-Vâbilü's-Sayyib`) dua psikolojisi üzerine yazdıklarından süzülür; Suyûtî'nin (`el-Câmiʿu's-Saġîr`) derlediği hadislerdeki dua örnekleri de bu yapıyla örtüşür. Aşağıda 4 örnek dua bu 4 katman üzerinden çözümlenir.",
+    "introEn": "The classical grammar of a Qur'anic prayer has four layers: VOCATIVE (call) → PETITION (request) → REASONING / EXALTATION (invoking a divine attribute) → SEALING WITH DIVINE NAMES (two descriptors from the Beautiful Names). This template is distilled largely from Ibn al-Qayyim's (`al-Wābil al-Ṣayyib`) writings on the psychology of prayer; the prayer examples compiled by al-Suyūṭī (`al-Jāmiʿ al-Ṣaghīr`) also fit this structure. Four examples below are analyzed across these four layers.",
     "layers": [
       {"id": "nida", "labelTr": "NİDÂ (Çağrı)", "labelEn": "Vocative (Call)", "descTr": "Rabbenâ / Rabbi / Yâ Rabb — dua bir 'kime' üzerinden başlar.", "descEn": "Rabbanā / Rabbi / Yā Rabb — the prayer begins with a 'to whom.'", "color": "#3498db"},
       {"id": "hacet", "labelTr": "HÂCET (Talep)", "labelEn": "Petition (Request)", "descTr": "İğfir lenâ / tekabbel minnâ / âtinâ / âfinâ — asıl istek.", "descEn": "Ighfir lanā / taqabbal minnā / ātinā / ʿāfinā — the core request.", "color": "#d4a574"},
@@ -291,8 +291,8 @@
       "workTr": "el-Câmiʿu's-Saġîr",
       "workEn": "al-Jāmiʿ al-Ṣaghīr",
       "period": "849–911 h · (Kahire)",
-      "noteTr": "Kur'ân ve hadisten dua tasnifi; klasik dua ansiklopedisi.",
-      "noteEn": "Classification of prayers from Qur'ān and hadith; the classical prayer encyclopedia."
+      "noteTr": "Alfabetik düzenlenmiş genel hadis derlemesi — dua ve zikirle ilgili rivayetler de bu geniş külliyat içinde yer alır.",
+      "noteEn": "An alphabetically arranged general hadith compilation — prayer- and remembrance-related narrations are among the many topics it covers."
     },
     {
       "author": "İbnü'l-Kayyim",

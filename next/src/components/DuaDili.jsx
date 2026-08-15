@@ -642,8 +642,8 @@ function SourcesTab({ language, isMobile }) {
           fontFamily: FONTS.body, margin: 0,
         }}>
           {language === 'tr'
-            ? "Kur'ân'ın dua dilinin gramatik kalıbı ve psikolojisi üzerine yazılmış klasik kaynaklar. Suyûtî ve Nevevî derleme, İbn Kayyim ve Gazâlî ise dua psikolojisi geleneğini kurar."
-            : "Classical sources on the grammar and psychology of the Qur'anic language of prayer. Suyūṭī and Nawawī provide compilation; Ibn al-Qayyim and Ghazālī establish the tradition of prayer psychology."}
+            ? "Kur'ân'ın dua dilinin gramatik kalıbı ve psikolojisi üzerine yazılmış klasik kaynaklar. Nevevî doğrudan dua/zikir derler, Suyûtî'nin genel hadis külliyatı da dua rivayetlerine kaynaklık eder; İbn Kayyim ve Gazâlî ise dua psikolojisi geleneğini kurar."
+            : "Classical sources on the grammar and psychology of the Qur'anic language of prayer. Nawawī compiles prayers and remembrances directly, while Suyūṭī's general hadith compilation also preserves prayer narrations; Ibn al-Qayyim and Ghazālī establish the tradition of prayer psychology."}
         </p>
       </div>
       <SourcesCitation language={language} isMobile={isMobile} sources={data.sources} />
