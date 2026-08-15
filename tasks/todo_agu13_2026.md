@@ -1801,7 +1801,7 @@ Commit: bkz. git log (`tests/__baseline__/tools-nav.json`).
       | ~~`react/no-unescaped-entities`~~ | ~~454~~ **0** | ✅ **KAPANDI** `7b41db9`+`ae85235`+`a90ef8f` |
       | `react-hooks/set-state-in-effect` | **50** | gereksiz render turu |
       | `react-hooks/refs` | **18** | render sırasında ref okuma (17'si `ReadingMode`) |
-      | `react-hooks/exhaustive-deps` | 14 | eksik dependency |
+      | ~~`react-hooks/exhaustive-deps`~~ | ~~14~~ **0** | ✅ **KAPANDI** `3473dbe` |
       | `@next/next/no-img-element` | 10 | `<img>` yerine `next/image` |
       | ~~`react-hooks/static-components`~~ | ~~7~~ **0** | ✅ **KAPANDI** `34f4d8a` |
       | `react-hooks/immutability` | 6 | React Compiler kuralı, incelenmedi |
@@ -1849,6 +1849,77 @@ kontrolü (render'da literal `&quot;`/`&apos;` yok), CLS regresyon yok,
       13 React Compiler kuralı — henüz ele alınmadı, ayrı kapsam kararı
       gerekir (özellikle refs'in 17'si `ReadingMode.jsx`'te — o dosyaya
       dokunmak riskli, bkz. Z3g2 ve ReadingMode CLS'in iki başarısız turu).
+
+#### 15 Ağustos (gece) · react-hooks/exhaustive-deps kapatıldı — 14→0, 8 dosya
+
+`LanguageContext.jsx`, `SurahComparator.jsx`, `SorRoute.jsx`, `ConceptGraph.jsx`,
+`ToolsBrowser.jsx`, `VerseGraph.jsx`, `SebebiNuzul.jsx`, `ReadingMode.jsx`.
+Her bulgu tek tek incelendi, körlemesine "linter'ın dediğini yap" YAPILMADI:
+
+- **Gerçek bug bulundu ve düzeltildi:** `ConceptGraph.jsx`'te `openConcept`
+  `useCallback((concept) => {...})` — deps array'i **hiç yoktu**, yani
+  memoizasyon tam bir no-op'tu. `[]` eklendi (gövde yalnız stabil
+  modül-seviye cache + state setter/ref okuyor, doğrulandı).
+- **Gerçek gereksiz dependency kaldırıldı:** `SorRoute.jsx`'te `runQuery`'nin
+  `language` dep'i — fonksiyon `queryLang`'ı internal `detectQueryLang(q)`
+  ile türetiyor, outer `language`'ı hiç okumuyor.
+- **"Her render'da yeni referans" deseni (3 örnek), useMemo'ya alındı:**
+  `SorRoute.jsx` `stages`, `SebebiNuzul.jsx` `byCategory`, `ToolsBrowser.jsx`
+  `filteredByCategory` — üçü de `cond ? [...] : [...]` gibi bir literal'i
+  her render'da yeniden üretiyordu, bağımlı `useMemo`/`useEffect` bu yüzden
+  gereksiz yeniden tetikleniyordu.
+- **Stabil referans eksik dep, risksiz eklendi (2 örnek):**
+  `LanguageContext.jsx toggleLanguage` → `setLanguage` (kendi `useCallback(fn,
+  [])`'ı), `ConceptGraph.jsx` klavye-effect → `backToLanding` (`useCallback(fn,
+  [])`). İkisi de referans hiç değişmediği için deps'e eklenmesi davranışı
+  değiştirmiyor, yalnız linter'ı susturuyor.
+- **Bilinçli false-positive, `eslint-disable` + gerekçe yorumuyla korundu (4
+  dosya) — linter'ın önerisi (dep'i KALDIR) izlenSEYDİ gerçek regresyon
+  olurdu:**
+  - `LanguageContext.jsx t()`: `enLoadedAt` gövdede okunmuyor ama modül-seviye
+    `translations.en` cache'i dolunca `t`'nin referansını invalidate etmenin
+    tek sinyali bu — kaldırılırsa consumer'lar EN yüklendiğinde re-render
+    olmaz (dosyanın kendi 2026-07-10 yorumu bunu zaten belgeliyordu).
+  - `SurahComparator.jsx revRankMap`: `loading` aynı desen, modül-seviye
+    `cachedRevOrder`'ı hedefliyor (fetch tamamlanıp `setLoading(false)`
+    olduğunda dolduruluyor, satır ~496 ile aynı promise zincirinde — grep ile
+    doğrulandı).
+  - `VerseGraph.jsx` mount-effect: `onClose`'u iki çağıran da (`Navbar.jsx`,
+    `VerseGraphRoute.jsx`) inline arrow olarak geçiyor — deps'e eklenirse
+    büyük `verse-graph-bgem3.json` her re-render'da yeniden çekilir.
+  - `ReadingMode.jsx searchResults`/`shareVerse`: `makeWordRe`/
+    `parseReference`/`surahNameOf` component gövdesinde plain fonksiyon
+    (useCallback DEĞİL), zaten her render'da yeniden yaratılıyor — deps'e
+    eklenmesi ilgili `useMemo`/`useCallback`'i her render'da geçersiz kılar,
+    memoizasyonu anlamsızlaştırır. `ReadingMode.jsx`'in bu turda dokunulan
+    TEK yeri bu iki yorum satırı — dosyanın CLS geçmişi (Z3g2, iki başarısız
+    tur) nedeniyle davranışsal hiçbir satır değiştirilmedi.
+- **Ayrı bir yapısal uyarı da giderildi (exhaustive-deps değil, `refs`
+  ailesinden):** `VerseGraph.jsx`'te auto-rotate cleanup effect'i,
+  cleanup anında `graphRef.current`'ı YENİDEN okuyordu ("ref value will
+  likely have changed" uyarısı) — artık `attachListeners` çalıştığı anda
+  canvas elementi yerel bir değişkende saklanıyor, cleanup o değişkeni
+  kullanıyor.
+
+**Build'i kıran bir regresyon çıktı ve düzeltildi (push öncesi yakalandı):**
+`ConceptGraph.jsx`'te `backToLanding`'i klavye-effect'in deps array'ine
+eklemek `ReferenceError: Cannot access 'ad' before initialization` ile
+prod build'i kırdı — `backToLanding`'in `const` tanımı, onu deps'inde
+kullanan effect'ten SONRA geliyordu (TDZ ihlali; deps array'i render
+sırasında senkron değerlendirilir, closure gövdesinin aksine). Çözüm:
+`backToLanding`'in tanımını effect'ten ÖNCEye taşımak. **Ders:** yeni bir
+identifier'ı bir hook'un deps array'ine eklerken, yalnız closure gövdesi
+değil deps array'inin KENDİSİ de o identifier'ın tanımından sonra mı diye
+kontrol et — `npm run build` bunu yakaladı, `npx eslint` ve dev server
+YAKALAMADI (Turbopack dev farklı bir bundling stratejisi kullanıyor
+olabilir).
+
+Doğrulama: `npm run build` temiz (fix sonrası), proje geneli `npx eslint`
+0 gerçek `exhaustive-deps` bulgusu, `audit-colors.mjs --ci` 179/182 (taban
+aşılmadı), `audit-internal-leak.mjs --ci` temiz, 6 rota
+(`/tr/sor`, `/tr/graf/kavram`, `/tr/graf/karsilastir`, `/tr/graf/ayet`,
+`/tr/oku/2`, `/tr/arac/tum-araclar`) Playwright ile 200 + sıfır konsol
+hatası doğrulandı. Commit `3473dbe`, push edildi.
 - [ ] **Z3g2 · `ReadingMode.jsx` 11.289 satır** (sonraki en büyük 3.869).
       Tek dosyada 18 `react-hooks` ihlali; sitenin en kritik sayfası.
       Bölme/refactor kapsam dışı — bu dosyada iki ayrı CLS turu (14-15
