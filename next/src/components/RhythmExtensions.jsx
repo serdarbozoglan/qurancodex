@@ -79,8 +79,8 @@ export default function RhythmExtensions({ language, isMobile }) {
   const [activeMetre, setActiveMetre] = useState(null);
 
   return (
-    <div style={{
-      padding: isMobile ? '32px 16px 48px' : '48px 32px 64px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(212,165,116,0.02) 100%)',
       borderTop: `1px solid ${COLORS.glassBorderSoft}`,
     }}>

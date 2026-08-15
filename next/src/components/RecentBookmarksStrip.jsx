@@ -81,10 +81,10 @@ export default function RecentBookmarksStrip() {
   if (!mounted || bookmarks.length === 0) return null;
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       maxWidth: 900,
       margin: '20px auto 0',
-      padding: isMobile ? '0 16px' : '0 32px',
+      '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px",
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
         <div style={{

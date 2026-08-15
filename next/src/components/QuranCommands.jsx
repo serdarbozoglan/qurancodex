@@ -113,7 +113,7 @@ export default function QuranCommands({ onClose }) {
 
   // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -206,9 +206,9 @@ export default function QuranCommands({ onClose }) {
       />
 
       {/* Header — Cinematic Hero (Bismillah + Nahl 16:90 anchor + framing + filigree) */}
-      <div style={{ padding: isMobile ? '56px 16px 28px' : '60px 32px 36px', maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)', textAlign: 'center' }}>
+      <div className="mq-box" style={{ '--pt-d': "60px", '--pt-m': "56px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1280px', margin: '0 auto', borderBottom: '1px solid rgba(255,255,255,0.07)', textAlign: 'center' }}>
         {/* Bismillah */}
-        <div
+        <div className="mq-box"
           dir="rtl" lang="ar" aria-label="Bismillāh"
           style={{
             fontFamily: FONTS.bismillah,
@@ -216,7 +216,7 @@ export default function QuranCommands({ onClose }) {
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
-            marginBottom: isMobile ? '28px' : '40px',
+            '--mb-d': '40px', '--mb-m': '28px',
             textShadow: `0 0 22px ${COLORS.gold}28`,
           }}
         >
@@ -454,7 +454,7 @@ export default function QuranCommands({ onClose }) {
         </nav>
 
         {/* Main content */}
-        <div style={{ flex: 1, padding: isMobile ? '16px 16px 40px' : '24px 32px 48px', minWidth: 0 }}>
+        <div className="mq-box" style={{ flex: 1, '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", minWidth: 0 }}>
 
           {/* Category title + filter toggle */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
@@ -544,7 +544,7 @@ export default function QuranCommands({ onClose }) {
           )}
         </div>
       </div>
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px' : '0 24px', width: '100%' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
         <SourcesCitation
           language={language}
           isMobile={isMobile}

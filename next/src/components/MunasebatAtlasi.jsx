@@ -81,11 +81,11 @@ function Header({ language }) {
 // ── Tab Bar ──────────────────────────────────────────────────────────────────
 function TabBar({ language, isMobile, activeTab, setActiveTab }) {
   return (
-    <div id="munasebat-tab-bar"
+    <div className="mq-box" id="munasebat-tab-bar"
       style={{
         display: 'flex',
         gap: '4px',
-        padding: isMobile ? '10px 12px' : '12px 20px',
+        '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
         background: 'rgb(6, 8, 14)',
         backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
@@ -162,10 +162,10 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
   const strengthColor = STRENGTH_COLOR[strengthKey] || COLORS.silver;
 
   return (
-    <div
+    <div className="mq-box"
       style={{
         ...GLASS_CARD,
-        padding: isMobile ? '16px' : '20px 22px',
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
         marginBottom: '14px',
       }}
     >
@@ -463,7 +463,7 @@ function GroupList({ groups, language, isMobile }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
       {groups.map((g) => (
-        <div key={g.id} style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '18px 22px' }}>
+        <div className="mq-box" key={g.id} style={{ ...GLASS_CARD, '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px" }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '6px', flexWrap: 'wrap' }}>
             <span style={{
               fontFamily: FONTS.display, fontSize: '1.15rem', fontWeight: 700,

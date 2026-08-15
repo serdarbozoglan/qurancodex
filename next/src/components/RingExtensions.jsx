@@ -270,8 +270,8 @@ export default function RingExtensions({ language, isMobile }) {
   const [activeRing, setActiveRing] = useState(0);
 
   return (
-    <div style={{
-      padding: isMobile ? '32px 16px 48px' : '48px 32px 64px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(212,165,116,0.02) 100%)',
       borderTop: `1px solid ${COLORS.glassBorderSoft}`,
     }}>
@@ -349,8 +349,8 @@ export default function RingExtensions({ language, isMobile }) {
 
           {/* Active ring display */}
           {ADDITIONAL_RINGS[activeRing] && (
-            <div style={{
-              padding: isMobile ? '22px 20px' : '28px 32px',
+            <div className="mq-box" style={{
+              '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "32px", '--pl-m': "20px",
               background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
               border: `1px solid ${COLORS.goldAlpha25}`,
               borderRadius: RADIUS.md,

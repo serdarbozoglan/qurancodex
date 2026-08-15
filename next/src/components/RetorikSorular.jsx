@@ -133,8 +133,8 @@ export default function RetorikSorular({ onClose }) {
     }}>
       {TOOL_HEADER}
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
-        <div style={{
-          padding: isMobile ? '40px 20px 28px' : '56px 40px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center', position: 'relative', overflow: 'hidden',
@@ -160,11 +160,11 @@ export default function RetorikSorular({ onClose }) {
             filter: 'blur(4px)',
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
             <p dir="rtl" lang="ar" style={{
@@ -218,9 +218,9 @@ export default function RetorikSorular({ onClose }) {
         </div>
 
         {/* FAMILY SELECTOR */}
-        <div id="belagat-tab-bar" style={{
+        <div className="mq-box" id="belagat-tab-bar" style={{
           display: 'flex', gap: '4px',
-          padding: isMobile ? '12px 8px' : '14px 16px',
+          '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
@@ -230,12 +230,12 @@ export default function RetorikSorular({ onClose }) {
           {FAMILY_TABS.map(f => {
             const isActive = f.id === activeFamilyId;
             return (
-              <button key={f.id} onClick={() => {
+              <button className="mq-box" key={f.id} onClick={() => {
                 setActiveFamilyId(f.id);
                 setTimeout(() => document.getElementById('belagat-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
                 style={{
-                  padding: isMobile ? '8px 14px' : '10px 18px',
+                  '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                   borderRadius: '999px',
                   border: `1px solid ${isActive ? f.color : COLORS.glassBorder}`,
                   background: isActive ? `${f.color}22` : 'transparent',
@@ -255,7 +255,7 @@ export default function RetorikSorular({ onClose }) {
           })}
         </div>
 
-        <div style={{ padding: isMobile ? '20px 16px 48px' : '32px 40px 64px' }}>
+        <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "40px", '--pl-m': "16px" }}>
           {activeFamilyId === 'istifham' && (
             <div>
               <p style={{
@@ -322,8 +322,8 @@ function FamilyView({ aile, expandedIdx, onToggle, language, isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <div style={{
-        padding: isMobile ? '20px 18px' : '26px 30px',
+      <div className="mq-box" style={{
+        '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "18px",
         background: `linear-gradient(135deg, ${aile.color}0E 0%, rgba(255,255,255,0.02) 60%)`,
         border: `1px solid ${aile.color}35`, borderLeft: `3px solid ${aile.color}`,
         borderRadius: RADIUS.md, marginBottom: '20px',

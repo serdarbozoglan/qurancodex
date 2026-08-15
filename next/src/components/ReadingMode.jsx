@@ -2882,10 +2882,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           chip strip containing all other controls. The §14.5 split keeps the
           title legible at one glance and avoids cramming 4–5 36px-wide
           buttons + a wide pill into a single 52px row. */}
-      <div className="tri-col-vs" style={{
+      <div className="tri-col-vs mq-box" style={{
         gridTemplateRows: isMobile ? undefined : 'auto',
         alignItems: isMobile ? 'stretch' : 'center',
-        padding: isMobile ? 0 : '0 16px', height: isMobile ? 'auto' : '64px', flexShrink: 0,
+        '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "0", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "0", height: isMobile ? 'auto' : '64px', flexShrink: 0,
         background: navC.bg, backdropFilter: 'blur(24px)',
         borderBottom: `1px solid ${navC.borderBottom}`,
         // Lift the navbar above the Tahta canvas (zIndex 200) so its buttons remain
@@ -3781,11 +3781,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             backdropFilter: 'blur(20px)',
           }}>
             {/* Header row — always visible, click toggles expansion */}
-            <button
+            <button className="mq-box"
               onClick={() => setShowTajweedLegend(v => !v)}
               style={{
                 width: '100%',
-                padding: isMobile ? '5px 12px' : '6px 20px',
+                '--pt-d': "6px", '--pt-m': "5px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "6px", '--pb-m': "5px", '--pl-d': "20px", '--pl-m': "12px",
                 background: 'transparent',
                 border: 'none',
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -3839,10 +3839,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* Expanded chip row */}
             {showTajweedLegend && (
-              <div style={{
+              <div className="mq-box" style={{
                 display: 'flex',
                 gap: isMobile ? '12px' : '18px',
-                padding: isMobile ? '4px 12px 10px' : '4px 20px 12px',
+                '--pt-d': "4px", '--pt-m': "4px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 scrollbarWidth: 'none',
@@ -6146,9 +6146,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             overflowY: 'auto',
           }}>
             {/* Header */}
-            <div style={{
+            <div className="mq-box" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: isMobile ? '12px 16px' : '16px 40px',
+              '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "40px", '--pl-m': "16px",
               borderBottom: `1px solid ${dayMode ? 'rgba(154,111,16,0.15)' : 'rgba(212,165,116,0.1)'}`,
               flexShrink: 0,
             }}>
@@ -6175,7 +6175,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
 
             {/* Content */}
-            <div style={{ padding: isMobile ? '24px 16px 48px' : '40px 56px 80px', maxWidth: '780px', margin: '0 auto', width: '100%' }}>
+            <div className="mq-box" style={{ '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "56px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "48px", '--pl-d': "56px", '--pl-m': "16px", maxWidth: '780px', margin: '0 auto', width: '100%' }}>
 
               {/* Gold ornament */}
               <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -6349,7 +6349,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
-          <div style={{
+          <div className="mq-box" style={{
             // Cap at 1700px so very wide displays (4K, ultrawide) don't
             // stretch Arabic lines into 'magazine' territory. Below that
             // width the grid fills the viewport (minus 32px padding), which
@@ -6357,9 +6357,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // container and the side-arrow buttons.
             maxWidth: '1800px',
             margin: '0 auto',
-            padding: isMobile
-              ? '10px 12px 32px 12px'
-              : '20px 32px 36px 32px',
+            '--pt-d': "20px", '--pt-m': "10px", '--pr-d': "32px", '--pr-m': "12px", '--pb-d': "36px", '--pb-m': "32px", '--pl-d': "32px", '--pl-m': "12px",
           }}>
             {/* Fatiha ceremonial header — only when Fatiha 1:1 is on page (always page 1).
                 Surah title cards (Arabic name + transliteration + ayah count) are
@@ -6453,7 +6451,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               )}
               {/* Left: Translation — hidden when Meal is off */}
               {showTranslation && (
-                <div style={{
+                <div className="mq-box" style={{
                   order: isMobile ? 2 : 1,
                   // Internal right padding kept small — the 88px grid gap +
                   // 3-layer divider handles the visual separation from the
@@ -6476,7 +6474,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     ? (isMobile ? '12px' : (showPageFrame ? '18px' : '0'))
                     : (isMobile ? '52px' : '48px'),
                   paddingBottom: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
-                  marginTop: isMobile ? '12px' : '0',
+                  '--mt-d': '0', '--mt-m': '12px',
                   display: 'flex', flexDirection: 'column', gap: '0',
                   // Relative parent so the absolute-positioned translator attribution
                   // floats above the column without pushing the surah header down —
@@ -6691,7 +6689,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // navigational metadata while the Arabic side stays mushaf-pure.
                         return (
                           <div key={`tr-sh-${item.surah}`} lang={contentLang} style={{ display: 'block' }}>
-                            <div style={{ textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
+                            <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
                               {/* Vertical gold rule — same anchor as Arabic side */}
                               <div style={{
                                 width: '1.5px',
@@ -6705,7 +6703,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               {/* Sûre N — small caps gold label.
                                   Slightly tighter than before so it doesn't out-weigh
                                   the Arabic-side السُّورَةُ ٥٧ counterpart. */}
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: '0.74rem',
                                 color: C.gold,
@@ -6713,31 +6711,31 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 letterSpacing: '0.18em',
                                 textTransform: 'uppercase',
                                 fontWeight: 600,
-                                marginBottom: isMobile ? '14px' : '20px',
+                                '--mb-d': '20px', '--mb-m': '14px',
                               }}>
                                 {contentLang === 'tr' ? `Sûre ${item.surah}` : `Surah ${item.surah}`}
                               </div>
 
                               {/* Hero name — Playfair display, gold */}
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: "'Playfair Display', Georgia, serif",
                                 fontSize: isMobile ? '1.95rem' : '2.5rem',
                                 color: C.gold,
                                 fontWeight: 700,
                                 letterSpacing: '0.05em',
                                 lineHeight: 1.1,
-                                marginBottom: isMobile ? '6px' : '10px',
+                                '--mb-d': '10px', '--mb-m': '6px',
                               }}>
                                 {displayName}
                               </div>
 
                               {/* Italic Turkish/English subtitle */}
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: isMobile ? '0.98rem' : '1.06rem',
                                 color: C.muted,
                                 fontStyle: 'italic',
-                                marginBottom: isMobile ? '14px' : '20px',
+                                '--mb-d': '20px', '--mb-m': '14px',
                               }}>
                                 {contentLang === 'tr' ? `${trName} Sûresi` : `Sūrah ${enName}`}
                               </div>
@@ -6776,7 +6774,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 ? fatihaTrText
                                 : (contentLang === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful');
                               return (
-                                <div
+                                <div className="mq-box"
                                   id={isFatihaHeaderTr ? `rm-meal-${fv.id}` : undefined}
                                   onClick={isFatihaHeaderTr ? () => { handleSelectVerse(fv); handleAudioToggle(fv); } : undefined}
                                   style={{
@@ -6799,8 +6797,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     // shown when the surah is not Fatiha — so Bismillah
                                     // gets its honoured colour wherever it appears.
                                     color: C.bismillah,
-                                    marginTop: isMobile ? '38px' : '54px',
-                                    marginBottom: isMobile ? '14px' : '22px',
+                                    '--mt-d': '54px', '--mt-m': '38px',
+                                    '--mb-d': '22px', '--mb-m': '14px',
                                     lineHeight: 1.7,
                                     cursor: isFatihaHeaderTr ? 'pointer' : 'default',
                                     background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -6856,13 +6854,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       // surahs (97–114) where extra gap creates empty pages.
                       const longSurah = verse.surah <= 96;
                       return (
-                        <div
+                        <div className="mq-box"
                           key={verse.id}
                           onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                           style={{
                             position: 'relative',
                             cursor: 'pointer', borderRadius: isMobile ? '0' : '6px',
-                            padding: isMobile ? '10px 8px' : '8px 12px',
+                            '--pt-d': "8px", '--pt-m': "10px", '--pr-d': "12px", '--pr-m': "8px", '--pb-d': "8px", '--pb-m': "10px", '--pl-d': "12px", '--pl-m': "8px",
                             marginBottom: longSurah ? (isMobile ? '10px' : '14px') : 0,
                             background: isActive ? C.activeHighlight : 'transparent',
                             boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
@@ -6898,7 +6896,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             </span>
                           )}
                           <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
-                            <button
+                            <button className="mq-box"
                               type="button"
                               onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
                               title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
@@ -6931,7 +6929,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 // Secde âyeti → DOLGULU yeşil daire + beyaz rakam.
                                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                                 width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                                borderRadius: RADIUS.full, flexShrink: 0, marginTop: isMobile ? '2px' : '1px',
+                                borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '1px', '--mt-m': '2px',
                                 border: `1.5px solid ${isSajdaTr ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : 'aa'}`}`,
                                 boxShadow: isSajdaTr
                                   ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
@@ -7006,9 +7004,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {/* Discoverability footnote — meal column only. Polite "siz"
                       form, descriptive (not directive). Subtle dashed rule +
                       muted italic so it never competes with the verse text. */}
-                  <div style={{
-                    marginTop: isMobile ? '20px' : '28px',
-                    paddingTop: isMobile ? '14px' : '16px',
+                  <div className="mq-box" style={{
+                    '--mt-d': '28px', '--mt-m': '20px',
+                    '--pt-d': '16px', '--pt-m': '14px',
                     borderTop: `1px dashed ${dayMode ? 'rgba(154,120,56,0.20)' : 'rgba(212,165,116,0.14)'}`,
                     fontSize: isMobile ? '0.98rem' : '1.05rem',
                     fontStyle: 'italic',
@@ -7102,7 +7100,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         : `Juz ${num} — ${startLabel} → ${endLabel}`;
                     })();
                     return (
-                      <span
+                      <span className="mq-box"
                         role="img"
                         aria-label={tooltip}
                         title={tooltip}
@@ -7120,8 +7118,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           flexDirection: 'column',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          paddingTop: isMobile ? '4px' : '6px',
-                          paddingBottom: isMobile ? '1px' : '1px',
+                          '--pt-d': '6px', '--pt-m': '4px',
+                          '--pb-d': '1px', '--pb-m': '1px',
                           gap: '0',
                           color: C.gold,
                           background: dayMode
@@ -7176,7 +7174,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           : 'آيَة';
                         return (
                           <span key={`ar-sh-L-${item.surah}`} style={{ display: 'block' }}>
-                            <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
+                            <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
                               <div style={{
                                 width: '1.5px',
                                 height: isMobile ? '32px' : '40px',
@@ -7184,24 +7182,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 margin: '0 auto',
                               }} />
                               <div style={{ height: isMobile ? '40px' : '52px' }} />
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: currentFont,
                                 fontSize: isMobile ? '1.22rem' : '1.45rem',
                                 color: C.gold,
                                 opacity: 0.78,
                                 letterSpacing: '0.02em',
                                 lineHeight: 1.4,
-                                marginBottom: isMobile ? '14px' : '20px',
+                                '--mb-d': '20px', '--mb-m': '14px',
                               }}>
                                 السُّورَةُ {toArabicNumerals(item.surah)}
                               </div>
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: currentFont,
                                 fontSize: isMobile ? '3rem' : '3.8rem',
                                 color: C.gold,
                                 lineHeight: 1.1,
                                 letterSpacing: '0.02em',
-                                marginBottom: isMobile ? '18px' : '26px',
+                                '--mb-d': '26px', '--mb-m': '18px',
                                 textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
                               }}>
                                 {arName}
@@ -7218,7 +7216,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     non-Arabic reader can confirm which
                                     surah they've opened. */}
                               {(!showTranslation || isMobile) && (
-                                <div style={{
+                                <div className="mq-box" style={{
                                   // Crimson Pro italic — matches the meal body
                                   // family for typographic coherence (Playfair
                                   // Display is a heading face, looked forced
@@ -7230,8 +7228,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   color: dayMode ? '#6a4d18' : 'rgba(232,181,71,0.85)',
                                   letterSpacing: '0.04em',
                                   lineHeight: 1.4,
-                                  marginTop: isMobile ? '-6px' : '-10px',
-                                  marginBottom: isMobile ? '10px' : '14px',
+                                  '--mt-d': '-10px', '--mt-m': '-6px',
+                                  '--mb-d': '14px', '--mb-m': '10px',
                                   direction: 'ltr',
                                 }}>
                                   {contentLang === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {contentLang === 'en' ? SURAH_NAMES_EN[item.surah - 1] : SURAH_NAMES_TR[item.surah - 1]}
@@ -7249,14 +7247,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               </div>
                             </div>
                             {item.surah !== 9 && item.surah !== 1 && (
-                              <div style={{
+                              <div className="mq-box" style={{
                                 textAlign: 'center',
                                 direction: 'rtl',
                                 fontFamily: currentFont,
                                 fontSize: `${arabicFontSize}rem`,
                                 color: C.bismillah,
-                                marginTop: isMobile ? '20px' : '28px',
-                                marginBottom: isMobile ? '20px' : '30px',
+                                '--mt-d': '28px', '--mt-m': '20px',
+                                '--mb-d': '30px', '--mb-m': '20px',
                                 lineHeight: 1.9,
                               }}>
                                 {BISMILLAH_AR}
@@ -7553,7 +7551,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       : `Juz ${num} — ${startLabel} → ${endLabel}`;
                   })();
                   return (
-                    <span
+                    <span className="mq-box"
                       role="img"
                       aria-label={tooltip}
                       title={tooltip}
@@ -7581,8 +7579,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // optical center above the geometric center. We add
                         // top padding to nudge the content down so the visible
                         // glyphs sit at the medallion's true visual center.
-                        paddingTop: isMobile ? '4px' : '6px',
-                        paddingBottom: isMobile ? '1px' : '1px',
+                        '--pt-d': '6px', '--pt-m': '4px',
+                        '--pb-d': '1px', '--pb-m': '1px',
                         gap: '0',
                         color: C.gold,
                         // Single tinted fill matching navbar amber saturation.
@@ -7664,7 +7662,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               Honors mushaf tradition (Arabic-only) without half-baked tezhip.
                               Uses padding (not margin) on top to prevent margin-collapse issues
                               that misaligned this side from the flex-based meal column. */}
-                          <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '48px' : '60px', marginBottom: isMobile ? '22px' : '30px' }}>
+                          <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
                             {/* Vertical gold rule — ink-drop transition marker */}
                             <div style={{
                               width: '1.5px',
@@ -7677,26 +7675,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                             <div style={{ height: isMobile ? '40px' : '52px' }} />
 
                             {/* Sūratu N — small calligraphic Arabic label */}
-                            <div style={{
+                            <div className="mq-box" style={{
                               fontFamily: currentFont,
                               fontSize: isMobile ? '1.22rem' : '1.45rem',
                               color: C.gold,
                               opacity: 0.78,
                               letterSpacing: '0.02em',
                               lineHeight: 1.4,
-                              marginBottom: isMobile ? '14px' : '20px',
+                              '--mb-d': '20px', '--mb-m': '14px',
                             }}>
                               السُّورَةُ {toArabicNumerals(item.surah)}
                             </div>
 
                             {/* Hero name — calligraphy at scale, gold */}
-                            <div style={{
+                            <div className="mq-box" style={{
                               fontFamily: currentFont,
                               fontSize: isMobile ? '3rem' : '3.8rem',
                               color: C.gold,
                               lineHeight: 1.1,
                               letterSpacing: '0.02em',
-                              marginBottom: isMobile ? '18px' : '26px',
+                              '--mb-d': '26px', '--mb-m': '18px',
                               textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
                             }}>
                               {arName}
@@ -7705,7 +7703,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 visible (Latin already on the meal side);
                                 mobile always shows (no side-by-side meal). */}
                             {(!showTranslation || isMobile) && (
-                              <div style={{
+                              <div className="mq-box" style={{
                                 fontFamily: "'Lora', Georgia, serif",
                                 fontSize: isMobile ? '1.0rem' : '1.2rem',
                                 fontWeight: 500,
@@ -7713,8 +7711,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
                                 letterSpacing: '0.04em',
                                 lineHeight: 1.4,
-                                marginTop: isMobile ? '-6px' : '-10px',
-                                marginBottom: isMobile ? '10px' : '14px',
+                                '--mt-d': '-10px', '--mt-m': '-6px',
+                                '--mb-d': '14px', '--mb-m': '10px',
                                 direction: 'ltr',
                               }}>
                                 {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
@@ -7757,7 +7755,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 : wrapWaqfOnly(ar, dayMode, true, true);
                             })();
                             return (
-                              <div
+                              <div className="mq-box"
                                 id={isFatihaHeader ? `rm-verse-${fv.id}` : undefined}
                                 onClick={isFatihaHeader ? () => { handleSelectVerse(fv); handleAudioToggle(fv); } : undefined}
                                 style={{
@@ -7771,8 +7769,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   // halkalarıyla aynı boyutta (em-relative değil).
                                   fontSize: `${arabicFontSize}rem`,
                                   color: C.bismillah,
-                                  marginTop: isMobile ? '20px' : '28px',
-                                  marginBottom: isMobile ? '20px' : '30px',
+                                  '--mt-d': '28px', '--mt-m': '20px',
+                                  '--mb-d': '30px', '--mb-m': '20px',
                                   lineHeight: 1.9,
                                   cursor: isFatihaHeader ? 'pointer' : 'default',
                                   background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -8096,8 +8094,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         ) : (
           /* ── Verse mode — ayet ayet, sayfa moduyla aynı rozet ve renk stili ── */
           interlinearMode ? (
-            <div style={{
-              padding: isMobile ? '8px 0 40px' : '16px 24px 60px',
+            <div className="mq-box" style={{
+              '--pt-d': "16px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "0", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "24px", '--pl-m': "0",
               // Relative wrapper hosts the cilt boşluğu divider and gives
               // the surah-opening card a positioned context (parity with
               // plain verse mode).
@@ -8156,12 +8154,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   (right) — shared header row, 1fr 1fr on desktop so they
                   sit on opposite sides of the divider. Mobile stacks them. */}
               {showTranslation && (
-                <div ref={inlineMealPickerRef} style={{
+                <div className="mq-box" ref={inlineMealPickerRef} style={{
                   position: 'relative',
                   display: 'grid',
                   gridTemplateColumns: !isMobile ? '1fr 1fr' : '1fr',
                   alignItems: 'center',
-                  padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
+                  '--pt-d': "0", '--pt-m': "4px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "10px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "16px",
                   marginBottom: '6px',
                   borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
                   // ⚠ YIĞIN BAĞLAMI: z:1 kendi bağlamını açıyor; içindeki
@@ -8285,27 +8283,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
                 const arBlock = (
                   <div>
-                    <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                    <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
                       <div style={{
                         width: '1.5px', height: isMobile ? '28px' : '36px',
                         background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
                         margin: '0 auto',
                       }} />
                       <div style={{ height: isMobile ? '32px' : '44px' }} />
-                      <div style={{
+                      <div className="mq-box" style={{
                         fontFamily: currentFont,
                         fontSize: isMobile ? '0.9rem' : '1.05rem',
                         color: C.gold, opacity: 0.78,
                         letterSpacing: '0.02em', lineHeight: 1.4,
-                        marginBottom: isMobile ? '12px' : '18px',
+                        '--mb-d': '18px', '--mb-m': '12px',
                       }}>
                         السُّورَةُ {toArabicNumerals(sn)}
                       </div>
-                      <div style={{
+                      <div className="mq-box" style={{
                         fontFamily: currentFont,
                         fontSize: isMobile ? '2.6rem' : '3.4rem',
                         color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
-                        marginBottom: isMobile ? '16px' : '22px',
+                        '--mb-d': '22px', '--mb-m': '16px',
                         textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
                       }}>
                         {arName}
@@ -8320,13 +8318,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       </div>
                     </div>
                     {sn !== 9 && sn !== 1 && (
-                      <div style={{
+                      <div className="mq-box" style={{
                         textAlign: 'center', direction: 'rtl',
                         fontFamily: currentFont,
                         fontSize: `${arabicFontSize}rem`,
                         color: C.bismillah,
-                        marginTop: isMobile ? '16px' : '24px',
-                        marginBottom: isMobile ? '20px' : '28px',
+                        '--mt-d': '24px', '--mt-m': '16px',
+                        '--mb-d': '28px', '--mb-m': '20px',
                         lineHeight: 1.9,
                       }}>
                         {BISMILLAH_AR}
@@ -8340,40 +8338,40 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
                 const trBlock = (
                   <div lang={contentLang}>
-                    <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                    <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
                       <div style={{
                         width: '1.5px', height: isMobile ? '28px' : '36px',
                         background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
                         margin: '0 auto',
                       }} />
                       <div style={{ height: isMobile ? '32px' : '44px' }} />
-                      <div style={{
+                      <div className="mq-box" style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: isMobile ? '0.65rem' : '0.72rem',
                         color: C.gold, opacity: 0.78,
                         letterSpacing: '0.14em', textTransform: 'uppercase',
-                        marginBottom: isMobile ? '10px' : '14px',
+                        '--mb-d': '14px', '--mb-m': '10px',
                       }}>
                         {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
                       </div>
-                      <div style={{
+                      <div className="mq-box" style={{
                         fontFamily: "'Playfair Display', serif",
                         fontSize: isMobile ? '2.4rem' : '3.1rem',
                         fontWeight: 700,
                         color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
                         textTransform: 'uppercase',
-                        marginBottom: isMobile ? '8px' : '12px',
+                        '--mb-d': '12px', '--mb-m': '8px',
                         textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
                       }}>
                         {heroDisplay}
                       </div>
-                      <div style={{
+                      <div className="mq-box" style={{
                         fontFamily: "'Playfair Display', serif",
                         fontSize: isMobile ? '0.85rem' : '1rem',
                         fontStyle: 'italic',
                         color: dayMode ? '#5a4a32' : C.muted,
                         lineHeight: 1.4,
-                        marginBottom: isMobile ? '14px' : '20px',
+                        '--mb-d': '20px', '--mb-m': '14px',
                         opacity: 0.85,
                       }}>
                         {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
@@ -8391,14 +8389,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       </div>
                     </div>
                     {sn !== 9 && sn !== 1 && (
-                      <div style={{
+                      <div className="mq-box" style={{
                         textAlign: 'center',
                         fontFamily: "'Playfair Display', serif",
                         fontSize: isMobile ? '0.95rem' : '1.05rem',
                         fontStyle: 'italic',
                         color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
-                        marginTop: isMobile ? '16px' : '24px',
-                        marginBottom: isMobile ? '20px' : '28px',
+                        '--mt-d': '24px', '--mt-m': '16px',
+                        '--mb-d': '28px', '--mb-m': '20px',
                         lineHeight: 1.6,
                         padding: '0 12px',
                       }}>
@@ -8454,8 +8452,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               </div>
             </div>
           ) : (
-          <div style={{
-            padding: isMobile ? '8px 0' : '16px 24px',
+          <div className="mq-box" style={{
+            '--pt-d': "16px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "0", '--pb-d': "16px", '--pb-m': "8px", '--pl-d': "24px", '--pl-m': "0",
             display: 'flex',
             flexDirection: 'column',
             gap: '0',
@@ -8518,9 +8516,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 `showInlineMealPicker` state with book mode so behaviour stays
                 consistent across modes. */}
             {showTranslation && (
-              <div ref={inlineMealPickerRef} style={{
+              <div className="mq-box" ref={inlineMealPickerRef} style={{
                 position: 'relative',
-                padding: isMobile ? '4px 16px 10px' : '0 20px 10px',
+                '--pt-d': "0", '--pt-m': "4px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "10px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "16px",
                 marginBottom: '6px',
                 borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
                 // Kardeş bloklarla aynı sıralama garantisi — açıkken yükselir.
@@ -8668,7 +8666,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               const arBlock = (
                 <div>
-                  <div style={{ direction: 'rtl', textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                  <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
                     <div style={{
                       width: '1.5px',
                       height: isMobile ? '28px' : '36px',
@@ -8676,20 +8674,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       margin: '0 auto',
                     }} />
                     <div style={{ height: isMobile ? '32px' : '44px' }} />
-                    <div style={{
+                    <div className="mq-box" style={{
                       fontFamily: currentFont,
                       fontSize: isMobile ? '0.9rem' : '1.05rem',
                       color: C.gold, opacity: 0.78,
                       letterSpacing: '0.02em', lineHeight: 1.4,
-                      marginBottom: isMobile ? '12px' : '18px',
+                      '--mb-d': '18px', '--mb-m': '12px',
                     }}>
                       السُّورَةُ {toArabicNumerals(sn)}
                     </div>
-                    <div style={{
+                    <div className="mq-box" style={{
                       fontFamily: currentFont,
                       fontSize: isMobile ? '2.6rem' : '3.4rem',
                       color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
-                      marginBottom: isMobile ? '16px' : '22px',
+                      '--mb-d': '22px', '--mb-m': '16px',
                       textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
                     }}>
                       {arName}
@@ -8704,13 +8702,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                   </div>
                   {sn !== 9 && sn !== 1 && (
-                    <div style={{
+                    <div className="mq-box" style={{
                       textAlign: 'center', direction: 'rtl',
                       fontFamily: currentFont,
                       fontSize: `${arabicFontSize}rem`,
                       color: C.bismillah,
-                      marginTop: isMobile ? '16px' : '24px',
-                      marginBottom: isMobile ? '20px' : '28px',
+                      '--mt-d': '24px', '--mt-m': '16px',
+                      '--mb-d': '28px', '--mb-m': '20px',
                       lineHeight: 1.9,
                     }}>
                       {BISMILLAH_AR}
@@ -8724,7 +8722,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
               const trBlock = (
                 <div lang={contentLang}>
-                  <div style={{ textAlign: 'center', paddingTop: isMobile ? '32px' : '48px', marginBottom: isMobile ? '18px' : '26px' }}>
+                  <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
                     <div style={{
                       width: '1.5px',
                       height: isMobile ? '28px' : '36px',
@@ -8732,33 +8730,33 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       margin: '0 auto',
                     }} />
                     <div style={{ height: isMobile ? '32px' : '44px' }} />
-                    <div style={{
+                    <div className="mq-box" style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: isMobile ? '0.65rem' : '0.72rem',
                       color: C.gold, opacity: 0.78,
                       letterSpacing: '0.14em', textTransform: 'uppercase',
-                      marginBottom: isMobile ? '10px' : '14px',
+                      '--mb-d': '14px', '--mb-m': '10px',
                     }}>
                       {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
                     </div>
-                    <div style={{
+                    <div className="mq-box" style={{
                       fontFamily: "'Playfair Display', serif",
                       fontSize: isMobile ? '2.4rem' : '3.1rem',
                       fontWeight: 700,
                       color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
                       textTransform: 'uppercase',
-                      marginBottom: isMobile ? '8px' : '12px',
+                      '--mb-d': '12px', '--mb-m': '8px',
                       textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
                     }}>
                       {heroDisplay}
                     </div>
-                    <div style={{
+                    <div className="mq-box" style={{
                       fontFamily: "'Playfair Display', serif",
                       fontSize: isMobile ? '0.85rem' : '1rem',
                       fontStyle: 'italic',
                       color: dayMode ? '#5a4a32' : C.muted,
                       lineHeight: 1.4,
-                      marginBottom: isMobile ? '14px' : '20px',
+                      '--mb-d': '20px', '--mb-m': '14px',
                       opacity: 0.85,
                     }}>
                       {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
@@ -8776,14 +8774,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                   </div>
                   {sn !== 9 && sn !== 1 && (
-                    <div style={{
+                    <div className="mq-box" style={{
                       textAlign: 'center',
                       fontFamily: "'Playfair Display', serif",
                       fontSize: isMobile ? '0.95rem' : '1.05rem',
                       fontStyle: 'italic',
                       color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
-                      marginTop: isMobile ? '16px' : '24px',
-                      marginBottom: isMobile ? '20px' : '28px',
+                      '--mt-d': '24px', '--mt-m': '16px',
+                      '--mb-d': '28px', '--mb-m': '20px',
                       lineHeight: 1.6,
                       padding: '0 12px',
                     }}>
@@ -8827,7 +8825,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       const isLanded = landedVerseId === verse.id;
               const isSajda = SAJDA_VERSES.has(`${verse.surah}:${verse.ayah}`);
               return (
-                <div
+                <div className="mq-box"
                   key={verse.id}
                   id={`rm-verse-${verse.id}`}
                   onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
@@ -8837,7 +8835,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
                     gap: isMobile ? (showTranslation ? '4px' : '8px') : '16px',
                     alignItems: 'flex-start',
-                    padding: isMobile ? '10px 12px' : '12px 20px',
+                    '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
                     background: isActive ? C.activeHighlight : 'transparent',
@@ -9481,11 +9479,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         const prevVerse = activeIdx > 0 ? surahVerses[activeIdx - 1] : null;
         const nextVerse = activeIdx < surahVerses.length - 1 ? surahVerses[activeIdx + 1] : null;
         return (
-          <div style={{
+          <div className="mq-box" style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 30,
             background: C.footerBg, backdropFilter: 'blur(24px)',
             borderTop: `1px solid ${C.footerBorder}`,
-            padding: isMobile ? '8px 12px' : '14px 32px',
+            '--pt-d': "14px", '--pt-m': "8px", '--pr-d': "32px", '--pr-m': "12px", '--pb-d': "14px", '--pb-m': "8px", '--pl-d': "32px", '--pl-m': "12px",
             display: 'grid', gridTemplateColumns: '1fr auto 1fr',
             alignItems: 'center', gap: isMobile ? '8px' : '24px',
           }}>
@@ -9506,10 +9504,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* CENTER: prev / play / next */}
             <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '4px' : '10px', flexShrink: 0 }}>
-              <button
+              <button className="mq-box"
                 onClick={() => prevVerse && handleSelectVerse(prevVerse)}
                 disabled={!prevVerse}
-                style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: prevVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: prevVerse ? 'pointer' : 'default', '--pt-d': "6px", '--pt-m': "3px", '--pr-d': "6px", '--pr-m': "3px", '--pb-d': "6px", '--pb-m': "3px", '--pl-d': "6px", '--pl-m': "3px", display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (prevVerse) e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.color = prevVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder); }}
               >
@@ -9576,10 +9574,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 </button>
               </div>
 
-              <button
+              <button className="mq-box"
                 onClick={() => nextVerse && handleSelectVerse(nextVerse)}
                 disabled={!nextVerse}
-                style={{ background: 'none', border: 'none', color: nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: nextVerse ? 'pointer' : 'default', padding: isMobile ? '3px' : '6px', display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
+                style={{ background: 'none', border: 'none', color: nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder), cursor: nextVerse ? 'pointer' : 'default', '--pt-d': "6px", '--pt-m': "3px", '--pr-d': "6px", '--pr-m': "3px", '--pb-d': "6px", '--pb-m': "3px", '--pl-d': "6px", '--pl-m': "3px", display: 'flex', alignItems: 'center', transition: 'color 0.15s' }}
                 onMouseEnter={e => { if (nextVerse) e.currentTarget.style.color = gold; }}
                 onMouseLeave={e => { e.currentTarget.style.color = nextVerse ? C.muted : (dayMode ? 'rgba(0,0,0,0.15)' : COLORS.glassBorder); }}
               >
@@ -9589,12 +9587,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
             {/* RIGHT: share + dismiss */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-              <button
+              <button className="mq-box"
                 onClick={() => shareVerse(activeVerse)}
                 title={language === 'tr' ? 'Paylaş / Kopyala' : 'Share / Copy'}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
-                  padding: isMobile ? '0 8px' : '0 12px', height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
+                  '--pt-d': "0", '--pt-m': "0", '--pr-d': "12px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "12px", '--pl-m': "8px", height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
                   minWidth: copiedVerseId === activeVerse.id ? 'auto' : (isMobile ? '32px' : '40px'),
                   background: copiedVerseId === activeVerse.id
                     ? 'rgba(46,204,113,0.15)'
@@ -10659,7 +10657,7 @@ function VerseCompareModal({
     const isCurrent = author.id === currentMealId;
     const isSelected = isCurrent || compareAuthors.includes(author.id);
     return (
-      <button
+      <button className="mq-box"
         key={author.id}
         type="button"
         onClick={() => toggleAuthor(author.id)}
@@ -10667,7 +10665,7 @@ function VerseCompareModal({
         title={isCurrent ? (language === 'tr' ? 'Aktif meal — kaldırılamaz' : 'Active translation — cannot remove') : undefined}
         style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
-          padding: isMobile ? '5px 10px' : '6px 12px',
+          '--pt-d': "6px", '--pt-m': "5px", '--pr-d': "12px", '--pr-m': "10px", '--pb-d': "6px", '--pb-m': "5px", '--pl-d': "12px", '--pl-m': "10px",
           borderRadius: RADIUS.pill,
           fontSize: isMobile ? '0.72rem' : '0.78rem',
           fontFamily: 'Inter, system-ui, sans-serif',
@@ -10745,10 +10743,10 @@ function VerseCompareModal({
         }}
       >
         {/* Header */}
-        <div style={{
+        <div className="mq-box" style={{
           position: 'relative',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: isMobile ? '12px 14px' : '16px 20px',
+          '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
           borderBottom: `1px solid ${C.divider}`,
           flexShrink: 0,
           gap: '12px',
@@ -10943,11 +10941,11 @@ function VerseCompareModal({
         </div>
 
         {/* Body — scrollable */}
-        <div style={{
+        <div className="mq-box" style={{
           flex: 1,
           overflowY: 'auto',
           overflowX: 'hidden',
-          padding: isMobile ? '14px' : '20px 24px',
+          '--pt-d': "20px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "20px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
         }}>
           {/* Mobile-only play button — on mobile the header is too tight to
               host the audio control, so it sits in the body as a small row
@@ -11032,8 +11030,8 @@ function VerseCompareModal({
               pipeline as the main reading view so waqf markers, medd glyphs and
               tajweed colors land correctly under ShaykhHamdullah/KFGQPC. */}
           {arabicHtml && (
-            <div style={{
-              padding: isMobile ? '14px 12px' : '16px 18px',
+            <div className="mq-box" style={{
+              '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "12px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "12px",
               marginBottom: '16px',
               background: dayMode ? 'rgba(212,165,116,0.06)' : COLORS.goldAlpha04,
               border: `1px solid ${C.cardItemBorder}`,
@@ -11062,10 +11060,10 @@ function VerseCompareModal({
               the meal cards (both of which DO have frames). Desktop keeps
               the flush layout since the wider canvas gives enough breathing
               room to read the groups as separate sections. */}
-          <div style={{
+          <div className="mq-box" style={{
             display: 'flex', flexDirection: 'column', gap: '10px',
             marginBottom: '18px',
-            padding: isMobile ? '12px' : 0,
+            '--pt-d': "0", '--pt-m': "12px", '--pr-d': "0", '--pr-m': "12px", '--pb-d': "0", '--pb-m': "12px", '--pl-d': "0", '--pl-m': "12px",
             background: isMobile
               ? (dayMode ? COLORS.goldAlpha04 : 'rgba(212,165,116,0.03)')
               : 'transparent',
@@ -11116,10 +11114,10 @@ function VerseCompareModal({
               const isError = errorAuthors.has(authorId);
               const isCurrent = authorId === currentMealId;
               return (
-                <div
+                <div className="mq-box"
                   key={authorId}
                   style={{
-                    padding: isMobile ? '12px 14px' : '14px 16px',
+                    '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "16px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "14px",
                     background: isCurrent ? (dayMode ? 'rgba(212,165,116,0.10)' : 'rgba(212,165,116,0.07)') : C.cardItemBg,
                     border: `1px solid ${isCurrent ? C.chipBorderActive : C.cardItemBorder}`,
                     borderRadius: RADIUS.chip,

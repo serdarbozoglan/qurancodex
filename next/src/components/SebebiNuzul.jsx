@@ -746,7 +746,7 @@ function TabIstatistik({ data, language, isMobile }) {
       </div>
 
       {/* B. Donut Chart */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '28px', marginBottom: '24px' }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "20px", marginBottom: '24px' }}>
         <h3 style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.body,
@@ -818,7 +818,7 @@ function TabIstatistik({ data, language, isMobile }) {
       </div>
 
       {/* C. Mekkî/Medenî Stacked Bar */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '28px', marginBottom: '24px' }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "20px", marginBottom: '24px' }}>
         <h3 style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.body,
@@ -868,7 +868,7 @@ function TabIstatistik({ data, language, isMobile }) {
       </div>
 
       {/* D. Vâhidî → Süyûtî Comparison */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '28px' }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "20px" }}>
         <h3 style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.body,
@@ -946,7 +946,7 @@ function TabIstatistik({ data, language, isMobile }) {
 // ── PrincipleCard ─────────────────────────────────────────────────────────────
 function PrincipleCard({ principle, badge, badgeColor, language, isMobile }) {
   return (
-    <div style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px' }}>
+    <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
       {badge && (
         <div style={{
           display: 'inline-flex',
@@ -1060,10 +1060,10 @@ function TabIlkeler({ data, language, isMobile }) {
       )}
 
       {/* Warning info box */}
-      <div style={{
+      <div className="mq-box" style={{
         ...GLASS_CARD,
         border: `1px solid ${COLORS.gold}44`,
-        padding: isMobile ? '16px' : '20px 24px',
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
         background: COLORS.goldAlpha15,
       }}>
         <p style={{ margin: 0, fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.7 }}>
@@ -1110,7 +1110,7 @@ function TabKaynaklar({ data, language, isMobile }) {
         {scholars.map(scholar => {
           const sm = statusMeta[scholar.status] || { tr: scholar.status, en: scholar.status, color: COLORS.silver };
           return (
-            <div key={scholar.id} style={{ ...GLASS_CARD, padding: isMobile ? '16px' : '20px 24px' }}>
+            <div className="mq-box" key={scholar.id} style={{ ...GLASS_CARD, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
               {/* Name row */}
               <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '6px' }}>
                 <span style={{ fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.95rem' }}>
@@ -1215,7 +1215,7 @@ function TabKaynaklar({ data, language, isMobile }) {
       </div>
 
       {/* History narrative */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '28px' }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "20px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "20px" }}>
         <h3 style={{
           color: COLORS.gold,
           fontFamily: FONTS.body,
@@ -1487,13 +1487,13 @@ function TabZaman({ language, isMobile }) {
         )}
 
         {timeSelected && (
-          <motion.div
+          <motion.div className="mq-box"
             ref={detailRef}
             key={timeSelected.id}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            style={{ flex: 1, overflowY: 'auto', padding: isMobile ? '20px 16px 60px' : '28px 28px 60px' }}
+            style={{ flex: 1, overflowY: 'auto', '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "60px", '--pl-d': "28px", '--pl-m': "16px" }}
           >
             <button
               onClick={() => setTimeSelected(null)}
@@ -1685,7 +1685,7 @@ export default function SebebiNuzul({ onClose }) {
 
   // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -1755,14 +1755,14 @@ export default function SebebiNuzul({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) ───────────────────────────────────────── */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft || COLORS.glassBorder}`,
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
         <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْاٰنُ جُمْلَةً وَاحِدَةً كَذٰلِكَ لِنُثَبِّتَ بِهِ فُؤَادَكَ
         </p>
@@ -1803,14 +1803,14 @@ export default function SebebiNuzul({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button
+          <button className="mq-box"
             key={i}
             onClick={() => { setActiveTab(i); setTimeout(() => { const tb = document.getElementById('sebebi-tab-bar'); if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              padding: isMobile ? '14px 16px' : '16px 26px',
+              '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
               border: 'none',
               borderBottom: `2px solid ${activeTab === i ? COLORS.gold : 'transparent'}`,
               background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',

@@ -53,12 +53,12 @@ export default function ReadingProgressCard() {
   };
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       maxWidth: 900,
       margin: '0 auto',
-      padding: isMobile ? '0 16px' : '0 32px',
+      '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px",
     }}>
-      <Link
+      <Link className="mq-box"
         href={href}
         style={{
           display: 'block',
@@ -66,7 +66,7 @@ export default function ReadingProgressCard() {
           background: `linear-gradient(135deg, ${COLORS.gold}12, ${COLORS.gold}06)`,
           border: `1px solid ${COLORS.gold}44`,
           borderRadius: 12,
-          padding: isMobile ? '14px 16px' : '18px 22px',
+          '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
           position: 'relative',
           transition: 'all 0.2s',
         }}

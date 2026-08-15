@@ -132,8 +132,8 @@ export default function NefisMertebeleri({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
-        <div style={{
-          padding: isMobile ? '40px 20px 32px' : '56px 40px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(139,0,0,0.05) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
@@ -143,7 +143,7 @@ export default function NefisMertebeleri({ onClose }) {
           <HeroGeometricBackground />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
-          <div
+          <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
               fontFamily: FONTS.bismillah,
@@ -151,7 +151,7 @@ export default function NefisMertebeleri({ onClose }) {
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -356,9 +356,9 @@ export default function NefisMertebeleri({ onClose }) {
         </div>
 
         {/* ───────────────── STICKY TAB BAR (Dalga 2.2) ───────────────── */}
-        <div id="nefs-tab-bar" style={{
+        <div className="mq-box" id="nefs-tab-bar" style={{
           display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
@@ -374,13 +374,13 @@ export default function NefisMertebeleri({ onClose }) {
           ].map(tab => {
             const active = activeTab === tab.id;
             return (
-              <button key={tab.id}
+              <button className="mq-box" key={tab.id}
                 onClick={() => {
                   setActiveTab(tab.id);
                   setTimeout(() => document.getElementById('nefs-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
                 style={{
-                  padding: isMobile ? '14px 14px' : '16px 26px',
+                  '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "14px",
                   fontSize: isMobile ? '0.7rem' : '0.76rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: active ? 700 : 500,
@@ -410,8 +410,8 @@ export default function NefisMertebeleri({ onClose }) {
           isMobile={isMobile}
         />
 
-        <div style={{
-          padding: isMobile ? '0 16px 16px' : '0 40px 20px',
+        <div className="mq-box" style={{
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "40px", '--pl-m': "16px",
           display: 'flex',
           flexDirection: 'column',
           gap: isMobile ? '20px' : '28px',
@@ -447,8 +447,8 @@ export default function NefisMertebeleri({ onClose }) {
           faint
         />
 
-        <div style={{
-          padding: isMobile ? '0 16px 16px' : '0 40px 20px',
+        <div className="mq-box" style={{
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "40px", '--pl-m': "16px",
           display: 'flex',
           flexDirection: 'column',
           gap: isMobile ? '20px' : '28px',
@@ -492,8 +492,8 @@ export default function NefisMertebeleri({ onClose }) {
           isMobile={isMobile}
         />
 
-        <div className="g-1-2" style={{
-          padding: isMobile ? '0 16px 32px' : '0 40px 40px',
+        <div className="g-1-2 mq-box" style={{
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "40px", '--pb-m': "32px", '--pl-d': "40px", '--pl-m': "16px",
           display: 'grid',
           gap: isMobile ? '16px' : '20px',
         }}>
@@ -509,14 +509,14 @@ export default function NefisMertebeleri({ onClose }) {
 
         {/* ───────────────── CROSS-LINK: Münâfık Profili ───────────────── */}
         {/* Mutmainne ↔ müzebzeb mukâbelesi — Atlas içi konseptüel diyalog */}
-        <div style={{
-          padding: isMobile ? '0 20px 24px' : '0 40px 32px',
+        <div className="mq-box" style={{
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "20px",
         }}>
-          <button
+          <button className="mq-box"
             onClick={() => openOverlay('munafik')}
             style={{
               width: '100%',
-              padding: isMobile ? '14px 16px' : '14px 22px',
+              '--pt-d': "14px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
               background: 'rgba(212,165,116,0.06)',
               border: '1px solid rgba(212,165,116,0.3)',
               borderRadius: '10px',
@@ -554,8 +554,8 @@ export default function NefisMertebeleri({ onClose }) {
         </div>
 
         {/* ───────────────── FOOTER NOTE ───────────────── */}
-        <div style={{
-          padding: isMobile ? '24px 20px 40px' : '32px 40px 56px',
+        <div className="mq-box" style={{
+          '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "40px", '--pl-m': "20px",
           borderTop: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
         }}>
@@ -577,7 +577,7 @@ export default function NefisMertebeleri({ onClose }) {
         </div>
 
         {/* Klasik Kaynaklar */}
-        <div style={{ padding: isMobile ? '0 20px' : '0 40px' }}>
+        <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "40px", '--pl-m': "20px" }}>
           <SourcesCitation
             language={language}
             isMobile={isMobile}
@@ -591,7 +591,7 @@ export default function NefisMertebeleri({ onClose }) {
         </div>
 
         {/* Cross-tool CTA — sayfa sonu */}
-        <div style={{ padding: isMobile ? '0 20px 36px' : '0 40px 60px' }}>
+        <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "60px", '--pb-m': "36px", '--pl-d': "40px", '--pl-m': "20px" }}>
           <CrossToolCTA
             language={language}
             isMobile={isMobile}
@@ -619,7 +619,7 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
   const activeDim = dimensions.find(d => d.id === selectedDim);
 
   return (
-    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 40px 80px' }}>
+    <div className="mq-box" style={{ '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "40px", '--pl-m': "16px" }}>
       {/* Intro */}
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
@@ -659,11 +659,11 @@ function ComparisonMatrixTab({ language, isMobile, matrix }) {
         maxWidth: '980px', margin: '0 auto',
       }}>
         {rows.map((row, i) => (
-          <div key={row.stageId} className="nm-sidebar-grid" style={{
+          <div key={row.stageId} className="nm-sidebar-grid mq-box" style={{
             display: 'grid',
             gap: isMobile ? '10px' : '20px',
             alignItems: 'stretch',
-            padding: isMobile ? '16px 14px' : '18px 22px',
+            '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "14px",
             background: `linear-gradient(90deg, ${row.colorHex}12 0%, rgba(255,255,255,0.03) 100%)`,
             border: `1px solid ${row.colorHex}44`,
             borderLeft: `4px solid ${row.colorHex}`,
@@ -743,7 +743,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
   const { verses, introTr, introEn, closingWhisperTr, closingWhisperEn } = keyVerses;
 
   return (
-    <div style={{ padding: isMobile ? '28px 16px 60px' : '48px 40px 80px' }}>
+    <div className="mq-box" style={{ '--pt-d': "48px", '--pt-m': "28px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "40px", '--pl-m': "16px" }}>
       {/* Intro */}
       <div style={{ maxWidth: '820px', margin: '0 auto 32px', textAlign: 'center' }}>
         <p style={{
@@ -766,11 +766,11 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
         maxWidth: '1240px', margin: '0 auto',
       }}>
         {verses.map(v => (
-          <div key={v.stageId} style={{
+          <div className="mq-box" key={v.stageId} style={{
             background: `linear-gradient(180deg, ${v.colorHex}12 0%, rgba(255,255,255,0.02) 100%)`,
             border: `1px solid ${v.colorHex}55`,
             borderRadius: RADIUS.lg,
-            padding: isMobile ? '22px 18px' : '26px 22px',
+            '--pt-d': "26px", '--pt-m': "22px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "22px", '--pl-d': "22px", '--pl-m': "18px",
             display: 'flex', flexDirection: 'column',
             position: 'relative', overflow: 'hidden',
           }}>
@@ -866,8 +866,8 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
 // ─── Section header ────────────────────────────────────────────────────────────
 function SectionHeader({ label, title, subtitle, isMobile, faint = false }) {
   return (
-    <div style={{
-      padding: isMobile ? '28px 20px 14px' : '40px 40px 20px',
+    <div className="mq-box" style={{
+      '--pt-d': "40px", '--pt-m': "28px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "20px", '--pb-m': "14px", '--pl-d': "40px", '--pl-m': "20px",
       borderTop: faint ? `1px solid ${COLORS.glassBorderSoft}` : 'none',
       opacity: faint ? 0.96 : 1,
     }}>
@@ -910,10 +910,10 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
 
   return (
     <>
-      <div className="nm-sidebar-grid" style={{
+      <div className="nm-sidebar-grid mq-box" style={{
         display: 'grid',
         gap: isMobile ? '16px' : '32px',
-        padding: isMobile ? '20px 18px' : '28px 32px',
+        '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "18px",
         background: cardBg,
         border: `1px solid ${COLORS.glassBorder}`,
         borderLeft: `4px solid ${accent}`,
@@ -922,13 +922,13 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
       }}>
 
         {/* ─── LEFT COLUMN: number + arabic + transliteration + name ─── */}
-        <div style={{
+        <div className="mq-box" style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: isMobile ? 'flex-start' : 'flex-start',
           borderRight: isMobile ? 'none' : `1px solid ${COLORS.glassBorderSoft}`,
-          paddingRight: isMobile ? 0 : '24px',
-          paddingBottom: isMobile ? '8px' : 0,
+          '--pr-d': '24px', '--pr-m': 0,
+          '--pb-d': 0, '--pb-m': '8px',
           borderBottom: isMobile ? `1px solid ${COLORS.glassBorderSoft}` : 'none',
         }}>
           {/* Big number */}
@@ -1170,10 +1170,10 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
       </div>
 
       {showDividerBelow && (
-        <div style={{
+        <div className="mq-box" style={{
           height: '1px',
           background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha15} 50%, transparent 100%)`,
-          margin: isMobile ? '4px 40px' : '4px 120px',
+          '--mt-d': "4px", '--mt-m': "4px", '--mr-d': "120px", '--mr-m': "40px", '--mb-d': "4px", '--mb-m': "4px", '--ml-d': "120px", '--ml-m': "40px",
         }} />
       )}
     </>
@@ -1272,9 +1272,9 @@ function VerseBlock({ verse, accent, isMobile, language }) {
 // ─── Transition band (the "gate" between Qur'anic core and Sufi extension) ──
 function TransitionBand({ note, isMobile, language }) {
   return (
-    <div style={{
-      margin: isMobile ? '28px 0' : '40px 0',
-      padding: isMobile ? '28px 20px' : '40px 40px',
+    <div className="mq-box" style={{
+      '--mt-d': "40px", '--mt-m': "28px", '--mr-d': "0", '--mr-m': "0", '--mb-d': "40px", '--mb-m': "28px", '--ml-d': "0", '--ml-m': "0",
+      '--pt-d': "40px", '--pt-m': "28px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "40px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
       background: 'rgba(212,162,36,0.05)',
       borderTop: `1px solid ${COLORS.goldAlpha25}`,
       borderBottom: `1px solid ${COLORS.goldAlpha25}`,
@@ -1370,9 +1370,9 @@ function TransitionBand({ note, isMobile, language }) {
 // ─── Framework card (classical frameworks section) ───────────────────────────
 function FrameworkCard({ framework, isMobile, language }) {
   return (
-    <div style={{
+    <div className="mq-box" style={{
       ...GLASS_CARD,
-      padding: isMobile ? '20px 18px' : '24px 26px',
+      '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "26px", '--pl-m': "18px",
       display: 'flex',
       flexDirection: 'column',
       gap: '12px',
