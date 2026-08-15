@@ -511,9 +511,9 @@ export default function KiyametSahneleri({ onClose }) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* ── Hero (Cinematic — Bismillah + anchor + framing + filigree) ── */}
-        <div style={{ padding: isMobile ? '40px 16px 28px' : '56px 32px 36px', borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
+        <div className="mq-box" style={{ '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}`, textAlign: 'center' }}>
           {/* Bismillah */}
-          <div
+          <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
               fontFamily: FONTS.bismillah,
@@ -521,7 +521,7 @@ export default function KiyametSahneleri({ onClose }) {
               color: GOLD,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${GOLD}28`,
             }}
           >
@@ -621,12 +621,12 @@ export default function KiyametSahneleri({ onClose }) {
               ? "Kur'an kıyameti bir anda değil sahneler halinde anlatır. Yüzlerce ayette dağılan kozmik düzen, dirilen ölüler, toplanan insanlık, tartılan ameller ve açılan kitaplar tek tek zikredilir. Bu sayfa Kur'an'daki tüm kıyamet sahnelerini kronolojik faz sırasına göre sunar. Kronolojik sıra müfessirlerin görüşüne dayanır — Kur'an kesin bir takvim vermez."
               : "The Quran does not describe the Day of Judgment as a single moment but as a sequence of scenes. Across hundreds of verses, it narrates the unraveling of cosmic order, the resurrection of the dead, the gathering of all humanity, the weighing of deeds, and the opening of books. This page presents all Quranic judgment scenes in chronological phase order. The sequence follows the majority view of classical tafsir — the Quran itself does not provide a fixed timeline."}
           </p>
-          <div style={{
+          <div className="mq-box" style={{
             display: 'flex', gap: '10px',
             overflowX: isMobile ? 'auto' : 'visible',
             flexWrap: isMobile ? 'nowrap' : 'wrap',
             scrollbarWidth: 'none',
-            paddingBottom: isMobile ? '4px' : 0,
+            '--pb-d': 0, '--pb-m': '4px',
           }}>
             {heroStats.map((s, i) => (
               <div key={i} style={{
@@ -643,7 +643,7 @@ export default function KiyametSahneleri({ onClose }) {
         </div>
 
         {/* ── Kıyamet İsimleri ── */}
-        <div style={{ padding: isMobile ? '20px 16px' : '28px 32px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
+        <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
           <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.1rem' : '1.35rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
             {language === 'tr' ? "Kıyametin Kur'an'daki İsimleri" : "The Quran's Names for the Last Day"}
           </h2>
@@ -683,10 +683,10 @@ export default function KiyametSahneleri({ onClose }) {
         </div>
 
         {/* ── Tab nav — §13.19 sticky pattern (Dalga 3.6 fix) ── */}
-        <div id="kiyamet-tab-bar" style={{
+        <div className="mq-box" id="kiyamet-tab-bar" style={{
           display: 'flex', gap: '4px',
           overflowX: 'auto', scrollbarWidth: 'none',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -698,7 +698,7 @@ export default function KiyametSahneleri({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {tabs.map((tab, i) => (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -709,7 +709,7 @@ export default function KiyametSahneleri({ onClose }) {
               }}
               style={{
                 flexShrink: 0,
-                padding: isMobile ? '14px 16px' : '16px 26px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
                 border: 'none',
                 borderRadius: 0,
@@ -733,7 +733,7 @@ export default function KiyametSahneleri({ onClose }) {
         </div>
 
         {/* ── Tab content ── */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px' }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
           {!data ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh' }}>
               <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.9rem', margin: 0 }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</p>
@@ -751,7 +751,7 @@ export default function KiyametSahneleri({ onClose }) {
         </div>
 
         {/* ── Cross-tool CTA — sayfa sonu (Renkler/İlk-Son pattern) ── */}
-        <div style={{ padding: isMobile ? '0 16px 28px' : '0 32px 36px' }}>
+        <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px" }}>
           <CrossToolCTA
             language={language}
             isMobile={isMobile}
@@ -786,8 +786,8 @@ function TabKronoloji({ data, language, isMobile }) {
       </div>
 
       {/* ═══ 7-PHASE VERTICAL TIMELINE SVG (Dalga 3.6) ═══ */}
-      <div style={{
-        padding: isMobile ? '18px 14px' : '26px 26px',
+      <div className="mq-box" style={{
+        '--pt-d': "26px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "26px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "14px",
         marginBottom: '32px',
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
         border: `1px solid ${GOLD}44`,
@@ -891,8 +891,8 @@ function TabKronoloji({ data, language, isMobile }) {
 
       {/* ═══ SURAH DENSITY HEATMAP (Dalga 3.6) ═══ */}
       {data.surahs && data.surahs.length > 0 && (
-        <div style={{
-          padding: isMobile ? '18px 14px' : '26px 26px',
+        <div className="mq-box" style={{
+          '--pt-d': "26px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "26px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "14px",
           marginBottom: '32px',
           background: 'rgba(255,255,255,0.02)',
           border: `1px solid ${COLORS.glassBorderSoft}`,

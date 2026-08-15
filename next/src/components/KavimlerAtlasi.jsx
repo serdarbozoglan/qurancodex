@@ -425,8 +425,8 @@ export default function KavimlerAtlasi({ onClose }) {
             User feedback: tutarsızlık vardı (Kavim'de top, diğerlerinde mid).
             Standart: Premium cinematic Hero kesilmesin, tablar sonrasında.
             scrollMarginTop sticky compensation. */}
-        <div id="kavim-tab-bar" style={{
-          display: 'flex', gap: '2px', padding: isMobile ? '0 8px' : '0 16px',
+        <div className="mq-box" id="kavim-tab-bar" style={{
+          display: 'flex', gap: '2px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -438,7 +438,7 @@ export default function KavimlerAtlasi({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => {
                 setActiveTab(i);
@@ -449,7 +449,7 @@ export default function KavimlerAtlasi({ onClose }) {
               }}
               style={{
                 flexShrink: 0,
-                padding: isMobile ? '14px 14px' : '15px 20px',
+                '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
                 border: 'none', background: 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
@@ -468,7 +468,7 @@ export default function KavimlerAtlasi({ onClose }) {
         </div>
 
         {/* Tab content */}
-        <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
+        <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px" }}>
           {activeTab === 0 && (
             <TabNations
               nations={data.nations}
@@ -507,9 +507,9 @@ export default function KavimlerAtlasi({ onClose }) {
 function KavimlerClosing({ language, isMobile, totalNations }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+    <div className="mq-box" style={{
+      '--mt-d': '60px', '--mt-m': '40px',
+      '--pt-d': "80px", '--pt-m': "50px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "20px",
       borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
       maxWidth: '900px',
       marginLeft: 'auto',
@@ -574,7 +574,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
             { href: `/${language}/oku/26`, titleTr: 'Şuarâ Sûresi (26)', titleEn: 'Sura al-Shuʿarāʾ (26)', descTr: 'Mûsâ, İbrâhîm, Nûh, Hûd, Sâlih, Lût, Şuayb — 7 peygamberin aynı yapıyla anlatıldığı sûre.', descEn: 'Moses, Abraham, Noah, Hūd, Ṣāliḥ, Lūṭ, Shuʿayb — 7 prophets told with the same narrative structure.' },
             { href: `/${language}/oku/28`, titleTr: 'Kasas Sûresi (28)', titleEn: 'Sura al-Qaṣaṣ (28)', descTr: 'Firavun ve Hz. Mûsâ — Kur\'an\'daki en uzun kavim kıssası, kendi adıyla "Kıssalar" sûresi.', descEn: 'Pharaoh and Moses — the longest nation narrative in the Quran, the sura named "Stories".' },
           ].map((tt, i) => (
-            <a
+            <a className="mq-box"
               key={i}
               href={tt.href}
               style={{
@@ -582,7 +582,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
                 background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
                 border: `1px solid ${COLORS.goldAlpha25}`,
                 borderRadius: RADIUS.lg,
-                padding: isMobile ? '20px 18px' : '22px 22px',
+                '--pt-d': "22px", '--pt-m': "20px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "20px", '--pl-d': "22px", '--pl-m': "18px",
                 textDecoration: 'none',
                 transition: 'all 0.18s',
               }}
@@ -642,8 +642,8 @@ function HeroSection({ meta, language, isMobile }) {
   ];
 
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
+    <div className="mq-box" style={{
+      '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: `linear-gradient(180deg, rgba(180,100,40,0.05) 0%, transparent 100%),
                    url("data:image/svg+xml;utf8,${KAVIM_HERO_PATTERN}") repeat`,
       backgroundSize: 'auto, 80px 80px',
@@ -652,7 +652,7 @@ function HeroSection({ meta, language, isMobile }) {
       position: 'relative',
     }}>
       {/* Bismillah ornament — Amiri Quran ligature */}
-      <div
+      <div className="mq-box"
         dir="rtl"
         lang="ar"
         aria-label="Bismillāh"
@@ -662,7 +662,7 @@ function HeroSection({ meta, language, isMobile }) {
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
-          marginBottom: isMobile ? '28px' : '40px',
+          '--mb-d': '40px', '--mb-m': '28px',
           textShadow: `0 0 22px ${COLORS.gold}28`,
         }}
       >
@@ -1162,8 +1162,8 @@ function TabHelakDesen({ language, isMobile }) {
       </p>
 
       {/* ═══ FORMULA BOX — 7 aşama compact horizontal viz (Dalga 3.1) ═══ */}
-      <div style={{
-        padding: isMobile ? '16px 14px' : '22px 24px',
+      <div className="mq-box" style={{
+        '--pt-d': "22px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "22px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "14px",
         marginBottom: '32px',
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
         border: `1px solid ${COLORS.gold}44`,
@@ -1215,8 +1215,8 @@ function TabHelakDesen({ language, isMobile }) {
       </div>
 
       {/* ═══ HELAK MODE-ICON LEGEND (Dalga 3.1) ═══ */}
-      <div style={{
-        padding: isMobile ? '14px 14px' : '18px 22px',
+      <div className="mq-box" style={{
+        '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
         marginBottom: '32px',
         background: 'rgba(255,255,255,0.02)',
         border: `1px solid ${COLORS.glassBorderSoft}`,
@@ -1892,9 +1892,9 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       </h3>
 
       {/* Bubble chart: Helak types */}
-      <div style={{
+      <div className="mq-box" style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px 24px', marginBottom: '20px',
+        borderRadius: RADIUS.lg, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", marginBottom: '20px',
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
           {language === 'tr' ? 'Helak Biçimleri' : 'Types of Destruction'}
@@ -1985,9 +1985,9 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       </div>
 
       {/* Frequency table */}
-      <div style={{
+      <div className="mq-box" style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: RADIUS.lg, padding: isMobile ? '14px' : '20px 24px', marginBottom: '24px',
+        borderRadius: RADIUS.lg, '--pt-d': "20px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "20px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px", marginBottom: '24px',
         overflowX: 'auto',
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '4px' }}>
@@ -2053,9 +2053,9 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
       </div>
 
       {/* Objection template */}
-      <div style={{
+      <div className="mq-box" style={{
         background: COLORS.glassBg, border: `1px solid ${COLORS.glassBorder}`,
-        borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px 24px',
+        borderRadius: RADIUS.lg, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
       }}>
         <div style={{ color: COLORS.offWhite, fontSize: '0.9rem', fontWeight: 600, fontFamily: FONTS.body, marginBottom: '8px' }}>
           {language === 'tr' ? 'İtiraz Şablonu' : 'Objection Template'}

@@ -313,9 +313,9 @@ function ReaderCard({ reader, isMobile, language, isHighlighted }) {
     damascus: language === 'tr' ? 'Şam' : 'Damascus',
   };
   return (
-    <div style={{
+    <div className="mq-box" style={{
       ...GLASS_CARD,
-      padding: isMobile ? '12px' : '16px',
+      '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "12px",
       border: isHighlighted
         ? `1px solid ${color}88`
         : `1px solid ${COLORS.glassBorder}`,
@@ -887,7 +887,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                       {/* Example box */}
                       <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
                         <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
-                        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
+                        <div className="mq-box" style={{ flex: 1, '--pl-d': 16, '--pl-m': 0 }}>
                           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                             <div>
                               <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span>
@@ -997,7 +997,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                       </p>
                       <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
                         <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
-                        <div style={{ flex: 1, paddingLeft: isMobile ? 0 : 16 }}>
+                        <div className="mq-box" style={{ flex: 1, '--pl-d': 16, '--pl-m': 0 }}>
                           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                             <div>
                               <span style={{ fontFamily: FONTS.quran, fontSize: '1.1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span>
@@ -1105,7 +1105,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
       </div>
 
       {/* Timeline */}
-      <div style={{ position: 'relative', paddingLeft: isMobile ? 40 : 0 }}>
+      <div className="mq-box" style={{ position: 'relative', '--pl-d': 0, '--pl-m': 40 }}>
         {/* Vertical axis */}
         <div style={{
           position: 'absolute',
@@ -1120,14 +1120,14 @@ function TabKanonizasyon({ data, isMobile, language }) {
           const isOpen = expanded === stage.id;
 
           return (
-            <div
+            <div className="mq-box"
               key={stage.id}
               style={{
                 position: 'relative',
                 display: 'flex',
                 justifyContent: isMobile ? 'flex-start' : (isLeft ? 'flex-end' : 'flex-start'),
                 marginBottom: 32,
-                paddingLeft: isMobile ? 24 : 0,
+                '--pl-d': 0, '--pl-m': 24,
               }}
             >
               {/* Connector dot on axis */}
@@ -1586,7 +1586,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
 
   // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -1636,10 +1636,10 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
       <div ref={bodyRef} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* Tab bar — sticky */}
-        <div style={{
+        <div className="mq-box" style={{
           position: 'sticky', top: '110px', zIndex: 20,
           display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -1648,12 +1648,12 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {TABS.map((tab, i) => (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => navigateToTab(i)}
               style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
-                padding: isMobile ? '12px 14px' : '13px 22px',
+                '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                 border: 'none',
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -1674,7 +1674,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
         </div>
 
         {/* Tab content */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px", flex: 1 }}>
           {activeTab === 0 && <TabImamlar data={data} isMobile={isMobile} language={language} setActiveTab={navigateToTab} />}
           {activeTab === 1 && <TabKanonizasyon data={data} isMobile={isMobile} language={language} />}
           {activeTab === 2 && <TabFarkAnalizi data={data} isMobile={isMobile} language={language} />}

@@ -255,7 +255,7 @@ export default function MunafikProfili({ onClose }) {
 
   // #202 (2026-07-16) — CTA SSR-safe (loading skeleton'a da eklenir)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -309,8 +309,8 @@ export default function MunafikProfili({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
-        <div style={{
-          padding: isMobile ? '40px 20px 28px' : '56px 40px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(231,76,60,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           position: 'relative',
@@ -340,7 +340,7 @@ export default function MunafikProfili({ onClose }) {
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
-          <div
+          <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
               fontFamily: FONTS.bismillah,
@@ -349,7 +349,7 @@ export default function MunafikProfili({ onClose }) {
               opacity: 0.82,
               lineHeight: 1,
               textAlign: 'center',
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -487,14 +487,14 @@ export default function MunafikProfili({ onClose }) {
               border: '1px solid rgba(231,76,60,0.28)',
               borderLeft: '2px solid rgba(231,76,60,0.7)',
               borderRadius: '10px',
-              padding: isMobile ? '16px 16px' : '18px 22px',
+              '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
               margin: '0 0 20px 0',
               maxWidth: '820px',
               display: 'flex',
               gap: isMobile ? '14px' : '20px',
               alignItems: 'flex-start',
             }}
-            className="fd-row">
+            className="fd-row mq-box">
               {/* Nafak burrow illustration — iki kapılı yuva */}
               <div style={{
                 flexShrink: 0,
@@ -563,10 +563,10 @@ export default function MunafikProfili({ onClose }) {
         </div>
 
         {/* ── TAB BAR (UPPERCASE site-wide pattern) ──────────────────────── */}
-        <div id="munafik-tab-bar" style={{
+        <div className="mq-box" id="munafik-tab-bar" style={{
           display: 'flex',
           gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -582,7 +582,7 @@ export default function MunafikProfili({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button
+              <button className="mq-box"
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
@@ -596,7 +596,7 @@ export default function MunafikProfili({ onClose }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: isMobile ? '14px 16px' : '16px 26px',
+                  '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                   border: 'none',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -622,7 +622,7 @@ export default function MunafikProfili({ onClose }) {
         </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
-        <div style={{ padding: isMobile ? '20px 16px 48px' : '28px 32px 64px' }}>
+        <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
           {activeTab === 0 && (
             <ProfilesTab
@@ -683,7 +683,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
     }, 120);
   };
   return (
-    <button
+    <button className="mq-box"
       onClick={handleClick}
       style={{
         display: 'flex',
@@ -692,7 +692,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
         gap: '12px',
         width: '100%',
         marginTop: '32px',
-        padding: isMobile ? '14px 16px' : '16px 22px',
+        '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
         background: 'linear-gradient(135deg, rgba(212,165,116,0.06), rgba(212,165,116,0.02))',
         border: `1px solid ${COLORS.gold}40`,
         borderRadius: RADIUS.lg,
@@ -783,13 +783,13 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
         filter: 'blur(2px)',
       }} />
       {/* Header — always visible, clickable toggle */}
-      <button
+      <button className="mq-box"
         onClick={onToggle}
         style={{
           width: '100%',
           background: 'transparent',
           border: 'none',
-          padding: isMobile ? '16px 16px 14px' : '20px 22px 16px',
+          '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
           cursor: 'pointer',
           textAlign: 'left',
           color: 'inherit',
@@ -875,8 +875,8 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
 
       {/* Expanded content */}
       {isOpen && (
-        <div style={{
-          padding: isMobile ? '0 16px 18px' : '0 22px 22px',
+        <div className="mq-box" style={{
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "22px", '--pl-m': "16px",
           borderTop: `1px solid ${COLORS.glassBorderSoft}`,
           paddingTop: '18px',
         }}>
@@ -923,9 +923,9 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
           </SectionBlock>
 
           {/* Modern parallel — dashed warning box */}
-          <div style={{
+          <div className="mq-box" style={{
             margin: '16px 0 12px',
-            padding: isMobile ? '12px 14px' : '14px 16px',
+            '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "16px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "14px",
             border: `1px dashed ${COLORS.softRed}55`,
             borderRadius: RADIUS.md,
             background: 'rgba(231,76,60,0.04)',
@@ -1000,12 +1000,12 @@ function MukabeleCard({ data, language, isMobile }) {
   const note  = language === 'tr' ? data.noteTr  : data.noteEn;
   const mirrorVerseTr = language === 'tr' ? data.mirrorVerseTr : data.mirrorVerseEn;
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginTop: '16px',
       background: 'rgba(212,165,116,0.05)',
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: '10px',
-      padding: isMobile ? '14px 14px' : '16px 18px',
+      '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "14px",
     }}>
       <p style={{
         color: COLORS.gold,
@@ -1192,8 +1192,8 @@ function SurahDistributionTab({ dist, language, isMobile }) {
       </p>
 
       {/* Bar chart */}
-      <div style={{
-        padding: isMobile ? '22px 18px' : '28px 32px',
+      <div className="mq-box" style={{
+        '--pt-d': "28px", '--pt-m': "22px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "22px", '--pl-d': "32px", '--pl-m': "18px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(212,165,116,0.01) 100%)',
         border: `1px solid ${COLORS.gold}25`,
         borderRadius: RADIUS.md,
@@ -1336,8 +1336,8 @@ function KissaCard({ kissa, index, language, isMobile }) {
   const tr = language === 'tr';
   const accent = kissa.color || COLORS.gold;
   return (
-    <div style={{
-      padding: isMobile ? '20px 18px' : '28px 32px',
+    <div className="mq-box" style={{
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "18px",
       background: `linear-gradient(135deg, ${accent}0A 0%, rgba(255,255,255,0.02) 45%)`,
       border: `1px solid ${accent}35`,
       borderLeft: `3px solid ${accent}`,
@@ -1576,12 +1576,12 @@ function TypologyTab({ typology, language, isMobile }) {
           const catColor = isFirst ? COLORS.softRed : COLORS.silver;
 
           return (
-            <div
+            <div className="mq-box"
               key={cat.id}
               style={{
                 ...GLASS_CARD,
                 flex: 1,
-                padding: isMobile ? '20px 18px' : '28px 26px',
+                '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "26px", '--pl-m': "18px",
                 borderLeft: `3px solid ${catColor}`,
                 margin: !isMobile ? (isFirst ? '0 10px 0 0' : '0 0 0 10px') : 0,
               }}
@@ -1651,9 +1651,9 @@ function TypologyTab({ typology, language, isMobile }) {
       </div>
 
       {/* Source note */}
-      <div style={{
+      <div className="mq-box" style={{
         marginTop: '28px',
-        padding: isMobile ? '14px 16px' : '16px 20px',
+        '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "16px",
         background: COLORS.glassBgFaint,
         border: `1px solid ${COLORS.glassBorderSoft}`,
         borderRadius: '10px',
@@ -1737,10 +1737,10 @@ function HadithTab({ hadith, language, isMobile }) {
       </h2>
 
       {/* Main hadith card */}
-      <div style={{
+      <div className="mq-box" style={{
         ...GLASS_CARD,
         border: `1px solid ${COLORS.goldAlpha25}`,
-        padding: isMobile ? '24px 20px' : '40px 48px',
+        '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "40px", '--pb-m': "24px", '--pl-d': "48px", '--pl-m': "20px",
         textAlign: 'center',
         position: 'relative',
       }}>

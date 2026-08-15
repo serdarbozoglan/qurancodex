@@ -224,7 +224,7 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
   const NODE_R   = 12;
 
   return (
-    <div style={{ padding: isMobile ? '12px 8px' : '20px 24px' }}>
+    <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "8px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "8px" }}>
       <div style={{ width: '100%', maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
         <svg aria-hidden="true" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
           <defs>
@@ -445,8 +445,8 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{
-        padding: isMobile ? '10px 12px' : '12px 24px',
+      <div className="mq-box" style={{
+        '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "24px", '--pl-m': "12px",
         background: 'rgba(8,9,26,0.7)', borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         display: 'flex', flexDirection: 'column', gap: '8px', flexShrink: 0,
       }}>
@@ -473,9 +473,9 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
           () => COLORS.violet)}
       </div>
 
-      <div className="g-1-2" style={{
+      <div className="g-1-2 mq-box" style={{
         flex: 1, overflowY: 'auto',
-        padding: isMobile ? '12px' : '20px 24px',
+        '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "12px",
         display: 'grid',
         gap: '12px',
         alignContent: 'start',
@@ -707,7 +707,7 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
   };
 
   return (
-    <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "12px", display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {pairs.map(pair => (
         <div key={pair.id} ref={el => pairRefs.current[pair.id] = el} style={{ ...GLASS_CARD, overflow: 'hidden' }}>
           <div style={{ padding: '14px 16px', borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
@@ -777,7 +777,7 @@ function TabNurZulumat({ data, language, isMobile }) {
   (ayatAnNur.layers ?? []).forEach(l => { layerMap[l.id] = l; });
 
   return (
-    <div style={{ padding: isMobile ? '12px' : '20px 24px', display: 'flex', flexDirection: 'column', gap: '28px', maxWidth: '960px', margin: '0 auto', width: '100%' }}>
+    <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "12px", display: 'flex', flexDirection: 'column', gap: '28px', maxWidth: '960px', margin: '0 auto', width: '100%' }}>
 
       {/* Split stat */}
       <div className="fd-row" style={{
@@ -785,8 +785,8 @@ function TabNurZulumat({ data, language, isMobile }) {
         borderRadius: '12px', overflow: 'hidden',
         border: `1px solid ${COLORS.glassBorder}`,
       }}>
-        <div style={{
-          flex: 1, padding: isMobile ? '20px 16px' : '28px 32px',
+        <div className="mq-box" style={{
+          flex: 1, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
           background: 'linear-gradient(135deg, rgba(201,162,39,0.12) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
@@ -795,10 +795,10 @@ function TabNurZulumat({ data, language, isMobile }) {
           <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Nûr</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.nurForm}</div>
         </div>
-        <div className="fd-col-reverse" style={{
+        <div className="fd-col-reverse mq-box" style={{
           display: 'flex',
           alignItems: 'center', justifyContent: 'center',
-          padding: isMobile ? '10px 16px' : '20px 16px',
+          '--pt-d': "20px", '--pt-m': "10px", '--pr-d': "16px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "10px", '--pl-d': "16px", '--pl-m': "16px",
           background: 'rgba(255,255,255,0.02)',
           gap: '8px',
         }}>
@@ -808,8 +808,8 @@ function TabNurZulumat({ data, language, isMobile }) {
           </div>
           {!isMobile && <div style={{ flex: 1, width: '1px', background: COLORS.goldAlpha25 }} />}
         </div>
-        <div style={{
-          flex: 1, padding: isMobile ? '20px 16px' : '28px 32px',
+        <div className="mq-box" style={{
+          flex: 1, '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
           background: 'linear-gradient(135deg, rgba(30,30,60,0.5) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
@@ -982,7 +982,7 @@ function TabHayvanlar({ animals, language, isMobile }) {
   });
 
   return (
-    <div style={{ padding: isMobile ? '12px' : '20px 24px' }}>
+    <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "12px" }}>
       <div className="fd-row" style={{ ...GLASS_CARD, padding: '12px 16px', marginBottom: '12px', display: 'flex',  alignItems: isMobile ? 'flex-start' : 'center', gap: '10px', justifyContent: 'space-between' }}>
         <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.82rem' }}>
           {language === 'tr'
@@ -1109,7 +1109,7 @@ const ROMAN = ['I', 'II', 'III'];
 function TabBilgi({ metaVerses, scholars, language, isMobile }) {
   const { openOverlay } = useQuranNav();
   return (
-    <div style={{ padding: isMobile ? '12px' : '24px 28px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+    <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "12px", '--pr-d': "28px", '--pr-m': "12px", '--pb-d': "24px", '--pb-m': "12px", '--pl-d': "28px", '--pl-m': "12px", display: 'flex', flexDirection: 'column', gap: '40px' }}>
 
       {/* ── Metodoloji Notu ──────────────────────────────────────────────── */}
       <div style={{
@@ -1409,7 +1409,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
 
   // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -1504,11 +1504,11 @@ export default function MeselAtlasi({ onClose, backRef }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       }}>
         {tabs.map((label, i) => (
-          <button
+          <button className="mq-box"
             key={i}
             onClick={() => setActiveTab(i)}
             style={{
-              padding: isMobile ? '10px 14px' : '12px 20px',
+              '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
               fontSize: isMobile ? '0.78rem' : '0.85rem',
               fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
               color: activeTab === i ? COLORS.gold : COLORS.silver,

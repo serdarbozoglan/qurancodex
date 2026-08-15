@@ -1343,8 +1343,8 @@ export default function Melekler({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
 
         {/* Hero — Premium Cinematic (Bismillah + Fâtır 35:1 + framing whisper + filigree + title) */}
-        <div style={{
-          padding: isMobile ? '36px 16px 24px' : '52px 32px 28px',
+        <div className="mq-box" style={{
+          '--pt-d': "52px", '--pt-m': "36px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
           textAlign: 'center',
           background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, transparent 100%)',
           position: 'relative',
@@ -1357,7 +1357,7 @@ export default function Melekler({ onClose }) {
           <KanatMotif isMobile={isMobile} />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah */}
-          <div
+          <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
               fontFamily: FONTS.bismillah,
@@ -1365,7 +1365,7 @@ export default function Melekler({ onClose }) {
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '26px' : '36px',
+              '--mb-d': '36px', '--mb-m': '26px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -1494,10 +1494,10 @@ export default function Melekler({ onClose }) {
         </div>
 
         {/* ── Tab bar — sticky top:110 (Navbar 62 + ToolHeader 48) ── */}
-        <div id="melekler-tab-bar" style={{
+        <div className="mq-box" id="melekler-tab-bar" style={{
           position: 'sticky', top: '110px', zIndex: 20,
           display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -1506,7 +1506,7 @@ export default function Melekler({ onClose }) {
           scrollMarginTop: '120px',
         }}>
           {TABS.map((tab, i) => (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => {
                 handleTab(i);
@@ -1517,7 +1517,7 @@ export default function Melekler({ onClose }) {
               }}
               style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
-                padding: isMobile ? '14px 16px' : '16px 26px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none', borderRadius: '0',
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -1538,7 +1538,7 @@ export default function Melekler({ onClose }) {
         </div>
 
         {/* Tab content */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px', flex: 1 }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px", flex: 1 }}>
           {!data ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '40vh', color: SEMANTIC.textFaint }}>
               {tr ? 'Yükleniyor…' : 'Loading…'}

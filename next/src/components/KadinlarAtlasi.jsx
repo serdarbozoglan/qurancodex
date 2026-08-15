@@ -119,7 +119,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
 
   // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -235,9 +235,9 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         <Hero meta={meta} figureCount={figures.length} language={language} isMobile={isMobile} />
 
         {/* Filter chips — placed AFTER hero so reader meets the content first */}
-        <div style={{
+        <div className="mq-box" style={{
           display: 'flex', gap: '6px',
-          padding: isMobile ? '20px 16px 4px' : '24px 32px 4px',
+          '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "4px", '--pb-m': "4px", '--pl-d': "32px", '--pl-m': "16px",
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
           alignItems: 'center',
         }}>
@@ -281,8 +281,8 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
 
         {/* Active theme filter banner */}
         {themeFilter && (
-          <div style={{
-            margin: isMobile ? '12px 16px 0' : '16px 32px 0',
+          <div className="mq-box" style={{
+            '--mt-d': "16px", '--mt-m': "12px", '--mr-d': "32px", '--mr-m': "16px", '--mb-d': "0", '--mb-m': "0", '--ml-d': "32px", '--ml-m': "16px",
             padding: '10px 14px',
             background: 'rgba(212,165,116,0.08)',
             border: `1px solid ${COLORS.goldAlpha25}`,
@@ -337,8 +337,8 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         )}
 
         {/* Color legend strip — explicit "color = category" mapping */}
-        <div style={{
-          padding: isMobile ? '8px 16px 0' : '12px 32px 0',
+        <div className="mq-box" style={{
+          '--pt-d': "12px", '--pt-m': "8px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px",
           display: 'flex', flexWrap: 'wrap',
           alignItems: 'center', gap: isMobile ? '10px 14px' : '12px 22px',
         }}>
@@ -372,7 +372,7 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
 
         {/* ── Hz. Meryem spotlight (only in 'tumu' filter, no theme filter) ── */}
         {filter === 'tumu' && !themeFilter && filteredFigures.find(f => f.id === 'meryem') && (
-          <div style={{ padding: isMobile ? '20px 16px 0' : '20px 32px 0' }}>
+          <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px" }}>
             <MeryemSpotlight
               figure={filteredFigures.find(f => f.id === 'meryem')}
               language={language}
@@ -385,8 +385,8 @@ export default function KadinlarAtlasi({ onClose, backRef }) {
         )}
 
         {/* Cards grid — Meryem hariç (spotlight'tayken) */}
-        <div className="g-1-4" style={{
-          padding: isMobile ? '20px 16px 40px' : '20px 32px 60px',
+        <div className="g-1-4 mq-box" style={{
+          '--pt-d': "20px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px",
           display: 'grid',
           gap: isMobile ? '14px' : '18px',
         }}>
@@ -448,8 +448,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
   const v12Ref = "Tahrîm 66:12";
 
   return (
-    <div style={{
-      padding: isMobile ? '32px 20px 20px' : '48px 48px 32px',
+    <div className="mq-box" style={{
+      '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "48px", '--pl-m': "20px",
     }}>
       {/* Badge */}
       <div style={{
@@ -502,8 +502,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
       </div>
 
       {/* Anchor verse hero box */}
-      <div style={{
-        padding: isMobile ? '24px 20px' : '36px 44px',
+      <div className="mq-box" style={{
+        '--pt-d': "36px", '--pt-m': "24px", '--pr-d': "44px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "24px", '--pl-d': "44px", '--pl-m': "20px",
         background: COLORS.goldAlpha04,
         border: `1px solid ${COLORS.goldAlpha25}`,
         borderRadius: RADIUS.xl,
@@ -601,9 +601,9 @@ function Hero({ meta, figureCount, language, isMobile }) {
       </div>
 
       {/* Manifesto opener — narrative replacement for stats banner */}
-      <div style={{
+      <div className="mq-box" style={{
         marginTop: '12px', marginBottom: '8px',
-        padding: isMobile ? '24px 0' : '32px 0',
+        '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "0", '--pl-m': "0",
         borderTop: `1px solid ${COLORS.goldAlpha25}`,
         borderBottom: `1px solid ${COLORS.goldAlpha25}`,
         textAlign: 'center',
@@ -671,8 +671,8 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
       display: 'flex', flexDirection: 'column',
     }}>
       {/* Header: index + category badge + name + epithet */}
-      <div style={{
-        padding: isMobile ? '18px 18px 14px' : '22px 22px 16px',
+      <div className="mq-box" style={{
+        '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "18px",
         borderBottom: `1px solid ${COLORS.goldAlpha15}`,
         display: 'flex', alignItems: 'flex-start', gap: '14px',
       }}>
@@ -740,8 +740,8 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
       </div>
 
       {/* Body */}
-      <div style={{
-        padding: isMobile ? '16px 18px 18px' : '20px 22px 22px',
+      <div className="mq-box" style={{
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "22px", '--pl-m': "18px",
         display: 'flex', flexDirection: 'column', gap: '16px',
       }}>
         {/* Key verse */}
@@ -1168,8 +1168,8 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
       </div>
 
       {/* Header section */}
-      <div style={{
-        padding: isMobile ? '24px 20px 18px' : '32px 32px 22px',
+      <div className="mq-box" style={{
+        '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "32px", '--pl-m': "20px",
         borderBottom: `1px solid ${COLORS.goldAlpha15}`,
         display: 'flex', alignItems: 'flex-start', gap: '16px',
       }}>
@@ -1185,7 +1185,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
         }}>
           01
         </span>
-        <div style={{ flex: 1, minWidth: 0, paddingRight: isMobile ? '0' : '160px' }}>
+        <div className="mq-box" style={{ flex: 1, minWidth: 0, '--pr-d': '160px', '--pr-m': '0' }}>
           {categoryLabel && (
             <div style={{
               display: 'inline-block',
@@ -1224,8 +1224,8 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
       </div>
 
       {/* Body — two-column on desktop, stacked on mobile */}
-      <div className="ka2-body-grid" style={{
-        padding: isMobile ? '20px 20px 24px' : '28px 32px 32px',
+      <div className="ka2-body-grid mq-box" style={{
+        '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "20px",
         display: 'grid',
         gap: isMobile ? '20px' : '36px',
       }}>
@@ -1347,8 +1347,8 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
 
       {/* Critical note — full width at bottom */}
       {criticalNote && (
-        <div style={{
-          margin: isMobile ? '0 20px 20px' : '0 32px 28px',
+        <div className="mq-box" style={{
+          '--mt-d': "0", '--mt-m': "0", '--mr-d': "32px", '--mr-m': "20px", '--mb-d': "28px", '--mb-m': "20px", '--ml-d': "32px", '--ml-m': "20px",
           padding: '14px 18px',
           background: 'rgba(255,255,255,0.02)',
           border: `1px solid ${COLORS.glassBorderSoft}`,
@@ -1379,8 +1379,8 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
 function CaprazOkumaSection({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 60px' : '60px 32px 80px',
+    <div className="mq-box" style={{
+      '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "16px",
       borderTop: `1px solid ${COLORS.glassBorderSoft}`,
       marginTop: '20px',
     }}>
@@ -1546,8 +1546,8 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
   const tierOrder = Object.keys(byTier).sort((a, b) => Number(a) - Number(b));
 
   return (
-    <div style={{
-      padding: isMobile ? '40px 16px 80px' : '60px 32px 100px',
+    <div className="mq-box" style={{
+      '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "100px", '--pb-m': "80px", '--pl-d': "32px", '--pl-m': "16px",
       borderTop: `1px solid ${COLORS.glassBorderSoft}`,
       marginTop: '20px',
     }}>
@@ -1620,8 +1620,8 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
             {/* Cards in this tier */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {tierItems.map((item, i) => (
-                <div key={i} style={{
-                  padding: isMobile ? '18px 20px' : '22px 26px',
+                <div className="mq-box" key={i} style={{
+                  '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "20px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "20px",
                   background: 'rgba(255,255,255,0.02)',
                   border: `1px solid ${COLORS.glassBorderSoft}`,
                   borderLeft: `2px solid ${palette.accent}`,

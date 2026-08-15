@@ -334,7 +334,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
 
       {/* Renk Sekans feature */}
       {data.renkSekans && (
-        <div style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, padding: isMobile ? '16px' : '20px' }}>
+        <div className="mq-box" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px" }}>
           {/* Header */}
           <p style={{ fontSize: '0.62rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.13em', color: COLORS.gold, fontFamily: FONTS.body, margin: '0 0 8px' }}>
             {tr ? "Kur'an'ın Renk Sekansı" : "The Quran's Color Sequence"}
@@ -351,10 +351,10 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
             const stageHexes = data.renkSekans.stages.map(s => s.hexColor);
             const gradient = `linear-gradient(${isMobile ? '180deg' : '90deg'}, ${stageHexes[0]} 0%, ${stageHexes[1]} 50%, ${stageHexes[2]} 100%)`;
             return (
-              <div style={{
+              <div className="mq-box" style={{
                 position: 'relative',
                 marginBottom: '24px',
-                padding: isMobile ? '8px 12px 16px' : '28px 24px 20px',
+                '--pt-d': "28px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "12px",
                 background: 'rgba(0,0,0,0.18)',
                 border: `1px solid ${COLORS.glassBorder}`,
                 borderRadius: RADIUS.lg,
@@ -534,9 +534,9 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
   if (!colors.length) return null;
 
   return (
-    <div style={{ padding: isMobile ? '20px 12px 32px' : '32px 24px 48px', maxWidth: '1080px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "12px", maxWidth: '1080px', margin: '0 auto' }}>
       {/* Section header */}
-      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '36px' }}>
+      <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '36px', '--mb-m': '24px' }}>
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? "Kur'ân'ın Renk Paleti" : "The Qur'anic Color Palette"}
         </div>
@@ -567,7 +567,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
           const refCount = (c.allRefs && c.allRefs.length) || 0;
 
           return (
-            <button
+            <button className="mq-box"
               key={c.id}
               onClick={() => onColorClick && onColorClick(c.id)}
               onMouseEnter={() => setHoveredId(c.id)}
@@ -579,7 +579,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
                 position: 'relative',
                 display: 'flex', flexDirection: 'column',
                 alignItems: 'center',
-                padding: isMobile ? '20px 12px 16px' : '28px 16px 22px',
+                '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "22px", '--pb-m': "16px", '--pl-d': "16px", '--pl-m': "12px",
                 background: isHover ? `${c.hexColor}12` : 'rgba(255,255,255,0.02)',
                 border: `1px solid ${isHover ? `${c.hexColor}55` : COLORS.glassBorderSoft}`,
                 borderRadius: RADIUS.lg,
@@ -591,7 +591,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
               }}
             >
               {/* Color disc */}
-              <div style={{
+              <div className="mq-box" style={{
                 width: isMobile ? '54px' : '72px',
                 height: isMobile ? '54px' : '72px',
                 borderRadius: '50%',
@@ -601,7 +601,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
                   ? `0 0 32px ${c.hexColor}66, 0 0 0 4px ${c.hexColor}18`
                   : `0 4px 14px ${c.hexColor}22`,
                 transition: 'box-shadow 0.28s ease',
-                marginBottom: isMobile ? '12px' : '16px',
+                '--mb-d': '16px', '--mb-m': '12px',
               }} />
 
               {/* Turkish name */}
@@ -694,12 +694,12 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
       </div>
 
       {/* Footer note */}
-      <p style={{
+      <p className="mq-box" style={{
         textAlign: 'center',
         color: COLORS.silver,
         fontSize: '0.75rem',
         opacity: 0.78,
-        marginTop: isMobile ? '28px' : '40px',
+        '--mt-d': '40px', '--mt-m': '28px',
         fontStyle: 'italic',
       }}>
         {tr
@@ -949,8 +949,8 @@ function TabBaglam({ language, isMobile }) {
             }} />
 
             {/* ── Section header — premium upgrade ── */}
-            <div style={{
-              padding: isMobile ? '18px 16px 16px' : '22px 24px 18px',
+            <div className="mq-box" style={{
+              '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
               borderBottom: `1px solid ${COLORS.glassBg}`,
               position: 'relative',
             }}>
@@ -1023,11 +1023,11 @@ function TabBaglam({ language, isMobile }) {
                     }}
                   >
                     {/* Row */}
-                    <button
+                    <button className="mq-box"
                       onClick={() => setExpandedItem(isOpen ? null : key)}
                       style={{
                         display: 'flex', alignItems: 'center', gap: '14px',
-                        width: '100%', padding: isMobile ? '12px 14px' : '14px 20px',
+                        width: '100%', '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
                         background: isOpen ? `${c.hex}0F` : 'transparent',
                         border: 'none', cursor: 'pointer', textAlign: 'left',
                         transition: 'background 0.18s, transform 0.18s',
@@ -1091,14 +1091,14 @@ function TabBaglam({ language, isMobile }) {
 
                     {/* Expanded verse panel — gold-accented card-within-card */}
                     {isOpen && (
-                      <div style={{
-                        padding: isMobile ? '14px 14px 18px' : '18px 24px 22px',
+                      <div className="mq-box" style={{
+                        '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "24px", '--pl-m': "14px",
                         background: `linear-gradient(180deg, ${c.hex}10 0%, rgba(0,0,0,0.28) 60%, rgba(0,0,0,0.28) 100%)`,
                         borderTop: `1px solid ${COLORS.glassBg}`,
                       }}>
                         {/* Arabic verse — elevated card */}
-                        <div style={{
-                          padding: isMobile ? '14px 14px' : '18px 22px',
+                        <div className="mq-box" style={{
+                          '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                           background: 'rgba(0,0,0,0.35)',
                           border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
                           borderRadius: RADIUS.md,
@@ -1221,11 +1221,11 @@ function TabCennet({ language, isMobile }) {
   return (
     <div>
       {/* ── Hero callout ── */}
-      <div style={{
+      <div className="mq-box" style={{
         background: `linear-gradient(135deg, ${ACCENT}10 0%, rgba(184,134,11,0.06) 50%, transparent 100%)`,
         border: `1px solid ${ACCENT}33`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '18px 16px' : '24px 28px',
+        '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "16px",
         marginBottom: '28px',
         position: 'relative', overflow: 'hidden',
       }}>
@@ -1380,13 +1380,13 @@ function TabCennet({ language, isMobile }) {
         {analyses.map((a, i) => {
           const theme = a.themeColor || ACCENT;
           return (
-            <div
+            <div className="mq-box"
               key={i}
               style={{
                 background: `linear-gradient(180deg, ${theme}10 0%, ${ACCENT}06 50%, rgba(255,255,255,0.022) 100%)`,
                 border: `1px solid ${theme}33`,
                 borderRadius: RADIUS.lg,
-                padding: isMobile ? '16px' : '20px 22px',
+                '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
                 position: 'relative', overflow: 'hidden',
                 transition: 'transform 0.2s, border-color 0.2s, box-shadow 0.2s',
               }}
@@ -1441,8 +1441,8 @@ function TabCennet({ language, isMobile }) {
               </div>
 
               {/* Arabic — elevated card */}
-              <div style={{
-                padding: isMobile ? '14px 14px' : '18px 22px',
+              <div className="mq-box" style={{
+                '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                 background: 'rgba(0,0,0,0.32)',
                 border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
                 borderRadius: RADIUS.md,
@@ -1551,11 +1551,11 @@ function TabKiyamet({ language, isMobile }) {
   return (
     <div>
       {/* ── Bipolar contrast hero ── */}
-      <div style={{
+      <div className="mq-box" style={{
         background: `linear-gradient(135deg, ${WHITE_FACE}10 0%, transparent 45%, ${BLACK_FACE}30 100%)`,
         border: `1px solid ${COLORS.glassBorder}`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '18px 16px' : '24px 28px',
+        '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "16px",
         marginBottom: '28px',
         position: 'relative', overflow: 'hidden',
       }}>
@@ -1680,11 +1680,11 @@ function TabKiyamet({ language, isMobile }) {
       </div>
 
       {/* ── Narrative timeline — cinematic sequence of 4 scenes ── */}
-      <div style={{
+      <div className="mq-box" style={{
         background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.018) 100%)',
         border: `1px solid ${COLORS.glassBorder}`,
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '14px 14px 16px' : '22px 28px 18px',
+        '--pt-d': "22px", '--pt-m': "14px", '--pr-d': "28px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "28px", '--pl-m': "14px",
         marginBottom: '20px',
         position: 'relative', overflow: 'hidden',
       }}>
@@ -1706,7 +1706,7 @@ function TabKiyamet({ language, isMobile }) {
         </div>
 
         {/* Timeline backbone + markers */}
-        <div style={{ position: 'relative', padding: isMobile ? '6px 0' : '18px 0 8px' }}>
+        <div className="mq-box" style={{ position: 'relative', '--pt-d': "18px", '--pt-m': "6px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "0", '--pl-m': "0" }}>
           {/* Gradient backbone — horizontal desktop / vertical mobile */}
           <motion.div
             initial={{ scaleX: isMobile ? 1 : 0, scaleY: isMobile ? 0 : 1, opacity: 0 }}
@@ -1801,13 +1801,13 @@ function TabKiyamet({ language, isMobile }) {
         </div>
 
         {scenes.map((s, i) => (
-          <div
+          <div className="mq-box"
             key={i}
             style={{
               background: `linear-gradient(180deg, ${s.hex}10 0%, rgba(255,255,255,0.022) 65%)`,
               border: `1px solid ${s.hex}33`,
               borderRadius: RADIUS.lg,
-              padding: isMobile ? '16px' : '20px 22px',
+              '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
               position: 'relative', overflow: 'hidden',
             }}
           >
@@ -1837,8 +1837,8 @@ function TabKiyamet({ language, isMobile }) {
             </div>
 
             {/* Arabic — elevated card */}
-            <div style={{
-              padding: isMobile ? '14px 14px' : '18px 22px',
+            <div className="mq-box" style={{
+              '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
               background: 'rgba(0,0,0,0.32)',
               border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
               borderRadius: RADIUS.md,
@@ -1913,8 +1913,8 @@ function TabDilbilim({ language, isMobile }) {
         opacity: 0.65, pointerEvents: 'none',
       }} />
       {/* Header */}
-      <div style={{
-        padding: isMobile ? '18px 16px 14px' : '22px 24px 16px',
+      <div className="mq-box" style={{
+        '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.glassBg}`,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
@@ -1960,7 +1960,7 @@ function TabDilbilim({ language, isMobile }) {
         )}
       </div>
       {/* Body */}
-      <div style={{ padding: isMobile ? '14px 14px 18px' : '18px 24px 22px' }}>
+      <div className="mq-box" style={{ '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "24px", '--pl-m': "14px" }}>
         {children}
       </div>
     </div>
@@ -1984,10 +1984,10 @@ function TabDilbilim({ language, isMobile }) {
             { normalAr: 'أَخْضَر', normalTrans: 'ahdar', intenseAr: 'مُدْهَامَّتَانِ', intenseTrans: 'mudhammatân', meaningTr: 'Yeşil → Koyu Yoğun Yeşil', meaningEn: 'Green → Intensely Dark Green', hex: KURANI_COLORS.yesilKoyu },
             { normalAr: 'أَسْوَد', normalTrans: 'esvad',  intenseAr: 'غَرَابِيبُ سُودٌ', intenseTrans: 'garâbîb sûd', meaningTr: 'Siyah → Kuzgun Siyahı', meaningEn: 'Black → Raven Black', hex: KURANI_COLORS.siyahKaranlik },
           ].map((row, i) => (
-            <div key={i} className="tri-col-vs" style={{
+            <div key={i} className="tri-col-vs mq-box" style={{
               gap: isMobile ? '10px' : '18px',
               alignItems: 'center',
-              padding: isMobile ? '14px' : '16px 18px',
+              '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "14px",
               background: 'rgba(255,255,255,0.025)',
               border: `1px solid ${COLORS.glassBgStrong}`,
               borderLeft: `3px solid ${row.hex}`,
@@ -2025,10 +2025,10 @@ function TabDilbilim({ language, isMobile }) {
                 </div>
               </div>
               {/* Meaning row spans on mobile */}
-              <div style={{
+              <div className="mq-box" style={{
                 gridColumn: isMobile ? '1' : '1 / -1',
-                paddingTop: isMobile ? '8px' : '6px',
-                marginTop: isMobile ? '4px' : '4px',
+                '--pt-d': '6px', '--pt-m': '8px',
+                '--mt-d': '4px', '--mt-m': '4px',
                 borderTop: `1px solid ${COLORS.glassBg}`,
                 fontSize: '0.85rem',
                 color: COLORS.silver, fontFamily: FONTS.body,
@@ -2066,11 +2066,11 @@ function TabDilbilim({ language, isMobile }) {
               noteEn: "The color of the sky at judgment — compared to melted red oil. Rare in this form.",
             },
           ].map((h, i) => (
-            <div key={i} style={{
+            <div className="mq-box" key={i} style={{
               background: `linear-gradient(180deg, rgba(139,92,246,0.10) 0%, rgba(139,92,246,0.04) 60%)`,
               border: '1px solid rgba(139,92,246,0.28)',
               borderRadius: RADIUS.md,
-              padding: isMobile ? '14px' : '18px 20px',
+              '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
               position: 'relative', overflow: 'hidden',
             }}>
               {/* Left accent */}
@@ -2081,8 +2081,8 @@ function TabDilbilim({ language, isMobile }) {
               }} />
 
               {/* Arabic — elevated */}
-              <div style={{
-                padding: isMobile ? '12px 14px' : '14px 20px',
+              <div className="mq-box" style={{
+                '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
                 background: 'rgba(0,0,0,0.3)',
                 border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
                 borderRadius: RADIUS.md,
@@ -2269,11 +2269,11 @@ function TabDilbilim({ language, isMobile }) {
               noteEn: "The root 'lavvâha' implies color change — fire reddens and blackens the skin. Red/black, but left unstated.",
             },
           ].map((row, i) => (
-            <div key={i} style={{
+            <div className="mq-box" key={i} style={{
               background: `linear-gradient(180deg, ${row.hex}10 0%, rgba(255,255,255,0.022) 65%)`,
               border: `1px solid ${row.hex}33`,
               borderRadius: RADIUS.md,
-              padding: isMobile ? '14px' : '18px 20px',
+              '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
               position: 'relative', overflow: 'hidden',
             }}>
               {/* Left accent */}
@@ -2317,8 +2317,8 @@ function TabDilbilim({ language, isMobile }) {
               </div>
 
               {/* Arabic — elevated card */}
-              <div style={{
-                padding: isMobile ? '12px 14px' : '16px 22px',
+              <div className="mq-box" style={{
+                '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                 background: 'rgba(0,0,0,0.32)',
                 border: `1px solid ${COLORS.goldAlpha20 || 'rgba(212,165,116,0.2)'}`,
                 borderRadius: RADIUS.md,
@@ -2680,8 +2680,8 @@ export default function KuranRenkleri({ onClose }) {
 
         {/* ════ CINEMATIC HERO — Premium Template (Bismillah + Fâtır 35:27 +
             framing whisper + dramatic title + stat strip) ══════════════════ */}
-        <div style={{
-          padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           background: `linear-gradient(180deg,${COLORS.deepNavy} 0%,${COLORS.cosmicBlack} 100%)`,
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
@@ -2691,7 +2691,7 @@ export default function KuranRenkleri({ onClose }) {
           <HeroGeometricBackground />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament — Amiri Quran ligature (§13.2 documented exception) */}
-          <div
+          <div className="mq-box"
             dir="rtl"
             lang="ar"
             aria-label="Bismillāh"
@@ -2701,7 +2701,7 @@ export default function KuranRenkleri({ onClose }) {
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 20px ${COLORS.gold}22`,
             }}
           >
@@ -2852,7 +2852,7 @@ export default function KuranRenkleri({ onClose }) {
         </div>
 
         {/* ── Fâtır 35:27 Feature Card ── */}
-        <div style={{ margin: isMobile ? '0 16px 16px' : '0 32px 20px', padding: isMobile ? '16px' : '20px', background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>
+        <div className="mq-box" style={{ '--mt-d': "0", '--mt-m': "0", '--mr-d': "32px", '--mr-m': "16px", '--mb-d': "20px", '--mb-m': "16px", '--ml-d': "32px", '--ml-m': "16px", '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px", background: 'linear-gradient(135deg,rgba(29,158,117,0.08),rgba(200,50,50,0.08),rgba(30,30,50,0.15))', border: `1px solid ${COLORS.glassBorder}`, borderRadius: RADIUS.lg }}>
           <div style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px' }}>
             {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
           </div>
@@ -2914,10 +2914,10 @@ export default function KuranRenkleri({ onClose }) {
             background: `linear-gradient(90deg, transparent 5%, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'} 50%, transparent 95%)`,
             pointerEvents: 'none',
           }} />
-          <div id="renkler-tab-bar" style={{
+          <div className="mq-box" id="renkler-tab-bar" style={{
             display: 'flex',
             gap: isMobile ? '0' : '6px',
-            padding: isMobile ? '0 6px' : '0 14px',
+            '--pt-d': "0", '--pt-m': "0", '--pr-d': "14px", '--pr-m': "6px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "14px", '--pl-m': "6px",
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             overflowX: 'auto', scrollbarWidth: 'none',
             flexShrink: 0,
@@ -2983,7 +2983,7 @@ export default function KuranRenkleri({ onClose }) {
         </div>
 
         {/* ── Tab content ── */}
-        <div style={{ padding: isMobile ? '16px' : '24px 32px', minHeight: '400px' }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px", minHeight: '400px' }}>
           {activeTab === TABS.RENKLER && (
             <TabRenkler data={data} language={language} activeFilter={activeFilter} setActiveFilter={setActiveFilter} isMobile={isMobile} expandedVerse={expandedVerse} setExpandedVerse={setExpandedVerse} />
           )}
@@ -3085,22 +3085,22 @@ export default function KuranRenkleri({ onClose }) {
 function ColorsClosing({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+    <div className="mq-box" style={{
+      '--mt-d': '60px', '--mt-m': '40px',
+      '--pt-d': "80px", '--pt-m': "50px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "20px",
       borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
       maxWidth: '900px',
       marginLeft: 'auto',
       marginRight: 'auto',
     }}>
       {/* ── KELÂMÎ TARTIŞMA — "Cennet Tek Ton mu?" ─────────────────── */}
-      <div style={{
+      <div className="mq-box" style={{
         background: 'rgba(46,204,113,0.05)',
         border: '1px solid rgba(46,204,113,0.25)',
         borderLeft: '3px solid #2ecc71',
         borderRadius: RADIUS.lg,
-        padding: isMobile ? '20px 22px' : '24px 28px',
-        marginBottom: isMobile ? '40px' : '60px',
+        '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "22px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "22px",
+        '--mb-d': '60px', '--mb-m': '40px',
         maxWidth: '780px',
         marginInline: 'auto',
       }}>
@@ -3203,7 +3203,7 @@ function ColorsClosing({ language, isMobile }) {
             { href: `/${language}/oku/55`, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: 'Hapax مُدْهَامَّتَانِ (55:64) — Kur\'an\'da bir kez geçen "koyu yeşil" kelimesinin cennet bağlamı.', descEn: 'Hapax مُدْهَامَّتَانِ (55:64) — the once-occurring word "deep green" in its paradise context.' },
             { href: `/${language}/oku/2`, titleTr: 'Bakara 2:187', titleEn: 'al-Baqara 2:187', descTr: 'Beyaz iplik / siyah iplik — oruç ayetindeki renklerin işlevsel kullanımı.', descEn: 'The white thread / black thread — the functional use of colors in the fasting verse.' },
           ].map((tt, i) => (
-            <a
+            <a className="mq-box"
               key={i}
               href={tt.href}
               style={{
@@ -3211,7 +3211,7 @@ function ColorsClosing({ language, isMobile }) {
                 background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
                 border: `1px solid ${COLORS.goldAlpha25}`,
                 borderRadius: RADIUS.lg,
-                padding: isMobile ? '20px 18px' : '22px 22px',
+                '--pt-d': "22px", '--pt-m': "20px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "20px", '--pl-d': "22px", '--pl-m': "18px",
                 textDecoration: 'none',
                 transition: `all ${TRANSITION.base}`,
               }}

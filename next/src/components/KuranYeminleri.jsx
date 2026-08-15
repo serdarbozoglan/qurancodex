@@ -126,8 +126,8 @@ export default function KuranYeminleri({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ════ CINEMATIC HERO — Premium Template (İlk-Son + Renkler parity) */}
-        <div style={{
-          padding: isMobile ? '40px 16px 28px' : '60px 32px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
           background: 'linear-gradient(180deg, rgba(212,162,36,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
@@ -137,7 +137,7 @@ export default function KuranYeminleri({ onClose }) {
           <HeroGeometricBackground />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament — Amiri Quran ligature (§13.2 exception) */}
-          <div
+          <div className="mq-box"
             dir="rtl"
             lang="ar"
             aria-label="Bismillāh"
@@ -147,7 +147,7 @@ export default function KuranYeminleri({ onClose }) {
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -347,10 +347,10 @@ export default function KuranYeminleri({ onClose }) {
         <YeminCevapReveal language={language} isMobile={isMobile} />
 
         {/* ── TAB BAR — §13.19 compliant (Melekler-reference) ─ */}
-        <div id="yemin-tab-bar" style={{
+        <div className="mq-box" id="yemin-tab-bar" style={{
           display: 'flex',
           gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -366,7 +366,7 @@ export default function KuranYeminleri({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button
+              <button className="mq-box"
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
@@ -382,7 +382,7 @@ export default function KuranYeminleri({ onClose }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: isMobile ? '14px 16px' : '15px 22px',
+                  '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
                   border: 'none',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -408,7 +408,7 @@ export default function KuranYeminleri({ onClose }) {
         </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
-        <div style={{ padding: isMobile ? '20px 16px 40px' : '28px 32px 60px' }}>
+        <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
           {/* Tab 0: Kategoriler — includes RadialViz/Accordion */}
           {activeTab === 0 && (
@@ -985,9 +985,9 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
           <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
 
           {/* Header: numbered badge + title */}
-          <div style={{
+          <div className="mq-box" style={{
             display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '16px',
-            padding: isMobile ? '18px 16px 14px' : '22px 28px 16px',
+            '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "28px", '--pl-m': "16px",
           }}>
             <div style={{
               width: '34px', height: '34px', borderRadius: RADIUS.full,
@@ -1008,7 +1008,7 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
           </div>
 
           {/* Body */}
-          <div style={{ padding: isMobile ? '0 16px 20px' : '0 28px 26px' }}>
+          <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "16px" }}>
             {/* Verse with gold left accent — pure dark bg for Quran readability */}
             <div style={{
               ...VERSE_DISPLAY_CARD,
@@ -1286,8 +1286,8 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
 
       {/* Meccan/Medinan finding — strongest single insight */}
       {meta && typeof meta.meccanCount === 'number' && (
-        <div style={{
-          padding: isMobile ? '14px 16px' : '18px 22px',
+        <div className="mq-box" style={{
+          '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
           background: 'linear-gradient(90deg, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.02) 100%)',
           border: `1px solid ${COLORS.goldAlpha25}`,
           borderRadius: RADIUS.lg,
@@ -1376,12 +1376,12 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
   return (
     <div>
       {/* Thesis intro */}
-      <div style={{
+      <div className="mq-box" style={{
         background: 'rgba(212,165,116,0.06)',
         border: `1px solid ${COLORS.goldAlpha25}`,
         borderLeft: `4px solid ${COLORS.gold}`,
         borderRadius: '10px',
-        padding: isMobile ? '18px 16px' : '24px 28px',
+        '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "16px",
         marginBottom: '24px',
       }}>
         <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '12px' }}>
@@ -1407,9 +1407,9 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
         const clauses = (raw || '').replace(/^["""]/u, '').replace(/["""]$/u, '')
           .split(/\.\s+/).map(s => s.trim()).filter(Boolean);
         return (
-          <div style={{
+          <div className="mq-box" style={{
             position: 'relative',
-            padding: isMobile ? '28px 20px 24px' : '36px 48px 32px',
+            '--pt-d': "36px", '--pt-m': "28px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "48px", '--pl-m': "20px",
             marginBottom: '28px',
             borderTop: `1px solid ${COLORS.goldAlpha15}`,
             borderBottom: `1px solid ${COLORS.goldAlpha15}`,
@@ -1473,9 +1473,9 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             }} />
 
             {/* Header with number badge + title */}
-            <div style={{
+            <div className="mq-box" style={{
               display: 'flex', alignItems: 'center', gap: isMobile ? '12px' : '14px',
-              padding: isMobile ? '16px 16px 10px' : '20px 24px 12px',
+              '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "24px", '--pl-m': "16px",
             }}>
               <div style={{
                 width: '30px', height: '30px', borderRadius: RADIUS.full,
@@ -1497,7 +1497,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             </div>
 
             {/* Body */}
-            <div style={{ padding: isMobile ? '0 16px 16px' : '0 24px 20px' }}>
+            <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
               <p style={{
                 color: COLORS.silver, fontSize: '0.88rem',
                 fontFamily: FONTS.body, lineHeight: 1.75, margin: 0,
@@ -1540,7 +1540,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               }}>
                 <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
 
-                <div style={{ padding: isMobile ? '16px 16px 10px' : '22px 26px 14px' }}>
+                <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "16px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "10px", '--pl-d': "26px", '--pl-m': "16px" }}>
                   <div style={{ fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold, direction: 'rtl', textAlign: 'right', lineHeight: 1.6, marginBottom: '8px' }} dir="rtl" lang="ar">
                     {pattern.arabicName}
                   </div>
@@ -1557,7 +1557,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
 
                 {/* Pairs */}
                 {Array.isArray(pattern.pairs) && pattern.pairs.length > 0 && (
-                  <div style={{ padding: isMobile ? '0 16px 16px' : '0 26px 22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "16px", '--pl-d': "26px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {pattern.pairs.map((pair, pj) => (
                       <div key={pair.id || pj} style={{
                         background: 'rgba(0,0,0,0.18)',
@@ -1630,8 +1630,8 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
 
                 {/* Scholar note */}
                 {pattern.scholarNote && (
-                  <div style={{
-                    margin: isMobile ? '0 16px 16px' : '0 26px 22px',
+                  <div className="mq-box" style={{
+                    '--mt-d': "0", '--mt-m': "0", '--mr-d': "26px", '--mr-m': "16px", '--mb-d': "22px", '--mb-m': "16px", '--ml-d': "26px", '--ml-m': "16px",
                     padding: '12px 14px',
                     background: 'rgba(212,165,116,0.05)',
                     border: `1px solid ${COLORS.goldAlpha25}`,
@@ -1715,7 +1715,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               overflow: 'hidden',
             }}>
               <div style={{ height: '2px', background: `linear-gradient(90deg, ${COLORS.gold} 0%, rgba(212,165,116,0.15) 60%, transparent 100%)` }} />
-              <div style={{ padding: isMobile ? '18px 16px' : '22px 26px' }}>
+              <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "16px" }}>
                 <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', marginBottom: '14px', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: '0.7rem', fontWeight: 700, color: COLORS.gold, opacity: 0.85, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body }}>
                     {String(i + 1).padStart(2, '0')} · {ex.ref}
@@ -1842,9 +1842,9 @@ const TAHADDI_VERSES = [
 function TabTahaddi({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "12px", maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
-      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
+      <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '32px', '--mb-m': '24px' }}>
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin ↔ Tahaddi Paraleli' : 'The Oath–Challenge Parallel'}
         </div>
@@ -1868,12 +1868,12 @@ function TabTahaddi({ language, isMobile }) {
           const isMedinan = v.period === 'medine';
           const accent = isMedinan ? '#3B82F6' : COLORS.gold;
           return (
-            <div key={i} style={{
+            <div className="mq-box" key={i} style={{
               background: 'rgba(255,255,255,0.02)',
               border: `1px solid ${accent}22`,
               borderLeft: `3px solid ${accent}`,
               borderRadius: RADIUS.lg,
-              padding: isMobile ? '16px' : '20px',
+              '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px",
               display: 'flex', flexDirection: 'column', gap: '12px',
             }}>
               {/* Header: ref + scope + period chip */}
@@ -2042,9 +2042,9 @@ const KOZMOLOJI_ITEMS = [
 function TabKozmoloji({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{ padding: isMobile ? '16px 12px' : '24px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "12px", maxWidth: '1000px', margin: '0 auto' }}>
       {/* Section header */}
-      <div style={{ textAlign: 'center', marginBottom: isMobile ? '24px' : '32px' }}>
+      <div className="mq-box" style={{ textAlign: 'center', '--mb-d': '32px', '--mb-m': '24px' }}>
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin Edilen Kâinat' : 'The Cosmos Sworn By'}
         </div>
@@ -2065,12 +2065,12 @@ function TabKozmoloji({ language, isMobile }) {
       {/* Items — vertical list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {KOZMOLOJI_ITEMS.map((it, i) => (
-          <div key={i} style={{
+          <div className="mq-box" key={i} style={{
             background: 'rgba(255,255,255,0.02)',
             border: `1px solid ${COLORS.gold}20`,
             borderLeft: `3px solid ${COLORS.gold}88`,
             borderRadius: RADIUS.lg,
-            padding: isMobile ? '14px' : '18px 22px',
+            '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
               <div style={{ fontFamily: FONTS.display, fontSize: '1.05rem', color: COLORS.offWhite, fontWeight: 600 }}>
@@ -2106,11 +2106,11 @@ function TabKaynaklar({ sources, language, isMobile }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {sources.map((section, i) => (
-        <div key={i} style={{
+        <div className="mq-box" key={i} style={{
           background: COLORS.glassBg,
           border: `1px solid ${COLORS.glassBorder}`,
           borderRadius: '10px',
-          padding: isMobile ? '16px' : '20px 24px',
+          '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
         }}>
           <h4 style={{ color: COLORS.gold, fontSize: '0.85rem', fontWeight: 700, fontFamily: FONTS.body, textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 12px' }}>
             {language === 'tr' ? section.categoryTr : section.categoryEn}
@@ -2153,9 +2153,9 @@ function TabKaynaklar({ sources, language, isMobile }) {
 function YeminlerClosing({ language, isMobile, totalOaths }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '50px 20px 60px' : '80px 32px 80px',
+    <div className="mq-box" style={{
+      '--mt-d': '60px', '--mt-m': '40px',
+      '--pt-d': "80px", '--pt-m': "50px", '--pr-d': "32px", '--pr-m': "20px", '--pb-d': "80px", '--pb-m': "60px", '--pl-d': "32px", '--pl-m': "20px",
       borderTop: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
       maxWidth: '900px',
       marginLeft: 'auto',
@@ -2220,7 +2220,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
             { href: `/${language}/oku/56`, titleTr: 'Vâkıa Sûresi (56)', titleEn: 'Sura al-Wāqiʿa (56)', descTr: '"Yıldızların yerlerine yemin ederim — bilseniz bu büyük bir yemindir" (56:75-76) — Kur\'an\'ın kendi yeminini tefsir ettiği ayet.', descEn: '"I swear by the positions of the stars — and indeed it is a tremendous oath if you only knew" (56:75-76) — the Quran interpreting its own oath.' },
             { href: `/${language}/oku/103`, titleTr: 'Asr Sûresi (103)', titleEn: 'Sura al-ʿAṣr (103)', descTr: '"Asra yemin olsun ki insan ziyandadır" — 3 ayetlik en kısa yemin sûresi; tüm tarihin tezi.', descEn: '"By time — indeed humanity is in loss" — the shortest oath sura (3 verses); the thesis of all history.' },
           ].map((tt, i) => (
-            <a
+            <a className="mq-box"
               key={i}
               href={tt.href}
               style={{
@@ -2228,7 +2228,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
                 background: `linear-gradient(180deg, ${COLORS.goldAlpha04} 0%, rgba(255,255,255,0.02) 100%)`,
                 border: `1px solid ${COLORS.goldAlpha25}`,
                 borderRadius: RADIUS.lg,
-                padding: isMobile ? '20px 18px' : '22px 22px',
+                '--pt-d': "22px", '--pt-m': "20px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "20px", '--pl-d': "22px", '--pl-m': "18px",
                 textDecoration: 'none',
                 transition: `all ${TRANSITION.base}`,
               }}
@@ -2280,10 +2280,10 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
 function VakiaSpotlight({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
-      margin: isMobile ? '20px 16px 0' : '32px auto 0',
+    <div className="mq-box" style={{
+      '--mt-d': "32px", '--mt-m': "20px", '--mr-d': "auto", '--mr-m': "16px", '--mb-d': "0", '--mb-m': "0", '--ml-d': "auto", '--ml-m': "16px",
       maxWidth: '900px',
-      padding: isMobile ? '24px 20px' : '36px 40px',
+      '--pt-d': "36px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "20px",
       background: 'linear-gradient(135deg, rgba(212,165,116,0.10) 0%, rgba(201,162,39,0.05) 50%, rgba(212,165,116,0.10) 100%)',
       border: `1px solid ${COLORS.goldAlpha25}`,
       borderRadius: RADIUS.lg,
@@ -2423,10 +2423,10 @@ function YeminCevapReveal({ language, isMobile }) {
   const [revealed, setRevealed] = useState({});
 
   return (
-    <div style={{
-      margin: isMobile ? '32px 16px 0' : '48px auto 0',
+    <div className="mq-box" style={{
+      '--mt-d': "48px", '--mt-m': "32px", '--mr-d': "auto", '--mr-m': "16px", '--mb-d': "0", '--mb-m': "0", '--ml-d': "auto", '--ml-m': "16px",
       maxWidth: '900px',
-      padding: isMobile ? '0' : '0 8px',
+      '--pt-d': "0", '--pt-m': "0", '--pr-d': "8px", '--pr-m': "0", '--pb-d': "0", '--pb-m': "0", '--pl-d': "8px", '--pl-m': "0",
     }}>
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
         <div style={{
@@ -2479,7 +2479,7 @@ function YeminCevapReveal({ language, isMobile }) {
               }}
             >
               {/* Oath section */}
-              <div style={{ padding: isMobile ? '20px 18px' : '24px 28px' }}>
+              <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "18px" }}>
                 <div style={{
                   display: 'flex', alignItems: 'center', gap: '10px',
                   marginBottom: '14px',
@@ -2562,8 +2562,8 @@ function YeminCevapReveal({ language, isMobile }) {
 
               {/* Answer section — reveal */}
               {isRevealed && (
-                <div style={{
-                  padding: isMobile ? '20px 18px 24px' : '24px 28px 28px',
+                <div className="mq-box" style={{
+                  '--pt-d': "24px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "24px", '--pl-d': "28px", '--pl-m': "18px",
                   background: 'rgba(212,165,116,0.04)',
                 }}>
                   <div style={{

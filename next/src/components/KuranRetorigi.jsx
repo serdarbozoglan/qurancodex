@@ -52,7 +52,7 @@ export default function KuranRetorigi({ onClose }) {
 
   // #203 (2026-07-16) — SSR-safe: CTA + SOURCES hem loading skeleton'da hem main'de görünsün
   const CTA_AND_SOURCES = (
-    <div style={{ padding: isMobile ? '0 16px' : '0 32px', maxWidth: '1200px', width: '100%', margin: '0 auto' }}>
+    <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1200px', width: '100%', margin: '0 auto' }}>
       <CrossToolCTA
         language={language} isMobile={isMobile}
         links={[
@@ -145,14 +145,14 @@ export default function KuranRetorigi({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) — Yûsuf 12:111 ─────────────────────── */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, marginBottom: isMobile ? '26px' : '36px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
         <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى
         </p>
@@ -193,7 +193,7 @@ export default function KuranRetorigi({ onClose }) {
         scrollMarginTop: '120px',
       }}>
         {TABS.map((tab, i) => (
-          <button
+          <button className="mq-box"
             key={i}
             onClick={() => {
               setActiveTab(i);
@@ -203,7 +203,7 @@ export default function KuranRetorigi({ onClose }) {
               }, 50);
             }}
             style={{
-              padding: isMobile ? '14px 14px' : '15px 20px',
+              '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
               fontSize: isMobile ? '0.74rem' : '0.82rem',
               fontFamily: FONTS.body,
               fontWeight: activeTab === i ? 700 : 500,
@@ -485,10 +485,10 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       )}
 
       {/* ── SAĞ PANEL ────────────────────────────────── */}
-      <div style={{
+      <div className="mq-box" style={{
         flex: 1,
         overflowY: 'auto',
-        padding: isMobile ? '56px 16px 24px' : '24px 32px',
+        '--pt-d': "24px", '--pt-m': "56px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
       }}>
 
         {/* KATEGORİ PANELİ */}
@@ -754,7 +754,7 @@ function TabMuhatap({ data, tr, isMobile }) {
   };
 
   return (
-    <div style={{ ...SCROLL_WRAP, padding: isMobile ? '16px' : '28px 32px' }}>
+    <div className="mq-box" style={{ ...SCROLL_WRAP, '--pt-d': "28px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
       {/* Başlık */}
       <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 700, margin: '0 0 6px' }}>
@@ -898,7 +898,7 @@ function TabSorular({ data, tr, isMobile }) {
   };
 
   return (
-    <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', padding: isMobile ? '16px' : '24px 32px' }}>
+    <div className="mq-box" style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
       {/* Başlık */}
       <div style={{ marginBottom: 20 }}>
@@ -1023,7 +1023,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
   const TYPE_COLORS = { erotema: COLORS.gold, irsad: '#3498db', tevbih: '#2ecc71', taaccub: '#c084fc' };
 
   return (
-    <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', padding: isMobile ? '16px' : '28px 32px' }}>
+    <div className="mq-box" style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', '--pt-d': "28px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
       {/* ── BÖLÜM 1: MUHATAP × TİP MATRİSİ ─────────────── */}
       {(() => {
