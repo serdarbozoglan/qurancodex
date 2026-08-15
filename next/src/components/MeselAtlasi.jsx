@@ -1512,29 +1512,39 @@ export default function MeselAtlasi({ onClose, backRef }) {
     >
       {MESEL_TOOL_HEADER}
 
-      {/* Tab bar */}
-      <div style={{
-        display: 'flex', gap: 0, overflowX: 'auto', scrollbarWidth: 'none',
-        background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)', flexShrink: 0,
-        borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
-      }}>
-        {tabs.map((label, i) => (
-          <button className="mq-box"
-            key={i}
-            onClick={() => setActiveTab(i)}
-            style={{
-              '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
-              fontSize: isMobile ? '0.78rem' : '0.85rem',
-              fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
-              color: activeTab === i ? COLORS.gold : COLORS.silver,
-              background: 'none', border: 'none', cursor: 'pointer',
-              borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
-              whiteSpace: 'nowrap', transition: 'color 0.15s',
-            }}
-          >
-            {label}
-          </button>
-        ))}
+      {/* Tab bar — sağ kenarda sabit bir solma (fade) katmanı, sekmeler taşınca
+          "daha fazla sekme var, kaydır" ipucu verir; scrollbarWidth:'none'
+          native scrollbar'ı tamamen gizlediği için tek görsel ipucu budur.
+          CSS-only (JS scroll-state yok) — §14.2 CLS dersi gereği. */}
+      <div style={{ position: 'relative', flexShrink: 0 }}>
+        <div style={{
+          display: 'flex', gap: 0, overflowX: 'auto', scrollbarWidth: 'none',
+          background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
+          borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+        }}>
+          {tabs.map((label, i) => (
+            <button className="mq-box"
+              key={i}
+              onClick={() => setActiveTab(i)}
+              style={{
+                '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
+                fontSize: isMobile ? '0.78rem' : '0.85rem',
+                fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
+                color: activeTab === i ? COLORS.gold : COLORS.silver,
+                background: 'none', border: 'none', cursor: 'pointer',
+                borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
+                whiteSpace: 'nowrap', transition: 'color 0.15s',
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: 0, right: 0, bottom: '1px', width: '28px',
+          background: 'linear-gradient(90deg, transparent, rgb(6, 8, 14))',
+          pointerEvents: 'none',
+        }} />
       </div>
 
       {/* Tab content */}
