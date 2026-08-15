@@ -1790,19 +1790,44 @@ Commit: bkz. git log (`tests/__baseline__/tools-nav.json`).
 
 ### 🟡 Z3-G · Kod sağlığı
 
-- [ ] **Z3g1 · eslint: 541 hata + 35 uyarı, 89 dosya**
+- [ ] **Z3g1 · eslint canlı ölçüm (15 Ağustos): 576 problem (542 hata, 34
+      uyarı)** — eski 541+35 rakamı hâlâ doğru mertebede, ama kural
+      dağılımı DEĞİŞMİŞ (yeni `react-hooks/exhaustive-deps` (14),
+      `immutability` (6), `preserve-manual-memoization` (6), `purity` (1)
+      kategorileri belirdi — React Compiler kuralları, eski taramada
+      yoktu). Güncel dağılım:
       | kural | adet | not |
       |---|---:|---|
-      | `react/no-unescaped-entities` | 451 | kozmetik, `--fix` yok |
+      | `react/no-unescaped-entities` | 454 | kozmetik, `--fix` yok |
       | `react-hooks/set-state-in-effect` | **50** | gereksiz render turu |
       | `react-hooks/refs` | **18** | render sırasında ref okuma (17'si `ReadingMode`) |
-      | `react-hooks/static-components` | 7 | her renderda yeni bileşen tipi |
-      | `react-hooks/rules-of-hooks` | **2** | → Z3c1 |
+      | `react-hooks/exhaustive-deps` | 14 | eksik dependency |
       | `@next/next/no-img-element` | 10 | `<img>` yerine `next/image` |
+      | ~~`react-hooks/static-components`~~ | ~~7~~ **0** | ✅ **KAPANDI** `34f4d8a` |
+      | `react-hooks/immutability` | 6 | React Compiler kuralı, incelenmedi |
+      | `react-hooks/preserve-manual-memoization` | 6 | React Compiler kuralı, incelenmedi |
+      | `react-hooks/purity` | 1 | incelenmedi |
+      | `react-hooks/rules-of-hooks` | ~~2~~ **0** | Z3c1'de zaten kapanmış |
+      **Kalan:** 454 unescaped-entities (kozmetik, düşük öncelik), 50
+      set-state-in-effect + 18 refs + 14 exhaustive-deps + 10 img-element +
+      13 React Compiler kuralı — henüz ele alınmadı, ayrı kapsam kararı
+      gerekir (özellikle refs'in 17'si `ReadingMode.jsx`'te — o dosyaya
+      dokunmak riskli, bkz. Z3g2 ve ReadingMode CLS'in iki başarısız turu).
 - [ ] **Z3g2 · `ReadingMode.jsx` 11.289 satır** (sonraki en büyük 3.869).
       Tek dosyada 18 `react-hooks` ihlali; sitenin en kritik sayfası.
-- [ ] **Z3g3 · 4 gereksiz `'use client'`** — `FramingBadge` · `SiblingPageLink` ·
-      `SourcesCitation` · `StatCard` (hook/olay/window yok).
+      Bölme/refactor kapsam dışı — bu dosyada iki ayrı CLS turu (14-15
+      Ağustos) zaten beklenmeyen şekilde açıklanamayan sonuçlar verdi,
+      yapısal bir değişiklik önce derin bir anlayış gerektirir.
+- [x] ~~**Z3g3 · 4 gereksiz `'use client'`**~~ — **15 Ağustos'ta KISMEN
+      KAPANDI** `bcc3838`. `FramingBadge`/`SiblingPageLink`/`SourcesCitation`
+      gerçekten hook/olay/window kullanmıyordu, kaldırıldı (Server Component
+      oldular). **`StatCard` İSTİSNA — bilinçli olarak dokunulmadı:**
+      `framer-motion` kullanıyor, §16.1'in kendi kuralı "third-party client
+      libs (framer-motion...) → 'use client' zorunlu" diyor. Build'de
+      kaldırılabiliyordu (şu an 5 çağıranın hepsi zaten `'use client'`,
+      transitive inheritance ile çalışıyor) ama bu kırılgan — gelecekte bir
+      Server Component StatCard'ı doğrudan import ederse runtime hatası
+      verir. Orijinal Z3g3 bulgusu bu dosya için YANLIŞTI, düzeltilmedi.
 
 ### ✅ Z3-H · ÖLÇÜLDÜ ve TEMİZ ÇIKTI (tekrar denetlemeye gerek yok)
 
