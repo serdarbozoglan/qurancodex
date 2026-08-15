@@ -1145,10 +1145,59 @@ bir "fix" commit'lenmedi; iki deneme edit'i de **revert edildi**
 (kod tabanında iz yok).
 
 **Kalan (hâlâ açık, kapsamı netleşmeden ilerlenemez):** `/tr/oku` CLS'i
-0.705-0.776 aralığında kalmaya devam ediyor. Bir sonraki adım muhtemelen
-React DevTools Profiler ile gerçek mount/unmount olaylarını canlı izlemek
-veya ReadingMode'un `dynamic(..., {ssr:false})` sarmalayıcısının kendi
-davranışını incelemek olur — ikisi de bu turun kapsamı dışında bırakıldı.
+0.705-0.776 aralığında kalmaya devam ediyor.
+
+#### 15 Ağustos (gece) · İkinci tur — kullanıcı onayıyla daha derin izlendi, YİNE ÇÖZÜLEMEDİ
+
+Kullanıcı "ReadingMode CLS'i daha derin araştır" dedi. Üç ayrı enstrümantasyon
+katmanı eklendi (hiçbiri commit edilmedi — hepsi revert edildi):
+
+1. **Render sayacı** — bileşenin HER render'ında `performance.now()` +
+   `isMobile`/`loading`/`versesLen`/`bookMode` değerlerini `window`'a yazan
+   senkron bir log (component body'nin en üstünde ve `return` hemen
+   öncesinde). Sonuç: 6 render, t=392-791ms aralığında. İlk üçü `loading:
+   true` iken (isMobile false→true geçişi dahil), son ikisi veriler
+   geldikten sonra (`loading:false, versesLen:6236`) — ama **4. ve 5. render
+   arasında HİÇBİR loglanan değer değişmiyor** (her ikisi de aynı state) —
+   yani bileşen görünürde gereksiz yere en az 2 kez fazladan render oluyor
+   (ayrı bir performans notu, CLS'in kendisi değil).
+2. **Ref-callback mount log'u (İLK DENEME, YANILTICI ÇIKTI)** — inline
+   `ref={el => {...}}` callback'i her render'da YENİDEN oluştuğu için React
+   onu her seferinde `null` sonra `el` ile çağırıyor — bu, DOM node'unun
+   GERÇEKTEN yok edilip yeniden yaratıldığı YANILGISINI verdi ("5 kez
+   remount" gibi göründü). **Bu React'ın bilinen bir davranışı, benim
+   ilk enstrümantasyon hatam** — inline ref callback'ler her render'da
+   ateşleniyor, node kimliği değişmese bile.
+3. **Düzeltilmiş node-kimlik takibi** — `el.dataset.rmSeen` bayrağıyla
+   GERÇEK ilk-mount'u sahte re-invoke'lardan ayırdım. Sonuç: node **GERÇEKTEN
+   TEK SEFER mount oluyor** (`isNewNode: true` yalnız ilk çağrıda), sonraki
+   4 çağrı AYNI, stabil DOM node'u işaret ediyor. Yani "yok edilip yeniden
+   yaratılma" teorisi YANLIŞTI — bu bir remount sorunu değil.
+4. **`min-height:'70vh'` tekrar eklenip canlı doğrulandı** — `getComputedStyle`
+   ile, layout-shift `PerformanceObserver` callback'inin İÇİNDE (ayrı bir
+   test değil, AYNI ölçüm anında), `minHeight: "590.8px"` okundu — yani
+   stil GERÇEKTEN, TAM O ANDA uygulanmış durumdaydı.
+
+**Çelişkili sonuç:** Node stabil, min-height canlı olarak doğrulanmış
+durumda uygulanmış — YİNE DE tarayıcının kendi `layout-shift` olayı
+`previousRect: {w:0,h:0,top:0}` raporluyor, sanki element o ana kadar hiç
+var olmamış gibi. Bu, normal CSS/kayma modeliyle AÇIKLANAMIYOR: stabil bir
+node + canlı doğrulanmış min-height ile "önceki dikdörtgen sıfır" sonucu
+çelişkili. Mümkün açıklamalar (doğrulanamadı): (a) tarayıcının iç layout-
+shift muhasebesi ile React'ın commit zamanlaması arasında incelenmemiş bir
+yarış durumu; (b) `content-visibility`/CSS containment gibi bir mekanizmanın
+elementi "ölçülmemiş" saydığı bir durum; (c) Chrome DevTools Performance
+trace'i (bu ortamda yok) olmadan ayırt edilemeyecek bir üçüncü etken.
+
+**Sonuç:** İki tur, kapsamlı enstrümantasyon (6 ayrı tanı script'i,
+canlı stil/rect/mount doğrulaması) sonunda kök sebep izole edilemedi.
+Bu, mevcut araçlarla (Playwright + CDP, DevTools Performance trace'i
+OLMADAN) makul çabayla çözülebilecek bir sorun değil — gerçek Chrome
+DevTools Performance sekmesinde canlı bir trace almak (bu ortamda mevcut
+değil) veya React Profiler'ın flame graph'ı gerekiyor. **Kod tabanında hiç
+iz yok** (tüm deneme edit'leri revert edildi). Bir sonraki adım, kullanıcı
+gerçek bir tarayıcıda DevTools Performance trace'i alıp paylaşabilirse,
+ya da bu konuya ayrılmış, daha uzun bir araştırma turu olabilir.
 - [x] ~~**`neden-sonuc`/`kitap-kavrami`/`elestirel-cerceve`/`graf/karsilastir`/
       `graf/kavram` ailesi**~~ — **KISMEN KAPANDI** `048414b`. Bulgu güncel
       değilmiş: bu 5 sayfa daha önceki bir turda (`f9d9e36`, "Z3f2") zaten
