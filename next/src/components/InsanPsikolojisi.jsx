@@ -84,7 +84,7 @@ export default function InsanPsikolojisi({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Şüphesiz nefs, kötülüğü çokça emreder." : "Indeed, the soul is ever inclined to evil."}"
+          &quot;{tr ? "Şüphesiz nefs, kötülüğü çokça emreder." : "Indeed, the soul is ever inclined to evil."}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

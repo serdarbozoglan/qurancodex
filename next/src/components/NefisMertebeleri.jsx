@@ -184,9 +184,9 @@ export default function NefisMertebeleri({ onClose }) {
             maxWidth: '660px',
             opacity: 0.95,
           }}>
-            "{language === 'tr'
+            &quot;{language === 'tr'
               ? 'Ey huzura ermiş nefis! Razı olmuş ve razı olunmuş olarak Rabbine dön.'
-              : 'O serene soul! Return to your Lord, well-pleased and pleasing.'}"
+              : 'O serene soul! Return to your Lord, well-pleased and pleasing.'}&quot;
           </p>
 
           <p style={{
@@ -213,7 +213,7 @@ export default function NefisMertebeleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir — Kur'an yedi tabakanın üçünü açıkça anar.</>
+              ? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir — Kur&apos;an yedi tabakanın üçünü açıkça anar.</>
               : <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna — the Quran names three of the seven stations explicitly.</>}
           </p>
 
@@ -814,7 +814,7 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
               fontSize: '0.9rem', color: COLORS.offWhite,
               lineHeight: 1.65, margin: '0 0 20px',
               position: 'relative',
-            }}>"{tr ? v.translationTr : v.translationEn}"</p>
+            }}>&quot;{tr ? v.translationTr : v.translationEn}&quot;</p>
 
             {/* Scene */}
             <div style={{ marginBottom: '16px', position: 'relative' }}>

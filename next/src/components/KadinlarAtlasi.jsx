@@ -762,7 +762,7 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
                 margin: '0 0 8px', fontFamily: FONTS.body,
                 fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', lineHeight: 1.6,
               }}>
-                "{keyVerseTr}"
+                &quot;{keyVerseTr}&quot;
               </p>
             )}
             {keyVerseRef && (
@@ -1248,7 +1248,7 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
                 fontSize: isMobile ? '0.92rem' : '0.98rem',
                 color: COLORS.offWhite, opacity: 0.9, fontStyle: 'italic', lineHeight: 1.7,
               }}>
-                "{keyVerseTr}"
+                &quot;{keyVerseTr}&quot;
               </p>
             )}
             {keyVerseRef && (

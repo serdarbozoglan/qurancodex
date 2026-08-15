@@ -550,8 +550,8 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Her kavme bir peygamber. Her peygambere bir red. Her redde bir helak. Ama helak <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>sonuç değil — hatırlatma</strong>. "Yeryüzünde gezip dolaşmadılar mı?" diye soran ayet, sonra gelene aynayı tutar: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>tarih ders veren bir kâtip değildir; uyaran bir şahittir</strong>.</>
-          : <>To every nation a prophet. To every prophet a rejection. To every rejection a destruction. But destruction is <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>not the end — it is the reminder</strong>. The verse that asks "Have they not traveled through the land?" holds up a mirror to those who come after: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>history is not a teacher writing lessons; it is a witness offering warning</strong>.</>}
+          ? <>Her kavme bir peygamber. Her peygambere bir red. Her redde bir helak. Ama helak <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>sonuç değil — hatırlatma</strong>. &quot;Yeryüzünde gezip dolaşmadılar mı?&quot; diye soran ayet, sonra gelene aynayı tutar: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>tarih ders veren bir kâtip değildir; uyaran bir şahittir</strong>.</>
+          : <>To every nation a prophet. To every prophet a rejection. To every rejection a destruction. But destruction is <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>not the end — it is the reminder</strong>. The verse that asks &quot;Have they not traveled through the land?&quot; holds up a mirror to those who come after: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>history is not a teacher writing lessons; it is a witness offering warning</strong>.</>}
       </p>
 
       <div style={{ marginBottom: '20px' }}>
@@ -696,9 +696,9 @@ function HeroSection({ meta, language, isMobile }) {
         maxWidth: '620px',
         opacity: 0.95,
       }}>
-        "{language === 'tr'
+        &quot;{language === 'tr'
           ? 'Yeryüzünde gezip dolaşmadılar mı? Kendilerinden öncekilerin akıbeti nasıl oldu, bir baksalardı ya.'
-          : 'Have they not traveled through the land and observed how was the end of those before them?'}"
+          : 'Have they not traveled through the land and observed how was the end of those before them?'}&quot;
       </p>
 
       <p style={{
@@ -726,7 +726,7 @@ function HeroSection({ meta, language, isMobile }) {
       }}>
         {language === 'tr'
           ? <>Her kavmin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>helak biçimi</em>, işlediği suça gizli bir aynadır. Tarih boş tekrar değildir — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kâinatın hafızası, sonraki nesle bir mesajdır</em>.</>
-          : <>Each people's <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>mode of destruction</em> is a hidden mirror of their sin. History is not idle repetition — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the universe's memory is a message to the next generation</em>.</>}
+          : <>Each people&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>mode of destruction</em> is a hidden mirror of their sin. History is not idle repetition — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the universe&apos;s memory is a message to the next generation</em>.</>}
       </p>
 
       {/* Filigree divider */}
@@ -1048,7 +1048,7 @@ function NationCard({ nation, language, isMobile: _isMobile, onArchClick }) {
               </div>
               {verse && (
                 <p style={{ color: COLORS.offWhite, fontSize: '0.8rem', fontStyle: 'italic', fontFamily: FONTS.body, margin: '0 0 4px', lineHeight: 1.5 }}>
-                  "{verse}"
+                  &quot;{verse}&quot;
                 </p>
               )}
               {nation.verseRef && (

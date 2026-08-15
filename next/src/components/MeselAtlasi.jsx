@@ -6,7 +6,6 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import {
   COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, SEMANTIC, CATEGORY } from '../tokens';
-import { fetchMealSurah } from '../lib/mealCache';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
@@ -56,17 +55,33 @@ function cleanTranslation(str) {
   return str.replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
-// ── Shared Quran API verse cache ─────────────────────────────────────────────
+// ── Shared verse cache — sourced entirely from the local canonical file ─────
+// verse-graph-bgem3.json (public/, git-tracked, ~6236 verses w/ Arabic +
+// Turkish already bundled) is the SAME source Reading Mode uses for Arabic.
+// No live API call — no dependency on api.acikkuran.com's uptime.
 const ayahCache = new Map();
+let verseGraphIndexPromise = null;
+
+async function loadVerseGraphIndex() {
+  if (!verseGraphIndexPromise) {
+    verseGraphIndexPromise = fetch('/verse-graph-bgem3.json')
+      .then(r => r.json())
+      .then(list => {
+        const map = new Map();
+        for (const v of list) map.set(v.id, v);
+        return map;
+      });
+  }
+  return verseGraphIndexPromise;
+}
 
 async function loadAyah(surah, ayah) {
   const key = `${surah}:${ayah}`;
   if (ayahCache.has(key)) return ayahCache.get(key);
-  // Local-first meal cache (author 105 = Erhan Aktaş); API fallback.
-  const data = await fetchMealSurah(surah, 105);
-  const verse = (data.data?.verses ?? []).find(v => v.verse_number === ayah);
-  const arabic = cleanArabic(verse?.verse ?? '');
-  const turkish = cleanTranslation(verse?.translation?.text ?? '');
+  const index = await loadVerseGraphIndex();
+  const verse = index.get(key);
+  const arabic = cleanArabic(verse?.arabic ?? '');
+  const turkish = cleanTranslation(verse?.turkish ?? '');
   const result = { arabic, turkish };
   ayahCache.set(key, result);
   return result;
@@ -1167,7 +1182,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           {scholars.map(s => (
             <div key={s.id} style={{ ...GLASS_CARD, padding: '20px', display: 'flex', flexDirection: 'column', gap: '0' }}>
               {/* Quote mark */}
-              <div style={{ color: COLORS.goldAlpha45, fontFamily: FONTS.display, fontSize: '2.5rem', lineHeight: 0.8, marginBottom: '8px', userSelect: 'none' }}>"</div>
+              <div style={{ color: COLORS.goldAlpha45, fontFamily: FONTS.display, fontSize: '2.5rem', lineHeight: 0.8, marginBottom: '8px', userSelect: 'none' }}>&quot;</div>
               {/* Quote text */}
               <p style={{ color: COLORS.offWhite, fontSize: '0.88rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 14px', fontStyle: 'italic' }}>
                 {s.viewTr}

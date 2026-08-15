@@ -581,8 +581,8 @@ function TabFarkAnalizi({ data, isMobile, language }) {
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 8px', maxWidth: 680 }}>
         {language === 'tr'
-          ? <><strong style={{ color: COLORS.offWhite }}>Hafs</strong> (Âsım rivayeti), Türkiye başta olmak üzere Ortadoğu, Güney ve Güneydoğu Asya'da okunur. <strong style={{ color: COLORS.offWhite }}>Verş</strong> (Nâfiʿ rivayeti) ise Kuzey ve Batı Afrika'nın — Fas, Cezayir, Tunus, Libya — standart kıraatidir. İkisi birlikte dünya Müslümanlarının yaklaşık <strong style={{ color: COLORS.offWhite }}>%95'ini</strong> kapsar.</>
-          : <><strong style={{ color: COLORS.offWhite }}>Ḥafs</strong> (riwāya of ʿĀṣim) is the standard reading in Turkey, the Middle East, South and Southeast Asia. <strong style={{ color: COLORS.offWhite }}>Warsh</strong> (riwāya of Nāfiʿ) is the standard in North and West Africa — Morocco, Algeria, Tunisia, Libya. Together they cover approximately <strong style={{ color: COLORS.offWhite }}>95%</strong> of the world's Muslims.</>}
+          ? <><strong style={{ color: COLORS.offWhite }}>Hafs</strong> (Âsım rivayeti), Türkiye başta olmak üzere Ortadoğu, Güney ve Güneydoğu Asya&apos;da okunur. <strong style={{ color: COLORS.offWhite }}>Verş</strong> (Nâfiʿ rivayeti) ise Kuzey ve Batı Afrika&apos;nın — Fas, Cezayir, Tunus, Libya — standart kıraatidir. İkisi birlikte dünya Müslümanlarının yaklaşık <strong style={{ color: COLORS.offWhite }}>%95&apos;ini</strong> kapsar.</>
+          : <><strong style={{ color: COLORS.offWhite }}>Ḥafs</strong> (riwāya of ʿĀṣim) is the standard reading in Turkey, the Middle East, South and Southeast Asia. <strong style={{ color: COLORS.offWhite }}>Warsh</strong> (riwāya of Nāfiʿ) is the standard in North and West Africa — Morocco, Algeria, Tunisia, Libya. Together they cover approximately <strong style={{ color: COLORS.offWhite }}>95%</strong> of the world&apos;s Muslims.</>}
       </p>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: 680 }}>
         {language === 'tr'
@@ -882,7 +882,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>① Sorun: Noktasız ve Harekesiz Yazı</div>
                       <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
-                        Hz. Osman'ın mushafları (651 M) yalnızca ünsüz iskeletle — <strong style={{ color: COLORS.offWhite }}>rasm</strong> — yazıldı. Bugünkü hareke (ü/i/a sesleri) ve nokta (ب/ت/ث ayrımı) sistemi henüz mevcut değildi. Bu yüzden aynı harf dizisi birden fazla okuyuşu barındırabiliyordu:
+                        Hz. Osman&apos;ın mushafları (651 M) yalnızca ünsüz iskeletle — <strong style={{ color: COLORS.offWhite }}>rasm</strong> — yazıldı. Bugünkü hareke (ü/i/a sesleri) ve nokta (ب/ت/ث ayrımı) sistemi henüz mevcut değildi. Bu yüzden aynı harf dizisi birden fazla okuyuşu barındırabiliyordu:
                       </p>
                       {/* Example box */}
                       <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
@@ -910,7 +910,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>② Canlı Hafıza: Ağızdan Ağıza Zincir</div>
                       <p style={{ margin: 0, color: COLORS.silver }}>
-                        Hz. Peygamber Kur'an'ı sahabîlere okudu; her sahabî kendi öğrencilerine aktardı, o öğrenciler de kendi öğrencilerine. Tamamen sözlü bir zincir. Yüzyıllar içinde yüzlerce farklı aktarım birikti; kimisi sağlam senetlerle, kimisi zayıf.
+                        Hz. Peygamber Kur&apos;an&apos;ı sahabîlere okudu; her sahabî kendi öğrencilerine aktardı, o öğrenciler de kendi öğrencilerine. Tamamen sözlü bir zincir. Yüzyıllar içinde yüzlerce farklı aktarım birikti; kimisi sağlam senetlerle, kimisi zayıf.
                       </p>
                     </div>
 
@@ -918,7 +918,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>③ Kanonizasyon: Kalite Kontrol</div>
                       <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
-                        Kanonizasyon bir "yazıya dökme" değil, hadis ilmindeki <em>sahih/hasen/zayıf</em> ayrımına benzer bir <strong style={{ color: COLORS.offWhite }}>standardizasyon</strong>. Kanonik sayılmak için üç şart:
+                        Kanonizasyon bir &quot;yazıya dökme&quot; değil, hadis ilmindeki <em>sahih/hasen/zayıf</em> ayrımına benzer bir <strong style={{ color: COLORS.offWhite }}>standardizasyon</strong>. Kanonik sayılmak için üç şart:
                       </p>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {[
@@ -940,11 +940,11 @@ function TabKanonizasyon({ data, isMobile, language }) {
                       <div className="fd-row" style={{ display: 'flex',  gap: 12 }}>
                         <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
                           <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>İbn Mücâhid — 936 M</div>
-                          <div style={{ color: COLORS.silver }}>Bağdat'ta <em>Kitâbü's-Seb'a</em>'yı kaleme aldı. Yüzlerce aktarımı üç kritere göre eledi ve <strong style={{ color: COLORS.offWhite }}>7 kıraati</strong> kanonik ilan etti. Kanonik olmayan okuyuşları okuyan iki âlim yargılandı ve geri adım atmaya zorlandı.</div>
+                          <div style={{ color: COLORS.silver }}>Bağdat&apos;ta <em>Kitâbü&apos;s-Seb&apos;a</em>&apos;yı kaleme aldı. Yüzlerce aktarımı üç kritere göre eledi ve <strong style={{ color: COLORS.offWhite }}>7 kıraati</strong> kanonik ilan etti. Kanonik olmayan okuyuşları okuyan iki âlim yargılandı ve geri adım atmaya zorlandı.</div>
                         </div>
                         <div style={{ flex: 1, background: 'rgba(52,152,219,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.skyBlue}` }}>
                           <div style={{ color: COLORS.skyBlue, fontWeight: 700, marginBottom: 4 }}>İbn el-Cezerî — 1429 M</div>
-                          <div style={{ color: COLORS.silver }}>Şam'da <em>en-Neşr fi'l-Kıraâti'l-Aşr</em>'ı yazdı. "7 yeterli değil" dedi; aynı üç şartı karşılayan 3 okuyuş daha buldu ve standardı <strong style={{ color: COLORS.offWhite }}>10 kıraate</strong> genişletti.</div>
+                          <div style={{ color: COLORS.silver }}>Şam&apos;da <em>en-Neşr fi&apos;l-Kıraâti&apos;l-Aşr</em>&apos;ı yazdı. &quot;7 yeterli değil&quot; dedi; aynı üç şartı karşılayan 3 okuyuş daha buldu ve standardı <strong style={{ color: COLORS.offWhite }}>10 kıraate</strong> genişletti.</div>
                         </div>
                       </div>
                     </div>
@@ -979,7 +979,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ background: 'rgba(0,0,0,0.2)', borderRadius: 8, padding: '12px 14px', borderTop: `2px solid ${COLORS.goldAlpha25}` }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>Sonuç: Aynı İskelet, Farklı Hareke</div>
                       <p style={{ margin: 0, color: COLORS.silver }}>
-                        Bugün bir Hafs mushafı açarsan Fâtiha'da <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span> (Mâlik) görürsün; bir Verş mushafında ise <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span> (Melik) yazar. İkisi de aynı ünsüz iskeleti paylaşır, ikisi de kanoniктir — çünkü ikisinin de senedi Hz. Peygamber'e kesintisiz ulaşır.
+                        Bugün bir Hafs mushafı açarsan Fâtiha&apos;da <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.gold, direction: 'rtl' }}>مَالِكِ</span> (Mâlik) görürsün; bir Verş mushafında ise <span style={{ fontFamily: FONTS.quran, fontSize: '1rem', color: COLORS.skyBlue, direction: 'rtl' }}>مَلِكِ</span> (Melik) yazar. İkisi de aynı ünsüz iskeleti paylaşır, ikisi de kanoniктir — çünkü ikisinin de senedi Hz. Peygamber&apos;e kesintisiz ulaşır.
                       </p>
                     </div>
 
@@ -993,7 +993,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>① The Problem: Writing Without Vowels or Dots</div>
                       <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
-                        Uthman's manuscripts (651 CE) were written with only a consonantal skeleton — the <strong style={{ color: COLORS.offWhite }}>rasm</strong>. The vowel marks (ḥarakāt) and distinguishing dots we see today did not yet exist. The same letter sequence could therefore represent multiple valid readings:
+                        Uthman&apos;s manuscripts (651 CE) were written with only a consonantal skeleton — the <strong style={{ color: COLORS.offWhite }}>rasm</strong>. The vowel marks (ḥarakāt) and distinguishing dots we see today did not yet exist. The same letter sequence could therefore represent multiple valid readings:
                       </p>
                       <div className="fd-row" style={{ background: 'rgba(0,0,0,0.25)', border: `1px solid ${COLORS.glassBorder}`, borderRadius: 8, padding: '10px 14px', display: 'flex',  gap: isMobile ? 6 : 0, alignItems: isMobile ? 'flex-start' : 'center' }}>
                         <div style={{ fontFamily: FONTS.quran, fontSize: '1.5rem', color: COLORS.offWhite, direction: 'rtl', minWidth: isMobile ? 'auto' : 80, textAlign: 'center' }}>م ل ك</div>
@@ -1050,11 +1050,11 @@ function TabKanonizasyon({ data, isMobile, language }) {
                       <div className="fd-row" style={{ display: 'flex',  gap: 12 }}>
                         <div style={{ flex: 1, background: 'rgba(212,165,116,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.gold}` }}>
                           <div style={{ color: COLORS.gold, fontWeight: 700, marginBottom: 4 }}>Ibn Mujāhid — 936 CE</div>
-                          <div style={{ color: COLORS.silver }}>In Baghdad he wrote <em>Kitāb al-Sab'a</em>, filtering hundreds of transmissions by the three criteria and canonising <strong style={{ color: COLORS.offWhite }}>7 readings</strong>. Two scholars who continued to recite non-canonical readings were put on trial and compelled to recant.</div>
+                          <div style={{ color: COLORS.silver }}>In Baghdad he wrote <em>Kitāb al-Sab&apos;a</em>, filtering hundreds of transmissions by the three criteria and canonising <strong style={{ color: COLORS.offWhite }}>7 readings</strong>. Two scholars who continued to recite non-canonical readings were put on trial and compelled to recant.</div>
                         </div>
                         <div style={{ flex: 1, background: 'rgba(52,152,219,0.07)', borderRadius: 8, padding: '12px 14px', borderLeft: `3px solid ${COLORS.skyBlue}` }}>
                           <div style={{ color: COLORS.skyBlue, fontWeight: 700, marginBottom: 4 }}>Ibn al-Jazarī — 1429 CE</div>
-                          <div style={{ color: COLORS.silver }}>In Damascus he wrote <em>al-Nashr</em>, arguing "7 is not enough." He identified 3 more readings meeting the same criteria and expanded the standard to <strong style={{ color: COLORS.offWhite }}>10 readings</strong>.</div>
+                          <div style={{ color: COLORS.silver }}>In Damascus he wrote <em>al-Nashr</em>, arguing &quot;7 is not enough.&quot; He identified 3 more readings meeting the same criteria and expanded the standard to <strong style={{ color: COLORS.offWhite }}>10 readings</strong>.</div>
                         </div>
                       </div>
                     </div>
@@ -1063,7 +1063,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     <div style={{ marginBottom: 20 }}>
                       <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>⑤ Evolution of the Script: When Were Vowels and Dots Added?</div>
                       <p style={{ margin: '0 0 10px', color: COLORS.silver }}>
-                        When Uthman's codex was distributed (~651 CE) the writing was pure consonantal skeleton. Vowel signs and distinguishing dots were added in three stages over roughly <strong style={{ color: COLORS.offWhite }}>135 years</strong>:
+                        When Uthman&apos;s codex was distributed (~651 CE) the writing was pure consonantal skeleton. Vowel signs and distinguishing dots were added in three stages over roughly <strong style={{ color: COLORS.offWhite }}>135 years</strong>:
                       </p>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {[
@@ -1094,7 +1094,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
                     </div>
 
                     <p style={{ margin: '14px 0 0', color: COLORS.silver, fontSize: '0.83rem' }}>
-                      The 5 stages below narrate this transformation chronologically — from the Prophet's era to the 1924 Cairo edition.
+                      The 5 stages below narrate this transformation chronologically — from the Prophet&apos;s era to the 1924 Cairo edition.
                     </p>
                   </>
                 )}
@@ -1420,9 +1420,9 @@ function TabTecvid({ isMobile, language }) {
                           <>
                             Hz. Osman tek bir mushaf değil, farklı şehirlere gönderilmek üzere <strong style={{ color: COLORS.offWhite }}>birden fazla kopya</strong> hazırlattı — Mekke, Medine, Kûfe, Basra, Şam ve diğerleri. Standartlaştırma gerçekleşti, ancak bu kopyalar arasında bazı kelimelerin imlasında küçük farklılıklar mevcuttu: aynı ünsüz iskelet ama kimi zaman bir elif fazla ya da eksik yazılmış.
                             <br /><br />
-                            Örneğin bir kelime Kûfe mushafında <strong style={{ color: COLORS.offWhite }}>بِسْمِ</strong> şeklinde yazılırken Medine mushafında <strong style={{ color: COLORS.offWhite }}>بِاسْمِ</strong> olarak geçebilir. İkisi de Hz. Osman'ın onayladığı resmî kopyalar.
+                            Örneğin bir kelime Kûfe mushafında <strong style={{ color: COLORS.offWhite }}>بِسْمِ</strong> şeklinde yazılırken Medine mushafında <strong style={{ color: COLORS.offWhite }}>بِاسْمِ</strong> olarak geçebilir. İkisi de Hz. Osman&apos;ın onayladığı resmî kopyalar.
                             <br /><br />
-                            Bu yüzden kriter "tüm mushaflarla" değil, <strong style={{ color: COLORS.offWhite }}>"en az biriyle"</strong> uyum şeklinde formüle edildi. Bir kıraat herhangi bir şehre gönderilen kopyayla örtüşüyorsa rasm şartını karşılar.
+                            Bu yüzden kriter &quot;tüm mushaflarla&quot; değil, <strong style={{ color: COLORS.offWhite }}>&quot;en az biriyle&quot;</strong> uyum şeklinde formüle edildi. Bir kıraat herhangi bir şehre gönderilen kopyayla örtüşüyorsa rasm şartını karşılar.
                           </>
                         ) : (
                           <>
@@ -1430,7 +1430,7 @@ function TabTecvid({ isMobile, language }) {
                             <br /><br />
                             For example, a word might appear as <strong style={{ color: COLORS.offWhite }}>بِسْمِ</strong> in the Kufan codex and as <strong style={{ color: COLORS.offWhite }}>بِاسْمِ</strong> in the Medinan codex — both officially approved by Uthman.
                             <br /><br />
-                            The criterion was therefore formulated as conformity with <strong style={{ color: COLORS.offWhite }}>"at least one"</strong> codex. If a reading matches any of the city copies, it satisfies the rasm condition.
+                            The criterion was therefore formulated as conformity with <strong style={{ color: COLORS.offWhite }}>&quot;at least one&quot;</strong> codex. If a reading matches any of the city copies, it satisfies the rasm condition.
                           </>
                         )}
                       </div>

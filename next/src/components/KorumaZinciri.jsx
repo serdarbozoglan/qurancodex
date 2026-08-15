@@ -79,7 +79,7 @@ export default function KorumaZinciri({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Zikri (Kur'an'ı) Biz indirdik; koruyucusu da Biziz." : "Indeed, We sent down the Reminder, and We shall preserve it."}"
+          &quot;{tr ? "Zikri (Kur'an'ı) Biz indirdik; koruyucusu da Biziz." : "Indeed, We sent down the Reminder, and We shall preserve it."}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

@@ -210,7 +210,7 @@ function ColorCard({ renk, language, isMobile, expanded, onToggle }) {
                 {renk.keyVerseAr}
               </p>
               <p style={{ fontSize: '0.9rem', color: COLORS.offWhite, fontStyle: 'italic', margin: '0 0 10px', fontFamily: FONTS.body, lineHeight: 1.7 }}>
-                "{tr ? renk.keyVerseTr : renk.keyVerseEn}"
+                &quot;{tr ? renk.keyVerseTr : renk.keyVerseEn}&quot;
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: renk.hexColor }} />
@@ -477,7 +477,7 @@ function TabRenkler({ data, language, activeFilter, setActiveFilter, isMobile, e
                     {v.arFull}
                   </p>
                   <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.65 }}>
-                    "{tr ? v.trFull : v.enFull}"
+                    &quot;{tr ? v.trFull : v.enFull}&quot;
                   </p>
                   <span style={{ fontSize: '0.72rem', color: 'rgba(212,165,116,0.6)', fontFamily: FONTS.body, fontWeight: 600 }}>— {v.ref}</span>
                 </div>
@@ -1123,7 +1123,7 @@ function TabBaglam({ language, isMobile }) {
                           color: COLORS.offWhite, fontStyle: 'italic',
                           margin: '0 0 12px', lineHeight: 1.75,
                         }}>
-                          "{tr ? c.verseTr : c.verseEn}"
+                          &quot;{tr ? c.verseTr : c.verseEn}&quot;
                         </p>
 
                         {/* Verse ref — small badge */}
@@ -1467,7 +1467,7 @@ function TabCennet({ language, isMobile }) {
                 color: COLORS.offWhite, fontStyle: 'italic',
                 margin: '0 0 14px', lineHeight: 1.75,
               }}>
-                "{tr ? a.verseTr : a.verseEn}"
+                &quot;{tr ? a.verseTr : a.verseEn}&quot;
               </p>
 
               {/* Linguistic note — themed left border */}
@@ -1863,7 +1863,7 @@ function TabKiyamet({ language, isMobile }) {
               color: COLORS.offWhite, fontStyle: 'italic',
               margin: '0 0 10px', lineHeight: 1.75,
             }}>
-              "{tr ? s.verseTr : s.verseEn}"
+              &quot;{tr ? s.verseTr : s.verseEn}&quot;
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
@@ -2357,7 +2357,7 @@ function TabDilbilim({ language, isMobile }) {
                 color: COLORS.offWhite, fontStyle: 'italic',
                 fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.7,
               }}>
-                "{tr ? row.verseTr : row.verseEn}"
+                &quot;{tr ? row.verseTr : row.verseEn}&quot;
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
@@ -2752,9 +2752,9 @@ export default function KuranRenkleri({ onClose }) {
             maxWidth: '620px',
             opacity: 0.95,
           }}>
-            "{tr
+            &quot;{tr
               ? 'Allah\'ın gökten su indirdiğini ve onunla renkleri birbirinden farklı meyveler çıkardığımızı görmüyor musun?'
-              : 'Do you not see that Allah sends down rain from the sky, and We produce thereby fruits of varying colors?'}"
+              : 'Do you not see that Allah sends down rain from the sky, and We produce thereby fruits of varying colors?'}&quot;
           </p>
 
           <p style={{
@@ -2781,7 +2781,7 @@ export default function KuranRenkleri({ onClose }) {
             opacity: 0.88,
           }}>
             {tr
-              ? <>Renk, Allah'ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton — her biri başka bir hakikatin işareti.</>
+              ? <>Renk, Allah&apos;ın yarattığı dilin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sessiz alfabesidir</em>. 14 kelime, 8 ton — her biri başka bir hakikatin işareti.</>
               : <>Color is the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>silent alphabet</em> of the language Allah created. 14 words, 8 tones — each pointing to a different truth.</>}
           </p>
 
@@ -3129,8 +3129,8 @@ function ColorsClosing({ language, isMobile }) {
         </p>
         <p style={{ fontSize: '0.86rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 14px', fontFamily: FONTS.body }}>
           {tr
-            ? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur'an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
-            : <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax "deep green" two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
+            ? <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>Yanlış anlaşılma.</strong> Kur&apos;an cennetin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monokrom</em> olmadığını açıkça gösterir. مُدْهَامَّتَانِ (Rahmân 55:64) hapax &ldquo;koyu yeşil&rdquo; iki bahçe — ama bu sadece <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>vaadin baş harfi</em>dir.</>
+            : <><strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>A misreading.</strong> The Quran clearly shows Paradise is not <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>monochrome</em>. مُدْهَامَّتَانِ (Raḥmān 55:64) — the hapax &quot;deep green&quot; two gardens — is merely <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>the opening letter</em> of the promise.</>}
         </p>
         <p style={{ fontSize: '0.84rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 8px', fontFamily: FONTS.body }}>
           {tr ? "Kur'an'da cennette geçen diğer renkler ve dokular:" : "Other colors and textures of Paradise in the Quran:"}
@@ -3144,13 +3144,13 @@ function ColorsClosing({ language, isMobile }) {
         </ul>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
           {tr
-            ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım'ın Hâdi'l-Ervâh'ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
-            : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim's Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both this approach and the text.</>}
+            ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım&apos;ın Hâdi&apos;l-Ervâh&apos;ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
+            : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim&apos;s Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise&apos;s <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The &quot;monochrome Paradise&quot; reading contradicts both this approach and the text.</>}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.78, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr
             ? <>Bu sayfa <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>yeşil</strong>e &ldquo;vaadin baş işareti&rdquo; olarak odaklanır — diğer cennet renklerini dışlamak değil, yapısal bir vurgu.</>
-            : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the "headline sign of the promise" — a structural emphasis, not exclusion of other paradise colors.</>}
+            : <>This page focuses on <strong style={{ color: COLORS.softEmerald, fontWeight: 600 }}>green</strong> as the &quot;headline sign of the promise&quot; — a structural emphasis, not exclusion of other paradise colors.</>}
         </p>
       </div>
 

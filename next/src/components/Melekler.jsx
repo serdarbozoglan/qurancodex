@@ -1398,9 +1398,9 @@ export default function Melekler({ onClose }) {
             maxWidth: '680px',
             opacity: 0.95,
           }}>
-            "{tr
+            &quot;{tr
               ? "Gökleri ve yeri yaratan, melekleri ikişer, üçer, dörder kanatlı elçiler kılan Allah'a hamdolsun."
-              : "All praise is due to Allah, Creator of the heavens and earth, who made the angels messengers with wings — two, three, or four."}"
+              : "All praise is due to Allah, Creator of the heavens and earth, who made the angels messengers with wings — two, three, or four."}&quot;
           </p>
 
           <p style={{
@@ -1427,7 +1427,7 @@ export default function Melekler({ onClose }) {
             opacity: 0.88,
           }}>
             {tr
-              ? <>Kur'an meleği <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tasvir etmez</em> — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>işlevini anlatır</em>. İsim verir, görev verir; geri kalanı hadise bırakır.</>
+              ? <>Kur&apos;an meleği <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tasvir etmez</em> — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>işlevini anlatır</em>. İsim verir, görev verir; geri kalanı hadise bırakır.</>
               : <>The Quran does not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> the angel — it tells you <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>what it does</em>. Names and tasks; the rest is left to hadith.</>}
           </p>
 

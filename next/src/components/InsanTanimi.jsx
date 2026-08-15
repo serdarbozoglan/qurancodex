@@ -88,7 +88,7 @@ export default function InsanTanimi({ onClose }) {
           lineHeight: 1.65, maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Andolsun, Biz insanı en güzel biçimde yarattık." : "Indeed, We created humanity in the finest of forms."}"
+          &quot;{tr ? "Andolsun, Biz insanı en güzel biçimde yarattık." : "Indeed, We created humanity in the finest of forms."}&quot;
         </p>
         <p style={{
           color: COLORS.silver, fontFamily: FONTS.body,
@@ -246,7 +246,7 @@ function EquationTab({ tr, isMobile, data }) {
                 fontFamily: FONTS.display, fontStyle: 'italic',
                 fontSize: '0.75rem', color: COLORS.offWhite,
                 lineHeight: 1.5, margin: '0 0 4px', textAlign: 'left',
-              }}>"{tr ? el.translationTr : el.translationEn}"</p>
+              }}>&quot;{tr ? el.translationTr : el.translationEn}&quot;</p>
               <p style={{
                 fontSize: '0.65rem', letterSpacing: '0.14em', textTransform: 'uppercase',
                 color: COLORS.silver, opacity: 0.78, margin: 0, textAlign: 'left',

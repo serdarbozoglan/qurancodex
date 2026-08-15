@@ -356,7 +356,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
                 fontSize: '0.87rem', color: COLORS.offWhite, lineHeight: 1.65,
                 margin: '0 0 6px', fontFamily: FONTS.body,
               }}>
-                "{language === 'tr' ? conn.hadith.textTr : conn.hadith.textEn}"
+                &quot;{language === 'tr' ? conn.hadith.textTr : conn.hadith.textEn}&quot;
               </p>
               <p style={{
                 fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic',
@@ -387,7 +387,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
                 fontSize: '0.87rem', color: COLORS.offWhite, lineHeight: 1.65,
                 margin: '0 0 6px', fontFamily: FONTS.body, fontStyle: 'italic',
               }}>
-                "{language === 'tr' ? conn.quote.textTr : conn.quote.textEn}"
+                &quot;{language === 'tr' ? conn.quote.textTr : conn.quote.textEn}&quot;
               </p>
               <p style={{
                 fontSize: '0.75rem', color: COLORS.silver, margin: 0, fontFamily: FONTS.body,

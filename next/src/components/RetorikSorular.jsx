@@ -178,7 +178,7 @@ export default function RetorikSorular({ onClose }) {
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
               fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
-            }}>"{tr ? 'Kur\'ân\'ı tefekkür etmiyorlar mı? Yoksa kalplerin üzerinde kilitler mi var?' : 'Then do they not reflect upon the Qur\'an, or are there locks upon their hearts?'}"</p>
+            }}>&quot;{tr ? 'Kur\'ân\'ı tefekkür etmiyorlar mı? Yoksa kalplerin üzerinde kilitler mi var?' : 'Then do they not reflect upon the Qur\'an, or are there locks upon their hearts?'}&quot;</p>
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
@@ -189,8 +189,8 @@ export default function RetorikSorular({ onClose }) {
               fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
-              ? <>Kur'ân'ın <em style={{ fontStyle: 'normal', color: COLORS.gold }}>retoriği</em> tek bir sanat değil — istifhâm, iltifât, tibâk, istiʿâre, kinâye ve cinâs — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>altı sanat ailesinin</em> ortak dansı.</>
-              : <>The Qur'an's <em style={{ fontStyle: 'normal', color: COLORS.gold }}>rhetoric</em> is not one art — istifhām, iltifāt, ṭibāq, istiʿāra, kināya, and jinās — the shared dance of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>six art families</em>.</>}</p>
+              ? <>Kur&apos;ân&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold }}>retoriği</em> tek bir sanat değil — istifhâm, iltifât, tibâk, istiʿâre, kinâye ve cinâs — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>altı sanat ailesinin</em> ortak dansı.</>
+              : <>The Qur&apos;an&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold }}>rhetoric</em> is not one art — istifhām, iltifāt, ṭibāq, istiʿāra, kināya, and jinās — the shared dance of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>six art families</em>.</>}</p>
             <div aria-hidden="true" style={{
               width: '120px', height: '1px',
               background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
@@ -454,7 +454,7 @@ function OrnekCard({ ornek, index, color, isOpen, onToggle, language, isMobile }
         <p style={{
           fontSize: '0.82rem', color: COLORS.offWhite, fontFamily: FONTS.body,
           lineHeight: 1.65, margin: 0, fontStyle: 'italic',
-        }}>"{tr ? ornek.verseTr : ornek.verseEn}"</p>
+        }}>&quot;{tr ? ornek.verseTr : ornek.verseEn}&quot;</p>
       </div>
       <button onClick={onToggle}
         style={{

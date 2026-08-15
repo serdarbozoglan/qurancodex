@@ -90,9 +90,9 @@ export default function Mukattaa({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr
+          &quot;{tr
             ? 'Elif-Lâm-Mîm. İşte o Kitap — şüphesiz onda — muttakîlere bir hidayet.'
-            : 'Alif-Lām-Mīm. That is the Book — no doubt in it — a guidance for the God-conscious.'}"
+            : 'Alif-Lām-Mīm. That is the Book — no doubt in it — a guidance for the God-conscious.'}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

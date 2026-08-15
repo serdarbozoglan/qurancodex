@@ -157,13 +157,13 @@ export default function KuranRetorigi({ onClose }) {
           لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى
         </p>
         <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
-          "{tr ? "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an), uydurulmuş bir söz değildir." : "Indeed, in their stories is a lesson for those of understanding. This is not a fabricated tale."}"
+          &quot;{tr ? "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an), uydurulmuş bir söz değildir." : "Indeed, in their stories is a lesson for those of understanding. This is not a fabricated tale."}&quot;
         </p>
         <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
           — {tr ? 'Yûsuf 12:111' : 'Yūsuf 12:111'}
         </p>
         <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
-          {tr ? <>Kur'an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i'câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
+          {tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>

@@ -181,9 +181,9 @@ export default function KuranYeminleri({ onClose }) {
             maxWidth: '620px',
             opacity: 0.95,
           }}>
-            "{language === 'tr'
+            &quot;{language === 'tr'
               ? 'Andolsun Güneşe ve onun kuşluk vaktindeki aydınlığına; ardından gelen Ay\'a…'
-              : 'By the sun and its morning brightness; by the moon when it follows it…'}"
+              : 'By the sun and its morning brightness; by the moon when it follows it…'}&quot;
           </p>
 
           <p style={{
@@ -210,7 +210,7 @@ export default function KuranYeminleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yarattıklarına yemin eder</em> — güneşe, aya, zamana, ruha, Kur'an'ın kendisine. Yemin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bir vurgu sanatı</em>; ardından gelen mesaja en güçlü işaret.</>
+              ? <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yarattıklarına yemin eder</em> — güneşe, aya, zamana, ruha, Kur&apos;an&apos;ın kendisine. Yemin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bir vurgu sanatı</em>; ardından gelen mesaja en güçlü işaret.</>
               : <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>swears by His creation</em> — by the sun, the moon, time, the soul, the Quran itself. The oath is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>an art of emphasis</em>; the strongest signal for what follows.</>}
           </p>
 
@@ -2052,7 +2052,7 @@ function TabKozmoloji({ language, isMobile }) {
           {tr ? (
             <>Kur&apos;ân&apos;ın <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} kozmik yemini</span></>
           ) : (
-            <>The Qur'an's <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} cosmic oaths</span></>
+            <>The Qur&apos;an&apos;s <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} cosmic oaths</span></>
           )}
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
@@ -2196,7 +2196,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Bir insan yemin ederken kendinden yüce bir şeye atıfta bulunur. Allah ise <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>kendi yarattığına</strong> yemin eder. Çünkü O'nun katında güneş, kalem, asır, ruh — hepsi <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>O'nun ayetidir</strong>. Yemin, yaratılana verilen değerin en yüksek beyanıdır.</>
+          ? <>Bir insan yemin ederken kendinden yüce bir şeye atıfta bulunur. Allah ise <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>kendi yarattığına</strong> yemin eder. Çünkü O&apos;nun katında güneş, kalem, asır, ruh — hepsi <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>O&apos;nun ayetidir</strong>. Yemin, yaratılana verilen değerin en yüksek beyanıdır.</>
           : <>When a human swears, they refer to something greater than themselves. Allah swears by <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His own creation</strong>. Because before Him, the sun, the pen, time, the soul — all are <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His signs</strong>. The oath is the highest declaration of the value given to the created.</>}
       </p>
 
@@ -2332,9 +2332,9 @@ function VakiaSpotlight({ language, isMobile }) {
           maxWidth: '640px',
           opacity: 0.95,
         }}>
-          "{tr
+          &quot;{tr
             ? 'Yıldızların yerlerine yemin ederim — ve bu, bilseydiniz, gerçekten çok büyük bir yemindir.'
-            : 'I swear by the positions of the stars — and indeed, if you only knew, it is a tremendous oath.'}"
+            : 'I swear by the positions of the stars — and indeed, if you only knew, it is a tremendous oath.'}&quot;
         </p>
 
         <p style={{
@@ -2359,7 +2359,7 @@ function VakiaSpotlight({ language, isMobile }) {
           opacity: 0.85,
         }}>
           {tr
-            ? <>Bu nadir bir andır: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong>, ettiği yeminin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>büyüklüğünü</strong> insana açıkça söylüyor. Yeminin önemini ifade eden meta-ayet — Kur'an'da yalnızca burada geçer.</>
+            ? <>Bu nadir bir andır: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong>, ettiği yeminin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>büyüklüğünü</strong> insana açıkça söylüyor. Yeminin önemini ifade eden meta-ayet — Kur&apos;an&apos;da yalnızca burada geçer.</>
             : <>This is a rare moment: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong> explicitly tells humanity the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>greatness</strong> of His own oath. A meta-verse on the weight of swearing — found only here in the Quran.</>}
         </p>
       </div>
@@ -2527,7 +2527,7 @@ function YeminCevapReveal({ language, isMobile }) {
                   margin: 0,
                   opacity: 0.88,
                 }}>
-                  "{tr ? item.oathTr : item.oathEn}"
+                  &quot;{tr ? item.oathTr : item.oathEn}&quot;
                 </p>
               </div>
 
@@ -2613,7 +2613,7 @@ function YeminCevapReveal({ language, isMobile }) {
                     margin: '0 0 14px',
                     opacity: 0.95,
                   }}>
-                    "{tr ? item.answerTr : item.answerEn}"
+                    &quot;{tr ? item.answerTr : item.answerEn}&quot;
                   </p>
 
                   {/* Insight micro-paragraph */}

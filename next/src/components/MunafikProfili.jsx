@@ -384,9 +384,9 @@ export default function MunafikProfili({ onClose }) {
             textAlign: 'center',
             opacity: 0.95,
           }}>
-            "{language === 'tr'
+            &quot;{language === 'tr'
               ? "İnsanlardan kimi de vardır ki, inanmadıkları halde, 'Allah'a ve âhiret gününe inandık' derler."
-              : "Among the people are some who say 'We believe in Allah and the Last Day,' but they are not believers."}"
+              : "Among the people are some who say 'We believe in Allah and the Last Day,' but they are not believers."}&quot;
           </p>
 
           <p style={{
@@ -415,7 +415,7 @@ export default function MunafikProfili({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur'an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
+              ? <>İmanı inkâr etmek değil, <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>inkârı imanla maskelemek</em>. Kur&apos;an bu tipi diğer tüm günahkârlardan ayrı tutar.</>
               : <>Not denying belief but <em style={{ fontStyle: 'normal', color: COLORS.softRed, opacity: 0.95 }}>masking denial with belief</em>. The Quran sets this type apart from every other sinner.</>}
           </p>
 
@@ -1049,7 +1049,7 @@ function MukabeleCard({ data, language, isMobile }) {
               <span style={{ color: COLORS.gold, textAlign: 'center', fontWeight: 700, opacity: 0.75 }}>↔</span>
             )}
             <span style={{ color: COLORS.offWhite }}>
-              <strong style={{ color: COLORS.gold, fontSize: '0.65rem', letterSpacing: '0.1em', display: 'block', textTransform: 'uppercase', marginBottom: '2px' }}>Mü'min</strong>
+              <strong style={{ color: COLORS.gold, fontSize: '0.65rem', letterSpacing: '0.1em', display: 'block', textTransform: 'uppercase', marginBottom: '2px' }}>Mü&apos;min</strong>
               {language === 'tr' ? pair.muminTr : pair.muminEn}
             </span>
           </div>

@@ -554,9 +554,9 @@ export default function KiyametSahneleri({ onClose }) {
             maxWidth: '660px',
             opacity: 0.95,
           }}>
-            "{language === 'tr'
+            &quot;{language === 'tr'
               ? 'O gün yer, başka bir yerle; gökler de başka göklerle değiştirilir.'
-              : 'On the Day the earth will be replaced by another earth, and the heavens as well.'}"
+              : 'On the Day the earth will be replaced by another earth, and the heavens as well.'}&quot;
           </p>
 
           <p style={{
@@ -583,7 +583,7 @@ export default function KiyametSahneleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Kur'an kıyameti <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>bir an</em> olarak değil — <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>sahneler dizisi</em> olarak anlatır. Sûr, haşr, mîzân, kitap; her biri ayrı bir perdedir.</>
+              ? <>Kur&apos;an kıyameti <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>bir an</em> olarak değil — <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>sahneler dizisi</em> olarak anlatır. Sûr, haşr, mîzân, kitap; her biri ayrı bir perdedir.</>
               : <>The Quran tells the Last Day not as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a moment</em> but as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a sequence of scenes</em>. Trumpet, gathering, balance, book — each a separate act.</>}
           </p>
 

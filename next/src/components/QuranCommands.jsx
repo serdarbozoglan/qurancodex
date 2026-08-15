@@ -249,9 +249,9 @@ export default function QuranCommands({ onClose }) {
           maxWidth: '660px',
           opacity: 0.95,
         }}>
-          "{language === 'tr'
+          &quot;{language === 'tr'
             ? 'Şüphesiz Allah adaleti, iyiliği ve akrabaya yardımı emreder; çirkin işleri, fenalığı ve azgınlığı da yasaklar.'
-            : 'Indeed, Allah commands justice, kindness, and giving to relatives; and He forbids indecency, evil, and oppression.'}"
+            : 'Indeed, Allah commands justice, kindness, and giving to relatives; and He forbids indecency, evil, and oppression.'}&quot;
         </p>
 
         <p style={{
@@ -278,8 +278,8 @@ export default function QuranCommands({ onClose }) {
           opacity: 0.88,
         }}>
           {language === 'tr'
-            ? <>Kur'an iki kanatla yürür: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>emir</em> (`if'al`) ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>nehiy</em> (`lā taf'al`). Klasik fıkıh bu çifti beş hükme açar: vâcip, mendûb, mubâh, mekrûh, harâm.</>
-            : <>The Quran walks on two wings: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>command</em> (`if'al`) and <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>prohibition</em> (`lā taf'al`). Classical fiqh unfolds this pair into five rulings: wājib, mandūb, mubāḥ, makrūh, ḥarām.</>}
+            ? <>Kur&apos;an iki kanatla yürür: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>emir</em> (`if&apos;al`) ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>nehiy</em> (`lā taf&apos;al`). Klasik fıkıh bu çifti beş hükme açar: vâcip, mendûb, mubâh, mekrûh, harâm.</>
+            : <>The Quran walks on two wings: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>command</em> (`if&apos;al`) and <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>prohibition</em> (`lā taf&apos;al`). Classical fiqh unfolds this pair into five rulings: wājib, mandūb, mubāḥ, makrūh, ḥarām.</>}
         </p>
 
         {/* Filigree divider */}
@@ -645,7 +645,7 @@ function CommandCard({ cmd, accent, language, L }) {
           borderTop: '1px solid rgba(255,255,255,0.06)',
           paddingTop: '8px',
         }}>
-          "{cmd.verseTr}"
+          &quot;{cmd.verseTr}&quot;
         </div>
       )}
 
