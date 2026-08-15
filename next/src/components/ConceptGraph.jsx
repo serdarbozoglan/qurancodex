@@ -406,8 +406,20 @@ export default function ConceptGraph({ onClose, restore = null }) {
       )}
 
       {/* ── LOADING DATA ──────────────────────────────────────────────── */}
-      {(!verses || !concepts || (view === 'graph' && !graphRef.current && !buildingGraph)) && (
-        <div style={{ flex: 1, display: 'flex' }}>
+      {/* `loadingData` de koşula dahil — verses/concepts geldikten sonra
+          concept-verse map arka planda chunk'lar halinde hesaplanırken
+          (yukarıdaki useEffect) `loadingData` bir süre daha true kalıyor;
+          bu blok sadece !verses||!concepts'e bakınca o ara pencerede hiçbir
+          şey render olmuyordu (landing da loadingData'yı bekliyor) — CTA
+          direkt header altına düşüp sonra tekrar aşağı kayıyordu, minHeight
+          eklemek TEK BAŞINA yetmiyordu. */}
+      {(!verses || !concepts || loadingData || (view === 'graph' && !graphRef.current && !buildingGraph)) && (
+        // minHeight ~gerçek "landing" içeriğinin yüksekliğine yaklaştırılmış —
+        // zf2-tool-cta-wrap (aşağıda) bu bloğun KARDEŞİ, koşulsuz render ediliyor;
+        // üstteki kardeş küçükken CTA'nın Y konumu yukarıda oluyor, veri gelip
+        // "landing" içeriğiyle değişince CTA aşağı fırlıyor (SurahComparator ile
+        // aynı mekanizma, bkz. o dosyadaki fix).
+        <div style={{ flex: 1, display: 'flex', minHeight: '100vh' }}>
           <LoadingOverlay message={language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'} />
           <style>{`@keyframes cgFadeIn { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }`}</style>
         </div>

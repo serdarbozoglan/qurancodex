@@ -634,7 +634,13 @@ export default function SurahComparator({ onClose }) {
 
       {/* ── LOADING ───────────────────────────────────────────────────── */}
       {loading && (
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
+        // minHeight ~gerçek "landing" içeriğinin yüksekliğine (ölçülen ~1070px
+        // mobilde) yaklaştırılmış — CrossToolCTA bu bloğun KARDEŞİ (aşağıda,
+        // koşulsuz render ediliyor); üstteki kardeş küçükken CTA'nın Y konumu
+        // ~1000px yukarıda oluyor, veri gelip bu blok "landing" içeriğiyle
+        // değişince CTA aşağı fırlıyor — büyük CLS (Z3-V kök #2 ile aynı
+        // aile, farklı mekanizma: boyut değil KONUM sıçraması).
+        <div style={{ flex: 1, minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
           <div style={{ width: '36px', height: '36px', border: `2px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
           <p style={{ color: SEMANTIC.textFaint, fontSize: '0.85rem' }}>{language === 'tr' ? 'Ayet verileri yükleniyor…' : 'Loading verse data…'}</p>
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
