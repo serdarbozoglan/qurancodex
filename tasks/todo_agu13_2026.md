@@ -1164,12 +1164,63 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       son partide tam site kontrast taraması (`--full`, 140 sayfa) —
       **taban 48 KORUNDU, regresyon yok**. `audit-colors --ci` 179/182,
       `audit-internal-leak` temiz. 26+ rota sıfır konsol hatası.
-      **Kalan (bilinçli kapsam dışı, ayrı turlar):** küçük padding
-      farkları (~600+ örnek, CLS eşiğinin genelde altında — 70 dosyalık
-      site-geneli tarama kendi turunu gerektiriyor), ReadingMode içerik-
+      **Kalan (bilinçli kapsam dışı, ayrı turlar):** ReadingMode içerik-
       alanı minHeight'ı.
       ~~SurahComparator/ConceptGraph fetch-remount~~ ✅ 14 Ağustos gecesi
       kapatıldı, bkz. aşağıdaki 14 Ağustos notu (`4782823`).
+      ~~küçük padding farkları (~600+ örnek, 70 dosya)~~ ✅ 14 Ağustos
+      gecesi kapatıldı, bkz. aşağıdaki "70-dosyalık padding taraması" notu
+      (`b7850e3`..`5fd1068`).
+
+#### 14 Ağustos (gece) · 70-dosyalık padding/margin taraması — mq-box codemod
+
+Kullanıcı onayıyla ("70-dosyalık padding taraması") site genelinde kalan
+`padding(Top|Bottom|Left|Right)`/`margin(...)`: `isMobile ? A : B` kalıbı
+kapatıldı — **560 örnek / 66 dosya** (kissa hariç). Bunlar §14.2'nin
+yasakladığı yapısal (`grid`/`display`/`flexDirection`) kalıptan FARKLI:
+reflow üretmiyorlar, bu yüzden CLS etkisi genelde eşiğin altında — ama aynı
+kök sebep (hydration anında `isMobile` her zaman `false`) kısa bir "zıplama"
+hissi üretiyor ve CLAUDE.md §14.2'nin ruhuna aykırı kalıyordu.
+
+**Yöntem — elle değil, AST tabanlı codemod:** 560 örneği tek tek Edit
+tool'uyla değiştirmek pratik değildi; `@babel/parser`+`traverse` (repo'da
+zaten dependency olarak mevcut) ile `next/scripts/_codemod-mq-pad.mjs`
+yazıldı (kalıcı değil, bu tur için tek seferlik araç — repoda kalabilir ama
+bir sonraki benzer tur için elden geçirilmeli). Kaynak metni tam parse edip
+yalnız DEĞİŞEN alt-aralıkları spliceleyerek yeniden yazıyor — tüm dosyayı
+yeniden formatlamıyor, diff'ler cerrahi kalıyor.
+
+⚠ **İlk tasarımda gerçek bir CSS hatası yakalandı, push'tan önce:** `.mq-box`
+class'ı önce hem shorthand (`padding: var(--p-d,unset)`) hem longhand
+(`padding-top: var(--pt-d,unset)` vb.) aynı kuralda tanımlanmıştı — CSS
+cascade'de aynı seçici içinde longhand her zaman SONRA gelip shorthand'ın
+ürettiği expand edilmiş değeri SESSİZCE sıfırlıyor (longhand'lar `unset`
+olduğu için tüm padding **0'a** düşüyordu). `getComputedStyle` ile canlı
+ölçmeden fark edilmezdi. Çözüm: shorthand'ı hiç class'a koymadan, codemod
+`padding`/`margin` shorthand'ını standart CSS 1/2/3/4-token açılım kuralıyla
+4 longhand'a genişletiyor (`top/right/bottom/left`), class SADECE longhand
+tutuyor. **Ders: bir class'ta shorthand+longhand karışığı varsa, longhand
+her zaman kazanır — ikisini asla aynı seçicide birlikte custom-property
+fallback ile tanımlama.**
+
+**Güvenlik sınırları (codemod bilinçli olarak 5 örneği atladı):**
+- 3 örnek nested ternary (`isFirst ? A : B` iç içe) — düz string/sayı
+  değilse dönüştürmüyor.
+- 1 örnek `KiraatAtlasi.jsx` marginRight/Left'te nested ternary.
+- 1 örnek `ReadingMode.jsx:10720` — `max(12px, env(safe-area-inset-top,
+  12px))` gibi fonksiyon-içi boşluk taşıyan shorthand; boşlukla token
+  bölmek yanlış sonuç üretirdi, codemod `(` görünce reddediyor.
+Bu 5'i JS-driven kaldı, ayrı ele alınabilir (düşük öncelik, tekil örnekler).
+
+Doğrulama: `npm run build` temiz (66 dosya), her batch sonrası
+`git show --stat HEAD` ile beklenen dosya listesi doğrulandı, Playwright ile
+`getComputedStyle` üzerinden mobil/masaüstü değerlerin doğru switch ettiği
+6 sayfada ölçüldü, `audit-colors --ci` 179/182, `audit-internal-leak --ci`
+temiz, kontrast sample-mode regresyon yok, 19 rotada (tr/en) sıfır konsol
+hatası, 3 sayfada CLS ölçümü (0.000–0.034, hepsi eşiğin altında — kalan
+küçük değerler Arapça font reflow'undan, isMobile'dan değil).
+
+6 batch halinde commit+push edildi: `b7850e3`..`5fd1068`.
 
 #### 14 Ağustos (gece) · SurahComparator/ConceptGraph — sibling-position CLS kapatıldı
 
