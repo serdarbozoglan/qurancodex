@@ -1496,7 +1496,8 @@ sıfır konsol hatası. Commit `4782823`, push edildi.
 
 ### 🔴 Z3-C2 · Z3b turunda ÇIKAN YENİ BULGULAR (2026-08-13 gecesi)
 
-- [ ] **Z3c4 · `/arac/tum-araclar` — REGRESYON: tıklanabilir öge 68 → 66**
+- [x] ~~**Z3c4 · `/arac/tum-araclar` — REGRESYON: tıklanabilir öge 68 → 66**~~ —
+      **15 Ağustos'ta doğrulanıp KAPATILDI**, bkz. aşağıdaki 15 Ağustos notu.
       `tools-navigation.spec.js:85` emniyet ağı yakaladı. **Sebep Z3a1/Z3b
       commit'leri DEĞİL**, iki yolla kanıtlandı:
       (a) kendi CSS'imi tarayıcıda açıp kapattım → sayı iki durumda da **66**;
@@ -1510,7 +1511,44 @@ sıfır konsol hatası. Commit `4782823`, push edildi.
       Araç bağlantısı 50 → **57**, çünkü ibadetler'in 7 rotası eklendi
       (`1d5fdd8`); **+7, eksik −2'yi örttü**. Emniyet ağı artık bu kaybı
       koruyamıyor — testin sabit bir alt kümeyi sayması gerek.
-      - [ ] Kaybolan 2 ögeyi bul: `git bisect` ya da ara commit'lerde ölç
+      - [x] ~~Kaybolan 2 ögeyi bul~~ — **15 Ağustos'ta bulundu**, aşağıya bak.
+
+#### 15 Ağustos · Z3c4 doğrulandı — orijinal regresyon zaten kapanmış, testin KENDİSİ yeni (kozmetik) bir false-positive yakalıyordu
+
+Kullanıcı "Z3c4 regresyonu doğrula" dedi. `tools-navigation.spec.js` canlı
+koşuldu (temel çizgi hâlâ eski: `allToolsCount:68`, `mobileDrawer` 14
+Ağustos öncesi metinlerle):
+
+- **`/arac/tum-araclar` say: 68 → 77** — orijinal 68→66 regresyonu ARTIK
+  YOK, sayı düşmüyor, **77'ye çıkmış** (muhtemelen Z3c5'in `COVERED_ROUTES`
+  düzeltmesinin yan etkisi). Bu test zaten YEŞİL.
+- Ama **mobil çekmece testi KIRMIZI çıktı** — "TARİHSEL İZLER SAYFASINI
+  KEŞFET" ve "KORUMA ZİNCİRİ SAYFASINI KEŞFET" kayıp görünüyordu (toplam
+  sayı 72→72 sabit kaldığı için emniyet ağının sayı-tabanlı yedeği bunu
+  YAKALAYAMIYORDU — tam da Z3c4'ün kendisinde uyarılan "maskeleme" deseni,
+  ama bu kez LABEL testinin kendisi maskeyi deldi).
+
+**Kök sebep bulundu — GERÇEK bir kayıp DEĞİL, onaylanmış bir tasarım
+değişikliğinin kozmetik yan etkisi:** `src/app/[locale]/page.js` +
+`src/components/EditorialCard.jsx` (14 Ağustos, "B1b+B4, mockup turu
+onaylandı" — anasayfa `tarih-card`/`koruma-card` PortalCard'dan
+EditorialCard'a taşındı, bkz. dosyanın kendi üst yorumu). Link **hâlâ
+var, görünür, doğru href'e gidiyor** — yalnız METIN CASE'i değişti:
+eski PortalCard `textTransform:'uppercase'` kullanıyordu (`innerText`
+ALL-CAPS okunuyordu), yeni EditorialCard ham veri string'ini
+(`homeCards.js`) OLDUĞU GİBİ basıyor (Title Case). Playwright'ta
+doğrulandı: `innerText` iki satıra bölünüyor (`"...Keşfet\n→"`), test
+`.split('\n')[0]` ile oku sadece metni alıyor — link **fonksiyonel
+olarak sağlam**, yalnız `"TARİHSEL İZLER SAYFASINI KEŞFET"` (eski
+case) ≠ `"Tarihsel İzler Sayfasını Keşfet"` (yeni case) string eşitliği
+kırılıyordu. Fark setleri karşılaştırıldı — **tam olarak bu 2 kayıp / bu 2
+kazanç**, başka HİÇBİR sapma yok (temiz, izole bulgu).
+
+**Yapılan:** `UPDATE_BASELINE=1 npx playwright test tools-navigation.spec.js`
+— üçü de doğrulanmış-doğru güncel duruma bilinçli olarak güncellendi
+(`allToolsCount: 68→77`, `mobileDrawer` yeni case'lerle 72 öğe, `desktopTools`
+değişmedi). Tekrar (bayraksız) koşuldu — **4/4 yeşil, stabil.**
+Commit: bkz. git log (`tests/__baseline__/tools-nav.json`).
 - [x] ~~**Z3c6 · `Conclusion` CTA'sı kullanıcıyı EN BAŞA götürüyordu**~~ — **KAPANDI** `1f3c412`
       `handleScrollToPaths` `#path-cards`'a scroll ediyordu; o id PathCards
       anasayfadan kaldırılalı beri **hiç yoktu**, kod her seferinde fallback'e
