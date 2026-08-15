@@ -3025,17 +3025,19 @@ Sistematik tarama, `next/src/sections/*.jsx` (27 dosya), `next/src/components/*.
 
 | # | Madde | Sorun | Durum |
 |---|---|---|---|
-| 1 | **R15** | Cuypers'e "Bakara için 200+ sayfalık analiz" atfediliyor; kitap toplam 224 sayfa ve en kapsamlı örneği Mâide — muhtemelen Mâide ile karıştırılmış (`RingExtensions.jsx`) | Açık |
-| 2 | **R42** | homeCards.js'te Fâtiha'nın 7 ayet/Besmele-dahil formülü | ✅ **Düzeltildi** (bu oturumda) |
-| 3 | **R90** | İbn Arabî Cemiyeti dergi atfı: "c. 18 (1995)" → gerçek "Volume XXXIX (2006)" (`rahmetin-grameri-5.json`) | Açık |
-| 4 | **R122** | Bediüzzaman alıntısı yanlış esere atfedilmiş: Mesnevî-i Nûriye değil İşârâtü'l-İ'câz (`terminoloji-1.json`) | Açık |
-| 5 | **R133** | Feynman'a yaygın biçimde yanlış atfedilen bir internet-alıntısı ("basitçe anlatamıyorsan anlamamışsındır") (`vicdan-evrensel-tercuman.json`) | Açık |
-| 6 | **R191** | "En masum cümleyi getirin, idam ettireyim" sözü Napolyon'a değil Kardinal Richelieu'ya ait (`kaynak-yuzey.json`) | Açık |
-| 7 | **R228** | Camerarius'un bitki üremesi çalışması (1694) "18. yy" değil 17. yy — asır hatası (`bilimsel-isaretler` ruzgar-dolleme verisi) | Açık |
-| 8 | **R301** | Gazâlî'nin İhyâ'daki 4'lü kalp modeli yanlış aktarılmış — şeytânî unsur atlanmış, "rahmet" icat edilmiş (`InsanTanimi.jsx` ScholarsTab) | Açık |
-| 9 | **R398** | R301 ile AYNI hata, farklı bir bileşende tekrarlanmış (`InsanPsikolojisi.jsx` UlemaPsikolojiGrid) | Açık |
-| 10 | **R399** | İbn Kayyım'ın Medâricü's-Sâlikîn'i için "3 mertebeli/15 basamak" iddiası kendi içinde matematiksel tutarsız (5 aşama sayılıyor, 3×3≠15) ve kitabın gerçek 100-makamlık yapısını yansıtmıyor (`InsanPsikolojisi.jsx`) | Açık |
-| 11 | **R453** | "Tefsir tek esere (Elmalılı) dayanıyor" iddiası artık güncel değil — site iyileşmiş, ikinci kaynak (Ibn Kathir) eklenmiş; katalog metni güncellenmeli | Açık (iyi haber) |
+| 1 | **R15** | Cuypers'e "Bakara için 200+ sayfalık analiz" atfediliyor; kitap toplam 224 sayfa ve en kapsamlı örneği Mâide — muhtemelen Mâide ile karıştırılmış (`RingExtensions.jsx`) | ✅ **Düzeltildi** — uydurma sayfa sayısı kaldırıldı |
+| 2 | **R42** | homeCards.js'te Fâtiha'nın 7 ayet/Besmele-dahil formülü | ✅ **Düzeltildi** |
+| 3 | **R90** | İbn Arabî Cemiyeti dergi atfı: "c. 18 (1995)" → gerçek "Volume XXXIX (2006)" (`rahmetin-grameri-5.json`) | ✅ **Düzeltildi** |
+| 4 | **R122** | Bediüzzaman alıntısı yanlış esere atfedilmiş: Mesnevî-i Nûriye değil İşârâtü'l-İ'câz (`terminoloji-1.json`) | ✅ **Düzeltildi** |
+| 5 | **R133** | Feynman'a yaygın biçimde yanlış atfedilen bir internet-alıntısı ("basitçe anlatamıyorsan anlamamışsındır") (`vicdan-evrensel-tercuman.json`) | ✅ **Düzeltildi** — "atfedilen" diye işaretlendi |
+| 6 | **R191** | "En masum cümleyi getirin, idam ettireyim" sözü Napolyon'a değil Kardinal Richelieu'ya ait (`kaynak-yuzey.json`) | ✅ **Düzeltildi** |
+| 7 | **R228** | Camerarius'un bitki üremesi çalışması (1694) "18. yy" değil 17. yy — asır hatası (`bilimsel-isaretler` ruzgar-dolleme verisi) | ✅ **Düzeltildi** |
+| 8 | **R301** | Gazâlî'nin İhyâ'daki 4'lü kalp modeli yanlış aktarılmış — şeytânî unsur atlanmış, "rahmet" icat edilmiş (`InsanTanimi.jsx` ScholarsTab) | ✅ **Düzeltildi** |
+| 9 | **R398** | R301 ile AYNI hata, farklı bir bileşende tekrarlanmış (`InsanPsikolojisi.jsx` UlemaPsikolojiGrid) | ✅ **Düzeltildi** |
+| 10 | **R399** | İbn Kayyım'ın Medâricü's-Sâlikîn'i için "3 mertebeli/15 basamak" iddiası kendi içinde matematiksel tutarsız (5 aşama sayılıyor, 3×3≠15) ve kitabın gerçek 100-makamlık yapısını yansıtmıyor (`InsanPsikolojisi.jsx`) | ✅ **Düzeltildi** — 5 aşamayla tutarlı hâle getirildi |
+| 11 | **R453** | "Tefsir tek esere (Elmalılı) dayanıyor" iddiası artık güncel değil — site iyileşmiş, ikinci kaynak (Ibn Kathir) eklenmiş; katalog metni güncellenmeli | Kod değişikliği gerekmiyor — site zaten doğru (2 kaynaklı) |
+
+> **Faz 3 (14 Ağustos 2026, devam ediyor):** Yukarıdaki 11 madde + 6 kitap-başlığı-çeviri hatası dışında kalan tüm ⚠️/❓ maddeler (123 adet) tek tek yeniden derinlemesine araştırılıp ya somut bir düzeltmeyle kapatılıyor ya da gerçekten doğrulanamıyorsa iddianın kesinlik derecesi sitede yumuşatılıyor ("denir/atfedilir" gibi) — hedef: %100 içerik doğruluğu, "muhtemelen doğru" kabul edilmiyor.
 
 ## ⚠️ Tekrarlayan kalıp: kitap başlığı/atıf hataları (86 kısmi eşleşmenin önemli bir alt kümesi)
 
