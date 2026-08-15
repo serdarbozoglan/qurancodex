@@ -1115,7 +1115,7 @@ export default function SurahComparator({ onClose }) {
               author: 'Neal Robinson',
               workTr: 'Kurʾân\'ı Keşfetmek',
               workEn: 'Discovering the Qurʾan',
-              period: '1996 (Georgetown UP)',
+              period: '1996 (SCM Press)',
               noteTr: 'Modern akademik münâsebât çalışması — Michel Cuypers ve Neuwirth\'in yanında sûre iç-yapısı + sûreler-arası bağların çağdaş sistematik analizini yapar.',
               noteEn: 'Modern academic study of munāsabāt — alongside Cuypers and Neuwirth, offers a contemporary systematic analysis of intra-sūrah structure + inter-sūrah ties.',
             },

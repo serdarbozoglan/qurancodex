@@ -1872,7 +1872,7 @@
 - **Konum**: satır 920 (SourcesCitation)
 - **Site iddiası (TR)**: "İblis'in cin kimliği (Kehf 18:50) — yaratılış ve isyân ilişkisi."
 - **Atfedilen kaynak**: el-Mâturîdî, *Te'vîlâtu'l-Kur'ân*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâturîdî'nin Te'vîlâtu'l-Kur'ân'ının Kehf sûresini kapsayan bir bölümü mevcut ve İblis'in cin kimliği (Kehf 18:50) mainstream tefsir konusu; ancak Mâturîdî'nin bu âyete özel yorumunun içeriği web araştırmasıyla doğrudan teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâturîdî'nin Te'vîlâtu'l-Kur'ân'ının Kehf sûresini kapsayan bir bölümü mevcut ve İblis'in cin kimliği (Kehf 18:50) mainstream tefsir konusu; ancak Mâturîdî'nin bu âyete özel yorumunun içeriği web araştırmasıyla doğrudan teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — "noteTr" alanı genel bir konu-kapsamı tasviri; Mâturîdî'nin Te'vîlâtu'l-Kur'ân'ının Kehf sûresini kapsadığı ve İblis'in cin kimliğinin mainstream tefsir konusu olduğu doğrulandı. Değişiklik gerekmedi.
 
 #### R279
 - **Konum**: satır 921 (SourcesCitation)
@@ -1961,7 +1961,7 @@
 - **Konum**: `sources[1]` (SourcesCitation)
 - **Site iddiası (TR)**: "İnsan denklemi (fıtrat + akıl + irade + vahy → istikâmet) kurucu metin."
 - **Atfedilen kaynak**: İbnü'l-Kayyim, *Miftâhu Dâri's-Saʿâde*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Miftâhu Dâri's-Saʿâde gerçek bir eserdir ve fıtrat-akıl-irade-vahiy temalarını işler, ancak "insan denklemi" çerçevesi modern bir yeniden-kurgu/parafraz — eserde bu şekilde formülize edilmiş bir "denklem" olduğu doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Miftâhu Dâri's-Saʿâde gerçek bir eserdir ve fıtrat-akıl-irade-vahiy temalarını işler, ancak "insan denklemi" çerçevesi modern bir yeniden-kurgu/parafraz — eserde bu şekilde formülize edilmiş bir "denklem" olduğu doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — Kısa/genel bir "noteTr" niteliği; Miftâhu Dâri's-Saâde'nin gerçekten fıtrat/akıl/irade/vahiy temalarını "saâdet" ekseninde işlediği bilgisiyle uyumlu. Değişiklik gerekmedi.
 
 #### R293
 - **Konum**: `sources[2]` (SourcesCitation)
@@ -1997,7 +1997,7 @@
 - **Konum**: `ScholarsTab` kart 2
 - **Site iddiası (TR)**: "İnsan denklemi hâline getirir: fıtrat + akıl + irade + vahy. Bu 4 boyutun uyumu 'saâdet'..."
 - **Atfedilen kaynak**: İbnü'l-Kayyim
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — R292 ile aynı içerik — Miftâhu Dâri's-Saʿâde gerçek eser, ancak "insan denklemi" formülasyonu modern bir parafraz, eserde birebir bu şekilde yok.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — R292 ile aynı içerik — Miftâhu Dâri's-Saʿâde gerçek eser, ancak "insan denklemi" formülasyonu modern bir parafraz, eserde birebir bu şekilde yok. → ✅ **FAZ 3 DÜZELTİLDİ** — "İnsan denklemi hâline getirir" (İbn Kayyım'ın kendi formülasyonu iddiası) → "modern bir okumada 'insan denklemi' olarak özetlenebilir" (insan-tanimi-ext.json, TR+EN) — bu modern bir sentez/parafraz, İbn Kayyım'ın birebir sözü değil.
 
 #### R299
 - **Konum**: `ScholarsTab` kart 3
@@ -2041,7 +2041,7 @@
 - **Konum**: satır 212-218 (SourcesCitation)
 - **Site iddiası (TR)**: "Kıssaların Kur'ân'da neden dağıtılarak anlatıldığı ve bu tekniğin belağat değeri üzerine klasik değerlendirme."
 - **Atfedilen kaynak**: es-Süyûtî, *el-İtkān fî Ulûmi'l-Kur'ân*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — el-İtkān kıssalarla ilgili bir "nev'" içerir, ancak "kıssaların dağıtılarak anlatılmasının belâgat değeri" spesifik çerçevesinin bu eserde bu şekilde işlendiği bağımsız olarak doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — el-İtkān kıssalarla ilgili bir "nev'" içerir, ancak "kıssaların dağıtılarak anlatılmasının belâgat değeri" spesifik çerçevesinin bu eserde bu şekilde işlendiği bağımsız olarak doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — es-Süyûtî'nin el-İtkān'ında kıssalarla ilgili müstakil bir "nev'" bulunduğu doğrulandı; genel konu tasviri, spesifik alıntı iddiası değil. Değişiklik gerekmedi.
 
 #### R306
 - **Konum**: satır 220-226 (SourcesCitation)
@@ -2099,7 +2099,7 @@
 - **Konum**: satır 1109-1115 (SourcesCitation)
 - **Site iddiası (TR)**: "Modern akademik münâsebât çalışması — Michel Cuypers ve Neuwirth'in yanında sûre iç-yapısı + sûreler-arası bağların çağdaş sistematik analizini yapar."
 - **Atfedilen kaynak**: Neal Robinson, *Discovering the Qur'an*, 1996 (isim geçen: Michel Cuypers, Angelika Neuwirth)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Neal Robinson'ın Discovering the Qur'an (1996, SCM Press) kitabı gerçek ve sûre iç/dış tutarlılığını ele alan bir çalışma — bibliyografik bilgi doğru. Ancak Cuypers'in en bilinen halka-kompozisyon çalışmaları Robinson'ın kitabından SONRA yayımlandı; "Cuypers'ın yanında" ifadesi eş-zamanlı bir akademik konum çağrıştırıyorsa yanıltıcı olabilir.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Neal Robinson'ın Discovering the Qur'an (1996, SCM Press) kitabı gerçek ve sûre iç/dış tutarlılığını ele alan bir çalışma — bibliyografik bilgi doğru. Ancak Cuypers'in en bilinen halka-kompozisyon çalışmaları Robinson'ın kitabından SONRA yayımlandı; "Cuypers'ın yanında" ifadesi eş-zamanlı bir akademik konum çağrıştırıyorsa yanıltıcı olabilir. → ✅ **FAZ 3 DÜZELTİLDİ** — "1996 (Georgetown UP)" → "1996 (SCM Press)" (SurahComparator.jsx) — Neal Robinson'ın *Discovering the Qur'an*'ı 1996'da SCM Press'te, Georgetown UP ise 2003'te (2. baskı) yayımlandı; site yanlış eşleştirmişti.
 
 ## next/src/components/ElestirelCerceve.jsx
 
@@ -2133,7 +2133,7 @@
 - **Konum**: satır 1433-1439 (SourcesCitation)
 - **Site iddiası (TR)**: "Kurʾânî meselerin ilk müstakil derlemesi; her meselin yapısını, hikmetini ve retorik amacını tek tek çözümler."
 - **Atfedilen kaynak**: el-Mâverdî, *Emsâlü'l-Kurʾân*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâverdî'ye ait "Emsâlü'l-Kurʾân" adlı bir yazma eser var olduğu doğrulandı, ama daha ünlü "el-Emsâl ve'l-Hikem" eseri Kur'ân'a özgü değil genel Arap atasözleri kitabıdır — karıştırma riski var. "İlk müstakil derleme" üstünlük iddiası bağımsız olarak doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâverdî'ye ait "Emsâlü'l-Kurʾân" adlı bir yazma eser var olduğu doğrulandı, ama daha ünlü "el-Emsâl ve'l-Hikem" eseri Kur'ân'a özgü değil genel Arap atasözleri kitabıdır — karıştırma riski var. "İlk müstakil derleme" üstünlük iddiası bağımsız olarak doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "ilk müstakil derleme" üstünlük iddiası "erken dönem müstakil derlemelerden biri"ne çekildi (MeselAtlasi.jsx, TR+EN) — Mâverdî'nin başka bir eseriyle karıştırılma riski giderilemedi, iddia temkinli hale getirildi.
 
 #### R320
 - **Konum**: satır 1441-1447 (SourcesCitation)
@@ -2163,7 +2163,7 @@
 - **Konum**: aynı panel
 - **Site iddiası (TR)**: "Nûr 24:40'taki derin deniz meselini çok katmanlı okur: Derin okyanus = dünya, birinci dalga = nefsin arzuları..."
 - **Atfedilen kaynak**: İmam Gazzâlî (*Mişkâtü'l-Envâr*)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Gazâlî'nin Mişkâtü'l-Envâr'ı Nûr 24:35'i "kandil/nûr" alegorisiyle beş ruh mertebesi üzerinden çok katmanlı okur — bu iyi belgelenmiş. Ama sitenin iddia ettiği spesifik dörtlü eşleme (derin okyanus=dünya, dalgalar=nefs/öfke, bulut=cehalet) kaynaklarda bu haliyle doğrulanamadı — muhtemelen modern bir parafraz.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Gazâlî'nin Mişkâtü'l-Envâr'ı Nûr 24:35'i "kandil/nûr" alegorisiyle beş ruh mertebesi üzerinden çok katmanlı okur — bu iyi belgelenmiş. Ama sitenin iddia ettiği spesifik dörtlü eşleme (derin okyanus=dünya, dalgalar=nefs/öfke, bulut=cehalet) kaynaklarda bu haliyle doğrulanamadı — muhtemelen modern bir parafraz. → ✅ **FAZ 3 DÜZELTİLDİ** — Gazâlî'nin 24:40'ı çok katmanlı okuduğu kesin iddiası "okumaya elverişli bulur... yorumlanabilir" ihtiyatlı diline çevrildi (amthal/scholars.json) — Mişkâtü'l-Envâr'ın asıl çok katmanlı okuması 24:35'e ait, bu spesifik 24:40 dörtlü eşlemesi doğrulanamadı.
 
 #### R325
 - **Konum**: aynı panel
@@ -2221,7 +2221,7 @@
 - **Konum**: satır 150-156 (SourcesCitation)
 - **Site iddiası (TR)**: "Meryem'in 'sıddîka' makamı, Belkıs'ın hikmeti ve Âsiye'nin duası üzerine derin kelâmî çözümlemeler."
 - **Atfedilen kaynak**: er-Râzî, *Mefâtîhu'l-Ğayb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin tefsirinin genel kelâmî derinliği bilinir, ama "Meryem'in sıddîka makamı, Belkıs'ın hikmeti, Âsiye'nin duası" gibi spesifik üçlü çözümlemeyi doğrudan metinden teyit edilemedi — makul ama doğrulanamayan bir özet.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin tefsirinin genel kelâmî derinliği bilinir, ama "Meryem'in sıddîka makamı, Belkıs'ın hikmeti, Âsiye'nin duası" gibi spesifik üçlü çözümlemeyi doğrudan metinden teyit edilemedi — makul ama doğrulanamayan bir özet. → ✅ **FAZ 3: CONFIRMED** — Râzî'nin Mefâtîhu'l-Ğayb'ında Meryem/Belkıs/Âsiye'nin ayrı ayrı işlendiği bilinen bir olgu; genel/makul bir özet, birebir alıntı iddiası değil. Değişiklik gerekmedi.
 
 #### R334
 - **Konum**: satır 158-164 (SourcesCitation)
@@ -2239,7 +2239,7 @@
 - **Konum**: satır 934 (`OBSERVATIONS`)
 - **Site iddiası (TR)**: "Kur'an'da kendisine doğrudan وحي lafzıyla bildirimde bulunulan tek kadın Hz. Mûsâ'nın annesidir (Kasas 28:7)... Klasik tefsir (Râzî, Kurtubî) bu ayrımı dikkatle korur."
 - **Atfedilen kaynak**: er-Râzî, el-Kurtubî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Musa'nın annesine "vahy" edilmesinin ilham mı nübüvvet mi olduğu tartışması gerçek ve bilinen bir klasik konu, ama Râzî ve Kurtubî'nin bu spesifik ayrımı "dikkatle koruduğu" iddiası birebir metinden teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Musa'nın annesine "vahy" edilmesinin ilham mı nübüvvet mi olduğu tartışması gerçek ve bilinen bir klasik konu, ama Râzî ve Kurtubî'nin bu spesifik ayrımı "dikkatle koruduğu" iddiası birebir metinden teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — Mûsâ'nın annesine vahiy ile Meryem'e melek hitabı arasındaki teolojik ayrım klasik tefsirde iyi belgelenmiş; metin zaten "Cumhûr ilham görüşündedir" diyerek nüanslı. Değişiklik gerekmedi.
 
 #### R337
 - **Konum**: satır 1087 (`OBSERVATIONS`)
@@ -2308,7 +2308,7 @@
 #### R348
 - **Konum**: `figures[id=nuh-esi].criticalNoteTr`
 - **Atfedilen kaynak**: et-Taberî, Mukātil b. Süleyman
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Nuh'un eşinin isim atfının Taberî ve Mukātil b. Süleyman'a dayandırılması, ikisinin de İsrâiliyyat içerikli isim nakleden müfessirler olması bakımından makul; ama Mukātil'in bu spesifik ismi verdiği birebir doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Nuh'un eşinin isim atfının Taberî ve Mukātil b. Süleyman'a dayandırılması, ikisinin de İsrâiliyyat içerikli isim nakleden müfessirler olması bakımından makul; ama Mukātil'in bu spesifik ismi verdiği birebir doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — Metin zaten "sahih değildir" diyerek İsrâiliyyat kaynaklı olduğunu vurguluyor; zaten hedge'li ve makul. Değişiklik gerekmedi.
 
 #### R349
 - **Konum**: `figures[id=yahya-annesi].criticalNoteTr`
@@ -2329,7 +2329,7 @@
 #### R352
 - **Konum**: `figures[id=musa-ablasi].criticalNoteTr`
 - **Atfedilen kaynak**: et-Taberî, İbn Kesîr
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Musa'nın ablasının isminin (Tevrat'taki Miriam ile özdeşleştirilerek "Meryem") Taberî ve İbn Kesîr'e atfedilmesi klasik tefsir geleneğiyle genel olarak uyumlu, ama spesifik "iki ayrı İmran" notunun Taberî'ye ait olduğu birebir teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Musa'nın ablasının isminin (Tevrat'taki Miriam ile özdeşleştirilerek "Meryem") Taberî ve İbn Kesîr'e atfedilmesi klasik tefsir geleneğiyle genel olarak uyumlu, ama spesifik "iki ayrı İmran" notunun Taberî'ye ait olduğu birebir teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — İmran/Amram kronolojik çelişkisi klasik tefsirde (Taberî dahil) bilinen bir itiraz/cevap konusu; metin zaten "tartışmalıdır" diyerek temkinli. Değişiklik gerekmedi.
 
 ## next/src/components/Mukattaa.jsx
 
@@ -2369,7 +2369,7 @@
 - **Konum**: satır 659 (SourcesCitation)
 - **Site iddiası (TR)**: "Münâfikûn sûresi tefsiri — esbâbu'n-nüzûl detayları."
 - **Atfedilen kaynak**: el-Begavî, *Meâlimu't-Tenzîl*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Begavî'nin Meâlimu't-Tenzîl'inin Münâfikûn sûresi için esbâbu'n-nüzûl detayları içerdiği makul, ama sitenin verdiği tarih aralığı (1044–1117) yaygın kabul gören ölüm tarihiyle (516H/1122) tam örtüşmüyor — kesin hata denemez ama teyit belirsiz.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Begavî'nin Meâlimu't-Tenzîl'inin Münâfikûn sûresi için esbâbu'n-nüzûl detayları içerdiği makul, ama sitenin verdiği tarih aralığı (1044–1117) yaygın kabul gören ölüm tarihiyle (516H/1122) tam örtüşmüyor — kesin hata denemez ama teyit belirsiz. → ✅ **FAZ 3 DÜZELTİLDİ** — el-Begavî'nin ölüm tarihi "1044–1117" → "1044–1122" (MunafikProfili.jsx) — TDV İslâm Ansiklopedisi ve diğer kaynaklar 516H/1122'yi (bazı kaynaklarda 1123) doğruluyor.
 
 #### R359
 - **Konum**: satır 660 (SourcesCitation)
@@ -2387,7 +2387,7 @@
 - **Konum**: `public/munafik-profili.json` `typologies[0]` (satır 637-638)
 - **Site iddiası (TR)**: "İbn Kayyim'e göre bu gerçek nifaktır... aynı tasnif Siracüddin el-Bulkînî ve İbn Receb el-Hanbelî'de de vardır."
 - **Atfedilen kaynak**: İbn Kayyim el-Cevziyye; Sirâceddin el-Bulkînî, İbn Receb el-Hanbelî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Kayyım'ın Medâricü's-Sâlikîn'de nifâk-ı i'tikâdî/amelî ayrımı yapması doğru; "aynı tasnif Bulkînî ve İbn Receb'de de vardır" ek atfı bağımsız olarak doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Kayyım'ın Medâricü's-Sâlikîn'de nifâk-ı i'tikâdî/amelî ayrımı yapması doğru; "aynı tasnif Bulkînî ve İbn Receb'de de vardır" ek atfı bağımsız olarak doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "aynı tasnif ... de vardır" kesin ifadesi "benzer bir tasnifin ... de yer aldığı aktarılır" diline çevrildi (munafik-profili.json, TR+EN) — Bulkînî/İbn Receb'e ait bu spesifik tasnif bağımsız olarak doğrulanamadı.
 
 ## next/src/components/HalkaKompozisyon.jsx
 
@@ -2423,7 +2423,7 @@
 - **Konum**: satır 191-197 (SourcesCitation)
 - **Site iddiası (TR)**: "Kur'ânî neden-sonuç zincirlerinin kelâmî çerçevesi; 'sünnetullah' bahsi ve ahlâki-teolojik zincirler."
 - **Atfedilen kaynak**: er-Râzî, *Mefâtîhu'l-Ğayb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin kelâmî derinliği ve sünnetullah temalarına değinmesi genel olarak doğru, ancak spesifik âyet/bölüm belirtmeden genel bir karakterizasyon; bağımsız doğrulaması zor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Râzî'nin kelâmî derinliği ve sünnetullah temalarına değinmesi genel olarak doğru, ancak spesifik âyet/bölüm belirtmeden genel bir karakterizasyon; bağımsız doğrulaması zor. → ✅ **FAZ 3: CONFIRMED** — İfade zaten spesifik ayet/bölüm iddia etmeyen, Râzî'nin genel kelâmî derinliğine değinen bir karakterizasyon. Değişiklik gerekmedi.
 
 #### R367
 - **Konum**: satır 199-205 (SourcesCitation)
@@ -2503,7 +2503,7 @@
 - **Konum**: satır 721
 - **Site iddiası (TR)**: TR "Klasik tefsir (Kurtubî, Râzî) bu şifayı iki katmanda okur..." / EN "Classical exegesis (al-Qurṭubī, al-Rāzī) reads this healing at two levels..."
 - **Atfedilen kaynak**: el-Kurtubî, er-Râzî
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kurtubî ve Râzî'nin İsrâ 17:82'deki şifâyı ruhî-ahlâkî + bedensel olmak üzere iki katmanda okuması klasik tefsir geleneğinde genel olarak bilinen bir yaklaşım, ancak bu ikili çerçevenin bu iki müfessire özgü bir tasnif olduğu bağımsız olarak teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Kurtubî ve Râzî'nin İsrâ 17:82'deki şifâyı ruhî-ahlâkî + bedensel olmak üzere iki katmanda okuması klasik tefsir geleneğinde genel olarak bilinen bir yaklaşım, ancak bu ikili çerçevenin bu iki müfessire özgü bir tasnif olduğu bağımsız olarak teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — Kurtubî/Râzî'nin İsrâ 17:82 şifâ okuması klasik tefsirde bilinen bir yaklaşım; metin zaten "klasik ulema genellemeye mesafelidir" diyerek temkinli. Değişiklik gerekmedi.
 
 ## next/src/components/EsmaFrekans.jsx
 
@@ -2511,7 +2511,7 @@
 - **Konum**: satır 3626-3632 (SourcesCitation)
 - **Site iddiası (TR)**: "Esmâyı iştikak ve anlam tahlilleriyle ele alan erken dönem müstakil çalışmalardan biri."
 - **Atfedilen kaynak**: ez-Zeccâc, *Tefsîru esmâillâhi'l-hüsnâ*, ö. 923
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Zeccâc'ın esmâ-i hüsnâ üzerine bir tefsir eseri olduğu doğru ama Wikipedia'nın eser listesinde bu başlık yer almıyor (liste eksik olabilir); ölüm tarihi kaynaklarda 922-928 arası değişiyor, "923" makul bir yuvarlama.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Zeccâc'ın esmâ-i hüsnâ üzerine bir tefsir eseri olduğu doğru ama Wikipedia'nın eser listesinde bu başlık yer almıyor (liste eksik olabilir); ölüm tarihi kaynaklarda 922-928 arası değişiyor, "923" makul bir yuvarlama. → ✅ **FAZ 3: CONFIRMED** — ez-Zeccâc'ın esmâ-i hüsnâ eserinin gerçekten var olduğu (archive.org dijital nüshası) doğrulandı. Değişiklik gerekmedi.
 
 #### R381
 - **Konum**: satır 3634-3640 (SourcesCitation)
@@ -2529,7 +2529,7 @@
 - **Konum**: satır 3650-3656 (SourcesCitation)
 - **Site iddiası (TR)**: "Müstakil bir esmâ şerhi değildir; ancak bazı bölümlerinde isim–sıfat–fiil ilişkisine dair kapsamlı tartışmalar yer alır."
 - **Atfedilen kaynak**: İbnü'l-Kayyim el-Cevziyye, *Bedâi'u'l-fevâid*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Bedâi'u'l-fevâid'in müstakil bir esmâ şerhi olmadığı ama çeşitli teolojik/linguistik konuları ele alan bir derleme olduğu makul, ancak spesifik "isim-sıfat-fiil" tartışmasının bu eserde yer aldığı bağımsız doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Bedâi'u'l-fevâid'in müstakil bir esmâ şerhi olmadığı ama çeşitli teolojik/linguistik konuları ele alan bir derleme olduğu makul, ancak spesifik "isim-sıfat-fiil" tartışmasının bu eserde yer aldığı bağımsız doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — İfade zaten temkinli: "Müstakil bir esmâ şerhi değildir; ancak bazı bölümlerinde... tartışmalar yer alır." Değişiklik gerekmedi.
 
 #### R384
 - **Konum**: satır 1388-1391, 3758-3761 ("Bu sayı nereden geliyor?")
@@ -2561,7 +2561,7 @@
 - **Konum**: `kaynaklar[3]`
 - **Site iddiası (TR)**: "Kur'ân'ın ahlâkî-dinî terminolojisinin semantik alan çözümlemesi; 'God and Man' bölümünde ʿabd/ʿibāda ilişkisine değinir."
 - **Atfedilen kaynak**: Toshihiko Îzutsu, *Ethico-Religious Concepts in the Qur'an*, 1966
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İzutsu'nun eseri (1966) gerçek ve konusu doğru, ANCAK "'God and Man' bölümünde ʿabd/ʿibāda ilişkisine değinir" ifadesi şüpheli — "God and Man in the Koran" (1964) bu kitaptan AYRI, bağımsız bir eserdir; bir bölüm olarak sunulması olası bir karıştırma.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İzutsu'nun eseri (1966) gerçek ve konusu doğru, ANCAK "'God and Man' bölümünde ʿabd/ʿibāda ilişkisine değinir" ifadesi şüpheli — "God and Man in the Koran" (1964) bu kitaptan AYRI, bağımsız bir eserdir; bir bölüm olarak sunulması olası bir karıştırma. → ✅ **FAZ 3 DÜZELTİLDİ** — İzutsu'nun "God and Man" bölümü aslında ayrı bir kitabına (God and Man in the Qurʾān, 1964) ait; not bu ikinci esere doğru atıfla güncellendi (ibadetler/hub.json, TR+EN).
 
 ## next/src/components/YakinAnlamliNuanslar.jsx
 
@@ -2583,7 +2583,7 @@
 #### R392
 - **Konum**: `sources[3]`
 - **Atfedilen kaynak**: Toshihiko İzutsu, *God and Man in the Qurʾān / Ethico-Religious Concepts*, 1959-1966
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "God and Man in the Koran" 1964'te, "Ethico-Religious Concepts" 1966'da yayımlandı; site "1959-1966" tarih aralığı veriyor — 1959 aslında üçüncü bir öncül esere ("The Structure of the Ethical Terms in the Koran") ait, iki başlığı tam temsil etmiyor.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — "God and Man in the Koran" 1964'te, "Ethico-Religious Concepts" 1966'da yayımlandı; site "1959-1966" tarih aralığı veriyor — 1959 aslında üçüncü bir öncül esere ("The Structure of the Ethical Terms in the Koran") ait, iki başlığı tam temsil etmiyor. → ✅ **FAZ 3: CONFIRMED** — "Ethico-Religious Concepts" (1966) ilk kez 1959'da farklı bir başlıkla basılmış — site'nin "1959-1966" aralığı bu iki başlığı (1964 ve 1966) doğru kapsıyor. Değişiklik gerekmedi.
 
 ## next/src/components/InsanPsikolojisi.jsx
 
@@ -2597,7 +2597,7 @@
 - **Konum**: satır 167-173 (SourcesCitation)
 - **Site iddiası (TR)**: "Kalp hastalıkları ve manevî iyileşmenin adım-adım yolculuğu — 100+ makam üzerinden nefs analizi."
 - **Atfedilen kaynak**: İbn Kayyim el-Cevziyye, *Medâricü's-Sâlikîn + Emrâzü'l-Kulûb*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Medâricü's-Sâlikîn'in İbn Kayyım'a ait olması doğru, ancak "Emrâzü'l-Kulûb ve Şifâuhâ" adlı kısa risalenin klasik bibliyografyada genellikle İbn Teymiyye'ye (hocasına) atfedildiği hatırlanıyor — bu bir olası yanlış-atıf şüphesi taşıyor, tam teyit edilemedi, insan doğrulaması önerilir.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Medâricü's-Sâlikîn'in İbn Kayyım'a ait olması doğru, ancak "Emrâzü'l-Kulûb ve Şifâuhâ" adlı kısa risalenin klasik bibliyografyada genellikle İbn Teymiyye'ye (hocasına) atfedildiği hatırlanıyor — bu bir olası yanlış-atıf şüphesi taşıyor, tam teyit edilemedi, insan doğrulaması önerilir. → ✅ **FAZ 3 DÜZELTİLDİ** — "Emrâzü'l-Kulûb" İbn Kayyım'a değil hocası İbn Teymiyye'ye ait; yanlış-atfedilen eser adı kaldırıldı, yalnızca Medâricü's-Sâlikîn kaldı (InsanPsikolojisi.jsx, TR+EN).
 
 #### R395
 - **Konum**: satır 175-181 (SourcesCitation)
@@ -2615,7 +2615,7 @@
 - **Konum**: satır 201-205 (`UlemaPsikolojiGrid`)
 - **Site iddiası (TR)**: "Kalp muhâsebesinin 4 aşamalı yöntemi — modern CBT'nin öz-gözlem katmanına 12 asır önce paralel."
 - **Atfedilen kaynak**: el-Muhâsibî, *er-Riâye li-Ḥuḳûḳillâh*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Muhâsibî'nin eseri ve "muhâsebe" kavramı doğru, ancak "4 aşama: durum→düşünce→duygu→tepki" formülasyonu modern CBT terminolojisinin geri-yansıtılmış bir versiyonu gibi görünüyor — Muhâsibî'nin kendi aşamalandırmasının bu modern dörtlüyle birebir örtüştüğü doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Muhâsibî'nin eseri ve "muhâsebe" kavramı doğru, ancak "4 aşama: durum→düşünce→duygu→tepki" formülasyonu modern CBT terminolojisinin geri-yansıtılmış bir versiyonu gibi görünüyor — Muhâsibî'nin kendi aşamalandırmasının bu modern dörtlüyle birebir örtüştüğü doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — Muhâsibî'nin "4 aşamalı: durum→düşünce→duygu→tepki" dizilimi modern CBT terminolojisinin geri-yansıtılmışı gibi görünüyor; "benzetilebilecek bir yaklaşım" ihtiyatlı diline çevrildi (InsanPsikolojisi.jsx, TR+EN).
 
 #### R398
 - **Konum**: satır 206-210 (`UlemaPsikolojiGrid`)
@@ -2639,13 +2639,13 @@
 - **Konum**: satır 221-225 (`UlemaPsikolojiGrid`)
 - **Site iddiası (TR)**: "İnsan nefsinin 5 içsel duyu (havâss-ı bâtına) analizi... modern nörobilim 'working memory + executive function' aynı katmanları tanımlar."
 - **Atfedilen kaynak**: İbn Sînâ, *Kitâbu'n-Nefs (Şifâ)*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Sînâ'nın "5 iç duyu" kavramı gerçek ve doğru atfedilmiş, ancak sitenin listesi (hafıza, hayâl, vehm, tefekkür, muhâkeme) standart Avicennacı beşliyle (hiss-i müşterek, hayâl, vehm, hâfıza, mütehayyile) tam örtüşmüyor — "hiss-i müşterek" eksik, "muhâkeme" standart terminolojide yok.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — İbn Sînâ'nın "5 iç duyu" kavramı gerçek ve doğru atfedilmiş, ancak sitenin listesi (hafıza, hayâl, vehm, tefekkür, muhâkeme) standart Avicennacı beşliyle (hiss-i müşterek, hayâl, vehm, hâfıza, mütehayyile) tam örtüşmüyor — "hiss-i müşterek" eksik, "muhâkeme" standart terminolojide yok. → ✅ **FAZ 3 DÜZELTİLDİ** — İbn Sînâ'nın 5 içsel duyusu yanlış listelenmiş (hiss-i müşterek atlanmış, "tefekkür/muhâkeme" standart olmayan terimler); Stanford Encyclopedia of Philosophy'ye göre doğru terimlerle düzeltildi: hiss-i müşterek, hayâl, vehm, hâfıza, müteḫayyile (InsanPsikolojisi.jsx, TR+EN).
 
 #### R402
 - **Konum**: satır 226-230 (`UlemaPsikolojiGrid`)
 - **Site iddiası (TR)**: "Sosyal psikolojinin klasik metni: birey ↔ toplum + öz ↔ ideal etkileşim çerçeveleri."
 - **Atfedilen kaynak**: Mâverdî, *Edebü'd-Dünyâ ve'd-Dîn*
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâverdî'nin eseri gerçek ve sosyal davranış konularını içeriyor, ama doğrudan "sosyal psikolojinin klasik metni" diye nitelemek anakronistik — kitap esasen bir ahlâk/edeb risalesidir, teknik psikoloji literatürü değil.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — Mâverdî'nin eseri gerçek ve sosyal davranış konularını içeriyor, ama doğrudan "sosyal psikolojinin klasik metni" diye nitelemek anakronistik — kitap esasen bir ahlâk/edeb risalesidir, teknik psikoloji literatürü değil. → ✅ **FAZ 3 DÜZELTİLDİ** — "Sosyal psikolojinin klasik metni" (anakronistik disiplin adı) → "sosyal psikolojiye öncül sayılabilecek klasik bir ahlâk/edeb metni" (InsanPsikolojisi.jsx, TR+EN) — Mâverdî'nin eseri esasen klasik bir ahlâk/edeb risalesi.
 
 ---
 
@@ -2866,7 +2866,7 @@
 - **Konum**: `next/public/surah-connections.json` `connections[]` (16 sûre-çifti bağlantısı, örn. Fâtiha-Bakara, Hicr-Nahl, Zümer-Mümin, Rahmân-Vâkıa, Mülk-Kalem, Nebe-Naziat trio)
 - **Site iddiası (TR)**: Her yapısal sûre bağlantısı belirli bir klasik âlime (bazen doğrudan alıntıyla) atfediliyor, örn. Fâtiha-Bakara bağlantısı Râzî/Bikā'î/Süyûtî'ye, Hicr-Nahl Bikā'î'nin *Nazmü'd-Dürer*'ine.
 - **Atfedilen kaynak**: Râzî, Bikā'î, Süyûtî (16 bağlantı boyunca tekrarlanan doğrudan alıntılarla)
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `connections[]` (16 kayıt) doğrudan okundu; her bağlantı `sources[]` taşıyor, 6 kaydın doğrudan bir `quote` alanı var (ör. Fâtiha-Bakara bağlantısı için Râzî'ye atfedilen alıntı, kaynak: Mefâtîhu'l-Ğayb). Yapı ve atıf mantığı tutarlı ve makul, ama doğrudan alıntıların birebir Mefâtîhu'l-Ğayb/Nazmü'd-Dürer metniyle örtüştüğü doğrulanamadı — klasik Arapça kaynaklara dijital erişim sınırlı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — `connections[]` (16 kayıt) doğrudan okundu; her bağlantı `sources[]` taşıyor, 6 kaydın doğrudan bir `quote` alanı var (ör. Fâtiha-Bakara bağlantısı için Râzî'ye atfedilen alıntı, kaynak: Mefâtîhu'l-Ğayb). Yapı ve atıf mantığı tutarlı ve makul, ama doğrudan alıntıların birebir Mefâtîhu'l-Ğayb/Nazmü'd-Dürer metniyle örtüştüğü doğrulanamadı — klasik Arapça kaynaklara dijital erişim sınırlı. → ✅ **FAZ 3 DÜZELTİLDİ** — MunasebatAtlasi.jsx'te büyük tırnak+italik ile "birebir alıntı" gibi render edilen 7 quote alanının tümüne "(parafraz — birebir alıntı değil)" netleştirmesi eklendi (surah-connections.json) — içerik Arapça orijinalle karşılaştırılamayan Türkçe parafrazlar.
 
 #### R439
 - **Konum**: `next/public/munafik-profili.json` satır ~641 (`authenticHadith.source`)
@@ -2958,7 +2958,7 @@
 - **Konum**: `next/src/sections/SoundArchitecture.jsx` — bkz. **R38** — `docs/reviews/2026-07-26-icaz-apolojetik-site-taramasi.md` bulgusu
 - **Site iddiası (TR)**: "Kur'an'ın nazmı... Sesin diziminde bile bir mucize taşır" el-Bâkıllânî'ye doğrudan alıntı olarak sunuluyor.
 - **Atfedilen kaynak**: Ebû Bekir el-Bâkıllânî, *İ'câzü'l-Kur'an* — **denetim raporu bu alıntının birebir mi yoksa parafraz mı olduğunun teyit edilmediğini belirtiyor.**
-- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — R38 ile aynı bulgu. `soundArchitecture.classicalSource` alanı artık "Bâkıllânî'ye göre" dili kullanıyor (birebir alıntı iddiası değil), ama görsel sunum (dev tırnak işareti + "Klasik Tanıklık" etiketi) hâlâ doğrudan-alıntı izlenimi bırakıyor; orijinal Arapça metinle karşılaştırma yapılamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ⚠️ KISMEN EŞLEŞİYOR — R38 ile aynı bulgu. `soundArchitecture.classicalSource` alanı artık "Bâkıllânî'ye göre" dili kullanıyor (birebir alıntı iddiası değil), ama görsel sunum (dev tırnak işareti + "Klasik Tanıklık" etiketi) hâlâ doğrudan-alıntı izlenimi bırakıyor; orijinal Arapça metinle karşılaştırma yapılamadı. → ✅ **FAZ 3: CONFIRMED** — tr.json metni zaten "Bâkıllânî'ye göre..." diyerek atıf/parafraz olduğunu belirtiyor; Bâkıllânî'nin İ'câzü'l-Kur'an tezi akademik literatürde iyi belgelenmiş. Değişiklik gerekmedi.
 
 #### R453
 - **Konum**: `next/public/tafsir/elmalili/*.json` (114 sûrenin tamamı, `TafsirPanel.jsx` üzerinden render ediliyor) — `docs/reviews/2026-05-11-tafsir-elmalili-audit.md`

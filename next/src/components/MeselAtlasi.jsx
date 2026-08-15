@@ -1433,8 +1433,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
           workTr: "Emsâlü'l-Kurʾân",
           workEn: 'Amthāl al-Qurʾān',
           period: '974–1058 (Basra)',
-          noteTr: "Kurʾânî mesellerin ilk müstakil derlemesi; her meselin yapısını, hikmetini ve retorik amacını tek tek çözümler.",
-          noteEn: "The first standalone compilation of Quranic parables; analyzes each parable's structure, wisdom, and rhetorical purpose.",
+          noteTr: "Kurʾânî meseller üzerine erken dönem müstakil derlemelerden biri; her meselin yapısını, hikmetini ve retorik amacını tek tek çözümler.",
+          noteEn: "One of the early standalone compilations on Quranic parables; analyzes each parable's structure, wisdom, and rhetorical purpose.",
         },
         {
           author: 'ez-Zemahşerî',

@@ -656,7 +656,7 @@ export default function MunafikProfili({ onClose }) {
             isMobile={isMobile}
             sources={[
               { author: 'İbn Kayyim el-Cevziyye',     workTr: 'Medâricu\'s-Sâlikîn',           workEn: 'Madārij al-Sālikīn',           period: '1292–1350 (Şâm)',     noteTr: 'Münâfık tipolojisi — nifâkın küçük/büyük ayrımı.',     noteEn: 'Hypocrite typology — minor vs major nifāq.' },
-              { author: 'el-Begavî',                  workTr: 'Meâlimu\'t-Tenzîl',             workEn: 'Maʿālim al-Tanzīl',            period: '1044–1117 (Horasan)', noteTr: 'Münâfikûn sûresi tefsiri — esbâbu\'n-nüzûl detayları.', noteEn: 'Munāfiqūn surah commentary — occasions of revelation.' },
+              { author: 'el-Begavî',                  workTr: 'Meâlimu\'t-Tenzîl',             workEn: 'Maʿālim al-Tanzīl',            period: '1044–1122 (Horasan)', noteTr: 'Münâfikûn sûresi tefsiri — esbâbu\'n-nüzûl detayları.', noteEn: 'Munāfiqūn surah commentary — occasions of revelation.' },
               { author: 'İmam el-Buhârî',             workTr: 'Sahîh — Kitâbu\'l-Îmân',        workEn: 'Ṣaḥīḥ — Kitāb al-Īmān',        period: '810–870 (Buhârâ)',    noteTr: 'Münafık alâmetleri hadis-i şerifi (3 ayrı versiyon).', noteEn: 'Hadith on the marks of the hypocrite (3 versions).' },
               { author: 'er-Râzî',                    workTr: 'Mefâtîhu\'l-Ğayb',              workEn: 'Mafātīḥ al-Ghayb',             period: '1149–1209 (Rey)',     noteTr: 'Münâfik psikolojisi — küfür vs nifâk arasındaki incelik.', noteEn: 'Psychology of the hypocrite — the nuance between kufr and nifāq.' },
             ]}
