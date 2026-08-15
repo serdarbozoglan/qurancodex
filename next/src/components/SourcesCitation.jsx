@@ -1,5 +1,3 @@
-'use client';
-
 // ─── SourcesCitation — Klasik tefsir kaynak listesi callout ─────────────────
 // Sayfa sonunda "Klasik Kaynaklar" eyebrow + 2-col kaynak grid.
 // Her kaynak: author + work + period + (opsiyonel) note.

@@ -1,5 +1,3 @@
-'use client';
-
 // ─── SiblingPageLink — kardeş sayfa geçişi ──────────────────────────────────
 //
 // /hakkinda (Metodoloji) ve /kaynakca (Kaynakça) bir çift gibi davranmalı:

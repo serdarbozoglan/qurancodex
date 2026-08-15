@@ -1,5 +1,3 @@
-'use client';
-
 // ─── FramingBadge — "örtüşme / yorum katmanı" epistemik etiketi ───────────────
 // GPT-5.2 review B2: "işaret/örüntü" bölümlerinde çerçeve paragrafa/tab'a
 // gömülü kalınca tarayan okuyucu "mucize/kanıt" izlenimi alabilir. Bu küçük
