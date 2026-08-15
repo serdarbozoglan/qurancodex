@@ -165,7 +165,7 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
               margin: '0 0 20px',
               opacity: 0.94,
             }}>
-              "{tr ? verse.tr : verse.en}"
+              &quot;{tr ? verse.tr : verse.en}&quot;
             </p>
 
             {/* Reference */}

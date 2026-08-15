@@ -165,7 +165,7 @@ export default function TefekkurIndexRoute() {
             maxWidth: '70ch',
           }}>
             {tr
-              ? <>Felsufi'nin seçilmiş yazıları — Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler. Her makale <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Kavram Ağı</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Ayet Haritası</strong> ve <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Okuma Modu</strong> ile çift yönlü bağlıdır.</>
+              ? <>Felsufi&apos;nin seçilmiş yazıları — Kur&apos;an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler. Her makale <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Kavram Ağı</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Ayet Haritası</strong> ve <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Okuma Modu</strong> ile çift yönlü bağlıdır.</>
               : <>Curated essays by Felsufi — from the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. Each essay is bidirectionally linked to <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Concept Graph</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Verse Map</strong>, and <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Reading Mode</strong>.</>}
           </p>
 

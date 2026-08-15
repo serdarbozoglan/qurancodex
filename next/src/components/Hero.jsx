@@ -275,9 +275,9 @@ export default function Hero() {
             { duration: 0.9, delay: showIntro ? 3.1 : 0.7 }
           )}
         >
-          "{language === 'tr'
+          &quot;{language === 'tr'
             ? 'Yaratan Rabbinin adıyla oku. O, insanı bir alaktan yarattı.'
-            : 'Read in the name of your Lord who created. He created man from a clinging clot.'}"
+            : 'Read in the name of your Lord who created. He created man from a clinging clot.'}&quot;
         </motion.p>
 
         <motion.p

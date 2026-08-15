@@ -240,7 +240,7 @@ function PillarHero({ pillarData, language, isMobile }) {
         fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
         lineHeight: 1.6,
       }}>
-        "{language === 'tr' ? anchor.tr : anchor.en}"
+        &quot;{language === 'tr' ? anchor.tr : anchor.en}&quot;
       </p>
 
       {/* Reference label */}
@@ -790,7 +790,7 @@ function VerseCard({ ayah, language, isMobile }) {
           margin: '0 0 10px',
           fontStyle: 'italic',
         }}>
-          "{language === 'tr' ? (ayah.tr ?? '') : (ayah.en ?? ayah.tr ?? '')}"
+          &quot;{language === 'tr' ? (ayah.tr ?? '') : (ayah.en ?? ayah.tr ?? '')}&quot;
         </p>
       )}
       <div style={{
@@ -1118,7 +1118,7 @@ function TabOzelNamazlar({ data, language, isMobile }) {
                 <p style={{
                   color: COLORS.offWhite, fontSize: '0.93rem',
                   fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.7,
-                }}>"{language === 'tr' ? n.kuraniDelil.trShort : (n.kuraniDelil.enShort ?? n.kuraniDelil.trShort)}"</p>
+                }}>&quot;{language === 'tr' ? n.kuraniDelil.trShort : (n.kuraniDelil.enShort ?? n.kuraniDelil.trShort)}&quot;</p>
                 <div style={{ ...TEXT.verseRef }}>— {n.kuraniDelil.ref}</div>
               </div>
             )}

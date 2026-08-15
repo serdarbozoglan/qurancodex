@@ -1356,9 +1356,9 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         maxWidth: '620px',
         opacity: 0.95,
       }}>
-        "{language === 'tr'
+        &quot;{language === 'tr'
           ? 'Onlar deveye bakmıyorlar mı, nasıl yaratılmıştır?'
-          : 'Do they not look at the camel — how it was created?'}"
+          : 'Do they not look at the camel — how it was created?'}&quot;
       </p>
 
       <p style={{
@@ -1385,7 +1385,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         opacity: 0.88,
       }}>
         {language === 'tr'
-          ? <>Kur'an iki kitabı işaret eder: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>okunan</em> ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yaratılan</em>. Bu atlas, ikincisinin sayfalarını çevirir.</>
+          ? <>Kur&apos;an iki kitabı işaret eder: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>okunan</em> ve <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yaratılan</em>. Bu atlas, ikincisinin sayfalarını çevirir.</>
           : <>The Quran points to two books: the one <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>recited</em> and the one <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>created</em>. This atlas turns the pages of the second.</>}
       </p>
 
@@ -1467,7 +1467,7 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         }}>
           {language === 'tr' ? (
             <>
-              Klasik tefsir Kur'an'ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler — Mushaf'taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri — tabiatın kendisi). Kur'an, tabiatı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
+              Klasik tefsir Kur&apos;an&apos;ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler — Mushaf&apos;taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri — tabiatın kendisi). Kur&apos;an, tabiatı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
             </>
           ) : (
             <>

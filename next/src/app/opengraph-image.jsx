@@ -55,7 +55,7 @@ export default async function Image() {
             letterSpacing: '-0.01em',
           }}
         >
-          Kur'an-ı Kerim'in
+          Kur&apos;an-ı Kerim&apos;in
         </div>
         <div
           style={{

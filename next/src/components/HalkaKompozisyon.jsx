@@ -80,7 +80,7 @@ export default function HalkaKompozisyon({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Hamd, âlemlerin Rabbi Allah'a mahsustur." : "All praise belongs to Allah, Lord of the worlds."}"
+          &quot;{tr ? "Hamd, âlemlerin Rabbi Allah'a mahsustur." : "All praise belongs to Allah, Lord of the worlds."}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

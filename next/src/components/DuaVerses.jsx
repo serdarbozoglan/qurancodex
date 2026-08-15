@@ -403,7 +403,7 @@ export default function DuaVerses({ onClose }) {
           وَاِذَا سَاَلَكَ عِبَادِي عَنِّي فَاِنِّي قَرِيبٌ اُجِيبُ دَعْوَةَ الدَّاعِ اِذَا دَعَانِ
         </p>
         <p style={{ color: '#e8e6e3', fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '620px', opacity: 0.95 }}>
-          "{language === 'tr' ? 'Kullarım sana benden sorduklarında, ben yakınım. Bana dua ettiğinde dua edenin duasına icabet ederim.' : "When My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls Me."}"
+          &quot;{language === 'tr' ? 'Kullarım sana benden sorduklarında, ben yakınım. Bana dua ettiğinde dua edenin duasına icabet ederim.' : "When My servants ask you about Me — indeed I am near. I respond to the call of the caller when he calls Me."}&quot;
         </p>
         <p style={{ color: silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 26px', opacity: 0.85 }}>
           — {language === 'tr' ? 'Bakara 2:186' : 'Al-Baqarah 2:186'}

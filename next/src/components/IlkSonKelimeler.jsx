@@ -922,9 +922,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           maxWidth: '620px',
           opacity: 0.95,
         }}>
-          "{tr
+          &quot;{tr
             ? 'Hâlâ Kur\'an üzerinde gereği gibi düşünmeyecekler mi? Eğer O Allah\'tan başkasından gelseydi, içinde birçok çelişki bulurlardı.'
-            : 'Will they not then ponder the Qur\'an? Had it been from any other than Allah, they would have found many contradictions in it.'}"
+            : 'Will they not then ponder the Qur\'an? Had it been from any other than Allah, they would have found many contradictions in it.'}&quot;
         </p>
 
         <p style={{
@@ -1111,8 +1111,8 @@ function ClosingSynthesis({ language, isMobile }) {
         maxWidth: '780px',
       }}>
         {tr
-          ? <>İlk söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillâh</em>. Son söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>"Bu, insanların Rabbidir."</em></>
-          : <>The first word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillāh</em>. The last word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>"This is the Lord of mankind."</em></>}
+          ? <>İlk söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillâh</em>. Son söz: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>&quot;Bu, insanların Rabbidir.&quot;</em></>
+          : <>The first word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Bismillāh</em>. The last word: <em style={{ fontStyle: 'normal', color: COLORS.gold }}>&quot;This is the Lord of mankind.&quot;</em></>}
       </h3>
 
       {/* Synthesis paragraph */}

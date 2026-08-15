@@ -180,7 +180,7 @@ export default function BilimselIsaretler({ onClose }) {
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
               fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
-            }}>"{tr ? 'Göğü kudretimizle biz kurduk ve şüphesiz biz onu genişleticiyiz.' : 'And the heaven We built with strength, and indeed, We are expanding it.'}"</p>
+            }}>&quot;{tr ? 'Göğü kudretimizle biz kurduk ve şüphesiz biz onu genişleticiyiz.' : 'And the heaven We built with strength, and indeed, We are expanding it.'}&quot;</p>
             <p style={{
               color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem',
               letterSpacing: '0.16em', textTransform: 'uppercase',
@@ -191,8 +191,8 @@ export default function BilimselIsaretler({ onClose }) {
               fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
-              ? <>Kur'ân bir bilim kitabı değildir — ancak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>kelime seçimi</em> ile modern bilim keşifleriyle <em style={{ fontStyle: 'normal', color: COLORS.gold }}>uyumlu</em> anlatım geliştirir.</>
-              : <>The Qur'an is not a science book — but its <em style={{ fontStyle: 'normal', color: COLORS.gold }}>word choice</em> develops narrative that is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>compatible</em> with modern scientific discoveries.</>}</p>
+              ? <>Kur&apos;ân bir bilim kitabı değildir — ancak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>kelime seçimi</em> ile modern bilim keşifleriyle <em style={{ fontStyle: 'normal', color: COLORS.gold }}>uyumlu</em> anlatım geliştirir.</>
+              : <>The Qur&apos;an is not a science book — but its <em style={{ fontStyle: 'normal', color: COLORS.gold }}>word choice</em> develops narrative that is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>compatible</em> with modern scientific discoveries.</>}</p>
             <div aria-hidden="true" style={{
               width: '120px', height: '1px',
               background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`,
@@ -443,7 +443,7 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
         <p style={{
           fontSize: '0.85rem', color: COLORS.offWhite, fontFamily: FONTS.body,
           lineHeight: 1.7, margin: 0, fontStyle: 'italic',
-        }}>"{tr ? isaret.verseTr : isaret.verseEn}"</p>
+        }}>&quot;{tr ? isaret.verseTr : isaret.verseEn}&quot;</p>
       </div>
       <p style={{
         margin: 0, fontSize: '0.88rem', color: COLORS.offWhite,

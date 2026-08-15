@@ -78,7 +78,7 @@ export default function AltiKonu({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Hâlâ Kur'an üzerinde derin derin düşünmüyorlar mı? Yoksa kalpler kilitli mi?" : "Will they not then ponder upon the Quran? Or are there locks upon their hearts?"}"
+          &quot;{tr ? "Hâlâ Kur'an üzerinde derin derin düşünmüyorlar mı? Yoksa kalpler kilitli mi?" : "Will they not then ponder upon the Quran? Or are there locks upon their hearts?"}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

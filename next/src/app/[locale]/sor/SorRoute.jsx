@@ -480,7 +480,7 @@ function SorInner() {
               lineHeight: 1.25,
               letterSpacing: '-0.01em',
             }}>
-              "{query}"
+              &quot;{query}&quot;
             </h1>
           </motion.div>
         )}

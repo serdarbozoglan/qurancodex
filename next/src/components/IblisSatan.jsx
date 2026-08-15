@@ -199,7 +199,7 @@ export default function IblisSatan({ onClose }) {
           opacity: 0.95,
         }}
       >
-        "{t('iblisSatan.anchorVerseTr')}"
+        &quot;{t('iblisSatan.anchorVerseTr')}&quot;
       </motion.p>
 
       <motion.p

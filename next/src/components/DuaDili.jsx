@@ -98,7 +98,7 @@ export default function DuaDili({ onClose }) {
           color: COLORS.offWhite, fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
           lineHeight: 1.65, maxWidth: '660px', margin: '0 auto 6px',
         }}>
-          "{tr ? "Kullarım Beni sorarsa — Ben yakınım. Bana dua edenin duasına icabet ederim." : "When My servants ask about Me — I am near; I respond to the call of the caller."}"
+          &quot;{tr ? "Kullarım Beni sorarsa — Ben yakınım. Bana dua edenin duasına icabet ederim." : "When My servants ask about Me — I am near; I respond to the call of the caller."}&quot;
         </p>
         <p style={{
           color: COLORS.silver, fontFamily: FONTS.body,
@@ -318,7 +318,7 @@ function ProphetCard({ p, tr, isMobile }) {
           fontFamily: FONTS.display, fontStyle: 'italic',
           fontSize: '0.88rem', color: COLORS.offWhite,
           lineHeight: 1.6, margin: '0 0 6px', textAlign: 'left',
-        }}>"{tr ? p.translationTr : p.translationEn}"</p>
+        }}>&quot;{tr ? p.translationTr : p.translationEn}&quot;</p>
         <p style={{
           fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase',
           color: COLORS.silver, opacity: 0.78,
@@ -587,7 +587,7 @@ function ResponseTab({ tr, isMobile }) {
               <div style={{
                 fontSize: '0.85rem', color: COLORS.offWhite,
                 lineHeight: 1.6, fontFamily: FONTS.body, fontStyle: 'italic',
-              }}>"{tr ? r.requestTr : r.requestEn}"</div>
+              }}>&quot;{tr ? r.requestTr : r.requestEn}&quot;</div>
             </div>
 
             {/* Response */}

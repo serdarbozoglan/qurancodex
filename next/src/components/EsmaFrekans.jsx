@@ -294,7 +294,7 @@ function Hero({ tr }) {
             maxWidth: '680px',
             marginLeft: 'auto', marginRight: 'auto',
           }}>
-            "{tr ? HERO_VERSE.tr : HERO_VERSE.en}"
+            &quot;{tr ? HERO_VERSE.tr : HERO_VERSE.en}&quot;
           </p>
           <p style={{
             color: COLORS.silver,
@@ -327,8 +327,8 @@ function Hero({ tr }) {
           }}
         >
           {tr
-            ? <>İsimleri konuşacağız — ama "O'nun benzeri bir şey yoktur" diyen ayetle başlamak şart. 114 isim O'nu <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tanır</em>, ama <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kuşatmaz</em>.</>
-            : <>We will speak of His names — but we must begin with the verse that says "nothing is like Him." 114 names <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> Him, they do not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>contain</em> Him.</>}
+            ? <>İsimleri konuşacağız — ama &quot;O&apos;nun benzeri bir şey yoktur&quot; diyen ayetle başlamak şart. 114 isim O&apos;nu <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tanır</em>, ama <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kuşatmaz</em>.</>
+            : <>We will speak of His names — but we must begin with the verse that says &quot;nothing is like Him.&quot; 114 names <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>describe</em> Him, they do not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>contain</em> Him.</>}
         </motion.p>
 
         {/* Filigree divider 2 */}
@@ -480,7 +480,7 @@ function Hero({ tr }) {
                   fontSize: 'clamp(0.94rem, 1.2vw, 1.04rem)',
                   lineHeight: 1.65,
                 }}>
-                  "{highlightPhrase(ayet.quote, tr ? HIGHLIGHT_TR : HIGHLIGHT_EN)}"
+                  &quot;{highlightPhrase(ayet.quote, tr ? HIGHLIGHT_TR : HIGHLIGHT_EN)}&quot;
                 </div>
               </motion.div>
             ))}
@@ -1186,7 +1186,7 @@ function FlagshipCard({ verse, index, tr }) {
             margin: '0 0 8px',
             fontStyle: 'italic',
           }}>
-            "{tr ? verse.mealTr : verse.mealEn}"
+            &quot;{tr ? verse.mealTr : verse.mealEn}&quot;
           </p>
           <p style={{
             color: COLORS.silver,
@@ -1382,7 +1382,7 @@ function AllahLemmaNote({ tr }) {
       </p>
       <p style={{ color: COLORS.offWhite, fontSize: '0.95rem', lineHeight: 1.8, margin: '0 0 12px' }}>
         {tr
-          ? <>Klasik konkordans (M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres) <strong>lemma sayımı</strong> esas alır: bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek'li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim sayılır.</>
+          ? <>Klasik konkordans (M. Fuâd Abdülbâkî, el-Mu&apos;cemü&apos;l-Müfehres) <strong>lemma sayımı</strong> esas alır: bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek&apos;li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim sayılır.</>
           : <>The classical concordance (M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras) uses <strong>lemma counting</strong>: all morphological forms of a name (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) and prefixed forms (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) count as one name.</>}
       </p>
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
@@ -2214,7 +2214,7 @@ function AxisCard({ eks, tr }) {
               {a.arapca}
             </p>
             <p style={{ color: COLORS.silver, fontSize: 'clamp(0.84rem, 1.2vw, 0.92rem)', lineHeight: 1.7, margin: '0 0 6px', fontStyle: 'italic' }}>
-              "{tr ? a.tr : a.en}"
+              &quot;{tr ? a.tr : a.en}&quot;
             </p>
             <p style={{ color: `${COLORS.gold}C7`, fontSize: '0.76rem', fontFamily: FONTS.body, margin: 0, letterSpacing: '0.06em' }}>
               — {tr ? (a.sureAdTr || a.sure) : (a.sureAdEn || a.sure)} {a.sure}:{a.ayet}
@@ -2634,8 +2634,8 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             margin: 0,
           }}>
             {tr
-              ? <>Sadece <strong style={{ color: COLORS.offWhite }}>isim formları</strong> sayılır — fiil çekimleri ve kök türevleri sayılmaz. Örnek: Bakara 2:163'teki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> Er-Rahmân ismidir <em>(sayılır)</em>; 2:286'daki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> "bize rahmet et" fiilidir <em>(sayılmaz)</em>. Regex pattern'ında kelime sınırı (boşluk veya satır başı/sonu) zorunlu — gömülü kök sequence'ları atlanır.</>
-              : <>Only <strong style={{ color: COLORS.offWhite }}>name forms</strong> are counted — verb conjugations and root derivatives are excluded. Example: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> at Baqara 2:163 is the name ar-Raḥmān <em>(counted)</em>; <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> at 2:286 is the verb "have mercy on us" <em>(skipped)</em>. The regex enforces word boundaries — embedded root sequences are ignored.</>}
+              ? <>Sadece <strong style={{ color: COLORS.offWhite }}>isim formları</strong> sayılır — fiil çekimleri ve kök türevleri sayılmaz. Örnek: Bakara 2:163&apos;teki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> Er-Rahmân ismidir <em>(sayılır)</em>; 2:286&apos;daki <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> &quot;bize rahmet et&quot; fiilidir <em>(sayılmaz)</em>. Regex pattern&apos;ında kelime sınırı (boşluk veya satır başı/sonu) zorunlu — gömülü kök sequence&apos;ları atlanır.</>
+              : <>Only <strong style={{ color: COLORS.offWhite }}>name forms</strong> are counted — verb conjugations and root derivatives are excluded. Example: <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>الرَّحْمٰن</span> at Baqara 2:163 is the name ar-Raḥmān <em>(counted)</em>; <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran }}>وَارْحَمْنَا</span> at 2:286 is the verb &quot;have mercy on us&quot; <em>(skipped)</em>. The regex enforces word boundaries — embedded root sequences are ignored.</>}
           </p>
         </div>
       </div>
@@ -3139,7 +3139,7 @@ function VerseChipGrid({ ayetler, tr }) {
                     lineHeight: 1.7,
                     margin: '0 0 8px',
                   }}>
-                    "{tr ? verse.turkish : verse.english}"
+                    &quot;{tr ? verse.turkish : verse.english}&quot;
                   </p>
                   <p style={{
                     color: `${COLORS.gold}C7`,
@@ -3242,7 +3242,7 @@ function NameDetail({ item, tr, isAllah }) {
         margin: '0 0 8px',
         textAlign: 'center',
       }}>
-        "{tr ? item.anlam : (item.anlam_en || item.anlam)}"
+        &quot;{tr ? item.anlam : (item.anlam_en || item.anlam)}&quot;
       </p>
       {tr && item.aciklama && (
         <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.6, margin: '0 0 20px', textAlign: 'center', fontStyle: 'italic' }}>
@@ -3291,7 +3291,7 @@ function NameDetail({ item, tr, isAllah }) {
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, margin: '0 0 8px' }}>
             {tr
-              ? <>Fark, <code>li- + Allah = lillāh</code>, <code>wa- + Allah = wallāh</code>, <code>bi- + Allah = billāh</code> gibi prefiks'li formların lemma sayımında dahil, yüzey sayımında dahil olmamasındandır.</>
+              ? <>Fark, <code>li- + Allah = lillāh</code>, <code>wa- + Allah = wallāh</code>, <code>bi- + Allah = billāh</code> gibi prefiks&apos;li formların lemma sayımında dahil, yüzey sayımında dahil olmamasındandır.</>
               : <>The difference comes from prefixed forms like <code>li- + Allah = lillāh</code>, <code>wa- + Allah = wallāh</code>, <code>bi- + Allah = billāh</code> being counted in the lemma but not in surface counting.</>}
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.82rem', margin: 0 }}>
@@ -3468,9 +3468,9 @@ function ClosingReflection({ tr, language }) {
             maxWidth: '600px',
             marginLeft: 'auto', marginRight: 'auto',
           }}>
-            "{tr
+            &quot;{tr
               ? "Kullarım sana Beni sorduklarında, (bilsinler ki) Ben yakınım. Bana dua edenin duasına, dua ettiği zaman icabet ederim."
-              : "When My servants ask you concerning Me — indeed I am near. I respond to the call of the caller when he calls upon Me."}"
+              : "When My servants ask you concerning Me — indeed I am near. I respond to the call of the caller when he calls upon Me."}&quot;
           </p>
           <p style={{
             color: COLORS.silver,
@@ -3506,8 +3506,8 @@ function ClosingReflection({ tr, language }) {
           }}
         >
           {tr
-            ? <>Açılışta dedik: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"O'nu kuşatamayız."</em> Şimdi söylüyoruz: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"O bize bizden daha yakındır."</em> İki ayet birbirini iptal etmez — tek hakikati iki yönden gösterir. Tanzîh ve yakınlık aynı anda.</>
-            : <>At the opening we said: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"We cannot contain Him."</em> Now we say: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>"He is nearer than our own selves."</em> The two verses do not cancel — they show one truth from two sides. Transcendence and nearness, at once.</>}
+            ? <>Açılışta dedik: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O&apos;nu kuşatamayız.&quot;</em> Şimdi söylüyoruz: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;O bize bizden daha yakındır.&quot;</em> İki ayet birbirini iptal etmez — tek hakikati iki yönden gösterir. Tanzîh ve yakınlık aynı anda.</>
+            : <>At the opening we said: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;We cannot contain Him.&quot;</em> Now we say: <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>&quot;He is nearer than our own selves.&quot;</em> The two verses do not cancel — they show one truth from two sides. Transcendence and nearness, at once.</>}
         </motion.p>
 
         {/* Cross-tool CTA strip — 3 araç */}
@@ -3729,8 +3729,8 @@ function Methodology({ data, tr }) {
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
               {tr
-                ? <>Sayfa açılışında Şûrâ 42:11'i ("O'nun benzeri bir şey yoktur") koymamız tesadüf değil — tüm okuma <strong style={{ color: COLORS.offWhite }}>tanzîh</strong> çerçevesinde yapılır: <strong style={{ color: COLORS.offWhite }}>isimler O'nu tarif eder, sınırlamaz</strong>. Beşerî dilden ödünç aldığımız her sıfat ("hayy", "semîʿ", "basîr"…) insan referansından arınmış olarak anlaşılır; antropomorfik okuma yanılgıdır. "El-Hayy" (Diri) insan canlılığı değil; "Es-Semîʿ" (İşiten) kulak organı değil. Bu sayfada görülen 114 isim O'nu <strong style={{ color: COLORS.offWhite }}>tanır</strong>, ama O'nu kuşatmaz — kuşatamaz.</>
-                : <>Opening with Shūrā 42:11 ("There is nothing like Him") is not incidental — the entire reading operates within the framework of <strong style={{ color: COLORS.offWhite }}>tanzīh</strong>: <strong style={{ color: COLORS.offWhite }}>the names describe Him, they do not delimit Him</strong>. Every attribute we borrow from human language ("ḥayy", "samīʿ", "baṣīr"…) is understood stripped of its anthropomorphic reference; reading these as human-like attributes is the central error. "al-Ḥayy" (Living) is not biological life; "as-Samīʿ" (Hearing) is not an auditory organ. The 114 names on this page <strong style={{ color: COLORS.offWhite }}>describe</strong> Him — they do not contain Him, and cannot.</>}
+                ? <>Sayfa açılışında Şûrâ 42:11&apos;i (&quot;O&apos;nun benzeri bir şey yoktur&quot;) koymamız tesadüf değil — tüm okuma <strong style={{ color: COLORS.offWhite }}>tanzîh</strong> çerçevesinde yapılır: <strong style={{ color: COLORS.offWhite }}>isimler O&apos;nu tarif eder, sınırlamaz</strong>. Beşerî dilden ödünç aldığımız her sıfat (&quot;hayy&quot;, &quot;semîʿ&quot;, &quot;basîr&quot;…) insan referansından arınmış olarak anlaşılır; antropomorfik okuma yanılgıdır. &quot;El-Hayy&quot; (Diri) insan canlılığı değil; &quot;Es-Semîʿ&quot; (İşiten) kulak organı değil. Bu sayfada görülen 114 isim O&apos;nu <strong style={{ color: COLORS.offWhite }}>tanır</strong>, ama O&apos;nu kuşatmaz — kuşatamaz.</>
+                : <>Opening with Shūrā 42:11 (&quot;There is nothing like Him&quot;) is not incidental — the entire reading operates within the framework of <strong style={{ color: COLORS.offWhite }}>tanzīh</strong>: <strong style={{ color: COLORS.offWhite }}>the names describe Him, they do not delimit Him</strong>. Every attribute we borrow from human language (&quot;ḥayy&quot;, &quot;samīʿ&quot;, &quot;baṣīr&quot;…) is understood stripped of its anthropomorphic reference; reading these as human-like attributes is the central error. &quot;al-Ḥayy&quot; (Living) is not biological life; &quot;as-Samīʿ&quot; (Hearing) is not an auditory organ. The 114 names on this page <strong style={{ color: COLORS.offWhite }}>describe</strong> Him — they do not contain Him, and cannot.</>}
             </p>
 
             <h3 style={{ color: COLORS.gold, fontSize: '0.95rem', margin: '0 0 8px', fontFamily: FONTS.display }}>
@@ -3752,7 +3752,7 @@ function Methodology({ data, tr }) {
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 8px' }}>
               {tr
-                ? <>Bu sayfa <strong>klasik konkordansa</strong> (M. Fuâd Abdülbâkî, el-Mu'cemü'l-Müfehres) dayanır. <strong>Lemma sayımı:</strong> bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek'li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim olarak sayılır.</>
+                ? <>Bu sayfa <strong>klasik konkordansa</strong> (M. Fuâd Abdülbâkî, el-Mu&apos;cemü&apos;l-Müfehres) dayanır. <strong>Lemma sayımı:</strong> bir ismin tüm morfolojik formları (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) ve önek&apos;li türevleri (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) tek bir isim olarak sayılır.</>
                 : <>This page is based on the <strong>classical concordance</strong> (M. Fuʾād ʿAbd al-Bāqī, al-Muʿjam al-Mufahras). <strong>Lemma counting:</strong> all morphological forms of a name (<code>Allāhu</code>, <code>Allāhi</code>, <code>Allāha</code>) and prefixed forms (<code>lillāh</code>, <code>billāh</code>, <code>wallāh</code>, <code>fallāh</code>) count as one name.</>}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>

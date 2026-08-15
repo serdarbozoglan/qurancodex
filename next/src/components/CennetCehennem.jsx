@@ -287,9 +287,9 @@ export default function CennetCehennem({ onClose }) {
               maxWidth: '660px',
               opacity: 0.95,
             }}>
-              "{language === 'tr'
+              &quot;{language === 'tr'
                 ? 'Rabbinin makamından korkana iki cennet vardır.'
-                : 'And for the one who fears the standing before his Lord — two gardens.'}"
+                : 'And for the one who fears the standing before his Lord — two gardens.'}&quot;
             </p>
 
             <p style={{
@@ -316,7 +316,7 @@ export default function CennetCehennem({ onClose }) {
               opacity: 0.88,
             }}>
               {language === 'tr'
-                ? <>İki son, <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>ayrı dil</em> ile anlatılır. Cennette nehir, gölge, eş; cehennemde ateş, zincir, zakkum. Aralarındaki <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>perde</em>, A'râf'tır.</>
+                ? <>İki son, <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>ayrı dil</em> ile anlatılır. Cennette nehir, gölge, eş; cehennemde ateş, zincir, zakkum. Aralarındaki <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>perde</em>, A&apos;râf&apos;tır.</>
                 : <>The two endings are told in <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>two registers</em>. Rivers, shade, companions in paradise; fire, chains, zaqqūm in hell. Between them stands <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>al-Aʿrāf</em>, the partition.</>}
             </p>
 

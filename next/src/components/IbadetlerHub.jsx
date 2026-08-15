@@ -95,7 +95,7 @@ function HubHero({ hubData, language, isMobile }) {
         color: COLORS.offWhite, maxWidth: '640px',
         margin: '0 auto 14px',
         fontSize: 'clamp(1.02rem, 1.85vw, 1.18rem)', lineHeight: 1.65,
-      }}>"{language === 'tr' ? anchor.tr : anchor.en}"</p>
+      }}>&quot;{language === 'tr' ? anchor.tr : anchor.en}&quot;</p>
 
       <p style={{
         textTransform: 'uppercase', letterSpacing: '0.18em',
@@ -206,7 +206,7 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
             <p style={{
               color: COLORS.offWhite, fontSize: '0.88rem',
               fontStyle: 'italic', margin: '0 0 6px', lineHeight: 1.6,
-            }}>"{language === 'tr' ? abdCore.coreAyet.trShort : abdCore.coreAyet.enShort}"</p>
+            }}>&quot;{language === 'tr' ? abdCore.coreAyet.trShort : abdCore.coreAyet.enShort}&quot;</p>
             <div style={{ ...TEXT.verseRef }}>— {abdCore.coreAyet.ref}</div>
           </div>
         )}
@@ -956,7 +956,7 @@ function OrtakFormullerSection({ data, language, isMobile }) {
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.offWhite, fontSize: '1.02rem',
               margin: '0 0 10px', lineHeight: 1.6,
-            }}>"{language === 'tr' ? f.formulTr : (f.formulEn ?? f.formulTr)}"</p>
+            }}>&quot;{language === 'tr' ? f.formulTr : (f.formulEn ?? f.formulTr)}&quot;</p>
             {/* Occurrence + refs */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '14px' }}>
               <span style={{
