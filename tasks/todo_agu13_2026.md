@@ -1125,6 +1125,51 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       **Kalan açık:** ReadingMode içerik-minHeight'ı + SurahComparator/
       ConceptGraph'ın gerçek fetch-remount'u + 70 dosyalık site-geneli
       `padding: isMobile ?` taraması (ayrı, büyük bir tur).
+- [x] ~~**Site-geneli `isMobile` YAPISAL kalıp (grid/flexDirection/display) —
+      SIFIRLANDI**~~ — **KAPANDI** `d865148`..`cdc6320` (5 commit, aynı
+      oturum). Kullanıcı kapsamı netleştirdi: 700+ örneklik `padding:
+      isMobile ?` taraması TEK oturumda bitmeyecek kadar büyüktü (bkz.
+      yukarı) — bu yüzden yalnız BÜYÜK görsel sıçrama üreten alt-küme
+      hedeflendi: `gridTemplateColumns`/`flexDirection`/`display`
+      (sütun sayısı, yön, görünür/gizli — küçük padding farkından çok
+      daha büyük sıçrama). Grep başlangıçta **182 örnek / 69 dosya**
+      gösterdi (Kissa hariç). Sonuç: **0 örnek** — yalnız iki bilinçli
+      istisna kaldı: KissaAtlas.jsx (başka ajanın alanı, hiç
+      dokunulmadı) ve ReadingMode.jsx'in TEK karmaşık örneği (satır
+      ~8835 — `isMobile` VE `showTranslation`'a birlikte bağlı per-âyet
+      satır düzeni; iki state'in birleştiği bu kalıp tek bir CSS medya
+      sorgusuyla temiz ifade edilemiyor, "korunan amiral gemisi"
+      dosyada riski gerekçelendirmeyen küçük bir kazanç olurdu).
+      `globals.css`'e ~35 yardımcı sınıf eklendi — bazıları tek-dosyalık
+      bespoke (`.cc-hero-banner`, `.ih-abdcore-grid` vb.), çoğu birden
+      fazla dosyada tekrar eden kalıpları kapsayan genel-amaçlı sınıflar
+      (`.g-1-2` … `.g-4-7`, `.fd-row`, `.fd-col-reverse`, `.dsp-flex`
+      ailesi). Veri-bağımlı sütun sayısı (`repeat(${n}, 1fr)`) için
+      YENİ bir teknik: `.g-dyn { grid-template-columns: repeat(var(
+      --cols, 3), 1fr); }` + `style={{ '--cols': n }}` — CSS custom
+      property, runtime hesaplamayı JS'te bırakıp yalnız SAYIYI CSS'e
+      taşıyor, isMobile'a hiç dokunmuyor.
+      `repeat(auto-fit/auto-fill, minmax(...))` kullanan ~26 örnekte
+      (CSS sınıfı bile GEREKMEDİ) ternary'nin tamamı kaldırıldı — bu
+      sözdizimi zaten container genişliğine göre kendiliğinden tepki
+      veriyor.
+      ⚠ **Kendi hatam, build yakaladı:** className'i `style={{...}}`'in
+      kapatma `>`'sini taşıyan satırdan ayırıp yeni satıra koyarken bir
+      kez `>`'yi eklemeyi unuttum (MunafikProfili.jsx) — syntax error,
+      `npm run build` her dosyadan sonra çalıştırıldığı için hemen
+      yakalandı. **Ders: className'i style'dan sonraki ayrı satıra
+      koyarken, o satırın `>` ile bitmesi gerekiyor (bir sonraki prop
+      değilse).**
+      Doğrulama: 5 commit boyunca her partiden sonra `npm run build`,
+      son partide tam site kontrast taraması (`--full`, 140 sayfa) —
+      **taban 48 KORUNDU, regresyon yok**. `audit-colors --ci` 179/182,
+      `audit-internal-leak` temiz. 26+ rota sıfır konsol hatası.
+      **Kalan (bilinçli kapsam dışı, ayrı turlar):** küçük padding
+      farkları (~600+ örnek, CLS eşiğinin genelde altında — 70 dosyalık
+      site-geneli tarama kendi turunu gerektiriyor), ReadingMode içerik-
+      alanı minHeight'ı, SurahComparator/ConceptGraph'ın gerçek
+      fetch-remount'u (12.3 MB veri dosyası — mimari doğru, iskelet
+      boyutu ayrı bir çözüm gerektiriyor).
 - [ ] TBT ihlalleri (7 ölçüm) — ayrıca incelenmedi, CLS'in yanında ikincil.
 - [ ] Kullanıcı notu: **"mobildeki yavaşlığı da çözelim"** — CWV'de LCP/FCP
       temiz çıktığı için bu his muhtemelen CLS'in kendisi (sayfa "zıplıyor"
