@@ -3044,8 +3044,8 @@ export default function KuranRenkleri({ onClose }) {
               workTr: "Mefâtîhu'l-Ğayb",
               workEn: 'Mafātīḥ al-Ghayb',
               period: '1149–1209 (Rey)',
-              noteTr: "Cennet renkleri (yeşil, altın), cehennem renkleri (siyah, sarı) ve Kur'ân'da renk sembolizmi üzerine kapsamlı analiz.",
-              noteEn: 'Comprehensive analysis of paradise colors (green, gold), hell colors (black, yellow), and color symbolism in the Quran.',
+              noteTr: "Cennet renkleri (yeşil, altın) ve cehennem renkleri (siyah, sarı) geçen âyetlerin tefsirinde yer alan yorumlar; Kur'ân'da renk kullanımına dair bir okuma imkânı sunar.",
+              noteEn: 'Commentary on verses referencing paradise colors (green, gold) and hell colors (black, yellow); offers one possible reading of color usage in the Quran.',
             },
             {
               author: 'ez-Zemahşerî',
@@ -3127,8 +3127,8 @@ function ColorsClosing({ language, isMobile }) {
         </ul>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, lineHeight: 1.75, margin: '0 0 8px', fontFamily: FONTS.body, fontStyle: 'italic' }}>
           {tr
-            ? <>Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem tefsire hem ayetlere aykırıdır.</>
-            : <>Classical tafsir reads this plurality symbolically (Ibn Qayyim, Ḥādī al-Arwāḥ): green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both tafsir and the text.</>}
+            ? <>Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım'ın Hâdi'l-Ervâh'ındaki cennet tasvirlerine yakın bir çerçevede: yeşil <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>baş işaret</em> — gözün önce karşılaştığı vaad rengi; diğer renkler ise vaadin <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>iç katmanları</em>. &ldquo;Monokrom cennet&rdquo; okuması hem bu yaklaşıma hem ayetlere aykırıdır.</>
+            : <>Classical tafsir can be read as suggesting this plurality symbolically, close to the paradise depictions in Ibn Qayyim's Ḥādī al-Arwāḥ: green is the <em style={{ color: COLORS.softEmerald, fontStyle: 'normal' }}>headline sign</em> — the color the eye meets first; the other colors are the promise's <em style={{ color: COLORS.gold, fontStyle: 'normal' }}>inner layers</em>. The "monochrome Paradise" reading contradicts both this approach and the text.</>}
         </p>
         <p style={{ fontSize: '0.78rem', color: COLORS.silver, opacity: 0.78, margin: 0, fontFamily: FONTS.body, lineHeight: 1.6 }}>
           {tr

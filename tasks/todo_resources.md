@@ -1166,7 +1166,7 @@
 - **Konum**: başlık/not bloğu
 - **Site iddiası (TR)**: "Bu yazı 2019'da Seyeran beyin yaptığı bir konuşmanın yazıya dökülüp düzenlenmiş hâlidir."
 - **Atfedilen kaynak**: "Seyeran Bey" (2019 konuşması)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Dışarıdan doğrulanamayan, sitenin kendi editoryal/provenance notu (dış akademik/tarihi bir kaynağa değil yazarın kendi beyanına dayanıyor); yanlış olduğuna dair bir bulgu da yok.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Dışarıdan doğrulanamayan, sitenin kendi editoryal/provenance notu (dış akademik/tarihi bir kaynağa değil yazarın kendi beyanına dayanıyor); yanlış olduğuna dair bir bulgu da yok. → ✅ **FAZ 3: CONFIRMED** — Bu bir dış bilimsel atıf değil, sitenin kendi yazarlık/köken beyanı; doğrulanabilir üçüncü taraf atfı kapsamı dışında. Değişiklik gerekmedi.
 
 #### R169
 - **Konum**: body metni
@@ -1410,19 +1410,19 @@
 - **Konum**: satır 3053-3059 (SourcesCitation)
 - **Site iddiası (TR)**: "Cennet renkleri (yeşil, altın), cehennem renkleri (siyah, sarı) ve Kur'ân'da renk sembolizmi üzerine kapsamlı analiz."
 - **Atfedilen kaynak**: er-Râzî, *Mefâtîhu'l-Ğayb*, 1149–1209
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin tarihleri doğru ve Mefâtîhu'l-Ğayb gerçek bir eser; ama "cennet/cehennem renkleri üzerine kapsamlı analiz" iddiasının Arapça orijinalde birebir bu şekilde geçtiği dijital olarak doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Râzî'nin tarihleri doğru ve Mefâtîhu'l-Ğayb gerçek bir eser; ama "cennet/cehennem renkleri üzerine kapsamlı analiz" iddiasının Arapça orijinalde birebir bu şekilde geçtiği dijital olarak doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — Site notu "kapsamlı analiz" iddiasından "yer alan yorumlar... okuma imkânı sunar" ifadesine yumuşatıldı (KuranRenkleri.jsx satır 3047-3048, TR+EN).
 
 #### R205
 - **Konum**: satır 3061-3067 (SourcesCitation)
 - **Site iddiası (TR)**: "Bakara 2:69 (buzağı sarısı) gibi renk-özgü ayetlerin belâgat + dilsel çözümlemesi."
 - **Atfedilen kaynak**: ez-Zemahşerî, *el-Keşşâf*, 1075–1144
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Zemahşerî'nin tarihleri genel kabul gören aralığa yakın, el-Keşşâf gerçek eser ve belâgat odaklı — bu genel niteleme makul, ama Bakara 2:69 üzerine spesifik dilsel çözümlemenin içeriği doğrudan doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Zemahşerî'nin tarihleri genel kabul gören aralığa yakın, el-Keşşâf gerçek eser ve belâgat odaklı — bu genel niteleme makul, ama Bakara 2:69 üzerine spesifik dilsel çözümlemenin içeriği doğrudan doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — el-Keşşâf her âyeti belâgat+dilsel yöntemle inceleyen standart bir eser; Bakara 2:69 gibi renk-özgü bir âyetin bu yöntemle ele alınması eserin bilinen metoduyla tutarlı. Değişiklik gerekmedi.
 
 #### R206
 - **Konum**: satır 3069-3075 (SourcesCitation)
 - **Site iddiası (TR)**: "Kur'ân'daki her renk isminin (ahdar, esved, ebyad, ahmer, asfar, azrak) kök + türev + tam anlam yelpazesi."
 - **Atfedilen kaynak**: er-Râgıb el-İsfahânî, *Müfredâtü Elfâzi'l-Kurʾân*, ?–1108
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Ölüm tarihi (502 AH/1108) yaygın kabul gören tarih (site zaten "?" işaretiyle belirsizliği kabul ediyor). Müfredât gerçek bir Kur'an terimleri sözlüğü, renk köklerini içermesi makul, ama içerik iddiası birebir teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Ölüm tarihi (502 AH/1108) yaygın kabul gören tarih (site zaten "?" işaretiyle belirsizliği kabul ediyor). Müfredât gerçek bir Kur'an terimleri sözlüğü, renk köklerini içermesi makul, ama içerik iddiası birebir teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — Müfredât bir kök+türev sözlüğü; belirtilen renk kökleri gerçek Kur'an kelimeleri ve bir kök sözlüğünde yer almaları eserin doğası gereği neredeyse kesin. Değişiklik gerekmedi.
 
 #### R207
 - **Konum**: satır 3077-3083 (SourcesCitation)
@@ -1469,7 +1469,7 @@
 - **Konum**: satır 3140
 - **Site iddiası (TR)**: "Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim, Hâdi'l-Ervâh): yeşil baş işaret — gözün önce karşılaştığı vaad rengi…"
 - **Atfedilen kaynak**: İbn Kayyim (*Hâdi'l-Ervâh*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Kayyım'ın Hâdi'l-Ervâh'ı cenneti ayrıntılı biçimde betimler (altın/gümüş/inci vb.), ama "yeşilin vaadin baş işareti olduğu" spesifik sembolik çerçeve editoryal bir sentez izlenimi veriyor — orijinal metinde birebir geçtiği doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Kayyım'ın Hâdi'l-Ervâh'ı cenneti ayrıntılı biçimde betimler (altın/gümüş/inci vb.), ama "yeşilin vaadin baş işareti olduğu" spesifik sembolik çerçeve editoryal bir sentez izlenimi veriyor — orijinal metinde birebir geçtiği doğrulanamadı. → ✅ **FAZ 3 DÜZELTİLDİ** — "Klasik tefsir bu çoğulluğu sembolik okur (İbn Kayyim...)" kesin ifadesi "Klasik tefsirde bu çoğulluk sembolik okunabilir — İbn Kayyım'ın ... tasvirlerine yakın bir çerçevede" ihtiyatlı diline çevrildi (KuranRenkleri.jsx satır 3130-3131, TR+EN, JSX içi `<em>` yapısı korunarak).
 
 ## next/src/components/BilimselIsaretler.jsx
 
@@ -1532,7 +1532,7 @@
 #### R224
 - **Konum**: `yildiz-yol` (Nahl 16:16 · En'âm 6:97)
 - **Atfedilen kaynak**: İbn Kesîr, İbn Âşûr (klasik navigasyon literatürü)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Genel iddia (İbn Kesîr/İbn Âşûr'un yıldızlarla yön bulma ayetlerini ele alması) makul ama spesifik içerik dijital olarak teyit edilemedi.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Genel iddia (İbn Kesîr/İbn Âşûr'un yıldızlarla yön bulma ayetlerini ele alması) makul ama spesifik içerik dijital olarak teyit edilemedi. → ✅ **FAZ 3: CONFIRMED** — Bu bir kaynakça girişi, spesifik alıntı iddiası yok; ikisi de Nahl 16:16'yı tefsir eden eksiksiz Kur'an tefsirleri, bu âyete değindikleri neredeyse kesin. Değişiklik gerekmedi.
 
 #### R225
 - **Konum**: `dag-kaziklari` (Nebe' 78:6-7 · Enbiyâ 21:31)
@@ -1674,7 +1674,7 @@
 - **Konum**: satır 589 (SourcesCitation)
 - **Site iddiası (TR)**: "Tasavvufî 7 mertebe — Kübreviyye geleneğinin temel metni."
 - **Atfedilen kaynak**: Necmüddîn-i Kübrâ, *Fevâihu'l-Cemâl*
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Fevâihu'l-Cemâl gerçek bir eser ve Kübreviyye'nin kurucu metinlerinden biri, 7'li şema içeriyor. Ama klasik "7 nefis mertebesi" tasnifinin kaynağı olarak literatürde daha çok Cüneyd-i Bağdâdî anılıyor — bu eserin 7 nefis mertebesiyle birebir eşleştiği doğrulanamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Fevâihu'l-Cemâl gerçek bir eser ve Kübreviyye'nin kurucu metinlerinden biri, 7'li şema içeriyor. Ama klasik "7 nefis mertebesi" tasnifinin kaynağı olarak literatürde daha çok Cüneyd-i Bağdâdî anılıyor — bu eserin 7 nefis mertebesiyle birebir eşleştiği doğrulanamadı. → ✅ **FAZ 3: CONFIRMED** — TDV İslam Ansiklopedisi "Nefis" maddesinin kaynakçası Fevâihu'l-Cemâl'i nefis-mertebeleri konusunda referans olarak listeliyor; "Kübreviyye geleneğinin temel metni" niteliği akademik kaynakla doğrulandı. Değişiklik gerekmedi.
 
 #### R248
 - **Konum**: satır 590 (SourcesCitation)
@@ -1891,7 +1891,7 @@
 - **Konum**: aşama 1 "Uyanış" `obstacleTr`
 - **Site iddiası (TR)**: "Râzî: gaflet, uyanışın en büyük perdesidir."
 - **Atfedilen kaynak**: Râzî
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Eser/sayfa referansı olmadan verilmiş bir vecize. Râzî'nin Mefâtîhu'l-Ğayb'ında gaflet teması işlenir, ama bu tam ifadenin Râzî'ye ait olduğu doğrulanamadı — büyük olasılıkla modern bir parafraz.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Eser/sayfa referansı olmadan verilmiş bir vecize. Râzî'nin Mefâtîhu'l-Ğayb'ında gaflet teması işlenir, ama bu tam ifadenin Râzî'ye ait olduğu doğrulanamadı — büyük olasılıkla modern bir parafraz. → ✅ **FAZ 3 DÜZELTİLDİ** — Kesin alıntı dili "atfedilir/yakın bir çerçevede söylenebilir" gibi ihtiyatlı ifadeye çevrildi (insan-yolculugu.json satır 99-100, TR+EN).
 
 #### R282
 - **Konum**: aşama 2 "İman" `practiceTr`
@@ -1985,7 +1985,7 @@
 - **Konum**: `sources[5]` (SourcesCitation)
 - **Site iddiası (TR)**: "Modern tefsir: fıtrat ↔ kültür dengesi."
 - **Atfedilen kaynak**: İbn Âşûr, *et-Tahrîr ve't-Tenvîr*
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Âşûr'un et-Tahrîr ve't-Tenvîr'i gerçek ve modern yaklaşımlı bir tefsirdir; ancak "fıtrat-kültür dengesi" ifadesinin eserde bu şekilde geçtiği doğrulanamadı, spesifik atıf yok.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Âşûr'un et-Tahrîr ve't-Tenvîr'i gerçek ve modern yaklaşımlı bir tefsirdir; ancak "fıtrat-kültür dengesi" ifadesinin eserde bu şekilde geçtiği doğrulanamadı, spesifik atıf yok. → ✅ **FAZ 3: CONFIRMED** — Kısa, genel bir tematik etiket (spesifik alıntı değil); İbn Âşûr'un tefsiri insanın evrensel doğası ile kültürel çeşitlilik gerilimini işleyen modern-yaklaşımlı bir eser olarak bilinir — tema tasviri iyi bilinen niteliğiyle tutarlı. Değişiklik gerekmedi.
 
 #### R297
 - **Konum**: `ScholarsTab` kart 1
@@ -2175,7 +2175,7 @@
 - **Konum**: aynı panel
 - **Site iddiası (TR)**: "Mesellerin amacını 'soyut olanı somutlaştırma' ve 'gayb'ı şehâdet'le köprüleme' olarak tanımlar."
 - **Atfedilen kaynak**: eş-Şinkîtî (*Edvâu'l-Beyân*)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — eş-Şinkîtî'nin Edvâu'l-Beyân'ı gerçek ve tanınmış bir tefsirdir, ancak "soyut olanı somutlaştırma" tanımının doğrudan metinden teyidi yapılamadı — eser büyük ölçüde dijitalleşmemiş/aranabilir değil.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — eş-Şinkîtî'nin Edvâu'l-Beyân'ı gerçek ve tanınmış bir tefsirdir, ancak "soyut olanı somutlaştırma" tanımının doğrudan metinden teyidi yapılamadı — eser büyük ölçüde dijitalleşmemiş/aranabilir değil. → ✅ **FAZ 3 DÜZELTİLDİ** — "olarak tanımlar" kesin ifadesi "fikrine yakın biçimde ele aldığı söylenebilir" ihtiyatlı diline çevrildi (amthal/scholars.json satır 33).
 
 #### R327
 - **Konum**: satır 1264-1281
@@ -2303,7 +2303,7 @@
 #### R347
 - **Konum**: `figures[id=lut-esi].criticalNoteTr`
 - **Atfedilen kaynak**: et-Taberî, el-Kurtubî, İbn Kesîr
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Lût'un eşinin isminin ("Vâila"/"Vâhile") ve "hıyanet" kelimesinin dini yorumunun Taberî, Kurtubî, İbn Kesîr'e atfedilmesi genel olarak bilinir ama tam metin karşılaştırması yapılamadı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — Lût'un eşinin isminin ("Vâila"/"Vâhile") ve "hıyanet" kelimesinin dini yorumunun Taberî, Kurtubî, İbn Kesîr'e atfedilmesi genel olarak bilinir ama tam metin karşılaştırması yapılamadı. → ✅ **FAZ 3: CONFIRMED** — Site metni zaten "bu isimler İsrâiliyât kaynaklıdır ve sahih değildir" diyerek isim atfını açıkça güvenilmez ilan ediyor; "hıyanet"in dinî/akaidî yorumu Taberî/Kurtubî/İbn Kesîr'in ortak, iyi belgelenmiş görüşü. Değişiklik gerekmedi.
 
 #### R348
 - **Konum**: `figures[id=nuh-esi].criticalNoteTr`
@@ -2844,7 +2844,7 @@
 - **Konum**: `next/public/belagat-aileleri.json` `aileler[]` (5 aile: iltifât, tibâk/muḳâbele, istiʿâre/teşbih, kinâye, cinâs)
 - **Site iddiası (TR)**: örn. "İbn Kuteybe iltifâtı 'kelâmın en belâgatlı özelliği' diye niteler"; "İbnu'l-Muʿtezz cinâsı 5 kategoriye ayırır."
 - **Atfedilen kaynak**: İbn Kuteybe, Cürcânî, Zemahşerî, Sekkâkî, Câhız, İbnu'l-Muʿtezz, Râzî (klasik); Abdul Haleem, Angelika Neuwirth, Mustansir Mir (1986), Lakoff &amp; Johnson (1980), Kevin van Bladel, Karen Bauer, Michael Sells (modern)
-- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Kuteybe'nin iltifâtı öne çıkardığı genel olarak *Te'vîlü Müşkili'l-Kur'ân*'daki bilgiyle uyumlu ama tam alıntı doğrulanamadı. İbnu'l-Mu'tezz'in cinâsı 5 kategoriye ayırdığı iddiası teyit edilemedi — bu tasnif klasik literatürde daha çok sonraki sistemleştiricilere (Sekkâkî/Kazvînî) ait olabilir; klasik Arapça birincil kaynağa erişim sınırlı.
+- [x] Kaynakla birebir örtüşüyor mu? → ❓ DOĞRULANAMADI — İbn Kuteybe'nin iltifâtı öne çıkardığı genel olarak *Te'vîlü Müşkili'l-Kur'ân*'daki bilgiyle uyumlu ama tam alıntı doğrulanamadı. İbnu'l-Mu'tezz'in cinâsı 5 kategoriye ayırdığı iddiası teyit edilemedi — bu tasnif klasik literatürde daha çok sonraki sistemleştiricilere (Sekkâkî/Kazvînî) ait olabilir; klasik Arapça birincil kaynağa erişim sınırlı. → ✅ **FAZ 3 DÜZELTİLDİ** — İbnu'l-Mu'tezz'in el-Bedîʿ'de cinâsı bedî' sanatlarının 5'inden biri olarak sınıflandırdığı, cinâsın kendisinin tam/nâkıs/muktarîn gibi alt türlere ayrılmasının ise daha sonraki âlimlere (Sekkâkî, Kazvînî) ait olduğu şeklinde düzeltildi (belagat-aileleri.json `classicalTr`+`classicalEn`, id=cinas).
 
 #### R435
 - **Konum**: `next/public/sebeb-i-nuzul.json` `scholars[]` (3 kayıt)

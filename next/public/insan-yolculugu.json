@@ -96,8 +96,8 @@
       ],
       "practiceTr": "Günün bir vaktini 'düşünme' için ayırma — telefon kapalı, yalnız kalb ile. Sabah ışığı, bir yaprağın damarları, kendi eli. 'Nedir bu? Nereden? Neden?' sorularının cevabı bilgi değil, farkındalıktır.",
       "practiceEn": "Setting aside a time each day for reflection — phone off, alone with the heart. Morning light, the veins of a leaf, one's own hand. The answers to 'What is this? Whence? Why?' are not information but awareness.",
-      "obstacleTr": "'Bu sorulara zamanım yok' — dünya işlerinin insanı 'düşünme boşluğundan' mahrum bırakması. Râzî: gaflet, uyanışın en büyük perdesidir.",
-      "obstacleEn": "'I have no time for these questions' — worldly business depriving one of the 'contemplation void.' Al-Rāzī: heedlessness is the greatest veil against awakening.",
+      "obstacleTr": "'Bu sorulara zamanım yok' — dünya işlerinin insanı 'düşünme boşluğundan' mahrum bırakması. Klasik âlimlerin (Râzî dahil) işlediği bir temaya göre gaflet, uyanışın en büyük perdesi sayılır.",
+      "obstacleEn": "'I have no time for these questions' — worldly business depriving one of the 'contemplation void.' A theme treated by classical scholars (including al-Rāzī): heedlessness is regarded as the greatest veil against awakening.",
       "nextTr": "Uyanış cevabı istemeye başlar → İman.",
       "nextEn": "Awakening begins to demand an answer → Faith."
     },
@@ -137,8 +137,8 @@
           "english": "The believers are only those who, when Allah is mentioned, their hearts become fearful, and when His verses are recited to them, it increases them in faith; and upon their Lord they rely"
         }
       ],
-      "practiceTr": "Kelime-i şehâdet'i içerden ve dikkatle söylemek. İbn Kayyim: iman iki kanatlıdır — kalbin tasdiki + amelin doğrulaması. Biri olmadan diğeri havada kalır.",
-      "practiceEn": "Reciting the shahāda from within, with attentiveness. Ibn Qayyim: faith has two wings — the heart's affirmation and the deeds' verification. One without the other hangs in the air.",
+      "practiceTr": "Kelime-i şehâdet'i içerden ve dikkatle söylemek. İbn Kayyim'in eserlerinde işlenen bir temaya yakın biçimde: iman, kalbin tasdiki ile amelin doğrulamasından oluşan iki kanat gibi düşünülebilir. Biri olmadan diğeri havada kalır.",
+      "practiceEn": "Reciting the shahāda from within, with attentiveness. Close to a theme found in Ibn Qayyim's works: faith can be thought of as having two wings — the heart's affirmation and the deeds' verification. One without the other hangs in the air.",
       "obstacleTr": "Sözle iman, kalpte tereddüt — Hucurât 49:14: 'Bedeviler iman ettik dediler. De ki: iman etmediniz, ancak 'boyun eğdik' deyin, çünkü iman henüz kalplerinize girmedi.' Yüzeysel iman, denenmediği için kendini fark etmez.",
       "obstacleEn": "Verbal faith with inner hesitation — Q 49:14: 'The Bedouins said, We have believed. Say, You have not believed; but say, We have submitted, for faith has not yet entered your hearts.' Superficial faith does not notice itself because it has not been tried.",
       "nextTr": "İman iddiadan yaşayışa geçer → Amel.",
@@ -180,8 +180,8 @@
           "english": "And who is better in speech than one who invites to Allah and does righteousness and says, \"Indeed, I am of the Muslims"
         }
       ],
-      "practiceTr": "Farzların dikkatli edası + gizli iyilik alışkanlığı (kimsenin görmediği bir iyilik günde en az bir). Nursî Sözler'de: sâlih amel imanın 'hayat suyu'dur; onsuz iman 'kurumuş' kalır.",
-      "practiceEn": "Careful performance of obligations + a habit of hidden good (at least one good deed daily that no one sees). In Sözler, Nursī: righteous deed is the 'water of life' for faith; without it, faith 'dries up.'",
+      "practiceTr": "Farzların dikkatli edası + gizli iyilik alışkanlığı (kimsenin görmediği bir iyilik günde en az bir). Nursî'nin Sözler'inde işlediği bir temaya yakın biçimde: sâlih amel imanı besleyen bir 'hayat suyu' gibi düşünülebilir; onsuz iman kuruyabilir.",
+      "practiceEn": "Careful performance of obligations + a habit of hidden good (at least one good deed daily that no one sees). Close to a theme in Nursī's Sözler: righteous deed can be thought of as the 'water of life' nourishing faith; without it, faith may 'dry up.'",
       "obstacleTr": "Riya — amelin başkasına gösteriş için yapılması. Kur'ân bunu 'ateşle üstü kaplanmış hava' (Nûr 24:39) benzetmesiyle anar: dış parlar, iç boştur.",
       "obstacleEn": "Riyāʾ (ostentation) — performing the deed for others' sight. The Qur'an likens this to 'air covered with fire' (Q 24:39): the outside gleams, the inside is empty.",
       "nextTr": "Amel içeride kök salınca → Takvâ.",
@@ -223,8 +223,8 @@
           "english": "And when they have [nearly] fulfilled their term, either retain them according to acceptable terms or part with them according to acceptable terms. And bring to witness two just men from among you and establish the testimony for [the acceptance of] Allah. That is instructed to whoever should believe in Allah and the Last day. And whoever fears Allah - He will make for him a way out"
         }
       ],
-      "practiceTr": "İç muhâsebe — günde bir defa 'bugün ne yaptım, hangi niyetle?' Sûfî geleneğinde 'murâkabe'. Râzî: takvâ, Allah ile kul arasında bir 'siperdir' — dıştaki günahı değil, iç yönelimin kaymasını engeller.",
-      "practiceEn": "Inner accounting — once a day, 'What did I do today, and with what intention?' In the Sufi tradition, this is murāqaba. Al-Rāzī: taqwā is a 'shield' between servant and Lord — it blocks not outer sin but the drift of inner direction.",
+      "practiceTr": "İç muhâsebe — günde bir defa 'bugün ne yaptım, hangi niyetle?' Sûfî geleneğinde 'murâkabe'. Klasik kelâm ve tefsir geleneğinde (Râzî de dahil) takvâ, Allah ile kul arasında bir 'siper' gibi düşünülür — dıştaki günahı değil, iç yönelimin kaymasını engeller.",
+      "practiceEn": "Inner accounting — once a day, 'What did I do today, and with what intention?' In the Sufi tradition, this is murāqaba. In the classical kalām and tafsir tradition (including al-Rāzī), taqwā can be thought of as a 'shield' between servant and Lord — blocking not outer sin but the drift of inner direction.",
       "obstacleTr": "Alışkanlığa dönüşen ibâdet — 'ne yaptığımı biliyorum, artık düşünmek gerekmez.' Bu, takvânın kalpten çekilip 'formüle' inmesidir.",
       "obstacleEn": "Worship that has become mere habit — 'I know what I'm doing, no need to think anymore.' This is taqwā's withdrawal from the heart into a 'formula.'",
       "nextTr": "Takvâ derinleşince → İhsan.",
@@ -266,8 +266,8 @@
           "english": "Is the reward for good [anything] but good"
         }
       ],
-      "practiceTr": "Sabah namazından sonra 'Allah beni görüyor' cümlesini içeriden geçirmek; günün her kararında bu farkındalıkla durmak. Gazâlî İhyâ'da bunu 'sürekli huzûr hâli' diye adlandırır.",
-      "practiceEn": "After the morning prayer, letting the phrase 'God sees me' pass through the heart; standing at every decision in the day with this awareness. In the Iḥyāʾ, al-Ghazālī calls this the 'state of continual presence.'",
+      "practiceTr": "Sabah namazından sonra 'Allah beni görüyor' cümlesini içeriden geçirmek; günün her kararında bu farkındalıkla durmak. Gazâlî İhyâ'da murâkabe ve ihsan kavramlarını işlerken buna yakın bir 'sürekli huzûr hâli' fikrine değinir.",
+      "practiceEn": "After the morning prayer, letting the phrase 'God sees me' pass through the heart; standing at every decision in the day with this awareness. In the Iḥyāʾ, al-Ghazālī touches on a similar notion of continual presence while discussing murāqaba and iḥsān.",
       "obstacleTr": "İç dünyanın 'başka' dolulukları — kin, kıyas, hased. Bunlar 'huzûr' hâlini kesintiye uğratır; ihsanın en incelikli hastalığı 'başkasıyla karşılaştırarak var olmak'tır.",
       "obstacleEn": "Other 'occupations' of the inner world — resentment, comparison, envy. These interrupt the state of presence; iḥsān's subtlest illness is 'existing by comparison with another.'",
       "nextTr": "İhsan sükûnete varır → Kalb-i Selîm.",
@@ -395,8 +395,8 @@
           "english": "Allah will say, \"This is the Day when the truthful will benefit from their truthfulness.\" For them are gardens [in Paradise] beneath which rivers flow, wherein they will abide forever, Allah being pleased with them, and they with Him. That is the great attainment"
         }
       ],
-      "practiceTr": "Musibet ve nimet karşısında aynı 'elhamdülillâh' — rızâ, olayları değil, Allah'ın irâdesini görmektir. İbn Kayyim: rızâ 'kalbin başka bir tercih arzu etmediği' hâldir.",
-      "practiceEn": "Saying 'al-ḥamdu li-llāh' equally in trial and in blessing — riḍā is seeing not events but God's will. Ibn Qayyim: riḍā is the state 'in which the heart wishes for no other choice.'",
+      "practiceTr": "Musibet ve nimet karşısında aynı 'elhamdülillâh' — rızâ, olayları değil, Allah'ın irâdesini görmektir. İbn Kayyim'in Medâricü's-Sâlikîn'de işlediği rızâ makamına yakın biçimde: rızâ, kalbin başka bir tercih arzu etmediği bir hâl olarak düşünülebilir.",
+      "practiceEn": "Saying 'al-ḥamdu li-llāh' equally in trial and in blessing — riḍā is seeing not events but God's will. Close to the station of riḍā as Ibn Qayyim treats it in Madārij al-Sālikīn: riḍā can be thought of as the state in which the heart wishes for no other choice.",
       "obstacleTr": "'Ama benim şu isteğim...' — kula özgü tercihi Rabbin tercihinin önüne koymak. Sûfî: rızâ, teslimiyetten bir adım öte — teslim olmakla kalmaz, sever.",
       "obstacleEn": "'But my particular wish...' — placing the servant's preference before the Lord's. In Sufi thought: riḍā is one step beyond submission — one not only submits but loves.",
       "nextTr": "Rızâ → Cennet · Cemâlullah.",
