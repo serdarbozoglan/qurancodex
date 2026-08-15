@@ -177,8 +177,8 @@ export default function TarihselKanitlar({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
-        <div style={{
-          padding: isMobile ? '40px 20px 28px' : '56px 40px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
@@ -207,11 +207,11 @@ export default function TarihselKanitlar({ onClose }) {
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
             {/* Bismillah */}
-            <div dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
               fontSize: isMobile ? '1.5rem' : '1.95rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
 
@@ -300,8 +300,8 @@ export default function TarihselKanitlar({ onClose }) {
                 { value: meta.totalScholars, tr: 'akademisyen', en: 'scholars', color: COLORS.skyBlue },
                 { value: timeline.length, tr: 'timeline', en: 'timeline', color: '#a78bfa' },
               ].map((s, i) => (
-                <div key={i} style={{
-                  padding: isMobile ? '8px 14px' : '10px 18px',
+                <div className="mq-box" key={i} style={{
+                  '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                   background: `${s.color}12`, border: `1px solid ${s.color}30`,
                   borderRadius: RADIUS.pill, display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
@@ -314,9 +314,9 @@ export default function TarihselKanitlar({ onClose }) {
         </div>
 
         {/* ── TAB BAR ────────────────────────────────────────────────────── */}
-        <div id="tarihsel-tab-bar" style={{
+        <div className="mq-box" id="tarihsel-tab-bar" style={{
           display: 'flex', gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -328,14 +328,14 @@ export default function TarihselKanitlar({ onClose }) {
           {TABS.map((t, i) => {
             const isActive = activeTab === i;
             return (
-              <button
+              <button className="mq-box"
                 key={i}
                 onClick={() => {
                   setActiveTab(i);
                   setTimeout(() => document.getElementById('tarihsel-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
                 style={{
-                  padding: isMobile ? '14px 14px' : '16px 22px',
+                  '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
                   fontSize: isMobile ? '0.72rem' : '0.78rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
@@ -355,7 +355,7 @@ export default function TarihselKanitlar({ onClose }) {
         </div>
 
         {/* ── TAB CONTENT ────────────────────────────────────────────────── */}
-        <div style={{ padding: isMobile ? '20px 16px 48px' : '32px 40px 64px' }}>
+        <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "40px", '--pl-m': "16px" }}>
 
           {activeTab === 0 && (
             <KanitlarTab
@@ -417,11 +417,11 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
         {categories.map(cat => {
           const isActive = cat.id === activeCategoryId;
           return (
-            <button
+            <button className="mq-box"
               key={cat.id}
               onClick={() => onCategoryToggle(cat.id)}
               style={{
-                padding: isMobile ? '6px 12px' : '8px 16px',
+                '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
@@ -441,10 +441,10 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
           );
         })}
         {activeCategoryId && (
-          <button
+          <button className="mq-box"
             onClick={() => onCategoryToggle(activeCategoryId)}
             style={{
-              padding: isMobile ? '6px 12px' : '8px 14px',
+              '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px",
               borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`,
               background: 'transparent',
@@ -473,8 +473,8 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
   const cat = category || { color: COLORS.gold };
   const conf = CONFIDENCE_META[kanit.confidence] || CONFIDENCE_META.muhtemel;
   return (
-    <div style={{
-      padding: isMobile ? '20px 18px' : '26px 30px',
+    <div className="mq-box" style={{
+      '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "18px",
       background: `linear-gradient(135deg, ${cat.color}0A 0%, rgba(255,255,255,0.02) 45%)`,
       border: `1px solid ${cat.color}35`,
       borderLeft: `3px solid ${cat.color}`,
@@ -679,8 +679,8 @@ function TimelineTab({ timeline, language, isMobile }) {
           ? '523 CE Necran katliamından 2015 Birmingham radyokarbon analizine kadar — Kur\'ân metninin tarih içindeki ilerleyişi. Gold noktalar: Kur\'ânî kaynaklar. Mor: tarihsel olaylar. Yeşil-Mavi: modern akademik keşifler.'
           : 'From the 523 CE Najrān massacre to the 2015 Birmingham radiocarbon analysis — the Qur\'an text\'s trajectory through history. Gold points: Qur\'anic sources. Purple: historical events. Green-Blue: modern academic discoveries.'}
       </p>
-      <div style={{
-        padding: isMobile ? '22px 14px' : '32px 28px',
+      <div className="mq-box" style={{
+        '--pt-d': "32px", '--pt-m': "22px", '--pr-d': "28px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "22px", '--pl-d': "28px", '--pl-m': "14px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(212,165,116,0.01) 100%)',
         border: `1px solid ${COLORS.gold}25`,
         borderRadius: RADIUS.md,

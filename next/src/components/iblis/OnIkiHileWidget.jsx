@@ -24,9 +24,9 @@ function OnIkiHileWidget({ language, isMobile }) {
   ];
 
   return (
-    <div style={{
-      marginTop: isMobile ? '32px' : '48px',
-      padding: isMobile ? '20px 16px' : '32px 32px',
+    <div className="mq-box" style={{
+      '--mt-d': '48px', '--mt-m': '32px',
+      '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'rgba(255,255,255,0.02)',
       border: `1px solid ${COLORS.glassBorderSoft}`,
       borderRadius: RADIUS.lg,

@@ -42,8 +42,8 @@ export default function TekrarAnatomi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
@@ -115,7 +115,7 @@ export default function TekrarAnatomi({ onClose }) {
       {/* Anasayfa ZeroRedundancy section AYNEN */}
       <ZeroRedundancy />
 
-      <div style={{ padding: isMobile ? '0 16px 40px' : '0 32px 56px', maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1200px', margin: '0 auto' }}>
         <SourcesCitation
           language={language} isMobile={isMobile}
           sources={[

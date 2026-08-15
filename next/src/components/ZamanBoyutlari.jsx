@@ -511,11 +511,11 @@ export default function ZamanBoyutlari({ onClose }) {
     ];
 
     return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+      <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
 
         {/* ═══ LOG-SCALE TIMELINE VISUALIZATION (Dalga 2.3) ═══ */}
-        <div style={{
-          padding: isMobile ? '20px 16px' : '28px 32px',
+        <div className="mq-box" style={{
+          '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
           marginBottom: '32px',
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, rgba(255,255,255,0.02) 100%)',
           border: `1px solid ${COLORS.gold}44`,
@@ -550,7 +550,7 @@ export default function ZamanBoyutlari({ onClose }) {
             const minLog = 0, maxLog = 7.5;
             const range = maxLog - minLog;
             return (
-              <div style={{ position: 'relative', paddingTop: '14px', paddingBottom: isMobile ? '80px' : '90px' }}>
+              <div className="mq-box" style={{ position: 'relative', paddingTop: '14px', '--pb-d': '90px', '--pb-m': '80px' }}>
                 {/* Axis */}
                 <div style={{
                   position: 'relative', height: '2px',
@@ -780,9 +780,9 @@ export default function ZamanBoyutlari({ onClose }) {
         })}
 
         {/* ═══ FUSSILET 41:9-12 FORMULA WIDGET (Dalga 2.3) ═══ */}
-        <div style={{
+        <div className="mq-box" style={{
           marginTop: '32px',
-          padding: isMobile ? '20px 16px' : '32px 32px',
+          '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px",
           background: 'linear-gradient(180deg, rgba(167,139,250,0.05) 0%, rgba(255,255,255,0.02) 100%)',
           border: `1px solid #a78bfa55`,
           borderRadius: RADIUS.lg,
@@ -944,7 +944,7 @@ export default function ZamanBoyutlari({ onClose }) {
   // ── Tab 2: Dil Katmanı ────────────────────────────────────────────────────────
   function renderDil() {
     return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+      <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
         <h3 style={{
           fontFamily: FONTS.display,
           fontSize: '1.3rem',
@@ -1059,7 +1059,7 @@ export default function ZamanBoyutlari({ onClose }) {
   // ── Tab 3: Felsefe ────────────────────────────────────────────────────────────
   function renderFelsefe() {
     return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+      <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
         <h3 style={{
           fontFamily: FONTS.display,
           fontSize: '1.3rem',
@@ -1375,7 +1375,7 @@ export default function ZamanBoyutlari({ onClose }) {
     }
 
     return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+      <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
         <SectionTable
           sectionTitleTr="İlahi Zaman Ölçeği"
           sectionTitleEn="Divine Time Scale"
@@ -1423,7 +1423,7 @@ export default function ZamanBoyutlari({ onClose }) {
   function renderKaynaklar() {
     const isTr = language === 'tr';
     return (
-      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+      <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
         <h3 style={{
           fontFamily: FONTS.display,
           fontSize: '1.3rem',
@@ -1599,14 +1599,14 @@ export default function ZamanBoyutlari({ onClose }) {
       />
 
       {/* ── HERO (Cinematic) ──────────────────────────────────────────────── */}
-      <div style={{
-        padding: isMobile ? '40px 20px 28px' : '56px 48px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "48px", '--pl-m': "20px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
         {/* Bismillah */}
-        <div
+        <div className="mq-box"
           dir="rtl" lang="ar" aria-label="Bismillāh"
           style={{
             fontFamily: FONTS.bismillah,
@@ -1614,7 +1614,7 @@ export default function ZamanBoyutlari({ onClose }) {
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
-            marginBottom: isMobile ? '28px' : '40px',
+            '--mb-d': '40px', '--mb-m': '28px',
             textShadow: `0 0 22px ${COLORS.gold}28`,
           }}
         >
@@ -1731,12 +1731,12 @@ export default function ZamanBoyutlari({ onClose }) {
       </div>
 
       {/* Tab bar — §13.19 sticky pattern (Dalga 2.3 fix) */}
-      <div id="zaman-tab-bar" style={{
+      <div className="mq-box" id="zaman-tab-bar" style={{
         flexShrink: 0,
         display: 'flex',
         gap: '2px',
         overflowX: 'auto',
-        padding: isMobile ? '0 8px' : '0 16px',
+        '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)',
         backgroundColor: 'rgb(6, 8, 14)',
@@ -1750,7 +1750,7 @@ export default function ZamanBoyutlari({ onClose }) {
         {TABS.map(tab => {
           const isActive = tab.id === activeTab;
           return (
-            <button
+            <button className="mq-box"
               key={tab.id}
               onClick={() => {
                 setActiveTab(tab.id);
@@ -1764,7 +1764,7 @@ export default function ZamanBoyutlari({ onClose }) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: isMobile ? '14px 16px' : '16px 26px',
+                '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 border: 'none',
                 borderRadius: '0',
                 borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -1798,7 +1798,7 @@ export default function ZamanBoyutlari({ onClose }) {
         {activeTab === 'kaynaklar'     && renderKaynaklar()}
 
         {/* Cross-tool CTA — #202 (2026-07-16) */}
-        <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+        <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
           <CrossToolCTA
             language={language}
             isMobile={isMobile}

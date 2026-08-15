@@ -42,8 +42,8 @@ export default function SesMimarisi({ onClose }) {
       />
 
       {/* Cinematic Hero */}
-      <div style={{
-        padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      <div className="mq-box" style={{
+        '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
         background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
@@ -119,7 +119,7 @@ export default function SesMimarisi({ onClose }) {
       <SoundExtensions language={language} isMobile={isMobile} />
 
       {/* CrossToolCTA — sesin retorik, yemin ve renk boyutlarına köprü */}
-      <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '0 16px 80px' : '0 32px 100px' }}>
+      <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "100px", '--pb-m': "80px", '--pl-d': "32px", '--pl-m': "16px" }}>
         <CrossToolCTA
           language={language}
           isMobile={isMobile}

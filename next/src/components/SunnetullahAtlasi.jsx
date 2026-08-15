@@ -241,7 +241,7 @@ export default function SunnetullahAtlasi({ onClose }) {
 
   // #204 (2026-07-16) — Sünnetullah literatürü, hem loading hem main render (SSR SEO)
   const SOURCES = (
-    <div style={{ maxWidth: 1200, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '32px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1200, margin: '0 auto', '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <SourcesCitation
         language={language}
         isMobile={isMobile}
@@ -323,8 +323,8 @@ export default function SunnetullahAtlasi({ onClose }) {
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
-        <div style={{
-          padding: isMobile ? '40px 20px 28px' : '60px 48px 36px',
+        <div className="mq-box" style={{
+          '--pt-d': "60px", '--pt-m': "40px", '--pr-d': "48px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "48px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
@@ -355,7 +355,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
           {/* Bismillah ornament */}
-          <div
+          <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
             style={{
               fontFamily: FONTS.bismillah,
@@ -363,7 +363,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
-              marginBottom: isMobile ? '28px' : '40px',
+              '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}
           >
@@ -503,8 +503,8 @@ export default function SunnetullahAtlasi({ onClose }) {
               { value: scholarViews.length, tr: 'ulema', en: 'scholars', color: COLORS.skyBlue },
               { value: data.kavimPatterns?.length ?? 0, tr: 'kavim', en: 'nations', color: '#a78bfa' },
             ].map((s, i) => (
-              <div key={i} style={{
-                padding: isMobile ? '8px 14px' : '10px 18px',
+              <div className="mq-box" key={i} style={{
+                '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                 background: `${s.color}12`,
                 border: `1px solid ${s.color}30`,
                 borderRadius: RADIUS.pill,
@@ -541,10 +541,10 @@ export default function SunnetullahAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB BAR ───────────────────────────────────────────────────── */}
-        <div id="sunnetullah-tab-bar" style={{
+        <div className="mq-box" id="sunnetullah-tab-bar" style={{
           display: 'flex',
           gap: '2px',
-          padding: isMobile ? '0 8px' : '0 16px',
+          '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
@@ -560,7 +560,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           {TABS.map((tab, i) => {
             const isActive = activeTab === i;
             return (
-              <button
+              <button className="mq-box"
                 key={i}
                 onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('sunnetullah-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
                 style={{
@@ -570,7 +570,7 @@ export default function SunnetullahAtlasi({ onClose }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: isMobile ? '12px 14px' : '13px 22px',
+                  '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                   border: 'none',
                   background: isActive ? COLORS.goldAlpha15 : 'transparent',
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
@@ -604,7 +604,7 @@ export default function SunnetullahAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB CONTENT ───────────────────────────────────────────────── */}
-        <div style={{ padding: isMobile ? '20px 16px 48px' : '32px 40px 64px' }}>
+        <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "40px", '--pl-m': "16px" }}>
 
           {activeTab === 0 && (
             <TabLafziAyetler items={literalOccurrences} language={language} isMobile={isMobile} />
@@ -686,7 +686,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
   // uyarısı verir. Fix: long-form-only pattern.
   const { border: _b, ...glassBase } = GLASS_CARD;
   return (
-    <div
+    <div className="mq-box"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -700,7 +700,7 @@ function LiteralVerseCard({ item, language, isMobile }) {
         borderRightColor: hover ? `${COLORS.gold}55` : COLORS.glassBorder,
         borderBottomColor: hover ? `${COLORS.gold}55` : COLORS.glassBorder,
         borderLeftColor: COLORS.gold,
-        padding: isMobile ? '16px 16px 14px' : '20px 22px 18px',
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
         transform: hover ? 'translateY(-2px)' : 'translateY(0)',
         transition: 'all 0.2s',
         display: 'flex',
@@ -899,11 +899,11 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
         {categories.map(cat => {
           const isActive = cat.id === activeCategoryId;
           return (
-            <button
+            <button className="mq-box"
               key={cat.id}
               onClick={() => onSelect(cat.id)}
               style={{
-                padding: isMobile ? '6px 12px' : '8px 16px',
+                '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
@@ -931,8 +931,8 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
       </div>
 
       {/* Category header */}
-      <div style={{
-        padding: isMobile ? '20px 18px' : '26px 28px',
+      <div className="mq-box" style={{
+        '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "18px",
         background: `linear-gradient(135deg, ${active.color}12 0%, rgba(255,255,255,0.02) 60%)`,
         border: `1px solid ${active.color}35`,
         borderLeft: `4px solid ${active.color}`,
@@ -992,8 +992,8 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
       </div>
 
       {/* Scholar note */}
-      <div style={{
-        padding: isMobile ? '16px' : '20px 24px',
+      <div className="mq-box" style={{
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
         background: 'rgba(255,255,255,0.025)',
         border: `1px solid ${COLORS.glassBorder}`,
         borderRadius: '10px',
@@ -1049,12 +1049,12 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
 
       {/* Cross-link to Kavimler Atlası — somut helâk örnekleri için */}
       {active.id === 'helak-kanunu' && (
-        <button
+        <button className="mq-box"
           onClick={() => openOverlay('kavimler')}
           style={{
             width: '100%',
             marginTop: '20px',
-            padding: isMobile ? '14px 16px' : '14px 22px',
+            '--pt-d': "14px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
             background: 'rgba(212,165,116,0.06)',
             border: '1px solid rgba(212,165,116,0.3)',
             borderRadius: '10px',
@@ -1096,10 +1096,10 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
 
 function ThematicItemCard({ item, accent, index, language, isMobile }) {
   return (
-    <div style={{
+    <div className="mq-box" style={{
       ...VERSE_DISPLAY_CARD,
       borderLeft: `3px solid ${accent}`,
-      padding: isMobile ? '14px 16px' : '18px 22px',
+      '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
     }}>
       {/* Header: number badge + verseRef */}
       <div style={{
@@ -1171,8 +1171,8 @@ function WarningNote({ kind, label, body, isMobile }) {
   // kind: 'modern' => sky blue, 'science' => soft red (dikkat)
   const color = kind === 'science' ? COLORS.softRed : COLORS.skyBlue;
   return (
-    <div style={{
-      padding: isMobile ? '14px 16px' : '18px 22px',
+    <div className="mq-box" style={{
+      '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
       background: `${color}0D`,
       border: `1px solid ${color}40`,
       borderLeft: `3px solid ${color}`,
@@ -1244,10 +1244,10 @@ function ScholarCard({ view, language, isMobile }) {
   const accent = isFazlur ? COLORS.softRed : COLORS.gold;
 
   return (
-    <div style={{
+    <div className="mq-box" style={{
       ...GLASS_CARD,
       borderLeft: `3px solid ${accent}`,
-      padding: isMobile ? '18px 16px' : '24px 28px',
+      '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "16px",
       display: 'flex',
       flexDirection: 'column',
       gap: '12px',
@@ -1319,8 +1319,8 @@ function ScholarCard({ view, language, isMobile }) {
 
       {/* Fazlur Rahman — contested source warning (always visible) */}
       {isFazlur && (view.infoTr || view.infoEn) && (
-        <div style={{
-          padding: isMobile ? '14px 16px' : '16px 20px',
+        <div className="mq-box" style={{
+          '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "16px",
           background: `${COLORS.softRed}0D`,
           border: `1px solid ${COLORS.softRed}50`,
           borderRadius: '8px',
@@ -1375,10 +1375,10 @@ function FormulaBox({ formula, language, isMobile }) {
   const tr = language === 'tr';
   const parts = formula.partsTr; // both TR/EN share same structure keys
   return (
-    <div style={{
-      margin: isMobile ? '40px auto 0' : '48px auto 0',
+    <div className="mq-box" style={{
+      '--mt-d': "48px", '--mt-m': "40px", '--mr-d': "auto", '--mr-m': "auto", '--mb-d': "0", '--mb-m': "0", '--ml-d': "auto", '--ml-m': "auto",
       maxWidth: '820px',
-      padding: isMobile ? '24px 18px' : '32px 32px',
+      '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "18px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 100%)',
       border: `1px solid ${COLORS.gold}30`,
       borderRadius: RADIUS.md,
@@ -1436,11 +1436,11 @@ function FormulaBox({ formula, language, isMobile }) {
         {parts.map((p, i) => {
           const isActive = activePart === i;
           return (
-            <button
+            <button className="mq-box"
               key={i}
               onClick={() => setActivePart(isActive ? null : i)}
               style={{
-                padding: isMobile ? '12px 14px' : '14px 12px',
+                '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "12px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "12px", '--pl-m': "14px",
                 background: isActive ? `${COLORS.gold}18` : 'rgba(255,255,255,0.025)',
                 border: `1px solid ${isActive ? COLORS.gold + '55' : COLORS.gold + '20'}`,
                 borderRadius: RADIUS.sm,
@@ -1573,9 +1573,9 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
 function KavimComparisonGrid({ patterns, language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       marginBottom: '32px',
-      padding: isMobile ? '20px 16px' : '26px 28px',
+      '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "28px", '--pr-m': "16px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "28px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(212,165,116,0.01) 100%)',
       border: `1px solid ${COLORS.gold}25`,
       borderRadius: RADIUS.md,
@@ -1650,8 +1650,8 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
   const tr = language === 'tr';
   const accent = pattern.color || COLORS.gold;
   return (
-    <div style={{
-      padding: isMobile ? '20px 18px' : '28px 32px',
+    <div className="mq-box" style={{
+      '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "18px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "18px",
       background: `linear-gradient(135deg, ${accent}0A 0%, rgba(255,255,255,0.02) 45%)`,
       border: `1px solid ${accent}35`,
       borderLeft: `3px solid ${accent}`,

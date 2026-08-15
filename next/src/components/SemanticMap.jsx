@@ -120,7 +120,7 @@ export default function SemanticMap({ onClose }) {
 
   // #202 (2026-07-16) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '40px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "40px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -162,9 +162,9 @@ export default function SemanticMap({ onClose }) {
       {SEMANTIC_TOOL_HEADER}
 
       {/* Method note + filter bar */}
-      <div style={{
+      <div className="mq-box" style={{
         flexShrink: 0,
-        padding: isMobile ? '12px 16px 0' : '14px 24px 0',
+        '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "24px", '--pl-m': "16px",
         borderBottom: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
         background: 'rgba(8,10,18,0.92)',
         display: 'flex', flexDirection: 'column', gap: '10px',
@@ -248,9 +248,9 @@ export default function SemanticMap({ onClose }) {
 
       {/* Body: cluster grid + detail panel */}
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
-        <div style={{
+        <div className="mq-box" style={{
           flex: 1, overflowY: 'auto',
-          padding: isMobile ? '14px' : '18px 24px 32px',
+          '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '12px',

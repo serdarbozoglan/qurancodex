@@ -379,9 +379,9 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
             </div>
 
             {/* Search input + popular-search empty-state suggestions */}
-            <div
+            <div className="mq-box"
               style={{
-                padding: isMobile ? '12px 16px 0' : '14px 24px 0',
+                '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "24px", '--pl-m': "16px",
                 flexShrink: 0,
               }}
             >
@@ -435,12 +435,12 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
             </div>
 
             {/* Filter bar */}
-            <div
+            <div className="mq-box"
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '8px',
-                padding: isMobile ? '12px 16px' : '14px 24px',
+                '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "16px",
                 borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
                 flexShrink: 0,
               }}

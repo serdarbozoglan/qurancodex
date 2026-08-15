@@ -766,7 +766,7 @@ export default function WordHeatmap({ onClose }) {
       <div className="fd-row" style={{ flex: 1, display: 'flex',  overflow: 'hidden', minHeight: 0 }}>
 
         {/* Left: controls + grid */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: isMobile ? '10px 12px' : '14px 16px', gap: '10px', overflow: 'hidden', minHeight: 0 }}>
+        <div className="mq-box" style={{ flex: 1, display: 'flex', flexDirection: 'column', '--pt-d': "14px", '--pt-m': "10px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "14px", '--pb-m': "10px", '--pl-d': "16px", '--pl-m': "12px", gap: '10px', overflow: 'hidden', minHeight: 0 }}>
 
           {/* Search input — max-width to avoid spanning full ultra-wide panel */}
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0, maxWidth: '680px' }}>

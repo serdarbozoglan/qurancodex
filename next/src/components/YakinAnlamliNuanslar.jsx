@@ -86,8 +86,8 @@ export default function YakinAnlamliNuanslar({ onClose }) {
       {data && (
         <>
           {/* ─── Hero — §13.18 Premium ─────────────────────────────── */}
-          <div style={{
-            padding: isMobile ? '32px 16px 24px' : '48px 32px 32px',
+          <div className="mq-box" style={{
+            '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "32px", '--pl-m': "16px",
             background: `linear-gradient(180deg, ${COLORS.goldAlpha06} 0%, transparent 100%)`,
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
@@ -184,9 +184,9 @@ export default function YakinAnlamliNuanslar({ onClose }) {
           </div>
 
           {/* ─── Sticky chip strip (§13.19) — hem mobile hem desktop ─── */}
-          <div id="yn-set-bar" style={{
+          <div className="mq-box" id="yn-set-bar" style={{
             display: 'flex', gap: '6px',
-            padding: isMobile ? '10px 12px' : '12px 24px',
+            '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "24px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "24px", '--pl-m': "12px",
             overflowX: 'auto', scrollbarWidth: 'none',
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             background: 'rgb(6, 8, 14)',
@@ -200,7 +200,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
               const color = CATEGORY_COLORS[s.category] || COLORS.gold;
               const isActive = activeIdx === i;
               return (
-                <button
+                <button className="mq-box"
                   key={s.id}
                   onClick={() => {
                     setActiveIdx(i);
@@ -208,7 +208,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
                   }}
                   style={{
                     flexShrink: 0,
-                    padding: isMobile ? '8px 12px' : '10px 16px',
+                    '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "16px", '--pl-m': "12px",
                     fontSize: isMobile ? '0.7rem' : '0.76rem',
                     letterSpacing: '0.06em',
                     fontWeight: isActive ? 700 : 500,
@@ -234,9 +234,9 @@ export default function YakinAnlamliNuanslar({ onClose }) {
           </div>
 
           {/* ─── Detail panel ────────────────────────────────────── */}
-          <main ref={detailRef} style={{
+          <main className="mq-box" ref={detailRef} style={{
             flex: 1,
-            padding: isMobile ? '20px 16px 40px' : '32px 40px 60px',
+            '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "40px", '--pl-m': "16px",
             maxWidth: '1080px', width: '100%',
             margin: '0 auto',
             minHeight: 0,
@@ -322,9 +322,9 @@ function SetDetail({ nset, isEn, isMobile }) {
       {/* Terms — vertical stack */}
       <div style={{ display: 'grid', gap: '18px', marginBottom: '32px' }}>
         {nset.terms.map((t, i) => (
-          <div key={i} style={{
+          <div className="mq-box" key={i} style={{
             ...GLASS_CARD,
-            padding: isMobile ? '18px' : '22px',
+            '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "22px", '--pl-m': "18px",
             borderLeft: `3px solid ${color}`,
           }}>
             {/* Term header — Arabic + transliteration + root */}
@@ -409,8 +409,8 @@ function SetDetail({ nset, isEn, isMobile }) {
       </div>
 
       {/* Nuance summary — callout */}
-      <div style={{
-        padding: isMobile ? '18px' : '22px 26px',
+      <div className="mq-box" style={{
+        '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "22px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "18px",
         background: `linear-gradient(135deg, ${color}12 0%, ${color}04 100%)`,
         border: `1px solid ${color}33`,
         borderRadius: RADIUS.md,

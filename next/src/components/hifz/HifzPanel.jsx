@@ -171,9 +171,9 @@ export default function HifzPanel({
     });
 
     return shell(
-      <div style={{
+      <div className="mq-box" style={{
         display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : '14px',
-        padding: isMobile ? '12px 12px 12px 18px' : '8px 10px 8px 16px',
+        '--pt-d': "8px", '--pt-m': "12px", '--pr-d': "10px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "12px", '--pl-d': "16px", '--pl-m': "18px",
       }}>
         <span aria-hidden style={{ color: theme.gold, display: 'flex', flexShrink: 0 }}>
           <HifzIcon size={15} />
@@ -277,9 +277,9 @@ export default function HifzPanel({
       )}
 
       {/* Başlık */}
-      <div style={{
+      <div className="mq-box" style={{
         display: 'flex', alignItems: 'center', gap: '10px',
-        padding: isMobile ? '12px 16px 12px' : '14px 18px',
+        '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "18px", '--pl-m': "16px",
       }}>
         <span aria-hidden style={{ color: theme.gold, display: 'flex' }}><HifzIcon size={16} /></span>
         <span style={{
@@ -388,7 +388,7 @@ export default function HifzPanel({
       </div>
 
       {/* Birincil eylem — tam genişlik, tereddütsüz */}
-      <div style={{ padding: isMobile ? '14px 16px 18px' : '14px 18px 18px', borderTop: `1px solid ${theme.border}` }}>
+      <div className="mq-box" style={{ '--pt-d': "14px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "18px", '--pl-d': "18px", '--pl-m': "16px", borderTop: `1px solid ${theme.border}` }}>
         <button
           onClick={onStart}
           disabled={!canStart}
