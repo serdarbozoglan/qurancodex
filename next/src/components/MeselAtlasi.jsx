@@ -184,12 +184,57 @@ function Chip({ label, color, active, onClick, small }) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// TAB 0 — İmge Evreni (SVG cluster diagram)
+// TAB 0 — İmge Evreni (domain card grid)
 // ────────────────────────────────────────────────────────────────────────────
+function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isMobile, index }) {
+  const [hov, setHov] = useState(false);
+  const label = (language === 'tr' ? DOMAIN_LABELS_TR[domain.id] : DOMAIN_LABELS_EN[domain.id]) ?? domain.id;
+
+  return (
+    <button
+      onClick={() => onDomainFilter(domain.id)}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        all: 'unset', cursor: 'pointer', display: 'block', textAlign: language === 'tr' ? 'left' : 'left',
+        background: hov ? 'rgba(255,255,255,0.045)' : 'rgba(255,255,255,0.025)',
+        border: `1px solid ${hov ? `${domain.color}70` : `${domain.color}30`}`,
+        borderRadius: 14,
+        padding: isMobile ? '16px' : '18px 20px',
+        transform: hov ? 'translateY(-2px)' : 'none',
+        boxShadow: hov ? `0 8px 24px -8px ${domain.color}40` : 'none',
+        transition: 'all 0.2s ease',
+        height: '100%',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+        <span style={{
+          width: 10, height: 10, borderRadius: '50%', background: domain.color, flexShrink: 0,
+          boxShadow: `0 0 10px ${domain.color}90`,
+        }} />
+        <span style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : '1.08rem', fontWeight: 700, color: COLORS.offWhite }}>
+          {label.split(' / ')[0]}
+        </span>
+      </div>
+      <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: domain.color, fontWeight: 700, letterSpacing: '0.04em', marginBottom: 12 }}>
+        {count} {language === 'tr' ? 'imge' : 'motifs'}
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+        {exampleNodes.map(n => (
+          <span key={n.id} style={{
+            padding: '3px 9px', borderRadius: 99, fontSize: '0.7rem', fontFamily: FONTS.body,
+            background: `${domain.color}15`, color: COLORS.silver, border: `1px solid ${domain.color}25`,
+          }}>
+            {n.labelTr}
+          </span>
+        ))}
+      </div>
+    </button>
+  );
+}
+
 function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
-  const [hoveredDomain, setHoveredDomain] = useState(null);
-  const [hoveredNode,   setHoveredNode]   = useState(null);
-  const [mounted,       setMounted]       = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 50);
@@ -199,191 +244,54 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
   if (!data) return null;
 
   const domains = data.domains ?? [];
-
-  const CX = 400, CY = 400, ORBIT_R = 200;
-  const domainPositions = domains.map((d, i) => {
-    const angle = (i / domains.length) * 2 * Math.PI - Math.PI / 2;
-    return { id: d.id, x: CX + ORBIT_R * Math.cos(angle), y: CY + ORBIT_R * Math.sin(angle) };
-  });
-
-  const getSubNodePositions = (domainPos, nodes) => {
-    const count = nodes.length;
-    return nodes.map((n, i) => {
-      const spread = Math.min(count * 0.3, 1.2);
-      const startAngle = Math.atan2(domainPos.y - CY, domainPos.x - CX) - spread / 2;
-      const angle = startAngle + (count > 1 ? (i / (count - 1)) * spread : 0);
-      const r = 80;
-      return {
-        id: n.id, labelTr: n.labelTr, symbolises: n.symbolises,
-        x: domainPos.x + r * Math.cos(angle),
-        y: domainPos.y + r * Math.sin(angle),
-      };
-    });
-  };
-
-  const crossLines = [];
-  domains.forEach(domain => {
-    (domain.crossLinks ?? []).forEach(link => {
-      const fromDomainPos = domainPositions.find(p => p.id === domain.id);
-      const toDomainPos   = domainPositions.find(p => p.id === link.toDomain);
-      if (fromDomainPos && toDomainPos) {
-        crossLines.push({
-          x1: fromDomainPos.x, y1: fromDomainPos.y,
-          x2: toDomainPos.x,   y2: toDomainPos.y,
-        });
-      }
-    });
-  });
-
-  const DOMAIN_R = 38;
-  const NODE_R   = 12;
+  const totalNodes = domains.reduce((sum, d) => sum + d.nodes.length, 0);
 
   return (
-    <div className="mq-box" style={{ '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "24px", '--pr-m': "8px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "24px", '--pl-m': "8px" }}>
-      <div style={{ width: '100%', maxWidth: '680px', margin: '0 auto', position: 'relative' }}>
-        <svg aria-hidden="true" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" style={{ width: '100%', display: 'block' }}>
-          <defs>
-            <filter id="glow-gold">
-              <feGaussianBlur stdDeviation="4" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
+    <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "18px", '--pl-d': "24px", '--pl-m': "16px" }}>
+      <div style={{ maxWidth: 980, margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: 56, height: 56, borderRadius: '50%',
+            background: 'rgba(212,165,116,0.08)', border: `1px solid ${COLORS.goldAlpha25}`,
+            marginBottom: 14,
+          }}>
+            <span style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: '1.05rem', color: COLORS.gold, letterSpacing: '0.02em' }}>
+              أ
+            </span>
+          </div>
+          <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.55rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
+            {language === 'tr' ? 'İmge Evreni' : 'Imagery Universe'}
+          </h2>
+          <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.86rem' : '0.9rem', color: COLORS.silver, opacity: 0.85, maxWidth: 560, margin: '0 auto' }}>
+            {language === 'tr'
+              ? `Kur'ân mesellerinin çekildiği ${domains.length} imge alanı — ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
+              : `The ${domains.length} imagery domains Quranic parables draw from — ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
+          </p>
+        </div>
 
-          {crossLines.map((l, i) => (
-            <line key={i} x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
-              stroke="#c9a227" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="4,4" />
-          ))}
-
-          {domainPositions.map(dp => (
-            <line key={dp.id + '-spoke'} x1={CX} y1={CY} x2={dp.x} y2={dp.y}
-              stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-          ))}
-
-          {domains.map((domain, i) => {
-            const dp  = domainPositions[i];
-            const snp = getSubNodePositions(dp, domain.nodes);
-            return snp.map(sn => (
-              <line key={sn.id + '-spoke'} x1={dp.x} y1={dp.y} x2={sn.x} y2={sn.y}
-                stroke={domain.color} strokeOpacity="0.2" strokeWidth="1" />
-            ));
-          })}
-
-          {domains.map((domain, i) => {
-            const dp  = domainPositions[i];
-            const snp = getSubNodePositions(dp, domain.nodes);
-            return snp.map((sn, j) => {
-              const isHov = hoveredNode?.id === sn.id;
-              const delay = (i * domain.nodes.length + j) * 60;
-              return (
-                <g key={sn.id}
-                  style={{ opacity: mounted ? 1 : 0, transition: `opacity 0.4s ease ${delay}ms`, cursor: 'pointer' }}
-                  onClick={() => onDomainFilter(domain.id)}
-                  onMouseEnter={() => setHoveredNode({ ...sn })}
-                  onMouseLeave={() => setHoveredNode(null)}
-                >
-                  <circle cx={sn.x} cy={sn.y} r={NODE_R}
-                    fill={domain.color} fillOpacity={isHov ? 0.5 : 0.2}
-                    stroke={domain.color} strokeOpacity={isHov ? 1 : 0.5} strokeWidth="1"
-                    style={{ transition: 'all 0.2s ease' }}
-                  />
-                </g>
-              );
-            });
-          })}
-
-          {domains.map((domain, i) => {
-            const dp    = domainPositions[i];
-            const isHov = hoveredDomain === domain.id;
-            const delay = i * 100;
-            return (
-              <g key={domain.id}
-                style={{ opacity: mounted ? 1 : 0, transition: `opacity 0.5s ease ${delay}ms`, cursor: 'pointer' }}
-                onClick={() => onDomainFilter(domain.id)}
-                onMouseEnter={() => setHoveredDomain(domain.id)}
-                onMouseLeave={() => setHoveredDomain(null)}
-              >
-                <circle cx={dp.x} cy={dp.y} r={isHov ? DOMAIN_R * 1.1 : DOMAIN_R}
-                  fill={domain.color} fillOpacity={isHov ? 0.25 : 0.15}
-                  stroke={domain.color} strokeOpacity={isHov ? 1 : 0.6} strokeWidth={isHov ? 2 : 1.5}
-                  filter={isHov ? 'url(#glow-gold)' : undefined}
-                  style={{ transition: 'all 0.2s ease' }}
-                />
-                <text x={dp.x} y={dp.y + 4}
-                  textAnchor="middle" fill={domain.color} fontSize={isMobile ? '9' : '10'}
-                  fontFamily="Inter, sans-serif" fontWeight="600">
-                  {(language === 'tr' ? DOMAIN_LABELS_TR[domain.id] : DOMAIN_LABELS_EN[domain.id])?.split(' / ')[0] ?? domain.id}
-                </text>
-              </g>
-            );
-          })}
-
-          <g style={{ opacity: mounted ? 1 : 0, transition: 'opacity 0.3s ease' }}>
-            <circle cx={CX} cy={CY} r={48} fill="#0a0a1a" stroke={COLORS.gold} strokeWidth="2" strokeOpacity="0.8" />
-            <circle cx={CX} cy={CY} r={52} fill="none" stroke={COLORS.gold} strokeWidth="0.5" strokeOpacity="0.25" />
-            <text x={CX} y={CY - 4} textAnchor="middle" fill={COLORS.gold}
-              fontSize="11" fontFamily="Inter, sans-serif" fontWeight="700" letterSpacing="1">
-              EMSÂL
-            </text>
-            <text x={CX} y={CY + 12} textAnchor="middle" fill={COLORS.silver}
-              fontSize="8.5" fontFamily="Inter, sans-serif" opacity="0.7">
-              Kur'an'ın Meselleri
-            </text>
-          </g>
-
-          {hoveredNode && (
-            <g>
-              <rect
-                x={Math.min(hoveredNode.x - 70, 650)} y={hoveredNode.y - 52}
-                width="140" height="44" rx="6"
-                fill="rgba(8,9,26,0.95)" stroke="rgba(255,255,255,0.12)" strokeWidth="1"
-              />
-              <text x={Math.min(hoveredNode.x, 720)} y={hoveredNode.y - 33}
-                textAnchor="middle" fill={COLORS.offWhite} fontSize="9" fontFamily="Inter, sans-serif" fontWeight="600">
-                {hoveredNode.labelTr}
-              </text>
-              <text x={Math.min(hoveredNode.x, 720)} y={hoveredNode.y - 18}
-                textAnchor="middle" fill={COLORS.silver} fontSize="8" fontFamily="Inter, sans-serif">
-                {hoveredNode.symbolises?.length > 32 ? hoveredNode.symbolises.slice(0, 31) + '…' : hoveredNode.symbolises}
-              </text>
-            </g>
-          )}
-        </svg>
-      </div>
-
-      {isMobile && (
-        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', scrollbarWidth: 'none', marginTop: '12px', paddingBottom: '4px' }}>
-          {domains.map(d => (
-            <button key={d.id} onClick={() => onDomainFilter(d.id)}
-              style={{
-                padding: '5px 12px', borderRadius: '99px', border: `1px solid ${d.color}55`,
-                background: d.color + '22', color: d.color,
-                fontSize: '0.75rem', fontFamily: FONTS.body, fontWeight: 600,
-                cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0,
-              }}>
-              {DOMAIN_LABELS_TR[d.id]?.split(' / ')[0]}
-            </button>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(230px, 1fr))',
+          gap: 14,
+          opacity: mounted ? 1 : 0,
+          transform: mounted ? 'none' : 'translateY(8px)',
+          transition: 'opacity 0.4s ease, transform 0.4s ease',
+        }}>
+          {domains.map((domain, i) => (
+            <DomainCard
+              key={domain.id}
+              domain={domain}
+              count={domain.nodes.length}
+              exampleNodes={domain.nodes.slice(0, 3)}
+              onDomainFilter={onDomainFilter}
+              language={language}
+              isMobile={isMobile}
+              index={i}
+            />
           ))}
         </div>
-      )}
-
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '16px' }}>
-        {(language === 'tr'
-          ? ['72 Mesel', '8 İmge Alanı', '90+ Ayet', '7 Hayvan Sûresi']
-          : ['72 Parables', '8 Imagery Domains', '90+ Verses', '7 Animal Surahs']
-        ).map(s => (
-          <span key={s} style={{
-            ...GLASS_CARD, padding: '5px 14px',
-            color: COLORS.gold, fontSize: '0.8rem', fontFamily: FONTS.body, fontWeight: 600,
-            border: `1px solid ${COLORS.goldAlpha25}`,
-          }}>
-            {s}
-          </span>
-        ))}
       </div>
-
-      <p style={{ textAlign: 'center', color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, marginTop: '10px', opacity: 0.78 }}>
-        {language === 'tr' ? 'Bir imge alanına tıkla → Mesel Kataloğu\'na filtreli geç' : 'Click an imagery domain → go to filtered Parable Catalogue'}
-      </p>
     </div>
   );
 }
@@ -508,117 +416,121 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
             <div key={p.id}
               onClick={() => handleExpand(p)}
               style={{
-                ...GLASS_CARD,
-                padding: '14px 16px',
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: 16,
                 cursor: 'pointer',
-                borderColor: isExpanded ? domColor + '55' : COLORS.glassBorder,
-                transition: 'border-color 0.2s',
+                background: `linear-gradient(165deg, ${domColor}14 0%, rgba(255,255,255,0.025) 55%)`,
+                border: `1px solid ${isExpanded ? `${domColor}70` : `${domColor}28`}`,
+                boxShadow: isExpanded ? `0 8px 28px -10px ${domColor}45` : 'none',
+                transition: 'border-color 0.2s, box-shadow 0.2s',
               }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: RADIUS.full, background: domColor, flexShrink: 0 }} />
-                <span style={{ color: domColor, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600, flex: 1 }}>
-                  {language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain]}
-                </span>
-                {/* #198 (2026-07-16) — Bookmark this parable */}
-                <div onClick={e => e.stopPropagation()} style={{ flexShrink: 0 }}>
-                  <BookmarkButton
-                    item={{
-                      id: `atlas-mesel:${p.id}`,
-                      type: 'atlas-mesel',
-                      title: language === 'tr' ? p.nameTr : (p.nameEn || p.nameTr),
-                      subtitle: `${p.surah}:${p.ayah}`,
-                      description: (language === 'tr' ? p.summaryTr : (p.summaryEn || p.summaryTr) || '').slice(0, 240),
-                      url: `/${language}/atlas/mesel`,
-                    }}
-                    size="sm"
-                    language={language}
-                  />
-                </div>
-              </div>
-              <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>
-                {p.nameTr}
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '5px',
-                  padding: '3px 10px', borderRadius: '99px',
-                  background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-                  color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body,
-                }}>
-                  {surahRef(`${p.surah}:${p.ayah}`)}
-                </span>
-                <span style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '4px',
-                  fontSize: '0.68rem', color: COLORS.silver, fontFamily: FONTS.body,
-                }}>
-                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
-                    style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', color: isExpanded ? COLORS.gold : COLORS.silver }}>
-                    <path d="M6 9l6 6 6-6"/>
-                  </svg>
-                  <span style={{ color: isExpanded ? COLORS.gold : COLORS.silver }}>
-                    {isExpanded ? (language === 'tr' ? 'Kapat' : 'Close') : (language === 'tr' ? 'Ayeti Gör' : 'See Verse')}
-                  </span>
-                </span>
-              </div>
-              <div style={{
-                fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.45rem',
-                direction: 'rtl', textAlign: 'right', lineHeight: 2, marginBottom: '6px',
-              }} dir="rtl" lang="ar">
-                {cleanArabic(p.keyPhrase)}
-              </div>
-              <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.5, margin: '0 0 8px' }}>
-                {p.summaryTr}
-              </p>
-              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <span style={{
-                  padding: '2px 8px', borderRadius: '99px',
-                  background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`,
-                  color: COLORS.gold, fontSize: '0.7rem', fontFamily: FONTS.body,
-                }}>
-                  {CATEGORY_LABELS_TR[p.category]}
-                </span>
-                <span style={{
-                  padding: '2px 8px', borderRadius: '99px',
-                  background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.25)',
-                  color: COLORS.purple, fontSize: '0.7rem', fontFamily: FONTS.body,
-                }}>
-                  {PARABLE_TYPE_LABELS[p.parableType]}
-                </span>
-                {p.pairedWith && (
-                  <button onClick={e => { e.stopPropagation(); onPairLink(p.pairedWith); }}
-                    style={{
-                      padding: '2px 8px', borderRadius: '99px',
-                      background: 'rgba(52,152,219,0.1)', border: '1px solid rgba(52,152,219,0.25)',
-                      color: COLORS.skyBlue, fontSize: '0.7rem', fontFamily: FONTS.body,
-                      cursor: 'pointer',
-                    }}>
-                    Çift →
-                  </button>
-                )}
+              {/* Bookmark — quiet, top-right corner */}
+              <div onClick={e => e.stopPropagation()} style={{ position: 'absolute', top: 14, right: 14, zIndex: 1 }}>
+                <BookmarkButton
+                  item={{
+                    id: `atlas-mesel:${p.id}`,
+                    type: 'atlas-mesel',
+                    title: language === 'tr' ? p.nameTr : (p.nameEn || p.nameTr),
+                    subtitle: `${p.surah}:${p.ayah}`,
+                    description: (language === 'tr' ? p.summaryTr : (p.summaryEn || p.summaryTr) || '').slice(0, 240),
+                    url: `/${language}/atlas/mesel`,
+                  }}
+                  size="sm"
+                  language={language}
+                />
               </div>
 
-              {isExpanded && (
-                <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: `1px solid ${COLORS.glassBorderSoft}` }}>
-                  {verseData?.loading && (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body }}>
-                      <div style={{ width: '14px', height: '14px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
-                      {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
-                    </div>
-                  )}
-                  {verseData && !verseData.loading && verseData.arabic && (
-                    <div>
-                      <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.55rem', direction: 'rtl', textAlign: 'right', lineHeight: 2.2, margin: '0 0 8px' }} dir="rtl" lang="ar">
-                        {verseData.arabic}
-                      </p>
-                      {verseData.turkish && (
-                        <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, lineHeight: 1.6, fontStyle: 'italic', margin: 0 }}>
-                          {verseData.turkish}
-                        </p>
-                      )}
-                    </div>
-                  )}
+              <div style={{ padding: isMobile ? '18px 18px 16px' : '22px 24px 18px' }}>
+                {/* Meta row — domain + surah ref, quiet text, no pill clutter */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+                  <span style={{ width: 7, height: 7, borderRadius: '50%', background: domColor, boxShadow: `0 0 8px ${domColor}80`, flexShrink: 0 }} />
+                  <span style={{ color: domColor, fontSize: '0.7rem', fontFamily: FONTS.body, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                    {(language === 'tr' ? DOMAIN_LABELS_TR[p.imageryDomain] : DOMAIN_LABELS_EN[p.imageryDomain])?.split(' / ')[0]}
+                  </span>
+                  <span style={{ color: COLORS.silver, opacity: 0.4, fontSize: '0.7rem' }}>·</span>
+                  <span style={{ color: COLORS.silver, opacity: 0.75, fontSize: '0.7rem', fontFamily: FONTS.body }}>
+                    {surahRef(`${p.surah}:${p.ayah}`)}
+                  </span>
                 </div>
-              )}
+
+                {/* Title — display font, real weight */}
+                <div style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontWeight: 700, fontSize: isMobile ? '1.08rem' : '1.18rem', lineHeight: 1.3, marginBottom: 16 }}>
+                  {p.nameTr}
+                </div>
+
+                {/* Hero Arabic — the card's visual centerpiece */}
+                <div style={{
+                  fontFamily: FONTS.quran, color: COLORS.gold, fontSize: isMobile ? '1.6rem' : '1.8rem',
+                  direction: 'rtl', textAlign: 'center', lineHeight: 2.1, margin: '0 0 16px',
+                  padding: isMobile ? '6px 4px' : '10px 12px',
+                }} dir="rtl" lang="ar">
+                  {cleanArabic(p.keyPhrase)}
+                </div>
+
+                <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.84rem' : '0.87rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: '0 0 16px', opacity: 0.92 }}>
+                  {p.summaryTr}
+                </p>
+
+                {/* Footer — single rhetoric-type label + expand cue */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 14, borderTop: `1px solid ${domColor}20` }}>
+                  <span style={{ color: COLORS.silver, opacity: 0.65, fontSize: '0.72rem', fontFamily: FONTS.body }}>
+                    {PARABLE_TYPE_LABELS[p.parableType]}
+                    {p.pairedWith && (
+                      <>
+                        <span style={{ opacity: 0.5 }}> · </span>
+                        <button onClick={e => { e.stopPropagation(); onPairLink(p.pairedWith); }}
+                          style={{ all: 'unset', cursor: 'pointer', color: CATEGORY.blue, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                          {language === 'tr' ? 'Çift meseli gör →' : 'See paired parable →'}
+                        </button>
+                      </>
+                    )}
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: '0.72rem', color: isExpanded ? COLORS.gold : COLORS.silver, fontFamily: FONTS.body, fontWeight: 600 }}>
+                    {isExpanded ? (language === 'tr' ? 'Kapat' : 'Close') : (language === 'tr' ? 'Ayeti Gör' : 'See Verse')}
+                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                      style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </span>
+                </div>
+
+                {isExpanded && (
+                  <div style={{ marginTop: 16, paddingTop: 16, borderTop: `1px solid ${domColor}20` }}>
+                    {verseData?.loading && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body }}>
+                        <div style={{ width: '14px', height: '14px', border: `1.5px solid ${COLORS.goldAlpha15}`, borderTopColor: COLORS.gold, borderRadius: RADIUS.full, animation: 'spin 0.8s linear infinite' }} />
+                        {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
+                      </div>
+                    )}
+                    {verseData && !verseData.loading && verseData.arabic && (
+                      <div>
+                        <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: isMobile ? '1.35rem' : '1.5rem', direction: 'rtl', textAlign: 'center', lineHeight: 2.2, margin: '0 0 12px' }} dir="rtl" lang="ar">
+                          {verseData.arabic}
+                        </p>
+                        {verseData.turkish && (
+                          <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, fontStyle: 'italic', margin: '0 0 14px' }}>
+                            {verseData.turkish}
+                          </p>
+                        )}
+                        <div style={{ display: 'flex', gap: 8 }}>
+                          <span style={{
+                            padding: '3px 10px', borderRadius: 99, fontSize: '0.7rem', fontFamily: FONTS.body,
+                            background: COLORS.goldAlpha15, border: `1px solid ${COLORS.goldAlpha25}`, color: COLORS.gold,
+                          }}>
+                            {CATEGORY_LABELS_TR[p.category]}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                    {verseData && !verseData.loading && !verseData.arabic && (
+                      <div style={{ color: COLORS.softRed, fontSize: '0.8rem', fontFamily: FONTS.body }}>
+                        {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
@@ -715,6 +627,11 @@ function TabCiftMeseller({ pairs, parables: _parables, scrollToPairId, language,
               {verse.arabic}
             </p>
             {verse.turkish && <p style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>{verse.turkish}</p>}
+          </div>
+        )}
+        {verse && !verse.loading && !verse.arabic && (
+          <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: `1px solid ${COLORS.glassBorderSoft}`, color: COLORS.softRed, fontSize: '0.78rem', fontFamily: FONTS.body }}>
+            {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
           </div>
         )}
       </div>
@@ -953,6 +870,11 @@ function TabNurZulumat({ data, language, isMobile }) {
                   </div>
                 )}
                 {loaded?.loading && <div style={{ marginTop: '6px', color: COLORS.silver, fontSize: '0.75rem', fontFamily: FONTS.body }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>}
+                {loaded && !loaded.loading && !loaded.arabic && (
+                  <div style={{ marginTop: '6px', color: COLORS.softRed, fontSize: '0.75rem', fontFamily: FONTS.body }}>
+                    {language === 'tr' ? 'Ayet şu anda yüklenemedi — kaynak servis erişilemez durumda. Lütfen daha sonra tekrar deneyin.' : 'The verse could not be loaded right now — the source service is unreachable. Please try again later.'}
+                  </div>
+                )}
               </div>
             );
           })}
