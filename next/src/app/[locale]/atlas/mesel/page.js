@@ -7,8 +7,8 @@ import MeselAtlasiRoute from './MeselAtlasiRoute';
 const PATH = '/atlas/mesel';
 const TITLE_TR = 'Mesel Atlası';
 const TITLE_EN = 'Atlas of Quranic Parables';
-const DESC_TR = "Kur'an'da ~50 mesel — sinek, örümcek, ağaç, ışık, ateş, su — 7 imge evrenine ayrılmış sembolik dil haritası.";
-const DESC_EN = "About 50 parables in the Quran — fly, spider, tree, light, fire, water — a symbolic-language map organised into 7 image worlds.";
+const DESC_TR = "Kur'an'da 72 mesel — sinek, örümcek, ağaç, ışık, ateş, su — 8 imge evrenine ayrılmış sembolik dil haritası.";
+const DESC_EN = "72 parables in the Quran — fly, spider, tree, light, fire, water — a symbolic-language map organised into 8 image worlds.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
