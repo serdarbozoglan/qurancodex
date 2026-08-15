@@ -1167,9 +1167,50 @@ gerektiriyor (muhtemelen 10-15 dosya, `/oku` dahil).
       **Kalan (bilinçli kapsam dışı, ayrı turlar):** küçük padding
       farkları (~600+ örnek, CLS eşiğinin genelde altında — 70 dosyalık
       site-geneli tarama kendi turunu gerektiriyor), ReadingMode içerik-
-      alanı minHeight'ı, SurahComparator/ConceptGraph'ın gerçek
-      fetch-remount'u (12.3 MB veri dosyası — mimari doğru, iskelet
-      boyutu ayrı bir çözüm gerektiriyor).
+      alanı minHeight'ı.
+      ~~SurahComparator/ConceptGraph fetch-remount~~ ✅ 14 Ağustos gecesi
+      kapatıldı, bkz. aşağıdaki 14 Ağustos notu (`4782823`).
+
+#### 14 Ağustos (gece) · SurahComparator/ConceptGraph — sibling-position CLS kapatıldı
+
+Kullanıcı onayıyla ("SurahComparator/ConceptGraph fetch-remount") bu iki
+sayfanın gerçek fetch-remount kaynaklı CLS'i çözüldü — **kök sebep önceki
+varsayımdan farklı çıktı**: sorun `LoadingOverlay`/skeleton'ın kendi boyutu
+değil, **`CrossToolCTA`'nın KONUM sıçraması**. `CrossToolCTA` her iki
+bileşende de loading/landing bloğunun koşulsuz render edilen KARDEŞİ;
+üstteki blok küçükken (spinner) CTA'nın Y konumu yukarıda kalıyor, veri
+gelip blok "gerçek içerik" boyutuna büyüyünce CTA aşağı fırlıyor — bu bir
+boyut değişimi değil, bir **konum** sıçraması (Z3-V kök #2 ile aynı aile,
+farklı mekanizma; teşhis `scratch-diag-sc2.mjs` ile çok-zaman-noktalı DOM
+rect ölçümüyle yapıldı).
+
+- **SurahComparator:** loading bloğuna `minHeight: '70vh'` yeterliydi —
+  mobil CLS **0.768 → 0.094**, masaüstü ~0 → 0.005.
+- **ConceptGraph — iki katmanlı sorun çıktı, tek `minHeight` yetmedi:**
+  1. İlk `minHeight:'70vh'` denemesi CLS'i **kötüleştirdi** (0.325 → 0.519).
+     Sebep: `verses`/`concepts` fetch'i bitince (`!verses||!concepts` artık
+     false) loading bloğu kayboluyor, ama concept-verse map arka planda
+     `setTimeout` ile chunk'lanarak hesaplanırken (`loadingData` state'i)
+     bir süre daha `true` kalıyor — bu ARA PENCEREDE loading bloğunun
+     koşulu (`loadingData`'ya hiç bakmıyordu) da landing bloğunun koşulu
+     (`!loadingData` bekliyor) da false oluyor, **hiçbir şey render
+     olmuyor**, CTA doğrudan header altına (y≈110) düşüyor — sonra gerçek
+     landing gelince tekrar aşağı kayıyor. İki sıçrama, tek sıçramadan kötü.
+  2. Loading bloğunun koşuluna `loadingData` eklendi (ara pencereyi de
+     kapsuyor) + `minHeight:'100vh'` (gerçek landing içeriği — concept
+     grid'in tam listesi — ~2757px, eşleştirmek anlamsız; bunun yerine
+     skeleton'ı header+100vh > viewport yüksekliği yapıp CTA'nın başlangıç
+     konumunu görünür alanın tamamen DIŞINA itmek yeterli oldu — CTA hiç
+     görünür alana girmeden büyüyor, Layout Instability API görünür
+     alan kesişimi sıfır olduğu için sıçramayı saymıyor).
+     Sonuç: mobil CLS **~0.32 → 0.000** (8sn'lik uzun pencere ölçümüyle
+     doğrulandı, standart 3sn'lik ölçüm zaten geçiyordu ama geçiş anını
+     kaçırabiliyordu — kısa pencere yanlışlıkla "0.000" gösterebilir,
+     ölçüm süresini içeriğin gerçekten yüklenip yerleştiği ana göre ayarla).
+
+Doğrulama: `npm run build` temiz, `audit-colors --ci` 179/182,
+`audit-internal-leak --ci` temiz, 4 rotada (tr/en × kavram/karsilastir)
+sıfır konsol hatası. Commit `4782823`, push edildi.
 - [ ] TBT ihlalleri (7 ölçüm) — ayrıca incelenmedi, CLS'in yanında ikincil.
 - [ ] Kullanıcı notu: **"mobildeki yavaşlığı da çözelim"** — CWV'de LCP/FCP
       temiz çıktığı için bu his muhtemelen CLS'in kendisi (sayfa "zıplıyor"
