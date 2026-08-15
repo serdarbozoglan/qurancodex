@@ -276,7 +276,7 @@ export default function TefekkurHighlight({ compact = false }) {
           }}
         >
           {language === 'tr'
-            ? <>Felsufi'nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an {liveCount} yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{categoryCount} kategoride</strong> derinlikli denemeler. Kur'an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
+            ? <>Felsufi&apos;nin yazılarından — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>şu an {liveCount} yayında</strong>, <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{categoryCount} kategoride</strong> derinlikli denemeler. Kur&apos;an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan bir tefekkür çağrısı.</>
             : <>Essays by Felsufi — <strong style={{ color: COLORS.gold, fontWeight: 700 }}>{liveCount} currently live</strong>, across <strong style={{ color: COLORS.softGold, fontWeight: 600 }}>{categoryCount} categories</strong>. From the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. One invitation to reflect.</>}
         </motion.p>
       )}

@@ -82,7 +82,7 @@ export default function Ritim({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? 'Andolsun yıldıza, kayıp düştüğü zaman.' : 'By the star when it falls.'}"
+          &quot;{tr ? 'Andolsun yıldıza, kayıp düştüğü zaman.' : 'By the star when it falls.'}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

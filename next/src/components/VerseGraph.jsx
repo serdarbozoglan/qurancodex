@@ -3480,7 +3480,7 @@ function ShareModal({ node, language, onClose }) {
             {cleanArabicForGraph(node.arabic)}
           </div>
           <div style={{ color: '#c8c5c0', fontSize: '0.88rem', lineHeight: 1.8, borderLeft: '2px solid rgba(212,165,116,0.3)', paddingLeft: '12px', marginBottom: '12px' }}>
-            "{vt}"
+            &quot;{vt}&quot;
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: gold, fontSize: '0.72rem', fontWeight: 700 }}>{ref}</span>

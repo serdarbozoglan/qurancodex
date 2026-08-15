@@ -308,8 +308,8 @@ export default function ImpossibleRhythm() {
           <span style={{ fontSize: '0.8rem', lineHeight: 1 }}>ℹ</span>
           <span>
             {language === 'tr'
-              ? <>Bu değerlendirme Arap dili ve edebiyatı kriterlerine göre yapılmaktadır. "Bir benzeri getirin" lafzı Kur'ân'ın <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddî</em> (meydan okuma) ayetlerine dayanır: Bakara 2:23, Yûnus 10:38, Hûd 11:13, İsrâ 17:88, Tûr 52:33–34.</>
-              : <>This assessment is based on the criteria of classical Arabic language and literature. The "bring something like it" phrase derives from the Quran's <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddī</em> (challenge) verses: al-Baqara 2:23, Yūnus 10:38, Hūd 11:13, al-Isrāʾ 17:88, al-Ṭūr 52:33–34.</>}
+              ? <>Bu değerlendirme Arap dili ve edebiyatı kriterlerine göre yapılmaktadır. &quot;Bir benzeri getirin&quot; lafzı Kur&apos;ân&apos;ın <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddî</em> (meydan okuma) ayetlerine dayanır: Bakara 2:23, Yûnus 10:38, Hûd 11:13, İsrâ 17:88, Tûr 52:33–34.</>
+              : <>This assessment is based on the criteria of classical Arabic language and literature. The &quot;bring something like it&quot; phrase derives from the Quran&apos;s <em style={{ color: COLORS.gold, opacity: 0.85, fontStyle: 'normal' }}>tahaddī</em> (challenge) verses: al-Baqara 2:23, Yūnus 10:38, Hūd 11:13, al-Isrāʾ 17:88, al-Ṭūr 52:33–34.</>}
           </span>
         </p>
       </motion.div>
@@ -560,22 +560,22 @@ export default function ImpossibleRhythm() {
                             <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>Sadece iki form değil, bilinen her form denendi.</span>{' '}
-                                7. yüzyıl Arapça'sında şiir ve düzyazının yanı sıra üç form daha vardı: <em>sac'</em> (kâhinlerin kısa kafiyeli düzyazısı), <em>hutbe</em> (hitabet düzyazısı) ve <em>mesel</em> (veciz atasözü formu). Kur'an bunların hiçbirine de uymadı.
+                                7. yüzyıl Arapça&apos;sında şiir ve düzyazının yanı sıra üç form daha vardı: <em>sac&apos;</em> (kâhinlerin kısa kafiyeli düzyazısı), <em>hutbe</em> (hitabet düzyazısı) ve <em>mesel</em> (veciz atasözü formu). Kur&apos;an bunların hiçbirine de uymadı.
                               </p>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>Serbest şiirle farkı nedir?</span>{' '}
-                                Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı — 19. yüzyıl Batı edebiyatının kasıtlı bir kırılması. Kur'an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
+                                Serbest şiir (free verse) tanımlanabilir bir geleneğin içinden çıktı — 19. yüzyıl Batı edebiyatının kasıtlı bir kırılması. Kur&apos;an ise mevcut hiçbir geleneğin kırılması değil; o geleneklerin dışında, 7. yüzyılda, referans noktasız ortaya çıktı.
                               </p>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>Tahaddi — meydan okuma.</span>{' '}
-                                Kur'an bizzat meydan okudu: "Benzerini getirin." Bunu duyanlar hem o dili en iyi bilen hem de onu çürütmek için her nedeni olan insanlardı. 1.400 yıl boyunca kimse bu meydan okumayı karşılayamadı.
+                                Kur&apos;an bizzat meydan okudu: &quot;Benzerini getirin.&quot; Bunu duyanlar hem o dili en iyi bilen hem de onu çürütmek için her nedeni olan insanlardı. 1.400 yıl boyunca kimse bu meydan okumayı karşılayamadı.
                               </p>
                             </div>
                           ) : (
                             <div className="font-body text-sm leading-relaxed" style={{ color: 'rgba(232,230,227,0.75)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>Not just two forms — every known form was tested.</span>{' '}
-                                7th-century Arabic had more than poetry and prose: <em>saj'</em> (the rhymed cadenced prose of soothsayers), <em>khutba</em> (oratory prose), and <em>masal</em> (the concise proverb form). The Quran matched none of these either.
+                                7th-century Arabic had more than poetry and prose: <em>saj&apos;</em> (the rhymed cadenced prose of soothsayers), <em>khutba</em> (oratory prose), and <em>masal</em> (the concise proverb form). The Quran matched none of these either.
                               </p>
                               <p>
                                 <span style={{ color: COLORS.gold, fontWeight: 600 }}>How is it different from free verse?</span>{' '}
@@ -908,7 +908,7 @@ export default function ImpossibleRhythm() {
             style={{ padding: '4px 10px', borderRadius: RADIUS.pill, background: 'rgba(212,165,116,0.08)', border: '1px solid rgba(212,165,116,0.25)' }}
           >
             <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: COLORS.gold, display: 'inline-block' }} />
-            <span className="text-silver/80">'-â' {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
+            <span className="text-silver/80">&apos;-â&apos; {language === 'tr' ? 'sesi (55 ayet)' : 'sound (55 verses)'}</span>
           </span>
           <span
             className="flex items-center gap-1.5 text-xs font-body"
@@ -930,8 +930,8 @@ export default function ImpossibleRhythm() {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
           <p className="text-gold font-body text-sm">
             {language === 'tr'
-              ? <>62 ayetin <strong>55'i</strong> (~%89) aynı '-â' sesiyle bitiyor.</>
-              : <>55 of 62 verses (~89%) end with the same '-â' sound.</>}
+              ? <>62 ayetin <strong>55&apos;i</strong> (~%89) aynı &apos;-â&apos; sesiyle bitiyor.</>
+              : <>55 of 62 verses (~89%) end with the same &apos;-â&apos; sound.</>}
           </p>
           <div className="relative" style={{ flexShrink: 0, marginTop: '1px' }}>
             <button
@@ -961,8 +961,8 @@ export default function ImpossibleRhythm() {
                 style={{ background: '#1a2a3a', border: '1px solid rgba(212,165,116,0.25)', width: '260px', top: '28px' }}
               >
                 {language === 'tr'
-                  ? <><strong style={{ color: COLORS.gold }}>'-â' grubuna dahil sesler:</strong> alif maqsura (ى) veya uzun alif (ا) ile biten ayetler. '-nâ', '-hâ', '-râ', '-yâ' gibi uzun sesler bu gruba girmektedir.</>
-                  : <><strong style={{ color: COLORS.gold }}>'-â' group includes:</strong> verses ending with alif maqsura (ى) or long alif (ا). Endings like '-nâ', '-hâ', '-râ', '-yâ' all qualify.</>}
+                  ? <><strong style={{ color: COLORS.gold }}>&apos;-â&apos; grubuna dahil sesler:</strong> alif maqsura (ى) veya uzun alif (ا) ile biten ayetler. &apos;-nâ&apos;, &apos;-hâ&apos;, &apos;-râ&apos;, &apos;-yâ&apos; gibi uzun sesler bu gruba girmektedir.</>
+                  : <><strong style={{ color: COLORS.gold }}>&apos;-â&apos; group includes:</strong> verses ending with alif maqsura (ى) or long alif (ا). Endings like &apos;-nâ&apos;, &apos;-hâ&apos;, &apos;-râ&apos;, &apos;-yâ&apos; all qualify.</>}
               </div>
             )}
           </div>

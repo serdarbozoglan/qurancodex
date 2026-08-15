@@ -513,7 +513,7 @@ export default function HiddenArchitecture() {
           <div className="flex justify-center gap-4 mt-6 flex-wrap">
             {PAIR_COLORS.map((c, i) => (
               <span key={i} className="text-xs font-body" style={{ color: c.text }}>
-                {['A', 'B', 'C'][i]} = {['A', 'B', 'C'][i]}'
+                {['A', 'B', 'C'][i]} = {['A', 'B', 'C'][i]}&apos;
               </span>
             )).reduce((acc, el, i) => i === 0 ? [el] : [...acc, <span key={`sep-${i}`} className="text-silver/20">|</span>, el], [])}
             <span className="text-silver/20">|</span>
@@ -1022,7 +1022,7 @@ export default function HiddenArchitecture() {
                         {language === 'tr' ? layer.scholarTr : layer.scholarEn}
                       </p>
                       <p style={{ fontSize: '14px', color: '#e8e6e3', fontStyle: 'italic', lineHeight: 1.85, fontFamily: "'Inter', sans-serif" }}>
-                        "{language === 'tr' ? layer.quoteTr : layer.quoteEn}"
+                        &quot;{language === 'tr' ? layer.quoteTr : layer.quoteEn}&quot;
                       </p>
                       {(language === 'tr' ? layer.noteTr : layer.noteEn) && (
                         <p style={{

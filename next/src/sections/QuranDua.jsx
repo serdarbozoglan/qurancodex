@@ -626,7 +626,7 @@ export default function QuranDua() {
                     fontFamily: FONTS.display,
                     fontSize: '2.2rem', lineHeight: 1, color: p.emojiColor,
                     opacity: 0.25, fontWeight: 800, pointerEvents: 'none',
-                  }}>"</span>
+                  }}>&quot;</span>
                   <p style={{ fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: p.emojiColor, marginBottom: '8px', fontFamily: "'Inter', sans-serif", fontWeight: 700, opacity: 0.7, marginLeft: '20px' }}>
                     {tr ? 'İçgörü' : 'Insight'}
                   </p>

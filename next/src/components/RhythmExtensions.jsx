@@ -213,9 +213,9 @@ export default function RhythmExtensions({ language, isMobile }) {
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.offWhite, fontSize: '1rem',
               margin: 0, lineHeight: 1.6,
-            }}>"{tr
+            }}>&quot;{tr
               ? "O halde Rabbinizin hangi nimetlerini yalanlayacaksınız?"
-              : "Which then of your Lord's favours will you two deny?"}"</p>
+              : "Which then of your Lord's favours will you two deny?"}&quot;</p>
           </div>
 
           {/* Section grid — themes containing the refrain occurrences */}

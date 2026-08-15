@@ -79,7 +79,7 @@ export default function SesMimarisi({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "Andolsun, şiddetle söküp çıkaranlara..." : "By those who pluck out violently..."}"
+          &quot;{tr ? "Andolsun, şiddetle söküp çıkaranlara..." : "By those who pluck out violently..."}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

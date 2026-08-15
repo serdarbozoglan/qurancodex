@@ -230,9 +230,9 @@ export default function TarihselKanitlar({ onClose }) {
               fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
             }}>
-              "{tr
+              &quot;{tr
                 ? "Bugün senin bedenini kurtaracağız ki senden sonra geleceklere ibret olasın."
-                : "This day We shall save you in your body, that you may be a sign for those who follow you."}"
+                : "This day We shall save you in your body, that you may be a sign for those who follow you."}&quot;
             </p>
 
             <p style={{
@@ -248,8 +248,8 @@ export default function TarihselKanitlar({ onClose }) {
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>
               {tr
-                ? <>Kur'ân'ın 7. yüzyıl metni, modern arkeoloji ve metin filolojisinin ancak <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>19-20. yüzyılda</em> erişebildiği tarihsel gerçeklerin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>izlerini</em> taşır.</>
-                : <>The 7th-century Qur'anic text carries <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>traces</em> of historical realities that modern archaeology and text philology could only access in the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>19th-20th centuries</em>.</>}
+                ? <>Kur&apos;ân&apos;ın 7. yüzyıl metni, modern arkeoloji ve metin filolojisinin ancak <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>19-20. yüzyılda</em> erişebildiği tarihsel gerçeklerin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>izlerini</em> taşır.</>
+                : <>The 7th-century Qur&apos;anic text carries <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>traces</em> of historical realities that modern archaeology and text philology could only access in the <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>19th-20th centuries</em>.</>}
             </p>
 
             {/* Filigree divider */}
@@ -557,7 +557,7 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
           fontFamily: FONTS.body, lineHeight: 1.7, margin: 0,
           fontStyle: 'italic',
         }}>
-          "{tr ? kanit.verseTr : kanit.verseEn}"
+          &quot;{tr ? kanit.verseTr : kanit.verseEn}&quot;
         </p>
       </div>
 

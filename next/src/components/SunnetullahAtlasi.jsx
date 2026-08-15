@@ -396,9 +396,9 @@ export default function SunnetullahAtlasi({ onClose }) {
             maxWidth: '660px',
             opacity: 0.95,
           }}>
-            "{language === 'tr'
+            &quot;{language === 'tr'
               ? "Allah'ın sünnetinde asla bir değişme bulamazsın; Allah'ın sünnetinde asla bir sapma da bulamazsın."
-              : "You will never find any change in the way of Allah; you will never find any deviation in the way of Allah."}"
+              : "You will never find any change in the way of Allah; you will never find any deviation in the way of Allah."}&quot;
           </p>
 
           <p style={{
@@ -425,8 +425,8 @@ export default function SunnetullahAtlasi({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah'ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
-              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em> — this is Allah's <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}
+              ? <>Tarih tesadüf değildir. Aynı suç <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>aynı sonucu</em> doğurur — bu, Allah&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>değişmeyen yasası</em>dır.</>
+              : <>History is no accident. The same sin produces <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the same consequence</em> — this is Allah&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>unchanging law</em>.</>}
           </p>
 
           {/* Filigree divider */}
@@ -1415,7 +1415,7 @@ function FormulaBox({ formula, language, isMobile }) {
         color: COLORS.offWhite, fontSize: '0.88rem',
         textAlign: 'center', margin: '0 0 6px', opacity: 0.9,
       }}>
-        "{tr ? formula.verseTr : formula.verseEn}"
+        &quot;{tr ? formula.verseTr : formula.verseEn}&quot;
       </p>
 
       <p style={{

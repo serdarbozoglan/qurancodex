@@ -1254,7 +1254,7 @@ export default function WowFacts({ onClose }) {
             اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً
           </p>
           <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 6px', maxWidth: '640px', opacity: 0.95 }}>
-            "{language === 'tr' ? "Hâlâ Kur'an'ı düşünüp anlamaya çalışmıyorlar mı? Eğer Allah'tan başkasından gelseydi onda birçok tutarsızlık bulurlardı." : "Then do they not reflect upon the Quran? Had it been from any other than Allah, they would have found in it many discrepancies."}"
+            &quot;{language === 'tr' ? "Hâlâ Kur'an'ı düşünüp anlamaya çalışmıyorlar mı? Eğer Allah'tan başkasından gelseydi onda birçok tutarsızlık bulurlardı." : "Then do they not reflect upon the Quran? Had it been from any other than Allah, they would have found in it many discrepancies."}&quot;
           </p>
           <p style={{ color: COLORS.silver, fontFamily: 'Inter, sans-serif', fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 30px', opacity: 0.78 }}>
             — {language === 'tr' ? 'Nisâ 4:82' : 'An-Nisāʾ 4:82'}

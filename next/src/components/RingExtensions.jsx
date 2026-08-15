@@ -253,7 +253,7 @@ function FatihaRingDiagram({ language, isMobile }) {
             fontFamily: FONTS.display, fontStyle: 'italic',
             color: COLORS.offWhite, fontSize: '0.95rem',
             margin: '0 0 6px', lineHeight: 1.6,
-          }}>"{tr ? FATIHA_RING[active].tr : FATIHA_RING[active].en}"</p>
+          }}>&quot;{tr ? FATIHA_RING[active].tr : FATIHA_RING[active].en}&quot;</p>
           <div style={{
             color: COLORS.silver, fontSize: '0.72rem',
             letterSpacing: '0.12em', textTransform: 'uppercase',
@@ -414,19 +414,19 @@ export default function RingExtensions({ language, isMobile }) {
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}` }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Michel Cuypers</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                <em>The Composition of the Qur'an: Rhetorical Analysis</em> (Bloomsbury, 2015). Semitic Rhetoric metodolojisiyle Bakara + Mâide için 200+ sayfalık analiz.
+                <em>The Composition of the Qur&apos;an: Rhetorical Analysis</em> (Bloomsbury, 2015). Semitic Rhetoric metodolojisiyle Bakara + Mâide için 200+ sayfalık analiz.
               </p>
             </div>
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}` }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Raymond Farrin</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                <em>Structure and Qur'anic Interpretation: A Study of Symmetry and Coherence</em> (White Cloud Press, 2014). Fâtiha, Mü'minûn 23, Kasas 28 için halka analizi.
+                <em>Structure and Qur&apos;anic Interpretation: A Study of Symmetry and Coherence</em> (White Cloud Press, 2014). Fâtiha, Mü&apos;minûn 23, Kasas 28 için halka analizi.
               </p>
             </div>
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}`, gridColumn: isMobile ? '1' : '1 / -1' }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Klasik: Biqâʿî · Suyûtî · Râzî</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî\'nin Nazmü'd-Dürer\'i (sûre içi düzeni), Suyûtî\'nin el-İtkân\'ı (Kur'ân ilimleri), Râzî\'nin Mefâtîhu\'l-Ğayb\'ı (tefsir + ilişki analizi).
+                Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî\&apos;nin Nazmü&apos;d-Dürer\&apos;i (sûre içi düzeni), Suyûtî\&apos;nin el-İtkân\&apos;ı (Kur&apos;ân ilimleri), Râzî\&apos;nin Mefâtîhu\&apos;l-Ğayb\&apos;ı (tefsir + ilişki analizi).
               </p>
             </div>
           </div>

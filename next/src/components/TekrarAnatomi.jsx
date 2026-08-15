@@ -79,7 +79,7 @@ export default function TekrarAnatomi({ onClose }) {
           maxWidth: '660px',
           margin: '0 auto 6px',
         }}>
-          "{tr ? "O halde Rabbinizin hangi nimetlerini yalanlayabilirsiniz?" : "Then which of the favors of your Lord will you deny?"}"
+          &quot;{tr ? "O halde Rabbinizin hangi nimetlerini yalanlayabilirsiniz?" : "Then which of the favors of your Lord will you deny?"}&quot;
         </p>
         <p style={{
           color: COLORS.silver,

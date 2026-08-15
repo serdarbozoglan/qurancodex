@@ -213,7 +213,7 @@ function Side({ side, isPlaying, isFailed, onToggle, labels, language, color, gl
       <p style={{
         color: accent, fontSize: '0.85rem', fontFamily: 'Inter, sans-serif',
         fontStyle: 'italic', lineHeight: 1.5,
-      }}>"{side.feature}"</p>
+      }}>&quot;{side.feature}&quot;</p>
 
       {/* Sound visualization */}
       <div>
@@ -954,7 +954,7 @@ function ClassicalSource({ t, language }) {
           fontSize: '5rem', fontFamily: FONTS.display,
           color: COLORS.goldAlpha15, lineHeight: 1, fontWeight: 900,
           pointerEvents: 'none',
-        }}>"</div>
+        }}>&quot;</div>
 
         <p style={{
           color: COLORS.gold, fontSize: '0.65rem', fontFamily: 'Inter, sans-serif',

@@ -712,7 +712,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     {/* Meal */}
                     {item.mealTr && (
                       <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, fontStyle: 'italic', margin: '0 0 8px', lineHeight: 1.5 }}>
-                        "{language === 'tr' ? item.mealTr : item.mealEn}"
+                        &quot;{language === 'tr' ? item.mealTr : item.mealEn}&quot;
                       </p>
                     )}
 
@@ -1030,7 +1030,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     margin: '0 0 8px',
                     lineHeight: 1.5,
                   }}>
-                    "{language === 'tr' ? card.mealTr : card.mealEn}"
+                    &quot;{language === 'tr' ? card.mealTr : card.mealEn}&quot;
                   </p>
                 )}
                 {renderRefPill(card.ref)}
@@ -1187,7 +1187,7 @@ export default function ZamanBoyutlari({ onClose }) {
                     margin: '0 0 8px',
                     lineHeight: 1.5,
                   }}>
-                    "{language === 'tr' ? item.mealTr : item.mealEn}"
+                    &quot;{language === 'tr' ? item.mealTr : item.mealEn}&quot;
                   </p>
                   {renderRefPill(item.ref)}
                 </div>
@@ -1229,7 +1229,7 @@ export default function ZamanBoyutlari({ onClose }) {
                 {row.arabic}
               </p>
               <p style={{ fontFamily: FONTS.body, fontSize: '0.88rem', color: COLORS.offWhite, fontStyle: 'italic', margin: 0, lineHeight: 1.6 }}>
-                "{tr ? row.mealTr : row.mealEn}"
+                &quot;{tr ? row.mealTr : row.mealEn}&quot;
               </p>
             </div>
           </td>
@@ -1283,7 +1283,7 @@ export default function ZamanBoyutlari({ onClose }) {
                         {row.arabic}
                       </p>
                       <p style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.offWhite, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
-                        "{tr ? row.mealTr : row.mealEn}"
+                        &quot;{tr ? row.mealTr : row.mealEn}&quot;
                       </p>
                     </div>
                   )}
@@ -1647,9 +1647,9 @@ export default function ZamanBoyutlari({ onClose }) {
           maxWidth: '660px',
           opacity: 0.95,
         }}>
-          "{language === 'tr'
+          &quot;{language === 'tr'
             ? 'Rabbinin katında bir gün, sizin saymakta olduklarınızdan bin yıl gibidir.'
-            : 'A day with your Lord is like a thousand years of what you count.'}"
+            : 'A day with your Lord is like a thousand years of what you count.'}&quot;
         </p>
 
         <p style={{
@@ -1676,7 +1676,7 @@ export default function ZamanBoyutlari({ onClose }) {
           opacity: 0.88,
         }}>
           {language === 'tr'
-            ? <>Zaman, Kur'an'da <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tek bir akış</em> değildir. Bir gece <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin aydan hayırlı</em>; bir gün <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin yıla denk</em>; bir an, sonsuza bedel.</>
+            ? <>Zaman, Kur&apos;an&apos;da <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>tek bir akış</em> değildir. Bir gece <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin aydan hayırlı</em>; bir gün <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bin yıla denk</em>; bir an, sonsuza bedel.</>
             : <>In the Quran, time is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>not one stream</em>. One night exceeds <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>a thousand months</em>; one day equals <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>a thousand years</em>; one instant outweighs forever.</>}
         </p>
 

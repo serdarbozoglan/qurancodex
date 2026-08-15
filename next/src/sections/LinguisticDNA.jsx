@@ -700,8 +700,8 @@ export default function LinguisticDNA() {
         </h3>
         <p className="text-silver/65 text-base font-body mb-6">
           {language === 'tr'
-            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur'ân, <span title="Zikir — Kur'an'ın kendine verdiği isimlerden biri: hatırlatma/öğüt. Hicr 15:9 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Şüphesiz Zikr'i biz indirdik)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Zikir</span>)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
-            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur'ān, <span title="Dhikr — one of the names the Quran gives itself: remembrance/reminder. Al-Hijr 15:9: 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Indeed, it is We who sent down the Dhikr)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Remembrance</span>)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
+            ? <>Standart grupların dışında kalan özel yapılar — hibrit kodlar, tek harfli açılışlar ve benzersiz istisnalar. Çoğunluğunda <span className="text-gold font-semibold">vahyin formülüne (Kitap, Kur&apos;ân, <span title="Zikir — Kur'an'ın kendine verdiği isimlerden biri: hatırlatma/öğüt. Hicr 15:9 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Şüphesiz Zikr'i biz indirdik)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Zikir</span>)</span> atıf gelir; Kalem (68) bu kalıbın dışında kalan dikkat çekici istisnadır.</>
+            : <>Unique structures outside the standard groups — hybrid codes, single-letter openings, and singular exceptions. Most reference <span className="text-gold font-semibold">the formula of revelation (Book, Qur&apos;ān, <span title="Dhikr — one of the names the Quran gives itself: remembrance/reminder. Al-Hijr 15:9: 'إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ' (Indeed, it is We who sent down the Dhikr)." style={{ borderBottom: '1px dotted rgba(212,165,116,0.5)', cursor: 'help' }}>Remembrance</span>)</span>; Al-Qalam (68) is the notable exception that breaks this pattern.</>}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
           {[
@@ -785,14 +785,14 @@ export default function LinguisticDNA() {
         </p>
         <p className="font-display text-3xl md:text-4xl font-bold text-off-white mb-3">
           {language === 'tr' ? (
-            <>29 Sûrenin <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} />'inde</span></>
+            <>29 Sûrenin <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} />&apos;inde</span></>
           ) : (
             <>In <span style={{ color: '#d4a574' }}><AnimatedCounter target={25} /></span> of 29 Suras</>
           )}
         </p>
         <p className="text-silver text-lg md:text-xl font-body mb-7 max-w-3xl">
           {language === 'tr'
-            ? <>Kesik harflerin hemen ardından <span className="text-gold font-semibold">Kitab'a, Kur'an'a veya vahye</span> atıf geliyor</>
+            ? <>Kesik harflerin hemen ardından <span className="text-gold font-semibold">Kitab&apos;a, Kur&apos;an&apos;a veya vahye</span> atıf geliyor</>
             : <>The mysterious letters are immediately followed by a reference to <span className="text-gold font-semibold">the Book, the Quran, or revelation</span></>}
         </p>
 
