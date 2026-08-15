@@ -12,12 +12,20 @@
 > bkz. **Z2** (eksen tablosu) ve **Z3** (bulgular).
 
 **Kullanıcının 14 Ağustos'ta kuyruğa aldığı iki ayrı iş:**
-- [ ] **CLAUDE.md gözden geçirme** — bugün (kontrast K1-K6, CLS, K4) ve
-      bundan sonra todo'da yapılacaklar dikkate alınarak, yeni bir sayfa/
-      konu üretilirken nelere dikkat edilmesi gerektiğine dair bir
-      kontrol listesi/kriter bölümü eklenmeli — aynı hataların (isMobile
-      SSR kalıbının CLS'e yol açması, kategori renginin AA'yı geçmemesi,
-      iç mimari sızıntısı, vb.) yeniden yaşanmaması için.
+- [x] **CLAUDE.md gözden geçirme** — **KAPANDI.** §13.0 ("YENİ SAYFA/
+      BİLEŞEN ÜRETİRKEN — HIZLI KONTROL LİSTESİ") bu konuşmanın daha
+      erken bir bölümünde (özetleme sınırından önce) zaten yazılmış
+      bulundu — 10 madde, tam olarak istenen kapsamı (isMobile→CLS,
+      kategori rengi AA, opacity çarpımı, iç mimari sızıntısı, ölçme
+      zorunluluğu…) karşılıyordu; yalnız bu todo'daki kutu işaretlenmemiş
+      kalmıştı. 15 Ağustos'ta **2 yeni madde eklenerek zenginleştirildi**
+      (madde 11-12): (a) WebGL/3D render'da draw call azaltmanın TEK
+      BAŞINA yetmeyebileceği, GPU fill-rate/üçgen sayısının da ayrı
+      ölçülmesi gerektiği (VerseGraph TBT dersinden); (b) bir CLS fix'inin
+      STİLİNİN uygulandığını doğrulamanın, fix'in İŞE YARADIĞINI
+      doğrulamakla AYNI ŞEY olmadığı (ReadingMode CLS'in çözülemeyen
+      ikinci turundan). İkisi de bu oturumda ilk kez karşılaşılan, başka
+      hiçbir yerde kayıtlı olmayan derslerdi.
 - [x] **Mobilde hissedilen yavaşlık** — 14 Ağustos gecesi incelendi, GERÇEK
       ve ciddi bir kök sebep bulundu: `/graf/ayet` (Ayet Haritası) TBT'si
       **~4.7 saniye** (masaüstü, throttle'sız). Kısmi düzeltme yapıldı

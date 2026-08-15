@@ -281,6 +281,36 @@ yalnızca **önce-oku, sonra-detaya-git** özeti. Yeni bir sayfa/bileşen
     edilmeden yazar adı, eser adı, cilt/sayfa/yıl veya alıntı metni
     yazılamaz. → §13.30
 
+11. **Bir sayfa yüzlerce/binlerce nesne render ediyorsa (3D graf, canvas,
+    büyük liste), draw call sayısını düşürmek TEK BAŞINA yetmeyebilir —
+    GPU fill-rate/overdraw AYRI bir maliyet.** 14 Ağustos'ta `/graf/ayet`
+    (6236 düğüm + 10653 bağlantı, `react-force-graph-3d`) TBT'si ~4.7s
+    idi. Node+link'i `THREE.InstancedMesh`'e taşıyıp draw call'ı
+    **12.145 → 8**'e indirmek (`renderer.info.render.calls` ile ölçüldü)
+    TBT'yi **DEĞİŞTİRMEDİ.** Sebep: ~4.9M üçgen + yarı-saydam (alpha
+    blend) yüzeylerin GPU-taraflı rasterizasyon maliyeti — CPU profilinin
+    call-tree'sinde %93.8 örneğin **HİÇ JS stack'i yoktu** (GPU tarafı).
+    Küre segment sayısını (16×16→6×5) düşürmek TEK BAŞINA TBT'yi 4.2s→2.1s
+    indirdi — draw call'dan bağımsız, saf geometrik karmaşıklık. **Ders:**
+    hem `renderer.info.render.calls` (draw call) HEM `.triangles` (geometri
+    karmaşıklığı + overdraw riski) ölç; biri düşse de diğeri darboğaz
+    olabilir. Uzak/küçük nesneler için düşük-poli (LOD) kullan, yalnız
+    yakınlaşan/seçili nesnede tam detay tut. → `tasks/todo_agu13_2026.md`
+    "VerseGraph TBT" notu (14-15 Ağustos, iki ayrı tur).
+
+12. **Bir CLS fix'inin STİLİNİN uygulandığını doğrulamak, fix'in
+    İŞE YARADIĞINI doğrulamak DEĞİLDİR — ikisini ayrı ölç.** 15 Ağustos'ta
+    ReadingMode'da `minHeight` eklenip `getComputedStyle` ile (kaymanın
+    TAM ANINDA, `PerformanceObserver` callback'i içinde) canlı doğrulandı
+    — stil gerçekten uygulanmıştı. Yine de ölçülen CLS **hiç değişmedi**;
+    tarayıcının `layout-shift` olayı elementin `previousRect`'ini
+    `{0,0,0}` raporlamaya devam etti, normal CSS modeliyle açıklanamayan
+    bir sonuç. Kök sebep bu ortamda (Playwright+CDP, gerçek DevTools
+    Performance trace'i olmadan) izole edilemedi. **Ders:** "stil
+    uygulandı" ≠ "kayma düzeldi" — HER ZAMAN fix sonrası gerçek CLS
+    sayısını (`scratch-cls.mjs` tarzı bir `PerformanceObserver` ölçümü)
+    tekrar ölç; computed-style kontrolü tek başına yeterli kanıt değildir.
+
 ### 13.1 Design Token Kuralı
 
 **Tüm renkler, fontlar ve UI sabitleri merkezi tokens dosyasından import edilir** (`src/tokens.js` Vite'ta, `next/src/tokens.js` Next.js'te).
