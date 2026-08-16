@@ -152,7 +152,13 @@ export function cleanArabicForGraph(str) {
     .replace(/[؀-؅]/g, '')                                       // Quranic number/footnote marks
     .replace(/[۝۞۩]/g, '')                                  // End-of-ayah, rub el hizb, sajda sign
     .replace(/ۦ/g, ' ')                                               // Arabic small yeh → space (word separator)
-    .replace(/[ؕۖ-ۜ۟ۢۨ]/g, '')  // waqf markers + tajweed signs (incl. U+0615)
+    // Önceki [ؕۖ-ۜ۟ۢۨ] tek tek karakter listeliyordu (۟,ۢ,ۨ) — bir ARALIK
+    // değil. cleanArabicForDisplay'in [۟-ۭ] aralığı U+06DF-U+06ED'yi TAMAMEN
+    // kapsıyor; buradaki eksik liste arada kalan U+06EB gibi karakterleri
+    // (ör. Bakara 2:144 "اُو۫تُوا") kaçırıp ekranda tofu/daire üretiyordu.
+    // §13.15 canonical aralığıyla hizalandı (kullanıcı ekran görüntüsüyle
+    // bildirdi, ConceptGraph ayet panelinde).
+    .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '')  // waqf markers + tajweed signs (incl. U+0615)
     .replace(/[﴾﴿]/g, '');                                       // Ornate parentheses
 }
 

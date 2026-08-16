@@ -8,6 +8,7 @@ import { surahName } from '../lib/surahNames';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, TEXT, VERSE_DISPLAY_CARD } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import useNavbarOffset from './useNavbarOffset';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
@@ -127,6 +128,14 @@ function buildConceptGraph(verses, concepts, centralId, width, height, precomput
 export default function ConceptGraph({ onClose, restore = null }) {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
+  // Navbar yüksekliği sabit DEĞİL — ölç. Bu sayfa daha önce top:'110px'
+  // (navbar 62 varsayımı + ToolHeader 48) hardcode ediyordu; ölçülen gerçek
+  // navbar yüksekliği bazı durumlarda 82px çıktı (62 değil), sub-header
+  // ToolHeader'ın 20px ALTINDAN başlıyor, iki sticky öge örtüşüyordu. Bkz.
+  // useNavbarOffset.js'in kendi yorumu — sitede yedinci-sekizinci kez aynı
+  // hata.
+  const navTop = useNavbarOffset(0, 62);
+  const subHeaderTop = navTop + 48; // ToolHeader'ın kendi yüksekliği
   const [view, setView] = useState(restore?.centralConcept ? 'graph' : 'landing');
   const [loadingData, setLoadingData] = useState(true);
   const [buildingGraph, _setBuildingGraph] = useState(false);
@@ -309,14 +318,27 @@ export default function ConceptGraph({ onClose, restore = null }) {
         language={language}
       />
 
-      {/* ── DYNAMIC SUB-HEADER (graph view: back + central concept + connected) ── */}
+      {/* ── DYNAMIC SUB-HEADER (graph view: back + central concept + connected) ──
+          Önceden position:sticky YOKTU — bir kavrama tıklayınca görünen bu
+          bar (seçili kavram + bağlantılar) sayfa kaydırılınca tamamen
+          kayboluyordu, ToolHeader'ın hemen altında grafik/ayet listesi
+          bağlamsız biçimde beliriyordu ("truncated" hissi). §13.19
+          Melekler-referans deseniyle aynı statik top:110px (bu sayfa
+          useNavbarOffset kullanmıyor, §13.19'daki 26 sayfanın çoğu gibi).
+          Arkaplan da panelBg (rgba, %92 opak) + blur idi — §13.19'un
+          açıkça yasakladığı "sticky bar'da transparan + blur" kalıbı;
+          scroll'da arkadaki düğümler/ayetler sızıyordu. Opak renge
+          çevrildi. */}
       {view === 'graph' && (
       <div className="cg-subheader" style={{
         display: 'flex', alignItems: 'center',
         borderBottom: `1px solid ${COLORS.goldAlpha15}`,
-        background: COLORS.panelBg,
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: 'rgb(8, 9, 20)',
+        backgroundColor: 'rgb(8, 9, 20)',
+        position: 'sticky',
+        top: `${subHeaderTop}px`,
+        zIndex: 20,
+        isolation: 'isolate',
         flexShrink: 0, flexWrap: 'wrap', minHeight: '56px',
       }}>
         <button
@@ -675,8 +697,24 @@ export default function ConceptGraph({ onClose, restore = null }) {
       )}
 
       {/* ── GRAPH VIEW ────────────────────────────────────────────────── */}
+      {/* KÖK SEBEP (kullanıcı: "sadece scroll edince düzgün çalışıyor,
+          sayfa başında truncated"): bu satır flex:1 idi ama dış sarmalayıcı
+          (component'ın kök div'i) height DEĞİL minHeight kullanıyor —
+          yani bu satırın "flex:1"i hiçbir gerçek yükseklik bütçesinden
+          pay almıyordu. Sağdaki AYET PANELİ'nin kendi flex:1+overflowY:auto
+          alt-div'i (aşağıda) de aynı sebeple hiç sınırlanmıyor, TÜM ayet
+          kartlarını sığdıracak kadar doğal yüksekliğe büyüyordu (152 ayet
+          → binlerce piksel) — align-items:stretch (varsayılan) bu devasa
+          yüksekliği SOLDAKI grafik kutusuna da dayatıyordu. Ölçülen: sayfa
+          toplam yüksekliği 6164px'e çıkıyordu (normali ~840px). Düğümler
+          küçük, sabit koordinatlarda (window.innerHeight tabanlı) kaldığı
+          için sayfanın en üstünde kalıyor, ama devasa boş taşma alanı
+          nedeniyle kullanıcı biraz kaydırdığında ekrandan çıkıyorlardı.
+          Fix: bu satıra gerçek bir yükseklik bütçesi ver (110 sticky
+          alt-başlık top'u + 56 kendi yüksekliği) — ayet paneli artık
+          KENDİ İÇİNDE kayıyor, sayfa şişmiyor. */}
       {view === 'graph' && !buildingGraph && !loadingData && graphRef.current && (
-        <div className="fd-row" style={{ flex: 1, display: 'flex',  overflow: 'hidden' }}>
+        <div className="fd-row" style={{ flexShrink: 0, display: 'flex', height: `calc(100vh - ${subHeaderTop + 56}px)`, overflow: 'hidden' }}>
 
           {/* SVG Graph */}
           <div
@@ -733,8 +771,13 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 const src = graphRef.current.nodes[e.source];
                 const tgt = graphRef.current.nodes[e.target];
                 if (e.isSecondary) {
-                  const opacity = 0.14 + e.weight * 0.18;
-                  const width = Math.max(0.5, e.weight * 1.8);
+                  // Bu ikincil kenarlar (uydu-uydu bağları) grafiği gerçek bir
+                  // AĞ yapıyor — merkezden ışın değil. Eski formül (0.14 base +
+                  // weight*0.18) tipik weight (~0.13) değerinde opacity ~0.16 ve
+                  // width 0.5px üretiyordu — piksel bazında var ama gözle
+                  // pratikte görünmüyordu; hesaplanan veri ekrana hiç çıkmıyordu.
+                  const opacity = 0.32 + e.weight * 0.9;
+                  const width = Math.max(1, e.weight * 5);
                   return (
                     <line
                       key={i}
