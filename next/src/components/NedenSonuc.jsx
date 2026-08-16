@@ -180,35 +180,91 @@ export default function NedenSonuc() {
 
       <div className="zf2-tool-hero-wrap" style={{ maxWidth: 1080, margin: '0 auto' }}>
 
-        {/* Framing */}
+        {/* Framing — önceden düz bir kutuda tek paragraftı; sayfanın kendi
+            teziyle ("kim X yaparsa Y olur") ve üç katmanıyla (nefsî /
+            toplumsal / kozmik) görsel olarak hiç konuşmuyordu. */}
         <div className="zf2-tool-hero-card" style={{
+          position: 'relative',
+          overflow: 'hidden',
           background: `linear-gradient(180deg, ${COLORS.gold}0d 0%, transparent 100%)`,
           border: `1px solid ${COLORS.gold}22`,
           borderRadius: 14,
           marginBottom: 40,
         }}>
-          <div style={{
-            fontSize: '0.68rem',
-            letterSpacing: '0.24em',
-            textTransform: 'uppercase',
-            color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.8,
-            marginBottom: 12,
-            fontFamily: FONTS.body,
-          }}>
-            {tr ? 'Kur\'ânî Prensip' : 'Quranic Principle'}
+          {/* Dev, çok soluk arkaplan oku — sayfanın "akış" temasının imzası */}
+          <svg aria-hidden="true" width="220" height="220" viewBox="0 0 24 24" fill="none"
+            stroke={COLORS.gold} strokeWidth="1"
+            style={{ position: 'absolute', top: '50%', right: -50, transform: 'translateY(-50%)', opacity: 0.06, pointerEvents: 'none' }}
+          >
+            <path d="M4 12h16M13 5l7 7-7 7" />
+          </svg>
+
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="6" cy="6" r="3" /><circle cx="18" cy="18" r="3" /><path d="M8.5 8.5l7 7" />
+            </svg>
+            <div style={{
+              fontSize: '0.68rem',
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              color: COLORS.gold,
+              fontWeight: 700,
+              opacity: 0.8,
+              fontFamily: FONTS.body,
+            }}>
+              {tr ? 'Kur\'ânî Prensip' : 'Quranic Principle'}
+            </div>
           </div>
+
+          {/* Tez — sayfanın tek cümlelik iddiası, büyük ve ayrı */}
+          <p style={{
+            position: 'relative',
+            fontFamily: FONTS.display,
+            fontSize: isMobile ? '1.3rem' : '1.7rem',
+            fontWeight: 700,
+            fontStyle: 'italic',
+            lineHeight: 1.4,
+            color: COLORS.offWhite,
+            margin: '0 0 6px',
+            maxWidth: 640,
+          }}>
+            {tr ? '“kim X yaparsa Y olur.”' : '“whoever does X, Y follows.”'}
+          </p>
           <p style={{
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.92rem' : '0.98rem',
+            fontSize: '0.76rem',
+            letterSpacing: '0.04em',
+            color: COLORS.gold,
+            opacity: 0.75,
+            margin: '0 0 20px',
+          }}>
+            {tr ? '— sünnetullah, Kur\'ân\'ın kozmik yasası' : '— sunnatullah, the Quran\'s cosmic law'}
+          </p>
+
+          <p style={{
+            position: 'relative',
+            fontFamily: FONTS.body,
+            fontSize: isMobile ? '0.88rem' : '0.92rem',
             lineHeight: 1.75,
-            color: COLORS.offWhite,
-            margin: 0,
-            opacity: 0.92,
+            color: COLORS.silver,
+            margin: '0 0 20px',
+            maxWidth: 680,
           }}>
             {tr ? data.meta.principleTr : data.meta.principleEn}
           </p>
+
+          {/* Üç katman önizlemesi — filtre çipleriyle aynı bilgiyi
+              taşımanın ötesinde, hero'yu sayfanın taksonomisine bağlar */}
+          <div style={{ position: 'relative', display: 'flex', gap: isMobile ? 14 : 24, flexWrap: 'wrap', paddingTop: 16, borderTop: `1px solid ${COLORS.gold}18` }}>
+            {(data.categories || []).map(cat => (
+              <div key={cat.id} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                <CategoryIcon id={cat.id} color={cat.color} size={15} />
+                <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontWeight: 600 }}>
+                  {tr ? cat.tr : cat.en}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Category filter */}
