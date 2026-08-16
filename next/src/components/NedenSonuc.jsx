@@ -6,7 +6,7 @@
 // Her zincir 3-5 halka + Kur'ânî ayet ankraj.
 // ────────────────────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -18,6 +18,83 @@ import BookmarkButton from './BookmarkButton';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import nedenSonucDataStatic from '../../public/neden-sonuc.json';
+
+// ── SURAH NAMES — ayet referansları "2:153" değil "Bakara 2:153" gösterir
+// (site-wide kural; KissaAtlas.jsx/SurahComparator.jsx'teki kısa-ad
+// listesiyle aynı, tutarlılık için). ─────────────────────────────────────────
+const SURAH_NAMES_TR = [
+  '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
+  'En\'âm', 'A\'râf', 'Enfâl', 'Tevbe', 'Yûnus',
+  'Hûd', 'Yûsuf', 'Ra\'d', 'İbrâhîm', 'Hicr',
+  'Nahl', 'İsrâ', 'Kehf', 'Meryem', 'Tâ-Hâ',
+  'Enbiyâ', 'Hac', 'Mü\'minûn', 'Nûr', 'Furkân',
+  'Şu\'arâ', 'Neml', 'Kasas', 'Ankebût', 'Rûm',
+  'Lokmân', 'Secde', 'Ahzâb', 'Sebe', 'Fâtır',
+  'Yâsîn', 'Sâffât', 'Sâd', 'Zümer', 'Mü\'min',
+  'Fussılet', 'Şûrâ', 'Zuhruf', 'Duhân', 'Câsiye',
+  'Ahkâf', 'Muhammed', 'Fetih', 'Hucurât', 'Kâf',
+  'Zâriyât', 'Tûr', 'Necm', 'Kamer', 'Rahmân',
+  'Vâkıa', 'Hadîd', 'Mücâdele', 'Haşr', 'Mümtehine',
+  'Saf', 'Cum\'a', 'Münâfikûn', 'Tegâbün', 'Talâk',
+  'Tahrîm', 'Mülk', 'Kalem', 'Hâkka', 'Me\'âric',
+  'Nûh', 'Cinn', 'Müzzemmil', 'Müddessir', 'Kıyâme',
+  'İnsân', 'Mürselât', 'Nebe', 'Nâziât', 'Abese',
+  'Tekvîr', 'İnfitâr', 'Mutaffifîn', 'İnşikak', 'Bürûc',
+  'Târık', 'A\'lâ', 'Gâşiye', 'Fecr', 'Beled',
+  'Şems', 'Leyl', 'Duhâ', 'İnşirâh', 'Tîn',
+  'Alak', 'Kadr', 'Beyyine', 'Zilzâl', 'Âdiyât',
+  'Kâria', 'Tekâsür', 'Asr', 'Hümeze', 'Fîl',
+  'Kureyş', 'Mâûn', 'Kevser', 'Kâfirûn', 'Nasr',
+  'Tebbet', 'İhlâs', 'Felak', 'Nâs',
+];
+const SURAH_NAMES_EN = [
+  '', 'Al-Fatiha', 'Al-Baqara', 'Al-Imran', 'An-Nisa', 'Al-Ma\'ida',
+  'Al-An\'am', 'Al-A\'raf', 'Al-Anfal', 'At-Tawba', 'Yunus',
+  'Hud', 'Yusuf', 'Ar-Ra\'d', 'Ibrahim', 'Al-Hijr',
+  'An-Nahl', 'Al-Isra', 'Al-Kahf', 'Maryam', 'Ta-Ha',
+  'Al-Anbiya', 'Al-Hajj', 'Al-Mu\'minun', 'An-Nur', 'Al-Furqan',
+  'Ash-Shu\'ara', 'An-Naml', 'Al-Qasas', 'Al-Ankabut', 'Ar-Rum',
+  'Luqman', 'As-Sajda', 'Al-Ahzab', 'Saba', 'Fatir',
+  'Ya-Sin', 'As-Saffat', 'Sad', 'Az-Zumar', 'Ghafir',
+  'Fussilat', 'Ash-Shura', 'Az-Zukhruf', 'Ad-Dukhan', 'Al-Jathiya',
+  'Al-Ahqaf', 'Muhammad', 'Al-Fath', 'Al-Hujurat', 'Qaf',
+  'Adh-Dhariyat', 'At-Tur', 'An-Najm', 'Al-Qamar', 'Ar-Rahman',
+  'Al-Waqi\'a', 'Al-Hadid', 'Al-Mujadila', 'Al-Hashr', 'Al-Mumtahana',
+  'As-Saff', 'Al-Jumu\'a', 'Al-Munafiqun', 'At-Taghabun', 'At-Talaq',
+  'At-Tahrim', 'Al-Mulk', 'Al-Qalam', 'Al-Haqqah', 'Al-Ma\'arij',
+  'Nuh', 'Al-Jinn', 'Al-Muzzammil', 'Al-Muddaththir', 'Al-Qiyama',
+  'Al-Insan', 'Al-Mursalat', 'An-Naba', 'An-Nazi\'at', 'Abasa',
+  'At-Takwir', 'Al-Infitar', 'Al-Mutaffifin', 'Al-Inshiqaq', 'Al-Buruj',
+  'At-Tariq', 'Al-A\'la', 'Al-Ghashiya', 'Al-Fajr', 'Al-Balad',
+  'Ash-Shams', 'Al-Layl', 'Ad-Duha', 'Ash-Sharh', 'At-Tin',
+  'Al-Alaq', 'Al-Qadr', 'Al-Bayyina', 'Az-Zalzala', 'Al-Adiyat',
+  'Al-Qari\'a', 'At-Takathur', 'Al-Asr', 'Al-Humaza', 'Al-Fil',
+  'Quraysh', 'Al-Ma\'un', 'Al-Kawthar', 'Al-Kafirun', 'An-Nasr',
+  'Al-Masad', 'Al-Ikhlas', 'Al-Falaq', 'An-Nas',
+];
+
+// "2:153" → "Bakara 2:153" · "26:63-68" → "Şu'arâ 26:63-68"
+function formatVerseRef(ref, tr) {
+  if (!ref) return ref;
+  const [surahStr] = ref.split(':');
+  const surahNum = parseInt(surahStr, 10);
+  const name = tr ? SURAH_NAMES_TR[surahNum] : SURAH_NAMES_EN[surahNum];
+  return name ? `${name} ${ref}` : ref;
+}
+
+// Kategori ikonları — kolaps hâlde bile kartlar tek bakışta ayırt edilsin.
+function CategoryIcon({ id, color, size = 15 }) {
+  const common = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: color, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true };
+  if (id === 'nefs') return (
+    <svg {...common}><path d="M12 21c-4-3.2-8-6.4-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.6-4 7.8-8 11z" /></svg>
+  );
+  if (id === 'toplum') return (
+    <svg {...common}><circle cx="9" cy="8" r="3" /><circle cx="17" cy="8" r="2.6" /><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" /><path d="M15.5 15.2c2.6.4 4.5 2.1 4.5 4.8" /></svg>
+  );
+  return (
+    <svg {...common}><circle cx="12" cy="12" r="3" /><ellipse cx="12" cy="12" rx="9" ry="3.5" /><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)" /></svg>
+  );
+}
 
 export default function NedenSonuc() {
   const { language } = useLanguage();
@@ -156,6 +233,7 @@ export default function NedenSonuc() {
                 active={activeCat === cat.id}
                 onClick={() => setActiveCat(cat.id)}
                 color={cat.color}
+                icon={<CategoryIcon id={cat.id} color={activeCat === cat.id ? cat.color : COLORS.silver} size={13} />}
               >
                 {tr ? cat.tr : cat.en} · {count}
               </FilterChip>
@@ -163,8 +241,10 @@ export default function NedenSonuc() {
           })}
         </div>
 
-        {/* Chain list */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        {/* Chain grid — masaüstünde 2 sütun (10 kartlık tek-sütun liste çok
+            uzun kaydırma + tekdüze görünüm üretiyordu); açılan kart tam
+            genişliğe yayılıyor (grid-column: 1/-1). */}
+        <div className="ns-chain-grid" style={{ display: 'grid', gap: 14 }}>
           {filteredChains.map(chain => (
             <ChainCard
               key={chain.id}
@@ -228,11 +308,12 @@ export default function NedenSonuc() {
 }
 
 // ─── FilterChip ─────────────────────────────────────────────────────────────
-function FilterChip({ active, onClick, color, children }) {
+function FilterChip({ active, onClick, color, icon, children }) {
   return (
     <button
       onClick={onClick}
       style={{
+        display: 'inline-flex', alignItems: 'center', gap: 7,
         padding: '7px 14px',
         borderRadius: 999,
         border: `1px solid ${active ? `${color}88` : 'rgba(255,255,255,0.1)'}`,
@@ -245,6 +326,7 @@ function FilterChip({ active, onClick, color, children }) {
         transition: 'all 0.15s',
       }}
     >
+      {icon}
       {children}
     </button>
   );
@@ -265,6 +347,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
       className="zf2-tool-chain-card"
       style={{
         position: 'relative',
+        gridColumn: expanded ? '1 / -1' : 'auto',
         background: 'rgba(255,255,255,0.03)',
         border: `1px solid ${expanded ? `${catColor}55` : 'rgba(255,255,255,0.08)'}`,
         borderRadius: 14,
@@ -303,8 +386,8 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
       >
         {/* Category chip */}
         <div style={{
-          display: 'inline-block',
-          padding: '3px 10px',
+          display: 'inline-flex', alignItems: 'center', gap: 6,
+          padding: '3px 10px 3px 8px',
           borderRadius: 4,
           background: `${catColor}22`,
           color: catColor,
@@ -314,6 +397,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
           textTransform: 'uppercase',
           marginBottom: 10,
         }}>
+          <CategoryIcon id={cat?.id} color={catColor} size={12} />
           {tr ? cat?.tr : cat?.en}
         </div>
 
@@ -327,6 +411,28 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
         }}>
           {title}
         </h3>
+
+        {/* Kolaps hâlde bile zincirin ŞEKLİNİ göster — önceden her kart
+            (kategori rengi hariç) birbirinin aynısı görünüyordu. */}
+        {!expanded && (
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px', marginBottom: 12 }}>
+            {chain.steps.map((step, i) => (
+              <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{
+                  padding: '3px 9px', borderRadius: 999,
+                  background: `${catColor}14`, border: `1px solid ${catColor}30`,
+                  color: catColor, fontSize: '0.7rem', fontWeight: 600,
+                  maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                }}>
+                  {(tr ? step.stepTr : step.stepEn).split(/[—(]/)[0].trim()}
+                </span>
+                {i < chain.steps.length - 1 && (
+                  <span style={{ color: catColor, opacity: 0.5, fontSize: '0.75rem' }}>→</span>
+                )}
+              </span>
+            ))}
+          </div>
+        )}
 
         <p style={{
           fontFamily: FONTS.body,
@@ -370,82 +476,106 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
               paddingTop: 20,
               borderTop: `1px solid ${catColor}22`,
             }}>
-              {/* Step chain — visual */}
+              {/* Step chain — masaüstünde gerçek soldan-sağa akış diyagramı
+                  (önceden dikey yığın + metin "↓" idi — bir "zincir"in
+                  görsel biçimini taşımıyordu). Sonuç halkası (son adım)
+                  ayrı bir rozetle ("SONUÇ") ve daha güçlü zeminle ayrılır.
+                  Mobilde tek sütun olarak kalır. */}
               <div style={{
                 display: 'flex',
-                flexDirection: 'column',
-                gap: 10,
+                flexDirection: isMobile ? 'column' : 'row',
+                alignItems: 'stretch',
+                gap: isMobile ? 8 : 0,
                 marginBottom: 24,
               }}>
-                {chain.steps.map((step, i) => (
-                  <div key={i} style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 12,
-                    padding: '12px 14px',
-                    background: `${catColor}10`,
-                    border: `1px solid ${catColor}22`,
-                    borderRadius: 10,
-                    position: 'relative',
-                  }}>
-                    <div style={{
-                      width: 26,
-                      height: 26,
-                      borderRadius: '50%',
-                      background: `${catColor}33`,
-                      color: catColor,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '0.78rem',
-                      fontWeight: 700,
-                      flexShrink: 0,
-                    }}>
-                      {i + 1}
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{
-                        fontFamily: FONTS.body,
-                        fontSize: isMobile ? '0.9rem' : '0.94rem',
-                        lineHeight: 1.6,
-                        color: COLORS.offWhite,
-                        margin: '0 0 4px',
-                      }}>
-                        {tr ? step.stepTr : step.stepEn}
-                      </p>
-                      {step.verse && (
-                        <Link
-                          href={`/${language}/ayet/${step.verse.split(':')[0]}/${step.verse.split(':')[1]?.split('-')[0] || '1'}`}
-                          style={{
-                            display: 'inline-block',
-                            padding: '2px 8px',
-                            borderRadius: 4,
-                            background: `${COLORS.gold}18`,
-                            color: COLORS.gold,
-                            fontSize: '0.7rem',
-                            fontWeight: 600,
-                            textDecoration: 'none',
-                          }}
-                        >
-                          {step.verse}
-                        </Link>
-                      )}
-                    </div>
-                    {/* Arrow between steps */}
-                    {i < chain.steps.length - 1 && (
+                {chain.steps.map((step, i) => {
+                  const isLast = i === chain.steps.length - 1;
+                  return (
+                    <Fragment key={i}>
                       <div style={{
-                        position: 'absolute',
-                        bottom: -13,
-                        left: 24,
-                        color: catColor,
-                        fontSize: '0.9rem',
-                        opacity: 0.6,
+                        flex: isMobile ? 'none' : '1 1 0',
+                        minWidth: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 8,
+                        padding: '14px',
+                        background: isLast ? `${catColor}1c` : `${catColor}0a`,
+                        border: `1px solid ${isLast ? `${catColor}60` : `${catColor}22`}`,
+                        borderRadius: 10,
                       }}>
-                        ↓
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <div style={{
+                            width: 24,
+                            height: 24,
+                            borderRadius: '50%',
+                            background: isLast ? catColor : `${catColor}33`,
+                            color: isLast ? COLORS.cosmicBlack : catColor,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '0.74rem',
+                            fontWeight: 800,
+                            flexShrink: 0,
+                          }}>
+                            {isLast ? '✓' : i + 1}
+                          </div>
+                          {isLast && (
+                            <span style={{
+                              fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.12em',
+                              textTransform: 'uppercase', color: catColor,
+                            }}>
+                              {tr ? 'Sonuç' : 'Outcome'}
+                            </span>
+                          )}
+                        </div>
+                        <p style={{
+                          fontFamily: FONTS.body,
+                          fontSize: isMobile ? '0.9rem' : '0.88rem',
+                          lineHeight: 1.5,
+                          fontWeight: isLast ? 700 : 400,
+                          color: COLORS.offWhite,
+                          margin: 0,
+                        }}>
+                          {tr ? step.stepTr : step.stepEn}
+                        </p>
+                        {step.verse && (
+                          <Link
+                            href={`/${language}/ayet/${step.verse.split(':')[0]}/${step.verse.split(':')[1]?.split('-')[0] || '1'}`}
+                            style={{
+                              alignSelf: 'flex-start',
+                              padding: '2px 8px',
+                              borderRadius: 4,
+                              background: `${COLORS.gold}18`,
+                              color: COLORS.gold,
+                              fontSize: '0.7rem',
+                              fontWeight: 600,
+                              textDecoration: 'none',
+                            }}
+                          >
+                            {formatVerseRef(step.verse, tr)}
+                          </Link>
+                        )}
                       </div>
-                    )}
-                  </div>
-                ))}
+                      {!isLast && (
+                        <div style={{
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          flexShrink: 0,
+                          padding: isMobile ? '2px 0' : '0 4px',
+                        }}>
+                          <svg aria-hidden="true" width={isMobile ? 14 : 18} height={isMobile ? 14 : 18}
+                            viewBox="0 0 24 24" fill="none" stroke={catColor} strokeWidth="2.5"
+                            strokeLinecap="round" strokeLinejoin="round"
+                            style={{ opacity: 0.7, transform: isMobile ? 'none' : undefined }}
+                          >
+                            {isMobile
+                              ? <path d="M12 5v14M5 12l7 7 7-7" />
+                              : <path d="M5 12h14M13 5l7 7-7 7" />}
+                          </svg>
+                        </div>
+                      )}
+                    </Fragment>
+                  );
+                })}
               </div>
 
               {/* Note */}
@@ -496,7 +626,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                         onMouseEnter={e => { e.currentTarget.style.background = `${COLORS.gold}33`; }}
                         onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.gold}18`; }}
                       >
-                        {v}
+                        {formatVerseRef(v, tr)}
                       </Link>
                     ))}
                   </div>
