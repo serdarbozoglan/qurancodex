@@ -8,8 +8,25 @@ import {
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
-import { fetchMealSurah } from '../lib/mealCache';
 import useFocusTrap from '../hooks/useFocusTrap';
+
+// Yerel verse-graph-bgem3.json — api.acikkuran.com canlı bağımlılığı yerine
+// (KissaAtlas.jsx/MeselAtlasi.jsx'teki aynı düzeltme, kullanıcı talimatı:
+// "todoya ekle localden yapsin neden api dan alıyorsun ki diğer sayfalarda
+// da"). Kaynak servis kesintisinde bile ayet metni her zaman mevcut.
+let _verseGraphIndexPromise = null;
+async function loadVerseGraphIndex() {
+  if (!_verseGraphIndexPromise) {
+    _verseGraphIndexPromise = fetch('/verse-graph-bgem3.json')
+      .then(r => r.json())
+      .then(list => {
+        const map = new Map();
+        for (const v of list) map.set(v.id, v);
+        return map;
+      });
+  }
+  return _verseGraphIndexPromise;
+}
 
 
 import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
@@ -17,6 +34,38 @@ import { cleanArabicForDisplay as cleanArabic } from '../lib/arabic';
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import esbabinNuzulDataStatic from '../../public/esbabin-nuzul.json';
 import sebebINuzulDataStatic from '../../public/sebeb-i-nuzul.json';
+
+// ── SURAH NAMES — ayet referansları "24:11" değil "Nûr 24:11" gösterir
+// (§13.32 site-wide kural; KissaAtlas.jsx/SurahComparator.jsx'teki kısa-ad
+// listesiyle aynı). ─────────────────────────────────────────────────────────
+const SURAH_NAMES_TR = [
+  '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
+  'En\'âm', 'A\'râf', 'Enfâl', 'Tevbe', 'Yûnus',
+  'Hûd', 'Yûsuf', 'Ra\'d', 'İbrâhîm', 'Hicr',
+  'Nahl', 'İsrâ', 'Kehf', 'Meryem', 'Tâ-Hâ',
+  'Enbiyâ', 'Hac', 'Mü\'minûn', 'Nûr', 'Furkân',
+  'Şu\'arâ', 'Neml', 'Kasas', 'Ankebût', 'Rûm',
+  'Lokmân', 'Secde', 'Ahzâb', 'Sebe', 'Fâtır',
+  'Yâsîn', 'Sâffât', 'Sâd', 'Zümer', 'Mü\'min',
+  'Fussılet', 'Şûrâ', 'Zuhruf', 'Duhân', 'Câsiye',
+  'Ahkâf', 'Muhammed', 'Fetih', 'Hucurât', 'Kâf',
+  'Zâriyât', 'Tûr', 'Necm', 'Kamer', 'Rahmân',
+  'Vâkıa', 'Hadîd', 'Mücâdele', 'Haşr', 'Mümtehine',
+  'Saf', 'Cum\'a', 'Münâfikûn', 'Tegâbün', 'Talâk',
+  'Tahrîm', 'Mülk', 'Kalem', 'Hâkka', 'Me\'âric',
+  'Nûh', 'Cinn', 'Müzzemmil', 'Müddessir', 'Kıyâme',
+  'İnsân', 'Mürselât', 'Nebe', 'Nâziât', 'Abese',
+  'Tekvîr', 'İnfitâr', 'Mutaffifîn', 'İnşikak', 'Bürûc',
+  'Târık', 'A\'lâ', 'Gâşiye', 'Fecr', 'Beled',
+  'Şems', 'Leyl', 'Duhâ', 'İnşirâh', 'Tîn',
+  'Alak', 'Kadr', 'Beyyine', 'Zilzâl', 'Âdiyât',
+  'Kâria', 'Tekâsür', 'Asr', 'Hümeze', 'Fîl',
+  'Kureyş', 'Mâûn', 'Kevser', 'Kâfirûn', 'Nasr',
+  'Tebbet', 'İhlâs', 'Felak', 'Nâs',
+];
+function surahShortName(num) {
+  return SURAH_NAMES_TR[num] || String(num);
+}
 // ── Category / reliability / period metadata ──────────────────────────────────
 const CATEGORY_META = {
   'event-response':     { tr: 'Olaya Cevap',       en: 'Event Response',        color: '#e67e22' },
@@ -204,37 +253,29 @@ function OccasionCard({ occ, language, isMobile }) {
     const next = !expanded;
     setExpanded(next);
     if (next && verseData === null && occ.verses && occ.verses.length > 0) {
-      // Abort any previous fetch
-      acRef.current?.abort();
-      const ac = new AbortController();
-      acRef.current = ac;
-
       setVerseData({ loading: true, verses: [] });
 
-      // Fetch all surahs referenced by this occasion in parallel.
-      // Local-first via meal cache (author 105); API fallback on cache miss.
-      Promise.all(
-        occ.verses.map(v =>
-          fetchMealSurah(v.surah, 105, ac.signal)
-            .then(d => {
-              const allVerses = d.data?.verses || [];
-              return allVerses
-                .filter(ve => ve.verse_number >= v.ayahStart && ve.verse_number <= v.ayahEnd)
-                .map(ve => ({
+      // Yerel verse-graph indeksinden — canlı api.acikkuran.com bağımlılığı
+      // yok (bkz. dosya başındaki loadVerseGraphIndex yorumu).
+      loadVerseGraphIndex()
+        .then(index => {
+          const merged = [];
+          for (const v of occ.verses) {
+            for (let n = v.ayahStart; n <= v.ayahEnd; n++) {
+              const verse = index.get(`${v.surah}:${n}`);
+              if (verse) {
+                merged.push({
                   surah: v.surah,
-                  num: ve.verse_number,
-                  arabic: cleanArabic(ve.verse),
-                  turkish: ve.translation?.text || '',
-                }));
-            })
-        )
-      )
-        .then(results => {
-          const merged = results.flat();
+                  num: n,
+                  arabic: cleanArabic(verse.arabic || ''),
+                  turkish: verse.turkish || '',
+                });
+              }
+            }
+          }
           setVerseData({ loading: false, verses: merged });
         })
-        .catch(err => {
-          if (err.name === 'AbortError') return;
+        .catch(() => {
           setVerseData({ loading: false, verses: [] });
         });
     }
@@ -305,7 +346,7 @@ function OccasionCard({ occ, language, isMobile }) {
           <span style={chipStyle(periodMeta.color)}>{language === 'tr' ? periodMeta.tr : periodMeta.en}</span>
           {(occ.verses || []).map((v, i) => (
             <span key={i} style={goldChipStyle}>
-              {v.surah}:{v.ayahStart}{v.ayahEnd && v.ayahEnd !== v.ayahStart ? `–${v.ayahEnd}` : ''}
+              {surahShortName(v.surah)} {v.surah}:{v.ayahStart}{v.ayahEnd && v.ayahEnd !== v.ayahStart ? `–${v.ayahEnd}` : ''}
             </span>
           ))}
         </div>
@@ -1780,7 +1821,7 @@ export default function SebebiNuzul({ onClose }) {
           {language === 'tr' ? "İNİŞ BAĞLAMI · VÂHİDÎ · SUYÛTÎ" : "OCCASION OF REVELATION · AL-WĀḤIDĪ · AL-SUYŪṬĪ"}
         </div>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
-          {language === 'tr' ? "Her Ayetin Bir Anı Vardır" : 'Every Verse Has Its Moment'}
+          {language === 'tr' ? "Her Ayetin Bir Ânı Vardır" : 'Every Verse Has Its Moment'}
         </h2>
         <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." — Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." — Known only through authentic transmission.'}

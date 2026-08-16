@@ -9,6 +9,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
+import useNavbarOffset from './useNavbarOffset';
 import {
   COLORS, FONTS,
   OVERLAY_HEADER, OVERLAY_TITLE, RADIUS, TRANSITION,
@@ -42,6 +43,11 @@ const FILTERS = [
 
 export default function IlkSonKelimeler({ onClose, backRef }) {
   const { language } = useLanguage();
+  // paddingTop:'62px' hardcode idi — bu sayfada da diğerleri gibi gerçek
+  // navbar yüksekliği 62'den farklı olabiliyor, ToolHeader'ın (dinamik
+  // ölçülen) altındaki arama kutusu 20px kadar üste taşıp örtüşüyordu
+  // (§13.31 Mekanizma 2, kullanıcı bildirdi).
+  const navTop = useNavbarOffset(0, 62);
   const [data]           = useState(ilkSonDataStatic);
   const [spotlights] = useState(ilkSonSpotlightsDataStatic.spotlights || []);
   const [activeFilter, setFilter] = useState('all');
@@ -112,9 +118,9 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
       }}>
         <Header language={language} onClose={onClose} />
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -129,9 +135,9 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px', // global Navbar yüksekliği için boşluk (WowFacts pattern)
+      paddingTop: `${navTop}px`, // global Navbar yüksekliği için boşluk (WowFacts pattern)
     }}>
       <ToolHeader
         icon={

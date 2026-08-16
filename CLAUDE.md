@@ -1633,6 +1633,45 @@ açıldıktan sonra ortaya çıkan sınırsız yükseklik) için TEK TEK interak
 test edilmedi — iki-panelli (liste+detay) yapıya sahip sayfalar öncelikli
 şüpheli.
 
+### 13.32 Ayet Referansı — ÇIPLAK NUMARA YASAK, Her Zaman Sûre Adı + Numara (ENFORCE ALWAYS) (2026-08-16+)
+
+**Bir ayet referansı ekrana yazılırken YALNIZ "2:153" gibi çıplak sûre
+numarası + ayet numarası gösterilemez — her zaman sûre ADI ile birlikte
+gösterilir: "Bakara 2:153".** Kullanıcı bunu bir günde 4 ayrı sayfada
+(Sûre DNA, Neden→Sonuç Atlası, Münâsebât Atlası, Sebeb-i Nüzûl) bağımsız
+olarak fark edip bildirdi — aynı hata sınıfının 4. tekrarı sonrası kural
+olarak yazıldı.
+
+**Neden önemli:** çıplak "24:11" kullanıcı için anlamsız bir sayı
+çiftidir; hangi sûre olduğunu bilmeden okunamaz. Sitenin kendi
+`tasks/to_do_tefekkur.md`'sinde bu kural tefekkür makaleleri için zaten
+ENFORCE ALWAYS'ti ("TR'de her zaman sûre adı + numara, sade numara
+değil") — bu bölüm aynı kuralı SİTE GENELİNE (her component, her JSON
+veri dosısından türetilen her referans) genişletir.
+
+**Uygulama:**
+- Her yeni verse-reference chip/link/etiket yazarken bir `formatVerseRef(ref,
+  language)` yardımcı fonksiyonu kullan — sûre numarasını `ref.split(':')[0]`
+  ile ayır, kısa-ad listesinden (`Bakara`, `A'râf`, `Şu'arâ` — "El-/Eş-/Et-"
+  önekli DEĞİL, bkz. KissaAtlas.jsx/SurahComparator.jsx'teki `SURAH_NAMES_TR`
+  kısa-ad dizisi) ada çevir, `${name} ${ref}` döndür.
+- Veri dosyasında (`public/*.json`) referans zaten çıplak sayı olarak
+  saklanabilir (`"ref": "2:153"`) — sorun DEĞİL, kural yalnız EKRANA
+  YAZARKEN geçerli. Veriyi değiştirmeye gerek yok, render fonksiyonunu
+  düzelt.
+- İstisna: bir bileşen ZATEN sûre adını ayrı bir yerde (ör. kart başlığı,
+  "Fâtiha ↔ Bakara") gösteriyorsa VE referans chip'i o bağlamdan
+  KOPARILAMAZ şekilde bitişikse (ör. "1:6" doğrudan "Fâtiha" başlığının
+  altında, tek satırda) yine de tercih edilen EKRANA sûre adı yazmaktır —
+  "muhtemelen anlaşılır" bir istisna kabul edilmez, önceki 4 vaka da
+  "bağlamdan anlaşılır" sanılmıştı ve yine de kullanıcı şikayet etti.
+
+**Push öncesi hızlı tarama:**
+```bash
+grep -rn "v\.surah}:{v\.ayah\|{.*\.ref}\|surah}:\${.*ayah" src/components/*.jsx
+```
+Bulunan her satırı `formatVerseRef()` kullanacak şekilde gözden geçir.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**

@@ -1452,8 +1452,9 @@ export default function MeselAtlasi({ onClose, backRef }) {
               onClick={() => setActiveTab(i)}
               style={{
                 '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
-                fontSize: isMobile ? '0.78rem' : '0.85rem',
-                fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
+                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
+                textTransform: 'uppercase', letterSpacing: '0.06em',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
                 background: 'none', border: 'none', cursor: 'pointer',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
