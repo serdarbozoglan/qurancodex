@@ -112,6 +112,11 @@ export default function KissaAtlas({ onClose }) {
   const [mobileTab, setMobileTab] = useState('scenes'); // 'scenes' | 'map' | 'detail'
   // Verse peek: { surah, start, end, verses: null|[...], loading: bool }
   const [versePeek, setVersePeek] = useState(null);
+  // 114 fayanslık tam ızgara varsayılan görünümdü — kullanıcı seçtiği
+  // peygamberin 4-32 ilgili sûresini bulmak için ~90-110 boş fayans arasında
+  // taramak zorunda kalıyordu. Varsayılan artık yalnız ilgili sûreler;
+  // tam harita isteğe bağlı (kullanıcı geri bildirimi).
+  const [showAllSurahs, setShowAllSurahs] = useState(false);
 
   useEffect(() => {
     fetch('/kissa-atlas.json')
@@ -559,29 +564,73 @@ export default function KissaAtlas({ onClose }) {
               yapışır. */}
           <div style={{ flex: '0 1 auto', overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
-            {/* Instructions */}
-            <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', marginBottom: '16px', lineHeight: 1.6 }}>
-              {selectedScene
-                ? (language === 'tr'
-                    ? `"${selectedScene.titleTr}" sahnesi şu sûrelerde anlatılıyor:`
-                    : `"${selectedScene.titleEn}" is narrated in:`)
-                : selectedSurah
+            {/* Instructions + tam harita anahtarı */}
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', marginBottom: '10px' }}>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.78rem', lineHeight: 1.6, margin: 0 }}>
+                {selectedScene
                   ? (language === 'tr'
-                      ? `Sûre ${selectedSurah} — ${SURAH_NAMES_TR[selectedSurah]} — ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
-                      : `Surah ${selectedSurah} — ${SURAH_NAMES_EN[selectedSurah]} — scenes of ${prophet.nameEn}:`)
-                  : (language === 'tr'
-                      ? `Renkli sûreler ${prophet.nameTr}'nın kıssasını içeriyor. Bir sahne veya sûre seçin.`
-                      : `Colored surahs contain ${prophet.nameEn}'s story. Select a scene or a surah tile.`)}
-            </p>
+                      ? `"${selectedScene.titleTr}" sahnesi şu sûrelerde anlatılıyor:`
+                      : `"${selectedScene.titleEn}" is narrated in:`)
+                  : selectedSurah
+                    ? (language === 'tr'
+                        ? `Sûre ${selectedSurah} — ${SURAH_NAMES_TR[selectedSurah]} — ${language === 'tr' ? prophet.nameTr : prophet.nameEn} sahneleri:`
+                        : `Surah ${selectedSurah} — ${SURAH_NAMES_EN[selectedSurah]} — scenes of ${prophet.nameEn}:`)
+                    : (language === 'tr'
+                        ? `${prophet.nameTr}'nın kıssasını içeren ${activeSurahs.size} sûre:`
+                        : `${activeSurahs.size} surahs containing ${prophet.nameEn}'s story:`)}
+              </p>
+              <button
+                onClick={() => setShowAllSurahs(v => !v)}
+                style={{
+                  flexShrink: 0, background: 'transparent', border: 'none', cursor: 'pointer',
+                  color: prophet.color, fontSize: '0.72rem', fontWeight: 600,
+                  padding: 0, fontFamily: "'Inter', sans-serif",
+                }}
+              >
+                {showAllSurahs
+                  ? (language === 'tr' ? '← Yalnız ilgili sûreler' : '← Only relevant surahs')
+                  : (language === 'tr' ? '114 sûrenin tamamını gör →' : 'Show all 114 surahs →')}
+              </button>
+            </div>
 
-            {/* Grid: 8 fixed columns, all equal size */}
+            {/* Legend — önceden sayfanın en altındaydı, ızgaranın hemen
+                üstüne taşındı (kullanıcı geri bildirimi: keşfedilebilirlik). */}
+            {!isMobile && <div style={{
+              display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap',
+              marginBottom: '14px', padding: '8px 12px',
+              background: 'rgba(255,255,255,0.02)', border: `1px solid ${COLORS.glassBg}`, borderRadius: RADIUS.md,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ width: '11px', height: '11px', borderRadius: '3px', background: `${prophet.color}35`, border: `1.5px solid ${prophet.color}` }} />
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ width: '11px', height: '11px', borderRadius: '3px', background: `${prophet.color}12`, border: `1px solid ${prophet.color}30` }} />
+                <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
+              </div>
+              {showAllSurahs && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '11px', height: '11px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
+                  <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
+                </div>
+              )}
+              <span style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', marginLeft: 'auto' }}>
+                {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
+              </span>
+            </div>}
+
+            {/* Grid: tüm harita 8 (masaüstü) / 7 (mobil) sabit sütun; kompakt
+                (yalnız ilgili sûreler) modda içerik kadar sığan esnek ızgara —
+                4 ile 32 arası öge için sabit sütun sayısı garip boşluklar
+                bırakırdı. */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? 'repeat(7, 1fr)' : 'repeat(8, 1fr)',
+              gridTemplateColumns: showAllSurahs
+                ? (isMobile ? 'repeat(7, 1fr)' : 'repeat(8, 1fr)')
+                : `repeat(auto-fill, minmax(${isMobile ? '68px' : '84px'}, 1fr))`,
               gap: isMobile ? '4px' : '5px',
             }}>
-              {Array.from({ length: 114 }, (_, i) => {
-                const num = i + 1;
+              {(showAllSurahs ? Array.from({ length: 114 }, (_, i) => i + 1) : Array.from(activeSurahs).sort((a, b) => a - b)).map(num => {
                 const isActive = activeSurahs.has(num);
                 const isHighlighted = highlightedSurahs.has(num);
                 const isSelectedSurah = selectedSurah === num;
@@ -970,29 +1019,8 @@ export default function KissaAtlas({ onClose }) {
         </div>
       </div>
 
-      {/* ── LEGEND ─────────────────────────────────────────────────── */}
-      {!isMobile && <div style={{
-        display: 'flex', gap: '16px', alignItems: 'center',
-        padding: '8px 20px',
-        borderTop: `1px solid ${COLORS.glassBg}`,
-        flexShrink: 0, flexWrap: 'wrap',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}35`, border: `1.5px solid ${prophet.color}` }} />
-          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Seçili sahnede' : 'In selected scene'}</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: `${prophet.color}12`, border: `1px solid ${prophet.color}30` }} />
-          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssası var' : 'Has narrative'}</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBg}` }} />
-          <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem' }}>{language === 'tr' ? 'Kıssa yok' : 'No narrative'}</span>
-        </div>
-        <span style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginLeft: 'auto' }}>
-          {language === 'tr' ? 'Sayı = o sûredeki sahne sayısı' : 'Number = scenes in that surah'}
-        </span>
-      </div>}
+      {/* Legend artık ızgaranın üstünde render ediliyor (yukarı bkz.) —
+          keşfedilebilirlik için, kullanıcı geri bildirimi. */}
 
       {SOURCES}
       {RELATED_CTA}
