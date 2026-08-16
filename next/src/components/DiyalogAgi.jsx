@@ -214,6 +214,11 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
     scrollbarWidth: 'none',
   };
 
+  // textTransform:'uppercase' + letterSpacing eksikti — §13.19'un site-wide
+  // "tab label UPPERCASE" kuralına aykırıydı (kullanıcı: Diyalog Ağı'nın
+  // sekmeleri normal harfken Münâsebât Atlası'nınkiler büyük harf,
+  // tutarsız). Diğer tüm sekme çubukları (MunasebatAtlasi.jsx dahil)
+  // zaten bu standardı uyguluyor — burası eksikti.
   const tabBtnStyle = (active) => ({
     display: 'flex',
     alignItems: 'center',
@@ -223,9 +228,11 @@ export default function DiyalogAgi({ onClose, onRegisterBackHandler }) {
     borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
     background: 'transparent',
     color: active ? COLORS.gold : COLORS.silver,
-    fontSize: '0.82rem',
+    fontSize: '0.78rem',
     fontFamily: FONTS.body,
-    fontWeight: active ? 600 : 400,
+    fontWeight: active ? 700 : 500,
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
     cursor: 'pointer',
     whiteSpace: 'nowrap',
     transition: 'color 0.15s',
@@ -479,12 +486,17 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
           ))}
         </div>
 
-        <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+        {/* padding: konuşmacı etiketleri (labelX/labelY) düğüm konumunun
+            DIŞINA taşıyor — kenara yakın düğümlerde (cosA→±1) metin
+            800x800 viewBox'ın dışına çıkıyordu, SVG varsayılan olarak
+            bunu KIRPIYOR (overflow:visible yoksa) — "Hz. Muha…", "Nûh'un
+            Oğlu" gibi kesik etiketler bundandı (kullanıcı bildirdi). */}
+        <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center', padding: isMobile ? '0' : '0 70px' }}>
           <svg aria-hidden="true"
             width={svgSize}
             height={svgSize}
             viewBox="0 0 800 800"
-            style={{ maxWidth: '100%' }}
+            style={{ maxWidth: '100%', overflow: 'visible' }}
           >
             {visibleAxes.map(axis => {
               const isHovered = hoveredArc === axis.id || hoveredNode === axis.speakerId || hoveredNode === axis.addresseeId;

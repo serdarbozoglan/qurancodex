@@ -7,6 +7,7 @@ import {
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import useNavbarOffset from './useNavbarOffset';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
@@ -41,6 +42,15 @@ function surahLabel(num, lang) {
   if (!name) return String(num);
   if (lang === 'en') return name;
   return name.replace(/^(El-|En-|Et-|Eş-|Ez-|Er-|Ed-|Al-)/, '');
+}
+
+// "1:6" → "Fâtiha 1:6" — ayet referansları çıplak numarayla gösteriliyordu,
+// site-wide kurala aykırı (bkz. Sûre DNA / Neden-Sonuç'ta aynı düzeltme).
+function formatVerseRef(ref, lang) {
+  if (!ref) return ref;
+  const surahNum = parseInt(ref.split(':')[0], 10);
+  const name = surahLabel(surahNum, lang);
+  return name ? `${name} ${ref}` : ref;
 }
 
 const STRENGTH_LABEL = {
@@ -79,7 +89,11 @@ function Header({ language }) {
 }
 
 // ── Tab Bar ──────────────────────────────────────────────────────────────────
-function TabBar({ language, isMobile, activeTab, setActiveTab }) {
+// top artık navTop (üstteki useNavbarOffset ölçümü) + 48 (ToolHeader'ın kendi
+// yüksekliği) — önceden hardcode '110px' idi (navbar 62 varsayımı); bu sayfada
+// gerçek navbar 82px ölçüldü, ToolHeader 82+48=130'da bitiyordu, tab bar 110'da
+// başlayınca 20px örtüşme oluşuyordu (§13.31 Mekanizma 2, kullanıcı bildirdi).
+function TabBar({ language, isMobile, activeTab, setActiveTab, navTop }) {
   return (
     <div className="mq-box" id="munasebat-tab-bar"
       style={{
@@ -94,7 +108,7 @@ function TabBar({ language, isMobile, activeTab, setActiveTab }) {
         scrollbarWidth: 'none',
         flexShrink: 0,
         position: 'sticky',
-        top: '110px',
+        top: `${navTop + 48}px`,
         zIndex: 20,
         scrollMarginTop: '120px',
       }}
@@ -328,7 +342,7 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
                   fontFamily: FONTS.body,
                 }}
               >
-                <span>— {a.ref}</span>
+                <span>— {formatVerseRef(a.ref, language)}</span>
                 <span style={{ color: COLORS.silver, fontStyle: 'italic' }}>
                   {language === 'tr' ? a.roleTr : a.roleEn}
                 </span>
@@ -540,6 +554,7 @@ function ScholarList({ scholars, language, isMobile }) {
 // ── Main component ───────────────────────────────────────────────────────────
 export default function MunasebatAtlasi({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
   const [activeTab, setActiveTab] = useState(0);
   const [data] = useState(munasebatDataStatic);
@@ -611,7 +626,7 @@ export default function MunasebatAtlasi({ onClose }) {
       paddingTop: '62px',
     }}>
       <Header language={language} />
-      <TabBar language={language} isMobile={isMobile} activeTab={activeTab} setActiveTab={setActiveTab} />
+      <TabBar language={language} isMobile={isMobile} activeTab={activeTab} setActiveTab={setActiveTab} navTop={navTop} />
 
       <div style={{
         padding: contentPadding,

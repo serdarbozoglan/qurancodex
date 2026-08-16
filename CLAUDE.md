@@ -1558,6 +1558,81 @@ edilmedi — üçü aylarca canlıda durdu.
   çapraz kontrol yap (14 Ağustos'ta bir "3 mertebeli... 15 basamak" iddiası
   aslında 5 mertebe listeliyordu, 3×3≠15).
 
+### 13.31 "Truncated" Hata Ailesi — Sticky Örtüşme + Sınırsız Yükseklik (ENFORCE ALWAYS) (2026-08-16+)
+
+**Kullanıcının "truncated" dediği görsel hata TEK bir kök sebep değil, aynı
+aileden 3 AYRI mekanizma.** 15-16 Ağustos'ta aynı gün içinde 4 farklı
+sayfada (Mesel Atlası, Kıssa Atlası, Sûre DNA, Kavram Ağı) bulundu —
+her biri farklı mekanizmayla. Yeni bir ToolHeader-altı ikinci sticky öge
+(tab bar, alt-başlık, filtre çubuğu) eklerken veya var olan birini
+düzenlerken üçünü de kontrol et:
+
+**Mekanizma 1 — İkinci sticky öge, ToolHeader ile AYNI `top`'ta.**
+ToolHeader kendisi `top: navTop` ile sticky (48px yükseklik). Altındaki
+ikinci sticky öge de `top: navTop` kullanırsa (offset'e +48 eklemeden),
+scroll'da ikisi aynı y konumuna gelir — biri diğerinin ARKASINDA tamamen
+kaybolur. *(MeselAtlasi.jsx, KissaAtlas.jsx örneği — bkz. useNavbarOffset.js
+başlık yorumu.)*
+
+**Mekanizma 2 — Sticky offset HARDCODE, navbar yüksekliği ölçülmüyor.**
+`top: '110px'` (§13.19 Melekler-referans deseni, navbar 62 + ToolHeader 48
+varsayımı) çoğu sayfada çalışır ama navbar yüksekliği SABİT DEĞİL (§13.13'te
+belgelendiği gibi 62/82/96/104/110 arası değişir — dil, viewport genişliği,
+root font boyutu, scroll durumu). Gerçek navbar 82px olan bir sayfada
+`top:'110px'` sticky öge, ToolHeader'ın (82+48=130px'te biten) 20px
+ÜSTÜNDE başlar → örtüşme. *(ConceptGraph.jsx örneği: navbar 82px ölçüldü,
+hardcode 110 varsaydı.)* **Kural: yeni bir sticky alt-öge eklerken HER ZAMAN
+`useNavbarOffset(0, 62)` ile ölç, `top: navTop + 48` kullan — `'110px'`
+hardcode etme.** Var olan `top:'110px'` kullanan ~26 sayfa (§13.19 static
+pattern) risk taşıyor ama tek tek doğrulanmadı — bkz. aşağıdaki tarama
+komutu.
+
+**Mekanizma 3 — Sınırsız yükseklik, flex `align-items:stretch` ile yayılır
+(EN SİNSİ, EN GEÇ FARK EDİLEN).** İki-panelli bir görünümde (liste/grafik +
+detay paneli) detay panelinin KENDİSİ `flex:1, overflowY:'auto'` kullanıyor
+OLABİLİR ama bu yalnız panelin PARENT'ı (flex row) GERÇEK bir yükseklik
+sağlıyorsa çalışır. Dış sarmalayıcı `height` DEĞİL `minHeight` kullanıyorsa
+(çoğu tool sayfasının kökü böyle: `minHeight: 'calc(100vh - 62px)'`), flex
+row'un kendisi CONTENT-DRIVEN kalır — `overflowY:auto` hiç devreye girmez,
+panel TÜM içeriğini (ör. 150+ ayet kartı) doğal yüksekliğe sığdırır, ve
+`align-items:stretch` (varsayılan) bu devasa yüksekliği KARDEŞ panele
+(ör. grafik/canvas) de dayatır. Ölçülen gerçek örnek: sayfa toplam
+yüksekliği 6164px'e çıktı (normali ~840px). İçerik küçük sabit
+koordinatlarda kaldığından sayfanın en üstünde render olur — kullanıcı
+scroll etmeden görür, ama BİRAZ kaydırınca devasa boş taşma alanına girip
+her şey "kayboluyor" — kullanıcı "sadece scroll edince/etmeyince çalışıyor"
+diye tarif eder, bu KAFA KARIŞTIRICIDIR çünkü hata her zaman ORADADIR,
+yalnız scroll konumuna göre görünür/görünmez olur. **Kural: iki-panelli bir
+görünümün dış satırına (flex row) GERÇEK `height` ver (`calc(100vh -
+Npx)`, N = üstündeki tüm sticky öge yüksekliklerinin toplamı) — `flex:1`
+YETMEZ eğer kendi parent'ı da content-driven'sa. `flex:1` zaten `height`
+CSS özelliğini EZER (flex-basis:0% ana eksende `height`'tan önceliklidir);
+`height` + `flexShrink:0` kullan, `flex:1` kullanma.**
+
+**Doğrulama — yeni/düzenlenen HER sticky+iki-panel sayfada:**
+```js
+// 1) Sticky örtüşme taraması (Mekanizma 1+2)
+const stickies = [...document.querySelectorAll('*')].filter(el =>
+  getComputedStyle(el).position === 'sticky' && el.getBoundingClientRect().height > 10);
+// rect'leri karşılaştır, >%50 dikey örtüşme varsa hata
+
+// 2) Sınırsız yükseklik taraması (Mekanizma 3) — bir detay/panel görünümü
+// AÇTIKTAN SONRA çalıştır (yalnız o zaman ortaya çıkar):
+document.body.getBoundingClientRect().height  // beklenen ~viewport+makul altbilgi;
+                                                 // >2000px ise şüphelen, kaynağı bul
+```
+Gerçek scroll ile test et (`page.mouse.wheel`), `window.scrollTo` DEĞİL —
+ikisi farklı davranabilir (bkz. §16.6'nın body/html overflow dersi).
+
+**Bilinen kapsam (2026-08-16 itibariyle taranıp düzeltildi):** MeselAtlasi.jsx,
+KissaAtlas.jsx, SurahComparator.jsx, ConceptGraph.jsx. **Taranmadı/bilinmiyor:**
+`top:'110px'` static pattern kullanan diğer ~26 sayfa (§13.19 listesi) —
+bunlar yalnız Mekanizma 2'ye karşı büyük ölçekli otomatik bir taramadan
+geçti (sticky-örtüşme, açık/varsayılan görünümde); Mekanizma 3 (detay panel
+açıldıktan sonra ortaya çıkan sınırsız yükseklik) için TEK TEK interaktif
+test edilmedi — iki-panelli (liste+detay) yapıya sahip sayfalar öncelikli
+şüpheli.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
