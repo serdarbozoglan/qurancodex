@@ -42,12 +42,16 @@
         {
           "stepTr": "Allah'ın yardımı iner",
           "stepEn": "Divine help descends",
-          "verse": "2:214"
+          "verse": "2:214",
+          "whyTr": "'Allah sabredenlerle beraberdir' (2:153) — bu beraberlik ilâhî yardımı çeker.",
+          "whyEn": "'God is with the patient' (2:153) — this companionship draws divine help."
         },
         {
           "stepTr": "Sonuç: apaçık zafer",
           "stepEn": "Outcome: clear victory",
-          "verse": "29:69"
+          "verse": "29:69",
+          "whyTr": "Yardım gelince zafer onun tabii sonucudur; sabır bu bekleyişin ta kendisidir (bkz. Nisâ 4:104).",
+          "whyEn": "Once help arrives, victory naturally follows; patience is the waiting itself (cf. An-Nisa 4:104)."
         }
       ],
       "verses": [
@@ -75,12 +79,16 @@
         {
           "stepTr": "Nimet artışı (ziyâde) — hem miktar hem tür",
           "stepEn": "Increase of blessing (ziyāda) — both quantity and kind",
-          "verse": "14:7"
+          "verse": "14:7",
+          "whyTr": "Şükür sözle sınırlı değildir — nimeti doğru kullanmak da bir şükür biçimidir; 14:7 artışı buna bağlar.",
+          "whyEn": "Gratitude isn't only verbal — using a blessing rightly is itself a form of thanks; 14:7 ties the increase to this."
         },
         {
           "stepTr": "Sonuç: baraka + koruma",
           "stepEn": "Outcome: baraka + preservation",
-          "verse": "27:19"
+          "verse": "27:19",
+          "whyTr": "Süleymân'ın nimeti fark edip şükrettiği an (27:19) bu üçlünün somut örneğidir.",
+          "whyEn": "Solomon's moment of noticing and giving thanks for a blessing (27:19) is the concrete example of this triad."
         }
       ],
       "verses": [
@@ -107,17 +115,23 @@
         {
           "stepTr": "Mağfiret + yağmur (rızık) inişi",
           "stepEn": "Forgiveness + rain (sustenance) descends",
-          "verse": "71:11"
+          "verse": "71:11",
+          "whyTr": "İstiğfar mağfireti çeker, mağfiret de maddi bereketi — 71:11 bu sırayı izler.",
+          "whyEn": "Seeking forgiveness draws forgiveness, and forgiveness draws material blessing — 71:11 follows this order."
         },
         {
           "stepTr": "Mal + evlat + bahçeler + ırmaklar",
           "stepEn": "Wealth + children + gardens + rivers",
-          "verse": "71:12"
+          "verse": "71:12",
+          "whyTr": "Bereket tek bir alanda kalmaz; 71:12 onu mal, evlat, bahçe ve ırmaklara çoğaltır.",
+          "whyEn": "Blessing doesn't stay in one domain; 71:12 multiplies it into wealth, children, gardens, and rivers."
         },
         {
           "stepTr": "Kalpten 'kasvet' (donukluk) kalkar",
           "stepEn": "'Qaswa' (hardness) lifts from the heart",
-          "verse": "57:16"
+          "verse": "57:16",
+          "whyTr": "Dışsal berekete iç değişim eşlik eder — İbn Kesîr bunu 'istiğfar rızkın en kısa yoludur' hadisiyle destekler.",
+          "whyEn": "Inner change accompanies the outer blessing — Ibn Kathir supports this with the hadith 'seeking forgiveness is the shortest path to provision.'"
         }
       ],
       "verses": [
@@ -144,17 +158,23 @@
         {
           "stepTr": "Ayetlere sırt dönme",
           "stepEn": "Turning away from signs",
-          "verse": "7:146"
+          "verse": "7:146",
+          "whyTr": "'Ben yeterim' iddiası (96:6-7) önce ayetlere karşı bir sağırlık üretir (7:146).",
+          "whyEn": "The claim 'I am self-sufficient' (96:6-7) first produces a deafness to signs (7:146)."
         },
         {
           "stepTr": "Kalp mühürleme (khatm) — Allah'ın fiili",
           "stepEn": "Sealing of the heart (khatm) — a divine act",
-          "verse": "2:7"
+          "verse": "2:7",
+          "whyTr": "Sırt dönme süreklileşince Allah bu tercihi mühürler — Râzî’ye göre bu bir ceza değil, kibrin doğal sonucudur.",
+          "whyEn": "Once the turning-away becomes habitual, God seals that choice — for Razi this is not a punishment but arrogance's natural outcome."
         },
         {
           "stepTr": "Sapma sabitleşir — geri dönüş zorlaşır",
           "stepEn": "Deviation solidifies — return becomes difficult",
-          "verse": "7:179"
+          "verse": "7:179",
+          "whyTr": "Mühürlenen kalp için geri dönüş gitgide zorlaşır; aynı formül 40:35’te Firavun çevresi için de işler.",
+          "whyEn": "For a sealed heart, return grows steadily harder; the same formula applies to Pharaoh's circle in 40:35."
         }
       ],
       "verses": [
@@ -182,17 +202,23 @@
         {
           "stepTr": "Uyarıcılar geliyor — reddediliyor",
           "stepEn": "Warners come — are rejected",
-          "verse": "6:44"
+          "verse": "6:44",
+          "whyTr": "Zulüm bir toplumun kuralı hâline gelince uyarıcılar gönderilir — ama çoğunlukla reddedilirler (6:44).",
+          "whyEn": "Once injustice becomes a society's norm, warners are sent — but are mostly rejected (6:44)."
         },
         {
           "stepTr": "Sünnetullah devreye giriyor — dönüşü yok",
           "stepEn": "Sunnatullāh activates — no reversal",
-          "verse": "33:62"
+          "verse": "33:62",
+          "whyTr": "Uyarı ısrarla reddedilince sünnetullah (değişmez ilahî yasa) devreye girer (33:62).",
+          "whyEn": "When the warning is persistently rejected, sunnatullah (the unchanging divine law) takes effect (33:62)."
         },
         {
           "stepTr": "Helâk (helâk-ı umumî ya da mizanla)",
           "stepEn": "Destruction (mass or by scale)",
-          "verse": "11:102"
+          "verse": "11:102",
+          "whyTr": "11:117 nettir: helâk zulme karşı ani bir 'refleks' değil, ıslah çağrısının ısrarla reddedilmesinin sonucudur.",
+          "whyEn": "11:117 is clear: destruction is not a reflex against injustice but the outcome of persistently rejecting the call to reform."
         }
       ],
       "verses": [
@@ -220,17 +246,23 @@
         {
           "stepTr": "Şahitlik ve emanet",
           "stepEn": "Testimony and trust",
-          "verse": "5:8"
+          "verse": "5:8",
+          "whyTr": "Adalet (4:135) sürekli bir çaba istediği için şahitlik ve emanete sadakatte somutlaşır (5:8).",
+          "whyEn": "Because justice (4:135) demands continuous effort, it takes concrete form in faithful testimony and trust (5:8)."
         },
         {
           "stepTr": "Emirler + yargıçlar adil olur",
           "stepEn": "Commands + judges become just",
-          "verse": "4:58"
+          "verse": "4:58",
+          "whyTr": "Bireysel adalet kurumsallaşınca yöneticiler ve yargıçlar da adil davranmaya başlar (4:58).",
+          "whyEn": "As individual justice becomes institutional, rulers and judges also begin acting justly (4:58)."
         },
         {
           "stepTr": "Toplum uzun ömürlü + istikrarlı",
           "stepEn": "Society long-lived + stable",
-          "verse": "5:32"
+          "verse": "5:32",
+          "whyTr": "57:25: peygamberler kitap ve terazi ile gönderildi ki insanlar adaleti ayakta tutsun — adaletsiz toplum sürdürülemez.",
+          "whyEn": "57:25: the messengers were sent with the Book and the scale so people would uphold justice — an unjust society cannot endure."
         }
       ],
       "verses": [
@@ -258,17 +290,23 @@
         {
           "stepTr": "Kara + deniz'de dengesi bozulur",
           "stepEn": "Balance disrupts on land + sea",
-          "verse": "30:41"
+          "verse": "30:41",
+          "whyTr": "İnsan elinin ahlâki-manevî ifsadı (30:41) doğrudan kara ve denizin dengesine yansır.",
+          "whyEn": "The ethical-spiritual corruption of human hands (30:41) reflects directly onto the balance of land and sea."
         },
         {
           "stepTr": "Amaç: kısmen tattırma, geri dönüş için",
           "stepEn": "Purpose: partial taste, for return",
-          "verse": "30:41"
+          "verse": "30:41",
+          "whyTr": "30:41'in kendisi amacı da söyler: tam yıkım değil, dönüş için kısmi bir tattırma.",
+          "whyEn": "30:41 itself states the purpose: not total ruin, but a partial taste meant to prompt return."
         },
         {
           "stepTr": "Uyarıyı almazsa: daha derin ceza",
           "stepEn": "If warning ignored: deeper punishment",
-          "verse": "7:96"
+          "verse": "7:96",
+          "whyTr": "Kısmi uyarı işe yaramazsa 7:96 daha derin bir cezaya işaret eder.",
+          "whyEn": "If the partial warning goes unheeded, 7:96 points to a deeper punishment."
         }
       ],
       "verses": [
@@ -295,17 +333,23 @@
         {
           "stepTr": "Güven ekonomisi çöker (nifâk)",
           "stepEn": "Trust economy collapses (nifāq)",
-          "verse": "63:3"
+          "verse": "63:3",
+          "whyTr": "Emanet (8:27) hafife alınınca ilk çöken şey karşılıklı güvendir — nifâk bunun belirtisidir (63:3).",
+          "whyEn": "Once trust (8:27) is trivialized, mutual confidence is the first to collapse — hypocrisy (nifaq) is its sign (63:3)."
         },
         {
           "stepTr": "Toplumsal parçalanma",
           "stepEn": "Social fragmentation",
-          "verse": "3:103"
+          "verse": "3:103",
+          "whyTr": "Güven çökünce toplum bütünlüğünü kaybeder (3:103).",
+          "whyEn": "Once trust collapses, society loses its cohesion (3:103)."
         },
         {
           "stepTr": "Yönetici kadro yozlaşır",
           "stepEn": "Ruling class corrupts",
-          "verse": "7:169"
+          "verse": "7:169",
+          "whyTr": "Parçalanmış bir toplumda yönetici sınıf da aynı çürümeden nasibini alır (7:169).",
+          "whyEn": "In a fragmented society, the ruling class shares in the same decay (7:169)."
         }
       ],
       "verses": [
@@ -333,17 +377,23 @@
         {
           "stepTr": "Emir insana: dengede taşkınlık etme",
           "stepEn": "Command to human: do not transgress in the balance",
-          "verse": "55:8"
+          "verse": "55:8",
+          "whyTr": "Göklere konan mîzân (55:7) doğrudan insana yönelik bir emre dönüşür: dengeyi bozma (55:8).",
+          "whyEn": "The balance set upon the heavens (55:7) turns into a direct command to humans: do not disturb it (55:8)."
         },
         {
           "stepTr": "Ölçüyü tam tutun — eksiltmeyin",
           "stepEn": "Uphold measure fully — do not diminish",
-          "verse": "55:9"
+          "verse": "55:9",
+          "whyTr": "Bu emir en somut hâliyle günlük alışverişte 'ölçüyü eksiltmeyin' talimatına iner (55:9).",
+          "whyEn": "In its most concrete form, this command becomes the instruction 'do not shortchange the measure' in daily trade (55:9)."
         },
         {
           "stepTr": "Kozmik + ahlâki mîzân aynı prensip",
           "stepEn": "Cosmic + moral mīzān are one principle",
-          "verse": "57:25"
+          "verse": "57:25",
+          "whyTr": "57:25 aynı mîzânı toplumsal adaletin ölçüsü yapar — kozmoloji ve ahlak tek prensipte birleşir.",
+          "whyEn": "57:25 makes this same mīzān the measure of social justice — cosmology and ethics converge in one principle."
         }
       ],
       "verses": [
@@ -370,17 +420,23 @@
         {
           "stepTr": "Semâ 'yazı sayfası gibi' dürülür",
           "stepEn": "The sky is folded 'like a scroll'",
-          "verse": "21:104"
+          "verse": "21:104",
+          "whyTr": "Yaratılış abes olmadığı için (23:115) bir sonu da vardır — 21:104 göğün 'yazı sayfası gibi' dürüleceğini söyler.",
+          "whyEn": "Because creation is not in vain (23:115), it also has an end — 21:104 says the sky will be folded 'like a scroll.'"
         },
         {
           "stepTr": "Yaratılışa nasıl başladıysak öyle iade",
           "stepEn": "As We began, so We repeat",
-          "verse": "21:104"
+          "verse": "21:104",
+          "whyTr": "21:104'ün devamı bunu netleştirir: son, başlangıcın aynı yöntemle tekrarıdır.",
+          "whyEn": "The rest of 21:104 clarifies this: the end repeats the beginning by the same method."
         },
         {
           "stepTr": "Yeni bir düzen — ahiret",
           "stepEn": "A new order — the afterlife",
-          "verse": "14:48"
+          "verse": "14:48",
+          "whyTr": "14:48 bu döngünün sonunda yepyeni bir düzenin kurulacağını haber verir.",
+          "whyEn": "14:48 announces that at the close of this cycle, an entirely new order will be established."
         }
       ],
       "verses": [

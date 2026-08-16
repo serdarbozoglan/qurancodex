@@ -476,16 +476,19 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
               paddingTop: 20,
               borderTop: `1px solid ${catColor}22`,
             }}>
-              {/* Step chain — masaüstünde gerçek soldan-sağa akış diyagramı
-                  (önceden dikey yığın + metin "↓" idi — bir "zincir"in
-                  görsel biçimini taşımıyordu). Sonuç halkası (son adım)
-                  ayrı bir rozetle ("SONUÇ") ve daha güçlü zeminle ayrılır.
-                  Mobilde tek sütun olarak kalır. */}
+              {/* Step chain — masaüstünde gerçek soldan-sağa akış diyagramı.
+                  ÖNEMLİ FARK: her ok artık BOŞ değil — hangi adımın bir
+                  sonrakine NEDEN yol açtığını açıklayan kısa bir gerekçe
+                  taşıyor (chain.note'un içinde zaten vardı ama tek bir
+                  paragrafa gömülüydü, hangi geçişi açıkladığı belirsizdi;
+                  şimdi ait olduğu oka bağlı). Sonuç halkası ayrı bir
+                  rozetle ("SONUÇ") ve daha güçlü zeminle ayrılır. Mobilde
+                  tek sütun olarak kalır. */}
               <div style={{
                 display: 'flex',
                 flexDirection: isMobile ? 'column' : 'row',
                 alignItems: 'stretch',
-                gap: isMobile ? 8 : 0,
+                gap: isMobile ? 0 : 0,
                 marginBottom: 24,
               }}>
                 {chain.steps.map((step, i) => {
@@ -556,23 +559,45 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                           </Link>
                         )}
                       </div>
-                      {!isLast && (
-                        <div style={{
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          flexShrink: 0,
-                          padding: isMobile ? '2px 0' : '0 4px',
-                        }}>
-                          <svg aria-hidden="true" width={isMobile ? 14 : 18} height={isMobile ? 14 : 18}
-                            viewBox="0 0 24 24" fill="none" stroke={catColor} strokeWidth="2.5"
-                            strokeLinecap="round" strokeLinejoin="round"
-                            style={{ opacity: 0.7, transform: isMobile ? 'none' : undefined }}
-                          >
-                            {isMobile
-                              ? <path d="M12 5v14M5 12l7 7 7-7" />
-                              : <path d="M5 12h14M13 5l7 7-7 7" />}
-                          </svg>
-                        </div>
-                      )}
+                      {!isLast && (() => {
+                        const nextStep = chain.steps[i + 1];
+                        const why = nextStep && (tr ? nextStep.whyTr : nextStep.whyEn);
+                        return (
+                          <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center', justifyContent: 'center',
+                            gap: 4,
+                            flexShrink: 0,
+                            width: isMobile ? '100%' : 132,
+                            padding: isMobile ? '8px 20px' : '10px 8px',
+                          }}>
+                            <svg aria-hidden="true" width={isMobile ? 14 : 16} height={isMobile ? 14 : 16}
+                              viewBox="0 0 24 24" fill="none" stroke={catColor} strokeWidth="2.5"
+                              strokeLinecap="round" strokeLinejoin="round"
+                              style={{ opacity: 0.85, flexShrink: 0 }}
+                            >
+                              {isMobile
+                                ? <path d="M12 5v14M5 12l7 7 7-7" />
+                                : <path d="M5 12h14M13 5l7 7-7 7" />}
+                            </svg>
+                            {why && (
+                              <p style={{
+                                margin: 0,
+                                fontFamily: FONTS.body,
+                                fontSize: '0.68rem',
+                                lineHeight: 1.45,
+                                color: catColor,
+                                opacity: 0.85,
+                                textAlign: 'center',
+                                fontStyle: 'italic',
+                              }}>
+                                {why}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })()}
                     </Fragment>
                   );
                 })}

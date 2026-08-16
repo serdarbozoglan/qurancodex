@@ -749,10 +749,10 @@ export const CONTENT_SOURCES = [
     buildItem: (chain) => {
       const verses = (chain.verses || []).join(', ');
       const steps = (chain.steps || []).map((s, i) =>
-        `${i+1}) ${s.stepTr || ''} [${s.verse || ''}]`
+        `${i+1}) ${s.stepTr || ''}${s.whyTr ? ` (${s.whyTr})` : ''} [${s.verse || ''}]`
       ).join(' → ');
       const stepsEn = (chain.steps || []).map((s, i) =>
-        `${i+1}) ${s.stepEn || ''} [${s.verse || ''}]`
+        `${i+1}) ${s.stepEn || ''}${s.whyEn ? ` (${s.whyEn})` : ''} [${s.verse || ''}]`
       ).join(' → ');
       return {
         id: `neden-sonuc:${chain.id}`,
