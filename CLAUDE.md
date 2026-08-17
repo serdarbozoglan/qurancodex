@@ -1711,6 +1711,29 @@ grep -rn "v\.surah}:{v\.ayah\|{.*\.ref}\|surah}:\${.*ayah" src/components/*.jsx
 ```
 Bulunan her satırı `formatVerseRef()` kullanacak şekilde gözden geçir.
 
+### 13.33 Hakkında Sayfası "Son Güncelleme" Tarihi — HER PUSH'TA GÜNCELLE (ENFORCE ALWAYS) (2026-08-17+)
+
+**`next/src/app/[locale]/hakkinda/HakkindaRoute.jsx`'teki `LAST_UPDATED_TR`/
+`LAST_UPDATED_EN` sabitleri, o `git push` işleminin gerçekleştiği günün
+tarihini taşımalıdır.** Kullanıcı direktifi (2026-08-17): "her push ile
+birlikte buradaki tarih en son push edilen günün tarihi olsun."
+
+**Uygulama — her `git push origin main`'den ÖNCE:**
+1. `HakkindaRoute.jsx`'te bu push'a dahil edilen değişiklik var mı kontrol et
+   (yalnız bu dosyanın kendisi değil — push edilen HERHANGİ bir değişiklik
+   sayfanın "güncel" olma iddiasını etkiler).
+2. Eğer bu push içerik/kod değişikliği taşıyorsa, `LAST_UPDATED_TR`/
+   `LAST_UPDATED_EN` sabitlerini o günün tarihine güncelle (TR: "17 Ağustos
+   2026" formatı; EN: "August 17, 2026" formatı).
+3. Güncellemeyi de AYNI push'a dahil et (ayrı bir commit gerekmez, mevcut
+   commit'e eklenebilir).
+
+**Neden bu kural var:** `/hakkinda` bir metodoloji/şeffaflık sayfası;
+"son güncelleme" tarihi taşıyan bir sayfanın bu tarihi bayatlaması, sayfanın
+kendi güvenilirlik iddiasını zayıflatır. Sabitler dosyanın en üstünde,
+bulunması kolay bir yerde tutulur — elle güncellemenin unutulma riski
+düşük olsun diye.
+
 ## 14. MOBİL UYUMLULUK KURALI — ENFORCE ALWAYS
 
 **Her yeni bileşen ve route mobil (≥ 390px) ekranda tam kullanılabilir olmalıdır.**
