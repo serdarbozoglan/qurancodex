@@ -748,6 +748,22 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
   .proof-verses li { grid-template-columns: 1fr !important; gap: 6px !important; }
 }
 
+/* ─── Diyagram kaydırma ipucu — YALNIZ gerçek taşma olduğunda (2026-08-17) ──
+   SVG minWidth 620px; section padding 24px*2 düşünce diyagram yalnız
+   viewport < ~668px'te taşıyor. Koşulsuz göstermek masaüstünde (taşma
+   YOKKEN) section'ın kendi çok-duraklı gradyanının üstüne gereksiz bir
+   karartma şeridi çiziyordu — kullanıcı ekran görüntüsüyle yakaladı. */
+.proof-diagram-fade {
+  display: none;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; width: 36px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+@media (max-width: 680px) {
+  .proof-diagram-fade { display: block; }
+}
+
 /* ─── Navbar 1024–1279 kompakt katmanı (Z3a1 · 2026-08-13) ──────────────────
    ÖLÇÜLEN SORUN: masaüstü navbar `lg:` (1024px) açılıyor ama içeriği o
    genişliğe SIĞMIYOR — nowrap ile gereken genişlik TR 1044px, EN 1113px.

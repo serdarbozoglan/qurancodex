@@ -176,8 +176,13 @@ export default function ProofSection({ locale = 'tr' }) {
           {label.lead}
         </p>
 
-        {/* ─── Diyagram ─── statik, animasyonsuz, sunucuda render */}
-        <div className="proof-diagram" style={{ overflowX: 'auto', marginBottom: '46px' }}>
+        {/* ─── Diyagram ─── statik, animasyonsuz, sunucuda render.
+            2026-08-17, kullanıcı raporu: mobilde sağa kaydırma gerekiyordu,
+            ipucu yoktu. Metni küçültmedik (okunaksız olurdu) — bunun yerine
+            sağ kenara mevcut ipucu deseni (bkz. EsmaFrekans/PsychologySection)
+            eklendi. */}
+        <div style={{ position: 'relative', marginBottom: '46px' }}>
+        <div className="proof-diagram" style={{ overflowX: 'auto' }}>
           <svg
             viewBox={`0 0 ${W} ${H}`}
             width="100%"
@@ -261,6 +266,18 @@ export default function ProofSection({ locale = 'tr' }) {
               );
             })}
           </svg>
+        </div>
+        {/* 2026-08-17 — iki ayrı hata düzeltildi:
+            1) Düz SEMANTIC.surface hedef renk kullanılmıştı, ama section'ın
+               arkaplanı DÜZ değil, çok-duraklı dikey gradyan. Diyagramın
+               yüksekliğinde gerçek zemin daha açık; düz renk görünür bir
+               kenar oluşturdu (kullanıcı ekran görüntüsüyle bildirdi).
+            2) SVG'nin minWidth'i (620px) 980px konteynerden dar — masaüstünde
+               diyagram HİÇ taşmıyor, yani kaydırma hiç gerekmiyor. Fade yine
+               de koşulsuz render olduğu için gereksiz bir karartma şeridi
+               gösteriyordu tam da ihtiyaç olmayan yerde. CSS class'a taşınıp
+               yalnız taşmanın gerçekleştiği dar ekranlarda gösterilecek. */}
+        <div aria-hidden="true" className="proof-diagram-fade" />
         </div>
 
         {/* ─── Âyetler — glow YOK, efekt YOK ─── */}
