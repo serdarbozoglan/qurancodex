@@ -64,7 +64,7 @@
     },
     "fasila": {
       "title": "Fasila: Each Sura's Sound Signature",
-      "desc": "Every sura in the Quran has its own distinctive closing sound — called 'fasila'. This pattern at the end of each verse is neither bound by rhyme rules nor accidental. It is a sound architecture.",
+      "desc": "Every sura in the Quran has its own distinctive closing sound — called 'fasila'. This pattern at the end of each verse does not appear reducible to either a simple rhyme rule or coincidence — it suggests a deliberate sound architecture.",
       "soundLabel": "Dominant closing sound"
     },
     "duha": {

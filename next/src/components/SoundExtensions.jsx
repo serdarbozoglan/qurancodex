@@ -165,6 +165,18 @@ export default function SoundExtensions({ language, isMobile }) {
             fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
             margin: 0,
           }}>{tr ? 'Dört ek çift, sekiz sesli grup, bir tek örüntü' : 'Four more pairs, eight sound groups, one pattern'}</p>
+          {/* 2026-08-17 — site denetimi: "sert/yumuşak" ayrımı sayfanın kendi
+              tematik gruplaması; klasik tecvidin (tafhīm/tarqīq) kaynaklı
+              kategorilerinden ayrı olduğu hiçbir yerde belirtilmiyordu. */}
+          <p style={{
+            color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic',
+            fontSize: '0.82rem', lineHeight: 1.6, opacity: 0.85,
+            maxWidth: '620px', margin: '14px auto 0',
+          }}>
+            {tr
+              ? "Buradaki 'sert/yumuşak' ayrımı bu sayfanın kendi tematik gruplamasıdır — klasik tecvidin tafhīm/tarqīq gibi kaynaklı kategorileriyle karıştırılmamalıdır."
+              : "The 'harsh/soft' grouping here is this page's own thematic classification — not to be confused with classical tajwīd's sourced categories such as tafhīm/tarqīq."}
+          </p>
         </div>
 
         {/* Pair tabs */}

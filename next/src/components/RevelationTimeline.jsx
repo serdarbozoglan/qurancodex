@@ -169,6 +169,12 @@ export default function RevelationTimeline({ onClose }) {
                 <span style={{ color: '#7a8a70', fontSize: '0.72rem', fontWeight: 700 }}>▼</span>
                 {language === 'tr' ? 'mushafta daha önde' : 'earlier in mushaf'}
               </span>
+              {/* 2026-08-17 — site denetimi: ▲▼ farkı mushaf sırası - nüzul
+                  sırasından hesaplanan türetilmiş bir istatistik; kanonik
+                  sıralama verisinden ayırt etmek için etiketlendi. */}
+              <span style={{ color: COLORS.silver, fontSize: '0.66rem', fontStyle: 'italic', opacity: 0.7 }}>
+                {language === 'tr' ? '(fark: hesaplanan)' : '(delta: computed)'}
+              </span>
               {viewMode === 'timeline' && (
                 <>
                   <span style={{ width: '1px', height: '16px', background: 'rgba(255,255,255,0.08)' }} />

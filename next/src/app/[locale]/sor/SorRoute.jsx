@@ -261,6 +261,21 @@ function SorInner() {
             justifyContent: 'space-between',
             gap: '10px',
           }}>
+            {/* 2026-08-17 — kullanıcı geri bildirimi: Anasayfa linki sitenin
+                geri kalanında (HomeLinkPill, §13.17) hep SAĞDA; bu sayfada
+                solda kalmıştı. Sırası "ESC ile kapat" ile değiştirildi. */}
+            <span
+              style={{
+                fontFamily: FONTS.body,
+                fontSize: '0.66rem',
+                color: COLORS.silver,
+                opacity: 0.78,
+                letterSpacing: '0.04em',
+              }}
+              className="hidden sm:inline"
+            >
+              {tr ? 'ESC ile kapat' : 'Press ESC to close'}
+            </span>
             <Link
               href={`/${language}`}
               style={{
@@ -283,18 +298,6 @@ function SorInner() {
               <span style={{ fontSize: '0.95rem', lineHeight: 1 }}>←</span>
               <span>{tr ? 'Anasayfa' : 'Home'}</span>
             </Link>
-            <span
-              style={{
-                fontFamily: FONTS.body,
-                fontSize: '0.66rem',
-                color: COLORS.silver,
-                opacity: 0.78,
-                letterSpacing: '0.04em',
-              }}
-              className="hidden sm:inline"
-            >
-              {tr ? 'ESC ile kapat' : 'Press ESC to close'}
-            </span>
           </div>
 
           {/* Query bar */}
@@ -523,6 +526,16 @@ function SorInner() {
 const readHistory = readQueryHistory;
 const pushHistory = sharedPushHistory;
 
+// 2026-08-17 — site denetimi: boş durum "tek cümle + büyük boşluk" gibi
+// bitmemiş görünüyordu. İlk ziyaretçiye (geçmişi olmayan) farklı içerik
+// türlerini (âyet, kıssa, araç) kapsayan örnek sorular gösterir.
+const EXAMPLE_QUESTIONS = [
+  { tr: "Mü'minin özellikleri nedir?", en: 'What are the qualities of a believer?' },
+  { tr: 'Sabır ile ilgili âyetler hangileri?', en: 'Which verses discuss patience?' },
+  { tr: 'Yûsuf kıssası nerede anlatılır?', en: 'Where is the story of Joseph told?' },
+  { tr: "Rahmân sûresinde aynı âyet kaç kez tekrar eder?", en: 'How many times does the same verse repeat in Surah Ar-Rahman?' },
+];
+
 function IdleState({ language, onSelect }) {
   const tr = language === 'tr';
   const [history, setHistory] = useState([]);
@@ -542,6 +555,55 @@ function IdleState({ language, onSelect }) {
       <p style={{ fontFamily: FONTS.body, fontSize: '1rem', marginBottom: history.length ? '36px' : 0 }}>
         {tr ? 'Yukarıdaki kutuya bir soru yaz.' : 'Type a question in the box above.'}
       </p>
+
+      {history.length === 0 && (
+        <div style={{ maxWidth: '700px', margin: '36px auto 0' }}>
+          <div style={{
+            fontSize: '0.72rem',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: COLORS.silver,
+            opacity: 0.78,
+            marginBottom: '14px',
+          }}>
+            {tr ? 'Örnek sorular' : 'Example questions'}
+          </div>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
+            justifyContent: 'center',
+          }}>
+            {EXAMPLE_QUESTIONS.map((q) => (
+              <button
+                key={q.tr}
+                onClick={() => onSelect(tr ? q.tr : q.en)}
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '999px',
+                  padding: '8px 16px',
+                  color: COLORS.offWhite,
+                  fontFamily: FONTS.body,
+                  fontSize: '0.82rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
+                  e.currentTarget.style.background = `${COLORS.gold}12`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                }}
+              >
+                {tr ? q.tr : q.en}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {history.length > 0 && (
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>

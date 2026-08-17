@@ -498,6 +498,19 @@ export default function KaynakcaRoute() {
           >
             {isEn ? introEn : introTr}
           </p>
+          {/* 2026-08-17 — site denetimi: bu listenin ne zaman doğrulandığı
+              görünmüyordu. CLAUDE.md §13.30'daki tam kaynak-doğrulama
+              turunun tarihi kullanıldı (11 gerçek atıf hatası bulunup
+              düzeltildiği tur). */}
+          <p
+            style={{
+              color: COLORS.silver, fontFamily: FONTS.body,
+              fontSize: '0.78rem', letterSpacing: '0.02em',
+              opacity: 0.65, margin: '14px 0 0',
+            }}
+          >
+            {isEn ? 'Last verified: August 14, 2026' : 'Son doğrulama: 14 Ağustos 2026'}
+          </p>
 
           {/* Kardeş sayfa geçişi (2026-08-13). Bu sayfa 5.039px ve
               /hakkinda'ya HİÇ dönüş bağlantısı yoktu — çıkmaz sokaktı. */}

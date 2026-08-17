@@ -224,6 +224,7 @@ export default function MobileSectionChipNav() {
           alignItems: 'stretch',
           maxWidth: isDesktop ? '1280px' : '100%',
           margin: '0 auto',
+          position: 'relative',
         }}
       >
         <button
@@ -316,6 +317,15 @@ export default function MobileSectionChipNav() {
           );
         })}
         </div>
+        {/* 2026-08-17 — site denetimi: raf yatay kaydırma gerektiriyor,
+            ipucu yoktu. Rafın kendi arkaplanı (cosmicBlackAlpha85 + blur)
+            düz olduğu için hedef renk aynı token — ProofSection'daki
+            gradyan-uyumsuzluğu seam hatası burada tekrarlanmaz. */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: 0, right: 0, bottom: 0, width: '28px',
+          background: `linear-gradient(90deg, transparent, ${COLORS.cosmicBlackAlpha85})`,
+          pointerEvents: 'none',
+        }} />
       </div>
     </nav>
   );

@@ -14,6 +14,11 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD } from '@/tokens';
 import useNavbarOffset from '@/components/useNavbarOffset';
 
+// "Son güncelleme" tarihi — CLAUDE.md kuralı: her `git push`'ta en son push
+// gününe elle güncellenir (2026-08-17'de eklendi, kullanıcı direktifi).
+const LAST_UPDATED_TR = '17 Ağustos 2026';
+const LAST_UPDATED_EN = 'August 17, 2026';
+
 const SECTIONS = [
   {
     id: 'amac',
@@ -134,6 +139,12 @@ export default function HakkindaRoute() {
             {isEn
               ? 'Its purpose, epistemic stance, sources, and limits — stated openly.'
               : 'Amacı, epistemik duruşu, kaynakları ve sınırları — açıkça.'}
+          </p>
+          {/* Son güncelleme tarihi — LAST_UPDATED sabitinden (dosya başında).
+              CLAUDE.md §13.28-benzeri kural: her push'ta en son push gününe
+              güncellenir (bkz. CLAUDE.md "Hakkında sayfası güncelleme tarihi"). */}
+          <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.78rem', opacity: 0.65, margin: '14px 0 0' }}>
+            {isEn ? `Last updated: ${LAST_UPDATED_EN}` : `Son güncelleme: ${LAST_UPDATED_TR}`}
           </p>
 
           {/* Kardeş sayfa geçişi (2026-08-13). Kaynakça bağlantısı sayfada
