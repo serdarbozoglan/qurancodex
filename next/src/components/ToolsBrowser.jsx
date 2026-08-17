@@ -361,23 +361,34 @@ export default function ToolsBrowser({ onClose, defaultOpen = false }) {
                     : `${TOTAL_TOOL_COUNT} tools · atlases · graphs`}
                 </span>
               </span>
-              <button
-                onClick={close}
-                aria-label={language === 'tr' ? 'Kapat' : 'Close'}
-                style={{ ...CLOSE_BTN }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = COLORS.glassBorder;
-                  e.currentTarget.style.color = COLORS.offWhite;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = CLOSE_BTN.background;
-                  e.currentTarget.style.color = COLORS.silver;
-                }}
-              >
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
+              {/* CLAUDE.md §13.11: tool sayfası ana header'ında × close button
+                  YASAK — full-page route'ta browser back / katalog navigasyonu
+                  yeterli (ESC handler zaten kayıtlı, ayrıca korunuyor).
+                  ToolsBrowser hem gerçek modal (diğer sayfalardan
+                  'openToolsBrowser' event'iyle açılır) HEM DE bu route'un
+                  (/arac/tum-araclar) TEK içeriği olarak kullanılıyor;
+                  `defaultOpen` yalnız route girişinde true olduğundan modal/
+                  route ayrımı için güvenilir bir sinyal — gerçek modal
+                  bağlamında buton korunur, route bağlamında gizlenir. */}
+              {!defaultOpen && (
+                <button
+                  onClick={close}
+                  aria-label={language === 'tr' ? 'Kapat' : 'Close'}
+                  style={{ ...CLOSE_BTN }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = COLORS.glassBorder;
+                    e.currentTarget.style.color = COLORS.offWhite;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = CLOSE_BTN.background;
+                    e.currentTarget.style.color = COLORS.silver;
+                  }}
+                >
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
             </div>
 
             {/* Search input + popular-search empty-state suggestions */}

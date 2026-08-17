@@ -11,6 +11,7 @@ import HumanDefinition from '../sections/HumanDefinition';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import extData from '../../public/insan-tanimi-ext.json';
@@ -32,6 +33,8 @@ export default function InsanTanimi({ onClose }) {
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
   const [activeTab, setActiveTab] = useState('concepts');
+  // Navbar yüksekliği sabit değil (§13.13/§13.31 Mekanizma 2) — ölçülür.
+  const navTop = useNavbarOffset(0, 62);
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);
@@ -128,7 +131,7 @@ export default function InsanTanimi({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
-        position: 'sticky', top: '110px', zIndex: 20,
+        position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
         scrollMarginTop: '120px',
         overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
       }}>

@@ -14,6 +14,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -48,6 +49,8 @@ export default function InsanYolculugu({ onClose }) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const detailRef = useRef(null);
+  // Navbar yüksekliği sabit değil (§13.13/§13.31 Mekanizma 2) — ölçülür.
+  const navTop = useNavbarOffset(0, 62);
 
   // SSR-safe mobile detection
   useEffect(() => {
@@ -194,7 +197,7 @@ export default function InsanYolculugu({ onClose }) {
               <span style={{ opacity: 0.35 }}>·</span>
               <span><span style={{ color: COLORS.gold, fontWeight: 700 }}>{stages.reduce((n, s) => n + 1 + (s.supportingVerses?.length || 0), 0)}</span> {isEn ? 'VERSES' : 'AYET'}</span>
               <span style={{ opacity: 0.35 }}>·</span>
-              <span>{isEn ? 'FIṬRA → JAMĀL ALLĀH' : 'FIṬRA → CEMÂLULLAH'}</span>
+              <span>{isEn ? 'FIṬRAT → JAMĀL ALLĀH' : 'FIṬRAT → CEMÂLULLAH'}</span>
             </div>
           </div>
 
@@ -208,7 +211,7 @@ export default function InsanYolculugu({ onClose }) {
               background: 'rgb(6, 8, 14)',
               backgroundColor: 'rgb(6, 8, 14)',
               isolation: 'isolate',
-              position: 'sticky', top: '110px', zIndex: 20,
+              position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
               scrollMarginTop: '120px',
               flexShrink: 0,
             }}>
@@ -260,7 +263,7 @@ export default function InsanYolculugu({ onClose }) {
                 padding: '32px 0 32px 32px',
                 borderRight: `1px solid ${COLORS.glassBorderSoft}`,
               }}>
-                <div style={{ position: 'sticky', top: '130px' }}>
+                <div style={{ position: 'sticky', top: `${navTop + 68}px` }}>
                   <p style={{
                     color: COLORS.gold, opacity: 0.85,
                     fontSize: '0.65rem', fontWeight: 700,

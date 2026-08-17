@@ -721,6 +721,28 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
   );
 }
 
+// Zaman ekseni rozetleri hub.json'daki ham sütun slug'larını (pillars[].id
+// ile aynı sözlük) gösterir. Önceden `s.replace('-', ' ')` + CSS uppercase
+// kullanılıyordu — bu, Türkçe özel harfleri (Â, Ç, Ü) hesaba katmadan ham
+// ascii slug'ı büyütüyordu: 'tovbe'→'TOVBE' (doğrusu 'TEVBE'),
+// 'zekat'→'ZEKAT' (doğrusu 'ZEKÂT'), 'oruc'→'ORUC' (doğrusu 'ORUÇ').
+// Doğru yazım, pillars dizisindeki titleTr/titleEn ile birebir aynı sözlük.
+const SUTUN_LABEL = {
+  namaz:  { tr: 'Namaz', en: 'Prayer' },
+  zekat:  { tr: 'Zekât', en: 'Zakat' },
+  oruc:   { tr: 'Oruç',  en: 'Fasting' },
+  hac:    { tr: 'Hac',   en: 'Pilgrimage' },
+  kurban: { tr: 'Kurban', en: 'Sacrifice' },
+  zikir:  { tr: 'Zikir', en: 'Remembrance' },
+  dua:    { tr: 'Dua',   en: 'Supplication' },
+  tovbe:  { tr: 'Tevbe', en: 'Repentance' },
+};
+function sutunLabel(slug, language) {
+  const entry = SUTUN_LABEL[slug];
+  if (!entry) return slug.replace('-', ' ');
+  return language === 'tr' ? entry.tr : entry.en;
+}
+
 // ─── Zaman Ekseni — Mekke & Medine ───────────────────────────────────────
 function ZamanEkseniSection({ data, language, isMobile }) {
   if (!data?.phases?.length) return null;
@@ -771,7 +793,7 @@ function ZamanEkseniSection({ data, language, isMobile }) {
                       color: accent, fontSize: '0.68rem',
                       fontWeight: 600, letterSpacing: '0.06em',
                       textTransform: 'uppercase',
-                    }}>{s.replace('-', ' ')}</span>
+                    }}>{sutunLabel(s, language)}</span>
                   ))}
                 </div>
               )}
@@ -1004,9 +1026,13 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
         fontSize: isMobile ? '1.4rem' : '1.75rem',
         margin: '0 0 22px', fontWeight: 700,
       }}>{language === 'tr' ? "Kur'ân'ın Açtığı Pencereler" : "Windows the Qur'an Opens"}</h2>
-      <div style={{
+      {/* auto-fit(minmax(320px,1fr)) 3-col'a genişliyordu; 4 kartla son satırda
+          tek kart kalıp iki sütun genişliğinde boşluk bırakıyordu (auto-fit
+          yalnız TÜM satırlarda boş kalan track'i sıfırlar, tek satırdaki
+          eksik hücreyi değil). Sabit 2-col g-1-2 (dosyanın geri kalanında
+          zaten kullanılan paylaşılan sınıf) 4 kartı 2×2 eksiksiz doldurur. */}
+      <div className="g-1-2" style={{
         display: 'grid', gap: '18px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
       }}>
         {wowFacts.map((w, i) => {
           const style = IBADET_CLAIM_TYPE_STYLES[w.claimType];
