@@ -28,8 +28,16 @@
     "51:49",
     "53:45"
   ],
-  "previousArticle": "rahmetin-grameri-5",
-  "nextArticle": "rahmetin-grameri-7",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-5",
+    "titleTr": "Rahmetin Grameri-5: Kozmik Hologram: Bir Boşanma, Ruhun Yolculuğunun Fraktal Planı Nasıl Olur?",
+    "titleEn": "The Grammar of Mercy-5: The Cosmic Hologram: How Is a Divorce a Fractal Blueprint of the Soul's Journey?"
+  },
+  "nextArticle": {
+    "slug": "rahmetin-grameri-7",
+    "titleTr": "Rahmetin Grameri-7: Sentez: Kur'an Prizması ve Altındaki Tek Yasa",
+    "titleEn": "The Grammar of Mercy-7: Synthesis: The Quran Prism and the Single Law Beneath It"
+  },
   "blocks": [
     {
       "type": "paragraph",

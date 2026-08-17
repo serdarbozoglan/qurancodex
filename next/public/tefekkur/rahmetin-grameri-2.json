@@ -30,8 +30,16 @@
     "2:282",
     "4:4"
   ],
-  "previousArticle": "rahmetin-grameri-1",
-  "nextArticle": "rahmetin-grameri-3",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-1",
+    "titleTr": "Rahmetin Grameri-1: Kâinatı Yazan Kalem Neden Birden Boşanma Hukukunu Yazar?",
+    "titleEn": "The Grammar of Mercy-1: Why Does the Pen That Writes the Cosmos Suddenly Write Divorce Law?"
+  },
+  "nextArticle": {
+    "slug": "rahmetin-grameri-3",
+    "titleTr": "Rahmetin Grameri-3: İçteki Ayna: İnsan Mahkemeleri Körken Hukuk Kalbi Nasıl Denetler?",
+    "titleEn": "The Grammar of Mercy-3: The Inner Mirror: When Human Courts Are Blind, How Does Law Audit the Heart?"
+  },
   "blocks": [
     {
       "type": "section",

@@ -26,7 +26,11 @@
     "41:53"
   ],
   "previousArticle": null,
-  "nextArticle": "rahmetin-grameri-2",
+  "nextArticle": {
+    "slug": "rahmetin-grameri-2",
+    "titleTr": "Rahmetin Grameri-2: Toplumsal Kalkan: Hukuk, Kırılmış Bir Toplumu Nasıl Yeniden İnşa Eder?",
+    "titleEn": "The Grammar of Mercy-2: The Social Shield: How Does Law Rebuild a Broken Society?"
+  },
   "blocks": [
     {
       "type": "paragraph",

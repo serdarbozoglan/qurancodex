@@ -26,8 +26,16 @@
     "2:237",
     "51:49"
   ],
-  "previousArticle": "rahmetin-grameri-4",
-  "nextArticle": "rahmetin-grameri-6",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-4",
+    "titleTr": "Rahmetin Grameri-4: İlahî İsim Mührü: Dünyevî Bir Muamele İlahî Arş'a Nasıl Bağlanır?",
+    "titleEn": "The Grammar of Mercy-4: The Seal of the Divine Name: How Is an Earthly Transaction Bound to the Divine Throne?"
+  },
+  "nextArticle": {
+    "slug": "rahmetin-grameri-6",
+    "titleTr": "Rahmetin Grameri-6: Kozmik Ayna: Sivrisinek, Güneş ve Çiftler",
+    "titleEn": "The Grammar of Mercy-6: The Cosmic Mirror: The Mosquito, the Sun, and the Pairs"
+  },
   "blocks": [
     {
       "type": "paragraph",

@@ -26,8 +26,16 @@
     "2:235",
     "2:237"
   ],
-  "previousArticle": "rahmetin-grameri-2",
-  "nextArticle": "rahmetin-grameri-4",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-2",
+    "titleTr": "Rahmetin Grameri-2: Toplumsal Kalkan: Hukuk, Kırılmış Bir Toplumu Nasıl Yeniden İnşa Eder?",
+    "titleEn": "The Grammar of Mercy-2: The Social Shield: How Does Law Rebuild a Broken Society?"
+  },
+  "nextArticle": {
+    "slug": "rahmetin-grameri-4",
+    "titleTr": "Rahmetin Grameri-4: İlahî İsim Mührü: Dünyevî Bir Muamele İlahî Arş'a Nasıl Bağlanır?",
+    "titleEn": "The Grammar of Mercy-4: The Seal of the Divine Name: How Is an Earthly Transaction Bound to the Divine Throne?"
+  },
   "blocks": [
     {
       "type": "paragraph",

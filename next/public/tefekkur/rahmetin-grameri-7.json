@@ -26,7 +26,11 @@
     "14:24-25",
     "41:53"
   ],
-  "previousArticle": "rahmetin-grameri-6",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-6",
+    "titleTr": "Rahmetin Grameri-6: Kozmik Ayna: Sivrisinek, Güneş ve Çiftler",
+    "titleEn": "The Grammar of Mercy-6: The Cosmic Mirror: The Mosquito, the Sun, and the Pairs"
+  },
   "nextArticle": null,
   "blocks": [
     {

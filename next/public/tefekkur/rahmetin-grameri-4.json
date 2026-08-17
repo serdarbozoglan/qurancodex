@@ -24,8 +24,16 @@
     "34:3",
     "41:53"
   ],
-  "previousArticle": "rahmetin-grameri-3",
-  "nextArticle": "rahmetin-grameri-5",
+  "previousArticle": {
+    "slug": "rahmetin-grameri-3",
+    "titleTr": "Rahmetin Grameri-3: İçteki Ayna: İnsan Mahkemeleri Körken Hukuk Kalbi Nasıl Denetler?",
+    "titleEn": "The Grammar of Mercy-3: The Inner Mirror: When Human Courts Are Blind, How Does Law Audit the Heart?"
+  },
+  "nextArticle": {
+    "slug": "rahmetin-grameri-5",
+    "titleTr": "Rahmetin Grameri-5: Kozmik Hologram: Bir Boşanma, Ruhun Yolculuğunun Fraktal Planı Nasıl Olur?",
+    "titleEn": "The Grammar of Mercy-5: The Cosmic Hologram: How Is a Divorce a Fractal Blueprint of the Soul's Journey?"
+  },
   "blocks": [
     {
       "type": "paragraph",
