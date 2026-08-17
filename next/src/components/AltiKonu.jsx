@@ -8,13 +8,74 @@ import { useEffect, useState } from 'react';
 import Highlights from '../sections/Highlights';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
+import { cleanArabicForDisplay } from '../lib/arabic';
+
+// ─── Konu Zemini — her 6 konu için ayet-temelli genişletme ─────────────────
+// Site denetimi (16 Ağustos 2026): bu sayfa ana sayfa Highlights bölümünün
+// birebir kopyasıydı, özgün içeriği yoktu (içerik puanı 4/10). Kural
+// gereği (üstteki yorum) mevcut içerik DEĞİŞTİRİLMEDİ — yalnız zaten
+// mevcut, doğrulanmış metinlerdeki (highlights.cards[].content/note)
+// ayet referansları gerçek Arapça metinle (verse-graph-bgem3.json,
+// cleanArabicForDisplay ile) somutlaştırıldı ve kaynak isimleri
+// (Taberî, Razi, Faulds, Galton, Leeds Corpus, Zerkeşî vd.) ayrı bir
+// "Kaynaklar" satırında görünür kılındı. Yeni bir iddia eklenmedi.
+const TOPIC_DEPTH = [
+  {
+    id: 'prefrontal',
+    verses: [{ ref: '96:15-16', refLabel: 'Alak 96:15-16', arabic: 'كَلَّا لَئِنْ لَمْ يَنْتَهِ۬ لَنَسْفَعاً بِالنَّاصِيَةِ نَاصِيَةٍ كَاذِبَةٍ خَاطِئَةٍ', trTr: 'Hayır, hayır! Eğer vazgeçmezse, derhal onu alnından yakalarız — o yalancı, günahkâr alından.', trEn: 'No! If he does not desist, We will surely drag him by the forelock — a lying, sinning forelock.' }],
+    sourcesTr: ['Taberî', 'Râzî', 'İbn Kesîr', 'Sean Spence (2001+)'],
+    sourcesEn: ['al-Ṭabarī', 'al-Rāzī', 'Ibn Kathīr', 'Sean Spence (2001+)'],
+  },
+  {
+    id: 'fingerprint',
+    verses: [{ ref: '75:4', refLabel: 'Kıyâmet 75:4', arabic: 'بَلٰى قَادِر۪ينَ عَلٰٓى اَنْ نُسَوِّيَ بَنَانَهُ', trTr: 'Evet, bizim onun parmak uçlarını bile aynen eski haline getirmeye gücümüz yeter.', trEn: 'Yes! We are able to restore even his fingertips.' }],
+    sourcesTr: ['Râzî', 'Taberî', 'Henry Faulds (Nature, 1880)', 'Francis Galton (1892)'],
+    sourcesEn: ['al-Rāzī', 'al-Ṭabarī', 'Henry Faulds (Nature, 1880)', 'Francis Galton (1892)'],
+  },
+  {
+    id: 'modular',
+    verses: [],
+    refChips: [{ ref: '20', labelTr: 'Tâ-Hâ', labelEn: 'Ṭā-Hā' }, { ref: '28', labelTr: 'Kasas', labelEn: 'al-Qaṣaṣ' }, { ref: '26', labelTr: 'Şu’arâ', labelEn: 'al-Shu’arā’' }],
+    sourcesTr: ['Homer, Odysseia (in medias res, MÖ 8. yy)'],
+    sourcesEn: ['Homer, Odyssey (in medias res, 8th c. BCE)'],
+  },
+  {
+    id: 'wordmap',
+    verses: [],
+    sourcesTr: ['Quranic Arabic Corpus (Leeds Üniversitesi)', 'Lane’s Lexicon'],
+    sourcesEn: ['Quranic Arabic Corpus (University of Leeds)', 'Lane’s Lexicon'],
+  },
+  {
+    id: 'timeflex',
+    verses: [
+      { ref: '30:2-4', refLabel: 'Rûm 30:2-4', arabic: 'غُلِبَتِ الرُّومُ ف۪ٓي اَدْنَى الْاَرْضِ وَهُمْ مِنْ بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ ف۪ي بِضْعِ سِن۪ينَ', trTr: 'Rumlar yenildi... Halbuki onlar, bu yenilgilerinden sonra birkaç yıl içinde galip geleceklerdir.', trEn: 'The Byzantines have been defeated... but after their defeat they will be victorious within a few years.' },
+      { ref: '18:25', refLabel: 'Kehf 18:25', arabic: 'وَلَبِثُوا ف۪ي كَـهْفِهِمْ ثَلٰثَ مِائَةٍ سِن۪ينَ وَازْدَادُوا تِسْعاً', trTr: 'Onlar, mağaralarında üç yüz yıl kaldılar ve dokuz yıl da buna ilave etmişlerdir.', trEn: 'They remained in their cave for three hundred years, adding nine more.' },
+    ],
+    sourcesTr: ['Râzî', 'Taberî'],
+    sourcesEn: ['al-Rāzī', 'al-Ṭabarī'],
+  },
+  {
+    id: 'iltifat',
+    verses: [
+      { ref: '1:1-4', refLabel: 'Fâtiha 1:1-4 — "O" kipi', arabic: 'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ', trTr: 'Rahmân ve Rahîm olan Allah’ın adıyla. Hamd, âlemlerin Rabbi Allah’a mahsustur.', trEn: 'In the name of Allah, the Most Gracious, the Most Merciful. Praise be to Allah, Lord of the worlds.' },
+      { ref: '1:5', refLabel: 'Fâtiha 1:5 — "Sen" kipine geçiş', arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ', trTr: 'Ancak Sana kulluk ederiz ve yalnız Senden yardım dileriz.', trEn: 'You alone we worship, and You alone we ask for help.' },
+      { ref: '1:6-7', refLabel: 'Fâtiha 1:6-7 — "Biz" kipi', arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَق۪يمَ', trTr: 'Bizi doğru yola ilet.', trEn: 'Guide us to the straight path.' },
+    ],
+    sourcesTr: ['İbn Ebu’l-İsba’', 'Zerkeşî, el-Burhân'],
+    sourcesEn: ['Ibn Abī al-Iṣbaʿ', 'al-Zarkashī, al-Burhān'],
+  },
+];
 
 export default function AltiKonu({ onClose }) {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
+  const [expandedTopic, setExpandedTopic] = useState(null);
+  const highlightCards = t('highlights.cards') || [];
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);
     h();
@@ -25,8 +86,8 @@ export default function AltiKonu({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         icon={
@@ -113,6 +174,94 @@ export default function AltiKonu({ onClose }) {
 
       {/* Anasayfa Highlights section AYNEN — memory no-downgrade guarantee */}
       <Highlights />
+
+      {/* Konu Zemini — her konunun ayet metniyle, ana sayfada olmayan
+          gerçek bir derinleştirme (bkz. dosya başındaki not). */}
+      <div className="mq-box" style={{ maxWidth: 900, margin: '0 auto', '--pt-d': "8px", '--pt-m': "8px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "44px", '--pl-d': "32px", '--pl-m': "16px" }}>
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
+          <div style={{ fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, fontFamily: FONTS.body, marginBottom: 8 }}>
+            {tr ? 'AYET ZEMİNİ · KAYNAKLAR' : 'VERSE FOUNDATION · SOURCES'}
+          </div>
+          <h2 style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite, fontSize: isMobile ? '1.4rem' : '1.7rem', margin: 0 }}>
+            {tr ? 'Her Konunun Ayet Metni ve Kaynakçası' : 'The Verse Text and Sources Behind Each Topic'}
+          </h2>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {TOPIC_DEPTH.map((topic, i) => {
+            const card = highlightCards[i];
+            if (!card) return null;
+            const isOpen = expandedTopic === topic.id;
+            return (
+              <div key={topic.id} style={{
+                border: `1px solid ${isOpen ? COLORS.goldAlpha40 || 'rgba(212,165,116,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                borderRadius: 12,
+                background: 'rgba(255,255,255,0.02)',
+                overflow: 'hidden',
+                transition: 'border-color 0.2s',
+              }}>
+                <button
+                  onClick={() => setExpandedTopic(isOpen ? null : topic.id)}
+                  aria-expanded={isOpen}
+                  style={{
+                    width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    gap: 12, padding: '14px 18px', background: 'none', border: 'none', cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.92rem', color: COLORS.offWhite }}>
+                    {card.title}
+                  </span>
+                  <span style={{ color: COLORS.gold, opacity: 0.7, transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', flexShrink: 0 }}>▾</span>
+                </button>
+                {isOpen && (
+                  <div style={{ padding: '0 18px 20px' }}>
+                    {topic.verses.length > 0 && topic.verses.map(v => (
+                      <div key={v.ref} style={{
+                        background: 'rgba(212,165,116,0.05)',
+                        border: `1px solid ${COLORS.gold}22`,
+                        borderRadius: 10, padding: '16px 18px', marginBottom: 12,
+                      }}>
+                        <p dir="rtl" lang="ar" style={{
+                          fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.35rem',
+                          color: COLORS.gold, lineHeight: 1.95, margin: '0 0 10px',
+                        }}>{cleanArabicForDisplay(v.arabic)}</p>
+                        <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.65, margin: '0 0 6px' }}>
+                          {tr ? v.trTr : v.trEn}
+                        </p>
+                        <p style={{ fontFamily: FONTS.body, fontSize: '0.7rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.7, margin: 0 }}>
+                          — {v.refLabel}
+                        </p>
+                      </div>
+                    ))}
+                    {topic.refChips && (
+                      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
+                        {topic.refChips.map(c => (
+                          <a key={c.ref} href={`/${language}/oku/${c.ref}`} style={{
+                            display: 'inline-block', padding: '6px 12px', borderRadius: 999,
+                            border: `1px solid ${COLORS.gold}33`, color: COLORS.gold, fontSize: '0.76rem',
+                            fontFamily: FONTS.body, textDecoration: 'none',
+                          }}>
+                            {tr ? c.labelTr : c.labelEn}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 10px', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.silver, opacity: 0.6, fontFamily: FONTS.body }}>
+                        {tr ? 'Kaynaklar:' : 'Sources:'}
+                      </span>
+                      {(tr ? topic.sourcesTr : topic.sourcesEn).map(s => (
+                        <span key={s} style={{ fontSize: '0.76rem', color: COLORS.silver, opacity: 0.85, fontFamily: FONTS.body }}>{s}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       {/* CrossToolCTA — 6 konu insanı, kâinatı, anlatıyı, zamanı, sesi ve
           adı ilgilendirir; okuyucu ilgili derinlemesine tool'lara yönlendirilir. */}
