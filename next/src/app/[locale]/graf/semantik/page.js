@@ -7,8 +7,8 @@ import SemanticMapRoute from './SemanticMapRoute';
 const PATH = '/graf/semantik';
 const TITLE_TR = 'Semantik Harita';
 const TITLE_EN = 'Semantic Map';
-const DESC_TR = 'Surelerin semantik kümeleri — UMAP projeksiyonuyla 2D görselleştirilmiş içerik akrabalığı.';
-const DESC_EN = 'Semantic clusters of the surahs — content kinship visualised in 2D via UMAP projection.';
+const DESC_TR = 'Kur\'ân\'ın 6.236 ayetinin anlam benzerliğine göre kümelenmiş 20 tematik grubu — sıralanabilir kart listesi olarak.';
+const DESC_EN = 'The Quran\'s 6,236 verses clustered by semantic similarity into 20 thematic groups — presented as a sortable card list.';
 
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });

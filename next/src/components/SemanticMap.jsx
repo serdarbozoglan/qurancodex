@@ -8,6 +8,7 @@ import {
   BREAKPOINT_MOBILE,
 } from '../tokens';
 import LoadingOverlay from './LoadingOverlay';
+import DataDictionary from './DataDictionary';
 import ToolHeader from './ToolHeader';
 // 2026-08-14 (sınıf D): küme detay panelinde ham `**` ekrana basılıyordu
 // ("**en büyük embedding kümesi**"). Denetim taraması bunu KAÇIRMIŞTI çünkü
@@ -184,6 +185,35 @@ export default function SemanticMap({ onClose }) {
           )}
         </div>
 
+        {/* Veri Sözlüğü — kümeleme yöntemi şeffaflığı (site denetimi, 16 Ağustos
+            2026: sayfa 28 bulunan topluluktan yalnız 20'sini "anlamlı" diye
+            gösteriyordu, hangi yöntemle/neye göre "anlamlı" sayıldığı ve başlıkların
+            editoryal mi algoritmik mi olduğu hiç açıklanmıyordu). Değerler
+            public/semantic-map.json'ın kendi üst-seviye metadata alanlarından. */}
+        <div style={{ flexShrink: 0 }}>
+          <DataDictionary
+            language={language}
+            isMobile={isMobile}
+            rows={[
+              {
+                labelTr: 'Kümeleme yöntemi', labelEn: 'Clustering method',
+                valueTr: `NetworkX Louvain topluluk tespiti, BGE-M3 anlam benzerliği grafiği üzerinde (kenar eşiği ≥ ${data.threshold}, çözünürlük ${data.resolution}, sabit tohum ${data.seed}). Bağlam-penceresi yanlılığını önlemek için aynı sûre içi kenarlar grafikten çıkarılmıştır.`,
+                valueEn: `NetworkX Louvain community detection over a BGE-M3 semantic-similarity graph (edge threshold ≥ ${data.threshold}, resolution ${data.resolution}, fixed seed ${data.seed}). Same-surah edges are dropped from the graph to avoid context-window bias.`,
+              },
+              {
+                labelTr: 'Gösterilen kümeler', labelEn: 'Clusters shown',
+                valueTr: `Algoritma toplam ${data.total_communities_found} topluluk buldu; bunlardan ${data.meaningful_communities}'i (çok küçük/dağınık olmayanlar) "anlamlı" sayılıp gösteriliyor — geri kalan ${data.total_communities_found - data.meaningful_communities} topluluk sayfada yer almaz.`,
+                valueEn: `The algorithm found ${data.total_communities_found} communities in total; ${data.meaningful_communities} of them (excluding very small/diffuse ones) are judged "meaningful" and shown here — the remaining ${data.total_communities_found - data.meaningful_communities} communities do not appear on this page.`,
+              },
+              {
+                labelTr: 'Başlıklar', labelEn: 'Titles',
+                valueTr: 'Her kümenin başlığı ve özeti, algoritmanın ürettiği bir etiket DEĞİL — küme içindeki ayetler okunarak yazılmış editoryal bir isimlendirmedir.',
+                valueEn: 'Each cluster\'s title and summary is NOT an algorithmic label — it is an editorial name written after reading the verses within that cluster.',
+              },
+            ]}
+          />
+        </div>
+
         {/* Search */}
         <div style={{ position: 'relative', maxWidth: '420px' }}>
           <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(148,163,184,0.4)" strokeWidth="2" strokeLinecap="round"
@@ -209,10 +239,12 @@ export default function SemanticMap({ onClose }) {
           />
         </div>
 
-        {/* Sort chips */}
+        {/* Sort chips — mobilde wrap eder, taşma+gizli buton yok (site denetimi,
+            16 Ağustos 2026: "Sıra (ID)" 390px'te ekran dışına taşıp erişilemez
+            oluyordu, kaydırma ipucu da yoktu — /graf/kelime-isi'de de aynı desen). */}
         <div style={{
-          display: 'flex', gap: '6px',
-          overflowX: 'auto', flexShrink: 0, paddingBottom: '12px',
+          display: 'flex', gap: '6px', flexWrap: isMobile ? 'wrap' : 'nowrap',
+          overflowX: isMobile ? 'visible' : 'auto', flexShrink: 0, paddingBottom: '12px',
           scrollbarWidth: 'none',
         }}>
           <span style={{
