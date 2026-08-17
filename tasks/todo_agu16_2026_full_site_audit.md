@@ -756,9 +756,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/ritim` ⬜
+### `/arac/ritim` ✅
 
-**Durum:** İncelendi, güvenli düzeltme bulunamadı (kaynak eklemek araştırma gerektiriyor)
+**Durum:** Fasıla iddiası yumuşatıldı (`18eeb8c`) — kaynak talebi yerine "gibi görünür" hedge'i eklendi, kullanıcı kararıyla.
 
 **İçerik: 8.5/10** — src/components/Ritim.jsx wraps src/sections/ImpossibleRhythm.jsx (poetry/Quran/prose contrast, fasıla concept, Duhâ/Necm/Rahmân/Kamer examples) plus src/components/RhythmExtensions.jsx (16 classical aruz metres with correct scansion patterns + full 31-occurrence map of the Rahmân 55 refrain grouped by theme).
 - Güçlü yönler:
@@ -808,9 +808,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/ses-mimarisi` ⬜
+### `/arac/ses-mimarisi` 🟡
 
-**Durum:** İncelendi, güvenli düzeltme bulunamadı (kaynak eklemek araştırma gerektiriyor)
+**Durum:** "Sert/yumuşak" sınıflandırmasının sayfanın kendi tematik grubu olduğu, tecvidin kaynaklı kategorilerinden ayrı olduğu netleştirildi (`18eeb8c`). Açık kalan: 4 SoundExtensions çiftinden birine gerçek alıntı+kaynaklı klasik metin eklemek — araştırma gerektiriyor, yapılmadı.
 
 **İçerik: 8/10** — Wrapper (SesMimarisi.jsx) reuses the homepage SoundArchitecture section content plus an added SoundExtensions deep-dive (4 more contrast pairs + 8-group phonetic spectrum). Content compares 'harsh' (patlayıcı) vs 'soft' (akıcı) consonant clusters in punishment vs mercy verses, ties it to classical tajwīd (tafhīm/tarqīq/qalqala) and modern sound-symbolism research (Sapir 1929, Köhler bouba/kiki).
 - Güçlü yönler:
@@ -1965,9 +1965,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/zaman` ⬜
+### `/graf/zaman` ✅
 
-**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
+**Durum:** Mushaf-nüzul fark rozetlerine "(fark: hesaplanan)" etiketi eklendi (`18eeb8c`).
 
 **İçerik: 9/10** — Revelation-order timeline for all 114 surahs (Mekkî/Medenî, mushaf-vs-nüzul rank delta) sourced explicitly to Suyuti's al-Itkan (via Ibn Abbas narration) and Zerkeşî's al-Burhan, with an honest discussion of the tevkîfî/ictihadî ordering debate and Uthman's role in standardizing (not authoring) the mushaf sequence.
 - Güçlü yönler:
@@ -1996,7 +1996,7 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ### `/` 🟡
 
-**Durum:** 17 Ağustos'ta kullanıcı geri bildirimiyle bir dizi düzeltme yapıldı (`8521d59`, `e212a7e`, `715fd5b`, `c20d84c`): Conclusion.jsx kapanış "Fe'ttebiûhu" âyeti büyütüldü + restrained glow; ClusterWhisper.jsx'e opsiyonel destekleyici âyet desteği eklendi ve "İçe Bakış" whisper'ına Kaf 50:16 + meal eklendi; ProofSection'ın 4-adım ızgarası ikon+kart zeminiyle görselleştirildi, ardından mobil kaydırma-ipucu ve masaüstü seam hataları düzeltildi; Hero açıklama metni kullanıcı taslağıyla yeniden yazıldı (§13.24 tutarlılığı için — eski metin "her kelime yerli yerinde" gibi mutlak iddialar taşıyordu) ve body text kontrastı/punto'su büyütüldü; Nisa 4:82 kapanış âyetinde eksik sukun düzeltildi. Bu turda hiç dokunulmayan, orijinal denetimden kalan bulgular aşağıda duruyor — henüz doğrulanmadı.
+**Durum:** 17 Ağustos'ta kullanıcı geri bildirimiyle bir dizi düzeltme yapıldı (`8521d59`, `e212a7e`, `715fd5b`, `c20d84c`, `18eeb8c`): Conclusion.jsx kapanış "Fe'ttebiûhu" âyeti büyütüldü + restrained glow; ClusterWhisper.jsx'e opsiyonel destekleyici âyet desteği eklendi ve "İçe Bakış" whisper'ına Kaf 50:16 + meal eklendi; ProofSection'ın 4-adım ızgarası ikon+kart zeminiyle görselleştirildi, ardından mobil kaydırma-ipucu ve masaüstü seam hataları düzeltildi; Hero açıklama metni kullanıcı taslağıyla yeniden yazıldı (§13.24 tutarlılığı için — eski metin "her kelime yerli yerinde" gibi mutlak iddialar taşıyordu) ve body text kontrastı/punto'su büyütüldü; Nisa 4:82 kapanış âyetinde eksik sukun düzeltildi; mobil bölüm-şeridine (MobileSectionChipNav) kaydırma-ipucu fade eklendi (orijinal denetimin "no visible edge fade" bulgusu). Bu turda hiç dokunulmayan, orijinal denetimden kalan bulgular aşağıda duruyor — henüz doğrulanmadı.
 
 **İçerik: 9/10** — Long-form narrative homepage (hero, inventory stats, concierge prompt, methodology ribbon, six thematic 'gates', a fully worked Fâtiha ring-composition example, and 14 portal cards into deeper tools) — content lives inline in page.js/CARD_BY_ID rather than i18n JSON.
 - Güçlü yönler:
@@ -2022,9 +2022,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/sor` ⬜
+### `/sor` 🟡
 
-**Durum:** İncelendi, güvenli düzeltme bulunamadı (boş-durum içeriği yeni prose gerektiriyor)
+**Durum:** Boş durum artık 4 örnek soru çipi gösteriyor (kullanıcı onaylı, "Mü'minin özellikleri nedir?" dahil); header'daki Anasayfa/ESC sırası site geneliyle tutarlı hale getirildi (`18eeb8c`). Açık kalan: gerçek RAG yanıt kalitesi denetimi (API anahtarı gerektiriyor) yapılmadı.
 
 **İçerik: 7/10** — Live RAG 'ask a question' concierge (semantic + keyword search modes) over verses/tools/atlases/articles; static UI copy is strongly hedged, but actual generated answers could not be tested in this environment (dev server missing DEEPINFRA_API_KEY, request errored).
 - Güçlü yönler:
@@ -2081,9 +2081,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/hakkinda` ⬜
+### `/hakkinda` ✅
 
-**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
+**Durum:** "Son güncelleme" tarihi eklendi (`18eeb8c`); CLAUDE.md §13.33 kuralıyla her push'ta güncellenmesi zorunlu kılındı.
 
 **İçerik: 9/10** — About/Methodology page with 5 sections: Purpose, Epistemic Stance ('Kur'ân Hakikatin Ölçüsüdür'), Methodology & Sources, Limits & Honesty, Authorship & Contact — content is hardcoded in HakkindaRoute.jsx, bilingual, no i18n JSON.
 - Güçlü yönler:
@@ -2106,9 +2106,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/kaynakca` ⬜
+### `/kaynakca` ✅
 
-**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
+**Durum:** "Son doğrulama: 14 Ağustos 2026" notu eklendi (`18eeb8c`), CLAUDE.md §13.30'daki belgeli tarihe bağlı.
 
 **İçerik: 9/10** — Categorized bibliography (6 categories: classical tafsir, modern tafsir, academic/Quranic studies, rhetoric & ulûm al-Qur'an, hadith & sira, contested science/history, software/data corpora) — ~45 entries, hardcoded in KaynakcaRoute.jsx.
 - Güçlü yönler:
