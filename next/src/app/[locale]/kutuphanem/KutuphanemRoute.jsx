@@ -145,8 +145,8 @@ export default function KutuphanemRoute() {
             maxWidth: 600,
           }}>
             {tr
-              ? 'Kaydettiğin ayet, tefsir, makale ve atlas item\'ları burada. Her yerde 🔖 button ile ekle/çıkar.'
-              : 'Verses, tafsirs, articles, and atlas items you saved. Add/remove with the 🔖 button anywhere.'}
+              ? 'Kaydettiğin ayet, tefsir, makale ve atlas öğeleri burada. Her yerdeki kaydet düğmesiyle ekle/çıkar.'
+              : 'Verses, tafsirs, articles, and atlas items you saved. Add or remove with the save button anywhere.'}
           </p>
         </div>
 
@@ -160,11 +160,13 @@ export default function KutuphanemRoute() {
             border: `1px solid ${COLORS.glassBorderSoft || 'rgba(255,255,255,0.06)'}`,
             borderRadius: 12,
           }}>
-            <div style={{ fontSize: '2.5rem', opacity: 0.4, marginBottom: 12 }}>🔖</div>
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4, marginBottom: 12 }}>
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
             <p style={{ fontSize: '0.9rem', margin: 0 }}>
               {tr
-                ? 'Henüz kayıt yok. /sor veya atlas sayfalarında 🔖 butonuyla ekle.'
-                : 'No bookmarks yet. Add via the 🔖 button on /sor or atlas pages.'}
+                ? 'Henüz kayıt yok. /sor veya atlas sayfalarındaki kaydet düğmesiyle ekle.'
+                : 'No bookmarks yet. Add via the save button on /sor or atlas pages.'}
             </p>
           </div>
         )}
