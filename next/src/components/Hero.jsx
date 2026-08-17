@@ -579,9 +579,13 @@ export default function Hero() {
         <motion.div
           className="max-w-2xl mx-auto mb-10 font-body tracking-[0.01em]"
           style={{
-            color: 'rgba(232,230,227,0.78)',
-            fontSize: 'clamp(0.95rem, 1.6vw, 1.0625rem)',
-            lineHeight: 1.7,
+            // 2026-08-17, kullanıcı geri bildirimi: body text başlığa göre
+            // küçük/soluk kalıyordu, özellikle 2. paragrafın okunabilirliği
+            // düşüktü. Bir kademe büyütüldü + ham rgba(...,0.78) yerine tam
+            // opaklıkta COLORS.offWhite (§13.25 token kuralı + kontrast).
+            color: COLORS.offWhite,
+            fontSize: 'clamp(1.05rem, 1.8vw, 1.1875rem)',
+            lineHeight: 1.75,
           }}
           initial={reduced ? false : { opacity: 0, y: 20 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
