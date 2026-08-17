@@ -115,7 +115,7 @@ const GROUPS = [
     bullets: [
       '→ not: 5 sûrenin 3\'ünde (Yûnus, Yûsuf, Hicr) tam "tilke âyâtu\'l-kitâb" (Kitab\'ın ayetleri) ibaresi gelir; Hûd ve İbrâhîm ise "kitâbun" ile açılır — ortak payda hep "Kitab" vurgusu',
       'Hepsi Mekkî — baskı ve zulüm döneminin sûreleri',
-      'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'da eşsiz',
+      'Yûsuf: baştan sona tek ve bütünlüklü bir kıssa — Kur\'an\'ın anlatı yapısı içinde bu yönüyle öne çıkar',
       'Yûnus & Hûd: birden fazla peygamber kıssası ve Hz. Muhammed\'e teselli',
       'Hicr (15:1) özel — bu beş sûre arasında "Kitap" ve "Kur\'ân"ı birlikte zikreden tek açılış: تِلْكَ آيَاتُ الْكِتَابِ وَقُرْآنٍ مُّبِينٍ',
       '→ not: Ra\'d sûresi (13) dört harfli Elif-Lâm-Mîm-Râ (الـمر) ile açılır; saf Elif-Lâm-Râ grubuna dahil değildir',
@@ -123,7 +123,7 @@ const GROUPS = [
     bulletsEn: [
       '→ note: In 3 of the 5 suras (Yūnus, Yūsuf, al-Ḥijr) the exact phrase "tilka āyātu\'l-kitāb" (verses of the Book) follows; Hūd and Ibrāhīm open with "kitābun" — the common thread is always the emphasis on "the Book"',
       'All Meccan — suras from the period of persecution and pressure',
-      'Yusuf: a single, continuous narrative from beginning to end — unique in the Quran',
+      'Yusuf: a single, continuous narrative from beginning to end — stands out in this regard within the Quran\'s narrative structure',
       'Yunus & Hud: multiple prophetic stories with consolation to the Prophet',
       'Al-Ḥijr (15:1) is special — the only opening among these five that pairs "the Book" and "the Qur\'ān" together: تِلْكَ آيَاتُ الْكِتَابِ وَقُرْآنٍ مُّبِينٍ',
       '→ note: Sura Ar-Ra\'d (13) opens with four letters Elif-Lâm-Mîm-Râ (الـمر); it is not part of the pure Elif-Lâm-Râ group',
