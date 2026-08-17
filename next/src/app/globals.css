@@ -722,31 +722,23 @@ details[open] .ilk-son-chevron { transform: rotate(180deg); }
 .proof-steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 28px;
+  gap: 20px;
 }
+/* 2026-08-17 — kullanıcı geri bildirimi: sade üst-çizgi + düz metin
+   "görsel değil" hissi veriyordu. İkon rozeti + kart zemini eklendi;
+   AYETİN/şemanın kendisine DOKUNULMADI (§13.24 kısıtı hâlâ geçerli:
+   animasyon/glow yok) — bu yalnız metodoloji kartlarının okunabilirliği. */
 .proof-step {
-  border-top: 1px solid rgba(212, 165, 116, 0.22);
-  padding-top: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 165, 116, 0.14);
+  border-radius: 14px;
+  padding: 20px 18px;
 }
 /* Son adım — "neden kesin kanıt değil" — görsel olarak da ayrılır.
    Bu bölümün varlık şartı; kaybolmaması gerekiyor. */
 .proof-step:last-child {
-  border-top-color: rgba(212, 165, 116, 0.55);
-  /* 2026-08-14 — kullanıcı geri bildirimi: yalnız renk farkı yeterince
-     ayırt edilmiyordu, kalınlık da eklendi. padding-top 1px azaltıldı ki
-     metin toplam yükseklik değişmesin. */
-  border-top-width: 2px;
-  padding-top: 15px;
-  /* Fazladan boşluk — 1-3 "açıklama", 4 "çekince" iki grup hissi versin.
-     Normal grid `gap` (28px) üstüne eklenir, yalnız bu sütunu etkiler. */
-  margin-left: 16px;
-}
-@media (max-width: 900px) {
-  /* 2x2 ızgarada margin-left yanlış kenara iner (2. satır, 2. sütun hâlâ
-     sağda) — anlamı korumak için mobil/tablet'te kapatılır. */
-  .proof-step:last-child {
-    margin-left: 0;
-  }
+  border-color: rgba(212, 165, 116, 0.4);
+  background: rgba(212, 165, 116, 0.035);
 }
 @media (max-width: 900px) {
   .proof-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }

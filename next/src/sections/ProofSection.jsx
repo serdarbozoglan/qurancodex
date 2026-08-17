@@ -43,6 +43,34 @@ function xy(i) {
   };
 }
 
+// 4 adım için sabit ikon seti — sıraya göre eşleşir (içerik değil, sadece
+// görsel işaret; label.steps'in kendisi TR/EN metni taşımaya devam eder).
+const STEP_ICONS = [
+  // 01 — Örüntü ne: merkez eksene doğru kapanan iki ok (aynalı eşleşme)
+  <>
+    <line x1="12" y1="4" x2="12" y2="20" />
+    <path d="M8 8L4 12L8 16" />
+    <path d="M16 8L20 12L16 16" />
+  </>,
+  // 02 — Metinde nerede: büyüteç
+  <>
+    <circle cx="10" cy="10" r="6" />
+    <line x1="14.5" y1="14.5" x2="20" y2="20" />
+  </>,
+  // 03 — Neden anlamlı olabilir: ampul
+  <>
+    <path d="M9 18h6" />
+    <path d="M10 21h4" />
+    <path d="M12 3a6 6 0 0 0-6 6c0 2.5 1.3 3.9 2.3 5.1.5.6.7 1.3.7 1.9h6c0-.6.2-1.3.7-1.9C16.7 12.9 18 11.5 18 9a6 6 0 0 0-6-6z" />
+  </>,
+  // 04 — Neden kesin kanıt değil: uyarı dairesi
+  <>
+    <circle cx="12" cy="12" r="9" />
+    <line x1="12" y1="7.5" x2="12" y2="13" />
+    <line x1="12" y1="16" x2="12" y2="16.01" />
+  </>,
+];
+
 export default function ProofSection({ locale = 'tr' }) {
   const tr = locale === 'tr';
   const pts = FATIHA_RING.map((_, i) => xy(i));
@@ -272,20 +300,35 @@ export default function ProofSection({ locale = 'tr' }) {
 
         {/* ─── Dört adım — dördüncüsü olmadan bu bölüm yayınlanamaz ─── */}
         <div className="proof-steps">
-          {label.steps.map((s) => (
+          {label.steps.map((s, i) => (
             <div key={s.n} className="proof-step">
-              <div
-                style={{
-                  // 99 (.60) idi → 3.76. gold AA'yı .70'ten (b3) itibaren geçiyor.
-                  color: `${COLORS.gold}bf`,
-                  fontFamily: FONTS.body,
-                  fontSize: '0.68rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.18em',
-                  marginBottom: '8px',
-                }}
-              >
-                {s.n}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                <div
+                  aria-hidden="true"
+                  style={{
+                    width: '32px', height: '32px', borderRadius: '50%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: `${COLORS.gold}14`,
+                    border: `1px solid ${COLORS.gold}${i === 3 ? '55' : '33'}`,
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    {STEP_ICONS[i]}
+                  </svg>
+                </div>
+                <div
+                  style={{
+                    // 99 (.60) idi → 3.76. gold AA'yı .70'ten (b3) itibaren geçiyor.
+                    color: `${COLORS.gold}bf`,
+                    fontFamily: FONTS.body,
+                    fontSize: '0.68rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.18em',
+                  }}
+                >
+                  {s.n}
+                </div>
               </div>
               <h3
                 style={{
