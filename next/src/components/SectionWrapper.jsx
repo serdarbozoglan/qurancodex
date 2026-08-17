@@ -3,8 +3,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 
+// hidden opacity 0.5 DEĞİL 0 — savunma amaçlı (site denetimi, 16 Ağustos
+// 2026: hızlı/programatik scroll'da whileInView geç tetiklenirse bile
+// section tamamen boş görünmesin, bkz. aşağıdaki viewport margin notu).
 const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0.5 },
   visible: {
     opacity: 1,
     transition: {
@@ -20,12 +23,12 @@ const staggerContainer = {
 // hissi). scale 0.985 → 1 = %1.5 micro-depth. useReducedMotion() reduce-motion
 // modunda zaten kapanır (staggerContainer üzerinden), okunurluğu etkilemez.
 const fadeUpItem = {
-  hidden: { opacity: 0, y: 30, scale: 0.985 },
+  hidden: { opacity: 0.5, y: 14, scale: 0.99 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 
@@ -84,7 +87,13 @@ export default function SectionWrapper({
       variants={reduced ? undefined : staggerContainer}
       initial={reduced ? false : 'hidden'}
       whileInView={reduced ? undefined : 'visible'}
-      viewport={{ once: true, margin: '-80px' }}
+      // margin '-80px' idi (geç tetikleme — kullanıcı önce içine 80px girmeli).
+      // Site denetimi (16 Ağustos 2026): hızlı/programatik scroll'da bu section
+      // hiç görünmeden atlanabiliyor veya boş görünüyordu (bkz. /arac/retorik-sorular
+      // içine gömülü rhetoric section'ı, /atlas/ahiret-yolculugu'ndaki aynı desen).
+      // Pozitif margin = observer section GÖRÜNMEDEN ÖNCE (400px erken) tetiklenir,
+      // animasyon kullanıcı oraya ulaşana kadar çoktan bitmiş olur.
+      viewport={{ once: true, margin: '400px 0px' }}
     >
       {/* Section seam — subtle filigree divider at top.
           Visitor'a "yeni bir bölüme girdim" hissi verir; cinematic rhythm. */}
