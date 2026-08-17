@@ -31,7 +31,9 @@ Bu bölüm 125 sayfalık (72 araç/atlas/graf/statik + 53 tefekkür) tam taraman
 
 ### 🟡 Mechanism 2 — hardcoded `top:'110px'` — TÜMÜ DÜZELTİLDİ ✅
 `useNavbarOffset(0, 62)` + `navTop + 48` deseniyle, hepsi canlı doğrulandı (0 örtüşme):
-`CennetCehennem.jsx:387`, `SunnetullahAtlasi.jsx:556`, `KuranYeminleri.jsx:361` (+ RadialViz hydration mismatch de düzeltildi), `ZamanBoyutlari.jsx:1745`, `BilimselIsaretler.jsx:255` (+ içerik kuralı ihlali de düzeltildi), `QuranCommands.jsx:408`, `DuaDili.jsx:141`, `KiyametSahneleri.jsx:696` (+ bare verse-ref de düzeltildi), `YakinAnlamliNuanslar.jsx:195` (+ tab-uppercase de düzeltildi), `IbadetlerPillar.jsx:124` (7 rota: hac/kurban/namaz/oruç/tövbe/zekât/zikir — tek merkezi dosya, hepsi kapsandı), `KiraatAtlasi.jsx:1640` (mobil, + tab-uppercase + bare verse-ref de düzeltildi). **1 istisna:** `NefisMertebeleri.jsx:365` — düzeltme hâlâ sürüyor (arka planda çalışan son ajan).
+`CennetCehennem.jsx:387`, `SunnetullahAtlasi.jsx:556`, `KuranYeminleri.jsx:361` (+ RadialViz hydration mismatch de düzeltildi), `ZamanBoyutlari.jsx:1745`, `BilimselIsaretler.jsx:255` (+ içerik kuralı ihlali de düzeltildi), `QuranCommands.jsx:408`, `DuaDili.jsx:141`, `KiyametSahneleri.jsx:696` (+ bare verse-ref de düzeltildi), `YakinAnlamliNuanslar.jsx:195` (+ tab-uppercase de düzeltildi), `IbadetlerPillar.jsx:124` (7 rota: hac/kurban/namaz/oruç/tövbe/zekât/zikir — tek merkezi dosya, hepsi kapsandı), `KiraatAtlasi.jsx:1640` (mobil, + tab-uppercase + bare verse-ref de düzeltildi), `NefisMertebeleri.jsx:365` (aynı deseni paylaşan dosyanın kendi `navTop` değişkeni yeniden kullanıldı).
+
+**Bu bölümdeki TÜM maddeler 16 Ağustos 2026 akşamı commit `d3257d9` ile main'e push edildi** (25 dosya, lint temiz, tüm audit'ler geçti, canlı Playwright doğrulaması tamamlandı).
 
 ### 🟡 §13.32 çıplak ayet referansı — TÜMÜ DÜZELTİLDİ ✅
 - ✅ `CennetCehennem.jsx:1258,1288` — tüm refler "Rahman 55:N" formatına çevrildi.
