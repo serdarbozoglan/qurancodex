@@ -14,6 +14,14 @@ Bu bölüm 125 sayfalık (72 araç/atlas/graf/statik + 53 tefekkür) tam taraman
 
 **Durum: 16 Ağustos 2026 akşamı — kullanıcı talimatıyla ("bunları sırayla çöz hemen") tüm kritik + sistemik bulgular üzerinde düzeltme çalışması başlatıldı, ilerledikçe bu bölüm güncelleniyor. ✅ = düzeltildi + canlı doğrulandı, ⏳ = düzeltme sürüyor.**
 
+**16 Ağustos 2026 — TAM KAPSAM TURU TAMAMLANDI.** Aşağıdaki kritik/sistemik bulguların yanı sıra, kullanıcı talimatıyla ("kalan diğer sayfaları da sırayla düzelt, gerekirse paralel agentlar kullan") denetimdeki her kalan sayfa (araç/atlas/graf + tefekkür) 5 paralel ajana bölünerek tek tek gözden geçirildi. Her ajan yalnız kendi atanmış dosyasını düzeltti; dosya-kapsamı dışında kalan (veri dosyası, paylaşılan bileşen, editoryal karar gerektiren) bulgular ayrıca toplanıp koordinatör tarafından tamamlandı. Toplam bu turda: **~15 commit, 25+ dosya.** Öne çıkanlar:
+- **Tefekkür — 3 paylaşılan bileşen hatası** (HierarchyTree/MorphologyTable/ArticleRenderer'daki SourcesBlock) — tek tek makale hatası değil, en az 8-10 makaleyi aynı anda etkileyen mobil taşma/örtüşme hataları, kaynakta düzeltildi (makale prose'una dokunulmadı — 52/53 makale dış yazara ait, sufist.medium.com).
+- **`/arac/kurani-tani` kartı "Wow-Facts'in kapsamlı hâli" diyordu** — iç bileşen adı (WowFacts.jsx) kullanıcı metnine sızmıştı (§13.27), kullanıcı raporuyla yakalandı ve düzeltildi; `audit-internal-leak.mjs`'e bu sınıfı yakalayacak yeni desen eklendi.
+- `/arac/ilk-son-kelimeler` — kullanıcının önceden sorduğu ("üst/alt sıra ne demek") soru artık sayfada yanıtlanıyor.
+- `/atlas/munafik` verisinde 62 çift render edilmeyen markdown yıldızı (`*...*`) ekranda çıplak görünüyordu — temizlendi.
+- Kalan ~15 küçük düzeltme: navTop dinamik ofset (Mekanizma 2, ~8 dosya), yazım hataları, doğrulanamaz mutlak iddialar, mobil taşma/kaydırma ipuçları, 2 yeni `DataDictionary` şeffaflık paneli (`/graf/ayet`).
+- Ajanların "kapsam dışı, editoryal karar gerekir" diye işaretleyip dokunmadığı ~10 madde var (IA/routing kararları, yeni prose gerektiren öneriler, dış yazar içeriği) — bunlar bilinçli olarak bırakıldı, aşağıdaki sayfa bazlı bölümlerde ayrıntı yok ama commit mesajlarında listelendi.
+
 ### 🔴 Kritik — çöken/kırık işlevsellik
 1. ✅ **`/atlas/sunnetullah`** — "Kavim Örüntüleri" sekmesine tıklamak sayfayı çökertiyordu (`SunnetullahAtlasi.jsx:1726`, `pattern.summaryTr` için `|| ''` fallback eksik, operatör önceliği hatası). **Düzeltildi**: `((tr ? pattern.summaryTr : pattern.summaryEn) || '').slice(0, 240)`. Canlı doğrulandı — sekme artık çökmüyor.
 2. ✅ **`/arac/cennet-cehennem`** — 6 sekme düğmesi birbirinin tıklama alanına giriyordu (`.mq-box`'ın `--ml-d/--mr-d:-32px` custom property'leri düğmelere miras kalıyordu). **Düzeltildi**: her düğmeye kendi `--mt-d/--mr-d/--mb-d/--ml-d: 0` değerleri eklendi. Canlı doğrulandı — 6 düğme arası artık 0 örtüşme.
@@ -55,19 +63,21 @@ Hepsi canlı doğrulandı — konsol temiz, her iki viewport'ta da.
 `/arac/bilimsel-isaretler` — süt oluşumu kartının `criticalNoteTr`/`criticalNoteEn`'i "fizyoloji tasdik eder / physiology confirms" yerine "biz tasdik ederiz / we affirm" çerçevesine çevrildi (yön düzeltmesi — Kur'ân haber verir, BİZ teyit ederiz; bilim Kur'ân'ı tasdik ETMEZ). Canlı doğrulandı, sayfada doğru render oluyor.
 
 ### En düşük içerik puanları (10 üzerinden, ≤6)
-- `/arac/alti-konu` — **4/10** — ana sayfanın Highlights bölümünün birebir kopyası, özgün içerik yok; yeniden yönlendirme veya gerçek bir derinleştirme öneriliyor.
-- `/arac/kitap-kavrami` — 6/10
-- `/graf/kavram` — 6/10
-- `/graf/semantik` — 6/10
-- `/kutuphanem` — 6/10
-- `/tefekkur/anlam-yaratilis-senteni`, `/tefekkur/yaratilis-hikayesi-1-giris` — 6/10
+- ✅ `/arac/alti-konu` — 4/10 → **düzeltildi** (commit `1f74931`): Highlights.jsx aynen korunarak altına 6 konunun her biri için gerçek ayet metni (verse-graph'tan doğrulanmış) + kaynakça eklendi. Canlı doğrulandı.
+- ✅ `/arac/kitap-kavrami` — 6/10 → **düzeltildi** (commit `e40ffbb`): (1) faktüel hata — Furkân girişi Türkçe metinde "İbrâhim'e verilen furkân (2:53)" diyordu, doğrusu Mûsâ (Bakara 2:53 açıkça Mûsâ'dan bahseder, İngilizce versiyon zaten doğruydu); (2) sayı tutarsızlığı — giriş metni "11 farklı isim" diyordu, veri kümesi 10 kayıt içeriyor, "10"a çevrildi (TR+EN).
+- ✅ `/graf/kavram` — 6/10 → **düzeltildi** (commit `53ecb3e`): kavram-ayet bağlantıları anahtar kelime alt-dizi eşleşmesiyle hesaplanıyordu ama yöntem hiç açıklanmıyordu. WordHeatmap'teki `DataDictionary` paneli eklendi, eşleştirme yöntemi + ağırlık formülü (kod okunarak doğrulandı) belgelendi.
+- ✅ `/graf/semantik` — 6/10 → **düzeltildi** (commit `74da718`): (1) meta açıklama yanlışlıkla "UMAP 2D projeksiyon" diyordu, sayfa aslında kart listesi — düzeltildi; (2) Louvain/BGE-M3/eşik/28→20 küme filtrelemesi hiç açıklanmıyordu, DataDictionary eklendi; (3) mobilde "Sıra (ID)" sıralama düğmesi ekran dışına taşıyordu, flexWrap ile düzeltildi. **Not:** aynı mobil taşma deseni `/graf/kelime-isi`'de de var (audit'in kendi tespiti) — henüz dokunulmadı, ayrı bir madde olarak takip edilmeli.
+- ✅ `/kutuphanem` — 6/10 içerik → içerik puanı zaten yapısal (kişisel araç, editoryal içerik gerektirmiyor); tek somut sorun (görsellik) düzeltildi, bkz. aşağı.
+- ⚠️ `/tefekkur/anlam-yaratilis-senteni`, `/tefekkur/yaratilis-hikayesi-1-giris` — 6/10 → **incelendi, bilinçli olarak dokunulmadı.** Her iki makale de sitenin kendi editoryal sesi DEĞİL — `sufist.medium.com`'dan (yazar: "Felsufi") sendike edilmiş dış içerik (`canonicalUrl` alanı bunu doğruluyor). Audit'in önerileri ("bir ayet çapası ekle", "içeriği genişlet", "part 2'ye birleştir") bir dış yazarın yayınlanmış metnine editoryal müdahale gerektiriyor — bu benim tek taraflı yapabileceğim bir şey değil, ya orijinal yazarın kendisi ya da site sahibinin editoryal kararı gerekiyor. `yaratilis-hikayesi-1-giris`'in zaten `nextArticle`/`relatedVerses` metadata'sı doğru dolu; `anlam-yaratilis-senteni`'nin `relatedVerses` alanı boş ama doldurmak da hangi ayetin "doğru" çapa olduğuna dair bir yorum kararı — kullanıcı onayı olmadan eklenmedi.
 
 ### En düşük görsellik puanları (≤6)
-- `/atlas/ahiret-yolculugu` — 3/10
-- `/arac/retorik-sorular` — 4/10 (zaten yukarıda kritik sticky hatası da var — aynı sayfa iki kritik bulgu barındırıyor)
-- `/arac/mukattaa`, `/kutuphanem` — 5/10
-- `/arac/tefsir-ihtilaflari` — 5.5/10
-- `/arac/kurani-tani`, `/atlas/insan-psikolojisi` — 6/10
+- ✅ `/atlas/ahiret-yolculugu` — 3/10 → **düzeltildi** (commit `98b312d`): whileInView scroll-reveal geç tetikleniyordu (margin:'-80px'), hızlı scroll'da 4500px boşluk oluşuyordu. `margin:'400px 0px'` + defansif initial-opacity 0.4 ile çözüldü, canlı doğrulandı.
+- ✅ `/arac/retorik-sorular` — 4/10 → **düzeltildi** (commit `18d1067`): kök neden aslında sayfaya özgü değil, paylaşılan `SectionWrapper.jsx`'in scroll-reveal'ı geç tetikleniyordu (bkz. yukarıdaki "Mekanizma 4" notu ve ayrı bulunan bu sistemik fix). Site genelinde (~54 bölüm) düzeltildi. **Açık kalan karar noktası (bug değil, IA sorusu):** bu sayfanın içeriği (istifhâm alt türleri) `/arac/retorik`'in içeriğiyle örtüşüyor — iki sayfa birleştirilmeli/yeniden kapsamlandırılmalı mı, kullanıcı kararı gerekiyor, şimdilik dokunulmadı.
+- ✅ `/arac/mukattaa` — 5/10 → **düzeltildi** (commit `8f92a14`): aynı SectionWrapper scroll-reveal kökeni, otomatik çözüldü + "eşsiz" mutlak iddiası yumuşatıldı.
+- ✅ `/kutuphanem` — 5/10 → **düzeltildi** (commit `f2ec567`): boş-durum ikonu ham 🔖 emojisiydi, site SVG ikon diline (BookmarkButton'daki aynı path) çevrildi; metindeki "item'ları"/"button" İngilizce karışımı temizlendi.
+- ✅ `/arac/tefsir-ihtilaflari` — 5.5/10 → **düzeltildi** (commit `476d358`): (1) gerçek mobil örtüşme bug'ı — kök `paddingTop:'62px'` hardcode, gerçek navbar 84px, 22px fark tab çubuğunun ToolHeader içine başlamasına yol açıyordu, `useNavbarOffset` ile düzeltildi; (2) kardeş sayfalarda olan hero bloğu (bismillah+ayet+çerçeveleme) eklendi — Âl-i İmrân 3:7 (muhkem/müteşabih), Arapça metin verse-graph'tan birebir doğrulandı.
+- ✅ `/arac/kurani-tani` — 6/10 → **düzeltildi** (commit `858fdc8`): 3 doğrulanamaz mutlak iddia yumuşatıldı ("tartışmasız" kaldırıldı, "tek kutsal kitaptır" karşılaştırması kaldırıldı, Tevrat/Tekvin 3 karşılaştırması hedge edildi). Audit'in "mobil 19.000px boşluk" bulgusu doğrudan incelendi, canlı tekrarlanamadı (50/50 kart DOM'da, normal yükseklikler) — muhtemelen audit aracının kendi yanlış-pozitifi, kod değişikliği yapılmadı.
+- ✅ `/atlas/insan-psikolojisi` — 6/10 → **düzeltildi** (commit `6accb5c`): en görsel açıdan hasarlı bulgu — "Daha Derine — Psikolojik Derinliği Yüksek Sûreler" başlığından sonra 320px tamamen boş alan (aynı whileInView/margin geç-tetikleme deseni, bu kez `src/sections/PsychologySection.jsx`'te — ana sayfa bölümü bu sayfaya gömülü). Düzeltildi + masaüstü tab taşma ipucu eklendi + "Isfahânî" yazım hatası düzeltildi.
 
 ### Genel bug envanteri (26 sayfada en az 1 "diğer" bug bulundu)
 Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işlevsiz UI, 2 kırık link. Typo'lar sayfa bazlı bölümlerde listelidir.
