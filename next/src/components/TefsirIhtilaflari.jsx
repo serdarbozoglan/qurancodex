@@ -12,9 +12,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, CATEGORY } from '../tokens';
 import ToolHeader from './ToolHeader';
+import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import tefsirDataStatic from '../../public/tefsir-ihtilaf.json';
+import { cleanArabicForDisplay } from '../lib/arabic';
+
+// Hero anchor — Âl-i İmrân 3:7 (muhkem/müteşabih), verse-graph-bgem3.json'dan
+// birebir alınmıştır (site denetimi, 16 Ağustos 2026 — hero eklenirken elle
+// yazılan ilk taslak kaynak metinle birebir eşleşmiyordu, düzeltildi).
+const ANCHOR_3_7_ARABIC_RAW = 'هُوَ الَّـذ۪ٓي اَنْزَلَ عَلَيْكَ الْكِتَابَ مِنْهُ اٰيَاتٌ مُحْكَمَاتٌ هُنَّ اُمُّ الْكِتَابِ وَاُخَرُ مُتَشَابِهَاتٌۜ فَاَمَّا الَّذ۪ينَ ف۪ي قُلُوبِهِمْ زَيْغٌ فَيَتَّبِعُونَ مَا تَشَابَهَ مِنْهُ ابْتِغَٓاءَ الْفِتْنَةِ وَابْتِغَٓاءَ تَأْو۪يلِه۪ۚ وَمَا يَعْلَمُ تَأْو۪يلَهُٓ اِلَّا اللّٰهُۢ وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ اٰمَنَّا بِه۪ۙ   كُلٌّ مِنْ عِنْدِ رَبِّنَاۚ وَمَا يَذَّكَّرُ اِلَّٓا اُو۬لُوا الْاَلْبَابِ';
 
 const SCHOLAR_COLORS = {
   'taberi':     CATEGORY.blue,
@@ -251,6 +258,7 @@ function ScholarProfileCard({ s, isMobile }) {
 
 export default function TefsirIhtilaflari() {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const isMobile = useIsMobile();
   const [data] = useState(tefsirDataStatic);
@@ -292,8 +300,59 @@ export default function TefsirIhtilaflari() {
   );
 
   return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', display: 'flex', flexDirection: 'column', paddingTop: '62px' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: `calc(100vh - ${navTop}px)`, display: 'flex', flexDirection: 'column', paddingTop: `${navTop}px` }}>
       {TOOL_HEADER}
+
+      {/* Hero — kardeş /arac sayfalarıyla görsel eşitlik için eklendi (site denetimi,
+          16 Ağustos 2026: bu sayfa tek başına breadcrumb+tab'tan gövdeye atlıyordu).
+          Anchor: Âl-i İmrân 3:7 — muhkem/müteşabih ayeti, tefsir metodolojisi ve
+          müfessirler arası yorum farkının klasik referans noktası. */}
+      <div className="mq-box" style={{
+        textAlign: 'center', position: 'relative', overflow: 'hidden',
+        '--pt-d': "48px", '--pt-m': "32px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "24px", '--pl-m': "16px",
+      }}>
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: '-40px', left: '50%', transform: 'translateX(-50%)',
+          width: 320, height: 200,
+          background: `radial-gradient(ellipse at center, ${COLORS.gold}0e 0%, transparent 70%)`,
+          pointerEvents: 'none',
+        }} />
+        <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
+          <div style={{
+            fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.4rem' : '1.6rem',
+            color: COLORS.gold, opacity: 0.85, marginBottom: 22, direction: 'rtl',
+            textShadow: `0 0 24px ${COLORS.gold}44`,
+          }}>﷽</div>
+          <p dir="rtl" lang="ar" style={{
+            fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.35rem',
+            color: COLORS.gold, lineHeight: 2.05, margin: '0 0 18px',
+            textShadow: `0 0 32px ${COLORS.gold}22`,
+          }}>{cleanArabicForDisplay(ANCHOR_3_7_ARABIC_RAW)}</p>
+          <p style={{
+            fontFamily: FONTS.display, fontStyle: 'italic',
+            fontSize: isMobile ? '0.92rem' : '1.02rem', color: COLORS.offWhite,
+            maxWidth: 620, margin: '0 auto 10px', lineHeight: 1.7, opacity: 0.92,
+          }}>
+            {tr
+              ? '"Sana Kitab\'ı indiren O\'dur. Onun bazı ayetleri muhkemdir ki bunlar Kitab\'ın esasıdır. Diğerleri de müteşabihtir... Onun tevilini ancak Allah bilir. İlimde yüksek payeye erişenler ise: \'Ona inandık; hepsi Rabbimiz tarafındandır\' derler."'
+              : '"It is He who sent down to you the Book; in it are verses precise in meaning — they are the foundation of the Book — and others unspecific... none knows its true interpretation except Allah. But those firm in knowledge say, \'We believe in it; all of it is from our Lord.\'"'}
+          </p>
+          <p style={{
+            fontFamily: FONTS.body, fontSize: isMobile ? '0.68rem' : '0.72rem',
+            color: COLORS.silver, opacity: 0.78, letterSpacing: '0.18em',
+            textTransform: 'uppercase', margin: '0 0 24px',
+          }}>— {tr ? 'Âl-i İmrân 3:7' : 'Āl-i \'Imrān 3:7'}</p>
+          <p style={{
+            fontFamily: FONTS.display, fontStyle: 'italic',
+            fontSize: isMobile ? '0.88rem' : '0.98rem', color: COLORS.silver,
+            maxWidth: 640, margin: '0 auto', lineHeight: 1.75, opacity: 0.9,
+          }}>
+            {tr
+              ? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır — anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur.'
+              : 'This verse is the classical reference point for why exegetes read the same verse differently — disagreement here is not a flaw, but a natural consequence of the text\'s layered nature.'}
+          </p>
+        </div>
+      </div>
 
       <div style={{ position: 'relative', flexShrink: 0 }}>
         <div style={{
