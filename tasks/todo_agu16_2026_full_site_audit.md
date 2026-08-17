@@ -897,9 +897,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tekrar-anatomi` ⬜
+### `/arac/tekrar-anatomi` 🟡
 
-**Durum:** İncelendi; 3 bulgu paylaşılan ZeroRedundancy.jsx/tr.json'da, dosya kapsamı dışında kaldı
+**Durum:** "UNIQUE KELİME FORMU" typo'su zaten düzeltilmişti (canlıda "BENZERSİZ KELİME FORMU" — teyit edildi, next/src/i18n/tr.json). "Related-sûreler ile Klasik Kaynaklar arasındaki ~150-200px boşluk" bulgusu canlıda incelendi: kırık bir eleman DEĞİL, üç ayrı normal padding'in (section alt-boşluğu + section-arası boşluk + kart iç-boşluğu) üst üste binmesi — teknik bug yok, en fazla bir yoğunluk/tasarım tercihi. Açık kalan: "Zemahşerî Quote" blockquote'u aslında paraphrase ama doğrudan alıntı gibi biçimlendirilmiş (ZeroRedundancy.jsx) — sunum düzeltmesi mümkün ama editoryal onay gerektiriyor, henüz yapılmadı.
 
 **İçerik: 8/10** — TekrarAnatomi.jsx wraps the homepage ZeroRedundancy section: addresses the 'Rahmân's 31x refrain isn't that redundant?' objection via classical takrîr theory (te'kîd/tafsîl/ihtimâm), Moses-narrative multi-surah examples, and corpus stats (~77,800 words, ~1,700 roots, ~455 hapax legomena).
 - Güçlü yönler:
@@ -1994,7 +1994,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ## Ana Sayfa & Diğer Statik Sayfalar
 
-### `/`
+### `/` 🟡
+
+**Durum:** 17 Ağustos'ta kullanıcı geri bildirimiyle bir dizi düzeltme yapıldı (`8521d59`, `e212a7e`, `715fd5b`, `c20d84c`): Conclusion.jsx kapanış "Fe'ttebiûhu" âyeti büyütüldü + restrained glow; ClusterWhisper.jsx'e opsiyonel destekleyici âyet desteği eklendi ve "İçe Bakış" whisper'ına Kaf 50:16 + meal eklendi; ProofSection'ın 4-adım ızgarası ikon+kart zeminiyle görselleştirildi, ardından mobil kaydırma-ipucu ve masaüstü seam hataları düzeltildi; Hero açıklama metni kullanıcı taslağıyla yeniden yazıldı (§13.24 tutarlılığı için — eski metin "her kelime yerli yerinde" gibi mutlak iddialar taşıyordu) ve body text kontrastı/punto'su büyütüldü; Nisa 4:82 kapanış âyetinde eksik sukun düzeltildi. Bu turda hiç dokunulmayan, orijinal denetimden kalan bulgular aşağıda duruyor — henüz doğrulanmadı.
 
 **İçerik: 9/10** — Long-form narrative homepage (hero, inventory stats, concierge prompt, methodology ribbon, six thematic 'gates', a fully worked Fâtiha ring-composition example, and 14 portal cards into deeper tools) — content lives inline in page.js/CARD_BY_ID rather than i18n JSON.
 - Güçlü yönler:
