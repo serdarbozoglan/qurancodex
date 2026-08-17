@@ -490,6 +490,7 @@ export default function PsychologySection() {
           Desktop: yatay scroll, tek satır, alt-border underline-style.
           Mobil: 2-sütun grid, kart-style — asimetrik wrap yerine simetrik düzen,
                   aktif tab tam-renkli border + dim background, inactive minimal. */}
+      <div style={{ position: 'relative' }}>
       <motion.div
         variants={fadeUpItem}
         style={
@@ -580,6 +581,14 @@ export default function PsychologySection() {
           );
         })}
       </motion.div>
+      {!isMobile && (
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: 0, right: 0, bottom: '25px', width: '32px',
+          background: 'linear-gradient(90deg, transparent, rgb(6, 8, 14))',
+          pointerEvents: 'none',
+        }} />
+      )}
+      </div>
 
       {/* Tab content panel */}
       <motion.div variants={fadeUpItem}>
@@ -670,10 +679,10 @@ export default function PsychologySection() {
           ].map((tt, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0.5, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              viewport={{ once: true, margin: '400px 0px' }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
             >
               <Link
                 href={`/${language}/oku/${tt.surahNum}`}

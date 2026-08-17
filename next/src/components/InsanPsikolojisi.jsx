@@ -172,7 +172,7 @@ export default function InsanPsikolojisi({ onClose }) {
               noteEn: 'Diseases of the heart and the step-by-step journey of spiritual healing — self-analysis across 100+ stations.',
             },
             {
-              author: 'er-Râgıb el-Isfahânî',
+              author: 'er-Râgıb el-İsfahânî',
               workTr: "ez-Zerî'a ilâ Mekârimi'ş-Şerî'a",
               workEn: 'al-Dharīʿah ilā Makārim al-Sharīʿah',
               period: 'ö. 1108 · İsfahan',
