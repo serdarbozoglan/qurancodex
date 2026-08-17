@@ -2097,6 +2097,11 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+bug tek geçişte birlikte değerlendirildi.
 
+**16 Ağustos 2026 — kullanıcı talimatı: "tefekkür yazılarına dokunma genel olarak... ama [veri/şema hatalarını] düzelt, kafana göre içerik düzeltmesi yapma."** Buna göre:
+- ✅ **Düzeltildi (commit `f1d54ca`, paylaşılan bileşenler, makale metnine dokunulmadı):** `HierarchyTree.jsx`/`MorphologyTable.jsx`/`ArticleRenderer.jsx`'teki mobil taşma/örtüşme hataları — aşağıdaki tekil madde girişlerinde "Mobile..." diye geçen bulguların çoğu bununla kapandı.
+- ✅ **Düzeltildi (commit `b39fcde`, yalnız veri şeması/sızmış iç referans, cümle anlamı değişmedi):** `rahmetin-grameri-1..7` previousArticle/nextArticle string→obje şema hatası (aşağıda 1-7 ayrı ayrı listeli, hepsi tek commit'te kapandı); `dusunme-fiilleri-zihnin-isletim-sistemi` author alanı; `kuran-mesajina-yabanci-kalmak` ve `yaratilis-hikayesi-2-katmanli-yaratilis`'teki sızmış "§13.15"/"​.15" kalıntısı.
+- ⚠️ **Bilinçli olarak dokunulmadı (gerçek çeviri/prose değişikliği gerektiriyor):** `iki-nedensellik` (6 madde TR alanına yanlışlıkla İngilizce girilmiş, gerçek çeviri gerekir), `enerji-krizi`/`inception-hayatlar` (birer İngilizce ifade hatası, yeniden yazım gerekir), `hala-mi-evrim` (kapanış notu güncel değil, düzeltmek yazarın cümlesini değiştirmek anlamına gelir). Bunlar aşağıdaki ilgili madde girişlerinde hâlâ "issues" olarak görünüyor ama kod/veri tarafında bilerek bırakıldı.
+
 ### `/tefekkur/ala-suresi-1`
 
 **İçerik: 9/10** — Tight etymological reading of tesbih (root sebbeha = 'to glide away') building to a genuinely interesting claim: the verse commands glorifying the Lord's 'name,' not the Lord Himself, because our observation-world only ever meets the name. Uses Wolfram's computationally-bounded-observer idea as a modern gloss on 17:44 ('you do not comprehend their glorification') — clearly marked as an analogy, not equated with tafsir. Second half (aʿlā vs ʿaẓīm/kabīr/majīd, the potter→ceramicist→artist chain) is a clean payoff. No unhedged 'proof' language; stays in reflective register throughout. Ends with an honest note that Turkish is the author's own pen and English is translation, and that the promised sequel doesn't exist yet.
