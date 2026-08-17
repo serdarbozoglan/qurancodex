@@ -65,8 +65,8 @@ export default function ClusterWhisper({ tr, en, verse }) {
           <p style={{
             color: COLORS.offWhiteAlpha78,
             fontFamily: FONTS.display, fontStyle: 'italic',
-            fontSize: '0.88rem', lineHeight: 1.6,
-            margin: '0 0 10px',
+            fontSize: 'clamp(0.98rem, 1.6vw, 1.08rem)', lineHeight: 1.65,
+            maxWidth: '640px', margin: '0 auto 10px',
           }}>
             &quot;{isTr ? verse.translationTr : verse.translationEn}&quot;
           </p>

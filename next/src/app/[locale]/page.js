@@ -188,8 +188,8 @@ export default async function Home({ params }) {
           <PortalCard card={CARD_BY_ID['psikoloji-card']} locale={locale} />
         </CompactRow>
         <ClusterWhisper
-          tr="O seni yarattı, bilir; çağrını bilir, yakındır. İçe baktıkça O'nu görürsün."
-          en="He created you, He knows; He hears your call, He is near. As you look within, you see Him."
+          tr="Senden önce seni bilen, senden öte sana yakın olan."
+          en="He who knew you before you knew yourself — nearer to you than you are to yourself."
           verse={{
             arabic: 'وَلَقَدْ خَلَقْنَا الْاِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ وَنَحْنُ اَقْرَبُ اِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ',
             translationTr: 'Andolsun, insanı biz yarattık ve nefsinin kendisine fısıldadıklarını biliriz ve biz ona şah damarından daha yakınız.',
