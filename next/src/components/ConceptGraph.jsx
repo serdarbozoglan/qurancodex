@@ -12,6 +12,7 @@ import useNavbarOffset from './useNavbarOffset';
 
 import { cleanArabicForGraph } from '../lib/arabic';
 import LoadingOverlay from './LoadingOverlay';
+import DataDictionary from './DataDictionary';
 // ─── MODULE-LEVEL CACHE ───────────────────────────────────────────────────────
 let _versesCache = null;
 let _conceptsCache = null;
@@ -594,6 +595,32 @@ export default function ConceptGraph({ onClose, restore = null }) {
                 <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
               </svg>
             </div>
+          </div>
+
+          {/* Veri Sözlüğü — kavram-ayet eşleştirme yöntemi şeffaflığı (site denetimi,
+              16 Ağustos 2026: bağlantılar sunulduğu gibi kesin veri değil, anahtar
+              kelime alt-dizi eşleşmesi — WordHeatmap.jsx'teki aynı desen). */}
+          <div style={{ flexShrink: 0, display: 'flex', justifyContent: 'center', padding: '10px 0' }}>
+            <DataDictionary
+              language={language}
+              isMobile={isMobile}
+              rows={[
+                {
+                  labelTr: 'Eşleştirme yöntemi', labelEn: 'Matching method',
+                  valueTr: 'Her kavramın önceden belirlenmiş anahtar kelimeleri, meal metninde (Türkçe çeviri, Arapça asıl DEĞİL) harf-normalize edilmiş alt-dizi araması ile aranır. Kavram küratörünün seçtiği kelime listesine bağlıdır — otomatik/istatistiksel bir çıkarım değildir.',
+                  valueEn: 'Each concept\'s pre-selected keywords are searched as a diacritic-normalized substring match against the Turkish translation text (not the Arabic original). This depends on the curator\'s chosen keyword list — it is not an automated/statistical inference.',
+                },
+                {
+                  labelTr: 'Bağlantı ağırlığı', labelEn: 'Connection weight',
+                  valueTr: 'İki kavram arasındaki çizgi kalınlığı, ortak ayet sayısının küçük kümenin boyutuna oranıdır (paylaşılan / min). En yüksek ağırlıklı 12 bağlantı gösterilir — geri kalanı grafikte yer almaz.',
+                  valueEn: 'The line weight between two concepts is the shared-verse count divided by the smaller concept\'s total verse count (shared / min). Only the top 12 highest-weight connections are shown — the rest are not rendered.',
+                },
+              ]}
+              note={{
+                tr: 'Bu bir kesin tematik analiz değil, çeviri metnindeki kelime örtüşmesinin bir göstergesidir — Türkçe morfoloji (ek/çekim) yüzünden yanlış-pozitif veya kaçırılmış eşleşmeler olabilir.',
+                en: 'This is not a definitive thematic analysis but an indicator of keyword overlap in the translation text — Turkish morphology (suffixes/inflection) can cause false positives or missed matches.',
+              }}
+            />
           </div>
 
           {/* 2-column concept grid — collapses to single column on mobile */}
