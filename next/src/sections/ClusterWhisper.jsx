@@ -57,8 +57,9 @@ export default function ClusterWhisper({ tr, en, verse }) {
             fontSize: 'clamp(1.5rem, 3.4vw, 1.95rem)',
             color: COLORS.gold,
             textShadow: `0 0 20px ${COLORS.gold}22`,
-            lineHeight: 1.9, margin: '0 0 14px',
-            maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto',
+            lineHeight: 1.9,
+            maxWidth: '760px',
+            marginTop: 0, marginBottom: '14px', marginLeft: 'auto', marginRight: 'auto',
           }}>
             {verse.arabic}
           </p>
