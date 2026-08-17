@@ -41,7 +41,7 @@ export const SCIENCE_TIMELINE = [
     ayah: 19,
     discoveryTr: "Oşinografi · 1960'lar",
     discoveryEn: 'Oceanography · 1960s',
-    topicTr: 'İki denizin barzahı',
+    topicTr: 'İki denizin berzahı',
     topicEn: 'The barrier between two seas',
     ar: 'مَرَجَ الْبَحْرَيْنِ يَلْتَقِيَانِ',
     refTr: 'Rahmân 55:19',

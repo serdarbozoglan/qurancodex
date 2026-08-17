@@ -7,6 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import HomeLinkPill from '../../../components/HomeLinkPill';
 import { COLORS, FONTS } from '../../../tokens';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { listBookmarks, removeBookmark, libraryStats } from '../../../lib/bookmarks';
@@ -117,16 +118,22 @@ export default function KutuphanemRoute() {
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '40px 20px 80px' }}>
         {/* Header */}
         <div style={{ marginBottom: 32 }}>
-          <div style={{
-            fontSize: '0.72rem',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            color: COLORS.gold,
-            fontWeight: 700,
-            opacity: 0.85,
-            marginBottom: 8,
-          }}>
-            {tr ? 'Kişisel' : 'Personal'}
+          {/* Eyebrow + "← Anasayfa" — /hakkinda ve /kaynakca'daki aynı
+              HomeLinkPill pattern'i (2026-08-17, kullanıcı raporu: bu sayfa
+              o iki sayfadaki tutarlı çözümü kullanmıyordu). */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: 8 }}>
+            <div style={{
+              fontSize: '0.72rem',
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: COLORS.gold,
+              fontWeight: 700,
+              opacity: 0.85,
+            }}>
+              {tr ? 'Kişisel' : 'Personal'}
+            </div>
+            <span style={{ flex: 1 }} />
+            <HomeLinkPill language={language} />
           </div>
           <h1 style={{
             fontFamily: FONTS.display,
@@ -145,8 +152,8 @@ export default function KutuphanemRoute() {
             maxWidth: 600,
           }}>
             {tr
-              ? 'Kaydettiğin ayet, tefsir, makale ve atlas öğeleri burada. Her yerdeki kaydet düğmesiyle ekle/çıkar.'
-              : 'Verses, tafsirs, articles, and atlas items you saved. Add or remove with the save button anywhere.'}
+              ? 'Kaydettiğin ayet, tefsir, makale ve atlas öğeleri burada. Kaydet düğmesi bulunan sayfalarda ekle/çıkar.'
+              : 'Verses, tafsirs, articles, and atlas items you saved. Add or remove with the save button on pages that have it.'}
           </p>
         </div>
 
