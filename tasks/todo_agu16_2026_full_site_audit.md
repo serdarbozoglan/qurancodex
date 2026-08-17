@@ -276,9 +276,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/elestirel-cerceve` ⬜
+### `/arac/elestirel-cerceve` 🟡
 
-**Durum:** Bu turda hiç dokunulmadı — audit'te somut bulgu yoktu
+**Durum:** Doğrulanmamış "58+" istatistiği kaldırılıp dosyanın kendi hedge'li "~15 anlam" ifadesiyle değiştirildi (`78cfc2d`). Açık kalan: Mohammed Mahmoud/Ayşe Görmez `modernSources`'a eklenmedi (gerçek bibliyografik detay — yazar-bulunmayan kaynak, doğrulama gerektiriyor, uydurulamaz) ve soru sayısını genişletme önerisi editoryal karar, henüz yapılmadı.
 
 **İçerik: 9/10** — A 'hard questions' tool tackling 8 genuinely contested topics (inheritance inequality, Nisa 4:34 'strike them', slavery, jizya, Noah's flood scope, scientific-miracle claims, Lut/sexuality, muhkam-mutashabih) with explicit multi-position framing: classical view + modern academic critique + named sources on both sides, and an opening principle statement that 'no claim to finality is made'.
 - Güçlü yönler:
@@ -307,9 +307,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/esma-frekans` ⬜
+### `/arac/esma-frekans` 🟡
 
-**Durum:** Gizli/latent Mekanizma 2 riski bulundu ama canlı hata değildi, düzeltilmedi
+**Durum:** 15 motion bileşenindeki negatif scroll-reveal viewport margin'i düzeltildi + heatmap tablosuna kaydırma ipucu eklendi (`78cfc2d`). Açık kalan: gizli/latent Mekanizma 2 riski (hardcode `paddingTop:'62px'`, gerçek navbar 82px) henüz düzeltilmedi; kök-kart stagger animasyonunu kısaltma önerisi de yapılmadı.
 
 **İçerik: 9/10** — The site's flagship esma tool: 114 divine names/attributes with Quranic frequency counts, calibrated against Fuad Abdulbaki's classical concordance, explicit methodology notes on homograph ambiguity, and an explicit disclaimer that counts are approximate and may differ slightly from classical concordances. Supplemented by esma-beyanlari.json (self-declaration verses), pairs, roots, triples, and a surah heatmap.
 - Güçlü yönler:
