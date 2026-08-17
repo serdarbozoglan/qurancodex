@@ -487,7 +487,7 @@
       "title": "Canlı Koruma",
       "description": "Dünya çapında milyonlarca hafız (tüm Kur'an'ı ezbere bilen insan) — tahminler 3-10 milyon arasında değişir, kesin demografik veri yoktur. Her hafız hocasından öğrenir, o da kendi hocasından; kesintisiz bir zincir Hz. Muhammed (s.a.v.)'e kadar uzanır."
     },
-    "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ı harf harf yeniden yazabilir. Bu, başka hiçbir kitap için geçerli değildir.",
+    "experiment": "Teorik bir deney: Dünyadaki tüm mushaflar bir anda yok olsa, hafızlar Kur'an'ı harf harf yeniden yazabilir. Bu ölçekte canlı bir ezber zincirine dayanan başka bir metin bilinmiyor.",
     "birmingham": {
       "title": "Birmingham El Yazması",
       "description": "2015: Birmingham Üniversitesi'nde bulunan el yazmasının parşömeni karbon-14 testiyle MS 568-645 aralığına tarihlendi — Hz. Muhammed (s.a.v.)'in yaşadığı dönemle örtüşüyor. (Not: Tarih parşömene aittir; mürekkebin yazım tarihi bundan genellikle sonradır ve ayrıca analiz edilmemiştir.)"
@@ -529,7 +529,7 @@
         "tooltip": "Corpus Quran: 1,685 unique root."
       },
       "uniqueWords": {
-        "label": "UNIQUE KELİME FORMU",
+        "label": "BENZERSİZ KELİME FORMU",
         "value": "~14,870",
         "description": "Her farklı form bir kez sayılarak",
         "tooltip": "Bu formların büyük çoğunluğu birden fazla kez geçer. Kaynak: Quranic Arabic Corpus, Leeds Üniversitesi (corpus.quran.com)."
