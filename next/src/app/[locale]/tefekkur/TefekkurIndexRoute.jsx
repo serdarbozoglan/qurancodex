@@ -112,9 +112,15 @@ export default function TefekkurIndexRoute() {
             background: `linear-gradient(90deg, transparent, ${COLORS.gold}, transparent)`,
             opacity: 0.7, pointerEvents: 'none',
           }} />
-          {/* Decorative açık kitap — right side */}
+          {/* Decorative açık kitap — right side. Mobilde H1'in arkasına/üstüne
+              biniyor ve kart köşesinde sert kırpılıyordu; <640px'te CSS media
+              query ile gizlenir (isMobile JS state değil — §14.2, hydration
+              CLS riski yok çünkü position:absolute + pointerEvents:none,
+              akışa katkısı yok). */}
+          <style>{`@media (max-width: 640px) { .tefekkur-hero-decor-book { display: none; } }`}</style>
           <svg
             aria-hidden="true"
+            className="tefekkur-hero-decor-book"
             width="200" height="200" viewBox="0 0 24 24"
             style={{
               position: 'absolute', top: '-20px', right: '-30px',
@@ -189,7 +195,10 @@ export default function TefekkurIndexRoute() {
               color: COLORS.gold,
               fontFamily: FONTS.body,
             }}>
-              <span aria-hidden="true" style={{ opacity: 0.85, fontSize: '0.95rem' }}>✍︎</span>
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85, flexShrink: 0 }}>
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
               {tr
                 ? 'Felsufi’nin kendi tefekkür denemelerinden seçmeler'
                 : 'A curated selection of Felsufi’s own essays in reflection'}

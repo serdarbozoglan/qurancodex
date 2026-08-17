@@ -764,8 +764,8 @@ function RevelationStrip({ order, rankA, rankB, nameA, nameB, colorA, colorB, la
       </p>
       <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '22px', opacity: 0.85 }}>
         {language === 'tr'
-          ? `114 sûre, vahiy sırasına göre — 1 (${language === 'tr' ? 'ilk' : 'first'}) → ${total} (${language === 'tr' ? 'son' : 'last'}).`
-          : `All 114 surahs by revelation order — 1 (first) → ${total} (last).`}
+          ? `114 sûre, geleneksel nüzul sıralamasına göre — 1 (ilk) → ${total} (son).`
+          : `All 114 surahs by the traditional revelation-order reconstruction — 1 (first) → ${total} (last).`}
       </p>
       <div style={{ position: 'relative', height: closeMarkers ? '56px' : '38px' }}>
         {/* Base track — Mekkî/Medenî shading */}

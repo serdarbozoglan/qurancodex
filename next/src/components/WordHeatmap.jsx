@@ -884,9 +884,9 @@ export default function WordHeatmap({ onClose }) {
                   <div style={{ color: SEMANTIC.textFaint, fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{group.label}</div>
                   <div style={{
                     display: 'flex', gap: '4px',
-                    flexWrap: isKalipGroup ? 'wrap' : 'nowrap',
-                    overflowX: isKalipGroup ? 'visible' : 'auto',
-                    paddingBottom: isKalipGroup ? 0 : '2px',
+                    flexWrap: (isKalipGroup || isMobile) ? 'wrap' : 'nowrap',
+                    overflowX: (isKalipGroup || isMobile) ? 'visible' : 'auto',
+                    paddingBottom: (isKalipGroup || isMobile) ? 0 : '2px',
                   }}>
                     {groupPresets.map(p => {
                       const isKalip = isKalipGroup;
