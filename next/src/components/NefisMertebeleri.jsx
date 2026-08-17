@@ -134,7 +134,7 @@ export default function NefisMertebeleri({ onClose }) {
       {NEFIS_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ─────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ─────────────────────────────── HERO ─────────────────────────────── */}
         <div className="mq-box" style={{
