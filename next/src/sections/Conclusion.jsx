@@ -117,47 +117,56 @@ export default function Conclusion() {
 
       {/* Linguistic loop closure: Ikra (beginning) → Fattabi'ûhu (ending) */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 18, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="flex flex-col items-center mt-14 mb-6 gap-4"
+        transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col items-center mt-14 mb-6 gap-5"
+        style={{ position: 'relative' }}
       >
+        {/* 2026-08-16 — tek katmanlı radial glow: sitenin genelinde kullanılan
+            restrained pattern (bkz. SesMimarisi/KavimlerAtlasi textShadow'ları).
+            2026-08-13'te kaldırılan ÇİFT katmanlı glow+particle'dan farklı —
+            burada tek, sabit, düşük-opaklı bir zemin ışıması; efekt yığını değil. */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: '50%', left: '50%',
+          width: '520px', height: '360px',
+          transform: 'translate(-50%, -50%)',
+          background: `radial-gradient(ellipse at center, ${COLORS.gold}14 0%, transparent 70%)`,
+          pointerEvents: 'none', zIndex: 0,
+        }} />
         <div style={{
-          width: '72px', height: '1px',
+          width: '88px', height: '1px', position: 'relative', zIndex: 1,
           background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
         }} />
         <p dir="rtl" lang="ar" style={{
           fontFamily: FONTS.quran,
-          fontSize: 'clamp(2.1rem, 6vw, 2.6rem)', color: COLORS.gold,
-          // 2026-08-13 — çift katmanlı glow KALDIRILDI (0 0 20px + 0 0 60px).
-          // "Fe'ttebiûhu" sayfanın kapanış âyeti; en güçlü glow buradaydı.
-          // GPT-5.4: "Ayet üstünde glow/particle/reveal efektleri ucuzlaşır."
-          // Punto (2.6rem) ve altın renk vurguyu zaten veriyor.
+          fontSize: 'clamp(2.4rem, 7vw, 3.1rem)', color: COLORS.gold,
+          textShadow: `0 0 30px ${COLORS.gold}30`,
           lineHeight: 1.3, letterSpacing: '0.02em',
-          margin: 0,
+          margin: 0, position: 'relative', zIndex: 1,
         }}>
           فَاتَّبِعُوهُ
         </p>
         <p style={{
-          color: SEMANTIC.textFaint, fontSize: '1.05rem',
+          color: SEMANTIC.textFaint, fontSize: '1.1rem',
           fontFamily: FONTS.body, fontStyle: 'italic',
           letterSpacing: '0.01em',
-          margin: 0, textAlign: 'center',
+          margin: 0, textAlign: 'center', position: 'relative', zIndex: 1,
         }}>
           {language === 'tr' ? '"Artık ona uyun."' : '"So follow it."'}
         </p>
         <p style={{
-          color: COLORS.gold, fontSize: '0.72rem',
+          color: COLORS.gold, fontSize: '0.75rem',
           fontFamily: FONTS.body, fontWeight: 600,
-          letterSpacing: '0.18em', textTransform: 'uppercase',
-          opacity: 0.75,
-          margin: 0,
+          letterSpacing: '0.2em', textTransform: 'uppercase',
+          opacity: 0.8,
+          margin: 0, position: 'relative', zIndex: 1,
         }}>
           {language === 'tr' ? "En'âm 6:155" : "Al-An'am 6:155"}
         </p>
         <div style={{
-          width: '72px', height: '1px',
+          width: '88px', height: '1px', position: 'relative', zIndex: 1,
           background: `linear-gradient(90deg, transparent 0%, ${COLORS.goldAlpha45} 50%, transparent 100%)`,
         }} />
       </motion.div>

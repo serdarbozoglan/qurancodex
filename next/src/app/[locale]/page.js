@@ -190,6 +190,13 @@ export default async function Home({ params }) {
         <ClusterWhisper
           tr="O seni yarattı, bilir; çağrını bilir, yakındır. İçe baktıkça O'nu görürsün."
           en="He created you, He knows; He hears your call, He is near. As you look within, you see Him."
+          verse={{
+            arabic: 'وَلَقَدْ خَلَقْنَا الْاِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ وَنَحْنُ اَقْرَبُ اِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ',
+            translationTr: 'Andolsun, insanı biz yarattık ve nefsinin kendisine fısıldadıklarını biliriz ve biz ona şah damarından daha yakınız.',
+            translationEn: 'And We have already created man and know what his soul whispers to him, and We are closer to him than his jugular vein.',
+            referenceTr: 'Kaf 50:16',
+            referenceEn: 'Qaf 50:16',
+          }}
         />
       </div>
 
