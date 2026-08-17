@@ -40,6 +40,11 @@ const PATTERNS = [
   [/cleanArabicForDisplay|renderInlineMarkdown|useNavbarOffset|stripMarkdown/, 'fonksiyon adı'],
   [/\buseState\b|\buseEffect\b|localStorage|dispatchEvent/, 'kod terimi'],
   [/\bgit (add|commit|push)\b|\bcommit mesajı\b/i, 'sürüm kontrolü jargonu'],
+  // 2026-08-16, kullanıcı raporu: "Kur'an'ı Tanı" kartının açıklaması
+  // "Wow-Facts'in kapsamlı hâli" diyordu — WowFacts.jsx bileşen adı uzantısız/
+  // yolsuz halde (üstteki dosya-adı deseni yakalamaz) kullanıcı metnine sızmıştı.
+  // Bu desen aynı sınıftaki çıplak bileşen-adı sızıntılarını yakalamak için.
+  [/\bWow-?Facts\b/i, 'bileşen adı (kod jargonu)'],
 ];
 
 const DIRS = ['public/tefekkur', 'src/i18n'];

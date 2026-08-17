@@ -114,26 +114,30 @@ function BranchLabel({ labelTr, labelEn, language, accent, delay = 0 }) {
       viewport={{ once: true }}
       transition={{ duration: 0.35, delay }}
       style={{
-        display: 'inline-flex',
+        display: 'flex',
         alignItems: 'center', gap: '8px',
         padding: '6px 12px',
         background: `${color}22`,
         border: `1px solid ${color}55`,
-        borderRadius: '999px',
+        borderRadius: '14px',
         fontSize: '0.7rem',
         fontWeight: 700,
         letterSpacing: '0.15em',
         textTransform: 'uppercase',
         color: COLORS.offWhite,
         fontFamily: FONTS.body,
-        whiteSpace: 'nowrap',
+        whiteSpace: 'normal',
+        maxWidth: '100%',
+        boxSizing: 'border-box',
+        lineHeight: 1.4,
       }}
     >
       <span style={{
         width: '6px', height: '6px', borderRadius: '50%',
         background: color, boxShadow: `0 0 8px ${color}`,
+        flexShrink: 0,
       }} />
-      {renderInlineMarkdown(language === 'tr' ? labelTr : (labelEn || labelTr))}
+      <span>{renderInlineMarkdown(language === 'tr' ? labelTr : (labelEn || labelTr))}</span>
     </motion.div>
   );
 }
@@ -254,6 +258,7 @@ export default function HierarchyTree({ titleTr, titleEn, root, branches, langua
         {branches.map((branch, bi) => (
           <div key={branch.id || bi} style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px',
+            minWidth: 0,
           }}>
             <BranchLabel
               labelTr={branch.labelTr} labelEn={branch.labelEn}

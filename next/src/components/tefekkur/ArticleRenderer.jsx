@@ -114,7 +114,7 @@ function SourcesBlock({ titleTr, titleEn, items, language }) {
           <div key={i} style={{
             padding: '8px 0',
             borderBottom: i < items.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none',
-            display: 'flex', alignItems: 'baseline', gap: '12px',
+            display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '4px 12px',
           }}>
             <div style={{
               width: '4px', height: '4px', borderRadius: '50%',
@@ -144,7 +144,7 @@ function SourcesBlock({ titleTr, titleEn, items, language }) {
                 <span style={{
                   fontSize: '0.82rem', color: COLORS.silver,
                   fontFamily: FONTS.body, fontStyle: 'italic',
-                  lineHeight: 1.55,
+                  lineHeight: 1.55, minWidth: 0, flex: '1 1 200px',
                 }}>
                   {renderInlineMarkdown(tr ? item.detailTr : item.detailEn)}
                 </span>

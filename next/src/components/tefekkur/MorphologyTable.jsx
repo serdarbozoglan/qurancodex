@@ -72,7 +72,7 @@ function Row({ row, idx, language, isLast }) {
     <motion.div
       initial={{ opacity: 0, y: 4 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-30px' }}
+      viewport={{ once: true, margin: '200px 0px' }}
       transition={{ duration: 0.35, delay: idx * 0.06, ease: [0.4, 0, 0.2, 1] }}
       style={{
         display: 'grid',
@@ -143,6 +143,7 @@ export default function MorphologyTable({ captionTr, captionEn, columns, rows, l
     <div style={{
       margin: '32px 0 28px',
       position: 'relative',
+      minWidth: 0,
     }}>
       {/* Caption */}
       {(captionTr || captionEn) && (
@@ -162,6 +163,11 @@ export default function MorphologyTable({ captionTr, captionEn, columns, rows, l
         overflow: 'hidden',
         boxShadow: `0 8px 28px rgba(0,0,0,0.20)`,
       }}>
+        {/* Yatay kaydırma sarmalayıcısı — sabit minmax genişlikleri (120+140+180=440px)
+            mobilde (390px) sayfa gövdesini yatay kaydırıyordu (site denetimi,
+            16 Ağustos 2026). Site kuralı: geniş tablolar kendi konteynerinde
+            kaymalı, sayfa gövdesi değil. */}
+        <div style={{ overflowX: 'auto' }}>
         {/* Header strip */}
         <div style={{
           display: 'grid',
@@ -187,6 +193,7 @@ export default function MorphologyTable({ captionTr, captionEn, columns, rows, l
           {rows.map((row, idx) => (
             <Row key={idx} row={row} idx={idx} language={language} isLast={idx === rows.length - 1} />
           ))}
+        </div>
         </div>
       </div>
     </div>

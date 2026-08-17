@@ -1411,7 +1411,7 @@ export default function WowFacts({ onClose }) {
               language={language}
               isMobile={isMobile}
               links={[
-                { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: 'Wow-Facts\'in kapsamlı hâli — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: 'The comprehensive version of Wow-Facts — Quran\'s structure, architecture, language and content.' },
+                { href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: '50 çarpıcı gerçek — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: '50 striking facts — the Quran\'s structure, architecture, language and content.' },
                 { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimsel okumalarla örtüşen Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs that align with modern scientific readings — with all their nuances.' },
                 // §13.24 (2026-08-14): "arkeolojinin ONAYLADIĞI" / "confirmed by
                 // archaeology" tasdikin öznesini arkeoloji yapıyordu — kural bu
@@ -1449,8 +1449,8 @@ export default function WowFacts({ onClose }) {
                   workTr: "Kur\'ân Geç Antikitede Metin",
                   workEn: 'The Qur\'an and Late Antiquity',
                   period: '2019 (Oxford UP)',
-                  noteTr: "Kur\'ân\'ın geç antikite bağlamında tarihsel-edebi yapısını inceleyen çağdaş akademik referans; Wow-fact tarihi arka planı.",
-                  noteEn: 'Contemporary academic reference examining the Quran\'s historical-literary structure in late antique context; historical background for wow-facts.',
+                  noteTr: "Kur\'ân\'ın geç antikite bağlamında tarihsel-edebi yapısını inceleyen çağdaş akademik referans; bu sayfadaki bulgular için tarihi arka plan.",
+                  noteEn: 'Contemporary academic reference examining the Quran\'s historical-literary structure in late antique context; historical background for the facts on this page.',
                 },
                 {
                   author: 'Michel Cuypers',
