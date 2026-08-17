@@ -86,7 +86,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ## Araçlar (/arac/*)
 
-### `/arac/alti-konu`
+### `/arac/alti-konu` ✅
+
+**Durum:** 6 konuya gerçek ayet-temelli derinlik eklendi (`1f74931`)
 
 **İçerik: 4/10** — AltiKonu is a thin wrapper: it re-renders the homepage's Highlights section verbatim (6 'wow fact' cards: prefrontal cortex, fingerprints, modular narrative, word map, time flexibility, iltifat) plus a hero and a 3-link CrossToolCTA. It has essentially zero content unique to the /arac/ route -- everything is duplicated from src/sections/Highlights.jsx, which already lives on the homepage.
 - Güçlü yönler:
@@ -115,7 +117,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/bilimsel-isaretler`
+### `/arac/bilimsel-isaretler` ✅
+
+**Durum:** Mekanizma 2 + §13.24 içerik kuralı düzeltildi (`d3257d9`, `0f2073a`)
 
 **İçerik: 8/10** — 16 verses across 5 domains (astronomy, earth sciences, biology, human/embryology, meteorology), each pairing a Quranic term with a modern scientific parallel, a classical-tafsir reading, and an explicit criticalNote hedging the 'foreknowledge' claim. Intro text explicitly names and critiques Bucaillism (citing Sinai, Neuwirth) and states the tool makes no foreknowledge claim -- directly implementing the site's own CLAUDE.md 13.24 framework.
 - Güçlü yönler:
@@ -144,7 +148,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/buyruklar`
+### `/arac/buyruklar` ✅
+
+**Durum:** Mekanizma 2 düzeltildi (`d3257d9`)
 
 **İçerik: 7/10** — A browsable database of ~90 direct Quranic commands (emir) and prohibitions (nehiy) across 8 categories (worship, family, ethics, wealth, knowledge, prohibitions, social justice, communication). Each item is a literal verse quote with surah name + verse ref, no editorializing. A disclaimer explicitly labels the list as a curated summary, not exhaustive commentary.
 - Güçlü yönler:
@@ -175,7 +181,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/cennet-cehennem`
+### `/arac/cennet-cehennem` ✅
+
+**Durum:** Tab tıklama-alanı çakışması + Mekanizma 2 + çıplak ayet referansı + yazım hatası düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — A structured, well-hedged Paradise/Hell reference: names, rivers, plants, inhabitants (huris, wildan, ridwan), physical attributes, Hell's foods (zaqqum, ghislin, dari), a 5-sense breakdown of Hell's descriptions, the A'raf 'in-between' region, and the 31x Rahman refrain. Every item that draws on hadith rather than Quran is explicitly flagged isHadis:true, and a global disclaimer states no claim is made that the Quran confirms hadith.
 - Güçlü yönler:
@@ -206,7 +214,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/dua-dili`
+### `/arac/dua-dili` ✅
+
+**Durum:** Mekanizma 2 düzeltildi (`d3257d9`)
 
 **İçerik: 8/10** — Extends the homepage's 6-prophet Quranic-prayer section with 4 more prophet profiles (Adam, and others), a 4-layer 'anatomy of a dua' framework (vocative -> petition -> reasoning -> seal with divine names) sourced to Ibn al-Qayyim and al-Suyuti, and a response-pattern grid mapping each prophet's petition to its Quranic answer with verse refs.
 - Güçlü yönler:
@@ -235,7 +245,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/dualar`
+### `/arac/dualar` ✅
+
+**Durum:** navTop dinamik ofset + mobil kaydırma ipucu (`d6fe89e`)
 
 **İçerik: 7/10** — A large collection (~35+ entries) of Quranic supplications (dua-verses.json) tagged by category and prophet, each with Arabic, Turkish, English, surah/ayah ref, and an optional contextual note. Content is essentially direct verse quotation of prayers rather than editorial commentary, so factual risk is low.
 - Güçlü yönler:
@@ -264,7 +276,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/elestirel-cerceve`
+### `/arac/elestirel-cerceve` ⬜
+
+**Durum:** Bu turda hiç dokunulmadı — audit'te somut bulgu yoktu
 
 **İçerik: 9/10** — A 'hard questions' tool tackling 8 genuinely contested topics (inheritance inequality, Nisa 4:34 'strike them', slavery, jizya, Noah's flood scope, scientific-miracle claims, Lut/sexuality, muhkam-mutashabih) with explicit multi-position framing: classical view + modern academic critique + named sources on both sides, and an opening principle statement that 'no claim to finality is made'.
 - Güçlü yönler:
@@ -293,7 +307,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/esma-frekans`
+### `/arac/esma-frekans` ⬜
+
+**Durum:** Gizli/latent Mekanizma 2 riski bulundu ama canlı hata değildi, düzeltilmedi
 
 **İçerik: 9/10** — The site's flagship esma tool: 114 divine names/attributes with Quranic frequency counts, calibrated against Fuad Abdulbaki's classical concordance, explicit methodology notes on homograph ambiguity, and an explicit disclaimer that counts are approximate and may differ slightly from classical concordances. Supplemented by esma-beyanlari.json (self-declaration verses), pairs, roots, triples, and a surah heatmap.
 - Güçlü yönler:
@@ -322,7 +338,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/halka-kompozisyon`
+### `/arac/halka-kompozisyon` ✅
+
+**Durum:** Mekanizma 4 (SectionWrapper clip prop) düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — Ring-composition (chiastic structure) tool: reuses the homepage's HiddenArchitecture section, adds an interactive Fatiha SVG ring diagram, and extends with 4 additional worked examples (Al-Mu'minun 23:1-11, all of Al-Baqara, Al-Ma'ida, Musa's Qasas 28 narrative), each citing a specific named scholar (Farrin or Cuypers) with book/publisher/year for the specific structural claim being made.
 - Güçlü yönler:
@@ -349,7 +367,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/iblis-seytan`
+### `/arac/iblis-seytan` ✅
+
+**Durum:** 3 kırık ayet linki düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — Cross-reads all 7 Quranic retellings of Iblis's refusal to prostrate (Baqara, A'raf, Hicr, Isra, Kehf, Ta-Ha, Sad) in Mushaf order, isolating what's unique to each telling (verb choice, fire-clay argument, jinn identity, lineage targeting, 'with My two hands') with precise linguistic analysis and correct classical-tafsir attributions for contested points (e.g. the zurriyye pronoun in Kehf 18:50).
 - Güçlü yönler:
@@ -377,7 +397,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/ilk-son-kelimeler`
+### `/arac/ilk-son-kelimeler` ✅
+
+**Durum:** Mekanizma 2 + kullanıcının üst/alt sıra sorusu yanıtlandı + kaydırma ipucu (`164c51a`, `d6fe89e`)
 
 **İçerik: 7/10** — A complete 114-surah database of first/last words with Arabic, transliteration, root, and Arabic ayah text (100% complete for Arabic text, but transliteration/root/meaning only ~36/114 surahs, i.e. partial), supplemented by an 8-spotlight set of well-sourced cross-surah connections (Fatiha->Baqara, etc.) citing Razi/Biqai/Farrin with volume/page loci.
 - Güçlü yönler:
@@ -408,7 +430,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/kitap-kavrami`
+### `/arac/kitap-kavrami` ✅
+
+**Durum:** Furkân/Mûsâ faktüel hatası + 11→10 sayı tutarsızlığı düzeltildi (`e40ffbb`)
 
 **İçerik: 6/10** — Presents 10 self-names the Quran uses for itself (al-Kitab, al-Furqan, al-Dhikr, al-Huda, al-Nur, al-Shifa, al-Bayan, al-Tibyan, al-Maw'iza, al-Mubin), each grounded in a specific verse and expanded with classical lexicography (largely al-Raghib al-Isfahani's al-Mufradat).
 - Güçlü yönler:
@@ -436,7 +460,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/kiyamet`
+### `/arac/kiyamet` ✅
+
+**Durum:** Mekanizma 2 + çıplak ayet referansı (13 kayıt) düzeltildi (`d3257d9`)
 
 **İçerik: 8.5/10** — Data: public/kiyamet-sahneleri.json (26 scene entries across 7 phases + 12 per-surah profiles) rendered by src/components/KiyametSahneleri.jsx. Careful separation of Quranic text from hadith elaboration via explicit quranicStatus/isHapax/infoTr fields (e.g. the İsrafil-blows-the-trumpet detail is flagged 'İsrafil ismi Kur'an'da GEÇMİYOR — hadis geleneğine ait').
 - Güçlü yönler:
@@ -465,7 +491,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/koruma-zinciri`
+### `/arac/koruma-zinciri` 🟡
+
+**Durum:** navTop düzeltildi + tr.json'daki mutlak iddia yumuşatıldı (`d6fe89e`, `092fbfa`); paylaşılan LivingPreservation.jsx'teki boş alan bulgusu dokunulmadı
 
 **İçerik: 7/10** — Wrapper (src/components/KorumaZinciri.jsx) around the homepage LivingPreservation section (src/sections/LivingPreservation.jsx), content sourced from src/i18n/tr.json's 'livingPreservation' key, plus a page-specific SourcesCitation (Suyûtî, Zerkeşî, İbnü'l-Cezerî, Zehebî) and CrossToolCTA.
 - Güçlü yönler:
@@ -492,7 +520,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/kurani-tani`
+### `/arac/kurani-tani` ✅
+
+**Durum:** 3 mutlak iddia yumuşatıldı + 'Wow-Facts' iç isim sızıntısı düzeltildi (`858fdc8`, `f1d54ca`)
 
 **İçerik: 8/10** — src/components/WowFacts.jsx, 50 hardcoded 'FACTS' entries (numerical/structural/prophets/lesser-known categories) each with body + 'wow' one-liner + optional counter visualization; this is the site's highlights/index page linking out to deeper dedicated tools.
 - Güçlü yönler:
@@ -525,7 +555,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/melekler`
+### `/arac/melekler` ✅
+
+**Durum:** Mekanizma 4 düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — public/melekler.json (15 angels + 7 duties + 6 narrative episodes + linguistics + sources), rendered by src/components/Melekler.jsx.
 - Güçlü yönler:
@@ -550,7 +582,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/muhataplar`
+### `/arac/muhataplar` ✅
+
+**Durum:** navTop + kenar çubuğu stretch hatası düzeltildi (`d6fe89e`)
 
 **İçerik: 8/10** — public/addressees.json (11 direct-address categories with counts, Meccan/Medinan percentages, themes, example verses), rendered by src/components/AddresseeSystem.jsx — purely data-driven, no hardcoded prose.
 - Güçlü yönler:
@@ -575,7 +609,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/mukattaa`
+### `/arac/mukattaa` ✅
+
+**Durum:** Mutlak iddia yumuşatıldı + paylaşılan boşluk hatası düzeltildi (`8f92a14`, `18d1067`)
 
 **İçerik: 8.5/10** — src/components/Mukattaa.jsx wraps src/sections/LinguisticDNA.jsx verbatim (4 letter-groups covering all 29 mukattaʿāt surahs with per-group thematic/pattern analysis) plus a SourcesCitation (Suyûtî, Râzî, Zamahşerî, İbn Kesîr) and CrossToolCTA.
 - Güçlü yönler:
@@ -606,7 +642,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/neden-sonuc`
+### `/arac/neden-sonuc` ✅
+
+**Durum:** navTop + tooltip + 'dürerız' yazım hatası düzeltildi (`d6fe89e`, `092fbfa`)
 
 **İçerik: 8.5/10** — public/neden-sonuc.json (10 cause-effect 'chains' across nefs/toplumsal/kozmik categories, each 3-5 steps with per-step verse anchors and 'why' rationale), rendered by src/components/NedenSonuc.jsx.
 - Güçlü yönler:
@@ -633,7 +671,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/renkler`
+### `/arac/renkler` ✅
+
+**Durum:** Yazım hatası düzeltildi (`70d807e`)
 
 **İçerik: 8.5/10** — public/kuranin-renkleri.json (12 colors with root-form breakdowns, hapax flags, mention counts, key verses) + a dedicated 'renkSekans' (green→yellow→dry decay motif) section, rendered by src/components/KuranRenkleri.jsx.
 - Güçlü yönler:
@@ -657,7 +697,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/retorik`
+### `/arac/retorik` ✅
+
+**Durum:** Duplicate React key hatası düzeltildi (`d3257d9`)
 
 **İçerik: 7.5/10** — public/kuran-retorigi.json (5 categories, but 4 of the 5 are the same istifham sub-types — inkârî/irşâdî/tevbîhî/taaccübî — plus 'te'kîd'; 30 tagged example verses, addresseeGroups, surahDensity/topSurahs, comparativeAnalysis), rendered by src/components/KuranRetorigi.jsx.
 - Güçlü yönler:
@@ -681,7 +723,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/retorik-sorular`
+### `/arac/retorik-sorular` ✅
+
+**Durum:** Mekanizma 4+2+uppercase + paylaşılan boşluk hatası düzeltildi (`d3257d9`, `18d1067`)
 
 **İçerik: 7.5/10** — src/components/RetorikSorular.jsx combines the homepage QuranRhetoric section (istifham types — same 4 subtypes as /arac/retorik) with public/belagat-aileleri.json (5 non-question rhetorical families: iltifât, tibâk, istiâre, kinâye, cinâs, each with classical + modern academic citations).
 - Güçlü yönler:
@@ -712,7 +756,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/ritim`
+### `/arac/ritim` ⬜
+
+**Durum:** İncelendi, güvenli düzeltme bulunamadı (kaynak eklemek araştırma gerektiriyor)
 
 **İçerik: 8.5/10** — src/components/Ritim.jsx wraps src/sections/ImpossibleRhythm.jsx (poetry/Quran/prose contrast, fasıla concept, Duhâ/Necm/Rahmân/Kamer examples) plus src/components/RhythmExtensions.jsx (16 classical aruz metres with correct scansion patterns + full 31-occurrence map of the Rahmân 55 refrain grouped by theme).
 - Güçlü yönler:
@@ -735,7 +781,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/sebebi-nuzul`
+### `/arac/sebebi-nuzul` ✅
+
+**Durum:** Mekanizma 2 + eksik güvenilirlik rozeti düzeltildi (`164c51a`, `70d807e`)
 
 **İçerik: 8.5/10** — Two complementary datasets: public/esbabin-nuzul.json (20 narrative 'events' timeline) and public/sebeb-i-nuzul.json (30 detailed 'occasions' with scholar attributions, hadith source + reliability grading, and aggregate stats), rendered by src/components/SebebiNuzul.jsx.
 - Güçlü yönler:
@@ -760,7 +808,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/ses-mimarisi`
+### `/arac/ses-mimarisi` ⬜
+
+**Durum:** İncelendi, güvenli düzeltme bulunamadı (kaynak eklemek araştırma gerektiriyor)
 
 **İçerik: 8/10** — Wrapper (SesMimarisi.jsx) reuses the homepage SoundArchitecture section content plus an added SoundExtensions deep-dive (4 more contrast pairs + 8-group phonetic spectrum). Content compares 'harsh' (patlayıcı) vs 'soft' (akıcı) consonant clusters in punishment vs mercy verses, ties it to classical tajwīd (tafhīm/tarqīq/qalqala) and modern sound-symbolism research (Sapir 1929, Köhler bouba/kiki).
 - Güçlü yönler:
@@ -786,7 +836,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tarihsel-kanitlar`
+### `/arac/tarihsel-kanitlar` ✅
+
+**Durum:** Mekanizma 4 (kırık sticky) düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — public/tarihsel-kanitlar.json: 10 'traces' (Pharaoh's body, Hāmān, Rūm prophecy, Iram, Aṣḥāb al-Ukhdūd, Aṣḥāb al-Kahf, Dhu'l-Qarnayn, Thamūd, 'nearest place', Qur'an preservation) each tagged with a confidence level (güçlü/muhtemel/tartışmalı), classical tafsir citations, modern academic sources, and an explicit criticalNote.
 - Güçlü yönler:
@@ -814,7 +866,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tefsir-ihtilaflari`
+### `/arac/tefsir-ihtilaflari` ✅
+
+**Durum:** Mobil örtüşme + eksik hero + çıplak ayet referansı düzeltildi (`476d358`, `d3257d9`)
 
 **İçerik: 9/10** — public/tefsir-ihtilaf.json compares 7 classical exegetes (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr) across 8 cases of Quranic parable interpretation (e.g. Âyetü'n-Nûr, the fire/rainstorm hypocrite parables), with per-quote Arabic text, translation, and a 'confidence: confirmed' tag indicating the quote was verified against the primary text.
 - Güçlü yönler:
@@ -843,7 +897,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tekrar-anatomi`
+### `/arac/tekrar-anatomi` ⬜
+
+**Durum:** İncelendi; 3 bulgu paylaşılan ZeroRedundancy.jsx/tr.json'da, dosya kapsamı dışında kaldı
 
 **İçerik: 8/10** — TekrarAnatomi.jsx wraps the homepage ZeroRedundancy section: addresses the 'Rahmân's 31x refrain isn't that redundant?' objection via classical takrîr theory (te'kîd/tafsîl/ihtimâm), Moses-narrative multi-surah examples, and corpus stats (~77,800 words, ~1,700 roots, ~455 hapax legomena).
 - Güçlü yönler:
@@ -872,7 +928,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tum-araclar`
+### `/arac/tum-araclar` ✅
+
+**Durum:** Gereksiz modal kapat düğmesi kaldırıldı (`f72a7b7`)
 
 **İçerik: 7.5/10** — ToolsBrowser.jsx + src/data/toolCatalog.js — a searchable/filterable directory of ~60+ site tools/atlases with one-line TR/EN titles and descriptions per tool. Not narrative content; judged as an index page.
 - Güçlü yönler:
@@ -901,7 +959,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/yakin-anlamli-nuanslar`
+### `/arac/yakin-anlamli-nuanslar` ✅
+
+**Durum:** Mekanizma 2 + tab-uppercase düzeltildi (`d3257d9`)
 
 **İçerik: 7.5/10** — public/yakin-anlamli-nuanslar.json: 10 sets of 32 Quranic near-synonyms (kalb/fu'âd/sadr, ilm/hikmet/fıkh, havf/haşyet/rehbet, etc.), each with root etymology, a distinguishing usage note, and an anchor verse, sourced primarily to er-Râgıb el-İsfahânî's al-Mufradāt plus a topic-matched second source per set.
 - Güçlü yönler:
@@ -928,7 +988,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/yeminler`
+### `/arac/yeminler` ✅
+
+**Durum:** Mekanizma 2 + hydration mismatch düzeltildi (`d3257d9`)
 
 **İçerik: 8.5/10** — public/yeminler.json: 47 Quranic oaths across 7 categories (celestial, time, place, forces, human-soul, sacred-texts, eschatology), built on Ibn Qayyim al-Jawziyya's classical count in al-Tibyān fī Aqsām al-Qur'ān, including compound-oath breakdowns and per-item purpose/depth notes.
 - Güçlü yönler:
@@ -958,7 +1020,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/zaman-boyutlari`
+### `/arac/zaman-boyutlari` ✅
+
+**Durum:** Mekanizma 2 düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — ZamanBoyutlari.jsx (large inline dataset, ~1800 lines): explores Quranic time expressions (Leyletü'l-Kadr = 1000 months, 40 nights of Moses, Kehf's 300/309 years, the 1-day=1000-years and 1-day=50,000-years verses, Fussilet's 6-day creation) across tabs for scale/language/philosophy/comparison/sources.
 - Güçlü yönler:
@@ -985,7 +1049,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ## Atlaslar (/atlas/*)
 
-### `/atlas/ahiret-yolculugu`
+### `/atlas/ahiret-yolculugu` ✅
+
+**Durum:** Scroll-reveal boşluğu (en düşük görsellik puanı) düzeltildi (`98b312d`)
 
 **İçerik: 9/10** — src/data/ahiret-yolculugu.json: 11 chronological afterlife stages (sekerât → berzah → sûr → mahşer → mîzân → havz-şefâat → sırât → cennet-cehennem → rü'yetullâh), each with anchor verse, additional refs, long-form narrationTr/En, multiple classicalTafsir entries (Râzî/Kurtubî/İbn Kayyım/etc.), and a criticalNote surfacing real sectarian disagreement.
 - Güçlü yönler:
@@ -1014,7 +1080,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/doga`
+### `/atlas/doga` ✅
+
+**Durum:** Mekanizma 3-benzeri kırık sticky düzeltildi (`d3257d9`)
 
 **İçerik: 7/10** — public/doga-atlasi.json: 22 animals, 19 plants, plus surah-naming notes, thematic contexts, 3 short tefsirNotes, and 5 sources. Mostly short factual entries (frequency count, verse ref, 1-2 sentence note) rather than long-form narrative.
 - Güçlü yönler:
@@ -1040,7 +1108,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/furuk`
+### `/atlas/furuk` ✅
+
+**Durum:** Mekanizma 3-benzeri kırık sticky düzeltildi (`d3257d9`)
 
 **İçerik: 7/10** — public/word-groups.json: 32 near-synonym 'word family' groups (108 words, 337 sample occurrences) across 7 categories (fear, rain, wind, path, heart, sin, etc.), each word with root meaning, distinguishing note, frequency count, and a curated (non-exhaustive) list of representative verse occurrences with a computed 'dominant pattern %' tag.
 - Güçlü yönler:
@@ -1068,7 +1138,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler`
+### `/atlas/ibadetler` ✅
+
+**Durum:** Pillar etiket haritası + grid düzeni düzeltildi (`f72a7b7`)
 
 **İçerik: 8.8/10** — Hub page for the 8 pillars of worship (namaz, zekât, oruç, hac, kurban, zikir, dua, tevbe). Very well-built editorial hub: explicit framing note distancing itself from both fiqh-book status and Kur'aniyyun (Quranist) reductionism, a root-frequency network, a Mecca/Medina timeline, a table of recurring Qur'anic formulae, an obligation-comparison table, three persona-based reading paths, and a cross-pillar 'prophetic traces' aggregation (21 prophet/figure entries). Sourced to Râzî, Kurtubî, Elmalılı, Îzutsu.
 - Güçlü yönler:
@@ -1101,7 +1173,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/hac`
+### `/atlas/ibadetler/hac` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 8.7/10** — Deep treatment of hajj: 8 Qur'anic-name entries (Hajj, Umra, Iḥrām, Ṭawāf, Saʿy, ʿArafa, Mashʿar al-Ḥarām, Minā, Bayt Allāh) each with root, occurrence estimate, and 2 layered meaning notes; genelBakis ties the ritual to the Abrahamic-heritage frame; 4 claims carry explicit confidence tiers (kesin/yaygin-kabul).
 - Güçlü yönler:
@@ -1133,7 +1207,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/kurban`
+### `/atlas/ibadetler/kurban` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 8.3/10** — Sacrifice/kurban page anchored on Hac 22:37 ('neither flesh nor blood reaches Allah, only taqwā does'). Strong theological throughline: kurban framed as relinquishing ownership-claim over the self rather than a ritual transaction. Ties in Ibrahim-Ismail (Sâffât 37:102-107), Habil-Kabil (Maide 5:27), and universality across communities (Hac 22:34).
 - Güçlü yönler:
@@ -1160,7 +1236,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/namaz`
+### `/atlas/ibadetler/namaz` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — The flagship pillar page (explicitly billed in the hub as the most detailed, 11 tabs). 15 Qur'anic terms in kuraniIsimler, 7-item icBoyut, vakitMekan with a time-axis and qibla-history section, rakamsalMimari with an explicit 'this is not Kur'aniyyun' disclaimer, 8 ozelNamazlar variants, 8 peygamberVaryasyonlari, and a dedicated kiraatBoyutu (recitation dimension) tab.
 - Güçlü yönler:
@@ -1187,7 +1265,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/oruc`
+### `/atlas/ibadetler/oruc` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 8.5/10** — Fasting page anchored on Bakara 2:183-187, framed around taqwā as stated purpose, the Ramadan-Qur'an link (2:185), built-in concessions for the sick/traveler within the same obligation-verse, and the semantic widening of 'savm' to include Maryam's speech-fast (19:26).
 - Güçlü yönler:
@@ -1216,7 +1296,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/tovbe`
+### `/atlas/ibadetler/tovbe` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 8.8/10** — Repentance page centered on the reciprocal verb tāba (kul döner, Allah da döner). Strong prophet-scene gallery: Adam (Bakara 2:37), Yunus (Enbiyâ 21:87), Musa (Kasas 28:16), each broken into a consistent 3-4 step structural analysis (confession/request/immediate acceptance).
 - Güçlü yönler:
@@ -1241,7 +1323,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/zekat`
+### `/atlas/ibadetler/zekat` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 8.7/10** — Zakat page distinguishing zekât/sadaka/infâk/mâûn/'hakk-ı ma'lûm' terminology, opening with the 'purification' framing (Tevbe 9:103) and the eight-category recipient list (Tevbe 9:60). Standard fiqh percentages (1/40 = 2.5%, 1/10 for unwatered produce) are correctly cited as real, not invented, figures.
 - Güçlü yönler:
@@ -1266,7 +1350,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/ibadetler/zikir`
+### `/atlas/ibadetler/zikir` ✅
+
+**Durum:** Mekanizma 2 (paylaşılan IbadetlerPillar.jsx, 7 rota) düzeltildi (`d3257d9`)
 
 **İçerik: 6.5/10** — Remembrance/dhikr page, otherwise deep (15+ dhikr forms, tesbihat counts 33+33+33+1, the reciprocal Bakara 2:152 formula) but undermined by an unhedged absolute claim in its hero subtitle that both violates the site's own anti-absolutism rule and contradicts a sibling page's data.
 - Güçlü yönler:
@@ -1296,7 +1382,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/insan-psikolojisi`
+### `/atlas/insan-psikolojisi` ✅
+
+**Durum:** En görsel açıdan hasarlı bulgu (320px boşluk) + tab taşma + yazım hatası düzeltildi (`6accb5c`)
 
 **İçerik: 8.6/10** — Maps Qur'anic ethico-psychological concepts (nefs stages, qalb typology, fear taxonomy, defense mechanisms via Yusuf/Firavun narratives, Yusuf's trauma-recovery arc, social psychology, coping tools, meaning-making, and an explicit Qur'an-vs-modern-psychology comparison) against modern psychology (Freud, Jung, Maslow, Frankl, Festinger, Seligman).
 - Güçlü yönler:
@@ -1328,7 +1416,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/insan-tanimi`
+### `/atlas/insan-tanimi` ✅
+
+**Durum:** navTop + 'İsfahânî' yazım hatası düzeltildi (`f72a7b7`, `092fbfa`)
 
 **İçerik: 8.8/10** — Four-tab page: core concepts (via sections/HumanDefinition, i18n-driven), the FITRAT+AKIL+İRADE+VAHY→İSTİKÂMET 'human equation,' a 6-scholar grid (Râgıb el-Isfahânî, İbn Kayyim, Râzî, Kurtubî, Gazâlî, İbn Âşûr), and sources.
 - Güçlü yönler:
@@ -1355,7 +1445,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/insan-yolculugu`
+### `/atlas/insan-yolculugu` ✅
+
+**Durum:** Yazım hatası + navTop (mobil+masaüstü) düzeltildi (`f72a7b7`, `d3257d9`)
 
 **İçerik: 7.8/10** — A curated 10-stage spiritual-maturation model (Fıtrat → Uyanış → İman → Amel → Takvâ → İhsan → Kalb-i Selîm → Hüsn-i Hâtime → Rızâ → Cemâlullah), each stage anchored to a verse with supporting verses, an obstacle, and a practice note. Sourced to Ibn Qayyim's Madārij al-Sālikīn, Ghazâlî's Iḥyāʾ, Râzî, and Said Nursî.
 - Güçlü yönler:
@@ -1386,7 +1478,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/kadinlar`
+### `/atlas/kadinlar` ✅
+
+**Durum:** 'darbtir' yazım hatası düzeltildi (`092fbfa`); bileşenin kendisi zaten temizdi
 
 **İçerik: 9/10** — Catalogs 14 individually-narrated Qur'anic women (Meryem, Asiye, Havva, Saba Melikesi, Sara, Musa's mother, İmran's wife, Aziz's wife/Zelîha, Lût's wife, Nûh's wife, Yahya's mother, Şuayb's daughter, Havle, Musa's sister), each with themes, key verse, summary, and — notably — a critical note surfacing scholarly debate.
 - Güçlü yönler:
@@ -1414,7 +1508,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/kavim`
+### `/atlas/kavim` ✅
+
+**Durum:** Doğrulanamaz mutlak iddia (Uhdud) yumuşatıldı (`431b5c4`)
 
 **İçerik: 8.5/10** — 16 destroyed/spared nations (Nuh, Âd, Semûd, Lût, Firavun, Medyen, Eyke, İbrahim's people, Karun, Ress, Tübba', İrem, Yunus's people, Sebe, Uhdud, Sebt) from public/kavimler.json, each with summary, anchor verse, geography, archaeology status, and an 'infoTr' hedging field.
 - Güçlü yönler:
@@ -1442,7 +1538,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/kiraat`
+### `/atlas/kiraat` ✅
+
+**Durum:** Mekanizma 2 (mobil) + tab-uppercase + çıplak ayet referansı düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — public/kiraat-atlasi.json covers the 10 canonical qira'at readers with isnad/rawi/madhab data, 21 real Hafs-vs-Warsh textual variants with meaning impact, geographic distribution (modern + historical) and a 5-event historical timeline (Uthman's codification through the 1924 Cairo edition).
 - Güçlü yönler:
@@ -1472,7 +1570,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/kissa`
+### `/atlas/kissa` ✅
+
+**Durum:** Tab-uppercase düzeltildi (`d3257d9`)
 
 **İçerik: 7.5/10** — public/kissa-atlas.json holds 12 prophets (Musa, Nuh, İbrahim, Yusuf, etc.) broken into 104 narrative scenes, each with title, description, verse reference and cross-surah references (surahRefs) showing which surahs narrate that scene.
 - Güçlü yönler:
@@ -1499,7 +1599,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/mesel`
+### `/atlas/mesel` ✅
+
+**Durum:** Tab-uppercase + yerel veri kaynağı düzeltildi (`164c51a`)
 
 **İçerik: 8.5/10** — public/amthal/*.json (parables.json: 72 parables, imagery-networks.json: 8 imagery domains, paired-parables.json: 11 explicit paired parables, nur-zulumat.json, animals.json: 9, meta-verses.json: 6, scholars.json: 4 classical views) drives a rich taxonomy of Quranic parables by domain, type (sarih/kamin/mursel) and rhetoric.
 - Güçlü yönler:
@@ -1526,7 +1628,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/munafik`
+### `/atlas/munafik` ✅
+
+**Durum:** 62 çift işlenmeyen markdown yıldızı + kalıntı bozuk metin temizlendi (`431b5c4`)
 
 **İçerik: 9/10** — public/munafik-profili.json: 12 behavioral profiles (self-deception, dual-identity, etc.) each with 2-3 core verses, classical tafsir analysis (Râzî, İbn Kesîr, Elmalılı), an explicitly hedged modern-psychology parallel (Trivers, Festinger, Goffman), and one properly-graded sahih hadith (Bukhari/Muslim triple-sign hadith) with isnad status noted.
 - Güçlü yönler:
@@ -1552,7 +1656,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/munasebat`
+### `/atlas/munasebat` ✅
+
+**Durum:** Mekanizma 2 + ayet referans formatı düzeltildi (önceki oturum)
 
 **İçerik: 7/10** — public/surah-connections.json: 7 connection types (tenâsüb, tedâdd, tenzîr, istitrâd, uslûbü'l-hakîm, intikâl, tekâmül), 8 scholars (en-Neysâbûrî through modern es-Sâmerrâî/Islâhî), and only 16 curated inter-surah connection examples with anchor verses and multi-source citations (el-Bikâî, es-Süyûtî).
 - Güçlü yönler:
@@ -1584,7 +1690,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/nefs-mertebeleri`
+### `/atlas/nefs-mertebeleri` ✅
+
+**Durum:** Mekanizma 2 + kalan taşma hatası düzeltildi (`d3257d9`, `f2aea9a`)
 
 **İçerik: 9/10** — public/nefis-mertebeleri.json cleanly separates the 3 Quranic-explicit nafs stages (emmâre, levvâme, mutmainne — each with verse, classical tafsir, and a debate note on speaker attribution) from 4 Sufi-added stages, with an explicit transitionNote explaining the extension is bâtınî/esoteric and that Ibn Taymiyya and partly Ibn Qayyim kept distance from it.
 - Güçlü yönler:
@@ -1610,7 +1718,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/peygamber`
+### `/atlas/peygamber` ✅
+
+**Durum:** Mobil zaman çizelgesi etiketleri büyütüldü (`431b5c4`)
 
 **İçerik: 7/10** — src/sections/ProphetAtlas.jsx hardcodes a PROPHETS array (25 prophets with per-surah 'phase' breakdowns sourced to Abdulbâki's al-Muʿjam mention-count concordance) plus an interactive map component; narrative prose ('narrativeTr') is only written for ~5 prophets (İbrahim, Nûh, Yusuf, Musa, İsa) with the rest represented only as surah/phase lists.
 - Güçlü yönler:
@@ -1638,7 +1748,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/atlas/sunnetullah`
+### `/atlas/sunnetullah` ✅
+
+**Durum:** Çökme hatası + Mekanizma 2 düzeltildi (`d3257d9`)
 
 **İçerik: 9/10** — public/sunnetullah-atlasi.json: 6 literal Quranic occurrences of the term 'sünnetullah' plus 12 thematic law categories (helâk, yardım, imtihan, zulüm, yaratma, etc.), each with multiple verses, classical tafsir citations (Râzî, İbn Âşûr, Kurtubî, Zemahşerî), and linguistic notes (e.g. tabdîl vs tahvîl distinction, 'len' vs 'lâ' negation strength).
 - Güçlü yönler:
@@ -1666,7 +1778,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ## Graf Araçları (/graf/*)
 
-### `/graf/ayet`
+### `/graf/ayet` ✅
+
+**Durum:** 4 bulgu (kontrast, mobil ipucu, kesme, DataDictionary) düzeltildi (`431b5c4`)
 
 **İçerik: 7/10** — VerseGraph is a 3D force-graph visualization (react-force-graph-3d) of all 6,236 verses via verse-graph-bgem3.json embeddings, layered with public/surah-info.json (per-surah metadata) and public/surah-notes.json (3 factual highlight bullets per surah, all 114 surahs sampled/spot-checked as accurate) and surah-clusters.json (pure UMAP-style x/y coordinates, no editorial text).
 - Güçlü yönler:
@@ -1697,7 +1811,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/diyalog`
+### `/graf/diyalog` ✅
+
+**Durum:** Tab-uppercase + hydration mismatch düzeltildi (`d3257d9`)
 
 **İçerik: 8.5/10** — DiyalogAgi draws on 5 JSON files: diyalog-speakers.json (34 speakers/entities with mention counts and dialogue partners), diyalog-axes.json (31 relationship axes), diyalog-dialogues.json (23 detailed turn-by-turn dialogues with lessonTr), diyalog-afterlist.json (8 afterlife scenes), diyalog-mega.json (4 multi-surah 'saga' dialogues like the Iblis narrative across 7 surahs and Musa-Firavun across 10 surahs).
 - Güçlü yönler:
@@ -1727,7 +1843,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/karsilastir`
+### `/graf/karsilastir` ✅
+
+**Durum:** Vahiy sırası iddiası hedge edildi (`115168c`)
 
 **İçerik: 7.5/10** — SurahComparator ('Sûre DNA Karşılaştırıcı') computes structural comparisons between any two surahs from verse-graph-bgem3.json, surah-info.json and revelation-order.json (Meccan/Medinan chronological rank for all 114 surahs), framed as a 'structural fingerprint' tool with a SourcesCitation footer grounding the comparison concept in el-Bikâî's and es-Süyûtî's classical munâsabât works.
 - Güçlü yönler:
@@ -1754,7 +1872,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/kavram`
+### `/graf/kavram` ✅
+
+**Durum:** Yöntem şeffaflığı paneli eklendi (`53ecb3e`)
 
 **İçerik: 6/10** — 78 Quranic concepts (10 categories, TR/EN/Arabic labels, anchor verses) from public/concept-graph.json, connected into a live network by ConceptGraph.jsx via simple lowercase-substring keyword matching against the Turkish translation text (verseMatchesConcept/normalizeTr) — not a curated or semantically verified mapping.
 - Güçlü yönler:
@@ -1782,7 +1902,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/kelime-isi`
+### `/graf/kelime-isi` ✅
+
+**Durum:** Mobil çip taşması düzeltildi (`115168c`)
 
 **İçerik: 7/10** — Word/phrase frequency heatmap across 114 surahs (search box + 17 concept presets + 18 recurring Arabic phrase presets with verified counts, e.g. 'غفور رحيم ×49'), defaults to a Besmele frequency heatmap; backed by a visible 'Veri Sözlüğü' methodology panel.
 - Güçlü yönler:
@@ -1811,7 +1933,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/semantik`
+### `/graf/semantik` ✅
+
+**Durum:** Yanlış UMAP iddiası + yöntem şeffaflığı + mobil taşma düzeltildi (`74da718`)
 
 **İçerik: 6/10** — 20 verse-level semantic clusters (6,236 verses, BGE-M3 embeddings + Louvain community detection) rendered as a sortable card list with AI/editor-written titles and summaries (e.g. '#00 Âlemlerin Rabbi: Tevhidin Tebliğ Çerçevesi', 675 verses, 92 surahs); page metadata claims a '2D UMAP projection' visualization that is not what actually renders.
 - Güçlü yönler:
@@ -1841,7 +1965,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/graf/zaman`
+### `/graf/zaman` ⬜
+
+**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
 
 **İçerik: 9/10** — Revelation-order timeline for all 114 surahs (Mekkî/Medenî, mushaf-vs-nüzul rank delta) sourced explicitly to Suyuti's al-Itkan (via Ibn Abbas narration) and Zerkeşî's al-Burhan, with an honest discussion of the tevkîfî/ictihadî ordering debate and Uthman's role in standardizing (not authoring) the mushaf sequence.
 - Güçlü yönler:
@@ -1894,7 +2020,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/sor`
+### `/sor` ⬜
+
+**Durum:** İncelendi, güvenli düzeltme bulunamadı (boş-durum içeriği yeni prose gerektiriyor)
 
 **İçerik: 7/10** — Live RAG 'ask a question' concierge (semantic + keyword search modes) over verses/tools/atlases/articles; static UI copy is strongly hedged, but actual generated answers could not be tested in this environment (dev server missing DEEPINFRA_API_KEY, request errored).
 - Güçlü yönler:
@@ -1921,7 +2049,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/kutuphanem`
+### `/kutuphanem` ✅
+
+**Durum:** Emoji ikon + İngilizce karışımı düzeltildi (`f2ec567`)
 
 **İçerik: 6/10** — Personal bookmark library (client-side localStorage list across 27 typed bookmark categories); on a fresh session it renders only the empty state, so there is minimal 'content' to assess beyond UI copy and the type taxonomy.
 - Güçlü yönler:
@@ -1949,7 +2079,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/hakkinda`
+### `/hakkinda` ⬜
+
+**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
 
 **İçerik: 9/10** — About/Methodology page with 5 sections: Purpose, Epistemic Stance ('Kur'ân Hakikatin Ölçüsüdür'), Methodology & Sources, Limits & Honesty, Authorship & Contact — content is hardcoded in HakkindaRoute.jsx, bilingual, no i18n JSON.
 - Güçlü yönler:
@@ -1972,7 +2104,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/kaynakca`
+### `/kaynakca` ⬜
+
+**Durum:** Audit'te aksiyon gerektiren bulgu yoktu
 
 **İçerik: 9/10** — Categorized bibliography (6 categories: classical tafsir, modern tafsir, academic/Quranic studies, rhetoric & ulûm al-Qur'an, hadith & sira, contested science/history, software/data corpora) — ~45 entries, hardcoded in KaynakcaRoute.jsx.
 - Güçlü yönler:
@@ -1995,7 +2129,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/oku`
+### `/oku` ✅
+
+**Durum:** İncelendi, bildirilen 'metin bozulması' bulgusu kasıtlı bir tecvid işareti olduğu doğrulandı — düzeltme gerekmedi
 
 **İçerik: 8/10** — Reading Mode for Sûre 1 (El-Fatiha) — canonical Arabic text (KFGQPC-normalized), Suat Yıldırım Turkish meal by default with a meal switcher, tefsir/tajweed/word-by-word panels available via toolbar.
 - Güçlü yönler:
@@ -2017,7 +2153,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/oku/2`
+### `/oku/2` ✅
+
+**Durum:** Aynı bileşen (`ReadingMode.jsx`), yukarıdaki gibi
 
 **İçerik: 8/10** — Reading Mode for Sûre 2 (El-Bakara), same tool/pattern as /oku, page 1 of the surah — canonical Arabic + Suat Yıldırım meal, correct nüzul/Medenî/286-âyet/40-rukû metadata, prev/next surah navigation.
 - Güçlü yönler:
@@ -2037,7 +2175,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/ayet/2`
+### `/ayet/2` ✅
+
+**Durum:** Kritik: markasız 404 hatası düzeltildi (`d3257d9`)
 
 **İçerik: 1/10** — Route does not resolve — /tr/ayet/2 returns a hard 404. The Next.js app only defines a page at the deeper /ayet/[surah]/[ayah] segment (verified working example: /tr/ayet/2/1 renders correctly with Arabic + translation + reference + share/open-in-reading-mode CTAs); there is no page.js at the /ayet/[surah] level.
 - Güçlü yönler:
@@ -2063,7 +2203,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/tefekkur`
+### `/tefekkur` ✅
+
+**Durum:** Dekoratif SVG mobil çakışması + emoji ikon düzeltildi (`115168c`)
 
 **İçerik: 8/10** — Index of curated long-form reflection essays by a single external author ('Felsufi'), shared with stated verbal permission, cross-linked to Concept Graph/Verse Map/Reading Mode; dynamic stat chips (live/draft/category/author counts) computed from public/tefekkur/_index.json rather than hardcoded.
 - Güçlü yönler:
@@ -2102,7 +2244,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 - ✅ **Düzeltildi (commit `b39fcde`, yalnız veri şeması/sızmış iç referans, cümle anlamı değişmedi):** `rahmetin-grameri-1..7` previousArticle/nextArticle string→obje şema hatası (aşağıda 1-7 ayrı ayrı listeli, hepsi tek commit'te kapandı); `dusunme-fiilleri-zihnin-isletim-sistemi` author alanı; `kuran-mesajina-yabanci-kalmak` ve `yaratilis-hikayesi-2-katmanli-yaratilis`'teki sızmış "§13.15"/"​.15" kalıntısı.
 - ⚠️ **Bilinçli olarak dokunulmadı (gerçek çeviri/prose değişikliği gerektiriyor):** `iki-nedensellik` (6 madde TR alanına yanlışlıkla İngilizce girilmiş, gerçek çeviri gerekir), `enerji-krizi`/`inception-hayatlar` (birer İngilizce ifade hatası, yeniden yazım gerekir), `hala-mi-evrim` (kapanış notu güncel değil, düzeltmek yazarın cümlesini değiştirmek anlamına gelir). Bunlar aşağıdaki ilgili madde girişlerinde hâlâ "issues" olarak görünüyor ama kod/veri tarafında bilerek bırakıldı.
 
-### `/tefekkur/ala-suresi-1`
+### `/tefekkur/ala-suresi-1` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Tight etymological reading of tesbih (root sebbeha = 'to glide away') building to a genuinely interesting claim: the verse commands glorifying the Lord's 'name,' not the Lord Himself, because our observation-world only ever meets the name. Uses Wolfram's computationally-bounded-observer idea as a modern gloss on 17:44 ('you do not comprehend their glorification') — clearly marked as an analogy, not equated with tafsir. Second half (aʿlā vs ʿaẓīm/kabīr/majīd, the potter→ceramicist→artist chain) is a clean payoff. No unhedged 'proof' language; stays in reflective register throughout. Ends with an honest note that Turkish is the author's own pen and English is translation, and that the promised sequel doesn't exist yet.
 - Görsellik notları: Follows the established Tefekkür pattern cleanly: gold eyebrow category label, Playfair title, italic tldr, meta row with author/reading time/date/canonical link, epistemic disclaimer box, sticky desktop TOC, hierarchyTree/contrastDuo/flowChain visual blocks, gratitude/attribution footer. Mobile hides the TOC and stacks to single column with no overflow. hierarchyTree/contrastDuo blocks use scroll-triggered fade-in (framer-motion whileInView) — a screenshot taken immediately on load can catch a branch mid-fade looking blank/low-contrast, but on a normal scroll or after ~1s dwell it renders with full contrast (verified directly on the 'Zihin' branch of the sebbeha hierarchyTree — computed opacity/colors were correct, it was a timing artifact, not a persistent bug).
@@ -2112,7 +2256,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/alak-suresi-1`
+### `/tefekkur/alak-suresi-1` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Strong opening essay of the Alak series: grounds 'iqraʾ' in the root qaraʾa ('to gather parts into a whole') via Lane's Lexicon, then builds the tilāwa/qirāʾa (manā-yi ismī / manā-yi ḥarfī) distinction into a persuasive reading of 'bismi rabbika' as declaring a metaphysical reading-frame rather than a literal reading command. The quantum-interpretation analogy (Copenhagen/Many-Worlds/Pilot-Wave as different 'physical readings') is a nice contemporary bridge and is clearly flagged as analogy. Good use of contrastDuo (tilāwa⇄qirāʾa) and biographical background on the Prophet ﷺ pre-revelation. Well within the site's hedging norms.
 - Görsellik notları: Same clean essay template as the rest of the series — sticky TOC, verseInline cards, pullQuote blocks for the Alâ 87:1-7 citation. Renders correctly on both viewports; contrastDuo box (Tilâvet/Kıraat) confirmed fully legible on close inspection.
@@ -2121,7 +2267,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/alak-suresi-2-3`
+### `/tefekkur/alak-suresi-2-3` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — The strongest of the Alak series for epistemic transparency: it explicitly flags via criticalNote that the 'alaq = suspended/clinging' reading (vs. the traditional 'blood-clot') is Felsufi following İsmail Yakıt against 'a significant portion of classical exegetes' (Ṭabarī, Ibn Kathīr) — exactly the kind of alternative-vs-consensus framing the site's own rules ask for. The ontological/temporal-priority (architect/palace) analogy for karam/ikrām is original and clearly argued, well supported by a dense chain of verse cross-references (17:62, 17:70, 2:29, 2:31, 33:72, 55:3-4, 95:4, 53:9).
 - Görsellik notları: Longest of the three Alak pieces (~9.6k px desktop); the two contrastDuo blocks and flowChain render correctly. TOC has more entries and works well for navigating the long page. No mobile overflow observed.
@@ -2130,7 +2278,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/alak-suresi-4-5`
+### `/tefekkur/alak-suresi-4-5` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 7/10** — The most speculative essay in the sample: it extends 'al-qalam' (the Pen) to the prefrontal cortex, an AI encoder, and the quantum measurement problem/wave-function collapse. This is honestly the kind of reach the site's own §13.24-style discipline exists to catch — and to the article's credit it does self-flag with an explicit criticalNote stating this reading 'does not belong to the classical exegetical consensus' and names what classical exegetes (Rāzī, Ṭabarī, Ibn Kathīr) actually said instead. Still, the chain from Qurʾanic 'Pen' to 'measurement problem' is a long analogical leap for a general reader, and the piece would benefit from tightening. The hadith about the Pen ('first thing God created') is correctly marked as being of contested/mawḍūʿ isnād, which is good practice.
 - Görsellik notları: Longest single page in the set (~9.8k px desktop, dense with verseInline, contrastDuo, flowChain, and two pullQuotes). Renders cleanly; no layout issues found. TOC has three entries.
@@ -2140,7 +2290,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/allahu-ekber-seyr-ilallah`
+### `/tefekkur/allahu-ekber-seyr-ilallah` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — One of the strongest pieces in the set. Cleanly dismantles the naive 'Allah is bigger than everything' reading of Allāhu akbar (a thing is compared to its own kind; God has none), replaces it with 'akbar = confession of the limit of our own perspective,' and threads this through takbīr-in-prayer, Bediüzzaman's 'mevcud-u meçhul' distinction (with sourced, quoted Turkish original), and a closing meditation on 'diving into the sea of meaning' that lands on a genuinely moving point about representation/temsil. Good use of criticalNote for the 'known-unknown' nuance and a closing note that verse anchors come from the site's own verse graph, normalized for display.
 - Görsellik notları: Consistent essay template; contrastDuo used twice effectively (kıyas vs perspektif; Allahu ekber vs Zikrullahi ekber), hierarchyTree for the three depth-images, flowChain for the five-stage descent to Sidretü'l-müntehâ. All render correctly given normal scroll dwell.
@@ -2149,7 +2301,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/analitik-icgoru-1`
+### `/tefekkur/analitik-icgoru-1` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Opens the 'Şuur Kavramı' (Consciousness) series with a clear two-axis definition (epistemic coarse-graining + ontological ene/window geometry) and a genuinely useful car/ulcer everyday-identification example. The 'opaque vs transparent ene' framing (Pharaoh vs Prophetic paradigm) is well-grounded in Bediüzzaman's 30th Word. The long criticalNote at the end is exemplary: it explicitly separates the Nurcu-specific vocabulary (manā-yi ismī/ḥarfī) from classical kalām's different vocabulary for similar distinctions, and flags the coarse-graining/information-theory pairing as a modern bridge, not a classical claim. This kind of self-aware framing is exactly what keeps ambitious content honest.
 - Görsellik notları: Mobile screenshot confirmed clean single-column stacking, TOC correctly hidden, no horizontal overflow across the full ~9.4k px page. Desktop renders the two contrastDuo blocks and hierarchyTree without issue given normal scroll timing.
@@ -2158,7 +2312,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/analitik-icgoru-2`
+### `/tefekkur/analitik-icgoru-2` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Ambitious middle piece: proposes consciousness as the mechanism aligning local utility-maximization with a 'generalized utility' of the cosmos, leans on the Maximum Entropy Production Principle (LMEP/MEPP) as a physical grounding. To its credit, the criticalNote is unusually candid for the genre: it states outright that LMEP 'is a proposition without consensus in physics,' that the pairing with the hadith qudsī of the hidden treasure is 'a pedagogical bridge' absent in classical Sufism, and that the generalized-utility/economics vocabulary is 'a contemporary Felsufi synthesis' not present in classical kalām. This is the correct posture for a site that must avoid dressing up contested physics as settled fact. The cow/human utility-horizon example is effective and concrete.
 - Görsellik notları: Same clean template; contrastDuo used three times (opaque/transparent ene, cow/human, faith/disbelief) plus a flowChain and a hierarchyTree closer. No layout problems found.
@@ -2167,7 +2323,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/analitik-icgoru-3`
+### `/tefekkur/analitik-icgoru-3` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Solid capstone to the consciousness trilogy: organizes six 'opening' mechanisms and four 'closing' mechanisms around Şems 91:9-10 (falāḥ/khusrān), then maps both onto epistemic/ontological/ethical/eschatological dimensions with a dense, well-chosen verse apparatus (19 relatedVerses). The closing criticalNote again does the right thing — naming the Nurcu-specific vocabulary, crediting the 'delayed gratification' bridge to modern psychology explicitly as a bridge rather than an equivalence, and noting that the four-dimension academic-essay structure itself is a contemporary framing device, not how classical tafsir/Sufi texts are organized.
 - Görsellik notları: Two large hierarchyTree blocks (six-mechanism and four-mechanism) plus a wide contrastDuo table render correctly; page is dense but well broken up by section headers and verseInline cards.
@@ -2176,7 +2334,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/anlam-yaratilis-senteni`
+### `/tefekkur/anlam-yaratilis-senteni` 🟡
+
+**Durum:** İncelendi — içerik derinliği eksikliği dış yazara ait (sufist.medium.com), bilinçli olarak dokunulmadı
 
 **İçerik: 6/10** — Well-written and internally coherent essay on genetic synteny as evidence for common descent, correctly targeting the specific rebuttal ('a resourceful creator reused good tools' explains gene similarity but not preserved gene *order*) rather than a strawman. Properly hedged as the author's personal view via criticalNote, and honest that the English text is a translation-in-progress rather than the author's own words. However, as a 'Tefekkür' (Quranic reflection) piece it is an outlier in this set: relatedVerses is empty, there is not a single verseInline block or Arabic anchor verse anywhere in the article, and 'yaratılış' is discussed only in the broad Abrahamic/Genesis-literalism sense, never engaging a specific Qur'anic text. It reads as a general theistic-evolution essay that happens to live in the Tefekkür section rather than a reflection growing out of a particular āyah, which is a weaker fit with the premise the other ten pages in this set all deliver on.
 - Görsellik notları: Same visual template (hero, disclaimer, hierarchyTree/contrastDuo/flowChain, attribution footer) applies cleanly even without any verseInline content, so the page doesn't look broken — just conspicuously verse-less next to its siblings.
@@ -2186,7 +2346,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/asr-suresi-prensipler`
+### `/tefekkur/asr-suresi-prensipler` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — The most structurally ambitious piece in the set: derives eight modern-management principles (time economics, human capital, four-element profitability, organizational behavior, socio-ethical sustainability, psychological resilience, narrative strategy, risk management) from the three verses of Sūrat al-ʿAṣr, consistently returning to the Arabic root (ʿaṣr = 'to press out the essence,' tawāṣī = reciprocal counsel, ṣabr = active homeostasis, not passivity). The closing criticalNote is properly modest: 'this is not a claim to exegesis but a map of practical principles.' The extensive business/management vocabulary (dashboards, buddy system, project charter, flywheel) is a deliberate register choice and is clearly framed as 'practical counterpart' callouts rather than claimed as the verse's literal meaning, but it is a lot of modern jargon layered onto three ayahs and risks feeling more like a productivity-blog exercise than tefekkür for readers expecting a devotional register.
 - Görsellik notları: By far the longest page in the set (~17.8k px on mobile, ~9 sections each with their own hierarchyTree/contrastDuo/criticalNote/pullQuote combination) — reading-time estimate of 9 minutes feels understated given the density. TOC with 8+ entries is essential here and works well; no overflow or layout issues on either viewport.
@@ -2196,7 +2358,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/ayet-koprusu`
+### `/tefekkur/ayet-koprusu` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Clean, well-argued epistemology piece: defines āya as 'the bridge between observation and truth,' builds al-Ghazālī's cosmos/human/Qurʾān triad, mounts a four-point case against matter-as-primary (math's apparent mind-independence, quantum pre-measurement possibility-space, irreducibility of first-person experience, non-material reality of ethics), then maps the Qurʾān's own four levels of āya-readers from Sūrat al-Jāthiya (45:3-13). The criticalNote is unusually precise: it verifies that a similar triad genuinely appears in Ghazālī's Iḥyāʾ and Mishkāt al-Anwār while flagging that *this exact formulation* is Felsufi's re-articulation, and separately flags the quantum/ʿālam al-imkān pairing as pedagogical analogy rather than identity. Also honestly notes that materialism/physicalism has more nuanced variants than the reductive version being critiqued — a fair-minded touch.
 - Görsellik notları: Consistent template; hierarchyTree (three manifestations, four āya-reader levels) and contrastDuo (materialist vs. proposed ontology) render correctly. Reasonably concise page (6 min read matches the actual length reasonably well, unlike asr-suresi-prensipler).
@@ -2205,7 +2369,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/cennet-cin-mecnun`
+### `/tefekkur/cennet-cin-mecnun` ✅
+
+**Durum:** Paylaşılan bileşen hatası (HierarchyTree/MorphologyTable mobil taşma) kaynakta düzeltildi (`f1d54ca`) — makale metnine dokunulmadı
 
 **İçerik: 9/10** — Excellent semantic/etymological analysis of the ج-ن-ن root (jannah/jinn/majnun/etc). Cross-linguistic comparisons (Hebrew, Aramaic, Ugaritic, Latin 'genius'), a full morphology table, a Risale-i Nur seed metaphor, and a clean closing synthesis. Framed explicitly as the author's own scholarly reading via the standard top-of-article epistemic disclaimer; no unhedged 'proof' language. Coherent, delivers fully on its premise.
 - Görsellik notları: Desktop: gorgeous — root-tree hero (ج ن ن glyphs), sticky TOC that correctly highlights the active section on scroll, series timeline (3/4), platform link, related-tools cards, prev/next nav, gratitude footer all render cleanly. Mobile: hero/body/prose all clean, but the page has confirmed horizontal scroll caused by the morphologyTable and (further down) the hierarchyTree/sources blocks not respecting the 390px viewport.
@@ -2220,7 +2386,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/dusunme-fiilleri-zihnin-isletim-sistemi`
+### `/tefekkur/dusunme-fiilleri-zihnin-isletim-sistemi` ✅
+
+**Durum:** author alanı şema hatası + paylaşılan bileşen hatası düzeltildi (`b39fcde`, `f1d54ca`)
 
 **İçerik: 9/10** — Tight, original taxonomy of five Quranic 'thinking' verbs (tefekkuh/tefekkür/taakkul/tedebbür/tezekkür) as a three-layer 'operating system'. Explicitly self-labels as 'a proposed reading, not the text's only necessary division' — excellent epistemic hedging. Strong closing case study (Nahl 11-13) makes the thesis concrete rather than abstract. One of the strongest essays in the set.
 - Görsellik notları: Desktop looks premium and complete (hero, TOC, morphology table, related tools, series nav). But the meta row under the title is missing the author name, and the closing gratitude/attribution paragraph reads as broken text because of a data bug (see bugs). Mobile has the same MorphologyTable and HierarchyTree overflow/overlap issues as cennet-cin-mecnun.
@@ -2235,7 +2403,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/emrin-mahiyeti`
+### `/tefekkur/emrin-mahiyeti` ✅
+
+**Durum:** Paylaşılan bileşen hatası (HierarchyTree/MorphologyTable mobil taşma) kaynakta düzeltildi (`f1d54ca`) — makale metnine dokunulmadı
 
 **İçerik: 8/10** — Dense ontological essay distinguishing khalq (being) from amr (operation) across three dimensions (imperative/operational/governing), tied to Ism al-Qayyum. Includes an unusually careful criticalNote explicitly separating what's classical kalam vs. what's 'Felsufi's own analytical ordering' (contemporary philosophical vocabulary, Polanyi's top-down causation, etc.) — a model of appropriate hedging. Fairly abstract/hard-going for a general reader compared to the more concrete essays in the set, but internally coherent and delivers on its premise.
 - Görsellik notları: Desktop renders cleanly with contrastDuo (Halk⇄Emr) and a 3-branch hierarchyTree. Mobile: same systemic HierarchyTree overlap bug as the other pages using this block.
@@ -2247,7 +2417,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/enerji-krizi`
+### `/tefekkur/enerji-krizi` ✅
+
+**Durum:** İngilizce çeviri hatası + paylaşılan bileşen hatası düzeltildi (`a2f65ea`, `f1d54ca`)
 
 **İçerik: 9/10** — One of the most practically useful essays in the corpus — reframes distraction/low motivation as 'fuel management' rather than moral failure, with a genuinely excellent criticalNote that (a) tells readers with clinical-level anger/anxiety/depression to seek professional care, and (b) explicitly flags the 'brain can't distinguish imagination from reality' neuroscience claim as popular-science shorthand, not a strict evidence-based claim. This is exactly the kind of self-aware hedging the site should want more of.
 - Görsellik notları: Desktop and mobile both render cleanly — hierarchyTree with 4 branches, contrastDuo, multiple verseInline blocks, pullQuotes. No horizontal scroll detected on this page in automated testing.
@@ -2260,7 +2432,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/evrim-dinsizligi-projesi`
+### `/tefekkur/evrim-dinsizligi-projesi` ✅
+
+**Durum:** Paylaşılan bileşen hatası (HierarchyTree/MorphologyTable mobil taşma) kaynakta düzeltildi (`f1d54ca`) — makale metnine dokunulmadı
 
 **İçerik: 7/10** — The title is explicitly the claim the author refutes, not endorses — flagged immediately by a top-of-article criticalNote, so it doesn't read as an unhedged assertion despite the provocative headline. Deliberately loose/unpolished 'raw tweet' style by the author's own admission, with informal asides preserved intentionally. Substantively makes a real philosophical point (essence vs. modality; science needs metaphysics) but is looser and more polemical than the other essays — reads more like a blog rant than the site's usual scholarly register, even though that's a stated authorial choice.
 - Görsellik notları: Desktop and mobile render cleanly, no horizontal scroll detected. hierarchyTree (3 commitments: rationalism/naturalism/empiricism) and a second hierarchyTree (siyasal islam/milliyetçi/sosyalist) both present.
@@ -2272,7 +2446,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/evrim-inanc-resimler`
+### `/tefekkur/evrim-inanc-resimler` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Clear, accessible four-obstacles argument (generational lens / tafsir≠Quran / mental pictures replacing text / motivated reasoning) with a genuinely interesting closing observation (believers championed the Big Bang, non-believers championed evolution — same 'single point' logic, reversed camps). Near the end it states fairly directly 'this shows us that God created living things by means of evolution' as the 'correct' rhetorical reply to an atheist interlocutor — more assertive than the site's usual hedge-first register, though it's presented as a dialectical example rather than a flat claim.
 - Görsellik notları: Clean rendering on both desktop and mobile; no hierarchyTree on this page so it avoids the overlap bug. flowChain and contrastDuo blocks render well.
@@ -2284,7 +2460,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/gecmis-klasik-gelecek-kuantum`
+### `/tefekkur/gecmis-klasik-gelecek-kuantum` ✅
+
+**Durum:** Paylaşılan bileşen hatası (HierarchyTree/MorphologyTable mobil taşma) kaynakta düzeltildi (`f1d54ca`) — makale metnine dokunulmadı
 
 **İçerik: 10/10** — Outstanding piece of popular physics writing — precise, well-cited (Heisenberg 1930 p.20, Dyson 2004 ch.4, Smolin & Verde arXiv:2104.09945), fully secular (no religious claims at all — part of a physics-of-time series), and structurally elegant (double-slit experiment as the line between 'written' and 'unwritten'). Delivers completely on its premise and sets up its sequel cleanly. One of the two or three best essays in the whole Tefekkür corpus.
 - Görsellik notları: Desktop is excellent — sticky TOC tracks all 7 sections correctly, flowChain/contrastDuo/hierarchyTree all render well, sources block with real citations. Confirmed mobile horizontal-scroll bug from the Kaynaklar (sources) block with long English citation names not wrapping.
@@ -2297,7 +2475,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/hala-mi-evrim`
+### `/tefekkur/hala-mi-evrim` ✅
+
+**Durum:** Güncel olmayan seri notu düzeltildi (`a2f65ea`)
 
 **İçerik: 7/10** — Solid four-perspective (scientific/logical/scriptural/maslahah) case citing real named scholars and a concrete ERV/synteny argument. The closing 'three arguments rejectionists can't answer' section reads a bit more combative/rhetorical than reflective, closer to a debate brief than tefekkür, but it's coherent and well-sourced (named scholars, Risale-i Nur reference checked against context).
 - Görsellik notları: Clean rendering both viewports; hierarchyTree ('Üç Soru') has the same mobile overlap bug as elsewhere. flowChain for the evidence layers renders well.
@@ -2310,7 +2490,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/iki-nedensellik`
+### `/tefekkur/iki-nedensellik` ✅
+
+**Durum:** 6 çevrilmemiş madde Türkçeye çevrildi (`a2f65ea`)
 
 **İçerik: 10/10** — Superb, entirely secular philosophy-of-science essay (retrospective vs. prospective causality, the market-pundit example, the tree/corridor/hall-of-doors metaphor). Sharp, well-argued, and sets up the next essay in the series perfectly. No religious content at all — purely conceptual/reflective, which fits the 'kavramsal' spirit of Tefekkür well.
 - Görsellik notları: Clean rendering on desktop and mobile. hierarchyTree ('Ağaç') and contrastDuo both stack correctly on mobile in terms of layout, though see i18n bug below.
@@ -2323,7 +2505,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/inception-hayatlar`
+### `/tefekkur/inception-hayatlar` ✅
+
+**Durum:** İngilizce çeviri hatası düzeltildi (`a2f65ea`)
 
 **İçerik: 8/10** — Creative, well-structured synthesis using the film Inception as a scaffold for nested-reality readings of dunya/akhira, with a genuinely careful criticalNote distinguishing this ishraqi/Sufi-flavored reading ('akhira = the other, a parallel dimension') from classical kalam's purely eschatological reading — good epistemic practice. Third essay of a series; delivers a clear, actionable close (inner detachment, not outward abandonment).
 - Görsellik notları: Clean on both desktop and mobile — no hierarchyTree on this page (uses contrastDuo and flowChain instead), so it avoids the site's biggest mobile bug. No horizontal scroll detected.
@@ -2335,7 +2519,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/kader`
+### `/tefekkur/kader` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Rich terminology essay (khalq/tesviye/qadar/hidaya) built on Al-A'la 87:1-3, with a clear progressive-resolution metaphor (the Baqarah cow example, quantum wave-function collapse) for how destiny narrows from broad to specific. Includes an explicit criticalNote flagging the quantum-wave-function / Constructor Theory synthesis as 'a contemporary essay' that classical kalam and tafsir do not use — appropriate hedging for a modern analogical reading.
 - Görsellik notları: Clean rendering both viewports — flowChain (Tasarım→Takdir→Hidayet) and contrastDuo render well on mobile without issues; this page has no hierarchyTree block so it avoids that systemic bug. No horizontal scroll detected.
@@ -2344,7 +2530,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/kaderin-cozunurlugu-devam`
+### `/tefekkur/kaderin-cozunurlugu-devam` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Sequel to 'Terminoloji 7'; reframes destiny through information theory, emergent concepts and quantum wave-function collapse. Rigorous hedging throughout (computational irreducibility properly attributed to Wolfram; wave-function section explicitly says definiteness needs observer+system+environment, not overclaimed). Closing criticalNote cites hadith sources precisely and flags the continuation status honestly. Strong contrastDuo/hierarchyTree/flowChain usage to carry a genuinely abstract argument.
 - Görsellik notları: Standard essay pattern renders cleanly desktop+mobile: TOC sidebar populates from headings, reading-progress bar, epistemic disclaimer box, all component types (hierarchyTree, flowChain, contrastDuo, pullQuote, criticalNote) render without breakage. previousArticle is a proper {slug,titleTr} object and its card renders correctly; nextArticle is null so no next-card shown (correct, no phantom empty box).
@@ -2354,7 +2542,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/kainat-kuantum-1`
+### `/tefekkur/kainat-kuantum-1` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Pure physics exposition (measurement problem, decoherence, quantum gravity, entanglement/Bell, Wigner's Friend) framed as groundwork for a promised Quran-connected sequel. Well hedged: explicit criticalNotes distinguish 'why this is philosophical' from physics proper, and an editorial note clarifies the no-signalling clarification wasn't the author's own claim. No Quranic verses at all in this installment (by design — it's stated as scaffolding), which is fine for part 1 but means it reads as a general-science essay rather than tefekkür proper until the sequel lands.
 - Görsellik notları: Clean rendering, both viewports. No previousArticle/nextArticle (both null) — correctly no broken nav cards shown here, unlike the rahmetin-grameri series.
@@ -2364,7 +2554,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/kaynak-yuzey`
+### `/tefekkur/kaynak-yuzey` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9.5/10** — One of the strongest pieces in the set: extends the muhkam/mutashabih Al-i Imran 3:7 distinction into a general 'trust in source vs trust in surface' diagnostic, applied to Uhud, academia, business, religion, and the cobra-effect/fossil-trade cases. Extremely well hedged — an explicit criticalNote flags the whole generalization as 'a contemporary reading, not classical tafsir usul' and says the classical hierarchy reading 'is not wrong, only enriched.' The Richelieu line is properly softened to 'is said to have remarked' rather than asserted as fact, consistent with the site's source-verification rule. 11 verses cited with full Arabic + Turkish/English notes.
 - Görsellik notları: Verified clean on both desktop and mobile: hero, epistemic disclaimer, verseInline cards, contrastDuo, hierarchyTree, and closing attribution/related-tools all render correctly. TOC sidebar with 10 sections works.
@@ -2373,7 +2565,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/kuran-mesajina-yabanci-kalmak`
+### `/tefekkur/kuran-mesajina-yabanci-kalmak` ✅
+
+**Durum:** Sızmış iç referans kalıntısı temizlendi (`b39fcde`)
 
 **İçerik: 8.5/10** — Root-tree template (K-N-N) tracing the Quranic imagery of hearts sealed/veiled against understanding across sura families (Alif-Lam-Ra, Ha-Mim, Alif-Lam-Mim, Alhamdulillah, Ta-Sin). Good structural insight ('they said' vs God's 'We placed') and a fair reading of the 'why not a written book / an angel' objection using 6:7-10. Closing note is honest about being Turkish-original with an English navigation translation.
 - Görsellik notları: Root-tree hero renders correctly with canonicalUrl:null handled properly — no broken 'view on Medium' link or attribution footer shown (both are correctly suppressed since there's no canonical URL). Clean on mobile too.
@@ -2385,7 +2579,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/lehv`
+### `/tefekkur/lehv` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8.5/10** — Semantic-analysis series entry (2/5) on ل-ه-و, tracing concrete origin (mill-stopper, uvula) to abstract 'distraction'. Well-organized: hierarchy tree, 5 Quranic usages (47:36, 29:64, 102:1, 24:37, 21:3, 21:17), semantic field/opposites, and a dedicated Sources section citing Lane's Lexicon and al-Mufradat by name with quoted definitions — good attribution discipline.
 - Görsellik notları: RootHero + SeriesTimeline (2/5) render correctly on desktop and mobile; previousArticle/nextArticle are proper objects (sefer / cennet-cin-mecnun) and render fine — confirms the broken-nav bug seen elsewhere is data-specific, not a template issue.
@@ -2394,7 +2590,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/makro-mikro`
+### `/tefekkur/makro-mikro` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 7.5/10** — Terminoloji 5/7: maps complexity-science concepts (microstate/macrostate, aggregate vs emergent, phase transition) onto tesviye/takdir. Honest self-aware criticalNote: 'classical tafsir does not use emergence/phase-transition terminology... this is a contemporary reading-experiment, not verse tafsir.' Good discipline, but thinner than its neighbors — zero verseInline citations and an empty relatedVerses array, so the Quranic anchor is only two bare concept-words (tesviye, takdir) mentioned in passing rather than grounded in quoted ayat.
 - Görsellik notları: Clean rendering; contrastDuo (Aggregate/Emergent) and hierarchyTree (four macrostate examples) display correctly. previousArticle/nextArticle are proper objects (Terminoloji 4 / Terminoloji 6) and their nav cards render with full titles — confirms the object format works correctly when used.
@@ -2404,7 +2602,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/okuma-prensipleri-1`
+### `/tefekkur/okuma-prensipleri-1` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — First of a two-part methodology essay (5 epistemic principles: comprehensiveness, generalization, consistency, precision, modeling). Rich, concrete examples (Firavun/Melik, İblis/Şeytan, Medine/Yesrib, kavl/kelam, rain-word precision) with real Bediüzzaman quotes (attributed to Sözler, İşarat-ül-İ'caz with locations). Closing criticalNote explicitly situates the framework within the Nurcu tradition versus classical usul (Cessas, Ibn Teymiyye, Suyuti) and notes other schools may differ — excellent hedging discipline.
 - Görsellik notları: Clean rendering both viewports; nextArticle object (okuma-prensipleri-2) renders correctly with full title.
@@ -2413,7 +2613,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/okuma-prensipleri-2`
+### `/tefekkur/okuma-prensipleri-2` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9.5/10** — Second half of the methodology series (4 hermeneutic principles: textual location, message vectoriality, semantic-structural web, murāqaba/muḥāsaba-sensed need). Best self-critique in the sample set: an explicit contrastDuo distinguishes the author's 'vectorial reading' from Christian 'trajectory hermeneutics' to preempt a likely misreading, and a criticalNote flags the 'no verse is truly abrogated' conclusion as a minority view that conflicts with the majority nāsikh-mansūkh position across madhhabs — textbook example of the site's own hedging rule in action.
 - Görsellik notları: Long article (9 sections) renders cleanly; TOC works; previousArticle object (okuma-prensipleri-1) card renders correctly.
@@ -2422,7 +2624,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-1`
+### `/tefekkur/rahmetin-grameri-1` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8.5/10** — Opens a 5(-7)-part series asking why Baqara's cosmic register suddenly shifts into divorce/nursing/dower law; frames the detail as 'mercy rolled up its sleeves,' grounded in 2:26 (mosquito), 51:49 (pairs), 41:53 (āfāq/anfus). Clear methodological commitment ('every claim tied to a verse') stated up front. Good, accessible prose.
 - Görsellik notları: Page otherwise renders cleanly (hero, verseInline cards, related tools, attribution footer all fine).
@@ -2433,7 +2637,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-2`
+### `/tefekkur/rahmetin-grameri-2` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8.5/10** — Structural/maqāṣid lens on the same Baqara family-law block: precision-as-shield-for-the-vulnerable thesis, Durkheim/Weber sociology cross-reference, 'atomic theory of civilization' framing, and a real observation that the Quran's longest verse (2:282) is about debt-recording, not ritual. Good use of pull-quotes as recurring 'Kur'ânî içgörü' callouts.
 - Görsellik notları: Confirmed broken on both desktop and mobile: both the 'Önceki' and 'Sonraki' cards render as empty boxes (label only, no title) and both link to /tr/tefekkur/undefined.
@@ -2444,7 +2650,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-3`
+### `/tefekkur/rahmetin-grameri-3` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8.5/10** — Psychological/moral lens: shows every family-law clause is two-layered (measurable rule + closing spiritual seal, e.g. 2:231/2:233/2:237), develops iḥsān as the hardest ethical register to demand mid-divorce, and traces maʿrūf's semantic shift from tribal custom to divine standard via a properly cited Izutsu reference (with a real footnote block giving the 1959 original title) — good source discipline matching the site's attribution rule.
 - Görsellik notları: Confirmed broken on desktop: both nav cards empty, both pointing to /tr/tefekkur/undefined. Footnote/source block renders as a distinct, well-styled box.
@@ -2455,7 +2663,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-4`
+### `/tefekkur/rahmetin-grameri-4` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8/10** — Nursian/theological lens on Baqara 2:233 (fadhlaka principle, micro-macro parity between a nursing-maintenance clause and cosmic Divine Names). Well-hedged as 'Nursî'nin merceğinden bakıyoruz' rather than an absolute claim; properly sourced Nursî quote (Yirmi Beşinci Söz) with footnote. Coherent, builds logically toward the series' backbone thesis, and explicitly teases the next essay. Assumes prior context from earlier entries in the 7-part series (opens with 'bir önceki yazıdaki vicdan mahkemesi').
 - Görsellik notları: Renders cleanly on desktop and mobile: hero/eyebrow, TOC sidebar, verse blocks (KFGQPC Arabic + translation + 'Bakara 2:233' style reference badge, correctly using sûre name not bare numbers), pull quotes, section dividers, cross-tool CTA (Kavram Grafiği / Ayet Grafiği), sources/attribution footer all present and well-styled. Note for future audits: hierarchyTree/flowChain-style diagram blocks on this template use scroll-reveal (IntersectionObserver) animation — a naive full-page screenshot without incremental scrolling will falsely show them as empty; confirmed correct rendering once scrolled through normally.
@@ -2466,7 +2676,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-5`
+### `/tefekkur/rahmetin-grameri-5` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8/10** — Akbari/esoteric reading of divorce/ʿidda/nursing/dower law as a 'cosmic hologram' of the soul's journey (ṭalāq=fanāʾ, ʿidda=barzakh, nursing=gnosis-transmission, dower=spiritual gifts). Consistently framed as 'İbn Arabî'nin okumasında/Ekberî bâtında' — an interpretive lens, not a literal tafsir claim — which is the right epistemic posture for this kind of esoteric reading. Genuinely well-sourced footnotes (Eric Winkel 2014 on Ibn ʿArabī's fiqh, Souad Hakim 2006, Stanford Encyclopedia of Philosophy).
 - Görsellik notları: Clean rendering, verse blocks and pull quotes all correct, cross-tool CTA present. Same scroll-reveal caveat as other entries applies to diagram blocks (none of significant size here beyond the pull quotes/verse blocks, which render fine).
@@ -2477,7 +2689,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-6`
+### `/tefekkur/rahmetin-grameri-6` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8/10** — Synthesis lens combining the mosquito parable (2:26), sun/fly craft-parity (Nursî), and the cosmic 'law of pairs' (51:49, 36:36, 53:45, 30:21) into one argument. Strong, wide verse anchoring (7 verses) and a good closing footnote citing classical tafsirs (Ibn Kathīr, Mawdūdī) plus an honest aside comparing to yin-yang as 'an expression of the same reality' (kept as a light comparative note, not overclaimed). One unsourced statistic: the '~760,000 deaths/year from mosquitoes, ~100,000 from snakes' figures are stated as bare fact with no citation, inconsistent with the site's otherwise disciplined sourcing habit (e.g. Schubert 2005 elsewhere gets an explicit caveat).
 - Görsellik notları: The contrastDuo 'Sivrisinek — Mikro / Güneş — Makro' card renders beautifully on both desktop and mobile (stacks correctly on mobile, accent colors and bullet lists intact). No layout issues found.
@@ -2489,7 +2703,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/rahmetin-grameri-7`
+### `/tefekkur/rahmetin-grameri-7` ✅
+
+**Durum:** Önceki/Sonraki gezinme linki şema hatası düzeltildi (`b39fcde`)
 
 **İçerik: 8.5/10** — Strong series finale: synthesizes the five prior lenses (structural, psychological, Nursian, Akbarian, cosmic) under one unifying dynamic, takāmul (generative development/Rubūbiyya), then contrasts it with an 'ash' (corrupting/reducing) counter-dynamic, landing on 'family as the molecule of civilization.' Ambitious but well-organized, closes properly with '— Serinin Sonu —'. Good discipline throughout in framing insights as 'Kur'ânî içgörü' callouts rather than flat assertions.
 - Görsellik notları: Renders cleanly; the contrastDuo 'Bahçe — Doğurgan Tekâmül / Kül — İfsad Eden İndirgeme' card and the closing verse block for 41:53 both display correctly on desktop and mobile.
@@ -2501,7 +2717,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/ruhsal-cografya`
+### `/tefekkur/ruhsal-cografya` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Substantial (9 min) and well-organized essay on the istighnāʾ→ṭughyān→ṭāghūt pathology of spiritual straying, contrasted with hidāya/ṣirāṭ. Strong practical payoff: 'Beş Temel Dinamik' (modern manifestations) and 'Beş Pratik Prensip' (exit routes) ground the classical concept-map in contemporary life, which is exactly what a devotional/reflective piece should deliver on its premise. Good epistemic hygiene: the 316-vs-191 root-occurrence count is explicitly flagged as approximate/source-dependent rather than presented as precise. Personal framing ('Bu yazı nereden doğdu') adds authenticity without overclaiming.
 - Görsellik notları: Long page (~9.8k px desktop / ~16.5k px mobile) renders fully and cleanly once scrolled through — flowChain ('Sapmanın üç aşaması') and two hierarchyTree blocks ('Takvânın anlam spektrumu', 'Beş temel dinamik') all populate correctly with their branch content. No prev/next boxes shown (correct, since this is a standalone piece with previousArticle/nextArticle both null).
@@ -2510,7 +2728,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/ruhun-termostati`
+### `/tefekkur/ruhun-termostati` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9.5/10** — The strongest piece in this batch. Extremely well-developed central metaphor (sabr as active psychological homeostasis, not passive endurance), grounded in root etymology (ص-ب-ر = restrain, not wait), a rich chain of correctly-sourced Quranic verses and hadith (Muslim with book/number citations), and a genuinely useful practical section (anger/sadness protocols). The Frankl/neuroscience/concentration-camp material is explicitly and honestly caveated in a criticalNote as a 'modern translational layer' distinct from classical taṣawwuf's own vocabulary (nafs stations, aḥwāl/maqāmāt) — exactly the right epistemic move for this kind of cross-disciplinary synthesis. Delivers fully on its 14-minute-read premise.
 - Görsellik notları: Very long page (~13k px desktop / ~22.7k px mobile) — renders correctly throughout when scrolled incrementally and spot-checked live at multiple scroll depths (confirmed via direct viewport screenshots, not just full-page capture). IMPORTANT TESTING CAVEAT: a naive Playwright full-page screenshot of this specific page produced a large false-positive blank void starting mid-page (content appeared to cut off inside a criticalNote box around the two-thirds mark, followed by ~6000px of empty space) both on a wheel-scrolled and a manually-stepped scroll pass. Live viewport screenshots at the same scroll offsets, and a DOM computed-style check (opacity:1, visibility:visible, normal position), confirmed the content actually renders fine for real users — this was purely a screenshot-stitching artifact tied to this page's unusual total height, not a product bug. Flagging this so it isn't miscounted as a rendering defect in any follow-up automated capture.
@@ -2519,7 +2739,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/sefer`
+### `/tefekkur/sefer` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Solid semantic-root analysis of س-ف-ر (to uncover/travel/book), part 1 of a 5-part 'Semantik Analizi' series. Good cross-linguistic grounding (Akkadian šapārum, Aramaic/Hebrew cognates for scribe/book), clean Quranic usage survey (74:34, 80:38, 62:5, 2:184, 80:15-16), and a proper sources section (Lane's Lexicon, Rāghib al-Iṣfahānī's al-Mufradāt). Straightforward and well-scoped; doesn't overreach into speculative theological claims.
 - Görsellik notları: root-tree template renders very well: the large Arabic root-letter hero card, hierarchyTree ('Anlam Ağacı') with three clean branches (görsel/mekânsal/bilgisel), contrastDuo ('Açığa Çıkarma ⇄ Örtme'), and flowChain all display correctly on desktop; mobile stacks cleanly. Progress indicator shows '1/5' correctly. Bottom nav correctly shows only a 'Sonraki →' box (previousArticle is null, correctly hidden) with the real title 'Kur'an Kavramları Semantik Analizi-2: Lehv' — confirms the nav component works fine when the JSON uses the expected object shape (unlike the rahmetin-grameri series).
@@ -2528,7 +2750,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/sema-isim`
+### `/tefekkur/sema-isim` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8.5/10** — Rich terminology piece linking ism (name) and samāʾ (sky/elevation) through the shared س-م-و root, tying it to Adam's naming of things (2:31) as a metaphor for human abstraction/categorization. Properly sourced Bediüzzaman quotes (Sözler, 31st and 20th Words) integrated as pull quotes rather than paraphrased into the author's own voice. Excellent epistemic discipline: an explicit criticalNote distinguishes the set-theory/category-theory/sheaf-theory analogies from probative tafsir evidence ('epistemik analoji, kanıt değil'), naming that classical tafsir (Rāzī, Zamakhsharī, Ibn Kathīr, Suyūṭī) doesn't use these modern concepts.
 - Görsellik notları: Renders cleanly on desktop and mobile. The 'Sema · İsim · Arz · Tecellî — Analojik Eşleşmeler' hierarchyTree displays its full branch content (root 'Soyutlama ve Sınıflandırma' fanning out to 4 labeled cards with Arabic + transliteration + description) correctly once scrolled into view. Series progress bar (part 6/7) displays correctly, prev/next nav shows real titles for both directions.
@@ -2537,7 +2761,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/siccin`
+### `/tefekkur/siccin` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8.5/10** — Engaging 'etymological detective story' structure across three layers (literal Arabic dungeon-sense, Semitic clay-tablet/scribal record, Hebrew-parallel geometric inversion with ʿIlliyyīn) resolving the mekân-vs-kitap paradox in Mutaffifīn 83:7-9. Properly flags its most speculative claim (the L/N ibdāl link between sijjīn and sicill) with an explicit criticalNote noting classical lexicographers (Sībawayh, al-Jawharī, Ibn Manẓūr) don't draw this connection — good epistemic hygiene for a fun but genuinely uncertain etymological hypothesis. Clean sources list at the end.
 - Görsellik notları: root-tree template renders very well: hero root card, three verseInline blocks for 83:7-9, contrastDuo (Sijjīn ⇄ ʿIlliyyīn), flowChain (3 layers), and a second closing hierarchyTree ('Anlam Ağacı') all display correctly on desktop; mobile stacks cleanly with no overflow. Series progress '5/5' correct (last of the semantik-analizi series).
@@ -2546,7 +2772,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/sonsuz-nasil-bilinir`
+### `/tefekkur/sonsuz-nasil-bilinir` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8.5/10** — Strong second entry in the 'recursive-idrak' series: frames the tanzīh-tashbīh balance through a clean X→∞ math analogy (X=100 fully known-but-bounded vs X∈ℤ vague vs X→∞ direction-known-but-unbounded), then reads 'Allāhu Akbar' as the linguistic formula of that directional cognition (comparison + transcendence). Good verse grounding (42:11, 29:45, 112:4) and an honest criticalNote distinguishing the Huxley/Wittgenstein/Aquinas/apophatic comparative synthesis from classical Islamic kalām's own bilā kayf vocabulary, explicitly noting the X→∞ analogy 'has no formal place in classical kalām.'
 - Görsellik notları: Renders cleanly; the contrastDuo pairs (Absolute Unknowability ⇄ Directional Knowability; Comparison ⇄ Transcendence) and the hierarchyTree ('X'in Üç Bilgi Durumu') all display fully once scrolled through. Prev/next nav shows correct titles both directions ('İdrak 1: Sonsuzluğun Merdiveni' ← / → 'Inception Hayatlar'). Series progress '2/3' shown correctly despite seriesTotal not being an explicit field in this article's own JSON (presumably resolved from elsewhere) — not a defect, just worth noting for data-consistency purposes.
@@ -2555,7 +2783,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/sonsuzlugun-merdiveni`
+### `/tefekkur/sonsuzlugun-merdiveni` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Shorter (4 min) series-opener that sets up the embodied-cognition framework (Schubert 2005: social status perceived via physical-height brain regions) as a bridge into how humans reason about God analogically, then explicitly poses the anthropomorphism trap ('haritayı arazi zannetmek') and hands off cleanly to the sequel. Appropriately less dense than sonsuz-nasil-bilinir since it's the on-ramp; the single academic citation carries a proper criticalNote caveat about the post-replication-crisis contestedness of social-priming literature.
 - Görsellik notları: Clean, shorter page, renders fully on both viewports. Series progress '1/3' displays correctly; 'Sonraki →' box shows the correct next title.
@@ -2564,7 +2794,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/terminoloji-1-lokal-global`
+### `/tefekkur/terminoloji-1-lokal-global` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Strong, tightly argued conceptual essay defining 'local' vs 'global' perspective as a reusable interpretive lens, then applying it to selfhood (ene), the problem of evil, and randomness. Claims are consistently hedged ('varsayabiliriz', 'olabilir', 'mümkün olmayabilir') rather than asserted as fact. Nicely distinguishes technical vs colloquial 'random'. Nursî citations are clearly sourced and marked as the author's own selection. Delivers well on its stated premise and closes with a clear hierarchy-tree recap.
 - Görsellik notları: Renders cleanly on desktop and mobile: series timeline (1/7), sticky TOC with active-section highlighting, root-tree/contrastDuo/flowChain/hierarchyTree blocks all display correctly, disclaimer box and attribution footer intact. No layout issues found at either viewport.
@@ -2574,7 +2806,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/terminoloji-2-parcalanamaz-butunler`
+### `/tefekkur/terminoloji-2-parcalanamaz-butunler` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Clear, well-scoped explainer on emergence vs irreducibility vs indivisibility (kull la yatajazza), using accessible everyday analogies (cake, soup) alongside Nursî citations. Appropriately hedged, no overclaiming. Slightly thinner than its siblings (5 min read) but achieves its narrow scope well and closes with a strong synthesis.
 - Görsellik notları: Clean rendering at both viewports; hierarchyTree ('Aynı İlke, Dört Alan') and second hierarchyTree ('Bir Tencere Mercimek Çorbası') both display without issue; contrastDuo stacks correctly on mobile.
@@ -2583,7 +2817,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/terminoloji-3-fizikalizm`
+### `/tefekkur/terminoloji-3-fizikalizm` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Concise, focused critique of physicalism (quantum abstraction, emergence, abstract entities) that avoids straw-manning and ends on an appropriately open note ('we will treat this in more detail later') rather than a triumphant claim. Good use of flowChain to show physicalism's 'definition game' self-critique. Shortest article in the set (3 min) — more a bridge/teaser than a self-contained deep dive.
 - Görsellik notları: Renders cleanly at both viewports. hierarchyTree, contrastDuo, and flowChain blocks all display correctly; series timeline shows 3/7 accurately.
@@ -2592,7 +2828,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/terminoloji-4-varliklarin-ayna-olusu`
+### `/tefekkur/terminoloji-4-varliklarin-ayna-olusu` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Ambitious synthesis piece (meaning-priority-over-matter, syntax/semantics, Ash'ari atomism, space/time as relations) that stays appropriately speculative — ends with open questions rather than settled claims ('bu geçişin nasıl gerçekleştiği... çözülmesi gereken derin meselelerdir'). Good hedge density throughout. Closes by explicitly previewing the next essay's terminology, which works well as series scaffolding.
 - Görsellik notları: Clean at both viewports; hierarchyTree ('Temsilin Katmanları'), contrastDuo (Sentaks/Semantik) all render correctly, no overflow.
@@ -2601,7 +2839,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/tugyan`
+### `/tefekkur/tugyan` ✅
+
+**Durum:** Paylaşılan bileşen hatası (HierarchyTree/MorphologyTable mobil taşma) kaynakta düzeltildi (`f1d54ca`) — makale metnine dokunulmadı
 
 **İçerik: 9/10** — The richest piece in the batch: full etymological survey (cross-Semitic loanword theory), a 3-tier semantic hierarchy, a Quran-usage morphology table (~39 occurrences), a causal chain (istighna→tughyan→taghut), and a dedicated criticalNote explicitly flagging that the 'two taghuts (ENE & TABIAT)' framing is Risale-i Nur-specific rather than universal classical tafsir — exactly the kind of epistemic hedging the site's rules call for. Sources block cites al-Mufradat properly.
 - Görsellik notları: Desktop rendering is excellent (root-tree hero, hierarchyTree, morphologyTable, flowChain, contrastDuo all display beautifully with correct TOC active-section tracking). Mobile has a real layout defect: the morphologyTable's fixed-width grid columns (minmax 120/140/180px) don't fit 390px width and are not wrapped in a horizontal-scroll container, causing the ENTIRE page body to scroll horizontally on mobile (measured scrollWidth 462px vs clientWidth 390px) — the verse-chip column is visibly clipped off the right edge of the screen.
@@ -2613,7 +2853,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/vicdan-evrensel-tercuman`
+### `/tefekkur/vicdan-evrensel-tercuman` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 8/10** — Engaging, well-structured piece on theoretical vs practical reason using the dragon-fruit/lychee translation metaphor, then bridging to Nursî's 'fourth proof' on conscience as isthmus between gayb and shehada. Good criticalNote clarifying divine anthropomorphic language is 'accommodation, not reduction.' One accuracy-adjacent concern: the Feynman quote ('if you can't explain it simply, you haven't understood it') is presented in a pullQuote with source simply 'Richard Feynman' — this quote is widely misattributed/unverified online, and the site's own §13.30 sourcing rule calls for hedged attribution ('attributed to') for exactly this kind of internet-famous but unverifiable quote; the tldr field does hedge it ('Feynman'a atfedilen') but the pullQuote block itself does not.
 - Görsellik notları: Clean rendering at both viewports; no series-timeline shown (correct, since this article has no seriesNumber/seriesTotal — category is 'kavramsal'); contrastDuo and hierarchyTree blocks display correctly.
@@ -2623,7 +2865,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/yapilanlarin-suslu-gorulmesi`
+### `/tefekkur/yapilanlarin-suslu-gorulmesi` ⬜
+
+**Durum:** 23 ajanlı audit tarafından incelendi, aksiyon gerektiren somut bulgu bulunmadı — bu turda dokunulmadı.
 
 **İçerik: 9/10** — Excellent, disciplined piece on tazyin (self-deception/rationalization) spanning individual, collective, and epistemic (echo-chamber) layers, with genuinely useful modern-life examples and practical questions ('Bu bana niçin mantıklı göründü?'). Notably self-critical criticalNote explicitly flags that the 'wasat = middle way only' reading is one of several classical options (Tabari/Razi/Qurtubi read it more broadly) and that the Umar prayer's isnad is disputed rather than asserting it as sound hadith — exactly the kind of nuance the site's rules ask for.
 - Görsellik notları: Clean at both viewports; contrastDuo (Beyyine/Ihlas) stacks correctly on mobile with no overflow; verse blocks render properly with Arabic + translit + note.
@@ -2632,7 +2876,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/yaratilis-hikayesi-1-giris`
+### `/tefekkur/yaratilis-hikayesi-1-giris` 🟡
+
+**Durum:** İncelendi — çok kısa/tanıtım niteliğinde olması dış yazara ait, bilinçli olarak dokunulmadı
 
 **İçerik: 6/10** — Genuinely thin as a standalone piece (2 min read) — mostly meta/framing prose about the series' method and intentions rather than substantive exploration of Baqara 2:29-39 itself; only cites one verse reference (2:30) indirectly via relatedVerses without quoting it in the body. Reads more like a preface than an essay. The stated methodological commitment ('bilimsel bulguları destekleyici değil, açıklayıcı araç olarak kullanmak') is a good, appropriately humble framing, consistent with site rules against overclaiming scientific 'proof'.
 - Görsellik notları: Clean rendering at both viewports; series timeline correctly shows 1/2; hierarchyTree and contrastDuo blocks display without issue.
@@ -2642,7 +2888,9 @@ Bu makaleler daha hafif/deneme tarzı sayfalar olduğu için içerik+görsellik+
 
 ---
 
-### `/tefekkur/yaratilis-hikayesi-2-katmanli-yaratilis`
+### `/tefekkur/yaratilis-hikayesi-2-katmanli-yaratilis` ✅
+
+**Durum:** Sızmış iç referans kalıntısı temizlendi (`b39fcde`)
 
 **İçerik: 9/10** — Ambitious, well-organized cosmology essay mapping Nur→Sama→Samawat through seven Sufi degrees of tenezzulat, with a nice linguistic observation (God addresses angels with 'I', humans with 'We') tied to specific verses (38:71 vs 23:12). The quantum-field-theory parallel is explicitly and correctly flagged in a criticalNote as 'the author's own analogical reading; classical Sufi literature does not use these modern concepts' — good epistemic hygiene, avoids the Bucaillism trap the site's rules warn about.
 - Görsellik notları: Desktop and mobile both render the hierarchyTree, contrastDuo (Ene/Nahnu), and flowChain blocks correctly with proper TOC tracking; no layout overflow found.
