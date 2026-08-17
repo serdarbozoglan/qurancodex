@@ -1508,7 +1508,7 @@ function TabKiyamet({ language, isMobile }) {
       infoEn: "The exact meaning of 'dihan' is debated: red oil? Red leather? Red dye?",
     },
     {
-      titleTr: 'Yüzlerin Ağarması ve Kararmasi',
+      titleTr: 'Yüzlerin Ağarması ve Kararması',
       titleEn: 'Faces Whitening and Blackening',
       verseAr: 'يَوْمَ تَبْيَضُّ وُجُوهٌ وَتَسْوَدُّ وُجُوهٌ',
       verseTr: 'Yüzlerin ağardığı ve yüzlerin karardığı gün…',

@@ -81,10 +81,11 @@ const CATEGORY_META = {
 };
 
 const RELIABILITY_META = {
-  'sahih':    { tr: 'Sahih',     en: 'Authentic', color: '#2ecc71' },
-  'hasan':    { tr: 'Hasen',     en: 'Good',      color: '#d4a574' },
-  'daif':     { tr: 'Zayıf',     en: 'Weak',      color: '#94a3b8' },
-  'disputed': { tr: 'İhtilâflı', en: 'Disputed',  color: '#e74c3c' },
+  'sahih':    { tr: 'Sahih',     en: 'Authentic',  color: '#2ecc71' },
+  'hasan':    { tr: 'Hasen',     en: 'Good',       color: '#d4a574' },
+  'daif':     { tr: 'Zayıf',     en: 'Weak',       color: '#94a3b8' },
+  'disputed': { tr: 'İhtilâflı', en: 'Disputed',   color: '#e74c3c' },
+  'meşhur':   { tr: 'Meşhur',    en: 'Well-known', color: '#3498db' },
 };
 
 const PERIOD_META = {
