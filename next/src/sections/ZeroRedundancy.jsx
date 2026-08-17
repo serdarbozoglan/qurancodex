@@ -494,18 +494,26 @@ export default function ZeroRedundancy() {
         </p>
       </motion.div>
 
-      {/* Zemahseri Quote */}
-      <motion.blockquote
+      {/* 2026-08-17 — site denetimi: bu blok Zemahşerî'nin birebir sözü DEĞİL,
+          İ'câzu'l-Kur'an geleneğinin (Bâkıllānī, Zerkeşî) özeti; ama <blockquote>
+          + <cite> + tırnak-stilindeki sunum doğrudan alıntı gibi okunuyordu
+          (attribution metni bunu açıklasa da görsel çerçeve yanıltıcıydı).
+          <blockquote> yerine etiketli bir "geleneğin özeti" kutusuna çevrildi —
+          metin/kaynak DEĞİŞMEDİ, yalnız sunum biçimi ve i18n anahtar adları. */}
+      <motion.div
         variants={fadeUpItem}
         className="glass-card p-8 md:p-10 border-l-4 border-gold"
       >
+        <div className="text-gold/70 text-xs uppercase tracking-widest font-body mb-3">
+          {t('zeroRedundancy.nazmConsensusLabel')}
+        </div>
         <p className="text-gold/90 text-lg md:text-xl italic font-display leading-relaxed mb-4">
-          {t('zeroRedundancy.zemahseriQuote')}
+          {t('zeroRedundancy.nazmConsensusStatement')}
         </p>
-        <cite className="text-silver text-sm not-italic block font-body">
-          — {t('zeroRedundancy.zemahseriAttribution')}
-        </cite>
-      </motion.blockquote>
+        <p className="text-silver text-sm not-italic font-body">
+          {t('zeroRedundancy.nazmConsensusSource')}
+        </p>
+      </motion.div>
 
       {/* ── Cross-tool CTA strip — 3 refrain sûresi ──────────────────────── */}
       <motion.div variants={fadeUpItem} className="mt-10">

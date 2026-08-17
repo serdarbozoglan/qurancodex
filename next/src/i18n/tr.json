@@ -585,8 +585,9 @@
       },
       "outro": "Klasik İslamî gelenek, Kur'an'daki tekrarı bağlama bağlı olarak okur. Aynı ifade aynı bağlamda fazla geliyorsa bu eleştirilir; ama bağlam değişiyor ya da tekrar bir işlev yerine getiriyorsa, tekrir bir belâgat sanatıdır. Bu nedenle \"Kur'an'da gereksiz tekrar var mıdır?\" sorusunun klasik gelenekteki cevabı kategorik bir \"hayır\" değil, \"hangi tekrarın, hangi bağlamda, hangi işlevi yerine getirdiğini incelemek gerekir\"dir. Zerkeşî ve Suyûtî'nin müstakil bahisleri tam da bu incelemenin haritasıdır."
     },
-    "zemahseriQuote": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
-    "zemahseriAttribution": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati — Bâkıllānī (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî (el-Burhân, ö. 1392) işlediği 'nazm' (yapısal düzen) anlayışının özeti."
+    "nazmConsensusLabel": "Klasik İ'câz Geleneğinin Özeti — Birebir Alıntı Değil",
+    "nazmConsensusStatement": "Kur'an'ın her kelimesi bir hazinedir. Bir kelimeyi çıkarsan, bina çöker.",
+    "nazmConsensusSource": "Klasik İ'câzu'l-Kur'an geleneğinin temel kanaati — Bâkıllānī (İ'câzu'l-Kur'an, ö. 1013) ve Zerkeşî (el-Burhân, ö. 1392) işlediği 'nazm' (yapısal düzen) anlayışının özeti."
   },
   "highlights": {
     "badge": "Daha Derin Git",
