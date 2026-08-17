@@ -141,15 +141,15 @@
         "accent": "#1D9E75",
         "bullets": [
           {
-            "tr": "A walk down a corridor",
+            "tr": "Bir koridorda yürüyüş",
             "en": "A walk down a corridor"
           },
           {
-            "tr": "The path is unique — but your story about it is not the path",
+            "tr": "Yol tektir — ama onun hakkındaki hikâyeniz yol değildir",
             "en": "The path is unique — but your story about it is not the path"
           },
           {
-            "tr": "Cheap: a path from leaf to trunk always exists",
+            "tr": "Ucuz: yapraktan gövdeye giden bir yol her zaman vardır",
             "en": "Cheap: a path from leaf to trunk always exists"
           }
         ]
@@ -162,15 +162,15 @@
         "accent": "#3498db",
         "bullets": [
           {
-            "tr": "Standing in a hall of open doors",
+            "tr": "Açık kapılarla dolu bir salonda durmak",
             "en": "Standing in a hall of open doors"
           },
           {
-            "tr": "The trunk does not know its leaves",
+            "tr": "Gövde yapraklarını bilmez",
             "en": "The trunk does not know its leaves"
           },
           {
-            "tr": "Expensive: nothing guarantees the branch",
+            "tr": "Pahalı: hiçbir şey dalı garanti etmez",
             "en": "Expensive: nothing guarantees the branch"
           }
         ]
