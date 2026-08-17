@@ -715,7 +715,7 @@ function ColumnCelal({ tr }) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.7 }}
       style={{
         ...GLASS_CARD,
@@ -765,7 +765,7 @@ function ColumnCemal({ tr }) {
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.7 }}
       style={{
         ...GLASS_CARD,
@@ -820,7 +820,7 @@ function CelalCemalBalance({ tr, balance }) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.7 }}
       style={{
         marginTop: '36px',
@@ -875,7 +875,7 @@ function CelalCemalBalance({ tr, balance }) {
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${balance.celalPct}%` }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: '300px 0px' }}
           transition={{ duration: 1.1, ease: 'easeOut' }}
           style={{
             background: 'linear-gradient(90deg, rgba(150,160,200,0.25) 0%, rgba(150,160,200,0.55) 100%)',
@@ -886,7 +886,7 @@ function CelalCemalBalance({ tr, balance }) {
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${balance.cemalPct}%` }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: '300px 0px' }}
           transition={{ duration: 1.1, ease: 'easeOut', delay: 0.15 }}
           style={{
             background: `linear-gradient(90deg, ${COLORS.gold}55 0%, ${COLORS.gold}cc 100%)`,
@@ -1074,7 +1074,7 @@ function FlagshipCard({ verse, index, tr }) {
     <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.7 }}
       style={{
         ...GLASS_CARD,
@@ -1344,7 +1344,7 @@ function AllahLemmaNote({ tr }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.6 }}
       style={{
         marginTop: '32px',
@@ -1602,7 +1602,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: '300px 0px' }}
             transition={{ duration: 0.6 }}
             style={{
               background: `linear-gradient(135deg, ${COLORS.gold}14 0%, ${COLORS.gold}08 100%)`,
@@ -1748,7 +1748,7 @@ function PairCard({ pair, tr, index, verseData }) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.55, delay: index * 0.06 }}
       style={{
         ...GLASS_CARD,
@@ -1963,7 +1963,7 @@ function TripleCard({ triple, tr, index }) {
     <motion.div
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       style={{
         background: `linear-gradient(135deg, ${COLORS.gold}14 0%, ${COLORS.gold}06 100%)`,
@@ -2170,7 +2170,7 @@ function AxisCard({ eks, tr }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.5 }}
       style={{ ...GLASS_CARD, padding: '24px 22px', display: 'flex', flexDirection: 'column' }}
     >
@@ -2305,7 +2305,7 @@ function KokCard({ kok, tr, index }) {
     <motion.div
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: '300px 0px' }}
       transition={{ duration: 0.5, delay: index * 0.03 }}
       style={{
         ...GLASS_CARD,
@@ -2496,6 +2496,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
             doğal şekilde gösterilir, mobile yatay scroll için overflow-x var.
             20 sure × 14 isim toplam ~600px yükseklik, sayfa scroll'una rahatça
             sığar. */}
+        <div style={{ position: 'relative' }}>
         <div style={{
           overflowX: 'auto',
           background: 'rgba(255,255,255,0.02)',
@@ -2589,6 +2590,14 @@ function SurahNameHeatmap({ tr, heatmapData }) {
               </Fragment>
             ))}
           </div>
+        </div>
+        {/* Kaydırma ipucu — ~20 isim sütunu mobilde/dar masaüstünde
+            kaydırma gerektiriyordu, ipucu yoktu (site denetimi, 16 Ağustos 2026). */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: '20px', right: 0, bottom: '20px', width: '32px',
+          background: 'linear-gradient(90deg, transparent, rgba(8,10,18,0.9))',
+          pointerEvents: 'none', borderRadius: `0 ${RADIUS.lg} ${RADIUS.lg} 0`,
+        }} />
         </div>
 
         {/* Top 3 satır özet — "Bakara'da en yoğun..." */}
@@ -3433,7 +3442,7 @@ function ClosingReflection({ tr, language }) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '300px 0px' }}
           transition={{ duration: 0.8 }}
           style={{
             background: `linear-gradient(180deg, ${COLORS.gold}0a 0%, rgba(255,255,255,0.02) 100%)`,
@@ -3492,7 +3501,7 @@ function ClosingReflection({ tr, language }) {
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 0.9, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: '300px 0px' }}
           transition={{ duration: 0.9, delay: 0.2 }}
           style={{
             color: COLORS.silver,
@@ -3538,7 +3547,7 @@ function ClosingReflection({ tr, language }) {
               key={t.href}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: '300px 0px' }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
               <Link
