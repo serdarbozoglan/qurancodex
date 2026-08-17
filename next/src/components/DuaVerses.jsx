@@ -8,6 +8,7 @@ import { PlayIcon, PauseIcon } from './icons';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SurahLink from './SurahLink';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import duaVersesDataStatic from '../../public/dua-verses.json';
@@ -232,6 +233,9 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
 
 export default function DuaVerses({ onClose }) {
   const { language } = useLanguage();
+  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
+  const navTop = useNavbarOffset(0, 62);
   const [duas] = useState(duaVersesDataStatic.duas || []);
   const [loading] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -377,8 +381,8 @@ export default function DuaVerses({ onClose }) {
   return (
     <div style={{
       background: bg,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
       display: 'flex', flexDirection: 'column',
     }}>
       <ToolHeader
@@ -441,7 +445,12 @@ export default function DuaVerses({ onClose }) {
             fontFamily: 'Inter, sans-serif',
           }}
         />
-        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px', scrollbarWidth: 'none' }}>
+        {/* position:relative + sağ kenar fade — 11 kategori mobilde ~4'ü
+            gösterip kesiliyordu, kaydırılabilir olduğuna dair hiçbir ipucu
+            yoktu (denetimde bildirildi). Gradient fade "daha var" sinyali
+            verir; scrollbarWidth:'none' korunuyor, JS izleme gerekmiyor. */}
+        <div style={{ position: 'relative' }}>
+          <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px', scrollbarWidth: 'none' }}>
           <button
             onClick={() => setActiveCategory('all')}
             style={{
@@ -490,6 +499,12 @@ export default function DuaVerses({ onClose }) {
               </button>
             );
           })}
+          </div>
+          <div aria-hidden="true" style={{
+            position: 'absolute', top: 0, right: 0, bottom: '2px', width: '28px',
+            background: 'linear-gradient(to right, transparent, rgba(8,10,18,0.98))',
+            pointerEvents: 'none',
+          }} />
         </div>
       </div>
 

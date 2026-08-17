@@ -15,6 +15,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import nedenSonucDataStatic from '../../public/neden-sonuc.json';
@@ -99,6 +100,9 @@ function CategoryIcon({ id, color, size = 15 }) {
 export default function NedenSonuc() {
   const { language } = useLanguage();
   const tr = language === 'tr';
+  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
+  const navTop = useNavbarOffset(0, 62);
   const [data] = useState(nedenSonucDataStatic);
   const [activeCat, setActiveCat] = useState('all');
   const [expandedId, setExpandedId] = useState(null);
@@ -148,9 +152,9 @@ export default function NedenSonuc() {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
       }}>
         {TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -173,8 +177,8 @@ export default function NedenSonuc() {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
     }}>
       {TOOL_HEADER}
 
@@ -474,12 +478,14 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px', marginBottom: 12 }}>
             {chain.steps.map((step, i) => (
               <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{
-                  padding: '3px 9px', borderRadius: 999,
-                  background: `${catColor}14`, border: `1px solid ${catColor}30`,
-                  color: catColor, fontSize: '0.7rem', fontWeight: 600,
-                  maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                }}>
+                <span
+                  title={(tr ? step.stepTr : step.stepEn).split(/[—(]/)[0].trim()}
+                  style={{
+                    padding: '3px 9px', borderRadius: 999,
+                    background: `${catColor}14`, border: `1px solid ${catColor}30`,
+                    color: catColor, fontSize: '0.7rem', fontWeight: 600,
+                    maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                  }}>
                   {(tr ? step.stepTr : step.stepEn).split(/[—(]/)[0].trim()}
                 </span>
                 {i < chain.steps.length - 1 && (

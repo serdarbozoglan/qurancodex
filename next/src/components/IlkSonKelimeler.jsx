@@ -232,7 +232,10 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           </p>
         </div>
 
-        {/* Filter chips */}
+        {/* Filter chips — position:relative + sağ kenar fade: mobilde 10
+            filtrenin yalnızca birkaçı görünüp kesiliyordu, kaydırılabilir
+            olduğuna dair hiçbir ipucu yoktu (denetimde bildirildi). */}
+        <div style={{ position: 'relative', flexShrink: 0 }}>
         <div style={{
           display: 'flex', gap: '6px',
           overflowX: 'auto', flexShrink: 0, paddingBottom: '12px',
@@ -291,6 +294,12 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
               </button>
             );
           })}
+        </div>
+          <div aria-hidden="true" style={{
+            position: 'absolute', top: 0, right: 0, bottom: '12px', width: '28px',
+            background: 'linear-gradient(to right, transparent, rgba(8,10,18,0.92))',
+            pointerEvents: 'none',
+          }} />
         </div>
       </div>
 
@@ -2145,24 +2154,41 @@ function AcilisKapanisSpektrum({ surahs, language, isMobile }) {
         <div style={{ fontSize: '0.62rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '6px' }}>
           {tr ? '114 Sûrenin Kök Spektrumu' : 'Root Spectrum of 114 Surahs'}
         </div>
-        <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4 }}>
+        <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: 0, opacity: 0.8, lineHeight: 1.4, maxWidth: '620px', marginLeft: 'auto', marginRight: 'auto' }}>
           {tr
-            ? 'Her sütun bir sûre. Üst satır açılış kökü, alt satır kapanış kökü — aynı renk = aynı anlam alanı.'
-            : 'Each column = one surah. Top row = opening root, bottom row = closing root — same color = same semantic domain.'}
+            ? 'İki satır aynı 114 sûreyi aynı sırayla gösterir (soldan sağa 1. Fâtiha → 114. Nâs) — bir sütun bir sûredir. Üstteki kare o sûrenin AÇILIŞ kelimesinin Arapça kökünü, hemen altındaki kare aynı sûrenin KAPANIŞ kelimesinin kökünü renklendirir. İki kare aynı renkteyse, o sûre aynı anlam ailesiyle (ör. Rabb, Rahmet) açılıp kapanıyor demektir.'
+            : 'The two rows show the same 114 surahs in the same order (left to right, 1. Al-Fatiha → 114. An-Nas) — one column = one surah. The top square colors that surah\'s OPENING word root; the square directly below it colors the same surah\'s CLOSING word root. If the two squares share a color, that surah opens and closes within the same semantic family (e.g. Rabb, Mercy).'}
         </p>
       </div>
 
-      {/* Row 1 — openers */}
-      <div style={{ marginBottom: `${gap * 2}px`, overflowX: 'auto', paddingBottom: '4px' }}>
-        <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
-          {renderRow('ilk')}
+      {/* Row 1 — openers. rowW (114 sütun) çoğu ekranda kapsayıcıdan geniş —
+          position:relative + sağ kenar fade, kaydırılabilir olduğuna dair
+          ipucu verir (aynı satır genişliğinde 114 sütun mobilde/masaüstünde
+          scrollWidth > clientWidth ölçüldü, ipucu olmadan fark edilmiyordu). */}
+      <div style={{ position: 'relative' }}>
+        <div style={{ marginBottom: `${gap * 2}px`, overflowX: 'auto', paddingBottom: '4px' }}>
+          <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
+            {renderRow('ilk')}
+          </div>
         </div>
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: 0, right: 0, bottom: `calc(4px + ${gap * 2}px)`, width: '24px',
+          background: `linear-gradient(to right, transparent, ${COLORS.cosmicBlack})`,
+          pointerEvents: 'none',
+        }} />
       </div>
       {/* Row 2 — closers */}
-      <div style={{ overflowX: 'auto', paddingBottom: '4px' }}>
-        <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
-          {renderRow('son')}
+      <div style={{ position: 'relative' }}>
+        <div style={{ overflowX: 'auto', paddingBottom: '4px' }}>
+          <div style={{ display: 'inline-block', minWidth: `${rowW}px` }}>
+            {renderRow('son')}
+          </div>
         </div>
+        <div aria-hidden="true" style={{
+          position: 'absolute', top: 0, right: 0, bottom: '4px', width: '24px',
+          background: `linear-gradient(to right, transparent, ${COLORS.cosmicBlack})`,
+          pointerEvents: 'none',
+        }} />
       </div>
 
       {/* Row labels */}

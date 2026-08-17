@@ -9,12 +9,16 @@ import LivingPreservation from '../sections/LivingPreservation';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
 export default function KorumaZinciri({ onClose }) {
   const { language } = useLanguage();
   const tr = language === 'tr';
+  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
+  const navTop = useNavbarOffset(0, 62);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < 640);
@@ -26,8 +30,8 @@ export default function KorumaZinciri({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         icon={

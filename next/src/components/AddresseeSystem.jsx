@@ -6,6 +6,7 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, TRANSITION, SEMANTIC } from '
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import addresseesDataStatic from '../../public/addressees.json';
@@ -14,6 +15,9 @@ const INITIAL_SHOW = 2;
 
 export default function AddresseeSystem({ onClose }) {
   const { language } = useLanguage();
+  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
+  const navTop = useNavbarOffset(0, 62);
   const [data]         = useState(addresseesDataStatic);
   const [activeId, setActiveId] = useState('iman');
   const [expanded, setExpanded] = useState(false);
@@ -111,9 +115,9 @@ export default function AddresseeSystem({ onClose }) {
     return (
       <div style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
       }}>
         {ADDR_TOOL_HEADER}
         <div style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -129,9 +133,9 @@ export default function AddresseeSystem({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
     }}>
       {ADDR_TOOL_HEADER}
 
@@ -210,9 +214,15 @@ export default function AddresseeSystem({ onClose }) {
       {/* ── BODY (sidebar + detail) ───────────────────────────────────────────── */}
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
 
-        {/* Sidebar — hidden on mobile, chip row handles navigation there */}
+        {/* Sidebar — hidden on mobile, chip row handles navigation there.
+            alignSelf:'flex-start' — olmadan varsayılan align-items:stretch,
+            sidebar'ı sağdaki (çok daha uzun) detay panelinin yüksekliğine
+            zorla geriyordu; sidebar'ın kendi ~11 kategorilik içeriği bu
+            yüksekliği doldurmadığından altında büyük boş bir alan kalıyordu
+            (kullanıcı denetiminde bildirilen "solda boş sütun" hatası). */}
         <div className="dsp-flex" style={{
           width: '200px', flexShrink: 0,
+          alignSelf: 'flex-start',
           borderRight: '1px solid rgba(255,255,255,0.06)',
           background: 'rgba(255,255,255,0.02)',
           overflowY: 'auto',
