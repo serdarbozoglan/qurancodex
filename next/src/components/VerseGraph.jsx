@@ -15,6 +15,7 @@ import { COLORS, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION, SEMANTIC } from '../t
 import { cleanArabicForGraph } from '../lib/arabic';
 import { VolumeOnIcon, VolumeOffIcon } from './icons';
 import useNavbarOffset from './useNavbarOffset';
+import DataDictionary from './DataDictionary';
 // ─── Graph-local slate scale ──────────────────────────────────────────────────
 // VerseGraph'a özel dark slate palette — graph tooltip/dropdown/muted text
 // için kullanılır. Global tokens.js'e katılmadı çünkü sadece bu tool içinde
@@ -1280,9 +1281,12 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
             width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2.5">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
           </svg>
-          {/* Hint */}
+          {/* Hint — left+right anchor + ellipsis: mobilde viewport kenarında
+              kelime ortasından sert kırpılıyordu (site denetimi, 16 Ağustos
+              2026); artık kutunun kendi genişliğinde (input ile aynı) düzgün
+              "…" ile kesiliyor. */}
           {!searchQuery && (
-            <div style={{ position: 'absolute', top: '100%', left: '1px', marginTop: '5px', fontSize: '0.78rem', color: '#A6875C', whiteSpace: 'nowrap', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', top: '100%', left: '1px', right: 0, marginTop: '5px', fontSize: '0.78rem', color: '#A6875C', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', pointerEvents: 'none' }}>
               {language === 'tr' ? 'örn: Bismillah · Bakara 5 · 2:286 · Fatiha · iman' : 'e.g. Bismillah · Bakara 5 · 2:286 · Fatiha · faith'}
             </div>
           )}
@@ -1505,7 +1509,11 @@ function ClusterView({ verses, surahClusters, onSelectSurah, onSelectVerse, lang
         whiteSpace: 'nowrap', pointerEvents: 'none', backdropFilter: 'blur(8px)',
         opacity: showClickHint ? 1 : 0, transition: 'opacity 1s ease',
       }}>
-        {language === 'tr' ? 'Daireye tıkla: sûreye git  ·  Sürükle: kaydır  ·  Tekerlek: yakınlaştır' : 'Click a circle: go to surah  ·  Drag: pan  ·  Scroll: zoom'}
+        {/* W < 780 mobil/touch varsayımı: "Tekerlek" (mouse wheel) dokunmatik
+            ekranda anlamsızdı (site denetimi, 16 Ağustos 2026). */}
+        {W < 780
+          ? (language === 'tr' ? 'Daireye dokun: sûreye git  ·  Sürükle: kaydır  ·  Sıkıştır: yakınlaştır' : 'Tap a circle: go to surah  ·  Drag: pan  ·  Pinch: zoom')
+          : (language === 'tr' ? 'Daireye tıkla: sûreye git  ·  Sürükle: kaydır  ·  Tekerlek: yakınlaştır' : 'Click a circle: go to surah  ·  Drag: pan  ·  Scroll: zoom')}
       </div>
 
       {/* Legend */}
@@ -2720,11 +2728,12 @@ function FullGraph({ verses, onBack, language, onClose }) {
         />
       )}
 
-      {/* Header */}
+      {/* Header — opak zemin (§13.19): busy 3D graf arkasında fade-to-transparent
+          düşük kontrast üretiyordu (site denetimi, 16 Ağustos 2026). */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, zIndex: 20,
         display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 18px',
-        background: 'linear-gradient(to bottom, rgba(6,8,14,0.98) 60%, transparent)',
+        background: 'rgb(6, 8, 14)',
       }}>
         <button onClick={onBack}
           style={{ background: 'rgba(212,165,116,0.06)', border: `1px solid ${COLORS.goldAlpha15}`, borderRadius: RADIUS.md, color: COLORS.silver, padding: '6px 12px', fontSize: '0.8rem', cursor: 'pointer' }}>
@@ -2990,6 +2999,43 @@ function FullGraph({ verses, onBack, language, onClose }) {
               <span><strong style={{ color: COLORS.gold, fontWeight: 700 }}>{graphData.links.length.toLocaleString(language === 'tr' ? 'tr-TR' : 'en-US')}</strong> {language === 'tr' ? 'benzer ayet çifti' : 'similar verse pairs'}</span>
               <span style={{ opacity: 0.35 }}>·</span>
               <span>114 {language === 'tr' ? 'sûre' : 'surahs'}</span>
+            </div>
+
+            {/* Veri Sözlüğü — bu görselleştirmenin "nasıl okunur" açıklaması
+                eksikti (site denetimi, 16 Ağustos 2026: kümeleme/konum bir
+                metodoloji notu olmadan örtük bir anlam iddiası gibi
+                okunabilirdi). Değerler koddan doğrulanmış: BGE-M3 modeli
+                src/data/toolCatalog.js + kaynakça sayfasında zaten atıflı;
+                eşik değerleri buildGraphData()'daki THRESHOLD sabitleri;
+                sem/lex alanları public/verse-graph-bgem3.json'ın kendi
+                connections şemasından. */}
+            <div style={{ marginBottom: '22px' }}>
+              <DataDictionary
+                language={language}
+                isMobile={isNarrow}
+                rows={[
+                  {
+                    labelTr: 'Yöntem', labelEn: 'Method',
+                    valueTr: 'Her ayet, BGE-M3 çok dilli anlam gömme modeliyle bir sayı vektörüne dönüştürülür; birbirine anlamca yakın ayetler arasına çizgi çizilir.',
+                    valueEn: 'Each verse is embedded with the BGE-M3 multilingual model; a line is drawn between verses that are close together in that meaning-space.',
+                  },
+                  {
+                    labelTr: 'Bağlantı eşiği', labelEn: 'Connection threshold',
+                    valueTr: 'Yalnızca benzerlik skoru ≥0,58 olan ayet çiftleri arasında çizgi gösterilir (bir sûreye odaklanınca eşik 0,50\'ye iner).',
+                    valueEn: 'Only verse pairs with a similarity score ≥0.58 are connected (the threshold drops to 0.50 when focused on a single surah).',
+                  },
+                  {
+                    labelTr: 'Skor', labelEn: 'Score',
+                    valueTr: 'Her bağlantının skoru iki bileşenin birleşimidir: anlamsal (gömme-tabanlı) benzerlik ve sözcüksel (ortak kelime) benzerlik.',
+                    valueEn: 'Each connection\'s score combines two components: semantic (embedding-based) similarity and lexical (shared-word) similarity.',
+                  },
+                  {
+                    labelTr: 'Konumlar', labelEn: 'Positions',
+                    valueTr: 'Ayetlerin 3B konumu, bu anlam uzayının UMAP ile boyut indirgemesinden elde edilir — yakınlık görsel bir temsildir, ayrı bir iddia taşımaz.',
+                    valueEn: 'The 3D position of each verse comes from UMAP dimensionality reduction of that meaning-space — proximity is a visual representation, not a separate claim.',
+                  },
+                ]}
+              />
             </div>
 
             <div>

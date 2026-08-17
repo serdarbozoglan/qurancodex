@@ -1833,7 +1833,12 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
             ref={svgRef}
             viewBox={`0 0 ${TOTAL_W} ${H}`}
             width="100%"
-            style={{ display: 'block', overflow: 'visible', minWidth: '600px' }}
+            // minWidth 600px → 1000px (site denetimi, 16 Ağustos 2026): 600px'te
+            // 1200 birimlik viewBox ~0.5 ölçeğe iniyor, fontSize=8 düğüm
+            // etiketleri (S.54 vb.) mobilde neredeyse okunmaz oluyordu. Kapsayıcı
+            // zaten overflowX:auto + dokunmatik kaydırma sağlıyor — genişliği
+            // artırmak metni büyütür, kaydırma davranışı aynı kalır.
+            style={{ display: 'block', overflow: 'visible', minWidth: '1000px' }}
             aria-label={tr('Nüzul sırası haritası', 'Revelation order map')}
           >
             <defs>
