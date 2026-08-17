@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, BREAKPOINT_MOBILE, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import { AlertTriangleIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -87,6 +88,7 @@ const BADGE = {
 
 export default function QuranCommands({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const [data]           = useState(commandsDataStatic);
   const [activeId, setActiveId]   = useState('ibadet');
   const [filter, setFilter]       = useState('all'); // 'all' | 'emir' | 'nehiy'
@@ -405,7 +407,7 @@ export default function QuranCommands({ onClose }) {
           width: '220px', flexShrink: 0,
           borderRight: '1px solid rgba(255,255,255,0.07)',
           padding: '20px 0',
-          position: 'sticky', top: '110px', alignSelf: 'flex-start',
+          position: 'sticky', top: `${navTop + 48}px`, alignSelf: 'flex-start',
           maxHeight: 'calc(100vh - 220px)', overflowY: 'auto',
         }}
         className="dsp-block">

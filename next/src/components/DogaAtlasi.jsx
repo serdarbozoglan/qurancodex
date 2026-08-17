@@ -1589,7 +1589,7 @@ export default function DogaAtlasi({ onClose }) {
       {/* ── BODY ───────────────────────────────────────────────────── */}
       <div
         ref={bodyRef}
-        style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}
+        style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
       >
         {/* Hero */}
         <HeroSection

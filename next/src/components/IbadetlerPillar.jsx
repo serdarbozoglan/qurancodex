@@ -16,6 +16,7 @@ import { COLORS, FONTS, RADIUS, TRANSITION, IBADET_CLAIM_TYPE_STYLES, IBADET_CON
 import ToolHeader from './ToolHeader';
 import SourcesCitation from './SourcesCitation';
 import CrossToolCTA from './CrossToolCTA';
+import useNavbarOffset from './useNavbarOffset';
 
 // Tab defs — visibleTabs data'ya göre filtreler.
 const TAB_DEFS = [
@@ -54,6 +55,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const navTop = useNavbarOffset(0, 62);
 
   const visibleTabs = useMemo(
     () => TAB_DEFS.filter(t => hasContent(pillarData, t.dataKey)),
@@ -122,7 +124,7 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
         backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
         position: 'sticky',
-        top: '110px',
+        top: `${navTop + 48}px`,
         zIndex: 20,
         scrollMarginTop: '120px',
         overflowX: 'auto',

@@ -29,6 +29,38 @@ const SCHOLAR_COLORS = {
 const CONFIDENCE_LABELS_TR = { confirmed: 'Doğrulandı', partial: 'Kısmen doğrulandı' };
 const CONFIDENCE_LABELS_EN = { confirmed: 'Verified', partial: 'Partially verified' };
 
+// ── SURAH NAMES — ayet referansları "24:35" değil "Nûr 24:35" gösterir
+// (§13.32 site-wide kural; SebebiNuzul.jsx/KissaAtlas.jsx'teki kısa-ad
+// listesiyle aynı). ─────────────────────────────────────────────────────────
+const SURAH_NAMES_TR = [
+  '', 'Fatiha', 'Bakara', 'Âl-i İmrân', 'Nisâ', 'Mâide',
+  'En\'âm', 'A\'râf', 'Enfâl', 'Tevbe', 'Yûnus',
+  'Hûd', 'Yûsuf', 'Ra\'d', 'İbrâhîm', 'Hicr',
+  'Nahl', 'İsrâ', 'Kehf', 'Meryem', 'Tâ-Hâ',
+  'Enbiyâ', 'Hac', 'Mü\'minûn', 'Nûr', 'Furkân',
+  'Şu\'arâ', 'Neml', 'Kasas', 'Ankebût', 'Rûm',
+  'Lokmân', 'Secde', 'Ahzâb', 'Sebe', 'Fâtır',
+  'Yâsîn', 'Sâffât', 'Sâd', 'Zümer', 'Mü\'min',
+  'Fussılet', 'Şûrâ', 'Zuhruf', 'Duhân', 'Câsiye',
+  'Ahkâf', 'Muhammed', 'Fetih', 'Hucurât', 'Kâf',
+  'Zâriyât', 'Tûr', 'Necm', 'Kamer', 'Rahmân',
+  'Vâkıa', 'Hadîd', 'Mücâdele', 'Haşr', 'Mümtehine',
+  'Saf', 'Cum\'a', 'Münâfikûn', 'Tegâbün', 'Talâk',
+  'Tahrîm', 'Mülk', 'Kalem', 'Hâkka', 'Me\'âric',
+  'Nûh', 'Cinn', 'Müzzemmil', 'Müddessir', 'Kıyâme',
+  'İnsân', 'Mürselât', 'Nebe', 'Nâziât', 'Abese',
+  'Tekvîr', 'İnfitâr', 'Mutaffifîn', 'İnşikak', 'Bürûc',
+  'Târık', 'A\'lâ', 'Gâşiye', 'Fecr', 'Beled',
+  'Şems', 'Leyl', 'Duhâ', 'İnşirâh', 'Tîn',
+  'Alak', 'Kadr', 'Beyyine', 'Zilzâl', 'Âdiyât',
+  'Kâria', 'Tekâsür', 'Asr', 'Hümeze', 'Fîl',
+  'Kureyş', 'Mâûn', 'Kevser', 'Kâfirûn', 'Nasr',
+  'Tebbet', 'İhlâs', 'Felak', 'Nâs',
+];
+function surahShortName(num) {
+  return SURAH_NAMES_TR[num] || String(num);
+}
+
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -127,7 +159,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
             id: `tefsir-ihtilaf:${c.id}`,
             type: 'tefsir-ihtilaf',
             title: c.titleTr,
-            subtitle: c.verseRef,
+            subtitle: `${surahShortName(parseInt(c.verseRef.split(':')[0], 10))} ${c.verseRef}`,
             description: (c.introTr || '').slice(0, 240),
             url: `/${language}/arac/tefsir-ihtilaflari#${c.id}`,
           }}
@@ -145,7 +177,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
           color: COLORS.gold, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700,
           marginBottom: 10,
         }}>
-          {c.verseRef}
+          {surahShortName(parseInt(c.verseRef.split(':')[0], 10))} {c.verseRef}
         </span>
         <h3 style={{
           fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700,
@@ -278,6 +310,7 @@ export default function TefsirIhtilaflari() {
               background: 'none', border: 'none', cursor: 'pointer',
               borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
               whiteSpace: 'nowrap', transition: 'color 0.15s',
+              textTransform: 'uppercase', letterSpacing: '0.06em',
             }}>
               {label}
             </button>

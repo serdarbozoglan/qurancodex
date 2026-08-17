@@ -1624,14 +1624,53 @@ document.body.getBoundingClientRect().height  // beklenen ~viewport+makul altbil
 Gerçek scroll ile test et (`page.mouse.wheel`), `window.scrollTo` DEĞİL —
 ikisi farklı davranabilir (bkz. §16.6'nın body/html overflow dersi).
 
-**Bilinen kapsam (2026-08-16 itibariyle taranıp düzeltildi):** MeselAtlasi.jsx,
-KissaAtlas.jsx, SurahComparator.jsx, ConceptGraph.jsx. **Taranmadı/bilinmiyor:**
-`top:'110px'` static pattern kullanan diğer ~26 sayfa (§13.19 listesi) —
-bunlar yalnız Mekanizma 2'ye karşı büyük ölçekli otomatik bir taramadan
-geçti (sticky-örtüşme, açık/varsayılan görünümde); Mekanizma 3 (detay panel
-açıldıktan sonra ortaya çıkan sınırsız yükseklik) için TEK TEK interaktif
-test edilmedi — iki-panelli (liste+detay) yapıya sahip sayfalar öncelikli
-şüpheli.
+**Mekanizma 4 (2026-08-16 keşfedildi) — `overflow` != `visible` olan ata,
+sticky'yi hiç scroll ETMESE BİLE onun "containing block"u olur, çocuk
+`top`'a hiç kenetlenmeden kayıp gider.** CSS spesine göre bir sticky
+öğenin en yakın `overflow` (hidden/auto/scroll/clip, `visible` DEĞİL) olan
+atası — kendisi asla bağımsız scroll etmese bile — o sticky'nin
+positioning containing block'u olur. Bu ata pratikte hiç scroll
+mekanizması sağlamadığından (gerçek scroll `window`/`html` üzerinde
+oluyor), sticky çocuk artık `top` değerine kenetlenmiyor: ya sabit bir
+oranda scroll ile birlikte kayıp gidiyor (negatif `top`'a düşüyor, örn.
+scroll 3000'de -1857px) ya da hiç konumlanmıyor. Mekanizma 1/2'den farkı:
+o ikisinde hata bir sayı YANLIŞLIĞI (yanlış `top` değeri) iken, burada
+sticky mekanizmasının KENDİSİ bozuluyor — hiçbir `top` değeri doğru
+olmaz. Sık rastlanan tetikleyiciler: `overflowX:'hidden'` (tarayıcı bunu
+otomatik `overflow-y:auto`'ya yükseltir), veya bir `bodyRef`
+sarmalayıcısına konan `overflowY:'auto'` (kendisi hiç taşmasa bile).
+`Melekler.jsx`, `RetorikSorular.jsx`, `TarihselKanitlar.jsx`,
+`DogaAtlasi.jsx`, `FurukAtlasi.jsx`'te bulundu ve düzeltildi (ilgili
+`bodyRef`'ten overflow bildirimini kaldırarak) — çözüm KuranRenkleri.jsx
+ve SebebiNuzul.jsx'in zaten doğru yaptığı şeyle aynı: tab bar'ın ata
+zincirinde HİÇBİR `overflow` bildirimi bırakma. Paylaşılan
+`components/SectionWrapper.jsx` (ana sayfanın ~54 section'ının hepsinin
+kullandığı sarmalayıcı, `overflow-hidden` Tailwind sınıfı taşıyor) de aynı
+hatayı taşıyordu; global olarak kaldırmak riskli olduğundan (dekoratif
+taşma-kırpma diğer section'larda gerekli olabilir) `clip={false}` prop'u
+eklendi — gerçek sticky davranışı gereken section'lar bunu geçmeli,
+varsayılan `true` diğer tüm section'ların mevcut davranışını korur.
+
+**Doğrulama (Mekanizma 4):** sticky öğeden yukarı doğru TÜM atasal
+zinciri gez, her birinin `getComputedStyle(el).overflow/overflowX/overflowY`
+değerine bak — `visible` dışında bir şey varsa ve o ata gerçekte
+bağımsız scroll ETMİYORSA (yani sayfanın asıl scroll'u `window` üzerinde
+oluyorsa), o ata sticky'yi kırıyor demektir.
+
+**Bilinen kapsam (2026-08-16 itibariyle taranıp düzeltildi — 5 paralel ajan +
+23 ajanlı tam-site denetimi, ~72 araç/atlas/graf/statik sayfa):**
+MeselAtlasi.jsx, KissaAtlas.jsx (Mekanizma 1/3), SurahComparator.jsx,
+ConceptGraph.jsx, MunasebatAtlasi.jsx, SunnetullahAtlasi.jsx,
+CennetCehennem.jsx, IlkSonKelimeler.jsx, SebebiNuzul.jsx (Mekanizma 2) —
+ve Mekanizma 4: Melekler.jsx, RetorikSorular.jsx, TarihselKanitlar.jsx,
+DogaAtlasi.jsx, FurukAtlasi.jsx, SectionWrapper.jsx (bkz. yukarı). Ayrıca
+Mekanizma 2 için: BilimselIsaretler.jsx, QuranCommands.jsx, DuaDili.jsx,
+KiyametSahneleri.jsx, YakinAnlamliNuanslar.jsx, KuranYeminleri.jsx,
+ZamanBoyutlari.jsx, IbadetlerPillar.jsx (7 rota: hac/kurban/namaz/oruç/
+tövbe/zekât/zikir), NefisMertebeleri.jsx, KiraatAtlasi.jsx. **Kalan
+bilinmeyen kapsam:** yalnız Tefekkür makaleleri (53 adet) ve birkaç statik
+sayfa (/sor, /kutuphanem, /hakkinda, /kaynakca) bu sweep'in dışında kaldı
+— iki-panelli yapıları yok, düşük risk ama doğrulanmadı.
 
 ### 13.32 Ayet Referansı — ÇIPLAK NUMARA YASAK, Her Zaman Sûre Adı + Numara (ENFORCE ALWAYS) (2026-08-16+)
 

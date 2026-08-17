@@ -12,6 +12,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — client-side fetch yerine static import: SSR'da içerik
 // boştu ("Yükleniyor…" iskeleti), JS başarısız olursa sayfa hiç dolmuyordu.
 // AhiretYolculugu.jsx'teki 2026-07-15 audit fix'iyle aynı desen.
@@ -670,7 +671,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
             {/* Sûre:Ayet */}
             <div>
               <div style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600, whiteSpace: 'nowrap' }}>
-                {v.surah}:{v.ayah}
+                {v.surahName} {v.surah}:{v.ayah}
               </div>
               <div style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, marginTop: 2 }}>
                 {v.surahName}
@@ -1523,6 +1524,7 @@ function TabTecvid({ isMobile, language }) {
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data] = useState(kiraatDataStatic);
   const [activeTab, setActiveTab] = useState(0);
@@ -1637,7 +1639,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
 
         {/* Tab bar — sticky */}
         <div className="mq-box" style={{
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
           display: 'flex', gap: '2px',
           '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
@@ -1662,6 +1664,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
                 fontSize: isMobile ? '0.85rem' : '0.9rem',
                 fontFamily: FONTS.body,
                 fontWeight: activeTab === i ? 600 : 400,
+                textTransform: 'uppercase', letterSpacing: '0.06em',
                 cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => { if (activeTab !== i) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = COLORS.offWhite; } }}

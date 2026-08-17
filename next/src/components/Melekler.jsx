@@ -6,6 +6,7 @@ import { useQuranNav } from '@/hooks/useQuranNav';
 import { FONTS, COLORS, TRANSITION, BREAKPOINT_TABLET, RADIUS, SEMANTIC } from '../tokens';
 import { ExternalLinkIcon } from './icons';
 import ToolHeader from './ToolHeader';
+import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -1291,6 +1292,7 @@ const PageIcon = () => (
 
 export default function Melekler({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const [activeTab, setActiveTab] = useState(0);
   const [data, setData] = useState(null);
@@ -1340,7 +1342,7 @@ export default function Melekler({ onClose }) {
       />
 
       {/* ── Body (scrollable) ── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <div ref={bodyRef} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
         {/* Hero — Premium Cinematic (Bismillah + Fâtır 35:1 + framing whisper + filigree + title) */}
         <div className="mq-box" style={{
@@ -1495,7 +1497,7 @@ export default function Melekler({ onClose }) {
 
         {/* ── Tab bar — sticky top:110 (Navbar 62 + ToolHeader 48) ── */}
         <div className="mq-box" id="melekler-tab-bar" style={{
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
           display: 'flex', gap: '2px',
           '--pt-d': "0", '--pt-m': "0", '--pr-d': "16px", '--pr-m': "8px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "16px", '--pl-m': "8px",
           borderBottom: '1px solid rgba(255,255,255,0.06)',

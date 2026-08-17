@@ -399,12 +399,21 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
     if (!orderedSpeakers.find(o => o.id === s.id)) orderedSpeakers.push(s);
   });
 
+  // 2026-08-16 (hydration fix) — Math.cos/Math.sin ürettiği ondalık
+  // basamaklar sunucu (Node/V8) ile istemci (tarayıcı/V8) arasında ULP
+  // düzeyinde farklılaşabiliyordu ("A tree hydrated but some attributes
+  // of the server rendered HTML didn't match the client properties" —
+  // canlı Playwright denetiminde ölçüldü, hem masaüstü hem mobil). Tüm
+  // türetilmiş SVG koordinatları JSX'e girmeden ÖNCE toFixed(2) ile
+  // yuvarlanır ki sunucu ve istemci string'i bayt-bayt eşleşsin.
+  const round2 = (n) => Number(n.toFixed(2));
+
   orderedSpeakers.forEach((speaker, i) => {
     const total = orderedSpeakers.length;
     const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
     nodePositions[speaker.id] = {
-      x: CX + ORBIT * Math.cos(angle),
-      y: CY + ORBIT * Math.sin(angle),
+      x: round2(CX + ORBIT * Math.cos(angle)),
+      y: round2(CY + ORBIT * Math.sin(angle)),
     };
   });
 
@@ -416,8 +425,8 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
     const from = nodePositions[fromId];
     const to   = nodePositions[toId];
     if (!from || !to) return '';
-    const cpX = (from.x + to.x) / 2 * 0.35 + CX * 0.65;
-    const cpY = (from.y + to.y) / 2 * 0.35 + CY * 0.65;
+    const cpX = round2((from.x + to.x) / 2 * 0.35 + CX * 0.65);
+    const cpY = round2((from.y + to.y) / 2 * 0.35 + CY * 0.65);
     return `M ${from.x} ${from.y} Q ${cpX} ${cpY} ${to.x} ${to.y}`;
   };
 
@@ -425,10 +434,10 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
     const totalDialogues = axes
       .filter(a => a.speakerId === speaker.id || a.addresseeId === speaker.id)
       .reduce((sum, a) => sum + (a.dialogueCount || 1), 0);
-    return Math.max(8, Math.min(20, 8 + totalDialogues * 0.4));
+    return round2(Math.max(8, Math.min(20, 8 + totalDialogues * 0.4)));
   };
 
-  const arcWidth = (axis) => Math.max(1, Math.min(6, 1 + (axis.dialogueCount || 1) * 0.2));
+  const arcWidth = (axis) => round2(Math.max(1, Math.min(6, 1 + (axis.dialogueCount || 1) * 0.2)));
 
   const TEMPORAL_LABELS = {
     all:    { tr: 'Tümü',  en: 'All'      },
@@ -506,7 +515,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
                   d={arcPath(axis.speakerId, axis.addresseeId)}
                   fill="none"
                   stroke={axis.color || COLORS.gold}
-                  strokeWidth={arcWidth(axis) / scale}
+                  strokeWidth={round2(arcWidth(axis) / scale)}
                   strokeOpacity={isHovered ? 0.85 : 0.25}
                   style={{ cursor: 'pointer', transition: 'stroke-opacity 0.15s' }}
                   onMouseEnter={(e) => {
@@ -528,7 +537,7 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
             {orderedSpeakers.map((speaker, i) => {
               const pos = nodePositions[speaker.id];
               if (!pos) return null;
-              const r = nodeRadius(speaker) / scale;
+              const r = round2(nodeRadius(speaker) / scale);
               const isHovered = hoveredNode === speaker.id;
 
               const total = orderedSpeakers.length;
@@ -536,10 +545,10 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
               const cosA = Math.cos(angle);
               const sinA = Math.sin(angle);
               const labelDist = r + 18 / scale;
-              const labelX = pos.x + cosA * labelDist;
-              const labelY = pos.y + sinA * labelDist;
+              const labelX = round2(pos.x + cosA * labelDist);
+              const labelY = round2(pos.y + sinA * labelDist);
               const textAnchor = cosA > 0.2 ? 'start' : cosA < -0.2 ? 'end' : 'middle';
-              const fontSize = isMobile ? 9 / scale : 11 / scale;
+              const fontSize = round2(isMobile ? 9 / scale : 11 / scale);
               const [line1, line2] = isMobile
                 ? [(language === 'tr' ? speaker.nameTr : speaker.nameEn).slice(0, 7), '']
                 : getNodeLabel(speaker, language);
@@ -552,11 +561,11 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
                   onClick={() => onAxisClick(speaker.id, null)}
                 >
                   <circle
-                    cx={pos.x} cy={pos.y} r={r + (isHovered ? 3 : 0) / scale}
+                    cx={pos.x} cy={pos.y} r={round2(r + (isHovered ? 3 : 0) / scale)}
                     fill={speaker.color || COLORS.gold}
                     fillOpacity={isHovered ? 0.95 : 0.8}
                     stroke={COLORS.cosmicBlack}
-                    strokeWidth={2 / scale}
+                    strokeWidth={round2(2 / scale)}
                   />
                   <text
                     textAnchor={textAnchor}
@@ -567,8 +576,8 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
                   >
                     {line2 ? (
                       <>
-                        <tspan x={labelX} y={labelY - fontSize * 0.65}>{line1}</tspan>
-                        <tspan x={labelX} y={labelY + fontSize * 0.65}>{line2}</tspan>
+                        <tspan x={labelX} y={round2(labelY - fontSize * 0.65)}>{line1}</tspan>
+                        <tspan x={labelX} y={round2(labelY + fontSize * 0.65)}>{line2}</tspan>
                       </>
                     ) : (
                       <tspan x={labelX} y={labelY}>{line1}</tspan>

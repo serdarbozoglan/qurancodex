@@ -12,6 +12,7 @@ import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import tarihselDataStatic from '../../public/tarihsel-kanitlar.json';
@@ -107,6 +108,7 @@ const TABS = [
 
 export default function TarihselKanitlar({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
   const [data] = useState(tarihselDataStatic);
@@ -174,7 +176,7 @@ export default function TarihselKanitlar({ onClose }) {
     }}>
       {TOOL_HEADER}
 
-      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ── HERO ──────────────────────────────────────────────────────── */}
         <div className="mq-box" style={{
@@ -321,7 +323,7 @@ export default function TarihselKanitlar({ onClose }) {
           background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
           scrollMarginTop: '120px',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>

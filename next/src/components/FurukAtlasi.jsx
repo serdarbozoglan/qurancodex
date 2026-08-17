@@ -178,7 +178,7 @@ export default function FurukAtlasi({ onClose }) {
       {FURUK_TOOL_HEADER}
 
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
-      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1 }}>
 
         {/* ── HERO ────────────────────────────────────────────────────────── */}
         <div className="mq-box" style={{

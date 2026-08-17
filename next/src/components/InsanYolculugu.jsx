@@ -224,6 +224,7 @@ export default function InsanYolculugu({ onClose }) {
                     padding: '8px 12px',
                     fontSize: '0.7rem',
                     letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
                     fontWeight: activeIdx === i ? 700 : 500,
                     color: activeIdx === i ? COLORS.gold : COLORS.silver,
                     background: activeIdx === i ? COLORS.goldAlpha15 : 'transparent',

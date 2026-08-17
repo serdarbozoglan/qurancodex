@@ -338,6 +338,7 @@ export default function KissaAtlas({ onClose }) {
                     fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
                     cursor: 'pointer', transition: 'all 0.18s',
                     fontFamily: "'Inter', sans-serif",
+                    textTransform: 'uppercase', letterSpacing: '0.14em',
                   }}
                   onMouseEnter={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = COLORS.silver; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; } }}
                   onMouseLeave={e => { if (selectedProphetId !== p.id) { e.currentTarget.style.color = SEMANTIC.textFaint; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; } }}
@@ -384,6 +385,7 @@ export default function KissaAtlas({ onClose }) {
                   cursor: 'pointer', transition: 'all 0.18s',
                   fontFamily: "'Inter', sans-serif",
                   display: 'flex', alignItems: 'center', gap: '6px',
+                  textTransform: 'uppercase', letterSpacing: '0.14em',
                 }}
               >
                 {language === 'tr' ? p.nameTr.split(' ')[1] : p.nameEn.split(' ')[1]}
@@ -427,6 +429,7 @@ export default function KissaAtlas({ onClose }) {
                     cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
                     fontFamily: "'Inter', sans-serif",
                     position: 'relative',
+                    textTransform: 'uppercase', letterSpacing: '0.14em',
                   }}
                 >
                   {language === 'tr' ? tab.labelTr : tab.labelEn}

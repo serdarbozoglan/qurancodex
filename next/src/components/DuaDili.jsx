@@ -13,6 +13,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import { useLanguage } from '../i18n/LanguageContext';
+import useNavbarOffset from './useNavbarOffset';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 import data from '../../public/dua-dili.json';
 
@@ -36,6 +37,7 @@ const GEOMETRIC_PATTERN = `<svg aria-hidden="true" xmlns='http://www.w3.org/2000
 
 export default function DuaDili({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const [isMobile, setIsMobile] = useState(false);
   const [activeTab, setActiveTab] = useState('prophets');
@@ -138,7 +140,7 @@ export default function DuaDili({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
         isolation: 'isolate',
-        position: 'sticky', top: '110px', zIndex: 20,
+        position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
         scrollMarginTop: '120px',
         overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
       }}>

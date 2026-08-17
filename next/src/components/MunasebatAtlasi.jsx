@@ -555,7 +555,10 @@ function ScholarList({ scholars, language, isMobile }) {
 export default function MunasebatAtlasi({ onClose }) {
   const { language } = useLanguage();
   const navTop = useNavbarOffset(0, 62);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < BREAKPOINT_MOBILE);
+  // SSR-safe: server render ve client'ın ilk (hydration) render'ı window'a
+  // erişemez/erişmemelidir, ikisi de `false` ile eşleşmeli — gerçek değer
+  // yalnızca mount sonrası effect içinde okunur (bkz. CLAUDE.md §16.6).
+  const [isMobile, setIsMobile] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [data] = useState(munasebatDataStatic);
   const [typeFilter, setTypeFilter] = useState(null);
@@ -564,6 +567,7 @@ export default function MunasebatAtlasi({ onClose }) {
   // Responsive
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);
+    h();
     window.addEventListener('resize', h);
     return () => window.removeEventListener('resize', h);
   }, []);

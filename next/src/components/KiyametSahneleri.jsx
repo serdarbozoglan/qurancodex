@@ -7,6 +7,7 @@ import { COLORS, FONTS, BREAKPOINT_MOBILE, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import kiyametDataStatic from '../../public/kiyamet-sahneleri.json';
@@ -83,19 +84,19 @@ const PHASE_LABELS = {
 };
 
 const TEKVER_IDHA = [
-  { ar: 'إِذَا الشَّمْسُ كُوِّرَتْ', tr: 'Güneş dürüldüğünde', en: 'When the sun is wrapped up', ref: '81:1' },
-  { ar: 'وَإِذَا النُّجُومُ انكَدَرَتْ', tr: 'Yıldızlar döküldüğünde', en: 'When the stars fall', ref: '81:2' },
-  { ar: 'وَإِذَا الْجِبَالُ سُيِّرَتْ', tr: 'Dağlar yürütüldüğünde', en: 'When the mountains are set in motion', ref: '81:3' },
-  { ar: 'وَإِذَا الْعِشَارُ عُطِّلَتْ', tr: 'Yüklü develer terk edildiğinde', en: 'When full-term she-camels are abandoned', ref: '81:4', noteTr: "Kozmik felaketin insani boyutu: en değerli varlık, panik içinde bırakılıyor.", noteEn: "The human dimension of cosmic catastrophe: the most prized possession abandoned in panic." },
-  { ar: 'وَإِذَا الْوُحُوشُ حُشِرَتْ', tr: 'Vahşi hayvanlar toplandığında', en: 'When wild beasts are gathered', ref: '81:5', noteTr: "Hayvanlar da toplanıyor. Müfessirler: tüm canlıların hesabı görülür, sonra toprak olurlar.", noteEn: "Animals too are gathered. Commentators: all creatures are accounted for, then become dust.", isInfo: true },
-  { ar: 'وَإِذَا الْبِحَارُ سُجِّرَتْ', tr: 'Denizler ateş aldığında', en: 'When the seas are set ablaze', ref: '81:6' },
-  { ar: 'وَإِذَا النُّفُوسُ زُوِّجَتْ', tr: 'Ruhlar eşleştirildiğinde', en: 'When souls are paired', ref: '81:7', noteTr: "En tartışmalı \"izâ\" ayeti: kim kiminle eşleştiriliyor? Aynı gruptakiler mi, bedenleriyle mi, amelleriyle mi?", noteEn: "The most debated 'idha' verse: paired with whom? Fellow group members? Their bodies? Their deeds?" },
-  { ar: 'وَإِذَا الْمَوْءُودَةُ سُئِلَتْ', tr: 'Diri gömülen kız çocuğuna sorulduğunda', en: 'When the girl buried alive is asked', ref: '81:8-9', noteTr: "Kıyamet sahnesi içinde tarihsel hesap: cahiliye Arabistanı'nın bu pratiği doğrudan sorguya çekiliyor.", noteEn: "Historical accountability within judgment: the pre-Islamic Arabian practice of female infanticide directly questioned." },
-  { ar: 'وَإِذَا الصُّحُفُ نُشِرَتْ', tr: 'Sayfalar açıldığında', en: 'When the pages are spread open', ref: '81:10' },
-  { ar: 'وَإِذَا السَّمَاءُ كُشِطَتْ', tr: 'Gök soyulup kaldırıldığında', en: 'When the sky is stripped away', ref: '81:11', isHapax: true },
-  { ar: 'وَإِذَا الْجَحِيمُ سُعِّرَتْ', tr: 'Cehennem alevlendirildiğinde', en: 'When Hellfire is set ablaze', ref: '81:12' },
-  { ar: 'وَإِذَا الْجَنَّةُ أُزْلِفَتْ', tr: 'Cennet yaklaştırıldığında', en: 'When Paradise is brought near', ref: '81:13' },
-  { ar: 'عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ', tr: 'Her can, ne hazırladığını öğrenmiş olur', en: 'Every soul will know what it has brought forth', ref: '81:14' },
+  { ar: 'إِذَا الشَّمْسُ كُوِّرَتْ', tr: 'Güneş dürüldüğünde', en: 'When the sun is wrapped up', ref: 'Tekvir 81:1' },
+  { ar: 'وَإِذَا النُّجُومُ انكَدَرَتْ', tr: 'Yıldızlar döküldüğünde', en: 'When the stars fall', ref: 'Tekvir 81:2' },
+  { ar: 'وَإِذَا الْجِبَالُ سُيِّرَتْ', tr: 'Dağlar yürütüldüğünde', en: 'When the mountains are set in motion', ref: 'Tekvir 81:3' },
+  { ar: 'وَإِذَا الْعِشَارُ عُطِّلَتْ', tr: 'Yüklü develer terk edildiğinde', en: 'When full-term she-camels are abandoned', ref: 'Tekvir 81:4', noteTr: "Kozmik felaketin insani boyutu: en değerli varlık, panik içinde bırakılıyor.", noteEn: "The human dimension of cosmic catastrophe: the most prized possession abandoned in panic." },
+  { ar: 'وَإِذَا الْوُحُوشُ حُشِرَتْ', tr: 'Vahşi hayvanlar toplandığında', en: 'When wild beasts are gathered', ref: 'Tekvir 81:5', noteTr: "Hayvanlar da toplanıyor. Müfessirler: tüm canlıların hesabı görülür, sonra toprak olurlar.", noteEn: "Animals too are gathered. Commentators: all creatures are accounted for, then become dust.", isInfo: true },
+  { ar: 'وَإِذَا الْبِحَارُ سُجِّرَتْ', tr: 'Denizler ateş aldığında', en: 'When the seas are set ablaze', ref: 'Tekvir 81:6' },
+  { ar: 'وَإِذَا النُّفُوسُ زُوِّجَتْ', tr: 'Ruhlar eşleştirildiğinde', en: 'When souls are paired', ref: 'Tekvir 81:7', noteTr: "En tartışmalı \"izâ\" ayeti: kim kiminle eşleştiriliyor? Aynı gruptakiler mi, bedenleriyle mi, amelleriyle mi?", noteEn: "The most debated 'idha' verse: paired with whom? Fellow group members? Their bodies? Their deeds?" },
+  { ar: 'وَإِذَا الْمَوْءُودَةُ سُئِلَتْ', tr: 'Diri gömülen kız çocuğuna sorulduğunda', en: 'When the girl buried alive is asked', ref: 'Tekvir 81:8-9', noteTr: "Kıyamet sahnesi içinde tarihsel hesap: cahiliye Arabistanı'nın bu pratiği doğrudan sorguya çekiliyor.", noteEn: "Historical accountability within judgment: the pre-Islamic Arabian practice of female infanticide directly questioned." },
+  { ar: 'وَإِذَا الصُّحُفُ نُشِرَتْ', tr: 'Sayfalar açıldığında', en: 'When the pages are spread open', ref: 'Tekvir 81:10' },
+  { ar: 'وَإِذَا السَّمَاءُ كُشِطَتْ', tr: 'Gök soyulup kaldırıldığında', en: 'When the sky is stripped away', ref: 'Tekvir 81:11', isHapax: true },
+  { ar: 'وَإِذَا الْجَحِيمُ سُعِّرَتْ', tr: 'Cehennem alevlendirildiğinde', en: 'When Hellfire is set ablaze', ref: 'Tekvir 81:12' },
+  { ar: 'وَإِذَا الْجَنَّةُ أُزْلِفَتْ', tr: 'Cennet yaklaştırıldığında', en: 'When Paradise is brought near', ref: 'Tekvir 81:13' },
+  { ar: 'عَلِمَتْ نَفْسٌ مَّا أَحْضَرَتْ', tr: 'Her can, ne hazırladığını öğrenmiş olur', en: 'Every soul will know what it has brought forth', ref: 'Tekvir 81:14' },
 ];
 
 // ── Sub-components ─────────────────────────────────────────────────────────────
@@ -461,6 +462,7 @@ const KIYAMET_ISIMLERI = [
 
 export default function KiyametSahneleri({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const { openOverlay } = useQuranNav();
   const [data] = useState(kiyametDataStatic);
   const [activeTab, setActiveTab] = useState(0);
@@ -693,7 +695,7 @@ export default function KiyametSahneleri({ onClose }) {
           isolation: 'isolate',
           flexShrink: 0,
           position: 'sticky',
-          top: '110px',
+          top: `${navTop + 48}px`,
           zIndex: 20,
           scrollMarginTop: '120px',
         }}>

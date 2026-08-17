@@ -13,6 +13,7 @@ import {
   BREAKPOINT_TABLET,
   RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
+import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import HeroGeometricBackground from './HeroGeometricBackground';
@@ -57,6 +58,10 @@ export default function NefisMertebeleri({ onClose }) {
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate;
   const [activeTab, setActiveTab] = useState('journey');  // Dalga 2.2 tab state
   const bodyRef = useRef(null);
+  // Navbar yüksekliği sabit değil — ölç (bkz. ToolHeader.jsx / useNavbarOffset.js,
+  // CLAUDE.md §13.31 Mekanizma 2). Tab bar bu değeri +48 (ToolHeader yüksekliği)
+  // ile kullanır, hardcode '110px' YASAK.
+  const navTop = useNavbarOffset(0, 62);
 
   // Escape key
   useEffect(() => {
@@ -362,7 +367,7 @@ export default function NefisMertebeleri({ onClose }) {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
           scrollMarginTop: '120px',
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>

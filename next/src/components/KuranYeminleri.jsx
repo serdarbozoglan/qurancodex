@@ -8,6 +8,7 @@ import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import HeroGeometricBackground from './HeroGeometricBackground';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import yeminlerDataStatic from '../../public/yeminler.json';
@@ -46,6 +47,7 @@ const TABS = [
 
 export default function KuranYeminleri({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const [data] = useState(yeminlerDataStatic);
   const [activeTab, setActiveTab] = useState(0);
   const [activeCategoryId, setActiveCategoryId] = useState(yeminlerDataStatic.categories[0]?.id ?? null);
@@ -359,7 +361,7 @@ export default function KuranYeminleri({ onClose }) {
           scrollbarWidth: 'none',
           flexShrink: 0,
           position: 'sticky',
-          top: '110px',
+          top: `${navTop + 48}px`,
           zIndex: 20,
           scrollMarginTop: '120px',
         }}>
@@ -523,17 +525,27 @@ function RadialViz({ categories, activeCategoryId, onSelect, language }) {
   }, []);
 
   function arcPath(sa, ea, rOuter, rInner, cxp, cyp, gap = 0.02) {
+    // 2026-08-16 (hydration fix) — SSR ve client render'ları arasında
+    // Math.cos/Math.sin çıktılarında en son ondalık basamakta çok küçük
+    // kayan-nokta farkları oluşabiliyor (V8'in farklı derleme/optimizasyon
+    // yollarından); bu, `d` attribute string'inin sunucu/istemci arasında
+    // BİREBİR eşleşmemesine ve React hydration mismatch uyarısına yol
+    // açıyordu. Tüm koordinatlar .toFixed(2) ile sabit hassasiyete
+    // yuvarlanarak kayma elenir — görsel olarak fark edilmez (0.01px).
     const sa2 = sa + gap, ea2 = ea - gap;
-    const x1 = cxp + rOuter * Math.cos(sa2), y1 = cyp + rOuter * Math.sin(sa2);
-    const x2 = cxp + rOuter * Math.cos(ea2), y2 = cyp + rOuter * Math.sin(ea2);
-    const x3 = cxp + rInner * Math.cos(ea2), y3 = cyp + rInner * Math.sin(ea2);
-    const x4 = cxp + rInner * Math.cos(sa2), y4 = cyp + rInner * Math.sin(sa2);
+    const x1 = (cxp + rOuter * Math.cos(sa2)).toFixed(2), y1 = (cyp + rOuter * Math.sin(sa2)).toFixed(2);
+    const x2 = (cxp + rOuter * Math.cos(ea2)).toFixed(2), y2 = (cyp + rOuter * Math.sin(ea2)).toFixed(2);
+    const x3 = (cxp + rInner * Math.cos(ea2)).toFixed(2), y3 = (cyp + rInner * Math.sin(ea2)).toFixed(2);
+    const x4 = (cxp + rInner * Math.cos(sa2)).toFixed(2), y4 = (cyp + rInner * Math.sin(sa2)).toFixed(2);
     const lg = ea2 - sa2 > Math.PI ? 1 : 0;
     return `M ${x1} ${y1} A ${rOuter} ${rOuter} 0 ${lg} 1 ${x2} ${y2} L ${x3} ${y3} A ${rInner} ${rInner} 0 ${lg} 0 ${x4} ${y4} Z`;
   }
 
   function labelPos(midAngle, rLabel) {
-    return { x: cx + rLabel * Math.cos(midAngle), y: cy + rLabel * Math.sin(midAngle) };
+    return {
+      x: Number((cx + rLabel * Math.cos(midAngle)).toFixed(2)),
+      y: Number((cy + rLabel * Math.sin(midAngle)).toFixed(2)),
+    };
   }
 
   const highlighted = hovered || activeCategoryId;

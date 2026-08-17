@@ -18,6 +18,7 @@ import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import sunnetullahDataStatic from '../../public/sunnetullah-atlasi.json';
@@ -199,6 +200,7 @@ function LawIcon({ id, color, size = 24 }) {
 // ─── Main component ──────────────────────────────────────────────────────────
 export default function SunnetullahAtlasi({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data] = useState(sunnetullahDataStatic);
   const [activeTab, setActiveTab] = useState(0);
@@ -553,7 +555,7 @@ export default function SunnetullahAtlasi({ onClose }) {
           scrollbarWidth: 'none',
           flexShrink: 0,
           position: 'sticky',
-          top: '110px',
+          top: `${navTop + 48}px`,
           scrollMarginTop: '120px',
           zIndex: 20,
         }}>
@@ -1723,7 +1725,7 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
                 type: 'sunnetullah',
                 title: tr ? pattern.titleTr : pattern.titleEn,
                 subtitle: tr ? pattern.prophetTr : pattern.prophetEn,
-                description: (tr ? pattern.summaryTr : pattern.summaryEn || '').slice(0, 240),
+                description: ((tr ? pattern.summaryTr : pattern.summaryEn) || '').slice(0, 240),
                 url: `/${language}/atlas/sunnetullah`,
               }}
               size="sm"

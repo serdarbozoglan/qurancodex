@@ -10,6 +10,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import BookmarkButton from './BookmarkButton';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import cennetCehennemDataStatic from '../../public/cennet-cehennem.json';
@@ -160,6 +161,7 @@ const TABS = [
 // ── MAIN COMPONENT ────────────────────────────────────────────────────────────
 export default function CennetCehennem({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const trapRef = useFocusTrap(true);
   const [data]           = useState(cennetCehennemDataStatic);
   const [activeTab, setActiveTab] = useState('isimler');
@@ -384,7 +386,7 @@ export default function CennetCehennem({ onClose }) {
             overflowX: 'auto',
             scrollbarWidth: 'none',
             position: 'sticky',
-            top: '110px',
+            top: `${navTop + 48}px`,
             zIndex: 20,
             scrollMarginTop: '120px',
             width: 'auto',
@@ -405,6 +407,7 @@ export default function CennetCehennem({ onClose }) {
                   style={{
                     display: 'flex', alignItems: 'center', gap: '8px',
                     '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
+                    '--mt-d': "0", '--mt-m': "0", '--mr-d': "0", '--mr-m': "0", '--mb-d': "0", '--mb-m': "0", '--ml-d': "0", '--ml-m': "0",
                     border: 'none', borderRadius: '0', flexShrink: 0,
                     borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                     background: isActive ? COLORS.goldAlpha15 : 'transparent',
@@ -1247,11 +1250,11 @@ function TabRahman({ data, language, isMobile }) {
             {tr ? 'Cennet Tasvirleri' : 'Paradise Descriptions'}
           </p>
           {[
-            { tr: 'İki bahçe — çeşit çeşit meyveler', en: 'Two gardens — fruits of every kind', ref: '55:46-53' },
-            { tr: 'Uzanan gölge, çağlayan su', en: 'Extended shade, flowing water', ref: '55:54' },
-            { tr: 'Uzanan kollarla meyve veren ağaçlar', en: 'Fruit trees within reach', ref: '55:54' },
-            { tr: 'Yataklara yaslanmış eşler', en: 'Spouses reclining on cushions', ref: '55:54-56' },
-            { tr: "Bunun ötesinde daha iki bahçe daha", en: 'Beyond these, two more gardens', ref: '55:62-76' },
+            { tr: 'İki bahçe — çeşit çeşit meyveler', en: 'Two gardens — fruits of every kind', ref: 'Rahman 55:46-53' },
+            { tr: 'Uzanan gölge, çağlayan su', en: 'Extended shade, flowing water', ref: 'Rahman 55:54' },
+            { tr: 'Uzanan kollarla meyve veren ağaçlar', en: 'Fruit trees within reach', ref: 'Rahman 55:54' },
+            { tr: 'Yataklara yaslanmış eşler', en: 'Spouses reclining on cushions', ref: 'Rahman 55:54-56' },
+            { tr: "Bunun ötesinde daha iki bahçe daha", en: 'Beyond these, two more gardens', ref: 'Rahman 55:62-76' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
               <span style={{ fontSize: '0.78rem', color: COLORS.silver }}>{language === 'tr' ? item.tr : item.en}</span>
@@ -1279,9 +1282,9 @@ function TabRahman({ data, language, isMobile }) {
             {tr ? 'Cehennem Tasvirleri' : 'Hell Descriptions'}
           </p>
           {[
-            { tr: 'Günahkârların yüzüyle bilinen işaretler', en: 'Marks by which sinners are known', ref: '55:41' },
-            { tr: 'İşte bu, suçluların yalanladığı cehennem', en: 'This is the Hell the guilty deny', ref: '55:43' },
-            { tr: 'Cehennemle kaynar su arasında dolaşırlar', en: 'They circle between it and scalding water', ref: '55:44' },
+            { tr: 'Günahkârların yüzüyle bilinen işaretler', en: 'Marks by which sinners are known', ref: 'Rahman 55:41' },
+            { tr: 'İşte bu, suçluların yalanladığı cehennem', en: 'This is the Hell the guilty deny', ref: 'Rahman 55:43' },
+            { tr: 'Cehennemle kaynar su arasında dolaşırlar', en: 'They circle between it and scalding water', ref: 'Rahman 55:44' },
           ].map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
               <span style={{ fontSize: '0.78rem', color: COLORS.silver }}>{language === 'tr' ? item.tr : item.en}</span>

@@ -210,7 +210,7 @@ export default function HiddenArchitecture() {
   const surah = SURAHS[activeSurah];
 
   return (
-    <SectionWrapper id="hidden-architecture" dark={true} className="section-seam-into-deep">
+    <SectionWrapper id="hidden-architecture" dark={true} className="section-seam-into-deep" clip={false}>
 
       {/* ── Section header ── */}
       <motion.div variants={fadeUpItem}>

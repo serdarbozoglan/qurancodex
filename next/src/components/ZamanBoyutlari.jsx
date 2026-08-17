@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Fragment } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import useNavbarOffset from './useNavbarOffset';
 import { useQuranNav } from '@/hooks/useQuranNav';
 import { COLORS, FONTS, GLASS_CARD, BREAKPOINT_TABLET, RADIUS, VERSE_BLOCK, TEXT, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
@@ -421,6 +422,7 @@ const TABS = [
 // ── Main component ─────────────────────────────────────────────────────────────
 export default function ZamanBoyutlari({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const { openOverlay } = useQuranNav();
   const [activeTab, setActiveTab]         = useState('olcek');
   const [expandedRow,   setExpandedRow]   = useState(null);
@@ -1743,7 +1745,7 @@ export default function ZamanBoyutlari({ onClose }) {
         isolation: 'isolate',
         scrollbarWidth: 'none',
         position: 'sticky',
-        top: '110px',
+        top: `${navTop + 48}px`,
         zIndex: 20,
         scrollMarginTop: '120px',
       }}>

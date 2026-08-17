@@ -54,10 +54,10 @@ function VesveseKanaliWidget({ language, isMobile }) {
 
   const antidotes = [
     // href: null → tıklanabilir değil (Peygamber pratiği referansı)
-    { tr: 'İstiâze (اَعوذُ باللهِ)', en: 'Isti\'ādha (I seek refuge in Allah)', descTr: 'Nahl 16:98', descEn: 'al-Nahl 16:98', href: '/oku/16/98' },
-    { tr: 'Zikir + istiğfâr', en: 'Dhikr + istighfār', descTr: 'A\'râf 7:201', descEn: 'al-A\'rāf 7:201', href: '/oku/7/201' },
+    { tr: 'İstiâze (اَعوذُ باللهِ)', en: 'Isti\'ādha (I seek refuge in Allah)', descTr: 'Nahl 16:98', descEn: 'al-Nahl 16:98', href: '/oku/16?ayah=98' },
+    { tr: 'Zikir + istiğfâr', en: 'Dhikr + istighfār', descTr: 'A\'râf 7:201', descEn: 'al-A\'rāf 7:201', href: '/oku/7?ayah=201' },
     { tr: 'Muavvizeteyn (Felak + Nâs)', en: 'Al-Muʿawwidhatān (Falaq + Nās)', descTr: 'Hz. Peygamber pratiği', descEn: 'Prophetic practice', href: null },
-    { tr: 'Kalbi Rabbe bağlı tutmak', en: 'Keeping the heart tied to the Lord', descTr: 'Furkân 25:29', descEn: 'al-Furqān 25:29', href: '/oku/25/29' },
+    { tr: 'Kalbi Rabbe bağlı tutmak', en: 'Keeping the heart tied to the Lord', descTr: 'Furkân 25:29', descEn: 'al-Furqān 25:29', href: '/oku/25?ayah=29' },
   ];
 
   return (

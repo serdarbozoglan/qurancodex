@@ -14,6 +14,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import BookmarkButton from './BookmarkButton';
+import useNavbarOffset from './useNavbarOffset';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS, VERSE_BLOCK, TEXT, GLASS_CARD } from '../tokens';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -35,6 +36,7 @@ const CATEGORY_COLORS = {
 
 export default function YakinAnlamliNuanslar({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const [data] = useState(nuanslarDataStatic);
   const [activeIdx, setActiveIdx] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -192,7 +194,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             background: 'rgb(6, 8, 14)',
             backgroundColor: 'rgb(6, 8, 14)',
             isolation: 'isolate',
-            position: 'sticky', top: '110px', zIndex: 20,
+            position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
             scrollMarginTop: '120px',
             flexShrink: 0,
           }}>
@@ -211,6 +213,7 @@ export default function YakinAnlamliNuanslar({ onClose }) {
                     '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "16px", '--pl-m': "12px",
                     fontSize: isMobile ? '0.7rem' : '0.76rem',
                     letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
                     fontWeight: isActive ? 700 : 500,
                     color: isActive ? color : COLORS.silver,
                     background: isActive ? `${color}20` : 'transparent',

@@ -14,6 +14,7 @@ import FramingBadge from './FramingBadge';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import bilimselDataStatic from '../../public/bilimsel-isaretler.json';
@@ -77,6 +78,7 @@ const TABS = [
 
 export default function BilimselIsaretler({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
   const [data] = useState(bilimselDataStatic);
@@ -252,7 +254,7 @@ export default function BilimselIsaretler({ onClose }) {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          position: 'sticky', top: '110px', scrollMarginTop: '120px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, scrollMarginTop: '120px', zIndex: 20,
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {TABS.map((t, i) => {

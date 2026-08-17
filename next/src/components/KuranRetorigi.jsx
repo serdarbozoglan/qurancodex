@@ -873,11 +873,11 @@ function TabSorular({ data, tr, isMobile }) {
     return true;
   });
 
-  const pill = (label, value, activeValue, setFn, color) => {
+  const pill = (label, value, activeValue, setFn, color, group) => {
     const isActive = activeValue === value;
     return (
       <button
-        key={value}
+        key={`${group}-${value}`}
         onClick={() => setFn(value)}
         style={{
           padding: '4px 12px',
@@ -914,21 +914,21 @@ function TabSorular({ data, tr, isMobile }) {
       <div style={{ marginBottom: 20 }}>
         {/* Tür filtresi */}
         <div style={{ display: 'flex', gap: 6, marginBottom: 8, overflowX: 'auto', scrollbarWidth: 'none', flexWrap: 'nowrap' }}>
-          {pill(tr ? 'Tümü' : 'All', 'all', typeFilter, setTypeFilter, COLORS.gold)}
+          {pill(tr ? 'Tümü' : 'All', 'all', typeFilter, setTypeFilter, COLORS.gold, 'type')}
           {Object.entries(TYPE_LABELS_TR).map(([id, labelTr]) =>
-            pill(tr ? labelTr : TYPE_LABELS_EN[id], id, typeFilter, setTypeFilter, TYPE_COLORS[id])
+            pill(tr ? labelTr : TYPE_LABELS_EN[id], id, typeFilter, setTypeFilter, TYPE_COLORS[id], 'type')
           )}
         </div>
         {/* Kalıp + Muhatap filtresi */}
         <div style={{ display: 'flex', gap: 6, overflowX: 'auto', scrollbarWidth: 'none', flexWrap: 'nowrap' }}>
-          {pill(tr ? 'Tüm Kalıplar' : 'All Patterns', 'all', patternFilter, setPatternFilter, COLORS.silver)}
+          {pill(tr ? 'Tüm Kalıplar' : 'All Patterns', 'all', patternFilter, setPatternFilter, COLORS.silver, 'pattern')}
           {Object.entries(PATTERN_LABELS_TR).map(([id, labelTr]) =>
-            pill(tr ? labelTr : PATTERN_LABELS_EN[id], id, patternFilter, setPatternFilter, PATTERN_COLORS[id])
+            pill(tr ? labelTr : PATTERN_LABELS_EN[id], id, patternFilter, setPatternFilter, PATTERN_COLORS[id], 'pattern')
           )}
           <span style={{ color: SEMANTIC.textFaint, padding: '4px 4px', fontSize: '0.75rem', alignSelf: 'center' }}>|</span>
-          {pill(tr ? 'Tüm Muhatap' : 'All Addressees', 'all', addressFilter, setAddressFilter, COLORS.silver)}
+          {pill(tr ? 'Tüm Muhatap' : 'All Addressees', 'all', addressFilter, setAddressFilter, COLORS.silver, 'address')}
           {['humanity', 'mushrikeen', 'prophet'].map(id =>
-            pill(tr ? ADDRESS_LABELS_TR[id] : ADDRESS_LABELS_EN[id], id, addressFilter, setAddressFilter, ADDRESS_COLORS[id])
+            pill(tr ? ADDRESS_LABELS_TR[id] : ADDRESS_LABELS_EN[id], id, addressFilter, setAddressFilter, ADDRESS_COLORS[id], 'address')
           )}
         </div>
       </div>

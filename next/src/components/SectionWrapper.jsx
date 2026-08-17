@@ -46,6 +46,14 @@ export default function SectionWrapper({
   // breathing room iyileştirmesi (kullanıcı feedback).
   // İlk section (firstAfterHero) için kapalı — Hero ile çakışmasın.
   seam = true,
+  // `overflow-hidden` (aşağıda) section içindeki dekoratif taşan öğeleri
+  // kırpmak için var — ama CSS spesine göre `overflow` != visible olan
+  // HERHANGİ bir ata, `position:sticky` çocukları için "containing block"
+  // haline gelir ve onları kırar (site denetimi, 16 Ağustos 2026 —
+  // HiddenArchitecture.jsx'teki prizma paneli hiç sticky olmuyordu).
+  // Gerçek sticky davranışı gereken section'lar `clip={false}` geçmeli;
+  // varsayılan `true` diğer ~53 section'ın mevcut kırpma davranışını korur.
+  clip = true,
 }) {
   // lang attribute ensures CSS text-transform: uppercase uses the correct
   // locale rules for ALL child elements. Without this, html[lang="tr"]
@@ -68,7 +76,7 @@ export default function SectionWrapper({
     <motion.section
       id={id}
       lang={language}
-      className={`relative overflow-hidden ${
+      className={`relative ${clip ? 'overflow-hidden' : ''} ${
         noPadding
           ? ''
           : `py-16 md:py-24 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`

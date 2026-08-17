@@ -13,6 +13,7 @@ import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import QuranRhetoric from '../sections/QuranRhetoric';
 import useFocusTrap from '../hooks/useFocusTrap';
+import useNavbarOffset from './useNavbarOffset';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
 // döndürüyordu, JS başarısız olursa sayfa boş kalıyordu.
 import ailelerDataStatic from '../../public/belagat-aileleri.json';
@@ -72,6 +73,7 @@ function FamilyIcon({ id, color, size = 24 }) {
 
 export default function RetorikSorular({ onClose }) {
   const { language } = useLanguage();
+  const navTop = useNavbarOffset(0, 62);
   const tr = language === 'tr';
   const trapRef = useFocusTrap(true);
   const [aileler] = useState(ailelerDataStatic);
@@ -132,7 +134,7 @@ export default function RetorikSorular({ onClose }) {
       paddingTop: '62px',
     }}>
       {TOOL_HEADER}
-      <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>
+      <div ref={bodyRef} style={{ flex: 1 }}>
         <div className="mq-box" style={{
           '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "40px", '--pl-m': "20px",
           background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
@@ -224,7 +226,7 @@ export default function RetorikSorular({ onClose }) {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
           background: 'rgb(6, 8, 14)', backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate',
-          position: 'sticky', top: '110px', zIndex: 20,
+          position: 'sticky', top: `${navTop + 48}px`, zIndex: 20,
           overflowX: 'auto', scrollbarWidth: 'none', flexShrink: 0,
         }}>
           {FAMILY_TABS.map(f => {
@@ -242,6 +244,7 @@ export default function RetorikSorular({ onClose }) {
                   color: isActive ? f.color : COLORS.silver,
                   fontSize: isMobile ? '0.75rem' : '0.82rem',
                   fontWeight: isActive ? 700 : 500, fontFamily: FONTS.body,
+                  textTransform: 'uppercase', letterSpacing: '0.06em',
                   cursor: 'pointer', whiteSpace: 'nowrap',
                   display: 'inline-flex', alignItems: 'center', gap: '7px',
                   transition: 'all 0.18s',
