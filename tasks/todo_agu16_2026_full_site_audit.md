@@ -897,9 +897,9 @@ Tip dağılımı: 13 typo, 6 diğer, 4 konsol hatası, 3 mobil kırılma, 2 işl
 
 ---
 
-### `/arac/tekrar-anatomi` 🟡
+### `/arac/tekrar-anatomi` ✅
 
-**Durum:** "UNIQUE KELİME FORMU" typo'su zaten düzeltilmişti (canlıda "BENZERSİZ KELİME FORMU" — teyit edildi, next/src/i18n/tr.json). "Related-sûreler ile Klasik Kaynaklar arasındaki ~150-200px boşluk" bulgusu canlıda incelendi: kırık bir eleman DEĞİL, üç ayrı normal padding'in (section alt-boşluğu + section-arası boşluk + kart iç-boşluğu) üst üste binmesi — teknik bug yok, en fazla bir yoğunluk/tasarım tercihi. Açık kalan: "Zemahşerî Quote" blockquote'u aslında paraphrase ama doğrudan alıntı gibi biçimlendirilmiş (ZeroRedundancy.jsx) — sunum düzeltmesi mümkün ama editoryal onay gerektiriyor, henüz yapılmadı.
+**Durum:** "UNIQUE KELİME FORMU" typo'su zaten düzeltilmişti (teyit edildi). "Boşluk" bulgusu teknik bug değil çıktı (normal padding üst üste binmesi). "Zemahşerî Quote" yanıltıcı alıntı sunumu düzeltildi (`efa0a9a`) — kullanıcı onayıyla, blockquote yerine etiketli "gelenek özeti" kutusuna çevrildi.
 
 **İçerik: 8/10** — TekrarAnatomi.jsx wraps the homepage ZeroRedundancy section: addresses the 'Rahmân's 31x refrain isn't that redundant?' objection via classical takrîr theory (te'kîd/tafsîl/ihtimâm), Moses-narrative multi-surah examples, and corpus stats (~77,800 words, ~1,700 roots, ~455 hapax legomena).
 - Güçlü yönler:
