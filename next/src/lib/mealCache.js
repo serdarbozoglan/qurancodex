@@ -15,6 +15,7 @@
 // kullanıcılara dağıtılır.
 const API_BASE = '/api/meal';
 const FALLBACK_BASE = '/api/meal-fallback';
+const FALLBACK2_BASE = '/api/meal-fallback2';
 
 // 2026-08-19 — kullanıcı raporu: api.acikkuran.com'un DNS'i çözülmüyordu
 // (ENOTFOUND, hem yerel hem sunucu tarafında doğrulandı — ana alan adı
@@ -32,6 +33,26 @@ const ALQURAN_CLOUD_FALLBACK = {
   2: 'en.yusufali',    // Abdullah Yusuf Ali
   109: 'en.pickthall', // Marmaduke Pickthall
   9: 'en.asad',        // Muhammad Asad
+};
+
+// 2026-08-19 — kullanıcı isteği: "bir tane daha fallback olsa iyi olur".
+// fawazahmed0/quran-api (jsdelivr CDN üzerinden statik JSON) — hem
+// ALQURAN_CLOUD_FALLBACK'teki 8 yazarı yedekler (o da düşerse bu tutar)
+// hem de Abdul Haleem'i (alquran.cloud'da karşılığı yoktu) yeni kapsar.
+// Slug'lar CANLI istekle doğrulandı. İslamoğlu/Bayraktar/Okuyan hiçbir
+// katmanda kapsanmıyor — hiçbir kamuya açık JSON API'de karşılıkları
+// bulunamadı (yalnız HTML scraping ile mümkün olurdu, kullanıcı bunu
+// istemedi).
+const JSDELIVR_QURAN_API_FALLBACK = {
+  11: 'tur-diyanetisleri',
+  14: 'tur-elmalilihamdiya',
+  6: 'tur-alibulac',
+  27: 'tur-suleymanates',
+  30: 'tur-yasarnuriozturk',
+  2: 'eng-abdullahyusufal',
+  109: 'eng-mohammedmarmadu',
+  9: 'eng-muhammadasad',
+  113: 'eng-abdelhaleem', // Abdul Haleem — yalnız bu katmanda var
 };
 
 // In-memory cache of parsed JSON responses (per session).
@@ -76,11 +97,29 @@ export async function fetchMealSurah(surah, author, signal) {
   }
 
   // Step 3 — acikkuran unreachable (2026-08-19). Only for authors with a
-  // verified alquran.cloud equivalent (ALQURAN_CLOUD_FALLBACK); others throw
-  // immediately below, same as before this fallback existed.
+  // verified alquran.cloud equivalent (ALQURAN_CLOUD_FALLBACK); others skip
+  // straight to Step 4.
   const edition = ALQURAN_CLOUD_FALLBACK[author];
   if (edition) {
-    const res = await fetch(`${FALLBACK_BASE}/${edition}/${surah}`, { signal });
+    try {
+      const res = await fetch(`${FALLBACK_BASE}/${edition}/${surah}`, { signal });
+      if (res.ok) {
+        const data = await res.json();
+        memo.set(key, data);
+        return data;
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') throw err;
+      // Other errors: fall through to Step 4.
+    }
+  }
+
+  // Step 4 — second independent fallback (2026-08-19). Covers the same
+  // authors as Step 3 (redundancy if alquran.cloud also fails) plus Abdul
+  // Haleem, who has no alquran.cloud equivalent.
+  const edition2 = JSDELIVR_QURAN_API_FALLBACK[author];
+  if (edition2) {
+    const res = await fetch(`${FALLBACK2_BASE}/${edition2}/${surah}`, { signal });
     if (res.ok) {
       const data = await res.json();
       memo.set(key, data);
