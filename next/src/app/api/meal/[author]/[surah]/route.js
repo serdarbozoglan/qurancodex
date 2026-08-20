@@ -33,8 +33,16 @@ export async function GET(request, { params }) {
     });
 
     if (!res.ok) {
+      // 2026-08-20 — Vercel anomaly detection kullanıcı raporuyla yakalandı:
+      // api.acikkuran.com günlerdir düşük, bu route her istekte 502
+      // döndürüyordu ("bizim sunucumuz bozuk" sinyali) — oysa mealCache.js
+      // zaten alquran.cloud/jsdelivr fallback'lerine düşüyor, kullanıcıya
+      // giden sonuç doğru. 502 (5xx) yerine 424 Failed Dependency (4xx) —
+      // istemci tarafı `!res.ok` kontrolü aynı şekilde çalışır (fallback
+      // zinciri bozulmaz), yalnız Vercel'in "sunucu hatası" izlemesini
+      // yanlış yere tetiklemeyi durdurur.
       return new Response(JSON.stringify({ error: 'upstream', status: res.status }), {
-        status: 502,
+        status: 424,
         headers: { 'Content-Type': 'application/json' },
       });
     }
@@ -50,7 +58,7 @@ export async function GET(request, { params }) {
     });
   } catch (err) {
     return new Response(JSON.stringify({ error: 'fetch failed', message: String(err?.message) }), {
-      status: 502,
+      status: 424,
       headers: { 'Content-Type': 'application/json' },
     });
   }

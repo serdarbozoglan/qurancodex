@@ -34,8 +34,10 @@ export async function GET(request, { params }) {
     });
 
     if (!res.ok) {
+      // 2026-08-20 — bkz. /api/meal/route.js'in aynı tarihli notu: 502 (5xx)
+      // Vercel anomaly detection'ı yanlış tetikler, 424'e (4xx) çevrildi.
       return new Response(JSON.stringify({ error: 'upstream', status: res.status }), {
-        status: 502,
+        status: 424,
         headers: { 'Content-Type': 'application/json' },
       });
     }
@@ -60,7 +62,7 @@ export async function GET(request, { params }) {
     });
   } catch (err) {
     return new Response(JSON.stringify({ error: 'fetch failed', message: String(err?.message) }), {
-      status: 502,
+      status: 424,
       headers: { 'Content-Type': 'application/json' },
     });
   }
