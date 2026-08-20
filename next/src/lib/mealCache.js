@@ -14,6 +14,25 @@
 // var; aynı surah+author kombinasyonu için tek upstream call yapılıp tüm
 // kullanıcılara dağıtılır.
 const API_BASE = '/api/meal';
+const FALLBACK_BASE = '/api/meal-fallback';
+
+// 2026-08-19 — kullanıcı raporu: api.acikkuran.com'un DNS'i çözülmüyordu
+// (ENOTFOUND, hem yerel hem sunucu tarafında doğrulandı — ana alan adı
+// acikkuran.com çözülüyor, yalnız api. alt-alan-adı çözülmüyor). acikkuran
+// author ID'sinden alquran.cloud edition kimliğine eşleştirme — yalnız
+// GERÇEK karşılığı doğrulanmış yazarlar (canlı istekle kontrol edildi).
+// Karşılığı olmayan yazarlar (İslamoğlu, Bayraktar, Okuyan, Haleem) bu
+// haritada YOK — onlar için üçüncü katman denenmez, doğrudan hata gösterilir.
+const ALQURAN_CLOUD_FALLBACK = {
+  11: 'tr.diyanet',    // Diyanet İşleri
+  14: 'tr.yazir',      // Elmalılı Hamdi Yazır
+  6: 'tr.bulac',       // Ali Bulaç
+  27: 'tr.ates',       // Süleyman Ateş
+  30: 'tr.ozturk',     // Yaşar Nuri Öztürk
+  2: 'en.yusufali',    // Abdullah Yusuf Ali
+  109: 'en.pickthall', // Marmaduke Pickthall
+  9: 'en.asad',        // Muhammad Asad
+};
 
 // In-memory cache of parsed JSON responses (per session).
 // Key: `${author}:${surah}`.
@@ -44,13 +63,32 @@ export async function fetchMealSurah(surah, author, signal) {
   }
 
   // Step 2 — fall back to our Next.js API route (proxies + caches acikkuran).
-  const res = await fetch(`${API_BASE}/${author}/${surah}`, { signal });
-  if (!res.ok) {
-    throw new Error(`meal API ${res.status} for surah=${surah} author=${author}`);
+  try {
+    const res = await fetch(`${API_BASE}/${author}/${surah}`, { signal });
+    if (res.ok) {
+      const data = await res.json();
+      memo.set(key, data);
+      return data;
+    }
+  } catch (err) {
+    if (err.name === 'AbortError') throw err;
+    // Other errors: fall through to Step 3.
   }
-  const data = await res.json();
-  memo.set(key, data);
-  return data;
+
+  // Step 3 — acikkuran unreachable (2026-08-19). Only for authors with a
+  // verified alquran.cloud equivalent (ALQURAN_CLOUD_FALLBACK); others throw
+  // immediately below, same as before this fallback existed.
+  const edition = ALQURAN_CLOUD_FALLBACK[author];
+  if (edition) {
+    const res = await fetch(`${FALLBACK_BASE}/${edition}/${surah}`, { signal });
+    if (res.ok) {
+      const data = await res.json();
+      memo.set(key, data);
+      return data;
+    }
+  }
+
+  throw new Error(`meal API unreachable for surah=${surah} author=${author}`);
 }
 
 /**
