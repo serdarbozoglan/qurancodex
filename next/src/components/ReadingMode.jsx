@@ -9067,7 +9067,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               margin: '0 auto',
               // Yatay dolgu = 32 (çerçevenin dışındaki boşluk) + 30 (kitap
               // modunda sütunun çerçeve içi dolgusu) = 62px. Mobilde 12+12=24.
-              '--pt-d': "50px", '--pt-m': "22px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
+              '--pt-d': "50px", '--pt-m': "46px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
               // Relative wrapper hosts the cilt boşluğu divider and gives
               // the surah-opening card a positioned context (parity with
               // plain verse mode).
@@ -9410,7 +9410,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             margin: '0 auto',
             // Yatay dolgu 62px = 32 (çerçeve dışı) + 30 (çerçeve içi) —
             // bkz. kelime-meali dalındaki aynı not.
-            '--pt-d': "50px", '--pt-m': "22px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
+            '--pt-d': "50px", '--pt-m': "46px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
             display: 'flex',
             flexDirection: 'column',
             gap: '0',
