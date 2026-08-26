@@ -3239,6 +3239,31 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   //                 meal satırları TAM GENİŞLİK (ölçüldü: 0→1434), iki
   //                 çerçeve çizilince metin çerçeveyi ve cilt boşluğunu
   //                 kesip taşıyordu (kullanıcı 2026-08-26 ekran görüntüsü).
+  // AYAR panelindeki AÇ/KAPA satırları için gerçek anahtar. Önceden sağda
+  // düz metin olarak "Açık" / "Kapalı" yazıyordu — ama hemen üstteki
+  // Meal / Kârî / Dil satırları da AYNI konumda, AYNI biçimde bir DEĞER
+  // gösteriyor (Suat Y., Meşarî, Türkçe) ve tıklanınca seçici açıyor.
+  // Aynı görünüm, farklı davranış: kullanıcı "Açık"ı bir değer sanıp
+  // seçici bekliyordu. Ezber panelindeki anahtarın küçük hâli kullanılıyor
+  // (kullanıcı 2026-08-26). Satırın kendisi zaten <button> olduğu için
+  // bu görsel bir <span>'dir — iç içe buton geçersiz HTML olurdu.
+  const renderSwitch = (on) => (
+    <span aria-hidden style={{
+      position: 'relative', display: 'inline-block', flexShrink: 0,
+      width: '34px', height: '20px', borderRadius: RADIUS.pill,
+      background: on ? gold : dropC.inputBg,
+      border: `1px solid ${on ? gold : dropC.btnBorder}`,
+      transition: `background ${TRANSITION.fast}, border-color ${TRANSITION.fast}`,
+    }}>
+      <span style={{
+        position: 'absolute', top: '2px', left: on ? '16px' : '2px',
+        width: '14px', height: '14px', borderRadius: RADIUS.full,
+        background: on ? COLORS.btnGoldText : dropC.textMuted,
+        transition: `left ${TRANSITION.fast}`,
+      }} />
+    </span>
+  );
+
   const renderPageFrame = (twoUp) => {
     if (!showPageFrame) return null;
     const shell = {
@@ -5249,7 +5274,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <MicIcon size={13} />
               {language === 'tr' ? 'Kari' : 'Reciter'}
             </span>
-            <span style={{ fontSize: '0.7rem', color: dropC.textMuted, fontWeight: 600, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textAlign: 'right' }}>
+            {/* Değer ALTIN. Önceden `dropC.textMuted` ile griydi ve satır
+                devre dışıymış gibi duruyordu (kullanıcı 2026-08-26: "Kari
+                neden soluk görünüyor"). Kârî her zaman seçilidir; tıpkı
+                yanındaki Dil satırı gibi gerçek bir değer taşıyor, dolayısıyla
+                onunla aynı vurguyu almalı. Meal satırının gri olduğu tek hâl
+                meal KAPALI iken "Kapalı" yazması — o bir durum, bu değil. */}
+            <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600, maxWidth: '100px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textAlign: 'right' }}>
               {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
             </span>
           </button>
@@ -5389,27 +5420,52 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               one slot of top-bar real estate matters more than a 1-click
               path. */}
           {!isMobile && (
-            <button
-              onClick={toggleLanguage}
-              title={language === 'tr' ? 'Switch interface to English' : 'Arayüzü Türkçe yap'}
+            /* Satır artık TIKLANABİLİR DEĞİL — iki seçenek de sağdaki
+               bölmeli denetimde görünür ve tek dokunuşla seçilir (kullanıcı
+               2026-08-26: "dili de tek tuşla seçenekleri görsek"). Önceden
+               satırın kendisi anında TR↔EN çeviriyordu ama sağda tıpkı
+               Meal/Kârî gibi bir DEĞER gösteriyordu; aynı görünüm, farklı
+               davranıştı. */
+            <div
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
+                gap: '10px',
+                padding: '8px 12px', borderRadius: RADIUS.md,
                 border: `1px solid ${dropC.btnBorder}`,
                 background: dropC.btnBg,
-                transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-              onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
             >
               <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <GlobeIcon size={13} />
                 {language === 'tr' ? 'Dil' : 'Language'}
               </span>
-              <span style={{ fontSize: '0.7rem', color: gold, fontWeight: 600 }}>
-                {language === 'tr' ? 'Türkçe' : 'English'}
+              <span role="group" aria-label={language === 'tr' ? 'Dil' : 'Language'} style={{
+                display: 'inline-flex', flexShrink: 0, borderRadius: RADIUS.sm,
+                border: `1px solid ${dropC.btnBorder}`, overflow: 'hidden',
+              }}>
+                {[['tr', 'Türkçe'], ['en', 'English']].map(([code, label]) => {
+                  const on = language === code;
+                  return (
+                    <button
+                      key={code}
+                      onClick={() => { if (!on) toggleLanguage(); }}
+                      aria-pressed={on}
+                      title={code === 'tr' ? 'Arayüzü Türkçe yap' : 'Switch interface to English'}
+                      style={{
+                        padding: '4px 10px', border: 'none', cursor: on ? 'default' : 'pointer',
+                        fontSize: '0.7rem', fontWeight: on ? 700 : 600,
+                        fontFamily: 'inherit',
+                        color: on ? COLORS.btnGoldText : dropC.textMuted,
+                        background: on ? gold : 'transparent',
+                        transition: `all ${TRANSITION.fast}`,
+                      }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
               </span>
-            </button>
+            </div>
           )}
 
           {!isMobile && <div style={{ height: '1px', background: dropC.divider }} />}
@@ -5440,6 +5496,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 return next;
               });
             }}
+            role="switch" aria-checked={showTajweed}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '8px 12px', borderRadius: RADIUS.md, cursor: (isMushafImageActive || interlinearMode) ? 'default' : 'pointer',
@@ -5455,15 +5512,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <span style={{ fontFamily: "'KFGQPC', serif", marginRight: '6px' }}>تج</span>
               {language === 'tr' ? 'Tecvid Renkleri' : 'Tajweed Colors'}
             </span>
-            <span style={{ fontSize: '0.7rem', color: showTajweed ? gold : dropC.textMuted, fontWeight: 600 }}>
-              {showTajweed ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
-            </span>
+            {renderSwitch(showTajweed)}
           </button>
 
           {/* Classical mushaf page frame toggle */}
           {!isMobile && (
             <button
               onClick={() => setShowPageFrame(v => !v)}
+              role="switch" aria-checked={showPageFrame}
               title={language === 'tr'
                 ? 'Her sayfanın etrafına klasik altın çerçeve çiz'
                 : 'Draw a classical gold frame around each page'}
@@ -5481,9 +5537,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ fontSize: '0.9rem' }}>▭</span>
                 {language === 'tr' ? 'Sayfa Çerçevesi' : 'Page Frame'}
               </span>
-              <span style={{ fontSize: '0.7rem', color: showPageFrame ? gold : dropC.textMuted, fontWeight: 600 }}>
-                {showPageFrame ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
-              </span>
+              {renderSwitch(showPageFrame)}
             </button>
           )}
 
@@ -5491,6 +5545,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               users who find sustained italic body text fatiguing. */}
           <button
             onClick={() => setMealItalic(v => !v)}
+            role="switch" aria-checked={mealItalic}
             title={language === 'tr'
               ? 'Meal yazısı italic mi düz mü görünsün'
               : 'Meal body in italic or upright'}
@@ -5508,9 +5563,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <span style={{ fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", fontWeight: 600 }}>I</span>
               {language === 'tr' ? 'İtalic Meal' : 'Italic Meal'}
             </span>
-            <span style={{ fontSize: '0.7rem', color: mealItalic ? gold : dropC.textMuted, fontWeight: 600 }}>
-              {mealItalic ? (language === 'tr' ? 'Açık' : 'On') : (language === 'tr' ? 'Kapalı' : 'Off')}
-            </span>
+            {renderSwitch(mealItalic)}
           </button>
 
           {/* Layout — single page vs two-page spread. spreadMode is only
