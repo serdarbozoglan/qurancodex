@@ -2861,10 +2861,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // 2026-08-26) — artık ayet arka planı + ayet-sonu dairesi renkle
   // işaretliyor, ayrı bir ikon/metin rozeti gereksiz kalabalıktı.
   // arSajdaVerse hâlâ gerekli: aşağıdaki secde bildirimini (toast) tetikler.
-  const arSajdaVerse = useMemo(
-    () => versesOnPage.find(v => SAJDA_VERSES.has(`${v.surah}:${v.ayah}`)) || null,
-    [versesOnPage]
-  );
+  const arSajdaVerse = useMemo(() => {
+    if (bookMode) {
+      return versesOnPage.find(v => SAJDA_VERSES.has(`${v.surah}:${v.ayah}`)) || null;
+    }
+    // Âyet ve kırık meal modunda içerik sayfaya BÖLÜNMÜYOR ve `versesOnPage`
+    // tüm sûreye düşüyor; bildirim bu yüzden sûre açılır açılmaz, kullanıcı
+    // secde âyetine daha çok uzakken çıkıyordu. Bunun yerine O AN GÖRÜNEN
+    // sayfa taranır — görünen sayfa zaten aşağıdaki IntersectionObserver
+    // ile `bookPage`e canlı yazılıyor. Kullanıcı 2026-08-26: "o sayfaya
+    // gelince yine yukarıda 'secde âyeti var' ikazı çıkmalı".
+    return (verses || []).find(
+      v => v.page === currentPage && SAJDA_VERSES.has(`${v.surah}:${v.ayah}`)
+    ) || null;
+  }, [bookMode, versesOnPage, verses, currentPage]);
   // Kendiliğinden kaybolan secde bildirimi — TÜM görünüm modlarında
   // (Kitap/Ayet/Kırık Meal/Mushaf) çalışır çünkü `arSajdaVerse` zaten
   // `versesOnPage`'e bağlı, o da bookMode kapalıyken sûrenin tamamına

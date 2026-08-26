@@ -67,6 +67,12 @@ export default function HifzPanel({
   const [showHelp, setShowHelp] = useState(false);
   const [pickOpen, setPickOpen] = useState(false);
   const [pickSurah, setPickSurah] = useState(currentSurah || 1);
+  // Âyet alanı MEVCUT âyeti gösterir; önceden kalıcı bir "—" duruyordu ve
+  // alan hiç seçilmemiş gibi görünüyordu (kullanıcı 2026-08-26).
+  const [pickAyah, setPickAyah] = useState(activeVerse?.ayah || 1);
+  const [surahOpen, setSurahOpen] = useState(false);
+  const [ayahOpen, setAyahOpen] = useState(false);
+  const [surahQuery, setSurahQuery] = useState('');
   const running = !!session;
   const phase = session?.phase;
 
@@ -78,6 +84,9 @@ export default function HifzPanel({
     pickSurah: tr ? 'Sûre' : 'Surah',
     pickAyah:  tr ? 'Âyet' : 'Verse',
     pickHint:  tr ? 'Başlangıç âyetini seç' : 'Choose the starting verse',
+    searchSurah: tr ? 'Sûre ara…' : 'Search surah…',
+    noMatch:   tr ? 'Eşleşme yok' : 'No match',
+    closeList: tr ? 'Listeyi kapat' : 'Close list',
     start:   tr ? 'Başlat' : 'Start',
     stop:    tr ? 'Durdur' : 'Stop',
     pause:   tr ? 'Duraklat' : 'Pause',
@@ -388,7 +397,11 @@ export default function HifzPanel({
       <div style={{ ...rowStyle, flexWrap: 'wrap', rowGap: '10px' }}>
         <span style={rowLabel}>{L.startAt}</span>
         <button
-          onClick={() => { setPickSurah(currentSurah || 1); setPickOpen(o => !o); }}
+          onClick={() => {
+            setPickSurah(activeVerse?.surah || currentSurah || 1);
+            setPickAyah(activeVerse?.ayah || 1);
+            setPickOpen(o => !o);
+          }}
           disabled={running}
           title={L.pickHint}
           aria-expanded={pickOpen}
@@ -415,81 +428,237 @@ export default function HifzPanel({
         </button>
 
         {pickOpen && !running && (() => {
-          // Yerel `select` görünümü panelin geri kalanıyla uyumsuzdu; native
-          // ok işareti kaldırılıp (appearance:none) altın bir chevron ve
-          // panelin kendi yüzey/kenarlık renkleri kullanılıyor. Native
-          // `select` KORUNDU — mobilde işletim sisteminin kendi tekerlek
-          // seçicisini açtığı ve klavye/ekran okuyucu desteği hazır geldiği
-          // için özel bir açılır listeden daha sağlam.
-          const chevron = encodeURIComponent(
-            `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="${theme.gold}" stroke-width="1.6" stroke-linecap="round"/></svg>`
-          );
-          const fieldBg = theme.fieldBg || theme.bg;
-          const fieldBorder = theme.fieldBorder || theme.border;
-          const field = {
-            appearance: 'none', WebkitAppearance: 'none', MozAppearance: 'none',
-            padding: '10px 30px 10px 12px', borderRadius: RADIUS.md,
-            border: `1px solid ${fieldBorder}`,
-            background: `url("data:image/svg+xml,${chevron}") no-repeat right 11px center, ${fieldBg}`,
-            color: theme.fieldText || theme.text,
-            fontFamily: FONTS.body, fontSize: '0.85rem',
-            fontWeight: 600, cursor: 'pointer', outline: 'none',
-            transition: `border-color ${TRANSITION.fast}, background-color ${TRANSITION.fast}`,
+          // Native `select` KULLANILMIYOR: 114 sûrelik liste, işletim
+          // sisteminin kendi açılır menüsünü ekranın tamamını kaplayacak
+          // şekilde açıyor ve uygulamanın tasarımının tamamen dışına
+          // çıkıyordu (kullanıcı 2026-08-26 ekran görüntüsü). Yerine
+          // panelin kendi paletiyle çizilen, YUKARI doğru açılan, aranabilir
+          // bir liste konuldu — panel bir alt sayfa (bottom sheet) olduğu
+          // için aşağı açılan bir liste ekran dışında kalırdı.
+          // Alan yüzeyi ALTIN TONLU: `dropC.inputBg` nötr siyah-alfa olduğu
+          // için gündüz modunda krem panelin üstünde çamurlu bir gri olarak
+          // okunuyordu (kullanıcı 2026-08-26: "gündüz modu için en iyi
+          // renkler bunlar mı"). `theme.gold` her iki modda da o modun kendi
+          // altını olduğu için tek ifade ikisinde de sıcak duruyor.
+          const fieldBg = `${theme.gold}14`;
+          const fieldBorder = `${theme.gold}3a`;
+          const ayahCount = surahAyahCounts[pickSurah - 1] || 0;
+          const trigger = (open) => ({
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            gap: '8px', width: '100%',
+            padding: '10px 12px', borderRadius: RADIUS.md,
+            border: `1px solid ${open ? theme.gold : fieldBorder}`,
+            background: fieldBg, color: theme.fieldText || theme.text,
+            fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600,
+            cursor: 'pointer', textAlign: 'left',
+            transition: `border-color ${TRANSITION.fast}`,
+          });
+          const popup = {
+            position: 'absolute', left: 0, right: 0, bottom: 'calc(100% + 6px)',
+            borderRadius: RADIUS.md, border: `1px solid ${fieldBorder}`,
+            background: theme.bg,
+            // Panel de krem/koyu olduğu için aynı yüzey iki kat üst üste
+            // binince ayrışmıyordu; belirgin bir gölge + altın kenarlık
+            // katmanı ayırıyor.
+            boxShadow: `0 -14px 38px ${COLORS.panelShadow}`,
+            overflow: 'hidden', zIndex: 30,
+            display: 'flex', flexDirection: 'column',
           };
           const cap = {
             display: 'block', fontFamily: FONTS.body, fontSize: '0.6rem',
             textTransform: 'uppercase', letterSpacing: '0.12em',
             color: theme.muted, marginBottom: '5px',
           };
-          const focus = (e) => {
-            e.currentTarget.style.borderColor = theme.gold;
-            e.currentTarget.style.boxShadow = `0 0 0 3px ${theme.gold}22`;
+          // Listelerin sağ üstündeki küçük kapat düğmesi — dışarı tıklamak
+          // zaten kapatıyor ama görünür bir çıkış yolu isteniyor
+          // (kullanıcı 2026-08-26).
+          const closeBtn = {
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            width: '22px', height: '22px', flexShrink: 0,
+            borderRadius: RADIUS.full, cursor: 'pointer',
+            border: `1px solid ${fieldBorder}`, background: 'transparent',
+            color: theme.muted, padding: 0,
           };
-          const blur = (e) => {
-            e.currentTarget.style.borderColor = fieldBorder;
-            e.currentTarget.style.boxShadow = 'none';
-          };
+          const item = (selected) => ({
+            display: 'block', width: '100%', textAlign: 'left',
+            padding: '8px 12px', border: 'none', cursor: 'pointer',
+            fontFamily: FONTS.body, fontSize: '0.82rem',
+            background: selected ? `${theme.gold}1f` : 'transparent',
+            color: selected ? theme.gold : (theme.fieldText || theme.text),
+            fontWeight: selected ? 700 : 500,
+          });
+          const shown = surahNames
+            .map((nm, idx) => ({ no: idx + 1, nm }))
+            .filter(o => !surahQuery.trim() || `${o.no} ${o.nm}`.toLocaleLowerCase('tr').includes(surahQuery.toLocaleLowerCase('tr')));
           return (
             <div style={{
               flexBasis: '100%', display: 'flex', gap: '10px', alignItems: 'flex-end',
-              padding: '14px', borderRadius: RADIUS.lg || RADIUS.md,
-              border: `1px solid ${theme.border}`,
-              background: theme.fieldHover || 'transparent',
+              paddingTop: '14px', borderTop: `1px solid ${theme.gold}22`,
             }}>
-              <label style={{ flex: 1, minWidth: 0 }}>
+              {/* Dışarı tıklayınca açık liste kapansın (uygulamanın diğer
+                  açılır menülerinde kullanılan saydam yakalayıcı deseni). */}
+              {(surahOpen || ayahOpen) && (
+                <div
+                  onClick={() => { setSurahOpen(false); setAyahOpen(false); }}
+                  style={{ position: 'fixed', inset: 0, zIndex: 20, background: 'transparent' }}
+                />
+              )}
+              {/* SÛRE — aranabilir liste */}
+              <div style={{ flex: 1, minWidth: 0, position: 'relative' }}>
                 <span style={cap}>{L.pickSurah}</span>
-                <select
-                  aria-label={L.pickSurah}
-                  value={pickSurah}
-                  onChange={(e) => setPickSurah(Number(e.target.value))}
-                  onFocus={focus} onBlur={blur}
-                  style={{ ...field, width: '100%' }}
+                <button
+                  type="button"
+                  aria-haspopup="listbox" aria-expanded={surahOpen}
+                  onClick={() => { setSurahOpen(o => !o); setAyahOpen(false); setSurahQuery(''); }}
+                  style={trigger(surahOpen)}
                 >
-                  {surahNames.map((nm, idx) => (
-                    <option key={idx + 1} value={idx + 1}>{idx + 1}. {nm}</option>
-                  ))}
-                </select>
-              </label>
-              <label style={{ width: '104px', flexShrink: 0 }}>
-                <span style={cap}>{L.pickAyah}</span>
-                <select
-                  aria-label={L.pickAyah}
-                  defaultValue=""
-                  onChange={(e) => {
-                    const ayah = Number(e.target.value);
-                    if (!ayah) return;
-                    onPickStart && onPickStart(pickSurah, ayah);
-                    setPickOpen(false);
-                  }}
-                  onFocus={focus} onBlur={blur}
-                  style={{ ...field, width: '100%' }}
+                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {pickSurah}. {surahNames[pickSurah - 1]}
+                  </span>
+                  <span style={{ fontSize: '0.6rem', color: theme.gold, flexShrink: 0 }}>
+                    {surahOpen ? '▴' : '▾'}
+                  </span>
+                </button>
+                {surahOpen && (
+                  <div style={{ ...popup, maxHeight: '292px' }} role="listbox">
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '6px',
+                      padding: '6px 8px 6px 0',
+                      borderBottom: `1px solid ${fieldBorder}`, background: fieldBg,
+                    }}>
+                      <input
+                        autoFocus
+                        value={surahQuery}
+                        onChange={(e) => setSurahQuery(e.target.value)}
+                        placeholder={L.searchSurah}
+                        style={{
+                          flex: 1, minWidth: 0,
+                          padding: '6px 12px', border: 'none',
+                          background: 'transparent', color: theme.fieldText || theme.text,
+                          fontFamily: FONTS.body, fontSize: '0.82rem', outline: 'none',
+                        }}
+                      />
+                      <button type="button" onClick={() => setSurahOpen(false)}
+                        aria-label={L.closeList} title={L.closeList} style={closeBtn}>
+                        <IconClose size={10} />
+                      </button>
+                    </div>
+                    <div style={{ overflowY: 'auto' }}>
+                      {shown.length === 0 && (
+                        <div style={{ padding: '12px', fontFamily: FONTS.body, fontSize: '0.78rem', color: theme.muted }}>
+                          {L.noMatch}
+                        </div>
+                      )}
+                      {shown.map(o => (
+                        <button
+                          key={o.no} type="button" role="option"
+                          aria-selected={o.no === pickSurah}
+                          // Liste açılınca SEÇİLİ sûreye kaydır — 7. sûredeyken
+                          // listenin başında "1. El-Fatiha" görünüyordu ve
+                          // kullanıcı her seferinde elle aramak zorundaydı.
+                          // Ref yalnız bağlanma anında (liste açılırken)
+                          // çalışır, her render'da değil.
+                          ref={o.no === pickSurah ? (el) => el && el.scrollIntoView({ block: 'center' }) : undefined}
+                          onClick={() => {
+                            // Sûre seçimi ANINDA uygulanır. Önceden yalnız
+                            // yerel `pickSurah`i değiştiriyordu; kullanıcı
+                            // sûreyi seçip âyet seçmeden Başlat'a basınca
+                            // ezber hâlâ ESKİ sûreden başlıyordu (kullanıcı
+                            // 2026-08-26: "A'râf açıkken Bakara'yı seçtim,
+                            // A'râf'tan başladı").
+                            setPickSurah(o.no);
+                            setPickAyah(1);
+                            setSurahOpen(false);
+                            onPickStart && onPickStart(o.no, 1);
+                          }}
+                          style={item(o.no === pickSurah)}
+                        >
+                          {o.no}. {o.nm}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ÂYET — sayı ızgarası, taramak listeden hızlı */}
+              <div style={{ width: '132px', flexShrink: 0, position: 'relative' }}>
+                <span style={cap}>
+                  {L.pickAyah}
+                  <span style={{ opacity: 0.65, letterSpacing: 0, marginLeft: '4px' }}>/ {ayahCount}</span>
+                </span>
+                <button
+                  type="button"
+                  aria-haspopup="listbox" aria-expanded={ayahOpen}
+                  onClick={() => { setAyahOpen(o => !o); setSurahOpen(false); }}
+                  style={trigger(ayahOpen)}
                 >
-                  <option value="">—</option>
-                  {Array.from({ length: surahAyahCounts[pickSurah - 1] || 0 }, (_, k) => (
-                    <option key={k + 1} value={k + 1}>{k + 1}</option>
-                  ))}
-                </select>
-              </label>
+                  <span>{pickAyah}</span>
+                  <span style={{ fontSize: '0.6rem', color: theme.gold, flexShrink: 0 }}>
+                    {ayahOpen ? '▴' : '▾'}
+                  </span>
+                </button>
+                {ayahOpen && (
+                  <div style={{
+                    ...popup,
+                    // Tetikleyici 132px dar; liste ona hizalanınca dört sütun
+                    // sıkışıyordu. Panel sağ kenarına yaslanıp SOLA doğru
+                    // genişliyor (kullanıcı 2026-08-26: "biraz daha geniş bir
+                    // âyet penceresi olabilir").
+                    left: 'auto', right: 0, width: '272px',
+                    maxHeight: '300px', padding: '8px',
+                  }} role="listbox">
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      gap: '6px', padding: '0 2px 8px',
+                    }}>
+                      <span style={{
+                        fontFamily: FONTS.body, fontSize: '0.6rem', color: theme.muted,
+                        textTransform: 'uppercase', letterSpacing: '0.12em',
+                      }}>{L.pickAyah} / {ayahCount}</span>
+                      <button type="button" onClick={() => setAyahOpen(false)}
+                        aria-label={L.closeList} title={L.closeList} style={closeBtn}>
+                        <IconClose size={10} />
+                      </button>
+                    </div>
+                    <div style={{
+                      overflowY: 'auto',
+                      // Kaydırma çubuğu son sütunun üstüne binip sayıları
+                      // kırpıyordu (kullanıcı 2026-08-26). `scrollbar-gutter`
+                      // yeri baştan ayırır; desteklemeyen tarayıcılar için
+                      // sağ dolgu yedek olarak duruyor.
+                      scrollbarGutter: 'stable',
+                      paddingRight: '4px',
+                      display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '5px',
+                    }}>
+                      {Array.from({ length: ayahCount }, (_, k) => k + 1).map(n => (
+                        <button
+                          key={n} type="button" role="option"
+                          aria-selected={n === pickAyah}
+                          ref={n === pickAyah ? (el) => el && el.scrollIntoView({ block: 'center' }) : undefined}
+                          onClick={() => {
+                            setPickAyah(n);
+                            setAyahOpen(false);
+                            onPickStart && onPickStart(pickSurah, n);
+                            setPickOpen(false);
+                          }}
+                          style={{
+                            padding: '7px 0', borderRadius: RADIUS.sm,
+                            border: `1px solid ${n === pickAyah ? theme.gold : 'transparent'}`,
+                            background: n === pickAyah ? `${theme.gold}1f` : fieldBg,
+                            color: n === pickAyah ? theme.gold : (theme.fieldText || theme.text),
+                            fontFamily: FONTS.body, fontSize: '0.78rem',
+                            fontWeight: n === pickAyah ? 700 : 500,
+                            cursor: 'pointer', textAlign: 'center',
+                          }}
+                        >
+                          {n}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })()}
