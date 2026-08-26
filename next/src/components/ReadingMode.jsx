@@ -10445,6 +10445,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             text: dayMode ? COLORS.paperSepia : COLORS.offWhite,
             muted: C.muted,
             gold,
+            // Form alanları için gündüz/gece duyarlı yüzey — panelin geri
+            // kalanıyla aynı palet (dropC zaten okuma modunun tüm açılır
+            // menülerinde kullanılıyor), böylece seçiciler sayfaya yabancı
+            // durmuyor (kullanıcı 2026-08-26: "renkler gece gündüz moduna
+            // göre daha uyumlu olsa").
+            fieldBg: dropC.inputBg,
+            fieldBorder: dropC.inputBorder,
+            fieldHover: dropC.itemBgHover,
+            fieldText: dropC.text,
           }}
           session={hifz.session}
           repeat={hifzRepeat}
@@ -10453,6 +10462,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           onAutoChange={setHifzAuto}
           activeVerse={hifzStartVerse}
           available={surahVerses.length > 0}
+          // Başlangıç âyeti panelden seçilebilsin (sûre dahil) — önceden
+          // yalnız sayfada bir âyete tıklayarak değiştirilebiliyordu.
+          surahNames={language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR}
+          surahAyahCounts={SURAH_AYAH_COUNTS}
+          currentSurah={selectedSurah}
+          onPickStart={(sn, ayah) => {
+            if (sn !== selectedSurah) {
+              changeSurah(sn);
+              setPendingScrollAyah(ayah);
+              return;
+            }
+            const v = surahVerses.find(x => x.ayah === ayah);
+            if (v) handleSelectVerse(v);
+          }}
           onStart={handleHifzStart}
           onStop={stopAudio}
           onPause={handleHifzPause}

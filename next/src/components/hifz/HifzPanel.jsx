@@ -56,10 +56,17 @@ export default function HifzPanel({
   language, isMobile, theme,
   session, repeat, onRepeatChange, auto, onAutoChange,
   activeVerse, available,
+  // Başlangıç âyeti SEÇİLEBİLİR olmalı — önceden yalnız okunur bir metindi ve
+  // değeri sayfada bir âyete tıklamaya bağlıydı; panelden değiştirilemiyordu
+  // (kullanıcı 2026-08-26: "ezber modunda başlangıç ayetini seçemiyorum...
+  // hatta sûre de seçilebilmeli"). Sûre + âyet birlikte seçilir.
+  surahNames = [], surahAyahCounts = [], currentSurah, onPickStart,
   onStart, onStop, onPause, onResume, onRepeatStep, onClose,
 }) {
   const tr = language === 'tr';
   const [showHelp, setShowHelp] = useState(false);
+  const [pickOpen, setPickOpen] = useState(false);
+  const [pickSurah, setPickSurah] = useState(currentSurah || 1);
   const running = !!session;
   const phase = session?.phase;
 
@@ -68,6 +75,9 @@ export default function HifzPanel({
     repeat:  tr ? 'Tekrar sayısı' : 'Repetitions',
     auto:    tr ? 'Otomatik ilerleme' : 'Auto-advance',
     startAt: tr ? 'Başlangıç' : 'Start from',
+    pickSurah: tr ? 'Sûre' : 'Surah',
+    pickAyah:  tr ? 'Âyet' : 'Verse',
+    pickHint:  tr ? 'Başlangıç âyetini seç' : 'Choose the starting verse',
     start:   tr ? 'Başlat' : 'Start',
     stop:    tr ? 'Durdur' : 'Stop',
     pause:   tr ? 'Duraklat' : 'Pause',
@@ -374,17 +384,115 @@ export default function HifzPanel({
         </button>
       </div>
 
-      {/* Başlangıç ayeti */}
-      <div style={rowStyle}>
+      {/* Başlangıç âyeti — tıklanabilir; sûre + âyet birlikte seçilir. */}
+      <div style={{ ...rowStyle, flexWrap: 'wrap', rowGap: '10px' }}>
         <span style={rowLabel}>{L.startAt}</span>
-        <span style={{
-          fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, flexShrink: 0,
-          color: activeVerse ? theme.gold : theme.muted,
-        }}>
-          {activeVerse
-            ? (tr ? `Ayet ${activeVerse.ayah}` : `Verse ${activeVerse.ayah}`)
-            : '—'}
-        </span>
+        <button
+          onClick={() => { setPickSurah(currentSurah || 1); setPickOpen(o => !o); }}
+          disabled={running}
+          title={L.pickHint}
+          aria-expanded={pickOpen}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 700, flexShrink: 0,
+            color: activeVerse ? theme.gold : theme.muted,
+            background: 'transparent', border: 'none', padding: 0,
+            cursor: running ? 'default' : 'pointer', opacity: running ? 0.6 : 1,
+          }}
+        >
+          <span>
+            {activeVerse
+              ? `${surahNames[activeVerse.surah - 1] || activeVerse.surah} ${activeVerse.surah}:${activeVerse.ayah}`
+              : '—'}
+          </span>
+          {!running && (
+            <span style={{
+              fontSize: '0.6rem', opacity: 0.75, display: 'inline-flex',
+              transform: pickOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+              transition: `transform ${TRANSITION.fast}`,
+            }}>▾</span>
+          )}
+        </button>
+
+        {pickOpen && !running && (() => {
+          // Yerel `select` görünümü panelin geri kalanıyla uyumsuzdu; native
+          // ok işareti kaldırılıp (appearance:none) altın bir chevron ve
+          // panelin kendi yüzey/kenarlık renkleri kullanılıyor. Native
+          // `select` KORUNDU — mobilde işletim sisteminin kendi tekerlek
+          // seçicisini açtığı ve klavye/ekran okuyucu desteği hazır geldiği
+          // için özel bir açılır listeden daha sağlam.
+          const chevron = encodeURIComponent(
+            `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="${theme.gold}" stroke-width="1.6" stroke-linecap="round"/></svg>`
+          );
+          const fieldBg = theme.fieldBg || theme.bg;
+          const fieldBorder = theme.fieldBorder || theme.border;
+          const field = {
+            appearance: 'none', WebkitAppearance: 'none', MozAppearance: 'none',
+            padding: '10px 30px 10px 12px', borderRadius: RADIUS.md,
+            border: `1px solid ${fieldBorder}`,
+            background: `url("data:image/svg+xml,${chevron}") no-repeat right 11px center, ${fieldBg}`,
+            color: theme.fieldText || theme.text,
+            fontFamily: FONTS.body, fontSize: '0.85rem',
+            fontWeight: 600, cursor: 'pointer', outline: 'none',
+            transition: `border-color ${TRANSITION.fast}, background-color ${TRANSITION.fast}`,
+          };
+          const cap = {
+            display: 'block', fontFamily: FONTS.body, fontSize: '0.6rem',
+            textTransform: 'uppercase', letterSpacing: '0.12em',
+            color: theme.muted, marginBottom: '5px',
+          };
+          const focus = (e) => {
+            e.currentTarget.style.borderColor = theme.gold;
+            e.currentTarget.style.boxShadow = `0 0 0 3px ${theme.gold}22`;
+          };
+          const blur = (e) => {
+            e.currentTarget.style.borderColor = fieldBorder;
+            e.currentTarget.style.boxShadow = 'none';
+          };
+          return (
+            <div style={{
+              flexBasis: '100%', display: 'flex', gap: '10px', alignItems: 'flex-end',
+              padding: '14px', borderRadius: RADIUS.lg || RADIUS.md,
+              border: `1px solid ${theme.border}`,
+              background: theme.fieldHover || 'transparent',
+            }}>
+              <label style={{ flex: 1, minWidth: 0 }}>
+                <span style={cap}>{L.pickSurah}</span>
+                <select
+                  aria-label={L.pickSurah}
+                  value={pickSurah}
+                  onChange={(e) => setPickSurah(Number(e.target.value))}
+                  onFocus={focus} onBlur={blur}
+                  style={{ ...field, width: '100%' }}
+                >
+                  {surahNames.map((nm, idx) => (
+                    <option key={idx + 1} value={idx + 1}>{idx + 1}. {nm}</option>
+                  ))}
+                </select>
+              </label>
+              <label style={{ width: '104px', flexShrink: 0 }}>
+                <span style={cap}>{L.pickAyah}</span>
+                <select
+                  aria-label={L.pickAyah}
+                  defaultValue=""
+                  onChange={(e) => {
+                    const ayah = Number(e.target.value);
+                    if (!ayah) return;
+                    onPickStart && onPickStart(pickSurah, ayah);
+                    setPickOpen(false);
+                  }}
+                  onFocus={focus} onBlur={blur}
+                  style={{ ...field, width: '100%' }}
+                >
+                  <option value="">—</option>
+                  {Array.from({ length: surahAyahCounts[pickSurah - 1] || 0 }, (_, k) => (
+                    <option key={k + 1} value={k + 1}>{k + 1}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Birincil eylem — tam genişlik, tereddütsüz */}
