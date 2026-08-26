@@ -7043,8 +7043,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     width: '1px',
                     transform: 'translateX(-50%)',
                     background: dayMode
-                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.72) 6%, rgba(154,120,56,0.72) 94%, transparent 100%)'
-                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.60) 6%, rgba(212,165,116,0.60) 94%, transparent 100%)',
+                      // Solma payı YÜZDE değil SABİT px — bu sarmalayıcı tek
+                      // sayfa değil TÜM SÛRE olduğu için (Bakara'da on binlerce
+                      // px) %6'lık pay binlerce piksele çıkıyor ve cilt çizgisi
+                      // sayfanın üstünde tamamen saydam kalıyordu.
+                      ? 'linear-gradient(to bottom, transparent 0, rgba(154,120,56,0.72) 120px, rgba(154,120,56,0.72) calc(100% - 120px), transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0, rgba(212,165,116,0.60) 120px, rgba(212,165,116,0.60) calc(100% - 120px), transparent 100%)',
                   }} />
                   {/* Layer 3a–c — three diamond ornaments, all FILLED and
                       identical so the cilt seam reads as a deliberate
@@ -8955,18 +8959,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               // plain verse mode).
               position: 'relative',
             }}>
-              {renderPageFrame(false)}
-              {/* Cilt boşluğu ayracı KAPALI: bu ayraç iki sütunlu bir düzeni
-                  varsayıyor, ama kırık mealde meal satırları TAM GENİŞLİK
-                  (ölçüldü: 0→1434). Ortada bir cilt çizgisi çizilince metin
-                  onu kesip geçiyordu. Âyet modunda (gerçekten iki sütun)
-                  aynı ayraç açık kalıyor. */}
-              {false && showTranslation && !isMobile && (
+              {renderPageFrame(true)}
+              {/* Cilt boşluğu ayracı — âyet modundakiyle aynı. Kırık meal de
+                  gerçekten iki sütunlu: VerseRow `1fr 1fr` ızgara kullanıyor
+                  (bkz. InterlinearView'daki 50/50 notu). */}
+              {showTranslation && !isMobile && (
                 <div aria-hidden style={{
                   position: 'absolute',
                   left: '50%',
-                  top: '12px',
-                  bottom: '12px',
+                  // Cilt çizgisi sayfa çerçevesiyle AYNI hizada başlayıp bitsin
+                  // (çerçeve üstte 20px, altta 36px içeride). 12px'te çizgi
+                  // çerçevenin 8px yukarısından başlıyordu.
+                  top: '20px',
+                  bottom: '36px',
                   width: '18px',
                   transform: 'translateX(-50%)',
                   pointerEvents: 'none',
@@ -8982,8 +8987,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     position: 'absolute', top: 0, bottom: 0, left: '50%', width: '1px',
                     transform: 'translateX(-50%)',
                     background: dayMode
-                      ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.72) 6%, rgba(154,120,56,0.72) 94%, transparent 100%)'
-                      : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.60) 6%, rgba(212,165,116,0.60) 94%, transparent 100%)',
+                      // Solma payı YÜZDE değil SABİT px — bu sarmalayıcı tek
+                      // sayfa değil TÜM SÛRE olduğu için (Bakara'da on binlerce
+                      // px) %6'lık pay binlerce piksele çıkıyor ve cilt çizgisi
+                      // sayfanın üstünde tamamen saydam kalıyordu.
+                      ? 'linear-gradient(to bottom, transparent 0, rgba(154,120,56,0.72) 120px, rgba(154,120,56,0.72) calc(100% - 120px), transparent 100%)'
+                      : 'linear-gradient(to bottom, transparent 0, rgba(212,165,116,0.60) 120px, rgba(212,165,116,0.60) calc(100% - 120px), transparent 100%)',
                   }} />
                   {[
                     { pos: { top: '10px' }, label: 'top' },
@@ -9229,10 +9238,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 if (showTranslation && !isMobile) {
                   return (
                     <div style={{
-                      // Kırık meal TEK çerçeve kullanıyor (meal satırları tam
-                      // genişlik) — 108px'lik cilt boşluğu yalnız âyet modunun
-                      // iki çerçeveli düzeni için geçerli.
-                      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px',
+                      // 108px cilt boşluğu = kitap modunda iki sûre kutusu
+                      // arasında ÖLÇÜLEN mesafe; sütunlar iki ayrı sayfa
+                      // çerçevesinin içine tam oturuyor.
+                      display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '108px',
                       position: 'relative', zIndex: 1,
                     }}>
                       {trBlock}
@@ -9305,8 +9314,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <div aria-hidden style={{
                 position: 'absolute',
                 left: '50%',
-                top: '12px',
-                bottom: '12px',
+                // Çerçeveyle aynı hiza — bkz. kelime-meali dalındaki not.
+                top: '20px',
+                bottom: '36px',
                 width: '18px',
                 transform: 'translateX(-50%)',
                 pointerEvents: 'none',

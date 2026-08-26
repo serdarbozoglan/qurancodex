@@ -230,7 +230,11 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
         gridTemplateColumns: translation
           ? (isMobile ? undefined : '1fr 1fr')
           : '1fr',
-        gap: isMobile ? (translation ? '4px' : '8px') : '16px',
+        // 108px = kitap modunda iki sûre kutusu arasında ÖLÇÜLEN cilt
+        // boşluğu. 16px'te sol hücre 647px'e çıkıp sayfa çerçevesinin iç
+        // kenarını (693) aşıyor ve meal metni çerçeveyi kesiyordu
+        // (kullanıcı 2026-08-26 ekran görüntüsü). 108'de hücre 601px.
+        gap: isMobile ? (translation ? '4px' : '8px') : (translation ? '108px' : '16px'),
         alignItems: isMobile ? 'flex-start' : 'center',
         '--pt-d': "0", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "0", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
         borderRadius: isMobile ? '0' : '6px',
