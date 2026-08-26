@@ -4359,7 +4359,17 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           Visible only while tajweed colors are enabled. Collapsed by default
           (single thin row showing the title + chevron). When expanded, shows
           one chip per rule with its color swatch + Turkish/English name. */}
-      {showTajweed && (() => {
+      {/* Tecvid AÇIK olsa bile, renklerin UYGULANAMADIĞI iki modda şerit
+          gizlenir — yoksa kullanıcı ayarın kapalı/devre dışı olduğunu
+          görürken üstte "TECVİD KURALLARI" cetvelini okuyor ve renklerin
+          aktif olduğunu sanıyor (kullanıcı 2026-08-26: "tecvid kapalı ama
+          mushaf modda tecvid kuralları gösteriliyor"). Koşullar, AYAR'daki
+          tecvid satırını devre dışı bırakan koşullarla BİREBİR aynı:
+            · mushaf görsel modu → renkler taranmış sayfa fotoğrafına değil,
+              canlı render edilen metne uygulanır; fotoğrafta karşılığı yok.
+            · kırık meal → kelime-kelime render tecvid pipeline'ını hiç
+              kullanmıyor, kendi sabit kelime-rengi paletini basıyor. */}
+      {showTajweed && !isMushafImageActive && !interlinearMode && (() => {
         // Palette must match `applyTajweed` in this file (lines ~182–200).
         // Duplicating the values keeps the legend a pure presentation component.
         const PAL = dayMode ? {
