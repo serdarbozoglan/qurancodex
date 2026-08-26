@@ -10358,12 +10358,30 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, fontSize: isMobile ? '0.72rem' : '0.88rem', fontWeight: 700, letterSpacing: '0.04em' }}>
                   {SURAH_NAMES_TR[activeVerse.surah - 1]} · {activeVerse.ayah}
                 </span>
-                {!isMobile && <span style={{
-                  color: C.muted, fontSize: '0.75rem', padding: '1px 7px',
-                  border: `1px solid ${dayMode ? 'rgba(0,0,0,0.12)' : COLORS.glassBgStrong}`, borderRadius: RADIUS.xs,
-                }}>
-                  {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
-                </span>}
+                {/* Kârî rozeti TIKLANABİLİR — kârî adı zaten burada yazıyor,
+                    değiştirmek için AYAR panelini açmak gereksiz bir dolambaç
+                    (kullanıcı 2026-08-26: "sayfa altında Kari yazıyor ya,
+                    oradan da seçebilsek"). Aynı seçiciyi açar. */}
+                {!isMobile && (
+                  <button
+                    onClick={() => { setShowReciterPicker(p => !p); setShowSettingsPicker(false); setShowMealPicker(false); setShowSurahPicker(false); }}
+                    title={language === 'tr' ? 'Kârî değiştir' : 'Change reciter'}
+                    aria-haspopup="listbox"
+                    aria-expanded={showReciterPicker}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '5px',
+                      color: gold, fontSize: '0.75rem', padding: '1px 7px',
+                      border: `1px solid ${navC.btnBorderActive}`, borderRadius: RADIUS.xs,
+                      background: dropC.itemBgActive, cursor: 'pointer',
+                      fontFamily: 'inherit', lineHeight: 1.6,
+                      transition: `all ${TRANSITION.fast}`,
+                    }}
+                  >
+                    <MicIcon size={11} />
+                    {language === 'tr' ? RECITERS[reciterIdx].labelTr : RECITERS[reciterIdx].labelEn}
+                    <span style={{ fontSize: '0.55rem', opacity: 0.75 }}>▾</span>
+                  </button>
+                )}
               </div>
             </div>
 
