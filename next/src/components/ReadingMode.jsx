@@ -7503,7 +7503,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     // gets its honoured colour wherever it appears.
                                     color: C.bismillah,
                                     '--mt-d': '33px', '--mt-m': '24px',
-                                    '--mb-d': '87px', '--mb-m': '63px',
+                                    // Besmele ile ilk âyet arası kısaltıldı (kullanıcı 2026-08-26).
+                                    '--mb-d': '44px', '--mb-m': '30px',
                                     lineHeight: 1.7,
                                     cursor: isFatihaHeaderTr ? 'pointer' : 'default',
                                     background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -9301,8 +9302,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // 2026-08-26: "aynı hero şeklini kullan tüm modlarda,
                         // besmelenin başlangıcı dahil"). Kutu artık her modda
                         // aynı yükseklikte olduğu için değer de ortak.
+                        // Dolgu değişkenleri KALITSAL: sarmalayıcının --pt-d:50px /
+                        // --pb-d:66px değerleri bu satıra da uygulanıp besmeleyi
+                        // 85px'lik satırdan 201px'e şişiriyor, ızgara satırını
+                        // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
+                        // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
+                        '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
                         '--mt-d': '-36px', '--mt-m': '-21px',
-                        '--mb-d': '18px', '--mb-m': '12px',
+                        '--mb-d': '6px', '--mb-m': '4px',
                         lineHeight: 1.9,
                       }}>
                         {BISMILLAH_AR}
@@ -9339,7 +9346,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // denendiğinde 20px'e yenilip besmele 5px yukarıda
                         // kalıyordu (ölçüldü: 37.4'e karşı 42.4).
                         '--mt-d': '33px', '--mt-m': '24px',
-                        '--mb-d': '18px', '--mb-m': '12px',
+                        '--mb-d': '6px', '--mb-m': '4px',
                         lineHeight: 1.7,
                         padding: '0 12px',
                       }}>
@@ -9655,8 +9662,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       color: C.bismillah,
                       // Kitap moduyla aynı besmele başlangıcı — bkz. aynı
                       // değerin kullanıldığı diğer modlar.
-                      '--mt-d': '-36px', '--mt-m': '-21px',
-                      '--mb-d': '18px', '--mb-m': '12px',
+                      // Dolgu değişkenleri KALITSAL: sarmalayıcının --pt-d:50px /
+                        // --pb-d:66px değerleri bu satıra da uygulanıp besmeleyi
+                        // 85px'lik satırdan 201px'e şişiriyor, ızgara satırını
+                        // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
+                        // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
+                        '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
+                        '--mt-d': '-36px', '--mt-m': '-21px',
+                      '--mb-d': '6px', '--mb-m': '4px',
                       lineHeight: 1.9,
                     }}>
                       {BISMILLAH_AR}
@@ -9684,7 +9697,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       // Kitap moduyla aynı besmele başlangıcı — bkz. Kırık
                       // Meal'deki aynı blok (margin collapse notu orada).
                       '--mt-d': '33px', '--mt-m': '24px',
-                      '--mb-d': '18px', '--mb-m': '12px',
+                      '--mb-d': '6px', '--mb-m': '4px',
                       lineHeight: 1.7,
                       padding: '0 12px',
                     }}>
@@ -9740,7 +9753,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
                     gap: isMobile ? (showTranslation ? '4px' : '8px') : (showTranslation ? '108px' : '16px'),
                     alignItems: 'flex-start',
-                    '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
+                    '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "20px", '--pl-m': "12px",
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
                     // bkz. Kitap modundaki highlightStyleL/highlightStyle yorumu
