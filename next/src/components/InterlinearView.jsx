@@ -176,7 +176,7 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
   );
 }
 
-function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, lang, arabicFontSize, arabicFont, translation, verseIdx, onCompareClick, isSajda, language }) {
+function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, lang, arabicFontSize, arabicFont, translation, verseIdx, onCompareClick, isSajda, language, mealFontSize = 1, mealItalic = true, highlightMeal }) {
   const rowRef = useRef(null);
   // Kitap modunun sayfa zemin rengiyle aynı — çift-halka rozetin orta
   // (boşluk) katmanı bu renkte olmalı, ReadingMode'un kendi C.bg'si.
@@ -282,12 +282,15 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
           <p style={{
             margin: 0, flex: 1,
             color: isActive ? C.translationActive : C.translation,
-            fontSize: isMobile ? '0.82rem' : '1rem',
-            lineHeight: isMobile ? 1.55 : 1.8,
-            fontStyle: 'italic',
-            fontFamily: "'Inter', sans-serif",
+            // Kitap modundaki meal paragrafının birebir aynısı.
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
+            lineHeight: isMobile ? 1.55 : 1.75,
+            fontStyle: mealItalic ? 'italic' : 'normal',
           }}>
-            {translation}
+            {highlightMeal
+              ? <span dangerouslySetInnerHTML={{ __html: highlightMeal(translation) }} />
+              : translation}
           </p>
         </div>
       )}
@@ -360,6 +363,13 @@ export default function InterlinearView({
   arabicFontSize,
   arabicFont,
   getTranslation,
+  // Meal tipografisi kitap moduyla ORTAK olsun diye dışarıdan gelir.
+  // Önceden burada sabit 'Inter' 1rem yazılıydı: farklı yazı tipi, Meal
+  // Boyutu kaydırıcısına tepkisiz, italik ayarını yok sayan ve "Allah"
+  // vurgusu olmayan bir meal üretiyordu (kullanıcı 2026-08-26).
+  mealFontSize = 1,
+  mealItalic = true,
+  highlightMeal,
   // New: enable book-mode-parity badge (clickable compare + sajda variant).
   onCompareClick,
   sajdaVerses,
@@ -441,6 +451,9 @@ export default function InterlinearView({
             arabicFontSize={arabicFontSize}
             arabicFont={arabicFont}
             translation={getTranslation ? getTranslation(verse) : null}
+            mealFontSize={mealFontSize}
+            mealItalic={mealItalic}
+            highlightMeal={highlightMeal}
             verseIdx={verseIdx}
             onCompareClick={onCompareClick}
             isSajda={isSajda}

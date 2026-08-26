@@ -3186,6 +3186,58 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     '--pr-d': '20px', '--pr-m': '14px',
     '--mb-d': '20px', '--mb-m': '14px',
   };
+  // Mushaf sayfa çerçevesi — kitap modundaki çift altın cetvelin aynısı,
+  // âyet ve kelime-meali modlarında da kullanılır (kullanıcı 2026-08-26:
+  // "frame'i yap hepsine"). Kitap modunda çerçeve her SÜTUNUN kendi
+  // kutusunda; bu iki modda ise sayfa tek akış olduğu için içeriğin
+  // arkasına konumlanmış tek bir katman olarak çizilir.
+  //   zIndex -1  → metnin ARKASINDA kalır (pozitif/0 z-index'li konumlu bir
+  //                katman, akıştaki kardeş metinlerin ÜSTÜNE boyanır ve
+  //                yazıyı örterdi).
+  //   inset 0 32 → çerçeve çizgisi kitap modundakiyle aynı x'te (32px);
+  //                sarmalayıcının yatay dolgusu 62px olduğu için metin
+  //                çizgiden 30px içeride başlar — kitap modunun birebir aynısı.
+  //   twoUp=true  → kitap modundaki gibi İKİ sayfa çerçevesi (sol meal ·
+  //                 sağ Arapça). Yalnız âyet modunda geçerli: orada her âyet
+  //                 satırı gerçekten iki sütunlu bir ızgara.
+  //   twoUp=false → tek geniş çerçeve. Kelime-meali (kırık meal) modunda
+  //                 meal satırları TAM GENİŞLİK (ölçüldü: 0→1434), iki
+  //                 çerçeve çizilince metin çerçeveyi ve cilt boşluğunu
+  //                 kesip taşıyordu (kullanıcı 2026-08-26 ekran görüntüsü).
+  const renderPageFrame = (twoUp) => {
+    if (!showPageFrame) return null;
+    const shell = {
+      position: 'absolute',
+      // Üst boşluk kitap modundaki ile aynı: orada sarmalayıcının 20px üst
+      // dolgusu çerçevenin ÜSTÜNDE kalıyor (ölçüldü: kitap modunda çerçeve
+      // 84'te, bu modlarda 64'te başlıyordu — 20px fark).
+      top: isMobile ? '10px' : '20px',
+      bottom: isMobile ? '32px' : '36px',
+      borderRadius: '6px',
+      background: C.bg,
+      boxShadow: isMobile
+        ? `inset 0 0 0 1px ${dayMode ? 'rgba(122,82,21,0.22)' : 'rgba(200,185,165,0.22)'}`
+        : `inset 0 0 0 1px ${dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)'}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)'}`,
+      pointerEvents: 'none',
+      // Metnin ARKASINDA kalmalı — pozitif/0 z-index'li konumlu bir katman
+      // akıştaki kardeş metinlerin ÜSTÜNE boyanır ve yazıyı örterdi.
+      zIndex: -1,
+    };
+    // Meal açıkken masaüstünde kitap modundaki gibi İKİ ayrı sayfa çerçevesi
+    // (sol meal · sağ Arapça), aradaki 48px cilt boşluğuyla. Ölçülen kitap
+    // modu geometrisi: sol 32, genişlik 661, sağ sütun 741'de başlıyor.
+    if (twoUp && showTranslation && !isMobile) {
+      const w = 'calc((100% - 112px) / 2)'; // 112 = 32 sol + 32 sağ + 48 cilt
+      return (
+        <>
+          <div aria-hidden style={{ ...shell, left: '32px', width: w }} />
+          <div aria-hidden style={{ ...shell, right: '32px', width: w }} />
+        </>
+      );
+    }
+    return <div aria-hidden style={{ ...shell, left: isMobile ? '12px' : '32px', right: isMobile ? '12px' : '32px' }} />;
+  };
+
   // Her satır kendi dolgusunu sıfırlar — bkz. yukarıdaki kalıtım notu.
   const SURAH_ROW_RESET = {
     '--pt-d': '0px', '--pt-m': '0px',
@@ -8889,16 +8941,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           /* ── Verse mode — ayet ayet, sayfa moduyla aynı rozet ve renk stili ── */
           interlinearMode ? (
             <div className="mq-box" style={{
-              '--pt-d': "16px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "0", '--pb-d': "60px", '--pb-m': "40px", '--pl-d': "24px", '--pl-m': "0",
+              // Genişlik kitap moduyla ORTAK — mod değiştirince sayfa yapısı
+              // zıplamasın diye (kullanıcı 2026-08-26). Ölçülmüştü: kitap
+              // modunda kutu 601px / sol kenar 62, kırık meal ve âyet modunda
+              // 685px / sol kenar 24. Aynı maxWidth + aynı yatay dolgu.
+              maxWidth: '1800px',
+              margin: '0 auto',
+              // Yatay dolgu = 32 (çerçevenin dışındaki boşluk) + 30 (kitap
+              // modunda sütunun çerçeve içi dolgusu) = 62px. Mobilde 12+12=24.
+              '--pt-d': "50px", '--pt-m': "22px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
               // Relative wrapper hosts the cilt boşluğu divider and gives
               // the surah-opening card a positioned context (parity with
               // plain verse mode).
               position: 'relative',
             }}>
-              {/* Cilt boşluğu divider — same 3-layer mushaf binding seam as
-                  plain verse mode, between Turkish meal (left) and Arabic
-                  words (right). Only when meal on + desktop. */}
-              {showTranslation && !isMobile && (
+              {renderPageFrame(false)}
+              {/* Cilt boşluğu ayracı KAPALI: bu ayraç iki sütunlu bir düzeni
+                  varsayıyor, ama kırık mealde meal satırları TAM GENİŞLİK
+                  (ölçüldü: 0→1434). Ortada bir cilt çizgisi çizilince metin
+                  onu kesip geçiyordu. Âyet modunda (gerçekten iki sütun)
+                  aynı ayraç açık kalıyor. */}
+              {false && showTranslation && !isMobile && (
                 <div aria-hidden style={{
                   position: 'absolute',
                   left: '50%',
@@ -8949,13 +9012,27 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   sit on opposite sides of the divider. Mobile stacks them. */}
               {showTranslation && (
                 <div className="mq-box" ref={inlineMealPickerRef} style={{
-                  position: 'relative',
+                  // Kitap modundaki gibi AKIŞTAN ÇIKARILDI (absolute): akışta
+                  // dururken 40.6px yer kaplıyor ve sûre kutusunu aşağı
+                  // itiyordu (ölçüldü: kitap modunda kutu çerçeveden 30px
+                  // aşağıda, bu modlarda 70.6px). top 22 = çerçevenin 20px
+                  // üst boşluğu + kitap modundaki 2px; left/right 62 = kutu
+                  // kenarıyla birebir hiza.
+                  // Dolgu değişkenleri KALITSAL: sarmalayıcının --pt-d:50px
+                  // değeri bu kutuya da uygulanıp tetikleyiciyi 50px aşağı
+                  // itiyordu (ölçüldü: kutu 86'da, buton 136'da). Sıfırla.
+                  '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
+                  '--pl-d': '0px', '--pl-m': '0px', '--pr-d': '0px', '--pr-m': '0px',
+                  position: 'absolute',
+                  top: isMobile ? '12px' : '22px',
+                  left: isMobile ? '24px' : '62px',
+                  right: isMobile ? '24px' : '62px',
                   display: 'grid',
                   gridTemplateColumns: !isMobile ? '1fr 1fr' : '1fr',
                   alignItems: 'center',
-                  '--pt-d': "0", '--pt-m': "4px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "10px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "16px",
-                  marginBottom: '6px',
-                  borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                  // Alttaki ayraç çizgisi kaldırıldı — sayfa çerçevesi geldikten
+                  // sonra gereksiz ikinci bir yatay çizgi üretiyordu
+                  // (kullanıcı 2026-08-26).
                   // ⚠ YIĞIN BAĞLAMI: z:1 kendi bağlamını açıyor; içindeki
                   // dropdown'ın z:20'si sadece burada geçerli. Dışarıdan blok
                   // z:1 olarak yarışır ve sayfadaki z>1 katmanlar (Arapça sûre
@@ -8968,19 +9045,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     onClick={() => setShowInlineMealPicker(p => !p)}
                     title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
                     style={{
-                      background: 'transparent', border: 'none', padding: 0,
-                      fontSize: '0.82rem',
-                      color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
-                      letterSpacing: '0.04em', cursor: 'pointer',
-                      display: 'flex', alignItems: 'center', gap: '6px',
+                      // Kitap modundaki tetikleyicinin birebir aynısı
+                      // (kullanıcı 2026-08-26: "MEAL drop down'unu diğer
+                      // modlarda da standart yap").
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      margin: 0, padding: '3px 0', lineHeight: 1.2,
+                      verticalAlign: 'top',
+                      background: 'transparent', border: 'none',
+                      fontSize: '0.78rem', fontWeight: 500,
+                      color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)',
+                      letterSpacing: '0.02em', cursor: 'pointer',
+                      textAlign: 'left',
                       transition: 'color 0.15s', fontFamily: 'inherit',
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = dayMode ? '#7a5210' : 'rgba(244,206,131,1)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)'; }}
                   >
-                    <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                    <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.12em', opacity: 0.7 }}>
+                      {language === 'tr' ? 'Meal' : 'Translation'}
+                    </span>
+                    <span style={{ fontWeight: 600 }}>{selectedMealAuthor.label}</span>
                     <span style={{
-                      fontSize: '0.6rem', opacity: 0.7,
+                      fontSize: '0.6rem', opacity: 0.75, marginLeft: '2px',
                       transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
                       transition: 'transform 0.18s', display: 'inline-flex',
                     }}>▾</span>
@@ -9143,6 +9229,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 if (showTranslation && !isMobile) {
                   return (
                     <div style={{
+                      // Kırık meal TEK çerçeve kullanıyor (meal satırları tam
+                      // genişlik) — 108px'lik cilt boşluğu yalnız âyet modunun
+                      // iki çerçeveli düzeni için geçerli.
                       display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px',
                       position: 'relative', zIndex: 1,
                     }}>
@@ -9178,6 +9267,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   arabicFontSize={arabicFontSize}
                   arabicFont={currentFont}
                   getTranslation={showTranslation ? getTranslation : null}
+                  // Meal tipografisi kitap moduyla ORTAK — bkz. InterlinearView
+                  // içindeki not (önce sabit Inter 1rem kullanıyordu).
+                  mealFontSize={mealFontSize}
+                  mealItalic={mealItalic}
+                  highlightMeal={(t) => highlightAllahInMeal(t, dayMode)}
                   mealAuthorLabel={null}
                   onCompareClick={(s, a) => setCompareVerse({ surah: s, ayah: a })}
                   sajdaVerses={SAJDA_VERSES}
@@ -9187,7 +9281,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
           ) : (
           <div className="mq-box" style={{
-            '--pt-d': "16px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "0", '--pb-d': "16px", '--pb-m': "8px", '--pl-d': "24px", '--pl-m': "0",
+            // Genişlik kitap moduyla ORTAK — bkz. kelime-meali dalındaki
+            // aynı not (mod değişiminde sayfa zıplamasın).
+            maxWidth: '1800px',
+            margin: '0 auto',
+            // Yatay dolgu 62px = 32 (çerçeve dışı) + 30 (çerçeve içi) —
+            // bkz. kelime-meali dalındaki aynı not.
+            '--pt-d': "50px", '--pt-m': "22px", '--pr-d': "62px", '--pr-m': "24px", '--pb-d': "66px", '--pb-m': "44px", '--pl-d': "62px", '--pl-m': "24px",
             display: 'flex',
             flexDirection: 'column',
             gap: '0',
@@ -9195,6 +9295,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             // mirrors book mode's cilt boşluğu separating meal and Arabic.
             position: 'relative',
           }}>
+            {renderPageFrame(true)}
             {/* Cilt boşluğu — 3-layer mushaf binding-seam divider centered
                 between the Turkish meal (left) and Arabic verses (right).
                 Mirrors book mode treatment for unified mushaf experience.
@@ -9221,8 +9322,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   position: 'absolute', top: 0, bottom: 0, left: '50%', width: '1px',
                   transform: 'translateX(-50%)',
                   background: dayMode
-                    ? 'linear-gradient(to bottom, transparent 0%, rgba(154,120,56,0.55) 6%, rgba(154,120,56,0.55) 94%, transparent 100%)'
-                    : 'linear-gradient(to bottom, transparent 0%, rgba(212,165,116,0.45) 6%, rgba(212,165,116,0.45) 94%, transparent 100%)',
+                    // Solma payı YÜZDE değil SABİT px: âyet modunda bu
+                    // sarmalayıcı tek bir sayfa değil TÜM SÛRE olduğu için
+                    // (Bakara'da on binlerce px) %6'lık pay binlerce piksele
+                    // çıkıyor ve cilt çizgisi sayfanın üst kısmında tamamen
+                    // saydam kalıyordu — kullanıcı 2026-08-26: "divider
+                    // çizgisi eksik". 120px her yükseklikte aynı davranır.
+                    ? 'linear-gradient(to bottom, transparent 0, rgba(154,120,56,0.55) 120px, rgba(154,120,56,0.55) calc(100% - 120px), transparent 100%)'
+                    : 'linear-gradient(to bottom, transparent 0, rgba(212,165,116,0.45) 120px, rgba(212,165,116,0.45) calc(100% - 120px), transparent 100%)',
                 }} />
                 <div style={{
                   position: 'absolute', top: '10px', left: '50%', width: '6px', height: '6px',
@@ -9251,10 +9358,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 consistent across modes. */}
             {showTranslation && (
               <div className="mq-box" ref={inlineMealPickerRef} style={{
-                position: 'relative',
-                '--pt-d': "0", '--pt-m': "4px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "10px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "16px",
-                marginBottom: '6px',
-                borderBottom: `1px solid ${dayMode ? COLORS.paperDeepBrownAlpha08 : 'rgba(212,165,116,0.08)'}`,
+                // Kitap moduyla aynı — bkz. kelime-meali dalındaki not:
+                // akıştan çıkarıldı (sûre kutusunu aşağı itmesin) ve alttaki
+                // gereksiz ayraç çizgisi kaldırıldı.
+                // Dolgu değişkenleri KALITSAL — bkz. kelime-meali dalındaki not.
+                '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
+                '--pl-d': '0px', '--pl-m': '0px', '--pr-d': '0px', '--pr-m': '0px',
+                position: 'absolute',
+                top: isMobile ? '12px' : '22px',
+                left: isMobile ? '24px' : '62px',
+                right: isMobile ? '24px' : '62px',
                 // Kardeş bloklarla aynı sıralama garantisi — açıkken yükselir.
                 zIndex: showInlineMealPicker ? 50 : undefined,
               }}>
@@ -9262,24 +9375,31 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onClick={() => setShowInlineMealPicker(p => !p)}
                   title={language === 'tr' ? 'Çevirmeni değiştir' : 'Change translator'}
                   style={{
+                    // Kitap modundaki tetikleyicinin birebir aynısı.
+                    display: 'inline-flex', alignItems: 'center', gap: '8px',
+                    margin: 0, padding: '3px 0', lineHeight: 1.2,
+                    verticalAlign: 'top',
                     background: 'transparent',
                     border: 'none',
-                    padding: 0,
-                    fontSize: '0.82rem',
-                    color: dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)',
-                    letterSpacing: '0.04em',
+                    fontSize: '0.78rem', fontWeight: 500,
+                    color: dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)',
+                    letterSpacing: '0.02em',
                     cursor: 'pointer',
-                    display: 'flex', alignItems: 'center', gap: '6px',
+                    textAlign: 'left',
                     transition: 'color 0.15s',
                     fontFamily: 'inherit',
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = C.gold; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperDeepBrownAlpha60 : 'rgba(212,165,116,0.55)'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = dayMode ? '#7a5210' : 'rgba(244,206,131,1)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = dayMode ? COLORS.paperGold : 'rgba(232,181,71,0.78)'; }}
                 >
-                  <span>{language === 'tr' ? 'Meal:' : 'Translation:'} {selectedMealAuthor.label}</span>
+                  <span style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.12em', opacity: 0.7 }}>
+                    {language === 'tr' ? 'Meal' : 'Translation'}
+                  </span>
+                  <span style={{ fontWeight: 600 }}>{selectedMealAuthor.label}</span>
                   <span style={{
                     fontSize: '0.6rem',
-                    opacity: 0.7,
+                    opacity: 0.75,
+                    marginLeft: '2px',
                     transform: showInlineMealPicker ? 'rotate(180deg)' : 'rotate(0deg)',
                     transition: 'transform 0.18s',
                     display: 'inline-flex',
@@ -9455,7 +9575,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <div style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: '16px',
+                    // bkz. kelime-meali başlığındaki aynı not (108px cilt boşluğu).
+                    gap: '108px',
                     position: 'relative',
                     zIndex: 1,
                   }}>
@@ -9493,7 +9614,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     display: isMobile && showTranslation ? 'flex' : 'grid',
                     flexDirection: isMobile && showTranslation ? 'column' : undefined,
                     gridTemplateColumns: isMobile ? (showTranslation ? undefined : 'auto 1fr') : '1fr 1fr',
-                    gap: isMobile ? (showTranslation ? '4px' : '8px') : '16px',
+                    gap: isMobile ? (showTranslation ? '4px' : '8px') : (showTranslation ? '108px' : '16px'),
                     alignItems: 'flex-start',
                     '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
                     borderRadius: isMobile ? '0' : '6px',
