@@ -1394,3 +1394,19 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   .cc-hero-divider__tr   { font-size: 0.75rem; max-width: none; }
   .cc-hero-divider__ref  { font-size: 0.65rem; }
 }
+
+/* Âyet ve kırık meal modunda MOBİLDE meal sûre kutusu gizlenir.
+   O modlarda mobil düzen alt alta yığılıyor ve iki sûre kutusu peş peşe
+   geliyor. İkisi de AYNI üç bilgiyi veriyor (sûre no · sûre adı · nüzul
+   bilgisi) ve sûre adı ekranda üç kez yazıyor; iki kutu telefon ekranının
+   ~%45'ini kaplıyordu (kullanıcı 2026-08-26 ekran görüntüsü).
+   Gizlenen MEAL kutusu, kalan ARAPÇA kutusu — çünkü Arapça kutu zaten
+   Latin altyazı taşıyor ("Sûre 85 · El-Burûc"), yani sûre adı kaybolmuyor
+   ve mushaf hattı korunuyor.
+   Besmele MEALİ gizlenmez: o trBlock'un ayrı bir kardeşi, âyetin anlamı
+   orada. Masaüstünde tekrar DEĞİL — orada yan yana, karşılıklı okuma için.
+   Gizleme `isMobile` ile değil media query ile: JS state'e bağlanan düzen
+   değişikliği CLS üretirdi (§14.2). */
+@media (max-width: 640px) {
+  .qc-meal-surah-card--dup { display: none; }
+}

@@ -9328,7 +9328,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 const heroDisplay = nameForHero;
                 const trBlock = (
                   <div lang={contentLang}>
-                    {renderSurahCardTr(sn)}
+                    <div className={showTranslation ? 'qc-meal-surah-card--dup' : undefined}>
+                      {renderSurahCardTr(sn)}
+                    </div>
                     {sn !== 9 && sn !== 1 && (
                       <div className="mq-box" style={{
                         textAlign: 'center',
@@ -9691,7 +9693,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               const heroDisplay = nameForHero;
               const trBlock = (
                 <div lang={contentLang}>
-                  {renderSurahCardTr(sn)}
+                  <div className={showTranslation ? 'qc-meal-surah-card--dup' : undefined}>
+                    {renderSurahCardTr(sn)}
+                  </div>
                   {sn !== 9 && sn !== 1 && (
                     <div className="mq-box" style={{
                       textAlign: 'center',
