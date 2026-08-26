@@ -124,7 +124,7 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
   // hâlâ eski sayfadaydı (kullanıcı raporu 2026-08-25: "sayfa 3 nerede").
   const hayratPage = currentPage;
   const theme = dayMode
-    ? { text: '#3a3226', muted: '#7a6f5c', faint: '#9a8f7c', border: 'rgba(120,90,40,0.18)', rowBg: 'rgba(120,90,40,0.04)', iconBg: 'rgba(120,90,40,0.08)', selectBg: 'rgba(120,90,40,0.05)' }
+    ? { text: COLORS.mushafPaperText, muted: COLORS.mushafPaperMuted, faint: COLORS.mushafPaperFaint, border: 'rgba(120,90,40,0.18)', rowBg: 'rgba(120,90,40,0.04)', iconBg: 'rgba(120,90,40,0.08)', selectBg: 'rgba(120,90,40,0.05)' }
     : { text: SEMANTIC.textPrimary, muted: SEMANTIC.textMuted, faint: SEMANTIC.textFaint, border: SEMANTIC.textFaint + '22', rowBg: 'rgba(255,255,255,0.03)', iconBg: 'rgba(255,255,255,0.08)', selectBg: 'rgba(255,255,255,0.03)' };
 
   // ReadingMode'un klasik Kitap modu çerçevesiyle (data-ar-col'daki
@@ -173,7 +173,7 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
     height: '34px',
     borderRadius: '50%',
     border: 'none',
-    background: 'rgba(10,10,10,0.45)',
+    background: COLORS.mushafScrim,
     color: '#fff',
     cursor: 'pointer',
     position: 'absolute',

@@ -190,6 +190,18 @@ export const COLORS = {
 
   // Paper ink-brown alpha family (base #6e480a, warmer/lighter brown)
   // Used for active highlight, active border, scrollbar in day mode.
+  // ── Mushaf görünümü (MushafInlineView / MushafFontInlineView) ──────────
+  // Sayfa listesi, kontrol satırları ve tam ekran örtüsü için. Bu değerler
+  // bileşenlerin içinde ham hex olarak duruyor ve §13.25 tabanını 179'dan
+  // 184'e çıkarıyordu; role adlarıyla buraya taşındı.
+  mushafPaperText:   '#3a3226',                  // sayfa listesi ana metin (gündüz)
+  mushafPaperMuted:  '#7a6f5c',                  // ikincil etiket (gündüz)
+  mushafPaperFaint:  '#9a8f7c',                  // üçüncül/sönük etiket (gündüz)
+  mushafPaperBg:     '#faf6e8',                  // satır zemini (gündüz)
+  mushafScrim:       'rgba(10,10,10,0.45)',      // tam ekran görsel örtüsü
+  mushafNightBg:     '#141a24',                  // satır zemini (gece)
+  paperInkSoft:      '#2a2a2a',                  // gündüz gövde metni, paperInk'ten yumuşak
+
   paperInkBrownAlpha12: 'rgba(110,72,10,0.12)',  // activeHighlight
   paperInkBrownAlpha22: 'rgba(110,72,10,0.22)',  // scrollbar
   paperInkBrownAlpha52: 'rgba(110,72,10,0.52)',  // activeBorder

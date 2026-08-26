@@ -5175,7 +5175,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <span style={{ fontSize: '0.65rem', color: dropC.textMuted, padding: '0 2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Görünüm' : 'View'}
             </span>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
+            {/* Grup kenarlığı da "seçili" görünümünde: bir görünüm modu HER
+                ZAMAN seçilidir, dolayısıyla Meal/Kârî satırlarıyla aynı
+                vurguyu taşımalı (kullanıcı 2026-08-26). */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', background: dropC.itemBgActive, border: `1px solid ${navC.btnBorderActive}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
               {[
                 { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
                 { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
@@ -5205,10 +5208,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
                       gap: '4px', padding: '5px 4px', borderRadius: RADIUS.sm, cursor: 'pointer',
                       border: 'none',
-                      background: isActive
-                        ? (dayMode ? 'rgba(180,83,9,0.12)' : COLORS.goldAlpha15)
-                        : 'transparent',
-                      color: isActive ? gold : dropC.text,
+                      // Seçili seçenek Dil bölmeli denetimiyle AYNI dili
+                      // konuşur: DOLU altın + koyu metin. Önceden soluk bir
+                      // tan dolgu + altın metin kullanıyordu; panelde "seçili"
+                      // için üç ayrı görsel dil oluşuyordu (kullanıcı
+                      // 2026-08-26: "burada görüntü olarak bir standart yok
+                      // gibi, seçilenler renkler vs").
+                      background: isActive ? gold : 'transparent',
+                      color: isActive ? COLORS.btnGoldText : dropC.text,
                       fontSize: '0.70rem', fontWeight: isActive ? 700 : 500,
                       transition: `all ${TRANSITION.fast}`, whiteSpace: 'nowrap',
                     }}
@@ -5273,14 +5280,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
-              border: `1px solid ${dropC.btnBorder}`,
-              background: dropC.btnBg,
+              // Meal satırıyla AYNI "seçili" görünümü. Meal'in altın kenarlığı
+              // `showTranslation`dan geliyordu; Kârî'nin aç/kapa durumu
+              // olmadığı için nötr kalıyor ve yanındaki satır seçiliyken bu
+              // seçili değilmiş gibi duruyordu (kullanıcı 2026-08-26: "neden
+              // Meal'de seçilmiş hissi var ama Kari'de yok"). Kârî her zaman
+              // seçilidir — aynı vurguyu hak ediyor.
+              border: `1px solid ${navC.btnBorderActive}`,
+              background: dropC.itemBgActive,
               transition: `all ${TRANSITION.fast}`,
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-            onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; }}
           >
-            <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+            {/* Etiket de ALTIN — Meal satırının etiketi `showTranslation`
+                ile altına dönüyor, Kârî'ninki sabit koyu kalıyordu; satır
+                seçili görünürken etiketi siyahtı (kullanıcı 2026-08-26:
+                "neden Meal kahverengi ama Kari siyah"). */}
+            <span style={{ fontSize: '0.82rem', color: gold, display: 'flex', alignItems: 'center', gap: '6px' }}>
               <MicIcon size={13} />
               {language === 'tr' ? 'Kari' : 'Reciter'}
             </span>
@@ -5441,11 +5456,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 gap: '10px',
                 padding: '8px 12px', borderRadius: RADIUS.md,
-                border: `1px solid ${dropC.btnBorder}`,
-                background: dropC.btnBg,
+                // Meal/Kârî ile aynı: bu da her zaman bir DEĞER taşıyan satır.
+                border: `1px solid ${navC.btnBorderActive}`,
+                background: dropC.itemBgActive,
               }}
             >
-              <span style={{ fontSize: '0.82rem', color: dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontSize: '0.82rem', color: gold, display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <GlobeIcon size={13} />
                 {language === 'tr' ? 'Dil' : 'Language'}
               </span>
@@ -8249,7 +8265,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       display: 'flex', alignItems: 'center', gap: '12px',
                       padding: '12px 16px',
                       borderRadius: RADIUS.lg,
-                      background: dayMode ? '#ffffff' : '#141a24',
+                      background: dayMode ? '#ffffff' : COLORS.mushafNightBg,
                       border: `1px solid ${dayMode ? '#1a7a4c33' : '#2ecc7133'}`,
                       boxShadow: '0 8px 28px rgba(0,0,0,0.28)',
                       width: isMobile ? 'calc(100% - 32px)' : '300px',
@@ -8266,7 +8282,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       fontFamily: currentFont, fontSize: '1.05rem',
                     }}>۩</span>
                     <div>
-                      <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: dayMode ? '#2a2a2a' : SEMANTIC.textPrimary, fontWeight: 500 }}>
+                      <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: dayMode ? COLORS.paperInkSoft : SEMANTIC.textPrimary, fontWeight: 500 }}>
                         {language === 'tr' ? 'Bu sayfada secde âyeti var' : 'This page contains a prostration verse'}
                       </div>
                       <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: dayMode ? '#1a7a4c' : '#2ecc71', fontWeight: 600, marginTop: '2px' }}>

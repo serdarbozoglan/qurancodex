@@ -77,7 +77,7 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
   const data = lineBreaks[String(page)];
 
   const theme = dayMode
-    ? { text: '#3a3226', muted: '#7a6f5c', faint: '#9a8f7c', border: 'rgba(120,90,40,0.18)', rowBg: 'rgba(120,90,40,0.04)', iconBg: 'rgba(120,90,40,0.08)' }
+    ? { text: COLORS.mushafPaperText, muted: COLORS.mushafPaperMuted, faint: COLORS.mushafPaperFaint, border: 'rgba(120,90,40,0.18)', rowBg: 'rgba(120,90,40,0.04)', iconBg: 'rgba(120,90,40,0.08)' }
     : { text: SEMANTIC.textPrimary, muted: SEMANTIC.textMuted, faint: SEMANTIC.textFaint, border: SEMANTIC.textFaint + '22', rowBg: 'rgba(255,255,255,0.03)', iconBg: 'rgba(255,255,255,0.08)' };
 
   const goPrev = () => setIdx(i => Math.max(0, i - 1));
@@ -110,7 +110,7 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
           borderRadius: '6px',
           padding: isMobile ? '28px 18px' : '40px 36px',
           marginBottom: '20px',
-          background: dayMode ? '#faf6e8' : 'rgba(255,255,255,0.02)',
+          background: dayMode ? COLORS.mushafPaperBg : 'rgba(255,255,255,0.02)',
           boxShadow: '0 24px 60px rgba(0,0,0,0.25)',
         }}>
           {data.lines.map((line, i) => (
@@ -125,7 +125,7 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
                 textAlign: 'center',
                 whiteSpace: 'nowrap',
                 overflowX: 'auto',
-                color: dayMode ? '#1a1a1a' : SEMANTIC.textPrimary,
+                color: dayMode ? COLORS.paperSepiaLight : SEMANTIC.textPrimary,
                 marginBottom: i === data.lines.length - 1 ? 0 : (isMobile ? '20px' : '28px'),
               }}
             >
