@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, Fragment } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SURAH_NAMES_TR, SURAH_NAMES_EN, resolveSurahAlias } from '../lib/surahNames';
@@ -9,8 +9,12 @@ import useWordTimings from '../hooks/useWordTimings';
 import useHifzSession, { DEFAULT_REPEAT } from '../hooks/useHifzSession';
 import HifzPanel from './hifz/HifzPanel';
 import HifzIcon from './hifz/HifzIcon';
+import MushafInlineView from './MushafInlineView';
+import MushafFontInlineView from './MushafFontInlineView';
+import mushafLineBreaks from '../../public/mushaf-line-breaks.json';
 import { COLORS, BREAKPOINT_MOBILE, FONTS, OVERLAY_TITLE, RADIUS, TRANSITION, SEMANTIC } from '../tokens';
 import InterlinearView from './InterlinearView';
+import { MealAyahBadge, ArabicAyahBadge } from './AyahBadge';
 import TafsirPanel from './TafsirPanel';
 import WordTooltip from './WordTooltip';
 import WordPopover from './WordPopover';
@@ -195,6 +199,37 @@ const makeNunWiqayahWrap = (dayMode) => (_, letter) =>
 //   - SVG overlay (POC denendi) → font'un native dalga glyph'inden farklı
 //     çizilmesi bozuk görünüm üretir (kullanıcı görsel reddetti)
 // Maddah curve şu an default text renginde — DOKUNULMAYACAK.
+
+// Tajweed/waqf HTML'ini (applyTajweed/wrapWaqfOnly çıktısı) HER kelime
+// sınırında böler — mevcut kod yalnız SON kelimeyi ayırıyordu (htmlSplitIdx,
+// badge'in satır sonunda öksüz kalmaması için). Mushaf Modu'nda (2026-08-20)
+// her ayet birden çok fiziksel satıra yayılabildiği için TÜM kelime
+// sınırlarına ihtiyaç var — böylece ayet rozeti (badge) gerçek mushaf
+// satırının doğru kelimesinden sonra yerleştirilebiliyor. Tag-derinliği
+// takip edilir ki bir span attribute'u içindeki boşluk (örn. "Amiri Quran")
+// yanlışlıkla kelime sınırı sayılmasın.
+// Fatiha 1:1'in kanonik metniyle AYNI (verse-graph-bgem3.json), ama besmele
+// hicbir ayetin metninde ayri bir birim olarak yer almadigi icin (Fatiha
+// haric) burada sabit tutuluyor — Mushaf Modu'nda sure-acilis sayfalarinda
+// kelime-sayisi bazli satir dagitimina eklenmesi gerekiyor (2026-08-20).
+const BASMALA_AR_CLEAN = "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ";
+
+function splitTajweedHtmlIntoWords(html) {
+  const words = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < html.length; i++) {
+    const ch = html[i];
+    if (ch === '<') depth++;
+    else if (ch === '>') depth--;
+    else if (ch === ' ' && depth === 0) {
+      words.push(html.slice(start, i));
+      start = i + 1;
+    }
+  }
+  words.push(html.slice(start));
+  return words.filter(w => w.length > 0);
+}
 
 function wrapWaqfOnly(text, dayMode = false, _compact = false, skipAllahColor = false) {
   if (!text) return '';
@@ -430,6 +465,97 @@ const PenIcon = ({ size = 16 }) => (
     <circle cx="11" cy="11" r="2"/>
   </svg>
 );
+// Mushaf Görüntü Modu'nda (statik sayfa görseli) Arapça metnin kendisi
+// tıklanabilir DEĞİL — bu ince ayet-numarası şeridi görselin altına
+// konup aynı çalma fonksiyonunu (onSelect = handleAudioToggle) tetikler.
+// Meal açıkken gerekmez (meal sütunundaki kartlar zaten tıklanabilir) —
+// sadece meal kapalıyken render edilir (kullanıcı kararı 2026-08-25).
+function AyahPlayStrip({ verses, playingVerseId, onSelect, dayMode, language, currentFont }) {
+  if (!verses || verses.length === 0) return null;
+  const gold = dayMode ? COLORS.paperGold : COLORS.gold;
+  const bg = dayMode ? COLORS.paperCream : COLORS.cosmicBlack;
+  const muted = dayMode ? COLORS.paperMuted : SEMANTIC.textMuted;
+  return (
+    <div style={{ padding: '10px 4px 0', textAlign: 'center' }}>
+      <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', color: muted, opacity: 0.75, marginBottom: '6px' }}>
+        {language === 'en' ? 'Tap a verse number to listen' : 'Dinlemek için bir ayet numarasına dokun'}
+      </div>
+      {/* Sûreye göre gruplanır. Düz tek şerit hâlinde dizilince birden çok
+          sûre barındıran sayfalarda (mushaf modunun son cüzünde neredeyse
+          her sayfa böyle) aynı numara tekrar tekrar çıkıyor — kullanıcı
+          2026-08-26 ölçtü: son sayfada "1" üç ayrı sûrede görünüyor ve
+          hangisine ait olduğu anlaşılmıyordu. Her grup kendi sûre adını
+          taşır (§13.32: ekranda çıplak âyet numarası gösterilmez). */}
+      {/* İki sütunlu ızgara: sûre adları sağa yaslı tek bir sütunda, âyet
+          numaraları hepsi AYNI x'ten başlar. Satırları tek tek ortalamak
+          etiketleri de numaraları da tırtıklı bırakıyordu (kullanıcı
+          2026-08-26: "aynı hizaya koy"). */}
+      <div style={{
+        display: 'inline-grid',
+        gridTemplateColumns: 'auto 1fr',
+        gap: '8px 10px',
+        alignItems: 'center',
+        // Üst kapsayıcı RTL olduğunda sütun sırası ve numara sıralaması
+        // tersine dönmesin diye.
+        direction: 'ltr',
+        textAlign: 'left',
+      }}>
+        {(() => {
+          const groups = [];
+          for (const v of verses) {
+            const last = groups[groups.length - 1];
+            if (last && last.surah === v.surah) last.verses.push(v);
+            else groups.push({ surah: v.surah, verses: [v] });
+          }
+          return groups.map((g) => (
+            <Fragment key={`${g.surah}-${g.verses[0].id}`}>
+              <span style={{
+                fontFamily: FONTS.body, fontSize: '0.66rem', color: muted,
+                letterSpacing: '0.08em', textTransform: 'uppercase',
+                opacity: 0.9, whiteSpace: 'nowrap', textAlign: 'right',
+              }}>
+                {(language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[g.surah - 1]}
+              </span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' }}>
+              {g.verses.map((v) => {
+                const active = playingVerseId === v.id;
+                const isSajda = SAJDA_VERSES.has(`${v.surah}:${v.ayah}`);
+                const label = `${(language === 'en' ? SURAH_NAMES_EN : SURAH_NAMES_TR)[v.surah - 1]} ${v.surah}:${v.ayah}`;
+                return (
+                  <MealAyahBadge
+                    key={v.id}
+                    isSajda={isSajda} isActive={active} dayMode={dayMode}
+                    gold={gold} bg={bg} currentFont={currentFont} isMobile={false}
+                    onClick={() => onSelect(v)}
+                    title={isSajda ? `${label} — ${language === 'en' ? 'Prostration verse' : 'Secde âyeti'}` : label}
+                    ariaLabel={isSajda ? `${label} — ${language === 'en' ? 'prostration verse' : 'secde ayeti'}` : label}
+                  >
+                    {active ? <PauseIcon size={11} /> : v.ayah}
+                  </MealAyahBadge>
+                );
+              })}
+              </div>
+            </Fragment>
+          ));
+        })()}
+      </div>
+    </div>
+  );
+}
+// Kaynak atfı — telif izni HENÜZ alınmadığı için (bkz. MushafInlineView.jsx
+// başlık yorumu) iyi niyet göstergesi olarak zorunlu tutuluyor (kullanıcı
+// kararı 2026-08-26). Sadece sağ (ana) sütunda gösterilir — spread modunda
+// iki kez tekrarlanması gereksiz kalabalık olurdu.
+function MushafImageAttribution({ language, dayMode }) {
+  const muted = dayMode ? COLORS.paperMuted : SEMANTIC.textFaint;
+  return (
+    <p style={{ fontSize: '0.66rem', color: muted, fontFamily: FONTS.body, margin: '8px 0 0', textAlign: 'center', opacity: 0.85 }}>
+      {language === 'en'
+        ? 'Page image: kuran.hayrat.com.tr (Ahmed Hüsrev calligraphy)'
+        : 'Sayfa görseli: kuran.hayrat.com.tr (Ahmed Hüsrev hattı)'}
+    </p>
+  );
+}
 const EraserIcon = ({ size = 16 }) => (
   <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 20H7L3 16c-1-1-1-3 0-4l9-9c1-1 3-1 4 0l5 5c1 1 1 3 0 4L11 20"/>
@@ -632,7 +758,7 @@ const SURAH_NAMES_AR = [
   'الفَاتِحَة','البَقَرَة','آل عِمْرَان','النِّسَاء','المَائِدَة','الأَنْعَام','الأَعْرَاف','الأَنْفَال','التَّوْبَة','يُونُس',
   'هُود','يُوسُف','الرَّعْد','إِبْرَاهِيم','الحِجْر','النَّحْل','الإِسْرَاء','الكَهْف','مَرْيَم','طٰهٰ',
   'الأَنْبِيَاء','الحَجّ','المُؤْمِنُون','النُّور','الفُرْقَان','الشُّعَرَاء','النَّمْل','القَصَص','العَنْكَبُوت','الرُّوم',
-  'لُقْمَان','السَّجْدَة','الأَحْزَاب','سَبَأ','فَاطِر','يٰسٓ','الصَّافَّات','صٓ','الزُّمَر','غَافِر',
+  'لُقْمَان','السَّجْدَة','الأَحْزَاب','سَبَأ','فَاطِر','يٰسٓ','الصَّافَّات','صٓ','الزُّمَر','المُؤْمِن',
   'فُصِّلَت','الشُّورَى','الزُّخْرُف','الدُّخَان','الجَاثِيَة','الأَحْقَاف','مُحَمَّد','الفَتْح','الحُجُرَات','قٓ',
   'الذَّارِيَات','الطُّور','النَّجْم','القَمَر','الرَّحْمٰن','الوَاقِعَة','الحَدِيد','المُجَادَلَة','الحَشْر','المُمْتَحِنَة',
   'الصَّفّ','الجُمُعَة','المُنَافِقُون','التَّغَابُن','الطَّلَاق','التَّحْرِيم','المُلْك','القَلَم','الحَاقَّة','المَعَارِج',
@@ -640,7 +766,7 @@ const SURAH_NAMES_AR = [
   'التَّكْوِير','الانفِطَار','المُطَفِّفِين','الانشِقَاق','البُرُوج','الطَّارِق','الأَعْلَى','الغَاشِيَة','الفَجْر','البَلَد',
   'الشَّمْس','اللَّيْل','الضُّحَى','الانشِرَاح','التِّين','العَلَق','القَدْر','البَيِّنَة','الزَّلْزَلَة','العَادِيَات',
   'القَارِعَة','التَّكَاثُر','العَصْر','الهُمَزَة','الفِيل','قُرَيْش','المَاعُون','الكَوْثَر','الكَافِرُون','النَّصْر',
-  'المَسَد','الإِخْلَاص','الفَلَق','النَّاس',
+  'تَبَّتْ','الإِخْلَاص','الفَلَق','النَّاس',
 ];
 
 // Madani surahs (standard classification — all others are Makki)
@@ -1125,6 +1251,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     try { return JSON.parse(localStorage.getItem('qurancodex_interlinear_mode') || 'false'); }
     catch { return false; }
   });
+  // Mushaf Modu — bookMode/interlinearMode'dan bağımsız 4. görünüm.
+  // 2026-08-20 — Hayrat'ın telifli JPEG'leri (MushafInlineView.jsx) GEÇİCİ
+  // KAPATILDI (kod SİLİNMEDİ, revert edilebilir). Yön değişti: kendi fontumuzla
+  // (ShaykhHamdullah), gerçek mushaf satır kırılımlarını (public/mushaf-line-
+  // breaks.json, arka planda sayfa sayfa çıkarılıyor) render eden
+  // MushafFontInlineView.jsx önizlemesi açık — telifli görsele hiç ihtiyaç yok.
+  // Kapsam şu an yalnız mushaf-line-breaks.json'da verisi olan sayfalarla
+  // sınırlı (henüz tüm mushaf değil).
+  const ENABLE_MUSHAF_IMAGE_MODE = true; // DENEME (2026-08-25) — geri almak için false yap
+  const ENABLE_MUSHAF_FONT_MODE = true;
+  const [mushafMode, setMushafMode] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('qurancodex_mushaf_mode') || 'false'); }
+    catch { return false; }
+  });
+  // Sabit-boyutlu sayfa görseli gösterildiğinde true — canlı metin render
+  // ETMEZ, bu yüzden Arapça yazı boyutu kaydırıcısı gibi yalnız canlı metni
+  // etkileyen ayarlar bu modda anlamsız kalır (kullanıcı raporu 2026-08-26).
+  const isMushafImageActive = ENABLE_MUSHAF_IMAGE_MODE && mushafMode;
   // Varsayılan SİTE DİLİNİ izler. Önceden koşulsuz 'en' idi: TR kullanıcı
   // kırık meali İngilizce görüyordu (kullanıcı raporu 2026-08-02).
   const [interlinearLang, setInterlinearLang] = useState(() => {
@@ -1406,6 +1550,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   const currentFont = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
   const _audioRef = useRef(null);
   const containerRef = useRef(null);
+  // Mushaf moduna girildiğinde containerRef'in önceki moddan kalan scrollTop'u
+  // sıfırlanmazsa, absolute overlay (position:absolute, inset:0) o eski scroll
+  // konumuyla birlikte kayıyor ve altındaki eski mod içeriği görünür kalıyordu
+  // (kullanıcı ekran görüntüsüyle bildirdi, 2026-08-20).
+  useEffect(() => {
+    if (mushafMode && containerRef.current) {
+      containerRef.current.scrollTop = 0;
+      // bookMode grid'i 1800px'e kadar genişleyebiliyor (mq-box maxWidth) —
+      // RTL sayfada scrollLeft varsayılanı bazı tarayıcılarda 0 değil, en
+      // sağdan başlıyor; mushaf overlay'i inset:0 ile TÜM scrollWidth'i
+      // kaplıyor ama görünüm eski scrollLeft'te kalıyordu (font-mode
+      // önizlemesinde sayfa yarım/kaymış görünüyordu, 2026-08-20).
+      containerRef.current.scrollLeft = 0;
+    }
+  }, [mushafMode]);
   // Refs for Escape handler — always reflect current state without closure staleness
   const overlayStateRef = useRef({});
   overlayStateRef.current = { showSearch, showMealPicker, showReciterPicker, showSurahPicker, showJuzPicker, showHizbPicker, showPagePicker, showBookmarks, showFontPicker, showSettingsPicker, showViewPicker, compareVerse };
@@ -1734,6 +1893,38 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       .catch(() => setMealLoading(false));
   }, [selectedMealId, selectedSurah]);
 
+  // Besmele meali her surenin başlığında Fatiha 1:1'in GERÇEK çevirisiyle
+  // gösterilir (kullanıcı 2026-08-26: "Fatiha'nınkini referans al, hepsi
+  // için") — Fatiha'da besmele resmen 1. ayet olduğu için seçili mealcinin
+  // kendi çevirisi var; diğer surelerde besmele numaralı bir ayet DEĞİL,
+  // o yüzden ayrı bir çeviri kaydı yok. Fatiha'nın çevirisi seçili mealci
+  // için henüz cache'lenmemiş olabilir (kullanıcı o sureyi hiç açmadıysa) —
+  // bu yüzden `selectedSurah`'tan BAĞIMSIZ ayrı bir fetch tetiklenir.
+  useEffect(() => {
+    const author = MEAL_AUTHORS.find(a => a.id === selectedMealId);
+    if (!author?.apiId) return; // 'local' ve 'en_local' fetch gerektirmez
+    const cacheKey = `${selectedMealId}:1`;
+    if (mealCacheRef.current.has(cacheKey)) return;
+    const lsKey = `meal:${cacheKey}`;
+    try {
+      const cached = localStorage.getItem(lsKey);
+      if (cached) {
+        mealCacheRef.current.set(cacheKey, new Map(JSON.parse(cached)));
+        return;
+      }
+    } catch { /* ignore parse/quota errors */ }
+    fetchMealSurah(1, author.apiId)
+      .then(json => {
+        const map = new Map();
+        for (const v of (json.data?.verses || [])) {
+          map.set(v.verse_number, v.translation?.text || '');
+        }
+        mealCacheRef.current.set(cacheKey, map);
+        try { localStorage.setItem(lsKey, JSON.stringify([...map])); } catch { /* ignore quota errors */ }
+      })
+      .catch(() => {});
+  }, [selectedMealId]);
+
   // Get translation text for a verse based on selected meal author
   const getTranslation = (verse) => {
     if (selectedMealId === 'en_local') return verse.english || cleanTr(verse.turkish) || '';
@@ -1743,6 +1934,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       if (cache) return cache.get(verse.ayah) || cleanTr(verse.turkish) || verse.english || '';
     }
     return language === 'tr' ? (cleanTr(verse.turkish) || verse.english || '') : (verse.english || cleanTr(verse.turkish) || '');
+  };
+
+  // Herhangi bir surenin başlığındaki besmele-meali — Fatiha 1:1'in
+  // GERÇEK çevirisi referans alınır (bkz. yukarıdaki fetch effect'i).
+  // Fatiha verisi henüz gelmediyse (ilk render/fetch arası) eski sabit
+  // ifadeye düşer — kısa süreli, sayfa yeniden render olunca gerçek metin
+  // gelir.
+  const getBesmeleMeal = () => {
+    const fv = verses?.find(v => v.surah === 1 && v.ayah === 1);
+    const fallbackTr = 'Rahmân ve Rahîm olan Allah\'ın adıyla';
+    const fallbackEn = 'In the name of Allah, the Most Gracious, the Most Merciful';
+    if (!fv) return contentLang === 'tr' ? fallbackTr : fallbackEn;
+    return getTranslation(fv) || (contentLang === 'tr' ? fallbackTr : fallbackEn);
   };
 
   const selectedMealAuthor = MEAL_AUTHORS.find(a => a.id === selectedMealId) || MEAL_AUTHORS[0];
@@ -1873,6 +2077,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   useEffect(() => { localStorage.setItem('qurancodex_day_mode', JSON.stringify(dayMode)); }, [dayMode]);
   useEffect(() => { localStorage.setItem('qurancodex_book_mode', JSON.stringify(bookMode)); }, [bookMode]);
   useEffect(() => { localStorage.setItem('qurancodex_interlinear_mode', JSON.stringify(interlinearMode)); }, [interlinearMode]);
+  useEffect(() => { localStorage.setItem('qurancodex_mushaf_mode', JSON.stringify(mushafMode)); }, [mushafMode]);
   useEffect(() => { localStorage.setItem('qurancodex_interlinear_lang', interlinearLang); }, [interlinearLang]);
   useEffect(() => { localStorage.setItem('qurancodex_reciter_idx', String(reciterIdx)); }, [reciterIdx]);
   useEffect(() => { localStorage.setItem('qurancodex_karaoke_on', karaokeEnabled ? '1' : '0'); }, [karaokeEnabled]);
@@ -1932,7 +2137,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     surah: selectedSurah,
     enabled: karaokeEnabled,
   });
-  const karaokeActive = karaokeEnabled && hasKaraoke(reciterIdx) && !!surahTimings && !!surahAudioUrl && !surahTimingsError;
+  const karaokeActive = karaokeEnabled && hasKaraoke(reciterIdx) && !!surahTimings && !!surahAudioUrl && !surahTimingsError && !isMushafImageActive;
 
   // ── Ezber ─────────────────────────────────────────────────────────────────
   // AYET AYET dosya çalar (everyayah). Karaoke'nin sûre mp3'üne DOKUNMAZ:
@@ -2652,37 +2857,120 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hifzOpen]);
 
-  // ── Secde madalyonu (Arapça sütun) ──────────────────────────────────────
-  // Arapça ayetler satır-içi aktığı için, sağ dış margindeki secde madalyonunu
-  // ayet hizasına koymak ölçüm gerektirir. Aktif sayfadaki secde ayetinin dikey
-  // merkezini Arapça sütuna göre ölçeriz; font-size/sayfa/mod değişince yeniden.
-  const [arSajdaTop, setArSajdaTop] = useState(null);
+  // Secde madalyonu (sağ margin ikonu) kaldırıldı (kullanıcı kararı
+  // 2026-08-26) — artık ayet arka planı + ayet-sonu dairesi renkle
+  // işaretliyor, ayrı bir ikon/metin rozeti gereksiz kalabalıktı.
+  // arSajdaVerse hâlâ gerekli: aşağıdaki secde bildirimini (toast) tetikler.
   const arSajdaVerse = useMemo(
     () => versesOnPage.find(v => SAJDA_VERSES.has(`${v.surah}:${v.ayah}`)) || null,
     [versesOnPage]
   );
+  // Kendiliğinden kaybolan secde bildirimi — TÜM görünüm modlarında
+  // (Kitap/Ayet/Kırık Meal/Mushaf) çalışır çünkü `arSajdaVerse` zaten
+  // `versesOnPage`'e bağlı, o da bookMode kapalıyken sûrenin tamamına
+  // düşüyor (yukarıdaki versesOnPage tanımı). Modal DEĞİL — kullanıcı
+  // kararı 2026-08-26: "Tamam" gerektiren bir modal akışı kesintiye
+  // uğratır, birkaç saniyede kendiliğinden kapanan bir şerit tercih edildi.
+  const [sajdaToastVerse, setSajdaToastVerse] = useState(null);
+  const lastSajdaToastIdRef = useRef(null);
   useEffect(() => {
-    if (!arSajdaVerse) { setArSajdaTop(null); return; }
-    let raf1, raf2;
-    const measure = () => {
-      const el = document.getElementById(`rm-verse-${arSajdaVerse.id}`);
-      const col = el?.closest('[data-ar-col="1"]');
-      if (!el || !col) { setArSajdaTop(null); return; }
-      const er = el.getBoundingClientRect();
-      const cr = col.getBoundingClientRect();
-      const top = er.top - cr.top + er.height / 2;
-      setArSajdaTop(prev => (prev != null && Math.abs(prev - top) < 0.5) ? prev : top);
-    };
-    raf1 = requestAnimationFrame(() => { raf2 = requestAnimationFrame(measure); });
-    const onResize = () => measure();
-    window.addEventListener('resize', onResize);
-    return () => { cancelAnimationFrame(raf1); cancelAnimationFrame(raf2); window.removeEventListener('resize', onResize); };
-  }, [arSajdaVerse, arabicFontSize, showTranslation, currentPage, isMobile, showPageFrame, showTajweed]);
-
+    if (!arSajdaVerse) { lastSajdaToastIdRef.current = null; return; }
+    if (arSajdaVerse.id === lastSajdaToastIdRef.current) return;
+    lastSajdaToastIdRef.current = arSajdaVerse.id;
+    setSajdaToastVerse(arSajdaVerse);
+    const t = setTimeout(() => setSajdaToastVerse(null), 3600); // rmSajdaToastDrop animasyon süresiyle birebir
+    return () => clearTimeout(t);
+  }, [arSajdaVerse]);
   // 2-page spread mode: only active in book mode when meal is hidden AND
   // viewport is wide enough. Renders currentPage (right, RTL-first) plus
   // currentPage+1 (left) side-by-side, mirroring a physical mushaf opening.
   const spreadMode = bookMode && !showTranslation && !isMobile && isWide && !preferSinglePage;
+  // Ayet/Kırık Meal modlarında (bookMode=false) SAYFA etiketi Kitap
+  // modundan kalan eski değerde donuk kalıyordu — moda geçince içerik
+  // sürenin başına "atlıyor" ama etiket hâlâ eski sayfayı gösteriyordu,
+  // kaydırdıkça da hiç güncellenmiyordu (kullanıcı raporu 2026-08-26).
+  // IntersectionObserver ile görünümün üst %30'unda kalan ayetin
+  // sayfasını canlı olarak bookPage'e yazar — Kitap moduna dönüldüğünde
+  // navigateToPage/changeSurah zaten kendi mantığıyla üzerine yazıyor.
+  useEffect(() => {
+    if (bookMode || !containerRef.current) return;
+    const root = containerRef.current;
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting);
+      if (visible.length === 0) return;
+      visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      const topPage = visible[0].target.getAttribute('data-rm-page');
+      if (topPage == null) return;
+      const p = parseInt(topPage, 10);
+      if (!isNaN(p)) setBookPage(prev => (prev === p ? prev : p));
+    }, { root, threshold: 0, rootMargin: '0px 0px -70% 0px' });
+    const observed = new Set();
+    const syncTargets = () => {
+      root.querySelectorAll('[data-rm-page]').forEach((el) => {
+        if (!observed.has(el)) { observed.add(el); io.observe(el); }
+      });
+    };
+    // Ayet/Kırık Meal içeriği (özellikle Kırık Meal'in kendi kelime-kelime
+    // verisi) birden çok aşamalı async fetch ile geliyor — hangi state
+    // değişikliğinin son DOM güncellemesini tetiklediğini React tarafında
+    // izlemek yerine, DOM'a doğrudan MutationObserver ile bakıp yeni
+    // eklenen [data-rm-page] elemanlarını yakalıyoruz. Daha sağlam:
+    // veri kaynağı ne olursa olsun çalışır.
+    syncTargets();
+    const mo = new MutationObserver(syncTargets);
+    mo.observe(root, { childList: true, subtree: true });
+    return () => { io.disconnect(); mo.disconnect(); };
+  }, [bookMode]);
+  // Mushaf modu — satır taşma emniyeti (2026-08-23, kullanıcı raporu).
+  // Kelime-sayısı tahmini (lineScale, >10 kelime) rozet genişliğini
+  // hesaba katmıyordu — tam 10 kelime + 1 rozet olan satırlar (ölçülen
+  // örnek: gerçek scrollWidth clientWidth'ten 139px fazlaydı) sessizce
+  // çerçeveyi taşıp bitişik meal paneline kadar uzuyordu; kutu genişliği
+  // sabit kaldığı için (React `div` normal blok akışında `getBoundingClientRect`
+  // her zaman kabın genişliğini döner, taşan İÇERİĞİ değil — bu yüzden
+  // önceki manuel Playwright ölçümleri "taşma yok" derken aslında yanlış
+  // özelliği (kutu, içerik değil) ölçüyordu, gerçek taşma `scrollWidth >
+  // clientWidth` ile yakalanır). Çözüm: React'in kelime-sayısı tahminini
+  // (data-line-scale — DOM'daki "resmi" taban değer) her render sonrası
+  // GERÇEK layout ile doğrula, hâlâ taşıyorsa ek küçültme uygula. Kırılım
+  // verisi hiç değişmiyor — yalnızca görüntü boyutu.
+  const fixMushafLineOverflow = useCallback(() => {
+    if (!mushafMode) return;
+    const lines = document.querySelectorAll('[data-mushaf-line="1"]');
+    lines.forEach(el => {
+      const baseScale = parseFloat(el.getAttribute('data-line-scale')) || 1;
+      el.style.fontSize = baseScale < 1 ? `${baseScale}em` : '';
+    });
+    lines.forEach(el => {
+      // Tek adımlı oran hesaplaması bazı satırlarda birkaç px eksik
+      // kalıyordu (font boyutu değişince glif genişlikleri tam orantılı
+      // küçülmüyor — hinting/rounding). Yakınsayana kadar (en fazla 4 adım)
+      // tekrar ölç ve küçült — her adımda gerçek durumu ölçtüğü için
+      // sabit bir emniyet payı tahmin etmekten daha güvenilir.
+      for (let i = 0; i < 4 && el.scrollWidth > el.clientWidth + 0.5; i++) {
+        const currentPx = parseFloat(getComputedStyle(el).fontSize);
+        const ratio = (el.clientWidth / el.scrollWidth) * 0.99;
+        el.style.fontSize = `${currentPx * ratio}px`;
+      }
+    });
+  }, [mushafMode]);
+  useLayoutEffect(() => {
+    fixMushafLineOverflow();
+  }); // KASITLI bağımlılık dizisi yok — her render sonrası çalışır. Belirli
+  // state'leri listelemek (önceki hali) kırılgandı: verses async yüklenirse
+  // veya listelenmeyen bir state (ör. activeVerse audio highlight) içeriği
+  // değiştirirse, efekt tetiklenmeden satır taşabiliyordu (kullanıcı
+  // 2026-08-23: "Bakara 36. ayet taşıyor" — bu satır ilk render'da verses
+  // henüz gelmeden veya başka bir re-render'da düzeltilmemiş olabilirdi).
+  // Maliyet düşük (sayfa başına ≤15 satır DOM okuması), doğruluk kritik.
+  // ShaykhHamdullah/KFGQPC `font-display:swap` ile yükleniyor — ilk render
+  // yedek fontla (dar) ölçüldüyse gerçek font geldiğinde (daha geniş
+  // glif'ler) taşma SONRADAN oluşabilir ve üstteki efekt tekrar tetiklenmez.
+  // document.fonts.ready ile font yüklendiğinde bir kez daha düzelt.
+  useEffect(() => {
+    if (!mushafMode || typeof document === 'undefined' || !document.fonts?.ready) return;
+    document.fonts.ready.then(fixMushafLineOverflow);
+  }, [mushafMode, fixMushafLineOverflow]);
   const versesOnNextPage = useMemo(() => {
     if (!spreadMode || !verses || verses.length === 0) return [];
     return verses
@@ -2802,11 +3090,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   // Karaoke rAF loop reads the live verse list — keep ref in sync each render
   surahVersesRef.current = surahVerses;
 
+  // Çalan âyetin KENDİ sûresinin âyet listesi. `surahVerses` (yani SEÇİLİ
+  // sûre) kullanılamaz: bir mushaf sayfası birden çok sûre içerebiliyor ve
+  // âyet şeridinden başka bir sûrenin âyeti çalınabiliyor. O durumda
+  // `findIndex` -1 dönüyor, otomatik ilerleme `else` dalına düşüp sesi
+  // susturuyordu — kullanıcı 2026-08-26: "âyeti tıklayınca duruyor, neden
+  // sonraki âyetlere aynı sûre içinde devam etmiyor".
+  const playbackListFor = (verseId) => {
+    const current = (verses || []).find(v => v.id === verseId);
+    if (!current) return { list: [], idx: -1 };
+    const list = current.surah === selectedSurah
+      ? surahVerses
+      : (verses || []).filter(v => v.surah === current.surah).sort((a, b) => a.ayah - b.ayah);
+    return { list, idx: list.findIndex(v => v.id === verseId) };
+  };
+
   // Update autoNextRef on every render so onended always has fresh state
   autoNextRef.current = (currentVerseId) => {
-    const idx = surahVerses.findIndex(v => v.id === currentVerseId);
-    if (idx >= 0 && idx < surahVerses.length - 1) {
-      const next = surahVerses[idx + 1];
+    const { list, idx } = playbackListFor(currentVerseId);
+    if (idx >= 0 && idx < list.length - 1) {
+      const next = list[idx + 1];
       setPlayingVerseId(next.id);
       handleSelectVerse(next);
       if (bookMode && !versesOnPage.find(v => v.id === next.id)) {
@@ -2821,9 +3124,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
   // Returns the first URL of the next verse for preloading (called when current verse starts playing)
   preloadNextRef.current = (currentVerseId) => {
-    const idx = surahVerses.findIndex(v => v.id === currentVerseId);
-    if (idx >= 0 && idx < surahVerses.length - 1) {
-      const next = surahVerses[idx + 1];
+    // Otomatik ilerlemeyle AYNI listeyi kullanır — yoksa sayfadaki başka bir
+    // sûrenin âyeti çalarken yanlış dosya ön-yüklenirdi.
+    const { list, idx } = playbackListFor(currentVerseId);
+    if (idx >= 0 && idx < list.length - 1) {
+      const next = list[idx + 1];
       const urls = buildFallbackUrlsFromReciter(RECITERS[reciterIdx].id, next.surah, next.ayah);
       return urls[0] ?? null;
     }
@@ -2851,6 +3156,189 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     }
     return hizb;
   }, [bookMode, currentPage, surahStartPage]);
+
+  // ── Sûre açılış başlığı — TEK KAYNAK ──────────────────────────────────
+  // Kullanıcı 2026-08-26: "sûre başlarını tüm modlarda identical yap …
+  // aynı hero şeklini kullan tüm modlarda, besmelenin başlangıcı dahil."
+  //
+  // Bu başlık daha önce ALTI ayrı yerde kopyalanmıştı (kitap modu meal
+  // sütunu, kitap modu sağ sayfa, kitap modu açık-sayfa SOL sayfası,
+  // kelime-meali modu, düz âyet modu ve her birinin Latin ikizi) ve
+  // kopyalar birbirinden sürüklenmişti: yalnız ikisinde çerçeveli kutu
+  // vardı, hero puntosu 3.8rem'e karşı 3.4rem'di, kelime-meali kopyasında
+  // düz âyet kopyasında bulunmayan telafi amaçlı negatif margin'ler
+  // duruyordu. Tek kaynağa indirildi — bundan sonra bir değer değişince
+  // tüm modlar birlikte değişir.
+  //
+  // Ölçülen hizalama (1440px, /tr/oku/109): kutular 294.8 / 294.2'de
+  // biter; etiket · sûre adı · nüzul satırlarının satır ortaları
+  // 142.7/142.5 · 207.4/207.4 · 263.6/264.0; besmele ortaları 337.2/336.8.
+  // Satırların KENDİ dolgusu sıfırlanır çünkü `--pt-d` gibi değişkenler
+  // KALITSALDIR ve kutuya yazılan dolgu her `.mq-box` çocuğa ikinci kez
+  // uygulanıyordu (Arapça kutuyu 298px'e şişiren hatanın kök sebebi).
+  const SURAH_CARD_BOX = {
+    border: `1px solid ${C.gold}44`,
+    borderRadius: '14px',
+    background: dayMode ? `${C.gold}08` : `${C.gold}06`,
+    '--pt-d': '9px', '--pt-m': '8px',
+    '--pb-d': '10px', '--pb-m': '10px',
+    '--pl-d': '20px', '--pl-m': '14px',
+    '--pr-d': '20px', '--pr-m': '14px',
+    '--mb-d': '20px', '--mb-m': '14px',
+  };
+  // Her satır kendi dolgusunu sıfırlar — bkz. yukarıdaki kalıtım notu.
+  const SURAH_ROW_RESET = {
+    '--pt-d': '0px', '--pt-m': '0px',
+    '--pb-d': '0px', '--pb-m': '0px',
+    '--mt-d': '0px', '--mt-m': '0px',
+  };
+
+  // Arapça sûre açılış kutusu — tüm modlarda birebir aynı.
+  const renderSurahCardAr = (surahNo) => {
+    const arName = SURAH_NAMES_AR[surahNo - 1];
+    const ayahCount = SURAH_AYAH_COUNTS[surahNo - 1] || 0;
+    const rukuCount = SURAH_RUKU_COUNTS[surahNo - 1] || 0;
+    const nuzulRank = SURAH_NUZUL_ORDER[surahNo - 1] || 0;
+    const isMadani = MADANI_SURAHS.has(surahNo);
+    const periodAr = isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة';
+    const ayahWord = ayahCount === 1 ? 'آيَة'
+      : ayahCount === 2 ? 'آيَتَان'
+      : ayahCount <= 10 ? 'آيَات'
+      : 'آيَة';
+    return (
+      <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', ...SURAH_CARD_BOX }}>
+        {/* Sūratu N — küçük hat etiketi */}
+        <div className="mq-box" style={{
+          fontFamily: currentFont,
+          fontSize: isMobile ? '1.4rem' : '1.65rem',
+          color: C.gold,
+          opacity: 0.78,
+          letterSpacing: '0.02em',
+          lineHeight: 1.4,
+          ...SURAH_ROW_RESET,
+          '--mb-d': '13px', '--mb-m': '10px',
+        }}>
+          السُّورَةُ {toArabicNumerals(surahNo)}
+        </div>
+
+        {/* Sûre adı — hat, altın */}
+        <div className="mq-box" style={{
+          fontFamily: currentFont,
+          fontSize: isMobile ? '3rem' : '3.8rem',
+          color: C.gold,
+          lineHeight: 1.1,
+          letterSpacing: '0.02em',
+          ...SURAH_ROW_RESET,
+          '--mb-d': '4px', '--mb-m': '4px',
+          textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
+        }}>
+          {arName}
+        </div>
+
+        {/* Latin altyazı — masaüstünde meal açıkken gizlenir (Latin adı
+            zaten meal sütununda), mobilde her zaman görünür. */}
+        {(!showTranslation || isMobile) && (
+          <div className="mq-box" style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: isMobile ? '1.0rem' : '1.2rem',
+            fontWeight: 500,
+            fontStyle: 'italic',
+            color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
+            letterSpacing: '0.04em',
+            lineHeight: 1.4,
+            ...SURAH_ROW_RESET,
+            '--mb-d': '14px', '--mb-m': '10px',
+            direction: 'ltr',
+          }}>
+            {contentLang === 'tr' ? 'Sûre ' : 'Surah '}{surahNo} · {contentLang === 'en' ? SURAH_NAMES_EN[surahNo - 1] : SURAH_NAMES_TR[surahNo - 1]}
+          </div>
+        )}
+
+        {/* Nüzul sırası · iniş yeri · âyet · rukû */}
+        <div className="mq-box" style={{
+          fontFamily: currentFont,
+          fontSize: isMobile ? '1.35rem' : '1.6rem',
+          color: dayMode ? '#5a4a32' : C.muted,
+          letterSpacing: '0.04em',
+          ...SURAH_ROW_RESET,
+          '--mb-d': '0px', '--mb-m': '0px',
+          lineHeight: 1.5,
+          opacity: 0.92,
+        }}>
+          النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
+        </div>
+      </div>
+    );
+  };
+
+  // Latin (meal) sûre açılış kutusu — Arapça ikizinin karşılığı.
+  const renderSurahCardTr = (surahNo) => {
+    const trName = SURAH_NAMES_TR[surahNo - 1] || '';
+    const enName = SURAH_NAMES_EN[surahNo - 1] || '';
+    const ayahCount = SURAH_AYAH_COUNTS[surahNo - 1] || 0;
+    const rukuCount = SURAH_RUKU_COUNTS[surahNo - 1] || 0;
+    const nuzulRank = SURAH_NUZUL_ORDER[surahNo - 1] || 0;
+    const isMadani = MADANI_SURAHS.has(surahNo);
+    const periodLabel = contentLang === 'tr'
+      ? (isMadani ? 'Medenî' : 'Mekkî')
+      : (isMadani ? 'Madani' : 'Makki');
+    const nameForHero = contentLang === 'en' ? enName : trName;
+    const displayName = nameForHero.toLocaleUpperCase(contentLang === 'tr' ? 'tr-TR' : 'en-US');
+    return (
+      <div className="mq-box" style={{
+        textAlign: 'center',
+        ...SURAH_CARD_BOX,
+        // Latin satırları Arapça hat satırlarından alçak olduğu için üst
+        // dolgu 7px — bu değerle iki kutunun satır ortaları çakışıyor.
+        '--pt-d': '7px', '--pt-m': '6px',
+        '--pb-d': '20px', '--pb-m': '16px',
+      }}>
+        <div className="mq-box" style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: isMobile ? '0.85rem' : '0.95rem',
+          color: C.gold,
+          opacity: 0.78,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          fontWeight: 600,
+          ...SURAH_ROW_RESET,
+          '--pt-d': '7px', '--pt-m': '6px',
+          '--pb-d': '20px', '--pb-m': '16px',
+          '--mb-d': '2px', '--mb-m': '2px',
+        }}>
+          {contentLang === 'tr' ? `Sûre ${surahNo}` : `Surah ${surahNo}`}
+        </div>
+
+        <div className="mq-box" style={{
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontSize: isMobile ? '1.95rem' : '2.5rem',
+          color: C.gold,
+          fontWeight: 700,
+          letterSpacing: '0.05em',
+          lineHeight: 1.1,
+          ...SURAH_ROW_RESET,
+          '--pt-d': '7px', '--pt-m': '6px',
+          '--pb-d': '20px', '--pb-m': '16px',
+          '--mb-d': '4px', '--mb-m': '4px',
+        }}>
+          {displayName}
+        </div>
+
+        <div style={{
+          fontFamily: "'Inter', sans-serif",
+          fontSize: isMobile ? '0.78rem' : '0.85rem',
+          color: dayMode ? '#5a4a32' : C.muted,
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          fontWeight: 500,
+          opacity: 0.92,
+          lineHeight: 1.5,
+        }}>
+          {contentLang === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {contentLang === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {contentLang === 'tr' ? 'rukû' : 'rukūʿ'}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div
@@ -4437,14 +4925,21 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             )}
           </div>
 
-          {/* 3-option segmented control */}
-          <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
+          {/* 4-option segmented control — 2x2 grid (4. seçenek "Mushaf" eklenince
+              tek satır flex dropdown genişliğini taşırıp kırpılıyordu, kullanıcı
+              2026-08-20 ekran görüntüsüyle bildirdi) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
             {[
               { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
               { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
               { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
-            ].map(({ id, labelTr, labelEn, icon }) => {
-              const isActive = id === 'book'
+              { id: 'mushaf',        labelTr: 'Mushaf',      labelEn: 'Mushaf',        icon: <BookIcon size={12} /> },
+            ].filter(opt => opt.id !== 'mushaf' || (ENABLE_MUSHAF_IMAGE_MODE || ENABLE_MUSHAF_FONT_MODE)).map(({ id, labelTr, labelEn, icon }) => {
+              const isActive = id === 'mushaf'
+                ? mushafMode
+                : mushafMode
+                ? false
+                : id === 'book'
                 ? bookMode
                 : id === 'verse'
                 ? (!bookMode && !interlinearMode)
@@ -4453,6 +4948,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <button
                   key={id}
                   onClick={() => {
+                    if (id === 'mushaf')       { setMushafMode(true); setBookMode(true); setInterlinearMode(false); return; }
+                    setMushafMode(false);
                     if (id === 'book')       { setBookMode(true);  setInterlinearMode(false); }
                     else if (id === 'verse') { setBookMode(false); setInterlinearMode(false); }
                     else                     { setBookMode(false); setInterlinearMode(true);  }
@@ -4477,7 +4974,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </div>
 
           {/* TR / EN lang pills — only when Kırık Meal is active */}
-          {!bookMode && interlinearMode && (
+          {!mushafMode && !bookMode && interlinearMode && (
             <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: RADIUS.md, background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
               {['tr', 'en'].map(l => (
                 <button
@@ -4551,18 +5048,23 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </button>
           </div>
 
-          {/* Görünüm: 3-seçenekli segmented control — desktop + mobile (MOD navbar butonu kaldırıldı, tek erişim noktası burası) */}
+          {/* Görünüm: 4-seçenekli segmented control (2x2 grid) — desktop + mobile (MOD navbar butonu kaldırıldı, tek erişim noktası burası) */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <span style={{ fontSize: '0.65rem', color: dropC.textMuted, padding: '0 2px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Görünüm' : 'View'}
             </span>
-            <div style={{ display: 'flex', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}`, borderRadius: RADIUS.md, padding: '3px', gap: '2px' }}>
               {[
                 { id: 'book',        labelTr: 'Kitap',      labelEn: 'Book',        icon: <BookIcon size={12} /> },
                 { id: 'verse',       labelTr: 'Ayet',       labelEn: 'Verse',       icon: <ListIcon size={12} /> },
                 { id: 'interlinear', labelTr: 'Kırık Meal', labelEn: 'Interlinear', icon: <span style={{ fontFamily: FONTS.quran, fontSize: '0.9rem', lineHeight: 1 }}>ك</span> },
-              ].map(({ id, labelTr, labelEn, icon }) => {
-                const isActive = id === 'book'
+                { id: 'mushaf',        labelTr: 'Mushaf',      labelEn: 'Mushaf',        icon: <BookIcon size={12} /> },
+              ].filter(opt => opt.id !== 'mushaf' || (ENABLE_MUSHAF_IMAGE_MODE || ENABLE_MUSHAF_FONT_MODE)).map(({ id, labelTr, labelEn, icon }) => {
+                const isActive = id === 'mushaf'
+                  ? mushafMode
+                  : mushafMode
+                  ? false
+                  : id === 'book'
                   ? bookMode
                   : id === 'verse'
                   ? (!bookMode && !interlinearMode)
@@ -4571,6 +5073,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <button
                     key={id}
                     onClick={() => {
+                      if (id === 'mushaf')         { setMushafMode(true); setBookMode(true); setInterlinearMode(false); return; }
+                      setMushafMode(false);
                       if (id === 'book')        { setBookMode(true);  setInterlinearMode(false); }
                       else if (id === 'verse')  { setBookMode(false); setInterlinearMode(false); }
                       else                      { setBookMode(false); setInterlinearMode(true);  }
@@ -4595,7 +5099,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             </div>
 
             {/* TR / EN dil pilleri — sadece Kırık Meal seçiliyken */}
-            {!bookMode && interlinearMode && (
+            {!mushafMode && !bookMode && interlinearMode && (
               <div style={{ display: 'flex', gap: '4px', padding: '3px', borderRadius: RADIUS.md, background: dropC.btnBg, border: `1px solid ${dropC.btnBorder}` }}>
                 {['tr', 'en'].map(l => (
                   <button
@@ -4823,8 +5327,22 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           {!isMobile && <div style={{ height: '1px', background: dropC.divider }} />}
 
-          {/* Tajweed toggle */}
+          {/* Tajweed toggle — iki modda anlamsız: (1) mushaf görsel modunda
+              renkler gerçek taranmış sayfa fotoğrafının üstüne değil, canlı
+              render edilen metne uygulanır (kullanıcı 2026-08-26: "tecvid
+              renklerini de mushaf modda disable yap"); (2) Kırık Meal'de
+              kelime-kelime render (InterlinearView/WordChip) tecvid
+              pipeline'ını hiç kullanmıyor, kendi sabit kelime-rengi
+              paletini basıyor — açık görünse bile hiçbir görsel etkisi
+              yok (kullanıcı 2026-08-26: "kırık mealde de tecvid renkleri
+              gösterilemez"). */}
           <button
+            disabled={isMushafImageActive || interlinearMode}
+            title={isMushafImageActive
+              ? (language === 'tr' ? 'Mushaf görselinde geçersiz' : 'Not available in mushaf image mode')
+              : interlinearMode
+                ? (language === 'tr' ? 'Kırık Meal modunda geçersiz' : 'Not available in Kırık Meal mode')
+                : undefined}
             onClick={() => {
               // Mirror of word-mode toggle: turning tajweed on while in word mode would
               // silently swallow the colors (word-by-word renderer bypasses tajweed).
@@ -4837,13 +5355,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             }}
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
+              padding: '8px 12px', borderRadius: RADIUS.md, cursor: (isMushafImageActive || interlinearMode) ? 'default' : 'pointer',
               border: `1px solid ${showTajweed ? navC.btnBorderActive : dropC.btnBorder}`,
               background: showTajweed ? dropC.itemBgActive : dropC.btnBg,
+              opacity: (isMushafImageActive || interlinearMode) ? 0.4 : 1,
               transition: `all ${TRANSITION.fast}`,
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-            onMouseLeave={e => { e.currentTarget.style.background = showTajweed ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTajweed ? navC.btnBorderActive : dropC.btnBorder; }}
+            onMouseEnter={e => { if (isMushafImageActive || interlinearMode) return; e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+            onMouseLeave={e => { if (isMushafImageActive || interlinearMode) return; e.currentTarget.style.background = showTajweed ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = showTajweed ? navC.btnBorderActive : dropC.btnBorder; }}
           >
             <span style={{ fontSize: '0.82rem', color: showTajweed ? gold : dropC.text }}>
               <span style={{ fontFamily: "'KFGQPC', serif", marginRight: '6px' }}>تج</span>
@@ -4908,31 +5427,45 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           </button>
 
           {/* Layout — single page vs two-page spread. spreadMode is only
-              eligible when meal is closed (spreadMode = bookMode &&
-              !showTranslation && !isMobile && isWide && !preferSinglePage),
-              so the toggle has zero effect while meal is open. Hidden in
-              that case to avoid dead UI. */}
+              eligible in Kitap/Mushaf (spreadMode = bookMode &&
+              !showTranslation && !isMobile && isWide && !preferSinglePage) —
+              Ayet ve Kırık Meal sürekli-kaydırma modları, "çift sayfa"
+              kavramı onlarda hiç yok. `bookMode` şartı olmadan bu satır
+              Ayet/Kırık Meal'de de görünüyordu, tıklamanın hiçbir etkisi
+              olmuyordu (kullanıcı 2026-08-26: "ayet ve kırık mealde kitap
+              modu disable olması lazım"). Meal açıkken zaten GİZLENEN
+              (aşağıdaki `!showTranslation`) mantığın aksine, burada
+              Tecvid/Karaoke'deki "disable" deseni izlendi — satır kalır,
+              grileşir, tıklanamaz olur. Açıklama satır İÇİNE değil
+              `title` tooltip'ine konur (kullanıcı 2026-08-26: inline metin
+              dar genişlikte "Kitap Modu — yalnızca Kitap/Mushaf  Çift
+              sayfa" şeklinde çirkin 3 satıra bölünüyordu — Karaoke'nin
+              zaten kullandığı title-only desen tek doğru çözüm). */}
           {!isMobile && !showTranslation && (
             <button
+              disabled={!bookMode}
               onClick={() => setPreferSinglePage(v => !v)}
-              title={language === 'tr'
-                ? 'İki sayfayı yan yana göster (kitap modu) veya tek sayfaya zorla'
-                : 'Show two pages side-by-side (book mode) or force single page'}
+              title={!bookMode
+                ? (language === 'tr' ? 'Yalnızca Kitap/Mushaf modunda geçerli' : 'Only applies in Kitap/Mushaf mode')
+                : (language === 'tr'
+                    ? 'İki sayfayı yan yana göster (kitap modu) veya tek sayfaya zorla'
+                    : 'Show two pages side-by-side (book mode) or force single page')}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 12px', borderRadius: RADIUS.md, cursor: 'pointer',
-                border: `1px solid ${!preferSinglePage ? navC.btnBorderActive : dropC.btnBorder}`,
-                background: !preferSinglePage ? dropC.itemBgActive : dropC.btnBg,
+                padding: '8px 12px', borderRadius: RADIUS.md, cursor: bookMode ? 'pointer' : 'default',
+                border: `1px solid ${(!preferSinglePage && bookMode) ? navC.btnBorderActive : dropC.btnBorder}`,
+                background: (!preferSinglePage && bookMode) ? dropC.itemBgActive : dropC.btnBg,
+                opacity: bookMode ? 1 : 0.4,
                 transition: `all ${TRANSITION.fast}`,
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
-              onMouseLeave={e => { e.currentTarget.style.background = !preferSinglePage ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = !preferSinglePage ? navC.btnBorderActive : dropC.btnBorder; }}
+              onMouseEnter={e => { if (!bookMode) return; e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; }}
+              onMouseLeave={e => { if (!bookMode) return; e.currentTarget.style.background = !preferSinglePage ? dropC.itemBgActive : dropC.btnBg; e.currentTarget.style.borderColor = !preferSinglePage ? navC.btnBorderActive : dropC.btnBorder; }}
             >
-              <span style={{ fontSize: '0.82rem', color: !preferSinglePage ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontSize: '0.82rem', color: (!preferSinglePage && bookMode) ? gold : dropC.text, display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <BookOpenIcon size={13} />
                 {language === 'tr' ? 'Kitap Modu' : 'Book Mode'}
               </span>
-              <span style={{ fontSize: '0.7rem', color: !preferSinglePage ? gold : dropC.textMuted, fontWeight: 600 }}>
+              <span style={{ fontSize: '0.7rem', color: (!preferSinglePage && bookMode) ? gold : dropC.textMuted, fontWeight: 600 }}>
                 {preferSinglePage
                   ? (language === 'tr' ? 'Tek sayfa' : 'Single page')
                   : (language === 'tr' ? 'Çift sayfa' : 'Two pages')}
@@ -4942,10 +5475,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
           <div style={{ height: '1px', background: dropC.divider }} />
 
-          {/* Font size — Arabic */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {/* Font size — Arabic. Mushaf Görüntü Modu'nda pasif: bu mod
+              sabit-boyutlu bir sayfa görseli gösteriyor, canlı metin
+              render etmiyor — kaydırıcının burada hiçbir etkisi yok
+              (kullanıcı geri bildirimi 2026-08-26). */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', opacity: isMushafImageActive ? 0.4 : 1, pointerEvents: isMushafImageActive ? 'none' : 'auto' }}>
             <span style={{ fontSize: '0.62rem', color: dropC.textMuted, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               {language === 'tr' ? 'Arapça Yazı Boyutu' : 'Arabic Font Size'}
+              {isMushafImageActive && (
+                <span style={{ textTransform: 'none', letterSpacing: 'normal' }}>
+                  {' '}— {language === 'tr' ? 'mushaf görselinde geçersiz' : 'not applicable in mushaf image mode'}
+                </span>
+              )}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               {(() => {
@@ -4960,23 +5501,26 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 return (
                   <>
                     <button
+                      disabled={isMushafImageActive}
                       onClick={() => setArabicFontSize(s => Math.max(minRem, +(s - remStep).toFixed(2)))}
-                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
+                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: isMushafImageActive ? 'default' : 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                       onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                       onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
                     >−</button>
                     <input
                       type="range" min={minPct} max={maxPct} step={stepPct}
                       value={currentPct}
+                      disabled={isMushafImageActive}
                       onChange={e => {
                         const newPct = parseInt(e.target.value, 10);
                         setArabicFontSize(+(baseline * newPct / 100).toFixed(2));
                       }}
-                      style={{ flex: 1, accentColor: gold, cursor: 'pointer', height: '4px' }}
+                      style={{ flex: 1, accentColor: gold, cursor: isMushafImageActive ? 'default' : 'pointer', height: '4px' }}
                     />
                     <button
+                      disabled={isMushafImageActive}
                       onClick={() => setArabicFontSize(s => Math.min(maxRem, +(s + remStep).toFixed(2)))}
-                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
+                      style={{ width: '32px', height: '32px', borderRadius: RADIUS.sm, cursor: isMushafImageActive ? 'default' : 'pointer', flexShrink: 0, border: `1px solid ${dropC.btnBorder}`, background: dropC.btnBg, color: dropC.text, fontSize: '1rem', fontWeight: 700, transition: `all ${TRANSITION.fast}` }}
                       onMouseEnter={e => { e.currentTarget.style.background = dropC.itemBgActive; e.currentTarget.style.borderColor = navC.btnBorderActive; e.currentTarget.style.color = gold; }}
                       onMouseLeave={e => { e.currentTarget.style.background = dropC.btnBg; e.currentTarget.style.borderColor = dropC.btnBorder; e.currentTarget.style.color = dropC.text; }}
                     >+</button>
@@ -4989,8 +5533,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 {Math.round((arabicFontSize / (isMobile ? 2.1 : 2.8)) * 100)}%
               </span>
               <button
+                disabled={isMushafImageActive}
                 onClick={() => setArabicFontSize(isMobile ? 1.8 : 2.8)}
-                style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                style={{ fontSize: '0.65rem', color: dropC.textMuted, background: 'none', border: 'none', cursor: isMushafImageActive ? 'default' : 'pointer', padding: 0 }}
                 onMouseEnter={e => { e.currentTarget.style.color = dropC.text; }}
                 onMouseLeave={e => { e.currentTarget.style.color = dropC.textMuted; }}
               >{language === 'tr' ? 'Sıfırla' : 'Reset'}</button>
@@ -5491,22 +6036,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             );
           })}
 
-          {/* Karaoke toggle */}
+          {/* Karaoke toggle — mushaf görsel modunda anlamsız: kelime-kelime
+              vurgu, canlı render edilen Arapça metnin ÜSTÜNE uygulanır;
+              taranmış sayfa fotoğrafında vurgulanacak bir DOM kelimesi yok
+              (kullanıcı 2026-08-26: "mushaf modda karaokeyi de disable yap"). */}
           <div style={{ borderTop: `1px solid ${dropC.divider}`, margin: '6px 0 0', padding: '8px 14px' }}>
             <button
               type="button"
               onClick={() => setKaraokeEnabled(v => !v)}
-              disabled={!hasKaraoke(reciterIdx)}
+              disabled={!hasKaraoke(reciterIdx) || isMushafImageActive}
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                 width: '100%', padding: '6px 0', border: 'none', background: 'transparent',
-                color: hasKaraoke(reciterIdx) ? dropC.text : dropC.textMuted,
-                cursor: hasKaraoke(reciterIdx) ? 'pointer' : 'not-allowed',
+                color: (hasKaraoke(reciterIdx) && !isMushafImageActive) ? dropC.text : dropC.textMuted,
+                cursor: (hasKaraoke(reciterIdx) && !isMushafImageActive) ? 'pointer' : 'not-allowed',
+                opacity: isMushafImageActive ? 0.5 : 1,
                 fontSize: '0.78rem', textAlign: 'left',
               }}
-              title={!hasKaraoke(reciterIdx)
-                ? (language === 'tr' ? 'Bu kari için kelime takibi yok' : 'Word highlighting not available for this reciter')
-                : undefined}
+              title={isMushafImageActive
+                ? (language === 'tr' ? 'Mushaf görselinde geçersiz' : 'Not available in mushaf image mode')
+                : !hasKaraoke(reciterIdx)
+                  ? (language === 'tr' ? 'Bu kari için kelime takibi yok' : 'Word highlighting not available for this reciter')
+                  : undefined}
             >
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ fontSize: '0.95rem' }}>♪</span>
@@ -5516,13 +6067,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 aria-hidden
                 style={{
                   width: '28px', height: '16px', borderRadius: RADIUS.md, position: 'relative',
-                  background: (karaokeEnabled && hasKaraoke(reciterIdx)) ? gold : 'rgba(255,255,255,0.12)',
+                  background: (karaokeEnabled && hasKaraoke(reciterIdx) && !isMushafImageActive) ? gold : 'rgba(255,255,255,0.12)',
                   transition: 'background 0.18s', flexShrink: 0,
                 }}
               >
                 <span style={{
                   position: 'absolute', top: '2px',
-                  left: (karaokeEnabled && hasKaraoke(reciterIdx)) ? '14px' : '2px',
+                  left: (karaokeEnabled && hasKaraoke(reciterIdx) && !isMushafImageActive) ? '14px' : '2px',
                   width: '12px', height: '12px', borderRadius: RADIUS.full,
                   background: '#fff', transition: 'left 0.18s',
                 }} />
@@ -6131,7 +6682,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
       {/* Verse list */}
       <div
         ref={containerRef}
-        style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative' }}
+        style={{ flex: 1, minHeight: 0, overflowY: 'auto', overflowX: 'hidden', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'thin', scrollbarColor: C.scrollbar, position: 'relative', direction: mushafMode ? 'ltr' : undefined }}
         onClick={() => { setShowSurahPicker(false); setShowMealPicker(false); setShowFontPicker(false); setShowSettingsPicker(false); }}
         onTouchStart={isMobile && bookMode ? (e) => { swipeTouchX.current = e.touches[0].clientX; swipeTouchY.current = e.touches[0].clientY; } : undefined}
         onTouchEnd={isMobile && bookMode ? (e) => {
@@ -6356,6 +6907,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             inside the per-side surah opening cards (Turkish meal on left,
             Arabic on right). Old centered block here would double-stamp it. */}
 
+        {/* MushafInlineView tabanlı ayrı bir "Mushaf görünümü" denendi
+            (2026-08-25) ve KALDIRILDI — kendi meal listesini, kendi
+            navigasyon oklarını yeniden icat ediyordu; gerçek kitap modunun
+            meal seçici/karşılaştırma/hizalama/navigasyon özelliklerinin
+            hiçbirini miras almıyordu (kullanıcı geri bildirimi: "meal
+            kısmını bozdun", "navigasyon zaten var", "meal ile arapça aynı
+            yükseklikte değil"). Doğru yaklaşım — görseli AŞAĞIDAKİ gerçek
+            data-ar-col Arapça sütununun İÇİNE, satır-kırılımı render'ının
+            YERİNE koymak (bkz. mushafMode dalı, aşağıda) — meal sütunu,
+            meal seçici, karşılaştırma, mevcut sayfa navigasyonu HİÇBİRİNE
+            dokunulmuyor. import MushafInlineView from './MushafInlineView'
+            satırı ve ENABLE_MUSHAF_IMAGE_MODE bayrağı silinmedi, ileride
+            gerekirse geri bakılabilir. */}
         {bookMode ? (
           /* ── Book format — all surahs ── */
           <>
@@ -6373,7 +6937,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 Surah title cards (Arabic name + transliteration + ayah count) are
                 rendered inline in the items loop below — one before each surah on
                 the page, so multi-surah pages show titles at the correct position. */}
-
             <div style={{
               display: 'grid',
               gridTemplateColumns: spreadMode
@@ -6467,8 +7030,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // 3-layer divider handles the visual separation from the
                   // Arabic column. Old hairline borderRight removed to avoid
                   // doubling with the new gold-seam divider.
-                  paddingLeft: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
-                  paddingRight: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
+                  paddingLeft: showPageFrame ? (isMobile ? '12px' : '30px') : '0',
+                  paddingRight: showPageFrame ? (isMobile ? '12px' : '30px') : '0',
                   borderRight: 'none',
                   // On mobile, the meal panel previously had only a top hairline.
                   // C-option: replace with a subtle full silver/brown 1px frame
@@ -6481,9 +7044,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   // ample top space, so we skip the reservation to keep it from
                   // doubling up with the Arabic side.
                   paddingTop: (versesOnPage[0]?.ayah === 1)
-                    ? (isMobile ? '12px' : (showPageFrame ? '18px' : '0'))
+                    ? (isMobile ? '12px' : (showPageFrame ? '30px' : '0'))
                     : (isMobile ? '52px' : '48px'),
-                  paddingBottom: showPageFrame ? (isMobile ? '12px' : '18px') : '0',
+                  paddingBottom: showPageFrame ? (isMobile ? '12px' : '30px') : '0',
                   '--mt-d': '0', '--mt-m': '12px',
                   display: 'flex', flexDirection: 'column', gap: '0',
                   // Relative parent so the absolute-positioned translator attribution
@@ -6509,7 +7072,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       (frequent action deserves a fast inline path). */}
                   <div ref={inlineMealPickerRef} style={{
                     position: 'absolute',
-                    top: 0, left: 0, right: 0,
+                    // top/left/right:0 — absolute konumlama ebeveynin PADDING
+                    // kutusunu değil BORDER kenarını referans alır, yani
+                    // ebeveynin padding'i (30px, çerçeve boşluğu) bu elemente
+                    // hiç yansımıyordu — çerçeve genişletildiğinde bu etiket
+                    // hâlâ çizgiye yapışık kalıyordu (kullanıcı ekran
+                    // görüntüsüyle bildirdi, 2026-08-20). Küçük sabit bir
+                    // inset ile düzeltildi (30'un tamamı değil — bu bir meta
+                    // kontrol, ana metin değil).
+                    // left: 18px + butonun 12px kendi margin'i = 30px, yani
+                    // etiketin sol kenarı sûre kutusunun sol kenarıyla
+                    // (sütun sol kenarından 30px içeride) birebir hizalanır.
+                    top: showPageFrame && !isMobile ? '2px' : 0,
+                    left: showPageFrame && !isMobile ? '18px' : 0,
+                    right: showPageFrame && !isMobile ? '14px' : 0,
                     // ⚠ YIĞIN BAĞLAMI: bu sarmalayıcı z:5 ile kendi bağlamını
                     // açıyor; içindeki dropdown'ın z:20'si SADECE burada
                     // geçerli. Dışarıdan bakınca tüm blok z:5 olarak yarışır
@@ -6533,8 +7109,19 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '8px',
-                        margin: '6px 12px 8px',
-                        padding: '4px 0',
+                        margin: '0 12px',
+                        padding: '3px 0',
+                        // inline-flex öge, sarmalayıcının 28.8px'lik satır
+                        // kutusunda TABAN ÇİZGİSİNE oturuyor ve bu, butonu
+                        // ölçülen 6.5px aşağı itiyordu; 'top' ile satır
+                        // kutusunun üstüne hizalanır, offset sıfırlanır.
+                        verticalAlign: 'top',
+                        // Gövdeden gelen 1.8 satır yüksekliği bu küçük meta
+                        // kontrolü 30.5px'e çıkarıyordu; sûre kutusunun
+                        // üstünde kalan boşluk 30px olduğu için etiket
+                        // kutunun içine taşıyordu (ölçüldü 2026-08-26,
+                        // 1440px: buton 104→134.5, kutu 114'te başlıyor).
+                        lineHeight: 1.2,
                         background: 'transparent',
                         border: 'none',
                         fontSize: '0.78rem',
@@ -6692,80 +7279,20 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           ? (isMadani ? 'Medenî' : 'Mekkî')
                           : (isMadani ? 'Madani' : 'Makki');
                         const nameForHero = contentLang === 'en' ? enName : trName;
-                        const displayName = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '')
-                          .toLocaleUpperCase(contentLang === 'tr' ? 'tr-TR' : 'en-US');
+                        // Tam ad (El-/Al- öneki DAHİL) gösterilir — önceden
+                        // önek atılıp ayrı bir italik alt satırda geri
+                        // ekleniyordu; kullanıcı 2026-08-26: "show full name
+                        // in hero" ile o dolaylı yolu kaldırıp doğrudan
+                        // burada tam adı istedi.
+                        const displayName = nameForHero.toLocaleUpperCase(contentLang === 'tr' ? 'tr-TR' : 'en-US');
                         // Meal-column header — mirrors the Arabic side's vertical rhythm so
                         // verses line up. Latin/UI-language content here gives readers the
                         // navigational metadata while the Arabic side stays mushaf-pure.
                         return (
                           <div key={`tr-sh-${item.surah}`} lang={contentLang} style={{ display: 'block' }}>
-                            <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
-                              {/* Vertical gold rule — same anchor as Arabic side */}
-                              <div style={{
-                                width: '1.5px',
-                                height: isMobile ? '32px' : '40px',
-                                background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                                margin: '0 auto',
-                              }} />
-
-                              <div style={{ height: isMobile ? '40px' : '52px' }} />
-
-                              {/* Sûre N — small caps gold label.
-                                  Slightly tighter than before so it doesn't out-weigh
-                                  the Arabic-side السُّورَةُ ٥٧ counterpart. */}
-                              <div className="mq-box" style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: '0.74rem',
-                                color: C.gold,
-                                opacity: 0.78,
-                                letterSpacing: '0.18em',
-                                textTransform: 'uppercase',
-                                fontWeight: 600,
-                                '--mb-d': '20px', '--mb-m': '14px',
-                              }}>
-                                {contentLang === 'tr' ? `Sûre ${item.surah}` : `Surah ${item.surah}`}
-                              </div>
-
-                              {/* Hero name — Playfair display, gold */}
-                              <div className="mq-box" style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                fontSize: isMobile ? '1.95rem' : '2.5rem',
-                                color: C.gold,
-                                fontWeight: 700,
-                                letterSpacing: '0.05em',
-                                lineHeight: 1.1,
-                                '--mb-d': '10px', '--mb-m': '6px',
-                              }}>
-                                {displayName}
-                              </div>
-
-                              {/* Italic Turkish/English subtitle */}
-                              <div className="mq-box" style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: isMobile ? '0.98rem' : '1.06rem',
-                                color: C.muted,
-                                fontStyle: 'italic',
-                                '--mb-d': '20px', '--mb-m': '14px',
-                              }}>
-                                {contentLang === 'tr' ? `${trName} Sûresi` : `Sūrah ${enName}`}
-                              </div>
-
-                              {/* Meta — chronological → spatial → structural:
-                                  nüzul rank · period · ayah count · rukū count.
-                                  Day-mode tone slightly darker than C.muted for readability. */}
-                              <div style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: '0.8rem',
-                                color: dayMode ? '#5a4a32' : C.muted,
-                                letterSpacing: '0.16em',
-                                textTransform: 'uppercase',
-                                fontWeight: 500,
-                                opacity: 0.92,
-                                lineHeight: 1.5,
-                              }}>
-                                {contentLang === 'tr' ? `Nüzul ${nuzulRank}` : `Revelation ${nuzulRank}`} · {periodLabel} · {ayahCount} {contentLang === 'tr' ? 'ayet' : 'verses'} · {rukuCount} {contentLang === 'tr' ? 'rukû' : 'rukūʿ'}
-                              </div>
-                            </div>
+                            {/* bkz. Arapça sütundaki aynı kutu — Hayrat mushafı
+                                referansı, kullanıcı 2026-08-26. */}
+                            {renderSurahCardTr(item.surah)}
 
                             {/* Bismillah meaning — italic, slight emphasis bump.
                                 Extra marginTop compensates for the height difference
@@ -6780,9 +7307,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               const fv = fatihaFirstVerseTr;
                               const fatihaTrText = isFatihaHeaderTr ? (getTranslation(fv) || '') : '';
                               const isActiveFV = isFatihaHeaderTr && activeVerse?.id === fv?.id;
-                              const text = isFatihaHeaderTr
-                                ? fatihaTrText
-                                : (contentLang === 'tr' ? 'Rahmân ve Rahîm olan Allah\'ın adıyla' : 'In the name of Allah, the Most Gracious, the Most Merciful');
+                              const text = isFatihaHeaderTr ? fatihaTrText : getBesmeleMeal();
                               return (
                                 <div className="mq-box"
                                   id={isFatihaHeaderTr ? `rm-meal-${fv.id}` : undefined}
@@ -6807,8 +7332,8 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     // shown when the surah is not Fatiha — so Bismillah
                                     // gets its honoured colour wherever it appears.
                                     color: C.bismillah,
-                                    '--mt-d': '54px', '--mt-m': '38px',
-                                    '--mb-d': '22px', '--mb-m': '14px',
+                                    '--mt-d': '33px', '--mt-m': '24px',
+                                    '--mb-d': '87px', '--mb-m': '63px',
                                     lineHeight: 1.7,
                                     cursor: isFatihaHeaderTr ? 'pointer' : 'default',
                                     background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -6818,22 +7343,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   }}
                                 >
                                   {isFatihaHeaderTr && (
-                                    <span style={{
-                                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                      width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                                      textAlign: 'center', borderRadius: RADIUS.full,
-                                      border: `1.5px solid ${C.gold}88`,
-                                      color: C.gold,
-                                      fontSize: isMobile ? '0.72rem' : '0.84rem',
-                                      fontFamily: currentFont,
-                                      fontWeight: dayMode ? 600 : 400,
-                                      background: dayMode
-                                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
-                                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                                      boxSizing: 'border-box', flexShrink: 0,
-                                    }}>
-                                      1
-                                    </span>
+                                    <MealAyahBadge
+                                      isSajda={false} isActive={isActiveFV} dayMode={dayMode}
+                                      gold={C.gold} bg={C.bg} currentFont={currentFont} isMobile={isMobile}
+                                    >1</MealAyahBadge>
                                   )}
                                   <span>{text}</span>
                                 </div>
@@ -6881,82 +7394,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
                           onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
                         >
-                          {/* Sayfa dış-kenar SECDE ribbon'u (Diyanet mushaf kenar-notu muadili).
-                              Karta CSS ile bağlı → ayet font-size değişince otomatik hizalı kalır (JS yok).
-                              Masaüstünde dış margine taşar; mobilde gizli (dar ekranda taşma önlemi §14). */}
-                          {isSajdaTr && !isMobile && (
-                            <span aria-hidden="true" style={{
-                              // Secde madalyonu — sayfa dış kenarında (frame border'a DEĞMEZ),
-                              // ayete hizalı. Dış margin ~32px olduğu için daire 28px: kart-relative
-                              // left:-48 + width:28 → x∈[kart-48, kart-20] = frame kenarından 2px içeride
-                              // biter, viewport kenarından 2px açık. Karta CSS-anchored → font-robust.
-                              position: 'absolute', left: '-72px', top: '50%', transform: 'translateY(-50%)',
-                              width: '44px', height: '44px', borderRadius: '50%',
-                              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
-                              gap: '0', paddingTop: '6px',
-                              background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
-                              border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
-                              color: dayMode ? '#1a7a4c' : '#2ecc71',
-                              boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
-                              fontFamily: "'Inter', sans-serif",
-                              textAlign: 'center', pointerEvents: 'none', boxSizing: 'border-box', zIndex: 2,
-                            }}>
-                              <span style={{ fontSize: '1.8rem', lineHeight: 0.8, marginTop: '-6px' }}>۩</span>
-                              <span style={{ fontSize: '0.54rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1, marginTop: '0px', color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>{contentLang === 'tr' ? 'SECDE' : 'SAJDA'}</span>
-                            </span>
-                          )}
                           <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
-                            <button className="mq-box"
-                              type="button"
+                            <MealAyahBadge
+                              isSajda={isSajdaTr} isActive={isActive} dayMode={dayMode}
+                              gold={C.gold} bg={C.bg} currentFont={currentFont} isMobile={isMobile}
                               onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
                               title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-                              aria-label={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
-                              onMouseEnter={e => {
-                                // Hover keeps the double-ring (page-bg ring +
-                                // gold ring) and adds an outer glow halo so
-                                // the gülçe stays intact instead of collapsing
-                                // back to a flat circle. Secde → yeşil halka.
-                                e.currentTarget.style.transform = 'scale(1.08)';
-                                e.currentTarget.style.borderColor = isSajdaTr ? (dayMode ? '#1a7a4c' : '#2ecc71') : `${C.gold}`;
-                                e.currentTarget.style.boxShadow = isSajdaTr
-                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.6)' : 'rgba(46,204,113,0.6)'}, 0 0 8px ${dayMode ? 'rgba(26,122,76,0.5)' : 'rgba(46,204,113,0.5)'}`
-                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}88, 0 0 8px ${C.gold}55`;
-                              }}
-                              onMouseLeave={e => {
-                                e.currentTarget.style.transform = 'scale(1)';
-                                e.currentTarget.style.borderColor = isSajdaTr ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : 'aa'}`;
-                                e.currentTarget.style.boxShadow = isSajdaTr
-                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
-                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`;
-                              }}
-                              style={{
-                                // Visually unified with the Arabic-side ayet
-                                // badge: same gold border opacity (aa = ~0.67)
-                                // + the double-ring boxShadow that gives the
-                                // Arabic badges their 'gülçe' / mushaf-rosette
-                                // feel. Active state still bumps the border
-                                // to cc for stronger emphasis.
-                                // Secde âyeti → DOLGULU yeşil daire + beyaz rakam.
-                                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                                borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '1px', '--mt-m': '2px',
-                                border: `1.5px solid ${isSajdaTr ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : 'aa'}`}`,
-                                boxShadow: isSajdaTr
-                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
-                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                                background: isSajdaTr
-                                  ? (dayMode ? '#1a7a4c' : '#1f8f59')
-                                  : (dayMode
-                                      ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                      : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
-                                color: isSajdaTr ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
-                                fontSize: verse.ayah >= 100 ? (isMobile ? '0.66rem' : '0.74rem') : verse.ayah >= 10 ? (isMobile ? '0.72rem' : '0.82rem') : (isMobile ? '0.8rem' : '0.94rem'),
-                                fontFamily: currentFont,
-                                fontWeight: isSajdaTr ? 700 : (dayMode ? 600 : 400),
-                                cursor: 'pointer',
-                                padding: 0,
-                                transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
-                              }}>{verse.ayah}</button>
+                              ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
+                            >{verse.ayah}</MealAyahBadge>
                             {isRangeFollower ? (
                               <p style={{
                                 margin: 0,
@@ -6986,23 +7431,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 flex: 1,
                               }}>
                                 <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
-                                {/* Satır-içi pill yalnızca mobilde — desktop'ta kenar madalyonu var (çift işaret olmasın). */}
-                                {isSajdaTr && isMobile && (
-                                  <span aria-hidden="true" style={{
-                                    // Mobilde dış margin yok → madalyon satır-içi (kompakt 34px).
-                                    display: 'inline-flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
-                                    verticalAlign: 'middle', marginLeft: '8px', paddingTop: '3px',
-                                    width: '34px', height: '34px', borderRadius: '50%', boxSizing: 'border-box',
-                                    background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
-                                    border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
-                                    color: dayMode ? '#1a7a4c' : '#2ecc71',
-                                    boxShadow: `0 0 0 2px ${C.bg}, 0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
-                                    fontFamily: "'Inter', sans-serif", fontStyle: 'normal',
-                                  }}>
-                                    <span style={{ fontSize: '1.15rem', lineHeight: 0.8, marginTop: '-4px' }}>۩</span>
-                                    <span style={{ fontSize: '0.34rem', fontWeight: 800, lineHeight: 1, color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>{contentLang === 'tr' ? 'SECDE' : 'SAJDA'}</span>
-                                  </span>
-                                )}
                               </p>
                             )}
                           </div>
@@ -7054,29 +7482,42 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   JUZ_PAGES.indexOf(firstPageL) > 0 ||
                   HIZB_PAGES.indexOf(firstPageL) > 0
                 );
-                const frameOuterL = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
-                const frameInnerL = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                // bkz. sağ sütundaki isImageMode yorumu — görüntü modunda
+                // gece temasından bağımsız hep krem çerçeve.
+                const isImageModeL = ENABLE_MUSHAF_IMAGE_MODE && mushafMode;
+                const frameDayL = dayMode || isImageModeL;
+                const frameOuterL = frameDayL ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameInnerL = frameDayL ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                const colBgL = isImageModeL ? COLORS.paperCream : C.bg;
                 const frameDoubleL = showPageFrame
-                  ? `inset 0 0 0 1px ${frameOuterL}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${frameInnerL}`
+                  ? `inset 0 0 0 1px ${frameOuterL}, inset 0 0 0 3px ${colBgL}, inset 0 0 0 4px ${frameInnerL}`
                   : 'none';
                 return (
-                <div style={{
+                  <div style={{
                   order: 1,
                   position: 'relative',
+                  // minWidth:0 — grid item'ların varsayılan min-width:auto'su
+                  // white-space:nowrap satırların DOĞAL (sıkıştırılamaz)
+                  // genişliğini track'in taban ölçüsü yapar; mushaf modunda
+                  // iki sayfa farklı doğal satır genişliğine sahip olduğunda
+                  // bu, 1fr/1fr grid'i eşitsiz bölüyordu (sayfalar dengesiz
+                  // görünüyor + ortadaki cilt çizgisi gerçek boşluktan kayıyordu,
+                  // kullanıcı 2026-08-23). minWidth:0 track'i gerçek 1fr'a kilitler.
+                  minWidth: 0,
                   // Outer (physical-left) gutter for the Cüz/Hizb medallion —
                   // mirrors the right page's right-gutter so both pages keep
                   // mushaf outer-margin symmetry.
-                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : (showPageFrame ? '18px' : '0'),
-                  paddingRight: showPageFrame ? '18px' : '0',
+                  paddingLeft: hasMarkerL ? (isMobile ? '44px' : '56px') : (showPageFrame ? '30px' : '0'),
+                  paddingRight: showPageFrame ? '30px' : '0',
                   direction: 'rtl',
                   fontFamily: currentFont,
                   fontSize: `${arabicFontSize}rem`,
                   lineHeight: 2.1,
                   color: C.arabic,
                   textAlign: isMobile ? 'right' : 'justify',
-                  paddingTop: showPageFrame ? '18px' : '0',
-                  paddingBottom: showPageFrame ? '18px' : '0',
-                  background: C.bg,
+                  paddingTop: showPageFrame ? '30px' : '0',
+                  paddingBottom: showPageFrame ? '30px' : '0',
+                  background: colBgL,
                   boxShadow: frameDoubleL,
                   borderRadius: showPageFrame ? '6px' : 0,
                 }}>
@@ -7158,7 +7599,216 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       </span>
                     );
                   })()}
-                  {(() => {
+                  {ENABLE_MUSHAF_IMAGE_MODE && mushafMode && versesOnNextPage[0]?.page != null ? (
+                    // Sağ sütunla BİREBİR AYNI mantık — spread modunun SOL
+                    // (bir sonraki) sayfası için görsel. spreadMode zaten
+                    // showTranslation=false gerektirdiği için meal yok —
+                    // ayet çalma şeridi burada HER ZAMAN gösterilir.
+                    <>
+                      <img
+                        src={`/mushaf-hayrat/${versesOnNextPage[0].page}.webp`}
+                        alt={language === 'en' ? `Mushaf page ${versesOnNextPage[0].page}` : `Mushaf sayfa ${versesOnNextPage[0].page}`}
+                        style={{ width: '100%', display: 'block', direction: 'ltr' }}
+                      />
+                      <AyahPlayStrip
+                        verses={versesOnNextPage}
+                        playingVerseId={playingVerseId}
+                        dayMode={dayMode}
+                        language={language}
+                        currentFont={currentFont}
+                        onSelect={(v) => { handleSelectVerse(v); handleAudioToggle(v); }}
+                      />
+                    </>
+                  ) : mushafMode && mushafLineBreaks[String(versesOnNextPage[0]?.page)] ? (() => {
+                    // Sağ sütunla (data-ar-col="1") BİREBİR AYNI mantık — sadece
+                    // versesOnPage/currentPage yerine versesOnNextPage/leftPage.
+                    // Kullanıcı 2026-08-20 ekran görüntüsüyle bildirdi: meal
+                    // kapalıyken açılan 2-sayfa yayılımın SOL sütunu (bir sonraki
+                    // sayfa) unutulmuştu, hâlâ eski render'ı gösteriyordu.
+                    const leftPage = versesOnNextPage[0].page;
+                    const pageDataL = mushafLineBreaks[String(leftPage)];
+                    const hasHeaderL2 = versesOnNextPage[0]?.ayah === 1;
+                    const isBismillahPageL = hasHeaderL2 && versesOnNextPage[0]?.surah !== 9;
+                    const isOpeningPairL = leftPage === 0 || leftPage === 1;
+                    const openingPairMaxWordsL = isOpeningPairL
+                      ? Math.max(
+                          ...(mushafLineBreaks['0']?.lines || []).map(l => l.trim().split(/\s+/).length),
+                          ...(mushafLineBreaks['1']?.lines || []).map(l => l.trim().split(/\s+/).length),
+                        )
+                      : 0;
+                    const innerFrameDoubleL = showPageFrame
+                      ? `inset 0 0 0 1px ${frameOuterL}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${frameInnerL}`
+                      : 'none';
+                    const allPiecesL = [];
+                    // Besmele HICBIR ayetin (2:1, 2:2...) metninde yer almiyor —
+                    // sadece Fatiha'da ayet 1 ile ayni. Bu yuzden kelime-sayisi
+                    // bazli satir dagitimi besmeleyi (4 kelime) hesaba katmazsa
+                    // TUM sayfa 4 kelime kayar (besmele kaybolur, geri kalan her
+                    // sey bir satir geriden gelir) — kullanici 2026-08-20 ekran
+                    // goruntusuyle bildirdi: "Bakara'nin besmelesi nerede".
+                    // Fatiha DISINDAKI her sure-acilis sayfasinda besmeleyi ayri,
+                    // sentetik bir "parca" olarak (ayetsiz, rozetsiz) EN BASA ekle.
+                    if (isBismillahPageL) {
+                      const basmalaHtml = showTajweed
+                        ? applyTajweed(cleanArabic(BASMALA_AR_CLEAN), dayMode, true, true)
+                        : wrapWaqfOnly(cleanArabic(BASMALA_AR_CLEAN), dayMode, true, true);
+                      splitTajweedHtmlIntoWords(basmalaHtml).forEach(wh => {
+                        allPiecesL.push({ html: wh, verse: null, isVerseEnd: false });
+                      });
+                    }
+                    for (const verse of versesOnNextPage) {
+                      const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                      const ar = (isFatiha1
+                        ? cleanArabic(verse.arabic).replace(/َٰ/g, 'ٰ').replace(/َٰ/g, 'ٰ')
+                        : cleanArabic(verse.arabic)).trimEnd();
+                      const fullHtml = showTajweed
+                        ? applyTajweed(ar, dayMode, true, isFatiha1)
+                        : wrapWaqfOnly(ar, dayMode, true, isFatiha1);
+                      const wordHtmls = splitTajweedHtmlIntoWords(fullHtml);
+                      wordHtmls.forEach((wh, wIdx) => {
+                        allPiecesL.push({ html: wh, verse, isVerseEnd: wIdx === wordHtmls.length - 1 });
+                      });
+                    }
+                    let cursorL = 0;
+                    const lineRendersL = pageDataL.lines.map(lineText => {
+                      const wc = lineText.trim().split(/\s+/).length;
+                      const slice = allPiecesL.slice(cursorL, cursorL + wc);
+                      cursorL += wc;
+                      return slice;
+                    });
+                    return (
+                      <div style={{
+                        textAlign: 'center',
+                        // SABİT yükseklik — kullanıcı 2026-08-20, kural 1:
+                        // "sabit sayfa genişliği ve yüksekliği". GERÇEK sabit
+                        // değer (height, minHeight/yüzde DEĞİL — önceki
+                        // minHeight:'100%' denemesi tanımsız ata yüksekliği
+                        // yüzünden 4097px'e kadar sınırsız büyümüştü, o hatayı
+                        // TEKRARLAMIYORUZ). 15 satır (mevcut verideki maksimum)
+                        // + başlık rahat sığacak şekilde ölçüldü.
+                        height: '34em',
+                        display: 'flex', flexDirection: 'column',
+                        // Yalnız Fatiha + Bakara ilk sayfası (isOpeningPairL —
+                        // 7 satır, kısa) ortalanır. Diğer sure başlangıç
+                        // sayfaları (13-14 satır + başlık) üstten aksın —
+                        // aksi halde 34em'lik sabit kutuda ortalama, başlığı
+                        // sayfanın çok altına itip üstte devasa boşluk
+                        // bırakıyordu (kullanıcı 2026-08-23 ekran görüntüsü:
+                        // Âl-i İmrân başlığı üstünde büyük boşluk).
+                        justifyContent: isOpeningPairL ? 'center' : 'flex-start',
+                        overflow: 'visible',
+                      }}>
+                        {hasHeaderL2 && (() => {
+                          const s = versesOnNextPage[0].surah;
+                          const arName = SURAH_NAMES_AR[s - 1];
+                          const isMadani = MADANI_SURAHS.has(s);
+                          return (
+                            <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
+                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '2.1rem' : '2.55rem', color: C.gold, lineHeight: 1.5 }}>
+                                سُورَةُ {arName}
+                              </div>
+                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '1.65rem' : '1.95rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
+                                {isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة'}
+                              </div>
+                            </div>
+                          );
+                        })()}
+                        <div style={{
+                          display: 'flex', flexDirection: 'column',
+                          gap: isMobile ? '2px' : '3px',
+                          // Kutu/dolgu/çerçeve ÖZELLEŞTİRMESİ genel olarak
+                          // KALDIRILDI — kullanıcı 2026-08-20: "kitap
+                          // modundaki dış çerçeveleri aynen kullan, değiştirme,
+                          // büyütme". Kitap'ın kendi (dokunulmamış) padding'i
+                          // içinde doğal genişlikte akar. TEK istisna: Fâtiha +
+                          // Bakara ilk sayfası (isOpeningPairL) — bu ikisinin
+                          // satırları o kadar kısa ki Kitap'ın tam genişliğinde
+                          // dağınık/seyrek görünüyordu (kullanıcı: "ilk iki
+                          // sayfaya neden tekrar dokundun" — bu ikisi İÇİN
+                          // dar tutmak zaten önceden onaylanmıştı). Sadece
+                          // maxWidth+auto-margin, ekstra dolgu/çerçeve YOK.
+                          maxWidth: isOpeningPairL && !isMobile ? `${openingPairMaxWordsL * 2.6}em` : undefined,
+                          margin: isOpeningPairL && !isMobile ? '0 auto' : undefined,
+                        }}>
+                          {lineRendersL.map((pieces, li) => {
+                            const isBismillahLine = li === 0 && isBismillahPageL;
+                            // Kelime-sayısı tabanlı ön-küçültme KALDIRILDI
+                            // (2026-08-23 kullanıcı: gerçek Hayrat'ta 13
+                            // kelimelik bir satır komşularıyla neredeyse AYNI
+                            // boyutta — kelime sayısı tek başına gerçek piksel
+                            // genişliğin kötü bir tahmincisi, kısa kelimelerden
+                            // oluşan 13 kelime uzun kelimelerden oluşan
+                            // 10 kelimeden DAHA DAR olabilir). Artık satırlar
+                            // TAM boyutta başlıyor; gerçek taşma varsa onu
+                            // ölçüp yalnızca gereken kadar küçülten aşağıdaki
+                            // fixMushafLineOverflow (useLayoutEffect, gerçek
+                            // scrollWidth ölçümü) devreye giriyor — kelime
+                            // sayısına göre tahmin değil, gerçek piksel ölçüme
+                            // dayalı, dolayısıyla HER ZAMAN minimum küçültme.
+                            const wc = pieces.length;
+                            const lineScale = 1;
+                            return (
+                              <div
+                                key={li}
+                                data-mushaf-line="1"
+                                data-line-scale={lineScale}
+                                style={{
+                                  // Kullanıcı 2026-08-20: sabit genişlik (25em)
+                                  // artık belirlendi, bu genişlik İÇİNDE
+                                  // iki yana yasla — daha önceki "sparse"
+                                  // sorunu genişlik tahmini yanlışken oluşmuştu.
+                                  textAlign: isBismillahLine ? 'center' : 'justify',
+                                  textAlignLast: isBismillahLine ? 'center' : 'justify',
+                                  whiteSpace: 'nowrap',
+                                  // Kenar harfleri çerçeveye değmesin diye küçük
+                                  // bir iç emniyet payı (2026-08-23 kullanıcı
+                                  // raporu: bazı satırlarda ilk/son kelime tam
+                                  // çerçeve sınırına dokunuyordu — minWidth:0
+                                  // düzeltmesinden sonra satırlar %100 doldurmaya
+                                  // başladı, bu boşluk olmadan sıfır tolerans vardı).
+                                  paddingInline: '0.15em',
+                                  color: isBismillahLine ? C.bismillah : C.arabic,
+                                  fontSize: lineScale < 1 ? `${lineScale}em` : undefined,
+                                }}
+                              >
+                                {pieces.map((p, pi) => {
+                                  const isSajdaPiece = p.isVerseEnd && SAJDA_VERSES.has(`${p.verse.surah}:${p.verse.ayah}`);
+                                  return (
+                                    <span key={pi}>
+                                      <span dangerouslySetInnerHTML={{ __html: p.html }} />
+                                      {p.isVerseEnd ? (
+                                        <span style={{
+                                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                          verticalAlign: '-0.25em', margin: '0 8px', // ortalama yerine baseline'a göre indirildi — 'middle' harekeler dahil satır ortasına hizalıyordu, rozet havada duruyormuş gibi görünüyordu (2026-08-23)
+                                          width: '1.4em', height: '1.4em',
+                                          textAlign: 'center', borderRadius: RADIUS.full,
+                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
+                                          boxShadow: isSajdaPiece
+                                            ? `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
+                                            : `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${C.gold}44`,
+                                          color: isSajdaPiece ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
+                                          fontSize: '0.5em', // standart boyut — hane sayısına göre küçülme yok (2026-08-23)
+                                          fontFamily: currentFont,
+                                          background: isSajdaPiece
+                                            ? (dayMode ? '#1a7a4c' : '#1f8f59')
+                                            : dayMode
+                                              ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                                          boxSizing: 'border-box', flexShrink: 0,
+                                        }}>
+                                          {toArabicNumerals(p.verse.ayah)}
+                                        </span>
+                                      ) : ' '}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })() : (() => {
                     const items = [];
                     let prevSurah = null;
                     for (const [idx, verse] of versesOnNextPage.entries()) {
@@ -7184,78 +7834,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           : 'آيَة';
                         return (
                           <span key={`ar-sh-L-${item.surah}`} style={{ display: 'block' }}>
-                            <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
-                              <div style={{
-                                width: '1.5px',
-                                height: isMobile ? '32px' : '40px',
-                                background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                                margin: '0 auto',
-                              }} />
-                              <div style={{ height: isMobile ? '40px' : '52px' }} />
-                              <div className="mq-box" style={{
-                                fontFamily: currentFont,
-                                fontSize: isMobile ? '1.22rem' : '1.45rem',
-                                color: C.gold,
-                                opacity: 0.78,
-                                letterSpacing: '0.02em',
-                                lineHeight: 1.4,
-                                '--mb-d': '20px', '--mb-m': '14px',
-                              }}>
-                                السُّورَةُ {toArabicNumerals(item.surah)}
-                              </div>
-                              <div className="mq-box" style={{
-                                fontFamily: currentFont,
-                                fontSize: isMobile ? '3rem' : '3.8rem',
-                                color: C.gold,
-                                lineHeight: 1.1,
-                                letterSpacing: '0.02em',
-                                '--mb-d': '26px', '--mb-m': '18px',
-                                textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
-                              }}>
-                                {arName}
-                              </div>
-                              {/* Latin caption — visibility rules:
-                                  • Desktop: only when meal is hidden (the
-                                    meal column already carries the Latin
-                                    name in its header, so duplicating here
-                                    would be noise).
-                                  • Mobile: ALWAYS shown — the meal column
-                                    on phone stacks below the Arabic verse
-                                    rather than sitting beside it, so the
-                                    Arabic surah header is the only place a
-                                    non-Arabic reader can confirm which
-                                    surah they've opened. */}
-                              {(!showTranslation || isMobile) && (
-                                <div className="mq-box" style={{
-                                  // Crimson Pro italic — matches the meal body
-                                  // family for typographic coherence (Playfair
-                                  // Display is a heading face, looked forced
-                                  // when used as a small italic caption).
-                                  fontFamily: "'Lora', Georgia, serif",
-                                  fontSize: isMobile ? '1.0rem' : '1.2rem',
-                                  fontWeight: 500,
-                                  fontStyle: 'italic',
-                                  color: dayMode ? '#6a4d18' : 'rgba(232,181,71,0.85)',
-                                  letterSpacing: '0.04em',
-                                  lineHeight: 1.4,
-                                  '--mt-d': '-10px', '--mt-m': '-6px',
-                                  '--mb-d': '14px', '--mb-m': '10px',
-                                  direction: 'ltr',
-                                }}>
-                                  {contentLang === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {contentLang === 'en' ? SURAH_NAMES_EN[item.surah - 1] : SURAH_NAMES_TR[item.surah - 1]}
-                                </div>
-                              )}
-                              <div style={{
-                                fontFamily: currentFont,
-                                fontSize: isMobile ? '1.22rem' : '1.45rem',
-                                color: dayMode ? '#5a4a32' : C.muted,
-                                letterSpacing: '0.04em',
-                                lineHeight: 1.5,
-                                opacity: 0.92,
-                              }}>
-                                النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
-                              </div>
-                            </div>
+                            {renderSurahCardAr(item.surah)}
                             {item.surah !== 9 && item.surah !== 1 && (
                               <div className="mq-box" style={{
                                 textAlign: 'center',
@@ -7263,7 +7842,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 fontFamily: currentFont,
                                 fontSize: `${arabicFontSize}rem`,
                                 color: C.bismillah,
-                                '--mt-d': '28px', '--mt-m': '20px',
+                                '--mt-d': '0px', '--mt-m': '0px',
                                 '--mb-d': '30px', '--mb-m': '20px',
                                 lineHeight: 1.9,
                               }}>
@@ -7300,7 +7879,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       const leadingHtmlL  = hasSplitL ? fullHtml.slice(0, htmlSplitIdxL + 1) : '';
                       const lastWordHtmlL = hasSplitL ? fullHtml.slice(htmlSplitIdxL + 1) : fullHtml;
                       const highlightStyleL = {
-                        background: isActive ? C.activeHighlight : 'transparent',
+                        // Hayrat'ın kendi baskısı secde ayetinin ETRAFINI hafif
+                        // yeşille vurguluyor (kullanıcı ekran görüntüsüyle
+                        // gösterdi, 2026-08-26) — aynı düzeni burada da
+                        // uyguluyoruz; tajwid metin renklerine karışmaz çünkü
+                        // bu sadece zemin, metnin kendi rengi DEĞİL.
+                        background: isActive
+                          ? C.activeHighlight
+                          : isSajdaBook
+                            ? (dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.14)')
+                            : 'transparent',
                         WebkitBoxDecorationBreak: 'clone',
                         boxDecorationBreak: 'clone',
                         transition: 'background 0.2s',
@@ -7321,27 +7909,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               letterSpacing: '0.02em',
                             }}>سجدة</span>
                           )}
-                          <span style={{
-                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                            width: '1.72em', height: '1.72em',
-                            textAlign: 'center', borderRadius: RADIUS.full,
-                            // Secde âyeti → DOLGULU yeşil rozet + beyaz rakam (Diyanet renkli-numara muadili).
-                            border: `1.5px solid ${isSajdaBook ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
-                            boxShadow: isSajdaBook
-                              ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
-                              : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                            color: isSajdaBook ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
-                            fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                            fontFamily: currentFont,
-                            background: isSajdaBook
-                              ? (dayMode ? '#1a7a4c' : '#1f8f59')
-                              : dayMode
-                                ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                            boxSizing: 'border-box', flexShrink: 0,
-                          }}>
-                            {toArabicNumerals(verse.ayah)}
-                          </span>
+                          <ArabicAyahBadge
+                            ayahArabic={toArabicNumerals(verse.ayah)}
+                            isSajda={isSajdaBook} dayMode={dayMode}
+                            gold={C.gold} bg={C.bg} currentFont={currentFont}
+                            ambientRem={arabicFontSize}
+                          />
                         </span>
                       );
                       // ── Kelime modu: word-by-word hover tooltip ──────────
@@ -7466,21 +8039,34 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 // inset box-shadows: front layer paints first, then the gap
                 // shadow covers the middle band with the page background,
                 // then the back layer shows through as the inner line.
-                const frameOuter = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
-                const frameInner = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                // Görüntü modunda gece temasından BAĞIMSIZ olarak hep krem
+                // (kullanıcı kararı 2026-08-26): gerçek sayfa fotoğrafı zaten
+                // hiç kararmıyor, çevresini koyu lacivert yapmak "koyu-koyu-
+                // parlak" iç içe bir kontrast üretiyordu. Krem çerçeve +
+                // krem fotoğraf = tek parça "kağıt sayfa" hissi, tıpkı
+                // karanlık bir odada açık bir kitap okumak gibi.
+                const isImageMode = ENABLE_MUSHAF_IMAGE_MODE && mushafMode;
+                const frameDay = dayMode || isImageMode;
+                const frameOuter = frameDay ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                const frameInner = frameDay ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                const colBg = isImageMode ? COLORS.paperCream : C.bg;
                 const frameDouble = showPageFrame
-                  ? `inset 0 0 0 1px ${frameOuter}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${frameInner}`
+                  ? `inset 0 0 0 1px ${frameOuter}, inset 0 0 0 3px ${colBg}, inset 0 0 0 4px ${frameInner}`
                   : 'none';
                 return {
                   order: isMobile ? 1 : 2,
                   position: 'relative',
-                  paddingLeft: showPageFrame ? '18px' : '0',
+                  // bkz. sol sütundaki minWidth:0 açıklaması (aynı gerekçe,
+                  // paylaşılan data-ar-col hem mushaf hem klasik Kitap modunda
+                  // kullanılıyor — ikisinde de güvenli).
+                  minWidth: 0,
+                  paddingLeft: showPageFrame ? '30px' : '0',
                   // Compact gutter sized to the medallion + a touch of
                   // breathing room. Mushaf outer margin in miniature.
-                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '18px' : '0'),
-                  paddingTop: showPageFrame ? '18px' : '0',
-                  paddingBottom: showPageFrame ? '18px' : '0',
-                  background: C.bg,
+                  paddingRight: hasMarker ? (isMobile ? '44px' : '56px') : (showPageFrame ? '30px' : '0'),
+                  paddingTop: showPageFrame ? '30px' : '0',
+                  paddingBottom: showPageFrame ? '30px' : '0',
+                  background: colBg,
                   boxShadow: frameDouble,
                   borderRadius: showPageFrame ? '6px' : 0,
                   direction: 'rtl',
@@ -7491,26 +8077,57 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   textAlign: isMobile ? 'right' : 'justify',
                 };
               })()}>
-                {/* Secde madalyonu — sağ dış margin, secde ayeti hizasında (ölçümlü).
-                    Meal tarafının aynadaki eşi; Arapça "سجدة" içerir. */}
-                {arSajdaTop != null && !isMobile && (
-                  <span aria-hidden="true" style={{
-                    // Meal madalyonuyla BİREBİR aynı: 44px, aynı ۩ (Inter fallback),
-                    // aynı çerçeve-mesafesi. Fark yalnızca metin: سجدة (Arapça).
-                    position: 'absolute', top: `${arSajdaTop}px`, right: '-51px', transform: 'translateY(-50%)',
-                    width: '44px', height: '44px', borderRadius: '50%',
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
-                    gap: '0', paddingTop: '6px',
-                    background: dayMode ? 'rgba(26,122,76,0.15)' : 'rgba(46,204,113,0.12)',
-                    border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
-                    color: dayMode ? '#1a7a4c' : '#2ecc71',
-                    boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.3)' : 'rgba(46,204,113,0.3)'}`,
-                    fontFamily: "'Inter', sans-serif",
-                    pointerEvents: 'none', boxSizing: 'border-box', zIndex: 2,
-                  }}>
-                    <span style={{ fontSize: '1.8rem', lineHeight: 0.8, marginTop: '-6px' }}>۩</span>
-                    <span style={{ fontSize: '1.1rem', fontWeight: 400, lineHeight: 1, fontFamily: currentFont, marginTop: '-6px', color: dayMode ? '#1a7a4c' : '#ecdcc0' }}>سجدة</span>
-                  </span>
+                {/* Secde bildirimi — kendiliğinden kaybolan, modal DEĞİL
+                    (kullanıcı kararı 2026-08-26). Bu sütunun (mushaf
+                    sayfasının) KENDİSİNE göre ortalanır — data-ar-col zaten
+                    position:relative, viewport'un değil sayfanın ortasında
+                    durması için mutlak konumlandırma bu sütuna göre. */}
+                {sajdaToastVerse && (
+                  <div
+                    role="status"
+                    aria-live="polite"
+                    style={{
+                      position: 'absolute',
+                      top: isMobile ? '16px' : '24px',
+                      left: '50%',
+                      zIndex: 50,
+                      direction: 'ltr', // sütun rtl; bildirim metni her zaman ltr
+                      display: 'flex', alignItems: 'center', gap: '12px',
+                      padding: '12px 16px',
+                      borderRadius: RADIUS.lg,
+                      background: dayMode ? '#ffffff' : '#141a24',
+                      border: `1px solid ${dayMode ? '#1a7a4c33' : '#2ecc7133'}`,
+                      boxShadow: '0 8px 28px rgba(0,0,0,0.28)',
+                      width: isMobile ? 'calc(100% - 32px)' : '300px',
+                      maxWidth: 'calc(100% - 24px)',
+                      animation: 'rmSajdaToastDrop 3.6s ease-in-out forwards',
+                    }}
+                  >
+                    <span aria-hidden="true" style={{
+                      flexShrink: 0, width: '34px', height: '34px', borderRadius: RADIUS.pill,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.14)',
+                      border: `1.5px solid ${dayMode ? '#1a7a4c' : '#2ecc71'}`,
+                      color: dayMode ? '#1a7a4c' : '#2ecc71',
+                      fontFamily: currentFont, fontSize: '1.05rem',
+                    }}>۩</span>
+                    <div>
+                      <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: dayMode ? '#2a2a2a' : SEMANTIC.textPrimary, fontWeight: 500 }}>
+                        {language === 'tr' ? 'Bu sayfada secde âyeti var' : 'This page contains a prostration verse'}
+                      </div>
+                      <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: dayMode ? '#1a7a4c' : '#2ecc71', fontWeight: 600, marginTop: '2px' }}>
+                        {(language === 'tr' ? SURAH_NAMES_TR : SURAH_NAMES_EN)[sajdaToastVerse.surah - 1]} {sajdaToastVerse.surah}:{sajdaToastVerse.ayah}
+                      </div>
+                    </div>
+                    <style jsx>{`
+                      @keyframes rmSajdaToastDrop {
+                        0%   { transform: translate(-50%, -120%); opacity: 0; }
+                        12%  { transform: translate(-50%, 0);      opacity: 1; }
+                        70%  { transform: translate(-50%, 0);      opacity: 1; }
+                        100% { transform: translate(-50%, 140%);   opacity: 0; }
+                      }
+                    `}</style>
+                  </div>
                 )}
                 {/* Page-level Cüz/Hizb medallion — absolute-positioned in the
                     right-side gutter so verse lines remain full width. Single
@@ -7625,7 +8242,255 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </span>
                   );
                 })()}
-                {(() => {
+                {ENABLE_MUSHAF_IMAGE_MODE && mushafMode ? (
+                  // ── Mushaf Görüntü Modu — gerçek Hayrat sayfa görseli ──
+                  // Kullanıcı talebi 2026-08-25 (düzeltme): ayrı bir ekran
+                  // veya ayrı bir bileşen DEĞİL, sadece bu sütunun (sağ/
+                  // Arapça) içeriği görsele dönüşüyor — meal sütunu (kendi
+                  // seçici/karşılaştırma özellikleriyle), çerçeve, toolbar,
+                  // mevcut sayfa navigasyonu HİÇBİRİNE dokunulmuyor. Görsel
+                  // bu sütunun kendi genişliğine sığıyor, dıştaki çift-
+                  // çizgili altın çerçeve (data-ar-col'un kendi boxShadow'u)
+                  // görselin ÇEVRESİNDE kalıyor.
+                  <>
+                    <img
+                      src={`/mushaf-hayrat/${currentPage}.webp`}
+                      alt={language === 'en' ? `Mushaf page ${currentPage}` : `Mushaf sayfa ${currentPage}`}
+                      style={{ width: '100%', display: 'block', direction: 'ltr' }}
+                    />
+                    <MushafImageAttribution language={language} dayMode={dayMode} />
+                    {/* Meal açıkken bile gösterilir — kullanıcı geri
+                        bildirimi 2026-08-26: "arapça altında dinleme
+                        butonlarını görmüyorum" — Arapça görseli okurken
+                        gözü meal sütununa taşımadan dinleyebilmeli. */}
+                    <AyahPlayStrip
+                      verses={versesOnPage}
+                      playingVerseId={playingVerseId}
+                      dayMode={dayMode}
+                      language={language}
+                      currentFont={currentFont}
+                      onSelect={(v) => { handleSelectVerse(v); handleAudioToggle(v); }}
+                    />
+                  </>
+                ) : mushafMode && mushafLineBreaks[String(currentPage)] ? (
+                  // ── Mushaf Modu (kendi fontumuz, gerçek satır kırılımı) ──
+                  // Kullanıcı talebi 2026-08-20: ayrı bir ekran DEĞİL, sadece
+                  // bu sütunun (sağ/Arapça) içeriği değişiyor — meal, çerçeve,
+                  // toolbar, navigasyon HİÇBİRİNE dokunulmadı. Veri yoksa
+                  // (mushaf-line-breaks.json henüz o sayfayı kapsamıyorsa)
+                  // aşağıdaki normal render'a (else dalı) sessizce düşer.
+                  // site'nin kendi `page` alanı Hayrat'ın sayfa numarasıyla
+                  // birebir eşleştiği için currentPage doğrudan anahtar.
+                  (() => {
+                    const pageData = mushafLineBreaks[String(currentPage)];
+                    const hasHeader = versesOnPage[0]?.ayah === 1;
+                    // Fâtiha (sayfa 0) ve Bakara'nın ilk sayfası (sayfa 1) —
+                    // gerçek mushafta AÇILIŞ ÇİFTİ (yan yana iki sayfa), kullanıcı
+                    // ikisinin çerçevesinin AYNI büyüklükte olmasını istedi
+                    // (2026-08-20: "aynı Fâtiha gibi çerçevede değil mi"). Sade
+                    // fit-content HER SAYFAYI kendi en uzun satırına göre ayrı
+                    // ölçüyordu — Bakara'nın "الٓمٓ ۚ ذٰلِكَ..." satırı (7 kelime)
+                    // Fâtiha'nınkinden (5 kelime) uzun olduğu için kutular
+                    // farklı genişlikte çıkıyordu. İkisi için ORTAK bir minWidth
+                    // (ikisinin en uzun satırının kelime sayısına göre) uygulanıyor
+                    // — sonuç: hangi sayfa açılırsa açılsın aynı kutu genişliği.
+                    const isOpeningPair = currentPage === 0 || currentPage === 1;
+                    const openingPairMaxWords = isOpeningPair
+                      ? Math.max(
+                          ...(mushafLineBreaks['0']?.lines || []).map(l => l.trim().split(/\s+/).length),
+                          ...(mushafLineBreaks['1']?.lines || []).map(l => l.trim().split(/\s+/).length),
+                        )
+                      : 0;
+                    // Sayfayı ortalayıp etrafına ikinci (iç) bir çerçeve
+                    // ekliyoruz (kullanıcı 2026-08-20) — gerçek Hayrat
+                    // sayfasındaki gibi: dış süslü kenarlık zaten data-ar-col
+                    // sütununun kendisinde var, bu iç çerçeve tam metin
+                    // kutusunu sarıyor (frameOuter/Inner formülü dıştaki ile
+                    // AYNI, sadece bu iç kapsamda yeniden hesaplandı çünkü
+                    // dıştaki IIFE'nin lokal değişkenine buradan erişilemiyor).
+                    const innerFrameOuter = dayMode ? 'rgba(154,111,16,0.65)' : 'rgba(232,181,71,0.55)';
+                    const innerFrameInner = dayMode ? 'rgba(110,72,10,0.35)' : 'rgba(244,206,131,0.22)';
+                    const innerFrameDouble = showPageFrame
+                      ? `inset 0 0 0 1px ${innerFrameOuter}, inset 0 0 0 3px ${C.bg}, inset 0 0 0 4px ${innerFrameInner}`
+                      : 'none';
+                    const isBismillahPage = hasHeader && versesOnPage[0]?.surah !== 9;
+
+                    // Her ayetin TAM metnini (satır sınırlarını göz ardı ederek)
+                    // tajweed/vakf HTML'ine çevirip kelime kelime böl — cross-word
+                    // tecvid kuralları (tenvin+harf, mim-sakin+mim) bu yüzden tüm
+                    // ayet bağlamında doğru uygulanır (satır ortasında bölünse bile).
+                    // Sonra bu kelimeleri gerçek mushaf satırlarına (pageData.lines'ın
+                    // kelime SAYISINA göre) dağıtıyoruz — böylece hem tecvid doğru
+                    // hem satır kırılımı Hayrat'la birebir kalıyor. Kullanıcı
+                    // 2026-08-20: "ayet sonu daireler yok, aynı canonic'tekini kullan".
+                    const allPieces = [];
+                    // Besmele HICBIR ayetin metninde yer almiyor (Fatiha haric)
+                    // — ayni sol sutundaki duzeltme, sag sutun icin (2026-08-20).
+                    if (isBismillahPage) {
+                      const basmalaHtml = showTajweed
+                        ? applyTajweed(cleanArabic(BASMALA_AR_CLEAN), dayMode, true, true)
+                        : wrapWaqfOnly(cleanArabic(BASMALA_AR_CLEAN), dayMode, true, true);
+                      splitTajweedHtmlIntoWords(basmalaHtml).forEach(wh => {
+                        allPieces.push({ html: wh, verse: null, isVerseEnd: false });
+                      });
+                    }
+                    for (const verse of versesOnPage) {
+                      const isFatiha1 = verse.surah === 1 && verse.ayah === 1;
+                      const ar = (isFatiha1
+                        ? cleanArabic(verse.arabic).replace(/\u064E\u0670/g, '\u0670').replace(/\u0670\u064E/g, '\u0670')
+                        : cleanArabic(verse.arabic)).trimEnd();
+                      const fullHtml = showTajweed
+                        ? applyTajweed(ar, dayMode, true, isFatiha1)
+                        : wrapWaqfOnly(ar, dayMode, true, isFatiha1);
+                      const wordHtmls = splitTajweedHtmlIntoWords(fullHtml);
+                      wordHtmls.forEach((wh, wIdx) => {
+                        allPieces.push({ html: wh, verse, isVerseEnd: wIdx === wordHtmls.length - 1 });
+                      });
+                    }
+                    let cursor = 0;
+                    const lineRenders = pageData.lines.map(lineText => {
+                      const wc = lineText.trim().split(/\s+/).length;
+                      const slice = allPieces.slice(cursor, cursor + wc);
+                      cursor += wc;
+                      return slice;
+                    });
+
+                    return (
+                      <div style={{
+                        textAlign: 'center',
+                        // Dikey ortalama (minHeight:'100%') GERİ ALINDI (2026-08-20):
+                        // data-ar-col'un GERÇEK bir yüksekliği yoktu (minHeight
+                        // kullanıyor, height değil — CLAUDE.md §13.31 Mekanizma 3
+                        // ile AYNI hata sınıfı), bu da 4097px'e kadar sınırsız
+                        // büyümeye ve içeriğin görünür alanın çok altına
+                        // düşmesine yol açtı (Bakara 17-24 sayfası tamamen boş
+                        // görünüyordu — kullanıcı: "dalga mı geçiyorsun").
+                        // SABİT yükseklik (kural 1, sol sütunla AYNI değer —
+                        // kullanıcı: "2. ve 3. sayfanın ilk satırları neden
+                        // farklı yükseklikte" — ikisi de aynı 34em kutuda
+                        // ortalanınca aynı noktadan başlayacak).
+                        height: '34em',
+                        display: 'flex', flexDirection: 'column',
+                        // Yalnız Fatiha + Bakara ilk sayfası (isOpeningPair —
+                        // 7 satır, kısa) ortalanır; diğer sure başlangıç
+                        // sayfaları üstten aksın (bkz. sol sütundaki aynı
+                        // gerekçe — kullanıcı 2026-08-23: başlık üstünde
+                        // devasa boşluk).
+                        justifyContent: isOpeningPair ? 'center' : 'flex-start',
+                        overflow: 'visible',
+                      }}>
+                        {/* Sûre başlığı — gerçek Hayrat mushafındaki kompakt 2 satırlık
+                            kartuş (sûre adı + Mekkî/Medenî) ile aynı ölçekte; sitenin
+                            mevcut "hero" başlığı (60px+ padding, 3.8rem isim) reddedildi
+                            — kullanıcı 2026-08-20: gerçek kutunun yüksekliği neyse o
+                            kadar yer kaplamalı, daha fazlası değil. Font ilk turda çok
+                            küçüktü (kullanıcı ekran görüntüsüyle bildirdi) — büyütüldü. */}
+                        {hasHeader && (() => {
+                          const s = versesOnPage[0].surah;
+                          const arName = SURAH_NAMES_AR[s - 1];
+                          const isMadani = MADANI_SURAHS.has(s);
+                          return (
+                            <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
+                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '2.1rem' : '2.55rem', color: C.gold, lineHeight: 1.5 }}>
+                                سُورَةُ {arName}
+                              </div>
+                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '1.65rem' : '1.95rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
+                                {isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة'}
+                              </div>
+                            </div>
+                          );
+                        })()}
+                        <div style={{
+                          display: 'flex', flexDirection: 'column',
+                          gap: isMobile ? '2px' : '3px',
+                          // Kutu/dolgu/çerçeve ÖZELLEŞTİRMESİ genel olarak
+                          // KALDIRILDI — kullanıcı 2026-08-20: "kitap
+                          // modundaki dış çerçeveleri aynen kullan, değiştirme,
+                          // büyütme". Kitap'ın kendi (dokunulmamış) padding'i
+                          // içinde doğal genişlikte akar. TEK istisna: Fâtiha +
+                          // Bakara ilk sayfası (isOpeningPair) — bu ikisinin
+                          // satırları o kadar kısa ki Kitap'ın tam genişliğinde
+                          // dağınık/seyrek görünüyordu (kullanıcı: "ilk iki
+                          // sayfaya neden tekrar dokundun" — bu ikisi İÇİN
+                          // dar tutmak zaten önceden onaylanmıştı). Sadece
+                          // maxWidth+auto-margin, ekstra dolgu/çerçeve YOK.
+                          maxWidth: isOpeningPair && !isMobile ? `${openingPairMaxWords * 2.6}em` : undefined,
+                          margin: isOpeningPair && !isMobile ? '0 auto' : undefined,
+                        }}>
+                          {lineRenders.map((pieces, li) => {
+                            const isBismillahLine = li === 0 && isBismillahPage;
+                            // Kelime-sayısı tabanlı ön-küçültme KALDIRILDI —
+                            // bkz. sol sütundaki aynı gerekçe. fixMushafLineOverflow
+                            // gerçek piksel ölçüme göre minimum küçültmeyi uyguluyor.
+                            const wc = pieces.length;
+                            const lineScale = 1;
+                            return (
+                              <div
+                                key={li}
+                                data-mushaf-line="1"
+                                data-line-scale={lineScale}
+                                style={{
+                                  // Kullanıcı 2026-08-20: sabit genişlik (25em)
+                                  // artık belirlendi, bu genişlik İÇİNDE
+                                  // iki yana yasla — daha önceki "sparse"
+                                  // sorunu genişlik tahmini yanlışken oluşmuştu.
+                                  textAlign: isBismillahLine ? 'center' : 'justify',
+                                  textAlignLast: isBismillahLine ? 'center' : 'justify',
+                                  whiteSpace: 'nowrap',
+                                  // Kenar harfleri çerçeveye değmesin diye küçük
+                                  // bir iç emniyet payı (2026-08-23 kullanıcı
+                                  // raporu: bazı satırlarda ilk/son kelime tam
+                                  // çerçeve sınırına dokunuyordu — minWidth:0
+                                  // düzeltmesinden sonra satırlar %100 doldurmaya
+                                  // başladı, bu boşluk olmadan sıfır tolerans vardı).
+                                  paddingInline: '0.15em',
+                                  color: isBismillahLine ? C.bismillah : C.arabic,
+                                  fontSize: lineScale < 1 ? `${lineScale}em` : undefined,
+                                }}
+                              >
+                                {pieces.map((p, pi) => {
+                                  const isSajdaPiece = p.isVerseEnd && SAJDA_VERSES.has(`${p.verse.surah}:${p.verse.ayah}`);
+                                  return (
+                                    <span key={pi}>
+                                      <span dangerouslySetInnerHTML={{ __html: p.html }} />
+                                      {p.isVerseEnd ? (
+                                        // Mushaf modunda rozet, normal akış moduna göre KÜÇÜLTÜLDÜ
+                                        // (1.72em → 1.15em) — kullanıcı 2026-08-20: "gerekirse daha
+                                        // küçük ayet sonu dairesi kullan"; Hayrat'ın kendi ince/küçük
+                                        // rozetlerine daha yakın, ince çizgi ağırlığıyla (1.5px → 1px).
+                                        <span style={{
+                                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                          verticalAlign: '-0.25em', margin: '0 8px', // ortalama yerine baseline'a göre indirildi — 'middle' harekeler dahil satır ortasına hizalıyordu, rozet havada duruyormuş gibi görünüyordu (2026-08-23)
+                                          width: '1.4em', height: '1.4em',
+                                          textAlign: 'center', borderRadius: RADIUS.full,
+                                          border: `1px solid ${isSajdaPiece ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
+                                          boxShadow: isSajdaPiece
+                                            ? `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
+                                            : `0 0 0 1.5px ${C.bg}, 0 0 0 2.5px ${C.gold}44`,
+                                          color: isSajdaPiece ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
+                                          fontSize: '0.5em', // standart boyut — hane sayısına göre küçülme yok (2026-08-23)
+                                          fontFamily: currentFont,
+                                          background: isSajdaPiece
+                                            ? (dayMode ? '#1a7a4c' : '#1f8f59')
+                                            : dayMode
+                                              ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
+                                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
+                                          boxSizing: 'border-box', flexShrink: 0,
+                                        }}>
+                                          {toArabicNumerals(p.verse.ayah)}
+                                        </span>
+                                      ) : ' '}
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })()
+                ) : (() => {
                   const items = [];
                   let prevSurah = null;
                   // Fatiha-specific: Bismillah (ayah 1) is rendered INSIDE the
@@ -7672,78 +8537,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               Honors mushaf tradition (Arabic-only) without half-baked tezhip.
                               Uses padding (not margin) on top to prevent margin-collapse issues
                               that misaligned this side from the flex-based meal column. */}
-                          <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '60px', '--pt-m': '48px', '--mb-d': '30px', '--mb-m': '22px' }}>
-                            {/* Vertical gold rule — ink-drop transition marker */}
-                            <div style={{
-                              width: '1.5px',
-                              height: isMobile ? '32px' : '40px',
-                              background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                              margin: '0 auto',
-                            }} />
-
-                            {/* Breathing space before label */}
-                            <div style={{ height: isMobile ? '40px' : '52px' }} />
-
-                            {/* Sūratu N — small calligraphic Arabic label */}
-                            <div className="mq-box" style={{
-                              fontFamily: currentFont,
-                              fontSize: isMobile ? '1.22rem' : '1.45rem',
-                              color: C.gold,
-                              opacity: 0.78,
-                              letterSpacing: '0.02em',
-                              lineHeight: 1.4,
-                              '--mb-d': '20px', '--mb-m': '14px',
-                            }}>
-                              السُّورَةُ {toArabicNumerals(item.surah)}
-                            </div>
-
-                            {/* Hero name — calligraphy at scale, gold */}
-                            <div className="mq-box" style={{
-                              fontFamily: currentFont,
-                              fontSize: isMobile ? '3rem' : '3.8rem',
-                              color: C.gold,
-                              lineHeight: 1.1,
-                              letterSpacing: '0.02em',
-                              '--mb-d': '26px', '--mb-m': '18px',
-                              textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
-                            }}>
-                              {arName}
-                            </div>
-                            {/* Latin caption — desktop hides when meal is
-                                visible (Latin already on the meal side);
-                                mobile always shows (no side-by-side meal). */}
-                            {(!showTranslation || isMobile) && (
-                              <div className="mq-box" style={{
-                                fontFamily: "'Lora', Georgia, serif",
-                                fontSize: isMobile ? '1.0rem' : '1.2rem',
-                                fontWeight: 500,
-                                fontStyle: 'italic',
-                                color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
-                                letterSpacing: '0.04em',
-                                lineHeight: 1.4,
-                                '--mt-d': '-10px', '--mt-m': '-6px',
-                                '--mb-d': '14px', '--mb-m': '10px',
-                                direction: 'ltr',
-                              }}>
-                                {language === 'tr' ? 'Sûre ' : 'Surah '}{item.surah} · {SURAH_NAMES_TR[item.surah - 1]}
-                              </div>
-                            )}
-
-                            {/* Meta — chronological → spatial → structural:
-                                nüzul rank · period · ayah count · rukū count.
-                                Day-mode tone slightly darker than C.muted for readability
-                                without competing with the gold hero. */}
-                            <div style={{
-                              fontFamily: currentFont,
-                              fontSize: isMobile ? '1.22rem' : '1.45rem',
-                              color: dayMode ? '#5a4a32' : C.muted,
-                              letterSpacing: '0.04em',
-                              lineHeight: 1.5,
-                              opacity: 0.92,
-                            }}>
-                              النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
-                            </div>
-                          </div>
+                          {/* Hayrat mushafındaki gibi sûre-açılış bilgisini
+                              (etiket + isim + nüzul bilgisi) ince altın
+                              çerçeveli, sade bir kutuya alır — kullanıcı
+                              2026-08-26: "Hayrat'ta sûreler bir kutu ile
+                              ayrılmış, biz de zarif/sade bir kutu ile
+                              ayırsak". Kalın tezhip yerine tek ince çizgi +
+                              hafif dolgu, minimal kalması için. */}
+                          {renderSurahCardAr(item.surah)}
 
                           {/* Bismillah — naked, classical red, no cartouche.
                               Skipped only for At-Tawbah (9). Fatiha (1): Bismillah
@@ -7779,8 +8580,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   // halkalarıyla aynı boyutta (em-relative değil).
                                   fontSize: `${arabicFontSize}rem`,
                                   color: C.bismillah,
-                                  '--mt-d': '28px', '--mt-m': '20px',
-                                  '--mb-d': '30px', '--mb-m': '20px',
+                                  // Sûre kutusu kısaldığı için (298px → 180px,
+                                  // hayalet dolgu temizlendi) eski -97px
+                                  // besmeleyi kutunun İÇİNE çekiyordu.
+                                  // Ölçülerek yeniden kondu: besmelenin satır
+                                  // ortası, karşıdaki meal besmelesinin satır
+                                  // ortasıyla (337px) çakışır.
+                                  '--mt-d': '-40px', '--mt-m': '-24px',
+                                  '--mb-d': '10px', '--mb-m': '8px',
                                   lineHeight: 1.9,
                                   cursor: isFatihaHeader ? 'pointer' : 'default',
                                   background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -7791,27 +8598,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                 {isFatihaHeader ? (
                                   <span>
                                     <span dangerouslySetInnerHTML={{ __html: fatihaArHtml }} />
-                                    <span style={{
-                                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                      verticalAlign: 'middle',
-                                      // Ayet badge ile birebir aynı CSS pattern: 1.72em + 0.54em.
-                                      // Container fontSize ayet container ile aynı (arabicFontSize rem),
-                                      // dolayısıyla em-resolution aynı pikseli verir.
-                                      width: '1.72em',
-                                      height: '1.72em',
-                                      margin: '0 14px',
-                                      textAlign: 'center', borderRadius: RADIUS.full,
-                                      border: `1.5px solid ${C.gold}aa`,
-                                      boxShadow: `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                                      color: C.gold,
-                                      fontSize: '0.54em',
-                                      fontFamily: currentFont,
-                                      background: dayMode
-                                        ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                                      boxSizing: 'border-box', flexShrink: 0,
-                                    }}>
-                                      {toArabicNumerals(1)}
+                                    <span style={{ display: 'inline-flex', verticalAlign: 'middle', margin: '0 14px' }}>
+                                      <ArabicAyahBadge
+                                        ayahArabic={toArabicNumerals(1)}
+                                        isSajda={false} dayMode={dayMode}
+                                        gold={C.gold} bg={C.bg} currentFont={currentFont}
+                                        ambientRem={arabicFontSize}
+                                      />
                                     </span>
                                   </span>
                                 ) : (
@@ -7868,7 +8661,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const leadingHtml  = hasSplit ? fullHtml.slice(0, htmlSplitIdx + 1) : '';
                           const lastWordHtml = hasSplit ? fullHtml.slice(htmlSplitIdx + 1) : fullHtml;
                           const highlightStyle = {
-                            background: isActive ? C.activeHighlight : 'transparent',
+                            // bkz. highlightStyleL yorumu — Hayrat baskısıyla
+                            // aynı desen (secde ayeti hafif yeşil zemin).
+                            background: isActive
+                              ? C.activeHighlight
+                              : isSajdaBook
+                                ? (dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.14)')
+                                : 'transparent',
                             WebkitBoxDecorationBreak: 'clone',
                             boxDecorationBreak: 'clone',
                             transition: 'background 0.2s',
@@ -7891,27 +8690,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                   letterSpacing: '0.02em',
                                 }}>سجدة</span>
                               )}
-                              <span style={{
-                                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                                width: '1.72em', height: '1.72em',
-                                textAlign: 'center', borderRadius: RADIUS.full,
-                                // Secde âyeti → DOLGULU yeşil rozet + beyaz rakam.
-                                border: `1.5px solid ${isSajdaBook ? (dayMode ? '#155f3b' : '#2ecc71') : C.gold + 'aa'}`,
-                                boxShadow: isSajdaBook
-                                  ? `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
-                                  : `0 0 0 2.5px ${C.bg}, 0 0 0 4px ${C.gold}44`,
-                                color: isSajdaBook ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
-                                fontSize: verse.ayah >= 100 ? '0.42em' : verse.ayah >= 10 ? '0.48em' : '0.54em',
-                                fontFamily: currentFont,
-                                background: isSajdaBook
-                                  ? (dayMode ? '#1a7a4c' : '#1f8f59')
-                                  : dayMode
-                                    ? `radial-gradient(circle, ${C.gold}22 0%, ${C.gold}08 70%)`
-                                    : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                                boxSizing: 'border-box', flexShrink: 0,
-                              }}>
-                                {toArabicNumerals(verse.ayah)}
-                              </span>
+                              <ArabicAyahBadge
+                                ayahArabic={toArabicNumerals(verse.ayah)}
+                                isSajda={isSajdaBook} dayMode={dayMode}
+                                gold={C.gold} bg={C.bg} currentFont={currentFont}
+                                ambientRem={arabicFontSize}
+                              />
                             </span>
                           );
                           // ── Kelime modu / Karaoke: word-by-word render ──────────────
@@ -8288,53 +9072,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   : ayahCount === 2 ? 'آيَتَان'
                   : ayahCount <= 10 ? 'آيَات'
                   : 'آيَة';
-                const bismillahTr = 'Rahmân ve Rahîm olan Allah\'ın adıyla';
-                const bismillahEn = 'In the name of Allah, the Most Gracious, the Most Merciful';
+                // Besmele meali — Fatiha 1:1'in gerçek çevirisi referans
+                // alınır (kullanıcı 2026-08-26: "Fatiha'nınkini referans al,
+                // hepsi için"). sn===1 zaten yukarıda ayrı ele alınıyor
+                // (besmele bloğu Fatiha'da hiç render edilmiyor, çünkü orada
+                // gerçek 1. ayet olarak akışta gösteriliyor).
+                const bismillahMeal = getBesmeleMeal();
 
                 const arBlock = (
                   <div>
-                    <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
-                      <div style={{
-                        width: '1.5px', height: isMobile ? '28px' : '36px',
-                        background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                        margin: '0 auto',
-                      }} />
-                      <div style={{ height: isMobile ? '32px' : '44px' }} />
-                      <div className="mq-box" style={{
-                        fontFamily: currentFont,
-                        fontSize: isMobile ? '0.9rem' : '1.05rem',
-                        color: C.gold, opacity: 0.78,
-                        letterSpacing: '0.02em', lineHeight: 1.4,
-                        '--mb-d': '18px', '--mb-m': '12px',
-                      }}>
-                        السُّورَةُ {toArabicNumerals(sn)}
-                      </div>
-                      <div className="mq-box" style={{
-                        fontFamily: currentFont,
-                        fontSize: isMobile ? '2.6rem' : '3.4rem',
-                        color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
-                        '--mb-d': '22px', '--mb-m': '16px',
-                        textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
-                      }}>
-                        {arName}
-                      </div>
-                      <div style={{
-                        fontFamily: currentFont,
-                        fontSize: isMobile ? '0.9rem' : '1.05rem',
-                        color: dayMode ? '#5a4a32' : C.muted,
-                        letterSpacing: '0.04em', lineHeight: 1.5, opacity: 0.92,
-                      }}>
-                        النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
-                      </div>
-                    </div>
+                    {renderSurahCardAr(sn)}
                     {sn !== 9 && sn !== 1 && (
                       <div className="mq-box" style={{
                         textAlign: 'center', direction: 'rtl',
                         fontFamily: currentFont,
                         fontSize: `${arabicFontSize}rem`,
                         color: C.bismillah,
-                        '--mt-d': '24px', '--mt-m': '16px',
-                        '--mb-d': '28px', '--mb-m': '20px',
+                        // Kitap moduyla aynı besmele başlangıcı (kullanıcı
+                        // 2026-08-26: "aynı hero şeklini kullan tüm modlarda,
+                        // besmelenin başlangıcı dahil"). Kutu artık her modda
+                        // aynı yükseklikte olduğu için değer de ortak.
+                        '--mt-d': '-36px', '--mt-m': '-21px',
+                        '--mb-d': '18px', '--mb-m': '12px',
                         lineHeight: 1.9,
                       }}>
                         {BISMILLAH_AR}
@@ -8345,72 +9104,37 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
                 const enName = SURAH_NAMES_EN[sn - 1] || '';
                 const nameForHero = contentLang === 'en' ? enName : trName;
-                const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
+                // Tam ad gösterilir (bkz. 6982 civarındaki aynı düzeltme).
+                const heroDisplay = nameForHero;
                 const trBlock = (
                   <div lang={contentLang}>
-                    <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
-                      <div style={{
-                        width: '1.5px', height: isMobile ? '28px' : '36px',
-                        background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                        margin: '0 auto',
-                      }} />
-                      <div style={{ height: isMobile ? '32px' : '44px' }} />
-                      <div className="mq-box" style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: isMobile ? '0.65rem' : '0.72rem',
-                        color: C.gold, opacity: 0.78,
-                        letterSpacing: '0.14em', textTransform: 'uppercase',
-                        '--mb-d': '14px', '--mb-m': '10px',
-                      }}>
-                        {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
-                      </div>
-                      <div className="mq-box" style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: isMobile ? '2.4rem' : '3.1rem',
-                        fontWeight: 700,
-                        color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
-                        textTransform: 'uppercase',
-                        '--mb-d': '12px', '--mb-m': '8px',
-                        textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
-                      }}>
-                        {heroDisplay}
-                      </div>
-                      <div className="mq-box" style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: isMobile ? '0.85rem' : '1rem',
-                        fontStyle: 'italic',
-                        color: dayMode ? '#5a4a32' : C.muted,
-                        lineHeight: 1.4,
-                        '--mb-d': '20px', '--mb-m': '14px',
-                        opacity: 0.85,
-                      }}>
-                        {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
-                      </div>
-                      <div style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: isMobile ? '0.7rem' : '0.78rem',
-                        color: dayMode ? '#5a4a32' : C.muted,
-                        letterSpacing: '0.12em', textTransform: 'uppercase',
-                        lineHeight: 1.5, opacity: 0.85,
-                      }}>
-                        {contentLang === 'tr'
-                          ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
-                          : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
-                      </div>
-                    </div>
+                    {renderSurahCardTr(sn)}
                     {sn !== 9 && sn !== 1 && (
                       <div className="mq-box" style={{
                         textAlign: 'center',
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: isMobile ? '0.95rem' : '1.05rem',
+                        // Kitap modundaki besmele meali ile AYNI yazı tipi ve
+                        // punto (kullanıcı 2026-08-26: "Kırık Meal'deki besmele
+                        // meali ile kitap modundaki aynı font mu / aynı font
+                        // size mı"). Önceden Playfair 1.05rem sabitti; hem
+                        // farklı bir yazı tipiydi hem de Meal Boyutu
+                        // kaydırıcısına hiç tepki vermiyordu.
+                        fontFamily: "'Lora', Georgia, serif",
+                        fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
                         fontStyle: 'italic',
-                        color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
-                        '--mt-d': '24px', '--mt-m': '16px',
-                        '--mb-d': '28px', '--mb-m': '20px',
-                        lineHeight: 1.6,
+                        fontWeight: 500,
+                        color: C.bismillah,
+                        // Kitap moduyla AYNI besmele başlangıcı. Değerler
+                        // kitap modundan birebir alındı: kutunun kendi
+                        // `margin-bottom: 20px`'i ile bu `margin-top`
+                        // ÇÖKÜŞÜR (collapse) ve büyük olan kazanır — 5px
+                        // denendiğinde 20px'e yenilip besmele 5px yukarıda
+                        // kalıyordu (ölçüldü: 37.4'e karşı 42.4).
+                        '--mt-d': '33px', '--mt-m': '24px',
+                        '--mb-d': '18px', '--mb-m': '12px',
+                        lineHeight: 1.7,
                         padding: '0 12px',
                       }}>
-                        {contentLang === 'tr' ? bismillahTr : bismillahEn}
+                        {bismillahMeal}
                       </div>
                     )}
                   </div>
@@ -8671,54 +9395,24 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 : ayahCount === 2 ? 'آيَتَان'
                 : ayahCount <= 10 ? 'آيَات'
                 : 'آيَة';
-              const bismillahTr = 'Rahmân ve Rahîm olan Allah\'ın adıyla';
-              const bismillahEn = 'In the name of Allah, the Most Gracious, the Most Merciful';
+              // Besmele meali seçili meal yazarının dilinden gelir — sabit
+              // TR/EN dizeleri yerine ortak yardımcı kullanılır (yukarıdaki
+              // eşdeğer blokla aynı: `const bismillahMeal = getBesmeleMeal()`).
+              const bismillahMeal = getBesmeleMeal();
 
               const arBlock = (
                 <div>
-                  <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
-                    <div style={{
-                      width: '1.5px',
-                      height: isMobile ? '28px' : '36px',
-                      background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                      margin: '0 auto',
-                    }} />
-                    <div style={{ height: isMobile ? '32px' : '44px' }} />
-                    <div className="mq-box" style={{
-                      fontFamily: currentFont,
-                      fontSize: isMobile ? '0.9rem' : '1.05rem',
-                      color: C.gold, opacity: 0.78,
-                      letterSpacing: '0.02em', lineHeight: 1.4,
-                      '--mb-d': '18px', '--mb-m': '12px',
-                    }}>
-                      السُّورَةُ {toArabicNumerals(sn)}
-                    </div>
-                    <div className="mq-box" style={{
-                      fontFamily: currentFont,
-                      fontSize: isMobile ? '2.6rem' : '3.4rem',
-                      color: C.gold, lineHeight: 1.1, letterSpacing: '0.02em',
-                      '--mb-d': '22px', '--mb-m': '16px',
-                      textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}25`,
-                    }}>
-                      {arName}
-                    </div>
-                    <div style={{
-                      fontFamily: currentFont,
-                      fontSize: isMobile ? '0.9rem' : '1.05rem',
-                      color: dayMode ? '#5a4a32' : C.muted,
-                      letterSpacing: '0.04em', lineHeight: 1.5, opacity: 0.92,
-                    }}>
-                      النُّزُول {toArabicNumerals(nuzulRank)} · {periodAr} · {toArabicNumerals(ayahCount)} {ayahWord} · {toArabicNumerals(rukuCount)} رُكُوع
-                    </div>
-                  </div>
+                  {renderSurahCardAr(sn)}
                   {sn !== 9 && sn !== 1 && (
                     <div className="mq-box" style={{
                       textAlign: 'center', direction: 'rtl',
                       fontFamily: currentFont,
                       fontSize: `${arabicFontSize}rem`,
                       color: C.bismillah,
-                      '--mt-d': '24px', '--mt-m': '16px',
-                      '--mb-d': '28px', '--mb-m': '20px',
+                      // Kitap moduyla aynı besmele başlangıcı — bkz. aynı
+                      // değerin kullanıldığı diğer modlar.
+                      '--mt-d': '-36px', '--mt-m': '-21px',
+                      '--mb-d': '18px', '--mb-m': '12px',
                       lineHeight: 1.9,
                     }}>
                       {BISMILLAH_AR}
@@ -8729,73 +9423,28 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               const enName = SURAH_NAMES_EN[sn - 1] || '';
               const nameForHero = contentLang === 'en' ? enName : trName;
-              const heroDisplay = nameForHero.replace(/^(Al-|Aṣ-|Aḍ-|Aẓ-|Aṭ-|At-|An-|Adh-|Az-|Ar-|As-|Ash-|Aw-|El-)/i, '');
+              const heroDisplay = nameForHero;
               const trBlock = (
                 <div lang={contentLang}>
-                  <div className="mq-box" style={{ textAlign: 'center', '--pt-d': '48px', '--pt-m': '32px', '--mb-d': '26px', '--mb-m': '18px' }}>
-                    <div style={{
-                      width: '1.5px',
-                      height: isMobile ? '28px' : '36px',
-                      background: `linear-gradient(to bottom, transparent, ${C.gold}aa, ${C.gold}aa, transparent)`,
-                      margin: '0 auto',
-                    }} />
-                    <div style={{ height: isMobile ? '32px' : '44px' }} />
-                    <div className="mq-box" style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: isMobile ? '0.65rem' : '0.72rem',
-                      color: C.gold, opacity: 0.78,
-                      letterSpacing: '0.14em', textTransform: 'uppercase',
-                      '--mb-d': '14px', '--mb-m': '10px',
-                    }}>
-                      {contentLang === 'tr' ? `SÛRE ${sn}` : `SURAH ${sn}`}
-                    </div>
-                    <div className="mq-box" style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: isMobile ? '2.4rem' : '3.1rem',
-                      fontWeight: 700,
-                      color: C.gold, lineHeight: 1.1, letterSpacing: '0.04em',
-                      textTransform: 'uppercase',
-                      '--mb-d': '12px', '--mb-m': '8px',
-                      textShadow: dayMode ? 'none' : `0 0 32px ${C.gold}20`,
-                    }}>
-                      {heroDisplay}
-                    </div>
-                    <div className="mq-box" style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: isMobile ? '0.85rem' : '1rem',
-                      fontStyle: 'italic',
-                      color: dayMode ? '#5a4a32' : C.muted,
-                      lineHeight: 1.4,
-                      '--mb-d': '20px', '--mb-m': '14px',
-                      opacity: 0.85,
-                    }}>
-                      {contentLang === 'tr' ? `${trName} Sûresi` : `Surah ${enName}`}
-                    </div>
-                    <div style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: isMobile ? '0.7rem' : '0.78rem',
-                      color: dayMode ? '#5a4a32' : C.muted,
-                      letterSpacing: '0.12em', textTransform: 'uppercase',
-                      lineHeight: 1.5, opacity: 0.85,
-                    }}>
-                      {contentLang === 'tr'
-                        ? `NÜZUL ${nuzulRank} · ${periodTr.toUpperCase()} · ${ayahCount} AYET · ${rukuCount} RUKÛ`
-                        : `REVELATION ${nuzulRank} · ${periodEn.toUpperCase()} · ${ayahCount} VERSES · ${rukuCount} RUKŪʿ`}
-                    </div>
-                  </div>
+                  {renderSurahCardTr(sn)}
                   {sn !== 9 && sn !== 1 && (
                     <div className="mq-box" style={{
                       textAlign: 'center',
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: isMobile ? '0.95rem' : '1.05rem',
+                      // Kitap modundaki besmele meali ile aynı yazı tipi ve
+                      // punto — bkz. Kırık Meal'deki aynı blok.
+                      fontFamily: "'Lora', Georgia, serif",
+                      fontSize: `${(isMobile ? 1.08 : 1.28) * mealFontSize}rem`,
                       fontStyle: 'italic',
-                      color: dayMode ? 'rgba(120,90,40,0.7)' : 'rgba(212,165,116,0.65)',
-                      '--mt-d': '24px', '--mt-m': '16px',
-                      '--mb-d': '28px', '--mb-m': '20px',
-                      lineHeight: 1.6,
+                      fontWeight: 500,
+                      color: C.bismillah,
+                      // Kitap moduyla aynı besmele başlangıcı — bkz. Kırık
+                      // Meal'deki aynı blok (margin collapse notu orada).
+                      '--mt-d': '33px', '--mt-m': '24px',
+                      '--mb-d': '18px', '--mb-m': '12px',
+                      lineHeight: 1.7,
                       padding: '0 12px',
                     }}>
-                      {contentLang === 'tr' ? bismillahTr : bismillahEn}
+                      {bismillahMeal}
                     </div>
                   )}
                 </div>
@@ -8838,6 +9487,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <div className="mq-box"
                   key={verse.id}
                   id={`rm-verse-${verse.id}`}
+                  data-rm-page={verse.page}
                   onClick={() => { handleSelectVerse(verse); handleAudioToggle(verse); }}
                   style={{
                     display: isMobile && showTranslation ? 'flex' : 'grid',
@@ -8848,7 +9498,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "12px",
                     borderRadius: isMobile ? '0' : '6px',
                     borderTop: isMobile && verseIdx > 0 ? `1px solid ${dayMode ? 'rgba(0,0,0,0.06)' : COLORS.glassBg}` : 'none',
-                    background: isActive ? C.activeHighlight : 'transparent',
+                    // bkz. Kitap modundaki highlightStyleL/highlightStyle yorumu
+                    // — Hayrat baskısıyla aynı desen, tüm görünüm modlarında
+                    // tutarlı (kullanıcı talebi 2026-08-26).
+                    background: isActive
+                      ? C.activeHighlight
+                      : isSajda
+                        ? (dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.14)')
+                        : 'transparent',
                     boxShadow: isLanded && isActive ? '0 0 0 2px rgba(212,165,116,0.6), 0 0 32px 6px rgba(212,165,116,0.28)' : 'none',
                     // Secde âyeti — yeşil kenar rayı (Diyanet mushaf yan-kenar işareti muadili).
                     // Hem mobil hem masaüstünde: aktif/pasif ayrımından bağımsız, secde her zaman işaretli.
@@ -9004,51 +9661,18 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     return (
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
                     {showTranslation && (
-                    <div style={{
+                      <div style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       height: `${arLineHeightRem}rem`,
                       flexShrink: 0,
                     }}>
-                    <button
-                      type="button"
+                    <MealAyahBadge
+                      isSajda={isSajda} isActive={isActive} dayMode={dayMode}
+                      gold={C.gold} bg={C.bg} currentFont={currentFont} isMobile={isMobile}
                       onClick={(e) => { e.stopPropagation(); setCompareVerse({ surah: verse.surah, ayah: verse.ayah }); }}
                       title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-                      aria-label={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.transform = 'scale(1.08)';
-                        e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : `${C.gold}`;
-                        e.currentTarget.style.boxShadow = isSajda
-                          ? `0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.28)' : 'rgba(46,204,113,0.32)'}`
-                          : `0 0 0 3px ${C.gold}22`;
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.transform = 'scale(1)';
-                        e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : '88'}`;
-                        e.currentTarget.style.boxShadow = isSajda
-                          ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}`
-                          : 'none';
-                      }}
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                        width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                        borderRadius: RADIUS.full, flexShrink: 0,
-                        // Secde âyeti — DOLGULU yeşil daire + beyaz rakam (Diyanet'in renkli
-                        // ayet numarası yaklaşımının muadili; renk seçimi yeşil, §4 Kur'anî yeşil).
-                        border: `1.5px solid ${isSajda ? (dayMode ? '#155f3b' : '#2ecc71') : `${C.gold}${isActive ? 'cc' : '88'}`}`,
-                        background: isSajda
-                          ? (dayMode ? '#1a7a4c' : '#1f8f59')
-                          : (dayMode
-                              ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
-                              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
-                        boxShadow: isSajda ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}` : 'none',
-                        color: isSajda ? (dayMode ? '#ffffff' : '#ecdcc0') : C.gold,
-                        fontSize: verse.ayah >= 100 ? (isMobile ? '0.82rem' : '0.94rem') : verse.ayah >= 10 ? (isMobile ? '0.94rem' : '1.08rem') : (isMobile ? '1.04rem' : '1.2rem'),
-                        fontFamily: "'Inter', sans-serif", lineHeight: 1, letterSpacing: '-0.01em',
-                        fontWeight: isSajda ? 700 : (dayMode ? 600 : 400),
-                        cursor: 'pointer',
-                        padding: 0,
-                        transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
-                      }}>{verse.ayah}</button>
+                      ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
+                    >{verse.ayah}</MealAyahBadge>
                     </div>
                     )}
                     <div style={{ flex: 1, paddingTop: showTranslation ? `${trPaddingTopRem}rem` : 0 }}>
@@ -9061,17 +9685,6 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           fontStyle: mealItalic ? 'italic' : 'normal',
                         }}>
                           <span dangerouslySetInnerHTML={{ __html: highlightAllahInMeal(vt, dayMode) }} />
-                          {isSajda && (
-                            <span style={{
-                              display: 'inline-block', marginLeft: '6px', verticalAlign: 'middle',
-                              fontSize: '0.75rem', padding: '2px 8px', borderRadius: RADIUS.xs,
-                              background: dayMode ? 'rgba(26,122,76,0.12)' : 'rgba(46,204,113,0.12)',
-                              border: `1px solid ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.3)'}`,
-                              color: dayMode ? '#1a7a4c' : '#2ecc71', fontFamily: currentFont,
-                            }}>
-                              {contentLang === 'tr' ? 'Secde' : 'Sajda'} ۩
-                            </span>
-                          )}
                         </p>
                       )}
                     </div>
@@ -9089,19 +9702,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                       height: `${(arabicSizeVerse) * (isMobile ? 1.7 : 2.0)}rem`,
                       flexShrink: 0,
                     }}>
-                    <span style={{
-                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                      width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-                      borderRadius: RADIUS.full, flexShrink: 0,
-                      border: `1.5px solid ${C.gold}${isActive ? 'cc' : '88'}`,
-                      background: dayMode
-                        ? `radial-gradient(circle, ${C.gold}28 0%, ${C.gold}0a 70%)`
-                        : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-                      color: C.gold,
-                      fontSize: verse.ayah >= 100 ? (isMobile ? '0.82rem' : '0.94rem') : verse.ayah >= 10 ? (isMobile ? '0.94rem' : '1.08rem') : (isMobile ? '1.04rem' : '1.2rem'),
-                      fontFamily: currentFont,
-                      fontWeight: dayMode ? 600 : 400,
-                    }}>{toArabicNumerals(verse.ayah)}</span>
+                    <ArabicAyahBadge
+                      ayahArabic={toArabicNumerals(verse.ayah)}
+                      isSajda={isSajda} dayMode={dayMode}
+                      gold={C.gold} bg={C.bg} currentFont={currentFont}
+                      ambientRem={arabicSizeVerse}
+                    />
                     </div>
 
                     <div spellCheck={false} style={{
@@ -9295,10 +9901,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 color: gold, letterSpacing: '0.06em',
                 padding: '2px 6px',
               }}>
-                {language === 'tr' ? 'Açılış' : 'Opening'}
+                {/* Diğer tüm yayılımlarda sıra sol(büyük)–sağ(küçük)
+                    (bkz. aşağıdaki `${currentPage+1}–${currentPage}` dalı)
+                    — Açılış çifti bundan farklı sırayla (sağ önce) yazılmıştı,
+                    kullanıcı 2026-08-26'da fark etti: "1-Açılış" olmalı. */}
                 {spreadMode && versesOnNextPage.length > 0 && (
-                  <span style={{ opacity: 0.72, fontWeight: 500 }}>{' · 1'}</span>
+                  <span style={{ opacity: 0.72, fontWeight: 500 }}>{'1 · '}</span>
                 )}
+                {language === 'tr' ? 'Açılış' : 'Opening'}
               </span>
             ) : showPageInput ? (
               <form

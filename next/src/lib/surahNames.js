@@ -30,7 +30,7 @@ export const SURAH_NAMES_EN = [
   'Al-Isra','Al-Kahf','Maryam','Ta-Ha','Al-Anbiya','Al-Hajj',
   'Al-Muminun','An-Nur','Al-Furqan','Ash-Shuara','An-Naml',
   'Al-Qasas','Al-Ankabut','Ar-Rum','Luqman','As-Sajdah','Al-Ahzab',
-  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Ghafir',
+  'Saba','Fatir','Ya-Sin','As-Saffat','Sad','Az-Zumar','Al-Mumin',
   'Fussilat','Ash-Shura','Az-Zukhruf','Ad-Dukhan','Al-Jathiyah','Al-Ahqaf',
   'Muhammad','Al-Fath','Al-Hujurat','Qaf','Adh-Dhariyat','At-Tur',
   'An-Najm','Al-Qamar','Ar-Rahman','Al-Waqiah','Al-Hadid','Al-Mujadilah',
@@ -42,7 +42,7 @@ export const SURAH_NAMES_EN = [
   'Al-Ghashiyah','Al-Fajr','Al-Balad','Ash-Shams','Al-Layl','Ad-Duha',
   'Ash-Sharh','At-Tin','Al-Alaq','Al-Qadr','Al-Bayyinah','Az-Zalzalah',
   'Al-Adiyat','Al-Qariah','At-Takathur','Al-Asr','Al-Humazah','Al-Fil',
-  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Al-Masad',
+  'Quraysh','Al-Maun','Al-Kawthar','Al-Kafirun','An-Nasr','Tabbat',
   'Al-Ikhlas','Al-Falaq','An-Nas',
 ];
 

@@ -77,9 +77,35 @@ export function cleanArabic(str) {
     // End-of-ayah (U+06DD), rub el hizb (U+06DE), sajda sign (U+06E9) strip.
     .replace(/[۝۞۩]/g, '')
     // Leeds Quranic Arabic Corpus encoding artifacts — literal ASCII
-    // markers (@, #, _) embedded in word strings for morphological
-    // boundaries / sajda hints. Strip so words render cleanly.
-    .replace(/[@#_]/g, '')
+    // markers embedded in word strings for morphological boundaries /
+    // sajda hints / (apparently erroneous) sentence-final stops. Strip so
+    // words render cleanly. Full sweep of public/corpus/*.json (kullanıcı
+    // 2026-08-26: 7:2'de "sonda bir nokta çıktı" raporu sonrası "diğer tüm
+    // ayetleri kontrol et" talebiyle yapıldı) turned up SEVEN distinct
+    // stray-character families, not just the one that happened to be
+    // visible in the reported verse:
+    //   @  3988×  (sajda/boundary marker)      #   496×  (boundary marker)
+    //   .   995×  (mid-verse, not just verse-end — e.g. 7:2 word 11 "بِهِ.")
+    //   _   495×  (boundary marker)             "    66×  (e.g. "أَنَا\"")
+    //   :     2×  (e.g. "وَيَبْص:ُطُ")           -     1×  (e.g. "مَجْر-ىٰهَا")
+    //   +     1×  (e.g. "تَأْمَ+نَّا")           !/%   1× each
+    // None have any phonetic/orthographic role — all safe to strip
+    // unconditionally.
+    .replace(/[@#_.":\-+!%]/g, '')
+    // U+064E (fatha) immediately touching U+0670 (superscript alef/dagger
+    // alif), either order — visually overlaps in the ShaykhHamdullah/KFGQPC
+    // chain (bkz. ReadingMode.jsx'teki BISMILLAH_AR sabiti, aynı font
+    // sınırlaması için "الرَّحْمَٰنِ"'nin mim'inde bulunmuştu). Kombinasyon
+    // Kur'an imlasında yaygın (كِتَٰب, هَٰذَا, ذَٰلِكَ, الرَّحْمَٰن…) ve
+    // önceden yalnız Fatiha'nın ilk ayeti + hardcoded besmele için ayrı ayrı
+    // uygulanıyordu; kelime-kelime (corpus) render'da hiç yoktu — kullanıcı
+    // 2026-08-26 ekran görüntüsüyle "كِتَٰبٌ" üstünde aynı çift-işaret
+    // sorununu 7:2'de bulunca (mim'e özgü değil, genel bir font sorunu
+    // olduğu netleşti) buraya, TEK kaynağa taşındı. \uXXXX escape'leri
+    // (dosya üst yorumunda belirtilen kural) — görsel Arapça karakterle
+    // yazmak iki yönü (fatha-önce/dagger-alif-önce) ayırt etmeyi zorlaştırır.
+    .replace(/\u064E\u0670/g, '\u0670')
+    .replace(/\u0670\u064E/g, '\u0670')
     // Decomposed alef-with-maddah / dagger-alef-with-maddah / lam-shamsiyah
     // missing-sukun fix VARYANTLARI: çeşitli denemeler yapıldı, hepsi
     // typografi açısından yanlış sonuç ürettiği için kaldırıldı. Detay

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useInterlinearData } from '../hooks/useInterlinearData';
 import { RADIUS, COLORS } from '../tokens';
+import { MealAyahBadge, ArabicAyahBadge } from './AyahBadge';
 
 const DEFAULT_ARABIC_FONT = "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif";
 
@@ -177,6 +178,15 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
 
 function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, lang, arabicFontSize, arabicFont, translation, verseIdx, onCompareClick, isSajda, language }) {
   const rowRef = useRef(null);
+  // Kitap modunun sayfa zemin rengiyle aynı — çift-halka rozetin orta
+  // (boşluk) katmanı bu renkte olmalı, ReadingMode'un kendi C.bg'si.
+  const pageBg = dayMode ? COLORS.paperCream : COLORS.cosmicBlack;
+  // Kitap modunun ayet-rozeti rengiyle BİREBİR aynı olsun diye — bu dosyanın
+  // kendi `C.ayahNum`'u (gündüz '#b45309') Kitap modunun altınından
+  // (COLORS.paperGold '#9a6f10') FARKLI bir hex'ti; kullanıcı 2026-08-26
+  // "aynı renk mi" diye defalarca sordu, ölçünce gerçekten farklı çıktı.
+  // Rozetler artık `C.ayahNum` değil bu kanonik değeri kullanır.
+  const badgeGold = dayMode ? COLORS.paperGold : COLORS.gold;
 
   useEffect(() => {
     if (isActive && rowRef.current) {
@@ -207,6 +217,8 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
   return (
     <div className="mq-box"
       ref={rowRef}
+      id={`rm-verse-${verse.id}`}
+      data-rm-page={verse.page}
       onClick={onClick}
       style={{
         display: (isMobile && translation) ? 'flex' : 'grid',
@@ -242,17 +254,14 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
       {/* Mobile + translation: word chips (with Arabic badge) on top, full width */}
       {isMobile && translation && (
         <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '6px', width: '100%' }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '26px', height: '26px', borderRadius: RADIUS.full, flexShrink: 0, marginTop: '4px',
-            border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
-            background: dayMode
-              ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
-              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-            color: C.ayahNum,
-            fontSize: verseData.ayah >= 100 ? '0.50rem' : verseData.ayah >= 10 ? '0.56rem' : '0.62rem',
-            fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
-          }}>{toArabicNumerals(verseData.ayah)}</span>
+          <div style={{ marginTop: '4px', flexShrink: 0 }}>
+            <ArabicAyahBadge
+              ayahArabic={toArabicNumerals(verseData.ayah)}
+              isSajda={isSajda} dayMode={dayMode}
+              gold={badgeGold} bg={pageBg} currentFont={arabicFont}
+              ambientRem={arabicFontSize}
+            />
+          </div>
           <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '2px', flex: 1 }}>
             {chips}
           </div>
@@ -263,48 +272,13 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
           Badge is interactive (compare button) with sajda variant in green. */}
       {translation && (
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '8px' : '12px' }}>
-          <button className="mq-box"
-            type="button"
+          <MealAyahBadge
+            isSajda={isSajda} isActive={isActive} dayMode={dayMode}
+            gold={badgeGold} bg={pageBg} currentFont={arabicFont} isMobile={isMobile}
             onClick={(e) => { e.stopPropagation(); if (onCompareClick) onCompareClick(verse.surah, verse.ayah); }}
             title={language === 'tr' ? 'Mealleri karşılaştır' : 'Compare translations'}
-            aria-label={language === 'tr' ? `Ayet ${verseData.ayah} — mealleri karşılaştır` : `Verse ${verseData.ayah} — compare translations`}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'scale(1.08)';
-              e.currentTarget.style.borderColor = isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.ayahNum;
-              e.currentTarget.style.boxShadow = isSajda
-                ? `0 0 0 3px ${dayMode ? 'rgba(26,122,76,0.18)' : 'rgba(46,204,113,0.22)'}`
-                : `0 0 0 3px ${C.ayahNum}22`;
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.borderColor = isSajda
-                ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)')
-                : `${C.ayahNum}${isActive ? 'cc' : '88'}`;
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-            style={{
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-              borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '1px', '--mt-m': '2px',
-              border: `1.5px solid ${isSajda ? (dayMode ? 'rgba(26,122,76,0.8)' : 'rgba(46,204,113,0.8)') : `${C.ayahNum}${isActive ? 'cc' : '88'}`}`,
-              background: isSajda
-                ? (dayMode ? 'radial-gradient(circle, rgba(26,122,76,0.20) 0%, rgba(26,122,76,0.06) 70%)' : 'radial-gradient(circle, rgba(46,204,113,0.18) 0%, rgba(46,204,113,0.05) 70%)')
-                : (dayMode
-                    ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
-                    : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)'),
-              color: isSajda ? (dayMode ? '#1a7a4c' : '#2ecc71') : C.ayahNum,
-              fontSize: verseData.ayah >= 100
-                ? (isMobile ? '0.58rem' : '0.66rem')
-                : verseData.ayah >= 10
-                ? (isMobile ? '0.64rem' : '0.74rem')
-                : (isMobile ? '0.72rem' : '0.84rem'),
-              fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
-              cursor: onCompareClick ? 'pointer' : 'default',
-              padding: 0,
-              transition: 'transform 0.15s, border-color 0.15s, box-shadow 0.15s',
-            }}>
-            {verseData.ayah}
-          </button>
+            ariaLabel={language === 'tr' ? `Ayet ${verseData.ayah} — mealleri karşılaştır` : `Verse ${verseData.ayah} — compare translations`}
+          >{verseData.ayah}</MealAyahBadge>
           <p style={{
             margin: 0, flex: 1,
             color: isActive ? C.translationActive : C.translation,
@@ -321,22 +295,20 @@ function VerseRow({ verseData, verse, C, isMobile, isActive, onClick, dayMode, l
       {/* Right column: word chips with Arabic numeral badge — desktop always, mobile only without translation */}
       {(!isMobile || !translation) && (
         <div style={{ display: 'flex', direction: 'rtl', alignItems: 'flex-start', gap: '8px' }}>
-          <span className="mq-box" style={{
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: isMobile ? '26px' : '32px', height: isMobile ? '26px' : '32px',
-            borderRadius: RADIUS.full, flexShrink: 0, '--mt-d': '20px', '--mt-m': '14px',
-            border: `1.5px solid ${C.ayahNum}${isActive ? 'cc' : '88'}`,
-            background: dayMode
-              ? `radial-gradient(circle, ${C.ayahNum}28 0%, ${C.ayahNum}0a 70%)`
-              : 'radial-gradient(circle, rgba(212,165,116,0.18) 0%, rgba(212,165,116,0.06) 70%)',
-            color: C.ayahNum,
-            fontSize: verseData.ayah >= 100
-              ? (isMobile ? '0.50rem' : '0.58rem')
-              : verseData.ayah >= 10
-              ? (isMobile ? '0.56rem' : '0.64rem')
-              : (isMobile ? '0.62rem' : '0.72rem'),
-            fontFamily: arabicFont, fontWeight: dayMode ? 600 : 400,
-          }}>{toArabicNumerals(verseData.ayah)}</span>
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            height: `${arabicFontSize * (isMobile ? 1.7 : 2.0)}rem`,
+            flexShrink: 0,
+          }}>
+            <div style={{ marginTop: '3px' }}>
+              <ArabicAyahBadge
+                ayahArabic={toArabicNumerals(verseData.ayah)}
+                isSajda={isSajda} dayMode={dayMode}
+                gold={badgeGold} bg={pageBg} currentFont={arabicFont}
+                ambientRem={arabicFontSize}
+              />
+            </div>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: isMobile ? '2px' : '4px', alignItems: 'flex-start', flex: 1 }}>
             {chips}
           </div>
