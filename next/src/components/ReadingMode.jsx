@@ -3015,10 +3015,35 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
   }, [activeVerse, versesOnPage, karaokeActive]);
 
   const navigateToPage = (page, preserveActive = false) => {
+    // Âyet ve kırık meal modunda içerik SAYFAYA BÖLÜNMÜYOR — tüm sûre tek
+    // akışta. Eskiden bu iki modda da yalnızca `bookPage` güncelleniyordu
+    // (görsel karşılığı yok) ve ardından `scrollTop = 0` çalıştığı için
+    // kullanıcı sayfaya gitmek yerine SÛRENİN BAŞINA atılıyordu
+    // (kullanıcı 2026-08-26: "sayfa numarasını değiştiriyorum hiçbir şey
+    // olmuyor, sûrenin başına gidiyor"). Artık o mushaf sayfasının İLK
+    // ÂYETİNE gidiliyor; sayfa başka bir sûredeyse önce o sûreye geçilip
+    // `pendingScrollAyah` ile âyete kaydırılıyor.
+    if (!bookMode) {
+      const wanted = Math.max(1, Math.min(604, page));
+      const target = (verses || [])
+        .filter(v => v.page === wanted)
+        .sort((a, b) => (a.surah - b.surah) || (a.ayah - b.ayah))[0];
+      if (!target) return;
+      setShowHatimDua(false);
+      if (target.surah !== selectedSurah) {
+        changeSurah(target.surah);
+        setPendingScrollAyah(target.ayah);
+      } else {
+        setBookPage(wanted);
+        handleSelectVerse(target);
+      }
+      const lrv = { surah: target.surah, page: wanted };
+      setLastRead(lrv);
+      localStorage.setItem('qurancodex_last_read', JSON.stringify(lrv));
+      return;
+    }
     // In book mode: page-centric navigation across entire mushaf (0–604)
-    const clamped = bookMode
-      ? Math.max(0, Math.min(604, page))
-      : Math.max(surahStartPage, Math.min(surahLastPage, page));
+    const clamped = Math.max(0, Math.min(604, page));
     setBookPage(clamped);
     setShowHatimDua(false);
     if (!preserveActive) { setActiveVerse(null); stopAudio(); }
@@ -4043,7 +4068,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                    minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
                     transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4055,7 +4080,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
                     ك
                   </span>
-                  <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                  <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                     {language === 'tr' ? 'Kelime' : 'Word'}
                   </span>
                 </button>
@@ -4068,7 +4093,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showTranslation || showMealPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showTranslation || showMealPicker ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4080,7 +4105,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px', transform: 'translateY(-1px)' }}>
                   م
                 </span>
-                <span style={{ fontSize: '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                <span style={{ fontSize: '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Meal' : 'Meaning'}
                 </span>
               </button>}
@@ -4091,7 +4116,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4103,7 +4128,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <BookOpenIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tefsir' : 'Tafsir'}
                 </span>
               </button>}
@@ -4120,7 +4145,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4132,7 +4157,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <TahtaIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tahta' : 'Board'}
                 </span>
               </button>}
@@ -4148,7 +4173,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  width: isMobile ? '36px' : '48px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${hifzOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: hifzOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4164,7 +4189,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <HifzIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', wordBreak: 'break-word', maxWidth: '100%' }}>
+                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Ezber' : 'Memorize'}
                 </span>
               </button>}
