@@ -7504,7 +7504,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                                     color: C.bismillah,
                                     '--mt-d': '33px', '--mt-m': '24px',
                                     // Besmele ile ilk âyet arası kısaltıldı (kullanıcı 2026-08-26).
-                                    '--mb-d': '44px', '--mb-m': '30px',
+                                    '--mb-d': '58px', '--mb-m': '40px',
                                     lineHeight: 1.7,
                                     cursor: isFatihaHeaderTr ? 'pointer' : 'default',
                                     background: isActiveFV ? C.activeHighlight : 'transparent',
@@ -9308,7 +9308,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
                         // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
                         '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
-                        '--mt-d': '-36px', '--mt-m': '-21px',
+                        // Kitap moduyla AYNI besmele başlangıcı. -36px, satırın miras
+                        // aldığı dolguyu telafi ederken doğruydu; dolgu sıfırlanınca
+                        // besmeleyi kutuya yapıştırdı (ölçüldü: kitap 42.6px'e karşı
+                        // bu modlarda 26.6px). Telafisiz değere çekildi.
+                        '--mt-d': '-20px', '--mt-m': '-12px',
                         '--mb-d': '6px', '--mb-m': '4px',
                         lineHeight: 1.9,
                       }}>
@@ -9668,7 +9672,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         // uzatıyor ve ilk âyeti 116px aşağı itiyordu (ölçüldü
                         // 2026-08-26: besmele→ilk âyet 122.8px). Sıfırla.
                         '--pt-d': '0px', '--pt-m': '0px', '--pb-d': '0px', '--pb-m': '0px',
-                        '--mt-d': '-36px', '--mt-m': '-21px',
+                        // Kitap moduyla AYNI besmele başlangıcı. -36px, satırın miras
+                        // aldığı dolguyu telafi ederken doğruydu; dolgu sıfırlanınca
+                        // besmeleyi kutuya yapıştırdı (ölçüldü: kitap 42.6px'e karşı
+                        // bu modlarda 26.6px). Telafisiz değere çekildi.
+                        '--mt-d': '-20px', '--mt-m': '-12px',
                       '--mb-d': '6px', '--mb-m': '4px',
                       lineHeight: 1.9,
                     }}>
