@@ -1341,3 +1341,56 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
     margin-right: var(--mr-m, var(--mr-d, unset));
   }
 }
+
+/* Sekme etiketi — mobilde GİZLİ, ama JS ile DEĞİL. Bu etiketler
+   `{!isMobile && <span>…</span>}` ile koşullu render ediliyordu: `isMobile`
+   §14.1 gereği hydration anında her zaman `false`, dolayısıyla mobilde
+   buton önce ETİKETLİ (178px) çiziliyor, hydration'dan hemen sonra ikona
+   düşüyordu (44px) ve altındaki her şey kayıyordu. Ölçüldü (2026-08-26,
+   üretim build'i, 390px CPU×4): /tr/atlas/kiraat CLS 0.388, tek kaynak bu.
+   §14.2: düzen-kritik özellikler CSS media query ile çözülür — tarayıcı
+   JS'i beklemez, kayma olmaz. */
+.qc-tab-label { display: inline; }
+@media (max-width: 640px) {
+  .qc-tab-label { display: none; }
+}
+
+/* İstatistik hapının sayısı — punto mobilde küçülür, ama JS ile DEĞİL.
+   `fontSize: isMobile ? '1.1rem' : '1.3rem'` idi; `isMobile` hydration
+   anında `false` olduğu için mobilde önce 1.3rem çiziliyor, sonra 1.1rem'e
+   düşüyor ve kapsayıcı banner 120px'ten 144px'e büyüyüp altındaki içeriği
+   kaydırıyordu (ölçüldü 2026-08-26, 390px CPU×4: /tr/arac/cennet-cehennem
+   CLS 0.132, tek kaynak bu). §14.2 — düzeni etkileyen punto CSS'te. */
+.qc-statpill-value { font-size: 1.3rem; }
+@media (max-width: 640px) {
+  .qc-statpill-value { font-size: 1.1rem; }
+}
+
+/* Cennet↔Cehennem hero'sundaki orta ayet paneli. İki AYRI JSX dalı vardı
+   (`{!isMobile ? <masaüstü/> : <mobil/>}`) ve ikisi de AYNI içeriği farklı
+   stille basıyordu. `isMobile` hydration anında `false` olduğu için mobilde
+   önce masaüstü dalı çiziliyor, sonra mobil dalıyla değişiyor ve banner
+   120px'ten 144px'e büyüyüp altındaki her şeyi kaydırıyordu (ölçüldü
+   2026-08-26, 390px CPU×4: CLS 0.132, tek kaynak bu). Tek elemente
+   indirildi; fark artık burada, tarayıcı JS'i beklemeden çözüyor. */
+.cc-hero-divider {
+  border-left: 1px solid rgba(255,255,255,0.07);
+  border-right: 1px solid rgba(255,255,255,0.07);
+  padding: 20px 24px;
+  gap: 10px;
+  justify-content: center;
+}
+.cc-hero-divider__ayah { font-size: 1.55rem; }
+.cc-hero-divider__tr   { font-size: 0.78rem; max-width: 220px; }
+.cc-hero-divider__ref  { font-size: 0.68rem; }
+@media (max-width: 640px) {
+  .cc-hero-divider {
+    border-left: none; border-right: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 16px 24px; gap: 8px; justify-content: flex-start;
+  }
+  .cc-hero-divider__ayah { font-size: 1.3rem; }
+  .cc-hero-divider__tr   { font-size: 0.75rem; max-width: none; }
+  .cc-hero-divider__ref  { font-size: 0.65rem; }
+}

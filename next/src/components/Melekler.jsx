@@ -1534,7 +1534,7 @@ export default function Melekler({ onClose }) {
               onMouseLeave={e => { if (activeTab !== i) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
             >
               <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
-              {!isMobile && <span>{tr ? tab.labelTr : tab.labelEn}</span>}
+              <span className="qc-tab-label">{tr ? tab.labelTr : tab.labelEn}</span>
             </button>
           ))}
         </div>

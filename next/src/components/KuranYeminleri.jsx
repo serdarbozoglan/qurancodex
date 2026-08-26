@@ -403,7 +403,7 @@ export default function KuranYeminleri({ onClose }) {
                 onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
-                {!isMobile && <span>{language === 'tr' ? tab.tr : tab.en}</span>}
+                <span className="qc-tab-label">{language === 'tr' ? tab.tr : tab.en}</span>
               </button>
             );
           })}

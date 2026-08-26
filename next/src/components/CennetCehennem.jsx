@@ -424,7 +424,7 @@ export default function CennetCehennem({ onClose }) {
                   onMouseLeave={e => { if (!isActive) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
                 >
                   <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{tab.icon}</span>
-                  {!isMobile && <span>{language === 'tr' ? tab.labelTr : tab.labelEn}</span>}
+                  <span className="qc-tab-label">{language === 'tr' ? tab.labelTr : tab.labelEn}</span>
                 </button>
               );
             })}
@@ -615,7 +615,7 @@ function StatPill({ value, label, color, isMobile }) {
       textAlign: 'center',
       minWidth: '60px',
     }}>
-      <div style={{ fontSize: isMobile ? '1.1rem' : '1.3rem', fontWeight: 800, color, lineHeight: 1.1 }}>{value}</div>
+      <div className="qc-statpill-value" style={{ fontWeight: 800, color, lineHeight: 1.1 }}>{value}</div>
       <div style={{ fontSize: '0.62rem', color: SEMANTIC.textFaint, marginTop: '2px', letterSpacing: '0.04em' }}>{label}</div>
     </div>
   );
@@ -647,52 +647,28 @@ function HeroBanner({ data, language, isMobile }) {
       </div>
 
       {/* Center: verse + meal */}
-      {!isMobile ? (
-        <div style={{
-          background: COLORS.softGoldAlpha04,
-          borderLeft: '1px solid rgba(255,255,255,0.07)',
-          borderRight: '1px solid rgba(255,255,255,0.07)',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center',
-          padding: '20px 24px', gap: '10px',
+      <div className="cc-hero-divider" style={{
+        background: COLORS.softGoldAlpha04,
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+      }}>
+        <div dir="rtl" lang="ar" className="cc-hero-divider__ayah" style={{
+          fontFamily: FONTS.quran, color: GOLD,
+          direction: 'rtl', textAlign: 'center', lineHeight: 1.9,
         }}>
-          <div dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: '1.55rem', color: GOLD,
-            direction: 'rtl', textAlign: 'center', lineHeight: 1.9,
-          }}>
-            وَبَيْنَهُمَا حِجَابٌ
-          </div>
-          <div style={{
-            fontSize: '0.78rem', color: COLORS.silver, textAlign: 'center',
-            fontStyle: 'italic', lineHeight: 1.5, maxWidth: '220px',
-          }}>
-            {tr
-              ? '"İkisi arasında bir perde vardır."'
-              : '"Between them is a barrier."'}
-          </div>
-          <div style={{ fontSize: '0.68rem', color: `${GOLD}C7`, fontWeight: 600, letterSpacing: '0.04em' }}>
-            {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
-          </div>
+          وَبَيْنَهُمَا حِجَابٌ
         </div>
-      ) : (
-        <div style={{
-          background: COLORS.softGoldAlpha04,
-          borderTop: '1px solid rgba(255,255,255,0.07)',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', padding: '16px 24px', gap: '8px',
+        <div className="cc-hero-divider__tr" style={{
+          color: COLORS.silver, textAlign: 'center',
+          fontStyle: 'italic', lineHeight: 1.5,
         }}>
-          <div dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.3rem', color: GOLD, direction: 'rtl', textAlign: 'center', lineHeight: 1.9 }}>
-            وَبَيْنَهُمَا حِجَابٌ
-          </div>
-          <div style={{ fontSize: '0.75rem', color: COLORS.silver, fontStyle: 'italic', textAlign: 'center' }}>
-            {tr ? '"İkisi arasında bir perde vardır."' : '"Between them is a barrier."'}
-          </div>
-          <div style={{ fontSize: '0.65rem', color: `${GOLD}C7`, fontWeight: 600 }}>
-            {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
-          </div>
+          {tr
+            ? '"İkisi arasında bir perde vardır."'
+            : '"Between them is a barrier."'}
         </div>
-      )}
+        <div className="cc-hero-divider__ref" style={{ color: `${GOLD}C7`, fontWeight: 600, letterSpacing: '0.04em' }}>
+          {tr ? "A'râf 7:46" : "Al-A'raf 7:46"}
+        </div>
+      </div>
 
       {/* Right: Cehennem */}
       <div className="mq-box" style={{

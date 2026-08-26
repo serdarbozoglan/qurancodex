@@ -270,7 +270,7 @@ export default function FurukAtlasi({ onClose }) {
                   onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = COLORS.silver; } }}
                 >
                   <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{t.icon}</span>
-                  {!isMobile && <span>{tr ? t.tr : t.en}</span>}
+                  <span className="qc-tab-label">{tr ? t.tr : t.en}</span>
                 </button>
               );
             })}
