@@ -128,6 +128,13 @@ const CATEGORIES = [
         noteTr: "Çağdaş bağlamsal okuma — kelime kök analizi vurgulu.",
         noteEn: "Contemporary contextual reading with root-based word analysis.",
       },
+      {
+        author: "Bediüzzaman Said Nursi",
+        work: "Risâle-i Nur Külliyatı (Sözler)",
+        year: 'ö. 1960',
+        noteTr: "Modern Türk İslam düşüncesinde temsîlî/mesel yöntemi (Yirmi İkinci Söz) ve haşir istidlalleri (Onuncu Söz).",
+        noteEn: "Representational/parabolic method (Twenty-Second Word) and resurrection arguments (Tenth Word) in modern Turkish Islamic thought.",
+      },
     ],
   },
 
@@ -207,6 +214,13 @@ const CATEGORIES = [
         year: '1986',
         noteTr: "Islâhî'nin nazm kavramı — sûrelerin iç tutarlılığı.",
         noteEn: "Islahi's concept of nazm — internal coherence of suras.",
+      },
+      {
+        author: "Nouman Ali Khan · Sharif Randhawa",
+        work: "Divine Speech: Exploring the Qur'an as Literature",
+        year: '2016',
+        noteTr: "Kur'an yeminleri, meseller, iltifât ve sûre-içi/sûreler-arası simetri üzerine edebî yaklaşım.",
+        noteEn: "Literary approach to Quranic oaths, parables, iltifat, and intra-/inter-surah symmetry.",
       },
       {
         author: "Fazlur Rahman",
@@ -376,10 +390,17 @@ const CATEGORIES = [
       },
       {
         author: "Quran.com Foundation",
-        work: "Quran.com API & Open Data",
-        noteTr: "Çeviri, tefsir ve resitasyon API'leri.",
-        noteEn: "Translation, tafsir, and recitation APIs.",
+        work: "Quran.com API & Open Data (QDC)",
+        noteTr: "Çeviri, tefsir, kıraat sesleri ve karaoke modundaki kelime-seviyesi zamanlama verisi (api.qurancdn.com) için kullanılır.",
+        noteEn: "Used for translation, tafsir, recitation audio, and the word-level timing data behind karaoke mode (api.qurancdn.com).",
         link: "https://quran.com",
+      },
+      {
+        author: "EveryAyah.com",
+        work: "Per-Verse Quran Recitation Archive",
+        noteTr: "Kıraat seslerinin ayet ayet ana kaynağı; Quran.com CDN'i erişilemediğinde yedek (fallback) olarak da kullanılır.",
+        noteEn: "Primary per-verse source for reciter audio; also used as the fallback when the Quran.com CDN mirror is unreachable.",
+        link: "https://everyayah.com",
       },
       {
         author: "AçıkKur'an",
@@ -402,6 +423,14 @@ const CATEGORIES = [
         noteTr: "Mushaf-i Medine standardı Arapça font.",
         noteEn: "Standard Arabic font of the Madinah Mushaf.",
         link: "https://qurancomplex.gov.sa",
+      },
+      {
+        author: "Hayrat Neşriyat · Ahmed Hüsrev (hat)",
+        work: "kuran.hayrat.com.tr — Kur'an-ı Kerim Mushaf Sayfaları",
+        year: 'k. 1985',
+        noteTr: "Mushaf modunda sayfa görseli olarak doğrudan kullanılır; ayrıca sayfa içindeki satır dizilişinin sayfa sayfa görsel doğrulamasında referans alınmıştır.",
+        noteEn: "Used directly as the page image in Mushaf mode; also served as the visual reference for page-by-page verification of the in-page line arrangement.",
+        link: "https://kuran.hayrat.com.tr",
       },
     ],
   },

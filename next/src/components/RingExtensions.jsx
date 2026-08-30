@@ -3,49 +3,49 @@
 // HiddenArchitecture'a dokunmadan /arac/halka-kompozisyon tool sayfasına eklenen deep-dive.
 
 import { useState } from 'react';
-import { COLORS, FONTS, RADIUS } from '../tokens';
+import { COLORS, FONTS, RADIUS, STATUS } from '../tokens';
 
-// ── Fatiha halka yapısı ──────────────────────────────────────────────────
-// 2026-08-14 — DÜZELTİLDİ, bkz. ProofSection.jsx ve HiddenArchitecture.jsx
-// aynı tarihli notları. Önceki sürüm Besmele'yi (1:1) "A"ya koyuyor, 1:4'ü
-// ("Mâliki yevmi'd-dîn") hiç göstermiyor ve kaynağı doğrulanamayan bir
-// alıntı taşıyordu ("Farrin buna 'prelude to the pivot' der" — hiçbir
-// aramada bu ifadeye rastlanmadı, silindi). Farrin'in kendi analizi
-// Besmele'yi sûrenin yapısına saymaz (Kabakcı, 2018 kitap eleştirisi,
-// Farrin 2014 s.3'ten aktarıyor). Bu dizi Farrin'in TAM yapısının kopyası
-// değil — sitenin kendi düzenlemesi (gerçek yapı iki ayrı ayna önerir).
-const FATIHA_RING = [
-  { pos: 'A',  ayah: 2, arabic: 'اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِينَ',
-    themeTr: 'Rab', themeEn: 'Lord',
-    tr: 'Hamd âlemlerin Rabbi Allah\'a mahsustur', en: 'Praise be to Allah, Lord of the Worlds',
-    color: '#f39c12' },
-  { pos: 'B',  ayah: 3, arabic: 'اَلرَّحْمٰنِ الرَّحِيمِ',
-    themeTr: 'Rahmet', themeEn: 'Mercy',
-    tr: 'Rahmân ve Rahîm', en: 'The Most Merciful, the Especially Merciful',
-    color: '#2ecc71' },
-  { pos: 'C',  ayah: 4, arabic: 'مَالِكِ يَوْمِ الدِّينِ',
-    themeTr: 'Din Günü', themeEn: 'Day of Judgment',
-    tr: 'Din gününün mâliki', en: 'Master of the Day of Judgment',
-    color: '#d4a574' },
-  { pos: 'D',  ayah: 5, arabic: 'اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِينُ', center: true,
-    themeTr: '★ Eksen — İbadet-Yardım', themeEn: '★ Pivot — Worship-Help',
-    tr: 'Yalnız sana kulluk eder, yalnız senden yardım dileriz', en: 'You alone we worship, You alone we ask for help',
-    color: COLORS.gold },
-  { pos: 'C\'', ayah: 6, arabic: 'اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
-    themeTr: 'Hidayet', themeEn: 'Guidance',
-    tr: 'Bizi dosdoğru yola ilet', en: 'Guide us to the straight path',
-    color: '#d4a574' },
-  { pos: 'B\'', ayah: 7, arabic: 'صِرَاطَ الَّذِينَ اَنْعَمْتَ عَلَيْهِمْ',
-    themeTr: 'Nimet Verilenler', themeEn: 'The Favoured',
-    tr: 'Nimet verdiklerinin yoluna', en: 'The path of those You have blessed',
-    color: '#2ecc71' },
-  { pos: 'A\'', ayah: 7, arabic: 'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضّٓالِّينَ',
-    themeTr: 'Gazab & Dalâl', themeEn: 'Wrath & Straying',
-    tr: 'Gazab edilenlerin ve sapmışların değil', en: 'Not those upon whom is wrath, nor those astray',
-    color: '#f39c12' },
+// ── Islâhî'nin sûre çiftleri teorisi — 6 ilişki tipi ──
+// Kaynak: Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 221,
+// Mustansir Mir, Coherence in the Qur'an, s. 75-84 üzerinden aktarır.
+const PAIR_TYPES = [
+  { tr: 'Biri özetle söyler, diğeri ayrıntılandırır', en: 'One states in brief, the other explains in detail' },
+  { tr: 'Biri bir ilkeyi koyar, diğeri örnekle gösterir', en: 'One states a principle, the other illustrates it through example' },
+  { tr: 'Biri öncülü verir, diğeri o öncülden sonuç çıkarır', en: 'One lays out a premise, the other argues a conclusion from it' },
+  { tr: 'Bir meselenin karşıt uçlarını ele alırlar (ör. tevhid/şirk, iman/küfür)', en: 'They address opposite sides of an issue (e.g. monotheism/polytheism, faith/disbelief)' },
+  { tr: 'Aynı konuyu farklı vurgularla işlerler', en: 'They discuss the same issue with different points of emphasis' },
+  { tr: 'Farklı delillerle ortak bir sonuca varırlar', en: 'They argue toward a common conclusion using different lines of evidence' },
 ];
 
-// ── 4 ek halka örneği (mevcut Fatiha + Ayetu'l-Kürsi'ye ek) ──
+// Rahmân 55 ile Vâkıa 56 — aynı 5 unsur, ters sırada.
+// Vâkıa'nın KENDİ sırası (üstten alta) Rahmân'ın sırasının ters çevrilmişidir.
+const RAHMAN_ELEMENTS = [
+  { tr: 'Kur\'an vahyi — "Rahmân, Kur\'an\'ı öğretti" (2)', en: 'The Qur\'an — "The All-Merciful taught the Qur\'an" (2)' },
+  { tr: 'Yaratılışın harikaları (2-25)', en: 'Wonders of creation (2-25)' },
+  { tr: 'Hesap ve azap (26-45)', en: 'Judgment and punishment (26-45)' },
+  { tr: 'Cennetin alt tabakası (46-61)', en: 'The lower level of Paradise (46-61)' },
+  { tr: 'Cennetin üst tabakası (62-78)', en: 'The higher level of Paradise (62-78)' },
+];
+const WAQIAH_ELEMENTS = [
+  { tr: '"Yaklaştırılanlar" — cennetin üst tabakası (11-26)', en: 'Those "brought near" — the higher level of Paradise (11-26)' },
+  { tr: 'Sağ ashâb — cennetin alt tabakası (27-40)', en: 'The People of the Right Hand — the lower level of Paradise (27-40)' },
+  { tr: 'Sol ashâb — hesap ve azap (41-56)', en: 'The People of the Left Hand — judgment and punishment (41-56)' },
+  { tr: 'Yaratılışın harikaları (57-75)', en: 'Wonders of creation (57-75)' },
+  { tr: 'Kur\'an vahyi (76-82)', en: 'The Qur\'an (76-82)' },
+];
+
+// Son 10 sûre (105-114) — Hz. İbrahim'in duasına (2:126-130) kademeli cevap.
+const LAST_TEN = [
+  { ref: 'Fîl 105', tr: '"Güvenli belde" (2:126) duasının cevabı — Kâbe, Fil ordusundan korunur', en: 'Answer to the "secure city" prayer (2:126) — the Kaaba is protected from the Army of the Elephant' },
+  { ref: 'Kureyş 106', tr: 'Rızık duasının cevabı; "onları korkudan emin kıldı (âmenehüm)" — 2:126\'daki "beleden âminen" ile aynı kök', en: 'Answer to the prayer for provision; "He secured them (āmanahum) from fear" — same root as "a secure city" in 2:126' },
+  { ref: 'Mâûn 107', tr: 'Kureyş liderlerinin cimriliğinin ve ibadetteki gösterişinin kınanması', en: 'Indictment of the Quraysh leaders\' miserliness and ostentatious worship' },
+  { ref: 'Kevser–Kâfirûn–Nasr–Tebbet 108-111', tr: 'Peygamber\'in davetinin dört evresi (düşük nokta, dönüş, zafer, inkârcı düşmanın sonu)', en: 'Four stages of the Prophet\'s mission (low point, turning point, triumph, the disbelieving enemy\'s end)' },
+  { ref: 'İhlâs 112', tr: 'Hz. İbrahim\'in soyundan "arındıran" bir peygamber duasının (2:129) karşılığı — tevhidin saf beyanı', en: 'Answer to Abraham\'s prayer for a "purifying" messenger from his descendants (2:129) — the pure declaration of monotheism' },
+  { ref: 'Felak–Nâs 113-114', tr: 'Kapanış dua çifti — Fâtiha\'nın açılış duasını yansıtır', en: 'The closing prayer pair — mirroring the opening prayer of al-Fātiḥa' },
+];
+
+// ── Ek halka örnekleri (Fâtiha ve Âyetü'l-Kürsî yukarıda HiddenArchitecture'da
+// zaten ele alındığı için burada tekrarlanmaz) ──
 const ADDITIONAL_RINGS = [
   {
     id: 'muminun',
@@ -128,15 +128,15 @@ const ADDITIONAL_RINGS = [
   {
     id: 'kasas',
     surahTr: 'Kasas 28 — Musa Kıssası', surahEn: 'Sūrat al-Qaṣaṣ 28 — Moses Narrative',
-    titleTr: 'Musa\'nın Halka Yapılı Yaşamı',
+    titleTr: 'Hz. Musa\'nın Halka Yapılı Yaşamı',
     titleEn: 'Moses\'s Life in Ring Structure',
     structure: 'A-B-C-D-C\'-B\'-A\' (kıssanın kendi içinde)',
     outlineTr: [
       'A · Firavun\'un zulmü (28:1-6)',
-      'B · Musa\'nın nehre bırakılması ve saraya getirilmesi (28:7-13)',
-      'C · Musa\'nın kaçışı ve Medyen\'e varışı (28:14-28)',
+      'B · Hz. Musa\'nın nehre bırakılması ve saraya getirilmesi (28:7-13)',
+      'C · Hz. Musa\'nın kaçışı ve Medyen\'e varışı (28:14-28)',
       'D · **Tûr\'da nübüvvet çağrısı** (28:29-35) — kalp',
-      'C\' · Musa\'nın Mısır\'a dönüşü (28:36-42)',
+      'C\' · Hz. Musa\'nın Mısır\'a dönüşü (28:36-42)',
       'B\' · Kur\'ân\'ın önceki ümmetlere delili (28:43-56)',
       'A\' · Kavramın sonu: Karun\'un helâki (28:57-88)',
     ],
@@ -151,118 +151,71 @@ const ADDITIONAL_RINGS = [
     ],
     kaynak: 'Raymond Farrin, Structure and Qur\'anic Interpretation (White Cloud Press, 2014).',
   },
+  {
+    id: 'karia',
+    surahTr: 'Kâria 101 — Tam Sûre', surahEn: 'Al-Qāriʿah 101 — Whole Surah',
+    titleTr: 'Kâria\'da Ses ve Kelime Oyunuyla Kurulan Halka',
+    titleEn: 'The Ring Built on Sound and Wordplay in Al-Qāriʿah',
+    structure: 'A-B-C-C\'-B\'-A\'',
+    outlineTr: [
+      'A · "Çarpacak olan (el-Kâria)!" (1)',
+      'B · "Nedir o çarpacak olan?" (2-3)',
+      'C · İki teşbih: insanlar dağılmış pervaneler gibi, dağlar atılmış yün gibi (4-5)',
+      'C\' · İki karşıt son: tartısı ağır basan → hoşnut bir hayat; tartısı hafif kalan → Hâviye (6-9)',
+      'B\' · "Bilir misin nedir o (Hâviye)?" (10)',
+      'A\' · "Kızgın bir ateş" (11)',
+    ],
+    outlineEn: [
+      'A · "The Crashing Blow!" (1)',
+      'B · "What is the Crashing Blow?" (2-3)',
+      'C · Two similes: people like scattered moths, mountains like carded wool (4-5)',
+      'C\' · Two opposite ends: heavy scales → a pleasant life; light scales → the Abyss (Hāwiyah) (6-9)',
+      'B\' · "And what will convey to you what she is?" (10)',
+      'A\' · "A blazing fire" (11)',
+    ],
+    noteTr: 'Ayet numaraları bu 11 ayetlik sûrenin standart bölümlemesinden çıkarılmıştır; kitap harf konumlarını (A-B-C-C\'-B\'-A\') verir ama her birine ayet numarası basmaz.',
+    noteEn: 'Verse numbers follow the sura\'s standard 11-verse division; the book gives the letter positions (A-B-C-C\'-B\'-A\') but does not print a verse number for each.',
+    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 175-177, Michel Cuypers\'ın \'Semitic Rhetoric\' (2011) çözümlemesinden aktarır — "hâviye" (uçurum) kelimesinin aynı zamanda "çocuğunu kaybetmiş anne" anlamına gelmesiyle, sûrenin başındaki "ümm" (anne/yuva) kelimesi arasında bir ses/anlam bağı kurar.',
+  },
+  {
+    id: 'yusuf',
+    surahTr: 'Yûsuf 12 — Tam Sûre', surahEn: 'Yūsuf 12 — Whole Surah',
+    titleTr: 'Yûsuf Sûresinin İç İçe Halkası',
+    titleEn: 'The Nested Ring of Sūrat Yūsuf',
+    structure: 'A-B-C-D-E-F-F\'-E\'-D\'-C\'-B\'-A\' (12:1-111)',
+    outlineTr: [
+      'A · Giriş (1-3)',
+      'B · Hz. Yûsuf\'un rüyası (4-7)',
+      'C · Kardeşlerin hile ve tuzağı (8-18)',
+      'D · Hz. Yûsuf\'un ilk yükselişi — Mısır\'a satılması (19-22)',
+      'E · Kadının Hz. Yûsuf\'u baştan çıkarma girişimi (23-34)',
+      'F · **Zindanda: iki arkadaşının rüyasını yorması ve tevhid daveti** (35-42) — merkez',
+      'F\' · **Zindanda: kralın rüyasını yorması** (43-49) — merkez',
+      'E\' · Kadının işinin akıbeti — Hz. Yûsuf\'un temize çıkması (50-53)',
+      'D\' · Hz. Yûsuf\'un kesin yükselişi — Mısır\'ın hazine bakanlığı (54-57)',
+      'C\' · Hz. Yûsuf\'un kardeşlerine karşı kendi hilesi (58-98)',
+      'B\' · Rüyanın gerçekleşmesi (99-101)',
+      'A\' · Kapanış (102-111)',
+    ],
+    outlineEn: [
+      'A · Prologue (1-3)',
+      'B · Joseph\'s vision (4-7)',
+      'C · The brothers\' guile and plot against Joseph (8-18)',
+      'D · Joseph\'s relative promotion — sold into Egypt (19-22)',
+      'E · The woman\'s attempted seduction of Joseph (23-34)',
+      'F · **In prison: interpreting his two companions\' visions and calling them to monotheism** (35-42) — the centre',
+      'F\' · **In prison: interpreting the king\'s vision** (43-49) — the centre',
+      'E\' · Outcome of the woman\'s affair — Joseph vindicated (50-53)',
+      'D\' · Joseph\'s definitive promotion — treasurer of Egypt (54-57)',
+      'C\' · Joseph\'s own guile toward his brothers (58-98)',
+      'B\' · Fulfilment of the vision (99-101)',
+      'A\' · Epilogue (102-111)',
+    ],
+    noteTr: 'F merkezinin kendisi de (35-42) beş parçalı küçük bir halka taşır: rüyaları yorma vaadi → tevhid daveti → "dağınık rabler mi, tek ve kahhâr Allah mı?" (39, halkanın kalbi) → putperestliğin eleştirisi → rüyaların yorumu.',
+    noteEn: 'The F centre (35-42) itself carries a smaller five-part ring: the promise to interpret the dreams → the call to monotheism → "are separate lords better, or God, the One, the Overpowering?" (39, the ring\'s heart) → the critique of idol-worship → the interpretation of the dreams.',
+    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 178-180 — dış halkayı "bir dizi araştırmacı"ya, iç halkanın anahatını ise açıkça Michel Cuypers\'a atfeder (Mustansir Mir, "The Qur\'anic Story of Joseph," Muslim World 76.1 (1986) ile birlikte).',
+  },
 ];
-
-// ── Fatiha SVG Halka Diyagramı ──
-function FatihaRingDiagram({ language, isMobile }) {
-  const tr = language === 'tr';
-  const size = isMobile ? 320 : 460;
-  const cx = size / 2, cy = size / 2;
-  const r = size * 0.38;
-  const [hovered, setHovered] = useState(null);
-  const active = hovered ?? 3; // default: center pivot (D)
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '18px' }}>
-      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}
-        role="img"
-        aria-labelledby="fatiha-ring-title fatiha-ring-desc"
-        style={{ maxWidth: '100%' }}>
-        <title id="fatiha-ring-title">{tr ? 'Fâtiha Sûresi Halka Kompozisyon Diyagramı' : 'Al-Fātiḥa Ring Composition Diagram'}</title>
-        <desc id="fatiha-ring-desc">{tr
-          ? 'A-B-C-D-C\'-B\'-A\' yapısında 7 pozisyonlu Fâtiha halkası. Merkezde D pivotu — Fâtiha 1:5 (İyyâke naʿbudu ve iyyâke nesteʿîn).'
-          : 'Seven-position Fatiha ring in A-B-C-D-C\'-B\'-A\' structure. Centre: D pivot — Al-Fātiḥa 1:5 (You alone we worship).'}</desc>
-        {/* Outer ring */}
-        <circle cx={cx} cy={cy} r={r + 12} fill="none" stroke={`${COLORS.gold}22`} strokeWidth="1" strokeDasharray="3 4" />
-
-        {/* Radial position labels — A, B, C, D, C', B', A' */}
-        {FATIHA_RING.map((v, i) => {
-          const angle = (-Math.PI / 2) + (i / FATIHA_RING.length) * 2 * Math.PI;
-          const x = cx + r * Math.cos(angle);
-          const y = cy + r * Math.sin(angle);
-          const isCenter = v.center;
-          const isActive = i === active;
-          const nodeR = isCenter ? 30 : (isActive ? 22 : 18);
-          return (
-            <g key={i}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-              onFocus={() => setHovered(i)}
-              onBlur={() => setHovered(null)}
-              tabIndex={0}
-              role="button"
-              aria-label={`${v.pos} · Fâtiha 1:${v.ayah} · ${tr ? v.themeTr : v.themeEn}`}
-              style={{ cursor: 'pointer', outline: 'none' }}
-            >
-              {/* Line from center to node */}
-              <line x1={cx} y1={cy} x2={x} y2={y}
-                stroke={isActive ? v.color : `${v.color}44`}
-                strokeWidth={isActive ? 2 : 1}
-              />
-              {/* Node */}
-              <circle cx={x} cy={y} r={nodeR}
-                fill={`${v.color}${isActive ? '44' : '22'}`}
-                stroke={v.color}
-                strokeWidth={isActive ? 2.5 : 1.5}
-              />
-              {/* Position label */}
-              <text x={x} y={y}
-                textAnchor="middle" dominantBaseline="middle"
-                fontFamily={FONTS.display}
-                fontSize={isCenter ? '20' : '14'}
-                fontWeight="700"
-                fill={v.color}
-              >{v.pos}</text>
-              {/* Ayah number below */}
-              <text x={x} y={y + nodeR + 14}
-                textAnchor="middle" dominantBaseline="middle"
-                fontSize="10"
-                fill={COLORS.silver}
-                opacity="0.75"
-              >1:{v.ayah}</text>
-            </g>
-          );
-        })}
-
-        {/* Center pivot decoration */}
-        <circle cx={cx} cy={cy} r="6" fill={COLORS.gold} opacity="0.85" />
-      </svg>
-
-      {/* Active verse display */}
-      {FATIHA_RING[active] && (
-        <div style={{
-          padding: '18px 22px',
-          background: `linear-gradient(135deg, ${FATIHA_RING[active].color}0d 0%, rgba(255,255,255,0.02) 100%)`,
-          border: `1px solid ${FATIHA_RING[active].color}55`,
-          borderRadius: RADIUS.md,
-          maxWidth: '640px', width: '100%',
-          textAlign: 'center',
-        }}>
-          <div style={{
-            color: FATIHA_RING[active].color, fontSize: '0.72rem',
-            letterSpacing: '0.22em', textTransform: 'uppercase',
-            fontWeight: 700, marginBottom: '8px',
-          }}>{FATIHA_RING[active].pos} · Fâtiha 1:{FATIHA_RING[active].ayah}</div>
-          <div style={{
-            fontFamily: FONTS.quran, color: FATIHA_RING[active].color,
-            fontSize: isMobile ? 'clamp(1.3rem, 5vw, 1.65rem)' : '1.8rem',
-            lineHeight: 2, direction: 'rtl',
-            marginBottom: '10px',
-          }} lang="ar" dir="rtl">{FATIHA_RING[active].arabic}</div>
-          <p style={{
-            fontFamily: FONTS.display, fontStyle: 'italic',
-            color: COLORS.offWhite, fontSize: '0.95rem',
-            margin: '0 0 6px', lineHeight: 1.6,
-          }}>&quot;{tr ? FATIHA_RING[active].tr : FATIHA_RING[active].en}&quot;</p>
-          <div style={{
-            color: COLORS.silver, fontSize: '0.72rem',
-            letterSpacing: '0.12em', textTransform: 'uppercase',
-          }}>{tr ? FATIHA_RING[active].themeTr : FATIHA_RING[active].themeEn}</div>
-        </div>
-      )}
-    </div>
-  );
-}
 
 // ── Main component ──
 export default function RingExtensions({ language, isMobile }) {
@@ -293,24 +246,7 @@ export default function RingExtensions({ language, isMobile }) {
             color: COLORS.gold, opacity: 0.85,
             fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
             margin: 0,
-          }}>{tr ? "Fâtiha diyagramı, dört ek örnek, akademik çerçeve" : "The Fatiha diagram, four extra examples, academic frame"}</p>
-        </div>
-
-        {/* Fatiha SVG diagram */}
-        <div style={{ marginBottom: '48px' }}>
-          <h3 style={{
-            fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
-            margin: '0 0 12px', fontWeight: 700, textAlign: 'center',
-          }}>{tr ? 'Fâtiha\'nın Halkası' : "Al-Fātiḥa's Ring"}</h3>
-          <p style={{
-            color: COLORS.silver, fontSize: '0.95rem',
-            lineHeight: 1.7, margin: '0 auto 28px', maxWidth: '660px', textAlign: 'center',
-          }}>{tr
-            ? "A-B-C-D-C'-B'-A' yapısı: D pivotu (5. ayet) merkezde durur. Nodları hover ederek her pozisyonun ayetini ve temasını gör."
-            : "The A-B-C-D-C'-B'-A' structure: pivot D (verse 5) stands at the centre. Hover the nodes to see each position's verse and theme."}
-          </p>
-          <FatihaRingDiagram language={language} isMobile={isMobile} />
+          }}>{tr ? "Altı ek örnek, sûre-çiftleri, akademik çerçeve" : "Six extra examples, surah pairs, academic frame"}</p>
         </div>
 
         {/* Additional rings selector */}
@@ -319,13 +255,13 @@ export default function RingExtensions({ language, isMobile }) {
             fontFamily: FONTS.display, color: COLORS.offWhite,
             fontSize: isMobile ? '1.3rem' : '1.55rem',
             margin: '0 0 12px', fontWeight: 700,
-          }}>{tr ? 'Dört Ek Halka Örneği' : 'Four Additional Ring Examples'}</h3>
+          }}>{tr ? 'Altı Ek Halka Örneği' : 'Six Additional Ring Examples'}</h3>
           <p style={{
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 20px', maxWidth: '760px',
           }}>{tr
-            ? "Modern akademik çalışmalar — Cuypers ve Farrin — Kur'ân'da halka yapısını sûre-uzunluğunda ve kıssa-uzunluğunda gösterir."
-            : "Modern academic work — Cuypers and Farrin — traces ring structures at surah and narrative length."}
+            ? "Modern akademik çalışmalar — Cuypers, Farrin ve Divine Speech yazarları Nouman Ali Khan & Sharif Randhawa — Kur'ân'da halka yapısını kısa bir sûreden (Kâria) tam bir kıssaya (Yûsuf) kadar farklı ölçeklerde gösterir."
+            : "Modern academic work — Cuypers, Farrin, and Divine Speech authors Nouman Ali Khan & Sharif Randhawa — traces ring structures at every scale, from a short surah (al-Qari'ah) to an entire narrative (Yusuf)."}
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '18px' }}>
@@ -381,6 +317,12 @@ export default function RingExtensions({ language, isMobile }) {
                   );
                 })}
               </ol>
+              {(ADDITIONAL_RINGS[activeRing].noteTr || ADDITIONAL_RINGS[activeRing].noteEn) && (
+                <p style={{
+                  marginTop: '16px', color: COLORS.silver,
+                  fontSize: '0.82rem', lineHeight: 1.7, opacity: 0.9,
+                }}>{tr ? ADDITIONAL_RINGS[activeRing].noteTr : (ADDITIONAL_RINGS[activeRing].noteEn ?? ADDITIONAL_RINGS[activeRing].noteTr)}</p>
+              )}
               <div style={{
                 marginTop: '20px', paddingTop: '14px',
                 borderTop: `1px dashed ${COLORS.goldAlpha25}`,
@@ -389,6 +331,128 @@ export default function RingExtensions({ language, isMobile }) {
               }}>— {ADDITIONAL_RINGS[activeRing].kaynak}</div>
             </div>
           )}
+        </div>
+
+        {/* Islâhî'nin Sûre Çiftleri Teorisi */}
+        <div style={{ marginBottom: '32px' }}>
+          <h3 style={{
+            fontFamily: FONTS.display, color: COLORS.offWhite,
+            fontSize: isMobile ? '1.3rem' : '1.55rem',
+            margin: '0 0 12px', fontWeight: 700,
+          }}>{tr ? "Islâhî'nin Sûre Çiftleri Teorisi" : "Islahi's Surah-Pair Theory"}</h3>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.95rem',
+            lineHeight: 1.7, margin: '0 0 8px', maxWidth: '760px',
+          }}>{tr
+            ? "Ferâhî'nin öğrencisi Emîn Ahsen Islâhî, birçok sûrenin bitişiğindeki sûreyle tamamlayıcı bir “çift” oluşturduğunu öne sürer. Bu çiftler altı farklı ilişki türünden birini sergiler:"
+            : "Amin Ahsan Islahi, a student of Farahi, argued that many surahs form a complementary “pair” with the surah immediately before or after them. These pairs display one of six relationship types:"}
+          </p>
+          <div className="g-2-3" style={{ display: 'grid', gap: '8px', margin: '16px 0 20px' }}>
+            {PAIR_TYPES.map((p, i) => (
+              <div key={i} style={{
+                padding: '10px 12px', background: 'rgba(255,255,255,0.03)',
+                border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: RADIUS.md,
+                color: COLORS.offWhite, fontSize: '0.82rem', lineHeight: 1.55,
+              }}>{tr ? p.tr : p.en}</div>
+            ))}
+          </div>
+          <p style={{
+            color: COLORS.silver, fontSize: '0.82rem', fontStyle: 'italic',
+            lineHeight: 1.7, margin: '0 0 28px', maxWidth: '760px', opacity: 0.9,
+          }}>{tr
+            ? "Divine Speech yazarları temkinli: “Islâhî'nin şemasının her ayrıntısını kabul etmek zorunda değiliz ki, sûrelerin çoğunun tamamlayıcı çiftler oluşturduğunu görelim.” — Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 221."
+            : "The Divine Speech authors are careful here: “One does not have to accept all the details of Islahi's scheme to recognize that many of the surahs of the Qur'an form complementary pairs.” — Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), p. 221."}
+          </p>
+
+          {/* Örnek 1 — Rahmân 55 / Vâkıa 56 ters ayna */}
+          <div className="mq-box" style={{
+            '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px",
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+            border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md, marginBottom: '20px',
+          }}>
+            <h4 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: '1.15rem', margin: '0 0 4px', fontWeight: 700 }}>
+              {tr ? "Rahmân 55 ↔ Vâkıa 56 — Ters Çevrilmiş Bir Ayna" : "Ar-Rahmān 55 ↔ Al-Wāqiʿah 56 — A Reversed Mirror"}
+            </h4>
+            <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: '0 0 18px', opacity: 0.85 }}>
+              {tr ? "Aynı 5 unsur, iki sûre arasında tam ters sırada tekrarlanır." : "The same 5 elements recur across the two surahs in exactly reversed order."}
+            </p>
+            <div className="g-1-2" style={{ display: 'grid', gap: '20px' }}>
+              <div>
+                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Rahmân 55 — sıra' : 'Ar-Rahman 55 — order'}</div>
+                <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9 }}>
+                  {RAHMAN_ELEMENTS.map((e, i) => <li key={i}>{tr ? e.tr : e.en}</li>)}
+                </ol>
+              </div>
+              <div>
+                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Vâkıa 56 — sıra (ters)' : 'Al-Waqiah 56 — order (reversed)'}</div>
+                <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9 }}>
+                  {WAQIAH_ELEMENTS.map((e, i) => <li key={i}>{tr ? e.tr : e.en}</li>)}
+                </ol>
+              </div>
+            </div>
+            <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: `1px dashed ${COLORS.goldAlpha25}`, color: COLORS.silver, fontSize: '0.76rem', fontStyle: 'italic' }}>
+              — Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 221-224; -ân kafiyesi notuyla Abdel Haleem, Understanding the Qur&apos;an, s. 181.
+            </div>
+          </div>
+
+          {/* Örnek 2 — Son 10 sûre / İbrahim'in duası */}
+          <div className="mq-box" style={{
+            '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px",
+            background: 'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+            border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md,
+          }}>
+            <h4 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: '1.15rem', margin: '0 0 4px', fontWeight: 700 }}>
+              {tr ? "Son On Sûre — Hz. İbrahim'in Duasına Kademeli Cevap" : "The Last Ten Surahs — A Gradual Answer to Abraham's Prayer"}
+            </h4>
+            <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, margin: '0 0 16px' }}>
+              {tr
+                ? "Hz. İbrahim, Bakara 2:126-130'da iki şey diler: “güvenli bir belde” ve soyundan “arındıran” bir peygamber. Kur'an'ın son on sûresi (105-114), mevcut dizilişiyle bu duaya adım adım cevap verir:"
+                : "In al-Baqarah 2:126-130, Abraham prays for two things: a “secure city” and a “purifying” messenger from his line. The Qur'an's last ten surahs (105-114), in their received order, answer this prayer step by step:"}
+            </p>
+            <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9, listStyle: 'none' }}>
+              {LAST_TEN.map((s, i) => (
+                <li key={i} style={{ marginBottom: '8px' }}>
+                  <span style={{ color: COLORS.gold, fontWeight: 700 }}>{s.ref}</span> — {tr ? s.tr : s.en}
+                </li>
+              ))}
+            </ol>
+            <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: `1px dashed ${COLORS.goldAlpha25}`, color: COLORS.silver, fontSize: '0.76rem', fontStyle: 'italic' }}>
+              {tr
+                ? "— Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 224-230, Ferâhî ve Islâhî'nin tefsirlerinden aktarır. Kitap bu on sûrenin tek mi yoksa 105-108/109-112 diye iki alt gruba mı ayrılması gerektiği konusunda bir ihtilafı da not eder."
+                : "— Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), pp. 224-230, drawing on Farahi's and Islahi's commentaries. The book also notes a scholarly disagreement over whether these ten surahs form one group or split into 105-108/109-112."}
+            </div>
+          </div>
+        </div>
+
+        {/* Farrin'in tüm-Kur'an halka hipotezi — AÇIKÇA hipotez olarak işaretli */}
+        <div className="mq-box" style={{
+          '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px",
+          background: `${STATUS.warning}0d`,
+          border: `1px solid ${STATUS.warning}40`,
+          borderRadius: RADIUS.md, marginBottom: '32px',
+        }}>
+          <div style={{
+            display: 'inline-block', padding: '3px 10px', borderRadius: '999px',
+            background: `${STATUS.warning}22`, border: `1px solid ${STATUS.warning}55`,
+            color: STATUS.warning, fontSize: '0.66rem', fontWeight: 700,
+            letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '12px',
+          }}>{tr ? 'Hipotez — kanıtlanmış değil' : 'Hypothesis — not established'}</div>
+          <h4 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.15rem', margin: '0 0 10px', fontWeight: 700 }}>
+            {tr ? "Farrin: Tüm Kur'an Tek Bir Halka mı?" : 'Farrin: Is the Entire Qur\'an One Ring?'}
+          </h4>
+          <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.75, margin: '0 0 12px' }}>
+            {tr
+              ? "Raymond Farrin, sûre-grupları düzeyinde gördüğü simetriyi Kur'an'ın TAMAMINA genişletir: 2-49. sûreler (“Sistem A”) ile 57-112. sûreler (“Sistem A′”) birbirinin aynası olur; merkezde 50-56. sûreler (özellikle 54 ve 55) durur; bütünü Fâtiha (1) ile son iki sûre (113-114) bir dua çifti olarak kuşatır. İddiasını sadece sayılarla değil, eşleşen çiftler arasındaki somut ortak temalarla da destekler — ör. yalnız Mekke'yi isimle anan sûreler (3, 48) veya Yûnus kıssasına ortak atıf (10, 37)."
+              : "Raymond Farrin extends the symmetry he sees at the surah-group level to the ENTIRE Qur'an: surahs 2-49 (“System A”) mirror surahs 57-112 (“System A′”), with surahs 50-56 (especially 54 and 55) at the centre, the whole framed by al-Fātiḥa (1) and the final two surahs (113-114) as a bounding prayer pair. He supports this with concrete shared themes between matched groups, not numbers alone — e.g. the only surahs naming Mecca outright (3, 48), or a shared reference to the story of Jonah (10, 37)."}
+          </p>
+          <p style={{ color: COLORS.offWhite, opacity: 0.9, fontSize: '0.84rem', lineHeight: 1.75, margin: '0 0 12px', fontStyle: 'italic' }}>
+            {tr
+              ? "Divine Speech yazarları kendileri temkinli: “Kur'an'ın kompozisyonu üzerine bütüncül bir kesinlik iddia etmek için henüz erken olabilir” ve bu görüşün “şimdilik en iyi ihtimalle bir hipotez olarak ele alınması gerektiğini” yazar."
+              : "The Divine Speech authors themselves are cautious: “it is probably too early in the study of the Qur'an's composition to claim anything about its structure as a whole with certainty,” and that the theory “may, at this point, best be treated as a hypothesis.”"}
+          </p>
+          <div style={{ paddingTop: '12px', borderTop: `1px dashed ${STATUS.warning}40`, color: COLORS.silver, fontSize: '0.76rem', fontStyle: 'italic' }}>
+            — Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 231-235; Raymond Farrin, Structure and Qur&apos;anic Interpretation, s. 48-69.
+          </div>
         </div>
 
         {/* Academic frame — Cuypers & Farrin & tradition */}
@@ -414,7 +478,7 @@ export default function RingExtensions({ language, isMobile }) {
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}` }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Michel Cuypers</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                <em>The Composition of the Qur&apos;an: Rhetorical Analysis</em> (Bloomsbury, 2015). Semitic Rhetoric metodolojisiyle Bakara + Mâide için 200+ sayfalık analiz.
+                <em>The Composition of the Qur&apos;an: Rhetorical Analysis</em> (Bloomsbury, 2015). Semitic Rhetoric metodolojisiyle Bakara ve Mâide sûrelerini ele alır; kitaptaki en kapsamlı analiz (224 sayfa) Mâide&apos;yedir.
               </p>
             </div>
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}` }}>
@@ -426,7 +490,7 @@ export default function RingExtensions({ language, isMobile }) {
             <div style={{ padding: '12px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: RADIUS.md, border: `1px solid ${COLORS.glassBorderSoft}`, gridColumn: isMobile ? '1' : '1 / -1' }}>
               <div style={{ color: COLORS.gold, fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>Klasik: Biqâʿî · Suyûtî · Râzî</div>
               <p style={{ color: COLORS.offWhite, opacity: 0.85, fontSize: '0.82rem', margin: 0, lineHeight: 1.6 }}>
-                Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî\&apos;nin Nazmü&apos;d-Dürer\&apos;i (sûre içi düzeni), Suyûtî\&apos;nin el-İtkân\&apos;ı (Kur&apos;ân ilimleri), Râzî\&apos;nin Mefâtîhu\&apos;l-Ğayb\&apos;ı (tefsir + ilişki analizi).
+                Munâsabât (ayet ilişkileri) klasik ilminin başeserleri: Biqâʿî&apos;nin Nazmü&apos;d-Dürer&apos;i (sûre içi düzeni), Suyûtî&apos;nin el-İtkân&apos;ı (Kur&apos;ân ilimleri), Râzî&apos;nin Mefâtîhu&apos;l-Ğayb&apos;ı (tefsir + ilişki analizi).
               </p>
             </div>
           </div>

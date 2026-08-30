@@ -1,0 +1,130 @@
+# Divine Speech (Nouman Ali Khan & Sharif Randhawa) → QuranCodex Zenginleştirme Roadmap
+
+> Kaynak: `/Users/serdar/Developer/01_qurancodex/external_resources/_OceanofPDF.com_divine_speech_-_nouman_ali_khan.pdf`
+> (293 sayfa, Bayyinah Institute, 2016, ISBN 978-0-9977150-3-3)
+> 5 paralel ajanla tam kitap satır satır okunup çıkarıldı (2026-08-30). Bu dosya o okumanın
+> senteziyle hazırlandı: (1) kitabın tam içerik haritası, (2) sitenin mevcut 63 araç/atlas
+> sayfasıyla (bkz. `next/src/data/toolCatalog.js`) çapraz eşleştirme, (3) somut zenginleştirme
+> önerileri, (4) kitapta olup sitede karşılığı zayıf/yok olan konular.
+>
+> **Telif notu:** Kısa alıntı + net atıf (yazar, kitap adı, sayfa) serbest kullanım kapsamında;
+> büyük pasajları birebir kopyalamak YASAK. Her zenginleştirme kendi cümlelerimizle,
+> "Nouman Ali Khan & Sharif Randhawa, *Divine Speech*, s. X" şeklinde atıfla yapılmalı.
+> §13.30 (Kaynak Atfı Doğrulama) bu dosyadaki her atıf için de geçerli — sayfa numaralarını
+> aşağıda verdim, kullanırken tekrar kaynağa bakıp doğrula.
+
+---
+
+## 1. Kitabın Tam Yapısı (İçindekiler)
+
+| Bölüm | Sayfa | Konu |
+|---|---|---|
+| Önsöz (Neal Robinson) + Yazarların Önsözü | vii–xx | Kur'an'ın Batı'da edebi metin olarak alımlanma tarihi |
+| Ch.1 Kur'an'a Giriş | 1–28 | Tevhid/risalet/ahiret, sûre≠bölüm, ilahi çoğul/3. şahıs, kök-kalıp morfolojisi |
+| **Kısım I — Mikro Edebi Özellikler** | 29–118 | |
+| Ch.2 Kelime Seçimi | 31–46 | Eş anlamlılar arası hassas seçim (ğays/matar, a'yün/uyûn, vb.) |
+| Ch.3 Kelime Sırası | 47–56 | Gafûr/Rahîm sırası, 6:151 vs 17:31, işitme/görme sırası |
+| Ch.4 Gramatik Kaymalar (İltifât) | 57–70 | Şahıs/zaman/kip değişimleri — az-Zerkeşî tanımı |
+| Ch.5 Üslup İncelikleri | 71–84 | İ'rab, belirlilik, mübalağa kalıpları, cümle vurgusu |
+| Ch.6 Mecazi Dil ve İmgeler | 85–98 | Teşbih, deyim, mesel — Nur 24:35 tam alegorik çözümleme |
+| Ch.7 İlahi Yeminler | 99–108 | Yemin nesnesi/tamamlayıcısı, "binici yeminleri" (2026-08-30'da PDF'ten tekrar doğrulandı — bölüm gerçekte 108'de bitiyor, 109'da Fâtiha analizi başlıyor) |
+| **Kısım II — Makro Edebi Özellikler** | 119–262 | |
+| Ch.8 Fatiha 1:1 Dilbilimsel Çözümlemesi | 109–117 | Hamd/medh/şükür ayrımı, nekre/marife, inne'nin yokluğu |
+| Ch.9-10 Kur'an'da Anlatım I-II | 121–146 | İroni (Yusuf), "hızlı ileri sarma", Âdem'in 3 farklı anlatımı |
+| Ch.11 Sûrenin Tutarlılığı ve Yapısı | 147–166 | nazm, "çıpa" (anchor) kavramı, Nâziât 79 vaka analizi |
+| Ch.12 Kur'an'da Simetri | 167–180 | Halka kompozisyon (Type 1/2), Âyetü'l-Kürsî, Yusuf sûresi tam halkası |
+| Ch.13 Bakara Sûresinin Tutarlılığı | 181–216 | 286 ayetlik sûrenin tam halka + "seçilme-sınanma-buyruk" motifi |
+| Ch.14 Sûrelerin Sıralaması | 217–236 | Sûre çiftleri (55-56), son 10 sûrenin İbrahim'in duasına cevabı |
+| Ch.15 Fatiha Sûresi (tam) | 237–262 | Fatiha'nın kendi iç halkası + Bakara/Nâs'a çapa bağlantıları |
+| Sonsöz | 263–264 | Kapanış |
+| Ek: Kur'an'da Cihad | 265–273 | Bağlamsal/tarihsel — edebi değil, ayrı konu |
+| Kaynakça/Sözlük | 275–293 | Farahi, Islahi, Neuwirth, Farrin, Mir, Robinson, Cuypers, Reda |
+
+---
+
+## 2. Mevcut Sayfalarla Eşleştirme + Zenginleştirme Önerileri
+
+### 2.1 Doğrudan / güçlü eşleşme (önce buraya odaklan)
+
+**`/arac/yeminler` (Kur'an'ın Yeminleri) ← Ch.7 (s.99-118)**
+- Farahi'nin "yemin nesnesi = tanık" tezi + Bint eş-Şâtî'nin "yemin nesnesi = soyut gerçeğin görsel sembolü" tezi (iki farklı akademik yaklaşım, ikisi de eklenebilir).
+- Şems 91 tam çözümleme: kozmik çift-karşıtlıklar (güneş/ay, gündüz/gece) → nefsin kendi "dengesini" koruması bağlantısı; sûrenin yemin kümesi + Semud kıssasının HER İKİSİNİN de tam 71 hece olması (Neal Robinson'dan, ölçülebilir/somut bir detay).
+- Duha 93: gündüz/gece yemini → vahyin geçici sessizliğine (fetret) teselli.
+- Tîn 95: incir-zeytin-Sînâ-güvenli şehir = Nuh-İsa/Kudüs-Musa-İbrahim/Mekke şeklinde 5 peygamberin sembolik yoklaması.
+- Âdiyât 100: "binici yemini" — atların sadakati vs insanın nankörlüğü, SONRA aynı imgenin kıyamet günü mezarların "baskını" için ikinci kez kullanılması (çift katmanlı okuma — kitabın en özgün örneklerinden).
+
+**`/arac/halka-kompozisyon` (Halka Kompozisyon) ← Ch.12 + Ch.14 (s.167-180, 217-236) + Ch.15'in ring kısmı**
+- İki halka tipi: Type 1 (tek merkez, A-B-C-D-C'-B'-A') vs Type 2 (çift "menteşe" merkez, D-D').
+- Âyetü'l-Kürsî'nin 7 katmanlı halkası + ses benzerliği (el-Hayy/el-Kayyûm ↔ el-Aliyy arasındaki -yy sesi tekrarı — fonetik kanıt).
+- Kâria 101: "ümm" (ana/yuva) ile "hâviye" (çocuğunu kaybetmiş kadın) arasındaki kelime oyunu, halkanın iki yarısını birbirine bağlıyor.
+- Yûsuf sûresinin TAMAMININ (A'dan J'ye) tek bir halka olduğu, menteşenin Yûsuf'un hapiste rüya yorumlaması olduğu — İÇ İÇE halka (Yûsuf'un hapishane arkadaşlarına tevhid konuşması da kendi içinde küçük bir halka).
+- Farrin'in TÜM KUR'AN'ın iki iç içe halka olduğu hipotezi (System A: 2-46, System A': 57-112, merkez 50-56) — kitap bunu açıkça "kanıtlanmış gerçek değil, hipotez" diye işaretliyor, biz de aynı temkinle sunmalıyız.
+- Sûre 55-56 çifti: AYNI 5 unsurun (Kur'an-yaratılış-hesap-cennet-cennet) TERS sırayla tekrarı — iki AYRI sûre arasında halka, nadir bir iddia.
+- Son 10 sûrenin (105-114) İbrahim'in 2:126-130'daki duasına (güvenli şehir + soyundan gelecek peygamber) cevap olarak dizilmesi — kök *e-m-n* (güvenlik) zinciri 2:126 → 106.
+
+**`/atlas/munasebat` (Münâsebât Atlası) ← Ch.11 + Ch.13 (s.147-166, 181-216)**
+- "Çıpa" (anchor) kavramı — Nâziât 79'daki kök tekrarları (ع-D-B-R / ğarq kelime oyunu / R-ʿ-Y kökünün SADECE Musa sûrelerinde geçmesi).
+- Bakara sûresinin TAM listesi: rayb (2,23), ğayb (3,33), ilim kökü (13,22,26,29,30-33), inzâl (4,22,23), fesad (11,27,30), mesel (17,23,26), nâr (17,24,39), mevt (19,28) — somut, doğrulanabilir bir "çıpa tablosu" olarak görselleştirilebilir (sitenin zaten güçlü olduğu bir format: kelime-ısı-haritası/graf altyapısı var).
+- Nevin Reda'nın "seçilme-sınanma-buyruk" 3'lü motifi: Âdem→İsrailoğulları→İbrahim→yeni ümmet zincirinde tekrarlanıyor.
+- Bakara'nın TAM halka yapısı: A(1-39 iman/küfür)-B(40-121 İsrailoğulları)-C(122-141 İbrahim)-**D(142-152 kıble değişimi, merkez)**-C'-B'-A'.
+
+**`/atlas/furuk` (Fürûk Atlası) VE `/arac/yakin-anlamli-nuanslar` (Yakın Anlamlı Nüanslar) ← Ch.2 (s.31-46)**
+- ğays (sadece rahmet bağlamı) vs matar (sadece azap bağlamı) — Kur'an'da normal Arapça kullanımdan FARKLI, kasıtlı bir ayrım.
+- a'yün (göz, 21 kez) vs uyûn (pınar, 10 kez) — aynı kelimenin iki çoğulu, anlam bazında hiç karışmıyor.
+- vessâ (Form II, tekrarlı/kademeli öğüt) vs evsâ (Form IV, tek seferlik yasal talimat) — TEK istisna: 19:31'de bebek İsa'nın "evsânî" demesi (henüz tekrarlı öğüt alamayacağı için).
+- misran (2:61, "Mısır'a dön" kelime oyunu — göç edilen özgürlükten kölelik ülkesine dönüş talebinin ironisi).
+
+**`/arac/retorik` (Kur'an Belâgatı) ← Ch.3, Ch.4, Ch.5 (s.47-84)**
+- İltifât için az-Zerkeşî'nin tam tanımı: "dinleyicide tazelik/çeşitlilik uyandırmak, ilgiyi yenilemek, tek bir üslubun sürekli kulakta olmasından doğan sıkılmayı önlemek."
+- Kelime sırası örnekleri: Gafûr/Rahîm sırası SADECE 34:2'de tersine döner (tarımsal döngü imgesi: yağmur/bitki=ölüm→rahmet önce, sonra diriliş=mağfiret); 6:151 vs 17:31 (çocuk öldürme yasağı, "sizi de onları da" sırası mevcut/gelecek yoksulluk korkusuna göre değişiyor).
+- 21:46'nın 9 unsurlu gramer çözümlemesi (fiil sırası, nekre, en zayıf "dokunma" fiili, şart kipi, "nefha" vs "lefha") — TEK bir yarım ayette 9 farklı gramer aracının azaltma/büyütme için nasıl bir araya geldiğinin somut haritası.
+- 50:2 vs 38:4-5: tam 3 ek suçlama = tam 3 ek gramer vurgu aracı (bire bir eşleşme).
+
+**`/atlas/mesel` (Meseller Atlası) ← Ch.6 (s.85-98)**
+- Nûr 24:35'in TAM alegorik çözümlemesi: kandil yuvası=göğüs, cam=kalp, yağ/ışık=fıtri ruh, "ne doğuda ne batıda" zeytin ağacı=ruhun aşkın/coğrafya-üstü kökeni, "neredeyse kendiliğinden parlıyor"=vahiyden önceki fıtri iyilik.
+- Ra'd 13:17 ikiz meseli: sel köpüğü (Mekke dönemi, yüzeyde görünen münafıklık) vs maden cürufu (Medine dönemi, ancak Bedir/Uhud/Hendek gibi sınavlarla ayrıştırılan gizli münafıklık) — *fitne* kelimesinin "maden eritme" kökeninden geldiği notuyla.
+- Hadîd 57:20: dünya hayatının 5 evresi (oyun-eğlence-süs-övünme-mal/evlat) + "kâfir" kelimesinin tarımsal kök anlamı (tohumu GÖMEN çiftçi = hakikati GÖMEN kâfir, kelime oyunu).
+
+**`/atlas/kissa` (Kıssa Atlası) ← Ch.9-10 (s.121-146)**
+- Yusuf kıssasındaki ironi zinciri: kardeşlerin kendi ağızlarıyla kurduğu yeminlerin gerçek olması, kervanın Yusuf'u ucuza satması, gömlek motifinin "ölüm kanıtı"ndan "kavuşma sembolü"ne dönüşmesi.
+- Fetih günü (630) Hz. Muhammed'in Kureyş'e "Bugün size kınama yok" (12:92) demesi — Yusuf kıssasının ironisinin TARİHTE gerçekleşmesi olarak sunuluyor (Muhammed=Yusuf, Kureyş=kardeşler benzetmesi).
+- Âdem kıssasının 3 farklı sûrede (Bakara/Medine, Tâhâ/Orta Mekke, A'râf/Geç Mekke) HER SEFERİNDE o sûrenin kendi tarihsel/tematik bağlamına göre farklı vurgularla anlatılması — "aynı olayın 3 farklı retorik amaçla yeniden anlatımı" ilkesi, tekrar/çeşitlilik konusuna güçlü bir örnek teşkil eder.
+
+### 2.2 Kısmi eşleşme — yeni alt-bölüm/sayfa düşünülebilir
+
+**Fatiha derinlemesine analiz (Ch.8 + Ch.15, s.109-117 + 237-262)** — Sitede "Kur'an'ı Tanı" (`/arac/kurani-tani`) veya bağımsız yeni bir "Fatiha Atlası" düşünülebilir:
+- hamd/medh/senâ/şükür arasındaki ince fark (medh cansız/kazara niteliklere de olur ve samimiyetsiz olabilir; hamd sadece canlı, akıllı, HAK EDEN bir varlığa, öz niteliklerinden dolayı, kalpten hayranlıkla yapılır).
+- Rahmân (SADECE Allah için kullanılan, evrensel/şartsız bahşediş) vs Rahîm (samimi kullar için özel mağfiret/mükâfat) — 55:1-12, 19:88-93 örnekleriyle.
+- "İyyâke na'budu" — nesnenin fiilin önüne alınmasının münhasırlık ("SADECE Sana") anlamı katması.
+- Sırat kelimesinin çoğulu olmaması (tek doğru yol) vs sebîl'in çoğul kullanılması (birçok yan-yol) — İbn Mes'ûd hadisiyle (tek çizgi + sağdan soldan çizgiler).
+- Fatiha'nın kendi 7 katmanlı iç halkası: A-B-B'-A' / C-C' / D-E-E'-D', merkez = "İyyâke na'budu ve iyyâke neste'în" (Allah hakkında ilk yarı / insan hakkında ikinci yarı ayrımı).
+- Neal Robinson'ın Fatiha↔Bakara "çapa" analizi: Fatiha'daki HER kelimenin (ibadet, hidayet, nimet, gazab, dalâlet) Bakara içinde bir karşılığı olduğu iddiası.
+
+**Kur'an'da Cihad Eki (s.265-273)** — Site'de doğrudan karşılığı yok; `/arac/elestirel-cerceve` (Eleştirel Çerçeve) bu konuyu ele alabilecek en uygun yer ama şu an böyle bir alt-başlık yok gibi görünüyor. **DİKKAT:** Bu bölüm CLAUDE.md §13.24'ün (İ'câz-ı İlmî çerçevesi) dışında ama benzer bir hassasiyet gerektiriyor — Abdel Haleem'in "4 yasak, 7 kısıtlama" sayımı, 9:5 (Kılıç Ayeti) bağlamsallaştırması, "kılıç" kelimesinin Kur'an'da hiç geçmediği notu gibi somut, doğrulanabilir noktalar var. Eklenecekse önce kullanıcıyla konu hassasiyeti üzerine ayrıca konuşulmalı — bu dosyanın kapsamı dışında bırakıldı, sadece varlığı not edildi.
+
+### 2.3 Kitapta güçlü, sitede zayıf/dağınık — yeni sayfa adayı
+
+- **Kelime Sırası (Ch.3, s.47-56) tek başına bağımsız bir konu** — şu an `/arac/retorik` içine gömülü kalabilir ama kitaptaki 7 örnek (Gafûr/Rahîm, 6:151/17:31, 62:11, kalp/işitme sırası, işitme/görme sırası, 2:125 dört ibadet sırası, 62:1-2 dört isim↔dört görev eşleşmesi) tek başına zengin bir "Kelime Sırasının Anlamı" alt-sayfası/bölümü olabilir.
+- **Nazm / "İç Tutarlılık" kavramının kendisi** — Ferâhî/Islahi ekolünün metodolojik çerçevesi (linear coherence / integrative coherence / holistic coherence üçlü ayrımı) `/atlas/munasebat` sayfasının GİRİŞ/metodoloji kısmına eklenebilir; şu an sayfa muhtemelen doğrudan örneklerle başlıyor, teorik çerçeve eksik olabilir (doğrulanmalı).
+- **Sûre çiftleri teorisi (Islahi)** — 55-56 çifti örneği dışında, "her sûrenin bir komşusuyla eşleştiği" genel teori (kısa açıklama/ayrıntılı örnek, ilke/misal, öncül/sonuç gibi 5 eşleşme türü) `/arac/halka-kompozisyon` içinde ayrı bir alt-başlık olabilir.
+
+---
+
+## 3. Öncelik Sırası Önerisi
+
+1. ✅ **`/arac/yeminler`** — TAMAMLANDI (2026-08-30). Eklenenler: (a) Ferâhî'nin "yemin nesnesi = tanık" tezi + Bint eş-Şâtı'nın "görsel sembol" tezi, Divine Speech'in bu ikisini birleştiren sentezi (yeni "Derinlik Analizi" kartı); (b) Şems 91 — Neal Robinson'ın yemin kümesi (91:1-8) ile Semûd kıssasının (91:11-15) her ikisinin de 71 hece olduğu tespiti; (c) Tîn 95 — incir/zeytin/Sînâ/emin-belde'nin beş peygamber (Nûh-İbrahim-Musa-İsa-Muhammed) sembolik taraması olarak düzeltilmiş/genişletilmiş okuması (önceki "Dâvud" referansı kaynakta yoktu, kaldırıldı); (d) Âdiyât 100 — baskıncı süvari sahnesinin 100:9-10'daki kabir/kıyamet sahnesiyle çift katmanlı bağlantısı; (e) Kaynaklar sekmesine Divine Speech + Ferâhî'nin İm'ân fî Aksâmi'l-Kur'an'ı + Bint eş-Şâtı'nın et-Tefsîru'l-Beyânî'si eklendi. Her madde PDF'in book s.101-106 aralığından bizzat tekrar okunup doğrulandı (bir agent 21 sayfayı tek tek okudu); kitabın kendi künyesindeki "Sûre 96" yazım hatası sessizce 95 olarak düzeltildi. `next/public/yeminler.json` düzenlendi, build + Playwright ile TR/EN görsel doğrulaması yapıldı, `audit-internal-leak.mjs --ci` temiz.
+2. ✅ **`/arac/halka-kompozisyon`** — TAMAMLANDI + FİNALİZE EDİLDİ (2026-08-30). `RingExtensions.jsx`'e eklenenler: (a) Kâria 101'in altı parçalı halkası + "ümm"/"hâviye" kelime oyunu (ayet numaraları kitapta basılı değil, sûrenin standart bölümlemesinden çıkarıldığı açıkça not edildi); (b) Yûsuf 12'nin tam 12 pozisyonlu halkası (merkez F/F' = zindanda tevhid daveti + kralın rüyası) + içindeki 5 parçalı iç halka (anahat açıkça Cuypers'a atfedilerek); (c) Islâhî'nin sûre-çiftleri teorisi — 6 ilişki türü + Rahmân 55/Vâkıa 56'nın ters-ayna örneği (5 unsur, ters sırada) + son 10 sûrenin (105-114) Hz. İbrahim'in duasına (2:126-130) kademeli cevabı, ء-م-ن kökü bağlantısıyla; (d) Farrin'in tüm-Kur'an halka hipotezi (Sistem A 2-49, merkez K 50-56, Sistem A' 57-112) — kitabın kendi temkinli diliyle ("henüz erken", "hipotez olarak ele alınmalı") **görsel olarak ayrı, "HİPOTEZ" rozetli bir kutuda** sunuldu, onaylanmış örneklerle karıştırılmadı. 3 arka arkaya agent PDF'in book s.168-180 ve 215-241 aralığını satır satır okuyup doğruladı; roadmap'teki "System A: 2-46" tahmini yanlış çıktı, kitabın gerçek (Diagram 3) sayıları kullanıldı.
+   **Finalizasyon turunda (kullanıcı "tekrar var mı" diye sorunca) bulunup düzeltilen gerçek tekrarlar:** (i) İlk yazımda eklenen "Âyetü'l-Kürsî" halka kartı TAMAMEN KALDIRILDI — sayfanın en üstündeki HiddenArchitecture bölümü zaten farklı bir 7-parçalı Âyetü'l-Kürsî halkasını gösteriyordu, ikisini yan yana sunmak kafa karıştırıcıydı ve HiddenArchitecture'a dokunma kuralı olduğu için çözüm tek taraflı (yeni kart) kaldırılarak yapıldı; (ii) sayfada ÖNCEDEN VAR OLAN interaktif Fâtiha SVG halka diyagramı (FatihaRingDiagram + FATIHA_RING) da aynı gerekçeyle tamamen kaldırıldı — HiddenArchitecture'ın Fâtiha kartlarıyla (A=1:2, D=1:5 merkez, A'=1:7) birebir aynı eşlemeyi tekrar ediyordu, tek farkı interaktiflikti; kullanıcıyla bu kaldırmanın doğruluğu ayrıca tartışıldı ve onaylandı. Ayrıca: kendi eklediğim tüm peygamber isimlerine (ve aynı dizi içinde yan yana durduğu için önceden var olan Kasas/Musa satırlarına da) "Hz." tutarlılığı uygulandı (kural: düz metinde zorunlu, ayet meali içine asla eklenmez, sûre/kıssa adı etiketlerinde gerekmez); yeni Ferâhî/Bint eş-Şâtı' kartına İbn Kayyim'in tezine köprü cümlesi eklendi (aksi halde aynı fikri ilk kez söylüyormuş gibi duruyordu); `HalkaKompozisyon.jsx`'in kendi `SourcesCitation` listesine Divine Speech eklendi (içerik ondan geliyordu, kaynak listesinde yoktu). Yol boyunca rastlanan 2 önceden var olan hata da düzeltildi: bir kaçış-karakteri render hatası ("Biqâʿî\'nin" → "Biqâʿî'nin") ve CLAUDE.md §13.30'da zaten belgelenmiş "Cuypers'ın 200+ sayfalık Bakara analizi" hatası (gerçeği: en kapsamlı analiz 224 sayfa ile Mâide'dedir). Build + `audit-internal-leak/colors --ci` temiz, TR/EN Playwright doğrulaması yapıldı.
+3. **`/atlas/munasebat`** — Bakara'nın tam çıpa tablosu + seçilme/sınanma/buyruk motifi, görselleştirmeye çok uygun (site zaten graf/ısı-haritası altyapısına sahip).
+4. **`/atlas/furuk` + `/arac/yakin-anlamli-nuanslar`** — ğays/matar, a'yün/uyûn, vessâ/evsâ örnekleri direkt eklenebilir.
+5. **`/atlas/mesel`** — Nûr 24:35 alegorisi, Ra'd 13:17 ikiz meseli.
+6. **`/arac/retorik`** — iltifât tanımı + kelime sırası örnekleri.
+7. **`/atlas/kissa`** — Yusuf ironi zinciri + Âdem'in 3 farklı anlatımı karşılaştırması.
+8. Fatiha derinlemesine sayfa (yeni ya da mevcut genişletme) — en çok emek isteyen, en sona bırakılabilir.
+9. Cihad eki — ayrı bir konuşma gerektirir, bu roadmap'e dahil edilmedi.
+
+---
+
+## 4. Kaynak Notu
+
+Her madde kitabın somut sayfa numarasıyla yukarıda işaretli — herhangi birini siteye eklerken **önce ilgili sayfayı PDF'ten tekrar aç, tam ifadeyi doğrula**, buradaki özet sadece yol haritası, birebir alıntı kaynağı değil (§13.30 gereği).
