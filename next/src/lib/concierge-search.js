@@ -187,6 +187,12 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
       'atlas-kavram': 1,
       'surah-summary': 2,        // Faz 2c-C: sure özet (114)
       pericope: 2,               // Faz 2c-E: klasik ruku (~556)
+      // 2026-08-31 — corpus'ta olup bu listede olmadığı için aramada hiç
+      // görünmeyen üç tip. Kota 1: aday sayısı 12 → 15, LLM girdisine
+      // etkisi sınırlı tutuldu.
+      elestirel: 1,              // zorlu sorular — itiraz/cevap/netice
+      'bilimsel-isaret': 1,      // âyet-i kevniyye + usûl notu
+      'tarihsel-iz': 1,          // arkeolojik/epigrafik izler
     },
     minScore: 0.35,
   });

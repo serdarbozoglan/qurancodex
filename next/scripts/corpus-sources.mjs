@@ -794,9 +794,55 @@ export const CONTENT_SOURCES = [
     },
   },
 
-  // ─── Eleştirel Çerçeve (8 zorlu soru) — 2026-07-18 §13.22 pipeline
-  // Kur'ân'a yöneltilen zorlu sorulara balanced akademik cevap: klasik +
-  // modern kaynaklar yan yana. Concierge: "kadın miras yarım neden",
+  // ─── Bilimsel İşaretler (16 âyet-i kevniyye) — 2026-08-30 §13.22 pipeline
+  // Bu sayfa TOOL_CATALOG'a kayıtlıydı ama içeriği HİÇ indekslenmemişti; /sor
+  // "parmak izi ayeti", "demirin indirilmesi" gibi sorulara yalnız araç kartı
+  // dönüyordu, sayfanın cevabını göremiyordu. criticalNote alanı bilerek
+  // indeksleniyor: sayfanın usûl duruşu (Kur'ân haber verir, biz tasdik
+  // ederiz) oradadır ve Concierge cevabı o çerçevede vermelidir.
+  {
+    type: 'bilimsel-isaret',
+    file: 'public/bilimsel-isaretler.json',
+    extract: (data) => data.isaretler || [],
+    buildItem: (x) => ({
+      id: `bilimsel-isaret:${x.id}`,
+      type: 'bilimsel-isaret',
+      subId: x.id,
+      titleTr: x.titleTr || '',
+      titleEn: x.titleEn || '',
+      descTr: (x.summaryTr || '').slice(0, 200),
+      descEn: (x.summaryEn || '').slice(0, 200),
+      searchTextTr: `Bilimsel İşaretler: ${x.titleTr}. Ayet: ${x.verseRef || ''}. ${x.verseTr || ''}. Alan: ${x.domainId || ''}. Keşif: ${x.discoveryYear || ''}. Özet: ${x.summaryTr || ''}. Usûl notu: ${x.criticalNoteTr || ''}. Kaynaklar: ${x.sourcesTr || ''}.`.slice(0, 5000),
+      searchTextEn: `Scientific Signs: ${x.titleEn}. Verse: ${x.verseRef || ''}. ${x.verseEn || ''}. Domain: ${x.domainId || ''}. Discovery: ${x.discoveryYearEn || x.discoveryYear || ''}. Summary: ${x.summaryEn || ''}. Methodological note: ${x.criticalNoteEn || ''}. Sources: ${x.sourcesEn || ''}.`.slice(0, 5000),
+    }),
+  },
+
+  // ─── Tarihsel İzler (10 iz) — 2026-08-30 §13.22 pipeline
+  // Aynı boşluk: sayfa katalogda vardı, içeriği indekslenmemişti. Firavun
+  // bedeni, Hâmân, Rûm kehâneti, Ashâbü'l-Uhdûd gibi sık sorulan konular
+  // /sor'da bulunamıyordu. confidence alanı da metne katılıyor ki Concierge
+  // "tartışmalı" olanı "kesin" gibi aktarmasın.
+  {
+    type: 'tarihsel-iz',
+    file: 'public/tarihsel-kanitlar.json',
+    extract: (data) => data.kanitlar || [],
+    buildItem: (x) => ({
+      id: `tarihsel-iz:${x.id}`,
+      type: 'tarihsel-iz',
+      subId: x.id,
+      titleTr: x.titleTr || '',
+      titleEn: x.titleEn || '',
+      descTr: (x.summaryTr || '').slice(0, 200),
+      descEn: (x.summaryEn || '').slice(0, 200),
+      searchTextTr: `Tarihsel İzler: ${x.titleTr}. Ayet: ${x.verseRef || ''}. ${x.verseTr || ''}. Dönem: ${x.dateSpanTr || ''}. Örtüşmenin gücü: ${x.confidence || ''}. Özet: ${x.summaryTr || ''}. Akademik ayrıntı: ${x.scholarlyDetailTr || ''}. Usûl notu: ${x.criticalNoteTr || ''}. Kaynaklar: ${x.sourcesTr || ''}.`.slice(0, 5000),
+      searchTextEn: `Historical Traces: ${x.titleEn}. Verse: ${x.verseRef || ''}. ${x.verseEn || ''}. Period: ${x.dateSpanEn || ''}. Strength of correspondence: ${x.confidence || ''}. Summary: ${x.summaryEn || ''}. Scholarly detail: ${x.scholarlyDetailEn || ''}. Methodological note: ${x.criticalNoteEn || ''}. Sources: ${x.sourcesEn || ''}.`.slice(0, 5000),
+    }),
+  },
+
+  // ─── Eleştirel Çerçeve (10 zorlu soru) — 2026-07-18 §13.22 pipeline
+  // 2026-08-30: 8 → 10 soru, duruş revizyonu. Her soru İTİRAZ → CEVAP →
+  // NETİCE olarak indekslenir; kaynaklar klasik + Risale-i Nur + çağdaş
+  // âlimler olarak üç kola ayrıldı. Concierge: "kadın miras yarım neden",
   // "kölelik neden yasaklanmadı", "iʿcâzü'l-ilmî eleştirisi", ...
   {
     type: 'elestirel',
@@ -808,6 +854,8 @@ export const CONTENT_SOURCES = [
       const csEn = (q.classicalSources || []).map(s => `${s.author} (${s.workEn || s.workTr})`).join(' | ');
       const ms = (q.modernSources || []).map(s => `${s.author} (${s.workTr}, ${s.period || ''})`).join(' | ');
       const msEn = (q.modernSources || []).map(s => `${s.author} (${s.workEn || s.workTr}, ${s.period || ''})`).join(' | ');
+      const rs = (q.risaleSources || []).map(s => `${s.author} (${s.workTr})`).join(' | ');
+      const rsEn = (q.risaleSources || []).map(s => `${s.author} (${s.workEn || s.workTr})`).join(' | ');
       return {
         id: `elestirel:${q.id}`,
         type: 'elestirel',
@@ -816,8 +864,8 @@ export const CONTENT_SOURCES = [
         titleEn: q.titleEn || '',
         descTr: (q.shortResponseTr || '').slice(0, 200),
         descEn: (q.shortResponseEn || '').slice(0, 200),
-        searchTextTr: `Eleştirel Çerçeve: ${q.titleTr}. Kategori: ${q.category}. Ayetler: ${verses}. Kısa cevap: ${q.shortResponseTr || ''}. Detay: ${q.longResponseTr || ''}. Klasik kaynak: ${cs}. Modern kaynak: ${ms}.`.slice(0, 5000),
-        searchTextEn: `Critical Frame: ${q.titleEn}. Category: ${q.category}. Verses: ${verses}. Short: ${q.shortResponseEn || ''}. Detail: ${q.longResponseEn || ''}. Classical: ${csEn}. Modern: ${msEn}.`.slice(0, 5000),
+        searchTextTr: `Eleştirel Çerçeve: ${q.titleTr}. Kategori: ${q.category}. Ayetler: ${verses}. İtiraz: ${q.objectionTr || ''}. Cevap: ${q.shortResponseTr || ''}. Detay: ${q.longResponseTr || ''}. Netice: ${q.verdictTr || ''}. Klasik kaynak: ${cs}. Risale-i Nur: ${rs}. Çağdaş âlimler: ${ms}. Çağdaş tartışma notu: ${q.debateNoteTr || ''}.`.slice(0, 5000),
+        searchTextEn: `Critical Frame: ${q.titleEn}. Category: ${q.category}. Verses: ${verses}. Objection: ${q.objectionEn || ''}. Answer: ${q.shortResponseEn || ''}. Detail: ${q.longResponseEn || ''}. Verdict: ${q.verdictEn || ''}. Classical: ${csEn}. Risale-i Nur: ${rsEn}. Contemporary: ${msEn}. Note on the modern debate: ${q.debateNoteEn || ''}.`.slice(0, 5000),
       };
     },
   },

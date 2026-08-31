@@ -31240,8 +31240,8 @@
     "type": "article"
   },
   "article:inception-hayatlar": {
-    "hash": "0b2f3f24dbaede1c",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "3ccd03666b676c89",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article"
   },
   "article:kader": {
@@ -31500,8 +31500,8 @@
     "type": "article-section"
   },
   "article-section:iki-nedensellik#agac": {
-    "hash": "f55e91e21fdf8f63",
-    "embeddedAt": "2026-08-13T03:59:09.739Z",
+    "hash": "2c50eb234dac583b",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article-section"
   },
   "article-section:iki-nedensellik#uzman": {
@@ -34240,8 +34240,8 @@
     "type": "neden-sonuc"
   },
   "neden-sonuc:amac-son-toplama": {
-    "hash": "cdd4f818cd719ef4",
-    "embeddedAt": "2026-08-16T04:07:35.406Z",
+    "hash": "f3153ea066504f0c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "neden-sonuc"
   },
   "kitap-kavrami:kitab": {
@@ -34250,8 +34250,8 @@
     "type": "kitap-kavrami"
   },
   "kitap-kavrami:furkan": {
-    "hash": "7db591edfad148d2",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "4bf96c74ab9ca7df",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "kitap-kavrami"
   },
   "kitap-kavrami:zikr": {
@@ -34295,43 +34295,43 @@
     "type": "kitap-kavrami"
   },
   "elestirel:miras-esitsizligi": {
-    "hash": "42f0101756d8b500",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "33bc2cbfc695d775",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:nisa-4-34-dovme": {
-    "hash": "dc1f735dd1958f44",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d1f886f85b0a2731",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:kolelik-tedrici": {
-    "hash": "1f27378f4f5fa5b4",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "58c3a5fea446d394",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:cizye-vatandaslik": {
-    "hash": "5ef4ff020bddf0a9",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "def83fb5f1cc3da1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:nuh-tufani-global-mi": {
-    "hash": "5505b6a73f2234c4",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "db6c029e6c79f414",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:bilim-onceleme": {
-    "hash": "04773043f65f3017",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "7bae2c6bf18a4f65",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:cinsel-yonelim-lut": {
-    "hash": "820bbee6f13aea5b",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "c753684198873795",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "elestirel:muhkem-mutesabih-hangisi": {
-    "hash": "d8884825e71274da",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "1ebe86483481e0ae",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "elestirel"
   },
   "munasebat:fatiha-baqara-qa": {
@@ -34345,13 +34345,13 @@
     "type": "munasebat"
   },
   "munasebat:isra-kahf-hamd": {
-    "hash": "f5fb4ce02b36a3bc",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "dd6a210debfe0f7a",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:secde-ahzab-transition": {
-    "hash": "aa0753c50730d188",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "9ceb5e46d704f076",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:vakiah-hadid-wealth": {
@@ -34360,28 +34360,28 @@
     "type": "munasebat"
   },
   "munasebat:ala-ghashiya-jumah": {
-    "hash": "e20e9f1a036b50a9",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "90e7c862ac346083",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:duha-inshirah-twins": {
-    "hash": "ab26edd85f2df192",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "05637ccb3a057bd1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:fil-quraysh-one-breath": {
-    "hash": "dab12535923f319f",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1138ecf8801cfde0",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:falaq-nas-refuge": {
-    "hash": "0aa7c2ed3ff552a6",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "4e01d9a5e25d97b4",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:nas-fatiha-cycle": {
-    "hash": "098aaff96185228a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "9a482f7382fc4761",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "munasebat"
   },
   "munasebat:hicr-nahl-teselli-nimet": {
@@ -36750,48 +36750,48 @@
     "type": "pericope"
   },
   "pericope:40:1-9": {
-    "hash": "126a79fe3937d218",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "cb0fbb6e4f88dedb",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:10-20": {
-    "hash": "37ae14ce7171110b",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "a09b0a82387d705f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:21-27": {
-    "hash": "6894f055bee9f487",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "cf02f7c85ba6b47f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:28-37": {
-    "hash": "34d75e4067949695",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "551a3322b05785a3",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:38-50": {
-    "hash": "146a9c37d25d0afc",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "f26a6f6877a78e13",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:51-60": {
-    "hash": "f608e58bf183be50",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "36ca46a5c83627c8",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:61-68": {
-    "hash": "5243d54c784f2454",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "c4035a5a151eb473",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:69-78": {
-    "hash": "7081ecead713fae2",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "8c7a25786cc66d4c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:40:79-85": {
-    "hash": "d0b9eba334c1dc8b",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "9513259b7f2bb4ac",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:41:1-8": {
@@ -37495,8 +37495,8 @@
     "type": "pericope"
   },
   "pericope:111:1-5": {
-    "hash": "c2e8a69dfaf794c5",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "3d8d5be4b02449b9",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "pericope"
   },
   "pericope:112:1-4": {
@@ -38875,13 +38875,13 @@
     "type": "tefsir"
   },
   "tefsir:111:1": {
-    "hash": "f1be740d3f026b6e",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "c768f65b957ba215",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:111:2": {
-    "hash": "c37f6490cc51a5df",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "f25c4ba09a64f3b1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:112:1": {
@@ -53685,398 +53685,398 @@
     "type": "tefsir"
   },
   "tefsir:40:1": {
-    "hash": "429ec2d035908d47",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "319fd6e1dacb54a1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:2": {
-    "hash": "1292e59ffb585bf3",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1d768c717fafa5d6",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:7": {
-    "hash": "5f3363b664aee86a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "960ae51fb86401fd",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:10": {
-    "hash": "50b18307db890d8d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "0b4759b017da50a0",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:11": {
-    "hash": "35dde503b292f866",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "3defb24a414dbb24",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:12": {
-    "hash": "fe51504539d17ceb",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "16520a876e2d463c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:13": {
-    "hash": "276f3532b99bd202",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "a55675f8bf38c06d",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:14": {
-    "hash": "7c7030091d78c8e5",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "53c8010b080954a7",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:15": {
-    "hash": "9edd2d1192e068f8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "08986af420afb686",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:16": {
-    "hash": "ca9d2c388e25bb7f",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "ce074c7c6e04b1c8",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:17": {
-    "hash": "36cccfcd582bcc01",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "a5a24304fe8a5057",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:18": {
-    "hash": "e5ad13835b9ac77a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "f6603dc4490bd10f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:19": {
-    "hash": "589801012d524fed",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "320811c8b8b95196",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:20": {
-    "hash": "b20e3daa457559e8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "081dcff384632b5c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:21": {
-    "hash": "b75c52cfa2edf9af",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d124fdebba28c996",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:22": {
-    "hash": "87f1e57e9a4d12f5",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "774e737b5adec6fc",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:23": {
-    "hash": "cd9e5d83b6ac6f3a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "8b2a908c2cb01370",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:24": {
-    "hash": "9e077147bae0ef60",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "426e720ddfd7a4d4",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:25": {
-    "hash": "70d12be7dede23a7",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "e4f3039a1d652b27",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:26": {
-    "hash": "9269bdc5a2e32f52",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d69b20dd063cfc11",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:27": {
-    "hash": "fac2e3258c213db8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1c7b5b92a95f4ee3",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:28": {
-    "hash": "da4f10ef59c28fd9",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "f342e7bd55c9cab2",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:29": {
-    "hash": "2552e9c948660b4b",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d4abc8c75f0fe2a6",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:30": {
-    "hash": "550512648898d260",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1ab039097f66e999",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:31": {
-    "hash": "a74d4067c4793a99",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "dd0b3ace068a971f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:32": {
-    "hash": "721e8806c634ceac",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "8c0c62642bbedb35",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:33": {
-    "hash": "dc050c9d65f6c279",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "2939ce61a38d9dd3",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:34": {
-    "hash": "5bab2009e3bdcba1",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "fbeca32cebc5a5d4",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:35": {
-    "hash": "d7a31b75a76bad12",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d0aaa82d5c80a1ea",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:36": {
-    "hash": "aaf5371be283f618",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "4dbd799dd8aaf6f1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:37": {
-    "hash": "5b9cc8d036efa25e",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "279e780a0189720e",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:38": {
-    "hash": "5bd49afd9c6653e5",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "74619570e548d80a",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:39": {
-    "hash": "5887d96c7dfab431",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "353ebfa3d3d9724d",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:40": {
-    "hash": "e9403bf82842975d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "3ed3f42abb64cc58",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:41": {
-    "hash": "f6331fc47c42b49d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "c4c89bec532fcfa1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:42": {
-    "hash": "ff9a289bc6401994",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1d2208eae30558af",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:43": {
-    "hash": "a2fe7f07f04fbc52",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "ef7182e6627fefb1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:44": {
-    "hash": "a43f4dc8259cbb16",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1ae184c23f49b2c1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:45": {
-    "hash": "c0d4e21138e00d09",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1aef5bb09087d441",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:46": {
-    "hash": "a7a75252460a57fe",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "5c7444f82b1703a1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:47": {
-    "hash": "9cbd1a2ff18385ea",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "bca04d76a4c88c67",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:48": {
-    "hash": "af8f5d5fa2399ae4",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "5e1fccab6a1c8c1c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:49": {
-    "hash": "6f4c861d35e7c25c",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "e2d961f43f1a13af",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:50": {
-    "hash": "a5aff2530192b7f2",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "8994d6a50d127ea2",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:51": {
-    "hash": "93fc1b7e2b0d0f16",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "6e40d603ac1b04e4",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:52": {
-    "hash": "ad2fb52db5994308",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "0caa46be346a02f3",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:53": {
-    "hash": "fbfdcf69070e6ae7",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d53517389fa239ad",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:54": {
-    "hash": "9a2dee5f503e9e1d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "2cf4ab7fd5472429",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:55": {
-    "hash": "df58c842aad060a8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "5377a194537d5c6b",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:56": {
-    "hash": "83944ccddd343854",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "ff73ff724460a4ed",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:57": {
-    "hash": "3d92586ef1fa918c",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "538e4529d4e76920",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:58": {
-    "hash": "4599b3e906ad3445",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "e401fa4e4bdd0d91",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:59": {
-    "hash": "055604a4b1dac924",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "2d1a84d7ecf2b213",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:60": {
-    "hash": "1576e8858c96efea",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "3364b0a707f1529a",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:61": {
-    "hash": "ea904fd92aebc952",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "a79c39cca3f78dad",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:62": {
-    "hash": "56b5a25449703c5b",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "23af8d9e412839c0",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:63": {
-    "hash": "60bb85804bc2f810",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "1efd43c355d49717",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:64": {
-    "hash": "738242e5efcb3e5f",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "287150b1e18c6ae5",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:65": {
-    "hash": "7334d13550b9f78d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "9f8e8e585e6c5dbe",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:66": {
-    "hash": "9d2fb420f012bf5a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "94c773e5644b0100",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:67": {
-    "hash": "43e8f002364c7362",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "eef24b4175c07c59",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:68": {
-    "hash": "6a7d7fd29001a496",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "384579c3b94cefed",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:69": {
-    "hash": "9dbf9d13016b6ada",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "bfccf544a8053b12",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:70": {
-    "hash": "23e4011422af1490",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "5ef5dc419ded51b5",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:71": {
-    "hash": "f8f30e5dd52ac8f8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "231e61aff78470ca",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:72": {
-    "hash": "51822e3fed97247f",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "a0f01020e59077f8",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:73": {
-    "hash": "1984fc4d86a6088a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "bac4d171af02b71c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:74": {
-    "hash": "d6e75e51c2bb0593",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "4d21659e2731d4e2",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:75": {
-    "hash": "32e3405cdf990776",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "7e39e69e8096f30f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:76": {
-    "hash": "4fde3b9cf0970b41",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "b9d00bdccc09dbce",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:77": {
-    "hash": "75199b730099fc08",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "7cb4d2d56e8016e4",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:78": {
-    "hash": "4ae585ba4e11e1f8",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "bd9b2c48179efb9b",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:79": {
-    "hash": "e7a6c4c9b80e983d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "7fd93adad66f4ccb",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:80": {
-    "hash": "4c87f3ec481635fd",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "d37f081fc4a89571",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:81": {
-    "hash": "38d032bc4691b81a",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "0167bb9341442ff6",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:82": {
-    "hash": "492361689d9c1029",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "25873eade5f081e1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:83": {
-    "hash": "02bebcad760e8ced",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "95204515e2cc586b",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:84": {
-    "hash": "3eb253aacd137342",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "096b97a3d8fdbde6",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:40:85": {
-    "hash": "71aec98f9411ab63",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "4b911bfb77faa028",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:41:1": {
@@ -62255,8 +62255,8 @@
     "type": "tefsir"
   },
   "tefsir:40:4": {
-    "hash": "34a46b7ec4e49e2d",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "0c1957ae88f26327",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tefsir"
   },
   "tefsir:41:6": {
@@ -62785,8 +62785,8 @@
     "type": "surah-summary"
   },
   "surah-summary:40": {
-    "hash": "16b30a52efa04a56",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "7f367ad9e36a50e9",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "surah-summary"
   },
   "surah-summary:41": {
@@ -63140,8 +63140,8 @@
     "type": "surah-summary"
   },
   "surah-summary:111": {
-    "hash": "863b042331251cef",
-    "embeddedAt": "2026-08-12T19:42:59.532Z",
+    "hash": "60806ff18eabfd81",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "surah-summary"
   },
   "surah-summary:112": {
@@ -63780,8 +63780,8 @@
     "type": "article-section"
   },
   "article-section:enerji-krizi#dengeli-yol": {
-    "hash": "b574d99f1b6988f6",
-    "embeddedAt": "2026-08-13T03:59:09.739Z",
+    "hash": "b5b48a1089830000",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article-section"
   },
   "article-section:enerji-krizi#nihai-prensip": {
@@ -63855,8 +63855,8 @@
     "type": "article-section"
   },
   "article-section:hala-mi-evrim#sonuc": {
-    "hash": "fb0c73ff7d8d2703",
-    "embeddedAt": "2026-08-13T03:59:09.739Z",
+    "hash": "cb74fbfea295b0c1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article-section"
   },
   "article-section:inception-hayatlar#giris": {
@@ -63885,8 +63885,8 @@
     "type": "article-section"
   },
   "article-section:inception-hayatlar#sonraki-oteki": {
-    "hash": "5da76222d8ba8c6d",
-    "embeddedAt": "2026-08-13T03:59:09.739Z",
+    "hash": "543c9c1c3db6c969",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article-section"
   },
   "article-section:inception-hayatlar#magaraya-degil": {
@@ -64020,8 +64020,8 @@
     "type": "article-section"
   },
   "article-section:kuran-mesajina-yabanci-kalmak#kapanis": {
-    "hash": "c164a0e235a30639",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "5c44582292564c0f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "article-section"
   },
   "article-section:lehv#intro-0": {
@@ -64225,8 +64225,8 @@
     "type": "tool"
   },
   "tool:/arac/elestirel-cerceve": {
-    "hash": "616695a4405bdf5b",
-    "embeddedAt": "2026-08-13T05:12:42.342Z",
+    "hash": "c0a80cde84c902cb",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "tool"
   },
   "tool:/graf/kelime-isi": {
@@ -64470,8 +64470,8 @@
     "type": "atlas-mesel"
   },
   "atlas-mesel:two-slaves-masters": {
-    "hash": "b69066fcbdd4dd52",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "cb20dd27cf34ccf1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "atlas-mesel"
   },
   "atlas-mesel:free-slave": {
@@ -64495,8 +64495,8 @@
     "type": "atlas-mesel"
   },
   "atlas-mesel:play-amusement": {
-    "hash": "e7d04313b8e481b3",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "6c5a07ae61ea0ddd",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "atlas-mesel"
   },
   "atlas-mesel:two-gardens-owner": {
@@ -64630,8 +64630,8 @@
     "type": "atlas-mesel"
   },
   "atlas-mesel:water-absorbing-land": {
-    "hash": "549b7f3cd174fcbd",
-    "embeddedAt": "2026-08-15T03:59:14.707Z",
+    "hash": "03c0c8b175ff1994",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "atlas-mesel"
   },
   "atlas-mesel:buying-error": {
@@ -64833,5 +64833,150 @@
     "hash": "304ce3347aaceaf1",
     "embeddedAt": "2026-08-15T04:33:58.692Z",
     "type": "tool"
+  },
+  "bilimsel-isaret:genisleyen-evren": {
+    "hash": "16420784de64121d",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:yorunge-hareketi": {
+    "hash": "7f17114300655d21",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:yildiz-yol": {
+    "hash": "18b2bd1a7708d41c",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:dag-kaziklari": {
+    "hash": "b564ef8ce2adb18e",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:iki-deniz": {
+    "hash": "3e7412bc2bbe3ae7",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:yagmur-dongusu": {
+    "hash": "4ff011100a977199",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:ruzgar-dolleme": {
+    "hash": "58b4409af8545b33",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:dumansi-gok": {
+    "hash": "8c326db710cea0c8",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:demir-inisi": {
+    "hash": "1c600c91788eac7a",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:arı-navigasyonu": {
+    "hash": "4137c7743c9ba741",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:karınca-iletisimi": {
+    "hash": "d048c4380bac9b2f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:sut-olusumu": {
+    "hash": "0c130d9b371068a5",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:embriyoloji": {
+    "hash": "c194e253593086cc",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:parmak-izi": {
+    "hash": "d7a423ba3ef77cea",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:gece-koza": {
+    "hash": "3c41044ca1407be0",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "bilimsel-isaret:zerre-agirligi": {
+    "hash": "f535506d19aaf51e",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "bilimsel-isaret"
+  },
+  "tarihsel-iz:firavun-cesedi": {
+    "hash": "382b39afe6cf7809",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:haman-ismi": {
+    "hash": "d476a57d920491bf",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:rum-kehaneti": {
+    "hash": "2a15662e6bb37c15",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:iram-sehri": {
+    "hash": "5c97497b74d3517e",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:ashabu-uhdud": {
+    "hash": "d518ed81edbb2957",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:ashabu-kehf": {
+    "hash": "d01091009127634f",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:karnayn": {
+    "hash": "84cba39db815f5c6",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:semud-medaini-salih": {
+    "hash": "a1285b55653922f0",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:en-yakin-yer": {
+    "hash": "8f8737a1d2655b20",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "tarihsel-iz:kuran-korunmasi": {
+    "hash": "ef059b839c37bff1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "tarihsel-iz"
+  },
+  "elestirel:kadin-sahitlik": {
+    "hash": "07b0f762490eacb1",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "elestirel"
+  },
+  "elestirel:kaynak-iktibas-iddiasi": {
+    "hash": "ecc64eb2e7821d12",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "elestirel"
+  },
+  "atlas-mesel:metal-dross": {
+    "hash": "1dc236bd24bd0458",
+    "embeddedAt": "2026-08-31T03:58:16.502Z",
+    "type": "atlas-mesel"
   }
 }

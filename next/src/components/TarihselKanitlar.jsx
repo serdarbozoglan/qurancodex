@@ -78,7 +78,7 @@ const TABS = [
       </svg>
     ),
   },
-  { tr: 'Keşif Timeline', en: 'Discovery Timeline',
+  { tr: 'Zaman Çizelgesi', en: 'Discovery Timeline',
     icon: (
       <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="3" y1="12" x2="21" y2="12" />
@@ -664,12 +664,73 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
 // ═══════════════════════════════════════════════════════════════════════════
 // TIMELINE TAB — Discovery Timeline SVG
 // ═══════════════════════════════════════════════════════════════════════════
+// Çizelge iki ayrı çağa yayılıyor: nüzûl çevresindeki olaylar (6-7. yy) ve
+// bunları çok sonra kayda geçiren modern keşifler (19-21. yy). Daha önce
+// hepsi tek bir düz listede eşit aralıklarla diziliyordu; arada duran ~1.200
+// yıllık boşluk görünmediği için erken dönem sıkışık görünüyor, 523'teki
+// Necran katliamı ile 2015 radyokarbon ölçümü aynı ritimde okunuyordu.
+// (`pct` hesaplanıp hiç kullanılmıyordu — ölçek fiilen yoktu.)
+const ERA_BREAK_YEAR = 1000;
+
 function TimelineTab({ timeline, language, isMobile }) {
   const tr = language === 'tr';
   const sorted = [...timeline].sort((a, b) => a.year - b.year);
-  const minYear = Math.min(...sorted.map(t => t.year));
-  const maxYear = Math.max(...sorted.map(t => t.year));
-  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const early = sorted.filter(t => t.year < ERA_BREAK_YEAR);
+  const modern = sorted.filter(t => t.year >= ERA_BREAK_YEAR);
+  const gapYears = early.length && modern.length
+    ? modern[0].year - early[early.length - 1].year
+    : 0;
+  const [hoveredKey, setHoveredKey] = useState(null);
+
+  const renderRow = (t, key) => {
+    const isHover = hoveredKey === key;
+    return (
+      <div key={key}
+        onMouseEnter={() => setHoveredKey(key)}
+        onMouseLeave={() => setHoveredKey(null)}
+        className="icon-label-grid"
+        style={{
+          display: 'grid', gap: '12px', alignItems: 'center',
+          padding: '8px 10px', cursor: 'default',
+          background: isHover ? `${t.color}10` : 'transparent',
+          borderRadius: RADIUS.sm, transition: 'background 0.15s',
+        }}>
+        <div style={{
+          fontSize: '0.78rem', fontWeight: 800,
+          color: t.color, fontFamily: FONTS.body, textAlign: 'right',
+        }}>{t.year}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{
+            display: 'inline-block',
+            width: isHover ? '14px' : '10px',
+            height: isHover ? '14px' : '10px',
+            borderRadius: '50%', background: t.color,
+            boxShadow: isHover ? `0 0 14px ${t.color}88` : `0 0 6px ${t.color}44`,
+            transition: 'all 0.18s', flexShrink: 0,
+          }} />
+          <span style={{
+            fontSize: isMobile ? '0.82rem' : '0.9rem',
+            color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.5,
+          }}>{tr ? t.eventTr : t.eventEn}</span>
+        </div>
+      </div>
+    );
+  };
+
+  const EraLabel = ({ children, sub }) => (
+    <div style={{ margin: '0 0 10px' }}>
+      <div style={{
+        fontSize: '0.63rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+        fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body,
+      }}>{children}</div>
+      {sub && (
+        <div style={{
+          fontSize: '0.76rem', color: COLORS.silver,
+          fontFamily: FONTS.body, marginTop: '3px',
+        }}>{sub}</div>
+      )}
+    </div>
+  );
 
   return (
     <div>
@@ -678,8 +739,8 @@ function TimelineTab({ timeline, language, isMobile }) {
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
-          ? '523 CE Necran katliamından 2015 Birmingham radyokarbon analizine kadar — Kur\'ân metninin tarih içindeki ilerleyişi. Gold noktalar: Kur\'ânî kaynaklar. Mor: tarihsel olaylar. Yeşil-Mavi: modern akademik keşifler.'
-          : 'From the 523 CE Najrān massacre to the 2015 Birmingham radiocarbon analysis — the Qur\'an text\'s trajectory through history. Gold points: Qur\'anic sources. Purple: historical events. Green-Blue: modern academic discoveries.'}
+          ? 'Çizelge iki ayrı çağa yayılır: önce nüzûl çevresindeki olaylar, sonra bunları çok sonra kayda geçiren modern keşifler. İkisinin arasında yaklaşık 1.200 yıl vardır — bu boşluk önemlidir, çünkü Kur\'ân\'ın haberi ile o haberin dışarıdan belgelenmesi arasındaki mesafeyi gösterir. Altın noktalar Kur\'ânî kaynakları, mor noktalar tarihsel olayları, mavi-yeşil noktalar modern keşifleri işaretler.'
+          : 'The chart spans two distinct ages: first the events around the revelation, then the modern discoveries that recorded them long afterwards. Roughly 1,200 years lie between them — a gap that matters, for it shows the distance between what the Qur\'an reported and when that report was documented from outside. Gold points mark Qur\'anic sources, purple points historical events, blue-green points modern discoveries.'}
       </p>
       <div className="mq-box" style={{
         '--pt-d': "32px", '--pt-m': "22px", '--pr-d': "28px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "22px", '--pl-d': "28px", '--pl-m': "14px",
@@ -687,53 +748,73 @@ function TimelineTab({ timeline, language, isMobile }) {
         border: `1px solid ${COLORS.gold}25`,
         borderRadius: RADIUS.md,
       }}>
-        {/* Timeline dots vertical (mobile) or horizontal (desktop) */}
-        <div style={{
-          display: 'flex', flexDirection: 'column', gap: '10px',
-          maxHeight: '520px', overflowY: 'auto', paddingRight: '4px',
-        }}>
-          {sorted.map((t, i) => {
-            const pct = ((t.year - minYear) / (maxYear - minYear)) * 100;
-            const isHover = hoveredIdx === i;
-            return (
-              <div key={i}
-                onMouseEnter={() => setHoveredIdx(i)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                className="icon-label-grid"
-                style={{
-                  display: 'grid',
-                  gap: '12px', alignItems: 'center',
-                  padding: '8px 10px', cursor: 'default',
-                  background: isHover ? `${t.color}10` : 'transparent',
-                  borderRadius: RADIUS.sm,
-                  transition: 'background 0.15s',
-                }}>
-                <div style={{
-                  fontSize: '0.78rem', fontWeight: 800,
-                  color: t.color, fontFamily: FONTS.body,
-                  textAlign: 'right',
-                }}>{t.year}</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{
-                    display: 'inline-block',
-                    width: isHover ? '14px' : '10px',
-                    height: isHover ? '14px' : '10px',
-                    borderRadius: '50%',
-                    background: t.color,
-                    boxShadow: isHover ? `0 0 14px ${t.color}88` : `0 0 6px ${t.color}44`,
-                    transition: 'all 0.18s',
-                    flexShrink: 0,
-                  }} />
-                  <span style={{
-                    fontSize: isMobile ? '0.82rem' : '0.9rem',
-                    color: COLORS.offWhite, fontFamily: FONTS.body,
-                    lineHeight: 1.5,
-                  }}>{tr ? t.eventTr : t.eventEn}</span>
-                </div>
-              </div>
-            );
-          })}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <EraLabel sub={tr
+            ? 'Kur\'ân\'ın haber verdiği ve nazil olduğu çağ'
+            : 'The age the Qur\'an reports on, and in which it was revealed'}>
+            {tr ? 'Nüzûl Çağı' : 'The Age of Revelation'}
+          </EraLabel>
+          {early.map((t, i) => renderRow(t, `e${i}`))}
+
+          {/* Aradaki sessizlik — çizelgenin asıl anlattığı şey */}
+          {gapYears > 0 && (
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '12px',
+              margin: '14px 0 12px', padding: '0 10px',
+            }}>
+              <span style={{ flex: 1, height: 1, background: `linear-gradient(90deg, transparent, ${COLORS.gold}55)` }} />
+              <span style={{
+                fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body,
+                whiteSpace: 'nowrap', textAlign: 'center', lineHeight: 1.5,
+              }}>
+                {tr
+                  ? `≈ ${gapYears.toLocaleString('tr-TR')} yıl · dışarıdan hiçbir belge yok`
+                  : `≈ ${gapYears.toLocaleString('en-US')} years · no outside documentation`}
+              </span>
+              <span style={{ flex: 1, height: 1, background: `linear-gradient(90deg, ${COLORS.gold}55, transparent)` }} />
+            </div>
+          )}
+
+          <EraLabel sub={tr
+            ? 'Aynı olayların dışarıdan belgelenmeye başladığı çağ'
+            : 'The age in which those same events began to be documented from outside'}>
+            {tr ? 'Keşif Çağı' : 'The Age of Discovery'}
+          </EraLabel>
+          {modern.map((t, i) => renderRow(t, `m${i}`))}
         </div>
+      </div>
+
+      {/* Çizelge ne söylüyor — yorumu okuyucuya bırakmayan kapanış */}
+      <div className="mq-box" style={{
+        '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
+        marginTop: '20px',
+        background: `${COLORS.gold}0d`,
+        border: `1px solid ${COLORS.gold}33`,
+        borderLeft: `3px solid ${COLORS.gold}`,
+        borderRadius: RADIUS.md,
+      }}>
+        <div style={{
+          fontSize: '0.63rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+          fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body, marginBottom: '10px',
+        }}>{tr ? 'Bu Çizelge Ne Söylüyor?' : 'What Does This Chart Say?'}</div>
+        <ul style={{
+          margin: 0, paddingLeft: '18px', fontSize: isMobile ? '0.85rem' : '0.89rem',
+          color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.8,
+        }}>
+          {(tr ? [
+            'Boşluk asıl mesajdır. Kur\'ân bu olayları 7. yüzyılda haber verdi; dışarıdan ilk belge ancak 19. yüzyılda geldi. Arada geçen ~1.200 yıl boyunca bu haberler hiçbir arkeolojik desteğe dayanmadan taşındı — çünkü dayanağı arkeoloji değil, vahiydi.',
+            'Keşiflerin yönü tek taraflıdır. Hiçbir bulgu Kur\'ân\'ı düzeltmedi; bulgular Kur\'ân\'a ulaştı. Beşerî bilgi her yeni veriyle kendini tashih ederek ilerler; buradaki sabit nokta ise baştan beri yerinde duruyordu.',
+            'Bulgular ispat değil, itiraz düşürücüdür. Bir yazıt Kur\'ân\'ı doğrulayamaz — doğrulayanın doğrulanandan üstün olması gerekir. Ry 507 yazıtının yaptığı şey, "Necran katliamı uydurmadır" iddiasını temelsiz bırakmaktır.',
+            'Birmingham folyoları çizelgenin en yakın temas noktasıdır: bir Kur\'ân yazmasının parşömeni, radyokarbonla Peygamber\'in (s.a.v.) hayatına denk ya da ondan önceki bir aralığa tarihlenir.',
+            'Ölçü değişmez: Kur\'ân haber verir, biz tasdik ederiz. Çizelge bir delil tablosu değil, tasdikin tarih içinde nasıl göründüğünün kaydıdır.',
+          ] : [
+            'The gap is the message. The Qur\'an reported these events in the 7th century; the first outside documentation arrived only in the 19th. Across the intervening ~1,200 years these reports were carried without any archaeological support — because their ground was not archaeology but revelation.',
+            'The direction of discovery runs one way. No finding corrected the Qur\'an; the findings arrived at it. Human knowledge advances by correcting itself with each new datum; the fixed point here had been standing all along.',
+            'Findings are not proof but defeaters of objections. An inscription cannot verify the Qur\'an — a verifier must stand above what it verifies. What Ry 507 does is leave the claim that "the Najrān massacre is an invention" without foundation.',
+            'The Birmingham folios are the chart\'s closest point of contact: the parchment of a Qur\'anic manuscript is radiocarbon-dated to a range coinciding with, or preceding, the lifetime of the Prophet ﷺ.',
+            'The measure does not change: the Qur\'an reports, and we affirm. The chart is not a table of proofs but a record of how that affirmation looks across history.',
+          ]).map((s, i) => <li key={i} style={{ marginBottom: '7px' }}>{s}</li>)}
+        </ul>
       </div>
       {/* Legend */}
       <div style={{ marginTop: '20px', display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>

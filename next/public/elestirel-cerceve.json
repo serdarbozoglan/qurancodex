@@ -1,9 +1,50 @@
 {
   "meta": {
-    "titleTr": "Eleştirel Çerçeve — Zorlu Sorular",
-    "titleEn": "Critical Frame — Hard Questions",
-    "principleTr": "Bu sayfa Kur'ân'a yöneltilen içeriden ve dışarıdan zorlu sorulara açık, dengeli bir çerçeve sunar. Amaç savunma değil, sorunun kendisini görmek; klasik tefsir ile modern akademiyi yan yana koymak; kapatılmış cevap değil, süregelen bir okuma sunmaktır. Her soru için mü'min-akademik yelpazenin farklı ucundan iki-üç görüş özet olarak verilir; kaynaklar açıkça belirtilir. Kesinlik iddia edilmez.",
-    "principleEn": "This page offers an open, balanced frame for hard questions posed to the Quran from within and without. The aim is not defense but seeing the question itself; placing classical tafsir side by side with modern academia; presenting an ongoing reading rather than a closed answer. For each question, two-to-three positions across the believer-academic spectrum are summarized; sources are cited openly. No claim to finality is made."
+    "titleTr": "Eleştirel Çerçeve — Zorlu Sorular ve Cevapları",
+    "titleEn": "Critical Frame — Hard Questions and Their Answers",
+    "stanceTr": "Bu sayfanın duruşu nettir. Kur'ân-ı Kerîm Allah'ın kelâmıdır; içindeki her haber ve her hüküm yüzde yüz doğrudur ve tartışmaya kapalıdır. Bir ayet bize sorunlu görünüyorsa mesele ayette değildir — bilgimizde, çağımızın peşin kabullerinde, meâl ve aktarma zincirimizde veya tefsire sonradan karışmış rivayetlerdedir. Bunun tersi düşünülemez. Burada yapılan iş savunma değil, ölçü koymaktır: soruyu en güçlü haliyle yazmak ve ulemânın on dört asırdır verdiği cevabı kaynağıyla önünüze getirmek.",
+    "stanceEn": "The stance of this page is clear. The Qur'ān is the speech of God; every report and every ruling within it is one hundred percent true and not open to dispute. If a verse appears problematic to us, the problem is not in the verse — it is in our knowledge, in the unexamined assumptions of our age, in our chain of translation and transmission, or in narrations that entered tafsīr from outside. The reverse is inconceivable. What is done here is not apologetics but the setting of a measure: to state the objection in its strongest form, and to bring you the answer the scholars have given for fourteen centuries, with its sources.",
+    "principles": [
+      {
+        "labelTr": "Ölçü Kur'ân'dır",
+        "labelEn": "The Qur'ān Is the Measure",
+        "textTr": "Bir hüküm çağın beğenisine uymuyorsa, tartışılacak olan hüküm değil çağın ölçüsüdür. Kusur arayacaksak önce kendi anlayışımızda ararız. Kur'ân çağa göre ayarlanmaz; çağ Kur'ân'a göre tartılır.",
+        "textEn": "If a ruling does not suit the taste of the age, what is up for debate is not the ruling but the measure of the age. If we are to look for a fault, we look first in our own understanding. The Qur'ān is not adjusted to the age; the age is weighed against the Qur'ān."
+      },
+      {
+        "labelTr": "Cevap Zaten Verilmiştir",
+        "labelEn": "The Answer Already Exists",
+        "textTr": "Bu sorular yeni değil. Taberî'den (ö. 923) Râzî'ye, Kurtubî'den İbn Kayyim'e, İbn Âşûr'dan Elmalılı Hamdi Yazır'a ve Bediüzzaman Said Nursî'ye kadar yüzlerce âlim, binlerce ciltte bunları çoktan ve ikna edici biçimde karşıladı. Bu sayfa yeni bir cevap icat etmez; mevcut cevabı derli toplu gösterir.",
+        "textEn": "These questions are not new. From al-Ṭabarī (d. 923) to al-Rāzī, from al-Qurṭubī to Ibn al-Qayyim, from Ibn ʿĀshūr to Elmalılı Hamdi Yazır and Bediüzzaman Said Nursî, hundreds of scholars answered them convincingly across thousands of volumes. This page invents no new answer; it presents the existing one in order."
+      },
+      {
+        "labelTr": "İtirazı Gizlemeyiz",
+        "labelEn": "We Do Not Hide the Objection",
+        "textTr": "Her soru, itirazın en keskin haliyle yazılır. Zayıflatılmış bir soruya verilen cevap cevap değildir. Kur'ân'ın hakikati, sorunun dürüstçe konulmasından zarar görmez — aksine ancak öyle görünür.",
+        "textEn": "Each question is written with the objection at its sharpest. An answer to a weakened question is no answer. The truth of the Qur'ān takes no harm from an honestly posed question — on the contrary, only then is it seen."
+      },
+      {
+        "labelTr": "İhtilâf Şüphe Değildir",
+        "labelEn": "Disagreement Is Not Doubt",
+        "textTr": "Âlimler arasındaki fıkhî görüş farkı Kur'ân'da belirsizlik değil, fürûda genişliktir ve rahmettir. Usûlde — tevhid, nübüvvet, âhiret ve helâl-haramın kat'îlerinde — ihtilâf yoktur. Bu sayfada gösterilen çokluk, hakikatin bölünmesi değil, ona açılan kapıların çokluğudur.",
+        "textEn": "Juristic difference among scholars is not indeterminacy in the Qur'ān but breadth in secondary matters, and it is a mercy. In the foundations — divine unity, prophethood, the hereafter, the definitive licit and illicit — there is no disagreement. The plurality shown on this page is not the fracturing of truth but the multiplicity of doors opening onto it."
+      }
+    ],
+    "principleTr": "Bu sayfanın duruşu nettir: Kur'ân-ı Kerîm Allah'ın kelâmıdır ve içindeki her hüküm yüzde yüz doğrudur. Bir ayet bize sorunlu görünüyorsa kusur ayette değil, bizim bilgimizde veya çağımızın peşin kabullerindedir. Bu sayfa itirazı en güçlü haliyle yazar ve ulemânın on dört asırdır verdiği cevabı kaynağıyla gösterir.",
+    "principleEn": "The stance of this page is clear: the Qur'ān is the speech of God and every ruling within it is one hundred percent true. If a verse appears problematic, the fault is not in the verse but in our knowledge or in the assumptions of our age. This page states each objection at its strongest and shows the answer the scholars have given for fourteen centuries, with its sources.",
+    "anchorVerse": {
+      "ar": "اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فِيهِ اخْتِلَافاً كَثِيراً",
+      "tr": "Hâlâ Kur'ân üzerinde gereği gibi düşünmeyecekler mi? Eğer o, Allah'tan başkası tarafından gelmiş olsaydı, onda birçok tutarsızlık bulurlardı.",
+      "en": "Then do they not reflect upon the Qur'an? If it had been from any other than God, they would have found within it much contradiction.",
+      "refTr": "Nisâ 4:82",
+      "refEn": "An-Nisa 4:82"
+    },
+    "whisperTr": "Bu ayet bir meydan okumadır ve on dört asırdır ayakta duruyor. Bu sayfa da o meydan okumanın altına girer: en zorlu soruları en keskin haliyle yazar, sonra ulemânın cevabını gösterir.",
+    "whisperEn": "This verse is a challenge, and it has stood for fourteen centuries. This page steps beneath that challenge: it states the hardest questions at their sharpest, then shows the answer of the scholars.",
+    "eyebrowTr": "ZORLU SORULAR · VERİLMİŞ CEVAPLAR",
+    "eyebrowEn": "HARD QUESTIONS · ANSWERS ALREADY GIVEN",
+    "dramaTr": "Soru keskin olsun; cevap zaten hazır",
+    "dramaEn": "Let the question be sharp; the answer is already prepared"
   },
   "categories": [
     {
@@ -42,44 +83,149 @@
         "4:12",
         "4:176"
       ],
-      "shortResponseTr": "Nisâ 4:11 kız çocuğuna erkeğin yarısı hisse verir. Klasik hukuk bunu bir bütünün parçası olarak okur: erkek mehir öder + eşinin nafakasıyla yükümlüdür + kadın mirası kendine saklar. Modern akademi bu bağlamın çağdaş ekonomik gerçekliklerle ne kadar örtüştüğünü tartışır — reform önerileri mevcut ancak konsensüs yok.",
-      "shortResponseEn": "Nisāʾ 4:11 grants a daughter half the share of a son. Classical law reads this within a whole: the man pays mahr + is obliged with his wife's maintenance + the woman keeps her inheritance for herself. Modern academia debates how much this context fits contemporary economic realities — reform proposals exist but no consensus.",
-      "longResponseTr": "Ayet: 'Erkeğe iki kadın hissesi kadar' (4:11). Klasik yorum bunun yalıtık bir eşitsizlik değil bir hukuk-ekonomi bütününün parçası olduğunu savunur: (1) erkek evlenirken mehir öder — kadına, kadın olarak; (2) evlilik boyunca eşinin ve ailenin geçimi tamamen erkeğin yükümlülüğüdür; (3) kadın mirası olduğu gibi kendine saklar, harcamak zorunda değildir. Râzî ve Kurtubî bu üç-taraflı dengeyi vurgular. Modern akademik yaklaşım (Fazlur Rahman, Asma Barlas, Khaled Abou El Fadl) bağlamın 7. yy Arap toplumu ile bağını görmek gerektiğini, çağdaş şartlarda (kadın da geçime katkı yapar/tek başına yaşar) hükmün amacı korunarak formülünün yeniden düşünülmesi gerektiğini savunur. Tunus Personal Status Code (1956) miras eşitliği yönünde reform yaptı; Fas ve Türkiye farklı tutumlar aldı. Sünni/Şii büyük çoğunluk klasik uygulamayı korur. Tartışmanın kalıcı ekseni: 'maksadu'ş-şerîa' (kanunun amacı) çağdaş gerçeklikte nasıl gerçekleşir? — hâlâ açık bir soru.",
-      "longResponseEn": "The verse: 'to the male, the equivalent of the share of two females' (4:11). Classical interpretation argues this is not an isolated inequality but part of a legal-economic whole: (1) the man pays mahr on marriage — to the woman as woman; (2) throughout the marriage, maintaining wife and family is entirely the man's obligation; (3) the woman keeps her inheritance intact, with no duty to spend it. Al-Rāzī and al-Qurṭubī emphasize this three-part balance. The modern academic approach (Fazlur Rahman, Asma Barlas, Khaled Abou El Fadl) argues we must see the context's bond with 7th-century Arab society; in contemporary conditions (women contribute to income or live alone), the ruling's aim should be preserved but its formula reconsidered. Tunisia's Personal Status Code (1956) reformed toward inheritance equality; Morocco and Turkey took different stances. The Sunni/Shia majority preserves the classical application. The lasting axis of debate: how does maqāṣid al-sharīʿa (the purpose of the law) realize itself in contemporary reality? — still an open question.",
+      "objectionTr": "Nisâ 4:11 kız çocuğa, erkek kardeşinin yarısı kadar pay verir. İtiraz şudur: bu açık bir cinsiyet eşitsizliğidir, kadını hukuken yarım sayar ve eşitlik ilkesiyle bağdaşmaz.",
+      "objectionEn": "Nisāʾ 4:11 grants a daughter half the share of her brother. The objection: this is plain gender inequality, it counts a woman as half in law, and it cannot be reconciled with the principle of equality.",
+      "shortResponseTr": "İtiraz, bir maddeyi içinde durduğu sistemden koparıp okumaktan doğuyor. İslâm'da miras tek başına bir pay cetveli değil; mehir + nafaka + miras üçlüsünden oluşan bütün bir malî düzenin son halkasıdır. Bu düzende erkek aldığı payı harcamakla yükümlüdür — eşinin ve ailesinin geçimi kanunen onun borcudur. Kadın ise aldığının tek kuruşunu harcamak zorunda değildir; milyoner bile olsa nafakası kocasına aittir. Nette kadının serveti korunur, erkeğinki tüketilir. Üstelik 4:11 tek bir formül değildir: Kur'ân'ın miras tablosunda kadının erkekle eşit aldığı, hatta ondan fazla aldığı durumlar vardır — ayetin kendisinde bile.",
+      "shortResponseEn": "The objection arises from reading one clause apart from the system it sits in. In Islam inheritance is not a standalone table of shares; it is the last link in a whole financial order made of mahr + maintenance + inheritance. In that order the man is obliged to spend what he receives — his wife's and family's upkeep is a legal debt upon him. The woman need not spend a single coin of hers; even were she a millionaire, her maintenance is her husband's duty. Net result: her wealth is preserved, his is consumed. And 4:11 is not a single formula: in the Qur'ān's inheritance table there are cases where a woman receives equally with a man, and cases where she receives more — within that very verse.",
+      "longResponseTr": "Ayetin kendisi itirazı daha ilk cümlesinde karşılar. 4:11 'erkeğe iki kadın payı kadar' dedikten hemen sonra devam eder: 'Ana-babasından her birine, ölenin çocuğu varsa altıda bir.' Yani aynı ayette anne ile baba tam olarak eşit pay alır. Ana-bir kardeşlerde de (4:12) erkek ile kadın eşittir. Demek ki ölçü 'cinsiyet' değildir; olsaydı ayet kendi içinde tutarsız olurdu. Klasik fıkıh bu ölçüyü üç başlıkta tespit eder: (1) mirasçının ölene yakınlık derecesi, (2) mirasçının hayattaki nesil konumu — geleceğe dönük malî yükü ne kadar ağırdır, (3) o mirasçının kanunen taşıdığı nafaka mükellefiyeti. Kadının payının erkekten az olduğu durum, bu üç ölçütün otuz küsur miras hâlinden yalnız birkaçında bir araya gelmesinden ibarettir. Çağdaş fıkıh çalışmalarında bu tablo tek tek çıkarılmıştır: kadının erkekten az aldığı hâller azınlıktadır; eşit veya daha fazla aldığı hâller çoğunluktadır.\n\nİkinci mesele, tek başına payın anlamsız oluşudur. Erkeğin aldığı pay bir gelir değil, bir yükümlülüğün karşılığıdır. Evlenirken mehri o öder — üstelik mehir kadının şahsî mülküdür, aileye değil kendisine aittir. Evlilik boyunca ev, yiyecek, giyecek, tedavi, çocukların bakımı hukuken erkeğin borcudur; kadın gönüllü katkıda bulunabilir ama zorlanamaz. Boşanma hâlinde de iddet nafakası ve çocuk nafakası erkeğe yüklenir. Dolayısıyla erkeğin iki payı, üzerine yüklenen sınırsız harcama borcunun peşin karşılığıdır. Râzî ve Kurtubî bu üçlü dengeyi ayrıntısıyla kurar: pay, yükün gölgesidir.\n\nÜçüncüsü, itirazın arkasındaki 'eşitlik' kavramının kendisidir. Modern söylem eşitliği çoğu zaman 'aynılık' olarak tanımlar: herkes aynı şeyi alsın. Kur'ân'ın ölçüsü ise adalettir: herkes taşıdığı yüke göre alsın. Aynı yükü taşımayan iki tarafa aynı payı vermek eşitlik değil, yükü ağır olanın hakkını yemektir. Bediüzzaman Said Nursî'nin Onikinci Söz'de kurduğu ayrım tam buraya oturur: felsefenin hayat düsturu 'cidal' (çatışma) ve 'menfaat'tir, Kur'ân'ın düsturu ise 'teâvün' (yardımlaşma) ve 'adalet'tir. Aile, birbiriyle pay yarıştıran iki taraf değil, yükü paylaşan tek bir bünyedir; miras da o bünyenin iç dengesidir. Tesettür Risalesi'nde de aynı çizgi işlenir: kadını koruduğunu iddia eden çağdaş düzenlemelerin birçoğu, kadının üstündeki nafaka güvencesini kaldırarak onu fiilen geçim yükünün altına sokmuştur.\n\nSon olarak: bugün bazı Müslüman ülkelerin miras hukukunda yaptığı düzenlemeler ayrı bir konudur ve Kur'ân hükmünün doğruluğuyla ilgili bir tartışma değildir. Hükmün kendisi kat'îdir; tartışılan şey, nafaka sistemi çökmüş bir toplumda hükmün etrafındaki telâfi mekanizmalarının (vasiyet, hibe, vakıf) nasıl işletileceğidir. Bu, klasik fıkhın zaten araçlarını verdiği bir uygulama meselesidir — bir inanç meselesi değil.",
+      "longResponseEn": "The verse answers the objection in its own opening. Right after saying 'to the male, the like of the share of two females,' 4:11 continues: 'and to each of his parents a sixth, if he has a child.' In that same verse, mother and father receive exactly equal shares. Among maternal siblings too (4:12) male and female are equal. So the criterion is not sex; were it so, the verse would contradict itself. Classical jurisprudence identifies the criterion under three headings: (1) the heir's degree of kinship to the deceased, (2) the heir's generational position — how heavy is the financial burden ahead of them, (3) the maintenance obligation the heir carries in law. The cases where a woman's share is less than a man's are simply those in which these three criteria happen to converge — a handful among some thirty inheritance situations. Contemporary juristic studies have tabulated this case by case: instances where a woman receives less are the minority; equal or greater shares are the majority.\n\nSecond, a share means nothing on its own. What the man receives is not income but the counterpart of an obligation. He pays the mahr at marriage — and the mahr is the woman's personal property, hers and not the household's. Throughout the marriage, housing, food, clothing, medical care and the children's upkeep are his legal debt; the woman may contribute voluntarily but cannot be compelled. On divorce, the maintenance of the waiting period and of the children falls on him. His double share is thus the advance counterpart of an unlimited duty to spend. Al-Rāzī and al-Qurṭubī set out this threefold balance in detail: the share is the shadow of the burden.\n\nThird, there is the notion of 'equality' behind the objection. Modern discourse often defines equality as sameness: let everyone receive the same. The Qur'ān's measure is justice: let everyone receive according to the burden they carry. Giving identical shares to two parties carrying unequal burdens is not equality but the denial of the heavier-laden party's right. Bediüzzaman Said Nursî's distinction in the Twelfth Word sits exactly here: philosophy's rule of life is struggle and self-interest, while the Qur'ān's rule is mutual assistance and justice. The family is not two parties competing over shares but a single body sharing a load; inheritance is that body's internal balance. The Treatise on Modesty pursues the same line: many modern arrangements that claim to protect women have, by removing the guarantee of maintenance, in fact placed the burden of livelihood upon them.\n\nFinally, the statutory adjustments some Muslim countries have made in inheritance law are a separate matter and are no debate about the truth of the Qur'ānic ruling. The ruling itself is definitive; what is discussed is how the compensating instruments around it — bequest, gift, endowment — are to be operated in a society where the maintenance system has collapsed. That is a question of application, for which classical jurisprudence already supplies the tools — not a question of belief.",
+      "verdictTr": "Nisâ 4:11'de eşitsizlik yoktur; yüke göre adalet vardır. Eşitliği 'aynılık' sanan ölçü, ayette değil, o ölçünün kendisinde kusurludur.",
+      "verdictEn": "There is no inequality in Nisāʾ 4:11; there is justice proportioned to burden. The measure that mistakes equality for sameness is faulty in itself, not in the verse.",
       "classicalSources": [
         {
           "author": "er-Râzî",
           "workTr": "Mefâtîhu'l-Ğayb",
           "workEn": "Mafātīḥ al-Ghayb",
-          "noteTr": "Miras oranlarının aile-nafaka bütünüyle okunması gerektiğini vurgular.",
-          "noteEn": "Emphasizes reading inheritance shares within the family-maintenance whole."
+          "noteTr": "Miras oranlarının mehir–nafaka–miras bütünü içinde okunması gerektiğini kurar; payın yükün karşılığı olduğunu gösterir.",
+          "noteEn": "Establishes that inheritance ratios must be read within the mahr–maintenance–inheritance whole; shows the share to be the counterpart of the burden."
         },
         {
           "author": "el-Kurtubî",
           "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
           "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
-          "noteTr": "Hükmün fıkhî sistematiği ve mezhepler-arası nüansları detaylıca sunar.",
-          "noteEn": "Presents the jurisprudential systematic of the ruling and inter-madhhab nuances in detail."
+          "noteTr": "Ferâiz sistematiğini ve mezhepler arası nüansları ayrıntısıyla verir; anne–baba eşitliği gibi ayet-içi karşı örnekleri açıkça işler.",
+          "noteEn": "Sets out the systematics of the shares and inter-madhhab nuances in detail; treats in-verse counter-examples such as the equality of mother and father."
+        },
+        {
+          "author": "İbn Âşûr",
+          "workTr": "et-Tahrîr ve't-Tenvîr",
+          "workEn": "al-Taḥrīr wa-l-Tanwīr",
+          "noteTr": "Hükmün illetini cinsiyette değil, malî mükellefiyet ve nesil konumunda tespit eder; maksadî okumanın klasik zemindeki örneği.",
+          "noteEn": "Locates the ratio legis not in sex but in financial liability and generational position; the classical exemplar of maqāṣid-based reading."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Sözler — Onikinci Söz",
+          "workEn": "The Words — The Twelfth Word",
+          "noteTr": "Hikmet-i Kur'âniye ile hikmet-i felsefenin ölçülerini karşılaştırır: felsefe hayata cidal ve menfaati, Kur'ân teâvün ve adaleti düstur koyar. Miras tartışması tam bu iki ölçünün çarpışmasıdır.",
+          "noteEn": "Contrasts the wisdom of the Qur'ān with that of philosophy: philosophy makes struggle and interest the rule of life, the Qur'ān makes mutual assistance and justice. The inheritance debate is precisely the collision of these two measures."
+        },
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Lem'alar — Yirmi Dördüncü Lem'a (Tesettür Risâlesi)",
+          "workEn": "The Flashes — Twenty-Fourth Flash (Treatise on Modesty)",
+          "noteTr": "Aile hukukunun kadını koruyan bütünlüklü bir düzen olduğunu; erkeğin nafaka mükellefiyetinin bu düzenin merkezinde durduğunu ve kadın lehine göründüğü iddia edilen çağdaş düzenlemelerin fiilen kadını yükün altına soktuğunu işler.",
+          "noteEn": "Argues that family law is an integrated order protecting the woman, that the man's maintenance obligation stands at its centre, and that modern arrangements claimed to favour women in fact place the burden upon them."
         }
       ],
       "modernSources": [
         {
-          "author": "Fazlur Rahman",
-          "workTr": "İslam ve Çağdaşlık",
-          "workEn": "Islam and Modernity",
-          "period": "1982 (Chicago UP)",
-          "noteTr": "Maksadî yorum çerçevesi: hükmün 7. yy bağlamı ile çağdaş uygulaması arasındaki farkı işaret eder.",
-          "noteEn": "Maqāṣid framework: points out the difference between the 7th-century context of the ruling and its contemporary application."
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "Ferâiz bahsinde payların yük dengesiyle ilişkisini Türkçe tefsir geleneğinde en açık kuran metin.",
+          "noteEn": "In the section on inheritance shares, the clearest exposition in the Turkish tafsīr tradition of how shares track burdens."
         },
         {
-          "author": "Khaled Abou El Fadl",
-          "workTr": "İslam'da Güzellik Arayışı",
-          "workEn": "The Search for Beauty in Islam",
-          "period": "2006",
-          "noteTr": "Miras + aile hukukunda çağdaş reform tartışmalarını akademik bir çerçevede değerlendirir.",
-          "noteEn": "Evaluates modern reform debates in inheritance and family law within an academic frame."
+          "author": "Muhammed Hamidullah",
+          "workTr": "İslâm'a Giriş",
+          "workEn": "Introduction to Islam",
+          "period": "1957",
+          "noteTr": "İslâm miras hukukunun, indiği çağda kadına mülkiyet ve mirasta hak tanıyan ilk hukuk sistemlerinden biri olduğunu tarihî mukayeseyle ortaya koyar.",
+          "noteEn": "Shows by historical comparison that Islamic inheritance law was among the first legal systems of its era to grant women property and inheritance rights."
         }
       ],
+      "debateNoteTr": "Modern akademide bazı isimler (Fazlur Rahman, Asma Barlas) hükmün formülünün çağdaş iktisadî şartlarda yeniden düşünülmesini önerir; Tunus 1956'da bu yönde bir düzenleme yaptı. Bu bir uygulama tartışmasıdır; ehl-i sünnet ve Şia'nın ezici çoğunluğu klasik hükmü olduğu gibi korur ve hükmün kat'îliği zaten ihtilâf konusu değildir.",
+      "debateNoteEn": "Some names in modern academia (Fazlur Rahman, Asma Barlas) propose rethinking the formula under contemporary economic conditions; Tunisia legislated in that direction in 1956. This is a debate about application; the overwhelming majority of Sunnis and Shia preserve the classical ruling as it stands, and the definitiveness of the ruling was never itself in dispute.",
+      "relatedTools": [
+        {
+          "href": "/{lang}/atlas/kadinlar",
+          "titleTr": "Kadınlar Atlası",
+          "titleEn": "Women's Atlas"
+        },
+        {
+          "href": "/{lang}/arac/muhataplar",
+          "titleTr": "Muhatap Sistemi",
+          "titleEn": "Addressee System"
+        }
+      ]
+    },
+    {
+      "id": "kadin-sahitlik",
+      "category": "ahlak",
+      "titleTr": "Şahitlik Ayeti — İki Kadın Bir Erkeğe mi Denk?",
+      "titleEn": "The Witness Verse — Are Two Women Equal to One Man?",
+      "verses": [
+        "2:282",
+        "24:6-9",
+        "65:2"
+      ],
+      "objectionTr": "Bakara 2:282 borç kaydında iki erkek yoksa bir erkek ve iki kadın şahit tutulmasını söyler. İtiraz: Kur'ân kadının şahitliğini erkeğinkinin yarısı sayıyor, yani onu aklen eksik kabul ediyor.",
+      "objectionEn": "Al-Baqara 2:282 says that if two men are not available, one man and two women should witness a debt record. The objection: the Qur'ān counts a woman's testimony as half a man's, holding her deficient in reason.",
+      "shortResponseTr": "Ayet bir genel şahitlik kaidesi koymuyor; tek bir muameleyi, vadeli borç sözleşmesinin yazılı kaydını düzenliyor ve ayetin kendisi gerekçesini kendi içinde veriyor: 'biri unutursa diğeri ona hatırlatsın.' Yani ikinci kadın bir 'yarım şahit' değil, birinci kadının destekçisi ve hatırlatıcısıdır — ayetin kullandığı fiil 'tuzekkira', hatırlatmaktır, tamamlamak değil. Gerekçe akıl değil, o çağda kadınların ticarî borç muamelelerinin içinde bulunma sıklığının düşük olmasıdır; şahitlikte belirleyici olan zekâ değil, konuya vukûfiyettir. Bunun kesin delili Kur'ân'ın kendisidir: liân ayetlerinde (24:6-9) kadının yemini, kocasının yeminini tek başına geçersiz kılar — orada bir kadının sözü bir erkeğin sözüne birebir denktir. Aynı kitap bir yerde kadının şahitliğini yarım sayıp başka bir yerde tam sayamaz; demek ki ölçü cinsiyet değil, muamelenin türüdür.",
+      "shortResponseEn": "The verse lays down no general rule of testimony; it regulates a single transaction — the written record of a deferred debt — and supplies its own rationale within itself: 'so that if one of them errs, the other may remind her.' The second woman is not a 'half witness' but the first's support and reminder — the verb the verse uses is tudhakkira, to remind, not to complete. The rationale is not intellect but the low frequency, in that era, of women's involvement in commercial debt transactions; what governs testimony is familiarity with the matter, not intelligence. The decisive proof is the Qur'ān itself: in the liʿān verses (24:6-9) a woman's oath alone nullifies her husband's oath — there her word is exactly equivalent to a man's. The same Book cannot count a woman's testimony as half in one place and whole in another; the criterion, therefore, is not sex but the nature of the transaction.",
+      "longResponseTr": "Ayetin bağlamı çok dardır ve bu darlık kasıtlıdır. 2:282 Kur'ân'ın en uzun ayetidir ve baştan sona tek bir konuyu düzenler: vadeli borcun yazıyla kayıt altına alınması. Kâtip tutulması, borcun dikte ettirilmesi, borçlunun aklen zayıf olması hâlinde velisinin dikte etmesi, kâtibe ve şahide zarar verilmemesi — hepsi bir ticarî belgelendirme prosedürüdür. Şahitlik düzenlemesi bu prosedürün bir maddesidir, insanların hukukî ehliyeti hakkında genel bir hüküm değil.\n\nAyetin gerekçesi kendi metnindedir ve bu, itirazın büyük kısmını doğrudan kapatır: 'ikisinden biri şaşırırsa/unutursa diğeri ona hatırlatsın.' Buradaki kelime 'tudille–tuzekkira'dır; yani ikinci kadın birinci kadının şahitliğini tamamlamak için değil, gerektiğinde hatırlatmak için vardır. Klasik fıkıhta bu, kadınların o dönemde ticarî borç kayıtlarına aşinalığının erkeklere göre çok daha az olmasıyla açıklanır — bugünkü dille söylenirse mesele ehliyet değil, uzmanlık ve pratik aşinalıktır. İbn Kayyim bunu açıkça dile getirir: hüküm, kadının aklının eksikliğine değil, o muamele türündeki tecrübe azlığına bağlıdır; tecrübe hâsıl olduğunda gerekçe de zayıflar.\n\nAyrıca ayetin lafzı emir değil tavsiyedir ve bir sıralama sunar: tercihen iki erkek, bulunmazsa bir erkek iki kadın. Klasik hukukçular buradan hareketle malî muamelelerde şahitlik nisabını tartışmış, ancak hiçbiri bunu 'kadın yarım insandır' şeklinde bir antropolojik hükme dönüştürmemiştir — çünkü aynı hukuk, kadının rivayet ettiği hadîsi tek başına delil sayar. Hz. Âişe'den nakledilen binlerce rivayet İslâm hukukunun temel kaynakları arasındadır ve hiçbir fakih 'bunlar yarım delildir' dememiştir. Hadîs rivayetinde, tıbbî muayenede, doğum ve emzirme gibi yalnız kadınların muttali olabileceği hususlarda kadının şahitliği tek başına ve tam olarak muteberdir — hatta bazı meselelerde yalnız kadının şahitliği kabul edilir. Bir hukuk sistemi, kadının aklını eksik sayıyor olsaydı bunların hiçbiri mümkün olmazdı.\n\nEn kesin delil ise liân ayetleridir. Kocası zina isnadında bulunan kadın, dört defa yemin ederek kocasının dört yeminini geçersiz kılar (24:6-9). Burada kadın tek başına, bir erkeğin tam karşısında ve ona denk olarak durur; üstelik neticede kadının yemini ona ceza uygulanmasını engeller. Kur'ân'ın kendi içinde tutarlı olduğu kabul edildiğinde — ki bu iman gereğidir — 2:282'nin genel bir 'kadın şahitliği yarımdır' kaidesi koyamayacağı zorunlu olarak ortaya çıkar.\n\nDolayısıyla itiraz, bir ticarî belgeleme maddesini alıp onu insan tabiatı hakkında bir hükme dönüştürmekle kuruluyor. Ayet bunu söylemiyor; ayetin kendi gerekçesi bunu reddediyor; ve Kur'ân'ın başka ayetleri bunu fiilen çürütüyor.",
+      "longResponseEn": "The context of the verse is very narrow, and deliberately so. 2:282 is the longest verse in the Qur'ān and regulates from beginning to end a single matter: the recording in writing of a deferred debt. Engaging a scribe, having the debt dictated, the guardian dictating if the debtor is weak of understanding, that no harm come to scribe or witness — the whole is a procedure of commercial documentation. The provision on witnesses is one clause of that procedure, not a general ruling on people's legal capacity.\n\nThe verse's rationale lies in its own text, and this closes most of the objection at once: 'so that if one of the two errs, the other may remind her.' The words are tuḍilla–tudhakkira; the second woman is there not to complete the first's testimony but to remind her when needed. Classical jurisprudence explains this by women's far lesser familiarity, in that period, with records of commercial debt — in today's terms, the issue is not capacity but expertise and practical acquaintance. Ibn al-Qayyim says so explicitly: the ruling rests not on any deficiency in a woman's intellect but on scarcity of experience in that class of transaction; where the experience is present, the rationale weakens.\n\nMoreover the wording is advisory rather than imperative, and offers an order of preference: two men by preference, failing that one man and two women. Classical jurists debated the quorum of witnesses in financial matters on this basis, but none of them turned it into an anthropological verdict that a woman is half a person — for the same law accepts a ḥadīth transmitted by a woman as evidence on its own. The thousands of reports transmitted from ʿĀʾisha are among the foundational sources of Islamic law, and no jurist ever called them half-evidence. In ḥadīth transmission, in medical examination, and in matters only women can witness such as birth and suckling, a woman's testimony stands alone and in full — indeed in some matters only a woman's testimony is accepted. None of this would be possible in a legal system that held a woman's reason deficient.\n\nThe most decisive evidence is the liʿān verses. A woman accused of adultery by her husband nullifies his four oaths by swearing four times herself (24:6-9). Here she stands alone, directly opposite a man and equal to him; and her oath is what averts the penalty from her. Once the Qur'ān is granted internal consistency — as faith requires — it follows necessarily that 2:282 cannot be laying down a general rule that a woman's testimony is half.\n\nThe objection is thus built by taking a clause of commercial documentation and converting it into a verdict about human nature. The verse does not say this; the verse's own rationale denies it; and other verses of the Qur'ān refute it in practice.",
+      "verdictTr": "2:282 bir genel şahitlik kaidesi değil, bir ticarî kayıt prosedürüdür ve gerekçesini kendi içinde verir: hatırlatma. Kur'ân'ın liân ayetlerinde kadının yemini bir erkeğinkine birebir denktir — 'yarım şahitlik' hükmü ayette değil, ayeti bağlamından koparan okumadadır.",
+      "verdictEn": "2:282 is not a general rule of testimony but a procedure of commercial record, and it gives its rationale within itself: reminding. In the Qur'ān's liʿān verses a woman's oath is exactly equivalent to a man's — the doctrine of 'half testimony' lies not in the verse but in a reading that severs it from its context.",
+      "classicalSources": [
+        {
+          "author": "et-Taberî",
+          "workTr": "Câmiu'l-Beyân",
+          "workEn": "Jāmiʿ al-Bayān",
+          "noteTr": "Ayetin bağlamını vadeli borç kaydıyla sınırlar; şahit sayısı düzenlemesini prosedürün bir maddesi olarak okur.",
+          "noteEn": "Confines the verse's context to the record of deferred debt, reading the provision on witnesses as one clause of the procedure."
+        },
+        {
+          "author": "İbn Kayyim el-Cevziyye",
+          "workTr": "et-Turuku'l-Hükmiyye",
+          "workEn": "al-Ṭuruq al-Ḥukmiyya",
+          "noteTr": "Şahitlikte esas olanın cinsiyet değil vukûfiyet ve güvenilirlik olduğunu; kadınların tek başına muteber sayıldığı geniş bir alan bulunduğunu ortaya koyar.",
+          "noteEn": "Establishes that what governs testimony is competence and trustworthiness rather than sex, and that there is a wide field in which women's testimony stands alone as valid."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Lem'alar — Yirmi Dördüncü Lem'a (Tesettür Risâlesi)",
+          "workEn": "The Flashes — Twenty-Fourth Flash (Treatise on Modesty)",
+          "noteTr": "Kadın ile erkeğin fıtrî vazife alanlarının farklılığını, birinin diğerinden üstünlüğü olarak değil işbölümü olarak okur; hükümlerin bu vazife alanlarına göre şekillendiğini gösterir.",
+          "noteEn": "Reads the difference between the natural spheres of man and woman as a division of labour rather than a superiority of one over the other, showing that rulings are shaped according to those spheres."
+        }
+      ],
+      "modernSources": [
+        {
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "Ayetin illetini 'unutma ihtimaline karşı hatırlatma' olarak tespit eder ve hükmün ticarî muameleye özgü olduğunu belirtir.",
+          "noteEn": "Identifies the ratio legis as 'reminding against the possibility of forgetting' and notes the ruling's specificity to commercial dealings."
+        },
+        {
+          "author": "Muhammed Hamidullah",
+          "workTr": "İslâm'a Giriş",
+          "workEn": "Introduction to Islam",
+          "period": "1957",
+          "noteTr": "Kadının hadîs rivayetinde, tıpta ve kendine mahsus alanlarda tek başına muteber şahit sayılmasını hukuk tarihinden örneklerle gösterir.",
+          "noteEn": "Shows with examples from legal history that a woman counts as a sole valid witness in ḥadīth transmission, medicine and matters proper to her."
+        }
+      ],
+      "debateNoteTr": "Çağdaş fıkıh çalışmalarının bir kısmı, kadınların ticarî hayata tam katılımıyla ayetin illetinin fiilen ortadan kalktığını ve şahitlik nisabının eşitlendiğini savunur. Bu, hükmün doğruluğunu değil illetin bugün mevcut olup olmadığını tartışan, klasik usûl içinde meşru bir tartışmadır.",
+      "debateNoteEn": "Some contemporary juristic work argues that with women's full participation in commercial life the verse's ratio legis has lapsed and the quorum of witnesses is equalized. This debates not the soundness of the ruling but whether its ratio still obtains — a legitimate discussion within classical methodology.",
       "relatedTools": [
         {
           "href": "/{lang}/atlas/kadinlar",
@@ -97,48 +243,72 @@
       "id": "nisa-4-34-dovme",
       "category": "ahlak",
       "titleTr": "Nisâ 4:34 — 'Onları Dövün' İfadesi Nasıl Okunur?",
-      "titleEn": "Nisāʾ 4:34 — How to Read 'Strike Them'?",
+      "titleEn": "Nisāʾ 4:34 — How Is 'Strike Them' to Be Read?",
       "verses": [
-        "4:34"
+        "4:34",
+        "4:35",
+        "4:19"
       ],
-      "shortResponseTr": "Ayet aile-içi anlaşmazlıkta üç aşamalı bir süreç önerir: nasihat → yatakta ayrılık → 'wa-ḍribūhunna'. Bu son fiilin geleneksel tercümesi 'dövün'; ancak Arapça kökün (ḍ-r-b) ~15 anlamı vardır. Klasik tefsir dahi 'sembolik, incitmeyen' sınırlar koyar ve Rasûl'ün örneğinin farklı olduğunu belirtir. Modern akademi 'ayrılın/kesin' tercümesini savunan alternatif okumalar geliştirir.",
-      "shortResponseEn": "The verse proposes a three-stage process for family dispute: admonition → separation in bed → 'wa-ḍribūhunna'. The last verb is traditionally translated 'strike'; but the Arabic root (ḍ-r-b) has ~15 meanings. Even classical tafsir sets 'symbolic, non-injurious' limits and notes the Prophet's own example differed. Modern academia develops alternative readings favoring 'separate' or 'depart'.",
-      "longResponseTr": "Klasik yorum (Râzî, Kurtubî, İbn Kesîr) 'ḍarb' kelimesini 'incitmeyecek şekilde sembolik' olarak sınırlar: yüze vurmayacak, ize sebep olmayacak, hafif olacak, ancak yine de fiziksel bir dokunma olarak anlar. Peygamber'in kendisi hiçbir zaman eşine el kaldırmadı (Hz. Âişe rivayeti) ve 'sizin en iyileriniz kadınlarına en iyi davrananlardır' buyurdu — bu tefsir-praxis gerilimini klasik tefsir bile fark eder. Modern okumalar (Laleh Bakhtiar 'The Sublime Quran' 2007, Mohammed Mahmoud, Ayşe Görmez) ḍ-r-b kökünün 'ayrılın, uzaklaşın, mesafe koyun' anlamlarını da içerdiğini gösterir (ör. Bakara 2:73 ḍarb 'çarpın/vurun' değil; kökün ~15 anlamının çoğu 'çarpmak' dışındadır). Kadın Peygamber'in Hz. Hâbibe (Ümmü Habibe) örneği: 'evlenmenin dışına çıkmak' olarak da okunabilir. Bu tartışma 'kanunun amacı vs zâhir lafzı' klasik gerilimini yeniler. Hiçbir modern hukuk ekolü aile içi fiziksel şiddeti onaylamıyor; klasik uygulama da onu 'son çare-sembolik' olarak sınırlıyordu; buradaki mesafenin dilbilimsel olarak nasıl kapatılabileceği aktif akademik gündem.",
-      "longResponseEn": "Classical interpretation (al-Rāzī, al-Qurṭubī, Ibn Kathīr) limits 'ḍarb' as 'symbolic, non-injurious': not to face, not leaving a mark, gentle — yet still understood as a physical touch. The Prophet himself never raised a hand against a wife (ʿĀʾisha's report) and said 'the best of you are those best to their women' — classical tafsir itself notes this tafsir-praxis tension. Modern readings (Laleh Bakhtiar 'The Sublime Quran' 2007, Mohammed Mahmoud) show the ḍ-r-b root includes senses of 'separate, depart, place distance' (e.g., Baqara 2:73 'ḍarb' is not 'strike'; most of the root's ~15 meanings are non-strike). This debate renews the classical tension between 'purpose of law vs literal wording.' No modern legal school approves domestic physical violence; classical application already limited it to 'last-resort symbolic'; how this distance can be linguistically closed is an active academic topic.",
+      "objectionTr": "Nisâ 4:34'ün son basamağı yaygın meâllerde 'onları dövün' diye çevrilir. İtiraz açıktır: Kur'ân aile içi şiddete izin veriyor, hatta onu emrediyor.",
+      "objectionEn": "The final step of Nisāʾ 4:34 is commonly rendered 'strike them.' The objection is blunt: the Qur'ān permits, indeed commands, domestic violence.",
+      "shortResponseTr": "Ayet bir şiddet ruhsatı değil, boşanmanın eşiğinde devreye giren ve her basamağı bir sonrakini gereksiz kılmayı hedefleyen bir arabuluculuk protokolüdür. Üç kayıt aynı anda işler: sebep keyfî değildir (nüşûz, yani evlilik akdini fiilen bozan açık geçimsizlik), sıra bağlayıcıdır (öğüt → yatakta ayrılık → ...), ve son basamak klasik fıkıhta 'gayr-i müberrih' — iz bırakmayan, acıtmayan, yüze vurulmayan, temsilî bir dokunuş — diye kayıtlanmıştır. Fakat asıl belirleyici olan şudur: bu ayetin canlı tefsiri Peygamber'in kendisidir ve o, ömrü boyunca hiçbir eşine el kaldırmamış, 'Kadınları dövenler, sizin hayırlınız değildir' buyurmuştur. Sünnetin fiilen çizdiği sınır, ayetin uygulama alanını neredeyse sıfıra indirmiştir. Hemen ardından gelen 4:35 ise meselenin nihaî çözümünü aileler arası hakem heyetine havale eder.",
+      "shortResponseEn": "The verse is not a licence for violence but a mediation protocol that engages at the threshold of divorce, each step designed to make the next unnecessary. Three constraints operate at once: the cause is not arbitrary (nushūz — manifest discord that effectively breaks the marital contract); the sequence is binding (admonition → separation in bed → …); and the final step is restricted in classical law as ghayr mubarriḥ — leaving no mark, causing no pain, never to the face, a symbolic touch. But the decisive point is this: the living exegesis of this verse is the Prophet himself, who never in his life raised a hand to any of his wives and said, 'Those who strike women are not the best among you.' The limit the Sunna drew in practice reduces the verse's field of application to virtually nothing. And 4:35, immediately following, refers the final resolution to an arbitration panel drawn from both families.",
+      "longResponseTr": "Ayeti yerine oturtmak için üç şeyi ayırmak gerekir: metnin lafzı, fıkhın kaydı ve sünnetin uygulaması.\n\nLafız cihetinden: ayet üç basamaklı bir sıra kurar ve bu sıra bağlayıcıdır — klasik fıkıhta bir basamak sonuç verirse sonrakine geçmek haramdır. Basamakların ortak niteliği, hepsinin caydırıcı-uyarıcı olması ve hiçbirinin zarar vermeyi hedeflememesidir. Üçüncü basamağın fiili olan 'ḍ-r-b' kökü Arapçada tek anlamlı değildir; Kur'ân'ın kendi kullanımında bu kök 'yola çıkmak / sefere çıkmak' (4:101), 'misal vermek' (14:24-25), 'perde çekmek, ayırmak' (18:11, 57:13) gibi anlamlarda geçer. Yani lafzın kendisi, zorlamasız biçimde 'mesafe koymak, ayrılmak' okumasına da açıktır ve bu okuma bazı çağdaş müfessirlerce savunulmuştur. Ancak dikkat: klasik anlayışın 'fiziksel' okuması dahi zaten zarar vermeyi yasaklamış olduğu için, bu dilbilimsel imkân bir kurtarma hamlesi değil, ayetin zaten ulaştığı sonucu pekiştiren bir katmandır.\n\nFıkıh cihetinden: müfessirlerin ittifakla koyduğu kayıtlar şunlardır — yüze vurulmaz, iz bırakmaz, acı vermez, kemik kırmaz, öfkeyle yapılmaz, ceza maksadı taşımaz. Pek çok fakih bunu misvak gibi bir çubukla temsilî bir dokunuş olarak tarif etmiştir. İbn Âşûr ayrıca şunu ekler: adaletli davranamayacağını bilen kimse için bu basamak baştan haramdır. Sınırın aşılması hâlinde ise kadının kısas ve tazminat hakkı doğar — yani fiil hukuken korunmuş değil, kovuşturulabilir hâle gelir. Bir 'ruhsat'ın etrafına bu kadar çok kilit vurulmuşsa, o ruhsat fiilen kapatılmış demektir.\n\nSünnet cihetinden — ki belirleyici olan budur: Hz. Âişe, Peygamber'in eliyle hiçbir kadına, hiçbir hizmetçiye ve hiçbir şeye vurmadığını bildirir. Veda Hutbesi'nde kadınlar hakkında 'Onlar hususunda Allah'tan korkun' buyurmuş; 'Sizin en hayırlınız, ailesine karşı en hayırlı olanınızdır' demiş; kendisine gelen şikâyetler üzerine 'Kadınlarını dövenler, sizin hayırlınız değildir' diye açıkça uyarmıştır. Kur'ân'ı yaşayan tefsiri olan bir insanın bu ayeti hiç uygulamamış olması, ayetin nasıl anlaşılması gerektiğine dair en yüksek delildir. Nitekim İslâm hukukunda genel kural yerleşmiştir: eşine zarar veren koca, hem günahkâr hem hukuken sorumludur ve bu, boşanma sebebidir.\n\nSonuç olarak itiraz, ayeti üç kere koparmak zorundadır: bağlamından (nüşûz + üç basamak + 4:35 hakem), fıkhî kaydından (gayr-i müberrih) ve sünnetten (Peygamber'in hiç uygulamamış olması). Bu üç koparma yapılmadan itiraz kurulamıyor. Kur'ân'ın kendisi, aile hayatının temeline 'meveddet ve rahmet'i (30:21) ve 'onlarla iyi geçinin' (4:19) emrini koymuştur; 4:34 bu çerçevenin dışında değil, içinde okunur.",
+      "longResponseEn": "To place the verse properly, three things must be distinguished: the wording of the text, the restrictions of jurisprudence, and the practice of the Sunna.\n\nAs to wording: the verse sets a three-step sequence, and the sequence is binding — in classical law, if one step yields a result it is forbidden to proceed to the next. What the steps share is that all are deterrent and admonitory, and none aims at harm. The verb of the third step, from the root ḍ-r-b, is not univocal in Arabic; in the Qur'ān's own usage it carries senses such as 'to set out, to travel' (4:101), 'to strike a similitude' (14:24-25), and 'to draw a partition, to separate' (18:11, 57:13). The wording is thus open, without strain, to a reading of 'to withdraw, to put distance,' and some contemporary exegetes have argued for it. But note: since even the classical physical reading already forbade harm, this linguistic possibility is not a rescue but a further layer confirming where the verse already arrives.\n\nAs to jurisprudence: the restrictions the exegetes place unanimously are these — not to the face, leaving no mark, causing no pain, breaking no bone, not done in anger, not punitive in intent. Many jurists described it as a symbolic touch with something like a tooth-stick. Ibn ʿĀshūr adds that for anyone who knows he cannot act justly, this step is forbidden from the outset. Where the limit is exceeded, the woman acquires rights of redress and compensation — the act is not legally protected but actionable. When a 'licence' is padlocked this many times over, it has in effect been closed.\n\nAs to the Sunna — and this is decisive: ʿĀʾisha reports that the Prophet never struck any woman, any servant, or anything at all with his hand. In the Farewell Sermon he enjoined fear of God concerning women; he said, 'The best of you is the best to his family'; and when complaints reached him he warned openly, 'Those who strike their women are not the best among you.' That the living exegesis of the Qur'ān never once applied this verse is the highest evidence for how it is to be understood. Accordingly the general rule settled in Islamic law: a husband who harms his wife is both sinful and legally liable, and this is grounds for divorce.\n\nIn sum, the objection must sever the verse three times over: from its context (nushūz + three steps + the arbiters of 4:35), from its juristic restriction (ghayr mubarriḥ), and from the Sunna (that the Prophet never applied it). Without these three severances the objection cannot be constructed. The Qur'ān itself places at the foundation of married life 'affection and mercy' (30:21) and the command to 'live with them in kindness' (4:19); 4:34 is read inside that frame, not outside it.",
+      "verdictTr": "Ayet şiddet emri değil, boşanmayı önlemeye çalışan bir son-çare protokolüdür; sınırını Peygamber'in kendi hayatı fiilen çizmiştir. 'Kur'ân şiddeti onaylıyor' iddiası ancak ayeti hem şartlarından hem sünnetten koparmakla kurulabilir.",
+      "verdictEn": "The verse is no command to violence but a last-resort protocol seeking to avert divorce; its limit was drawn in practice by the Prophet's own life. The claim that the Qur'ān sanctions violence can be constructed only by severing the verse from both its conditions and the Sunna.",
       "classicalSources": [
         {
           "author": "er-Râzî",
           "workTr": "Mefâtîhu'l-Ğayb",
           "workEn": "Mafātīḥ al-Ghayb",
-          "noteTr": "'Sembolik, hafif' sınırını çizer; kalıcı iz + kırık + yaralamayı açıkça yasaklar.",
-          "noteEn": "Draws the 'symbolic, gentle' limit; explicitly forbids lasting marks, breaks or wounds."
+          "noteTr": "Basamak sırasının bağlayıcılığını ve son basamağın 'gayr-i müberrih' kaydını ayrıntısıyla kurar.",
+          "noteEn": "Establishes in detail the binding order of the steps and the ghayr mubarriḥ restriction on the last."
         },
         {
           "author": "İbn Kesîr",
           "workTr": "Tefsîru'l-Kurʾâni'l-Azîm",
           "workEn": "Tafsīr al-Qurʾān al-ʿAẓīm",
-          "noteTr": "Peygamber'in eş-davranış örneğinin ayetin uygulamasını sınırladığını vurgular.",
-          "noteEn": "Emphasizes that the Prophet's example with his wives constrains the verse's application."
+          "noteTr": "Ayeti nüşûz şartına ve sünnetin uygulamasına bağlar; Peygamber'in fiilî tavrını ölçü olarak zikreder.",
+          "noteEn": "Ties the verse to the condition of nushūz and to the Sunna's practice, citing the Prophet's actual conduct as the measure."
+        },
+        {
+          "author": "İbn Âşûr",
+          "workTr": "et-Tahrîr ve't-Tenvîr",
+          "workEn": "al-Taḥrīr wa-l-Tanwīr",
+          "noteTr": "Adaletli davranamayacağını bilen için bu basamağın baştan haram olduğunu, hükmün maksadının caydırma değil ailenin korunması olduğunu belirtir.",
+          "noteEn": "Holds the step forbidden from the outset for one who knows he cannot act justly, and that the aim of the ruling is the preservation of the family, not chastisement."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Lem'alar — Yirmi Dördüncü Lem'a (Tesettür Risâlesi)",
+          "workEn": "The Flashes — Twenty-Fourth Flash (Treatise on Modesty)",
+          "noteTr": "Aile hayatının temeline şefkat, hürmet ve karşılıklı emniyeti koyar; kadın-erkek münasebetini tahakküm ve menfaat değil muhabbet ekseninde tarif eder — 4:34'ün okunacağı zemin budur.",
+          "noteEn": "Places compassion, respect and mutual security at the foundation of family life, describing the relation of husband and wife on an axis of affection rather than domination or interest — this is the ground on which 4:34 is read."
         }
       ],
       "modernSources": [
         {
-          "author": "Laleh Bakhtiar",
-          "workTr": "Yüce Kurʾân (İngilizce Tercüme)",
-          "workEn": "The Sublime Quran",
-          "period": "2007",
-          "noteTr": "ḍ-r-b'yi 'go away' olarak tercüme eden ilk büyük İngilizce meal; dilbilimsel savunma detaylı sunulur.",
-          "noteEn": "The first major English translation rendering ḍ-r-b as 'go away'; detailed linguistic defense presented."
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "Ayetin üç basamağını 'ıslah maksadı' etrafında okur; zarar veren her uygulamanın hükmün maksadına aykırı olduğunu belirtir.",
+          "noteEn": "Reads the three steps around the aim of reconciliation, holding that any harmful application contradicts the purpose of the ruling."
         },
         {
-          "author": "Kecia Ali",
-          "workTr": "Cinsel Ahlâk ve İslâm",
-          "workEn": "Sexual Ethics and Islam",
-          "period": "2006",
-          "noteTr": "Ayetin fıkıh + hadis + tefsir üçgenindeki bağlamını akademik olarak inceler.",
-          "noteEn": "Academically examines the verse's context within the fiqh-hadith-tafsir triangle."
+          "author": "Laleh Bakhtiar",
+          "workTr": "Yüce Kur'ân (İngilizce Tercüme)",
+          "workEn": "The Sublime Quran",
+          "period": "2007",
+          "noteTr": "ḍ-r-b kökünün Kur'ân içi kullanımlarından hareketle 'ayrılın / uzaklaşın' tercümesini savunur; klasik kaydı destekleyen dilbilimsel bir katman.",
+          "noteEn": "Argues from the Qur'ān's own uses of the root ḍ-r-b for a rendering of 'go away from them'; a linguistic layer reinforcing the classical restriction."
         }
       ],
+      "debateNoteTr": "'Ayrılın' okumasını benimsemek klasik yorumu reddetmeyi gerektirmez: iki okuma da aynı hukukî sonuca çıkar — zarar vermek her hâlükârda haramdır. Tartışma tercümenin isabetindedir, hükmün doğruluğunda değil.",
+      "debateNoteEn": "Adopting the 'withdraw' reading does not require rejecting the classical one: both arrive at the same legal outcome — causing harm is forbidden either way. The debate concerns the accuracy of a rendering, not the soundness of the ruling.",
       "relatedTools": [
         {
           "href": "/{lang}/atlas/kadinlar",
@@ -146,68 +316,9 @@
           "titleEn": "Women's Atlas"
         },
         {
-          "href": "/{lang}/arac/furuk",
-          "titleTr": "Furûk Atlası",
-          "titleEn": "Furūq Atlas"
-        }
-      ]
-    },
-    {
-      "id": "kolelik-tedrici",
-      "category": "tarih",
-      "titleTr": "Kölelik — Neden Doğrudan Yasaklanmadı?",
-      "titleEn": "Slavery — Why Not Directly Abolished?",
-      "verses": [
-        "24:33",
-        "4:92",
-        "5:89",
-        "58:3",
-        "90:12-13"
-      ],
-      "shortResponseTr": "Kur'ân köleliğin doğal bir sosyal kurum olarak var olduğu 7. yy Arabistan'ında iner. Doğrudan yasaklama yerine tedricî bir azaltma stratejisi kurar: bütün büyük günahların kefareti köle azadıdır (Nisâ 4:92, Mâide 5:89, Mücadele 58:3); mükâteb sözleşmesi köleye satın alma hakkı verir (Nûr 24:33); ödünç para veren de köleye kolaylık göstermelidir. Bu 'yavaş kaldırma' modeli tartışmalı: kimileri stratejik biçim olduğunu, kimileri yetersiz kaldığını savunur.",
-      "shortResponseEn": "The Quran was revealed in 7th-century Arabia where slavery existed as a natural social institution. Rather than direct prohibition, it establishes a gradual reduction strategy: freeing a slave is the atonement for many major sins (Nisāʾ 4:92, Māʾida 5:89, Mujādala 58:3); the mukātab contract gives the slave the right to buy freedom (Nūr 24:33); creditors must extend leniency. This 'gradual abolition' model is debated: some see it as strategic phrasing, others as insufficient.",
-      "longResponseTr": "Kur'ân'ın kölelik hakkındaki yaklaşımı iki ekseni birlikte tutar: (1) mevcut kurumu kabul ederek insanî muameleyi zorlar — köleye iyi davranmak, evlendirmek, azad etmek en yüksek fazilet; (2) sistemin ekonomik-teolojik alt-yapısını yavaşça çürütür — her günah + yemin bozma + zıhar + kaza için köle azadı zorunlu, Ramazan orucu tutamayan kişi bile köle azad eder. Klasik hukuk (Şâfiî, Ebû Hanîfe) bu sistemi geniş biçimde uyguladı — Osmanlı 19. yy'a kadar hukukî kölelik meşru sayıldı. Modern akademik tartışma (Bernard Freamon 'Possessed by the Right Hand' 2019, Jonathan Brown 'Slavery and Islam' 2019) iki tez sunar: (a) Kur'ân'ın direktifleri yavaş ama kesin bir sonlandırma amacı taşır — İslâm dünyası bu ivmeyi maalesef takip etmedi; (b) Direktifler ıslah/reformdur ama ontolojik olarak kaldırma değildir — modern eleştirinin haklı olduğu bir açık kalır. William Clarence-Smith (Islam and the Abolition of Slavery, 2006) Osmanlı ve Kuzey Afrika örneklerinin bu tarihsel karmaşıklığı gösterdiğini savunur. Bugün her Müslüman ekol köleliği yasak sayar; bu sorunun teolojik çözümü değil tarihsel-tefsirî çözümü tartışılır.",
-      "longResponseEn": "The Quran's approach to slavery holds two axes together: (1) accepting the existing institution while forcing humane treatment — kindness to slaves, marrying them, freeing them are highest virtues; (2) slowly eroding the economic-theological substrate of the system — freeing a slave is required as atonement for oath-breaking, ẓihār, unintended homicide, missed Ramadan. Classical law (al-Shāfiʿī, Abū Ḥanīfa) implemented this broadly — legal slavery remained legitimate in the Ottoman world until the 19th century. Modern academic debate (Bernard Freamon 'Possessed by the Right Hand' 2019, Jonathan Brown 'Slavery and Islam' 2019) offers two theses: (a) the Quran's directives carry a slow but definite intent of ending it — the Muslim world unfortunately did not follow through; (b) the directives are reformist but not ontologically abolitionist — modern critique retains a valid opening. William Clarence-Smith (Islam and the Abolition of Slavery, 2006) argues Ottoman and North African cases show this historical complexity. Today every Muslim school considers slavery prohibited; what is debated is not the theological solution but the historical-exegetical one.",
-      "classicalSources": [
-        {
-          "author": "eş-Şâfiî",
-          "workTr": "el-Umm",
-          "workEn": "al-Umm",
-          "noteTr": "Kölelik hukukunun klasik fıkhî sistematiği; kefaret + mükâteb + azad zincirini işler.",
-          "noteEn": "Classical jurisprudential system of slavery law; treats the atonement + mukātab + manumission chain."
-        }
-      ],
-      "modernSources": [
-        {
-          "author": "Jonathan A. C. Brown",
-          "workTr": "Kölelik ve İslâm",
-          "workEn": "Slavery and Islam",
-          "period": "2019 (Oneworld)",
-          "noteTr": "Hem klasik hukuku hem modern eleştirel yaklaşımları balanslı ele alan çağdaş akademik referans.",
-          "noteEn": "Contemporary academic reference balancing both classical law and modern critical approaches."
-        },
-        {
-          "author": "Bernard K. Freamon",
-          "workTr": "Sağ Elinizin Sahip Olduğu",
-          "workEn": "Possessed by the Right Hand",
-          "period": "2019 (Brill)",
-          "noteTr": "İslâm hukukunun kölelikle ilişkisinin bin yıllık gelişimini akademik olarak izler.",
-          "noteEn": "Academically traces the thousand-year development of Islamic law's relationship with slavery."
-        },
-        {
-          "author": "William Clarence-Smith",
-          "workTr": "İslâm ve Köleliğin Kaldırılması",
-          "workEn": "Islam and the Abolition of Slavery",
-          "period": "2006 (Oxford UP)",
-          "noteTr": "Osmanlı, Fas ve Zanzibar örneklerinde köleliğin kaldırılma süreçlerinin karşılaştırmalı analizi.",
-          "noteEn": "Comparative analysis of slavery abolition processes in Ottoman, Moroccan, and Zanzibari cases."
-        }
-      ],
-      "relatedTools": [
-        {
-          "href": "/{lang}/atlas/kavim",
-          "titleTr": "Kavimler Atlası",
-          "titleEn": "Nations Atlas"
+          "href": "/{lang}/atlas/furuk",
+          "titleTr": "Furûk — Yakın Anlamlılar",
+          "titleEn": "Furūq — Near Synonyms"
         }
       ]
     },
@@ -215,280 +326,558 @@
       "id": "cizye-vatandaslik",
       "category": "ahlak",
       "titleTr": "Cizye Ayeti — Ehl-i Kitap İkinci Sınıf mı?",
-      "titleEn": "The Jizya Verse — Are the People of the Book Second-Class?",
+      "titleEn": "The Jizya Verse — Are the People of the Book Second Class?",
       "verses": [
-        "9:29"
+        "9:29",
+        "2:256",
+        "60:8",
+        "5:8"
       ],
-      "shortResponseTr": "Tövbe 9:29 gayrimüslim Ehl-i Kitab'a cizye vergisi getirir; bunun karşılığında askerî hizmetten muâf tutulur ve İslâm devletinin koruması altına girer. Klasik hukuk (Ebû Yûsuf 'Kitâbü'l-Harâc') bunu bir tür vatandaşlık sözleşmesi olarak yorumlar. Modern eleştiri (John Tolan, Yohanan Friedmann) uygulamada aşağılayıcı biçimlere büründüğünü, çağdaş vatandaşlık kavramıyla uyumsuz olduğunu savunur.",
-      "shortResponseEn": "Tawba 9:29 imposes the jizya tax on non-Muslim People of the Book; in exchange they are exempt from military service and placed under the state's protection. Classical law (Abū Yūsuf, Kitāb al-Kharāj) interprets this as a form of citizenship contract. Modern critique (John Tolan, Yohanan Friedmann) argues it took humiliating forms in practice and is incompatible with modern citizenship.",
-      "longResponseTr": "Ayetin klasik okunuşu: gayrimüslim vatandaş (zimmî) cizye öder, karşılığında ibadet özgürlüğü, mülkiyet koruması, askerî hizmet muâfiyeti, cinâî davada eşit hüküm alır. Ebû Yûsuf (Hârûn Reşid dönemi baş yargıç) Kitâbü'l-Harâc'ında bunu sistematik bir vatandaşlık modeli olarak sunar — Bizans ve Sasânî imparatorluklarının vergi düzenlerine benzer. Endülüs, Fâtımî Mısır, Hind alt-kıtası tarih boyunca farklı zimmî uygulamaları geliştirdi. Modern akademik değerlendirme iki yönlü: (1) 7-15. yy standartlarında cizye modeli çağdaşlarına (Bizans'ın Yahudi + Hristiyan olmayan din statüsü) göre daha korumacı ve tutarlıydı — Mark Cohen 'Under Crescent and Cross' (1994) bu karşılaştırmayı yapar; (2) Bazı dönemlerde (ör. Emevî sonu) cizye tahsili sırasında zilletli töre (ayakta bekletme, ense vurma) uygulandı — bu töre metinde emredilmez ama uygulamada yerleşti. Bugünün Müslüman düşüncesinin bir kısmı (Rachid Ghannouchi, Abdolkarim Soroush) çağdaş anayasal vatandaşlığı ayetin maksadına daha uygun bulur; klasik hukuk çerçevesinin uygulanamaz olduğunda hemfikir. Zimmî statüsünün modern muadili henüz üzerinde uzlaşılmış bir hukukî formül değildir.",
-      "longResponseEn": "Classical reading: the non-Muslim citizen (dhimmī) pays jizya, in exchange receives freedom of worship, property protection, exemption from military service, equal ruling in criminal cases. Abū Yūsuf (chief judge under Hārūn al-Rashīd) presents this systematically in Kitāb al-Kharāj as a citizenship model — resembling the tax orders of Byzantine and Sassanid empires. Andalusia, Fatimid Egypt, the Indian subcontinent developed different dhimmī practices over history. Modern academic assessment is two-fold: (1) by 7-15th century standards, the jizya model was more protective and consistent than its contemporaries (Byzantine status of non-Christian religions) — Mark Cohen 'Under Crescent and Cross' (1994) makes this comparison; (2) in some periods (e.g., late Umayyad) humiliating customs were imposed during collection (waiting standing, neck-slap) — these customs are not commanded in the text but became embedded in practice. Part of contemporary Muslim thought (Rachid Ghannouchi, Abdolkarim Soroush) finds modern constitutional citizenship more fitting to the verse's purpose; consensus that classical legal framework is inapplicable. The modern equivalent of dhimmī status is not yet an agreed legal formula.",
+      "objectionTr": "Tevbe 9:29 gayrimüslimlerden 'küçülmüş olarak' cizye alınmasını emreder. İtiraz: bu, gayrimüslimi hukuken aşağı konuma yerleştiren bir aşağılama vergisidir ve çağdaş eşit vatandaşlıkla bağdaşmaz.",
+      "objectionEn": "Tawba 9:29 commands that jizya be taken from non-Muslims 'while humbled.' The objection: this is a tax of humiliation placing the non-Muslim in a legally inferior position, irreconcilable with equal citizenship.",
+      "shortResponseTr": "Cizye bir din vergisi değil, bir hizmet bedelidir — ve karşılıklı bir sözleşmenin bedelidir. Zimmî askerlik yapmaz; buna karşılık İslâm devleti onun canını, malını, ırzını, mabedini ve dinini korumakla yükümlüdür. Müslüman ise hem zekât öder hem askerlik yapar; zimmî ikisinden yalnız birini yapar. Kimden alınmadığına bakmak yeter: kadın, çocuk, yaşlı, hasta, kötürüm, fakir, râhip ve manastır ehli cizyeden muaftır. Demek ki vergi 'gayrimüslim olmanın' değil, 'savaşabilecek durumda olup savaşmamanın' karşılığıdır — muafiyet listesi tam da askerlikten muaf olanların listesidir. Sözleşmenin karşılıklılığı ise tarihte fiilen işlemiştir: Ebû Ubeyde b. Cerrâh, Humus'u savunamayacağını anlayınca halktan toplanan cizyeyi iade etmiştir.",
+      "shortResponseEn": "Jizya is not a tax on religion but the price of a service — and the price under a mutual contract. The dhimmī does not serve in the army; in return the Islamic state is obliged to protect his life, property, honour, place of worship and religion. The Muslim pays zakāt and serves in the army; the dhimmī does one of the two. It suffices to look at who is exempt: women, children, the elderly, the sick, the disabled, the poor, monks and the people of monasteries. The tax is thus the counterpart not of 'being non-Muslim' but of 'being able to fight and not fighting' — the exemption list is precisely the list of those exempt from military service. And the contract's reciprocity operated in fact: when Abū ʿUbayda ibn al-Jarrāḥ judged he could no longer defend Ḥimṣ, he returned the jizya collected from its people.",
+      "longResponseTr": "Ayetteki 'ṣāghirūn' kelimesi itirazın bütün ağırlığını taşır, o hâlde onunla başlamak gerekir. Klasik müfessirlerin çoğunluğu bu kelimeyi kişisel bir aşağılama olarak değil, hukukî bir tâbiiyet olarak okur: devletin hükmüne ve kanunlarına boyun eğmiş, yani ayrı bir egemenlik iddiasında bulunmayan vatandaş konumu. Şâfiî'nin bazı takipçilerinin tasvir ettiği zilletli tahsil törenlerini — ayakta bekletme, ense vurma gibi — İbn Kayyim el-Cevziyye Ahkâmü Ehli'z-Zimme'de açıkça reddeder: bunların ne Kur'ân'da ne sünnette dayanağı vardır, sonradan uydurulmuş törelerdir. Yani itirazın hedef aldığı manzara, metnin değil metne rağmen oluşmuş bir uygulamanın manzarasıdır.\n\nSözleşmenin içeriğine bakıldığında zimmî statüsü şunları içerir: ibadet hürriyeti (2:256'nın kesin hükmü altında — dinde zorlama yoktur), mabetlerin korunması, mülkiyet güvenliği, kendi hukukuna göre yargılanma (aile ve miras hukukunda kendi din hukuku uygulanır), askerlik muafiyeti, ve yoksul düştüğünde beytülmalden geçim. Ebû Yûsuf Kitâbü'l-Harâc'ta bunu sistematik biçimde kurar ve Hz. Ömer'in dilenen yaşlı bir zimmîyi görüp ona beytülmalden maaş bağlamasını, cizyenin de o kişiden düşürülmesini emretmesini örnek olarak nakleder — ihtiyarlığında ondan vergi alıp muhtaç bırakmayı adalete aykırı bulmuştur. Halid b. Velid'in Hîre ahdinde de aynı mantık yazılıdır: yaşlanan, sakat kalan veya fakir düşen zimmîden cizye alınmaz, üstelik beytülmalden geçindirilir.\n\nMukayese de gereklidir. Cizye modeli, çağdaşlarının yanında istisnaîdir: aynı yüzyıllarda Bizans'ta ve Vizigot İspanyası'nda gayrimüslim ve heretik topluluklar ibadet hürriyetinden ve kendi hukuklarından tamamen mahrumdu; zorla vaftiz ve sürgün uygulamaları yaygındı. Endülüs'te ve Osmanlı'da yüzyıllar boyunca kilise ve havraların, cemaat mahkemelerinin ve dinî eğitim kurumlarının varlığını sürdürebilmiş olması bu farkın somut delilidir. Bir sistem ancak kendi çağının alternatifleriyle tartılır.\n\nSon nokta: cizye bir savaş hâli hukuku değil, bir barış sözleşmesi hukukudur; ve Kur'ân'ın gayrimüslimlerle genel ilişki ölçüsü 60:8'de konur — sizinle din yüzünden savaşmayanlara iyilik yapmanız ve adaletli davranmanız yasaklanmamıştır, Allah adalet yapanları sever. Bugün Müslüman toplumların anayasal vatandaşlık düzeninde yaşaması, cizyenin dayandığı 'askerlik muafiyeti karşılığı vergi' denkleminin ortadan kalkmasıyla ilgilidir; hükmün doğruluğuyla değil, hükmün illetinin bulunup bulunmamasıyla. Fıkıhta illet kalkınca hüküm de kalkar — bu, Kur'ân'a rağmen değil, Kur'ân'ın kendi usûlüyle varılan bir sonuçtur.",
+      "longResponseEn": "The word ṣāghirūn carries the whole weight of the objection, so it is where one must begin. The majority of classical exegetes read it not as personal humiliation but as legal subordination: the standing of a citizen submitted to the state's jurisdiction and laws, that is, advancing no rival claim of sovereignty. The humiliating collection rituals described by some later followers — keeping the payer standing, a blow to the neck — are explicitly rejected by Ibn Qayyim al-Jawziyya in Aḥkām Ahl al-Dhimma: they have no basis in Qur'ān or Sunna and are later inventions. The scene the objection targets is therefore the scene not of the text but of a practice formed against it.\n\nAs to the content of the contract, dhimmī status carried: freedom of worship (under the categorical ruling of 2:256 — no compulsion in religion), protection of places of worship, security of property, adjudication under one's own law (in family and inheritance matters one's own religious law applied), exemption from military service, and support from the treasury in destitution. Abū Yūsuf sets this out systematically in Kitāb al-Kharāj, relating how ʿUmar, seeing an elderly dhimmī begging, ordered him a stipend from the treasury and the remission of his jizya — holding it contrary to justice to take tax from a man in his youth and abandon him in his old age. The same logic is written into Khālid ibn al-Walīd's treaty with al-Ḥīra: no jizya is taken from a dhimmī who grows old, becomes disabled or falls into poverty, and he is maintained from the treasury.\n\nComparison is also needed. The jizya model was exceptional beside its contemporaries: in the same centuries, non-Christian and heretical communities in Byzantium and Visigothic Spain were denied freedom of worship and their own law altogether, with forced baptism and expulsion widespread. That churches and synagogues, communal courts and religious schools survived for centuries in al-Andalus and under the Ottomans is the concrete evidence of that difference. A system can only be weighed against the alternatives of its own age.\n\nA final point: jizya is the law of a peace contract, not of a state of war; and the Qur'ān's general measure for relations with non-Muslims is set in 60:8 — you are not forbidden from dealing kindly and justly with those who did not fight you over religion; God loves the just. That Muslim societies today live under constitutional citizenship concerns the disappearance of the equation on which jizya rested — a tax in lieu of military service — not the soundness of the ruling. In jurisprudence, when the ratio legis lapses, the ruling lapses with it: a conclusion reached by the Qur'ān's own methodology, not against it.",
+      "verdictTr": "Cizye bir aşağılama vergisi değil, askerlik muafiyetinin ve devlet korumasının bedelidir. Tarihte ona bulaşan zilletli töreler ayetten değil, ayete rağmen doğmuştur — kusur uygulamada, metinde değil.",
+      "verdictEn": "Jizya is not a tax of humiliation but the price of exemption from military service and of the state's protection. The degrading rituals that later attached to it arose against the verse, not from it — the fault lies in practice, not in the text.",
       "classicalSources": [
         {
           "author": "Ebû Yûsuf",
           "workTr": "Kitâbü'l-Harâc",
           "workEn": "Kitāb al-Kharāj",
-          "period": "?-798",
-          "noteTr": "Cizye + zimmî hukukunun klasik sistematik referansı; Hârûn Reşid'in başkâdı tarafından yazılmıştır.",
-          "noteEn": "Classical systematic reference of jizya + dhimmī law; written by Hārūn al-Rashīd's chief judge."
+          "noteTr": "Zimmî hukukunu bir vatandaşlık sözleşmesi olarak sistematize eder; Hz. Ömer'in yaşlı zimmîye maaş bağlaması gibi uygulama örneklerini nakleder.",
+          "noteEn": "Systematizes dhimmī law as a citizenship contract and relates practical precedents such as ʿUmar's stipend for the elderly dhimmī."
+        },
+        {
+          "author": "İbn Kayyim el-Cevziyye",
+          "workTr": "Ahkâmü Ehli'z-Zimme",
+          "workEn": "Aḥkām Ahl al-Dhimma",
+          "noteTr": "Cizye tahsilinde uydurulan zilletli törelerin Kur'ân ve sünnette dayanağı olmadığını açıkça ortaya koyar; klasik ulemânın kendi içindeki tashih mekanizmasının örneği.",
+          "noteEn": "Shows plainly that the humiliating collection rituals have no basis in Qur'ān or Sunna; an example of the classical scholars' own corrective mechanism."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Münâzarât",
+          "workEn": "Münâzarât (Debates)",
+          "noteTr": "Meşrutiyet döneminde gayrimüslimlerin vatandaşlık hukuku üzerine yöneltilen soruları tek tek cevaplar; ehl-i kitapla münasebetin düşmanlık değil hukuk ve adalet zemininde yürüdüğünü savunur.",
+          "noteEn": "Answers one by one the questions raised in the constitutional era about the citizenship rights of non-Muslims, arguing that relations with the People of the Book proceed on the ground of law and justice, not enmity."
         }
       ],
       "modernSources": [
+        {
+          "author": "Muhammed Hamidullah",
+          "workTr": "İslâm'da Devlet İdaresi",
+          "workEn": "The Muslim Conduct of State",
+          "period": "1945",
+          "noteTr": "Cizyenin askerlik muafiyeti karşılığı olduğunu ahidnâme metinleriyle belgeler; koruma sağlanamadığında iade edilmesi kuralını gösterir.",
+          "noteEn": "Documents from treaty texts that jizya was the counterpart of exemption from military service, and shows the rule of its return when protection failed."
+        },
         {
           "author": "Mark R. Cohen",
           "workTr": "Hilâl ve Haç Altında",
           "workEn": "Under Crescent and Cross",
           "period": "1994 (Princeton UP)",
-          "noteTr": "Ortaçağ İslâm dünyasında Yahudi statüsü ile Hristiyan dünyasındaki Yahudi statüsünün karşılaştırmalı analizi.",
-          "noteEn": "Comparative analysis of Jewish status in medieval Islam vs Christian world."
-        },
-        {
-          "author": "Yohanan Friedmann",
-          "workTr": "İslâm'da Hoşgörü ve Zorlama",
-          "workEn": "Tolerance and Coercion in Islam",
-          "period": "2003 (Cambridge UP)",
-          "noteTr": "Zimmî hukukunun içsel gerilimlerini ve tarihsel dönüşümünü akademik olarak inceler.",
-          "noteEn": "Academically examines the inner tensions and historical transformation of dhimmī law."
+          "noteTr": "Ortaçağ Yahudi cemaatlerinin İslâm ve Hristiyan yönetimleri altındaki durumunu karşılaştırır; zimmî modelinin çağdaşlarına göre belirgin biçimde korumacı olduğunu ortaya koyar.",
+          "noteEn": "Compares the condition of medieval Jewish communities under Muslim and Christian rule, showing the dhimmī model markedly more protective than its contemporaries."
         }
       ],
+      "debateNoteTr": "Zimmî statüsünün çağdaş anayasal vatandaşlıkla ilişkisi fıkhî bir uygulama meselesidir. Askerlik muafiyeti denklemi ortadan kalktığı için hükmün illeti de kalkmıştır; illet kalkınca hükmün kalkması Kur'ân'a rağmen değil, Kur'ân'ın usûlüyle varılan bir sonuçtur.",
+      "debateNoteEn": "The relation of dhimmī status to modern constitutional citizenship is a juristic question of application. The equation of exemption from military service has lapsed, and with it the ratio legis; that the ruling lapses when its ratio does is a conclusion reached by the Qur'ān's methodology, not against it.",
       "relatedTools": [
         {
           "href": "/{lang}/atlas/kavim",
           "titleTr": "Kavimler Atlası",
-          "titleEn": "Nations Atlas"
-        }
-      ]
-    },
-    {
-      "id": "nuh-tufani-global-mi",
-      "category": "tarih",
-      "titleTr": "Nûh Tufanı — Global mi, Bölgesel mi?",
-      "titleEn": "Noah's Flood — Global or Regional?",
-      "verses": [
-        "11:40-44",
-        "23:23-30",
-        "54:9-14",
-        "71:25-28"
-      ],
-      "shortResponseTr": "Kur'ân Nûh tufanının Nûh'un kavmini helâk ettiğini söyler — açık bir 'tüm yeryüzü' iddiasında bulunmaz. Klasik tefsirde çoğunluk 'küllî' (global) okur, ancak Kurtubî ve İbn Teymiye 'bölgesel' seçeneğini de kaydeder. Modern jeolojik + arkeolojik veri global bir tufanı desteklemez; Mesopotamya bölgesel taşkın hipotezi (Woolley 1929) daha uygun kabul edilir.",
-      "shortResponseEn": "The Quran says Noah's flood destroyed Noah's people — it makes no explicit 'entire earth' claim. Classical tafsir mostly reads 'universal' (global), but al-Qurṭubī and Ibn Taymiyya also record the 'regional' option. Modern geological + archaeological data do not support a global flood; the Mesopotamian regional flood hypothesis (Woolley 1929) is more widely accepted.",
-      "longResponseTr": "Kur'ân'ın anlatısı dikkatlice okunduğunda 'yeryüzünün her yeri' değil 'Nûh'un kavminin bölgesi' kastediliyor olabilir. Hûd 11:44 'ey yer! Suyunu yut' der — belirli bir yer; Mü'minûn 23:27 kavim helâki üzerine odaklanır. Klasik tefsirde İbn Abbas'a bir rivayete göre tufan 'Nûh'un kavmi ile sınırlı' idi; Süddî ve Katade'ye göre 'küllî' idi. Süyûtî el-İtkān'da her iki görüşü de zikreder. Modern okumada (Halûk Nurbaki, Süleyman Ateş, İhsan Süreyya Sırma) 'bölgesel' okuma tercih edilir — çünkü (1) metin küllî iddia etmez; (2) 'kavim' ifadesi ısrarlıdır; (3) Kur'ân'ın kâinat vizyonu bilimsel gerçeklerle uyumlu bir istikamet gösterir. Arkeolojik açıdan: Sir Leonard Woolley'in 1929'da Ur'da bulduğu 3.5 metrelik alüvyon tabakası MÖ ~2900'e tarihlenen büyük bir bölgesel taşkını doğruladı. Gılgamış Destanı + Sümer Kral Listesi'ndeki tufan anlatıları bu bölgesel felâketin farklı kültürel yankılarıdır. Kur'ân'ın 'küllî' okuması zorunlu bir doktrin değil — bölgesel okuma ne teolojik bir mesele yaratır ne de tarihsel bir güçlük.",
-      "longResponseEn": "On careful reading, the Quran's narrative may intend 'Noah's people's region' rather than 'the entire earth.' Hūd 11:44 says 'O earth, swallow your water' — a specific place; Muʾminūn 23:27 focuses on the destruction of the people. In classical tafsir, one report from Ibn ʿAbbās held the flood was 'limited to Noah's people'; al-Suddī and Qatāda held it 'universal.' Al-Suyūṭī in al-Itqān records both views. In modern readings (Süleyman Ateş, William Lane Craig, Islamic reflection), the 'regional' reading is preferred because (1) the text does not claim universality; (2) the term 'people' persists; (3) the Quran's cosmic vision suggests alignment with scientific realities. Archaeologically: Sir Leonard Woolley's 1929 discovery at Ur of a 3.5m alluvial layer dated to ca. 2900 BCE confirmed a great regional flood. The flood accounts in Gilgamesh and the Sumerian King List are different cultural echoes of this regional catastrophe. A 'universal' reading of the Quran is not a required doctrine — a regional reading creates neither a theological problem nor a historical difficulty.",
-      "classicalSources": [
-        {
-          "author": "el-Kurtubî",
-          "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
-          "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
-          "noteTr": "Hem küllî hem bölgesel yorumu kaydeder; ikinci görüşü de meşru bir okuma olarak sunar.",
-          "noteEn": "Records both universal and regional interpretations; presents the second view as a legitimate reading."
-        },
-        {
-          "author": "es-Süyûtî",
-          "workTr": "el-İtkān fî Ulûmi'l-Kurʾân",
-          "workEn": "al-Itqān fī ʿUlūm al-Qurʾān",
-          "noteTr": "Sahâbe + tabiîn dönemi görüşlerini çeşitliliğiyle aktarır — tek görüş empoze etmez.",
-          "noteEn": "Transmits the diversity of Companion + Successor opinions — does not impose a single view."
-        }
-      ],
-      "modernSources": [
-        {
-          "author": "Süleyman Ateş",
-          "workTr": "Yüce Kur'ân'ın Çağdaş Tefsiri",
-          "workEn": "Contemporary Tafsir of the Sublime Quran",
-          "period": "1988",
-          "noteTr": "Bölgesel tufan okumasını sistematik olarak sunar; modern Türkçe tefsirin öncü metinlerinden.",
-          "noteEn": "Systematically presents the regional flood reading; a pioneering text of modern Turkish tafsir."
-        },
-        {
-          "author": "Leonard Woolley",
-          "workTr": "Ur Kazıları",
-          "workEn": "Excavations at Ur",
-          "period": "1929–1934",
-          "noteTr": "3.5m alüvyon tabakası — Mesopotamya bölgesel tufanının arkeolojik kanıtı.",
-          "noteEn": "3.5m alluvial layer — archaeological evidence of the Mesopotamian regional flood."
-        }
-      ],
-      "relatedTools": [
-        {
-          "href": "/{lang}/atlas/kissa",
-          "titleTr": "Kıssa Atlası",
-          "titleEn": "Story Atlas"
-        },
-        {
-          "href": "/{lang}/atlas/kavim",
-          "titleTr": "Kavimler Atlası",
-          "titleEn": "Nations Atlas"
-        }
-      ]
-    },
-    {
-      "id": "bilim-onceleme",
-      "category": "bilim",
-      "titleTr": "Kur'ân Bilimi Önceden Söyledi mi? — İʿcâzü'l-İlmî Eleştirisi",
-      "titleEn": "Did the Quran Foretell Science? — Critique of Scientific Miraculousness",
-      "verses": [
-        "21:30",
-        "51:47",
-        "23:12-14"
-      ],
-      "shortResponseTr": "20. yy'da yayılan 'iʿcâzü'l-ilmî' (bilimsel mucize) yaklaşımı Kur'ân'ın Big Bang, embriyoloji, kozmik genişleme gibi modern bulguları önceden bildirdiğini savunur. Klasik ulemâ bu yaklaşımı formüle etmemiştir. Modern akademik eleştiri (Nidhal Guessoum, Ziauddin Sardar) bu yaklaşımın çift risk taşıdığını savunur: (1) ayetleri değişken bilimsel modellere bağlar; (2) Kur'ân'ın asıl amacını (hidâyet) bilimsel almanağa indirger.",
-      "shortResponseEn": "The 'iʿjāz ʿilmī' (scientific miracle) approach that spread in the 20th century argues the Quran foretold modern findings like Big Bang, embryology, cosmic expansion. Classical scholars did not formulate this approach. Modern academic critique (Nidhal Guessoum, Ziauddin Sardar) argues this approach carries a double risk: (1) tethers verses to changing scientific models; (2) reduces the Quran's true purpose (guidance) to a scientific almanac.",
-      "longResponseTr": "'Kur'ân bilimden çok önce bildirdi' söyleminin tarihi genellikle Muhammed Reşid Rıza (1865–1935) ve Zaghlūl al-Najjār (1933-) çevresinde şekillenir. Örnekler: Enbiyâ 21:30 (gökler-yer bitişikti-ayrıldı → Big Bang), Zâriyât 51:47 (semayı kuvvetle bina ettik → kozmik genişleme), Mü'minûn 23:12-14 (alaka → embriyoloji). Bu yaklaşımın klasik problemi: klasik ulemâ (Râzî'nin astronomik yorumları hariç) bilimsel çıkarımlar yapmıyordu — çünkü ayetleri hikmet ve ahlâk çağrısı olarak okuyorlardı. Nidhal Guessoum ('Islam's Quantum Question' 2011) modern bilimsel mucizecilerin metotsuz bir 'iʿcâz endüstrisi' yarattığını, bilimin değiştiğinde ayet yorumunun da tahrifata uğrayacağını savunur. Ziauddin Sardar ('Reading the Qur'an' 2011) Kur'ân'ın kozmoloji + tabiat referanslarının 'işaret' (âyet) olduğunu — spesifik bilimsel formülden çok yaratıcının ilim-hikmet çağrısı olduğunu vurgular. Muhammed Abduh + Fazlur Rahman çizgisi ise iki uç arasında dengeli bir yol arar: 'Kur'ân bilim kitabı değildir; ancak bilimsel bulgular ayetlerin evrensel içeriğini destekleyebilir — nihaî delil olarak değil, bir kanıt katmanı olarak.' Bu tartışma iman + akıl ilişkisinin çağdaş yeniden düşünülmesinde merkezî bir eksen.",
-      "longResponseEn": "The 'the Quran foretold science' discourse historically emerged around Muḥammad Rashīd Riḍā (1865-1935) and Zaghlūl al-Najjār (1933-). Examples: Anbiyāʾ 21:30 (heavens and earth were joined and split apart → Big Bang), Dhāriyāt 51:47 (We built the sky with strength → cosmic expansion), Muʾminūn 23:12-14 (ʿalaqa → embryology). The classical problem: classical scholars (except al-Rāzī's astronomical comments) did not make scientific inferences — they read verses as calls to wisdom and ethics. Nidhal Guessoum ('Islam's Quantum Question' 2011) argues modern scientific-miracle proponents have created a methodless 'iʿjāz industry'; when science changes, the verse-interpretation is bent. Ziauddin Sardar ('Reading the Qur'an' 2011) emphasizes the Quran's cosmological + natural references are 'signs' (āyāt) — a call to the Creator's knowledge-wisdom, not specific scientific formulas. The Muhammad ʿAbduh + Fazlur Rahman line seeks a balanced middle path: 'The Quran is not a science book; but scientific findings may support the universal content of verses — as a layer of evidence, not final proof.' This debate is a central axis in the contemporary rethinking of faith-reason.",
-      "classicalSources": [
-        {
-          "author": "er-Râzî",
-          "workTr": "Mefâtîhu'l-Ğayb",
-          "workEn": "Mafātīḥ al-Ghayb",
-          "noteTr": "Astronomik ayetlere zamanının bilimsel çerçevesinden yorum getirir — ancak 'mucize' iddiası taşımaz.",
-          "noteEn": "Interprets astronomical verses through the scientific frame of his time — but makes no 'miracle' claim."
-        }
-      ],
-      "modernSources": [
-        {
-          "author": "Nidhal Guessoum",
-          "workTr": "İslâm'ın Kuantum Sorusu",
-          "workEn": "Islam's Quantum Question",
-          "period": "2011 (I.B. Tauris)",
-          "noteTr": "'Bilimsel mucize' yaklaşımının metodolojik problemlerini bir astrofizikçi olarak sistematik eleştirir.",
-          "noteEn": "An astrophysicist's systematic critique of the methodological problems of the 'scientific miracle' approach."
-        },
-        {
-          "author": "Ziauddin Sardar",
-          "workTr": "Kur'ân'ı Okumak",
-          "workEn": "Reading the Qur'an",
-          "period": "2011 (Oxford UP)",
-          "noteTr": "Kur'ân'ın 'işaret' epistemolojisini savunur; specific bilimsel iddialara mesafeli.",
-          "noteEn": "Defends the Quran's 'sign' epistemology; distant from specific scientific claims."
-        },
-        {
-          "author": "Fazlur Rahman",
-          "workTr": "Kur'ân'ın Ana Konuları",
-          "workEn": "Major Themes of the Qurʾān",
-          "period": "1980",
-          "noteTr": "Denge çizgisi — bilim ile Kur'ân'ın ayrı ama uyumlu olduğu maksadî okuma.",
-          "noteEn": "Balanced line — the maqāṣidī reading of science and Quran as separate yet compatible."
-        }
-      ],
-      "relatedTools": [
-        {
-          "href": "/{lang}/arac/wow",
-          "titleTr": "Wow Facts",
-          "titleEn": "Wow Facts"
-        },
-        {
-          "href": "/{lang}/atlas/bilimsel-isaretler",
-          "titleTr": "Bilimsel İşaretler",
-          "titleEn": "Scientific Signs"
+          "titleEn": "Atlas of Peoples"
         }
       ]
     },
     {
       "id": "cinsel-yonelim-lut",
       "category": "ahlak",
-      "titleTr": "Cinsel Yönelim ve Lut Kavmi",
-      "titleEn": "Sexual Orientation and the People of Lot",
+      "titleTr": "Lût Kavmi — Kınanan Fiil mi, Zorbalık mı?",
+      "titleEn": "The People of Lot — Is the Act Condemned, or the Coercion?",
       "verses": [
         "7:80-81",
         "26:165-166",
-        "27:54-58",
-        "29:28-30"
+        "27:54-55",
+        "29:28-29"
       ],
-      "shortResponseTr": "Kur'ân Lut kavminin fiilini birçok kez zikreder ve zâhir olarak eril-eril ilişkiyi kınar; klasik hukukun konsensüsü aynı-cins cinsel fiili yasak sayar. Modern LGBTQ + Müslim akademik hareketi (Scott Kugle, Junaid Jahangir) ayetlerin 'eğilim' değil 'zorlama, misafir hakkı ihlali, saldırganlık' fiiline yönelik olduğunu, klasik konsensüsün 21. yy queer teolojik okumalarıyla yeniden düşünülmesi gerektiğini savunur. Tartışma teolojik + kimlik-hukukî düzlemde açık ve süregelen.",
-      "shortResponseEn": "The Quran mentions the act of Lot's people multiple times, and outwardly condemns male-male relations; classical legal consensus considers same-sex acts prohibited. Modern LGBTQ + Muslim academic movements (Scott Kugle, Junaid Jahangir) argue the verses target 'coercion, violation of guest rights, aggression' rather than 'orientation,' and that classical consensus should be reconsidered in light of 21st-century queer theological readings. The debate remains open at both theological and legal-identity levels.",
-      "longResponseTr": "Klasik yorum: Lut kavmi ayetlerinin 'fâhişe' (edepsizlik) olarak kınadığı fiil eril-eril cinsel ilişkidir; klasik dört mezhep aynı-cins cinsel eylemi yasak sayar ancak had cezasında ihtilâf eder. Modern akademik eleştiri iki eksende: (1) Metin okuma: Scott Kugle 'Homosexuality in Islam' (2010) ayetlerin sanki bir 'cinsel kimlik' değerlendirmesi değil, misafirlerin hakkını çiğneyip cinsel saldırıya uğratma + yolcuları soyma + zorlama fiillerini kınadığını savunur — modern 'yönelim' kavramı 7. yy Arap dili + fikir dünyasında yoktu. (2) Fıkıh okuma: Amreen Jamal ve Junaid Jahangir ('Islamic Law and Muslim Same-Sex Unions' 2016) klasik konsensüsün delillerinin çoğunun hadîs kaynaklı olduğunu, Kur'ân metninin 'orientation' ile 'coercive act' arasında bir fark tanıdığını, çağdaş queer Müslüman hayatın teolojik kapsanabilir olduğunu savunurlar. Buna karşı klasik-muhâfazakâr akademik cevap (Yasir Qadhi, Mobeen Vaid) hem metin okuma hem fıkıh mirası açısından savunulur. Bu tartışma bugün Batı'da yaşayan LGBTQ Müslümanların pratik hayatı ile klasik hukuk normlarının çarpıştığı bir alan. Kur'ânî normların çağdaş yorumu her iki tarafça da açık kabul edilir — teolojik konsensüs yoktur.",
-      "longResponseEn": "Classical interpretation: the act condemned as 'fāḥisha' (indecency) in the Lot verses is male-male sexual intercourse; the four classical schools consider same-sex acts prohibited, though they differ on the ḥadd penalty. Modern academic critique operates on two axes: (1) Textual reading: Scott Kugle 'Homosexuality in Islam' (2010) argues the verses condemn violation of guest rights + sexual assault + robbery + coercion — not a 'sexual identity' evaluation; the modern concept of 'orientation' did not exist in 7th-century Arabic thought. (2) Legal reading: Amreen Jamal and Junaid Jahangir ('Islamic Law and Muslim Same-Sex Unions' 2016) argue much of the classical consensus's evidence is hadith-derived; the Quranic text distinguishes between 'orientation' and 'coercive act,' and contemporary queer Muslim life can be theologically encompassed. Against this, classical-conservative academic responses (Yasir Qadhi, Mobeen Vaid) are defended on both textual and jurisprudential grounds. This debate is a live area where the practical life of LGBTQ Muslims in the West collides with classical legal norms. Both sides openly acknowledge the interpretation of Quranic norms in the contemporary context — there is no theological consensus.",
+      "objectionTr": "Çağdaş bir okuma, Lût kıssasının eşcinsel yönelimi değil misafire tecavüz, yol kesme ve zorbalığı kınadığını; 'yönelim' kavramının 7. yüzyılda bulunmadığını, dolayısıyla klasik hükmün yeniden düşünülmesi gerektiğini savunuyor.",
+      "objectionEn": "A contemporary reading holds that the story of Lot condemns not same-sex orientation but the rape of guests, highway robbery and coercion; that the concept of 'orientation' did not exist in the seventh century, and so the classical ruling should be rethought.",
+      "shortResponseTr": "Bu okuma ayetlerin lafzıyla uyuşmuyor. Kur'ân fiili tarif ederken zorlamayı değil, tercihi ve şehvetin yöneldiği yeri işaretler: 'Siz kadınları bırakıp şehvetle erkeklere mi gidiyorsunuz?' (7:81, 27:55). Burada kınanan şey 'zorla yapmak' değil, 'kadınların yerine erkekleri şehvetle tercih etmek'tir; 26:165-166'da da 'âlemlerin erkeklerine gidiyor, Rabbinizin sizin için yarattığı eşlerinizi bırakıyorsunuz' denir — yine tercih ve terk vurgusu. Zorlama zaten müstakil olarak haramdır ve ayrı bir suçtur; bir fiilin ayrıca zorla işlenmiş olması, o fiilin kendisini mubah kılmaz. İkinci olarak, İslâm'da imtihan konusu eğilim değil iradî fiildir: kimse nefsinin meylinden sorumlu tutulmaz, sorumlu tutulduğu şey o meyle uymaktır. Bu yüzden klasik hukuk kişiyi değil fiili yasaklar; kimseyi kimliğiyle mahkûm etmez ve tövbe kapısı daima açıktır (39:53).",
+      "shortResponseEn": "This reading does not fit the wording. In describing the act, the Qur'ān marks not coercion but preference and the object toward which desire turns: 'Do you approach men with desire instead of women?' (7:81, 27:55). What is condemned is not 'doing it by force' but 'preferring men, with desire, in place of women'; and 26:165-166: 'Do you approach the males of the worlds and leave what your Lord created for you as mates?' — again the stress falls on preference and abandonment. Coercion is independently forbidden and a separate crime; that an act was also committed by force does not render the act itself permissible. Second, what is under trial in Islam is not inclination but volitional act: no one is held accountable for the inclination of the self, only for acting upon it. Classical law therefore forbids the act, not the person; it condemns no one for an identity, and the door of repentance stands always open (39:53).",
+      "longResponseTr": "Meseleyi üç ayrı başlıkta ele almak gerekir, çünkü itiraz bu üçünü birbirine karıştırarak kuruluyor: metnin lafzı, hükmün konusu, ve insana muamele.\n\nBirincisi lafız. Eğer kınanan şey yalnız zorbalık ve misafir hakkını çiğnemek olsaydı, ayetlerin bunu zorbalık diliyle ifade etmesi beklenirdi. Oysa Kur'ân dört ayrı yerde fiili tarif ederken aynı kalıbı kullanır ve kalıbın merkezinde 'şehvet' ile 'tercih' vardır: 'min dûni'n-nisâ' — kadınları bırakarak. Bu ifade zorlamayı değil, yönelişin istikametini tarif eder. Ayrıca Lût aleyhisselâmın kavmine hitabında 'Bunu sizden önce âlemlerden hiç kimse yapmamıştı' (7:80) denir; eğer kastedilen zorbalık ve yol kesmek olsaydı, bunlar tarihte örneği bol fiillerdir ve 'daha önce kimse yapmadı' ifadesi anlamsız kalırdı. Kavmin kendi cevabı da bunu doğrular: onlar 'biz zorla değil rızayla yapıyoruz' demez; 'onları memleketinizden çıkarın, çünkü onlar temizlenen insanlarmış' (7:82, 27:56) derler — yani mesele bir ahlâk ölçüsünün reddidir, bir yöntem tartışması değil.\n\nİkincisi hükmün konusu. 'O çağda yönelim kavramı yoktu, dolayısıyla ayet bugünkü durumu kapsamaz' iddiası bir kategori hatası içerir. Kur'ân hükümleri fiile bağlar, fiilin arkasındaki psikolojik eğilimin çağdaş adına değil. İslâm'ın antropolojisinde insan, nefsinde çeşitli meyiller bulunan ve iradesiyle imtihan edilen bir varlıktır; meyil imtihanın kendisidir, suçu değil. Peygamber'in bildirdiği kaide açıktır: kişi kalbinden geçirdiğinden değil, yaptığından sorumludur. Dolayısıyla eğilimin varlığı ne bir günah ne de bir kusurdur — hüküm yalnız iradî fiile taalluk eder. Bu, klasik hukukun kişiyi değil fiili konu edinmesinin sebebidir ve aynı zamanda meselenin kimlik tartışmasına indirgenemeyecek olmasının da sebebidir.\n\nÜçüncüsü icmâ meselesi. Bu hüküm yalnız hadîse dayanmaz; dört Sünnî mezhep, Ca'ferî ve Zeydî ekoller ile İbâzîler, aralarındaki bütün usûl farklarına rağmen Kur'ân'ın açık lafzı üzerinde ittifak eder. On dört asırda muteber bir fakihin aksini söylediği nakledilmemiştir. Bu, İslâm hukuk tarihinde örneği az bulunan kuvvette bir icmâdır ve icmâ, tanımı gereği yeniden müzakereye açık bir boşluk bırakmaz.\n\nDördüncüsü ve en az konuşulanı: insana muamele. Kur'ân hükmü kesin koyar, fakat aynı Kur'ân kimsenin ayıbının araştırılmasını yasaklar (49:12), örtmeyi emreder, tövbe kapısını sonuna kadar açık tutar (39:53) ve bütün Âdemoğlunu şerefli kılar (17:70). Klasik fıkıhta ispat şartlarının fiilen imkânsıza yakın tutulması da tesadüf değildir: maksat cezalandırmak değil, alenîliği ve normalleşmeyi engellemektir. Bir fiile 'haram' demek, bir insana 'değersiz' demek değildir; İslâm bu ikisini birbirinden dikkatle ayırır ve bu ayrımı korumak da hükmün bir parçasıdır.\n\nSonuç olarak: yeniden okuma teklifi metnin kendi ifadesiyle değil, çağın kabulleriyle uyuşuyor. Bu sayfanın ölçüsü ise bellidir — ölçü Kur'ân'dır, çağ değildir.",
+      "longResponseEn": "The matter must be taken under three separate headings, for the objection is built by conflating them: the wording of the text, the subject of the ruling, and the treatment of persons.\n\nFirst, the wording. Were only coercion and violation of the guest's right condemned, one would expect the verses to say so in the language of coercion. Instead, in four separate places the Qur'ān uses the same construction in describing the act, and at its centre stand desire and preference: min dūn al-nisāʾ — 'instead of women.' That phrase describes not force but the direction of inclination. Moreover Lot addresses his people: 'No one in all the worlds has done this before you' (7:80); had coercion and highway robbery been meant, these are acts with abundant historical precedent and the phrase would be empty. The people's own reply confirms it: they do not say 'we do it by consent, not by force,' but 'expel them from your town, for they are people who keep themselves pure' (7:82, 27:56) — the issue is the rejection of a moral standard, not a dispute over method.\n\nSecond, the subject of the ruling. The claim that 'the concept of orientation did not exist then, so the verse does not cover the present case' contains a category error. Qur'ānic rulings attach to acts, not to the modern name of a psychological inclination behind them. In Islam's anthropology the human being is a creature in whose self various inclinations reside and who is tried through his will; the inclination is the trial itself, not the offence. The rule the Prophet stated is clear: one is answerable for what one does, not for what passes through the heart. The existence of an inclination is therefore neither a sin nor a defect — the ruling attaches only to the volitional act. This is why classical law takes the act, not the person, as its subject, and equally why the matter cannot be reduced to a debate about identity.\n\nThird, the question of consensus. This ruling does not rest on ḥadīth alone; the four Sunnī schools, the Jaʿfarī and Zaydī traditions and the Ibāḍīs, for all their methodological differences, concur on the plain wording of the Qur'ān. In fourteen centuries no recognized jurist is reported to have held otherwise. This is a consensus of a strength rarely matched in Islamic legal history, and consensus by definition leaves no gap open for renegotiation.\n\nFourth, and least discussed: the treatment of persons. The Qur'ān sets the ruling decisively, yet the same Qur'ān forbids prying into anyone's faults (49:12), commands concealment, holds the door of repentance fully open (39:53), and ennobles all the children of Adam (17:70). Nor is it accidental that classical jurisprudence set the conditions of proof at a threshold close to impossible: the aim is not punishment but the prevention of public display and normalization. To call an act forbidden is not to call a human being worthless; Islam distinguishes the two with care, and maintaining that distinction is itself part of the ruling.\n\nIn sum: the proposal of rereading agrees not with the text's own statement but with the assumptions of the age. And the measure of this page is settled — the measure is the Qur'ān, not the age.",
+      "verdictTr": "Kur'ân'ın lafzı fiili açıkça ve tekrarla, üstelik tercih diliyle kınar; ümmetin icmâı bu lafız üzerindedir. Yeniden okuma teklifi metinle değil, çağın kabulleriyle uyuşuyor — ölçümüz ise Kur'ân'dır.",
+      "verdictEn": "The Qur'ān's wording condemns the act plainly and repeatedly, and in the language of preference; the community's consensus rests on that wording. The proposal of rereading agrees not with the text but with the assumptions of the age — and our measure is the Qur'ān.",
       "classicalSources": [
         {
           "author": "İbn Kesîr",
           "workTr": "Tefsîru'l-Kurʾâni'l-Azîm",
           "workEn": "Tafsīr al-Qurʾān al-ʿAẓīm",
-          "noteTr": "Lut kavmi ayetlerinin dört mezhep içindeki fıkhî değerlendirmesini toplar.",
-          "noteEn": "Compiles the four-school jurisprudential evaluations of the Lot people verses."
+          "noteTr": "Lût kıssası ayetlerini karşılaştırmalı olarak inceler; 'min dûni'n-nisâ' ifadesinin fiilin tarifindeki merkezî yerini gösterir.",
+          "noteEn": "Examines the verses of the Lot narrative comparatively, showing the central place of min dūn al-nisāʾ in the definition of the act."
+        },
+        {
+          "author": "el-Kurtubî",
+          "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+          "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+          "noteTr": "Mezheplerin hüküm ve ispat şartlarındaki ihtilâfını verirken, fiilin haramlığında ittifak bulunduğunu tespit eder.",
+          "noteEn": "While setting out the schools' differences over penalty and standards of proof, records their agreement on the prohibition of the act."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Gençlik Rehberi",
+          "workEn": "Gençlik Rehberi (Guide for Youth)",
+          "noteTr": "Şehevî meyillerin imtihanın kendisi olduğunu, insanın sorumlu tutulduğu şeyin meyil değil o meyle uymak olduğunu işler; nefse hâkimiyeti bir kimlik reddi olarak değil, insanın kendi iradesini kazanması olarak tarif eder.",
+          "noteEn": "Treats the appetitive inclinations as the trial itself, holding that one is answerable not for the inclination but for acting upon it; describes mastery of the self not as the denial of an identity but as the winning of one's own will."
         }
       ],
       "modernSources": [
         {
-          "author": "Scott Siraj al-Haqq Kugle",
-          "workTr": "İslâm'da Eşcinsellik",
-          "workEn": "Homosexuality in Islam",
-          "period": "2010 (Oneworld)",
-          "noteTr": "Queer İslâmî teolojinin akademik referans metni; klasik konsensüsü sorgular.",
-          "noteEn": "Academic reference of queer Islamic theology; questions the classical consensus."
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "A'râf ve Neml ayetlerinde kınamanın odağının fiilin kendisi ve fıtrata aykırılığı olduğunu tespit eder.",
+          "noteEn": "Identifies the focus of the condemnation in the Aʿrāf and Naml verses as the act itself and its contrariety to created nature."
         },
         {
-          "author": "Kecia Ali",
-          "workTr": "Cinsel Ahlâk ve İslâm",
-          "workEn": "Sexual Ethics and Islam",
-          "period": "2006 (Oneworld)",
-          "noteTr": "Fıkıh + hadis + tefsir üçgeninde çağdaş bir cinsel ahlâk çerçevesi arar; akademik nüansı yüksek.",
-          "noteEn": "Seeks a contemporary sexual ethics framework in the fiqh-hadith-tafsir triangle; academically nuanced."
+          "author": "Mobeen Vaid",
+          "workTr": "İslâm Eşcinsel Fiilleri Kabul Edebilir mi?",
+          "workEn": "Can Islam Accommodate Homosexual Acts?",
+          "period": "2017",
+          "noteTr": "Çağdaş yeniden-okuma tezlerini metin ve usûl açısından tek tek inceler; 'yönelim–fiil' ayrımının klasik hükmü ortadan kaldırmadığını ortaya koyar.",
+          "noteEn": "Examines contemporary rereading theses one by one on textual and methodological grounds, showing that the orientation–act distinction does not remove the classical ruling."
         }
       ],
+      "debateNoteTr": "Bu tartışmada asıl gerilim metnin ne dediğinde değil, metnin ölçü olarak kabul edilip edilmeyeceğindedir. Bu sayfanın cevabı önceden bellidir: hüküm Kur'ân'ındır. Fiile 'haram' demek insana 'değersiz' demek değildir; setr, tövbe ve insan onuru da aynı Kur'ân'ın hükmüdür.",
+      "debateNoteEn": "The real tension in this debate is not over what the text says but over whether the text is accepted as the measure. This page's answer is settled in advance: the ruling belongs to the Qur'ān. To call an act forbidden is not to call a person worthless; concealment, repentance and human dignity are rulings of that same Qur'ān.",
       "relatedTools": [
         {
           "href": "/{lang}/atlas/kissa",
-          "titleTr": "Kıssa Atlası (Lut Kıssası)",
-          "titleEn": "Story Atlas (Lot's Story)"
+          "titleTr": "Kıssa Atlası",
+          "titleEn": "Atlas of Narratives"
         },
         {
           "href": "/{lang}/atlas/kavim",
           "titleTr": "Kavimler Atlası",
-          "titleEn": "Nations Atlas"
+          "titleEn": "Atlas of Peoples"
+        }
+      ]
+    },
+    {
+      "id": "kolelik-tedrici",
+      "category": "tarih",
+      "titleTr": "Kölelik — Neden Tek Cümleyle Yasaklanmadı?",
+      "titleEn": "Slavery — Why Was It Not Abolished in a Single Sentence?",
+      "verses": [
+        "24:33",
+        "4:92",
+        "5:89",
+        "58:3",
+        "9:60",
+        "90:12-13"
+      ],
+      "objectionTr": "Kur'ân köleliği açıkça yasaklamıyor; aksine hükümlerini düzenliyor. İtiraz şudur: mutlak doğru olduğu iddia edilen bir kitap, apaçık bir zulmü niçin tek bir cümleyle kaldırmadı?",
+      "objectionEn": "The Qur'ān does not explicitly abolish slavery; it regulates it instead. The objection: why would a book claimed to be absolutely true not abolish a manifest injustice in a single sentence?",
+      "shortResponseTr": "Kur'ân köleliği kurmadı; hazır bulduğu ve o gün dünyanın tamamına yayılmış olan bir kurumu tek yönlü boşaltacak bir mekanizma kurdu. Girişleri kapattı: hür bir insanı köleleştirip satmak, Peygamber'in bildirdiğine göre Allah'ın kıyamette bizzat hasım olacağı üç günahtan biridir. Çıkışları ise sonuna kadar açtı: neredeyse her büyük ihlâlin kefareti köle azadıdır — yanlışlıkla adam öldürme (4:92), yemin bozma (5:89), zıhâr (58:3). Mükâtebe akdiyle köleye kendini satın alma hakkı verildi (24:33). Ve en önemlisi: zekât bütçesinin sekiz kaleminden biri doğrudan 'fi'r-rikāb' — köle azadıdır (9:60). Yani azad bireysel bir iyilik değil, kamu maliyesine bağlanmış bir devlet politikası hâline getirilmiştir. Bu, bir kurumu yasaklamak değil, onu kurutmaktır — ve daha kalıcıdır.",
+      "shortResponseEn": "The Qur'ān did not create slavery; it built a mechanism to drain, in one direction only, an institution it found in place and spread across the whole world of its day. It closed the entrances: to enslave and sell a free man is, as the Prophet declared, one of three sins against which God Himself will be the adversary on the Day of Judgement. It opened the exits to their widest: the expiation for nearly every major breach is the freeing of a slave — accidental homicide (4:92), broken oaths (5:89), ẓihār (58:3). The mukātaba contract gave the slave the right to purchase himself (24:33). And most decisively: one of the eight heads of the zakāt budget is fī al-riqāb — the freeing of slaves (9:60). Manumission was thereby made not a private kindness but a state policy funded from public finance. That is not banning an institution but draining it — and it lasts longer.",
+      "longResponseTr": "İtirazın gizli varsayımı şudur: bir emir yazılırsa uygulanır. Tarih bunun tersini gösterir. Uygulanamayacak bir emir emir değil, sadece bir temennidir; ve ihlâl edildikçe kanunun kendisini itibarsızlaştırır. Kur'ân'ın metodu bu yüzden 'tedrîc'dir — ve tedrîc, bir zaaf değil, kanun koyucunun insan tabiatını bilmesinin işaretidir. Aynı metot içki yasağında da işletilmiştir: önce zararına işaret (2:219), sonra namaza sarhoş yaklaşmama (4:43), sonra kesin yasak (5:90). Hz. Âişe bu metodu açıkça tarif eder: eğer önce 'içki içmeyin' inseydi 'asla bırakmayız' derlerdi. Kölelik, ekonomisi ve ordusu ona bağlanmış bir dünyada, içkiden kat kat daha derin bir kurumdu.\n\nKur'ân'ın kurduğu mekanizmanın yönü tek taraflıdır ve bu tesadüf değildir. Sisteme giriş daraltıldı: cahiliyede kölelik kaynakları borç, yağma, adam kaçırma, doğuştan kölelik ve savaş esirliğiydi; İslâm bunların hepsini kapatıp yalnız meşru savaş esirliğini bıraktı, onu da Muhammed 47:4'te 'ya karşılıksız salıverin ya fidye alın' hükmüyle sınırladı — yani ayet esirin normal âkıbetini 'serbest bırakma' olarak koyar. Sistemden çıkış ise sürekli genişletildi: kefaretler, mükâtebe, ümmü veled (çocuk doğuran câriyenin satılamaz ve efendisinin ölümüyle hür olması), tedbîr, azadın en faziletli amel sayılması, ve zekâttan ayrılan kalem. Bunların hepsi tek yöne akar: içeri girmek zorlaşır, dışarı çıkmak kolaylaşır. Bir kurumun matematiksel olarak sonlandırılması budur.\n\nAyrıca Kur'ân, köleliğin ahlâkî meşruiyetini kökünden çürütür. Beled 90:12-13 'sarp yokuşun ne olduğunu bilir misin? Bir boynu çözmektir' der — yani kurtuluşa giden yokuşun ilk basamağı bir insanı esaretten çıkarmaktır. İnsan onurunun genel ilkesi ise 17:70'te bütün Âdemoğlu için konur. Bir kitap bir kurumu överken onun sona erdirilmesini 'kurtuluşun basamağı' ilan etmez. Metnin yönü açıktır.\n\nGeriye kalan asıl soru şudur: bu ivme neden tamamlanmadı? Cevap Kur'ân'da değil, Müslümanların sicilindedir. Fetihlerle genişleyen imparatorluklar tedrîci sürdürmek yerine dondurdular; fıkıh mevcut kurumu düzenlemekte derinleşti ama onu kapatma yönündeki Kur'ânî ivmeyi bir hedef olarak takip etmedi. Bugün istisnasız bütün Müslüman ekoller köleliği yasak sayar ve bu hüküm Kur'ân'a rağmen değil, Kur'ân'ın kendi ivmesinin nihayete ermesiyle oluşmuştur. Yani sorunun muhatabı metin değil, biziz.",
+      "longResponseEn": "The objection rests on a hidden assumption: that a command, once written, is obeyed. History shows the opposite. A command that cannot be enforced is no command but a wish, and each violation discredits the law itself. The Qur'ān's method is therefore gradualism — and gradualism is not weakness but the mark of a lawgiver who knows human nature. The same method governed the prohibition of wine: first a note of its harm (2:219), then not to approach prayer intoxicated (4:43), then outright prohibition (5:90). ʿĀʾisha describes the method explicitly: had 'do not drink' come first, they would have said 'we will never give it up.' Slavery, in a world whose economy and armies rested upon it, was an institution far deeper than wine.\n\nThe mechanism the Qur'ān built runs in one direction, and that is no accident. Entry was narrowed: in pre-Islamic Arabia slavery was fed by debt, raiding, abduction, birth and captivity in war; Islam closed all of these and left only lawful captivity, which it then limited in Muḥammad 47:4 — 'thereafter either grace or ransom' — so that the verse sets release as the captive's normal outcome. Exit was continually widened: expiations, the mukātaba contract, umm walad status (a concubine who bears a child may not be sold and is freed at her master's death), tadbīr, the ranking of manumission among the highest of deeds, and the dedicated head of zakāt. All of these flow one way: entry becomes hard, exit becomes easy. That is what it means to terminate an institution mathematically.\n\nThe Qur'ān also dissolves slavery's moral legitimacy at the root. Al-Balad 90:12-13: 'And what will make you know what the steep path is? It is the freeing of a neck' — the first step of the ascent to salvation is bringing a human being out of bondage. The general principle of human dignity is set for all the children of Adam in 17:70. A book does not, while endorsing an institution, declare its ending to be the rung of salvation. The direction of the text is plain.\n\nThe real remaining question is why the momentum was not carried through. The answer lies not in the Qur'ān but in the record of Muslims. Empires expanding by conquest froze the gradualism rather than continuing it; jurisprudence deepened in regulating the institution it found but did not pursue the Qur'ānic momentum toward closure as a goal. Today every Muslim school without exception holds slavery forbidden, and that ruling arose not in spite of the Qur'ān but as the completion of the Qur'ān's own momentum. The question, then, is addressed not to the text but to us.",
+      "verdictTr": "Kur'ân köleliğin kaynağı değil, tarihte onu sistematik olarak kurutan mekanizmadır. Yasağın gecikmesi metnin değil, tedrîci yarıda bırakan Müslümanların sicilidir.",
+      "verdictEn": "The Qur'ān is not the source of slavery but the mechanism that systematically drained it. The delay of abolition belongs to the record of Muslims who left the gradualism unfinished, not to the text.",
+      "classicalSources": [
+        {
+          "author": "eş-Şâfiî",
+          "workTr": "el-Umm",
+          "workEn": "Kitāb al-Umm",
+          "noteTr": "Mükâtebe, tedbîr ve ümmü veled hükümlerini sistematize eder; azadın hukukî kanallarını ayrıntısıyla kurar.",
+          "noteEn": "Systematizes the rules of mukātaba, tadbīr and umm walad, laying out the legal channels of manumission in detail."
+        },
+        {
+          "author": "el-Kurtubî",
+          "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+          "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+          "noteTr": "Beled 90:12-13 tefsirinde 'bir boynu çözmenin' kurtuluşun basamağı sayılmasını, Kur'ân'ın kölelik karşısındaki yönünün delili olarak okur.",
+          "noteEn": "In commenting on al-Balad 90:12-13, reads the freeing of a neck as a rung of salvation, evidence of the Qur'ān's direction on slavery."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Sözler — Yirmi Beşinci Söz (Mu'cizât-ı Kur'âniye)",
+          "workEn": "The Words — The Twenty-Fifth Word (The Miraculousness of the Qur'ān)",
+          "noteTr": "Kur'ân'ın hükümlerinin her asrın ve her tabakanın seviyesine hitap edecek şekilde konulduğunu; insanlığı birden değil dereceli olarak yükselttiğini işler. Tedrîc metodunun teorik zemini burada kurulur.",
+          "noteEn": "Argues that the Qur'ān's rulings are set so as to address every age and every level, raising humanity by degrees rather than at a stroke. The theoretical ground of the gradualist method is laid here."
+        }
+      ],
+      "modernSources": [
+        {
+          "author": "Muhammed Hamidullah",
+          "workTr": "İslâm Peygamberi",
+          "workEn": "The Prophet of Islam",
+          "period": "1959",
+          "noteTr": "Esir hukukunun 47:4 çerçevesinde nasıl 'salıverme'ye yönlendirildiğini ve azad kurumlarının tarihî işleyişini belgelerle gösterir.",
+          "noteEn": "Documents how the law of captives was directed toward release under 47:4, and how the institutions of manumission worked historically."
+        },
+        {
+          "author": "Jonathan A. C. Brown",
+          "workTr": "Kölelik ve İslâm",
+          "workEn": "Slavery and Islam",
+          "period": "2019 (Oneworld)",
+          "noteTr": "Kur'ânî direktiflerin sonlandırma yönünde işlediğini, kesintinin metinden değil Müslüman tarihinden kaynaklandığını akademik olarak ortaya koyar.",
+          "noteEn": "Shows academically that the Qur'ānic directives work toward termination, and that the break came from Muslim history rather than from the text."
+        }
+      ],
+      "debateNoteTr": "Akademide bazı yazarlar (Bernard Freamon, William Clarence-Smith) direktiflerin ıslah olduğunu, ontolojik bir kaldırma olmadığını savunur. Bu tez, Kur'ân'ın koyduğu tek yönlü mekanizmayı — giriş daralır, çıkış genişler, azad kamu bütçesine bağlanır — açıklamakta yetersiz kalır.",
+      "debateNoteEn": "Some academic writers (Bernard Freamon, William Clarence-Smith) hold the directives to be reformist rather than an ontological abolition. That thesis fails to account for the one-way mechanism the Qur'ān installs: entry narrows, exit widens, manumission is charged to the public budget.",
+      "relatedTools": [
+        {
+          "href": "/{lang}/atlas/kavim",
+          "titleTr": "Kavimler Atlası",
+          "titleEn": "Atlas of Peoples"
+        }
+      ]
+    },
+    {
+      "id": "nuh-tufani-global-mi",
+      "category": "tarih",
+      "titleTr": "Nûh Tufanı — Bilim Küresel Bir Tufan Bulmuyor",
+      "titleEn": "Noah's Flood — Science Finds No Global Deluge",
+      "verses": [
+        "11:40-44",
+        "23:23-30",
+        "54:9-14",
+        "71:25-28",
+        "7:59"
+      ],
+      "objectionTr": "Kur'ân bütün yeryüzünü kaplayan bir tufandan söz ediyor; jeoloji ise böyle küresel bir tufanın izini bulmuyor. İtiraz: Kur'ân bilimsel olarak imkânsız bir olayı gerçek gibi anlatıyor.",
+      "objectionEn": "The Qur'ān speaks of a flood covering the whole earth; geology finds no trace of such a global deluge. The objection: the Qur'ān narrates as fact an event science rules impossible.",
+      "shortResponseTr": "İtiraz, Kur'ân'a ait olmayan bir iddiayı Kur'ân'a fatura ediyor. Kur'ân hiçbir yerde 'tufan bütün yeryüzünü kapladı' demez. Anlatının her yerinde muhatap ısrarla 'kavim'dir: 'Nûh'u kavmine gönderdik' (7:59, 71:1), 'kavmini boğduk' (23:23-30), 'zalimler kavmi' (23:41). Kur'ân'ın helâk anlatılarındaki değişmez kalıp da budur — Âd, Semûd, Lût, Medyen; hepsi belirli bir kavmin belirli bir coğrafyada helâkidir. Dahası Hûd 11:44'te 'Ey yer, suyunu yut' denir; hitap belirli bir yeredir. 'Küresel tufan' tasavvuru büyük ölçüde Tevrat metninden ve oradan tefsire sızan İsrâiliyyat'tan gelir — Kur'ân'ın lafzından değil. Yani ortada Kur'ân ile bilim arasında bir gerilim yoktur; tefsire karışmış bir rivayet ile bilim arasında bir gerilim vardır. Kur'ân'ın kendi ifadesi jeolojik veriyle hiçbir noktada çatışmaz.",
+      "shortResponseEn": "The objection charges the Qur'ān with a claim that is not its own. Nowhere does the Qur'ān say the flood covered the whole earth. Throughout the narrative the addressee is insistently 'the people': 'We sent Noah to his people' (7:59, 71:1), 'We drowned his people' (23:23-30), 'the wrongdoing people' (23:41). This is the invariable pattern of the Qur'ān's destruction narratives — ʿĀd, Thamūd, Lot, Midian; each the destruction of a particular people in a particular land. Further, in Hūd 11:44 the command is 'O earth, swallow your water' — addressed to a definite place. The image of a global deluge comes largely from the biblical text and from the Isrāʾīliyyāt that seeped from it into tafsīr — not from the Qur'ān's wording. There is thus no tension between the Qur'ān and science; there is tension between science and a narration that entered tafsīr. The Qur'ān's own statement conflicts with geological data at no point.",
+      "longResponseTr": "Bu soru, Kur'ân'a yöneltilen itirazların büyük kısmında tekrar eden bir yapıyı çok açık biçimde gösterdiği için önemlidir: itiraz çoğu zaman metne değil, metne sonradan yapıştırılmış bir tasavvura isabet eder.\n\nÖnce metin. Kur'ân'ın Nûh anlatısı dört ana yerde geçer (Hûd, Mü'minûn, Kamer, Nûh sûreleri) ve dördünde de olayın çerçevesi bir 'kavim'dir. Kur'ân'ın kendi diline dikkat edildiğinde 'arz' kelimesinin çoğu yerde 'bütün yerküre' değil 'o belde, o yöre' anlamında kullanıldığı görülür — nitekim Yûsuf 12:56'da 'yeryüzünde ona imkân verdik' derken kastedilen Mısır'dır. Nûh 71:26'daki 'yeryüzünde kâfirlerden kimse bırakma' duası da aynı şekilde Nûh'un tebliğ ettiği kavmin yurdunu kasteder — çünkü bir peygamber, kendisine gönderilmediği kavimlerin helâkini istemez. Bütün bunlar zorlama okumalar değil; klasik tefsirin zaten kaydettiği okumalardır.\n\nSonra tefsir tarihi. Klasik dönemde bu mesele kapalı sayılmamıştır: çoğunluk küllî görüşü benimsemiş, ancak bölgesel okuma da nakledilmiştir ve Süyûtî el-İtkān'da her iki görüşü birlikte zikreder. Kritik nokta şudur: küllî görüşün delili Kur'ân'ın lafzı değil, çoğunlukla Tevrat kaynaklı rivayetlerdir. Bediüzzaman'ın Muhâkemât'ta ısrarla üzerinde durduğu mesele tam budur — İsrâiliyyat ve dışarıdan gelen fikirler tefsire misafir olarak girmiş, zamanla ev sahibi sanılmıştır; Kur'ân'a yöneltilen itirazların büyük kısmı aslında bu misafirlere isabet eder. Bugün Nûh tufanı meselesi bu tespitin en temiz örneğidir.\n\nÜçüncü olarak: bölgesel okuma hiçbir akîde problemi doğurmaz. Kıssanın taşıdığı hakikatler — Allah'ın uyarısı, tebliğin uzun süre karşılıksız kalması, sabır, ilâhî adaletin gerçekleşmesi, gemiye binenlerin kurtuluşu — tufanın coğrafî yayılımından tamamen bağımsızdır. Kur'ân zaten kıssaları coğrafya dersi olarak değil ibret olarak anlatır: 'Andolsun biz onu bir ibret olarak bıraktık; öğüt alan yok mu?' (54:15). Kıssanın maksadı ile anlatının ayrıntısı karıştırıldığında, olmayan bir çelişki üretilmiş olur.\n\nDördüncüsü, olumlu delil de vardır. Mezopotamya'da Ur, Kiş ve Şuruppak kazılarında bulunan kalın alüvyon tabakaları, bölgede MÖ üçüncü binyıla tarihlenen büyük bir taşkın felâketini doğrulamaktadır. Sümer Kral Listesi ve Gılgamış Destanı'ndaki tufan anlatıları, aynı hâdisenin farklı kültürlerdeki yankılarıdır. Yani Kur'ân'ın anlattığı olayın tarihsel çekirdeği, itirazın 'imkânsız' dediği değil, arkeolojinin fiilen bulduğu şeydir.\n\nGenel kaide olarak şunu koymak gerekir: Kur'ân'ın bir haberi ile yerleşik bir bilimsel veri çatışıyor görünüyorsa, önce sorulacak soru 'Kur'ân gerçekten bunu mu diyor?' sorusudur. Vakaların ezici çoğunluğunda cevap 'hayır'dır — çatışan şey Kur'ân değil, Kur'ân sanılan bir yorumdur.",
+      "longResponseEn": "This question matters because it displays with unusual clarity a structure recurring in most objections to the Qur'ān: the objection lands not on the text but on an image later pasted onto it.\n\nFirst, the text. The Qur'ān's Noah narrative appears in four principal places (Hūd, al-Muʾminūn, al-Qamar, Nūḥ), and in all four the frame of the event is a 'people.' Attending to the Qur'ān's own idiom, the word arḍ often means 'that land, that region' rather than 'the whole globe' — as in Yūsuf 12:56, 'We established him in the land,' where Egypt is meant. The prayer of Nūḥ 71:26, 'leave not upon the earth any of the disbelievers,' likewise concerns the land of the people to whom he was sent, for a prophet does not seek the destruction of peoples to whom he was not sent. None of this is a strained reading; these are readings classical tafsīr already recorded.\n\nSecond, the history of interpretation. The matter was not treated as closed in the classical period: the majority held the universal view, but the regional reading was also transmitted, and al-Suyūṭī records both in al-Itqān. The critical point is this: the evidence for the universal view is not the Qur'ān's wording but largely narrations of biblical origin. This is precisely what Bediüzzaman insists upon in Muḥākamāt — Isrāʾīliyyāt and imported ideas entered tafsīr as guests and came in time to be taken for the householder; most objections raised against the Qur'ān in fact land on those guests. The question of Noah's flood is today the cleanest example of that diagnosis.\n\nThird, the regional reading raises no problem of creed. The truths the narrative carries — God's warning, a long ministry met with refusal, patience, the realization of divine justice, the deliverance of those who boarded — are wholly independent of the flood's geographical extent. The Qur'ān relates its narratives not as lessons in geography but as admonition: 'And We left it as a sign; is there any who will remember?' (54:15). Confusing the purpose of a narrative with the detail of its telling manufactures a contradiction that is not there.\n\nFourth, there is positive evidence as well. The thick alluvial strata found in the excavations at Ur, Kish and Shuruppak confirm a great flood catastrophe in the region dated to the third millennium BCE. The flood accounts in the Sumerian King List and the Epic of Gilgamesh are echoes of the same event in other cultures. The historical kernel of the event the Qur'ān relates is thus not what the objection calls impossible, but what archaeology has in fact found.\n\nAs a general rule: when a report of the Qur'ān appears to conflict with settled scientific data, the first question to ask is 'does the Qur'ān actually say this?' In the overwhelming majority of cases the answer is no — what conflicts is not the Qur'ān but an interpretation taken for it.",
+      "verdictTr": "Kur'ân küresel tufan iddiasında bulunmaz; o iddia tefsire İsrâiliyyat yoluyla girmiştir. İtiraz Kur'ân'a değil, Kur'ân'a giydirilmiş bir rivayete isabet ediyor.",
+      "verdictEn": "The Qur'ān makes no claim of a global deluge; that claim entered tafsīr by way of Isrāʾīliyyāt. The objection lands not on the Qur'ān but on a narration draped over it.",
+      "classicalSources": [
+        {
+          "author": "el-Kurtubî",
+          "workTr": "el-Câmi' li-Ahkâmi'l-Kur'ân",
+          "workEn": "al-Jāmiʿ li-Aḥkām al-Qurʾān",
+          "noteTr": "Tufanın kapsamı hakkında nakledilen görüşleri birlikte kaydeder; meselenin klasik dönemde de tek görüşe kapatılmadığını gösterir.",
+          "noteEn": "Records together the transmitted views on the flood's extent, showing the matter was not closed to a single opinion even classically."
+        },
+        {
+          "author": "es-Süyûtî",
+          "workTr": "el-İtkān fî Ulûmi'l-Kur'ân",
+          "workEn": "al-Itqān fī ʿUlūm al-Qurʾān",
+          "noteTr": "Kur'ân ilimleri usûlünde İsrâiliyyat'ın tefsire giriş kanallarını ve bunlara karşı alınacak tavrı tespit eder.",
+          "noteEn": "In the methodology of Qur'ānic sciences, identifies the channels by which Isrāʾīliyyāt entered tafsīr and the stance to be taken toward them."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Muhâkemât — Birinci Makale (Unsuru'l-Hakikat)",
+          "workEn": "Muḥākamāt — First Treatise (The Element of Reality)",
+          "noteTr": "Tefsire dışarıdan giren İsrâiliyyat ve yabancı fikirlerin zamanla Kur'ân'ın kendi malı sanılmasını, Kur'ân'a yöneltilen itirazların asıl kaynağı olarak teşhis eder. Tufan meselesi bu teşhisin en berrak örneğidir.",
+          "noteEn": "Diagnoses the mistaking, over time, of imported Isrāʾīliyyāt and foreign ideas for the Qur'ān's own content as the true source of objections raised against it. The flood is the clearest instance of that diagnosis."
+        }
+      ],
+      "modernSources": [
+        {
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "Hûd sûresi tefsirinde tufanın kapsamı hakkındaki rivayetleri tartışır ve Kur'ân lafzının kavim çerçevesinde kaldığını belirtir.",
+          "noteEn": "In commenting on Sūrat Hūd, weighs the narrations on the flood's extent and notes that the Qur'ānic wording remains within the frame of a people."
+        },
+        {
+          "author": "Leonard Woolley",
+          "workTr": "Ur Kazıları",
+          "workEn": "Excavations at Ur",
+          "period": "1929–1934",
+          "noteTr": "Ur'da bulunan kalın alüvyon tabakası, Mezopotamya'da tarihî bir büyük taşkını arkeolojik olarak belgeler.",
+          "noteEn": "The thick alluvial stratum found at Ur documents archaeologically a historical great flood in Mesopotamia."
+        }
+      ],
+      "debateNoteTr": "Klasik tefsirde küllî (bütün yeryüzü) görüş çoğunluktadır ve bu görüşü benimsemek de bir akîde problemi doğurmaz. Buradaki mesele, hangi görüşün doğru olduğu değil, Kur'ân'ın lafzının hangisini gerektirdiğidir — ve lafız küllî okumayı zorunlu kılmaz.",
+      "debateNoteEn": "The universal reading is the majority position in classical tafsīr, and holding it raises no problem of creed either. The issue here is not which view is correct but which the Qur'ān's wording requires — and the wording does not compel the universal reading.",
+      "relatedTools": [
+        {
+          "href": "/{lang}/atlas/kissa",
+          "titleTr": "Kıssa Atlası",
+          "titleEn": "Atlas of Narratives"
+        },
+        {
+          "href": "/{lang}/atlas/kavim",
+          "titleTr": "Kavimler Atlası",
+          "titleEn": "Atlas of Peoples"
+        }
+      ]
+    },
+    {
+      "id": "kaynak-iktibas-iddiasi",
+      "category": "tarih",
+      "titleTr": "Kur'ân Önceki Kitaplardan mı Alındı?",
+      "titleEn": "Was the Qur'ān Borrowed from Earlier Scriptures?",
+      "verses": [
+        "25:4-5",
+        "16:103",
+        "29:48",
+        "5:48"
+      ],
+      "objectionTr": "Kur'ân'da Tevrat ve İncil'le, hatta bazı apokrif metinlerle ortak anlatılar var. İtiraz: Kur'ân vahiy değil, bölgede dolaşan dinî anlatıların derlenmiş hâlidir.",
+      "objectionEn": "The Qur'ān shares narratives with the Torah and the Gospels, and even with certain apocryphal texts. The objection: the Qur'ān is not revelation but a compilation of religious stories circulating in the region.",
+      "shortResponseTr": "Bu itiraz yeni değil; Kur'ân onu bizzat naklediyor ve cevaplıyor. Müşrikler 'bunlar öncekilerin masallarıdır, başkaları ona yardım etti' demişlerdi (25:4-5) ve 'ona bir insan öğretiyor' iddiasında bulunmuşlardı (16:103). Kur'ân'ın verdiği cevap iki katmanlıdır. Birincisi ortak muhtevanın açıklaması: kaynak aynıdır. Bütün peygamberler aynı Allah'tan aynı hakikati getirdiği için anlatıların örtüşmesi beklenen şeydir — Kur'ân kendisini 'önceki kitapları tasdik edici ve onları gözetip koruyucu' (5:48) diye tanımlar. Farklı kitaplarda aynı olayın geçmesi kopya değil, tek kaynaklı olmanın alâmetidir. İkincisi, örtüşmenin niteliğidir: Kur'ân bu anlatıları tekrar etmez, düzeltir. Tevrat'ta bulunan ve peygamberlere isnat edilen ağır kusurlar Kur'ân'da yoktur; soy listeleri, tarihî ayrıntı yığınları ve kabile hukuku yoktur; anlatı daima ibret ekseninde yeniden kurulur. Kopya eden, düzeltmez ve ayıklamaz.",
+      "shortResponseEn": "The objection is not new; the Qur'ān itself reports and answers it. The idolaters said, 'these are the legends of the ancients, others have helped him' (25:4-5), and claimed 'a man is teaching him' (16:103). The Qur'ān's answer has two layers. The first explains the shared content: the source is the same. Since all prophets brought the same truth from the same God, overlap among the narratives is to be expected — the Qur'ān describes itself as 'confirming the scriptures before it and a guardian over them' (5:48). The same event appearing in different books is not copying but the mark of a single origin. The second concerns the character of the overlap: the Qur'ān does not repeat these narratives, it corrects them. The grave faults ascribed to prophets in the biblical text are absent from the Qur'ān; so are genealogies, masses of historical detail and tribal law; the narrative is always rebuilt on the axis of admonition. One who copies does not correct and does not sift.",
+      "longResponseTr": "İddianın somut hâlini almak gerekir: eğer Kur'ân bir derleme ise, derleyenin kaynağa erişmiş olması ve derlemenin kaynağın izlerini taşıması gerekir. Her iki şart da karşılanmıyor.\n\nErişim meselesi: 7. yüzyıl Mekke'sinde Tevrat ve İncil'in Arapça bir tercümesi mevcut değildi — ilk kayda değer Arapça Kitâb-ı Mukaddes tercümeleri hicrî ikinci-üçüncü yüzyıllara aittir. Kur'ân'ın muhatapları, Peygamber'i tanıyan, onun kırk yıllık hayatını bilen, onu yalanlamak için en güçlü sâikleri olan hemşehrileriydi. 'Ona bir insan öğretiyor' dediklerinde Kur'ân şu cevabı verir: işaret ettikleri kişinin dili yabancıdır, bu ise apaçık bir Arapçadır (16:103). Yani mesele yalnız muhteva değil, dilin kendisidir: dış kaynaklı bir derlemenin, Arap belâgatının zirvesinde ve muârazaya açık meydan okuyan bir metin üretmesi ayrı bir imkânsızlıktır.\n\nÜmmîlik meselesi: Kur'ân 29:48'de bu noktayı doğrudan delil olarak kullanır — 'Sen bundan önce hiçbir kitap okumuyor, elinle de yazmıyordun; öyle olsaydı bâtıl peşinde olanlar şüpheye düşerlerdi.' Bu, muhataplarının doğrulayabileceği bir iddiadır ve reddedilmemiştir; Mekke'de Peygamber'in okuyup yazdığını iddia eden tek bir muhalif çıkmamıştır. Kur'ân'ın en sert düşmanlarının kullanmadığı bir itirazı, on dört asır sonra kurmak tarihî olarak zayıftır.\n\nMuhtevanın niteliği: Karşılaştırma yapıldığında Kur'ân'ın anlatıları Tevrat anlatılarının kısaltılmış hâli değildir; farklı bir mantığa göre kurulmuştur. Tevrat'ta Hz. Lût'a, Hz. Dâvûd'a, Hz. Süleyman'a ve Hz. Hârûn'a isnat edilen ağır günahlar Kur'ân'da yer almaz; Kur'ân peygamberleri ısmet sıfatıyla korur. Tevrat'ın soy kütükleri, savaş sayımları, çadır ölçüleri Kur'ân'da hiç geçmez. Buna karşılık Kur'ân, Tevrat'ta bulunmayan hususları ekler ve anlatıyı daima tevhid–âhiret–ibret ekseninde yeniden düzenler. Bir metin, kaynağından hem eksiltip hem ekliyor hem de sistematik olarak düzeltiyorsa, o metin kaynağın kopyası değil, kaynak hakkında hüküm veren bir merci konumundadır — nitekim Kur'ân kendisini böyle tanımlar: 'müheymin', yani gözetici ve doğrulayıcı (5:48).\n\nSon olarak, iddia kendi içinde tutarsızdır. Kur'ân, Ehl-i Kitab'ın elindeki metinlerde tahrif bulunduğunu açıkça söyler ve onları bu konuda uyarır. Kaynağı olarak gösterilen metinleri eleştiren, düzelten ve onlara hakem tayin edilen bir kitabın, aynı metinlerden kopya edildiğini söylemek, hem kopyacılığı hem eleştiriyi aynı anda ona yüklemektir. Kopya eden hakem olamaz.",
+      "longResponseEn": "The claim must be made concrete: if the Qur'ān is a compilation, then the compiler must have had access to the sources, and the compilation must bear their traces. Neither condition is met.\n\nAccess: in seventh-century Mecca there existed no Arabic translation of the Torah or the Gospels — the first substantial Arabic biblical translations belong to the second and third Islamic centuries. The Qur'ān's audience were the Prophet's own townsmen, who knew him and forty years of his life and had every motive to expose him. When they said, 'a man is teaching him,' the Qur'ān answered: the tongue of the one they point to is foreign, while this is clear Arabic (16:103). The issue is thus not only content but language: that a compilation from foreign sources should produce a text at the summit of Arabic eloquence, openly challenging all comers to match it, is an impossibility of its own.\n\nUnletteredness: the Qur'ān uses this point as direct evidence in 29:48 — 'You did not recite any Scripture before it, nor did you inscribe one with your right hand; otherwise the falsifiers would have doubted.' This is a claim the audience could have refuted, and it was not refuted; not one opponent in Mecca claimed the Prophet could read or write. To construct fourteen centuries later an objection that his fiercest enemies did not use is historically weak.\n\nThe character of the content: on comparison, the Qur'ān's narratives are not abridgements of the biblical ones; they are built on a different logic. The grave sins ascribed in the Bible to Lot, David, Solomon and Aaron do not appear in the Qur'ān, which preserves the prophets under the attribute of ʿiṣma. The Bible's genealogies, military censuses and tabernacle measurements are wholly absent. In return, the Qur'ān adds matters not found in the Bible and always reorganizes the narrative on the axis of divine unity, the hereafter and admonition. When a text both subtracts from and adds to its supposed source, and systematically corrects it, that text is no copy of the source but an authority passing judgement upon it — which is how the Qur'ān describes itself: muhaymin, guardian and confirmer (5:48).\n\nFinally, the claim is internally inconsistent. The Qur'ān states plainly that the texts in the hands of the People of the Book contain alteration, and warns them accordingly. To say that a book which criticises, corrects and is appointed arbiter over the very texts named as its sources was copied from them is to charge it with copying and with critique at the same moment. A copyist cannot be an arbiter.",
+      "verdictTr": "Ortak anlatı kopyanın değil, tek kaynağın alâmetidir. Kur'ân o anlatıları tekrar etmez; ayıklar, düzeltir ve onlara hakemlik eder — kopya eden hakem olamaz.",
+      "verdictEn": "Shared narrative is the mark of a single origin, not of copying. The Qur'ān does not repeat those narratives; it sifts, corrects and arbitrates them — and a copyist cannot be an arbiter.",
+      "classicalSources": [
+        {
+          "author": "el-Bâkıllânî",
+          "workTr": "İ'câzü'l-Kur'ân",
+          "workEn": "Iʿjāz al-Qurʾān",
+          "noteTr": "Kur'ân'ın nazım ve belâgat cihetinden benzersizliğini, muâraza meydan okumasının hiç karşılanamamış olması üzerinden kurar.",
+          "noteEn": "Establishes the Qur'ān's uniqueness in composition and eloquence from the fact that its challenge to produce the like was never met."
+        },
+        {
+          "author": "İbn Hazm",
+          "workTr": "el-Fasl fi'l-Milel ve'l-Ehvâ ve'n-Nihal",
+          "workEn": "al-Faṣl fī al-Milal wa-l-Ahwāʾ wa-l-Niḥal",
+          "noteTr": "Kitâb-ı Mukaddes metinleri ile Kur'ân anlatılarını karşılaştırmalı olarak inceler; farkın kısaltma değil sistematik bir tashih olduğunu gösterir.",
+          "noteEn": "Examines the biblical texts alongside the Qur'ānic narratives comparatively, showing the difference to be systematic correction rather than abridgement."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Sözler — Yirmi Beşinci Söz (Mu'cizât-ı Kur'âniye)",
+          "workEn": "The Words — The Twenty-Fifth Word",
+          "noteTr": "Kur'ân'ın i'câzını belâgat, nazım, gayb haberleri, kanunlarının kapsayıcılığı ve her tabakayı doyurması gibi kırk vecihte inceler; taklit ve iktibas iddiasının bu vecihlerin hiçbirini açıklayamadığını ortaya koyar.",
+          "noteEn": "Examines the Qur'ān's inimitability under some forty aspects — eloquence, composition, reports of the unseen, the comprehensiveness of its laws, its satisfying of every level — showing that a claim of imitation or borrowing explains none of them."
+        },
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Mektubat — Ondokuzuncu Mektup (Mu'cizât-ı Ahmediye)",
+          "workEn": "The Letters — The Nineteenth Letter",
+          "noteTr": "Peygamber'in hayatının en yakın şahitlerince bilinmesine rağmen tek bir yalan isnadının sabit olmamasını, risâletin tarihî delili olarak işler.",
+          "noteEn": "Treats the fact that no charge of falsehood was ever established against the Prophet by the closest witnesses of his life as historical evidence of his messengership."
+        }
+      ],
+      "modernSources": [
+        {
+          "author": "Muhammed Hamidullah",
+          "workTr": "İslâm Peygamberi",
+          "workEn": "The Prophet of Islam",
+          "period": "1959",
+          "noteTr": "7. yüzyıl Hicaz'ında Kitâb-ı Mukaddes'in Arapça metninin bulunmadığını ve bilgi kanallarının sınırlarını belgelerle ortaya koyar.",
+          "noteEn": "Documents the absence of an Arabic biblical text in seventh-century Hijaz and the limits of the available channels of information."
+        },
+        {
+          "author": "Angelika Neuwirth",
+          "workTr": "Kur'ân ve Geç Antikçağ",
+          "workEn": "The Qurʾan and Late Antiquity",
+          "period": "2019 (Oxford UP)",
+          "noteTr": "Kur'ân'ın geç antik dinî muhitle konuştuğunu, fakat bu muhitten devşirilmiş bir derleme olmayıp ona müdahale eden özgün bir metin olduğunu akademik olarak ortaya koyar.",
+          "noteEn": "Shows academically that the Qur'ān speaks to the late-antique religious milieu yet is not a compilation drawn from it but an original text intervening in it."
+        }
+      ],
+      "debateNoteTr": "Akademide bazı çalışmalar Kur'ân'ın geç antik anlatı havzasıyla temasını inceler. Bu temas Kur'ân'ın muhataplarının bildiği anlatılara hitap etmesinden ibarettir; bir metnin çağının diline ve hafızasına konuşması, o metnin oradan üretildiği anlamına gelmez.",
+      "debateNoteEn": "Some academic work studies the Qur'ān's contact with the late-antique narrative basin. That contact consists in addressing narratives its audience already knew; a text speaking to the language and memory of its age does not mean it was produced from them.",
+      "relatedTools": [
+        {
+          "href": "/{lang}/atlas/kissa",
+          "titleTr": "Kıssa Atlası",
+          "titleEn": "Atlas of Narratives"
+        },
+        {
+          "href": "/{lang}/arac/wow",
+          "titleTr": "Wow Bulguları",
+          "titleEn": "Wow Findings"
+        }
+      ]
+    },
+    {
+      "id": "bilim-onceleme",
+      "category": "bilim",
+      "titleTr": "Kur'ân Bilimi Önceden mi Söyledi? — İ'câzü'l-İlmî Meselesi",
+      "titleEn": "Did the Qur'ān Foretell Science? — The Question of Scientific Iʿjāz",
+      "verses": [
+        "21:30",
+        "51:47",
+        "23:12-14",
+        "41:53"
+      ],
+      "objectionTr": "'Kur'ân Big Bang'i, embriyolojiyi, kozmik genişlemeyi asırlar önce haber verdi' söylemi eleştiriliyor: ayetler modern bulgulara sonradan uydurulmuş okumalarla eşleştiriliyor, bilim değiştiğinde ise ayet yanlışlanmış görünüyor.",
+      "objectionEn": "The claim that the Qur'ān announced the Big Bang, embryology and cosmic expansion centuries in advance is criticised: verses are matched to modern findings by readings devised after the fact, and when the science changes the verse appears falsified.",
+      "shortResponseTr": "Bu itiraz Kur'ân'a değil, bir okuma usûlüne yöneliktir — ve o usûlü klasik ulemâ ile Bediüzzaman zaten reddetmiştir. Kur'ân bir fen kitabı değildir. Bediüzzaman Muhâkemât'ta bunu bir kaide olarak koyar: Kur'ân'ın maksatları dörttür — tevhid, nübüvvet, haşir, adalet ve ibadet. Kâinattan bahsi bu maksatlara delil olmak üzere, istitrad yoluyla, yani arızî olarak gelir; maksat astronomi öğretmek değil Sâni'i tanıtmaktır. Buradan zorunlu bir sonuç çıkar: bir ayeti bugünkü bir bilimsel modele çivilemek Kur'ân'ı yüceltmez, onu o modelin ömrüne bağlar. Kur'ân yüzde yüz doğrudur ve değişmez; değişebilir olan bizim modellerimizdir. Dolayısıyla i'câzü'l-ilmî tartışması Kur'ân'ın doğruluğu meselesi değil, bizim usûl ve edep meselemizdir.",
+      "shortResponseEn": "This objection is aimed not at the Qur'ān but at a method of reading — and that method was already rejected by the classical scholars and by Bediüzzaman. The Qur'ān is not a textbook of natural science. Bediüzzaman lays this down as a rule in Muḥākamāt: the Qur'ān has four aims — divine unity, prophethood, the resurrection, and justice and worship. Its mention of the cosmos comes by way of digression, incidentally, as evidence for those aims; the purpose is not to teach astronomy but to make the Maker known. A necessary consequence follows: nailing a verse to a current scientific model does not exalt the Qur'ān, it binds the verse to that model's lifespan. The Qur'ān is one hundred percent true and does not change; what can change are our models. The debate over scientific iʿjāz is therefore not a question about the Qur'ān's truth but about our method and our propriety.",
+      "longResponseTr": "Meseleyi doğru kurmak için önce bir ayrım gerekir: Kur'ân'ın kâinat hakkında söylediklerinin doğru olması ile, o sözlerin bir bilimsel keşif bildirisi olarak okunması aynı şey değildir. Birincisi imanın gereğidir; ikincisi bir yorum tercihidir — ve zayıf bir tercihtir.\n\nKlasik ulemânın tavrı bu ayrım üzerine kuruludur. Râzî gibi tabiat ilimlerine en açık müfessirler bile ayetleri çağın kozmoloji modeline bağlamaz; kâinat ayetlerini Sâni'in varlığına ve birliğine delil olarak okur. Sebep bellidir: delil olarak okunan bir ayet, modelin değişmesinden zarar görmez; keşif bildirisi olarak okunan bir ayet ise model değiştiği anda savunulamaz hâle gelir. Klasik usûl bu riski baştan almamıştır.\n\nBediüzzaman Muhâkemât'ta bu tavrı sistemleştirir. Koyduğu iki kaide bugün de aynen geçerlidir. Birincisi maksat kaidesidir: Kur'ân'ın asıl mevzuu Sâni'i tanıtmaktır; kâinat bahisleri müstakil bir konu değil, bu mevzuun delilidir — yani istitradîdir. İkincisi üslûp kaidesidir: Kur'ân, örf-ü nâsa göre, yani insanların müşahede ve konuşma diliyle hitap eder. Güneşin doğması, batması, yürümesi gibi ifadeler bir kozmoloji iddiası değil, bütün insanlığın ortak müşahede dilidir; bu, hata değil belâgattir — çünkü Kur'ân her asrın ve her seviyenin muhatabıdır ve bir asrın teknik diline hapsedilmiş bir kitap, diğer bütün asırlara sağır olurdu. Bu ikinci kaide, 'güneş çamurlu bir pınara batıyor' (18:86) türünden itirazların da doğrudan cevabıdır: ayet Zülkarneyn'in gördüğünü, gören gözün diliyle anlatır.\n\nÜçüncü bir katman daha var. Kur'ân'ın kendisi, insanı kâinatı incelemeye açıkça çağırır ve buna bir vaat bağlar: 'Onlara âfâkta ve enfüste âyetlerimizi göstereceğiz, tâ ki onun hak olduğu kendilerine besbelli olsun' (41:53). Yani ilmî keşiflerin Kur'ân'ın hakikatini tasdik etmesi beklenen bir şeydir. Fakat bu, her keşfin bir ayete birebir oturtulması gerektiği anlamına gelmez; ayetin işaret ettiği hakikat ile o hakikatin bir asırdaki teknik ifadesi farklı şeylerdir. Ayet sabittir, ifade değişir.\n\nBuradan sağlıklı bir ölçü çıkar. Bir bilimsel bulgu ile Kur'ân ayeti arasında uyum görülüyorsa, bunu 'Kur'ân'ın hak olduğuna dair bir işaret' saymak yerinde olur; fakat bu uyumu 'ayetin ispatı' hâline getirmek yanlıştır — çünkü ayet ispata muhtaç değildir, ispat eden odur. Kur'ân'ın doğruluğu bilimin onayına bağlanamaz: bilim değişir, Kur'ân değişmez. İ'câzü'l-ilmî söyleminin zayıf tarafı Kur'ân'ı savunmaya çalışırken onu, kendisinden aşağı bir mercinin tasdikine muhtaç göstermesidir. Bu uyarıyı ilk yapanlar da müsteşrikler değil, Kur'ân'ın kendi âlimleridir.",
+      "longResponseEn": "To frame the matter correctly a distinction is needed first: that what the Qur'ān says about the cosmos is true, and that those statements be read as bulletins of scientific discovery, are not the same thing. The first is a requirement of faith; the second is an interpretive choice — and a weak one.\n\nThe stance of the classical scholars rests on that distinction. Even exegetes most open to the natural sciences, such as al-Rāzī, do not bind verses to the cosmological model of their age; they read the cosmic verses as evidence for the existence and unity of the Maker. The reason is plain: a verse read as evidence takes no harm when a model changes, whereas a verse read as a discovery bulletin becomes indefensible the moment the model shifts. Classical method never took that risk.\n\nBediüzzaman systematizes this stance in Muḥākamāt. The two rules he lays down hold today unchanged. The first is the rule of aim: the Qur'ān's true subject is making the Maker known; the cosmic passages are not an independent topic but evidence for that subject — that is, digressive. The second is the rule of idiom: the Qur'ān addresses people according to common usage, in the language of observation and ordinary speech. Expressions such as the sun rising, setting or running are not cosmological claims but the shared observational language of all humanity; this is not error but eloquence — for the Qur'ān addresses every age and every level, and a book locked into the technical idiom of one century would be deaf to all the others. This second rule is also the direct answer to objections of the 'the sun sets in a muddy spring' type (18:86): the verse relates what Dhū al-Qarnayn saw, in the language of the seeing eye.\n\nThere is a third layer. The Qur'ān itself calls plainly for the study of the cosmos and attaches a promise to it: 'We shall show them Our signs in the horizons and within themselves until it becomes clear to them that it is the truth' (41:53). That scientific discovery should confirm the truth of the Qur'ān is thus something expected. But this does not mean every finding must be fitted one-to-one onto a verse; the truth a verse indicates and the technical expression of that truth in a given century are different things. The verse is fixed; the expression changes.\n\nA sound measure follows. Where harmony is seen between a scientific finding and a Qur'ānic verse, it is fitting to count it a sign that the Qur'ān is true; but to convert that harmony into 'proof of the verse' is a mistake — for the verse stands in no need of proof, it is what proves. The truth of the Qur'ān cannot be made contingent on the endorsement of science: science changes, the Qur'ān does not. The weakness of the scientific-iʿjāz discourse is that, in trying to defend the Qur'ān, it shows it as needing the ratification of a lesser authority. And the first to issue this warning were not orientalists but the Qur'ān's own scholars.",
+      "verdictTr": "Kur'ân'ın doğruluğu bilimin onayına muhtaç değildir; bilim değişir, Kur'ân değişmez. Ayeti günün modeline çivilemek bir savunma değil, bir zaaf işaretidir — ve bu uyarıyı ilk yapanlar Kur'ân'ın kendi âlimleridir.",
+      "verdictEn": "The Qur'ān's truth needs no ratification from science; science changes, the Qur'ān does not. Nailing a verse to the model of the day is not a defence but a sign of weakness — and the first to warn of it were the Qur'ān's own scholars.",
+      "classicalSources": [
+        {
+          "author": "er-Râzî",
+          "workTr": "Mefâtîhu'l-Ğayb",
+          "workEn": "Mafātīḥ al-Ghayb",
+          "noteTr": "Tabiat ilimlerine en açık klasik müfessir olmasına rağmen kâinat ayetlerini çağın modeline bağlamaz; onları Sâni'in varlığına delil olarak okur.",
+          "noteEn": "Though the classical exegete most open to the natural sciences, does not bind cosmic verses to the model of his age but reads them as evidence for the Maker."
+        },
+        {
+          "author": "eş-Şâtıbî",
+          "workTr": "el-Muvâfakât",
+          "workEn": "al-Muwāfaqāt",
+          "noteTr": "Kur'ân'ın Arapların bildiği ölçüde ve onların diliyle hitap ettiğini, ondan tabiat ilmi çıkarmaya çalışmanın usûl hatası olduğunu açıkça belirtir.",
+          "noteEn": "States plainly that the Qur'ān addresses in the measure and idiom the Arabs knew, and that extracting natural science from it is a methodological error."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Muhâkemât — Birinci ve İkinci Makale",
+          "workEn": "Muḥākamāt — First and Second Treatises",
+          "noteTr": "İki kaideyi kurar: (1) Kur'ân'ın maksatları dörttür ve kâinattan bahsi istitradîdir; (2) Kur'ân örf-ü nâsa göre, müşahede diliyle hitap eder — bu bir hata değil, her asra hitap edebilmenin şartıdır.",
+          "noteEn": "Lays down two rules: (1) the Qur'ān has four aims and its mention of the cosmos is digressive; (2) the Qur'ān addresses according to common usage, in the language of observation — not an error but the condition of speaking to every age."
+        },
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Sözler — Yirmi Beşinci Söz (Mu'cizât-ı Kur'âniye)",
+          "workEn": "The Words — The Twenty-Fifth Word",
+          "noteTr": "Kur'ân'ın i'câzının asıl yerinin belâgat, nazım, gayb haberleri ve her tabakayı doyuran hitap genişliği olduğunu ortaya koyar; i'câzı tek bir alana indirgemenin yanlışlığını gösterir.",
+          "noteEn": "Establishes that the seat of the Qur'ān's inimitability is its eloquence, composition, reports of the unseen and the breadth of address that satisfies every level; shows the error of reducing iʿjāz to a single field."
+        }
+      ],
+      "modernSources": [
+        {
+          "author": "Muhammed Hamdi Yazır (Elmalılı)",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "Kâinat ayetlerini ilim çağrısı ve tevhid delili olarak okur; ayetleri devrin bilimsel teorilerine bağlamaktan özenle kaçınır.",
+          "noteEn": "Reads the cosmic verses as a call to knowledge and evidence of divine unity, carefully avoiding tying them to the scientific theories of the day."
+        },
+        {
+          "author": "Nidhal Guessoum",
+          "workTr": "İslâm'ın Kuantum Sorusu",
+          "workEn": "Islam's Quantum Question",
+          "period": "2011 (I.B. Tauris)",
+          "noteTr": "Metotsuz 'i'câz endüstrisi'nin ayetleri değişken modellere bağlayarak nasıl kendi kendini yanlışlanabilir hâle getirdiğini gösterir.",
+          "noteEn": "Shows how an unmethodical 'iʿjāz industry' renders itself falsifiable by binding verses to shifting models."
+        }
+      ],
+      "debateNoteTr": "Bu, Kur'ân'a değil bir savunma usûlüne yöneltilmiş bir eleştiridir ve klasik usûl bu eleştiriyi zaten içermektedir. Ayet ile bilimsel bulgu arasındaki uyumu 'işaret' saymak yerinde; 'ispat' saymak usûlen yanlıştır.",
+      "debateNoteEn": "This is a critique of a defensive method, not of the Qur'ān, and classical methodology already contains it. To count harmony between verse and finding as a sign is apt; to count it as proof is methodologically wrong.",
+      "relatedTools": [
+        {
+          "href": "/{lang}/arac/wow",
+          "titleTr": "Wow Bulguları",
+          "titleEn": "Wow Findings"
+        },
+        {
+          "href": "/{lang}/arac/bilimsel-isaretler",
+          "titleTr": "Bilimsel İşaretler Atlası",
+          "titleEn": "Atlas of Scientific Signs"
         }
       ]
     },
     {
       "id": "muhkem-mutesabih-hangisi",
       "category": "metod",
-      "titleTr": "Muhkem-Müteşâbih — Hangi Ayet Hangi Kategoride?",
-      "titleEn": "Muḥkam vs Mutashābih — Which Verse in Which Category?",
+      "titleTr": "Muhkem–Müteşâbih — Hangi Ayet Hangi Kategoride?",
+      "titleEn": "Muḥkam and Mutashābih — Which Verse Falls Where?",
       "verses": [
-        "3:7"
+        "3:7",
+        "11:1",
+        "39:23"
       ],
-      "shortResponseTr": "Âl-i İmrân 3:7 ayetlerin bir kısmının 'muhkem' (net, temel), bir kısmının 'müteşâbih' (kapalı, çok-yorumlu) olduğunu söyler. Ancak metin hangi ayetin hangi kategoride olduğunu belirtmez. Klasik alimler (Râzî, Zerkeşî) sınıflandırma kriterleri geliştirmiştir. Bu ayrımın sınırı süregelen bir tartışma — Ehl-i Sünnet, Şia, mu'tezile ve modern hermeneutik farklı çizgiler önerir.",
-      "shortResponseEn": "Āl ʿImrān 3:7 says some verses are 'muḥkam' (clear, foundational), others 'mutashābih' (ambiguous, multi-interpretable). But the text does not specify which verse belongs to which category. Classical scholars (al-Rāzī, al-Zarkashī) developed classification criteria. The boundary of this distinction is an ongoing debate — Sunni, Shia, Muʿtazila, and modern hermeneutics propose different lines.",
-      "longResponseTr": "3:7'nin kendisi 'onun te'vîlini Allah'tan başkası bilmez' der ama bu ifadenin (a) 've ilim erbabı' cümlesiyle vasıl mı fasıl mı okunacağı (vakıf, waqf) klasik dönemden beri tartışılır — Ehl-i Sünnet çoğunluğu 'vakıf' (yalnız Allah bilir), Şia ve bazı modernler 'vasıl' (rüsûh ehli de bilir) okur. Müteşâbih örnekleri: Allah'ın 'eli, gözü, oturması' (sıfat ayetleri), harf-i mukatta'a (surelerin başında yalnız harfler), kıyametin vakti, cennet-cehennemin somut tasvirleri. Muhkem örnekleri: 'Allah birdir', 'katletmeyin', 'namaz kılın'. Bu ayrımı yönetmek için Râzî ve Zerkeşî üç ilke sunar: (1) muhkem müteşâbih'i açıklar; (2) müteşâbih tek başına hüküm kaynağı olmaz; (3) 'rüsûh ehli' (kök ilme sahip alim) müteşâbihte teslimiyet + araştırma birleştirir. Modern akademik hermeneutik (Mohammed Arkoun, Farid Esack) muhkem-müteşâbih ayrımının 'kapalı' değil 'anlam-hareketli' bir semiyotik çerçeve olduğunu, her yeni tarihsel bağlamda yeniden negosiyasyon gerektiğini savunur — bu yorum klasik çerçeveyi bozmaksızın modernize etme arayışı olarak okunabilir. Sonuç: Kur'ân'ın kendi yorum-metodolojisinin bir kısmı da yorum konusudur — 'nihaî yorum tekelinin' hiçbir sınıfın elinde olmadığı bir yapı.",
-      "longResponseEn": "3:7 itself says 'no one knows its taʾwīl but Allah' — but whether this phrase should be read joined (waṣl) or paused (waqf) with 'and those firmly grounded in knowledge' is a debate from the classical period — Sunni majority reads 'waqf' (only Allah knows), Shia and some moderns read 'waṣl' (the firmly grounded also know). Examples of mutashābih: God's 'hand, eye, seating' (attribute verses), mysterious letters (isolated letters opening some sūrahs), the hour of Judgment, concrete descriptions of paradise-hell. Examples of muḥkam: 'God is one,' 'do not kill,' 'establish prayer.' Al-Rāzī and al-Zarkashī offer three principles for managing this: (1) muḥkam explains mutashābih; (2) mutashābih alone is not a source of ruling; (3) 'those firmly grounded' combine submission and investigation in mutashābih. Modern academic hermeneutics (Mohammed Arkoun, Farid Esack) argues the muḥkam-mutashābih distinction is not 'closed' but a 'meaning-mobile' semiotic frame requiring renegotiation in each new historical context — this can be read as an attempt to modernize the classical frame without breaking it. Bottom line: part of the Quran's own interpretive methodology is itself subject to interpretation — a structure where 'final interpretive monopoly' rests with no class.",
+      "objectionTr": "Âl-i İmrân 3:7 ayetlerin bir kısmının muhkem, bir kısmının müteşâbih olduğunu söylüyor ama hangisinin hangi kategoride olduğunu belirtmiyor. İtiraz: bu, herkesin kendi yorumunu haklı çıkarabileceği belirsiz bir kapı bırakır.",
+      "objectionEn": "Āl ʿImrān 3:7 says some verses are muḥkam and others mutashābih, but does not specify which belongs where. The objection: this leaves an indeterminate door through which anyone may justify their own interpretation.",
+      "shortResponseTr": "Ayet belirsizlik bırakmıyor; bir okuma disiplini kuruyor ve o disiplinin ölçüsünü de aynı cümlede veriyor. 3:7 muhkem ayetler için 'ümmü'l-kitâb' der — kitabın anası, yani ölçüsü. Demek ki sınıflandırma keyfî değildir: müteşâbih muhkeme göre okunur, tersi olmaz. Ayet ayrıca kimin sapacağını da bildirir: 'kalplerinde eğrilik olanlar' fitne arayarak müteşâbihin peşine düşer — yani sorun ayetin kapalılığında değil, niyetin eğriliğindedir. Üstelik müteşâbihin varlığı bir kusur değil, bir zorunluluktur: sonsuz bir kelâmın sonlu bir dile inmesi teşbih ve temsil olmadan mümkün değildir. Kur'ân, gayb hakikatlerini insan idrakine temsil dürbünüyle yaklaştırır; bu bir muğlaklık değil, bir merhamettir.",
+      "shortResponseEn": "The verse leaves no indeterminacy; it institutes a discipline of reading and supplies that discipline's measure in the same sentence. Of the muḥkam verses 3:7 says umm al-kitāb — the mother, that is the measure, of the Book. The classification is therefore not arbitrary: the mutashābih is read by the muḥkam, never the reverse. The verse also names who will stray: 'those in whose hearts is deviation' pursue the mutashābih seeking discord — the problem lies not in the verse's opacity but in the crookedness of intent. Moreover the existence of the mutashābih is not a defect but a necessity: an infinite speech descending into a finite tongue is impossible without simile and similitude. The Qur'ān brings the truths of the unseen near to human understanding through the lens of similitude; this is not vagueness but mercy.",
+      "longResponseTr": "İtirazın gücü, ayetin yalnız ilk yarısını okumaktan gelir. Ayet 'bir kısmı muhkem, bir kısmı müteşâbih' demekle kalmaz; muhkemler için 'ümmü'l-kitâb' der. Bu tabir bir sıralama koyar: asıl olan muhkemdir, müteşâbih ona irca edilir. Usûl ulemâsının bütün sistemi bu tek ifadenin üzerine kurulmuştur ve pratikte üç kaide hâlinde işler: (1) müteşâbih muhkeme göre yorumlanır, muhkem müteşâbihe göre değil; (2) müteşâbih tek başına hüküm kaynağı olmaz; (3) müteşâbihte râsihûn — ilimde derinleşenler — teslimiyet ile araştırmayı birleştirir. Bu, 'herkes istediğini söyleyebilir' demek değil, tam tersine sıkı bir kısıtlamadır.\n\nAyrıca müteşâbihin bulunduğu alan bellidir ve dardır. Sıfat ayetleri (Allah'ın 'eli', 'yüzü', 'arşa istivâsı'), hurûf-ı mukattaa, kıyametin vakti, cennet ve cehennemin somut tasvirleri — yani gayba ait olan ve mahiyeti insan tecrübesine kapalı bulunan hususlar. Buna karşılık dinin kat'îleri hepsi muhkemdir: Allah'ın birliği, nübüvvet, âhiret, namaz, zekât, oruç, hac, öldürmenin ve zinanın haramlığı, adaletin emri. Yani müteşâbih, hükümlerin değil gaybın alanındadır. Bir kimse 'müteşâbih vardır' diyerek namazı veya haramı tartışmaya açamaz; çünkü onlar muhkemdir ve ayet muhkemi kitabın anası ilan etmiştir.\n\nTartışmanın klasik dönemden beri süren tek noktası vakıf meselesidir: 'onun te'vîlini Allah'tan başkası bilmez' ifadesinden sonra durulup 'ilimde derinleşenler ise derler ki: ona iman ettik' diye devam mı edilir, yoksa cümle 've ilimde derinleşenler' ile bağlanarak onların da bildiği mi kastedilir. Ehl-i sünnet çoğunluğu birinci okumayı tercih eder. Fakat dikkat edilirse iki okuma da aynı yere çıkar: her ikisinde de râsihûn müteşâbihe imanla yaklaşır ve onu muhkemin dışına taşımaz. Yani ihtilâf, sonucu değiştirmeyen bir kırâat farkıdır — hükümde bir boşluk üretmez.\n\nSon olarak, müteşâbihin niçin bulunduğu sorusu. Kur'ân mutlak bir kelâmdır ve muhatabı sınırlı bir varlıktır. Allah'ın zâtı ve âhiretin mahiyeti insan diline birebir sığmaz; bunların anlatılabilmesi için teşbih ve temsil zorunludur. Bediüzzaman'ın ifadesiyle Kur'ân, ulvî hakikatleri avâmın anlayışına temsil ve teşbih ile yaklaştırır; bu 'yanlış bilgi vermek' değil, 'seviyeye inerek doğru bilgiyi ulaştırmak'tır — nitekim bir öğretmenin çocuğa anlattığı basitleştirilmiş model de yanlış değil, uygun ölçüdür. Aynı sebeple müteşâbih Kur'ân'ın zenginliğinin de kaynağıdır: on dört asırdır her nesil aynı ayetten kendi seviyesine göre pay alabiliyorsa, bu kapalılık sayesindedir.\n\nÖzetle: 3:7 bir boşluk değil, bir hiyerarşi kurar. Belirsizlik ayette değil, muhkemi bırakıp müteşâbihe sarılan niyettedir — ki ayet zaten bunu adıyla haber vermiştir.",
+      "longResponseEn": "The objection draws its force from reading only the first half of the verse. It does not merely say 'some are muḥkam and some mutashābih'; of the muḥkam it says umm al-kitāb. That expression establishes an order: the muḥkam is the principal, and the mutashābih is referred back to it. The entire system of the scholars of legal theory is built on that single phrase, and in practice it operates as three rules: (1) the mutashābih is interpreted by the muḥkam, never the reverse; (2) the mutashābih is not a source of ruling on its own; (3) in the mutashābih the rāsikhūn — those grounded in knowledge — join submission with inquiry. This is not 'anyone may say what they like' but, on the contrary, a strict constraint.\n\nThe field of the mutashābih is also known, and narrow. The verses of the divine attributes (God's 'hand,' 'face,' 'establishment upon the Throne'), the disconnected letters, the hour of the Resurrection, the concrete descriptions of Paradise and Hell — matters belonging to the unseen whose nature is closed to human experience. By contrast the definitives of religion are all muḥkam: divine unity, prophethood, the hereafter, prayer, zakāt, fasting, pilgrimage, the prohibition of killing and adultery, the command of justice. The mutashābih lies in the field of the unseen, not of rulings. No one may open prayer or a prohibition to dispute by saying 'there is mutashābih,' for those are muḥkam, and the verse has declared the muḥkam the mother of the Book.\n\nThe single point debated since the classical period is the pause: whether one stops after 'none knows its interpretation save God' and resumes with 'and those grounded in knowledge say: we believe in it,' or joins the clause so that they too are meant to know. The Sunnī majority prefers the first reading. Yet note that both arrive at the same place: in either, the rāsikhūn approach the mutashābih with faith and do not carry it beyond the muḥkam. The difference is one of recitation that does not alter the outcome — it produces no gap in the law.\n\nFinally, why the mutashābih exists at all. The Qur'ān is absolute speech and its addressee a limited being. The divine Essence and the nature of the hereafter do not fit one-to-one into human language; simile and similitude are necessary if they are to be conveyed. In Bediüzzaman's expression, the Qur'ān brings exalted realities near to common understanding through similitude and comparison; this is not the giving of false information but the delivery of true knowledge at the level of the hearer — just as a teacher's simplified model for a child is not false but rightly proportioned. For the same reason the mutashābih is the source of the Qur'ān's richness: that every generation for fourteen centuries has drawn from the same verse according to its own level is owed to this very openness.\n\nIn short: 3:7 institutes not a gap but a hierarchy. The indeterminacy lies not in the verse but in the intent that abandons the muḥkam and seizes on the mutashābih — which the verse itself named in advance.",
+      "verdictTr": "Müteşâbih bir açık kapı değil, ölçüsü kendi içinde verilmiş bir alandır: ölçü muhkemdir. Belirsizlik ayette değil, muhkemi bırakıp müteşâbihe sarılan niyettedir — ayet bunu zaten haber vermiştir.",
+      "verdictEn": "The mutashābih is not an open door but a field whose measure is given within itself: the measure is the muḥkam. The indeterminacy lies not in the verse but in the intent that leaves the muḥkam for the mutashābih — as the verse itself foretold.",
       "classicalSources": [
         {
           "author": "er-Râzî",
           "workTr": "Mefâtîhu'l-Ğayb",
           "workEn": "Mafātīḥ al-Ghayb",
-          "noteTr": "Müteşâbih ayetlerin te'vîline dair klasik metodolojinin sistematik referansı.",
-          "noteEn": "Systematic reference for the classical methodology of interpreting mutashābih verses."
+          "noteTr": "3:7'deki vakıf meselesini iki okuma hâlinde tartışır; her iki okumada da müteşâbihin muhkeme irca edildiğini gösterir.",
+          "noteEn": "Discusses the question of the pause in 3:7 under both readings, showing that in either the mutashābih is referred back to the muḥkam."
         },
         {
           "author": "ez-Zerkeşî",
-          "workTr": "el-Burhân fî Ulûmi'l-Kurʾân",
+          "workTr": "el-Burhân fî Ulûmi'l-Kur'ân",
           "workEn": "al-Burhān fī ʿUlūm al-Qurʾān",
-          "noteTr": "Muhkem-müteşâbih ayrımının ilm-i tefsirdeki yerini kapsamlı sunar.",
-          "noteEn": "Comprehensively presents the place of the muḥkam-mutashābih distinction in tafsir studies."
+          "noteTr": "Muhkem–müteşâbih ayrımının işletilme kaidelerini sistematik olarak kurar; müteşâbihin müstakil hüküm kaynağı olamayacağını tespit eder.",
+          "noteEn": "Systematically establishes the rules by which the muḥkam–mutashābih distinction operates, holding that the mutashābih cannot be an independent source of ruling."
+        },
+        {
+          "author": "eş-Şâtıbî",
+          "workTr": "el-Muvâfakât",
+          "workEn": "al-Muwāfaqāt",
+          "noteTr": "Şeriatın küllî maksatlarının kat'î ve muhkem olduğunu, cüz'î ihtimallerin bu küllîleri sarsamayacağını ortaya koyar.",
+          "noteEn": "Establishes that the universal aims of the Law are definitive and muḥkam, and that particular possibilities cannot shake those universals."
+        }
+      ],
+      "risaleSources": [
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Muhâkemât — Üçüncü Makale (Unsuru'l-Akîde)",
+          "workEn": "Muḥākamāt — Third Treatise (The Element of Creed)",
+          "noteTr": "Kur'ân'ın ulvî hakikatleri temsil ve teşbih yoluyla umumun anlayışına yaklaştırdığını; bunun bir muğlaklık değil, seviyeye göre hitap etmenin gereği olduğunu kurar.",
+          "noteEn": "Establishes that the Qur'ān brings exalted realities near to common understanding through similitude and comparison, and that this is not vagueness but a requirement of addressing each level."
+        },
+        {
+          "author": "Bediüzzaman Said Nursî",
+          "workTr": "Sözler — Yirmi Beşinci Söz (Mu'cizât-ı Kur'âniye)",
+          "workEn": "The Words — The Twenty-Fifth Word",
+          "noteTr": "Kur'ân'ın aynı ifadeyle avâmdan havâssa kadar her tabakayı doyurmasını i'câzın vecihlerinden biri olarak inceler — müteşâbihin hikmeti burada görünür.",
+          "noteEn": "Examines as an aspect of inimitability the Qur'ān's satisfying of every level from the common to the elect through a single expression — where the wisdom of the mutashābih becomes visible."
         }
       ],
       "modernSources": [
         {
-          "author": "Mohammed Arkoun",
-          "workTr": "İslam'ı Yeniden Düşünmek",
-          "workEn": "Rethinking Islam: Common Questions, Uncommon Answers",
-          "period": "1994",
-          "noteTr": "Muhkem-müteşâbih ayrımını semiyotik + hermeneutik çerçeveden yeniden okuyan modern klasik.",
-          "noteEn": "A modern classic re-reading the muḥkam-mutashābih distinction from semiotic + hermeneutic framework."
+          "author": "Elmalılı Hamdi Yazır",
+          "workTr": "Hak Dini Kur'ân Dili",
+          "workEn": "Hak Dini Kur'ân Dili",
+          "period": "1935–1938",
+          "noteTr": "3:7 tefsirinde 'ümmü'l-kitâb' tabirinin kurduğu hiyerarşiyi ve müteşâbihin sınırlı alanını açık biçimde ortaya koyar.",
+          "noteEn": "In commenting on 3:7, sets out plainly the hierarchy established by umm al-kitāb and the limited field of the mutashābih."
         },
         {
-          "author": "Farid Esack",
-          "workTr": "Kur'ân, Çoğulculuk ve Kurtuluş",
-          "workEn": "Qurʾān, Liberation and Pluralism",
-          "period": "1997 (Oneworld)",
-          "noteTr": "Muhkem-müteşâbih ayrımının çağdaş sosyal + siyasal bağlamlarda nasıl uygulandığını inceler.",
-          "noteEn": "Examines how the muḥkam-mutashābih distinction is applied in contemporary social + political contexts."
+          "author": "Muhammed Tâhir İbn Âşûr",
+          "workTr": "et-Tahrîr ve't-Tenvîr",
+          "workEn": "al-Taḥrīr wa-l-Tanwīr",
+          "period": "1970",
+          "noteTr": "Müteşâbihin gayb alanına ait olduğunu, ahkâm ayetlerinin muhkem sayılmasının usûlî zorunluluk olduğunu belirtir.",
+          "noteEn": "Holds that the mutashābih belongs to the field of the unseen, and that treating the verses of legal rulings as muḥkam is a methodological necessity."
         }
       ],
+      "debateNoteTr": "Vakıf meselesindeki (Allah'tan başkası bilmez / ilimde derinleşenler de bilir) klasik ihtilâf bir kırâat farkıdır ve iki okuma da aynı sonuca çıkar. Bu, hükümde boşluk üreten bir ihtilâf değil, fürûda genişliktir.",
+      "debateNoteEn": "The classical difference over the pause (none knows but God / those grounded in knowledge also know) is a matter of recitation, and both readings reach the same result. It is not a disagreement that produces a gap in the law but breadth in secondary matters.",
       "relatedTools": [
         {
           "href": "/{lang}/arac/mukattaa",
-          "titleTr": "Mukatta'a Harfleri",
-          "titleEn": "Muqaṭṭaʿāt"
+          "titleTr": "Hurûf-ı Mukattaa",
+          "titleEn": "The Disconnected Letters"
+        },
+        {
+          "href": "/{lang}/arac/tefsir-ihtilaflari",
+          "titleTr": "Tefsir İhtilâfları",
+          "titleEn": "Tafsīr Disagreements"
         }
       ]
     }

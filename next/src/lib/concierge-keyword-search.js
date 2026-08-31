@@ -147,6 +147,11 @@ export function conciergeKeywordSearch(query, lang) {
     'sebeb-nuzul': 2,
     dialogue: 2,
     addressee: 1,
+    // 2026-08-31 — bu üç tip corpus'ta vardı ama bu listede olmadığı için
+    // aramada sessizce eleniyordu: embed edilmiş içerik /sor'a hiç ulaşmıyordu.
+    elestirel: 2,
+    'bilimsel-isaret': 1,
+    'tarihsel-iz': 1,
   };
   const tokens = tokenize(query, lang);
   const emptyGrouped = () => Object.fromEntries(Object.keys(perType).map(k => [k, []]));

@@ -5,10 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import ElestirelCerceveRoute from './ElestirelCerceveRoute';
 
 const PATH = '/arac/elestirel-cerceve';
-const TITLE_TR = "Eleştirel Çerçeve — Zorlu Sorulara Dengeli Okuma";
-const TITLE_EN = 'Critical Frame — Balanced Reading for Hard Questions';
-const DESC_TR = "Kur'ân'a yöneltilen içeriden ve dışarıdan zorlu sorulara — miras eşitsizliği, kölelik, cizye, Nûh tufanı, iʿcâzü'l-ilmî, cinsel yönelim, muhkem-müteşâbih — dengeli akademik çerçeve. Klasik tefsir ile modern akademiyi yan yana koyar; kapatılmış cevap değil süregelen bir okuma sunar.";
-const DESC_EN = "A balanced academic frame for hard questions posed to the Quran — inheritance inequality, slavery, jizya, Noah's flood, scientific miracle claims, sexual orientation, muhkam-mutashabih. Places classical tafsir alongside modern academia; offers ongoing readings rather than closed answers.";
+const TITLE_TR = "Eleştirel Çerçeve — Zorlu Sorular ve Ulemânın Cevapları";
+const TITLE_EN = 'Critical Frame — Hard Questions and the Scholars\' Answers';
+const DESC_TR = "Kur'ân'a yöneltilen en zorlu sorular — miras, şahitlik, Nisâ 4:34, cizye, kölelik, Lût kavmi, Nûh tufanı, iktibas iddiası, i'câzü'l-ilmî, muhkem-müteşâbih — en keskin haliyle yazılır ve ulemânın cevabı kaynağıyla gösterilir. Râzî, Kurtubî, İbn Kayyim, İbn Âşûr, Elmalılı ve Bediüzzaman Said Nursî'den. Ölçü Kur'ân'dır: bir ayet sorunlu görünüyorsa kusur ayette değil, bizim anlayışımızdadır.";
+const DESC_EN = "The hardest questions posed to the Qur'an — inheritance, testimony, Nisa 4:34, jizya, slavery, the people of Lot, Noah's flood, the borrowing claim, scientific i'jaz, muhkam and mutashabih — stated at their sharpest, then answered from the scholars with their sources: al-Razi, al-Qurtubi, Ibn al-Qayyim, Ibn Ashur, Elmalili and Bediuzzaman Said Nursi. The Qur'an is the measure: if a verse appears problematic, the fault lies in our understanding, not in the verse.";
 
 export async function generateMetadata({ params }) {
   return pageMetadata({

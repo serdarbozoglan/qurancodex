@@ -68,7 +68,7 @@ const TABS = [
   { tr: 'İşaretler', en: 'Signs',
     icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 15 L7 18 L9 12 L4 8 L10 8 Z"/></svg>),
   },
-  { tr: 'Keşif Timeline', en: 'Discovery Timeline',
+  { tr: 'Keşif Çizelgesi', en: 'Discovery Timeline',
     icon: (<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg>),
   },
   { tr: 'Bucaillism Nüansı', en: 'Bucaillism Nuance',
@@ -608,13 +608,13 @@ function BucaillismTab({ intro, language, isMobile }) {
           {(tr ? [
             'Kur\'ân\'ın metaphorik-ahlâkî dili öncelikli, bilim referansı ikincildir.',
             'Klasik tefsir (Râzî, İbn Kesîr, Kurtubî) modern okumalardan önce okunmalı.',
-            '"Kur\'ân önceden bildi" iddiası yerine "kelime seçimi uyumludur" ölçütü.',
+            'Ölçü "kanıt" değil "uyum"dur: Kur\'ân haber verir, biz tasdik ederiz.',
             'Uyum-veren âyetler seçilirken, uyum vermeyenler görmezden gelinmemeli (cherry-picking eleştirisi).',
             'Bilim değişir, vahiy sabittir — bilimsel iddia bugün güçlü ise yarın çürütülebilir.'
           ] : [
             'The Qur\'an\'s metaphorical-ethical language is primary; scientific reference is secondary.',
             'Classical exegesis (Rāzī, Ibn Kathīr, Qurṭubī) should be read before modern readings.',
-            'The criterion "word choice is compatible" replaces the claim "the Qur\'an foreknew."',
+            'The measure is "alignment," not "proof": the Qur\'an reports, we affirm.',
             'When compatible verses are chosen, incompatible ones should not be hidden (cherry-picking critique).',
             'Science changes; revelation is fixed — a strong scientific claim today may be refuted tomorrow.'
           ]).map((p, i) => <li key={i} style={{ marginBottom: '4px' }}>{p}</li>)}
