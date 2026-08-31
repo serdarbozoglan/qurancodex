@@ -7,6 +7,8 @@ import {
   COLORS, FONTS, BREAKPOINT_TABLET, TRANSITION, RADIUS, SEMANTIC } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
+import useNavbarOffset from './useNavbarOffset';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 import { fetchMealVerse } from '../lib/mealCache';
 
@@ -45,6 +47,90 @@ const CONTEXT_LABELS = {
   divine:   { tr: 'İlahi',  en: 'Divine' },
   ritual:   { tr: 'İbadet', en: 'Ritual' },
 };
+
+// Bir grubun "baskın rengi" — kelimelerinin çoğunluk bağlamına göre.
+// GroupCard ve Prensip Kitaplığı kartları arasında tutarlılık için paylaşılır.
+function groupAccent(group) {
+  if (!group) return COLORS.gold;
+  const counts = {};
+  for (const w of group.words) {
+    const p = w.patternStat.dominantPattern;
+    counts[p] = (counts[p] || 0) + 1;
+  }
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0];
+  return CONTEXT_COLORS[top] || COLORS.gold;
+}
+
+// ── Cinematic Hero (§13.18) ───────────────────────────────────────────────────
+function Hero({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      position: 'relative', overflow: 'hidden',
+      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+      borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+      textAlign: 'center',
+    }}>
+      <HeroGeometricBackground />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div aria-hidden="true" style={{
+          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+          color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
+        }}>﷽</div>
+
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran, color: COLORS.gold,
+          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          lineHeight: 2.1, margin: '0 0 14px',
+        }}>
+          كِتَابٌ فُصِّلَتْ آيَاتُهُ قُرْآنًا عَرَبِيًّا لِّقَوْمٍ يَعْلَمُونَ
+        </p>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
+          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          maxWidth: '660px', margin: '0 auto 8px',
+        }}>
+          {tr
+            ? '"Bilen bir toplum için âyetleri ayrıntılı kılınmış, Arapça okunan bir Kitap."'
+            : '"A Book whose verses are detailed — an Arabic Qur’an for a people who know."'}
+        </p>
+        <p style={{
+          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+          margin: '0 0 24px',
+        }}>— {tr ? 'Fussilet 41:3' : 'Fussilat 41:3'}</p>
+
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
+          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          maxWidth: '700px', margin: '0 auto 24px',
+        }}>
+          {tr
+            ? <>Aynı Türkçe kelimeye çevrilen iki Arapça sözcük çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şey</em> değildir — Kur&apos;an&apos;ın seçimi hiçbir zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>rastgele</em> olmaz.</>
+            : <>Two Arabic words translated by the same English word are often <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>not the same thing</em> — the Qur&apos;an&apos;s choice is never <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>arbitrary</em>.</>}
+        </p>
+
+        <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
+
+        <p style={{
+          color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
+          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+        }}>{tr ? "İLMÜ'L-FÜRÛK · KELİME SEÇİMİNİN MİMARİSİ" : 'ʿILM AL-FURŪQ · THE ARCHITECTURE OF WORD CHOICE'}</p>
+        <h1 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          lineHeight: 1.2, margin: '0 0 10px',
+        }}>{tr ? 'Füruk Atlası' : 'Atlas of Semantic Distinctions'}</h1>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
+          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          margin: 0,
+        }}>{tr ? 'Eş anlamlı görünen kelimeler arasındaki keskin çizgi' : 'The sharp line between apparently synonymous words'}</p>
+      </div>
+    </div>
+  );
+}
 
 const TABS = [
   {
@@ -92,6 +178,7 @@ export default function FurukAtlasi({ onClose }) {
   const [isMobile, setIsMobile] = useState(false)  // SSR-safe; useEffect h() post-mount hydrate eder (audit fix);
   const bodyRef = useRef(null);
   const trapRef = useFocusTrap(true);
+  const navTop = useNavbarOffset(0, 62);
 
   // Escape
   useEffect(() => {
@@ -120,8 +207,8 @@ export default function FurukAtlasi({ onClose }) {
       icon={<PrismIcon />}
       titleTr="Füruk Atlası"
       titleEn="Atlas of Semantic Distinctions"
-      subtitleTr="Eş anlamlılarda ince fark · 50+ aile"
-      subtitleEn="Subtle distinctions · 50+ word families"
+      subtitleTr="Eş anlamlılarda ince fark · 34 aile"
+      subtitleEn="Subtle distinctions · 34 word families"
       language={language}
     />
   );
@@ -180,17 +267,18 @@ export default function FurukAtlasi({ onClose }) {
       {/* ── SCROLLABLE BODY ────────────────────────────────────────────────── */}
       <div ref={bodyRef} style={{ flex: 1 }}>
 
-        {/* ── HERO ────────────────────────────────────────────────────────── */}
+        <Hero language={language} isMobile={isMobile} />
+
+        {/* ── MANIFESTO STRIP ─────────────────────────────────────────────── */}
         <div className="mq-box" style={{
-          '--pt-d': "36px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "40px", '--pl-m': "16px",
-          background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+          '--pt-d': "32px", '--pt-m': "22px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "40px", '--pl-m': "16px",
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
           <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: 8 }}>
             {tr ? 'AYNI ÇEVİRİ · FARKLI ANLAM' : 'SAME TRANSLATION · DIFFERENT MEANING'}
           </div>
           <h2 style={{
-            color: COLORS.offWhite, fontSize: isMobile ? '1.4rem' : '1.9rem',
+            color: COLORS.offWhite, fontSize: isMobile ? '1.25rem' : '1.6rem',
             fontWeight: 700, fontFamily: FONTS.display, margin: '0 0 12px',
             lineHeight: 1.3,
           }}>
@@ -233,7 +321,7 @@ export default function FurukAtlasi({ onClose }) {
         </div>
 
         {/* ── TAB BAR ─────────────────────────────────────────────────────── */}
-        <div style={{ position: 'sticky', top: '110px', zIndex: 20, background: 'rgb(6, 8, 14)',
+        <div style={{ position: 'sticky', top: `${navTop + 48}px`, zIndex: 20, background: 'rgb(6, 8, 14)',
           backgroundColor: 'rgb(6, 8, 14)',
           isolation: 'isolate' }}>
           <div className="mq-box" id="furuk-tab-bar" style={{
@@ -298,6 +386,7 @@ export default function FurukAtlasi({ onClose }) {
             <TabGroupDetail
               group={selectedGroup}
               allGroups={data.groups}
+              categories={data.categories}
               language={language}
               isMobile={isMobile}
               onSelectGroup={setSelectedGroupId}
@@ -313,7 +402,7 @@ export default function FurukAtlasi({ onClose }) {
             />
           )}
           {activeTab === 3 && (
-            <TabSources sources={data.sources} language={language} isMobile={isMobile} />
+            <TabSources sources={data.sources} totalGroups={data.meta.totalGroups} language={language} isMobile={isMobile} />
           )}
 
           {RELATED_CTA}
@@ -390,6 +479,7 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
 
 function GroupCard({ group, language, onClick }) {
   const tr = language === 'tr';
+  const cardAccent = groupAccent(group);
   return (
     <button
       onClick={onClick}
@@ -397,14 +487,15 @@ function GroupCard({ group, language, onClick }) {
         textAlign: 'left',
         background: 'rgba(255,255,255,0.025)',
         border: '1px solid rgba(255,255,255,0.06)',
+        borderTop: `2px solid ${cardAccent}`,
         borderRadius: 14,
         padding: '18px 20px',
         cursor: 'pointer',
         transition: `all ${TRANSITION.base}`,
         display: 'flex', flexDirection: 'column', gap: 12,
       }}
-      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.borderColor = 'rgba(212,165,116,0.3)'; }}
-      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
+      onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.06)'; e.currentTarget.style.borderLeftColor = 'rgba(212,165,116,0.3)'; e.currentTarget.style.borderRightColor = 'rgba(212,165,116,0.3)'; e.currentTarget.style.borderBottomColor = 'rgba(212,165,116,0.3)'; }}
+      onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; e.currentTarget.style.borderLeftColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderRightColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.06)'; }}
     >
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
@@ -426,25 +517,41 @@ function GroupCard({ group, language, onClick }) {
         </span>
       </div>
 
-      {/* Word list — dot color = dominant context pattern */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      {/* Word list — dot = dominant context; alt şerit = pozitif/nötr/negatif dağılımı */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
         {group.words.map(w => {
           const dotColor = CONTEXT_COLORS[w.patternStat.dominantPattern] || COLORS.silver;
+          const { positive = 0, neutral = 0, negative = 0 } = w.patternStat;
+          const total = positive + neutral + negative;
           return (
-            <div key={w.id} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span
-                style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: dotColor, flexShrink: 0 }}
-                title={tr ? CONTEXT_LABELS[w.patternStat.dominantPattern]?.tr : CONTEXT_LABELS[w.patternStat.dominantPattern]?.en}
-              />
-              <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl', minWidth: 70, textAlign: 'right' }} lang="ar" dir="rtl">
-                {cleanArabic(w.ar)}
-              </span>
-              <span style={{ fontSize: '0.8rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 500, flex: 1 }}>
-                {w.tr}
-              </span>
-              <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, flexShrink: 0 }}>
-                {w.frequency}×
-              </span>
+            <div key={w.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span
+                  style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: dotColor, flexShrink: 0 }}
+                  title={tr ? CONTEXT_LABELS[w.patternStat.dominantPattern]?.tr : CONTEXT_LABELS[w.patternStat.dominantPattern]?.en}
+                />
+                <span style={{ fontFamily: FONTS.quran, fontSize: '1.05rem', color: COLORS.gold, direction: 'rtl', minWidth: 70, textAlign: 'right' }} lang="ar" dir="rtl">
+                  {cleanArabic(w.ar)}
+                </span>
+                <span style={{ fontSize: '0.8rem', color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 500, flex: 1 }}>
+                  {w.tr}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body, flexShrink: 0 }}>
+                  {w.frequency}×
+                </span>
+              </div>
+              {total > 0 && (
+                <div
+                  style={{ display: 'flex', height: 3, borderRadius: RADIUS.full, overflow: 'hidden', marginLeft: 18 }}
+                  title={tr
+                    ? `Rahmet ${positive} · Nötr ${neutral} · Azap ${negative}`
+                    : `Mercy ${positive} · Neutral ${neutral} · Punishment ${negative}`}
+                >
+                  {positive > 0 && <div style={{ flex: positive, background: CONTEXT_COLORS.positive }} />}
+                  {neutral > 0 && <div style={{ flex: neutral, background: CONTEXT_COLORS.neutral }} />}
+                  {negative > 0 && <div style={{ flex: negative, background: CONTEXT_COLORS.negative }} />}
+                </div>
+              )}
             </div>
           );
         })}
@@ -464,41 +571,48 @@ function GroupCard({ group, language, onClick }) {
 }
 
 // ── Tab 1: Group Detail ──────────────────────────────────────────────────────
-function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup }) {
+function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSelectGroup }) {
   const tr = language === 'tr';
   const [expandedWordId, setExpandedWordId] = useState(null);
 
   if (!group) return null;
 
+  const accent = groupAccent(group);
+  const categoryMeta = categories?.find(c => c.id === group.category);
+
   return (
     <div>
-      {/* Group selector chips */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 24 }}>
+      {/* Group selector chips — dominant-context dot per chip for scannability */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 24 }}>
         {allGroups.map(g => {
           const active = g.id === group.id;
+          const chipAccent = groupAccent(g);
           return (
             <button
               key={g.id}
               onClick={() => onSelectGroup(g.id)}
               style={{
-                padding: '5px 14px', borderRadius: 20,
-                border: `1px solid ${active ? COLORS.gold : 'rgba(255,255,255,0.12)'}`,
-                background: active ? COLORS.goldAlpha15 : 'transparent',
+                display: 'inline-flex', alignItems: 'center', gap: 7,
+                padding: '6px 14px 6px 10px', borderRadius: 20,
+                border: `1px solid ${active ? COLORS.gold : `${chipAccent}30`}`,
+                background: active ? COLORS.goldAlpha15 : 'rgba(255,255,255,0.02)',
                 color: active ? COLORS.gold : COLORS.silver,
                 fontSize: '0.78rem', fontWeight: active ? 600 : 400,
                 fontFamily: FONTS.body, cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
               }}
             >
+              <span style={{ width: 6, height: 6, borderRadius: RADIUS.full, background: chipAccent, flexShrink: 0 }} />
               {tr ? g.titleTr : g.titleEn}
             </button>
           );
         })}
       </div>
 
-      {/* Hero — translation + word cluster */}
+      {/* Hero — translation + word cluster, tinted to this group's dominant context */}
       <div className="mq-box" style={{
-        background: `linear-gradient(135deg, ${COLORS.goldAlpha04} 0%, rgba(0,0,0,0.1) 100%)`,
-        border: `1px solid ${COLORS.goldAlpha15}`,
+        background: `linear-gradient(135deg, ${accent}0F 0%, rgba(0,0,0,0.15) 100%)`,
+        border: `1px solid ${accent}40`,
+        borderTop: `2px solid ${accent}`,
         borderRadius: 14,
         '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "40px", '--pr-m': "20px", '--pb-d': "32px", '--pb-m': "24px", '--pl-d': "40px", '--pl-m': "20px",
         marginBottom: 28,
@@ -508,9 +622,23 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
         <div style={{
           position: 'absolute', top: '-40px', right: '-40px',
           width: 180, height: 180, borderRadius: RADIUS.full,
-          background: 'radial-gradient(circle, rgba(212,165,116,0.08) 0%, transparent 70%)',
+          background: `radial-gradient(circle, ${accent}22 0%, transparent 70%)`,
           pointerEvents: 'none',
         }} />
+
+        {categoryMeta && (
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            fontSize: '0.6rem', color: accent, fontWeight: 700,
+            letterSpacing: '0.12em', textTransform: 'uppercase',
+            fontFamily: FONTS.body, marginBottom: 18,
+            padding: '3px 10px', borderRadius: 20,
+            background: `${accent}14`, border: `1px solid ${accent}35`,
+            position: 'relative',
+          }}>
+            {tr ? categoryMeta.titleTr : categoryMeta.titleEn}
+          </div>
+        )}
 
         <div className="fd-row" style={{
           display: 'flex',
@@ -547,7 +675,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
           {!isMobile && (
             <div style={{
               width: 1, alignSelf: 'stretch',
-              background: `linear-gradient(180deg, transparent, ${COLORS.goldAlpha25}, transparent)`,
+              background: `linear-gradient(180deg, transparent, ${accent}55, transparent)`,
             }} />
           )}
 
@@ -587,9 +715,9 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
 
       {/* Principle box */}
       <div className="mq-box" style={{
-        background: 'rgba(212,165,116,0.06)',
-        border: `1px solid ${COLORS.goldAlpha25}`,
-        borderLeft: `4px solid ${COLORS.gold}`,
+        background: `${accent}0F`,
+        border: `1px solid ${accent}35`,
+        borderLeft: `4px solid ${accent}`,
         borderRadius: 10, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
         marginBottom: 28, textAlign: 'center',
       }}>
@@ -609,7 +737,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
       </div>
 
       {/* 2D semantic map */}
-      <SemanticMap group={group} language={language} isMobile={isMobile} />
+      <SemanticMap group={group} language={language} isMobile={isMobile} accent={accent} />
 
       {/* Word detail cards */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 28 }}>
@@ -629,7 +757,7 @@ function TabGroupDetail({ group, allGroups, language, isMobile, onSelectGroup })
 }
 
 // ── Semantic Map (2D SVG) ────────────────────────────────────────────────────
-function SemanticMap({ group, language, isMobile }) {
+function SemanticMap({ group, language, isMobile, accent = COLORS.gold }) {
   const tr = language === 'tr';
   const [hovered, setHovered] = useState(null);
   const size = isMobile ? 280 : 360;
@@ -639,7 +767,7 @@ function SemanticMap({ group, language, isMobile }) {
   return (
     <div className="fd-row" style={{
       background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 100%)',
-      border: `1px solid ${COLORS.glassBorderSoft}`,
+      border: `1px solid ${accent}30`,
       borderRadius: 12, padding: 20,
       display: 'flex',
       alignItems: 'center', gap: 20,
@@ -647,8 +775,8 @@ function SemanticMap({ group, language, isMobile }) {
       <div style={{ flexShrink: 0 }}>
         <svg aria-hidden="true" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           {/* Axes */}
-          <line x1={pad} y1={size / 2} x2={size - pad} y2={size / 2} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
-          <line x1={size / 2} y1={pad} x2={size / 2} y2={size - pad} stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="3,3" />
+          <line x1={pad} y1={size / 2} x2={size - pad} y2={size / 2} stroke={`${accent}30`} strokeWidth="1" strokeDasharray="3,3" />
+          <line x1={size / 2} y1={pad} x2={size / 2} y2={size - pad} stroke={`${accent}30`} strokeWidth="1" strokeDasharray="3,3" />
           {/* Axis labels */}
           <text x={pad - 4} y={size / 2 - 6} fill={SEMANTIC.textFaint} fontSize="10" fontFamily={FONTS.body} textAnchor="start">
             {tr ? 'Somut' : 'Concrete'}
@@ -1128,15 +1256,24 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
         gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
         gap: 14,
       }}>
-        {principles.map(p => {
+        {principles.map((p, i) => {
           const group = groups.find(g => g.id === p.groupId);
+          const accent = groupAccent(group);
           return (
             <div className="mq-box" key={p.id} style={{
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
+              borderTop: `2px solid ${accent}`,
               borderRadius: 12, '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
               display: 'flex', flexDirection: 'column',
             }}>
+              <div style={{
+                width: 26, height: 26, borderRadius: RADIUS.full, flexShrink: 0,
+                background: `${accent}18`, border: `1.5px solid ${accent}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: FONTS.display, fontWeight: 700, color: accent, fontSize: '0.72rem',
+                marginBottom: 10,
+              }}>{i + 1}</div>
               <p style={{
                 fontSize: '1rem', color: COLORS.offWhite,
                 fontFamily: FONTS.display, fontStyle: 'italic',
@@ -1182,7 +1319,7 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
 }
 
 // ── Tab 3: Sources ───────────────────────────────────────────────────────────
-function TabSources({ sources, language, isMobile }) {
+function TabSources({ sources, totalGroups, language, isMobile }) {
   const tr = language === 'tr';
   const ROLE_COLORS = {
     'Kurucu': '#e74c3c', 'Founder': '#e74c3c',
@@ -1240,8 +1377,8 @@ function TabSources({ sources, language, isMobile }) {
         <span style={{ color: COLORS.silver, fontSize: '0.85rem', flexShrink: 0 }}>ℹ</span>
         <p style={{ color: COLORS.silver, fontSize: '0.78rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: 0 }}>
           {tr
-            ? 'Bu sayfadaki kelime grupları klasik furûk geleneğine (Askerî, İsfahânî, İbn Kayyım) dayanmaktadır. Ayet geçişleri Kur\'an Arabic Corpus (corpus.quran.com) ile eşlenir. İlk sürümde 4 örnek grup — sonraki aşamalarda 30+ gruba çıkacaktır.'
-            : 'The word groups on this page are based on the classical furūq tradition (al-ʿAskarī, al-Iṣfahānī, Ibn Qayyim). Verse occurrences are cross-referenced with Quran Arabic Corpus (corpus.quran.com). This initial release includes 4 sample groups — future phases will expand to 30+ groups.'}
+            ? `Bu sayfadaki kelime grupları klasik furûk geleneğine (Askerî, İsfahânî, İbn Kayyım) ve çağdaş incelemelere (es-Sâmerrâî, Nouman Ali Khan · Sharif Randhawa) dayanmaktadır. Ayet geçişleri Kur'an Arabic Corpus (corpus.quran.com) ile eşlenir. Şu an ${totalGroups} kelime ailesi yayında; yeni aileler doğrulandıkça eklenmeye devam eder.`
+            : `The word groups on this page are based on the classical furūq tradition (al-ʿAskarī, al-Iṣfahānī, Ibn Qayyim) and contemporary studies (al-Sāmarrāʾī, Nouman Ali Khan · Sharif Randhawa). Verse occurrences are cross-referenced with Quran Arabic Corpus (corpus.quran.com). ${totalGroups} word families are published so far; more are added as they are verified.`}
         </p>
       </div>
     </div>
