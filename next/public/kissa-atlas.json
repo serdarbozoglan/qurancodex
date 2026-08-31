@@ -687,6 +687,69 @@
             "12": "12:54-57"
           }
         }
+      ],
+      "literaryNotes": [
+        {
+          "id": "irony-chain",
+          "titleTr": "İroni Zinciri — Yûsuf Kıssasının Edebi Kalbi",
+          "titleEn": "The Irony Chain — The Literary Heart of Joseph's Story",
+          "introTr": "Yûsuf sûresi, kendi kahramanlarının sözlerini ve nesnelerini kendi aleyhlerine — ya da tam tersine — çeviren bir ironi zinciriyle örülüdür. Klasik anlamda bir 'tesadüf' değil, sûrenin bütününe yayılan kasıtlı bir edebi mimari.",
+          "introEn": "Surat Yūsuf is woven from a chain of irony in which its own characters' words and objects turn against them — or are reversed in their favor. Not coincidence in any ordinary sense, but a deliberate literary architecture spanning the whole surah.",
+          "citationTr": "Mustansir Mir, \"Irony in the Qur'an: A Study of the Story of Joseph\", Literary Structures of Religious Meaning in the Qur'ān (Richmond, Surrey: Routledge, 2000), s.173-187 — Divine Speech'in kendi kaynak gösterdiği akademik makale.",
+          "citationEn": "Mustansir Mir, \"Irony in the Qur'an: A Study of the Story of Joseph,\" in Literary Structures of Religious Meaning in the Qur'ān (Richmond, Surrey: Routledge, 2000), 173-187 — the academic essay Divine Speech itself cites as its source.",
+          "steps": [
+            {
+              "labelTr": "Kardeşlerin Kendi Sözleri — Kendilerini Mahkûm Eder",
+              "labelEn": "The Brothers' Own Words — Condemning Themselves",
+              "verseAr": "لَئِنْ أَكَلَهُ الذِّئْبُ وَنَحْنُ عُصْبَةٌ إِنَّا إِذًا لَّخَاسِرُونَ",
+              "verseTr": "\"Andolsun biz güçlü bir topluluk iken onu kurt yerse, o zaman gerçekten biz hüsrana uğrayanlarız!\"",
+              "verseEn": "\"If a wolf should eat him while we are a strong clan, then truly we would be losers!\"",
+              "ref": "Yûsuf 12:14",
+              "explanationTr": "Kardeşler, Yûsuf'u kurda kaptırırlarsa 'hüsrana uğrayanlar' olacaklarını söyler — babalarını ikna etmek için sarf edilen boş bir söz gibi görünür. Ama kitabın vurguladığı gibi bu son derece ironiktir: kurdu değil, kendi kurdukları tuzağın başlattığı zincirleme olaylar onları gerçekten 'hüsrana uğrayanlar' konumuna düşürecektir.",
+              "explanationEn": "The brothers claim they would be \"losers\" if a wolf ate Joseph — seemingly empty words meant to persuade their father. But as the book stresses, this is highly ironic: not a wolf, but the very chain of events their own scheme sets in motion will reduce them to the status of losers."
+            },
+            {
+              "labelTr": "\"Doğru Söylesek de İnanmazsın\" — Sonradan Gerçek Olur",
+              "labelEn": "\"You Wouldn't Believe Us Even If We Told the Truth\" — Later Comes True",
+              "verseAr": "وَمَا أَنتَ بِمُؤْمِنٍ لَّنَا وَلَوْ كُنَّا صَادِقِينَ",
+              "verseTr": "\"Doğru söylesek de sen bize inanacak değilsin.\"",
+              "verseEn": "\"You would not believe us, even if we were truly telling the truth.\"",
+              "ref": "Yûsuf 12:17",
+              "explanationTr": "Kardeşler, Yûsuf'un kanlı gömleğiyle yalan söylerken babalarına bu cümleyi söyler. Kitaba göre bu ifade ironiyle doludur — çünkü hikâyenin ilerleyen bölümünde (Bünyamin'in çalma iddiasıyla ilgili) gerçekten doğru söyledikleri bir anda, Ya'kub yine onlara inanmayacaktır.",
+              "explanationEn": "The brothers say this to their father while lying about Joseph's bloodied shirt. The book notes this is rich with irony — because later in the story (regarding Benjamin's alleged theft), when they genuinely are telling the truth, Jacob still will not believe them."
+            },
+            {
+              "labelTr": "Kervanın Ucuz Satışı — Farkında Olmadan Küçümseme",
+              "labelEn": "The Caravan's Cheap Sale — Unwitting Contempt",
+              "verseAr": "وَشَرَوْهُ بِثَمَنٍ بَخْسٍ دَرَاهِمَ مَعْدُودَةٍ وَكَانُوا فِيهِ مِنَ الزَّاهِدِينَ",
+              "verseTr": "\"Onu düşük bir fiyata sattılar; zaten ona değer vermiyorlardı.\"",
+              "verseEn": "\"And they sold him for a reduced price — and they were of those who regarded him of little worth.\"",
+              "ref": "Yûsuf 12:20",
+              "explanationTr": "Yûsuf'u kuyudan çıkaran kervan onu düşük bir fiyata satar — kitabın ifadesiyle bu da bir ironi örneğidir, çünkü kervan Yûsuf'un gelecekte ulaşacağı ruhsal ve siyasi konumdan tamamen habersizdir. Kıssa boyunca neredeyse her karakterin ona gösterdiği yoğun ilgiyle (istenen ya da istenmeyen) tam bir tezat oluşturur.",
+              "explanationEn": "The caravan that pulled Joseph from the well sells him for a reduced price — another instance of irony, the book notes, since they are completely oblivious of the status he is destined to attain, both spiritually and politically. It stands in stark contrast to the intense interest — welcome or unwelcome — shown to Joseph by virtually every other character in the story."
+            },
+            {
+              "labelTr": "Gömlek Motifi — Ölüm Kanıtından Kavuşma Simgesine",
+              "labelEn": "The Shirt Motif — From Proof of Death to Symbol of Reunion",
+              "verseAr": "اذْهَبُوا بِقَمِيصِي هَٰذَا فَأَلْقُوهُ عَلَىٰ وَجْهِ أَبِي يَأْتِ بَصِيرًا",
+              "verseTr": "\"Bu gömleğimi götürün, babamın yüzüne sürün; gözleri açılsın.\"",
+              "verseEn": "\"Take this, my shirt, and cast it over my father's face; he will regain his sight.\"",
+              "ref": "Yûsuf 12:93",
+              "explanationTr": "Kıssanın başında (12:17-18) kardeşler, Yûsuf'un kana bulanmış gömleğini babalarına onun öldüğünün 'kanıtı' olarak sunar — kayıp ve ayrılığı simgeler. Kitabın vurguladığı gibi, kıssanın sonunda aynı nesne tam tersi bir rol oynar: Ya'kub'un (üzüntüden kör olan) gözlerini açan, kavuşma ve yeniden birleşmenin simgesi haline gelir.",
+              "explanationEn": "At the story's start (12:17-18) the brothers present Joseph's blood-stained shirt to their father as \"proof\" of his death — embodying loss and separation. As the book stresses, by the story's end the very same object plays exactly the opposite role: restoring the sight of the grief-blinded Jacob, becoming a symbol of restoration and reunion."
+            },
+            {
+              "labelTr": "İroni Tarihte Tekrarlanır — Mekke'nin Fethi (630)",
+              "labelEn": "The Irony Recurs in History — The Conquest of Mecca (630 CE)",
+              "verseAr": "لَا تَثْرِيبَ عَلَيْكُمُ الْيَوْمَ",
+              "verseTr": "\"Bugün size kınama yok.\"",
+              "verseEn": "\"No blame will there be upon you today.\"",
+              "ref": "Yûsuf 12:92",
+              "explanationTr": "Kıssanın sonunda Yûsuf, kendisine kötülük eden kardeşlerini bu sözlerle affeder. Kitaba göre bu ironi tarihte harfiyen tekrarlanmıştır: Mekke'nin fethinde (630), kendisine düşmanlık etmiş olan Kureyş'in akıbetini beklediği anda Hz. Muhammed onlara aynı ifadeyi kullanarak genel af ilan etmiştir — 'Bugün size kınama yok.' Kitabın kendi sözleriyle: 'Kıssa tarihte gerçekleşti. İroni de öyle.' Not: kitap bu tarihi olayı doğrudan bir hadis kaynağına (Buhârî, Müslim, İbn İshak'ın Sîre'si vb.) atıfla değil, yalnız Mustansir Mir'in akademik makalesi üzerinden aktarır.",
+              "explanationEn": "At the story's climax, Joseph forgives the brothers who wronged him with these exact words. The book notes this irony recurred literally in history: at the conquest of Mecca (630 CE), as the Quraysh — who had turned hostile to him — awaited their fate, Muhammad granted a general amnesty using the same words: \"No blame rests on you today.\" In the book's own words: \"The story had worked itself out in history. And so had the irony.\" Note: the book relates this historical episode only via Mustansir Mir's academic essay, not a direct hadith or sīra citation (Bukhārī, Muslim, Ibn Isḥāq, etc.)."
+            }
+          ]
+        }
       ]
     },
     {
@@ -1524,6 +1587,49 @@
             "2": "2:37",
             "7": "7:23-25"
           }
+        }
+      ],
+      "literaryNotes": [
+        {
+          "id": "three-retellings",
+          "titleTr": "Aynı Kıssa, Üç Farklı Vurgu — Üç Sûrede Âdem",
+          "titleEn": "Same Story, Three Emphases — Adam in Three Surahs",
+          "introTr": "Âdem kıssası Kur'an'da üç ayrı sûrede tekrar anlatılır — ama her seferinde FARKLI bir ayrıntı öne çıkar. Bu bir tekrar yorgunluğu değildir: her sûre, kendi ilk muhataplarının tarihsel/tematik durumuna göre kıssanın farklı bir katmanını görünür kılar.",
+          "introEn": "The story of Adam is retold in three separate surahs — but each time a DIFFERENT detail is foregrounded. This is not repetitive fatigue: each surah makes visible a different layer of the story, matched to its own original audience's historical and thematic situation.",
+          "citationTr": "Mustansir Mir, \"Some Aspects of Narration in the Qur'an\", Sacred Tropes: Tanakh, New Testament, and Qur'an as Literature and Culture, ed. Roberta Sterman Sabbath (Leiden: Brill, 2009), s.98-102 — Divine Speech'in kaynak gösterdiği akademik makale.",
+          "citationEn": "Mustansir Mir, \"Some Aspects of Narration in the Qur'an,\" in Sacred Tropes: Tanakh, New Testament, and Qur'an as Literature and Culture, ed. Roberta Sterman Sabbath (Leiden: Brill, 2009), 98-102 — the academic essay Divine Speech itself cites as its source.",
+          "cases": [
+            {
+              "titleTr": "Bakara — Erken Medine Dönemi",
+              "titleEn": "Al-Baqarah — Early Medinan Period",
+              "ref": "Bakara 2:30-39",
+              "verseAr": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
+              "verseTr": "\"Meleklere 'Âdem'e secde edin' demiştik; İblis dışında hepsi secde etti. O çekindi, büyüklendi ve kâfirlerden oldu.\"",
+              "verseEn": "\"We said to the angels, 'Prostrate before Adam,' and they prostrated, except Iblīs; he refused and was arrogant, and became of the disbelievers.\"",
+              "explanationTr": "Kitaba göre bu sahnedeki üç grup, erken Medine döneminde Hz. Muhammed'in karşılaştığı üç insan türünü yansıtır: Âdem'in konumunu Allah açıklayana kadar tereddüt eden melekler — henüz yeterli bilgiye ulaşmamış ama samimi kişileri; kanıt görünce hemen secde eden melekler — iş netleşince inanan kişileri; ve kibirle direnen İblis — kendi kökenini üstün gören gerekçeyle (\"beni ateşten yarattın, onu topraktan\") reddeden Medineli Yahudi liderleri ve münafıkları temsil eder (kitap 7:157-158, 62:2, 2:90, 2:109'a atıfla). Kitabın özetiyle: \"Bakara'daki Âdem kıssası, erken Medine döneminde üç tür insanın durumunu tasvir eder: iman vasfını taşıyanlar, yeterli bilgiye ulaşınca inanmaya hazır olanlar, ve kibirden dolayı inkârda ısrar edenler.\"",
+              "explanationEn": "The book reads the scene's three groups as mirroring three kinds of people Muhammad faced in early Medina: the angels' initial hesitation (before God explains Adam's status) mirrors sincere people not yet possessing sufficient knowledge; their willing prostration once shown proof mirrors those who came to faith once matters became clear; and Iblīs's arrogant refusal — rooted in a claim of superior origin (\"You created me from fire, him from clay\") — mirrors Medinan Jewish leaders and hypocrites who rejected Muhammad partly from resentment of his Gentile/Arab origin (citing 7:157-158, 62:2) and envy that God's favor was no longer theirs exclusively (citing 2:90, 109). In the book's own words: \"The story of Adam in Sura 2 therefore depicts the situations of three kinds of people during the early part of the Medinan period: those who exhibit the qualities of faith, those who are willing to do so once they attain sufficient knowledge, and those who persist in disbelief out of arrogance.\""
+            },
+            {
+              "titleTr": "Tâhâ — Orta Mekke Dönemi",
+              "titleEn": "Ṭā-Hā — Middle Meccan Period",
+              "ref": "Tâhâ 20:115-123",
+              "verseAr": "وَلَقَدْ عَهِدْنَا إِلَىٰ آدَمَ مِن قَبْلُ فَنَسِيَ وَلَمْ نَجِدْ لَهُ عَزْمًا",
+              "verseTr": "\"Andolsun, bundan önce Âdem'e de ahid vermiştik, ama unuttu; onda bir azim (kararlılık) bulmadık.\"",
+              "verseEn": "\"And We had already made a covenant with Adam before, but he forgot; and We found not in him determination.\"",
+              "explanationTr": "Kitaba göre Tâhâ, Kur'an'da Âdem kıssasının vahyedilen İLK anlatımıdır. Burada vurgu Âdem'in unutkanlığı ve kararlılık eksikliğine kayar — hemen öncesindeki ayette (20:114) Peygamber'e vahiy konusunda acele etmemesi buyrulur, \"min kabl\" (bundan önce) tekrarıyla iki pasaj birbirine bağlanır. Kitaba göre kıssa, sûrenin ilerleyen kısmında Hz. Musa'nın Sînâ'ya erken çıkışıyla (20:83-85) birlikte, Mekkeli müslümanları acele etmemeye ve zulüm karşısında sebat etmeye teşvik eden bir uyarı işlevi görür.",
+              "explanationEn": "According to the book, Ṭā-Hā contains the FIRST-EVER revealed narration of Adam's story in the Quran. Here the emphasis shifts to Adam's forgetfulness and lack of resolve — linked by the repeated phrase \"min qabl\" (\"before\") to the immediately preceding command (20:114) that the Prophet not hasten the Quran's revelation. Paired later in the surah with Moses's own premature ascent of Sinai (20:83-85), the book reads the story as encouraging Meccan Muslims toward patience and steadfastness in the face of persecution."
+            },
+            {
+              "titleTr": "A'râf — Geç Mekke Dönemi",
+              "titleEn": "Al-A'rāf — Late Meccan Period",
+              "ref": "A'râf 7:11-25",
+              "verseAr": "فَوَسْوَسَ لَهُمَا الشَّيْطَانُ لِيُبْدِيَ لَهُمَا مَا وُورِيَ عَنْهُمَا مِن سَوْآتِهِمَا وَقَالَ مَا نَهَاكُمَا رَبُّكُمَا عَنْ هَٰذِهِ الشَّجَرَةِ إِلَّا أَن تَكُونَا مَلَكَيْنِ أَوْ تَكُونَا مِنَ الْخَالِدِينَ",
+              "verseTr": "\"Derken şeytan, kendilerinden gizlenmiş olan çirkin yerlerini onlara göstermek için ikisine de vesvese verdi ve dedi: 'Rabbiniz size bu ağacı, melek olursunuz ya da ölümsüzlerden olursunuz diye yasakladı.'\"",
+              "verseEn": "\"But Satan whispered to them to make apparent to them that which was concealed from them of their private parts. He said: 'Your Lord did not forbid you this tree except that you become angels or become of the immortal.'\"",
+              "explanationTr": "A'râf, Mekke döneminin sonunda inmiştir. Burada vurgu, Âdem ile Havvâ'nın çıplaklıklarının ortaya çıkmasına ve Şeytan'ın kendini 'samimi bir öğütçü' gibi göstermesine kayar (7:19-21) — kitaba göre bu, dönemin Kureyş'inin Kâbe'yi çıplak tavaf etme geleneğini 'atalarımız böyle yapardı' (7:28) diyerek savunmasına karşı bir cevaptır. Kıssa, tam da o 'atalarımız' iddiasını çürütür: onların atası Âdem de aynı şekilde Şeytan'ın fısıltısına uyarak örtüsünden mahrum kalmıştır. Kitabın özetiyle: \"Âdem kıssası bu sûrede, İslam öncesi Araplara özgü belirli bir uygulamayla yüzleşmek, ayrıca hayâsızlığa ve Şeytan'ın vesvesesine ilahi buyruk yerine uymaya karşı evrensel bir uyarı sunmak için kullanılır.\"",
+              "explanationEn": "Revealed at the end of the Meccan period, al-A'rāf shifts emphasis to the exposure of Adam and Eve's nakedness and to Satan posing as a \"sincere advisor\" (7:19-21) — a response, the book argues, to the Quraysh's contemporary custom of circumambulating the Kaaba naked, defended by appeal to ancestral practice (\"our forefathers did this,\" 7:28). The Adam story rebuts that very justification: their own \"forefather\" Adam was likewise stripped of his covering by heeding Satan. In the book's own words: \"The story of Adam is therefore used in this sura to confront a specific practice of the pre-Islamic Arabs, as well as to provide a universal caution against indecency and obeying the whispers of Satan in place of divine command.\""
+            }
+          ]
         }
       ]
     },

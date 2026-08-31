@@ -3,7 +3,7 @@
     "totalQuestions": 1290,
     "totalQuestionsNote": "Na'im el-Himsi ve İbn Âşûr gibi klasik kaynaklara göre tahminen 1200-1300 arası. Kesin sayı morfolojik seçime bağlı.",
     "categoryCount": 5,
-    "specialPatterns": 3
+    "specialPatterns": 5
   },
   "categories": [
     {
@@ -517,7 +517,7 @@
       ],
       "exampleVerses": [
         {
-          "ar": "فَوَرَبِّ السَّمَٓاءِ وَالْاَرْضِ اِنَّهُ لَحَقٌّ مِثْلَ مَٓا اَنَّكُمْ تَنْطِقُونَ",
+          "ar": "فَوَرَبِّ السَّمٓاءِ وَالْاَرْضِ اِنَّهُ لَحَقٌّ مِثْلَ مٓا اَنَّكُمْ تَنْطِقُونَ",
           "tr": "Göğün ve yerin Rabbine andolsun ki bu vaad, sizin konuşmanız gibi kesin ve gerçektir.",
           "en": "Then by the Lord of the heaven and earth, indeed, it is truth — just as [sure as] it is that you are speaking.",
           "ref": "Zâriyât 51:23",
@@ -539,7 +539,7 @@
           "patternNoteEn": "'inna rabbaka la-bi'l-mirṣād' — inna + lām + locative phrase. Short but among the densest verses."
         },
         {
-          "ar": "لَتُبْلَوُنَّ فِٓي اَمْوَالِكُمْ وَاَنْفُسِكُمْ",
+          "ar": "لَتُبْلَوُنَّ فٓي اَمْوَالِكُمْ وَاَنْفُسِكُمْ",
           "tr": "Andolsun ki, mallarınız ve canlarınız konusunda imtihana çekileceksiniz...",
           "en": "You will certainly be tested in your possessions and in yourselves...",
           "ref": "Âl-i İmrân 3:186",
@@ -889,6 +889,196 @@
       ],
       "meaningTr": "Allah kuluna kâfi değil mi?",
       "meaningEn": "Is Allah not sufficient for His servant?"
+    },
+    {
+      "id": "iltifat",
+      "color": "#e74c3c",
+      "arabicForm": "الِالْتِفَات",
+      "nameTr": "İltifât — Muhatap Değişimi",
+      "nameEn": "Iltifāt — Shift of Address",
+      "descTr": "Kur'an bir anlatı ortasında sıkça kişi veya hitap kipini değiştirir — üçüncü şahıstan birinci şahsa, ya da tekilden çoğula. Klasik belâgat bunu kusur değil, sanat sayar: Bedreddin ez-Zerkeşî bunu 'dinleyicide tazelik ve çeşitlilik uyandırmak, ilgiyi tazelemek, tek bir üslubun sürekli kulakta olmasından doğan sıkılma ve bezginliği önlemek için sözü bir kipten diğerine çevirmek' diye tanımlar. Klasik Arap eleştirmenleri bu tekniği 'şecâatü'l-Arabiyye' (Arap dilinin cesareti) başlığı altında sınıflandırır.",
+      "descEn": "The Quran frequently shifts person or mode of address mid-passage — from third person to first person, or singular to plural. Classical rhetoric treats this not as inconsistency but as artistry: Badr al-Dīn al-Zarkashī defines it as 'the change of speech from one mode to another, for the sake of freshness and variety for the listener, to renew his interest, and to keep his mind from boredom and frustration, through having the one mode continuously at his ear.' Classical Arab critics classed this technique under 'shajāʿat al-ʿarabiyya' (the boldness of the Arabic language).",
+      "meaningTr": "Sözü bir hitap kipinden diğerine çevirmek",
+      "meaningEn": "To turn speech from one mode of address to another",
+      "citationTr": "Bedreddin ez-Zerkeşî, el-Burhân fî Ulûmi'l-Kur'ân, c.3 (Kahire, 1958), s.314-315 — M.A.S. Abdel Haleem'in 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992) makalesi üzerinden aktarılmıştır.",
+      "citationEn": "Badr al-Dīn al-Zarkashī, al-Burhān fī ʿUlūm al-Qurʾān, vol. 3 (Cairo, 1958), 314-315 — quoted via M.A.S. Abdel Haleem's 'Grammatical Shift for Rhetorical Purposes: Iltifāt and Related Features in the Qurʾān' (BSOAS 55, 1992).",
+      "examples": [
+        {
+          "ar": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+          "tr": "Kur'an'ın en tanınmış iltifât örneği: Fâtiha'nın ilk dört ayeti Allah'tan üçüncü şahısla söz eder (\"Rabbi'l-âlemîn\", \"Mâliki yevmiddîn\"), beşinci ayette hitap aniden doğrudan ikinci şahsa döner — \"Ancak Sana kulluk eder, ancak Senden yardım dileriz.\"",
+          "en": "The Quran's best-known example of iltifāt: al-Fātiḥa's first four verses speak of Allah in the third person (\"Lord of the worlds\", \"Master of the Day of Judgment\"), then verse five suddenly turns to direct second-person address — \"You alone we worship, You alone we ask for help.\"",
+          "ref": "Fâtiha 1:2-5"
+        }
+      ]
+    },
+    {
+      "id": "kelime-sirasi",
+      "color": "#f39c12",
+      "arabicForm": "الْغَفُورُ الرَّحِيمُ ↔ الرَّحِيمُ الْغَفُورُ",
+      "nameTr": "Kelime Sırası — Anlamı Değiştiren Dizilim",
+      "nameEn": "Word Order — Sequence That Shapes Meaning",
+      "descTr": "Kur'an'da bir kelime çiftinin veya cümle unsurunun sırası ender olarak değişir — ve değiştiğinde her seferinde bağlamla birebir örtüşen bir sebebi vardır. Aşağıdaki dört örnek, kelime sırasının ve gramer araçlarının tesadüfi değil kasıtlı bir anlam katmanı taşıdığını gösterir.",
+      "descEn": "The order of a word pair or sentence element rarely changes in the Quran — and when it does, the change matches its context precisely. The four cases below show that word order and grammatical devices carry a deliberate, not accidental, layer of meaning.",
+      "meaningTr": "Sıra kasıtlıdır — tesadüf değildir",
+      "meaningEn": "The order is deliberate — not accidental",
+      "cases": [
+        {
+          "id": "gafur-rahim",
+          "titleTr": "Gafûr-Rahîm Sırası — Tek İstisna: Sebe' 34:2",
+          "titleEn": "The Ghafūr-Raḥīm Order — One Exception: Saba' 34:2",
+          "introTr": "\"Gafûr\" (Bağışlayan) ve \"Rahîm\" (Merhamet Eden) ismi çifti Kur'an'da ~60 kez birlikte geçer — neredeyse her zaman Gafûr önce, Rahîm sonra gelir; bu sıra \"zararı savuşturmak faydayı sağlamaktan önce gelir\" kuralıyla açıklanır. Tek istisna Sebe' 34:2'dir.",
+          "introEn": "The pair \"Ghafūr\" (Forgiving) and \"Raḥīm\" (Merciful) appears together roughly 60 times in the Quran — almost always Ghafūr first, then Raḥīm, an order explained by the maxim \"averting harm precedes securing benefit.\" The sole exception is Saba' 34:2.",
+          "verses": [
+            {
+              "ar": "يَعْلَمُ مَا يَلِجُ فِي الْأَرْضِ وَمَا يَخْرُجُ مِنْهَا وَمَا يَنزِلُ مِنَ السَّمَاءِ وَمَا يَعْرُجُ فِيهَا وَهُوَ الرَّحِيمُ الْغَفُورُ",
+              "tr": "\"...O, çok merhamet eden, çok bağışlayandır.\" — sıra tersine döner: önce Rahîm, sonra Gafûr.",
+              "en": "\"...He is the Merciful, the Forgiving.\" — the order reverses: Raḥīm first, then Ghafūr.",
+              "ref": "Sebe' 34:2"
+            }
+          ],
+          "explanationTr": "Âyet, yerin içine giren-çıkanı, gökten inip göğe yükseleni (tohum, bitki, yağmur, buhar) anlatan tarımsal bir döngü imgesiyle çevrilidir. Kitaba göre bu döngü insana da uzanır: ölümde toprağa giren insanın o an en acil ihtiyacı rahmet (ölümün ıstırabından kurtuluş), amel defterinin açıldığı dirilişte ise en acil ihtiyaç bağışlanmadır. Tersine çevrilen sıra (Rahîm-Gafûr) bu kronolojik sırayı — önce rahmet, sonra bağışlanma — yansıtır.",
+          "explanationEn": "The verse is framed by an agricultural cycle — what enters and emerges from the earth, what descends from and ascends to the sky (seed, plant, rain, vapor). The book extends this to the human being: at death, entering the earth, a person's most urgent need is mercy (relief from the anguish of dying); at resurrection, when the record of deeds is opened, the more urgent need becomes forgiveness. The reversed order (Merciful-Forgiving) mirrors this chronological sequence — mercy first, then forgiveness."
+        },
+        {
+          "id": "sizi-onlari",
+          "titleTr": "\"Sizi mi Önce, Onları mı?\" — En'âm 6:151 ile İsrâ 17:31",
+          "titleEn": "\"You First, or Them?\" — Al-Anʿām 6:151 and Al-Isrāʾ 17:31",
+          "introTr": "İki âyet de çocuk öldürmeyi yoksulluk gerekçesiyle yasaklar, ama \"size\" ve \"onlara\" rızık sözünün sırası değişir — korkulan yoksulluğun ZAMANINA göre.",
+          "introEn": "Both verses prohibit killing children out of fear of poverty, but the order of \"you\" and \"them\" in the promise of provision changes — according to the TIMING of the feared poverty.",
+          "verses": [
+            {
+              "ar": "وَلَا تَقْتُلُوا أَوْلَادَكُم مِّنْ إِمْلَاقٍ نَّحْنُ نَرْزُقُكُمْ وَإِيَّاهُمْ",
+              "tr": "\"...çocuklarınızı yoksulluktan [dolayı] öldürmeyin — sizi de onları da biz rızıklandırırız.\"",
+              "en": "\"...do not kill your children out of poverty — We will provide for you and for them.\"",
+              "ref": "En'âm 6:151"
+            },
+            {
+              "ar": "وَلَا تَقْتُلُوا أَوْلَادَكُمْ خَشْيَةَ إِمْلَاقٍ نَّحْنُ نَرْزُقُهُمْ وَإِيَّاكُمْ",
+              "tr": "\"...çocuklarınızı yoksulluk korkusuyla öldürmeyin — onları da sizi de biz rızıklandırırız.\"",
+              "en": "\"...do not kill your children out of fear of poverty — We will provide for them and for you.\"",
+              "ref": "İsrâ 17:31"
+            }
+          ],
+          "explanationTr": "6:151'de yoksulluk zaten yaşanmaktadır (\"min imlâk\") — ebeveynin kendi acil sıkıntısı öne çıktığı için rızık sözü önce \"sizi\", sonra \"onları\" kapsar. 17:31'de yoksulluk henüz gerçekleşmemiş, korkulan bir gelecektir (\"haşyete imlâk\") — ebeveynin kaygısı çocuğun geleceği olduğu için rızık sözü önce \"onları\" güvence altına alır, sonra \"sizi\".",
+          "explanationEn": "In 6:151 the poverty is already being experienced (\"min imlāq\") — since the parents' own immediate hardship is foremost, the promise names \"you\" first, then \"them.\" In 17:31 the poverty has not yet occurred but is feared for the future (\"khashyata imlāq\") — since the parents' anxiety centers on the child's future, the promise reassures \"them\" first, then \"you.\""
+        },
+        {
+          "id": "enbiya-46",
+          "titleTr": "Tek Yarım Âyette 9 Küçültme Aracı — Enbiyâ 21:46",
+          "titleEn": "Nine Devices of Minimization in Half a Verse — Al-Anbiyāʾ 21:46",
+          "introTr": "Âyetin ilk yarısı, azabın en hafif haliyle bile gelmesinin ne kadar sarsıcı olacağını anlatır — ve bunu yapmak için TEK yarım âyette 9 ayrı gramer aracı bir araya gelir.",
+          "introEn": "The first half of the verse describes how devastating even the lightest touch of punishment would be — and to do so, NINE separate grammatical devices converge in a single half-verse.",
+          "verses": [
+            {
+              "ar": "وَلَئِن مَّسَّتْهُمْ نَفْحَةٌ مِّنْ عَذَابِ رَبِّكَ",
+              "tr": "\"Andolsun, Rabbinin azabından onlara ufak bir esinti dokunsa...\"",
+              "en": "\"And if but a breeze from the punishment of your Lord touched them...\"",
+              "ref": "Enbiyâ 21:46"
+            }
+          ],
+          "devices": [
+            {
+              "labelTr": "Normal kelime sırası + belirsiz isim",
+              "labelEn": "Unfronted word order + indefinite noun",
+              "descTr": "Vurgu için öne alma (takdim) yok — özne olağan yerinde; ayrıca \"bir esinti\" (nefha) belirsiz, \"the esinti\" değil. İki seçim de vurgu eklemekten kaçınır.",
+              "descEn": "No emphatic fronting — the subject stays in its ordinary position; and \"a breeze\" (nafḥa) is indefinite, not \"the breeze.\" Both choices avoid adding emphasis."
+            },
+            {
+              "labelTr": "En zayıf \"dokunma\" fiili",
+              "labelEn": "Weakest verb for \"touch\"",
+              "descTr": "\"Messe\" Arapçada dokunmayı ifade eden en hafif fiildir.",
+              "descEn": "\"Massa\" is the lightest verb for physical contact in Arabic."
+            },
+            {
+              "labelTr": "Geçmiş zaman (tekil an)",
+              "labelEn": "Perfect tense (single instant)",
+              "descTr": "Sürekliliği değil, tek ve tamamlanmış bir anı ifade eder.",
+              "descEn": "Denotes one completed instant, not ongoing repetition."
+            },
+            {
+              "labelTr": "Şart edatı \"in\"",
+              "labelEn": "Conditional \"in\"",
+              "descTr": "\"Eğer\" — kesinlik değil varsayım.",
+              "descEn": "\"If\" — hypothetical, not certain."
+            },
+            {
+              "labelTr": "\"Le-in\" ile pekiştirilmiş şart",
+              "labelEn": "Intensified \"la-in\"",
+              "descTr": "\"Eğer\" dahi \"andolsun eğer\"e yükseltilir — senaryo neredeyse beklenmiyor bile.",
+              "descEn": "\"If\" is intensified to \"even if\" — the scenario is framed as barely expected at all."
+            },
+            {
+              "labelTr": "\"Nefha\" kelimesinin kendisi",
+              "labelEn": "The word \"nafḥa\" itself",
+              "descTr": "Hafif, hoş bir esinti — cehennemin \"lefha\" (kavurucu sıcaklık) gibi sert kelimeleriyle tam tezat.",
+              "descEn": "A light, pleasant breeze — the opposite of Hell's harsher words like \"lafḥa\" (scorching heat)."
+            },
+            {
+              "labelTr": "Genel \"azap\" kelimesi",
+              "labelEn": "The generic word \"punishment\"",
+              "descTr": "Cehennem, Cahîm, Nâr gibi ateşli isimler değil, yalnız \"azap\".",
+              "descEn": "Not one of the Quran's fiery names for Hell (Jahannam, al-Jaḥīm, al-Nār) — just generic \"punishment\"."
+            },
+            {
+              "labelTr": "\"Min\" ile mesafe",
+              "labelEn": "Distance via \"min\"",
+              "descTr": "\"Azaptan bir esinti\" (min ile) — \"azabın esintisi\"nden daha uzak bir bağ kurar.",
+              "descEn": "\"A breeze FROM the punishment\" (with min) creates more distance than a closer possessive \"of the punishment.\""
+            },
+            {
+              "labelTr": "\"Rabbinin\" ifadesinin kişiselliği",
+              "labelEn": "The personal \"your Lord\"",
+              "descTr": "Peygambere hitaben kullanılan sıcak \"Rabbin\" ifadesi tasviri yumuşatır.",
+              "descEn": "The warm, personal \"your Lord\" — addressed to the Prophet — softens the description."
+            }
+          ],
+          "noteTr": "Kitap ayrıca âyetin ikinci yarısı (inkârcıların \"vay halimize, biz gerçekten zalimlermişiz\" itirafı) için AYRI bir 6 araçlık liste sunar — bu sayfa yalnız ilk yarıyı, doğrulanan 9 aracı ele alır.",
+          "noteEn": "The book gives a SEPARATE list of 6 devices for the verse's second half (the wrongdoers' confession \"woe to us, we were truly wrongdoers\") — this page covers only the first half's verified 9 devices."
+        },
+        {
+          "id": "kaf-sad",
+          "titleTr": "3 Suçlama, 3 Vurgu Aracı — Kâf 50:2 ile Sâd 38:4-5",
+          "titleEn": "Three Accusations, Three Emphasis Devices — Qāf 50:2 and Ṣād 38:4-5",
+          "introTr": "İki âyet de inkârcıların kendilerinden bir uyarıcı gelmesine şaşırmasını anlatır — ama Sâd'da inkârcıların ağzında 3 EK suçlama varken, Kur'an'ın \"tuhaf şey\" ifadesine de tam 3 EK vurgu aracı eklenir.",
+          "introEn": "Both verses describe the disbelievers' surprise that a warner arose from among them — but where Ṣād adds 3 EXTRA accusations to their speech, the Quran's phrase \"a strange thing\" also gains exactly 3 EXTRA emphasis devices.",
+          "verses": [
+            {
+              "ar": "بَلْ عَجِبُوا أَن جَاءَهُم مُّنذِرٌ مِّنْهُمْ فَقَالَ الْكَافِرُونَ هَٰذَا شَيْءٌ عَجِيبٌ",
+              "tr": "\"Hayır, kendilerinden bir uyarıcı gelmesine şaştılar da kâfirler dediler: 'Bu tuhaf bir şeydir!'\"",
+              "en": "\"But they wondered that a warner came to them from among themselves, and the disbelievers said: 'This is a strange thing!'\"",
+              "ref": "Kâf 50:2"
+            },
+            {
+              "ar": "أَجَعَلَ الْآلِهَةَ إِلَٰهًا وَاحِدًا إِنَّ هَٰذَا لَشَيْءٌ عُجَابٌ",
+              "tr": "\"İlahları tek bir ilah mı yaptı? Doğrusu bu, gerçekten şaşılacak bir şeydir!\"",
+              "en": "\"Has he made the gods [into] one God? Indeed, this is a truly strange thing!\"",
+              "ref": "Sâd 38:5"
+            }
+          ],
+          "explanationTr": "Sâd 38:4-5'te inkârcıların ağzına 3 ek suçlama konur: (1) \"Bu bir sihirbazdır\", (2) \"yalancı biridir\", (3) \"İlahları tek bir ilah mı yaptı?\" — 50:2'de bunların hiçbiri yok. Buna karşılık 38:5'in \"tuhaf şey\" ifadesi de 50:2'ye göre 3 ek vurgu aracı taşır: (1) başta pekiştirme edatı \"innâ\", (2) habere eklenen pekiştirme lâmı \"le-\", (3) \"acîb\" yerine onun mübalağalı hali \"ucâb\" (\"tuhaf\" yerine \"fevkalade tuhaf\"). Kitap bu bire bir örtüşmenin rastlantı olmadığını, eklenen suçlama sayısının eklenen vurgu sayısıyla kasıtlı olarak eşleştiğini vurgular.",
+          "explanationEn": "In Ṣād 38:4-5 the disbelievers' speech gains 3 extra accusations: (1) \"This is a magician,\" (2) \"a habitual liar,\" (3) \"Has he made the gods into one God?\" — none of these appear in 50:2. In turn, 38:5's phrase \"a strange thing\" carries 3 extra emphasis devices compared to 50:2: (1) the opening emphatic particle \"innā,\" (2) the emphatic \"la-\" prefixed to the predicate, (3) the intensified form \"ʿujāb\" in place of plain \"ʿajīb\" (\"strange\" becomes \"truly bizarre\"). The book stresses this one-to-one correspondence is not coincidental — the number of added accusations deliberately matches the number of added emphasis devices.",
+          "devices": [
+            {
+              "labelTr": "\"İnnâ\" pekiştirmesi",
+              "labelEn": "Emphatic \"innā\"",
+              "descTr": "Cümle başına eklenen, salt vurgu amaçlı edat.",
+              "descEn": "A particle added purely for emphasis at the start of the clause."
+            },
+            {
+              "labelTr": "Pekiştirme lâmı",
+              "labelEn": "Emphatic \"la-\"",
+              "descTr": "Habere eklenen \"le-şey'ün\" — ikinci bir vurgu katmanı.",
+              "descEn": "Prefixed to the predicate as \"la-shayʾun\" — a second layer of emphasis."
+            },
+            {
+              "labelTr": "Mübalağalı sıfat: \"ucâb\"",
+              "labelEn": "Intensified adjective: \"ʿujāb\"",
+              "descTr": "\"Acîb\" (tuhaf) yerine onun mübalağa kalıbı — \"son derece tuhaf\".",
+              "descEn": "The intensified form of \"ʿajīb\" (strange) — \"most peculiar/bizarre\"."
+            }
+          ]
+        }
+      ]
     }
   ],
   "addresseeGroups": [

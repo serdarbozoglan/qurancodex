@@ -241,6 +241,14 @@ export default function KissaAtlas({ onClose }) {
           noteTr: 'Kıssaların belağat + lisân boyutunu detaylıca inceler; her ayetin dilsel katmanını açar.',
           noteEn: 'Detailed analysis of the rhetorical and linguistic dimensions of narratives, layer by verse layer.',
         },
+        {
+          author: 'Mustansir Mir',
+          workTr: "\"Irony in the Qur'an\" · \"Some Aspects of Narration in the Qur'an\"",
+          workEn: '"Irony in the Qur\'an" · "Some Aspects of Narration in the Qur\'an"',
+          period: 'çağdaş / contemporary',
+          noteTr: "Yûsuf kıssasındaki ironi zincirini ve Âdem kıssasının üç sûrede farklı vurgularla anlatılışını inceleyen akademik makaleler; Divine Speech'in (Nouman Ali Khan · Sharif Randhawa) bu sayfadaki edebi bağlantılar için doğrudan kaynak gösterdiği çalışmalardır.",
+          noteEn: "Academic essays examining the irony chain in the Joseph narrative and the three differently-emphasized retellings of the Adam story; the works Divine Speech (Nouman Ali Khan · Sharif Randhawa) directly credits as its source for this page's literary connections.",
+        },
       ]}
     />
   );
@@ -1024,6 +1032,75 @@ export default function KissaAtlas({ onClose }) {
 
       {/* Legend artık ızgaranın üstünde render ediliyor (yukarı bkz.) —
           keşfedilebilirlik için, kullanıcı geri bildirimi. */}
+
+      {/* Edebi Bağlantılar — yalnız literaryNotes taşıyan peygamberler için (Yûsuf, Âdem) */}
+      {prophet?.literaryNotes?.length > 0 && (
+        <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '8px 16px 0' : '8px 24px 0', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+            <div style={{ height: 1, flex: 1, background: COLORS.glassBorderSoft }} />
+            <span style={{ color: prophet.color, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+              {language === 'tr' ? 'Edebi Bağlantılar' : 'Literary Connections'}
+            </span>
+            <div style={{ height: 1, flex: 1, background: COLORS.glassBorderSoft }} />
+          </div>
+          {prophet.literaryNotes.map(note => (
+            <div key={note.id} style={{ marginBottom: 36 }}>
+              <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.15rem' : '1.35rem', fontWeight: 700, margin: '0 0 8px' }}>
+                {language === 'tr' ? note.titleTr : note.titleEn}
+              </h3>
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.88rem', lineHeight: 1.7, fontFamily: FONTS.body, maxWidth: 720, marginBottom: 12 }}>
+                {language === 'tr' ? note.introTr : note.introEn}
+              </p>
+              {(note.citationTr || note.citationEn) && (
+                <div style={{ background: `${prophet.color}0F`, borderLeft: `3px solid ${prophet.color}`, padding: '10px 14px', borderRadius: 6, marginBottom: 20, fontSize: '0.76rem', color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                  {language === 'tr' ? note.citationTr : note.citationEn}
+                </div>
+              )}
+
+              {/* steps (Yûsuf'un ironi zinciri) */}
+              {note.steps?.map((step, si) => (
+                <div key={si} style={{ padding: '16px 18px', marginBottom: 12, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${prophet.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+                    <span style={{ color: prophet.color, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700, flexShrink: 0 }}>{si + 1}.</span>
+                    <span style={{ color: COLORS.offWhite, fontSize: '0.92rem', fontFamily: FONTS.body, fontWeight: 700 }}>
+                      {language === 'tr' ? step.labelTr : step.labelEn}
+                    </span>
+                  </div>
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
+                    {cleanArabic(step.verseAr)}
+                  </p>
+                  <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
+                    {language === 'tr' ? step.verseTr : step.verseEn}
+                  </p>
+                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— {step.ref}</p>
+                  <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
+                    {language === 'tr' ? step.explanationTr : step.explanationEn}
+                  </p>
+                </div>
+              ))}
+
+              {/* cases (Âdem'in üç sûrede farklı anlatımı) */}
+              {note.cases?.map((c, ci) => (
+                <div key={ci} style={{ padding: '16px 18px', marginBottom: 12, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${prophet.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 10 }}>
+                  <h4 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.94rem', fontWeight: 700, margin: '0 0 10px' }}>
+                    {language === 'tr' ? c.titleTr : c.titleEn}
+                  </h4>
+                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
+                    {cleanArabic(c.verseAr)}
+                  </p>
+                  <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
+                    {language === 'tr' ? c.verseTr : c.verseEn}
+                  </p>
+                  <p style={{ color: `${prophet.color}90`, fontSize: '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: '0 0 10px' }}>— {c.ref}</p>
+                  <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, fontFamily: FONTS.body, margin: 0 }}>
+                    {language === 'tr' ? c.explanationTr : c.explanationEn}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
 
       {SOURCES}
       {RELATED_CTA}

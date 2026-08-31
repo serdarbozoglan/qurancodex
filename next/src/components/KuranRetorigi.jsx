@@ -721,6 +721,106 @@ function TabKategoriler({ data, tr, isMobile, language }) {
           </>
         )}
 
+        {/* İLTİFÂT PANELİ */}
+        {activeSpecial && activeSpecial.id === 'iltifat' && (
+          <>
+            <h2 style={{ color: activeSpecial.color, fontFamily: FONTS.display, fontSize: '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
+              {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
+            </h2>
+            {(activeSpecial.meaningTr || activeSpecial.meaningEn) && (
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 16px' }}>
+                {tr ? activeSpecial.meaningTr : activeSpecial.meaningEn}
+              </p>
+            )}
+            <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 16 }}>
+              {tr ? activeSpecial.descTr : activeSpecial.descEn}
+            </p>
+            {(activeSpecial.citationTr || activeSpecial.citationEn) && (
+              <div style={{ background: `${activeSpecial.color}0F`, borderLeft: `3px solid ${activeSpecial.color}`, padding: '10px 14px', borderRadius: 6, marginBottom: 24, fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.6 }}>
+                {tr ? activeSpecial.citationTr : activeSpecial.citationEn}
+              </div>
+            )}
+            {activeSpecial.examples?.map((ex, i) => (
+              <div key={i} style={{ padding: '14px 16px', marginBottom: 10, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
+                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                  {cleanArabic(ex.ar)}
+                </p>
+                <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
+                  {tr ? ex.tr : ex.en}
+                </p>
+                <p style={{ color: `${activeSpecial.color}80`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0 }}>— {ex.ref}</p>
+              </div>
+            ))}
+          </>
+        )}
+
+        {/* KELİME SIRASI PANELİ */}
+        {activeSpecial && activeSpecial.id === 'kelime-sirasi' && (
+          <>
+            <h2 style={{ color: activeSpecial.color, fontFamily: FONTS.display, fontSize: '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
+              {tr ? activeSpecial.nameTr : activeSpecial.nameEn}
+            </h2>
+            {(activeSpecial.meaningTr || activeSpecial.meaningEn) && (
+              <p style={{ color: SEMANTIC.textFaint, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 16px' }}>
+                {tr ? activeSpecial.meaningTr : activeSpecial.meaningEn}
+              </p>
+            )}
+            <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
+              {tr ? activeSpecial.descTr : activeSpecial.descEn}
+            </p>
+            {activeSpecial.cases.map((c, ci) => (
+              <div key={c.id} style={{ marginBottom: 32, paddingBottom: ci < activeSpecial.cases.length - 1 ? 28 : 0, borderBottom: ci < activeSpecial.cases.length - 1 ? `1px solid ${COLORS.glassBorderSoft}` : 'none' }}>
+                <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '1rem', fontWeight: 700, margin: '0 0 8px' }}>
+                  {tr ? c.titleTr : c.titleEn}
+                </h3>
+                <p style={{ color: COLORS.silver, fontSize: '0.86rem', lineHeight: 1.7, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 14 }}>
+                  {tr ? c.introTr : c.introEn}
+                </p>
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: isMobile || c.verses.length === 1 ? '1fr' : 'repeat(2, 1fr)',
+                  gap: 10, marginBottom: 14,
+                }}>
+                  {c.verses.map((v, vi) => (
+                    <div key={vi} style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
+                      <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 6px' }}>
+                        {cleanArabic(v.ar)}
+                      </p>
+                      <p style={{ color: COLORS.silver, fontSize: '0.84rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
+                        {tr ? v.tr : v.en}
+                      </p>
+                      <p style={{ color: `${activeSpecial.color}90`, fontSize: '0.75rem', fontFamily: FONTS.body, margin: 0, fontWeight: 600 }}>— {v.ref}</p>
+                    </div>
+                  ))}
+                </div>
+                {c.devices && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
+                    {c.devices.map((dv, di) => (
+                      <div key={di} style={{ display: 'flex', gap: 10, alignItems: 'baseline', padding: '6px 12px', background: `${activeSpecial.color}0A`, borderRadius: 6 }}>
+                        <span style={{ color: activeSpecial.color, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700, flexShrink: 0 }}>{di + 1}.</span>
+                        <div>
+                          <span style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontWeight: 600 }}>{tr ? dv.labelTr : dv.labelEn}</span>
+                          <span style={{ color: COLORS.silver, fontSize: '0.8rem', fontFamily: FONTS.body }}> — {tr ? dv.descTr : dv.descEn}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {(c.explanationTr || c.explanationEn) && (
+                  <p style={{ color: COLORS.silver, fontSize: '0.86rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, margin: '0 0 8px' }}>
+                    {tr ? c.explanationTr : c.explanationEn}
+                  </p>
+                )}
+                {(c.noteTr || c.noteEn) && (
+                  <p style={{ color: SEMANTIC.textFaint, fontSize: '0.76rem', fontStyle: 'italic', lineHeight: 1.6, fontFamily: FONTS.body, maxWidth: 680, margin: 0 }}>
+                    {tr ? c.noteTr : c.noteEn}
+                  </p>
+                )}
+              </div>
+            ))}
+          </>
+        )}
+
       </div>
     </div>
   );
