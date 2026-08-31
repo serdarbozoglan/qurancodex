@@ -1,9 +1,9 @@
 {
  "sample": {
-  "total": 75,
+  "total": 65,
   "perPage": {
-   "/tr": 34,
-   "/en": 33,
+   "/tr": 30,
+   "/en": 32,
    "/tr/atlas/kissa": 0,
    "/tr/graf/zaman": 1,
    "/tr/arac/dualar": 0,
@@ -15,13 +15,12 @@
    "/tr/oku": 0,
    "/tr/sor": 1
   },
-  "at": "2026-08-31",
-  "note": "ölçüm reveal zamanlamasına bağlı; ±%3 oynuyor, taban gözlenen tavanın üstüne pay bırakılarak konuldu (2026-08-31)"
+  "at": "2026-08-31"
  },
  "full": {
-  "total": 885,
+  "total": 759,
   "perPage": {
-   "/tr": 33,
+   "/tr": 30,
    "/tr/arac/alti-konu": 11,
    "/tr/arac/bilimsel-isaretler": 0,
    "/tr/arac/buyruklar": 0,
@@ -29,7 +28,7 @@
    "/tr/arac/dua-dili": 59,
    "/tr/arac/dualar": 0,
    "/tr/arac/elestirel-cerceve": 0,
-   "/tr/arac/esma-frekans": 46,
+   "/tr/arac/esma-frekans": 2,
    "/tr/arac/halka-kompozisyon": 40,
    "/tr/arac/hifz-modu": 0,
    "/tr/arac/iblis-seytan": 0,
@@ -40,7 +39,7 @@
    "/tr/arac/kurani-tani": 0,
    "/tr/arac/melekler": 0,
    "/tr/arac/muhataplar": 0,
-   "/tr/arac/mukattaa": 31,
+   "/tr/arac/mukattaa": 25,
    "/tr/arac/neden-sonuc": 0,
    "/tr/arac/renkler": 0,
    "/tr/arac/retorik": 0,
@@ -56,9 +55,9 @@
    "/tr/arac/yakin-anlamli-nuanslar": 0,
    "/tr/arac/yeminler": 0,
    "/tr/arac/zaman-boyutlari": 6,
-   "/tr/atlas/ahiret-yolculugu": 4,
+   "/tr/atlas/ahiret-yolculugu": 3,
    "/tr/atlas/doga": 0,
-   "/tr/atlas/fatiha": 5,
+   "/tr/atlas/fatiha": 6,
    "/tr/atlas/furuk": 1,
    "/tr/atlas/ibadetler": 1,
    "/tr/atlas/ibadetler/hac": 0,
@@ -94,7 +93,7 @@
    "/tr/oku": 0,
    "/tr/sor": 1,
    "/tr/tefekkur": 0,
-   "/en": 33,
+   "/en": 32,
    "/en/arac/alti-konu": 11,
    "/en/arac/bilimsel-isaretler": 0,
    "/en/arac/buyruklar": 0,
@@ -102,7 +101,7 @@
    "/en/arac/dua-dili": 59,
    "/en/arac/dualar": 0,
    "/en/arac/elestirel-cerceve": 0,
-   "/en/arac/esma-frekans": 32,
+   "/en/arac/esma-frekans": 2,
    "/en/arac/halka-kompozisyon": 40,
    "/en/arac/hifz-modu": 0,
    "/en/arac/iblis-seytan": 0,
@@ -113,7 +112,7 @@
    "/en/arac/kurani-tani": 0,
    "/en/arac/melekler": 0,
    "/en/arac/muhataplar": 0,
-   "/en/arac/mukattaa": 31,
+   "/en/arac/mukattaa": 25,
    "/en/arac/neden-sonuc": 0,
    "/en/arac/renkler": 0,
    "/en/arac/retorik": 0,
@@ -129,9 +128,9 @@
    "/en/arac/yakin-anlamli-nuanslar": 0,
    "/en/arac/yeminler": 0,
    "/en/arac/zaman-boyutlari": 6,
-   "/en/atlas/ahiret-yolculugu": 4,
+   "/en/atlas/ahiret-yolculugu": 3,
    "/en/atlas/doga": 0,
-   "/en/atlas/fatiha": 6,
+   "/en/atlas/fatiha": 5,
    "/en/atlas/furuk": 1,
    "/en/atlas/ibadetler": 1,
    "/en/atlas/ibadetler/hac": 0,
@@ -168,14 +167,13 @@
    "/en/sor": 1,
    "/en/tefekkur": 0
   },
-  "at": "2026-08-31",
-  "note": "ölçüm reveal zamanlamasına bağlı; ±%3 oynuyor, taban gözlenen tavanın üstüne pay bırakılarak konuldu (2026-08-31)"
+  "at": "2026-08-31"
  },
  "mobile-sample": {
-  "total": 73,
+  "total": 66,
   "perPage": {
-   "/tr": 33,
-   "/en": 32,
+   "/tr": 32,
+   "/en": 31,
    "/tr/atlas/kissa": 0,
    "/tr/graf/zaman": 1,
    "/tr/arac/dualar": 0,
@@ -187,13 +185,12 @@
    "/tr/oku": 0,
    "/tr/sor": 1
   },
-  "at": "2026-08-31",
-  "note": "ölçüm reveal zamanlamasına bağlı; ±%3 oynuyor, taban gözlenen tavanın üstüne pay bırakılarak konuldu (2026-08-31)"
+  "at": "2026-08-31"
  },
  "mobile-full": {
-  "total": 895,
+  "total": 780,
   "perPage": {
-   "/tr": 34,
+   "/tr": 31,
    "/tr/arac/alti-konu": 11,
    "/tr/arac/bilimsel-isaretler": 0,
    "/tr/arac/buyruklar": 0,
@@ -201,7 +198,7 @@
    "/tr/arac/dua-dili": 59,
    "/tr/arac/dualar": 0,
    "/tr/arac/elestirel-cerceve": 0,
-   "/tr/arac/esma-frekans": 36,
+   "/tr/arac/esma-frekans": 2,
    "/tr/arac/halka-kompozisyon": 41,
    "/tr/arac/hifz-modu": 0,
    "/tr/arac/iblis-seytan": 0,
@@ -212,7 +209,7 @@
    "/tr/arac/kurani-tani": 0,
    "/tr/arac/melekler": 0,
    "/tr/arac/muhataplar": 0,
-   "/tr/arac/mukattaa": 33,
+   "/tr/arac/mukattaa": 27,
    "/tr/arac/neden-sonuc": 0,
    "/tr/arac/renkler": 0,
    "/tr/arac/retorik": 0,
@@ -230,7 +227,7 @@
    "/tr/arac/zaman-boyutlari": 6,
    "/tr/atlas/ahiret-yolculugu": 4,
    "/tr/atlas/doga": 0,
-   "/tr/atlas/fatiha": 6,
+   "/tr/atlas/fatiha": 5,
    "/tr/atlas/furuk": 1,
    "/tr/atlas/ibadetler": 1,
    "/tr/atlas/ibadetler/hac": 0,
@@ -274,7 +271,7 @@
    "/en/arac/dua-dili": 59,
    "/en/arac/dualar": 0,
    "/en/arac/elestirel-cerceve": 0,
-   "/en/arac/esma-frekans": 32,
+   "/en/arac/esma-frekans": 2,
    "/en/arac/halka-kompozisyon": 41,
    "/en/arac/hifz-modu": 0,
    "/en/arac/iblis-seytan": 0,
@@ -285,7 +282,7 @@
    "/en/arac/kurani-tani": 0,
    "/en/arac/melekler": 0,
    "/en/arac/muhataplar": 0,
-   "/en/arac/mukattaa": 33,
+   "/en/arac/mukattaa": 27,
    "/en/arac/neden-sonuc": 0,
    "/en/arac/renkler": 0,
    "/en/arac/retorik": 0,
@@ -303,7 +300,7 @@
    "/en/arac/zaman-boyutlari": 6,
    "/en/atlas/ahiret-yolculugu": 4,
    "/en/atlas/doga": 0,
-   "/en/atlas/fatiha": 5,
+   "/en/atlas/fatiha": 6,
    "/en/atlas/furuk": 1,
    "/en/atlas/ibadetler": 1,
    "/en/atlas/ibadetler/hac": 0,
@@ -340,7 +337,6 @@
    "/en/sor": 1,
    "/en/tefekkur": 0
   },
-  "at": "2026-08-31",
-  "note": "ölçüm reveal zamanlamasına bağlı; ±%3 oynuyor, taban gözlenen tavanın üstüne pay bırakılarak konuldu (2026-08-31)"
+  "at": "2026-08-31"
  }
 }

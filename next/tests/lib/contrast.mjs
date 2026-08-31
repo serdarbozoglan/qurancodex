@@ -109,7 +109,16 @@ export const CONTRAST_PROBE = `(() => {
     // reveal tamamlanınca opaklık zinciri BOŞ, oran tam — yani ihlal yok.
     // Şişmenin ana kaynağı buydu. Artık yalnız o an ekranda olan ölçülür;
     // sayfayı adım adım gezmek audit-contrast.mjs'in işi.
-    if (r.bottom < 0 || r.top > window.innerHeight) continue;
+    // ORTA BANT (2026-08-31, ikinci tur). Görünür alanda olmak yetmiyordu:
+    // kenardan yeni giren öge reveal'ını daha bitirmemiş oluyor ve yarı
+    // saydam hâli ihlal sayılıyordu. Kanıt: aynı öge ekranın ORTASINA alınıp
+    // 3 sn beklenince opaklık zinciri BOŞ, oran tam. Bu yüzden yalnız
+    // merkezi %15-85 bandına düşen ögeler ölçülür; audit-contrast.mjs adım
+    // boyunu bandın altında tuttuğu için her öge bir adımda bu banda düşer,
+    // yani hiçbir şey atlanmaz — sadece oturmuş hâlinde ölçülür.
+    const vpH = window.innerHeight;
+    const cy = r.top + r.height / 2;
+    if (cy < vpH * 0.15 || cy > vpH * 0.85) continue;
     const cs = getComputedStyle(el);
     if (cs.visibility === 'hidden' || cs.display === 'none') continue;
     const chainOp = opacityChain(el);

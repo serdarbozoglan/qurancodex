@@ -1436,13 +1436,32 @@ hâlinde doğrula**; ham listeye bakıp toplu düzeltmeye kalkma.
 ⚠ `--full` artık sayfa başına gezinme yaptığı için **çok daha uzun sürüyor**
 (146 rota, ~15 dk). Hızlı geri bildirim için örneklem koşusunu kullan.
 
-⚠ **Ölçüm DETERMİNİSTİK DEĞİL.** Reveal zamanlaması koşudan koşuya oynadığı
-için sayı da oynuyor: örneklemde 70/71/72/71 ölçüldü (±2, ~%3). Mandalı
-gözlenen en düşük değere kurmak rastgele CI hatası üretir ve kapı ciddiye
-alınmaz hâle gelir; bu yüzden tabanlar gözlenen tavanın **~%4 üstüne**
-konuldu (örneklem 70 → 75, tam 851 → 885). Yani kapı ufak salınımı yutar,
-anlamlı bir regresyonu (3+ yeni ihlal) yakalar. `--update` çalıştırırsan bu
-payı elle geri koy, yoksa taban gürültünün dibine oturur.
+✅ **Ölçüm artık DETERMİNİSTİK** (aynı sayfada üç koşu: 65/65/65). İki şey
+sağladı: (1) probe yalnız merkezi ekranın **%15-85 bandına** düşen ögeyi
+ölçer — kenardan yeni giren öge reveal'ını bitirmemiş oluyordu; (2) betiğin
+oturma kontrolü soluk öge SAYISINI değil opaklık+transform **TOPLAMINI**
+izler — sayfada tasarım gereği ~180 sabit soluk öge olduğu için sayı
+animasyon boyunca değişmiyor ve kontrol erken çıkıyordu.
+
+⚠ **Kalan sınır ve KÖK SEBEBİ.** Bulguların bir kısmı hâlâ reveal geçiş
+hâlleri. Mekanizma tam olarak şu: `whileInView` animasyonu öge ekrana her
+girdiğinde yeniden tetikleniyor; tarama sırasında öge kaçınılmaz olarak bir
+kez yarı saydam yakalanıyor; tekilleştirme anahtarı oranı içerdiği için o
+geçici ölçüm kayda çakılıyor ve daha sonra oturmuş hâlde ölçülse bile o
+ölçüm eşiği GEÇTİĞİ için probe onu döndürmüyor, yani geçici kaydı hiçbir şey
+düzeltmiyor. Doğrulandı: "Öne Çıkan Yazılar" taramada 0.21, ortaya alınıp
+3 sn beklenince **0.85**; "Semantik Seri" 0.25 → **1.0**.
+
+**Bir bulguyu düzeltmeden önce o ögeyi tek tek doğrula:** ekranın ortasına
+al, ~3 sn bekle, opaklık zincirini yeniden ölç. Ham listeye bakıp toplu
+düzeltmeye kalkma.
+
+**Asıl çözüm ayrı bir iş ve aynı zamanda erişilebilirlik borcu:** 31 bileşen
+`whileInView` kullanıyor, yalnız 13'ü `useReducedMotion` dinliyor
+(Conclusion, HiddenArchitecture, Highlights, HistoricalProof hiç dinlemiyor).
+§9 "reduced motion ile animasyonlar kapanır" diyor — kapanmıyor. Bu
+kapatılırsa hem kural gereği yerine gelir hem ölçüm tamamen deterministik
+olur, çünkü denetim zaten `reducedMotion: 'reduce'` ile koşuyor.
 
 ---
 

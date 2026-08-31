@@ -116,7 +116,9 @@ for (const u of urls) {
     };
     const pageH = await page.evaluate(() => document.body.scrollHeight);
     const vh = await page.evaluate(() => window.innerHeight);
-    for (let y = 0; y < pageH; y += Math.round(vh * 0.85)) {
+    // Adım boyu 0.6·vh — probe'un orta bandı (0.70·vh) bundan geniş olduğu
+    // için her nokta bir adımda banda düşer, hiçbir öge atlanmaz.
+    for (let y = 0; y < pageH; y += Math.round(vh * 0.6)) {
       await page.evaluate((v) => window.scrollTo(0, v), y);
       // IntersectionObserver'a ateşlenme payı; kararlılık kontrolü tek başına
       // erken çıkıyordu (IO daha tetiklenmeden "sabit" görüyordu).
@@ -128,14 +130,23 @@ for (const u of urls) {
       await page.evaluate(() => new Promise((res) => {
         let last = -1, stable = 0, frames = 0;
         const tick = () => {
-          let faint = 0;
+          // Soluk öge SAYISI değil, opaklık TOPLAMI izlenir. Sayı izlemek
+          // yetmiyordu: sayfada tasarım gereği ~180 sabit soluk öge var,
+          // reveal'lar animasyon boyunca 0→1 giderken bu SAYIYI çoğu zaman
+          // değiştirmiyor, dolayısıyla kontrol "sabit" görüp erken çıkıyordu.
+          // Toplam ise her ara değerde oynar; animasyonun gerçekten bittiğini
+          // ancak bu yakalar. Ayrıca transform'daki scale de izlenir —
+          // reveal'lar opaklıkla birlikte 0.99→1 ölçekleniyor.
+          let sum = 0;
           for (const e of document.querySelectorAll('body *')) {
-            const o = parseFloat(getComputedStyle(e).opacity || '1');
-            if (o < 0.98) faint++;
+            const cs = getComputedStyle(e);
+            sum += parseFloat(cs.opacity || '1');
+            if (cs.transform && cs.transform !== 'none') sum += 0.001;
           }
-          if (faint === last) stable++; else stable = 0;
-          last = faint;
-          if (stable >= 3 || ++frames > 90) res();
+          sum = Math.round(sum * 100);
+          if (sum === last) stable++; else stable = 0;
+          last = sum;
+          if (stable >= 4 || ++frames > 180) res();
           else requestAnimationFrame(tick);
         };
         tick();
