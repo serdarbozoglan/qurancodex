@@ -1391,11 +1391,27 @@ cd next && node scripts/audit-contrast.mjs --update   # tabanı bilinçli düş�
 
 #### Neden ham sayıya güvenilmez
 
-Probe üç şeyi ayırt edemez, rakam onlarla şişer: **gradyan zeminli koyu metin**
-(altın rozet üstünde koyu yazı — yüksek kontrasttır ama probe `1` der),
-**≥24px dev dekoratif rakamlar**, ve **kasıtlı sönük durumlar**. İlk ikisi
-`audit-contrast.mjs`'te ayıklanır; üçüncüsü karar gerektirir.
-Ham 3.997 → ayıklanmış **3.508** farkı buradan gelir.
+Probe iki şeyi ayırt edemez: **≥24px dev dekoratif rakamlar** ve **kasıtlı
+sönük durumlar**. Birincisi `audit-contrast.mjs`'te ayıklanır; ikincisi karar
+gerektirir.
+
+**Gradyan zeminler artık ELENMİYOR, ÖLÇÜLÜYOR (2026-08-31).** Önceki sürüm
+gradyan gördüğünde yalnız damga vuruyor, ölçümü en yakın OPAK renge göre
+yapıyordu; dolu bir gradyan butonda o renk şeffaf olduğu için yukarı yürünüp
+koyu zemin bulunuyor ve koyu metin koyu zemine karşı ölçülerek oran `1.04`
+çıkıyordu. Bu yüzden `audit-contrast.mjs`'te "ÖNE ÇIKAN|FEATURED" diye elle
+yazılmış bir dize istisnası vardı — ölçüm değil, yama.
+
+Probe artık gradyanın renk duraklarını ayrıştırıyor ve **en kötü durağa** göre
+ölçüyor. Dize istisnası kaldırıldı; rozet kendiliğinden eşiği geçiyor. Ölçülen
+etki (146 rota): ihlal **1599 → 1339**, temiz sayfa **0 → 90**, düz zeminli
+ölçümlerde **0 oran değişikliği**. Değişiklik yalnız gürültüyü atmakla kalmadı,
+eski probe'un yanlış zemine ölçtüğü için sakladığı gerçek bir ihlali de ortaya
+çıkardı (`ProofSection` kaynak notu: silver `.75` → açık durağa karşı 4.38).
+
+⚠ `--full` tabanı (48) **bayat**: eski probe ile de 1599 veriyordu, yani uzun
+süredir aşılıyor ve `--full --ci` fiilen kullanılamaz durumda. Örneklem (383)
+ve mobil (100) tabanları sağlam. Tabanların yenilenmesi ayrı bir karar.
 
 ---
 

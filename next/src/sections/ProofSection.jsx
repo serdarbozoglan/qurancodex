@@ -400,8 +400,14 @@ export default function ProofSection({ locale = 'tr' }) {
           </Link>
           <p
             style={{
-              // 99 (.60) idi → 3.39. silver AA'yı .75'ten (bf) itibaren geçiyor.
-              color: `${COLORS.silver}bf`,
+              // 99 (.60) → 3.39 idi, bf (.75) yapılmıştı. Ancak .75 yalnız
+              // gradyanın KOYU ucuna karşı geçiyordu; bölüm zemini
+              // #0a0a1a → #0d1b2a → #0a0a1a bir gradyan ve açık durağa karşı
+              // .75 → 4.38, yani AA'nın altında (2026-08-31, kontrast
+              // probe'unun gradyan durakları okumaya başlamasıyla ortaya
+              // çıktı). §13.26'nın silver tabanı da zaten ≥.78.
+              // cc (.80) → 4.82, açık durağa karşı da güvenli.
+              color: `${COLORS.silver}cc`,
               fontFamily: FONTS.body,
               fontSize: '0.74rem',
               lineHeight: 1.6,

@@ -22,6 +22,15 @@ export const CONTRAST_PROBE = `(() => {
     const p = m[1].split(',').map((x) => parseFloat(x.trim()));
     return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 };
   };
+  // Gradyanın renk duraklarını çıkarır. Chrome hesaplanmış stilde durakları
+  // rgb()/rgba() olarak normalize eder, bu yüzden tek desen yeterli.
+  const stopsOf = (bgImage) => {
+    const m = String(bgImage).match(/rgba?\\([^)]+\\)/g);
+    if (!m) return [];
+    const out = [];
+    for (const c of m) { const p = parse(c); if (p) out.push(p); }
+    return out;
+  };
   const over = (fg, bg) => ({
     r: fg.r * fg.a + bg.r * (1 - fg.a),
     g: fg.g * fg.a + bg.g * (1 - fg.a),
@@ -44,7 +53,7 @@ export const CONTRAST_PROBE = `(() => {
   //  raporlanıyordu. Klasik yanlış pozitif.)
   const bgOf = (el) => {
     const stack = [];
-    let n = el, gradient = false;
+    let n = el, gradient = false, gradStops = null, unresolved = false;
     while (n && n !== document.documentElement.parentNode) {
       const cs = getComputedStyle(n);
       // html/body ATLANIR: ikisi de sitenin ambiyans dokusunu taşıyor
@@ -52,14 +61,32 @@ export const CONTRAST_PROBE = `(() => {
       // ölçülemez yapmaz, cosmic-black sayılır. Bu istisna olmadan HER öge
       // "gradyan" damgası yiyordu ve probe hiçbir şey raporlamıyordu.
       const isRoot = n === document.documentElement || n === document.body;
-      if (!isRoot && cs.backgroundImage && cs.backgroundImage !== 'none') gradient = true;
+      if (!isRoot && cs.backgroundImage && cs.backgroundImage !== 'none') {
+        gradient = true;
+        // 2026-08-31 — ESKİ DAVRANIŞ: gradyan görülünce yalnız damga vurulup
+        // en yakın OPAK renge göre ölçülüyordu. Dolu bir gradyan butonda o
+        // renk şeffaf olduğu için yukarı yürünüp koyu zemin bulunuyor, koyu
+        // metin koyu zemine karşı ölçülüyor ve oran 1.04 çıkıyordu — ölçüm
+        // değil gürültü. Artık durakları ayrıştırıyoruz ve EN KÖTÜ durağa
+        // göre ölçüyoruz; böylece gradyanın koyu ucunda eşiğin altına düşen
+        // metin gerçekten yakalanıyor.
+        const st = stopsOf(cs.backgroundImage);
+        if (st.length) { if (!gradStops) gradStops = st; }
+        else unresolved = true;   // url(...) görsel — hâlâ ölçülemez
+      }
       const c = parse(cs.backgroundColor);
       if (c && c.a > 0) { stack.push(c); if (c.a === 1) break; }
       n = n.parentElement;
     }
     let base = { r: 10, g: 10, b: 26, a: 1 }; // --color-cosmic-black yedeği
     for (let i = stack.length - 1; i >= 0; i--) base = over(stack[i], base);
-    return { ...base, gradient };
+    // Gradyan çözüldüyse her durak, altındaki zemine bindirilerek aday olur.
+    // Şeffaf duraklar (ör. transparent 100%) alttaki zemine dönüşür, yani
+    // hafif bir kaplama gradyanı sonucu bozmaz.
+    if (gradStops) {
+      return { bases: gradStops.map((c) => over(c, base)), gradient: true, resolved: true };
+    }
+    return { bases: [base], gradient, resolved: !unresolved && !gradient };
   };
   const opacityChain = (el) => {
     let o = 1, n = el;
@@ -91,8 +118,11 @@ export const CONTRAST_PROBE = `(() => {
     // üstünde %5 altın olduğu için yaklaşım genelde 0.1-0.2 içinde kalıyor —
     // ama "ÖNE ÇIKAN" rozeti gibi zemin GRADYANIN KENDİSİ olan yerlerde
     // tamamen yanıltır.
-    const composed = over(fg, bg);
-    const cr = ratio(composed, bg);
+    let cr = Infinity;
+    for (const cand of bg.bases) {
+      const v = ratio(over(fg, cand), cand);
+      if (v < cr) cr = v;
+    }
     const px = parseFloat(cs.fontSize);
     const bold = parseInt(cs.fontWeight, 10) >= 700;
     // WCAG: büyük metin = >=24px, ya da >=18.66px ve kalın
@@ -112,7 +142,12 @@ export const CONTRAST_PROBE = `(() => {
       opacity: Math.round(chainOp * 100) / 100,
       sec: (el.closest('section[id],div[id]') || {}).id || '',
       text: txt,
-      approx: bg.gradient,
+      // approx artık YALNIZ gerçekten ölçülemeyenler için: arka plan görseli
+      // (url) ya da ayrıştırılamayan gradyan. Çözülmüş gradyanlar gerçek
+      // ölçümdür ve elenmemelidir.
+      approx: !bg.resolved,
+      onGradient: bg.gradient,
+      stops: bg.bases.length,
     });
   }
   return out.sort((a, b) => a.ratio - b.ratio);

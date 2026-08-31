@@ -77,9 +77,16 @@ function allRoutes() {
 }
 
 // Sayıyı dürüst tutan ayıklama — ham sayı yanıltır:
-//   · gradyan üstündeki koyu metin (ÖNE ÇIKAN rozeti) probe'un bilinen sınırı
-//   · ≥24px dev dekoratif rakamlar
-const isReal = (f) => !/ÖNE ÇIKAN|FEATURED/.test(f.text) && f.px < 24;
+//   · ≥24px dev dekoratif rakamlar (WCAG büyük-metin muafiyeti dışı kalanlar)
+//
+// 2026-08-31 — "ÖNE ÇIKAN|FEATURED" dize istisnası KALDIRILDI. O istisna,
+// probe'un gradyan zeminleri okuyamamasının elle yazılmış yamasıydı: altın
+// gradyan üstündeki koyu metin yüksek kontrastlı olduğu hâlde oran 1 diye
+// raporlanıyordu. Probe artık gradyanın renk duraklarını ayrıştırıp EN KÖTÜ
+// durağa göre ölçüyor, dolayısıyla o rozet kendiliğinden eşiği geçiyor ve
+// istisnaya gerek kalmıyor. Ölçülen fark (146 rota): ihlal 1599 → 1339,
+// temiz sayfa 0 → 90; düz zeminli hiçbir ölçüm değişmedi (0 oran farkı).
+const isReal = (f) => f.px < 24;
 
 const urls = FULL
   ? ['tr', 'en'].flatMap((l) => allRoutes().map((r) => `/${l}${r}`))
