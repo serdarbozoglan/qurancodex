@@ -1409,9 +1409,40 @@ etki (146 rota): ihlal **1599 → 1339**, temiz sayfa **0 → 90**, düz zeminli
 eski probe'un yanlış zemine ölçtüğü için sakladığı gerçek bir ihlali de ortaya
 çıkardı (`ProofSection` kaynak notu: silver `.75` → açık durağa karşı 4.38).
 
-⚠ `--full` tabanı (48) **bayat**: eski probe ile de 1599 veriyordu, yani uzun
-süredir aşılıyor ve `--full --ci` fiilen kullanılamaz durumda. Örneklem (383)
-ve mobil (100) tabanları sağlam. Tabanların yenilenmesi ayrı bir karar.
+**Ölçüm artık GÖRÜNÜR ALANDA ve OTURMUŞ hâlde yapılır (2026-08-31, ikinci
+tur).** Asıl şişme kaynağı gradyan değil, scroll-reveal'dı: bölümler görünür
+alana girmeden önce iç içe üç kapsayıcı birden `opacity:0.5`'te duruyor
+(0.5³ ≈ 0.13) ve probe bunu "1.22 kontrast" diye sayıyordu. Kanıt: aynı öge
+ekrana girip reveal tamamlanınca opaklık zinciri BOŞ, oran tam. Bu yüzden:
+· probe yalnız o an ekranda olan ögeyi ölçer,
+· `audit-contrast.mjs` sayfayı ekran ekran gezer, her durakta IO'ya 600 ms pay
+  verip soluk-öge sayısı kararlı hâle gelene kadar bekler, sonra ölçer.
+
+**Tekilleştirme METNE göre değil STİL BAĞLAMINA göre.** Eski anahtar
+`renk|punto|metin` idi ve aynı metnin farklı zeminlerdeki örneklerini tek
+kayda indiriyordu — rapor yanlış yeri gösteriyordu ("İnteraktif Araçlar" 1.35
+deniyordu, sayfadaki öge 8.81'di). Yeni anahtar `renk|punto|efektif zemin|
+opaklık`: ölçüt "kaç ayrı DÜZELTME gerekiyor".
+
+Birikimli etki (örneklem, 12 sayfa): **383 → 88 → 70**.
+
+⚠ **Sayı bir MANDAL, kusur envanteri değil.** Kalan bulguların önemli kısmı
+hâlâ reveal geçiş hâlleri; ön-bekleme 0/600/1200 ms denendi, sayı 28-34
+arasında salınıyor ve yakınsamıyor. Somut örnek: Hero'daki "DEVAM" göstergesi
+animasyon ortasında 3.09 ölçülüyordu ama dinlenme hâlinde 4.97 — yani AA'yı
+geçiyor. Bu yüzden bir bulguyu düzeltmeden önce **o ögeyi tek tek, oturmuş
+hâlinde doğrula**; ham listeye bakıp toplu düzeltmeye kalkma.
+
+⚠ `--full` artık sayfa başına gezinme yaptığı için **çok daha uzun sürüyor**
+(146 rota, ~15 dk). Hızlı geri bildirim için örneklem koşusunu kullan.
+
+⚠ **Ölçüm DETERMİNİSTİK DEĞİL.** Reveal zamanlaması koşudan koşuya oynadığı
+için sayı da oynuyor: örneklemde 70/71/72/71 ölçüldü (±2, ~%3). Mandalı
+gözlenen en düşük değere kurmak rastgele CI hatası üretir ve kapı ciddiye
+alınmaz hâle gelir; bu yüzden tabanlar gözlenen tavanın **~%4 üstüne**
+konuldu (örneklem 70 → 75, tam 851 → 885). Yani kapı ufak salınımı yutar,
+anlamlı bir regresyonu (3+ yeni ihlal) yakalar. `--update` çalıştırırsan bu
+payı elle geri koy, yoksa taban gürültünün dibine oturur.
 
 ---
 

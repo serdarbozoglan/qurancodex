@@ -433,7 +433,12 @@ export default function Hero() {
                 fontSize: '0.7rem',
                 letterSpacing: '0.24em',
                 textTransform: 'uppercase',
-                opacity: 0.82,
+                // 2026-08-31 — span'in kendi 0.82'si KALDIRILDI. Buton giriş
+                // animasyonuyla zaten 0.88'e iniyordu; ikisi çarpılınca
+                // dinlenme hâli 0.72 oluyordu — §13.26'nın altın tabanı
+                // (≥0.75) altında ve md.3'ün açıkça yasakladığı katmerlenme
+                // ("solukluğu YA renkte YA opacity'de ver, ikisinde birden
+                // değil"). Tek kaynak butonda: 0.88 → oran 6.96.
                 marginBottom: '4px',
               }}
             >

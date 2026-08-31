@@ -103,7 +103,47 @@ for (const u of urls) {
     await page.goto(BASE_URL + u, { waitUntil: 'domcontentloaded', timeout: 90000 });
     await page.waitForTimeout(1600);
     await page.evaluate(() => document.querySelectorAll('[data-reveal]').forEach((e) => e.classList.add('is-revealed')));
-    const found = (await page.evaluate(CONTRAST_PROBE)).filter(isReal);
+    // Sayfayı ekran ekran gez ve HER DURAKTA ölç (2026-08-31). Probe artık
+    // yalnız görünür alandakini ölçtüğü için tek atış sayfanın %90'ını
+    // kaçırırdı. Adım adım gezmek ayrıca scroll-reveal'ları tetikler, yani
+    // ölçüm kullanıcının gerçekten gördüğü hâl üstünde yapılır.
+    const merged = new Map();
+    const collect = async () => {
+      for (const f of (await page.evaluate(CONTRAST_PROBE)).filter(isReal)) {
+        const k = f.color + '|' + f.px + '|' + f.opacity + '|' + f.ratio;
+        if (!merged.has(k)) merged.set(k, f);
+      }
+    };
+    const pageH = await page.evaluate(() => document.body.scrollHeight);
+    const vh = await page.evaluate(() => window.innerHeight);
+    for (let y = 0; y < pageH; y += Math.round(vh * 0.85)) {
+      await page.evaluate((v) => window.scrollTo(0, v), y);
+      // IntersectionObserver'a ateşlenme payı; kararlılık kontrolü tek başına
+      // erken çıkıyordu (IO daha tetiklenmeden "sabit" görüyordu).
+      await page.waitForTimeout(600);
+      // Sabit bekleme yetmiyordu: 420 ms'de reveal'lar hâlâ yoldaydı ve
+      // yarı saydam hâlleri ihlal olarak sayılıyordu (ölçüldü: 34 bulgunun
+      // 24'ü opaklık<0.5). Onun yerine SOLUK ÖGE SAYISI kararlı hâle gelene
+      // kadar bekle — animasyon ne kadar sürerse o kadar, fazlası değil.
+      await page.evaluate(() => new Promise((res) => {
+        let last = -1, stable = 0, frames = 0;
+        const tick = () => {
+          let faint = 0;
+          for (const e of document.querySelectorAll('body *')) {
+            const o = parseFloat(getComputedStyle(e).opacity || '1');
+            if (o < 0.98) faint++;
+          }
+          if (faint === last) stable++; else stable = 0;
+          last = faint;
+          if (stable >= 3 || ++frames > 90) res();
+          else requestAnimationFrame(tick);
+        };
+        tick();
+      }));
+      await collect();
+      if (y > 40000) break;             // aşırı uzun sayfalarda emniyet
+    }
+    const found = [...merged.values()];
     perPage[u] = found.length;
     total += found.length;
     if (found.length) process.stdout.write(`   ${String(found.length).padStart(4)}  ${u}\n`);

@@ -102,6 +102,14 @@ export const CONTRAST_PROBE = `(() => {
     if (!own.length) continue;
     const r = el.getBoundingClientRect();
     if (r.width < 2 || r.height < 2) continue;
+    // YALNIZ GÖRÜNÜR ALANDAKİ ÖGELER (2026-08-31).
+    // Sitede bölümler scroll-reveal ile açılıyor: görünür alana girmeden önce
+    // iç içe üç kapsayıcı birden opacity:0.5'te duruyor (0.5³ ≈ 0.13) ve probe
+    // bunu "1.22 kontrast" diye raporluyordu. Ölçüldü: aynı öge ekrana girip
+    // reveal tamamlanınca opaklık zinciri BOŞ, oran tam — yani ihlal yok.
+    // Şişmenin ana kaynağı buydu. Artık yalnız o an ekranda olan ölçülür;
+    // sayfayı adım adım gezmek audit-contrast.mjs'in işi.
+    if (r.bottom < 0 || r.top > window.innerHeight) continue;
     const cs = getComputedStyle(el);
     if (cs.visibility === 'hidden' || cs.display === 'none') continue;
     const chainOp = opacityChain(el);
@@ -130,7 +138,18 @@ export const CONTRAST_PROBE = `(() => {
     const need = large ? 3.0 : 4.5;
     if (cr >= need) continue;
     const txt = own.map((n) => n.textContent.trim()).join(' ').slice(0, 46);
-    const key = cs.color + '|' + Math.round(px) + '|' + txt;
+    // Tekilleştirme METNE göre değil, STİL BAĞLAMINA göre (2026-08-31).
+    // Eski anahtar renk|punto|METİN idi ve aynı metnin farklı zeminlerdeki
+    // örneklerini tek kayda indiriyordu: "İnteraktif Araçlar" hem mega-menü
+    // panelinde (gradyan zemin) hem bölüm içinde (cosmic-black) geçiyor;
+    // kaydedilen ilk örnek olduğu için rapor 1.35 diyordu, oysa sayfadaki
+    // öge 8.81'di. Yani sayı hem şişiyor hem yanlış yeri gösteriyordu.
+    //
+    // Doğru ölçüt "kaç ayrı DÜZELTME gerekiyor": aynı renk + punto + efektif
+    // zemin + opaklık zinciri tek bir CSS düzeltmesiyle çözülür, dolayısıyla
+    // tek kayıttır. Metin artık yalnız örnek olarak taşınıyor, anahtar değil.
+    const bgKey = bg.bases.map((c) => Math.round(c.r) + ',' + Math.round(c.g) + ',' + Math.round(c.b)).join('/');
+    const key = cs.color + '|' + Math.round(px) + '|' + bgKey + '|' + Math.round(chainOp * 100);
     if (seen.has(key)) continue;
     seen.add(key);
     out.push({
