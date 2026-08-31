@@ -6,7 +6,7 @@
       "nameEn": "Tanāsub",
       "nameAr": "تَنَاسُب",
       "color": "#2ecc71",
-      "descriptionTr": "Tematik uyum. İki surenin aynı konuyu farklı açıdan ele alması veya birbirini tamamlaması.",
+      "descriptionTr": "Tematik uyum. İki sûrenin aynı konuyu farklı açıdan ele alması veya birbirini tamamlaması.",
       "descriptionEn": "Thematic harmony — two surahs treating the same topic from complementary angles."
     },
     {
@@ -15,7 +15,7 @@
       "nameEn": "Taḍādd",
       "nameAr": "تَضَادّ",
       "color": "#e74c3c",
-      "descriptionTr": "Karşıtlık. Surelerin birbirine zıt kutupları temsil etmesi.",
+      "descriptionTr": "Karşıtlık. Sûrelerin birbirine zıt kutupları temsil etmesi.",
       "descriptionEn": "Contrast — surahs representing opposing poles of a theme."
     },
     {
@@ -33,7 +33,7 @@
       "nameEn": "Istiṭrād",
       "nameAr": "اسْتِطْرَاد",
       "color": "#c9a227",
-      "descriptionTr": "Ek, detaylandırma. Bir sureden diğerine geçerken konunun genişletilmesi.",
+      "descriptionTr": "Ek, detaylandırma. Bir sûreden diğerine geçerken konunun genişletilmesi.",
       "descriptionEn": "Elaboration — a topic introduced in one surah is expanded in the next."
     },
     {
@@ -51,7 +51,7 @@
       "nameEn": "Intiqāl",
       "nameAr": "انْتِقَال",
       "color": "#e67e22",
-      "descriptionTr": "Doğal akış. Bir sureden diğerine yumuşak, akıcı geçiş.",
+      "descriptionTr": "Doğal akış. Bir sûreden diğerine yumuşak, akıcı geçiş.",
       "descriptionEn": "Natural flow — a smooth, organic transition between surahs."
     },
     {
@@ -60,7 +60,7 @@
       "nameEn": "Takāmul",
       "nameAr": "تَكَامُل",
       "color": "#1abc9c",
-      "descriptionTr": "Tamamlayıcılık. Çift sure olarak bir bütünün iki parçası.",
+      "descriptionTr": "Tamamlayıcılık. Çift sûre olarak bir bütünün iki parçası.",
       "descriptionEn": "Complementarity — paired surahs forming the two halves of a whole."
     }
   ],
@@ -105,7 +105,7 @@
       "roleTr": "Sistemleştirici",
       "roleEn": "Systematizer",
       "workTr": "Nazmü'd-Dürer fî Tenâsübi'l-Âyâti ve's-Süver",
-      "noteTr": "İlmin en kapsamlı eserinin yazarı. 22 cilt. Her ayet ve her sure arasındaki bağı sistematik olarak inceler.",
+      "noteTr": "İlmin en kapsamlı eserinin yazarı. 22 cilt. Her ayet ve her sûre arasındaki bağı sistematik olarak inceler.",
       "noteEn": "Author of the most comprehensive work in this discipline — 22 volumes. Systematically analyzes every connection between verses and surahs."
     },
     {
@@ -137,7 +137,7 @@
       "roleTr": "Modern",
       "roleEn": "Modern",
       "workTr": "Tedebbür-i Kur'ân (Urdu)",
-      "noteTr": "'Nazmü'l-Kur'ân' teorisi — Kur'an'ın 7 grup halinde organize olduğunu savunur. Çift-sure sisteminin modern temsilcisi.",
+      "noteTr": "'Nazmü'l-Kur'ân' teorisi — Kur'an'ın 7 grup halinde organize olduğunu savunur. Çift-sûre sisteminin modern temsilcisi.",
       "noteEn": "Theory of 'Naẓm al-Qurʾān' — argues the Quran is organized into 7 groups. Modern proponent of the paired-surah system."
     },
     {
@@ -148,6 +148,33 @@
       "workTr": "Lemesât Beyâniyye",
       "noteTr": "Çağdaş Iraklı âlim. Beyan ilminin münâsebât boyutunu işler. Türkçeye çevrildi.",
       "noteEn": "Contemporary Iraqi scholar. Develops the munāsabāt dimension of ʿilm al-bayān."
+    },
+    {
+      "id": "robinson",
+      "nameTr": "Neal Robinson",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "workTr": "Discovering the Qur'an (1996)",
+      "noteTr": "Halka kompozisyon ve çıpa (anchor) örüntülerini modern edebî yöntemle inceleyen İngiliz akademisyen. Nâziât 79'un çözümlemesi bu sayfadaki örneklerin kaynağıdır.",
+      "noteEn": "British academic who examines ring composition and anchor patterns with modern literary method. His analysis of Sūrat an-Nāziʿāt underlies the examples on this page."
+    },
+    {
+      "id": "reda",
+      "nameTr": "Nevin Reda",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "workTr": "Textual Integrity and Coherence in the Qur'an (Toronto Üniv. doktora tezi, 2010)",
+      "noteTr": "Bakara sûresinin tekrar örüntülerini ve \"Seçilme-Talimat-Sınama\" motifini tespit eden Kanadalı akademisyen.",
+      "noteEn": "Canadian academic who identified Sūrat al-Baqara's repetition patterns and the \"Election-Instruction-Test\" motif."
+    },
+    {
+      "id": "khan-randhawa",
+      "nameTr": "Nouman Ali Khan · Sharif Randhawa",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "workTr": "Divine Speech (Bayyinah Institute, 2016)",
+      "noteTr": "Klasik ve modern münâsebât çalışmalarını sentezleyen, \"çıpa\" terimini öneren edebî-Kur'an çalışması. \"Sûre İçi Tutarlılık\" sekmesinin ana kaynağı.",
+      "noteEn": "A literary-Quranic study synthesizing classical and modern munāsabāt scholarship, coining the term \"anchor.\" The primary source for the \"Within a Surah\" tab."
     }
   ],
   "connections": [
@@ -246,7 +273,7 @@
         "suyuti"
       ],
       "hadith": {
-        "textTr": "Bakara ve Âl-i İmrân'ı okuyun; çünkü bu iki sure kıyamet günü iki bulut veya iki gölge gibi gelip okuyanları savunacaklardır.",
+        "textTr": "Bakara ve Âl-i İmrân'ı okuyun; çünkü bu iki sûre kıyamet günü iki bulut veya iki gölge gibi gelip okuyanları savunacaklardır.",
         "textEn": "Recite al-Baqara and Āl ʿImrān, for on the Day of Resurrection they will come like two clouds and defend their reciters.",
         "source": "Sahih Müslim 804"
       }
@@ -282,7 +309,7 @@
           "roleEn": "Opening of al-Kahf"
         }
       ],
-      "summaryTr": "İsrâ hamd ile biter, Kehf hamd ile başlar. Kur'an'da sadece 5 sure hamd ile başlar (Fâtiha, En'âm, Kehf, Sebe', Fâtır) — peş peşe iki surenin bu kalıpla bağlanması tek örnektir.",
+      "summaryTr": "İsrâ hamd ile biter, Kehf hamd ile başlar. Kur'an'da sadece 5 sûre hamd ile başlar (Fâtiha, En'âm, Kehf, Sebe', Fâtır) — peş peşe iki sûrenin bu kalıpla bağlanması tek örnektir.",
       "summaryEn": "Al-Isrāʾ ends with ḥamd; al-Kahf opens with ḥamd. Only 5 surahs begin with ḥamd (al-Fātiḥa, al-Anʿām, al-Kahf, Sabaʾ, Fāṭir) — this is the only consecutive pair linked by it.",
       "sources": [
         "biqai",
@@ -302,7 +329,7 @@
       ],
       "strength": "thematic",
       "category": "structural",
-      "summaryTr": "Secde 30 ayetlik kısa Mekkî — akîde (iman temelleri) inşası. Ahzâb 73 ayetlik uzun Medenî — toplum ve savaş inşası. Kur'an'ın Mekkî'den Medenî'ye geçişinin kusursuz örneği.",
+      "summaryTr": "Secde 30 ayetlik kısa Mekkî — akîde (iman temelleri) inşa eder. Ahzâb 73 ayetlik uzun Medenî — toplum düzenini ve savaş hukukunu inşa eder. Kur'an'ın Mekkî'den Medenî'ye geçişinin kusursuz örneği.",
       "summaryEn": "As-Sajda is a short Meccan surah (30 verses) building doctrine; al-Aḥzāb is a long Medinan surah (73 verses) building community and law. A textbook Meccan-to-Medinan hinge.",
       "sources": [
         "biqai"
@@ -351,7 +378,7 @@
       ],
       "strength": "strong",
       "category": "paired-recitation",
-      "summaryTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında bu iki sureyi okurdu. A'lâ Allah'ın adını ululama ve uyarma, Ğâşiye kıyamet günü tasviriyle onu tamamlar.",
+      "summaryTr": "Peygamber (s.a.v.) Cuma ve bayram namazlarında bu iki sûreyi okurdu. A'lâ Allah'ın adını ululama ve uyarma, Ğâşiye kıyamet günü tasviriyle onu tamamlar.",
       "summaryEn": "The Prophet ﷺ recited these two surahs in Friday and festival prayers. Al-Aʿlā exalts God's name and warns; al-Ghāshiya completes it with the scene of the Last Day.",
       "sources": [
         "razi",
@@ -395,7 +422,7 @@
           "roleEn": "The heart of ash-Sharḥ — future consolation"
         }
       ],
-      "summaryTr": "Duhâ'da Hz. Peygamber'e geçmişte verilen nimetler hatırlatılır; İnşirâh'ta aynı formatla iç dünyası (göğüs ferahlığı) ele alınır. Bu iki sure Kur'an'da başından sonuna yalnızca Peygamber'e (tekil 'sen') hitap eden tek arka arkaya çifttir. İmâmiyye fıkhında zorunlu namazda tek sure gibi birlikte okunur.",
+      "summaryTr": "Duhâ'da Hz. Peygamber'e geçmişte verilen nimetler hatırlatılır; İnşirâh'ta aynı formatla iç dünyası (göğüs ferahlığı) ele alınır. Bu iki sûre Kur'an'da başından sonuna yalnızca Peygamber'e (tekil 'sen') hitap eden tek arka arkaya çifttir. İmâmiyye fıkhında zorunlu namazda tek sûre gibi birlikte okunur.",
       "summaryEn": "Aḍ-Ḍuḥā reminds the Prophet of past blessings; ash-Sharḥ mirrors it for his inner world (expansion of the breast). These two surahs are the only consecutive pair in the Quran addressed entirely to the Prophet alone (singular 'you'). In Imāmī jurisprudence they are recited together as one unit in obligatory prayer.",
       "sources": [
         "razi",
@@ -427,7 +454,7 @@
           "roleEn": "Linguistic bridge — reads as continuation of al-Fīl"
         }
       ],
-      "summaryTr": "Fîl Ebrehe ordusunun helâkını anlatır. Kureyş bu helâkın SONUCU olarak Kureyş kabilesinin emniyetini anlatır. Sebep-sonuç ilişkisiyle tek bir argüman oluşturur. Übey b. Ka'b mushafında tek sure sayılmıştır; İmâmiyye fıkhında zorunlu namazda aralarında besmele olmadan birlikte okunur.",
+      "summaryTr": "Fîl Ebrehe ordusunun helâkını anlatır. Kureyş bu helâkın SONUCU olarak Kureyş kabilesinin emniyetini anlatır. Sebep-sonuç ilişkisiyle tek bir argüman oluşturur. Übey b. Ka'b mushafında tek sûre sayılmıştır; İmâmiyye fıkhında zorunlu namazda aralarında besmele olmadan birlikte okunur.",
       "summaryEn": "Al-Fīl narrates the destruction of Abraha's army. Quraysh continues by stating the resulting safety of the Quraysh tribe. Cause-and-effect woven into a single argument. Counted as one surah in the muṣḥaf of Ubayy b. Kaʿb; in Imāmī fiqh they are recited together without basmala.",
       "sources": [
         "biqai"
@@ -439,7 +466,7 @@
         113,
         114
       ],
-      "nameTr": "Muavvizeteyn — İki Sığınma Suresi",
+      "nameTr": "Muavvizeteyn — İki Sığınma Sûresi",
       "nameEn": "Al-Muʿawwidhatān — The Two Refuge Surahs",
       "nameAr": "المُعَوِّذَتَان",
       "types": [
@@ -466,7 +493,7 @@
           "roleEn": "Refuge from inner threats"
         }
       ],
-      "summaryTr": "İki sure birlikte 'Muavvizeteyn' (İki Sığınak) olarak adlandırılır. Felak dış dünyadaki tehditleri (karanlık, sihir, hased), Nâs iç dünyadaki tehditleri (vesvese, gizli düşman) kapsar. Peygamber (s.a.v.) her gece yatmadan önce ikisini birlikte okurdu.",
+      "summaryTr": "İki sûre birlikte 'Muavvizeteyn' (İki Sığınak) olarak adlandırılır. Felak dış dünyadaki tehditleri (karanlık, sihir, hased), Nâs iç dünyadaki tehditleri (vesvese, gizli düşman) kapsar. Peygamber (s.a.v.) her gece yatmadan önce ikisini birlikte okurdu.",
       "summaryEn": "Known together as al-Muʿawwidhatān ('the two refuges'). Al-Falaq covers outer threats (darkness, sorcery, envy); an-Nās covers inner ones (whispering, hidden enmity). The Prophet ﷺ recited both every night before sleep.",
       "sources": [
         "razi",
@@ -491,7 +518,7 @@
       ],
       "strength": "thematic",
       "category": "structural",
-      "summaryTr": "Nâs (son sure) 'şeytanın vesvesesinden sığınma' ile biter. Fâtiha (ilk sure) 'yol gösterilmesi duası' ile başlar. Kur'an'ın okunuşu biten ama bitmeyen bir döngüdür — her hatim yeni bir başlangıç.",
+      "summaryTr": "Nâs (son sûre) 'şeytanın vesvesesinden sığınma' ile biter. Fâtiha (ilk sûre) 'yol gösterilmesi duası' ile başlar. Kur'an'ın okunuşu biten ama bitmeyen bir döngüdür — her hatim yeni bir başlangıç.",
       "summaryEn": "An-Nās (the last surah) ends with seeking refuge from Satan's whispers. Al-Fātiḥa (the first) begins with the prayer for guidance. Reading the Quran is a closed loop that never truly closes — each completion is a new beginning.",
       "sources": [
         "samarrai"
@@ -790,7 +817,7 @@
         46
       ],
       "lettersAr": "حم",
-      "descriptionTr": "'Hâ-Mîm' ile başlayan 7 sure. Peş peşe tek mukatta'a grubu. Tematik süreklilik: vahiy, kitap, inanç-inkâr karşıtlığı.",
+      "descriptionTr": "'Hâ-Mîm' ile başlayan 7 sûre. Peş peşe tek mukatta'a grubu. Tematik süreklilik: vahiy, kitap, inanç-inkâr karşıtlığı.",
       "descriptionEn": "Seven consecutive surahs opening with Ḥā-Mīm. Thematic continuity: revelation, the Book, belief vs. denial."
     },
     {
@@ -806,7 +833,7 @@
         15
       ],
       "lettersAr": "الر / المر",
-      "descriptionTr": "Yûnus'tan Hicr'e 6 sure. Kıssa-yoğun bölge; peygamber hikayelerinin paralel anlatımı.",
+      "descriptionTr": "Yûnus'tan Hicr'e 6 sûre. Kıssa-yoğun bölge; peygamber hikayelerinin paralel anlatımı.",
       "descriptionEn": "Six surahs from Yūnus to al-Ḥijr. Dense with prophetic stories told in parallel."
     },
     {
@@ -819,7 +846,7 @@
         28
       ],
       "lettersAr": "طسم / طس",
-      "descriptionTr": "Şuarâ, Neml, Kasas — üç ardışık sure. Mûsâ kıssasının farklı açılardan anlatımı.",
+      "descriptionTr": "Şuarâ, Neml, Kasas — üç ardışık sûre. Mûsâ kıssasının farklı açılardan anlatımı.",
       "descriptionEn": "Ash-Shuʿarāʾ, an-Naml, al-Qaṣaṣ — three consecutive surahs. The story of Moses told from complementary angles."
     },
     {
@@ -831,8 +858,95 @@
         19,
         20
       ],
-      "descriptionTr": "Kehf, Meryem, Tâhâ — Kur'an'ın orta bölgesinde üç sure üst üste kıssa yoğun. Ashâb-ı Kehf, Zülkarneyn, Mûsâ-Hızır, Meryem, Îsâ, Yahyâ, Mûsâ-Firavun.",
+      "descriptionTr": "Kehf, Meryem, Tâhâ — Kur'an'ın orta bölgesinde üç sûre üst üste kıssa yoğun. Ashâb-ı Kehf, Zülkarneyn, Mûsâ-Hızır, Meryem, Îsâ, Yahyâ, Mûsâ-Firavun.",
       "descriptionEn": "Al-Kahf, Maryam, Ṭā-Hā — three consecutive story-dense surahs at the Quran's middle. People of the Cave, Dhul-Qarnayn, Moses-Khiḍr, Mary, Jesus, John, Moses-Pharaoh."
     }
-  ]
+  ],
+  "intraSurah": {
+    "introTr": "Klasik münâsebât ilminin bir de içe bakan yarısı vardır: sûreler birbirine değil, bir sûrenin KENDİ parçaları birbirine nasıl bağlanır? Nouman Ali Khan ve Sharif Randhawa, Divine Speech'te bu bağı kuran ortak kök, kelime, imge veya ses örüntülerine bir isim verir: çıpa.",
+    "introEn": "Classical munāsabāt has an inward-facing half too: not how surahs relate to each other, but how a single surah's OWN parts hold together. Nouman Ali Khan and Sharif Randhawa, in Divine Speech, give a name to the shared roots, words, images or sound patterns that create this bond: anchors.",
+    "anchorConcept": {
+      "titleTr": "\"Çıpa\" (Anchor) Nedir?",
+      "titleEn": "What Is an \"Anchor\"?",
+      "bodyTr": "Kitap, bunu kendi terimleri olarak tanıtır: bir sûrenin farklı bölümlerini — hatta ayrı sûreleri — birbirine bağlayan ortak kök, kelime, imge, paralel ifade veya ses örüntüsü. Akademik literatürde daha resmî adı \"metinlerarasılık\"tır (intertextuality); yazarlar sade bir isim tercih eder.",
+      "bodyEn": "The book introduces this as its own coinage: a shared root, word, image, parallel expression, or sound pattern that links different sections of a surah — or even separate surahs. The more formal academic name for the phenomenon is \"intertextuality\"; the authors prefer a plain one.",
+      "quoteTr": "\"Farklı ayetlerin, pasajların veya bir sûre içindeki (hatta ayrı sûreler arasındaki) bölümlerin; paylaştıkları anahtar terimler, fiil kökleri, imgeler, paralel ifadeler, hatta ses örüntüleriyle nasıl birbirine bağlandığını ele alıyoruz. Bu öğelere çıpa diyeceğiz.\"",
+      "quoteEn": "\"This is concerned with how different verses, passages, or sections within a sura, or even between separate suras, are interconnected by key terms, verbal roots, images, parallel expressions, or even sound patterns that they share. We will call these items anchors.\"",
+      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 152."
+    },
+    "naziatExample": {
+      "titleTr": "Canlı Örnek: Nâziât Sûresi (79)",
+      "titleEn": "A Worked Example: Sūrat an-Nāziʿāt (79)",
+      "introTr": "Bir eleştirmen bu sûrenin üç bölümünün (yemin · Mûsâ-Firavun kıssası · kıyamet sahnesi) birbirinden kopuk olduğunu iddia etmişti. Neal Robinson'ın analizini aktaran kitap, aralarındaki çıpaları gösterir:",
+      "introEn": "One critic argued this surah's three parts (oath · the Moses-Pharaoh narrative · the Judgment scene) were disconnected fragments. Drawing on Neal Robinson's analysis, the book traces the anchors that bind them:",
+      "anchors": [
+        {
+          "rootAr": "غ ر ق",
+          "labelTr": "\"Dalmak / boğulmak\" kökü",
+          "labelEn": "The root \"to plunge / drown\"",
+          "noteTr": "Sûrenin açılış yemini, Allah'ın elçilerini \"dalarcasına\" (ğarkan) harekete geçmesiyle tanımlar (79:1). Aynı kelime köküyle, Firavun'un ordusu sonradan denizde gerçekten \"boğulur\" — yeminin imgesi kıssada gerçeğe dönüşür.",
+          "noteEn": "The surah's opening oath describes God's agents as moving \"as if plunging\" (gharqan, 79:1). The same root later describes Pharaoh's army literally \"drowning\" in the sea — the oath's image becomes literal fact within the narrative."
+        },
+        {
+          "rootAr": "ر ع ي",
+          "labelTr": "\"Otlatmak\" kökü — sadece Mûsâ'nın geçtiği sûrelerde",
+          "labelEn": "The root \"to pasture\" — only in Moses-mentioning surahs",
+          "noteTr": "\"Otlak\" (mer'â) kelimesi, kıyamet sahnesindeki \"hayvanlarınızı\" ifadesini (79:33) Mûsâ-Firavun kıssasına bağlar. Kitabın vurguladığı çarpıcı nokta: \"otlatmak\" fiili Kur'an'da SADECE Mûsâ'nın anıldığı sûrelerde geçer (28, 38, 87, 79).",
+          "noteEn": "The word \"pasturage\" (marʿā) in the Judgment scene (79:33) ties back to the Moses-Pharaoh narrative. The book highlights a striking detail: the verb \"to pasture\" occurs in the Quran ONLY in surahs that also mention Moses (28, 38, 87, 79)."
+        }
+      ],
+      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 153-163, Neal Robinson'ın Discovering the Qur'an (s. 177-188) çözümlemesinden aktarır."
+    },
+    "bakaraRing": {
+      "titleTr": "Bakara Sûresi'nin Tam Halkası",
+      "titleEn": "The Full Ring of Sūrat al-Baqara",
+      "introTr": "286 ayetlik Kur'an'ın en uzun sûresi bile bir halka kompozisyondur. Merkez, tam da sûrenin sayısal ortasına (143. ayet) denk düşer — kıblenin Kâbe'ye çevrildiği ayet.",
+      "introEn": "Even the Quran's longest surah, 286 verses, is a ring composition. Its center falls precisely at the surah's numerical midpoint (verse 143) — the verse that turns the direction of prayer toward the Kaaba.",
+      "sections": [
+        { "label": "A", "range": "1-39", "titleTr": "İman ve İnkâr", "titleEn": "Faith and Disbelief", "noteTr": "Mü'minler ve kâfirler tanıtılır; Allah yaratır ve diriltecektir.", "noteEn": "Believers and disbelievers are introduced; God created and will resurrect." },
+        { "label": "B", "range": "40-121", "titleTr": "İsrailoğulları'nın Eleştirisi", "titleEn": "Criticism of the Israelites", "noteTr": "Hz. Mûsâ, şeriatı İsrailoğulları'na tebliğ eder; onlar boyun eğmez.", "noteEn": "Moses delivers the law to the Children of Israel; they fail to submit." },
+        { "label": "C", "range": "122-141", "titleTr": "Hz. İbrahim'in Mirası", "titleEn": "Abraham's Legacy", "noteTr": "İbrahim sınanır; Kâbe'yi İsmail ile inşa eder; soyunun tevhide dönmesi için dua eder.", "noteEn": "Abraham is tested; he builds the Kaaba with Ishmael; he prays his descendants return to monotheism." },
+        { "label": "D", "range": "142-152", "center": true, "titleTr": "Kıble Değişimi — Merkez", "titleEn": "The Change of Qibla — the Centre", "noteTr": "Yeni Müslüman topluluk, \"orta bir ümmet\" olarak kurulur; iyilikte yarışmaya çağrılır.", "noteEn": "The new Muslim community is established as a \"middle nation,\" called to compete in good works." },
+        { "label": "C'", "range": "153-177", "titleTr": "İbrahim'in Mirasının Yeniden Kurulması", "titleEn": "Restoring Abraham's Legacy", "noteTr": "Müslümanlar sınanacaktır; Mekke'ye yapılan hac talimatları; atalara/onların ilahlarına rakip koşmama uyarısı.", "noteEn": "Muslims will be tested; instructions on pilgrimage to Mecca; a warning against rivaling ancestors or their gods." },
+        { "label": "B'", "range": "178-242", "titleTr": "Yeni Müslüman Ümmete Şeriat", "titleEn": "Laws for the New Muslim Nation", "noteTr": "Peygamber, şeriatı Müslümanlara tebliğ eder; onlar tam bir teslimiyetle çağrılır.", "noteEn": "The Prophet delivers the law to the Muslims; they are urged to submit wholeheartedly." },
+        { "label": "A'", "range": "243-286", "titleTr": "Mü'minlerin Mücadelesi", "titleEn": "The Believers' Struggle", "noteTr": "Mü'minler kâfirlere karşı mücadele eder; Allah'ın yaratma ve diriltme kudreti; mali muamele hükümleri.", "noteEn": "Believers struggle against disbelievers; God's power over creation and resurrection; rulings on financial dealings." }
+      ],
+      "quoteTr": "\"...sûrenin etrafında 'döndüğü' söylenebilecek merkezî dönüm noktası.\" Kitap ayrıca 143. ayetin ('orta bir ümmet') sûrenin 286 ayetlik toplamının tam sayısal ortasına denk geldiğini not eder.",
+      "quoteEn": "\"...the central turning point of the sura, around which the sura could be said to 'revolve.'\" The book also notes that verse 143 (the \"middle nation\" verse) falls at the exact numerical center of the sura's 286 verses.",
+      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 209."
+    },
+    "etiMotif": {
+      "titleTr": "Seçilme, Talimat, Sınama Motifi",
+      "titleEn": "The Motif of Election, Instruction, and Test",
+      "bodyTr": "Nevin Reda'nın tespit ettiği bir örüntüyü aktaran kitap, Bakara'nın farklı bölümlerinde üç unsurun (bir role Seçilme, bir Talimat, bir Sınama) tekrarlandığını, ama HER SEFERİNDE farklı bir sırada göründüğünü gösterir. Kitabın kendi katkısı: bu sıraların düzeni, İbrahim bölümünü merkeze alan ayna-simetrik bir örüntü oluşturur.",
+      "bodyEn": "Drawing on a pattern identified by Nevin Reda, the book shows that three elements (an Election to a role, an Instruction, and a Test) recur across Baqara's sections — but in a DIFFERENT order each time. The book's own contribution: the sequence of these orders forms a mirror-symmetric pattern centered on the Abraham section.",
+      "sequence": [
+        { "figureTr": "Âdem (Bölüm A, 1-39)", "figureEn": "Adam (Section A, 1-39)", "order": "Seçilme → Sınama → Talimat", "orderEn": "Election → Test → Instruction", "code": "S-N-T" },
+        { "figureTr": "İsrailoğulları (Bölüm B, 40-121)", "figureEn": "Children of Israel (Section B, 40-121)", "order": "Seçilme → Talimat → Sınama", "orderEn": "Election → Instruction → Test", "code": "S-T-N" },
+        { "figureTr": "Hz. İbrahim (Bölüm C, 122-141)", "figureEn": "Abraham (Section C, 122-141)", "order": "Sınama → Seçilme → Talimat", "orderEn": "Test → Election → Instruction", "code": "N-S-T", "center": true },
+        { "figureTr": "Kıble Değişimi (Bölüm D, 142-152)", "figureEn": "Change of Qibla (Section D, 142-152)", "order": "Sınama → Talimat → Seçilme", "orderEn": "Test → Instruction → Election", "code": "N-T-S" },
+        { "figureTr": "Yeni Ümmet (Bölüm C'-B', 153-242)", "figureEn": "The New Nation (Sections C'-B', 153-242)", "order": "Seçilme → Sınama → Talimat", "orderEn": "Election → Test → Instruction", "code": "S-N-T" }
+      ],
+      "noteTr": "Âdem ile yeni ümmetin sırası birebir aynıdır (Seçilme-Sınama-Talimat); tam ortada duran Hz. İbrahim ise kendine has bir sırayla tek başına öne çıkar. Yazarlar bu diziliş yorumunun Reda'nınkinden farklı olduğunu ayrıca belirtir.",
+      "noteEn": "Adam and the new nation share the identical order (Election-Test-Instruction); Abraham, sitting at the very centre, stands out with a unique order of its own. The authors note their reading of this sequencing differs from Reda's.",
+      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 211-212, Nevin Reda, Textual Integrity, s. 161-163, 165-166, 177-178."
+    },
+    "section1Anchors": {
+      "titleTr": "Bakara'nın İlk Bölümündeki Çıpalar",
+      "titleEn": "Anchors Within Baqara's First Section",
+      "introTr": "Kitap, \"çıpa\" kavramını somutlaştırmak için Bakara'nın ilk 39 ayetinden bir örnek liste sunar — sûrenin TAMAMI için değil, yalnız bu ilk bölüm içindir; yazarlar bunun \"sadece bir örnek\" olduğunu vurgular.",
+      "introEn": "To make the \"anchor\" concept concrete, the book offers a sample list from Baqara's first 39 verses — for this first section only, not the whole surah; the authors stress it is \"just a sample.\"",
+      "items": [
+        { "termAr": "رَيْب", "termTr": "şüphe (rayb)", "termEn": "doubt (rayb)", "verses": "2, 23" },
+        { "termAr": "غَيْب", "termTr": "gayb", "termEn": "the unseen (ghayb)", "verses": "3, 33" },
+        { "termAr": "عِلْم", "termTr": "ilim kökü", "termEn": "the root of knowledge", "verses": "13, 22, 26, 29, 30-33" },
+        { "termAr": "أَنْزَلَ", "termTr": "indirme (inzâl)", "termEn": "sending down (inzāl)", "verses": "4, 22, 23" },
+        { "termAr": "فَسَاد", "termTr": "bozgunculuk (fesad)", "termEn": "corruption (fasād)", "verses": "11, 27, 30" },
+        { "termAr": "مَثَل", "termTr": "misal/mesel", "termEn": "parable (mathal)", "verses": "17, 23, 26" },
+        { "termAr": "نَار", "termTr": "ateş (nâr)", "termEn": "fire (nār)", "verses": "17, 24, 39" },
+        { "termAr": "مَوْت", "termTr": "ölüm kökü", "termEn": "the root of death", "verses": "19, 28" }
+      ],
+      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 186-187."
+    }
+  }
 }

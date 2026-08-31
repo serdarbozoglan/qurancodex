@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 // ─── useNavbarOffset — navbarın GERÇEK alt kenarı ───────────────────────────
 //
 // 2026-08-13. Bu hata sitede ÜÇ kez ayrı ayrı yaşandı ve üçünde de sebep
@@ -16,56 +18,72 @@
 // Ders: navbar yüksekliği DİLE, GENİŞLİĞE ve SCROLL durumuna göre değişiyor.
 // Tahmin edilemez, ölçülmeli. Bu kanca o ölçümü tek yere topluyor.
 //
-// Zamanlama tuzağı: navbar scroll'da kompaktlaşıyor ve bu bir CSS geçişi.
-// Yalnız `scroll` olayında ölçmek geçiş BAŞLAMADAN eski değeri okuyor ve
-// kalıcı boşluk bırakıyor (ölçüldü). Bu yüzden geçiş bittikten sonra da
-// bir kez daha ölçülüyor.
-// ────────────────────────────────────────────────────────────────────────────
-
-import { useEffect, useState } from 'react';
-
+// 2026-08-30 — İKİNCİ tur. Navbar scroll'da kompaktlaşıyor (Navbar.jsx
+// `py-5`→`py-3`, `transition-all duration-500`) — alt kenarı ~16px küçülüyor
+// (1920px'te 82→67). Bu geçiş SIRASINDA doğru değeri sürekli takip etmek
+// gerekiyor, tek seferlik bir ölçüm + tahmini gecikme YETMEZ:
+//
+//   Deneme 1 (scroll event + 450ms sabit gecikme): geçiş başlarken alınan
+//   TEK ölçüm donuyor, 450ms boyunca (geçişin kendisi 500ms sürüyor —
+//   gecikme geçişten bile kısaydı) sticky header navbar'ın gerçek alt
+//   kenarından ~17px aşağıda kalıyor, aradaki boşluktan kaydırılan içerik
+//   görünüyor (kullanıcı ekran görüntüsüyle bildirdi, /atlas/munasebat).
+//
+//   Deneme 2 (ResizeObserver, varsayılan `content-box`): HİÇ tetiklenmedi —
+//   çünkü kompaktlaşma yalnız `padding`i değiştiriyor, content-box padding'i
+//   saymaz. `{box:'border-box'}` ile düzeltildi — artık geçişin HER karesinde
+//   doğru tetikleniyor (ölçüldü: 82→67 arası ~45 ayrı callback).
+//
+//   Deneme 3 (border-box ResizeObserver + "kompakt durumda ayrı, düşük
+//   taban" — `scrollY>50` eşiğiyle iki tabanlı): AŞAĞI kaydırırken düzeldi
+//   ama YUKARI kaydırırken (navbar tekrar büyürken) aynı hata ters yönde
+//   geri geldi — eşik anında atlıyor, navbar'ın gerçek yüksekliği ise
+//   kademeli büyüyor; taban navbar'dan önce yükselince ARADA yine boşluk
+//   açılıyor (kullanıcı ikinci kez bildirdi).
+//
+// Ders: EŞİK TABANLI hiçbir taban-değiştirme mantığı güvenli değil — geçiş
+// hangi yöne giderse gitsin, ölçülen değerle taban arasında anlık bir
+// uyumsuzluk anı yaratıyor. Çözüm: artık ResizeObserver SÜREKLİ ve DOĞRU
+// ölçtüğüne göre, tabanı yalnız İLK RENDER'ın (SSR/hydration, ölçüm henüz
+// çalışmadan önceki) güvenli varsayılanı olarak kullan — ölçüm bir kez
+// gerçekleştikten SONRA taban tarafından bir daha ASLA yukarı çekilmesin.
 const FALLBACK = 96;
 
-// Ölçülmüş taban (2026-08-26, üretim build'i): navbarın alt kenarı
+// Ölçülmüş taban (2026-08-26, üretim build'i): navbarın GENİŞ (scroll'suz)
+// haldeki alt kenarı — yalnız ilk render'ın (SSR + hydration öncesi)
+// varsayılan değeri için kullanılır, bkz. yukarıdaki not.
 //   390px  TR/EN → 84      1440px TR/EN → 82      1024px EN → 81
-// Çağıranların çoğu `min` olarak 62 veriyordu. 62 ilk render'da (SSR +
-// hydration öncesi) kullanılıyor, mount sonrası ölçüm 84'e çıkarıyor ve
-// `paddingTop` 62→84 değişiyordu: sayfanın TAMAMI 22px aşağı kayıyor.
-// Ölçüldü — /tr/arac/ilk-son-kelimeler mobilde CLS 0.859, tek kaynak bu
-// (37 bileşen aynı çağrıyı yapıyor, mobil CLS başarısızlıklarının ana
-// sebebi). Taban ölçülen değere çekilince mount sonrası düzeltme SIFIR
-// olur ve kayma kaybolur; taban zaten "en az bu kadar boşluk bırak"
-// anlamında olduğu için yükseltmek örtüşmeye karşı da daha güvenli.
-// NOT: çok büyük tarayıcı fontunda navbar 96–110'a çıkabiliyor (§13.13);
-// o durumda hâlâ bir düzeltme olur ama 62→110 yerine 84→110, yani kayma
-// küçülür.
 const MEASURED_FLOOR = 84;
 
 export default function useNavbarOffset(extra = 24, min = FALLBACK) {
-  const floor = Math.max(min, MEASURED_FLOOR);
-  const [offset, setOffset] = useState(floor);
+  const initial = Math.max(min, MEASURED_FLOOR);
+  const [offset, setOffset] = useState(initial);
 
   useEffect(() => {
-    let settle;
     const measure = () => {
       const nav = document.querySelector('nav[aria-label="Main navigation"]');
       const b = nav ? Math.round(nav.getBoundingClientRect().bottom) : 0;
-      setOffset(Math.max(floor, b + extra));
+      // Taban artık yalnız navbar hiç bulunamazsa (ölçüm imkansız) devreye
+      // girer — gerçek bir ölçüm geldiğinde ona güvenilir, yukarı ÇEKİLMEZ.
+      setOffset(b > 0 ? b + extra : initial);
     };
     measure();
-    const onScroll = () => {
-      measure();
-      clearTimeout(settle);
-      settle = setTimeout(measure, 450);   // kompaktlaşma geçişi bitsin
-    };
     window.addEventListener('resize', measure);
-    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ResizeObserver navbarın border-box'ını (padding dahil) izler — scroll
+    // kompaktlaşma geçişinin HER karesinde tetiklenir, sabit gecikme veya
+    // eşik tahminine gerek kalmaz (bkz. yukarıdaki "Deneme 1-3" notu).
+    const nav = document.querySelector('nav[aria-label="Main navigation"]');
+    let ro;
+    if (nav && typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(measure);
+      ro.observe(nav, { box: 'border-box' });
+    }
     return () => {
       window.removeEventListener('resize', measure);
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(settle);
+      ro?.disconnect();
     };
-  }, [extra, floor]);
+  }, [extra, initial]);
 
   return offset;
 }

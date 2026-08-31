@@ -25,7 +25,7 @@ function surahRefLabel(ref) {
   const [s] = ref.split(':').map(Number);
   const name = SURAH_NAMES_TR[s - 1];
   if (!name) return ref;
-  const clean = name.replace(/^(El-|En-|Et-|Eş-|Ez-|Er-|Ed-)/, '');
+  const clean = name.replace(/^(El-|En-|Et-|Eş-|Es-|Ez-|Er-|Ed-)/, '');
   return `${clean} ${ref}`;
 }
 

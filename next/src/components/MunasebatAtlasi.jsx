@@ -3,10 +3,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import {
-  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS,
+  COLORS, FONTS, GLASS_CARD, BREAKPOINT_MOBILE, RADIUS, CATEGORY_SCALE, CATEGORY,
 } from '../tokens';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import { SURAH_NAMES_TR } from '../lib/surahNames';
 // 2026-08-14 (Z3f2) — fetch yerine static import: SSR "Yükleniyor" iskeleti
@@ -41,7 +42,7 @@ function surahLabel(num, lang) {
   const name = arr[num - 1];
   if (!name) return String(num);
   if (lang === 'en') return name;
-  return name.replace(/^(El-|En-|Et-|Eş-|Ez-|Er-|Ed-|Al-)/, '');
+  return name.replace(/^(El-|En-|Et-|Eş-|Es-|Ez-|Er-|Ed-|Al-)/, '');
 }
 
 // "1:6" → "Fâtiha 1:6" — ayet referansları çıplak numarayla gösteriliyordu,
@@ -68,9 +69,10 @@ const STRENGTH_COLOR = {
 };
 
 const TABS = [
-  { id: 'connections', tr: 'Bağlantılar',    en: 'Connections' },
+  { id: 'connections', tr: 'Sûreler Arası Bağlar', en: 'Between Surahs' },
   { id: 'types',       tr: 'Bağlantı Türleri', en: 'Connection Types' },
   { id: 'groups',      tr: 'Harf Grupları',  en: 'Letter Groups' },
+  { id: 'intraSurah',  tr: 'Sûre İçi Tutarlılık', en: 'Within a Surah' },
   { id: 'scholars',    tr: 'Âlim Kitaplığı', en: 'Scholars' },
 ];
 
@@ -85,6 +87,77 @@ function Header({ language }) {
       subtitleEn="Razi tradition · inter-surah coherence"
       language={language}
     />
+  );
+}
+
+// ── Cinematic Hero — CLAUDE.md §13.18 Premium Template ──────────────────────
+function Hero({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      position: 'relative', overflow: 'hidden',
+      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+      borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+      textAlign: 'center',
+    }}>
+      <HeroGeometricBackground />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div aria-hidden="true" style={{
+          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+          color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
+        }}>﷽</div>
+
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran, color: COLORS.gold,
+          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          lineHeight: 2.1, margin: '0 0 14px',
+        }}>
+          اللَّهُ نَزَّلَ أَحْسَنَ الْحَدِيثِ كِتَابًا مُتَشَابِهًا مَثَانِيَ
+        </p>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
+          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          maxWidth: '660px', margin: '0 auto 8px',
+        }}>
+          {tr
+            ? '"Allah, sözün en güzelini; ayetleri birbiriyle uyumlu, tekrarlı bir Kitap olarak indirdi."'
+            : '"Allah has sent down the best statement: a consistent Book wherein there is repetition."'}
+        </p>
+        <p style={{
+          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+          margin: '0 0 24px',
+        }}>— {tr ? 'Zümer 39:23' : 'Az-Zumar 39:23'}</p>
+
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
+          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          maxWidth: '700px', margin: '0 auto 24px',
+        }}>
+          {tr
+            ? <>Kur&apos;an&apos;ın 114 sûresi rastgele dizilmiş değildir. Her sûre, komşularına <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>köprülerle</em> bağlanır — ve her sûrenin kendi içinde, onu bir arada tutan görünmez <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>çıpalar</em> vardır.</>
+            : <>The Quran&apos;s 114 surahs are not arranged at random. Each surah is joined to its neighbours by <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>bridges</em> — and within each surah, invisible <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>anchors</em> hold it together.</>}
+        </p>
+
+        <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
+
+        <p style={{
+          color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
+          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+        }}>{tr ? 'İLMÜ\'L-MÜNÂSEBÂT · TUTARLILIĞIN MİMARİSİ' : "ʿILM AL-MUNĀSABĀT · THE ARCHITECTURE OF COHERENCE"}</p>
+        <h1 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          lineHeight: 1.2, margin: '0 0 10px',
+        }}>{tr ? 'Münâsebât Atlası' : 'Atlas of Surah Coherence'}</h1>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
+          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          margin: 0,
+        }}>{tr ? 'Sûreler arası köprüler · bir sûrenin kendi çıpaları' : 'Bridges between surahs · a surah\'s own anchors'}</p>
+      </div>
+    </div>
   );
 }
 
@@ -181,35 +254,15 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
         ...GLASS_CARD,
         '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px",
         marginBottom: '14px',
+        borderLeft: `3px solid ${strengthColor}`,
       }}
     >
-      {/* Header row */}
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'baseline',
-          gap: '10px',
-          marginBottom: '8px',
-        }}
-      >
-        <span
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.05rem' : '1.2rem',
-            fontWeight: 700,
-            color: COLORS.offWhite,
-            letterSpacing: '0.01em',
-          }}
-        >
-          {surahLabel(s1, language)}
-          <span style={{ margin: '0 8px', color: COLORS.gold }}>↔</span>
-          {surahLabel(s2, language)}
-        </span>
+      {/* Header row — bridge motif: numbered badges + connecting line, centered as one compact cluster */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '2px' }}>
         <span
           style={{
             fontFamily: FONTS.body,
-            fontSize: '0.72rem',
+            fontSize: '0.7rem',
             color: strengthColor,
             background: `${strengthColor}18`,
             padding: '2px 8px',
@@ -222,6 +275,33 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
           {language === 'tr'
             ? STRENGTH_LABEL[strengthKey]?.tr
             : STRENGTH_LABEL[strengthKey]?.en}
+        </span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
+        <div style={{
+          width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px', borderRadius: '50%',
+          border: `1.5px solid ${strengthColor}`, background: `${strengthColor}14`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, fontSize: isMobile ? '0.78rem' : '0.85rem',
+        }}>{s1}</div>
+        <span style={{
+          fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem',
+          fontWeight: 700, color: COLORS.offWhite, letterSpacing: '0.01em',
+        }}>
+          {surahLabel(s1, language)}
+        </span>
+        <div style={{ width: isMobile ? '28px' : '48px', height: '1px', flexShrink: 0, background: `linear-gradient(90deg, ${strengthColor}88, ${strengthColor}88)` }} />
+        <div style={{
+          width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px', borderRadius: '50%',
+          border: `1.5px solid ${strengthColor}`, background: `${strengthColor}14`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, fontSize: isMobile ? '0.78rem' : '0.85rem',
+        }}>{s2}</div>
+        <span style={{
+          fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem',
+          fontWeight: 700, color: COLORS.offWhite, letterSpacing: '0.01em',
+        }}>
+          {surahLabel(s2, language)}
         </span>
       </div>
 
@@ -475,78 +555,330 @@ function TypeList({ types, language, isMobile }) {
 // ── Group List ───────────────────────────────────────────────────────────────
 function GroupList({ groups, language, isMobile }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-      {groups.map((g) => (
-        <div className="mq-box" key={g.id} style={{ ...GLASS_CARD, '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "22px", '--pl-m': "16px" }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '6px', flexWrap: 'wrap' }}>
-            <span style={{
-              fontFamily: FONTS.display, fontSize: '1.15rem', fontWeight: 700,
-              color: COLORS.offWhite,
+    <div className="g-1-2" style={{ display: 'grid', gap: '16px' }}>
+      {groups.map((g, gi) => {
+        const accent = CATEGORY_SCALE[gi % CATEGORY_SCALE.length];
+        return (
+          <div className="mq-box" key={g.id} style={{
+            ...GLASS_CARD,
+            '--pt-d': "20px", '--pt-m': "18px", '--pr-d': "22px", '--pr-m': "18px", '--pb-d': "20px", '--pb-m': "18px", '--pl-d': "22px", '--pl-m': "18px",
+            borderTop: `2px solid ${accent}`,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
+              {g.lettersAr && (
+                <div style={{
+                  minWidth: '52px', height: '52px', borderRadius: RADIUS.xl, flexShrink: 0,
+                  background: `${accent}14`, border: `1.5px solid ${accent}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '0 10px', whiteSpace: 'nowrap',
+                }}>
+                  <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.15rem', color: accent }}>
+                    {g.lettersAr}
+                  </span>
+                </div>
+              )}
+              <div>
+                <div style={{ fontFamily: FONTS.display, fontSize: '1.15rem', fontWeight: 700, color: COLORS.offWhite }}>
+                  {language === 'tr' ? g.nameTr : g.nameEn}
+                </div>
+                <div style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: accent, textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
+                  {g.surahs.length} {language === 'tr' ? 'ardışık sûre' : 'consecutive surahs'}
+                </div>
+              </div>
+            </div>
+
+            {/* Sequence chain — connected pills */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '4px', marginBottom: '12px' }}>
+              {g.surahs.map((n, i) => (
+                <span key={n} style={{ display: 'flex', alignItems: 'center' }}>
+                  <span style={{
+                    fontFamily: FONTS.body, fontSize: '0.74rem', fontWeight: 600, color: COLORS.offWhite,
+                    background: 'rgba(255,255,255,0.05)', border: `1px solid ${accent}44`,
+                    borderRadius: RADIUS.chip, padding: '4px 9px', whiteSpace: 'nowrap',
+                  }}>
+                    <span style={{ color: accent, marginRight: '4px' }}>{n}</span>
+                    {surahLabel(n, language)}
+                  </span>
+                  {i < g.surahs.length - 1 && (
+                    <span style={{ color: accent, opacity: 0.6, fontSize: '0.7rem', margin: '0 2px' }}>—</span>
+                  )}
+                </span>
+              ))}
+            </div>
+
+            <p style={{
+              fontFamily: FONTS.body, fontSize: '0.86rem', color: COLORS.silver,
+              lineHeight: 1.65, margin: 0,
             }}>
-              {language === 'tr' ? g.nameTr : g.nameEn}
-            </span>
-            {g.lettersAr && (
-              <span dir="rtl" lang="ar" style={{
-                fontFamily: FONTS.quran, fontSize: '1.4rem', color: COLORS.gold,
-              }}>
-                {g.lettersAr}
-              </span>
-            )}
+              {language === 'tr' ? g.descriptionTr : g.descriptionEn}
+            </p>
           </div>
-          <div style={{
-            fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body,
-            marginBottom: '8px',
-          }}>
-            {g.surahs.map((n) => `${n}. ${surahLabel(n, language)}`).join(' · ')}
-          </div>
-          <p style={{
-            fontFamily: FONTS.body, fontSize: '0.9rem', color: COLORS.offWhite,
-            lineHeight: 1.65, margin: 0,
-          }}>
-            {language === 'tr' ? g.descriptionTr : g.descriptionEn}
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Section heading badge — numbered circle + title, used by IntraSurahTab ──
+function SectionHeading({ num, isMobile, children }) {
+  const accent = CATEGORY_SCALE[num - 1];
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+      <div style={{
+        width: '30px', height: '30px', borderRadius: '50%', flexShrink: 0,
+        background: `${accent}18`, border: `1.5px solid ${accent}`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: FONTS.display, fontWeight: 700, color: accent, fontSize: '0.85rem',
+      }}>{num}</div>
+      <h3 style={{
+        fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
+        fontSize: isMobile ? '1.15rem' : '1.35rem', margin: 0,
+      }}>{children}</h3>
+    </div>
+  );
+}
+
+// ── Intra-Surah Coherence Tab — "Çıpa" (anchor) kavramı, Bakara halkası ─────
+function IntraSurahTab({ data, language, isMobile }) {
+  const tr = language === 'tr';
+  if (!data) return null;
+
+  const citationStyle = {
+    marginTop: '16px', paddingTop: '12px', borderTop: `1px dashed ${COLORS.goldAlpha25}`,
+    color: COLORS.silver, fontSize: '0.75rem', fontStyle: 'italic', opacity: 0.85,
+  };
+  const accents = CATEGORY_SCALE;
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+      <p style={{
+        fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.95rem',
+        lineHeight: 1.75, maxWidth: '780px', margin: 0,
+      }}>
+        {tr ? data.introTr : data.introEn}
+      </p>
+
+      {/* Çıpa kavramı */}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[0]}` }}>
+        <SectionHeading num={1} isMobile={isMobile}>{tr ? data.anchorConcept.titleTr : data.anchorConcept.titleEn}</SectionHeading>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 16px' }}>
+          {tr ? data.anchorConcept.bodyTr : data.anchorConcept.bodyEn}
+        </p>
+        <div style={{
+          padding: '14px 18px', background: 'rgba(212,165,116,0.06)',
+          borderLeft: `2px solid ${COLORS.gold}`, borderRadius: RADIUS.md,
+        }}>
+          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold, fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>
+            {tr ? data.anchorConcept.quoteTr : data.anchorConcept.quoteEn}
           </p>
         </div>
-      ))}
+        <div style={citationStyle}>— {data.anchorConcept.citation}</div>
+      </div>
+
+      {/* Nâziât örneği */}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[1]}` }}>
+        <SectionHeading num={2} isMobile={isMobile}>{tr ? data.naziatExample.titleTr : data.naziatExample.titleEn}</SectionHeading>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 16px' }}>
+          {tr ? data.naziatExample.introTr : data.naziatExample.introEn}
+        </p>
+        <div className="g-1-2" style={{ display: 'grid', gap: '14px' }}>
+          {data.naziatExample.anchors.map((a, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: RADIUS.md, padding: '16px 18px',
+            }}>
+              <div dir="rtl" lang="ar" style={{
+                fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.3rem',
+                textAlign: 'right', marginBottom: '8px',
+              }}>{a.rootAr}</div>
+              <div style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontWeight: 700, fontSize: '0.85rem', marginBottom: '6px' }}>
+                {tr ? a.labelTr : a.labelEn}
+              </div>
+              <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.6, margin: 0 }}>
+                {tr ? a.noteTr : a.noteEn}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div style={citationStyle}>— {data.naziatExample.citation}</div>
+      </div>
+
+      {/* Bakara'nın tam halkası */}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[2]}` }}>
+        <SectionHeading num={3} isMobile={isMobile}>{tr ? data.bakaraRing.titleTr : data.bakaraRing.titleEn}</SectionHeading>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+          {tr ? data.bakaraRing.introTr : data.bakaraRing.introEn}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          {data.bakaraRing.sections.map((s, i) => (
+            <div key={i} style={{
+              display: 'flex', alignItems: 'baseline', gap: '12px',
+              padding: s.center ? '14px 16px' : '10px 16px',
+              background: s.center ? 'rgba(212,165,116,0.09)' : 'rgba(255,255,255,0.02)',
+              border: `1px solid ${s.center ? COLORS.goldAlpha45 : COLORS.glassBorderSoft}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <span style={{
+                fontFamily: FONTS.display, fontWeight: 700, flexShrink: 0,
+                color: s.center ? COLORS.gold : COLORS.silver,
+                fontSize: s.center ? '1.15rem' : '0.95rem', minWidth: isMobile ? '26px' : '34px',
+              }}>{s.label}</span>
+              <span style={{ fontSize: '0.72rem', color: COLORS.goldAlpha45, fontFamily: FONTS.body, flexShrink: 0, minWidth: isMobile ? '52px' : '64px' }}>
+                {s.range}
+              </span>
+              <span style={{ flex: 1, minWidth: 0 }}>
+                <span style={{
+                  fontFamily: FONTS.body, fontWeight: s.center ? 700 : 600,
+                  color: s.center ? COLORS.gold : COLORS.offWhite, fontSize: '0.85rem',
+                }}>{tr ? s.titleTr : s.titleEn}</span>
+                {!isMobile && (
+                  <span style={{ color: COLORS.silver, fontSize: '0.78rem', marginLeft: '8px' }}>
+                    — {tr ? s.noteTr : s.noteEn}
+                  </span>
+                )}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div style={{
+          marginTop: '16px', padding: '14px 18px', background: 'rgba(212,165,116,0.06)',
+          borderLeft: `2px solid ${COLORS.gold}`, borderRadius: RADIUS.md,
+        }}>
+          <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold, fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
+            {tr ? data.bakaraRing.quoteTr : data.bakaraRing.quoteEn}
+          </p>
+        </div>
+        <div style={citationStyle}>— {data.bakaraRing.citation}</div>
+      </div>
+
+      {/* Seçilme-Talimat-Sınama motifi */}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[3]}` }}>
+        <SectionHeading num={4} isMobile={isMobile}>{tr ? data.etiMotif.titleTr : data.etiMotif.titleEn}</SectionHeading>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+          {tr ? data.etiMotif.bodyTr : data.etiMotif.bodyEn}
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {data.etiMotif.sequence.map((s, i) => (
+            <div key={i} style={{
+              display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap',
+              padding: '12px 16px',
+              background: s.center ? 'rgba(212,165,116,0.09)' : 'rgba(255,255,255,0.02)',
+              border: `1px solid ${s.center ? COLORS.goldAlpha45 : COLORS.glassBorderSoft}`,
+              borderRadius: RADIUS.md,
+            }}>
+              <span style={{
+                fontFamily: 'monospace', fontWeight: 700, fontSize: '0.82rem',
+                color: s.center ? COLORS.gold : COLORS.silver,
+                background: s.center ? `${COLORS.gold}18` : 'rgba(255,255,255,0.05)',
+                padding: '3px 8px', borderRadius: RADIUS.sm, flexShrink: 0,
+              }}>{s.code}</span>
+              <span style={{
+                fontFamily: FONTS.body, fontWeight: s.center ? 700 : 600, fontSize: '0.85rem',
+                color: s.center ? COLORS.gold : COLORS.offWhite, flexShrink: 0,
+              }}>{tr ? s.figureTr : s.figureEn}</span>
+              <span style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.8rem' }}>
+                {tr ? s.order : s.orderEn}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.65, margin: '16px 0 0', fontStyle: 'italic' }}>
+          {tr ? data.etiMotif.noteTr : data.etiMotif.noteEn}
+        </p>
+        <div style={citationStyle}>— {data.etiMotif.citation}</div>
+      </div>
+
+      {/* Bakara Bölüm 1 çıpaları */}
+      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[4]}` }}>
+        <SectionHeading num={5} isMobile={isMobile}>{tr ? data.section1Anchors.titleTr : data.section1Anchors.titleEn}</SectionHeading>
+        <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
+          {tr ? data.section1Anchors.introTr : data.section1Anchors.introEn}
+        </p>
+        <div className="g-2-4" style={{ display: 'grid', gap: '10px' }}>
+          {data.section1Anchors.items.map((it, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorder}`,
+              borderRadius: RADIUS.md, padding: '12px 14px', textAlign: 'center',
+            }}>
+              <div dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: '1.15rem', marginBottom: '6px' }}>
+                {it.termAr}
+              </div>
+              <div style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontSize: '0.78rem', fontWeight: 600, marginBottom: '4px' }}>
+                {tr ? it.termTr : it.termEn}
+              </div>
+              <div style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.72rem', opacity: 0.85 }}>
+                {tr ? `Bakara ${it.verses}` : `Al-Baqara ${it.verses}`}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={citationStyle}>— {data.section1Anchors.citation}</div>
+      </div>
     </div>
   );
 }
 
 // ── Scholar List ─────────────────────────────────────────────────────────────
+const ROLE_COLOR = {
+  Kurucu: COLORS.silver, Founder: COLORS.silver,
+  Müfessir: COLORS.gold, Exegete: COLORS.gold,
+  Sistemleştirici: COLORS.softEmerald, Systematizer: COLORS.softEmerald,
+  Teorisyen: COLORS.skyBlue, Theorist: COLORS.skyBlue,
+  Modern: COLORS.orange,
+  Çağdaş: CATEGORY.violet, Contemporary: CATEGORY.violet,
+};
+
 function ScholarList({ scholars, language, isMobile }) {
   return (
     <div className="g-1-2" style={{ display: 'grid',  gap: '14px' }}>
-      {scholars.map((s) => (
-        <div key={s.id} style={{ ...GLASS_CARD, padding: '16px 20px' }}>
-          <div style={{
-            fontFamily: FONTS.display, fontSize: '1.1rem', fontWeight: 700,
-            color: COLORS.offWhite, marginBottom: '2px',
+      {scholars.map((s) => {
+        const roleLabel = (language === 'tr' ? s.roleTr : s.roleEn) || s.roleTr;
+        const accent = ROLE_COLOR[s.roleEn] || ROLE_COLOR[roleLabel] || COLORS.gold;
+        return (
+          <div key={s.id} className="mq-box" style={{
+            ...GLASS_CARD, '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px",
+            borderLeft: `3px solid ${accent}`,
           }}>
-            {s.nameTr}
-          </div>
-          <div style={{
-            fontSize: '0.74rem', color: COLORS.gold, fontFamily: FONTS.body,
-            marginBottom: '8px', fontWeight: 600,
-          }}>
-            {(language === 'tr' ? s.roleTr : s.roleEn) || s.roleTr}
-            {s.deathH != null && ` · ö. ${s.deathH} H / ${s.deathM} M`}
-            {s.deathH == null && s.deathM != null && ` · ö. ${s.deathM}`}
-          </div>
-          {s.workTr && (
-            <div style={{
-              fontSize: '0.82rem', color: COLORS.silver, fontStyle: 'italic',
-              marginBottom: '6px', fontFamily: FONTS.body,
-            }}>
-              {s.workTr}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', flexWrap: 'wrap' }}>
+              <span style={{
+                fontFamily: FONTS.display, fontSize: '1.1rem', fontWeight: 700,
+                color: COLORS.offWhite,
+              }}>
+                {s.nameTr}
+              </span>
+              <span style={{
+                fontSize: '0.66rem', color: accent, background: `${accent}18`,
+                border: `1px solid ${accent}45`, borderRadius: RADIUS.md,
+                padding: '2px 7px', fontFamily: FONTS.body, fontWeight: 700,
+                textTransform: 'uppercase', letterSpacing: '0.06em',
+              }}>
+                {roleLabel}
+              </span>
             </div>
-          )}
-          <p style={{
-            fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.offWhite,
-            lineHeight: 1.6, margin: 0,
-          }}>
-            {language === 'tr' ? s.noteTr : (s.noteEn || s.noteTr)}
-          </p>
-        </div>
-      ))}
+            <div style={{
+              fontSize: '0.72rem', color: COLORS.silver, fontFamily: FONTS.body,
+              marginBottom: '8px', opacity: 0.85,
+            }}>
+              {s.deathH != null && `${language === 'tr' ? 'ö.' : 'd.'} ${s.deathH} H / ${s.deathM} M`}
+              {s.deathH == null && s.deathM != null && `${language === 'tr' ? 'ö.' : 'd.'} ${s.deathM}`}
+            </div>
+            {s.workTr && (
+              <div style={{
+                fontSize: '0.82rem', color: COLORS.gold, fontStyle: 'italic',
+                marginBottom: '6px', fontFamily: FONTS.body,
+              }}>
+                {s.workTr}
+              </div>
+            )}
+            <p style={{
+              fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.offWhite,
+              lineHeight: 1.6, margin: 0,
+            }}>
+              {language === 'tr' ? s.noteTr : (s.noteEn || s.noteTr)}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -630,6 +962,7 @@ export default function MunasebatAtlasi({ onClose }) {
       paddingTop: '62px',
     }}>
       <Header language={language} />
+      <Hero language={language} isMobile={isMobile} />
       <TabBar language={language} isMobile={isMobile} activeTab={activeTab} setActiveTab={setActiveTab} navTop={navTop} />
 
       <div style={{
@@ -647,7 +980,7 @@ export default function MunasebatAtlasi({ onClose }) {
                 lineHeight: 1.75, margin: '0 0 10px',
               }}>
                 {language === 'tr'
-                  ? 'Kur\'an\'ın 114 suresi rastgele dizilmiş değil. Her sure önceki ve sonraki sureyle tematik, dilsel veya yapısal bağ taşır — bu, klasik âlimlerin 1.000 yıldır işlediği ilmü\'l-münâsebât\'tır.'
+                  ? 'Kur\'an\'ın 114 sûresi rastgele dizilmiş değil. Her sûre önceki ve sonraki sûreyle tematik, dilsel veya yapısal bağ taşır — bu, klasik âlimlerin 1.000 yıldır işlediği ilmü\'l-münâsebât\'tır.'
                   : 'The 114 surahs are not arranged at random. Each surah carries thematic, linguistic or structural ties to its neighbours — the discipline of ʿilm al-munāsabāt, studied for over 1,000 years.'}
               </p>
               <p style={{
@@ -658,6 +991,26 @@ export default function MunasebatAtlasi({ onClose }) {
                   ? '"Kur\'an\'ın güzelliklerinin çoğu münâsebâtın dakikliklerine dayanır." — Fahreddîn er-Râzî'
                   : '"Most of the Qurʾān\'s beauties rest on the subtleties of munāsabāt." — Fakhr al-Dīn al-Rāzī'}
               </p>
+            </div>
+
+            {/* Stat strip */}
+            <div className="g-2-4" style={{ display: 'grid', gap: '10px', marginBottom: '22px' }}>
+              {[
+                { value: data.connections.length, labelTr: 'Bağlantı', labelEn: 'Connections', color: COLORS.gold },
+                { value: data.connections.filter(c => c.strength === 'iconic').length, labelTr: 'İkonik', labelEn: 'Iconic', color: STRENGTH_COLOR.iconic },
+                { value: data.connections.filter(c => c.strength === 'strong').length, labelTr: 'Güçlü', labelEn: 'Strong', color: STRENGTH_COLOR.strong },
+                { value: data.connections.filter(c => c.strength === 'thematic').length, labelTr: 'Tematik', labelEn: 'Thematic', color: STRENGTH_COLOR.thematic },
+              ].map((s, i) => (
+                <div key={i} style={{
+                  background: `${s.color}0d`, border: `1px solid ${s.color}30`,
+                  borderRadius: RADIUS.md, padding: '12px 14px', textAlign: 'center',
+                }}>
+                  <div style={{ fontFamily: FONTS.display, fontWeight: 800, fontSize: '1.5rem', color: s.color }}>{s.value}</div>
+                  <div style={{ fontFamily: FONTS.body, fontSize: '0.68rem', color: COLORS.silver, textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '2px' }}>
+                    {language === 'tr' ? s.labelTr : s.labelEn}
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Filters */}
@@ -759,7 +1112,7 @@ export default function MunasebatAtlasi({ onClose }) {
               lineHeight: 1.75, maxWidth: '780px', margin: '0 0 20px',
             }}>
               {language === 'tr'
-                ? 'Kur\'an\'da huruf-u mukatta\'a ile başlayan 29 sure ve kıssa yoğun bölgeler, peş peşe gruplar oluşturur. Bu gruplar içinde sureler arasında sistematik tematik süreklilik vardır.'
+                ? 'Kur\'an\'da huruf-u mukatta\'a ile başlayan 29 sûre ve kıssa yoğun bölgeler, peş peşe gruplar oluşturur. Bu gruplar içinde sûreler arasında sistematik tematik süreklilik vardır.'
                 : 'The 29 surahs opening with disconnected letters, and story-dense regions, form consecutive clusters. Within each cluster, the surahs share systematic thematic continuity.'}
             </p>
             <GroupList groups={data.groups || []} language={language} isMobile={isMobile} />
@@ -767,6 +1120,10 @@ export default function MunasebatAtlasi({ onClose }) {
         )}
 
         {activeTab === 3 && (
+          <IntraSurahTab data={data.intraSurah} language={language} isMobile={isMobile} />
+        )}
+
+        {activeTab === 4 && (
           <>
             <p style={{
               fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.95rem',
