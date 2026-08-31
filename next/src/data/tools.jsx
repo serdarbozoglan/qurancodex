@@ -252,6 +252,24 @@ export const FEATURED_TOOL = {
   icon:        StarIcon,
 };
 
+const FatihaIcon = ({ size = 14 }) => (
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3v18M5 8c2-2 5-2 7 0s5 2 7 0M5 16c2-2 5-2 7 0s5 2 7 0" />
+  </svg>
+);
+
+export const FEATURED_TOOL_FATIHA = {
+  id:          'fatiha-atlasi',
+  event:       'openFatihaAtlasi',
+  titleTr:     'Fâtiha Atlası',
+  titleEn:     'Atlas of the Opening',
+  descTr:      "Fâtiha sûresinin 7 âyeti · klasikten çağdaşa derinlemesine analiz",
+  descEn:      "The 7 verses of Al-Fātiḥa · an in-depth analysis, classical to contemporary",
+  descLongTr:  "Fâtiha'nın halka yapısı · hamd/Rahmân-Rahîm kelime seçimi · İyyâke ve sırat/sebîl gramer incelikleri · Bakara'ya çapaları. Mâtürîdî, Râzî, Molla Fenârî, Konevî'den Divine Speech ve Neal Robinson'a kadar bir kaynak haritası.",
+  descLongEn:  "The Fātiḥa's ring structure · ḥamd/Raḥmān-Raḥīm word choice · Iyyāka and ṣirāṭ/sabīl grammatical subtleties · its anchors in Al-Baqarah. A source map from al-Māturīdī, al-Rāzī, Mullā Fanārī, and al-Qūnawī to Divine Speech and Neal Robinson.",
+  icon:        FatihaIcon,
+};
+
 export const FEATURED_TOOL_ESMA = {
   id:          'esma-frekans',
   event:       'openEsmaFrekans',
@@ -266,7 +284,7 @@ export const FEATURED_TOOL_ESMA = {
 
 // Featured tier — sıralı array (Navbar drawer + ToolsBrowser her ikisi de
 // bu sırayı kullanır). Yeni vitrin eklemek için sadece bu array'e push edin.
-export const FEATURED_TOOLS = [FEATURED_TOOL, FEATURED_TOOL_ESMA];
+export const FEATURED_TOOLS = [FEATURED_TOOL, FEATURED_TOOL_ESMA, FEATURED_TOOL_FATIHA];
 
 // ── Görselleştirme (6) ───────────────────────────────────────────────────────
 // Order: Ayet → Nüzul → Kelime → Kıssa → Mesel → Kıraat

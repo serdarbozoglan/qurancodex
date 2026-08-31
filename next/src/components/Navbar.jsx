@@ -1335,6 +1335,24 @@ export default function Navbar() {
             {language === 'tr' ? 'Esmâ-i Hüsnâ' : 'The Beautiful Names'}
           </button>
 
+          {/* Fâtiha Atlası — flagship sayfa, top-level direct link.
+              Dropdown yok (tek route /atlas/fatiha). Esmâ-i Hüsnâ ile aynı stil. */}
+          <button
+            onClick={() => { router.push(`/${language}/atlas/fatiha`); setExploreOpen(false); setToolsOpen(false); setTefekkurOpen(false); }}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '5px',
+              padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
+              background: pathname.includes('/atlas/fatiha') ? 'rgba(255,255,255,0.06)' : 'transparent',
+              color: pathname.includes('/atlas/fatiha') ? '#d4a574' : '#d4d8e0',
+              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
+            }}
+            onMouseEnter={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
+            onMouseLeave={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#d4d8e0'; }}}
+          >
+            {language === 'tr' ? 'Fâtiha' : 'Fātiḥa'}
+          </button>
+
           {/* Tefekkür — Felsufi makaleler — 3. top-level mega-menu */}
           <div className="relative" data-dropdown>
             <button
@@ -2234,6 +2252,34 @@ export default function Navbar() {
                     </span>
                     <span style={ITEM_DESC}>
                       {language === 'tr' ? "99 isim · Allah'ın kendini tanıtışı" : "99 names · How God introduces Himself"}
+                    </span>
+                  </span>
+                  <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>
+                </button>
+
+                <button
+                  onClick={() => { router.push(`/${language}/atlas/fatiha`); setMobileOpen(false); }}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    width: '100%', padding: '12px 14px',
+                    background: 'rgba(212,165,116,0.07)',
+                    border: '1px solid rgba(212,165,116,0.32)',
+                    borderRadius: '10px',
+                    cursor: 'pointer', textAlign: 'left',
+                    WebkitTapHighlightColor: 'transparent',
+                  }}
+                >
+                  <span style={{ color: '#d4a574', flexShrink: 0, display: 'inline-flex' }}>
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 3v18M5 8c2-2 5-2 7 0s5 2 7 0M5 16c2-2 5-2 7 0s5 2 7 0" />
+                    </svg>
+                  </span>
+                  <span style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <span style={{ color: '#e8e6e3', fontSize: '0.9rem', fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: 1.3 }}>
+                      {language === 'tr' ? 'Fâtiha' : 'Fātiḥa'}
+                    </span>
+                    <span style={ITEM_DESC}>
+                      {language === 'tr' ? '7 âyet · klasikten çağdaşa' : '7 verses · classical to contemporary'}
                     </span>
                   </span>
                   <span style={{ color: 'rgba(212,165,116,0.7)', fontSize: '1.1rem', lineHeight: 1, flexShrink: 0 }}>→</span>

@@ -1,0 +1,751 @@
+{
+  "meta": {
+    "totalVerses": 7,
+    "totalWordDistinctions": 4,
+    "totalScholars": 8,
+    "note": "Fâtiha sûresinin çok katmanlı edebi ve tefsirî analizi — İlahî Söz (Nouman Ali Khan & Sharif Randhawa), Molla Fenârî'nin Aynü'l-A'yân'ı, İmam Mâtürîdî, Fahreddin er-Râzî, Sadreddin Konevî ve Bediüzzaman Said Nursi'den derlenmiştir."
+  },
+  "ringStructure": {
+    "introTr": "Fâtiha'nın 7 âyeti rastgele dizilmiş değildir. İlahî Söz'e göre sûre, birbirini ayna gibi yansıtan iki yarıya ayrılır — ilki Allah hakkında, ikincisi kul hakkında — ve tam ortada, ikisini birbirine bağlayan tek bir âyet durur.",
+    "introEn": "Al-Fātiḥa's 7 verses are not arranged at random. According to Divine Speech, the surah splits into two mirroring halves — the first about God, the second about the servant — joined at the center by a single pivotal verse.",
+    "citationTr": "Nouman Ali Khan · Sharif Randhawa, İlahî Söz — Kur'an'ın Edebî Dilini Keşfetmek (Timaş Yayınları) (2016), 15. Bölüm \"Sûre 1: Açılış\" — yapı şeması kitabın kendi analizidir, isimli bir klasik veya çağdaş kaynağa atfedilmez.",
+    "citationEn": "Nouman Ali Khan · Sharif Randhawa, Divine Speech: Exploring the Qur'an as Literature (2016), Chapter 15, \"Sura 1, The Opening\" — the structural diagram is the authors' own analysis, not attributed to a named classical or academic source.",
+    "firstHalfLabelTr": "Birinci Yarı — Allah Hakkında",
+    "firstHalfLabelEn": "First Half — About God",
+    "secondHalfLabelTr": "İkinci Yarı — Kul Hakkında",
+    "secondHalfLabelEn": "Second Half — About the Servant",
+    "nodes": [
+      {
+        "pos": "A",
+        "ref": "1:1",
+        "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ",
+        "labelTr": "Âlemlerin Rabbi",
+        "labelEn": "Lord of all Peoples",
+        "half": 1
+      },
+      {
+        "pos": "B",
+        "ref": "1:2a",
+        "ar": "اَلرَّحْمٰنِ",
+        "labelTr": "Rahmân",
+        "labelEn": "The All-Merciful",
+        "half": 1
+      },
+      {
+        "pos": "B'",
+        "ref": "1:2b",
+        "ar": "الرَّح۪يمِ",
+        "labelTr": "Rahîm",
+        "labelEn": "The Ever-Merciful",
+        "half": 1
+      },
+      {
+        "pos": "A'",
+        "ref": "1:4",
+        "ar": "مَالِكِ يَوْمِ الدّ۪ينِ",
+        "labelTr": "Din Gününün Sâhibi",
+        "labelEn": "Owner of the Day of Recompense",
+        "half": 1
+      },
+      {
+        "pos": "C",
+        "ref": "1:5a",
+        "ar": "اِيَّاكَ نَعْبُدُ",
+        "labelTr": "Yalnız Sana kulluk ederiz",
+        "labelEn": "You alone we worship",
+        "half": 0,
+        "center": true
+      },
+      {
+        "pos": "C'",
+        "ref": "1:5b",
+        "ar": "وَاِيَّاكَ نَسْتَع۪ينُ",
+        "labelTr": "Yalnız Senden yardım dileriz",
+        "labelEn": "and You alone we ask for help",
+        "half": 0,
+        "center": true
+      },
+      {
+        "pos": "D",
+        "ref": "1:6",
+        "ar": "اِهْدِنَا الصِّرَاطَ الْمُسْتَق۪يمَ",
+        "labelTr": "Bizi doğru yola ilet",
+        "labelEn": "Guide us along the Straight Path",
+        "half": 2
+      },
+      {
+        "pos": "E",
+        "ref": "1:7a",
+        "ar": "صِرَاطَ الَّذ۪ينَ اَنْعَمْتَ عَلَيْهِمْ",
+        "labelTr": "Nimet verdiklerinin yoluna",
+        "labelEn": "the path of those You have favored",
+        "half": 2
+      },
+      {
+        "pos": "E'",
+        "ref": "1:7b",
+        "ar": "غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ",
+        "labelTr": "gazaba uğrayanların değil",
+        "labelEn": "not of those who earned wrath",
+        "half": 2
+      },
+      {
+        "pos": "D'",
+        "ref": "1:7c",
+        "ar": "وَلَا الضَّٓالّ۪ينَ",
+        "labelTr": "ne de sapmışların",
+        "labelEn": "nor of the astray",
+        "half": 2
+      }
+    ],
+    "centerNoteTr": "Kitabın kendi ifadesiyle: \"Birlikte bu iki ifade — 'Yalnız Sana kulluk ederiz' ve 'yalnız Senden yardım dileriz' — kompozisyonun orta âyetini ve merkezini oluşturur.\" İlk yarı tamamen Allah'a kulluğun sözleriyle, ikinci yarı tamamen O'nun yardımına — özellikle hidâyete — dair bir duayla örülüdür.",
+    "centerNoteEn": "In the book's own words: \"Together, these two statements—'You alone we worship' and 'You alone we ask for help'—form the middle verse and the center of the composition.\" The first half is woven entirely from words of worship; the second, entirely from a prayer for God's help — specifically, guidance.",
+    "ummulKitab": {
+      "titleTr": "Ümmü'l-Kitâb — Kitabın Özü",
+      "titleEn": "Umm al-Kitāb — the Essence of the Scripture",
+      "bodyTr": "Bir hadiste Hz. Peygamber, Allah'ın Fâtiha'nın bir benzerini ne Tevrat'ta, ne İncil'de, ne Zebur'da, ne de Kur'an'ın geri kalanında indirmediğine yemin eder. Başka hadisler onu \"Ümmü'l-Kitâb\" (Kitabın özü/özeti) diye adlandırır. İlahî Söz bunun edebî bir karşılığı olduğunu savunur: Fâtiha, Kur'an'ın ideal bir özetidir — her âyeti en derin anlamı en veciz biçimde taşıyacak şekilde ince ayarlanmıştır, ve Allah-insan ilişkisi meselesi sûrenin iki yarısının 4. âyette buluşan simetrisiyle vurgulanır.",
+      "bodyEn": "In one hadith the Prophet swears that God revealed nothing like the Fātiḥa in the Torah, the Gospel, the Psalms, or the rest of the Quran. Other hadiths call it \"Umm al-Kitāb\" — the essence (or summary) of the scripture. Divine Speech argues this has a literary counterpart: the Fātiḥa is an ideal summary of the Quran — every verse fine-tuned to convey the greatest depths of meaning in the most concise way — with the God-man relationship underscored by the symmetry of the sura pivoting on verse 4.",
+      "citationTr": "Müsned-i Ahmed, no. 9345; Tirmizî, no. 2875; Nesâî, no. 914 (İbn Hibbân, İbn Huzeyme ve Elbânî tarafından sahih kabul edilmiştir) — İlahî Söz, 15. Bölüm, s.260.",
+      "citationEn": "Musnad Aḥmad, no. 9345; Sunan al-Tirmidhī, no. 2875; Sunan al-Nasā'ī, no. 914 (authenticated by Ibn Ḥibbān, Ibn Khuzayma, and al-Albānī) — Divine Speech, Ch.15, p.260."
+    },
+    "konevi": {
+      "titleTr": "Tasavvufi Bir Okuma — Konevî",
+      "titleEn": "A Sufi Reading — Qūnawī",
+      "bodyTr": "İbnü'l-Arabî ekolünün önemli ismi Sadreddin Konevî, Fâtiha tefsirinde sûreyi \"Kur'an'ın eksiksiz nüshası\" olarak sunar ve onu vahdet-i vücûd çerçevesinde Hak-kul ilişkisinin sembolik bir sistemi olarak okur. Bu okuma, sûrenin harfiyen gramer yapısından çok, kul ile Allah arasındaki varoluşsal bağın işârî/remzî katmanlarına odaklanır.",
+      "bodyEn": "Sadr al-Dīn al-Qūnawī, a major figure of the Ibn ʿArabī school, presents the Fātiḥa in his tafsīr as \"the complete copy of the Quran\" and reads it within the framework of waḥdat al-wujūd (the oneness of being) as a symbolic system of the God-servant relationship. This reading focuses less on literal grammar and more on the allegorical/symbolic layers of the servant's existential bond with God.",
+      "citationTr": "Sadreddin Konevî, Fâtiha Sûresi Tefsiri (İ'câzü'l-Beyân), haz. Ekrem Demirli çevirisi esas alınarak.",
+      "citationEn": "Ṣadr al-Dīn al-Qūnawī, Tafsīr Sūrat al-Fātiḥa (Iʿjāz al-Bayān), based on the Ekrem Demirli Turkish translation."
+    },
+    "identityNote": {
+      "titleTr": "\"Gazaba Uğrayanlar\" ve \"Sapmışlar\" Kimdir?",
+      "titleEn": "Who Are \"Those Who Earned Wrath\" and \"the Astray\"?",
+      "perspectives": [
+        {
+          "scholar": "Mâtürîdî & Râzî",
+          "viewTr": "Gündoğar'ın karşılaştırmalı incelemesine göre her iki âlim de meşhur görüşü (gazaba uğrayanlar=Yahudiler, sapmışlar=Hıristiyanlar) aktarır — Mâtürîdî bunu birkaç görüşten biri olarak temkinle sunarken, Râzî \"meşhur olan görüş\" diye daha kesin bir dille verir, ikisi de Mâide sûresinden ilgili âyetlerle destekler.",
+          "viewEn": "Per Gündoğar's comparative study, both scholars relay the well-known view (those who earned wrath = Jews, the astray = Christians) — Māturīdī presents it cautiously as one opinion among several, while Rāzī states it more assertively as \"the well-known view,\" both supporting it with related verses from Sūrat al-Māʾida.",
+          "citation": "Gündoğar (2017), s.24-25 — Mâide 5:60, 5:64, 5:77, 5:82."
+        },
+        {
+          "scholar": "Molla Fenârî",
+          "scholarSub": "Aynü'l-A'yân",
+          "viewTr": "Fenârî de aynı hadisi (Tirmizî, Tefsîr 2; Ahmed b. Hanbel, V/33) nakleder, ama en dikkatli tahlilinde bu basit eşlemeyi açıkça sorgular: \"Aslında Allah'ın gazabının sadece Yahudilere, sapıklığın da sadece Hıristiyanlara nispet edilmesi isabetli değildir\" der ve gazabın Hıristiyanlara da, sapıklığın kâfirlerin geneline de atfedildiği âyetleri hatırlatır. Kendi tercih ettiği daha geniş okuma: \"gazaba uğrayanlar\" zâhiren yanlış yapan fâsıklar, \"sapmışlar\" ise itikadî sapkınlık içinde olanlardır.",
+          "viewEn": "Fenârî also relates the same hadith (Tirmidhī, Tafsīr 2; Aḥmad b. Ḥanbal, V/33), but in his most careful analysis explicitly questions this simple mapping: \"restricting God's wrath to only the Jews, and misguidance to only the Christians, is not quite correct,\" he writes, citing verses where wrath is also attributed to Christians and misguidance to disbelievers generally. His own preferred, broader reading: \"those who earned wrath\" are those who err outwardly in their deeds; \"the astray\" are those with doctrinal/creedal deviation.",
+          "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.155-157, 171, 176-177."
+        },
+        {
+          "scholar": "Fahreddin er-Râzî",
+          "scholarSub": "Mefâtîhu'l-Ğayb — üçlü çerçeve",
+          "viewTr": "Râzî, âyeti mükellefleri (sorumlu insanları) üç kategoriye ayıran bir çerçeve olarak okur: itaatkârlar (nimet verilenler), zâhiren günah işleyenler (gazaba uğrayanlar) ve inanç/bilgiden yoksun olanlar (sapmışlar). Bu üçlü ayrım, sûrenin bütününü Allah'ın hükümranlığı karşısında insanın üç olası konumunu özetleyen bir kapanış haline getirir.",
+          "viewEn": "Rāzī reads the verse as a framework dividing morally accountable people into three categories: the obedient (those favored), those who err outwardly (those who earned wrath), and those lacking faith/knowledge (the astray). This threefold division turns the verse into a closing summary of humanity's three possible standings before God's sovereignty.",
+          "citation": "Râzî, Mefâtîhu'l-Ğayb, I/359-365 — Gündoğar (2017), s.24-25."
+        }
+      ]
+    }
+  },
+  "wordChoice": {
+    "introTr": "Fâtiha'nın açılışındaki iki kelime çifti — hamd/medh ve Rahmân/Rahîm — Türkçe'ye çoğu zaman aynı kelimeyle çevrilir, ama Arapça'da farklı katmanlar taşır. Klasik ve çağdaş kaynaklar bu ayrımı farklı açılardan okur; aşağıda hepsi bir arada.",
+    "introEn": "The two opening word-pairs of the Fātiḥa — ḥamd/madḥ and Raḥmān/Raḥīm — are often rendered by the same word in translation, but carry distinct layers in Arabic. Classical and contemporary sources read this distinction from different angles; presented together below.",
+    "groups": [
+      {
+        "id": "hamd-medh",
+        "ref": "Fâtiha 1:2",
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ",
+        "titleTr": "Hamd, Medh, Senâ, Şükür",
+        "titleEn": "Ḥamd, Madḥ, Thanā', Shukr",
+        "perspectives": [
+          {
+            "scholar": "İlahî Söz",
+            "scholarSub": "Nouman Ali Khan · Sharif Randhawa",
+            "viewTr": "Medh cansız varlıklara ya da sonradan/kazara edinilmiş niteliklere de yapılabilir (biri boyu ya da göz rengi için methedilebilir) ve samimiyetsiz/dalkavukça olabilir. Hamd ise yalnız canlı, akıllı bir varlığa, kendi öz nitelikleri dolayısıyla, kalpten hayranlıkla yapılır. Senâ, medh'e benzer ama daha \"büyütülmüş\" bir halidir — ayrı bir kategori değil, medh'in yoğunlaştırılmışıdır. Şükür ise yalnız kişisel olarak görülen bir iyilik için yapılır; hamd hem kişisel iyilik hem de kişiden bağımsız bir hayranlık için kullanılabilir. Kitabın sonucu: medh/senâ çok geniş, şükür çok dar kapsamlıdır — hamd, Fâtiha'nın açılışı için biricik doğru kelimedir.",
+            "viewEn": "Madḥ can be given to inanimate things or to accidental/inherited qualities (one can be praised for height or eye color) and can be insincere flattery. Ḥamd, by contrast, is given only to a living, rational being, for their own inherent qualities, from sincere heartfelt admiration. Thanā' resembles madḥ but is more \"magnified\" — not a separate category, but an intensified form of madḥ. Shukr can only be expressed for a favor personally done for you; ḥamd can express both personal gratitude and admiration independent of personal benefit. The book's conclusion: madḥ/thanā' are too broad, shukr too narrow — ḥamd is uniquely precise for the Fātiḥa's opening word.",
+            "citation": "İlahî Söz, 8. Bölüm \"Âlemlerin Rabbi Olan Allah'a Hamd Olsun\", s.110-111 — kaynak: Fâdıl Sâlih es-Sâmerrâî, Lemesât Beyâniyye, s.11-33.",
+            "scholarEn": "Divine Speech"
+          },
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân (ö. 1431)",
+            "viewTr": "Hamd, iradeyle/seçimle kazanılmış bir nitelik ya da iyilik için yapılan övgüdür; medh ise mutlak anlamda güzel/iyi olan her şey için yapılabilir, iradeyle kazanılıp kazanılmadığına bakılmaksızın. Fenârî'nin örneği: \"İlmi ve cömertliği sebebiyle Zeyd'i övdüm\" (hamd) denebilir, ama \"soyu sopu sebebiyle onu övdüm\" (yalnız medh, çünkü soy iradeyle kazanılmaz) denemez. \"El-\" takısı \"el-Hamdü\"de istiğrâk (kapsayıcılık) bildirir — bütün hamd yalnız Allah'a mahsustur, çünkü tüm övgüyü hakkıyla hak eden yalnız O'dur.",
+            "viewEn": "Ḥamd is praise for a quality or benefit acquired through will/choice; madḥ can be given for anything simply beautiful or good, whether or not it was chosen. Fenârî's example: one may say \"I praised Zayd for his knowledge and generosity\" (ḥamd), but not \"I praised him for his lineage\" (only madḥ, since lineage is not chosen). The definite article in \"al-ḥamdu\" signals istighrāq (all-encompassing totality) — all praise belongs to God alone, since only He truly merits the whole of it.",
+            "citation": "Molla Fenârî, Aynü'l-A'yân — Fâtiha Tefsiri (İhtisar-Tercüme: Ali Akpınar), s.85."
+          },
+          {
+            "scholar": "İmam Mâtürîdî",
+            "scholarSub": "Te'vîlâtü'l-Kur'ân (ö. 944)",
+            "viewTr": "İbn Abbas'tan naklen bir görüşe göre hamd = şükür (Allah'ın yarattıklarına verdiği nimetlere karşı bir teşekkür). Diğer bir görüşe göre hamd = senâ/övgü — Allah'ın azametine yaraşır bir övgü, O'nu ortaktan ve eksiklikten tenzih etmekle birlikte.",
+            "viewEn": "Per a view traced to Ibn 'Abbās, ḥamd = shukr (gratitude for the favors God has given creation). Per another view, ḥamd = thanā'/praise — praise befitting God's majesty, combined with declaring Him free of partners and defects.",
+            "citation": "Mâtürîdî, Te'vîlâtü'l-Kur'ân, 1/37-38 — H. Gündoğar, \"İmam Mâtürîdî ve Fahreddin er-Râzî'de Fâtiha Sûresinin Tefsiri\", İslami İlimler Araştırmaları Dergisi 1 (2017), s.15."
+          },
+          {
+            "scholar": "Fahreddin er-Râzî",
+            "scholarSub": "Mefâtîhu'l-Ğayb (ö. 1210)",
+            "viewTr": "Hamd, Allah'ın zâtından dolayı müstehak olduğu bir haktır; kalbin bir sıfatı olmaktan ibarettir — övülenin gerçekten yüceltilmeyi hak ettiğinin kalpte tanınmasıdır.",
+            "viewEn": "Ḥamd is a right God deserves because of His very essence; it consists in an attribute of the heart — the heart's recognition that the one praised truly deserves exaltation.",
+            "citation": "Râzî, Mefâtîhu'l-Ğayb, I/308 — Gündoğar (2017), s.16."
+          }
+        ],
+        "examples": [
+          {
+            "labelTr": "Fenârî'nin örneği: iradeyle kazanılan mı, kazanılmayan mı?",
+            "labelEn": "Fenârî's example: chosen quality or not?",
+            "noteTr": "\"İlmi ve cömertliği sebebiyle Zeyd'i övdüm\" denebilir (hamd) — ama \"soyu sopu sebebiyle onu övdüm\" denemez, çünkü soy iradeyle kazanılan bir şey değildir (yalnız medh olur).",
+            "noteEn": "One may say \"I praised Zayd for his knowledge and generosity\" (ḥamd) — but not \"I praised him for his lineage,\" since lineage is not chosen (only madḥ applies)."
+          },
+          {
+            "labelTr": "Hadîs-i kudsî: Fâtiha'nın Allah ile kul arasında paylaşımı",
+            "labelEn": "The hadith qudsī: the Fātiḥa divided between God and the servant",
+            "noteTr": "Kul \"Elhamdülillahi Rabbi'l-âlemîn\" dediğinde Allah \"Kulum bana hamd etti\" buyurur; kul \"Errahmanirrahîm\" dediğinde ise \"Kulum beni övdü (medhetti)\" buyurur — Molla Fenârî'nin naklettiği bu hadiste bile hamd ve medh iki ayrı fiil olarak yan yana durur.",
+            "noteEn": "When the servant says \"All praise is due to God, Lord of all peoples,\" God says \"My servant has praised (ḥamida) Me\"; when the servant says \"The Most Merciful, the Especially Merciful,\" God says \"My servant has extolled (madaḥa) Me\" — even in this hadith related by Fenârî, ḥamd and madḥ stand side by side as two distinct verbs."
+          }
+        ]
+      },
+      {
+        "id": "rahman-rahim",
+        "ref": "Fâtiha 1:3",
+        "ar": "اَلرَّحْمٰنِ الرَّح۪يمِ",
+        "titleTr": "Rahmân ve Rahîm",
+        "titleEn": "Raḥmān and Raḥīm",
+        "perspectives": [
+          {
+            "scholar": "İlahî Söz",
+            "scholarSub": "Nouman Ali Khan · Sharif Randhawa",
+            "viewTr": "\"Rahmân\" Kur'an'da ve Arapça'da yalnız Allah için kullanılır — tıpkı \"Allah\" ismi ya da \"Âlemlerin Rabbi\" unvanı gibi. Buna karşılık \"Rahîm\" hem Allah hem insanlar için kullanılabilen sıradan bir \"merhametli\" kelimesidir. Rahmân, Allah'ın eşsiz, evrensel Yaratıcı ve Besleyici oluşuna bağlı bahşedişleri; Rahîm ise O'nun samimi kullarına verdiği özel lütufları (bağışlanma, mükâfat, destek, kurtuluş) vurgular.",
+            "viewEn": "\"Raḥmān\" is used exclusively for God in the Quran and in Arabic — like the name \"Allah\" or the title \"Lord of all peoples.\" \"Raḥīm,\" by contrast, is simply the ordinary word for \"merciful,\" used for both God and people. Raḥmān highlights the bounties tied to God's unique, universal status as Creator and Caregiver; Raḥīm is tied to the special graces — forgiveness, reward, support, salvation — God gives His sincere servants.",
+            "citation": "İlahî Söz, 15. Bölüm, s.240-242 — âyet örnekleri: 17:110, 19:88-93, 55:1-12, 25:59, 67:3,19 (Rahmân); 39:53, 57:28, 26:65-68, 36:55-58, 44:41-42 (Rahîm).",
+            "scholarEn": "Divine Speech"
+          },
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân — tasavvufi okuma",
+            "viewTr": "Fenârî bu ayrımı İbnü'l-Arabî çizgisinde tasavvufi bir dille okur: Rahmân'ın tecellisi \"tervîh\" (rahatlatma) iledir, Rahîm'inki \"telvîh\" (işaretle yönlendirme) iledir. Özetle: \"Rahmân, O'nun yaptığıdır; Rahîm, O'nun verdiğidir.\" Rahmân sıradan muamelede (tevfîk) tecelli eder, Rahîm ise ancak vecd ehline nasip olan asıl vuslatta (tahkîk).",
+            "viewEn": "Fenârî reads this distinction in the Sufi vocabulary of the Ibn ʿArabī school: Raḥmān's self-disclosure comes through \"tarwīḥ\" (relieving), Raḥīm's through \"talwīḥ\" (pointed guidance). In short: \"Raḥmān is what He does; Raḥīm is what He gives.\" Raḥmān manifests in ordinary dealings (tawfīq), while Raḥīm is the very attainment of union (taḥqīq), granted only to people of ecstatic experience.",
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.106, 113-119. (Editör notu: bu çerçevede İbnü'l-Arabî etkisi görülür.)"
+          },
+          {
+            "scholar": "İmam Mâtürîdî & Fahreddin er-Râzî",
+            "scholarSub": "Te'vîlâtü'l-Kur'ân · Mefâtîhu'l-Ğayb",
+            "viewTr": "Her iki âlim de \"Rahmân\" isminin yalnız Allah'a mahsus olduğunda, kimsenin bu isimle anılamayacağında birleşir — Mâtürîdî bunu \"Rahmân zâtî, Rahîm fiilî bir isimdir\" diye özetler. Râzî bir incelik ekler: Rahmân, hiçbir kulun benzerini veremeyeceği nimetleri (varlık, akıl gibi) verendir; Rahîm ise kulların da (daha az ölçüde) verebileceği türden nimetleri verendir.",
+            "viewEn": "Both scholars agree that \"Raḥmān\" is exclusive to God, unusable for anyone else — Māturīdī summarizes: \"Raḥmān is an essential name, Raḥīm an act-based name.\" Rāzī adds a refinement: Raḥmān gives blessings no creature could conceivably match (existence, reason); Raḥīm gives blessings of a kind creatures could also give, in lesser measure.",
+            "citation": "Mâtürîdî, Te'vîlâtü'l-Kur'ân, 1/41-42; Râzî, Mefâtîhu'l-Ğayb, I/324-328 — Gündoğar (2017), s.17."
+          }
+        ],
+        "examples": [
+          {
+            "labelTr": "Rahmân — evrensel, şartsız",
+            "labelEn": "Raḥmān — universal, unconditional",
+            "ref": "Meryem 19:88-93",
+            "noteTr": "Gökler, yer ve içindekiler Rahmân'a kul olarak gelir — inanan inanmayan ayrımı yapılmadan, tüm yaratılışı kapsayan bir bahşediş.",
+            "noteEn": "The heavens, the earth, and all within them come to the All-Merciful as a servant — a bestowal encompassing all creation, without distinguishing believer from disbeliever."
+          },
+          {
+            "labelTr": "Rahmân — bütün bir sûrenin adı",
+            "labelEn": "Raḥmān — an entire surah's name",
+            "ref": "Rahmân 55:1-12",
+            "noteTr": "Sûrenin ilk 12 âyeti Rahmân'ı Kur'an'ı öğreten, insanı yaratıp ona konuşmayı öğreten, güneşi-ayı-bitkiyi bir hesapla düzenleyen olarak tanıtır — evrensel bir yaratıcılık ve düzen bahşedişi.",
+            "noteEn": "The surah's first 12 verses introduce the All-Merciful as the one who taught the Quran, created man and taught him speech, and set sun, moon, and plant life by a precise reckoning — a universal bestowal of creation and order."
+          },
+          {
+            "labelTr": "Rahîm — samimi kullara özel",
+            "labelEn": "Raḥīm — special to sincere servants",
+            "ref": "Ahzâb 33:43",
+            "noteTr": "Allah'ın mü'minlere \"Rahîm\" oluşu, onları karanlıklardan aydınlığa çıkarma bağlamında anılır — özel bir kurtuluş ve destek.",
+            "noteEn": "God's being \"Raḥīm\" to the believers is named in the context of bringing them from darkness into light — a special deliverance and support."
+          },
+          {
+            "labelTr": "Rahîm — insanlar için de kullanılır",
+            "labelEn": "Raḥīm — also used for people",
+            "ref": "Tevbe 9:128",
+            "noteTr": "Hz. Peygamber mü'minlere karşı \"raûf ve rahîm\" diye nitelenir — Rahîm'in Allah'a mahsus olmayıp beşer için de kullanılabildiğinin doğrudan örneği.",
+            "noteEn": "The Prophet is described toward the believers as \"kind and Raḥīm\" — a direct example that Raḥīm, unlike Raḥmān, is not exclusive to God and can describe human beings too."
+          }
+        ]
+      },
+      {
+        "id": "malik-melik",
+        "ref": "Fâtiha 1:4",
+        "ar": "مَالِكِ يَوْمِ الدّ۪ينِ",
+        "titleTr": "Mâlik ve Melik — Sahiplik ve Egemenlik",
+        "titleEn": "Mālik and Malik — Ownership and Sovereignty",
+        "perspectives": [
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî, \"mâlik\" (sahip) ve \"melik\" (hükümdar) kelimelerini aynı m-l-k kökünden gelen, birbirini tamamlayan iki sıfat olarak işler — bir kırâat/okuyuş farkı olarak değil. \"O'nun mâlik ve melik olması, O'nun her şeye kâdir olduğunu gösterir\" der. Mülk sahipliğinden hükümdarlığa uzanan bir hiyerarşi kurar (mülk sahipleri → melikler → melekler → \"meliklerin meliki\" Allah) ve din gününde bu ikisinin de yalnız Allah'a kalacağını vurgular: \"O gün, meliklik ve mâliklik kullardan alınacak, yalnızca Allah'ın olacaktır.\" Melikliği özellikle adaletle hükmetmeye, mâlikliği ise mutlak sahipliğe bağlar.",
+            "viewEn": "Fenârî treats \"mālik\" (owner) and \"malik\" (king) as two complementary attributes from the same root m-l-k — not as a variant reading — writing: \"His being both owner and king shows that He is capable of everything.\" He builds a hierarchy from ownership to sovereignty (owners of property → kings → angels → \"the King of kings,\" God), stressing that on the Day of Recompense both titles revert solely to God: \"On that Day, both kingship and ownership will be taken from [His] servants and belong to God alone.\" He ties kingship specifically to ruling with justice, and ownership to absolute possession.",
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.107, 113-114, 118-120."
+          }
+        ]
+      }
+    ]
+  },
+  "grammar": {
+    "introTr": "Fâtiha'nın ortasındaki iki âyet, Arapça gramerinin en ince araçlarını taşır — kelime sırası ve tekil/çoğul seçimi, sıradan bir tercih değil, anlamı doğrudan şekillendiren kasıtlı bir mimaridir.",
+    "introEn": "The two central verses of the Fātiḥa carry Arabic grammar's finest tools — word order and singular/plural choice are not incidental, but a deliberate architecture that directly shapes meaning.",
+    "cases": [
+      {
+        "id": "iyyake",
+        "ref": "Fâtiha 1:5",
+        "ar": "اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ",
+        "titleTr": "İyyâke Na'büdü — Nesnenin Öne Alınması",
+        "titleEn": "Iyyāka Na'budu — Fronting the Object",
+        "perspectives": [
+          {
+            "scholar": "İlahî Söz",
+            "viewTr": "Klasik Arapça'nın olağan cümle sırası fiil+özne, sonra nesnedir. \"İyyâke na'büdü\"de nesne (\"Seni\") fiilden önce gelir — bu tersine çevirme iki etki yaratır: nesneye (Allah'a) cümlede daha fazla önem verir, ve O'nu münhasır nesne kılar: \"Yalnız Sana kulluk eder ve köle oluruz.\"",
+            "viewEn": "Classical Arabic's default word order is verb+subject, then object. In \"Iyyāka na'budu,\" the object (\"You\") comes before the verb — this reversal has two effects: it gives the object (God) more importance in the sentence, and makes Him the exclusive object: \"It is You alone that we worship and enslave ourselves to.\"",
+            "citation": "İlahî Söz, 15. Bölüm, s.245 (kitabın 5. ve 8. Bölümlerindeki gramer tartışmasına dayanarak).",
+            "scholarEn": "Divine Speech"
+          },
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî bu öne almaya iki gerekçe verir: (1) Allah'ın adını en başa alarak O'na tazim etmek; (2) ibadeti ve yardım istemeyi yalnız O'na tahsis etmek (\"Biz yalnızca Sana ibadet ederiz, başkasına değil\"). \"İyyâke\"nin her iki cümlede de tekrarlanmasını da açıklar: bu tekrar hem ibadetin hem yardım talebinin yalnız Allah'a mahsus olduğunu perçinler, hem de iki eylemi (kulluk ve yardım isteme) kavramsal olarak ayrı tutar. Ayrıca ibadetin yardım istemeden önce zikredilmesini de yorumlar: kulun kendi eylemi önce zikredilir, sonra Allah'ın onu başarıya ulaştırması — bu sıralama Ehl-i Sünnet'in \"kul kazanır, Allah yaratır\" ilkesini doğrular. Fenârî bu âyeti ayrıca Mu'tezile (kul kendi fiilinin yaratıcısıdır) ile Cebriyye (kulun iradesi yoktur) arasında mutedil bir konum olarak sunar.",
+            "viewEn": "Fenârî gives two reasons for this fronting: (1) reverence for God by naming Him first; (2) restricting worship and the plea for help to Him alone (\"We worship only You, no one else\"). He also explains the repetition of \"Iyyāka\" in both clauses — it cements that both worship and the plea for help belong to God alone, and keeps the two acts conceptually distinct. He further reads the ordering (worship named before seeking help) as validating the Sunni maxim \"the servant acquires, God creates\" — the servant's own act is posited first, then God's granting its success. Fenârî frames the verse as a middle path between the Muʿtazila (the servant creates their own acts) and the Jabriyya (the servant has no will at all).",
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.121-129 (özellikle s.123, 126-127)."
+          },
+          {
+            "scholar": "Fahreddin er-Râzî",
+            "scholarSub": "Mefâtîhu'l-Ğayb",
+            "viewTr": "Râzî, \"İyyâke na'büdü\"nün anlamının \"Senden başka hiç kimseye ibadet etmem\" olduğunu belirtir ve bunu doğrudan \"hasr\" (münhasırlık) kavramıyla ifade eder. Gerekçesi: ibadet, yüceltmenin en üst noktasıdır ve bu yüzden ancak nihai lütfun (varlık/yaratılış gibi, tüm faydaların kaynağı) sahibine mahsus olabilir — bu da tevhidi zorunlu kılar.",
+            "viewEn": "Rāzī states that \"Iyyāka na'budu\" means \"I worship none but You,\" expressing this directly with the concept of ḥaṣr (restriction/exclusivity). His reasoning: worship is the summit of exaltation, and can therefore only be due to the source of the ultimate favor (existence/creation, from which all benefit flows) — which necessitates monotheism.",
+            "citation": "Râzî, Mefâtîhu'l-Ğayb, I/338-352 — Gündoğar (2017), s.19, 21."
+          }
+        ],
+        "storyTr": "Molla Fenârî'nin tefsirini \"Bitirirken\" bölümünde anlattığı bir kıssa, \"iyyâke\"nin ağırlığını başka türlü gösterir: Kur'an okumasıyla tanınan genç bir öğrenci ölüm döşeğindedir. Ona namazında en çok hangi âyeti düşündüğü sorulduğunda, ağlayarak şunu itiraf eder: \"İyyâke na'büdü\" derken bile zihni dağılıyor, gerçekten \"yalnız Sana\" diyebildiğinden hiçbir zaman emin olamamıştır. Fenârî bu kıssayı, âyetteki tekil \"iyyâke\"nin yalnızca bir gramer inceliği değil, kulun her secdede yeniden sınandığı bir samimiyet sınavı olduğunu göstermek için aktarır.",
+        "storyEn": "A story Fenârî relates in his closing (\"In Closing\") section shows \"Iyyāka's\" weight in another way: a young student known for reciting the Quran lies on his deathbed. Asked which verse occupied his mind most in prayer, he confesses through tears that his mind would wander even while saying \"Iyyāka na'budu\" — he was never certain he had truly meant \"You alone.\" Fenârî relates this story to show that the verse's singular \"Iyyāka\" is not merely a grammatical subtlety, but a test of sincerity the servant faces anew in every prostration.",
+        "storyCitation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.187-188."
+      },
+      {
+        "id": "sirat-sebil",
+        "ref": "Fâtiha 1:6",
+        "ar": "اِهْدِنَا الصِّرَاطَ الْمُسْتَق۪يمَ",
+        "titleTr": "Sırât ve Sebîl — Tek Yol, Çok Yol",
+        "titleEn": "Ṣirāṭ and Sabīl — One Path, Many Paths",
+        "perspectives": [
+          {
+            "scholar": "İlahî Söz",
+            "viewTr": "\"Sırât\" Kur'an'da ve pek çok klasik dilbilim otoritesine göre yalnız tekil kullanılır — hatta çoğulu bile yoktur. Yakın anlamlısı \"sebîl\" ise çoğul (sübül) olarak da gelir. Kitap, İbn Mes'ûd'un naklettiği meşhur hadisi aktarır: Peygamber kuma tek bir düz çizgi çizip \"Bu, Allah'ın dosdoğru yoludur\" der, sonra sağına soluna başka çizgiler ekleyip \"Bunlar başka yollardır (sübül); her birinin üstünde ona çağıran bir şeytan vardır\" der ve ardından 6:153'ü okur: \"Şüphesiz bu, Benim dosdoğru yolumdur; ona uyun. Başka yollara (sübül) uymayın, sizi O'nun yolundan ayırır.\"",
+            "viewEn": "\"Ṣirāṭ,\" per the Quran and many classical Arabic authorities, is used only in the singular — it doesn't even have a plural. Its near-synonym \"sabīl,\" by contrast, also occurs in the plural (subul). The book relates the well-known hadith reported by Ibn Mas'ūd: the Prophet drew a single straight line in the sand and said, \"This is God's Straight Path,\" then drew other lines to its right and left, saying, \"These are other paths (subul); upon every one of them is a devil calling towards it,\" then recited 6:153: \"This is My Path, which is straight, so follow it. Do not follow other ways (subul): they will lead you away from it.\"",
+            "citation": "İlahî Söz, 15. Bölüm, s.246-247 — hadis: Müsned-i Ahmed, no.4142; Sahîh İbn Hibbân, no.6 (Elbânî ve Ahmed Şâkir tarafından sahih kabul edilmiştir).",
+            "scholarEn": "Divine Speech"
+          },
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî'nin tefsirinde sırât/sebîl karşıtlığı ya da İbn Mes'ûd'un çizgi hadisi işlenmez; sırâtı kısaca \"doğru yol\" diye tanımlar ve altı ayrı klasik görüşü sıralar (İslam; Kitabullah; Peygamber ve ashâbının yolu; kulluk yolu; cennet yolu ve benzerleri). Sırâtın âyette neden iki kez zikredildiği sorusuna kendine has bir cevap verir: kuldan Rabbe giden yol (kulluk, İblîs'in pusu kurduğu yol) ile Rabden kula giden yol (hidâyet/lütfun inişi) olmak üzere iki dikey yön öne sürer.",
+            "viewEn": "Fenârî's tafsīr does not take up the ṣirāṭ/sabīl contrast or Ibn Mas'ūd's line-drawing hadith; he briefly defines ṣirāṭ as \"the true path\" and lists six classical opinions on its referent (Islam; the Quran; the way of the Prophet and his Companions; the path of worship; the path to Paradise, and similar). To the question of why the path is mentioned twice in the surah, he offers his own answer: two vertical directions — the path from servant to Lord (worship, where Iblīs lies in ambush) and the path from Lord to servant (the descent of guidance/grace).",
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.141, 151-153, 175."
+          },
+          {
+            "scholar": "İmam Mâtürîdî & Fahreddin er-Râzî",
+            "viewTr": "Mâtürîdî sırâtı \"eğriliği ve sapması olmadan varlığını sürdüren, içinde çelişki bulunmayan manevi bir yol\" diye tanımlar (bazı müfessirlere göre Kur'an, bazılarına göre îman). Râzî ise sırât-ı müstakîmi kalp, düşünce ve zikirle tamamen Allah'a yönelmek, özellikle peygamberlerin sıkıntı karşısında sabır yolunu terk etmeden izlediği yol olarak okur. İkisi de sırât/sebîl karşıtlığını ya da İbn Mes'ûd hadisini işlemez.",
+            "viewEn": "Māturīdī defines ṣirāṭ as \"a spiritual path that persists without crookedness or deviation, free of internal contradiction\" (some exegetes read it as the Quran, others as faith). Rāzī reads the straight path as turning wholly toward God with heart, thought, and remembrance — specifically the path the prophets followed in patience under hardship, without abandoning it. Neither takes up the ṣirāṭ/sabīl contrast or Ibn Mas'ūd's hadith.",
+            "citation": "Mâtürîdî, Te'vîlâtü'l-Kur'ân, 1/47-49; Râzî, Mefâtîhu'l-Ğayb, I/355 — Gündoğar (2017), s.22-23."
+          }
+        ],
+        "detailsTr": "Fenârî, \"sırât-ı müstakîm\"in neye işaret ettiği konusunda altı ayrı klasik görüş sıralar: (1) İslam dini; (2) bizzat Kur'an (Kitâbullah); (3) Peygamber ve ashâbının izlediği yol; (4) bir rüya rivayetinde adı geçen Râşid Halifelerin yolu; (5) kulluk/ibadet yolu; (6) cennete götüren yol. Âyette \"hidâyet\"in neden iki kez istendiği (hem sûrenin ortasında hem de dolaylı yollarla) sorusuna da kendine özgü bir cevap verir: kuldan Rabbe giden dikey bir yol (kulluk — İblîs'in pusu kurduğu yol) ile Rabden kula inen dikey bir yol (hidâyet ve lütfun inişi).",
+        "detailsEn": "Fenârî lists six separate classical opinions on what \"the straight path\" refers to: (1) the religion of Islam; (2) the Quran itself; (3) the way followed by the Prophet and his Companions; (4) the way of the Rightly-Guided Caliphs, per a dream-report; (5) the path of worship; (6) the path leading to Paradise. He also gives his own answer to why guidance is sought here at all: two vertical directions — the path from servant to Lord (worship, where Iblīs lies in ambush) and the path from Lord to servant (the descent of guidance and grace).",
+        "detailsCitation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.151-153, 175."
+      },
+      {
+        "id": "hamd-cumlesinin-grameri",
+        "ref": "Fâtiha 1:2",
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ",
+        "titleTr": "El-Hamdü Lillah'ın Dört Katmanlı Grameri",
+        "titleEn": "The Fourfold Grammar of 'al-Ḥamdu lillāh'",
+        "perspectives": [
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî, bu tek cümleden dört ayrı gramer katmanı çıkarır — belirlilik takısı, cümle türü, cümle yapısı ve harf-i cer anlamı.",
+            "viewEn": "Fenârî draws four separate grammatical layers out of this single clause — the definite article, the sentence type, the sentence structure, and the meaning of a preposition.",
+            "points": [
+              {
+                "labelTr": "'El-' Takısı: İstiğrak ve Hasr",
+                "labelEn": "The Article 'al-': Totality and Exclusivity",
+                "bodyTr": "Fenârî, \"hamd\" kelimesinin başındaki belirlilik takısının istiğrak (kapsayıcılık) ifade ettiğini, dolayısıyla ifadenin \"bütün övgüler\" anlamına geldiğini belirtir. Sonuç bir hasr (münhasırlık) doğurur: her türlü övgü gerçek anlamda yalnızca Allah'a mahsustur, çünkü eşsiz kudret ve sayısız nimet yalnızca O'na aittir.",
+                "bodyEn": "Fenârî holds that the definite article prefixed to \"praise\" expresses totality, so the phrase means \"all praise.\" This produces exclusivity: in the fullest sense, every kind of praise belongs to God alone, since unmatched power and countless favor belong to Him alone."
+              },
+              {
+                "labelTr": "Haber mi, İnşâ mı?",
+                "labelEn": "A Statement, or a Command?",
+                "bodyTr": "Cümlenin gramer statüsü için iki görüş aktarılır: birincisine göre bu, Allah'ın kendi zâtını bizzat övdüğü bir bildirim (haber) cümlesidir; ikincisine göre başında gizlenmiş bir \"deyiniz\" fiili takdir edilir ve cümle kullara yönelik bir talimat (inşâ) hâline gelir.",
+                "bodyEn": "Two views are reported on the sentence's grammatical status: the first holds it is a declarative statement in which God praises Himself; the second supplies an implied \"say\" at the start, turning it into an instruction addressed to God's servants."
+              },
+              {
+                "labelTr": "İsim Cümlesi: Süreklilik Vurgusu",
+                "labelEn": "A Nominal Sentence: Emphasizing Permanence",
+                "bodyTr": "Cümlenin bir fiil cümlesi değil, isim cümlesi (mübtedâ-haber) olarak kurulması kasıtlıdır — Arapçada bu yapı süreklilik bildirir. Âyet böylece, hamdin geçici bir eylem değil, Allah'a dâimî ve kesintisiz ait bir gerçeklik olduğunu gramer düzeyinde de vurgular.",
+                "bodyEn": "The sentence is deliberately built as a nominal clause rather than a verbal one — a construction that in Arabic conveys permanence. The verse thus underscores, at the grammatical level, that praise is not a passing act but a constant, uninterrupted reality belonging to God."
+              },
+              {
+                "labelTr": "'Li' Harfinin Anlamı: İstihkak",
+                "labelEn": "The Meaning of 'Li': Rightful Claim",
+                "bodyTr": "\"Lillâh\"taki lâm harf-i cerrinin Arapçada yaklaşık yirmi iki farklı anlamı olduğu, ancak bu bağlamda istihkak (hak sahibi olma) ve ihtisas (yalnızca O'na özgü olma) anlamının kastedildiği belirtilir — hamde gerçek anlamda yalnızca Allah'ın müstahak olduğu sonucu buradan da desteklenir.",
+                "bodyEn": "The preposition \"li\" is said to carry roughly twenty-two possible senses in Arabic, but in this context it specifically conveys rightful entitlement and exclusive ownership — reinforcing, at the level of a single preposition, that God alone truly deserves praise."
+              }
+            ],
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.85-86, 88."
+          }
+        ]
+      },
+      {
+        "id": "alemin-akil-sahipleri-cogulu",
+        "ref": "Fâtiha 1:2",
+        "ar": "اَلْحَمْدُ لِلّٰهِ رَبِّ الْعَالَم۪ينَ",
+        "titleTr": "'Âlemîn' Neden Akıl Sahiplerine Özgü Bir Çoğuldur?",
+        "titleEn": "Why Is 'The Worlds' Grammatically a Plural for Rational Beings?",
+        "perspectives": [
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî, \"âlemîn\" kelimesinin çoğul kalıbını inceleyerek \"Rabbi'l-âlemîn\" ifadesinin ne kadar kapsayıcı okunduğunu gösterir.",
+            "viewEn": "Fenârî examines the plural pattern of \"the worlds\" to show just how expansively \"Lord of the worlds\" was read.",
+            "points": [
+              {
+                "labelTr": "Tağlîb: Akılsızların Akıllılara Katılması",
+                "labelEn": "Taghlīb: Including the Non-Rational Among the Rational",
+                "bodyTr": "\"Âlem\" kelimesinin tekili bulunmayan, zaten toplu bir anlam taşıyan bir isim olduğu, buna rağmen \"âlemîn\" şeklinde ikinci kez çoğullandığı belirtilir. Kritik nokta şudur: bu çoğul kalıp Arapçada normalde yalnızca akıl sahibi varlıklar için kullanılır. Âlem kelimesinin bu kalıpla çoğullanması, akılsız/cansız varlıkların da \"tağlîb\" (bir sınıfın diğerine baskın kılınarak dâhil edilmesi) yoluyla kapsama alınması anlamına gelir.",
+                "bodyEn": "\"World\" is a noun with no true singular, already carrying a collective sense, yet it is pluralized a second time as \"ʿālamīn.\" The key point: this plural pattern is normally reserved in Arabic for rational beings alone. Pluralizing \"world\" with this pattern draws in non-rational, inanimate beings too, through taghlīb — a grammatical device that folds a secondary class into a dominant one."
+              },
+              {
+                "labelTr": "On Sekiz Bin Âlem",
+                "labelEn": "Eighteen Thousand Worlds",
+                "bodyTr": "Fenârî, âlimlerin \"âlemler\" kavramına felekleri, yıldızları, Arş'ı, Kürsî'yi, Sidretü'l-Müntehâ'yı, Levh-i Mahfûz'u, Kalem'i, Cennet ve Cehennem'i dahil ederek bu sayının geleneksel olarak on sekiz bin diye ifade edildiğini aktarır — bu da ifadenin, kapsayıcı bir rablik iddiası olarak ne denli geniş okunduğunu gösterir.",
+                "bodyEn": "Fenârî reports that scholars, folding into \"the worlds\" the celestial spheres, the stars, the Divine Throne, the Footstool, the Farthest Lote-Tree, the Preserved Tablet, the Pen, and Paradise and Hell, traditionally put this number at eighteen thousand — showing just how expansively the phrase was read as a claim to all-encompassing lordship."
+              }
+            ],
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.101, 106."
+          }
+        ]
+      },
+      {
+        "id": "gayril-magdubi-tek-mi-uc-mu",
+        "ref": "Fâtiha 1:7",
+        "ar": "غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّٓالّ۪ينَ",
+        "titleTr": "Ğayri'l-Mağdûbi: Tek Grubun Sıfatı mı, Üç Ayrı Sınıf mı?",
+        "titleEn": "'Not Those Who Earned Wrath': One Group's Qualifier, or Three Distinct Classes?",
+        "perspectives": [
+          {
+            "scholar": "Molla Fenârî",
+            "scholarSub": "Aynü'l-A'yân",
+            "viewTr": "Fenârî açık bir i'rab hükmü verir: \"gazaba uğramamış olanlar\" ifadesi, öncesinin (kendilerine nimet verilenlerin) BEDELİdir — yani onun yerine geçen bir açıklamadır, ayrı bir grup tanıtmaz. Buna göre âyet TEK bir grubu iki ek nitelikle tarif eder; üç ayrı sınıf arasında bir karşıtlık kurmaz.",
+            "viewEn": "Fenârî gives an explicit grammatical ruling: \"not those who earned wrath\" is a substitute (badal) for what precedes it — those who were blessed — restating the same referent rather than introducing a new group. On this reading the verse describes a SINGLE group through two further qualities; it does not set up a three-way contrast.",
+            "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.145."
+          },
+          {
+            "scholar": "Fahreddin er-Râzî",
+            "scholarSub": "Mefâtîhu'l-Ğayb",
+            "viewTr": "Râzî tam tersi bir okuma sunar: âyetin, sorumlu tutulan bütün insanları üç ayrı sınıfa ayırdığını açıkça belirtir — itaat edenler (kendilerine nimet verilenler), günah işleyenler (gazaba uğrayanlar, Yahudilerle özdeşleştirilir) ve dinde cehalet/küfür içinde olanlar (sapmışlar, Hıristiyanlarla özdeşleştirilir).",
+            "viewEn": "Rāzī offers the opposite reading: he explicitly states that the verse divides all morally accountable people into three distinct classes — those who obey (the blessed), those who sin (those who earned wrath, identified with the Jews), and those in ignorance or unbelief (the astray, identified with the Christians).",
+            "citation": "Gündoğar (2017), s.24-25 — Râzî, Mefâtîhu'l-Ğayb üzerinden aktarılmıştır."
+          },
+          {
+            "scholar": "İmam Mâtürîdî",
+            "scholarSub": "Te'vîlâtü'l-Kur'ân",
+            "viewTr": "Mâtürîdî de gazaba uğrayanları Yahudilerle, sapmışları Hıristiyanlarla özdeşleştirerek aynı iki olumsuz kimliklendirmeye ulaşır; ancak Gündoğar'ın karşılaştırmasına göre bunu, Râzî'nin yaptığı gibi açıkça \"üç kısım\" diye adlandıran bir sınıflandırma diliyle çerçevelemez.",
+            "viewEn": "Mâturīdī arrives at the same two negative identifications — those who earned wrath with the Jews, the astray with the Christians — but, per Gündoğar's comparison, does not frame this, as Rāzī explicitly does, in the language of a formal three-part classification.",
+            "citation": "Gündoğar (2017), s.24-25."
+          }
+        ]
+      }
+    ]
+  },
+  "bakaraAnchors": {
+    "introTr": "Neal Robinson'a göre Fâtiha'nın birinci ve ikinci şahısla kurulan her ifadesinin, hemen ardından gelen Bakara sûresinde bir veya daha fazla \"çapası\" (karşılığı) vardır — sanki Bakara, Fâtiha'nın açtığı duayı ayrıntılandıran bir yorumdur.",
+    "introEn": "According to Neal Robinson, every first- and second-person expression in the Fātiḥa has one or more \"anchors\" — corresponding elaborations — in the immediately following Sūrat al-Baqara, as if al-Baqara were a commentary elaborating on the prayer the Fātiḥa opens.",
+    "citationTr": "Neal Robinson, \"The Dynamics of the Qur'anic Discourse: Tradition and Redaction\", Perspectives on Islamic Culture: Essays in Honour of Emilio Platti, ed. Bert Broeckaert, Stef Van Den Branden, Jean-Jacques Pérennès (Leuven: Peeters, 2013), s.3-18 — İlahî Söz, 15. Bölüm, s.255-256'da aktarılmıştır.",
+    "citationEn": "Neal Robinson, \"The Dynamics of the Qur'anic Discourse: Tradition and Redaction,\" in Perspectives on Islamic Culture: Essays in Honour of Emilio Platti, ed. Bert Broeckaert, Stef Van Den Branden, and Jean-Jacques Pérennès (Leuven: Peeters, 2013), 3-18 — as related in Divine Speech, Ch.15, pp.255-256.",
+    "anchors": [
+      {
+        "termTr": "Kulluk etmek",
+        "termEn": "Worship",
+        "fatihaRef": "1:5",
+        "bakaraRefs": [
+          "2:21",
+          "2:83",
+          "2:133",
+          "2:138",
+          "2:172"
+        ],
+        "noteTr": "Bakara boyunca \"kulluk edin\" çağrısı tekrar tekrar döner — insanlara (2:21), Ehl-i Kitab'a (2:83), İbrahim'in soyuna (2:133), Ya'kub'un vasiyetinde (2:138) — Fâtiha'nın \"yalnız Sana kulluk ederiz\" sözü burada somut örneklerle çoğalır.",
+        "noteEn": "Throughout al-Baqara the call to \"worship\" recurs — addressed to all people (2:21), the People of the Book (2:83), Abraham's descendants (2:133), in Jacob's testament (2:138) — the Fātiḥa's \"You alone we worship\" is multiplied here into concrete cases."
+      },
+      {
+        "termTr": "Yardım dilemek",
+        "termEn": "Asking for help",
+        "fatihaRef": "1:5",
+        "bakaraRefs": [
+          "2:45",
+          "2:153"
+        ],
+        "noteTr": "Bakara 2:45'te \"sabır ve namazla yardım isteyin\" buyrulur; 2:153'te bu çağrı Fâtiha'nın kendi kelimesiyle (isteînû) tekrarlanır — dua olarak açılan \"yalnız Senden yardım dileriz\" burada bir davranış talimatına dönüşür.",
+        "noteEn": "Al-Baqara 2:45 commands \"seek help through patience and prayer\"; 2:153 repeats this call using the Fātiḥa's own word (ista'īnū) — the prayer becomes a concrete behavioral instruction."
+      },
+      {
+        "termTr": "Hidâyet / doğru yol",
+        "termEn": "Guidance / straight path",
+        "fatihaRef": "1:6",
+        "bakaraRefs": [
+          "2:2",
+          "2:142",
+          "2:213"
+        ],
+        "noteTr": "Bakara'nın kendi açılışı (2:2) Kur'an'ı \"müttakîler için hidâyet\" diye tanıtır; 2:142 kıblenin değişimini \"dilediğini sırât-ı müstakîme iletme\" çerçevesinde anlatır — Fâtiha'nın duası burada sûrenin ana temasına dönüşür.",
+        "noteEn": "Al-Baqara's own opening (2:2) introduces the Quran as \"guidance for the God-conscious\"; 2:142 frames the change of the prayer direction as God \"guiding whom He wills to a straight path\" — the Fātiḥa's prayer becomes the surah's central theme."
+      },
+      {
+        "termTr": "Nimet verilenler",
+        "termEn": "Those favored",
+        "fatihaRef": "1:7a",
+        "bakaraRefs": [
+          "2:40",
+          "2:47",
+          "2:122",
+          "2:150"
+        ],
+        "noteTr": "Bakara defalarca \"size verdiğim nimeti hatırlayın\" der (2:40, 2:47, 2:122) — İsrailoğullarına atfen — ve 2:150'de bu nimetin \"hidâyete ermeniz için\" olduğunu ekler.",
+        "noteEn": "Al-Baqara repeatedly says \"remember the favor I bestowed upon you\" (2:40, 2:47, 2:122) — addressed to the Children of Israel — and 2:150 adds that this favor was given \"so that you may be guided.\""
+      },
+      {
+        "termTr": "Gazaba uğrayanlar",
+        "termEn": "Those who earned wrath",
+        "fatihaRef": "1:7b",
+        "bakaraRefs": [
+          "2:61",
+          "2:90"
+        ],
+        "noteTr": "2:61 İsrailoğullarının peygamberleri öldürmesi ve isyanı yüzünden \"üzerlerine zillet ve gazap\" indiğini anlatır; 2:90 kendi ellerindeki kitaba rağmen küfürlerini \"Allah'ın gazabı üstüne gazap\" olarak niteler.",
+        "noteEn": "2:61 describes \"humiliation and wrath\" descending on the Children of Israel for killing prophets and rebelling; 2:90 calls their disbelief, despite possessing the scripture themselves, \"wrath upon wrath\" from God."
+      },
+      {
+        "termTr": "Sapmışlar",
+        "termEn": "The astray",
+        "fatihaRef": "1:7c",
+        "bakaraRefs": [
+          "2:16",
+          "2:175"
+        ],
+        "noteTr": "2:16 doğru yol karşılığında sapıklığı \"satın alanları\" tasvir eder — bu ticaretin \"hiç kâr getirmediğini\" söyler; 2:175'te aynı imge tekrarlanır: hidâyet karşılığında sapıklığı, mağfiret karşılığında azabı satın almak.",
+        "noteEn": "2:16 describes those who \"purchased error in exchange for guidance\" — a trade that \"brought no profit\"; 2:175 repeats the same image: buying error in exchange for guidance, punishment in exchange for forgiveness."
+      }
+    ]
+  },
+  "scholars": [
+    {
+      "nameTr": "İmam Mâtürîdî",
+      "nameEn": "Imam al-Māturīdī",
+      "died": "333 H / 944 M",
+      "city": "Semerkand",
+      "workTr": "Te'vîlâtü'l-Kur'ân",
+      "workEn": "Ta'wīlāt al-Qur'ān",
+      "roleTr": "Kurucu — Mâtürîdî Kelâm Ekolü",
+      "roleEn": "Founder — Māturīdī School of Theology",
+      "descTr": "Ehl-i Sünnet kelâmının iki büyük ekolünden birinin kurucusu. Fâtiha tefsirinde hamdi hem şükür hem senâ olarak okur, Rahmân isminin Allah'a mahsusluğunu vurgular.",
+      "descEn": "Founder of one of Sunni theology's two major schools. In his Fātiḥa tafsīr he reads ḥamd as both gratitude and praise, and stresses that the name Raḥmān is exclusive to God."
+    },
+    {
+      "nameTr": "Fahreddin er-Râzî",
+      "nameEn": "Fakhr al-Dīn al-Rāzī",
+      "died": "606 H / 1210 M",
+      "city": "Rey",
+      "workTr": "Mefâtîhu'l-Ğayb",
+      "workEn": "Mafātīḥ al-Ghayb",
+      "roleTr": "Geliştirici — Kelâmî-Felsefî Tefsir",
+      "roleEn": "Developer — Theological-Philosophical Exegesis",
+      "descTr": "Kur'an'ın en hacimli klasik tefsirlerinden birinin yazarı. Fâtiha'yı hasr (münhasırlık) gibi kelâmî/mantıkî kavramlarla derinlemesine çözümler.",
+      "descEn": "Author of one of the most voluminous classical Quranic commentaries. Analyzes the Fātiḥa in depth using theological/logical concepts such as ḥaṣr (exclusivity)."
+    },
+    {
+      "nameTr": "Molla Fenârî",
+      "nameEn": "Mullā Fanārī",
+      "died": "834 H / 1431 M",
+      "city": "Bursa",
+      "workTr": "Aynü'l-A'yân (Fâtiha Tefsiri)",
+      "workEn": "ʿAyn al-Aʿyān (Tafsīr al-Fātiḥa)",
+      "roleTr": "Osmanlı'nın İlk Şeyhülislâmı",
+      "roleEn": "The Ottoman Empire's First Şeyhülislam",
+      "descTr": "İbnü'l-Arabî ekolünden etkilenen, yalnız Fâtiha'ya adanmış hacimli bir tasavvufi-dilbilimsel tefsir yazmıştır. Bu sayfadaki alıntılar Prof. Dr. Ali Akpınar'ın Türkçe ihtisar-tercümesinden alınmıştır.",
+      "descEn": "Influenced by the Ibn ʿArabī school, he wrote a voluminous Sufi-linguistic commentary devoted solely to the Fātiḥa. Quotations on this page are drawn from Prof. Dr. Ali Akpınar's abridged Turkish translation."
+    },
+    {
+      "nameTr": "Sadreddin Konevî",
+      "nameEn": "Ṣadr al-Dīn al-Qūnawī",
+      "died": "673 H / 1274 M",
+      "city": "Konya",
+      "workTr": "Fâtiha Sûresi Tefsiri (İ'câzü'l-Beyân)",
+      "workEn": "Tafsīr Sūrat al-Fātiḥa (Iʿjāz al-Bayān)",
+      "roleTr": "İbnü'l-Arabî Ekolü",
+      "roleEn": "Ibn ʿArabī School",
+      "descTr": "İbnü'l-Arabî'nin üvey oğlu ve en önemli takipçilerinden. Fâtiha'yı vahdet-i vücûd çerçevesinde \"Kur'an'ın eksiksiz nüshası\" olarak okur.",
+      "descEn": "Ibn ʿArabī's stepson and one of his most important followers. Reads the Fātiḥa within the framework of waḥdat al-wujūd as \"the complete copy of the Quran.\""
+    },
+    {
+      "nameTr": "Bediüzzaman Said Nursi",
+      "nameEn": "Bediüzzaman Said Nursi",
+      "died": "1379 H / 1960 M",
+      "city": "Isparta",
+      "workTr": "Sözler — Birinci Söz",
+      "workEn": "The Words — The First Word",
+      "roleTr": "Modern Türk İslam Düşüncesi",
+      "roleEn": "Modern Turkish Islamic Thought",
+      "descTr": "Risâle-i Nur'un açılış risalesi olan Birinci Söz, besmelenin her hayrın başı olduğunu, insanın Allah'ın adıyla hareket ettiğinde acziyetinden ve sonsuz kaygısından kurtulduğunu anlatır.",
+      "descEn": "The First Word, the opening treatise of the Risale-i Nur, explains that the basmala is the start of every good deed, and that acting in God's name frees a person from helplessness and endless anxiety."
+    },
+    {
+      "nameTr": "Nouman Ali Khan · Sharif Randhawa",
+      "nameEn": "Nouman Ali Khan · Sharif Randhawa",
+      "died": "çağdaş / contemporary",
+      "city": "ABD",
+      "workTr": "İlahî Söz — Kur'an'ın Edebî Dilini Keşfetmek (Timaş Yayınları)",
+      "workEn": "Divine Speech: Exploring the Qur'an as Literature",
+      "roleTr": "Çağdaş",
+      "roleEn": "Contemporary",
+      "descTr": "Fâtiha'nın kelime seçimini, gramerini ve 7 parçalı halka yapısını klasik ve akademik kaynaklara (es-Sâmerrâî, Neal Robinson) dayanarak edebi bir çerçevede sunar.",
+      "descEn": "Presents the Fātiḥa's word choice, grammar, and 7-part ring structure within a literary framework, drawing on classical and academic sources (al-Sāmarrā'ī, Neal Robinson)."
+    },
+    {
+      "nameTr": "Neal Robinson",
+      "nameEn": "Neal Robinson",
+      "died": "çağdaş / contemporary",
+      "city": "Birleşik Krallık",
+      "workTr": "\"The Dynamics of the Qur'anic Discourse\"",
+      "workEn": "\"The Dynamics of the Qur'anic Discourse\"",
+      "roleTr": "Çağdaş — Kur'an Akademisyeni",
+      "roleEn": "Contemporary — Quranic Scholar",
+      "descTr": "Fâtiha'daki her birinci/ikinci şahıs ifadesinin Bakara sûresinde bir karşılığı olduğunu gösteren \"çapa\" analizinin sahibi.",
+      "descEn": "Author of the \"anchor\" analysis showing that every first/second-person expression in the Fātiḥa has a counterpart in Sūrat al-Baqara."
+    },
+    {
+      "nameTr": "Hamdi Gündoğar",
+      "nameEn": "Hamdi Gündoğar",
+      "died": "çağdaş / contemporary",
+      "city": "Adıyaman",
+      "workTr": "\"İmam Mâtürîdî ve Fahreddin er-Râzî'de Fâtiha Sûresinin Tefsiri\"",
+      "workEn": "\"The Interpretation of al-Fātiḥa in al-Māturīdī and al-Rāzī\"",
+      "roleTr": "Çağdaş — Akademik Makale",
+      "roleEn": "Contemporary — Academic Article",
+      "descTr": "İslami İlimler Araştırmaları Dergisi'nde (2017) yayımlanan bu makale, Mâtürîdî ve Râzî'nin Fâtiha yorumlarını karşılaştırır.",
+      "descEn": "Published in İslami İlimler Araştırmaları Dergisi (2017), this article compares al-Māturīdī's and al-Rāzī's interpretations of the Fātiḥa."
+    }
+  ],
+  "besmele": {
+    "ref": "Fâtiha 1:1",
+    "ar": "بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّح۪يمِ",
+    "introTr": "Fâtiha'nın ilk âyeti aynı zamanda Kur'an'ın 113 sûresinin açılışıdır. Sekiz asırlık bir yorum zinciri, üç kelimelik bu cümlenin altında çok katmanlı bir mimari bulur.",
+    "introEn": "The Fātiḥa's first verse is also the opening of 113 of the Quran's surahs. An eight-century chain of interpretation finds a richly layered architecture beneath these three words.",
+    "perspectives": [
+      {
+        "scholar": "Bediüzzaman Said Nursi",
+        "scholarSub": "Sözler — Birinci Söz",
+        "viewTr": "Risâle-i Nur'un açılış risalesi olan Birinci Söz, besmelenin \"her hayrın başı\" olduğunu iki ayrı temsille anlatır — biri bir yolculuk, diğeri bir otorite meselesi üzerinedir.",
+        "viewEn": "The First Word, the opening treatise of the Risale-i Nur, explains that the basmala is \"the start of every good deed\" through two separate illustrations — one about a journey, the other about authority.",
+        "citation": "Bediüzzaman Said Nursi, Sözler, Birinci Söz.",
+        "points": [
+          {
+            "labelTr": "Çöldeki İki Yolcu",
+            "labelEn": "Two Travelers in the Desert",
+            "bodyTr": "Risale, bir çölde yolculuk eden iki adamı anlatır: biri alçakgönüllü, diğeri kibirli. Alçakgönüllü olan güçlü bir kabile reisinin adını ve himayesini üstlenir; bu sayede tehlikeli yerlerden emniyetle geçer, bir haydutla karşılaştığında yalnızca o reisin adını anmakla korunur, kuyularda ve geçitlerde saygıyla karşılanır. Kibirli olan ise reisin adını almayı reddeder; bütün yolculuğu boyunca tarifsiz belalar çeker, sürekli titrer, dilenmek zorunda kalır, hem hor hem rezil bir duruma düşer.",
+            "bodyEn": "The treatise portrays two men crossing a desert: one humble, one arrogant. The humble one takes on the name and protection of a powerful tribal chief; because of this he passes safely through dangerous places, is spared by a bandit merely by invoking the chief's name, and is received with respect at wells and mountain passes. The arrogant one refuses to take the chief's name; throughout his journey he suffers indescribable hardship, trembles constantly, is reduced to begging, and ends up both humiliated and disgraced."
+          },
+          {
+            "labelTr": "Kendi Adına mı, Otorite Adına mı Hareket Etmek",
+            "labelEn": "Acting in One's Own Name, or in an Authority's Name",
+            "bodyTr": "İkinci bir temsilde Risale, tek başına ve yalnız kendi gücüyle hareket eden bir adamla, bir devlet/otorite adına görev yapan bir adamı karşılaştırır: kendi adına davrananın etki alanı çok sınırlıdır ve halka bir şeyi zorla yaptırmakta güçlük çeker; devlet adına, o otoriteye dayanarak hareket eden ise geniş bir yetkiyle iş görür, herkes ona itaat eder, tek başına yapamayacağı işleri kolaylıkla başarır. Yazar bunu bütün varlık âlemine uygular: hiçbir mahlûk kendi başına yeterli değildir, her şey Allah'ın emriyle iş görür.",
+            "bodyEn": "In a second illustration, the treatise contrasts a man acting alone, on his own strength, with one carrying out a task in the name of the state or an authority: the one relying only on himself has a very limited reach and struggles to compel others to act, while the one acting in the authority's name, backed by it, operates with wide license — everyone obeys him, and he accomplishes with ease what he could never do alone. The author extends this to the whole of creation: no created being is self-sufficient; everything acts by God's command."
+          }
+        ]
+      },
+      {
+        "scholar": "Molla Fenârî",
+        "scholarSub": "Aynü'l-A'yân",
+        "viewTr": "Fenârî, besmeleden önce istiâzeyi ele alır, ardından besmeleyi dört ayrı eksende inceler: kelime tahlili, harf sembolizmi, âyet-sayılma tartışması ve namazla ilişkisi.",
+        "viewEn": "Fenârî treats the refuge formula before the basmala, then examines the basmala itself along four axes: word analysis, letter symbolism, the verse-status debate, and its link to prayer.",
+        "citation": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.61, 65-66, 68-69, 72-73, 166-189.",
+        "points": [
+          {
+            "labelTr": "İstiâze ve 'Racîm'in Anlamı",
+            "labelEn": "Seeking Refuge and the Meaning of 'Rejected'",
+            "bodyTr": "Fenârî \"racîm\"i yalnızca \"kovulmuş\" değil, göğe yükselmeye her kalkıştığında meleklerce taşlanan, insanı sürekli belaya sürükleyen bir varlık olarak geniş tanımlar. İstiâze çekmenin hükmünde ise cumhurun görüşünün vacip olmadığı yönünde olduğunu, bazı âlimlerin kıraat sırasında vacip saydığını, bir başka görüşe göre ise en azından ömürde bir kez çekilmesinin gerekli olduğunu aktarır.",
+            "bodyEn": "Fenârî defines \"rejected\" (rajīm) broadly — not merely \"expelled,\" but as a being stoned by the angels each time it attempts to ascend, one that constantly drags people into harm. On the ruling for the refuge formula itself, he reports that the majority view holds it is not obligatory, some scholars consider it obligatory during recitation, and another view requires it at least once in a lifetime."
+          },
+          {
+            "labelTr": "'Bâ' Harfinin Çok Katmanlı Anlamı",
+            "labelEn": "The Layered Meaning of the Letter 'Bā'",
+            "bodyTr": "Fenârî, istiâzedeki \"bâ\" ile besmeledeki \"bâ\"yı ayırır: ilki şeytanı def eden bir \"kahr bâ'sı\", ikincisi kulu Rabbine yaklaştıran bir \"vasıl bâ'sı\"dır. Harfin yazılışını ve altındaki noktayı tevazu sembolü sayar; bir harf-i cer olarak Allah lafzıyla Rahmân ismini birbirine bağladığını, dudak harfi olması dolayısıyla kulların Elest Bezmi'nde verdiği \"belâ\" cevabındaki ilk harfle özdeşleştiğini belirtir — tek harften İsim, Zât, Celâl ve Cemâl'e uzanan dört katmanlı bir işaret çıkarır.",
+            "bodyEn": "Fenârî distinguishes the \"bā\" of the refuge formula from the \"bā\" of the basmala: the first repels Satan (a \"bā of overpowering\"), the second draws the servant near the Lord (a \"bā of union\"). He reads the letter's form and low-set dot as a symbol of humility; as a preposition it links the name \"Allah\" to \"ar-Raḥmān,\" and — being a labial letter — he connects it to the first letter of humanity's \"yes\" (balā) at the primordial covenant, drawing four layers of meaning (Name, Essence, Majesty, Beauty) from a single letter."
+          },
+          {
+            "labelTr": "Besmele Bir Âyet midir? — Yedi Sayısının Sırrı",
+            "labelEn": "Is the Basmala a Verse? — The Secret of the Number Seven",
+            "bodyTr": "Fenârî'nin naklettiği ağırlıklı görüşe göre besmele müstakil bir âyettir, fakat ne Fâtiha'nın ne başka bir sûrenin ilk âyetidir — sûreleri ayırmak ve bereket için Kur'an'a yerleştirilmiştir. Peygamber'in Fâtiha'yı \"yedi âyet\" diye nitelemesiyle ilgili somut bir hesaplama farkı da aktarır: besmele âyet sayılırsa sûrenin birinci âyeti odur; sayılmazsa yedi sayısını tutturmak için altıncı âyetin sonu ile yedinci âyet ayrı ikiye bölünür.",
+            "bodyEn": "Per the majority view Fenârî reports, the basmala is an independent verse but is not the opening verse of the Fātiḥa or of any other sūrah — it was placed in the Qur'an to separate sūrahs and as a source of blessing. He also gives the concrete arithmetic behind the Prophet's description of the Fātiḥa as \"seven verses\": if the basmala counts as a verse, it is verse one; if not, the count of seven is reached instead by splitting the end of verse six and verse seven into two separate verses."
+          },
+          {
+            "labelTr": "Namazın Mi'racı: Eûzü-Besmele Yapısı",
+            "labelEn": "The Believer's Ascension in Prayer: The Refuge-Basmala Structure",
+            "bodyTr": "Fenârî, \"Namaz mü'minin mi'racıdır\" hadisini Eûzü-Besmele ikilisine bağlar: namazın zâhiri, kulun bedenen dünyaya sırt çevirip Allah'a yönelmesi; bâtını ise önce şeytandan sığınıp (Eûzü) sonra en kapsamlı isimle (Allah) O'na tam teslim olmaktır (Besmele). Rekâtların tekrarı bu teslimiyeti pekiştirir. Kitabın kapanışında bu çerçeve sûrenin tamamına, onu bir \"ayna\" olarak sunacak şekilde genişletilir.",
+            "bodyEn": "Fenârî links the hadith \"prayer is the believer's ascension\" to the refuge-basmala pair: prayer's outward form is the servant physically turning from the world toward God; its inward form is first seeking refuge from Satan, then fully surrendering to Him through His most comprehensive name. The repetition of prayer cycles reinforces this surrender. In the book's closing section, this frame is extended to the whole sūrah, presented as a \"mirror.\""
+          }
+        ]
+      },
+      {
+        "scholar": "Fethullah Gülen",
+        "scholarSub": "Fâtiha Üzerine Mülâhazalar",
+        "viewTr": "Gülen, besmeleye ayrı bir bölüm ayırır ve hem \"bâ\" harfinin gramerini hem besmelenin Fâtiha'yla olan bağını işler.",
+        "viewEn": "Gülen devotes a separate chapter to the basmala, treating both the grammar of its letter \"bā\" and its link to the Fātiḥa.",
+        "citation": "Fethullah Gülen, Fâtiha Üzerine Mülâhazalar, \"Besmele İle Alâkalı Mülâhazalar\" ve \"Besmele İle Fâtiha Arasındaki Münasebet\" bölümleri.",
+        "points": [
+          {
+            "labelTr": "Arş'tan İnsan Eline Uzanan Nûrânî Bir İp",
+            "labelEn": "A Luminous Cord from the Divine Throne to the Human Hand",
+            "bodyTr": "Gülen, besmeleyi \"bütün hayırlı işlerin başı\" ve Arş-ı A'zam'dan insanların eline uzatılmış nuranî bir ip olarak tasvir eder: kâinatın kapısı Bismillah'la açılmış, her hadise Bismillah'la meydana gelmiş, kıyamet de Bismillah'la kopacaktır. Bir hadise dayanarak, besmeleyle başlamayan önemli bir işin bereketsiz ve köksüz kalacağını aktarır; besmeledeki üç ismin (Allah, Rahmân, Rahîm) Kur'an'ın dört temel hakikatini (tevhid, nübüvvet, haşir, adalet) özetlediğini belirtir.",
+            "bodyEn": "Gülen portrays the basmala as \"the start of every good deed\" and as a luminous cord extended from the Divine Throne into human hands: the door of the universe was opened with it, every event comes about through it, and the Last Hour itself will break with it. Citing a hadith, he notes that any significant undertaking not begun with the basmala remains barren and rootless; he adds that the formula's three names (Allah, ar-Raḥmān, ar-Raḥīm) summarize the Qur'an's four foundational truths — divine oneness, prophethood, resurrection, and justice."
+          },
+          {
+            "labelTr": "'Bâ' Harfi ve Besmelenin Yedi Kelimesi",
+            "labelEn": "The Letter 'Bā' and the Basmala's Seven Words",
+            "bodyTr": "Gülen, besmelenin harf-i cer olan \"bâ\" ile başlamasını gramer açısından işler: bu harf \"ism\" kelimesini cer eder ve oluşan esre, kula Allah'ın huzuruna kırık bir kalple gelmeyi öğretir; \"bâ\"da ayrıca musâhabet (yakınlık) ve ilsâk (bağlanma) anlamları bulunur. Ayrıca besmelenin görünürde dört kelimeden oluştuğunu, ancak başına takdir edilen gizli bir fiil ve onun failiyle birlikte toplam yedi kelimeye tamamlandığını belirtir — Fâtiha'nın da yedi âyetten oluşuyla örtüşen bir sayı.",
+            "bodyEn": "Gülen gives a grammatical reading of the basmala's opening preposition \"bā\": it places \"name\" in the genitive, and the resulting vowel teaches the servant to come before God with a humbled heart; \"bā\" also carries the senses of closeness and attachment. He further notes that although the basmala appears to consist of four words, an implied opening verb and its subject complete it to seven words in total — a number that mirrors the Fātiḥa's own seven verses."
+          },
+          {
+            "labelTr": "Besmele-Fâtiha Bağı: Siyak-Sibak",
+            "labelEn": "The Basmala-Fātiḥa Link: Context and Sequence",
+            "bodyTr": "Gülen, bir sözün üç şekilde anlama delalet edebileceğini belirtir: herkesin anladığı vaz'î mana, düşünülerek ulaşılan aklî mana, ve yalnızca havassa özgü zevkî mana. Bu çerçevede Fâtiha'nın kendinden önceki besmele ile \"siyak ve sibak\" (bağlam) ilişkisi taşıdığını savunur: Fâtiha Kur'an'ın ilk sûresi olduğu için önünde başka bir sûre yoktur, ama başına takdir edilecek bir \"(oku)\" veya \"(söyle)\" fiili, tıpkı besmele gibi, sûreye bir bağlam kazandırır.",
+            "bodyEn": "Gülen states that an utterance's meaning can be grasped on three levels: the conventional sense everyone understands, a rational sense reached through reflection, and an intuitive sense reserved for the spiritually elite. On this basis he argues that the Fātiḥa carries a contextual relationship with the basmala that precedes it: since the Fātiḥa is the Qur'an's first sūrah, nothing precedes it textually, but an implied opening verb such as \"(recite)\" or \"(say)\", like the basmala itself, supplies it with a context."
+          }
+        ]
+      },
+      {
+        "scholar": "İmam Mâtürîdî & Fahreddin er-Râzî",
+        "viewTr": "Gündoğar'ın karşılaştırmalı incelemesine göre iki âlim de Fâtiha'nın besmeleyle açılışını, sûrenin geri kalanına bir çerçeve olarak okur; makalenin genel sonucu, aralarındaki farkın bir yöntem ayrılığından çok üslup farkından ibaret olduğudur: \"Farklı kelam ekollerine mensup olan İmam Mâtürîdî ve Fahreddin er-Râzî, Fâtiha'nın tefsirinde önemli oranda benzer yorumlarda bulunmuşlardır.\"",
+        "viewEn": "Per Gündoğar's comparative study, both scholars read the Fātiḥa's opening with the basmala as a frame for the rest of the surah; the article's overall conclusion is that their difference is more a matter of style than method: \"Despite belonging to different theological schools, Imam al-Māturīdī and Fakhr al-Dīn al-Rāzī offer significantly similar interpretations in their commentary on al-Fātiḥa.\"",
+        "citation": "Gündoğar (2017), s.14, 25."
+      }
+    ],
+    "facts": [
+      {
+        "labelTr": "Besmelesiz Tek Sûre",
+        "labelEn": "The Only Surah Without It",
+        "bodyTr": "Kur'an'ın 114 sûresinden 113'ü besmeleyle açılır — istisna Tevbe sûresidir. Tevbe 9:1 doğrudan \"Berâetün mine'llâhi ve Rasûlihi...\" ile başlar, önünde besmele yoktur.",
+        "bodyEn": "113 of the Quran's 114 surahs open with the basmala — the exception is Sūrat al-Tawba. Verse 9:1 begins directly with \"[This is a declaration of] disassociation from God and His Messenger...\" with no basmala preceding it."
+      },
+      {
+        "labelTr": "Bir Âyetin İçinde Geçtiği Tek Yer",
+        "labelEn": "The One Place It Appears Inside a Verse",
+        "bodyTr": "Besmele başka hiçbir yerde bağımsız bir açılış formülü olmanın dışına çıkmaz — tek istisna Neml 27:30'dur: Süleyman'ın Sebe' Melikesi'ne gönderdiği mektup \"O, Süleyman'dandır ve o, 'Bismillahirrahmanirrahim...' diye başlar\" ifadesiyle aktarılır — besmele burada bizzat âyet metninin içine yerleşmiştir.",
+        "bodyEn": "The basmala never appears anywhere else except as an independent opening formula — the sole exception is 27:30 (al-Naml): Solomon's letter to the Queen of Sheba is quoted as beginning \"It is from Solomon, and it reads: 'In the name of God, the Most Merciful, the Especially Merciful...'\" — here the basmala is embedded within the verse's own text."
+      }
+    ]
+  },
+  "sevenReadings": {
+    "titleTr": "Bir Hutbede Yedi Fâtiha",
+    "titleEn": "Seven Readings of the Fātiḥa, in One Sermon",
+    "bodyTr": "Fenârî bu hutbeyi şöyle anlatır: \"Öyle bir hutbe îrâd etti ki herkes hayran kaldı. Fâtiha sûresi ile ilgili bir kısım müşküllerimizi halletti. Sûrenin yedi türlü tefsirini yaptı. Birinci tefsirini bütün cemaat anladı, ikinci tefsirini cemaatin bir kısmı anladı, üçüncü tefsirini ise anlayanlar pek az kimselerdi. Dördüncü ve sonraki yorumlarını ise pek anlayan yok gibiydi!\" Kitabın girişinde bu anekdotun hemen ardından, Fenârî'nin kendi Fâtiha tefsirinin de aynı çok katmanlı yapıyı taşıdığı, bazı açıklamalarının ancak konunun uzmanlarınca anlaşılabileceği açıkça belirtilir — yani bu sadece ilham veren bir anı değil, kitabın kendi üslup tercihinin doğrudan kaynağı olarak sunulur.",
+    "bodyEn": "Fenârî describes the sermon: \"He gave such a sermon that everyone was astonished. He resolved some of our difficulties concerning the Fātiḥa. He interpreted the surah seven different ways. Everyone present understood his first interpretation; only some understood the second; very few understood the third. Almost no one understood the fourth and beyond!\" Immediately after this anecdote, the book's introduction states outright that Fenârî's own Fātiḥa commentary carries the same multi-layered structure, with some of its explanations understandable only to specialists — so this is presented not merely as an inspiring memory, but as the direct source of the book's own stylistic choice.",
+    "citationTr": "Molla Fenârî, Aynü'l-A'yân (İhtisar-Tercüme: Ali Akpınar), s.28.",
+    "citationEn": "Molla Fenârî, Aynü'l-A'yân (abridged Turkish trans. Ali Akpınar), p.28.",
+    "contextTr": "Sultan Yıldırım Bayezid, 1396'daki Niğbolu zaferinin ardından Bursa Ulu Câmii'ni inşa ettirmiş ve açılış Cuma hutbesini hocası Şeyh Hâmid-i Velî'ye (Somuncu Baba) okutmuştur. O dönem Bursa kadısı olan Molla Fenârî de cemaat arasındadır.",
+    "contextEn": "After the 1396 victory at Nicopolis, Sultan Bayezid I had the Bursa Ulu Mosque built and had its opening Friday sermon delivered by his own teacher, Shaykh Ḥāmid al-Walī (\"Somuncu Baba\"). Molla Fenârî, then serving as Bursa's judge, was among the congregation."
+  }
+}

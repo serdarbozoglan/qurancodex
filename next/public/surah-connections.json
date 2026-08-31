@@ -172,7 +172,7 @@
       "nameTr": "Nouman Ali Khan · Sharif Randhawa",
       "roleTr": "Çağdaş",
       "roleEn": "Contemporary",
-      "workTr": "Divine Speech (Bayyinah Institute, 2016)",
+      "workTr": "İlahî Söz (Bayyinah Institute, 2016)",
       "noteTr": "Klasik ve modern münâsebât çalışmalarını sentezleyen, \"çıpa\" terimini öneren edebî-Kur'an çalışması. \"Sûre İçi Tutarlılık\" sekmesinin ana kaynağı.",
       "noteEn": "A literary-Quranic study synthesizing classical and modern munāsabāt scholarship, coining the term \"anchor.\" The primary source for the \"Within a Surah\" tab."
     }
@@ -863,7 +863,7 @@
     }
   ],
   "intraSurah": {
-    "introTr": "Klasik münâsebât ilminin bir de içe bakan yarısı vardır: sûreler birbirine değil, bir sûrenin KENDİ parçaları birbirine nasıl bağlanır? Nouman Ali Khan ve Sharif Randhawa, Divine Speech'te bu bağı kuran ortak kök, kelime, imge veya ses örüntülerine bir isim verir: çıpa.",
+    "introTr": "Klasik münâsebât ilminin bir de içe bakan yarısı vardır: sûreler birbirine değil, bir sûrenin KENDİ parçaları birbirine nasıl bağlanır? Nouman Ali Khan ve Sharif Randhawa, İlahî Söz'te bu bağı kuran ortak kök, kelime, imge veya ses örüntülerine bir isim verir: çıpa.",
     "introEn": "Classical munāsabāt has an inward-facing half too: not how surahs relate to each other, but how a single surah's OWN parts hold together. Nouman Ali Khan and Sharif Randhawa, in Divine Speech, give a name to the shared roots, words, images or sound patterns that create this bond: anchors.",
     "anchorConcept": {
       "titleTr": "\"Çıpa\" (Anchor) Nedir?",
@@ -872,7 +872,7 @@
       "bodyEn": "The book introduces this as its own coinage: a shared root, word, image, parallel expression, or sound pattern that links different sections of a surah — or even separate surahs. The more formal academic name for the phenomenon is \"intertextuality\"; the authors prefer a plain one.",
       "quoteTr": "\"Farklı ayetlerin, pasajların veya bir sûre içindeki (hatta ayrı sûreler arasındaki) bölümlerin; paylaştıkları anahtar terimler, fiil kökleri, imgeler, paralel ifadeler, hatta ses örüntüleriyle nasıl birbirine bağlandığını ele alıyoruz. Bu öğelere çıpa diyeceğiz.\"",
       "quoteEn": "\"This is concerned with how different verses, passages, or sections within a sura, or even between separate suras, are interconnected by key terms, verbal roots, images, parallel expressions, or even sound patterns that they share. We will call these items anchors.\"",
-      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 152."
+      "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 152."
     },
     "naziatExample": {
       "titleTr": "Canlı Örnek: Nâziât Sûresi (79)",
@@ -895,7 +895,7 @@
           "noteEn": "The word \"pasturage\" (marʿā) in the Judgment scene (79:33) ties back to the Moses-Pharaoh narrative. The book highlights a striking detail: the verb \"to pasture\" occurs in the Quran ONLY in surahs that also mention Moses (28, 38, 87, 79)."
         }
       ],
-      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 153-163, Neal Robinson'ın Discovering the Qur'an (s. 177-188) çözümlemesinden aktarır."
+      "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 153-163, Neal Robinson'ın Discovering the Qur'an (s. 177-188) çözümlemesinden aktarır."
     },
     "bakaraRing": {
       "titleTr": "Bakara Sûresi'nin Tam Halkası",
@@ -903,17 +903,67 @@
       "introTr": "286 ayetlik Kur'an'ın en uzun sûresi bile bir halka kompozisyondur. Merkez, tam da sûrenin sayısal ortasına (143. ayet) denk düşer — kıblenin Kâbe'ye çevrildiği ayet.",
       "introEn": "Even the Quran's longest surah, 286 verses, is a ring composition. Its center falls precisely at the surah's numerical midpoint (verse 143) — the verse that turns the direction of prayer toward the Kaaba.",
       "sections": [
-        { "label": "A", "range": "1-39", "titleTr": "İman ve İnkâr", "titleEn": "Faith and Disbelief", "noteTr": "Mü'minler ve kâfirler tanıtılır; Allah yaratır ve diriltecektir.", "noteEn": "Believers and disbelievers are introduced; God created and will resurrect." },
-        { "label": "B", "range": "40-121", "titleTr": "İsrailoğulları'nın Eleştirisi", "titleEn": "Criticism of the Israelites", "noteTr": "Hz. Mûsâ, şeriatı İsrailoğulları'na tebliğ eder; onlar boyun eğmez.", "noteEn": "Moses delivers the law to the Children of Israel; they fail to submit." },
-        { "label": "C", "range": "122-141", "titleTr": "Hz. İbrahim'in Mirası", "titleEn": "Abraham's Legacy", "noteTr": "İbrahim sınanır; Kâbe'yi İsmail ile inşa eder; soyunun tevhide dönmesi için dua eder.", "noteEn": "Abraham is tested; he builds the Kaaba with Ishmael; he prays his descendants return to monotheism." },
-        { "label": "D", "range": "142-152", "center": true, "titleTr": "Kıble Değişimi — Merkez", "titleEn": "The Change of Qibla — the Centre", "noteTr": "Yeni Müslüman topluluk, \"orta bir ümmet\" olarak kurulur; iyilikte yarışmaya çağrılır.", "noteEn": "The new Muslim community is established as a \"middle nation,\" called to compete in good works." },
-        { "label": "C'", "range": "153-177", "titleTr": "İbrahim'in Mirasının Yeniden Kurulması", "titleEn": "Restoring Abraham's Legacy", "noteTr": "Müslümanlar sınanacaktır; Mekke'ye yapılan hac talimatları; atalara/onların ilahlarına rakip koşmama uyarısı.", "noteEn": "Muslims will be tested; instructions on pilgrimage to Mecca; a warning against rivaling ancestors or their gods." },
-        { "label": "B'", "range": "178-242", "titleTr": "Yeni Müslüman Ümmete Şeriat", "titleEn": "Laws for the New Muslim Nation", "noteTr": "Peygamber, şeriatı Müslümanlara tebliğ eder; onlar tam bir teslimiyetle çağrılır.", "noteEn": "The Prophet delivers the law to the Muslims; they are urged to submit wholeheartedly." },
-        { "label": "A'", "range": "243-286", "titleTr": "Mü'minlerin Mücadelesi", "titleEn": "The Believers' Struggle", "noteTr": "Mü'minler kâfirlere karşı mücadele eder; Allah'ın yaratma ve diriltme kudreti; mali muamele hükümleri.", "noteEn": "Believers struggle against disbelievers; God's power over creation and resurrection; rulings on financial dealings." }
+        {
+          "label": "A",
+          "range": "1-39",
+          "titleTr": "İman ve İnkâr",
+          "titleEn": "Faith and Disbelief",
+          "noteTr": "Mü'minler ve kâfirler tanıtılır; Allah yaratır ve diriltecektir.",
+          "noteEn": "Believers and disbelievers are introduced; God created and will resurrect."
+        },
+        {
+          "label": "B",
+          "range": "40-121",
+          "titleTr": "İsrailoğulları'nın Eleştirisi",
+          "titleEn": "Criticism of the Israelites",
+          "noteTr": "Hz. Mûsâ, şeriatı İsrailoğulları'na tebliğ eder; onlar boyun eğmez.",
+          "noteEn": "Moses delivers the law to the Children of Israel; they fail to submit."
+        },
+        {
+          "label": "C",
+          "range": "122-141",
+          "titleTr": "Hz. İbrahim'in Mirası",
+          "titleEn": "Abraham's Legacy",
+          "noteTr": "İbrahim sınanır; Kâbe'yi İsmail ile inşa eder; soyunun tevhide dönmesi için dua eder.",
+          "noteEn": "Abraham is tested; he builds the Kaaba with Ishmael; he prays his descendants return to monotheism."
+        },
+        {
+          "label": "D",
+          "range": "142-152",
+          "center": true,
+          "titleTr": "Kıble Değişimi — Merkez",
+          "titleEn": "The Change of Qibla — the Centre",
+          "noteTr": "Yeni Müslüman topluluk, \"orta bir ümmet\" olarak kurulur; iyilikte yarışmaya çağrılır.",
+          "noteEn": "The new Muslim community is established as a \"middle nation,\" called to compete in good works."
+        },
+        {
+          "label": "C'",
+          "range": "153-177",
+          "titleTr": "İbrahim'in Mirasının Yeniden Kurulması",
+          "titleEn": "Restoring Abraham's Legacy",
+          "noteTr": "Müslümanlar sınanacaktır; Mekke'ye yapılan hac talimatları; atalara/onların ilahlarına rakip koşmama uyarısı.",
+          "noteEn": "Muslims will be tested; instructions on pilgrimage to Mecca; a warning against rivaling ancestors or their gods."
+        },
+        {
+          "label": "B'",
+          "range": "178-242",
+          "titleTr": "Yeni Müslüman Ümmete Şeriat",
+          "titleEn": "Laws for the New Muslim Nation",
+          "noteTr": "Peygamber, şeriatı Müslümanlara tebliğ eder; onlar tam bir teslimiyetle çağrılır.",
+          "noteEn": "The Prophet delivers the law to the Muslims; they are urged to submit wholeheartedly."
+        },
+        {
+          "label": "A'",
+          "range": "243-286",
+          "titleTr": "Mü'minlerin Mücadelesi",
+          "titleEn": "The Believers' Struggle",
+          "noteTr": "Mü'minler kâfirlere karşı mücadele eder; Allah'ın yaratma ve diriltme kudreti; mali muamele hükümleri.",
+          "noteEn": "Believers struggle against disbelievers; God's power over creation and resurrection; rulings on financial dealings."
+        }
       ],
       "quoteTr": "\"...sûrenin etrafında 'döndüğü' söylenebilecek merkezî dönüm noktası.\" Kitap ayrıca 143. ayetin ('orta bir ümmet') sûrenin 286 ayetlik toplamının tam sayısal ortasına denk geldiğini not eder.",
       "quoteEn": "\"...the central turning point of the sura, around which the sura could be said to 'revolve.'\" The book also notes that verse 143 (the \"middle nation\" verse) falls at the exact numerical center of the sura's 286 verses.",
-      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 209."
+      "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 209."
     },
     "etiMotif": {
       "titleTr": "Seçilme, Talimat, Sınama Motifi",
@@ -921,15 +971,46 @@
       "bodyTr": "Nevin Reda'nın tespit ettiği bir örüntüyü aktaran kitap, Bakara'nın farklı bölümlerinde üç unsurun (bir role Seçilme, bir Talimat, bir Sınama) tekrarlandığını, ama HER SEFERİNDE farklı bir sırada göründüğünü gösterir. Kitabın kendi katkısı: bu sıraların düzeni, İbrahim bölümünü merkeze alan ayna-simetrik bir örüntü oluşturur.",
       "bodyEn": "Drawing on a pattern identified by Nevin Reda, the book shows that three elements (an Election to a role, an Instruction, and a Test) recur across Baqara's sections — but in a DIFFERENT order each time. The book's own contribution: the sequence of these orders forms a mirror-symmetric pattern centered on the Abraham section.",
       "sequence": [
-        { "figureTr": "Âdem (Bölüm A, 1-39)", "figureEn": "Adam (Section A, 1-39)", "order": "Seçilme → Sınama → Talimat", "orderEn": "Election → Test → Instruction", "code": "S-N-T" },
-        { "figureTr": "İsrailoğulları (Bölüm B, 40-121)", "figureEn": "Children of Israel (Section B, 40-121)", "order": "Seçilme → Talimat → Sınama", "orderEn": "Election → Instruction → Test", "code": "S-T-N" },
-        { "figureTr": "Hz. İbrahim (Bölüm C, 122-141)", "figureEn": "Abraham (Section C, 122-141)", "order": "Sınama → Seçilme → Talimat", "orderEn": "Test → Election → Instruction", "code": "N-S-T", "center": true },
-        { "figureTr": "Kıble Değişimi (Bölüm D, 142-152)", "figureEn": "Change of Qibla (Section D, 142-152)", "order": "Sınama → Talimat → Seçilme", "orderEn": "Test → Instruction → Election", "code": "N-T-S" },
-        { "figureTr": "Yeni Ümmet (Bölüm C'-B', 153-242)", "figureEn": "The New Nation (Sections C'-B', 153-242)", "order": "Seçilme → Sınama → Talimat", "orderEn": "Election → Test → Instruction", "code": "S-N-T" }
+        {
+          "figureTr": "Âdem (Bölüm A, 1-39)",
+          "figureEn": "Adam (Section A, 1-39)",
+          "order": "Seçilme → Sınama → Talimat",
+          "orderEn": "Election → Test → Instruction",
+          "code": "S-N-T"
+        },
+        {
+          "figureTr": "İsrailoğulları (Bölüm B, 40-121)",
+          "figureEn": "Children of Israel (Section B, 40-121)",
+          "order": "Seçilme → Talimat → Sınama",
+          "orderEn": "Election → Instruction → Test",
+          "code": "S-T-N"
+        },
+        {
+          "figureTr": "Hz. İbrahim (Bölüm C, 122-141)",
+          "figureEn": "Abraham (Section C, 122-141)",
+          "order": "Sınama → Seçilme → Talimat",
+          "orderEn": "Test → Election → Instruction",
+          "code": "N-S-T",
+          "center": true
+        },
+        {
+          "figureTr": "Kıble Değişimi (Bölüm D, 142-152)",
+          "figureEn": "Change of Qibla (Section D, 142-152)",
+          "order": "Sınama → Talimat → Seçilme",
+          "orderEn": "Test → Instruction → Election",
+          "code": "N-T-S"
+        },
+        {
+          "figureTr": "Yeni Ümmet (Bölüm C'-B', 153-242)",
+          "figureEn": "The New Nation (Sections C'-B', 153-242)",
+          "order": "Seçilme → Sınama → Talimat",
+          "orderEn": "Election → Test → Instruction",
+          "code": "S-N-T"
+        }
       ],
       "noteTr": "Âdem ile yeni ümmetin sırası birebir aynıdır (Seçilme-Sınama-Talimat); tam ortada duran Hz. İbrahim ise kendine has bir sırayla tek başına öne çıkar. Yazarlar bu diziliş yorumunun Reda'nınkinden farklı olduğunu ayrıca belirtir.",
       "noteEn": "Adam and the new nation share the identical order (Election-Test-Instruction); Abraham, sitting at the very centre, stands out with a unique order of its own. The authors note their reading of this sequencing differs from Reda's.",
-      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 211-212, Nevin Reda, Textual Integrity, s. 161-163, 165-166, 177-178."
+      "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 211-212, Nevin Reda, Textual Integrity, s. 161-163, 165-166, 177-178."
     },
     "section1Anchors": {
       "titleTr": "Bakara'nın İlk Bölümündeki Çıpalar",
@@ -937,16 +1018,56 @@
       "introTr": "Kitap, \"çıpa\" kavramını somutlaştırmak için Bakara'nın ilk 39 ayetinden bir örnek liste sunar — sûrenin TAMAMI için değil, yalnız bu ilk bölüm içindir; yazarlar bunun \"sadece bir örnek\" olduğunu vurgular.",
       "introEn": "To make the \"anchor\" concept concrete, the book offers a sample list from Baqara's first 39 verses — for this first section only, not the whole surah; the authors stress it is \"just a sample.\"",
       "items": [
-        { "termAr": "رَيْب", "termTr": "şüphe (rayb)", "termEn": "doubt (rayb)", "verses": "2, 23" },
-        { "termAr": "غَيْب", "termTr": "gayb", "termEn": "the unseen (ghayb)", "verses": "3, 33" },
-        { "termAr": "عِلْم", "termTr": "ilim kökü", "termEn": "the root of knowledge", "verses": "13, 22, 26, 29, 30-33" },
-        { "termAr": "أَنْزَلَ", "termTr": "indirme (inzâl)", "termEn": "sending down (inzāl)", "verses": "4, 22, 23" },
-        { "termAr": "فَسَاد", "termTr": "bozgunculuk (fesad)", "termEn": "corruption (fasād)", "verses": "11, 27, 30" },
-        { "termAr": "مَثَل", "termTr": "misal/mesel", "termEn": "parable (mathal)", "verses": "17, 23, 26" },
-        { "termAr": "نَار", "termTr": "ateş (nâr)", "termEn": "fire (nār)", "verses": "17, 24, 39" },
-        { "termAr": "مَوْت", "termTr": "ölüm kökü", "termEn": "the root of death", "verses": "19, 28" }
+        {
+          "termAr": "رَيْب",
+          "termTr": "şüphe (rayb)",
+          "termEn": "doubt (rayb)",
+          "verses": "2, 23"
+        },
+        {
+          "termAr": "غَيْب",
+          "termTr": "gayb",
+          "termEn": "the unseen (ghayb)",
+          "verses": "3, 33"
+        },
+        {
+          "termAr": "عِلْم",
+          "termTr": "ilim kökü",
+          "termEn": "the root of knowledge",
+          "verses": "13, 22, 26, 29, 30-33"
+        },
+        {
+          "termAr": "أَنْزَلَ",
+          "termTr": "indirme (inzâl)",
+          "termEn": "sending down (inzāl)",
+          "verses": "4, 22, 23"
+        },
+        {
+          "termAr": "فَسَاد",
+          "termTr": "bozgunculuk (fesad)",
+          "termEn": "corruption (fasād)",
+          "verses": "11, 27, 30"
+        },
+        {
+          "termAr": "مَثَل",
+          "termTr": "misal/mesel",
+          "termEn": "parable (mathal)",
+          "verses": "17, 23, 26"
+        },
+        {
+          "termAr": "نَار",
+          "termTr": "ateş (nâr)",
+          "termEn": "fire (nār)",
+          "verses": "17, 24, 39"
+        },
+        {
+          "termAr": "مَوْت",
+          "termTr": "ölüm kökü",
+          "termEn": "the root of death",
+          "verses": "19, 28"
+        }
       ],
-      "citation": "Nouman Ali Khan & Sharif Randhawa, Divine Speech (2016), s. 186-187."
+      "citation": "Nouman Ali Khan & Sharif Randhawa, İlahî Söz (2016), s. 186-187."
     }
   }
 }

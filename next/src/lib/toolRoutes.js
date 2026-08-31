@@ -28,6 +28,7 @@ export const TOOL_ROUTES = {
   openDuaVerses:       '/arac/dualar',
   openAddresseeSystem: '/arac/muhataplar',
   openEsmaFrekans:     '/arac/esma-frekans',
+  openFatihaAtlasi:    '/atlas/fatiha',
   openKiraatAtlas:     '/atlas/kiraat',
   openDiyalogAgi:      '/graf/diyalog',
   openMeselAtlas:      '/atlas/mesel',
