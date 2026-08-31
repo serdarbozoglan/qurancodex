@@ -219,6 +219,26 @@
         "keyPhrase": "وَتَكُونُ الْجِبَالُ كَالْعِهْنِ الْمَنفُوشِ",
         "angleTr": "Dağlar didiklenmiş renkli yün gibi olur"
       }
+    },
+    {
+      "id": "flood-metal-fitna",
+      "themeTr": "Sel Köpüğü ve Maden Cürufu: Hak ile Bâtıl",
+      "themeEn": "Flood Foam and Metal Dross: Truth and Falsehood",
+      "sharedThemeTr": "Tek bir âyet (Ra'd 13:17) içinde iki ikiz benzetme — ikisinde de yüzeye çıkan 'zebed' gider, faydalı olan kalır. Kitaba göre bu ikili imge, tarihsel bir okumaya da açılır: Mekke'de inkâr açıkça görünürken (su/köpük gibi), Medine'de münafıkların gizli sahteliği ancak Bedir, Uhud, Hendek gibi imtihanların ateşiyle (maden/cüruf gibi) ayrışmıştır.",
+      "sideA": {
+        "parableId": "flood-foam",
+        "ref": "13:17",
+        "domainColor": "#3498db",
+        "keyPhrase": "فَسَالَتْ أَوْدِيَةٌ بِقَدَرِهَا فَاحْتَمَلَ السَّيْلُ زَبَدًا رَّابِيًا",
+        "angleTr": "Su ve köpük — sel akar, köpük yüzeye çıkar ama gider"
+      },
+      "sideB": {
+        "parableId": "metal-dross",
+        "ref": "13:17",
+        "domainColor": "#c9a227",
+        "keyPhrase": "يُوقِدُونَ عَلَيْهِ فِي النَّارِ ... زَبَدٌ مِّثْلُهُ",
+        "angleTr": "Ateş ve cüruf — maden eritilir, cürufu gider, faydalısı kalır"
+      }
     }
   ]
 }

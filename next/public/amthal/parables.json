@@ -190,7 +190,7 @@
       "category": "worldly-transience",
       "imageryDomain": "plant-tree",
       "keyPhrase": "إِنَّمَا الْحَيَاةُ الدُّنْيَا لَعِبٌ وَلَهْوٌ",
-      "summaryTr": "Oyun, eğlence, süslenme, çokluk yarışı — sonra kuruyup sararır.",
+      "summaryTr": "Beş evre: oyun, eğlence, süslenme, aranızda övünme, mal ve evlatta çoğalma yarışı — sonra kuruyup sararır. Verilen ikinci meselde yağmurun bitirdiği ekin 'kuffâr'ı (çiftçileri) sevindirir — kâfir kelimesinin kök anlamı 'örten, gömen'dir; tıpkı çiftçinin tohumu toprağa gömmesi gibi, kâfir de hakikati gömüp Allah'a olan borcunu gizler.",
       "parableType": "sarih",
       "pairedWith": null,
       "makkiMadani": "madani",
@@ -276,7 +276,7 @@
       "keyPhrase": "أَنزَلَ مِنَ السَّمَاءِ مَاءً فَسَالَتْ أَوْدِيَةٌ",
       "summaryTr": "Seller akar, köpük yüze çıkar ama gider — faydalı olan kalır — İbn Abbas'tan nakledilen bir yoruma göre 'vadiler kendi ölçülerince aktı' ifadesi, kalplerin vahyi alma kapasitelerindeki farka işaret eder.",
       "parableType": "sarih",
-      "pairedWith": null,
+      "pairedWith": "metal-dross",
       "makkiMadani": "madani",
       "rhetoricType": "temsil"
     },
@@ -1007,6 +1007,20 @@
       "rhetoricType": "tesbih",
       "pairedWith": null,
       "makkiMadani": "makki"
+    },
+    {
+      "id": "metal-dross",
+      "nameTr": "Maden Cürufu (Fitne Meseli)",
+      "surah": 13,
+      "ayah": 17,
+      "category": "truth-falsehood",
+      "imageryDomain": "light-fire",
+      "keyPhrase": "يُوقِدُونَ عَلَيْهِ فِي النَّارِ ابْتِغَاءَ حِلْيَةٍ أَوْ مَتَاعٍ زَبَدٌ مِّثْلُهُ",
+      "summaryTr": "Süs eşyası veya alet yapmak için ateşte eritilen madenden de köpüğe benzer bir cüruf çıkar — aynı 'zebed' kelimesi hem sel köpüğü hem maden cürufu için kullanılır. Mekke döneminde inkârcılık (Ebû Cehil gibi) açıkça görünürken, Medine'de münafıkların gizli sahteliği ancak Bedir, Uhud ve Hendek gibi imtihanların ateşiyle ayrışır. 'Fitne' kelimesi de tam bu maden eritme (fe-te-ne) kökünden gelir (bkz. 29:2).",
+      "parableType": "sarih",
+      "pairedWith": "flood-foam",
+      "makkiMadani": "madani",
+      "rhetoricType": "temsil"
     }
   ]
 }

@@ -9,6 +9,7 @@ import {
 import LoadingOverlay from './LoadingOverlay';
 import useFocusTrap from '../hooks/useFocusTrap';
 import ToolHeader from './ToolHeader';
+import HeroGeometricBackground from './HeroGeometricBackground';
 import useNavbarOffset from './useNavbarOffset';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -149,9 +150,80 @@ const RHETORIC_TYPE_LABELS = {
   'kiyas':           'Kıyas',
 };
 
+// ── Cinematic Hero (§13.18) ───────────────────────────────────────────────────
+function Hero({ language, isMobile }) {
+  const tr = language === 'tr';
+  return (
+    <div style={{
+      position: 'relative', overflow: 'hidden',
+      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
+      borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
+      textAlign: 'center',
+    }}>
+      <HeroGeometricBackground />
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div aria-hidden="true" style={{
+          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+          color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
+        }}>﷽</div>
+
+        <p dir="rtl" lang="ar" style={{
+          fontFamily: FONTS.quran, color: COLORS.gold,
+          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          lineHeight: 2.1, margin: '0 0 14px',
+        }}>
+          وَتِلْكَ الْأَمْثَالُ نَضْرِبُهَا لِلنَّاسِ وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ
+        </p>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
+          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          maxWidth: '660px', margin: '0 auto 8px',
+        }}>
+          {tr
+            ? '"İşte bunlar, insanlar için verdiğimiz misallerdir; onları ancak bilenler anlar."'
+            : '"And these examples We present to the people, but none grasp them except those of knowledge."'}
+        </p>
+        <p style={{
+          fontFamily: FONTS.body, color: COLORS.silver, opacity: 0.7,
+          fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+          margin: '0 0 24px',
+        }}>— {tr ? 'Ankebût 29:43' : 'Al-Ankabut 29:43'}</p>
+
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
+          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          maxWidth: '700px', margin: '0 auto 24px',
+        }}>
+          {tr
+            ? <>Aynı Türkçe kelimeye çevrilen iki mesel çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şeyi</em> anlatmaz — her motif kendi bağlamında, kendi <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>hikmetini</em> taşır.</>
+            : <>Two parables that translate the same way often do not mean the <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>same thing</em> — each image carries its own <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>wisdom</em> within its context.</>}
+        </p>
+
+        <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
+
+        <p style={{
+          color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
+          textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
+        }}>{tr ? "İLMÜ'L-EMSÂL · KUR'ÂN'IN BENZETME DİLİ" : "ʿILM AL-AMTHĀL · THE QUR'AN'S LANGUAGE OF PARABLE"}</p>
+        <h1 style={{
+          fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
+          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          lineHeight: 1.2, margin: '0 0 10px',
+        }}>{tr ? 'Mesel Atlası' : 'Atlas of Quranic Parables'}</h1>
+        <p style={{
+          fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
+          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          margin: 0,
+        }}>{tr ? 'Su, ışık, bitki, hayvan — her motif bir hikmet taşır' : 'Water, light, plant, animal — every motif carries a wisdom'}</p>
+      </div>
+    </div>
+  );
+}
+
 // ── Tab definitions ──────────────────────────────────────────────────────────
-const TABS_TR = ['İmge Evreni', 'Mesel Kataloğu', 'Çift Meseller', 'Nûr & Zulumât', 'Hayvan Atlası', 'Bilgi'];
-const TABS_EN = ['Imagery Universe', 'Parable Catalogue', 'Paired Parables', 'Light & Darkness', 'Animal Atlas', 'Info'];
+const TABS_TR = ['Motif Alanları', 'Mesel Kataloğu', 'Çift Meseller', 'Nûr & Zulumât', 'Hayvan Atlası', 'Bilgi'];
+const TABS_EN = ['Motif Domains', 'Parable Catalogue', 'Paired Parables', 'Light & Darkness', 'Animal Atlas', 'Info'];
 
 // ── Chip / pill ──────────────────────────────────────────────────────────────
 function Chip({ label, color, active, onClick, small }) {
@@ -210,7 +282,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
         </span>
       </div>
       <div style={{ fontFamily: FONTS.body, fontSize: '0.74rem', color: domain.color, fontWeight: 700, letterSpacing: '0.04em', marginBottom: 12 }}>
-        {count} {language === 'tr' ? 'imge' : 'motifs'}
+        {count} {language === 'tr' ? 'motif' : 'motifs'}
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
         {exampleNodes.map(n => (
@@ -226,7 +298,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
   );
 }
 
-function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
+function TabMotifAlanlari({ data, onDomainFilter, language, isMobile }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -250,16 +322,16 @@ function TabImgeEvreni({ data, onDomainFilter, language, isMobile }) {
             marginBottom: 14,
           }}>
             <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.6rem', color: COLORS.gold, lineHeight: 1 }}>
-              أ
+              م
             </span>
           </div>
           <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.55rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
-            {language === 'tr' ? 'İmge Evreni' : 'Imagery Universe'}
+            {language === 'tr' ? 'Motif Alanları' : 'Motif Domains'}
           </h2>
           <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.86rem' : '0.9rem', color: COLORS.silver, opacity: 0.85, maxWidth: 560, margin: '0 auto' }}>
             {language === 'tr'
-              ? `Kur'ân mesellerinin çekildiği ${domains.length} imge alanı — ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
-              : `The ${domains.length} imagery domains Quranic parables draw from — ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
+              ? `Kur'ân mesellerinin çekildiği ${domains.length} motif alanı — ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
+              : `The ${domains.length} motif domains Quranic parables draw from — ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
           </p>
         </div>
 
@@ -351,7 +423,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
   const types      = ['all', 'sarih', 'kamin', 'mursel'];
 
   const chipRow = (items, active, setActive, labelFn, colorFn) => (
-    <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: '2px' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
       {items.map(item => (
         <Chip key={item} label={labelFn(item)} color={colorFn?.(item)}
           active={active === item} small onClick={() => setActive(item)} />
@@ -1056,8 +1128,8 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           lineHeight: 1.6,
         }}>
           ℹ {language === 'tr'
-            ? "Bu sayfa Kur'an'daki 72 meseli klasik tefsir ve Ulûm el-Kur'ân kaynaklarına (İbn Kayyim el-Cevziyye, Suyûtî, İbn Kesîr, Râzî, Zemahşerî, Zerkeşî) dayalı sunar. Yorum nüansları müfessirler arasında zaman zaman farklılık gösterir; mümkün olduğunda paralel pozisyonlar belirtilmiştir. Mealler Erhan Aktaş çevirisindendir."
-            : "This page presents the 72 parables in the Quran based on classical tafsīr and ʿUlūm al-Qurʾān sources (Ibn Qayyim al-Jawziyya, al-Suyūṭī, Ibn Kathīr, al-Rāzī, al-Zamakhsharī, al-Zarkashī). Interpretive nuances vary among commentators; parallel positions are noted where possible. Translations are from Erhan Aktaş."}
+            ? "Bu sayfa Kur'an'daki 73 meseli klasik tefsir ve Ulûm el-Kur'ân kaynaklarına (İbn Kayyim el-Cevziyye, Suyûtî, İbn Kesîr, Râzî, Zemahşerî, Zerkeşî) dayalı sunar. Yorum nüansları müfessirler arasında zaman zaman farklılık gösterir; mümkün olduğunda paralel pozisyonlar belirtilmiştir. Mealler Erhan Aktaş çevirisindendir."
+            : "This page presents the 73 parables in the Quran based on classical tafsīr and ʿUlūm al-Qurʾān sources (Ibn Qayyim al-Jawziyya, al-Suyūṭī, Ibn Kathīr, al-Rāzī, al-Zamakhsharī, al-Zarkashī). Interpretive nuances vary among commentators; parallel positions are noted where possible. Translations are from Erhan Aktaş."}
         </p>
       </div>
 
@@ -1171,7 +1243,9 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px' }}>
                 <span style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.88rem' }}>{s.nameTr}</span>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.73rem' }}>ö. {s.deathH}H / {s.deathM}M</span>
+                  <span style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.73rem' }}>
+                    {s.deathH ? `ö. ${s.deathH}H / ${s.deathM}M` : (language === 'tr' ? 'çağdaş' : 'contemporary')}
+                  </span>
                 </div>
               </div>
               <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.75rem', fontStyle: 'italic', marginTop: '2px' }}>
@@ -1195,7 +1269,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '12px' }}>
             <div>
               <div style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 700, fontSize: '1rem' }}>
-                Said Nursi (1877–1960)
+                Üstad Bediüzzaman Said Nursi (1877–1960)
               </div>
               <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 600, fontSize: '0.78rem', opacity: 0.85, marginTop: '2px' }}>
                 {language === 'tr' ? 'Risâle-i Nur Külliyatı · Yirmi İkinci Söz' : 'Risāle-i Nūr Collection · Twenty-Second Word'}
@@ -1205,7 +1279,7 @@ function TabBilgi({ metaVerses, scholars, language, isMobile }) {
           <div style={{ height: '1px', background: COLORS.glassBorder, marginBottom: '12px' }} />
           <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
             {language === 'tr'
-              ? "Modern Türk Müslüman düşüncesinde Said Nursi, Risâle-i Nur'da temsîlî metodu sistematik olarak kullanmıştır. Özellikle Yirmi İkinci Söz, Sâni‑i Hakîm (her şeyi hikmetle yapan Yapıcı) hakikatini birden fazla büyük temsil üzerinden işler. Nursi'ye göre kâinat 'açık bir Kur'ân'dır — her atom, her hücre, her gezegen Yaratıcı'nın hikmetinin temsîlî bir aynasıdır. Bu yaklaşım klasik mesel‑temsîl geleneğinin modern bir uzantısı olarak okunabilir."
+              ? "Modern Türk Müslüman düşüncesinde Üstad Bediüzzaman Said Nursi, Risâle-i Nur'da temsîlî metodu sistematik olarak kullanmıştır. Özellikle Yirmi İkinci Söz, Sâni‑i Hakîm (her şeyi hikmetle yapan Yapıcı) hakikatini birden fazla büyük temsil üzerinden işler. Nursi'ye göre kâinat 'açık bir Kur'ân'dır — her atom, her hücre, her gezegen Yaratıcı'nın hikmetinin temsîlî bir aynasıdır. Bu yaklaşım klasik mesel‑temsîl geleneğinin modern bir uzantısı olarak okunabilir."
               : "In modern Turkish Muslim thought, Said Nursi employs the parabolic method systematically in the Risāle-i Nūr. The Twenty-Second Word in particular unfolds the truth of Ṣāniʿ-i Ḥakīm (the All-Wise Maker) through multiple grand parables. For Nursi, the cosmos is 'an open Qurʾān' — every atom, cell, and planet a parabolic mirror of the Creator's wisdom. This approach can be read as a modern extension of the classical mathal–tamthīl tradition."}
           </p>
         </div>
@@ -1339,8 +1413,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
       }
       titleTr="Mesel Atlası"
       titleEn="Atlas of Quranic Parables"
-      subtitleTr="72 mesel · 8 imge evreni"
-      subtitleEn="72 parables · 8 image worlds"
+      subtitleTr="73 mesel · 8 motif alanı"
+      subtitleEn="73 parables · 8 motif domains"
       language={language}
     />
   );
@@ -1352,7 +1426,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/doga`, titleTr: 'Tabiat Atlası', titleEn: 'Nature Atlas', descTr: 'Meselerdeki tabiat imgeleri — su, ateş, ağaç, sivrisinek, örümcek.', descEn: 'Nature imagery in parables — water, fire, tree, mosquito, spider.' },
+          { href: `/${language}/atlas/doga`, titleTr: 'Tabiat Atlası', titleEn: 'Nature Atlas', descTr: 'Meselerdeki tabiat motifleri — su, ateş, ağaç, sivrisinek, örümcek.', descEn: 'Nature motifs in parables — water, fire, tree, mosquito, spider.' },
           { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Mesel — belâgat sanatları içinde teşbih ve temsilin doruğu.', descEn: 'Parable — the peak of simile and analogy in rhetorical arts.' },
           { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Meselleri okuyucuya emanet eden retorik yapıların diğer örneği.', descEn: 'Another example of rhetorical structures that entrust parables to the reader.' },
         ]}
@@ -1435,6 +1509,8 @@ export default function MeselAtlasi({ onClose, backRef }) {
     >
       {MESEL_TOOL_HEADER}
 
+      <Hero language={language} isMobile={isMobile} />
+
       {/* Tab bar — sağ kenarda sabit bir solma (fade) katmanı, sekmeler taşınca
           "daha fazla sekme var, kaydır" ipucu verir; scrollbarWidth:'none'
           native scrollbar'ı tamamen gizlediği için tek görsel ipucu budur.
@@ -1475,7 +1551,7 @@ export default function MeselAtlasi({ onClose, backRef }) {
       {/* Tab content */}
       <div style={{ flex: 1, overflowY: 'auto' }}>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-        {activeTab === 0 && <TabImgeEvreni data={networks} onDomainFilter={handleDomainFilter} language={language} isMobile={isMobile} />}
+        {activeTab === 0 && <TabMotifAlanlari data={networks} onDomainFilter={handleDomainFilter} language={language} isMobile={isMobile} />}
         {activeTab === 1 && <TabMeselKatalogu parables={parables} domainFilter={domainFilter} language={language} onDomainFilter={handleDomainFilter} onPairLink={handlePairLink} isMobile={isMobile} backRef={backRef} />}
         {activeTab === 2 && <TabCiftMeseller pairs={pairs} parables={parables} scrollToPairId={scrollToPairId} language={language} isMobile={isMobile} />}
         {activeTab === 3 && <TabNurZulumat data={nurData} language={language} isMobile={isMobile} />}

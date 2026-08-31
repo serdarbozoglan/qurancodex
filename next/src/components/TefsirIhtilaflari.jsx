@@ -291,7 +291,7 @@ export default function TefsirIhtilaflari() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 72 mesel — imge ağı, çift meseller, belâgat yapısı.', descEn: '72 Quranic parables — imagery network, paired parables, rhetorical structure.' },
+          { href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 73 mesel — motif ağı, çift meseller, belâgat yapısı.', descEn: '73 Quranic parables — motif network, paired parables, rhetorical structure.' },
           { href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Teşbih, istiâre, temsil — beş büyük belâgat ailesi.', descEn: 'Simile, metaphor, analogy — the five major rhetorical families.' },
           { href: `/${language}/arac/elestirel-cerceve`, titleTr: 'Eleştirel Çerçeve', titleEn: 'Critical Frame', descTr: 'Kur\'ân\'a yöneltilen zorlu sorulara dengeli okuma.', descEn: 'A balanced reading for hard questions posed to the Quran.' },
         ]}

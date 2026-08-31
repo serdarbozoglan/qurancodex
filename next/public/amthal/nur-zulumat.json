@@ -11,22 +11,76 @@
     "ref": "24:35",
     "fullAr": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
     "layers": [
-      { "id": "niche", "labelTr": "Niş (Mişkât)", "labelAr": "مِشْكَاة", "symbolises": "Mü'minin göğsü — nuru saklayan, odaklayan" },
-      { "id": "glass", "labelTr": "Cam Fanus (Zücâce)", "labelAr": "زُجَاجَة", "symbolises": "Kalbin saflığı — inci gibi parlak, ışığı geçirir" },
-      { "id": "lamp", "labelTr": "Kandil (Misbâh)", "labelAr": "مِصْبَاح", "symbolises": "İmanın ışığı — içini aydınlatan" },
-      { "id": "tree", "labelTr": "Zeytin Ağacı", "labelAr": "شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ", "symbolises": "Fıtratın saflığı — ne doğudan ne batıdan" },
-      { "id": "oil", "labelTr": "Yağ", "labelAr": "زَيْتُهَا", "symbolises": "Fıtrat neredeyse kendiliğinden yanar — ateş değse de değmese de" },
-      { "id": "nurunAlaNur", "labelTr": "Nûr üstüne Nûr", "labelAr": "نُّورٌ عَلَىٰ نُورٍ", "symbolises": "Vahiy + fıtrat = kat kat aydınlık" }
+      {
+        "id": "niche",
+        "labelTr": "Niş (Mişkât)",
+        "labelAr": "مِشْكَاة",
+        "symbolises": "Mü'minin göğsü/kaburga kafesi — kemer şeklinde, nuru saklayan, odaklayan"
+      },
+      {
+        "id": "glass",
+        "labelTr": "Cam Fanus (Zücâce)",
+        "labelAr": "زُجَاجَة",
+        "symbolises": "Kalbin saflığı — inci gibi parlak, ışığı geçirir"
+      },
+      {
+        "id": "lamp",
+        "labelTr": "Kandil (Misbâh)",
+        "labelAr": "مِصْبَاح",
+        "symbolises": "Allah'ın kalbe yerleştirdiği fıtrî bir iyilik, bir 'iç ışık' — çoğu müfessirin kabul ettiği görüş"
+      },
+      {
+        "id": "tree",
+        "labelTr": "Zeytin Ağacı",
+        "labelAr": "شَجَرَةٍ مُّبَارَكَةٍ زَيْتُونَةٍ",
+        "symbolises": "Ruhun madde ötesi, coğrafyadan bağımsız kökenine işaret eder; ayrıca en kaliteli zeytinyağının sabahtan akşama güneş alan merkezi bir konumdaki ağaçlardan çıktığına dair gerçekçi bir gözlem de taşır"
+      },
+      {
+        "id": "oil",
+        "labelTr": "Yağ",
+        "labelAr": "زَيْتُهَا",
+        "symbolises": "İnsan ruhu — maddi evrenin dışındaki bir bahçeden kaynaklanır; öylesine saftır ki ateş değmeden de neredeyse kendiliğinden parlar"
+      },
+      {
+        "id": "nurunAlaNur",
+        "labelTr": "Nûr üstüne Nûr",
+        "labelAr": "نُّورٌ عَلَىٰ نُورٍ",
+        "symbolises": "Vahiy + fıtrat = kat kat aydınlık"
+      }
     ]
   },
   "keyVerses": [
-    { "ref": "2:257", "descTr": "Allah mü'minlerin velisidir — onları karanlıklardan nûra çıkarır" },
-    { "ref": "6:1", "descTr": "Hamd Allah'a — karanlıkları ve nûru yaratan" },
-    { "ref": "14:1", "descTr": "İnsanları karanlıklardan nûra çıkarman için" },
-    { "ref": "5:15", "descTr": "Size bir nûr ve açık bir Kitap geldi" },
-    { "ref": "24:35", "descTr": "Allah göklerin ve yerin nûrudur" },
-    { "ref": "24:40", "descTr": "Derin bir denizdeki karanlıklar gibi" },
-    { "ref": "33:43", "descTr": "Sizi karanlıklardan aydınlığa çıkaran O'dur" },
-    { "ref": "57:9", "descTr": "Sizi karanlıklardan nûra çıkarmak için" }
+    {
+      "ref": "2:257",
+      "descTr": "Allah mü'minlerin velisidir — onları karanlıklardan nûra çıkarır"
+    },
+    {
+      "ref": "6:1",
+      "descTr": "Hamd Allah'a — karanlıkları ve nûru yaratan"
+    },
+    {
+      "ref": "14:1",
+      "descTr": "İnsanları karanlıklardan nûra çıkarman için"
+    },
+    {
+      "ref": "5:15",
+      "descTr": "Size bir nûr ve açık bir Kitap geldi"
+    },
+    {
+      "ref": "24:35",
+      "descTr": "Allah göklerin ve yerin nûrudur"
+    },
+    {
+      "ref": "24:40",
+      "descTr": "Derin bir denizdeki karanlıklar gibi"
+    },
+    {
+      "ref": "33:43",
+      "descTr": "Sizi karanlıklardan aydınlığa çıkaran O'dur"
+    },
+    {
+      "ref": "57:9",
+      "descTr": "Sizi karanlıklardan nûra çıkarmak için"
+    }
   ]
 }
