@@ -114,14 +114,26 @@ function scoreItem(entry, tokens, lang) {
 // exact type name. Downstream applyQualityBoost + extractItemIds + Claude
 // curate all iterate Object.entries(grouped), so any type key works — but we
 // preserve the same set of types the semantic pipeline emits.
-function groupByType(scoredItems, perType) {
+// Uzun kuyruk tipleri için göreli kapı (2026-08-31). Keyword puanı toplamsal
+// ve üst sınırı yok, dolayısıyla semantik taraftaki gibi sabit bir taban
+// konamıyor; onun yerine "o sorgudaki en yüksek puana göre" oran aranıyor.
+// Böylece bu tipler ancak gerçekten güçlü eşleşme verdiklerinde listeye
+// giriyor, her sorguda kotalarını doldurmuyorlar.
+// Oran süpürmesi (25 sorgu): 0.0 → 36.2 aday (gürültülü) · 0.4 → 28.3, 15/15
+// tip erişilebilir · 0.5 → 27.3 ama bir tip hiç giremiyor · 0.6 → 13/15.
+// 0.4 seçildi: her tipin ulaşılabilir kalması bu değişikliğin asıl amacı.
+const LONG_TAIL_RATIO = 0.4;
+
+function groupByType(scoredItems, perType, ratioByType = null) {
   const grouped = {};
   for (const type of Object.keys(perType)) grouped[type] = [];
+  const top = scoredItems.length ? scoredItems[0].score : 0;
   for (const { item, score } of scoredItems) {
     const list = grouped[item.type];
-    if (list && list.length < perType[item.type]) {
-      list.push({ item, score });
-    }
+    if (!list || list.length >= perType[item.type]) continue;
+    const ratio = ratioByType && ratioByType[item.type];
+    if (ratio && top > 0 && score < top * ratio) continue;
+    list.push({ item, score });
   }
   return grouped;
 }
@@ -152,7 +164,27 @@ export function conciergeKeywordSearch(query, lang) {
     elestirel: 2,
     'bilimsel-isaret': 1,
     'tarihsel-iz': 1,
+    // ── Uzun kuyruk — corpus'ta olup hiçbir arama yolunda bulunmayan tipler
+    'atlas-mesel': 1,
+    munasebat: 1,
+    'sunnetullah-kanun': 1,
+    'sunnetullah-kavim': 1,
+    'sunnetullah-ulema': 1,
+    'insan-yolculugu-stage': 1,
+    'nuance-set': 1,
+    'neden-sonuc': 1,
+    'kitap-kavrami': 1,
+    'atlas-ibadet': 1,
+    'tefsir-ihtilaf': 1,
   };
+  const ratioByType = Object.fromEntries([
+    'atlas-mesel', 'munasebat', 'sunnetullah-kanun', 'sunnetullah-kavim',
+    'sunnetullah-ulema', 'insan-yolculugu-stage', 'nuance-set', 'neden-sonuc',
+    'kitap-kavrami', 'atlas-ibadet', 'tefsir-ihtilaf',
+    // sebeb-nuzul, dialogue, addressee ve atlas-ahiret-yolculugu-stage
+    // BİLEREK dışarıda: bunlar bu listede zaten vardı ve kotaları ayrıca
+    // ayarlanmıştı; onlara kapı koymak mevcut davranışı daraltırdı.
+  ].map(t => [t, LONG_TAIL_RATIO]));
   const tokens = tokenize(query, lang);
   const emptyGrouped = () => Object.fromEntries(Object.keys(perType).map(k => [k, []]));
   if (tokens.length === 0) return emptyGrouped();
@@ -164,5 +196,5 @@ export function conciergeKeywordSearch(query, lang) {
     if (s > 0) scored.push({ item: items[i], score: s });
   }
   scored.sort((a, b) => b.score - a.score);
-  return groupByType(scored, perType);
+  return groupByType(scored, perType, ratioByType);
 }

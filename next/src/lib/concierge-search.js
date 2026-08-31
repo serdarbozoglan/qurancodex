@@ -91,6 +91,13 @@ export function search(queryEmbedding, options = {}) {
     perType = null,           // { verse: 5, article: 2, tool: 3, ... } — items per type
     typeFilter = null,        // Set<string> — only these types
     minScore = 0.30,          // filter out weak matches
+    // Tip-başına puan tabanı (2026-08-31). Tek bir global eşik uzun kuyruk
+    // için çalışmıyor: ölçümde bu tiplerin ORTALAMASI 0.47, yani 0.35
+    // eşiğinde alâkasız sorgularda da kotalarını dolduruyor ve sorgu başına
+    // +4.4k girdi token'ı ekliyorlardı (%54). Aynı tipler DOĞRU sorguda
+    // 0.55-0.69 veriyor — o yüzden elenmeleri değil, eşiklerinin
+    // yükseltilmesi gerekiyordu.
+    minScoreByType = null,    // { 'atlas-mesel': 0.55, ... }
   } = options;
 
   const corpus = loadCorpus();
@@ -110,7 +117,8 @@ export function search(queryEmbedding, options = {}) {
       if (!emb || emb.length !== queryEmbedding.length) continue;
       score = dotProduct(queryEmbedding, emb);
     }
-    if (score < minScore) continue;
+    const floor = (minScoreByType && minScoreByType[item.type]) || minScore;
+    if (score < floor) continue;
     scored.push({ item, score });
   }
 
@@ -164,6 +172,25 @@ export function extractItemIds(grouped) {
   return ids;
 }
 
+// Uzun kuyruk tiplerinin puan tabanı. 0.55 ölçümle seçildi: bu tipler doğru
+// sorguda 0.55-0.69 veriyor, alâkasız sorguda 0.40-0.50 bandında kalıyor.
+// Taban 0.55 olunca yalnız gerçekten isabetli olduklarında aday listesine
+// giriyorlar.
+const LONG_TAIL_FLOOR = 0.55;
+const LONG_TAIL_FLOORS = Object.fromEntries([
+  'atlas-mesel', 'sebeb-nuzul', 'dialogue', 'munasebat',
+  'sunnetullah-kanun', 'sunnetullah-kavim',
+  'atlas-ahiret-yolculugu-stage', 'insan-yolculugu-stage', 'addressee',
+  'nuance-set', 'neden-sonuc', 'kitap-kavrami', 'atlas-ibadet',
+].map(t => [t, LONG_TAIL_FLOOR]));
+
+// Bu iki tipin ölçülen en yüksek puanı 0.53 ve 0.50 — 0.55 tabanıyla hiçbir
+// sorguda listeye giremiyorlardı, yani eklenmiş ama yine ölü kalıyorlardı.
+// Kendi bantlarına göre 0.48'e çekildi; ölçümde 25 sorgunun 3'ünde ve
+// 2'sinde devreye giriyorlar (ort. +0.2 aday).
+LONG_TAIL_FLOORS['tefsir-ihtilaf'] = 0.48;
+LONG_TAIL_FLOORS['sunnetullah-ulema'] = 0.48;
+
 // ── Convenience: search with default concierge preset
 // perType TOTAL: 3+2+2+5 = 12 candidates (was 18). Claude nihayetinde
 // 3-7 seçtiği için üstteki 6 aday çoğunlukla artıyor + fazladan input token
@@ -193,8 +220,29 @@ export function conciergeSearch(queryEmbedding, lang = 'tr') {
       elestirel: 1,              // zorlu sorular — itiraz/cevap/netice
       'bilimsel-isaret': 1,      // âyet-i kevniyye + usûl notu
       'tarihsel-iz': 1,          // arkeolojik/epigrafik izler
+      // ── Uzun kuyruk (2026-08-31) ────────────────────────────────────────
+      // Bu 15 tip corpus'ta duruyordu ama hiçbir arama yolunda yoktu:
+      // embed edilmiş 280 kalem /sor'a hiç ulaşmıyordu. Kota 1 + yüksek
+      // taban (LONG_TAIL_FLOOR) ile eklendi; ölçümde ortalama maliyet
+      // sorgu başına +14.4 adaydan +1.5 adaya indi.
+      'atlas-mesel': 1,
+      'sebeb-nuzul': 1,
+      dialogue: 1,
+      munasebat: 1,
+      'sunnetullah-kanun': 1,
+      'sunnetullah-kavim': 1,
+      'sunnetullah-ulema': 1,
+      'atlas-ahiret-yolculugu-stage': 1,
+      'insan-yolculugu-stage': 1,
+      addressee: 1,
+      'nuance-set': 1,
+      'neden-sonuc': 1,
+      'kitap-kavrami': 1,
+      'atlas-ibadet': 1,
+      'tefsir-ihtilaf': 1,
     },
     minScore: 0.35,
+    minScoreByType: LONG_TAIL_FLOORS,
   });
 }
 
