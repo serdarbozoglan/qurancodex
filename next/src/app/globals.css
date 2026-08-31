@@ -804,6 +804,21 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   white-space: normal;
 }
 
+/* ─── Navbar 1024-1099: kelime markası gizlenir (2026-08-31) ─────────────────
+   Ölçüldü: beşinci üst seviye öge (Fâtiha) eklendikten sonra navbar İNGİLİZCE
+   1024px'te iki satıra sarıyor ve 82px yerine 129px oluyordu (§13.13 ihlali).
+   Hesap: sol grup 719 + sağ grup 315 + boşluk 16 = 1050px, kullanılabilir alan
+   986px → 64px açık. Boşlukları sıkmak en fazla ~30px veriyor, etiketi tek
+   kelimeye indirmek de yetmiyordu (ölçüldü: 1016 / 998, hâlâ 18px açık).
+   Yeterli tek kaldıraç kelime markasının kendisi: 150px. Amblem (logo-mark)
+   kalır, yalnız yazı gizlenir; 1100'den itibaren geri gelir — o genişlikten
+   sonra sarma zaten olmuyor, bu yüzden band 1279'a kadar UZATILMADI. */
+@media (min-width: 1024px) and (max-width: 1099px) {
+  nav[aria-label="Main navigation"] .nav-wordmark {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   /* Inline stil, stylesheet kuralını HER ZAMAN ezer. Bu yüzden Navbar.jsx'teki
      üç ölçü inline `var()` okuyacak şekilde yazıldı:

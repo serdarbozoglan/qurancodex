@@ -816,7 +816,7 @@ export default function Navbar() {
               "QuranCodex" olarak geçtiği için tutarsızdı. Boşluk kaldırıldı.
               İki yarıyı tonla ayırmak denendi, kullanıcı tek renk istedi:
               harf aralığı (tracking .12-.18em) optik ayrımı zaten veriyor. */}
-          <span>QURANCODEX</span>
+          <span className="nav-wordmark">QURANCODEX</span>
         </Link>
 
         {/* Nav links */}
@@ -834,7 +834,7 @@ export default function Navbar() {
                 padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: exploreOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: exploreOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!exploreOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1134,7 +1134,7 @@ export default function Navbar() {
                 padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: toolsOpen ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: toolsOpen ? '#d4a574' : '#d4d8e0',
-                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!toolsOpen) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1326,7 +1326,8 @@ export default function Navbar() {
               padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
               background: pathname.includes('/arac/esma-frekans') ? 'rgba(255,255,255,0.06)' : 'transparent',
               color: pathname.includes('/arac/esma-frekans') ? '#d4a574' : '#d4d8e0',
-              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif",
+              fontWeight: pathname.includes('/arac/esma-frekans') ? 700 : 600,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
             onMouseEnter={e => { if (!pathname.includes('/arac/esma-frekans')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1344,7 +1345,8 @@ export default function Navbar() {
               padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
               background: pathname.includes('/atlas/fatiha') ? 'rgba(255,255,255,0.06)' : 'transparent',
               color: pathname.includes('/atlas/fatiha') ? '#d4a574' : '#d4d8e0',
-              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+              fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif",
+              fontWeight: pathname.includes('/atlas/fatiha') ? 700 : 600,
               cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
             }}
             onMouseEnter={e => { if (!pathname.includes('/atlas/fatiha')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1365,7 +1367,7 @@ export default function Navbar() {
                 padding: 'var(--nav-trigger-pad, 8px 14px)', borderRadius: '8px', border: 'none',
                 background: tefekkurOpen || pathname.includes('/tefekkur') ? 'rgba(255,255,255,0.06)' : 'transparent',
                 color: tefekkurOpen || pathname.includes('/tefekkur') ? '#d4a574' : '#d4d8e0',
-                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 700,
+                fontSize: 'var(--nav-trigger-fs, 0.9rem)', fontFamily: "'Inter', sans-serif", fontWeight: 600,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`, letterSpacing: '0.02em',
               }}
               onMouseEnter={e => { if (!tefekkurOpen && !pathname.includes('/tefekkur')) { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = '#d4a574'; }}}
@@ -1653,7 +1655,7 @@ export default function Navbar() {
                                 textDecoration: 'none', transition: 'background 0.15s',
                               }}
                               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
-                              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}
+                              onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
                             >
                               <span style={{
                                 width: '32px', height: '32px', borderRadius: '50%',
@@ -1794,6 +1796,15 @@ export default function Navbar() {
             {language === 'tr' ? 'Sor' : 'Ask'}
           </button>
 
+          {/* Yardımcılar ile dil kontrolü arasına ince ayraç (2026-08-31).
+              EN bir içerik hedefi değil arayüz anahtarı; kenarlıklar
+              kalkınca küme tek bir sıraya dönüştüğü için kategori farkı
+              ayraçla korunuyor. */}
+          <span aria-hidden="true" className="hidden lg:block" style={{
+            width: '1px', height: '18px', flexShrink: 0,
+            background: COLORS.glassBorder,
+          }} />
+
           {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
           <button
             onClick={toggleLanguage}
@@ -1822,18 +1833,26 @@ export default function Navbar() {
           </button>
 
           {/* Oku — primary CTA, en sağda anchor (2026-07-23 reorder).
-              Hero's gold-filled "Keşfe Başla" is the page's primary CTA; this
-              nav entry mirrors its color language as an outline so the two
-              never compete for dominance. */}
+              2026-08-31: çerçeveliden DOLU altına çevrildi. Eski gerekçe
+              "hero'nun dolu CTA'sıyla yarışmasın" idi; ölçünce iki sebeple
+              geçersiz çıktı. (1) Hero'nun dolu butonu ("İlk Kapıyı Aç" —
+              not zaten eskimiş, "Keşfe Başla" diyordu) sayfada 1557px'de,
+              yani 900px'lik ilk ekranın çok altında. İlk ekranda hiçbir dolu
+              altın yoktu; sayfa güzel ama kullanıcıya eylem söylemiyordu.
+              (2) İkisi aynı anda göründüğünde de yarışmıyorlar: hero'nunki
+              264×50, ortada, parıltılı — tek seferlik davet; bu ise ~170×32,
+              sağ üst kromda — kalıcı erişim. Ölçek ve konum farkı hiyerarşi
+              üretiyor. Ayrıca hero'nun alıntıladığı ilk emir اقرأ ile bu
+              butonun taşıdığı emir aynı. */}
           <button
             onClick={() => router.push(`/${language}/oku`)}
             title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
             className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
             style={{
-              background: 'transparent',
-              border: `1.5px solid ${COLORS.goldAlpha45}`,
+              background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 60%, ${COLORS.btnGoldEnd} 100%)`,
+              border: '1.5px solid transparent',
               borderRadius: '6px',
-              color: COLORS.gold,
+              color: COLORS.btnGoldText,
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.82rem',
               fontWeight: 700,
@@ -1857,21 +1876,19 @@ export default function Navbar() {
               // fontta hepsi yine 32px.
               minHeight: '32px',
               cursor: 'pointer',
-              boxShadow: 'inset 0 0 12px rgba(180,130,40,0.06)',
+              boxShadow: 'none',
               transition: `all ${TRANSITION.fast}`,
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.borderColor = COLORS.gold;
-              e.currentTarget.style.background = COLORS.goldAlpha15;
+              e.currentTarget.style.filter = 'brightness(1.07)';
               e.currentTarget.style.boxShadow = `0 0 24px 3px ${COLORS.btnGoldGlow25}`;
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.borderColor = COLORS.goldAlpha45;
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'inset 0 0 12px rgba(180,130,40,0.06)';
+              e.currentTarget.style.filter = 'none';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.goldBright, opacity: 0.95, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 0.9, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
             {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 
