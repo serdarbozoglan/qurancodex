@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -333,10 +333,19 @@ export default function KissaAtlas({ onClose }) {
         }}>
           {/* Prophet tabs — inline on desktop */}
           {!isMobile && (
-            <div style={{ display: 'flex', gap: '4px' }}>
+            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
               {data.prophets.map(p => (
+                <Fragment key={p.id}>
+                {/* Hâtemü'n-nebiyyîn kaydı listenin sonunda ve ayraçla ayrı
+                    durur: öncekilerin kıssası ona anlatıldı, onunki inerken
+                    anlatıldı. Sıradaki 13. eşit kayıt değil. */}
+                {p.isSeal && (
+                  <span aria-hidden="true" style={{
+                    width: '1px', height: '20px', flexShrink: 0,
+                    background: 'rgba(255,255,255,0.14)', margin: '0 8px',
+                  }} />
+                )}
                 <button
-                  key={p.id}
                   onClick={() => selectProphet(p.id)}
                   style={{
                     padding: '7px 14px', borderRadius: RADIUS.md,
@@ -366,6 +375,7 @@ export default function KissaAtlas({ onClose }) {
                     {p.surahCount}
                   </span>
                 </button>
+                </Fragment>
               ))}
             </div>
           )}
@@ -485,6 +495,30 @@ export default function KissaAtlas({ onClose }) {
                 ? `${prophet.scenes.length} ana sahne · ${prophet.surahCount} sûrede`
                 : `${prophet.scenes.length} key scenes · across ${prophet.surahCount} surahs`}
             </p>
+            {prophet.isSeal && (
+              <div style={{
+                marginTop: '14px',
+                padding: '13px 16px',
+                background: `${prophet.color}0f`,
+                border: `1px solid ${prophet.color}33`,
+                borderLeft: `3px solid ${prophet.color}`,
+                borderRadius: '0 10px 10px 0',
+              }}>
+                <div style={{
+                  fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase',
+                  fontWeight: 700, color: prophet.color, marginBottom: '7px',
+                  fontFamily: "'Inter', sans-serif",
+                }}>
+                  {language === 'tr' ? prophet.sealLabelTr : prophet.sealLabelEn}
+                </div>
+                <p style={{
+                  margin: 0, fontSize: '0.84rem', lineHeight: 1.72,
+                  color: SEMANTIC.textMuted, fontFamily: "'Inter', sans-serif",
+                }}>
+                  {language === 'tr' ? prophet.sealNoteTr : prophet.sealNoteEn}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Scene list */}

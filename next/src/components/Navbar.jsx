@@ -1849,7 +1849,7 @@ export default function Navbar() {
             title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
             className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
             style={{
-              background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 60%, ${COLORS.btnGoldEnd} 100%)`,
+              background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 100%)`,
               border: '1.5px solid transparent',
               borderRadius: '6px',
               color: COLORS.btnGoldText,
@@ -1888,7 +1888,7 @@ export default function Navbar() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 0.9, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
+            <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 1, lineHeight: 1, position: 'relative', top: '-1px' }}>اقرأ</span>
             {language === 'tr' ? 'Kur’an’ı Oku' : 'Read Quran'}
           </button>
 

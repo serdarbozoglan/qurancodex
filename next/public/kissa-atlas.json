@@ -2186,6 +2186,255 @@
           }
         }
       ]
+    },
+    {
+      "id": "muhammed",
+      "nameTr": "Hz. Muhammed (s.a.v.)",
+      "nameEn": "Prophet Muhammad ﷺ",
+      "nameAr": "مُحَمَّد",
+      "color": "#e8c98a",
+      "isSeal": true,
+      "sealLabelTr": "Hâtemü'n-Nebiyyîn",
+      "sealLabelEn": "Seal of the Prophets",
+      "sealNoteTr": "Öncekilerin kıssası ona anlatıldı; onunki inerken anlatıldı. Bu yüzden bu kayıt diğerlerinin arasında değil, sonunda durur: Kur'ân onun hayatını dışarıdan tamamlanmış bir anlatı olarak değil, olay olurken inen hitap, tesellî, uyarı ve hüküm olarak verir. \"Muhammed… Allah'ın Resûlü ve peygamberlerin sonuncusudur\" (Ahzâb 33:40).",
+      "sealNoteEn": "The narratives of those before him were told to him; his own was told as it descended. This entry therefore stands at the end rather than among the others: the Qur'an gives his life not as a completed narrative viewed from outside, but as address, consolation, warning and ruling sent down while the events occurred. \"Muhammad… is the Messenger of God and the seal of the prophets\" (al-Aḥzāb 33:40).",
+      "surahCount": 14,
+      "surahs": [
+        3,
+        5,
+        8,
+        9,
+        17,
+        24,
+        26,
+        33,
+        48,
+        53,
+        80,
+        93,
+        94,
+        96
+      ],
+      "scenes": [
+        {
+          "id": "muhammed_01",
+          "order": 1,
+          "titleTr": "İlk vahiy — Hira",
+          "titleEn": "The first revelation — Ḥirāʾ",
+          "verseRef": "96:1-5",
+          "surahs": [
+            96
+          ],
+          "descTr": "Vahiy \"Oku!\" emriyle başladı. Kur'ân'ın ilk inen sözü bir bilgi değil bir emirdir: \"Yaratan Rabbinin adıyla oku.\" Ardından kalemle öğretmenin ve insana bilmediğini bildirmenin zikri gelir — kitabın kendisi, okuma ve öğrenme çağrısıyla açılır.",
+          "descEn": "Revelation began with a command: \"Recite!\" The first words sent down are not information but an imperative — \"Recite in the name of your Lord who created.\" There follows the mention of teaching by the pen and of teaching man what he did not know: the Book opens with a call to read and to learn.",
+          "surahRefs": {
+            "96": "96:1-5"
+          }
+        },
+        {
+          "id": "muhammed_02",
+          "order": 2,
+          "titleTr": "Vahyin kesilmesi ve teselli",
+          "titleEn": "The pause in revelation, and consolation",
+          "verseRef": "93:3-8",
+          "surahs": [
+            93,
+            94
+          ],
+          "descTr": "Vahiy bir süre kesilince Duhâ sûresi indi: \"Rabbin seni bırakmadı ve sana darılmadı.\" Ardından geçmişi hatırlatılır — yetim bulup barındırması, yolunu göstermesi, ihtiyacını gidermesi. İnşirah'ta ise iki kez tekrarlanan hüküm gelir: zorlukla beraber bir kolaylık vardır.",
+          "descEn": "When revelation paused, Sūrat al-Ḍuḥā came down: \"Your Lord has not forsaken you, nor is He displeased.\" His past is then recalled — being found an orphan and sheltered, found astray and guided, found in need and enriched. In al-Inshirāḥ comes the ruling repeated twice: with hardship there is ease.",
+          "surahRefs": {
+            "93": "93:3-8",
+            "94": "94:1-6"
+          }
+        },
+        {
+          "id": "muhammed_03",
+          "order": 3,
+          "titleTr": "Davetin açığa çıkması",
+          "titleEn": "The call made public",
+          "verseRef": "26:214-215",
+          "surahs": [
+            26,
+            15
+          ],
+          "descTr": "Gizli davet döneminden sonra emir geldi: \"En yakın akrabanı uyar.\" Hemen ardından uyarının üslûbu belirlenir — kendisine uyan mü'minlere merhamet kanadını indirmesi istenir. Davet açılırken sertlik değil şefkat emredilmiştir.",
+          "descEn": "After the period of private call came the command: \"Warn your nearest kin.\" Immediately the manner of warning is set — he is told to lower the wing of mercy to the believers who follow him. As the call goes public, what is commanded is not severity but compassion.",
+          "surahRefs": {
+            "26": "26:214-215",
+            "15": "15:94"
+          }
+        },
+        {
+          "id": "muhammed_04",
+          "order": 4,
+          "titleTr": "İsrâ — geceleyin yürütülüş",
+          "titleEn": "Al-Isrāʾ — the night journey",
+          "verseRef": "17:1",
+          "surahs": [
+            17
+          ],
+          "descTr": "Bir gece Mescid-i Harâm'dan, çevresi mübarek kılınan Mescid-i Aksâ'ya yürütüldü — \"âyetlerimizden bir kısmını ona gösterelim diye.\" Ayet olayı tek cümlede anlatır ve tesbihle başlar; anlatının merkezinde yolculuğun ayrıntısı değil, yürütenin kudreti vardır.",
+          "descEn": "One night he was carried from the Sacred Mosque to the Farthest Mosque, whose surroundings were blessed — \"that We might show him some of Our signs.\" The verse relates the event in a single sentence and opens with glorification: at the centre stands not the detail of the journey but the power of the One who carried him.",
+          "surahRefs": {
+            "17": "17:1"
+          }
+        },
+        {
+          "id": "muhammed_05",
+          "order": 5,
+          "titleTr": "Miraç — Sidretü'l-Müntehâ",
+          "titleEn": "The ascent — Sidrat al-Muntahā",
+          "verseRef": "53:8-18",
+          "surahs": [
+            53
+          ],
+          "descTr": "Necm sûresi yükselişi tasvir eder: yaklaşma, \"iki yay arası kadar, hatta daha yakın\" olma, Sidretü'l-Müntehâ'nın yanında ikinci görüş. Sûre bölümü şu hükümle kapanır: \"Andolsun o, Rabbinin en büyük âyetlerinden bir kısmını gördü.\"",
+          "descEn": "Sūrat al-Najm describes the ascent: the drawing near, being \"at two bows' length or nearer,\" the second sighting at the Lote Tree of the Utmost Boundary. The passage closes with the verdict: \"He certainly saw some of the greatest signs of his Lord.\"",
+          "surahRefs": {
+            "53": "53:8-18"
+          }
+        },
+        {
+          "id": "muhammed_06",
+          "order": 6,
+          "titleTr": "Hicret — mağaradaki iki kişi",
+          "titleEn": "The emigration — two in the cave",
+          "verseRef": "9:40",
+          "surahs": [
+            9
+          ],
+          "descTr": "Kur'ân hicreti tek bir sahnede dondurur: kâfirler onu çıkardığında, mağarada iki kişiden biriyken arkadaşına \"Üzülme, Allah bizimle beraberdir\" diyordu. Ayet, yardımın kaynağını insanlardan alıp Allah'a verir — sekîne indirilir, görünmeyen ordularla desteklenir.",
+          "descEn": "The Qur'an freezes the emigration in a single scene: when the disbelievers drove him out, being the second of two in the cave, he said to his companion, \"Do not grieve; God is with us.\" The verse takes the source of help away from people and gives it to God — tranquillity is sent down, and he is supported by unseen forces.",
+          "surahRefs": {
+            "9": "9:40"
+          }
+        },
+        {
+          "id": "muhammed_07",
+          "order": 7,
+          "titleTr": "Bedir — sayıca azken",
+          "titleEn": "Badr — while few in number",
+          "verseRef": "8:9-17",
+          "surahs": [
+            8,
+            3
+          ],
+          "descTr": "Yardım istendi ve karşılık verildi. Enfâl sûresi zaferin sahibini açıkça belirler: \"Onları siz öldürmediniz, Allah öldürdü; attığın zaman da sen atmadın, Allah attı.\" Âl-i İmrân ise olayı ismiyle anar: \"Sizler güçsüz olduğunuz hâlde Allah Bedir'de size yardım etmişti.\"",
+          "descEn": "Help was sought and answered. Sūrat al-Anfāl states plainly to whom the victory belongs: \"You did not kill them, but God killed them; and you threw not when you threw, but God threw.\" Āl ʿImrān names the event: \"God had already given you victory at Badr when you were weak.\"",
+          "surahRefs": {
+            "8": "8:9-17",
+            "3": "3:123"
+          }
+        },
+        {
+          "id": "muhammed_08",
+          "order": 8,
+          "titleTr": "Uhud — yenilgi ve affediliş",
+          "titleEn": "Uḥud — reverse and pardon",
+          "verseRef": "3:152-159",
+          "surahs": [
+            3
+          ],
+          "descTr": "Kur'ân yenilgiyi örtmez: emrin çiğnendiği, çekişmeye düşüldüğü, arkadan çağırıldığı hâlde dönülmediği açıkça yazılır. Ardından af gelir ve peygamberin tavrı zikredilir: \"Allah'tan bir rahmet ile onlara yumuşak davrandın; kaba ve katı yürekli olsaydın etrafından dağılırlardı.\"",
+          "descEn": "The Qur'an does not conceal the reverse: that the command was disobeyed, that they fell to disputing, that they did not turn back though he called them from behind — all is written plainly. Then comes pardon, and the Prophet's manner is recalled: \"By a mercy from God you were lenient with them; had you been harsh and hard-hearted they would have dispersed from around you.\"",
+          "surahRefs": {
+            "3": "3:152-159"
+          }
+        },
+        {
+          "id": "muhammed_09",
+          "order": 9,
+          "titleTr": "Hendek — kuşatma",
+          "titleEn": "The Trench — the siege",
+          "verseRef": "33:9-22",
+          "surahs": [
+            33
+          ],
+          "descTr": "Ordular üstten ve alttan geldi; gözler yıldı, yürekler gırtlağa geldi. Ahzâb sûresi kuşatmanın korkusunu olduğu gibi kaydeder, sonra rüzgârı ve görünmeyen orduları anar. Mü'minlerin sözü de yazılır: \"İşte Allah ve Resûlü'nün bize vaad ettiği.\"",
+          "descEn": "The armies came from above and below; eyes turned aside and hearts reached the throats. Sūrat al-Aḥzāb records the terror of the siege exactly as it was, then mentions the wind and the unseen forces. The believers' word is recorded too: \"This is what God and His Messenger promised us.\"",
+          "surahRefs": {
+            "33": "33:9-22"
+          }
+        },
+        {
+          "id": "muhammed_10",
+          "order": 10,
+          "titleTr": "Abese — yüzünü ekşitmesi",
+          "titleEn": "ʿAbasa — the frown",
+          "verseRef": "80:1-4",
+          "surahs": [
+            80
+          ],
+          "descTr": "Sûre peygamberi uyararak başlar: âmâ bir adam geldiğinde yüzünü ekşitip döndüğü için. Uyarı yumuşatılmaz ve kitapta kalır. Kur'ân'ın kendi elçisini böyle bir sahnede tutması, ölçünün kimseye göre eğilmediğini gösterir.",
+          "descEn": "The sūra opens by reproving the Prophet: he frowned and turned away when a blind man came to him. The reproof is not softened, and it remains in the Book. That the Qur'an keeps its own Messenger in such a scene shows that the measure bends for no one.",
+          "surahRefs": {
+            "80": "80:1-4"
+          }
+        },
+        {
+          "id": "muhammed_11",
+          "order": 11,
+          "titleTr": "İfk — iftira hâdisesi",
+          "titleEn": "Al-Ifk — the slander",
+          "verseRef": "24:11-16",
+          "surahs": [
+            24
+          ],
+          "descTr": "Peygamber'in eşine atılan iftira üzerine Nûr sûresi indi. Ayetler iftirayı reddetmekle kalmaz, mü'minlere bir usûl öğretir: işitildiğinde hüsn-i zan beslemek ve \"Bunu konuşup yaymamız bize yakışmaz\" demek. Sözün nasıl taşınacağı hükme bağlanır.",
+          "descEn": "Sūrat al-Nūr came down concerning the slander against the Prophet's wife. The verses do not merely refute it; they teach the believers a method: to think well when it is heard, and to say, \"It is not for us to speak of this.\" How speech is to be carried is made a ruling.",
+          "surahRefs": {
+            "24": "24:11-16"
+          }
+        },
+        {
+          "id": "muhammed_12",
+          "order": 12,
+          "titleTr": "Hudeybiye ve Bey'atü'r-Rıdvân",
+          "titleEn": "Al-Ḥudaybiya and the Pledge of Riḍwān",
+          "verseRef": "48:1-27",
+          "surahs": [
+            48
+          ],
+          "descTr": "Görünüşte geri adım olan antlaşma, Kur'ân'da \"apaçık bir fetih\" diye adlandırılır. Ağacın altındaki bey'at zikredilir — Allah'ın mü'minlerden razı olduğu an. Sûre, Peygamber'in rüyasının doğru çıktığını da bildirir: Mescid-i Harâm'a güven içinde gireceklerdir.",
+          "descEn": "A treaty that looked like a retreat is named in the Qur'an \"a manifest victory.\" The pledge beneath the tree is recalled — the moment God was pleased with the believers. The sūra also declares that the Prophet's vision came true: they would enter the Sacred Mosque in security.",
+          "surahRefs": {
+            "48": "48:1-27"
+          }
+        },
+        {
+          "id": "muhammed_13",
+          "order": 13,
+          "titleTr": "Tebûk — geri bırakılan üç kişi",
+          "titleEn": "Tabūk — the three left behind",
+          "verseRef": "9:117-118",
+          "surahs": [
+            9
+          ],
+          "descTr": "Güçlük seferinden sonra tevbeler kabul edildi. Kur'ân geride kalan üç kişiyi ayrıca anar: yeryüzü genişliğine rağmen onlara dar gelmiş, vicdanları kendilerini sıkmıştı. Sonunda tevbe etsinler diye tevbeye muvaffak kılındıkları bildirilir.",
+          "descEn": "After the expedition of hardship the repentances were accepted. The Qur'an mentions the three who stayed behind separately: the earth, for all its breadth, closed in upon them, and their own souls constrained them. In the end it is declared that they were turned to repentance so that they might repent.",
+          "surahRefs": {
+            "9": "9:117-118"
+          }
+        },
+        {
+          "id": "muhammed_14",
+          "order": 14,
+          "titleTr": "Dinin ikmâli",
+          "titleEn": "The perfecting of the religion",
+          "verseRef": "5:3",
+          "surahs": [
+            5,
+            110
+          ],
+          "descTr": "Mâide 5:3'ün ortasında, helâl-haram hükümlerinin arasında şu cümle gelir: \"Bugün size dininizi ikmâl ettim, üzerinize nimetimi tamamladım ve sizin için din olarak İslâm'ı beğendim.\" Nasr sûresi ise vazifenin tamamlanışını hamd ve istiğfarla kapatır.",
+          "descEn": "In the middle of al-Māʾida 5:3, among the rulings of the lawful and forbidden, comes this sentence: \"This day I have perfected for you your religion, completed My favour upon you, and approved for you Islam as religion.\" Sūrat al-Naṣr closes the completion of the mission with praise and the seeking of forgiveness.",
+          "surahRefs": {
+            "5": "5:3",
+            "110": "110:1-3"
+          }
+        }
+      ]
     }
   ]
 }

@@ -64978,5 +64978,85 @@
     "hash": "1dc236bd24bd0458",
     "embeddedAt": "2026-08-31T03:58:16.502Z",
     "type": "atlas-mesel"
+  },
+  "atlas-kissa:muhammed": {
+    "hash": "7263940edc515713",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa"
+  },
+  "atlas-kissa-scene:muhammed_01": {
+    "hash": "dd4e20dcc904c91a",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_02": {
+    "hash": "617e6eee4015aa98",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_03": {
+    "hash": "d13fbb1235b95c39",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_04": {
+    "hash": "902dff7a8ca3330f",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_05": {
+    "hash": "a749ec10d45eb0b1",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_06": {
+    "hash": "3a58069222b4d5f2",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_07": {
+    "hash": "561c65762561d8dd",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_08": {
+    "hash": "4a60d633e78d8cbd",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_09": {
+    "hash": "66a56205eb7bcde9",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_10": {
+    "hash": "7654db7657fd52b4",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_11": {
+    "hash": "fca8fe8c31af3ead",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_12": {
+    "hash": "86329c388d0b613d",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_13": {
+    "hash": "0a2997deefcca63c",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "atlas-kissa-scene:muhammed_14": {
+    "hash": "6389c912df591e12",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "atlas-kissa-scene"
+  },
+  "tool:/atlas/fatiha": {
+    "hash": "2e1f3fe3609f1c4d",
+    "embeddedAt": "2026-08-31T06:13:11.834Z",
+    "type": "tool"
   }
 }

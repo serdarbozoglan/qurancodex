@@ -216,7 +216,7 @@ export default function Conclusion() {
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 0.9, lineHeight: 1 }}>اقرأ</span>
+          <span dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: '1.2rem', color: COLORS.btnGoldText, opacity: 1, lineHeight: 1 }}>اقرأ</span>
           {language === 'tr' ? "Kur'an'ı Oku" : 'Read Quran'}
         </motion.button>
       </motion.div>
