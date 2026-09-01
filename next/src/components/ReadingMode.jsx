@@ -5454,6 +5454,15 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             <div
               style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                // 2026-08-31 — flexWrap eklendi. Ölçüldü: panel satırı 216px,
+                // seçici grubu 120px ve `flexShrink: 0` taşıyor. Türkçede
+                // etiket "Dil" olduğu için sığıyordu (taşma -1px), İngilizcede
+                // "Language" 22px daha geniş ve grup kutunun DIŞINA taşıyordu
+                // (taşma +19px — kullanıcı raporu). Buton dolgusunu ve puntoyu
+                // küçültmek yetmiyor (19px ancak 15px'e iniyor), çünkü taşmayı
+                // grup değil etiket sürüyor. Sarma ile etiket üstte, seçici
+                // altta kalıyor: kırpma yok, minik font yok, taşma -71px.
+                flexWrap: 'wrap', rowGap: '8px',
                 gap: '10px',
                 padding: '8px 12px', borderRadius: RADIUS.md,
                 // Meal/Kârî ile aynı: bu da her zaman bir DEĞER taşıyan satır.
@@ -5461,7 +5470,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 background: dropC.itemBgActive,
               }}
             >
-              <span style={{ fontSize: '0.82rem', color: gold, display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontSize: '0.82rem', color: gold, display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0 }}>
                 <GlobeIcon size={13} />
                 {language === 'tr' ? 'Dil' : 'Language'}
               </span>
