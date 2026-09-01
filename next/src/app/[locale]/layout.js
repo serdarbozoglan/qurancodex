@@ -14,6 +14,7 @@
 import { notFound } from 'next/navigation';
 import Shell, { sharedMetadata, sharedViewport } from '../_shell';
 import { LanguageProvider } from '@/i18n/LanguageContext';
+import MotionPrefs from '@/components/MotionPrefs';
 import Navbar from '@/components/Navbar';
 import InAppNavMarker from '@/components/InAppNavMarker';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -41,6 +42,7 @@ export default async function LocaleLayout({ children, params }) {
       <a href="#main" className="skip-link">
         {locale === 'en' ? 'Skip to main content' : 'Ana içeriğe geç'}
       </a>
+      <MotionPrefs>
       <LanguageProvider initialLocale={locale}>
         {/* PathProvider KALDIRILDI (2026-08-13). "Rehberli yol" özelliği ölüydü:
             PathCards hiçbir yerde render edilmiyordu (SixGates yerine geçmiş),
@@ -60,6 +62,7 @@ export default async function LocaleLayout({ children, params }) {
           <BugReportFab />
         </>
       </LanguageProvider>
+      </MotionPrefs>
     </Shell>
   );
 }

@@ -151,7 +151,7 @@ function Gate({ gate, isMobile, language }) {
 
   const inner = (
     <motion.div className="mq-box"
-      initial={reduced ? false : { opacity: 0, y: 18 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={reduced ? undefined : { y: -4 }}
       viewport={{ once: true, margin: '-60px' }}
@@ -360,7 +360,7 @@ export default function SixGates() {
       <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
         {/* Section header */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}

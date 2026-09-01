@@ -20,7 +20,7 @@ export default function ClusterWhisper({ tr, en, verse }) {
       textAlign: 'center',
     }}>
       <motion.p
-        initial={reduced ? false : { opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 0.85, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 1.2 }}
@@ -42,7 +42,7 @@ export default function ClusterWhisper({ tr, en, verse }) {
           ölçekte, Conclusion'daki "taç âyet"ten kasıtlı olarak daha sakin. */}
       {verse && (
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 1, delay: 0.25 }}

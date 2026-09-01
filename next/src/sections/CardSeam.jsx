@@ -24,7 +24,7 @@ export default function CardSeam({ variant = 'normal' }) {
       }}
     >
       <motion.div
-        initial={reduced ? false : { opacity: 0, scale: 0.85 }}
+        initial={{ opacity: 0, scale: 0.85 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: '-30px' }}
         transition={{ duration: 0.6 }}

@@ -85,7 +85,7 @@ export default function SectionWrapper({
           : `py-16 md:py-24 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
       variants={reduced ? undefined : staggerContainer}
-      initial={reduced ? false : 'hidden'}
+      initial={'hidden'}
       whileInView={reduced ? undefined : 'visible'}
       // margin '-80px' idi (geç tetikleme — kullanıcı önce içine 80px girmeli).
       // Site denetimi (16 Ağustos 2026): hızlı/programatik scroll'da bu section

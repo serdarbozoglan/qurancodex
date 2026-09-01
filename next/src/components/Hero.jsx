@@ -9,7 +9,17 @@ import Link from 'next/link';
 
 export default function Hero() {
   const { t, language } = useLanguage();
-  const reduced = useReducedMotion();
+  // 2026-08-31 — SSR-güvenli hareket tercihi (§16.6 kalıbı, isMobile ile aynı).
+  // useReducedMotion() sunucuda her zaman false döner. Aşağıdaki iki yerde
+  // (bismillah maskesi, harf harf yazılma) `reduced` DOM AĞACINI değiştiriyor
+  // — motion.span dizisi mi düz metin mi. Sunucu birini, istemci diğerini
+  // basınca React hidrasyon uyuşmazlığı veriyordu (ölçüldü: reducedMotion
+  // 'reduce' ile 1 uyuşmazlık, 'no-preference' ile 0). İlk render sunucuyla
+  // eşitlenir, tercih mount'tan sonra devreye girer.
+  const reducedPref = useReducedMotion();
+  const [motionReady, setMotionReady] = useState(false);
+  useEffect(() => { setMotionReady(true); }, []);
+  const reduced = motionReady ? reducedPref : false;
 
   // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
   // Particle count is throttled on mobile for battery + scroll smoothness (W21-P7).
@@ -39,10 +49,14 @@ export default function Hero() {
 
   // Helper: spread onto a motion element. When reduced-motion is active,
   // mounts at final state with zero duration — choreography collapses cleanly.
-  const entrance = (initial, animate, transition) =>
-    reduced
-      ? { initial: false, transition: { duration: 0 } }
-      : { initial, animate, transition };
+  // 2026-08-31 — `reduced` dallanması KALDIRILDI. Sunucuda useReducedMotion()
+  // false döndüğü için SSR çıktısı animasyonun başlangıç hâlini (opacity:0,
+  // translateY) taşıyordu; istemcide azaltılmış hareket açıksa son hâl
+  // basılıyor ve React hidrasyon uyuşmazlığı veriyordu (ölçüldü: reducedMotion
+  // 'reduce' ile 1 uyuşmazlık, 'no-preference' ile 0). Hareket tercihi artık
+  // MotionPrefs'teki MotionConfig ile framer-motion'ın ANİMASYON katmanında
+  // ele alınıyor — render çıktısı iki tarafta da aynı kalıyor.
+  const entrance = (initial, animate, transition) => ({ initial, animate, transition });
 
   // Anchor verse text — Alak 96:1-2 ayrı ayet, mobile'da her birini ayrı satırda
   // göstermek için ayrı tutuluyor (random wrap yerine semantik line break).
@@ -129,7 +143,7 @@ export default function Hero() {
             '--mt-d': '60px', '--mt-m': '24px',
             '--mb-d': '52px', '--mb-m': '24px',
           }}
-          initial={reduced ? false : (showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
+          initial={(showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
           animate={reduced ? false : (showIntro
             ? {
                 opacity: 0.85,
@@ -486,7 +500,7 @@ export default function Hero() {
             background: `linear-gradient(to right, transparent, ${COLORS.gold}70, transparent)`,
             margin: '0 auto 36px',
           }}
-          initial={reduced ? false : { scaleX: 0, opacity: 0 }}
+          initial={{ scaleX: 0, opacity: 0 }}
           whileInView={reduced ? undefined : { scaleX: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.05 }}
@@ -503,7 +517,7 @@ export default function Hero() {
           {/* Cadre zemin — çok soluk altın tint dikdörtgen */}
           <motion.div
             aria-hidden="true"
-            initial={reduced ? false : { opacity: 0 }}
+            initial={{ opacity: 0 }}
             whileInView={reduced ? undefined : { opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={reduced ? { duration: 0 } : { duration: 1.6, delay: 0.3, ease: 'easeOut' }}
@@ -527,7 +541,7 @@ export default function Hero() {
               width="20"
               height="20"
               viewBox="0 0 20 20"
-              initial={reduced ? false : { opacity: 0, scale: 0.6 }}
+              initial={{ opacity: 0, scale: 0.6 }}
               whileInView={reduced ? undefined : { opacity: 0.55, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 0.5 + i * 0.06, ease: 'easeOut' }}
@@ -550,7 +564,7 @@ export default function Hero() {
           <motion.h1
             className="font-display text-4xl sm:text-5xl md:text-[3.25rem] lg:text-6xl font-black text-off-white leading-[1.15] tracking-[-0.015em] sm:tracking-tight"
             style={{ position: 'relative', margin: 0 }}
-            initial={reduced ? false : { opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={reduced ? { duration: 0 } : { duration: 1.2, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -562,7 +576,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           className="font-display text-gold text-lg sm:text-xl md:text-2xl mb-4 italic tracking-wide"
-          initial={reduced ? false : { opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.4 }}
@@ -573,7 +587,7 @@ export default function Hero() {
         {/* Decorative line */}
         <motion.div
           className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"
-          initial={reduced ? false : { scaleX: 0 }}
+          initial={{ scaleX: 0 }}
           whileInView={reduced ? undefined : { scaleX: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 0.6 }}
@@ -592,7 +606,7 @@ export default function Hero() {
             fontSize: 'clamp(1.05rem, 1.8vw, 1.1875rem)',
             lineHeight: 1.75,
           }}
-          initial={reduced ? false : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={reduced ? { duration: 0 } : { duration: 0.9, delay: 0.75 }}
@@ -608,7 +622,7 @@ export default function Hero() {
             keeps only the primary discovery action. */}
         <motion.div
           className="flex items-center justify-center"
-          initial={reduced ? false : { opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={reduced ? { duration: 0 } : { duration: 0.8, delay: 1.0 }}

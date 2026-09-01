@@ -22,7 +22,7 @@ export default function ClusterHeader({ eyebrowTr, eyebrowEn }) {
       background: 'transparent',
     }}>
       <motion.div
-        initial={reduced ? false : { opacity: 0, y: 8 }}
+        initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.7 }}

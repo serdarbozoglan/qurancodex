@@ -241,7 +241,7 @@ function Hero({ tr }) {
             tek glyph için 'Amiri Quran' override; metin DEĞİL, dekoratif
             sembol (Kur'an metni değil, mushaf açılış ornamenti). */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 0.85, scale: 1 }}
           transition={{ duration: 1.4, ease: 'easeOut' }}
           style={{
@@ -260,7 +260,7 @@ function Hero({ tr }) {
 
         {/* Şûrâ 42:11 — hero anchor verse */}
         <motion.blockquote
-          initial={reduced ? false : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
           cite="https://quran.com/42/11"
@@ -312,7 +312,7 @@ function Hero({ tr }) {
         {/* Framing whisper — tanzîh köprüsü. Şûrâ 42:11 → 114 isim
             geçişinin teolojik çerçevesini visitor'a önceden açar. */}
         <motion.p
-          initial={reduced ? false : { opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 0.85, y: 0 }}
           transition={{ duration: 0.9, delay: 0.75 }}
           style={{
@@ -336,7 +336,7 @@ function Hero({ tr }) {
 
         {/* Çift-katman başlık */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.9 }}
           style={{ textAlign: 'center', marginBottom: '56px', position: 'relative' }}
@@ -395,7 +395,7 @@ function Hero({ tr }) {
 
         {/* 4 temel ayet — actual unique quotes from each verse */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.1 }}
           style={{ width: '100%', maxWidth: '900px', marginBottom: '40px' }}
@@ -435,7 +435,7 @@ function Hero({ tr }) {
             {(tr ? TEMEL_AYETLER_TR : TEMEL_AYETLER_EN).map((ayet, i) => (
               <motion.div
                 key={ayet.ref}
-                initial={reduced ? false : { opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 1.25 + i * 0.1 }}
                 style={{
@@ -494,7 +494,7 @@ function Hero({ tr }) {
             tipografik ağırlıkta, sayı vurgulu (Playfair display), kategori
             altta küçük caps (Inter). Üçü görsel olarak eşit. */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.7 }}
           style={{
