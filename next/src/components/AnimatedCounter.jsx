@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 
 // SSR-safe animated counter.
 // Başlangıç değeri = target → server HTML'i GERÇEK sayıyı içerir (SEO, crawler,
@@ -22,7 +23,7 @@ export default function AnimatedCounter({
   const inView = useInView(ref, { once: true, margin: '-50px' });
   const hasAnimated = useRef(false);
   const mounted = useRef(false);        // ilk effect'ten sonra true
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
 
   useEffect(() => {
     if (hasAnimated.current) return;

@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 import ParticleBackground from './ParticleBackground';
@@ -10,16 +11,13 @@ import Link from 'next/link';
 export default function Hero() {
   const { t, language } = useLanguage();
   // 2026-08-31 — SSR-güvenli hareket tercihi (§16.6 kalıbı, isMobile ile aynı).
-  // useReducedMotion() sunucuda her zaman false döner. Aşağıdaki iki yerde
+  // useReducedMotionSafe() sunucuda her zaman false döner. Aşağıdaki iki yerde
   // (bismillah maskesi, harf harf yazılma) `reduced` DOM AĞACINI değiştiriyor
   // — motion.span dizisi mi düz metin mi. Sunucu birini, istemci diğerini
   // basınca React hidrasyon uyuşmazlığı veriyordu (ölçüldü: reducedMotion
   // 'reduce' ile 1 uyuşmazlık, 'no-preference' ile 0). İlk render sunucuyla
   // eşitlenir, tercih mount'tan sonra devreye girer.
-  const reducedPref = useReducedMotion();
-  const [motionReady, setMotionReady] = useState(false);
-  useEffect(() => { setMotionReady(true); }, []);
-  const reduced = motionReady ? reducedPref : false;
+  const reduced = useReducedMotionSafe();
 
   // SSR-safe mobile detection (§16.6) — initial false, hydrate post-mount.
   // Particle count is throttled on mobile for battery + scroll smoothness (W21-P7).
@@ -49,7 +47,7 @@ export default function Hero() {
 
   // Helper: spread onto a motion element. When reduced-motion is active,
   // mounts at final state with zero duration — choreography collapses cleanly.
-  // 2026-08-31 — `reduced` dallanması KALDIRILDI. Sunucuda useReducedMotion()
+  // 2026-08-31 — `reduced` dallanması KALDIRILDI. Sunucuda useReducedMotionSafe()
   // false döndüğü için SSR çıktısı animasyonun başlangıç hâlini (opacity:0,
   // translateY) taşıyordu; istemcide azaltılmış hareket açıksa son hâl
   // basılıyor ve React hidrasyon uyuşmazlığı veriyordu (ölçüldü: reducedMotion

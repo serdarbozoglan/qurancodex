@@ -6,13 +6,14 @@
 // iki katmanlı başlık gürültüsü oluyordu. Sade ayraç → kart başlığı parlasın.
 // ──────────────────────────────────────────────────────────────────────────────
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
 export default function ClusterHeader({ eyebrowTr, eyebrowEn }) {
   const { language } = useLanguage();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
 
   return (

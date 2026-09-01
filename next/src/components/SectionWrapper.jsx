@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 
 // hidden opacity 0.5 DEĞİL 0 — savunma amaçlı (site denetimi, 16 Ağustos
@@ -65,10 +65,22 @@ export default function SectionWrapper({
   // on the section root fixes every uppercase usage inside it at once.
   const { language } = useLanguage();
 
-  // Respect prefers-reduced-motion: skip stagger/fade-up, render at final state.
-  // This disables reveal animations for ALL child motion elements that use
-  // fadeUpItem or inherit from staggerContainer — single-point accessibility.
-  const reduced = useReducedMotion();
+  // 2026-09-01 — `reduced` dallanması KALDIRILDI. Hareket tercihi artık
+  // MotionPrefs'teki MotionConfig ile framer-motion'ın animasyon katmanında
+  // ele alınıyor (tek nokta, bütün ağaç).
+  //
+  // Buradaki dallanma hidrasyon uyuşmazlığının kaynağıydı ve mekanizması
+  // ince: `initial='hidden'` her zaman veriliyordu ama `variants` tercihe
+  // dallanıyordu. Sunucuda useReducedMotion() false → variants var →
+  // 'hidden' çözümlenip style="opacity:0.5" basılıyordu; istemcide tercih
+  // açıkken variants undefined → 'hidden' çözümlenemiyor → style={} .
+  // React farkı görüp "bu düzeltilmeyecek" diyordu (ölçüldü: anasayfada
+  // reduce modunda 1 uyuşmazlık, normal modda 0).
+  //
+  // Üçü birden sabitlendi — yalnız `variants`i geri koymak yetmezdi, çünkü
+  // whileInView de dallanıyordu ve tercih açıkken bölüm 'hidden'da (0.5)
+  // KALIRDI. Şimdi opaklık her hâlükârda 1'e gidiyor; MotionConfig
+  // vestibüler olan kısmı (stagger/kayma) zaten kapatıyor.
 
   // Padding sistemi — user feedback: 'çok kalabalık, breathing room az'.
   // Eski: py-10 (40px top + 40px bottom). Yeni: py-16 md:py-24 (64-96px).
@@ -84,9 +96,9 @@ export default function SectionWrapper({
           ? ''
           : `py-16 md:py-24 px-6 md:px-12 lg:px-16${firstAfterHero ? ' pt-14 md:pt-10' : ''}`
       } ${dark ? 'bg-deep-navy' : 'bg-cosmic-black'} ${className}`}
-      variants={reduced ? undefined : staggerContainer}
+      variants={staggerContainer}
       initial={'hidden'}
-      whileInView={reduced ? undefined : 'visible'}
+      whileInView={'visible'}
       // margin '-80px' idi (geç tetikleme — kullanıcı önce içine 80px girmeli).
       // Site denetimi (16 Ağustos 2026): hızlı/programatik scroll'da bu section
       // hiç görünmeden atlanabiliyor veya boş görünüyordu (bkz. /arac/retorik-sorular

@@ -18,7 +18,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import ToolHighlightCard from '../components/ToolHighlightCard';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -126,7 +127,7 @@ const FEATURED_TOOLS = [
 export default function ToolsHighlight() {
   const { language } = useLanguage();
   const { openOverlay } = useQuranNav();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   // SSR-safe: start with 1 (matches server render), useEffect hydrates with
   // actual viewport-based column count after mount. Prevents hydration mismatch.
   const [columns, setColumns] = useState(1);

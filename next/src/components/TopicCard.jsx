@@ -11,7 +11,8 @@
 // Hover tooltip clarifies the distinction. No badges, no extra noise.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
 
@@ -25,7 +26,7 @@ export default function TopicCard({
   onClick,
 }) {
   const { language } = useLanguage();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const title = language === 'tr' ? titleTr : titleEn;
   const desc  = language === 'tr' ? descTr  : descEn;
   const isOverlay = kind === 'overlay';

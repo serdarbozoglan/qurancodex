@@ -14,7 +14,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import SectionWrapper, { fadeUpItem } from '../components/SectionWrapper';
 import TefekkurCategoryCard from '../components/TefekkurCategoryCard';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -186,7 +187,7 @@ const TEFEKKUR_CATEGORIES = [
 export default function TefekkurHighlight({ compact = false }) {
   const { language } = useLanguage();
   const router = useRouter();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   // SSR-safe: start with 1, hydrate post-mount (mirrors ToolsHighlight pattern)
   const [columns, setColumns] = useState(1);
 

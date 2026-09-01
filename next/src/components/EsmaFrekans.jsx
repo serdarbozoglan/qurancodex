@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
@@ -216,7 +217,7 @@ function Hero({ tr }) {
   // dinlemiyordu — hem a11y açığı (§9) hem de altın metnin uzunca düşük
   // opaklıkta kalması (kontrast ihlali). `reduced` true olunca animasyon hiç
   // başlamadan son haliyle render olur (bkz. SectionWrapper.jsx pattern).
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   return (
     <section style={{
       minHeight: 'calc(100vh - 62px)',

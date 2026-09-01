@@ -6,11 +6,12 @@
 // kartlara nefes verir.
 // ──────────────────────────────────────────────────────────────────────────────
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { COLORS } from '../tokens';
 
 export default function CardSeam({ variant = 'normal' }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const big = variant === 'seal';
 
   return (

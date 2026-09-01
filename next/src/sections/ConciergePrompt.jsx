@@ -15,7 +15,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 import ParticleBackground from '../components/ParticleBackground';
@@ -47,7 +48,7 @@ const SUGGESTIONS_EN = [
 export default function ConciergePrompt() {
   const { language } = useLanguage();
   const router = useRouter();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
 
   const [query, setQuery] = useState('');

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useQuranNav } from '../hooks/useQuranNav';
 import { surahName } from '../lib/surahNames';
@@ -154,7 +155,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
   // viewport'ta sunucu (false) ile istemci (true) farklı style üretir ve
   // "tree hydrated but some attributes ... didn't match" hatası oluşur.
   const [isMobile, setIsMobile] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotionSafe();
 
   useEffect(() => {
     const h = () => setIsMobile(window.innerWidth < BREAKPOINT_MOBILE);

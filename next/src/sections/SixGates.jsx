@@ -9,7 +9,8 @@ import { useState, useEffect } from 'react';
 // ──────────────────────────────────────────────────────────────────────────────
 
 import Link from 'next/link';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, SEMANTIC, CATEGORY } from '../tokens';
 
@@ -138,7 +139,7 @@ const GATES = [
 
 function Gate({ gate, isMobile, language }) {
   const tr = language === 'tr';
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const chips = tr ? gate.chipsTr : gate.chipsEn;
 
   const handleClick = (e) => {
@@ -334,7 +335,7 @@ function Gate({ gate, isMobile, language }) {
 
 export default function SixGates() {
   const { language } = useLanguage();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
 
   // SSR-safe mobil algılama (§16.6). 2026-08-13'e kadar Gate'e isMobile={false}

@@ -5,13 +5,14 @@
 // emosyonel olarak hazırlar. Kullanım: cluster son CardSeam'ından sonra.
 // ──────────────────────────────────────────────────────────────────────────────
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useReducedMotionSafe from '../hooks/useReducedMotionSafe';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 
 export default function ClusterWhisper({ tr, en, verse }) {
   const { language } = useLanguage();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const isTr = language === 'tr';
 
   return (

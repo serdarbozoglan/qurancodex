@@ -21,7 +21,8 @@
 import { useState, useEffect, useRef, useCallback, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import useReducedMotionSafe from '../../../hooks/useReducedMotionSafe';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { COLORS, FONTS } from '../../../tokens';
 import { detectQueryLang } from '../../../lib/query-lang';
@@ -46,7 +47,7 @@ function SorInner() {
   const { language } = useLanguage();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
 
   const initialQuery = (searchParams.get('q') || '').trim();
@@ -1049,7 +1050,7 @@ function RejectedState({ language, rejection, onSuggestion }) {
 function ResponseView({ data, language, feedback, setFeedback }) {
   const { response, meta } = data;
   const tr = language === 'tr';
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
 
   return (
     <div>
@@ -1273,7 +1274,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
 // ─── SECTION + CARDS ────────────────────────────────────────────────────────
 
 function SectionBlock({ title, count, children }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   return (
     <motion.div
       initial={reduced ? false : { opacity: 0, y: 12 }}
@@ -1360,7 +1361,7 @@ function useSelectedMealId() {
 }
 
 function VerseCard({ verse, delay, language }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
   const rawMealId = useSelectedMealId();
 
@@ -1599,7 +1600,7 @@ function ShareVerseButton({ surah, ayah, surahName, translation, language }) {
 }
 
 function ToolCard({ tool, delay }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   return (
     <motion.div
       initial={reduced ? false : { opacity: 0, y: 12 }}
@@ -1660,7 +1661,7 @@ function ToolCard({ tool, delay }) {
 }
 
 function AtlasCard({ atlas, delay, language }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
   const typeLabel = {
     'atlas-kavim': tr ? 'Kavim' : 'People',
@@ -1786,7 +1787,7 @@ function AtlasCard({ atlas, delay, language }) {
 }
 
 function ArticleCard({ article, delay, language }) {
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   const tr = language === 'tr';
   return (
     <motion.div
@@ -1895,7 +1896,7 @@ function ArticleCard({ article, delay, language }) {
 
 function FeedbackRow({ feedback, setFeedback, language, queryHash }) {
   const tr = language === 'tr';
-  const reduced = useReducedMotion();
+  const reduced = useReducedMotionSafe();
   // localStorage dedup — aynı queryHash için bir kere feedback yeter.
   // Sayfa yeniden mount olduğunda önceki feedback restore edilir.
   useEffect(() => {
