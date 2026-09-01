@@ -44,6 +44,46 @@ function buildUrl(item, lang = 'tr') {
     case 'atlas-kissa-scene':
       // Scene → parent prophet atlas + scene anchor
       return `${base}/atlas/kissa?id=${item.prophetId}#${item.subId}`;
+    // ── 2026-09-01 — corpus'a sonradan giren tipler ────────────────────────
+    // Bunlar yoktu ve `default` dalına düşüp ANASAYFAYA (`${base}/`)
+    // yönlendiriliyorlardı: kaynak kartı doğru içeriği gösterip yanlış yere
+    // götürüyordu. Rotalar diskteki dizinlerle birebir doğrulandı.
+    case 'elestirel':
+      return `${base}/arac/elestirel-cerceve#${item.subId}`;
+    case 'bilimsel-isaret':
+      return `${base}/arac/bilimsel-isaretler`;
+    case 'tarihsel-iz':
+      return `${base}/arac/tarihsel-kanitlar`;
+    case 'atlas-mesel':
+      return `${base}/atlas/mesel`;
+    case 'atlas-ibadet':
+      // buildItem `route` üretiyor (ör. /atlas/ibadetler/hac) — varsa onu kullan
+      return item.route ? `${base}${item.route}` : `${base}/atlas/ibadetler`;
+    case 'atlas-ahiret-yolculugu-stage':
+      return `${base}/atlas/ahiret-yolculugu`;
+    case 'insan-yolculugu-stage':
+      return `${base}/atlas/insan-yolculugu`;
+    case 'munasebat':
+      return `${base}/atlas/munasebat`;
+    case 'sebeb-nuzul':
+      return `${base}/arac/sebebi-nuzul`;
+    case 'dialogue':
+      return `${base}/graf/diyalog`;
+    case 'addressee':
+      return `${base}/arac/muhataplar`;
+    case 'nuance-set':
+      return `${base}/arac/yakin-anlamli-nuanslar`;
+    case 'neden-sonuc':
+      return `${base}/arac/neden-sonuc`;
+    case 'kitap-kavrami':
+      return `${base}/arac/kitap-kavrami`;
+    case 'tefsir-ihtilaf':
+      return `${base}/arac/tefsir-ihtilaflari`;
+    case 'sunnetullah-kanun':
+    case 'sunnetullah-kavim':
+    case 'sunnetullah-ulema':
+      return `${base}/atlas/sunnetullah`;
+
     case 'surah-summary':
       // Sure özet chunk → sure oku sayfası (1. ayete land)
       return `${base}/oku/${item.surah}`;

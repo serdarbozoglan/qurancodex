@@ -186,8 +186,26 @@ function buildUserMessage(query, grouped, lang = 'tr') {
     parts.push('');
   }
 
-  // Atlases (kavim, kissa, scene, esma, dua, kavram, surah-summary, pericope merged)
-  const atlasTypes = ['atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma', 'atlas-dua', 'atlas-kavram', 'surah-summary', 'pericope'];
+  // Atlaslar ve konu araçları — Claude'a aday olarak SUNULAN tipler.
+  //
+  // 2026-09-01 — 18 tip eklendi. Bu liste sitedeki ÜÇÜNCÜ sabit tip kaydıydı
+  // (diğer ikisi concierge-search ve concierge-keyword-search'teki perType).
+  // Burada olmayan tip Claude'a hiç gösterilmiyor, dolayısıyla cevapta
+  // alıntılanamıyor. Ölçüldü: corpus'a eklenen ve aramada 0.74'e kadar skor
+  // alan kalemler (ör. elestirel:miras-esitsizligi) uçtan uca 7 sorgunun
+  // 7'sinde de cevaba HİÇ giremiyordu — arama katmanını geçiyor, prompt
+  // katmanında düşüyordu.
+  const atlasTypes = [
+    'atlas-kissa', 'atlas-kissa-scene', 'atlas-kavim', 'atlas-esma',
+    'atlas-dua', 'atlas-kavram', 'surah-summary', 'pericope',
+    // ── 2026-08-31/09-01 turlarında corpus'a girenler
+    'elestirel', 'bilimsel-isaret', 'tarihsel-iz',
+    'atlas-mesel', 'atlas-ibadet', 'atlas-ahiret-yolculugu-stage',
+    'insan-yolculugu-stage',
+    'munasebat', 'sebeb-nuzul', 'dialogue', 'addressee',
+    'nuance-set', 'neden-sonuc', 'kitap-kavrami', 'tefsir-ihtilaf',
+    'sunnetullah-kanun', 'sunnetullah-kavim', 'sunnetullah-ulema',
+  ];
   const atlases = atlasTypes.flatMap(t => grouped[t] || []).sort((a, b) => b.score - a.score);
   if (atlases.length) {
     parts.push(`--- ${lang === 'tr' ? 'ATLASLAR' : 'ATLASES'} ---`);
