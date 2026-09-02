@@ -100,6 +100,16 @@ export default function KissaAtlas({ onClose }) {
   // 62 · 110). 2026-08-13: "450 → 0" diye raporlamıştım ama yalnız ToolHeader
   // kullanan sayfalarda ölçmüştüm; kullanmayanlarda örtüşme duruyordu.
   const navTop = useNavbarOffset(0, 62);
+  // 1 Eylul 2026 — SEKIZINCI tekrar. Sticky basliklarin `top`u olculen
+  // navTop'u kullaniyordu ama sayfa kabinin paddingTop'u SABIT '62px'ti.
+  // 1440px'te navbarin gercek alt kenari 82 → akista 62px yer ayrilirken
+  // seritler 82 ve 130'a oturuyordu. `position: sticky`, dogal konum esigin
+  // USTUNDEYSE elemani ASAGI iter; iki serit de 20px asagi kaydi ve altlarinda
+  // duran icerik panosunun ilk 20px'i kalici olarak seridin altinda kaldi
+  // (olculdu, scrollY=0: serit 130→183, pano 163'ten basliyor; "Hz. Musa"
+  // basligi 179'da, seridin alt kenarina yapisik). Pano `overflow:hidden`
+  // oldugu icin o 20px kaydirilarak geri de getirilemiyordu.
+  // Dolgu artik ayni olculen degeri kullanir — tahmin kalmadi.
   const { language } = useLanguage();
   const trapRef = useFocusTrap(true);
   const [data, setData] = useState(null);
@@ -258,9 +268,9 @@ export default function KissaAtlas({ onClose }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
         fontFamily: "'Inter', sans-serif",
       }}
     >
@@ -272,7 +282,7 @@ export default function KissaAtlas({ onClose }) {
   );
 
   if (!data) return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: `calc(100vh - ${navTop}px)`, paddingTop: `${navTop}px` }}>
       {KISSA_TOOL_HEADER}
       {SOURCES}
       {RELATED_CTA}
@@ -299,9 +309,9 @@ export default function KissaAtlas({ onClose }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
         fontFamily: "'Inter', sans-serif",
       }}
     >
@@ -325,31 +335,60 @@ export default function KissaAtlas({ onClose }) {
         isolation: 'isolate',
       }}>
         {/* Row 1: Prophet tabs (desktop inline / mobile scrollable) */}
+        {/* height: '52px' SABITI KALDIRILDI (1 Eylul 2026). Efendimiz'in (s.a.v.)
+            kaydi + ayrac eklenince satirin icerik genisligi 1146px -> 1293px
+            oldu; 1300px altindaki ekranlarda haplar iki satira sardi ve sabit
+            52px'lik kutudan TASTI. Serit alt kenarini gecen kisim altta duran
+            "Hz. Musa" basligiyla ust uste bindi (olculdu: 1024px'te 3px,
+            <=1000px'te 6px ortusme). Sarmayi asagida nowrap ile tamamen
+            engelliyoruz; minHeight ise ileride bir sey buyurse kirpmak yerine
+            serit yuksellsin diye. */}
         <div style={{
           display: 'flex', alignItems: 'center',
-          padding: isMobile ? '10px 16px' : '0 20px',
-          height: isMobile ? 'auto' : '52px',
+          padding: isMobile ? '10px 16px' : '9px 20px',
+          minHeight: isMobile ? 'auto' : '52px',
           gap: '12px',
         }}>
           {/* Prophet tabs — inline on desktop */}
           {!isMobile && (
-            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+            /* 14 kayit dogal halde ~1507px yer kapliyor — 1512px altindaki
+               her ekranda tasiyor. Iki secenek denendi:
+                 - Yatay kaydirma: MUHAMMED sekmesi 1440px'te sag kenarda
+                   YARIM kaliyordu. Kelime ortasindan kesik bir sekme bozuk
+                   gorunuyor; ustelik Efendimiz'in (s.a.v.) kaydi tam da
+                   varsayilan olarak ekran disinda kalan kayit oluyordu.
+                 - Sarma: hicbir kayit gizlenmez, kaydirma cubugu yok, kesik
+                   yok. Serit 53px'ten ~97px'e cikiyor ama yalnizca sigmadigi
+                   ekranlarda. Bunu sectik.
+               Ustteki kapta `height` yerine `minHeight` var; sarma oldugunda
+               serit KIRPMAK yerine buyur. rowGap sarilan satirlari ayirir. */
+            <div style={{
+              display: 'flex', flexWrap: 'wrap',
+              columnGap: '4px', rowGap: '6px', alignItems: 'center',
+              flex: 1, minWidth: 0,
+            }}>
               {data.prophets.map(p => (
                 <Fragment key={p.id}>
                 {/* Hâtemü'n-nebiyyîn kaydı listenin sonunda ve ayraçla ayrı
                     durur: öncekilerin kıssası ona anlatıldı, onunki inerken
                     anlatıldı. Sıradaki 13. eşit kayıt değil. */}
-                {p.isSeal && (
-                  <span aria-hidden="true" style={{
-                    width: '1px', height: '20px', flexShrink: 0,
-                    background: 'rgba(255,255,255,0.14)', margin: '0 8px',
-                  }} />
-                )}
+                {/* Serbest duran ayrac SPAN'i KALDIRILDI (1 Eylul 2026):
+                    serit sardiginda MUHAMMED 2. satira geciyor, ayrac 1.
+                    satirin sonunda OKSUZ bir cizgi olarak kaliyordu.
+                    Hatemu'n-nebiyyin'i ayirma niyeti korunuyor ama artik
+                    kaydin KENDI uzerinde: solunda fazladan bosluk + kendi
+                    altin tonunda kenarlik. Bu, sarsin ya da sarmasin her
+                    durumda dogru okunur. */}
                 <button
                   onClick={() => selectProphet(p.id)}
                   style={{
+                    flexShrink: 0, whiteSpace: 'nowrap',
+                    marginLeft: p.isSeal ? '14px' : 0,
                     padding: '7px 14px', borderRadius: RADIUS.md,
-                    border: `1px solid ${selectedProphetId === p.id ? `${p.color}80` : 'rgba(255,255,255,0.08)'}`,
+                    border: `1px solid ${
+                      selectedProphetId === p.id ? `${p.color}80`
+                        : p.isSeal ? `${p.color}33` : 'rgba(255,255,255,0.08)'
+                    }`,
                     background: selectedProphetId === p.id ? `${p.color}18` : 'transparent',
                     color: selectedProphetId === p.id ? p.color : SEMANTIC.textFaint,
                     fontSize: '0.82rem', fontWeight: selectedProphetId === p.id ? 700 : 500,
