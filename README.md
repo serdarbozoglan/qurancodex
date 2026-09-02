@@ -1,16 +1,39 @@
-# React + Vite
+# QuranCodex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A bilingual (Turkish/English) Qur'an study platform built with Next.js. It
+pairs a standard reading mode with a set of interactive "atlas" and "tool"
+pages — word-frequency and rhetoric explorers, cross-surah connection maps,
+prophet/story atlases, and deep-dive pages on individual surahs — each built
+from cited classical tafsīr and contemporary academic sources. A
+retrieval-augmented "Sor" (Ask) assistant lets readers query the site's own
+corpus of verses, translations, and study content directly.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Next.js 16** (App Router), React
+- Locale-prefixed routing (`/tr/...`, `/en/...`)
+- `framer-motion` for scroll-driven reveals on the atlas/tool pages
+- A local embeddings-based RAG pipeline (`next/scripts/build-embeddings.mjs`)
+  backing the `/sor` concierge
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+cd next
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+The app expects a few environment variables (API keys for the AI-backed
+features, a KV/Redis store) — see `next/.env.local` for the variables this
+project reads; you'll need your own values there before those features
+work.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## License
+
+The application code is MIT-licensed — see `LICENSE`.
+
+The site's written content (study notes, comparative analysis, and article
+text served from `next/public/`) is licensed separately and is **not**
+covered by the MIT grant — see `CONTENT-LICENSE.md` for why and what terms
+apply.
