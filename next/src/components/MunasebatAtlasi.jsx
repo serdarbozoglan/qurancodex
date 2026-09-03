@@ -103,8 +103,8 @@ function Hero({ language, isMobile }) {
     }}>
       <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div aria-hidden="true" style={{
-          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+        <div aria-hidden="true" className="mq-fs" style={{
+          fontFamily: FONTS.bismillah, '--fs-d': '2.3rem', '--fs-m': '1.9rem',
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
@@ -115,9 +115,9 @@ function Hero({ language, isMobile }) {
         }}>
           اللَّهُ نَزَّلَ أَحْسَنَ الْحَدِيثِ كِتَابًا مُتَشَابِهًا مَثَانِيَ
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
-          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          '--fs-d': '1.05rem', '--fs-m': '0.95rem', lineHeight: 1.6,
           maxWidth: '660px', margin: '0 auto 8px',
         }}>
           {tr
@@ -130,9 +130,9 @@ function Hero({ language, isMobile }) {
           margin: '0 0 24px',
         }}>— {tr ? 'Zümer 39:23' : 'Az-Zumar 39:23'}</p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
-          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          '--fs-d': '1rem', '--fs-m': '0.92rem', lineHeight: 1.75,
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
@@ -278,27 +278,27 @@ function ConnectionCard({ conn, typesById, scholarsById, language, isMobile }) {
         </span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
-        <div style={{
+        <div className="mq-fs" style={{
           width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px', borderRadius: '50%',
           border: `1.5px solid ${strengthColor}`, background: `${strengthColor}14`,
           display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, fontSize: isMobile ? '0.78rem' : '0.85rem',
+          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, '--fs-d': '0.85rem', '--fs-m': '0.78rem',
         }}>{s1}</div>
-        <span style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem',
+        <span className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem',
           fontWeight: 700, color: COLORS.offWhite, letterSpacing: '0.01em',
         }}>
           {surahLabel(s1, language)}
         </span>
         <div style={{ width: isMobile ? '28px' : '48px', height: '1px', flexShrink: 0, background: `linear-gradient(90deg, ${strengthColor}88, ${strengthColor}88)` }} />
-        <div style={{
+        <div className="mq-fs" style={{
           width: isMobile ? '30px' : '36px', height: isMobile ? '30px' : '36px', borderRadius: '50%',
           border: `1.5px solid ${strengthColor}`, background: `${strengthColor}14`,
           display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, fontSize: isMobile ? '0.78rem' : '0.85rem',
+          fontFamily: FONTS.display, fontWeight: 700, color: strengthColor, '--fs-d': '0.85rem', '--fs-m': '0.78rem',
         }}>{s2}</div>
-        <span style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem',
+        <span className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem',
           fontWeight: 700, color: COLORS.offWhite, letterSpacing: '0.01em',
         }}>
           {surahLabel(s2, language)}
@@ -630,9 +630,9 @@ function SectionHeading({ num, isMobile, children }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontFamily: FONTS.display, fontWeight: 700, color: accent, fontSize: '0.85rem',
       }}>{num}</div>
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
-        fontSize: isMobile ? '1.15rem' : '1.35rem', margin: 0,
+        '--fs-d': '1.35rem', '--fs-m': '1.15rem', margin: 0,
       }}>{children}</h3>
     </div>
   );

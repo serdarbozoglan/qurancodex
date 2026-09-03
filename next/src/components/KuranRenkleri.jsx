@@ -540,7 +540,7 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? "Kur'ân'ın Renk Paleti" : "The Qur'anic Color Palette"}
         </div>
-        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.7rem)' : 'clamp(1.8rem, 3vw, 2.2rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+        <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.8rem, 3vw, 2.2rem)', '--fs-m': 'clamp(1.4rem, 5vw, 1.7rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
           {tr ? (
             <>Bir bakışta <span style={{ color: COLORS.gold }}>tüm renkler</span></>
           ) : (
@@ -605,9 +605,9 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
               }} />
 
               {/* Turkish name */}
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: FONTS.display,
-                fontSize: isMobile ? '1.05rem' : '1.18rem',
+                '--fs-d': '1.18rem', '--fs-m': '1.05rem',
                 fontWeight: 600,
                 color: isHover ? c.hexColor : COLORS.offWhite,
                 lineHeight: 1.15,
@@ -619,9 +619,9 @@ function TabPalet({ data, language, isMobile, onColorClick }) {
 
               {/* Arabic term */}
               {arTerm && (
-                <div style={{
+                <div className="mq-fs" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  '--fs-d': '1.05rem', '--fs-m': '0.95rem',
                   color: COLORS.gold,
                   opacity: isHover ? 0.95 : 0.72,
                   direction: 'rtl',
@@ -999,8 +999,8 @@ function TabBaglam({ language, isMobile }) {
               </div>
 
               {/* Description */}
-              <p style={{
-                fontSize: isMobile ? '0.88rem' : '0.93rem',
+              <p className="mq-fs" style={{
+                '--fs-d': '0.93rem', '--fs-m': '0.88rem',
                 color: COLORS.silver, lineHeight: 1.7,
                 fontFamily: FONTS.body, margin: 0,
               }}>
@@ -1052,9 +1052,9 @@ function TabBaglam({ language, isMobile }) {
                       }} />
 
                       {/* Name */}
-                      <span style={{
+                      <span className="mq-fs" style={{
                         flex: 1,
-                        fontSize: isMobile ? '0.85rem' : '0.92rem',
+                        '--fs-d': '0.92rem', '--fs-m': '0.85rem',
                         color: COLORS.offWhite, fontWeight: 600,
                       }}>
                         {tr ? c.nameTr : c.nameEn}
@@ -1105,9 +1105,9 @@ function TabBaglam({ language, isMobile }) {
                           marginBottom: '14px',
                           boxShadow: `inset 0 0 24px ${c.hex}10`,
                         }}>
-                          <p style={{
+                          <p className="mq-fs" style={{
                             fontFamily: FONTS.quran,
-                            fontSize: isMobile ? '1.55rem' : '1.85rem',
+                            '--fs-d': '1.85rem', '--fs-m': '1.55rem',
                             color: COLORS.gold,
                             textAlign: 'right', direction: 'rtl',
                             lineHeight: 2, margin: 0,
@@ -1117,9 +1117,9 @@ function TabBaglam({ language, isMobile }) {
                         </div>
 
                         {/* Translation */}
-                        <p style={{
+                        <p className="mq-fs" style={{
                           fontFamily: FONTS.body,
-                          fontSize: isMobile ? '0.92rem' : '0.95rem',
+                          '--fs-d': '0.95rem', '--fs-m': '0.92rem',
                           color: COLORS.offWhite, fontStyle: 'italic',
                           margin: '0 0 12px', lineHeight: 1.75,
                         }}>
@@ -1142,9 +1142,9 @@ function TabBaglam({ language, isMobile }) {
                         </div>
 
                         {/* Linguistic note */}
-                        <p style={{
+                        <p className="mq-fs" style={{
                           fontFamily: FONTS.body,
-                          fontSize: isMobile ? '0.88rem' : '0.92rem',
+                          '--fs-d': '0.92rem', '--fs-m': '0.88rem',
                           color: COLORS.silver, margin: 0,
                           lineHeight: 1.75,
                           paddingLeft: '14px',
@@ -1246,17 +1246,17 @@ function TabCennet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${ACCENT}55, transparent)` }} />
         </div>
 
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.3rem' : '1.6rem',
+          '--fs-d': '1.6rem', '--fs-m': '1.3rem',
           color: COLORS.offWhite, fontWeight: 700,
           margin: '0 0 12px', lineHeight: 1.3,
         }}>
           {tr ? 'Serin, Sakin, Sade — Cennetin Üslubu' : 'Cool, Calm, Spare — The Aesthetic of Paradise'}
         </h3>
 
-        <p style={{
-          fontSize: isMobile ? '0.92rem' : '0.96rem',
+        <p className="mq-fs" style={{
+          '--fs-d': '0.96rem', '--fs-m': '0.92rem',
           color: COLORS.silver, lineHeight: 1.75,
           fontFamily: FONTS.body, margin: 0,
         }}>
@@ -1449,9 +1449,9 @@ function TabCennet({ language, isMobile }) {
                 marginBottom: '14px',
                 boxShadow: `inset 0 0 24px ${theme}14`,
               }}>
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: isMobile ? '1.6rem' : '1.9rem',
+                  '--fs-d': '1.9rem', '--fs-m': '1.6rem',
                   color: COLORS.gold,
                   textAlign: 'right', direction: 'rtl',
                   lineHeight: 2, margin: 0,
@@ -1461,9 +1461,9 @@ function TabCennet({ language, isMobile }) {
               </div>
 
               {/* Translation — bumped to 1rem desktop */}
-              <p style={{
+              <p className="mq-fs" style={{
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.94rem' : '1rem',
+                '--fs-d': '1rem', '--fs-m': '0.94rem',
                 color: COLORS.offWhite, fontStyle: 'italic',
                 margin: '0 0 14px', lineHeight: 1.75,
               }}>
@@ -1471,9 +1471,9 @@ function TabCennet({ language, isMobile }) {
               </p>
 
               {/* Linguistic note — themed left border */}
-              <p style={{
+              <p className="mq-fs" style={{
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.88rem' : '0.92rem',
+                '--fs-d': '0.92rem', '--fs-m': '0.88rem',
                 color: COLORS.silver, margin: 0,
                 lineHeight: 1.75,
                 paddingLeft: '14px',
@@ -1576,9 +1576,9 @@ function TabKiyamet({ language, isMobile }) {
           <div style={{ flex: 1, height: '1px', background: `linear-gradient(90deg, ${COLORS.goldAlpha25 || 'rgba(212,165,116,0.25)'}, transparent)` }} />
         </div>
 
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.3rem' : '1.6rem',
+          '--fs-d': '1.6rem', '--fs-m': '1.3rem',
           color: COLORS.offWhite, fontWeight: 700,
           margin: '0 0 16px', lineHeight: 1.3,
         }}>
@@ -1826,8 +1826,8 @@ function TabKiyamet({ language, isMobile }) {
                 boxShadow: `0 0 12px ${s.hex}aa, 0 0 0 3px rgba(0,0,0,0.35)`,
                 flexShrink: 0,
               }} />
-              <span style={{
-                fontSize: isMobile ? '0.96rem' : '1.04rem',
+              <span className="mq-fs" style={{
+                '--fs-d': '1.04rem', '--fs-m': '0.96rem',
                 fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body,
                 letterSpacing: '0.01em', lineHeight: 1.4, flex: 1,
               }}>
@@ -1845,9 +1845,9 @@ function TabKiyamet({ language, isMobile }) {
               marginBottom: '14px',
               boxShadow: `inset 0 0 24px ${s.hex}12`,
             }}>
-              <p style={{
+              <p className="mq-fs" style={{
                 fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.6rem' : '1.9rem',
+                '--fs-d': '1.9rem', '--fs-m': '1.6rem',
                 color: COLORS.gold,
                 textAlign: 'right', direction: 'rtl',
                 lineHeight: 2, margin: 0,
@@ -1857,9 +1857,9 @@ function TabKiyamet({ language, isMobile }) {
             </div>
 
             {/* Translation + ref */}
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.92rem' : '0.95rem',
+              '--fs-d': '0.95rem', '--fs-m': '0.92rem',
               color: COLORS.offWhite, fontStyle: 'italic',
               margin: '0 0 10px', lineHeight: 1.75,
             }}>
@@ -1878,9 +1878,9 @@ function TabKiyamet({ language, isMobile }) {
             </div>
 
             {/* Linguistic note */}
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.88rem' : '0.92rem',
+              '--fs-d': '0.92rem', '--fs-m': '0.88rem',
               color: COLORS.silver, margin: 0,
               lineHeight: 1.75,
               paddingLeft: '14px',
@@ -1942,9 +1942,9 @@ function SectionShell({ letter, accent, eyebrowTr, eyebrowEn, titleTr, titleEn, 
             }}>
               {tr ? eyebrowTr : eyebrowEn}
             </span>
-            <h3 style={{
+            <h3 className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1.05rem' : '1.18rem',
+              '--fs-d': '1.18rem', '--fs-m': '1.05rem',
               color: COLORS.offWhite, fontWeight: 700,
               margin: 0, lineHeight: 1.35,
             }}>
@@ -1953,8 +1953,8 @@ function SectionShell({ letter, accent, eyebrowTr, eyebrowEn, titleTr, titleEn, 
           </div>
         </div>
         {(descTr || descEn) && (
-          <p style={{
-            fontSize: isMobile ? '0.88rem' : '0.92rem',
+          <p className="mq-fs" style={{
+            '--fs-d': '0.92rem', '--fs-m': '0.88rem',
             color: COLORS.silver, lineHeight: 1.7,
             fontFamily: FONTS.body, margin: '8px 0 0',
           }}>
@@ -2101,9 +2101,9 @@ function TabDilbilim({ language, isMobile }) {
                 display: 'flex', flexDirection: 'column', gap: '6px',
                 boxShadow: 'inset 0 0 16px rgba(139,92,246,0.10)',
               }}>
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: isMobile ? '1.65rem' : '1.85rem',
+                  '--fs-d': '1.85rem', '--fs-m': '1.65rem',
                   color: COLORS.gold,
                   textAlign: 'right', direction: 'rtl', lineHeight: 1.8,
                   margin: 0,
@@ -2141,9 +2141,9 @@ function TabDilbilim({ language, isMobile }) {
               </div>
 
               {/* Linguistic note */}
-              <p style={{
+              <p className="mq-fs" style={{
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.88rem' : '0.92rem',
+                '--fs-d': '0.92rem', '--fs-m': '0.88rem',
                 color: COLORS.silver, margin: 0,
                 lineHeight: 1.75,
                 paddingLeft: '14px',
@@ -2311,8 +2311,8 @@ function TabDilbilim({ language, isMobile }) {
                     boxShadow: `0 0 12px ${row.hex}88, 0 0 0 3px rgba(0,0,0,0.3)`,
                     flexShrink: 0,
                   }} />
-                  <span style={{
-                    fontSize: isMobile ? '0.96rem' : '1.02rem',
+                  <span className="mq-fs" style={{
+                    '--fs-d': '1.02rem', '--fs-m': '0.96rem',
                     fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body,
                   }}>
                     {tr ? row.objectTr : row.objectEn}
@@ -2340,9 +2340,9 @@ function TabDilbilim({ language, isMobile }) {
                 marginBottom: '12px',
                 boxShadow: `inset 0 0 22px ${row.hex}12`,
               }}>
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: isMobile ? '1.55rem' : '1.8rem',
+                  '--fs-d': '1.8rem', '--fs-m': '1.55rem',
                   color: COLORS.gold,
                   textAlign: 'right', direction: 'rtl',
                   lineHeight: 1.95, margin: 0,
@@ -2352,8 +2352,8 @@ function TabDilbilim({ language, isMobile }) {
               </div>
 
               {/* Translation */}
-              <p style={{
-                fontSize: isMobile ? '0.88rem' : '0.92rem',
+              <p className="mq-fs" style={{
+                '--fs-d': '0.92rem', '--fs-m': '0.88rem',
                 color: COLORS.offWhite, fontStyle: 'italic',
                 fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.7,
               }}>
@@ -2372,8 +2372,8 @@ function TabDilbilim({ language, isMobile }) {
               </div>
 
               {/* Note */}
-              <p style={{
-                fontSize: isMobile ? '0.86rem' : '0.9rem',
+              <p className="mq-fs" style={{
+                '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                 color: COLORS.silver, lineHeight: 1.75,
                 fontFamily: FONTS.body, margin: 0,
                 paddingLeft: '14px',
@@ -2436,8 +2436,8 @@ function TabDilbilim({ language, isMobile }) {
             </div>
           ))}
         </div>
-        <p style={{
-          fontSize: isMobile ? '0.88rem' : '0.92rem',
+        <p className="mq-fs" style={{
+          '--fs-d': '0.92rem', '--fs-m': '0.88rem',
           color: COLORS.silver, lineHeight: 1.75, fontFamily: FONTS.body, margin: 0,
           paddingLeft: '14px',
           borderLeft: `2px solid ${COLORS.goldAlpha45 || 'rgba(212,165,116,0.45)'}`,
@@ -2712,9 +2712,9 @@ export default function KuranRenkleri({ onClose }) {
             dir="rtl"
             lang="ar"
             aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.6rem' : '2rem',
+              '--fs-d': '2rem', '--fs-m': '1.6rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
@@ -2729,9 +2729,9 @@ export default function KuranRenkleri({ onClose }) {
           <p
             dir="rtl"
             lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.4vw, 1.75rem)',
+              '--fs-d': 'clamp(1.3rem, 2.4vw, 1.75rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 18px',
@@ -2742,11 +2742,11 @@ export default function KuranRenkleri({ onClose }) {
             اَلَمْ تَرَ اَنَّ اللّٰهَ اَنْزَلَ مِنَ السَّمَٓاءِ مَٓاءً فَاَخْرَجْنَا بِهٖ ثَمَرَاتٍ مُخْتَلِفًا اَلْوَانُهَا
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '620px',
@@ -2770,11 +2770,11 @@ export default function KuranRenkleri({ onClose }) {
           </p>
 
           {/* Framing whisper — page thesis */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.5vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 40px',
             maxWidth: '660px',
@@ -2805,8 +2805,8 @@ export default function KuranRenkleri({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h2 style={{
-            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+          <h2 className="mq-fs" style={{
+            '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
             fontWeight: 700, fontFamily: FONTS.display,
             color: COLORS.offWhite,
             margin: '0 auto 16px',
@@ -2818,9 +2818,9 @@ export default function KuranRenkleri({ onClose }) {
           </h2>
 
           {/* Dramatic subtitle */}
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+            '--fs-d': 'clamp(1.05rem, 1.8vw, 1.2rem)', '--fs-m': '1rem',
             color: COLORS.gold,
             margin: '0 auto 32px',
             lineHeight: 1.5,
@@ -2873,10 +2873,10 @@ export default function KuranRenkleri({ onClose }) {
           <div style={{ fontSize: '0.75rem', letterSpacing: '0.12em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: '12px' }}>
             {tr ? 'Tek Ayette 3 Renk — Fâtır 35:27' : 'Three Colors in One Verse — Fatir 35:27'}
           </div>
-          <p style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.7rem' : '2.1rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 14px' }} lang="ar" dir="rtl">
+          <p className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '2.1rem', '--fs-m': '1.7rem', color: COLORS.gold, textAlign: 'center', direction: 'rtl', lineHeight: 2, margin: '0 0 14px' }} lang="ar" dir="rtl">
             وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ
           </p>
-          <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: COLORS.silver, fontFamily: FONTS.body, textAlign: 'center', fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.7 }}>
+          <p className="mq-fs" style={{ '--fs-d': '1rem', '--fs-m': '0.9rem', color: COLORS.silver, fontFamily: FONTS.body, textAlign: 'center', fontStyle: 'italic', margin: '0 0 16px', lineHeight: 1.7 }}>
             {tr
               ? '"Dağlarda da beyaz, kırmızı — renkleri birbirinden farklı — ve simsiyah yollar/şeritler vardır."'
               : '"And among the mountains are streaks of white and red of varying shades, and some intensely black."'}
@@ -3166,9 +3166,9 @@ function ColorsClosing({ language, isMobile }) {
 
       {/* Paradox synthesis — Hero'daki "sessiz alfabe" tezi burada
           cennetin tek tonuna (مُدْهَامَّتَانِ) bağlanır */}
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        '--fs-d': 'clamp(1.7rem, 2.8vw, 2.15rem)', '--fs-m': 'clamp(1.45rem, 5.5vw, 1.8rem)',
         color: COLORS.offWhite,
         textAlign: 'center',
         lineHeight: 1.3,
@@ -3182,10 +3182,10 @@ function ColorsClosing({ language, isMobile }) {
       </h3>
 
       {/* Synthesis paragraph */}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display, fontStyle: 'italic',
         color: COLORS.silver,
-        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        '--fs-d': 'clamp(1rem, 1.7vw, 1.12rem)', '--fs-m': '1rem',
         lineHeight: 1.75,
         textAlign: 'center',
         margin: '0 auto 50px',

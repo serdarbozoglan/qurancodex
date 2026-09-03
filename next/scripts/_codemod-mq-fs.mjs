@@ -46,7 +46,26 @@ for (const file of files) {
       continue;
     }
 
-    // 2) kendi satırında duran hâl
+    // 2) çok satırlı style objesinin ORTASINDA, satırda başka özelliklerle
+    //    birlikte geçen hâl. İlk iki sürüm bunu kaçırıyordu ve projedeki
+    //    kahraman bloklarının çoğu tam da böyle yazılmış (bismillah + âyet
+    //    satırları), yani kalan CLS'in kaynağı buydu.
+    if (!FS_RE.test(L[i]) && INLINE_RE.test(L[i])) {
+      let j = i - 1, ok = false;
+      for (; j >= 0 && i - j < 40; j--) {
+        if (L[j].includes('}}')) break;
+        if (L[j].includes('style={{')) { ok = true; break; }
+      }
+      if (!ok) { console.warn(`  ! ${file}:${i + 1} style={{ bulunamadı, atlandı`); continue; }
+      const im = INLINE_RE.exec(L[i]);
+      L[i] = L[i].replace(INLINE_RE, `'--fs-d': '${im[2]}', '--fs-m': '${im[1]}'`);
+      L[j] = addClass(L[j]);
+      n++;
+      if (INLINE_RE.test(L[i])) i--;
+      continue;
+    }
+
+    // 3) kendi satırında duran hâl
     const m = FS_RE.exec(L[i]);
     if (!m) continue;
     const [, ind, mob, desk] = m;

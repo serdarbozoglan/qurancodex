@@ -40,8 +40,8 @@ function OnIkiHileWidget({ language, isMobile }) {
         }}>
           {tr ? "KLASİK TİPOLOJİ · İBN KAYYIM & GAZÂLÎ SENTEZİ" : "CLASSICAL TYPOLOGY · IBN AL-QAYYIM & AL-GHAZĀLĪ SYNTHESIS"}
         </p>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.65rem',
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.65rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite, margin: '0 0 10px', lineHeight: 1.3,
         }}>
           {tr ? "Şeytanın 12 Kademe Hilesi" : "Satan's 12-Rung Deception"}

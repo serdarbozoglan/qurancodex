@@ -68,8 +68,8 @@ export default function InsanTanimi({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold, opacity: 0.82,
           fontFamily: FONTS.bismillah,
           marginBottom: '24px', lineHeight: 1.2,
@@ -108,16 +108,16 @@ export default function InsanTanimi({ onClose }) {
         }}>
           {tr ? "FIṬRAT + AKIL + İRADE + VAHY = İSTİKÂMET" : "FIṬRA + ʿAQL + IRĀDA + WAḤY = ISTIQĀMA"}
         </p>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em', margin: '0 0 12px',
         }}>
           {tr ? "Kur'an'da İnsan — Sizi Nasıl Görüyor?" : "Humanity in the Quran — How Does It See You?"}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? "Nefs · fıtrat · halife · imtihan · hilkat" : "Nafs · fiṭra · khalīfa · trial · creation"}
@@ -143,9 +143,9 @@ export default function InsanTanimi({ onClose }) {
                 setActiveTab(tab.id);
                 setTimeout(() => document.getElementById('insan-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
-              style={{
+              className="mq-fs" style={{
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "14px",
-                fontSize: isMobile ? '0.7rem' : '0.76rem',
+                '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: active ? 700 : 500,
                 color: active ? COLORS.gold : COLORS.silver,
@@ -284,8 +284,8 @@ function EquationTab({ tr, isMobile, data }) {
           color: COLORS.gold, opacity: 0.9, marginBottom: '10px',
           fontFamily: FONTS.body, fontWeight: 700, position: 'relative',
         }}>{tr ? "SONUÇ" : "RESULT"}</p>
-        <div style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '2rem' : '2.5rem',
+        <div className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '2.5rem', '--fs-m': '2rem',
           color: COLORS.gold, fontWeight: 900, letterSpacing: '-0.01em',
           marginBottom: '10px', position: 'relative',
           textShadow: `0 0 20px ${COLORS.gold}88`,

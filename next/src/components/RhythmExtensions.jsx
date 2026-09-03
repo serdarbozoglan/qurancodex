@@ -92,9 +92,9 @@ export default function RhythmExtensions({ language, isMobile }) {
             letterSpacing: '0.28em', textTransform: 'uppercase',
             fontWeight: 700, opacity: 0.82, marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · VEZİN VE NAKARAT' : 'DEEP DIVE · METRE AND REFRAIN'}</p>
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.6rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.6rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? "Ne Şiir, Ne Nesir — Kur'ânî Yapı" : "Neither Verse nor Prose — Qur'anic Form"}</h2>
           <p style={{
@@ -107,9 +107,9 @@ export default function RhythmExtensions({ language, isMobile }) {
 
         {/* 16 Vezin Widget */}
         <div style={{ marginBottom: '48px' }}>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
+            '--fs-d': '1.55rem', '--fs-m': '1.3rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? "Aruzun 16 Vezni" : "The 16 Metres of ʿArūḍ"}</h3>
           <p style={{
@@ -176,9 +176,9 @@ export default function RhythmExtensions({ language, isMobile }) {
 
         {/* Rahmân 55 Refrain Widget */}
         <div>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
+            '--fs-d': '1.55rem', '--fs-m': '1.3rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? "Rahmân Sûresi'nin 31 Nakaratı" : "The 31 Refrains of Sūrat al-Raḥmān"}</h3>
           <p style={{
@@ -203,9 +203,9 @@ export default function RhythmExtensions({ language, isMobile }) {
               letterSpacing: '0.22em', textTransform: 'uppercase',
               opacity: 0.85, marginBottom: '12px', fontWeight: 700,
             }}>{tr ? 'Nakarat' : 'Refrain'}</div>
-            <div style={{
+            <div className="mq-fs" style={{
               fontFamily: FONTS.quran, color: COLORS.gold,
-              fontSize: isMobile ? 'clamp(1.4rem, 5vw, 1.75rem)' : 'clamp(1.65rem, 2.6vw, 2.05rem)',
+              '--fs-d': 'clamp(1.65rem, 2.6vw, 2.05rem)', '--fs-m': 'clamp(1.4rem, 5vw, 1.75rem)',
               lineHeight: 2, direction: 'rtl',
               marginBottom: '14px',
             }} lang="ar" dir="rtl">فَبِاَيِّ اٰلَٓاءِ رَبِّكُمَا تُكَذِّبَانِ</div>

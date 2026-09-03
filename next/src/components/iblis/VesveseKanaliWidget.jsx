@@ -77,8 +77,8 @@ function VesveseKanaliWidget({ language, isMobile }) {
         }}>
           {tr ? 'VESVESE KANALI · 5 YOL' : 'THE WHISPER CHANNEL · 5 PATHS'}
         </p>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.65rem',
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.65rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.3,
         }}>
           {tr ? "Kalbe Ulaşan 5 Kanal" : "The 5 Channels Reaching the Heart"}

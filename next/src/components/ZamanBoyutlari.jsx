@@ -599,13 +599,13 @@ export default function ZamanBoyutlari({ onClose }) {
                           boxShadow: `0 0 12px ${p.color}88`,
                         }} />
                         {/* Label */}
-                        <div style={{
+                        <div className="mq-fs" style={{
                           position: 'absolute',
                           left: '50%',
                           [above ? 'bottom' : 'top']: '18px',
                           transform: 'translateX(-50%)',
                           whiteSpace: 'nowrap', textAlign: 'center',
-                          fontSize: isMobile ? '0.62rem' : '0.7rem',
+                          '--fs-d': '0.7rem', '--fs-m': '0.62rem',
                           fontFamily: FONTS.body,
                         }}>
                           <div style={{ color: p.color, fontWeight: 700, marginBottom: '2px' }}>
@@ -1610,9 +1610,9 @@ export default function ZamanBoyutlari({ onClose }) {
         {/* Bismillah */}
         <div className="mq-box"
           dir="rtl" lang="ar" aria-label="Bismillāh"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.bismillah,
-            fontSize: isMobile ? '1.5rem' : '1.95rem',
+            '--fs-d': '1.95rem', '--fs-m': '1.5rem',
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
@@ -1626,9 +1626,9 @@ export default function ZamanBoyutlari({ onClose }) {
         {/* Anchor verse — Hac 22:47 (the canonical time-dilation verse) */}
         <p
           dir="rtl" lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+            '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 16px',
@@ -1639,11 +1639,11 @@ export default function ZamanBoyutlari({ onClose }) {
           وَاِنَّ يَوْماً عِنْدَ رَبِّكَ كَاَلْفِ سَنَةٍ مِمَّا تَعُدُّونَ
         </p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
           lineHeight: 1.7,
           margin: '0 auto 8px',
           maxWidth: '660px',
@@ -1667,11 +1667,11 @@ export default function ZamanBoyutlari({ onClose }) {
         </p>
 
         {/* Framing whisper */}
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.silver,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
           lineHeight: 1.7,
           margin: '0 auto 40px',
           maxWidth: '700px',
@@ -1702,9 +1702,9 @@ export default function ZamanBoyutlari({ onClose }) {
         </div>
 
         {/* Big Title */}
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           fontWeight: 700,
           fontFamily: FONTS.display,
           margin: '0 auto 14px',
@@ -1716,9 +1716,9 @@ export default function ZamanBoyutlari({ onClose }) {
         </h2>
 
         {/* Dramatic subtitle */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
           color: COLORS.gold,
           margin: '0 auto 24px',
           lineHeight: 1.55,
@@ -1761,7 +1761,7 @@ export default function ZamanBoyutlari({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              style={{
+              className="mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
@@ -1772,7 +1772,7 @@ export default function ZamanBoyutlari({ onClose }) {
                 borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 background: isActive ? COLORS.goldAlpha15 : 'transparent',
                 color: isActive ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 fontWeight: isActive ? 700 : 500,

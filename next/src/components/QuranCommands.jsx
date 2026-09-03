@@ -212,9 +212,9 @@ export default function QuranCommands({ onClose }) {
         {/* Bismillah */}
         <div className="mq-box"
           dir="rtl" lang="ar" aria-label="Bismillāh"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.bismillah,
-            fontSize: isMobile ? '1.5rem' : '1.95rem',
+            '--fs-d': '1.95rem', '--fs-m': '1.5rem',
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
@@ -228,9 +228,9 @@ export default function QuranCommands({ onClose }) {
         {/* Anchor verse — Nahl 16:90 (canonical command/prohibition verse) */}
         <p
           dir="rtl" lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+            '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 16px',
@@ -241,11 +241,11 @@ export default function QuranCommands({ onClose }) {
           اِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيتَٓاءِ ذِي الْقُرْبٰى وَيَنْهٰى عَنِ الْفَحْشَٓاءِ وَالْمُنْكَرِ وَالْبَغْيِ
         </p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
           lineHeight: 1.7,
           margin: '0 auto 8px',
           maxWidth: '660px',
@@ -269,11 +269,11 @@ export default function QuranCommands({ onClose }) {
         </p>
 
         {/* Framing whisper */}
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.silver,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
           lineHeight: 1.7,
           margin: '0 auto 40px',
           maxWidth: '700px',
@@ -299,9 +299,9 @@ export default function QuranCommands({ onClose }) {
           </span>
         </div>
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 auto 14px',
@@ -311,9 +311,9 @@ export default function QuranCommands({ onClose }) {
         }}>
           {L.title}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
           color: COLORS.gold,
           margin: '0 auto 22px',
           lineHeight: 1.55,

@@ -48,8 +48,8 @@ export default function SesMimarisi({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           fontFamily: FONTS.bismillah,
@@ -93,19 +93,19 @@ export default function SesMimarisi({ onClose }) {
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
           {tr ? "Ses Mimarisi — Sesler Tesadüf Değil" : "Sound Architecture — Sounds Are Not Coincidence"}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? "Azap ↔ rahmet sesleri · amigdala ve korteks" : "Wrath ↔ mercy sounds · amygdala and cortex"}

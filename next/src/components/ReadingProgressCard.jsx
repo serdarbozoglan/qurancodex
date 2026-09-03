@@ -111,9 +111,9 @@ export default function ReadingProgressCard() {
             }}>
               {tr ? 'Kaldığın yerden devam et' : 'Continue reading'}
             </div>
-            <div style={{
+            <div className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.95rem' : '1.02rem',
+              '--fs-d': '1.02rem', '--fs-m': '0.95rem',
               color: COLORS.offWhite,
               fontWeight: 600,
               lineHeight: 1.35,

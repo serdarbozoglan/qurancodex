@@ -82,9 +82,9 @@ function HubHero({ hubData, language, isMobile }) {
         color: COLORS.gold, opacity: 0.82, marginBottom: '28px',
       }}>﷽</div>
 
-      <div style={{
+      <div className="mq-fs" style={{
         fontFamily: FONTS.quran,
-        fontSize: isMobile ? 'clamp(1.3rem, 5.5vw, 1.75rem)' : 'clamp(1.5rem, 3.2vw, 2.15rem)',
+        '--fs-d': 'clamp(1.5rem, 3.2vw, 2.15rem)', '--fs-m': 'clamp(1.3rem, 5.5vw, 1.75rem)',
         color: COLORS.gold, lineHeight: 2.1,
         marginBottom: '22px', direction: 'rtl',
         maxWidth: '760px', margin: '0 auto 22px',
@@ -117,9 +117,9 @@ function HubHero({ hubData, language, isMobile }) {
         }}>{language === 'tr' ? hero.eyebrowTr : hero.eyebrowEn}</p>
       )}
 
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? 'clamp(1.7rem, 7.5vw, 2.15rem)' : 'clamp(2.15rem, 3.8vw, 2.85rem)',
+        '--fs-d': 'clamp(2.15rem, 3.8vw, 2.85rem)', '--fs-m': 'clamp(1.7rem, 7.5vw, 2.15rem)',
         margin: '0 0 14px', fontWeight: 700,
       }}>{language === 'tr' ? hubData.titleTr : hubData.titleEn}</h2>
 
@@ -168,10 +168,10 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
           position: 'absolute', inset: '30%', borderRadius: '50%',
           background: `radial-gradient(circle, ${COLORS.goldAlpha15} 0%, transparent 70%)`,
         }} />
-        <div style={{
+        <div className="mq-fs" style={{
           position: 'relative', zIndex: 2,
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? 'clamp(4rem, 22vw, 6rem)' : 'clamp(4.5rem, 8vw, 6.5rem)',
+          '--fs-d': 'clamp(4.5rem, 8vw, 6.5rem)', '--fs-m': 'clamp(4rem, 22vw, 6rem)',
           color: COLORS.gold, lineHeight: 1,
           direction: 'rtl',
           textShadow: `0 0 40px ${COLORS.goldAlpha25}`,
@@ -185,9 +185,9 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
           letterSpacing: '0.22em', textTransform: 'uppercase',
           opacity: 0.85, marginBottom: '8px', fontWeight: 700,
         }}>{language === 'tr' ? 'Kök Kelime' : 'Root Word'}</div>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
-          fontSize: isMobile ? '1.5rem' : '1.85rem',
+          '--fs-d': '1.85rem', '--fs-m': '1.5rem',
           margin: '0 0 14px', fontWeight: 700,
         }}>{language === 'tr' ? abdCore.titleTr : abdCore.titleEn}</h2>
         <p style={{
@@ -197,9 +197,9 @@ function AbdCoreSection({ abdCore, language, isMobile }) {
 
         {abdCore.coreAyet && (
           <div style={{ ...VERSE_BLOCK, padding: '14px 18px' }}>
-            <div style={{
+            <div className="mq-fs" style={{
               ...TEXT.verseArabic,
-              fontSize: isMobile ? 'clamp(1.5rem, 5vw, 1.85rem)' : 'clamp(1.75rem, 2.4vw, 2.15rem)',
+              '--fs-d': 'clamp(1.75rem, 2.4vw, 2.15rem)', '--fs-m': 'clamp(1.5rem, 5vw, 1.85rem)',
               lineHeight: 2.15,
               marginBottom: '12px',
             }} lang="ar" dir="rtl">{abdCore.coreAyet.ar}</div>
@@ -239,9 +239,9 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
         flexWrap: 'wrap', gap: '10px',
         marginBottom: '22px',
       }}>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
-          fontSize: isMobile ? '1.4rem' : '1.75rem',
+          '--fs-d': '1.75rem', '--fs-m': '1.4rem',
           margin: 0, fontWeight: 700,
         }}>{language === 'tr' ? 'Sekiz Sütun' : 'The Eight Pillars of Worship'}</h2>
         <div style={{
@@ -415,9 +415,9 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
   const maxFreq = Math.max(...data.nodes.map(n => n.freq));
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 8px', fontWeight: 700,
       }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '760px' }}>
@@ -501,9 +501,9 @@ function YolHaritasiSection({ data, language, isMobile, router }) {
           letterSpacing: '0.28em', textTransform: 'uppercase',
           fontWeight: 700, opacity: 0.85, marginBottom: '10px',
         }}>{tr ? 'YOLCULUK ÖNERİLERİ' : 'SUGGESTED JOURNEYS'}</p>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
-          fontSize: isMobile ? '1.5rem' : '1.85rem',
+          '--fs-d': '1.85rem', '--fs-m': '1.5rem',
           margin: '0 0 10px', fontWeight: 700,
         }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
         <p style={{
@@ -637,9 +637,9 @@ function KarsilastirmaSection({ data, language, isMobile, router }) {
   const tr = language === 'tr';
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 8px', fontWeight: 700,
       }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
@@ -748,9 +748,9 @@ function ZamanEkseniSection({ data, language, isMobile }) {
   if (!data?.phases?.length) return null;
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 8px', fontWeight: 700,
       }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
@@ -815,9 +815,9 @@ function PeygamberIzleriSection({ data, language, isMobile, router }) {
   return (
     <div style={{ marginBottom: '56px' }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '18px' }}>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
-          fontSize: isMobile ? '1.4rem' : '1.75rem',
+          '--fs-d': '1.75rem', '--fs-m': '1.4rem',
           margin: 0, fontWeight: 700,
         }}>{tr ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
         <div style={{
@@ -948,9 +948,9 @@ function OrtakFormullerSection({ data, language, isMobile }) {
   if (!data?.formuller?.length) return null;
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 8px', fontWeight: 700,
       }}>{language === 'tr' ? data.titleTr : (data.titleEn ?? data.titleTr)}</h2>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 24px', maxWidth: '860px' }}>
@@ -966,9 +966,9 @@ function OrtakFormullerSection({ data, language, isMobile }) {
           }}>
             {/* Arabic formula */}
             {f.arabic && (
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: FONTS.quran, color: COLORS.gold,
-                fontSize: isMobile ? 'clamp(1.3rem, 5vw, 1.65rem)' : 'clamp(1.5rem, 2.3vw, 1.85rem)',
+                '--fs-d': 'clamp(1.5rem, 2.3vw, 1.85rem)', '--fs-m': 'clamp(1.3rem, 5vw, 1.65rem)',
                 lineHeight: 2, direction: 'rtl', textAlign: 'right',
                 marginBottom: '14px',
               }} lang="ar" dir="rtl">{f.arabic}</div>
@@ -1021,9 +1021,9 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
   if (!wowFacts?.length) return null;
   return (
     <div style={{ marginBottom: '56px' }}>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.offWhite,
-        fontSize: isMobile ? '1.4rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 22px', fontWeight: 700,
       }}>{language === 'tr' ? "Kur'ân'ın Açtığı Pencereler" : "Windows the Qur'an Opens"}</h2>
       {/* auto-fit(minmax(320px,1fr)) 3-col'a genişliyordu; 4 kartla son satırda

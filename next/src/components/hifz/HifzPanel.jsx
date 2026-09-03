@@ -200,8 +200,8 @@ export default function HifzPanel({
 
         {inGap ? (
           <>
-            <span style={{
-              fontFamily: FONTS.body, fontSize: isMobile ? '0.76rem' : '0.82rem',
+            <span className="mq-fs" style={{
+              fontFamily: FONTS.body, '--fs-d': '0.82rem', '--fs-m': '0.76rem',
               color: theme.text, flex: 1, minWidth: 0,
               overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>
@@ -226,8 +226,8 @@ export default function HifzPanel({
           <>
             {/* Hangi adım + kaçıncı tekrar — tek satır, okunur hiyerarşi */}
             <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, minWidth: 0 }}>
-              <span style={{
-                fontFamily: FONTS.body, fontSize: isMobile ? '0.98rem' : '0.9rem',
+              <span className="mq-fs" style={{
+                fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.98rem',
                 fontWeight: 700, color: theme.text,
                 overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
               }}>
@@ -257,7 +257,7 @@ export default function HifzPanel({
                   title={tr
                     ? `Kartopu programında ${session.stepIndex + 1}. adım (toplam ${session.stepCount}). Adım sayısı ayet sayısından fazladır: her ayetin kendi adımı vardır, üstüne birleştirme adımları eklenir.`
                     : `Step ${session.stepIndex + 1} of ${session.stepCount} in the plan. There are more steps than verses: each verse has its own step, plus the joining steps.`}
-                  style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.8rem' : '0.68rem', color: theme.muted, whiteSpace: 'nowrap' }}
+                  className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.68rem', '--fs-m': '0.8rem', color: theme.muted, whiteSpace: 'nowrap' }}
                 >
                   {L.step} {session.stepIndex + 1}/{session.stepCount}
                 </span>

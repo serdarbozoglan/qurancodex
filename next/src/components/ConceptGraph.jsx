@@ -370,10 +370,10 @@ export default function ConceptGraph({ onClose, restore = null }) {
               background: centralConcept.color,
               boxShadow: `0 0 10px ${centralConcept.color}, 0 0 20px ${centralConcept.color}55`,
             }} />
-            <span style={{
+            <span className="mq-fs" style={{
               color: centralConcept.color,
               fontFamily: FONTS.display, fontWeight: 700,
-              fontSize: isMobile ? '1rem' : '1.08rem',
+              '--fs-d': '1.08rem', '--fs-m': '1rem',
               letterSpacing: '0.01em',
             }}>
               {language === 'tr' ? centralConcept.tr : centralConcept.en}
@@ -468,10 +468,10 @@ export default function ConceptGraph({ onClose, restore = null }) {
             textAlign: 'center',
           }}>
             {/* Anchor verse — Bakara 2:269 (hikmet) */}
-            <p dir="rtl" lang="ar" style={{
+            <p dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              fontSize: isMobile ? '1.05rem' : '1.35rem',
+              '--fs-d': '1.35rem', '--fs-m': '1.05rem',
               lineHeight: 2.1,
               margin: '0 auto 12px',
               maxWidth: '780px',
@@ -479,11 +479,11 @@ export default function ConceptGraph({ onClose, restore = null }) {
             }}>
               يُؤْتِي الْحِكْمَةَ مَنْ يَشَٓاءُ وَمَنْ يُؤْتَ الْحِكْمَةَ فَقَدْ اُوتِيَ خَيْراً كَثِيراً
             </p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.offWhiteAlpha78,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
-              fontSize: isMobile ? '0.92rem' : '1.02rem',
+              '--fs-d': '1.02rem', '--fs-m': '0.92rem',
               lineHeight: 1.6,
               margin: '0 auto 6px',
               maxWidth: '660px',
@@ -518,11 +518,11 @@ export default function ConceptGraph({ onClose, restore = null }) {
             </p>
 
             {/* Playfair italic subtitle */}
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.offWhiteAlpha78,
               fontFamily: FONTS.display,
               fontStyle: 'italic',
-              fontSize: isMobile ? '0.98rem' : '1.15rem',
+              '--fs-d': '1.15rem', '--fs-m': '0.98rem',
               lineHeight: 1.5,
               margin: '0 auto 20px',
               maxWidth: '640px',
@@ -533,7 +533,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
             </p>
 
             {/* Micro-stat ribbon */}
-            <div style={{
+            <div className="mq-fs" style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: isMobile ? '10px' : '18px',
@@ -541,7 +541,7 @@ export default function ConceptGraph({ onClose, restore = null }) {
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderRadius: RADIUS.pill,
-              fontSize: isMobile ? '0.68rem' : '0.72rem',
+              '--fs-d': '0.72rem', '--fs-m': '0.68rem',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               color: COLORS.silver,

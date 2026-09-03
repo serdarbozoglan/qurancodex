@@ -897,9 +897,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.bismillah,
-            fontSize: isMobile ? '1.6rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.6rem',
             color: COLORS.gold,
             opacity: 0.82,
             lineHeight: 1,
@@ -914,9 +914,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         <p
           dir="rtl"
           lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.6vw, 1.8rem)',
+            '--fs-d': 'clamp(1.3rem, 2.6vw, 1.8rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 18px',
@@ -927,11 +927,11 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
           اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ وَلَوْ كَانَ مِنْ عِنْدِ غَيْرِ اللّٰهِ لَوَجَدُوا فٖيهِ اخْتِلَافًا كَثٖيرًا
         </p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
           lineHeight: 1.7,
           margin: '0 auto 8px',
           maxWidth: '620px',
@@ -955,11 +955,11 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         </p>
 
         {/* Framing whisper — sayfanın tezi visitor'a önceden açar */}
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.silver,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+          '--fs-d': 'clamp(0.95rem, 1.5vw, 1.02rem)', '--fs-m': '0.92rem',
           lineHeight: 1.7,
           margin: '0 auto 40px',
           maxWidth: '640px',
@@ -986,9 +986,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         }}>
           {tr ? 'Münâsebât-ı Süver · 114 Mührün Şifresi' : 'Munāsabāt al-Suwar · The Cipher of 114 Seals'}
         </div>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           color: COLORS.offWhite, margin: '0 0 16px',
           lineHeight: 1.15,
           letterSpacing: '-0.015em',
@@ -999,9 +999,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
         </h2>
 
         {/* Dramatic subtitle — page thesis in single line */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.2rem)', '--fs-m': '1rem',
           color: COLORS.gold,
           margin: '0 auto 28px',
           lineHeight: 1.5,
@@ -1018,9 +1018,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
 
       {/* ════ Manifesto descriptive paragraphs ════════════════════════════ */}
       <div style={{ marginBottom: '32px', textAlign: isMobile ? 'left' : 'left' }}>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          '--fs-d': '0.95rem', '--fs-m': '0.9rem',
           color: COLORS.silver, margin: '0 0 14px', lineHeight: 1.75,
           maxWidth: '760px',
         }}>
@@ -1028,9 +1028,9 @@ function SpotlightSection({ spotlights, surahs, language, isMobile, activeFilter
             ? 'Her sûrenin ilk ve son kelimesi tesadüf değildir. Klasik İslâm âlimliğinde bunun bir adı vardır: Münâsebât-ı Süver — sûreler arası ve sûre içi bağıntılar bilimi. Süyûtî el-İtkân\'da, Bikâî Nazmü\'d-Dürer\'de, Râzî Mefâtîhu\'l-Gayb\'da bu örüntüleri ciltler dolusu çalıştı. Modern Batı akademisinde Mustansir Mir ve Raymond Farrin bu konuyu yeniden gündeme getirdi.'
             : 'The first and last words of every surah are no accident. Classical Islamic scholarship has a name for this: Munāsabāt al-Suwar — the science of inter- and intra-surah connections. Al-Suyūṭī in al-Itqān, al-Biqāʿī in Naẓm al-Durar, and al-Rāzī in Mafātīḥ al-Ghayb devoted volumes to these patterns. In modern Western scholarship, Mustansir Mir and Raymond Farrin have revived the field.'}
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          '--fs-d': '0.95rem', '--fs-m': '0.9rem',
           color: COLORS.silver, margin: 0, lineHeight: 1.75,
           maxWidth: '760px',
         }}>
@@ -1115,9 +1115,9 @@ function ClosingSynthesis({ language, isMobile }) {
       </div>
 
       {/* Paradox synthesis statement — Hero'daki Nisâ 4:82'yi cevaplayan kapanış */}
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        '--fs-d': 'clamp(1.7rem, 2.8vw, 2.15rem)', '--fs-m': 'clamp(1.45rem, 5.5vw, 1.8rem)',
         color: COLORS.offWhite,
         textAlign: 'center',
         lineHeight: 1.3,
@@ -1131,10 +1131,10 @@ function ClosingSynthesis({ language, isMobile }) {
       </h3>
 
       {/* Synthesis paragraph */}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display, fontStyle: 'italic',
         color: COLORS.silver,
-        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        '--fs-d': 'clamp(1rem, 1.7vw, 1.12rem)', '--fs-m': '1rem',
         lineHeight: 1.75,
         textAlign: 'center',
         margin: '0 auto 50px',
@@ -1291,9 +1291,9 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
         }}>
           {tr ? 'Çapraz Okuma' : 'Cross Reading'}
         </div>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.25rem' : '1.45rem',
+          '--fs-d': '1.45rem', '--fs-m': '1.25rem',
           color: COLORS.offWhite, margin: '0 0 10px',
           lineHeight: 1.25,
         }}>
@@ -1490,17 +1490,17 @@ function KnowYouDidNotKnow({ language, isMobile }) {
         }}>
           {tr ? "Mushaf'ın Açılış-Kapanış Mimarisinden" : "From the Mushaf's Opening-Closing Architecture"}
         </div>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 6vw, 2rem)' : 'clamp(1.9rem, 3.4vw, 2.4rem)',
+          '--fs-d': 'clamp(1.9rem, 3.4vw, 2.4rem)', '--fs-m': 'clamp(1.6rem, 6vw, 2rem)',
           color: COLORS.offWhite, margin: '0 auto 14px',
           lineHeight: 1.15,
           letterSpacing: '-0.015em',
         }}>
           {tr ? 'Beş Keşif' : 'Five Discoveries'}
         </h3>
-        <p style={{
-          fontSize: isMobile ? '0.9rem' : 'clamp(0.95rem, 1.5vw, 1.02rem)',
+        <p className="mq-fs" style={{
+          '--fs-d': 'clamp(0.95rem, 1.5vw, 1.02rem)', '--fs-m': '0.9rem',
           fontFamily: FONTS.display,
           color: COLORS.gold, opacity: 0.85,
           margin: '0 auto', lineHeight: 1.6,
@@ -1540,12 +1540,12 @@ function KnowYouDidNotKnow({ language, isMobile }) {
               }}
             >
               {/* Watermark numeral — large, decorative */}
-              <div aria-hidden="true" style={{
+              <div aria-hidden="true" className="mq-fs" style={{
                 position: 'absolute',
                 top: isMobile ? '6px' : '8px',
                 right: isMobile ? '12px' : '24px',
                 fontFamily: FONTS.display, fontWeight: 800,
-                fontSize: isMobile ? '4.2rem' : '6rem',
+                '--fs-d': '6rem', '--fs-m': '4.2rem',
                 color: it.themeColor, opacity: 0.12,
                 lineHeight: 1,
                 letterSpacing: '-0.04em',
@@ -1561,9 +1561,9 @@ function KnowYouDidNotKnow({ language, isMobile }) {
                 display: 'flex', alignItems: 'center', gap: '10px',
                 marginBottom: '14px',
               }}>
-                <span style={{
+                <span className="mq-fs" style={{
                   fontFamily: FONTS.display, fontWeight: 800,
-                  fontSize: isMobile ? '1.1rem' : '1.3rem',
+                  '--fs-d': '1.3rem', '--fs-m': '1.1rem',
                   color: it.themeColor,
                   letterSpacing: '-0.01em',
                 }}>{num}</span>
@@ -1582,10 +1582,10 @@ function KnowYouDidNotKnow({ language, isMobile }) {
               </div>
 
               {/* Headline — larger, dramatic */}
-              <div style={{
+              <div className="mq-fs" style={{
                 position: 'relative', zIndex: 1,
                 fontFamily: FONTS.display, fontWeight: 700,
-                fontSize: isMobile ? 'clamp(1.15rem, 4.5vw, 1.35rem)' : 'clamp(1.3rem, 1.9vw, 1.55rem)',
+                '--fs-d': 'clamp(1.3rem, 1.9vw, 1.55rem)', '--fs-m': 'clamp(1.15rem, 4.5vw, 1.35rem)',
                 color: COLORS.offWhite, lineHeight: 1.3,
                 marginBottom: '16px',
                 letterSpacing: '-0.008em',
@@ -1595,10 +1595,10 @@ function KnowYouDidNotKnow({ language, isMobile }) {
               </div>
 
               {/* Body — explanation */}
-              <p style={{
+              <p className="mq-fs" style={{
                 position: 'relative', zIndex: 1,
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.92rem' : '0.96rem',
+                '--fs-d': '0.96rem', '--fs-m': '0.92rem',
                 color: COLORS.silver, lineHeight: 1.8,
                 margin: 0, opacity: 0.92,
                 maxWidth: '760px',
@@ -1637,9 +1637,9 @@ function SpotlightCard({ spotlight, language, isMobile }) {
         gap: '14px',
         '--mb-d': '24px', '--mb-m': '20px',
       }}>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.3rem' : '1.5rem',
+          '--fs-d': '1.5rem', '--fs-m': '1.3rem',
           color: COLORS.offWhite,
           margin: 0,
           lineHeight: 1.25,
@@ -1676,9 +1676,9 @@ function SpotlightCard({ spotlight, language, isMobile }) {
         {(tr ? spotlight.thematicTr : spotlight.thematicEn)
           .split('\n\n')
           .map((para, idx, arr) => (
-            <p key={idx} style={{
+            <p key={idx} className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.94rem' : '1rem',
+              '--fs-d': '1rem', '--fs-m': '0.94rem',
               color: COLORS.offWhite,
               lineHeight: 1.75,
               margin: idx === arr.length - 1 ? 0 : '0 0 14px',
@@ -1726,9 +1726,9 @@ function SpotlightCard({ spotlight, language, isMobile }) {
           </summary>
           <div style={{ padding: '0 14px 12px' }}>
             {hiddenText.split('\n\n').map((para, idx, arr) => (
-              <p key={idx} style={{
+              <p key={idx} className="mq-fs" style={{
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.86rem' : '0.9rem',
+                '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                 color: COLORS.offWhite,
                 lineHeight: 1.7,
                 margin: idx === arr.length - 1 ? 0 : '0 0 8px',
@@ -1995,8 +1995,8 @@ function SpotlightList({ spotlight, language, isMobile }) {
             }}>
               {item.num}.
             </span>
-            <span style={{
-              fontSize: isMobile ? '0.78rem' : '0.84rem',
+            <span className="mq-fs" style={{
+              '--fs-d': '0.84rem', '--fs-m': '0.78rem',
               color: COLORS.offWhite,
               fontWeight: 600,
               whiteSpace: 'nowrap',
@@ -2007,9 +2007,9 @@ function SpotlightList({ spotlight, language, isMobile }) {
             </span>
           </div>
           {/* First word (Arabic) */}
-          <div dir="rtl" lang="ar" style={{
+          <div dir="rtl" lang="ar" className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.05rem' : '1.2rem',
+            '--fs-d': '1.2rem', '--fs-m': '1.05rem',
             color: COLORS.gold,
             textAlign: 'right',
             lineHeight: 1.4,
@@ -2027,17 +2027,17 @@ function SpotlightList({ spotlight, language, isMobile }) {
           </div>
           {/* Last word + meaning */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '8px' }}>
-            <span dir="rtl" lang="ar" style={{
+            <span dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? '1.05rem' : '1.2rem',
+              '--fs-d': '1.2rem', '--fs-m': '1.05rem',
               color: COLORS.gold,
               lineHeight: 1.4,
             }}>
               {cleanArabic(item.lastAr)}
             </span>
             {item.lastMeaning && (
-              <span style={{
-                fontSize: isMobile ? '0.74rem' : '0.8rem',
+              <span className="mq-fs" style={{
+                '--fs-d': '0.8rem', '--fs-m': '0.74rem',
                 color: COLORS.offWhite, opacity: 0.8,
                 fontStyle: 'italic',
               }}>

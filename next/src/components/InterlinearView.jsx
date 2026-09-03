@@ -155,9 +155,9 @@ function WordChip({ word, idx, colorIdx, C, isMobile, dayMode, lang, arabicFontS
       {gloss && (
         <span
           title={gloss}
-          style={{
+          className="mq-fs" style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: isMobile ? '0.68rem' : '0.75rem',
+            '--fs-d': '0.75rem', '--fs-m': '0.68rem',
             lineHeight: 1.35,
             color,
             fontWeight: 500,

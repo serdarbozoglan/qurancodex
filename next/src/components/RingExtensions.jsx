@@ -236,9 +236,9 @@ export default function RingExtensions({ language, isMobile }) {
             letterSpacing: '0.28em', textTransform: 'uppercase',
             fontWeight: 700, opacity: 0.82, marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · HALKA ÖRNEKLERİ' : 'DEEP DIVE · RING EXAMPLES'}</p>
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.6rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.6rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? "Halka Kompozisyonun Görsel Anatomisi" : "Visual Anatomy of Ring Composition"}</h2>
           <p style={{
@@ -251,9 +251,9 @@ export default function RingExtensions({ language, isMobile }) {
 
         {/* Additional rings selector */}
         <div style={{ marginBottom: '32px' }}>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
+            '--fs-d': '1.55rem', '--fs-m': '1.3rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? 'Altı Ek Halka Örneği' : 'Six Additional Ring Examples'}</h3>
           <p style={{
@@ -335,9 +335,9 @@ export default function RingExtensions({ language, isMobile }) {
 
         {/* Islâhî'nin Sûre Çiftleri Teorisi */}
         <div style={{ marginBottom: '32px' }}>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.3rem' : '1.55rem',
+            '--fs-d': '1.55rem', '--fs-m': '1.3rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? "Islâhî'nin Sûre Çiftleri Teorisi" : "Islahi's Surah-Pair Theory"}</h3>
           <p style={{

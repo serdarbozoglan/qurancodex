@@ -74,8 +74,8 @@ function Hero({ language, isMobile }) {
     }}>
       <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div aria-hidden="true" style={{
-          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+        <div aria-hidden="true" className="mq-fs" style={{
+          fontFamily: FONTS.bismillah, '--fs-d': '2.3rem', '--fs-m': '1.9rem',
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
@@ -86,9 +86,9 @@ function Hero({ language, isMobile }) {
         }}>
           كِتَابٌ فُصِّلَتْ آيَاتُهُ قُرْآنًا عَرَبِيًّا لِّقَوْمٍ يَعْلَمُونَ
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
-          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          '--fs-d': '1.05rem', '--fs-m': '0.95rem', lineHeight: 1.6,
           maxWidth: '660px', margin: '0 auto 8px',
         }}>
           {tr
@@ -101,9 +101,9 @@ function Hero({ language, isMobile }) {
           margin: '0 0 24px',
         }}>— {tr ? 'Fussilet 41:3' : 'Fussilat 41:3'}</p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
-          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          '--fs-d': '1rem', '--fs-m': '0.92rem', lineHeight: 1.75,
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
@@ -277,15 +277,15 @@ export default function FurukAtlasi({ onClose }) {
           <div style={{ fontSize: '0.62rem', letterSpacing: '0.15em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, marginBottom: 8 }}>
             {tr ? 'AYNI ÇEVİRİ · FARKLI ANLAM' : 'SAME TRANSLATION · DIFFERENT MEANING'}
           </div>
-          <h2 style={{
-            color: COLORS.offWhite, fontSize: isMobile ? '1.25rem' : '1.6rem',
+          <h2 className="mq-fs" style={{
+            color: COLORS.offWhite, '--fs-d': '1.6rem', '--fs-m': '1.25rem',
             fontWeight: 700, fontFamily: FONTS.display, margin: '0 0 12px',
             lineHeight: 1.3,
           }}>
             {tr ? 'İddia değil, veri göster.' : 'Show data, not claims.'}
           </h2>
-          <p style={{
-            color: COLORS.silver, fontSize: isMobile ? '0.9rem' : '0.95rem',
+          <p className="mq-fs" style={{
+            color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.9rem',
             fontFamily: FONTS.body, margin: '0 0 20px',
             lineHeight: 1.7, maxWidth: 640,
           }}>
@@ -654,8 +654,8 @@ function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSe
             }}>
               {tr ? "TÜRKÇE'DE TEK KELİME" : 'ONE WORD IN ENGLISH'}
             </div>
-            <h2 style={{
-              fontSize: isMobile ? '2.2rem' : '2.8rem', fontWeight: 800,
+            <h2 className="mq-fs" style={{
+              '--fs-d': '2.8rem', '--fs-m': '2.2rem', fontWeight: 800,
               color: COLORS.offWhite, fontFamily: FONTS.display,
               margin: '0 0 6px', letterSpacing: '0.02em', lineHeight: 1.05,
             }}>
@@ -724,8 +724,8 @@ function TabGroupDetail({ group, allGroups, categories, language, isMobile, onSe
         <div style={{ fontSize: '0.68rem', color: COLORS.gold, textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 10 }}>
           {tr ? 'Ayırt Edici Prensip' : 'Core Principle'}
         </div>
-        <p style={{
-          color: COLORS.offWhite, fontSize: isMobile ? '1rem' : '1.1rem',
+        <p className="mq-fs" style={{
+          color: COLORS.offWhite, '--fs-d': '1.1rem', '--fs-m': '1rem',
           fontFamily: FONTS.display, fontStyle: 'italic',
           margin: '0 0 10px', lineHeight: 1.6,
         }}>

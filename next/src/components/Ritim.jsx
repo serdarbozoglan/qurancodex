@@ -51,8 +51,8 @@ export default function Ritim({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           fontFamily: FONTS.bismillah,
@@ -104,19 +104,19 @@ export default function Ritim({ onClose }) {
           {tr ? 'İMKÂNSIZ RİTİM · 16 VEZİN · SUİ GENERİS' : 'IMPOSSIBLE RHYTHM · 16 METERS · SUI GENERIS'}
         </div>
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
           {tr ? 'İmkânsız Ritim — Ne Şiir, Ne Düzyazı' : 'Impossible Rhythm — Neither Poetry, Nor Prose'}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? 'Edebiyat tarihinde kendi kategorisini yaratan dil' : 'A language that created its own category in literary history'}

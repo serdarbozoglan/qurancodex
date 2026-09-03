@@ -1114,7 +1114,7 @@ export default function KissaAtlas({ onClose }) {
           </div>
           {prophet.literaryNotes.map(note => (
             <div key={note.id} style={{ marginBottom: 36 }}>
-              <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.15rem' : '1.35rem', fontWeight: 700, margin: '0 0 8px' }}>
+              <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: '0 0 8px' }}>
                 {language === 'tr' ? note.titleTr : note.titleEn}
               </h3>
               <p style={{ color: SEMANTIC.textFaint, fontSize: '0.88rem', lineHeight: 1.7, fontFamily: FONTS.body, maxWidth: 720, marginBottom: 12 }}>
@@ -1135,7 +1135,7 @@ export default function KissaAtlas({ onClose }) {
                       {language === 'tr' ? step.labelTr : step.labelEn}
                     </span>
                   </div>
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.3rem', '--fs-m': '1.15rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
                     {cleanArabic(step.verseAr)}
                   </p>
                   <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -1154,7 +1154,7 @@ export default function KissaAtlas({ onClose }) {
                   <h4 style={{ color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: '0.94rem', fontWeight: 700, margin: '0 0 10px' }}>
                     {language === 'tr' ? c.titleTr : c.titleEn}
                   </h4>
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.3rem', '--fs-m': '1.15rem', color: prophet.color, textAlign: 'right', lineHeight: 1.9, margin: '0 0 8px' }}>
                     {cleanArabic(c.verseAr)}
                   </p>
                   <p style={{ color: COLORS.silver, fontSize: '0.86rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>

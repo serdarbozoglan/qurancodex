@@ -460,18 +460,18 @@ function Hero({ meta, figureCount, language, isMobile }) {
         {tr ? "Kur'an'da Kadınlar" : 'Women in the Quran'}
       </div>
 
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? '1.85rem' : '2.4rem',
+        '--fs-d': '2.4rem', '--fs-m': '1.85rem',
         color: COLORS.offWhite, margin: '0 0 12px',
         lineHeight: 1.15, maxWidth: '880px',
       }}>
         {tr ? 'Anılan, seçilen, ders olarak öne çıkan' : 'Named, chosen, set forth as lessons'}
       </h2>
 
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.gold, opacity: 0.85,
-        fontSize: isMobile ? '0.95rem' : '1.05rem',
+        '--fs-d': '1.05rem', '--fs-m': '0.95rem',
         fontStyle: 'italic', fontFamily: FONTS.body,
         margin: '0 0 22px', maxWidth: '780px',
       }}>
@@ -480,8 +480,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
           : "Only one woman is named in the Quran — the rest are referenced by attribute and station."}
       </p>
 
-      <p style={{
-        fontFamily: FONTS.body, fontSize: isMobile ? '0.95rem' : '1.05rem',
+      <p className="mq-fs" style={{
+        fontFamily: FONTS.body, '--fs-d': '1.05rem', '--fs-m': '0.95rem',
         color: COLORS.silver, margin: '0 0 32px', lineHeight: 1.7,
         maxWidth: '780px',
       }}>
@@ -522,8 +522,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
 
         {/* 66:10 — karşıt örnek (Nuh + Lût eşleri) */}
         <div style={{ opacity: 0.7, marginBottom: '20px' }}>
-          <p style={{
-            color: COLORS.offWhite, fontSize: isMobile ? '0.82rem' : '0.88rem',
+          <p className="mq-fs" style={{
+            color: COLORS.offWhite, '--fs-d': '0.88rem', '--fs-m': '0.82rem',
             fontStyle: 'italic', fontFamily: FONTS.body,
             lineHeight: 1.65, margin: '0 0 8px',
             maxWidth: '720px', marginInline: 'auto',
@@ -548,9 +548,9 @@ function Hero({ meta, figureCount, language, isMobile }) {
         {/* 66:11 — örnek (Asiye), ana ayet */}
         <p
           dir="rtl" lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.55rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.55rem',
             lineHeight: isMobile ? 2.0 : 2.2,
             color: COLORS.gold,
             margin: '0 0 22px',
@@ -558,8 +558,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
         >
           {normalizeAr(anchorAr)}
         </p>
-        <p style={{
-          color: COLORS.offWhite, fontSize: isMobile ? '0.92rem' : '1.02rem',
+        <p className="mq-fs" style={{
+          color: COLORS.offWhite, '--fs-d': '1.02rem', '--fs-m': '0.92rem',
           fontStyle: 'italic', fontFamily: FONTS.body,
           lineHeight: 1.7, margin: '0 0 12px',
           maxWidth: '720px', marginInline: 'auto',
@@ -582,8 +582,8 @@ function Hero({ meta, figureCount, language, isMobile }) {
 
         {/* 66:12 — taşıyıcı (Hz. Meryem) */}
         <div style={{ opacity: 0.7 }}>
-          <p style={{
-            color: COLORS.offWhite, fontSize: isMobile ? '0.82rem' : '0.88rem',
+          <p className="mq-fs" style={{
+            color: COLORS.offWhite, '--fs-d': '0.88rem', '--fs-m': '0.82rem',
             fontStyle: 'italic', fontFamily: FONTS.body,
             lineHeight: 1.65, margin: '0 0 8px',
             maxWidth: '720px', marginInline: 'auto',
@@ -608,10 +608,10 @@ function Hero({ meta, figureCount, language, isMobile }) {
         borderBottom: `1px solid ${COLORS.goldAlpha25}`,
         textAlign: 'center',
       }}>
-        <p style={{
+        <p className="mq-fs" style={{
           margin: 0,
           fontFamily: FONTS.display, fontWeight: 700,
-          fontSize: isMobile ? '1.15rem' : '1.5rem',
+          '--fs-d': '1.5rem', '--fs-m': '1.15rem',
           color: COLORS.gold,
           lineHeight: 1.5,
           letterSpacing: '0.01em',
@@ -632,9 +632,9 @@ function Hero({ meta, figureCount, language, isMobile }) {
             </>
           )}
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           margin: '12px auto 0', maxWidth: '720px',
-          fontSize: isMobile ? '0.78rem' : '0.85rem',
+          '--fs-d': '0.85rem', '--fs-m': '0.78rem',
           color: COLORS.silver, opacity: 0.85,
           fontFamily: FONTS.body, lineHeight: 1.6,
           padding: '0 16px',
@@ -707,9 +707,9 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
               {categoryLabel}
             </div>
           )}
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             margin: 0, fontFamily: FONTS.display, fontWeight: 700,
-            fontSize: isMobile ? '1.15rem' : '1.25rem',
+            '--fs-d': '1.25rem', '--fs-m': '1.15rem',
             color: COLORS.offWhite, lineHeight: 1.2,
           }}>
             {name}
@@ -749,9 +749,9 @@ function FigureCard({ figure, index, language, isMobile, categoryLabel, activeTh
           <div>
             <p
               dir="rtl" lang="ar"
-              style={{
+              className="mq-fs" style={{
                 margin: '0 0 12px', fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.3rem' : '1.45rem',
+                '--fs-d': '1.45rem', '--fs-m': '1.3rem',
                 color: COLORS.gold, lineHeight: 1.95, textAlign: 'right',
               }}
             >
@@ -1202,18 +1202,18 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
               {categoryLabel}
             </div>
           )}
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             margin: 0, fontFamily: FONTS.display, fontWeight: 700,
-            fontSize: isMobile ? '1.6rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.6rem',
             color: COLORS.offWhite, lineHeight: 1.15,
             letterSpacing: '0.005em',
           }}>
             {name}
           </h3>
           {epithet && (
-            <p style={{
+            <p className="mq-fs" style={{
               margin: '8px 0 0', fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.92rem' : '1rem',
+              '--fs-d': '1rem', '--fs-m': '0.92rem',
               color: COLORS.silver, opacity: 0.9, lineHeight: 1.55,
               fontStyle: 'italic',
             }}>
@@ -1234,18 +1234,18 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
           <div>
             <p
               dir="rtl" lang="ar"
-              style={{
+              className="mq-fs" style={{
                 margin: '0 0 16px', fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.5rem' : '1.85rem',
+                '--fs-d': '1.85rem', '--fs-m': '1.5rem',
                 color: COLORS.gold, lineHeight: 2.1, textAlign: 'right',
               }}
             >
               {normalizeAr(keyVerseAr)}
             </p>
             {keyVerseTr && (
-              <p style={{
+              <p className="mq-fs" style={{
                 margin: '0 0 10px', fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.92rem' : '0.98rem',
+                '--fs-d': '0.98rem', '--fs-m': '0.92rem',
                 color: COLORS.offWhite, opacity: 0.9, fontStyle: 'italic', lineHeight: 1.7,
               }}>
                 &quot;{keyVerseTr}&quot;
@@ -1266,9 +1266,9 @@ function MeryemSpotlight({ figure, language, isMobile, categoryLabel, activeThem
         {/* Right column: summary + themes + verse refs */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {summary && (
-            <p style={{
+            <p className="mq-fs" style={{
               margin: 0, fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.9rem' : '0.95rem',
+              '--fs-d': '0.95rem', '--fs-m': '0.9rem',
               color: 'rgba(232,230,227,0.92)', lineHeight: 1.7,
             }}>
               {summary}
@@ -1392,17 +1392,17 @@ function CaprazOkumaSection({ language, isMobile }) {
       }}>
         {tr ? 'Çapraz Okuma' : 'Cross-Reading'}
       </div>
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? '1.4rem' : '1.7rem',
+        '--fs-d': '1.7rem', '--fs-m': '1.4rem',
         color: COLORS.offWhite, margin: '0 0 12px',
         lineHeight: 1.2,
       }}>
         {tr ? '14 Figürün Örüntüleri' : 'Patterns Across the 14'}
       </h3>
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.92rem' : '1rem',
+        '--fs-d': '1rem', '--fs-m': '0.92rem',
         color: COLORS.silver, margin: '0 0 32px', lineHeight: 1.65,
         maxWidth: '780px',
       }}>
@@ -1559,9 +1559,9 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
       }}>
         {tr ? data.titleTr : data.titleEn}
       </div>
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? '1.4rem' : '1.7rem',
+        '--fs-d': '1.7rem', '--fs-m': '1.4rem',
         color: COLORS.offWhite, margin: '0 0 12px',
         lineHeight: 1.2,
       }}>
@@ -1569,9 +1569,9 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
           ? "Atlasa Alınmayan Diğer Geçişler"
           : "Other Mentions Not Given Cards"}
       </h3>
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.92rem' : '1rem',
+        '--fs-d': '1rem', '--fs-m': '0.92rem',
         color: COLORS.silver, margin: '0 0 36px', lineHeight: 1.65,
         maxWidth: '880px',
       }}>
@@ -1631,10 +1631,10 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
                     display: 'flex', alignItems: 'baseline', gap: '12px',
                     flexWrap: 'wrap', marginBottom: '12px',
                   }}>
-                    <h4 style={{
+                    <h4 className="mq-fs" style={{
                       margin: 0,
                       fontFamily: FONTS.display, fontWeight: 700,
-                      fontSize: isMobile ? '1rem' : '1.05rem',
+                      '--fs-d': '1.05rem', '--fs-m': '1rem',
                       color: COLORS.offWhite,
                       lineHeight: 1.3,
                     }}>
@@ -1656,10 +1656,10 @@ function AdditionalReferencesSection({ data, language, isMobile }) {
                       </span>
                     )}
                   </div>
-                  <p style={{
+                  <p className="mq-fs" style={{
                     margin: 0,
                     fontFamily: FONTS.body,
-                    fontSize: isMobile ? '0.86rem' : '0.9rem',
+                    '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                     color: COLORS.silver, lineHeight: 1.75,
                     maxWidth: '780px',
                   }}>

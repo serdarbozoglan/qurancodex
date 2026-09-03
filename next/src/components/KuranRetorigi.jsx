@@ -152,27 +152,27 @@ export default function KuranRetorigi({ onClose }) {
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
-        <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+        <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '1.95rem', '--fs-m': '1.5rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى
         </p>
-        <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+        <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{tr ? "Andolsun, onların kıssalarında akıl sahipleri için bir ibret vardır. Bu (Kur'an), uydurulmuş bir söz değildir." : "Indeed, in their stories is a lesson for those of understanding. This is not a fabricated tale."}&quot;
         </p>
         <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
           — {tr ? 'Yûsuf 12:111' : 'Yūsuf 12:111'}
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+        <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
           {tr ? "BELÂGAT · İ'CÂZ · DÖRT SANAT" : "BALĀGHA · IʿJĀZ · FOUR ARTS"}
         </div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '780px' }}>
+        <h2 className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '780px' }}>
           {tr ? "Kur'an'ın Kendine Has Dili" : "The Quran's Register of Its Own"}
         </h2>
-        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+        <p className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {tr ? 'Tezat denge kurar, istiare yoğunlaştırır, iltifât canlandırır.' : 'Antithesis balances, metaphor condenses, iltifāt enlivens.'}
         </p>
       </div>
@@ -202,9 +202,9 @@ export default function KuranRetorigi({ onClose }) {
                 if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }, 50);
             }}
-            style={{
+            className="mq-fs" style={{
               '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
-              fontSize: isMobile ? '0.74rem' : '0.82rem',
+              '--fs-d': '0.82rem', '--fs-m': '0.74rem',
               fontFamily: FONTS.body,
               fontWeight: activeTab === i ? 700 : 500,
               color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
@@ -344,9 +344,9 @@ function TabKategoriler({ data, tr, isMobile, language }) {
       <p
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           ...TEXT.verseArabic,
-          fontSize: isMobile ? '1.3rem' : '1.6rem',
+          '--fs-d': '1.6rem', '--fs-m': '1.3rem',
           margin: '0 0 8px',
         }}
       >
@@ -384,7 +384,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
         </div>
         <p
           dir="rtl"
-          style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
+          className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, flexShrink: 0 }}
         >
           {cleanArabic(sp.arabicForm)}
         </p>
@@ -564,7 +564,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
             <div style={{ marginBottom: 12 }}>
               <p
                 dir="rtl"
-                style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
+                className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 4px' }}
               >
                 {cleanArabic(activeSpecial.arabicForm)}
               </p>
@@ -588,7 +588,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
             {activeSpecial.usages.map((u, i) => (
               <div key={i} style={{ padding: '10px 14px', marginBottom: 8, background: 'rgba(255,255,255,0.03)', border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
                 <div>
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 4px' }}>
                     {cleanArabic(u.conceptAr)}
                   </p>
                   <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 2px', fontWeight: 600 }}>
@@ -657,7 +657,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                       {tr ? f.meaningTr : f.meaningEn}
                     </p>
                   )}
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, marginLeft: 'auto' }}>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: 0, marginLeft: 'auto' }}>
                     {cleanArabic(f.arabicForm)}
                   </p>
                 </div>
@@ -701,7 +701,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                 {activeSpecial.count} {tr ? 'kullanım' : 'occurrences'}
               </span>
             </div>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
+            <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, marginBottom: 8 }}>
               {cleanArabic(activeSpecial.arabicForm)}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.75, fontFamily: FONTS.body, maxWidth: 680, marginBottom: 24 }}>
@@ -709,7 +709,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
             </p>
             {activeSpecial.examples.map((ex, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 10, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {cleanArabic(ex.ar)}
                 </p>
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -742,7 +742,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
             )}
             {activeSpecial.examples?.map((ex, i) => (
               <div key={i} style={{ padding: '14px 16px', marginBottom: 10, background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {cleanArabic(ex.ar)}
                 </p>
                 <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -783,7 +783,7 @@ function TabKategoriler({ data, tr, isMobile, language }) {
                 }}>
                   {c.verses.map((v, vi) => (
                     <div key={vi} style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.03)', borderLeft: `3px solid ${activeSpecial.color}`, border: `1px solid ${COLORS.glassBorderSoft}`, borderRadius: 8 }}>
-                      <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 6px' }}>
+                      <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.3rem', '--fs-m': '1.15rem', color: COLORS.gold, textAlign: 'right', lineHeight: 1.9, margin: '0 0 6px' }}>
                         {cleanArabic(v.ar)}
                       </p>
                       <p style={{ color: COLORS.silver, fontSize: '0.84rem', fontStyle: 'italic', margin: '0 0 4px', fontFamily: FONTS.body }}>
@@ -857,7 +857,7 @@ function TabMuhatap({ data, tr, isMobile }) {
     <div className="mq-box" style={{ ...SCROLL_WRAP, '--pt-d': "28px", '--pt-m': "16px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "16px", '--pl-d': "32px", '--pl-m': "16px" }}>
 
       {/* Başlık */}
-      <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 700, margin: '0 0 6px' }}>
+      <h2 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.6rem', '--fs-m': '1.3rem', fontWeight: 700, margin: '0 0 6px' }}>
         {tr ? 'Sorular Kime Soruluyor?' : 'Who Is Being Asked?'}
       </h2>
       <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.6 }}>
@@ -922,7 +922,7 @@ function TabMuhatap({ data, tr, isMobile }) {
                     {tr ? group.nameTr : group.nameEn}
                   </span>
                   {/* Arapça */}
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                     {cleanArabic(v.ar)}
                   </p>
                   {/* Çeviri */}
@@ -1002,7 +1002,7 @@ function TabSorular({ data, tr, isMobile }) {
 
       {/* Başlık */}
       <div style={{ marginBottom: 20 }}>
-        <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 4px' }}>
+        <h2 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.5rem', '--fs-m': '1.2rem', fontWeight: 700, margin: '0 0 4px' }}>
           {tr ? 'Seçilmiş Sorular' : 'Selected Questions'}
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: 0 }}>
@@ -1081,7 +1081,7 @@ function TabSorular({ data, tr, isMobile }) {
                   </span>
                 </div>
                 {/* Arapça */}
-                <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.6rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
+                <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.3rem', color: COLORS.gold, textAlign: 'right', lineHeight: 2, margin: '0 0 6px' }}>
                   {cleanArabic(q.ar)}
                 </p>
                 {/* Çeviri */}
@@ -1145,7 +1145,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
 
         return (
           <>
-            <h2 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.2rem' : '1.5rem', fontWeight: 700, margin: '0 0 6px' }}>
+            <h2 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.5rem', '--fs-m': '1.2rem', fontWeight: 700, margin: '0 0 6px' }}>
               {tr ? 'Muhataba Göre Retorik Dağılım' : 'Rhetorical Style by Addressee'}
             </h2>
             <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.5 }}>
@@ -1180,7 +1180,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
                       display: 'flex', alignItems: 'center', gap: 6,
                     }}>
                       <div style={{ width: 8, height: 8, borderRadius: RADIUS.full, background: ADDR_COLORS[addr], flexShrink: 0 }} />
-                      <span style={{ color: COLORS.silver, fontSize: isMobile ? '0.68rem' : '0.75rem', fontFamily: FONTS.body, lineHeight: 1.3 }}>
+                      <span className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.75rem', '--fs-m': '0.68rem', fontFamily: FONTS.body, lineHeight: 1.3 }}>
                         {tr ? ADDR_LABELS_TR[addr] : ADDR_LABELS_EN[addr]}
                       </span>
                     </div>
@@ -1286,7 +1286,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
 
       {/* ── BÖLÜM 3: KARŞILAŞTIRMALI ANALİZ ────────────── */}
       <div style={{ borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 36 }}>
-        <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.1rem' : '1.3rem', fontWeight: 700, margin: '0 0 6px' }}>
+        <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.3rem', '--fs-m': '1.1rem', fontWeight: 700, margin: '0 0 6px' }}>
           {tr ? 'Bir Soru — Dört Farklı Kullanım' : 'One Question — Four Different Uses'}
         </h3>
         <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.6 }}>
@@ -1294,7 +1294,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
         </p>
         {/* Merkez soru */}
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.8rem', color: COLORS.gold, lineHeight: 2, margin: '0 0 4px', textAlign: 'center' }}>
+          <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.8rem', '--fs-m': '1.4rem', color: COLORS.gold, lineHeight: 2, margin: '0 0 4px', textAlign: 'center' }}>
             {cleanArabic(data.comparativeAnalysis.questionAr)}
           </p>
           <p style={{ color: COLORS.silver, fontSize: '0.88rem', fontStyle: 'italic', fontFamily: FONTS.body, margin: 0 }}>

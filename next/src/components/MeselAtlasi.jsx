@@ -163,8 +163,8 @@ function Hero({ language, isMobile }) {
     }}>
       <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div aria-hidden="true" style={{
-          fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.9rem' : '2.3rem',
+        <div aria-hidden="true" className="mq-fs" style={{
+          fontFamily: FONTS.bismillah, '--fs-d': '2.3rem', '--fs-m': '1.9rem',
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
@@ -175,9 +175,9 @@ function Hero({ language, isMobile }) {
         }}>
           وَتِلْكَ الْأَمْثَالُ نَضْرِبُهَا لِلنَّاسِ وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
-          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.6,
+          '--fs-d': '1.05rem', '--fs-m': '0.95rem', lineHeight: 1.6,
           maxWidth: '660px', margin: '0 auto 8px',
         }}>
           {tr
@@ -190,9 +190,9 @@ function Hero({ language, isMobile }) {
           margin: '0 0 24px',
         }}>— {tr ? 'Ankebût 29:43' : 'Al-Ankabut 29:43'}</p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
-          fontSize: isMobile ? '0.92rem' : '1rem', lineHeight: 1.75,
+          '--fs-d': '1rem', '--fs-m': '0.92rem', lineHeight: 1.75,
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
@@ -525,8 +525,8 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 </div>
 
                 {/* Hero Arabic — the card's visual centerpiece */}
-                <div style={{
-                  fontFamily: FONTS.quran, color: COLORS.gold, fontSize: isMobile ? '1.6rem' : '1.8rem',
+                <div className="mq-fs" style={{
+                  fontFamily: FONTS.quran, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.6rem',
                   direction: 'rtl', textAlign: 'center', lineHeight: 2.1, margin: '0 0 16px',
                   padding: isMobile ? '6px 4px' : '10px 12px',
                 }} dir="rtl" lang="ar">

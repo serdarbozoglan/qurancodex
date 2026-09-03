@@ -143,9 +143,9 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
           <>
             {/* Arabic verse */}
             {verse.arabic && (
-              <p dir="rtl" lang="ar" style={{
+              <p dir="rtl" lang="ar" className="mq-fs" style={{
                 fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.5rem' : '2rem',
+                '--fs-d': '2rem', '--fs-m': '1.5rem',
                 color: COLORS.gold,
                 lineHeight: 2.1,
                 margin: '0 0 24px',
@@ -156,10 +156,10 @@ export default function VerseShareRoute({ surah, ayah, verse: verseProp }) {
             )}
 
             {/* Translation */}
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display,
               fontStyle: 'italic',
-              fontSize: isMobile ? '1.05rem' : '1.2rem',
+              '--fs-d': '1.2rem', '--fs-m': '1.05rem',
               color: COLORS.offWhite,
               lineHeight: 1.7,
               margin: '0 0 20px',

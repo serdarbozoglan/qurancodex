@@ -32,10 +32,10 @@ export default function FramingBadge({ language = 'tr', labelTr, labelEn, isMobi
           <path d="M3 13l9 5 9-5" />
         </svg>
         <span
-          style={{
+          className="mq-fs" style={{
             color: `${COLORS.gold}dd`,
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.64rem' : '0.7rem',
+            '--fs-d': '0.7rem', '--fs-m': '0.64rem',
             fontWeight: 700,
             letterSpacing: '0.11em',
             textTransform: 'uppercase',

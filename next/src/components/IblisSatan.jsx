@@ -135,10 +135,10 @@ export default function IblisSatan({ onClose }) {
       <motion.div className="mq-box"
         initial="hidden" animate="visible" variants={fadeUpItem}
         dir="rtl" lang="ar" aria-label="Bismillāh"
-        style={{
+        className="mq-fs" style={{
           textAlign: 'center',
           fontFamily: FONTS.bismillah,
-          fontSize: isMobile ? '1.5rem' : '1.95rem',
+          '--fs-d': '1.95rem', '--fs-m': '1.5rem',
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
@@ -171,9 +171,9 @@ export default function IblisSatan({ onClose }) {
       <motion.p
         initial="hidden" animate="visible" variants={fadeUpItem}
         dir="rtl" lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+          '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 auto 16px',
@@ -187,11 +187,11 @@ export default function IblisSatan({ onClose }) {
 
       <motion.p
         initial="hidden" animate="visible" variants={fadeUpItem}
-        style={{
+        className="mq-fs" style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+          '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
           lineHeight: 1.7,
           margin: '0 auto 8px',
           maxWidth: '680px',
@@ -249,9 +249,9 @@ export default function IblisSatan({ onClose }) {
             { ar: 'istekbera',            tr: 'büyüklendi',       en: 'grew arrogant' },
             { ar: "kāne mine'l-kāfirīn",  tr: 'kâfirlerden oldu', en: 'became of the disbelievers' },
           ].map((v, i, arr) => (
-            <span key={i} style={{
+            <span key={i} className="mq-fs" style={{
               display: 'inline-flex', alignItems: 'baseline', gap: '6px',
-              fontFamily: FONTS.body, fontSize: isMobile ? '0.78rem' : '0.85rem',
+              fontFamily: FONTS.body, '--fs-d': '0.85rem', '--fs-m': '0.78rem',
             }}>
               <span style={{ color: COLORS.gold, fontWeight: 600 }}>{v.ar}</span>
               <span style={{ color: COLORS.silver, opacity: 0.85 }}>
@@ -268,11 +268,11 @@ export default function IblisSatan({ onClose }) {
       {/* ─── Framing whisper ───────────────────────────── */}
       <motion.p
         initial="hidden" animate="visible" variants={fadeUpItem}
-        style={{
+        className="mq-fs" style={{
           color: COLORS.silver,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+          '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
           lineHeight: 1.7,
           margin: '0 auto 40px',
           maxWidth: '700px',
@@ -415,9 +415,9 @@ export default function IblisSatan({ onClose }) {
               }}>
                 {s.label}
               </div>
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: FONTS.display,
-                fontSize: isMobile ? '2.2rem' : '3rem',
+                '--fs-d': '3rem', '--fs-m': '2.2rem',
                 fontWeight: 700, lineHeight: 1,
                 color: COLORS.gold,
                 letterSpacing: '-0.02em',
@@ -545,9 +545,9 @@ export default function IblisSatan({ onClose }) {
                 {/* Title block */}
                 <div className="flex-1 min-w-0">
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
-                    <span style={{
+                    <span className="mq-fs" style={{
                       fontFamily: FONTS.display, fontWeight: 700,
-                      fontSize: isMobile ? '1.05rem' : '1.2rem',
+                      '--fs-d': '1.2rem', '--fs-m': '1.05rem',
                       color: COLORS.offWhite,
                       letterSpacing: '0.005em',
                     }}>
@@ -651,9 +651,9 @@ export default function IblisSatan({ onClose }) {
                       <div className="space-y-4">
                         <p
                           dir="rtl" lang="ar"
-                          style={{
+                          className="mq-fs" style={{
                             fontFamily: FONTS.quran,
-                            fontSize: isMobile ? '1.5rem' : '1.9rem',
+                            '--fs-d': '1.9rem', '--fs-m': '1.5rem',
                             lineHeight: 2,
                             color: COLORS.gold,
                             textAlign: 'right',
@@ -664,9 +664,9 @@ export default function IblisSatan({ onClose }) {
                         {p.arabicSecondary && (
                           <p
                             dir="rtl" lang="ar"
-                            style={{
+                            className="mq-fs" style={{
                               fontFamily: FONTS.quran,
-                              fontSize: isMobile ? '1.4rem' : '1.7rem',
+                              '--fs-d': '1.7rem', '--fs-m': '1.4rem',
                               lineHeight: 2,
                               color: COLORS.gold,
                               textAlign: 'right',

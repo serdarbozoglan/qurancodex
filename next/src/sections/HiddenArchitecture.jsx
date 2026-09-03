@@ -388,8 +388,8 @@ export default function HiddenArchitecture() {
                   lineHeight: 1,
                   '--pt-d': "0", '--pt-m': "2px", '--pr-d': "0", '--pr-m': "0", '--pb-d': "0", '--pb-m': "2px", '--pl-d': "0", '--pl-m': "0",
                 }}>
-                  <span style={{
-                    fontSize: isMobile ? '1.1rem' : '1.25rem',
+                  <span className="mq-fs" style={{
+                    '--fs-d': '1.25rem', '--fs-m': '1.1rem',
                     color: isActive ? color.text : 'rgba(255,255,255,0.25)',
                     transition: 'color 0.25s',
                     lineHeight: 1,

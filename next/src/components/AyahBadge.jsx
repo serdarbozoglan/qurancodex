@@ -37,7 +37,7 @@ export function MealAyahBadge({ children, isSajda, isActive, dayMode, gold, bg, 
           ? `0 0 0 2.5px ${bg}, 0 0 0 4px ${dayMode ? 'rgba(26,122,76,0.4)' : 'rgba(46,204,113,0.4)'}`
           : `0 0 0 2.5px ${bg}, 0 0 0 4px ${gold}44`;
       }}
-      style={{
+      className="mq-fs" style={{
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
         width: isMobile ? '27px' : '33px', height: isMobile ? '27px' : '33px',
         borderRadius: RADIUS.full, flexShrink: 0,
@@ -56,7 +56,7 @@ export function MealAyahBadge({ children, isSajda, isActive, dayMode, gold, bg, 
         // 2026-08-26: kullanıcı "meal mod ayet numarasını tüm modlarda bir
         // tık büyüt" — TEK yerden (bu dosya) büyütülüyor, dört yüzeye de
         // (Kitap/Ayet/Kırık Meal/Mushaf şeridi) otomatik yayılıyor.
-        fontSize: isMobile ? '0.76rem' : '0.86rem',
+        '--fs-d': '0.86rem', '--fs-m': '0.76rem',
         fontFamily: currentFont,
         fontWeight: isSajda ? 700 : (dayMode ? 600 : 400),
         cursor: 'pointer',

@@ -60,11 +60,11 @@ export default function MethodologyRibbon() {
         </div>
 
         <p
-          style={{
+          className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '1.05rem' : '1.2rem',
+            '--fs-d': '1.2rem', '--fs-m': '1.05rem',
             lineHeight: 1.5,
             margin: '0 auto 18px',
             maxWidth: '640px',

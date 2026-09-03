@@ -53,8 +53,8 @@ export default function InsanPsikolojisi({ onClose }) {
       }}>
         <HeroGeometricBackground />
         <div style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           fontFamily: FONTS.bismillah,
@@ -111,19 +111,19 @@ export default function InsanPsikolojisi({ onClose }) {
           {tr ? "İÇ HARİTA · NEFSİN GRAMERİ" : "INNER MAP · GRAMMAR OF THE NAFS"}
         </p>
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
           {tr ? "İnsan Psikolojisi — İç Dünyanın Haritası" : "Human Psychology — Map of the Inner World"}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? "Nefs mertebeleri · kalp · korku · savunma · iyileşme" : "Nafs stations · heart · fear · defense · healing"}
@@ -244,8 +244,8 @@ function UlemaPsikolojiGrid({ tr, isMobile }) {
           color: COLORS.gold, opacity: 0.75, fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "KLASİK NEFS PSİKOLOJİSİ · 6 ULEMA" : "CLASSICAL PSYCHOLOGY OF THE SELF · 6 SCHOLARS"}</p>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.7rem',
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.3,
         }}>{tr ? "İç Dünyanın 6 Haritalayıcısı" : "The 6 Cartographers of the Inner World"}</h3>
         <p style={{
@@ -311,8 +311,8 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
           color: COLORS.gold, opacity: 0.75, fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "PSİKOLOJİK DENGE DENKLEMİ · 4 ELEMENT" : "PSYCHOLOGICAL EQUILIBRIUM · 4 ELEMENTS"}</p>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.7rem',
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite, margin: '0 0 8px', lineHeight: 1.3,
         }}>{tr ? "İtmi'nân'a Giden Formül" : "The Formula to Iṭmiʾnān"}</h3>
         <p style={{
@@ -369,8 +369,8 @@ function PsikolojikDengeFormulaBox({ tr, isMobile }) {
           color: COLORS.gold, opacity: 0.9, fontWeight: 700,
           marginBottom: '8px', fontFamily: FONTS.body, position: 'relative',
         }}>{tr ? "SONUÇ" : "RESULT"}</p>
-        <div style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.8rem' : '2.3rem',
+        <div className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '2.3rem', '--fs-m': '1.8rem',
           color: COLORS.gold, fontWeight: 900, letterSpacing: '-0.01em',
           marginBottom: '10px', position: 'relative',
           textShadow: `0 0 20px ${COLORS.gold}88`,
@@ -416,8 +416,8 @@ function YusufIyilesmeArc({ tr, isMobile }) {
           color: COLORS.gold, opacity: 0.75, fontWeight: 700,
           marginBottom: '10px', fontFamily: FONTS.body,
         }}>{tr ? "YÛSUF SÛRESİ · TRAVMA-İYİLEŞME ARC'I" : "SŪRAT YŪSUF · TRAUMA-HEALING ARC"}</p>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.35rem' : '1.7rem',
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.3,
         }}>{tr ? "6 Aşamalı İç Yolculuk" : "The 6-Stage Inner Journey"}</h3>
         <p style={{
@@ -435,10 +435,10 @@ function YusufIyilesmeArc({ tr, isMobile }) {
             alignItems: 'stretch',
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <div style={{
+              <div className="mq-fs" style={{
                 width: isMobile ? '28px' : '34px', height: isMobile ? '28px' : '34px',
                 borderRadius: '50%', background: s.color, color: '#fff',
-                fontSize: isMobile ? '0.85rem' : '1rem', fontWeight: 800,
+                '--fs-d': '1rem', '--fs-m': '0.85rem', fontWeight: 800,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: FONTS.body, flexShrink: 0,
                 boxShadow: `0 0 12px ${s.color}88`,

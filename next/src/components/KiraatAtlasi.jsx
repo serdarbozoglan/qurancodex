@@ -397,7 +397,7 @@ function TabImamlar({ data, isMobile, language, setActiveTab }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+      <h2 className="mq-fs" style={{ fontFamily: FONTS.display, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'On Kıraat İmamı' : 'The Ten Readers'}
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px', maxWidth: 680 }}>
@@ -577,7 +577,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+      <h2 className="mq-fs" style={{ fontFamily: FONTS.display, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Fark Analizi: Hafs & Verş' : 'Variant Analysis: Ḥafs & Warsh'}
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 8px', maxWidth: 680 }}>
@@ -599,7 +599,7 @@ function TabFarkAnalizi({ data, isMobile, language }) {
           { value: '%0.07',  labelTr: 'farklılık oranı',     labelEn: 'difference rate',     sub: language === 'tr' ? 'Esasen aynı metin' : 'Essentially identical' },
         ].map((s, i) => (
           <div key={i} style={{ ...GLASS_CARD, padding: '14px 16px', textAlign: 'center' }}>
-            <div style={{ fontFamily: FONTS.body, fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1, marginBottom: 4 }}>{s.value}</div>
+            <div className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '1.6rem', '--fs-m': '1.3rem', fontWeight: 800, color: COLORS.gold, lineHeight: 1, marginBottom: 4 }}>{s.value}</div>
             <div style={{ fontFamily: FONTS.body, fontSize: '0.78rem', color: COLORS.offWhite, fontWeight: 600, marginBottom: 2 }}>{s.labelTr && language === 'tr' ? s.labelTr : s.labelEn}</div>
             <div style={{ fontFamily: FONTS.body, fontSize: '0.7rem', color: COLORS.silver }}>{s.sub}</div>
           </div>
@@ -746,7 +746,7 @@ function TabHarita({ data, isMobile, language }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+      <h2 className="mq-fs" style={{ fontFamily: FONTS.display, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Coğrafi Dağılım' : 'Geographic Distribution'}
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 16px', maxWidth: 680 }}>
@@ -840,7 +840,7 @@ function TabKanonizasyon({ data, isMobile, language }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+      <h2 className="mq-fs" style={{ fontFamily: FONTS.display, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Kanonizasyon Tarihi' : 'History of Canonisation'}
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px', maxWidth: 680 }}>
@@ -1344,7 +1344,7 @@ function TabTecvid({ isMobile, language }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: isMobile ? '1.4rem' : '1.8rem', fontWeight: 700, margin: '0 0 8px' }}>
+      <h2 className="mq-fs" style={{ fontFamily: FONTS.display, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.4rem', fontWeight: 700, margin: '0 0 8px' }}>
         {language === 'tr' ? 'Tecvid & Kıraat Kaideleri' : 'Tajweed & Qirāʾāt Rules'}
       </h2>
       <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: 680 }}>
@@ -1653,7 +1653,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
             <button className="mq-box"
               key={i}
               onClick={() => navigateToTab(i)}
-              style={{
+              className="mq-fs" style={{
                 flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px',
                 '--pt-d': "13px", '--pt-m': "12px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "13px", '--pb-m': "12px", '--pl-d': "22px", '--pl-m': "14px",
                 border: 'none',
@@ -1661,7 +1661,7 @@ export default function KiraatAtlasi({ onClose, onRegisterBackHandler }) {
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 borderRadius: 0,
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
+                '--fs-d': '0.9rem', '--fs-m': '0.85rem',
                 fontFamily: FONTS.body,
                 fontWeight: activeTab === i ? 600 : 400,
                 textTransform: 'uppercase', letterSpacing: '0.06em',

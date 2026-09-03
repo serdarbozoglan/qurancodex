@@ -150,9 +150,9 @@ export default function NefisMertebeleri({ onClose }) {
           {/* Bismillah ornament */}
           <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
@@ -166,9 +166,9 @@ export default function NefisMertebeleri({ onClose }) {
           {/* Anchor verse — Fecr 89:27-28 (mutmainne — the highest station) */}
           <p
             dir="rtl" lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 16px',
@@ -179,11 +179,11 @@ export default function NefisMertebeleri({ onClose }) {
             يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '660px',
@@ -207,11 +207,11 @@ export default function NefisMertebeleri({ onClose }) {
           </p>
 
           {/* Framing whisper */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 40px',
             maxWidth: '700px',
@@ -236,12 +236,12 @@ export default function NefisMertebeleri({ onClose }) {
           </div>
 
           {/* Playfair italic quote */}
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
             fontWeight: 700,
             color: COLORS.offWhite,
-            fontSize: isMobile ? 'clamp(1.55rem, 6.5vw, 1.9rem)' : 'clamp(2rem, 3.4vw, 2.55rem)',
+            '--fs-d': 'clamp(2rem, 3.4vw, 2.55rem)', '--fs-m': 'clamp(1.55rem, 6.5vw, 1.9rem)',
             lineHeight: 1.22,
             margin: '0 auto 12px',
             maxWidth: '780px',
@@ -253,9 +253,9 @@ export default function NefisMertebeleri({ onClose }) {
           </h2>
 
           {/* Subtitle */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.gold,
-            fontSize: isMobile ? '0.9rem' : '1rem',
+            '--fs-d': '1rem', '--fs-m': '0.9rem',
             fontFamily: FONTS.body,
             fontWeight: 600,
             margin: '0 0 20px 0',
@@ -265,9 +265,9 @@ export default function NefisMertebeleri({ onClose }) {
           </p>
 
           {/* Intro desc */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
-            fontSize: isMobile ? '0.92rem' : '1rem',
+            '--fs-d': '1rem', '--fs-m': '0.92rem',
             fontFamily: FONTS.body,
             lineHeight: 1.75,
             margin: '0 0 28px 0',
@@ -384,9 +384,9 @@ export default function NefisMertebeleri({ onClose }) {
                   setActiveTab(tab.id);
                   setTimeout(() => document.getElementById('nefs-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
-                style={{
+                className="mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "14px",
-                  fontSize: isMobile ? '0.7rem' : '0.76rem',
+                  '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: active ? 700 : 500,
                   color: active ? COLORS.gold : COLORS.silver,
@@ -564,9 +564,9 @@ export default function NefisMertebeleri({ onClose }) {
           borderTop: `1px solid ${COLORS.glassBorderSoft}`,
           textAlign: 'center',
         }}>
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
-            fontSize: isMobile ? '0.85rem' : '0.92rem',
+            '--fs-d': '0.92rem', '--fs-m': '0.85rem',
             fontFamily: FONTS.body,
             fontStyle: 'italic',
             lineHeight: 1.75,
@@ -805,9 +805,9 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
               borderRadius: RADIUS.md,
               textAlign: 'right', position: 'relative',
             }}>
-              <p dir="rtl" lang="ar" style={{
+              <p dir="rtl" lang="ar" className="mq-fs" style={{
                 fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.25rem' : '1.35rem',
+                '--fs-d': '1.35rem', '--fs-m': '1.25rem',
                 color: v.colorHex, lineHeight: 2, margin: 0,
                 textShadow: `0 0 12px ${v.colorHex}33`,
               }}>{v.arabic}</p>
@@ -857,9 +857,9 @@ function KeyVersesTab({ language, isMobile, keyVerses }) {
 
       {/* Closing whisper */}
       <div style={{ marginTop: '48px', textAlign: 'center', maxWidth: '820px', margin: '48px auto 0' }}>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
-          fontSize: isMobile ? '1rem' : '1.15rem',
+          '--fs-d': '1.15rem', '--fs-m': '1rem',
           color: COLORS.gold, opacity: 0.85,
           lineHeight: 1.75, margin: 0,
         }}>{tr ? closingWhisperTr : closingWhisperEn}</p>
@@ -877,9 +877,9 @@ function SectionHeader({ label, title, subtitle, isMobile, faint = false }) {
       opacity: faint ? 0.96 : 1,
     }}>
       <div style={sectionLabel(faint ? COLORS.silver : COLORS.gold)}>{label}</div>
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? '1.35rem' : '1.75rem',
+        '--fs-d': '1.75rem', '--fs-m': '1.35rem',
         fontFamily: FONTS.display,
         fontWeight: 700,
         margin: '8px 0 8px 0',
@@ -889,9 +889,9 @@ function SectionHeader({ label, title, subtitle, isMobile, faint = false }) {
         {title}
       </h2>
       {subtitle && (
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.silver,
-          fontSize: isMobile ? '0.88rem' : '0.95rem',
+          '--fs-d': '0.95rem', '--fs-m': '0.88rem',
           fontFamily: FONTS.body,
           lineHeight: 1.65,
           margin: 0,
@@ -937,9 +937,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
           borderBottom: isMobile ? `1px solid ${COLORS.glassBorderSoft}` : 'none',
         }}>
           {/* Big number */}
-          <div style={{
+          <div className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '2.8rem' : '4rem',
+            '--fs-d': '4rem', '--fs-m': '2.8rem',
             fontWeight: 900,
             color: accent,
             lineHeight: 1,
@@ -953,9 +953,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
           <div
             dir="rtl"
             lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? '1.45rem' : '1.7rem',
+              '--fs-d': '1.7rem', '--fs-m': '1.45rem',
               color: COLORS.offWhite,
               lineHeight: 1.9,
               marginBottom: '6px',
@@ -979,9 +979,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
           </div>
 
           {/* Name */}
-          <div style={{
+          <div className="mq-fs" style={{
             color: accent,
-            fontSize: isMobile ? '0.98rem' : '1.05rem',
+            '--fs-d': '1.05rem', '--fs-m': '0.98rem',
             fontFamily: FONTS.display,
             fontWeight: 700,
             lineHeight: 1.35,
@@ -994,9 +994,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', minWidth: 0 }}>
 
           {/* Meaning */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? '0.95rem' : '1.02rem',
+            '--fs-d': '1.02rem', '--fs-m': '0.95rem',
             fontFamily: FONTS.body,
             fontWeight: 500,
             lineHeight: 1.55,
@@ -1034,9 +1034,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
           )}
 
           {/* Description */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? '0.9rem' : '0.95rem',
+            '--fs-d': '0.95rem', '--fs-m': '0.9rem',
             fontFamily: FONTS.body,
             lineHeight: 1.75,
             margin: 0,
@@ -1057,9 +1057,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
                   ? (language === 'tr' ? 'Tasavvufî Görüş' : 'Sufi View')
                   : (language === 'tr' ? 'Klasik Görüş' : 'Classical View')}
               </div>
-              <p style={{
+              <p className="mq-fs" style={{
                 color: COLORS.silver,
-                fontSize: isMobile ? '0.86rem' : '0.9rem',
+                '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                 fontFamily: FONTS.body,
                 fontStyle: 'italic',
                 lineHeight: 1.75,
@@ -1147,9 +1147,9 @@ function StageCard({ stage, number, isMobile, language, variant, showDividerBelo
                   {language === 'tr' ? 'Ekol Uyarısı' : 'School Caution'}
                 </span>
               </div>
-              <p style={{
+              <p className="mq-fs" style={{
                 color: COLORS.offWhite,
-                fontSize: isMobile ? '0.86rem' : '0.9rem',
+                '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                 fontFamily: FONTS.body,
                 lineHeight: 1.7,
                 margin: 0,
@@ -1198,9 +1198,9 @@ function VerseBlock({ verse, accent, isMobile, language }) {
       <div
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.3rem' : '1.5rem',
+          '--fs-d': '1.5rem', '--fs-m': '1.3rem',
           color: COLORS.gold,
           direction: 'rtl',
           textAlign: 'right',
@@ -1210,9 +1210,9 @@ function VerseBlock({ verse, accent, isMobile, language }) {
       >
         {cleanArabic(verse.verseAr)}
       </div>
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? '0.86rem' : '0.9rem',
+        '--fs-d': '0.9rem', '--fs-m': '0.86rem',
         fontFamily: FONTS.body,
         fontStyle: 'italic',
         lineHeight: 1.7,
@@ -1318,9 +1318,9 @@ function TransitionBand({ note, isMobile, language }) {
         </div>
 
         {/* Central title */}
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           color: COLORS.offWhite,
-          fontSize: isMobile ? '1rem' : '1.25rem',
+          '--fs-d': '1.25rem', '--fs-m': '1rem',
           fontFamily: FONTS.display,
           fontWeight: 700,
           margin: 0,
@@ -1355,9 +1355,9 @@ function TransitionBand({ note, isMobile, language }) {
       </div>
 
       {/* Warning body — MUST be visible, NOT collapsible */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
-        fontSize: isMobile ? '0.88rem' : '0.95rem',
+        '--fs-d': '0.95rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.8,
         margin: 0,
@@ -1386,9 +1386,9 @@ function FrameworkCard({ framework, isMobile, language }) {
         {language === 'tr' ? 'Klasik Çerçeve' : 'Classical Framework'}
       </div>
 
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? '1.1rem' : '1.25rem',
+        '--fs-d': '1.25rem', '--fs-m': '1.1rem',
         fontFamily: FONTS.display,
         fontWeight: 700,
         margin: 0,
@@ -1397,9 +1397,9 @@ function FrameworkCard({ framework, isMobile, language }) {
         {language === 'tr' ? framework.titleTr : framework.titleEn}
       </h3>
 
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.75,
         margin: 0,

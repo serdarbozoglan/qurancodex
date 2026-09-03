@@ -162,23 +162,23 @@ export default function RetorikSorular({ onClose }) {
             filter: 'blur(4px)',
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
               '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
-            <p dir="rtl" lang="ar" style={{
+            <p dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold, lineHeight: 2.1,
               margin: '0 auto 16px', maxWidth: '820px',
               textShadow: `0 0 20px ${COLORS.gold}1c`,
             }}>{cleanArabic('اَفَلَا يَتَدَبَّرُونَ الْقُرْاٰنَ اَمْ عَلٰى قُلُوبٍ اَقْفَالُهَا')}</p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+              '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
             }}>&quot;{tr ? 'Kur\'ân\'ı tefekkür etmiyorlar mı? Yoksa kalplerin üzerinde kilitler mi var?' : 'Then do they not reflect upon the Qur\'an, or are there locks upon their hearts?'}&quot;</p>
             <p style={{
@@ -186,9 +186,9 @@ export default function RetorikSorular({ onClose }) {
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 36px', opacity: 0.78,
             }}>— {tr ? 'Muhammed 47:24' : 'Muḥammad 47:24'}</p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+              '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
               ? <>Kur&apos;ân&apos;ın <em style={{ fontStyle: 'normal', color: COLORS.gold }}>retoriği</em> tek bir sanat değil — istifhâm, iltifât, tibâk, istiʿâre, kinâye ve cinâs — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>altı sanat ailesinin</em> ortak dansı.</>
@@ -204,15 +204,15 @@ export default function RetorikSorular({ onClose }) {
               fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
               marginBottom: '14px',
             }}>{tr ? "BELÂGAT · CÜRCÂNÎ'DEN NEUWIRTH'E" : "BALĀGHA · FROM AL-JURJĀNĪ TO NEUWIRTH"}</div>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               color: COLORS.offWhite,
-              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
               fontWeight: 700, fontFamily: FONTS.display,
               margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px',
             }}>{tr ? "Kur'an'ın Belağatı" : "Belāġa of the Qur'an"}</h2>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+              '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
               color: COLORS.gold, margin: '0 auto 28px',
               lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92,
             }}>{tr ? '6 belâgat ailesi · 27+ âyet örneği · klasik + modern okuma' : '6 rhetorical families · 27+ verse examples · classical + modern reading'}</p>
@@ -236,13 +236,13 @@ export default function RetorikSorular({ onClose }) {
                 setActiveFamilyId(f.id);
                 setTimeout(() => document.getElementById('belagat-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
-                style={{
+                className="mq-fs" style={{
                   '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "18px", '--pl-m': "14px",
                   borderRadius: '999px',
                   border: `1px solid ${isActive ? f.color : COLORS.glassBorder}`,
                   background: isActive ? `${f.color}22` : 'transparent',
                   color: isActive ? f.color : COLORS.silver,
-                  fontSize: isMobile ? '0.75rem' : '0.82rem',
+                  '--fs-d': '0.82rem', '--fs-m': '0.75rem',
                   fontWeight: isActive ? 700 : 500, fontFamily: FONTS.body,
                   textTransform: 'uppercase', letterSpacing: '0.06em',
                   cursor: 'pointer', whiteSpace: 'nowrap',
@@ -261,8 +261,8 @@ export default function RetorikSorular({ onClose }) {
         <div className="mq-box" style={{ '--pt-d': "32px", '--pt-m': "20px", '--pr-d': "40px", '--pr-m': "16px", '--pb-d': "64px", '--pb-m': "48px", '--pl-d': "40px", '--pl-m': "16px" }}>
           {activeFamilyId === 'istifham' && (
             <div>
-              <p style={{
-                color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+              <p className="mq-fs" style={{
+                color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
                 fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
               }}>
                 {tr
@@ -350,9 +350,9 @@ function FamilyView({ aile, expandedIdx, onToggle, language, isMobile }) {
             <FamilyIcon id={aile.id} color={aile.color} size={32} />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               margin: 0, fontFamily: FONTS.display,
-              fontSize: isMobile ? '1.35rem' : '1.6rem',
+              '--fs-d': '1.6rem', '--fs-m': '1.35rem',
               fontWeight: 700, color: aile.color, lineHeight: 1.25,
             }}>{tr ? aile.titleTr : aile.titleEn}</h2>
             <p dir="rtl" lang="ar" style={{
@@ -449,9 +449,9 @@ function OrnekCard({ ornek, index, color, isOpen, onToggle, language, isMobile }
         borderLeft: `2px solid ${COLORS.gold}`,
         borderRadius: RADIUS.sm,
       }}>
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.1rem' : '1.3rem',
+          '--fs-d': '1.3rem', '--fs-m': '1.1rem',
           color: COLORS.gold, lineHeight: 1.9, margin: '0 0 8px', textAlign: 'right',
         }}>{cleanArabic(ornek.verseAr)}</p>
         <p style={{

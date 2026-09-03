@@ -129,11 +129,11 @@ export default function Hero() {
           dir="rtl"
           lang="ar"
           aria-label="Bismillāh"
-          style={{
+          className="mq-fs" style={{
             position: 'relative',
             display: 'inline-block',
             fontFamily: FONTS.bismillah,
-            fontSize: isMobile ? '1.8rem' : '2.6rem',
+            '--fs-d': '2.6rem', '--fs-m': '1.8rem',
             color: COLORS.gold,
             lineHeight: 1,
             // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.
@@ -214,9 +214,9 @@ export default function Hero() {
         <motion.p
           dir="rtl"
           lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.5rem, 6.6vw, 2.1rem)' : 'clamp(1.6rem, 3.4vw, 2.5rem)',
+            '--fs-d': 'clamp(1.6rem, 3.4vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.6vw, 2.1rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 24px',
@@ -272,11 +272,11 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          style={{
+          className="mq-fs" style={{
             color: 'rgba(232,230,227,0.92)',
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '1.1rem' : 'clamp(1.05rem, 1.85vw, 1.3rem)',
+            '--fs-d': 'clamp(1.05rem, 1.85vw, 1.3rem)', '--fs-m': '1.1rem',
             lineHeight: 1.7,
             margin: '0 auto 10px',
             maxWidth: '740px',
@@ -293,10 +293,10 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          style={{
+          className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.72rem' : '0.84rem',
+            '--fs-d': '0.84rem', '--fs-m': '0.72rem',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             margin: '0 0 36px',

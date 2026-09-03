@@ -52,8 +52,8 @@ export default function KorumaZinciri({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           fontFamily: FONTS.bismillah,
@@ -97,29 +97,29 @@ export default function KorumaZinciri({ onClose }) {
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
           {tr ? "Yaşayan Koruma — Sıfır Varyasyon" : "Living Preservation — Zero Variation"}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? "Birmingham · hâfız zinciri · isnâd" : "Birmingham · ḥuffāẓ chain · isnād"}
         </p>
         {/* Framing whisper — 'sıfır varyasyon' rasm düzlemine ankrelenir; kıraat
             farklılıkları ayrı belgeli sözlü katman olarak çerçevelenir (§13 içerik hassasiyeti). */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.silver,
-          fontSize: isMobile ? 'clamp(0.9rem, 3.4vw, 0.98rem)' : 'clamp(0.95rem, 1.5vw, 1.05rem)',
+          '--fs-d': 'clamp(0.95rem, 1.5vw, 1.05rem)', '--fs-m': 'clamp(0.9rem, 3.4vw, 0.98rem)',
           lineHeight: 1.7, maxWidth: '760px', margin: '18px auto 0',
         }}>
           {tr

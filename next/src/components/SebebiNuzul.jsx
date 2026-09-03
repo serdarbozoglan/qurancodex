@@ -320,7 +320,7 @@ function OccasionCard({ occ, language, isMobile }) {
       <div style={{ padding: pad }}>
         {/* Title row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '8px' }}>
-          <span style={{ fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, fontSize: isMobile ? '0.9rem' : '0.95rem', lineHeight: 1.4, flex: 1, minWidth: 0 }}>
+          <span className="mq-fs" style={{ fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.body, '--fs-d': '0.95rem', '--fs-m': '0.9rem', lineHeight: 1.4, flex: 1, minWidth: 0 }}>
             {title}
           </span>
           <span style={{ ...chipStyle(relMeta.color), flexShrink: 0 }}>
@@ -455,9 +455,9 @@ function OccasionCard({ occ, language, isMobile }) {
           ) : (
             verseData.verses.map((ve) => (
               <div key={ve.num} style={{ marginBottom: '20px' }}>
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.quran,
-                  fontSize: isMobile ? '1.5rem' : '1.8rem',
+                  '--fs-d': '1.8rem', '--fs-m': '1.5rem',
                   lineHeight: 2,
                   color: COLORS.offWhite,
                   textAlign: 'right',
@@ -765,8 +765,8 @@ function TabIstatistik({ data, language, isMobile }) {
       }}>
         {heroStats.map((s, i) => (
           <div key={i} style={statCardStyle}>
-            <div style={{
-              fontSize: isMobile ? '1.6rem' : '2rem',
+            <div className="mq-fs" style={{
+              '--fs-d': '2rem', '--fs-m': '1.6rem',
               fontWeight: 800,
               color: COLORS.gold,
               fontFamily: FONTS.body,
@@ -1007,9 +1007,9 @@ function PrincipleCard({ principle, badge, badgeColor, language, isMobile }) {
           {badge}
         </div>
       )}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.quran,
-        fontSize: isMobile ? '1.3rem' : '1.6rem',
+        '--fs-d': '1.6rem', '--fs-m': '1.3rem',
         lineHeight: 1.8,
         color: COLORS.gold,
         textAlign: 'center',
@@ -1571,7 +1571,7 @@ function TabZaman({ language, isMobile }) {
               </span>
             </div>
 
-            <h2 style={{ margin: '0 0 24px', fontSize: isMobile ? '1.3rem' : '1.55rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.display, lineHeight: 1.3 }}>
+            <h2 className="mq-fs" style={{ margin: '0 0 24px', '--fs-d': '1.55rem', '--fs-m': '1.3rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.display, lineHeight: 1.3 }}>
               {language === 'tr' ? timeSelected.titleTr : timeSelected.titleEn}
             </h2>
 
@@ -1804,27 +1804,27 @@ export default function SebebiNuzul({ onClose }) {
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
-        <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+        <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '1.95rem', '--fs-m': '1.5rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           وَقَالَ الَّذِينَ كَفَرُوا لَوْلَا نُزِّلَ عَلَيْهِ الْقُرْاٰنُ جُمْلَةً وَاحِدَةً كَذٰلِكَ لِنُثَبِّتَ بِهِ فُؤَادَكَ
         </p>
-        <p style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+        <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{language === 'tr' ? "İnkâr edenler, 'Kur'an ona bir defada toptan indirilseydi ya' dediler. Biz onu kalbine sağlam yerleştirelim diye böyle yaptık." : "The disbelievers said, 'Why was the Quran not sent down to him all at once?' We have done it this way to firmly establish your heart with it."}&quot;
         </p>
         <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
           — {language === 'tr' ? 'Furkân 25:32' : 'Al-Furqān 25:32'}
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+        <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {language === 'tr' ? <>Kur&apos;an <em style={{ fontStyle: 'normal', color: COLORS.gold }}>23 yılda</em> ayet ayet indi. Her ayetin bir <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iniş anı</em> var. Sebeb-i Nüzul bilmek, anlamı bağlamına yerleştirmektir.</> : <>The Quran descended <em style={{ fontStyle: 'normal', color: COLORS.gold }}>over 23 years</em>, verse by verse. Each verse has a <em style={{ fontStyle: 'normal', color: COLORS.gold }}>moment of descent</em>. To know its occasion is to place meaning in its context.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
           {language === 'tr' ? "İNİŞ BAĞLAMI · VÂHİDÎ · SUYÛTÎ" : "OCCASION OF REVELATION · AL-WĀḤIDĪ · AL-SUYŪṬĪ"}
         </div>
-        <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
+        <h2 className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
           {language === 'tr' ? "Her Ayetin Bir Ânı Vardır" : 'Every Verse Has Its Moment'}
         </h2>
-        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+        <p className="mq-fs" style={{ fontFamily: "'Playfair Display', serif", '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {language === 'tr' ? 'Klasik kural: "Lâ yûsenu illâ bi-nass." — Yalnız sahih rivayetle bilinir.' : 'Classical rule: "lā yūsenu illā bi-naṣṣ." — Known only through authentic transmission.'}
         </p>
       </div>
@@ -1848,7 +1848,7 @@ export default function SebebiNuzul({ onClose }) {
           <button className="mq-box"
             key={i}
             onClick={() => { setActiveTab(i); setTimeout(() => { const tb = document.getElementById('sebebi-tab-bar'); if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-            style={{
+            className="mq-fs" style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
@@ -1857,7 +1857,7 @@ export default function SebebiNuzul({ onClose }) {
               borderBottom: `2px solid ${activeTab === i ? COLORS.gold : 'transparent'}`,
               background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
               color: activeTab === i ? COLORS.gold : COLORS.silver,
-              fontSize: isMobile ? '0.72rem' : '0.78rem',
+              '--fs-d': '0.78rem', '--fs-m': '0.72rem',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               fontWeight: activeTab === i ? 700 : 500,

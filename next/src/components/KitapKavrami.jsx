@@ -114,9 +114,9 @@ export default function KitapKavrami() {
           }}>
             {tr ? '10 İsim, 10 İşlev' : '10 Names, 10 Functions'}
           </div>
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.92rem' : '0.98rem',
+            '--fs-d': '0.98rem', '--fs-m': '0.92rem',
             lineHeight: 1.75,
             color: COLORS.offWhite,
             margin: 0,
@@ -245,9 +245,9 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
         <div
           dir="rtl"
           lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.9rem' : '2.3rem',
+            '--fs-d': '2.3rem', '--fs-m': '1.9rem',
             color: COLORS.gold,
             lineHeight: 1.5,
             textShadow: `0 0 20px ${COLORS.gold}22`,
@@ -259,9 +259,9 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
         </div>
 
         {/* Title */}
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.05rem' : '1.2rem',
+          '--fs-d': '1.2rem', '--fs-m': '1.05rem',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 0 10px',
@@ -271,9 +271,9 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
         </h3>
 
         {/* Short */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.88rem' : '0.92rem',
+          '--fs-d': '0.92rem', '--fs-m': '0.88rem',
           lineHeight: 1.7,
           color: COLORS.silver,
           margin: 0,
@@ -315,9 +315,9 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
               paddingTop: 20,
               borderTop: `1px solid ${COLORS.gold}22`,
             }}>
-              <p style={{
+              <p className="mq-fs" style={{
                 fontFamily: FONTS.body,
-                fontSize: isMobile ? '0.9rem' : '0.94rem',
+                '--fs-d': '0.94rem', '--fs-m': '0.9rem',
                 lineHeight: 1.85,
                 color: COLORS.offWhite,
                 margin: '0 0 20px',

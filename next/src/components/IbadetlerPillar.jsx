@@ -147,9 +147,9 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
                 }
               }, 50);
             }}
-            style={{
+            className="mq-fs" style={{
               '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
-              fontSize: isMobile ? '0.72rem' : '0.78rem',
+              '--fs-d': '0.78rem', '--fs-m': '0.72rem',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
               fontWeight: activeTab === tab.key ? 700 : 500,
@@ -219,9 +219,9 @@ function PillarHero({ pillarData, language, isMobile }) {
       }}>﷽</div>
 
       {/* Anchor verse — Kur'ânî metin, KFGQPC, gold */}
-      <div style={{
+      <div className="mq-fs" style={{
         fontFamily: FONTS.quran,
-        fontSize: isMobile ? 'clamp(1.2rem, 5vw, 1.6rem)' : 'clamp(1.4rem, 3vw, 2rem)',
+        '--fs-d': 'clamp(1.4rem, 3vw, 2rem)', '--fs-m': 'clamp(1.2rem, 5vw, 1.6rem)',
         color: COLORS.gold,
         lineHeight: 2.1,
         marginBottom: '20px',
@@ -280,10 +280,10 @@ function PillarHero({ pillarData, language, isMobile }) {
       )}
 
       {/* H1 title */}
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display,
         color: COLORS.offWhite,
-        fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+        '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
         margin: '0 0 12px',
         fontWeight: 700,
       }}>
@@ -422,10 +422,10 @@ function TabGenel({ data, language, isMobile, pillarData }) {
         }}>{language === 'tr' ? 'Bir Bakışta' : 'At a Glance'}</div>
 
         {/* Intro text — larger, better line-height */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
           color: COLORS.offWhite,
-          fontSize: isMobile ? '1rem' : '1.06rem',
+          '--fs-d': '1.06rem', '--fs-m': '1rem',
           lineHeight: 1.9,
           margin: 0,
           letterSpacing: '0.005em',
@@ -943,7 +943,7 @@ function TabPeygamberler({ data, language, isMobile }) {
         {data.map((p, i) => (
           <div key={i} style={{ position: 'relative', marginBottom: '20px' }}>
             {/* Circle badge */}
-            <div style={{
+            <div className="mq-fs" style={{
               position: 'absolute',
               left: isMobile ? '-28px' : '-36px',
               top: '4px',
@@ -956,7 +956,7 @@ function TabPeygamberler({ data, language, isMobile }) {
               alignItems: 'center',
               justifyContent: 'center',
               fontWeight: 800,
-              fontSize: isMobile ? '0.68rem' : '0.75rem',
+              '--fs-d': '0.75rem', '--fs-m': '0.68rem',
               border: `2px solid ${COLORS.cosmicBlack}`,
               boxShadow: `0 0 0 2px ${COLORS.gold}55`,
             }}>{i + 1}</div>
@@ -1087,9 +1087,9 @@ function TabOzelNamazlar({ data, language, isMobile }) {
             background: 'linear-gradient(180deg, rgba(212,165,116,0.04) 0%, rgba(255,255,255,0.02) 100%)',
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', flexWrap: 'wrap', marginBottom: '14px' }}>
-              <h3 style={{
+              <h3 className="mq-fs" style={{
                 fontFamily: FONTS.display, color: COLORS.gold,
-                fontSize: isMobile ? '1.25rem' : '1.45rem',
+                '--fs-d': '1.45rem', '--fs-m': '1.25rem',
                 margin: 0, fontWeight: 700,
               }}>{language === 'tr' ? n.titleTr : (n.titleEn ?? n.titleTr)}</h3>
               {n.arabicName && (
@@ -1193,9 +1193,9 @@ function TabVakitMekan({ data, language, isMobile }) {
 function VakitEkseniSection({ section, language, isMobile }) {
   return (
     <div>
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.gold,
-        fontSize: isMobile ? '1.3rem' : '1.55rem',
+        '--fs-d': '1.55rem', '--fs-m': '1.3rem',
         margin: '0 0 12px', fontWeight: 700,
       }}>{language === 'tr' ? section.titleTr : (section.titleEn ?? section.titleTr)}</h3>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '24px' }}>
@@ -1247,9 +1247,9 @@ function VakitEkseniSection({ section, language, isMobile }) {
 function KibleHikayesiSection({ section, language, isMobile }) {
   return (
     <div>
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, color: COLORS.gold,
-        fontSize: isMobile ? '1.3rem' : '1.55rem',
+        '--fs-d': '1.55rem', '--fs-m': '1.3rem',
         margin: '0 0 12px', fontWeight: 700,
       }}>{language === 'tr' ? section.titleTr : (section.titleEn ?? section.titleTr)}</h3>
       <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '24px' }}>
@@ -1328,9 +1328,9 @@ function TabKiraat({ data, language, isMobile }) {
             background: 'rgba(212,165,116,0.03)',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
-              <h3 style={{
+              <h3 className="mq-fs" style={{
                 fontFamily: FONTS.display, color: COLORS.gold,
-                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                '--fs-d': '1.3rem', '--fs-m': '1.15rem',
                 margin: 0, fontWeight: 700,
               }}>{language === 'tr' ? u.titleTr : (u.titleEn ?? u.titleTr)}</h3>
               {u.claimType && <ClaimTypeBadge claimType={u.claimType} confidence={u.confidence} language={language} />}
@@ -1379,9 +1379,9 @@ function TabInsanEtkisi({ data, language, isMobile }) {
             background: 'linear-gradient(180deg, rgba(212,165,116,0.03) 0%, rgba(255,255,255,0.02) 100%)',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
-              <h3 style={{
+              <h3 className="mq-fs" style={{
                 fontFamily: FONTS.display, color: COLORS.gold,
-                fontSize: isMobile ? '1.2rem' : '1.35rem',
+                '--fs-d': '1.35rem', '--fs-m': '1.2rem',
                 margin: 0, fontWeight: 700,
               }}>{language === 'tr' ? k.titleTr : (k.titleEn ?? k.titleTr)}</h3>
               {k.claimType && <ClaimTypeBadge claimType={k.claimType} confidence={k.confidence} language={language} />}

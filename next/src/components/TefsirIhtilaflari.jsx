@@ -121,17 +121,17 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
         )}
       </div>
       {pos.quoteAr && (
-        <p dir="rtl" lang="ar" style={{
-          fontFamily: FONTS.quran, color: COLORS.gold, fontSize: isMobile ? '1.15rem' : '1.3rem',
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
+          fontFamily: FONTS.quran, color: COLORS.gold, '--fs-d': '1.3rem', '--fs-m': '1.15rem',
           textAlign: 'right', lineHeight: 1.9, margin: '0 0 10px',
         }}>
           {pos.quoteAr}
         </p>
       )}
       {pos.quoteTr && (
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body, fontStyle: 'italic', color: COLORS.offWhite,
-          fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.7, margin: '0 0 8px',
+          '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.7, margin: '0 0 8px',
         }}>
           {pos.quoteTr}
         </p>
@@ -186,8 +186,8 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         }}>
           {surahShortName(parseInt(c.verseRef.split(':')[0], 10))} {c.verseRef}
         </span>
-        <h3 style={{
-          fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700,
+        <h3 className="mq-fs" style={{
+          fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700,
           color: COLORS.offWhite, margin: '0 0 8px', lineHeight: 1.35,
         }}>
           {c.titleTr}
@@ -318,33 +318,33 @@ export default function TefsirIhtilaflari() {
           pointerEvents: 'none',
         }} />
         <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
-          <div style={{
-            fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.4rem' : '1.6rem',
+          <div className="mq-fs" style={{
+            fontFamily: FONTS.bismillah, '--fs-d': '1.6rem', '--fs-m': '1.4rem',
             color: COLORS.gold, opacity: 0.85, marginBottom: 22, direction: 'rtl',
             textShadow: `0 0 24px ${COLORS.gold}44`,
           }}>﷽</div>
-          <p dir="rtl" lang="ar" style={{
-            fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.35rem',
+          <p dir="rtl" lang="ar" className="mq-fs" style={{
+            fontFamily: FONTS.quran, '--fs-d': '1.35rem', '--fs-m': '1.1rem',
             color: COLORS.gold, lineHeight: 2.05, margin: '0 0 18px',
             textShadow: `0 0 32px ${COLORS.gold}22`,
           }}>{cleanArabicForDisplay(ANCHOR_3_7_ARABIC_RAW)}</p>
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : '1.02rem', color: COLORS.offWhite,
+            '--fs-d': '1.02rem', '--fs-m': '0.92rem', color: COLORS.offWhite,
             maxWidth: 620, margin: '0 auto 10px', lineHeight: 1.7, opacity: 0.92,
           }}>
             {tr
               ? '"Sana Kitab\'ı indiren O\'dur. Onun bazı ayetleri muhkemdir ki bunlar Kitab\'ın esasıdır. Diğerleri de müteşabihtir... Onun tevilini ancak Allah bilir. İlimde yüksek payeye erişenler ise: \'Ona inandık; hepsi Rabbimiz tarafındandır\' derler."'
               : '"It is He who sent down to you the Book; in it are verses precise in meaning — they are the foundation of the Book — and others unspecific... none knows its true interpretation except Allah. But those firm in knowledge say, \'We believe in it; all of it is from our Lord.\'"'}
           </p>
-          <p style={{
-            fontFamily: FONTS.body, fontSize: isMobile ? '0.68rem' : '0.72rem',
+          <p className="mq-fs" style={{
+            fontFamily: FONTS.body, '--fs-d': '0.72rem', '--fs-m': '0.68rem',
             color: COLORS.silver, opacity: 0.78, letterSpacing: '0.18em',
             textTransform: 'uppercase', margin: '0 0 24px',
           }}>— {tr ? 'Âl-i İmrân 3:7' : 'Āl-i \'Imrān 3:7'}</p>
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display, fontStyle: 'italic',
-            fontSize: isMobile ? '0.88rem' : '0.98rem', color: COLORS.silver,
+            '--fs-d': '0.98rem', '--fs-m': '0.88rem', color: COLORS.silver,
             maxWidth: 640, margin: '0 auto', lineHeight: 1.75, opacity: 0.9,
           }}>
             {tr

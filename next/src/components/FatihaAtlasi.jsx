@@ -38,8 +38,8 @@ function Hero({ language, isMobile }) {
     }}>
       <HeroGeometricBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <div aria-hidden="true" style={{
-          fontFamily: FONTS.bismillah, fontSize: isMobile ? '2.1rem' : '2.6rem',
+        <div aria-hidden="true" className="mq-fs" style={{
+          fontFamily: FONTS.bismillah, '--fs-d': '2.6rem', '--fs-m': '2.1rem',
           color: COLORS.gold, opacity: 0.85, marginBottom: '26px', lineHeight: 1.2,
         }}>﷽</div>
 
@@ -50,9 +50,9 @@ function Hero({ language, isMobile }) {
         }}>
           {cleanArabic('اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ')}
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.offWhite,
-          fontSize: isMobile ? '1rem' : '1.1rem', lineHeight: 1.6,
+          '--fs-d': '1.1rem', '--fs-m': '1rem', lineHeight: 1.6,
           maxWidth: '660px', margin: '0 auto 8px',
         }}>
           {tr
@@ -65,9 +65,9 @@ function Hero({ language, isMobile }) {
           margin: '0 0 26px',
         }}>— {tr ? 'Fâtiha 1:5' : 'Al-Fātiḥa 1:5'}</p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver,
-          fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.8,
+          '--fs-d': '1.05rem', '--fs-m': '0.95rem', lineHeight: 1.8,
           maxWidth: '720px', margin: '0 auto 26px',
         }}>
           {tr
@@ -143,10 +143,10 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
     onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = `${accent}60`; }}
     onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.borderColor = `${accent}30`; }}
     >
-      <span style={{
+      <span className="mq-fs" style={{
         flexShrink: 0, width: isMobile ? 34 : 42, height: isMobile ? 34 : 42, borderRadius: '50%',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: FONTS.display, fontWeight: 800, fontSize: isMobile ? '0.95rem' : '1.1rem',
+        fontFamily: FONTS.display, fontWeight: 800, '--fs-d': '1.1rem', '--fs-m': '0.95rem',
         color: accent, background: `${accent}1c`, border: `1.5px solid ${accent}50`,
       }}>{initial}</span>
       <div style={{ flex: 1, minWidth: 0 }}>

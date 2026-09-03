@@ -143,9 +143,9 @@ export default function KuranYeminleri({ onClose }) {
             dir="rtl"
             lang="ar"
             aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.6rem' : '2rem',
+              '--fs-d': '2rem', '--fs-m': '1.6rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
@@ -160,9 +160,9 @@ export default function KuranYeminleri({ onClose }) {
           <p
             dir="rtl"
             lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.3rem, 2.4vw, 1.75rem)',
+              '--fs-d': 'clamp(1.3rem, 2.4vw, 1.75rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 18px',
@@ -173,11 +173,11 @@ export default function KuranYeminleri({ onClose }) {
             وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '620px',
@@ -201,11 +201,11 @@ export default function KuranYeminleri({ onClose }) {
           </p>
 
           {/* Framing whisper */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 40px',
             maxWidth: '660px',
@@ -236,9 +236,9 @@ export default function KuranYeminleri({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+            '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
             fontWeight: 700,
             fontFamily: FONTS.display,
             margin: '0 auto 16px',
@@ -250,9 +250,9 @@ export default function KuranYeminleri({ onClose }) {
           </h2>
 
           {/* Dramatic subtitle */}
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+            '--fs-d': 'clamp(1.05rem, 1.8vw, 1.2rem)', '--fs-m': '1rem',
             color: COLORS.gold,
             margin: '0 auto 32px',
             lineHeight: 1.5,
@@ -379,7 +379,7 @@ export default function KuranYeminleri({ onClose }) {
                     if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }, 50);
                 }}
-                style={{
+                className="mq-fs" style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
@@ -390,7 +390,7 @@ export default function KuranYeminleri({ onClose }) {
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: '0',
                   color: isActive ? COLORS.gold : SEMANTIC.textFaint,
-                  fontSize: isMobile ? '0.78rem' : '0.82rem',
+                  '--fs-d': '0.82rem', '--fs-m': '0.78rem',
                   fontWeight: isActive ? 700 : 500,
                   letterSpacing: isActive ? '0.14em' : '0.12em',
                   textTransform: 'uppercase',
@@ -1011,8 +1011,8 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
             }}>
               {String(i + 1).padStart(2, '0')}
             </div>
-            <h3 style={{
-              color: COLORS.gold, fontSize: isMobile ? '1rem' : '1.08rem',
+            <h3 className="mq-fs" style={{
+              color: COLORS.gold, '--fs-d': '1.08rem', '--fs-m': '1rem',
               fontWeight: 700, fontFamily: FONTS.body, margin: 0, lineHeight: 1.35,
             }}>
               {language === 'tr' ? item.titleTr : item.titleEn}
@@ -1026,8 +1026,8 @@ function TabDerinlik({ depthAnalysis, language, isMobile }) {
               ...VERSE_DISPLAY_CARD,
               padding: '14px 18px', marginBottom: '18px',
             }}>
-              <div style={{
-                fontFamily: FONTS.quran, fontSize: isMobile ? '1.4rem' : '1.55rem',
+              <div className="mq-fs" style={{
+                fontFamily: FONTS.quran, '--fs-d': '1.55rem', '--fs-m': '1.4rem',
                 color: COLORS.gold, direction: 'rtl', textAlign: 'right',
                 lineHeight: 1.9, marginBottom: '10px',
               }} dir="rtl" lang="ar">
@@ -1310,7 +1310,7 @@ function TabSureDagilimi({ categories, meta, language, isMobile }) {
               <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '4px' }}>
                 {language === 'tr' ? 'Mekkî / Medenî Dağılımı' : 'Meccan / Medinan Distribution'}
               </div>
-              <div style={{ color: COLORS.offWhite, fontSize: isMobile ? '1rem' : '1.1rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.4 }}>
+              <div className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '1.1rem', '--fs-m': '1rem', fontWeight: 700, fontFamily: FONTS.body, lineHeight: 1.4 }}>
                 {language === 'tr'
                   ? `Yemin içeren ${meta.surahsWithOaths} sûrenin tamamı Mekkî dönem ağırlıklı`
                   : `All ${meta.surahsWithOaths} oath-containing surahs are predominantly Meccan`
@@ -1399,7 +1399,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
         <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '12px' }}>
           {language === 'tr' ? 'İbn Kayyim el-Cevziyye — Temel Tez' : 'Ibn Qayyim al-Jawziyya — Core Thesis'}
         </div>
-        <p style={{ color: COLORS.offWhite, fontSize: isMobile ? '0.95rem' : '1.05rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 16px', fontStyle: 'italic' }}>
+        <p className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '1.05rem', '--fs-m': '0.95rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 16px', fontStyle: 'italic' }}>
           {language === 'tr' ? ibnQayyim.thesisTr : ibnQayyim.thesisEn}
         </p>
         {/* Book name */}
@@ -1435,9 +1435,9 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             }}>
               {clauses.map((clause, i) => (
                 <div key={i} style={{ display: 'contents' }}>
-                  <p style={{
+                  <p className="mq-fs" style={{
                     color: COLORS.offWhite,
-                    fontSize: isMobile ? '0.95rem' : '1.15rem',
+                    '--fs-d': '1.15rem', '--fs-m': '0.95rem',
                     fontFamily: FONTS.display, fontStyle: 'italic',
                     lineHeight: 1.55, margin: 0, maxWidth: '640px',
                   }}>
@@ -1533,7 +1533,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
               {language === 'tr' ? "İbn Kayyim'in Tasnifleri" : "Ibn Qayyim's Classifications"}
             </div>
-            <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
+            <h3 className="mq-fs" style={{ color: COLORS.gold, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
               {language === 'tr' ? ibnKayyimPatterns.titleTr : ibnKayyimPatterns.titleEn}
             </h3>
             <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
@@ -1677,7 +1677,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
           <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '6px' }}>
             {language === 'tr' ? "Yöntem Uygulamada" : "The Method in Action"}
           </div>
-          <h3 style={{ color: COLORS.gold, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
+          <h3 className="mq-fs" style={{ color: COLORS.gold, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
             {language === 'tr' ? "Üç Ünlü Yemin Sûresi — İbn Kayyim'in Merceğinden" : "Three Famous Oath Surahs — Through Ibn Qayyim's Lens"}
           </h3>
           <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
@@ -1733,7 +1733,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
                     {String(i + 1).padStart(2, '0')} · {ex.ref}
                   </span>
                 </div>
-                <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.2rem' : '1.4rem', color: COLORS.gold, lineHeight: 2.0, margin: '0 0 18px', textAlign: 'right', textShadow: `0 0 14px ${COLORS.gold}1a` }}>
+                <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.4rem', '--fs-m': '1.2rem', color: COLORS.gold, lineHeight: 2.0, margin: '0 0 18px', textAlign: 'right', textShadow: `0 0 14px ${COLORS.gold}1a` }}>
                   {ex.ar}
                 </p>
                 <div className="g-1-2" style={{ display: 'grid',  gap: '12px', marginBottom: '16px' }}>
@@ -1860,7 +1860,7 @@ function TabTahaddi({ language, isMobile }) {
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin ↔ Tahaddi Paraleli' : 'The Oath–Challenge Parallel'}
         </div>
-        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+        <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.7rem, 3vw, 2.1rem)', '--fs-m': 'clamp(1.35rem, 5vw, 1.65rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
           {tr ? (
             <>Yemin kâinatı işaret eder, <span style={{ color: COLORS.gold, fontStyle: 'italic' }}>tahaddi metni.</span></>
           ) : (
@@ -1912,8 +1912,8 @@ function TabTahaddi({ language, isMobile }) {
               </div>
 
               {/* Arabic */}
-              <p style={{
-                fontFamily: FONTS.quran, fontSize: isMobile ? '1.1rem' : '1.2rem',
+              <p className="mq-fs" style={{
+                fontFamily: FONTS.quran, '--fs-d': '1.2rem', '--fs-m': '1.1rem',
                 color: COLORS.gold, lineHeight: 2.0, direction: 'rtl', textAlign: 'right',
                 margin: 0,
               }} dir="rtl" lang="ar">
@@ -2060,7 +2060,7 @@ function TabKozmoloji({ language, isMobile }) {
         <div style={{ fontSize: '0.7rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, fontWeight: 700, opacity: 0.75, marginBottom: '10px' }}>
           {tr ? 'Yemin Edilen Kâinat' : 'The Cosmos Sworn By'}
         </div>
-        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.35rem, 5vw, 1.65rem)' : 'clamp(1.7rem, 3vw, 2.1rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
+        <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.7rem, 3vw, 2.1rem)', '--fs-m': 'clamp(1.35rem, 5vw, 1.65rem)', color: COLORS.offWhite, margin: '0 0 12px', lineHeight: 1.15 }}>
           {tr ? (
             <>Kur&apos;ân&apos;ın <span style={{ color: COLORS.gold }}>{KOZMOLOJI_ITEMS.length} kozmik yemini</span></>
           ) : (
@@ -2092,8 +2092,8 @@ function TabKozmoloji({ language, isMobile }) {
                 {it.ref}
               </div>
             </div>
-            <p style={{
-              fontFamily: FONTS.quran, fontSize: isMobile ? '1.35rem' : '1.6rem',
+            <p className="mq-fs" style={{
+              fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.35rem',
               color: COLORS.gold, lineHeight: 2.1, direction: 'rtl', textAlign: 'right',
               margin: '0 0 10px',
             }} dir="rtl" lang="ar">
@@ -2182,9 +2182,9 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
         {tr ? 'Tefekkür' : 'Reflection'}
       </div>
 
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        '--fs-d': 'clamp(1.7rem, 2.8vw, 2.15rem)', '--fs-m': 'clamp(1.45rem, 5.5vw, 1.8rem)',
         color: COLORS.offWhite,
         textAlign: 'center',
         lineHeight: 1.3,
@@ -2197,10 +2197,10 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
           : <>{totalOaths} oaths — <em style={{ fontStyle: 'normal', color: COLORS.gold }}>The Creator calling His creation to witness</em>.</>}
       </h3>
 
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display, fontStyle: 'italic',
         color: COLORS.silver,
-        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        '--fs-d': 'clamp(1rem, 1.7vw, 1.12rem)', '--fs-m': '1rem',
         lineHeight: 1.75,
         textAlign: 'center',
         margin: '0 auto 50px',
@@ -2321,9 +2321,9 @@ function VakiaSpotlight({ language, isMobile }) {
         <p
           dir="rtl"
           lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.05rem, 4vw, 1.35rem)' : 'clamp(1.3rem, 2.2vw, 1.7rem)',
+            '--fs-d': 'clamp(1.3rem, 2.2vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4vw, 1.35rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
             margin: '0 auto 18px',
@@ -2334,11 +2334,11 @@ function VakiaSpotlight({ language, isMobile }) {
           فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ  وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ
         </p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.offWhite,
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.95rem' : 'clamp(1rem, 1.6vw, 1.1rem)',
+          '--fs-d': 'clamp(1rem, 1.6vw, 1.1rem)', '--fs-m': '0.95rem',
           lineHeight: 1.7,
           margin: '0 auto 12px',
           maxWidth: '640px',
@@ -2449,9 +2449,9 @@ function YeminCevapReveal({ language, isMobile }) {
         }}>
           {tr ? 'Yeminin Ardındaki Mesaj' : 'The Message Behind the Oath'}
         </div>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.6rem, 2.6vw, 2rem)',
+          '--fs-d': 'clamp(1.6rem, 2.6vw, 2rem)', '--fs-m': 'clamp(1.45rem, 5.5vw, 1.8rem)',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 auto 12px',
@@ -2461,11 +2461,11 @@ function YeminCevapReveal({ language, isMobile }) {
         }}>
           {tr ? 'Yemin → Vurgu' : 'Oath → Affirmation'}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
           fontStyle: 'italic',
           color: COLORS.silver,
-          fontSize: isMobile ? '0.9rem' : '0.95rem',
+          '--fs-d': '0.95rem', '--fs-m': '0.9rem',
           lineHeight: 1.7,
           margin: '0 auto',
           maxWidth: '640px',
@@ -2518,9 +2518,9 @@ function YeminCevapReveal({ language, isMobile }) {
                 <p
                   dir="rtl"
                   lang="ar"
-                  style={{
+                  className="mq-fs" style={{
                     fontFamily: FONTS.quran,
-                    fontSize: isMobile ? 'clamp(0.95rem, 3.8vw, 1.2rem)' : 'clamp(1.05rem, 1.85vw, 1.4rem)',
+                    '--fs-d': 'clamp(1.05rem, 1.85vw, 1.4rem)', '--fs-m': 'clamp(0.95rem, 3.8vw, 1.2rem)',
                     color: COLORS.gold,
                     lineHeight: 2.1,
                     margin: '0 0 14px',
@@ -2604,9 +2604,9 @@ function YeminCevapReveal({ language, isMobile }) {
                   <p
                     dir="rtl"
                     lang="ar"
-                    style={{
+                    className="mq-fs" style={{
                       fontFamily: FONTS.quran,
-                      fontSize: isMobile ? 'clamp(0.95rem, 3.8vw, 1.2rem)' : 'clamp(1.05rem, 1.85vw, 1.4rem)',
+                      '--fs-d': 'clamp(1.05rem, 1.85vw, 1.4rem)', '--fs-m': 'clamp(0.95rem, 3.8vw, 1.2rem)',
                       color: '#2ecc71',
                       lineHeight: 2.1,
                       margin: '0 0 14px',

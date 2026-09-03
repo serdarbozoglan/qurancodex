@@ -801,11 +801,11 @@ export default function ImpossibleRhythm() {
                   <div
                     onClick={() => handleNajmClick(i)}
                     title={`${i + 1}. ayet`}
-                    style={{
+                    className="mq-fs" style={{
                       width: `${squareSize}px`, height: `${squareSize}px`, borderRadius: RADIUS.xs,
                       background: bg, border,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: isMobile ? '0.45rem' : '0.5rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
+                      '--fs-d': '0.5rem', '--fs-m': '0.45rem', color, fontFamily: 'Inter, sans-serif', fontWeight: 600,
                       cursor: 'pointer',
                       transform: isSelected ? 'scale(1.2)' : 'scale(1)',
                       transition: 'transform 0.12s, border 0.12s, opacity 0.2s',

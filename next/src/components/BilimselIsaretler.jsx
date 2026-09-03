@@ -326,8 +326,8 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 20px',
       }}>
         {tr
@@ -358,10 +358,10 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
         })}
         {activeDomainId && (
           <button className="mq-box" onClick={() => onDomainToggle(activeDomainId)}
-            style={{
+            className="mq-fs" style={{
               '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px", borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`, background: 'transparent',
-              color: COLORS.gold, fontSize: isMobile ? '0.78rem' : '0.85rem',
+              color: COLORS.gold, '--fs-d': '0.85rem', '--fs-m': '0.78rem',
               fontFamily: FONTS.body, cursor: 'pointer',
             }}>× {tr ? 'Filtreyi kaldır' : 'Clear filter'}</button>
         )}
@@ -516,8 +516,8 @@ function TimelineTab({ isaretler, domains, language, isMobile }) {
 
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr

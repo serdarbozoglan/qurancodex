@@ -245,10 +245,10 @@ function Gate({ gate, isMobile, language }) {
       </div>
 
       {/* Title */}
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display,
         fontWeight: 700,
-        fontSize: isMobile ? 'clamp(1.05rem, 4vw, 1.25rem)' : 'clamp(1.15rem, 1.6vw, 1.35rem)',
+        '--fs-d': 'clamp(1.15rem, 1.6vw, 1.35rem)', '--fs-m': 'clamp(1.05rem, 4vw, 1.25rem)',
         color: COLORS.offWhite,
         lineHeight: 1.25,
         letterSpacing: '-0.01em',

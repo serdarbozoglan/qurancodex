@@ -221,10 +221,10 @@ export default function NedenSonuc() {
           </div>
 
           {/* Tez — sayfanın tek cümlelik iddiası, büyük ve ayrı */}
-          <p style={{
+          <p className="mq-fs" style={{
             position: 'relative',
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.3rem' : '1.7rem',
+            '--fs-d': '1.7rem', '--fs-m': '1.3rem',
             fontWeight: 700,
             fontStyle: 'italic',
             lineHeight: 1.4,
@@ -245,10 +245,10 @@ export default function NedenSonuc() {
             {tr ? '— sünnetullah, Kur\'ân\'ın kozmik yasası' : '— sunnatullah, the Quran\'s cosmic law'}
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             position: 'relative',
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.88rem' : '0.92rem',
+            '--fs-d': '0.92rem', '--fs-m': '0.88rem',
             lineHeight: 1.75,
             color: COLORS.silver,
             margin: '0 0 20px',
@@ -461,9 +461,9 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
           {tr ? cat?.tr : cat?.en}
         </div>
 
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.05rem' : '1.2rem',
+          '--fs-d': '1.2rem', '--fs-m': '1.05rem',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 0 12px',
@@ -496,9 +496,9 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
           </div>
         )}
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.88rem' : '0.92rem',
+          '--fs-d': '0.92rem', '--fs-m': '0.88rem',
           lineHeight: 1.7,
           color: COLORS.silver,
           margin: 0,
@@ -593,9 +593,9 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                             </span>
                           )}
                         </div>
-                        <p style={{
+                        <p className="mq-fs" style={{
                           fontFamily: FONTS.body,
-                          fontSize: isMobile ? '0.9rem' : '0.88rem',
+                          '--fs-d': '0.88rem', '--fs-m': '0.9rem',
                           lineHeight: 1.5,
                           fontWeight: isLast ? 700 : 400,
                           color: COLORS.offWhite,
@@ -667,9 +667,9 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
 
               {/* Note */}
               {chain.note && (
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.body,
-                  fontSize: isMobile ? '0.85rem' : '0.88rem',
+                  '--fs-d': '0.88rem', '--fs-m': '0.85rem',
                   lineHeight: 1.75,
                   color: COLORS.silver,
                   margin: '0 0 18px',

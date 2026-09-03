@@ -108,8 +108,8 @@ export default function AltiKonu({ onClose }) {
         borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: isMobile ? '2.2rem' : '2.6rem',
+        <div className="mq-fs" style={{
+          '--fs-d': '2.6rem', '--fs-m': '2.2rem',
           color: COLORS.gold,
           opacity: 0.82,
           fontFamily: FONTS.bismillah,
@@ -153,19 +153,19 @@ export default function AltiKonu({ onClose }) {
 
         <div style={{ width: '120px', height: '1px', margin: '20px auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
 
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display, fontWeight: 700,
           color: COLORS.offWhite,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
           {tr ? "Altı Konu, Altı Sır" : "Six Topics, Six Secrets"}
         </h2>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>
           {tr ? "Prefrontal · parmak izi · modüler anlatı · ..." : "Prefrontal · fingerprint · modular narrative · ..."}
@@ -182,7 +182,7 @@ export default function AltiKonu({ onClose }) {
           <div style={{ fontSize: '0.68rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: COLORS.gold, opacity: 0.78, fontFamily: FONTS.body, marginBottom: 8 }}>
             {tr ? 'AYET ZEMİNİ · KAYNAKLAR' : 'VERSE FOUNDATION · SOURCES'}
           </div>
-          <h2 style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite, fontSize: isMobile ? '1.4rem' : '1.7rem', margin: 0 }}>
+          <h2 className="mq-fs" style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite, '--fs-d': '1.7rem', '--fs-m': '1.4rem', margin: 0 }}>
             {tr ? 'Her Konunun Ayet Metni ve Kaynakçası' : 'The Verse Text and Sources Behind Each Topic'}
           </h2>
         </div>
@@ -222,8 +222,8 @@ export default function AltiKonu({ onClose }) {
                         border: `1px solid ${COLORS.gold}22`,
                         borderRadius: 10, padding: '16px 18px', marginBottom: 12,
                       }}>
-                        <p dir="rtl" lang="ar" style={{
-                          fontFamily: FONTS.quran, fontSize: isMobile ? '1.15rem' : '1.35rem',
+                        <p dir="rtl" lang="ar" className="mq-fs" style={{
+                          fontFamily: FONTS.quran, '--fs-d': '1.35rem', '--fs-m': '1.15rem',
                           color: COLORS.gold, lineHeight: 1.95, margin: '0 0 10px',
                         }}>{cleanArabicForDisplay(v.arabic)}</p>
                         <p style={{ fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.65, margin: '0 0 6px' }}>

@@ -118,9 +118,9 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
               key={i}
               dir="rtl"
               lang="ar"
-              style={{
+              className="mq-fs" style={{
                 fontFamily: "'ShaykhHamdullah', 'KFGQPC', 'Amiri Quran', serif",
-                fontSize: isMobile ? '1.5rem' : '1.85rem',
+                '--fs-d': '1.85rem', '--fs-m': '1.5rem',
                 lineHeight: 1,
                 textAlign: 'center',
                 whiteSpace: 'nowrap',

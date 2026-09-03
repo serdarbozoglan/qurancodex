@@ -1546,8 +1546,8 @@ function TabKavimPatterns({ patterns, language, isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr

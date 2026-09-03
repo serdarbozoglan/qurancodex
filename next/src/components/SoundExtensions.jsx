@@ -154,9 +154,9 @@ export default function SoundExtensions({ language, isMobile }) {
             letterSpacing: '0.28em', textTransform: 'uppercase',
             fontWeight: 700, opacity: 0.82, marginBottom: '14px',
           }}>{tr ? 'DERİN İNCELEME · GENİŞLETİLMİŞ' : 'DEEP DIVE · EXTENDED'}</p>
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display, color: COLORS.offWhite,
-            fontSize: isMobile ? '1.6rem' : '2rem',
+            '--fs-d': '2rem', '--fs-m': '1.6rem',
             margin: '0 0 12px', fontWeight: 700,
           }}>{tr ? 'Karşıtlıkların Alfabesi' : 'The Alphabet of Contrasts'}</h2>
           <p style={{
@@ -217,9 +217,9 @@ export default function SoundExtensions({ language, isMobile }) {
               letterSpacing: '0.24em', textTransform: 'uppercase',
               fontWeight: 700, opacity: 0.82, marginBottom: '10px',
             }}>{tr ? 'FONETİK SPEKTRUM' : 'PHONETIC SPECTRUM'}</p>
-            <h3 style={{
+            <h3 className="mq-fs" style={{
               fontFamily: FONTS.display, color: COLORS.offWhite,
-              fontSize: isMobile ? '1.35rem' : '1.65rem',
+              '--fs-d': '1.65rem', '--fs-m': '1.35rem',
               margin: '0 0 8px', fontWeight: 700,
             }}>{tr ? 'Sekiz Ses Grubu' : 'Eight Sound Groups'}</h3>
             <p style={{

@@ -3320,9 +3320,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
     return (
       <div className="mq-box" style={{ direction: 'rtl', textAlign: 'center', ...SURAH_CARD_BOX }}>
         {/* Sūratu N — küçük hat etiketi */}
-        <div className="mq-box" style={{
+        <div className="mq-box mq-fs" style={{
           fontFamily: currentFont,
-          fontSize: isMobile ? '1.4rem' : '1.65rem',
+          '--fs-d': '1.65rem', '--fs-m': '1.4rem',
           color: C.gold,
           opacity: 0.78,
           letterSpacing: '0.02em',
@@ -3334,9 +3334,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         </div>
 
         {/* Sûre adı — hat, altın */}
-        <div className="mq-box" style={{
+        <div className="mq-box mq-fs" style={{
           fontFamily: currentFont,
-          fontSize: isMobile ? '3rem' : '3.8rem',
+          '--fs-d': '3.8rem', '--fs-m': '3rem',
           color: C.gold,
           lineHeight: 1.1,
           letterSpacing: '0.02em',
@@ -3350,9 +3350,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         {/* Latin altyazı — masaüstünde meal açıkken gizlenir (Latin adı
             zaten meal sütununda), mobilde her zaman görünür. */}
         {(!showTranslation || isMobile) && (
-          <div className="mq-box" style={{
+          <div className="mq-box mq-fs" style={{
             fontFamily: "'Lora', Georgia, serif",
-            fontSize: isMobile ? '1.0rem' : '1.2rem',
+            '--fs-d': '1.2rem', '--fs-m': '1.0rem',
             fontWeight: 500,
             fontStyle: 'italic',
             color: dayMode ? '#7a5e2c' : 'rgba(212,165,116,0.65)',
@@ -3367,9 +3367,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         )}
 
         {/* Nüzul sırası · iniş yeri · âyet · rukû */}
-        <div className="mq-box" style={{
+        <div className="mq-box mq-fs" style={{
           fontFamily: currentFont,
-          fontSize: isMobile ? '1.35rem' : '1.6rem',
+          '--fs-d': '1.6rem', '--fs-m': '1.35rem',
           color: dayMode ? '#5a4a32' : C.muted,
           letterSpacing: '0.04em',
           ...SURAH_ROW_RESET,
@@ -3405,9 +3405,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         '--pt-d': '7px', '--pt-m': '6px',
         '--pb-d': '20px', '--pb-m': '16px',
       }}>
-        <div className="mq-box" style={{
+        <div className="mq-box mq-fs" style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: isMobile ? '0.85rem' : '0.95rem',
+          '--fs-d': '0.95rem', '--fs-m': '0.85rem',
           color: C.gold,
           opacity: 0.78,
           letterSpacing: '0.18em',
@@ -3421,9 +3421,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           {contentLang === 'tr' ? `Sûre ${surahNo}` : `Surah ${surahNo}`}
         </div>
 
-        <div className="mq-box" style={{
+        <div className="mq-box mq-fs" style={{
           fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: isMobile ? '1.95rem' : '2.5rem',
+          '--fs-d': '2.5rem', '--fs-m': '1.95rem',
           color: C.gold,
           fontWeight: 700,
           letterSpacing: '0.05em',
@@ -3436,9 +3436,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
           {displayName}
         </div>
 
-        <div style={{
+        <div className="mq-fs" style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: isMobile ? '0.78rem' : '0.85rem',
+          '--fs-d': '0.85rem', '--fs-m': '0.78rem',
           color: dayMode ? '#5a4a32' : C.muted,
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
@@ -4019,7 +4019,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               onMouseLeave={onLeave || (e => { e.currentTarget.style.background = active ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = active ? navC.btnBorderActive : navC.btnBorder; })}
             >
               <span style={{ color: gold, fontWeight: 700, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{value}</span>
-              <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: widthOverride ? 'nowrap' : 'normal', wordBreak: widthOverride ? 'normal' : 'break-word', maxWidth: '100%' }}>{label}</span>
+              <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: widthOverride ? 'nowrap' : 'normal', wordBreak: widthOverride ? 'normal' : 'break-word', maxWidth: '100%' }}>{label}</span>
             </button>
           );
 
@@ -4112,10 +4112,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   onMouseLeave={e => { e.currentTarget.style.background = wordMode ? navC.btnBgActive : navC.btnBg; e.currentTarget.style.borderColor = wordMode ? navC.btnBorderActive : navC.btnBorder; }}
                   title={language === 'tr' ? 'Kelime modu — her kelimenin anlamı' : 'Word mode — per-word meaning'}
                 >
-                  <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700 }}>
+                  <span className="mq-fs" style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: currentFont, '--fs-d': '1.15rem', '--fs-m': '1rem', fontWeight: 700 }}>
                     ك
                   </span>
-                  <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                  <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                     {language === 'tr' ? 'Kelime' : 'Word'}
                   </span>
                 </button>
@@ -4163,7 +4163,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <BookOpenIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tefsir' : 'Tafsir'}
                 </span>
               </button>}
@@ -4192,7 +4192,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <TahtaIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Tahta' : 'Board'}
                 </span>
               </button>}
@@ -4224,7 +4224,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <HifzIcon size={isMobile ? 15 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.44rem' : '0.58rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
+                <span className="mq-fs" style={{ '--fs-d': '0.58rem', '--fs-m': '0.44rem', color: navC.label, letterSpacing: '0.03em', textTransform: 'uppercase', lineHeight: 1.05, textAlign: 'center', whiteSpace: 'nowrap' }}>
                   {language === 'tr' ? 'Ezber' : 'Memorize'}
                 </span>
               </button>}
@@ -4254,7 +4254,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {dayMode ? <SunIcon size={isMobile ? 16 : 18} /> : <MoonIcon size={isMobile ? 16 : 18} />}
                 </span>
-                <span style={{ fontSize: isMobile ? '0.56rem' : '0.50rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
+                <span className="mq-fs" style={{ '--fs-d': '0.50rem', '--fs-m': '0.56rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
                   {dayMode ? (language === 'tr' ? 'GÜN' : 'DAY') : (language === 'tr' ? 'GECE' : 'NIGHT')}
                 </span>
               </button>
@@ -4309,7 +4309,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 <span style={{ color: gold, lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <GearIcon size={isMobile ? 16 : 18} />
                 </span>
-                <span style={{ fontSize: isMobile ? '0.56rem' : '0.50rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
+                <span className="mq-fs" style={{ '--fs-d': '0.50rem', '--fs-m': '0.56rem', color: navC.label, letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap', fontWeight: 600 }}>
                   {language === 'tr' ? 'AYAR' : 'MENU'}
                 </span>
               </button>
@@ -4610,10 +4610,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                     </div>
                   </div>
                   {/* Right: Arabic name */}
-                  <span style={{
+                  <span className="mq-fs" style={{
                     // CLAUDE.md §13.2 — KFGQPC canonical for Quranic Arabic.
                     fontFamily: FONTS.quran,
-                    fontSize: isMobile ? '1.1rem' : '1.25rem',
+                    '--fs-d': '1.25rem', '--fs-m': '1.1rem',
                     color: isPicked || isActive ? gold : dropC.textMuted,
                     flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
                   }}>
@@ -6342,13 +6342,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 setPendingScrollAyah(target.ayah);
               }}
               placeholder={language === 'tr' ? 'Sûre · sayfa · bakara:3 · 2:245 · cüz · kelime…' : 'Surah · page · baqara:3 · 2:245 · juz · word…'}
-              style={{
+              className="mq-fs" style={{
                 flex: 1, background: 'none', border: 'none', outline: 'none',
                 color: dayMode ? 'rgba(30,15,5,0.88)' : COLORS.offWhite,
                 // Mobile stays at 1rem (16px) — iOS Safari auto-zooms on focus
                 // if font-size < 16px. Desktop tightens to 0.92rem (~14.7px) for
                 // compact command-palette feel.
-                fontSize: isMobile ? '1rem' : '0.92rem',
+                '--fs-d': '0.92rem', '--fs-m': '1rem',
                 fontFamily: "'Inter', sans-serif",
               }}
             />
@@ -6503,13 +6503,13 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         <div style={{ color: textMutedCol, fontSize: '0.66rem', fontWeight: 400, opacity: 0.7, whiteSpace: 'nowrap', flexShrink: 0 }}>{ayahCount} {language === 'tr' ? 'ayet' : 'verses'}</div>
                       </div>
                     </div>
-                    <span style={{
+                    <span className="mq-fs" style={{
                       // CLAUDE.md §13.2 — KFGQPC is the canonical Quranic font.
                       // Compact palette but Arabic stays at 1.18 / 1.08 with full
                       // text color — küçük + cılız (textMutedCol + opacity 0.78)
                       // user audit'inde "ciliz" notu aldı.
                       fontFamily: FONTS.quran,
-                      fontSize: isMobile ? '1.08rem' : '1.18rem',
+                      '--fs-d': '1.18rem', '--fs-m': '1.08rem',
                       color: isActive ? gold : textCol,
                       flexShrink: 0, direction: 'rtl', lineHeight: 1.4,
                     }}>
@@ -6929,9 +6929,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <div style={{ fontSize: '0.57rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '14px' }}>
                 {language === 'tr' ? 'Sübhaneke' : 'Subhanaka'}
               </div>
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: currentFont,
-                fontSize: isMobile ? '1.35rem' : '1.75rem',
+                '--fs-d': '1.75rem', '--fs-m': '1.35rem',
                 lineHeight: 2.2,
                 color: C.bismillah,
                 textAlign: 'right',
@@ -6940,7 +6940,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}>
                 سُبْحَانَكَ اللّٰهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَٓا إِلٰهَ إِلَّٓا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
+              <p className="mq-fs" style={{ fontFamily: "'Inter', sans-serif", '--fs-d': '0.88rem', '--fs-m': '0.82rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
                 {language === 'tr'
                   ? 'Allah\'ım! Seni her türlü noksanlıktan tenzih ederim, hamdini tesbih ederim. Senden başka ilah olmadığına şahitlik ederim. Senden bağışlanma diliyor ve sana tevbe ediyorum.'
                   : 'O Allah! Glory be to You and praise. I bear witness that there is no god but You. I seek Your forgiveness and turn to You in repentance.'}
@@ -6953,9 +6953,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <div style={{ fontSize: '0.57rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '14px' }}>
                 {language === 'tr' ? 'Salavat-ı Şerife' : 'Salawat'}
               </div>
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: currentFont,
-                fontSize: isMobile ? '1.35rem' : '1.75rem',
+                '--fs-d': '1.75rem', '--fs-m': '1.35rem',
                 lineHeight: 2.2,
                 color: C.bismillah,
                 textAlign: 'right',
@@ -6964,7 +6964,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}>
                 اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
+              <p className="mq-fs" style={{ fontFamily: "'Inter', sans-serif", '--fs-d': '0.88rem', '--fs-m': '0.82rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
                 {language === 'tr'
                   ? 'Allah\'ım! Efendimiz Muhammed\'e ve onun âline, İbrahim\'e ve İbrahim\'in âline salat ettiğin gibi salat et. Şüphesiz Sen Hamid\'sin, Mecid\'sin.'
                   : 'O Allah! Send Your blessings upon our master Muhammad and the family of Muhammad, as You sent blessings upon Ibrahim and the family of Ibrahim. Truly You are the Praised, the Glorious.'}
@@ -6977,9 +6977,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <div style={{ fontSize: '0.57rem', color: dayMode ? C.muted : 'rgba(200,185,165,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase', textAlign: 'center', marginBottom: '14px' }}>
                 {language === 'tr' ? 'Hatim Duası' : 'Khatm Dua'}
               </div>
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: currentFont,
-                fontSize: isMobile ? '1.35rem' : '1.75rem',
+                '--fs-d': '1.75rem', '--fs-m': '1.35rem',
                 lineHeight: 2.2,
                 color: C.bismillah,
                 textAlign: 'right',
@@ -6989,9 +6989,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 اَللّٰهُمَّ ارْحَمْنَا بِالْقُرْاٰنِ الْعَظ۪يمِ وَاجْعَلْهُ لَنَا اِمَامًا وَنُورًا وَهُدًى وَرَحْمَةً
               </div>
 
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: currentFont,
-                fontSize: isMobile ? '1.35rem' : '1.75rem',
+                '--fs-d': '1.75rem', '--fs-m': '1.35rem',
                 lineHeight: 2.2,
                 color: C.bismillah,
                 textAlign: 'right',
@@ -7000,7 +7000,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}>
                 اَللّٰهُمَّ ذَكِّرْنَا مِنْهُ مَا نَسِينَا وَعَلِّمْنَا مِنْهُ مَا جَهِلْنَا وَارْزُقْنَا تِلَاوَتَهُ اٰنَاءَ اللَّيْلِ وَاَطْرَافَ النَّهَارِ وَاجْعَلْهُ لَنَا حُجَّةً يَا رَبَّ الْعَالَم۪ينَ
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
+              <p className="mq-fs" style={{ fontFamily: "'Inter', sans-serif", '--fs-d': '0.88rem', '--fs-m': '0.82rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
                 {language === 'tr'
                   ? 'Allah\'ım! Bizi Kur\'ân-ı Azîm ile merhamet et; onu bizim için önder, nur, hidayet ve rahmet kıl. Allah\'ım! Unuttuğumuz şeyleri hatırlat; bilmediklerimizi öğret; gece saatlerinde ve gündüzün vakitlerinde bize tilâvetini nasip et ve onu âlemlerin Rabbi katında bizim için hüccet kıl.'
                   : 'O Allah! Have mercy on us through the Great Quran; make it for us a leader, a light, a guidance and a mercy. O Allah! Remind us of what we have forgotten; teach us what we do not know; grant us its recitation day and night; and make it a proof for us before the Lord of the Worlds.'}
@@ -7010,9 +7010,9 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               <div style={{ borderTop: `1px solid ${dayMode ? 'rgba(154,111,16,0.12)' : 'rgba(212,165,116,0.08)'}`, marginBottom: '28px' }}/>
 
               {/* Extended dua for parents and believers */}
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: currentFont,
-                fontSize: isMobile ? '1.35rem' : '1.75rem',
+                '--fs-d': '1.75rem', '--fs-m': '1.35rem',
                 lineHeight: 2.2,
                 color: C.bismillah,
                 textAlign: 'right',
@@ -7021,7 +7021,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               }}>
                 اَللّٰهُمَّ اغْفِرْ لَنَا وَلِوَالِدِينَا وَلِجَمِيعِ الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ الْأَحْيَاءِ مِنْهُمْ وَالْأَمْوَاتِ
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: isMobile ? '0.82rem' : '0.88rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
+              <p className="mq-fs" style={{ fontFamily: "'Inter', sans-serif", '--fs-d': '0.88rem', '--fs-m': '0.82rem', lineHeight: 1.85, color: C.translation, textAlign: 'left', marginBottom: '32px' }}>
                 {language === 'tr'
                   ? 'Allah\'ım! Bizi, anne-babamızı, tüm mü\'min erkek ve kadınları, müslüman erkek ve kadınları; yaşayanları ve vefat etmiş olanları bağışla.'
                   : 'O Allah! Forgive us, our parents, and all believing men and women, all Muslim men and women — the living among them and the deceased.'}
@@ -7604,11 +7604,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                               ariaLabel={language === 'tr' ? `Ayet ${verse.ayah} — mealleri karşılaştır` : `Verse ${verse.ayah} — compare translations`}
                             >{verse.ayah}</MealAyahBadge>
                             {isRangeFollower ? (
-                              <p style={{
+                              <p className="mq-fs" style={{
                                 margin: 0,
                                 color: C.translation,
                                 opacity: 0.55,
-                                fontSize: isMobile ? '0.74rem' : '0.85rem',
+                                '--fs-d': '0.85rem', '--fs-m': '0.74rem',
                                 lineHeight: isMobile ? 1.5 : 1.6,
                                 fontStyle: 'italic',
                                 flex: 1,
@@ -7643,11 +7643,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   {/* Discoverability footnote — meal column only. Polite "siz"
                       form, descriptive (not directive). Subtle dashed rule +
                       muted italic so it never competes with the verse text. */}
-                  <div className="mq-box" style={{
+                  <div className="mq-box mq-fs" style={{
                     '--mt-d': '28px', '--mt-m': '20px',
                     '--pt-d': '16px', '--pt-m': '14px',
                     borderTop: `1px dashed ${dayMode ? 'rgba(154,120,56,0.20)' : 'rgba(212,165,116,0.14)'}`,
-                    fontSize: isMobile ? '0.98rem' : '1.05rem',
+                    '--fs-d': '1.05rem', '--fs-m': '0.98rem',
                     fontStyle: 'italic',
                     color: dayMode ? 'rgba(106,86,56,0.62)' : 'rgba(148,163,184,0.48)',
                     fontFamily: "'Lora', Georgia, serif",
@@ -7783,16 +7783,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           zIndex: 1,
                         }}
                       >
-                        <span style={{
+                        <span className="mq-fs" style={{
                           fontFamily: currentFont,
-                          fontSize: isMobile ? '0.86rem' : '1.02rem',
+                          '--fs-d': '1.02rem', '--fs-m': '0.86rem',
                           lineHeight: 1,
                           opacity: 0.95,
                           letterSpacing: 0,
                         }}>{arLabel}</span>
-                        <span style={{
+                        <span className="mq-fs" style={{
                           fontFamily: currentFont,
-                          fontSize: isMobile ? '1.15rem' : '1.35rem',
+                          '--fs-d': '1.35rem', '--fs-m': '1.15rem',
                           fontWeight: 500,
                           lineHeight: 1,
                           marginTop: '-2px',
@@ -7905,10 +7905,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const isMadani = MADANI_SURAHS.has(s);
                           return (
                             <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
-                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '2.1rem' : '2.55rem', color: C.gold, lineHeight: 1.5 }}>
+                              <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '2.55rem', '--fs-m': '2.1rem', color: C.gold, lineHeight: 1.5 }}>
                                 سُورَةُ {arName}
                               </div>
-                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '1.65rem' : '1.95rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
+                              <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '1.95rem', '--fs-m': '1.65rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
                                 {isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة'}
                               </div>
                             </div>
@@ -8423,16 +8423,16 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                         zIndex: 1,
                       }}
                     >
-                      <span style={{
+                      <span className="mq-fs" style={{
                         fontFamily: currentFont,
-                        fontSize: isMobile ? '0.86rem' : '1.02rem',
+                        '--fs-d': '1.02rem', '--fs-m': '0.86rem',
                         lineHeight: 1,
                         opacity: 0.95,
                         letterSpacing: 0,
                       }}>{arLabel}</span>
-                      <span style={{
+                      <span className="mq-fs" style={{
                         fontFamily: currentFont,
-                        fontSize: isMobile ? '1.15rem' : '1.35rem',
+                        '--fs-d': '1.35rem', '--fs-m': '1.15rem',
                         fontWeight: 500,
                         lineHeight: 1,
                         // Negative top margin pulls the numeral closer to the
@@ -8592,10 +8592,10 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const isMadani = MADANI_SURAHS.has(s);
                           return (
                             <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
-                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '2.1rem' : '2.55rem', color: C.gold, lineHeight: 1.5 }}>
+                              <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '2.55rem', '--fs-m': '2.1rem', color: C.gold, lineHeight: 1.5 }}>
                                 سُورَةُ {arName}
                               </div>
-                              <div style={{ fontFamily: currentFont, fontSize: isMobile ? '1.65rem' : '1.95rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
+                              <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '1.95rem', '--fs-m': '1.65rem', color: C.gold, opacity: 0.82, lineHeight: 1.4 }}>
                                 {isMadani ? 'مَدَنِيَّة' : 'مَكِّيَّة'}
                               </div>
                             </div>
@@ -10414,7 +10414,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             {/* LEFT: verse reference + reciter + text */}
             <div style={{ minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' }}>
-                <span style={{ color: gold, fontSize: isMobile ? '0.72rem' : '0.88rem', fontWeight: 700, letterSpacing: '0.04em' }}>
+                <span className="mq-fs" style={{ color: gold, '--fs-d': '0.88rem', '--fs-m': '0.72rem', fontWeight: 700, letterSpacing: '0.04em' }}>
                   {SURAH_NAMES_TR[activeVerse.surah - 1]} · {activeVerse.ayah}
                 </span>
                 {/* Kârî rozeti TIKLANABİLİR — kârî adı zaten burada yazıyor,
@@ -10559,12 +10559,12 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   setActiveVerse(null);
                 }}
                 title={language === 'tr' ? 'Kapat' : 'Dismiss'}
-                style={{
+                className="mq-fs" style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   width: isMobile ? '32px' : '40px', height: isMobile ? '32px' : '40px', borderRadius: RADIUS.md, cursor: 'pointer',
                   background: dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)',
                   border: `1px solid ${dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'}`,
-                  color: C.muted, transition: 'all 0.18s', fontSize: isMobile ? '0.75rem' : '0.9rem',
+                  color: C.muted, transition: 'all 0.18s', '--fs-d': '0.9rem', '--fs-m': '0.75rem',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.12)'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)'; e.currentTarget.style.color = '#f87171'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = dayMode ? 'rgba(100,60,10,0.08)' : 'rgba(255,255,255,0.06)'; e.currentTarget.style.borderColor = dayMode ? 'rgba(100,60,10,0.18)' : 'rgba(255,255,255,0.12)'; e.currentTarget.style.color = C.muted; }}
@@ -11628,11 +11628,11 @@ function VerseCompareModal({
         onClick={() => toggleAuthor(author.id)}
         disabled={isCurrent}
         title={isCurrent ? (language === 'tr' ? 'Aktif meal — kaldırılamaz' : 'Active translation — cannot remove') : undefined}
-        style={{
+        className="mq-fs" style={{
           display: 'inline-flex', alignItems: 'center', gap: '6px',
           '--pt-d': "6px", '--pt-m': "5px", '--pr-d': "12px", '--pr-m': "10px", '--pb-d': "6px", '--pb-m': "5px", '--pl-d': "12px", '--pl-m': "10px",
           borderRadius: RADIUS.pill,
-          fontSize: isMobile ? '0.72rem' : '0.78rem',
+          '--fs-d': '0.78rem', '--fs-m': '0.72rem',
           fontFamily: 'Inter, system-ui, sans-serif',
           fontWeight: isSelected ? 600 : 500,
           background: isSelected ? C.chipBgActive : C.chipBg,
@@ -11821,8 +11821,8 @@ function VerseCompareModal({
             }}>
               {language === 'tr' ? 'Meal Karşılaştırma' : 'Translation Comparison'}
             </span>
-            <span style={{
-              fontSize: isMobile ? '0.95rem' : '1.05rem',
+            <span className="mq-fs" style={{
+              '--fs-d': '1.05rem', '--fs-m': '0.95rem',
               fontFamily: '"Playfair Display", serif',
               fontWeight: 600,
               color: C.text,
@@ -12007,10 +12007,10 @@ function VerseCompareModal({
               <p
                 lang="ar"
                 dir="rtl"
-                style={{
+                className="mq-fs" style={{
                   margin: 0,
                   fontFamily: arabicFont,
-                  fontSize: isMobile ? '1.4rem' : '1.65rem',
+                  '--fs-d': '1.65rem', '--fs-m': '1.4rem',
                   lineHeight: 2.2,
                   color: C.arabic,
                   fontWeight: 400,
@@ -12170,27 +12170,27 @@ function VerseCompareModal({
                     )}
                   </div>
                   {isError ? (
-                    <p style={{
+                    <p className="mq-fs" style={{
                       margin: 0,
-                      fontSize: isMobile ? '0.84rem' : '0.92rem',
+                      '--fs-d': '0.92rem', '--fs-m': '0.84rem',
                       color: '#e74c3c',
                       fontStyle: 'italic',
                     }}>
                       {language === 'tr' ? 'Yüklenemedi — bağlantıyı kontrol edip tekrar deneyin.' : 'Failed to load — check connection and try again.'}
                     </p>
                   ) : isLoading || text === null ? (
-                    <p style={{
+                    <p className="mq-fs" style={{
                       margin: 0,
-                      fontSize: isMobile ? '0.84rem' : '0.92rem',
+                      '--fs-d': '0.92rem', '--fs-m': '0.84rem',
                       color: C.textMuted,
                       fontStyle: 'italic',
                     }}>
                       {language === 'tr' ? 'Yükleniyor…' : 'Loading…'}
                     </p>
                   ) : (
-                    <p style={{
+                    <p className="mq-fs" style={{
                       margin: 0,
-                      fontSize: isMobile ? '0.88rem' : '0.98rem',
+                      '--fs-d': '0.98rem', '--fs-m': '0.88rem',
                       lineHeight: isMobile ? 1.6 : 1.75,
                       color: C.text,
                       fontStyle: 'italic',

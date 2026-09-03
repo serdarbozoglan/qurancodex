@@ -394,9 +394,9 @@ export default function LinguisticDNA() {
                 }}
               >
                 <span
-                  style={{
+                  className="mq-fs" style={{
                     fontFamily: FONTS.quran,
-                    fontSize: isMobile ? '1.25rem' : '1.6rem',
+                    '--fs-d': '1.6rem', '--fs-m': '1.25rem',
                     color: COLORS.goldBright,
                     lineHeight: 1,
                     textShadow: isHovered

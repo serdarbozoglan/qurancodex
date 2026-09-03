@@ -184,18 +184,18 @@ export default function ElestirelCerceve() {
         }}>﷽</div>
 
         {anchor.ar && (
-          <div lang="ar" dir="rtl" style={{
+          <div lang="ar" dir="rtl" className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? 'clamp(1.3rem, 5.5vw, 1.75rem)' : 'clamp(1.5rem, 3.2vw, 2.15rem)',
+            '--fs-d': 'clamp(1.5rem, 3.2vw, 2.15rem)', '--fs-m': 'clamp(1.3rem, 5.5vw, 1.75rem)',
             color: COLORS.gold, lineHeight: 2.1, direction: 'rtl',
             maxWidth: 760, margin: '0 auto 22px',
           }}>{anchor.ar}</div>
         )}
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: SEMANTIC.textPrimary, opacity: 0.92,
-          fontSize: isMobile ? '0.98rem' : '1.08rem', lineHeight: 1.75,
+          '--fs-d': '1.08rem', '--fs-m': '0.98rem', lineHeight: 1.75,
           maxWidth: 660, margin: '0 auto 12px',
         }}>{tr ? anchor.tr : anchor.en}</p>
 
@@ -205,10 +205,10 @@ export default function ElestirelCerceve() {
           margin: '0 0 30px', fontWeight: 600,
         }}>— {tr ? anchor.refTr : anchor.refEn}</p>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: SEMANTIC.textMuted, opacity: 0.92,
-          fontSize: isMobile ? '0.93rem' : '1rem', lineHeight: 1.85,
+          '--fs-d': '1rem', '--fs-m': '0.93rem', lineHeight: 1.85,
           maxWidth: 700, margin: '0 auto 30px',
         }}>{tr ? meta.whisperTr : meta.whisperEn}</p>
 
@@ -223,15 +223,15 @@ export default function ElestirelCerceve() {
           fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? meta.eyebrowTr : meta.eyebrowEn}</p>
 
-        <h1 style={{
+        <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: SEMANTIC.textPrimary, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, margin: '0 0 10px',
         }}>{tr ? 'Eleştirel Çerçeve' : 'Critical Frame'}</h1>
 
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>{tr ? meta.dramaTr : meta.dramaEn}</p>
       </div>
@@ -254,9 +254,9 @@ export default function ElestirelCerceve() {
           }}>
             {tr ? 'Duruşumuz' : 'Where We Stand'}
           </div>
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.02rem' : '1.16rem',
+            '--fs-d': '1.16rem', '--fs-m': '1.02rem',
             lineHeight: 1.75, color: SEMANTIC.textPrimary, margin: 0,
           }}>
             {tr ? meta.stanceTr : meta.stanceEn}
@@ -531,9 +531,9 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
           }}>{tr ? cat?.tr : cat?.en}</span>
         </div>
 
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.08rem' : '1.28rem',
+          '--fs-d': '1.28rem', '--fs-m': '1.08rem',
           fontWeight: 700, color: SEMANTIC.textPrimary,
           margin: '0 0 16px', lineHeight: 1.35,
         }}>{title}</h3>
@@ -554,9 +554,9 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
               color: ROLE_OBJECTION, opacity: 0.5,
             }}>“</span>
             <BlockLabel color={ROLE_OBJECTION}>{tr ? 'İtiraz' : 'The Objection'}</BlockLabel>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.9rem' : '0.95rem', lineHeight: 1.7,
+              '--fs-d': '0.95rem', '--fs-m': '0.9rem', lineHeight: 1.7,
               color: SEMANTIC.textMuted, margin: 0,
             }}>{objection}</p>
           </div>
@@ -564,9 +564,9 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
 
         {/* CEVAP (özet) */}
         <BlockLabel color={COLORS.gold}>{tr ? 'Cevap' : 'The Answer'}</BlockLabel>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.89rem' : '0.94rem',
+          '--fs-d': '0.94rem', '--fs-m': '0.89rem',
           lineHeight: 1.78, color: SEMANTIC.textPrimary,
           margin: 0, opacity: 0.9,
         }}>{short}</p>
@@ -596,9 +596,9 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
               <BlockLabel color={COLORS.gold}>{tr ? 'Detaylı Cevap' : 'The Answer in Full'}</BlockLabel>
               <div style={{ maxWidth: '68ch', marginBottom: 22 }}>
                 {paragraphs(long).map((p, i) => (
-                  <p key={i} style={{
+                  <p key={i} className="mq-fs" style={{
                     fontFamily: FONTS.body,
-                    fontSize: isMobile ? '0.9rem' : '0.95rem',
+                    '--fs-d': '0.95rem', '--fs-m': '0.9rem',
                     lineHeight: 1.88, color: SEMANTIC.textPrimary,
                     margin: i === 0 ? '0 0 15px' : '0 0 15px', opacity: 0.9,
                   }}>{p}</p>
@@ -617,9 +617,9 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
                   marginBottom: 22,
                 }}>
                   <BlockLabel color={COLORS.gold}>{tr ? 'Netice' : 'Verdict'}</BlockLabel>
-                  <p style={{
+                  <p className="mq-fs" style={{
                     fontFamily: FONTS.display,
-                    fontSize: isMobile ? '0.97rem' : '1.05rem',
+                    '--fs-d': '1.05rem', '--fs-m': '0.97rem',
                     lineHeight: 1.72, color: SEMANTIC.textPrimary,
                     margin: 0, fontWeight: 600,
                   }}>{verdict}</p>

@@ -209,27 +209,27 @@ export default function TarihselKanitlar({ onClose }) {
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
             {/* Bismillah */}
-            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
               '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
 
             {/* Anchor verse */}
-            <p dir="rtl" lang="ar" style={{
+            <p dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1, margin: '0 auto 16px',
               maxWidth: '820px',
               textShadow: `0 0 20px ${COLORS.gold}1c`,
             }}>{cleanArabic('فَالْيَوْمَ نُنَجِّيكَ بِبَدَنِكَ لِتَكُونَ لِمَنْ خَلْفَكَ اٰيَةً')}</p>
 
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+              '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
             }}>
               &quot;{tr
@@ -244,9 +244,9 @@ export default function TarihselKanitlar({ onClose }) {
             }}>— {tr ? 'Yûnus 10:92' : 'Yūnus 10:92'}</p>
 
             {/* Framing whisper */}
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+              '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>
               {tr
@@ -271,17 +271,17 @@ export default function TarihselKanitlar({ onClose }) {
               {tr ? 'ZAMANDA GÖMÜLÜ · METİNDE KAYITLI' : 'BURIED IN TIME · INSCRIBED IN TEXT'}
             </div>
 
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               color: COLORS.offWhite,
-              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
               fontWeight: 700, fontFamily: FONTS.display,
               margin: '0 auto 14px', lineHeight: 1.18,
               letterSpacing: '-0.015em', maxWidth: '760px',
             }}>{tr ? intro.titleTr : intro.titleEn}</h2>
 
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+              '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
               color: COLORS.gold, margin: '0 auto 28px',
               lineHeight: 1.55, fontStyle: 'italic',
               maxWidth: '700px', opacity: 0.92,
@@ -336,9 +336,9 @@ export default function TarihselKanitlar({ onClose }) {
                   setActiveTab(i);
                   setTimeout(() => document.getElementById('tarihsel-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                 }}
-                style={{
+                className="mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
-                  fontSize: isMobile ? '0.72rem' : '0.78rem',
+                  '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? COLORS.gold : COLORS.silver,
@@ -405,8 +405,8 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 20px',
       }}>
         {tr
@@ -422,13 +422,13 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
             <button className="mq-box"
               key={cat.id}
               onClick={() => onCategoryToggle(cat.id)}
-              style={{
+              className="mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
                 color: isActive ? cat.color : COLORS.silver,
-                fontSize: isMobile ? '0.78rem' : '0.85rem',
+                '--fs-d': '0.85rem', '--fs-m': '0.78rem',
                 fontWeight: isActive ? 600 : 400,
                 fontFamily: FONTS.body,
                 cursor: 'pointer', transition: 'all 0.18s',
@@ -445,13 +445,13 @@ function KanitlarTab({ kanitlar, categories, activeCategoryId, onCategoryToggle,
         {activeCategoryId && (
           <button className="mq-box"
             onClick={() => onCategoryToggle(activeCategoryId)}
-            style={{
+            className="mq-fs" style={{
               '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "14px", '--pl-m': "12px",
               borderRadius: RADIUS.pill,
               border: `1px solid ${COLORS.gold}40`,
               background: 'transparent',
               color: COLORS.gold,
-              fontSize: isMobile ? '0.78rem' : '0.85rem',
+              '--fs-d': '0.85rem', '--fs-m': '0.78rem',
               fontFamily: FONTS.body, cursor: 'pointer',
             }}
           >× {tr ? 'Filtreyi kaldır' : 'Clear filter'}</button>
@@ -530,9 +530,9 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
               {tr ? conf.tr : conf.en}
             </span>
           </div>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             margin: 0, fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.15rem' : '1.35rem',
+            '--fs-d': '1.35rem', '--fs-m': '1.15rem',
             fontWeight: 700, color: COLORS.offWhite, lineHeight: 1.25,
           }}>{tr ? kanit.titleTr : kanit.titleEn}</h3>
           <div style={{
@@ -549,9 +549,9 @@ function KanitCard({ kanit, category, index, isOpen, onToggle, language, isMobil
 
       {/* Verse block — canonical VERSE_BLOCK + TEXT (§13.5) */}
       <div style={{ ...VERSE_BLOCK, padding: '14px 18px', position: 'relative', zIndex: 1 }}>
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           ...TEXT.verseArabic,
-          fontSize: isMobile ? '1.15rem' : '1.4rem',
+          '--fs-d': '1.4rem', '--fs-m': '1.15rem',
           margin: '0 0 10px',
         }}>{cleanArabic(kanit.verseAr)}</p>
         <p style={{
@@ -708,8 +708,8 @@ function TimelineTab({ timeline, language, isMobile }) {
             boxShadow: isHover ? `0 0 14px ${t.color}88` : `0 0 6px ${t.color}44`,
             transition: 'all 0.18s', flexShrink: 0,
           }} />
-          <span style={{
-            fontSize: isMobile ? '0.82rem' : '0.9rem',
+          <span className="mq-fs" style={{
+            '--fs-d': '0.9rem', '--fs-m': '0.82rem',
             color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.5,
           }}>{tr ? t.eventTr : t.eventEn}</span>
         </div>
@@ -734,8 +734,8 @@ function TimelineTab({ timeline, language, isMobile }) {
 
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
@@ -797,8 +797,8 @@ function TimelineTab({ timeline, language, isMobile }) {
           fontSize: '0.63rem', letterSpacing: '0.18em', textTransform: 'uppercase',
           fontWeight: 700, color: COLORS.gold, fontFamily: FONTS.body, marginBottom: '10px',
         }}>{tr ? 'Bu Çizelge Ne Söylüyor?' : 'What Does This Chart Say?'}</div>
-        <ul style={{
-          margin: 0, paddingLeft: '18px', fontSize: isMobile ? '0.85rem' : '0.89rem',
+        <ul className="mq-fs" style={{
+          margin: 0, paddingLeft: '18px', '--fs-d': '0.89rem', '--fs-m': '0.85rem',
           color: COLORS.offWhite, fontFamily: FONTS.body, lineHeight: 1.8,
         }}>
           {(tr ? [
@@ -845,8 +845,8 @@ function ScholarsTab({ scholars, language, isMobile }) {
   const tr = language === 'tr';
   return (
     <div>
-      <p style={{
-        color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.92rem',
+      <p className="mq-fs" style={{
+        color: COLORS.silver, '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 24px',
       }}>
         {tr
