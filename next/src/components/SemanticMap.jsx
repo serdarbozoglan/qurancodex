@@ -284,7 +284,7 @@ export default function SemanticMap({ onClose }) {
           flex: 1, overflowY: 'auto',
           '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
           gap: '12px',
           alignContent: 'start',
         }}>

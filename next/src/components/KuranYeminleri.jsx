@@ -797,7 +797,7 @@ function TabKategoriler({ categories, activeCategoryId, onSelect, language, isMo
           {/* Oath cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(380px, 100%), 1fr))',
             gap: '14px',
           }}>
             {active.items.map(item => (

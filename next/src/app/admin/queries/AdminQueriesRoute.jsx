@@ -250,7 +250,7 @@ export default function AdminQueriesRoute() {
 function StatsView({ stats, onPurgeCache }) {
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(180px, 100%), 1fr))', gap: 16, marginBottom: 24 }}>
         <StatCard label="Toplam Sorgu" value={stats.totalQueries || 0} />
         <StatCard label="Toplam Feedback" value={stats.totalFeedback || 0} />
         <StatCard label="Benzersiz Sorgu" value={stats.totalUniqueQueries || 0} />

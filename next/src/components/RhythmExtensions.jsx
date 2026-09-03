@@ -122,7 +122,7 @@ export default function RhythmExtensions({ language, isMobile }) {
 
           <div style={{
             display: 'grid', gap: '10px',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
           }}>
             {ARUZ_METRES.map((m, i) => {
               const isActive = activeMetre === i;

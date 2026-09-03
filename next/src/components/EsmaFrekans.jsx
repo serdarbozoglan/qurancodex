@@ -430,7 +430,7 @@ function Hero({ tr }) {
           </div>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(180px, 100%), 1fr))',
             gap: '14px',
           }}>
             {(tr ? TEMEL_AYETLER_TR : TEMEL_AYETLER_EN).map((ayet, i) => (
@@ -683,7 +683,7 @@ function Manifesto({ tr, data }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
           gap: '24px',
         }}>
           <ColumnCelal tr={tr} />
@@ -1667,7 +1667,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
           gap: '20px',
         }}>
           {sortedPairs.map((p, i) => (
@@ -1709,7 +1709,7 @@ function NamePairs({ tr, pairsData, triplesData }) {
             </p>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
               gap: '18px',
             }}>
               {triplesData.triples.map((t, idx) => (
@@ -2126,7 +2126,7 @@ function DivineVoice({ beyanlari, tr }) {
             : "God describes Himself sometimes in the third person, sometimes directly in the first person (\"I\", \"We\"). These statements are His direct self-disclosure."}
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px' }}>
           {fg.map(eks => <AxisCard key={eks.id} eks={eks} tr={tr} />)}
         </div>
 
@@ -2156,7 +2156,7 @@ function DivineVoice({ beyanlari, tr }) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             transition={{ duration: 0.5 }}
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '20px' }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px', marginTop: '20px' }}
           >
             {bg.map(eks => <AxisCard key={eks.id} eks={eks} tr={tr} />)}
           </motion.div>
@@ -2277,7 +2277,7 @@ function KokAileleri({ tr, koklerData }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
           gap: '18px',
         }}>
           {koklerData.kokler.map((k, i) => <KokCard key={k.kok} kok={k} tr={tr} index={i} />)}
@@ -2507,7 +2507,7 @@ function SurahNameHeatmap({ tr, heatmapData }) {
         }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: `120px repeat(${names.length}, minmax(40px, 1fr))`,
+            gridTemplateColumns: `120px repeat(${names.length}, minmax(min(40px, 100%), 1fr))`,
             gap: '3px',
             minWidth: `${120 + names.length * 44 + 32}px`,
           }}>
@@ -3540,7 +3540,7 @@ function ClosingReflection({ tr, language }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
           gap: '16px',
         }}>
           {tools.map((t, i) => (

@@ -190,7 +190,7 @@ export default function RevelationTimeline({ onClose }) {
           {viewMode === 'grid' && (
             <>
               {/* Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(130px, 100%), 1fr))', gap: '8px' }}>
                 {displayed.map(s => {
                   const name = SURAH_NAMES_TR[s.surah - 1] || `${s.surah}`;
                   const ayahCount = AYAH_COUNTS[s.surah - 1] || '?';

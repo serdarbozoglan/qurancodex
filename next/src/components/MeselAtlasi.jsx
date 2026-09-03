@@ -261,7 +261,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        all: 'unset', cursor: 'pointer', display: 'block', textAlign: language === 'tr' ? 'left' : 'left',
+        all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', textAlign: language === 'tr' ? 'left' : 'left',
         background: hov ? 'rgba(255,255,255,0.045)' : 'rgba(255,255,255,0.025)',
         border: `1px solid ${hov ? `${domain.color}70` : `${domain.color}30`}`,
         borderRadius: 14,
@@ -337,7 +337,7 @@ function TabMotifAlanlari({ data, onDomainFilter, language, isMobile }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(230px, 1fr))',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(min(230px, 100%), 1fr))',
           gap: 14,
           opacity: mounted ? 1 : 0,
           transform: mounted ? 'none' : 'translateY(8px)',

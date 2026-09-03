@@ -356,7 +356,7 @@ export default function QuranDua() {
         <div style={{
           marginTop: '20px',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))',
           gap: '14px',
         }}>
           {/* Pencere 2: "Yâ" Edatının Yokluğu */}
@@ -473,7 +473,7 @@ export default function QuranDua() {
       {/* Hero stat şeridi — 4 paralel istatistik */}
       <motion.div variants={fadeUpItem} className="mb-10" style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(160px, 100%), 1fr))',
         gap: '12px',
       }}>
         {[
@@ -683,7 +683,7 @@ export default function QuranDua() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(180px, 100%), 1fr))',
           gap: '12px',
         }}>
           {[
@@ -850,7 +850,7 @@ export default function QuranDua() {
             </div>
           ))}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', alignItems: 'stretch', marginBottom: '56px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '16px', alignItems: 'stretch', marginBottom: '56px' }}>
           {RABBENA_DUAS.map((d, i) => (
             <div
               key={i}

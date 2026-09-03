@@ -176,7 +176,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
       </div>
 
       <button onClick={onToggle} aria-expanded={expanded}
-        style={{ all: 'unset', cursor: 'pointer', display: 'block', width: '100%', padding: isMobile ? '16px' : '20px 24px', paddingRight: 44 }}>
+        style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', padding: isMobile ? '16px' : '20px 24px', paddingRight: 44 }}>
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
           padding: '3px 10px', borderRadius: 99,
@@ -415,7 +415,7 @@ export default function TefsirIhtilaflari() {
 
         {activeTab === 2 && (
           <div className="mq-box" style={{ maxWidth: 1000, margin: '0 auto', '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px" }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(260px, 1fr))', gap: 14, marginBottom: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: 14, marginBottom: 32 }}>
               {data.scholars.map(s => <ScholarProfileCard key={s.id} s={s} isMobile={isMobile} />)}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 24 }}>

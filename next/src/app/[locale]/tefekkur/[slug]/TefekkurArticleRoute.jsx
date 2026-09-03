@@ -353,7 +353,7 @@ export default function TefekkurArticleRoute({ article }) {
                   paddingTop: '32px',
                   borderTop: `1px solid ${COLORS.glassBorder || 'rgba(255,255,255,0.08)'}`,
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
                   gap: '14px',
                 }}>
                   {article.previousArticle && (

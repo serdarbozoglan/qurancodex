@@ -234,7 +234,7 @@ function NameCard({ item, tr, language, isMobile, expanded, onToggle }) {
         onClick={onToggle}
         aria-expanded={expanded}
         style={{
-          all: 'unset',
+          all: 'unset', boxSizing: 'border-box',
           cursor: 'pointer',
           display: 'block',
           width: '100%',

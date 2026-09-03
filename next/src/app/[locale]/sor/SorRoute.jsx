@@ -1164,7 +1164,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
       {/* Tools section */}
       {response.tools?.length > 0 && (
         <SectionBlock title={tr ? 'Derinleş: Sayfalar' : 'Explore: Pages'} count={response.tools.length}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '12px' }}>
             {response.tools.map((t, i) => (
               <ToolCard key={t.id} tool={t} delay={i * 0.05} />
             ))}
@@ -1175,7 +1175,7 @@ function ResponseView({ data, language, feedback, setFeedback }) {
       {/* Atlases section (merged) */}
       {response.atlases?.length > 0 && (
         <SectionBlock title={tr ? 'Atlas Referansları' : 'Atlas References'} count={response.atlases.length}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '10px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(240px, 100%), 1fr))', gap: '10px' }}>
             {response.atlases.map((a, i) => (
               <AtlasCard key={a.id} atlas={a} delay={i * 0.05} language={language} />
             ))}

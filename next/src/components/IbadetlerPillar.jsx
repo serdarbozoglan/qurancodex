@@ -510,7 +510,7 @@ function TabGenel({ data, language, isMobile, pillarData }) {
       {(data.keyPoints ?? []).length > 0 && (
         <div style={{
           display: 'grid', gap: '14px',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))',
         }}>
           {data.keyPoints.map((kp, i) => (
             <div key={i} style={{
@@ -621,7 +621,7 @@ function TabSemantik({ data, language, isMobile }) {
       <div style={{
         display: 'grid',
         gap: '20px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
       }}>
         {data.map((term, i) => (
           <SemanticTermCard key={i} term={term} language={language} isMobile={isMobile} />
@@ -1015,7 +1015,7 @@ function TabIcBoyut({ data, language, isMobile }) {
       margin: '0 auto',
       display: 'grid',
       gap: '18px',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
     }}>
       {data.map((item, i) => (
         <div key={i} style={{

@@ -466,7 +466,7 @@ function TabPanorama({ data, language, isMobile, onSelectGroup }) {
           </div>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))',
             gap: 14,
           }}>
             {groups.map(g => <GroupCard key={g.id} group={g} language={language} onClick={() => onSelectGroup(g.id)} />)}
@@ -1253,7 +1253,7 @@ function TabPrinciples({ principles, groups, language, isMobile, onSelectGroup }
       </p>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(380px, 100%), 1fr))',
         gap: 14,
       }}>
         {principles.map((p, i) => {
@@ -1330,7 +1330,7 @@ function TabSources({ sources, totalGroups, language, isMobile }) {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(min(360px, 100%), 1fr))',
       gap: 14,
     }}>
       {sources.map((s, i) => {

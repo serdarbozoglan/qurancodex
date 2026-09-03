@@ -308,8 +308,15 @@ export default function IlkSonKelimeler({ onClose, backRef }) {
           sticky:top:62 gerçekten çalışır. */}
       <div style={{ flex: 1, display: 'flex' }}>
         {/* Grid */}
+        {/* minWidth: 0 — 2 Eylul 2026. Bu kap bir FLEX OGESI (`flex: 1`) ve
+            flex ogelerinin varsayilan `min-width: auto`'su, ogenin kendi
+            icerigi kadar genis olmasini ZORUNLU kilar. IctekI grid'in
+            sutunlari kabi 1570px'e sisirip sayfayi yatay kaydiriyordu
+            (olculdu, masaustu-1440: scrollWidth 1570 / vp 1440).
+            Grid tanimi zaten `minmax(min(200px, 100%), 1fr)` ile korumali;
+            eksik olan halka flex ogesinin kuculebilmesiydi. */}
         <div id="ilk-son-grid-container" className="ilk-grid-fill mq-box" style={{
-          flex: 1,
+          flex: 1, minWidth: 0,
           '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "24px", '--pr-m': "14px", '--pb-d': "32px", '--pb-m': "14px", '--pl-d': "24px", '--pl-m': "14px",
           display: 'grid',
           gap: '10px',
@@ -1313,7 +1320,7 @@ function CrossReadingSection({ surahs, language, isMobile, activeFilter, onFilte
       {/* Insights grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
         gap: '12px',
       }}>
         {insights.map(ins => {

@@ -661,7 +661,7 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(180px, 100%), 1fr))',
             gap: '10px',
           }}>
             {KIYAMET_ISIMLERI.map((isim) => (

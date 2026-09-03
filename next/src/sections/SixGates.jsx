@@ -319,7 +319,7 @@ function Gate({ gate, isMobile, language }) {
     return (
       <button
         onClick={handleClick}
-        style={{ all: 'unset', display: 'block', cursor: 'pointer', height: '100%' }}
+        style={{ all: 'unset', boxSizing: 'border-box', display: 'block', cursor: 'pointer', height: '100%' }}
         aria-label={tr ? `${gate.titleTr} bölümüne atla` : `Jump to ${gate.titleEn}`}
       >
         {inner}

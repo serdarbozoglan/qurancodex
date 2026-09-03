@@ -46,7 +46,15 @@ const chipStyle = (color = COLORS.gold) => ({
   fontSize: '0.72rem',
   fontWeight: 600,
   fontFamily: FONTS.body,
-  whiteSpace: 'nowrap',
+  // `whiteSpace: 'nowrap'` idi (2 Eyl 2026'da degistirildi). Chip'lerin cogu
+  // kisa etiket ("Sems 91:7") ve onlar zaten sarmaz; ama iki chip UZUN CUMLE
+  // tasiyor ("Dayanak: Kur'an'in lafzinda degil — tasavvufi tasnif",
+  // "Ekol: tasavvufi-batini okuma (Ibn Arabi ...)"). nowrap ile bunlar
+  // 425-435px'e uzayip 317px'lik grid sutunundan tasiyor ve sayfayi yatay
+  // kaydiriyordu (olculdu, mobil-390: scrollWidth 473 / vp 390).
+  // `normal` + `minWidth: 0` ile uzun olanlar sarar, kisalar aynen kalir.
+  whiteSpace: 'normal',
+  minWidth: 0,
 });
 
 // ─── Main component ───────────────────────────────────────────────────────────

@@ -813,7 +813,7 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
           {/* Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
             gap: '10px',
           }}>
             {groups[letter].map((item, i) => (

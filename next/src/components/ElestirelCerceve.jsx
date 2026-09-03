@@ -515,7 +515,7 @@ function QuestionCard({ q, index, tr, language, isMobile, cat, expanded, onToggl
       <button
         onClick={onToggle}
         aria-expanded={expanded}
-        style={{ all: 'unset', cursor: 'pointer', display: 'block', width: '100%', paddingRight: 40 }}
+        style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', paddingRight: 40 }}
       >
         {/* Numara + kategori */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12, flexWrap: 'wrap' }}>

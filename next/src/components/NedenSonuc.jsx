@@ -437,7 +437,7 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
         onClick={onToggle}
         aria-expanded={expanded}
         style={{
-          all: 'unset',
+          all: 'unset', boxSizing: 'border-box',
           cursor: 'pointer',
           display: 'block',
           width: '100%',

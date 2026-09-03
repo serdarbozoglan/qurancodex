@@ -1227,7 +1227,7 @@ function HeroStats({ language }) {
   ];
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '10px' }}>
       {stats.map((s, i) => (
         <StatCard key={i} {...s} language={language} />
       ))}

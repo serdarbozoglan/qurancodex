@@ -2660,7 +2660,7 @@ export default function ProphetAtlas({ onClose, initialProphetId }) {
           {/* Prophet cards grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(210px, 100%), 1fr))',
             gap: '12px',
           }}>
             {PROPHETS_REF.map(p => {

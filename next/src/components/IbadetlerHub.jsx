@@ -265,7 +265,7 @@ function PillarsGrid({ pillars, language, isMobile, router }) {
       </div>
       <div style={{
         display: 'grid', gap: isMobile ? '14px' : '18px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
       }}>
         {pillars.map(p => (
           <PillarCard key={p.id} pillar={p} language={language} isMobile={isMobile} router={router} />
@@ -425,7 +425,7 @@ function SutunlarAgiSection({ data, language, isMobile, router }) {
       </p>
       <div style={{
         display: 'grid', gap: '10px',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
       }}>
         {data.nodes.map((n, i) => {
           const pct = (n.freq / maxFreq) * 100;
@@ -1026,7 +1026,7 @@ function WowFactsSection({ wowFacts, language, isMobile }) {
         '--fs-d': '1.75rem', '--fs-m': '1.4rem',
         margin: '0 0 22px', fontWeight: 700,
       }}>{language === 'tr' ? "Kur'ân'ın Açtığı Pencereler" : "Windows the Qur'an Opens"}</h2>
-      {/* auto-fit(minmax(320px,1fr)) 3-col'a genişliyordu; 4 kartla son satırda
+      {/* auto-fit(minmax(min(320px, 100%),1fr)) 3-col'a genişliyordu; 4 kartla son satırda
           tek kart kalıp iki sütun genişliğinde boşluk bırakıyordu (auto-fit
           yalnız TÜM satırlarda boş kalan track'i sıfırlar, tek satırdaki
           eksik hücreyi değil). Sabit 2-col g-1-2 (dosyanın geri kalanında

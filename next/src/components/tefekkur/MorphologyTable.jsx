@@ -76,7 +76,7 @@ function Row({ row, idx, language, isLast }) {
       transition={{ duration: 0.35, delay: idx * 0.06, ease: [0.4, 0, 0.2, 1] }}
       style={{
         display: 'grid',
-        gridTemplateColumns: 'minmax(120px, 0.9fr) minmax(140px, 1.1fr) minmax(180px, 1.6fr)',
+        gridTemplateColumns: 'minmax(min(120px, 100%), 0.9fr) minmax(min(140px, 100%), 1.1fr) minmax(min(180px, 100%), 1.6fr)',
         gap: '14px',
         padding: '14px 16px',
         borderBottom: isLast ? 'none' : `1px solid rgba(255,255,255,0.04)`,
@@ -171,7 +171,7 @@ export default function MorphologyTable({ captionTr, captionEn, columns, rows, l
         {/* Header strip */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(120px, 0.9fr) minmax(140px, 1.1fr) minmax(180px, 1.6fr)',
+          gridTemplateColumns: 'minmax(min(120px, 100%), 0.9fr) minmax(min(140px, 100%), 1.1fr) minmax(min(180px, 100%), 1.6fr)',
           gap: '14px',
           padding: '11px 16px',
           background: 'rgba(212,165,116,0.06)',

@@ -1072,7 +1072,7 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   grid-template-columns: repeat(6, 1fr);
 }
 .ilk-grid-fill {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
 }
 .ilk-item-grid {
   grid-template-columns: 110px 1fr 24px 1.4fr;

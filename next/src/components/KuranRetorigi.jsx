@@ -894,7 +894,7 @@ function TabMuhatap({ data, tr, isMobile }) {
             </p>
 
             {/* Verse cards */}
-            <div className="fd-row dsp-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 12 }}>
+            <div className="fd-row dsp-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: 12 }}>
               {group.verses.map((v, vi) => (
                 <div
                   key={vi}
@@ -1041,7 +1041,7 @@ function TabSorular({ data, tr, isMobile }) {
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
           gap: 14,
         }}>
           {filtered.map(q => {
