@@ -512,9 +512,9 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.div
           variants={revealVariants}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.bismillah,
-            fontSize: isMobile ? '1.5rem' : '1.8rem',
+            '--fs-d': '1.8rem', '--fs-m': '1.5rem',
             color: COLORS.gold,
             opacity: 0.85,
             marginBottom: 28,
@@ -528,9 +528,9 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
             variants={revealVariants}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             dir="rtl" lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? '1.35rem' : '1.75rem',
+              '--fs-d': '1.75rem', '--fs-m': '1.35rem',
               color: COLORS.gold,
               lineHeight: 2.15,
               margin: '0 0 20px',
@@ -541,10 +541,10 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.p
           variants={revealVariants}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.98rem' : '1.08rem',
+            '--fs-d': '1.08rem', '--fs-m': '0.98rem',
             color: COLORS.offWhite,
             maxWidth: 660,
             margin: '0 auto 12px',
@@ -557,9 +557,9 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.p
           variants={revealVariants}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.7rem' : '0.75rem',
+            '--fs-d': '0.75rem', '--fs-m': '0.7rem',
             color: COLORS.silver,
             opacity: 0.78,
             letterSpacing: '0.18em',
@@ -571,10 +571,10 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.p
           variants={revealVariants}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '1rem' : '1.12rem',
+            '--fs-d': '1.12rem', '--fs-m': '1rem',
             color: COLORS.silver,
             maxWidth: 700,
             margin: '0 auto 34px',
@@ -601,9 +601,9 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.p
           variants={revealVariants}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.body,
-            fontSize: isMobile ? '0.65rem' : '0.72rem',
+            '--fs-d': '0.72rem', '--fs-m': '0.65rem',
             color: COLORS.gold,
             opacity: 0.78,
             letterSpacing: '0.3em',
@@ -616,10 +616,10 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.h1
           variants={revealVariants}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.display,
             color: COLORS.offWhite,
-            fontSize: isMobile ? 'clamp(1.7rem, 7.5vw, 2.1rem)' : 'clamp(2.1rem, 3.8vw, 2.85rem)',
+            '--fs-d': 'clamp(2.1rem, 3.8vw, 2.85rem)', '--fs-m': 'clamp(1.7rem, 7.5vw, 2.1rem)',
             fontWeight: 700,
             margin: '0 0 16px',
             lineHeight: 1.12,
@@ -630,11 +630,11 @@ function Hero({ meta, firstStage, isMobile, tr, reducedMotion }) {
         <motion.p
           variants={revealVariants}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.display,
             fontStyle: 'italic',
             color: COLORS.gold,
-            fontSize: isMobile ? 'clamp(0.95rem, 3.2vw, 1.08rem)' : 'clamp(1.08rem, 1.85vw, 1.22rem)',
+            '--fs-d': 'clamp(1.08rem, 1.85vw, 1.22rem)', '--fs-m': 'clamp(0.95rem, 3.2vw, 1.08rem)',
             opacity: 0.95,
             margin: 0,
             lineHeight: 1.55,
@@ -877,25 +877,25 @@ function StageCard({ stage, isOpen, onToggle, isActive, isMobile, tr, language, 
 
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-              <span dir="rtl" lang="ar" style={{
+              <span dir="rtl" lang="ar" className="mq-fs" style={{
                 fontFamily: FONTS.quran,
                 color: COLORS.gold,
-                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                '--fs-d': '1.3rem', '--fs-m': '1.15rem',
                 lineHeight: 1.6,
                 opacity: 0.9,
               }}>{stage.arabicTerm}</span>
             </div>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1.15rem' : '1.32rem',
+              '--fs-d': '1.32rem', '--fs-m': '1.15rem',
               fontWeight: 700,
               color: COLORS.offWhite,
               margin: '0 0 6px',
               lineHeight: 1.25,
             }}>{tr ? stage.titleTr : stage.titleEn}</h2>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.88rem' : '0.94rem',
+              '--fs-d': '0.94rem', '--fs-m': '0.88rem',
               color: COLORS.silver,
               margin: 0,
               lineHeight: 1.55,
@@ -958,9 +958,9 @@ function StageBody({ stage, isMobile, tr, language, router }) {
       {narration && (
         <div style={{ marginTop: 24, marginBottom: 24 }}>
           {narration.split('\n\n').map((para, i) => (
-            <p key={i} style={{
+            <p key={i} className="mq-fs" style={{
               fontFamily: FONTS.body,
-              fontSize: isMobile ? '0.92rem' : '0.98rem',
+              '--fs-d': '0.98rem', '--fs-m': '0.92rem',
               color: COLORS.offWhite,
               lineHeight: 1.75,
               margin: i === 0 ? '0 0 14px' : '0 0 14px',
@@ -1019,9 +1019,9 @@ function StageBody({ stage, isMobile, tr, language, router }) {
                   <span style={{ fontFamily: FONTS.body, fontSize: '0.82rem', color: COLORS.gold, fontWeight: 600 }}>{t.source}</span>
                   <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, marginLeft: 8, fontStyle: 'italic' }}>{t.workRef}</span>
                 </div>
-                <p style={{
+                <p className="mq-fs" style={{
                   fontFamily: FONTS.body,
-                  fontSize: isMobile ? '0.86rem' : '0.9rem',
+                  '--fs-d': '0.9rem', '--fs-m': '0.86rem',
                   color: COLORS.offWhite,
                   margin: 0,
                   lineHeight: 1.65,
@@ -1060,7 +1060,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
               <button
                 key={i}
                 onClick={() => router.push(`/${language}${cl.href}`)}
-                style={{
+                className="mq-fs" style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -1071,7 +1071,7 @@ function StageBody({ stage, isMobile, tr, language, router }) {
                   borderRadius: 8,
                   color: cl.primary ? COLORS.gold : COLORS.offWhite,
                   fontFamily: FONTS.body,
-                  fontSize: isMobile ? '0.84rem' : '0.88rem',
+                  '--fs-d': '0.88rem', '--fs-m': '0.84rem',
                   fontWeight: cl.primary ? 600 : 500,
                   cursor: 'pointer',
                   textAlign: 'left',
@@ -1108,19 +1108,19 @@ function VerseBlock({ arabic, translation, reference, isMobile, isAnchor }) {
       textAlign: 'center',
     }}>
       {arabic && (
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.2rem' : '1.45rem',
+          '--fs-d': '1.45rem', '--fs-m': '1.2rem',
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 0 14px',
         }}>{arabic}</p>
       )}
       {translation && (
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
           fontStyle: 'italic',
-          fontSize: isMobile ? '0.92rem' : '0.98rem',
+          '--fs-d': '0.98rem', '--fs-m': '0.92rem',
           color: COLORS.offWhite,
           margin: '0 0 10px',
           lineHeight: 1.6,
@@ -1177,18 +1177,18 @@ function MiniRef({ ref_, isMobile, tr }) {
         )}
       </div>
       {ref_.arabic && (
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.15rem' : '1.3rem',
+          '--fs-d': '1.3rem', '--fs-m': '1.15rem',
           color: COLORS.gold,
           opacity: 0.9,
           lineHeight: 2.05,
           margin: '0 0 10px',
         }}>{ref_.arabic}</p>
       )}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.85rem' : '0.88rem',
+        '--fs-d': '0.88rem', '--fs-m': '0.85rem',
         color: COLORS.offWhite,
         margin: 0,
         lineHeight: 1.6,
@@ -1229,9 +1229,9 @@ function CriticalNoteBlock({ note, isMobile, tr }) {
           color: COLORS.skyBlue,
         }}>{tr ? note.titleTr : note.titleEn}</span>
       </div>
-      <div style={{
+      <div className="mq-fs" style={{
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         color: COLORS.offWhite,
         lineHeight: 1.7,
         opacity: 0.92,

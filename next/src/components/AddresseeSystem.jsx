@@ -147,17 +147,17 @@ export default function AddresseeSystem({ onClose }) {
         textAlign: 'center',
         flexShrink: 0,
       }}>
-        <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, fontSize: isMobile ? '1.5rem' : '1.95rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
-        <p dir="rtl" lang="ar" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
+        <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{ fontFamily: FONTS.bismillah, '--fs-d': '1.95rem', '--fs-m': '1.5rem', color: COLORS.gold, opacity: 0.82, lineHeight: 1, '--mb-d': '36px', '--mb-m': '26px', textShadow: `0 0 22px ${COLORS.gold}28` }}>﷽</div>
+        <p dir="rtl" lang="ar" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)', color: COLORS.gold, lineHeight: 2.1, margin: '0 auto 16px', maxWidth: '820px', textShadow: `0 0 20px ${COLORS.gold}1c` }}>
           يَٓا اَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
         </p>
-        <p style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
+        <p className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem', lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '680px', opacity: 0.95 }}>
           &quot;{language === 'tr' ? 'Ey insanlar! Sizi ve sizden öncekileri yaratan Rabbinize kulluk edin ki, takvâya eresiniz.' : "O mankind, worship your Lord who created you and those before you, so that you may attain piety."}&quot;
         </p>
         <p style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', margin: '0 0 32px', opacity: 0.78 }}>
           — {language === 'tr' ? 'Bakara 2:21' : 'Al-Baqarah 2:21'}
         </p>
-        <p style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
+        <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
           {language === 'tr'
             ? <>Kur&apos;an&apos;ın en sık üç hitap ekseni <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nâs</em> (tüm insanlar), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;l-lezîne âmenû</em> (müminler) ve <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yâ eyyuhâ&apos;n-nebî</em> (Resul) — ama sesleniş bununla bitmez: İsrailoğulları&apos;ndan Ehl-i Kitap&apos;a, Âdemoğulları&apos;ndan Peygamber&apos;in eşlerine <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 farklı muhatap</em> vardır. Hitap değişimi anlam değişimidir.</>
             : <>The Quran&apos;s three most frequent registers are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nās</em> (all mankind), <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;l-ladhīna āmanū</em> (believers), and <em style={{ fontStyle: 'normal', color: COLORS.gold }}>yā ayyuhā&apos;n-nabī</em> (the Messenger) — yet the address goes further: from the Children of Israel to the People of the Book, the children of Adam to the wives of the Prophet, there are <em style={{ fontStyle: 'normal', color: COLORS.gold }}>11 distinct addressees</em>. A shift in address is a shift in meaning.</>}
@@ -166,10 +166,10 @@ export default function AddresseeSystem({ onClose }) {
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
           {language === 'tr' ? "USLÛB-İ HİTÂB · MUHATAPLAR" : "USLŪB AL-KHIṬĀB · ADDRESSEES"}
         </div>
-        <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
+        <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)', fontWeight: 700, color: COLORS.offWhite, margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px' }}>
           {language === 'tr' ? "Kur'an Kime Sesleniyor?" : 'To Whom Does the Quran Speak?'}
         </h2>
-        <p style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
+        <p className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem', color: COLORS.gold, margin: '0 auto 12px', lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92 }}>
           {language === 'tr' ? 'Tek bir Kitap, çoklu seslenen, farklı muhataplar.' : 'One Book, multiple voices, distinct addressees.'}
         </p>
       </div>
@@ -279,9 +279,9 @@ export default function AddresseeSystem({ onClose }) {
           {active && (
             <>
               {/* Arabic hitap */}
-              <div style={{
+              <div className="mq-fs" style={{
                 fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.5rem' : '2rem',
+                '--fs-d': '2rem', '--fs-m': '1.5rem',
                 color: accent,
                 direction: 'rtl',
                 textAlign: 'right',

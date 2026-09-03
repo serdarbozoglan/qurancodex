@@ -517,9 +517,9 @@ export default function KiyametSahneleri({ onClose }) {
           {/* Bismillah */}
           <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: GOLD,
               opacity: 0.82,
               lineHeight: 1,
@@ -533,9 +533,9 @@ export default function KiyametSahneleri({ onClose }) {
           {/* Anchor verse — İbrahim 14:48 (the canonical "Earth replaced" verse) */}
           <p
             dir="rtl" lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.65rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.65rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: GOLD,
               lineHeight: 2.1,
               margin: '0 auto 16px',
@@ -546,11 +546,11 @@ export default function KiyametSahneleri({ onClose }) {
             يَوْمَ تُبَدَّلُ الْاَرْضُ غَيْرَ الْاَرْضِ وَالسَّمٰوَاتُ
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '660px',
@@ -574,11 +574,11 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
 
           {/* Framing whisper */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 40px',
             maxWidth: '700px',
@@ -607,9 +607,9 @@ export default function KiyametSahneleri({ onClose }) {
           </p>
 
           {/* Big Title */}
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? 'clamp(1.65rem, 7vw, 2.05rem)' : 'clamp(2.05rem, 3.7vw, 2.8rem)',
+            '--fs-d': 'clamp(2.05rem, 3.7vw, 2.8rem)', '--fs-m': 'clamp(1.65rem, 7vw, 2.05rem)',
             fontWeight: 900, color: COLORS.offWhite, margin: '0 auto 16px',
             lineHeight: 1.18,
             letterSpacing: '-0.015em',
@@ -646,7 +646,7 @@ export default function KiyametSahneleri({ onClose }) {
 
         {/* ── Kıyamet İsimleri ── */}
         <div className="mq-box" style={{ '--pt-d': "28px", '--pt-m': "20px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "28px", '--pb-m': "20px", '--pl-d': "32px", '--pl-m': "16px", borderBottom: `1px solid ${COLORS.glassBorderSoft}` }}>
-          <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.1rem' : '1.35rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
+          <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.1rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 6px' }}>
             {language === 'tr' ? "Kıyametin Kur'an'daki İsimleri" : "The Quran's Names for the Last Day"}
           </h2>
           <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 16px', fontFamily: FONTS.body }}>
@@ -709,7 +709,7 @@ export default function KiyametSahneleri({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              style={{
+              className="mq-fs" style={{
                 flexShrink: 0,
                 '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "26px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "26px", '--pl-m': "16px",
                 background: activeTab === i ? COLORS.goldAlpha15 : 'transparent',
@@ -717,7 +717,7 @@ export default function KiyametSahneleri({ onClose }) {
                 borderRadius: 0,
                 borderBottom: activeTab === i ? `2px solid ${GOLD}` : '2px solid transparent',
                 color: activeTab === i ? GOLD : COLORS.silver,
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 fontWeight: activeTab === i ? 700 : 500,
@@ -827,13 +827,13 @@ function TabKronoloji({ data, language, isMobile }) {
               }}>
                 {/* Circle + connector */}
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{
+                  <div className="mq-fs" style={{
                     width: isMobile ? '28px' : '36px', height: isMobile ? '28px' : '36px',
                     borderRadius: '50%',
                     background: pc.accent,
                     color: '#fff',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: isMobile ? '0.85rem' : '1rem',
+                    '--fs-d': '1rem', '--fs-m': '0.85rem',
                     fontWeight: 800, fontFamily: FONTS.body,
                     boxShadow: `0 0 12px ${pc.accent}88`,
                     flexShrink: 0,
@@ -855,8 +855,8 @@ function TabKronoloji({ data, language, isMobile }) {
                   borderRadius: '4px',
                   width: `${barWidthPct}%`,
                 }}>
-                  <div style={{
-                    fontSize: isMobile ? '0.88rem' : '0.98rem',
+                  <div className="mq-fs" style={{
+                    '--fs-d': '0.98rem', '--fs-m': '0.88rem',
                     color: pc.accent, fontWeight: 700,
                     fontFamily: FONTS.body,
                   }}>{labels.title}</div>

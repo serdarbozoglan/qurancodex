@@ -999,7 +999,7 @@ function TabBuyukSeriler({ mega, dialogues, isMobile, language, cleanArabic }) {
               onClick={() => setExpandedId(isExpanded ? null : m.id)}
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
-                <span style={{ color: COLORS.gold, fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : '1.15rem', fontWeight: 700, lineHeight: 1.3 }}>
+                <span className="mq-fs" style={{ color: COLORS.gold, fontFamily: FONTS.display, '--fs-d': '1.15rem', '--fs-m': '1rem', fontWeight: 700, lineHeight: 1.3 }}>
                   {language === 'tr' ? m.titleTr : m.titleEn}
                 </span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>

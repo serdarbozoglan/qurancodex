@@ -463,9 +463,9 @@ function StageDetail({ stage, isEn, isMobile }) {
           }}>
             {isEn ? `STAGE ${stage.order} · ${stage.arabicTerm}` : `AŞAMA ${stage.order} · ${stage.arabicTerm}`}
           </p>
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.5rem' : '1.75rem',
+            '--fs-d': '1.75rem', '--fs-m': '1.5rem',
             color: COLORS.offWhite,
             margin: '4px 0 0', fontWeight: 700,
             letterSpacing: '-0.01em',
@@ -485,9 +485,9 @@ function StageDetail({ stage, isEn, isMobile }) {
       </div>
 
       {/* Essence */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? '1rem' : '1.05rem',
+        '--fs-d': '1.05rem', '--fs-m': '1rem',
         lineHeight: 1.75,
         margin: '18px 0 24px',
       }}>
