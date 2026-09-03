@@ -275,10 +275,22 @@ export default function HifzModu() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- dış kaynak (kuran.hayrat.com.tr), prototip, next/image domain izinsiz */}
+          {/* aspectRatio 2 Eylul 2026'da eklendi. Oncesinde yalniz
+              `width: 100%` vardi — gorsel yuklenene kadar YUKSEKLIGI 0'di,
+              yuklenince ~532px'e ciktiginda altindaki kaynak notu ve ayet
+              listesi o kadar asagi itiliyordu. Olculdu (uretim, mobil-390,
+              CPU x4): tek bir kayma, 0.324 CLS @919ms — sayfanin CLS'inin
+              tamami. Simdi yer onceden ayrilir, gorsel geldiginde hicbir sey
+              oynamaz.
+              Iki oran var, olculdu: Fatiha sayfalari (0-1) 1024x1531,
+              geri kalan 607 sayfa 1024x1680. */}
           <img
             src={imgUrl}
             alt={language === 'en' ? `Mushaf page ${hayratPage}` : `Mushaf sayfa ${hayratPage}`}
-            style={{ width: '100%', display: 'block' }}
+            style={{
+              width: '100%', display: 'block',
+              aspectRatio: hayratPage <= 1 ? '1024 / 1531' : '1024 / 1680',
+            }}
           />
         </div>
         <p

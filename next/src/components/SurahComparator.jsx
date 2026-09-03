@@ -1478,6 +1478,15 @@ export default function SurahComparator({ onClose }) {
       )}
 
       {/* Cross-tool CTA — #202 (2026-07-16) */}
+      {/* `!loading` sarti 2 Eylul 2026'da eklendi. Sayfanin ASIL icerigi zaten
+          `!loading` ile kapiliydi (1034/1168/1206) ama bu CTA degildi: yukleme
+          sirasinda spinner'in hemen altina, y=701'e (844px'lik ekranin
+          icine) oturuyordu; icerik gelince 1388px'lik govde araya girip onu
+          797px asagi itiyordu. Olculdu (uretim, mobil-390, CPU x4): tek kayma,
+          0.160 CLS — sayfanin CLS'inin tamami.
+          Simdi yukleme bitene kadar hic var olmaz; sonradan BELIREN eleman
+          CLS'e sayilmaz, cunku hicbir sey yerinden oynamamis olur. */}
+      {!loading && (
       <div className="zf2-tool-cta-wrap" style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
         <CrossToolCTA
           language={language}
@@ -1529,6 +1538,7 @@ export default function SurahComparator({ onClose }) {
           ]}
         />
       </div>
+      )}
     </div>
   );
 }

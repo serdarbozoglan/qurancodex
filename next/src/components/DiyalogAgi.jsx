@@ -500,12 +500,36 @@ function TabAgHaritasi({ speakers, axes, temporalFilter, setTemporalFilter, onAx
             800x800 viewBox'ın dışına çıkıyordu, SVG varsayılan olarak
             bunu KIRPIYOR (overflow:visible yoksa) — "Hz. Muha…", "Nûh'un
             Oğlu" gibi kesik etiketler bundandı (kullanıcı bildirdi). */}
-        <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center', padding: isMobile ? '0' : '0 70px' }}>
+        {/* Yatay dolgu da CSS'e alindi (ayni gerekce): isMobile ilk boyamada
+            false oldugu icin kap once 70px'lik yan dolguyla ciziliyor, mount
+            sonrasi 0'a dusuyordu — SVG'nin kullanilabilir genisligi ve boylece
+            (aspect-ratio 1/1 nedeniyle) YUKSEKLIGI degisiyordu (olculdu:
+            h218 -> h314, kalan 0.055 CLS'in kaynagi). */}
+        <div className="dg-graph-wrap" style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center' }}>
+          {/* 2 Eylul 2026 — SVG kutusunun boyutu JS'ten CSS'e alindi.
+              Onceden `width={svgSize} height={svgSize}` idi ve svgSize
+              `isMobile ? min(innerWidth-32, 400) : 680`. isMobile ilk
+              boyamada her zaman false oldugu icin (§16.6) kutu once 680
+              cizilip mount sonrasi kuculuyordu; altindaki her sey kayiyordu
+              (olculdu, uretim mobil-390 CPU x4: SVG h499 -> h375 @355ms,
+              sayfa CLS 0.228 — sayfanin CLS'inin tamami).
+              viewBox zaten 800x800 kare, yani boyutu CSS'e devretmek cizimi
+              DEGISTIRMEZ: mobilde kap genisligi (358px) sinirlar, masaustunde
+              680px tavan devreye girer — iki taraf da eski degerlerle ayni.
+              `scale` yalnizca viewBox ICINDEKI etiket puntolarini belirliyor,
+              kutu olcusune girmiyor; oradaki degisim kayma uretmez. */}
+          <style>{`
+            .dg-graph { width: 100%; aspect-ratio: 1 / 1; max-width: 680px; }
+            .dg-graph-wrap { padding: 0 70px; }
+            @media (max-width: 639.98px) {
+              .dg-graph { max-width: 400px; }
+              .dg-graph-wrap { padding: 0; }
+            }
+          `}</style>
           <svg aria-hidden="true"
-            width={svgSize}
-            height={svgSize}
+            className="dg-graph"
             viewBox="0 0 800 800"
-            style={{ maxWidth: '100%', overflow: 'visible' }}
+            style={{ overflow: 'visible' }}
           >
             {visibleAxes.map(axis => {
               const isHovered = hoveredArc === axis.id || hoveredNode === axis.speakerId || hoveredNode === axis.addresseeId;
