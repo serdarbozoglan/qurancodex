@@ -284,8 +284,18 @@ export default function HifzModu() {
               oynamaz.
               Iki oran var, olculdu: Fatiha sayfalari (0-1) 1024x1531,
               geri kalan 607 sayfa 1024x1680. */}
+          {/* fetchPriority="high" + loading="eager" (2 Eylul 2026): bu gorsel
+              sayfanin LCP OGESI (olculdu, dort kirilimda da "LCP ögesi: IMG").
+              Tarayici gorseli DOM'a girdikten sonra varsayilan oncelikle
+              kuyruga aliyordu; LCP adayi oldugunu bilmiyor. Acikca yuksek
+              oncelik vermek onu diger istekilerin onune gecirir.
+              _shell.jsx'te ayrica host icin preconnect var — o baglanti
+              turunu, bu ise kuyruk sirasini halleder. */}
           <img
             src={imgUrl}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             alt={language === 'en' ? `Mushaf page ${hayratPage}` : `Mushaf sayfa ${hayratPage}`}
             style={{
               width: '100%', display: 'block',

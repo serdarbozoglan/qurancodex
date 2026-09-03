@@ -109,6 +109,19 @@ export default function Shell({ lang = 'tr', children }) {
           type="font/otf"
           crossOrigin="anonymous"
         />
+
+        {/* LCP — /arac/hifz-modu (2 Eylul 2026). O sayfanin LCP ogesi DIS
+            kaynakli bir mushaf JPEG'i (kuran.hayrat.com.tr). Tarayici bu
+            gorseli ancak HifzModu mount olup src'yi bastiktan SONRA gormeye
+            basliyor; DNS + TCP + TLS turu tam da o anda bastan kuruluyor.
+            preconnect bu turu belge ayristirilirken pesinen yapar.
+            Olculdu (uretim, mobil-390 CPU x4): LCP 2420ms, esik 2500 — yani
+            marj yalnizca 80ms'ti ve olcumden olcume esigi asiyordu (onceki
+            kosuda 2636ms). preconnect o marji buyutur.
+            preload DEGIL preconnect: gorselin URL'si sayfaya (hangi mushaf
+            sayfasi acilacagina) bagli, burada bilinemez — ama HOST sabit. */}
+        <link rel="preconnect" href="https://kuran.hayrat.com.tr" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://kuran.hayrat.com.tr" />
       </head>
       <body>
         <script
