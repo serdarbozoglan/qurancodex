@@ -65,9 +65,9 @@ function groupAccent(group) {
 function Hero({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       position: 'relative', overflow: 'hidden',
-      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',

@@ -625,14 +625,14 @@ function ChainCard({ chain, tr, language, isMobile, cat, expanded, onToggle }) {
                         const nextStep = chain.steps[i + 1];
                         const why = nextStep && (tr ? nextStep.whyTr : nextStep.whyEn);
                         return (
-                          <div style={{
+                          <div className="mq-box" style={{
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center', justifyContent: 'center',
                             gap: 4,
                             flexShrink: 0,
                             width: isMobile ? '100%' : 132,
-                            padding: isMobile ? '8px 20px' : '10px 8px',
+                            '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "8px", '--pr-m': "20px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "8px", '--pl-m': "20px",
                           }}>
                             <svg aria-hidden="true" width={isMobile ? 14 : 16} height={isMobile ? 14 : 16}
                               viewBox="0 0 24 24" fill="none" stroke={catColor} strokeWidth="2.5"

@@ -200,7 +200,7 @@ export default function KissaAtlas({ onClose }) {
 
   // #202 (2026-07-15) — CTA hem loading skeleton'da hem main return'de görünsün (SSR SEO)
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '24px 16px 32px' : '32px 24px 48px', width: '100%' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "32px", '--pt-m': "24px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -340,9 +340,9 @@ export default function KissaAtlas({ onClose }) {
             satira sariyor, ikinci satir 52px'lik kutudan tasip alttaki "Hz.
             Musa" basliginin uzerine biniyordu. minHeight ile serit artik
             sarma oldugunda yukselir (53px -> ~104px, bkz. asagidaki not). */}
-        <div style={{
+        <div className="mq-box" style={{
           display: 'flex', alignItems: 'center',
-          padding: isMobile ? '10px 16px' : '9px 20px',
+          '--pt-d': "9px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "9px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "16px",
           minHeight: isMobile ? 'auto' : '52px',
           gap: '12px',
         }}>
@@ -642,7 +642,7 @@ export default function KissaAtlas({ onClose }) {
               aralıktan sonra başlıyordu. flex:'0 1 auto' grid'i kendi
               içeriği kadar yükseklikte tutar, detail panel hemen altına
               yapışır. */}
-          <div style={{ flex: '0 1 auto', overflowY: 'auto', padding: isMobile ? '12px' : '20px', display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
+          <div className="mq-box" style={{ flex: '0 1 auto', overflowY: 'auto', '--pt-d': "20px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "12px", '--pb-d': "20px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "12px", display: isMobile && mobileTab === 'detail' ? 'none' : 'block' }}>
 
             {/* Instructions + tam harita anahtarı */}
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', marginBottom: '10px' }}>
@@ -847,7 +847,7 @@ export default function KissaAtlas({ onClose }) {
                   flex: isMobile ? 1 : 'none',
                 }}
               >
-                <div style={{ padding: isMobile ? '12px 16px' : '16px 20px' }}>
+                <div className="mq-box" style={{ '--pt-d': "16px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "16px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "16px" }}>
                   {isMobile && (
                     <button
                       onClick={() => setMobileTab('scenes')}
@@ -1104,7 +1104,7 @@ export default function KissaAtlas({ onClose }) {
 
       {/* Edebi Bağlantılar — yalnız literaryNotes taşıyan peygamberler için (Yûsuf, Âdem) */}
       {prophet?.literaryNotes?.length > 0 && (
-        <div style={{ maxWidth: 1080, margin: '0 auto', padding: isMobile ? '8px 16px 0' : '8px 24px 0', width: '100%' }}>
+        <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', '--pt-d': "8px", '--pt-m': "8px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "24px", '--pl-m': "16px", width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
             <div style={{ height: 1, flex: 1, background: COLORS.glassBorderSoft }} />
             <span style={{ color: prophet.color, fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>

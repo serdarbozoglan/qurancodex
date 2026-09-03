@@ -102,8 +102,8 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
   const color = SCHOLAR_COLORS[pos.scholarId] || COLORS.silver;
   const confLabel = tr ? CONFIDENCE_LABELS_TR[pos.confidence] : CONFIDENCE_LABELS_EN[pos.confidence];
   return (
-    <div style={{
-      padding: isMobile ? '14px' : '16px 18px',
+    <div className="mq-box" style={{
+      '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "18px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "18px", '--pl-m': "14px",
       background: 'rgba(255,255,255,0.025)',
       border: `1px solid ${color}25`,
       borderLeft: `3px solid ${color}`,
@@ -175,8 +175,8 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         />
       </div>
 
-      <button onClick={onToggle} aria-expanded={expanded}
-        style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', padding: isMobile ? '16px' : '20px 24px', paddingRight: 44 }}>
+      <button className="mq-box" onClick={onToggle} aria-expanded={expanded}
+        style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', display: 'block', width: '100%', '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", paddingRight: 44 }}>
         <span style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
           padding: '3px 10px', borderRadius: 99,
@@ -207,7 +207,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
         {expanded && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }} style={{ overflow: 'hidden' }}>
-            <div style={{ padding: isMobile ? '0 16px 16px' : '0 24px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "24px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px", display: 'flex', flexDirection: 'column', gap: 20 }}>
               {(c.axes || []).map((axis, i) => (
                 <div key={i} style={{ borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 16 }}>
                   <div style={{ fontFamily: FONTS.body, fontSize: '0.8rem', fontWeight: 700, color: COLORS.silver, marginBottom: 12 }}>
@@ -231,8 +231,8 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
 function ScholarProfileCard({ s, isMobile }) {
   const color = SCHOLAR_COLORS[s.id] || COLORS.silver;
   return (
-    <div style={{
-      padding: isMobile ? '16px' : '18px 20px',
+    <div className="mq-box" style={{
+      '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px",
       background: 'rgba(255,255,255,0.03)', border: `1px solid ${color}30`,
       borderTop: `3px solid ${color}`, borderRadius: 12,
     }}>
@@ -286,7 +286,7 @@ export default function TefsirIhtilaflari() {
   );
 
   const RELATED_CTA = (
-    <div style={{ maxWidth: 1080, margin: '0 auto', width: '100%', padding: isMobile ? '0 16px 32px' : '0 24px 48px' }}>
+    <div className="mq-box" style={{ maxWidth: 1080, margin: '0 auto', width: '100%', '--pt-d': "0", '--pt-m': "0", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "48px", '--pb-m': "32px", '--pl-d': "24px", '--pl-m': "16px" }}>
       <CrossToolCTA
         language={language}
         isMobile={isMobile}
@@ -361,8 +361,8 @@ export default function TefsirIhtilaflari() {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
           {tabs.map((label, i) => (
-            <button key={i} onClick={() => setActiveTab(i)} className="mq-fs" style={{
-              padding: isMobile ? '12px 14px' : '12px 20px',
+            <button key={i} onClick={() => setActiveTab(i)} className="mq-fs mq-box" style={{
+              '--pt-d': "12px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
               '--fs-d': '0.85rem', '--fs-m': '0.78rem',
               fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
               color: activeTab === i ? COLORS.gold : COLORS.silver,

@@ -85,7 +85,7 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
 
   return (
     <div style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
-      <div style={{ maxWidth: '640px', margin: '0 auto', width: '100%', padding: isMobile ? '16px 12px 60px' : '24px 16px 60px' }}>
+      <div className="mq-box" style={{ maxWidth: '640px', margin: '0 auto', width: '100%', '--pt-d': "24px", '--pt-m': "16px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "60px", '--pb-m': "60px", '--pl-d': "16px", '--pl-m': "12px" }}>
         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
           <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: theme.faint, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
             {language === 'en' ? 'Font prototype — no copyrighted image' : 'Font prototipi — telifli görsel yok'}
@@ -105,10 +105,10 @@ export default function MushafFontInlineView({ language, isMobile, dayMode }) {
           </div>
         </div>
 
-        <div style={{
+        <div className="mq-box" style={{
           border: `1px solid ${theme.border}`,
           borderRadius: '6px',
-          padding: isMobile ? '28px 18px' : '40px 36px',
+          '--pt-d': "40px", '--pt-m': "28px", '--pr-d': "36px", '--pr-m': "18px", '--pb-d': "40px", '--pb-m': "28px", '--pl-d': "36px", '--pl-m': "18px",
           marginBottom: '20px',
           background: dayMode ? COLORS.mushafPaperBg : 'rgba(255,255,255,0.02)',
           boxShadow: '0 24px 60px rgba(0,0,0,0.25)',

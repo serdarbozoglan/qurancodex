@@ -4089,7 +4089,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   is already word-by-word by nature. Desktop only —
                   mobile accesses this via the Settings panel. */}
               {!isMobile && !interlinearMode && (
-                <button
+                <button className="mq-box"
                   onClick={() => {
                     // Word mode and tajweed colors are mutually exclusive — word-by-word
                     // rendering bypasses the tajweed pipeline, so leaving tajweed on while
@@ -4103,7 +4103,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   }}
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                    minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                     border: `1px solid ${wordMode ? navC.btnBorderActive : navC.btnBorder}`,
                     background: wordMode ? navC.btnBgActive : navC.btnBg,
                     transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4124,11 +4124,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
               {/* MEAL — tek buton (2026-07-08 kullanıcı feedback: KELİME/TEFSİR sibling
                   pattern'ıyla eş). Tıklama → dropdown açılır; dropdown içinde HEM toggle
                   HEM author listesi zaten var. Aktif state showTranslation'a bağlı. */}
-              {!isMobile && <button
+              {!isMobile && <button className="mq-box"
                 onClick={() => { setShowMealPicker(p => !p); setShowSettingsPicker(false); setShowReciterPicker(false); setShowSurahPicker(false); }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${showTranslation || showMealPicker ? navC.btnBorderActive : navC.btnBorder}`,
                   background: showTranslation || showMealPicker ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4147,11 +4147,11 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Tefsir (Elmalılı Hamdi Yazır) panel toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
-              {!isMobile && <button
+              {!isMobile && <button className="mq-box"
                 onClick={() => setTafsirOpen(v => !v)}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${tafsirOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: tafsirOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4170,7 +4170,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
 
               {/* Tahta (drawing overlay) toggle — desktop only.
                   Mobile accesses this via the Settings panel. */}
-              {!isMobile && <button
+              {!isMobile && <button className="mq-box"
                 onClick={() => {
                   if (drawMode) {
                     requestExitTahta(() => { clearTahta(); setDrawMode(false); });
@@ -4180,7 +4180,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${drawMode ? navC.btnBorderActive : navC.btnBorder}`,
                   background: drawMode ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -4201,14 +4201,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                   Karaoke desteklemeyen kârîlerde de görünür kalır; sebebi
                   panelin içinde açıklanır (buton gizlemek "özellik yok"
                   izlenimi verirdi). */}
-              {!isMobile && <button
+              {!isMobile && <button className="mq-box"
                 onClick={() => {
                   if (hifzOpen) { stopAudio(); setHifzOpen(false); }
                   else setHifzOpen(true);
                 }}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  minWidth: isMobile ? '36px' : '48px', padding: isMobile ? '0 3px' : '0 5px', height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
+                  minWidth: isMobile ? '36px' : '48px', '--pt-d': "0", '--pt-m': "0", '--pr-d': "5px", '--pr-m': "3px", '--pb-d': "0", '--pb-m': "0", '--pl-d': "5px", '--pl-m': "3px", height: isMobile ? '42px' : '34px', borderRadius: RADIUS.md, cursor: 'pointer', flexShrink: 0,
                   border: `1px solid ${hifzOpen ? navC.btnBorderActive : navC.btnBorder}`,
                   background: hifzOpen ? navC.btnBgActive : navC.btnBg,
                   transition: `all ${TRANSITION.fast}`, gap: isMobile ? '3px' : '1px',
@@ -7904,7 +7904,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const arName = SURAH_NAMES_AR[s - 1];
                           const isMadani = MADANI_SURAHS.has(s);
                           return (
-                            <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
+                            <div className="mq-box" style={{ '--mb-d': '26px', '--mb-m': '20px' }}>
                               <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '2.55rem', '--fs-m': '2.1rem', color: C.gold, lineHeight: 1.5 }}>
                                 سُورَةُ {arName}
                               </div>
@@ -8591,7 +8591,7 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
                           const arName = SURAH_NAMES_AR[s - 1];
                           const isMadani = MADANI_SURAHS.has(s);
                           return (
-                            <div style={{ marginBottom: isMobile ? '20px' : '26px' }}>
+                            <div className="mq-box" style={{ '--mb-d': '26px', '--mb-m': '20px' }}>
                               <div className="mq-fs" style={{ fontFamily: currentFont, '--fs-d': '2.55rem', '--fs-m': '2.1rem', color: C.gold, lineHeight: 1.5 }}>
                                 سُورَةُ {arName}
                               </div>

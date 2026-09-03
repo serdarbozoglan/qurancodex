@@ -187,7 +187,7 @@ export default function MushafInlineView({ language, selectedSurah, isMobile, da
       ref={scrollRef}
       style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
     >
-    <div style={{ maxWidth: showSpread ? '1400px' : sideBySide ? '1080px' : '760px', margin: '0 auto', width: '100%', padding: isMobile ? '16px 12px 60px' : '20px 16px 60px' }}>
+    <div className="mq-box" style={{ maxWidth: showSpread ? '1400px' : sideBySide ? '1080px' : '760px', margin: '0 auto', width: '100%', '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "60px", '--pb-m': "60px", '--pl-d': "16px", '--pl-m': "12px" }}>
       {/* ReadingMode'un kendi SÛRE/CÜZ/SAYFA seçici bar'ı zaten üstte var —
           burada ikinci bir tane daha koymak kafa karıştırıcıydı (kullanıcı
           ekran görüntüsüyle bildirdi, 2026-08-20: "bu menüler neden var

@@ -154,9 +154,9 @@ const RHETORIC_TYPE_LABELS = {
 function Hero({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       position: 'relative', overflow: 'hidden',
-      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
@@ -256,7 +256,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
   const label = (language === 'tr' ? DOMAIN_LABELS_TR[domain.id] : DOMAIN_LABELS_EN[domain.id]) ?? domain.id;
 
   return (
-    <button
+    <button className="mq-box"
       onClick={() => onDomainFilter(domain.id)}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
@@ -265,7 +265,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
         background: hov ? 'rgba(255,255,255,0.045)' : 'rgba(255,255,255,0.025)',
         border: `1px solid ${hov ? `${domain.color}70` : `${domain.color}30`}`,
         borderRadius: 14,
-        padding: isMobile ? '16px' : '18px 20px',
+        '--pt-d': "18px", '--pt-m': "16px", '--pr-d': "20px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "20px", '--pl-m': "16px",
         transform: hov ? 'translateY(-2px)' : 'none',
         boxShadow: hov ? `0 8px 24px -8px ${domain.color}40` : 'none',
         transition: 'all 0.2s ease',
@@ -506,7 +506,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 />
               </div>
 
-              <div style={{ padding: isMobile ? '18px 18px 16px' : '22px 24px 18px' }}>
+              <div className="mq-box" style={{ '--pt-d': "22px", '--pt-m': "18px", '--pr-d': "24px", '--pr-m': "18px", '--pb-d': "18px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "18px" }}>
                 {/* Meta row — domain + surah ref, quiet text, no pill clutter */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
                   <span style={{ width: 7, height: 7, borderRadius: '50%', background: domColor, boxShadow: `0 0 8px ${domColor}80`, flexShrink: 0 }} />
@@ -525,10 +525,10 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 </div>
 
                 {/* Hero Arabic — the card's visual centerpiece */}
-                <div className="mq-fs" style={{
+                <div className="mq-fs mq-box" style={{
                   fontFamily: FONTS.quran, color: COLORS.gold, '--fs-d': '1.8rem', '--fs-m': '1.6rem',
                   direction: 'rtl', textAlign: 'center', lineHeight: 2.1, margin: '0 0 16px',
-                  padding: isMobile ? '6px 4px' : '10px 12px',
+                  '--pt-d': "10px", '--pt-m': "6px", '--pr-d': "12px", '--pr-m': "4px", '--pb-d': "10px", '--pb-m': "6px", '--pl-d': "12px", '--pl-m': "4px",
                 }} dir="rtl" lang="ar">
                   {cleanArabic(p.keyPhrase)}
                 </div>
@@ -545,7 +545,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                       <>
                         <span style={{ opacity: 0.5 }}> · </span>
                         <button onClick={e => { e.stopPropagation(); onPairLink(p.pairedWith); }}
-                          style={{ all: 'unset', cursor: 'pointer', color: CATEGORY.blue, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+                          style={{ all: 'unset', boxSizing: 'border-box', cursor: 'pointer', color: CATEGORY.blue, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 600 }}>
                           {language === 'tr' ? 'Çift meseli gör →' : 'See paired parable →'}
                         </button>
                       </>
