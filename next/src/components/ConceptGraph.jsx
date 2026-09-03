@@ -30,21 +30,43 @@ function normalizeTr(str) {
     .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c');
 }
 
-function verseMatchesConcept(verse, concept) {
-  const text = normalizeTr(verse.turkish || '');
-  return concept.keywords.some(kw => text.includes(normalizeTr(kw)));
+// 2 Eylul 2026 — bu fonksiyon KALDIRILDI, cunku her cagrisinda ayni isi
+// bastan yapiyordu:
+//   normalizeTr(verse.turkish)  → 6236 ayet x 78 kavram =   486.408 cagri
+//   normalizeTr(kw)             → 6236 ayet x 368 kelime = 2.294.848 cagri
+// normalizeTr her cagrida 9 ayri regex .replace()'i ~150 karakterlik metin
+// uzerinde kosturuyor; yani ~25 milyon regex gecisi. Sonuclarin TAMAMI
+// tekrar — ayni ayet metni ve ayni anahtar kelime her defasinda yeniden
+// normalize ediliyordu. /graf/kavram'in TBT'si 2489ms idi (esik 200).
+//
+// Yerine: ayet metinleri BIR KEZ (6236), kavram anahtarlari BIR KEZ (368)
+// normalize edilir → 6.604 cagri. ~420 kat daha az string isi.
+//
+// Sonuc birebir ayni; yalniz tekrar eden hesap eleniyor.
+function buildConceptVerseMap(verses, concepts, normVerses) {
+  const m = {};
+  const nv = normVerses || verses.map(v => normalizeTr(v.turkish || ''));
+  for (const c of concepts) m[c.id] = matchSet(verses, nv, c);
+  return m;
+}
+
+// Tek bir kavram icin eslesen ayet id kumesi. `nv` disaridan gelir —
+// cagiran onu bir kez uretip tekrar tekrar kullanir.
+function matchSet(verses, nv, concept) {
+  const kws = concept.keywords.map(normalizeTr);   // kavram basina 1 kez
+  const set = new Set();
+  for (let i = 0; i < verses.length; i++) {
+    const t = nv[i];
+    for (let k = 0; k < kws.length; k++) {
+      if (t.includes(kws[k])) { set.add(verses[i].id); break; }
+    }
+  }
+  return set;
 }
 
 // ─── GRAPH BUILDER — fixed radial layout, no simulation ──────────────────────
 function buildConceptGraph(verses, concepts, centralId, width, height, precomputedMap) {
-  const conceptVerseMap = precomputedMap || (() => {
-    const m = {};
-    concepts.forEach(c => {
-      const matched = verses.filter(v => verseMatchesConcept(v, c));
-      m[c.id] = new Set(matched.map(v => v.id));
-    });
-    return m;
-  })();
+  const conceptVerseMap = precomputedMap || buildConceptVerseMap(verses, concepts);
 
   const centralSet = conceptVerseMap[centralId] || new Set();
   const central = concepts.find(c => c.id === centralId);
@@ -183,13 +205,26 @@ export default function ConceptGraph({ onClose, restore = null }) {
       // Precompute concept-verse map in chunks to avoid blocking the main thread
       const concepts = cData.concepts;
       const map = {};
+      // Ayet metinleri BIR KEZ normalize edilir (6236 cagri, tek gecis).
+      // Onceden bu is her kavram icin bastan yapiliyordu — bkz.
+      // buildConceptVerseMap ustundeki not.
+      const normVerses = versesData.map(v => normalizeTr(v.turkish || ''));
+
+      // Parca boyutu SABIT 8 kavram degil, SURE BUTCESI (2 Eylul 2026).
+      // Sabit sayiyla parcalamanin sorunu: bir parcanin ne kadar surecegi
+      // cihaza bagli. Masaustunde 8 kavram ~6ms, 4x kisitlanmis mobilde
+      // ~100ms suruyordu — yani mobilde her parca uzun gorev esigini (50ms)
+      // asiyor ve TBT'ye yaziliyordu (olculdu: en uzun gorevler 119/109/
+      // 102/99ms, sayfa TBT'si 430ms, esik 200).
+      // Butce ile her parca hangi cihazda olursa olsun ~12ms'de kesilir;
+      // hizli cihaz cok kavram, yavas cihaz az kavram isler.
+      const BUDGET_MS = 12;
       let i = 0;
       function processChunk() {
-        const end = Math.min(i + 8, concepts.length);
-        for (; i < end; i++) {
-          const c = concepts[i];
-          const matched = versesData.filter(v => verseMatchesConcept(v, c));
-          map[c.id] = new Set(matched.map(v => v.id));
+        const t0 = performance.now();
+        while (i < concepts.length && performance.now() - t0 < BUDGET_MS) {
+          map[concepts[i].id] = matchSet(versesData, normVerses, concepts[i]);
+          i++;
         }
         if (i < concepts.length) {
           setTimeout(processChunk, 0);
