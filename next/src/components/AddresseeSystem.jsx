@@ -15,7 +15,7 @@ const INITIAL_SHOW = 2;
 
 export default function AddresseeSystem({ onClose }) {
   const { language } = useLanguage();
-  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // paddingTop: `${navTop}px` hardcode idi — gerçek navbar yüksekliği 62'den farklı
   // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
   const navTop = useNavbarOffset(0, 62);
   const [data]         = useState(addresseesDataStatic);

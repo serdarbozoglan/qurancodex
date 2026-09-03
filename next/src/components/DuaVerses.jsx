@@ -233,7 +233,7 @@ function DuaCard({ dua, language, isPlaying, isFailed, onPlay, onStop }) {
 
 export default function DuaVerses({ onClose }) {
   const { language } = useLanguage();
-  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // paddingTop: `${navTop}px` hardcode idi — gerçek navbar yüksekliği 62'den farklı
   // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
   const navTop = useNavbarOffset(0, 62);
   const [duas] = useState(duaVersesDataStatic.duas || []);

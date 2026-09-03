@@ -31,6 +31,10 @@ import { readQueryHistory, pushQueryHistory as sharedPushHistory, removeQueryHis
 import useNavbarOffset from '../../../components/useNavbarOffset';
 
 export default function SorRoute() {
+  // Buradaki SABIT 62px BILEREK duruyor: navTop SorInner'da olculuyor, bu
+  // Suspense fallback'i ise SorRoute kapsaminda — navTop burada tanimsiz
+  // (asagidaki 44. satir notunun aynisi; navTop'u buraya tasimak sayfayi
+  // bosaltiyor). Fallback zaten bos bir zemin, olculen degere ihtiyaci yok.
   return (
     <Suspense fallback={<div style={{ minHeight: 'calc(100vh - 62px)', background: COLORS.cosmicBlack }} />}>
       <SorInner />
@@ -219,8 +223,8 @@ function SorInner() {
     <div
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
-        paddingTop: '62px', // Navbar height
+        minHeight: `calc(100vh - ${navTop}px)`,
+        paddingTop: `${navTop}px`, // Navbar height
         color: COLORS.offWhite,
       }}
     >

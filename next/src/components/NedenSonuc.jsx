@@ -100,7 +100,7 @@ function CategoryIcon({ id, color, size = 15 }) {
 export default function NedenSonuc() {
   const { language } = useLanguage();
   const tr = language === 'tr';
-  // paddingTop: '62px' hardcode idi — gerçek navbar yüksekliği 62'den farklı
+  // paddingTop: `${navTop}px` hardcode idi — gerçek navbar yüksekliği 62'den farklı
   // olabiliyor (§13.13/§13.31 Mekanizma 2), dinamik ölçüme geçildi.
   const navTop = useNavbarOffset(0, 62);
   const [data] = useState(nedenSonucDataStatic);

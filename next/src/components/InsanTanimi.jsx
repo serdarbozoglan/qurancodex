@@ -46,8 +46,8 @@ export default function InsanTanimi({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         icon={<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>}

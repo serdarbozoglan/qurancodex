@@ -66,9 +66,9 @@ export default function YakinAnlamliNuanslar({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         icon={<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="12" r="4" /><circle cx="16" cy="12" r="4" /><path d="M8 12h8" /></svg>}

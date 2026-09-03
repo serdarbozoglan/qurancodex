@@ -292,9 +292,9 @@ export default function ConceptGraph({ onClose, restore = null }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
       fontFamily: FONTS.body,
     }}>
       <style>{`

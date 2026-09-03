@@ -98,10 +98,10 @@ export default function IbadetlerPillar({ pillarData, language, isMobile }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex',
       flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
     }}>
       <ToolHeader
         titleTr={pillarData.titleTr}

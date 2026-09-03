@@ -114,7 +114,7 @@ export default function BilimselIsaretler({ onClose }) {
 
   if (!data) {
     return (
-      <div ref={trapRef} style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', display: 'flex', flexDirection: 'column', paddingTop: '62px' }}>
+      <div ref={trapRef} style={{ background: COLORS.cosmicBlack, minHeight: `calc(100vh - ${navTop}px)`, display: 'flex', flexDirection: 'column', paddingTop: `${navTop}px` }}>
         {TOOL_HEADER}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: COLORS.silver, fontFamily: FONTS.body }}>{tr ? 'Yükleniyor…' : 'Loading…'}</span>
@@ -129,9 +129,9 @@ export default function BilimselIsaretler({ onClose }) {
   return (
     <div ref={trapRef} style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
     }}>
       {TOOL_HEADER}
       <div ref={bodyRef} style={{ flex: 1, overflowX: 'hidden' }}>

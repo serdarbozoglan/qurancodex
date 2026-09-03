@@ -52,8 +52,8 @@ export default function DuaDili({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
       position: 'relative',
     }}>
       <ToolHeader

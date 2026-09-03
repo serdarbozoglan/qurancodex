@@ -1326,9 +1326,9 @@ export default function Melekler({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
+      minHeight: `calc(100vh - ${navTop}px)`,
       display: 'flex', flexDirection: 'column',
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
     }}>
 
       {/* ── Header (standart ToolHeader pattern — Navbar logo hizalı) ── */}

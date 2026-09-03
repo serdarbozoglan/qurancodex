@@ -261,7 +261,7 @@ export default function AhiretYolculugu({ onClose }) {
       background: COLORS.cosmicBlack,
       minHeight: '100vh',
       color: COLORS.offWhite,
-      paddingTop: '62px',
+      paddingTop: `${navTop}px`,
       position: 'relative',
     }}>
       {/* Top scroll progress bar */}

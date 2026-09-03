@@ -82,9 +82,9 @@ export default function KuranYeminleri({ onClose }) {
         ref={trapRef}
         style={{
           background: COLORS.cosmicBlack,
-          minHeight: 'calc(100vh - 62px)',
+          minHeight: `calc(100vh - ${navTop}px)`,
           display: 'flex', flexDirection: 'column',
-          paddingTop: '62px',
+          paddingTop: `${navTop}px`,
         }}
       >
         <ToolHeader
@@ -110,9 +110,9 @@ export default function KuranYeminleri({ onClose }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
       }}
     >
       <ToolHeader

@@ -129,7 +129,7 @@ export default function QuranCommands({ onClose }) {
   );
 
   if (!data) return (
-    <div style={{ background: COLORS.cosmicBlack, minHeight: 'calc(100vh - 62px)', paddingTop: '62px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ background: COLORS.cosmicBlack, minHeight: `calc(100vh - ${navTop}px)`, paddingTop: `${navTop}px`, display: 'flex', flexDirection: 'column' }}>
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ color: COLORS.silver, fontFamily: "'Inter', sans-serif" }}>{language === 'tr' ? 'Yükleniyor…' : 'Loading…'}</div>
       </div>
@@ -194,8 +194,8 @@ export default function QuranCommands({ onClose }) {
   return (
     <div style={{
       background: COLORS.cosmicBlack,
-      minHeight: 'calc(100vh - 62px)',
-      paddingTop: '62px',
+      minHeight: `calc(100vh - ${navTop}px)`,
+      paddingTop: `${navTop}px`,
       fontFamily: "'Inter', sans-serif",
     }}>
       <ToolHeader

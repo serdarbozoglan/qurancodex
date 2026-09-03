@@ -168,9 +168,9 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          '--fs-d': 'clamp(1.5rem, 2.6vw, 1.85rem)', '--fs-m': '1.3rem',
           lineHeight: 2.1, margin: '0 0 14px',
         }}>
           وَتِلْكَ الْأَمْثَالُ نَضْرِبُهَا لِلنَّاسِ وَمَا يَعْقِلُهَا إِلَّا الْعَالِمُونَ
@@ -206,14 +206,14 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
           textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? "İLMÜ'L-EMSÂL · KUR'ÂN'IN BENZETME DİLİ" : "ʿILM AL-AMTHĀL · THE QUR'AN'S LANGUAGE OF PARABLE"}</p>
-        <h1 style={{
+        <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, margin: '0 0 10px',
         }}>{tr ? 'Mesel Atlası' : 'Atlas of Quranic Parables'}</h1>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>{tr ? 'Su, ışık, bitki, hayvan — her motif bir hikmet taşır' : 'Water, light, plant, animal — every motif carries a wisdom'}</p>
       </div>
@@ -277,7 +277,7 @@ function DomainCard({ domain, count, exampleNodes, onDomainFilter, language, isM
           width: 10, height: 10, borderRadius: '50%', background: domain.color, flexShrink: 0,
           boxShadow: `0 0 10px ${domain.color}90`,
         }} />
-        <span style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1rem' : '1.08rem', fontWeight: 700, color: COLORS.offWhite }}>
+        <span className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': '1.08rem', '--fs-m': '1rem', fontWeight: 700, color: COLORS.offWhite }}>
           {label.split(' / ')[0]}
         </span>
       </div>
@@ -325,10 +325,10 @@ function TabMotifAlanlari({ data, onDomainFilter, language, isMobile }) {
               م
             </span>
           </div>
-          <h2 style={{ fontFamily: FONTS.display, fontSize: isMobile ? '1.3rem' : '1.55rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
+          <h2 className="mq-fs" style={{ fontFamily: FONTS.display, '--fs-d': '1.55rem', '--fs-m': '1.3rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 8px' }}>
             {language === 'tr' ? 'Motif Alanları' : 'Motif Domains'}
           </h2>
-          <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.86rem' : '0.9rem', color: COLORS.silver, opacity: 0.85, maxWidth: 560, margin: '0 auto' }}>
+          <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', color: COLORS.silver, opacity: 0.85, maxWidth: 560, margin: '0 auto' }}>
             {language === 'tr'
               ? `Kur'ân mesellerinin çekildiği ${domains.length} motif alanı — ${totalNodes} motif. Bir alana dokun, Mesel Kataloğu'na filtreli geç.`
               : `The ${domains.length} motif domains Quranic parables draw from — ${totalNodes} motifs. Tap a domain to jump to the filtered catalogue.`}
@@ -520,7 +520,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                 </div>
 
                 {/* Title — display font, real weight */}
-                <div style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontWeight: 700, fontSize: isMobile ? '1.08rem' : '1.18rem', lineHeight: 1.3, marginBottom: 16 }}>
+                <div className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontWeight: 700, '--fs-d': '1.18rem', '--fs-m': '1.08rem', lineHeight: 1.3, marginBottom: 16 }}>
                   {p.nameTr}
                 </div>
 
@@ -533,7 +533,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                   {cleanArabic(p.keyPhrase)}
                 </div>
 
-                <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.84rem' : '0.87rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: '0 0 16px', opacity: 0.92 }}>
+                <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.87rem', '--fs-m': '0.84rem', fontFamily: FONTS.body, lineHeight: 1.65, margin: '0 0 16px', opacity: 0.92 }}>
                   {p.summaryTr}
                 </p>
 
@@ -570,7 +570,7 @@ function TabMeselKatalogu({ parables, domainFilter, language, onDomainFilter: _o
                     )}
                     {verseData && !verseData.loading && verseData.arabic && (
                       <div>
-                        <p style={{ fontFamily: FONTS.quran, color: COLORS.gold, fontSize: isMobile ? '1.35rem' : '1.5rem', direction: 'rtl', textAlign: 'center', lineHeight: 2.2, margin: '0 0 12px' }} dir="rtl" lang="ar">
+                        <p className="mq-fs" style={{ fontFamily: FONTS.quran, color: COLORS.gold, '--fs-d': '1.5rem', '--fs-m': '1.35rem', direction: 'rtl', textAlign: 'center', lineHeight: 2.2, margin: '0 0 12px' }} dir="rtl" lang="ar">
                           {verseData.arabic}
                         </p>
                         {verseData.turkish && (
@@ -787,7 +787,7 @@ function TabNurZulumat({ data, language, isMobile }) {
           background: 'linear-gradient(135deg, rgba(201,162,39,0.12) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
-          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>43</div>
+          <div className="mq-fs" style={{ '--fs-d': '5rem', '--fs-m': '3.5rem', fontWeight: 900, color: COLORS.gold, fontFamily: FONTS.body, lineHeight: 1 }}>43</div>
           <div style={{ color: COLORS.gold, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">نُور</div>
           <div style={{ color: COLORS.gold, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Nûr</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.nurForm}</div>
@@ -810,7 +810,7 @@ function TabNurZulumat({ data, language, isMobile }) {
           background: 'linear-gradient(135deg, rgba(30,30,60,0.5) 0%, rgba(0,0,0,0) 100%)',
           textAlign: 'center',
         }}>
-          <div style={{ fontSize: isMobile ? '3.5rem' : '5rem', fontWeight: 900, color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
+          <div className="mq-fs" style={{ '--fs-d': '5rem', '--fs-m': '3.5rem', fontWeight: 900, color: SEMANTIC.textFaint, fontFamily: FONTS.body, lineHeight: 1 }}>23</div>
           <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.quran, fontSize: '1.4rem', marginTop: '8px', direction: 'rtl' }} dir="rtl" lang="ar">ظُلُمَات</div>
           <div style={{ color: SEMANTIC.textFaint, fontFamily: FONTS.body, fontSize: '0.85rem', fontWeight: 600, marginTop: '6px' }}>Zulumât</div>
           <div style={{ color: COLORS.silver, fontFamily: FONTS.body, fontSize: '0.75rem', marginTop: '4px', fontStyle: 'italic' }}>{stats.zulumatForm}</div>
@@ -1526,9 +1526,9 @@ export default function MeselAtlasi({ onClose, backRef }) {
             <button className="mq-box"
               key={i}
               onClick={() => setActiveTab(i)}
-              style={{
+              className="mq-fs" style={{
                 '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px",
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
                 textTransform: 'uppercase', letterSpacing: '0.06em',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,

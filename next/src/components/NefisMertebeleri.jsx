@@ -98,9 +98,9 @@ export default function NefisMertebeleri({ onClose }) {
         ref={trapRef}
         style={{
           background: COLORS.cosmicBlack,
-          minHeight: 'calc(100vh - 62px)',
+          minHeight: `calc(100vh - ${navTop}px)`,
           display: 'flex', flexDirection: 'column',
-          paddingTop: '62px',
+          paddingTop: `${navTop}px`,
         }}
       >
         {NEFIS_TOOL_HEADER}
@@ -126,9 +126,9 @@ export default function NefisMertebeleri({ onClose }) {
       ref={trapRef}
       style={{
         background: COLORS.cosmicBlack,
-        minHeight: 'calc(100vh - 62px)',
+        minHeight: `calc(100vh - ${navTop}px)`,
         display: 'flex', flexDirection: 'column',
-        paddingTop: '62px',
+        paddingTop: `${navTop}px`,
       }}
     >
       {NEFIS_TOOL_HEADER}
