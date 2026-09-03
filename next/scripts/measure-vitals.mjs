@@ -80,7 +80,44 @@ function startServer() {
 
 const server = await startServer();
 // İlk isteklerde sunucu ısınıyor; ölçümden önce bir tur at.
-const browser = await chromium.launch();
+// ─── GPU: WebGL sayfalarinda olcum artefaktini onlemek icin ────────────────
+// 2 Eylul 2026. Bassiz Chromium varsayilan olarak WebGL'i SwiftShader ile
+// YAZILIMDA cizer. Bu, WebGL kullanan sayfalarda TBT'yi taninmaz hale
+// getiriyordu — olculdu, /tr/graf/ayet masaustu-1440:
+//     SwiftShader 6690ms   ·   gercek GPU (Metal) 549ms
+// Yani raporlanan degerin ~%92'si gercek kullanicida OLMAYAN bir maliyetti;
+// taban aylarca bu sayfalari yanlis "agir" gosterdi. (Mobilde fark yok:
+// IS_MOBILE_3D_BLOCKED 3D'yi zaten kapatiyor, oradaki TBT gercek JS isi.)
+//
+// Bayraklar GPU'yu ZORLAMAZ, yalnizca engelleri kaldirir; GPU'su olmayan bir
+// ortamda (CI konteyneri) Chromium sessizce SwiftShader'a doner ve olcum
+// eskisi gibi calisir. Kullanilan renderer asagida bir kez yazdirilir ki
+// rapora bakan kisi hangi kosulda olculdugunu bilsin.
+// Not: `--ignore-gpu-blocklist` TEK BASINA yetmiyor (denendi, macOS'ta hala
+// SwiftShader donuyordu). Isi yapan bayrak ANGLE arka ucunu acikca secmek.
+const GPU_ARGS = process.platform === 'darwin'
+  ? ['--use-angle=metal', '--ignore-gpu-blocklist']
+  : ['--ignore-gpu-blocklist', '--enable-gpu-rasterization'];
+const browser = await chromium.launch({ args: GPU_ARGS });
+
+{
+  const probe = await browser.newPage();
+  await probe.goto('about:blank');
+  const renderer = await probe.evaluate(() => {
+    const gl = document.createElement('canvas').getContext('webgl2')
+            || document.createElement('canvas').getContext('webgl');
+    if (!gl) return 'WebGL yok';
+    const d = gl.getExtension('WEBGL_debug_renderer_info');
+    return d ? gl.getParameter(d.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+  });
+  await probe.close();
+  const yazilim = /swiftshader|llvmpipe|software/i.test(renderer);
+  console.log(`\nWebGL renderer: ${renderer}`);
+  if (yazilim) {
+    console.log('UYARI: yazilim render\'i aktif — WebGL kullanan sayfalarin (/graf/ayet)');
+    console.log('       TBT degerleri GERCEK KULLANICIYI YANSITMAZ, ~10x sisirilir.');
+  }
+}
 
 console.log(`\n═══ ÜRETİM ÖLÇÜMÜ · ${BASE} ═══\n`);
 const summary = [];
