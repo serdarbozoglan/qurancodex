@@ -7059,11 +7059,25 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
         )}
 
         {loading && (
-          // minHeight: '100%' (60vh DEĞİL) — bu kapsayıcı zaten flex:1/
-          // overflowY:auto scroll alanının içinde; iskeletin en az o alan
-          // kadar yer kaplaması, gerçek ayet içeriği gelince kapsayıcının
-          // aniden büyümesini/küçülmesini önler (CLS, Z3-V kök #2).
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100%', gap: '20px' }}>
+          // 2 Eylul 2026 — AKISTAN CIKARILDI. Onceki hali `minHeight: '100%'`
+          // ile AKIS ICINDE duruyordu; niyet "iskelet en az scroll alani kadar
+          // yer kaplasin ki icerik gelince kapsayici zipla­masin" idi (Z3-V kok
+          // #2, 14 Agustos). Ama ayet icerigi `loading` true iken DE render
+          // ediliyor — yani iskelet onu 714px asagi itiyordu. loading false
+          // olunca 714px'lik blok yok oluyor ve icerik y=844'ten y=130'a
+          // FIRLIYORDU. Olculdu (uretim build'i, mobil-390): tam da bu tek
+          // kayma CLS'in 0.716'si; sayfa toplami 0.788 (esik 0.1).
+          // 14 Agustos'taki duzeltme bunu 0.918 -> 0.788'e cekmis ve commit
+          // mesajinda "kismi" diye isaretlenmisti — kalan kisim buydu.
+          //
+          // Cozum: `position:absolute; inset:0` ile kapsayicinin (satir ~6860,
+          // zaten `position:relative`) gorunur kutusunu opak olarak ORTER.
+          // Akista sifir yer kaplar, dolayisiyla icerigi itmez; loading bitince
+          // yalnizca kaybolur — kaybolan eleman CLS'e sayilmaz.
+          <div style={{
+            position: 'absolute', inset: 0, zIndex: 2, background: C.bg,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '20px',
+          }}>
             <div style={{
               width: '48px', height: '48px', borderRadius: RADIUS.full,
               border: `3px solid ${dayMode ? 'rgba(100,60,10,0.12)' : 'rgba(212,165,116,0.12)'}`,
@@ -7095,7 +7109,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             dokunulmuyor. import MushafInlineView from './MushafInlineView'
             satırı ve ENABLE_MUSHAF_IMAGE_MODE bayrağı silinmedi, ileride
             gerekirse geri bakılabilir. */}
-        {bookMode ? (
+        {/* 2 Eylul 2026 — icerik bolgesi `loading` bitene kadar HIC KURULMAZ.
+            Onceden loading sirasinda da yerlesiyordu; yukleme bitince bu
+            agac yeniden kuruluyor ve gorunur alanda kayma uretiyordu
+            (olculdu: mobil-390'da 0.274 CLS, kaynak sure basligi + MEAL
+            secici blogu, y212h180 -> kaldirildi). Kullanici bunu zaten
+            gormuyordu: ustunde opak yukleme katmani var. Simdi yerlesim
+            tek seferde, dogru veriyle yapiliyor. */}
+        {!loading && (bookMode ? (
           /* ── Book format — all surahs ── */
           <>
           <div className="mq-box" style={{
@@ -10137,10 +10158,14 @@ export default function ReadingMode({ onClose, initialSurah, initialAyah }) {
             })}
           </div>
           )
-        )}
+        ))}
 
         {/* Bottom page navigator */}
-        {bookMode && (
+        {/* `!loading` sarti 2 Eylul 2026'da eklendi: bu gezgin yukleme
+            sirasinda da yerlesiyor ve icerik bolgesi kapali oldugu icin
+            basligin hemen altina (y=130) oturuyordu; yukleme bitince
+            yerini birakip kayma uretiyordu (olculdu: 0.0735 CLS). */}
+        {!loading && bookMode && (
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             gap: '12px', padding: '18px 0 8px',
