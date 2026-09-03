@@ -335,14 +335,11 @@ export default function KissaAtlas({ onClose }) {
         isolation: 'isolate',
       }}>
         {/* Row 1: Prophet tabs (desktop inline / mobile scrollable) */}
-        {/* height: '52px' SABITI KALDIRILDI (1 Eylul 2026). Efendimiz'in (s.a.v.)
-            kaydi + ayrac eklenince satirin icerik genisligi 1146px -> 1293px
-            oldu; 1300px altindaki ekranlarda haplar iki satira sardi ve sabit
-            52px'lik kutudan TASTI. Serit alt kenarini gecen kisim altta duran
-            "Hz. Musa" basligiyla ust uste bindi (olculdu: 1024px'te 3px,
-            <=1000px'te 6px ortusme). Sarmayi asagida nowrap ile tamamen
-            engelliyoruz; minHeight ise ileride bir sey buyurse kirpmak yerine
-            serit yuksellsin diye. */}
+        {/* height: '52px' SABITI -> minHeight (1 Eylul 2026). Sabit yukseklikle
+            serit, icerigi sigmadiginda BUYUMEK yerine KIRPIYORDU: haplar iki
+            satira sariyor, ikinci satir 52px'lik kutudan tasip alttaki "Hz.
+            Musa" basliginin uzerine biniyordu. minHeight ile serit artik
+            sarma oldugunda yukselir (53px -> ~104px, bkz. asagidaki not). */}
         <div style={{
           display: 'flex', alignItems: 'center',
           padding: isMobile ? '10px 16px' : '9px 20px',
@@ -358,8 +355,8 @@ export default function KissaAtlas({ onClose }) {
                    gorunuyor; ustelik Efendimiz'in (s.a.v.) kaydi tam da
                    varsayilan olarak ekran disinda kalan kayit oluyordu.
                  - Sarma: hicbir kayit gizlenmez, kaydirma cubugu yok, kesik
-                   yok. Serit 53px'ten ~97px'e cikiyor ama yalnizca sigmadigi
-                   ekranlarda. Bunu sectik.
+                   yok. Serit 53px'ten 104px'e cikiyor ama yalnizca sigmadigi
+                   ekranlarda (olculdu: >=1512px tek satir 59px). Bunu sectik.
                Ustteki kapta `height` yerine `minHeight` var; sarma oldugunda
                serit KIRPMAK yerine buyur. rowGap sarilan satirlari ayirir. */
             <div style={{
@@ -369,16 +366,15 @@ export default function KissaAtlas({ onClose }) {
             }}>
               {data.prophets.map(p => (
                 <Fragment key={p.id}>
-                {/* Hâtemü'n-nebiyyîn kaydı listenin sonunda ve ayraçla ayrı
-                    durur: öncekilerin kıssası ona anlatıldı, onunki inerken
-                    anlatıldı. Sıradaki 13. eşit kayıt değil. */}
-                {/* Serbest duran ayrac SPAN'i KALDIRILDI (1 Eylul 2026):
-                    serit sardiginda MUHAMMED 2. satira geciyor, ayrac 1.
-                    satirin sonunda OKSUZ bir cizgi olarak kaliyordu.
-                    Hatemu'n-nebiyyin'i ayirma niyeti korunuyor ama artik
-                    kaydin KENDI uzerinde: solunda fazladan bosluk + kendi
-                    altin tonunda kenarlik. Bu, sarsin ya da sarmasin her
-                    durumda dogru okunur. */}
+                {/* Hâtemü'n-nebiyyîn kaydı listenin sonunda AYRI durur:
+                    öncekilerin kıssası ona anlatıldı, onunki inerken
+                    anlatıldı. Sıradaki 13. eşit kayıt değil.
+                    Bu ayrım ÖNCE serbest duran bir ayraç SPAN'iydi; 1 Eylül
+                    2026'da kaldırıldı, çünkü şerit sardığında MUHAMMED 2.
+                    satıra geçiyor ve ayraç 1. satırın sonunda ÖKSÜZ bir çizgi
+                    olarak kalıyordu. Ayrım artık kaydın KENDİ üzerinde:
+                    solunda fazladan boşluk + kendi altın tonunda kenarlık.
+                    Sarsın ya da sarmasın her durumda doğru okunur. */}
                 <button
                   onClick={() => selectProphet(p.id)}
                   style={{
