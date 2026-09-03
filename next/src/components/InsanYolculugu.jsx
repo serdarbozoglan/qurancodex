@@ -109,26 +109,26 @@ export default function InsanYolculugu({ onClose }) {
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
           }}>
-            <div style={{
+            <div className="mq-fs" style={{
               fontFamily: "'Amiri Quran', serif",
               color: COLORS.gold, opacity: 0.82,
-              fontSize: isMobile ? '1.6rem' : '2rem',
+              '--fs-d': '2rem', '--fs-m': '1.6rem',
               margin: '0 0 18px', lineHeight: 1,
             }} aria-hidden="true">﷽</div>
 
-            <p dir="rtl" lang="ar" style={{
+            <p dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
               color: COLORS.gold,
-              fontSize: isMobile ? '1.1rem' : '1.35rem',
+              '--fs-d': '1.35rem', '--fs-m': '1.1rem',
               lineHeight: 2.1,
               margin: '0 auto 12px', maxWidth: '780px',
             }}>
               يَٓا اَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِع۪ٓي اِلٰى رَبِّكِ رَاضِيَةً مَرْضِيَّةً
             </p>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.offWhiteAlpha78,
-              fontSize: isMobile ? '0.95rem' : '1.05rem',
+              '--fs-d': '1.05rem', '--fs-m': '0.95rem',
               lineHeight: 1.6, margin: '0 auto 6px', maxWidth: '660px',
             }}>
               {isEn
@@ -155,40 +155,40 @@ export default function InsanYolculugu({ onClose }) {
             }}>
               {isEn ? 'HUMAN JOURNEY · 10-STAGE SPIRITUAL MATURATION' : 'İNSAN YOLCULUĞU · 10 AŞAMALI MANEVÎ OLGUNLAŞMA'}
             </p>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
               color: COLORS.offWhite,
               margin: '0 0 10px', fontWeight: 700,
             }}>
               {isEn ? data.intro.titleEn : data.intro.titleTr}
             </h2>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.gold,
-              fontSize: isMobile ? '1.05rem' : '1.15rem',
+              '--fs-d': '1.15rem', '--fs-m': '1.05rem',
               margin: '0 auto 20px', maxWidth: '680px',
               lineHeight: 1.5,
             }}>
               {isEn ? data.intro.subtitleEn : data.intro.subtitleTr}
             </p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.silver,
-              fontSize: isMobile ? '0.92rem' : '1rem',
+              '--fs-d': '1rem', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto', maxWidth: '740px',
             }}>
               {isEn ? data.intro.descEn : data.intro.descTr}
             </p>
 
             {/* Micro-stat */}
-            <div style={{
+            <div className="mq-fs" style={{
               display: 'inline-flex', alignItems: 'center',
               gap: isMobile ? '10px' : '18px',
               padding: '8px 18px', marginTop: '22px',
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderRadius: RADIUS.pill,
-              fontSize: isMobile ? '0.68rem' : '0.72rem',
+              '--fs-d': '0.72rem', '--fs-m': '0.68rem',
               letterSpacing: '0.14em', textTransform: 'uppercase',
               color: COLORS.silver, fontWeight: 600,
               flexWrap: 'wrap', justifyContent: 'center',

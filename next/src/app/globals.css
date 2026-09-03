@@ -1344,6 +1344,25 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
   margin-left: var(--ml-d, unset);
   margin-right: var(--mr-d, unset);
 }
+/* ── .mq-fs — responsive YAZI BOYUTU, .mq-box'in font-size kardesi ──────────
+   2 Eylul 2026. `fontSize: isMobile ? A : B` kalibi ILK BOYAMADA her zaman
+   masaustu dalini cizer (isMobile useState(false) + effect ile mount sonrasi
+   true olur, §16.6). Mobilde bu, yazi boyutunun mount'tan sonra degismesi
+   demek — metin yeniden akar ve altindaki her sey kayar.
+   Olculdu (uretim, mobil-390, CPU x4): /atlas/insan-yolculugu kahraman
+   basligi 32px -> 27.3px @589ms, sayfa CLS 0.528 (esik 0.1), uc kosuda da
+   birebir ayni.
+   Cozum: boyutu JS'e sormadan CSS'te kirmak. Ilk boyama dogru olur, kayma
+   olmaz. Kullanim:
+     <h2 className="mq-fs" style={{ '--fs-d': '2rem', '--fs-m': '1.6rem' }}>
+   Esik 639.98px = tokens.js'teki BREAKPOINT_MOBILE (640, `<` ile) ile BIREBIR
+   ayni yerde kirilir; .mq-box'in 640px'i tam 640'ta JS ile ayrisir, yeni
+   yardimcida o hata tekrarlanmadi. */
+.mq-fs { font-size: var(--fs-d, unset); }
+@media (max-width: 639.98px) {
+  .mq-fs { font-size: var(--fs-m, var(--fs-d, unset)); }
+}
+
 @media (max-width: 640px) {
   .mq-box {
     padding-top: var(--pt-m, var(--pt-d, unset));
