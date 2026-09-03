@@ -359,9 +359,9 @@ export default function SunnetullahAtlasi({ onClose }) {
           {/* Bismillah ornament */}
           <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
@@ -375,9 +375,9 @@ export default function SunnetullahAtlasi({ onClose }) {
           {/* Anchor verse — Fâtır 35:43 (the classical Sunnetullah verse) */}
           <p
             dir="rtl" lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 16px',
@@ -388,11 +388,11 @@ export default function SunnetullahAtlasi({ onClose }) {
             فَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَبْدِيلاً وَلَنْ تَجِدَ لِسُنَّتِ اللّٰهِ تَحْوِيلاً
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '660px',
@@ -416,11 +416,11 @@ export default function SunnetullahAtlasi({ onClose }) {
           </p>
 
           {/* Framing whisper */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 40px',
             maxWidth: '700px',
@@ -451,9 +451,9 @@ export default function SunnetullahAtlasi({ onClose }) {
           </div>
 
           {/* Big Title */}
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+            '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
             fontWeight: 700,
             fontFamily: FONTS.display,
             margin: '0 auto 14px',
@@ -465,9 +465,9 @@ export default function SunnetullahAtlasi({ onClose }) {
           </h2>
 
           {/* Dramatic subtitle */}
-          <p style={{
+          <p className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+            '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
             color: COLORS.gold,
             margin: '0 auto 28px',
             lineHeight: 1.55,
@@ -565,7 +565,7 @@ export default function SunnetullahAtlasi({ onClose }) {
               <button className="mq-box"
                 key={i}
                 onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('sunnetullah-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-                style={{
+                className="mq-fs" style={{
                   textTransform: 'uppercase',
                   letterSpacing: '0.12em',
                   flexShrink: 0,
@@ -578,7 +578,7 @@ export default function SunnetullahAtlasi({ onClose }) {
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: '0',
                   color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.82rem' : '0.9rem',
+                  '--fs-d': '0.9rem', '--fs-m': '0.82rem',
                   fontFamily: FONTS.body,
                   fontWeight: isActive ? 600 : 400,
                   cursor: 'pointer',
@@ -653,9 +653,9 @@ export default function SunnetullahAtlasi({ onClose }) {
 function TabLafziAyetler({ items, language, isMobile }) {
   return (
     <div>
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.75,
         margin: '0 0 24px',
@@ -744,9 +744,9 @@ function LiteralVerseCard({ item, language, isMobile }) {
       <div
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           ...TEXT.verseArabic,
-          fontSize: isMobile ? '1.35rem' : '1.55rem',
+          '--fs-d': '1.55rem', '--fs-m': '1.35rem',
           color: COLORS.offWhite,
           lineHeight: 2.0,
         }}
@@ -768,9 +768,9 @@ function LiteralVerseCard({ item, language, isMobile }) {
         <div
           dir="rtl"
           lang="ar"
-          style={{
+          className="mq-fs" style={{
             fontFamily: FONTS.quran,
-            fontSize: isMobile ? '1.05rem' : '1.25rem',
+            '--fs-d': '1.25rem', '--fs-m': '1.05rem',
             color: COLORS.gold,
             direction: 'rtl',
             textAlign: 'right',
@@ -877,9 +877,9 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
 
   return (
     <div>
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.75,
         margin: '0 0 20px',
@@ -904,13 +904,13 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
             <button className="mq-box"
               key={cat.id}
               onClick={() => onSelect(cat.id)}
-              style={{
+              className="mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? cat.color : COLORS.glassBorder}`,
                 background: isActive ? `${cat.color}22` : 'transparent',
                 color: isActive ? cat.color : COLORS.silver,
-                fontSize: isMobile ? '0.78rem' : '0.85rem',
+                '--fs-d': '0.85rem', '--fs-m': '0.78rem',
                 fontWeight: isActive ? 600 : 400,
                 fontFamily: FONTS.body,
                 cursor: 'pointer',
@@ -964,9 +964,9 @@ function TabTematikKanunlar({ categories, activeCategoryId, onSelect, language, 
           <LawIcon id={active.id} color={active.color} size={isMobile ? 26 : 32} />
         </div>
         <div style={{ flex: 1, minWidth: 0, position: 'relative', zIndex: 1 }}>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           color: active.color,
-          fontSize: isMobile ? '1.15rem' : '1.35rem',
+          '--fs-d': '1.35rem', '--fs-m': '1.15rem',
           fontFamily: FONTS.display,
           fontWeight: 700,
           margin: '0 0 10px',
@@ -1141,9 +1141,9 @@ function ThematicItemCard({ item, accent, index, language, isMobile }) {
       <div
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.3rem' : '1.5rem',
+          '--fs-d': '1.5rem', '--fs-m': '1.3rem',
           color: COLORS.offWhite,
           direction: 'rtl',
           textAlign: 'right',
@@ -1218,9 +1218,9 @@ function WarningNote({ kind, label, body, isMobile }) {
 function TabUlemaGorusleri({ views, language, isMobile }) {
   return (
     <div>
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.75,
         margin: '0 0 24px',
@@ -1261,9 +1261,9 @@ function ScholarCard({ view, language, isMobile }) {
         gap: '12px',
         flexWrap: 'wrap',
       }}>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           color: COLORS.offWhite,
-          fontSize: isMobile ? '1.25rem' : '1.55rem',
+          '--fs-d': '1.55rem', '--fs-m': '1.25rem',
           fontFamily: FONTS.display,
           fontWeight: 700,
           margin: 0,
@@ -1298,9 +1298,9 @@ function ScholarCard({ view, language, isMobile }) {
       </div>
 
       {/* Insight */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? '0.88rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.88rem',
         fontFamily: FONTS.body,
         lineHeight: 1.8,
         margin: 0,
@@ -1399,9 +1399,9 @@ function FormulaBox({ formula, language, isMobile }) {
       {/* Arabic verse (large) */}
       <p
         dir="rtl" lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? '1.15rem' : '1.55rem',
+          '--fs-d': '1.55rem', '--fs-m': '1.15rem',
           color: COLORS.gold,
           lineHeight: 2.0,
           margin: '0 auto 6px',
@@ -1454,9 +1454,9 @@ function FormulaBox({ formula, language, isMobile }) {
               onMouseEnter={e => { if (!isActive) e.currentTarget.style.background = 'rgba(212,165,116,0.08)'; }}
               onMouseLeave={e => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.025)'; }}
             >
-              <div dir="rtl" lang="ar" style={{
+              <div dir="rtl" lang="ar" className="mq-fs" style={{
                 fontFamily: FONTS.quran,
-                fontSize: isMobile ? '1.15rem' : '1.35rem',
+                '--fs-d': '1.35rem', '--fs-m': '1.15rem',
                 color: COLORS.gold,
                 lineHeight: 1.8,
                 marginBottom: '4px',
@@ -1708,10 +1708,10 @@ function KavimPatternCard({ pattern, index, language, isMobile }) {
             {tr ? 'Kavim Örüntüsü' : 'Nation Pattern'}
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px' }}>
-            <h3 style={{
+            <h3 className="mq-fs" style={{
               margin: 0,
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1.3rem' : '1.55rem',
+              '--fs-d': '1.55rem', '--fs-m': '1.3rem',
               fontWeight: 700, color: COLORS.offWhite,
               lineHeight: 1.2,
               flex: 1,

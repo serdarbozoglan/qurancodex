@@ -43,9 +43,9 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.85, marginBottom: '26px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          fontSize: isMobile ? '1.5rem' : 'clamp(1.7rem, 3vw, 2.15rem)',
+          '--fs-d': 'clamp(1.7rem, 3vw, 2.15rem)', '--fs-m': '1.5rem',
           lineHeight: 2.15, margin: '0 0 16px',
         }}>
           {cleanArabic('اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَع۪ينُ')}
@@ -81,14 +81,14 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
           textTransform: 'uppercase', opacity: 0.75, fontWeight: 700, margin: '0 0 14px',
         }}>{tr ? "ÜMMÜ'L-KİTÂB · KUR'ÂN'IN ÖZÜ" : "UMM AL-KITĀB · THE ESSENCE OF THE SCRIPTURE"}</p>
-        <h1 style={{
+        <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.9rem, 8vw, 2.4rem)' : 'clamp(2.4rem, 4.2vw, 3.4rem)',
+          '--fs-d': 'clamp(2.4rem, 4.2vw, 3.4rem)', '--fs-m': 'clamp(1.9rem, 8vw, 2.4rem)',
           lineHeight: 1.15, margin: '0 0 12px', letterSpacing: '0.01em',
         }}>{tr ? 'Fâtiha Atlası' : 'Atlas of the Opening'}</h1>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.15rem)' : 'clamp(1.1rem, 1.9vw, 1.25rem)',
+          '--fs-d': 'clamp(1.1rem, 1.9vw, 1.25rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.15rem)',
           margin: 0,
         }}>{tr ? 'Klasikten çağdaşa — tek sûrenin yedi katmanı' : 'From classical to contemporary — seven layers of a single surah'}</p>
       </div>
@@ -151,12 +151,12 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
       }}>{initial}</span>
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 8, flexWrap: 'wrap' }}>
-          <span style={{ color: accent, fontSize: isMobile ? '1rem' : '1.08rem', fontFamily: FONTS.display, fontWeight: 700 }}>{scholarLabel}</span>
+          <span className="mq-fs" style={{ color: accent, '--fs-d': '1.08rem', '--fs-m': '1rem', fontFamily: FONTS.display, fontWeight: 700 }}>{scholarLabel}</span>
           {p.scholarSub && (
             <span style={{ color: COLORS.silver, fontSize: '0.74rem', fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.8 }}>{p.scholarSub}</span>
           )}
         </div>
-        <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.85rem' : '0.89rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: p.points?.length ? '0 0 14px' : '0 0 10px' }}>
+        <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.89rem', '--fs-m': '0.85rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: p.points?.length ? '0 0 14px' : '0 0 10px' }}>
           {tr ? p.viewTr : p.viewEn}
         </p>
         {p.points?.length > 0 && (
@@ -168,7 +168,7 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
                   <div style={{ color: accent, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 4 }}>
                     {tr ? pt.labelTr : pt.labelEn}
                   </div>
-                  <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.82rem' : '0.86rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
+                  <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.86rem', '--fs-m': '0.82rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: 0 }}>
                     {tr ? pt.bodyTr : pt.bodyEn}
                   </p>
                 </div>
@@ -196,8 +196,8 @@ function TabBesmele({ data, language, isMobile }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 720, margin: '0 auto' }}>
       <Reveal>
         <div style={{ textAlign: 'center', marginBottom: 8 }}>
-          <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.5rem' : '1.9rem', color: COLORS.gold, margin: '0 0 10px', lineHeight: 2 }}>{cleanArabic(bs.ar)}</p>
-          <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.95rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: 0 }}>
+          <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.9rem', '--fs-m': '1.5rem', color: COLORS.gold, margin: '0 0 10px', lineHeight: 2 }}>{cleanArabic(bs.ar)}</p>
+          <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: 0 }}>
             {tr ? bs.introTr : bs.introEn}
           </p>
         </div>
@@ -245,9 +245,9 @@ function NodeRow({ n, accent, tr, isMobile }) {
         fontSize: '0.7rem', fontWeight: 800, color: accent,
         background: `${accent}1c`, border: `1px solid ${accent}45`,
       }}>{n.pos}</span>
-      <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.05rem' : '1.2rem', color: accent, margin: 0, lineHeight: 1.7, flexShrink: 0 }}>{cleanArabic(n.ar)}</p>
+      <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.2rem', '--fs-m': '1.05rem', color: accent, margin: 0, lineHeight: 1.7, flexShrink: 0 }}>{cleanArabic(n.ar)}</p>
       <div style={{ flex: 1, minWidth: 0, textAlign: isMobile ? 'right' : 'left' }}>
-        <p style={{ color: COLORS.offWhite, fontSize: isMobile ? '0.74rem' : '0.8rem', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>{tr ? n.labelTr : n.labelEn}</p>
+        <p className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '0.8rem', '--fs-m': '0.74rem', fontFamily: FONTS.body, fontWeight: 600, margin: 0 }}>{tr ? n.labelTr : n.labelEn}</p>
         <p style={{ color: COLORS.silver, fontSize: '0.66rem', fontFamily: FONTS.body, opacity: 0.65, margin: 0 }}>{n.ref}</p>
       </div>
     </div>
@@ -291,7 +291,7 @@ function TabRing({ data, language, isMobile }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 28, maxWidth: 720, margin: '0 auto' }}>
       <Reveal>
         <div>
-          <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.95rem', lineHeight: 1.8, fontFamily: FONTS.body, marginBottom: 6 }}>
+          <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body, marginBottom: 6 }}>
             {tr ? rs.introTr : rs.introEn}
           </p>
           <p style={{ color: `${COLORS.gold}90`, fontSize: '0.74rem', fontFamily: FONTS.body, lineHeight: 1.5 }}>
@@ -315,12 +315,12 @@ function TabRing({ data, language, isMobile }) {
             <div style={{ display: 'flex', gap: isMobile ? 12 : 24, justifyContent: 'center', flexWrap: 'wrap' }}>
               {center.map(n => (
                 <div key={n.pos}>
-                  <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.35rem' : '1.6rem', color: COLORS.gold, margin: '0 0 6px' }}>{cleanArabic(n.ar)}</p>
+                  <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.6rem', '--fs-m': '1.35rem', color: COLORS.gold, margin: '0 0 6px' }}>{cleanArabic(n.ar)}</p>
                   <p style={{ color: COLORS.offWhite, fontSize: '0.82rem', fontFamily: FONTS.body, fontStyle: 'italic', margin: 0 }}>{tr ? n.labelTr : n.labelEn}</p>
                 </div>
               ))}
             </div>
-            <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.84rem' : '0.88rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: '18px 0 0' }}>
+            <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.88rem', '--fs-m': '0.84rem', lineHeight: 1.75, fontFamily: FONTS.body, margin: '18px 0 0' }}>
               {tr ? rs.centerNoteTr : rs.centerNoteEn}
             </p>
           </div>
@@ -336,7 +336,7 @@ function TabRing({ data, language, isMobile }) {
       {rs.identityNote && (
         <Reveal>
           <div>
-            <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, margin: '0 0 12px' }}>
+            <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 12px' }}>
               {tr ? rs.identityNote.titleTr : rs.identityNote.titleEn}
             </h3>
             {rs.identityNote.perspectives.map((p, i) => (
@@ -349,10 +349,10 @@ function TabRing({ data, language, isMobile }) {
       {/* Umm al-Kitab */}
       <Reveal>
         <div style={{ padding: isMobile ? '18px' : '24px 28px', background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: 14 }}>
-          <h3 style={{ color: COLORS.gold, fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, margin: '0 0 10px' }}>
+          <h3 className="mq-fs" style={{ color: COLORS.gold, fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
             {tr ? rs.ummulKitab.titleTr : rs.ummulKitab.titleEn}
           </h3>
-          <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 10px' }}>
+          <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 10px' }}>
             {tr ? rs.ummulKitab.bodyTr : rs.ummulKitab.bodyEn}
           </p>
           <p style={{ color: `${COLORS.gold}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>
@@ -364,10 +364,10 @@ function TabRing({ data, language, isMobile }) {
       {/* Konevi sufi reading */}
       <Reveal>
         <div style={{ padding: isMobile ? '18px' : '24px 28px', background: `${CATEGORY_SCALE[3]}0A`, border: `1px solid ${CATEGORY_SCALE[3]}35`, borderRadius: 14 }}>
-          <h3 style={{ color: CATEGORY_SCALE[3], fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, margin: '0 0 10px' }}>
+          <h3 className="mq-fs" style={{ color: CATEGORY_SCALE[3], fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
             {tr ? rs.konevi.titleTr : rs.konevi.titleEn}
           </h3>
-          <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 10px' }}>
+          <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 10px' }}>
             {tr ? rs.konevi.bodyTr : rs.konevi.bodyEn}
           </p>
           <p style={{ color: `${CATEGORY_SCALE[3]}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>
@@ -380,15 +380,15 @@ function TabRing({ data, language, isMobile }) {
       {data.sevenReadings && (
         <Reveal>
           <div style={{ padding: isMobile ? '18px' : '24px 28px', background: `${CATEGORY_SCALE[4]}0A`, border: `1px solid ${CATEGORY_SCALE[4]}35`, borderRadius: 14 }}>
-            <h3 style={{ color: CATEGORY_SCALE[4], fontFamily: FONTS.display, fontSize: isMobile ? '1.05rem' : '1.2rem', fontWeight: 700, margin: '0 0 10px' }}>
+            <h3 className="mq-fs" style={{ color: CATEGORY_SCALE[4], fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
               {tr ? data.sevenReadings.titleTr : data.sevenReadings.titleEn}
             </h3>
             {(data.sevenReadings.contextTr || data.sevenReadings.contextEn) && (
-              <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.84rem' : '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 12px', opacity: 0.9 }}>
+              <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.88rem', '--fs-m': '0.84rem', lineHeight: 1.8, fontFamily: FONTS.body, margin: '0 0 12px', opacity: 0.9 }}>
                 {tr ? data.sevenReadings.contextTr : data.sevenReadings.contextEn}
               </p>
             )}
-            <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.8, fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 10px' }}>
+            <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.8, fontFamily: FONTS.body, fontStyle: 'italic', margin: '0 0 10px' }}>
               {tr ? data.sevenReadings.bodyTr : data.sevenReadings.bodyEn}
             </p>
             <p style={{ color: `${CATEGORY_SCALE[4]}90`, fontSize: '0.72rem', fontFamily: FONTS.body, margin: 0 }}>
@@ -407,7 +407,7 @@ function TabWordChoice({ data, language, isMobile }) {
   const wc = data.wordChoice;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 32, maxWidth: 880, margin: '0 auto' }}>
-      <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.95rem', lineHeight: 1.8, fontFamily: FONTS.body }}>
+      <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body }}>
         {tr ? wc.introTr : wc.introEn}
       </p>
       {wc.groups.map((g, gi) => {
@@ -415,12 +415,12 @@ function TabWordChoice({ data, language, isMobile }) {
         return (
           <div key={g.id} style={{ ...GLASS_CARD, padding: isMobile ? '18px' : '26px', borderTop: `2px solid ${accent}` }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
-              <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.15rem' : '1.35rem', fontWeight: 700, margin: 0 }}>
+              <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: 0 }}>
                 {tr ? g.titleTr : g.titleEn}
               </h3>
               <span style={{ color: accent, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700 }}>{g.ref}</span>
             </div>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.5rem', color: accent, margin: '8px 0 18px', lineHeight: 2 }}>{cleanArabic(g.ar)}</p>
+            <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.5rem', '--fs-m': '1.3rem', color: accent, margin: '8px 0 18px', lineHeight: 2 }}>{cleanArabic(g.ar)}</p>
             {g.perspectives.map((p, i) => <PerspectiveCard key={i} p={p} accent={accent} language={language} isMobile={isMobile} />)}
             {g.examples && (
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -451,7 +451,7 @@ function TabGrammar({ data, language, isMobile }) {
   const gr = data.grammar;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 32, maxWidth: 880, margin: '0 auto' }}>
-      <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.95rem', lineHeight: 1.8, fontFamily: FONTS.body }}>
+      <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body }}>
         {tr ? gr.introTr : gr.introEn}
       </p>
       {gr.cases.map((c, ci) => {
@@ -459,12 +459,12 @@ function TabGrammar({ data, language, isMobile }) {
         return (
           <div key={c.id} style={{ ...GLASS_CARD, padding: isMobile ? '18px' : '26px', borderTop: `2px solid ${accent}` }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
-              <h3 style={{ color: COLORS.offWhite, fontFamily: FONTS.display, fontSize: isMobile ? '1.15rem' : '1.35rem', fontWeight: 700, margin: 0 }}>
+              <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: 0 }}>
                 {tr ? c.titleTr : c.titleEn}
               </h3>
               <span style={{ color: accent, fontSize: '0.72rem', fontFamily: FONTS.body, fontWeight: 700 }}>{c.ref}</span>
             </div>
-            <p dir="rtl" style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.3rem' : '1.5rem', color: accent, margin: '8px 0 18px', lineHeight: 2 }}>{cleanArabic(c.ar)}</p>
+            <p dir="rtl" className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '1.5rem', '--fs-m': '1.3rem', color: accent, margin: '8px 0 18px', lineHeight: 2 }}>{cleanArabic(c.ar)}</p>
             {c.perspectives.map((p, i) => <PerspectiveCard key={i} p={p} accent={accent} language={language} isMobile={isMobile} />)}
             {(c.detailsTr || c.detailsEn) && (
               <div style={{ marginTop: 8, padding: '14px 18px', background: `${accent}0A`, border: `1px dashed ${accent}35`, borderRadius: 10 }}>
@@ -506,7 +506,7 @@ function TabBakaraAnchors({ data, language, isMobile }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 880, margin: '0 auto' }}>
       <div>
-        <p style={{ color: COLORS.silver, fontSize: isMobile ? '0.88rem' : '0.95rem', lineHeight: 1.8, fontFamily: FONTS.body, marginBottom: 8 }}>
+        <p className="mq-fs" style={{ color: COLORS.silver, '--fs-d': '0.95rem', '--fs-m': '0.88rem', lineHeight: 1.8, fontFamily: FONTS.body, marginBottom: 8 }}>
           {tr ? ba.introTr : ba.introEn}
         </p>
         <p style={{ color: `${COLORS.gold}90`, fontSize: '0.74rem', fontFamily: FONTS.body, lineHeight: 1.5 }}>
@@ -670,9 +670,9 @@ export default function FatihaAtlasi({ onClose }) {
             <button
               key={i}
               onClick={() => { setActiveTab(i); setTimeout(() => { document.getElementById('fatiha-tab-anchor')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-              style={{
+              className="mq-fs" style={{
                 padding: isMobile ? '13px 16px' : '15px 24px',
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
                 textTransform: 'uppercase', letterSpacing: '0.08em',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,

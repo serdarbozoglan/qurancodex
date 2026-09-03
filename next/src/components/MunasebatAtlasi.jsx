@@ -108,9 +108,9 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          '--fs-d': 'clamp(1.5rem, 2.6vw, 1.85rem)', '--fs-m': '1.3rem',
           lineHeight: 2.1, margin: '0 0 14px',
         }}>
           اللَّهُ نَزَّلَ أَحْسَنَ الْحَدِيثِ كِتَابًا مُتَشَابِهًا مَثَانِيَ
@@ -146,14 +146,14 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
           textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? 'İLMÜ\'L-MÜNÂSEBÂT · TUTARLILIĞIN MİMARİSİ' : "ʿILM AL-MUNĀSABĀT · THE ARCHITECTURE OF COHERENCE"}</p>
-        <h1 style={{
+        <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, margin: '0 0 10px',
         }}>{tr ? 'Münâsebât Atlası' : 'Atlas of Surah Coherence'}</h1>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>{tr ? 'Sûreler arası köprüler · bir sûrenin kendi çıpaları' : 'Bridges between surahs · a surah\'s own anchors'}</p>
       </div>

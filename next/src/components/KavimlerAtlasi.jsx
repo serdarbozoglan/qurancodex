@@ -447,13 +447,13 @@ export default function KavimlerAtlasi({ onClose }) {
                   if (tabBar) tabBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              style={{
+              className="mq-fs" style={{
                 flexShrink: 0,
                 '--pt-d': "15px", '--pt-m': "14px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "15px", '--pb-m': "14px", '--pl-d': "20px", '--pl-m': "14px",
                 border: 'none', background: 'transparent',
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 color: activeTab === i ? COLORS.gold : SEMANTIC.textFaint,
-                fontSize: isMobile ? '0.74rem' : '0.82rem',
+                '--fs-d': '0.82rem', '--fs-m': '0.74rem',
                 fontWeight: activeTab === i ? 700 : 500,
                 fontFamily: FONTS.body,
                 cursor: 'pointer', transition: `all ${TRANSITION.fast}`,
@@ -524,9 +524,9 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
         {tr ? 'Tefekkür' : 'Reflection'}
       </div>
 
-      <h3 style={{
+      <h3 className="mq-fs" style={{
         fontFamily: FONTS.display, fontWeight: 700,
-        fontSize: isMobile ? 'clamp(1.45rem, 5.5vw, 1.8rem)' : 'clamp(1.7rem, 2.8vw, 2.15rem)',
+        '--fs-d': 'clamp(1.7rem, 2.8vw, 2.15rem)', '--fs-m': 'clamp(1.45rem, 5.5vw, 1.8rem)',
         color: COLORS.offWhite,
         textAlign: 'center',
         lineHeight: 1.3,
@@ -539,10 +539,10 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
           : <>{totalNations} nations. {totalNations} <em style={{ fontStyle: 'normal', color: COLORS.gold }}>same trial</em>.</>}
       </h3>
 
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display, fontStyle: 'italic',
         color: COLORS.silver,
-        fontSize: isMobile ? '1rem' : 'clamp(1rem, 1.7vw, 1.12rem)',
+        '--fs-d': 'clamp(1rem, 1.7vw, 1.12rem)', '--fs-m': '1rem',
         lineHeight: 1.75,
         textAlign: 'center',
         margin: '0 auto 50px',
@@ -656,9 +656,9 @@ function HeroSection({ meta, language, isMobile }) {
         dir="rtl"
         lang="ar"
         aria-label="Bismillāh"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.bismillah,
-          fontSize: isMobile ? '1.6rem' : '2rem',
+          '--fs-d': '2rem', '--fs-m': '1.6rem',
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
@@ -673,9 +673,9 @@ function HeroSection({ meta, language, isMobile }) {
       <p
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+          '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 auto 18px',
@@ -686,11 +686,11 @@ function HeroSection({ meta, language, isMobile }) {
         اَفَلَمْ يَسِيرُوا فِي الْاَرْضِ فَيَنْظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذِينَ مِنْ قَبْلِهِمْ
       </p>
 
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhite,
         fontFamily: FONTS.display,
         fontStyle: 'italic',
-        fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+        '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
         lineHeight: 1.7,
         margin: '0 auto 8px',
         maxWidth: '620px',
@@ -714,11 +714,11 @@ function HeroSection({ meta, language, isMobile }) {
       </p>
 
       {/* Framing whisper */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
         fontFamily: FONTS.display,
         fontStyle: 'italic',
-        fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+        '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
         lineHeight: 1.7,
         margin: '0 auto 40px',
         maxWidth: '700px',
@@ -749,9 +749,9 @@ function HeroSection({ meta, language, isMobile }) {
       </div>
 
       {/* Big Title */}
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         color: COLORS.offWhite,
-        fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+        '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
         fontWeight: 700,
         fontFamily: FONTS.display,
         margin: '0 auto 16px',
@@ -763,9 +763,9 @@ function HeroSection({ meta, language, isMobile }) {
       </h2>
 
       {/* Dramatic subtitle */}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display,
-        fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+        '--fs-d': 'clamp(1.05rem, 1.8vw, 1.2rem)', '--fs-m': '1rem',
         color: COLORS.gold,
         margin: '0 auto 32px',
         lineHeight: 1.5,

@@ -94,10 +94,10 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
             textAlign: 'center',
           }}>
-            <div style={{
+            <div className="mq-fs" style={{
               fontFamily: "'Amiri Quran', serif",
               color: COLORS.gold, opacity: 0.82,
-              fontSize: isMobile ? '1.6rem' : '2rem',
+              '--fs-d': '2rem', '--fs-m': '1.6rem',
               margin: '0 0 18px', lineHeight: 1,
             }} aria-hidden="true">﷽</div>
 
@@ -110,10 +110,10 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             }}>
               وَعَلَّمَ اٰدَمَ الْاَسْمَٓاءَ كُلَّهَا
             </p>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.offWhiteAlpha78,
-              fontSize: isMobile ? '0.95rem' : '1.05rem',
+              '--fs-d': '1.05rem', '--fs-m': '0.95rem',
               lineHeight: 1.6, margin: '0 auto 6px', maxWidth: '660px',
             }}>
               {isEn
@@ -140,39 +140,39 @@ export default function YakinAnlamliNuanslar({ onClose }) {
             }}>
               {isEn ? "NUANCES · WORDS THAT DIFFER" : 'NÜANSLAR · KELİMELER AYRIŞIYOR'}
             </p>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
               color: COLORS.offWhite,
               margin: '0 0 10px', fontWeight: 700,
             }}>
               {isEn ? data.intro.titleEn : data.intro.titleTr}
             </h2>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display, fontStyle: 'italic',
               color: COLORS.gold,
-              fontSize: isMobile ? '1.05rem' : '1.15rem',
+              '--fs-d': '1.15rem', '--fs-m': '1.05rem',
               margin: '0 auto 20px', maxWidth: '680px',
               lineHeight: 1.5,
             }}>
               {isEn ? data.intro.subtitleEn : data.intro.subtitleTr}
             </p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.silver,
-              fontSize: isMobile ? '0.92rem' : '1rem',
+              '--fs-d': '1rem', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto', maxWidth: '740px',
             }}>
               {isEn ? data.intro.descEn : data.intro.descTr}
             </p>
 
-            <div style={{
+            <div className="mq-fs" style={{
               display: 'inline-flex', alignItems: 'center',
               gap: isMobile ? '10px' : '18px',
               padding: '8px 18px', marginTop: '22px',
               background: COLORS.goldAlpha04,
               border: `1px solid ${COLORS.goldAlpha15}`,
               borderRadius: RADIUS.pill,
-              fontSize: isMobile ? '0.68rem' : '0.72rem',
+              '--fs-d': '0.72rem', '--fs-m': '0.68rem',
               letterSpacing: '0.14em', textTransform: 'uppercase',
               color: COLORS.silver, fontWeight: 600,
               flexWrap: 'wrap', justifyContent: 'center',
@@ -208,10 +208,10 @@ export default function YakinAnlamliNuanslar({ onClose }) {
                     setActiveIdx(i);
                     setTimeout(() => document.getElementById('yn-set-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
                   }}
-                  style={{
+                  className="mq-fs" style={{
                     flexShrink: 0,
                     '--pt-d': "10px", '--pt-m': "8px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "10px", '--pb-m': "8px", '--pl-d': "16px", '--pl-m': "12px",
-                    fontSize: isMobile ? '0.7rem' : '0.76rem',
+                    '--fs-d': '0.76rem', '--fs-m': '0.7rem',
                     letterSpacing: '0.06em',
                     textTransform: 'uppercase',
                     fontWeight: isActive ? 700 : 500,
@@ -289,9 +289,9 @@ function SetDetail({ nset, isEn, isMobile }) {
           }}>
             {nset.category?.toUpperCase()}
           </p>
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.4rem' : '1.7rem',
+            '--fs-d': '1.7rem', '--fs-m': '1.4rem',
             color: COLORS.offWhite,
             margin: '6px 0 0', fontWeight: 700,
             letterSpacing: '-0.01em',
@@ -312,9 +312,9 @@ function SetDetail({ nset, isEn, isMobile }) {
       </div>
 
       {/* Intro */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhiteAlpha78,
-        fontSize: isMobile ? '0.98rem' : '1.04rem',
+        '--fs-d': '1.04rem', '--fs-m': '0.98rem',
         lineHeight: 1.75,
         margin: '0 0 32px',
         fontStyle: 'italic',
@@ -338,10 +338,10 @@ function SetDetail({ nset, isEn, isMobile }) {
               marginBottom: '14px',
             }}>
               <div>
-                <p dir="rtl" lang="ar" style={{
+                <p dir="rtl" lang="ar" className="mq-fs" style={{
                   fontFamily: FONTS.quran,
                   color: color,
-                  fontSize: isMobile ? '1.5rem' : '1.75rem',
+                  '--fs-d': '1.75rem', '--fs-m': '1.5rem',
                   margin: '0 0 4px', lineHeight: 1.2,
                 }}>{t.termAr}</p>
                 <p style={{
@@ -425,10 +425,10 @@ function SetDetail({ nset, isEn, isMobile }) {
           letterSpacing: '0.24em', textTransform: 'uppercase',
           margin: '0 0 10px',
         }}>{isEn ? 'THE NUANCE' : 'NÜANS'}</p>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',
           color: COLORS.offWhite,
-          fontSize: isMobile ? '0.98rem' : '1.08rem',
+          '--fs-d': '1.08rem', '--fs-m': '0.98rem',
           lineHeight: 1.7,
           margin: 0,
         }}>

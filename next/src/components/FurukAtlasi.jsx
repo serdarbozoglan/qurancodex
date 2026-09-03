@@ -79,9 +79,9 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, opacity: 0.82, marginBottom: '22px', lineHeight: 1.2,
         }}>﷽</div>
 
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           fontFamily: FONTS.quran, color: COLORS.gold,
-          fontSize: isMobile ? '1.3rem' : 'clamp(1.5rem, 2.6vw, 1.85rem)',
+          '--fs-d': 'clamp(1.5rem, 2.6vw, 1.85rem)', '--fs-m': '1.3rem',
           lineHeight: 2.1, margin: '0 0 14px',
         }}>
           كِتَابٌ فُصِّلَتْ آيَاتُهُ قُرْآنًا عَرَبِيًّا لِّقَوْمٍ يَعْلَمُونَ
@@ -117,14 +117,14 @@ function Hero({ language, isMobile }) {
           color: COLORS.gold, fontSize: '0.72rem', letterSpacing: '0.3em',
           textTransform: 'uppercase', opacity: 0.72, fontWeight: 700, margin: '0 0 12px',
         }}>{tr ? "İLMÜ'L-FÜRÛK · KELİME SEÇİMİNİN MİMARİSİ" : 'ʿILM AL-FURŪQ · THE ARCHITECTURE OF WORD CHOICE'}</p>
-        <h1 style={{
+        <h1 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite, fontWeight: 700,
-          fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+          '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
           lineHeight: 1.2, margin: '0 0 10px',
         }}>{tr ? 'Füruk Atlası' : 'Atlas of Semantic Distinctions'}</h1>
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic', color: COLORS.gold,
-          fontSize: isMobile ? 'clamp(1rem, 4vw, 1.1rem)' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+          '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': 'clamp(1rem, 4vw, 1.1rem)',
           margin: 0,
         }}>{tr ? 'Eş anlamlı görünen kelimeler arasındaki keskin çizgi' : 'The sharp line between apparently synonymous words'}</p>
       </div>
@@ -336,7 +336,7 @@ export default function FurukAtlasi({ onClose }) {
                 <button className="mq-box"
                   key={i}
                   onClick={() => { setActiveTab(i); setTimeout(() => { const _tb = document.getElementById('furuk-tab-bar'); if (_tb) _tb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-                  style={{
+                  className="mq-fs" style={{
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     flexShrink: 0,
@@ -347,7 +347,7 @@ export default function FurukAtlasi({ onClose }) {
                     borderBottom: active ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                     borderRadius: 0,
                     color: active ? COLORS.gold : COLORS.silver,
-                    fontSize: isMobile ? '0.85rem' : '0.9rem',
+                    '--fs-d': '0.9rem', '--fs-m': '0.85rem',
                     fontFamily: FONTS.body,
                     fontWeight: active ? 600 : 400,
                     cursor: 'pointer',
@@ -892,7 +892,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
             flexShrink: 0,
             boxShadow: `0 0 24px ${word.color}20`,
           }}>
-            <span style={{ fontFamily: FONTS.quran, fontSize: isMobile ? '1.9rem' : '2.1rem', color: word.color, direction: 'rtl', lineHeight: 1 }} lang="ar" dir="rtl">
+            <span className="mq-fs" style={{ fontFamily: FONTS.quran, '--fs-d': '2.1rem', '--fs-m': '1.9rem', color: word.color, direction: 'rtl', lineHeight: 1 }} lang="ar" dir="rtl">
               {cleanArabic(word.ar)}
             </span>
           </div>
@@ -900,7 +900,7 @@ function WordCard({ word, expanded, onToggle, language, isMobile }) {
           {/* Name + meta */}
           <div style={{ flex: 1, minWidth: 180, display: 'flex', flexDirection: 'column', gap: 6 }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-              <span style={{ fontSize: isMobile ? '1.15rem' : '1.3rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.display, lineHeight: 1 }}>
+              <span className="mq-fs" style={{ '--fs-d': '1.3rem', '--fs-m': '1.15rem', fontWeight: 700, color: COLORS.offWhite, fontFamily: FONTS.display, lineHeight: 1 }}>
                 {word.tr}
               </span>
               <span style={{ fontSize: '0.78rem', color: COLORS.silver, fontFamily: FONTS.body, fontStyle: 'italic' }}>

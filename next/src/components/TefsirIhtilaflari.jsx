@@ -142,7 +142,7 @@ function PositionBlock({ pos, scholars, tr, isMobile }) {
         </p>
       )}
       {pos.noteTr && (
-        <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.8rem' : '0.83rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
+        <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.83rem', '--fs-m': '0.8rem', color: COLORS.silver, lineHeight: 1.6, margin: 0 }}>
           {pos.noteTr}
         </p>
       )}
@@ -193,7 +193,7 @@ function CaseCard({ c, scholars, tr, isMobile, expanded, onToggle, language }) {
           {c.titleTr}
         </h3>
         {c.introTr && (
-          <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.65, color: COLORS.silver, opacity: 0.9, margin: 0 }}>
+          <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.65, color: COLORS.silver, opacity: 0.9, margin: 0 }}>
             {c.introTr}
           </p>
         )}
@@ -361,9 +361,9 @@ export default function TefsirIhtilaflari() {
           borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
         }}>
           {tabs.map((label, i) => (
-            <button key={i} onClick={() => setActiveTab(i)} style={{
+            <button key={i} onClick={() => setActiveTab(i)} className="mq-fs" style={{
               padding: isMobile ? '12px 14px' : '12px 20px',
-              fontSize: isMobile ? '0.78rem' : '0.85rem',
+              '--fs-d': '0.85rem', '--fs-m': '0.78rem',
               fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 400,
               color: activeTab === i ? COLORS.gold : COLORS.silver,
               background: 'none', border: 'none', cursor: 'pointer',
@@ -387,10 +387,10 @@ export default function TefsirIhtilaflari() {
             <div style={{ textAlign: 'center', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.24em', fontSize: '0.7rem', color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body }}>
               {tr ? 'ANA METODOLOJİK İHTİLAF' : 'THE CORE METHODOLOGICAL DISAGREEMENT'}
             </div>
-            <h2 style={{ textAlign: 'center', fontFamily: FONTS.display, fontSize: isMobile ? '1.4rem' : '1.7rem', color: COLORS.offWhite, margin: '0 0 16px' }}>
+            <h2 className="mq-fs" style={{ textAlign: 'center', fontFamily: FONTS.display, '--fs-d': '1.7rem', '--fs-m': '1.4rem', color: COLORS.offWhite, margin: '0 0 16px' }}>
               {data.methodology.titleTr}
             </h2>
-            <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.9rem' : '0.95rem', lineHeight: 1.75, color: COLORS.silver, marginBottom: 28 }}>
+            <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.95rem', '--fs-m': '0.9rem', lineHeight: 1.75, color: COLORS.silver, marginBottom: 28 }}>
               {data.methodology.introTr}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 24 }}>
@@ -398,7 +398,7 @@ export default function TefsirIhtilaflari() {
                 <PositionBlock key={i} pos={pos} scholars={data.scholars} tr={tr} isMobile={isMobile} />
               ))}
             </div>
-            <p style={{ fontFamily: FONTS.body, fontStyle: 'italic', fontSize: isMobile ? '0.85rem' : '0.88rem', lineHeight: 1.7, color: COLORS.silver, opacity: 0.85 }}>
+            <p className="mq-fs" style={{ fontFamily: FONTS.body, fontStyle: 'italic', '--fs-d': '0.88rem', '--fs-m': '0.85rem', lineHeight: 1.7, color: COLORS.silver, opacity: 0.85 }}>
               {data.methodology.closingTr}
             </p>
           </div>
@@ -424,7 +424,7 @@ export default function TefsirIhtilaflari() {
                   <div style={{ fontFamily: FONTS.display, fontSize: '0.95rem', fontWeight: 700, color: COLORS.gold, marginBottom: 6 }}>
                     {o.titleTr}
                   </div>
-                  <p style={{ fontFamily: FONTS.body, fontSize: isMobile ? '0.86rem' : '0.9rem', lineHeight: 1.7, color: COLORS.silver, margin: 0 }}>
+                  <p className="mq-fs" style={{ fontFamily: FONTS.body, '--fs-d': '0.9rem', '--fs-m': '0.86rem', lineHeight: 1.7, color: COLORS.silver, margin: 0 }}>
                     {o.textTr}
                   </p>
                 </div>

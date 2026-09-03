@@ -164,23 +164,23 @@ export default function BilimselIsaretler({ onClose }) {
             filter: 'blur(4px)',
           }} />
           <div style={{ position: 'relative', zIndex: 1 }}>
-            <div className="mq-box" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
+            <div className="mq-box mq-fs" dir="rtl" lang="ar" aria-label="Bismillāh" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.95rem',
+              '--fs-d': '1.95rem', '--fs-m': '1.5rem',
               color: COLORS.gold, opacity: 0.82, lineHeight: 1,
               '--mb-d': '40px', '--mb-m': '28px',
               textShadow: `0 0 22px ${COLORS.gold}28`,
             }}>﷽</div>
-            <p dir="rtl" lang="ar" style={{
+            <p dir="rtl" lang="ar" className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+              '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold, lineHeight: 2.1,
               margin: '0 auto 16px', maxWidth: '820px',
               textShadow: `0 0 20px ${COLORS.gold}1c`,
             }}>{cleanArabic('وَالسَّمَٓاءَ بَنَيْنَاهَا بِاَيْدٍ وَاِنَّا لَمُوسِعُونَ')}</p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.offWhite, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+              '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
               lineHeight: 1.7, margin: '0 auto 8px', maxWidth: '660px', opacity: 0.95,
             }}>&quot;{tr ? 'Göğü kudretimizle biz kurduk ve şüphesiz biz onu genişleticiyiz.' : 'And the heaven We built with strength, and indeed, We are expanding it.'}&quot;</p>
             <p style={{
@@ -188,9 +188,9 @@ export default function BilimselIsaretler({ onClose }) {
               letterSpacing: '0.16em', textTransform: 'uppercase',
               margin: '0 0 36px', opacity: 0.78,
             }}>— {tr ? 'Zâriyât 51:47' : 'al-Dhāriyāt 51:47'}</p>
-            <p style={{
+            <p className="mq-fs" style={{
               color: COLORS.silver, fontFamily: FONTS.display, fontStyle: 'italic',
-              fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+              '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
               lineHeight: 1.7, margin: '0 auto 40px', maxWidth: '700px', opacity: 0.88,
             }}>{tr
               ? <>Kur&apos;ân bir bilim kitabı değildir — ancak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>kelime seçimi</em> ile modern bilim keşifleriyle <em style={{ fontStyle: 'normal', color: COLORS.gold }}>uyumlu</em> anlatım geliştirir.</>
@@ -206,15 +206,15 @@ export default function BilimselIsaretler({ onClose }) {
               fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75,
               marginBottom: '14px',
             }}>{tr ? 'ÂYÂT-I KEVNİYYE · TABİAT İŞARETLERİ' : 'ĀYĀT KAWNIYYA · SIGNS OF NATURE'}</div>
-            <h2 style={{
+            <h2 className="mq-fs" style={{
               color: COLORS.offWhite,
-              fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.7rem)',
+              '--fs-d': 'clamp(2rem, 3.6vw, 2.7rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
               fontWeight: 700, fontFamily: FONTS.display,
               margin: '0 auto 14px', lineHeight: 1.18, letterSpacing: '-0.015em', maxWidth: '760px',
             }}>{tr ? intro.titleTr : intro.titleEn}</h2>
-            <p style={{
+            <p className="mq-fs" style={{
               fontFamily: FONTS.display,
-              fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.18rem)',
+              '--fs-d': 'clamp(1.05rem, 1.8vw, 1.18rem)', '--fs-m': '1rem',
               color: COLORS.gold, margin: '0 auto 28px',
               lineHeight: 1.55, fontStyle: 'italic', maxWidth: '700px', opacity: 0.92,
             }}>{tr ? intro.subtitleTr : intro.subtitleEn}</p>
@@ -264,9 +264,9 @@ export default function BilimselIsaretler({ onClose }) {
                 setActiveTab(i);
                 setTimeout(() => document.getElementById('bilim-tab-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
               }}
-                style={{
+                className="mq-fs" style={{
                   '--pt-d': "16px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "14px", '--pb-d': "16px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "14px",
-                  fontSize: isMobile ? '0.72rem' : '0.78rem',
+                  '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? COLORS.gold : COLORS.silver,
@@ -340,13 +340,13 @@ function IsaretlerTab({ isaretler, domains, activeDomainId, onDomainToggle, expa
           const isActive = d.id === activeDomainId;
           return (
             <button className="mq-box" key={d.id} onClick={() => onDomainToggle(d.id)}
-              style={{
+              className="mq-fs" style={{
                 '--pt-d': "8px", '--pt-m': "6px", '--pr-d': "16px", '--pr-m': "12px", '--pb-d': "8px", '--pb-m': "6px", '--pl-d': "16px", '--pl-m': "12px",
                 borderRadius: RADIUS.pill,
                 border: `1px solid ${isActive ? d.color : COLORS.glassBorder}`,
                 background: isActive ? `${d.color}22` : 'transparent',
                 color: isActive ? d.color : COLORS.silver,
-                fontSize: isMobile ? '0.78rem' : '0.85rem',
+                '--fs-d': '0.85rem', '--fs-m': '0.78rem',
                 fontWeight: isActive ? 600 : 400, fontFamily: FONTS.body,
                 cursor: 'pointer', transition: 'all 0.18s', whiteSpace: 'nowrap',
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
@@ -421,9 +421,9 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
             }}>{index}</span>
             {tr ? domain.titleTr : domain.titleEn}
           </div>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             margin: 0, fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.15rem' : '1.35rem',
+            '--fs-d': '1.35rem', '--fs-m': '1.15rem',
             fontWeight: 700, color: COLORS.offWhite, lineHeight: 1.25,
           }}>{tr ? isaret.titleTr : isaret.titleEn}</h3>
           <div style={{
@@ -437,9 +437,9 @@ function IsaretCard({ isaret, domain, index, isOpen, onToggle, language, isMobil
         </div>
       </div>
       <div style={{ ...VERSE_BLOCK, padding: '14px 18px', position: 'relative', zIndex: 1 }}>
-        <p dir="rtl" lang="ar" style={{
+        <p dir="rtl" lang="ar" className="mq-fs" style={{
           ...TEXT.verseArabic,
-          fontSize: isMobile ? '1.15rem' : '1.4rem',
+          '--fs-d': '1.4rem', '--fs-m': '1.15rem',
           margin: '0 0 10px',
         }}>{cleanArabic(isaret.verseAr)}</p>
         <p style={{
@@ -549,8 +549,8 @@ function TimelineTab({ isaretler, domains, language, isMobile }) {
                       borderRadius: '50%', background: domain?.color || COLORS.gold,
                       boxShadow: `0 0 8px ${domain?.color || COLORS.gold}44`, flexShrink: 0,
                     }} />
-                    <span style={{
-                      fontSize: isMobile ? '0.85rem' : '0.92rem',
+                    <span className="mq-fs" style={{
+                      '--fs-d': '0.92rem', '--fs-m': '0.85rem',
                       color: COLORS.offWhite, fontFamily: FONTS.body, fontWeight: 600,
                     }}>{tr ? it.titleTr : it.titleEn}</span>
                   </div>

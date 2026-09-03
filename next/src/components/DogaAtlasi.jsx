@@ -192,7 +192,7 @@ function StatCard({ label, isMobile, onClick, active }) {
       onMouseEnter={isClickable ? (e) => { if (!active) e.currentTarget.style.borderColor = COLORS.gold; } : undefined}
       onMouseLeave={isClickable ? (e) => { if (!active) e.currentTarget.style.borderColor = COLORS.goldAlpha25; } : undefined}
     >
-      <span style={{ color: COLORS.gold, fontSize: isMobile ? '0.78rem' : '0.85rem', fontFamily: FONTS.body, fontWeight: 600 }}>
+      <span className="mq-fs" style={{ color: COLORS.gold, '--fs-d': '0.85rem', '--fs-m': '0.78rem', fontFamily: FONTS.body, fontWeight: 600 }}>
         {label}
       </span>
     </Tag>
@@ -741,9 +741,9 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
           letterSpacing: '0.24em', textTransform: 'uppercase',
           fontWeight: 700, opacity: 0.9, marginBottom: '10px',
         }}>{language === 'tr' ? 'Bir Kez Anılan' : 'Named Once'}</div>
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display, color: COLORS.offWhite,
-          fontSize: isMobile ? '1.25rem' : '1.5rem',
+          '--fs-d': '1.5rem', '--fs-m': '1.25rem',
           margin: '0 0 12px', fontWeight: 700,
         }}>{language === 'tr' ? 'Hapax Alfabesi' : 'Hapax Alphabet'}</h3>
         <p style={{
@@ -1316,9 +1316,9 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         dir="rtl"
         lang="ar"
         aria-label="Bismillāh"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.bismillah,
-          fontSize: isMobile ? '1.6rem' : '2rem',
+          '--fs-d': '2rem', '--fs-m': '1.6rem',
           color: COLORS.gold,
           opacity: 0.82,
           lineHeight: 1,
@@ -1333,9 +1333,9 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       <p
         dir="rtl"
         lang="ar"
-        style={{
+        className="mq-fs" style={{
           fontFamily: FONTS.quran,
-          fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.25rem, 2.3vw, 1.7rem)',
+          '--fs-d': 'clamp(1.25rem, 2.3vw, 1.7rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
           color: COLORS.gold,
           lineHeight: 2.1,
           margin: '0 auto 18px',
@@ -1346,11 +1346,11 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         اَفَلَا يَنْظُرُونَ اِلَى الْاِبِلِ كَيْفَ خُلِقَتْ
       </p>
 
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.offWhite,
         fontFamily: FONTS.display,
         fontStyle: 'italic',
-        fontSize: isMobile ? '0.94rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+        '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.94rem',
         lineHeight: 1.7,
         margin: '0 auto 8px',
         maxWidth: '620px',
@@ -1374,11 +1374,11 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </p>
 
       {/* Framing whisper */}
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
         fontFamily: FONTS.display,
         fontStyle: 'italic',
-        fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+        '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
         lineHeight: 1.7,
         margin: '0 auto 40px',
         maxWidth: '700px',
@@ -1409,10 +1409,10 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </div>
 
       {/* Big Title (h1 — server-rendered SEO heading already in PageHeading; this is the visible h1) */}
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display,
         color: COLORS.offWhite,
-        fontSize: isMobile ? 'clamp(1.6rem, 7vw, 2rem)' : 'clamp(2rem, 3.6vw, 2.8rem)',
+        '--fs-d': 'clamp(2rem, 3.6vw, 2.8rem)', '--fs-m': 'clamp(1.6rem, 7vw, 2rem)',
         fontWeight: 700,
         margin: '0 auto 16px',
         lineHeight: 1.15,
@@ -1423,9 +1423,9 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
       </h2>
 
       {/* Dramatic subtitle */}
-      <p style={{
+      <p className="mq-fs" style={{
         fontFamily: FONTS.display,
-        fontSize: isMobile ? '1rem' : 'clamp(1.05rem, 1.8vw, 1.2rem)',
+        '--fs-d': 'clamp(1.05rem, 1.8vw, 1.2rem)', '--fs-m': '1rem',
         color: COLORS.gold,
         margin: '0 auto 32px',
         lineHeight: 1.5,
@@ -1458,10 +1458,10 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         }}>
           {language === 'tr' ? 'Klasik Çerçeve' : 'Classical Framing'}
         </p>
-        <p style={{
+        <p className="mq-fs" style={{
           color: COLORS.silver,
           fontFamily: FONTS.body,
-          fontSize: isMobile ? '0.85rem' : '0.9rem',
+          '--fs-d': '0.9rem', '--fs-m': '0.85rem',
           lineHeight: 1.7,
           margin: 0,
         }}>
@@ -1477,10 +1477,10 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         </p>
       </div>
 
-      <p style={{
+      <p className="mq-fs" style={{
         color: COLORS.silver,
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.88rem' : '0.95rem',
+        '--fs-d': '0.95rem', '--fs-m': '0.88rem',
         lineHeight: 1.7,
         margin: '0 0 24px',
         maxWidth: '680px',
@@ -1635,7 +1635,7 @@ export default function DogaAtlasi({ onClose }) {
                   if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 50);
               }}
-              style={{
+              className="mq-fs" style={{
                 flexShrink: 0,
                 display: 'flex',
                 alignItems: 'center',
@@ -1646,7 +1646,7 @@ export default function DogaAtlasi({ onClose }) {
                 borderBottom: activeTab === i ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                 borderRadius: '0',
                 color: activeTab === i ? COLORS.gold : COLORS.silver,
-                fontSize: isMobile ? '0.72rem' : '0.78rem',
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 fontFamily: FONTS.body,

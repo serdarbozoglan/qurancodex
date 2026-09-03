@@ -342,9 +342,9 @@ export default function MunafikProfili({ onClose }) {
           {/* Bismillah ornament */}
           <div className="mq-box"
             dir="rtl" lang="ar" aria-label="Bismillāh"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.bismillah,
-              fontSize: isMobile ? '1.5rem' : '1.9rem',
+              '--fs-d': '1.9rem', '--fs-m': '1.5rem',
               color: COLORS.gold,
               opacity: 0.82,
               lineHeight: 1,
@@ -359,9 +359,9 @@ export default function MunafikProfili({ onClose }) {
           {/* Anchor verse — Bakara 2:8 (KFGQPC, centered) */}
           <p
             dir="rtl" lang="ar"
-            style={{
+            className="mq-fs" style={{
               fontFamily: FONTS.quran,
-              fontSize: isMobile ? 'clamp(1.05rem, 4.2vw, 1.4rem)' : 'clamp(1.2rem, 2.2vw, 1.6rem)',
+              '--fs-d': 'clamp(1.2rem, 2.2vw, 1.6rem)', '--fs-m': 'clamp(1.05rem, 4.2vw, 1.4rem)',
               color: COLORS.gold,
               lineHeight: 2.1,
               margin: '0 auto 16px',
@@ -373,11 +373,11 @@ export default function MunafikProfili({ onClose }) {
             وَمِنَ النَّاسِ مَنْ يَقُولُ اٰمَنَّا بِاللّٰهِ وَبِالْيَوْمِ الْاٰخِرِ وَمَا هُمْ بِمُؤْمِنِينَ
           </p>
 
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.6vw, 1.05rem)',
+            '--fs-d': 'clamp(0.95rem, 1.6vw, 1.05rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 8px',
             maxWidth: '620px',
@@ -403,11 +403,11 @@ export default function MunafikProfili({ onClose }) {
           </p>
 
           {/* Framing whisper */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            fontSize: isMobile ? '0.92rem' : 'clamp(0.95rem, 1.55vw, 1.02rem)',
+            '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem',
             lineHeight: 1.7,
             margin: '0 auto 36px',
             maxWidth: '700px',
@@ -440,9 +440,9 @@ export default function MunafikProfili({ onClose }) {
           </div>
 
           {/* Big pull quote */}
-          <h2 style={{
+          <h2 className="mq-fs" style={{
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.55rem' : 'clamp(1.9rem, 3.4vw, 2.55rem)',
+            '--fs-d': 'clamp(1.9rem, 3.4vw, 2.55rem)', '--fs-m': '1.55rem',
             fontWeight: 700,
             color: COLORS.gold,
             lineHeight: 1.2,
@@ -457,9 +457,9 @@ export default function MunafikProfili({ onClose }) {
           </h2>
 
           {/* Subtitle */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.silver,
-            fontSize: isMobile ? '0.9rem' : '0.95rem',
+            '--fs-d': '0.95rem', '--fs-m': '0.9rem',
             fontFamily: FONTS.body,
             fontStyle: 'italic',
             margin: '0 0 18px 0',
@@ -469,9 +469,9 @@ export default function MunafikProfili({ onClose }) {
           </p>
 
           {/* Description */}
-          <p style={{
+          <p className="mq-fs" style={{
             color: COLORS.offWhite,
-            fontSize: isMobile ? '0.92rem' : '0.98rem',
+            '--fs-d': '0.98rem', '--fs-m': '0.92rem',
             fontFamily: FONTS.body,
             margin: '0 0 18px 0',
             lineHeight: 1.75,
@@ -517,9 +517,9 @@ export default function MunafikProfili({ onClose }) {
                 }}>
                   <span style={{ opacity: 0.9 }}>{language === 'tr' ? 'Etimoloji — Nafak (نَفَق)' : 'Etymology — Nafaq (نَفَق)'}</span>
                 </p>
-                <p style={{
+                <p className="mq-fs" style={{
                   color: COLORS.silver,
-                  fontSize: isMobile ? '0.84rem' : '0.88rem',
+                  '--fs-d': '0.88rem', '--fs-m': '0.84rem',
                   fontFamily: FONTS.body,
                   lineHeight: 1.75,
                   margin: 0,
@@ -591,7 +591,7 @@ export default function MunafikProfili({ onClose }) {
                     if (tb) tb.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }, 50);
                 }}
-                style={{
+                className="mq-fs" style={{
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
@@ -602,7 +602,7 @@ export default function MunafikProfili({ onClose }) {
                   borderBottom: isActive ? `2px solid ${COLORS.gold}` : '2px solid transparent',
                   borderRadius: 0,
                   color: isActive ? COLORS.gold : COLORS.silver,
-                  fontSize: isMobile ? '0.72rem' : '0.78rem',
+                  '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   fontFamily: FONTS.body,
@@ -685,7 +685,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
   return (
     <button className="mq-box"
       onClick={handleClick}
-      style={{
+      className="mq-fs" style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -698,7 +698,7 @@ function PsychologyCTA({ onClose, language, isMobile }) {
         borderRadius: RADIUS.lg,
         color: COLORS.offWhite,
         fontFamily: FONTS.body,
-        fontSize: isMobile ? '0.85rem' : '0.92rem',
+        '--fs-d': '0.92rem', '--fs-m': '0.85rem',
         textAlign: 'left',
         cursor: 'pointer',
         transition: 'all 0.18s',
@@ -828,9 +828,9 @@ function ProfileCard({ profile, isOpen, onToggle, language, isMobile }) {
         </div>
 
         {/* Profile title */}
-        <h3 style={{
+        <h3 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.15rem' : '1.35rem',
+          '--fs-d': '1.35rem', '--fs-m': '1.15rem',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 0 10px 0',
@@ -1222,8 +1222,8 @@ function SurahDistributionTab({ dist, language, isMobile }) {
                   padding: '4px 0',
                   cursor: 'default',
                 }}>
-                <div style={{
-                  fontSize: isMobile ? '0.75rem' : '0.82rem',
+                <div className="mq-fs" style={{
+                  '--fs-d': '0.82rem', '--fs-m': '0.75rem',
                   color: isHover ? COLORS.gold : COLORS.offWhite,
                   fontWeight: 600, fontFamily: FONTS.body,
                   transition: 'color 0.15s',
@@ -1377,10 +1377,10 @@ function KissaCard({ kissa, index, language, isMobile }) {
           }}>
             {kissa.year}
           </div>
-          <h3 style={{
+          <h3 className="mq-fs" style={{
             margin: 0,
             fontFamily: FONTS.display,
-            fontSize: isMobile ? '1.2rem' : '1.4rem',
+            '--fs-d': '1.4rem', '--fs-m': '1.2rem',
             fontWeight: 700, color: COLORS.offWhite,
             lineHeight: 1.25,
           }}>
@@ -1540,9 +1540,9 @@ function TypologyTab({ typology, language, isMobile }) {
         }}>
           {language === 'tr' ? 'Klasik Tipoloji' : 'Classical Typology'}
         </div>
-        <h2 style={{
+        <h2 className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.5rem' : '2rem',
+          '--fs-d': '2rem', '--fs-m': '1.5rem',
           fontWeight: 700,
           color: COLORS.offWhite,
           margin: '0 0 8px 0',
@@ -1599,9 +1599,9 @@ function TypologyTab({ typology, language, isMobile }) {
               </div>
 
               {/* Label */}
-              <h3 style={{
+              <h3 className="mq-fs" style={{
                 fontFamily: FONTS.display,
-                fontSize: isMobile ? '1.15rem' : '1.3rem',
+                '--fs-d': '1.3rem', '--fs-m': '1.15rem',
                 fontWeight: 700,
                 color: COLORS.offWhite,
                 margin: '0 0 14px 0',
@@ -1724,9 +1724,9 @@ function HadithTab({ hadith, language, isMobile }) {
       </div>
 
       {/* Title */}
-      <h2 style={{
+      <h2 className="mq-fs" style={{
         fontFamily: FONTS.display,
-        fontSize: isMobile ? '1.5rem' : '1.95rem',
+        '--fs-d': '1.95rem', '--fs-m': '1.5rem',
         fontWeight: 700,
         color: COLORS.offWhite,
         textAlign: 'center',
@@ -1745,9 +1745,9 @@ function HadithTab({ hadith, language, isMobile }) {
         position: 'relative',
       }}>
         {/* Opening quote mark */}
-        <div style={{
+        <div className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '3rem' : '4rem',
+          '--fs-d': '4rem', '--fs-m': '3rem',
           color: COLORS.goldAlpha25,
           lineHeight: 0.5,
           margin: '0 0 10px 0',
@@ -1757,9 +1757,9 @@ function HadithTab({ hadith, language, isMobile }) {
         </div>
 
         {/* Hadith text */}
-        <p style={{
+        <p className="mq-fs" style={{
           fontFamily: FONTS.display,
-          fontSize: isMobile ? '1.1rem' : '1.35rem',
+          '--fs-d': '1.35rem', '--fs-m': '1.1rem',
           fontWeight: 400,
           fontStyle: 'italic',
           color: COLORS.offWhite,
