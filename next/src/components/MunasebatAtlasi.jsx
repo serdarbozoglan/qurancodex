@@ -94,9 +94,9 @@ function Header({ language }) {
 function Hero({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       position: 'relative', overflow: 'hidden',
-      padding: isMobile ? '40px 16px 28px' : '56px 32px 36px',
+      '--pt-d': "56px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "36px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.06) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
@@ -659,7 +659,7 @@ function IntraSurahTab({ data, language, isMobile }) {
       </p>
 
       {/* Çıpa kavramı */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[0]}` }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px", borderTop: `2px solid ${accents[0]}` }}>
         <SectionHeading num={1} isMobile={isMobile}>{tr ? data.anchorConcept.titleTr : data.anchorConcept.titleEn}</SectionHeading>
         <p style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 16px' }}>
           {tr ? data.anchorConcept.bodyTr : data.anchorConcept.bodyEn}
@@ -676,7 +676,7 @@ function IntraSurahTab({ data, language, isMobile }) {
       </div>
 
       {/* Nâziât örneği */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[1]}` }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px", borderTop: `2px solid ${accents[1]}` }}>
         <SectionHeading num={2} isMobile={isMobile}>{tr ? data.naziatExample.titleTr : data.naziatExample.titleEn}</SectionHeading>
         <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 16px' }}>
           {tr ? data.naziatExample.introTr : data.naziatExample.introEn}
@@ -704,7 +704,7 @@ function IntraSurahTab({ data, language, isMobile }) {
       </div>
 
       {/* Bakara'nın tam halkası */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[2]}` }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px", borderTop: `2px solid ${accents[2]}` }}>
         <SectionHeading num={3} isMobile={isMobile}>{tr ? data.bakaraRing.titleTr : data.bakaraRing.titleEn}</SectionHeading>
         <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
           {tr ? data.bakaraRing.introTr : data.bakaraRing.introEn}
@@ -752,7 +752,7 @@ function IntraSurahTab({ data, language, isMobile }) {
       </div>
 
       {/* Seçilme-Talimat-Sınama motifi */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[3]}` }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px", borderTop: `2px solid ${accents[3]}` }}>
         <SectionHeading num={4} isMobile={isMobile}>{tr ? data.etiMotif.titleTr : data.etiMotif.titleEn}</SectionHeading>
         <p style={{ fontFamily: FONTS.body, color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 18px' }}>
           {tr ? data.etiMotif.bodyTr : data.etiMotif.bodyEn}
@@ -789,7 +789,7 @@ function IntraSurahTab({ data, language, isMobile }) {
       </div>
 
       {/* Bakara Bölüm 1 çıpaları */}
-      <div style={{ ...GLASS_CARD, padding: isMobile ? '20px' : '26px 30px', borderTop: `2px solid ${accents[4]}` }}>
+      <div className="mq-box" style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "20px", '--pr-d': "30px", '--pr-m': "20px", '--pb-d': "26px", '--pb-m': "20px", '--pl-d': "30px", '--pl-m': "20px", borderTop: `2px solid ${accents[4]}` }}>
         <SectionHeading num={5} isMobile={isMobile}>{tr ? data.section1Anchors.titleTr : data.section1Anchors.titleEn}</SectionHeading>
         <p style={{ fontFamily: FONTS.body, color: COLORS.silver, fontSize: '0.88rem', lineHeight: 1.7, margin: '0 0 18px' }}>
           {tr ? data.section1Anchors.introTr : data.section1Anchors.introEn}

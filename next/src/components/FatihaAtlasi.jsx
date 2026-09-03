@@ -29,9 +29,9 @@ function Reveal({ children, delay = 0 }) {
 function Hero({ language, isMobile }) {
   const tr = language === 'tr';
   return (
-    <div style={{
+    <div className="mq-box" style={{
       position: 'relative', overflow: 'hidden',
-      padding: isMobile ? '40px 16px 28px' : '64px 32px 44px',
+      '--pt-d': "64px", '--pt-m': "40px", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "44px", '--pb-m': "28px", '--pl-d': "32px", '--pl-m': "16px",
       background: 'linear-gradient(180deg, rgba(212,165,116,0.08) 0%, transparent 100%)',
       borderBottom: `1px solid ${COLORS.glassBorderSoft}`,
       textAlign: 'center',
@@ -131,9 +131,9 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
   const scholarLabel = (!tr && p.scholarEn) ? p.scholarEn : p.scholar;
   const initial = (scholarLabel || '?').replace(/[İI]/g, 'I').charAt(0).toUpperCase();
   return (
-    <div style={{
+    <div className="mq-box" style={{
       display: 'flex', gap: isMobile ? 12 : 18,
-      padding: isMobile ? '16px' : '20px 24px',
+      '--pt-d': "20px", '--pt-m': "16px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "20px", '--pb-m': "16px", '--pl-d': "24px", '--pl-m': "16px",
       background: `linear-gradient(135deg, ${accent}0D 0%, rgba(255,255,255,0.02) 100%)`,
       border: `1px solid ${accent}30`,
       borderRadius: 14,
@@ -162,7 +162,7 @@ function PerspectiveCard({ p, accent, language, isMobile }) {
         {p.points?.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 14 }}>
             {p.points.map((pt, pi) => (
-              <div key={pi} style={{ display: 'flex', gap: 10, padding: isMobile ? '10px 12px' : '12px 14px', background: 'rgba(255,255,255,0.03)', border: `1px solid ${accent}22`, borderRadius: 10 }}>
+              <div className="mq-box" key={pi} style={{ display: 'flex', gap: 10, '--pt-d': "12px", '--pt-m': "10px", '--pr-d': "14px", '--pr-m': "12px", '--pb-d': "12px", '--pb-m': "10px", '--pl-d': "14px", '--pl-m': "12px", background: 'rgba(255,255,255,0.03)', border: `1px solid ${accent}22`, borderRadius: 10 }}>
                 <span style={{ flexShrink: 0, width: 20, height: 20, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.62rem', fontWeight: 800, color: accent, background: `${accent}1c`, marginTop: 1 }}>{pi + 1}</span>
                 <div style={{ minWidth: 0 }}>
                   <div style={{ color: accent, fontSize: '0.78rem', fontWeight: 700, fontFamily: FONTS.body, marginBottom: 4 }}>
@@ -235,9 +235,9 @@ function TabBesmele({ data, language, isMobile }) {
 // ── Ring structure helpers (module scope — must not be redeclared per render) ──
 function NodeRow({ n, accent, tr, isMobile }) {
   return (
-    <div style={{
+    <div className="mq-box" style={{
       display: 'flex', alignItems: 'center', gap: 14,
-      padding: isMobile ? '12px 14px' : '14px 20px',
+      '--pt-d': "14px", '--pt-m': "12px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "14px", '--pb-m': "12px", '--pl-d': "20px", '--pl-m': "14px",
     }}>
       <span style={{
         flexShrink: 0, width: 30, height: 30, borderRadius: '50%',
@@ -263,11 +263,11 @@ function HalfBox({ half, accent, labelTr, labelEn, tr, isMobile }) {
       border: `1.5px solid ${accent}40`, borderRadius: 18,
       background: `${accent}08`, overflow: 'hidden',
     }}>
-      <div style={{ padding: isMobile ? '10px 14px' : '10px 20px', borderBottom: `1px solid ${accent}25`, fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent }}>
+      <div className="mq-box" style={{ '--pt-d': "10px", '--pt-m': "10px", '--pr-d': "20px", '--pr-m': "14px", '--pb-d': "10px", '--pb-m': "10px", '--pl-d': "20px", '--pl-m': "14px", borderBottom: `1px solid ${accent}25`, fontSize: '0.64rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: accent }}>
         {tr ? labelTr : labelEn}
       </div>
       <div style={{ borderBottom: `1px dashed ${accent}25` }}><NodeRow n={outerA} accent={accent} tr={tr} isMobile={isMobile} /></div>
-      <div style={{ margin: isMobile ? '10px' : '10px 24px', border: `1px dashed ${accent}35`, borderRadius: 12, background: `${accent}0A` }}>
+      <div className="mq-box" style={{ '--mt-d': "10px", '--mt-m': "10px", '--mr-d': "24px", '--mr-m': "10px", '--mb-d': "10px", '--mb-m': "10px", '--ml-d': "24px", '--ml-m': "10px", border: `1px dashed ${accent}35`, borderRadius: 12, background: `${accent}0A` }}>
         <div style={{ borderBottom: `1px dashed ${accent}25` }}><NodeRow n={innerB} accent={accent} tr={tr} isMobile={isMobile} /></div>
         <NodeRow n={innerBp} accent={accent} tr={tr} isMobile={isMobile} />
       </div>
@@ -308,7 +308,7 @@ function TabRing({ data, language, isMobile }) {
       <Reveal>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ width: 2, height: 20, background: `linear-gradient(180deg, ${CATEGORY_SCALE[0]}60, ${COLORS.gold}60)` }} />
-          <div style={{ position: 'relative', padding: isMobile ? '22px 18px' : '26px 36px', background: `${COLORS.gold}14`, border: `1.5px solid ${COLORS.gold}55`, borderRadius: 20, textAlign: 'center', boxShadow: `0 0 40px -12px ${COLORS.gold}80`, width: '100%' }}>
+          <div className="mq-box" style={{ position: 'relative', '--pt-d': "26px", '--pt-m': "22px", '--pr-d': "36px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "22px", '--pl-d': "36px", '--pl-m': "18px", background: `${COLORS.gold}14`, border: `1.5px solid ${COLORS.gold}55`, borderRadius: 20, textAlign: 'center', boxShadow: `0 0 40px -12px ${COLORS.gold}80`, width: '100%' }}>
             <div style={{ fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: COLORS.gold, marginBottom: 14 }}>
               {tr ? 'Merkez — Eksen' : 'Center — the Axis'}
             </div>
@@ -348,7 +348,7 @@ function TabRing({ data, language, isMobile }) {
 
       {/* Umm al-Kitab */}
       <Reveal>
-        <div style={{ padding: isMobile ? '18px' : '24px 28px', background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: 14 }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px", background: 'rgba(212,165,116,0.05)', border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: 14 }}>
           <h3 className="mq-fs" style={{ color: COLORS.gold, fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
             {tr ? rs.ummulKitab.titleTr : rs.ummulKitab.titleEn}
           </h3>
@@ -363,7 +363,7 @@ function TabRing({ data, language, isMobile }) {
 
       {/* Konevi sufi reading */}
       <Reveal>
-        <div style={{ padding: isMobile ? '18px' : '24px 28px', background: `${CATEGORY_SCALE[3]}0A`, border: `1px solid ${CATEGORY_SCALE[3]}35`, borderRadius: 14 }}>
+        <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px", background: `${CATEGORY_SCALE[3]}0A`, border: `1px solid ${CATEGORY_SCALE[3]}35`, borderRadius: 14 }}>
           <h3 className="mq-fs" style={{ color: CATEGORY_SCALE[3], fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
             {tr ? rs.konevi.titleTr : rs.konevi.titleEn}
           </h3>
@@ -379,7 +379,7 @@ function TabRing({ data, language, isMobile }) {
       {/* Somuncu Baba's seven readings */}
       {data.sevenReadings && (
         <Reveal>
-          <div style={{ padding: isMobile ? '18px' : '24px 28px', background: `${CATEGORY_SCALE[4]}0A`, border: `1px solid ${CATEGORY_SCALE[4]}35`, borderRadius: 14 }}>
+          <div className="mq-box" style={{ '--pt-d': "24px", '--pt-m': "18px", '--pr-d': "28px", '--pr-m': "18px", '--pb-d': "24px", '--pb-m': "18px", '--pl-d': "28px", '--pl-m': "18px", background: `${CATEGORY_SCALE[4]}0A`, border: `1px solid ${CATEGORY_SCALE[4]}35`, borderRadius: 14 }}>
             <h3 className="mq-fs" style={{ color: CATEGORY_SCALE[4], fontFamily: FONTS.display, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, margin: '0 0 10px' }}>
               {tr ? data.sevenReadings.titleTr : data.sevenReadings.titleEn}
             </h3>
@@ -413,7 +413,7 @@ function TabWordChoice({ data, language, isMobile }) {
       {wc.groups.map((g, gi) => {
         const accent = CATEGORY_SCALE[gi % CATEGORY_SCALE.length];
         return (
-          <div key={g.id} style={{ ...GLASS_CARD, padding: isMobile ? '18px' : '26px', borderTop: `2px solid ${accent}` }}>
+          <div className="mq-box" key={g.id} style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "18px", borderTop: `2px solid ${accent}` }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
               <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: 0 }}>
                 {tr ? g.titleTr : g.titleEn}
@@ -457,7 +457,7 @@ function TabGrammar({ data, language, isMobile }) {
       {gr.cases.map((c, ci) => {
         const accent = CATEGORY_SCALE[(ci + 2) % CATEGORY_SCALE.length];
         return (
-          <div key={c.id} style={{ ...GLASS_CARD, padding: isMobile ? '18px' : '26px', borderTop: `2px solid ${accent}` }}>
+          <div className="mq-box" key={c.id} style={{ ...GLASS_CARD, '--pt-d': "26px", '--pt-m': "18px", '--pr-d': "26px", '--pr-m': "18px", '--pb-d': "26px", '--pb-m': "18px", '--pl-d': "26px", '--pl-m': "18px", borderTop: `2px solid ${accent}` }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
               <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.35rem', '--fs-m': '1.15rem', fontWeight: 700, margin: 0 }}>
                 {tr ? c.titleTr : c.titleEn}
@@ -670,8 +670,8 @@ export default function FatihaAtlasi({ onClose }) {
             <button
               key={i}
               onClick={() => { setActiveTab(i); setTimeout(() => { document.getElementById('fatiha-tab-anchor')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50); }}
-              className="mq-fs" style={{
-                padding: isMobile ? '13px 16px' : '15px 24px',
+              className="mq-fs mq-box" style={{
+                '--pt-d': "15px", '--pt-m': "13px", '--pr-d': "24px", '--pr-m': "16px", '--pb-d': "15px", '--pb-m': "13px", '--pl-d': "24px", '--pl-m': "16px",
                 '--fs-d': '0.78rem', '--fs-m': '0.72rem',
                 fontFamily: FONTS.body, fontWeight: activeTab === i ? 700 : 500,
                 textTransform: 'uppercase', letterSpacing: '0.08em',
