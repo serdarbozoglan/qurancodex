@@ -896,82 +896,15 @@ export default function LinguisticDNA() {
             : <>29 suras · 14 letters · A mystery <em style={{ fontStyle: 'normal', color: COLORS.gold }}>never abandoned</em> for 1,400 years. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Many interpretations, one pattern.</em></>}
         </p>
 
-        <div className="text-center mb-5">
-          <span
-            className="font-body uppercase tracking-[0.24em] text-xs"
-            style={{ color: COLORS.gold, opacity: 0.75 }}
-          >
-            {language === 'tr' ? 'Daha Derine — İlgili Araçlar' : 'Go Deeper — Related Tools'}
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {[
-            {
-              href: `/${language}/graf/kelime-isi`,
-              titleTr: 'Kelime Isı Haritası',
-              titleEn: 'Word Heatmap',
-              descTr: 'Mukattaa harflerinin Kur\'an genelindeki dağılımını görselleştirin.',
-              descEn: 'Visualize the distribution of muqaṭṭaʿāt letters across the Quran.',
-            },
-            {
-              href: `/${language}/oku/68`,
-              titleTr: 'Kalem Sûresi (68)',
-              titleEn: 'Sura Al-Qalam (68)',
-              descTr: '"Nun" ile açılan istisna sûreyi yeminler bağlamında okuyun.',
-              descEn: 'Read the exceptional "Nūn"-opening sura in its oath context.',
-            },
-            {
-              href: `/${language}/oku/19`,
-              titleTr: 'Meryem Sûresi (19)',
-              titleEn: 'Sura Maryam (19)',
-              descTr: 'En karmaşık 5-harf açılış (Kâf-Hâ-Yâ-Ayn-Sâd) — mucizevi doğum kıssalarına önsöz.',
-              descEn: 'The most complex 5-letter opening (Kāf-Hā-Yā-ʿAyn-Ṣād) — prelude to miraculous birth narratives.',
-            },
-          ].map((t, i) => (
-            <motion.div
-              key={t.href}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-            >
-              <Link
-                href={t.href}
-                className="block rounded-xl p-5 h-full transition-all hover:-translate-y-0.5"
-                style={{
-                  background: `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`,
-                  border: `1px solid ${COLORS.gold}33`,
-                  textDecoration: 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}1a 0%, rgba(255,255,255,0.04) 100%)`;
-                  e.currentTarget.style.borderColor = `${COLORS.gold}66`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = `linear-gradient(180deg, ${COLORS.gold}0c 0%, rgba(255,255,255,0.02) 100%)`;
-                  e.currentTarget.style.borderColor = `${COLORS.gold}33`;
-                }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <h4
-                    className="font-body font-bold text-base"
-                    style={{ color: COLORS.gold, margin: 0 }}
-                  >
-                    {language === 'tr' ? t.titleTr : t.titleEn}
-                  </h4>
-                  <span style={{ color: COLORS.gold, opacity: 0.75 }}>→</span>
-                </div>
-                <p
-                  className="font-body text-sm leading-relaxed"
-                  style={{ color: COLORS.silver, margin: 0 }}
-                >
-                  {language === 'tr' ? t.descTr : t.descEn}
-                </p>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        {/* Satır içi "Daha Derine" bloğu 2 Eylül 2026'da KALDIRILDI.
+            Sayfada iki ayrı ilgili-araçlar bloğu vardı (biri burada, biri
+            Mukattaa.jsx'in altındaki CrossToolCTA'da) ve ikisi farklı
+            bağlantılar taşıyordu. Tabloyla görüşler bölümleri araya girince
+            buradaki blok sayfanın ORTASINDA kalıp yanlış bir kapanış hissi
+            veriyordu (kullanıcı ekran görüntüsüyle bildirdi).
+            Buradaki üç bağlantı — Kelime Isı Haritası, Kalem 68, Meryem 19 —
+            kaybolmadı; Mukattaa.jsx'teki tek CTA'ya taşındı. Böylece sayfada
+            tek bir "daha derine" bloğu var ve o da en sonda. */}
       </motion.div>
 
     </SectionWrapper>

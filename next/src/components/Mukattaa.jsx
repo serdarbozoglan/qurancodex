@@ -12,6 +12,7 @@
 
 import LinguisticDNA from '../sections/LinguisticDNA';
 import MukattaaTable from '../sections/MukattaaTable';
+import MukattaaViews from '../sections/MukattaaViews';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -153,6 +154,11 @@ export default function Mukattaa({ onClose }) {
           geçmez. */}
       <MukattaaTable />
 
+      {/* "Bu harfler nedir?" — klasik görüşler, her biri dayanağı ve zayıf
+          yanıyla. Sayfa 1.400 yıldır icmâ sağlanamadığını bir cümlede
+          söylüyordu; görüşlerin kendisi yoktu. */}
+      <MukattaaViews />
+
       <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1200px', margin: '0 auto' }}>
         <SourcesCitation
           language={language} isMobile={isMobile}
@@ -170,6 +176,12 @@ export default function Mukattaa({ onClose }) {
             { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Sûrelerin ayna simetrisi — Fatiha\'nın halka yapısı ve makro-örüntüler.', descEn: 'The mirror symmetry of suras — Fātiḥa\'s ring structure and macro-patterns.' },
             { href: `/${language}/atlas/munasebat`, titleTr: 'Münasebât Atlası', titleEn: 'Atlas of Surah Coherence', descTr: 'Sûreler arası bağ — Razi geleneği ve mukattaa dizilişi.', descEn: 'Inter-surah coherence — the Razi tradition and mukattaʿāt sequence.' },
             { href: `/${language}/arac/tekrar-anatomi`, titleTr: 'Tekrar Anatomisi', titleEn: 'Anatomy of Repetition', descTr: 'Kur\'ân\'ın tekrar mimarîsi — iltifât, refren, çekirdek kelime.', descEn: 'The Qur\'an\'s architecture of repetition — iltifāt, refrain, kernel word.' },
+            /* Aşağıdaki üçü LinguisticDNA'nın satır içi bloğundan taşındı
+               (2 Eylül 2026) — sayfada iki ayrı "daha derine" bloğu vardı ve
+               biri ortada kalıyordu. Artık tek blok, en sonda. */
+            { href: `/${language}/graf/kelime-isi`, titleTr: 'Kelime Isı Haritası', titleEn: 'Word Heatmap', descTr: 'Mukattaa harflerinin Kur\'an genelindeki dağılımını görselleştirin.', descEn: 'Visualise how the mukattaʿāt letters are distributed across the Qur\'an.' },
+            { href: `/${language}/oku/68`, titleTr: 'Kalem Sûresi (68)', titleEn: 'Sura Al-Qalam (68)', descTr: '"Nûn" ile açılan sûreyi yeminler bağlamında okuyun.', descEn: 'Read the sura opening with "Nūn" in the context of its oaths.' },
+            { href: `/${language}/oku/19`, titleTr: 'Meryem Sûresi (19)', titleEn: 'Sura Maryam (19)', descTr: 'En uzun açılış (Kâf-Hâ-Yâ-Ayn-Sâd) — mucizevî doğum kıssalarına önsöz.', descEn: 'The longest opening (Kāf-Hā-Yā-ʿAyn-Ṣād) — a prelude to the miraculous birth narratives.' },
           ]}
         />
       </div>
