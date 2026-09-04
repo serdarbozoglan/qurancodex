@@ -31,7 +31,7 @@ export default function MukattaaReading() {
       style={{
         '--pt-d': '56px', '--pt-m': '40px',
         '--pr-d': '32px', '--pr-m': '16px',
-        '--pb-d': '56px', '--pb-m': '40px',
+        '--pb-d': '8px', '--pb-m': '8px',
         '--pl-d': '32px', '--pl-m': '16px',
         background: COLORS.cosmicBlack,
         borderTop: `1px solid ${COLORS.goldAlpha15}`,

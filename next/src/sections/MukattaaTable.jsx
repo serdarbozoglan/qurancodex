@@ -64,7 +64,7 @@ export default function MukattaaTable() {
       lang={language}
       className="mq-box"
       style={{
-        '--pt-d': '72px', '--pt-m': '48px',
+        '--pt-d': '48px', '--pt-m': '32px',
         '--pr-d': '32px', '--pr-m': '16px',
         '--pb-d': '72px', '--pb-m': '48px',
         '--pl-d': '32px', '--pl-m': '16px',

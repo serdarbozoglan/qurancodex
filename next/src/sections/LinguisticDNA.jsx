@@ -279,8 +279,13 @@ export default function LinguisticDNA() {
     return () => window.removeEventListener('resize', h);
   }, []);
 
+  // seam={false} — 4 Eylül 2026. Bu bölümün üstünde artık MukattaaReading var
+  // ve o kendi üst çizgisiyle sınırı zaten işaretliyor. Filigran ayraç (✦)
+  // burada ikinci bir sınır işareti olmakla kalmıyor, kendi alt-üst
+  // boşluklarıyla birlikte iki bölüm arasına ~150px ölü alan açıyordu
+  // (kullanıcı ekran görüntüsüyle bildirdi).
   return (
-    <SectionWrapper id="linguistic" dark={false}>
+    <SectionWrapper id="linguistic" dark={false} seam={false}>
       {/* Badge */}
       <motion.div variants={fadeUpItem}>
         <span className="text-gold/60 text-xs font-body uppercase tracking-[0.3em]">

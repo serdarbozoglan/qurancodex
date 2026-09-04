@@ -31,7 +31,7 @@ export default function MukattaaEvidence() {
       lang={language}
       className="mq-box"
       style={{
-        '--pt-d': '64px', '--pt-m': '44px',
+        '--pt-d': '44px', '--pt-m': '30px',
         '--pr-d': '32px', '--pr-m': '16px',
         '--pb-d': '64px', '--pb-m': '44px',
         '--pl-d': '32px', '--pl-m': '16px',

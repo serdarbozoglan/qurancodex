@@ -130,7 +130,7 @@ export default function MukattaaViews() {
       lang={language}
       className="mq-box"
       style={{
-        '--pt-d': '72px', '--pt-m': '48px',
+        '--pt-d': '16px', '--pt-m': '12px',
         '--pr-d': '32px', '--pr-m': '16px',
         '--pb-d': '72px', '--pb-m': '48px',
         '--pl-d': '32px', '--pl-m': '16px',
