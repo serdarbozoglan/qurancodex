@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, RADIUS } from '../tokens';
+import data from '../../public/mukattaa.json';
 
 const GORUSLER = [
   {
@@ -76,7 +77,7 @@ const GORUSLER = [
     baslikEn: 'Qasam — an oath sworn by the letters',
     kimTr: 'Ahfeş · bazı nakillerde İbn Abbâs',
     kimEn: 'Al-Akhfash · in some narrations Ibn ʿAbbās',
-    dayanakTr: 'Üç sûrede harfin hemen ardından yemin edatı gerçekten gelir ve bu metinde açıkça görülür: Sâd 38:1 “صٓ وَالْقُرْاٰنِ ذِي الذِّكْرِ”, Kâf 50:1 “قٓ وَالْقُرْاٰنِ الْمَج۪يدِ”, Kalem 68:1 “نٓ وَالْقَلَمِ وَمَا يَسْطُرُونَ”. Üçünde de tek harfin arkasından doğrudan bir kasem cümlesi gelir.',
+    dayanakTr: 'Üç sûrede harfin hemen ardından yemin edatı gerçekten gelir: Sâd (38:1), Kâf (50:1) ve Kalem (68:1). Üçünde de tek harfin arkasından doğrudan bir kasem cümlesi gelir — âyetlerin kendisi aşağıda.',
     dayanakEn: 'In three suras an oath particle genuinely follows the letter, plainly visible in the text: Ṣād 38:1, Qāf 50:1 (“by the glorious Qurʾān”) and al-Qalam 68:1 (“by the pen and what they write”). In each, a single letter is followed directly by an oath clause.',
     zayifTr: 'Ama bu üçünün dışında yemin edatı yoktur: Bakara 2:1’den sonra “ذٰلِكَ الْكِتَابُ” gelir, yemin değil. Yani görüş tek harfli sûrelerde güçlü, kalan 26’sında dayanaksız kalır — bütünü açıklamaz.',
     zayifEn: 'Beyond those three there is no oath particle: al-Baqara 2:1 is followed by “That is the Book”, not an oath. The view is strong for the single-letter suras and unsupported in the remaining 26 — it does not explain the whole.',
@@ -253,8 +254,16 @@ export default function MukattaaViews() {
                 viewport={{ once: true, margin: '120px 0px' }}
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                 style={{
-                  border: `1px solid ${open ? `${g.renk}55` : 'rgba(255,255,255,0.08)'}`,
-                  borderTop: `2px solid ${g.renk}`,
+                  /* React uyarısı: `border` (shorthand) ile `borderTop`
+                     (longhand) aynı elemanda karışınca rerender'da çatışıyor.
+                     Dördü de longhand yazıldı. */
+                  borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: g.renk,
+                  borderRightWidth: '1px', borderRightStyle: 'solid',
+                  borderBottomWidth: '1px', borderBottomStyle: 'solid',
+                  borderLeftWidth: '1px', borderLeftStyle: 'solid',
+                  borderRightColor: open ? `${g.renk}55` : 'rgba(255,255,255,0.08)',
+                  borderBottomColor: open ? `${g.renk}55` : 'rgba(255,255,255,0.08)',
+                  borderLeftColor: open ? `${g.renk}55` : 'rgba(255,255,255,0.08)',
                   borderRadius: RADIUS.lg,
                   background: open ? `${g.renk}0a` : COLORS.glassBgFaint,
                   transition: 'border-color 0.22s, background 0.22s',
@@ -364,33 +373,78 @@ export default function MukattaaViews() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
             gap: '10px',
           }}>
-            {[
-              { ref: '2:1-2',  ar: 'الٓمٓ ۚ ذٰلِكَ الْكِتَابُ لَا رَيْبَ ف۪يهِ', tr: 'Elif-Lâm-Mîm. İşte o Kitap — onda şüphe yoktur.', en: 'Alif-Lām-Mīm. That is the Book, in it no doubt.' },
-              { ref: '10:1',   ar: 'الٓـرٰ۠ تِلْكَ اٰيَاتُ الْكِتَابِ الْحَك۪يمِ', tr: 'Elif-Lâm-Râ. Bunlar hikmetli Kitab’ın âyetleridir.', en: 'Alif-Lām-Rāʾ. These are the verses of the Wise Book.' },
-              { ref: '11:1',   ar: 'الٓـرٰ۠ كِتَابٌ اُحْكِمَتْ اٰيَاتُهُ', tr: 'Elif-Lâm-Râ. Âyetleri sağlamlaştırılmış bir Kitap.', en: 'Alif-Lām-Rāʾ. A Book whose verses were perfected.' },
-              { ref: '12:1',   ar: 'الٓـرٰ۠ تِلْكَ اٰيَاتُ الْـكِتَابِ الْمُب۪ينِ', tr: 'Elif-Lâm-Râ. Bunlar apaçık Kitab’ın âyetleridir.', en: 'Alif-Lām-Rāʾ. These are the verses of the clear Book.' },
-              { ref: '14:1',   ar: 'الٓـرٰ۠ كِتَابٌ اَنْزَلْنَاهُ اِلَيْكَ', tr: 'Elif-Lâm-Râ. Sana indirdiğimiz bir Kitap.', en: 'Alif-Lām-Rāʾ. A Book We sent down to you.' },
-              { ref: '15:1',   ar: 'الٓـرٰ۠ تِلْكَ اٰيَاتُ الْكِتَابِ وَقُرْاٰنٍ مُب۪ينٍ', tr: 'Elif-Lâm-Râ. Bunlar Kitab’ın ve apaçık bir Kur’ân’ın âyetleridir.', en: 'Alif-Lām-Rāʾ. These are the verses of the Book and a clear Qurʾān.' },
-              { ref: '27:1',   ar: 'طٰسٓ۠ تِلْكَ اٰيَاتُ الْقُرْاٰنِ وَكِتَابٍ مُب۪ينٍ', tr: 'Tâ-Sîn. Bunlar Kur’ân’ın ve apaçık bir Kitab’ın âyetleridir.', en: 'Ṭā-Sīn. These are the verses of the Qurʾān and a clear Book.' },
-            ].map((k) => (
+            {data.evidence.map((k) => (
               <div key={k.ref} style={{
-                padding: '14px 16px', borderRadius: RADIUS.md,
+                padding: '16px 18px', borderRadius: RADIUS.md,
                 background: COLORS.glassBgFaint,
-                borderLeft: `2px solid ${COLORS.goldAlpha45}`,
+                borderLeftWidth: '2px', borderLeftStyle: 'solid',
+                borderLeftColor: COLORS.goldAlpha45,
               }}>
+                {/* Sûre yalnız numarayla anılmaz — açık adı da yazılır. */}
                 <div className="mq-fs" style={{
-                  '--fs-d': '0.62rem', '--fs-m': '0.58rem',
+                  '--fs-d': '0.68rem', '--fs-m': '0.64rem',
                   color: COLORS.gold, fontFamily: FONTS.body, fontWeight: 700,
-                  letterSpacing: '0.14em', marginBottom: '8px',
-                }}>{k.ref}</div>
+                  letterSpacing: '0.12em', marginBottom: '10px',
+                }}>
+                  {tr ? k.nameTr : k.nameEn}
+                  <span style={{ opacity: 0.55, fontWeight: 500 }}> · {k.ref}</span>
+                </div>
+                {/* Arapça bu kartın ASIL içeriği — belirgin şekilde büyük.
+                    Metin public/mukattaa.json'dan gelir; §13.15 normalizasyonu
+                    build script'te yapılır, burada ELLE Arapça yazılmaz. */}
                 <div dir="rtl" lang="ar" className="mq-fs" style={{
-                  '--fs-d': '1.12rem', '--fs-m': '1.02rem',
+                  '--fs-d': '1.65rem', '--fs-m': '1.4rem',
                   fontFamily: FONTS.quran, color: COLORS.gold,
-                  lineHeight: 2, marginBottom: '8px',
-                }}>{k.ar}</div>
+                  lineHeight: 2.1, marginBottom: '10px',
+                }}>{k.arabic}</div>
                 <div className="mq-fs" style={{
                   '--fs-d': '0.8rem', '--fs-m': '0.76rem',
                   color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.6,
+                }}>{tr ? k.tr : k.en}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Kasem karînesi: yemin edatının GERÇEKTEN geldiği üç sûre ─── */}
+        <div style={{ marginTop: '30px' }}>
+          <p className="mq-fs" style={{
+            '--fs-d': '0.88rem', '--fs-m': '0.83rem',
+            color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.72,
+            margin: '0 0 14px', maxWidth: '78ch',
+          }}>
+            {tr
+              ? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor — kalan 26 sûrede ise gelmiyor.'
+              : 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause — in the remaining 26 it is not.'}
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+            gap: '10px',
+          }}>
+            {data.oaths.map((k) => (
+              <div key={k.ref} style={{
+                padding: '16px 18px', borderRadius: RADIUS.md,
+                background: 'rgba(224,122,122,0.05)',
+                borderLeftWidth: '2px', borderLeftStyle: 'solid',
+                borderLeftColor: 'rgba(224,122,122,0.45)',
+              }}>
+                <div className="mq-fs" style={{
+                  '--fs-d': '0.68rem', '--fs-m': '0.64rem',
+                  color: '#e07a7a', fontFamily: FONTS.body, fontWeight: 700,
+                  letterSpacing: '0.12em', marginBottom: '10px',
+                }}>
+                  {tr ? k.nameTr : k.nameEn}
+                  <span style={{ opacity: 0.55, fontWeight: 500 }}> · {k.ref}</span>
+                </div>
+                <div dir="rtl" lang="ar" className="mq-fs" style={{
+                  '--fs-d': '1.65rem', '--fs-m': '1.4rem',
+                  fontFamily: FONTS.quran, color: '#e8a5a5',
+                  lineHeight: 2.1, marginBottom: '10px',
+                }}>{k.arabic}</div>
+                <div className="mq-fs" style={{
+                  '--fs-d': '0.82rem', '--fs-m': '0.78rem',
+                  color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.65,
                 }}>{tr ? k.tr : k.en}</div>
               </div>
             ))}

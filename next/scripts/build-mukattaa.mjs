@@ -21,6 +21,31 @@ const info = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/surah-info.json'
 // Sûre adları — sitedeki tek kaynak (0-tabanlı dizi, sûre n → [n-1])
 const { SURAH_NAMES_TR, SURAH_NAMES_EN } = await import('../src/lib/surahNames.js');
 
+// ⚠ CLAUDE.md §13.15 — ZORUNLU. public/*.json'a Arapça yazan HER build script
+// ham metni normalize ETMEK ZORUNDA. verse-graph-bgem3.json ham Uthmani
+// encoding taşır (۪ U+06EA, ۖ waqf, ٱ U+0671 …); bunlar CSS overlay'i olmayan
+// bileşenlerde DAİRE/TOFU olarak render olur. Bu betiğin ilk sürümü kuralı
+// atladı ve kullanıcı ekran görüntüsüyle bildirdi (ف۪يهِ, الْحَك۪يمِ,
+// الْمُب۪ينِ hepsinde daire çıkıyordu).
+// next/src/lib/arabic.js cleanArabicForDisplay'in birebir kopyası — ES module
+// olduğu için buradan import edilemiyor, inline tutuluyor.
+function cleanArabicForDisplay(str) {
+  if (!str) return str;
+  return str
+    .replace(/۪/g, 'ِ')
+    .replace(/ۡ/g, 'ْ')
+    .replace(/[ً-ْ]ٓ/gu, 'ٓ')
+    .replace(/ٱ/g, 'ا')
+    .replace(/ی/g, 'ي')
+    .replace(/[ؐ-ؔؖؗ]/g, '')
+    .replace(/[؀-؅]/g, '')
+    .replace(/[۝۞۩]/g, '')
+    .replace(/ە/g, '')
+    .replace(/ۦ/g, ' ')
+    .replace(/[ؕۖ-ۜ۟-ۭۤۧۨ]/g, '')
+    .replace(/[﴾﴿]/g, '');
+}
+
 const sade = (s) => (s || '').replace(/[ً-ٰٟۖ-ۭـ]/g, '').trim();
 const ayet = (s, a) => {
   const x = verses.find((y) => y.surah === s && y.ayah === a);
@@ -69,7 +94,7 @@ for (const k of KOMBINASYONLAR) {
       nameEn: SURAH_NAMES_EN[n - 1] || null,
       periodTr: meta.period?.tr || null,
       periodEn: meta.period?.en || null,
-      arabic: ikiAyet ? `${ayet(42, 1)} ${ayet(42, 2)}` : (a1 || '').split(/\s/)[0],
+      arabic: cleanArabicForDisplay(ikiAyet ? `${ayet(42, 1)} ${ayet(42, 2)}` : (a1 || '').split(/\s/)[0]),
       comb: k.ar,
       latin: k.lat,
       latinEn: k.latEn,
@@ -92,6 +117,48 @@ for (const s of satirlar) {
   }
 }
 
+// Tehaddî görüşünün metinsel karînesi — harften hemen sonra Kitap/Kur'ân.
+// Bileşene ELLE yazılmıyor: §13.15 gereği Arapça yalnız buradan, normalize
+// edilerek çıkar. (İlk sürümde elle yazılmıştı ve daire/tofu render etti.)
+const KARINE = [
+  { ref: '2:1-2', s: 2, a: [1, 2],
+    tr: 'Elif-Lâm-Mîm. İşte o Kitap — onda şüphe yoktur.',
+    en: 'Alif-Lām-Mīm. That is the Book, in it no doubt.' },
+  { ref: '10:1', s: 10, a: [1],
+    tr: 'Elif-Lâm-Râ. Bunlar hikmetli Kitab’ın âyetleridir.',
+    en: 'Alif-Lām-Rāʾ. These are the verses of the Wise Book.' },
+  { ref: '11:1', s: 11, a: [1],
+    tr: 'Elif-Lâm-Râ. Âyetleri sağlamlaştırılmış bir Kitap.',
+    en: 'Alif-Lām-Rāʾ. A Book whose verses were perfected.' },
+  { ref: '12:1', s: 12, a: [1],
+    tr: 'Elif-Lâm-Râ. Bunlar apaçık Kitab’ın âyetleridir.',
+    en: 'Alif-Lām-Rāʾ. These are the verses of the clear Book.' },
+  { ref: '14:1', s: 14, a: [1],
+    tr: 'Elif-Lâm-Râ. Sana indirdiğimiz bir Kitap.',
+    en: 'Alif-Lām-Rāʾ. A Book We sent down to you.' },
+  { ref: '15:1', s: 15, a: [1],
+    tr: 'Elif-Lâm-Râ. Bunlar Kitab’ın ve apaçık bir Kur’ân’ın âyetleridir.',
+    en: 'Alif-Lām-Rāʾ. These are the verses of the Book and a clear Qurʾān.' },
+  { ref: '27:1', s: 27, a: [1],
+    tr: 'Tâ-Sîn. Bunlar Kur’ân’ın ve apaçık bir Kitab’ın âyetleridir.',
+    en: 'Ṭā-Sīn. These are the verses of the Qurʾān and a clear Book.' },
+];
+const karineler = KARINE.map((k) => ({
+  ref: k.ref,
+  surah: k.s,
+  nameTr: SURAH_NAMES_TR[k.s - 1],
+  nameEn: SURAH_NAMES_EN[k.s - 1],
+  arabic: cleanArabicForDisplay(k.a.map((n) => ayet(k.s, n)).join(' ')),
+  tr: k.tr, en: k.en,
+}));
+
+// Kasem görüşünün karînesi — tek harfli üç sûrede yemin edatı GERÇEKTEN var.
+const kasem = [
+  { ref: '38:1', s: 38, tr: 'Sâd. Öğüt veren Kur’ân’a yemin olsun.', en: 'Ṣād. By the Qurʾān full of reminder.' },
+  { ref: '50:1', s: 50, tr: 'Kâf. Şerefli Kur’ân’a yemin olsun.', en: 'Qāf. By the glorious Qurʾān.' },
+  { ref: '68:1', s: 68, tr: 'Nûn. Kaleme ve yazdıklarına yemin olsun.', en: 'Nūn. By the pen and what they write.' },
+].map((k) => ({ ref: k.ref, surah: k.s, nameTr: SURAH_NAMES_TR[k.s - 1], nameEn: SURAH_NAMES_EN[k.s - 1], arabic: cleanArabicForDisplay(ayet(k.s, 1)), tr: k.tr, en: k.en }));
+
 const harfler = [...new Set(KOMBINASYONLAR.flatMap((k) => k.ar.replace(/\s/g, '').split('')))];
 const cikti = {
   meta: {
@@ -106,6 +173,8 @@ const cikti = {
   },
   combinations: KOMBINASYONLAR,
   surahs: satirlar,
+  evidence: karineler,
+  oaths: kasem,
 };
 
 fs.writeFileSync(path.join(ROOT, 'public/mukattaa.json'), JSON.stringify(cikti, null, 2) + '\n');
