@@ -126,8 +126,8 @@ const VASIFLA = [
     vasifTr: 'gemiye binmeyen oğul', vasifEn: 'the son who would not board' },
   { tr: 'Firavun’un karısı', en: 'The wife of Pharaoh', ref: '66:11',
     vasifTr: 'îmân edenlere örnek (olumlu)', vasifEn: 'an example for the believers (positive)' },
-  { tr: 'Lût’un karısı', en: 'The wife of Lot', ref: '66:10',
-    vasifTr: 'geride kalanlardan', vasifEn: 'among those who stayed behind' },
+  { tr: 'Nûh’un ve Lût’un karıları', en: 'The wives of Noah and Lot', ref: '66:10',
+    vasifTr: 'ikisi de sâlih kullarımızın nikâhında iken hainlik etti', vasifEn: 'both betrayed two righteous servants of Ours' },
 ];
 
 function bul(kayit) {
@@ -174,6 +174,21 @@ const simetri = {
     ...(() => { const a = ayet(111, 1); return { ar2: a?.ar, tr: a?.tr, en: a?.en }; })() },
 };
 
+// ── Kur'ân'ın kendi "isim vermeme" kelimesi ─────────────────────────────────
+// Furkān 25:28'de فُلَان (fulân — "falanca") geçer. Kur'ân burada ismi
+// ATLAMAKLA kalmıyor, adını vermediği kişi için ayrı bir kelime kullanıyor.
+// Sayfanın tezinin en güçlü tek kanıtı bu.
+// Metinde arandı: kelime Kur'ân'da YALNIZ bu âyette geçiyor. (Harekesiz
+// aramada 2:272 ve 30:44 da eşleşiyor ama onlar فَلِأَنْفُسِكُمْ /
+// فَلِأَنْفُسِهِمْ — yanlış eşleşme, elenmiştir.)
+const fulanHits = verses.filter((x) => /\S*فلان\S*/.test(sade(x.arabic)))
+  .filter((x) => /(^|\s)فلانا?(\s|$)/.test(sade(x.arabic)));
+const fulan = (() => {
+  const a = ayet(25, 28);
+  return { ref: '25:28', kelime: cleanArabicForDisplay('فُلَاناً'), ...a,
+           gectigiYerSayisi: fulanHits.length };
+})();
+
 const cikti = {
   meta: {
     adiGecenSayisi: kisiler.length,
@@ -182,7 +197,7 @@ const cikti = {
     generatedBy: 'scripts/build-isimlendirme.mjs',
   },
   anchor: (() => { const a = ayet(12, 111); return { ref: '12:111', ...a }; })(),
-  kisiler, gecmeyenler, vasifla: VASIFLA, simetri,
+  kisiler, gecmeyenler, vasifla: VASIFLA, simetri, fulan,
 };
 
 fs.writeFileSync(path.join(ROOT, 'public/isimlendirme.json'), JSON.stringify(cikti, null, 2) + '\n');

@@ -323,11 +323,11 @@
       "vasifEn": "an example for the believers (positive)"
     },
     {
-      "tr": "Lût’un karısı",
-      "en": "The wife of Lot",
+      "tr": "Nûh’un ve Lût’un karıları",
+      "en": "The wives of Noah and Lot",
       "ref": "66:10",
-      "vasifTr": "geride kalanlardan",
-      "vasifEn": "among those who stayed behind"
+      "vasifTr": "ikisi de sâlih kullarımızın nikâhında iken hainlik etti",
+      "vasifEn": "both betrayed two righteous servants of Ours"
     }
   ],
   "simetri": {
@@ -349,5 +349,13 @@
       "tr": "Ebu Leheb'in iki eli kurusun! Kurudu da.",
       "en": "May the hands of Abu Lahab be ruined, and ruined is he"
     }
+  },
+  "fulan": {
+    "ref": "25:28",
+    "kelime": "فُلَاناً",
+    "ar": "يَا وَيْلَتٰى لَيْتَنِي لَمْ اَتَّخِذْ فُلَاناً خَلِيلاً",
+    "tr": "Yazık bana! Keşke falancayı (batıl yolcusunu) dost edinmeseydim!",
+    "en": "Oh, woe to me! I wish I had not taken that one as a friend",
+    "gectigiYerSayisi": 1
   }
 }

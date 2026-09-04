@@ -30,7 +30,7 @@ import { COLORS, FONTS, RADIUS } from '../tokens';
 import useNavbarOffset from './useNavbarOffset';
 import data from '../../public/isimlendirme.json';
 
-const { meta, anchor, kisiler, gecmeyenler, vasifla, simetri } = data;
+const { meta, anchor, kisiler, gecmeyenler, vasifla, simetri, fulan } = data;
 
 export default function Isimlendirme({ onClose }) {
   const { language } = useLanguage();
@@ -495,6 +495,68 @@ export default function Isimlendirme({ onClose }) {
             ))}
           </div>
         </div>
+      </Section>
+
+      {/* ── Kur'ân'ın kendi "isim vermeme" kelimesi ──────────────────── */}
+      {/* Sayfanın tezinin en güçlü tek kanıtı. Kur'ân ismi ATLAMAKLA
+          kalmıyor; adını vermediği kişi için ayrı bir kelimesi var: fulân.
+          Metinde arandı, Kur'ân'da YALNIZ bu âyette geçiyor. */}
+      <Section pt={56} pb={56}>
+        <Eyebrow>{tr ? 'Tek Kelime' : 'One Word'}</Eyebrow>
+        <H2>{tr ? 'Kur’ân’ın “Adını Vermiyorum” Kelimesi' : 'The Qurʾān’s Word for “I Am Not Naming Him”'}</H2>
+        <Lead>
+          {tr
+            ? 'Buraya kadar hep bir yokluktan söz ettik: isim verilmemesinden. Ama Kur’ân bir yerde daha ileri gidiyor — ismin yerine, ismin olmadığını söyleyen bir KELİME koyuyor.'
+            : 'So far we have spoken of an absence: names withheld. But in one place the Qurʾān goes further — in the place of the name it puts a WORD that says the name is being withheld.'}
+        </Lead>
+
+        <div style={{
+          marginTop: '24px', padding: '26px 28px', borderRadius: RADIUS.lg,
+          background: 'rgba(212,165,116,0.05)',
+          borderTopWidth: '2px', borderTopStyle: 'solid', borderTopColor: COLORS.goldAlpha45,
+          borderRightWidth: '1px', borderRightStyle: 'solid', borderRightColor: 'rgba(255,255,255,0.08)',
+          borderBottomWidth: '1px', borderBottomStyle: 'solid', borderBottomColor: 'rgba(255,255,255,0.08)',
+          borderLeftWidth: '1px', borderLeftStyle: 'solid', borderLeftColor: 'rgba(255,255,255,0.08)',
+        }}>
+          <div dir="rtl" lang="ar" className="mq-fs" style={{
+            '--fs-d': '2.6rem', '--fs-m': '2.1rem',
+            fontFamily: FONTS.quran, color: COLORS.gold,
+            lineHeight: 1.8, textAlign: 'center', marginBottom: '6px',
+          }}>{fulan.kelime}</div>
+          <div className="mq-fs" style={{
+            '--fs-d': '0.72rem', '--fs-m': '0.68rem',
+            color: COLORS.textFaint, fontFamily: FONTS.body,
+            letterSpacing: '0.16em', textTransform: 'uppercase',
+            textAlign: 'center', marginBottom: '22px',
+          }}>
+            {tr ? 'fulân — “falanca”' : 'fulān — “so-and-so”'}
+          </div>
+
+          <div dir="rtl" lang="ar" className="mq-fs" style={{
+            '--fs-d': '1.4rem', '--fs-m': '1.2rem',
+            fontFamily: FONTS.quran, color: COLORS.gold, opacity: 0.92,
+            lineHeight: 2.15, marginBottom: '12px',
+          }}>{fulan.ar}</div>
+          <p className="mq-fs" style={{
+            '--fs-d': '0.9rem', '--fs-m': '0.85rem',
+            color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.7, margin: '0 0 6px',
+          }}>&quot;{tr ? fulan.tr : fulan.en}&quot;</p>
+          <p className="mq-fs" style={{
+            '--fs-d': '0.7rem', '--fs-m': '0.66rem',
+            color: COLORS.gold, opacity: 0.8, fontFamily: FONTS.body,
+            letterSpacing: '0.12em', margin: 0,
+          }}>— {tr ? 'Furkān' : 'Al-Furqān'} {fulan.ref}</p>
+        </div>
+
+        <p className="mq-fs" style={{
+          '--fs-d': '0.92rem', '--fs-m': '0.87rem',
+          color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.75,
+          margin: '20px 0 0', maxWidth: '78ch',
+        }}>
+          {tr
+            ? 'Kıyâmet günü pişman olan kişi, kendisini saptıranı anarken adını söylemiyor: “falanca”. Kelime Kur’ân’da yalnız burada geçiyor — arandı, tek yer. Yani isimsizlik bir ihmal değil, bilinçli bir tercih: pişmanlığın konusu o kişinin kimliği değil, o dostluğun kendisi. Adı verilseydi âyet bir kişiyi suçlayan bir kayıt olurdu; verilmeyince her okuyucunun kendi “falanca”sını düşünmesi gereken bir ayna oluyor.'
+            : 'On the Day of Judgement the regretful one, recalling the friend who led him astray, does not say his name: “so-and-so”. The word occurs only here in the Qurʾān — searched, one place. So the namelessness is not an oversight but a choice: what is regretted is not that person’s identity but the friendship itself. Had the name been given, the verse would be a record accusing one man; withheld, it becomes a mirror in which every reader must think of his own “so-and-so”.'}
+        </p>
       </Section>
 
       {/* ── Kavimler — ayrı katman, mevcut atlasa bağlanır ───────────── */}
