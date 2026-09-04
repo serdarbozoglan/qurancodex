@@ -33,6 +33,7 @@ export const TOOL_ROUTES = {
   openDiyalogAgi:      '/graf/diyalog',
   openMeselAtlas:      '/atlas/mesel',
   openSebebNuzul:      '/arac/sebebi-nuzul',
+  openIsimlendirme:    '/arac/isimlendirme',
   openFurukAtlasi:     '/atlas/furuk',
   openMunasebatAtlasi: '/atlas/munasebat',
   openIblisSatan:      '/arac/iblis-seytan',

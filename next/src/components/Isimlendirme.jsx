@@ -171,6 +171,25 @@ export default function Isimlendirme({ onClose }) {
             ? 'Bu bir eksiklik değil. İsim verilseydi ders o kişiyle birlikte tarihe gömülürdü; vasıf verilince her çağda tanınabilir kalıyor. Kibirlenen zorba, servetiyle azan, saptıran, tuzak kuran — bunlar bir devre ait portreler değil, sürekli tekrarlanan tiplerdir.'
             : 'This is not an omission. Had names been given, the lesson would have been buried in history with the person; given as attributes, it remains recognisable in every age. The arrogant tyrant, the one corrupted by wealth, the misleader, the schemer — these are not portraits of one era but recurring types.'}
         </Lead>
+
+        {/* Aynı ekonomi olumlu tarafta da işliyor — sitenin kendi Kadınlar
+            Atlası bunu bağımsız olarak gösteriyor. Tez böylece tek sayfaya
+            ait bir iddia olmaktan çıkıp iki yerden doğrulanıyor. */}
+        <div style={{
+          marginTop: '22px', padding: '18px 20px', borderRadius: RADIUS.lg,
+          background: COLORS.glassBgFaint,
+          borderLeftWidth: '2px', borderLeftStyle: 'solid', borderLeftColor: COLORS.goldAlpha45,
+          maxWidth: '76ch',
+        }}>
+          <p className="mq-fs" style={{
+            '--fs-d': '0.88rem', '--fs-m': '0.83rem',
+            color: COLORS.silver, fontFamily: FONTS.body, lineHeight: 1.75, margin: 0,
+          }}>
+            {tr
+              ? 'Aynı ekonomi olumlu tarafta da işler: Kur’ân’da özel adıyla anılan tek kadın Hz. Meryem’dir. Âsiye, Belkıs, Mûsâ’nın annesi, İbrâhîm’in eşi — hepsi sıfatı, akrabalığı ya da konumuyla anılır. Yani suskunluk hasımlara mahsus bir tavır değil, Kur’ân’ın genel üslûbudur.'
+              : 'The same economy operates on the positive side: the only woman named in the Qurʾān is Maryam. Āsiya, the Queen of Sheba, the mother of Moses, the wife of Abraham — each is given by attribute, kinship or position. The reticence is not a stance reserved for adversaries; it is the Qurʾān’s manner throughout.'}
+          </p>
+        </div>
       </Section>
 
       {/* ── Simetri — sayfanın en çarpıcı bulgusu ────────────────────── */}
@@ -500,6 +519,9 @@ export default function Isimlendirme({ onClose }) {
             { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Atlas of Narratives',
               descTr: 'Bu şahısların içinde geçtiği kıssaların tamamı — peygamber peygamber, sahne sahne.',
               descEn: 'The full narratives these figures appear in — prophet by prophet, scene by scene.' },
+            { href: `/${language}/atlas/kadinlar`, titleTr: 'Kur’an’da Kadınlar', titleEn: 'Women in the Quran',
+              descTr: 'Aynı tezin öbür yarısı: özel adıyla anılan tek kadın Hz. Meryem — diğerleri vasıflarıyla.',
+              descEn: 'The other half of the same thesis: the only woman named is Maryam — the rest by attribute.' },
             { href: `/${language}/arac/sebebi-nuzul`, titleTr: 'Sebeb-i Nüzûl', titleEn: 'Occasions of Revelation',
               descTr: '“Bu âyet kimin hakkında indi?” — tefsirin işaret ettiği kişiler ve rivayetlerin gücü.',
               descEn: '“About whom was this verse revealed?” — the figures the commentaries identify and the strength of the reports.' },

@@ -145,6 +145,15 @@ const KiraatIcon = ({ size = 14 }) => (
   </svg>
 );
 
+// Isimlendirme — bir kisi silueti ve uzerinde cizik: "adi verilmeyen".
+const IsimIcon = ({ size = 14 }) => (
+  <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="8" r="3.4" />
+    <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" />
+    <path d="M3 3l18 18" strokeOpacity="0.6" />
+  </svg>
+);
+
 const SebebIcon = ({ size = 14 }) => (
   <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
@@ -454,6 +463,17 @@ export const ANALYSIS_TOOLS = [
 // Order: Sebeb (bağlam) → Peygamberler (persona-büyük) → Kadınlar (persona-özel)
 // → Emirler (buyruk) → Dua (dua). Persona grubu (2026-07-15 audit) birleştirildi.
 export const RESEARCH_TOOLS = [
+  {
+    id:          'isimlendirme',
+    event:       'openIsimlendirme',
+    titleTr:     'İsimlendirme Ekonomisi',
+    titleEn:     'The Economy of Naming',
+    descTr:      'Kur\'ân kimi adlandırır · 8 isim · 96 âyet',
+    descEn:      'Whom the Quran names · 8 names · 96 verses',
+    descLongTr:  "Kur'ân'da adı açıkça geçip olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da hiç geçmez — onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz. Her sayı mushaf metnine karşı doğrulanmıştır.",
+    descLongEn:  "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named — they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every count verified against the mushaf text.",
+    icon:        IsimIcon,
+  },
   {
     id:          'sebeb-i-nuzul',
     event:       'openSebebNuzul',
