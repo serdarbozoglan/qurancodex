@@ -11,6 +11,7 @@
 // ──────────────────────────────────────────────────────────────────────────────
 
 import LinguisticDNA from '../sections/LinguisticDNA';
+import MukattaaTable from '../sections/MukattaaTable';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -145,6 +146,12 @@ export default function Mukattaa({ onClose }) {
 
       {/* Anasayfa LinguisticDNA section AYNEN — kısaltma yok, değişiklik yok */}
       <LinguisticDNA />
+
+      {/* Tam envanter tablosu (2 Eylül 2026). LinguisticDNA mukattaayı 4 aile
+          + 8 tekil kart olarak ANLATIYOR; bu bölüm 29'unu mushaf sırasıyla tek
+          yerde TARANIR kılıyor. İkisi farklı iş görür, biri diğerinin yerine
+          geçmez. */}
+      <MukattaaTable />
 
       <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1200px', margin: '0 auto' }}>
         <SourcesCitation

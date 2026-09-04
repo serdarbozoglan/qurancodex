@@ -1,0 +1,621 @@
+{
+  "meta": {
+    "surahCount": 29,
+    "combinationCount": 14,
+    "letterCount": 14,
+    "alphabetTotal": 28,
+    "letters": [
+      "ا",
+      "ل",
+      "م",
+      "ص",
+      "ر",
+      "ك",
+      "ه",
+      "ي",
+      "ع",
+      "ط",
+      "س",
+      "ح",
+      "ق",
+      "ن"
+    ],
+    "revelationRefAfterCount": 26,
+    "source": "public/verse-graph-bgem3.json — her satır âyet metnine karşı doğrulandı",
+    "generatedBy": "scripts/build-mukattaa.mjs"
+  },
+  "combinations": [
+    {
+      "ar": "الم",
+      "lat": "Elif · Lâm · Mîm",
+      "latEn": "Alif · Lām · Mīm",
+      "harf": 3,
+      "renk": "#2ab5a0",
+      "surahs": [
+        2,
+        3,
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "ar": "المص",
+      "lat": "Elif · Lâm · Mîm · Sâd",
+      "latEn": "Alif · Lām · Mīm · Ṣād",
+      "harf": 4,
+      "renk": "#7c9fe0",
+      "surahs": [
+        7
+      ]
+    },
+    {
+      "ar": "الر",
+      "lat": "Elif · Lâm · Râ",
+      "latEn": "Alif · Lām · Rāʾ",
+      "harf": 3,
+      "renk": "#e8b860",
+      "surahs": [
+        10,
+        11,
+        12,
+        14,
+        15
+      ]
+    },
+    {
+      "ar": "المر",
+      "lat": "Elif · Lâm · Mîm · Râ",
+      "latEn": "Alif · Lām · Mīm · Rāʾ",
+      "harf": 4,
+      "renk": "#c98ae0",
+      "surahs": [
+        13
+      ]
+    },
+    {
+      "ar": "كهيعص",
+      "lat": "Kâf · Hâ · Yâ · Ayn · Sâd",
+      "latEn": "Kāf · Hā · Yā · ʿAyn · Ṣād",
+      "harf": 5,
+      "renk": "#e07a7a",
+      "surahs": [
+        19
+      ]
+    },
+    {
+      "ar": "طه",
+      "lat": "Tâ · Hâ",
+      "latEn": "Ṭā · Hā",
+      "harf": 2,
+      "renk": "#6fc98a",
+      "surahs": [
+        20
+      ]
+    },
+    {
+      "ar": "طسم",
+      "lat": "Tâ · Sîn · Mîm",
+      "latEn": "Ṭā · Sīn · Mīm",
+      "harf": 3,
+      "renk": "#5fb3c9",
+      "surahs": [
+        26,
+        28
+      ]
+    },
+    {
+      "ar": "طس",
+      "lat": "Tâ · Sîn",
+      "latEn": "Ṭā · Sīn",
+      "harf": 2,
+      "renk": "#89c9b8",
+      "surahs": [
+        27
+      ]
+    },
+    {
+      "ar": "يس",
+      "lat": "Yâ · Sîn",
+      "latEn": "Yā · Sīn",
+      "harf": 2,
+      "renk": "#f0a35e",
+      "surahs": [
+        36
+      ]
+    },
+    {
+      "ar": "ص",
+      "lat": "Sâd",
+      "latEn": "Ṣād",
+      "harf": 1,
+      "renk": "#b9a6e0",
+      "surahs": [
+        38
+      ]
+    },
+    {
+      "ar": "حم",
+      "lat": "Hâ · Mîm",
+      "latEn": "Ḥā · Mīm",
+      "harf": 2,
+      "renk": "#d4a574",
+      "surahs": [
+        40,
+        41,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "ar": "حم عسق",
+      "lat": "Hâ · Mîm — Ayn · Sîn · Kâf",
+      "latEn": "Ḥā · Mīm — ʿAyn · Sīn · Qāf",
+      "harf": 5,
+      "renk": "#e8c98a",
+      "surahs": [
+        42
+      ]
+    },
+    {
+      "ar": "ق",
+      "lat": "Kâf",
+      "latEn": "Qāf",
+      "harf": 1,
+      "renk": "#9fd4a5",
+      "surahs": [
+        50
+      ]
+    },
+    {
+      "ar": "ن",
+      "lat": "Nûn",
+      "latEn": "Nūn",
+      "harf": 1,
+      "renk": "#c9b06f",
+      "surahs": [
+        68
+      ]
+    }
+  ],
+  "surahs": [
+    {
+      "surah": 2,
+      "nameTr": "El-Bakara",
+      "nameEn": "Al-Baqarah",
+      "periodTr": "Medenî",
+      "periodEn": "Medinan",
+      "arabic": "الٓمٓ",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 3,
+      "nameTr": "Âl-i İmrân",
+      "nameEn": "Aal-Imran",
+      "periodTr": "Medenî",
+      "periodEn": "Medinan",
+      "arabic": "الٓمٓۚ",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": false
+    },
+    {
+      "surah": 7,
+      "nameTr": "El-A'râf",
+      "nameEn": "Al-Araf",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓمٓصٓۜ",
+      "comb": "المص",
+      "latin": "Elif · Lâm · Mîm · Sâd",
+      "latinEn": "Alif · Lām · Mīm · Ṣād",
+      "letterCount": 4,
+      "color": "#7c9fe0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 10,
+      "nameTr": "Yûnus",
+      "nameEn": "Yunus",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـرٰ۠",
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "latinEn": "Alif · Lām · Rāʾ",
+      "letterCount": 3,
+      "color": "#e8b860",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 11,
+      "nameTr": "Hûd",
+      "nameEn": "Hud",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـرٰ۠",
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "latinEn": "Alif · Lām · Rāʾ",
+      "letterCount": 3,
+      "color": "#e8b860",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 12,
+      "nameTr": "Yûsuf",
+      "nameEn": "Yusuf",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـرٰ۠",
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "latinEn": "Alif · Lām · Rāʾ",
+      "letterCount": 3,
+      "color": "#e8b860",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 13,
+      "nameTr": "Er-Ra'd",
+      "nameEn": "Ar-Rad",
+      "periodTr": "Medenî",
+      "periodEn": "Medinan",
+      "arabic": "الٓمٓرٰ",
+      "comb": "المر",
+      "latin": "Elif · Lâm · Mîm · Râ",
+      "latinEn": "Alif · Lām · Mīm · Rāʾ",
+      "letterCount": 4,
+      "color": "#c98ae0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 14,
+      "nameTr": "İbrâhim",
+      "nameEn": "Ibrahim",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـرٰ۠",
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "latinEn": "Alif · Lām · Rāʾ",
+      "letterCount": 3,
+      "color": "#e8b860",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 15,
+      "nameTr": "El-Hicr",
+      "nameEn": "Al-Hijr",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـرٰ۠",
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "latinEn": "Alif · Lām · Rāʾ",
+      "letterCount": 3,
+      "color": "#e8b860",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 19,
+      "nameTr": "Meryem",
+      "nameEn": "Maryam",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "كٓـهٰيٰعٓصٓۜ",
+      "comb": "كهيعص",
+      "latin": "Kâf · Hâ · Yâ · Ayn · Sâd",
+      "latinEn": "Kāf · Hā · Yā · ʿAyn · Ṣād",
+      "letterCount": 5,
+      "color": "#e07a7a",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 20,
+      "nameTr": "Tâhâ",
+      "nameEn": "Ta-Ha",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "طٰهٰۜ",
+      "comb": "طه",
+      "latin": "Tâ · Hâ",
+      "latinEn": "Ṭā · Hā",
+      "letterCount": 2,
+      "color": "#6fc98a",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 26,
+      "nameTr": "Eş-Şuarâ",
+      "nameEn": "Ash-Shuara",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "طٰسٓمٓۜ",
+      "comb": "طسم",
+      "latin": "Tâ · Sîn · Mîm",
+      "latinEn": "Ṭā · Sīn · Mīm",
+      "letterCount": 3,
+      "color": "#5fb3c9",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 27,
+      "nameTr": "En-Neml",
+      "nameEn": "An-Naml",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "طٰسٓ۠",
+      "comb": "طس",
+      "latin": "Tâ · Sîn",
+      "latinEn": "Ṭā · Sīn",
+      "letterCount": 2,
+      "color": "#89c9b8",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 28,
+      "nameTr": "El-Kasas",
+      "nameEn": "Al-Qasas",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "طٰسٓمٓۜ",
+      "comb": "طسم",
+      "latin": "Tâ · Sîn · Mîm",
+      "latinEn": "Ṭā · Sīn · Mīm",
+      "letterCount": 3,
+      "color": "#5fb3c9",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 29,
+      "nameTr": "El-Ankebût",
+      "nameEn": "Al-Ankabut",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓمٓ",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": false
+    },
+    {
+      "surah": 30,
+      "nameTr": "Er-Rûm",
+      "nameEn": "Ar-Rum",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓمٓ۠",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": false
+    },
+    {
+      "surah": 31,
+      "nameTr": "Lokmân",
+      "nameEn": "Luqman",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓمٓ۠",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 32,
+      "nameTr": "Es-Secde",
+      "nameEn": "As-Sajdah",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "الٓـمٓ۠",
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "latinEn": "Alif · Lām · Mīm",
+      "letterCount": 3,
+      "color": "#2ab5a0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 36,
+      "nameTr": "Yâ-Sîn",
+      "nameEn": "Ya-Sin",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "يٰسٓۜ",
+      "comb": "يس",
+      "latin": "Yâ · Sîn",
+      "latinEn": "Yā · Sīn",
+      "letterCount": 2,
+      "color": "#f0a35e",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 38,
+      "nameTr": "Sâd",
+      "nameEn": "Sad",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "صٓ",
+      "comb": "ص",
+      "latin": "Sâd",
+      "latinEn": "Ṣād",
+      "letterCount": 1,
+      "color": "#b9a6e0",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 40,
+      "nameTr": "Mü'min",
+      "nameEn": "Al-Mumin",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓۜ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 41,
+      "nameTr": "Fussilet",
+      "nameEn": "Fussilat",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓۜ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 42,
+      "nameTr": "Eş-Şûrâ",
+      "nameEn": "Ash-Shura",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓ عٓسٓقٓ۠",
+      "comb": "حم عسق",
+      "latin": "Hâ · Mîm — Ayn · Sîn · Kâf",
+      "latinEn": "Ḥā · Mīm — ʿAyn · Sīn · Qāf",
+      "letterCount": 5,
+      "color": "#e8c98a",
+      "splitVerses": true,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 43,
+      "nameTr": "Ez-Zuhruf",
+      "nameEn": "Az-Zukhruf",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓۜ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 44,
+      "nameTr": "Ed-Duhân",
+      "nameEn": "Ad-Dukhan",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓۜ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 45,
+      "nameTr": "El-Câsiye",
+      "nameEn": "Al-Jathiyah",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓۜ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 46,
+      "nameTr": "El-Ahkâf",
+      "nameEn": "Al-Ahqaf",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "حٰمٓ",
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "latinEn": "Ḥā · Mīm",
+      "letterCount": 2,
+      "color": "#d4a574",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 50,
+      "nameTr": "Kâf",
+      "nameEn": "Qaf",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "قٓ۠",
+      "comb": "ق",
+      "latin": "Kâf",
+      "latinEn": "Qāf",
+      "letterCount": 1,
+      "color": "#9fd4a5",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    },
+    {
+      "surah": 68,
+      "nameTr": "El-Kalem",
+      "nameEn": "Al-Qalam",
+      "periodTr": "Mekkî",
+      "periodEn": "Meccan",
+      "arabic": "نٓ",
+      "comb": "ن",
+      "latin": "Nûn",
+      "latinEn": "Nūn",
+      "letterCount": 1,
+      "color": "#c9b06f",
+      "splitVerses": false,
+      "revelationRefAfter": true
+    }
+  ]
+}
