@@ -159,6 +159,61 @@ const kasem = [
   { ref: '68:1', s: 68, tr: 'Nûn. Kaleme ve yazdıklarına yemin olsun.', en: 'Nūn. By the pen and what they write.' },
 ].map((k) => ({ ref: k.ref, surah: k.s, nameTr: SURAH_NAMES_TR[k.s - 1], nameEn: SURAH_NAMES_EN[k.s - 1], arabic: cleanArabicForDisplay(ayet(k.s, 1)), tr: k.tr, en: k.en }));
 
+// ── FÂSILA (âyet sonu) uyumu ────────────────────────────────────────────────
+// Klasik bir gözlem (Bâkıllânî, Zemahşerî): harflerin okunuşu ile sûrenin âyet
+// sonu sesleri arasında kısmî bir uyum vardır. Bu, ANLATILAN değil ÖLÇÜLEBİLİR
+// bir iddia — burada 29 sûrenin tamamı üzerinde hesaplanıyor.
+// Yöntem: her âyetin (mukattaa âyeti hariç) son kelimesinin harekesiz son iki
+// harfi sayılır; ailenin en sık üç eki ve payları çıkarılır.
+// Sonuç iddiayı KISMEN doğruluyor ve nerede tutmadığını da gösteriyor —
+// ikisi de sayfada veriliyor.
+const fasilaSon = (str) => {
+  const k = sade(str).trim().split(/\s+/).filter(Boolean);
+  const w = k[k.length - 1] || '';
+  return w.slice(-2);
+};
+const fasila = KOMBINASYONLAR.map((k) => {
+  const say = {};
+  let tot = 0;
+  for (const n of k.surahs) {
+    verses.filter((x) => x.surah === n && x.ayah > 1).forEach((x) => {
+      const e = fasilaSon(x.arabic);
+      if (e) { say[e] = (say[e] || 0) + 1; tot++; }
+    });
+  }
+  const ilk3 = Object.entries(say).sort((a, b) => b[1] - a[1]).slice(0, 3)
+    .map(([ek, c]) => ({ ek, pay: Math.round((c / tot) * 100) }));
+  return {
+    comb: k.ar, latin: k.lat, renk: k.renk,
+    surahCount: k.surahs.length, ayetSayisi: tot,
+    ilk3, ilk3Toplam: ilk3.reduce((a, x) => a + x.pay, 0),
+    // mîm/nûn ile biten ekler ailenin harfleriyle örtüşüyor mu
+    mimNun: ilk3.filter((x) => /[من]$/.test(x.ek)).reduce((a, x) => a + x.pay, 0),
+  };
+});
+
+// TABAN KARŞILAŞTIRMASI — bu olmadan fâsıla iddiası yanıltıcı olur.
+// -ûn/-în/-îm zaten Arapça'nın en yaygın âyet sonu ekleri (çoğul erkek
+// ekleri); mukattaa sûrelerinde yüksek çıkması tek başına bir şey kanıtlamaz.
+// Asıl soru: diğer 85 sûreye GÖRE fark var mı? Ölçüldü: var, 24 puan.
+const mukSet = new Set(satirlar.map((s) => s.surah));
+const oran = (filtre) => {
+  const c = {};
+  let tot = 0;
+  verses.filter(filtre).forEach((x) => {
+    const e = fasilaSon(x.arabic);
+    if (e) { c[e] = (c[e] || 0) + 1; tot++; }
+  });
+  const mn = Object.entries(c).filter(([k]) => /[من]$/.test(k)).reduce((a, x) => a + x[1], 0);
+  return { ayet: tot, mimNun: Math.round((mn / tot) * 100) };
+};
+const fasilaTaban = {
+  mukattaa: oran((x) => mukSet.has(x.surah) && x.ayah > 1),
+  digerleri: oran((x) => !mukSet.has(x.surah)),
+  tumu: oran(() => true),
+};
+fasilaTaban.fark = fasilaTaban.mukattaa.mimNun - fasilaTaban.digerleri.mimNun;
+
 const harfler = [...new Set(KOMBINASYONLAR.flatMap((k) => k.ar.replace(/\s/g, '').split('')))];
 const cikti = {
   meta: {
@@ -175,6 +230,8 @@ const cikti = {
   surahs: satirlar,
   evidence: karineler,
   oaths: kasem,
+  fasila,
+  fasilaTaban,
 };
 
 fs.writeFileSync(path.join(ROOT, 'public/mukattaa.json'), JSON.stringify(cikti, null, 2) + '\n');

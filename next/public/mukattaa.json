@@ -711,5 +711,344 @@
       "tr": "Nûn. Kaleme ve yazdıklarına yemin olsun.",
       "en": "Nūn. By the pen and what they write."
     }
-  ]
+  ],
+  "fasila": [
+    {
+      "comb": "الم",
+      "latin": "Elif · Lâm · Mîm",
+      "renk": "#2ab5a0",
+      "surahCount": 6,
+      "ayetSayisi": 673,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 43
+        },
+        {
+          "ek": "ين",
+          "pay": 25
+        },
+        {
+          "ek": "يم",
+          "pay": 14
+        }
+      ],
+      "ilk3Toplam": 82,
+      "mimNun": 82
+    },
+    {
+      "comb": "المص",
+      "latin": "Elif · Lâm · Mîm · Sâd",
+      "renk": "#7c9fe0",
+      "surahCount": 1,
+      "ayetSayisi": 205,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 48
+        },
+        {
+          "ek": "ين",
+          "pay": 46
+        },
+        {
+          "ek": "يم",
+          "pay": 5
+        }
+      ],
+      "ilk3Toplam": 99,
+      "mimNun": 99
+    },
+    {
+      "comb": "الر",
+      "latin": "Elif · Lâm · Râ",
+      "renk": "#e8b860",
+      "surahCount": 5,
+      "ayetSayisi": 489,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 34
+        },
+        {
+          "ek": "ين",
+          "pay": 33
+        },
+        {
+          "ek": "يم",
+          "pay": 9
+        }
+      ],
+      "ilk3Toplam": 76,
+      "mimNun": 76
+    },
+    {
+      "comb": "المر",
+      "latin": "Elif · Lâm · Mîm · Râ",
+      "renk": "#c98ae0",
+      "surahCount": 1,
+      "ayetSayisi": 42,
+      "ilk3": [
+        {
+          "ek": "اب",
+          "pay": 33
+        },
+        {
+          "ek": "ار",
+          "pay": 19
+        },
+        {
+          "ek": "ال",
+          "pay": 17
+        }
+      ],
+      "ilk3Toplam": 69,
+      "mimNun": 0
+    },
+    {
+      "comb": "كهيعص",
+      "latin": "Kâf · Hâ · Yâ · Ayn · Sâd",
+      "renk": "#e07a7a",
+      "surahCount": 1,
+      "ayetSayisi": 97,
+      "ilk3": [
+        {
+          "ek": "يا",
+          "pay": 68
+        },
+        {
+          "ek": "دا",
+          "pay": 22
+        },
+        {
+          "ek": "ون",
+          "pay": 4
+        }
+      ],
+      "ilk3Toplam": 94,
+      "mimNun": 4
+    },
+    {
+      "comb": "طه",
+      "latin": "Tâ · Hâ",
+      "renk": "#6fc98a",
+      "surahCount": 1,
+      "ayetSayisi": 134,
+      "ilk3": [
+        {
+          "ek": "سى",
+          "pay": 10
+        },
+        {
+          "ek": "ري",
+          "pay": 8
+        },
+        {
+          "ek": "لى",
+          "pay": 7
+        }
+      ],
+      "ilk3Toplam": 25,
+      "mimNun": 0
+    },
+    {
+      "comb": "طسم",
+      "latin": "Tâ · Sîn · Mîm",
+      "renk": "#5fb3c9",
+      "surahCount": 2,
+      "ayetSayisi": 313,
+      "ilk3": [
+        {
+          "ek": "ين",
+          "pay": 50
+        },
+        {
+          "ek": "ون",
+          "pay": 36
+        },
+        {
+          "ek": "يم",
+          "pay": 9
+        }
+      ],
+      "ilk3Toplam": 95,
+      "mimNun": 95
+    },
+    {
+      "comb": "طس",
+      "latin": "Tâ · Sîn",
+      "renk": "#89c9b8",
+      "surahCount": 1,
+      "ayetSayisi": 92,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 54
+        },
+        {
+          "ek": "ين",
+          "pay": 36
+        },
+        {
+          "ek": "يم",
+          "pay": 10
+        }
+      ],
+      "ilk3Toplam": 100,
+      "mimNun": 100
+    },
+    {
+      "comb": "يس",
+      "latin": "Yâ · Sîn",
+      "renk": "#f0a35e",
+      "surahCount": 1,
+      "ayetSayisi": 82,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 65
+        },
+        {
+          "ek": "ين",
+          "pay": 18
+        },
+        {
+          "ek": "يم",
+          "pay": 15
+        }
+      ],
+      "ilk3Toplam": 98,
+      "mimNun": 98
+    },
+    {
+      "comb": "ص",
+      "latin": "Sâd",
+      "renk": "#b9a6e0",
+      "surahCount": 1,
+      "ayetSayisi": 87,
+      "ilk3": [
+        {
+          "ek": "اب",
+          "pay": 40
+        },
+        {
+          "ek": "ار",
+          "pay": 16
+        },
+        {
+          "ek": "ين",
+          "pay": 16
+        }
+      ],
+      "ilk3Toplam": 72,
+      "mimNun": 16
+    },
+    {
+      "comb": "حم",
+      "latin": "Hâ · Mîm",
+      "renk": "#d4a574",
+      "surahCount": 6,
+      "ayetSayisi": 353,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 41
+        },
+        {
+          "ek": "ين",
+          "pay": 25
+        },
+        {
+          "ek": "يم",
+          "pay": 13
+        }
+      ],
+      "ilk3Toplam": 79,
+      "mimNun": 79
+    },
+    {
+      "comb": "حم عسق",
+      "latin": "Hâ · Mîm — Ayn · Sîn · Kâf",
+      "renk": "#e8c98a",
+      "surahCount": 1,
+      "ayetSayisi": 52,
+      "ilk3": [
+        {
+          "ek": "ير",
+          "pay": 25
+        },
+        {
+          "ek": "يم",
+          "pay": 17
+        },
+        {
+          "ek": "ور",
+          "pay": 13
+        }
+      ],
+      "ilk3Toplam": 55,
+      "mimNun": 17
+    },
+    {
+      "comb": "ق",
+      "latin": "Kâf",
+      "renk": "#9fd4a5",
+      "surahCount": 1,
+      "ayetSayisi": 44,
+      "ilk3": [
+        {
+          "ek": "يد",
+          "pay": 52
+        },
+        {
+          "ek": "يب",
+          "pay": 11
+        },
+        {
+          "ek": "وج",
+          "pay": 7
+        }
+      ],
+      "ilk3Toplam": 70,
+      "mimNun": 0
+    },
+    {
+      "comb": "ن",
+      "latin": "Nûn",
+      "renk": "#c9b06f",
+      "surahCount": 1,
+      "ayetSayisi": 51,
+      "ilk3": [
+        {
+          "ek": "ون",
+          "pay": 47
+        },
+        {
+          "ek": "ين",
+          "pay": 33
+        },
+        {
+          "ek": "يم",
+          "pay": 14
+        }
+      ],
+      "ilk3Toplam": 94,
+      "mimNun": 94
+    }
+  ],
+  "fasilaTaban": {
+    "mukattaa": {
+      "ayet": 2714,
+      "mimNun": 74
+    },
+    "digerleri": {
+      "ayet": 3493,
+      "mimNun": 50
+    },
+    "tumu": {
+      "ayet": 6236,
+      "mimNun": 61
+    },
+    "fark": 24
+  }
 }
