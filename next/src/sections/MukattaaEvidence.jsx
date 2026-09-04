@@ -40,6 +40,26 @@ export default function MukattaaEvidence() {
       }}
     >
       <div style={{ maxWidth: 1080, margin: '0 auto', width: '100%' }}>
+        {/* Bölüm başlığı (4 Eylül 2026): bu bölüm 1.500px'lik bağımsız bir
+            bölüm olmasına rağmen en üst başlığı bir h3'tü; belge planında
+            LinguisticDNA'nın alt parçası gibi görünüyordu. Kendi h2'si verildi. */}
+        <p className="mq-fs" style={{
+          '--fs-d': '0.7rem', '--fs-m': '0.64rem',
+          letterSpacing: '0.22em', textTransform: 'uppercase',
+          color: COLORS.gold, opacity: 0.75, margin: '0 0 10px',
+          fontFamily: FONTS.body, fontWeight: 600,
+        }}>
+          {tr ? 'Sınama' : 'Testing'}
+        </p>
+        <h2 className="mq-fs" style={{
+          '--fs-d': 'clamp(1.9rem, 3.2vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.4vw, 1.9rem)',
+          fontFamily: FONTS.display, fontWeight: 700, color: COLORS.offWhite,
+          margin: '0 0 6px', lineHeight: 1.2, letterSpacing: '-0.015em',
+          textWrap: 'balance',
+        }}>
+          {tr ? 'Görüşleri Metne Karşı Sınamak' : 'Testing the Views Against the Text'}
+        </h2>
+
         {/* ── Metinden kanıt: harf → Kitap/Kur'ân ────────────────────── */}
         {/* Tehaddî görüşünün en güçlü dayanağı ANLATILMAK yerine
             GÖSTERİLİYOR. Örneklerin tamamı mushaf metninden alındı ve
@@ -187,8 +207,8 @@ export default function MukattaaEvidence() {
           lineHeight: 1.8, marginTop: '30px', maxWidth: '72ch',
         }}>
           {tr
-            ? 'Yedi görüş birbirini dışlamaz; birkaçı aynı anda doğru olabilir. Ortak nokta şudur: hiçbiri harflerin bir mânâsı olmadığını söylemez. Tartışma “mânâ var mı” değil, “mânâ nedir” üzerinedir. Kesin cevabı ise Allah bilir.'
-            : 'The seven views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is — and the certain answer rests with Allah.'}
+            ? 'Sekiz görüş birbirini dışlamaz; birkaçı aynı anda doğru olabilir. Ortak nokta şudur: hiçbiri harflerin bir mânâsı olmadığını söylemez. Tartışma “mânâ var mı” değil, “mânâ nedir” üzerinedir. Kesin cevabı ise Allah bilir.'
+            : 'The eight views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is — and the certain answer rests with Allah.'}
         </p>
       </div>
     </section>

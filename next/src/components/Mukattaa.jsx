@@ -12,6 +12,7 @@
 
 import LinguisticDNA from '../sections/LinguisticDNA';
 import MukattaaTable from '../sections/MukattaaTable';
+import MukattaaReading from '../sections/MukattaaReading';
 import MukattaaViews from '../sections/MukattaaViews';
 import MukattaaEvidence from '../sections/MukattaaEvidence';
 import ToolHeader from './ToolHeader';
@@ -162,13 +163,22 @@ export default function Mukattaa({ onClose }) {
           Soru → Cevaplar → Örüntü → Kanıt → Başvuru
           ───────────────────────────────────────────────────────────── */}
 
-      {/* "Bu harfler nedir?" — klasik görüşler, her biri dayanağı ve zayıf
-          yanıyla. Sayfa 1.400 yıldır icmâ sağlanamadığını bir cümlede
-          söylüyordu; görüşlerin kendisi yoktu. */}
-      <MukattaaViews />
+      {/* Okunuş — bir OLGU, teori değil: harfler kelime olarak değil, harf
+          adlarıyla okunur. Okuyucunun gerçek ilk sorusu bu ve cevabı burada
+          verilebilir; aşağıdaki teorilerin aksine hiçbir ön bilgi gerektirmez. */}
+      <MukattaaReading />
 
-      {/* Anasayfa LinguisticDNA section AYNEN — kısaltma yok, değişiklik yok */}
+      {/* Olgular: istatistikler, 14 harf, 4 aile, Diğer 8 sûre, %86 örüntüsü.
+          Görüşlerden ÖNCE gelmek ZORUNDA — aşağıdaki sekiz kartın "zayıf yan"
+          argümanlarının neredeyse tamamı buradaki verilere dayanıyor:
+          "الم altı sûrenin başındadır" (aileler), "14 harf 28'in yarısı"
+          (14 harf görseli), "29 sûrenin neredeyse tamamında Kitab'a atıf"
+          (%86 örüntü bloğu). Okuyucu bir görüşü dayanağını görmeden tartamaz. */}
       <LinguisticDNA />
+
+      {/* "Bu harfler nedir?" — klasik görüşler, her biri dayanağı ve zayıf
+          yanıyla. */}
+      <MukattaaViews />
 
       {/* Görüşleri metne karşı sınayan malzeme */}
       <MukattaaEvidence />
