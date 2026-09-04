@@ -57,6 +57,14 @@ export default function MukattaaTable() {
   const sol = surahs.filter((_, i) => i < Math.ceil(surahs.length / 2));
   const sag = surahs.filter((_, i) => i >= Math.ceil(surahs.length / 2));
 
+  // En büyük üç aile — oran şeridinin altındaki cümle için, elle yazılmaz.
+  const enBuyukUc = useMemo(
+    () => combinations.slice().sort((a, b) => b.surahs.length - a.surahs.length).slice(0, 3),
+    []
+  );
+  const enBuyukler = enBuyukUc.map((c) => `${c.ar} (${c.surahs.length})`).join(', ');
+  const enBuyuklerToplam = enBuyukUc.reduce((a, c) => a + c.surahs.length, 0);
+
   const sonuk = (comb) => aktif && aktif !== comb;
 
   return (
@@ -168,6 +176,35 @@ export default function MukattaaTable() {
             </>
           )}
         </p>
+
+        {/* ── Oran şeridi — aile büyüklükleri ─────────────────────────── */}
+        {/* Üstteki 114'lük şerit KONUMU gösteriyor (nerede kümeleniyorlar);
+            bu şerit ORANI gösteriyor (kaçını tutuyorlar). Rozetlerde sayılar
+            zaten var ama rakam hâlinde — "üç aile 29 sûrenin 17'sini tutuyor"
+            tek bakışta görünmüyordu. Aynı renkler, farklı soru. */}
+        <div style={{ marginTop: '22px' }}>
+          <div style={{ display: 'flex', width: '100%', height: '10px', borderRadius: RADIUS.pill, overflow: 'hidden', gap: '1px' }}>
+            {combinations.map((c) => (
+              <div key={c.ar}
+                title={`${c.ar} — ${c.surahs.length} ${tr ? 'sûre' : 'suras'}`}
+                aria-hidden="true"
+                style={{
+                  flex: c.surahs.length, minWidth: 0,
+                  background: aktif && aktif !== c.ar ? `${c.renk}26` : c.renk,
+                  transition: 'background 0.25s ease',
+                }} />
+            ))}
+          </div>
+          <p className="mq-fs" style={{
+            '--fs-d': '0.74rem', '--fs-m': '0.7rem',
+            color: COLORS.textFaint, fontFamily: FONTS.body,
+            lineHeight: 1.65, margin: '8px 0 0', maxWidth: '78ch',
+          }}>
+            {tr
+              ? `Üç aile — ${enBuyukler} — 29 sûrenin ${enBuyuklerToplam}’ini tutuyor; kalan ${combinations.length - 3} kombinasyonun her biri yalnız bir ya da iki sûrede geçiyor. Dağılım eşit değil.`
+              : `Three families — ${enBuyukler} — account for ${enBuyuklerToplam} of the 29 suras; each of the remaining ${combinations.length - 3} combinations opens only one or two. The distribution is not even.`}
+          </p>
+        </div>
 
         {/* ── Kombinasyon rozetleri (filtre) ─────────────────────────── */}
         <div style={{

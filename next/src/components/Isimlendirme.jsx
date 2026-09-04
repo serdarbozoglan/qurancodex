@@ -45,6 +45,10 @@ export default function Isimlendirme({ onClose }) {
     return () => window.removeEventListener('resize', h);
   }, []);
 
+  // Grafiğin altındaki cümle için — elle yazılmaz, veriden gelir.
+  const firavunPay = Math.max(...kisiler.map((k) => k.count));
+  const firavunYuzde = Math.round((firavunPay / meta.toplamAyet) * 100);
+
   const Eyebrow = ({ children }) => (
     <p className="mq-fs" style={{
       '--fs-d': '0.7rem', '--fs-m': '0.64rem',
@@ -258,6 +262,51 @@ export default function Isimlendirme({ onClose }) {
             ? 'Her satır mushaf metninde arandı; sayılar ve konumlar âyetin kendisinden çıkarıldı, ezberden yazılmadı. Karta dokununca o kişinin geçtiği âyet gösterilir.'
             : 'Every row was searched in the muṣḥaf text; the counts and locations come from the verses themselves, not from memory. Open a card to see the verse.'}
         </Lead>
+
+        {/* ── Âyet sayısı grafiği ─────────────────────────────────────── */}
+        {/* Sayılar kartlarda zaten yazıyor ama RAKAM olarak; 67'ye 1 farkı
+            okunuyor, hissedilmiyor. Firavun tek başına 96 âyetin 67'si —
+            bu oran sayfanın tezinin bir parçası: Kur'ân az isim veriyor ve
+            verdiklerinin de ağırlığı tek bir figürde toplanıyor. */}
+        <div style={{ marginTop: '26px' }}>
+          {kisiler.slice().sort((a, b) => b.count - a.count).map((k) => (
+            <div key={k.id} style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(min(72px, 100%), 108px) 1fr auto',
+              alignItems: 'center', gap: '12px',
+              padding: '7px 0',
+            }}>
+              <span className="mq-fs" style={{
+                '--fs-d': '0.82rem', '--fs-m': '0.76rem',
+                color: COLORS.silver, fontFamily: FONTS.body,
+                textAlign: 'right', whiteSpace: 'nowrap',
+                overflow: 'hidden', textOverflow: 'ellipsis',
+              }}>{tr ? k.nameTr : k.nameEn}</span>
+              <span style={{ display: 'block', height: '9px', background: 'rgba(255,255,255,0.045)', borderRadius: RADIUS.pill, overflow: 'hidden' }}>
+                <span style={{
+                  display: 'block', height: '100%',
+                  width: `${Math.max(2, (k.count / kisiler[0].count) * 100)}%`,
+                  background: k.renk, borderRadius: RADIUS.pill,
+                  boxShadow: `0 0 10px ${k.renk}55`,
+                }} />
+              </span>
+              <span className="mq-fs" style={{
+                '--fs-d': '0.78rem', '--fs-m': '0.72rem',
+                color: k.renk, fontFamily: FONTS.display, fontWeight: 700,
+                fontVariantNumeric: 'tabular-nums', minWidth: '2.2em', textAlign: 'right',
+              }}>{k.count}</span>
+            </div>
+          ))}
+          <p className="mq-fs" style={{
+            '--fs-d': '0.78rem', '--fs-m': '0.74rem',
+            color: COLORS.textFaint, fontFamily: FONTS.body,
+            lineHeight: 1.7, margin: '14px 0 0', maxWidth: '78ch',
+          }}>
+            {tr
+              ? `Ağırlık tek bir figürde toplanıyor: Firavun ${firavunPay} âyetle toplamın %${firavunYuzde}’sini kaplıyor. Kalan yedi ismin tamamı ${meta.toplamAyet - firavunPay} âyet — üçü yalnız bir veya üç âyette geçiyor. Kur’ân az isim veriyor, verdiklerinin de dağılımı eşit değil.`
+              : `The weight falls on a single figure: Pharaoh accounts for ${firavunPay} verses, ${firavunYuzde}% of the total. All seven remaining names together come to ${meta.toplamAyet - firavunPay} verses — three of them appear in just one or three. The Qurʾān names few, and even those it names are not evenly distributed.`}
+          </p>
+        </div>
 
         <div style={{
           display: 'grid',
