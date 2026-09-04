@@ -185,7 +185,11 @@ export default function MukattaaViews() {
                 key={g.id}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '120px 0px' }}
+                viewport={{ once: true, margin: '400px 0px' }}   /* 400px — SectionWrapper.jsx'teki
+                      belgelenmiş ders: 120px gibi dar bir marjda hızlı veya programatik
+                      scroll'da bölüm hiç görünmeden atlanıp BOŞ kalabiliyor (kullanıcı
+                      /arac/retorik-sorular'da bildirmişti). Pozitif marj, animasyon
+                      kullanıcı oraya varmadan bitsin diye erken tetikler. */
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                 style={{
                   /* React uyarısı: `border` (shorthand) ile `borderTop`

@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "adiGecenSayisi": 8,
+    "toplamAyet": 96,
+    "source": "public/verse-graph-bgem3.json — her isim ve sayı âyet metnine karşı doğrulandı",
+    "generatedBy": "scripts/build-isimlendirme.mjs"
+  },
+  "anchor": {
+    "ref": "12:111",
+    "ar": "لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ لِاُولِي الْاَلْبَابِ مَا كَانَ حَدِيثاً يُفْتَرٰى وَلٰكِنْ تَصْدِيقَ الَّذِي بَيْنَ يَدَيْهِ وَتَفْصِيلَ كُلِّ شَيْءٍ وَهُدًى وَرَحْمَةً لِقَوْمٍ يُؤْمِنُونَ",
+    "tr": "Andolsun onların (geçmiş peygamberler ve ümmetlerinin) kıssalarında akıl sahipleri için pek çok ibretler vardır. (Bu Kur'an) uydurulabilecek bir söz değildir. Fakat o, kendinden öncekileri tasdik eden, her şeyi açıklayan (bir kitaptır); iman eden toplum için bir rahmet ve bir hidayettir.",
+    "en": "There was certainly in their stories a lesson for those of understanding. Never was the Qur'an a narration invented, but a confirmation of what was before it and a detailed explanation of all things and guidance and mercy for a people who believe"
+  },
+  "kisiler": [
+    {
+      "id": "firavun",
+      "ar": "فِرْعَوْن",
+      "nameTr": "Firavun",
+      "nameEn": "Pharaoh",
+      "renk": "#e07a7a",
+      "count": 67,
+      "refs": [
+        "2:49",
+        "2:50",
+        "3:11",
+        "7:103",
+        "7:104",
+        "7:109",
+        "7:113",
+        "7:123",
+        "7:127",
+        "7:130",
+        "7:137",
+        "7:141",
+        "8:52",
+        "8:54",
+        "10:75",
+        "10:79",
+        "10:83",
+        "10:88",
+        "10:90",
+        "11:97",
+        "14:6",
+        "17:101",
+        "17:102",
+        "20:24",
+        "20:43",
+        "20:60",
+        "20:78",
+        "20:79",
+        "23:46",
+        "26:11",
+        "26:16",
+        "26:23",
+        "26:41",
+        "26:44",
+        "26:53",
+        "27:12",
+        "28:3",
+        "28:4",
+        "28:6",
+        "28:8",
+        "28:9",
+        "28:32",
+        "28:38",
+        "29:39",
+        "38:12",
+        "40:24",
+        "40:26",
+        "40:28",
+        "40:29",
+        "40:36",
+        "40:37",
+        "40:45",
+        "40:46",
+        "43:46",
+        "43:51",
+        "44:17",
+        "44:31",
+        "50:13",
+        "51:38",
+        "54:41",
+        "66:11",
+        "69:9",
+        "73:15",
+        "73:16",
+        "79:17",
+        "85:18",
+        "89:10"
+      ],
+      "rolTr": "Mûsâ’ya karşı çıkan, kavmini köleleştiren ve “sizin en yüce rabbiniz benim” diyecek kadar azan hükümdar.",
+      "rolEn": "The ruler who opposed Moses, enslaved his people and went so far as to say “I am your lord, most high”.",
+      "notTr": "Mısır hükümdarlarının UNVANI; Kur’ân bunu özel isim gibi tek bir şahsa hasrederek kullanır.",
+      "notEn": "A TITLE of Egyptian rulers; the Qurʾān uses it like a proper name for one specific figure.",
+      "ornekRef": "20:24",
+      "ornekAr": "اِذْهَبْ اِلٰى فِرْعَوْنَ اِنَّهُ طَغٰى",
+      "ornekTr": "Firavun'a git. Çünkü o iyice azdı.",
+      "ornekEn": "Go to Pharaoh. Indeed, he has transgressed"
+    },
+    {
+      "id": "iblis",
+      "ar": "إِبْلِيس",
+      "nameTr": "İblîs",
+      "nameEn": "Iblīs",
+      "renk": "#c98ae0",
+      "count": 11,
+      "refs": [
+        "2:34",
+        "7:11",
+        "15:31",
+        "15:32",
+        "17:61",
+        "18:50",
+        "20:116",
+        "26:95",
+        "34:20",
+        "38:74",
+        "38:75"
+      ],
+      "rolTr": "Secde emrine karşı kibirlenen; insana düşmanlığını kıyâmete kadar sürdürmeye yemin eden varlık.",
+      "rolEn": "The one who grew arrogant before the command to prostrate, and vowed enmity to humankind until the Last Day.",
+      "notTr": "İnsan değil, cin tâifesinden (18:50).",
+      "notEn": "Not human but of the jinn (18:50).",
+      "ornekRef": "2:34",
+      "ornekAr": "وَاِذْ قُلْنَا لِلْمَلٰٓئِكَةِ اسْجُدُوا لِاٰدَمَ فَسَجَدٓوا اِلّٓا اِبْلِيسَ اَبٰى وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
+      "ornekTr": "Hani biz meleklere (ve cinlere): Âdem'e secde edin, demiştik. İblis hariç hepsi secde ettiler. O yüz çevirdi ve büyüklük tasladı, böylece kafirlerden oldu.",
+      "ornekEn": "And [mention] when We said to the angels, \"Prostrate before Adam\"; so they prostrated, except for Iblees. He refused and was arrogant and became of the disbelievers"
+    },
+    {
+      "id": "haman",
+      "ar": "هَامَان",
+      "nameTr": "Hâmân",
+      "nameEn": "Hāmān",
+      "renk": "#e8b860",
+      "count": 6,
+      "refs": [
+        "28:6",
+        "28:8",
+        "28:38",
+        "29:39",
+        "40:24",
+        "40:36"
+      ],
+      "rolTr": "Firavun’un veziri; ona kule yaptırıp “Mûsâ’nın ilâhına bakayım” dedirtecek kadar yakın olan adam.",
+      "rolEn": "Pharaoh’s minister; the man close enough to be told to build a tower so Pharaoh might “look upon the God of Moses”.",
+      "notTr": "Altı âyetin altısında da DAİMA Firavun’la birlikte anılır — tek başına hiç geçmez.",
+      "notEn": "In all six verses he appears ALWAYS beside Pharaoh — never alone.",
+      "ornekRef": "28:38",
+      "ornekAr": "وَقَالَ فِرْعَوْنُ يٓا اَيُّهَا الْمَلَأُ مَا عَلِمْتُ لَكُمْ مِنْ اِلٰهٍ غَيْرِي فَاَوْقِدْ لِي يَا هَامَانُ عَلَى الطِّينِ فَاجْعَلْ لِي صَرْحاً لَعَلِٓي اَطَّلِعُ اِلٰٓى اِلٰهِ مُوسٰى وَاِنِّي لَاَظُنُّهُ مِنَ الْكَاذِبِينَ",
+      "ornekTr": "Firavun: Ey ileri gelenler! Sizin için benden başka bir ilah tanımıyorum. Ey Haman! Haydi benim için çamur üzerine ateş yak (ve tuğla imal et), bana bir kule yap ki Musa'nın tanrısına çıkayım; ama sanıyorum, o mutlaka yalan söyleyenlerdendir, dedi.",
+      "ornekEn": "And Pharaoh said, \"O eminent ones, I have not known you to have a god other than me. Then ignite for me, O Haman, [a fire] upon the clay and make for me a tower that I may look at the God of Moses. And indeed, I do think he is among the liars"
+    },
+    {
+      "id": "karun",
+      "ar": "قَارُون",
+      "nameTr": "Kârûn",
+      "nameEn": "Qārūn",
+      "renk": "#d4a574",
+      "count": 4,
+      "refs": [
+        "28:76",
+        "28:79",
+        "29:39",
+        "40:24"
+      ],
+      "rolTr": "Mûsâ’nın kavminden olduğu hâlde servetiyle azan; “bu bana ancak bendeki bilgi sayesinde verildi” diyen kişi.",
+      "rolEn": "From Moses’ own people, yet corrupted by wealth; the man who said “I was given this only because of knowledge I possess”.",
+      "notTr": "İçeriden çıkan bir örnek: düşman değil, kendi kavminden.",
+      "notEn": "An example from within: not an outsider but one of his own people.",
+      "ornekRef": "28:76",
+      "ornekAr": "اِنَّ قَارُونَ كَانَ مِنْ قَوْمِ مُوسٰى فَبَغٰى عَلَيْهِمْ وَاٰتَيْنَاهُ مِنَ الْكُنُوزِ مٓا اِنَّ مَفَاتِحَهُ لَتَنٓوأُ بِالْعُصْبَةِ اُولِي الْقُوَّةِ اِذْ قَالَ لَهُ قَوْمُهُ لَا تَفْرَحْ اِنَّ اللّٰهَ لَا يُحِبُّ الْفَرِحِينَ",
+      "ornekTr": "Karun, Musa'nın kavminden idi de, onlara karşı azgınlık etmişti. Biz ona öyle hazineler vermiştik ki, anahtarlarını güçlükuvvetli bir topluluk zor taşırdı. Kavmi ona şöyle demişti: Şımarma! Bil ki Allah şımarıkları sevmez.",
+      "ornekEn": "Indeed, Qarun was from the people of Moses, but he tyrannized them. And We gave him of treasures whose keys would burden a band of strong men; thereupon his people said to him, \"Do not exult. Indeed, Allah does not like the exultant"
+    },
+    {
+      "id": "calut",
+      "ar": "جَالُوت",
+      "nameTr": "Câlût",
+      "nameEn": "Jālūt (Goliath)",
+      "renk": "#7c9fe0",
+      "count": 3,
+      "refs": [
+        "2:249",
+        "2:250",
+        "2:251"
+      ],
+      "rolTr": "Tâlût’un ordusunun karşısındaki komutan; genç Dâvûd tarafından öldürülür.",
+      "rolEn": "The commander facing Ṭālūt’s army; slain by the young David.",
+      "notTr": "Üç âyette de bir SAVAŞ anlatısının parçası olarak geçer.",
+      "notEn": "In all three verses he appears as part of a battle narrative.",
+      "ornekRef": "2:251",
+      "ornekAr": "فَهَزَمُوهُمْ بِاِذْنِ اللّٰهِ وَقَتَلَ دَاوُدُ جَالُوتَ وَاٰتٰيهُ اللّٰهُ الْمُلْكَ وَالْحِكْمَةَ وَعَلَّمَهُ مِمَّا يَشٓاءُ وَلَوْلَا دَفْعُ اللّٰهِ النَّاسَ بَعْضَهُمْ بِبَعْضٍ لَفَسَدَتِ الْاَرْضُ وَلٰكِنَّ اللّٰهَ ذُوفَضْلٍ عَلَى الْعَالَمِينَ",
+      "ornekTr": "Sonunda Allah'ın izniyle onları yendiler. Davud da Calut'u öldürdü. Allah ona (Davud'a) hükümdarlık ve hikmet verdi, dilediği ilimlerden ona öğretti. Eğer Allah'ın insanlardan bir kısmının kötülüğünü diğerleriyle savması olmasaydı elbette yeryüzü alt üst olurdu. Lakin Allah bütün insanlığa karşı lütuf ve kerem sahibidir.",
+      "ornekEn": "So they defeated them by permission of Allah, and David killed Goliath, and Allah gave him the kingship and prophethood and taught him from that which He willed. And if it were not for Allah checking [some] people by means of others, the earth would have been corrupted, but Allah is full of bounty to the worlds"
+    },
+    {
+      "id": "samiri",
+      "ar": "السَّامِرِيّ",
+      "nameTr": "Sâmirî",
+      "nameEn": "Al-Sāmirī",
+      "renk": "#6fc98a",
+      "count": 3,
+      "refs": [
+        "20:85",
+        "20:87",
+        "20:95"
+      ],
+      "rolTr": "Mûsâ Tûr’dayken İsrâiloğulları’na altın buzağıyı yapıp onları saptıran kişi.",
+      "rolEn": "The one who fashioned the golden calf and led the Children of Israel astray while Moses was at the Mount.",
+      "notTr": "Başındaki lâm-ı tarif sebebiyle NİSBE (mensubiyet bildiren sıfat) sayılır; asıl adı klasik tefsirlerde ihtilaflıdır.",
+      "notEn": "Because of its definite article this is read as a NISBA (an attributive epithet); his actual name is disputed in the classical commentaries.",
+      "ornekRef": "20:85",
+      "ornekAr": "قَالَ فَاِنَّا قَدْ فَتَنَّا قَوْمَكَ مِنْ بَعْدِكَ وَاَضَلَّهُمُ السَّامِرِيُّ",
+      "ornekTr": "Allah buyurdu: Senden sonra biz, kavmini (Harun ile kalan İsrailoğullarını) imtihan ettik ve Samiri onları yoldan çıkardı.",
+      "ornekEn": "[Allah] said, \"But indeed, We have tried your people after you [departed], and the Samiri has led them astray"
+    },
+    {
+      "id": "ebu-leheb",
+      "ar": "أَبِي لَهَب",
+      "nameTr": "Ebû Leheb",
+      "nameEn": "Abū Lahab",
+      "renk": "#e8c98a",
+      "count": 1,
+      "refs": [
+        "111:1"
+      ],
+      "rolTr": "Peygamber’in ﷺ amcası olduğu hâlde ona açıkça düşmanlık eden kişi.",
+      "rolEn": "The Prophet’s ﷺ own uncle, who openly opposed him.",
+      "notTr": "Asıl adı Abdüluzzâ; Kur’ân KÜNYESİNİ kullanır. Çağdaşlardan olumsuz anılan TEK isimdir.",
+      "notEn": "His given name was ʿAbd al-ʿUzzā; the Qurʾān uses his KUNYA instead. He is the ONLY contemporary named negatively.",
+      "ornekRef": "111:1",
+      "ornekAr": "تَبَّتْ  يَدٓا اَبِي لَهَبٍ وَتَبَّ",
+      "ornekTr": "Ebu Leheb'in iki eli kurusun! Kurudu da.",
+      "ornekEn": "May the hands of Abu Lahab be ruined, and ruined is he"
+    },
+    {
+      "id": "azer",
+      "ar": "آزَر",
+      "nameTr": "Âzer",
+      "nameEn": "Āzar",
+      "renk": "#b9a6e0",
+      "count": 1,
+      "refs": [
+        "6:74"
+      ],
+      "rolTr": "İbrâhîm’in babası olarak anılır; putlara tapması sebebiyle oğlunun karşısındadır.",
+      "rolEn": "Named as Abraham’s father; his idol-worship sets him against his son.",
+      "notTr": "Olumsuzluğu ŞİRK bağlamındadır; ona bir zulüm fiili atfedilmez. Özel isim mi lakap mı put adı mı — ihtilaflıdır.",
+      "notEn": "His negative portrayal concerns SHIRK alone; no act of oppression is ascribed to him. Whether it is a name, an epithet or an idol’s name is disputed.",
+      "ornekRef": "6:74",
+      "ornekAr": "وَاِذْ قَالَ اِبْرٰهِيمُ لِاَبِيهِ اٰزَرَ اَتَـتَّخِذُ اَصْنَاماً اٰلِهَةً اِنِٓي اَرٰيكَ وَقَوْمَكَ فِي ضَلَالٍ مُبِينٍ",
+      "ornekTr": "İbrahim, babası Âzer'e: Birtakım putları tanrılar mı ediniyorsun? Doğrusu ben seni de kavmini de apaçık bir sapıklık içinde görüyorum, demişti.",
+      "ornekEn": "And [mention, O Muhammad], when Abraham said to his father Azar, \"Do you take idols as deities? Indeed, I see you and your people to be in manifest error"
+    }
+  ],
+  "gecmeyenler": [
+    {
+      "nameTr": "Ebû Cehil",
+      "nameEn": "Abū Jahl",
+      "kok": "ابي جهل",
+      "aciklamaTr": "Peygamber’e ﷺ en azılı düşmanlık edenlerdendir; adı Kur’ân’da hiç geçmez.",
+      "aciklamaEn": "Among the fiercest opponents of the Prophet ﷺ; his name never appears in the Qurʾān.",
+      "dogrulandi": true,
+      "bulunan": 0
+    },
+    {
+      "nameTr": "Velîd b. Muğîre",
+      "nameEn": "Al-Walīd b. al-Mughīra",
+      "kok": "الوليد",
+      "aciklamaTr": "Tefsirlerde Müddessir 74:11’deki “yalnız yarattığım kimse” tabirinin onu işaret ettiği söylenir — âyette isim yoktur.",
+      "aciklamaEn": "The commentaries identify him with “the one I created alone” (al-Muddaththir 74:11) — the verse gives no name.",
+      "dogrulandi": true,
+      "bulunan": 0
+    },
+    {
+      "nameTr": "Ukbe b. Ebî Muayt",
+      "nameEn": "ʿUqba b. Abī Muʿayṭ",
+      "kok": null,
+      "aciklamaTr": "Tefsirlerde Furkān 25:27-28’deki “zâlim” ile ilişkilendirilir; âyet isim vermez.",
+      "aciklamaEn": "Associated in the commentaries with “the wrongdoer” of al-Furqān 25:27-28; the verse names no one.",
+      "dogrulandi": null,
+      "bulunan": null
+    },
+    {
+      "nameTr": "Nemrûd",
+      "nameEn": "Nimrod",
+      "kok": "نمرود",
+      "aciklamaTr": "Bakara 2:258’de İbrâhîm ile tartışan hükümdar isimsizdir: “Rabbi hakkında İbrâhîm ile tartışanı görmedin mi?”",
+      "aciklamaEn": "The king who disputed with Abraham in al-Baqara 2:258 is unnamed: “Have you not seen the one who argued with Abraham about his Lord?”",
+      "dogrulandi": true,
+      "bulunan": 0
+    },
+    {
+      "nameTr": "Ebrehe",
+      "nameEn": "Abraha",
+      "kok": "ابرهة",
+      "aciklamaTr": "Fîl sûresi ordudan söz eder, kumandandan değil: “Fil sahiplerine Rabbin ne yaptı?”",
+      "aciklamaEn": "Sūrat al-Fīl speaks of the army, not its commander: “Have you not seen what your Lord did to the companions of the elephant?”",
+      "dogrulandi": true,
+      "bulunan": 0
+    }
+  ],
+  "vasifla": [
+    {
+      "tr": "Ebû Leheb’in karısı",
+      "en": "The wife of Abū Lahab",
+      "ref": "111:4",
+      "vasifTr": "odun taşıyıcı (حَمَّالَةَ الْحَطَبِ)",
+      "vasifEn": "the carrier of firewood"
+    },
+    {
+      "tr": "Nûh’un oğlu",
+      "en": "The son of Noah",
+      "ref": "11:42-43",
+      "vasifTr": "gemiye binmeyen oğul",
+      "vasifEn": "the son who would not board"
+    },
+    {
+      "tr": "Firavun’un karısı",
+      "en": "The wife of Pharaoh",
+      "ref": "66:11",
+      "vasifTr": "îmân edenlere örnek (olumlu)",
+      "vasifEn": "an example for the believers (positive)"
+    },
+    {
+      "tr": "Lût’un karısı",
+      "en": "The wife of Lot",
+      "ref": "66:10",
+      "vasifTr": "geride kalanlardan",
+      "vasifEn": "among those who stayed behind"
+    }
+  ],
+  "simetri": {
+    "olumlu": {
+      "nameTr": "Zeyd b. Hârise",
+      "nameEn": "Zayd b. Ḥāritha",
+      "ar": "زَيْد",
+      "ref": "33:37",
+      "ar2": "وَاِذْ تَقُولُ لِلَّـذِٓي اَنْعَمَ اللّٰهُ عَلَيْهِ وَاَنْعَمْتَ عَلَيْهِ اَمْسِكْ عَلَيْكَ زَوْجَكَ وَاتَّقِ اللّٰهَ وَتُخْفِي فِي نَفْسِكَ مَا اللّٰهُ مُبْدِيهِ وَتَخْشَى النَّاسَ وَاللّٰهُ اَحَقُّ اَنْ تَخْشٰيهُ فَلَمَّا قَضٰى زَيْدٌ مِنْهَا وَطَراً زَوَّجْنَاكَهَا لِكَيْ لَا يَكُونَ عَلَى الْمُؤْمِنِينَ حَرَجٌ فِٓي اَزْوَاجِ اَدْعِيٓائِهِمْ اِذَا قَضَوْا مِنْهُنَّ وَطَراً وَكَانَ اَمْرُ اللّٰهِ مَفْعُولاً",
+      "tr": "(Resulüm!) Hani Allah'ın nimet verdiği, senin de kendisine iyilik ettiğin kimseye: Eşini yanında tut, Allah'tan kork! diyordun. Allah'ın açığa vuracağı şeyi, insanlardan çekinerek içinde gizliyordun. Oysa asıl korkmana layık olan Allah'tır. Zeyd, o kadından ilişiğini kesince biz onu sana nikahladık ki evlatlıkları, karılarıyla ilişkilerini kestiklerinde (o kadınlarla evlenmek isterlerse) müminlere bir güçlük olmasın. Allah'ın emri yerine getirilmiştir.",
+      "en": "And [remember, O Muhammad], when you said to the one on whom Allah bestowed favor and you bestowed favor, \"Keep your wife and fear Allah,\" while you concealed within yourself that which Allah is to disclose. And you feared the people, while Allah has more right that you fear Him. So when Zayd had no longer any need for her, We married her to you in order that there not be upon the believers any discomfort concerning the wives of their adopted sons when they no longer have need of them. And ever is the command of Allah accomplished"
+    },
+    "olumsuz": {
+      "nameTr": "Ebû Leheb",
+      "nameEn": "Abū Lahab",
+      "ar": "أَبِي لَهَب",
+      "ref": "111:1",
+      "ar2": "تَبَّتْ  يَدٓا اَبِي لَهَبٍ وَتَبَّ",
+      "tr": "Ebu Leheb'in iki eli kurusun! Kurudu da.",
+      "en": "May the hands of Abu Lahab be ruined, and ruined is he"
+    }
+  }
+}
