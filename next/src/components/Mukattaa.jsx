@@ -13,6 +13,7 @@
 import LinguisticDNA from '../sections/LinguisticDNA';
 import MukattaaTable from '../sections/MukattaaTable';
 import MukattaaViews from '../sections/MukattaaViews';
+import MukattaaEvidence from '../sections/MukattaaEvidence';
 import ToolHeader from './ToolHeader';
 import CrossToolCTA from './CrossToolCTA';
 import SourcesCitation from './SourcesCitation';
@@ -145,24 +146,34 @@ export default function Mukattaa({ onClose }) {
         </p>
       </div>
 
-      {/* Anasayfa LinguisticDNA section AYNEN — kısaltma yok, değişiklik yok */}
-      <LinguisticDNA />
+      {/* ── SIRA (4 Eylül 2026) ────────────────────────────────────────
+          Okuyucu bu sayfaya TEK bir soruyla geliyor: "bu harfler nedir?"
+          Cevap en başta olmalı. Önce tablo → sonra görüşler sırası, cevabı
+          29 satırlık envanterin arkasına ~6500px aşağı itiyordu.
 
-      {/* Tam envanter tablosu (2 Eylül 2026). LinguisticDNA mukattaayı 4 aile
-          + 8 tekil kart olarak ANLATIYOR; bu bölüm 29'unu mushaf sırasıyla tek
-          yerde TARANIR kılıyor. İkisi farklı iş görür, biri diğerinin yerine
-          geçmez. */}
-      {/* Sıra 4 Eylül 2026'da DEĞİŞTİ: önce görüşler, sonra tablo.
-          Önceki sıra (tablo → görüşler) okuyucuyu yanlış yere koyuyordu:
-          sayfaya "bu harfler ne?" sorusuyla gelen kişi cevabı ancak 29
-          satırlık envanteri geçtikten sonra buluyordu. Görüşler sayfanın
-          FİKRİ, tablo ise BAŞVURU malzemesi — başvuru sona ait. */}
+          Görüşler ayrıca LinguisticDNA'dan da ÖNCE: LinguisticDNA aileleri,
+          örüntüleri ve istatistikleri anlatıyor — bunlar sorunun cevabı değil,
+          cevabı TARTMAK için gereken malzeme.
+
+          Kanıt bölümü (harften sonra Kitap/Kur'ân + kasem âyetleri) bilerek
+          AŞAĞIDA: örüntüyü görebilmek için önce örüntünün anlatıldığı bölümü
+          okumak gerekiyor. Tablo ise BAŞVURU malzemesi — o da sona ait.
+
+          Soru → Cevaplar → Örüntü → Kanıt → Başvuru
+          ───────────────────────────────────────────────────────────── */}
 
       {/* "Bu harfler nedir?" — klasik görüşler, her biri dayanağı ve zayıf
           yanıyla. Sayfa 1.400 yıldır icmâ sağlanamadığını bir cümlede
           söylüyordu; görüşlerin kendisi yoktu. */}
       <MukattaaViews />
 
+      {/* Anasayfa LinguisticDNA section AYNEN — kısaltma yok, değişiklik yok */}
+      <LinguisticDNA />
+
+      {/* Görüşleri metne karşı sınayan malzeme */}
+      <MukattaaEvidence />
+
+      {/* Tam envanter tablosu — 29'u mushaf sırasıyla tek yerde taranır. */}
       <MukattaaTable />
 
       <div className="mq-box" style={{ '--pt-d': "0", '--pt-m': "0", '--pr-d': "32px", '--pr-m': "16px", '--pb-d': "56px", '--pb-m': "40px", '--pl-d': "32px", '--pl-m': "16px", maxWidth: '1200px', margin: '0 auto' }}>
