@@ -130,7 +130,10 @@ export default function Hero() {
             clear-zone kutsal metni korur; hover → sûre, tıkla → /oku/N. */}
         <HeroRing />
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
+        {/* v2.0 — pointerEvents:none: bu z-10 kap, arkadaki HeroRing canvas'ının
+            sol/sağ yaylarını kaplayıp halka tıklamasını engelliyordu. Metin
+            zaten tıklanmaz; tek interaktif öge mobil CTA (aşağıda auto). */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto w-full" style={{ pointerEvents: 'none' }}>
 
         {/* Bismillah ornament — cinematic intro (showIntro ? yazılma açılışı : sade).
             Reverence sinyali; meta-discovery framing'i bozmadan ekler.
@@ -376,8 +379,8 @@ export default function Hero() {
           )}
         >
           {language === 'tr'
-            ? 'Arkada dönen halka: 114 sûre — üstüne gel, keşfet'
-            : 'The turning ring: 114 suras — hover to explore'}
+            ? (isMobile ? 'Halkaya dokun — sûreyi aç' : 'Arkada dönen halka: 114 sûre — üstüne gel, keşfet')
+            : (isMobile ? 'Tap the ring — open the sura' : 'The turning ring: 114 suras — hover to explore')}
         </motion.p>
 
         {/* Mobil CTA — navbar "Kur'an'ı Oku" mobilde hamburger'da gizli olduğu
@@ -390,7 +393,10 @@ export default function Hero() {
               gap: '10px',
               justifyContent: 'center',
               flexWrap: 'wrap',
-              margin: '4px 0 0',
+              // v2.0 — CTA'lar halkanın ALTINA (üst boşlukla ring alt yayının
+              // altına itilir; kullanıcı önerisi — overlap giderilir).
+              margin: '52px 0 0',
+              pointerEvents: 'auto', // kap none; CTA'lar tıklanabilir kalsın
             }}
             {...entrance(
               { opacity: 0, y: 8 },

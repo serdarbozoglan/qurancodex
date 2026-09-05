@@ -64,7 +64,7 @@ export default function HeroRing({ className }) {
       // genişliğe göre büyüterek uzun metin sütununu ÇEVRELER. Masaüstünde
       // 0.44 — İngilizce çeviri Türkçe'den geniş; 0.40'ta halka kenarları metne
       // değiyordu. 0.44 halka kenarını metnin ötesine iter (her iki dilde).
-      R = W < 620 ? W * 0.55 : Math.min(W, H) * 0.41;
+      R = W < 620 ? W * 0.46 : Math.min(W, H) * 0.41;
       pts = []; segs = []; cloud = [];
       const CLN = W < 620 ? 14 : 26;
       for (let ci = 0; ci < CLN; ci++) {
@@ -89,10 +89,10 @@ export default function HeroRing({ className }) {
       const rd = reducedRef.current;
       if (!visible) { if (tip) tip.style.opacity = 0; return; }
       const dt = Math.min(now - t0, 50); t0 = now;
-      if (!rd) rot += 0.00035 * dt;
       ctx.clearRect(0, 0, W, H);
 
-      // hover tespiti (açı + yarıçap)
+      // hover tespiti (açı + yarıçap) — rotasyon GÜNCELLENMEDEN önce, ki
+      // "hover'da durdur" kararı bu karenin gerçek konumuna göre verilsin.
       hovSura = -1;
       const dx = mx - cx, dy = my - cy, dist = Math.sqrt(dx * dx + dy * dy);
       if (dist > R * 0.82 && dist < R * 1.18) {
@@ -103,6 +103,10 @@ export default function HeroRing({ className }) {
           if (rel <= span) { hovSura = s; break; }
         }
       }
+
+      // Rotasyon: bir sûrenin üstündeyken DUR (o yay yerinde kalsın, tıklanabilsin).
+      // Taban hız sakinleştirildi (0.00035 → 0.00022) — daha huzurlu.
+      if (!rd && hovSura < 0) rot += 0.00022 * dt;
 
       // Clear-zone HALKA yarıçapına bağlı (viewport'a değil) — mobilde uzun
       // ekranda üst/alt yayları kırpmasın, hep tam halka görünsün. clrRx geniş
@@ -158,8 +162,22 @@ export default function HeroRing({ className }) {
     }
 
     function onMove(e) { mx = e.clientX; my = e.clientY; }
-    function onClick() {
-      if (hovSura >= 0) router.push(`/${langRef.current}/oku/${hovSura + 1}`);
+    // Tıklanan/dokunulan sûreyi doğrudan koordinattan hesapla — MOBİLDE
+    // hover (mousemove) olmadığından hovSura hep -1 kalıyordu, tap çalışmıyordu.
+    function suraAt(px, py) {
+      const dx = px - cx, dy = py - cy, dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist <= R * 0.82 || dist >= R * 1.18) return -1;
+      const ma = Math.atan2(dy, dx) - rot, twoPi = Math.PI * 2;
+      for (let s = 0; s < 114; s++) {
+        const rel = ((ma - segs[s].start) % twoPi + twoPi) % twoPi;
+        const span = ((segs[s].end - segs[s].start) % twoPi + twoPi) % twoPi;
+        if (rel <= span) return s;
+      }
+      return -1;
+    }
+    function onClick(e) {
+      const s = hovSura >= 0 ? hovSura : suraAt(e.clientX, e.clientY);
+      if (s >= 0) router.push(`/${langRef.current}/oku/${s + 1}`);
     }
 
     build();

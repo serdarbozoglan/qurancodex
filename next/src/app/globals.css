@@ -309,6 +309,14 @@ body::after {
   background: radial-gradient(1100px 640px at 50% 12%, color-mix(in srgb, var(--color-sky-blue) 5%, transparent), transparent 72%);
 }
 
+/* ---- v2.0 Fâtiha çatı SVG — responsive minWidth ----
+   Desktop: 620px (etiketler ferah). Mobil: 420px (daha az yatay kaydırma;
+   overflowX:auto ile hâlâ kaydırılabilir ama çoğu tema görünür). */
+.proof-chevron-svg { width: 100%; min-width: 620px; }
+@media (max-width: 640px) {
+  .proof-chevron-svg { min-width: 420px; }
+}
+
 /* ---- v2.0 HeroRing tooltip ---- */
 .hero-ring-tip {
   position: fixed;

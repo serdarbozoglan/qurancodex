@@ -42,7 +42,8 @@ export default function FatihaRingDiagram({ locale = 'tr' }) {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         width="100%"
-        style={{ minWidth: '620px', display: 'block', margin: '0 auto' }}
+        className="proof-chevron-svg"
+        style={{ display: 'block', margin: '0 auto' }}
         role="img"
         aria-labelledby="proof-svg-title proof-svg-desc"
       >
