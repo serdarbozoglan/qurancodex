@@ -24,6 +24,7 @@
 
 import Link from 'next/link';
 import { COLORS, FONTS, SEMANTIC } from '../tokens';
+import CardWaveViz from './CardWaveViz';
 
 export default function PortalCard({ card, locale = 'tr', extra = null, accent = COLORS.gold }) {
   const tr = locale === 'tr';
@@ -206,6 +207,10 @@ export default function PortalCard({ card, locale = 'tr', extra = null, accent =
         )}
 
         {extra}
+
+        {/* v2.0 — Ses Mimarisi kartına canlı ses dokusu (sert→akıcı dalga).
+            Kartın kendi temasının görsel karşılığı, süs değil. */}
+        {id === 'ses-card' && <CardWaveViz />}
 
         {/* compact'te kicker CTA'nın ÜSTÜNDE: özet cümle karta gövde verir,
             CTA en altta kalınca ızgaradaki kartların butonları hizalanır. */}

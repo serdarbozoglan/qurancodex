@@ -101,7 +101,7 @@ export default function ProofSection({ locale = 'tr' }) {
   return (
     <section
       id="proof-fatiha"
-      className="proof-section"
+      className="proof-section depth-gold"
       style={{
         background: `linear-gradient(180deg, ${SEMANTIC.surface} 0%, ${SEMANTIC.surfaceRaised} 55%, ${SEMANTIC.surface} 100%)`,
         padding: '96px 24px',
