@@ -2730,12 +2730,13 @@ function useFavorites() {
 }
 
 const SORT_OPTIONS = [
-  { value: 'no',         labelTr: 'Sıra',       labelEn: 'Order'  },
-  { value: 'count_desc', labelTr: 'Frekans ↓',  labelEn: 'Freq ↓' },
-  { value: 'count_asc',  labelTr: 'Frekans ↑',  labelEn: 'Freq ↑' },
+  { value: 'no',         labelTr: 'Mushaf sırası', labelEn: 'Canonical order' },
+  { value: 'alpha',      labelTr: 'Alfabetik',     labelEn: 'Alphabetical'    },
+  { value: 'count_desc', labelTr: 'Frekans ↓',     labelEn: 'Freq ↓'          },
+  { value: 'count_asc',  labelTr: 'Frekans ↑',     labelEn: 'Freq ↑'          },
 ];
 
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 60;   // ilk açılışta görünen isim sayısı
 
 function NamesAtlas({ data, tr }) {
   const [search, setSearch] = useState('');
@@ -2769,8 +2770,13 @@ function NamesAtlas({ data, tr }) {
     }
     if (sort === 'count_desc') rows.sort((a, b) => b.displayCount - a.displayCount);
     else if (sort === 'count_asc') rows.sort((a, b) => a.displayCount - b.displayCount);
+    else if (sort === 'alpha') {
+      // Türkçe harf sırası: localeCompare olmadan 'İ' ve 'Ş' yanlış yere düşüyor.
+      const ad = (n) => (tr ? n.isim : (n.isim_en || n.isim)).replace(/^(El|Er|Es|Eş|Ez|Et|En|Ed|Ec|Al|Ar|As|Ash|Az|At|An)[- ]/i, '');
+      rows.sort((a, b) => ad(a).localeCompare(ad(b), tr ? 'tr' : 'en'));
+    }
     return rows;
-  }, [data, filter, search, sort, favorites]);
+  }, [data, filter, search, sort, favorites, tr]);
 
   useEffect(() => { setVisibleCount(PAGE_SIZE); }, [filter, search, sort]);
 
@@ -2794,19 +2800,21 @@ function NamesAtlas({ data, tr }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.95rem', lineHeight: 1.7, margin: '0 0 32px', maxWidth: '720px' }}>
           {tr
-            ? `${data.toplam_isim_sayisi} isim · Lafza-i Celâl + 99 Esmâ-i Hüsnâ + Kur'ânî sıfat ve tamlamalar. Arama, kategori filtresi veya frekans sıralaması ile keşfet; bir isme tıklayarak detayı aç.`
-            : `${data.toplam_isim_sayisi} names · the Divine Name + 99 Esmā-i Ḥusnā + Quranic attributes and compound phrases. Search, filter, or sort by frequency; tap a name to open the detail.`}
+            ? `${data.toplam_isim_sayisi} isim · Lafza-i Celâl + 99 Esmâ-i Hüsnâ + Kur'ânî sıfat ve tamlamalar. İsimde, anlamda veya Arapça yazımda ara; kategoriye göre süz; mushaf sırası, alfabe veya frekansa göre sırala. Bir isme tıklayınca kökü, şerh geleneğindeki tanımı ve âyet geçişleri açılır.`
+            : `${data.toplam_isim_sayisi} names · the Divine Name + 99 Esmā-i Ḥusnā + Quranic attributes and compound phrases. Search by name, meaning or Arabic; filter by category; sort by canonical order, alphabet or frequency. Tap a name to open its root, its definition in the commentary tradition, and its verse occurrences.`}
         </p>
 
         {/* Controls */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+          <div style={{ flex: '1 1 220px', minWidth: 0, position: 'relative', display: 'flex' }}>
           <input
             type="text"
             placeholder={tr ? 'İsim, anlam veya Arapça ara…' : 'Search name, meaning, or Arabic…'}
             value={search}
             onChange={e => setSearch(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Escape') setSearch(''); }}
             style={{
-              flex: '1 1 200px',
+              flex: '1 1 auto',
               minWidth: 0,
               background: 'rgba(255,255,255,0.06)',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -2816,8 +2824,38 @@ function NamesAtlas({ data, tr }) {
               fontSize: '0.9rem',
               fontFamily: FONTS.body,
               outline: 'none',
+              paddingRight: search ? '38px' : '14px',
             }}
           />
+          {search && (
+            <button
+              type="button"
+              onClick={() => setSearch('')}
+              aria-label={tr ? 'Aramayı temizle' : 'Clear search'}
+              style={{
+                position: 'absolute',
+                right: '6px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '26px',
+                height: '26px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '50%',
+                background: 'transparent',
+                border: 'none',
+                color: COLORS.silver,
+                cursor: 'pointer',
+                lineHeight: 1,
+              }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+          </div>
           <select
             value={sort}
             onChange={e => setSort(e.target.value)}
@@ -2890,6 +2928,23 @@ function NamesAtlas({ data, tr }) {
           })}
         </div>
 
+        {/* Kaç isim gösteriliyor — 114 satırlık bir listede kullanıcı
+            nerede olduğunu bilmeli. */}
+        <div style={{
+          ...sectionLabel,
+          margin: '0 0 12px',
+          fontSize: '0.62rem',
+          opacity: 0.85,
+        }}>
+          {search || filter !== 'all'
+            ? (tr
+                ? `${filtered.length} sonuç · ${data.toplam_isim_sayisi} isim içinde`
+                : `${filtered.length} results · within ${data.toplam_isim_sayisi} names`)
+            : (tr
+                ? `${visible.length} / ${filtered.length} isim gösteriliyor`
+                : `Showing ${visible.length} of ${filtered.length} names`)}
+        </div>
+
         {/* Liste */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {visible.map(n => (
@@ -2909,7 +2964,7 @@ function NamesAtlas({ data, tr }) {
         {hasMore && (
           <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <button
-              onClick={() => setVisibleCount(v => v + PAGE_SIZE)}
+              onClick={() => setVisibleCount(filtered.length)}
               style={{
                 background: 'transparent',
                 border: '1px solid rgba(212,165,116,0.4)',
@@ -2921,7 +2976,7 @@ function NamesAtlas({ data, tr }) {
                 cursor: 'pointer',
               }}
             >
-              {tr ? `${filtered.length - visibleCount} isim daha göster` : `Show ${filtered.length - visibleCount} more`}
+              {tr ? `Kalan ${filtered.length - visibleCount} ismi göster` : `Show the remaining ${filtered.length - visibleCount}`}
             </button>
           </div>
         )}
@@ -2972,20 +3027,24 @@ function NameRow({ item, tr, isOpen, onToggle, isFavorite, onToggleFavorite, fav
             minWidth: '110px',
             textAlign: 'right',
             whiteSpace: 'nowrap',
+            flexShrink: 0,
           }}>
             {item.arapca}
           </span>
-          <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>{tr ? item.isim : (item.isim_en || item.isim)}</span>
-          <span style={{
-            color: COLORS.silver,
-            fontSize: '0.78rem',
-            fontStyle: 'italic',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-            display: 'none',
-          }} className="esma-meaning-inline">
-            {tr ? item.anlam : (item.anlam_en || item.anlam)}
+          <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+            <span style={{ fontWeight: 600, fontSize: '0.92rem' }}>
+              {tr ? item.isim : (item.isim_en || item.isim)}
+            </span>
+            <span style={{
+              color: COLORS.silver,
+              fontSize: '0.78rem',
+              lineHeight: 1.45,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}>
+              {tr ? item.anlam : (item.anlam_en || item.anlam)}
+            </span>
           </span>
         </div>
         <span style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
@@ -3243,6 +3302,9 @@ function NameDetail({ item, tr, isAllah }) {
   // Zengin kayıt varsa o kullanılır — yeni harita onun yerine geçmez,
   // boşluğunu doldurur.
   const kokDogrulanmis = KOK_INDEX[item.isim];
+  // Bazı isimler Kur'an'da bu kelime hâliyle geçmez (mekanik olarak ölçülür).
+  // O isimlerde kelime araması boş döner; kök sözlüğüne yönlendirilir.
+  const yuzeyYok = kokDogrulanmis && kokDogrulanmis.yuzeyFormuGecer === false;
   const kok = KOK_ANALIZ[item.isim]
     || (kokDogrulanmis?.kok ? { kok: kokDogrulanmis.kok, sadeceKok: true, terkip: kokDogrulanmis.terkip, sarfIzni: kokDogrulanmis.sarfIzni } : null);
 
@@ -3458,9 +3520,13 @@ function NameDetail({ item, tr, isAllah }) {
       )}
 
       <div style={{ ...sectionLabel, marginBottom: '12px', fontSize: '0.65rem' }}>
-        {tr
-          ? `${item.kuranda_gecis_sayisi} âyette geçer`
-          : `Appears in ${item.kuranda_gecis_sayisi} verses`}
+        {yuzeyYok
+          ? (tr
+              ? `Kökünün geçtiği ${item.kuranda_gecis_sayisi} âyet`
+              : `${item.kuranda_gecis_sayisi} verses where its root occurs`)
+          : (tr
+              ? `${item.kuranda_gecis_sayisi} âyette geçer`
+              : `Appears in ${item.kuranda_gecis_sayisi} verses`)}
       </div>
       <VerseChipGrid ayetler={(ayetler || []).slice(0, 30)} tr={tr} />
 
@@ -3498,14 +3564,31 @@ function NameDetail({ item, tr, isAllah }) {
         </p>
       )}
 
+      {yuzeyYok && (
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.8rem',
+          lineHeight: 1.65,
+          margin: '16px 0 0',
+        }}>
+          {tr
+            ? 'Bu isim Kur’an’da tam olarak bu kelime hâliyle geçmez; doksan dokuzluk listeye hadis yoluyla girmiştir. Yukarıdaki âyetler ismin kökünün — fiil veya terkip hâlinde — geçtiği yerlerdir.'
+            : 'This name does not occur in the Qurʾān in exactly this word-form; it enters the list of ninety-nine through hadith. The verses above are where its root occurs, as a verb or within a phrase.'}
+        </p>
+      )}
+
       <div style={{ marginTop: '20px', textAlign: 'right' }}>
         <a
-          href={corpusUrl(item.arapca, item)}
+          href={yuzeyYok && kokDogrulanmis?.kokSozluk
+            ? `https://corpus.quran.com/qurandictionary.jsp?q=${kokDogrulanmis.kokSozluk}`
+            : corpusUrl(item.arapca, item)}
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: COLORS.gold, fontSize: '0.82rem', fontFamily: FONTS.body, textDecoration: 'none' }}
         >
-          {tr ? "Corpus Quran'da ara →" : 'Search on Corpus Quran →'}
+          {yuzeyYok && kokDogrulanmis?.kokSozluk
+            ? (tr ? 'Kökünü Corpus Quran sözlüğünde aç →' : 'Open its root in the Corpus Quran dictionary →')
+            : (tr ? "Corpus Quran'da ara →" : 'Search on Corpus Quran →')}
         </a>
       </div>
     </div>

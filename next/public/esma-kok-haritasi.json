@@ -4,6 +4,7 @@
     "kokluIsim": 113,
     "farkliKok": 90,
     "terkipIsim": 12,
+    "yuzeyFormuGecmeyen": 13,
     "dogrulama": "her kökün harfleri, ismin Arapça yazımında sırayla geçtiği MEKANİK olarak doğrulandı; geçmezse build durur",
     "generatedBy": "scripts/build-esma-kokler.mjs"
   },
@@ -16,7 +17,9 @@
       "kokArabic": null,
       "terkip": false,
       "dogrulandi": null,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": null
     },
     {
       "isim": "El-Hakk",
@@ -28,7 +31,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hqq"
     },
     {
       "isim": "El-Alîm",
@@ -38,7 +43,9 @@
       "kokArabic": "علم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Elm"
     },
     {
       "isim": "Er-Rahîm",
@@ -48,7 +55,9 @@
       "kokArabic": "رحم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rHm"
     },
     {
       "isim": "El-Azîm",
@@ -58,7 +67,9 @@
       "kokArabic": "عظم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "EZm"
     },
     {
       "isim": "El-Azîz",
@@ -68,7 +79,9 @@
       "kokArabic": "عزز",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Ezz"
     },
     {
       "isim": "El-Hakîm",
@@ -78,7 +91,9 @@
       "kokArabic": "حكم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hkm"
     },
     {
       "isim": "El-Gafûr",
@@ -88,7 +103,9 @@
       "kokArabic": "غفر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "gfr"
     },
     {
       "isim": "El-Melik",
@@ -98,7 +115,9 @@
       "kokArabic": "ملك",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "mlk"
     },
     {
       "isim": "El-Veliyy",
@@ -108,7 +127,9 @@
       "kokArabic": "ولي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wly"
     },
     {
       "isim": "Er-Rahmân",
@@ -118,7 +139,9 @@
       "kokArabic": "رحم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rHm"
     },
     {
       "isim": "El-Hâdî",
@@ -128,7 +151,9 @@
       "kokArabic": "هدي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "hdy"
     },
     {
       "isim": "El-Basîr",
@@ -138,7 +163,9 @@
       "kokArabic": "بصر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bSr"
     },
     {
       "isim": "Es-Semî'",
@@ -148,7 +175,9 @@
       "kokArabic": "سمع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "smE"
     },
     {
       "isim": "El-Habîr",
@@ -158,7 +187,9 @@
       "kokArabic": "خبر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "xbr"
     },
     {
       "isim": "Er-Rezzâk",
@@ -168,7 +199,9 @@
       "kokArabic": "رزق",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rzq"
     },
     {
       "isim": "El-Kebîr",
@@ -178,7 +211,9 @@
       "kokArabic": "كبر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "kbr"
     },
     {
       "isim": "Eş-Şehîd",
@@ -188,7 +223,9 @@
       "kokArabic": "شهد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "$hd"
     },
     {
       "isim": "El-Ehad",
@@ -198,7 +235,9 @@
       "kokArabic": "احد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "AHd"
     },
     {
       "isim": "El-Kâdir",
@@ -208,7 +247,9 @@
       "kokArabic": "قدر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qdr"
     },
     {
       "isim": "El-Âhir",
@@ -218,7 +259,9 @@
       "kokArabic": "اخر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Axr"
     },
     {
       "isim": "El-Kerîm",
@@ -228,7 +271,9 @@
       "kokArabic": "كرم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "krm"
     },
     {
       "isim": "El-Gaffâr",
@@ -238,7 +283,9 @@
       "kokArabic": "غفر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "gfr"
     },
     {
       "isim": "El-Vekîl",
@@ -248,7 +295,9 @@
       "kokArabic": "وكل",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wkl"
     },
     {
       "isim": "El-Ganî",
@@ -258,7 +307,9 @@
       "kokArabic": "غني",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "gny"
     },
     {
       "isim": "El-Muğnî",
@@ -268,7 +319,9 @@
       "kokArabic": "غني",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "gny"
     },
     {
       "isim": "El-Berr",
@@ -280,7 +333,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "brr"
     },
     {
       "isim": "El-Hâlik",
@@ -290,7 +345,9 @@
       "kokArabic": "خلق",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "xlq"
     },
     {
       "isim": "El-Hamîd",
@@ -300,7 +357,9 @@
       "kokArabic": "حمد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hmd"
     },
     {
       "isim": "En-Nâfi'",
@@ -310,7 +369,9 @@
       "kokArabic": "نفع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "nfE"
     },
     {
       "isim": "El-Halîm",
@@ -320,7 +381,9 @@
       "kokArabic": "حلم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hlm"
     },
     {
       "isim": "El-Câmi'",
@@ -330,7 +393,9 @@
       "kokArabic": "جمع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "jmE"
     },
     {
       "isim": "Es-Selâm",
@@ -340,7 +405,9 @@
       "kokArabic": "سلم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "slm"
     },
     {
       "isim": "El-Vâsi'",
@@ -350,7 +417,9 @@
       "kokArabic": "وسع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wsE"
     },
     {
       "isim": "Et-Tevvâb",
@@ -360,7 +429,9 @@
       "kokArabic": "توب",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "twb"
     },
     {
       "isim": "Eş-Şekûr",
@@ -370,7 +441,9 @@
       "kokArabic": "شكر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "$kr"
     },
     {
       "isim": "En-Nûr",
@@ -380,7 +453,9 @@
       "kokArabic": "نور",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "nwr"
     },
     {
       "isim": "El-Hakem",
@@ -390,7 +465,9 @@
       "kokArabic": "حكم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hkm"
     },
     {
       "isim": "El-Hafîz",
@@ -400,7 +477,9 @@
       "kokArabic": "حفظ",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "HfZ"
     },
     {
       "isim": "El-Kaviyy",
@@ -410,7 +489,9 @@
       "kokArabic": "قوي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qwy"
     },
     {
       "isim": "El-Vâlî",
@@ -420,7 +501,9 @@
       "kokArabic": "ولي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wly"
     },
     {
       "isim": "Er-Raûf",
@@ -430,7 +513,9 @@
       "kokArabic": "راف",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rAf"
     },
     {
       "isim": "El-Bâsit",
@@ -440,7 +525,9 @@
       "kokArabic": "بسط",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bsT"
     },
     {
       "isim": "El-Aliyy",
@@ -452,7 +539,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Elw"
     },
     {
       "isim": "El-Bâis",
@@ -462,7 +551,9 @@
       "kokArabic": "بعث",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "bEv"
     },
     {
       "isim": "El-Mümît",
@@ -474,7 +565,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "mwt"
     },
     {
       "isim": "El-Afüvv",
@@ -484,7 +577,9 @@
       "kokArabic": "عفو",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Efw"
     },
     {
       "isim": "Ed-Dârr",
@@ -496,7 +591,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Drr"
     },
     {
       "isim": "El-Kahhâr",
@@ -506,7 +603,9 @@
       "kokArabic": "قهر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qhr"
     },
     {
       "isim": "El-Mübdi'",
@@ -516,7 +615,9 @@
       "kokArabic": "بدا",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bdA"
     },
     {
       "isim": "El-Muîd",
@@ -528,7 +629,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "Ewd"
     },
     {
       "isim": "El-Hayy",
@@ -540,7 +643,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hyy"
     },
     {
       "isim": "El-Fettâh",
@@ -550,7 +655,9 @@
       "kokArabic": "فتح",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "ftH"
     },
     {
       "isim": "El-Latîf",
@@ -560,7 +667,9 @@
       "kokArabic": "لطف",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "lTf"
     },
     {
       "isim": "Er-Râfi'",
@@ -570,7 +679,9 @@
       "kokArabic": "رفع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rfE"
     },
     {
       "isim": "El-Vâhid",
@@ -580,7 +691,9 @@
       "kokArabic": "وحد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wHd"
     },
     {
       "isim": "El-Mâni'",
@@ -590,7 +703,9 @@
       "kokArabic": "منع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "mnE"
     },
     {
       "isim": "El-Bâkî",
@@ -600,7 +715,9 @@
       "kokArabic": "بقي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bqy"
     },
     {
       "isim": "El-Adl",
@@ -610,7 +727,9 @@
       "kokArabic": "عدل",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Edl"
     },
     {
       "isim": "Er-Rakîb",
@@ -620,7 +739,9 @@
       "kokArabic": "رقب",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rqb"
     },
     {
       "isim": "El-Vâris",
@@ -630,7 +751,9 @@
       "kokArabic": "ورث",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wrv"
     },
     {
       "isim": "El-Hasîb",
@@ -640,7 +763,9 @@
       "kokArabic": "حسب",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hsb"
     },
     {
       "isim": "El-Mecîd",
@@ -650,7 +775,9 @@
       "kokArabic": "مجد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "mjd"
     },
     {
       "isim": "El-Mü'min",
@@ -660,7 +787,9 @@
       "kokArabic": "امن",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Amn"
     },
     {
       "isim": "El-Vehhâb",
@@ -670,7 +799,9 @@
       "kokArabic": "وهب",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "whb"
     },
     {
       "isim": "El-Vedûd",
@@ -680,7 +811,9 @@
       "kokArabic": "ودد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wdd"
     },
     {
       "isim": "El-Metîn",
@@ -690,7 +823,9 @@
       "kokArabic": "متن",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "mtn"
     },
     {
       "isim": "El-Muhyî",
@@ -700,7 +835,9 @@
       "kokArabic": "حيي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "Hyy"
     },
     {
       "isim": "El-Kayyûm",
@@ -710,7 +847,9 @@
       "kokArabic": "قوم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qwm"
     },
     {
       "isim": "El-Muktedir",
@@ -720,7 +859,9 @@
       "kokArabic": "قدر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qdr"
     },
     {
       "isim": "El-Müntekim",
@@ -730,7 +871,9 @@
       "kokArabic": "نقم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "nqm"
     },
     {
       "isim": "El-Muksit",
@@ -740,7 +883,9 @@
       "kokArabic": "قسط",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qsT"
     },
     {
       "isim": "Er-Reşîd",
@@ -750,7 +895,9 @@
       "kokArabic": "رشد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "r$d"
     },
     {
       "isim": "El-Kuddûs",
@@ -760,7 +907,9 @@
       "kokArabic": "قدس",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qds"
     },
     {
       "isim": "El-Muiz",
@@ -772,7 +921,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Ezz"
     },
     {
       "isim": "El-Celîl",
@@ -782,7 +933,9 @@
       "kokArabic": "جلل",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "jll"
     },
     {
       "isim": "El-Muhsî",
@@ -792,7 +945,9 @@
       "kokArabic": "حصي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "HSy"
     },
     {
       "isim": "El-Muahhir",
@@ -802,7 +957,9 @@
       "kokArabic": "اخر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Axr"
     },
     {
       "isim": "El-Evvel",
@@ -812,7 +969,9 @@
       "kokArabic": "اول",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Awl"
     },
     {
       "isim": "Zü'l-Celâli ve'l-İkrâm",
@@ -822,7 +981,9 @@
       "kokArabic": "جلل",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "jll"
     },
     {
       "isim": "El-Bedî'",
@@ -832,7 +993,9 @@
       "kokArabic": "بدع",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bdE"
     },
     {
       "isim": "El-Müheymin",
@@ -842,7 +1005,9 @@
       "kokArabic": "همن",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "hmn"
     },
     {
       "isim": "El-Cebbâr",
@@ -852,7 +1017,9 @@
       "kokArabic": "جبر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "jbr"
     },
     {
       "isim": "El-Mütekebbir",
@@ -862,7 +1029,9 @@
       "kokArabic": "كبر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "kbr"
     },
     {
       "isim": "El-Bâri'",
@@ -872,7 +1041,9 @@
       "kokArabic": "برا",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "brA"
     },
     {
       "isim": "El-Musavvir",
@@ -882,7 +1053,9 @@
       "kokArabic": "صور",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Swr"
     },
     {
       "isim": "El-Kâbid",
@@ -892,7 +1065,9 @@
       "kokArabic": "قبض",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "qbD"
     },
     {
       "isim": "El-Hâfid",
@@ -902,7 +1077,9 @@
       "kokArabic": "خفض",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "xfD"
     },
     {
       "isim": "El-Müzill",
@@ -914,7 +1091,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "*ll"
     },
     {
       "isim": "El-Mukît",
@@ -926,7 +1105,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "qwt"
     },
     {
       "isim": "El-Mucîb",
@@ -938,7 +1119,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "jwb"
     },
     {
       "isim": "Es-Samed",
@@ -948,7 +1131,9 @@
       "kokArabic": "صمد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Smd"
     },
     {
       "isim": "Ez-Zâhir",
@@ -958,7 +1143,9 @@
       "kokArabic": "ظهر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Zhr"
     },
     {
       "isim": "El-Bâtın",
@@ -968,7 +1155,9 @@
       "kokArabic": "بطن",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bTn"
     },
     {
       "isim": "El-Müteâlî",
@@ -980,7 +1169,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "illet-donusmesi"
-      ]
+      ],
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "Elw"
     },
     {
       "isim": "Mâlikü'l-Mülk",
@@ -990,7 +1181,9 @@
       "kokArabic": "ملك",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "mlk"
     },
     {
       "isim": "El-Vâcid",
@@ -1000,7 +1193,9 @@
       "kokArabic": "وجد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wjd"
     },
     {
       "isim": "El-Mâcid",
@@ -1010,7 +1205,9 @@
       "kokArabic": "مجد",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "mjd"
     },
     {
       "isim": "El-Mukaddim",
@@ -1020,7 +1217,9 @@
       "kokArabic": "قدم",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "qdm"
     },
     {
       "isim": "Es-Sabûr",
@@ -1030,7 +1229,9 @@
       "kokArabic": "صبر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": false,
+      "kokSozluk": "Sbr"
     },
     {
       "isim": "Rabbü'l-Âlemîn",
@@ -1042,7 +1243,9 @@
       "dogrulandi": true,
       "sarfIzni": [
         "idgam"
-      ]
+      ],
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rbb"
     },
     {
       "isim": "En-Nasîr",
@@ -1052,7 +1255,9 @@
       "kokArabic": "نصر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "nSr"
     },
     {
       "isim": "El-Hallâk",
@@ -1062,7 +1267,9 @@
       "kokArabic": "خلق",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "xlq"
     },
     {
       "isim": "Şedîdü'l-İkâb",
@@ -1072,7 +1279,9 @@
       "kokArabic": "عقب",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Eqb"
     },
     {
       "isim": "El-Mevlâ",
@@ -1082,7 +1291,9 @@
       "kokArabic": "ولي",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "wly"
     },
     {
       "isim": "El-Fâtır",
@@ -1092,7 +1303,9 @@
       "kokArabic": "فطر",
       "terkip": false,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "fTr"
     },
     {
       "isim": "Zü'l-Fadli'l-Azîm",
@@ -1102,7 +1315,9 @@
       "kokArabic": "فضل",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "fDl"
     },
     {
       "isim": "Hayru'r-Râzıkîn",
@@ -1112,7 +1327,9 @@
       "kokArabic": "رزق",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rzq"
     },
     {
       "isim": "Erhamü'r-Râhimîn",
@@ -1122,7 +1339,9 @@
       "kokArabic": "رحم",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rHm"
     },
     {
       "isim": "Hayru'l-Hâkimîn",
@@ -1132,7 +1351,9 @@
       "kokArabic": "حكم",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hkm"
     },
     {
       "isim": "Ahkemü'l-Hâkimîn",
@@ -1142,7 +1363,9 @@
       "kokArabic": "حكم",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "Hkm"
     },
     {
       "isim": "Zü'r-Rahme",
@@ -1152,7 +1375,9 @@
       "kokArabic": "رحم",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "rHm"
     },
     {
       "isim": "Bedîu's-Semâvât",
@@ -1162,7 +1387,9 @@
       "kokArabic": "بدع",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "bdE"
     },
     {
       "isim": "Hayru'l-Gâfirîn",
@@ -1172,7 +1399,9 @@
       "kokArabic": "غفر",
       "terkip": true,
       "dogrulandi": true,
-      "sarfIzni": null
+      "sarfIzni": null,
+      "yuzeyFormuGecer": true,
+      "kokSozluk": "gfr"
     }
   ]
 }

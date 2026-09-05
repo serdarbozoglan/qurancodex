@@ -126,11 +126,53 @@ for (const x of isimler) {
   });
 }
 
+
+// ── Yüzey formu Kur'an'da geçiyor mu? ────────────────────────────────────────
+// Esmâ-i hüsnâ listesinin bir kısmı Kur'an'da o kelime hâliyle GEÇMEZ; hadis
+// listesinden gelir ve Kur'an'daki karşılığı bir fiil (المحيي ↔ يحيي) veya bir
+// terkiptir (الجليل ↔ ذو الجلال). Bunu tahmin etmek yerine mushaf metnine karşı
+// ölçüyoruz: ünsüz iskelet metinde hiç geçmiyorsa isim işaretlenir. İşaretli
+// isimlerde sayfa, kelime aramasına değil kök sözlüğüne yönlendirir — aksi hâlde
+// okuyucu "sonuç yok" sayfasına düşüyordu.
+const KURAN = JSON.parse(fs.readFileSync(path.join(ROOT, 'public/verse-graph-bgem3.json'), 'utf8'));
+
+function iskelet(str) {
+  // Hemze taşıyıcıları (ؤ ئ ء) düşürülür: bunlar gerçek vav/ya değil hemze
+  // oturağıdır. Mushaf رَءُوف yazarken isim الرَّؤُوف yazıyor; oturak korunursa
+  // aynı kelime "geçmiyor" sanılıyordu.
+  return (str || '')
+    .replace(/[ً-ْٰٖٗـۖ-ۭٓ-ٕ]/g, '')
+    .replace(/[ؤئء]/g, '')
+    .replace(/[آأإٱا]/g, 'ا')
+    .replace(/[ىيی]/g, 'ي')
+    .replace(/ة/g, 'ه')
+    .trim();
+}
+const MUSHAF = KURAN.map((v) => iskelet(v.arabic)).join(' | ');
+
+// corpus.quran.com'un kök sözlüğü Arapça değil Buckwalter bekliyor
+// (?q=حصي Âdem maddesini açıyor, ?q=HSy doğru kökü açıyor — ikisi de denendi).
+const BW = {
+  'ا':'A','ب':'b','ت':'t','ث':'v','ج':'j','ح':'H','خ':'x',
+  'د':'d','ذ':'*','ر':'r','ز':'z','س':'s','ش':'$','ص':'S',
+  'ض':'D','ط':'T','ظ':'Z','ع':'E','غ':'g','ف':'f','ق':'q',
+  'ك':'k','ل':'l','م':'m','ن':'n','ه':'h','و':'w','ي':'y',
+  'ء':"'",
+};
+const buckwalter = (kokArabic) => (kokArabic || '').split('').map((c) => BW[c] || '').join('');
+
 if (hatalar.length) {
   console.error(`  ❌ ${hatalar.length} kök doğrulanamadı:`);
   hatalar.forEach((h) => console.error('     ' + h));
   process.exit(1);
 }
+
+for (const c of cikti) {
+  const ilkKelime = iskelet(c.arapca).split(/\s+/)[0].replace(/^\u0627\u0644/, '');
+  c.yuzeyFormuGecer = ilkKelime.length < 3 ? true : MUSHAF.includes(ilkKelime);
+  c.kokSozluk = c.kokArabic ? buckwalter(c.kokArabic) : null;
+}
+const gecmeyen = cikti.filter((c) => !c.yuzeyFormuGecer);
 
 const kokSayisi = new Set(cikti.filter((c) => c.kok).map((c) => c.kok)).size;
 fs.writeFileSync(path.join(ROOT, 'public/esma-kok-haritasi.json'),
@@ -140,6 +182,7 @@ fs.writeFileSync(path.join(ROOT, 'public/esma-kok-haritasi.json'),
       kokluIsim: cikti.filter((c) => c.kok).length,
       farkliKok: kokSayisi,
       terkipIsim: cikti.filter((c) => c.terkip).length,
+      yuzeyFormuGecmeyen: gecmeyen.length,
       dogrulama: 'her kökün harfleri, ismin Arapça yazımında sırayla geçtiği MEKANİK olarak doğrulandı; geçmezse build durur',
       generatedBy: 'scripts/build-esma-kokler.mjs',
     },
@@ -151,4 +194,6 @@ console.log(`  dogrulama: ${cikti.filter((c) => c.dogrulandi).length}/${cikti.fi
 const izinli = cikti.filter((c) => c.sarfIzni);
 console.log(`  sarf istisnasina dayanan: ${izinli.length}`);
 izinli.forEach((c) => console.log(`     ${c.isim.padEnd(20)} ${c.kok.padEnd(9)} ${c.sarfIzni.join(', ')}`));
+console.log(`  yuzey formu mushafta hic gecmeyen: ${gecmeyen.length}`);
+gecmeyen.forEach((c) => console.log(`     ${c.isim.padEnd(20)} ${c.arapca.padEnd(16)} kok sozlugu: ${c.kokSozluk}`));
 console.log('  📌 public/esma-kok-haritasi.json');
