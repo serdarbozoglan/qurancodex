@@ -374,8 +374,9 @@ function Hero({ tr }) {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             letterSpacing: '-0.025em',
-            lineHeight: 1,
-            margin: '0 0 18px',
+            lineHeight: 1.16,
+            paddingTop: '0.1em',
+            margin: '0 0 10px',
             display: 'inline-block',
           }}>
             {tr ? 'ESMÂ-İ HÜSNÂ' : 'THE BEAUTIFUL NAMES'}
@@ -4079,7 +4080,9 @@ function corpusSearchQuery(arabic) {
 function corpusUrl(arabic, item) {
   const cleaned = corpusSearchQuery(arabic);
   if (item?.isim === 'Allah') {
-    return `https://corpus.quran.com/qurandictionary.jsp?q=${encodeURIComponent(cleaned)}`;
+    // Kök sözlüğü Arapça değil Buckwalter bekler; Arapça verilince sessizce
+    // Âdem maddesine düşüyordu. 'Alh' = أ ل ه (ilâh + Allah + Allahümme).
+    return 'https://corpus.quran.com/qurandictionary.jsp?q=Alh';
   }
   const stripped = cleaned.replace(/^ال/, '');
   const finalQ = stripped.length >= 3 ? stripped : cleaned;
