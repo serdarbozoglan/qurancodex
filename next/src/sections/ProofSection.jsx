@@ -92,7 +92,23 @@ export default function ProofSection({ locale = 'tr' }) {
           : 'Thematic pairing is an interpretive act; it is the reader who links "praise" to "favour". This diagram is inspired by Farrin\'s method but is the site\'s own arrangement — not a verbatim copy of his book. Nor is ring reading unique to one scholar (see the source note below); this diagram does not refute other divisions.',
       },
     ],
-    cta: tr ? 'Halka kompozisyon sayfasına git' : 'Open the ring composition page',
+    cta: tr ? "Fâtiha Atlası'na git" : 'Open the Fātiḥa Atlas',
+    // v2.0 — eşleşme özeti (tüm çiftler bir arada, hover'a gerek yok).
+    pairsTitle: tr ? 'Eşleşmeler bir arada' : 'The pairings at a glance',
+    pairsInfo: [
+      { k: 'A ↔ A′', a: '1:2 ↔ 1:7',
+        t: tr ? 'Övgüyle açılış, gazaptan uzak kapanış — sûre aynı çerçevede başlayıp biter.'
+              : 'Opens with praise, closes away from wrath — the sura begins and ends in the same frame.' },
+      { k: 'B ↔ B′', a: '1:3 ↔ 1:7',
+        t: tr ? 'Rahmet vurgusu, nimet verilenlerin yolunda somutlaşır.'
+              : 'The emphasis on mercy takes concrete form in the path of the favoured.' },
+      { k: 'C ↔ C′', a: '1:4 ↔ 1:6',
+        t: tr ? 'Din gününün sahibi ile doğru yola iletilme talebi — hesap ve hidayet.'
+              : 'The Master of the Day and the plea for guidance — reckoning and the straight path.' },
+      { k: 'D', a: '1:5',
+        t: tr ? 'Eksen, eşsiz: dil kişisinin üçüncü şahıstan ikinci şahsa döndüğü nokta.'
+              : 'The pivot, unpaired: where the grammatical person turns from third to second.' },
+    ],
     source: tr
       ? 'Esin: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — kendisi Cuypers\'in retorik yönteminden besleniyor. Buradaki eşleme sitenin kendi düzenlemesi. Arapça: âyet grafiği.'
       : 'Inspired by: Raymond Farrin, Structure and Qur\'anic Interpretation (2014) — itself building on Cuypers\' rhetorical method. The mapping shown here is the site\'s own arrangement. Arabic: verse graph.',
@@ -176,6 +192,36 @@ export default function ProofSection({ locale = 'tr' }) {
                gösteriyordu tam da ihtiyaç olmayan yerde. CSS class'a taşınıp
                yalnız taşmanın gerçekleştiği dar ekranlarda gösterilecek. */}
         <div aria-hidden="true" className="proof-diagram-fade" />
+        </div>
+
+        {/* ─── v2.0 — Eşleşmeler bir arada (hover'a gerek yok, hepsi görünür) ─── */}
+        <div data-reveal style={{ maxWidth: '820px', margin: '0 auto 46px' }}>
+          <div style={{
+            fontFamily: FONTS.body, fontSize: '0.7rem', fontWeight: 600,
+            letterSpacing: '0.24em', textTransform: 'uppercase',
+            color: `${COLORS.gold}cc`, textAlign: 'center', marginBottom: '20px',
+          }}>
+            {label.pairsTitle}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
+            {label.pairsInfo.map((pr) => {
+              const isPivot = pr.k === 'D';
+              return (
+                <div key={pr.k} style={{
+                  background: `${COLORS.deepNavy}55`,
+                  border: `1px solid ${isPivot ? COLORS.skyBlue : COLORS.gold}22`,
+                  borderRadius: '14px',
+                  padding: '18px 20px',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '8px' }}>
+                    <span style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem', color: isPivot ? COLORS.skyBlue : COLORS.gold, letterSpacing: '0.04em' }}>{pr.k}</span>
+                    <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: `${COLORS.silver}c0`, letterSpacing: '0.06em' }}>{pr.a}</span>
+                  </div>
+                  <p style={{ fontFamily: FONTS.body, fontSize: '0.86rem', lineHeight: 1.6, color: SEMANTIC.textMuted, margin: 0 }}>{pr.t}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* ─── Âyetler — glow YOK, efekt YOK ─── */}
@@ -274,7 +320,7 @@ export default function ProofSection({ locale = 'tr' }) {
 
         <div style={{ textAlign: 'center', marginTop: '44px' }}>
           <Link
-            href={`/${locale}/arac/halka-kompozisyon`}
+            href={`/${locale}/atlas/fatiha`}
             className="portal-card__cta"
             style={{
               display: 'inline-flex',
