@@ -25,9 +25,11 @@
 import Link from 'next/link';
 import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
-export default function PortalCard({ card, locale = 'tr', extra = null }) {
+export default function PortalCard({ card, locale = 'tr', extra = null, accent = COLORS.gold }) {
   const tr = locale === 'tr';
   const pick = (o) => (tr ? o.tr : o.en);
+  // v2.0 — küme aksanı: eyebrow bu rengi alır (kutsal metin/başlık/kicker
+  // DAİMA gold kalır). Varsayılan gold → mevcut kartlar değişmez.
   const { id, weight = 'medium', href } = card;
   const compact = weight === 'compact';
 
@@ -68,7 +70,7 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
       )}
 
       <div
-        className="portal-card__panel"
+        className="portal-card__panel lift-hover"
         data-reveal
         style={{
           position: 'relative',
@@ -79,18 +81,22 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
           padding: compact
             ? 'clamp(28px, 4vw, 36px) clamp(20px, 3vw, 28px)'
             : 'clamp(40px, 6vw, 64px) clamp(28px, 5vw, 56px)',
+          // v2.0 — "havada asılı" glass panel: navy taban + hafif blur.
           background:
-            'linear-gradient(180deg, rgba(212,165,116,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-          border: `1px solid ${COLORS.gold}${compact ? '2b' : '33'}`,
-          borderRadius: '12px',
-          boxShadow: `inset 0 0 0 1px ${COLORS.gold}14, 0 30px 80px rgba(0,0,0,0.4)`,
+            'linear-gradient(180deg, rgba(13,27,42,0.55) 0%, rgba(7,9,19,0.42) 100%)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          // kenarlık küme aksanını taşır (kutsal metin/başlık gold kalır)
+          border: `1px solid ${accent}${compact ? '33' : '4d'}`,
+          borderRadius: '18px',
+          boxShadow: `inset 0 0 0 1px ${accent}12, 0 30px 80px rgba(0,0,0,0.4)`,
           display: compact ? 'flex' : undefined,
           flexDirection: compact ? 'column' : undefined,
         }}
       >
         <div
           style={{
-            color: `${COLORS.gold}cc`,
+            color: accent === COLORS.gold ? `${COLORS.gold}cc` : accent,
             fontFamily: FONTS.body,
             fontSize: compact ? '0.66rem' : '0.72rem',
             fontWeight: 600,
@@ -228,11 +234,11 @@ export default function PortalCard({ card, locale = 'tr', extra = null }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '12px',
-              background: `${COLORS.gold}1a`,
-              border: `1px solid ${COLORS.gold}66`,
+              background: `${accent}1a`,
+              border: `1px solid ${accent}66`,
               borderRadius: '999px',
               padding: compact ? '11px 20px' : '14px 28px',
-              color: COLORS.gold,
+              color: accent,
               fontFamily: FONTS.body,
               fontSize: compact ? '0.8rem' : '0.94rem',
               fontWeight: 600,

@@ -26,6 +26,7 @@ import TefekkurHighlight from '@/sections/TefekkurHighlight';
 // ─── Anlatı kartları — 14 dosya yerine tek sunucu bileşeni + veri (P4+P5) ───
 // Öncesinde 14 ayrı 'use client' dosyası vardı (2.742 satır, 14 hydration
 // adası). Yapı %95 aynıydı; yalnız veri değişiyordu. Bkz. src/data/homeCards.js
+import { CATEGORY } from '@/tokens';
 import { CARD_BY_ID } from '@/data/homeCards';
 import PortalCard from '@/components/PortalCard';
 import ScienceTimelineCard from '@/components/ScienceTimelineCard';
@@ -147,9 +148,9 @@ export default async function Home({ params }) {
             altın çerçeveli panelini DEĞİL, sola dayalı EditorialCard'ı
             kullanıyor. Önceden 2'li CompactRow ızgarasındaydı; dergi
             düzeni dar sütunda çalışmadığı için tam genişliğe alındı. */}
-        <EditorialCard card={CARD_BY_ID['tarih-card']} locale={locale} surahNum={10} />
+        <EditorialCard card={CARD_BY_ID['tarih-card']} locale={locale} surahNum={10} accent={CATEGORY.blue} />
         <CardSeam />
-        <EditorialCard card={CARD_BY_ID['koruma-card']} locale={locale} surahNum={15} />
+        <EditorialCard card={CARD_BY_ID['koruma-card']} locale={locale} surahNum={15} accent={CATEGORY.blue} />
         {/* §13.24 (2026-08-13): önceki metin "Bilim bir gün gelir, DOĞRULAR /
             Science ... CONFIRMS" idi. Kural tasdikin öznesini bilim/tarih
             yapmayı ismen yasaklıyor — "Kur'ân haber verir, BİZ tasdik ederiz;
@@ -171,21 +172,22 @@ export default async function Home({ params }) {
         {/* Çıpa ortada: "dua → öne çıkanlar → Yaratıcı → insan → nefis"
             anlatı sırası yazarın kurduğu sıra. Kademe uygulanırken kart
             TAŞINMADI; Esmâ köprüsü kümenin ortasında kalıyor. */}
-        <PortalCard card={CARD_BY_ID['dua-card']} locale={locale} />
+        <PortalCard card={CARD_BY_ID['dua-card']} locale={locale} accent={CATEGORY.emerald} />
         <CardSeam />
-        <PortalCard card={CARD_BY_ID['alti-konu-card']} locale={locale} />
+        <PortalCard card={CARD_BY_ID['alti-konu-card']} locale={locale} accent={CATEGORY.emerald} />
         <CardSeam />
         <FeaturedWrap locale={locale}>
           <PortalCard
             card={CARD_BY_ID['allah-kendini-tanitir']}
             locale={locale}
+            accent={CATEGORY.emerald}
             extra={<EsmaTeaser locale={locale} />}
           />
         </FeaturedWrap>
         <CardSeam />
         <CompactRow>
-          <PortalCard card={CARD_BY_ID['insan-tanimi-card']} locale={locale} />
-          <PortalCard card={CARD_BY_ID['psikoloji-card']} locale={locale} />
+          <PortalCard card={CARD_BY_ID['insan-tanimi-card']} locale={locale} accent={CATEGORY.emerald} />
+          <PortalCard card={CARD_BY_ID['psikoloji-card']} locale={locale} accent={CATEGORY.emerald} />
         </CompactRow>
         <ClusterWhisper
           tr="Senden önce seni bilen, senden öte sana yakın olan."

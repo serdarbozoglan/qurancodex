@@ -22,26 +22,8 @@
 
 import Link from 'next/link';
 import { FATIHA_RING } from '../data/fatihaRing';
+import FatihaRingDiagram from '../components/FatihaRingDiagram';
 import { COLORS, FONTS, SEMANTIC } from '../tokens';
-
-// Diyagram geometrisi — 7 konum, simetrik çatı (chevron).
-// Daire yerine ÇATI: daire "mükemmel döngü" iması taşıyor ve numeroloji
-// estetiğine yakın duruyor. Çatı yalnız "başlangıç ve son aynı yerde
-// buluşuyor" der; iddiası daha küçük.
-const W = 720;
-const H = 300;
-const PAD_X = 60;
-const STEP = (W - PAD_X * 2) / 6;
-const TOP = 60;
-const BOTTOM = 210;
-
-function xy(i) {
-  const depth = i <= 3 ? i : 6 - i; // 0,1,2,3,2,1,0
-  return {
-    x: PAD_X + i * STEP,
-    y: TOP + (depth / 3) * (BOTTOM - TOP),
-  };
-}
 
 // 4 adım için sabit ikon seti — sıraya göre eşleşir (içerik değil, sadece
 // görsel işaret; label.steps'in kendisi TR/EN metni taşımaya devam eder).
@@ -73,11 +55,6 @@ const STEP_ICONS = [
 
 export default function ProofSection({ locale = 'tr' }) {
   const tr = locale === 'tr';
-  const pts = FATIHA_RING.map((_, i) => xy(i));
-  const path = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
-
-  // Eşleşen çiftler: (0,6) (1,5) (2,4). Merkez (3) eşsiz.
-  const pairs = [[0, 6], [1, 5], [2, 4]];
 
   const label = {
     eyebrow: tr ? 'Örüntü — kanıt değil' : 'A pattern — not a proof',
@@ -182,90 +159,11 @@ export default function ProofSection({ locale = 'tr' }) {
             sağ kenara mevcut ipucu deseni (bkz. EsmaFrekans/PsychologySection)
             eklendi. */}
         <div style={{ position: 'relative', marginBottom: '46px' }}>
+        {/* v2.0 — statik SVG yerine İNTERAKTİF diyagram (client alt-bileşen).
+            Hover → aynadaki eş + bağ yayı yanar, altında âyet metni belirir.
+            Metin/SEO bu sunucu bileşeninde kalır; yalnız diyagram client. */}
         <div className="proof-diagram" style={{ overflowX: 'auto' }}>
-          <svg
-            viewBox={`0 0 ${W} ${H}`}
-            width="100%"
-            style={{ minWidth: '620px', display: 'block', margin: '0 auto' }}
-            role="img"
-            aria-labelledby="proof-svg-title proof-svg-desc"
-          >
-            <title id="proof-svg-title">
-              {tr ? 'Fâtiha sûresinin halka kompozisyon şeması' : 'Ring composition diagram of al-Fātiḥa'}
-            </title>
-            <desc id="proof-svg-desc">
-              {tr
-                ? 'Yedi konum simetrik bir çatı üzerinde diziliyor (Besmele hariç). 1:2 ile 1:7\'nin son cümleciği, 1:3 ile 1:7\'nin ilk cümleciği, 1:4 ile 1:6 eşleşiyor. Ortada 1:5 eşsiz duruyor.'
-                : 'Seven positions arranged on a symmetric chevron (basmala excluded). 1:2 pairs with the final clause of 1:7, 1:3 with the first clause of 1:7, and 1:4 with 1:6. At the centre, 1:5 stands alone.'}
-            </desc>
-
-            {/* eşleşme bağları — dıştan içe */}
-            {pairs.map(([a, b], i) => {
-              const pa = pts[a];
-              const pb = pts[b];
-              const lift = 26 + i * 14;
-              return (
-                <path
-                  key={`pair-${a}`}
-                  d={`M ${pa.x} ${pa.y} Q ${(pa.x + pb.x) / 2} ${pa.y - lift} ${pb.x} ${pb.y}`}
-                  fill="none"
-                  stroke={COLORS.gold}
-                  strokeOpacity={0.28}
-                  strokeWidth="1"
-                  strokeDasharray="3 4"
-                />
-              );
-            })}
-
-            {/* çatı hattı */}
-            <path d={path} fill="none" stroke={`${COLORS.gold}55`} strokeWidth="1.2" />
-
-            {FATIHA_RING.map((r, i) => {
-              const p = pts[i];
-              const isPivot = r.pair === null;
-              return (
-                <g key={`${r.pos}-${r.ayah}`}>
-                  <circle
-                    cx={p.x}
-                    cy={p.y}
-                    r={isPivot ? 9 : 6}
-                    fill={isPivot ? COLORS.gold : SEMANTIC.surface}
-                    stroke={COLORS.gold}
-                    strokeWidth={isPivot ? 0 : 1.4}
-                  />
-                  <text
-                    x={p.x}
-                    y={p.y + (i <= 3 ? -18 : -18)}
-                    textAnchor="middle"
-                    style={{
-                      fill: isPivot ? COLORS.gold : `${COLORS.offWhite}cc`,
-                      fontFamily: FONTS.body,
-                      fontSize: '13px',
-                      fontWeight: isPivot ? 700 : 600,
-                    }}
-                  >
-                    {r.pos}
-                  </text>
-                  <text
-                    x={p.x}
-                    y={p.y + 26}
-                    textAnchor="middle"
-                    style={{ fill: `${COLORS.silver}d9`, fontFamily: FONTS.body, fontSize: '11px' }}
-                  >
-                    1:{r.ayah}
-                  </text>
-                  <text
-                    x={p.x}
-                    y={p.y + 42}
-                    textAnchor="middle"
-                    style={{ fill: `${COLORS.silver}d9`, fontFamily: FONTS.body, fontSize: '10px' }}
-                  >
-                    {tr ? r.theme.tr : r.theme.en}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
+          <FatihaRingDiagram locale={locale} />
         </div>
         {/* 2026-08-17 — iki ayrı hata düzeltildi:
             1) Düz SEMANTIC.surface hedef renk kullanılmıştı, ama section'ın

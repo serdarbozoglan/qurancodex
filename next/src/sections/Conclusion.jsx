@@ -183,8 +183,8 @@ export default function Conclusion() {
           onClick={handleScrollToPaths}
           style={{
             padding: '14px 36px',
-            borderRadius: '10px',
-            border: '1px solid rgba(212,165,116,0.35)',
+            borderRadius: '999px', // v2.0 — pill (nav ile tutarlı)
+            border: `1px solid ${COLORS.goldAlpha25}`,
             background: COLORS.goldAlpha15,
             color: COLORS.gold,
             fontFamily: FONTS.body,
@@ -202,9 +202,10 @@ export default function Conclusion() {
           className="flex items-center gap-3"
           style={{
             padding: '14px 36px',
-            borderRadius: '10px',
+            borderRadius: '999px', // v2.0 — pill (nav ile tutarlı)
             border: 'none',
-            background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 60%, ${COLORS.btnGoldEnd} 100%)`,
+            // v2.0 — açık antika altın (nav CTA ile aynı)
+            background: `linear-gradient(135deg, ${COLORS.goldBright} 0%, ${COLORS.gold} 100%)`,
             color: COLORS.btnGoldText,
             fontFamily: FONTS.body,
             fontSize: '0.9rem', fontWeight: 700,

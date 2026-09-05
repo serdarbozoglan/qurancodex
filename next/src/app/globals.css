@@ -37,10 +37,13 @@
   --color-deep-navy: #0d1b2a;
   --color-gold: #d4a574;
   --color-royal-gold: #c9a227;
+  --color-gold-bright: #e8c98a;
+  --color-gold-amber-mid: #d8b15f;
   --color-emerald: #1a7a4c;
   --color-soft-emerald: #2ecc71;
   --color-off-white: #e8e6e3;
   --color-silver: #94a3b8;
+  --color-text-faint: #7e8fa6;
   --color-soft-red: #e74c3c;
   --color-sky-blue: #3498db;
   --color-teal: #1abc9c;
@@ -246,11 +249,111 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+/* ---- v2.0 Glass Panel ----
+   Anasayfa v2.0 "havada asılı mimari panel" hissi. Mevcut .glass-card
+   (beyaz tint, §13.7) DEĞİŞTİRİLMEDİ — bu ayrı, opt-in bir sınıf, böylece
+   siteyi tek seferde değiştirmeyiz (§13.23 cross-cutting kaçınması). Fark:
+   navy tabanlı zemin + altın tonlu kenarlık (beyaz değil). */
+.glass-panel-v2 {
+  background: color-mix(in srgb, var(--color-deep-navy) 38%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 14%, transparent);
+  border-radius: 16px;
+}
+
+/* ---- v2.0 Stat gradyan ----
+   İstatistik sayısına sıcak altın gradyan (InventoryStrip ile aynı dil).
+   Opt-in: className olarak eklenir; renk-agnostik AnimatedCounter'ı bozmaz.
+   Fallback rengi (background-clip desteklenmezse) accentStats. */
+.stat-gradient {
+  color: var(--color-royal-gold);
+  background-image: linear-gradient(165deg, var(--color-gold-bright) 0%, var(--color-gold-amber-mid) 45%, var(--color-royal-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- v2.0 Hover fiziği ----
+   Kart/panel/CTA'ya tek tutarlı "kalkma + parlama" hareketi. Tüm siteye
+   yayıldığında aynı dokunuş hissini verir. Reduced-motion'da devre dışı. */
+.lift-hover {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s, box-shadow 0.3s;
+}
+.lift-hover:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--color-gold) 28%, transparent);
+  box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--color-gold) 35%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift-hover { transition: none; }
+  .lift-hover:hover { transform: none; }
+}
+
+/* ---- v2.0 Radyal derinlik ----
+   Bölüm zeminlerine %3-5 radyal ışık — düz koyu zeminin tekdüzeliğini kırar.
+   Section'a ekle; renk token'dan (altın / lapis). İçeriğin arkasında, z yok. */
+.depth-gold::before,
+.depth-lapis::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.depth-gold::before {
+  background: radial-gradient(1100px 640px at 50% 8%, color-mix(in srgb, var(--color-gold) 5%, transparent), transparent 72%);
+}
+.depth-lapis::before {
+  background: radial-gradient(1100px 640px at 50% 12%, color-mix(in srgb, var(--color-sky-blue) 5%, transparent), transparent 72%);
+}
+
+/* ---- v2.0 HeroRing tooltip ---- */
+.hero-ring-tip {
+  position: fixed;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s;
+  background: color-mix(in srgb, var(--color-cosmic-black) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 28%, transparent);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 0.8rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.hero-ring-tip b { color: var(--color-gold); font-weight: 600; }
+.hero-ring-tip span { color: var(--color-silver); }
+.hero-ring-tip .hr-mk {
+  font-family: 'KFGQPC', 'Amiri Quran', serif;
+  color: var(--color-gold);
+  font-size: 1.05rem;
+  margin-top: 2px;
+}
+.hero-ring-tip .hr-mk span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-faint);
+}
+.hero-ring-tip .hr-cta {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-faint);
+  margin-top: 3px;
+}
+
 /* ---- CTA Buttons ---- */
+/* v2.0 — birincil CTA yeni konsept: açık antika altın (goldBright → gold) +
+   pill radius. Tek kaynak: bu sınıfı kullanan tüm CTA'lar (Hero "İlk Kapıyı
+   Aç" dahil) otomatik tutarlı olur. Önceki koyu btnGold gradyanı yerine. */
 .btn-primary-gold {
-  background: linear-gradient(135deg, var(--color-btn-gold-start) 0%, var(--color-btn-gold-mid) 60%, var(--color-btn-gold-end) 100%);
+  background: linear-gradient(135deg, var(--color-gold-bright) 0%, var(--color-gold) 100%);
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   color: var(--color-btn-gold-text);
   box-shadow: 0 0 32px 8px var(--color-btn-gold-glow-15);
 }
@@ -813,7 +916,11 @@ nav[aria-label="Main navigation"] [data-dropdown] div a {
    Yeterli tek kaldıraç kelime markasının kendisi: 150px. Amblem (logo-mark)
    kalır, yalnız yazı gizlenir; 1100'den itibaren geri gelir — o genişlikten
    sonra sarma zaten olmuyor, bu yüzden band 1279'a kadar UZATILMADI. */
-@media (min-width: 1024px) and (max-width: 1099px) {
+/* v2.0 — üst sınır 1099 → 1179. TR|EN pill + pill CTA sağ grubu genişletince
+   1100-1179 arası (özellikle uzun İngilizce menü etiketleriyle) "QURANCODEX"
+   yazısı geri gelince nav ikinci satıra sarıyordu. Wordmark bu aralıkta da
+   gizli kalırsa tek satır korunur (logo işareti görünmeye devam eder). */
+@media (min-width: 1024px) and (max-width: 1179px) {
   nav[aria-label="Main navigation"] .nav-wordmark {
     display: none;
   }

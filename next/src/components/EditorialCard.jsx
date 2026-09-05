@@ -17,7 +17,7 @@
 import Link from 'next/link';
 import { COLORS, FONTS, SEMANTIC } from '../tokens';
 
-export default function EditorialCard({ card, locale = 'tr', surahNum }) {
+export default function EditorialCard({ card, locale = 'tr', surahNum, accent = COLORS.gold }) {
   const tr = locale === 'tr';
   const pick = (o) => (tr ? o.tr : o.en);
 
@@ -61,7 +61,7 @@ export default function EditorialCard({ card, locale = 'tr', surahNum }) {
         <div>
           <div
             style={{
-              color: `${COLORS.gold}cc`,
+              color: accent === COLORS.gold ? `${COLORS.gold}cc` : accent,
               fontFamily: FONTS.body,
               fontSize: '0.72rem',
               fontWeight: 600,

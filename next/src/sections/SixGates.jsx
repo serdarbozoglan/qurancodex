@@ -351,6 +351,7 @@ export default function SixGates() {
   return (
     <section
       id="six-gates"
+      className="depth-gold"
       style={{
         background: `linear-gradient(180deg, ${SEMANTIC.surfaceRaised} 0%, ${SEMANTIC.surface} 100%)`,
         padding: '70px 24px 60px',
@@ -358,7 +359,7 @@ export default function SixGates() {
         overflow: 'hidden',
       }}
     >
-      <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1180px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}

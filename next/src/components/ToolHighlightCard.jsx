@@ -36,10 +36,13 @@ export default function ToolHighlightCard({
       style={{
         // Override shorthand border with longhand so framer can animate borderColor
         ...GLASS_CARD,
+        // v2.0 — anlatı kartlarıyla tutarlı navy glass + altın kenarlık.
+        background: 'linear-gradient(180deg, rgba(13,27,42,0.5) 0%, rgba(7,9,19,0.4) 100%)',
         border: undefined,
         borderWidth: '1px',
         borderStyle: 'solid',
-        borderColor: COLORS.glassBorder,
+        borderColor: COLORS.goldAlpha25,
+        borderRadius: '16px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',

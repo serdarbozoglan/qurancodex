@@ -7,6 +7,10 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS } from '../tokens';
 import ParticleBackground from './ParticleBackground';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+// v2.0 — canlı âyet halkası. Canvas SSR'da anlamsız + hydration riski → ssr:false.
+const HeroRing = dynamic(() => import('./HeroRing'), { ssr: false });
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -83,8 +87,11 @@ export default function Hero() {
           Sayım: 26 desktop (14 harf setinden zengin varyans) / 16 mobile.
           Glyph opacity + twinkle ayrıca ParticleBackground.jsx'te dial-up
           (harfler artık hep görünür, sadece hafif parıldar). */}
+      {/* v2.0 — dağınık mukattaa glyph'leri artık HeroRing'in ANLAMLI halkası +
+          kendi harf bulutuyla karşılanıyor; ParticleBackground yalnızca hafif
+          bir atmosfer katkısı olarak seyreltildi (halka bulutuyla yarışmasın). */}
       <ParticleBackground
-        particleCount={isMobile ? 16 : 26}
+        particleCount={isMobile ? 6 : 10}
         glyphRatio={1}
       />
 
@@ -119,7 +126,11 @@ export default function Hero() {
         // scroll-davet (40px SVG + bounce + büyük DEVAM text).
         style={{ minHeight: '100svh' }}
       >
-        <div className="text-center max-w-4xl mx-auto w-full">
+        {/* v2.0 — canlı âyet halkası (arka katman, metnin arkasında). Merkez
+            clear-zone kutsal metni korur; hover → sûre, tıkla → /oku/N. */}
+        <HeroRing />
+
+        <div className="relative z-10 text-center max-w-4xl mx-auto w-full">
 
         {/* Bismillah ornament — cinematic intro (showIntro ? yazılma açılışı : sade).
             Reverence sinyali; meta-discovery framing'i bozmadan ekler.
@@ -271,25 +282,26 @@ export default function Hero() {
           )}
         </motion.p>
 
+        {/* v2.0 — çeviri iki AYETE karşılık iki satıra bölündü (Arapça'da
+            verse1 · verse2 olduğu gibi) ve punto büyütüldü. */}
         <motion.p
           className="mq-fs" style={{
-            color: 'rgba(232,230,227,0.92)',
+            color: 'rgba(232,230,227,0.94)',
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            '--fs-d': 'clamp(1.05rem, 1.85vw, 1.3rem)', '--fs-m': '1.1rem',
-            lineHeight: 1.7,
-            margin: '0 auto 10px',
-            maxWidth: '740px',
+            '--fs-d': 'clamp(1.2rem, 2.2vw, 1.55rem)', '--fs-m': '1.2rem',
+            lineHeight: 1.75,
+            margin: '0 auto 12px',
+            maxWidth: '760px',
           }}
           {...entrance(
             { opacity: 0, y: 12 },
-            { opacity: 0.92, y: 0 },
+            { opacity: 0.94, y: 0 },
             { duration: 0.9, delay: showIntro ? 3.1 : 0.7 }
           )}
         >
-          &quot;{language === 'tr'
-            ? 'Yaratan Rabbinin adıyla oku. O, insanı bir alaktan yarattı.'
-            : 'Read in the name of your Lord who created. He created man from a clinging clot.'}&quot;
+          &quot;{language === 'tr' ? 'Yaratan Rabbinin adıyla oku.' : 'Read in the name of your Lord who created.'}<br />
+          {language === 'tr' ? 'O, insanı bir alaktan yarattı.' : 'He created man from a clinging clot.'}&quot;
         </motion.p>
 
         <motion.p
@@ -322,25 +334,50 @@ export default function Hero() {
         <motion.p
           style={{
             fontFamily: FONTS.body,
-            fontSize: 'clamp(0.72rem, 1.5vw, 0.8rem)',
+            // v2.0 — 0.8rem çok küçüktü (~12.8px); okunur boyuta çıkarıldı.
+            fontSize: 'clamp(0.92rem, 1.6vw, 1.05rem)',
             fontWeight: 400,
             color: COLORS.silver,
-            letterSpacing: '0.06em',
+            letterSpacing: '0.02em',
             lineHeight: 1.7,
-            maxWidth: '540px',
-            margin: '-22px auto 34px',
+            maxWidth: '560px',
+            margin: '-14px auto 18px',
             // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
-            opacity: 0.78,
+            opacity: 0.85,
           }}
           {...entrance(
             { opacity: 0 },
-            { opacity: 0.78 },
+            { opacity: 0.85 },
             { duration: 0.8, delay: showIntro ? 3.9 : 1.05 }
           )}
         >
           {language === 'tr'
             ? "Kur'an'ın dilsel, sayısal ve yapısal mimarisi — 6.236 âyet, interaktif görsellerle."
             : "The linguistic, numerical and structural architecture of the Qur'an — 6,236 verses, explored interactively."}
+        </motion.p>
+
+        {/* v2.0 — halka etkileşim ipucu (affordance). Arkadaki halkanın canlı
+            veri olduğunu ve hover/dokunma ile keşfedilebileceğini söyler. */}
+        <motion.p
+          style={{
+            fontFamily: FONTS.body,
+            fontSize: '0.68rem',
+            fontWeight: 500,
+            color: COLORS.silver,
+            letterSpacing: '0.24em',
+            textTransform: 'uppercase',
+            margin: '0 auto 30px',
+            opacity: 0.6,
+          }}
+          {...entrance(
+            { opacity: 0 },
+            { opacity: 0.6 },
+            { duration: 0.8, delay: showIntro ? 4.2 : 1.3 }
+          )}
+        >
+          {language === 'tr'
+            ? 'Arkada dönen halka: 114 sûre — üstüne gel, keşfet'
+            : 'The turning ring: 114 suras — hover to explore'}
         </motion.p>
 
         {/* Mobil CTA — navbar "Kur'an'ı Oku" mobilde hamburger'da gizli olduğu
@@ -409,7 +446,10 @@ export default function Hero() {
           className="dsp-flex"
           style={{
             position: 'absolute',
-            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '40px',
+            // v2.0 — DEVAM göstergesi halkanın İÇİNE (alt yayının içine) taşındı.
+            // Halka yüksekliği viewport'a bağlı olduğundan yüzde ile takip eder:
+            // ring bottom ≈ ekran altından ~%12+14px yukarıda; %17 rahatça içeride.
+            bottom: isMobile ? 'calc(24px + env(safe-area-inset-bottom, 0px))' : '11%',
             left: 0,
             right: 0,
             justifyContent: 'center',

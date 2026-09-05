@@ -146,7 +146,7 @@ export default function ToolsHighlight() {
   const handleViewAll = () => openOverlay('allTools');
 
   return (
-    <SectionWrapper id="tools-highlight" dark={false}>
+    <SectionWrapper id="tools-highlight" dark={false} className="depth-lapis">
       {/* Section label */}
       <motion.div variants={fadeUpItem}>
         <span

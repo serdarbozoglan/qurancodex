@@ -13,7 +13,7 @@
 // otomatik okunmuyor (Hero sunucu bileşeni, derleme zamanında sabitleniyor).
 // ────────────────────────────────────────────────────────────────────────────
 
-import { COLORS, FONTS, SEMANTIC } from '../tokens';
+import { COLORS, FONTS, SEMANTIC, GRADIENTS } from '../tokens';
 
 const STATS = [
   { n: '63', labelTr: 'Araç', labelEn: 'Tools' },
@@ -46,27 +46,52 @@ export default function InventoryStrip({ locale = 'tr' }) {
             borderLeft: i > 0 ? `1px solid ${SEMANTIC.textFaint}33` : 'none',
           }}
         >
+          {/* v2.0 — düz hardal-altın yerine sıcak altın gradyan (§13.25 md.7:
+              stat sayısı rolü korunur; erişilebilir taban accentStats, gradyan
+              yalnız görsel zenginlik). background-clip desteklenmezse metin
+              yine görünür — fallback rengi accentStats. */}
           <div
             style={{
               fontFamily: FONTS.display,
-              fontSize: '1.7rem',
-              fontWeight: 700,
-              color: COLORS.goldBright,
+              fontSize: '1.9rem',
+              fontWeight: 800,
+              letterSpacing: '-0.01em',
               fontVariantNumeric: 'tabular-nums',
+              color: GRADIENTS.statNumberFallback,
+              backgroundImage: GRADIENTS.statNumber,
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              display: 'inline-block',
             }}
           >
             {s.n}
           </div>
           <div
             style={{
+              position: 'relative',
               fontFamily: FONTS.body,
               fontSize: '0.7rem',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: SEMANTIC.textFaint,
-              marginTop: '4px',
+              color: SEMANTIC.textMuted,
+              marginTop: '14px',
             }}
           >
+            {/* etiket üstü ince altın vurgu çizgisi */}
+            <span
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '-9px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '24px',
+                height: '2px',
+                borderRadius: '2px',
+                background: `linear-gradient(90deg, transparent, ${COLORS.gold}66, transparent)`,
+              }}
+            />
             {tr ? s.labelTr : s.labelEn}
           </div>
         </div>

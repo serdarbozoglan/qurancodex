@@ -20,6 +20,7 @@ export const COLORS = {
   // Accent
   gold:          '#d4a574',
   goldBright:    '#e8c98a',                  // Brighter gold variant (LinguisticDNA, VerseGraph highlights)
+  goldAmberMid:  '#d8b15f',                  // v2.0 — stat gradyanı orta durağı (GRADIENTS.statNumber)
   goldWarm:      '#d4b483',                  // Warm gold variant (VerseGraph accents)
   royalGold:     '#c9a227',
   goldAlpha04:   'rgba(212,165,116,0.04)',
@@ -557,6 +558,10 @@ export const SEMANTIC = {
   scriptureText:  COLORS.gold,          // #d4a574 — ayet metni, anchor verse
   accentPrimary:  COLORS.gold,          // #d4a574 — UI vurgusu, eyebrow, aktif sekme
   accentStats:    COLORS.royalGold,     // #c9a227 — YALNIZ istatistik sayıları (§4)
+  // v2.0 — hover/ışıltı/gradyan katmanı. METİN rengi DEĞİL (goldBright #e8c98a
+  // cosmic-black üstünde AA sınırında); yalnız glow, hover parlaması, gradyan
+  // durağı. Zaten var olan COLORS.goldBright'a rol adı verir.
+  accentGlow:     COLORS.goldBright,     // #e8c98a — dekoratif ışıltı/hover
 };
 
 // Durum renkleri — kategori paletinden BAĞIMSIZ olmalı.
@@ -590,3 +595,26 @@ export const CATEGORY = {
 
 // Sırayla dağıtım gerektiğinde (kategori listesi renklendirme) bu diziyi kullan.
 export const CATEGORY_SCALE = Object.values(CATEGORY);
+
+// ─── v2.0 Gradyanlar — TEK KAYNAK ───────────────────────────────────────────
+// Dekoratif gradyanlar. Metin gradyanları yalnız BÜYÜK, dekoratif sayı/başlıkta
+// (background-clip:text) kullanılır; erişilebilir DÜZ fallback rengi her zaman
+// birlikte verilir (gradyan desteklenmeyen bağlam + AA tabanı).
+export const GRADIENTS = {
+  // İstatistik sayıları (InventoryStrip, AnimatedCounter). Taban erişilebilir
+  // renk accentStats (#c9a227); gradyan yalnız görsel zenginlik (§13.25 md.7:
+  // stat sayısı rolü korunur, piksel rengi gradyanla süslenir).
+  statNumber:     `linear-gradient(165deg, ${COLORS.goldBright} 0%, ${COLORS.goldAmberMid} 45%, ${COLORS.royalGold} 100%)`,
+  statNumberFallback: COLORS.royalGold,
+};
+
+// ─── v2.0 Anasayfa küme aksanları — TEK KAYNAK ──────────────────────────────
+// Üç anlatı kümesinin ikincil aksan rengi (eyebrow, CTA, kenarlık, küme zemini).
+// Kutsal metin DAİMA gold kalır; bu yalnız UI aksanıdır. Renkler CATEGORY'den
+// (uydurma YOK — §13.25). AA (cosmic-black üstü, metin): blue 6.1, emerald 5.5,
+// gold(accentPrimary) — hepsi ≥4.5.
+export const HOME_CLUSTER_ACCENT = {
+  fascination: SEMANTIC.accentPrimary, // Hayranlık — dil & mimari (altın)
+  astonishment: CATEGORY.blue,         // Hayret — bilim & tarih (lapis mavisi)
+  reflection:   CATEGORY.emerald,      // İçe Bakış — insan & Yaratıcı (zümrüt)
+};

@@ -239,6 +239,23 @@ export default function Navbar() {
     return () => window.removeEventListener('openDuaVerses', handler);
   }, []);
 
+  // v2.0 — ⌘K / Ctrl+K → Concierge (/sor). Nav'daki "Sor ⌘K" rozeti bu gerçek
+  // kısayolu işaret eder (sahte affordance değil). Input/textarea içindeyken
+  // devre dışı — kullanıcı yazarken tetiklenmesin.
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        const el = document.activeElement;
+        const tag = el && el.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || (el && el.isContentEditable)) return;
+        e.preventDefault();
+        router.push(`/${language}/sor`);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [router, language]);
+
   // W22-U2: openCennetCehennem listener removed — son dispatcher (MeselAtlasi.jsx
   // TabBilgi CTA) artık useQuranNav.openOverlay('cennet') üzerinden route push
   // ediyor. setCennetOpen state setter'ı tool overlay'i için korunuyor (route
@@ -779,7 +796,10 @@ export default function Navbar() {
       aria-label="Main navigation"
     >
       {/* Left: logo + nav | Right: actions */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-8" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+      {/* v2.0 — nav tam genişlik (kullanıcı tercihi): ultra-geniş ekranda ortada
+          sıkışmak yerine logo sola / CTA sağa yaslanır. max-w-[1720px] üst sınır
+          çok büyük 4K'da bile aşırı gerilmeyi önler; altında full-bleed'dir. */}
+      <div className="w-full max-w-[1720px] mx-auto px-5 lg:px-10" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
 
         {/* Left group: logo + nav links */}
         <div className="flex items-center gap-6">
@@ -1749,8 +1769,8 @@ export default function Navbar() {
             style={{
               width: '32px',
               height: '32px',
-              borderRadius: '6px',
-              border: `1px solid ${COLORS.goldAlpha45}`,
+              borderRadius: '999px', // v2.0 — daire (pill dili ile tutarlı)
+              border: `1px solid ${COLORS.goldAlpha25}`,
               background: 'transparent',
               color: COLORS.gold,
               cursor: 'pointer',
@@ -1771,14 +1791,14 @@ export default function Navbar() {
           <button
             onClick={() => router.push(`/${language}/sor`)}
             title={language === 'tr' ? "Kur'an Rehberi'ne sor" : 'Ask the Quran Guide'}
-            className="hidden lg:flex items-center gap-1.5 transition-all duration-200"
+            className="hidden lg:flex items-center gap-2 transition-all duration-200"
             style={{
-              padding: '0 12px',
+              padding: '0 14px',
               minHeight: '32px',   // sabit height değil — gerekçe CTA'da (§13.13)
-              borderRadius: '6px',
-              border: `1px solid ${COLORS.goldAlpha45}`,
+              borderRadius: '999px', // v2.0 — pill (TR|EN ile tutarlı)
+              border: `1px solid ${COLORS.goldAlpha25}`,
               background: 'transparent',
-              color: COLORS.gold,
+              color: COLORS.silver,
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.78rem',
               fontWeight: 600,
@@ -1786,14 +1806,18 @@ export default function Navbar() {
               cursor: 'pointer',
               transition: `all ${TRANSITION.fast}`,
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.color = COLORS.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha25; e.currentTarget.style.color = COLORS.silver; }}
           >
             <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
               <circle cx="11" cy="11" r="7" />
               <path d="M21 21l-4.35-4.35" />
             </svg>
             {language === 'tr' ? 'Sor' : 'Ask'}
+            {/* Görsel ⌘K rozeti kaldırıldı — İngilizce (uzun menü etiketleri) +
+                bookmark + TR|EN pill ile birlikte her breakpoint'te nav'ı ikinci
+                satıra sardırıyordu ve güvenli bir Tailwind breakpoint'i yoktu.
+                Cmd/Ctrl+K KISAYOLU çalışmaya devam ediyor (yukarıdaki keydown). */}
           </button>
 
           {/* Yardımcılar ile dil kontrolü arasına ince ayraç (2026-08-31).
@@ -1805,31 +1829,47 @@ export default function Navbar() {
             background: COLORS.glassBorder,
           }} />
 
-          {/* Language toggle — primary gold (matches CTA, single-gold rule) */}
+          {/* Language toggle — v2.0 TR|EN segmentli pill (aktif olan vurgulu).
+              Davranış aynı: tıklama toggleLanguage. */}
           <button
             onClick={toggleLanguage}
             aria-label={`Switch to ${language === 'tr' ? 'English' : 'Turkish'}`}
             style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              padding: '0 10px',
+              gap: '2px',
+              padding: '2px',
               minHeight: '32px',   // sabit height değil — gerekçe CTA'da (§13.13)
-              borderRadius: '6px',
-              border: `1px solid ${COLORS.goldAlpha45}`,
+              borderRadius: '999px',
+              border: `1px solid ${COLORS.goldAlpha25}`,
               background: 'transparent',
-              color: COLORS.gold,
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.78rem',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
               cursor: 'pointer',
               transition: `all ${TRANSITION.fast}`,
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = COLORS.gold; e.currentTarget.style.background = COLORS.goldAlpha15; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = COLORS.goldAlpha45; e.currentTarget.style.background = 'transparent'; }}
           >
-            {language === 'tr' ? 'EN' : 'TR'}
+            {['tr', 'en'].map((lng) => {
+              const active = language === lng;
+              return (
+                <span
+                  key={lng}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '4px 10px',
+                    borderRadius: '999px',
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    background: active ? COLORS.goldAlpha15 : 'transparent',
+                    color: active ? COLORS.gold : COLORS.silver,
+                    transition: `all ${TRANSITION.fast}`,
+                  }}
+                >
+                  {lng.toUpperCase()}
+                </span>
+              );
+            })}
           </button>
 
           {/* Oku — primary CTA, en sağda anchor (2026-07-23 reorder).
@@ -1849,9 +1889,12 @@ export default function Navbar() {
             title={language === 'tr' ? 'İlk emir: Oku (Alak 96:1)' : 'The first command: Read (Al-Alaq 96:1)'}
             className="hidden lg:flex items-center gap-2.5 transition-all duration-200"
             style={{
-              background: `linear-gradient(135deg, ${COLORS.btnGoldStart} 0%, ${COLORS.btnGoldMid} 100%)`,
+              // v2.0 — açık sıcak antika altın (kullanıcı tercihi): goldBright →
+              // gold. Önceki koyu btnGold (#c9973a→#b8860b) yerine sitenin
+              // antika-altın kimliğine uyan daha parlak ton.
+              background: `linear-gradient(135deg, ${COLORS.goldBright} 0%, ${COLORS.gold} 100%)`,
               border: '1.5px solid transparent',
-              borderRadius: '6px',
+              borderRadius: '999px', // v2.0 — pill (Sor/TR|EN ile tutarlı)
               color: COLORS.btnGoldText,
               fontFamily: "'Inter', sans-serif",
               fontSize: '0.82rem',
