@@ -181,7 +181,9 @@ export default function DesktopSidebarTOC() {
                   background: 'transparent',
                   border: 'none',
                   borderLeft: `2px solid ${isActive ? COLORS.gold : 'transparent'}`,
-                  color: isActive ? COLORS.gold : 'rgba(232,230,227,0.55)',
+                  // v2.0 — inaktif etiket AA-güvenli açıldı: eskiden 0.55×0.85≈0.47
+                  // (çift-dimming, AA altı). offWhiteAlpha72 (7.65+) + tek dimming.
+                  color: isActive ? COLORS.gold : COLORS.offWhiteAlpha72,
                   fontFamily: FONTS.body,
                   fontSize: '0.78rem',
                   fontWeight: isActive ? 600 : 400,
@@ -189,7 +191,7 @@ export default function DesktopSidebarTOC() {
                   cursor: 'pointer',
                   textAlign: 'left',
                   transition: 'color 0.18s, border-color 0.18s, transform 0.18s, opacity 0.18s',
-                  opacity: isActive ? 1 : 0.85,
+                  opacity: 1,
                 }}
                 onMouseEnter={e => {
                   if (!isActive) {
