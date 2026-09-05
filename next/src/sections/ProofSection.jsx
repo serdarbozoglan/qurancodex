@@ -212,8 +212,11 @@ export default function ProofSection({ locale = 'tr' }) {
         <div aria-hidden="true" className="proof-diagram-fade" />
         </div>
 
-        {/* ─── v2.0 — Eşleşmeler bir arada (hover'a gerek yok, hepsi görünür) ─── */}
-        <div data-reveal style={{ maxWidth: '820px', margin: '0 auto 46px' }}>
+        {/* ─── v2.0 — Eşleşmeler bir arada (hover'a gerek yok, hepsi görünür) ───
+            data-reveal YOK bilinçli: reveal öncesi opacity 0'da yerini tutup
+            "görünmez boşluk" izlenimi veriyordu (kullanıcı raporu). Referans
+            içeriği — hep görünür olması daha doğru. */}
+        <div style={{ maxWidth: '820px', margin: '0 auto 46px' }}>
           <div style={{
             fontFamily: FONTS.body, fontSize: '0.7rem', fontWeight: 600,
             letterSpacing: '0.24em', textTransform: 'uppercase',
@@ -258,7 +261,7 @@ export default function ProofSection({ locale = 'tr' }) {
         {/* ─── Âyetler — glow YOK, efekt YOK ─── */}
         {/* v2.0 — başlık eklendi: liste başlıksızken "bu ne?" belirsizliği vardı.
             Amacı net: sûreyi okuma sırasında, halka etiketleriyle oku. */}
-        <div data-reveal style={{
+        <div style={{
           fontFamily: FONTS.body, fontSize: '0.7rem', fontWeight: 600,
           letterSpacing: '0.24em', textTransform: 'uppercase',
           color: `${COLORS.gold}cc`, textAlign: 'center', margin: '0 0 20px',
