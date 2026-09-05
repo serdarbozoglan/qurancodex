@@ -251,12 +251,14 @@ export default function ToolsHighlight() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '11px 20px',
+            padding: '12px 26px',
+            // v2.0 — İKİNCİL pill: pill şekli (birincil CTA dili) ama outline/altın
+            // metin — birincil "Kur'an'ı Oku" ile hiyerarşi ayrımı korunur.
             background: 'transparent',
             borderWidth: '1px',
             borderStyle: 'solid',
             borderColor: COLORS.goldAlpha25,
-            borderRadius: RADIUS.md,
+            borderRadius: '999px',
             cursor: 'pointer',
             color: COLORS.gold,
             fontFamily: FONTS.body,

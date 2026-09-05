@@ -174,6 +174,24 @@ export default function ProofSection({ locale = 'tr' }) {
             ipucu yoktu. Metni küçültmedik (okunaksız olurdu) — bunun yerine
             sağ kenara mevcut ipucu deseni (bkz. EsmaFrekans/PsychologySection)
             eklendi. */}
+        {/* v2.0 — Besmele: sûrenin açılışı. DEKORATİF/ceremonial — yapısal
+            DÜĞÜM DEĞİL (Besmele 1:1 halka sayımına girmez, §13.24/fatihaRing.js).
+            Soluk KFGQPC ile çatının üstünde durur; "sûre böyle açılır" der. */}
+        <div
+          lang="ar" dir="rtl" aria-hidden="true"
+          style={{
+            fontFamily: FONTS.quran,
+            fontSize: 'clamp(1.3rem, 3vw, 1.9rem)',
+            color: COLORS.gold,
+            opacity: 0.5,
+            textAlign: 'center',
+            lineHeight: 2,
+            marginBottom: '8px',
+          }}
+        >
+          بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ
+        </div>
+
         <div style={{ position: 'relative', marginBottom: '46px' }}>
         {/* v2.0 — statik SVG yerine İNTERAKTİF diyagram (client alt-bileşen).
             Hover → aynadaki eş + bağ yayı yanar, altında âyet metni belirir.
@@ -203,28 +221,50 @@ export default function ProofSection({ locale = 'tr' }) {
           }}>
             {label.pairsTitle}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
-            {label.pairsInfo.map((pr) => {
-              const isPivot = pr.k === 'D';
-              return (
-                <div key={pr.k} style={{
-                  background: `${COLORS.deepNavy}55`,
-                  border: `1px solid ${isPivot ? COLORS.skyBlue : COLORS.gold}22`,
-                  borderRadius: '14px',
-                  padding: '18px 20px',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '8px' }}>
-                    <span style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem', color: isPivot ? COLORS.skyBlue : COLORS.gold, letterSpacing: '0.04em' }}>{pr.k}</span>
-                    <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: `${COLORS.silver}c0`, letterSpacing: '0.06em' }}>{pr.a}</span>
-                  </div>
-                  <p style={{ fontFamily: FONTS.body, fontSize: '0.86rem', lineHeight: 1.6, color: SEMANTIC.textMuted, margin: 0 }}>{pr.t}</p>
+          {(() => {
+            const pairs = label.pairsInfo.filter((pr) => pr.k !== 'D');
+            const pivot = label.pairsInfo.find((pr) => pr.k === 'D');
+            const Card = ({ pr, isPivot }) => (
+              <div style={{
+                background: `${COLORS.deepNavy}55`,
+                border: `1px solid ${isPivot ? COLORS.skyBlue : COLORS.gold}22`,
+                borderRadius: '14px',
+                padding: '18px 20px',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '8px' }}>
+                  <span style={{ fontFamily: FONTS.body, fontWeight: 700, fontSize: '0.95rem', color: isPivot ? COLORS.skyBlue : COLORS.gold, letterSpacing: '0.04em' }}>{pr.k}</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: '0.72rem', color: `${COLORS.silver}c0`, letterSpacing: '0.06em' }}>{pr.a}</span>
                 </div>
-              );
-            })}
-          </div>
+                <p style={{ fontFamily: FONTS.body, fontSize: '0.86rem', lineHeight: 1.6, color: SEMANTIC.textMuted, margin: 0 }}>{pr.t}</p>
+              </div>
+            );
+            return (
+              <>
+                {/* 3 ayna çifti — üst satır */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
+                  {pairs.map((pr) => <Card key={pr.k} pr={pr} isPivot={false} />)}
+                </div>
+                {/* D ekseni — altta ORTALANMIŞ (diyagramdaki gibi tek/eşsiz) */}
+                {pivot && (
+                  <div style={{ maxWidth: '340px', margin: '14px auto 0' }}>
+                    <Card pr={pivot} isPivot />
+                  </div>
+                )}
+              </>
+            );
+          })()}
         </div>
 
         {/* ─── Âyetler — glow YOK, efekt YOK ─── */}
+        {/* v2.0 — başlık eklendi: liste başlıksızken "bu ne?" belirsizliği vardı.
+            Amacı net: sûreyi okuma sırasında, halka etiketleriyle oku. */}
+        <div data-reveal style={{
+          fontFamily: FONTS.body, fontSize: '0.7rem', fontWeight: 600,
+          letterSpacing: '0.24em', textTransform: 'uppercase',
+          color: `${COLORS.gold}cc`, textAlign: 'center', margin: '0 0 20px',
+        }}>
+          {tr ? 'Yedi âyet, sırasıyla — eksende 1:5' : 'The seven verses, in order — 1:5 at the axis'}
+        </div>
         {/* Âyet listesi 980px kapsayıcıdan DAR: RTL metin sağa yaslandığı için
             geniş kapsayıcıda etiket ile âyet arasında kocaman boşluk kalıyordu
             (ekran görüntüsünde görüldü). 720px'te satır bir arada okunuyor. */}
