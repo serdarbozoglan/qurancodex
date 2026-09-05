@@ -65,7 +65,9 @@ export default function ReadingProgressCard() {
           textDecoration: 'none',
           background: `linear-gradient(135deg, ${COLORS.gold}12, ${COLORS.gold}06)`,
           border: `1px solid ${COLORS.gold}44`,
-          borderRadius: 12,
+          borderRadius: 18, // v2.0 — kart dili (18px), buton-pill değil
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
           '--pt-d': "18px", '--pt-m': "14px", '--pr-d': "22px", '--pr-m': "16px", '--pb-d': "18px", '--pb-m': "14px", '--pl-d': "22px", '--pl-m': "16px",
           position: 'relative',
           transition: 'all 0.2s',

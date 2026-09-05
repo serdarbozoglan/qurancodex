@@ -77,6 +77,30 @@ globals.css (.btn-primary-gold, .stat-gradient, wordmark media query),
 Conclusion.jsx, Hero.jsx, HeroRing.jsx, PortalCard.jsx, EditorialCard.jsx,
 SixGates.jsx, ToolsHighlight.jsx, InventoryStrip.jsx.
 
+### MERGE + CİLA TURU (2026-09-05, üçüncü oturum)
+
+- **v2.0 ana çalışma main'e alındı** — commit `b99b4e67` (fast-forward,
+  `61ff2ebf` = Esmâ dahil main üstüne). Ayrı `v2.0-homepage-redesign` dalında
+  temiz commit'lendi (yalnız 16 v2.0 dosyam; Esmâ + scratch dahil edilmedi).
+- **Cila commit'i main'e alındı** — commit `a6188af5`:
+  - `CardWaveViz.jsx`: "Ses Mimarisi" kartına canlı ses dokusu dalgası (öneri #2)
+  - `ProofSection`: radyal derinlik (öneri #4). Concierge zaten kendi
+    derinliğine sahipti, Bilimsel kart zaten zaman-çizgili.
+- **Rail ilerleme cetveli (öneri #3) — DENENDI, GERİ ALINDI.** Mevcut
+  aktif-bölüm vurgusuyla (altın nokta+çubuk) çakışıyordu: iki konum göstergesi
+  farklı yerleri işaret ediyordu (kullanıcı yakaladı). Tek net gösterge
+  korundu. Ders: mevcut net bir "buradasın" varken ikinci bir ilerleme
+  göstergesi eklemek kafa karıştırır.
+- Öneri #1 (Concierge iskelet önizleme) YAPILMADI — gerçek site hap'a
+  tıklayınca anında gerçek /sor cevabına gidiyor; araya iskelet koymak
+  navigasyonu yavaşlatır (mock statikti, oraya uygundu; gerçeğe değil).
+
+**AÇIK — push sonrası kapatılacak QA (kullanıcı onaylı sıra):**
+- [ ] Envanter sayıları (63 araç / 53 tefekkür) gerçek katalogla doğrula (§13.28)
+- [ ] Final mobil sweep (390/640) — tüm nav/hero/kart değişikliklerinden sonra
+- [ ] Kontrast oturtma turu (~14 bayrak, çoğu reveal-geçiş yanılması)
+- [ ] `next build` production build doğrulaması
+
 ### ⚠ Olay kaydı (2026-09-05)
 Renk denetimini izole etmek için `EsmaFrekans.jsx` (benden olmayan, commit'lenmemiş
 "Esmâ kök haritası" özelliği) tekrar tekrar `git stash`'lendi; bir pop başarısız

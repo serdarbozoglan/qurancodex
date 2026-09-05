@@ -16,7 +16,7 @@
 import { COLORS, FONTS, SEMANTIC, GRADIENTS } from '../tokens';
 
 const STATS = [
-  { n: '63', labelTr: 'Araç', labelEn: 'Tools' },
+  { n: '65', labelTr: 'Araç', labelEn: 'Tools' },
   { n: '53', labelTr: 'Tefekkür Yazısı', labelEn: 'Reflection Essays' },
   { n: '6.236', labelTr: 'Âyet', labelEn: 'Verses' },
 ];

@@ -50,9 +50,11 @@ export default function ToolHeader({
         flexShrink: 0,
       }}
     >
-      {/* Navbar logo ile aynı hiza: max-w-7xl (1280px) + px-4 lg:px-8 (16/32). */}
+      {/* v2.0 — Navbar full-width'e geçtiği için (max-w-[1720px] + px-5 lg:px-10)
+          ToolHeader de aynı container'ı kullanır: "Fâtiha Atlası" ↔ QURANCODEX
+          logosu, "ANASAYFA" ↔ Kur'an'ı Oku CTA'sı ile hizalanır (§13.17 güncel). */}
       <div
-        className="max-w-7xl mx-auto px-4 lg:px-8"
+        className="w-full max-w-[1720px] mx-auto px-5 lg:px-10"
         style={{
           display: 'flex',
           alignItems: 'center',
