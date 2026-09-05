@@ -65058,5 +65058,550 @@
     "hash": "2e1f3fe3609f1c4d",
     "embeddedAt": "2026-08-31T06:13:11.834Z",
     "type": "tool"
+  },
+  "atlas-esma-tanim:Er-Rahmân": {
+    "hash": "2ce63091a1cd9fce",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Rahîm": {
+    "hash": "189de9d47cdafb46",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Melik": {
+    "hash": "6620f6b7981be299",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kuddûs": {
+    "hash": "9a104a6769eda48c",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Es-Selâm": {
+    "hash": "cfc0ec8a8f305983",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mü'min": {
+    "hash": "497a0174c7a925c0",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Müheymin": {
+    "hash": "f719ff2b3cf06a60",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Azîz": {
+    "hash": "2a45cbfb34df5ae6",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Cebbâr": {
+    "hash": "6e36f658c5156c81",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mütekebbir": {
+    "hash": "d64ec045e160cb25",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hâlik": {
+    "hash": "840ae6d40c230064",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Musavvir": {
+    "hash": "25e37ceec9f3b4b4",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Gafûr": {
+    "hash": "6403d9ba6b12733c",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Gaffâr": {
+    "hash": "39f5862c7c229a68",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kahhâr": {
+    "hash": "237e4b4c78b9d483",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vehhâb": {
+    "hash": "3066b29adb663abb",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Rezzâk": {
+    "hash": "4e3955603944b949",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Fettâh": {
+    "hash": "151311a4b8f6d64a",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Alîm": {
+    "hash": "1e46f7b9672262e1",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Habîr": {
+    "hash": "b40144bc93ade0c6",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Eş-Şehîd": {
+    "hash": "7a05a44ae353930d",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Es-Semî'": {
+    "hash": "acde95d16a34f5f5",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Basîr": {
+    "hash": "e33a96a0e36f654b",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hakem": {
+    "hash": "87329e93e13bd4f9",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hakîm": {
+    "hash": "40def4fa011567be",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muksit": {
+    "hash": "2f39a22aeb3ea82e",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Latîf": {
+    "hash": "884f49c5641420d2",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Halîm": {
+    "hash": "4d96110f8495fccf",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Es-Sabûr": {
+    "hash": "00a21daa6c268cb7",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Azîm": {
+    "hash": "1647e08f42f7db87",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kebîr": {
+    "hash": "8fc427cceb7c552c",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Aliyy": {
+    "hash": "0325432b41035491",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Celîl": {
+    "hash": "9959ad967005feb3",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kerîm": {
+    "hash": "38db4f564313eb0e",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mecîd": {
+    "hash": "5aa0252255c07a75",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mâcid": {
+    "hash": "8b053697aaf8db0a",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hamîd": {
+    "hash": "c5e063038956c2ff",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vedûd": {
+    "hash": "0819170e79a1c4a3",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Raûf": {
+    "hash": "4a468d95e278ccd5",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Et-Tevvâb": {
+    "hash": "f5c072550ae67d2b",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hafîz": {
+    "hash": "cb21ef927bf1ba12",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Rakîb": {
+    "hash": "28e61de049524c7f",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hasîb": {
+    "hash": "97fbc5c5711b10a8",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mukît": {
+    "hash": "991192669e460ff5",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mucîb": {
+    "hash": "b6037272726fde8b",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kâdir": {
+    "hash": "b9009fb0f077b516",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muktedir": {
+    "hash": "d1740e1bc56f5f44",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kaviyy": {
+    "hash": "9f9fe998157deffc",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Ganî": {
+    "hash": "93beb1ac229d7801",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muğnî": {
+    "hash": "0cf474c5283c2c1b",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Veliyy": {
+    "hash": "f3456f87af6b706c",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hâdî": {
+    "hash": "5b93cde329870a4d",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Reşîd": {
+    "hash": "09264ea8f500587a",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:En-Nûr": {
+    "hash": "7b65ac860928231a",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hakk": {
+    "hash": "faca8139c0ad7f67",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Ehad": {
+    "hash": "15bb8a586ca24d85",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vâhid": {
+    "hash": "dcd8296928658687",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Es-Samed": {
+    "hash": "0d137831fe53c161",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hayy": {
+    "hash": "e92461da113d1f64",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kayyûm": {
+    "hash": "2c1a09a19dac572c",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muhyî": {
+    "hash": "60d3a375a7292719",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mümît": {
+    "hash": "20050abf6a945250",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bâis": {
+    "hash": "1a527ffb8ded2363",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mübdi'": {
+    "hash": "2011f9db240d8cf1",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muîd": {
+    "hash": "55421de51c24ea5b",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Er-Râfi'": {
+    "hash": "a4a7167ed991f4b5",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muiz": {
+    "hash": "f80e97e46c761c5e",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vâris": {
+    "hash": "cd472e2bcfb4d5b6",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Evvel": {
+    "hash": "1edc00a3173cc6e6",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Âhir": {
+    "hash": "9d79aa272ced52ca",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-nursi:El-Kuddûs": {
+    "hash": "5fd68a1cbcf4c797",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "atlas-esma-nursi:El-Adl": {
+    "hash": "78a8fc76058900ff",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "atlas-esma-nursi:El-Hakem": {
+    "hash": "c66517e7d97ae0a1",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "atlas-esma-nursi:El-Ferd": {
+    "hash": "9dc1ba2c6cf93924",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "atlas-esma-nursi:El-Hayy": {
+    "hash": "a4b5fe30c3720ef4",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "atlas-esma-nursi:El-Kayyûm": {
+    "hash": "f5f84e6fd866c20e",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "atlas-esma-nursi"
+  },
+  "tool:/arac/isimlendirme": {
+    "hash": "09e1fd535e512bd4",
+    "embeddedAt": "2026-09-05T18:30:56.323Z",
+    "type": "tool"
+  },
+  "atlas-esma-tanim:Allah": {
+    "hash": "aa58afb2fcbdc6cc",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vekîl": {
+    "hash": "833291af2221486a",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Berr": {
+    "hash": "0680613010cd8e21",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:En-Nâfi'": {
+    "hash": "4df30cc276f07f23",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Câmi'": {
+    "hash": "855eb037016a4f47",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vâsi'": {
+    "hash": "3232e073c8a82f95",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bâsit": {
+    "hash": "995cfc5bb1cdb280",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Kâbid": {
+    "hash": "977963000cdcf31e",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Ed-Dârr": {
+    "hash": "fa02b543cdab9a68",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mâni'": {
+    "hash": "b9c6cc6896677a1b",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bâkî": {
+    "hash": "1c546fda6c08a376",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Adl": {
+    "hash": "555f665206ca16e3",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Metîn": {
+    "hash": "5b86a307b1899955",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Müntekim": {
+    "hash": "45ec7fc1121b63ca",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muhsî": {
+    "hash": "b1d5b3e3ffceda2c",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mukaddim": {
+    "hash": "90f7e732baf33a22",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Muahhir": {
+    "hash": "668702720d98c979",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bedî'": {
+    "hash": "7cc7ebc8ca514bcf",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bâri'": {
+    "hash": "5c91ca025ac1047a",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hâfid": {
+    "hash": "f20ecc9d90fef7be",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Müzill": {
+    "hash": "2e84468cf23c42ad",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Ez-Zâhir": {
+    "hash": "5d46f35e630fcc7a",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Bâtın": {
+    "hash": "85f849e79d3190c7",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Müteâlî": {
+    "hash": "90dd4aa5f5286b2d",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vâcid": {
+    "hash": "3eeb77c08fea7dea",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Eş-Şekûr": {
+    "hash": "5622c2d7b26acaf8",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Vâlî": {
+    "hash": "63344e5a0038b991",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Hallâk": {
+    "hash": "f3df67f52e9b54e6",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Fâtır": {
+    "hash": "1b14cba1a4512319",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:En-Nasîr": {
+    "hash": "305fd2845519d234",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:El-Mevlâ": {
+    "hash": "a3d192998c5101ba",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
+  },
+  "atlas-esma-tanim:Rabbü'l-Âlemîn": {
+    "hash": "d398ac34e506f610",
+    "embeddedAt": "2026-09-05T19:03:30.173Z",
+    "type": "atlas-esma-tanim"
   }
 }

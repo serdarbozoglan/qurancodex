@@ -1,0 +1,799 @@
+/**
+ * Esmâ-i Hüsnâ tanım katmanı.
+ *
+ * Sayfadaki her ismin kısa anlamı vardı ama nereden geldiği belli değildi.
+ * Bu betik üç şeyi tek dosyada toplar:
+ *   1. tanimlar — TDV İslâm Ansiklopedisi'nin isim isim maddelerinden
+ *      alınan tanım + o maddede adı geçen âlimin getirdiği nüans.
+ *   2. nursi    — Bediüzzaman'ın Otuzuncu Lem'a'da altı nüktede işlediği
+ *      altı isim ve her nüktenin hangi kevnî fiili o ismin tecellîsi
+ *      olarak okuduğu.
+ *   3. gelenek  — isimleri tanımlama yöntemleri ve şerh literatürü.
+ *
+ * Arapça metin yazılmıyor (isimlerin Arapçası zaten esma-frekans.json'dan
+ * geliyor), bu yüzden normalizasyon adımına gerek yok.
+ */
+import { writeFileSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..');
+
+const TDV = 'TDV İslâm Ansiklopedisi';
+
+/** isim → { tr, en } · tr.tanim TDV maddesinden, tr.not maddede adı geçen görüş. */
+const TANIMLAR = {
+  'Er-Rahmân': {
+    tr: { tanim: 'Rahmet kökünden gelir; Allah’a nisbet edildiğinde “lutuf ve ihsan yoluyla sonsuz merhamet eden” anlamını taşır.',
+          not: 'Hattâbî’ye göre rahmân nisbette hususîlik–mânada umumîlik, rahîm ise nisbette umumîlik–mânada hususîlik taşır. Yaygın görüş rahmânı dünyada bütün varlıklara, rahîmi âhirette müminlere hasreder; birçok âlim ise ikisi arasında anlam farkı bulunmadığını savunmuştur.' },
+    en: { tanim: 'From the root of raḥma; predicated of God it means “the one who shows boundless mercy through grace and bounty.”',
+          en_not: '', not: 'Al-Khaṭṭābī held that raḥmān is particular in attribution but universal in meaning, while raḥīm is universal in attribution but particular in meaning. The prevalent view assigns raḥmān to all creatures in this world and raḥīm to the believers in the hereafter; many scholars, however, held that there is no semantic difference between them.' },
+  },
+  'Er-Rahîm': {
+    tr: { tanim: 'Rahmet kökünden gelir; rahmân ile birlikte besmelede tekrarlanır ve ikisi birden Allah’tan başkasına nisbet edilemez.',
+          not: 'Yaygın görüş rahîmi âhirette müminlere yönelik rahmete hasreder; birçok âlim ise rahmân ile arasında anlam farkı görmez.' },
+    en: { tanim: 'From the root of raḥma; it recurs with raḥmān in the basmala, and the two together cannot be predicated of anyone but God.',
+          not: 'The prevalent view confines raḥīm to mercy toward the believers in the hereafter; many scholars see no semantic difference from raḥmān.' },
+  },
+  'El-Melik': {
+    tr: { tanim: '“Görünen ve görünmeyen âlemlerin sahibi” olmak; hiçbir şeye muhtaç olmaksızın her şeye hâkim ve kādir olmak.',
+          not: 'Melik, mâlikten daha kapsamlıdır: mâlik dünya hayatındaki hükümranlığı, melik ebedî hayatın hükümranlığını ifade eder.' },
+    en: { tanim: 'To be “owner of the seen and the unseen worlds”; sovereign and powerful over all while needing nothing.',
+          not: 'Malik is broader than mālik: mālik denotes sovereignty over this life, malik sovereignty over the everlasting life.' },
+  },
+  'El-Kuddûs': {
+    tr: { tanim: '“Tertemiz, pak, kusurdan arınmış”; ilâhî isim olarak her türlü eksiklik ve kusurdan münezzeh olmayı ifade eder.',
+          not: 'Kuddûs, mübalağa bildiren bir kalıptır.' },
+    en: { tanim: '“Utterly clean, pure, free of defect”; as a divine name it denotes transcendence above every deficiency and flaw.',
+          not: 'Quddūs is an intensive morphological pattern.' },
+  },
+  'Es-Selâm': {
+    tr: { tanim: 'Her türlü eksiklik, acz ve kusurdan münezzeh olan ve selâmetin kaynağı olup esenlik veren.',
+          not: 'İbnü’l-Cevzî’nin “sübülü’s-selâm” ve “dârü’s-selâm” terkiplerindeki selâmı Allah’ın ismi sayması itibar görmemiştir.' },
+    en: { tanim: 'Transcendent above every deficiency, incapacity and flaw; the source of well-being and the giver of peace.',
+          not: 'Ibn al-Jawzī’s reading of salām in the phrases subul al-salām and dār al-salām as the divine name did not gain acceptance.' },
+  },
+  "El-Mü'min": {
+    tr: { tanim: '“Başkalarını korku ve endişeden emin kılan, onların güvenli olmalarını sağlayan.”',
+          not: 'Âlimler mânayı “emân” köküne veya “îmân” masdarına dayandırır; onaylayıcı bir boyut da içerir.' },
+    en: { tanim: '“The one who makes others secure from fear and anxiety, who grants them safety.”',
+          not: 'Scholars ground the sense either in the root amān or in the verbal noun īmān; it also carries a dimension of affirming.' },
+  },
+  'El-Müheymin': {
+    tr: { tanim: '“Kâinatın bütün işlerini idare eden”; yaratıkların amelleri, rızıkları ve ömürlerinin idaresini elinde bulunduran.',
+          not: 'Mâtürîdî “emin, musallat, şahit” anlamları arasında tercih belirtmez; Gazzâlî niteliği ilâhî ilim, kudret ve fiille açıklar.' },
+    en: { tanim: '“The one who administers all the affairs of the cosmos,” holding the deeds, provisions and lifespans of creatures in His disposal.',
+          not: 'Al-Māturīdī does not choose among the senses “trustworthy, overseeing, witnessing”; al-Ghazālī explains the quality through divine knowledge, power and act.' },
+  },
+  'El-Azîz': {
+    tr: { tanim: '“Değerli, şerefli, benzersiz olan, güçlü ve daima üstün gelen” anlamındadır.',
+          not: 'Eş’arî, izzet kavramının temelde kudreti ifade ettiğini, azîz isminin en temelde “kadîr” anlamına geldiğini vurgular.' },
+    en: { tanim: '“Precious, honoured, without peer, mighty and ever prevailing.”',
+          not: 'Al-Ashʿarī stressed that ʿizza fundamentally denotes power, and that ʿazīz at bottom means “all-powerful.”' },
+  },
+  'El-Cebbâr': {
+    tr: { tanim: '“Kırık dökük ve bozuk olan şeyleri düzeltip onaran, her şeyi tasarrufu altına alan ve iradesini her durumda yürüten.”',
+          not: 'Beşerî kullanımda olumsuz çağrışım taşırken (zorba, kibirli), ilâhî isim olarak haksızlık ve zulmü ortadan kaldırmayı hedefleyen bir nitelik diye yorumlanır.' },
+    en: { tanim: '“The one who mends what is broken and disordered, who brings all things under His disposal and carries His will through in every case.”',
+          not: 'Applied to humans the word carries negative overtones (tyrant, arrogant); as a divine name it is read as a quality aimed at abolishing injustice and oppression.' },
+  },
+  'El-Mütekebbir': {
+    tr: { tanim: 'Büyüklükte eşi bulunmayan; ululuğu kendisine mahsus olan.',
+          not: 'Ebû Bekir İbnü’l-Arabî ilâhî tekebbürün mânasını “yaratılmışların sıfatlarından münezzeh olmak” şeklinde ifade etmiştir.' },
+    en: { tanim: 'The one without peer in greatness, whose majesty belongs to Him alone.',
+          not: 'Abū Bakr Ibn al-ʿArabī expressed the sense of divine takabbur as “being transcendent above the attributes of created things.”' },
+  },
+  'El-Hâlik': {
+    tr: { tanim: '“Yaratmak” anlamındaki halk masdarından sıfat olup “yaratan” demektir.',
+          not: 'Bâri’ ve Musavvir ile birlikte yaratmanın ardışık üç safhasını temsil eder: Hâlik takdir eder, Bâri’ meydana getirir, Musavvir özellikleri verir.' },
+    en: { tanim: 'An adjective from the verbal noun khalq, “to create”; it means “the creator.”',
+          not: 'With Bāriʾ and Muṣawwir it marks three successive phases of creating: Khāliq determines, Bāriʾ brings into being, Muṣawwir gives the properties.' },
+  },
+  'El-Musavvir': {
+    tr: { tanim: 'Yaratılmışlara şekil ve özellik veren.',
+          not: 'Eş’arî musavviri “maddî bakımdan şekil veren” anlamına alırken Mâtürîdî bunun psikolojik yönüne de işaret eder.' },
+    en: { tanim: 'The one who gives created things their form and properties.',
+          not: 'Al-Ashʿarī takes muṣawwir as “giving form materially,” while al-Māturīdī also points to its psychological aspect.' },
+  },
+  'El-Gafûr': {
+    tr: { tanim: '“Birinin kusurunu örten, suçunu bağışlayan” anlamına gelir.',
+          not: 'Gaffâr tekrarlanan hata ve kusurları bağışlarken gafûr her nevi günahı bağışlamayı ifade eder; gafûr daha çok rahmetten kaynaklanır.' },
+    en: { tanim: '“The one who veils a person’s fault and forgives the offence.”',
+          not: 'Ghaffār forgives repeated faults, while ghafūr denotes forgiving sins of every kind; ghafūr arises rather from mercy.' },
+  },
+  'El-Gaffâr': {
+    tr: { tanim: 'Tekrarlanan hata ve kusurları bağışlayan.',
+          not: 'Gafûr her nevi günahı bağışlamayı ifade ederken gaffâr, bağışlamanın tekrarına vurgu yapar.' },
+    en: { tanim: 'The one who forgives repeated faults and failings.',
+          not: 'Ghafūr denotes forgiving sins of every kind, while ghaffār stresses the repetition of forgiving.' },
+  },
+  'El-Kahhâr': {
+    tr: { tanim: '“Yenilmeyen, yegâne kudret ve tasarruf sahibi” demektir.',
+          not: 'Fahreddin er-Râzî, kahhâr isminin etki alanını duyularla algılanabilen ve algılanamayan âlemleri içine alacak şekilde geniş düşünmüştür.' },
+    en: { tanim: '“The unvanquished, the sole possessor of power and disposal.”',
+          not: 'Fakhr al-Dīn al-Rāzī construed the reach of qahhār broadly, to include both the sensible and the non-sensible worlds.' },
+  },
+  'El-Vehhâb': {
+    tr: { tanim: '“Karşılık beklemeden bol bol veren” demektir.',
+          not: 'Gazzâlî gerçek cömertliğin yalnız Allah’a mahsus olduğunu, insanlarda görülen amaçların vehhâb sıfatıyla bağdaşmadığını söyler.' },
+    en: { tanim: '“The one who gives abundantly, expecting nothing in return.”',
+          not: 'Al-Ghazālī holds that true generosity belongs to God alone; the motives found in human giving do not accord with the quality of wahhāb.' },
+  },
+  'Er-Rezzâk': {
+    tr: { tanim: '“Bedenlerin ve ruhların gıdasını yaratıp veren” mânasına gelir.',
+          not: 'Rezzâk, râzıktan daha zengin içeriğe sahiptir ve yalnız Allah için kullanılır.' },
+    en: { tanim: '“The one who creates and gives the nourishment of bodies and of spirits.”',
+          not: 'Razzāq is richer in content than rāziq and is used of God alone.' },
+  },
+  'El-Fettâh': {
+    tr: { tanim: '“İyilik kapılarını açan, bütün anlaşmazlıkların nihaî hakemliğini yapmak suretiyle mutlak adaleti gerçekleştiren.”',
+          not: 'Mâtürîdî buradaki hâkimliğin, hidayet ve dalâletin hangi tarafa ait olduğunun belirlenmesi mânasına geldiğini söylemiştir.' },
+    en: { tanim: '“The one who opens the doors of good and realises absolute justice by rendering the final arbitration in every dispute.”',
+          not: 'Al-Māturīdī said this arbitration means determining to which side guidance and error belong.' },
+  },
+  'El-Alîm': {
+    tr: { tanim: '“Zaman ve mekân sınırı olmaksızın küçük büyük, gizli açık, canlı cansız her şeyi en mükemmel şekilde bilen.”',
+          not: 'Fahreddin er-Râzî, Allah’ın ilminin insanınkinden farklı olarak duyular ve düşünce yoluyla elde edilmediğini vurgular.' },
+    en: { tanim: '“The one who knows, in the most perfect way, everything small or great, hidden or open, living or lifeless, without limit of time or place.”',
+          not: 'Fakhr al-Dīn al-Rāzī stressed that, unlike human knowledge, God’s knowledge is not acquired through the senses or through reasoning.' },
+  },
+  'El-Habîr': {
+    tr: { tanim: 'İnsanların yaptıkları her şeyden ve kıyametteki durumlarından haberdar olan.',
+          not: 'Habîr, Alîm’den farklı olarak ilmin duyularla algılanamayan bâtınî kısmını vurgular.' },
+    en: { tanim: 'The one aware of everything people do and of their state at the resurrection.',
+          not: 'Unlike ʿalīm, khabīr stresses the inward portion of knowledge that the senses cannot reach.' },
+  },
+  'Eş-Şehîd': {
+    tr: { tanim: '“Her şeyi gözetlemiş gibi bilen, hiçbir şey ilminden gizli kalmayan” mânasına gelir.',
+          not: 'Bazı âlimler şehîd isminin “şahit olmak, tanıklık etmek” anlamına da gelebileceğini belirtmiştir.' },
+    en: { tanim: '“The one who knows as though He had watched over everything, from whose knowledge nothing stays hidden.”',
+          not: 'Some scholars noted that shahīd may also carry the sense of “to witness, to bear witness.”' },
+  },
+  "Es-Semî'": {
+    tr: { tanim: 'İşitmek anlamındaki sem’ kökünden “işiten” demektir.',
+          not: 'Mu’tezilî âlimler semî’i alîme irca etmişse de, otuz iki âyette iki ismin bir arada zikredilmesi Allah’ın işittiği şeylerin mahiyetini de bildiğine işaret eder.' },
+    en: { tanim: 'From the root samʿ, “to hear”: “the one who hears.”',
+          not: 'Muʿtazilī scholars reduced samīʿ to ʿalīm; yet the two names occur together in thirty-two verses, indicating that God also knows the nature of what He hears.' },
+  },
+  'El-Basîr': {
+    tr: { tanim: '“Görmeye konu olan şeyleri bütün özellikleriyle idrak edip gören” şeklinde tarif edilir.',
+          not: 'Basîr ezelî bir sıfat iken mübsır fiilen görme olayını ifade eder.' },
+    en: { tanim: 'Defined as “the one who perceives and sees the objects of sight with all their properties.”',
+          not: 'Baṣīr is a pre-eternal attribute, whereas mubṣir denotes the act of seeing as it occurs.' },
+  },
+  'El-Hakem': {
+    tr: { tanim: 'Hüküm veren; hakemliği bağlayıcı olan.',
+          not: 'Râgıb el-İsfahânî’ye göre hakem, hüküm vermekte maharet kazanmış kişidir ve verdiği hüküm diğer şahısları bağlar.' },
+    en: { tanim: 'The one who judges, whose arbitration is binding.',
+          not: 'For al-Rāghib al-Iṣfahānī, a ḥakam is one accomplished in judging, whose verdict binds the other parties.' },
+  },
+  'El-Hakîm': {
+    tr: { tanim: '“Bütün sözleri ve fiilleri adalete, ilme ve teennîye uygun olan” anlamını taşır.',
+          not: 'Hakîm ilim ve fiilde kemali ifade ederken Hakem hükmetme ve karar verme işlevine işaret eder.' },
+    en: { tanim: '“The one whose every word and act accords with justice, knowledge and deliberateness.”',
+          not: 'Ḥakīm expresses perfection in knowledge and act, whereas ḥakam points to the function of judging and deciding.' },
+  },
+  'El-Muksit': {
+    tr: { tanim: '“Adaletle hükmeden, âdil” demektir.',
+          not: 'Muksit; adl, hakem, latîf ve müntakım isimleriyle anlam yakınlığı içinde bulunan kevnî-fiilî isimlerdendir.' },
+    en: { tanim: '“The one who judges with equity, the just.”',
+          not: 'Muqsiṭ belongs to the names of act, close in meaning to ʿadl, ḥakam, laṭīf and muntaqim.' },
+  },
+  'El-Latîf': {
+    tr: { tanim: '“Fiillerini rıfk ile gerçekleştiren, kullarına iyilik ve merhamet eden, yaratılmışların ihtiyacını en ince noktasına kadar bilip sezilmez yollarla karşılayan.”',
+          not: 'Gazzâlî’ye göre lutfun anlamı, fiilde şefkat ve nezaketle idrakte nüfuz ve incelik bir araya gelince tamamlanır.' },
+    en: { tanim: '“The one who acts with gentleness, who is kind and merciful to His servants, who knows creatures’ needs to the finest point and meets them by imperceptible ways.”',
+          not: 'For al-Ghazālī the sense of luṭf is complete only when tenderness in act meets penetration and subtlety in perception.' },
+  },
+  'El-Halîm': {
+    tr: { tanim: '“Sabırlı, acele ve kızgınlıkla muamele etmeyen” mânasına gelir.',
+          not: 'Kādî Abdülcebbâr, halîmin kök anlamının yapmamak esasına dayandığını belirterek fiilî grupta yer aldığına hükmetmiştir.' },
+    en: { tanim: '“Forbearing; the one who does not deal in haste or in anger.”',
+          not: 'Qāḍī ʿAbd al-Jabbār held that the root sense of ḥalīm rests on refraining, and so placed it among the names of act.' },
+  },
+  'Es-Sabûr': {
+    tr: { tanim: 'Cezalandırmakta acele etmeyen.',
+          not: 'Sabûr, günahkârın ileride cezalandırılmayacağını kesinlik derecesinde içermediği hâlde halîm bu mânayı ifade eder.' },
+    en: { tanim: 'The one who does not hasten to punish.',
+          not: 'Ṣabūr does not conclusively imply that the sinner will escape later punishment, whereas ḥalīm does convey that sense.' },
+  },
+  'El-Azîm': {
+    tr: { tanim: '“Zâtı ve sıfatlarının mahiyeti hakkıyla kavranamayacak derecede yüce; emirlerine karşı gelinemeyen ve âciz bırakılamayan.”',
+          not: 'Âlimler azîm isminin maddî büyüklüğü değil, Allah’ın mânevî yüceliğini ve şanının büyüklüğünü ifade ettiğini vurgular.' },
+    en: { tanim: '“So exalted that the nature of His essence and attributes cannot be truly grasped; whose commands cannot be defied and who cannot be thwarted.”',
+          not: 'Scholars stressed that ʿaẓīm expresses not material magnitude but God’s spiritual loftiness and the greatness of His majesty.' },
+  },
+  'El-Kebîr': {
+    tr: { tanim: '“Zâtının ve sıfatlarının mahiyeti bilinemeyecek kadar ulu.”',
+          not: 'Âlimler maddî büyüklüğün Allah’a nisbet edilemeyeceğini, ismin aşkınlık ve ululuk ifade ettiğini vurgular.' },
+    en: { tanim: '“So great that the nature of His essence and attributes cannot be known.”',
+          not: 'Scholars stressed that material magnitude cannot be predicated of God; the name expresses transcendence and majesty.' },
+  },
+  'El-Aliyy': {
+    tr: { tanim: '“Yükseklik ve yücelik; şan, şeref, kuvvet ve kudret sahibi olmak” mânasındaki ulüv ve alâ’ kökünden türetilmiş bir sıfattır.',
+          not: 'Râgıb el-İsfahânî alî ismini “zât, mâhiyet ve sıfatları bakımından beşerin idrak gücünü aşan yücelik ve mükemmellikte olan varlık” diye yorumlamıştır.' },
+    en: { tanim: 'An adjective from the roots ʿuluww and ʿalāʾ, “height and loftiness; possessing majesty, honour, strength and power.”',
+          not: 'Al-Rāghib al-Iṣfahānī read ʿalī as “the being whose loftiness and perfection in essence, quiddity and attributes exceed the reach of human comprehension.”' },
+  },
+  'El-Celîl': {
+    tr: { tanim: '“Hiçbir kayıt ve kıyas kabul etmeksizin azamet sahibi, kadrü kıymeti ve mertebesi en yüce olan.”',
+          not: 'Gazzâlî’ye göre doksan dokuz isim içinde eş anlamlı bazı kelimelerin tekrar niteliğinde yer aldığı sanılsa da gerçekte durum böyle değildir.' },
+    en: { tanim: '“Possessor of majesty admitting no qualification or comparison, highest in worth and rank.”',
+          not: 'Al-Ghazālī held that although some words among the ninety-nine names are thought to be synonymous repetitions, in truth they are not.' },
+  },
+  'El-Kerîm': {
+    tr: { tanim: 'Allah’ın lutufkârlığı ile affediciliğini ifade eden, övgüye lâyık vasıfları şahsında toplayan isim.',
+          not: 'Kerîm hem zâtî hem fiilî anlamlar içerir.' },
+    en: { tanim: 'The name expressing God’s bounty together with His forgiveness, gathering the praiseworthy qualities in Himself.',
+          not: 'Karīm carries both essential and actional senses.' },
+  },
+  'El-Mecîd': {
+    tr: { tanim: '“Asil, şerefli, cömert olan” demektir; Allah’a nisbet edildiğinde “yetkinliğin karşıtı olan her türlü nitelikten münezzeh, lutuf ve ikramı bol” anlamına gelir.',
+          not: 'Ebû Bekir İbnü’l-Arabî’ye göre tenzih yöntemi, kemal ifade etmesi açısından ispat yönteminden daha kapsamlıdır.' },
+    en: { tanim: '“Noble, honoured, generous”; predicated of God, “transcendent above every quality opposed to perfection, abundant in favour and bounty.”',
+          not: 'For Abū Bakr Ibn al-ʿArabī, the method of negation is more comprehensive than that of affirmation in expressing perfection.' },
+  },
+  'El-Mâcid': {
+    tr: { tanim: 'Mecîd ile aynı kökten: “yetkinliğin karşıtı olan her türlü nitelikten münezzeh, lutuf ve ikramı bol.”',
+          not: 'Mecîd ve mâcid esmâ-i hüsnâ listesinde birlikte yer alır.' },
+    en: { tanim: 'From the same root as majīd: “transcendent above every quality opposed to perfection, abundant in favour and bounty.”',
+          not: 'Majīd and mājid appear together in the list of the beautiful names.' },
+  },
+  'El-Hamîd': {
+    tr: { tanim: '“Kendisine hiçbir yerginin yönelmediği varlık” veya “dıştan bir sebep olmaksızın zâtıyla övgüye lâyık bulunan.”',
+          not: 'Hamîd “öven” anlamında da kullanılabilir; bu durumda Allah’ın insanların güzel fiillerini övüp mükâfatlandırması kastedilir.' },
+    en: { tanim: '“The being toward whom no blame is directed,” or “the one worthy of praise in Himself, without any external cause.”',
+          not: 'Ḥamīd can also mean “the one who praises,” in which case it refers to God praising and rewarding people’s good deeds.' },
+  },
+  'El-Vedûd': {
+    tr: { tanim: '“Sâlih kullarını çok seven ve onlar tarafından çok sevilen” mânasına gelir.',
+          not: 'Gazzâlî vedûda “bütün yaratıklar için iyiliği seven, onlara iyilik yapan” mânasını vermiştir.' },
+    en: { tanim: '“The one who greatly loves His righteous servants and is greatly loved by them.”',
+          not: 'Al-Ghazālī gave wadūd the sense of “the one who loves good for all creatures and does good to them.”' },
+  },
+  'Er-Raûf': {
+    tr: { tanim: 'Şefkat ve merhamet sahibi.',
+          not: 'Âlimlerin çoğu raûfun rahîmden daha ileri derecede şefkat ve merhamet içerdiğini kabul eder.' },
+    en: { tanim: 'The one of tenderness and compassion.',
+          not: 'Most scholars accept that raʾūf carries tenderness and mercy to a higher degree than raḥīm.' },
+  },
+  'Et-Tevvâb': {
+    tr: { tanim: '“Çok sayıdaki insanın tekrarlanan sayısız günahını, dilediği kimseler için günahlarından dönmeleri şartıyla her zaman bağışlayan.”',
+          not: 'Bu tanım Ebü’l-Kāsım ez-Zeccâcî’ye aittir.' },
+    en: { tanim: '“The one who always forgives the countless repeated sins of countless people, for whom He wills, on condition that they turn from their sins.”',
+          not: 'This definition belongs to Abū al-Qāsim al-Zajjājī.' },
+  },
+  'El-Hafîz': {
+    tr: { tanim: '“Kâinatta zerre kadar bir şey bile gözetiminden uzak olmayan ve tabiatı dengede tutan.”',
+          not: 'Ebü’l-Hasan el-Eş’arî, hafîz isminin “bilen” (alîm) anlamına da gelebileceğini söylemiştir.' },
+    en: { tanim: '“The one from whose watch not an atom in the cosmos is remote, and who holds nature in balance.”',
+          not: 'Abū al-Ḥasan al-Ashʿarī said ḥafīẓ may also carry the sense of “knowing” (ʿalīm).' },
+  },
+  'Er-Rakîb': {
+    tr: { tanim: 'Gözetleyip koruyan.',
+          not: 'Âlimler rakīb ismine genellikle “koruyup gözeten” (hafîz) mânası vermişlerdir.' },
+    en: { tanim: 'The watcher and protector.',
+          not: 'Scholars have generally given raqīb the sense of “guarding and watching over” (ḥafīẓ).' },
+  },
+  'El-Hasîb': {
+    tr: { tanim: 'Hesaba çeken; “deruhte ettiği kimseye yeten” anlamında kâfî.',
+          not: 'Gazzâlî hasîbin yalnız “kâfî” anlamı üzerinde durmuş ve bunu “deruhte ettiği kimseye yeten” diye açıklamıştır.' },
+    en: { tanim: 'The reckoner; also “sufficient” in the sense of “enough for the one He takes charge of.”',
+          not: 'Al-Ghazālī dwelt only on the sense “sufficient,” explaining it as “enough for the one He takes charge of.”' },
+  },
+  'El-Mukît': {
+    tr: { tanim: '“Bedenlerin ve ruhların gıdasını veren, gücü yetip koruyan” demektir.',
+          not: 'Taberî mukīt kelimesine “muktedir” anlamını vermiştir.' },
+    en: { tanim: '“The one who gives the nourishment of bodies and spirits, who has the power to protect.”',
+          not: 'Al-Ṭabarī gave muqīt the sense of “all-powerful.”' },
+  },
+  'El-Mucîb': {
+    tr: { tanim: '“Dua ve dileklere olumlu cevap veren” mânasına gelir.',
+          not: 'Ebü’l-Bekā’ya göre isticâbet talebe “olumlu cevap verme”, icâbet ise “mutlak olarak cevap verme” demektir.' },
+    en: { tanim: '“The one who answers prayers and requests favourably.”',
+          not: 'For Abū al-Baqāʾ, istijāba means “to answer a request favourably,” while ijāba means “to answer absolutely.”' },
+  },
+  'El-Kâdir': {
+    tr: { tanim: '“Her şeye gücü yeten” demektir.',
+          not: 'Kadîr, kādire göre daha vurgulu bir mânaya sahiptir; kādir insanlara da izâfe edilirken kadîr yalnız Allah’ı niteler.' },
+    en: { tanim: '“The one who has power over everything.”',
+          not: 'Qadīr is more emphatic than qādir: qādir may be predicated of people, whereas qadīr qualifies God alone.' },
+  },
+  'El-Muktedir': {
+    tr: { tanim: '“Gücü yettiği fiilen sabit olan” demektir.',
+          not: 'Ebû Bekir İbnü’l-Arabî, muktedirin diğer iki kudret isminden daha zengin bir içeriğe sahip olduğu kanaatinin delilden yoksun olduğunu belirtir.' },
+    en: { tanim: '“The one whose power is established in act.”',
+          not: 'Abū Bakr Ibn al-ʿArabī noted that the opinion that muqtadir is richer in content than the other two names of power lacks evidence.' },
+  },
+  'El-Kaviyy': {
+    tr: { tanim: '“Her şeye gücü yeten, kudret sahibi” mânasına gelir.',
+          not: 'Kavî ismi dokuz âyette Allah’a nisbet edilmiştir; metîn ile anlam yakınlığı bulunur.' },
+    en: { tanim: '“The one who has power over everything, the possessor of might.”',
+          not: 'Qawī is predicated of God in nine verses and is close in meaning to matīn.' },
+  },
+  'El-Ganî': {
+    tr: { tanim: '“Zâtında ve sıfatlarında her türlü ihtiyaçtan münezzeh olan.”',
+          not: 'Gazzâlî, melikin ganîye göre daha kapsamlı bir anlama sahip olduğunu belirtmiştir.' },
+    en: { tanim: '“The one transcendent above every need, in His essence and in His attributes.”',
+          not: 'Al-Ghazālī held that malik has a more comprehensive sense than ghanī.' },
+  },
+  'El-Muğnî': {
+    tr: { tanim: '“Zenginlik verip tatmin eden.”',
+          not: 'Mâtürîdî bu ismin tecellisini maddî zenginlikten ziyade gönül zenginliğine ve mânevî tatmine bağlamıştır.' },
+    en: { tanim: '“The one who enriches and satisfies.”',
+          not: 'Al-Māturīdī tied this name’s manifestation to inward richness and spiritual contentment rather than material wealth.' },
+  },
+  'El-Veliyy': {
+    tr: { tanim: 'Müminlerin dostu ve koruyucusu.',
+          not: 'Zeccâc “yardımcı” anlamını vurgularken Mâtürîdî bunun “en yakın, en münasip” şeklinde de yorumlanabileceğini belirtmiştir.' },
+    en: { tanim: 'The friend and protector of the believers.',
+          not: 'Al-Zajjāj stressed the sense “helper,” while al-Māturīdī noted it may also be read as “the nearest, the most fitting.”' },
+  },
+  'El-Hâdî': {
+    tr: { tanim: '“Yol gösteren, hayır ve mutluluk veren bir hedefe rehberlik eden” mânasına gelir.',
+          not: 'Abdülkāhir el-Bağdâdî hâdînin içerdiği ilâhî lutufları yedi grupta, Râgıb el-İsfahânî dört grupta toplamıştır.' },
+    en: { tanim: '“The one who shows the way, guiding to a goal that brings good and happiness.”',
+          not: 'ʿAbd al-Qāhir al-Baghdādī gathered the divine favours contained in hādī under seven headings; al-Rāghib al-Iṣfahānī under four.' },
+  },
+  'Er-Reşîd': {
+    tr: { tanim: 'Fiilleri daima yerinde olan, daima hakka isabet eden.',
+          not: 'Bu anlama İbnü’l-Esîr ve diğer âlimler dikkat çekmiştir.' },
+    en: { tanim: 'The one whose acts are always apt, always striking the truth.',
+          not: 'Ibn al-Athīr and other scholars drew attention to this sense.' },
+  },
+  'En-Nûr': {
+    tr: { tanim: 'Esas itibariyle hidayet eden ve yol gösteren Allah olduğundan O’nun isimlerinden biri de nûrdur.',
+          not: 'Gazzâlî nûr kavramını “zuhûr” diye tanımlamış ve tek hakiki nurun Allah olduğunu ifade etmiştir.' },
+    en: { tanim: 'Since it is God who fundamentally guides and shows the way, one of His names is nūr, “light.”',
+          not: 'Al-Ghazālī defined nūr as “manifestation” and held that the only real light is God.' },
+  },
+  'El-Hakk': {
+    tr: { tanim: 'Hak kelimesinin Allah’a nisbeti, O’nun gerçek ve mutlak varlığını ifade eder.',
+          not: 'Müfessirlere göre hak kelimesi başlıca on sekiz anlamda kullanılmıştır; ilâhî isim olarak kullanımı ayrı bir kategoridedir.' },
+    en: { tanim: 'Predicated of God, ḥaqq expresses His real and absolute existence.',
+          not: 'Exegetes counted some eighteen principal senses for the word ḥaqq; its use as a divine name forms a category of its own.' },
+  },
+  'El-Ehad': {
+    tr: { tanim: '“Bir, yegâne, bir tek” anlamına gelir; vahd kökündeki vâv harfinin hemzeye çevrilmesiyle oluşmuştur.',
+          not: 'Ahad Allah’ın birliğini tenzîhî (selbî) sıfatlar açısından, vâhid ise sübûtî sıfatlar açısından anlatır.' },
+    en: { tanim: '“One, sole, single”; formed by turning the wāw of the root waḥd into a hamza.',
+          not: 'Aḥad expresses God’s oneness from the side of the negative attributes, wāḥid from the side of the affirmative ones.' },
+  },
+  'El-Vâhid': {
+    tr: { tanim: 'Bir olan; birliği sübûtî sıfatlar açısından ifade edilen.',
+          not: 'Ahad birliği tenzîhî sıfatlar açısından anlatırken vâhid müsbet ifadeyle kullanılır.' },
+    en: { tanim: 'The One, whose oneness is expressed from the side of the affirmative attributes.',
+          not: 'Aḥad states oneness through the negative attributes, while wāḥid is used in affirmative expression.' },
+  },
+  'Es-Samed': {
+    tr: { tanim: 'Sözlükte “bir şeye yönelmek” anlamındaki samd kökünden türeyen samed, “ihtiyaçların giderilmesi için kendisine başvurulan kimse” demektir.',
+          not: 'İkinci bir yorum “içi boş olmayan” anlamını verir; iki mâna Allah’ın yetkin sıfatlara sahip oluşunda birleşir.' },
+    en: { tanim: 'From the root ṣamd, “to turn toward”: “the one to whom recourse is had for the meeting of needs.”',
+          not: 'A second reading gives “having no inner cavity”; the two senses converge on God’s possession of perfect attributes.' },
+  },
+  'El-Hayy': {
+    tr: { tanim: '“Hakkında ölüm geçerli olmayan varlık” demektir.',
+          not: 'Kayyûm, “her şeyin varlığı kendisine bağlı olan” anlamıyla Hayy ismini işlevsel hâle getirir.' },
+    en: { tanim: '“The being for whom death does not apply.”',
+          not: 'Qayyūm, “that upon which the existence of all things depends,” makes the name Ḥayy operative.' },
+  },
+  'El-Kayyûm': {
+    tr: { tanim: '“Her şeyin varlığı kendisine bağlı olan, kâinatı idare eden” demektir.',
+          not: 'Kıyâm kökünden mübalağa kalıbıdır; Hayy ile birlikte üç âyette geçer (Bakara 2:255; Âl-i İmrân 3:2; Tâhâ 20:111).' },
+    en: { tanim: '“That upon which the existence of all things depends, the one who administers the cosmos.”',
+          not: 'An intensive form from the root qiyām; it occurs with Ḥayy in three verses (al-Baqara 2:255; Āl ʿImrān 3:2; Ṭā-Hā 20:111).' },
+  },
+  'El-Muhyî': {
+    tr: { tanim: '“Hayatla ilgisi bulunan varlıkta hayatı yaratan, can veren” diye açıklanır.',
+          not: 'Kur’an’da ihyâ fiilinin geçtiği birçok âyette imâte (öldürme) fiili de yer alır.' },
+    en: { tanim: 'Explained as “the one who creates life in a being capable of life, who gives it a soul.”',
+          not: 'In many verses where the verb iḥyāʾ occurs, the verb imāta (causing death) appears alongside it.' },
+  },
+  'El-Mümît': {
+    tr: { tanim: 'Muhyî’nin mukabili olarak ölümü yaratan.',
+          not: 'Kur’an’da ihyâ ve imâte fiilleri çoğu yerde birlikte geçer.' },
+    en: { tanim: 'The counterpart of Muḥyī: the one who creates death.',
+          not: 'In the Qurʾān the verbs iḥyāʾ and imāta most often occur together.' },
+  },
+  'El-Bâis': {
+    tr: { tanim: '“Ölüleri dirilten” anlamında kullanılır.',
+          not: 'Gazzâlî, ba’s kökünün yalnız âhiretteki ikinci yaratmayı değil, ilk yaratmadan sonraki birçok yaratmayı da kapsayabileceğini belirtmiştir.' },
+    en: { tanim: 'Used in the sense of “the one who raises the dead.”',
+          not: 'Al-Ghazālī noted that the root baʿth can cover not only the second creation in the hereafter but many creations after the first.' },
+  },
+  "El-Mübdi'": {
+    tr: { tanim: '“Modeli ve örneği olmaksızın ibtidâen yaratan.”',
+          not: 'Muîd ismi hem tabiatın yönetiminde yaratmanın sürekli tekrarını hem kıyamette insanların yeniden canlandırılmasını ifade eder.' },
+    en: { tanim: '“The one who originates creation without model or precedent.”',
+          not: 'The name Muʿīd expresses both the constant repetition of creating in the governance of nature and the reviving of people at the resurrection.' },
+  },
+  'El-Muîd': {
+    tr: { tanim: 'Yaratmayı tekrar eden; öldükten sonra dirilten.',
+          not: 'Mübdi’ ile birlikte bir çift oluşturur: biri ilk yaratmayı, öteki tekrarını ifade eder.' },
+    en: { tanim: 'The one who repeats creation; who revives after death.',
+          not: 'It forms a pair with Mubdiʾ: one expresses the first creation, the other its repetition.' },
+  },
+  "Er-Râfi'": {
+    tr: { tanim: '“Yükselten, değerini arttıran, izzetli ve şerefli kılan” demektir.',
+          not: 'Hâfıd ve râfi’ isimlerinin karşıt mânalar taşıyan bir çift olarak birlikte kullanılması gerekli görülmüştür.' },
+    en: { tanim: '“The one who raises, increases worth, and makes honoured and noble.”',
+          not: 'Khāfiḍ and rāfiʿ have been held to require joint use as a pair carrying opposed senses.' },
+  },
+  'El-Muiz': {
+    tr: { tanim: '“Dilediği kimseyi yücelten, güçlü ve değerli kılan.”',
+          not: 'Esmâ-i hüsnâ hadisinde müzill ismiyle birlikte zikredilmiştir.' },
+    en: { tanim: '“The one who exalts whom He wills, making them strong and worthy.”',
+          not: 'It is mentioned together with the name Mudhill in the hadith of the beautiful names.' },
+  },
+  'El-Vâris': {
+    tr: { tanim: '“Varlığının sonunun bulunmaması vasfıyla kâinatın gerçek sahibi.”',
+          not: 'Gazzâlî’ye göre basîret sahibi insanlar mülkiyet ve hâkimiyetin her an tek Allah’a ait olduğunu kabul eder.' },
+    en: { tanim: '“The true owner of the cosmos, by virtue of His existence having no end.”',
+          not: 'For al-Ghazālī, people of insight acknowledge that ownership and sovereignty belong at every moment to God alone.' },
+  },
+  'El-Evvel': {
+    tr: { tanim: 'Varlığının başlangıcı bulunmayan.',
+          not: 'Hadîd sûresinde (57:3) birbiriyle bağlantılı dört ismin — evvel, âhir, zâhir, bâtın — kelâm ve tasavvuf açısından ifade ettiği mâna üzerinde eski dönemlerden beri durulmuştur.' },
+    en: { tanim: 'The one whose existence has no beginning.',
+          not: 'The four interlinked names in Sūrat al-Ḥadīd (57:3) — awwal, ākhir, ẓāhir, bāṭin — have been discussed for their theological and mystical import since early times.' },
+  },
+  'El-Âhir': {
+    tr: { tanim: 'Varlığının sonu bulunmayan.',
+          not: 'Evvel, âhir, zâhir ve bâtın Hadîd 57:3’te birlikte geçen dörtlü bir küme oluşturur.' },
+    en: { tanim: 'The one whose existence has no end.',
+          not: 'Awwal, ākhir, ẓāhir and bāṭin form a set of four occurring together in al-Ḥadīd 57:3.' },
+  },
+
+  // ── İkinci tur: TDV'nin `<isim>--esma-i-husna` maddeleri ────────────────
+  'Allah': {
+    tr: { tanim: '“Allah, varlığı zorunlu olan ve bütün övgülere lâyık bulunan zâtın adıdır.”',
+          not: 'Kelimenin herhangi bir kökten türemeyip sözlük mânası taşımadığı ve gerçek mâbudun özel adını teşkil ettiği görüşü benimsenmektedir.' },
+    en: { tanim: '“Allah is the name of the One whose existence is necessary and who is worthy of all praise.”',
+          not: 'The accepted view is that the word derives from no root and carries no lexical meaning: it is the proper name of the true object of worship.' },
+  },
+  'El-Vekîl': {
+    tr: { tanim: '“Bütün yaratıkların işlerinin görülmesinde güvenilip dayanılan, bu konuda tam yeterli olan varlık.”',
+          not: 'Kādî Abdülcebbâr vekîli “kudret ve iradesiyle bize hükmedip varlığımızın devamını sağlayan varlık” diye açıklamıştır.' },
+    en: { tanim: '“The one relied upon and trusted for the conduct of all creatures’ affairs, and wholly sufficient therein.”',
+          not: 'Qāḍī ʿAbd al-Jabbār explained wakīl as “the being who rules over us by His power and will and sustains our continued existence.”' },
+  },
+  'El-Berr': {
+    tr: { tanim: 'İyilik ve ihsanı bol olan.',
+          not: 'Ezherî’ye göre birr, iyilikte (ihsan) genişlik ve fazlalığı ifade eder.' },
+    en: { tanim: 'The one abundant in goodness and beneficence.',
+          not: 'For al-Azharī, birr denotes breadth and abundance in doing good.' },
+  },
+  "En-Nâfi'": {
+    tr: { tanim: '“Dilediği mahlûka hayırlı ve faydalı şeyi veren” mânasına gelir.',
+          not: 'Nef’ ve darr kavramları Kur’an’da birlikte kullanılır; vurgu, putların değil Allah’ın tapınmaya lâyık olduğudur.' },
+    en: { tanim: '“The one who gives what is good and beneficial to whichever creature He wills.”',
+          not: 'The concepts of nafʿ and ḍarr are used together in the Qurʾān; the emphasis falls on God, not idols, being worthy of worship.' },
+  },
+  "El-Câmi'": {
+    tr: { tanim: 'Toplayan, bir araya getiren.',
+          not: 'Gazzâlî câmiin, kâinatın yaratılış ve yönetilişiyle ilgili bir isim olarak düşünülebileceği görüşündedir.' },
+    en: { tanim: 'The one who gathers and brings together.',
+          not: 'Al-Ghazālī held that jāmiʿ may be understood as a name bearing on the creation and governance of the cosmos.' },
+  },
+  "El-Vâsi'": {
+    tr: { tanim: '“İlmi, rahmeti ve kudreti her şeyi kuşatan.”',
+          not: 'Ebû Abdullah el-Halîmî vâsi’ ismini teşbihi nefyeden isimlerden kabul etmiştir.' },
+    en: { tanim: '“The one whose knowledge, mercy and power encompass all things.”',
+          not: 'Abū ʿAbdallāh al-Ḥalīmī counted wāsiʿ among the names that negate likeness to creatures.' },
+  },
+  'El-Bâsit': {
+    tr: { tanim: '“Yaymak, genişletmek, uzatmak” anlamındaki bast kökünden; Allah’a nisbetle “rızkı genişleten, lutuf ve keremini esirgemeyen; ruhları bedenlerine yayan.”',
+          not: 'Bastın rızıkla ilgili geçtiği on bir âyette, karşıtı olan “daraltıp kısma” anlamındaki kabz ve kadr türevleriyle birlikte zikredilir.' },
+    en: { tanim: 'From the root basṭ, “to spread, widen, extend”; of God: “the one who widens provision, who withholds neither favour nor bounty; who spreads souls into bodies.”',
+          not: 'In the eleven verses where basṭ concerns provision, it is mentioned alongside derivatives of qabḍ and qadr, “to narrow and straiten.”' },
+  },
+  'El-Kâbid': {
+    tr: { tanim: 'Rızkı daraltıp kısan — bâsıtın karşıtı.',
+          not: 'Âlimler hâfıd–râfi’, muiz–müzil gibi kābız ile bâsıtın da karşıt anlamlı olmakla birlikte birbirini dengeleyip tamamladığını belirtir.' },
+    en: { tanim: 'The one who straitens and withholds provision — the counterpart of bāsiṭ.',
+          not: 'Scholars note that qābiḍ and bāsiṭ, like khāfiḍ–rāfiʿ and muʿizz–mudhill, are opposed in sense yet balance and complete one another.' },
+  },
+  "Ed-Dârr": {
+    tr: { tanim: '“Zarar vermek” anlamındaki darr masdarından; zararı yaratan da O’dur.',
+          not: 'Nef’ ve darr Kur’an’da birlikte kullanılır; ikisinin de tek elde olması, tapınmaya lâyık olanın yalnız Allah olduğunu vurgular.' },
+    en: { tanim: 'From the verbal noun ḍarr, “to harm”: harm too is His creation.',
+          not: 'Nafʿ and ḍarr are used together in the Qurʾān; that both lie in one hand stresses that God alone is worthy of worship.' },
+  },
+  "El-Mâni'": {
+    tr: { tanim: '“Kötü şeylere engel olan, bunların gerçekleşmesine müsaade etmeyen.”',
+          not: 'Gazzâlî mâni’ ile hafîz arasında münasebet kurarak birincisinin maddî ve mânevî alandaki yok edici veya bozucu sebepleri ortadan kaldırmayı amaçladığını söylemiştir.' },
+    en: { tanim: '“The one who prevents evils and does not permit them to come about.”',
+          not: 'Al-Ghazālī linked māniʿ with ḥafīẓ, saying the former aims at removing destructive or corrupting causes in the material and spiritual realms.' },
+  },
+  'El-Bâkî': {
+    tr: { tanim: '“Gelecekte varlığının sona ermesi düşünülemeyen.”',
+          not: 'Fânînin zıddıdır: Allah’tan başka her şeyin gelip geçici olduğunu ifade eder.' },
+    en: { tanim: '“The one whose existence cannot be conceived as coming to an end.”',
+          not: 'It is the opposite of fānī: it states that everything other than God is transient.' },
+  },
+  'El-Adl': {
+    tr: { tanim: '“Doğru olmak, doğru yol, adalet” anlamlarıyla isim olarak kullanılır; ilâhî isim olarak Allah’ın adalet sıfatını ifade eder.',
+          not: 'Muksit; adl, hakem, latîf ve müntakım isimleriyle anlam yakınlığı içindedir.' },
+    en: { tanim: 'Used as a noun meaning “to be right, the right path, justice”; as a divine name it expresses God’s attribute of justice.',
+          not: 'Muqsiṭ stands close in meaning to ʿadl, ḥakam, laṭīf and muntaqim.' },
+  },
+  'El-Metîn': {
+    tr: { tanim: 'Allah’a nisbet edildiğinde “fiillerinden dolayı zâtına herhangi bir zorluk ve yorgunluk ârız olmayan, nihaî noktada kudretli” anlamına gelir.',
+          not: 'Kavî ile metînden ilki, ilâhî kudrete konu teşkil eden her şeyi kapsaması açısından nitelikte; ikincisi çok güçlü olması bakımından nicelikte kemal mertebesini ifade eder.' },
+    en: { tanim: 'Predicated of God: “the one whom no difficulty or fatigue befalls on account of His acts, powerful to the utmost degree.”',
+          not: 'Of qawī and matīn, the first expresses perfection of power in quality — covering all that power bears upon — the second in quantity, in sheer strength.' },
+  },
+  'El-Müntekim': {
+    tr: { tanim: '“Allah’ın, kendisine âsi olan kişiye günahına uygun olarak ceza vermesi.”',
+          not: 'Elmalılı Muhammed Hamdi intikamı “bir cinayetin cezasını vererek câninin lezzet-i cinâyetini elem-i ukūbâta tebdil eylemek” şeklinde açıklar.' },
+    en: { tanim: '“God’s requiting the one who rebels against Him with a penalty fitting the sin.”',
+          not: 'Elmalılı Muhammed Hamdi explained intiqām as “turning the offender’s pleasure in the crime into the pain of punishment by exacting its penalty.”' },
+  },
+  'El-Muhsî': {
+    tr: { tanim: '“Gizli âşikâr her şeyi tek tek ve bütün ayrıntılarıyla bilen” mânasına gelir.',
+          not: 'Mâtürîdî, ihsânın bir tehdit ve uyarı boyutu da içerdiğini söyler.' },
+    en: { tanim: '“The one who knows everything, hidden or open, one by one and in all its detail.”',
+          not: 'Al-Māturīdī notes that iḥṣāʾ also carries a dimension of warning and admonition.' },
+  },
+  'El-Mukaddim': {
+    tr: { tanim: '“Dilediği şeyi öne alan, önde bulunduran” mânasına gelir.',
+          not: 'Esmâ-i hüsnâ listesinde muahhir ismiyle birlikte zikredilmiştir.' },
+    en: { tanim: '“The one who brings forward and places first whatever He wills.”',
+          not: 'It is mentioned together with the name Muʾakhkhir in the list of the beautiful names.' },
+  },
+  'El-Muahhir': {
+    tr: { tanim: 'Mukaddim’in mukabili olarak kullanılan isim: dilediğini geriye bırakan.',
+          not: 'Mukaddim ile muahhir esmâ-i hüsnâ listesinde birlikte zikredilir.' },
+    en: { tanim: 'The name used as the counterpart of Muqaddim: the one who puts back whatever He wills.',
+          not: 'Muqaddim and muʾakhkhir are mentioned together in the list of the beautiful names.' },
+  },
+  "El-Bedî'": {
+    tr: { tanim: '“Benzeri ve örneği bulunmayan; bir şeyi ilk ve emsalsiz olarak yaratan.”',
+          not: 'Zemahşerî bedî’ ismini sıfat-ı müşebbehe kabul ederek ona estetik bir anlam vermiştir.' },
+    en: { tanim: '“The one without like or precedent; who creates a thing first and without parallel.”',
+          not: 'Al-Zamakhsharī took badīʿ as an adjectival quality and gave it an aesthetic sense.' },
+  },
+  "El-Bâri'": {
+    tr: { tanim: 'Yaratılacak şeyi fiilen meydana getiren.',
+          not: 'Hâlik “yaratılacak şeyin bütün ayrıntılarını bilip takdir eden”, bâri’ “onu fiilen meydana getiren”dir.' },
+    en: { tanim: 'The one who actually brings the thing to be into being.',
+          not: 'Khāliq “knows and determines all the details of what is to be created”; bāriʾ “actually brings it into being.”' },
+  },
+  'El-Hâfid': {
+    tr: { tanim: '“Aşağıya indirmek, alçaltmak, değerini azaltmak” anlamındaki hafd masdarından sıfat olup “aşağıya indiren, alçaltan, değerini azaltan” demektir.',
+          not: 'Doksan dokuz isim içinde kābız–bâsıt, muiz–müzil gibi karşıt kavramları ifade eden hâfıd ile râfi’ dua ve övgü cümlelerinde beraberce kullanılır.' },
+    en: { tanim: 'An adjective from khafḍ, “to bring down, lower, diminish in worth”: “the one who brings down, lowers, diminishes.”',
+          not: 'Among the ninety-nine, khāfiḍ and rāfiʿ — like qābiḍ–bāsiṭ and muʿizz–mudhill — are used together in supplication and praise.' },
+  },
+  'El-Müzill': {
+    tr: { tanim: 'Muiz’in mukabili olarak kullanılan isim: dilediğini alçaltan.',
+          not: 'Muiz ile müzil, hâfıd–râfi’ ve kābız–bâsıt gibi karşıt anlamlı bir çift oluşturur.' },
+    en: { tanim: 'The name used as the counterpart of Muʿizz: the one who abases whom He wills.',
+          not: 'Muʿizz and mudhill form a pair opposed in sense, like khāfiḍ–rāfiʿ and qābiḍ–bāsiṭ.' },
+  },
+  'Ez-Zâhir': {
+    tr: { tanim: '“Varlığını ve birliğini belgeleyen birçok delilin bulunması açısından belirgin olan.”',
+          not: 'Allah’ın evvel–âhir, zâhir–bâtın oluşu “kendinden” (bizâtihi) olma özelliği taşıdığından çelişki söz konusu değildir.' },
+    en: { tanim: '“The manifest one, in that many proofs attest His existence and oneness.”',
+          not: 'God’s being first–last and manifest–hidden belongs to Him in Himself, so there is no contradiction.' },
+  },
+  'El-Bâtın': {
+    tr: { tanim: 'Batn ve butûn kökü “gizli olmak; bilmek, bir şeyin iç yüzüne ve bir kimsenin sırlarına vâkıf olmak” mânalarına gelir.',
+          not: 'Bâtın, Hadîd sûresinde (57:3) “evvel–âhir”, “zâhir–bâtın” tertibi içinde yer alır.' },
+    en: { tanim: 'The root baṭn/buṭūn means “to be hidden; to know, to be privy to the inner side of a thing and to a person’s secrets.”',
+          not: 'Bāṭin occurs in Sūrat al-Ḥadīd (57:3) within the sequence “first–last, manifest–hidden.”' },
+  },
+  'El-Müteâlî': {
+    tr: { tanim: '“İzzet, şeref ve hükümranlık bakımından en yüce olan” demektir.',
+          not: 'Ebû Abdullah el-Halîmî müteâlî ismini, Allah’tan teşbihi nefyeden sıfatlar grubunda mütalaa etmiştir.' },
+    en: { tanim: '“The highest in might, honour and sovereignty.”',
+          not: 'Abū ʿAbdallāh al-Ḥalīmī treated mutaʿālī among the attributes that negate likeness to creatures.' },
+  },
+  'El-Vâcid': {
+    tr: { tanim: 'Kökü “bilerek, deneyerek bulmak; bir şeye vâkıf olmak” fiilidir.',
+          not: 'Râgıb el-İsfahânî bu fiilin insanlarda iç ve dış duyularla gerçekleştiğini belirtir; Abdülkāhir el-Bağdâdî vâcidin sözlük anlamlarını beş grup hâlinde açıklamıştır.' },
+    en: { tanim: 'Its root is the verb “to find by knowing or experiencing; to become privy to a thing.”',
+          not: 'Al-Rāghib al-Iṣfahānī notes that in humans this act occurs through the inner and outer senses; ʿAbd al-Qāhir al-Baghdādī set out five groups of lexical senses for wājid.' },
+  },
+  'Eş-Şekûr': {
+    tr: { tanim: 'Allah’ın az amele bol sevap vermesi anlamını içerir.',
+          not: 'Fahreddin er-Râzî’ye göre şükür kavramı Allah hakkında mecazi mânada kullanılır.' },
+    en: { tanim: 'It carries the sense of God’s granting abundant reward for little deed.',
+          not: 'For Fakhr al-Dīn al-Rāzī, the concept of gratitude is used of God in a figurative sense.' },
+  },
+  'El-Vâlî': {
+    tr: { tanim: 'Kâinatı ve işlerini yöneten; TDV bu maddeyi velî maddesine yönlendirir.',
+          not: 'Mevlâ, esmâ-i hüsnâdan vâlî, velî ve vedûd isimleriyle anlam yakınlığı içinde bulunur.' },
+    en: { tanim: 'The one who governs the cosmos and its affairs; the encyclopaedia refers this entry to walī.',
+          not: 'Mawlā stands close in meaning to the names wālī, walī and wadūd.' },
+  },
+  'El-Hallâk': {
+    tr: { tanim: 'Hâlik’in mübalağa kalıbı: durmaksızın ve çokça yaratan. TDV bu maddeyi hâlik maddesine yönlendirir.',
+          not: 'Hâlik, “yaratılacak şeyin bütün ayrıntılarını bilip takdir eden” demektir; hallâk aynı fiilin yoğunluğunu bildirir.' },
+    en: { tanim: 'The intensive form of Khāliq: the one who creates ceaselessly and abundantly. The encyclopaedia refers this entry to khāliq.',
+          not: 'Khāliq means “the one who knows and determines every detail of what is to be created”; khallāq conveys the intensity of that same act.' },
+  },
+  'El-Fâtır': {
+    tr: { tanim: 'Gökleri ve yeri yoktan yaran, ilk defa var eden. TDV bu maddeyi hâlik maddesine yönlendirir.',
+          not: 'Yaratma fiilinin isimleri hâlik, bâri’ ve musavvir üçlüsüyle birlikte okunur.' },
+    en: { tanim: 'The one who cleaves the heavens and the earth into being, originating them. The encyclopaedia refers this entry to khāliq.',
+          not: 'The names of the act of creating are read together with the triad khāliq, bāriʾ and muṣawwir.' },
+  },
+  'En-Nasîr': {
+    tr: { tanim: 'Kur’an’da geçen ilâhî isimlerden; kökü nasr (yardım) fiilidir.',
+          not: 'Kādî Abdülcebbâr, Allah’ın nâsır veya nasîr isminin tecellisinin müminlere has olduğuna dikkat çekmiştir.' },
+    en: { tanim: 'One of the divine names occurring in the Qurʾān; its root is the verb naṣr, “to help.”',
+          not: 'Qāḍī ʿAbd al-Jabbār noted that the manifestation of the name nāṣir or naṣīr is proper to the believers.' },
+  },
+  'El-Mevlâ': {
+    tr: { tanim: 'Kur’an’da geçen ilâhî isimlerden: sahip çıkan, dost ve yardımcı olan.',
+          not: 'Mevlâ, esmâ-i hüsnâdan vâlî, velî ve vedûd isimleriyle anlam yakınlığı içinde bulunur.' },
+    en: { tanim: 'One of the divine names occurring in the Qurʾān: the patron, friend and helper.',
+          not: 'Mawlā stands close in meaning to the names wālī, walī and wadūd.' },
+  },
+  "Rabbü'l-Âlemîn": {
+    tr: { tanim: 'Rab, “bir şeyi yetkinlik noktasına varıncaya kadar kademe kademe inşa edip geliştirmek” mânasındadır ve mübalağa ifade etmek üzere daha çok sıfat gibi kullanılır.',
+          not: 'Rubûbiyyet, peygamberlerden münkirlere kadar bütün şuurlu canlıları ve evrendeki diğer varlıkları kuşatır — “âlemîn” bu kapsamı adlandırır.' },
+    en: { tanim: 'Rabb means “to build and develop a thing stage by stage until it reaches perfection,” and is used mostly as an intensive adjective.',
+          not: 'Rubūbiyya encompasses every conscious being from prophets to deniers, and all other beings in the universe — which is what “al-ʿālamīn” names.' },
+  },
+};
+
+
+/**
+ * Kur'ânî terkipler — tek bir isim değil, bir tamlama.
+ * Bunların müstakil sözlük maddesi yoktur; anlamları bileşenlerinden çıkar.
+ * `dayanak`, tanımı yukarıda kaynaklı olarak verilen bileşen ismidir.
+ */
+const TERKIPLER = {
+  "Zü'l-Celâli ve'l-İkrâm": { dayanak: 'El-Celîl',
+    tr: 'İki bileşenin bilinçli birlikteliği: celâl (azamet) ile ikram (lutuf) aynı zâtta toplanır. Celîl “hiçbir kayıt ve kıyas kabul etmeksizin azamet sahibi”, kerem ise lutuf ve ikram tarafıdır.',
+    en: 'A deliberate joining of two components: majesty (jalāl) and bounty (ikrām) meet in the same one. Jalīl is “possessor of majesty admitting no qualification or comparison”; karam is the side of favour and bounty.' },
+  "Mâlikü'l-Mülk": { dayanak: 'El-Melik',
+    tr: 'Mülkün mâliki. Melik “görünen ve görünmeyen âlemlerin sahibi” demektir; terkip, bu sahipliğin mülkün kendisine yöneldiğini açıkça söyler.',
+    en: 'Owner of dominion. Malik means “owner of the seen and unseen worlds”; the phrase states outright that this ownership bears on dominion itself.' },
+  "Şedîdü'l-İkâb": { dayanak: null,
+    tr: 'Cezası çetin olan. Kökü ikāb (ceza); Kur’an’da çoğunlukla mağfiret bildiren bir isimle yan yana gelir — korku ile ümit birlikte kurulur.',
+    en: 'Severe in punishment. Its root is ʿiqāb (penalty); in the Qurʾān it most often stands beside a name of forgiveness — fear and hope are set together.' },
+  "Zü'l-Fadli'l-Azîm": { dayanak: 'El-Azîm',
+    tr: 'Büyük lütuf sahibi. Azîm “zâtı ve sıfatlarının mahiyeti hakkıyla kavranamayacak derecede yüce” demektir; burada bu büyüklük lütfun ölçüsü olur.',
+    en: 'Possessor of great bounty. ʿAẓīm means “so exalted that the nature of His essence and attributes cannot be truly grasped”; here that greatness becomes the measure of the bounty.' },
+  "Hayru'r-Râzıkîn": { dayanak: 'Er-Rezzâk',
+    tr: 'Rızık verenlerin en hayırlısı. Rezzâk “bedenlerin ve ruhların gıdasını yaratıp veren”dir ve yalnız Allah için kullanılır; terkip, rızık verenler arasında bir mukayese kurar.',
+    en: 'The best of providers. Razzāq is “the one who creates and gives the nourishment of bodies and spirits,” used of God alone; the phrase sets up a comparison among providers.' },
+  "Erhamü'r-Râhimîn": { dayanak: 'Er-Rahîm',
+    tr: 'Merhamet edenlerin en merhametlisi. Rahîm ile aynı kökten (ر ح م) bir ism-i tafdîldir: merhamet edenler arasında en üst derece.',
+    en: 'The most merciful of those who show mercy. An elative from the same root as raḥīm (ر ح م): the highest degree among the merciful.' },
+  "Hayru'l-Hâkimîn": { dayanak: 'El-Hakem',
+    tr: 'Hüküm verenlerin en hayırlısı. Hakem “hüküm veren, hakemliği bağlayıcı olan”dır; terkip bu hükmü diğer hüküm verenlerle karşılaştırır.',
+    en: 'The best of judges. Ḥakam is “the one who judges, whose arbitration is binding”; the phrase compares that judgement with other judges.' },
+  "Ahkemü'l-Hâkimîn": { dayanak: 'El-Hakîm',
+    tr: 'Hüküm verenlerin en iyi hüküm vereni. Hakîm “bütün sözleri ve fiilleri adalete, ilme ve teennîye uygun olan”dır; terkip aynı kökü ism-i tafdîl kalıbında tekrarlar.',
+    en: 'The most judicious of judges. Ḥakīm is “the one whose every word and act accords with justice, knowledge and deliberateness”; the phrase repeats the same root in the elative pattern.' },
+  "Zü'r-Rahme": { dayanak: 'Er-Rahmân',
+    tr: 'Rahmet sahibi. Rahmân ile aynı kök (ر ح م); burada rahmet bir sıfat olarak değil, sahip olunan bir şey olarak söylenir.',
+    en: 'Possessor of mercy. The same root as raḥmān (ر ح م); here mercy is stated not as an attribute but as something possessed.' },
+  "Bedîu's-Semâvât": { dayanak: "El-Bedî'",
+    tr: 'Göklerin eşsiz yaratıcısı. Bedî’ “benzeri ve örneği bulunmayan; bir şeyi ilk ve emsalsiz olarak yaratan”dır; terkip bu yaratmayı göklere bağlar.',
+    en: 'The peerless originator of the heavens. Badīʿ is “the one without like or precedent, who creates a thing first and without parallel”; the phrase ties that creating to the heavens.' },
+  "Hayru'l-Gâfirîn": { dayanak: 'El-Gafûr',
+    tr: 'Bağışlayanların en hayırlısı. Gafûr “birinin kusurunu örten, suçunu bağışlayan”dır; terkip bağışlayanlar arasında bir mukayese kurar.',
+    en: 'The best of forgivers. Ghafūr is “the one who veils a person’s fault and forgives the offence”; the phrase sets up a comparison among forgivers.' },
+};
+
+/** TDV'de müstakil maddesi bulunamayan isim(ler) — sayfada açıkça söylenir. */
+const KAYNAKSIZ = ['El-Afüvv'];
+
+/** Otuzuncu Lem'a'nın altı nüktesi — sıra metnin kendi sırasıdır. */
+const NURSI = [
+  { isim: 'El-Kuddûs', nukte: 1,
+    tr: 'Kâinatın sürekli temizlenip yenilenmesini — çürümenin hiç durmamasına rağmen ortalığın kirlenmemesini — ism-i Kuddûs’ün en büyük dairedeki tecellîsi olarak okur.',
+    en: 'Reads the ceaseless cleansing and renewal of the cosmos — that decay never stops yet nothing stays soiled — as the manifestation of the name Quddūs in the widest sphere.' },
+  { isim: 'El-Adl', nukte: 2,
+    tr: 'Gezegenlerin hareketinden canlının iç dengesine kadar her şeyi ayakta tutan ölçüyü ism-i Adl’in tecellîsi sayar.',
+    en: 'Takes the measure that holds everything together, from planetary motion to the balance inside a living body, as the manifestation of the name ʿAdl.' },
+  { isim: 'El-Hakem', nukte: 3,
+    tr: 'Kâinatı, her parçası sayısız hikmet taşıyan çok katmanlı bir kitap gibi okur; bu düzeni tesadüfün değil tek bir Hakîm’in delili sayar.',
+    en: 'Reads the cosmos as a many-layered book in which every part carries countless purposes, and takes that order as evidence not of chance but of a single All-Wise.' },
+  { isim: 'El-Ferd', nukte: 4,
+    tr: 'Bütün varlığın birbirine bağlı ve birbirini gerektirir olmasını, ortaklığı imkânsız kılan bir tevhid mührü olarak okur.',
+    en: 'Reads the interdependence and mutual entailment of all beings as a seal of oneness that renders partnership impossible.' },
+  { isim: 'El-Hayy', nukte: 5,
+    tr: 'Hayatı varlığın en büyük neticesi ve en parlak nuru sayar; ism-i Hayy’ı kâinatın gayesini açıklayan isim olarak ele alır.',
+    en: 'Takes life as existence’s greatest fruit and brightest light, treating the name Ḥayy as the name that explains the purpose of the cosmos.' },
+  { isim: 'El-Kayyûm', nukte: 6,
+    tr: 'Kâinatın her an ayakta tutulmasını — varlıkta kalmanın kendi başına sürmeyişini — ism-i Kayyûm’un delili sayar.',
+    en: 'Takes the moment-by-moment sustaining of the cosmos — that remaining in existence does not continue of itself — as evidence of the name Qayyūm.' },
+];
+
+/** Üç yöntem — TDV maddesinin ayırdığı üç yorum geleneği. */
+const YONTEMLER = [
+  { id: 'lugavi',
+    trBaslik: 'Dil yolu', enBaslik: 'The philological way',
+    trSoru: 'Kelime ne diyor?', enSoru: 'What does the word say?',
+    tr: 'İsmin kökünü, kalıbını ve Kur’an’daki kullanımını çözümler. Bu sayfada her ismin kök satırı bu geleneğin sorusunu cevaplar.',
+    en: 'Analyses the name’s root, its morphological pattern, and its usage in the Qurʾān. On this page, each name’s root line answers this tradition’s question.' },
+  { id: 'kelami',
+    trBaslik: 'Kelâm yolu', enBaslik: 'The theological way',
+    trSoru: 'Sıfat düzeninde nereye oturur?', enSoru: 'Where does it sit in the order of attributes?',
+    tr: 'İsimleri zât–sıfat–fiil ayrımı içinde sınıflandırır; hangisinin tenzih, hangisinin ispat yoluyla anlaşılacağını tartışır.',
+    en: 'Classifies the names within the distinction of essence, attribute and act, and debates which are grasped by negation and which by affirmation.' },
+  { id: 'tasavvufi',
+    trBaslik: 'Tasavvuf yolu', enBaslik: 'The mystical way',
+    trSoru: 'Kul bu isimden ne alır?', enSoru: 'What is the servant’s share in it?',
+    tr: 'İsmi kulun ahlâkına bağlar. Gazzâlî’nin şerhine asıl değerini kazandıran da, her isimden kulun alabileceği nasibi belirlemeye çalışmasıdır.',
+    en: 'Ties the name to the servant’s character. What gives al-Ghazālī’s commentary its lasting value is precisely his attempt to determine the share the servant may take from each name.' },
+];
+
+/** Şerh literatürü — künyeler TDV'nin esmâ-i hüsnâ maddesinden. */
+const ESERLER = [
+  { yazar: 'Ebû İshak ez-Zeccâc', olum: 'ö. 311/923', eser: 'Tefsîru esmâillâhi’l-hüsnâ',
+    tr: 'Günümüze ulaşan müstakil esmâ-i hüsnâ eserlerinin ilki; yazarı lugat ve nahiv âlimidir.',
+    en: 'The earliest surviving standalone work on the beautiful names; its author was a lexicographer and grammarian.' },
+  { yazar: 'Ebû Süleyman el-Hattâbî', olum: 'ö. 388/998', eser: 'Şe’nü’d-duâ',
+    tr: 'Rahmân–rahîm ayrımının en çok anılan formülü ona aittir; hacimli esmâ eseri ise ele geçmemiştir.',
+    en: 'The most-cited formulation of the raḥmān–raḥīm distinction is his; his larger work on the names has not survived.' },
+  { yazar: 'Abdülkāhir el-Bağdâdî', olum: 'ö. 429/1037', eser: 'el-Esmâ ve’s-sıfât',
+    tr: 'İsimlerin içerdiği ilâhî lutufları gruplara ayırarak tasnif eden erken kelâm çalışmalarından.',
+    en: 'An early theological study classifying the divine favours contained in the names into groups.' },
+  { yazar: 'el-Beyhakî', olum: 'ö. 458/1066', eser: 'el-Esmâ ve’s-sıfât',
+    tr: 'İsim ve sıfat bahislerini hadis rivayetleriyle derler; esmânın sayımına dair rivayetleri de ele alır.',
+    en: 'Compiles the names and attributes through hadith reports, and treats the narrations on enumerating them.' },
+  { yazar: 'Abdülkerîm el-Kuşeyrî', olum: 'ö. 465/1072', eser: 'et-Tahbîr fi’t-tezkîr',
+    tr: 'Eş’arî geleneğinin yanında tasavvufî muhtevaya da yer veren bir eser.',
+    en: 'A work that gives room to mystical content alongside the Ashʿarī tradition.' },
+  { yazar: 'el-Gazzâlî', olum: 'ö. 505/1111', eser: 'el-Maksadü’l-esnâ',
+    tr: 'Şerh literatürünün en etkili klasiği. Eseri değerli kılan, açıklamalarda tasavvufî neşveyi ihmal etmemesi ve her isimden kulun alabileceği nasibi belirlemeye çalışmasıdır.',
+    en: 'The most influential classic of the commentary literature. What gives it value is that it does not neglect the mystical vein and seeks to determine the share the servant may take from each name.' },
+  { yazar: 'Ebû Bekir İbnü’l-Arabî', olum: 'ö. 543/1148', eser: 'el-Emedü’l-aksâ',
+    tr: 'Zengin muhtevalı; araştırmacıların dikkatini ancak yeni yeni çekmeye başlamış bir eser.',
+    en: 'Rich in content; a work that has only recently begun to draw scholarly attention.' },
+  { yazar: 'Fahreddin er-Râzî', olum: 'ö. 606/1210', eser: 'Levâmiu’l-beyyinât',
+    tr: 'Meşhur olmakla birlikte, müellifin tefsirindeki açıklamalardan farklı bir muhteva taşımaz.',
+    en: 'Famous, though its content does not differ from the explanations in the author’s own tafsīr.' },
+  { yazar: 'el-Kurtubî', olum: 'ö. 671/1273', eser: 'el-Kitâbü’l-esnâ',
+    tr: 'Endülüs geleneğinden gelen bir esmâ şerhi.',
+    en: 'A commentary on the names coming out of the Andalusian tradition.' },
+  { yazar: 'Bediüzzaman Said Nursi', olum: '1878–1960', eser: 'Otuzuncu Lem’a',
+    tr: 'Altı nüktede altı ismi işler; her ismi kâinatta karşılığı olan bir fiilin — temizlenme, denge, düzen, bağlılık, hayat, ayakta tutuluş — okunuşu olarak ele alır.',
+    en: 'Treats six names in six sections, reading each name through a corresponding act in the cosmos: cleansing, balance, order, interdependence, life, and being sustained.' },
+];
+
+const isimler = JSON.parse(readFileSync(join(ROOT, 'public/esma-frekans.json'), 'utf8')).isimler;
+const mevcut = new Set(isimler.map((x) => x.isim));
+
+const eksik = [...Object.keys(TANIMLAR), ...Object.keys(TERKIPLER), ...KAYNAKSIZ].filter((k) => !mevcut.has(k));
+if (eksik.length) {
+  console.error('HATA — atlasta bulunmayan isim anahtarı:', eksik.join(', '));
+  process.exit(1);
+}
+
+const nursiEksik = NURSI.filter((n) => !mevcut.has(n.isim)).map((n) => n.isim);
+
+const out = {
+  uretim: '2026-09-05',
+  kaynak: {
+    tanimlar: TDV,
+    nursi: 'Bediüzzaman Said Nursi, Lem’alar, Otuzuncu Lem’a',
+    gelenek: TDV,
+  },
+  tanimlar: TANIMLAR,
+  terkipler: TERKIPLER,
+  kaynaksiz: KAYNAKSIZ,
+  nursi: {
+    isimler: NURSI,
+    atlastaOlmayan: nursiEksik,
+  },
+  yontemler: YONTEMLER,
+  eserler: ESERLER,
+};
+
+writeFileSync(join(ROOT, 'public/esma-tanimlar.json'), JSON.stringify(out, null, 1));
+
+const kapsam = Object.keys(TANIMLAR).length;
+const terkipSayisi = Object.keys(TERKIPLER).length;
+console.log(`${kapsam} isimde kaynaklı tanım + ${terkipSayisi} terkip çözümü = ${kapsam + terkipSayisi}/${isimler.length} (%${Math.round(((kapsam + terkipSayisi) / isimler.length) * 100)})`);
+console.log(`kaynak bulunamayan: ${KAYNAKSIZ.join(', ') || 'yok'}`);
+console.log(`Otuzuncu Lem’a: ${NURSI.length} isim · atlasta olmayan: ${nursiEksik.join(', ') || 'yok'}`);
+console.log(`${ESERLER.length} eser · ${YONTEMLER.length} yöntem`);

@@ -1,0 +1,1178 @@
+{
+  "meta": {
+    "isimSayisi": 114,
+    "kokluIsim": 113,
+    "farkliKok": 90,
+    "terkipIsim": 12,
+    "dogrulama": "her kökün harfleri, ismin Arapça yazımında sırayla geçtiği MEKANİK olarak doğrulandı; geçmezse build durur",
+    "generatedBy": "scripts/build-esma-kokler.mjs"
+  },
+  "isimler": [
+    {
+      "isim": "Allah",
+      "isimEn": "Allah",
+      "arapca": "اللَّه",
+      "kok": null,
+      "kokArabic": null,
+      "terkip": false,
+      "dogrulandi": null,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hakk",
+      "isimEn": "Al-Haqq",
+      "arapca": "الْحَقّ",
+      "kok": "ح ق ق",
+      "kokArabic": "حقق",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Alîm",
+      "isimEn": "Al-Alim",
+      "arapca": "الْعَلِيم",
+      "kok": "ع ل م",
+      "kokArabic": "علم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Rahîm",
+      "isimEn": "Ar-Rahim",
+      "arapca": "الرَّحِيم",
+      "kok": "ر ح م",
+      "kokArabic": "رحم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Azîm",
+      "isimEn": "Al-Azim",
+      "arapca": "الْعَظِيم",
+      "kok": "ع ظ م",
+      "kokArabic": "عظم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Azîz",
+      "isimEn": "Al-Aziz",
+      "arapca": "الْعَزِيز",
+      "kok": "ع ز ز",
+      "kokArabic": "عزز",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hakîm",
+      "isimEn": "Al-Hakim",
+      "arapca": "الْحَكِيم",
+      "kok": "ح ك م",
+      "kokArabic": "حكم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Gafûr",
+      "isimEn": "Al-Ghafur",
+      "arapca": "الْغَفُور",
+      "kok": "غ ف ر",
+      "kokArabic": "غفر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Melik",
+      "isimEn": "Al-Malik",
+      "arapca": "الْمَلِك",
+      "kok": "م ل ك",
+      "kokArabic": "ملك",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Veliyy",
+      "isimEn": "Al-Waliyy",
+      "arapca": "الْوَلِيّ",
+      "kok": "و ل ي",
+      "kokArabic": "ولي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Rahmân",
+      "isimEn": "Ar-Rahman",
+      "arapca": "الرَّحْمَٰن",
+      "kok": "ر ح م",
+      "kokArabic": "رحم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hâdî",
+      "isimEn": "Al-Hadi",
+      "arapca": "الْهَادِي",
+      "kok": "ه د ي",
+      "kokArabic": "هدي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Basîr",
+      "isimEn": "Al-Basir",
+      "arapca": "الْبَصِير",
+      "kok": "ب ص ر",
+      "kokArabic": "بصر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Es-Semî'",
+      "isimEn": "As-Sami",
+      "arapca": "السَّمِيع",
+      "kok": "س م ع",
+      "kokArabic": "سمع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Habîr",
+      "isimEn": "Al-Khabir",
+      "arapca": "الْخَبِير",
+      "kok": "خ ب ر",
+      "kokArabic": "خبر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Rezzâk",
+      "isimEn": "Ar-Razzaq",
+      "arapca": "الرَّزَّاق",
+      "kok": "ر ز ق",
+      "kokArabic": "رزق",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kebîr",
+      "isimEn": "Al-Kabir",
+      "arapca": "الْكَبِير",
+      "kok": "ك ب ر",
+      "kokArabic": "كبر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Eş-Şehîd",
+      "isimEn": "Ash-Shahid",
+      "arapca": "الشَّهِيد",
+      "kok": "ش ه د",
+      "kokArabic": "شهد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Ehad",
+      "isimEn": "Al-Ahad",
+      "arapca": "الْأَحَد",
+      "kok": "ا ح د",
+      "kokArabic": "احد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kâdir",
+      "isimEn": "Al-Qadir",
+      "arapca": "الْقَادِر",
+      "kok": "ق د ر",
+      "kokArabic": "قدر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Âhir",
+      "isimEn": "Al-Akhir",
+      "arapca": "الْآخِر",
+      "kok": "ا خ ر",
+      "kokArabic": "اخر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kerîm",
+      "isimEn": "Al-Karim",
+      "arapca": "الْكَرِيم",
+      "kok": "ك ر م",
+      "kokArabic": "كرم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Gaffâr",
+      "isimEn": "Al-Ghaffar",
+      "arapca": "الْغَفَّار",
+      "kok": "غ ف ر",
+      "kokArabic": "غفر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vekîl",
+      "isimEn": "Al-Wakil",
+      "arapca": "الْوَكِيل",
+      "kok": "و ك ل",
+      "kokArabic": "وكل",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Ganî",
+      "isimEn": "Al-Ghani",
+      "arapca": "الْغَنِيّ",
+      "kok": "غ ن ي",
+      "kokArabic": "غني",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muğnî",
+      "isimEn": "Al-Mughni",
+      "arapca": "الْمُغْنِي",
+      "kok": "غ ن ي",
+      "kokArabic": "غني",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Berr",
+      "isimEn": "Al-Barr",
+      "arapca": "الْبَرّ",
+      "kok": "ب ر ر",
+      "kokArabic": "برر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Hâlik",
+      "isimEn": "Al-Khaliq",
+      "arapca": "الْخَالِق",
+      "kok": "خ ل ق",
+      "kokArabic": "خلق",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hamîd",
+      "isimEn": "Al-Hamid",
+      "arapca": "الْحَمِيد",
+      "kok": "ح م د",
+      "kokArabic": "حمد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "En-Nâfi'",
+      "isimEn": "An-Nafi",
+      "arapca": "النَّافِع",
+      "kok": "ن ف ع",
+      "kokArabic": "نفع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Halîm",
+      "isimEn": "Al-Halim",
+      "arapca": "الْحَلِيم",
+      "kok": "ح ل م",
+      "kokArabic": "حلم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Câmi'",
+      "isimEn": "Al-Jami",
+      "arapca": "الْجَامِع",
+      "kok": "ج م ع",
+      "kokArabic": "جمع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Es-Selâm",
+      "isimEn": "As-Salam",
+      "arapca": "السَّلَام",
+      "kok": "س ل م",
+      "kokArabic": "سلم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vâsi'",
+      "isimEn": "Al-Wasi",
+      "arapca": "الْوَاسِع",
+      "kok": "و س ع",
+      "kokArabic": "وسع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Et-Tevvâb",
+      "isimEn": "At-Tawwab",
+      "arapca": "التَّوَّاب",
+      "kok": "ت و ب",
+      "kokArabic": "توب",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Eş-Şekûr",
+      "isimEn": "Ash-Shakur",
+      "arapca": "الشَّكُور",
+      "kok": "ش ك ر",
+      "kokArabic": "شكر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "En-Nûr",
+      "isimEn": "An-Nur",
+      "arapca": "النُّور",
+      "kok": "ن و ر",
+      "kokArabic": "نور",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hakem",
+      "isimEn": "Al-Hakam",
+      "arapca": "الْحَكَم",
+      "kok": "ح ك م",
+      "kokArabic": "حكم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hafîz",
+      "isimEn": "Al-Hafiz",
+      "arapca": "الْحَفِيظ",
+      "kok": "ح ف ظ",
+      "kokArabic": "حفظ",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kaviyy",
+      "isimEn": "Al-Qawiyy",
+      "arapca": "الْقَوِيّ",
+      "kok": "ق و ي",
+      "kokArabic": "قوي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vâlî",
+      "isimEn": "Al-Wali",
+      "arapca": "الْوَالِي",
+      "kok": "و ل ي",
+      "kokArabic": "ولي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Raûf",
+      "isimEn": "Ar-Rauf",
+      "arapca": "الرَّؤُوف",
+      "kok": "ر ا ف",
+      "kokArabic": "راف",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Bâsit",
+      "isimEn": "Al-Basit",
+      "arapca": "الْبَاسِط",
+      "kok": "ب س ط",
+      "kokArabic": "بسط",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Aliyy",
+      "isimEn": "Al-Aliyy",
+      "arapca": "الْعَلِيّ",
+      "kok": "ع ل و",
+      "kokArabic": "علو",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "El-Bâis",
+      "isimEn": "Al-Baith",
+      "arapca": "الْبَاعِث",
+      "kok": "ب ع ث",
+      "kokArabic": "بعث",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mümît",
+      "isimEn": "Al-Mumit",
+      "arapca": "الْمُمِيت",
+      "kok": "م و ت",
+      "kokArabic": "موت",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "El-Afüvv",
+      "isimEn": "Al-Afuww",
+      "arapca": "الْعَفُوّ",
+      "kok": "ع ف و",
+      "kokArabic": "عفو",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Ed-Dârr",
+      "isimEn": "Ad-Darr",
+      "arapca": "الضَّارّ",
+      "kok": "ض ر ر",
+      "kokArabic": "ضرر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Kahhâr",
+      "isimEn": "Al-Qahhar",
+      "arapca": "الْقَهَّار",
+      "kok": "ق ه ر",
+      "kokArabic": "قهر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mübdi'",
+      "isimEn": "Al-Mubdi",
+      "arapca": "الْمُبْدِئ",
+      "kok": "ب د ا",
+      "kokArabic": "بدا",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muîd",
+      "isimEn": "Al-Muid",
+      "arapca": "الْمُعِيد",
+      "kok": "ع و د",
+      "kokArabic": "عود",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "El-Hayy",
+      "isimEn": "Al-Hayy",
+      "arapca": "الْحَيّ",
+      "kok": "ح ي ي",
+      "kokArabic": "حيي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Fettâh",
+      "isimEn": "Al-Fattah",
+      "arapca": "الْفَتَّاح",
+      "kok": "ف ت ح",
+      "kokArabic": "فتح",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Latîf",
+      "isimEn": "Al-Latif",
+      "arapca": "اللَّطِيف",
+      "kok": "ل ط ف",
+      "kokArabic": "لطف",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Râfi'",
+      "isimEn": "Ar-Rafi",
+      "arapca": "الرَّافِع",
+      "kok": "ر ف ع",
+      "kokArabic": "رفع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vâhid",
+      "isimEn": "Al-Wahid",
+      "arapca": "الْوَاحِد",
+      "kok": "و ح د",
+      "kokArabic": "وحد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mâni'",
+      "isimEn": "Al-Mani",
+      "arapca": "الْمَانِع",
+      "kok": "م ن ع",
+      "kokArabic": "منع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Bâkî",
+      "isimEn": "Al-Baqi",
+      "arapca": "الْبَاقِي",
+      "kok": "ب ق ي",
+      "kokArabic": "بقي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Adl",
+      "isimEn": "Al-Adl",
+      "arapca": "الْعَدْل",
+      "kok": "ع د ل",
+      "kokArabic": "عدل",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Rakîb",
+      "isimEn": "Ar-Raqib",
+      "arapca": "الرَّقِيب",
+      "kok": "ر ق ب",
+      "kokArabic": "رقب",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vâris",
+      "isimEn": "Al-Warith",
+      "arapca": "الْوَارِث",
+      "kok": "و ر ث",
+      "kokArabic": "ورث",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hasîb",
+      "isimEn": "Al-Hasib",
+      "arapca": "الْحَسِيب",
+      "kok": "ح س ب",
+      "kokArabic": "حسب",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mecîd",
+      "isimEn": "Al-Majid",
+      "arapca": "الْمَجِيد",
+      "kok": "م ج د",
+      "kokArabic": "مجد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mü'min",
+      "isimEn": "Al-Mumin",
+      "arapca": "الْمُؤْمِن",
+      "kok": "ا م ن",
+      "kokArabic": "امن",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vehhâb",
+      "isimEn": "Al-Wahhab",
+      "arapca": "الْوَهَّاب",
+      "kok": "و ه ب",
+      "kokArabic": "وهب",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vedûd",
+      "isimEn": "Al-Wadud",
+      "arapca": "الْوَدُود",
+      "kok": "و د د",
+      "kokArabic": "ودد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Metîn",
+      "isimEn": "Al-Matin",
+      "arapca": "الْمَتِين",
+      "kok": "م ت ن",
+      "kokArabic": "متن",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muhyî",
+      "isimEn": "Al-Muhyi",
+      "arapca": "الْمُحْيِي",
+      "kok": "ح ي ي",
+      "kokArabic": "حيي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kayyûm",
+      "isimEn": "Al-Qayyum",
+      "arapca": "الْقَيُّوم",
+      "kok": "ق و م",
+      "kokArabic": "قوم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muktedir",
+      "isimEn": "Al-Muqtadir",
+      "arapca": "الْمُقْتَدِر",
+      "kok": "ق د ر",
+      "kokArabic": "قدر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Müntekim",
+      "isimEn": "Al-Muntaqim",
+      "arapca": "الْمُنْتَقِم",
+      "kok": "ن ق م",
+      "kokArabic": "نقم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muksit",
+      "isimEn": "Al-Muqsit",
+      "arapca": "الْمُقْسِط",
+      "kok": "ق س ط",
+      "kokArabic": "قسط",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Er-Reşîd",
+      "isimEn": "Ar-Rashid",
+      "arapca": "الرَّشِيد",
+      "kok": "ر ش د",
+      "kokArabic": "رشد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kuddûs",
+      "isimEn": "Al-Quddus",
+      "arapca": "الْقُدُّوس",
+      "kok": "ق د س",
+      "kokArabic": "قدس",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muiz",
+      "isimEn": "Al-Muizz",
+      "arapca": "الْمُعِزّ",
+      "kok": "ع ز ز",
+      "kokArabic": "عزز",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Celîl",
+      "isimEn": "Al-Jalil",
+      "arapca": "الْجَلِيل",
+      "kok": "ج ل ل",
+      "kokArabic": "جلل",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muhsî",
+      "isimEn": "Al-Muhsi",
+      "arapca": "الْمُحْصِي",
+      "kok": "ح ص ي",
+      "kokArabic": "حصي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Muahhir",
+      "isimEn": "Al-Muakhkhir",
+      "arapca": "الْمُؤَخِّر",
+      "kok": "ا خ ر",
+      "kokArabic": "اخر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Evvel",
+      "isimEn": "Al-Awwal",
+      "arapca": "الْأَوَّل",
+      "kok": "ا و ل",
+      "kokArabic": "اول",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Zü'l-Celâli ve'l-İkrâm",
+      "isimEn": "Dhu al-Jalali wa al-Ikram",
+      "arapca": "ذُو الْجَلَالِ وَالْإِكْرَام",
+      "kok": "ج ل ل",
+      "kokArabic": "جلل",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Bedî'",
+      "isimEn": "Al-Badi",
+      "arapca": "الْبَدِيع",
+      "kok": "ب د ع",
+      "kokArabic": "بدع",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Müheymin",
+      "isimEn": "Al-Muhaymin",
+      "arapca": "الْمُهَيْمِن",
+      "kok": "ه م ن",
+      "kokArabic": "همن",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Cebbâr",
+      "isimEn": "Al-Jabbar",
+      "arapca": "الْجَبَّار",
+      "kok": "ج ب ر",
+      "kokArabic": "جبر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mütekebbir",
+      "isimEn": "Al-Mutakabbir",
+      "arapca": "الْمُتَكَبِّر",
+      "kok": "ك ب ر",
+      "kokArabic": "كبر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Bâri'",
+      "isimEn": "Al-Bari",
+      "arapca": "الْبَارِئ",
+      "kok": "ب ر ا",
+      "kokArabic": "برا",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Musavvir",
+      "isimEn": "Al-Musawwir",
+      "arapca": "الْمُصَوِّر",
+      "kok": "ص و ر",
+      "kokArabic": "صور",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Kâbid",
+      "isimEn": "Al-Qabid",
+      "arapca": "الْقَابِض",
+      "kok": "ق ب ض",
+      "kokArabic": "قبض",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hâfid",
+      "isimEn": "Al-Khafid",
+      "arapca": "الْخَافِض",
+      "kok": "خ ف ض",
+      "kokArabic": "خفض",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Müzill",
+      "isimEn": "Al-Mudhill",
+      "arapca": "الْمُذِلّ",
+      "kok": "ذ ل ل",
+      "kokArabic": "ذلل",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "El-Mukît",
+      "isimEn": "Al-Muqit",
+      "arapca": "الْمُقِيت",
+      "kok": "ق و ت",
+      "kokArabic": "قوت",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "El-Mucîb",
+      "isimEn": "Al-Mujib",
+      "arapca": "الْمُجِيب",
+      "kok": "ج و ب",
+      "kokArabic": "جوب",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "Es-Samed",
+      "isimEn": "As-Samad",
+      "arapca": "الصَّمَد",
+      "kok": "ص م د",
+      "kokArabic": "صمد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Ez-Zâhir",
+      "isimEn": "Az-Zahir",
+      "arapca": "الظَّاهِر",
+      "kok": "ظ ه ر",
+      "kokArabic": "ظهر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Bâtın",
+      "isimEn": "Al-Batin",
+      "arapca": "الْبَاطِن",
+      "kok": "ب ط ن",
+      "kokArabic": "بطن",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Müteâlî",
+      "isimEn": "Al-Mutaali",
+      "arapca": "الْمُتَعَالِي",
+      "kok": "ع ل و",
+      "kokArabic": "علو",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "illet-donusmesi"
+      ]
+    },
+    {
+      "isim": "Mâlikü'l-Mülk",
+      "isimEn": "Malik al-Mulk",
+      "arapca": "مَالِكُ الْمُلْك",
+      "kok": "م ل ك",
+      "kokArabic": "ملك",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Vâcid",
+      "isimEn": "Al-Wajid",
+      "arapca": "الْوَاجِد",
+      "kok": "و ج د",
+      "kokArabic": "وجد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mâcid",
+      "isimEn": "Al-Majid",
+      "arapca": "الْمَاجِد",
+      "kok": "م ج د",
+      "kokArabic": "مجد",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mukaddim",
+      "isimEn": "Al-Muqaddim",
+      "arapca": "الْمُقَدِّم",
+      "kok": "ق د م",
+      "kokArabic": "قدم",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Es-Sabûr",
+      "isimEn": "As-Sabur",
+      "arapca": "الصَّبُور",
+      "kok": "ص ب ر",
+      "kokArabic": "صبر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Rabbü'l-Âlemîn",
+      "isimEn": "Rabb al-Alamin",
+      "arapca": "رَبُّ الْعَالَمِين",
+      "kok": "ر ب ب",
+      "kokArabic": "ربب",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": [
+        "idgam"
+      ]
+    },
+    {
+      "isim": "En-Nasîr",
+      "isimEn": "An-Nasir",
+      "arapca": "النَّصِير",
+      "kok": "ن ص ر",
+      "kokArabic": "نصر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Hallâk",
+      "isimEn": "Al-Khallaq",
+      "arapca": "الْخَلَّاق",
+      "kok": "خ ل ق",
+      "kokArabic": "خلق",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Şedîdü'l-İkâb",
+      "isimEn": "Shadid al-Iqab",
+      "arapca": "شَدِيدُ الْعِقَاب",
+      "kok": "ع ق ب",
+      "kokArabic": "عقب",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Mevlâ",
+      "isimEn": "Al-Mawla",
+      "arapca": "الْمَوْلَىٰ",
+      "kok": "و ل ي",
+      "kokArabic": "ولي",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "El-Fâtır",
+      "isimEn": "Al-Fatir",
+      "arapca": "فَاطِر",
+      "kok": "ف ط ر",
+      "kokArabic": "فطر",
+      "terkip": false,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Zü'l-Fadli'l-Azîm",
+      "isimEn": "Dhu al-Fadl al-Azim",
+      "arapca": "ذُو الْفَضْلِ الْعَظِيم",
+      "kok": "ف ض ل",
+      "kokArabic": "فضل",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Hayru'r-Râzıkîn",
+      "isimEn": "Khayr ar-Raziqin",
+      "arapca": "خَيْرُ الرَّازِقِين",
+      "kok": "ر ز ق",
+      "kokArabic": "رزق",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Erhamü'r-Râhimîn",
+      "isimEn": "Arham ar-Rahimin",
+      "arapca": "أَرْحَمُ الرَّاحِمِين",
+      "kok": "ر ح م",
+      "kokArabic": "رحم",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Hayru'l-Hâkimîn",
+      "isimEn": "Khayr al-Hakimin",
+      "arapca": "خَيْرُ الْحَاكِمِين",
+      "kok": "ح ك م",
+      "kokArabic": "حكم",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Ahkemü'l-Hâkimîn",
+      "isimEn": "Ahkam al-Hakimin",
+      "arapca": "أَحْكَمُ الْحَاكِمِين",
+      "kok": "ح ك م",
+      "kokArabic": "حكم",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Zü'r-Rahme",
+      "isimEn": "Dhu ar-Rahmah",
+      "arapca": "ذُو الرَّحْمَة",
+      "kok": "ر ح م",
+      "kokArabic": "رحم",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Bedîu's-Semâvât",
+      "isimEn": "Badi as-Samawati wa'l-Ard",
+      "arapca": "بَدِيعُ السَّمَاوَات",
+      "kok": "ب د ع",
+      "kokArabic": "بدع",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    },
+    {
+      "isim": "Hayru'l-Gâfirîn",
+      "isimEn": "Khayr al-Ghafirin",
+      "arapca": "خَيْرُ الْغَافِرِين",
+      "kok": "غ ف ر",
+      "kokArabic": "غفر",
+      "terkip": true,
+      "dogrulandi": true,
+      "sarfIzni": null
+    }
+  ]
+}

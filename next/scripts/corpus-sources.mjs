@@ -511,6 +511,42 @@ export const CONTENT_SOURCES = [
     }),
   },
 
+  // ─── Esma-i Hüsna — şerh geleneğinden kaynaklı tanımlar
+  {
+    type: 'atlas-esma-tanim',
+    file: 'public/esma-tanimlar.json',
+    extract: (data) => Object.entries(data.tanimlar || {}).map(([isim, v]) => ({ isim, ...v })),
+    buildItem: (item) => ({
+      id: `atlas-esma-tanim:${item.isim}`,
+      type: 'atlas-esma-tanim',
+      subId: item.isim,
+      titleTr: `${item.isim} — şerh geleneğinde`,
+      titleEn: `${item.isim} — in the commentary tradition`,
+      descTr: (item.tr?.tanim || '').slice(0, 200),
+      descEn: (item.en?.tanim || '').slice(0, 200),
+      searchTextTr: `${item.isim} ne demektir? ${item.tr?.tanim || ''} ${item.tr?.not || ''} Kaynak: TDV İslâm Ansiklopedisi, esmâ-i hüsnâ maddeleri; klasik şerh geleneği (Zeccâc, Hattâbî, Beyhakî, Kuşeyrî, Gazzâlî, İbnü'l-Arabî, Râzî, Kurtubî).`.slice(0, 5000),
+      searchTextEn: `What does ${item.isim} mean? ${item.en?.tanim || ''} ${item.en?.not || ''} Source: the classical commentary tradition on the beautiful names.`.slice(0, 5000),
+    }),
+  },
+
+  // ─── Esma-i Hüsna — Otuzuncu Lem'a'nın altı ismi
+  {
+    type: 'atlas-esma-nursi',
+    file: 'public/esma-tanimlar.json',
+    extract: (data) => data.nursi?.isimler || [],
+    buildItem: (item) => ({
+      id: `atlas-esma-nursi:${item.isim}`,
+      type: 'atlas-esma-nursi',
+      subId: item.isim,
+      titleTr: `${item.isim} — Otuzuncu Lem'a, ${item.nukte}. Nükte`,
+      titleEn: `${item.isim} — The Thirtieth Flash, section ${item.nukte}`,
+      descTr: (item.tr || '').slice(0, 200),
+      descEn: (item.en || '').slice(0, 200),
+      searchTextTr: `Bediüzzaman Said Nursi ${item.isim} ismini nasıl açıklar? Otuzuncu Lem'a'nın ${item.nukte}. nüktesi: ${item.tr || ''}`.slice(0, 5000),
+      searchTextEn: `How does Bediüzzaman Said Nursi read the name ${item.isim}? Section ${item.nukte} of the Thirtieth Flash: ${item.en || ''}`.slice(0, 5000),
+    }),
+  },
+
   // ─── Kur'ani Dualar — 77 dua
   {
     type: 'atlas-dua',

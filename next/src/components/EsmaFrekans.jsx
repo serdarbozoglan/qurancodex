@@ -8,6 +8,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { COLORS, FONTS, GLASS_CARD, RADIUS, TEXT, TRANSITION } from '../tokens';
 import { buildFallbackUrls } from '../hooks/useAudioWithFallback';
 import SourcesCitation from './SourcesCitation';
+import KOK_HARITASI from '../../public/esma-kok-haritasi.json';
+import TANIM_VERISI from '../../public/esma-tanimlar.json';
+import EsmaTanimlari from './EsmaTanimlari';
 
 // ── Sabit veriler ────────────────────────────────────────────────────────────
 
@@ -156,6 +159,8 @@ export default function EsmaFrekans({ onClose }) {
       <SurahNameHeatmap tr={tr} heatmapData={heatmapData} />
 
       {/* ═══ SECTION 9: 114 İSİM ATLASI ═══ */}
+      <EsmaTanimlari tr={tr} />
+
       <NamesAtlas data={data} tr={tr} />
 
       {/* ═══ SECTION 10: KAPANIŞ + İLGİLİ ARAÇLAR ═══ */}
@@ -2658,6 +2663,15 @@ function SurahNameHeatmap({ tr, heatmapData }) {
 // ═════════════════════════════════════════════════════════════════════════════
 
 // 9 isim için kök DNA (Doküman 5)
+// scripts/build-esma-kokler.mjs ciktisi — 113 isim, her kok yazima karsi
+// dogrulanmis. KOK_ANALIZ'deki zengin kayitlarin YERINE gecmez, eksigini
+// tamamlar (bkz. NameDetail).
+const KOK_INDEX = Object.fromEntries(KOK_HARITASI.isimler.map((k) => [k.isim, k]));
+const TANIM_INDEX = TANIM_VERISI.tanimlar;
+const TERKIP_INDEX = TANIM_VERISI.terkipler;
+const KAYNAKSIZ = new Set(TANIM_VERISI.kaynaksiz);
+const NURSI_INDEX = Object.fromEntries(TANIM_VERISI.nursi.isimler.map((n) => [n.isim, n]));
+
 const KOK_ANALIZ = {
   'Er-Rahmân':  { kok: 'ر ح م', anlamTr: 'Rahmet · şefkat · koruyuculuk', anlamEn: 'mercy · compassion · protection', notTr: '"Rahim" (anne rahmi) ile aynı köktendir.', notEn: "Same root as \"raḥim\" (mother's womb)." },
   'Er-Rahîm':   { kok: 'ر ح م', anlamTr: 'Rahmet · şefkat · koruyuculuk', anlamEn: 'mercy · compassion · protection', notTr: '"Rahim" (anne rahmi) ile aynı köktendir.', notEn: "Same root as \"raḥim\" (mother's womb)." },
@@ -2741,10 +2755,15 @@ function NamesAtlas({ data, tr }) {
     else if (filter !== 'all') rows = rows.filter(n => n.kategori === filter);
     const q = search.trim().toLowerCase();
     if (q) {
+      // Arama her iki dilin alanlarına birden bakar: aksi hâlde İngilizce
+      // okuyan "Samad" veya "mercy" yazdığında hiçbir sonuç alamıyordu.
       rows = rows.filter(n =>
         (n.isim || '').toLowerCase().includes(q) ||
         (n.okunus || '').toLowerCase().includes(q) ||
         (n.anlam || '').toLowerCase().includes(q) ||
+        (n.isim_en || '').toLowerCase().includes(q) ||
+        (n.okunus_en || '').toLowerCase().includes(q) ||
+        (n.anlam_en || '').toLowerCase().includes(q) ||
         (n.arapca || '').includes(q)
       );
     }
@@ -3214,7 +3233,26 @@ function normalizeArabicForCard(str) {
 
 function NameDetail({ item, tr, isAllah }) {
   const [showAllAyets, setShowAllAyets] = useState(false);
-  const kok = KOK_ANALIZ[item.isim];
+  // 5 Eylül 2026 — kök kapsamı 9'dan 113'e çıktı.
+  // KOK_ANALIZ elle yazılmış ZENGİN kayıtları tutuyor (kök + anlam alanı +
+  // etimolojik not) ama yalnız 9 isim içindi; 114 ismin 105'inde kök hiç
+  // görünmüyordu. scripts/build-esma-kokler.mjs 113 ismin kökünü üretir ve
+  // her birini MEKANİK olarak doğrular: kökün harfleri ismin Arapça
+  // yazımında sırayla aranır, bulunmazsa build durur (13 isim idgam/i'lâl
+  // istisnasına dayanıyor ve bu ayrıca işaretlenir).
+  // Zengin kayıt varsa o kullanılır — yeni harita onun yerine geçmez,
+  // boşluğunu doldurur.
+  const kokDogrulanmis = KOK_INDEX[item.isim];
+  const kok = KOK_ANALIZ[item.isim]
+    || (kokDogrulanmis?.kok ? { kok: kokDogrulanmis.kok, sadeceKok: true, terkip: kokDogrulanmis.terkip, sarfIzni: kokDogrulanmis.sarfIzni } : null);
+
+  // Şerh geleneğinden gelen tanım — 114 ismin bir kısmında var. Bulunmayan
+  // isimde uydurulmaz, satır hiç basılmaz.
+  const tanim = TANIM_INDEX[item.isim];
+  const tanimDil = tanim && (tr ? tanim.tr : tanim.en);
+  const terkip = TERKIP_INDEX[item.isim];
+  const kaynaksiz = KAYNAKSIZ.has(item.isim);
+  const nursi = NURSI_INDEX[item.isim];
 
   const ayetler = item.yuksek_frekansli
     ? (showAllAyets ? item.tum_ayetler : item.ornek_ayetler)
@@ -3260,6 +3298,71 @@ function NameDetail({ item, tr, isAllah }) {
         </p>
       )}
 
+      {terkip && (
+        <div style={{
+          background: COLORS.goldAlpha04,
+          border: `1px solid ${COLORS.goldAlpha15}`,
+          borderRadius: RADIUS.md,
+          padding: '14px 18px',
+          margin: '0 0 14px',
+        }}>
+          <div style={{ ...sectionLabel, marginBottom: '8px', fontSize: '0.62rem' }}>
+            {tr ? 'Terkip · Bileşen İsimlerden' : 'A Compound · From Its Parts'}
+          </div>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.68, margin: 0 }}>
+            {tr ? terkip.tr : terkip.en}
+          </p>
+          {terkip.dayanak && (
+            <p style={{ ...sectionLabel, margin: '10px 0 0', fontSize: '0.58rem', opacity: 0.75 }}>
+              {tr ? `Dayanak: ${terkip.dayanak}` : `Head name: ${terkip.dayanak}`}
+            </p>
+          )}
+        </div>
+      )}
+
+      {kaynaksiz && (
+        <p style={{
+          color: COLORS.silver,
+          fontSize: '0.82rem',
+          lineHeight: 1.6,
+          margin: '0 0 14px',
+          textAlign: 'center',
+          fontStyle: 'italic',
+        }}>
+          {tr
+            ? 'Bu isim için başvurduğumuz ansiklopedide müstakil bir madde bulunamadı; tanım yerine yalnız kökü ve âyet geçişleri veriliyor.'
+            : 'The encyclopaedia we consulted carries no standalone entry for this name; in place of a definition, only its root and verse occurrences are given.'}
+        </p>
+      )}
+
+      {tanimDil && (
+        <div style={{
+          background: COLORS.goldAlpha04,
+          border: `1px solid ${COLORS.goldAlpha15}`,
+          borderRadius: RADIUS.md,
+          padding: '14px 18px',
+          margin: '0 0 14px',
+        }}>
+          <div style={{ ...sectionLabel, marginBottom: '8px', fontSize: '0.62rem' }}>
+            {tr ? 'Şerh Geleneğinde' : 'In the Commentary Tradition'}
+          </div>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.9rem', lineHeight: 1.68, margin: 0 }}>
+            {tanimDil.tanim}
+          </p>
+          {tanimDil.not && (
+            <p style={{ color: COLORS.silver, fontSize: '0.82rem', lineHeight: 1.65, margin: '10px 0 0' }}>
+              {tanimDil.not}
+            </p>
+          )}
+          <p style={{
+            ...sectionLabel,
+            margin: '10px 0 0',
+            fontSize: '0.58rem',
+            opacity: 0.75,
+          }}>{TANIM_VERISI.kaynak.tanimlar}</p>
+        </div>
+      )}
+
       {kok && (
         <div style={{
           background: 'rgba(255,255,255,0.04)',
@@ -3272,14 +3375,57 @@ function NameDetail({ item, tr, isAllah }) {
           <p style={{ color: COLORS.gold, fontFamily: FONTS.quran, fontSize: '1.4rem', margin: '0 0 6px', textAlign: 'center', letterSpacing: '0.4em' }}>
             {kok.kok}
           </p>
-          <p style={{ color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.6, margin: 0, textAlign: 'center' }}>
-            {tr ? kok.anlamTr : kok.anlamEn}
-          </p>
-          {(tr ? kok.notTr : kok.notEn) && (
+          {/* Zengin kayıtlarda kökün anlam alanı ve etimolojik not var; yeni
+              haritadan gelenlerde yalnız kökün kendisi var (`sadeceKok`).
+              Olmayan alan UYDURULMAZ — o satır hiç basılmaz. */}
+          {!kok.sadeceKok && (
+            <p style={{ color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.6, margin: 0, textAlign: 'center' }}>
+              {tr ? kok.anlamTr : kok.anlamEn}
+            </p>
+          )}
+          {!kok.sadeceKok && (tr ? kok.notTr : kok.notEn) && (
             <p style={{ color: COLORS.silver, fontSize: '0.78rem', lineHeight: 1.6, margin: '8px 0 0', textAlign: 'center', fontStyle: 'italic' }}>
               {tr ? kok.notTr : kok.notEn}
             </p>
           )}
+          {kok.terkip && (
+            <p style={{ color: COLORS.silver, fontSize: '0.76rem', lineHeight: 1.6, margin: '8px 0 0', textAlign: 'center' }}>
+              {tr
+                ? 'Terkip hâlinde bir isim — kök, belirleyici kelimesine aittir.'
+                : 'A compound name — the root belongs to its head word.'}
+            </p>
+          )}
+          {kok.sarfIzni && (
+            <p style={{ color: COLORS.silver, fontSize: '0.74rem', lineHeight: 1.6, margin: '8px 0 0', textAlign: 'center', opacity: 0.85 }}>
+              {tr
+                ? (kok.sarfIzni.includes('idgam')
+                    ? 'Kökün çift harfi yazımda şedde ile tek görünür (idgam).'
+                    : 'Kökün illetli harfi yazımda dönüşmüştür (i‘lâl).')
+                : (kok.sarfIzni.includes('idgam')
+                    ? 'The doubled radical appears once, written with shadda (idghām).'
+                    : 'The weak radical has shifted in the spelling (iʿlāl).')}
+            </p>
+          )}
+        </div>
+      )}
+
+      {nursi && (
+        <div style={{
+          background: COLORS.glassBgFaint,
+          border: `1px solid ${COLORS.glassBorderSoft}`,
+          borderRadius: RADIUS.md,
+          padding: '14px 18px',
+          margin: '0 0 20px',
+        }}>
+          <div style={{ ...sectionLabel, marginBottom: '8px', fontSize: '0.62rem' }}>
+            {tr ? `Otuzuncu Lem’a · ${nursi.nukte}. Nükte` : `The Thirtieth Flash · Section ${nursi.nukte}`}
+          </div>
+          <p style={{ color: COLORS.offWhite, fontSize: '0.88rem', lineHeight: 1.68, margin: 0 }}>
+            {tr ? nursi.tr : nursi.en}
+          </p>
+          <p style={{ ...sectionLabel, margin: '10px 0 0', fontSize: '0.58rem', opacity: 0.75 }}>
+            {tr ? 'Bediüzzaman Said Nursi' : 'Bediüzzaman Said Nursi'}
+          </p>
         </div>
       )}
 
