@@ -146,6 +146,7 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **KuranRenkleri.jsx** ✅ (2026-09-06: 170 dize) (164 tire), **ZamanBoyutlari.jsx** (21 "değil"), **EsmaFrekans.jsx** (15 "değil", 5 satış: "sarsılmaz kudret", "yegane sığınak"), **KuranYeminleri.jsx** ("Modern astronomi açısından da dikkat çekici"), **HumanDefinition.jsx** (23 "değil" / 53 tire), **QuranDua.jsx** (6 kicker üçlüsü), **KiraatAtlasi.jsx**, **Melekler.jsx** ("Benzersiz Melek Sıfatları"), **CennetCehennem.jsx** ("tek isimle değil … Her isim, öteki alemin ayrı bir yüzünü aydınlatır").
 - [x] **KuranYeminleri.jsx, KavimlerAtlasi.jsx, QuranDua.jsx** ✅ (2026-09-06: 64 + 67 + 82 dize; âyet alıntıları hariç)
 - [x] **EsmaFrekans.jsx, KiyametSahneleri.jsx, ZamanBoyutlari.jsx, IlkSonKelimeler.jsx** ✅ (2026-09-06: 68 + 74 + 72 + 52 dize)
+- [x] **Melekler.jsx, LinguisticDNA.jsx, RingExtensions.jsx, HiddenArchitecture.jsx, CennetCehennem.jsx** ✅ (2026-09-06: 52 + 62 + 60 + 51 + 45 dize)
 - [ ] **EsmaTanimlari.jsx** EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
 - [ ] **TefsirIhtilaflari.jsx**: "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [ ] **KorumaZinciri.jsx**: "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").

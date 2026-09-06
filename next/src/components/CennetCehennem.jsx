@@ -442,9 +442,9 @@ export default function CennetCehennem({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/arac/kiyamet`,        titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Judgment',  descTr: 'Cennet/Cehennem öncesi: sûr, haşr, mîzân — sahneler dizisi.',                 descEn: 'Before paradise/hell: trumpet, gathering, scale — the sequence of scenes.' },
-              { href: `/${language}/arac/iblis-seytan`,   titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Cehennemin "ilk müşterisi" — kibrin başlangıcı, 7 sûrede aynı sahne.',         descEn: 'Hell\'s "first inhabitant" — the origin of pride, the same scene in 7 surahs.' },
-              { href: `/${language}/arac/melekler`,       titleTr: 'Melekler',          titleEn: 'Angels',              descTr: 'Cennet/Cehennem bekçileri (Rıdvan, Mâlik, Hâzin) — kabir sorgusu (Münker-Nekir).', descEn: 'Guardians of paradise/hell (Riḍwān, Mālik, Khāzin) — grave inquiry (Munkar-Nakīr).' },
+              { href: `/${language}/arac/kiyamet`,        titleTr: 'Kıyâmet Sahneleri', titleEn: 'Scenes of Judgment',  descTr: 'Cennet ve cehennem öncesi: sûr, haşr, mîzân; sahneler dizisi.',                 descEn: 'Before paradise and hell: trumpet, gathering, scale; the sequence of scenes.' },
+              { href: `/${language}/arac/iblis-seytan`,   titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Cehennemin "ilk müşterisi": kibrin başlangıcı, 7 sûrede aynı sahne.',         descEn: 'Hell\'s "first inhabitant": the origin of pride, the same scene in 7 surahs.' },
+              { href: `/${language}/arac/melekler`,       titleTr: 'Melekler',          titleEn: 'Angels',              descTr: 'Cennet/Cehennem bekçileri (Rıdvan, Mâlik, Hâzin); kabir sorgusu (Münker-Nekir).', descEn: 'Guardians of paradise/hell (Riḍwān, Mālik, Khāzin); grave inquiry (Munkar-Nakīr).' },
             ]}
           />
 
@@ -466,8 +466,8 @@ function TabIsimler({ data, language, isMobile }) {
       <div style={{ marginBottom: '28px' }}>
         <p style={{ fontSize: '0.98rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '680px' }}>
           {tr
-            ? "Kur'an cenneti de cehennemi de tek isimle değil, her biri farklı bir anlam boyutu taşıyan birden fazla isimle anlatır. Her isim, öteki alemin ayrı bir yüzünü aydınlatır."
-            : "The Quran describes both Paradise and Hell not with a single name, but with multiple names — each carrying a distinct dimension of meaning. Every name illuminates a different facet of the afterlife."}
+            ? "Kur'an cenneti de cehennemi de birden fazla isimle anlatır; her isim farklı bir anlam boyutu taşır. Her isim, öteki alemin ayrı bir yüzünü aydınlatır."
+            : "The Quran describes both Paradise and Hell with multiple names, each carrying a distinct dimension of meaning. Every name illuminates a different facet of the afterlife."}
         </p>
       </div>
 
@@ -809,28 +809,28 @@ function TabCennet({ data, language, isMobile }) {
         {[
           {
             nameAr: 'السَّابِقُونَ',
-            nameTr: "Sâbikûn — Öne Geçenler",
-            nameEn: "Al-Sabiqun — The Foremost",
-            descTr: "Öne geçenler — işte onlar mukarreblerdir. En yüksek cennet tabakası.",
-            descEn: "The foremost — they are the ones brought near. The highest tier of Paradise.",
+            nameTr: "Sâbikûn: Öne Geçenler",
+            nameEn: "Al-Sabiqun: The Foremost",
+            descTr: "Öne geçenler; işte onlar mukarreblerdir. En yüksek cennet tabakası.",
+            descEn: "The foremost; they are the ones brought near. The highest tier of Paradise.",
             kaynak: "Vâkıa 56:10-11",
             color: CENNET.accent, bg: CENNET.bg, border: CENNET.border
           },
           {
             nameAr: 'أَصْحَابُ الْيَمِينِ',
-            nameTr: "Ashâbu'l-Yemîn — Sağ Taraftakiler",
-            nameEn: "Ashab al-Yamin — Companions of the Right",
-            descTr: "Sağ taraftakiler — ne mutlu sağ taraftakilere! Cennet ehli.",
-            descEn: "Companions of the Right — how blessed are the Companions of the Right! The people of Paradise.",
+            nameTr: "Ashâbu'l-Yemîn: Sağ Taraftakiler",
+            nameEn: "Ashab al-Yamin: Companions of the Right",
+            descTr: "Sağ taraftakiler; ne mutlu sağ taraftakilere! Cennet ehli.",
+            descEn: "Companions of the Right; how blessed are the Companions of the Right! The people of Paradise.",
             kaynak: "Vâkıa 56:27",
             color: CENNET.accent, bg: CENNET.bg, border: CENNET.border
           },
           {
             nameAr: 'أَصْحَابُ الشِّمَالِ',
-            nameTr: "Ashâbu'ş-Şimâl — Sol Taraftakiler",
-            nameEn: "Ashab al-Shimal — Companions of the Left",
-            descTr: "Sol taraftakiler — ne kötü sol taraftakiler! Cehennem ehli.",
-            descEn: "Companions of the Left — how wretched are the Companions of the Left! The people of Hell.",
+            nameTr: "Ashâbu'ş-Şimâl: Sol Taraftakiler",
+            nameEn: "Ashab al-Shimal: Companions of the Left",
+            descTr: "Sol taraftakiler; ne kötü sol taraftakiler! Cehennem ehli.",
+            descEn: "Companions of the Left; how wretched are the Companions of the Left! The people of Hell.",
             kaynak: "Vâkıa 56:41",
             color: CEHENNEM.accent, bg: CEHENNEM.bg, border: CEHENNEM.border
           },
@@ -845,8 +845,8 @@ function TabCennet({ data, language, isMobile }) {
       </div>
       <p style={{ fontSize: '0.78rem', color: SEMANTIC.textFaint, marginTop: '10px', lineHeight: 1.6, fontStyle: 'italic' }}>
         {language === 'tr'
-          ? "Vâkıa sûresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir — her biri farklı nimetlerle."
-          : "Surah Al-Waqi'a divides humanity into these three groups. The first two groups are rewarded with detailed descriptions of Paradise — each with distinct blessings."}
+          ? "Vâkıa sûresi insanlığı bu üç gruba ayırır. İlk iki grup detaylı cennet tasvirleriyle ödüllendirilir; her biri farklı nimetlerle."
+          : "Surah Al-Waqi'a divides humanity into these three groups. The first two groups are rewarded with detailed descriptions of Paradise; each with distinct blessings."}
       </p>
     </div>
   );
@@ -1094,7 +1094,7 @@ function TabAraf({ data, language, isMobile }) {
               {tr ? "1. Hasan-i Basrî · İbn Abbâs" : "1. al-Ḥasan al-Baṣrī · Ibn ʿAbbās"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
-              {tr ? "İyilikleri ile kötülükleri eşit gelen, ne cennete ne cehenneme girebilen mukrik kişiler. Allah'ın hükmüne bırakılırlar (Tabarî 12:418-419)." : "Those whose good and evil deeds balance exactly — neither admitted to paradise nor cast into hell. Their case is reserved for divine judgment (al-Ṭabarī 12:418-419)."}
+              {tr ? "İyilikleri ile kötülükleri eşit gelen, ne cennete ne cehenneme girebilen mukrik kişiler. Allah'ın hükmüne bırakılırlar (Tabarî 12:418-419)." : "Those whose good and evil deeds balance exactly; neither admitted to paradise nor cast into hell. Their case is reserved for divine judgment (al-Ṭabarī 12:418-419)."}
             </p>
           </div>
           <div>
@@ -1102,7 +1102,7 @@ function TabAraf({ data, language, isMobile }) {
               {tr ? "2. Mücâhid · Suddî" : "2. Mujāhid · al-Suddī"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
-              {tr ? "Peygamberler ve şehidlerdir; Cennet ile Cehennem arasındaki yüksek mevkide oturup iki tarafa da bakarlar — sınır gözcüleri." : "Prophets and martyrs — stationed on the high vantage between paradise and hell, watching both sides — sentinels of the partition."}
+              {tr ? "Peygamberler ve şehidlerdir; Cennet ile Cehennem arasındaki yüksek mevkide oturup iki tarafa da bakarlar; sınır gözcüleri." : "Prophets and martyrs, stationed on the high vantage between paradise and hell, watching both sides; sentinels of the partition."}
             </p>
           </div>
           <div>
@@ -1110,7 +1110,7 @@ function TabAraf({ data, language, isMobile }) {
               {tr ? "3. Râzî · Modern Okuma" : "3. al-Rāzī · Modern Reading"}
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0 }}>
-              {tr ? "Bir ara-evre değil bir hâl: imanın berraklaşması için bekletme; nihai hüküm Allah'ındır. Klasik tefsir bu üç görüşü uzlaştırmaz, üç ayrı pencere bırakır." : "Not an intermediate place but a state: a pause for faith to clarify; the final ruling belongs to Allah. Classical tafsir does not reconcile the three — it leaves three windows."}
+              {tr ? "Bir ara-evre değil bir hâl: imanın berraklaşması için bekletme; nihai hüküm Allah'ındır. Klasik tefsir bu üç görüşü uzlaştırmaz, üç ayrı pencere bırakır." : "Not an intermediate place but a state: a pause for faith to clarify; the final ruling belongs to Allah. Classical tafsir does not reconcile the three; it leaves three windows."}
             </p>
           </div>
         </div>
@@ -1141,7 +1141,7 @@ function TabAraf({ data, language, isMobile }) {
 
       {/* İlliyyûn vs Siccîn */}
       <SectionTitle color={ARAF.accent}>
-        {tr ? "İlliyyûn & Siccîn — Öteki Alemin Kayıt Sistemi" : "Illiyyun & Sijjin — The Record System of the Hereafter"}
+        {tr ? "İlliyyûn ve Siccîn: Öteki Âlemin Kayıt Sistemi" : "Illiyyun and Sijjin: The Record System of the Hereafter"}
       </SectionTitle>
       <div className="g-1-2" style={{ display: 'grid',  gap: '12px' }}>
         {(araf.illiyyunSiccin || []).map(item => {
@@ -1161,8 +1161,8 @@ function TabAraf({ data, language, isMobile }) {
         })}
       </div>
       <InfoNote text={tr
-        ? "İlliyyûn ve Siccîn — her iki kavramın tam anlamı da müfessirler arasında tartışmalıdır."
-        : "Illiyyun and Sijjin — the precise meaning of both concepts is debated among scholars."
+        ? "İlliyyûn ve Siccîn: her iki kavramın tam anlamı da müfessirler arasında tartışmalıdır."
+        : "Illiyyun and Sijjin: the precise meaning of both concepts is debated among scholars."
       } />
     </div>
   );
@@ -1226,7 +1226,7 @@ function TabRahman({ data, language, isMobile }) {
             {tr ? 'Cennet Tasvirleri' : 'Paradise Descriptions'}
           </p>
           {[
-            { tr: 'İki bahçe — çeşit çeşit meyveler', en: 'Two gardens — fruits of every kind', ref: 'Rahman 55:46-53' },
+            { tr: 'İki bahçe, çeşit çeşit meyveler', en: 'Two gardens, fruits of every kind', ref: 'Rahman 55:46-53' },
             { tr: 'Uzanan gölge, çağlayan su', en: 'Extended shade, flowing water', ref: 'Rahman 55:54' },
             { tr: 'Uzanan kollarla meyve veren ağaçlar', en: 'Fruit trees within reach', ref: 'Rahman 55:54' },
             { tr: 'Yataklara yaslanmış eşler', en: 'Spouses reclining on cushions', ref: 'Rahman 55:54-56' },
@@ -1462,8 +1462,8 @@ function NineCennetLayers({ language, isMobile, names }) {
         fontFamily: FONTS.body,
       }}>
         {tr
-          ? "Firdevs merkez ve zirvedir — 'cennet nehirleri Firdevs'ten doğar' (Buhârî 2790). Aşağıdaki 8 halka farklı bahçe/mekân imgesidir."
-          : "Firdaws is the center and peak — 'the rivers of Paradise spring from al-Firdaws' (Bukhārī 2790). The 8 rings below are different garden/place images."}
+          ? "Firdevs merkez ve zirvedir; 'cennet nehirleri Firdevs'ten doğar' (Buhârî 2790). Aşağıdaki 8 halka farklı bahçe/mekân imgesidir."
+          : "Firdaws is the center and peak; 'the rivers of Paradise spring from al-Firdaws' (Bukhārī 2790). The 8 rings below are different garden/place images."}
       </p>
 
       {/* Rising layers list */}
@@ -1555,8 +1555,8 @@ function SevenCehennemLayers({ language, isMobile, names }) {
         fontFamily: FONTS.body,
       }}>
         {tr
-          ? "Kur'ân cehenneme 7 farklı isim verir — her isim ayrı bir kelime kökü ve azap sahnesi. Kur'ân, cehennemin yedi kapısı olduğunu bildirir (Hicr 15:44). Aşağıdaki inen düzen klasik tefsir (İbn Kesîr, Bidâye) sıralamasına uyar."
-          : "The Qur'ān gives Hell 7 distinct names — each with its own root and scene of torment. The Qur'ān states that Hell has seven gates (al-Ḥijr 15:44). The descending order below follows the classical tafsīr (Ibn Kathīr, Bidāya)."}
+          ? "Kur'ân cehenneme 7 farklı isim verir; her isim ayrı bir kelime kökü ve azap sahnesi taşır. Kur'ân, cehennemin yedi kapısı olduğunu bildirir (Hicr 15:44). Aşağıdaki inen düzen klasik tefsir (İbn Kesîr, Bidâye) sıralamasına uyar."
+          : "The Qur'ān gives Hell 7 distinct names, each with its own root and scene of torment. The Qur'ān states that Hell has seven gates (al-Ḥijr 15:44). The descending order below follows the classical tafsīr (Ibn Kathīr, Bidāya)."}
       </p>
 
       {/* Descending circles */}
@@ -1616,8 +1616,8 @@ function SevenCehennemLayers({ language, isMobile, names }) {
         fontFamily: FONTS.body, maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto',
       }}>
         {tr
-          ? "Sıralamanın kesinliği tartışmalıdır — İbn Kesîr, Kurtubî ve İmam Malik farklı düzenler nakleder. 7 sayısı Kur'ânî, sıralama tefsîrî."
-          : "The exactness of the order is disputed — Ibn Kathīr, Qurṭubī, and Imām Mālik report varying arrangements. The number 7 is Qur'anic; the sequence is exegetical."}
+          ? "Sıralamanın kesinliği tartışmalıdır; İbn Kesîr, Kurtubî ve İmam Malik farklı düzenler nakleder. 7 sayısı Kur'ânî, sıralama tefsîrî."
+          : "The exactness of the order is disputed; Ibn Kathīr, Qurṭubī and Imām Mālik report varying arrangements. The number 7 is Qur'anic; the sequence is exegetical."}
       </p>
     </div>
   );
@@ -1650,8 +1650,8 @@ function Rahman31Viz({ language, isMobile, rs }) {
         fontFamily: FONTS.body,
       }}>
         {tr
-          ? "Rahman 55'te 78 ayetin 31'i tek bir soru: 'Rabbinizin hangi nimetini yalanlayabilirsiniz?' Bar chart bu tekrarların ayet konumlarını gösterir — cennet ve cehennem tasvirleri arasındaki ritmik parantez."
-          : "In Sūrat al-Raḥmān 55, 31 of the 78 verses are a single question: 'Which of your Lord's favors will you deny?' The bar chart shows the verse positions of these repetitions — the rhythmic bracket between descriptions of Paradise and Hell."}
+          ? "Rahman 55'te 78 ayetin 31'i tek bir soru: 'Rabbinizin hangi nimetini yalanlayabilirsiniz?' Çubuk grafik bu tekrarların ayet konumlarını gösterir; cennet ve cehennem tasvirleri arasındaki ritmik parantez."
+          : "In Sūrat al-Raḥmān 55, 31 of the 78 verses are a single question: 'Which of your Lord's favors will you deny?' The bar chart shows the verse positions of these repetitions; the rhythmic bracket between descriptions of Paradise and Hell."}
       </p>
 
       {/* Bar chart — vertical bars for each verse */}
@@ -1664,7 +1664,7 @@ function Rahman31Viz({ language, isMobile, rs }) {
         {Array.from({ length: 78 }, (_, i) => i + 1).map(v => {
           const isRefrain = REFRAINS.includes(v);
           return (
-            <div key={v} title={`Verse ${v}${isRefrain ? ' — Refrain' : ''}`} style={{
+            <div key={v} title={`Verse ${v}${isRefrain ? ' (refrain)' : ''}`} style={{
               flex: 1,
               height: isRefrain ? '100%' : '30%',
               background: isRefrain
@@ -1744,8 +1744,8 @@ function FiveSenseGrid({ language, isMobile }) {
     {
       id: 'taste', labelTr: 'TATMA', labelEn: 'TASTE',
       icon: 'M12 2v4M4 12H0M18 4l-3 3M4 4l3 3M18 12h4M8 21l4-4 4 4',
-      cennetTr: "Bal, süt, şarap, tesnîm — 'içenlere lezzet' (Muhammed 47:15, Mutaffifîn 83:27).",
-      cennetEn: "Honey, milk, wine, tasnīm — 'delicious to those who drink' (Muḥammad 47:15, al-Muṭaffifīn 83:27).",
+      cennetTr: "Bal, süt, şarap, tesnîm: 'içenlere lezzet' (Muhammed 47:15, Mutaffifîn 83:27).",
+      cennetEn: "Honey, milk, wine, tasnīm: 'delicious to those who drink' (Muḥammad 47:15, al-Muṭaffifīn 83:27).",
       cehennemTr: "Kaynar su (hamîm), zakkum ağacının meyvesi, çıra (Vâkıa 56:52-53, Kehf 18:29).",
       cehennemEn: "Scalding water (ḥamīm), fruit of the zaqqūm tree, molten metal (al-Wāqiʿa 56:52-53, al-Kahf 18:29).",
     },
@@ -1788,8 +1788,8 @@ function FiveSenseGrid({ language, isMobile }) {
         fontFamily: FONTS.body,
       }}>
         {tr
-          ? "Kur'ân cennet ve cehennemi felsefi kavramlarla değil — beş duyu üzerinden inşa eder. Her duyu ekseninde tam karşıtlık: misk ↔ zakkum, selâm ↔ uğultu, ipek ↔ zincir."
-          : "The Qur'ān builds Paradise and Hell not through philosophical concepts — but through the five senses. Each sense presents a complete inversion: musk ↔ zaqqūm, salām ↔ roaring, silk ↔ chains."}
+          ? "Kur'ân cennet ve cehennemi felsefî kavramlarla değil, beş duyu üzerinden inşa eder. Her duyu ekseninde tam karşıtlık: misk ↔ zakkum, selâm ↔ uğultu, ipek ↔ zincir."
+          : "The Qur'ān builds Paradise and Hell not through philosophical concepts but through the five senses. Each sense presents a complete inversion: musk ↔ zaqqūm, salām ↔ roaring, silk ↔ chains."}
       </p>
 
       {/* Grid rows */}

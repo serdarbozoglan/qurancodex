@@ -20,28 +20,28 @@ const PAIR_TYPES = [
 // Rahmân 55 ile Vâkıa 56 — aynı 5 unsur, ters sırada.
 // Vâkıa'nın KENDİ sırası (üstten alta) Rahmân'ın sırasının ters çevrilmişidir.
 const RAHMAN_ELEMENTS = [
-  { tr: 'Kur\'an vahyi — "Rahmân, Kur\'an\'ı öğretti" (2)', en: 'The Qur\'an — "The All-Merciful taught the Qur\'an" (2)' },
+  { tr: 'Kur\'an vahyi: "Rahmân, Kur\'an\'ı öğretti" (2)', en: 'The Qur\'an: "The All-Merciful taught the Qur\'an" (2)' },
   { tr: 'Yaratılışın harikaları (2-25)', en: 'Wonders of creation (2-25)' },
   { tr: 'Hesap ve azap (26-45)', en: 'Judgment and punishment (26-45)' },
   { tr: 'Cennetin alt tabakası (46-61)', en: 'The lower level of Paradise (46-61)' },
   { tr: 'Cennetin üst tabakası (62-78)', en: 'The higher level of Paradise (62-78)' },
 ];
 const WAQIAH_ELEMENTS = [
-  { tr: '"Yaklaştırılanlar" — cennetin üst tabakası (11-26)', en: 'Those "brought near" — the higher level of Paradise (11-26)' },
-  { tr: 'Sağ ashâb — cennetin alt tabakası (27-40)', en: 'The People of the Right Hand — the lower level of Paradise (27-40)' },
-  { tr: 'Sol ashâb — hesap ve azap (41-56)', en: 'The People of the Left Hand — judgment and punishment (41-56)' },
+  { tr: '"Yaklaştırılanlar": cennetin üst tabakası (11-26)', en: 'Those "brought near": the higher level of Paradise (11-26)' },
+  { tr: 'Sağ ashâb: cennetin alt tabakası (27-40)', en: 'The People of the Right Hand: the lower level of Paradise (27-40)' },
+  { tr: 'Sol ashâb: hesap ve azap (41-56)', en: 'The People of the Left Hand: judgment and punishment (41-56)' },
   { tr: 'Yaratılışın harikaları (57-75)', en: 'Wonders of creation (57-75)' },
   { tr: 'Kur\'an vahyi (76-82)', en: 'The Qur\'an (76-82)' },
 ];
 
 // Son 10 sûre (105-114) — Hz. İbrahim'in duasına (2:126-130) kademeli cevap.
 const LAST_TEN = [
-  { ref: 'Fîl 105', tr: '"Güvenli belde" (2:126) duasının cevabı — Kâbe, Fil ordusundan korunur', en: 'Answer to the "secure city" prayer (2:126) — the Kaaba is protected from the Army of the Elephant' },
-  { ref: 'Kureyş 106', tr: 'Rızık duasının cevabı; "onları korkudan emin kıldı (âmenehüm)" — 2:126\'daki "beleden âminen" ile aynı kök', en: 'Answer to the prayer for provision; "He secured them (āmanahum) from fear" — same root as "a secure city" in 2:126' },
+  { ref: 'Fîl 105', tr: '"Güvenli belde" (2:126) duasının cevabı: Kâbe, Fil ordusundan korunur', en: 'Answer to the "secure city" prayer (2:126): the Kaaba is protected from the Army of the Elephant' },
+  { ref: 'Kureyş 106', tr: 'Rızık duasının cevabı; "onları korkudan emin kıldı (âmenehüm)"; 2:126\'daki "beleden âminen" ile aynı kök', en: 'Answer to the prayer for provision; "He secured them (āmanahum) from fear"; same root as "a secure city" in 2:126' },
   { ref: 'Mâûn 107', tr: 'Kureyş liderlerinin cimriliğinin ve ibadetteki gösterişinin kınanması', en: 'Indictment of the Quraysh leaders\' miserliness and ostentatious worship' },
   { ref: 'Kevser–Kâfirûn–Nasr–Tebbet 108-111', tr: 'Peygamber\'in davetinin dört evresi (düşük nokta, dönüş, zafer, inkârcı düşmanın sonu)', en: 'Four stages of the Prophet\'s mission (low point, turning point, triumph, the disbelieving enemy\'s end)' },
-  { ref: 'İhlâs 112', tr: 'Hz. İbrahim\'in soyundan "arındıran" bir peygamber duasının (2:129) karşılığı — tevhidin saf beyanı', en: 'Answer to Abraham\'s prayer for a "purifying" messenger from his descendants (2:129) — the pure declaration of monotheism' },
-  { ref: 'Felak–Nâs 113-114', tr: 'Kapanış dua çifti — Fâtiha\'nın açılış duasını yansıtır', en: 'The closing prayer pair — mirroring the opening prayer of al-Fātiḥa' },
+  { ref: 'İhlâs 112', tr: 'Hz. İbrahim\'in soyundan "arındıran" bir peygamber duasının (2:129) karşılığı: tevhidin saf beyanı', en: 'Answer to Abraham\'s prayer for a "purifying" messenger from his descendants (2:129): the pure declaration of monotheism' },
+  { ref: 'Felak–Nâs 113-114', tr: 'Kapanış dua çifti; Fâtiha\'nın açılış duasını yansıtır', en: 'The closing prayer pair; mirroring the opening prayer of al-Fātiḥa' },
 ];
 
 // ── Ek halka örnekleri (Fâtiha ve Âyetü'l-Kürsî yukarıda HiddenArchitecture'da
@@ -57,7 +57,7 @@ const ADDITIONAL_RINGS = [
       'A · Kurtulan müminler tanıtımı (23:1)',
       'B · Namazda huşû (23:2)',
       'C · Boş sözden yüz çevirmek (23:3)',
-      'D · **Zekâtı yerine getirmek** (23:4) — mihenk',
+      'D · **Zekâtı yerine getirmek** (23:4): mihenk',
       'C\' · İffet ve namus (23:5-7)',
       'B\' · Emanet ve söze bağlılık (23:8)',
       'A\' · Namazlarını koruyanlar / vâris müminler (23:9-11)',
@@ -66,7 +66,7 @@ const ADDITIONAL_RINGS = [
       'A · Introduction of successful believers (23:1)',
       'B · Humility in prayer (23:2)',
       'C · Turning from idle talk (23:3)',
-      'D · **Fulfilling zakat** (23:4) — the pivot',
+      'D · **Fulfilling zakat** (23:4): the pivot',
       'C\' · Guarding chastity (23:5-7)',
       'B\' · Trust and covenant (23:8)',
       'A\' · Guarding prayers / heirs (23:9-11)',
@@ -75,15 +75,15 @@ const ADDITIONAL_RINGS = [
   },
   {
     id: 'bakara',
-    surahTr: 'Bakara Sûresi — Tam Sûre', surahEn: 'Sūrat al-Baqara — Whole Surah',
+    surahTr: 'Bakara Sûresi: Tam Sûre', surahEn: 'Sūrat al-Baqara: Whole Surah',
     titleTr: 'En Uzun Sûrede Halka',
     titleEn: 'A Ring in the Longest Surah',
-    structure: 'Cuypers "Semitic Rhetoric" analizi — 286 ayet',
+    structure: 'Cuypers "Semitic Rhetoric" analizi; 286 ayet',
     outlineTr: [
       'A · İman-küfr ayrımı (2:1-20)',
       'B · İnsanın yaratılışı ve Âdem (2:21-39)',
       'C · İsrailoğulları\'nın ihanetleri (2:40-103)',
-      'D · **Halifelik + Kıble değişimi** (2:104-152) — merkez',
+      'D · **Halifelik + Kıble değişimi** (2:104-152): merkez',
       'C\' · Hükümler: gıda, oruç, hac, kısas (2:153-242)',
       'B\' · Savaş, faiz, hesap günü (2:243-283)',
       'A\' · Kapanış: iman, elçilere iman, dua (2:284-286)',
@@ -92,12 +92,12 @@ const ADDITIONAL_RINGS = [
       'A · Faith-disbelief distinction (2:1-20)',
       'B · Creation of man and Adam (2:21-39)',
       'C · Betrayals of the Children of Israel (2:40-103)',
-      'D · **Vicegerency + qibla change** (2:104-152) — the centre',
+      'D · **Vicegerency + qibla change** (2:104-152): the centre',
       'C\' · Rulings: food, fasting, hajj, retribution (2:153-242)',
       'B\' · War, usury, the day of reckoning (2:243-283)',
       'A\' · Closing: faith, messengers, prayer (2:284-286)',
     ],
-    kaynak: 'Michel Cuypers, The Composition of the Qur\'an: Rhetorical Analysis (Bloomsbury, 2015) — halka kompozisyon metodolojisinin kurucu eseri; Bakara sûresinin yapısal analizini de içerir.',
+    kaynak: 'Michel Cuypers, The Composition of the Qur\'an: Rhetorical Analysis (Bloomsbury, 2015); halka kompozisyon metodolojisinin kurucu eseri, Bakara sûresinin yapısal analizini de içerir.',
   },
   {
     id: 'maide',
@@ -109,7 +109,7 @@ const ADDITIONAL_RINGS = [
       'A · Ahd\'e sadakat çağrısı (5:1)',
       'B · Ehl-i Kitap ile ahid (5:5-19)',
       'C · İsrailoğulları\'nın ahid ihlâlleri (5:20-43)',
-      'D · **Tevrat, İncil, Kur\'ân üçlemesi** (5:44-50) — merkez',
+      'D · **Tevrat, İncil, Kur\'ân üçlemesi** (5:44-50): merkez',
       'C\' · İhânetin sonuçları (5:51-86)',
       'B\' · Ehl-i Kitap ile yeni ahid (5:87-105)',
       'A\' · Şahitlik ve son ahid (5:106-120)',
@@ -118,7 +118,7 @@ const ADDITIONAL_RINGS = [
       'A · Call to faithfulness to covenants (5:1)',
       'B · Covenant with the People of the Book (5:5-19)',
       'C · Israelite breaches of covenant (5:20-43)',
-      'D · **Torah, Gospel, Qur\'an trilogy** (5:44-50) — the centre',
+      'D · **Torah, Gospel, Qur\'an trilogy** (5:44-50): the centre',
       'C\' · Consequences of betrayal (5:51-86)',
       'B\' · New covenant with the People of the Book (5:87-105)',
       'A\' · Witnessing and final covenant (5:106-120)',
@@ -127,7 +127,7 @@ const ADDITIONAL_RINGS = [
   },
   {
     id: 'kasas',
-    surahTr: 'Kasas 28 — Musa Kıssası', surahEn: 'Sūrat al-Qaṣaṣ 28 — Moses Narrative',
+    surahTr: 'Kasas 28: Musa Kıssası', surahEn: 'Sūrat al-Qaṣaṣ 28: Moses Narrative',
     titleTr: 'Hz. Musa\'nın Halka Yapılı Yaşamı',
     titleEn: 'Moses\'s Life in Ring Structure',
     structure: 'A-B-C-D-C\'-B\'-A\' (kıssanın kendi içinde)',
@@ -135,7 +135,7 @@ const ADDITIONAL_RINGS = [
       'A · Firavun\'un zulmü (28:1-6)',
       'B · Hz. Musa\'nın nehre bırakılması ve saraya getirilmesi (28:7-13)',
       'C · Hz. Musa\'nın kaçışı ve Medyen\'e varışı (28:14-28)',
-      'D · **Tûr\'da nübüvvet çağrısı** (28:29-35) — kalp',
+      'D · **Tûr\'da nübüvvet çağrısı** (28:29-35): kalp',
       'C\' · Hz. Musa\'nın Mısır\'a dönüşü (28:36-42)',
       'B\' · Kur\'ân\'ın önceki ümmetlere delili (28:43-56)',
       'A\' · Kavramın sonu: Karun\'un helâki (28:57-88)',
@@ -144,7 +144,7 @@ const ADDITIONAL_RINGS = [
       'A · Pharaoh\'s tyranny (28:1-6)',
       'B · Moses set in the river and brought to the palace (28:7-13)',
       'C · Moses\'s flight and arrival in Midian (28:14-28)',
-      'D · **Prophetic call at Ṭūr** (28:29-35) — the heart',
+      'D · **Prophetic call at Ṭūr** (28:29-35): the heart',
       'C\' · Moses\'s return to Egypt (28:36-42)',
       'B\' · The Qur\'an\'s witness to earlier communities (28:43-56)',
       'A\' · Closing: destruction of Qārūn (28:57-88)',
@@ -153,7 +153,7 @@ const ADDITIONAL_RINGS = [
   },
   {
     id: 'karia',
-    surahTr: 'Kâria 101 — Tam Sûre', surahEn: 'Al-Qāriʿah 101 — Whole Surah',
+    surahTr: 'Kâria 101: Tam Sûre', surahEn: 'Al-Qāriʿah 101: Whole Surah',
     titleTr: 'Kâria\'da Ses ve Kelime Oyunuyla Kurulan Halka',
     titleEn: 'The Ring Built on Sound and Wordplay in Al-Qāriʿah',
     structure: 'A-B-C-C\'-B\'-A\'',
@@ -175,11 +175,11 @@ const ADDITIONAL_RINGS = [
     ],
     noteTr: 'Ayet numaraları bu 11 ayetlik sûrenin standart bölümlemesinden çıkarılmıştır; kitap harf konumlarını (A-B-C-C\'-B\'-A\') verir ama her birine ayet numarası basmaz.',
     noteEn: 'Verse numbers follow the sura\'s standard 11-verse division; the book gives the letter positions (A-B-C-C\'-B\'-A\') but does not print a verse number for each.',
-    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 175-177, Michel Cuypers\'ın \'Semitic Rhetoric\' (2011) çözümlemesinden aktarır — "hâviye" (uçurum) kelimesinin aynı zamanda "çocuğunu kaybetmiş anne" anlamına gelmesiyle, sûrenin başındaki "ümm" (anne/yuva) kelimesi arasında bir ses/anlam bağı kurar.',
+    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 175-177, Michel Cuypers\'ın \'Semitic Rhetoric\' (2011) çözümlemesinden aktarır: "hâviye" (uçurum) kelimesinin aynı zamanda "çocuğunu kaybetmiş anne" anlamına gelmesiyle, sûrenin başındaki "ümm" (anne/yuva) kelimesi arasında bir ses/anlam bağı kurar.',
   },
   {
     id: 'yusuf',
-    surahTr: 'Yûsuf 12 — Tam Sûre', surahEn: 'Yūsuf 12 — Whole Surah',
+    surahTr: 'Yûsuf 12: Tam Sûre', surahEn: 'Yūsuf 12: Whole Surah',
     titleTr: 'Yûsuf Sûresinin İç İçe Halkası',
     titleEn: 'The Nested Ring of Sūrat Yūsuf',
     structure: 'A-B-C-D-E-F-F\'-E\'-D\'-C\'-B\'-A\' (12:1-111)',
@@ -187,12 +187,12 @@ const ADDITIONAL_RINGS = [
       'A · Giriş (1-3)',
       'B · Hz. Yûsuf\'un rüyası (4-7)',
       'C · Kardeşlerin hile ve tuzağı (8-18)',
-      'D · Hz. Yûsuf\'un ilk yükselişi — Mısır\'a satılması (19-22)',
+      'D · Hz. Yûsuf\'un ilk yükselişi: Mısır\'a satılması (19-22)',
       'E · Kadının Hz. Yûsuf\'u baştan çıkarma girişimi (23-34)',
-      'F · **Zindanda: iki arkadaşının rüyasını yorması ve tevhid daveti** (35-42) — merkez',
-      'F\' · **Zindanda: kralın rüyasını yorması** (43-49) — merkez',
-      'E\' · Kadının işinin akıbeti — Hz. Yûsuf\'un temize çıkması (50-53)',
-      'D\' · Hz. Yûsuf\'un kesin yükselişi — Mısır\'ın hazine bakanlığı (54-57)',
+      'F · **Zindanda: iki arkadaşının rüyasını yorması ve tevhid daveti** (35-42): merkez',
+      'F\' · **Zindanda: kralın rüyasını yorması** (43-49): merkez',
+      'E\' · Kadının işinin akıbeti: Hz. Yûsuf\'un temize çıkması (50-53)',
+      'D\' · Hz. Yûsuf\'un kesin yükselişi: Mısır\'ın hazine bakanlığı (54-57)',
       'C\' · Hz. Yûsuf\'un kardeşlerine karşı kendi hilesi (58-98)',
       'B\' · Rüyanın gerçekleşmesi (99-101)',
       'A\' · Kapanış (102-111)',
@@ -201,19 +201,19 @@ const ADDITIONAL_RINGS = [
       'A · Prologue (1-3)',
       'B · Joseph\'s vision (4-7)',
       'C · The brothers\' guile and plot against Joseph (8-18)',
-      'D · Joseph\'s relative promotion — sold into Egypt (19-22)',
+      'D · Joseph\'s relative promotion: sold into Egypt (19-22)',
       'E · The woman\'s attempted seduction of Joseph (23-34)',
-      'F · **In prison: interpreting his two companions\' visions and calling them to monotheism** (35-42) — the centre',
-      'F\' · **In prison: interpreting the king\'s vision** (43-49) — the centre',
-      'E\' · Outcome of the woman\'s affair — Joseph vindicated (50-53)',
-      'D\' · Joseph\'s definitive promotion — treasurer of Egypt (54-57)',
+      'F · **In prison: interpreting his two companions\' visions and calling them to monotheism** (35-42): the centre',
+      'F\' · **In prison: interpreting the king\'s vision** (43-49): the centre',
+      'E\' · Outcome of the woman\'s affair: Joseph vindicated (50-53)',
+      'D\' · Joseph\'s definitive promotion: treasurer of Egypt (54-57)',
       'C\' · Joseph\'s own guile toward his brothers (58-98)',
       'B\' · Fulfilment of the vision (99-101)',
       'A\' · Epilogue (102-111)',
     ],
     noteTr: 'F merkezinin kendisi de (35-42) beş parçalı küçük bir halka taşır: rüyaları yorma vaadi → tevhid daveti → "dağınık rabler mi, tek ve kahhâr Allah mı?" (39, halkanın kalbi) → putperestliğin eleştirisi → rüyaların yorumu.',
     noteEn: 'The F centre (35-42) itself carries a smaller five-part ring: the promise to interpret the dreams → the call to monotheism → "are separate lords better, or God, the One, the Overpowering?" (39, the ring\'s heart) → the critique of idol-worship → the interpretation of the dreams.',
-    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 178-180 — dış halkayı "bir dizi araştırmacı"ya, iç halkanın anahatını ise açıkça Michel Cuypers\'a atfeder (Mustansir Mir, "The Qur\'anic Story of Joseph," Muslim World 76.1 (1986) ile birlikte).',
+    kaynak: 'Nouman Ali Khan & Sharif Randhawa, Divine Speech (Bayyinah Institute, 2016), s. 178-180; dış halkayı "bir dizi araştırmacı"ya, iç halkanın anahatını ise açıkça Michel Cuypers\'a atfeder (Mustansir Mir, "The Qur\'anic Story of Joseph," Muslim World 76.1 (1986) ile birlikte).',
   },
 ];
 
@@ -260,8 +260,8 @@ export default function RingExtensions({ language, isMobile }) {
             color: COLORS.silver, fontSize: '0.95rem',
             lineHeight: 1.7, margin: '0 0 20px', maxWidth: '760px',
           }}>{tr
-            ? "Modern akademik çalışmalar — Cuypers, Farrin ve Divine Speech yazarları Nouman Ali Khan & Sharif Randhawa — Kur'ân'da halka yapısını kısa bir sûreden (Kâria) tam bir kıssaya (Yûsuf) kadar farklı ölçeklerde gösterir."
-            : "Modern academic work — Cuypers, Farrin, and Divine Speech authors Nouman Ali Khan & Sharif Randhawa — traces ring structures at every scale, from a short surah (al-Qari'ah) to an entire narrative (Yusuf)."}
+            ? "Modern akademik çalışmalar (Cuypers, Farrin ve Divine Speech yazarları Nouman Ali Khan ile Sharif Randhawa) Kur'ân'da halka yapısını kısa bir sûreden (Kâria) tam bir kıssaya (Yûsuf) kadar farklı ölçeklerde gösterir."
+            : "Modern academic work (Cuypers, Farrin, and the Divine Speech authors Nouman Ali Khan and Sharif Randhawa) traces ring structures at every scale, from a short surah (al-Qari'ah) to an entire narrative (Yusuf)."}
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '18px' }}>
@@ -371,20 +371,20 @@ export default function RingExtensions({ language, isMobile }) {
             border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md, marginBottom: '20px',
           }}>
             <h4 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: '1.15rem', margin: '0 0 4px', fontWeight: 700 }}>
-              {tr ? "Rahmân 55 ↔ Vâkıa 56 — Ters Çevrilmiş Bir Ayna" : "Ar-Rahmān 55 ↔ Al-Wāqiʿah 56 — A Reversed Mirror"}
+              {tr ? "Rahmân 55 ↔ Vâkıa 56: Ters Çevrilmiş Bir Ayna" : "Ar-Rahmān 55 ↔ Al-Wāqiʿah 56: A Reversed Mirror"}
             </h4>
             <p style={{ color: COLORS.silver, fontSize: '0.78rem', margin: '0 0 18px', opacity: 0.85 }}>
               {tr ? "Aynı 5 unsur, iki sûre arasında tam ters sırada tekrarlanır." : "The same 5 elements recur across the two surahs in exactly reversed order."}
             </p>
             <div className="g-1-2" style={{ display: 'grid', gap: '20px' }}>
               <div>
-                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Rahmân 55 — sıra' : 'Ar-Rahman 55 — order'}</div>
+                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Rahmân 55: sıra' : 'Ar-Rahman 55: order'}</div>
                 <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9 }}>
                   {RAHMAN_ELEMENTS.map((e, i) => <li key={i}>{tr ? e.tr : e.en}</li>)}
                 </ol>
               </div>
               <div>
-                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Vâkıa 56 — sıra (ters)' : 'Al-Waqiah 56 — order (reversed)'}</div>
+                <div style={{ color: COLORS.gold, fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: '10px' }}>{tr ? 'Vâkıa 56: sıra (ters)' : 'Al-Waqiah 56: order (reversed)'}</div>
                 <ol style={{ margin: 0, paddingLeft: '18px', color: COLORS.offWhite, fontSize: '0.85rem', lineHeight: 1.9 }}>
                   {WAQIAH_ELEMENTS.map((e, i) => <li key={i}>{tr ? e.tr : e.en}</li>)}
                 </ol>
@@ -402,7 +402,7 @@ export default function RingExtensions({ language, isMobile }) {
             border: `1px solid ${COLORS.goldAlpha25}`, borderRadius: RADIUS.md,
           }}>
             <h4 style={{ fontFamily: FONTS.display, color: COLORS.gold, fontSize: '1.15rem', margin: '0 0 4px', fontWeight: 700 }}>
-              {tr ? "Son On Sûre — Hz. İbrahim'in Duasına Kademeli Cevap" : "The Last Ten Surahs — A Gradual Answer to Abraham's Prayer"}
+              {tr ? "Son On Sûre: Hz. İbrahim'in Duasına Kademeli Cevap" : "The Last Ten Surahs: A Gradual Answer to Abraham's Prayer"}
             </h4>
             <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.7, margin: '0 0 16px' }}>
               {tr
@@ -436,14 +436,14 @@ export default function RingExtensions({ language, isMobile }) {
             background: `${STATUS.warning}22`, border: `1px solid ${STATUS.warning}55`,
             color: STATUS.warning, fontSize: '0.66rem', fontWeight: 700,
             letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '12px',
-          }}>{tr ? 'Hipotez — kanıtlanmış değil' : 'Hypothesis — not established'}</div>
+          }}>{tr ? 'Hipotez; kanıtlanmış değil' : 'Hypothesis; not established'}</div>
           <h4 style={{ fontFamily: FONTS.display, color: COLORS.offWhite, fontSize: '1.15rem', margin: '0 0 10px', fontWeight: 700 }}>
             {tr ? "Farrin: Tüm Kur'an Tek Bir Halka mı?" : 'Farrin: Is the Entire Qur\'an One Ring?'}
           </h4>
           <p style={{ color: COLORS.silver, fontSize: '0.85rem', lineHeight: 1.75, margin: '0 0 12px' }}>
             {tr
-              ? "Raymond Farrin, sûre-grupları düzeyinde gördüğü simetriyi Kur'an'ın TAMAMINA genişletir: 2-49. sûreler (“Sistem A”) ile 57-112. sûreler (“Sistem A′”) birbirinin aynası olur; merkezde 50-56. sûreler (özellikle 54 ve 55) durur; bütünü Fâtiha (1) ile son iki sûre (113-114) bir dua çifti olarak kuşatır. İddiasını sadece sayılarla değil, eşleşen çiftler arasındaki somut ortak temalarla da destekler — ör. yalnız Mekke'yi isimle anan sûreler (3, 48) veya Yûnus kıssasına ortak atıf (10, 37)."
-              : "Raymond Farrin extends the symmetry he sees at the surah-group level to the ENTIRE Qur'an: surahs 2-49 (“System A”) mirror surahs 57-112 (“System A′”), with surahs 50-56 (especially 54 and 55) at the centre, the whole framed by al-Fātiḥa (1) and the final two surahs (113-114) as a bounding prayer pair. He supports this with concrete shared themes between matched groups, not numbers alone — e.g. the only surahs naming Mecca outright (3, 48), or a shared reference to the story of Jonah (10, 37)."}
+              ? "Raymond Farrin, sûre-grupları düzeyinde gördüğü simetriyi Kur'an'ın TAMAMINA genişletir: 2-49. sûreler (“Sistem A”) ile 57-112. sûreler (“Sistem A′”) birbirinin aynası olur; merkezde 50-56. sûreler (özellikle 54 ve 55) durur; bütünü Fâtiha (1) ile son iki sûre (113-114) bir dua çifti olarak kuşatır. İddiasını sadece sayılarla değil, eşleşen çiftler arasındaki somut ortak temalarla da destekler; örneğin yalnız Mekke'yi isimle anan sûreler (3, 48) veya Yûnus kıssasına ortak atıf (10, 37)."
+              : "Raymond Farrin extends the symmetry he sees at the surah-group level to the ENTIRE Qur'an: surahs 2-49 (“System A”) mirror surahs 57-112 (“System A′”), with surahs 50-56 (especially 54 and 55) at the centre, the whole framed by al-Fātiḥa (1) and the final two surahs (113-114) as a bounding prayer pair. He supports this with concrete shared themes between matched groups, not numbers alone; for example, the only surahs naming Mecca outright (3, 48), or a shared reference to the story of Jonah (10, 37)."}
           </p>
           <p style={{ color: COLORS.offWhite, opacity: 0.9, fontSize: '0.84rem', lineHeight: 1.75, margin: '0 0 12px', fontStyle: 'italic' }}>
             {tr
