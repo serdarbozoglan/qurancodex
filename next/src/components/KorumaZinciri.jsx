@@ -123,8 +123,8 @@ export default function KorumaZinciri({ onClose }) {
           lineHeight: 1.7, maxWidth: '760px', margin: '18px auto 0',
         }}>
           {tr
-            ? <>Sıfır varyasyon, tek konsonantal iskelettedir (<span style={{ color: COLORS.gold }}>rasm</span>): 1.400 yıldır her nüsha, her bölge, her nesil aynı metni taşır. <span style={{ color: COLORS.gold }}>Mütevâtir kıraat</span> farklılıkları ise bu korumanın ayrı ve belgeli sözlü katmanıdır — çelişkisi değil, kanıtı.</>
-            : <>Zero variation lies in the single consonantal skeleton (<span style={{ color: COLORS.gold }}>rasm</span>): for 1,400 years every copy, region and generation carries the same text. The <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> differences are a separate, fully-documented oral layer of that preservation — its evidence, not its contradiction.</>}
+            ? <>Sıfır varyasyon, tek konsonantal iskelettedir (<span style={{ color: COLORS.gold }}>rasm</span>): 1.400 yıldır her nüsha, her bölge, her nesil aynı metni taşır. <span style={{ color: COLORS.gold }}>Mütevâtir kıraat</span> farklılıkları ise bu korumanın ayrı ve belgeli sözlü katmanıdır; çelişkisi değil, kanıtı.</>
+            : <>Zero variation lies in the single consonantal skeleton (<span style={{ color: COLORS.gold }}>rasm</span>): for 1,400 years every copy, region and generation carries the same text. The <span style={{ color: COLORS.gold }}>mutawātir qirāʾāt</span> differences are a separate, fully-documented oral layer of that preservation; its evidence, not its contradiction.</>}
         </p>
       </div>
 
@@ -142,32 +142,32 @@ export default function KorumaZinciri({ onClose }) {
               workTr: "el-İtkān fî Ulûmi'l-Kur'an",
               workEn: 'al-Itqān fī ʿUlūm al-Qurʾān',
               period: '1445–1505 · Kahire',
-              noteTr: "Kur'an ilimlerinin ansiklopedik klasiği — cem', hıfz, isnâd, yedi harf ve mütevâtir kıraatlar üzerine 80 bölüm.",
-              noteEn: "Encyclopedic classic of Quranic sciences — 80 chapters on compilation, memorization, transmission, seven aḥruf, and mutawātir recitations.",
+              noteTr: "Kur'an ilimlerinin ansiklopedik klasiği; cem', hıfz, isnâd, yedi harf ve mütevâtir kıraatlar üzerine 80 bölüm.",
+              noteEn: "Encyclopedic classic of Quranic sciences; 80 chapters on compilation, memorization, transmission, seven aḥruf and mutawātir recitations.",
             },
             {
               author: 'ez-Zerkeşî',
               workTr: "el-Burhân fî Ulûmi'l-Kur'an",
               workEn: 'al-Burhān fī ʿUlūm al-Qurʾān',
               period: '1344–1392 · Kahire',
-              noteTr: 'Suyûtî\'nin İtkān\'ına kaynaklık eden erken ansiklopedik eser — kıraat, hıfz ve resm-i mushaf disiplinleri.',
-              noteEn: "Earlier encyclopedic work that fed Suyūṭī's Itqān — disciplines of qirāʾa, ḥifẓ, and mushaf orthography.",
+              noteTr: 'Suyûtî\'nin İtkān\'ına kaynaklık eden erken ansiklopedik eser; kıraat, hıfz ve resm-i mushaf disiplinleri.',
+              noteEn: "Earlier encyclopedic work that fed Suyūṭī's Itqān; the disciplines of qirāʾa, ḥifẓ and mushaf orthography.",
             },
             {
               author: 'İbnü\'l-Cezerî',
               workTr: "en-Neşr fi'l-Kırâati'l-Aşr",
               workEn: 'al-Nashr fī al-Qirāʾāt al-ʿAshr',
               period: '1350–1429 · Şam/Şiraz',
-              noteTr: '10 mütevâtir kıraatin cihanşümul isnâd zinciri — her kıraatın senedini Peygamber\'e (s.a.v) kadar geriye takip eder.',
-              noteEn: 'Universal isnād chain for the 10 mutawātir recitations — traces each qirāʾa back to the Prophet ﷺ.',
+              noteTr: '10 mütevâtir kıraatin cihanşümul isnâd zinciri; her kıraatın senedini Peygamber\'e (s.a.v) kadar geriye takip eder.',
+              noteEn: 'Universal isnād chain for the 10 mutawātir recitations; traces each qirāʾa back to the Prophet ﷺ.',
             },
             {
               author: 'ez-Zehebî',
               workTr: "Ma'rifetu'l-Kurrâi'l-Kibâr",
               workEn: 'Maʿrifat al-Qurrāʾ al-Kibār',
               period: '1274–1348 · Şam',
-              noteTr: 'Erken hâfız ve kıraat imamlarının biyografik zinciri — nesillerin isnâd köprüsünü belgeler.',
-              noteEn: "Biographical chain of early ḥuffāẓ and qirāʾa imams — documents the isnād bridge across generations.",
+              noteTr: 'Erken hâfız ve kıraat imamlarının biyografik zinciri; nesillerin isnâd köprüsünü belgeler.',
+              noteEn: "Biographical chain of early ḥuffāẓ and qirāʾa imams; documents the isnād bridge across generations.",
             },
           ]}
         />
@@ -183,22 +183,22 @@ export default function KorumaZinciri({ onClose }) {
               href: '/oku',
               titleTr: "Kur'an'ı Oku",
               titleEn: 'Read the Quran',
-              descTr: 'Hâfız zincirinin bugün de sürdüğü canlı tecrübe — 114 sûre, çoklu meal + tefsir.',
-              descEn: 'The living experience carried by the huffāẓ chain today — 114 sūras, multi-meal + tafsir.',
+              descTr: 'Hâfız zincirinin bugün de sürdüğü canlı tecrübe: 114 sûre, çoklu meal ve tefsir.',
+              descEn: 'The living experience carried by the huffāẓ chain today: 114 sūras, multiple translations and tafsir.',
             },
             {
               href: `/${language}/atlas/kiraat`,
               titleTr: 'Kıraat Atlası',
               titleEn: 'Qirāʾāt Atlas',
-              descTr: '10 imam · 20 râvî · coğrafi dağılım — sıfır-varyasyon prensibinin canlı manzarası.',
-              descEn: '10 readers · 20 transmitters · geographic spread — the living face of the zero-variation principle.',
+              descTr: '10 imam · 20 râvî · coğrafi dağılım: sıfır varyasyon ilkesinin bugünkü görünümü.',
+              descEn: '10 readers · 20 transmitters · geographic spread: the zero-variation principle as it stands today.',
             },
             {
               href: `/${language}/arac/sebebi-nuzul`,
               titleTr: 'Sebeb-i Nüzûl',
               titleEn: 'Occasions of Revelation',
-              descTr: 'Ayetlerin ilk inişindeki bağlam — koruma zincirinin başlangıç noktası.',
-              descEn: 'The context of each verse\'s first descent — the starting point of the preservation chain.',
+              descTr: 'Ayetlerin ilk inişindeki bağlam: koruma zincirinin başlangıç noktası.',
+              descEn: 'The context of each verse\'s first descent: the starting point of the preservation chain.',
             },
           ]}
         />

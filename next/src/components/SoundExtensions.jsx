@@ -18,8 +18,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Kul yâ eyyuhe\'l-kâfirûn',
       color: COLORS.softRed,
       letters: ['ق', 'ك', 'ف', 'ر'],
-      descTr: 'Patlayıcı ق ve ك, sürtünmeli ف, tınlayan ر — inkârın sesli sertliği kelimede yankılanır.',
-      descEn: 'Explosive ق and ك, fricative ف, rolling ر — the audible harshness of denial resonates in the word itself.',
+      descTr: 'Patlayıcı ق ve ك, sürtünmeli ف, tınlayan ر: inkârın sesli sertliği kelimede yankılanır.',
+      descEn: 'Explosive ق and ك, fricative ف, rolling ر: the audible harshness of denial resonates in the word itself.',
     },
     right: {
       surahTr: 'İhlâs 112:1', surahEn: 'Al-Ikhlāṣ 112:1',
@@ -27,8 +27,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Kul huvellâhu ehad',
       color: '#2ecc71',
       letters: ['ه', 'ا', 'ل', 'د'],
-      descTr: 'Aynı emir kalıbı (قُلْ), ama takip eden sesler: nazal ه, açık ا, akıcı ل, tek darbe د — tevhidin sessiz sadeliği.',
-      descEn: 'The same imperative frame (قُلْ), but the following sounds: nasal ه, open ا, liquid ل, single stop د — the quiet simplicity of oneness.',
+      descTr: 'Aynı emir kalıbı (قُلْ), ama takip eden sesler: nazal ه, açık ا, akıcı ل, tek darbe د: tevhidin sessiz sadeliği.',
+      descEn: 'The same imperative frame (قُلْ), but the following sounds: nasal ه, open ا, liquid ل, single stop د: the quiet simplicity of oneness.',
     },
     notTr: "İki sûre de peş peşe gelir (109 ↔ 112) ve aynı 'قُلْ' emriyle başlar; fonetik seçim tema ile aynı yönde ilerler.",
     notEn: "Both surahs are adjacent (109 ↔ 112) and both open with the same 'qul' imperative; the phonetic choice moves with the theme.",
@@ -46,8 +46,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Ve\'l-fecri · ve leyâlin aşr',
       color: '#e67e22',
       letters: ['ف', 'ج', 'ر', 'ش'],
-      descTr: 'Sürtünmeli ف, patlayıcı ج, tınlayan ر — yemin sesleri kısa ve kesin.',
-      descEn: 'Fricative ف, explosive ج, rolling ر — oath sounds are short and decisive.',
+      descTr: 'Sürtünmeli ف, patlayıcı ج, tınlayan ر: yemin sesleri kısa ve kesin.',
+      descEn: 'Fricative ف, explosive ج, rolling ر: oath sounds are short and decisive.',
     },
     right: {
       surahTr: 'Duhâ 93:1-2', surahEn: 'Aḍ-Ḍuḥā 93:1-2',
@@ -55,8 +55,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Ve\'d-duhâ · ve\'l-leyli izâ secâ',
       color: '#3498db',
       letters: ['ض', 'ح', 'ل', 'ي'],
-      descTr: 'Yayvan ض, akıcı ح ve ل, uzun ي — yakarışa gebe bir yumuşaklık.',
-      descEn: 'Wide ض, flowing ح and ل, long ي — a softness pregnant with invocation.',
+      descTr: 'Yayvan ض, akıcı ح ve ل, uzun ي: yakarışa gebe bir yumuşaklık.',
+      descEn: 'Wide ض, flowing ح and ل, long ي: a softness pregnant with invocation.',
     },
     notTr: "İki sûre birbirini takip etmez (89 · 93) ama her ikisi de günün geçişini (fecir-duhâ) yeminle anar; birinin sesi 'kabuk', diğerinin sesi 'iç'.",
     notEn: "The two surahs are not adjacent (89 · 93) but both invoke a moment of the day (dawn, forenoon); one's sound is 'shell', the other's 'core'.",
@@ -74,8 +74,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Le âkilûne min şecerin min zakkûm',
       color: COLORS.softRed,
       letters: ['ز', 'ق', 'ش', 'ك'],
-      descTr: 'Ağır ز, patlayıcı ق (şeddeli), gıcırdayan ش — zakkumun kelime tadı bile acıdır.',
-      descEn: 'Heavy ز, doubled explosive ق (shaddah), grating ش — the word taste of Zaqqūm is bitter.',
+      descTr: 'Ağır ز, patlayıcı ق (şeddeli), gıcırdayan ش: zakkumun kelime tadı bile acıdır.',
+      descEn: 'Heavy ز, doubled explosive ق (shaddah), grating ش: even the word taste of Zaqqūm is bitter.',
     },
     right: {
       surahTr: 'Ra\'d 13:29', surahEn: 'Al-Raʿd 13:29',
@@ -83,8 +83,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Tûbâ lehum ve hüsnu meâb',
       color: '#2ecc71',
       letters: ['ط', 'ب', 'ن', 'ح'],
-      descTr: 'Yumuşak ط, dolgun ب, nazal ن, akıcı ح — Tûbâ (mutluluk) sesi bile taşır.',
-      descEn: 'Soft ط, full ب, nasal ن, flowing ح — the very sound of Ṭūbā (beatitude) carries it.',
+      descTr: 'Yumuşak ط, dolgun ب, nazal ن, akıcı ح: Tûbâ (mutluluk) sesi bile taşır.',
+      descEn: 'Soft ط, full ب, nasal ن, flowing ح: the very sound of Ṭūbā (beatitude) carries it.',
     },
     notTr: "Zakkum ve Tûbâ Kur'ân'da cehennem ve cennet ağaçları için özel isim olarak geçer; fonetik zıtlık kelime seçimini pekiştirir.",
     notEn: "Zaqqūm and Ṭūbā appear in the Qur'an as proper names for the trees of Hell and Paradise; the phonetic contrast reinforces the lexical choice.",
@@ -102,8 +102,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Iqra\' bismi rabbike\'llezî halak',
       color: '#f39c12',
       letters: ['ق', 'ر', 'ب', 'خ'],
-      descTr: 'Patlayıcı ق, tınlayan ر, iki dilcikli ب — "OKU!" emrinin sesi tam kırılma noktasında.',
-      descEn: 'Explosive ق, rolling ر, bilabial ب — "READ!" the imperative sits at a breaking point.',
+      descTr: 'Patlayıcı ق, tınlayan ر, iki dudaklı ب: "OKU!" emrinin sesi tam kırılma noktasında.',
+      descEn: 'Explosive ق, rolling ر, bilabial ب: the imperative "READ!" sits at a breaking point.',
     },
     right: {
       surahTr: 'Nahl 16:97', surahEn: 'An-Naḥl 16:97',
@@ -111,8 +111,8 @@ const CONTRAST_PAIRS = [
       translitTr: 'Men amile sâlihan min zekerin ev unsâ',
       color: '#3498db',
       letters: ['م', 'ن', 'ل', 'ص'],
-      descTr: 'Nazal م, ن, akıcı ل, hafif kalın ص — vaad ayetinin ses dokusu davetkâr.',
-      descEn: 'Nasal م, ن, flowing ل, slightly emphatic ص — the promise-verse\'s texture is inviting.',
+      descTr: 'Nazal م, ن, akıcı ل, hafif kalın ص: vaad ayetinin ses dokusu davetkâr.',
+      descEn: 'Nasal م, ن, flowing ل, slightly emphatic ص: the promise-verse\'s texture is inviting.',
     },
     notTr: "Emir cümlesinin (Alak 96:1) sesi 'tehlike sinyali'; vaad cümlesinin (Nahl 16:97) sesi 'kucaklayış'. Fonetik seçim mesajın atmosferini kurar.",
     notEn: "The imperative sentence (Alaq 96:1) sounds like a 'danger signal'; the promise sentence (Naḥl 16:97) sounds like an 'embrace'. Phonetic choice builds the message's atmosphere.",
@@ -131,7 +131,7 @@ const PHONETIC_SPECTRUM = [
   { groupTr: 'Yarı Ünlüler (leyyine)', groupEn: 'Semi-vowels (līyyina)', letters: ['و','ي'], color: '#a78bfa', descTr: 'Ünlü-benzeri geçiş sesleri; kelimeye uzunluk ve akıcılık verir.', descEn: 'Vowel-like transition sounds; giving words length and fluency.' },
   { groupTr: 'Boğazsallar (halkiyye)', groupEn: 'Gutturals (ḥalqiyya)', letters: ['ء','ه','ع','ح','غ','خ'], color: COLORS.violetTextSafe, descTr: 'Boğazdan çıkan derin sesler; kadim, arketipal, çekim gücü taşır.', descEn: 'Deep sounds from the throat; carrying archaic, archetypal weight.' },
   { groupTr: 'Diş-Dil (esneviyye)', groupEn: 'Dental-Lingual (asnawiyya)', letters: ['ث','ذ','ظ','ص','ض','ز','س','ت','د','ط','ن','ل','ر'], color: '#c9a227', descTr: 'Diş ve dil ucu birlikte üreten sesler; en kalabalık grup.', descEn: 'Sounds produced with teeth and tongue-tip together; the most populous group.' },
-  { groupTr: 'Emphatikler (musta\'liyye)', groupEn: 'Emphatics (mustaʿliyya)', letters: ['ص','ض','ط','ظ','ق','غ','خ'], color: '#d4a574', descTr: 'Ağzı yükseltirken çıkan "koyu" sesler; azap ayetlerinde yoğunlaşır.', descEn: 'Sounds produced with raised palate — "heavy" — density in punishment verses.' },
+  { groupTr: 'Emphatikler (musta\'liyye)', groupEn: 'Emphatics (mustaʿliyya)', letters: ['ص','ض','ط','ظ','ق','غ','خ'], color: '#d4a574', descTr: 'Ağzı yükseltirken çıkan "koyu" sesler; azap ayetlerinde yoğunlaşır.', descEn: '"Heavy" sounds produced with a raised palate; they cluster in punishment verses.' },
 ];
 
 // ── Component ────────────────────────────────────────────────────────────
@@ -174,8 +174,8 @@ export default function SoundExtensions({ language, isMobile }) {
             maxWidth: '620px', margin: '14px auto 0',
           }}>
             {tr
-              ? "Buradaki 'sert/yumuşak' ayrımı bu sayfanın kendi tematik gruplamasıdır — klasik tecvidin tafhīm/tarqīq gibi kaynaklı kategorileriyle karıştırılmamalıdır."
-              : "The 'harsh/soft' grouping here is this page's own thematic classification — not to be confused with classical tajwīd's sourced categories such as tafhīm/tarqīq."}
+              ? "Buradaki 'sert/yumuşak' ayrımı bu sayfanın kendi tematik gruplamasıdır; klasik tecvidin tafhīm/tarqīq gibi kaynaklı kategorileriyle karıştırılmamalıdır."
+              : "The 'harsh/soft' grouping here is this page's own thematic classification, not to be confused with classical tajwīd's sourced categories such as tafhīm/tarqīq."}
           </p>
         </div>
 
@@ -242,7 +242,7 @@ export default function SoundExtensions({ language, isMobile }) {
                 <button key={i}
                   onClick={() => setActiveSpec(isActive ? null : i)}
                   aria-expanded={isActive}
-                  aria-label={`${tr ? g.groupTr : g.groupEn} — ${g.letters.length} ${tr ? 'harf' : 'letters'}`}
+                  aria-label={`${tr ? g.groupTr : g.groupEn}: ${g.letters.length} ${tr ? 'harf' : 'letters'}`}
                   style={{
                     padding: '16px 18px',
                     background: isActive

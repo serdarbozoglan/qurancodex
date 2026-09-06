@@ -136,8 +136,8 @@ function Hero({ language, isMobile }) {
           maxWidth: '700px', margin: '0 auto 24px',
         }}>
           {tr
-            ? <>Kur&apos;an&apos;ın 114 sûresi rastgele dizilmiş değildir. Her sûre, komşularına <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>köprülerle</em> bağlanır — ve her sûrenin kendi içinde, onu bir arada tutan görünmez <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>çıpalar</em> vardır.</>
-            : <>The Quran&apos;s 114 surahs are not arranged at random. Each surah is joined to its neighbours by <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>bridges</em> — and within each surah, invisible <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>anchors</em> hold it together.</>}
+            ? <>Kur&apos;an&apos;ın 114 sûresi rastgele dizilmiş değildir. Her sûre, komşularına <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>köprülerle</em> bağlanır; ve her sûrenin kendi içinde, onu bir arada tutan görünmez <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>çıpalar</em> vardır.</>
+            : <>The Quran&apos;s 114 surahs are not arranged at random. Each surah is joined to its neighbours by <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>bridges</em>; and within each surah, invisible <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>anchors</em> hold it together.</>}
         </p>
 
         <div style={{ width: '120px', height: '1px', margin: '0 auto 24px', background: `linear-gradient(90deg, transparent, ${COLORS.gold}aa, transparent)` }} />
@@ -980,8 +980,8 @@ export default function MunasebatAtlasi({ onClose }) {
                 lineHeight: 1.75, margin: '0 0 10px',
               }}>
                 {language === 'tr'
-                  ? 'Kur\'an\'ın 114 sûresi rastgele dizilmiş değil. Her sûre önceki ve sonraki sûreyle tematik, dilsel veya yapısal bağ taşır — bu, klasik âlimlerin 1.000 yıldır işlediği ilmü\'l-münâsebât\'tır.'
-                  : 'The 114 surahs are not arranged at random. Each surah carries thematic, linguistic or structural ties to its neighbours — the discipline of ʿilm al-munāsabāt, studied for over 1,000 years.'}
+                  ? 'Kur\'an\'ın 114 sûresi rastgele dizilmiş değil. Her sûre önceki ve sonraki sûreyle tematik, dilsel veya yapısal bağ taşır. Bu, klasik âlimlerin 1.000 yıldır işlediği ilmü\'l-münâsebât\'tır.'
+                  : 'The 114 surahs are not arranged at random. Each surah carries thematic, linguistic or structural ties to its neighbours. This is the discipline of ʿilm al-munāsabāt, studied for over 1,000 years.'}
               </p>
               <p style={{
                 fontFamily: FONTS.body, color: COLORS.gold, fontSize: '0.88rem',
@@ -1140,9 +1140,9 @@ export default function MunasebatAtlasi({ onClose }) {
         <CrossToolCTA
           language={language} isMobile={isMobile}
           links={[
-            { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Sûre-içi ayna simetrisi — münâsebâtın mikro karşılığı.', descEn: 'Intra-surah mirror symmetry — the micro counterpart of munāsabāt.' },
-            { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '29 sûrede paylaşılan 14 harflik açılış imzası — münâsebâtın dilsel izleri.', descEn: '14 opening letters shared by 29 suras — linguistic traces of munāsabāt.' },
-            { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk-Son Kelimeler', titleEn: 'First-Last Words', descTr: 'Sûrelerin açılış-kapanış mimarîsi — bağın kelime düzeyinde tezahürü.', descEn: 'The opening-closing architecture of suras — the connection at the word level.' },
+            { href: `/${language}/arac/halka-kompozisyon`, titleTr: 'Halka Kompozisyon', titleEn: 'Ring Composition', descTr: 'Sûre içi ayna simetrisi: münâsebâtın mikro karşılığı.', descEn: 'Intra-surah mirror symmetry: the micro counterpart of munāsabāt.' },
+            { href: `/${language}/arac/mukattaa`, titleTr: 'Huruf-i Mukattaâ', titleEn: 'Mukattaʿāt', descTr: '29 sûrede paylaşılan 14 harflik açılış imzası: münâsebâtın dilsel izleri.', descEn: '14 opening letters shared by 29 suras: linguistic traces of munāsabāt.' },
+            { href: `/${language}/arac/ilk-son-kelimeler`, titleTr: 'İlk-Son Kelimeler', titleEn: 'First-Last Words', descTr: 'Sûrelerin açılış ve kapanış mimarîsi: bağın kelime düzeyinde tezahürü.', descEn: 'The opening and closing architecture of suras: the connection at the word level.' },
           ]}
         />
       </div>

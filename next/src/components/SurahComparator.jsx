@@ -421,7 +421,7 @@ function SimilarityGauge({ score }) {
           Doğru kalıp: role="img" + sayıyı içeren aria-label. */}
       <svg
         role="img"
-        aria-label={`${score}% ${score >= 65 ? 'benzerlik — yüksek' : score >= 35 ? 'benzerlik — orta' : score >= 15 ? 'benzerlik — düşük' : 'benzerlik — minimal'}`}
+        aria-label={`${score}% ${score >= 65 ? 'benzerlik: yüksek' : score >= 35 ? 'benzerlik: orta' : score >= 15 ? 'benzerlik: düşük' : 'benzerlik: minimal'}`}
         width="110" height="90" viewBox="-10 -10 120 95" style={{ overflow: 'visible' }}>
         {/* Background arc */}
         <circle
@@ -491,8 +491,8 @@ function GenomeAlignment({ vA, vB, pairs, nameA, nameB, colorA, colorB, gradId, 
       </div>
       <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '14px', opacity: 0.85, maxWidth: '640px' }}>
         {language === 'tr'
-          ? 'Her ayet kendi sûresindeki sırasına göre hatta yerleşir; her kavis, iki ayet arasındaki gerçek anlamsal bağı temsil eder — parlaklık bağın gücünü gösterir.'
-          : 'Each verse sits on its line by position in its own sûrah; every arc is one real semantic link between two specific verses — brightness shows link strength.'}
+          ? 'Her ayet kendi sûresindeki sırasına göre hatta yerleşir; her kavis, iki ayet arasındaki gerçek anlamsal bağı temsil eder; parlaklık bağın gücünü gösterir.'
+          : 'Each verse sits on its line by position in its own sûrah; every arc is one real semantic link between two specific verses; brightness shows link strength.'}
       </p>
 
       {pairs.length === 0 ? (
@@ -597,7 +597,7 @@ function WordVenn({ wordsA, wordsB, display, colorA, colorB, nameA, nameB, langu
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 8px', justifyContent: align }}>
         {items.map(w => (
-          <span key={w} title={`${display?.[w] || w} — ${freqMap[w]}×`} style={{
+          <span key={w} title={`${display?.[w] || w}: ${freqMap[w]}×`} style={{
             color, fontSize: `${size(freqMap[w])}rem`, fontWeight: 600, lineHeight: 1.3,
             background: `${color}14`, border: `1px solid ${color}30`,
             padding: '3px 9px', borderRadius: RADIUS.pillSm, whiteSpace: 'nowrap',
@@ -715,8 +715,8 @@ function StructuralProfile({ profA, profB, colorA, colorB, language }) {
       </p>
       <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '18px', opacity: 0.85 }}>
         {language === 'tr'
-          ? 'Arapça metne dayalı ölçümler — çeviriden bağımsız.'
-          : 'Measured from the Arabic text — independent of translation.'}
+          ? 'Arapça metne dayalı ölçümler; çeviriden bağımsız.'
+          : 'Measured from the Arabic text; independent of translation.'}
       </p>
       <ProfileBarRow
         label={language === 'tr' ? 'Ayet sayısı' : 'Verse count'}
@@ -764,8 +764,8 @@ function RevelationStrip({ order, rankA, rankB, nameA, nameB, colorA, colorB, la
       </p>
       <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '22px', opacity: 0.85 }}>
         {language === 'tr'
-          ? `114 sûre, geleneksel nüzul sıralamasına göre — 1 (ilk) → ${total} (son).`
-          : `All 114 surahs by the traditional revelation-order reconstruction — 1 (first) → ${total} (last).`}
+          ? `114 sûre, geleneksel nüzul sıralamasına göre: 1 (ilk) → ${total} (son).`
+          : `All 114 surahs by the traditional revelation-order reconstruction: 1 (first) → ${total} (last).`}
       </p>
       <div style={{ position: 'relative', height: closeMarkers ? '56px' : '38px' }}>
         {/* Base track — Mekkî/Medenî shading */}
@@ -778,7 +778,7 @@ function RevelationStrip({ order, rankA, rankB, nameA, nameB, colorA, colorB, la
           ))}
         </div>
         {/* Marker A — always above the dot */}
-        <div title={`${nameA} — #${rankA}`} style={{
+        <div title={`${nameA}: #${rankA}`} style={{
           position: 'absolute', top: closeMarkers ? '8px' : 0, left: pos(rankA), transform: 'translateX(-50%)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',
         }}>
@@ -786,7 +786,7 @@ function RevelationStrip({ order, rankA, rankB, nameA, nameB, colorA, colorB, la
           <span style={{ width: '10px', height: '10px', borderRadius: RADIUS.full, background: colorA, border: '2px solid rgba(6,8,20,0.9)', boxShadow: `0 0 8px ${colorA}` }} />
         </div>
         {/* Marker B — flips below the dot when markers sit close together */}
-        <div title={`${nameB} — #${rankB}`} style={{
+        <div title={`${nameB}: #${rankB}`} style={{
           position: 'absolute', top: closeMarkers ? '30px' : 0, left: pos(rankB), transform: 'translateX(-50%)',
           display: 'flex', flexDirection: closeMarkers ? 'column-reverse' : 'column', alignItems: 'center', gap: '2px',
         }}>
@@ -1311,8 +1311,8 @@ export default function SurahComparator({ onClose }) {
               </p>
               <p style={{ color: SEMANTIC.textFaint, fontSize: '0.72rem', marginBottom: '14px', opacity: 0.85 }}>
                 {language === 'tr'
-                  ? 'Çeviri metninde en sık geçen anlamlı kelimeler — hangileri özgü, hangileri paylaşılıyor.'
-                  : 'Most frequent significant words in the translated text — which are unique, which are shared.'}
+                  ? 'Çeviri metninde en sık geçen anlamlı kelimeler: hangileri özgü, hangileri paylaşılıyor.'
+                  : 'Most frequent significant words in the translated text: which are unique, which are shared.'}
               </p>
               <WordVenn
                 wordsA={analysis.freqA} wordsB={analysis.freqB} display={analysis.wordDisplay}
@@ -1463,7 +1463,7 @@ export default function SurahComparator({ onClose }) {
                   info.fadail ? (
                     <div key={num} style={{ padding: '16px', borderRadius: RADIUS.lg, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)' }}>
                       <p style={{ color, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
-                        {SURAH_NAMES_TR[num]} — {language === 'tr' ? 'Fazileti' : 'Virtue'}
+                        {SURAH_NAMES_TR[num]}: {language === 'tr' ? 'Fazileti' : 'Virtue'}
                       </p>
                       <p style={{ color: SEMANTIC.textFaint, fontSize: '0.8rem', lineHeight: 1.7, margin: 0 }}>
                         {language === 'tr' ? info.fadail.tr : info.fadail.en}
@@ -1492,8 +1492,8 @@ export default function SurahComparator({ onClose }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Sureler arası anlamsal bağlar — klasik tefsir gelenekleriyle.', descEn: 'Semantic ties between surahs — from the classical tafsir tradition.' },
-            { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Sûrelerin nüzul dönemleri (Mekki/Medeni) — kronolojik akış.', descEn: 'Revelation periods of surahs (Meccan/Medinan) — chronological flow.' },
+            { href: `/${language}/atlas/munasebat`, titleTr: 'Münâsebât Atlası', titleEn: 'Munāsabāt Atlas', descTr: 'Sureler arası anlamsal bağlar, klasik tefsir gelenekleriyle.', descEn: 'Semantic ties between surahs, from the classical tafsir tradition.' },
+            { href: `/${language}/graf/zaman`, titleTr: 'Nüzul Zaman Çizgisi', titleEn: 'Revelation Timeline', descTr: 'Sûrelerin nüzul dönemleri (Mekki/Medeni): kronolojik akış.', descEn: 'Revelation periods of surahs (Meccan/Medinan): chronological flow.' },
             { href: `/${language}/graf/kelime-isi`, titleTr: 'Kelime Isı Haritası', titleEn: 'Word Heatmap', descTr: 'Bir kelimenin 114 sure boyunca yoğunluk dağılımı.', descEn: 'Distribution density of a word across all 114 surahs.' },
           ]}
         />
@@ -1508,8 +1508,8 @@ export default function SurahComparator({ onClose }) {
               workTr: "Nazmü\'d-Dürer fî Tenâsübi\'l-Âyi ve\'s-Süver",
               workEn: 'Naẓm al-Durar fī Tanāsub al-Āy wa al-Suwar',
               period: '1406–1480 (Kahire)',
-              noteTr: "Sûreler-arası münâsebât ilminin temel eseri — her sûrenin bir öncekiyle bağını sistematik ayet-ayet inceler. Sûre DNA karşılaştırmasının klasik zemini.",
-              noteEn: "The foundational work of inter-sūrah munāsabāt studies — systematically examines each sūrah's link with the previous one verse by verse. The classical grounding for inter-sūrah comparison.",
+              noteTr: "Sûreler arası münâsebât ilminin temel eseri; her sûrenin bir öncekiyle bağını sistematik olarak ayet ayet inceler. Sûre DNA karşılaştırmasının klasik zemini.",
+              noteEn: "The foundational work of inter-sūrah munāsabāt studies; it systematically examines each sūrah's link with the previous one verse by verse. The classical grounding for inter-sūrah comparison.",
             },
             {
               author: 'es-Süyûtî',
@@ -1524,16 +1524,16 @@ export default function SurahComparator({ onClose }) {
               workTr: "el-Burhân fî Ulûmi\'l-Kurʾân",
               workEn: 'al-Burhān fī ʿUlūm al-Qurʾān',
               period: '1344–1392 (Kahire)',
-              noteTr: 'Tenâsüb (koherens) bahsi (bölüm 2) — sûrelerin nüzul sırasında değil mushaf tertibinde neden bu düzende olduğunu belağat perspektifinden savunur.',
-              noteEn: 'On tanāsub / coherence (§2) — argues from a rhetorical perspective why sūrahs are arranged in mushaf order rather than revelation order.',
+              noteTr: 'Tenâsüb (koherens) bahsi (bölüm 2); sûrelerin nüzul sırasında değil mushaf tertibinde neden bu düzende olduğunu belağat perspektifinden savunur.',
+              noteEn: 'On tanāsub / coherence (§2); argues from a rhetorical perspective why sūrahs are arranged in mushaf order rather than revelation order.',
             },
             {
               author: 'Neal Robinson',
               workTr: 'Kurʾân\'ı Keşfetmek',
               workEn: 'Discovering the Qurʾan',
               period: '1996 (SCM Press)',
-              noteTr: 'Modern akademik münâsebât çalışması — Michel Cuypers ve Neuwirth\'in yanında sûre iç-yapısı + sûreler-arası bağların çağdaş sistematik analizini yapar.',
-              noteEn: 'Modern academic study of munāsabāt — alongside Cuypers and Neuwirth, offers a contemporary systematic analysis of intra-sūrah structure + inter-sūrah ties.',
+              noteTr: 'Modern akademik münâsebât çalışması; Michel Cuypers ve Neuwirth\'in yanında sûre iç yapısı ile sûreler arası bağların çağdaş sistematik analizini yapar.',
+              noteEn: 'Modern academic study of munāsabāt; alongside Cuypers and Neuwirth, it offers a contemporary systematic analysis of intra-sūrah structure and inter-sūrah ties.',
             },
           ]}
         />

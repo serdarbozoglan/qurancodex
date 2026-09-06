@@ -48,8 +48,8 @@ const QUESTION_TYPES = [
     nameEn: 'Istifhām Irshādī',
     aliasTr: 'İrşad / Yönlendirme',
     aliasEn: 'Guidance',
-    descTr: 'Yaratılış, evren ve tarih üzerine — okuyucuyu gerçeğe yönlendiren.',
-    descEn: 'On creation, cosmos and history — guiding the reader toward truth.',
+    descTr: 'Yaratılış, evren ve tarih üzerine; okuyucuyu gerçeğe yönlendirir.',
+    descEn: 'On creation, cosmos and history; they guide the reader toward truth.',
     exTr: '"Gökleri ve yeri kim yarattı?" — Lokman 31:25',
     exEn: '"Who created the heavens and earth?" — Luqman 31:25',
   },
@@ -59,8 +59,8 @@ const QUESTION_TYPES = [
     nameEn: 'Istifhām Tawbīkhī',
     aliasTr: 'Tevbih / Kınama',
     aliasEn: 'Reproach',
-    descTr: 'İnkarcılara yönelik — hesap sorar, uyarır, sorumlu tutar.',
-    descEn: 'Directed at deniers — demands accountability, warns, holds responsible.',
+    descTr: 'İnkarcılara yönelik; hesap sorar, uyarır, sorumlu tutar.',
+    descEn: 'Directed at deniers; they demand accountability, warn and hold responsible.',
     exTr: '"Seni o Kerîm Rabbine karşı ne aldattı?" — İnfitar 82:6',
     exEn: '"What deceived you about your Generous Lord?" — Al-Infitar 82:6',
   },
@@ -351,8 +351,8 @@ export default function QuranRhetoric() {
         }}
       >
         {tr
-          ? "Kur’an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araç — muhatabı suçlamaz, sonuca kendisi ulaştırır. Savunmaz; düşündürür. Cevaplamaz; sorar. Dört farklı işlev üstlenen bu sorular, metnin en güçlü ikna katmanını oluşturuyor."
-          : "The Quran contains over 1,200 questions. These are rhetorical instruments — they don’t accuse, they guide the reader to conclusions themselves. They don’t defend; they provoke thought. They don’t answer; they ask. Serving four distinct functions, these questions form the text’s most powerful layer of persuasion."}
+          ? "Kur’an'da 1.200'ü aşkın soru yer alıyor. Bu sorular birer retorik araçtır: muhatabı suçlamaz, sonuca kendisinin ulaşmasını sağlar. Savunmak yerine düşündürür, cevap vermek yerine sorar. Dört farklı işlev üstlenen bu sorular, metnin ana ikna katmanlarından birini oluşturur."
+          : "The Quran contains over 1,200 questions. These are rhetorical instruments: they do not accuse, they guide the reader to their own conclusions. Rather than defend, they provoke thought; rather than answer, they ask. Serving four distinct functions, these questions form one of the text’s main layers of persuasion."}
       </motion.p>
       <motion.p variants={fadeUpItem} className="text-silver/50 text-sm italic mb-10">
         ℹ{' '}
@@ -637,8 +637,8 @@ export default function QuranRhetoric() {
         </h3>
         <p className="text-silver/60 text-sm mb-4">
           {tr
-            ? '114 sûrenin tamamı — altın renk yoğunluğu soru sıklığını gösterir'
-            : 'All 114 surahs — gold intensity indicates question frequency'}
+            ? '114 sûrenin tamamı; altın renk yoğunluğu soru sıklığını gösterir'
+            : 'All 114 surahs; gold intensity indicates question frequency'}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
           {SURAH_DENSITY.map((d, i) => (
@@ -762,7 +762,7 @@ export default function QuranRhetoric() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {tr ? '↗ RETORİK ANALİZİ — DETAYLI İNCELE' : '↗ RHETORIC ANALYSIS — EXPLORE IN DETAIL'}
+              {tr ? '↗ RETORİK ANALİZİ: DETAYLI İNCELE' : '↗ RHETORIC ANALYSIS: EXPLORE IN DETAIL'}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
@@ -780,7 +780,7 @@ export default function QuranRhetoric() {
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {tr ? 'Daha Derine — Retoriği Yoğun Sûreler' : 'Go Deeper — Suras Rich in Rhetoric'}
+            {tr ? 'Daha Derine: Retoriği Yoğun Sûreler' : 'Go Deeper: Suras Rich in Rhetoric'}
           </span>
         </div>
 
