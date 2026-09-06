@@ -7,9 +7,8 @@ import SurahComparatorRoute from './SurahComparatorRoute';
 const PATH = '/graf/karsilastir';
 const TITLE_TR = 'Sure Karşılaştırıcı';
 const TITLE_EN = 'Surah Comparator';
-const DESC_TR = 'İki sureyi yan yana karşılaştır — uzunluk, dönem, ortak temalar, tekrar eden ifadeler.';
-const DESC_EN = 'Compare any two surahs side by side — length, period of revelation, shared themes and recurring expressions.';
-
+const DESC_TR = "İki sureyi yan yana karşılaştır: uzunluk, dönem, ortak temalar ve tekrar eden ifadeler.";
+const DESC_EN = "Compare any two surahs side by side: length, period of revelation, shared themes and recurring expressions.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

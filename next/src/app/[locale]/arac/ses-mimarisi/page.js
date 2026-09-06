@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import SesMimarisiRoute from './SesMimarisiRoute';
 
 const PATH = '/arac/ses-mimarisi';
-const TITLE_TR = "Ses Mimarisi — Sesler Tesadüf Değil";
-const TITLE_EN = "Sound Architecture — Sounds Are Not Coincidence";
-const DESC_TR = "Kur'an'ın ses mimarisi — azap ayetlerindeki patlayıcı ünsüzler, rahmet ayetlerindeki akıcı sesler, fonetik-semantik paralellik.";
-const DESC_EN = "The sound architecture of the Quran — plosive consonants in verses of wrath, flowing liquids in verses of mercy, phonetic-semantic parallel.";
-
+const TITLE_TR = "Ses Mimarisi — Sesin Anlamla Paralelliği";
+const TITLE_EN = "Sound Architecture — Where Sound Parallels Meaning";
+const DESC_TR = "Kur'an'ın ses mimarisi: azap ayetlerindeki patlayıcı ünsüzler, rahmet ayetlerindeki akıcı sesler ve ses ile anlam arasındaki paralellik.";
+const DESC_EN = "The sound architecture of the Quran: plosive consonants in verses of wrath, flowing liquids in verses of mercy, and the parallel between sound and meaning.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

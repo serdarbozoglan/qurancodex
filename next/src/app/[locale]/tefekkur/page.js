@@ -8,9 +8,8 @@ import TefekkurIndexRoute from './TefekkurIndexRoute';
 const PATH = '/tefekkur';
 const TITLE_TR = 'Tefekkür';
 const TITLE_EN = 'Tefekkür — Reflections';
-const DESC_TR = "Felsufi'den seçilmiş yazılar — Kur'an semantiği, terminoloji serileri, tasavvufî düşünce ve kozmoloji üzerine derinlikli denemeler.";
-const DESC_EN = "Curated essays from Felsufi — in-depth reflections on Quranic semantics, terminology series, Sufi thought, and cosmology.";
-
+const DESC_TR = "Felsufi'den seçilmiş yazılar: Kur'an semantiği, terminoloji serileri, tasavvufî düşünce ve kozmoloji üzerine denemeler.";
+const DESC_EN = "Selected essays by Felsufi: reflections on Quranic semantics, terminology series, Sufi thought and cosmology.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

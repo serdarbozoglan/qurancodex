@@ -7,9 +7,8 @@ import IlkSonKelimelerRoute from './IlkSonKelimelerRoute';
 const PATH = '/arac/ilk-son-kelimeler';
 const TITLE_TR = 'İlk & Son Kelimeler';
 const TITLE_EN = 'First & Last Words';
-const DESC_TR = '114 sûrenin ilk ve son kelimeleri — tematik halka, başlangıç-bitiş simetrisi.';
-const DESC_EN = 'The first and last words of all 114 surahs — thematic ring composition and beginning-to-end symmetry.';
-
+const DESC_TR = "114 sûrenin ilk ve son kelimeleri: tematik halka ve başlangıç-bitiş simetrisi.";
+const DESC_EN = "The first and last words of all 114 surahs: thematic ring and beginning-to-end symmetry.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

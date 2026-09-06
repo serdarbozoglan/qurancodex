@@ -7,9 +7,8 @@ import IblisSatanRoute from './IblisSatanRoute';
 const PATH = '/arac/iblis-seytan';
 const TITLE_TR = 'İblîs & Şeytan';
 const TITLE_EN = 'Iblis & Satan';
-const DESC_TR = "Kur'an'da İblîs ve şeytan — tekrar eden tema, taktikleri ve insana yaklaşımı; ayet bazlı analiz.";
-const DESC_EN = "Iblis and Satan in the Quran — the recurring theme, their tactics and their approach to humankind; a verse-level analysis.";
-
+const DESC_TR = "Kur'an'da İblîs ve şeytan: tekrar eden tema, taktikleri ve insana yaklaşımı, ayet ayet.";
+const DESC_EN = "Iblis and Satan in the Quran: the recurring theme, their tactics and their approach to humankind, verse by verse.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

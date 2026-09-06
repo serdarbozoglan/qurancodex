@@ -7,9 +7,8 @@ import HalkaKompozisyonRoute from './HalkaKompozisyonRoute';
 const PATH = '/arac/halka-kompozisyon';
 const TITLE_TR = "Yapısal Mimari — Halka Kompozisyon";
 const TITLE_EN = "Hidden Architecture — Ring Composition";
-const DESC_TR = "Kur'an'da halka kompozisyon — Fâtiha'nın 7-bölüm ayna simetrisi, Âyetel Kürsî'nin gizli yapısı (Farrin 2014).";
-const DESC_EN = "Ring composition in the Quran — the 7-part mirror symmetry of al-Fātiḥa, the hidden structure of Āyat al-Kursī (Farrin 2014).";
-
+const DESC_TR = "Kur'an'da halka kompozisyon: Fâtiha'nın 7 bölümlü ayna simetrisi ve Âyetel Kürsî'nin iç yapısı (Farrin 2014).";
+const DESC_EN = "Ring composition in the Quran: the 7-part mirror symmetry of al-Fātiḥa and the inner structure of Āyat al-Kursī (Farrin 2014).";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

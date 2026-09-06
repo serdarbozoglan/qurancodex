@@ -7,9 +7,8 @@ import SunnetullahAtlasiRoute from './SunnetullahAtlasiRoute';
 const PATH = '/atlas/sunnetullah';
 const TITLE_TR = 'Sünnetullah Atlası';
 const TITLE_EN = 'Atlas of Divine Patterns';
-const DESC_TR = 'İlâhî yasa örüntüleri — toplumların yükseliş-çöküş sünnetleri; helâk eden ve yücelten ilkeler.';
-const DESC_EN = 'Patterns of divine law (sunnatullah) — the rise and fall of nations; principles that destroy and principles that elevate.';
-
+const DESC_TR = "İlâhî yasa örüntüleri: toplumların yükseliş ve çöküş sünnetleri, helâk eden ve yücelten ilkeler.";
+const DESC_EN = "Patterns of divine law (sunnatullah): the rise and fall of nations, the principles that destroy and the principles that elevate.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

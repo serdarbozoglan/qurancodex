@@ -40,8 +40,8 @@ Daha seyrek ama görünür:
 
 Etki × görünürlük sırasıyla:
 
-- [ ] **P1 · Ana sayfa** (`src/data/homeCards.js`, `src/i18n/tr.json` → `hero`/`conclusion`, `src/sections/SixGates.jsx`, `ConciergePrompt.jsx`, `page.js` ClusterWhisper satırları, `Hero.jsx:353`). Detay: §2.
-- [ ] **P1 · Sayfa başlıkları ve meta açıklamaları** (80 `page.js` dosyasında `TITLE_TR/EN`, `DESC_TR/EN`). Google snippet'i ve `<h1>` altı bunlar. Detay: §3.
+- [x] **P1 · Ana sayfa** (2026-09-05, commit b77d53e1) (`src/data/homeCards.js`, `src/i18n/tr.json` → `hero`/`conclusion`, `src/sections/SixGates.jsx`, `ConciergePrompt.jsx`, `page.js` ClusterWhisper satırları, `Hero.jsx:353`). Detay: §2.
+- [x] **P1 · Sayfa başlıkları ve meta açıklamaları** (2026-09-06; başlıklarda yalnız slogan yarıları değişti, Title Case tutarlılık için ertelendi, bkz. §3 notu) (80 `page.js` dosyasında `TITLE_TR/EN`, `DESC_TR/EN`). Google snippet'i ve `<h1>` altı bunlar. Detay: §3.
 - [ ] **P2 · Tefekkür tldr'ları ve criticalNote'lar** (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
 - [ ] **P2 · Uzun anlatı bölümleri** (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
 - [ ] **P3 · Araç ve atlas bileşenleri** (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.

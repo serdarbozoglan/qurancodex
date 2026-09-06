@@ -471,7 +471,7 @@ export const RESEARCH_TOOLS = [
     descTr:      'Kur\'ân kimi adlandırır · 8 isim · 96 âyet',
     descEn:      'Whom the Quran names · 8 names · 96 verses',
     descLongTr:  "Kur'ân'da adı açıkça geçip olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da hiç geçmez — onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz. Her sayı mushaf metnine karşı doğrulanmıştır.",
-    descLongEn:  "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named — they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every count verified against the mushaf text.",
+    descLongEn:  "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named; they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every count verified against the mushaf text.",
     icon:        IsimIcon,
   },
   {
@@ -536,7 +536,7 @@ export const RESEARCH_TOOLS = [
     titleEn:     'Concept of the Book',
     descTr:      "Kur'ân'ın 10 öz-adı · hüdâ, furkân, nûr, şifâ, beyân…",
     descEn:      "The Quran's 10 self-names · hudā, furqān, nūr, shifāʾ, bayān…",
-    descLongTr:  "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",
+    descLongTr:  "Kur'ân kendisi için 'Kitap' dışında 10'dan fazla isim ve sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",
     descLongEn:  "The Quran is not merely 'the Book'; it uses 10+ names + attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Function + meaning-layer of each name within al-Rāghib al-Iṣfahānī's Mufradāt framework.",
     icon:        KitapKavramiIcon,
   },

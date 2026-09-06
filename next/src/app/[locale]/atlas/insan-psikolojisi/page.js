@@ -7,9 +7,8 @@ import InsanPsikolojisiRoute from './InsanPsikolojisiRoute';
 const PATH = '/atlas/insan-psikolojisi';
 const TITLE_TR = "İnsan Psikolojisi — İç Dünyanın Haritası";
 const TITLE_EN = "Human Psychology — Map of the Inner World";
-const DESC_TR = "Kur'an'da insan psikolojisi — nefs mertebeleri, kalp, korku, savunma mekanizması, Yûsuf travma-iyileşme atlası.";
-const DESC_EN = "Human psychology in the Quran — nafs stations, heart, fear, defense mechanisms, Yūsuf as trauma-healing atlas.";
-
+const DESC_TR = "Kur'an'da insan psikolojisi: nefs mertebeleri, kalp, korku, savunma mekanizması ve Yûsuf kıssasında travma ile iyileşme.";
+const DESC_EN = "Human psychology in the Quran: the stations of the nafs, the heart, fear, defence mechanisms, and trauma and healing in the story of Yūsuf.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

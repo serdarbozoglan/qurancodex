@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import KurbanRoute from './KurbanRoute';
 
 const PATH = '/atlas/ibadetler/kurban';
-const TITLE_TR = "Kurban — Teslimiyetin Aynası";
-const TITLE_EN = "Sacrifice — The Mirror of Surrender";
-const DESC_TR = "Nüsük, hedy, kurban, nahr, zebh — kurbanın Kur'ânî semantik alanı; takva ekseni ve İbrahim hafızası. Klasik tefsir kaynakları.";
-const DESC_EN = "Nusuk, hady, qurbān, naḥr, dhabḥ — the Qur'anic semantic field of sacrifice; the taqwā axis and Abrahamic memory. Classical tafsir sources.";
-
+const TITLE_TR = "Kurban — Takvâ Ekseni ve İbrâhîm Hafızası";
+const TITLE_EN = "Sacrifice — The Taqwā Axis and Abrahamic Memory";
+const DESC_TR = "Kurbanın Kur'ân'daki kelimeleri: nüsük, hedy, kurban, nahr, zebh. Takvâ ekseni ve İbrahim hafızası, klasik tefsir kaynaklarıyla.";
+const DESC_EN = "The Qur'an's vocabulary of sacrifice: nusuk, hady, qurbān, naḥr, dhabḥ. The taqwā axis and Abrahamic memory, with classical tafsir sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

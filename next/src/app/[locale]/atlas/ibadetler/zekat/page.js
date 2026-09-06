@@ -7,9 +7,8 @@ import ZekatRoute from './ZekatRoute';
 const PATH = '/atlas/ibadetler/zekat';
 const TITLE_TR = "Zekât — Malın Kur'ânî Temizlenmesi";
 const TITLE_EN = "Zakāt — Qur'anic Purification of Wealth";
-const DESC_TR = "Zekât, sadaka, infâk, mâûn, karz-ı hasen, hakk-ı ma'lûm — malın Kur'ânî semantik alanı; nisab, oran ve alacaklıların sünnetle tafsili. Klasik tefsir kaynakları.";
-const DESC_EN = "Zakāt, ṣadaqa, infāq, māʿūn, qarḍ ḥasan, ḥaqq maʿlūm — the Qur'anic semantic field of wealth; threshold, rate, and recipients detailed by sunnah. Classical tafsir sources.";
-
+const DESC_TR = "Malın Kur'ânî semantik alanı: zekât, sadaka, infâk, mâûn, karz-ı hasen, hakk-ı ma'lûm. Nisab, oran ve alacaklıların sünnetteki tafsili, klasik tefsir kaynaklarıyla.";
+const DESC_EN = "The Qur'anic semantic field of wealth: zakāt, ṣadaqa, infāq, māʿūn, qarḍ ḥasan, ḥaqq maʿlūm. Threshold, rate and recipients as detailed by sunnah, with classical tafsir sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

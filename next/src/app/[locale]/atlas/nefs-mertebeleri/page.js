@@ -7,9 +7,8 @@ import NefisMertebeleriRoute from './NefisMertebeleriRoute';
 const PATH = '/atlas/nefs-mertebeleri';
 const TITLE_TR = 'Nefs Mertebeleri';
 const TITLE_EN = 'Stations of the Soul';
-const DESC_TR = '7 nefs mertebesi — emmare, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.';
-const DESC_EN = 'The seven stations of the soul (nafs) — ammāra, lawwāma, mulhima, muṭmaʾinna, rāḍiya, marḍiyya, kāmila.';
-
+const DESC_TR = "7 nefs mertebesi: emmâre, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.";
+const DESC_EN = "The seven stations of the soul (nafs): ammāra, lawwāma, mulhima, muṭmaʾinna, rāḍiya, marḍiyya, kāmila.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

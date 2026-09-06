@@ -7,9 +7,8 @@ import FatihaAtlasiRoute from './FatihaAtlasiRoute';
 const PATH = '/atlas/fatiha';
 const TITLE_TR = 'Fâtiha Atlası';
 const TITLE_EN = 'Atlas of the Opening';
-const DESC_TR = "Fâtiha sûresinin 7 âyeti — halka yapısı, hamd/Rahmân-Rahîm kelime seçimi, İyyâke ve sırat/sebîl gramer incelikleri, Bakara'ya çapaları. Klasikten (Mâtürîdî, Râzî, Molla Fenârî, Konevî) çağdaşa (Divine Speech, Neal Robinson) derlenmiş bir kaynak haritası.";
-const DESC_EN = "The 7 verses of Al-Fātiḥa — its ring structure, ḥamd/Raḥmān-Raḥīm word choice, Iyyāka and ṣirāṭ/sabīl grammatical subtleties, and its anchors in Al-Baqarah. A source map spanning classical (al-Māturīdī, al-Rāzī, Mullā Fanārī, al-Qūnawī) to contemporary (Divine Speech, Neal Robinson) scholarship.";
-
+const DESC_TR = "Fâtiha sûresinin 7 âyeti: halka yapısı, hamd ve Rahmân-Rahîm kelime seçimi, İyyâke ile sırat/sebîl gramer incelikleri, Bakara'ya çapaları. Klasik (Mâtürîdî, Râzî, Molla Fenârî, Konevî) ve çağdaş (Divine Speech, Neal Robinson) kaynaklardan derlenmiş bir harita.";
+const DESC_EN = "The 7 verses of Al-Fātiḥa: its ring structure, the ḥamd and Raḥmān-Raḥīm word choice, the grammatical subtleties of Iyyāka and ṣirāṭ/sabīl, and its anchors in Al-Baqarah. A source map compiled from classical (al-Māturīdī, al-Rāzī, Mullā Fanārī, al-Qūnawī) and contemporary (Divine Speech, Neal Robinson) scholarship.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

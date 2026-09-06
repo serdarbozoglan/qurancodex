@@ -7,9 +7,8 @@ import TefsirIhtilaflariRoute from './TefsirIhtilaflariRoute';
 const PATH = '/arac/tefsir-ihtilaflari';
 const TITLE_TR = "Tefsir İhtilafları — Kur'ân Mesellerinde Müfessir Karşılaştırması";
 const TITLE_EN = 'Exegetical Disagreements — Comparing Classical Commentators on Quranic Parables';
-const DESC_TR = "Yedi klasik ve modern müfessirin (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr) Kur'ân mesellerindeki yorum ayrılıkları — isimli alıntılarla, birincil kaynaktan doğrulanmış.";
-const DESC_EN = "Interpretive disagreements among seven classical and modern exegetes (Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur) on Quranic parables — with named quotes verified against primary sources.";
-
+const DESC_TR = "Yedi klasik ve modern müfessirin (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr) Kur'ân mesellerindeki yorum ayrılıkları; isimli alıntılarla, birincil kaynaktan doğrulanmış.";
+const DESC_EN = "Interpretive disagreements among seven classical and modern exegetes (Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur) on Quranic parables, with named quotes verified against primary sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({
     params,

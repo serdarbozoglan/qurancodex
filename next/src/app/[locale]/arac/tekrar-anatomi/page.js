@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import TekrarAnatomiRoute from './TekrarAnatomiRoute';
 
 const PATH = '/arac/tekrar-anatomi';
-const TITLE_TR = "Sıfır Gereksizlik — Her Kelime Bir Görev";
-const TITLE_EN = "Zero Redundancy — Every Word Has a Task";
-const DESC_TR = "Kur'an'ın refrain mimarisi — Rahmân'ın 31 kez tekrarı, Musa kıssasının 30+ perspektifi, sıfır gereksiz kelime.";
-const DESC_EN = "The Quran's refrain architecture — ar-Raḥmān's 31 repetitions, the 30+ angles of Moses's story, zero redundant words.";
-
+const TITLE_TR = "Sıfır Gereksizlik — Tekrarın Anatomisi";
+const TITLE_EN = "Zero Redundancy — The Anatomy of Repetition";
+const DESC_TR = "Kur'an'ın nakarat mimarisi: Rahmân'daki 31 tekrar, Musa kıssasının 30'dan fazla anlatımı ve işlevsiz tekrarın yokluğu.";
+const DESC_EN = "The Quran's refrain architecture: the 31 repetitions in ar-Raḥmān, the more than 30 tellings of the story of Moses, and the absence of redundant repetition.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

@@ -7,9 +7,8 @@ import MeleklerRoute from './MeleklerRoute';
 const PATH = '/arac/melekler';
 const TITLE_TR = 'Melekler';
 const TITLE_EN = 'Angels in the Quran';
-const DESC_TR = "Kur'an'da melekler — Cebrâil, Mikâil, İsrâfil, Azrail ve sınıfları; görevleri ve geçtiği ayetler.";
-const DESC_EN = "Angels in the Quran — Jibril, Mikail, Israfil, the Angel of Death and their orders; their duties and the verses in which they appear.";
-
+const DESC_TR = "Kur'an'da melekler: Cebrâil, Mikâil, İsrâfil, Azrail ve melek sınıfları; görevleri ve geçtikleri ayetler.";
+const DESC_EN = "Angels in the Quran: Jibril, Mikail, Israfil, the Angel of Death and the orders of angels; their duties and the verses in which they appear.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

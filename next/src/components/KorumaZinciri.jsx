@@ -37,8 +37,8 @@ export default function KorumaZinciri({ onClose }) {
         icon={
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-0.5 8-5 8-10V6l-8-4z"/></svg>
         }
-        titleTr="Yaşayan Koruma — Sıfır Varyasyon"
-        titleEn="Living Preservation — Zero Variation"
+        titleTr="Yaşayan Koruma — Rasm, Hâfız ve İsnâd"
+        titleEn="Living Preservation — Rasm, Ḥuffāẓ and Isnād"
         subtitleTr="Birmingham · hâfız zinciri · isnâd"
         subtitleEn="Birmingham · ḥuffāẓ chain · isnād"
         language={language}
@@ -104,7 +104,7 @@ export default function KorumaZinciri({ onClose }) {
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
-          {tr ? "Yaşayan Koruma — Sıfır Varyasyon" : "Living Preservation — Zero Variation"}
+          {tr ? "Yaşayan Koruma — Rasm, Hâfız ve İsnâd" : "Living Preservation — Rasm, Ḥuffāẓ and Isnād"}
         </h2>
         <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',

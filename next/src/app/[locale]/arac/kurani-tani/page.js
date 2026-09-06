@@ -7,9 +7,8 @@ import KuraniTaniRoute from './KuraniTaniRoute';
 const PATH = '/arac/kurani-tani';
 const TITLE_TR = "Kur'an'ı Tanı";
 const TITLE_EN = 'Meet the Quran';
-const DESC_TR = "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler. Kategorilerden filtrele veya doğrudan ara.";
-const DESC_EN = "From modern science to classical exegesis — lesser-known, astonishing facts in the Quran. Filter by category or search directly.";
-
+const DESC_TR = "Modern bilimden klasik tefsire, Kur'an'da az bilinen gerçekler. Kategoriye göre filtrele ya da doğrudan ara.";
+const DESC_EN = "Lesser-known facts about the Quran, from modern science to classical exegesis. Filter by category or search directly.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

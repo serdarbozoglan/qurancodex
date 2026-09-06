@@ -7,9 +7,8 @@ import ZamanBoyutlariRoute from './ZamanBoyutlariRoute';
 const PATH = '/arac/zaman-boyutlari';
 const TITLE_TR = 'Zaman Boyutları';
 const TITLE_EN = 'Dimensions of Time';
-const DESC_TR = "Kur'an'da zaman algısı — gün, sene, devir, an; göreceli zaman ölçeği ve bilimsel yorumlar.";
-const DESC_EN = "The perception of time in the Quran — day, year, epoch, instant; the relative scale of time and modern scientific readings.";
-
+const DESC_TR = "Kur'an'da zaman algısı: gün, sene, devir, an; göreceli zaman ölçeği ve bilimsel yorumlar.";
+const DESC_EN = "The perception of time in the Quran: day, year, epoch, instant; the relative scale of time and modern scientific readings.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

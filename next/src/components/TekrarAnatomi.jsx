@@ -33,8 +33,8 @@ export default function TekrarAnatomi({ onClose }) {
         icon={
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
         }
-        titleTr="Sıfır Gereksizlik — Her Kelime Bir Görev"
-        titleEn="Zero Redundancy — Every Word Has a Task"
+        titleTr="Sıfır Gereksizlik — Tekrarın Anatomisi"
+        titleEn="Zero Redundancy — The Anatomy of Repetition"
         subtitleTr="Rahmân 31x · Mürselât 10x · Kamer 4x"
         subtitleEn="ar-Raḥmān 31x · al-Mursalāt 10x · al-Qamar 4x"
         language={language}
@@ -100,7 +100,7 @@ export default function TekrarAnatomi({ onClose }) {
           lineHeight: 1.2, letterSpacing: '-0.015em',
           margin: '0 0 12px',
         }}>
-          {tr ? "Sıfır Gereksizlik — Her Kelime Bir Görev" : "Zero Redundancy — Every Word Has a Task"}
+          {tr ? "Sıfır Gereksizlik — Tekrarın Anatomisi" : "Zero Redundancy — The Anatomy of Repetition"}
         </h2>
         <p className="mq-fs" style={{
           fontFamily: FONTS.display, fontStyle: 'italic',

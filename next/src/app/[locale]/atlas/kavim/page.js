@@ -7,9 +7,8 @@ import KavimlerAtlasiRoute from './KavimlerAtlasiRoute';
 const PATH = '/atlas/kavim';
 const TITLE_TR = 'Kavimler Atlası';
 const TITLE_EN = 'Atlas of Quranic Peoples';
-const DESC_TR = "Kur'an'da geçen kavimler — Âd, Semûd, Lût, Medyen, Sebe' — coğrafi haritası ve helâk-yücelten örüntüleri.";
-const DESC_EN = "Peoples mentioned in the Quran — ʿĀd, Thamūd, Lot, Madyan, Sabaʾ — their geography and the patterns of their destruction or elevation.";
-
+const DESC_TR = "Kur'an'da geçen kavimler (Âd, Semûd, Lût, Medyen, Sebe'): coğrafi haritası ile helâk eden ve yücelten örüntüler.";
+const DESC_EN = "Peoples mentioned in the Quran (ʿĀd, Thamūd, Lot, Madyan, Sabaʾ): their geography and the patterns of their destruction or elevation.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

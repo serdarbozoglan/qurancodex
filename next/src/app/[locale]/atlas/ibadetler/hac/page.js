@@ -5,11 +5,10 @@ import PageHeading from '@/components/PageHeading';
 import HacRoute from './HacRoute';
 
 const PATH = '/atlas/ibadetler/hac';
-const TITLE_TR = "Hac — İbrâhîm Mirası ve Mekânın Yolculuğu";
-const TITLE_EN = "Ḥajj — Abrahamic Heritage and the Journey of Place";
-const DESC_TR = "Hac, umre, ihrâm, tavâf, sa'y, Arefe, Beytullah, şeâirullah, nüsük — haccın Kur'ânî semantik alanı; İbrahim mirası ve sünnetle tafsili. Klasik tefsir kaynakları.";
-const DESC_EN = "Ḥajj, ʿumra, iḥrām, ṭawāf, saʿy, ʿArafa, Bayt Allāh, shaʿāʾir Allāh, nusuk — the Qur'anic semantic field of pilgrimage; Abrahamic heritage and sunnah detail. Classical tafsir sources.";
-
+const TITLE_TR = "Hac — İbrâhîm Mirası ve Mekân";
+const TITLE_EN = "Ḥajj — Abrahamic Heritage and Place";
+const DESC_TR = "Haccın Kur'ânî semantik alanı: hac, umre, ihrâm, tavâf, sa'y, Arefe, Beytullah, şeâirullah, nüsük. İbrahim mirası ve sünnetteki tafsili, klasik tefsir kaynaklarıyla.";
+const DESC_EN = "The Qur'anic semantic field of pilgrimage: ḥajj, ʿumra, iḥrām, ṭawāf, saʿy, ʿArafa, Bayt Allāh, shaʿāʾir Allāh, nusuk. Its Abrahamic heritage and sunnah detail, with classical tafsir sources.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

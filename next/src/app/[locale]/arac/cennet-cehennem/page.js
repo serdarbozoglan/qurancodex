@@ -7,9 +7,8 @@ import CennetCehennemRoute from './CennetCehennemRoute';
 const PATH = '/arac/cennet-cehennem';
 const TITLE_TR = 'Cennet & Cehennem';
 const TITLE_EN = 'Paradise & Hell';
-const DESC_TR = "Kur'an'da cennet ve cehennem tasvirleri — nimetler, azaplar, mertebeler, kapılar; ayet referanslarıyla.";
-const DESC_EN = "Descriptions of Paradise and Hell in the Quran — blessings, torments, levels, gates; with verse references.";
-
+const DESC_TR = "Kur'an'da cennet ve cehennem tasvirleri: nimetler, azaplar, mertebeler ve kapılar, ayet referanslarıyla.";
+const DESC_EN = "Descriptions of Paradise and Hell in the Quran: blessings, torments, levels and gates, with verse references.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }

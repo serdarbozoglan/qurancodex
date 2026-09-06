@@ -485,3 +485,552 @@ Tarih: 2026-09-05
   SONRA: `"summary": "Its words are balanced, its sounds carry feeling, its structure is symmetric, its meaning layered; and the text has not changed in 1,400 years.",`
 - ÖNCE: `"desc": "QuranCodex contains 25+ interactive tools and 8 in-depth discovery sections. From variant readings to dialogue networks, parables to occasions of revelation — each a distinct journey.",`
   SONRA: `"desc": "QuranCodex contains 25+ interactive tools and 8 in-depth discovery sections: variant readings, dialogue networks, parables, occasions of revelation and more.",`
+
+## 2. Sayfa başlıkları ve açıklamaları (2026-09-06)
+
+Kural: araç adı yarısı (menü/katalog/korpus kimliği) değişmedi; yalnız slogan yarıları ve DESC metinleri. Slogan değişen üç bileşenin (KorumaZinciri, SesMimarisi, TekrarAnatomi) ToolHeader + hero başlıkları ve katalogda örtüşen açıklamalar birlikte güncellendi.
+
+
+### `next/src/app/[locale]/arac/alti-konu/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da öne çıkan altı konu — prefrontal korteks, parmak izi, modüler anlatı, kelime haritası, zaman esnekliği, iltifât.";`
+  SONRA: `const DESC_TR = "Kur'an'da öne çıkan altı konu: prefrontal korteks, parmak izi, modüler anlatı, kelime haritası, zaman esnekliği ve iltifât.";`
+- ÖNCE: `const DESC_EN = "Six highlighted topics in the Quran — prefrontal cortex, fingerprints, modular narrative, word map, time elasticity, iltifāt.";`
+  SONRA: `const DESC_EN = "Six highlighted topics in the Quran: the prefrontal cortex, fingerprints, modular narrative, the word map, time elasticity and iltifāt.";`
+
+### `next/src/app/[locale]/arac/bilimsel-isaretler/page.js`
+
+- ÖNCE: `const TITLE_TR = "Bilimsel İşaretler — 1.400 Yıl Sonra Keşfedilenler";`
+  SONRA: `const TITLE_TR = "Bilimsel İşaretler — Klasik Tefsir ve Modern Paralel";`
+- ÖNCE: `const TITLE_EN = "Scientific Signs — Discoveries 1,400 Years Later";`
+  SONRA: `const TITLE_EN = "Scientific Signs — Classical Tafsir and Modern Parallels";`
+- ÖNCE: `const DESC_TR = "Kur'an'daki bilimsel işaretler — demir, evren genişlemesi, iki deniz, embriyoloji. Klasik tefsir + modern paralel + Bucaillism eleştirel çerçeve.";`
+  SONRA: `const DESC_TR = "Kur'an'daki bilimsel işaretler: demir, evrenin genişlemesi, iki deniz, embriyoloji. Her ayet için klasik tefsir, modern paralel ve Bucaille tarzı okumaya eleştirel not yan yana.";`
+- ÖNCE: `const DESC_EN = "Scientific signs in the Quran — iron, cosmic expansion, two seas, embryology. Classical tafsir + modern parallel + Bucaillism critical frame.";`
+  SONRA: `const DESC_EN = "Scientific signs in the Quran: iron, the expansion of the universe, the two seas, embryology. For each verse, classical tafsir, the modern parallel and a critical note on Bucaille-style readings side by side.";`
+
+### `next/src/app/[locale]/arac/buyruklar/page.js`
+
+- ÖNCE: `const DESC_TR = "İmperatif fiiller — namaz, oruç, zekât, hac, adâlet, sabır, tevbe ve diğer ilâhî buyruklar; 88 emir, 8 kategori.";`
+  SONRA: `const DESC_TR = "Kur'an'daki emir kipleri: namaz, oruç, zekât, hac, adâlet, sabır, tevbe ve diğer ilâhî buyruklar. 8 kategoride 88 emir.";`
+- ÖNCE: `const DESC_EN = "Imperative verbs in the Quran — prayer, fasting, zakat, hajj, justice, patience, repentance and other divine directives; 88 commands across 8 categories.";`
+  SONRA: `const DESC_EN = "Imperative verbs in the Quran: prayer, fasting, zakat, hajj, justice, patience, repentance and other divine directives. 88 commands in 8 categories.";`
+
+### `next/src/app/[locale]/arac/cennet-cehennem/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da cennet ve cehennem tasvirleri — nimetler, azaplar, mertebeler, kapılar; ayet referanslarıyla.";`
+  SONRA: `const DESC_TR = "Kur'an'da cennet ve cehennem tasvirleri: nimetler, azaplar, mertebeler ve kapılar, ayet referanslarıyla.";`
+- ÖNCE: `const DESC_EN = "Descriptions of Paradise and Hell in the Quran — blessings, torments, levels, gates; with verse references.";`
+  SONRA: `const DESC_EN = "Descriptions of Paradise and Hell in the Quran: blessings, torments, levels and gates, with verse references.";`
+
+### `next/src/app/[locale]/arac/dua-dili/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da dua dili — Fâtiha'nın gramatik kalıbı, Bakara 2:186'nın \"yakınım\" vaadi, Mü'min 40:60'ın \"icabet ederim\" emri.";`
+  SONRA: `const DESC_TR = "Kur'an'da dua dili: Fâtiha'nın gramatik kalıbı, Bakara 2:186'daki \"yakınım\" vaadi ve Mü'min 40:60'taki \"icabet ederim\" emri.";`
+- ÖNCE: `const DESC_EN = "The language of prayer in the Quran — the grammatical template of al-Fātiḥa, the \"I am near\" promise in al-Baqara 2:186, the \"I respond\" command in al-Muʾmin 40:60.";`
+  SONRA: `const DESC_EN = "The language of prayer in the Quran: the grammatical template of al-Fātiḥa, the \"I am near\" promise in al-Baqara 2:186 and the \"I respond\" command in al-Muʾmin 40:60.";`
+
+### `next/src/app/[locale]/arac/dualar/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'dan seçilmiş dualar — peygamberlerin yakarışları ve müminlerin niyazları; bağlam ve uygulama rehberi.";`
+  SONRA: `const DESC_TR = "Kur'an'dan seçilmiş dualar: peygamberlerin yakarışları ve müminlerin niyazları, bağlamı ve uygulama rehberiyle.";`
+- ÖNCE: `const DESC_EN = "Selected supplications from the Quran — the prayers of the prophets and the appeals of the believers; with context and a practical guide.";`
+  SONRA: `const DESC_EN = "Selected supplications from the Quran: the prayers of the prophets and the appeals of the believers, with context and a practical guide.";`
+
+### `next/src/app/[locale]/arac/elestirel-cerceve/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'ân'a yöneltilen en zorlu sorular — miras, şahitlik, Nisâ 4:34, cizye, kölelik, Lût kavmi, Nûh tufanı, iktibas iddiası, i'câzü'l-ilmî, muhkem-müteşâbih — en keskin haliyle yazılır ve ulemânın cevabı kaynağıyla gösterilir. Râzî, Kurtubî, İbn Kayyim, İbn Âşûr, Elmalılı ve Bediüzzaman Said Nursî'den. Ölçü Kur'ân'dır: bir ayet sorunlu görünüyorsa kusur ayette değil, bizim anlayışımızdadır.";`
+  SONRA: `const DESC_TR = "Kur'ân'a yöneltilen en zorlu sorular (miras, şahitlik, Nisâ 4:34, cizye, kölelik, Lût kavmi, Nûh tufanı, iktibas iddiası, i'câzü'l-ilmî, muhkem-müteşâbih) en keskin haliyle yazılır; ulemânın cevabı kaynağıyla gösterilir: Râzî, Kurtubî, İbn Kayyim, İbn Âşûr, Elmalılı ve Bediüzzaman Said Nursî. Ölçü Kur'ân'dır: bir ayet sorunlu görünüyorsa kusur ayette değil, bizim anlayışımızdadır.";`
+- ÖNCE: `const DESC_EN = "The hardest questions posed to the Qur'an — inheritance, testimony, Nisa 4:34, jizya, slavery, the people of Lot, Noah's flood, the borrowing claim, scientific i'jaz, muhkam and mutashabih — stated at their sharpest, then answered from the scholars with their sources: al-Razi, al-Qurtubi, Ibn al-Qayyim, Ibn Ashur, Elmalili and Bediuzzaman Said Nursi. The Qur'an is the measure: if a verse appears problematic, the fault lies in our understanding, not in the verse.";`
+  SONRA: `const DESC_EN = "The hardest questions posed to the Qur'an (inheritance, testimony, Nisa 4:34, jizya, slavery, the people of Lot, Noah's flood, the borrowing claim, scientific i'jaz, muhkam and mutashabih) are stated at their sharpest, then answered from the scholars with their sources: al-Razi, al-Qurtubi, Ibn al-Qayyim, Ibn Ashur, Elmalili and Bediuzzaman Said Nursi. The Qur'an is the measure: if a verse appears problematic, the fault lies in our understanding, not in the verse.";`
+
+### `next/src/app/[locale]/arac/esma-frekans/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da Allah'ın kendini tanıttığı 114 isim ve sıfat ile doğrudan beyanlar. Celal ↔ Cemal dengesi, frekans haritası, Âyetü'l-Kürsî ve Haşr 22-24 anatomileri.";`
+  SONRA: `const DESC_TR = "Kur'an'da Allah'ın kendini tanıttığı 114 isim ve sıfat ile doğrudan beyanlar. Celal ile Cemal dengesi, frekans haritası, Âyetü'l-Kürsî ve Haşr 22-24'ün anatomisi.";`
+- ÖNCE: `const DESC_EN = "The 114 names & attributes and direct statements by which God describes Himself in the Quran. Jalāl ↔ Jamāl balance, frequency landscape, and anatomies of Āyat al-Kursī and Ḥashr 22-24.";`
+  SONRA: `const DESC_EN = "The 114 names and attributes and the direct statements by which God describes Himself in the Quran. The balance of Jalāl and Jamāl, a frequency map, and the anatomy of Āyat al-Kursī and Ḥashr 22-24.";`
+
+### `next/src/app/[locale]/arac/halka-kompozisyon/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da halka kompozisyon — Fâtiha'nın 7-bölüm ayna simetrisi, Âyetel Kürsî'nin gizli yapısı (Farrin 2014).";`
+  SONRA: `const DESC_TR = "Kur'an'da halka kompozisyon: Fâtiha'nın 7 bölümlü ayna simetrisi ve Âyetel Kürsî'nin iç yapısı (Farrin 2014).";`
+- ÖNCE: `const DESC_EN = "Ring composition in the Quran — the 7-part mirror symmetry of al-Fātiḥa, the hidden structure of Āyat al-Kursī (Farrin 2014).";`
+  SONRA: `const DESC_EN = "Ring composition in the Quran: the 7-part mirror symmetry of al-Fātiḥa and the inner structure of Āyat al-Kursī (Farrin 2014).";`
+
+### `next/src/app/[locale]/arac/hifz-modu/page.js`
+
+- ÖNCE: `const DESC_TR = 'Gerçek mushaf sayfa görseli ve ayet başına dinleme — 4 örnek sayfa prototipi.';`
+  SONRA: `const DESC_TR = "Gerçek mushaf sayfa görseli ve ayet başına dinleme; 4 örnek sayfalık prototip.";`
+- ÖNCE: `const DESC_EN = 'Real mushaf page image with per-verse audio — a 4-page prototype.';`
+  SONRA: `const DESC_EN = "Real mushaf page images with per-verse audio; a 4-page prototype.";`
+
+### `next/src/app/[locale]/arac/iblis-seytan/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da İblîs ve şeytan — tekrar eden tema, taktikleri ve insana yaklaşımı; ayet bazlı analiz.";`
+  SONRA: `const DESC_TR = "Kur'an'da İblîs ve şeytan: tekrar eden tema, taktikleri ve insana yaklaşımı, ayet ayet.";`
+- ÖNCE: `const DESC_EN = "Iblis and Satan in the Quran — the recurring theme, their tactics and their approach to humankind; a verse-level analysis.";`
+  SONRA: `const DESC_EN = "Iblis and Satan in the Quran: the recurring theme, their tactics and their approach to humankind, verse by verse.";`
+
+### `next/src/app/[locale]/arac/ilk-son-kelimeler/page.js`
+
+- ÖNCE: `const DESC_TR = '114 sûrenin ilk ve son kelimeleri — tematik halka, başlangıç-bitiş simetrisi.';`
+  SONRA: `const DESC_TR = "114 sûrenin ilk ve son kelimeleri: tematik halka ve başlangıç-bitiş simetrisi.";`
+- ÖNCE: `const DESC_EN = 'The first and last words of all 114 surahs — thematic ring composition and beginning-to-end symmetry.';`
+  SONRA: `const DESC_EN = "The first and last words of all 114 surahs: thematic ring and beginning-to-end symmetry.";`
+
+### `next/src/app/[locale]/arac/isimlendirme/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'ân'da adı açıkça geçen ve olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da HİÇ geçmez — onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz. Her sayı mushaf metnine karşı doğrulanmıştır.";`
+  SONRA: `const DESC_TR = "Kur'ân'da adı açıkça geçen ve olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da hiç geçmez; onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz. Her sayı mushaf metnine karşı doğrulanmıştır.";`
+- ÖNCE: `const DESC_EN = "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named — they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every figure verified against the mushaf text.";`
+  SONRA: `const DESC_EN = "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named; they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every figure verified against the mushaf text.";`
+
+### `next/src/app/[locale]/arac/kitap-kavrami/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Her isim ayrı bir işleve işaret eder — Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin anlam katmanı.";`
+  SONRA: `const DESC_TR = "Kur'ân kendisi için 'Kitap' dışında 10'dan fazla isim ve sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Her isim ayrı bir işleve işaret eder; her ismin anlam katmanı Râgıb el-İsfahânî'nin Müfredât'ı çerçevesinde verilir.";`
+- ÖNCE: `const DESC_EN = "The Quran is not merely 'The Book'; it uses 10+ names + attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Each name points to a different function — meaning-layers of each within the framework of al-Rāghib al-Iṣfahānī's Mufradāt.";`
+  SONRA: `const DESC_EN = "Beyond 'The Book', the Quran uses more than 10 names and attributes for itself: al-Kitāb, al-Furqān, al-Dhikr, al-Hudā, al-Nūr, al-Shifāʾ, al-Bayān, al-Tibyān, al-Mawʿiẓa, al-Mubīn. Each name points to a different function; the layers of meaning of each are given within the framework of al-Rāghib al-Iṣfahānī's Mufradāt.";`
+
+### `next/src/app/[locale]/arac/kiyamet/page.js`
+
+- ÖNCE: `const DESC_TR = 'Kıyamet günü ve sonrası — 7 fazlı sahneler: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.';`
+  SONRA: `const DESC_TR = "Kıyamet günü ve sonrası, 7 fazda: ön belirtiler, sûr, haşr, hesap, kitap, mizan, sırat.";`
+- ÖNCE: `const DESC_EN = 'The Day of Judgment and what follows — seven phased scenes: signs, the trumpet, gathering, reckoning, the book, the scale, the path.';`
+  SONRA: `const DESC_EN = "The Day of Judgment and what follows, in seven phases: signs, the trumpet, gathering, reckoning, the book, the scale, the path.";`
+
+### `next/src/app/[locale]/arac/koruma-zinciri/page.js`
+
+- ÖNCE: `const TITLE_TR = "Yaşayan Koruma — Sıfır Varyasyon";`
+  SONRA: `const TITLE_TR = "Yaşayan Koruma — Rasm, Hâfız ve İsnâd";`
+- ÖNCE: `const TITLE_EN = "Living Preservation — Zero Variation";`
+  SONRA: `const TITLE_EN = "Living Preservation — Rasm, Ḥuffāẓ and Isnād";`
+- ÖNCE: `const DESC_TR = "Kur'an'ın yaşayan koruma zinciri — Birmingham elyazması (2015), milyonlarca hâfız, isnâd geleneği.";`
+  SONRA: `const DESC_TR = "Kur'an'ın yaşayan koruma zinciri: Birmingham elyazması (2015), milyonlarca hâfız ve isnâd geleneği.";`
+- ÖNCE: `const DESC_EN = "The Quran's living preservation chain — the Birmingham manuscript (2015), millions of ḥuffāẓ, the isnād tradition.";`
+  SONRA: `const DESC_EN = "The Quran's living chain of preservation: the Birmingham manuscript (2015), millions of ḥuffāẓ and the isnād tradition.";`
+
+### `next/src/app/[locale]/arac/kurani-tani/page.js`
+
+- ÖNCE: `const DESC_TR = "Modern bilimden klasik tefsire — Kur'an'da az bilinen, şaşırtan gerçekler. Kategorilerden filtrele veya doğrudan ara.";`
+  SONRA: `const DESC_TR = "Modern bilimden klasik tefsire, Kur'an'da az bilinen gerçekler. Kategoriye göre filtrele ya da doğrudan ara.";`
+- ÖNCE: `const DESC_EN = "From modern science to classical exegesis — lesser-known, astonishing facts in the Quran. Filter by category or search directly.";`
+  SONRA: `const DESC_EN = "Lesser-known facts about the Quran, from modern science to classical exegesis. Filter by category or search directly.";`
+
+### `next/src/app/[locale]/arac/melekler/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da melekler — Cebrâil, Mikâil, İsrâfil, Azrail ve sınıfları; görevleri ve geçtiği ayetler.";`
+  SONRA: `const DESC_TR = "Kur'an'da melekler: Cebrâil, Mikâil, İsrâfil, Azrail ve melek sınıfları; görevleri ve geçtikleri ayetler.";`
+- ÖNCE: `const DESC_EN = "Angels in the Quran — Jibril, Mikail, Israfil, the Angel of Death and their orders; their duties and the verses in which they appear.";`
+  SONRA: `const DESC_EN = "Angels in the Quran: Jibril, Mikail, Israfil, the Angel of Death and the orders of angels; their duties and the verses in which they appear.";`
+
+### `next/src/app/[locale]/arac/muhataplar/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da muhatap çağrıları — 'Ey iman edenler', 'Ey insanlar', 'Ey ehl-i kitap'; kim, ne zaman, hangi bağlamda.";`
+  SONRA: `const DESC_TR = "Kur'an'da muhatap çağrıları ('Ey iman edenler', 'Ey insanlar', 'Ey ehl-i kitap'): kime, ne zaman, hangi bağlamda.";`
+- ÖNCE: `const DESC_EN = "Vocative calls in the Quran — \"O you who believe\", \"O mankind\", \"O People of the Book\"; who is addressed, when and in what context.";`
+  SONRA: `const DESC_EN = "Vocative calls in the Quran (\"O you who believe\", \"O mankind\", \"O People of the Book\"): who is addressed, when and in what context.";`
+
+### `next/src/app/[locale]/arac/mukattaa/page.js`
+
+- ÖNCE: `const DESC_TR = "14 mukattaa harfi · 29 sûreyi açar · %25 kapsama. Elif-Lâm-Mîm, Elif-Lâm-Râ, Havâmîm, Tâ-Sîn aileleri ve 1.400 yıllık bilimsel ihtilaf — klasik tefsir ile modern dil analizi yan yana.";`
+  SONRA: `const DESC_TR = "14 mukattaa harfi 29 sûreyi açar; bu, Kur'an'ın %25'i. Elif-Lâm-Mîm, Elif-Lâm-Râ, Havâmîm ve Tâ-Sîn aileleri, 1.400 yıllık ihtilaf; klasik tefsir ile modern dil analizi yan yana.";`
+- ÖNCE: `const DESC_EN = "14 mukattaʿāt letters · open 29 suras · 25% coverage. The Alif-Lām-Mīm, Alif-Lām-Rā, Ḥawāmīm, Ṭā-Sīn families and 1,400 years of unresolved scholarship — classical tafsir alongside modern linguistic analysis.";`
+  SONRA: `const DESC_EN = "14 mukattaʿāt letters open 29 suras, 25% of the Quran. The Alif-Lām-Mīm, Alif-Lām-Rā, Ḥawāmīm and Ṭā-Sīn families, 1,400 years of unresolved scholarship, classical tafsir alongside modern linguistic analysis.";`
+
+### `next/src/app/[locale]/arac/neden-sonuc/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'ân dünyayı bir 'nedenler-sonuçlar örüntüsü' olarak okur: sabır → yardım → zafer, şükür → nimet artışı, kibir → kalp mühürleme, zulüm → helâk, ifsat → deprem-kıtlık, mîzân → göklerin ayakta durması. Nefsî + toplumsal + kozmik 3 katmanda 10 ana zincir; her halka Kur'ânî ayet ankrajıyla.";`
+  SONRA: `const DESC_TR = "Kur'ân dünyayı bir nedenler-sonuçlar örüntüsü olarak okur: sabır yardımı ve zaferi, şükür nimet artışını, kibir kalbin mühürlenmesini, zulüm helâki, ifsat deprem ve kıtlığı getirir; mîzân gökleri ayakta tutar. Nefsî, toplumsal ve kozmik üç katmanda 10 ana zincir; her halka Kur'ânî ayetle bağlı.";`
+- ÖNCE: `const DESC_EN = "The Quran reads the world as a 'pattern of causes and effects': patience → help → victory, gratitude → increase, arrogance → sealing of the heart, injustice → destruction, corruption → earthquake-famine, balance → heavens standing. 10 main chains across 3 layers (inner + social + cosmic); each link anchored in Quranic verses.";`
+  SONRA: `const DESC_EN = "The Quran reads the world as a pattern of causes and effects: patience brings help and victory, gratitude brings increase, arrogance seals the heart, injustice brings destruction, corruption brings earthquake and famine, and balance keeps the heavens standing. 10 main chains across three layers (inner, social, cosmic), each link anchored in Quranic verses.";`
+
+### `next/src/app/[locale]/arac/renkler/page.js`
+
+- ÖNCE: `const DESC_TR = "Beyaz, siyah, kırmızı, sarı, yeşil, mavi — Kur'an'da renklerin sembolik kullanımı ve geçtiği ayetler.";`
+  SONRA: `const DESC_TR = "Beyaz, siyah, kırmızı, sarı, yeşil ve mavi: Kur'an'da renklerin sembolik kullanımı ve geçtikleri ayetler.";`
+- ÖNCE: `const DESC_EN = "White, black, red, yellow, green, blue — the symbolic use of color in the Quran and the verses in which each appears.";`
+  SONRA: `const DESC_EN = "White, black, red, yellow, green and blue: the symbolic use of colour in the Quran and the verses in which each appears.";`
+
+### `next/src/app/[locale]/arac/retorik-sorular/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'ın retorik soruları — Rahmân'ın 31'li refrain'i, Vâkıa'nın \"Hiç düşündünüz mü?\" zinciri, Yâsîn'de diriliş için zincirleme sorular.";`
+  SONRA: `const DESC_TR = "Kur'an'ın retorik soruları: Rahmân'daki 31 nakarat, Vâkıa'daki \"Hiç düşündünüz mü?\" zinciri ve Yâsîn'de diriliş için art arda gelen sorular.";`
+- ÖNCE: `const DESC_EN = "Quranic rhetorical questions — the 31-refrain of ar-Raḥmān, the \"Have you considered?\" chain in al-Wāqiʿa, resurrection chains in Yā-Sīn.";`
+  SONRA: `const DESC_EN = "The Quran's rhetorical questions: the refrain repeated 31 times in ar-Raḥmān, the \"Have you considered?\" chain in al-Wāqiʿa and the run of questions on resurrection in Yā-Sīn.";`
+
+### `next/src/app/[locale]/arac/retorik/page.js`
+
+- ÖNCE: `const DESC_TR = "Belâgat figürleri — tezad, istiare, teşbih, iltifât, sehl-i mümteni ve daha fazlası; Kur'an üslubunun haritası.";`
+  SONRA: `const DESC_TR = "Belâgat figürleri: tezad, istiare, teşbih, iltifât, sehl-i mümteni ve diğerleri. Kur'an üslubunun haritası.";`
+- ÖNCE: `const DESC_EN = "Rhetorical devices of the Quran — antithesis, metaphor, simile, iltifāt, sahl-i mümtaniʿ and more; a map of Quranic style.";`
+  SONRA: `const DESC_EN = "Rhetorical devices of the Quran: antithesis, metaphor, simile, iltifāt, sahl-i mümtaniʿ and others. A map of Quranic style.";`
+
+### `next/src/app/[locale]/arac/ritim/page.js`
+
+- ÖNCE: `const DESC_TR = "7. yüzyıl Arabistanı'nda dil iki kutuptan ibaretti: 16 vezne sahip katı şiir, ya da serbest düzyazı. Kur'an her ikisinden farklı — sui generis bir form. Necm, Kevser, Duhâ sûrelerinden örneklerle ritim analizi.";`
+  SONRA: `const DESC_TR = "7. yüzyıl Arabistanı'nda söz ya 16 vezinden birine bağlı şiirdi ya da serbest düzyazı. Kur'an ikisine de uymaz; kendine özgü bir form. Necm, Kevser ve Duhâ sûrelerinden örneklerle ritim analizi.";`
+- ÖNCE: `const DESC_EN = "In 7th-century Arabia, language had two poles: rigid poetry with 16 meters, or free prose. The Quran is neither — a sui generis form. Rhythm analysis with examples from an-Najm, al-Kawthar, ad-Ḍuḥā.";`
+  SONRA: `const DESC_EN = "In 7th-century Arabia, speech was either poetry bound to one of 16 meters or free prose. The Quran fits neither; it is a form of its own. Rhythm analysis with examples from an-Najm, al-Kawthar and ad-Ḍuḥā.";`
+
+### `next/src/app/[locale]/arac/sebebi-nuzul/page.js`
+
+- ÖNCE: `const DESC_TR = 'Ayetlerin iniş sebepleri — tarihsel olaylar, sorular, bağlamlar; klasik tefsir kaynaklarına dayalı.';`
+  SONRA: `const DESC_TR = "Ayetlerin iniş sebepleri: tarihsel olaylar, sorular ve bağlamlar, klasik tefsir kaynaklarına dayalı.";`
+- ÖNCE: `const DESC_EN = 'The occasions of revelation (asbāb al-nuzūl) — historical events, questions, contexts; drawn from classical tafsir sources.';`
+  SONRA: `const DESC_EN = "The occasions of revelation (asbāb al-nuzūl): historical events, questions and contexts, drawn from classical tafsir sources.";`
+
+### `next/src/app/[locale]/arac/ses-mimarisi/page.js`
+
+- ÖNCE: `const TITLE_TR = "Ses Mimarisi — Sesler Tesadüf Değil";`
+  SONRA: `const TITLE_TR = "Ses Mimarisi — Sesin Anlamla Paralelliği";`
+- ÖNCE: `const TITLE_EN = "Sound Architecture — Sounds Are Not Coincidence";`
+  SONRA: `const TITLE_EN = "Sound Architecture — Where Sound Parallels Meaning";`
+- ÖNCE: `const DESC_TR = "Kur'an'ın ses mimarisi — azap ayetlerindeki patlayıcı ünsüzler, rahmet ayetlerindeki akıcı sesler, fonetik-semantik paralellik.";`
+  SONRA: `const DESC_TR = "Kur'an'ın ses mimarisi: azap ayetlerindeki patlayıcı ünsüzler, rahmet ayetlerindeki akıcı sesler ve ses ile anlam arasındaki paralellik.";`
+- ÖNCE: `const DESC_EN = "The sound architecture of the Quran — plosive consonants in verses of wrath, flowing liquids in verses of mercy, phonetic-semantic parallel.";`
+  SONRA: `const DESC_EN = "The sound architecture of the Quran: plosive consonants in verses of wrath, flowing liquids in verses of mercy, and the parallel between sound and meaning.";`
+
+### `next/src/app/[locale]/arac/tarihsel-kanitlar/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'ın tarihe düşen izleri — Firavun bedeni, Hâmân ismi, Bizans-Pers kehaneti. Kur'ân haber verir; bulgular tefekküre vesiledir.";`
+  SONRA: `const DESC_TR = "Kur'an'ın tarihe düşen izleri: Firavun'un bedeni, Hâmân ismi ve Bizans-Pers kehaneti. Kur'ân haber verir; bulgular tefekküre vesiledir.";`
+- ÖNCE: `const DESC_EN = "The Qur'an's traces in history — Pharaoh's body, the name Hāmān, the Byzantine-Persian prophecy. The Qur'an informs; findings are an occasion for reflection.";`
+  SONRA: `const DESC_EN = "The Qur'an's traces in history: Pharaoh's body, the name Hāmān and the Byzantine-Persian prophecy. The Qur'an informs; findings are an occasion for reflection.";`
+
+### `next/src/app/[locale]/arac/tefsir-ihtilaflari/page.js`
+
+- ÖNCE: `const DESC_TR = "Yedi klasik ve modern müfessirin (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr) Kur'ân mesellerindeki yorum ayrılıkları — isimli alıntılarla, birincil kaynaktan doğrulanmış.";`
+  SONRA: `const DESC_TR = "Yedi klasik ve modern müfessirin (Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr) Kur'ân mesellerindeki yorum ayrılıkları; isimli alıntılarla, birincil kaynaktan doğrulanmış.";`
+- ÖNCE: `const DESC_EN = "Interpretive disagreements among seven classical and modern exegetes (Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur) on Quranic parables — with named quotes verified against primary sources.";`
+  SONRA: `const DESC_EN = "Interpretive disagreements among seven classical and modern exegetes (Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur) on Quranic parables, with named quotes verified against primary sources.";`
+
+### `next/src/app/[locale]/arac/tekrar-anatomi/page.js`
+
+- ÖNCE: `const TITLE_TR = "Sıfır Gereksizlik — Her Kelime Bir Görev";`
+  SONRA: `const TITLE_TR = "Sıfır Gereksizlik — Tekrarın Anatomisi";`
+- ÖNCE: `const TITLE_EN = "Zero Redundancy — Every Word Has a Task";`
+  SONRA: `const TITLE_EN = "Zero Redundancy — The Anatomy of Repetition";`
+- ÖNCE: `const DESC_TR = "Kur'an'ın refrain mimarisi — Rahmân'ın 31 kez tekrarı, Musa kıssasının 30+ perspektifi, sıfır gereksiz kelime.";`
+  SONRA: `const DESC_TR = "Kur'an'ın nakarat mimarisi: Rahmân'daki 31 tekrar, Musa kıssasının 30'dan fazla anlatımı ve işlevsiz tekrarın yokluğu.";`
+- ÖNCE: `const DESC_EN = "The Quran's refrain architecture — ar-Raḥmān's 31 repetitions, the 30+ angles of Moses's story, zero redundant words.";`
+  SONRA: `const DESC_EN = "The Quran's refrain architecture: the 31 repetitions in ar-Raḥmān, the more than 30 tellings of the story of Moses, and the absence of redundant repetition.";`
+
+### `next/src/app/[locale]/arac/tum-araclar/page.js`
+
+- ÖNCE: `const DESC_TR = "Tüm interaktif araçların kapsamlı kataloğu — atlas, graf ve utility tool'lar bir arada; aramayla hızlıca erişim.";`
+  SONRA: `const DESC_TR = "Tüm interaktif araçların kataloğu: atlaslar, graflar ve yardımcı araçlar bir arada, aramayla hızlı erişim.";`
+- ÖNCE: `const DESC_EN = "A complete catalogue of every interactive tool — atlases, graphs and utility tools in one place; quick access via search.";`
+  SONRA: `const DESC_EN = "A catalogue of every interactive tool: atlases, graphs and utilities in one place, with quick access by search.";`
+
+### `next/src/app/[locale]/arac/yakin-anlamli-nuanslar/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'ân'ın 'eş anlamlı gibi görünen' kelimeleri — kalb/fu'âd/sadr, insân/beşer/nâs, ilm/hikmet/fıkh, havf/haşyet/rehbet ve daha fazlası. 10 nüans setinde 32 terim, her biri kök + Kur'ânî örnek + ayırıcı özellikle.";`
+  SONRA: `const DESC_TR = "Kur'ân'ın eş anlamlı gibi görünen kelimeleri: kalb/fu'âd/sadr, insân/beşer/nâs, ilm/hikmet/fıkh, havf/haşyet/rehbet ve diğerleri. 10 nüans setinde 32 terim; her biri kök, Kur'ânî örnek ve ayırıcı özelliğiyle.";`
+- ÖNCE: `const DESC_EN = "The Qur'an's 'seemingly synonymous' words — qalb/fuʾād/ṣadr, insān/bashar/nās, ʿilm/ḥikma/fiqh, khawf/khashya/rahba, and more. 32 terms across 10 nuance sets, each with root, Qur'anic example, and distinctive mark.";`
+  SONRA: `const DESC_EN = "The Qur'an's seemingly synonymous words: qalb/fuʾād/ṣadr, insān/bashar/nās, ʿilm/ḥikma/fiqh, khawf/khashya/rahba and others. 32 terms in 10 nuance sets, each with its root, a Qur'anic example and its distinguishing mark.";`
+
+### `next/src/app/[locale]/arac/yeminler/page.js`
+
+- ÖNCE: `const DESC_TR = "Allah'ın yeminleri — incir, zeytin, andolsun ki, kasem — 25+ yemin ve yemin-cevap (jaweb-i kasem) yapıları.";`
+  SONRA: `const DESC_TR = "Allah'ın yeminleri: incir, zeytin, andolsun ki, kasem. 25'ten fazla yemin ve yemin-cevap (cevâb-ı kasem) yapıları.";`
+- ÖNCE: `const DESC_EN = "Divine oaths in the Quran — by the fig, by the olive, \"by the\" formulas, qasam — 25+ oaths and their oath-response (jawab al-qasam) structures.";`
+  SONRA: `const DESC_EN = "Divine oaths in the Quran: by the fig, by the olive, the \"by the\" formulas, qasam. More than 25 oaths and their oath-response (jawāb al-qasam) structures.";`
+
+### `next/src/app/[locale]/arac/zaman-boyutlari/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da zaman algısı — gün, sene, devir, an; göreceli zaman ölçeği ve bilimsel yorumlar.";`
+  SONRA: `const DESC_TR = "Kur'an'da zaman algısı: gün, sene, devir, an; göreceli zaman ölçeği ve bilimsel yorumlar.";`
+- ÖNCE: `const DESC_EN = "The perception of time in the Quran — day, year, epoch, instant; the relative scale of time and modern scientific readings.";`
+  SONRA: `const DESC_EN = "The perception of time in the Quran: day, year, epoch, instant; the relative scale of time and modern scientific readings.";`
+
+### `next/src/app/[locale]/atlas/ahiret-yolculugu/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'ın eskatolojik akışı — sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü'yetullâh — 11 kronolojik aşamada, Kur'ânî çekirdek + klasik tefsir çeşitliliği ile.";`
+  SONRA: `const DESC_TR = "Kur'an'ın eskatolojik akışı 11 kronolojik aşamada: sekerât, berzah, sûr, mahşer, mîzân, havz ve şefâat, sırât, cennet ve cehennem, rü'yetullâh. Kur'ânî çekirdek üzerine klasik tefsir çeşitliliği.";`
+- ÖNCE: `const DESC_EN = "The Qur'an's eschatological flow — death throes, barzakh, trumpet, gathering, scales, basin & intercession, bridge, paradise & hell, vision of God — in 11 chronological stages, grounded in the Qur'anic core with classical tafsir plurality.";`
+  SONRA: `const DESC_EN = "The Qur'an's eschatological flow in 11 chronological stages: death throes, barzakh, the trumpet, gathering, the scales, the basin and intercession, the bridge, paradise and hell, the vision of God. Grounded in the Qur'anic core, with the plurality of classical tafsir.";`
+
+### `next/src/app/[locale]/atlas/doga/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'ın kevnî ayetler atlası — hayvanlar, bitkiler, gök cisimleri (güneş, ay, yıldızlar) ve doğa unsurları; her birinin sembolik anlamı ve geçtiği ayetler.";`
+  SONRA: `const DESC_TR = "Kur'an'ın kevnî ayetler atlası: hayvanlar, bitkiler, gök cisimleri (güneş, ay, yıldızlar) ve doğa unsurları; her birinin sembolik anlamı ve geçtiği ayetler.";`
+- ÖNCE: `const DESC_EN = "The Quran's atlas of cosmic signs — animals, plants, celestial bodies (sun, moon, stars), and natural elements; the symbolic meaning of each and the verses where they appear.";`
+  SONRA: `const DESC_EN = "The Quran's atlas of cosmic signs: animals, plants, celestial bodies (sun, moon, stars) and natural elements; the symbolic meaning of each and the verses where they appear.";`
+
+### `next/src/app/[locale]/atlas/fatiha/page.js`
+
+- ÖNCE: `const DESC_TR = "Fâtiha sûresinin 7 âyeti — halka yapısı, hamd/Rahmân-Rahîm kelime seçimi, İyyâke ve sırat/sebîl gramer incelikleri, Bakara'ya çapaları. Klasikten (Mâtürîdî, Râzî, Molla Fenârî, Konevî) çağdaşa (Divine Speech, Neal Robinson) derlenmiş bir kaynak haritası.";`
+  SONRA: `const DESC_TR = "Fâtiha sûresinin 7 âyeti: halka yapısı, hamd ve Rahmân-Rahîm kelime seçimi, İyyâke ile sırat/sebîl gramer incelikleri, Bakara'ya çapaları. Klasik (Mâtürîdî, Râzî, Molla Fenârî, Konevî) ve çağdaş (Divine Speech, Neal Robinson) kaynaklardan derlenmiş bir harita.";`
+- ÖNCE: `const DESC_EN = "The 7 verses of Al-Fātiḥa — its ring structure, ḥamd/Raḥmān-Raḥīm word choice, Iyyāka and ṣirāṭ/sabīl grammatical subtleties, and its anchors in Al-Baqarah. A source map spanning classical (al-Māturīdī, al-Rāzī, Mullā Fanārī, al-Qūnawī) to contemporary (Divine Speech, Neal Robinson) scholarship.";`
+  SONRA: `const DESC_EN = "The 7 verses of Al-Fātiḥa: its ring structure, the ḥamd and Raḥmān-Raḥīm word choice, the grammatical subtleties of Iyyāka and ṣirāṭ/sabīl, and its anchors in Al-Baqarah. A source map compiled from classical (al-Māturīdī, al-Rāzī, Mullā Fanārī, al-Qūnawī) and contemporary (Divine Speech, Neal Robinson) scholarship.";`
+
+### `next/src/app/[locale]/atlas/furuk/page.js`
+
+- ÖNCE: `const DESC_TR = "Eş anlamlı kabul edilen Kur'an kelimeleri arasındaki ince fark — Matar/Ğays, Havf/Haşye gibi 50+ kelime ailesi.";`
+  SONRA: `const DESC_TR = "Eş anlamlı sayılan Kur'an kelimeleri arasındaki ince farklar: Matar/Ğays, Havf/Haşye gibi 50'den fazla kelime ailesi.";`
+- ÖNCE: `const DESC_EN = "Subtle distinctions between Quranic words long treated as synonyms — over 50 word families such as Maṭar/Ghayth and Khawf/Khashya.";`
+  SONRA: `const DESC_EN = "Subtle distinctions between Quranic words long treated as synonyms: more than 50 word families such as Maṭar/Ghayth and Khawf/Khashya.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/hac/page.js`
+
+- ÖNCE: `const TITLE_TR = "Hac — İbrâhîm Mirası ve Mekânın Yolculuğu";`
+  SONRA: `const TITLE_TR = "Hac — İbrâhîm Mirası ve Mekân";`
+- ÖNCE: `const TITLE_EN = "Ḥajj — Abrahamic Heritage and the Journey of Place";`
+  SONRA: `const TITLE_EN = "Ḥajj — Abrahamic Heritage and Place";`
+- ÖNCE: `const DESC_TR = "Hac, umre, ihrâm, tavâf, sa'y, Arefe, Beytullah, şeâirullah, nüsük — haccın Kur'ânî semantik alanı; İbrahim mirası ve sünnetle tafsili. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Haccın Kur'ânî semantik alanı: hac, umre, ihrâm, tavâf, sa'y, Arefe, Beytullah, şeâirullah, nüsük. İbrahim mirası ve sünnetteki tafsili, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Ḥajj, ʿumra, iḥrām, ṭawāf, saʿy, ʿArafa, Bayt Allāh, shaʿāʾir Allāh, nusuk — the Qur'anic semantic field of pilgrimage; Abrahamic heritage and sunnah detail. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "The Qur'anic semantic field of pilgrimage: ḥajj, ʿumra, iḥrām, ṭawāf, saʿy, ʿArafa, Bayt Allāh, shaʿāʾir Allāh, nusuk. Its Abrahamic heritage and sunnah detail, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/kurban/page.js`
+
+- ÖNCE: `const TITLE_TR = "Kurban — Teslimiyetin Aynası";`
+  SONRA: `const TITLE_TR = "Kurban — Takvâ Ekseni ve İbrâhîm Hafızası";`
+- ÖNCE: `const TITLE_EN = "Sacrifice — The Mirror of Surrender";`
+  SONRA: `const TITLE_EN = "Sacrifice — The Taqwā Axis and Abrahamic Memory";`
+- ÖNCE: `const DESC_TR = "Nüsük, hedy, kurban, nahr, zebh — kurbanın Kur'ânî semantik alanı; takva ekseni ve İbrahim hafızası. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Kurbanın Kur'ân'daki kelimeleri: nüsük, hedy, kurban, nahr, zebh. Takvâ ekseni ve İbrahim hafızası, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Nusuk, hady, qurbān, naḥr, dhabḥ — the Qur'anic semantic field of sacrifice; the taqwā axis and Abrahamic memory. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "The Qur'an's vocabulary of sacrifice: nusuk, hady, qurbān, naḥr, dhabḥ. The taqwā axis and Abrahamic memory, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/namaz/page.js`
+
+- ÖNCE: `const DESC_TR = "Namazın Kur'ânî semantik alanı, vakit mimarisi, peygamber varyasyonları ve iç boyutu. Salât, dhikr, tesbîh, sücûd — 15+ terim; klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Namazın Kur'ânî semantik alanı, vakit mimarisi, peygamberlerdeki varyasyonları ve iç boyutu. Salât, zikir, tesbîh, sücûd ve 15'ten fazla terim, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Prayer's Qur'anic semantic field, time architecture, prophetic variations, and inner dimension. Ṣalāt, dhikr, tasbīḥ, sujūd — 15+ terms; classical tafsir sources.";`
+  SONRA: `const DESC_EN = "Prayer's Qur'anic semantic field, its architecture of times, its prophetic variations and its inner dimension. Ṣalāt, dhikr, tasbīḥ, sujūd and more than 15 terms, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/oruc/page.js`
+
+- ÖNCE: `const TITLE_TR = "Oruç — Takvanın Okulu";`
+  SONRA: `const TITLE_TR = "Oruç — Takvâ Amacı ve Sünnetle Tafsili";`
+- ÖNCE: `const TITLE_EN = "Fasting — The School of Taqwā";`
+  SONRA: `const TITLE_EN = "Fasting — The Aim of Taqwā and Its Sunnah Detail";`
+- ÖNCE: `const DESC_TR = "Sıyâm, savm, Ramazan, iftar, imsâk, itikâf, kefâret — orucun Kur'ânî semantik alanı; takva amacı ve sünnetle tafsili. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Oruç Kur'ân'da hangi kelimelerle anlatılır: sıyâm, savm, Ramazan, iftar, imsâk, itikâf, kefâret. Takvâ amacı ve sünnetteki tafsili, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Ṣiyām, ṣawm, Ramaḍān, ifṭār, imsāk, iʿtikāf, kaffāra — the Qur'anic semantic field of fasting; the taqwā aim and sunnah detail. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "The words the Qur'an uses for fasting: ṣiyām, ṣawm, Ramaḍān, ifṭār, imsāk, iʿtikāf, kaffāra. The aim of taqwā and sunnah detail, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/page.js`
+
+- ÖNCE: `const DESC_TR = "Namaz, zekât, oruç, hac, kurban, zikir, dua ve tevbe — kulluğun sekiz sütunu. Kur'ân ilkeyi koyar, sünnet tafsil eder; 'abd' kökünden türeyen sekiz yüz.";`
+  SONRA: `const DESC_TR = "Namaz, zekât, oruç, hac, kurban, zikir, dua ve tevbe: kulluğun sekiz sütunu. Kur'ân ilkeyi koyar, sünnet tafsil eder; 'abd' kökünden türeyen sekiz yüz.";`
+- ÖNCE: `const DESC_EN = "Prayer, zakat, fasting, pilgrimage, sacrifice, remembrance, supplication, repentance — the eight pillars of servitude. The Qur'an frames the principle, sunnah details it; eight faces from the root ʿ-b-d.";`
+  SONRA: `const DESC_EN = "Prayer, zakat, fasting, pilgrimage, sacrifice, remembrance, supplication, repentance: the eight pillars of servitude. The Qur'an frames the principle, sunnah details it; eight faces from the root ʿ-b-d.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/tovbe/page.js`
+
+- ÖNCE: `const TITLE_TR = "Tevbe — İki Taraftan Açılan Kapı";`
+  SONRA: `const TITLE_TR = "Tevbe — Karşılıklı Dönüş Fiili";`
+- ÖNCE: `const TITLE_EN = "Tawba — The Gate That Opens from Both Sides";`
+  SONRA: `const TITLE_EN = "Tawba — The Verb of Reciprocal Return";`
+- ÖNCE: `const DESC_TR = "Tevbe, tevvâb, istiğfâr, nedâmet, ıslâh, nasûhâ, rücû', inâbe, gufrân — tevbenin Kur'ânî semantik alanı; karşılıklı dönüş fiili. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Tevbe, tevvâb, istiğfâr, nedâmet, ıslâh, nasûhâ, rücû', inâbe, gufrân: tevbenin Kur'ânî semantik alanı ve karşılıklı dönüş fiili, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Tawba, tawwāb, istighfār, nadāma, iṣlāḥ, naṣūḥā, rujūʿ, ināba, ghufrān — the Qur'anic semantic field of repentance; the verb of reciprocal return. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "Tawba, tawwāb, istighfār, nadāma, iṣlāḥ, naṣūḥā, rujūʿ, ināba, ghufrān: the Qur'anic semantic field of repentance and the verb of reciprocal return, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/zekat/page.js`
+
+- ÖNCE: `const DESC_TR = "Zekât, sadaka, infâk, mâûn, karz-ı hasen, hakk-ı ma'lûm — malın Kur'ânî semantik alanı; nisab, oran ve alacaklıların sünnetle tafsili. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Malın Kur'ânî semantik alanı: zekât, sadaka, infâk, mâûn, karz-ı hasen, hakk-ı ma'lûm. Nisab, oran ve alacaklıların sünnetteki tafsili, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Zakāt, ṣadaqa, infāq, māʿūn, qarḍ ḥasan, ḥaqq maʿlūm — the Qur'anic semantic field of wealth; threshold, rate, and recipients detailed by sunnah. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "The Qur'anic semantic field of wealth: zakāt, ṣadaqa, infāq, māʿūn, qarḍ ḥasan, ḥaqq maʿlūm. Threshold, rate and recipients as detailed by sunnah, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/ibadetler/zikir/page.js`
+
+- ÖNCE: `const TITLE_TR = "Zikir — Kalbin Suyu, Kur'ân'ın Nefesi";`
+  SONRA: `const TITLE_TR = "Zikir — Karşılıklı Zikir ve Kalp Mutmainliği";`
+- ÖNCE: `const TITLE_EN = "Dhikr — The Water of the Heart, the Breath of the Qur'an";`
+  SONRA: `const TITLE_EN = "Dhikr — Reciprocal Remembrance and the Heart's Tranquility";`
+- ÖNCE: `const DESC_TR = "Zikir, tesbih, tahmid, tekbir, tehlil, istiğfar, salavat, tefekkür — zikrin Kur'ânî semantik alanı; karşılıklı zikir ve kalp mutmainliği. Klasik tefsir kaynakları.";`
+  SONRA: `const DESC_TR = "Zikrin Kur'ânî semantik alanı: zikir, tesbih, tahmid, tekbir, tehlil, istiğfar, salavat, tefekkür. Karşılıklı zikir ve kalbin mutmainliği, klasik tefsir kaynaklarıyla.";`
+- ÖNCE: `const DESC_EN = "Dhikr, tasbīḥ, taḥmīd, takbīr, tahlīl, istighfār, ṣalawāt, tafakkur — the Qur'anic semantic field of remembrance; reciprocal dhikr and the heart's tranquility. Classical tafsir sources.";`
+  SONRA: `const DESC_EN = "The Qur'anic semantic field of remembrance: dhikr, tasbīḥ, taḥmīd, takbīr, tahlīl, istighfār, ṣalawāt, tafakkur. Reciprocal dhikr and the tranquility of the heart, with classical tafsir sources.";`
+
+### `next/src/app/[locale]/atlas/insan-psikolojisi/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da insan psikolojisi — nefs mertebeleri, kalp, korku, savunma mekanizması, Yûsuf travma-iyileşme atlası.";`
+  SONRA: `const DESC_TR = "Kur'an'da insan psikolojisi: nefs mertebeleri, kalp, korku, savunma mekanizması ve Yûsuf kıssasında travma ile iyileşme.";`
+- ÖNCE: `const DESC_EN = "Human psychology in the Quran — nafs stations, heart, fear, defense mechanisms, Yūsuf as trauma-healing atlas.";`
+  SONRA: `const DESC_EN = "Human psychology in the Quran: the stations of the nafs, the heart, fear, defence mechanisms, and trauma and healing in the story of Yūsuf.";`
+
+### `next/src/app/[locale]/atlas/insan-tanimi/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da insan tanımı — nefs, fıtrat, halife, imtihan, hilkat boyutlarıyla çok eksenli bir portre.";`
+  SONRA: `const DESC_TR = "Kur'an'da insan tanımı: nefs, fıtrat, halife, imtihan ve hilkat boyutlarıyla çok eksenli bir portre.";`
+- ÖNCE: `const DESC_EN = "The definition of humanity in the Quran — a multi-axis portrait through nafs, fiṭra, khalīfa, trial, and creation.";`
+  SONRA: `const DESC_EN = "The definition of humanity in the Quran: a multi-axis portrait through nafs, fiṭra, khalīfa, trial and creation.";`
+
+### `next/src/app/[locale]/atlas/insan-yolculugu/page.js`
+
+- ÖNCE: `const DESC_TR = "Fıtrattan Cemâlullah'a — Kur'ân'ın çizdiği 10 aşamalı manevî olgunlaşma haritası: fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah.";`
+  SONRA: `const DESC_TR = "Fıtrattan Cemâlullah'a, Kur'ân'ın çizdiği 10 aşamalı manevî olgunlaşma haritası: fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah.";`
+- ÖNCE: `const DESC_EN = "From Fiṭra to Jamāl Allāh — the 10-stage map of spiritual maturation drawn by the Qur'an: fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God.";`
+  SONRA: `const DESC_EN = "From fiṭra to Jamāl Allāh, the 10-stage map of spiritual maturation drawn by the Qur'an: fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God.";`
+
+### `next/src/app/[locale]/atlas/kadinlar/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da anılan, seçilen, ders olarak öne çıkan kadınlar — Meryem, Asiye, Hacer, Belkıs ve daha fazlası.";`
+  SONRA: `const DESC_TR = "Kur'an'da anılan, seçilen ve ders olarak öne çıkan kadınlar: Meryem, Asiye, Hacer, Belkıs ve diğerleri.";`
+- ÖNCE: `const DESC_EN = "Women named, chosen and highlighted as moral examples in the Quran — Mary, Asiya, Hagar, Bilqis and more.";`
+  SONRA: `const DESC_EN = "Women named, chosen and set forth as examples in the Quran: Mary, Asiya, Hagar, Bilqis and others.";`
+
+### `next/src/app/[locale]/atlas/kavim/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da geçen kavimler — Âd, Semûd, Lût, Medyen, Sebe' — coğrafi haritası ve helâk-yücelten örüntüleri.";`
+  SONRA: `const DESC_TR = "Kur'an'da geçen kavimler (Âd, Semûd, Lût, Medyen, Sebe'): coğrafi haritası ile helâk eden ve yücelten örüntüler.";`
+- ÖNCE: `const DESC_EN = "Peoples mentioned in the Quran — ʿĀd, Thamūd, Lot, Madyan, Sabaʾ — their geography and the patterns of their destruction or elevation.";`
+  SONRA: `const DESC_EN = "Peoples mentioned in the Quran (ʿĀd, Thamūd, Lot, Madyan, Sabaʾ): their geography and the patterns of their destruction or elevation.";`
+
+### `next/src/app/[locale]/atlas/kiraat/page.js`
+
+- ÖNCE: `const DESC_TR = 'On kanonik kıraat — Hafs, Verş, Kalun, Duri, vs. — farklılıklar, ravileri ve coğrafi yayılımı.';`
+  SONRA: `const DESC_TR = "On kanonik kıraat (Hafs, Verş, Kalun, Duri ve diğerleri): farklılıkları, ravileri ve coğrafi yayılımı.";`
+- ÖNCE: `const DESC_EN = 'The ten canonical recitations — Hafs, Warsh, Qalun, Duri and others — their variants, transmitters and geographic spread.';`
+  SONRA: `const DESC_EN = "The ten canonical recitations (Hafs, Warsh, Qalun, Duri and others): their variants, transmitters and geographic spread.";`
+
+### `next/src/app/[locale]/atlas/kissa/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'daki peygamber kıssaları — Yusuf, Musa, İbrahim, İsa; hangi sûrede hangi sahne, hangi bağlam.";`
+  SONRA: `const DESC_TR = "Kur'an'daki peygamber kıssaları (Yusuf, Musa, İbrahim, İsa): hangi sûrede hangi sahne, hangi bağlamda.";`
+- ÖNCE: `const DESC_EN = "Prophet narratives in the Quran — Joseph, Moses, Abraham, Jesus; which scene appears in which surah, in which context.";`
+  SONRA: `const DESC_EN = "Prophet narratives in the Quran (Joseph, Moses, Abraham, Jesus): which scene appears in which surah, in which context.";`
+
+### `next/src/app/[locale]/atlas/mesel/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'da 73 mesel — sinek, örümcek, ağaç, ışık, ateş, su — 8 motif alanına ayrılmış sembolik dil haritası.";`
+  SONRA: `const DESC_TR = "Kur'an'da 73 mesel (sinek, örümcek, ağaç, ışık, ateş, su), 8 motif alanına ayrılmış bir sembolik dil haritası.";`
+- ÖNCE: `const DESC_EN = "73 parables in the Quran — fly, spider, tree, light, fire, water — a symbolic-language map organised into 8 motif domains.";`
+  SONRA: `const DESC_EN = "73 parables in the Quran (fly, spider, tree, light, fire, water), a map of symbolic language organised into 8 motif domains.";`
+
+### `next/src/app/[locale]/atlas/munafik/page.js`
+
+- ÖNCE: `const DESC_TR = 'Münafıkların psikolojik portresi — 12 özellik, ayet referansları, klasik tefsir analizleri.';`
+  SONRA: `const DESC_TR = "Münafıkların psikolojik portresi: 12 özellik, ayet referansları ve klasik tefsir analizleri.";`
+- ÖNCE: `const DESC_EN = 'A psychological portrait of the hypocrite (munafiq) — 12 traits, verse references and classical tafsir analyses.';`
+  SONRA: `const DESC_EN = "A psychological portrait of the hypocrite (munafiq): 12 traits, verse references and classical tafsir analyses.";`
+
+### `next/src/app/[locale]/atlas/munasebat/page.js`
+
+- ÖNCE: `const DESC_TR = 'Sureler arası ve sure içi belagi/temasal bağlantılar — Razi geleneği — sıralama incelemesi.';`
+  SONRA: `const DESC_TR = "Sureler arası ve sure içi belâgî ve tematik bağlantılar; Râzî geleneğinde münâsebet ve sıralama incelemesi.";`
+- ÖNCE: `const DESC_EN = 'Rhetorical and thematic connections within and between surahs — the Razi tradition of munasaba — a study of Quranic ordering.';`
+  SONRA: `const DESC_EN = "Rhetorical and thematic connections within and between surahs; the Razi tradition of munasaba and a study of Quranic ordering.";`
+
+### `next/src/app/[locale]/atlas/nefs-mertebeleri/page.js`
+
+- ÖNCE: `const DESC_TR = '7 nefs mertebesi — emmare, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.';`
+  SONRA: `const DESC_TR = "7 nefs mertebesi: emmâre, levvâme, mülhime, mutmainne, râziye, marziyye, kâmile.";`
+- ÖNCE: `const DESC_EN = 'The seven stations of the soul (nafs) — ammāra, lawwāma, mulhima, muṭmaʾinna, rāḍiya, marḍiyya, kāmila.';`
+  SONRA: `const DESC_EN = "The seven stations of the soul (nafs): ammāra, lawwāma, mulhima, muṭmaʾinna, rāḍiya, marḍiyya, kāmila.";`
+
+### `next/src/app/[locale]/atlas/peygamber/page.js`
+
+- ÖNCE: `const DESC_TR = '25 peygamber — kronoloji, soy zinciri, gönderildikleri kavim, kıssa sahneleri ve sure haritası.';`
+  SONRA: `const DESC_TR = "25 peygamber: kronoloji, soy zinciri, gönderildikleri kavimler, kıssa sahneleri ve sure haritası.";`
+- ÖNCE: `const DESC_EN = 'The 25 prophets — chronology, lineage, the peoples to whom each was sent, narrative scenes and a surah map.';`
+  SONRA: `const DESC_EN = "The 25 prophets: chronology, lineage, the peoples to whom each was sent, narrative scenes and a surah map.";`
+
+### `next/src/app/[locale]/atlas/sunnetullah/page.js`
+
+- ÖNCE: `const DESC_TR = 'İlâhî yasa örüntüleri — toplumların yükseliş-çöküş sünnetleri; helâk eden ve yücelten ilkeler.';`
+  SONRA: `const DESC_TR = "İlâhî yasa örüntüleri: toplumların yükseliş ve çöküş sünnetleri, helâk eden ve yücelten ilkeler.";`
+- ÖNCE: `const DESC_EN = 'Patterns of divine law (sunnatullah) — the rise and fall of nations; principles that destroy and principles that elevate.';`
+  SONRA: `const DESC_EN = "Patterns of divine law (sunnatullah): the rise and fall of nations, the principles that destroy and the principles that elevate.";`
+
+### `next/src/app/[locale]/graf/diyalog/page.js`
+
+- ÖNCE: `const DESC_TR = "Kur'an'daki ~300 diyalog — Allah-Musa, İbrahim-baba, Yusuf-kardeşler; 25 eksende ağ olarak haritalanmış.";`
+  SONRA: `const DESC_TR = "Kur'an'daki yaklaşık 300 diyalog (Allah ile Musa, İbrahim ile babası, Yusuf ile kardeşleri), 25 eksende bir ağ olarak haritalanmış.";`
+- ÖNCE: `const DESC_EN = "About 300 dialogues in the Quran — God-Moses, Abraham-father, Joseph-brothers — mapped as a network across 25 axes.";`
+  SONRA: `const DESC_EN = "About 300 dialogues in the Quran (God and Moses, Abraham and his father, Joseph and his brothers), mapped as a network across 25 axes.";`
+
+### `next/src/app/[locale]/graf/karsilastir/page.js`
+
+- ÖNCE: `const DESC_TR = 'İki sureyi yan yana karşılaştır — uzunluk, dönem, ortak temalar, tekrar eden ifadeler.';`
+  SONRA: `const DESC_TR = "İki sureyi yan yana karşılaştır: uzunluk, dönem, ortak temalar ve tekrar eden ifadeler.";`
+- ÖNCE: `const DESC_EN = 'Compare any two surahs side by side — length, period of revelation, shared themes and recurring expressions.';`
+  SONRA: `const DESC_EN = "Compare any two surahs side by side: length, period of revelation, shared themes and recurring expressions.";`
+
+### `next/src/app/[locale]/graf/kavram/page.js`
+
+- ÖNCE: `const DESC_TR = "Anahtar Kur'an kavramları — tevbe, sabır, iman, takva — kavramlar arası bağlantı ağı olarak görselleştirilmiş.";`
+  SONRA: `const DESC_TR = "Anahtar Kur'an kavramları (tevbe, sabır, iman, takva), kavramlar arası bağlantı ağı olarak görselleştirilmiş.";`
+- ÖNCE: `const DESC_EN = "Key Quranic concepts — repentance, patience, faith, taqwa — visualised as a network of connections between concepts.";`
+  SONRA: `const DESC_EN = "Key Quranic concepts (repentance, patience, faith, taqwa), visualised as a network of connections between concepts.";`
+
+### `next/src/app/[locale]/graf/semantik/page.js`
+
+- ÖNCE: `const DESC_TR = 'Kur\'ân\'ın 6.236 ayetinin anlam benzerliğine göre kümelenmiş 20 tematik grubu — sıralanabilir kart listesi olarak.';`
+  SONRA: `const DESC_TR = "Kur'ân'ın 6.236 ayeti anlam benzerliğine göre 20 tematik grupta kümelenmiş; sıralanabilir kart listesi olarak.";`
+- ÖNCE: `const DESC_EN = 'The Quran\'s 6,236 verses clustered by semantic similarity into 20 thematic groups — presented as a sortable card list.';`
+  SONRA: `const DESC_EN = "The Quran's 6,236 verses clustered by semantic similarity into 20 thematic groups, presented as a sortable card list.";`
+
+### `next/src/app/[locale]/hakkinda/page.js`
+
+- ÖNCE: `const DESC_TR = "QuranCodex'in amacı, epistemik duruşu (Kur'ân hakikatin ölçüsüdür), kaynakları (Hafs kıraati, meâl, tefsir) ve sınırları — açıkça.";`
+  SONRA: `const DESC_TR = "QuranCodex'in amacı, epistemik duruşu (Kur'ân hakikatin ölçüsüdür), kaynakları (Hafs kıraati, meâl, tefsir) ve sınırları.";`
+- ÖNCE: `const DESC_EN = "QuranCodex's purpose, epistemic stance (the Qur'an is the measure of truth), sources (Ḥafṣ reading, translation, tafsir), and limits — stated openly.";`
+  SONRA: `const DESC_EN = "QuranCodex's purpose, its epistemic stance (the Qur'an is the measure of truth), its sources (Ḥafṣ reading, translation, tafsir) and its limits.";`
+
+### `next/src/app/[locale]/oku/page.js`
+
+- ÖNCE: `const DESC_TR = "Sûre sûre tilâvet (6 kâri) + kelime kelime karaoke senkronu + tecvid + Elmalılı ve İbn Kesîr tefsir paneli + satır arası kelime meali.";`
+  SONRA: `const DESC_TR = "Sûre sûre tilâvet (6 kâri), kelime kelime karaoke senkronu, tecvid, Elmalılı ve İbn Kesîr tefsir paneli ve satır arası kelime meali.";`
+
+### `next/src/app/[locale]/sor/page.js`
+
+- ÖNCE: `const DESC_TR = "Aklındaki soruyu yaz — Kur'an'ın 6.236 ayeti, tefekkür yazıları ve araç sayfaları arasından en uygun içerikleri curated şekilde sunar. Sistem yorum katmaz; sadece rehberlik eder.";`
+  SONRA: `const DESC_TR = "Aklındaki soruyu yaz; sistem Kur'an'ın 6.236 ayeti, tefekkür yazıları ve araç sayfaları arasından en uygun içerikleri seçip sunar. Yorum katmaz, yalnızca yönlendirir.";`
+- ÖNCE: `const DESC_EN = "Type your question — the system curates the most relevant among 6,236 verses, essays, and tool pages. It does not add interpretation; it only guides.";`
+  SONRA: `const DESC_EN = "Type your question; the system selects the most relevant among 6,236 verses, essays and tool pages. It adds no interpretation, it only guides.";`
+
+### `next/src/app/[locale]/tefekkur/page.js`
+
+- ÖNCE: `const DESC_TR = "Felsufi'den seçilmiş yazılar — Kur'an semantiği, terminoloji serileri, tasavvufî düşünce ve kozmoloji üzerine derinlikli denemeler.";`
+  SONRA: `const DESC_TR = "Felsufi'den seçilmiş yazılar: Kur'an semantiği, terminoloji serileri, tasavvufî düşünce ve kozmoloji üzerine denemeler.";`
+- ÖNCE: `const DESC_EN = "Curated essays from Felsufi — in-depth reflections on Quranic semantics, terminology series, Sufi thought, and cosmology.";`
+  SONRA: `const DESC_EN = "Selected essays by Felsufi: reflections on Quranic semantics, terminology series, Sufi thought and cosmology.";`
+
+### `next/src/components/KorumaZinciri.jsx`
+
+- ÖNCE: `titleTr="Yaşayan Koruma — Sıfır Varyasyon"`
+  SONRA: `titleTr="Yaşayan Koruma — Rasm, Hâfız ve İsnâd"`
+- ÖNCE: `titleEn="Living Preservation — Zero Variation"`
+  SONRA: `titleEn="Living Preservation — Rasm, Ḥuffāẓ and Isnād"`
+- ÖNCE: `{tr ? "Yaşayan Koruma — Sıfır Varyasyon" : "Living Preservation — Zero Variation"}`
+  SONRA: `{tr ? "Yaşayan Koruma — Rasm, Hâfız ve İsnâd" : "Living Preservation — Rasm, Ḥuffāẓ and Isnād"}`
+
+### `next/src/components/SesMimarisi.jsx`
+
+- ÖNCE: `titleTr="Ses Mimarisi — Sesler Tesadüf Değil"`
+  SONRA: `titleTr="Ses Mimarisi — Sesin Anlamla Paralelliği"`
+- ÖNCE: `titleEn="Sound Architecture — Sounds Are Not Coincidence"`
+  SONRA: `titleEn="Sound Architecture — Where Sound Parallels Meaning"`
+- ÖNCE: `{tr ? "Ses Mimarisi — Sesler Tesadüf Değil" : "Sound Architecture — Sounds Are Not Coincidence"}`
+  SONRA: `{tr ? "Ses Mimarisi — Sesin Anlamla Paralelliği" : "Sound Architecture — Where Sound Parallels Meaning"}`
+
+### `next/src/components/TekrarAnatomi.jsx`
+
+- ÖNCE: `titleTr="Sıfır Gereksizlik — Her Kelime Bir Görev"`
+  SONRA: `titleTr="Sıfır Gereksizlik — Tekrarın Anatomisi"`
+- ÖNCE: `titleEn="Zero Redundancy — Every Word Has a Task"`
+  SONRA: `titleEn="Zero Redundancy — The Anatomy of Repetition"`
+- ÖNCE: `{tr ? "Sıfır Gereksizlik — Her Kelime Bir Görev" : "Zero Redundancy — Every Word Has a Task"}`
+  SONRA: `{tr ? "Sıfır Gereksizlik — Tekrarın Anatomisi" : "Zero Redundancy — The Anatomy of Repetition"}`
+
+### `next/src/data/toolCatalog.js`
+
+- ÖNCE: `{ route: '/arac/zaman-boyutlari', titleTr: 'Zaman Boyutları', titleEn: 'Dimensions of Time', descTr: 'Kur\'an\'da zaman algısı — gün, sene, devir, an; göreceli zaman ölçeği.', descEn: 'The perception of time in the Quran — day, year, epoch, instant; the relative scale of time.', keywords: ['zaman', 'gun', 'sene', 'devir', 'an', 'gorecelilik'] },`
+  SONRA: `{ route: '/arac/zaman-boyutlari', titleTr: 'Zaman Boyutları', titleEn: 'Dimensions of Time', descTr: 'Kur\'an\'da zaman algısı: gün, sene, devir, an; göreceli zaman ölçeği.', descEn: 'The perception of time in the Quran: day, year, epoch, instant; the relative scale of time.', keywords: ['zaman', 'gun', 'sene', 'devir', 'an', 'gorecelilik'] },`
+- ÖNCE: `{ route: '/graf/diyalog', titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Kur\'an\'daki ~300 diyalog — Allah-Mûsâ, İbrâhim-baba, Yûsuf-kardeşler — 25 eksende ağ.', descEn: 'About 300 dialogues in the Quran — God-Moses, Abraham-father, Joseph-brothers — mapped across 25 axes.', keywords: ['diyalog', 'konusma', 'musa', 'ibrahim', 'yusuf', 'ag'] },`
+  SONRA: `{ route: '/graf/diyalog', titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Kur\'an\'daki yaklaşık 300 diyalog (Allah ile Mûsâ, İbrâhim ile babası, Yûsuf ile kardeşleri), 25 eksende bir ağ.', descEn: 'About 300 dialogues in the Quran (God and Moses, Abraham and his father, Joseph and his brothers), mapped across 25 axes.', keywords: ['diyalog', 'konusma', 'musa', 'ibrahim', 'yusuf', 'ag'] },`
+
+### `next/src/data/tools.jsx`
+
+- ÖNCE: `descLongEn:  "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named — they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every count verified against the mushaf text.",`
+  SONRA: `descLongEn:  "Only eight individuals are explicitly named and negatively portrayed in the Quran: Pharaoh, Iblis, Haman, Qarun, Jalut, al-Samiri, Abu Lahab and Azar. Abu Jahl, Nimrod, Abraha, al-Walid b. al-Mughira and Uqba b. Abi Muayt are never named; they are figures identified by the commentators. Of the Prophet's contemporaries only two are named: Zayd b. Haritha (33:37) positively, Abu Lahab (111:1) negatively. Every count verified against the mushaf text.",`
+- ÖNCE: `descLongTr:  "Kur'ân yalnızca 'Kitap' değildir; kendisi için 10+ isim + sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",`
+  SONRA: `descLongTr:  "Kur'ân kendisi için 'Kitap' dışında 10'dan fazla isim ve sıfat kullanır: el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ, en-Nûr, eş-Şifâ, el-Beyân, et-Tibyân, el-Mev'iza, el-Mübîn. Râgıb el-İsfahânî'nin müfredâtı çerçevesinde her ismin işlevi + anlam katmanı.",`

@@ -7,9 +7,8 @@ import RitimRoute from './RitimRoute';
 const PATH = '/arac/ritim';
 const TITLE_TR = "İmkânsız Ritim — Ne Şiir, Ne Düzyazı";
 const TITLE_EN = "Impossible Rhythm — Neither Poetry, Nor Prose";
-const DESC_TR = "7. yüzyıl Arabistanı'nda dil iki kutuptan ibaretti: 16 vezne sahip katı şiir, ya da serbest düzyazı. Kur'an her ikisinden farklı — sui generis bir form. Necm, Kevser, Duhâ sûrelerinden örneklerle ritim analizi.";
-const DESC_EN = "In 7th-century Arabia, language had two poles: rigid poetry with 16 meters, or free prose. The Quran is neither — a sui generis form. Rhythm analysis with examples from an-Najm, al-Kawthar, ad-Ḍuḥā.";
-
+const DESC_TR = "7. yüzyıl Arabistanı'nda söz ya 16 vezinden birine bağlı şiirdi ya da serbest düzyazı. Kur'an ikisine de uymaz; kendine özgü bir form. Necm, Kevser ve Duhâ sûrelerinden örneklerle ritim analizi.";
+const DESC_EN = "In 7th-century Arabia, speech was either poetry bound to one of 16 meters or free prose. The Quran fits neither; it is a form of its own. Rhythm analysis with examples from an-Najm, al-Kawthar and ad-Ḍuḥā.";
 export async function generateMetadata({ params }) {
   return pageMetadata({ params, path: PATH, titleTr: TITLE_TR, titleEn: TITLE_EN, descTr: DESC_TR, descEn: DESC_EN });
 }
