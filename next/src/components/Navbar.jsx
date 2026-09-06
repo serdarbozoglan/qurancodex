@@ -824,7 +824,7 @@ export default function Navbar() {
           }}
           className="text-gold font-display font-bold tracking-[0.12em] sm:tracking-[0.18em] hover:text-royal-gold transition-colors"
           style={{ fontSize: '1.05rem', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px', background: 'transparent', border: 'none', padding: 0, cursor: 'pointer', textDecoration: 'none' }}
-          aria-label="QuranCodex — Ana sayfa"
+          aria-label="QuranCodex, ana sayfa"
         >
           {/* Standalone mark — Q + 8-fold star (brand identity at any scale).
               Size 32px: text ~17px cap height ile optical balance (1.9x bound,
@@ -1493,7 +1493,7 @@ export default function Navbar() {
                     // Kategoriler — count'lar tefekkurStats'ten dinamik (fallback: 0).
                     // Önceden hardcoded'tı; gerçek JSON ile uyuşmuyordu (kullanıcı raporu 2026-06-16).
                     const tefekkurCategories = [
-                      { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikolojik, içsel ve pratik denemeler',   descEn: 'Psychology, inner life & practice' },
+                      { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikoloji ve iç dünya üzerine denemeler',   descEn: 'Essays on psychology and inner life' },
                       { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',      descTr: 'İnsan, Kâinat ve Kur\'an\'ı Okuma',         descEn: 'Reading Human, Universe & Quran' },
                       { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',    descTr: 'Sûre tahlilleri ve yorum prensipleri',    descEn: 'Surah analyses & interpretation' },
                       { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',         descTr: 'Arapça kök etimolojisi',                  descEn: 'Arabic root etymology' },
@@ -2202,7 +2202,7 @@ export default function Navbar() {
             ];
 
             const tefekkurCategories = [
-              { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikolojik, içsel ve pratik denemeler',    descEn: 'Psychology, inner life & practice' },
+              { id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikoloji ve iç dünya üzerine denemeler',    descEn: 'Essays on psychology and inner life' },
               { id: 'terminoloji',     accent: '#d4a574', labelTr: 'Terminoloji Serisi',  labelEn: 'Terminology Series',       descTr: "İnsan, Kâinat ve Kur'an'ı Okuma",          descEn: 'Reading Human, Universe & Quran' },
               { id: 'sure-hermenotik', accent: COLORS.royalGold, labelTr: 'Sûre & Hermenötik',   labelEn: 'Surah & Hermeneutics',     descTr: 'Sûre tahlilleri ve yorum prensipleri',     descEn: 'Surah analyses & interpretation' },
               { id: 'semantik',        accent: '#8b5cf6', labelTr: 'Semantik Seri',       labelEn: 'Semantic Series',          descTr: 'Arapça kök etimolojisi',                   descEn: 'Arabic root etymology' },

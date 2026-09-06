@@ -75,8 +75,8 @@ export default function LocaleNotFound() {
         }}
       >
         {isEn
-          ? 'This address does not correspond to a page — the link may be broken, or the verse or content you requested may not exist.'
-          : 'Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir ya da istediğiniz âyet veya içerik mevcut değil.'}
+          ? 'This address does not correspond to a page. The link may be broken, or the verse or content you requested may not exist.'
+          : 'Bu adres bir sayfaya karşılık gelmiyor. Bağlantı bozulmuş olabilir ya da istediğiniz âyet veya içerik mevcut değil.'}
       </p>
 
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>

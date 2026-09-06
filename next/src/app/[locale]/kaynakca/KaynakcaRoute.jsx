@@ -25,8 +25,8 @@ import useNavbarOffset from '@/components/useNavbarOffset';
 const CATEGORIES = [
   {
     id: 'tafsir-classical',
-    titleTr: 'Tefsir — Klasik Dönem',
-    titleEn: 'Tafsir — Classical Period',
+    titleTr: 'Tefsir: Klasik Dönem',
+    titleEn: 'Tafsir: Classical Period',
     items: [
       {
         author: "Muhammed b. Cerîr et-Taberî",
@@ -83,8 +83,8 @@ const CATEGORIES = [
 
   {
     id: 'tafsir-modern',
-    titleTr: 'Tefsir — Modern Dönem',
-    titleEn: 'Tafsir — Modern Period',
+    titleTr: 'Tefsir: Modern Dönem',
+    titleEn: 'Tafsir: Modern Period',
     items: [
       {
         author: "Muhammed Hamdi Yazır (Elmalılı)",
@@ -125,7 +125,7 @@ const CATEGORIES = [
         author: "Süleymaniye Vakfı",
         work: "Kur'an Meali (Fıtrat Üzerine)",
         link: "https://www.suleymaniyevakfi.org",
-        noteTr: "Çağdaş bağlamsal okuma — kelime kök analizi vurgulu.",
+        noteTr: "Çağdaş bağlamsal okuma; kelime kök analizi vurgulu.",
         noteEn: "Contemporary contextual reading with root-based word analysis.",
       },
       {
@@ -147,8 +147,8 @@ const CATEGORIES = [
         author: "Toshihiko Izutsu",
         work: "Ethico-Religious Concepts in the Qur'an",
         year: '1966',
-        noteTr: "Kur'an'da semantik alan analizi — kavramların ağ ilişkisi.",
-        noteEn: "Semantic field analysis in the Qur'an — conceptual network relations.",
+        noteTr: "Kur'an'da semantik alan analizi; kavramların ağ ilişkisi.",
+        noteEn: "Semantic field analysis in the Qur'an; conceptual network relations.",
       },
       {
         author: "Toshihiko Izutsu",
@@ -176,8 +176,8 @@ const CATEGORIES = [
         author: "Walid A. Saleh",
         work: "The Formation of the Classical Tafsīr Tradition",
         year: '2004',
-        noteTr: "Klasik tefsir geleneğinin oluşumu — Sealebī merkezli.",
-        noteEn: "Formation of the classical tafsir tradition — focused on al-Tha'labī.",
+        noteTr: "Klasik tefsir geleneğinin oluşumu; Sealebî merkezli.",
+        noteEn: "Formation of the classical tafsir tradition; focused on al-Tha'labī.",
       },
       {
         author: "Andrew Rippin",
@@ -204,16 +204,16 @@ const CATEGORIES = [
         author: "Raymond K. Farrin",
         work: "Structure and Qur'anic Interpretation: A Study of Symmetry and Coherence in Islam's Holy Text",
         year: '2014',
-        noteTr: "Halka (ring) kompozisyon analizi — sûre içi simetri yapıları.",
-        noteEn: "Ring composition analysis — symmetric structures within suras.",
+        noteTr: "Halka (ring) kompozisyon analizi; sûre içi simetri yapıları.",
+        noteEn: "Ring composition analysis; symmetric structures within suras.",
         link: "https://newbooksnetwork.com/raymond-farrin-structure-and-quranic-interpretation-white-cloud-press-2014",
       },
       {
         author: "Mustansir Mir",
         work: "Coherence in the Qur'an: A Study of Islahi's Concept of Nazm in Tadabbur-i Qur'an",
         year: '1986',
-        noteTr: "Islâhî'nin nazm kavramı — sûrelerin iç tutarlılığı.",
-        noteEn: "Islahi's concept of nazm — internal coherence of suras.",
+        noteTr: "Islâhî'nin nazm kavramı; sûrelerin iç tutarlılığı.",
+        noteEn: "Islahi's concept of nazm; internal coherence of suras.",
       },
       {
         author: "Nouman Ali Khan · Sharif Randhawa",
@@ -332,8 +332,8 @@ const CATEGORIES = [
 
   {
     id: 'science-discussed',
-    titleTr: 'Bilim & Tarih — Tartışmalı Alanlar',
-    titleEn: 'Science & History — Discussed Areas',
+    titleTr: 'Bilim ve Tarih: Tartışmalı Alanlar',
+    titleEn: 'Science and History: Discussed Areas',
     items: [
       {
         author: "Keith L. Moore",
@@ -355,8 +355,8 @@ const CATEGORIES = [
         author: "Birmingham Üniversitesi · Cadbury Research Library",
         work: "Birmingham Quran Manuscript (Mingana 1572a)",
         year: 'Karbon: 568-645 CE (2015)',
-        noteTr: "En erken bilinen Kur'ân el yazmalarından — yaşayan koruma kanıtı.",
-        noteEn: "Among the earliest known Quran manuscripts — evidence of textual preservation.",
+        noteTr: "En erken bilinen Kur'ân el yazmalarından; yaşayan koruma kanıtı.",
+        noteEn: "Among the earliest known Quran manuscripts; evidence of textual preservation.",
         link: "https://en.wikipedia.org/wiki/Birmingham_Quran_manuscript",
       },
     ],
@@ -452,7 +452,7 @@ export default function KaynakcaRoute() {
   const introTr =
     "Bu sayfa, sitede dolaylı veya doğrudan başvurulan kitap, makale ve veri kaynaklarının kategorize edilmiş listesidir. Site özgün sentez, sınıflandırma ve görselleştirmeler üretir; bunları klasik ve modern âlimlerin ve akademik araştırmacıların eserlerine dayandırır. Tartışmalı alanlar (özellikle bilimsel mucize literatürü) ayrı bir başlıkta kümelenmiş ve metodolojik nüansla işaretlenmiştir.";
   const introEn =
-    "This page is a categorised list of books, articles, and data sources referenced — directly or indirectly — across the site. The site produces original synthesis, classifications, and visualizations, grounding them in the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodological nuance.";
+    "This page is a categorised list of books, articles, and data sources referenced, directly or indirectly, across the site. The site produces original synthesis, classifications, and visualizations, grounding them in the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodological nuance.";
 
   return (
     <div

@@ -6728,3 +6728,228 @@ Esmâ Tanımları'ndaki "asıl soru / the real question" (§27) ve Tefsir İhtil
 - ÖNCE: `: 'This verse is the classical reference point for why exegetes read the same verse differently — disagreement here is not a flaw, but a natural consequence of the text\'s layered nature.'}`
   SONRA: `: 'This verse is the classical reference point for why exegetes read the same verse differently. Disagreement here is not treated as a flaw; it arises from the text\'s layered nature.'}`
 
+
+## 15. Katalog, gezinme ve yardımcı sayfalar: tools.jsx + toolCatalog + exploreCategories + ToolsHighlight + TefekkurHighlight + Navbar + Tefekkür dizini + Kaynakça + Hakkında + not-found (2026-09-06)
+
+Katalog uzun açıklamalarında (descLong) tireler iki nokta veya noktalı virgüle döndü; "Sabır → Yardım → Zafer" ok zinciri düz cümle oldu; "Az bilinen, şaşırtan gerçekler / Hidden gems" ve "gizli harita / hidden map" satış dili sadeleşti (aynı metin ToolsHighlight'ta da eşitlendi). Navbar ve TefekkurHighlight'taki "Psikolojik, içsel ve pratik denemeler" üçlüsü, Tefekkür dizinindeki "X'ten Y'ye uzanan derinlikli" sahte aralığı (§12) ve EN teşekkür paragrafındaki "heartfelt gratitude / respectfully" (§20) düzeltildi. Hakkında'da "kuru bir ders değil, keşif yolculuğu" (§9) düz ifadeye döndü; not-found hata mesajı iki cümleye bölündü. Araç adı başlıkları ("Furûk — Kelime Farkları", "Namaz — Salât") ve kaynak başlıkları aynen kaldı; tools-nav baseline etkilenmedi.
+
+### `next/src/data/tools.jsx`
+
+- ÖNCE: `descTr:      'Az bilinen, şaşırtan gerçekler',`
+  SONRA: `descTr:      'Az bilinen, kaynaklı gerçekler',`
+- ÖNCE: `descEn:      'Hidden gems & surprising facts',`
+  SONRA: `descEn:      'Little-known, sourced facts',`
+- ÖNCE: `descLongTr:  "Kur'an hakkında çok az bilinen, kaynaklı, şaşırtan gerçekler. Sayılar, dilbilim, tarih ve bilim — her biri bir ayet veya araştırmaya dayalı.",`
+  SONRA: `descLongTr:  "Kur'an hakkında az bilinen, kaynaklı gerçekler. Sayılar, dilbilim, tarih ve bilim; her biri bir ayet veya araştırmaya dayalı.",`
+- ÖNCE: `descLongEn:  'Little-known, sourced, surprising facts about the Quran. Numbers, linguistics, history, science — each one anchored to a verse or a study.',`
+  SONRA: `descLongEn:  'Little-known, sourced facts about the Quran. Numbers, linguistics, history, science; each one anchored to a verse or a study.',`
+- ÖNCE: `descLongEn:  'How does God describe Himself in the Quran — through which names, attributes, and direct statements? 114 names & attributes · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī, Ḥashr 22-24 and Sūrat al-Ikhlāṣ · frequency landscape · direct divine self-statements.',`
+  SONRA: `descLongEn:  'How does God describe Himself in the Quran, through which names, attributes and direct statements? 114 names and attributes · Jalāl ↔ Jamāl balance · anatomies of Āyat al-Kursī, Ḥashr 22-24 and Sūrat al-Ikhlāṣ · frequency map · direct divine self-statements.',`
+- ÖNCE: `descLongTr:  "114 sûre indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, sûrelerin geliş bağlamı ve ana teması — vahyin akışını zamanda izle.",`
+  SONRA: `descLongTr:  "114 sûre indirildiği kronolojik sırayla. Mekke ve Medine dönemleri, sûrelerin geliş bağlamı ve ana teması; vahyin akışını zamanda izle.",`
+- ÖNCE: `descLongEn:  "All 114 surahs in the chronological order they were revealed. Meccan and Medinan periods, the historical context and main theme of each — follow revelation through time.",`
+  SONRA: `descLongEn:  "All 114 surahs in the chronological order they were revealed. Meccan and Medinan periods, the historical context and main theme of each; follow revelation through time.",`
+- ÖNCE: `descTr:      '12 peygamber — hangi sûrede hangi sahne?',`
+  SONRA: `descTr:      '12 peygamber: hangi sûrede hangi sahne?',`
+- ÖNCE: `descEn:      '12 prophets — which scene in which surah?',`
+  SONRA: `descEn:      '12 prophets: which scene in which surah?',`
+- ÖNCE: `descLongTr:  "12 peygamberin (Âdem, Nûh, İbrâhim, Lût, Yûsuf, Eyyûb, Mûsâ, Dâvud, Süleymân, Yûnus, Zekeriyâ-Yahyâ, Îsâ) hayat hikâyesi parçalı sahneler hâlinde Kur'ân'a dağılmış. Hangi sahne hangi sûrede, hangi sırada — atlas formatında haritalı.",`
+  SONRA: `descLongTr:  "12 peygamberin (Âdem, Nûh, İbrâhim, Lût, Yûsuf, Eyyûb, Mûsâ, Dâvud, Süleymân, Yûnus, Zekeriyâ-Yahyâ, Îsâ) hayat hikâyesi parçalı sahneler hâlinde Kur'ân'a dağılmış. Hangi sahne hangi sûrede, hangi sırada; atlas formatında haritalı.",`
+- ÖNCE: `descLongEn:  "The lives of 12 prophets (Adam, Noah, Abraham, Lot, Joseph, Job, Moses, David, Solomon, Jonah, Zechariah-John, Jesus) scattered as fragmented scenes across the Quran. Which scene appears in which surah, in what order — mapped as an atlas.",`
+  SONRA: `descLongEn:  "The lives of 12 prophets (Adam, Noah, Abraham, Lot, Joseph, Job, Moses, David, Solomon, Jonah, Zechariah-John, Jesus) scattered as fragmented scenes across the Quran. Which scene appears in which surah, in what order; mapped as an atlas.",`
+- ÖNCE: `descLongTr:  "Kur'an 73 mesel kullanır — sinek, örümcek, ağaç, ışık, ateş, su. Her mesel bir gerçeği somutlaştırır. 8 motif alanına ayrılmış, çift meseller ve nûr-zulumât ekseni dahil. Hangi meselin hangi sûrede, hangi bağlamda geçtiğini keşfet.",`
+  SONRA: `descLongTr:  "Kur'an 73 mesel kullanır: sinek, örümcek, ağaç, ışık, ateş, su. Her mesel bir gerçeği somutlaştırır. 8 motif alanına ayrılmış, çift meseller ve nûr-zulumât ekseni dahil. Hangi meselin hangi sûrede, hangi bağlamda geçtiğini keşfet.",`
+- ÖNCE: `descLongEn:  "The Quran uses 73 parables — fly, spider, tree, light, fire, water. Each parable makes a truth tangible. Organized into 8 motif domains, including paired parables and the light-darkness axis. Discover which parable appears in which surah and in what context.",`
+  SONRA: `descLongEn:  "The Quran uses 73 parables: fly, spider, tree, light, fire, water. Each parable makes a truth tangible. Organized into 8 motif domains, including paired parables and the light-darkness axis. Discover which parable appears in which surah and in what context.",`
+- ÖNCE: `descLongTr:  "Kur'an'ın 10 farklı okunuş şekli — 10 imam, 20 râvî. Her okumanın kökeni, coğrafi yayılımı ve farklılıkları, yan yana karşılaştırmalı.",`
+  SONRA: `descLongTr:  "Kur'an'ın 10 farklı okunuş şekli: 10 imam, 20 râvî. Her okumanın kökeni, coğrafi yayılımı ve farklılıkları, yan yana karşılaştırmalı.",`
+- ÖNCE: `descLongEn:  "The 10 canonical recitations of the Quran — 10 readers, 20 transmitters. Each recitation's origin, geographic spread, and variants, compared side-by-side.",`
+  SONRA: `descLongEn:  "The 10 canonical recitations of the Quran: 10 readers, 20 transmitters. Each recitation's origin, geographic spread, and variants, compared side-by-side.",`
+- ÖNCE: `descLongTr:  "Matar ve ğays ikisi de 'yağmur', ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku', ama birincisi hareket, ikincisi sakinlik. Türkçe çevirisi aynı — Arapça'da farklı anlam taşıyan kelimeler. Her kelimenin tüm ayet geçişlerini göster — örüntüyü kendin gör.",`
+  SONRA: `descLongTr:  "Matar ve ğays ikisi de 'yağmur', ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku', ama birincisi hareket, ikincisi sakinlik. Türkçe çevirisi aynı, Arapça'da farklı anlam taşıyan kelimeler. Her kelimenin tüm ayet geçişlerini göster, örüntüyü kendin gör.",`
+- ÖNCE: `descLongEn:  "Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but one produces movement, the other stillness. Same translation — different meanings in Arabic. Explore every verse occurrence and see the pattern yourself.",`
+  SONRA: `descLongEn:  "Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but one produces movement, the other stillness. Same translation, different meanings in Arabic. Explore every verse occurrence and see the pattern yourself.",`
+- ÖNCE: `descLongTr:  "Tevbe, sabır, iman, takva — bu kavramlar Kur'an'da nasıl birbirine bağlanır? Network grafiği üzerinde dolaş, kavramlar arası köprüleri keşfet.",`
+  SONRA: `descLongTr:  "Tevbe, sabır, iman, takva: bu kavramlar Kur'an'da nasıl birbirine bağlanır? Network grafiği üzerinde dolaş, kavramlar arası köprüleri keşfet.",`
+- ÖNCE: `descLongEn:  "Repentance, patience, faith, piety — how do these concepts link to each other in the Quran? Walk a network graph and discover the bridges between them.",`
+  SONRA: `descLongEn:  "Repentance, patience, faith, piety: how do these concepts link to each other in the Quran? Walk a network graph and discover the bridges between them.",`
+- ÖNCE: `descLongTr:  "Sabır → Yardım → Zafer. Şükür → Nimet artışı. Zulüm → Toplumsal helâk. Mîzân → Göklerin ayakta durması. Sünnetullah'ın somut zincirleri — her halka Kur'ânî ayet ankrajıyla.",`
+  SONRA: `descLongTr:  "Sabır yardımı, yardım zaferi getirir. Şükür nimeti artırır. Zulüm toplumsal helâke, mîzân göklerin ayakta durmasına bağlanır. Sünnetullah'ın somut zincirleri; her halka Kur'ânî ayet ankrajıyla.",`
+- ÖNCE: `descLongEn:  "Patience → Help → Victory. Gratitude → Increase of blessing. Injustice → Societal collapse. Balance → Heavens standing firm. The concrete chains of sunnatullāh — every link anchored in Quranic verses.",`
+  SONRA: `descLongEn:  "Patience brings help, and help brings victory. Gratitude increases blessing. Injustice leads to societal collapse; balance keeps the heavens standing. The concrete chains of sunnatullāh, every link anchored in Quranic verses.",`
+- ÖNCE: `descLongTr:  "114 sure rastgele dizilmiş değil. Zehrâvân (Bakara-Âl-i İmrân), Muavvizeteyn (Felak-Nâs), Teselli İkizleri (Duhâ-İnşirâh), Fîl-Kureyş tek soluğu — klasik âlimlerin ilmü'l-münâsebât'ı. Râzî, Bikā'î, Süyûtî kaynaklarına dayalı bağlantı atlası.",`
+  SONRA: `descLongTr:  "114 sure rastgele dizilmiş değil. Zehrâvân (Bakara-Âl-i İmrân), Muavvizeteyn (Felak-Nâs), Teselli İkizleri (Duhâ-İnşirâh), Fîl-Kureyş tek soluğu: klasik âlimlerin ilmü'l-münâsebât'ı. Râzî, Bikā'î, Süyûtî kaynaklarına dayalı bağlantı atlası.",`
+- ÖNCE: `descLongEn:  "The 114 surahs are not randomly ordered. Az-Zahrāwān (Baqara-Āl ʿImrān), al-Muʿawwidhatān (Falaq-Nās), the Comfort Twins (Ḍuḥā-Sharḥ), Fīl-Quraysh as one breath — the classical discipline of ʿilm al-munāsabāt. An atlas of connections drawn from al-Rāzī, al-Biqāʿī, al-Suyūṭī.",`
+  SONRA: `descLongEn:  "The 114 surahs are not randomly ordered. Az-Zahrāwān (Baqara-Āl ʿImrān), al-Muʿawwidhatān (Falaq-Nās), the Comfort Twins (Ḍuḥā-Sharḥ), Fīl-Quraysh as one breath: the classical discipline of ʿilm al-munāsabāt. An atlas of connections drawn from al-Rāzī, al-Biqāʿī, al-Suyūṭī.",`
+- ÖNCE: `descTr:      "'Ey iman edenler' — kim, ne zaman?",`
+  SONRA: `descTr:      "'Ey iman edenler': kim, ne zaman?",`
+- ÖNCE: `descLongTr:  "'Ey iman edenler', 'Ey insanlar', 'Ey Peygamber' — Kur'an kime, ne zaman, hangi tonla seslenir? Muhatabın değişmesinin anlam üzerindeki etkisi.",`
+  SONRA: `descLongTr:  "'Ey iman edenler', 'Ey insanlar', 'Ey Peygamber': Kur'an kime, ne zaman, hangi tonla seslenir? Muhatabın değişmesinin anlam üzerindeki etkisi.",`
+- ÖNCE: `descLongEn:  "'O you who believe', 'O mankind', 'O Prophet' — who does the Quran address, when, and in what tone? How the choice of audience reshapes meaning.",`
+  SONRA: `descLongEn:  "'O you who believe', 'O mankind', 'O Prophet': who does the Quran address, when, and in what tone? How the choice of audience reshapes meaning.",`
+- ÖNCE: `descLongEn:  "~300 dialogues in the Quran: God-Moses, Abraham-father, Joseph-brothers, afterlife scenes. Who speaks to whom, in which scene, with what reply — across 25 axes. Each dialogue is browsable as a network, with parties, context, and source verses linked.",`
+  SONRA: `descLongEn:  "~300 dialogues in the Quran: God-Moses, Abraham-father, Joseph-brothers, afterlife scenes. Who speaks to whom, in which scene, with what reply, across 25 axes. Each dialogue is browsable as a network, with parties, context, and source verses linked.",`
+- ÖNCE: `descLongTr:  "Kur'ân'da adı açıkça geçip olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da hiç geçmez — onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz.`
+  SONRA: `descLongTr:  "Kur'ân'da adı açıkça geçip olumsuz anılan şahıs sayısı yalnızca sekizdir: Firavun, İblîs, Hâmân, Kârûn, Câlût, Sâmirî, Ebû Leheb, Âzer. Ebû Cehil, Nemrûd, Ebrehe, Velîd b. Muğîre ve Ukbe b. Ebî Muayt'ın adı Kur'ân'da hiç geçmez; onlar tefsirin işaret ettiği kişilerdir. Peygamber'in çağdaşlarından yalnız iki kişi adlandırılır: Zeyd b. Hârise (33:37) olumlu, Ebû Leheb (111:1) olumsuz. `
+- ÖNCE: `descLongTr:  "Vâhidî, Buhârî, Süyûtî geleneğinden 30 önemli nüzul vakası — İlk vahiy, Kevser, Duhâ (fetret), İfk hadisesi, Kıble değişimi, Zeyneb bint Cahş evliliği, Hudeybiye Fetih, Vedâ Haccı Mâide 5:3 vb. Her vaka: bağlam + katılımcılar + ayet referansları + klasik kaynak.",`
+  SONRA: `descLongTr:  "Vâhidî, Buhârî, Süyûtî geleneğinden 30 önemli nüzul vakası: ilk vahiy, Kevser, Duhâ (fetret), İfk hadisesi, Kıble değişimi, Zeyneb bint Cahş evliliği, Hudeybiye Fetih, Vedâ Haccı Mâide 5:3 vb. Her vaka bağlam, katılımcılar, ayet referansları ve klasik kaynakla birlikte.",`
+- ÖNCE: `descLongEn:  "30 major revelation occasions from the Wāḥidī, Bukhārī, Suyūṭī tradition — first revelation, al-Kawthar, al-Ḍuḥā (fatra), the slander incident, qibla change, Zaynab bint Jaḥsh's marriage, Ḥudaybiyya Fatḥ, Farewell Pilgrimage Māʾida 5:3, and more. Each occasion: context + participants + verse references + classical source.",`
+  SONRA: `descLongEn:  "30 major revelation occasions from the Wāḥidī, Bukhārī, Suyūṭī tradition: first revelation, al-Kawthar, al-Ḍuḥā (fatra), the slander incident, qibla change, Zaynab bint Jaḥsh's marriage, Ḥudaybiyya Fatḥ, Farewell Pilgrimage Māʾida 5:3, and more. Each occasion comes with context, participants, verse references and its classical source.",`
+- ÖNCE: `descTr:      '23 yıla yayılan anlatıların gizli haritası',`
+  SONRA: `descTr:      '23 yıla yayılan anlatıların haritası',`
+- ÖNCE: `descEn:      'The hidden narrative map across 23 years',`
+  SONRA: `descEn:      'The narrative map across 23 years',`
+- ÖNCE: `descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Belkıs), Sara, Musa'nın annesi, İmran'ın eşi — her biri ayet referanslarıyla.",`
+  SONRA: `descLongTr:  "Kur'an'da yalnızca BİR kadın özel adıyla anılır: Hz. Meryem. Diğerleri sıfatları, akrabalıkları veya konumlarıyla işaret edilir. 7 figür: Meryem, Asiye, Havva, Saba Melikesi (Belkıs), Sara, Musa'nın annesi, İmran'ın eşi; her biri ayet referanslarıyla.",`
+- ÖNCE: `descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife — each with verse references.",`
+  SONRA: `descLongEn:  "Only ONE woman is named in the Quran: Maryam. Others are referenced by their attributes, kinship, or station. 7 figures: Maryam, Asiya, Hawwa (Eve), Queen of Sheba (Bilqis), Sarah, the mother of Musa, and Imran's wife; each with verse references.",`
+- ÖNCE: `descLongTr:  "Kur'an'da 88 doğrudan emir ve yasak — 8 kategoride: ibadet, ahlak, hukuk, sosyal düzen. Her emir kaynak ayetiyle ve açıklamasıyla birlikte.",`
+  SONRA: `descLongTr:  "Kur'an'da 88 doğrudan emir ve yasak, 8 kategoride: ibadet, ahlak, hukuk, sosyal düzen. Her emir kaynak ayetiyle ve açıklamasıyla birlikte.",`
+- ÖNCE: `descLongEn:  "88 direct commands and prohibitions in the Quran — across 8 categories: worship, ethics, law, social order. Each rule with its source verse and explanation.",`
+  SONRA: `descLongEn:  "88 direct commands and prohibitions in the Quran, across 8 categories: worship, ethics, law, social order. Each rule with its source verse and explanation.",`
+- ÖNCE: `descLongTr:  "Kur'an'daki 77 dua — 11 kategoriye ayrılmış (af, aile, rızık, hidayet, sabır, sığınma, tevbe, sıkıntı, şükür, ilim, genel). Peygamberlerin yakarışları, müminlerin niyazları. Her dua bağlamı, kim tarafından edildiği ve klasik tefsir notu ile birlikte.",`
+  SONRA: `descLongTr:  "Kur'an'daki 77 dua, 11 kategoriye ayrılmış (af, aile, rızık, hidayet, sabır, sığınma, tevbe, sıkıntı, şükür, ilim, genel). Peygamberlerin yakarışları, müminlerin niyazları. Her dua bağlamı, kim tarafından edildiği ve klasik tefsir notu ile birlikte.",`
+- ÖNCE: `descLongEn:  '77 prayers from the Quran — organized into 11 categories (forgiveness, family, provision, guidance, patience, refuge, repentance, distress, gratitude, knowledge, general). Prophetic supplications and believer petitions. Each prayer with its context, who prayed it, and a classical tafsir note.',`
+  SONRA: `descLongEn:  '77 prayers from the Quran, organized into 11 categories (forgiveness, family, provision, guidance, patience, refuge, repentance, distress, gratitude, knowledge, general). Prophetic supplications and believer petitions. Each prayer with its context, who prayed it, and a classical tafsir note.',`
+- ÖNCE: `descLongTr:  "Kur'ân'a yöneltilen en zorlu sorular en keskin haliyle yazılır, sonra ulemânın cevabı kaynağıyla gösterilir — miras, şahitlik, Nisâ 4:34, cizye, Lût kavmi, kölelik, Nûh tufanı, iktibas iddiası, iʿcâzü'l-ilmî, muhkem-müteşâbih. Râzî, Kurtubî, İbn Kayyim, İbn Âşûr, Elmalılı ve Bediüzzaman Said Nursî'den. Ölçü Kur'ân'dır: bir ayet sorunlu görünüyorsa kusur ayette değil, bizim anlayışımı`
+  SONRA: `descLongTr:  "Kur'ân'a yöneltilen en zorlu sorular en keskin haliyle yazılır, sonra ulemânın cevabı kaynağıyla gösterilir: miras, şahitlik, Nisâ 4:34, cizye, Lût kavmi, kölelik, Nûh tufanı, iktibas iddiası, iʿcâzü'l-ilmî, muhkem-müteşâbih. Râzî, Kurtubî, İbn Kayyim, İbn Âşûr, Elmalılı ve Bediüzzaman Said Nursî'den. Ölçü Kur'ân'dır: bir ayet sorunlu görünüyorsa kusur ayette değil, bizim anlayışımız`
+- ÖNCE: `descLongEn:  "The hardest questions posed to the Quran, stated at their sharpest and then answered from the scholars with their sources — inheritance, testimony, Nisāʾ 4:34, jizya, the people of Lot, slavery, Noah's flood, the borrowing claim, scientific iʿjāz, muḥkam-mutashābih. From al-Rāzī, al-Qurṭubī, Ibn al-Qayyim, Ibn ʿĀshūr, Elmalılı and Bediuzzaman Said Nursî. The Quran is the measure: if `
+  SONRA: `descLongEn:  "The hardest questions posed to the Quran, stated at their sharpest and then answered from the scholars with their sources: inheritance, testimony, Nisāʾ 4:34, jizya, the people of Lot, slavery, Noah's flood, the borrowing claim, scientific iʿjāz, muḥkam-mutashābih. From al-Rāzī, al-Qurṭubī, Ibn al-Qayyim, Ibn ʿĀshūr, Elmalılı and Bediuzzaman Said Nursî. The Quran is the measure: if a`
+
+### `next/src/data/toolCatalog.js`
+
+- ÖNCE: `{ route: '/atlas/ahiret-yolculugu', titleTr: 'Âhiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü\'yetullâh — 11 kronolojik aşama + klasik tefsir çeşitliliği.', descEn: 'Sakarat, barzakh, trumpet, gathering, scales, basin-intercession, bridge, heaven-hell, vision of God — 11 chronological stages with cl`
+  SONRA: `{ route: '/atlas/ahiret-yolculugu', titleTr: 'Âhiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Sekerât, berzah, sûr, mahşer, mîzân, havz-şefâat, sırât, cennet-cehennem, rü\'yetullâh: 11 kronolojik aşama ve klasik tefsir çeşitliliği.', descEn: 'Sakarat, barzakh, trumpet, gathering, scales, basin-intercession, bridge, heaven-hell, vision of God: 11 chronological stages with cla`
+- ÖNCE: `{ route: '/atlas/insan-yolculugu', titleTr: 'İnsan Yolculuğu Atlası', titleEn: 'The Human Journey Atlas', descTr: 'Fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah — 10 aşamalı manevî olgunlaşma haritası.', descEn: 'Fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God — 10-stage spiritual maturation ma`
+  SONRA: `{ route: '/atlas/insan-yolculugu', titleTr: 'İnsan Yolculuğu Atlası', titleEn: 'The Human Journey Atlas', descTr: 'Fıtrat, uyanış, iman, sâlih amel, takvâ, ihsan, kalb-i selîm, hüsn-i hâtime, rızâ, Cemâlullah: 10 aşamalı manevî olgunlaşma haritası.', descEn: 'Fiṭra, awakening, faith, righteous deed, taqwā, iḥsān, sound heart, good ending, riḍā, the Vision of God: a 10-stage spiritual maturation ma`
+- ÖNCE: `{ route: '/arac/retorik-sorular', titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'İstifhâm-ı inkârî, irşâdî, tevbîhî, taaccübî — 4 alt kategoride Kur\'ani sorular.', descEn: 'Istifham inkari, irshadi, tawbikhi, taʿajjubi — 4 subcategories of Quranic questions.', keywords: ['soru', 'retorik', 'istifham', 'inkari'] },`
+  SONRA: `{ route: '/arac/retorik-sorular', titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'İstifhâm-ı inkârî, irşâdî, tevbîhî, taaccübî: 4 alt kategoride Kur\'ani sorular.', descEn: 'Istifham inkari, irshadi, tawbikhi, taʿajjubi: 4 subcategories of Quranic questions.', keywords: ['soru', 'retorik', 'istifham', 'inkari'] },`
+- ÖNCE: `{ route: '/arac/yeminler', titleTr: 'Kur\'an\'ın Yeminleri', titleEn: 'The Oaths of the Quran', descTr: 'İncir, zeytin, andolsun, kasem — 25+ yemin ve yemin-cevap (cevâb-ı kasem) yapıları.', descEn: 'Fig, olive, oath formulas — 25+ divine oaths and their answering clauses.', keywords: ['yemin', 'kasem', 'incir', 'zeytin', 'andolsun'] },`
+  SONRA: `{ route: '/arac/yeminler', titleTr: 'Kur\'an\'ın Yeminleri', titleEn: 'The Oaths of the Quran', descTr: 'İncir, zeytin, andolsun, kasem: 25\'ten fazla yemin ve yemin-cevap (cevâb-ı kasem) yapısı.', descEn: 'Fig, olive, oath formulas: more than 25 divine oaths and their answering clauses.', keywords: ['yemin', 'kasem', 'incir', 'zeytin', 'andolsun'] },`
+- ÖNCE: `{ route: '/arac/kitap-kavrami', titleTr: 'Kitap Kavramı', titleEn: 'Concept of the Book', descTr: 'Kur\'ân kendini nasıl tanımlar? el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ — 10+ isim ve sıfat.', descEn: 'How does the Quran describe itself? al-Kitāb, al-Furqān, al-Dhikr, al-Hudā — 10+ names and attributes.', keywords: ['kitap', 'furkan', 'zikr', 'huda', 'isim', 'sifat', 'tanim'] },`
+  SONRA: `{ route: '/arac/kitap-kavrami', titleTr: 'Kitap Kavramı', titleEn: 'Concept of the Book', descTr: 'Kur\'ân kendini nasıl tanımlar? el-Kitâb, el-Furkân, ez-Zikr, el-Hüdâ; 10\'dan fazla isim ve sıfat.', descEn: 'How does the Quran describe itself? al-Kitāb, al-Furqān, al-Dhikr, al-Hudā; more than 10 names and attributes.', keywords: ['kitap', 'furkan', 'zikr', 'huda', 'isim', 'sifat', 'tanim'] },`
+- ÖNCE: `{ route: '/arac/tefsir-ihtilaflari', titleTr: 'Tefsir İhtilafları', titleEn: 'Exegetical Disagreements', descTr: 'Yedi müfessirin Kur\'ân mesellerindeki yorum ayrılıkları — Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr.', descEn: 'Seven exegetes\' interpretive disagreements on Quranic parables — Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur.', keyword`
+  SONRA: `{ route: '/arac/tefsir-ihtilaflari', titleTr: 'Tefsir İhtilafları', titleEn: 'Exegetical Disagreements', descTr: 'Yedi müfessirin Kur\'ân mesellerindeki yorum ayrılıkları: Taberî, Zemahşerî, Râzî, Kurtubî, İbn Kesîr, İbn Kayyım, İbn Âşûr.', descEn: 'Seven exegetes\' interpretive disagreements on Quranic parables: Tabari, Zamakhshari, Razi, Qurtubi, Ibn Kathir, Ibn al-Qayyim, Ibn Ashur.', keywords:`
+- ÖNCE: `{ route: '/graf/semantik', titleTr: 'Semantik Harita', titleEn: 'Semantic Map', descTr: 'Sûrelerin semantik kümeleri — UMAP projeksiyonuyla 2D içerik akrabalığı.', descEn: 'Semantic clusters of the surahs — content kinship in 2D via UMAP projection.', keywords: ['semantik', 'umap', 'kume', 'projeksiyon', 'akrabalik'] },`
+  SONRA: `{ route: '/graf/semantik', titleTr: 'Semantik Harita', titleEn: 'Semantic Map', descTr: 'Sûrelerin semantik kümeleri: UMAP projeksiyonuyla 2D içerik akrabalığı.', descEn: 'Semantic clusters of the surahs: content kinship in 2D via UMAP projection.', keywords: ['semantik', 'umap', 'kume', 'projeksiyon', 'akrabalik'] },`
+- ÖNCE: `{ route: '/graf/karsilastir', titleTr: 'Sûre Karşılaştırıcı', titleEn: 'Surah Comparator', descTr: 'İki sûreyi yan yana karşılaştır — uzunluk, dönem, ortak temalar, tekrar eden ifadeler.', descEn: 'Compare any two surahs side by side — length, period, shared themes, recurring expressions.', keywords: ['karsilastir', 'sure', 'kiyas', 'tema', 'uzunluk'] },`
+  SONRA: `{ route: '/graf/karsilastir', titleTr: 'Sûre Karşılaştırıcı', titleEn: 'Surah Comparator', descTr: 'İki sûreyi yan yana karşılaştır: uzunluk, dönem, ortak temalar, tekrar eden ifadeler.', descEn: 'Compare any two surahs side by side: length, period, shared themes, recurring expressions.', keywords: ['karsilastir', 'sure', 'kiyas', 'tema', 'uzunluk'] },`
+
+### `next/src/data/exploreCategories.jsx`
+
+- ÖNCE: `descTr: "'Ey iman edenler' — kim, ne zaman?",`
+  SONRA: `descTr: "'Ey iman edenler': kim, ne zaman?",`
+- ÖNCE: `descEn: "'O you who believe' — who, when?",`
+  SONRA: `descEn: "'O you who believe': who, when?",`
+
+### `next/src/sections/ToolsHighlight.jsx`
+
+- ÖNCE: `descTr: '23 yıla yayılan anlatıların gizli haritası',`
+  SONRA: `descTr: '23 yıla yayılan anlatıların haritası',`
+- ÖNCE: `descEn: 'The hidden map of narratives across 23 years',`
+  SONRA: `descEn: 'The map of narratives across 23 years',`
+- ÖNCE: `descTr: '12 peygamber — hangi sûrede hangi sahne?',`
+  SONRA: `descTr: '12 peygamber: hangi sûrede hangi sahne?',`
+- ÖNCE: `descEn: '12 prophets — which scene in which surah?',`
+  SONRA: `descEn: '12 prophets: which scene in which surah?',`
+
+### `next/src/sections/TefekkurHighlight.jsx`
+
+- ÖNCE: `descTr: 'Psikolojik, içsel ve pratik tefekkür denemeleri',`
+  SONRA: `descTr: 'Psikoloji ve iç dünya üzerine tefekkür denemeleri',`
+
+### `next/src/components/Navbar.jsx`
+
+- ÖNCE: `aria-label="QuranCodex — Ana sayfa"`
+  SONRA: `aria-label="QuranCodex, ana sayfa"`
+- ÖNCE: `{ id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikolojik, içsel ve pratik denemeler',   descEn: 'Psychology, inner life & practice' },`
+  SONRA: `{ id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',     descTr: 'Psikoloji ve iç dünya üzerine denemeler',   descEn: 'Essays on psychology and inner life' },`
+- ÖNCE: `{ id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikolojik, içsel ve pratik denemeler',    descEn: 'Psychology, inner life & practice' },`
+  SONRA: `{ id: 'kavramsal',       accent: '#3498db', labelTr: 'Kavramsal Tahlil',    labelEn: 'Conceptual Analysis',      descTr: 'Psikoloji ve iç dünya üzerine denemeler',    descEn: 'Essays on psychology and inner life' },`
+
+### `next/src/app/[locale]/tefekkur/TefekkurIndexRoute.jsx`
+
+- ÖNCE: `? <>Felsufi&apos;nin seçilmiş yazıları — Kur&apos;an kavramlarının kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler. Her makale <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Kavram Ağı</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Ayet Haritası</strong> ve <strong style={{ color: COLORS.gold, fontWeight: `
+  SONRA: `? <>Felsufi&apos;nin seçilmiş yazıları: Kur&apos;an kavramlarının kök etimolojisi, sûre tahlilleri, epistemoloji ve tasavvufî psikoloji üzerine denemeler. Her makale <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Kavram Ağı</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Ayet Haritası</strong> ve <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Okuma Modu</strong>`
+- ÖNCE: `: <>Curated essays by Felsufi — from the root etymology of Quranic concepts to modern epistemology, from surah analyses to Sufi psychology. Each essay is bidirectionally linked to <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Concept Graph</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Verse Map</strong>, and <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Read`
+  SONRA: `: <>Curated essays by Felsufi on the root etymology of Quranic concepts, surah analyses, epistemology and Sufi psychology. Each essay is bidirectionally linked to <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Concept Graph</strong>, <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Verse Map</strong>, and <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Reading Mode</strong>`
+- ÖNCE: `: <>We extend our heartfelt gratitude to <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> to share these selected essays. All interpretations and syntheses reflect the <strong style={{ color: COLORS.gold, fontWeight: 600`
+  SONRA: `: <>We thank <a href="https://sufist.medium.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.gold, fontWeight: 600 }}>Felsufi</a> for the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>verbal permission</strong> to share these selected essays. The interpretations and syntheses in them are the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>author&apos;s own re`
+
+### `next/src/app/[locale]/kaynakca/KaynakcaRoute.jsx`
+
+- ÖNCE: `titleTr: 'Tefsir — Klasik Dönem',`
+  SONRA: `titleTr: 'Tefsir: Klasik Dönem',`
+- ÖNCE: `titleEn: 'Tafsir — Classical Period',`
+  SONRA: `titleEn: 'Tafsir: Classical Period',`
+- ÖNCE: `titleTr: 'Tefsir — Modern Dönem',`
+  SONRA: `titleTr: 'Tefsir: Modern Dönem',`
+- ÖNCE: `titleEn: 'Tafsir — Modern Period',`
+  SONRA: `titleEn: 'Tafsir: Modern Period',`
+- ÖNCE: `noteTr: "Çağdaş bağlamsal okuma — kelime kök analizi vurgulu.",`
+  SONRA: `noteTr: "Çağdaş bağlamsal okuma; kelime kök analizi vurgulu.",`
+- ÖNCE: `noteTr: "Kur'an'da semantik alan analizi — kavramların ağ ilişkisi.",`
+  SONRA: `noteTr: "Kur'an'da semantik alan analizi; kavramların ağ ilişkisi.",`
+- ÖNCE: `noteEn: "Semantic field analysis in the Qur'an — conceptual network relations.",`
+  SONRA: `noteEn: "Semantic field analysis in the Qur'an; conceptual network relations.",`
+- ÖNCE: `noteTr: "Klasik tefsir geleneğinin oluşumu — Sealebī merkezli.",`
+  SONRA: `noteTr: "Klasik tefsir geleneğinin oluşumu; Sealebî merkezli.",`
+- ÖNCE: `noteEn: "Formation of the classical tafsir tradition — focused on al-Tha'labī.",`
+  SONRA: `noteEn: "Formation of the classical tafsir tradition; focused on al-Tha'labī.",`
+- ÖNCE: `noteTr: "Halka (ring) kompozisyon analizi — sûre içi simetri yapıları.",`
+  SONRA: `noteTr: "Halka (ring) kompozisyon analizi; sûre içi simetri yapıları.",`
+- ÖNCE: `noteEn: "Ring composition analysis — symmetric structures within suras.",`
+  SONRA: `noteEn: "Ring composition analysis; symmetric structures within suras.",`
+- ÖNCE: `noteTr: "Islâhî'nin nazm kavramı — sûrelerin iç tutarlılığı.",`
+  SONRA: `noteTr: "Islâhî'nin nazm kavramı; sûrelerin iç tutarlılığı.",`
+- ÖNCE: `noteEn: "Islahi's concept of nazm — internal coherence of suras.",`
+  SONRA: `noteEn: "Islahi's concept of nazm; internal coherence of suras.",`
+- ÖNCE: `titleTr: 'Bilim & Tarih — Tartışmalı Alanlar',`
+  SONRA: `titleTr: 'Bilim ve Tarih: Tartışmalı Alanlar',`
+- ÖNCE: `titleEn: 'Science & History — Discussed Areas',`
+  SONRA: `titleEn: 'Science and History: Discussed Areas',`
+- ÖNCE: `noteTr: "En erken bilinen Kur'ân el yazmalarından — yaşayan koruma kanıtı.",`
+  SONRA: `noteTr: "En erken bilinen Kur'ân el yazmalarından; yaşayan koruma kanıtı.",`
+- ÖNCE: `noteEn: "Among the earliest known Quran manuscripts — evidence of textual preservation.",`
+  SONRA: `noteEn: "Among the earliest known Quran manuscripts; evidence of textual preservation.",`
+- ÖNCE: `"This page is a categorised list of books, articles, and data sources referenced — directly or indirectly — across the site. The site produces original synthesis, classifications, and visualizations, grounding them in the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodologica`
+  SONRA: `"This page is a categorised list of books, articles, and data sources referenced, directly or indirectly, across the site. The site produces original synthesis, classifications, and visualizations, grounding them in the works of classical and modern scholars and academic researchers. Contested areas (notably the scientific-miracle literature) are grouped separately and flagged with methodological `
+
+### `next/src/app/[locale]/hakkinda/HakkindaRoute.jsx`
+
+- ÖNCE: `"QuranCodex, Kur'ân-ı Kerîm'in görünmeyen mimarisini — dilsel örüntülerini, yapısal simetrilerini, seslerinin anlamla ilişkisini ve tematik derinliğini — sinematik ve etkileşimli araçlarla keşfe açan bağımsız bir çalışmadır.",`
+  SONRA: `"QuranCodex, Kur'ân-ı Kerîm'in görünmeyen mimarisini (dilsel örüntülerini, yapısal simetrilerini, seslerinin anlamla ilişkisini ve tematik derinliğini) sinematik ve etkileşimli araçlarla keşfe açan bağımsız bir çalışmadır.",`
+- ÖNCE: `"Amaç, akademik bilgiyi kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir. Her araç, klasik tefsir ve modern akademik literatüre dayanarak bir örüntüyü görünür kılar; okuyanı yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi hedefler.",`
+  SONRA: `"Amaç, akademik bilgiyi keşfedilebilir hâle getirmektir. Her araç, klasik tefsir ve modern akademik literatüre dayanarak bir örüntüyü görünür kılar; okuyanı bilgilendirmenin yanında tefekküre de davet eder.",`
+- ÖNCE: `"QuranCodex is an independent work that opens the invisible architecture of the Qur'an — its linguistic patterns, structural symmetries, the relationship between its sounds and meanings, and its thematic depth — to exploration through cinematic, interactive tools.",`
+  SONRA: `"QuranCodex is an independent work that opens the invisible architecture of the Qur'an (its linguistic patterns, structural symmetries, the relationship between its sounds and meanings, and its thematic depth) to exploration through cinematic, interactive tools.",`
+- ÖNCE: `"The aim is to turn scholarship into a journey of discovery rather than a dry lecture. Each tool makes a pattern visible on the basis of classical tafsir and modern academic literature — inviting not just information, but reflection.",`
+  SONRA: `"The aim is to make scholarship explorable. Each tool makes a pattern visible on the basis of classical tafsir and modern academic literature, inviting reflection as well as information.",`
+- ÖNCE: `"Bu sitedeki hiçbir bilimsel, tarihsel veya akademik veri, bir Kur'ân ifadesinin doğruluğunu \"kanıtlamaz\" ya da \"onaylamaz\" — çünkü Kur'ân, hakikatin ölçüsüdür; bilimin onayına muhtaç değildir. Modern bir bulgunun Kur'ân ile örtüşmesi bir \"kanıt\" değil, bir tefekkür vesilesidir.",`
+  SONRA: `"Bu sitedeki hiçbir bilimsel, tarihsel veya akademik veri, bir Kur'ân ifadesinin doğruluğunu \"kanıtlamaz\" ya da \"onaylamaz\"; çünkü Kur'ân, hakikatin ölçüsüdür; bilimin onayına muhtaç değildir. Modern bir bulgunun Kur'ân ile örtüşmesi bir \"kanıt\" değil, bir tefekkür vesilesidir.",`
+- ÖNCE: `"No scientific, historical or academic datum on this site \"proves\" or \"confirms\" the truth of a Qur'anic statement — for the Qur'an is the measure of truth and needs no validation from science. A modern finding aligning with the Qur'an is not a \"proof\" but an occasion for reflection.",`
+  SONRA: `"No scientific, historical or academic datum on this site \"proves\" or \"confirms\" the truth of a Qur'anic statement, for the Qur'an is the measure of truth and needs no validation from science. A modern finding aligning with the Qur'an is not a \"proof\" but an occasion for reflection.",`
+- ÖNCE: `"\"Bilimsel işaretler\" ve \"tarihsel izler\" bir örtüşme düzeyinde sunulur — kesin bilimsel kanıt olarak değil. Tartışmalı yorumlar sayfa içinde açık notlarla (criticalNote) işaretlenir.",`
+  SONRA: `"\"Bilimsel işaretler\" ve \"tarihsel izler\" bir örtüşme düzeyinde sunulur, kesin bilimsel kanıt olarak değil. Tartışmalı yorumlar sayfa içinde açık notlarla (criticalNote) işaretlenir.",`
+- ÖNCE: `"Tefsir yorumları âlimler arasında farklılık gösterebilir; sunulan bir okuma imkânıdır, tek doğru değil. Yorumun tartışmalı olması Kur'ân metnini değil, insanın anlayışını ilgilendirir — metin sabittir.",`
+  SONRA: `"Tefsir yorumları âlimler arasında farklılık gösterebilir; sunulan bir okuma imkânıdır, tek doğru değil. Yorumun tartışmalı olması Kur'ân metnini değil, insanın anlayışını ilgilendirir; metin sabittir.",`
+- ÖNCE: `"\"Scientific signs\" and \"historical traces\" are presented at the level of alignment — not as conclusive scientific proof. Disputed interpretations are flagged inline with explicit critical notes.",`
+  SONRA: `"\"Scientific signs\" and \"historical traces\" are presented at the level of alignment, not as conclusive scientific proof. Disputed interpretations are flagged inline with explicit critical notes.",`
+- ÖNCE: `"Tafsir interpretations can differ among scholars; what is offered is a possible reading, not the sole truth. That an interpretation is debated concerns human understanding, not the Qur'anic text — the text is fixed.",`
+  SONRA: `"Tafsir interpretations can differ among scholars; what is offered is a possible reading, not the sole truth. That an interpretation is debated concerns human understanding, not the Qur'anic text; the text is fixed.",`
+- ÖNCE: `"Bir hata fark ederseniz — özellikle bir âyet, referans ya da bilgi hatası — lütfen bildirin; içerik doğruluğu bu çalışmanın en önemli önceliğidir. Geri bildirim için sitedeki geri bildirim özelliklerini veya info@qurancodex.com adresini kullanabilirsiniz.",`
+  SONRA: `"Bir hata fark ederseniz (özellikle bir âyet, referans ya da bilgi hatası) lütfen bildirin; içerik doğruluğu bu çalışmanın en önemli önceliğidir. Geri bildirim için sitedeki geri bildirim özelliklerini veya info@qurancodex.com adresini kullanabilirsiniz.",`
+- ÖNCE: `"If you notice an error — especially in a verse, a reference, or a fact — please report it; content accuracy is the highest priority of this work. For feedback, use the site's feedback features or write to info@qurancodex.com.",`
+  SONRA: `"If you notice an error (especially in a verse, a reference, or a fact), please report it; content accuracy is the highest priority of this work. For feedback, use the site's feedback features or write to info@qurancodex.com.",`
+- ÖNCE: `? 'Its purpose, epistemic stance, sources, and limits — stated openly.'`
+  SONRA: `? 'Its purpose, epistemic stance, sources and limits, stated openly.'`
+- ÖNCE: `: 'Amacı, epistemik duruşu, kaynakları ve sınırları — açıkça.'}`
+  SONRA: `: 'Amacı, epistemik duruşu, kaynakları ve sınırları, açıkça.'}`
+
+### `next/src/app/[locale]/not-found.jsx`
+
+- ÖNCE: `? 'This address does not correspond to a page — the link may be broken, or the verse or content you requested may not exist.'`
+  SONRA: `? 'This address does not correspond to a page. The link may be broken, or the verse or content you requested may not exist.'`
+- ÖNCE: `: 'Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir ya da istediğiniz âyet veya içerik mevcut değil.'}`
+  SONRA: `: 'Bu adres bir sayfaya karşılık gelmiyor. Bağlantı bozulmuş olabilir ya da istediğiniz âyet veya içerik mevcut değil.'}`
+

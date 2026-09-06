@@ -45,8 +45,8 @@ Etki × görünürlük sırasıyla:
 - [x] **P2 · Tefekkür tldr'ları ve criticalNote'lar** ✅ (2026-09-06: 53 tldr TR+EN yeniden yazıldı; criticalNote'lar bekliyor) (`public/tefekkur/_index.json` + 53 yazı). Gövde yazarın; tldr ve not kutuları sitenin. Detay: §4.
 - [x] **P2 · Uzun anlatı bölümleri** ✅ (2026-09-06: 182 TR + 203 EN dize) (`src/i18n/tr.json` + `en.json`: linguisticDNA, hiddenSymmetry, scientificSigns, historicalProof, livingPreservation, zeroRedundancy, highlights, humanDefinition, psychology, impossibleRhythm, soundArchitecture). Bu bölümler Next tarafında `src/sections/*.jsx` üzerinden araç sayfalarında render ediliyor. Detay: §5.
 - [ ] **P3 · Araç ve atlas bileşenleri** (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
-- [ ] **P3 · Katalog ve gezinme metinleri** (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
-- [ ] **P4 · Yardımcı sayfalar** (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
+- [x] **P3 · Katalog ve gezinme metinleri** ✅ (2026-09-06) (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
+- [x] **P4 · Yardımcı sayfalar** ✅ (2026-09-06) (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
 - [ ] **P0 · Önce karar:** Uzun tire tasarım tercihi mi, alışkanlık mı? 8.364 tire "hepsini kaldır" ile çözülmez; bir stil kuralı gerekir (bkz. §9).
 
 ---
@@ -157,7 +157,7 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **KorumaZinciri.jsx** ✅ (2026-09-06: "sıfır varyasyon ilkesinin bugünkü görünümü"): "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
 - [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
 - [ ] **Ok zincirleri (1.242)**: neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
-- [ ] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅ 2026-09-06; not-found bekliyor): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
+- [x] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅, not-found ✅ 2026-09-06): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
 
 Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorRoute.jsx`, `exploreCategories.jsx`.
 
@@ -168,19 +168,19 @@ Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorR
 Dosyalar: `src/data/toolCatalog.js`, `src/data/tools.jsx`, `src/data/exploreCategories.jsx`, Navbar mega menü, `arac/tum-araclar`.
 
 - [ ] Katalog açıklamaları "N · N · N" etiket formatında ("73 mesel · 8 motif alanı", "10 imam · 20 râvî · coğrafi dağılım", "88 emir ve yasak · 8 kategori"). Bunlar etiket, cümle değil; kısa kart altında kabul edilebilir. Ancak aynı format sayfa DESC'ine, kicker'a ve tldr'a taşınınca kalıp oluyor. Karar: bu format yalnız katalog/menü kartlarında kalsın, cümle beklenen yerlerden çıksın.
-- [ ] "Az bilinen, şaşırtan gerçekler / Hidden gems & surprising facts" (kurani-tani) satış dili.
-- [ ] "23 yıla yayılan anlatıların gizli haritası / The hidden narrative map" (peygamber) — "gizli" sitenin ana metaforu ama katalogda her ikinci kartta "gizli/görünmeyen/şifre" var: "14 gizemli harf ve şifresi", "gizli harita", "Görünmeyen Mimari". Sayı azaltılabilir.
-- [ ] Navbar mega menü tefekkür tanıtımı: "Psikolojik, içsel ve pratik denemeler", "Kur'an Semantiği, Tefekkür ve Tasavvufî Düşünce", tefekkür listesi girişi "kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler" (§12 sahte aralık "X'ten Y'ye", §4 "derinlikli"). `conclusion.discovery.desc` de aynı: "Kıraat farklarından diyalog ağlarına, mesellerden nüzul sebeplerine — her biri ayrı bir keşif yolculuğu."
-- [ ] Tefekkür sayfası teşekkür paragrafı EN: "We extend our heartfelt gratitude to … to share these selected essays. All interpretations and syntheses reflect the author's personal reflection; QuranCodex carries these texts respectfully" — chatbot nezaketi (§20/§22). TR'si daha sade; EN TR'ye çekilsin.
+- [x] "Az bilinen, şaşırtan gerçekler / Hidden gems & surprising facts" (kurani-tani) satış dili. ✅ (2026-09-06: "Az bilinen, kaynaklı gerçekler / Little-known, sourced facts")
+- [x] (2026-09-06: peygamber kartında "gizli/hidden" kaldırıldı; diğerleri sitenin ana metaforu olarak kaldı) "23 yıla yayılan anlatıların gizli haritası / The hidden narrative map" (peygamber) — "gizli" sitenin ana metaforu ama katalogda her ikinci kartta "gizli/görünmeyen/şifre" var: "14 gizemli harf ve şifresi", "gizli harita", "Görünmeyen Mimari". Sayı azaltılabilir.
+- [x] (2026-09-06: Navbar + TefekkurHighlight + Tefekkür dizini girişi düzeltildi; `conclusion.discovery.desc` tr/en.json partisinde) Navbar mega menü tefekkür tanıtımı: "Psikolojik, içsel ve pratik denemeler", "Kur'an Semantiği, Tefekkür ve Tasavvufî Düşünce", tefekkür listesi girişi "kök etimolojisinden modern epistemolojiye, sûre tahlillerinden tasavvufî psikolojiye uzanan derinlikli denemeler" (§12 sahte aralık "X'ten Y'ye", §4 "derinlikli"). `conclusion.discovery.desc` de aynı: "Kıraat farklarından diyalog ağlarına, mesellerden nüzul sebeplerine — her biri ayrı bir keşif yolculuğu."
+- [x] (2026-09-06: "We thank … presents these texts as an invitation to think") Tefekkür sayfası teşekkür paragrafı EN: "We extend our heartfelt gratitude to … to share these selected essays. All interpretations and syntheses reflect the author's personal reflection; QuranCodex carries these texts respectfully" — chatbot nezaketi (§20/§22). TR'si daha sade; EN TR'ye çekilsin.
 
 ---
 
 ## 8. Yardımcı sayfalar (P4)
 
-- [ ] **Hakkında** (`src/app/[locale]/hakkinda/`): Gövde büyük ölçüde insani ve net (epistemik duruş, kaynaklar, sınırlar). Küçük: "kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir" (§9 + "journey"), "yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi" (§9), "sinematik ve etkileşimli araçlarla" (CLAUDE.md dilinden sızmış pazarlama kelimesi), DESC sonu "— açıkça." / "— stated openly." (kırık vurgu).
-- [ ] **Kaynakça**: temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
+- [x] **Hakkında** ✅ (2026-09-06: "keşfedilebilir hâle getirmek", ara söz tireleri ayraç oldu, DESC sonu düzeldi; "sinematik" CLAUDE.md dilinden geldiği için bırakıldı) (`src/app/[locale]/hakkinda/`): Gövde büyük ölçüde insani ve net (epistemik duruş, kaynaklar, sınırlar). Küçük: "kuru bir ders değil, bir keşif yolculuğuna dönüştürmektir" (§9 + "journey"), "yalnızca bilgilendirmeyi değil, tefekküre davet etmeyi" (§9), "sinematik ve etkileşimli araçlarla" (CLAUDE.md dilinden sızmış pazarlama kelimesi), DESC sonu "— açıkça." / "— stated openly." (kırık vurgu).
+- [x] **Kaynakça** (2026-09-06: bölüm başlıkları "Tefsir — Klasik Dönem" → "Tefsir: Klasik Dönem", not tireleri): temiz; tek satırlık eser açıklamaları doğal. "Pinnacle of rational/theological exegesis" ("doruğu") tek satış kelimesi. Dokunma.
 - [x] **Sor**: "Sistem yorum katmaz — sadece rehberler." (fiil hatası + tire; ana sayfa concierge'de de aynı). Fetva uyarısı iyi, kalsın. Örnek sorular doğal.
-- [ ] **Kütüphanem**, **not-found**: yalnız tire.
+- [x] **Kütüphanem**, **not-found**: yalnız tire. ✅ (2026-09-06: not-found iki cümleye bölündü)
 - [x] **Footer** `support.description`: "Katkın hosting, API ve içerik geliştirme masraflarını karşılar — bu yolculuğu birlikte sürdürmemizi mümkün kılar." (§3 -ing uzantısı + journey). İlk cümle yeter.
 
 ---
