@@ -97,8 +97,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Güneş', nameEn: 'Sun',
     frequency: '~33 kez',
     sureRef: 'Şems 91:1, Yâsîn 36:38, Nûr 24:35, Furkan 25:61',
-    noteTr: "Kur'an'da en sık geçen gök cismi. Şems suresi onunla yeminle başlar (وَالشَّمْسِ وَضُحَاهَا). Yâsîn 36:38'de \"kendi yörüngesinde akıp giden\" (تَجْري لِمُسْتَقَرٍّ لَهَا) olarak tasvir edilir — klasik tefsirin Allah'ın koyduğu düzen olarak okuduğu; modern astronomik perspektiften de dikkat çekici bir ifade.",
-    noteEn: "The most frequently mentioned celestial body in the Quran. Surah Ash-Shams opens with an oath by it (وَالشَّمْسِ وَضُحَاهَا). In Ya-Sin 36:38, it is described as 'running to its appointed station' (تَجْري لِمُسْتَقَرٍّ لَهَا) — read by classical tafsir as God's appointed order, and notable from a modern astronomical view.",
+    noteTr: "Kur'an'da en sık geçen gök cismi. Şems suresi onunla yeminle başlar (وَالشَّمْسِ وَضُحَاهَا). Yâsîn 36:38'de \"kendi yörüngesinde akıp giden\" (تَجْري لِمُسْتَقَرٍّ لَهَا) olarak tasvir edilir. Klasik tefsir bunu Allah'ın koyduğu düzen olarak okur; ifade modern astronomi açısından da kayda değer.",
+    noteEn: "The most frequently mentioned celestial body in the Quran. Surah Ash-Shams opens with an oath by it (وَالشَّمْسِ وَضُحَاهَا). In Ya-Sin 36:38, it is described as 'running to its appointed station' (تَجْري لِمُسْتَقَرٍّ لَهَا). Classical tafsir reads this as God's appointed order; the phrase is also notable from a modern astronomical view.",
     featured: true,
   },
   {
@@ -107,8 +107,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Ay', nameEn: 'Moon',
     frequency: '~27 kez',
     sureRef: 'Kamer 54:1, Yâsîn 36:39, Yûnus 10:5, İsrâ 17:78',
-    noteTr: "Kamer suresi (54:1) \"O saat yaklaştı ve ay yarıldı\" (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ) ile başlar. Yûnus 10:5'te ay \"menziller\" (manâzil) ile birlikte anılır — vakit ölçüsü olarak. Klasik takvim ve oruç saatleri ay'a bağlanır.",
-    noteEn: "Surah Al-Qamar (54:1) opens with 'The Hour has come near, and the moon has split' (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ). In Yunus 10:5, the moon is mentioned with its 'stations' (manāzil) — as a measure of time. Classical calendar and fasting hours hinge on the moon.",
+    noteTr: "Kamer suresi (54:1) \"O saat yaklaştı ve ay yarıldı\" (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ) ile başlar. Yûnus 10:5'te ay \"menziller\" (manâzil) ile birlikte, vakit ölçüsü olarak anılır. Klasik takvim ve oruç saatleri ay'a bağlanır.",
+    noteEn: "Surah Al-Qamar (54:1) opens with 'The Hour has come near, and the moon has split' (اِقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ). In Yunus 10:5, the moon is mentioned with its 'stations' (manāzil) as a measure of time. Classical calendar and fasting hours hinge on the moon.",
     featured: true,
   },
   {
@@ -117,8 +117,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Yıldız', nameEn: 'Star',
     frequency: '~13 kez',
     sureRef: 'Necm 53:1, Vâkıa 56:75, Târık 86:3, Mursalât 77:8',
-    noteTr: "Necm suresi (53:1) bir yıldıza yeminle başlar (وَالنَّجْمِ اِذَا هَوٰى). Vâkıa 56:75'te \"yıldızların yerlerine\" (مَوَاقِعِ النُّجُومِ) yemin edilir — modern astronomide ışığın geliş süresi yüzünden gördüğümüz şeyin yıldızın geçmiş konumu olduğu hatırlanır. Klasik tefsirde gemi yolu yön bulma (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
-    noteEn: "Surah An-Najm (53:1) opens with an oath by a star (وَالنَّجْمِ اِذَا هَوٰى). Wāqi'a 56:75 swears 'by the locations of the stars' (مَوَاقِعِ النُّجُومِ) — in modern astronomy, what we see is the star's past position due to light travel time. Classical tafsir notes navigation by stars (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
+    noteTr: "Necm suresi (53:1) bir yıldıza yeminle başlar (وَالنَّجْمِ اِذَا هَوٰى). Vâkıa 56:75'te \"yıldızların yerlerine\" (مَوَاقِعِ النُّجُومِ) yemin edilir. Modern astronomide, ışığın geliş süresi yüzünden gördüğümüz şeyin yıldızın geçmiş konumu olduğu hatırlanır. Klasik tefsirde gemi yolu yön bulma (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
+    noteEn: "Surah An-Najm (53:1) opens with an oath by a star (وَالنَّجْمِ اِذَا هَوٰى). Wāqi'a 56:75 swears 'by the locations of the stars' (مَوَاقِعِ النُّجُومِ). In modern astronomy, what we see is the star's past position because of light travel time. Classical tafsir notes navigation by stars (Nahl 16:16: وَبِالنَّجْمِ هُمْ يَهْتَدُونَ).",
   },
   {
     id: 'buruc',
@@ -135,8 +135,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Hunnes & Künnes', nameEn: 'Hunnes & Kunnes',
     frequency: '1 kez (hapax pair)',
     sureRef: 'Tekvîr 81:15-16',
-    noteTr: "Tekvîr 81:15-16: \"Andolsun o sinip kaybolanlara, akıp akıp yuvasına girenlere\" (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Klasik tefsirde Hz. Ali, Mücâhid, Hasan-i Basrî bu ikiliyi gündüz görünmeyip gece sinen, gözden kaybolup tekrar görünen gezegenler olarak okur (Merkür, Venüs, Mars, Jüpiter, Satürn). Modern astronomi perspektifinden de geriye-hareket (retrograde motion) ile uyumlu — Kur'an'da gezegenlerin tek doğrudan referansı.",
-    noteEn: "Takwir 81:15-16: 'I swear by the receding stars, those that move and disappear, those that sweep' (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Classical tafsir: 'Ali, Mujāhid, al-Hasan al-Basrī read this pair as planets that hide during day and 'sink into their burrows' — Mercury, Venus, Mars, Jupiter, Saturn. From a modern view, this matches retrograde motion — the Quran's only direct reference to planets.",
+    noteTr: "Tekvîr 81:15-16: \"Andolsun o sinip kaybolanlara, akıp akıp yuvasına girenlere\" (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Klasik tefsirde Hz. Ali, Mücâhid, Hasan-i Basrî bu ikiliyi gündüz görünmeyip gece sinen, gözden kaybolup tekrar görünen gezegenler olarak okur (Merkür, Venüs, Mars, Jüpiter, Satürn). Bu okuma modern astronomideki geri hareket (retrograde motion) ile de örtüşür. Kur'an'da gezegenlerin tek doğrudan referansı.",
+    noteEn: "Takwir 81:15-16: 'I swear by the receding stars, those that move and disappear, those that sweep' (فَلَا اُقْسِمُ بِالْخُنَّسِ الْجَوَارِ الْكُنَّسِ). Classical tafsir: 'Ali, Mujāhid, al-Hasan al-Basrī read this pair as planets that hide during day and 'sink into their burrows': Mercury, Venus, Mars, Jupiter, Saturn. From a modern view, this aligns with retrograde motion. The Quran's only direct reference to planets.",
     featured: true,
   },
   {
@@ -145,8 +145,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Târık (Gece Geleni)', nameEn: 'Tariq (Night-Comer)',
     frequency: '1 kez (sûre adı)',
     sureRef: 'Târık 86:1-3',
-    noteTr: "Târık suresi (86:1-3): \"Andolsun göğe ve Târık'a! Târık'ın ne olduğunu sana bildiren nedir? O, delici yıldızdır\" (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Klasik tefsirde meteor, parlak yıldız ya da Süreyya yıldız kümesi olarak yorumlanır. Modern okumalarda (örn. Z. Naik) periyodik atımlı pulsarlara işaret olabileceği önerilir — pulsarlar ilk kez 1967'de keşfedildi, periyodik radyo darbeleri verir.",
-    noteEn: "Surah At-Tariq (86:1-3): 'By the sky and the night-comer! What can make you know what the night-comer is? It is the piercing star' (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Classical tafsir: meteors, bright stars, or the Pleiades. In modern readings (e.g. Z. Naik), pulsars are proposed — pulsars were discovered in 1967 and emit periodic radio pulses.",
+    noteTr: "Târık suresi (86:1-3): \"Andolsun göğe ve Târık'a! Târık'ın ne olduğunu sana bildiren nedir? O, delici yıldızdır\" (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Klasik tefsirde meteor, parlak yıldız ya da Süreyya yıldız kümesi olarak yorumlanır. Modern okumalarda (örn. Z. Naik) periyodik atımlı pulsarlara işaret olabileceği önerilir; pulsarlar ilk kez 1967'de keşfedildi ve periyodik radyo darbeleri verir.",
+    noteEn: "Surah At-Tariq (86:1-3): 'By the sky and the night-comer! What can make you know what the night-comer is? It is the piercing star' (وَالسَّمَاءِ وَالطَّارِقِ ... النَّجْمُ الثَّاقِبُ). Classical tafsir: meteors, bright stars, or the Pleiades. In modern readings (e.g. Z. Naik), pulsars are proposed; pulsars were discovered in 1967 and emit periodic radio pulses.",
     featured: true,
   },
   {
@@ -155,8 +155,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Felak (Şafak)', nameEn: 'Falaq (Daybreak)',
     frequency: '1 kez (sûre adı)',
     sureRef: 'Felak 113:1',
-    noteTr: "Felak suresinin (113:1) ilk kelimesi: \"De ki: Sığınırım sabahın Rabbine\" (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Klasik tefsirde iki ana okuma: (1) sabah aydınlığının karanlığı yarması (İbn Abbas, Mücâhid); (2) genişçe yaratılışın bütünü — tohumun yarılması, bulutun yarılması, gözün açılması (Hasan-i Basrî). \"Falaqa\" kökü \"yarıp ortaya çıkarmak\" demektir.",
-    noteEn: "The opening word of Surah Al-Falaq (113:1): 'Say: I take refuge in the Lord of daybreak' (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Two main classical readings: (1) the breaking of dawn through darkness (Ibn Abbas, Mujahid); (2) the whole of creation — seed splitting, cloud splitting, eye opening (al-Hasan al-Basri). The root falaqa means 'to split open and bring forth'.",
+    noteTr: "Felak suresinin (113:1) ilk kelimesi: \"De ki: Sığınırım sabahın Rabbine\" (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Klasik tefsirde iki ana okuma: (1) sabah aydınlığının karanlığı yarması (İbn Abbas, Mücâhid); (2) daha geniş anlamda yaratılışın bütünü: tohumun yarılması, bulutun yarılması, gözün açılması (Hasan-i Basrî). \"Falaqa\" kökü \"yarıp ortaya çıkarmak\" demektir.",
+    noteEn: "The opening word of Surah Al-Falaq (113:1): 'Say: I take refuge in the Lord of daybreak' (قُلْ اَعُوذُ بِرَبِّ الْفَلَقِ). Two main classical readings: (1) the breaking of dawn through darkness (Ibn Abbas, Mujahid); (2) the whole of creation: seed splitting, cloud splitting, eye opening (al-Hasan al-Basri). The root falaqa means 'to split open and bring forth'.",
   },
   {
     id: 'sema',
@@ -164,8 +164,8 @@ const CELESTIAL_BODIES = [
     nameTr: 'Semâ (Gök/Gökler)', nameEn: 'Heaven(s)',
     frequency: '~310 kez',
     sureRef: 'Bakara 2:22, Enbiyâ 21:32, Fussilet 41:11-12, Mülk 67:3',
-    noteTr: "Tekil \"semâ\" (gök/atmosfer) ve çoğul \"semâvât\" (yedi gök) farklı bağlamlarda kullanılır. Enbiyâ 21:32'de gök \"korunmuş bir tavan\" (سَقْفاً مَحْفُوظاً) olarak nitelenir — klasik tefsir bunu meteor-yıldız düşmelerinden koruma (Hicr 15:17 ile bağ) ve modern okumada manyetosfer/ozon tabakası olarak yorumlar. Mülk 67:3'te göklerin \"yedi kat\" olduğu söylenir.",
-    noteEn: "Singular 'samaʾ' (sky/atmosphere) and plural 'samawāt' (seven heavens) are used in different contexts. Anbiya 21:32 calls the sky 'a protected ceiling' (سَقْفاً مَحْفُوظاً) — classical tafsir: protection from meteors and shooting stars (linked with Hijr 15:17); modern reading: magnetosphere or ozone layer. Mulk 67:3 mentions 'seven heavens'.",
+    noteTr: "Tekil \"semâ\" (gök/atmosfer) ve çoğul \"semâvât\" (yedi gök) farklı bağlamlarda kullanılır. Enbiyâ 21:32'de gök \"korunmuş bir tavan\" (سَقْفاً مَحْفُوظاً) olarak nitelenir. Klasik tefsir bunu meteor ve yıldız düşmelerinden koruma (Hicr 15:17 ile bağ) olarak, modern okuma ise manyetosfer veya ozon tabakası olarak yorumlar. Mülk 67:3'te göklerin \"yedi kat\" olduğu söylenir.",
+    noteEn: "Singular 'samaʾ' (sky/atmosphere) and plural 'samawāt' (seven heavens) are used in different contexts. Anbiya 21:32 calls the sky 'a protected ceiling' (سَقْفاً مَحْفُوظاً). Classical tafsir: protection from meteors and shooting stars (linked with Hijr 15:17); modern reading: magnetosphere or ozone layer. Mulk 67:3 mentions 'seven heavens'.",
   },
 ];
 
@@ -256,8 +256,8 @@ function ContextBadge({ ctx, colorMap, language }) {
 
   const tipText = isHapax
     ? (language === 'tr'
-        ? "Hapax legomenon — Kur'an'da yalnızca 1 kez geçen kelime"
-        : "Hapax legomenon — a word that appears only once in the Quran")
+        ? "Hapax legomenon: Kur'an'da yalnızca 1 kez geçen kelime"
+        : "Hapax legomenon: a word that appears only once in the Quran")
     : classical
       ? (language === 'tr'
           ? `Klasik tefsir terimi: ${classical}`
@@ -751,8 +751,8 @@ function TabHapaxAlfabesi({ animals, plants, isMobile, language }) {
           fontSize: '0.95rem', lineHeight: 1.7, margin: 0, maxWidth: '760px',
         }}>
           {language === 'tr'
-            ? "Kur'ân'da yalnızca bir kez geçen doğa isimleri. Bir kelime tek yerde geçtiğinde o kelime kendi bağlamıyla özdeşleşir — kelimenin ağırlığı geçtiği tek yeri parlatır. Bu vitrin, hapax hayvan ve bitkileri alfabetik olarak toplar."
-            : "Names of nature that appear only once in the Qur'an. When a word occurs in a single place, it fuses with its context — the word's weight illuminates its sole occurrence. This showcase gathers hapax animals and plants alphabetically."}
+            ? "Kur'ân'da yalnızca bir kez geçen doğa isimleri. Bir kelime tek yerde geçtiğinde o kelime kendi bağlamıyla özdeşleşir; kelimenin ağırlığı geçtiği tek yeri parlatır. Bu vitrin, hapax hayvan ve bitkileri alfabetik olarak toplar."
+            : "Names of nature that appear only once in the Qur'an. When a word occurs in a single place, it fuses with its context; the word's weight illuminates its sole occurrence. This showcase gathers hapax animals and plants alphabetically."}
         </p>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '14px' }}>
           <span style={{
@@ -1467,11 +1467,11 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         }}>
           {language === 'tr' ? (
             <>
-              Klasik tefsir Kur&apos;an&apos;ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler — Mushaf&apos;taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri — tabiatın kendisi). Kur&apos;an, tabiatı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
+              Klasik tefsir Kur&apos;an&apos;ın iki tür ayetinden bahseder: <strong style={{ color: COLORS.gold }}>âyât-ı tilâvet</strong> (okunan ayetler, Mushaf&apos;taki metin) ve <strong style={{ color: COLORS.gold }}>âyât-ı kevniyye</strong> (yaratılış ayetleri, tabiatın kendisi). Kur&apos;an, tabiatı <em>kitâb-ı kâinât</em> (yaratılışın kitabı) olarak sunar; her canlı, okunması gereken bir delildir.
             </>
           ) : (
             <>
-              Classical exegesis distinguishes two kinds of divine signs: <strong style={{ color: COLORS.gold }}>āyāt al-tilāwa</strong> (recited verses — the Mushaf text) and <strong style={{ color: COLORS.gold }}>āyāt al-kawniyya</strong> (cosmic verses — creation itself). The Quran presents nature as <em>kitāb al-kāʾināt</em> (the Book of Creation); every creature is a sign meant to be read.
+              Classical exegesis distinguishes two kinds of divine signs: <strong style={{ color: COLORS.gold }}>āyāt al-tilāwa</strong> (recited verses, the Mushaf text) and <strong style={{ color: COLORS.gold }}>āyāt al-kawniyya</strong> (cosmic verses, creation itself). The Quran presents nature as <em>kitāb al-kāʾināt</em> (the Book of Creation); every creature is a sign meant to be read.
             </>
           )}
         </p>
@@ -1486,8 +1486,8 @@ function HeroSection({ isMobile, language, counts, activeTab, onTabChange }) {
         maxWidth: '680px',
       }}>
         {language === 'tr'
-          ? "Bu atlas Kur'an'da geçen hayvan, bitki, sûre adı ve bağlamları doğrudan veriden okur — abartı yok, eklenti yok. Klasik tefsir geleneğinin (Demîrî, İbn el-Baytâr, Suyûtî) interaktif bir referansıdır."
-          : "This atlas reads animals, plants, surah names, and contexts directly from the data — no exaggeration, no padding. An interactive reference rooted in classical exegesis (al-Damīrī, Ibn al-Bayṭār, al-Suyūṭī)."}
+          ? "Bu atlas Kur'an'da geçen hayvan, bitki, sûre adı ve bağlamları doğrudan veriden okur; abartı yok, eklenti yok. Klasik tefsir geleneğinin (Demîrî, İbn el-Baytâr, Suyûtî) interaktif bir referansıdır."
+          : "This atlas reads animals, plants, surah names, and contexts directly from the data; no exaggeration, no padding. An interactive reference rooted in classical exegesis (al-Damīrī, Ibn al-Bayṭār, al-Suyūṭī)."}
       </p>
 
       {/* Stat cards — clickable */}
@@ -1682,9 +1682,9 @@ export default function DogaAtlasi({ onClose }) {
           <CrossToolCTA
             language={language} isMobile={isMobile}
             links={[
-              { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: '16 âyet · 5 alan — Kur\'ân\'ın kevnî işaretlerinin klasik + modern okuması.', descEn: '16 verses · 5 domains — the Qur\'an\'s cosmic signs read classically and scientifically.' },
-              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa — tabiat panelinin arkasındaki metafizik çerçeve.', descEn: 'Divine law — the metaphysical frame behind the nature panel.' },
-              { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Prophet Stories Atlas', descTr: 'Kıssaların doğa referansları — anlatı içinde kevnî işaret.', descEn: 'Nature references in prophet narratives — cosmic signs embedded in stories.' },
+              { href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: '16 âyet · 5 alan: Kur\'ân\'ın kevnî işaretlerinin klasik ve modern okuması.', descEn: '16 verses · 5 domains: the Qur\'an\'s cosmic signs read classically and scientifically.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Sunnatullāh Atlas', descTr: 'İlâhî yasa: tabiat panelinin arkasındaki metafizik çerçeve.', descEn: 'Divine law: the metaphysical frame behind the nature panel.' },
+              { href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Prophet Stories Atlas', descTr: 'Kıssaların doğa referansları: anlatı içinde kevnî işaret.', descEn: 'Nature references in prophet narratives: cosmic signs embedded in stories.' },
             ]}
           />
         </div>

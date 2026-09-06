@@ -149,6 +149,7 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **Melekler.jsx, LinguisticDNA.jsx, RingExtensions.jsx, HiddenArchitecture.jsx, CennetCehennem.jsx** ✅ (2026-09-06: 52 + 62 + 60 + 51 + 45 dize)
 - [x] **KiraatAtlasi.jsx, HumanDefinition.jsx, ImpossibleRhythm.jsx, Isimlendirme.jsx, ProphetMap.jsx, MeselAtlasi.jsx** ✅ (2026-09-06: 39 + 44 + 32 + 36 + 29 + 26 dize; âyet çevirileri, kaynak atıfları ve kod yorumları hariç)
 - [x] **ReadingMode.jsx, KadinlarAtlasi.jsx, InsanPsikolojisi.jsx, SunnetullahAtlasi.jsx** ✅ (2026-09-06: 30 + 18 + 24 + 25 dize; Okuma Modu'nda yalnız araç ipuçları/aria etiketleri; İnsan Psikolojisi'nde CBT/Freud/nörobilim iddiaları yumuşatıldı)
+- [x] **DogaAtlasi.jsx, Mukattaa.jsx, BilimselIsaretler.jsx, data/iblis-passages.js** ✅ (2026-09-06: 27 + 15 + 14 + 24 dize; gök cismi notlarındaki "modern astronomi ile uyumlu / dikkat çekici" ifadeleri §13.24 düzeyine çekildi)
 - [ ] **EsmaTanimlari.jsx** EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
 - [ ] **TefsirIhtilaflari.jsx**: "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [ ] **KorumaZinciri.jsx**: "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
