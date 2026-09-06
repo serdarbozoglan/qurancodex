@@ -98,19 +98,26 @@ export default function Hero() {
       {/* Slow-rotating Islamic pattern overlay — felt, not seen */}
       <div className="absolute inset-0 islamic-pattern-bg opacity-[0.04] animate-rotate-slow origin-center" />
 
-      {/* Centered radial glow — keeps the eye drawn to title */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.06)_0%,transparent_65%)]" />
+      {/* Centered radial glow — keeps the eye drawn to title.
+          Mobilde GİZLİ: sahne üst-hizalı olunca bu "merkez" glow metnin/halkanın
+          arkasında açık bir disk/kenar üretiyordu (kullanıcı 2026-09). */}
+      {!isMobile && (
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,165,116,0.06)_0%,transparent_65%)]" />
+      )}
 
       {/* Lower-center warm halo — adds depth beneath the CTA, evokes a quiet
-          horizon line. Static (no rotation) so it reads as ground, not motion. */}
-      <div
-        className="absolute inset-x-0 bottom-0 pointer-events-none"
-        style={{
-          height: '55%',
-          background:
-            'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.025) 38%, transparent 70%)',
-        }}
-      />
+          horizon line. Static (no rotation) so it reads as ground, not motion.
+          Mobilde GİZLİ (yukarıdaki merkez glow ile aynı gerekçe). */}
+      {!isMobile && (
+        <div
+          className="absolute inset-x-0 bottom-0 pointer-events-none"
+          style={{
+            height: '55%',
+            background:
+              'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.025) 38%, transparent 70%)',
+          }}
+        />
+      )}
 
       {/* ═══ SAHNE 1 — Reverence ═══════════════════════════════════════════
           Kutsal kelime nefes alır: bismillah + Alak ayeti + çeviri + referans.
@@ -124,7 +131,10 @@ export default function Hero() {
         // mobile'da sahne 2 title'ının ("KUR'AN-I K...") üst kısmı sızıp
         // truncation/bug izlenimi veriyordu. Chevron tek başına yeterli
         // scroll-davet (40px SVG + bounce + büyük DEVAM text).
-        style={{ minHeight: '100svh' }}
+        // 2026-09 — MOBİLDE ÜST-HİZALI (flex-start): Arapça âyetin konumu
+        // çeviri uzunluğuna (TR/EN satır farkı) bağlı kalmasın, HER DİLDE
+        // AYNI yerde dursun (kullanıcı: "TR sabit, EN'i aynı yere getir").
+        style={{ minHeight: '100svh', justifyContent: isMobile ? 'flex-start' : 'center', paddingTop: isMobile ? '76px' : undefined }}
       >
         {/* v2.0 — canlı âyet halkası (arka katman, metnin arkasında). Merkez
             clear-zone kutsal metni korur; hover → sûre, tıkla → /oku/N. */}
@@ -151,8 +161,8 @@ export default function Hero() {
             color: COLORS.gold,
             lineHeight: 1,
             // Sahne 1 flex-center: marginTop sadece Navbar visual compensation.
-            // Mobile'da chevron'a yer bırakmak için kısaltıldı.
-            '--mt-d': '60px', '--mt-m': '24px',
+            // Mobile'da Arapça'yı biraz aşağı almak için artırıldı (2026-09).
+            '--mt-d': '60px', '--mt-m': '40px',
             '--mb-d': '52px', '--mb-m': '24px',
           }}
           initial={(showIntro ? { opacity: 0, scale: 0.94 } : { opacity: 0, y: 12 })}
@@ -233,7 +243,9 @@ export default function Hero() {
             '--fs-d': 'clamp(1.6rem, 3.4vw, 2.5rem)', '--fs-m': 'clamp(1.5rem, 6.6vw, 2.1rem)',
             color: COLORS.gold,
             lineHeight: 2.1,
-            margin: '0 auto 24px',
+            // Mobilde alt boşluk: Arapça âyet halkanın ÜSTÜNDE, altındaki metin
+            // bloğu halkanın ortasına insin (kullanıcı: "metni aşağı al").
+            margin: isMobile ? '0 auto 92px' : '0 auto 24px',
             maxWidth: '920px',
             // 2026-08-13 — dekoratif glow kaldırıldı (bkz. PortalCard notu).
           }}
@@ -292,10 +304,12 @@ export default function Hero() {
             color: 'rgba(232,230,227,0.94)',
             fontFamily: FONTS.display,
             fontStyle: 'italic',
-            '--fs-d': 'clamp(1.2rem, 2.2vw, 1.55rem)', '--fs-m': '1.2rem',
-            lineHeight: 1.75,
+            '--fs-d': 'clamp(1.2rem, 2.2vw, 1.55rem)', '--fs-m': '1.04rem',
+            lineHeight: 1.7,
             margin: '0 auto 12px',
-            maxWidth: '760px',
+            // Mobilde dar elipsin içinde kalsın diye daraltıldı → daha çok satıra
+            // sarar (kullanıcı: "daha çok satıra böl").
+            maxWidth: isMobile ? '265px' : '760px',
           }}
           {...entrance(
             { opacity: 0, y: 12 },
@@ -311,10 +325,12 @@ export default function Hero() {
           className="mq-fs" style={{
             color: COLORS.silver,
             fontFamily: FONTS.body,
-            '--fs-d': '0.84rem', '--fs-m': '0.72rem',
-            letterSpacing: '0.18em',
+            '--fs-d': '0.84rem', '--fs-m': '0.66rem',
+            letterSpacing: '0.16em',
             textTransform: 'uppercase',
-            margin: '0 0 36px',
+            // Mobilde dairenin içinde kalsın → daha çok satıra sarsın.
+            maxWidth: isMobile ? '250px' : undefined,
+            margin: isMobile ? '0 auto 16px' : '0 0 36px',
             // .65 → 3.79, AA altı. Ölçülen eşik: silver .75.
             opacity: 0.78,
           }}
@@ -338,13 +354,13 @@ export default function Hero() {
           style={{
             fontFamily: FONTS.body,
             // v2.0 — 0.8rem çok küçüktü (~12.8px); okunur boyuta çıkarıldı.
-            fontSize: 'clamp(0.92rem, 1.6vw, 1.05rem)',
+            fontSize: 'clamp(0.84rem, 1.5vw, 1.02rem)',
             fontWeight: 400,
             color: COLORS.silver,
             letterSpacing: '0.02em',
-            lineHeight: 1.7,
-            maxWidth: '560px',
-            margin: '-14px auto 18px',
+            lineHeight: 1.6,
+            maxWidth: isMobile ? '270px' : '560px',
+            margin: isMobile ? '0 auto 12px' : '-14px auto 18px',
             // .55 → 3.02, AA'nın çok altı. Ölçülen eşik: silver .75.
             opacity: 0.85,
           }}
@@ -369,7 +385,17 @@ export default function Hero() {
             color: COLORS.silver,
             letterSpacing: '0.24em',
             textTransform: 'uppercase',
-            margin: '0 auto 30px',
+            // Mobilde ipucu halkanın DIŞINA/ALTINA (kullanıcı): üst boşlukla
+            // alt yayın altına iter. 2026-09: ipucu daha aşağı alındı; CTA
+            // sabit kalsın diye CTA üst boşluğu AYNI miktarda azaltıldı.
+            // TR/EN TUTARLILIĞI: EN çeviri 4 satır + referans 2 satır → metin
+            // bloğu TR'den ~75px daha uzun, ipucu+CTA'yı o kadar aşağı itiyordu.
+            // İpucu üst boşluğu EN'de 75px azaltılır (140→65); CTA ipucudan sonra
+            // aktığı için ipucu+iki buton birlikte TR'nin TAM konumuna çıkar.
+            // Halkanın metni (çeviri/referans/açıklama) HİÇ oynamaz.
+            margin: isMobile
+              ? (language === 'en' ? '65px auto 8px' : '140px auto 8px')
+              : '0 auto 30px',
             opacity: 0.6,
           }}
           {...entrance(
@@ -395,7 +421,11 @@ export default function Hero() {
               flexWrap: 'wrap',
               // v2.0 — CTA'lar halkanın ALTINA (üst boşlukla ring alt yayının
               // altına itilir; kullanıcı önerisi — overlap giderilir).
-              margin: '52px 0 0',
+              // 2026-09: CTA'lar halkanın altında, ama içerik viewport'a sığsın
+              // diye ölçülü boşluk (aşırı 150px taşmaya yol açıyordu).
+              // İpucu 44px aşağı alındı; CTA sabit kalsın diye üst boşluk
+              // 72→28 (44px) düşürüldü — net CTA konumu değişmez.
+              margin: '28px 0 0',
               pointerEvents: 'auto', // kap none; CTA'lar tıklanabilir kalsın
             }}
             {...entrance(
@@ -408,13 +438,17 @@ export default function Hero() {
               href={`/${language}/oku`}
               style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                minHeight: '44px', padding: '11px 20px',
-                background: `${COLORS.gold}1c`,
-                border: `1px solid ${COLORS.gold}66`,
+                minHeight: '44px', padding: '11px 22px',
+                // v2.0 — DOLU açık antika-altın: masaüstü + menü CTA ile birebir
+                // aynı ton (goldBright → gold, koyu-kahve metin). Önceden şeffaf
+                // outline'dı; kullanıcı "hero'daki de aynı renk olsun" (2026-09).
+                background: `linear-gradient(135deg, ${COLORS.goldBright} 0%, ${COLORS.gold} 100%)`,
+                border: '1px solid transparent',
                 borderRadius: '999px',
-                color: COLORS.gold,
-                fontFamily: FONTS.body, fontSize: '0.86rem', fontWeight: 600,
+                color: COLORS.btnGoldText,
+                fontFamily: FONTS.body, fontSize: '0.86rem', fontWeight: 700,
                 letterSpacing: '0.03em', textDecoration: 'none',
+                boxShadow: `0 4px 18px ${COLORS.goldAlpha25}`,
               }}
             >
               {language === 'tr' ? "Kur'an'ı Oku" : 'Read the Qur’an'}

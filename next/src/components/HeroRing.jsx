@@ -48,7 +48,7 @@ export default function HeroRing({ className }) {
     const ctx = canvas.getContext('2d');
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    let W = 0, H = 0, cx = 0, cy = 0, R = 0;
+    let W = 0, H = 0, cx = 0, cy = 0, R = 0, Rx = 0, Ry = 0;
     let pts = [], segs = [], cloud = [];
     let hovSura = -1, mx = -9999, my = -9999;
     let rot = 0, t0 = performance.now(), raf = 0, visible = true;
@@ -59,17 +59,29 @@ export default function HeroRing({ className }) {
       W = rect.width; H = rect.height;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cx = W / 2; cy = H / 2 + 16; // v2.0 — biraz aşağı
-      // Mobilde (dar+uzun) min(W,H) çok küçük kalıp halka metnin içinde eziliyor;
-      // genişliğe göre büyüterek uzun metin sütununu ÇEVRELER. Masaüstünde
-      // 0.44 — İngilizce çeviri Türkçe'den geniş; 0.40'ta halka kenarları metne
-      // değiyordu. 0.44 halka kenarını metnin ötesine iter (her iki dilde).
-      R = W < 620 ? W * 0.46 : Math.min(W, H) * 0.41;
+      // Mobilde halka merkezi AŞAĞI kayar: Arapça besmele+âyet halkanın ÜSTÜNDE
+      // (dışında) kalsın, halka yalnız çeviri→ipucu bloğunu sarsın (kullanıcı
+      // 2026-09 direktifi). Masaüstünde tam ekran merkez.
+      cx = W / 2; cy = H / 2 + (W < 620 ? 34 : 16);
+      // Halka MOBİLDE bir DİKEY ELİPS'tir, masaüstünde tam daire.
+      // Sebep (2026-09, kullanıcı "yanlardan truncated"): metin sütunu DAR ama
+      // UZUN. Simetrik bir daire ya ekran genişliğinden taşar (yanları kırpılır)
+      // ya da içeriği saramayacak kadar kısa kalır — ikisi aynı anda çözülemez.
+      // Elips genişlikte dar (Rx=0.46W → ekrana sığar, kırpılmaz), dikeyde uzun
+      // (Ry=0.80W → uzun metin sütununu sarar). fr = her parçacığın yarıçap
+      // çarpanı; konum draw()'da eksen başına (Rx·fr, Ry·fr) hesaplanır.
+      const mob = W < 620;
+      // TAM DAİRE (kullanıcı: "halka yok elipsik oldu"). Arapça artık halkanın
+      // ÜSTÜNDE, iç metin daraltıldı → içerik kompakt; 0.44·W'lik bir DAİRE hem
+      // ekran genişliğine sığar (yanları kırpılmaz) hem içeriği sarar.
+      Rx = mob ? W * 0.44 : Math.min(W, H) * 0.41;
+      Ry = mob ? W * 0.44 : Math.min(W, H) * 0.41;
+      R = Math.max(Rx, Ry); // geriye dönük (tooltip yarıçap referansı vb.)
       pts = []; segs = []; cloud = [];
-      const CLN = W < 620 ? 14 : 26;
+      const CLN = mob ? 14 : 26;
       for (let ci = 0; ci < CLN; ci++) {
         const lj = (ci * 0.61803) % 1;
-        cloud.push({ ch: CLOUD_LETTERS[ci % 14], a0: ci * 2.399963, r: R * (0.55 + lj * 0.82), sz: 26 + ((ci * 0.377) % 1) * 34, p: lj * 6.28 });
+        cloud.push({ ch: CLOUD_LETTERS[ci % 14], a0: ci * 2.399963, fr: (0.55 + lj * 0.82), sz: 26 + ((ci * 0.377) % 1) * 34, p: lj * 6.28 });
       }
       const usable = Math.PI * 2 - GAP * 114;
       let a = -Math.PI / 2;
@@ -78,7 +90,7 @@ export default function HeroRing({ className }) {
         for (let v = 0; v < COUNTS[s]; v++) {
           const t = COUNTS[s] === 1 ? 0.5 : v / (COUNTS[s] - 1);
           const jr = Math.abs((Math.sin(v * 12.9898 + s * 78.233) * 43758.5453) % 1);
-          pts.push({ sura: s, a0: a + span * t, r: R * (0.96 + jr * 0.10), tw: jr * 6.28, sz: 0.8 + jr * 1.1 });
+          pts.push({ sura: s, a0: a + span * t, fr: (0.96 + jr * 0.10), tw: jr * 6.28, sz: 0.8 + jr * 1.1 });
         }
         segs.push({ start: a, end: a + span });
         a += span + GAP;
@@ -94,9 +106,11 @@ export default function HeroRing({ className }) {
       // hover tespiti (açı + yarıçap) — rotasyon GÜNCELLENMEDEN önce, ki
       // "hover'da durdur" kararı bu karenin gerçek konumuna göre verilsin.
       hovSura = -1;
-      const dx = mx - cx, dy = my - cy, dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist > R * 0.82 && dist < R * 1.18) {
-        const ma = Math.atan2(dy, dx) - rot, twoPi = Math.PI * 2;
+      const dx = mx - cx, dy = my - cy;
+      // Elips için normalize yarıçap + parametrik açı (daire = özel hâli).
+      const nd = Math.sqrt((dx / Rx) * (dx / Rx) + (dy / Ry) * (dy / Ry));
+      if (nd > 0.82 && nd < 1.18) {
+        const ma = Math.atan2(dy / Ry, dx / Rx) - rot, twoPi = Math.PI * 2;
         for (let s = 0; s < 114; s++) {
           const rel = ((ma - segs[s].start) % twoPi + twoPi) % twoPi;
           const span = ((segs[s].end - segs[s].start) % twoPi + twoPi) % twoPi;
@@ -108,17 +122,26 @@ export default function HeroRing({ className }) {
       // Taban hız sakinleştirildi (0.00035 → 0.00022) — daha huzurlu.
       if (!rd && hovSura < 0) rot += 0.00022 * dt;
 
-      // Clear-zone HALKA yarıçapına bağlı (viewport'a değil) — mobilde uzun
-      // ekranda üst/alt yayları kırpmasın, hep tam halka görünsün. clrRx geniş
-      // (0.72) — İngilizce gibi geniş çevirilerde metin kenarı temiz kalsın.
-      const clrRx = R * 0.72, clrRy = R * 0.72;
+      // Clear-zone metin kutusunu sarar (süperelips n=4 = yuvarlak dikdörtgen).
+      // Mobil elipste Rx dar/Ry uzun olduğundan clear-zone da öyle: yanlarda
+      // metin kenarına kadar (0.90·Rx), dikeyde metin yüksekliğini bırakıp
+      // üst/alt yayı gösterir (0.84·Ry).
+      // 2026-09 — HALKA KESİNTİSİ DÜZELTMESİ: clear-zone eskiden bir yuvarlak
+      // DİKDÖRTGEN'di (süperelips n=4). Dikdörtgenin KÖŞELERİ kenarlarından daha
+      // uzağa uzanır ve tam da halkanın 4 KÖŞEGENİNE denk gelir; köşe erişimi
+      // ~1.03·R (halka yarıçapını AŞAR) olduğundan o 4 noktadaki halka
+      // parçacıkları elenip halka orada "kayboluyordu". ELİPS'te (n=2) köşe
+      // yok → köşegen erişimi ~0.87·R (halkanın İÇİNDE) → halka her yerde tam,
+      // metin yine korunur.
+      const clrRx = W < 620 ? Rx * 0.90 : Rx * 0.72;
+      const clrRy = W < 620 ? Ry * 0.84 : Ry * 0.72;
       const inClear = (x, y) => { const ddx = (x - cx) / clrRx, ddy = (y - cy) / clrRy; return ddx * ddx + ddy * ddy < 1; };
       const time = now * 0.001;
 
       // katman 1 — harf bulutu (paralaks: 1/3 hız, ters yön)
       for (let c2 = 0; c2 < cloud.length; c2++) {
         const cl = cloud[c2], ca = cl.a0 - rot * 0.33;
-        const x2 = cx + Math.cos(ca) * cl.r, y2 = cy + Math.sin(ca) * cl.r;
+        const x2 = cx + Math.cos(ca) * Rx * cl.fr, y2 = cy + Math.sin(ca) * Ry * cl.fr;
         if (inClear(x2, y2)) continue;
         const breathe = (W < 620 ? 0.07 : 0.11) + (rd ? 0.02 : 0.05 * Math.sin(time * 0.6 + cl.p));
         ctx.font = cl.sz + 'px "KFGQPC", "Amiri Quran", serif';
@@ -131,7 +154,7 @@ export default function HeroRing({ className }) {
       for (let i = 0; i < pts.length; i++) {
         const p = pts[i], ang = p.a0 + rot;
         const wob = rd ? 0 : Math.sin(time * 1.4 + p.tw) * 2.2;
-        const x = cx + Math.cos(ang) * (p.r + wob), y = cy + Math.sin(ang) * (p.r + wob);
+        const x = cx + Math.cos(ang) * (Rx * p.fr + wob), y = cy + Math.sin(ang) * (Ry * p.fr + wob);
         const hot = p.sura === hovSura;
         if (inClear(x, y) && !hot) continue;
         const tw = rd ? 0.75 : (0.55 + 0.45 * Math.sin(time * 2 + p.tw));
@@ -143,7 +166,7 @@ export default function HeroRing({ className }) {
       // hover: parlayan yay + tooltip
       if (hovSura >= 0 && tip) {
         ctx.beginPath();
-        ctx.arc(cx, cy, R * 1.13, segs[hovSura].start + rot, segs[hovSura].end + rot);
+        ctx.ellipse(cx, cy, Rx * 1.13, Ry * 1.13, 0, segs[hovSura].start + rot, segs[hovSura].end + rot);
         ctx.strokeStyle = 'rgba(212,165,116,.55)'; ctx.lineWidth = 2; ctx.stroke();
         const n = hovSura + 1, mk = MUKATTAA[n], lc = langRef.current;
         const ayetLbl = lc === 'en' ? 'verses' : 'âyet';
@@ -165,9 +188,10 @@ export default function HeroRing({ className }) {
     // Tıklanan/dokunulan sûreyi doğrudan koordinattan hesapla — MOBİLDE
     // hover (mousemove) olmadığından hovSura hep -1 kalıyordu, tap çalışmıyordu.
     function suraAt(px, py) {
-      const dx = px - cx, dy = py - cy, dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist <= R * 0.82 || dist >= R * 1.18) return -1;
-      const ma = Math.atan2(dy, dx) - rot, twoPi = Math.PI * 2;
+      const dx = px - cx, dy = py - cy;
+      const nd = Math.sqrt((dx / Rx) * (dx / Rx) + (dy / Ry) * (dy / Ry));
+      if (nd <= 0.82 || nd >= 1.18) return -1;
+      const ma = Math.atan2(dy / Ry, dx / Rx) - rot, twoPi = Math.PI * 2;
       for (let s = 0; s < 114; s++) {
         const rel = ((ma - segs[s].start) % twoPi + twoPi) % twoPi;
         const span = ((segs[s].end - segs[s].start) % twoPi + twoPi) % twoPi;
@@ -203,7 +227,7 @@ export default function HeroRing({ className }) {
   }, [router]);
 
   return (
-    <div className={className} style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }} aria-hidden="true">
+    <div className={className} style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }} aria-hidden="true">
       <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block', pointerEvents: 'auto' }} />
       <div ref={tipRef} className="hero-ring-tip" role="tooltip" />
     </div>

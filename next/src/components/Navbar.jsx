@@ -2219,10 +2219,13 @@ export default function Navbar() {
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     gap: '10px', height: '48px', width: '100%', padding: '0 16px',
-                    background: 'linear-gradient(135deg, #c9973a 0%, #b8860b 60%, #9a6f0a 100%)',
+                    // v2.0 — açık sıcak antika altın: masaüstü + hero CTA ile birebir
+                    // aynı ton (goldBright → gold). Önceki koyu gradient ham hex'ti
+                    // (§13.25 ihlali) ve sitenin altın kimliğinden kopuktu.
+                    background: `linear-gradient(135deg, ${COLORS.goldBright} 0%, ${COLORS.gold} 100%)`,
                     border: 'none', borderRadius: '10px',
                     marginBottom: '10px',
-                    boxShadow: '0 4px 20px rgba(180,130,40,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+                    boxShadow: `0 4px 20px ${COLORS.goldAlpha25}, inset 0 1px 0 ${COLORS.glassBorder}`,
                     cursor: 'pointer',
                   }}
                 >
