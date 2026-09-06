@@ -66,20 +66,20 @@ const PHASE_LABELS = {
   tr: {
     1: { title: 'Kozmik Yıkım', sub: "Sur'un ilk üflenmesiyle başlayan, göklerin ve yerin dağıldığı evre" },
     2: { title: 'Ölülerin Dirilişi', sub: "Sur'un ikinci üflenmesiyle başlayan diriliş evresi" },
-    3: { title: 'Haşr / Toplanma', sub: 'Mahşer — tüm insanlığın bir araya gelmesi' },
-    4: { title: 'Hesap — Büyük Sorgu', sub: 'Amellerin sorgulanması, organların şahitliği, yüzlerin değişimi' },
-    5: { title: 'Mizan — Amellerin Tartılması', sub: 'Kozmik adalet terazisi' },
+    3: { title: 'Haşr / Toplanma', sub: 'Mahşer: tüm insanlığın bir araya gelmesi' },
+    4: { title: 'Hesap: Büyük Sorgu', sub: 'Amellerin sorgulanması, organların şahitliği, yüzlerin değişimi' },
+    5: { title: 'Mizan: Amellerin Tartılması', sub: 'Kozmik adalet terazisi' },
     6: { title: 'Kitapların Dağıtılması', sub: 'Amel defterlerinin sağdan ve soldan verilmesi' },
-    7: { title: 'Son/Karar — Cennet ve Cehennem', sub: 'Nihai ayrılış' },
+    7: { title: 'Son ve Karar: Cennet ve Cehennem', sub: 'Nihai ayrılış' },
   },
   en: {
     1: { title: 'Cosmic Destruction', sub: 'The phase beginning with the first blow of the Trumpet' },
     2: { title: 'Resurrection', sub: 'The phase of resurrection beginning with the second blow' },
-    3: { title: 'The Great Gathering', sub: 'Mahshar — the gathering of all humanity' },
+    3: { title: 'The Great Gathering', sub: 'Mahshar: the gathering of all humanity' },
     4: { title: 'The Day of Reckoning', sub: 'The questioning of deeds, testimony of organs, changing of faces' },
     5: { title: 'The Scales of Justice', sub: 'The cosmic scale of justice' },
     6: { title: 'Distribution of Records', sub: 'Books of deeds given in right and left hands' },
-    7: { title: 'The Final Decree', sub: 'Paradise and Hell — the ultimate separation' },
+    7: { title: 'The Final Decree', sub: 'Paradise and Hell: the ultimate separation' },
   },
 };
 
@@ -425,7 +425,7 @@ const HERO_STATS_TR = [
   { value: '7', label: "Ayrı Faz (Kur'an sahneleri)" },
   { value: '2', label: 'Sur Üfleme (Zümer 39:68)' },
   { value: '1', label: 'Mizan (Enbiya 21:47)' },
-  { value: 'Sırat Köprüsü ℹ️', label: "Kur'an'da geçmez — Hadis" },
+  { value: 'Sırat Köprüsü ℹ️', label: "Kur'an'da geçmez; hadis" },
   { value: '4', label: 'Kıyamet ismi (el-Kıyame, es-Saa, el-Hakka, el-Karia)' },
   { value: '~50', label: "Kıyamet ismi ve sıfatı Kur'an'da" },
   { value: '99', label: 'Kur\'an\'da "yevm" (o gün) ifadesi' },
@@ -435,7 +435,7 @@ const HERO_STATS_EN = [
   { value: '7', label: 'Distinct Phases (Quranic scenes)' },
   { value: '2', label: 'Trumpet Blowings (Az-Zumar 39:68)' },
   { value: '1', label: 'Mizan / Scale (Al-Anbiya 21:47)' },
-  { value: 'Sirat Bridge ℹ️', label: 'Not in Quran — Hadith only' },
+  { value: 'Sirat Bridge ℹ️', label: 'Not in the Quran; hadith only' },
   { value: '4', label: 'Names for Judgment Day in Quran' },
   { value: '~50', label: 'Names & epithets for the Last Day' },
   { value: '99', label: 'Occurrences of "yevm" (that Day)' },
@@ -443,7 +443,7 @@ const HERO_STATS_EN = [
 
 const KIYAMET_ISIMLERI = [
   { ar: 'الْقِيَامَة', tr: 'El-Kıyame', en: 'Al-Qiyamah', meaningTr: 'Diriliş / Ayağa kalkış', meaningEn: 'The Resurrection', ref: 'Kıyame 75:1' },
-  { ar: 'السَّاعَة', tr: 'Es-Saa', en: "As-Sa'ah", meaningTr: "Saat / O an — en sık kullanılan", meaningEn: 'The Hour — most frequently used', ref: "A'raf 7:187" },
+  { ar: 'السَّاعَة', tr: 'Es-Saa', en: "As-Sa'ah", meaningTr: "Saat / O an — en sık kullanılan", meaningEn: 'The Hour; most frequently used', ref: "A'raf 7:187" },
   { ar: 'الْحَاقَّة', tr: 'El-Hakka', en: 'Al-Haqqah', meaningTr: 'Kaçınılmaz olan, gerçekleşmesi kesin', meaningEn: 'The Inevitable', ref: 'Hakka 69:1' },
   { ar: 'الْقَارِعَة', tr: 'El-Karia', en: "Al-Qari'ah", meaningTr: 'Şiddetle çarpan', meaningEn: 'The Striking Hour', ref: 'Karia 101:1' },
   { ar: 'يَوْمُ الدِّين', tr: 'Yevmüddin', en: 'Yawm ad-Din', meaningTr: 'Din günü, hesap günü', meaningEn: 'Day of Judgment', ref: 'Fatiha 1:4' },
@@ -585,8 +585,8 @@ export default function KiyametSahneleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Kur&apos;an kıyameti <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>bir an</em> olarak değil — <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>sahneler dizisi</em> olarak anlatır. Sûr, haşr, mîzân, kitap; her biri ayrı bir perdedir.</>
-              : <>The Quran tells the Last Day not as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a moment</em> but as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a sequence of scenes</em>. Trumpet, gathering, balance, book — each a separate act.</>}
+              ? <>Kur&apos;an kıyameti <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>bir an</em> olarak değil, <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>sahneler dizisi</em> olarak anlatır. Sûr, haşr, mîzân, kitap; her biri ayrı bir perdedir.</>
+              : <>The Quran tells the Last Day not as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a moment</em> but as <em style={{ fontStyle: 'normal', color: GOLD, opacity: 0.95 }}>a sequence of scenes</em>. Trumpet, gathering, balance, book; each a separate act.</>}
           </p>
 
           {/* Filigree divider */}
@@ -620,8 +620,8 @@ export default function KiyametSahneleri({ onClose }) {
 
           <p style={{ fontSize: '0.95rem', color: COLORS.silver, lineHeight: 1.8, maxWidth: '48rem', margin: '0 auto 24px', fontFamily: FONTS.body, textAlign: 'left' }}>
             {language === 'tr'
-              ? "Kur'an kıyameti bir anda değil sahneler halinde anlatır. Yüzlerce ayette dağılan kozmik düzen, dirilen ölüler, toplanan insanlık, tartılan ameller ve açılan kitaplar tek tek zikredilir. Bu sayfa Kur'an'daki tüm kıyamet sahnelerini kronolojik faz sırasına göre sunar. Kronolojik sıra müfessirlerin görüşüne dayanır — Kur'an kesin bir takvim vermez."
-              : "The Quran does not describe the Day of Judgment as a single moment but as a sequence of scenes. Across hundreds of verses, it narrates the unraveling of cosmic order, the resurrection of the dead, the gathering of all humanity, the weighing of deeds, and the opening of books. This page presents all Quranic judgment scenes in chronological phase order. The sequence follows the majority view of classical tafsir — the Quran itself does not provide a fixed timeline."}
+              ? "Kur'an kıyameti bir anda değil sahneler halinde anlatır. Yüzlerce ayette dağılan kozmik düzen, dirilen ölüler, toplanan insanlık, tartılan ameller ve açılan kitaplar tek tek zikredilir. Bu sayfa Kur'an'daki tüm kıyamet sahnelerini kronolojik faz sırasına göre sunar. Kronolojik sıra müfessirlerin görüşüne dayanır; Kur'an kesin bir takvim vermez."
+              : "The Quran does not describe the Day of Judgment as a single moment but as a sequence of scenes. Across hundreds of verses, it narrates the unraveling of cosmic order, the resurrection of the dead, the gathering of all humanity, the weighing of deeds, and the opening of books. This page presents all Quranic judgment scenes in chronological phase order. The sequence follows the majority view of classical tafsir; the Quran itself does not provide a fixed timeline."}
           </p>
           <div className="mq-box" style={{
             display: 'flex', gap: '10px',
@@ -758,9 +758,9 @@ export default function KiyametSahneleri({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell',     descTr: 'Hesap sonrası nihai mekân — 9 cennet, 7 cehennem ismi, A\'râf perdesi.',           descEn: 'The final abode after the reckoning — 9 names for paradise, 7 for hell, the partition of al-Aʿrāf.' },
-              { href: `/${language}/arac/iblis-seytan`,     titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Kıyametin "sebebi": kibrin başlangıcı — yedi sûrede aynı sahne.',                  descEn: 'The "reason" for judgment: the origin of pride — the same scene across seven surahs.' },
-              { href: `/${language}/atlas/kavim`,           titleTr: 'Kavimler Atlası',   titleEn: 'Nations Atlas',       descTr: 'Toplumsal kıyamet — kavimlerin helak biçimleri sünnetullah\'a tabi.',              descEn: 'Communal judgment — modes of destruction of nations follow sunnatullāh.' },
+              { href: `/${language}/arac/cennet-cehennem`, titleTr: 'Cennet & Cehennem', titleEn: 'Paradise & Hell',     descTr: 'Hesap sonrası nihai mekân: 9 cennet, 7 cehennem ismi, A\'râf perdesi.',           descEn: 'The final abode after the reckoning: 9 names for paradise, 7 for hell, the partition of al-Aʿrāf.' },
+              { href: `/${language}/arac/iblis-seytan`,     titleTr: 'İblîs & Şeytan',    titleEn: 'Iblis & Satan',       descTr: 'Kıyametin "sebebi", kibrin başlangıcı: yedi sûrede aynı sahne.',                  descEn: 'The "reason" for judgment, the origin of pride: the same scene across seven surahs.' },
+              { href: `/${language}/atlas/kavim`,           titleTr: 'Kavimler Atlası',   titleEn: 'Nations Atlas',       descTr: 'Toplumsal kıyamet: kavimlerin helak biçimleri sünnetullaha tabidir.',              descEn: 'Communal judgment: the modes of destruction of nations follow sunnatullāh.' },
             ]}
           />
         </div>
@@ -913,8 +913,8 @@ function TabKronoloji({ data, language, isMobile }) {
             fontFamily: FONTS.body,
           }}>
             {tr
-              ? "Kıyamet sahnesi barındıran sûrelerin yoğunluk skoru — Kur'ân'ın kıyamet dilinin en yoğun coğrafyası."
-              : "Density scores of suras containing eschatological scenes — the densest geography of the Qur'ān's language of the Hour."}
+              ? "Kıyamet sahnesi barındıran sûrelerin yoğunluk skoru; Kur'ân'ın kıyamet dilinin en yoğun coğrafyası."
+              : "Density scores of suras containing eschatological scenes; the densest geography of the Qur'ān's language of the Hour."}
           </p>
           <div className="g-3-6" style={{
             display: 'grid',
@@ -971,7 +971,7 @@ function TabKronoloji({ data, language, isMobile }) {
           {language === 'tr' ? "Eşrât-ı Sâat · Klasik 3 Aşama" : "Ashrāṭ al-Sāʿa · Three Classical Phases"}
         </p>
         <p style={{ fontSize: '0.95rem', fontWeight: 700, color: COLORS.offWhite, margin: '0 0 14px', lineHeight: 1.3, fontFamily: FONTS.body }}>
-          {language === 'tr' ? "Saatin Alâmetleri — Üç Halka" : "Signs of the Hour — Three Concentric Circles"}
+          {language === 'tr' ? "Saatin Alâmetleri: Üç Halka" : "Signs of the Hour: Three Concentric Circles"}
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <div>
@@ -980,8 +980,8 @@ function TabKronoloji({ data, language, isMobile }) {
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
               {language === 'tr'
-                ? "Hz. Peygamber'in gelişi (Muhammed 47:18), Mekke fethi, ilim çekilmesi, ahlâkın bozulması — hadisle aktarılan, ahlâkî/kültürel işaretler. Buhârî · Müslim'de yüzlerce rivayet."
-                : "The Prophet's coming (Muhammad 47:18), the conquest of Mecca, the recession of knowledge, the corruption of morals — moral/cultural signs transmitted via hadith. Hundreds of reports in al-Bukhārī and Muslim."}
+                ? "Hz. Peygamber'in gelişi (Muhammed 47:18), Mekke fethi, ilim çekilmesi, ahlâkın bozulması; hadisle aktarılan ahlâkî ve kültürel işaretler. Buhârî · Müslim'de yüzlerce rivayet."
+                : "The Prophet's coming (Muhammad 47:18), the conquest of Mecca, the recession of knowledge, the corruption of morals; moral and cultural signs transmitted via hadith. Hundreds of reports in al-Bukhārī and Muslim."}
             </p>
           </div>
           <div>
@@ -990,8 +990,8 @@ function TabKronoloji({ data, language, isMobile }) {
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
               {language === 'tr'
-                ? "Ye'cûc-Me'cûc (Kehf 18:94-98, Enbiyâ 21:96), Dâbbetü'l-Arz (Neml 27:82), Duman (Duhân 44:10) — Kur'an'da doğrudan zikredilen, çağ-üstü işaretler."
-                : "Gog and Magog (Kahf 18:94-98, Anbiyāʾ 21:96), the Beast of the Earth (Naml 27:82), the Smoke (Dukhān 44:10) — meta-historical signs explicitly named in the Quran."}
+                ? "Ye'cûc-Me'cûc (Kehf 18:94-98, Enbiyâ 21:96), Dâbbetü'l-Arz (Neml 27:82), Duman (Duhân 44:10); Kur'an'da doğrudan zikredilen, çağ üstü işaretler."
+                : "Gog and Magog (Kahf 18:94-98, Anbiyāʾ 21:96), the Beast of the Earth (Naml 27:82), the Smoke (Dukhān 44:10); meta-historical signs explicitly named in the Quran."}
             </p>
           </div>
           <div>
@@ -1000,15 +1000,15 @@ function TabKronoloji({ data, language, isMobile }) {
             </p>
             <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
               {language === 'tr'
-                ? "Sûr'a ilk üfürüş (Zümer 39:68), göğün yarılması (Furkan 25:25, İnşikâk 84:1), dağların pamuk gibi atılması (Kâria 101:5), denizlerin tutuşması (Tekvîr 81:6) — kozmik düzenin çözülüşü, Kur'an'ın özünde tasvir ettiği."
-                : "First blast of the trumpet (Zumar 39:68), the splitting of the sky (Furqān 25:25, Inshiqāq 84:1), mountains scattered like wool (Qāriʿa 101:5), seas set ablaze (Takwīr 81:6) — the unraveling of cosmic order, the Quran's core depiction."}
+                ? "Sûr'a ilk üfürüş (Zümer 39:68), göğün yarılması (Furkan 25:25, İnşikâk 84:1), dağların pamuk gibi atılması (Kâria 101:5), denizlerin tutuşması (Tekvîr 81:6); kozmik düzenin çözülüşü, Kur'an'ın asıl tasvir ettiği şey."
+                : "First blast of the trumpet (Zumar 39:68), the splitting of the sky (Furqān 25:25, Inshiqāq 84:1), mountains scattered like wool (Qāriʿa 101:5), seas set ablaze (Takwīr 81:6); the unraveling of cosmic order, the Quran's core depiction."}
             </p>
           </div>
         </div>
         <p style={{ fontSize: '0.72rem', color: COLORS.silver, opacity: 0.78, margin: '14px 0 0', fontFamily: FONTS.body, lineHeight: 1.5 }}>
           {language === 'tr'
-            ? "Üç halka iç içe geçer: küçük olanlar yaşadığımız zaman içinde, orta olanlar tarihin sonuna doğru, büyük olanlar saatin ilk anında. — Suyûtî, Buhârî Eşrâtu's-Sâat fasılları"
-            : "The three rings nest within each other: minor signs unfold in lived history, middle in history's closing, major in the Hour's first instant. — al-Suyūṭī; al-Bukhārī, chapters on Ashrāṭ al-Sāʿa"}
+            ? "Üç halka iç içe geçer: küçük olanlar yaşadığımız zaman içinde, orta olanlar tarihin sonuna doğru, büyük olanlar saatin ilk anında. (Suyûtî; Buhârî, Eşrâtu's-Sâat fasılları)"
+            : "The three rings nest within each other: minor signs unfold in lived history, middle in history's closing, major in the Hour's first instant. (al-Suyūṭī; al-Bukhārī, chapters on Ashrāṭ al-Sāʿa)"}
         </p>
       </div>
 
@@ -1089,8 +1089,8 @@ function TabKozmikSahneler({ language, isMobile }) {
         </h2>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 16px', lineHeight: 1.6, fontFamily: FONTS.body }}>
           {language === 'tr'
-            ? '"Ne zaman... ne zaman... ne zaman..." — 13 ayette 12 kozmik olay. Her biri bir kıyamet anını resmeder. Kur\'an\'ın en sinematik açılışı.'
-            : '"When... when... when..." — 12 cosmic events across 13 verses. Each one frames a moment of judgment. The Quran\'s most cinematic opening.'}
+            ? '"Ne zaman... ne zaman... ne zaman...": 13 ayette 12 kozmik olay. Her biri bir kıyamet anını resmeder. Kur\'an\'ın en sinematik açılışı.'
+            : '"When... when... when...": 12 cosmic events across 13 verses. Each one frames a moment of judgment. The Quran\'s most cinematic opening.'}
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           {TEKVER_IDHA.map((item, i) => (
@@ -1136,8 +1136,8 @@ function TabKozmikSahneler({ language, isMobile }) {
         </h2>
         <p style={{ fontSize: '0.82rem', color: COLORS.silver, margin: '0 0 14px', fontFamily: FONTS.body }}>
           {language === 'tr'
-            ? '6 farklı ayette 6 farklı dağ imgesi — her biri farklı bir an veya bakış açısı.'
-            : '6 different mountain images across 6 verses — each a different moment or perspective.'}
+            ? '6 farklı ayette 6 farklı dağ imgesi; her biri farklı bir an ya da bakış açısı.'
+            : '6 different mountain images across 6 verses; each a different moment or perspective.'}
         </p>
         <div style={{ overflowX: 'auto', scrollbarWidth: 'none' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '400px', fontFamily: FONTS.body }}>
@@ -1203,11 +1203,11 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
     },
     {
       title: 'Amel Defteri mi, Tartı mı?',
-      content: "Kur'an iki ayrı mekanizma tarif eder: kitapların okunması (Hakka 69) + mizanda tartılması (Enbiya 21:47). İkisi de Kur'an'da var. Müfessirlerin büyük çoğunluğu: önce defterler okunur, sonra tartılır — ya da eş zamanlıdır. Her iki mekanizma birbirini tamamlar.",
+      content: "Kur'an iki ayrı mekanizma tarif eder: kitapların okunması (Hakka 69) + mizanda tartılması (Enbiya 21:47). İkisi de Kur'an'da var. Müfessirlerin büyük çoğunluğuna göre önce defterler okunur, sonra tartılır; ya da ikisi eş zamanlıdır. Her iki mekanizma birbirini tamamlar.",
     },
     {
       title: "Şefaat Kur'an'da Var mı?",
-      content: "Kur'an şefaati ne kesin olarak reddeder ne de kabul eder — \"Allah'ın izniyle\" şeklinde şartlı anlatır. Bakara 2:255 (Ayetü'l-Kürsi), Yunus 10:3, Sebe 34:23 — şefaat \"Allah'ın izniyle\" mümkün. Ama şefaatin kimin için, ne zaman, nasıl işleyeceği ayrıntıları hadis geleneğine aittir.",
+      content: "Kur'an şefaati ne kesin olarak reddeder ne de kabul eder; \"Allah'ın izniyle\" şeklinde şartlı anlatır. Bakara 2:255 (Ayetü'l-Kürsi), Yunus 10:3, Sebe 34:23: şefaat \"Allah'ın izniyle\" mümkün. Ama şefaatin kimin için, ne zaman, nasıl işleyeceği ayrıntıları hadis geleneğine aittir.",
       ar: 'مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ',
       tr: "O'nun izni olmadan yanında kim şefaat edebilir?",
       ref: 'Bakara 2:255',
@@ -1216,7 +1216,7 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
     },
     {
       title: "Said Nursi'nin Onuncu Söz Argümanı",
-      content: "Said Nursi (Bediüzzaman, ö. 1960) Risâle-i Nur külliyatında kıyamete dair en kapsamlı argümantasyonu Onuncu Söz'de (Sözler) sunar. Onuncu Söz'ün omurgası, bedensel diriliş (haşr-i cismânî) için on iki ayrı 'hakikat' başlığında işlenen delillerdir; merkezî analoji ise bahar-sonbahar döngüsüdür: sonbaharda yapraklar dökülür, canlı dünya ölü gibi olur; baharda yeniden hayata döner. Bu 'küçük kıyamet' büyüğüne işaret eden bir göstergedir. Argüman klasik Sünnî kıyamet inancını (Eş'arî/Mâturîdî zemin) modern Türkçe ile sistematik olarak ifade eder. Aynı tema Yedinci Şua (Şualar — Âyetü'l-Kübrâ) ve Yirmi Dokuzuncu Söz'de genişletilir.",
+      content: "Said Nursi (Bediüzzaman, ö. 1960) Risâle-i Nur külliyatında kıyamete dair en kapsamlı argümantasyonu Onuncu Söz'de (Sözler) sunar. Onuncu Söz'ün omurgası, bedensel diriliş (haşr-i cismânî) için on iki ayrı 'hakikat' başlığında işlenen delillerdir; merkezî analoji ise bahar-sonbahar döngüsüdür: sonbaharda yapraklar dökülür, canlı dünya ölü gibi olur; baharda yeniden hayata döner. Bu 'küçük kıyamet' büyüğüne işaret eden bir göstergedir. Argüman klasik Sünnî kıyamet inancını (Eş'arî/Mâturîdî zemin) modern Türkçe ile sistematik olarak ifade eder. Aynı tema Yedinci Şua (Şualar, Âyetü'l-Kübrâ) ve Yirmi Dokuzuncu Söz'de genişletilir.",
       isInfo: true,
       infoText: "Modern Türk Müslüman düşüncesinin kıyamet referansı. Klasik Sünnî inancı reddetmeden, modern dile aktaran sistematik bir bedensel diriliş savunması.",
     },
@@ -1230,20 +1230,20 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
     },
     {
       title: 'Book of Deeds or Scale?',
-      content: 'The Quran describes two distinct mechanisms: the reading of the records (Al-Haqqah 69) + weighing on the scale (Al-Anbiya 21:47). Both are present in the Quran. Most commentators hold: the records are read first, then weighed — or simultaneously. The two mechanisms complement each other.',
+      content: 'The Quran describes two distinct mechanisms: the reading of the records (Al-Haqqah 69) + weighing on the scale (Al-Anbiya 21:47). Both are present in the Quran. Most commentators hold that the records are read first, then weighed; or that the two are simultaneous. The two mechanisms complement each other.',
     },
     {
       title: 'Is Intercession in the Quran?',
-      content: "The Quran neither definitively rejects nor confirms intercession — it describes it as conditional: 'with Allah's permission.' Al-Baqarah 2:255, Yunus 10:3, Saba 34:23 — intercession is possible 'with Allah's permission.' However, the details of who intercedes for whom, when, and how belong to the hadith tradition.",
+      content: "The Quran neither definitively rejects nor confirms intercession; it describes it as conditional: 'with Allah's permission.' Al-Baqarah 2:255, Yunus 10:3, Saba 34:23: intercession is possible 'with Allah's permission.' However, the details of who intercedes for whom, when, and how belong to the hadith tradition.",
       ar: 'مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ',
       en: "Who is it that can intercede with Him except by His permission?",
       ref: 'Al-Baqarah 2:255',
       isInfo: true,
-      infoText: 'The details of intercession — for whom, how, and when — belong to the hadith tradition.',
+      infoText: 'The details of intercession (for whom, how and when) belong to the hadith tradition.',
     },
     {
       title: "Said Nursi's Argument in the Tenth Word",
-      content: "Said Nursi (Bediüzzaman, d. 1960), in the Risāle-i Nūr corpus, presents his most comprehensive argument for resurrection in the Tenth Word (Onuncu Söz, in Sözler). Its backbone is a sequence of twelve 'truths' (haqāʾiq) that establish bodily resurrection (haşr-i cismānī); the central analogy is the autumn–spring cycle: in autumn leaves fall and the living world appears dead; in spring it returns to life. This 'small resurrection' is read as a sign pointing to the great one. The argument expresses the classical Sunnī doctrine of resurrection (on Ashʿarī/Māturīdī ground) in systematic modern Turkish prose. The Seventh Ray (Yedinci Şua in Şuālar / The Rays — Āyat al-Kubrā) and the Twenty-Ninth Word develop the same theme.",
+      content: "Said Nursi (Bediüzzaman, d. 1960), in the Risāle-i Nūr corpus, presents his most comprehensive argument for resurrection in the Tenth Word (Onuncu Söz, in Sözler). Its backbone is a sequence of twelve 'truths' (haqāʾiq) that establish bodily resurrection (haşr-i cismānī); the central analogy is the autumn–spring cycle: in autumn leaves fall and the living world appears dead; in spring it returns to life. This 'small resurrection' is read as a sign pointing to the great one. The argument expresses the classical Sunnī doctrine of resurrection (on Ashʿarī/Māturīdī ground) in systematic modern Turkish prose. The Seventh Ray (Yedinci Şua in Şuālar, The Rays, Āyat al-Kubrā) and the Twenty-Ninth Word develop the same theme.",
       isInfo: true,
       infoText: 'A modern Turkish Muslim reference for resurrection: a systematic defence of bodily resurrection that translates classical Sunnī belief into modern prose without departing from it.',
     },
@@ -1273,12 +1273,12 @@ function TabHesapMizan({ language, isMobile: _isMobile }) {
           <span style={{ color: '#C0392B', fontSize: '1.2rem', flexShrink: 0 }}>ℹ</span>
           <div>
             <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#e07070', margin: '0 0 8px', fontFamily: FONTS.body }}>
-              {language === 'tr' ? "Sırat Köprüsü — Kur'an'da GEÇMİYOR" : "The Sirat Bridge — NOT in the Quran"}
+              {language === 'tr' ? "Sırat Köprüsü: Kur'an'da GEÇMİYOR" : "The Sirat Bridge: NOT in the Quran"}
             </h3>
             <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.75, margin: 0, fontFamily: FONTS.body }}>
               {language === 'tr'
-                ? "\"Sırat\" kelimesi Kur'an'da yol/doğru yol anlamında çok geçer. Ama köprü metaforu — kıldan ince kılıçtan keskin olduğu, üzerinden geçildiği tasviri — tamamen hadis geleneğine aittir. Bu sayfada gösterilmez çünkü sitenin temel prensibi: Kur'an'da ne geçiyor? Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır — ama Kur'an'dan gelmez."
-                : "The word \"sirat\" (path/road) appears frequently in the Quran in the sense of the straight path. But the bridge metaphor — described as thinner than a hair and sharper than a sword — belongs entirely to hadith tradition. It is not presented on this page because the site's core principle is: what does the Quran itself say? Hadith knowledge is valuable and integral to Islamic belief — but it does not come from the Quran."}
+                ? "\"Sırat\" kelimesi Kur'an'da yol/doğru yol anlamında çok geçer. Ama köprü metaforu, yani kıldan ince kılıçtan keskin olduğu ve üzerinden geçildiği tasviri, tamamen hadis geleneğine aittir. Bu sayfada gösterilmez çünkü sitenin temel prensibi: Kur'an'da ne geçiyor? Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır; ama Kur'an'dan gelmez."
+                : "The word \"sirat\" (path/road) appears frequently in the Quran in the sense of the straight path. But the bridge metaphor, described as thinner than a hair and sharper than a sword, belongs entirely to hadith tradition. It is not presented on this page because the site's core principle is: what does the Quran itself say? Hadith knowledge is valuable and integral to Islamic belief; but it does not come from the Quran."}
             </p>
           </div>
         </div>
@@ -1357,8 +1357,8 @@ function TabKuranHadis({ language, isMobile: _isMobile }) {
         </h3>
         <p style={{ fontSize: '0.85rem', color: COLORS.silver, lineHeight: 1.75, margin: 0, fontFamily: FONTS.body }}>
           {language === 'tr'
-            ? "Kur'an kıyameti zaten yeterince etkileyici biçimde anlatır. Güneşin yaklaşması, sırat'ın kıldan ince olması gibi imgeler psikolojik etki güçlüdür — ama bu sayfa soruyor: Kur'an bizzat ne söylüyor? Bu soru başlı başına öğretici bir disiplin. Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır. Bu sayfa bu ikisini birbirinden ayırt eder, birinin diğerini geçersiz kıldığını söylemez."
-            : "The Quran already describes the Last Day in powerfully affecting terms. Images like the sun drawing near or the bridge thinner than a hair carry psychological weight — but this page asks: what does the Quran itself say? That question is itself an instructive discipline. Hadith knowledge is valuable and integral to Islamic belief. This page distinguishes between the two; it does not say one invalidates the other."}
+            ? "Kur'an kıyameti zaten yeterince etkileyici biçimde anlatır. Güneşin yaklaşması, sırat'ın kıldan ince olması gibi imgelerin psikolojik etkisi güçlüdür; ama bu sayfa şunu soruyor: Kur'an bizzat ne söylüyor? Bu soru başlı başına öğretici bir disiplin. Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır. Bu sayfa bu ikisini birbirinden ayırt eder, birinin diğerini geçersiz kıldığını söylemez."
+            : "The Quran already describes the Last Day in powerfully affecting terms. Images like the sun drawing near or the bridge thinner than a hair carry psychological weight; but this page asks: what does the Quran itself say? That question is itself an instructive discipline. Hadith knowledge is valuable and integral to Islamic belief. This page distinguishes between the two; it does not say one invalidates the other."}
         </p>
       </div>
     </div>
@@ -1371,27 +1371,27 @@ function TabKaynaklar({ language }) {
       {
         title: 'Klasik Tefsir',
         items: [
-          "İbn Kesir — Tefsîru'l-Kur'âni'l-Azîm",
-          "Taberî — Câmiu'l-Beyân (kıyamet kronolojisi)",
-          "Fahreddin er-Râzî — Mefâtîhu'l-Gayb (kozmik sahneler yorumu)",
-          "İbn Kayyim — Hâdi'l-Ervâh (cennet-cehennem + kıyamet)",
-          "Kurtubî — et-Tezkire (kıyamet sahneleri özel bölümü)",
+          "İbn Kesir, Tefsîru'l-Kur'âni'l-Azîm",
+          "Taberî, Câmiu'l-Beyân (kıyamet kronolojisi)",
+          "Fahreddin er-Râzî, Mefâtîhu'l-Gayb (kozmik sahneler yorumu)",
+          "İbn Kayyim, Hâdi'l-Ervâh (cennet, cehennem ve kıyamet)",
+          "Kurtubî, et-Tezkire (kıyamet sahneleri özel bölümü)",
         ],
       },
       {
         title: 'Akademik Kaynaklar',
         items: [
-          'TDV İslam Ansiklopedisi — "Kıyamet" maddesi',
-          'TDV İslam Ansiklopedisi — "Mizan" maddesi',
-          'TDV İslam Ansiklopedisi — "Haşir" maddesi',
-          'Corpus Quran — corpus.quran.com (frekans verileri)',
+          'TDV İslam Ansiklopedisi, "Kıyamet" maddesi',
+          'TDV İslam Ansiklopedisi, "Mizan" maddesi',
+          'TDV İslam Ansiklopedisi, "Haşir" maddesi',
+          'Corpus Quran, corpus.quran.com (frekans verileri)',
         ],
       },
       {
         title: 'Dijital Doğrulama',
         items: [
-          'tanzil.net — ayet araması ve doğrulama',
-          'kuranvemeali.com — karşılaştırmalı meal',
+          'tanzil.net: ayet araması ve doğrulama',
+          'kuranvemeali.com: karşılaştırmalı meal',
         ],
       },
     ],
@@ -1399,35 +1399,35 @@ function TabKaynaklar({ language }) {
       {
         title: 'Classical Tafsir',
         items: [
-          "Ibn Kathir — Tafsir al-Qur'an al-'Azim",
-          "Al-Tabari — Jami' al-Bayan (judgment chronology)",
-          "Fakhr al-Din al-Razi — Mafatih al-Ghayb (cosmic scenes commentary)",
-          "Ibn Qayyim — Hadi al-Arwah (paradise, hell & judgment)",
-          "Al-Qurtubi — al-Tadhkira (dedicated section on judgment scenes)",
+          "Ibn Kathir, Tafsir al-Qur'an al-'Azim",
+          "Al-Tabari, Jami' al-Bayan (judgment chronology)",
+          "Fakhr al-Din al-Razi, Mafatih al-Ghayb (cosmic scenes commentary)",
+          "Ibn Qayyim, Hadi al-Arwah (paradise, hell and judgment)",
+          "Al-Qurtubi, al-Tadhkira (dedicated section on judgment scenes)",
         ],
       },
       {
         title: 'Academic Sources',
         items: [
-          "TDV Islamic Encyclopedia — entry on 'Kıyamet' (Last Day)",
-          "TDV Islamic Encyclopedia — entry on 'Mizan' (Scale)",
-          "TDV Islamic Encyclopedia — entry on 'Haşir' (Gathering)",
-          'Corpus Quran — corpus.quran.com (frequency data)',
+          "TDV Islamic Encyclopedia, entry on 'Kıyamet' (Last Day)",
+          "TDV Islamic Encyclopedia, entry on 'Mizan' (Scale)",
+          "TDV Islamic Encyclopedia, entry on 'Haşir' (Gathering)",
+          'Corpus Quran, corpus.quran.com (frequency data)',
         ],
       },
       {
         title: 'Digital Verification',
         items: [
-          'tanzil.net — verse search and verification',
-          'kuranvemeali.com — comparative translation',
+          'tanzil.net: verse search and verification',
+          'kuranvemeali.com: comparative translation',
         ],
       },
     ],
   };
 
   const methodNote = language === 'tr'
-    ? "Bu sayfadaki bilgiler Kur'an ayetlerine dayanmaktadır. Hadis geleneğinde yer alan kıyamet tasvirleri (sırat köprüsü, mahşer ısısı, güneşin yaklaşması, kabir azabı vb.) ℹ️ ile işaretlenmiş ya da açıkça 'Kur'an'da geçmez' şeklinde belirtilmiştir. Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır — bu sayfa yalnızca Kur'an'da ne geçtiğine odaklanır."
-    : "All content on this page is based on Quranic verses. Judgment-related content from hadith tradition (the Sirat bridge, the proximity of the sun, punishment of the grave, etc.) is marked ℹ️ or explicitly noted as 'not in the Quran.' Hadith knowledge is valuable and integral to Islamic belief — this page focuses specifically on what the Quran itself says.";
+    ? "Bu sayfadaki bilgiler Kur'an ayetlerine dayanmaktadır. Hadis geleneğinde yer alan kıyamet tasvirleri (sırat köprüsü, mahşer ısısı, güneşin yaklaşması, kabir azabı vb.) ℹ️ ile işaretlenmiş ya da açıkça 'Kur'an'da geçmez' şeklinde belirtilmiştir. Hadis bilgisi değerlidir ve İslam akidesinin ayrılmaz parçasıdır; bu sayfa yalnızca Kur'an'da ne geçtiğine odaklanır."
+    : "All content on this page is based on Quranic verses. Judgment-related content from hadith tradition (the Sirat bridge, the proximity of the sun, punishment of the grave, etc.) is marked ℹ️ or explicitly noted as 'not in the Quran.' Hadith knowledge is valuable and integral to Islamic belief; this page focuses specifically on what the Quran itself says.";
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

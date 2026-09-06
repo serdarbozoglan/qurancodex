@@ -63,10 +63,10 @@ const TIMELINE_DATA = [
     mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
     mealEn: 'The Night of Power is better than a thousand months.',
     ref: 'Kadr 97:3',
-    noteTr: 'Bir gecelik ibadet 83 yıllık ibadetten değerli — zamanın kalitesi miktarından üstün.',
-    noteEn: 'One night of worship outweighs 83 years — quality of time exceeds quantity.',
-    expandTr: "İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Bu gece zamanın niceliksel değil niteliksel aktığını gösterir — anlam yoğunluğu, saat sayısından bağımsız. (ℹ️ Tefsir görüşü)",
-    expandEn: "Imam Al-Ghazali: 'Good is measured by depth, not quantity.' This night shows time can flow qualitatively — density of meaning, independent of clock hours. (ℹ️ Exegetical view)",
+    noteTr: 'Bir gecelik ibadet 83 yıllık ibadetten değerli; zamanın kalitesi miktarından üstün.',
+    noteEn: 'One night of worship outweighs 83 years; the quality of time exceeds its quantity.',
+    expandTr: "İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Bu gece zamanın niceliksel değil niteliksel aktığını gösterir; anlam yoğunluğu, saat sayısından bağımsızdır. (ℹ️ Tefsir görüşü)",
+    expandEn: "Imam Al-Ghazali: 'Good is measured by depth, not quantity.' This night shows time can flow qualitatively; density of meaning, independent of clock hours. (ℹ️ Exegetical view)",
     logValue: 0,
     color: '#c9a227',
   },
@@ -80,10 +80,10 @@ const TIMELINE_DATA = [
     mealTr: "Musa'ya otuz gece vaat ettik ve onu on gece daha tamamladık.",
     mealEn: 'We appointed for Moses thirty nights and completed them with ten more.',
     ref: "A'raf 7:142",
-    noteTr: '30+10 gece ayrı ayrı zikredilir — sayının sembolik katmanları var.',
-    noteEn: '30+10 nights mentioned separately — symbolic layers in the number.',
-    expandTr: "En yaygın yorum: 30 gece Zilkade ayına, 10 gece Zilhicce'nin ilk günlerine denk geliyor — İslam'da en faziletli dönem, Arefe günü de bu aralıkta. Ayrım takvimsel bir anlam taşıyor. (ℹ️ Tefsir görüşü, kesin değil)",
-    expandEn: "Most common view: 30 nights correspond to Dhul-Qa'dah, 10 nights to the first days of Dhul-Hijjah — the most sacred period in the Islamic calendar, including the Day of Arafah. The split carries a calendrical meaning. (ℹ️ Exegetical view, not definitive)",
+    noteTr: '30 ve 10 gece ayrı ayrı zikredilir; sayının sembolik katmanları var.',
+    noteEn: '30 and 10 nights mentioned separately; symbolic layers in the number.',
+    expandTr: "En yaygın yorum: 30 gece Zilkade ayına, 10 gece Zilhicce'nin ilk günlerine denk geliyor; İslam'da en faziletli dönem, Arefe günü de bu aralıkta. Ayrım takvimsel bir anlam taşıyor. (ℹ️ Tefsir görüşü, kesin değil)",
+    expandEn: "Most common view: 30 nights correspond to Dhul-Qa'dah, 10 nights to the first days of Dhul-Hijjah; the most sacred period in the Islamic calendar, including the Day of Arafah. The split carries a calendrical meaning. (ℹ️ Exegetical view, not definitive)",
     logValue: 1.6,
     color: COLORS.gold,
   },
@@ -99,8 +99,8 @@ const TIMELINE_DATA = [
     ref: 'Kehf 18:25',
     noteTr: "Modern astronomide 300 güneş yılı = 309.21 kamer yılı. Kur'an her ikisini de doğru verir.",
     noteEn: 'Modern astronomy: 300 solar years = 309.21 lunar years. The Quran gives both.',
-    expandTr: "Kur'an iki rakamı ayrı ayrı vererek iki topluluğun iki farklı takvimle yaptığı hesabın ikisini de doğruluyor: Hristiyanlar Güneş takvimiyle 300, Müslümanlar Kamer takvimiyle 309 yıl hesaplıyor. Julian takvimine göre dönüşüm: 1 güneş yılı = 365.25 gün, 1 kamer yılı = 354.37 gün → 300 × 365.25 ÷ 354.37 = 309.21. (ℹ️ Gözlemsel örtüşme; yorumun bağlayıcılığı tartışmalıdır)",
-    expandEn: "By giving both numbers, the Quran validates calculations from two communities using different calendars: Christians count 300 solar years, Muslims count 309 lunar years. Julian conversion: 1 solar year = 365.25 days, 1 lunar year = 354.37 days → 300 × 365.25 ÷ 354.37 = 309.21. (ℹ️ Observational overlap; interpretive weight is debated)",
+    expandTr: "Kur'an iki rakamı ayrı ayrı vererek iki topluluğun iki farklı takvimle yaptığı hesabın ikisini de doğruluyor: Hristiyanlar Güneş takvimiyle 300, Müslümanlar Kamer takvimiyle 309 yıl hesaplıyor. Julian takvimine göre dönüşüm: 1 güneş yılı = 365.25 gün, 1 kamer yılı = 354,37 gün; 300 × 365,25 ÷ 354,37 = 309,21. (ℹ️ Gözlemsel örtüşme; yorumun bağlayıcılığı tartışmalıdır)",
+    expandEn: "By giving both numbers, the Quran validates calculations from two communities using different calendars: Christians count 300 solar years, Muslims count 309 lunar years. Julian conversion: 1 solar year = 365.25 days, 1 lunar year = 354.37 days; 300 × 365.25 ÷ 354.37 = 309.21. (ℹ️ Observational overlap; interpretive weight is debated)",
     disclaimer: true,
     disclaimerTr: "Bu tespit gözlemsel bir örtüşmedir; Kur'an'ın bilimsel iddiası değildir.",
     disclaimerEn: 'This is an observational overlap; not a scientific claim of the Quran.',
@@ -119,11 +119,11 @@ const TIMELINE_DATA = [
     ref: 'Fussilet 41:9-12',
     noteTr: '"Yevm" burada kozmolojik evre anlamında. Toplam 6 evre: yer (2) + ek hazırlık (2) + gökler (2).',
     noteEn: '"Yevm" means cosmic phase. Total 6 phases: earth (2) + provisions (2 more) + heavens (2).',
-    expandTr: "Fussilet 41:9-12 üç aşama sayar: yer 2 günde, dağlar ve rızık 4 günde, gökler 2 günde. Toplam 2+4+2=8 gibi görünür ama değil — 'dört günde' ifadesi kümülatif (yani ilk 2 günü de içine alıyor): yer için 2 gün + 2 gün daha = 4 gün toplamda. Ardından gökler için 2 gün. 4+2=6. Bu yorum müfessirlerin büyük çoğunluğuna aittir; metnin doğal okunuşuyla da örtüşür. (ℹ️ Tefsir notu — kesin değil)",
-    expandEn: "Fussilat 41:9-12 counts three stages: earth in 2 days, mountains and provisions in 4 days, heavens in 2 days. This seems like 2+4+2=8, but the '4 days' is cumulative — it includes the first 2 days: 2 days for earth + 2 more = 4 total. Then 2 more for the heavens: 4+2=6. This reading is held by the majority of classical commentators and fits the natural Arabic syntax. (ℹ️ Exegetical note — not definitive)",
+    expandTr: "Fussilet 41:9-12 üç aşama sayar: yer 2 günde, dağlar ve rızık 4 günde, gökler 2 günde. Toplam 2+4+2=8 gibi görünür ama değildir; 'dört günde' ifadesi kümülatiftir (yani ilk 2 günü de içine alıyor): yer için 2 gün + 2 gün daha = 4 gün toplamda. Ardından gökler için 2 gün. 4+2=6. Bu yorum müfessirlerin büyük çoğunluğuna aittir; metnin doğal okunuşuyla da örtüşür. (ℹ️ Tefsir notu; kesin değil)",
+    expandEn: "Fussilat 41:9-12 counts three stages: earth in 2 days, mountains and provisions in 4 days, heavens in 2 days. This seems like 2+4+2=8, but the '4 days' is cumulative; it includes the first 2 days: 2 days for earth + 2 more = 4 total. Then 2 more for the heavens: 4+2=6. This reading is held by the majority of classical commentators and fits the natural Arabic syntax. (ℹ️ Exegetical note; not definitive)",
     disclaimer: true,
-    disclaimerTr: 'Tefsir notu — kesin yorum değil.',
-    disclaimerEn: 'Exegetical note — not a definitive interpretation.',
+    disclaimerTr: 'Tefsir notu; kesin yorum değil.',
+    disclaimerEn: 'Exegetical note; not a definitive interpretation.',
     logValue: 3.5,
     color: COLORS.gold,
   },
@@ -137,10 +137,10 @@ const TIMELINE_DATA = [
     mealTr: 'Rabbinin katında bir gün, sizin saydıklarınızdan bin yıl gibidir.',
     mealEn: 'A day with your Lord is like a thousand years of what you count.',
     ref: 'Hac 22:47 / Secde 32:5',
-    noteTr: 'İki ayrı ayette geçer. Meleklerin yükselişiyle ilgili — insan ölçeğinin ötesinde.',
-    noteEn: 'Appears in two separate verses. Related to the ascent of angels — beyond human scale.',
-    expandTr: "Hac 22:47 ve Secde 32:5'te geçer. Secde'deki bağlam: Allah'ın emirleri gökten yere iner, melekler bir günde yükselir — bu süre 1.000 insan yılına eşdeğer. İbn Kesir: Allah zamanla bağlı değildir; bu ifade insanın zaman algısının sınırlılığını gösterir. Modern yorumcular Einstein'ın görelilik teorisiyle felsefi bağlantı kurar — ama bu yorum değil, analoji. (ℹ️ Tefsir görüşü)",
-    expandEn: "Appears in Hac 22:47 and Sajdah 32:5. In Sajdah's context: God's decrees descend from heaven to earth; angels ascend in a day equivalent to 1,000 human years. Ibn Kathir: God is not bound by time — this expression shows the limits of human temporal perception. Modern commentators draw philosophical parallels to Einstein's relativity — but this is analogy, not interpretation. (ℹ️ Exegetical view)",
+    noteTr: 'İki ayrı ayette geçer. Meleklerin yükselişiyle ilgili; insan ölçeğinin ötesinde.',
+    noteEn: 'Appears in two separate verses. Related to the ascent of angels; beyond human scale.',
+    expandTr: "Hac 22:47 ve Secde 32:5'te geçer. Secde'deki bağlam: Allah'ın emirleri gökten yere iner, melekler bir günde yükselir; bu süre 1.000 insan yılına eşdeğerdir. İbn Kesir: Allah zamanla bağlı değildir; bu ifade insanın zaman algısının sınırlılığını gösterir. Modern yorumcular Einstein'ın görelilik teorisiyle felsefî bağlantı kurar; ama bu bir yorum değil, analojidir. (ℹ️ Tefsir görüşü)",
+    expandEn: "Appears in Hac 22:47 and Sajdah 32:5. In Sajdah's context: God's decrees descend from heaven to earth; angels ascend in a day equivalent to 1,000 human years. Ibn Kathir: God is not bound by time; this expression shows the limits of human temporal perception. Modern commentators draw philosophical parallels to Einstein's relativity, but this is analogy, not interpretation. (ℹ️ Exegetical view)",
     logValue: 3,
     color: COLORS.gold,
   },
@@ -148,19 +148,19 @@ const TIMELINE_DATA = [
     id: 'elli',
     labelTr: 'Meleklerin Yükseliş Günü',
     labelEn: 'Day of Angelic Ascent',
-    valueTr: 'Melekler ve Ruh Allah\'a yükselir — bu günün ölçüsü 50.000 yıl',
-    valueEn: 'Angels and the Spirit ascend to God — this day measures 50,000 years',
+    valueTr: 'Melekler ve Ruh Allah\'a yükselir; bu günün ölçüsü 50.000 yıl',
+    valueEn: 'Angels and the Spirit ascend to God; this day measures 50,000 years',
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
     mealTr: 'Süresi elli bin yıl olan bir günde.',
     mealEn: 'On a day whose measure is fifty thousand years.',
     ref: 'Meâric 70:4',
     noteTr: 'Ayette "Kıyamet" geçmez. Konu: meleklerin ve Ruh\'un Allah\'a yükselişi. Kıyamet yorumu sûre bağlamından geliyor.',
     noteEn: 'The word "Judgment" is not in the verse. Subject: ascent of angels and the Spirit to God. The Judgment Day link comes from the sura\'s broader context.',
-    expandTr: "Meâric 70:4 şunu söylüyor: 'Melekler ve Ruh, süresi elli bin yıl olan bir günde O'na yükseliyor.' 'Kıyamet günü' ifadesi ayette yok. Bağlantı, sûrenin 70:1-7'deki azap ve hesap temasından geliyor — bazı müfessirler bu günü Kıyamet olarak yorumlar, diğerleri meleklerin her gün veya her dönem yaptığı yükselişi kastediyor. İki farklı 'gün' (1.000 yıl ve 50.000 yıl) da çelişki değil; farklı bağlamlarda farklı ölçekler. (ℹ️ 'Kıyamet günü' etiketi tefsir yorumudur, ayetin doğrudan ifadesi değildir)",
-    expandEn: "Meâric 70:4 says: 'The angels and the Spirit ascend to Him in a day whose measure is fifty thousand years.' The phrase 'Day of Judgment' does not appear in this verse. The connection comes from the sura's opening theme (70:1-7) about punishment and accountability — some commentators identify this 'day' as the Day of Resurrection, others as the regular or periodic ascent of angels. The two different 'day' scales (1,000 and 50,000 years) are not contradictory; they appear in different contexts. (ℹ️ 'Day of Judgment' label is interpretive, not the verse's literal meaning)",
+    expandTr: "Meâric 70:4 şunu söylüyor: 'Melekler ve Ruh, süresi elli bin yıl olan bir günde O'na yükseliyor.' 'Kıyamet günü' ifadesi ayette yok. Bağlantı, sûrenin 70:1-7'deki azap ve hesap temasından geliyor; bazı müfessirler bu günü Kıyamet olarak yorumlar, diğerleri meleklerin her gün veya her dönem yaptığı yükselişi kastediyor. İki farklı 'gün' (1.000 yıl ve 50.000 yıl) da çelişki değil; farklı bağlamlarda farklı ölçekler. (ℹ️ 'Kıyamet günü' etiketi tefsir yorumudur, ayetin doğrudan ifadesi değildir)",
+    expandEn: "Meâric 70:4 says: 'The angels and the Spirit ascend to Him in a day whose measure is fifty thousand years.' The phrase 'Day of Judgment' does not appear in this verse. The connection comes from the sura's opening theme (70:1-7) about punishment and accountability; some commentators identify this 'day' as the Day of Resurrection, others as the regular or periodic ascent of angels. The two different 'day' scales (1,000 and 50,000 years) are not contradictory; they appear in different contexts. (ℹ️ 'Day of Judgment' label is interpretive, not the verse's literal meaning)",
     disclaimer: true,
-    disclaimerTr: 'Modern fizikteki gravitational time dilation ile felsefi benzerlik kurulabilir — bu bir yorum katmanıdır.',
-    disclaimerEn: 'Philosophical parallel to gravitational time dilation is possible — this is an interpretive layer.',
+    disclaimerTr: 'Modern fizikteki kütleçekimsel zaman genişlemesiyle felsefî benzerlik kurulabilir; bu bir yorum katmanıdır.',
+    disclaimerEn: 'A philosophical parallel to gravitational time dilation is possible; this is an interpretive layer.',
     logValue: 4.7,
     color: COLORS.gold,
   },
@@ -174,9 +174,9 @@ const LANG_CARDS = [
     titleTr: 'Geçmişin Dersi',
     titleEn: 'Lesson of the Past',
     bodyTr:
-      "Kur'an kıssaları tarihi belge değil, canlı derstir. Hz. Nuh, Hz. İbrahim, Hz. Yusuf anlatıları geniş zaman kipinde verilir — sanki hâlâ oluyormuş gibi.",
+      "Kur'an kıssaları tarihi belge değil, canlı derstir. Hz. Nuh, Hz. İbrahim, Hz. Yusuf anlatıları geniş zaman kipinde verilir, sanki hâlâ oluyormuş gibi.",
     bodyEn:
-      'Quranic stories are not historical documents — they are living lessons. The narratives of Noah, Abraham, Joseph are given in broad tense — as if still happening.',
+      'Quranic stories are not historical documents but living lessons. The narratives of Noah, Abraham and Joseph are given in the broad tense, as if still happening.',
     arabic: 'لَقَدْ كَانَ فِي قَصَصِهِمْ عِبْرَةٌ',
     mealTr: 'Onların kıssalarında akıl sahipleri için elbette bir ibret vardır.',
     mealEn: 'There was certainly in their stories a lesson for those of understanding.',
@@ -201,7 +201,7 @@ const LANG_CARDS = [
     bodyTr:
       "Kur'an'ın muhatap aldığı 'sen' ve 'siz' zamirleri 7. yüzyıla değil, her çağın okuyanına yönelir. Emir kipindeki ayetler kalıcı şimdiki zamandır.",
     bodyEn:
-      "The 'you' and 'we' pronouns in the Quran are not addressed to the 7th century — they point to every reader in every age. Command-form verses are permanent present tense.",
+      "The 'you' and 'we' pronouns in the Quran are not addressed to the 7th century; they point to every reader in every age. Command-form verses are permanent present tense.",
     arabic: 'اقْرَأْ بِاسْمِ رَبِّكَ',
     mealTr: 'Yaratan Rabbinin adıyla oku.',
     mealEn: 'Read in the name of your Lord who created.',
@@ -222,15 +222,15 @@ const LANG_CARDS = [
     titleTr: 'Geleceğin Kesinliği',
     titleEn: 'The Certainty of the Future',
     bodyTr:
-      "Ahiret sahneleri Kur'an'da çoğunlukla geçmiş zaman kipiyle anlatılır: 'Cehennem getirildi', 'Cennet yaklaştırıldı.' Bu Prophetic Perfect — geleceğin o kadar kesin olduğunu anlatır ki sanki çoktan olmuş.",
+      "Ahiret sahneleri Kur'an'da çoğunlukla geçmiş zaman kipiyle anlatılır: 'Cehennem getirildi', 'Cennet yaklaştırıldı.' Bu, gelecek anlamında geçmiş kiptir: geleceğin o kadar kesin olduğunu anlatır ki sanki çoktan olmuştur.",
     bodyEn:
-      "Afterlife scenes in the Quran are often narrated in past tense: 'Hell was brought,' 'Paradise was drawn near.' This is Prophetic Perfect — the future so certain it reads as already done.",
+      "Afterlife scenes in the Quran are often narrated in past tense: 'Hell was brought,' 'Paradise was drawn near.' This is the prophetic perfect: a future so certain it reads as already done.",
     arabic: 'إِذَا الشَّمْسُ كُوِّرَتْ',
     mealTr: 'Güneş dürüldüğünde.',
     mealEn: 'When the sun is wrapped up.',
     ref: 'Tekvir 81:1',
-    footerTr: "Dilbilimciler bu yapıyı İbranice'de de görür — Sami dillere özgü bir kesinlik ifadesi.",
-    footerEn: 'Linguists find this structure in Hebrew too — a Semitic expression of absolute certainty.',
+    footerTr: "Dilbilimciler bu yapıyı İbranicede de görür; Sami dillerine özgü bir kesinlik ifadesi.",
+    footerEn: 'Linguists find this structure in Hebrew too; a Semitic expression of absolute certainty.',
     icon: (
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -276,9 +276,9 @@ const ACCORDION_ITEMS = [
     titleTr: "Leyletu'l-Kadr'ın Matematiği",
     titleEn: "The Mathematics of Laylat al-Qadr",
     bodyTr:
-      "1.000 aydan hayırlı bir gece — sayısal bir üstünlük mü, niteliksel mi? İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Kur'an burada zamanın saat olarak değil, anlam yoğunluğu olarak akabileceğini ima eder.",
+      "1.000 aydan hayırlı bir gece: sayısal bir üstünlük mü, niteliksel mi? İmam Gazali: 'Hayır miktarla değil, derinlikle ölçülür.' Kur'an burada zamanın saat olarak değil, anlam yoğunluğu olarak akabileceğini ima eder.",
     bodyEn:
-      "A night better than 1,000 months — numerical superiority or qualitative? Imam Al-Ghazali: 'Good is measured not by quantity, but by depth.' The Quran implies time can flow not as hours, but as density of meaning.",
+      "A night better than 1,000 months: numerical superiority or qualitative? Imam Al-Ghazali: 'Good is measured not by quantity, but by depth.' The Quran implies time can flow not as hours, but as density of meaning.",
     arabic: 'لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ',
     mealTr: 'Kadir gecesi, bin aydan daha hayırlıdır.',
     mealEn: 'The Night of Power is better than a thousand months.',
@@ -331,8 +331,8 @@ const TABLE_ROWS = [
     humanEn: '—',
     divineTr: '50.000 insan yılı',
     divineEn: '50,000 human years',
-    noteTr: '"Kıyamet" ayette geçmez — bağlamdan yorum',
-    noteEn: '"Judgment" not in verse — inferred from context',
+    noteTr: '"Kıyamet" ayette geçmez; bağlamdan yorum',
+    noteEn: '"Judgment" not in the verse; inferred from context',
     hasInfo: true,
     arabic: 'فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ',
     mealTr: 'Süresi elli bin yıl olan bir günde.',
@@ -536,8 +536,8 @@ export default function ZamanBoyutlari({ onClose }) {
             fontFamily: FONTS.body,
           }}>
             {language === 'tr'
-              ? "Bir gece (Kadr) ile 50.000 yıllık bir gün (Meâric) arasındaki oran ~1.8 × 10⁷ mertebesinde (50.000 yıl ≈ 1.8 × 10⁷ gün) — yani yaklaşık 7 basamak. Doğrusal eksen bunu gösteremez. Logaritmik ekseni 6 noktanın konumunu 'zaman büyüklüğü katı' olarak okur."
-              : "The ratio between one night (al-Qadr) and a 50,000-year day (al-Maʿārij) is ~1.8 × 10⁷ (50,000 years ≈ 1.8 × 10⁷ days) — about seven orders of magnitude. A linear scale cannot show this. The logarithmic axis maps the six points as 'orders of temporal magnitude.'"}
+              ? "Bir gece (Kadr) ile 50.000 yıllık bir gün (Meâric) arasındaki oran ~1.8 × 10⁷ mertebesinde (50.000 yıl ≈ 1,8 × 10⁷ gün); yani yaklaşık 7 basamak. Doğrusal eksen bunu gösteremez. Logaritmik ekseni 6 noktanın konumunu 'zaman büyüklüğü katı' olarak okur."
+              : "The ratio between one night (al-Qadr) and a 50,000-year day (al-Maʿārij) is ~1.8 × 10⁷ (50,000 years ≈ 1.8 × 10⁷ days); about seven orders of magnitude. A linear scale cannot show this. The logarithmic axis maps the six points as 'orders of temporal magnitude.'"}
           </p>
 
           {(() => {
@@ -802,8 +802,8 @@ export default function ZamanBoyutlari({ onClose }) {
             fontFamily: FONTS.body,
           }}>
             {language === 'tr'
-              ? "İlk okuyuşta 2 + 4 + 2 = 8 gün gibi görünür — ama '4 günde' ifadesi kümülatiftir (ilk 2 günü içine alır). Klasik müfessirlerin büyük çoğunluğunun benimsediği yorum, Kur'ân'ın altı kozmik evreyi tutarlı şekilde saydığını gösterir."
-              : "At first reading it appears to be 2 + 4 + 2 = 8 days — but the phrase 'in four days' is cumulative (it includes the first 2). The reading held by the majority of classical exegetes shows the Qur'ān consistently counts six cosmic phases."}
+              ? "İlk okuyuşta 2 + 4 + 2 = 8 gün gibi görünür; ama '4 günde' ifadesi kümülatiftir (ilk 2 günü içine alır). Klasik müfessirlerin büyük çoğunluğunun benimsediği yorum, Kur'ân'ın altı kozmik evreyi tutarlı şekilde saydığını gösterir."
+              : "At first reading it appears to be 2 + 4 + 2 = 8 days; but the phrase 'in four days' is cumulative (it includes the first 2). The reading held by the majority of classical exegetes shows the Qur'ān consistently counts six cosmic phases."}
           </p>
 
           {/* 3-step formula */}
@@ -916,8 +916,8 @@ export default function ZamanBoyutlari({ onClose }) {
               fontFamily: FONTS.body, fontStyle: 'italic', opacity: 0.85,
             }}>
               {language === 'tr'
-                ? '"Rabbin gökleri ve yeri altı günde yarattı" — A\'râf 7:54, Yunus 10:3, Hûd 11:7, Hadîd 57:4, Furkân 25:59, Kaf 50:38.'
-                : '"Your Lord created the heavens and earth in six days" — al-Aʿrāf 7:54, Yūnus 10:3, Hūd 11:7, al-Ḥadīd 57:4, al-Furqān 25:59, Qāf 50:38.'}
+                ? '"Rabbin gökleri ve yeri altı günde yarattı": A\'râf 7:54, Yunus 10:3, Hûd 11:7, Hadîd 57:4, Furkân 25:59, Kaf 50:38.'
+                : '"Your Lord created the heavens and earth in six days": al-Aʿrāf 7:54, Yūnus 10:3, Hūd 11:7, al-Ḥadīd 57:4, al-Furqān 25:59, Qāf 50:38.'}
             </div>
           </div>
 
@@ -934,8 +934,8 @@ export default function ZamanBoyutlari({ onClose }) {
               fontFamily: FONTS.body,
             }}>
               {language === 'tr'
-                ? "'Gün' (yevm) burada 24 saatlik zaman dilimi değil — kozmolojik evre (marhale). Bu, İbn Kesîr, Râzî ve Elmalılı'nın icmâıdır. Modern kozmoloji ile bir arada okuma tefsir-i mecâzî sınıfına girer, bağlayıcı ilim değildir."
-                : "'Day' (yawm) here does not mean a 24-hour period — but a cosmological phase (marḥala). This is the consensus of Ibn Kathīr, al-Rāzī, and Elmalılı. Reading these alongside modern cosmology is a metaphorical exegesis, not binding science."}
+                ? "'Gün' (yevm) burada 24 saatlik zaman dilimi değil, kozmolojik bir evredir (marhale). Bu, İbn Kesîr, Râzî ve Elmalılı'nın icmâıdır. Modern kozmoloji ile bir arada okuma tefsir-i mecâzî sınıfına girer, bağlayıcı ilim değildir."
+                : "'Day' (yawm) here does not mean a 24-hour period but a cosmological phase (marḥala). This is the consensus of Ibn Kathīr, al-Rāzī, and Elmalılı. Reading these alongside modern cosmology is a metaphorical exegesis, not binding science."}
             </p>
           </div>
         </div>
@@ -1096,32 +1096,32 @@ export default function ZamanBoyutlari({ onClose }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <div>
               <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
-                {language === 'tr' ? "İmam Gazâlî (ö. 1111) — \"An\" kavramı" : "Imam al-Ghazālī (d. 1111) — The concept of \"an\""}
+                {language === 'tr' ? "İmam Gazâlî (ö. 1111): \"An\" kavramı" : "Imam al-Ghazālī (d. 1111): The concept of \"an\""}
               </p>
               <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
                 {language === 'tr'
-                  ? "Tehâfütü'l-Felâsife'de zamanın bölünmez \"an\" parçalarından oluştuğunu savunur — Aristoteles'in sürekli zaman görüşüne karşı atomcu zaman. Allah'ın yaratımı her an yenilenir; süreklilik bir illüzyondur."
-                  : "In Tahāfut al-Falāsifa, he argues time is made of indivisible 'an' (instants) — atomistic time against Aristotle's continuous time. God's creation renews every instant; continuity is an illusion."}
+                  ? "Tehâfütü'l-Felâsife'de zamanın bölünmez \"an\" parçalarından oluştuğunu savunur; Aristoteles'in sürekli zaman görüşüne karşı atomcu zaman. Allah'ın yaratımı her an yenilenir; süreklilik bir illüzyondur."
+                  : "In Tahāfut al-Falāsifa, he argues time is made of indivisible 'an' (instants); atomistic time against Aristotle's continuous time. God's creation renews every instant; continuity is an illusion."}
               </p>
             </div>
             <div>
               <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
-                {language === 'tr' ? "İbn Sînâ (ö. 1037) — \"Dehr\" ve \"Sermed\"" : "Ibn Sīnā (d. 1037) — \"Dahr\" and \"Sarmad\""}
+                {language === 'tr' ? "İbn Sînâ (ö. 1037): \"Dehr\" ve \"Sermed\"" : "Ibn Sīnā (d. 1037): \"Dahr\" and \"Sarmad\""}
               </p>
               <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
                 {language === 'tr'
-                  ? "Üç zaman türü: zamân (insan zamanı, hareketle ölçülen), dehr (ezeli akış, akıllar âlemi), sermed (mutlak — Allah'ın \"şu an\"ı). Üç katmanlı kozmoloji."
-                  : "Three kinds of time: zamān (human time, measured by motion), dahr (eternal flow, the realm of intelligences), sarmad (absolute — God's 'now'). A three-layered cosmology."}
+                  ? "Üç zaman türü: zamân (insan zamanı, hareketle ölçülen), dehr (ezeli akış, akıllar âlemi), sermed (mutlak; Allah'ın \"şu an\"ı). Üç katmanlı kozmoloji."
+                  : "Three kinds of time: zamān (human time, measured by motion), dahr (eternal flow, the realm of intelligences), sarmad (absolute; God's 'now'). A three-layered cosmology."}
               </p>
             </div>
             <div>
               <p style={{ fontSize: '0.82rem', fontWeight: 700, color: COLORS.gold, margin: '0 0 4px', fontFamily: FONTS.body }}>
-                {language === 'tr' ? "Einstein (1905, 1915) — Göreli zaman" : "Einstein (1905, 1915) — Relative time"}
+                {language === 'tr' ? "Einstein (1905, 1915): Göreli zaman" : "Einstein (1905, 1915): Relative time"}
               </p>
               <p style={{ fontSize: '0.84rem', color: COLORS.silver, lineHeight: 1.7, margin: 0, fontFamily: FONTS.body }}>
                 {language === 'tr'
-                  ? "Özel görelilik: hıza bağlı zaman uzaması. Genel görelilik: kütle çekimi zamanı yavaşlatır. Saat, gözlemcinin durumuna göre değişir — iki gözlemcinin saatleri koşullarına göre belirgin biçimde ayrışabilir. Kur'an'ın \"bir gün Rabbinin katında bin yıl gibidir\" (Hac 22:47) ifadesi, modern fizik perspektifinden çağrışım uyandırır — ama bu nedensel bir çıkarsama değil, kavramsal bir resonanstır."
-                  : "Special relativity: time dilation with velocity. General relativity: gravity slows time. A clock varies with the observer's frame — two observers' clocks can diverge markedly depending on their conditions. The Quran's 'a day with your Lord is like a thousand years' (Ḥajj 22:47) resonates conceptually with modern physics — but the link is one of evocation, not causal inference."}
+                  ? "Özel görelilik: hıza bağlı zaman uzaması. Genel görelilik: kütle çekimi zamanı yavaşlatır. Saat, gözlemcinin durumuna göre değişir; iki gözlemcinin saatleri koşullarına göre belirgin biçimde ayrışabilir. Kur'an'ın \"bir gün Rabbinin katında bin yıl gibidir\" (Hac 22:47) ifadesi modern fizik perspektifinden çağrışım uyandırır; ama bu nedensel bir çıkarsama değil, kavramsal bir çağrışımdır."
+                  : "Special relativity: time dilation with velocity. General relativity: gravity slows time. A clock varies with the observer's frame; two observers' clocks can diverge markedly depending on their conditions. The Quran's 'a day with your Lord is like a thousand years' (Ḥajj 22:47) resonates conceptually with modern physics; but the link is one of evocation, not causal inference."}
               </p>
             </div>
           </div>
@@ -1409,8 +1409,8 @@ export default function ZamanBoyutlari({ onClose }) {
             </div>
             <p style={{ fontFamily: FONTS.body, fontSize: '0.85rem', color: COLORS.silver, margin: '0 0 6px', lineHeight: 1.5 }}>
               {tr
-                ? '6 kozmik evre bir zaman ölçeği değil, süreç sayısıdır. "Allah Katında" sütununa girmez — farklı bir mantıkla çalışır.'
-                : '6 cosmic phases is a process count, not a time scale. It does not fit the "divine dimension" column — it operates on different logic.'}
+                ? '6 kozmik evre bir zaman ölçeği değil, süreç sayısıdır. "Allah Katında" sütununa girmez; farklı bir mantıkla çalışır.'
+                : '6 cosmic phases is a process count, not a time scale. It does not fit the "divine dimension" column; it operates on different logic.'}
             </p>
             <p style={{ fontFamily: FONTS.body, fontSize: '0.8rem', color: COLORS.gold, fontStyle: 'italic', margin: 0 }}>
               ℹ {tr ? yarRow.noteTr : yarRow.noteEn}
@@ -1546,8 +1546,8 @@ export default function ZamanBoyutlari({ onClose }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
               { overlay: 'kiyamet',  tr: 'KIYAMET SAHNELERİ', en: 'SCENES OF QIYĀMAH', descTr: 'Eskatolojik zaman ve ahiret sahneleri', descEn: 'Eschatological time and afterlife scenes' },
-              { overlay: 'kavimler', tr: 'KAVİMLER ATLASI',   en: 'NATIONS ATLAS',     descTr: 'Tarihsel kıssalar — "Yûsuf 12:111: kıssalarda ibret"', descEn: 'Historical narratives — "Yusuf 12:111: lessons in stories"' },
-              { overlay: 'yeminler', tr: "KUR'AN'IN YEMİNLERİ", en: 'OATHS OF THE QURAN', descTr: 'Kadr, Asr, Fecr — zaman üzerine yeminler', descEn: 'Qadr, Asr, Fajr — oaths upon time' },
+              { overlay: 'kavimler', tr: 'KAVİMLER ATLASI',   en: 'NATIONS ATLAS',     descTr: 'Tarihsel kıssalar: "Yûsuf 12:111, kıssalarda ibret"', descEn: 'Historical narratives: "Yusuf 12:111, lessons in stories"' },
+              { overlay: 'yeminler', tr: "KUR'AN'IN YEMİNLERİ", en: 'OATHS OF THE QURAN', descTr: 'Kadr, Asr, Fecr: zaman üzerine yeminler', descEn: 'Qadr, Asr, Fajr: oaths upon time' },
               { overlay: 'retorigi', tr: "KUR'AN'IN RETORİĞİ", en: 'QURANIC RHETORIC',  descTr: 'Prophetic Perfect ve apokaliptik dilbilim', descEn: 'Prophetic Perfect and apocalyptic linguistics' },
             ].map(cta => (
               <button
@@ -1727,8 +1727,8 @@ export default function ZamanBoyutlari({ onClose }) {
           opacity: 0.92,
         }}>
           {language === 'tr'
-            ? 'Saat doğrusal akar; vahiy katmanlı — kalitesi miktarından üstün.'
-            : 'Clock-time flows linearly; revealed time is layered — its quality outweighs its quantity.'}
+            ? 'Saat doğrusal akar; vahiy zamanı katmanlıdır, kalitesi miktarından üstündür.'
+            : 'Clock-time flows linearly; revealed time is layered, and its quality outweighs its quantity.'}
         </p>
       </div>
 
@@ -1805,9 +1805,9 @@ export default function ZamanBoyutlari({ onClose }) {
             language={language}
             isMobile={isMobile}
             links={[
-              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Ölüm sonrası zamanın 11 aşaması — berzah, mahşer, sırât.', descEn: 'Time\'s 11 stages after death — barzakh, gathering, ṣirāṭ.' },
-              { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Kur\'an\'daki kıyâmet tasvirleri — kozmik zamanın sona ermesi.', descEn: 'Doomsday depictions in the Quran — the end of cosmic time.' },
-              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Atlas of Divine Patterns', descTr: 'Tarih boyunca tekrarlayan yasalar — zamanın döngüsel örüntüleri.', descEn: 'Recurring laws through history — cyclical patterns of time.' },
+              { href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu Atlası', titleEn: 'Afterlife Journey Atlas', descTr: 'Ölüm sonrası zamanın 11 aşaması: berzah, mahşer, sırât.', descEn: 'Time\'s 11 stages after death: barzakh, gathering, ṣirāṭ.' },
+              { href: `/${language}/arac/kiyamet`, titleTr: 'Kıyâmet Sahneleri', titleEn: 'Doomsday Scenes', descTr: 'Kur\'an\'daki kıyâmet tasvirleri: kozmik zamanın sona ermesi.', descEn: 'Doomsday depictions in the Quran: the end of cosmic time.' },
+              { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah Atlası', titleEn: 'Atlas of Divine Patterns', descTr: 'Tarih boyunca tekrarlayan yasalar: zamanın döngüsel örüntüleri.', descEn: 'Recurring laws through history: cyclical patterns of time.' },
             ]}
           />
         </div>
