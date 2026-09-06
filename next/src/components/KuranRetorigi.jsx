@@ -56,9 +56,9 @@ export default function KuranRetorigi({ onClose }) {
       <CrossToolCTA
         language={language} isMobile={isMobile}
         links={[
-          { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı — belağatın en canlı motoru.', descEn: 'The Qur\'an\'s art of questioning — belaghah\'s liveliest engine.' },
-          { href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belağî örüntüsü — çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers — call, request, address.' },
-          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? — 30+ muhatap kalıbı ile belağatın altyapısı.', descEn: 'Whom does the Qur\'an address? — 30+ addressee patterns undergirding the rhetoric.' },
+          { href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı; belâgatın en canlı araçlarından biri.', descEn: 'The Qur\'an\'s art of questioning; one of the liveliest tools of its rhetoric.' },
+          { href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belâğî örüntüsü: çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers: call, request, address.' },
+          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? 30\'dan fazla muhatap kalıbı ile belâgatın altyapısı.', descEn: 'Whom does the Qur\'an address? More than 30 addressee patterns undergirding the rhetoric.' },
         ]}
       />
       <SourcesCitation
@@ -163,7 +163,7 @@ export default function KuranRetorigi({ onClose }) {
           — {tr ? 'Yûsuf 12:111' : 'Yūsuf 12:111'}
         </p>
         <p className="mq-fs" style={{ color: COLORS.silver, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', '--fs-d': 'clamp(0.95rem, 1.55vw, 1.02rem)', '--fs-m': '0.92rem', lineHeight: 1.7, margin: '0 auto 36px', maxWidth: '700px', opacity: 0.88 }}>
-          {tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
+          {tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi. Klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal', color: COLORS.gold }}>a register of its own</em>: balance through antithesis, density through metaphor, tension through iltifāt — classical balāgha treats these as proofs of <em style={{ fontStyle: 'normal', color: COLORS.gold }}>iʿjāz</em>.</>}
         </p>
         <div aria-hidden="true" style={{ width: '120px', height: '1px', background: `linear-gradient(to right, transparent, ${COLORS.gold}66, transparent)`, margin: '0 auto 28px' }} />
         <div style={{ fontSize: '0.68rem', letterSpacing: '0.3em', color: COLORS.gold, textTransform: 'uppercase', fontFamily: FONTS.body, fontWeight: 700, opacity: 0.75, marginBottom: '14px' }}>
@@ -1150,8 +1150,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
             </h2>
             <p style={{ color: `${COLORS.silver}80`, fontSize: '0.82rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.5 }}>
               {tr
-                ? 'Seçilen soruların muhatap × tip dağılımı — her grupta hangi soru biçimi öne çıkıyor?'
-                : 'Distribution of the selected questions by addressee × type — which form dominates each group?'}
+                ? 'Seçilen soruların muhatap × tip dağılımı: her grupta hangi soru biçimi öne çıkıyor?'
+                : 'Distribution of the selected questions by addressee × type: which form dominates each group?'}
             </p>
 
             {/* Tür legend */}
@@ -1232,8 +1232,8 @@ function TabSureHaritasi({ data, tr, isMobile }) {
                   {tr ? 'Hz. Peygamber\'e yönelen sorular:' : 'Questions to the Prophet:'}
                 </span>
                 {tr
-                  ? ' Yüzeyde soru biçiminde olsalar da bilgi sormaz; Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsir bunları İstifhâm-ı İnkârî değil — ayrı bir alt sınıf olan "İstifhâm-ı Takrirî" (tescil sorusu) olarak sayar: cevabı zaten bilinen, "evet, öyledir" diye hatırlatmak için sorulan soru.'
-                  : ' Though they appear in question form, they do not seek information; they come to console the Prophet and restrain his excessive grief. Classical tafsir does not group them under Istifhām Inkārī but under a distinct subcategory — "Istifhām Taqrīrī" (confirmatory questions): asked not for information but to remind, expecting the answer "yes, it is so."'}
+                  ? ' Yüzeyde soru biçiminde olsalar da bilgi sormaz; Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsir bunları İstifhâm-ı İnkârî değil, ayrı bir alt sınıf olan "İstifhâm-ı Takrirî" (tescil sorusu) olarak sayar: cevabı zaten bilinen, "evet, öyledir" diye hatırlatmak için sorulan soru.'
+                  : ' Though they appear in question form, they do not seek information; they come to console the Prophet and restrain his excessive grief. Classical tafsir does not group them under Istifhām Inkārī but under a distinct subcategory, "Istifhām Taqrīrī" (confirmatory questions): asked not for information but to remind, expecting the answer "yes, it is so."'}
               </p>
             </div>
 
@@ -1287,7 +1287,7 @@ function TabSureHaritasi({ data, tr, isMobile }) {
       {/* ── BÖLÜM 3: KARŞILAŞTIRMALI ANALİZ ────────────── */}
       <div style={{ borderTop: `1px solid ${COLORS.glassBorderSoft}`, paddingTop: 36 }}>
         <h3 className="mq-fs" style={{ color: COLORS.offWhite, fontFamily: FONTS.display, '--fs-d': '1.3rem', '--fs-m': '1.1rem', fontWeight: 700, margin: '0 0 6px' }}>
-          {tr ? 'Bir Soru — Dört Farklı Kullanım' : 'One Question — Four Different Uses'}
+          {tr ? 'Bir Soru, Dört Farklı Kullanım' : 'One Question, Four Different Uses'}
         </h3>
         <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, marginBottom: 20, lineHeight: 1.6 }}>
           {tr ? 'Aynı soru farklı bağlamlarda farklı bir retorik işlev üstlenebilir.' : 'The same question can serve a different rhetorical function in different contexts.'}

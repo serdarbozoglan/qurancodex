@@ -121,8 +121,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 18px', maxWidth: '78ch',
           }}>
             {tr
-              ? 'Tehaddî görüşünün en güçlü dayanağı bir yorum değil, bir örüntüdür. Aşağıdaki yedi örnekte harften hemen sonra Kitap veya Kur’ân gelir — okuyucu kendi görebilsin diye metnin kendisi konuluyor.'
-              : 'The strongest support for the challenge view is not an interpretation but a pattern. In the seven examples below, the Book or the Qurʾān follows the letters immediately — the text itself is given so the reader can see it.'}
+              ? 'Tehaddî görüşünün en güçlü dayanağı bir yorum değil, bir örüntüdür. Aşağıdaki yedi örnekte harften hemen sonra Kitap veya Kur’ân gelir; okuyucu kendi görebilsin diye metnin kendisi konuluyor.'
+              : 'The strongest support for the challenge view is not an interpretation but a pattern. In the seven examples below, the Book or the Qurʾān follows the letters immediately; the text itself is given so the reader can see it.'}
           </p>
           <div style={{
             display: 'grid',
@@ -170,8 +170,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 14px', maxWidth: '78ch',
           }}>
             {tr
-              ? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor — kalan 26 sûrede ise gelmiyor.'
-              : 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause — in the remaining 26 it is not.'}
+              ? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor; kalan 26 sûrede ise gelmiyor.'
+              : 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause; in the remaining 26 it is not.'}
           </p>
           <div style={{
             display: 'grid',
@@ -234,8 +234,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 18px', maxWidth: '78ch',
           }}>
             {tr
-              ? 'Bâkıllânî ve Zemahşerî’nin gözlemi: harflerin sesi ile âyet sonlarının sesi arasında uyum vardır. Bu, tartışılacak değil ÖLÇÜLECEK bir iddia — 29 sûrenin her âyeti sayıldı.'
-              : 'An observation of al-Bāqillānī and al-Zamakhsharī: the sound of the letters agrees with the sound of the verse-endings. This is a claim to be MEASURED, not debated — every verse of the 29 suras was counted.'}
+              ? 'Bâkıllânî ve Zemahşerî’nin gözlemi: harflerin sesi ile âyet sonlarının sesi arasında uyum vardır. Bu, tartışılacak değil ÖLÇÜLECEK bir iddia; 29 sûrenin her âyeti sayıldı.'
+              : 'An observation of al-Bāqillānī and al-Zamakhsharī: the sound of the letters agrees with the sound of the verse-endings. This is a claim to be MEASURED, not debated; every verse of the 29 suras was counted.'}
           </p>
 
           {/* Taban karşılaştırması — iddianın gerçek gücü burada */}
@@ -272,8 +272,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 20px', maxWidth: '80ch',
           }}>
             {tr
-              ? 'Ölçülen değer âyet sonlarının mîm veya nûn ile bitme oranıdır. Taban olmadan bu sayı yanıltıcı olurdu: -ûn, -în, -îm zaten Arapça’nın en yaygın âyet sonu ekleridir. Bu yüzden diğer 85 sûre de sayıldı. Fark gerçek — ama iddiayı tek başına kanıtlamıyor, çünkü taban da yüksek.'
-              : 'The figure is the proportion of verse-endings closing in mīm or nūn. Without a baseline it would mislead: -ūn, -īn and -īm are already the most common verse-endings in Arabic. So the other 85 suras were counted too. The difference is real — but it does not prove the claim by itself, because the baseline is high as well.'}
+              ? 'Ölçülen değer âyet sonlarının mîm veya nûn ile bitme oranıdır. Taban olmadan bu sayı yanıltıcı olurdu: -ûn, -în, -îm zaten Arapça’nın en yaygın âyet sonu ekleridir. Bu yüzden diğer 85 sûre de sayıldı. Fark gerçek, ama iddiayı tek başına kanıtlamıyor, çünkü taban da yüksek.'
+              : 'The figure is the proportion of verse-endings closing in mīm or nūn. Without a baseline it would mislead: -ūn, -īn and -īm are already the most common verse-endings in Arabic. So the other 85 suras were counted too. The difference is real, but it does not prove the claim by itself, because the baseline is high as well.'}
           </p>
 
           {/* Aile aile — iddianın nerede tuttuğu ve nerede tutmadığı */}
@@ -317,8 +317,8 @@ export default function MukattaaEvidence() {
             margin: '14px 0 0', maxWidth: '80ch',
           }}>
             {tr
-              ? 'İddia her yerde tutmuyor ve bu gizlenmiyor: Tâhâ (20) hiçbir baskın kalıp göstermiyor, Kâf (50) %52 ‑îd, Sâd (38) %40 ‑âb ile bitiyor. Buna karşılık Neml %100, Yâsîn %98, Kalem %94. Yani uyum gerçek ama evrensel değil — güçlü bir karîne, kesin bir kural değil.'
-              : 'The claim does not hold everywhere, and that is not hidden: Ṭā-Hā (20) shows no dominant pattern, Qāf (50) closes 52% in ‑īd, Ṣād (38) 40% in ‑āb. Against that, al-Naml is 100%, Yā-Sīn 98%, al-Qalam 94%. The agreement is real but not universal — a strong indication, not a fixed rule.'}
+              ? 'İddia her yerde tutmuyor ve bu gizlenmiyor: Tâhâ (20) hiçbir baskın kalıp göstermiyor, Kâf (50) %52 ‑îd, Sâd (38) %40 ‑âb ile bitiyor. Buna karşılık Neml %100, Yâsîn %98, Kalem %94. Yani uyum gerçek ama evrensel değil: güçlü bir karîne, kesin bir kural değil.'
+              : 'The claim does not hold everywhere, and that is not hidden: Ṭā-Hā (20) shows no dominant pattern, Qāf (50) closes 52% in ‑īd, Ṣād (38) 40% in ‑āb. Against that, al-Naml is 100%, Yā-Sīn 98%, al-Qalam 94%. The agreement is real but not universal: a strong indication, not a fixed rule.'}
           </p>
         </div>
 
@@ -345,8 +345,8 @@ export default function MukattaaEvidence() {
             margin: 0, maxWidth: '80ch',
           }}>
             {tr
-              ? 'Ebced hesabıyla yapılan yorumlar klasik kaynaklarda gerçekten tartışılmıştır — Taberî bu görüşün ileri sürüldüğünü kaydeder, fakat kendisi tercih etmez. Modern dönemde harf frekansları ve sayı örüntüleri üzerinden yapılan “şifre” iddiaları ise bundan farklı bir şeydir. Bir görüşün klasik tefsirde TARTIŞILMIŞ olması ile bir iddianın DOĞRULANMIŞ olması aynı şey değildir. Bu sayfa ikisini aynı seviyede sunmaz: yukarıdaki görüşler tefsir geleneğinin içinden gelir; sayısal iddialar ise ayrı ve henüz sınanmamış bir alandır. Sınanmaları için de yöntem şudur — sonuç önceden seçilip rakamlar ona uydurulmaz; hipotez önce kurulur, sonra 29 sûrenin tamamında test edilir.'
-              : 'Interpretations via abjad numerology were genuinely discussed in the classical sources — al-Ṭabarī records that the view was advanced, though he does not adopt it. Modern “code” claims built on letter frequencies and numeric patterns are a different matter. That a view was DISCUSSED in classical exegesis is not the same as a claim being VERIFIED. This page does not present the two at one level: the views above come from within the exegetical tradition; numerical claims are a separate and as yet untested field. And the method for testing them is this — the conclusion is not chosen first and the numbers fitted to it; the hypothesis is set first, then tested across all 29 suras.'}
+              ? 'Ebced hesabıyla yapılan yorumlar klasik kaynaklarda gerçekten tartışılmıştır; Taberî bu görüşün ileri sürüldüğünü kaydeder, fakat kendisi tercih etmez. Modern dönemde harf frekansları ve sayı örüntüleri üzerinden yapılan “şifre” iddiaları ise bundan farklı bir şeydir. Bir görüşün klasik tefsirde TARTIŞILMIŞ olması ile bir iddianın DOĞRULANMIŞ olması aynı şey değildir. Bu sayfa ikisini aynı seviyede sunmaz: yukarıdaki görüşler tefsir geleneğinin içinden gelir; sayısal iddialar ise ayrı ve henüz sınanmamış bir alandır. Sınanmaları için de yöntem şudur — sonuç önceden seçilip rakamlar ona uydurulmaz; hipotez önce kurulur, sonra 29 sûrenin tamamında test edilir.'
+              : 'Interpretations via abjad numerology were genuinely discussed in the classical sources; al-Ṭabarī records that the view was advanced, though he does not adopt it. Modern “code” claims built on letter frequencies and numeric patterns are a different matter. That a view was DISCUSSED in classical exegesis is not the same as a claim being VERIFIED. This page does not present the two at one level: the views above come from within the exegetical tradition; numerical claims are a separate and as yet untested field. And the method for testing them is this — the conclusion is not chosen first and the numbers fitted to it; the hypothesis is set first, then tested across all 29 suras.'}
           </p>
         </div>
 
@@ -378,8 +378,8 @@ export default function MukattaaEvidence() {
             margin: '0 0 6px', maxWidth: '80ch',
           }}>
             {tr
-              ? 'Beş ölçütün hepsi bu sayfada kurulmuş olgulardır; her hücreyi yukarı çıkıp kendiniz denetleyebilirsiniz. Tablo bir DOĞRULUK sıralaması değil — yalnız her görüşün metinde ne kadarını açıkladığının dökümü.'
-              : 'All five criteria are facts established on this page; you can scroll up and check every cell yourself. The table is not a ranking of TRUTH — only a record of how much of the text each view accounts for.'}
+              ? 'Beş ölçütün hepsi bu sayfada kurulmuş olgulardır; her hücreyi yukarı çıkıp kendiniz denetleyebilirsiniz. Tablo bir DOĞRULUK sıralaması değil, yalnız her görüşün metinde ne kadarını açıkladığının dökümü.'
+              : 'All five criteria are facts established on this page; you can scroll up and check every cell yourself. The table is not a ranking of TRUTH, only a record of how much of the text each view accounts for.'}
           </p>
           <p className="mq-fs" style={{
             '--fs-d': '0.84rem', '--fs-m': '0.8rem',
@@ -459,7 +459,7 @@ export default function MukattaaEvidence() {
         }}>
           {tr
             ? 'Sekiz görüş birbirini dışlamaz; birkaçı aynı anda doğru olabilir. Ortak nokta şudur: hiçbiri harflerin bir mânâsı olmadığını söylemez. Tartışma “mânâ var mı” değil, “mânâ nedir” üzerinedir. Kesin cevabı ise Allah bilir.'
-            : 'The eight views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is — and the certain answer rests with Allah.'}
+            : 'The eight views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is, and the certain answer rests with Allah.'}
         </p>
       </div>
     </section>

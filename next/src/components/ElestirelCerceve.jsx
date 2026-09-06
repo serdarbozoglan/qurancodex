@@ -115,8 +115,8 @@ export default function ElestirelCerceve() {
       }
       titleTr="Eleştirel Çerçeve"
       titleEn="Critical Frame"
-      subtitleTr="Zorlu sorular — ve ulemânın cevabı"
-      subtitleEn="Hard questions — and the scholars' answer"
+      subtitleTr="Zorlu sorular ve ulemânın cevabı"
+      subtitleEn="Hard questions and the scholars' answer"
       language={language}
     />
   );
@@ -127,9 +127,9 @@ export default function ElestirelCerceve() {
         language={language}
         isMobile={isMobile}
         links={[
-          { href: `/${language}/sor`, titleTr: 'Kur\'ân Concierge (/sor)', titleEn: 'Quran Concierge (/sor)', descTr: 'Kendi sorunuzun cevabını kaynaklarda arayın — semantik + kelime araması.', descEn: 'Search your own question across the sources — semantic + keyword.' },
-          { href: `/${language}/arac/tefsir-ihtilaflari`, titleTr: 'Tefsir İhtilâfları', titleEn: 'Tafsīr Disagreements', descTr: 'Âlimler arasındaki görüş farkı neden rahmettir — fürûdaki genişliğin haritası.', descEn: 'Why difference among scholars is a mercy — a map of breadth in secondary matters.' },
-          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Ayetin kime hitap ettiği — bağlamı koparmadan okumanın temeli.', descEn: 'Whom the verse addresses — the basis of reading without severing context.' },
+          { href: `/${language}/sor`, titleTr: 'Kur\'ân Concierge (/sor)', titleEn: 'Quran Concierge (/sor)', descTr: 'Kendi sorunuzun cevabını kaynaklarda arayın; anlam ve kelime araması.', descEn: 'Search your own question across the sources; semantic and keyword search.' },
+          { href: `/${language}/arac/tefsir-ihtilaflari`, titleTr: 'Tefsir İhtilâfları', titleEn: 'Tafsīr Disagreements', descTr: 'Âlimler arasındaki görüş farkı neden rahmettir? Fürûdaki genişliğin haritası.', descEn: 'Why is difference among scholars a mercy? A map of breadth in secondary matters.' },
+          { href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Ayetin kime hitap ettiği: bağlamı koparmadan okumanın temeli.', descEn: 'Whom the verse addresses: the basis of reading without severing context.' },
         ]}
       />
     </div>
@@ -363,16 +363,16 @@ export default function ElestirelCerceve() {
               workTr: "Mefâtîhu'l-Ğayb",
               workEn: 'Mafātīḥ al-Ghayb',
               period: '1149–1209 (Rey)',
-              noteTr: "Kelâmî itirazları tek tek karşılayan klasik tefsir geleneğinin zirvesi — bu sayfadaki soruların çoğu ilk kez orada, aynı keskinlikle sorulup cevaplanmıştır.",
-              noteEn: 'The summit of the classical tradition of answering theological objections one by one — most questions on this page were first posed there, with the same sharpness, and answered.',
+              noteTr: "Kelâmî itirazları tek tek karşılayan klasik tefsir geleneğinin zirvesi; bu sayfadaki soruların çoğu ilk kez orada, aynı keskinlikle sorulup cevaplanmıştır.",
+              noteEn: 'The summit of the classical tradition of answering theological objections one by one; most questions on this page were first posed there, with the same sharpness, and answered.',
             },
             {
               author: 'İbn Kayyim el-Cevziyye',
               workTr: "Ahkâmü Ehli'z-Zimme",
               workEn: 'Aḥkām Ahl al-Dhimma',
               period: '1292–1350 (Dımaşk)',
-              noteTr: 'Uygulamada yerleşmiş fakat metinde dayanağı bulunmayan törelerin ulemâ eliyle nasıl tashih edildiğinin örneği — tenkit dışarıdan gelmeden önce içeriden yapılmıştır.',
-              noteEn: 'An example of how customs entrenched in practice but groundless in the text were corrected by the scholars themselves — critique came from within before it came from without.',
+              noteTr: 'Uygulamada yerleşmiş fakat metinde dayanağı bulunmayan törelerin ulemâ eliyle nasıl tashih edildiğinin örneği; tenkit dışarıdan gelmeden önce içeriden yapılmıştır.',
+              noteEn: 'An example of how customs entrenched in practice but groundless in the text were corrected by the scholars themselves; critique came from within before it came from without.',
             },
             {
               author: 'Muhammed Tâhir İbn Âşûr',
@@ -387,24 +387,24 @@ export default function ElestirelCerceve() {
               workTr: "Hak Dini Kur'ân Dili",
               workEn: 'Hak Dini Kur\'ân Dili',
               period: '1878–1942 (İstanbul)',
-              noteTr: 'Türkçe tefsir geleneğinde klasik birikimi modern itirazlarla yüzleştiren ilk büyük eser — bu sayfadaki pek çok cevabın Türkçedeki kaynağı.',
-              noteEn: 'The first major work in the Turkish tafsīr tradition to confront classical learning with modern objections — the Turkish source of many answers on this page.',
+              noteTr: 'Türkçe tefsir geleneğinde klasik birikimi modern itirazlarla yüzleştiren ilk büyük eser; bu sayfadaki pek çok cevabın Türkçedeki kaynağı.',
+              noteEn: 'The first major work in the Turkish tafsīr tradition to confront classical learning with modern objections; the Turkish source of many answers on this page.',
             },
             {
               author: 'Bediüzzaman Said Nursî',
               workTr: 'Muhâkemât · Sözler (Yirmi Beşinci Söz) · Lem\'alar',
               workEn: 'Muḥākamāt · The Words (Twenty-Fifth) · The Flashes',
               period: '1877–1960',
-              noteTr: "İki kaidesi bu sayfanın omurgasıdır: (1) Kur'ân'a yöneltilen itirazların büyük kısmı, tefsire sonradan girmiş İsrâiliyyat'a isabet eder; (2) Kur'ân'ın maksadı Sâni'i tanıtmaktır, kâinattan bahsi ona delildir — bu yüzden ayet, değişken bilimsel modellere bağlanmaz.",
-              noteEn: "Two of his rules form the spine of this page: (1) most objections raised against the Qur'ān land on Isrāʾīliyyāt that entered tafsīr later; (2) the Qur'ān's aim is to make the Maker known and its mention of the cosmos is evidence for that — hence a verse is never bound to shifting scientific models.",
+              noteTr: "İki kaidesi bu sayfanın omurgasıdır: (1) Kur'ân'a yöneltilen itirazların büyük kısmı, tefsire sonradan girmiş İsrâiliyyat'a isabet eder; (2) Kur'ân'ın maksadı Sâni'i tanıtmaktır, kâinattan bahsi ona delildir; bu yüzden ayet, değişken bilimsel modellere bağlanmaz.",
+              noteEn: "Two of his rules form the spine of this page: (1) most objections raised against the Qur'ān land on Isrāʾīliyyāt that entered tafsīr later; (2) the Qur'ān's aim is to make the Maker known and its mention of the cosmos is evidence for that; hence a verse is never bound to shifting scientific models.",
             },
             {
               author: 'Muhammed Hamidullah',
               workTr: "İslâm Peygamberi · İslâm'da Devlet İdaresi",
               workEn: 'The Prophet of Islam · The Muslim Conduct of State',
               period: '1908–2002',
-              noteTr: 'Ahidnâmeler, esir hukuku ve zimmî statüsü gibi tarihî iddiaları birincil belgelerle karşılaştıran çalışmalar — tarihe dair itirazların belgeyle cevaplandığı zemin.',
-              noteEn: 'Studies collating historical claims — treaties, the law of captives, dhimmī status — against primary documents; the ground on which historical objections are answered with evidence.',
+              noteTr: 'Ahidnâmeler, esir hukuku ve zimmî statüsü gibi tarihî iddiaları birincil belgelerle karşılaştıran çalışmalar; tarihe dair itirazların belgeyle cevaplandığı zemin.',
+              noteEn: 'Studies collating historical claims (treaties, the law of captives, dhimmī status) against primary documents; the ground on which historical objections are answered with evidence.',
             },
           ]}
         />

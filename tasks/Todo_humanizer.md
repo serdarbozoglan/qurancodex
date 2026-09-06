@@ -151,8 +151,9 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **ReadingMode.jsx, KadinlarAtlasi.jsx, InsanPsikolojisi.jsx, SunnetullahAtlasi.jsx** ✅ (2026-09-06: 30 + 18 + 24 + 25 dize; Okuma Modu'nda yalnız araç ipuçları/aria etiketleri; İnsan Psikolojisi'nde CBT/Freud/nörobilim iddiaları yumuşatıldı)
 - [x] **DogaAtlasi.jsx, Mukattaa.jsx, BilimselIsaretler.jsx, data/iblis-passages.js** ✅ (2026-09-06: 27 + 15 + 14 + 24 dize; gök cismi notlarındaki "modern astronomi ile uyumlu / dikkat çekici" ifadeleri §13.24 düzeyine çekildi)
 - [x] **SurahComparator.jsx, MukattaaViews.jsx, SoundExtensions.jsx, QuranRhetoric.jsx, MunasebatAtlasi.jsx, KorumaZinciri.jsx** ✅ (2026-09-06: 21 + 21 + 20 + 10 + 7 + 16 dize)
-- [ ] **EsmaTanimlari.jsx** EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
-- [ ] **TefsirIhtilaflari.jsx**: "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
+- [x] **WordHeatmap, VerseGraph, ConceptGraph, KuranRetorigi, MukattaaEvidence, ZeroRedundancy, ElestirelCerceve, FurukAtlasi, NefisMertebeleri, IbadetlerPillar, EsmaTanimlari, TefsirIhtilaflari** ✅ (2026-09-06: 126 dize)
+- [x] **EsmaTanimlari.jsx** ✅ (2026-09-06: "the question is what the servant takes") EN: "reads the name not as information but as a share: … the real question is what the servant takes". §9 + §27 aynı cümlede. TR'si de aynı ("asıl soru").
+- [x] **TefsirIhtilaflari.jsx** ✅ (2026-09-06: "Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar"): "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [x] **KorumaZinciri.jsx** ✅ (2026-09-06: "sıfır varyasyon ilkesinin bugünkü görünümü"): "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
 - [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
 - [ ] **Ok zincirleri (1.242)**: neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.

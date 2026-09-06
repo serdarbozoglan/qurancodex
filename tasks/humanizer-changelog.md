@@ -6439,3 +6439,292 @@ Retorik Sorular'daki "Savunmaz; düşündürür. Cevaplamaz; sorar" kırık dizi
 - ÖNCE: `descEn: 'The context of each verse\'s first descent — the starting point of the preservation chain.',`
   SONRA: `descEn: 'The context of each verse\'s first descent: the starting point of the preservation chain.',`
 
+
+## 14. Bileşen içi metinler, 10. parti: Kelime Isı Haritası + Ayet Grafiği + Kavram Ağı + Kur'ân Belâgatı + Mukattaa Kanıtları + Sıfır Fazlalık + Eleştirel Çerçeve + Füruk + Nefs Mertebeleri + İbadetler + Esmâ Tanımları + Tefsir İhtilâfları (2026-09-06)
+
+Esmâ Tanımları'ndaki "asıl soru / the real question" (§27) ve Tefsir İhtilâfları'ndaki "bir kusur değil, ... doğal sonucudur" (§9 + §3) cümleleri düz ifadeye döndü; Kur'ân Belâgatı'nda "belağatın en canlı motoru" → "en canlı araçlarından biri"; Sıfır Fazlalık'ta ℹ işareti kaldırıldı ve "mekanizmasıdır" cümlesi sadeleşti. Grafik araç ipuçları ("X — 12 âyet") iki nokta ile ayrıldı. Âyet çevirileri, kaynak atıf tireleri ve yer tutucular aynen kaldı.
+
+### `next/src/components/WordHeatmap.jsx`
+
+- ÖNCE: `? `${name} — ${verseCount} âyet``
+  SONRA: `? `${name}: ${verseCount} âyet``
+- ÖNCE: `: `${name} — ${verseCount} verses`;`
+  SONRA: `: `${name}: ${verseCount} verses`;`
+- ÖNCE: `? `${name} — "${searchTerm}" ${count} kez geçiyor``
+  SONRA: `? `${name}: "${searchTerm}" ${count} kez geçiyor``
+- ÖNCE: `: `${name} — "${searchTerm}" occurs ${count} times`;`
+  SONRA: `: `${name}: "${searchTerm}" occurs ${count} times`;`
+- ÖNCE: `? `${name} — "${searchTerm}" geçmiyor``
+  SONRA: `? `${name}: "${searchTerm}" geçmiyor``
+- ÖNCE: `: `${name} — "${searchTerm}" not found`;`
+  SONRA: `: `${name}: "${searchTerm}" not found`;`
+- ÖNCE: `? 'Türkçe veya Arapça yazabilirsiniz — yaygın kavramlar otomatik Arapça\'ya yönlendirilir.'`
+  SONRA: `? 'Türkçe veya Arapça yazabilirsiniz; yaygın kavramlar otomatik olarak Arapça\'ya yönlendirilir.'`
+- ÖNCE: `: 'Type in Latin or Arabic — common concepts auto-redirect to Quranic Arabic.'`
+  SONRA: `: 'Type in Latin or Arabic; common concepts auto-redirect to Quranic Arabic.'`
+- ÖNCE: `valueTr: 'Kanonik Kur\'ân metni (6236 âyet), Hafs an Âsım kıraati — Diyanet resmî mushaf standardı.',`
+  SONRA: `valueTr: 'Kanonik Kur\'ân metni (6236 âyet), Hafs an Âsım kıraati; Diyanet resmî mushaf standardı.',`
+- ÖNCE: `valueEn: 'The canonical Qur\'anic text (6236 verses), Ḥafṣ ʿan ʿĀṣim reading — the Diyanet official muṣḥaf standard.',`
+  SONRA: `valueEn: 'The canonical Qur\'anic text (6236 verses), Ḥafṣ ʿan ʿĀṣim reading; the Diyanet official muṣḥaf standard.',`
+- ÖNCE: `valueTr: 'Latince (TR/EN) arama, yaygın kavramlarda kanonik Arapça forma yönlendirilir — böylece çevirmen eklemeleri değil, âyetteki lafız sayılır. Doğrudan Arapça da yazılabilir.',`
+  SONRA: `valueTr: 'Latince (TR/EN) arama, yaygın kavramlarda kanonik Arapça forma yönlendirilir; böylece çevirmen eklemeleri değil, âyetteki lafız sayılır. Doğrudan Arapça da yazılabilir.',`
+- ÖNCE: `valueEn: 'Latin (TR/EN) queries for common concepts auto-redirect to the canonical Arabic form — so the count reflects the Qur\'anic wording, not translator additions. Arabic input is also supported.',`
+  SONRA: `valueEn: 'Latin (TR/EN) queries for common concepts auto-redirect to the canonical Arabic form, so the count reflects the Qur\'anic wording, not translator additions. Arabic input is also supported.',`
+
+### `next/src/components/VerseGraph.jsx`
+
+- ÖNCE: `{ id: 'tival',       tr: 'Tıval — Uzun Sûreler', en: 'Tiwāl — Long Surahs',   nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },`
+  SONRA: `{ id: 'tival',       tr: 'Tıval: Uzun Sûreler', en: 'Tiwāl: Long Surahs',   nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },`
+- ÖNCE: `{surahNameTr(filterSurah, language === 'en')} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}`
+  SONRA: `{surahNameTr(filterSurah, language === 'en')}: {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}`
+- ÖNCE: `nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(`
+  SONRA: `nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> · ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(`
+- ÖNCE: `? 'Anlamca yakın ayetler birbirine çizgiyle bağlı. Bir ayete dokunun — ona en çok benzeyen ayetleri görün.'`
+  SONRA: `? 'Anlamca yakın ayetler birbirine çizgiyle bağlı. Bir ayete dokunun, ona en çok benzeyen ayetleri görün.'`
+- ÖNCE: `valueTr: 'Ayetlerin 3B konumu, bu anlam uzayının UMAP ile boyut indirgemesinden elde edilir — yakınlık görsel bir temsildir, ayrı bir iddia taşımaz.',`
+  SONRA: `valueTr: 'Ayetlerin 3B konumu, bu anlam uzayının UMAP ile boyut indirgemesinden elde edilir; yakınlık görsel bir temsildir, ayrı bir iddia taşımaz.',`
+- ÖNCE: `valueEn: 'The 3D position of each verse comes from UMAP dimensionality reduction of that meaning-space — proximity is a visual representation, not a separate claim.',`
+  SONRA: `valueEn: 'The 3D position of each verse comes from UMAP dimensionality reduction of that meaning-space; proximity is a visual representation, not a separate claim.',`
+
+### `next/src/components/ConceptGraph.jsx`
+
+- ÖNCE: `? 'Bir kavrama dokunun — birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'`
+  SONRA: `? 'Bir kavrama dokunun; birlikte anılan diğer kavramların oluşturduğu ağı 6.236 ayet üzerinde görün.'`
+- ÖNCE: `: 'Touch a concept — see the network of ideas that appear alongside it across 6,236 verses.'}`
+  SONRA: `: 'Touch a concept and see the network of ideas that appear alongside it across 6,236 verses.'}`
+- ÖNCE: `valueTr: 'Her kavramın önceden belirlenmiş anahtar kelimeleri, meal metninde (Türkçe çeviri, Arapça asıl DEĞİL) harf-normalize edilmiş alt-dizi araması ile aranır. Kavram küratörünün seçtiği kelime listesine bağlıdır — otomatik/istatistiksel bir çıkarım değildir.',`
+  SONRA: `valueTr: 'Her kavramın önceden belirlenmiş anahtar kelimeleri, meal metninde (Türkçe çeviri, Arapça asıl DEĞİL) harf-normalize edilmiş alt-dizi araması ile aranır. Kavram küratörünün seçtiği kelime listesine bağlıdır; otomatik veya istatistiksel bir çıkarım değildir.',`
+- ÖNCE: `valueEn: 'Each concept\'s pre-selected keywords are searched as a diacritic-normalized substring match against the Turkish translation text (not the Arabic original). This depends on the curator\'s chosen keyword list — it is not an automated/statistical inference.',`
+  SONRA: `valueEn: 'Each concept\'s pre-selected keywords are searched as a diacritic-normalized substring match against the Turkish translation text (not the Arabic original). This depends on the curator\'s chosen keyword list; it is not an automated or statistical inference.',`
+- ÖNCE: `valueTr: 'İki kavram arasındaki çizgi kalınlığı, ortak ayet sayısının küçük kümenin boyutuna oranıdır (paylaşılan / min). En yüksek ağırlıklı 12 bağlantı gösterilir — geri kalanı grafikte yer almaz.',`
+  SONRA: `valueTr: 'İki kavram arasındaki çizgi kalınlığı, ortak ayet sayısının küçük kümenin boyutuna oranıdır (paylaşılan / min). En yüksek ağırlıklı 12 bağlantı gösterilir; geri kalanı grafikte yer almaz.',`
+- ÖNCE: `valueEn: 'The line weight between two concepts is the shared-verse count divided by the smaller concept\'s total verse count (shared / min). Only the top 12 highest-weight connections are shown — the rest are not rendered.',`
+  SONRA: `valueEn: 'The line weight between two concepts is the shared-verse count divided by the smaller concept\'s total verse count (shared / min). Only the top 12 highest-weight connections are shown; the rest are not rendered.',`
+- ÖNCE: `tr: 'Bu bir kesin tematik analiz değil, çeviri metnindeki kelime örtüşmesinin bir göstergesidir — Türkçe morfoloji (ek/çekim) yüzünden yanlış-pozitif veya kaçırılmış eşleşmeler olabilir.',`
+  SONRA: `tr: 'Bu bir kesin tematik analiz değil, çeviri metnindeki kelime örtüşmesinin bir göstergesidir. Türkçe morfoloji (ek, çekim) yüzünden yanlış pozitif veya kaçırılmış eşleşmeler olabilir.',`
+- ÖNCE: `en: 'This is not a definitive thematic analysis but an indicator of keyword overlap in the translation text — Turkish morphology (suffixes/inflection) can cause false positives or missed matches.',`
+  SONRA: `en: 'This is not a definitive thematic analysis but an indicator of keyword overlap in the translation text. Turkish morphology (suffixes, inflection) can cause false positives or missed matches.',`
+- ÖNCE: `{ href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Anlamca yakın ayetlerin oluşturduğu 20 küme — kavramların kendiliğinden gruplaşması.', descEn: 'Twenty clusters formed by verses close in meaning — concepts grouping on their own.' },`
+  SONRA: `{ href: `/${language}/graf/semantik`, titleTr: 'Semantik Ağ', titleEn: 'Semantic Map', descTr: 'Anlamca yakın ayetlerin oluşturduğu 20 küme: kavramların kendiliğinden gruplaşması.', descEn: 'Twenty clusters formed by verses close in meaning: concepts grouping on their own.' },`
+- ÖNCE: `{ href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı — bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept — neighborhood analysis of a concept\'s verses.' },`
+  SONRA: `{ href: `/${language}/graf/ayet`, titleTr: 'Ayet Grafiği', titleEn: 'Verse Graph', descTr: 'Kavram başına ayet ağı: bir kavramın tüm ayetlerinin komşuluk analizi.', descEn: 'Verse network per concept: neighborhood analysis of a concept\'s verses.' },`
+- ÖNCE: `{ href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler — kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words — the word-level foundation of the concept graph.' },`
+  SONRA: `{ href: `/${language}/atlas/furuk`, titleTr: 'Füruk Atlası', titleEn: 'Semantic Distinctions', descTr: 'Yakın anlamlı kelimeler: kavram ağının kelime düzeyindeki temeli.', descEn: 'Near-synonym words: the word-level foundation of the concept graph.' },`
+
+### `next/src/components/KuranRetorigi.jsx`
+
+- ÖNCE: `{ href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı — belağatın en canlı motoru.', descEn: 'The Qur\'an\'s art of questioning — belaghah\'s liveliest engine.' },`
+  SONRA: `{ href: `/${language}/arac/retorik-sorular`, titleTr: 'Retorik Sorular', titleEn: 'Rhetorical Questions', descTr: 'Kur\'ân\'ın soru sorma sanatı; belâgatın en canlı araçlarından biri.', descEn: 'The Qur\'an\'s art of questioning; one of the liveliest tools of its rhetoric.' },`
+- ÖNCE: `{ href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belağî örüntüsü — çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers — call, request, address.' },`
+  SONRA: `{ href: `/${language}/arac/dua-dili`, titleTr: 'Dua Dili', titleEn: 'Language of Prayer', descTr: 'Kur\'ân dualarının belâğî örüntüsü: çağrı, isteme, hitap.', descEn: 'The rhetorical patterning of Qur\'anic prayers: call, request, address.' },`
+- ÖNCE: `{ href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? — 30+ muhatap kalıbı ile belağatın altyapısı.', descEn: 'Whom does the Qur\'an address? — 30+ addressee patterns undergirding the rhetoric.' },`
+  SONRA: `{ href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Kur\'ân kime hitap ediyor? 30\'dan fazla muhatap kalıbı ile belâgatın altyapısı.', descEn: 'Whom does the Qur\'an address? More than 30 addressee patterns undergirding the rhetoric.' },`
+- ÖNCE: `{tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi — klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'norma`
+  SONRA: `{tr ? <>Kur&apos;an düzyazı değildir, şiir değildir. <em style={{ fontStyle: 'normal', color: COLORS.gold }}>Kendine has bir lisan</em>: tezat ile dengesi, istiare ile yoğunluğu, iltifât ile gerilimi. Klasik belâgat bu sanatları <em style={{ fontStyle: 'normal', color: COLORS.gold }}>i&apos;câz</em>ın delili sayar.</> : <>The Quran is neither prose nor poetry. It is <em style={{ fontStyle: 'normal`
+- ÖNCE: `? 'Seçilen soruların muhatap × tip dağılımı — her grupta hangi soru biçimi öne çıkıyor?'`
+  SONRA: `? 'Seçilen soruların muhatap × tip dağılımı: her grupta hangi soru biçimi öne çıkıyor?'`
+- ÖNCE: `: 'Distribution of the selected questions by addressee × type — which form dominates each group?'}`
+  SONRA: `: 'Distribution of the selected questions by addressee × type: which form dominates each group?'}`
+- ÖNCE: `? ' Yüzeyde soru biçiminde olsalar da bilgi sormaz; Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsir bunları İstifhâm-ı İnkârî değil — ayrı bir alt sınıf olan "İstifhâm-ı Takrirî" (tescil sorusu) olarak sayar: cevabı zaten bilinen, "evet, öyledir" diye hatırlatmak için sorulan soru.'`
+  SONRA: `? ' Yüzeyde soru biçiminde olsalar da bilgi sormaz; Peygamber\'i teselli etmek ve aşırı üzüntüden alıkoymak için gelmiştir. Klasik tefsir bunları İstifhâm-ı İnkârî değil, ayrı bir alt sınıf olan "İstifhâm-ı Takrirî" (tescil sorusu) olarak sayar: cevabı zaten bilinen, "evet, öyledir" diye hatırlatmak için sorulan soru.'`
+- ÖNCE: `: ' Though they appear in question form, they do not seek information; they come to console the Prophet and restrain his excessive grief. Classical tafsir does not group them under Istifhām Inkārī but under a distinct subcategory — "Istifhām Taqrīrī" (confirmatory questions): asked not for information but to remind, expecting the answer "yes, it is so."'}`
+  SONRA: `: ' Though they appear in question form, they do not seek information; they come to console the Prophet and restrain his excessive grief. Classical tafsir does not group them under Istifhām Inkārī but under a distinct subcategory, "Istifhām Taqrīrī" (confirmatory questions): asked not for information but to remind, expecting the answer "yes, it is so."'}`
+- ÖNCE: `{tr ? 'Bir Soru — Dört Farklı Kullanım' : 'One Question — Four Different Uses'}`
+  SONRA: `{tr ? 'Bir Soru, Dört Farklı Kullanım' : 'One Question, Four Different Uses'}`
+
+### `next/src/sections/MukattaaEvidence.jsx`
+
+- ÖNCE: `? 'Tehaddî görüşünün en güçlü dayanağı bir yorum değil, bir örüntüdür. Aşağıdaki yedi örnekte harften hemen sonra Kitap veya Kur’ân gelir — okuyucu kendi görebilsin diye metnin kendisi konuluyor.'`
+  SONRA: `? 'Tehaddî görüşünün en güçlü dayanağı bir yorum değil, bir örüntüdür. Aşağıdaki yedi örnekte harften hemen sonra Kitap veya Kur’ân gelir; okuyucu kendi görebilsin diye metnin kendisi konuluyor.'`
+- ÖNCE: `: 'The strongest support for the challenge view is not an interpretation but a pattern. In the seven examples below, the Book or the Qurʾān follows the letters immediately — the text itself is given so the reader can see it.'}`
+  SONRA: `: 'The strongest support for the challenge view is not an interpretation but a pattern. In the seven examples below, the Book or the Qurʾān follows the letters immediately; the text itself is given so the reader can see it.'}`
+- ÖNCE: `? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor — kalan 26 sûrede ise gelmiyor.'`
+  SONRA: `? 'Kasem görüşü için de aynısı geçerli: iddia genel değil, üç sûrede metnin kendisinde görünüyor. Tek harften sonra doğrudan bir yemin cümlesi geliyor; kalan 26 sûrede ise gelmiyor.'`
+- ÖNCE: `: 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause — in the remaining 26 it is not.'}`
+  SONRA: `: 'The same holds for the oath view: the claim is not general but visible in the text of three suras. A single letter is followed directly by an oath clause; in the remaining 26 it is not.'}`
+- ÖNCE: `? 'Bâkıllânî ve Zemahşerî’nin gözlemi: harflerin sesi ile âyet sonlarının sesi arasında uyum vardır. Bu, tartışılacak değil ÖLÇÜLECEK bir iddia — 29 sûrenin her âyeti sayıldı.'`
+  SONRA: `? 'Bâkıllânî ve Zemahşerî’nin gözlemi: harflerin sesi ile âyet sonlarının sesi arasında uyum vardır. Bu, tartışılacak değil ÖLÇÜLECEK bir iddia; 29 sûrenin her âyeti sayıldı.'`
+- ÖNCE: `: 'An observation of al-Bāqillānī and al-Zamakhsharī: the sound of the letters agrees with the sound of the verse-endings. This is a claim to be MEASURED, not debated — every verse of the 29 suras was counted.'}`
+  SONRA: `: 'An observation of al-Bāqillānī and al-Zamakhsharī: the sound of the letters agrees with the sound of the verse-endings. This is a claim to be MEASURED, not debated; every verse of the 29 suras was counted.'}`
+- ÖNCE: `? 'Ölçülen değer âyet sonlarının mîm veya nûn ile bitme oranıdır. Taban olmadan bu sayı yanıltıcı olurdu: -ûn, -în, -îm zaten Arapça’nın en yaygın âyet sonu ekleridir. Bu yüzden diğer 85 sûre de sayıldı. Fark gerçek — ama iddiayı tek başına kanıtlamıyor, çünkü taban da yüksek.'`
+  SONRA: `? 'Ölçülen değer âyet sonlarının mîm veya nûn ile bitme oranıdır. Taban olmadan bu sayı yanıltıcı olurdu: -ûn, -în, -îm zaten Arapça’nın en yaygın âyet sonu ekleridir. Bu yüzden diğer 85 sûre de sayıldı. Fark gerçek, ama iddiayı tek başına kanıtlamıyor, çünkü taban da yüksek.'`
+- ÖNCE: `: 'The figure is the proportion of verse-endings closing in mīm or nūn. Without a baseline it would mislead: -ūn, -īn and -īm are already the most common verse-endings in Arabic. So the other 85 suras were counted too. The difference is real — but it does not prove the claim by itself, because the baseline is high as well.'}`
+  SONRA: `: 'The figure is the proportion of verse-endings closing in mīm or nūn. Without a baseline it would mislead: -ūn, -īn and -īm are already the most common verse-endings in Arabic. So the other 85 suras were counted too. The difference is real, but it does not prove the claim by itself, because the baseline is high as well.'}`
+- ÖNCE: `? 'İddia her yerde tutmuyor ve bu gizlenmiyor: Tâhâ (20) hiçbir baskın kalıp göstermiyor, Kâf (50) %52 ‑îd, Sâd (38) %40 ‑âb ile bitiyor. Buna karşılık Neml %100, Yâsîn %98, Kalem %94. Yani uyum gerçek ama evrensel değil — güçlü bir karîne, kesin bir kural değil.'`
+  SONRA: `? 'İddia her yerde tutmuyor ve bu gizlenmiyor: Tâhâ (20) hiçbir baskın kalıp göstermiyor, Kâf (50) %52 ‑îd, Sâd (38) %40 ‑âb ile bitiyor. Buna karşılık Neml %100, Yâsîn %98, Kalem %94. Yani uyum gerçek ama evrensel değil: güçlü bir karîne, kesin bir kural değil.'`
+- ÖNCE: `: 'The claim does not hold everywhere, and that is not hidden: Ṭā-Hā (20) shows no dominant pattern, Qāf (50) closes 52% in ‑īd, Ṣād (38) 40% in ‑āb. Against that, al-Naml is 100%, Yā-Sīn 98%, al-Qalam 94%. The agreement is real but not universal — a strong indication, not a fixed rule.'}`
+  SONRA: `: 'The claim does not hold everywhere, and that is not hidden: Ṭā-Hā (20) shows no dominant pattern, Qāf (50) closes 52% in ‑īd, Ṣād (38) 40% in ‑āb. Against that, al-Naml is 100%, Yā-Sīn 98%, al-Qalam 94%. The agreement is real but not universal: a strong indication, not a fixed rule.'}`
+- ÖNCE: `? 'Ebced hesabıyla yapılan yorumlar klasik kaynaklarda gerçekten tartışılmıştır — Taberî bu görüşün ileri sürüldüğünü kaydeder, fakat kendisi tercih etmez. Modern dönemde harf frekansları ve sayı örüntüleri üzerinden yapılan “şifre” iddiaları ise bundan farklı bir şeydir. Bir görüşün klasik tefsirde TARTIŞILMIŞ olması ile bir iddianın DOĞRULANMIŞ olması aynı şey değildir. Bu sayfa ikisini aynı sev`
+  SONRA: `? 'Ebced hesabıyla yapılan yorumlar klasik kaynaklarda gerçekten tartışılmıştır; Taberî bu görüşün ileri sürüldüğünü kaydeder, fakat kendisi tercih etmez. Modern dönemde harf frekansları ve sayı örüntüleri üzerinden yapılan “şifre” iddiaları ise bundan farklı bir şeydir. Bir görüşün klasik tefsirde TARTIŞILMIŞ olması ile bir iddianın DOĞRULANMIŞ olması aynı şey değildir. Bu sayfa ikisini aynı sevi`
+- ÖNCE: `: 'Interpretations via abjad numerology were genuinely discussed in the classical sources — al-Ṭabarī records that the view was advanced, though he does not adopt it. Modern “code” claims built on letter frequencies and numeric patterns are a different matter. That a view was DISCUSSED in classical exegesis is not the same as a claim being VERIFIED. This page does not present the two at one level:`
+  SONRA: `: 'Interpretations via abjad numerology were genuinely discussed in the classical sources; al-Ṭabarī records that the view was advanced, though he does not adopt it. Modern “code” claims built on letter frequencies and numeric patterns are a different matter. That a view was DISCUSSED in classical exegesis is not the same as a claim being VERIFIED. This page does not present the two at one level: `
+- ÖNCE: `? 'Beş ölçütün hepsi bu sayfada kurulmuş olgulardır; her hücreyi yukarı çıkıp kendiniz denetleyebilirsiniz. Tablo bir DOĞRULUK sıralaması değil — yalnız her görüşün metinde ne kadarını açıkladığının dökümü.'`
+  SONRA: `? 'Beş ölçütün hepsi bu sayfada kurulmuş olgulardır; her hücreyi yukarı çıkıp kendiniz denetleyebilirsiniz. Tablo bir DOĞRULUK sıralaması değil, yalnız her görüşün metinde ne kadarını açıkladığının dökümü.'`
+- ÖNCE: `: 'All five criteria are facts established on this page; you can scroll up and check every cell yourself. The table is not a ranking of TRUTH — only a record of how much of the text each view accounts for.'}`
+  SONRA: `: 'All five criteria are facts established on this page; you can scroll up and check every cell yourself. The table is not a ranking of TRUTH, only a record of how much of the text each view accounts for.'}`
+- ÖNCE: `: 'The eight views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is — and the certain answer rests with Allah.'}`
+  SONRA: `: 'The eight views are not mutually exclusive; several may hold at once. What they share is this: none claims the letters are without meaning. The question is not whether there is a meaning but what it is, and the certain answer rests with Allah.'}`
+
+### `next/src/sections/ZeroRedundancy.jsx`
+
+- ÖNCE: `? '"Ama bazı ayetler birebir tekrar ediyor" — Haklı bir itiraz'`
+  SONRA: `? '"Ama bazı ayetler birebir tekrar ediyor." Haklı bir itiraz.'`
+- ÖNCE: `: '"But some verses repeat word-for-word" — A fair objection'}`
+  SONRA: `: '"But some verses repeat word for word." A fair objection.'}`
+- ÖNCE: `? 'Rahman Sûresi\'nde aynı ayet 31 kez geçiyor. Mürselat\'ta 10 kez, Kamer\'de 4 kez. Bunlar gerçek, literal tekrarlardır — inkâr edilemez.'`
+  SONRA: `? 'Rahman Sûresi\'nde aynı ayet 31 kez geçiyor. Mürselat\'ta 10 kez, Kamer\'de 4 kez. Bunlar gerçek, birebir tekrarlardır; inkâr edilemez.'`
+- ÖNCE: `: 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions — undeniable.'}`
+  SONRA: `: 'In Surah Rahman, the same verse appears 31 times. In Al-Mursalat 10 times, in Al-Qamar 4 times. These are real, literal repetitions; undeniable.'}`
+- ÖNCE: `? 'Fark şu: Gereksiz tekrar, aynı bağlamda, hiçbir ek anlam katmadan tekrar etmektir. Bu ayetlerde bağlam her seferinde değişiyor — farklı bir nimet, farklı bir azap sahnesi, farklı bir kavim. Nakarat aynı, ama her seferinde farklı bir şeyi soruyor ya da farklı bir gerçeği pekiştiriyor.'`
+  SONRA: `? 'Fark şu: Gereksiz tekrar, aynı bağlamda, hiçbir ek anlam katmadan tekrar etmektir. Bu ayetlerde bağlam her seferinde değişiyor: farklı bir nimet, farklı bir azap sahnesi, farklı bir kavim. Nakarat aynı, ama her seferinde farklı bir şeyi soruyor ya da farklı bir gerçeği pekiştiriyor.'`
+- ÖNCE: `: 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time — a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}`
+  SONRA: `: 'The difference: Redundancy is repeating in the same context with no added meaning. In these verses, the context shifts each time: a different blessing, a different scene, a different destroyed nation. The refrain is the same, but each time it addresses something new.'}`
+- ÖNCE: `Klasik Arap belagatı bu tekniği 1.000 yıl önce <strong className="text-gold/80">tekrîr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span> olarak sistematize etmiş, birden fazla işlevini (te&apos;kîd, tafhîm, istis&apos;âr…) ayırt etmişti — Zerkeşî, <em>el-Burhân fî Ulûmi&apos;l-Kur&apos;an</em> (14. yy). Modern edebiyat aynı yapıyı yüzyıllar sonra &quot;anafora&q`
+  SONRA: `Klasik Arap belagatı bu tekniği 1.000 yıl önce <strong className="text-gold/80">tekrîr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span> olarak sistematize etmiş, birden fazla işlevini (te&apos;kîd, tafhîm, istis&apos;âr…) ayırt etmişti: Zerkeşî, <em>el-Burhân fî Ulûmi&apos;l-Kur&apos;an</em> (14. yy). Modern edebiyat aynı yapıyı yüzyıllar sonra &quot;anafora&qu`
+- ÖNCE: `Classical Arabic rhetoric had systematized this technique a thousand years ago as <strong className="text-gold/80">takrīr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span>, distinguishing multiple functions (ta&apos;kīd, tafhīm, istis&apos;ār…) — al-Zarkashī, <em>al-Burhān fī &apos;Ulūm al-Qur&apos;ān</em> (14th c.). Modern literature later renamed the same stru`
+  SONRA: `Classical Arabic rhetoric had systematized this technique a thousand years ago as <strong className="text-gold/80">takrīr</strong> <span lang="ar" dir="rtl" style={{ fontFamily: FONTS.quran }}>(تكرير)</span>, distinguishing multiple functions (ta&apos;kīd, tafhīm, istis&apos;ār…): al-Zarkashī, <em>al-Burhān fī &apos;Ulūm al-Qur&apos;ān</em> (14th c.). Modern literature later renamed the same struc`
+- ÖNCE: `? 'Kur\'an\'daki tekrarlar, bilgi teorisindeki "gereksiz tekrar" değil — retorik amplifikasyon, yapısal menteşe ve psikolojik içselleştirme mekanizmasıdır.'`
+  SONRA: `? 'Kur\'an\'daki tekrarlar, bilgi teorisindeki "gereksiz tekrar" değildir; retorik güçlendirme, yapısal menteşe ve psikolojik içselleştirme işlevi görür.'`
+- ÖNCE: `: 'The Quran\'s repetitions are not "redundancy" in the information-theory sense — they are rhetorical amplification, structural hinges, and psychological internalization.'}`
+  SONRA: `: 'The Quran\'s repetitions are not "redundancy" in the information-theory sense; they work as rhetorical amplification, structural hinges and psychological internalization.'}`
+- ÖNCE: `ℹ (AS) = <em>Alayhis Salaam</em> — peace be upon him`
+  SONRA: `(AS) = <em>Alayhis Salaam</em>, peace be upon him`
+- ÖNCE: `{language === 'tr' ? 'Daha Derine — İlgili Sûreler' : 'Go Deeper — Related Suras'}`
+  SONRA: `{language === 'tr' ? 'Daha Derine: İlgili Sûreler' : 'Go Deeper: Related Suras'}`
+- ÖNCE: `{ surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '"Fe-bi-eyyi âlâ\'i Rabbikumâ tukezzibân" — aynı ayet 31 kez. Her tekrar farklı bir nimet için.', descEn: '"Fa-bi-ayyi ālāʾi rabbikumā tukadhdhibān" — the same verse 31 times. Each repetition follows a different blessing.' },`
+  SONRA: `{ surahNum: 55, titleTr: 'Rahmân Sûresi (55)', titleEn: 'Sura ar-Raḥmān (55)', descTr: '"Fe-bi-eyyi âlâ\'i Rabbikumâ tukezzibân": aynı ayet 31 kez. Her tekrar farklı bir nimet için.', descEn: '"Fa-bi-ayyi ālāʾi rabbikumā tukadhdhibān": the same verse 31 times. Each repetition follows a different blessing.' },`
+- ÖNCE: `{ surahNum: 77, titleTr: 'Mürselât Sûresi (77)', titleEn: 'Sura al-Mursalāt (77)', descTr: '"Veylun yevmeizin lil-mukezzibîn" — 10 kez tekrar; her tekrar farklı bir uyarı bağlamında.', descEn: '"Waylun yawmaʾidhin lil-mukadhdhibīn" — 10 repetitions, each anchored to a different warning.' },`
+  SONRA: `{ surahNum: 77, titleTr: 'Mürselât Sûresi (77)', titleEn: 'Sura al-Mursalāt (77)', descTr: '"Veylun yevmeizin lil-mukezzibîn": 10 kez tekrar; her tekrar farklı bir uyarı bağlamında.', descEn: '"Waylun yawmaʾidhin lil-mukadhdhibīn": 10 repetitions, each anchored to a different warning.' },`
+- ÖNCE: `{ surahNum: 54, titleTr: 'Kamer Sûresi (54)', titleEn: 'Sura al-Qamar (54)', descTr: '"Velekad yessernel-Kur\'âne lizzikri fe hel min muddekir" — 4 kez; her kıssayı kapatan didaktik mühür.', descEn: '"Wa-laqad yassarnā l-Qurʾāna li-dh-dhikri fa-hal min muddakir" — 4 repetitions, each closing a sealing didactic call.' },`
+  SONRA: `{ surahNum: 54, titleTr: 'Kamer Sûresi (54)', titleEn: 'Sura al-Qamar (54)', descTr: '"Velekad yessernel-Kur\'âne lizzikri fe hel min muddekir": 4 kez; her kıssayı kapatan didaktik mühür.', descEn: '"Wa-laqad yassarnā l-Qurʾāna li-dh-dhikri fa-hal min muddakir": 4 repetitions, each a didactic seal closing a story.' },`
+
+### `next/src/components/ElestirelCerceve.jsx`
+
+- ÖNCE: `subtitleTr="Zorlu sorular — ve ulemânın cevabı"`
+  SONRA: `subtitleTr="Zorlu sorular ve ulemânın cevabı"`
+- ÖNCE: `subtitleEn="Hard questions — and the scholars' answer"`
+  SONRA: `subtitleEn="Hard questions and the scholars' answer"`
+- ÖNCE: `{ href: `/${language}/sor`, titleTr: 'Kur\'ân Concierge (/sor)', titleEn: 'Quran Concierge (/sor)', descTr: 'Kendi sorunuzun cevabını kaynaklarda arayın — semantik + kelime araması.', descEn: 'Search your own question across the sources — semantic + keyword.' },`
+  SONRA: `{ href: `/${language}/sor`, titleTr: 'Kur\'ân Concierge (/sor)', titleEn: 'Quran Concierge (/sor)', descTr: 'Kendi sorunuzun cevabını kaynaklarda arayın; anlam ve kelime araması.', descEn: 'Search your own question across the sources; semantic and keyword search.' },`
+- ÖNCE: `{ href: `/${language}/arac/tefsir-ihtilaflari`, titleTr: 'Tefsir İhtilâfları', titleEn: 'Tafsīr Disagreements', descTr: 'Âlimler arasındaki görüş farkı neden rahmettir — fürûdaki genişliğin haritası.', descEn: 'Why difference among scholars is a mercy — a map of breadth in secondary matters.' },`
+  SONRA: `{ href: `/${language}/arac/tefsir-ihtilaflari`, titleTr: 'Tefsir İhtilâfları', titleEn: 'Tafsīr Disagreements', descTr: 'Âlimler arasındaki görüş farkı neden rahmettir? Fürûdaki genişliğin haritası.', descEn: 'Why is difference among scholars a mercy? A map of breadth in secondary matters.' },`
+- ÖNCE: `{ href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Ayetin kime hitap ettiği — bağlamı koparmadan okumanın temeli.', descEn: 'Whom the verse addresses — the basis of reading without severing context.' },`
+  SONRA: `{ href: `/${language}/arac/muhataplar`, titleTr: 'Muhatap Sistemi', titleEn: 'Addressee System', descTr: 'Ayetin kime hitap ettiği: bağlamı koparmadan okumanın temeli.', descEn: 'Whom the verse addresses: the basis of reading without severing context.' },`
+- ÖNCE: `noteTr: "Kelâmî itirazları tek tek karşılayan klasik tefsir geleneğinin zirvesi — bu sayfadaki soruların çoğu ilk kez orada, aynı keskinlikle sorulup cevaplanmıştır.",`
+  SONRA: `noteTr: "Kelâmî itirazları tek tek karşılayan klasik tefsir geleneğinin zirvesi; bu sayfadaki soruların çoğu ilk kez orada, aynı keskinlikle sorulup cevaplanmıştır.",`
+- ÖNCE: `noteEn: 'The summit of the classical tradition of answering theological objections one by one — most questions on this page were first posed there, with the same sharpness, and answered.',`
+  SONRA: `noteEn: 'The summit of the classical tradition of answering theological objections one by one; most questions on this page were first posed there, with the same sharpness, and answered.',`
+- ÖNCE: `noteTr: 'Uygulamada yerleşmiş fakat metinde dayanağı bulunmayan törelerin ulemâ eliyle nasıl tashih edildiğinin örneği — tenkit dışarıdan gelmeden önce içeriden yapılmıştır.',`
+  SONRA: `noteTr: 'Uygulamada yerleşmiş fakat metinde dayanağı bulunmayan törelerin ulemâ eliyle nasıl tashih edildiğinin örneği; tenkit dışarıdan gelmeden önce içeriden yapılmıştır.',`
+- ÖNCE: `noteEn: 'An example of how customs entrenched in practice but groundless in the text were corrected by the scholars themselves — critique came from within before it came from without.',`
+  SONRA: `noteEn: 'An example of how customs entrenched in practice but groundless in the text were corrected by the scholars themselves; critique came from within before it came from without.',`
+- ÖNCE: `noteTr: 'Türkçe tefsir geleneğinde klasik birikimi modern itirazlarla yüzleştiren ilk büyük eser — bu sayfadaki pek çok cevabın Türkçedeki kaynağı.',`
+  SONRA: `noteTr: 'Türkçe tefsir geleneğinde klasik birikimi modern itirazlarla yüzleştiren ilk büyük eser; bu sayfadaki pek çok cevabın Türkçedeki kaynağı.',`
+- ÖNCE: `noteEn: 'The first major work in the Turkish tafsīr tradition to confront classical learning with modern objections — the Turkish source of many answers on this page.',`
+  SONRA: `noteEn: 'The first major work in the Turkish tafsīr tradition to confront classical learning with modern objections; the Turkish source of many answers on this page.',`
+- ÖNCE: `noteTr: "İki kaidesi bu sayfanın omurgasıdır: (1) Kur'ân'a yöneltilen itirazların büyük kısmı, tefsire sonradan girmiş İsrâiliyyat'a isabet eder; (2) Kur'ân'ın maksadı Sâni'i tanıtmaktır, kâinattan bahsi ona delildir — bu yüzden ayet, değişken bilimsel modellere bağlanmaz.",`
+  SONRA: `noteTr: "İki kaidesi bu sayfanın omurgasıdır: (1) Kur'ân'a yöneltilen itirazların büyük kısmı, tefsire sonradan girmiş İsrâiliyyat'a isabet eder; (2) Kur'ân'ın maksadı Sâni'i tanıtmaktır, kâinattan bahsi ona delildir; bu yüzden ayet, değişken bilimsel modellere bağlanmaz.",`
+- ÖNCE: `noteEn: "Two of his rules form the spine of this page: (1) most objections raised against the Qur'ān land on Isrāʾīliyyāt that entered tafsīr later; (2) the Qur'ān's aim is to make the Maker known and its mention of the cosmos is evidence for that — hence a verse is never bound to shifting scientific models.",`
+  SONRA: `noteEn: "Two of his rules form the spine of this page: (1) most objections raised against the Qur'ān land on Isrāʾīliyyāt that entered tafsīr later; (2) the Qur'ān's aim is to make the Maker known and its mention of the cosmos is evidence for that; hence a verse is never bound to shifting scientific models.",`
+- ÖNCE: `noteTr: 'Ahidnâmeler, esir hukuku ve zimmî statüsü gibi tarihî iddiaları birincil belgelerle karşılaştıran çalışmalar — tarihe dair itirazların belgeyle cevaplandığı zemin.',`
+  SONRA: `noteTr: 'Ahidnâmeler, esir hukuku ve zimmî statüsü gibi tarihî iddiaları birincil belgelerle karşılaştıran çalışmalar; tarihe dair itirazların belgeyle cevaplandığı zemin.',`
+- ÖNCE: `noteEn: 'Studies collating historical claims — treaties, the law of captives, dhimmī status — against primary documents; the ground on which historical objections are answered with evidence.',`
+  SONRA: `noteEn: 'Studies collating historical claims (treaties, the law of captives, dhimmī status) against primary documents; the ground on which historical objections are answered with evidence.',`
+
+### `next/src/components/FurukAtlasi.jsx`
+
+- ÖNCE: `? <>Aynı Türkçe kelimeye çevrilen iki Arapça sözcük çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şey</em> değildir — Kur&apos;an&apos;ın seçimi hiçbir zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>rastgele</em> olmaz.</>`
+  SONRA: `? <>Aynı Türkçe kelimeye çevrilen iki Arapça sözcük çoğu zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>aynı şey</em> değildir; Kur&apos;an&apos;ın seçimi hiçbir zaman <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>rastgele</em> olmaz.</>`
+- ÖNCE: `: <>Two Arabic words translated by the same English word are often <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>not the same thing</em> — the Qur&apos;an&apos;s choice is never <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>arbitrary</em>.</>}`
+  SONRA: `: <>Two Arabic words translated by the same English word are often <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>not the same thing</em>; the Qur&apos;an&apos;s choice is never <em style={{ color: COLORS.gold, fontStyle: 'italic' }}>arbitrary</em>.</>}`
+- ÖNCE: `{ href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar — furûk\'un daha geniş harita bağlamı.', descEn: 'Concept connections — the wider map context for furūq.' },`
+  SONRA: `{ href: `/${language}/graf/kavram`, titleTr: 'Kavram Ağı', titleEn: 'Concept Network', descTr: 'Kavramlar arası bağlantılar: furûk\'un daha geniş harita bağlamı.', descEn: 'Concept connections: the wider map context for furūq.' },`
+- ÖNCE: `{ href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Anlam nüansları belâgat tekniklerine nasıl yansır — teşbih, kinâye, tıbâk.', descEn: 'How meaning nuances reflect in rhetorical techniques — tashbīh, kināya, ṭibāq.' },`
+  SONRA: `{ href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Anlam nüansları belâgat tekniklerine nasıl yansır: teşbih, kinâye, tıbâk.', descEn: 'How meaning nuances reflect in rhetorical techniques: tashbīh, kināya, ṭibāq.' },`
+- ÖNCE: `? "Türkçe çevirisi aynı — ama Arapça'da farklı anlam taşıyan kelimeler. Matar ve ğays ikisi de 'yağmur' ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku' ama birincisi hareket, ikincisi sakinlik. Her kelimenin tüm ayet geçişlerini göster — örüntüyü kendin gör."`
+  SONRA: `? "Türkçe çevirisi aynı, ama Arapça'da farklı anlam taşıyan kelimeler. Matar ve ğays ikisi de 'yağmur' ama biri azap, diğeri rahmet. Havf ve haşye ikisi de 'korku' ama birincisi hareket, ikincisi sakinlik. Her kelimenin tüm ayet geçişlerini göster, örüntüyü kendin gör."`
+- ÖNCE: `: "Same translation in English — but different meanings in Arabic. Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but the first produces motion, the second stillness. See every verse occurrence — discover the pattern yourself."}`
+  SONRA: `: "Same translation in English, but different meanings in Arabic. Matar and ghayth are both 'rain', but one is punishment, the other mercy. Khawf and khashya are both 'fear', but the first produces motion, the second stillness. See every verse occurrence and discover the pattern yourself."}`
+- ÖNCE: `{tr ? 'Renk Rehberi — Baskın Bağlam' : 'Color Guide — Dominant Context'}`
+  SONRA: `{tr ? 'Renk Rehberi: Baskın Bağlam' : 'Color Guide: Dominant Context'}`
+- ÖNCE: `? 'Noktaların üzerine gelin — her kelimenin bağlamdaki yerini görün.'`
+  SONRA: `? 'Noktaların üzerine gelin, her kelimenin bağlamdaki yerini görün.'`
+- ÖNCE: `? "Klasik furûk geleneğinden seçilmiş prensipler. Her prensip bir ayrımın özünü tek cümleyle verir — arkasındaki tüm kelime ailesi ilgili gruba bakılarak görülebilir."`
+  SONRA: `? "Klasik furûk geleneğinden seçilmiş prensipler. Her prensip bir ayrımın özünü tek cümleyle verir; arkasındaki tüm kelime ailesi ilgili gruba bakılarak görülebilir."`
+- ÖNCE: `: 'Principles selected from the classical furūq tradition. Each principle captures the essence of a distinction in one sentence — the full word family behind it can be explored in the linked group.'}`
+  SONRA: `: 'Principles selected from the classical furūq tradition. Each principle captures the essence of a distinction in one sentence; the full word family behind it can be explored in the linked group.'}`
+
+### `next/src/components/NefisMertebeleri.jsx`
+
+- ÖNCE: `? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir — Kur&apos;an yedi tabakanın üçünü açıkça anar.</>`
+  SONRA: `? <>Nefs <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>sabit</em> değildir. Emmâreden mutmainneye uzanan bir <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>basamak sistemi</em>dir; Kur&apos;an yedi tabakanın üçünü açıkça anar.</>`
+- ÖNCE: `: <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna — the Quran names three of the seven stations explicitly.</>}`
+  SONRA: `: <>The self is not <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>fixed</em>. It is a <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>graded system</em> reaching from ammāra to muṭmaʾinna; the Quran names three of the seven stations explicitly.</>}`
+- ÖNCE: `title={language === 'tr' ? "Kur'ânî Çekirdek — 3 Mertebe" : "Qur'anic Core — 3 Stages"}`
+  SONRA: `title={language === 'tr' ? "Kur'ânî Çekirdek: 3 Mertebe" : "Qur'anic Core: 3 Stages"}`
+- ÖNCE: `title={language === 'tr' ? 'Tasavvufî Genişleme — 4 Ek Mertebe' : 'Sufi Extension — 4 Added Stages'}`
+  SONRA: `title={language === 'tr' ? 'Tasavvufî Genişleme: 4 Ek Mertebe' : 'Sufi Extension: 4 Added Stages'}`
+- ÖNCE: `title={language === 'tr' ? 'Klasik Çerçeveler — Dengeleyici Zâhirî Perspektif' : 'Classical Frameworks — Balancing Exoteric Perspective'}`
+  SONRA: `title={language === 'tr' ? 'Klasik Çerçeveler: Dengeleyici Zâhirî Perspektif' : 'Classical Frameworks: Balancing Exoteric Perspective'}`
+- ÖNCE: `? "Mutmainne'nin tam zıddı: müzebzeb (bocalayan) hâli — Nisâ 4:143. İki yol, aynı insan psikolojisi, farklı sonuç."`
+  SONRA: `? "Mutmainne'nin tam zıddı: müzebzeb (bocalayan) hâli (Nisâ 4:143). İki yol, aynı insan psikolojisi, farklı sonuç."`
+- ÖNCE: `: "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') — Q 4:143. Two paths, the same human psychology, different outcomes."}`
+  SONRA: `: "The exact opposite of muṭmaʾinna: muzabzab ('the wavering') (Q 4:143). Two paths, the same human psychology, different outcomes."}`
+- ÖNCE: `{ author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs) — emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs) — the path from ammāra to muṭmaʾinna.' },`
+  SONRA: `{ author: 'İmam Gazâlî',             workTr: 'İhyâ\'u Ulûmi\'d-Dîn',     workEn: 'Iḥyāʾ ʿUlūm al-Dīn',       period: '1058–1111 (Tûs)',    noteTr: 'Nefs terbiyesi (Riyâzetü\'n-Nefs); emmâreden mutmainneye yöntem.', noteEn: 'Discipline of the self (Riyāḍa al-Nafs); the path from ammāra to muṭmaʾinna.' },`
+- ÖNCE: `{ author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe — Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations — foundational text of the Kubrāwiyya order.' },`
+  SONRA: `{ author: 'Necmüddîn-i Kübrâ',       workTr: 'Fevâihu\'l-Cemâl',           workEn: 'Fawāʾiḥ al-Jamāl',          period: '1145–1221 (Hârizm)', noteTr: 'Tasavvufî 7 mertebe; Kübreviyye geleneğinin temel metni.', noteEn: 'The Sufi sevenfold stations; foundational text of the Kubrāwiyya order.' },`
+- ÖNCE: `{ author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri — \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28 — kalāmic reading of the muṭmaʾinna station.' },`
+  SONRA: `{ author: 'er-Râzî',                 workTr: 'Mefâtîhu\'l-Ğayb',           workEn: 'Mafātīḥ al-Ghayb',          period: '1149–1209 (Rey)',    noteTr: 'Fecr 89:27–28 tefsiri; \"mutmainne\" mertebesinin kelâmî okunuşu.', noteEn: 'Commentary on Fajr 89:27–28; kalāmic reading of the muṭmaʾinna station.' },`
+- ÖNCE: `{ href: `/${language}/arac/iblis-seytan`,    titleTr: 'İblîs & Şeytan',       titleEn: 'Iblis & Satan',             descTr: 'Nefsin baş düşmanı — vesvese kanalı (Nâs 114:5), 7 sûrede aynı sahne.',     descEn: 'The self\'s chief enemy — the waswasa channel (Nās 114:5), the same scene across 7 surahs.' },`
+  SONRA: `{ href: `/${language}/arac/iblis-seytan`,    titleTr: 'İblîs & Şeytan',       titleEn: 'Iblis & Satan',             descTr: 'Nefsin baş düşmanı: vesvese kanalı (Nâs 114:5), 7 sûrede aynı sahne.',     descEn: 'The self\'s chief enemy: the waswasa channel (Nās 114:5), the same scene across 7 surahs.' },`
+- ÖNCE: `{ href: `/${language}/arac/melekler`,        titleTr: 'Melekler',             titleEn: 'Angels',                    descTr: 'İlham ve vahy-i tabîî — nefse rağmen kalbe inen doğru sesler.',          descEn: 'Ilhām and natural revelation — voices descending into the heart despite the self.' },`
+  SONRA: `{ href: `/${language}/arac/melekler`,        titleTr: 'Melekler',             titleEn: 'Angels',                    descTr: 'İlham ve vahy-i tabîî: nefse rağmen kalbe inen doğru sesler.',          descEn: 'Ilhām and natural revelation: voices descending into the heart despite the self.' },`
+
+### `next/src/components/IbadetlerPillar.jsx`
+
+- ÖNCE: `{ href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Hub', titleEn: 'Worship Hub', descTr: '7 ana ibadet direği — namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'The 7 main pillars of worship — prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },`
+  SONRA: `{ href: `/${language}/atlas/ibadetler`, titleTr: 'İbadetler Hub', titleEn: 'Worship Hub', descTr: '7 ana ibadet direği: namaz, oruç, zekât, hac, kurban, tevbe, zikir.', descEn: 'The 7 main pillars of worship: prayer, fasting, zakāt, hajj, sacrifice, repentance, dhikr.' },`
+- ÖNCE: `{ href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'Bu ibadetin doğrudan emirleri ve yasakları — ayet ayet.', descEn: 'Direct commands and prohibitions of this worship — verse by verse.' },`
+  SONRA: `{ href: `/${language}/arac/buyruklar`, titleTr: 'Kur\'ânî Buyruklar', titleEn: 'Quranic Commands', descTr: 'Bu ibadetin doğrudan emirleri ve yasakları, ayet ayet.', descEn: 'Direct commands and prohibitions of this worship, verse by verse.' },`
+- ÖNCE: `{ href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetin nihai bağlamı — hesap, mîzân ve cennet ile buluşma.', descEn: 'The ultimate context of worship — reckoning, scales and meeting Paradise.' },`
+  SONRA: `{ href: `/${language}/atlas/ahiret-yolculugu`, titleTr: 'Ahiret Yolculuğu', titleEn: 'Afterlife Journey', descTr: 'İbadetin nihai bağlamı: hesap, mîzân ve cennet ile buluşma.', descEn: 'The ultimate context of worship: reckoning, scales and meeting Paradise.' },`
+- ÖNCE: `? "Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim ibadetin farklı bir boyutunu — eylem, zaman, iç hâl — işaret eder."`
+  SONRA: `? "Kur'ân'da tek isimle değil, birbirini tamamlayan bir kavram alanıyla anlatılır. Her terim ibadetin farklı bir boyutuna (eylem, zaman, iç hâl) işaret eder."`
+- ÖNCE: `: 'Described not by a single word but by a complementary semantic field. Each term points to a different dimension — action, time, inner state.'}`
+  SONRA: `: 'Described not by a single word but by a complementary semantic field. Each term points to a different dimension: action, time, inner state.'}`
+
+### `next/src/components/EsmaTanimlari.jsx`
+
+- ÖNCE: `tr: 'Bu gelenek ismi bir bilgi olarak değil bir pay olarak okur: “Rahmân” denildiğinde asıl soru, kulun o rahmetten ne aldığıdır.',`
+  SONRA: `tr: 'Bu gelenek ismi bir bilgi olarak değil bir pay olarak okur: “Rahmân” denildiğinde sorulan, kulun o rahmetten ne aldığıdır.',`
+- ÖNCE: `en: 'This tradition reads the name not as information but as a share: when “Raḥmān” is said, the real question is what the servant takes from that mercy.',`
+  SONRA: `en: 'This tradition reads the name not as information but as a share: when “Raḥmān” is said, the question is what the servant takes from that mercy.',`
+- ÖNCE: `? 'Üç cevap birbirini çürütmez; aynı ismin üç ayrı katmanıdır. Ve üçüncü satırdaki ihtilaf — “birçok âlim aralarında fark görmemiştir” — gizlenmiyor: tanım tek sesli değildir.'`
+  SONRA: `? 'Üç cevap birbirini çürütmez; aynı ismin üç ayrı katmanıdır. Üçüncü satırdaki ihtilaf (“birçok âlim aralarında fark görmemiştir”) gizlenmiyor: tanım tek sesli değildir.'`
+- ÖNCE: `: 'The three answers do not refute one another; they are three layers of the same name. And the disagreement in the third line — “many scholars saw no difference” — is not hidden: definition is not single-voiced.'}`
+  SONRA: `: 'The three answers do not refute one another; they are three layers of the same name. The disagreement in the third line (“many scholars saw no difference”) is not hidden: definition is not single-voiced.'}`
+- ÖNCE: `? 'İsimlere dair müstakil eserlerin ilki 923’te yazıldı. Aşağıdaki zincir, bu sayfadaki tanımların dayandığı gelenektir — sonuncusu bir yorumu kâinattaki karşılığına bağlar.'`
+  SONRA: `? 'İsimlere dair müstakil eserlerin ilki 923’te yazıldı. Aşağıdaki zincir, bu sayfadaki tanımların dayandığı gelenektir; sonuncusu bir yorumu kâinattaki karşılığına bağlar.'`
+- ÖNCE: `: 'The first standalone work on the names was written in 923. The chain below is the tradition on which this page’s definitions rest — the last of them ties interpretation to what answers it in the cosmos.'}`
+  SONRA: `: 'The first standalone work on the names was written in 923. The chain below is the tradition on which this page’s definitions rest; the last of them ties interpretation to what answers it in the cosmos.'}`
+- ÖNCE: `? `Küçük bir ayrıntı: bu altı isimden beşi yukarıdaki 114 isimlik atlasta var, ${nursi.atlastaOlmayan.join(', ')} yok. Ferd, meşhur doksan dokuzluk listeden değil, duâ ve hadis geleneğinden gelir — Bediüzzaman’ın seçimi listeye değil, kendi okuyuşuna bağlıdır.``
+  SONRA: `? `Küçük bir ayrıntı: bu altı isimden beşi yukarıdaki 114 isimlik atlasta var, ${nursi.atlastaOlmayan.join(', ')} yok. Ferd, meşhur doksan dokuzluk listeden değil, duâ ve hadis geleneğinden gelir; Bediüzzaman’ın seçimi listeye değil, kendi okuyuşuna bağlıdır.``
+- ÖNCE: `: `A small detail: five of these six names appear in the 114-name atlas above; ${nursi.atlastaOlmayan.join(', ')} does not. Fard comes not from the famous list of ninety-nine but from the tradition of supplication and hadith — Bediüzzaman’s selection follows his own reading, not the list.`}`
+  SONRA: `: `A small detail: five of these six names appear in the 114-name atlas above; ${nursi.atlastaOlmayan.join(', ')} does not. Fard comes not from the famous list of ninety-nine but from the tradition of supplication and hadith; Bediüzzaman’s selection follows his own reading, not the list.`}`
+- ÖNCE: `? `Aşağıdaki atlasta ${kapsam} ismin altında bu geleneğe dayanan bir tanım ve o tanımı getiren âlimin adı yer alır. ${terkipSayisi} Kur’ânî terkip ise tek bir isim değil bir tamlama olduğu için bileşenlerinden çözülür. Geriye ${kaynaksiz.length} isim kalır — onda tanım satırı boş bırakılır; doğrulanmış bir kaynak bulunamadığında yerine tahmin yazılmaz.``
+  SONRA: `? `Aşağıdaki atlasta ${kapsam} ismin altında bu geleneğe dayanan bir tanım ve o tanımı getiren âlimin adı yer alır. ${terkipSayisi} Kur’ânî terkip ise tek bir isim değil bir tamlama olduğu için bileşenlerinden çözülür. Geriye ${kaynaksiz.length} isim kalır; onlarda tanım satırı boş bırakılır ve doğrulanmış bir kaynak bulunamadığında yerine tahmin yazılmaz.``
+
+### `next/src/components/TefsirIhtilaflari.jsx`
+
+- ÖNCE: `{ href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 73 mesel — motif ağı, çift meseller, belâgat yapısı.', descEn: '73 Quranic parables — motif network, paired parables, rhetorical structure.' },`
+  SONRA: `{ href: `/${language}/atlas/mesel`, titleTr: 'Meseller Atlası', titleEn: 'Parables Atlas', descTr: 'Kur\'ân\'daki 73 mesel: motif ağı, çift meseller, belâgat yapısı.', descEn: '73 Quranic parables: motif network, paired parables, rhetorical structure.' },`
+- ÖNCE: `{ href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Teşbih, istiâre, temsil — beş büyük belâgat ailesi.', descEn: 'Simile, metaphor, analogy — the five major rhetorical families.' },`
+  SONRA: `{ href: `/${language}/arac/retorik`, titleTr: 'Kur\'ân Belâgatı', titleEn: 'Quranic Rhetoric', descTr: 'Teşbih, istiâre, temsil: beş büyük belâgat ailesi.', descEn: 'Simile, metaphor, analogy: the five major rhetorical families.' },`
+- ÖNCE: `{ href: `/${language}/arac/elestirel-cerceve`, titleTr: 'Eleştirel Çerçeve', titleEn: 'Critical Frame', descTr: 'Zorlu sorular ve ulemânın cevabı — itiraz, cevap, netice.', descEn: "Hard questions and the scholars' answers — objection, answer, verdict." },`
+  SONRA: `{ href: `/${language}/arac/elestirel-cerceve`, titleTr: 'Eleştirel Çerçeve', titleEn: 'Critical Frame', descTr: 'Zorlu sorular ve ulemânın cevabı: itiraz, cevap, netice.', descEn: "Hard questions and the scholars' answers: objection, answer, verdict." },`
+- ÖNCE: `? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır — anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur.'`
+  SONRA: `? 'Bu ayet, müfessirlerin neden aynı ayeti farklı okuduğunu açıklayan klasik referans noktasıdır. Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar.'`
+- ÖNCE: `: 'This verse is the classical reference point for why exegetes read the same verse differently — disagreement here is not a flaw, but a natural consequence of the text\'s layered nature.'}`
+  SONRA: `: 'This verse is the classical reference point for why exegetes read the same verse differently. Disagreement here is not treated as a flaw; it arises from the text\'s layered nature.'}`
+

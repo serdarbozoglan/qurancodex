@@ -849,7 +849,7 @@ function computeClusters(verses) {
 // ─── Classical surah groupings (Islamic scholarship) ─────────────────────────
 const CLASSICAL_GROUPS = [
   { id: 'fatiha',      tr: 'El-Fâtiha',           en: 'The Opening',            nx: 0.05, ny: 0.50, surahs: [1] },
-  { id: 'tival',       tr: 'Tıval — Uzun Sûreler', en: 'Tiwāl — Long Surahs',   nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },
+  { id: 'tival',       tr: 'Tıval: Uzun Sûreler', en: 'Tiwāl: Long Surahs',   nx: 0.14, ny: 0.18, surahs: [2,3,4,5,6,7] },
   { id: 'medeni_b',    tr: 'Büyük Medenî',         en: 'Major Medinan',          nx: 0.16, ny: 0.60, surahs: [8,9,22,24,33,47,48,49] },
   { id: 'medeni_i',    tr: 'Medenî İdare',         en: 'Medinan Governance',     nx: 0.30, ny: 0.82, surahs: [57,58,59,60,61,62,63,64,65,66] },
   { id: 'kissas',      tr: 'Kıssas-ı Enbiyâ',      en: 'Prophet Narratives',     nx: 0.40, ny: 0.17, surahs: [10,11,12,14,15,17,18,19,20,21,26,27,28] },
@@ -2859,7 +2859,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
           padding: '24px', overflowY: 'auto',
         }}>
           <div style={{ color: COLORS.gold, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '8px', opacity: 0.75 }}>
-            {surahNameTr(filterSurah, language === 'en')} — {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
+            {surahNameTr(filterSurah, language === 'en')}: {graphData.nodes.filter(n => !n.ghost).length} {language === 'tr' ? 'ayet' : 'verses'}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%', maxWidth: '480px' }}>
             {graphData.nodes.filter(n => !n.ghost).map(node => (
@@ -2887,7 +2887,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
         warmupTicks={0} cooldownTicks={10}
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
-        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> — ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
+        nodeLabel={node => `<div style="background:rgba(10,8,4,0.97);border:1px solid rgba(212,165,116,0.3);padding:6px 10px;border-radius:6px;font-size:12px;color:${COLORS.gold};max-width:220px"><b>${node.id}</b> · ${surahNameTr(node.surah, language === 'en')}<br/><span style="color:${COLORS.silver};font-size:11px">${(language === 'tr' ? (cleanTr(node.turkish) || node.english) : (node.english || cleanTr(node.turkish)))?.slice(0, 80)}...</span></div>`}
         linkVisibility={() => !useInstancedFastPath}
         linkColor={linkColor}
         linkOpacity={1}
@@ -2982,7 +2982,7 @@ function FullGraph({ verses, onBack, language, onClose }) {
               margin: '0 auto 22px', maxWidth: '640px',
             }}>
               {language === 'tr'
-                ? 'Anlamca yakın ayetler birbirine çizgiyle bağlı. Bir ayete dokunun — ona en çok benzeyen ayetleri görün.'
+                ? 'Anlamca yakın ayetler birbirine çizgiyle bağlı. Bir ayete dokunun, ona en çok benzeyen ayetleri görün.'
                 : 'Verses close in meaning are joined by a line. Touch any verse to see the ones most like it.'}
             </p>
 
@@ -3031,8 +3031,8 @@ function FullGraph({ verses, onBack, language, onClose }) {
                   },
                   {
                     labelTr: 'Konumlar', labelEn: 'Positions',
-                    valueTr: 'Ayetlerin 3B konumu, bu anlam uzayının UMAP ile boyut indirgemesinden elde edilir — yakınlık görsel bir temsildir, ayrı bir iddia taşımaz.',
-                    valueEn: 'The 3D position of each verse comes from UMAP dimensionality reduction of that meaning-space — proximity is a visual representation, not a separate claim.',
+                    valueTr: 'Ayetlerin 3B konumu, bu anlam uzayının UMAP ile boyut indirgemesinden elde edilir; yakınlık görsel bir temsildir, ayrı bir iddia taşımaz.',
+                    valueEn: 'The 3D position of each verse comes from UMAP dimensionality reduction of that meaning-space; proximity is a visual representation, not a separate claim.',
                   },
                 ]}
               />

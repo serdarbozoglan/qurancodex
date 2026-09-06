@@ -39,8 +39,8 @@ export default function EsmaTanimlari({ tr }) {
       en: 'For al-Khaṭṭābī, raḥmān is particular in attribution and universal in meaning; raḥīm the reverse. Many scholars saw no semantic difference at all.',
     },
     tasavvufi: {
-      tr: 'Bu gelenek ismi bir bilgi olarak değil bir pay olarak okur: “Rahmân” denildiğinde asıl soru, kulun o rahmetten ne aldığıdır.',
-      en: 'This tradition reads the name not as information but as a share: when “Raḥmān” is said, the real question is what the servant takes from that mercy.',
+      tr: 'Bu gelenek ismi bir bilgi olarak değil bir pay olarak okur: “Rahmân” denildiğinde sorulan, kulun o rahmetten ne aldığıdır.',
+      en: 'This tradition reads the name not as information but as a share: when “Raḥmān” is said, the question is what the servant takes from that mercy.',
     },
   };
 
@@ -148,8 +148,8 @@ export default function EsmaTanimlari({ tr }) {
           opacity: 0.88,
         }}>
           {tr
-            ? 'Üç cevap birbirini çürütmez; aynı ismin üç ayrı katmanıdır. Ve üçüncü satırdaki ihtilaf — “birçok âlim aralarında fark görmemiştir” — gizlenmiyor: tanım tek sesli değildir.'
-            : 'The three answers do not refute one another; they are three layers of the same name. And the disagreement in the third line — “many scholars saw no difference” — is not hidden: definition is not single-voiced.'}
+            ? 'Üç cevap birbirini çürütmez; aynı ismin üç ayrı katmanıdır. Üçüncü satırdaki ihtilaf (“birçok âlim aralarında fark görmemiştir”) gizlenmiyor: tanım tek sesli değildir.'
+            : 'The three answers do not refute one another; they are three layers of the same name. The disagreement in the third line (“many scholars saw no difference”) is not hidden: definition is not single-voiced.'}
         </p>
 
         {/* ── Şerh zinciri ──────────────────────────────────────────────── */}
@@ -172,8 +172,8 @@ export default function EsmaTanimlari({ tr }) {
           maxWidth: '760px',
         }}>
           {tr
-            ? 'İsimlere dair müstakil eserlerin ilki 923’te yazıldı. Aşağıdaki zincir, bu sayfadaki tanımların dayandığı gelenektir — sonuncusu bir yorumu kâinattaki karşılığına bağlar.'
-            : 'The first standalone work on the names was written in 923. The chain below is the tradition on which this page’s definitions rest — the last of them ties interpretation to what answers it in the cosmos.'}
+            ? 'İsimlere dair müstakil eserlerin ilki 923’te yazıldı. Aşağıdaki zincir, bu sayfadaki tanımların dayandığı gelenektir; sonuncusu bir yorumu kâinattaki karşılığına bağlar.'
+            : 'The first standalone work on the names was written in 923. The chain below is the tradition on which this page’s definitions rest; the last of them ties interpretation to what answers it in the cosmos.'}
         </p>
 
         <div style={{
@@ -316,8 +316,8 @@ export default function EsmaTanimlari({ tr }) {
             maxWidth: '780px',
           }}>
             {tr
-              ? `Küçük bir ayrıntı: bu altı isimden beşi yukarıdaki 114 isimlik atlasta var, ${nursi.atlastaOlmayan.join(', ')} yok. Ferd, meşhur doksan dokuzluk listeden değil, duâ ve hadis geleneğinden gelir — Bediüzzaman’ın seçimi listeye değil, kendi okuyuşuna bağlıdır.`
-              : `A small detail: five of these six names appear in the 114-name atlas above; ${nursi.atlastaOlmayan.join(', ')} does not. Fard comes not from the famous list of ninety-nine but from the tradition of supplication and hadith — Bediüzzaman’s selection follows his own reading, not the list.`}
+              ? `Küçük bir ayrıntı: bu altı isimden beşi yukarıdaki 114 isimlik atlasta var, ${nursi.atlastaOlmayan.join(', ')} yok. Ferd, meşhur doksan dokuzluk listeden değil, duâ ve hadis geleneğinden gelir; Bediüzzaman’ın seçimi listeye değil, kendi okuyuşuna bağlıdır.`
+              : `A small detail: five of these six names appear in the 114-name atlas above; ${nursi.atlastaOlmayan.join(', ')} does not. Fard comes not from the famous list of ninety-nine but from the tradition of supplication and hadith; Bediüzzaman’s selection follows his own reading, not the list.`}
           </p>
         )}
 
@@ -332,7 +332,7 @@ export default function EsmaTanimlari({ tr }) {
           lineHeight: 1.65,
         }}>
           {tr
-            ? `Aşağıdaki atlasta ${kapsam} ismin altında bu geleneğe dayanan bir tanım ve o tanımı getiren âlimin adı yer alır. ${terkipSayisi} Kur’ânî terkip ise tek bir isim değil bir tamlama olduğu için bileşenlerinden çözülür. Geriye ${kaynaksiz.length} isim kalır — onda tanım satırı boş bırakılır; doğrulanmış bir kaynak bulunamadığında yerine tahmin yazılmaz.`
+            ? `Aşağıdaki atlasta ${kapsam} ismin altında bu geleneğe dayanan bir tanım ve o tanımı getiren âlimin adı yer alır. ${terkipSayisi} Kur’ânî terkip ise tek bir isim değil bir tamlama olduğu için bileşenlerinden çözülür. Geriye ${kaynaksiz.length} isim kalır; onlarda tanım satırı boş bırakılır ve doğrulanmış bir kaynak bulunamadığında yerine tahmin yazılmaz.`
             : `In the atlas below, ${kapsam} names carry a definition grounded in this tradition together with the scholar who advances it. A further ${terkipSayisi} Qurʾānic phrases are not single names but constructions, so they are resolved from their parts. That leaves ${kaynaksiz.length} name whose line stays empty: where no verified source was found, nothing is guessed in its place.`}
         </p>
       </div>
