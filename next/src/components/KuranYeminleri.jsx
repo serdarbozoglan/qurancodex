@@ -212,8 +212,8 @@ export default function KuranYeminleri({ onClose }) {
             opacity: 0.88,
           }}>
             {language === 'tr'
-              ? <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yarattıklarına yemin eder</em> — güneşe, aya, zamana, ruha, Kur&apos;an&apos;ın kendisine. Yemin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bir vurgu sanatı</em>; ardından gelen mesaja en güçlü işaret.</>
-              : <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>swears by His creation</em> — by the sun, the moon, time, the soul, the Quran itself. The oath is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>an art of emphasis</em>; the strongest signal for what follows.</>}
+              ? <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>yarattıklarına yemin eder</em>: güneşe, aya, zamana, ruha, Kur&apos;an&apos;ın kendisine. Yemin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>bir vurgu sanatı</em>; ardından gelen mesaja en güçlü işaret.</>
+              : <>Allah <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>swears by His creation</em>: by the sun, the moon, time, the soul, the Quran itself. The oath is <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>an art of emphasis</em>; the strongest signal for what follows.</>}
           </p>
 
           {/* Filigree divider */}
@@ -276,8 +276,8 @@ export default function KuranYeminleri({ onClose }) {
             textAlign: 'left',
           }}>
             {language === 'tr'
-              ? `Allah Kur'an'da ${meta.totalOaths} farklı şeye yemin eder: güneş, ay, zaman, şehirler, ruh, hatta Kur'an'ın kendisi. Bu yeminler tesadüfi değil — her biri, ardından gelen mesajın en güçlü delilidir.`
-              : `God swears by ${meta.totalOaths} different things in the Quran: the sun, moon, time, cities, the soul, and even the Quran itself. These oaths are not random — each is the strongest evidence for the message that follows.`
+              ? `Allah Kur'an'da ${meta.totalOaths} farklı şeye yemin eder: güneş, ay, zaman, şehirler, ruh, hatta Kur'an'ın kendisi. Bu yeminler tesadüfî değildir; her biri, ardından gelen mesajın en güçlü delilidir.`
+              : `God swears by ${meta.totalOaths} different things in the Quran: the sun, moon, time, cities, the soul, and even the Quran itself. These oaths are not random; each is the strongest evidence for the message that follows.`
             }
           </p>
 
@@ -481,7 +481,7 @@ export default function KuranYeminleri({ onClose }) {
           isMobile={isMobile}
           links={[
             { href: `/${language}/arac/renkler`, titleTr: "Kur'an'ın Renkleri", titleEn: 'Colors of the Quran', descTr: 'Yeminlerin ardındaki tabiat: gün, güneç, semâ.', descEn: 'The nature behind the oaths: day, sun, sky.' },
-            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: "Yemin edilen kâinat — Kur'ân'ın tabiat paneli.", descEn: "The universe sworn by — the Qur'an's nature panel." },
+            { href: `/${language}/atlas/doga`, titleTr: 'Kevni Ayetler', titleEn: 'Cosmic Signs', descTr: "Yemin edilen kâinat: Kur'ân'ın tabiat paneli.", descEn: "The universe sworn by: the Qur'an's nature panel." },
             { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: 'Yemin bir kanun cümlesidir; hangi kanuna?', descEn: 'An oath is a law-statement; which law?' },
           ]}
         />
@@ -1397,7 +1397,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
         marginBottom: '24px',
       }}>
         <div style={{ color: SEMANTIC.textFaint, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: FONTS.body, marginBottom: '12px' }}>
-          {language === 'tr' ? 'İbn Kayyim el-Cevziyye — Temel Tez' : 'Ibn Qayyim al-Jawziyya — Core Thesis'}
+          {language === 'tr' ? 'İbn Kayyim el-Cevziyye: Temel Tez' : 'Ibn Qayyim al-Jawziyya: Core Thesis'}
         </div>
         <p className="mq-fs" style={{ color: COLORS.offWhite, '--fs-d': '1.05rem', '--fs-m': '0.95rem', fontFamily: FONTS.body, lineHeight: 1.75, margin: '0 0 16px', fontStyle: 'italic' }}>
           {language === 'tr' ? ibnQayyim.thesisTr : ibnQayyim.thesisEn}
@@ -1678,7 +1678,7 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
             {language === 'tr' ? "Yöntem Uygulamada" : "The Method in Action"}
           </div>
           <h3 className="mq-fs" style={{ color: COLORS.gold, '--fs-d': '1.2rem', '--fs-m': '1.05rem', fontWeight: 700, fontFamily: FONTS.body, margin: '0 0 8px', lineHeight: 1.35 }}>
-            {language === 'tr' ? "Üç Ünlü Yemin Sûresi — İbn Kayyim'in Merceğinden" : "Three Famous Oath Surahs — Through Ibn Qayyim's Lens"}
+            {language === 'tr' ? "Üç Ünlü Yemin Sûresi: İbn Kayyim'in Merceğinden" : "Three Famous Oath Surahs: Through Ibn Qayyim's Lens"}
           </h3>
           <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, lineHeight: 1.7, margin: 0 }}>
             {language === 'tr'
@@ -1696,28 +1696,28 @@ function TabIbnKayyim({ ibnQayyim, ibnKayyimPatterns, language, isMobile }) {
               objectEn: "Sevenfold oath chain: sun + moon + day + night + sky + earth + soul",
               answerTr: "\"Nefsini arındıran kurtulmuştur, kötülüklere gömen ise zarar etmiştir.\"",
               answerEn: "\"He who purifies his soul has succeeded; he who corrupts it has lost.\"",
-              relationTr: "Tüm yemin objeleri 'tezatlar arası denge' örneği: gündüz ↔ gece, gök ↔ yer, güneş ↔ ay. Nefs de aynı tezat ekseninde — fücur ↔ takvâ. Yedi kozmik tanık, bir psikolojik gerçeği teyit eder.",
-              relationEn: "Every oath-object exemplifies 'balance amid opposites': day ↔ night, sky ↔ earth, sun ↔ moon. The soul moves along the same axis — fujūr ↔ taqwā. Seven cosmic witnesses confirm one psychological truth.",
+              relationTr: "Tüm yemin objeleri 'tezatlar arası denge' örneği: gündüz ↔ gece, gök ↔ yer, güneş ↔ ay. Nefs de aynı tezat eksenindedir: fücur ↔ takvâ. Yedi kozmik tanık, bir psikolojik gerçeği teyit eder.",
+              relationEn: "Every oath-object exemplifies 'balance amid opposites': day ↔ night, sky ↔ earth, sun ↔ moon. The soul moves along the same axis: fujūr ↔ taqwā. Seven cosmic witnesses confirm one psychological truth.",
             },
             {
               ar: "وَالْعَصْرِ · اِنَّ الْاِنْسَانَ لَفِي خُسْرٍ",
               ref: language === 'tr' ? "Asr 103:1-3" : "Al-ʿAṣr 103:1-3",
-              objectTr: "Asr — zaman (gündüz vakti? mutlak süre? Resul'ün asrı?)",
-              objectEn: "Al-ʿAṣr — time (the afternoon? absolute duration? the age of the Messenger?)",
+              objectTr: "Asr: zaman (gündüz vakti? mutlak süre? Resul'ün asrı?)",
+              objectEn: "Al-ʿAṣr: time (the afternoon? absolute duration? the age of the Messenger?)",
               answerTr: "\"İnsan gerçekten ziyandadır.\"",
               answerEn: "\"Humankind is truly in loss.\"",
-              relationTr: "İmam Şafiî'nin ünlü sözü: \"Bu sûreden başka inmeseydi yeterdi.\" Yemin objesi (akıp giden zaman) cevabı (insanın ziyanı) içinde taşır — zaman geçtikçe sermaye eksilir, ancak iman+amel+tavsiye-i hak+sabr bu denklemi tersine çevirir. İbn Kayyim'in 'objesi cevabı kanıtlar' tezinin en saf örneği.",
-              relationEn: "Imam al-Shāfiʿī's famous line: 'Had only this sura been revealed, it would suffice.' The oath-object (flowing time) carries the answer (humankind's loss) within itself — as time passes, capital depletes; only iman + ʿamal + counsel to truth + patience reverses the equation. The purest example of Ibn Qayyim's 'the object proves the subject' thesis.",
+              relationTr: "İmam Şafiî'nin ünlü sözü: \"Bu sûreden başka inmeseydi yeterdi.\" Yemin objesi (akıp giden zaman) cevabı (insanın ziyanı) içinde taşır: zaman geçtikçe sermaye eksilir; ancak iman, amel, tavsiye-i hak ve sabır bu denklemi tersine çevirir. İbn Kayyim'in 'objesi cevabı kanıtlar' tezinin en saf örneği.",
+              relationEn: "Imam al-Shāfiʿī's famous line: 'Had only this sura been revealed, it would suffice.' The oath-object (flowing time) carries the answer (humankind's loss) within itself: as time passes, capital depletes; only iman, ʿamal, counsel to truth and patience reverse the equation. The purest example of Ibn Qayyim's 'the object proves the subject' thesis.",
             },
             {
               ar: "فَلَا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ · اِنَّهُ لَقُرْاٰنٌ كَرِيمٌ",
               ref: language === 'tr' ? "Vâkıa 56:75-77" : "Al-Wāqiʿa 56:75-77",
-              objectTr: "Yıldızların \"konumları\" (mevâkiʿu'n-nucûm) — sadece yıldızlar değil yörüngeleri",
-              objectEn: "The 'locations of the stars' (mawāqiʿ al-nujūm) — not the stars themselves but their positions",
+              objectTr: "Yıldızların \"konumları\" (mevâkiʿu'n-nucûm): yalnızca yıldızlar değil, yörüngeleri",
+              objectEn: "The 'locations of the stars' (mawāqiʿ al-nujūm): not the stars themselves but their positions",
               answerTr: "\"Bu, gerçekten değerli bir Kur'an'dır.\"",
               answerEn: "\"Indeed, it is a noble Quran.\"",
-              relationTr: "Kur'an, kendi ininin \"yıldızların konumları\" gibi olduğunu söyler — parça parça, hesaplı, evrensel düzene yerleşmiş. Modern astronomi açısından da dikkat çekici: yıldızı değil 'konumunu' anar — ışığın geliş süresi nedeniyle gördüğümüz, yıldızın geçmiş konumudur. İbn Kayyim'in 'gizli ilişki' (münâsebe hafiyye) örneği: yemin objesi bir kozmoloji, cevap o kozmolojiye dair bir metin.",
-              relationEn: "The Quran says its own descent resembles 'the locations of the stars' — in stages, by calculation, placed within universal order. Notably for modern astronomy: not the star but its 'location' — what we see, due to light travel, is the star's past position. Ibn Qayyim's 'hidden relationship' (munāsaba khafiyya) at work: the oath-object is a cosmology, the answer is a text about that cosmology.",
+              relationTr: "Kur'an, kendi inişinin \"yıldızların konumları\" gibi olduğunu söyler: parça parça, hesaplı, evrensel düzene yerleşmiş. Modern astronomi açısından bir not: ayet yıldızı değil 'konumunu' anar; ışığın geliş süresi nedeniyle gördüğümüz, yıldızın geçmiş konumudur. İbn Kayyim'in 'gizli ilişki' (münâsebe hafiyye) örneği: yemin objesi bir kozmoloji, cevap o kozmolojiye dair bir metin.",
+              relationEn: "The Quran says its own descent resembles 'the locations of the stars': in stages, by calculation, placed within universal order. A note from modern astronomy: the verse names not the star but its 'location'; what we see, because of light travel, is the star's past position. Ibn Qayyim's 'hidden relationship' (munāsaba khafiyya) at work: the oath-object is a cosmology, the answer is a text about that cosmology.",
             },
           ].map((ex, i) => (
             <div key={i} style={{
@@ -1798,7 +1798,7 @@ const TAHADDI_VERSES = [
     scope: '10-sure',
     scopeTr: '10 Sûre', scopeEn: '10 Surahs',
     noteTr: 'İlk daralma: bütün Kur\'ân yerine 10 sûre. Klasik tefsir "muktereyât" (uydurulmuş) kelimesinden hareketle içeriğin doğruluğunun bile gerekmediğini, sadece dilbilimsel-retorik seviyenin talep edildiğini vurgular.',
-    noteEn: 'The first narrowing: 10 surahs instead of the whole Qur\'an. Classical tafsīr notes that "muftarayāt" (fabricated) drops even the content-truth demand — only linguistic-rhetorical parity is asked.',
+    noteEn: 'The first narrowing: 10 surahs instead of the whole Qur\'an. Classical tafsīr notes that "muftarayāt" (fabricated) drops even the content-truth demand; only linguistic and rhetorical parity is asked.',
     kaynak: 'Kurtubî, el-Câmi\', Hûd 11:13 tefsiri',
   },
   {
@@ -1821,8 +1821,8 @@ const TAHADDI_VERSES = [
     en: '"If you are in doubt about what We have sent down upon Our servant, bring a surah like it and call your witnesses other than God — if you are truthful. But if you do not — and you will never do it — then fear the fire whose fuel is people and stones, prepared for the disbelievers."',
     scope: '1-sure',
     scopeTr: '1 Sûre + Kesin İfade', scopeEn: '1 Surah + Emphatic',
-    noteTr: 'Meccan tahaddinin Medenî döneme taşınması. "Ve len tef\'alû" (asla yapamayacaksınız) ile klasik retorik burada "yakîni ihbâr" (kesin gaybi haber) sınıfı verir — 14 asırdır bu tahaddi cevaplanmamıştır.',
-    noteEn: 'The Meccan challenge carried into the Medinan period. "Wa lan tafʿalū" (you will never do it) makes this a "yaqīnī ikhbār" — a definitive prediction; classical scholars note it has stood unanswered for 14 centuries.',
+    noteTr: 'Meccan tahaddinin Medenî döneme taşınması. "Ve len tef\'alû" (asla yapamayacaksınız) ile klasik retorik burada "yakînî ihbâr" (kesin gaybî haber) sınıfı verir; 14 asırdır bu tahaddi cevaplanmamıştır.',
+    noteEn: 'The Meccan challenge carried into the Medinan period. "Wa lan tafʿalū" (you will never do it) makes this a "yaqīnī ikhbār", a definitive prediction; classical scholars note it has stood unanswered for 14 centuries.',
     kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Bakara 2:23 tefsiri',
   },
   {
@@ -1833,8 +1833,8 @@ const TAHADDI_VERSES = [
     en: '"Or do they say, \'He fabricated it\'? Rather, they do not believe. Then let them bring a discourse like it, if they are truthful."',
     scope: 'soz',
     scopeTr: 'Herhangi Bir Söz', scopeEn: 'Any Discourse',
-    noteTr: 'Tahaddinin sınır ifadesi: "sûre" bile denmez, sadece "hadîs" (herhangi bir söz). Klasik tefsir (Kurtubî, Râzî) burada tahaddinin en açık biçimde formüle edildiğini kaydeder — sûre → söz genişlemesi.',
-    noteEn: 'The boundary phrase of the challenge: not even "surah" — just "ḥadīth" (any discourse). Classical tafsīr (al-Qurṭubī, al-Rāzī) records this as the most open formulation of the challenge — the surah → discourse broadening.',
+    noteTr: 'Tahaddinin sınır ifadesi: "sûre" bile denmez, yalnızca "hadîs" (herhangi bir söz). Klasik tefsir (Kurtubî, Râzî) burada tahaddinin en açık biçimde formüle edildiğini kaydeder; sûreden söze genişleme.',
+    noteEn: 'The boundary phrase of the challenge: not even "surah", just "ḥadīth" (any discourse). Classical tafsīr (al-Qurṭubī, al-Rāzī) records this as the most open formulation of the challenge; the broadening from surah to discourse.',
     kaynak: 'Kurtubî, el-Câmi\', Tûr 52:33-34 tefsiri; Râzî, Mefâtîhu\'l-Ğayb, Tûr 52:33-34',
   },
   {
@@ -1846,7 +1846,7 @@ const TAHADDI_VERSES = [
     scope: 'iddia',
     scopeTr: 'Kaynak İddia', scopeEn: 'Source Claim',
     noteTr: 'Tahaddinin arka-plandaki iddiası: Kur\'ân uydurulmuş olamaz. Bu ayet 10:38 tahaddiye zemin hazırlar; klasik dizim gereği önce iddia, sonra ispat teklifi.',
-    noteEn: 'The claim behind the challenge: this Qur\'an cannot be a fabrication. It sets the ground for verse 10:38 — classical rhetorical order places the claim before the proof-offer.',
+    noteEn: 'The claim behind the challenge: this Qur\'an cannot be a fabrication. It sets the ground for verse 10:38; classical rhetorical order places the claim before the proof-offer.',
     kaynak: 'Kurtubî, el-Câmi\', Yûnus 10:37 tefsiri',
   },
 ];
@@ -1869,8 +1869,8 @@ function TabTahaddi({ language, isMobile }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
           {tr
-            ? "Kur'ân'ın altı yerdeki meydan okuması — en geniş kapsamlıdan (bütün Kur'ân) en dar olana (herhangi bir söz) doğru daralarak."
-            : "The Qur'an's six-place challenge — narrowing from the broadest scope (the entire Qur'an) to the tightest (any discourse at all)."}
+            ? "Kur'ân'ın altı yerdeki meydan okuması; en geniş kapsamlıdan (bütün Kur'ân) en dar olana (herhangi bir söz) doğru daralarak."
+            : "The Qur'an's six-place challenge; narrowing from the broadest scope (the entire Qur'an) to the tightest (any discourse at all)."}
         </p>
       </div>
 
@@ -1955,18 +1955,18 @@ function TabTahaddi({ language, isMobile }) {
 const KOZMOLOJI_ITEMS = [
   {
     ref: 'Fecr 89:1',
-    themeTr: 'Fecr — Şafak vakti', themeEn: 'al-Fajr — Dawn',
+    themeTr: 'Fecr: Şafak vakti', themeEn: 'al-Fajr: Dawn',
     ar: 'وَالْفَجْرِ',
-    obsTr: 'Astronomik şafak (fecr-i sâdık) atmosferin ~18° güneş altı geometrisiyle tanımlanır — güneşin dolaylı ışığının ilk beliriş anı.',
-    obsEn: 'Astronomical dawn (fajr al-ṣādiq) is defined by the sun ~18° below horizon — the moment scattered sunlight first appears.',
+    obsTr: 'Astronomik şafak (fecr-i sâdık) atmosferin yaklaşık 18° güneş altı geometrisiyle tanımlanır; güneşin dolaylı ışığının ilk beliriş anı.',
+    obsEn: 'Astronomical dawn (fajr al-ṣādiq) is defined by the sun about 18° below the horizon; the moment scattered sunlight first appears.',
     kaynak: 'Kurtubî, Fecr 89:1 tefsiri; klasik miqāt hesapları',
   },
   {
     ref: 'Şems 91:1-2',
     themeTr: 'Güneş + Ay', themeEn: 'Sun + Moon',
     ar: 'وَالشَّمْسِ وَضُحٰيهَا وَالْقَمَرِ اِذَا تَلٰيهَا',
-    obsTr: 'Güneş ve ayın "birbirini takip etmesi" (talâ) — ay güneşin ışığını yansıtır ve yörüngesinde günlük ~13.2° doğuya doğru ilerler; klasik tefsir bu ardıllık ritmini işaret olarak okur.',
-    obsEn: 'The sun and moon "following one another" (talā) — the moon reflects solar light and moves ~13.2° eastward per day along its orbit; classical tafsīr reads this succession-rhythm as the referent.',
+    obsTr: 'Güneş ve ayın "birbirini takip etmesi" (talâ): ay güneşin ışığını yansıtır ve yörüngesinde günlük ~13.2° doğuya doğru ilerler; klasik tefsir bu ardıllık ritmini işaret olarak okur.',
+    obsEn: 'The sun and moon "following one another" (talā): the moon reflects solar light and moves ~13.2° eastward per day along its orbit; classical tafsīr reads this succession-rhythm as the referent.',
     kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Şems 91:1-2',
   },
   {
@@ -1981,40 +1981,40 @@ const KOZMOLOJI_ITEMS = [
     ref: 'Duhâ 93:1-2',
     themeTr: 'Kuşluk + Gecenin Sükûneti', themeEn: 'Forenoon + Night\'s Stillness',
     ar: 'وَالضُّحٰى وَالَّيْلِ اِذَا سَجٰى',
-    obsTr: 'Duhâ (kuşluk) güneşin bir mızrak boyu yükseldiği an — psikolojik olarak "sükûn" evresi (secâ). Klasik tefsir bunu ruhî ferahlığın kozmik simgesi olarak okur.',
-    obsEn: 'Ḍuḥā is the moment the sun rises a spear\'s length — psychologically the "stillness" phase (sajā). Classical tafsīr reads it as a cosmic symbol of inner rest.',
+    obsTr: 'Duhâ (kuşluk) güneşin bir mızrak boyu yükseldiği andır; psikolojik olarak "sükûn" evresi (secâ). Klasik tefsir bunu ruhî ferahlığın kozmik simgesi olarak okur.',
+    obsEn: 'Ḍuḥā is the moment the sun rises a spear\'s length; psychologically the "stillness" phase (sajā). Classical tafsīr reads it as a cosmic symbol of inner rest.',
     kaynak: 'İbn Kesîr, Duhâ 93:1-2 tefsiri',
   },
   {
     ref: 'Necm 53:1',
     themeTr: 'Yıldız', themeEn: 'Star',
     ar: 'وَالنَّجْمِ اِذَا هَوٰى',
-    obsTr: '"Kaybolduğunda" (hevâ) — klasik tefsir bunu (a) yıldızın batışı, (b) meteor / gök taşı, (c) Süreyya takım yıldızı olarak yorumlar. Kelimenin kök anlamı "iniş, sükûn".',
-    obsEn: '"When it sets/falls" (hawā) — classical tafsīr reads this as (a) a setting star, (b) a meteor, (c) the Pleiades. The root meaning is "descent, coming to rest".',
+    obsTr: '"Kaybolduğunda" (hevâ): klasik tefsir bunu (a) yıldızın batışı, (b) meteor / gök taşı, (c) Süreyya takım yıldızı olarak yorumlar. Kelimenin kök anlamı "iniş, sükûn".',
+    obsEn: '"When it sets or falls" (hawā): classical tafsīr reads this as (a) a setting star, (b) a meteor, (c) the Pleiades. The root meaning is "descent, coming to rest".',
     kaynak: 'Kurtubî, Necm 53:1 tefsiri',
   },
   {
     ref: 'Târiq 86:1-3',
     themeTr: 'Gökyüzü + Gece Ziyaretçisi', themeEn: 'Sky + Night Visitor',
     ar: 'وَالسَّمٓاءِ وَالطَّارِقِ وَمٓا اَدْرٰيكَ مَا الطَّارِقُ النَّجْمُ الثَّاقِبُ',
-    obsTr: 'Târiq — "gecenin kapıyı çalanı, delici yıldız". Klasik tefsir ثاقب (ᵗhāḳıb) kelimesini "parlayan, karanlığı delen" olarak açıklar. Kelime doğrudan bir gök cismini tanımlar, modern astronomideki spesifik gök objelerine karşılık gelmez.',
-    obsEn: 'Ṭāriq — "the night-knocker, the piercing star". Classical tafsīr renders ثاقب (ṯāqib) as "shining, piercing the darkness". The term names a celestial body directly and does not correspond to specific modern astronomical objects.',
+    obsTr: 'Târiq: "gecenin kapıyı çalanı, delici yıldız". Klasik tefsir ثاقب (ᵗhāḳıb) kelimesini "parlayan, karanlığı delen" olarak açıklar. Kelime doğrudan bir gök cismini tanımlar, modern astronomideki spesifik gök objelerine karşılık gelmez.',
+    obsEn: 'Ṭāriq: "the night-knocker, the piercing star". Classical tafsīr renders ثاقب (ṯāqib) as "shining, piercing the darkness". The term names a celestial body directly and does not correspond to specific modern astronomical objects.',
     kaynak: 'Râzî, Mefâtîhu\'l-Ğayb, Târiq 86:1-3',
   },
   {
     ref: 'Bürûc 85:1',
     themeTr: 'Burçlı Sema', themeEn: 'The Constellated Sky',
     ar: 'وَالسَّمٓاءِ ذَاتِ الْبُرُوجِ',
-    obsTr: '"Bürûc" — burçlar / kaleler. Klasik astronomi 12 zodyak burcu; genişletilmiş yorumda gök cisimlerinin "istikametli konumları". Modern gözlem gökyüzünü 88 takımyıldızına böler.',
-    obsEn: '"Burūj" — constellations / towers. Classical astronomy: the 12 zodiac signs; broader reading: fixed celestial positions. Modern observation divides the sky into 88 constellations.',
+    obsTr: '"Bürûc": burçlar, kaleler. Klasik astronomi 12 zodyak burcu; genişletilmiş yorumda gök cisimlerinin "istikametli konumları". Modern gözlem gökyüzünü 88 takımyıldızına böler.',
+    obsEn: '"Burūj": constellations, towers. Classical astronomy: the 12 zodiac signs; broader reading: fixed celestial positions. Modern observation divides the sky into 88 constellations.',
     kaynak: 'Süyûtî, ed-Dürrü\'l-Mensûr, Bürûc 85:1',
   },
   {
     ref: 'Tîn 95:1-3',
     themeTr: 'İncir + Zeytin + Sinâ + Belde', themeEn: 'Fig + Olive + Sinai + Sanctuary',
     ar: 'وَالتِّينِ وَالزَّيْتُونِ وَطُورِ سِينِينَ وَهٰذَا الْبَلَدِ الْاَمِينِ',
-    obsTr: "Botanik (incir + zeytin) + coğrafya (Sinâ dağı + Mekke) — kozmik olmayıp yeryüzü-antropolojik yemin serisi. Tefsir bunu 'vahiy coğrafyası' (İsa, Musa, Muhammed'in mekânsal işaretleri) olarak okur.",
-    obsEn: 'Botany (fig + olive) + geography (Mt Sinai + Mecca) — not cosmological but geo-anthropological. Tafsīr reads it as "the geography of revelation" (Jesus, Moses, Muhammad markers).',
+    obsTr: "Botanik (incir ve zeytin) ile coğrafya (Sinâ dağı ve Mekke); kozmik değil, yeryüzüne ve insana ait bir yemin serisi. Tefsir bunu 'vahiy coğrafyası' (İsa, Musa, Muhammed'in mekânsal işaretleri) olarak okur.",
+    obsEn: 'Botany (fig and olive) and geography (Mt Sinai and Mecca); not cosmological but geo-anthropological. Tafsīr reads it as "the geography of revelation" (Jesus, Moses, Muhammad markers).',
     kaynak: 'Kurtubî, el-Câmi\', Tîn 95:1-3',
   },
   {
@@ -2045,8 +2045,8 @@ const KOZMOLOJI_ITEMS = [
     ref: 'Vâkı\'a 56:75-76',
     themeTr: 'Yıldızların Konumları', themeEn: 'Positions of the Stars',
     ar: 'فَلٓا اُقْسِمُ بِمَوَاقِعِ النُّجُومِ وَاِنَّهُ لَقَسَمٌ لَوْ تَعْلَمُونَ عَظِيمٌ',
-    obsTr: '"Mevâki\'i\'n-nücûm" — yıldızların konumları. Klasik tefsir bunu (a) yıldızların gökteki yerleri, (b) inen ayetlerin metindeki yerleri (nüzul-anları) olarak iki katmanda okur.',
-    obsEn: '"Mawāqiʿ al-nujūm" — the positions of the stars. Classical tafsīr reads it in two layers: (a) the stars\' locations in the sky, (b) the verses\' positions in the text (moments of descent).',
+    obsTr: '"Mevâki\'i\'n-nücûm": yıldızların konumları. Klasik tefsir bunu (a) yıldızların gökteki yerleri, (b) inen ayetlerin metindeki yerleri (nüzul-anları) olarak iki katmanda okur.',
+    obsEn: '"Mawāqiʿ al-nujūm": the positions of the stars. Classical tafsīr reads it in two layers: (a) the stars\' locations in the sky, (b) the verses\' positions in the text (moments of descent).',
     kaynak: 'Taberî, Câmi\'u\'l-Beyân, Vâkı\'a 56:75-76 (İbn Abbâs rivayeti); Süyûtî, el-İtkân (peyderpey nüzul bölümü)',
   },
 ];
@@ -2069,8 +2069,8 @@ function TabKozmoloji({ language, isMobile }) {
         </h2>
         <p style={{ color: COLORS.silver, fontSize: '0.9rem', maxWidth: '640px', margin: '0 auto', lineHeight: 1.55, opacity: 0.85 }}>
           {tr
-            ? "Fecrden gecenin ziyaretçisine, savuran rüzgârlardan yıldızların konumlarına — yemin edilen kâinatın haritası. Her yeminin klasik tefsiri + nötr bilimsel gözlem."
-            : "From dawn to the night visitor, from scattering winds to stellar positions — the map of the cosmos sworn by. Each with classical exegesis plus a neutral scientific observation."}
+            ? "Fecrden gecenin ziyaretçisine, savuran rüzgârlardan yıldızların konumlarına; yemin edilen kâinatın haritası. Her yemin için klasik tefsir ve nötr bir bilimsel gözlem."
+            : "From dawn to the night visitor, from scattering winds to stellar positions; the map of the cosmos sworn by. Each with classical exegesis and a neutral scientific observation."}
         </p>
       </div>
 
@@ -2208,8 +2208,8 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Bir insan yemin ederken kendinden yüce bir şeye atıfta bulunur. Allah ise <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>kendi yarattığına</strong> yemin eder. Çünkü O&apos;nun katında güneş, kalem, asır, ruh — hepsi <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>O&apos;nun ayetidir</strong>. Yemin, yaratılana verilen değerin en yüksek beyanıdır.</>
-          : <>When a human swears, they refer to something greater than themselves. Allah swears by <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His own creation</strong>. Because before Him, the sun, the pen, time, the soul — all are <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His signs</strong>. The oath is the highest declaration of the value given to the created.</>}
+          ? <>Bir insan yemin ederken kendinden yüce bir şeye atıfta bulunur. Allah ise <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>kendi yarattığına</strong> yemin eder. Çünkü O&apos;nun katında güneş, kalem, asır, ruh; hepsi <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>O&apos;nun ayetidir</strong>. Yemin, yaratılana verilen değerin en yüksek beyanıdır.</>
+          : <>When a human swears, they refer to something greater than themselves. Allah swears by <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His own creation</strong>. Because before Him, the sun, the pen, time, the soul; all are <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>His signs</strong>. The oath is the highest declaration of the value given to the created.</>}
       </p>
 
       <div style={{ marginBottom: '20px' }}>
@@ -2219,7 +2219,7 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
             letterSpacing: '0.24em', textTransform: 'uppercase',
             color: COLORS.gold, opacity: 0.75,
           }}>
-            {tr ? 'Daha Derine — Yemin-Yoğun Sûreler' : 'Go Deeper — Oath-Rich Suras'}
+            {tr ? 'Daha Derine: Yemin Yoğun Sûreler' : 'Go Deeper: Oath-Rich Suras'}
           </span>
         </div>
 
@@ -2228,9 +2228,9 @@ function YeminlerClosing({ language, isMobile, totalOaths }) {
           gap: '12px',
         }}>
           {[
-            { href: `/${language}/oku/91`, titleTr: 'Şems Sûresi (91)', titleEn: 'Sura al-Shams (91)', descTr: '7 ayet · 7 yemin — Güneş, ay, gündüz, gece, gök, yer, ruh. Kur\'an\'ın en yoğun yemin zinciri.', descEn: '7 verses · 7 oaths — sun, moon, day, night, sky, earth, soul. The Quran\'s densest oath chain.' },
-            { href: `/${language}/oku/56`, titleTr: 'Vâkıa Sûresi (56)', titleEn: 'Sura al-Wāqiʿa (56)', descTr: '"Yıldızların yerlerine yemin ederim — bilseniz bu büyük bir yemindir" (56:75-76) — Kur\'an\'ın kendi yeminini tefsir ettiği ayet.', descEn: '"I swear by the positions of the stars — and indeed it is a tremendous oath if you only knew" (56:75-76) — the Quran interpreting its own oath.' },
-            { href: `/${language}/oku/103`, titleTr: 'Asr Sûresi (103)', titleEn: 'Sura al-ʿAṣr (103)', descTr: '"Asra yemin olsun ki insan ziyandadır" — 3 ayetlik en kısa yemin sûresi; tüm tarihin tezi.', descEn: '"By time — indeed humanity is in loss" — the shortest oath sura (3 verses); the thesis of all history.' },
+            { href: `/${language}/oku/91`, titleTr: 'Şems Sûresi (91)', titleEn: 'Sura al-Shams (91)', descTr: '7 ayet, 7 yemin: güneş, ay, gündüz, gece, gök, yer, ruh. Kur\'an\'ın en yoğun yemin zinciri.', descEn: '7 verses, 7 oaths: sun, moon, day, night, sky, earth, soul. The Quran\'s densest oath chain.' },
+            { href: `/${language}/oku/56`, titleTr: 'Vâkıa Sûresi (56)', titleEn: 'Sura al-Wāqiʿa (56)', descTr: '"Yıldızların yerlerine yemin ederim — bilseniz bu büyük bir yemindir" (56:75-76). Kur\'an\'ın kendi yeminini tefsir ettiği ayet.', descEn: '"I swear by the positions of the stars — and indeed it is a tremendous oath if you only knew" (56:75-76). The Quran interpreting its own oath.' },
+            { href: `/${language}/oku/103`, titleTr: 'Asr Sûresi (103)', titleEn: 'Sura al-ʿAṣr (103)', descTr: '"Asra yemin olsun ki insan ziyandadır." 3 ayetlik en kısa yemin sûresi; tüm tarihin tezi.', descEn: '"By time, indeed humanity is in loss." The shortest oath sura (3 verses); the thesis of all history.' },
           ].map((tt, i) => (
             <a className="mq-box"
               key={i}
@@ -2371,8 +2371,8 @@ function VakiaSpotlight({ language, isMobile }) {
           opacity: 0.85,
         }}>
           {tr
-            ? <>Bu nadir bir andır: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong>, ettiği yeminin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>büyüklüğünü</strong> insana açıkça söylüyor. Yeminin önemini ifade eden meta-ayet — Kur&apos;an&apos;da yalnızca burada geçer.</>
-            : <>This is a rare moment: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong> explicitly tells humanity the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>greatness</strong> of His own oath. A meta-verse on the weight of swearing — found only here in the Quran.</>}
+            ? <>Bu nadir bir andır: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong>, ettiği yeminin <strong style={{ color: COLORS.gold, fontWeight: 600 }}>büyüklüğünü</strong> insana açıkça söylüyor. Yeminin önemini ifade eden meta-ayet; Kur&apos;an&apos;da yalnızca burada geçer.</>
+            : <>This is a rare moment: <strong style={{ color: COLORS.gold, fontWeight: 600 }}>Allah</strong> explicitly tells humanity the <strong style={{ color: COLORS.gold, fontWeight: 600 }}>greatness</strong> of His own oath. A meta-verse on the weight of swearing; found only here in the Quran.</>}
         </p>
       </div>
     </div>
@@ -2425,8 +2425,8 @@ const YEMIN_CEVAP_DATA = [
     answerAr: 'اِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ',
     answerTr: 'Şüphesiz Rabbinin yakalayışı çok çetindir.',
     answerEn: 'Indeed, the grip of your Lord is severe.',
-    insightTr: 'Yemin (85:1-3) tematik olarak Ashâb-ı Uhdûd kıssasını (85:4-7) açar; fakat kasem cevabı (jevâbü\'l-kasem) gramatik olarak "inne… le-" kalıbını taşıyan 85:12\'dir — zulmedenlerin karşısına "Rabbinin çetin yakalayışı" konur. (Bu cevap ihtilaflıdır; bir görüşe göre mahzûftur.)',
-    insightEn: 'The oath (85:1-3) thematically opens the story of the People of the Trench (85:4-7); grammatically, though, the oath\'s answer carries the classic "inna… la-" form in 85:12 — against the oppressors stands "the severe grip of your Lord." (This answer is debated; one view holds it is elided.)',
+    insightTr: 'Yemin (85:1-3) tematik olarak Ashâb-ı Uhdûd kıssasını (85:4-7) açar; fakat kasem cevabı (jevâbü\'l-kasem) gramatik olarak "inne… le-" kalıbını taşıyan 85:12\'dir; zulmedenlerin karşısına "Rabbinin çetin yakalayışı" konur. (Bu cevap ihtilaflıdır; bir görüşe göre mahzûftur.)',
+    insightEn: 'The oath (85:1-3) thematically opens the story of the People of the Trench (85:4-7); grammatically, though, the oath\'s answer carries the classic "inna… la-" form in 85:12; against the oppressors stands "the severe grip of your Lord." (This answer is debated; one view holds it is elided.)',
   },
 ];
 
@@ -2472,8 +2472,8 @@ function YeminCevapReveal({ language, isMobile }) {
           opacity: 0.88,
         }}>
           {tr
-            ? "Yeminin gerçek gücü 'neye' yemin edildiğinde değil — ardından gelen sözdedir. Aşağıdaki 3 örnekte yemini okuyun, ardından cevabı açın."
-            : "The oath's true power is not in 'what' is sworn by — but in what follows. Read each oath below, then reveal the answer."}
+            ? "Yeminin gerçek gücü 'neye' yemin edildiğinde değil, ardından gelen sözdedir. Aşağıdaki 3 örnekte yemini okuyun, ardından cevabı açın."
+            : "The oath's true power is not in what is sworn by, but in what follows. Read each oath below, then reveal the answer."}
         </p>
       </div>
 
