@@ -41,13 +41,13 @@
     },
     {
       "type": "paragraph",
-      "tr": "Önceki yazıda gördük: zihin **somut deneyimden yola çıkarak soyutu** anlar. Ama ya anlaşılmak istenen şey **sonsuzsa** — nihayetsiz ve hadsizse? Sınırlı bir zihin, sınırsız olanı nasıl idrak edebilir?\n\nTarih bu soruya iki uçta cevaplar verdi:",
-      "en": "In the previous essay we saw: the mind grasps the abstract **by setting out from concrete experience**. But what if what is to be grasped is **the infinite** — without end or limit? How can a finite mind apprehend the boundless?\n\nHistory has given two extreme answers to this question:"
+      "tr": "Önceki yazıda gördük: zihin **somut deneyimden yola çıkarak soyutu** anlar. Ama ya anlaşılmak istenen şey sonsuzsa: nihayetsiz ve hadsizse? Sınırlı bir zihin, sınırsız olanı nasıl idrak edebilir?\n\nTarih bu soruya iki uçta cevaplar verdi:",
+      "en": "In the previous essay we saw: the mind grasps the abstract **by setting out from concrete experience**. But what if what is to be grasped is the infinite: without end or limit? How can a finite mind apprehend the boundless?\n\nHistory has given two extreme answers to this question:"
     },
     {
       "type": "contrastDuo",
-      "captionTr": "Mutlak Bilinmezlik ⇄ Naif Bilinir-lik — İki Uç da Yetersiz",
-      "captionEn": "Absolute Unknowability ⇄ Naïve Knowability — Both Inadequate",
+      "captionTr": "Mutlak Bilinmezlik ⇄ Naif Bilinir-lik: İki Uç da Yetersiz",
+      "captionEn": "Absolute Unknowability ⇄ Naïve Knowability: Both Inadequate",
       "left": {
         "titleTr": "Mutlak Bilinmezlik",
         "titleEn": "Absolute Unknowability",
@@ -68,13 +68,13 @@
       "right": {
         "titleTr": "Kısmi / Yönelimsel Bilinir-lik",
         "titleEn": "Partial / Directional Knowability",
-        "descTr": "**Apofatik teoloji**: Tanrı'yı *ne olmadığı* ile tanımla. **Aquinas**: sıfatlar 'analoji' ile. **Klasik İslam kelâmı**: *bilâ keyf* — sıfatları kabul et, zat hakkında *nasılını* sorma.",
-        "descEn": "**Apophatic theology**: define God by *what He is not*. **Aquinas**: attributes by 'analogy'. **Classical Islamic kalām**: *bilā kayf* — accept the attributes, do not ask *how* concerning the essence.",
+        "descTr": "**Apofatik teoloji**: Tanrı'yı *ne olmadığı* ile tanımla. **Aquinas**: sıfatlar 'analoji' ile. **Klasik İslam kelâmı**: *bilâ keyf*: sıfatları kabul et, zat hakkında *nasılını* sorma.",
+        "descEn": "**Apophatic theology**: define God by *what He is not*. **Aquinas**: attributes by 'analogy'. **Classical Islamic kalām**: *bilā kayf*: accept the attributes, do not ask *how* concerning the essence.",
         "accent": "#1D9E75",
         "bullets": [
           {
-            "tr": "Mutlak susma değil — sınırlı dil + işaret",
-            "en": "Not absolute silence — bounded language + pointing"
+            "tr": "Mutlak susma değil, sınırlı dil + işaret",
+            "en": "Not absolute silence: bounded language + pointing"
           },
           {
             "tr": "İslam'da formül: **tenzih–teşbih dengesi**",
@@ -82,27 +82,27 @@
           }
         ]
       },
-      "bridgeTr": "Ne tamamen bilinir, ne tamamen bilinmez — *yönelimsel* bilinir.",
-      "bridgeEn": "Not fully knowable, not fully unknowable — known *directionally*.",
+      "bridgeTr": "Ne tamamen bilinir, ne tamamen bilinmez; *yönelimsel* bilinir.",
+      "bridgeEn": "Not fully knowable, not fully unknowable: known *directionally*.",
       "bridgeMode": "merge"
     },
     {
       "type": "paragraph",
-      "tr": "İslam düşünce tarihi bu meseleyi **tenzih–teşbih dengesi** olarak formüle eder:\n\n— **Teşbih:** Tanrı'yı anlayabilmek için bildiğimiz kavramlarla ifade etmek — *er-Rahmân, er-Rahîm, es-Semî', el-Basîr*.\n— **Tenzih:** Ama bu kavramlar O'nu *sınırlamaz*; O'nu mahlûkata benzetmez.",
-      "en": "Islamic intellectual history formulates this question as the **tanzīh–tashbīh balance**:\n\n— **Tashbīh:** to express God through the concepts we already know — *al-Raḥmān, al-Raḥīm, al-Samīʿ, al-Baṣīr*.\n— **Tanzīh:** yet these concepts do not *bound* Him; they do not liken Him to the created."
+      "tr": "İslam düşünce tarihi bu meseleyi **tenzih–teşbih dengesi** olarak formüle eder:\n\n— Teşbih: Tanrı'yı anlayabilmek için bildiğimiz kavramlarla ifade etmek: *er-Rahmân, er-Rahîm, es-Semî', el-Basîr*.\n— Tenzih: Ama bu kavramlar O'nu *sınırlamaz*; O'nu mahlûkata benzetmez.",
+      "en": "Islamic intellectual history formulates this question as the **tanzīh–tashbīh balance**:\n\n— Tashbīh: to express God through the concepts we already know: *al-Raḥmān, al-Raḥīm, al-Samīʿ, al-Baṣīr*.\n— Tanzīh: yet these concepts do not *bound* Him; they do not liken Him to the created."
     },
     {
       "type": "verseInline",
       "ref": "42:11",
-      "noteTr": "*Şura 42:11* — لَيْسَ كَمِثْلِهِ شَيْءٌ — '**Hiçbir şey O'nun benzeri değildir.**' Tenzih'in en saf âyeti — sıfatların ifadesini iptal etmez, **sıfatların mahlûkattaki muadiliyle eşleştirilmesini iptal eder**.",
-      "noteEn": "*Al-Shūrā 42:11* — لَيْسَ كَمِثْلِهِ شَيْءٌ — '**There is nothing like Him.**' The purest verse of tanzīh — it does not cancel the expression of the attributes; it cancels **the identification of those attributes with their creaturely counterparts**.",
+      "noteTr": "*Şura 42:11* (لَيْسَ كَمِثْلِهِ شَيْءٌ) '**Hiçbir şey O'nun benzeri değildir.**' Tenzih'in en saf âyeti — sıfatların ifadesini iptal etmez, **sıfatların mahlûkattaki muadiliyle eşleştirilmesini iptal eder**.",
+      "noteEn": "*Al-Shūrā 42:11* (لَيْسَ كَمِثْلِهِ شَيْءٌ) '**There is nothing like Him.**' The purest verse of tanzīh — it does not cancel the expression of the attributes; it cancels **the identification of those attributes with their creaturely counterparts**.",
       "ar": "فَاطِرُ السَّمٰوَاتِ وَالْاَرْضِ جَعَلَ لَكُمْ مِنْ اَنْفُسِكُمْ اَزْوَاجاً وَمِنَ الْاَنْعَامِ اَزْوَاجاً يَذْرَؤُكُمْ فِيهِ لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ"
     },
     {
       "type": "section",
       "id": "matematik",
-      "titleTr": "2. Matematik Bir Mercek — Üç Bilgi Türü",
-      "titleEn": "2. A Mathematical Lens — Three Kinds of Knowledge"
+      "titleTr": "2. Matematik Bir Mercek: Üç Bilgi Türü",
+      "titleEn": "2. A Mathematical Lens: Three Kinds of Knowledge"
     },
     {
       "type": "paragraph",
@@ -158,34 +158,34 @@
     },
     {
       "type": "paragraph",
-      "tr": "Üçüncü durum, **farklı bir bilgi türü**dür. Statik değil dinamik. Bitmiş değil açık. **Sonsuz, ancak bu üçüncü kipte bilinebilir.**",
-      "en": "The third state is **a different kind of knowledge**. Not static — dynamic. Not finished — open. **The infinite can be known only in this third mode.**"
+      "tr": "Üçüncü durum, **farklı bir bilgi türü**dür. Statik değil dinamik. Bitmiş değil açık. Sonsuz, ancak bu üçüncü kipte bilinebilir.",
+      "en": "The third state is **a different kind of knowledge**. Not static: dynamic. Not finished; open. The infinite can be known only in this third mode."
     },
     {
       "type": "section",
       "id": "allahu-ekber",
-      "titleTr": "3. Allâhu Ekber — Dinamik İdrakin Formülü",
-      "titleEn": "3. Allāhu Akbar — The Formula of Dynamic Cognition"
+      "titleTr": "3. Allâhu Ekber: Dinamik İdrakin Formülü",
+      "titleEn": "3. Allāhu Akbar: The Formula of Dynamic Cognition"
     },
     {
       "type": "paragraph",
-      "tr": "**'Allâhu Ekber'** ifadesi tam olarak bu **dinamik idrakin formülü**dür. *Ekber* hem 'daha büyüktür' hem 'en büyüktür' anlamına gelir. İki boyutu vardır:",
-      "en": "The phrase **'Allāhu Akbar'** is exactly the **formula of this dynamic cognition**. *Akbar* means both 'greater than' and 'greatest'. It has two dimensions:"
+      "tr": "**'Allâhu Ekber'** ifadesi tam olarak bu dinamik idrakin formülüdür. *Ekber* hem 'daha büyüktür' hem 'en büyüktür' anlamına gelir. İki boyutu vardır:",
+      "en": "The phrase **'Allāhu Akbar'** is exactly the formula of this dynamic cognition. *Akbar* means both 'greater than' and 'greatest'. It has two dimensions:"
     },
     {
       "type": "contrastDuo",
-      "captionTr": "Kıyas ⇄ Aşkınlık — Ekber'in İki Boyutu",
-      "captionEn": "Comparison ⇄ Transcendence — The Two Faces of Akbar",
+      "captionTr": "Kıyas ⇄ Aşkınlık: Ekber'in İki Boyutu",
+      "captionEn": "Comparison ⇄ Transcendence: The Two Faces of Akbar",
       "left": {
         "titleTr": "(1) Kıyas: 'Ne koyarsan koy'",
         "titleEn": "(1) Comparison: 'Whatever you place beside Him'",
-        "descTr": "X'in yanına ne koyarsan koy — para, makam, evren — **X her zaman ondan büyüktür.** Tercihlerinde değer önemliyse her zaman X'i seçmen gerekir.",
-        "descEn": "Whatever you place beside X — wealth, status, the cosmos — **X is always greater.** If value matters in your choosing, you must always choose X.",
+        "descTr": "X'in yanına ne koyarsan koy; para, makam, evren; **X her zaman ondan büyüktür.** Tercihlerinde değer önemliyse her zaman X'i seçmen gerekir.",
+        "descEn": "Whatever you place beside X; wealth, status, the cosmos; **X is always greater.** If value matters in your choosing, you must always choose X.",
         "accent": "#c9a227",
         "bullets": [
           {
-            "tr": "Namaz başında 'Allâhu Ekber' (29:45) — tüm gündemler ikinci plana düşer",
-            "en": "The opening 'Allāhu Akbar' of prayer (29:45) — all agendas instantly drop to a lower place"
+            "tr": "Namaz başında 'Allâhu Ekber' (29:45); tüm gündemler ikinci plana düşer",
+            "en": "The opening 'Allāhu Akbar' of prayer (29:45): all agendas instantly drop to a lower place"
           }
         ]
       },
@@ -197,13 +197,13 @@
         "accent": "#8b5cf6",
         "bullets": [
           {
-            "tr": "İhlas 112:4 — *Hiçbir şey O'nun dengi değildir*",
-            "en": "Al-Ikhlāṣ 112:4 — *There is nothing equal to Him*"
+            "tr": "İhlas 112:4; *Hiçbir şey O'nun dengi değildir*",
+            "en": "Al-Ikhlāṣ 112:4; *There is nothing equal to Him*"
           }
         ]
       },
-      "bridgeTr": "İdrak durağan değil — **her yeni anlayış, bir sonrakine basamak**.",
-      "bridgeEn": "Cognition is not static — **every new grasp becomes a step to the next.**",
+      "bridgeTr": "İdrak durağan değil, **her yeni anlayış, bir sonrakine basamak**.",
+      "bridgeEn": "Cognition is not static; **every new grasp becomes a step to the next.**",
       "bridgeMode": "merge"
     },
     {
@@ -216,21 +216,21 @@
     {
       "type": "verseInline",
       "ref": "112:4",
-      "noteTr": "*İhlâs 112:4* — وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ — '**Hiçbir şey O'nun dengi değildir.**' Aşkınlığın en kısa formülü.",
-      "noteEn": "*Al-Ikhlāṣ 112:4* — وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ — '**Nothing is equal to Him.**' The shortest formula of transcendence.",
+      "noteTr": "*İhlâs 112:4* (وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ) '**Hiçbir şey O'nun dengi değildir.**' Aşkınlığın en kısa formülü.",
+      "noteEn": "*Al-Ikhlāṣ 112:4* (وَلَمْ يَكُنْ لَهُ كُفُوًا اَحَدٌ) '**Nothing is equal to Him.**' The shortest formula of transcendence.",
       "ar": "وَلَمْ يَكُنْ لَهُ كُفُواً اَحَدٌ"
     },
     {
       "type": "pullQuote",
-      "tr": "لَا أُحْصِي ثَنَاءً عَلَيْكَ، أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ — '**Sen'i (gerektiği gibi) sena etmekten acizim; Sen kendini sena ettiğin gibisin.**'",
-      "en": "lā uḥṣī thanāʾan ʿalayka, anta kamā athnayta ʿalā nafsik — '**I cannot enumerate Your praise; You are as You have praised Yourself.**'",
+      "tr": "لَا أُحْصِي ثَنَاءً عَلَيْكَ، أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ: '**Sen'i (gerektiği gibi) sena etmekten acizim; Sen kendini sena ettiğin gibisin.**'",
+      "en": "lā uḥṣī thanāʾan ʿalayka, anta kamā athnayta ʿalā nafsik: '**I cannot enumerate Your praise; You are as You have praised Yourself.**'",
       "source": "Hadis — Müslim, Salât 222; Ebû Dâvûd, Salât 148"
     },
     {
       "type": "section",
       "id": "recursive-yolculuk",
-      "titleTr": "4. Sınırlıdan Sınırsıza — Recursive Yolculuk",
-      "titleEn": "4. From the Bounded to the Boundless — A Recursive Journey"
+      "titleTr": "4. Sınırlıdan Sınırsıza: Recursive Yolculuk",
+      "titleEn": "4. From the Bounded to the Boundless: A Recursive Journey"
     },
     {
       "type": "paragraph",
@@ -239,13 +239,13 @@
     },
     {
       "type": "paragraph",
-      "tr": "Aynısı uluhiyet idrakinde de geçerlidir. **Kendi sınırlı deneyimlerimizi, sonsuza açılan pencereler olarak kullanırız:**\n\n— Bir civcive merhamet edersin. Sonra düşünürsün: *'Benim bu küçük merhametim buysa, beni Yaratan'ın merhameti ne olabilir?'* Kendi merhametçiğinden, **sonsuz merhamete bir yol bulursun.**\n— *'Ben şu evin sahibiyim'* dersin. Sonra: *'Benim de bir sahibim var. Tüm kâinatın da…'* Sahiplik hissinden, **mutlak sahipliğe bir köprü kurarsın.**\n\nHer seferinde bir önceki algıdan daha genişine ulaşan, **recursive (özyineli) düşünce**. *Analojik kıyas ile ilahi sonsuza yönelimsel olarak yürüme aleti.*",
-      "en": "The same holds in the cognition of divinity. **We use our own finite experiences as windows opening onto the infinite:**\n\n— You feel compassion toward a chick. Then you think: *'If this little compassion of mine is this, what could the compassion of the One who made me be?'* From your small compassion, **you find a road to boundless compassion.**\n— You say: *'I own this house'*. Then: *'I too have an Owner. And the whole cosmos has one…'* From the sense of ownership, **you build a bridge to absolute ownership.**\n\nA **recursive (self-referential) thinking** that, at every turn, reaches a wider perception than the previous one. *The tool by which we walk, through analogical comparison, in directional motion toward the divine infinite.*"
+      "tr": "Aynısı uluhiyet idrakinde de geçerlidir. **Kendi sınırlı deneyimlerimizi, sonsuza açılan pencereler olarak kullanırız:**\n\n— Bir civcive merhamet edersin. Sonra düşünürsün: *'Benim bu küçük merhametim buysa, beni Yaratan'ın merhameti ne olabilir?'* Kendi merhametçiğinden, **sonsuz merhamete bir yol bulursun.**\n— *'Ben şu evin sahibiyim'* dersin. Sonra: *'Benim de bir sahibim var. Tüm kâinatın da…'* Sahiplik hissinden, mutlak sahipliğe bir köprü kurarsın.\n\nHer seferinde bir önceki algıdan daha genişine ulaşan, **recursive (özyineli) düşünce**. *Analojik kıyas ile ilahi sonsuza yönelimsel olarak yürüme aleti.*",
+      "en": "The same holds in the cognition of divinity. **We use our own finite experiences as windows opening onto the infinite:**\n\n— You feel compassion toward a chick. Then you think: *'If this little compassion of mine is this, what could the compassion of the One who made me be?'* From your small compassion, **you find a road to boundless compassion.**\n— You say: *'I own this house'*. Then: *'I too have an Owner. And the whole cosmos has one…'* From the sense of ownership, you build a bridge to absolute ownership.\n\nA **recursive (self-referential) thinking** that, at every turn, reaches a wider perception than the previous one. *The tool by which we walk, through analogical comparison, in directional motion toward the divine infinite.*"
     },
     {
       "type": "paragraph",
-      "tr": "İnsana *'Ben'* dedirten bu alet aslında bir **emanet**tir — göreceli, varsayımsal bir varlığı vardır; *farz-ı muhal* zemininde **zihinsel ve varsayımsal**, geçici bir süre kullanmak için verilmiştir. Kendi 'ben'inin gerçek olduğunu sandığın an, alet **araç olmaktan çıkar amaç olur** — ve recursive yolculuk durur.",
-      "en": "This tool — which lets the human say *'I'* — is in truth a **trust (amāna)**; it has a relative, suppositional existence, granted on the ground of *farḍ-i muḥāl* (counterfactual supposition) for **a mental, suppositional**, temporary use. The moment you take your own 'I' to be the real, the tool **ceases to be a means and becomes an end** — and the recursive journey halts."
+      "tr": "İnsana *'Ben'* dedirten bu alet aslında bir **emanet**tir; göreceli, varsayımsal bir varlığı vardır; *farz-ı muhal* zemininde zihinsel ve varsayımsal, geçici bir süre kullanmak için verilmiştir. Kendi 'ben'inin gerçek olduğunu sandığın an, alet araç olmaktan çıkar amaç olur: ve recursive yolculuk durur.",
+      "en": "This tool (which lets the human say *'I'*) is in truth a **trust (amāna)**; it has a relative, suppositional existence, granted on the ground of *farḍ-i muḥāl* (counterfactual supposition) for a mental, suppositional, temporary use. The moment you take your own 'I' to be the real, the tool ceases to be a means and becomes an end: and the recursive journey halts."
     },
     {
       "type": "section",
@@ -255,20 +255,20 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Teşbih–tenzih dengesi günlük zikirlerde de var:**\n\n— **Elhamdülillah** bir *teşbih*tir: bir şeydeki krediyi, övgüyü, iyiliği **Allah'a vermek**.\n— **Subhânallah** ise *tenzih*tir: kusur ve eksikleri **Allah'tan uzaklaştırmak**.\n\nGün ışığında bir cisme bakmak gibi — **ışığı global olan Güneş'e**, **gölgeleri lokal olan cismin yapısına** verirsin. *(Bu konu 'Lokal-Global Perspektifler' makalesinde detaylı ele alınmıştı.)*",
-      "en": "**The tanzīh–tashbīh balance is present in daily dhikr too:**\n\n— **Al-ḥamdu li-llāh** is a *tashbīh*: returning the credit, praise, goodness in a thing **to Allah**.\n— **Subḥān Allāh** is a *tanzīh*: keeping defect and imperfection **far from Allah**.\n\nLike looking at an object in daylight — you ascribe the **light to the global Sun**, and the **shadows to the local structure of the object**. *(This is treated in detail in the 'Local-Global Perspectives' essay.)*"
+      "tr": "Teşbih–tenzih dengesi günlük zikirlerde de var:\n\n— **Elhamdülillah** bir *teşbih*tir: bir şeydeki krediyi, övgüyü, iyiliği Allah'a vermek.\n— Subhânallah ise *tenzih*tir: kusur ve eksikleri Allah'tan uzaklaştırmak.\n\nGün ışığında bir cisme bakmak gibi; **ışığı global olan Güneş'e**, gölgeleri lokal olan cismin yapısına verirsin. *(Bu konu 'Lokal-Global Perspektifler' makalesinde detaylı ele alınmıştı.)*",
+      "en": "The tanzīh–tashbīh balance is present in daily dhikr too:\n\n— **Al-ḥamdu li-llāh** is a *tashbīh*: returning the credit, praise, goodness in a thing to Allah.\n— Subḥān Allāh is a *tanzīh*: keeping defect and imperfection far from Allah.\n\nLike looking at an object in daylight: you ascribe the **light to the global Sun**, and the shadows to the local structure of the object. *(This is treated in detail in the 'Local-Global Perspectives' essay.)*"
     },
     {
       "type": "criticalNote",
-      "headingTr": "Felsufi'nin çapraz-gelenek harmanı — yararlı ama özdeş değil",
-      "headingEn": "Felsufi's cross-tradition synthesis — useful, not identical",
-      "tr": "Felsufi bu yazıda **Huxley/Wittgenstein (agnostik), apofatik teoloji (Hristiyan), Aquinas (Tomistik analoji) ve İslâm kelâmı (*bilâ keyf*, tenzih–teşbih)** çerçevelerini **'kısmi/yönelimsel bilinir-lik'** başlığı altında bir araya getirir. Bu **çağdaş bir karşılaştırmalı okuma**dır — analitik güç sağlar. Ama klasik İslâm kelâmında: *bilâ keyf* (Ehl-i Sünnet) ile *negative theology* (Hristiyan apofatik) **metodolojik benzerlik gösterir ama özdeş değildir** (örn. Tomistik *analogia entis* İslâm kelâmında doğrudan karşılığı olmayan bir ontolojik varsayım taşır). 'X→∞ analojisi' **pedagojik bir araç**tır, klasik kelâmda formel bir yeri yoktur. Felsufi'nin sentezi **modern okur için bir köprü**dür; klasik kelâm formülasyonunun yerini almaz, ona yardımcı bir mercek sağlar.",
-      "en": "In this essay Felsufi gathers under the heading of **'partial/directional knowability'** the frames of **Huxley/Wittgenstein (agnostic), apophatic theology (Christian), Aquinas (Thomist analogy), and Islamic kalām (*bilā kayf*, tanzīh–tashbīh)**. This is **a contemporary comparative reading** — analytically powerful. But within classical Islamic kalām: *bilā kayf* (Sunni) and *negative theology* (Christian apophatic) **bear methodological resemblance but are not identical** (e.g., Thomistic *analogia entis* carries an ontological commitment without a direct counterpart in Islamic kalām). The 'X → ∞ analogy' is **a pedagogical device**; it has no formal place in classical kalām. Felsufi's synthesis is **a bridge for the modern reader** — it does not replace the classical kalāmic formulation but offers it a complementary lens."
+      "headingTr": "Felsufi'nin çapraz-gelenek harmanı: yararlı ama özdeş değil",
+      "headingEn": "Felsufi's cross-tradition synthesis: useful, not identical",
+      "tr": "Felsufi bu yazıda **Huxley/Wittgenstein (agnostik), apofatik teoloji (Hristiyan), Aquinas (Tomistik analoji) ve İslâm kelâmı (*bilâ keyf*, tenzih–teşbih)** çerçevelerini **'kısmi/yönelimsel bilinir-lik' başlığı altında bir araya getirir. Bu çağdaş bir karşılaştırmalı okuma**dır; analitik güç sağlar. Ama klasik İslâm kelâmında: *bilâ keyf* (Ehl-i Sünnet) ile *negative theology* (Hristiyan apofatik) metodolojik benzerlik gösterir ama özdeş değildir (örn. Tomistik *analogia entis* İslâm kelâmında doğrudan karşılığı olmayan bir ontolojik varsayım taşır). 'X, ardından ∞ analojisi' pedagojik bir araçtır, klasik kelâmda formel bir yeri yoktur. Felsufi'nin sentezi modern okur için bir köprüdür; klasik kelâm formülasyonunun yerini almaz, ona yardımcı bir mercek sağlar.",
+      "en": "In this essay Felsufi gathers under the heading of **'partial/directional knowability'** the frames of **Huxley/Wittgenstein (agnostic), apophatic theology (Christian), Aquinas (Thomist analogy), and Islamic kalām (*bilā kayf*, tanzīh–tashbīh). This is a contemporary comparative reading**: analytically powerful. But within classical Islamic kalām: *bilā kayf* (Sunni) and *negative theology* (Christian apophatic) bear methodological resemblance but are not identical (e.g., Thomistic *analogia entis* carries an ontological commitment without a direct counterpart in Islamic kalām). The 'X, then ∞ analogy' is a pedagogical device; it has no formal place in classical kalām. Felsufi's synthesis is a bridge for the modern reader: it does not replace the classical kalāmic formulation but offers it a complementary lens."
     },
     {
       "type": "pullQuote",
-      "tr": "Recursive yapı sadece Uluhiyeti anlamakta değil, **hayatın kendisini anlamlandırmakta** da işler. Simülasyon içinde simülasyon. Rüya içinde rüya. Instagram içinde hayat, hayat içinde hakikat… *(Bunu bir sonraki yazıda — 'Inception Hayatlar' — ele alacağız.)*",
-      "en": "The recursive structure works not only for grasping divinity, but for **reading life itself**. Simulation within simulation. Dream within dream. Instagram within life, life within truth… *(This is taken up in the next essay — 'Inception Lives'.)*",
+      "tr": "Recursive yapı sadece Uluhiyeti anlamakta değil, **hayatın kendisini anlamlandırmakta** da işler. Simülasyon içinde simülasyon. Rüya içinde rüya. Instagram içinde hayat, hayat içinde hakikat… *(Bunu bir sonraki yazıda, 'Inception Hayatlar', ele alacağız.)*",
+      "en": "The recursive structure works not only for grasping divinity, but for **reading life itself**. Simulation within simulation. Dream within dream. Instagram within life, life within truth… *(This is taken up in the next essay: 'Inception Lives'.)*",
       "source": "Felsufi"
     }
   ]

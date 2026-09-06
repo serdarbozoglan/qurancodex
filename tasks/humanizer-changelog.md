@@ -7577,3 +7577,7 @@ Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / fin
 - ÖNCE: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."`
   SONRA: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis finds that gratitude interventions show moderate effects on clinical depression and anxiety."`
 
+
+## 18. Tefekkür gövde metinleri (2026-09-06)
+
+53 makalenin `blocks` içeriği: 2.052 alan, 3.411 cümle. Tam ÖNCE→SONRA listesi ayrı dosyada: `tasks/humanizer-changelog-tefekkur.md`. Kurallar §9 kararları; âyet çevirileri, sûre kaynaklı pullQuote'lar, diyagram blokları ve kaynak listeleri dokunulmadı.

@@ -47,7 +47,7 @@ Etki × görünürlük sırasıyla:
 - [x] **P3 · Araç ve atlas bileşenleri** ✅ (2026-09-06; kalan tireler yalnız âyet çevirisi, kaynak atfı, sayfa başlığı ayracı ve kod yorumu) (`src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahiret-yolculugu.json`). Detay: §6.
 - [x] **P3 · Katalog ve gezinme metinleri** ✅ (2026-09-06) (`toolCatalog.js`, `tools.jsx`, `exploreCategories.jsx`, Navbar mega menü, tum-araclar). Detay: §7.
 - [x] **P4 · Yardımcı sayfalar** ✅ (2026-09-06) (hakkında, kaynakça, sor, kütüphanem, not-found). Çoğu temiz; küçük dokunuşlar. Detay: §8.
-- [ ] **P0 · Önce karar:** Uzun tire tasarım tercihi mi, alışkanlık mı? 8.364 tire "hepsini kaldır" ile çözülmez; bir stil kuralı gerekir (bkz. §9).
+- [x] **P0 · Önce karar:** ✅ (2026-09-06: §9 kararları verildi) Uzun tire tasarım tercihi mi, alışkanlık mı? 8.364 tire "hepsini kaldır" ile çözülmez; bir stil kuralı gerekir (bkz. §9).
 
 ---
 
@@ -86,9 +86,9 @@ Dosyalar: 80 adet `src/app/[locale]/**/page.js` → `TITLE_TR/EN`, `DESC_TR/DESC
 - [x] **"Değil" kalıbı desc'lerde**: kitap-kavrami "yalnızca 'Kitap' değildir", ses-mimarisi "Sesler Tesadüf Değil", ritim "Ne Şiir, Ne Düzyazı", tarihsel-kanitlar "Kur'ân haber verir; bulgular tefekküre vesiledir" (bu sonuncusu iyi, kalsın).
 - [x] **Sayı-nokta kicker'ları desc'te**: mukattaa "14 mukattaa harfi · 29 sûreyi açar · %25 kapsama." Meta açıklaması cümle olmalı.
 - [x] **Satış dili**: kurani-tani "az bilinen, şaşırtan gerçekler" / "astonishing facts"; bilimsel-isaretler "1.400 Yıl Sonra Keşfedilenler" (site kuralı §13.24 ile çelişiyor: keşfeden bilim değil); koruma-zinciri "Sıfır Varyasyon" (aynı sayfanın kartı rasm/kıraat ayrımını zaten kabul ediyor).
-- [ ] **Türkçe Title Case**: neredeyse tüm TITLE_TR'ler. "Huruf-i Mukattaâ — Kur'an'ın Dilsel DNA'sı" tamam (özel ad), ama "İsimlendirme Ekonomisi — Kur'ân Kimi Adlandırır?", "Eleştirel Çerçeve — Zorlu Sorular ve Ulemânın Cevapları", "Tefsir İhtilafları — Kur'ân Mesellerinde Müfessir Karşılaştırması" İngilizce başlık kuralıyla yazılmış.
+- [x] **Türkçe Title Case** (KARAR 2026-09-06: korunur, bkz. §9): neredeyse tüm TITLE_TR'ler. "Huruf-i Mukattaâ — Kur'an'ın Dilsel DNA'sı" tamam (özel ad), ama "İsimlendirme Ekonomisi — Kur'ân Kimi Adlandırır?", "Eleştirel Çerçeve — Zorlu Sorular ve Ulemânın Cevapları", "Tefsir İhtilafları — Kur'ân Mesellerinde Müfessir Karşılaştırması" İngilizce başlık kuralıyla yazılmış.
 - [x] **İngilizce kelime TR desc'te**: "refrain", "sui generis", "curated şekilde", "utility tool'lar", "Prophetic Perfect", "Historical Present". Ya Türkçesi ya italik terim olarak açıklama.
-- [ ] Temiz örnekler (dokunma): `/graf/ayet` desc ("Bir ayete tıkla, ona en çok benzeyen ayetleri gör"), `/graf/karsilastir`, `/oku`, `/atlas/kissa`, `/hakkinda` gövde metni.
+- [x] Temiz örnekler (dokunma): `/graf/ayet` desc ("Bir ayete tıkla, ona en çok benzeyen ayetleri gör"), `/graf/karsilastir`, `/oku`, `/atlas/kissa`, `/hakkinda` gövde metni.
 
 ---
 
@@ -104,13 +104,13 @@ Dosyalar: `public/tefekkur/_index.json` (53 tldr) · `public/tefekkur/*.json` (g
   - "Temel tez: **Şuur, yerel fayda maksimizasyonunu kainatın evrensel fayda maksimizasyonuna hizalayan mekanizmadır.**"
   - "Bu sadece dış aldanma değil — **zihnin kendisini ikna edebilme kudretidir**."
   tldr'lar özet değil, makine çıkarımı gibi: kalın "=" formülleri, ↔ ve → okları, "(1) (2) (3)" numaralı liste, "değil — Y". 53 tldr'nın düz Türkçe cümleyle yeniden yazılması listeleme sayfasını ve Navbar mega menüsünü (tldr oradan çekiliyor) birden düzeltir.
-- [ ] **Gövdede kalın etiket enflasyonu**: 984 `**Etiket:**` + 6.914 kalın vurgu. En yoğun: tugyan (80 etiket), enerji-krizi (75), asr-suresi-prensipler (69, 341 kalın), lehv (60), kaynak-yuzey (52), ruhsal-cografya (44, 263 kalın), ruhun-termostati (43). Bir paragrafta 4-5 kalın ifade okuru yoruyor ve chatbot çıktısı gibi gösteriyor (§15/§16). Yazara sorulacak: kalınlar orijinal Medium metninde var mı, dönüştürmede mi eklendi? Dönüştürmede eklendiyse sitenin kararı.
-- [ ] **Tire yoğunluğu**: en yüksek 20 dosyanın 17'si tefekkür. sefer.json 12,1/1000 karakter, lehv 10,8, tugyan 8,7, emrin-mahiyeti 8,4. Karşılaştırma: rahmetin-grameri serisi 1,3-1,6 (aynı yazar, temiz). Bu fark orijinalden değil dönüştürmeden geliyor olabilir; rahmetin-grameri'nin nasıl işlendiğine bakılmalı.
-- [ ] **"X değil — Y"**: 862 hit'in ~400'ü tefekkür. lehv 12, kaynak-yuzey 19, enerji-krizi 30, ruhun-termostati 33, inception-hayatlar 21, ruhsal-cografya 29.
+- [x] **Gövdede kalın etiket enflasyonu** ✅ (2026-09-06: 6.538 → 3.907 kalın; 341 → 66 `**Etiket:**` (kalanlar diyagram/liste blokları); paragraf başına 1 kalın kuralı; bkz. `tasks/humanizer-changelog-tefekkur.md`): 984 `**Etiket:**` + 6.914 kalın vurgu. En yoğun: tugyan (80 etiket), enerji-krizi (75), asr-suresi-prensipler (69, 341 kalın), lehv (60), kaynak-yuzey (52), ruhsal-cografya (44, 263 kalın), ruhun-termostati (43). Bir paragrafta 4-5 kalın ifade okuru yoruyor ve chatbot çıktısı gibi gösteriyor (§15/§16). Yazara sorulacak: kalınlar orijinal Medium metninde var mı, dönüştürmede mi eklendi? Dönüştürmede eklendiyse sitenin kararı.
+- [x] **Tire yoğunluğu** ✅ (2026-09-06: 4.153 → 1.553; kalanlar âyet çevirisi atfı "— Ref" (481), satır başı madde işareti "— " (472), diyagram düğüm/dal etiketleri, makale başlığı ayracı): en yüksek 20 dosyanın 17'si tefekkür. sefer.json 12,1/1000 karakter, lehv 10,8, tugyan 8,7, emrin-mahiyeti 8,4. Karşılaştırma: rahmetin-grameri serisi 1,3-1,6 (aynı yazar, temiz). Bu fark orijinalden değil dönüştürmeden geliyor olabilir; rahmetin-grameri'nin nasıl işlendiğine bakılmalı.
+- [x] **"X değil — Y"** ✅ (2026-09-06: tefekkür gövdelerinde 48 → 16; kalanlar diyagram etiketleri): 862 hit'in ~400'ü tefekkür. lehv 12, kaynak-yuzey 19, enerji-krizi 30, ruhun-termostati 33, inception-hayatlar 21, ruhsal-cografya 29.
 - [ ] **"Asıl soru / asıl mesele" (§27)**: kaynak-yuzey 5, rahmetin-grameri-4, anlam-yaratilis-senteni, yaratilis-hikayesi-1 ("Belki de asıl soru şu:"), Isimlendirme.jsx ("asıl mesele o kısalıkta").
-- [ ] **EN çevirilerde AI kelimeleri**: "A crucial qualifier", "the crucial point is this", "underscores this fundamental role", "fundamentally how human comprehension works", "The unique role is never discovered". TR'de bu kelimeler yokken EN'de belirmesi çeviri katmanının makine olduğunu gösteriyor. EN gövdeleri ayrı bir geçiş ister.
+- [~] **EN çevirilerde AI kelimeleri** (2026-09-06: tire/kalın/ok geçişi EN'de de yapıldı; "crucial/fundamentally/underscores" kelime avı ayrı tur): "A crucial qualifier", "the crucial point is this", "underscores this fundamental role", "fundamentally how human comprehension works", "The unique role is never discovered". TR'de bu kelimeler yokken EN'de belirmesi çeviri katmanının makine olduğunu gösteriyor. EN gövdeleri ayrı bir geçiş ister.
 - [~] **Bilimsel ad-anma (§2/§5)** (2026-09-06: "doğrular/confirms" → "bulur/finds" yapıldı; "fMRI çalışmaları gösteriyor" atıfsız kaldı, kaynak eklenmesi yazar kararı): "Nörobilim (Schubert 2005, embodied cognition) bunu doğrular", "Termodinamiğin ikonu Rod Swenson", "fMRI studies show" (en.json psychology). Kaynak varsa tamam; "doğrular" fiili §13.24 kuralına aykırı (bilim tasdik etmez).
-- [ ] **Başlıklarda Title Case + "X: Y" çift başlık**: "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi", "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi", "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak" (iki ayraç birden). Bunlar yazarın başlıkları olabilir; kontrol edilmeli.
+- [x] **Başlıklarda Title Case + "X: Y" çift başlık** (KARAR 2026-09-06: makale başlıkları yazarın; korunur): "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi", "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi", "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak" (iki ayraç birden). Bunlar yazarın başlıkları olabilir; kontrol edilmeli.
 
 ---
 
@@ -132,7 +132,7 @@ Genel gözlem: Bu bölümler sitenin en dengeli metinleri; kaynak adı veriyor, 
 - [x] **conclusion.points** (tr.json): "Bazı ayetleri modern bilimin keşifleriyle paralel okunmaktadır" dilbilgisi bozuk (ayetleri → ayetleri … okunuyor). Bu dizi Next ana sayfasında render edilmiyor ama tr.json'da duruyor; ya düzelt ya sil.
 - [x] **Title Case (51)** ✅ (kısa başlıklarda tire → iki nokta yapıldı; büyük harf düzeni §9 kararına bağlı): bölüm h2/h3'leri: "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi", "Klasik Çerçeveler — Dengeleyici Zâhirî Perspektif", "Daha Derine — İlgili Sûreler", "Klasik Tefsir Çeşitliliği".
 - [x] **Belirsiz kaynak**: "Bazı araştırmacılar … checksum … ileri sürmüştür. Bu yorum akademik bir hipotezdir" (linguisticDNA). Kim? Kaynakça'da varsa adı verilsin; yoksa cümle kalksın.
-- [ ] Temiz örnekler (dokunma): historicalProof'un eleştirel paragrafları (Dever, Bucaille reddi, 'Edna el-ard' notu), zeroRedundancy'nin Musa kıssası paragrafı, scientificSigns'ın alaka paragrafı. Bunlar hedef ton.
+- [x] Temiz örnekler (dokunma): historicalProof'un eleştirel paragrafları (Dever, Bucaille reddi, 'Edna el-ard' notu), zeroRedundancy'nin Musa kıssası paragrafı, scientificSigns'ın alaka paragrafı. Bunlar hedef ton.
 
 ---
 
@@ -157,7 +157,7 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **TefsirIhtilaflari.jsx** ✅ (2026-09-06: "Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar"): "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [x] **KorumaZinciri.jsx** ✅ (2026-09-06: "sıfır varyasyon ilkesinin bugünkü görünümü"): "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
 - [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
-- [~] **Ok zincirleri (1.242)** (2026-09-06: tools.jsx descLong, tr/en.json psikoloji girişi ve tarihsel kanıt listesi düz cümle oldu; tefekkür gövdeleri ve public/*.json diyagram alanları yazar kararına bırakıldı): neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
+- [x] **Ok zincirleri (1.242)** ✅ (2026-09-06: paragraflarda 178 → 128 kalan `flowChain`/`hierarchyTree` diyagramlarında; politika gereği serbest) (2026-09-06: tools.jsx descLong, tr/en.json psikoloji girişi ve tarihsel kanıt listesi düz cümle oldu; tefekkür gövdeleri ve public/*.json diyagram alanları yazar kararına bırakıldı): neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
 - [x] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅, not-found ✅ 2026-09-06): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
 
 Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorRoute.jsx`, `exploreCategories.jsx`.
@@ -190,15 +190,15 @@ Dosyalar: `src/data/toolCatalog.js`, `src/data/tools.jsx`, `src/data/exploreCate
 
 Bunlar tek tek düzeltmeyle çözülmez; bir kez karar verilip her yere uygulanır:
 
-- [ ] **Tire politikası.** Seçenekler: (a) gövde metinde yasak, yalnız başlık ayracı "X — Y" olarak izinli; (b) tamamen yasak; (c) paragraf başına en fazla 1. Öneri: (a). 8.364 tirenin ~%70'i cümle içi ara söz; bunlar virgül/nokta olur, başlık ayraçları kalır.
-- [ ] **"Değil, Y" politikası.** Sayfa başına en fazla 1-2. Olumlu cümle önce.
-- [ ] **Kalın vurgu politikası (tefekkür).** Paragraf başına en fazla 1 kalın; `**Etiket:**` listeleri yalnız `section`/`contrastDuo` bloklarında, `paragraph` içinde değil.
-- [ ] **Ok politikası.** `flowChain`/`hierarchyTree`/diyagram bloklarında serbest; `paragraph`, tldr, DESC, kicker içinde yasak.
-- [ ] **Sayı-nokta etiketi ("N · N · N").** Yalnız katalog kartı, menü, InventoryStrip. Cümle beklenen her yerden (DESC, kicker, tldr, blurb) çıkar.
-- [ ] **Türkçe başlık kuralı.** Yalnız ilk kelime + özel adlar büyük. Eyebrow'lar tamamı büyük harf (mevcut). `PageHeading`, `SectionWrapper`, kart `title` alanları.
-- [ ] **Satış sıfatı listesi (yasak):** eşsiz, benzersiz, muhteşem, büyüleyici, çarpıcı, dikkat çekici, olağanüstü, kusursuz, sarsılmaz, sınırsız, sayısız, inanılmaz, mucizevi / unique, striking, stunning, crucial, profound, remarkable, groundbreaking, testament, underscores, fundamentally. Bir cümle bunlar olmadan ayakta duramıyorsa iddia zayıftır; sıfatı değil iddiayı düzelt.
-- [ ] **§13.24 tutarlılığı.** "Bilim/tarih doğrular-keşfeder" fiilleri (bilimsel-isaretler başlığı, psikoloji kartı, koruma "Sıfır Varyasyon", "Nörobilim … doğrular") site kuralıyla çelişiyor; metodoloji şeridi "Örtüşme ≠ kanıt" diyor. Humanizer'dan bağımsız olarak düzeltilmeli.
-- [ ] **EN ayrı geçiş.** EN metinlerde TR'de olmayan AI kelimeleri var (crucial, fundamentally, underscores, unique). EN'i TR'den çevirme; TR düzeldikten sonra EN'i TR'nin sadeliğine çek.
+- [x] **Tire politikası.** KARAR (2026-09-06): (a). Gövde metinde yasak; yalnız araç adı başlık ayracı "X — Y" ve kaynak atfı "— Ref" izinli. Seçenekler: (a) gövde metinde yasak, yalnız başlık ayracı "X — Y" olarak izinli; (b) tamamen yasak; (c) paragraf başına en fazla 1. Öneri: (a). 8.364 tirenin ~%70'i cümle içi ara söz; bunlar virgül/nokta olur, başlık ayraçları kalır.
+- [x] **"Değil, Y" politikası.** KARAR (2026-09-06): sayfa başına en fazla 1-2; "değil — Y" hiç yok, "değil, Y" ya da olumlu cümle. Sayfa başına en fazla 1-2. Olumlu cümle önce.
+- [x] **Kalın vurgu politikası (tefekkür).** KARAR (2026-09-06): paragraf başına en fazla 1 kalın; `**Etiket:**` yalnız `section`/`contrastDuo`, `paragraph` içinde düz "Etiket:". Paragraf başına en fazla 1 kalın; `**Etiket:**` listeleri yalnız `section`/`contrastDuo` bloklarında, `paragraph` içinde değil.
+- [x] **Ok politikası.** KARAR (2026-09-06): `flowChain`/`hierarchyTree`/diyagram ve katalog kartı etiketi serbest; `paragraph`, tldr, DESC, kicker içinde yasak. `flowChain`/`hierarchyTree`/diyagram bloklarında serbest; `paragraph`, tldr, DESC, kicker içinde yasak.
+- [x] **Sayı-nokta etiketi ("N · N · N").** KARAR (2026-09-06): yalnız katalog kartı, menü, InventoryStrip; DESC/kicker/tldr/blurb'ta cümle. Yalnız katalog kartı, menü, InventoryStrip. Cümle beklenen her yerden (DESC, kicker, tldr, blurb) çıkar.
+- [x] **Türkçe başlık kuralı.** KARAR (2026-09-06): Türkçe sayfa/araç başlıklarında her kelimenin büyük harfle başlaması TDK başlık yazımıyla uyumlu olduğu ve araç adları özel ad gibi kullanıldığı için KORUNUR (Wikipedia §17 İngilizce başlıklar içindir). Gövde içi ara başlıklar ve kart açıklamaları cümle düzeni. Yalnız ilk kelime + özel adlar büyük. Eyebrow'lar tamamı büyük harf (mevcut). `PageHeading`, `SectionWrapper`, kart `title` alanları.
+- [x] **Satış sıfatı listesi (yasak):** KARAR (2026-09-06): liste CLAUDE.md §13.34'e alındı. eşsiz, benzersiz, muhteşem, büyüleyici, çarpıcı, dikkat çekici, olağanüstü, kusursuz, sarsılmaz, sınırsız, sayısız, inanılmaz, mucizevi / unique, striking, stunning, crucial, profound, remarkable, groundbreaking, testament, underscores, fundamentally. Bir cümle bunlar olmadan ayakta duramıyorsa iddia zayıftır; sıfatı değil iddiayı düzelt.
+- [x] **§13.24 tutarlılığı.** KARAR (2026-09-06): "doğrular/kanıtlar/confirms/proves" yerine "örtüşür/bulur/aligns/finds"; CLAUDE.md §13.34 madde 1. "Bilim/tarih doğrular-keşfeder" fiilleri (bilimsel-isaretler başlığı, psikoloji kartı, koruma "Sıfır Varyasyon", "Nörobilim … doğrular") site kuralıyla çelişiyor; metodoloji şeridi "Örtüşme ≠ kanıt" diyor. Humanizer'dan bağımsız olarak düzeltilmeli.
+- [x] **EN ayrı geçiş.** KARAR (2026-09-06): EN TR'den çevrilmez; her partide EN dizeleri ayrı listelendi ve TR sadeliğine çekildi (changelog §1-§17). EN metinlerde TR'de olmayan AI kelimeleri var (crucial, fundamentally, underscores, unique). EN'i TR'den çevirme; TR düzeldikten sonra EN'i TR'nin sadeliğine çek.
 
 ---
 

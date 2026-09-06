@@ -23,13 +23,13 @@
   "blocks": [
     {
       "type": "paragraph",
-      "tr": "Ejder meyvesini (*dragon fruit*) ilk kez tattığında zihnin hemen işe koyulur: *“Biraz kiviyi andırıyor ama daha yumuşak… armutla karpuz arası bir dokusu var.”* Aslında **sadece tarif etmiyorsun** — **dış dünyadaki bir tecrübeyi iç dünyandaki dile tercüme ediyorsun.** Literatürdeki **vicdan** kavramı da biraz bu anlama geliyor zaten.",
-      "en": "The first time you taste a dragon fruit your mind sets to work at once: *“A bit like kiwi, but softer… a texture somewhere between pear and watermelon.”* In fact **you are not merely describing** — **you are translating an experience of the outer world into the language of your inner world.** And the concept of **conscience** in the literature carries something of this sense."
+      "tr": "Ejder meyvesini (*dragon fruit*) ilk kez tattığında zihnin hemen işe koyulur: *“Biraz kiviyi andırıyor ama daha yumuşak… armutla karpuz arası bir dokusu var.”* Aslında **sadece tarif etmiyorsun**: dış dünyadaki bir tecrübeyi iç dünyandaki dile tercüme ediyorsun. Literatürdeki vicdan kavramı da biraz bu anlama geliyor zaten.",
+      "en": "The first time you taste a dragon fruit your mind sets to work at once: *“A bit like kiwi, but softer… a texture somewhere between pear and watermelon.”* In fact **you are not merely describing**: you are translating an experience of the outer world into the language of your inner world. And the concept of conscience in the literature carries something of this sense."
     },
     {
       "type": "paragraph",
-      "tr": "**İnsan idrakinin işleyişi temelde böyledir.** Her yeni tecrübe, her yeni kavram yahut hakikat, önce **iç dünyamızın kapısından** geçer — doğduğumuz günden beri biriktirdiğimiz **hislerin, duyguların ve kavramların o muazzam birikimi.**",
-      "en": "**This is fundamentally how human comprehension works.** Every new experience, every new concept or truth, passes first **through the door of our inner world** — that vast accumulation of **sensations, feelings and concepts** we have been gathering since the day we were born."
+      "tr": "**İnsan idrakinin işleyişi temelde böyledir.** Her yeni tecrübe, her yeni kavram yahut hakikat, önce iç dünyamızın kapısından geçer: doğduğumuz günden beri biriktirdiğimiz hislerin, duyguların ve kavramların o muazzam birikimi.",
+      "en": "**This is fundamentally how human comprehension works.** Every new experience, every new concept or truth, passes first through the door of our inner world: that vast accumulation of sensations, feelings and concepts we have been gathering since the day we were born."
     },
     {
       "type": "flowChain",
@@ -75,8 +75,8 @@
     },
     {
       "type": "pullQuote",
-      "tr": "Aslında **sadece tarif etmiyorsun** — **dış dünyadaki bir tecrübeyi iç dünyandaki dile tercüme ediyorsun.**",
-      "en": "In fact **you are not merely describing** — **you are translating an experience of the outer world into the language of your inner world.**",
+      "tr": "Aslında **sadece tarif etmiyorsun**: dış dünyadaki bir tecrübeyi iç dünyandaki dile tercüme ediyorsun.",
+      "en": "In fact **you are not merely describing**: you are translating an experience of the outer world into the language of your inner world.",
       "source": "Felsufi"
     },
     {
@@ -87,8 +87,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Fakat **her anlama aynı mertebede değildir.** Burada **teorik akıl** ile **pratik akıl** arasında derin bir fark vardır. Hiç yanmamış bir insan **ısı transferini öğrenebilir**, sıcaklık uyarılarını okuyabilir, hatta **dokunun hangi derecede zarar göreceğini hesaplayabilir.** Teorik akıl ile şu hükme varır: *“Sıcağa dokunmamalıyım.”* Doğrudur — ama bu bilgi **kâğıt üzerindeki bir denklem gibidir**; doğru, ama **soğuk, duygudan yoksun.**",
-      "en": "Yet **not every understanding stands at the same degree.** Here lies a deep difference between **theoretical** and **practical reason**. A person who has never been burned **can learn heat transfer**, can read the temperature warnings, can even **calculate at what degree the tissue will be damaged.** By theoretical reason he arrives at the judgement: *“I must not touch what is hot.”* True — but this knowledge **is like an equation on paper**; correct, yet **cold, void of feeling.**"
+      "tr": "Fakat **her anlama aynı mertebede değildir.** Burada teorik akıl ile pratik akıl arasında derin bir fark vardır. Hiç yanmamış bir insan ısı transferini öğrenebilir, sıcaklık uyarılarını okuyabilir, hatta dokunun hangi derecede zarar göreceğini hesaplayabilir. Teorik akıl ile şu hükme varır: *“Sıcağa dokunmamalıyım.”* Doğrudur, ama bu bilgi kâğıt üzerindeki bir denklem gibidir; doğru, ama soğuk, duygudan yoksun.",
+      "en": "Yet **not every understanding stands at the same degree.** Here lies a deep difference between theoretical and practical reason. A person who has never been burned can learn heat transfer, can read the temperature warnings, can even calculate at what degree the tissue will be damaged. By theoretical reason he arrives at the judgement: *“I must not touch what is hot.”* True, but this knowledge is like an equation on paper; correct, yet cold, void of feeling."
     },
     {
       "type": "contrastDuo",
@@ -149,15 +149,15 @@
     },
     {
       "type": "paragraph",
-      "tr": "Richard Feynman bu farkı **sezgisel olarak kavramış** biriydi; gayesi **ezber değil, idrak**ti. Meşhur fizikçi derse **hiçbir zaman denklemlerle başlamazdı.** *“Bir elektron olduğunu hayal et…”* ya da *“Uzayı bir lastik örtü gibi düşün…”* tarzı benzetmeler kurardı. **Kuantum mekaniğini duyulara yakınlaştırarak**, ne kadar mecazî olursa olsun, dinleyicide **bir hads (*intuition*) inşa ederdi.** Onu dinledikten sonra fiziği sadece formüllerle değil, **içten hissederek** anlamaya başlardın.",
-      "en": "Richard Feynman was someone who **grasped this difference intuitively**; his aim was **not memorisation but comprehension.** The famous physicist **never began a lesson with equations.** He would build analogies along the lines of *“imagine you are an electron…”* or *“think of space as a rubber sheet…”* **By bringing quantum mechanics close to the senses** — however metaphorical the means — **he built an intuition (*ḥads*) in his listener.** After hearing him you began to understand physics not by formulae alone but **by feeling it from within.**"
+      "tr": "Richard Feynman bu farkı **sezgisel olarak kavramış** biriydi; gayesi ezber değil, idrakti. Meşhur fizikçi derse hiçbir zaman denklemlerle başlamazdı. *“Bir elektron olduğunu hayal et…”* ya da *“Uzayı bir lastik örtü gibi düşün…”* tarzı benzetmeler kurardı. Kuantum mekaniğini duyulara yakınlaştırarak, ne kadar mecazî olursa olsun, dinleyicide **bir hads (*intuition*) inşa ederdi. Onu dinledikten sonra fiziği sadece formüllerle değil, içten hissederek** anlamaya başlardın.",
+      "en": "Richard Feynman was someone who **grasped this difference intuitively**; his aim was not memorisation but comprehension. The famous physicist never began a lesson with equations. He would build analogies along the lines of *“imagine you are an electron…”* or *“think of space as a rubber sheet…”* By bringing quantum mechanics close to the senses: however metaphorical the means: **he built an intuition (*ḥads*) in his listener. After hearing him you began to understand physics not by formulae alone but by feeling it from within.**"
     },
     {
       "type": "criticalNote",
       "headingTr": "Pratik aklın işleyişi",
       "headingEn": "How practical reason operates",
-      "tr": "İşte bu, pratik aklın işleyişidir: **bilgiyi iç dünyaya yerleştirmek** — oraya **misafir değil, mekân sahibi** kılmak.",
-      "en": "This is how practical reason operates: **to settle knowledge within the inner world** — to make it **not a guest there but a householder.**"
+      "tr": "İşte bu, pratik aklın işleyişidir: **bilgiyi iç dünyaya yerleştirmek**: oraya misafir değil, mekân sahibi kılmak.",
+      "en": "This is how practical reason operates: **to settle knowledge within the inner world**: to make it not a guest there but a householder."
     },
     {
       "type": "section",
@@ -167,8 +167,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bu **hissedilen anlayış** ihtiyacı, neden **doğamız gereği antropomorfik** olduğumuzu da açıklar. İnsana ait nitelikleri insan dışındaki şeylerde gördüğümüzde buna **antropomorfizm** deriz: *“kızgın fırtına”*, *“inatçı bilgisayar”* gibi. Fakat **hakikat çok daha derindedir**: *“hareket”*, *“büyüme”*, *“uçma”* gibi sözde **“nesnel”** kavramlar bile aslında **insanın kendi duyusal tecrübelerine dayanır.**",
-      "en": "This need for **felt understanding** also explains why we are **anthropomorphic by our very nature.** When we see human attributes in what is not human we call it **anthropomorphism**: *“an angry storm,”* *“a stubborn computer.”* But **the truth runs far deeper**: even supposedly **“objective”** concepts such as *“motion,”* *“growth”* and *“flight”* in fact **rest upon man's own sensory experience.**"
+      "tr": "Bu **hissedilen anlayış** ihtiyacı, neden doğamız gereği antropomorfik olduğumuzu da açıklar. İnsana ait nitelikleri insan dışındaki şeylerde gördüğümüzde buna antropomorfizm deriz: *“kızgın fırtına”*, *“inatçı bilgisayar”* gibi. Fakat hakikat çok daha derindedir: *“hareket”*, *“büyüme”*, *“uçma”* gibi sözde “nesnel” kavramlar bile aslında insanın kendi duyusal tecrübelerine dayanır.",
+      "en": "This need for **felt understanding** also explains why we are anthropomorphic by our very nature. When we see human attributes in what is not human we call it anthropomorphism: *“an angry storm,”* *“a stubborn computer.”* But the truth runs far deeper: even supposedly “objective” concepts such as *“motion,”* *“growth”* and *“flight”* in fact rest upon man's own sensory experience."
     },
     {
       "type": "hierarchyTree",
@@ -251,8 +251,8 @@
         "descEn": "Concepts that can be **bound directly** to an inner sensation.",
         "bullets": [
           {
-            "tr": "Hareket, büyüme, uçma — **bedende bir şablonu vardır**",
-            "en": "Motion, growth, flight — **each has a template in the body**"
+            "tr": "Hareket, büyüme, uçma; **bedende bir şablonu vardır**",
+            "en": "Motion, growth, flight; **each has a template in the body**"
           },
           {
             "tr": "Hem **bilinir** hem **hissedilir**",
@@ -292,8 +292,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "İnsan idrakinin bu yapısı — yani **hakikati yalnızca düşünerek değil, hissederek kavrama ihtiyacı** — **bir eksiklik değil**, bilakis **hakikî anlayışı mümkün kılan esas özelliktir.**",
-      "en": "This structure of human comprehension — **the need to grasp truth not by thinking alone but by feeling** — **is no deficiency**, but on the contrary **the very property that makes real understanding possible.**"
+      "tr": "İnsan idrakinin bu yapısı, yani **hakikati yalnızca düşünerek değil, hissederek kavrama ihtiyacı**: bir eksiklik değil, bilakis hakikî anlayışı mümkün kılan esas özelliktir.",
+      "en": "This structure of human comprehension; **the need to grasp truth not by thinking alone but by feeling**: is no deficiency, but on the contrary the very property that makes real understanding possible."
     },
     {
       "type": "verseInline",
@@ -304,28 +304,28 @@
     },
     {
       "type": "paragraph",
-      "tr": "**İlâhî hikmet insan şuuruna ulaşmak istediğinde, bu aynı tercüme mekanizmasını kullanır.** Soyut imanî hakikatleri **temsilî hikâyeciklerle (analojilerle)** somutlaştırıp anlatan Risale-i Nur'un müellifi, bu hususun esasını **vicdan** kavramı üzerinden izah eder.",
-      "en": "**When divine wisdom wishes to reach human consciousness, it employs this very mechanism of translation.** The author of the Risale-i Nur, who renders abstract truths of faith concrete through **short representative stories, through analogies**, explains the ground of this by way of the concept of **conscience.**"
+      "tr": "**İlâhî hikmet insan şuuruna ulaşmak istediğinde, bu aynı tercüme mekanizmasını kullanır.** Soyut imanî hakikatleri temsilî hikâyeciklerle (analojilerle) somutlaştırıp anlatan Risale-i Nur'un müellifi, bu hususun esasını vicdan kavramı üzerinden izah eder.",
+      "en": "**When divine wisdom wishes to reach human consciousness, it employs this very mechanism of translation.** The author of the Risale-i Nur, who renders abstract truths of faith concrete through short representative stories, through analogies, explains the ground of this by way of the concept of conscience."
     },
     {
       "type": "pullQuote",
-      "tr": "**Dördüncü burhan:** Âlem-i gayb ve şehadetin (gözlemlenmeyen ve gözlemlenen dünyaların) **nokta-i iltisakı** (birleştiği nokta) ve **berzahı** (arasındaki bölge) ve iki âlemden birbirine gelen seyyârâtın **mültekası** (buluşma noktası), **vicdan denilen fıtrat-ı zîşuurdur.** Evet, fıtrat ve vicdan **akla bir penceredir**; tevhidin şuâını neşrederler. … **Akıl tâtil-i eşgal etse de, nazarını ihmal etse, vicdan Sânii unutamaz.** Kendi nefsini inkâr etse de onu görür, onu düşünür, ona müteveccihtir. **Hads** — ki şimşek gibi sür'at-i intikaldir — daima onu tahrik eder. **Hadsin muzaafı olan ilham**, onu daima tenvir eder.",
-      "en": "**The fourth proof:** The **point of junction** of the world of the unseen and the world of the witnessed, the **isthmus** between them, and the **meeting-place** of the travellers passing from each world to the other, is **the conscious nature called conscience.** Yes, innate nature and conscience are **a window onto the intellect**; they diffuse the rays of divine unity. … **Even if the intellect suspends its work and neglects its gaze, the conscience cannot forget the Maker.** Though it deny its own self, it sees Him, it thinks of Him, it is turned toward Him. **Intuition** — which is a lightning-swift transition — moves it constantly. And **inspiration, the multiple of intuition**, illumines it always.",
+      "tr": "Dördüncü burhan: Âlem-i gayb ve şehadetin (gözlemlenmeyen ve gözlemlenen dünyaların) **nokta-i iltisakı** (birleştiği nokta) ve berzahı (arasındaki bölge) ve iki âlemden birbirine gelen seyyârâtın mültekası (buluşma noktası), vicdan denilen fıtrat-ı zîşuurdur. Evet, fıtrat ve vicdan akla bir penceredir; tevhidin şuâını neşrederler. … Akıl tâtil-i eşgal etse de, nazarını ihmal etse, vicdan Sânii unutamaz. Kendi nefsini inkâr etse de onu görür, onu düşünür, ona müteveccihtir. Hads (ki şimşek gibi sür'at-i intikaldir) daima onu tahrik eder. Hadsin muzaafı olan ilham, onu daima tenvir eder.",
+      "en": "The fourth proof: The **point of junction** of the world of the unseen and the world of the witnessed, the isthmus between them, and the meeting-place of the travellers passing from each world to the other, is the conscious nature called conscience. Yes, innate nature and conscience are a window onto the intellect; they diffuse the rays of divine unity. … Even if the intellect suspends its work and neglects its gaze, the conscience cannot forget the Maker. Though it deny its own self, it sees Him, it thinks of Him, it is turned toward Him. Intuition (which is a lightning-swift transition) moves it constantly. And inspiration, the multiple of intuition, illumines it always.",
       "source": "Bediüzzaman — Mesnevî-i Nûriye, Nokta"
     },
     {
       "type": "criticalNote",
       "headingTr": "Bir indirgeme değil, bir **muvafakat**",
       "headingEn": "Not a reduction but **an accommodation**",
-      "tr": "İlâhî hitabın insana ait bir dille gelmesi **bir indirgeme değildir**; **insanın idrak yapısına lütufkâr bir uyarlamadır.** Allah insanla **antropomorfik bir dil üzerinden** konuşur — zira **kalpleri dönüştüren şey yalnızca düşünce değil; hissedilmiş, bedene nakşedilmiş, yaşanmış bilgidir** — yani **pratik akıldır.**",
-      "en": "That divine address should come in a language proper to man **is not a reduction**; it is **a gracious accommodation to the structure of human comprehension.** God speaks with man **through an anthropomorphic language** — for **what transforms hearts is not thought alone but knowledge felt, engraved upon the body, lived** — that is, **practical reason.**"
+      "tr": "İlâhî hitabın insana ait bir dille gelmesi **bir indirgeme değildir**; insanın idrak yapısına lütufkâr bir uyarlamadır. Allah insanla antropomorfik bir dil üzerinden konuşur (zira kalpleri dönüştüren şey yalnızca düşünce değil; hissedilmiş, bedene nakşedilmiş, yaşanmış bilgidir) yani pratik akıldır.",
+      "en": "That divine address should come in a language proper to man **is not a reduction**; it is a gracious accommodation to the structure of human comprehension. God speaks with man through an anthropomorphic language (for what transforms hearts is not thought alone but knowledge felt, engraved upon the body, lived) that is, practical reason."
     },
     {
       "type": "criticalNote",
       "headingTr": "İlgili okuma ve metin hakkında",
       "headingEn": "Related reading, and about this text",
-      "tr": "Yazının *“hissedilemeyen kavramlar”* bahsi, sitedeki **Kâinat Kitabının Kuantum Bölümü-1** ile doğrudan temas eder: orada sıralanan beş gizem (süperpozisyon, dolanıklık, ölçüm problemi…) tam olarak buradaki **tercüme yokluğunun** örnekleridir. Yazının Medium'daki bağlantı adresi *“İç Dünya: Evrensel Tercümanımız”* başlığını taşır; yayımlanmış başlık **“Vicdan: Evrensel Tercüman”**dır. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.**",
-      "en": "The discussion of *“concepts that cannot be felt”* touches directly on **The Quantum Chapter of the Book of the Universe-1** on this site: the five mysteries listed there (superposition, entanglement, the measurement problem…) are precisely instances of the **absent translation** described here. The piece's URL on Medium carries the title *“The Inner World: Our Universal Translator”*; the published title is **“Conscience: The Universal Translator.”** **The Turkish is the author's own pen; the English is a translation.**"
+      "tr": "Yazının *“hissedilemeyen kavramlar”* bahsi, sitedeki **Kâinat Kitabının Kuantum Bölümü-1** ile doğrudan temas eder: orada sıralanan beş gizem (süperpozisyon, dolanıklık, ölçüm problemi…) tam olarak buradaki tercüme yokluğunun örnekleridir. Yazının Medium'daki bağlantı adresi *“İç Dünya: Evrensel Tercümanımız”* başlığını taşır; yayımlanmış başlık “Vicdan: Evrensel Tercüman”dır. Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.",
+      "en": "The discussion of *“concepts that cannot be felt”* touches directly on **The Quantum Chapter of the Book of the Universe-1** on this site: the five mysteries listed there (superposition, entanglement, the measurement problem…) are precisely instances of the absent translation described here. The piece's URL on Medium carries the title *“The Inner World: Our Universal Translator”*; the published title is “Conscience: The Universal Translator.” The Turkish is the author's own pen; the English is a translation."
     }
   ]
 }

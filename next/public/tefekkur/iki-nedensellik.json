@@ -28,8 +28,8 @@
       "type": "criticalNote",
       "headingTr": "İngilizce yazı · Yazılan ve Yazılmayan 1",
       "headingEn": "Essay in English · The Written and the Unwritten 1",
-      "tr": "Bu yazı Felsufi'nin *The Written and the Unwritten* serisinin **1. bölümüdür** ve Substack'te **İngilizce** yayımlanmıştır; Türkçe bir sürümü bulunmuyor. Bu sayfadaki Türkçe metin bir **çeviridir**; yazarın orijinal İngilizcesi sayfanın İngilizce sürümünde, kaleminden çıktığı hâliyle durur. Serinin ikinci yazısı, geçmiş ile geleceğin neden aynı dilde yazılmadığını (klasik ⇄ kuantum) ele alacak.",
-      "en": "This is **part 1** of Felsufi's series *The Written and the Unwritten*, published in **English** on Substack; there is no Turkish version. The body is preserved exactly as the author wrote it — only the section titles and summary are rendered in Turkish for navigation. The second essay will take up why the past and the future are not written in the same language (classical ⇄ quantum)."
+      "tr": "Bu yazı Felsufi'nin *The Written and the Unwritten* serisinin **1. bölümüdür** ve Substack'te İngilizce yayımlanmıştır; Türkçe bir sürümü bulunmuyor. Bu sayfadaki Türkçe metin bir çeviridir; yazarın orijinal İngilizcesi sayfanın İngilizce sürümünde, kaleminden çıktığı hâliyle durur. Serinin ikinci yazısı, geçmiş ile geleceğin neden aynı dilde yazılmadığını (klasik ⇄ kuantum) ele alacak.",
+      "en": "This is **part 1** of Felsufi's series *The Written and the Unwritten*, published in English on Substack; there is no Turkish version. The body is preserved exactly as the author wrote it; only the section titles and summary are rendered in Turkish for navigation. The second essay will take up why the past and the future are not written in the same language (classical ⇄ quantum)."
     },
     {
       "type": "paragraph",
@@ -44,12 +44,12 @@
     },
     {
       "type": "paragraph",
-      "tr": "Nedenselliğin yaygın tanımı iki önermeyi birleştirir: *X olursa Y olur* ve *X olmasaydı Y olmazdı*. Ekmeğini asıl kazanan ikinci şart, yani karşı-olgusaldır. O olmasaydı, düzenli olarak birlikte görünen her iki olayı birbirine bağlamak zorunda kalırdık. Güneş doğar ve yeryüzünün bir yerinde yağmur yağar. İkisi de kayıtlı tarih boyunca her gün gerçekleşmiştir; korelasyon olarak kusursuzdur. Ama iki olay yan yana çıktıkları için akraba olmaz. Güneşin doğuşuna yağmurun sebebi diyebilmek için karşı-olgusal da gerekir: güneş doğmasaydı, yeryüzünün hiçbir yerinde yağmur yağmazdı. Ve hiçbir gözlem bu önermeyi doğrulayamaz: kimse bir gün doğumunu iptal etme deneyini yapmadı. Karşı-olgusallar, güvendiğimiz bir modele karşı sınanır — yani bilime. Modellerimiz gün doğumundan yağmura doğrudan bir nedensel yol bulmadığı için, kusursuz korelasyon reddedilir. (Yeterince uzun bir ufuktan sorarsanız hüküm tersine döner: güneş ısısı bütün su döngüsünü çevirir. Gün doğumunun yağmura sebep olup olmadığı, hangi zaman ölçeğinde sorduğunuza bağlıdır — şimdilik küçük bir tuhaflık, ilerleyen yazılarda yük taşıyan bir mesele.) Tanım işini görür.",
+      "tr": "Nedenselliğin yaygın tanımı iki önermeyi birleştirir: *X olursa Y olur* ve *X olmasaydı Y olmazdı*. Ekmeğini asıl kazanan ikinci şart, yani karşı-olgusaldır. O olmasaydı, düzenli olarak birlikte görünen her iki olayı birbirine bağlamak zorunda kalırdık. Güneş doğar ve yeryüzünün bir yerinde yağmur yağar. İkisi de kayıtlı tarih boyunca her gün gerçekleşmiştir; korelasyon olarak kusursuzdur. Ama iki olay yan yana çıktıkları için akraba olmaz. Güneşin doğuşuna yağmurun sebebi diyebilmek için karşı-olgusal da gerekir: güneş doğmasaydı, yeryüzünün hiçbir yerinde yağmur yağmazdı. Ve hiçbir gözlem bu önermeyi doğrulayamaz: kimse bir gün doğumunu iptal etme deneyini yapmadı. Karşı-olgusallar, güvendiğimiz bir modele karşı sınanır, yani bilime. Modellerimiz gün doğumundan yağmura doğrudan bir nedensel yol bulmadığı için, kusursuz korelasyon reddedilir. (Yeterince uzun bir ufuktan sorarsanız hüküm tersine döner: güneş ısısı bütün su döngüsünü çevirir. Gün doğumunun yağmura sebep olup olmadığı, hangi zaman ölçeğinde sorduğunuza bağlıdır; şimdilik küçük bir tuhaflık, ilerleyen yazılarda yük taşıyan bir mesele.) Tanım işini görür.",
       "en": "A common definition of causality combines two statements: *if X happens, Y happens*, and *if X had not happened, Y would not have happened*. The second clause, the counterfactual, is what earns its keep. Without it, we would be forced to relate any two events that reliably co-occur. The sun rises, and somewhere on Earth, rain falls. Both have happened every single day throughout recorded history; as correlations go, this one is flawless. But two events do not become related by showing up together. To call sunrise the cause of rain, we would also need the counterfactual: had the sun not risen, nowhere on Earth would it rain. And no observation can verify this statement: no one has ever run the experiment of canceling a sunrise. Counterfactuals are checked against a model we trust, which is to say, against science. Our models find no immediate causal road from sunrise to rainfall, so the flawless correlation is dismissed. (Ask over a long enough horizon and the verdict flips: solar heating drives the whole hydrological cycle. Whether sunrise causes rain depends on the timescale you ask at, a small oddity now, a load-bearing one later in this series.) The definition works."
     },
     {
       "type": "paragraph",
-      "tr": "Ama altta sessiz bir varsayım yatar ve bu varsayım tanımın kendisinde değil, tanımı kullanma biçimimizdedir. İki şarta yeniden bakın. *X olursa Y olur*, X'in Y'yi meydana getirmeye **yetip yetmediğini** ölçer. *X olmasaydı Y olmazdı* ise, gerçekleşmiş olan Y için X'in **gerekli olup olmadığını** ölçer. Bunlar iki ayrı niceliktir. Geriye dönük atıf ikinci soruyu, ileriye dönük tahmin birinciyi sorar; cevaplar ancak özel bir dünyada birlikte yol alır: her durumun tam olarak bir ardılı ve tam olarak bir öncülü olduğu, her ana tek bir geçmiş ile tek bir geleceğin ip üstündeki boncuklar gibi dizildiği bir makinede. Tanım bize böyle bir dünya vaat etmedi. Geriye dönük doğrulanmış bir anlatı, hiçbir bedel ödemeden ileri okunduğunda, biz o dünyayı sessizce varsaymış oluyoruz. Ve gerçekten önemsediğimiz sistemlerin çoğunda bu varsayım yanlıştır.",
+      "tr": "Ama altta sessiz bir varsayım yatar ve bu varsayım tanımın kendisinde değil, tanımı kullanma biçimimizdedir. İki şarta yeniden bakın. *X olursa Y olur*, X'in Y'yi meydana getirmeye **yetip yetmediğini** ölçer. *X olmasaydı Y olmazdı* ise, gerçekleşmiş olan Y için X'in gerekli olup olmadığını ölçer. Bunlar iki ayrı niceliktir. Geriye dönük atıf ikinci soruyu, ileriye dönük tahmin birinciyi sorar; cevaplar ancak özel bir dünyada birlikte yol alır: her durumun tam olarak bir ardılı ve tam olarak bir öncülü olduğu, her ana tek bir geçmiş ile tek bir geleceğin ip üstündeki boncuklar gibi dizildiği bir makinede. Tanım bize böyle bir dünya vaat etmedi. Geriye dönük doğrulanmış bir anlatı, hiçbir bedel ödemeden ileri okunduğunda, biz o dünyayı sessizce varsaymış oluyoruz. Ve gerçekten önemsediğimiz sistemlerin çoğunda bu varsayım yanlıştır.",
       "en": "But there is a silent assumption underneath, and it sits in the way we use the definition rather than in the definition itself. Look at the two clauses again. *If X, then Y* measures whether X is enough to bring Y about. *If not-X, then not-Y* measures whether X was needed for the Y that actually happened. These are two different quantities. Backward attribution asks the second question; forward prediction asks the first; and the answers travel together only in a special kind of world: a machine in which each state has exactly one successor and exactly one predecessor, one past and one future threaded through every moment like beads on a string. The definition never promised us that world. We assume it silently, every time a narrative verified backward gets read forward at no extra charge. And for most of the systems we actually care about, the assumption is false."
     },
     {
@@ -60,8 +60,8 @@
     },
     {
       "type": "hierarchyTree",
-      "titleTr": "Ağaç — iki yön, iki farklı garanti",
-      "titleEn": "The tree — two directions, two different guarantees",
+      "titleTr": "Ağaç: iki yön, iki farklı garanti",
+      "titleEn": "The tree: two directions, two different guarantees",
       "root": {
         "tr": "Gövde — başlangıç koşulları",
         "en": "The trunk — initial conditions"
@@ -126,15 +126,15 @@
     },
     {
       "type": "paragraph",
-      "tr": "Şimdi iki işleme isim vereyim, çünkü serinin geri kalanı bu isimlere yaslanacak. **Geriye dönük (retrospective) nedensellik**, gerçekleşmiş bir sonuçtan geriye izlenerek kurulan nedensel hikâyedir. **İleriye dönük (prospective) nedensellik** ise, bu koşullar verildiğinde şu sonucun geleceği yönündeki ileri iddiadır. Ders kitabı tanımı bunları tek bir ilişkinin iki yönde okunuşu sayar. Ağaç ise başka bir şey söyler: bunlar farklı garantileri olan farklı işlemlerdir ve yalnızca özel bir dünyada — durumları bire bir eşleyen, hiç açık kapı bırakmayan bir dünyada — aynı şeye indirgenirler.",
-      "en": "So let me name the two operations, because the rest of this series will lean on the names. **Retrospective causality** is the causal story constructed by tracing backward from an outcome that already happened. **Prospective causality** is the forward claim that given these conditions, that outcome will follow. The textbook definition treats them as one relation read in two directions. The tree says otherwise: they are different operations, with different guarantees, and only in a special kind of world, one that maps states one-to-one with no open doors, do they collapse into the same thing."
+      "tr": "Şimdi iki işleme isim vereyim, çünkü serinin geri kalanı bu isimlere yaslanacak. **Geriye dönük (retrospective) nedensellik**, gerçekleşmiş bir sonuçtan geriye izlenerek kurulan nedensel hikâyedir. İleriye dönük (prospective) nedensellik ise, bu koşullar verildiğinde şu sonucun geleceği yönündeki ileri iddiadır. Ders kitabı tanımı bunları tek bir ilişkinin iki yönde okunuşu sayar. Ağaç ise başka bir şey söyler: bunlar farklı garantileri olan farklı işlemlerdir ve yalnızca özel bir dünyada (durumları bire bir eşleyen, hiç açık kapı bırakmayan bir dünyada) aynı şeye indirgenirler.",
+      "en": "So let me name the two operations, because the rest of this series will lean on the names. **Retrospective causality** is the causal story constructed by tracing backward from an outcome that already happened. Prospective causality is the forward claim that given these conditions, that outcome will follow. The textbook definition treats them as one relation read in two directions. The tree says otherwise: they are different operations, with different guarantees, and only in a special kind of world, one that maps states one-to-one with no open doors, do they collapse into the same thing."
     },
     {
       "type": "contrastDuo",
       "captionTr": "Geriye dönük ⇄ İleriye dönük nedensellik",
       "captionEn": "Retrospective ⇄ Prospective causality",
       "left": {
-        "titleTr": "Retrospective — geriye dönük",
+        "titleTr": "Retrospective: geriye dönük",
         "titleEn": "Retrospective",
         "descTr": "Yapraktan gövdeye: gerçekleşmiş bir sonuçtan geriye izlenen nedensel hikâye.",
         "descEn": "Leaf to trunk: the causal story built by tracing backward from an outcome that already happened.",
@@ -145,8 +145,8 @@
             "en": "A walk down a corridor"
           },
           {
-            "tr": "Yol tektir — ama onun hakkındaki hikâyeniz yol değildir",
-            "en": "The path is unique — but your story about it is not the path"
+            "tr": "Yol tektir, ama onun hakkındaki hikâyeniz yol değildir",
+            "en": "The path is unique, but your story about it is not the path"
           },
           {
             "tr": "Ucuz: yapraktan gövdeye giden bir yol her zaman vardır",
@@ -155,7 +155,7 @@
         ]
       },
       "right": {
-        "titleTr": "Prospective — ileriye dönük",
+        "titleTr": "Prospective: ileriye dönük",
         "titleEn": "Prospective",
         "descTr": "Gövdeden yaprağa: bu koşullar verildiğinde şu sonucun geleceği iddiası.",
         "descEn": "Trunk to leaf: the forward claim that given these conditions, that outcome will follow.",
@@ -229,12 +229,12 @@
     },
     {
       "type": "paragraph",
-      "tr": "Şimdi sınayın. Gelecek çeyrekte kârın beklentiyi aşacağını bir şekilde önceden bildiğinizi düşünün. Anlatıyı alır, ileriye dönük nedensellik olarak çevirir ve ona göre yatırım yaparsınız. Kısa sürede haddiniz bildirilir. Hisse aynı haberle düşebilir, umursamayabilir ya da haritanızda hiç bulunmayan sebeplerle hareket edebilir. İşte asıl açık edici kısım: tez tutmayınca yöntemi terk etmezsiniz. Neden tutmadığını açıklayacak **yeni bir geriye dönük anlatı** ararsınız — ve bulursunuz, çünkü yapraktan gövdeye giden bir yol her zaman vardır. Açıklama makinesi asla eli boş dönmez.",
+      "tr": "Şimdi sınayın. Gelecek çeyrekte kârın beklentiyi aşacağını bir şekilde önceden bildiğinizi düşünün. Anlatıyı alır, ileriye dönük nedensellik olarak çevirir ve ona göre yatırım yaparsınız. Kısa sürede haddiniz bildirilir. Hisse aynı haberle düşebilir, umursamayabilir ya da haritanızda hiç bulunmayan sebeplerle hareket edebilir. İşte asıl açık edici kısım: tez tutmayınca yöntemi terk etmezsiniz. Neden tutmadığını açıklayacak **yeni bir geriye dönük anlatı** ararsınız, ve bulursunuz, çünkü yapraktan gövdeye giden bir yol her zaman vardır. Açıklama makinesi asla eli boş dönmez.",
       "en": "Now run the test. Next quarter, imagine you somehow know in advance that earnings will beat expectations. You take the narrative, flip it forward as prospective causality, and invest accordingly. You will quickly be humbled. The stock may fall on the same news, shrug at it, or move for reasons that were never on your map. And here is the revealing part: when the thesis fails, you will not abandon the method. You will go looking for a new retrospective narrative to explain why it failed and you will find one, because a path from leaf to trunk always exists. The explanation machine never comes back empty-handed."
     },
     {
       "type": "paragraph",
-      "tr": "Bu son olgunun sessizce itiraf ettiği şeye dikkat edin. Geriye giden yol tektir, ama sizin o yol hakkındaki hikâyeniz yolun kendisi değildir. Koridoru kayıtlardan yeniden kurarız ve kayıtlar eksiktir; birbiriyle bağdaşmayan birkaç anlatı aynı hayatta kalmış delile uyabilir — her başarısızlıktan sonra taze bir anlatının hep hazır olmasının sebebi tam olarak budur. (Kayıtların neden eksik olmak zorunda olduğunun kendine ait güzel bir cevabı var; o da ayrı bir yazıyı hak ediyor.) Yani yorumcunun güveni iki kat hak edilmemiştir. İleri yön hiçbir zaman garanti değildi; tekliğin ilkece geçerli olduğu geri yönde bile, bu anlatının o yolu bulduğunun garantisi yoktur.",
+      "tr": "Bu son olgunun sessizce itiraf ettiği şeye dikkat edin. Geriye giden yol tektir, ama sizin o yol hakkındaki hikâyeniz yolun kendisi değildir. Koridoru kayıtlardan yeniden kurarız ve kayıtlar eksiktir; birbiriyle bağdaşmayan birkaç anlatı aynı hayatta kalmış delile uyabilir; her başarısızlıktan sonra taze bir anlatının hep hazır olmasının sebebi tam olarak budur. (Kayıtların neden eksik olmak zorunda olduğunun kendine ait güzel bir cevabı var; o da ayrı bir yazıyı hak ediyor.) Yani yorumcunun güveni iki kat hak edilmemiştir. İleri yön hiçbir zaman garanti değildi; tekliğin ilkece geçerli olduğu geri yönde bile, bu anlatının o yolu bulduğunun garantisi yoktur.",
       "en": "Notice what that last fact quietly concedes. The backward path is unique, but your story about it is not the path. We reconstruct the corridor from records, and records are incomplete; several incompatible narratives can fit the same surviving evidence, which is exactly why a fresh one is always available after each failure. (Why records must be incomplete has a beautiful answer of its own; it gets its own essay.) So the pundit's confidence is doubly unearned. The forward direction was never guaranteed and even the backward direction, where uniqueness holds in principle, does not guarantee that this narrative found it."
     },
     {
@@ -255,7 +255,7 @@
     },
     {
       "type": "paragraph",
-      "tr": "Tarihin bugüne dair hiçbir hikmeti olmadığını söylemiyorum. Geriye dönük bir anlatı, dikkatle ileri taşındığında, rastgele bir tahminden yine de daha iyi bir başlangıç noktasıdır: gelecekler uzayını budayabilir, dalları eleyebilir, salonu daraltabilir. Ama mümkünü budamak, gerçekleşeni seçmekle aynı şey değildir. Kapıları daraltmak ile kapıyı bilmek arasındaki o mesafe, tam olarak iki nedensellik arasındaki mesafedir. Bunları karıştırın; hata sabit kalmaz, **katlanarak büyür** — her başarısız tahmin, kendi sırası geldiğinde yine tutmayacak taze bir açıklamayla yamanır.",
+      "tr": "Tarihin bugüne dair hiçbir hikmeti olmadığını söylemiyorum. Geriye dönük bir anlatı, dikkatle ileri taşındığında, rastgele bir tahminden yine de daha iyi bir başlangıç noktasıdır: gelecekler uzayını budayabilir, dalları eleyebilir, salonu daraltabilir. Ama mümkünü budamak, gerçekleşeni seçmekle aynı şey değildir. Kapıları daraltmak ile kapıyı bilmek arasındaki o mesafe, tam olarak iki nedensellik arasındaki mesafedir. Bunları karıştırın; hata sabit kalmaz, **katlanarak büyür**: her başarısız tahmin, kendi sırası geldiğinde yine tutmayacak taze bir açıklamayla yamanır.",
       "en": "I am not claiming history holds no wisdom for the present. A retrospective narrative, carried forward with care, is still a better prior than an arbitrary guess: it can prune the space of futures, rule out branches, narrow the hall. But pruning the possible is not the same as picking the actual. That distance between narrowing the doors and knowing the door is exactly the distance between the two causalities. Confuse them, and the error does not stay constant; it compounds, narrative by narrative, each failed prediction patched with a fresh explanation that will fail in its own turn."
     },
     {
@@ -276,12 +276,12 @@
     },
     {
       "type": "paragraph",
-      "tr": "Geriye kurulmuş iddialar ucuzdur. Yapraktan gövdeye giden bir yol her zaman vardır, dolayısıyla bir tane bulmak çok az şey kanıtlar; koridor kendi varlığını kendisi garanti eder. Her mühendislik olay incelemesi bir kök neden bulur — ve çözüm tutmadığında, bir sonraki inceleme aynı güvenle **başka** bir kök neden bulur. İleriye kurulmuş iddialar pahalıdır, çünkü gövde gerçekten de yapraklarını içermez. Geriye dönük nedensellikte yanlış bir şey yok. Serinin ilerleyen bölümlerinde göreceğiz ki o, belirli bir anlamda geçmişin izin verdiği **tek** hikâye türüdür — yeter ki ne olduğu açıkça etiketlensin ve fiyat etiketinde hâlâ “tahmin” yazarken yön çizgisinin öbür tarafına kaçırılmasın.",
+      "tr": "Geriye kurulmuş iddialar ucuzdur. Yapraktan gövdeye giden bir yol her zaman vardır, dolayısıyla bir tane bulmak çok az şey kanıtlar; koridor kendi varlığını kendisi garanti eder. Her mühendislik olay incelemesi bir kök neden bulur, ve çözüm tutmadığında, bir sonraki inceleme aynı güvenle **başka** bir kök neden bulur. İleriye kurulmuş iddialar pahalıdır, çünkü gövde gerçekten de yapraklarını içermez. Geriye dönük nedensellikte yanlış bir şey yok. Serinin ilerleyen bölümlerinde göreceğiz ki o, belirli bir anlamda geçmişin izin verdiği tek hikâye türüdür; yeter ki ne olduğu açıkça etiketlensin ve fiyat etiketinde hâlâ “tahmin” yazarken yön çizgisinin öbür tarafına kaçırılmasın.",
       "en": "Backward-built claims are cheap. There is always a path from the leaf to the trunk, so finding one proves very little; the corridor guarantees its own existence. Every engineering incident review finds a root cause and when the fix does not hold, the next review finds a different root cause, delivered with the same confidence. Forward-built claims are expensive, because the trunk genuinely does not contain its leaves. Nothing is wrong with retrospective causality. We will see later in the series that it is, in a precise sense, the only kind of story the past permits as long as it is labeled as what it is, and never smuggled across the direction line with the price tag still reading “prediction.”"
     },
     {
       "type": "paragraph",
-      "tr": "Ama şimdi havada asılı duran bir soru var ve en tuhafı da o. Geri yön neden **tek**? Geçmiş bize neden sabit tek bir koridor olarak ulaşırken gelecek kapılara doğru açılıyor? İki yönü fiziksel olarak bu kadar farklı kılan nedir? O cevap mantık değil. Fizik: geçmiş ile gelecek aynı dilde bile yazılmamıştır. **Geçmiş klasiktir. Gelecek kuantum mekaniğidir.**\n\nBir sonraki yazının konusu bu.",
+      "tr": "Ama şimdi havada asılı duran bir soru var ve en tuhafı da o. Geri yön neden **tek**? Geçmiş bize neden sabit tek bir koridor olarak ulaşırken gelecek kapılara doğru açılıyor? İki yönü fiziksel olarak bu kadar farklı kılan nedir? O cevap mantık değil. Fizik: geçmiş ile gelecek aynı dilde bile yazılmamıştır. Geçmiş klasiktir. Gelecek kuantum mekaniğidir.\n\nBir sonraki yazının konusu bu.",
       "en": "One question, though, is now hanging in the air, and it is the strangest one. Why is the backward direction unique at all? Why does the past reach us as a single fixed corridor while the future fans out into doors. What, physically, makes the two directions so different? That answer is not logic. It is physics: the past and the future are not even written in the same language. The past is classical. The future is quantum mechanical.\n\nThat is the next essay."
     }
   ]

@@ -37,33 +37,33 @@
     {
       "type": "section",
       "id": "ayet-nedir",
-      "titleTr": "1. Ayet Nedir? — Gözlem ile Hakikat Arasındaki Mapping",
-      "titleEn": "1. What is an Āya? — The Mapping Between Observation and Truth"
+      "titleTr": "1. Ayet Nedir? Gözlem ile Hakikat Arasındaki Mapping",
+      "titleEn": "1. What is an Āya? The Mapping Between Observation and Truth"
     },
     {
       "type": "paragraph",
-      "tr": "Modern dünyada **gördüğümüz her şeyin sadece maddî bir gerçeklik** olduğunu düşünmeye alıştık. Ama Kur'an'ın **'ayet'** kavramı **bambaşka bir ontolojik yapı** önümüze koyar.\n\n**Ayet, gözlem ile hakikat arasındaki köprüdür — bir *mapping***. Akıl ve fikrin **sonuç çıkarmak için kullandığı malzeme**. Akledenler tabiatı gözlemleyerek bu köprüden geçer (*Ra'd 13:3-4*); sabredip şükredenler ise **'eyyamullah'**ı (Allah'ın günlerini) hatırlayarak (*İbrahim 14:5*).",
-      "en": "We have grown used, in the modern world, to thinking that **everything we see is merely material reality**. But the Quran's concept of **'āya'** sets before us **an entirely different ontological structure**.\n\n**An āya is a bridge between observation and truth — a *mapping***. The very material **reason and reflection use** to draw conclusions. Those who reason cross this bridge by observing nature (*Al-Raʿd 13:3-4*); those who endure and give thanks, by remembering **'ayyām Allāh'** (the days of Allah) (*Ibrāhīm 14:5*)."
+      "tr": "Modern dünyada **gördüğümüz her şeyin sadece maddî bir gerçeklik** olduğunu düşünmeye alıştık. Ama Kur'an'ın 'ayet' kavramı bambaşka bir ontolojik yapı önümüze koyar.\n\n**Ayet, gözlem ile hakikat arasındaki köprüdür: bir *mapping***. Akıl ve fikrin **sonuç çıkarmak için kullandığı malzeme**. Akledenler tabiatı gözlemleyerek bu köprüden geçer (*Ra'd 13:3-4*); sabredip şükredenler ise 'eyyamullah'ı (Allah'ın günlerini) hatırlayarak (*İbrahim 14:5*).",
+      "en": "We have grown used, in the modern world, to thinking that **everything we see is merely material reality**. But the Quran's concept of 'āya' sets before us an entirely different ontological structure.\n\n**An āya is a bridge between observation and truth: a *mapping***. The very material **reason and reflection use** to draw conclusions. Those who reason cross this bridge by observing nature (*Al-Raʿd 13:3-4*); those who endure and give thanks, by remembering 'ayyām Allāh' (the days of Allah) (*Ibrāhīm 14:5*)."
     },
     {
       "type": "verseInline",
       "ref": "13:3",
-      "noteTr": "*Ra'd 13:3* — وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '…**Bunda tefekkür eden bir kavim için ayetler vardır.**' Hadiseleri Allah ile ilişkilendiren *tefekkür* seviyesi.",
-      "noteEn": "*Al-Raʿd 13:3* — وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '…**In that are signs for a people who reflect.**' The level of *tafakkur* — relating phenomena to Allah.",
+      "noteTr": "*Ra'd 13:3* (وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ) '…**Bunda tefekkür eden bir kavim için ayetler vardır.**' Hadiseleri Allah ile ilişkilendiren *tefekkür* seviyesi.",
+      "noteEn": "*Al-Raʿd 13:3* (وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَارًا… اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ) '…**In that are signs for a people who reflect.**' The level of *tafakkur* — relating phenomena to Allah.",
       "ar": "وَهُوَ الَّذِي مَدَّ الْاَرْضَ وَجَعَلَ فِيهَا رَوَاسِيَ وَاَنْهَاراً وَمِنْ كُلِّ الثَّمَرَاتِ جَعَلَ فِيهَا زَوْجَيْنِ اثْنَيْنِ يُغْشِي الَّيْلَ النَّهَارَ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ"
     },
     {
       "type": "verseInline",
       "ref": "14:5",
-      "noteTr": "*İbrahim 14:5* — وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ — '**Onlara Allah'ın günlerini hatırlat.**' Ayet olarak *eyyamullah* — tarihte Allah'ın açtığı pencereler; **sabr ↔ şükür** sahibi için ayet olur.",
-      "noteEn": "*Ibrāhīm 14:5* — وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ — '**Remind them of the Days of Allah.**' *Ayyām Allāh* as āya — the windows Allah has opened in history; signs *for the one of sabr and shukr*.",
+      "noteTr": "*İbrahim 14:5* (وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ) '**Onlara Allah'ın günlerini hatırlat.**' Ayet olarak *eyyamullah* — tarihte Allah'ın açtığı pencereler; **sabr ↔ şükür** sahibi için ayet olur.",
+      "noteEn": "*Ibrāhīm 14:5* (وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ) '**Remind them of the Days of Allah.**' *Ayyām Allāh* as āya — the windows Allah has opened in history; signs *for the one of sabr and shukr*.",
       "ar": "وَلَقَدْ اَرْسَلْنَا مُوسٰى بِاٰيَاتِنٓا اَنْ اَخْرِجْ قَوْمَكَ مِنَ الظُّلُمَاتِ اِلَى النُّورِ وَذَكِّرْهُمْ بِاَيَّامِ اللّٰهِ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِكُلِّ صَبَّارٍ شَكُورٍ"
     },
     {
       "type": "section",
       "id": "uc-tecelli",
-      "titleTr": "2. Üç Tecelli — Kainat, İnsan, Kur'an",
-      "titleEn": "2. Three Manifestations — Cosmos, Human, Quran"
+      "titleTr": "2. Üç Tecelli: Kainat, İnsan, Kur'an",
+      "titleEn": "2. Three Manifestations: Cosmos, Human, Quran"
     },
     {
       "type": "paragraph",
@@ -120,8 +120,8 @@
     {
       "type": "section",
       "id": "materyalizmin-cikmazi",
-      "titleTr": "3. Materyalizmin Çıkmazı — Mana mı, Madde mi Esas?",
-      "titleEn": "3. The Impasse of Materialism — Meaning or Matter as Primary?"
+      "titleTr": "3. Materyalizmin Çıkmazı: Mana mı, Madde mi Esas?",
+      "titleEn": "3. The Impasse of Materialism: Meaning or Matter as Primary?"
     },
     {
       "type": "contrastDuo",
@@ -131,7 +131,7 @@
         "titleTr": "Materyalizm / Fizikalizm",
         "titleEn": "Materialism / Physicalism",
         "descTr": "**Madde esas, mana türev.** İnsan da, anlam da, ahlâk da maddenin özel bir konfigürasyonundan çıkan **tebeî, ikincil** varlıklardır.",
-        "descEn": "**Matter primary, meaning derivative.** Human, meaning, ethics — all secondary, *tabaʿī*, arising from special configurations of matter.",
+        "descEn": "**Matter primary, meaning derivative.** Human, meaning, ethics; all secondary, *tabaʿī*, arising from special configurations of matter.",
         "accent": "#e74c3c",
         "bullets": [
           {
@@ -151,8 +151,8 @@
       "right": {
         "titleTr": "Felsufi'nin Önerdiği Ontoloji",
         "titleEn": "Felsufi's Proposed Ontology",
-        "descTr": "**Mana esas, madde mananın cesedi.** Madde **manaya ceset olacak şekilde organize olur** — *telos*, *top-down causality*. Hikmet = *mananın maddeye sebep olması*.",
-        "descEn": "**Meaning primary, matter the body of meaning.** Matter **organizes itself to become the body of meaning** — *telos*, *top-down causality*. *Ḥikma* = *meaning being the cause of matter*.",
+        "descTr": "**Mana esas, madde mananın cesedi.** Madde **manaya ceset olacak şekilde organize olur**: *telos*, *top-down causality*. Hikmet = *mananın maddeye sebep olması*.",
+        "descEn": "**Meaning primary, matter the body of meaning.** Matter **organizes itself to become the body of meaning**: *telos*, *top-down causality*. *Ḥikma* = *meaning being the cause of matter*.",
         "accent": "#1D9E75",
         "bullets": [
           {
@@ -164,8 +164,8 @@
             "en": "'Kun fa-yakūn' a structural reality"
           },
           {
-            "tr": "Mana → madde — *anlam için harflerin düzeni*",
-            "en": "Meaning → matter — *letters arranged for the sake of meaning*"
+            "tr": "Mana → madde: *anlam için harflerin düzeni*",
+            "en": "Meaning → matter: *letters arranged for the sake of meaning*"
           }
         ]
       },
@@ -175,8 +175,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Madde esas olamaz** — dört dolaylı işaret:\n\n— **(1) Matematik dünyası**, maddeden bağımsız bir öz-varlığa sahip görünür (Platonizm tartışması).\n— **(2) Kuantum mekaniği**, gözlem-öncesi *alem-i imkân*ı (realize olmayan ihtimaller) gösterir.\n— **(3) Şahsi tecrübe** — düşünme, planlama, niyet, aksiyon — maddî dile **bütünüyle çevrilemez**.\n— **(4) Ahlâk** — *iyi/kötü, hak/batıl* — maddî bir özellik değildir, ama gerçekliği vardır.\n\nManaya öncelik tanıdığımız anda **dua**nın mantığı belirir: Mana 'kün' emriyle maddeyi yeniden organize edebilir. **Ceset çürüse de** insan kimliğinin devam edebileceğine inanmanın yapısal gerekçesi de buradadır.",
-      "en": "**Matter cannot be primary** — four indirect signs:\n\n— **(1) The mathematical world** appears to possess an autonomous reality, independent of matter (the Platonism debate).\n— **(2) Quantum mechanics** points to a pre-observation *realm of possibilities (ʿālam al-imkān)* — outcomes that have not yet been actualized.\n— **(3) Personal experience** — thinking, planning, intention, action — **cannot be wholly translated** into material language.\n— **(4) Ethics** — *good/evil, truth/falsehood* — is not a material property, yet it is real.\n\nThe moment we grant priority to meaning, the **logic of prayer** appears: meaning can re-organize matter through the command 'kun'. Here too lies the structural ground for believing that **the identity of the human can persist, even though the body decays.**"
+      "tr": "**Madde esas olamaz**: dört dolaylı işaret:\n\n— **(1) Matematik dünyası**, maddeden bağımsız bir öz-varlığa sahip görünür (Platonizm tartışması).\n— (2) Kuantum mekaniği, gözlem-öncesi *alem-i imkân*ı (realize olmayan ihtimaller) gösterir.\n— (3) Şahsi tecrübe (düşünme, planlama, niyet, aksiyon) maddî dile bütünüyle çevrilemez.\n— (4) Ahlâk, *iyi/kötü, hak/batıl*, maddî bir özellik değildir, ama gerçekliği vardır.\n\nManaya öncelik tanıdığımız anda **dua**nın mantığı belirir: Mana 'kün' emriyle maddeyi yeniden organize edebilir. Ceset çürüse de insan kimliğinin devam edebileceğine inanmanın yapısal gerekçesi de buradadır.",
+      "en": "**Matter cannot be primary**: four indirect signs:\n\n— **(1) The mathematical world** appears to possess an autonomous reality, independent of matter (the Platonism debate).\n— (2) Quantum mechanics points to a pre-observation *realm of possibilities (ʿālam al-imkān)*: outcomes that have not yet been actualized.\n— (3) Personal experience: thinking, planning, intention, action; cannot be wholly translated into material language.\n— (4) Ethics, *good/evil, truth/falsehood*, is not a material property, yet it is real.\n\nThe moment we grant priority to meaning, the **logic of prayer** appears: meaning can re-organize matter through the command 'kun'. Here too lies the structural ground for believing that the identity of the human can persist, even though the body decays."
     },
     {
       "type": "section",
@@ -246,29 +246,29 @@
     {
       "type": "verseInline",
       "ref": "45:3",
-      "noteTr": "*Câsiye 45:3* — اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ — '**Göklerde ve yerde müminler için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:3* — اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ — '**In the heavens and the earth are signs for the believers.**'",
+      "noteTr": "*Câsiye 45:3* (اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ) '**Göklerde ve yerde müminler için ayetler vardır.**'",
+      "noteEn": "*Al-Jāthiya 45:3* (اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ) '**In the heavens and the earth are signs for the believers.**'",
       "ar": "اِنَّ فِي السَّمٰوَاتِ وَالْاَرْضِ لَاٰيَاتٍ لِلْمُؤْمِنِينَ"
     },
     {
       "type": "verseInline",
       "ref": "45:4",
-      "noteTr": "*Câsiye 45:4* — وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ — '**Sizin ve yeryüzünde yaydığı canlıların yaratılışında, yakine erenler için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:4* — وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ — '**In your own creation and the creatures He has scattered, signs for a people of certainty.**'",
+      "noteTr": "*Câsiye 45:4* (وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ) '**Sizin ve yeryüzünde yaydığı canlıların yaratılışında, yakine erenler için ayetler vardır.**'",
+      "noteEn": "*Al-Jāthiya 45:4* (وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دَآبَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ) '**In your own creation and the creatures He has scattered, signs for a people of certainty.**'",
       "ar": "وَفِي خَلْقِكُمْ وَمَا يَبُثُّ مِنْ دٓابَّةٍ اٰيَاتٌ لِقَوْمٍ يُوقِنُونَ"
     },
     {
       "type": "verseInline",
       "ref": "45:5",
-      "noteTr": "*Câsiye 45:5* — وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ — '**Gece-gündüzün ardarda gelişinde… akleden bir kavim için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:5* — وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ — '**In the alternation of night and day… signs for a people who reason.**'",
+      "noteTr": "*Câsiye 45:5* (وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ) '**Gece-gündüzün ardarda gelişinde… akleden bir kavim için ayetler vardır.**'",
+      "noteEn": "*Al-Jāthiya 45:5* (وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ… اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ) '**In the alternation of night and day… signs for a people who reason.**'",
       "ar": "وَاخْتِلَافِ الَّيْلِ وَالنَّهَارِ وَمٓا اَنْزَلَ اللّٰهُ مِنَ السَّمٓاءِ مِنْ رِزْقٍ فَاَحْيَا بِهِ الْاَرْضَ بَعْدَ مَوْتِهَا وَتَصْرِيفِ الرِّيَاحِ اٰيَاتٌ لِقَوْمٍ يَعْقِلُونَ"
     },
     {
       "type": "verseInline",
       "ref": "45:13",
-      "noteTr": "*Câsiye 45:13* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '**Bunda tefekkür eden bir kavim için ayetler vardır.**'",
-      "noteEn": "*Al-Jāthiya 45:13* — اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ — '**In that are signs for a people who reflect.**'",
+      "noteTr": "*Câsiye 45:13* (اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ) '**Bunda tefekkür eden bir kavim için ayetler vardır.**'",
+      "noteEn": "*Al-Jāthiya 45:13* (اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ) '**In that are signs for a people who reflect.**'",
       "ar": "وَسَخَّرَ لَكُمْ مَا فِي السَّمٰوَاتِ وَمَا فِي الْاَرْضِ جَمِيعاً مِنْهُ اِنَّ فِي ذٰلِكَ لَاٰيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ"
     },
     {
@@ -280,39 +280,39 @@
     {
       "type": "verseInline",
       "ref": "45:6",
-      "noteTr": "*Câsiye 45:6* — تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ — '**Bunlar Allah'ın âyetleridir; sana onları hakkıyla okuruz (*netlûhâ* / *tilâvet*).**' Allah, tabiatta gözlemlediğimiz hadiselere **'ayetleri'** der ve **bunları bize okur**. *Şu kainat mescid-i kebirinde Kur'an okunuyor.*",
-      "noteEn": "*Al-Jāthiya 45:6* — تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ — '**These are Allah's signs (āyāt); We recite them to you in truth (*natlū* / *tilāwa*).**' Allah names the phenomena we observe in nature as **'His āyāt'** — and **recites them to us**. *In the great mosque of the cosmos, the Quran is being read.*",
+      "noteTr": "*Câsiye 45:6* (تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ) '**Bunlar Allah'ın âyetleridir; sana onları hakkıyla okuruz (*netlûhâ* / *tilâvet*).**' Allah, tabiatta gözlemlediğimiz hadiselere **'ayetleri'** der ve **bunları bize okur**. *Şu kainat mescid-i kebirinde Kur'an okunuyor.*",
+      "noteEn": "*Al-Jāthiya 45:6* (تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ) '**These are Allah's signs (āyāt); We recite them to you in truth (*natlū* / *tilāwa*).**' Allah names the phenomena we observe in nature as **'His āyāt'** — and **recites them to us**. *In the great mosque of the cosmos, the Quran is being read.*",
       "ar": "تِلْكَ اٰيَاتُ اللّٰهِ نَتْلُوهَا عَلَيْكَ بِالْحَقِّ فَبِاَيِّ حَدِيثٍ بَعْدَ اللّٰهِ وَاٰيَاتِهِ يُؤْمِنُونَ"
     },
     {
       "type": "section",
       "id": "kibir-engeli",
-      "titleTr": "6. Görmezden Gelmenin Bedeli — Kibrin Tuzağı",
-      "titleEn": "6. The Cost of Looking Away — The Trap of Arrogance"
+      "titleTr": "6. Görmezden Gelmenin Bedeli: Kibrin Tuzağı",
+      "titleEn": "6. The Cost of Looking Away: The Trap of Arrogance"
     },
     {
       "type": "paragraph",
-      "tr": "Allah'ın ayetlerini görmezden gelenler **şiddetli azaba** düçar olurlar (*Âl-i İmrân 3:3-4, Câsiye 45:7-11*). Aslında bunu **tabiatın kendisinde** görüyoruz: bir uçurumdan kendini boşluğa bırakıp uçacağını zanneden, *tabiatın işaretlerini okuyup bir araç yapmadıysa*, **yere çarpmakla cezalandırılır**. Materyalist okuma, kainatın bize okuduğu Kur'an'ı işitememe halidir.",
-      "en": "Those who look away from Allah's signs are visited with **severe punishment** (*Āl ʿImrān 3:3-4; Al-Jāthiya 45:7-11*). We see this **in nature itself**: one who throws himself off a cliff imagining he can fly, **if he has not read the signs of nature and built himself a craft, is punished by striking the ground**. The materialist reading is the inability to hear the Quran that the cosmos is reciting."
+      "tr": "Allah'ın ayetlerini görmezden gelenler **şiddetli azaba** düçar olurlar (*Âl-i İmrân 3:3-4, Câsiye 45:7-11*). Aslında bunu tabiatın kendisinde görüyoruz: bir uçurumdan kendini boşluğa bırakıp uçacağını zanneden, *tabiatın işaretlerini okuyup bir araç yapmadıysa*, yere çarpmakla cezalandırılır. Materyalist okuma, kainatın bize okuduğu Kur'an'ı işitememe halidir.",
+      "en": "Those who look away from Allah's signs are visited with **severe punishment** (*Āl ʿImrān 3:3-4; Al-Jāthiya 45:7-11*). We see this in nature itself: one who throws himself off a cliff imagining he can fly, if he has not read the signs of nature and built himself a craft, is punished by striking the ground. The materialist reading is the inability to hear the Quran that the cosmos is reciting."
     },
     {
       "type": "verseInline",
       "ref": "45:8",
-      "noteTr": "*Câsiye 45:8* — يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا — '**Ayetlerin kendisine okunduğunu işitir, sonra büyüklenerek inkârında direnir.**' **Kibir, ayetin anlaşılmasına en büyük engel.**",
-      "noteEn": "*Al-Jāthiya 45:8* — يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا — '**He hears Allah's signs recited to him, then arrogantly persists in rejection.**' **Arrogance is the greatest barrier to understanding the āya.**",
+      "noteTr": "*Câsiye 45:8* (يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا) '**Ayetlerin kendisine okunduğunu işitir, sonra büyüklenerek inkârında direnir.**' **Kibir, ayetin anlaşılmasına en büyük engel.**",
+      "noteEn": "*Al-Jāthiya 45:8* (يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِرًا) '**He hears Allah's signs recited to him, then arrogantly persists in rejection.**' **Arrogance is the greatest barrier to understanding the āya.**",
       "ar": "يَسْمَعُ اٰيَاتِ اللّٰهِ تُتْلٰى عَلَيْهِ ثُمَّ يُصِرُّ مُسْتَكْبِراً كَاَنْ لَمْ يَسْمَعْهَا فَبَشِّرْهُ بِعَذَابٍ اَلِيمٍ"
     },
     {
       "type": "criticalNote",
-      "headingTr": "*Top-down causality / telos* — çağdaş felsefe ile köprü",
-      "headingEn": "*Top-down causality / telos* — a bridge to contemporary philosophy",
-      "tr": "Felsufi bu yazıda **'Kainat–İnsan–Kur'an üçlüsü'**nü Gazâlî'ye atfeder; benzer üçlü Gazâlî'nin *İhyâ* ve *Mişkâtu'l-Envâr*'ında gerçekten bulunur ama bu **kesin formülasyon Felsufi'nin çağdaş re-articulation**'udur. **'Top-down causality / telos'** terimleri çağdaş bilim felsefesi dilinden gelir (Polanyi, Deacon, Aristoteles'in *telos* kavramının yeniden gündeme gelişi); klasik kelâm bunu *hikmet*, *gâye-i illet*, *fâil-i muhtâr* dilinde formüle eder. *Kuantum mekaniği → alem-i imkân* eşleştirmesi **pedagojik analoji**dir — klasik kelâmda *alem-i imkân* (potansiyel varlıklar âlemi) kavramı vardır ama bunun kuantum süperpozisyonu ile özdeşleştirilmesi çağdaş bir okuma. **Materyalizm eleştirisi** kuvvetlidir; ancak fizikalizm/materyalizm felsefi pozisyonları içinde de daha nüanslı varyantlar mevcuttur (non-reductive physicalism, property dualism gibi) — Felsufi'nin eleştirisi **indirgemeci materyalizme** odaklanır.",
-      "en": "In this essay Felsufi attributes the **'Cosmos–Human–Quran triad'** to al-Ghazālī; a similar triad does indeed appear in Ghazālī's *Iḥyāʾ* and *Mishkāt al-Anwār*, but this **precise formulation is Felsufi's contemporary re-articulation**. The terms **'top-down causality / telos'** come from contemporary philosophy of science (Polanyi, Deacon, the renewal of Aristotle's *telos*); classical kalām formulates this in the vocabulary of *ḥikma*, *ghāyat al-ʿilla*, *al-fāʿil al-mukhtār*. The pairing *quantum mechanics → ʿālam al-imkān* is **a pedagogical analogy** — classical kalām does have the concept of *ʿālam al-imkān* (the realm of possible beings), but identifying it with quantum superposition is a contemporary reading. The **critique of materialism** is forceful; but among philosophical positions there are also more nuanced varieties (non-reductive physicalism, property dualism, etc.) — Felsufi's critique focuses on **reductive materialism**."
+      "headingTr": "*Top-down causality / telos*: çağdaş felsefe ile köprü",
+      "headingEn": "*Top-down causality / telos*: a bridge to contemporary philosophy",
+      "tr": "Felsufi bu yazıda **'Kainat–İnsan–Kur'an üçlüsü'**nü Gazâlî'ye atfeder; benzer üçlü Gazâlî'nin *İhyâ* ve *Mişkâtu'l-Envâr*'ında gerçekten bulunur ama bu kesin formülasyon Felsufi'nin çağdaş re-articulation'udur. 'Top-down causality / telos' terimleri çağdaş bilim felsefesi dilinden gelir (Polanyi, Deacon, Aristoteles'in *telos* kavramının yeniden gündeme gelişi); klasik kelâm bunu *hikmet*, *gâye-i illet*, *fâil-i muhtâr* dilinde formüle eder. *Kuantum mekaniği, ardından alem-i imkân* eşleştirmesi pedagojik analojidir: klasik kelâmda *alem-i imkân* (potansiyel varlıklar âlemi) kavramı vardır ama bunun kuantum süperpozisyonu ile özdeşleştirilmesi çağdaş bir okuma. Materyalizm eleştirisi kuvvetlidir; ancak fizikalizm/materyalizm felsefi pozisyonları içinde de daha nüanslı varyantlar mevcuttur (non-reductive physicalism, property dualism gibi); Felsufi'nin eleştirisi indirgemeci materyalizme odaklanır.",
+      "en": "In this essay Felsufi attributes the **'Cosmos–Human–Quran triad'** to al-Ghazālī; a similar triad does indeed appear in Ghazālī's *Iḥyāʾ* and *Mishkāt al-Anwār*, but this precise formulation is Felsufi's contemporary re-articulation. The terms 'top-down causality / telos' come from contemporary philosophy of science (Polanyi, Deacon, the renewal of Aristotle's *telos*); classical kalām formulates this in the vocabulary of *ḥikma*, *ghāyat al-ʿilla*, *al-fāʿil al-mukhtār*. The pairing *quantum mechanics, then ʿālam al-imkān* is a pedagogical analogy: classical kalām does have the concept of *ʿālam al-imkān* (the realm of possible beings), but identifying it with quantum superposition is a contemporary reading. The critique of materialism is forceful; but among philosophical positions there are also more nuanced varieties (non-reductive physicalism, property dualism, etc.): Felsufi's critique focuses on reductive materialism."
     },
     {
       "type": "pullQuote",
-      "tr": "Ayet kavramı bize şunu öğretir: **gözlem, akıl ve tefekkür ile hakikate ulaşmak mümkün.** Ama bu, **maddeyi değil manayı esas alan** bir ontoloji gerektirir. **Kainat, İnsan ve Kur'an'ın birbirini tamamlayan üç tecellî olduğunu görünce** — hem duanın gücüne, hem ölüm-sonrası hayata, hem de şu anda yaşadığımız dünyadaki **her hadisenin derin bir anlamı olduğuna** iman edebiliriz.",
-      "en": "The concept of *āya* teaches us this: **reaching the truth is possible through observation, reason, and reflection.** But this demands an ontology that takes **meaning, not matter, as primary**. **Once we see the cosmos, the human, and the Quran as three mutually-completing manifestations** — we can hold faith in the power of prayer, in life after death, and in the fact that **every event we now live carries deep meaning**.",
+      "tr": "Ayet kavramı bize şunu öğretir: **gözlem, akıl ve tefekkür ile hakikate ulaşmak mümkün.** Ama bu, maddeyi değil manayı esas alan bir ontoloji gerektirir. Kainat, İnsan ve Kur'an'ın birbirini tamamlayan üç tecellî olduğunu görünce: hem duanın gücüne, hem ölüm-sonrası hayata, hem de şu anda yaşadığımız dünyadaki her hadisenin derin bir anlamı olduğuna iman edebiliriz.",
+      "en": "The concept of *āya* teaches us this: **reaching the truth is possible through observation, reason, and reflection.** But this demands an ontology that takes meaning, not matter, as primary. Once we see the cosmos, the human, and the Quran as three mutually-completing manifestations: we can hold faith in the power of prayer, in life after death, and in the fact that every event we now live carries deep meaning.",
       "source": "Felsufi"
     }
   ]

@@ -31,7 +31,7 @@
     {
       "type": "paragraph",
       "tr": "Bu yazı için önümde iki yol vardı: ya yazıyı ve düşüncelerimi düzenleyip yayımlamak için erteleyecektim, ya da biraz uzun bir tweet'miş gibi çok da düzenlemeden, perişanlığıyla yayımlayacaktım.",
-      "en": "For this piece I had two roads before me: either postpone it until I had tidied up the text and my thoughts, or publish it much as it is — dishevelled, like a somewhat long tweet."
+      "en": "For this piece I had two roads before me: either postpone it until I had tidied up the text and my thoughts, or publish it much as it is: dishevelled, like a somewhat long tweet."
     },
     {
       "type": "paragraph",
@@ -42,8 +42,8 @@
       "type": "criticalNote",
       "headingTr": "Üslup ve dil notu",
       "headingEn": "A note on style and language",
-      "tr": "**Bu metnin dağınıklığı kasıtlıdır.** Yazar bunu açıkça söylüyor: cilalanmayı bekleyip taslakta kalmaktansa ham yayımlamayı seçmiş. Sitede yayımlarken bu tercihe dokunulmadı — cümleler düzleştirilmedi, araya girmeler ve şakalar korundu. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.** Ayrıca başlığın yazarın savunduğu değil, baştan sona çürüttüğü iddia olduğunu hatırlatalım.",
-      "en": "**The looseness of this text is deliberate.** The author says so outright: he chose to publish it raw rather than let it sit polished and unpublished. That choice was left untouched here — sentences were not flattened, the asides and jokes were kept. **The Turkish is the author's own pen; the English is a translation.** And a reminder: the title states the claim he refutes throughout, not the one he holds."
+      "tr": "**Bu metnin dağınıklığı kasıtlıdır.** Yazar bunu açıkça söylüyor: cilalanmayı bekleyip taslakta kalmaktansa ham yayımlamayı seçmiş. Sitede yayımlarken bu tercihe dokunulmadı; cümleler düzleştirilmedi, araya girmeler ve şakalar korundu. Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir. Ayrıca başlığın yazarın savunduğu değil, baştan sona çürüttüğü iddia olduğunu hatırlatalım.",
+      "en": "**The looseness of this text is deliberate.** The author says so outright: he chose to publish it raw rather than let it sit polished and unpublished. That choice was left untouched here; sentences were not flattened, the asides and jokes were kept. The Turkish is the author's own pen; the English is a translation. And a reminder: the title states the claim he refutes throughout, not the one he holds."
     },
     {
       "type": "section",
@@ -105,20 +105,20 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bu nedenle de bilim, eşyanın ve hadiselerin **mahiyetini** anlamaktan ziyade **keyfiyetini** anlamaya yarayan metotlar ve araçlar üretti. Tabii ki bu ayrımı tam bilmeyen ve anlamayan bir ton insan, eşyanın — meselâ elektronun — ne olduğunu bildiğini zannedebilir.",
-      "en": "For this reason science produced methods and instruments that serve to understand not the **essence** of things and events but their **modality**. And of course a great many people who do not quite know or grasp this distinction may imagine they know what a thing — the electron, say — actually is."
+      "tr": "Bu nedenle de bilim, eşyanın ve hadiselerin **mahiyetini** anlamaktan ziyade keyfiyetini anlamaya yarayan metotlar ve araçlar üretti. Tabii ki bu ayrımı tam bilmeyen ve anlamayan bir ton insan, eşyanın, meselâ elektronun, ne olduğunu bildiğini zannedebilir.",
+      "en": "For this reason science produced methods and instruments that serve to understand not the **essence** of things and events but their modality. And of course a great many people who do not quite know or grasp this distinction may imagine they know what a thing, the electron, say, actually is."
     },
     {
       "type": "criticalNote",
-      "headingTr": "Ayrımın kendisi — mahiyet / keyfiyet",
-      "headingEn": "The distinction itself — essence / modality",
-      "tr": "**Mahiyet:** bir şeyin *ne* olduğu, özü, esası. **Keyfiyet:** *nasıl* olduğu, ilişkileri ve özellikleri. Yazının omurgası bu ayrıma dayanıyor: bilimin ölçtüğü şey keyfiyettir. Mahiyet sorusu bir **metafizik** sorusudur; apriori ontoloji üzerinden geliştirilir, hikâye edilir. Dolayısıyla bilimin bir şeyin nasıl davrandığını eksiksiz tarif etmesi, o şeyin ne olduğunu söylediği anlamına gelmez.",
-      "en": "**Essence (*mahiyet*):** *what* a thing is — its core, its reality. **Modality (*keyfiyet*):** *how* it is — its relations and properties. The spine of this essay rests on that distinction: what science measures is modality. The question of essence is a **metaphysical** one; it is developed and narrated through a priori ontology. So science describing exhaustively how something behaves does not amount to saying what it is."
+      "headingTr": "Ayrımın kendisi: mahiyet / keyfiyet",
+      "headingEn": "The distinction itself: essence / modality",
+      "tr": "Mahiyet: bir şeyin *ne* olduğu, özü, esası. Keyfiyet: *nasıl* olduğu, ilişkileri ve özellikleri. Yazının omurgası bu ayrıma dayanıyor: bilimin ölçtüğü şey keyfiyettir. Mahiyet sorusu bir **metafizik** sorusudur; apriori ontoloji üzerinden geliştirilir, hikâye edilir. Dolayısıyla bilimin bir şeyin nasıl davrandığını eksiksiz tarif etmesi, o şeyin ne olduğunu söylediği anlamına gelmez.",
+      "en": "**Essence (*mahiyet*):** *what* a thing is: its core, its reality. **Modality (*keyfiyet*):** *how* it is: its relations and properties. The spine of this essay rests on that distinction: what science measures is modality. The question of essence is a **metaphysical** one; it is developed and narrated through a priori ontology. So science describing exhaustively how something behaves does not amount to saying what it is."
     },
     {
       "type": "paragraph",
-      "tr": "Bu durumda da en temelde ya **fizikalizm** (materyalizm de diyebiliriz) ya da **idealizm** metafiziğini kabul etmek durumunda kalırsınız. Burası önemli ama konu doğrudan bu değil. Şimdilik çok kısaca ve basitçe şöyle diyelim:",
-      "en": "In that case you end up, at the deepest level, having to accept either the metaphysics of **physicalism** (we may also call it materialism) or that of **idealism**. This matters, though it is not directly our subject. For now let us put it very briefly and simply:"
+      "tr": "Bu durumda da en temelde ya **fizikalizm** (materyalizm de diyebiliriz) ya da idealizm metafiziğini kabul etmek durumunda kalırsınız. Burası önemli ama konu doğrudan bu değil. Şimdilik çok kısaca ve basitçe şöyle diyelim:",
+      "en": "In that case you end up, at the deepest level, having to accept either the metaphysics of **physicalism** (we may also call it materialism) or that of idealism. This matters, though it is not directly our subject. For now let us put it very briefly and simply:"
     },
     {
       "type": "contrastDuo",
@@ -132,8 +132,8 @@
         "descEn": "**Matter is fundamental**; at bottom, there is matter.",
         "bullets": [
           {
-            "tr": "Anlam, konseptler, deneyimler, hisler — maddenin konfigürasyonuyla ortaya çıkan **ikincil varlıklar**",
-            "en": "Meaning, concepts, experiences, feelings — **secondary entities** arising from configurations of matter"
+            "tr": "Anlam, konseptler, deneyimler, hisler; maddenin konfigürasyonuyla ortaya çıkan **ikincil varlıklar**",
+            "en": "Meaning, concepts, experiences, feelings; **secondary entities** arising from configurations of matter"
           },
           {
             "tr": "Bunların devamı (kıyamı) maddeye bağlıdır",
@@ -149,8 +149,8 @@
         "titleTr": "İdealist görüş",
         "titleEn": "The idealist view",
         "accent": "#d4a574",
-        "descTr": "Tam aksi: **tek ve en temel bildiğimiz şey farkındalıktır** — şuur, his, tecrübe.",
-        "descEn": "The exact opposite: **the one thing we know most fundamentally is awareness** — consciousness, feeling, experience.",
+        "descTr": "Tam aksi: **tek ve en temel bildiğimiz şey farkındalıktır**: şuur, his, tecrübe.",
+        "descEn": "The exact opposite: **the one thing we know most fundamentally is awareness**: consciousness, feeling, experience.",
         "bullets": [
           {
             "tr": "Maddeyi, duyu organlarının beyindeki **elektrik sinyali reprezentasyonuyla** algılar ve anlamlandırırız",
@@ -161,8 +161,8 @@
             "en": "What truly is, is **meaning**; matter is the **garment** of that meaning"
           },
           {
-            "tr": "**Anlam olmadan madde olmaz** — varlığı anlama bağlıdır",
-            "en": "**Without meaning there is no matter** — its existence depends on meaning"
+            "tr": "**Anlam olmadan madde olmaz**: varlığı anlama bağlıdır",
+            "en": "**Without meaning there is no matter**: its existence depends on meaning"
           }
         ]
       }
@@ -247,8 +247,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "*“Mesleğimiz müsbet harekettir”* diyen zatın takipçileri de düşman arayışı içinde. Hâlbuki derdin hakikatse, kimin neyi ne için söyleyip ne amaçla kullandığı **senin pozisyonunu etkilemez**. Bazen en bâtıl, en yanlış bir kişi ya da grup da senin söylediklerini tasdik edebilir, geçici olarak aynı yoldaymış gibi görünebilir. Bu senin duruşunu etkilememeli. *“Filan yanlış kişi de bunu diyor, demek ki bu yanlış”* gibi bir **ad hominem** safsatasına takılmamalı.",
-      "en": "Even the followers of the man who said *“our way is positive action”* are out looking for enemies. Yet if your concern is truth, then who says what, for what reason, and to what end **does not affect your position**. Sometimes the most errant, most mistaken person or group may confirm what you are saying, and appear for a while to be walking the same road. That should not shake where you stand. One must not get snagged on the **ad hominem** fallacy of *“so-and-so, who is wrong, says this too — therefore it is wrong.”*"
+      "tr": "*“Mesleğimiz müsbet harekettir”* diyen zatın takipçileri de düşman arayışı içinde. Hâlbuki derdin hakikatse, kimin neyi ne için söyleyip ne amaçla kullandığı **senin pozisyonunu etkilemez**. Bazen en bâtıl, en yanlış bir kişi ya da grup da senin söylediklerini tasdik edebilir, geçici olarak aynı yoldaymış gibi görünebilir. Bu senin duruşunu etkilememeli. *“Filan yanlış kişi de bunu diyor, demek ki bu yanlış”* gibi bir ad hominem safsatasına takılmamalı.",
+      "en": "Even the followers of the man who said *“our way is positive action”* are out looking for enemies. Yet if your concern is truth, then who says what, for what reason, and to what end **does not affect your position**. Sometimes the most errant, most mistaken person or group may confirm what you are saying, and appear for a while to be walking the same road. That should not shake where you stand. One must not get snagged on the ad hominem fallacy of *“so-and-so, who is wrong, says this too; therefore it is wrong.”*"
     },
     {
       "type": "section",
@@ -259,7 +259,7 @@
     {
       "type": "paragraph",
       "tr": "Kaldı ki ateist, materyalist, dinsiz bilim insanları sırf görüşlerini desteklemek için evrim teorisini destekliyor, zorla her şeyi evrime uyduruyorlar diyelim. **Neden aynı şeyi, hatta çok daha büyük ölçekte, Big Bang teorisine yapmıyorlar?**",
-      "en": "And suppose we grant it: that atheist, materialist, irreligious scientists back the theory of evolution merely to support their own views, forcing everything to fit it. **Why then do they not do the same — on a far larger scale — to the Big Bang?**"
+      "en": "And suppose we grant it: that atheist, materialist, irreligious scientists back the theory of evolution merely to support their own views, forcing everything to fit it. **Why then do they not do the same (on a far larger scale) to the Big Bang?**"
     },
     {
       "type": "contrastDuo",
@@ -283,7 +283,7 @@
         "titleEn": "In fact: the Big Bang is not rejected",
         "accent": "#1D9E75",
         "descTr": "Aynı camia, çok daha büyük metafizik baskı altındaki Big Bang'i **reddetmiyor**; onun yerine model üretiyor.",
-        "descEn": "That same community does **not reject** the Big Bang — under far greater metaphysical pressure — but produces models instead.",
+        "descEn": "That same community does **not reject** the Big Bang (under far greater metaphysical pressure) but produces models instead.",
         "bullets": [
           {
             "tr": "Sonsuz sayıda evren, sürekli doğan evrenler gibi **farklı modeller** sunuluyor",
@@ -299,15 +299,15 @@
           }
         ]
       },
-      "bridgeTr": "Tabii ki insanlar kendi metafizik kabulleri için bir çıkış mutlaka bulacaklar — mesele delilin inkârı değil, yorumu.",
-      "bridgeEn": "Of course people will always find an exit for their own metaphysical commitments — the issue is not denial of evidence but its interpretation."
+      "bridgeTr": "Tabii ki insanlar kendi metafizik kabulleri için bir çıkış mutlaka bulacaklar: mesele delilin inkârı değil, yorumu.",
+      "bridgeEn": "Of course people will always find an exit for their own metaphysical commitments; the issue is not denial of evidence but its interpretation."
     },
     {
       "type": "criticalNote",
       "headingTr": "Yazarın kendi kaydı",
       "headingEn": "The author's own caveat",
-      "tr": "*“Yahu **kimse** diyorum da anlayın, **ana akımı** (main-stream) kastediyorum; tabii ki mutlaka istisnası vardır.”* — Yazar bu genellemeyi metnin içinde kendisi sınırlandırıyor.",
-      "en": "*“When I say **nobody**, understand me — I mean the **mainstream**; there are of course always exceptions.”* — The author himself qualifies this generalisation within the text."
+      "tr": "*“Yahu **kimse** diyorum da anlayın, ana akımı (main-stream) kastediyorum; tabii ki mutlaka istisnası vardır.”*: Yazar bu genellemeyi metnin içinde kendisi sınırlandırıyor.",
+      "en": "*“When I say **nobody**, understand me; I mean the mainstream; there are of course always exceptions.”*: The author himself qualifies this generalisation within the text."
     },
     {
       "type": "section",
@@ -317,20 +317,20 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bilim camiasında sahte data ve delil üretilmiyor değil — elbette var öyleleri. Ancak onları ortaya çıkaranlar da yine **aynı camiada, aynı alanda çalışan diğer bilim insanları** oldu.",
-      "en": "It is not as though no fake data or evidence is ever produced in the scientific community — of course such cases exist. But those who brought them to light were, again, **other scientists working in the same community, in the same field**."
+      "tr": "Bilim camiasında sahte data ve delil üretilmiyor değil, elbette var öyleleri. Ancak onları ortaya çıkaranlar da yine **aynı camiada, aynı alanda çalışan diğer bilim insanları** oldu.",
+      "en": "It is not as though no fake data or evidence is ever produced in the scientific community; of course such cases exist. But those who brought them to light were, again, **other scientists working in the same community, in the same field**."
     },
     {
       "type": "criticalNote",
       "headingTr": "Yazarın araya girmesi",
       "headingEn": "The author's aside",
-      "tr": "*“Bilim adamı demiyoruz, mâlûm, cinsiyetçi oluyor — gerçi semitik/Sâmî dillerin atası Fenike dilinde ‘adam’ insan demek diyerek yırtabiliriz ama çok da kasmaya gerek yok.”* Metnin gevşek üslubunu koruma kararı gereği bu araya girme çıkarılmadı.",
-      "en": "*“We don't say ‘man of science’ — you know, it comes out sexist; though we could wriggle out of it by noting that in Phoenician, the ancestor of the Semitic languages, ‘adam’ means human — but there's no need to strain.”* In keeping with the decision to preserve the text's loose style, this aside was not removed."
+      "tr": "*“Bilim adamı demiyoruz, mâlûm, cinsiyetçi oluyor; gerçi semitik/Sâmî dillerin atası Fenike dilinde ‘adam’ insan demek diyerek yırtabiliriz ama çok da kasmaya gerek yok.”* Metnin gevşek üslubunu koruma kararı gereği bu araya girme çıkarılmadı.",
+      "en": "*“We don't say ‘man of science’; you know, it comes out sexist; though we could wriggle out of it by noting that in Phoenician, the ancestor of the Semitic languages, ‘adam’ means human, but there's no need to strain.”* In keeping with the decision to preserve the text's loose style, this aside was not removed."
     },
     {
       "type": "paragraph",
-      "tr": "Meselâ başka birçok bilimsel konuda olduğu gibi, evrim hususunda da sahte fosil üreten, bu sayede isim yapmaya çalışan insanlar oldu. **Bunlar dine darbe vuralım diye yapmadılar.** İsimlerini tarihe kazımak, büyük ve önemli bir bilim insanı olmak için yaptılar. Fakat bunların foyasını ortaya çıkaranlar da yine **evrimci bilim insanları** oldu.",
-      "en": "As in many other scientific matters, in the matter of evolution too there were people who forged fossils, trying to make a name for themselves. **They did not do it to strike a blow against religion.** They did it to carve their names into history, to become great and important scientists. Yet the ones who exposed them were, once again, **evolutionary scientists**."
+      "tr": "Meselâ başka birçok bilimsel konuda olduğu gibi, evrim hususunda da sahte fosil üreten, bu sayede isim yapmaya çalışan insanlar oldu. **Bunlar dine darbe vuralım diye yapmadılar.** İsimlerini tarihe kazımak, büyük ve önemli bir bilim insanı olmak için yaptılar. Fakat bunların foyasını ortaya çıkaranlar da yine evrimci bilim insanları oldu.",
+      "en": "As in many other scientific matters, in the matter of evolution too there were people who forged fossils, trying to make a name for themselves. **They did not do it to strike a blow against religion.** They did it to carve their names into history, to become great and important scientists. Yet the ones who exposed them were, once again, evolutionary scientists."
     },
     {
       "type": "paragraph",
@@ -388,8 +388,8 @@
       "captionTr": "Aynı ringde dövüşmezler",
       "captionEn": "They do not fight in the same ring",
       "left": {
-        "titleTr": "Evrim — bilimin sahası",
-        "titleEn": "Evolution — the field of science",
+        "titleTr": "Evrim: bilimin sahası",
+        "titleEn": "Evolution: the field of science",
         "accent": "#3498db",
         "descTr": "Bugüne dek başka rakip çıkmamış, **elimizdeki en kuvvetli açıklama çerçevesi**.",
         "descEn": "No rival has yet emerged; **the strongest explanatory framework we have**.",
@@ -401,15 +401,15 @@
         ]
       },
       "right": {
-        "titleTr": "Yaratılış — metafiziğin sahası",
-        "titleEn": "Creation — the field of metaphysics",
+        "titleTr": "Yaratılış: metafiziğin sahası",
+        "titleEn": "Creation: the field of metaphysics",
         "accent": "#d4a574",
         "descTr": "Bilimin değil, **metafiziğin sahasında** oynar.",
         "descEn": "It plays not on science's field but on **the field of metaphysics**.",
         "bullets": [
           {
-            "tr": "**Tartışmanın kuralları farklıdır** — aynı ringde dövüşmezler",
-            "en": "**The rules of the contest differ** — they do not fight in the same ring"
+            "tr": "**Tartışmanın kuralları farklıdır**: aynı ringde dövüşmezler",
+            "en": "**The rules of the contest differ**: they do not fight in the same ring"
           }
         ]
       },
@@ -418,8 +418,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "*“Dini yok etmek için evrimi icat ettiler!”* söylemi ise, Netflix'te **6/10'luk bir komplo dizisi bile olamaz** — gönül rahatlığıyla pas geçin.",
-      "en": "As for the line *“they invented evolution to destroy religion!”* — it **would not even make a 6-out-of-10 conspiracy series** on Netflix. Skip it with an easy conscience."
+      "tr": "*“Dini yok etmek için evrimi icat ettiler!”* söylemi ise, Netflix'te **6/10'luk bir komplo dizisi bile olamaz**: gönül rahatlığıyla pas geçin.",
+      "en": "As for the line *“they invented evolution to destroy religion!”*: it **would not even make a 6-out-of-10 conspiracy series** on Netflix. Skip it with an easy conscience."
     },
     {
       "type": "pullQuote",
@@ -428,15 +428,15 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bu satırları okuyan sen — evet sen — *“Peki şimdiki maymunlar neden insan olmuyor?”* ya da *“Peki şimdiki çamurlar neden insan olmuyor?”* gibi absürt sorularınla bile gel. **Bilim absürtlere bayılır.**",
-      "en": "You who are reading these lines — yes, you — come even with your absurd questions: *“So why aren't today's monkeys turning into humans?”* or *“So why isn't today's mud turning into humans?”* **Science adores the absurd.**"
+      "tr": "Bu satırları okuyan sen: evet sen: *“Peki şimdiki maymunlar neden insan olmuyor?”* ya da *“Peki şimdiki çamurlar neden insan olmuyor?”* gibi absürt sorularınla bile gel. **Bilim absürtlere bayılır.**",
+      "en": "You who are reading these lines, yes, you, come even with your absurd questions: *“So why aren't today's monkeys turning into humans?”* or *“So why isn't today's mud turning into humans?”* **Science adores the absurd.**"
     },
     {
       "type": "criticalNote",
       "headingTr": "Yazar hakkında · üçleme",
       "headingEn": "About the author · the trilogy",
-      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Yazı, sitedeki **evrim üçlemesinin** ikinci halkasıdır: *Hâlâ mı Evrim?* (2024-11-12) → *Evrim Dinsizliği Yayma Projesidir!* (2025-05-14) → *Evrim, İnanç ve Aklımızdaki Resimler* (2025-10-25). Metinde geçen fizikalizm–idealizm tartışması sitedeki *Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları* yazısında ayrıntılandırılmıştır.",
-      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. It is the second link in the site's **evolution trilogy**: *Evolution, Again?* (2024-11-12) → *Evolution Is a Project to Spread Godlessness!* (2025-05-14) → *Evolution, Belief and the Pictures in Our Minds* (2025-10-25). The physicalism–idealism discussion it touches on is developed at length in *Terminology 3: The Fragility and Limits of Physicalism* on this site."
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Yazı, sitedeki evrim üçlemesinin ikinci halkasıdır: *Hâlâ mı Evrim?* (2024-11-12), ardından *Evrim Dinsizliği Yayma Projesidir!* (2025-05-14), ardından *Evrim, İnanç ve Aklımızdaki Resimler* (2025-10-25). Metinde geçen fizikalizm–idealizm tartışması sitedeki *Terminoloji 3: Fizikalizmin Kırılganlığı ve Sınırları* yazısında ayrıntılandırılmıştır.",
+      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. It is the second link in the site's evolution trilogy: *Evolution, Again?* (2024-11-12), then *Evolution Is a Project to Spread Godlessness!* (2025-05-14), then *Evolution, Belief and the Pictures in Our Minds* (2025-10-25). The physicalism–idealism discussion it touches on is developed at length in *Terminology 3: The Fragility and Limits of Physicalism* on this site."
     }
   ]
 }

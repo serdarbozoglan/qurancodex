@@ -79,8 +79,8 @@
   "blocks": [
     {
       "type": "paragraph",
-      "tr": "**Etimolojik Köken.** Proto-Sami dil ailesinden, Akadca **šapārum** (göndermek, mesaj iletmek, yönetmek) ile ilişkili. Aramice **סָפְרָא** (*sāp̄ərā* — yazıcı, katip) ve İbranice **סֵפֶר** (*séfer* — kitap) ile aynı kökten.",
-      "en": "**Etymological origin.** From the Proto-Semitic family, related to Akkadian **šapārum** (to send, to convey a message, to govern). Cognate with Aramaic **סָפְרָא** (*sāp̄ərā* — scribe) and Hebrew **סֵפֶר** (*séfer* — book), sharing the same root."
+      "tr": "**Etimolojik Köken.** Proto-Sami dil ailesinden, Akadca šapārum (göndermek, mesaj iletmek, yönetmek) ile ilişkili. Aramice סָפְרָא (*sāp̄ərā* (yazıcı, katip) ve İbranice סֵפֶר (*séfer*) kitap) ile aynı kökten.",
+      "en": "**Etymological origin.** From the Proto-Semitic family, related to Akkadian šapārum (to send, to convey a message, to govern). Cognate with Aramaic סָפְרָא (*sāp̄ərā* (scribe) and Hebrew סֵפֶר (*séfer*) book), sharing the same root."
     },
     {
       "type": "section",
@@ -90,8 +90,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Asıl / Literal Anlam:**\n\n— Örtüyü kaldırmak, açığa çıkarmak (سَفَرَ — *safara*)\n— Süpürmek, temizlemek — bir şeyi başka bir şeyden uzaklaştırmak\n\n**Örnekler:**\n\n— سَفَرَتِ الرِّيحُ التُّرَابَ (Rüzgâr tozu süpürdü)\n— سَفَرَتِ الرِّيحُ الغَيْمَ (Rüzgâr bulutları dağıttı)",
-      "en": "**Primary / Literal Meaning:**\n\n— To remove a covering, to bring forth (سَفَرَ — *safara*)\n— To sweep, to clear — to move one thing away from another\n\n**Examples:**\n\n— سَفَرَتِ الرِّيحُ التُّرَابَ (The wind swept up the dust)\n— سَفَرَتِ الرِّيحُ الغَيْمَ (The wind scattered the clouds)"
+      "tr": "Asıl / Literal Anlam:\n\n— Örtüyü kaldırmak, açığa çıkarmak (سَفَرَ: *safara*)\n— Süpürmek, temizlemek: bir şeyi başka bir şeyden uzaklaştırmak\n\nÖrnekler:\n\n— سَفَرَتِ الرِّيحُ التُّرَابَ (Rüzgâr tozu süpürdü)\n— سَفَرَتِ الرِّيحُ الغَيْمَ (Rüzgâr bulutları dağıttı)",
+      "en": "Primary / Literal Meaning:\n\n— To remove a covering, to bring forth (سَفَرَ: *safara*)\n— To sweep, to clear: to move one thing away from another\n\nExamples:\n\n— سَفَرَتِ الرِّيحُ التُّرَابَ (The wind swept up the dust)\n— سَفَرَتِ الرِّيحُ الغَيْمَ (The wind scattered the clouds)"
     },
     {
       "type": "section",
@@ -101,8 +101,8 @@
     },
     {
       "type": "hierarchyTree",
-      "titleTr": "س-ف-ر — Anlam Ağacı",
-      "titleEn": "s-f-r — Semantic Tree",
+      "titleTr": "س-ف-ر: Anlam Ağacı",
+      "titleEn": "s-f-r: Semantic Tree",
       "root": {
         "ar": "س ف ر",
         "tr": "Örtüyü Kaldırma / Açığa Çıkarma",
@@ -261,13 +261,13 @@
     },
     {
       "type": "paragraph",
-      "tr": "**İlişkili Kavramlar (Açığa Çıkarma / Bilgi İletimi):**\n\n— **kitâb** (كتاب) — yazılı bilgi\n— **nûr** (نور) — ışık, aydınlık (metaforik açılma)\n— **hicr** (هجر) — ayrılma, uzaklaşma (yolculukla bağlantılı)\n— **risâle** (رسالة) — elçilik mesajı\n— **kalem** (قلم) — yazı, kayıt",
-      "en": "**Related concepts (Uncovering / Knowledge Transmission):**\n\n— **kitāb** (كتاب) — written knowledge\n— **nūr** (نور) — light, illumination (metaphoric uncovering)\n— **hijr** (هجر) — departure, removal (connected to travel)\n— **risāla** (رسالة) — the message of an envoy\n— **qalam** (قلم) — writing, inscription"
+      "tr": "İlişkili Kavramlar (Açığa Çıkarma / Bilgi İletimi):\n\n— **kitâb** (كتاب): yazılı bilgi\n— nûr (نور): ışık, aydınlık (metaforik açılma)\n— hicr (هجر): ayrılma, uzaklaşma (yolculukla bağlantılı)\n— risâle (رسالة): elçilik mesajı\n— kalem (قلم): yazı, kayıt",
+      "en": "Related concepts (Uncovering / Knowledge Transmission):\n\n— **kitāb** (كتاب): written knowledge\n— nūr (نور): light, illumination (metaphoric uncovering)\n— hijr (هجر): departure, removal (connected to travel)\n— risāla (رسالة): the message of an envoy\n— qalam (قلم): writing, inscription"
     },
     {
       "type": "paragraph",
-      "tr": "**Karşıt Kavramlar:**\n\n— **sitr** (ستر) — örtmek, gizlemek\n— **khafâ** (خفا) — gizli olmak\n— **ikâme** (إقامة) — ikamet, yerleşiklik (سفر'in zıttı)",
-      "en": "**Opposing concepts:**\n\n— **sitr** (ستر) — to cover, to conceal\n— **khafā** (خفا) — to be hidden\n— **iqāma** (إقامة) — residence, settledness (the opposite of *safar*)"
+      "tr": "Karşıt Kavramlar:\n\n— **sitr** (ستر): örtmek, gizlemek\n— khafâ (خفا): gizli olmak\n— ikâme (إقامة); ikamet, yerleşiklik (سفر'in zıttı)",
+      "en": "Opposing concepts:\n\n— **sitr** (ستر): to cover, to conceal\n— khafā (خفا): to be hidden\n— iqāma (إقامة): residence, settledness (the opposite of *safar*)"
     },
     {
       "type": "contrastDuo",
@@ -275,45 +275,45 @@
       "captionEn": "Uncovering ⇄ Covering",
       "left": {
         "ar": "سفر",
-        "titleTr": "Sefer — Açığa Çıkarma",
-        "titleEn": "Safar — Uncovering",
-        "descTr": "Örtüyü kaldırma, süpürme, dağıtma; yolculuk, sabah, kitap, katip — hepsi 'açma' temasının dalları.",
-        "descEn": "Removing a covering, sweeping, scattering; travel, dawn, book, scribe — all branches of the 'opening' theme.",
+        "titleTr": "Sefer: Açığa Çıkarma",
+        "titleEn": "Safar: Uncovering",
+        "descTr": "Örtüyü kaldırma, süpürme, dağıtma; yolculuk, sabah, kitap, katip: hepsi 'açma' temasının dalları.",
+        "descEn": "Removing a covering, sweeping, scattering; travel, dawn, book, scribe: all branches of the 'opening' theme.",
         "accent": "#d4a574",
         "bullets": [
           {
-            "tr": "سفر — yolculuk",
-            "en": "safar — travel"
+            "tr": "سفر: yolculuk",
+            "en": "safar: travel"
           },
           {
-            "tr": "إسفار — aydınlanma",
-            "en": "isfâr — illumination"
+            "tr": "إسفار: aydınlanma",
+            "en": "isfâr: illumination"
           },
           {
-            "tr": "سفر — kitap (sifr)",
-            "en": "sifr — book"
+            "tr": "سفر: kitap (sifr)",
+            "en": "sifr: book"
           }
         ]
       },
       "right": {
         "ar": "ستر",
-        "titleTr": "Sitr — Örtme",
-        "titleEn": "Sitr — Covering",
+        "titleTr": "Sitr: Örtme",
+        "titleEn": "Sitr: Covering",
         "descTr": "Örtmek, gizlemek, kapatmak; karşı kutup.",
         "descEn": "To cover, to conceal, to seal; the counter-pole.",
         "accent": "#8b5cf6",
         "bullets": [
           {
-            "tr": "ستر — örtmek",
-            "en": "sitr — covering"
+            "tr": "ستر: örtmek",
+            "en": "sitr: covering"
           },
           {
-            "tr": "خفا — gizli olmak",
-            "en": "khafā — being hidden"
+            "tr": "خفا: gizli olmak",
+            "en": "khafā: being hidden"
           },
           {
-            "tr": "إقامة — ikamet (sefer'in zıttı)",
-            "en": "iqāma — residence (the opposite of safar)"
+            "tr": "إقامة; ikamet (sefer'in zıttı)",
+            "en": "iqāma: residence (the opposite of safar)"
           }
         ]
       },
@@ -323,8 +323,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Semantik Gelişim Zinciri:**\n\n— Örtüyü Kaldırma → Görünür Kılma → Aydınlanma (sabah ışığı)\n— Örtüyü Kaldırma → Bir Yerden Uzaklaşma → Yolculuk\n— Açığa Çıkarma → İletişim / Mesaj → Kitap / Elçi / Katip",
-      "en": "**Semantic development chain:**\n\n— Removing a covering → Making visible → Illumination (morning light)\n— Removing a covering → Departure from a place → Travel\n— Bringing forth → Communication / Message → Book / Envoy / Scribe"
+      "tr": "Semantik Gelişim Zinciri:\n\n— Örtüyü Kaldırma, ardından Görünür Kılma, ardından Aydınlanma (sabah ışığı)\n— Örtüyü Kaldırma, ardından Bir Yerden Uzaklaşma, ardından Yolculuk\n— Açığa Çıkarma, ardından İletişim / Mesaj, ardından Kitap / Elçi / Katip",
+      "en": "Semantic development chain:\n\n— Removing a covering, then Making visible, then Illumination (morning light)\n— Removing a covering, then Departure from a place, then Travel\n— Bringing forth, then Communication / Message, then Book / Envoy / Scribe"
     },
     {
       "type": "flowChain",
@@ -368,23 +368,23 @@
     },
     {
       "type": "paragraph",
-      "tr": "**Açığa Çıkarma Metaforu.** Kur'an'da سفر kökü, 'gizli olanın açığa çıkması' temasını işler:\n\n— **Sabah ışığı** (Müddessir 74:34): karanlığın kalkması gibi, cehalete karşı bilgi.\n— **Parlak yüzler** (Abese 80:38): ahirette müminlerin ruhsal durumu — iç güzellikleri açığa çıkar.\n— **Kitaplar** (Cum'a 62:5): bilgiyi açan ama anlaşılmadan taşınan hakikatler.",
-      "en": "**The metaphor of uncovering.** In the Quran the س-ف-ر root carries the theme 'the hidden brought to light':\n\n— **The morning light** (Al-Muddaththir 74:34): like the lifting of darkness, knowledge against ignorance.\n— **Bright faces** (Abasa 80:38): the spiritual condition of believers in the Hereafter — their inner beauty made manifest.\n— **Books** (Al-Jumu'ah 62:5): truths that uncover knowledge but are carried without being understood."
+      "tr": "**Açığa Çıkarma Metaforu.** Kur'an'da سفر kökü, 'gizli olanın açığa çıkması' temasını işler:\n\n— **Sabah ışığı** (Müddessir 74:34): karanlığın kalkması gibi, cehalete karşı bilgi.\n— Parlak yüzler (Abese 80:38): ahirette müminlerin ruhsal durumu; iç güzellikleri açığa çıkar.\n— Kitaplar (Cum'a 62:5): bilgiyi açan ama anlaşılmadan taşınan hakikatler.",
+      "en": "**The metaphor of uncovering.** In the Quran the س-ف-ر root carries the theme 'the hidden brought to light':\n\n— **The morning light** (Al-Muddaththir 74:34): like the lifting of darkness, knowledge against ignorance.\n— Bright faces (Abasa 80:38): the spiritual condition of believers in the Hereafter: their inner beauty made manifest.\n— Books (Al-Jumu'ah 62:5): truths that uncover knowledge but are carried without being understood."
     },
     {
       "type": "paragraph",
-      "tr": "**Yolculuk Boyutu.**\n\n— Fiziksel yolculuk (سفر) → mekândan uzaklaşma → konfor alanından çıkma.\n— Ruhsal yolculuk metaforu: insan, ruhen de yolcudur (*sâfir*).\n— Yolculuk, **kolaylık** (*ruḫṣa*) getirir — oruç tutmama izni (Bakara 2:184).",
-      "en": "**The dimension of travel.**\n\n— Physical travel (سفر) → departure from a place → leaving the comfort zone.\n— The metaphor of inward travel: man too is a traveller in spirit (*sāfir*).\n— Travel brings **leniency** (*ruḫṣa*) — the dispensation from fasting (Al-Baqarah 2:184)."
+      "tr": "**Yolculuk Boyutu.**\n\n— Fiziksel yolculuk (سفر), ardından mekândan uzaklaşma, ardından konfor alanından çıkma.\n— Ruhsal yolculuk metaforu: insan, ruhen de yolcudur (*sâfir*).\n— Yolculuk, **kolaylık** (*ruḫṣa*) getirir: oruç tutmama izni (Bakara 2:184).",
+      "en": "**The dimension of travel.**\n\n— Physical travel (سفر), then departure from a place, then leaving the comfort zone.\n— The metaphor of inward travel: man too is a traveller in spirit (*sāfir*).\n— Travel brings **leniency** (*ruḫṣa*): the dispensation from fasting (Al-Baqarah 2:184)."
     },
     {
       "type": "paragraph",
-      "tr": "**Elçilik ve İletişim.**\n\n— **سَفَرَة** (Abese 80:15-16): meleklerin Allah'ın vahyini taşıma görevi.\n— **سَفِير** (elçi): toplumlar arası yabancılığı / soğukluğu kaldıran kişi.\n— İlişkileri 'açma' — barış yapma (سَفَرْتُ بَيْنَ القَوْمِ).",
-      "en": "**Envoyship and communication.**\n\n— **سَفَرَة** (Abasa 80:15-16): the angels' task of carrying God's revelation.\n— **سَفِير** (envoy): one who removes the estrangement / chill between peoples.\n— To 'open' relations — to make peace (سَفَرْتُ بَيْنَ القَوْمِ)."
+      "tr": "**Elçilik ve İletişim.**\n\n— **سَفَرَة** (Abese 80:15-16): meleklerin Allah'ın vahyini taşıma görevi.\n— سَفِير (elçi): toplumlar arası yabancılığı / soğukluğu kaldıran kişi.\n— İlişkileri 'açma': barış yapma (سَفَرْتُ بَيْنَ القَوْمِ).",
+      "en": "**Envoyship and communication.**\n\n— **سَفَرَة** (Abasa 80:15-16): the angels' task of carrying God's revelation.\n— سَفِير (envoy): one who removes the estrangement / chill between peoples.\n— To 'open' relations; to make peace (سَفَرْتُ بَيْنَ القَوْمِ)."
     },
     {
       "type": "pullQuote",
-      "tr": "سفر: Yolculuk — çünkü insan mekânını 'açık bırakır'.",
-      "en": "Safar: travel — because the traveller 'leaves his place open'.",
+      "tr": "سفر: Yolculuk, çünkü insan mekânını 'açık bırakır'.",
+      "en": "Safar: travel, because the traveller 'leaves his place open'.",
       "source": "Lane Lexicon"
     },
     {

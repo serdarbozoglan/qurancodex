@@ -28,13 +28,13 @@
       "type": "criticalNote",
       "headingTr": "Bu yazı bir devamdır",
       "headingEn": "This piece is a continuation",
-      "tr": "Bu metin, sitedeki **Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm** yazısının doğrudan devamıdır; yazar da metnin başında önceki yazıya atıf yapar. Ayrı bir Medium yazısı olduğu için burada ayrı bir makale olarak duruyor, ancak `Terminoloji` serisinin **sekizinci bölümü değildir** — yazarın ilan ettiği seri yedi parçadır. **Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.**",
-      "en": "This text is the direct continuation of **Terminology 7: The Resolution of Destiny, Design, Will and Flexible Determinism** on this site; the author himself refers back to the earlier piece at the outset. Since it is a separate post on Medium it stands here as a separate article, but it is **not the eighth part** of the `Terminology` series — the series the author declared has seven parts. **The Turkish is the author's own pen; the English is a translation.**"
+      "tr": "Bu metin, sitedeki **Terminoloji 7: Kaderin Çözünürlüğü, Tasarım, İrade ve Esnek Determinizm** yazısının doğrudan devamıdır; yazar da metnin başında önceki yazıya atıf yapar. Ayrı bir Medium yazısı olduğu için burada ayrı bir makale olarak duruyor, ancak `Terminoloji` serisinin sekizinci bölümü değildir: yazarın ilan ettiği seri yedi parçadır. Türkçe metin yazarın kendi kalemidir; İngilizce sürüm çeviridir.",
+      "en": "This text is the direct continuation of **Terminology 7: The Resolution of Destiny, Design, Will and Flexible Determinism** on this site; the author himself refers back to the earlier piece at the outset. Since it is a separate post on Medium it stands here as a separate article, but it is not the eighth part of the `Terminology` series; the series the author declared has seven parts. The Turkish is the author's own pen; the English is a translation."
     },
     {
       "type": "paragraph",
-      "tr": "Önceki yazıda **yaratılış → tasarım → takdir/hidâyet** zincirinin, evrendeki her varlık için işleyen **dinamik bir süreç** olduğuna değinmiştik. Bu kez aynı hakikati **çok-ölçekli (*multi-scale*)** bir mercekle inceleyeceğiz.",
-      "en": "In the previous piece we touched on how the chain **creation → design → determination/guidance** is a **dynamic process** operating for every being in the universe. This time we shall examine the same truth through a **multi-scale** lens."
+      "tr": "Önceki yazıda **yaratılış, ardından tasarım, ardından takdir/hidâyet** zincirinin, evrendeki her varlık için işleyen dinamik bir süreç olduğuna değinmiştik. Bu kez aynı hakikati **çok-ölçekli (*multi-scale*)** bir mercekle inceleyeceğiz.",
+      "en": "In the previous piece we touched on how the chain **creation, then design, then determination/guidance** is a dynamic process operating for every being in the universe. This time we shall examine the same truth through a multi-scale lens."
     },
     {
       "type": "hierarchyTree",
@@ -125,20 +125,20 @@
     },
     {
       "type": "pullQuote",
-      "tr": "*“Ey Allah'ın Resûlü! Şifa niyetiyle yaptığımız okumalar, tedavi olduğumuz ilaçlar ve korunma tedbirleri, Allah'ın takdirinden bir şeyi geri çevirir mi?”* — **“Onlar da Allah'ın takdiridir.”**",
-      "en": "*“O Messenger of God! Do the recitations we make seeking healing, the medicines by which we are treated, and the precautions we take, turn back anything of God's decree?”* — **“They too are God's decree.”**",
+      "tr": "*“Ey Allah'ın Resûlü! Şifa niyetiyle yaptığımız okumalar, tedavi olduğumuz ilaçlar ve korunma tedbirleri, Allah'ın takdirinden bir şeyi geri çevirir mi?”*: **“Onlar da Allah'ın takdiridir.”**",
+      "en": "*“O Messenger of God! Do the recitations we make seeking healing, the medicines by which we are treated, and the precautions we take, turn back anything of God's decree?”*: **“They too are God's decree.”**",
       "source": "Ebû Huzâme'nin babasından — Tirmizî, Tıb 21"
     },
     {
       "type": "pullQuote",
-      "tr": "*“Allah'ın kaderinden mi kaçıyorsun?”* — **“Evet, Allah'ın kaderinden yine Allah'ın kaderine kaçıyoruz.”**",
-      "en": "*“Are you fleeing from God's decree?”* — **“Yes — we flee from God's decree to God's decree.”**",
+      "tr": "*“Allah'ın kaderinden mi kaçıyorsun?”*: **“Evet, Allah'ın kaderinden yine Allah'ın kaderine kaçıyoruz.”**",
+      "en": "*“Are you fleeing from God's decree?”*, **“Yes, we flee from God's decree to God's decree.”**",
       "source": "Hz. Ömer'in Ebû Ubeyde'ye cevabı, Şam seferinde veba haberi üzerine — Buhârî, Tıb 30; Müslim, Selâm 98"
     },
     {
       "type": "pullQuote",
-      "tr": "Burada esasında olan şey, **beşerî kararın (ölçek-1)** küllî kaderin **(ölçek-∞)** içinde yeni bir yol seçmesidir. Çok-ölçekli bakış, **irade + kader gerilimini** uyumlu biçimde açıklar.",
-      "en": "What is really happening here is that **a human decision (scale-1)** selects a new path within the universal decree **(scale-∞)**. The multi-scale view explains **the tension between will and destiny** harmoniously."
+      "tr": "Burada esasında olan şey, **beşerî kararın (ölçek-1)** küllî kaderin (ölçek-∞) içinde yeni bir yol seçmesidir. Çok-ölçekli bakış, irade + kader gerilimini uyumlu biçimde açıklar.",
+      "en": "What is really happening here is that **a human decision (scale-1)** selects a new path within the universal decree (scale-∞). The multi-scale view explains the tension between will and destiny harmoniously."
     },
     {
       "type": "section",
@@ -148,8 +148,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Düşünün ki **N** objenin, her biri **K** parametreyle tarif edilen kapalı bir sistemimiz var. Hadi zamanı da sayılabilir (*discrete/countable*, **T ∈ ℕ**) kılmış olalım. Sistemin tüm durumlarını **%100** tanımlamak için, her bir objenin konumunu ve diğer objelerle olan ikili, üçlü — bütün — ilişkilerini, **tüm zamanlar için** kaydettiğimiz bir yazı düşünün.",
-      "en": "Imagine a closed system of **N** objects, each described by **K** parameters. Let us even make time countable (*discrete*, **T ∈ ℕ**). Now imagine a text that records, in order to define every state of the system **100 %**, the position of each object and all of its pairwise, triple — all — relations with the others, **for all times**."
+      "tr": "Düşünün ki **N** objenin, her biri K parametreyle tarif edilen kapalı bir sistemimiz var. Hadi zamanı da sayılabilir (*discrete/countable*, T ∈ ℕ) kılmış olalım. Sistemin tüm durumlarını %100 tanımlamak için, her bir objenin konumunu ve diğer objelerle olan ikili, üçlü, bütün, ilişkilerini, tüm zamanlar için kaydettiğimiz bir yazı düşünün.",
+      "en": "Imagine a closed system of **N** objects, each described by K parameters. Let us even make time countable (*discrete*, T ∈ ℕ). Now imagine a text that records, in order to define every state of the system 100 %, the position of each object and all of its pairwise, triple, all, relations with the others, for all times."
     },
     {
       "type": "flowChain",
@@ -188,25 +188,25 @@
     },
     {
       "type": "criticalNote",
-      "headingTr": "Terim — computational irreducibility",
-      "headingEn": "The term — computational irreducibility",
-      "tr": "**Hesaplamalı indirgenemezlik:** bazı sistemlerin gelecekteki durumunu bulmanın, adım adım simüle etmekten daha kısa hiçbir yolu yoktur — kestirme bir formül yoktur. Yazarın kilit hamlesi burada: eğer kaderi tam çözmek onu adım adım hesaplamayı gerektiriyorsa, **hesaplamak yaşamaktan ucuz değildir.** Kavram Stephen Wolfram'a aittir; yazar doğrudan Wikipedia maddesine atıf yapar.",
-      "en": "**Computational irreducibility:** for some systems there is no shorter route to a future state than simulating it step by step — no shortcut formula. This is the author's key move: if fully resolving destiny requires computing it step by step, then **computing is no cheaper than living.** The concept is due to Stephen Wolfram; the author cites the Wikipedia entry directly."
+      "headingTr": "Terim: computational irreducibility",
+      "headingEn": "The term: computational irreducibility",
+      "tr": "Hesaplamalı indirgenemezlik: bazı sistemlerin gelecekteki durumunu bulmanın, adım adım simüle etmekten daha kısa hiçbir yolu yoktur; kestirme bir formül yoktur. Yazarın kilit hamlesi burada: eğer kaderi tam çözmek onu adım adım hesaplamayı gerektiriyorsa, **hesaplamak yaşamaktan ucuz değildir.** Kavram Stephen Wolfram'a aittir; yazar doğrudan Wikipedia maddesine atıf yapar.",
+      "en": "Computational irreducibility: for some systems there is no shorter route to a future state than simulating it step by step: no shortcut formula. This is the author's key move: if fully resolving destiny requires computing it step by step, then **computing is no cheaper than living.** The concept is due to Stephen Wolfram; the author cites the Wikipedia entry directly."
     },
     {
       "type": "paragraph",
-      "tr": "Üstelik kâinat, mutlak mânada kapalı değil, **Allah'ın irâdesiyle açık bir sistemdir**. Dolayısıyla *“tam yazmak”* veya *“tam kaydetmek”* fikri, **bilgi-içeriği açısından kendi kendini boşa çıkarır**. Zaten eşya ve hâdiselerin %100 aynıyla bir yerde yazılı olmasının **bir anlamı da yoktur**.",
-      "en": "Moreover the universe is not closed in any absolute sense; it is **a system left open by God's will**. Hence the idea of *“writing it in full”* or *“recording it in full”* **defeats itself on informational grounds**. And indeed there would be **no meaning** in things and events being written down somewhere in 100 % identity with themselves."
+      "tr": "Üstelik kâinat, mutlak mânada kapalı değil, **Allah'ın irâdesiyle açık bir sistemdir**. Dolayısıyla *“tam yazmak”* veya *“tam kaydetmek”* fikri, bilgi-içeriği açısından kendi kendini boşa çıkarır. Zaten eşya ve hâdiselerin %100 aynıyla bir yerde yazılı olmasının bir anlamı da yoktur.",
+      "en": "Moreover the universe is not closed in any absolute sense; it is **a system left open by God's will**. Hence the idea of *“writing it in full”* or *“recording it in full”* defeats itself on informational grounds. And indeed there would be no meaning in things and events being written down somewhere in 100 % identity with themselves."
     },
     {
       "type": "paragraph",
-      "tr": "Hâdiseler, **aktüel varoluş ânında** taşıdıkları bilgiden **daha düşük entropiye** (daha az seçeneğe) sahiptir. Video kaydı bile o ânı tekrar üretmeye kalktığında **yeni bilgi ekler**.",
-      "en": "Events possess **lower entropy** — fewer options — **at the moment of actual existence** than the information they carry. Even a video recording **adds new information** when it attempts to reproduce that moment."
+      "tr": "Hâdiseler, **aktüel varoluş ânında** taşıdıkları bilgiden daha düşük entropiye (daha az seçeneğe) sahiptir. Video kaydı bile o ânı tekrar üretmeye kalktığında yeni bilgi ekler.",
+      "en": "Events possess **lower entropy**: fewer options; at the moment of actual existence than the information they carry. Even a video recording adds new information when it attempts to reproduce that moment."
     },
     {
       "type": "pullQuote",
       "tr": "Bu da kaderin aslında **bir bilgisayar oyununun kaynak kodu gibi üretken, dinamik bir kalıp** olduğu anlamına gelir.",
-      "en": "Which means that destiny is in fact **a generative, dynamic pattern — like the source code of a computer game**."
+      "en": "Which means that destiny is in fact **a generative, dynamic pattern: like the source code of a computer game**."
     },
     {
       "type": "section",
@@ -216,16 +216,16 @@
     },
     {
       "type": "paragraph",
-      "tr": "Bir diğer mesele şu: bir hâdiseyi yazarken, anlatırken kullandığımız kavramlar **emergent kavramlardır**. Meselâ bir cismin sıcaklığının **30 °C** olması, moleküller ölçeğinde **≈ 10¹²⁰** veya çok daha fazla farklı **mikroduruma** tekabül eder.",
-      "en": "A further matter: the concepts we use in writing or recounting an event are **emergent concepts**. That an object's temperature is **30 °C**, for instance, corresponds at the molecular scale to **≈ 10¹²⁰** — or far more — distinct **microstates**."
+      "tr": "Bir diğer mesele şu: bir hâdiseyi yazarken, anlatırken kullandığımız kavramlar **emergent kavramlardır**. Meselâ bir cismin sıcaklığının 30 °C olması, moleküller ölçeğinde ≈ 10¹²⁰ veya çok daha fazla farklı mikroduruma tekabül eder.",
+      "en": "A further matter: the concepts we use in writing or recounting an event are **emergent concepts**. That an object's temperature is 30 °C, for instance, corresponds at the molecular scale to ≈ 10¹²⁰, or far more, distinct microstates."
     },
     {
       "type": "contrastDuo",
       "captionTr": "Aynı hüküm, iki ölçek",
       "captionEn": "The same statement, two scales",
       "left": {
-        "titleTr": "Makro ölçek — tek bir değer",
-        "titleEn": "Macro scale — a single value",
+        "titleTr": "Makro ölçek: tek bir değer",
+        "titleEn": "Macro scale: a single value",
         "accent": "#d4a574",
         "descTr": "Termometreyle ölçtüğümüz ve yazdığımız **tek bir sıcaklık**: *“30 °C”*.",
         "descEn": "**A single temperature** that we measure with a thermometer and write down: *“30 °C”*.",
@@ -241,15 +241,15 @@
         ]
       },
       "right": {
-        "titleTr": "Mikro ölçek — devasa bir hacim",
-        "titleEn": "Micro scale — an enormous volume",
+        "titleTr": "Mikro ölçek: devasa bir hacim",
+        "titleEn": "Micro scale: an enormous volume",
         "accent": "#3498db",
         "descTr": "Aynı hüküm, faz uzayında bir **invaryans bölgesine** karşılık gelir.",
         "descEn": "The same statement corresponds to **a region of invariance** in phase space.",
         "bullets": [
           {
-            "tr": "Bardaktaki herhangi **iki molekülün hızını değiştirsem** ortalama davranış — yani sıcaklık — **değişmez**",
-            "en": "If I **swap the velocities of any two molecules**, the average behaviour — the temperature — **does not change**"
+            "tr": "Bardaktaki herhangi **iki molekülün hızını değiştirsem** ortalama davranış, yani sıcaklık; **değişmez**",
+            "en": "If I **swap the velocities of any two molecules**, the average behaviour; the temperature; **does not change**"
           },
           {
             "tr": "O hacim içerisindeki **herhangi bir nokta** bu hükmü gerçekleştirir",
@@ -257,8 +257,8 @@
           }
         ]
       },
-      "bridgeTr": "Emergent bir hüküm yazılı ise, bu hüküm mikro ölçek için faz uzayındaki bir hacme karşılık gelen bir kalıptır — tek bir noktaya değil.",
-      "bridgeEn": "If an emergent statement is written, that statement is a pattern corresponding to a volume in phase space at the micro scale — not to a single point."
+      "bridgeTr": "Emergent bir hüküm yazılı ise, bu hüküm mikro ölçek için faz uzayındaki bir hacme karşılık gelen bir kalıptır: tek bir noktaya değil.",
+      "bridgeEn": "If an emergent statement is written, that statement is a pattern corresponding to a volume in phase space at the micro scale, not to a single point."
     },
     {
       "type": "pullQuote",
@@ -267,8 +267,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Emergent dil seviyesinde **tek bir tümce**, mikroskobik seviyede **hazmedilemeyecek genişlikte bir faz hacmini** kapsar. **Kaderi okumak, böyle bir *çokluluk*la karşılaşmaktır.** Bu örneklerden sonra siz de **esnek determinizm** ve **kaderin kalıp olması** anlayışını daha makul, daha organik bulmuyor musunuz?",
-      "en": "At the level of emergent language **a single sentence** encompasses, at the microscopic level, **a phase volume of indigestible breadth**. **To read destiny is to meet such a *multiplicity*.** After these examples, do you too not find the notions of **flexible determinism** and **destiny-as-pattern** more reasonable, more organic?"
+      "tr": "Emergent dil seviyesinde **tek bir tümce**, mikroskobik seviyede hazmedilemeyecek genişlikte bir faz hacmini kapsar. **Kaderi okumak, böyle bir *çokluluk*la karşılaşmaktır. Bu örneklerden sonra siz de esnek determinizm ve kaderin kalıp olması** anlayışını daha makul, daha organik bulmuyor musunuz?",
+      "en": "At the level of emergent language **a single sentence** encompasses, at the microscopic level, a phase volume of indigestible breadth. **To read destiny is to meet such a *multiplicity*. After these examples, do you too not find the notions of flexible determinism and destiny-as-pattern** more reasonable, more organic?"
     },
     {
       "type": "section",
@@ -278,8 +278,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "Üstad Bediüzzaman, kaderden bahsederken özellikle **“kalem-i kader”** tabirini kullanır. **Kader = dinamik yazan; kâinat = okunan bir kitap.** Yani kader, **bitmiş bir metin değil, canlı bir icraat programıdır**.",
-      "en": "When Bediüzzaman speaks of destiny he pointedly uses the phrase **“the pen of destiny”**. **Destiny = the dynamic writer; the universe = a book that is read.** That is, destiny is **not a finished text but a living programme of execution**."
+      "tr": "Üstad Bediüzzaman, kaderden bahsederken özellikle **“kalem-i kader”** tabirini kullanır. Kader = dinamik yazan; kâinat = okunan bir kitap. Yani kader, bitmiş bir metin değil, canlı bir icraat programıdır.",
+      "en": "When Bediüzzaman speaks of destiny he pointedly uses the phrase **“the pen of destiny”**. Destiny = the dynamic writer; the universe = a book that is read. That is, destiny is not a finished text but a living programme of execution."
     },
     {
       "type": "contrastDuo",
@@ -306,8 +306,8 @@
         "descEn": "An *execution* engine that **keeps running at every moment** and can respond to inputs.",
         "bullets": [
           {
-            "tr": "**Yazan** — yazılan değil",
-            "en": "**What writes** — not what is written"
+            "tr": "**Yazan**: yazılan değil",
+            "en": "**What writes**: not what is written"
           },
           {
             "tr": "Bir oyunun **kaynak kodu** gibi üretken",
@@ -324,8 +324,8 @@
     },
     {
       "type": "paragraph",
-      "tr": "**“Hayrihî ve şerrihî minallâh.”** İman esaslarında kaderin zikredilmesi, insanın **ıstırap ânında sahipsiz olmadığını** bilmesi içindir. Hikmetsiz görünen olaylar bile, daha geniş ölçekte **rahmete açılan kapılar** olabilir.",
-      "en": "**“Its good and its evil are from God.”** Destiny is named among the articles of faith so that a person may know he is **not without an owner in the moment of anguish**. Even events that appear devoid of wisdom may, at a wider scale, be **doors opening onto mercy**."
+      "tr": "**“Hayrihî ve şerrihî minallâh.”** İman esaslarında kaderin zikredilmesi, insanın ıstırap ânında sahipsiz olmadığını bilmesi içindir. Hikmetsiz görünen olaylar bile, daha geniş ölçekte rahmete açılan kapılar olabilir.",
+      "en": "**“Its good and its evil are from God.”** Destiny is named among the articles of faith so that a person may know he is not without an owner in the moment of anguish. Even events that appear devoid of wisdom may, at a wider scale, be doors opening onto mercy."
     },
     {
       "type": "contrastDuo",
@@ -370,8 +370,8 @@
       "type": "criticalNote",
       "headingTr": "Dalga fonksiyonu ne yapar, ne yapmaz",
       "headingEn": "What the wave function does, and does not do",
-      "tr": "Kuantum **dalga fonksiyonu (ψ)**, olası durumları **çizer** — ama hangisinin gerçekleşeceğini **belirlemez**. Kesinlik, **gözlem + sistem + çevrenin ortak etkileşimiyle** doğar. Yazarın buradan çıkardığı sonuç: elektronun nihaî hâli, yalnız *“elektron”*un değil, **evrenin geri kalanının da kaderidir**. Sistem açık oldukça, *“tam kesin state”* kavramı **teorik bir sınır olmaktan öteye geçmez**.",
-      "en": "The quantum **wave function (ψ)** **maps** the possible states — but does **not determine** which will be realised. Definiteness arises from **the joint interaction of observation + system + environment**. The author's conclusion: the electron's final state is the destiny not only of *“the electron”* but **of the rest of the universe as well**. So long as the system is open, the notion of a *“fully definite state”* **never becomes more than a theoretical limit**."
+      "tr": "Kuantum **dalga fonksiyonu (ψ)**, olası durumları çizer: ama hangisinin gerçekleşeceğini belirlemez. Kesinlik, gözlem + sistem + çevrenin ortak etkileşimiyle doğar. Yazarın buradan çıkardığı sonuç: elektronun nihaî hâli, yalnız *“elektron”*un değil, evrenin geri kalanının da kaderidir. Sistem açık oldukça, *“tam kesin state”* kavramı teorik bir sınır olmaktan öteye geçmez.",
+      "en": "The quantum **wave function (ψ)** maps the possible states, but does not determine which will be realised. Definiteness arises from the joint interaction of observation + system + environment. The author's conclusion: the electron's final state is the destiny not only of *“the electron”* but of the rest of the universe as well. So long as the system is open, the notion of a *“fully definite state”* never becomes more than a theoretical limit."
     },
     {
       "type": "section",
@@ -428,15 +428,15 @@
     },
     {
       "type": "pullQuote",
-      "tr": "Kader inancı, insanı **Allah'a yaklaştıran bir vesile** olmalı; irade ve gayreti zayıflatmamalı; **bilimsel gözlemle barışık** olmalı ve **düşünsel tutarlılık** içinde yaşatılmalıdır.",
-      "en": "Belief in destiny should be **a means that brings one nearer to God**; it should not weaken will and effort; it should be **at peace with scientific observation** and be lived **within intellectual consistency**."
+      "tr": "Kader inancı, insanı **Allah'a yaklaştıran bir vesile** olmalı; irade ve gayreti zayıflatmamalı; bilimsel gözlemle barışık olmalı ve düşünsel tutarlılık içinde yaşatılmalıdır.",
+      "en": "Belief in destiny should be **a means that brings one nearer to God**; it should not weaken will and effort; it should be at peace with scientific observation and be lived within intellectual consistency."
     },
     {
       "type": "criticalNote",
       "headingTr": "Yazar hakkında · seri",
       "headingEn": "About the author · series",
-      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Metinde anılan iki rivayetin kaynakları yazarın verdiği şekliyle korunmuştur (Tirmizî, Tıb 21; Buhârî, Tıb 30 ve Müslim, Selâm 98). *Kalem-i kader* tabiri Bediüzzaman Saîd Nursî'ye aittir. Yazının ilk kısmı için sitedeki **Terminoloji 7** yazısına bakınız; *emergence* ve faz geçişi kavramları **Terminoloji 5: Makro/Mikro Durumlar** yazısında ayrıntılandırılmıştır.",
-      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. The sources of the two narrations cited are preserved as the author gave them (Tirmidhī, Ṭibb 21; Bukhārī, Ṭibb 30 and Muslim, Salām 98). The phrase *the pen of destiny* belongs to Bediüzzaman Said Nursi. For the first part of this essay see **Terminology 7** on this site; the notions of *emergence* and phase transition are developed at length in **Terminology 5: Macro/Micro States**."
+      "tr": "Bu metin **Felsufi'nin kendi görüşüdür** ve Medium'daki özgün yazısından alınmıştır; site editoryal bir hakemlik uygulamamıştır. Metinde anılan iki rivayetin kaynakları yazarın verdiği şekliyle korunmuştur (Tirmizî, Tıb 21; Buhârî, Tıb 30 ve Müslim, Selâm 98). *Kalem-i kader* tabiri Bediüzzaman Saîd Nursî'ye aittir. Yazının ilk kısmı için sitedeki Terminoloji 7 yazısına bakınız; *emergence* ve faz geçişi kavramları Terminoloji 5: Makro/Mikro Durumlar yazısında ayrıntılandırılmıştır.",
+      "en": "This text is **Felsufi's own view**, taken from the original piece on Medium; the site has applied no editorial refereeing. The sources of the two narrations cited are preserved as the author gave them (Tirmidhī, Ṭibb 21; Bukhārī, Ṭibb 30 and Muslim, Salām 98). The phrase *the pen of destiny* belongs to Bediüzzaman Said Nursi. For the first part of this essay see Terminology 7 on this site; the notions of *emergence* and phase transition are developed at length in Terminology 5: Macro/Micro States."
     }
   ]
 }

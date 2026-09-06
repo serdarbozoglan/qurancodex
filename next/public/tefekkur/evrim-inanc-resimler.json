@@ -29,10 +29,10 @@
   "blocks": [
     {
       "type": "criticalNote",
-      "headingTr": "Yazarın notu — kaynak",
-      "headingEn": "Author's note — provenance",
-      "tr": "Bu yazı 2019'da Seyeran beyin yaptığı bir konuşmanın yazıya dökülüp düzenlenmiş hâlidir. Evrim konusunu çok farklı bir açıdan ele aldığı için paylaşılmıştır. — Felsufi",
-      "en": "This piece is an edited transcript of a 2019 talk by Seyeran Bey, shared because it approaches the question of evolution from an unusual angle. — Felsufi"
+      "headingTr": "Yazarın notu: kaynak",
+      "headingEn": "Author's note: provenance",
+      "tr": "Bu yazı 2019'da Seyeran beyin yaptığı bir konuşmanın yazıya dökülüp düzenlenmiş hâlidir. Evrim konusunu çok farklı bir açıdan ele aldığı için paylaşılmıştır. Felsufi",
+      "en": "This piece is an edited transcript of a 2019 talk by Seyeran Bey, shared because it approaches the question of evolution from an unusual angle. Felsufi"
     },
     {
       "type": "criticalNote",
@@ -55,7 +55,7 @@
     {
       "type": "paragraph",
       "tr": "Hepimiz o meşhur hikâyeyi biliriz. Körler bir ahıra girer, fille tanışır. Biri hortumuna dokunur “fil su hortumu gibi” der. Öbürü bacağına dokunur “hayır ağaç gibi” der. Başkası kulağına dokunur bambaşka bir şey söyler.\n\nİşte biz de böyleyiz. Bir konuya bakarken çoğu zaman tek açıdan bakarız. Daha doğrusu, yaşadığımız çağın, kültürümüzün, hatta kendi mizacımızın bize verdiği açıdan bakarız.",
-      "en": "We all know the famous story. Blind men enter a stable and meet an elephant. One touches the trunk: “an elephant is like a hose.” Another touches a leg: “no, like a tree.” A third touches an ear and says something else entirely.\n\nWe are like this too. When we look at a matter, we mostly look from a single angle — more precisely, from the angle our age, our culture, even our temperament has handed us."
+      "en": "We all know the famous story. Blind men enter a stable and meet an elephant. One touches the trunk: “an elephant is like a hose.” Another touches a leg: “no, like a tree.” A third touches an ear and says something else entirely.\n\nWe are like this too. When we look at a matter, we mostly look from a single angle; more precisely, from the angle our age, our culture, even our temperament has handed us."
     },
     {
       "type": "paragraph",
@@ -75,7 +75,7 @@
     },
     {
       "type": "paragraph",
-      "tr": "İkinci önemli nokta şu: **Kur'an'dan bahseden her şey Kur'an gibi değildir.** Bir tefsir kitabı okuduğunuzda, o kitaptaki her şey Kur'an ayeti değildir.\n\nMesela Fahrettin Râzî'nin meşhur tefsirinde “dünyanın dönmesi mümkün değildir” diye bir açıklama var. Dönemin tipik itiraz mantığı şuna benzer: Eğer dünya dönüyor olsaydı, zıplayan bir insan yere farklı bir noktada düşerdi — çünkü o sırada zemin de yer değiştirmiş olurdu.\n\nBugün “ama eylemsizlik prensibi!” diye düşünüyoruz. Ama o dönemde böyle bir bilgi yoktu. Adam mantıklı olanı yazmış.",
+      "tr": "İkinci önemli nokta şu: **Kur'an'dan bahseden her şey Kur'an gibi değildir.** Bir tefsir kitabı okuduğunuzda, o kitaptaki her şey Kur'an ayeti değildir.\n\nMesela Fahrettin Râzî'nin meşhur tefsirinde “dünyanın dönmesi mümkün değildir” diye bir açıklama var. Dönemin tipik itiraz mantığı şuna benzer: Eğer dünya dönüyor olsaydı, zıplayan bir insan yere farklı bir noktada düşerdi, çünkü o sırada zemin de yer değiştirmiş olurdu.\n\nBugün “ama eylemsizlik prensibi!” diye düşünüyoruz. Ama o dönemde böyle bir bilgi yoktu. Adam mantıklı olanı yazmış.",
       "en": "The second important point: **not everything that speaks of the Qur'an is like the Qur'an.** When you read a work of tafsīr, not everything in that book is a Qur'anic verse.\n\nIn Fakhr al-Dīn al-Rāzī's famous commentary, for example, there is an explanation that “it is impossible for the earth to rotate.” The reasoning: if the earth were turning, a man jumping on a ship would land further forward, because the ship would have moved meanwhile.\n\nToday we think, “but the principle of inertia!” In his day there was no such knowledge. The man wrote what was reasonable."
     },
     {
@@ -112,12 +112,12 @@
         "descEn": "A scholar's reading, built with the knowledge of his own age.",
         "bullets": [
           {
-            "tr": "Râzî: “dünya dönemez” — o günün fiziği",
-            "en": "Al-Rāzī: “the earth cannot rotate” — the physics of his day"
+            "tr": "Râzî: “dünya dönemez”: o günün fiziği",
+            "en": "Al-Rāzī: “the earth cannot rotate”: the physics of his day"
           },
           {
-            "tr": "Bediüzzaman: “esir maddesi” — o günün fiziği",
-            "en": "Nursî: “the ether” — the physics of his day"
+            "tr": "Bediüzzaman: “esir maddesi”: o günün fiziği",
+            "en": "Nursî: “the ether”: the physics of his day"
           },
           {
             "tr": "Örnek eskir, anlatılan hakikat durur",
@@ -135,7 +135,7 @@
     {
       "type": "paragraph",
       "tr": "Üçüncü mevzu biraz daha derin. İnsanlar metinleri okurken kafalarında resimler oluşturur. Ve bu resimleri gerçeğin ta kendisi sanırlar.\n\n“Allah canlıları sudan yarattı” ayetini duyunca ne anlıyorsunuz? Belki suyun hayat için önemini, belki ilk canlıların denizde ortaya çıkmasını.\n\nAma “Allah insanı topraktan yarattı” deyince? Ah, orada hemen kafamızda bir resim belirir: Çömlekçi gibi çamuru alıp şekil veriyor, sonra can veriyor.",
-      "en": "The third matter runs deeper. People form pictures in their minds as they read, and they take those pictures for reality itself.\n\nWhen you hear “God made every living thing from water,” what do you understand? Perhaps the importance of water for life; perhaps that the first living things appeared in the sea.\n\nBut when it is said “God created man from dust”? Ah — there a picture appears at once: a potter taking clay, giving it shape, then giving it life."
+      "en": "The third matter runs deeper. People form pictures in their minds as they read, and they take those pictures for reality itself.\n\nWhen you hear “God made every living thing from water,” what do you understand? Perhaps the importance of water for life; perhaps that the first living things appeared in the sea.\n\nBut when it is said “God created man from dust”? Ah: there a picture appears at once: a potter taking clay, giving it shape, then giving it life."
     },
     {
       "type": "verseInline",
@@ -187,7 +187,7 @@
     {
       "type": "paragraph",
       "tr": "“Çocuklarınız 7 yaşına itibaren namazı öğretin, istikrarını sağlamaya çalışın ve namaza başladıktan sonra onları bir daha dövmeyin.” Fakat aynı hadisi, aynı metinde başka bir insan o resim çerçevesinde 7 yaşında bir çocuğa namazı emredin ve kılmıyorsa dövün. Veya daha da ötesi, namazı emredin ve döve döve kıldırın diye anlıyor ve kafasında öyle bir resim canlanıyor.",
-      "en": "“Teach your children the prayer from the age of seven, work to make it steady, and once they have begun praying do not strike them again.” Yet another person, reading the very same hadith through the frame of his own picture, understands it as: order a seven-year-old to pray and beat him if he does not — or further still, order the prayer and make him pray by beating. That is the picture that comes alive in his head."
+      "en": "“Teach your children the prayer from the age of seven, work to make it steady, and once they have begun praying do not strike them again.” Yet another person, reading the very same hadith through the frame of his own picture, understands it as: order a seven-year-old to pray and beat him if he does not, or further still, order the prayer and make him pray by beating. That is the picture that comes alive in his head."
     },
     {
       "type": "pullQuote",
@@ -203,7 +203,7 @@
     {
       "type": "paragraph",
       "tr": "Son maddem en kritik: İnsanlar teorileri genelde doğru mu yanlış mı diye değil, **hangi amaca hizmet ediyor** diye değerlendirirler.\n\nMesela biri çıkıp “kadınlar özgür bireydir, o yüzden özgür cinsel yaşam hakkı vardır” dese, karşı çıkan kişi genelde şöyle der: “Hayır, kadınlar özgür mözgür değil!”\n\nAma doğru cevap şu olmalı: “Evet, kadınlar özgürdür ama bu senin dediğin şeyi gerektirmez.”",
-      "en": "My last point is the most critical: people generally evaluate theories not by whether they are true or false, but by **what purpose they serve**.\n\nIf someone says “women are free individuals, therefore they have a right to a free sexual life,” the one who objects usually answers: “No, women are not free at all!”\n\nBut the correct answer should be: “Yes, women are free — but that does not entail what you are claiming.”"
+      "en": "My last point is the most critical: people generally evaluate theories not by whether they are true or false, but by **what purpose they serve**.\n\nIf someone says “women are free individuals, therefore they have a right to a free sexual life,” the one who objects usually answers: “No, women are not free at all!”\n\nBut the correct answer should be: “Yes, women are free, but that does not entail what you are claiming.”"
     },
     {
       "type": "paragraph",
@@ -276,7 +276,7 @@
     {
       "type": "paragraph",
       "tr": "Evrim teorisi ise inananları rahatsız etti. Çünkü insanların zihninde büyük ölçüde Eski Ahit'ten gelen resimlerle çelişiyordu. “Allah çamuru aldı, şekil verdi” resmi vardı kafada. Evrim farklı bir şey anlatıyordu.",
-      "en": "The theory of evolution, on the other hand, disturbed believers — because it clashed with pictures largely inherited from the Old Testament. In the mind stood the image: “God took clay and gave it shape.” Evolution was telling a different story."
+      "en": "The theory of evolution, on the other hand, disturbed believers, because it clashed with pictures largely inherited from the Old Testament. In the mind stood the image: “God took clay and gave it shape.” Evolution was telling a different story."
     },
     {
       "type": "section",
