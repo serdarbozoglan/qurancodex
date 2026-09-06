@@ -493,7 +493,7 @@ export default function KavimlerAtlasi({ onClose }) {
           language={language}
           isMobile={isMobile}
           links={[
-            { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: "Allah'ın toplumsal yasaları — kavimlerin akıbeti bu yasalara bağlıdır.", descEn: "God's social laws — the fate of nations is bound to these laws." },
+            { href: `/${language}/atlas/sunnetullah`, titleTr: 'Sünnetullah', titleEn: 'Sunnatullāh', descTr: "Allah'ın toplumsal yasaları; kavimlerin akıbeti bu yasalara bağlıdır.", descEn: "God's social laws; the fate of nations is bound to these laws." },
             { href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: "Arkeoloji, Firavun'un cesedi, Roma kehâneti.", descEn: "Archaeology, Pharaoh's body, Roman prophecy." },
           ]}
         />
@@ -550,8 +550,8 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
         opacity: 0.92,
       }}>
         {tr
-          ? <>Her kavme bir peygamber. Her peygambere bir red. Her redde bir helak. Ama helak <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>sonuç değil — hatırlatma</strong>. &quot;Yeryüzünde gezip dolaşmadılar mı?&quot; diye soran ayet, sonra gelene aynayı tutar: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>tarih ders veren bir kâtip değildir; uyaran bir şahittir</strong>.</>
-          : <>To every nation a prophet. To every prophet a rejection. To every rejection a destruction. But destruction is <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>not the end — it is the reminder</strong>. The verse that asks &quot;Have they not traveled through the land?&quot; holds up a mirror to those who come after: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>history is not a teacher writing lessons; it is a witness offering warning</strong>.</>}
+          ? <>Her kavme bir peygamber. Her peygambere bir red. Her redde bir helak. Ama helak <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>sonuç değil, hatırlatmadır</strong>. &quot;Yeryüzünde gezip dolaşmadılar mı?&quot; diye soran ayet, sonra gelene aynayı tutar: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>tarih ders veren bir kâtip değildir; uyaran bir şahittir</strong>.</>
+          : <>To every nation a prophet. To every prophet a rejection. To every rejection a destruction. But destruction is <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>not the end but the reminder</strong>. The verse that asks &quot;Have they not traveled through the land?&quot; holds up a mirror to those who come after: <strong style={{ color: COLORS.gold, fontStyle: 'normal', fontWeight: 600 }}>history is not a teacher writing lessons; it is a witness offering warning</strong>.</>}
       </p>
 
       <div style={{ marginBottom: '20px' }}>
@@ -561,7 +561,7 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
             letterSpacing: '0.24em', textTransform: 'uppercase',
             color: COLORS.gold, opacity: 0.75,
           }}>
-            {tr ? 'Daha Derine — Kıssa-Yoğun Sûreler' : 'Go Deeper — Narrative-Rich Suras'}
+            {tr ? 'Daha Derine: Kıssa Yoğun Sûreler' : 'Go Deeper: Narrative-Rich Suras'}
           </span>
         </div>
 
@@ -570,9 +570,9 @@ function KavimlerClosing({ language, isMobile, totalNations }) {
           gap: '12px',
         }}>
           {[
-            { href: `/${language}/oku/11`, titleTr: 'Hûd Sûresi (11)', titleEn: 'Sura Hūd (11)', descTr: 'Nuh, Hûd, Sâlih, Şuayb, Lût — 5 kavmin helak desenini tek sûrede toplayan ana referans.', descEn: 'Noah, Hūd, Ṣāliḥ, Shuʿayb, Lūṭ — the main reference uniting 5 destruction patterns in one sura.' },
-            { href: `/${language}/oku/26`, titleTr: 'Şuarâ Sûresi (26)', titleEn: 'Sura al-Shuʿarāʾ (26)', descTr: 'Mûsâ, İbrâhîm, Nûh, Hûd, Sâlih, Lût, Şuayb — 7 peygamberin aynı yapıyla anlatıldığı sûre.', descEn: 'Moses, Abraham, Noah, Hūd, Ṣāliḥ, Lūṭ, Shuʿayb — 7 prophets told with the same narrative structure.' },
-            { href: `/${language}/oku/28`, titleTr: 'Kasas Sûresi (28)', titleEn: 'Sura al-Qaṣaṣ (28)', descTr: 'Firavun ve Hz. Mûsâ — Kur\'an\'daki en uzun kavim kıssası, kendi adıyla "Kıssalar" sûresi.', descEn: 'Pharaoh and Moses — the longest nation narrative in the Quran, the sura named "Stories".' },
+            { href: `/${language}/oku/11`, titleTr: 'Hûd Sûresi (11)', titleEn: 'Sura Hūd (11)', descTr: 'Nuh, Hûd, Sâlih, Şuayb, Lût: 5 kavmin helak desenini tek sûrede toplayan ana referans.', descEn: 'Noah, Hūd, Ṣāliḥ, Shuʿayb, Lūṭ: the main reference uniting 5 destruction patterns in one sura.' },
+            { href: `/${language}/oku/26`, titleTr: 'Şuarâ Sûresi (26)', titleEn: 'Sura al-Shuʿarāʾ (26)', descTr: 'Mûsâ, İbrâhîm, Nûh, Hûd, Sâlih, Lût, Şuayb: 7 peygamberin aynı yapıyla anlatıldığı sûre.', descEn: 'Moses, Abraham, Noah, Hūd, Ṣāliḥ, Lūṭ, Shuʿayb: 7 prophets told with the same narrative structure.' },
+            { href: `/${language}/oku/28`, titleTr: 'Kasas Sûresi (28)', titleEn: 'Sura al-Qaṣaṣ (28)', descTr: 'Firavun ve Hz. Mûsâ: Kur\'an\'daki en uzun kavim kıssası, kendi adıyla "Kıssalar" sûresi.', descEn: 'Pharaoh and Moses: the longest nation narrative in the Quran, the sura named "Stories".' },
           ].map((tt, i) => (
             <a className="mq-box"
               key={i}
@@ -725,8 +725,8 @@ function HeroSection({ meta, language, isMobile }) {
         opacity: 0.88,
       }}>
         {language === 'tr'
-          ? <>Her kavmin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>helak biçimi</em>, işlediği suça gizli bir aynadır. Tarih boş tekrar değildir — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kâinatın hafızası, sonraki nesle bir mesajdır</em>.</>
-          : <>Each people&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>mode of destruction</em> is a hidden mirror of their sin. History is not idle repetition — <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the universe&apos;s memory is a message to the next generation</em>.</>}
+          ? <>Her kavmin <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>helak biçimi</em>, işlediği suça gizli bir aynadır. Tarih boş tekrar değildir; <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>kâinatın hafızası, sonraki nesle bir mesajdır</em>.</>
+          : <>Each people&apos;s <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>mode of destruction</em> is a hidden mirror of their sin. History is not idle repetition; <em style={{ fontStyle: 'normal', color: COLORS.gold, opacity: 0.95 }}>the universe&apos;s memory is a message to the next generation</em>.</>}
       </p>
 
       {/* Filigree divider */}
@@ -1095,25 +1095,25 @@ const HELAK_STEPS_TR = [
   { n: 1, title: 'Peygamber Gönderilir', body: 'Her kavme kendi dilinden bir peygamber gönderilir. Peygamber kavmin içinden, onların konuştuğu dilde.', ref: '"Her ümmet için bir rehber gönderdik." — Ra\'d 13:7' },
   { n: 2, title: 'Tebliğ Başlar', body: 'Peygamber tevhidi anlatır, ahlaki düzeni emreder. Genellikle yakın çevresiyle başlar.', ref: '"Yakın akrabalarını uyar." — Şuara 26:214' },
   { n: 3, title: 'Kavim Reddeder', body: 'Klasik itirazlar devreye girer: "Sen de bizim gibi bir insansın" / "Atalarımızı böyle bulduk" / "Bize mucize getir."', ref: '"Yasin 36:15, Bakara 2:170"' },
-  { n: 4, title: 'Uyarı Tekrarlanır', body: 'Peygamber ısrar eder — bazen onlarca yıl. Hz. Nûh, ayetin lafzıyla kavmi arasında 950 yıl kaldı (Ankebût 29:14).', ref: '"Nuh onlara gece gündüz davet etti." — Nuh 71:5' },
+  { n: 4, title: 'Uyarı Tekrarlanır', body: 'Peygamber ısrar eder, bazen onlarca yıl. Hz. Nûh, ayetin lafzıyla kavmi arasında 950 yıl kaldı (Ankebût 29:14).', ref: '"Nuh onlara gece gündüz davet etti." — Nuh 71:5' },
   { n: 5, title: 'Mühlet Dolumu', body: 'Her ümmetin belirlenmiş bir eceli vardır. Ne öne çekilir ne geciktirilir.', ref: '"Her ümmetin bir eceli vardır." — A\'raf 7:34' },
-  { n: 6, title: 'Helak Gelir', body: 'Kavme özgü biçimde — rüzgar, ses, su, taş ya da yere batırılma. Helak biçimi suçla anlam bağı taşır.', ref: '"Zulmedenlerin akıbeti böyle oldu." — Kasas 28:40' },
+  { n: 6, title: 'Helak Gelir', body: 'Kavme özgü biçimde: rüzgâr, ses, su, taş ya da yere batırılma. Helak biçimi suçla anlam bağı taşır.', ref: '"Zulmedenlerin akıbeti böyle oldu." — Kasas 28:40' },
   { n: 7, title: 'Ders Notu', body: 'Kur\'an sonraki nesle seslenir: "İşte bu kıssayı anlat." Tarih, uyarı olarak yaşatılır.', ref: '"Onlarda akıl sahipleri için ibret vardır." — Yusuf 12:111' },
 ];
 const HELAK_STEPS_EN = [
   { n: 1, title: 'A Prophet is Sent', body: "A prophet is sent to every people, from among them, speaking their language.", ref: '"We have sent a guide to every community." — Ra\'d 13:7' },
   { n: 2, title: 'The Mission Begins', body: 'The prophet conveys monotheism and moral order, usually starting with close relatives.', ref: '"Warn your closest kin." — Ash-Shu\'ara 26:214' },
   { n: 3, title: 'The People Reject', body: 'Classic objections: "You are only a human like us" / "We found our fathers doing this" / "Bring us a sign."', ref: '"Yasin 36:15, Al-Baqara 2:170"' },
-  { n: 4, title: 'The Warning Repeats', body: 'The prophet persists — sometimes for decades. Noah, in the literal wording of the verse, remained among his people for 950 years (Al-Ankabut 29:14).', ref: '"Noah called upon them night and day." — Nuh 71:5' },
+  { n: 4, title: 'The Warning Repeats', body: 'The prophet persists, sometimes for decades. Noah, in the literal wording of the verse, remained among his people for 950 years (Al-Ankabut 29:14).', ref: '"Noah called upon them night and day." — Nuh 71:5' },
   { n: 5, title: 'The Deadline Arrives', body: 'Every community has an appointed time. It cannot be advanced or delayed.', ref: '"Every community has a term." — Al-A\'raf 7:34' },
-  { n: 6, title: 'Destruction Falls', body: 'In a form unique to each people — wind, sound, water, stones, or the earth swallowing. The form connects to their transgression.', ref: '"Such was the fate of the wrongdoers." — Al-Qasas 28:40' },
+  { n: 6, title: 'Destruction Falls', body: 'In a form particular to each people: wind, sound, water, stones, or the earth swallowing. The form connects to their transgression.', ref: '"Such was the fate of the wrongdoers." — Al-Qasas 28:40' },
   { n: 7, title: 'The Lesson is Recorded', body: 'The Quran addresses the next generation: "Tell this story." History is kept alive as a warning.', ref: '"In these there is a lesson for people of understanding." — Yusuf 12:111' },
 ];
 
 const ANALYSIS_CARDS_TR = [
   {
     title: 'Neden Her Kavim Farklı Biçimde Helak Edildi?',
-    body: 'İbn Kayyim\'e göre helak biçimiyle suç arasında anlam bağı vardır. Semûd taştan ev yaptı — taş gibi kalp taşıdı, sert bir sesle helak oldu. Firavun suya hükmetti, Nil\'i "benim" dedi — suda boğuldu. Lût kavmi doğal düzeni altüst etti — şehirleri altüst edildi.',
+    body: 'İbn Kayyim\'e göre helak biçimiyle suç arasında anlam bağı vardır. Semûd taştan ev yaptı, taş gibi kalp taşıdı ve sert bir sesle helak oldu. Firavun suya hükmetti, Nil\'i "benim" dedi ve suda boğuldu. Lût kavmi doğal düzeni altüst etti; şehirleri altüst edildi.',
     info: 'İbn Kayyim el-Cevziyye, Zâdü\'l-Meâd (Mektebetü\'l-Manar, 1994).',
   },
   {
@@ -1123,14 +1123,14 @@ const ANALYSIS_CARDS_TR = [
   },
   {
     title: 'Yunus Kavmi: Azap Kapıya Dayanmışken Geri Çevrilen Tek Kavim',
-    body: 'Kur\'an 10:98\'de bunu açıkça söyler — azabı fiilen yaklaşmışken iman edip de bu imanı kendilerine fayda veren tek şehir Ninova\'dır. İbrahim\'in kavmi helak edilmemişti, ama orada azap hiç başlamamıştı. Yunus kavminde ise süreç başlamış, geri çevrilmişti. Bu ayrım önemli: Kur\'an helakın kader değil seçim olduğunu, kapının son ana kadar açık kaldığını bu örnekle gösterir.',
+    body: 'Kur\'an 10:98\'de bunu açıkça söyler: azabı fiilen yaklaşmışken iman edip de bu imanı kendilerine fayda veren tek şehir Ninova\'dır. İbrahim\'in kavmi helak edilmemişti, ama orada azap hiç başlamamıştı. Yunus kavminde ise süreç başlamış, geri çevrilmişti. Bu ayrım önemli: Kur\'an helakın kader değil seçim olduğunu, kapının son ana kadar açık kaldığını bu örnekle gösterir.',
     info: null,
   },
 ];
 const ANALYSIS_CARDS_EN = [
   {
     title: 'Why Was Each People Destroyed Differently?',
-    body: "According to Ibn Qayyim, there is a meaningful link between the mode of destruction and the sin committed. Thamud carved homes from stone — their hearts were stone, they were destroyed by a stone-like sound. Pharaoh controlled water, claiming the Nile as his — he drowned in water. The people of Lot inverted the natural order — their city was inverted.",
+    body: "According to Ibn Qayyim, there is a meaningful link between the mode of destruction and the sin committed. Thamud carved homes from stone; their hearts were stone, and they were destroyed by a stone-like sound. Pharaoh controlled water, claiming the Nile as his, and he drowned in water. The people of Lot inverted the natural order; their city was inverted.",
     info: "Ibn Qayyim al-Jawziyya, Zad al-Ma'ad (Maktabat al-Manar, 1994).",
   },
   {
@@ -1140,7 +1140,7 @@ const ANALYSIS_CARDS_EN = [
   },
   {
     title: "The People of Jonah: The Only Nation Whose Punishment Was Turned Back",
-    body: "The Quran states this explicitly in 10:98 — the only city whose faith benefited it while punishment had already approached is Nineveh. Abraham's people were also spared, but there the punishment had never been set in motion. With Jonah's people, the process had begun and was reversed. This distinction matters: the Quran uses this example to show that destruction is a choice, not fate — the door remains open until the very last moment.",
+    body: "The Quran states this explicitly in 10:98: the only city whose faith benefited it while punishment had already approached is Nineveh. Abraham's people were also spared, but there the punishment had never been set in motion. With Jonah's people, the process had begun and was reversed. This distinction matters: the Quran uses this example to show that destruction is a choice, not fate; the door remains open until the very last moment.",
     info: null,
   },
 ];
@@ -1157,8 +1157,8 @@ function TabHelakDesen({ language, isMobile }) {
       </h3>
       <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, margin: '0 0 28px', lineHeight: 1.6 }}>
         {language === 'tr'
-          ? 'Her kıssa farklı — ama yapı hep aynı. 20+ kavmin tamamında bu yedi adım tekrar eder.'
-          : 'Every story is different — but the structure is always the same. All 20+ peoples repeat these seven steps.'}
+          ? 'Her kıssa farklı, ama yapı hep aynı. 20+ kavmin tamamında bu yedi adım tekrar eder.'
+          : 'Every story is different, but the structure is always the same. All 20+ peoples repeat these seven steps.'}
       </p>
 
       {/* ═══ FORMULA BOX — 7 aşama compact horizontal viz (Dalga 3.1) ═══ */}
@@ -1344,7 +1344,7 @@ function TabHelakDesen({ language, isMobile }) {
 const ARCH_CARDS_TR = [
   {
     nationId: 'semud',
-    title: 'Semûd — Medain Salih (Hegra)',
+    title: 'Semûd: Medain Salih (Hegra)',
     location: 'Suudi Arabistan, Al-Ula bölgesi',
     status: 'confirmed',
     statusLabel: 'KANIT VAR',
@@ -1355,30 +1355,30 @@ const ARCH_CARDS_TR = [
   },
   {
     nationId: 'firavun',
-    title: 'Firavun — Hangi Firavun?',
+    title: 'Firavun: Hangi Firavun?',
     location: 'Mısır, Nil Deltası',
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
     body: 'Ramses II (MÖ 1279-1213) en güçlü aday: dönem, kudret ve coğrafya uyuşuyor. Merneptah Stelinde "İsrail" adı geçer.',
-    bodyNote: 'ℹ Firavun\'un mumyasıyla Yunus 10:92 arasındaki bağlantı yorumcuların önerisidir — Kur\'an metninde doğrudan böyle bir iddia yer almaz.',
+    bodyNote: 'ℹ Firavun\'un mumyasıyla Yunus 10:92 arasındaki bağlantı yorumcuların önerisidir; Kur\'an metninde doğrudan böyle bir iddia yer almaz.',
     quranNote: '"Bugün seni bedeninle kurtaracağız ki senden sonrakilere ibret olasın." — Yunus 10:92',
     extra: null,
-    info: 'Hangi Firavun\'un Hz. Musa\'nın çağdaşı olduğu tarihsel tartışmadır; Ahmose I, Thutmose III, Ramses II ve Merneptah dört ana adaydır, akademik konsensüs yoktur. Bucaille\'in "tuz kristali = boğulma" argümanı (1976) Mısıroloji\'de reddedilir: tüm Eski Mısır mumyaları yaklaşık 40 gün natron (sodyum karbonat) tuzu içinde bekletildiği için her mumyada tuz izi bulunur — bu, normal mumyalama prosedürünün izi olup boğulmanın kanıtı değildir.',
+    info: 'Hangi Firavun\'un Hz. Musa\'nın çağdaşı olduğu tarihsel tartışmadır; Ahmose I, Thutmose III, Ramses II ve Merneptah dört ana adaydır, akademik konsensüs yoktur. Bucaille\'in "tuz kristali = boğulma" argümanı (1976) Mısıroloji\'de reddedilir: tüm Eski Mısır mumyaları yaklaşık 40 gün natron (sodyum karbonat) tuzu içinde bekletildiği için her mumyada tuz izi bulunur; bu, normal mumyalama prosedürünün izi olup boğulmanın kanıtı değildir.',
   },
   {
     nationId: 'lut',
-    title: "Lût Kavmi — Ölü Deniz Bölgesi",
+    title: "Lût Kavmi: Ölü Deniz Bölgesi",
     location: 'Ürdün, Ölü Deniz çevresi',
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
     body: 'Tall el-Hammam kazılarında MÖ 1650\'ye tarihlenen ani yıkım tabakası bulundu. Steven Collins (kazı yöneticisi) ve ekibi Scientific Reports (2021) makalesinde "kozmik patlama" (cosmic airburst) hipotezi önerdi. Tuz ve kükürt kalıntıları gözlemlendi.',
     quranNote: '"Şehrin altını üstüne getirdik, üzerine taş yağdırdık." — Hud 11:82',
     extra: null,
-    info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez — İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar; Necm 53:53\'te şehir için "Mu\'tefike" (altüst edilen) terimi kullanılır. Tall el-Hammam → Sodom özdeşleştirmesi mainstream İncil arkeolojisinde reddedilir; tarihsel olarak Sodom\'un farklı bir konumda olduğu kabul edilir. 2021 Scientific Reports "kozmik patlama" hipotezi 2023 sonrasında ciddi şekilde sorgulandı (Pelegrina vd., Quaternary Research, 2023): yorumun metodolojik kusurları, görüntü işleme şüpheleri ve veri yorumlama sorunları belgelendi.',
+    info: 'Sodom ve Gomorra isimleri Kur\'an\'da geçmez; İncil terminolojisidir. Kur\'an bu kavmi "Lût\'un kavmi" olarak anar; Necm 53:53\'te şehir için "Mu\'tefike" (altüst edilen) terimi kullanılır. Tall el-Hammam ile Sodom özdeşleştirmesi mainstream İncil arkeolojisinde reddedilir; tarihsel olarak Sodom\'un farklı bir konumda olduğu kabul edilir. 2021 Scientific Reports "kozmik patlama" hipotezi 2023 sonrasında ciddi şekilde sorgulandı (Pelegrina vd., Quaternary Research, 2023): yorumun metodolojik kusurları, görüntü işleme şüpheleri ve veri yorumlama sorunları belgelendi.',
   },
   {
     nationId: 'ad',
-    title: "Âd / İrem — Ubar / Şişr",
+    title: "Âd / İrem: Ubar / Şişr",
     location: "Umman / Yemen çölü",
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
@@ -1389,7 +1389,7 @@ const ARCH_CARDS_TR = [
   },
   {
     nationId: 'nuh',
-    title: "Nuh Tufanı — Evrensel mi Bölgesel mi?",
+    title: "Nuh Tufanı: Evrensel mi, Bölgesel mi?",
     location: "Mezopotamya / Karadeniz (tartışmalı)",
     status: 'debated',
     statusLabel: 'TARTIŞMALI',
@@ -1402,7 +1402,7 @@ const ARCH_CARDS_TR = [
 const ARCH_CARDS_EN = [
   {
     nationId: 'semud',
-    title: 'Thamud — Madain Salih (Hegra)',
+    title: 'Thamud: Madain Salih (Hegra)',
     location: 'Saudi Arabia, Al-Ula region',
     status: 'confirmed',
     statusLabel: 'CONFIRMED',
@@ -1413,30 +1413,30 @@ const ARCH_CARDS_EN = [
   },
   {
     nationId: 'firavun',
-    title: 'Pharaoh — Which Pharaoh?',
+    title: 'Pharaoh: Which Pharaoh?',
     location: 'Egypt, Nile Delta',
     status: 'debated',
     statusLabel: 'DEBATED',
     body: "Ramses II (1279-1213 BCE) is the strongest candidate: period, power, and geography align. The Merneptah Stele mentions 'Israel'.",
-    bodyNote: "ℹ The connection between Pharaoh's mummy and Quran 10:92 is a scholarly interpretation — the Quranic text itself does not make this claim directly.",
+    bodyNote: "ℹ The connection between Pharaoh's mummy and Quran 10:92 is a scholarly interpretation; the Quranic text itself does not make this claim directly.",
     quranNote: '"Today We will preserve your body so you may be a sign for those who come after you." — Yunus 10:92',
     extra: null,
-    info: 'Which Pharaoh was contemporary with Moses is a historical debate; Ahmose I, Thutmose III, Ramses II and Merneptah are the four main candidates, with no academic consensus. Bucaille\'s "salt crystal = drowning" argument (1976) is rejected in Egyptology: every Egyptian mummy was steeped in natron (sodium carbonate) salt for about 40 days, so traces of salt appear in all of them — this is a remnant of normal mummification, not evidence of drowning.',
+    info: 'Which Pharaoh was contemporary with Moses is a historical debate; Ahmose I, Thutmose III, Ramses II and Merneptah are the four main candidates, with no academic consensus. Bucaille\'s "salt crystal = drowning" argument (1976) is rejected in Egyptology: every Egyptian mummy was steeped in natron (sodium carbonate) salt for about 40 days, so traces of salt appear in all of them; this is a remnant of normal mummification, not evidence of drowning.',
   },
   {
     nationId: 'lut',
-    title: "People of Lot — Dead Sea Region",
+    title: "People of Lot: Dead Sea Region",
     location: 'Jordan, around the Dead Sea',
     status: 'debated',
     statusLabel: 'DEBATED',
     body: "Tall el-Hammam excavations found a sudden destruction layer dated to ~1650 BCE. Steven Collins (excavation lead) and his team proposed a cosmic airburst hypothesis in Scientific Reports (2021). Salt and sulphur residues were observed.",
     quranNote: '"We turned its uppermost part downward and rained upon it stones of baked clay." — Hud 11:82',
     extra: null,
-    info: "The names Sodom and Gomorrah do not appear in the Quran — they are Biblical terms. The Quran calls this people 'the people of Lot'; in An-Najm 53:53 the city is referred to as 'al-Mu'tafikah' (the overturned). The Tall el-Hammam → Sodom identification is rejected by mainstream biblical archaeology, which historically locates Sodom elsewhere. The 2021 Scientific Reports 'cosmic airburst' hypothesis has been seriously questioned since 2023 (Pelegrina et al., Quaternary Research, 2023): methodological flaws, image-processing concerns, and data-interpretation issues have been documented.",
+    info: "The names Sodom and Gomorrah do not appear in the Quran; they are Biblical terms. The Quran calls this people 'the people of Lot'; in An-Najm 53:53 the city is referred to as 'al-Mu'tafikah' (the overturned). The identification of Tall el-Hammam with Sodom is rejected by mainstream biblical archaeology, which historically locates Sodom elsewhere. The 2021 Scientific Reports 'cosmic airburst' hypothesis has been seriously questioned since 2023 (Pelegrina et al., Quaternary Research, 2023): methodological flaws, image-processing concerns, and data-interpretation issues have been documented.",
   },
   {
     nationId: 'ad',
-    title: "ʿAd / Iram — Ubar / Shisr",
+    title: "ʿAd / Iram: Ubar / Shisr",
     location: "Oman / Yemen desert",
     status: 'debated',
     statusLabel: 'DEBATED',
@@ -1447,7 +1447,7 @@ const ARCH_CARDS_EN = [
   },
   {
     nationId: 'nuh',
-    title: "Noah's Flood — Universal or Regional?",
+    title: "Noah's Flood: Universal or Regional?",
     location: "Mesopotamia / Black Sea (debated)",
     status: 'debated',
     statusLabel: 'DEBATED',
@@ -1500,8 +1500,8 @@ function TabArkeoloji({ language, isMobile: _isMobile, highlightArch }) {
       </h3>
       <p style={{ color: COLORS.silver, fontSize: '0.85rem', fontFamily: FONTS.body, margin: '0 0 24px', lineHeight: 1.6 }}>
         {language === 'tr'
-          ? "Kur'an 'yeryüzünde gezin, bakın' diyor — arkeoloji ne söylüyor?"
-          : "The Quran says 'travel through the land and observe' — what does archaeology say?"}
+          ? "Kur'an 'yeryüzünde gezin, bakın' diyor; arkeoloji ne söylüyor?"
+          : "The Quran says 'travel through the land and observe'; what does archaeology say?"}
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -1676,8 +1676,8 @@ const NATION_REGIONS = [
   },
   {
     id: 'uhdud',
-    nameTr: "Ashâb-ı Uhdud (Necran — aday)",
-    nameEn: "Companions of the Pit (Najran — candidate)",
+    nameTr: "Ashâb-ı Uhdud (Necran, aday)",
+    nameEn: "Companions of the Pit (Najran, candidate)",
     lat: 17.5, lon: 44.1,
     radiusKm: 80,
     color: '#dc2626',
@@ -1784,8 +1784,8 @@ function TabHarita({ language, isMobile }) {
         </div>
         <p style={{ fontSize: '0.8rem', color: COLORS.silver, fontFamily: FONTS.body, margin: 0, lineHeight: 1.7 }}>
           {tr
-            ? 'Bu haritadaki bölgeler üç kaynaktan elde edilmiştir: (1) Kur\'an\'ın kendi coğrafi referansları (örn. Hicr 15:80 Semûd için), (2) modern arkeolojik bulgular ve kazı raporları, (3) İslam coğrafyacılarının klasik eserleri (İbn Battuta, el-İdrisi). Daire yarıçapları lokasyonun ne kadar kesin bilindiğini yansıtır — küçük daire daha kesin, büyük daire daha geniş bir belirsizlik alanı demektir. "Tartışmalı" olarak işaretlenen bölgeler için akademik konsensüs henüz oluşmamıştır.'
-            : 'The regions on this map are derived from three sources: (1) the Quran\'s own geographical references (e.g., Al-Hijr 15:80 for Thamud), (2) modern archaeological findings and excavation reports, (3) classical works of Islamic geographers (Ibn Battuta, al-Idrisi). Circle radii reflect how precisely a location is known — smaller circles indicate greater certainty, larger circles represent wider areas of uncertainty. For regions marked "Debated," no academic consensus has been reached.'}
+            ? 'Bu haritadaki bölgeler üç kaynaktan elde edilmiştir: (1) Kur\'an\'ın kendi coğrafi referansları (örn. Hicr 15:80 Semûd için), (2) modern arkeolojik bulgular ve kazı raporları, (3) İslam coğrafyacılarının klasik eserleri (İbn Battuta, el-İdrisi). Daire yarıçapları lokasyonun ne kadar kesin bilindiğini yansıtır: küçük daire daha kesin, büyük daire daha geniş bir belirsizlik alanı demektir. "Tartışmalı" olarak işaretlenen bölgeler için akademik konsensüs henüz oluşmamıştır.'
+            : 'The regions on this map are derived from three sources: (1) the Quran\'s own geographical references (e.g., Al-Hijr 15:80 for Thamud), (2) modern archaeological findings and excavation reports, (3) classical works of Islamic geographers (Ibn Battuta, al-Idrisi). Circle radii reflect how precisely a location is known: smaller circles indicate greater certainty, larger circles represent wider areas of uncertainty. For regions marked "Debated," no academic consensus has been reached.'}
         </p>
       </div>
 
@@ -1859,8 +1859,8 @@ const TABLE_DATA = [
 const HELAK_TYPES_TR = [
   { type: 'su',       label: 'Su / Tufan',            color: '#3498db', nations: ['Nuh Kavmi', 'Sebe Kavmi'] },
   { type: 'deniz',    label: 'Deniz (Boğulma)',        color: '#1a5276', nations: ['Firavun Kavmi'] },
-  { type: 'ses',      label: 'Ses — Saika/Sayha',      color: '#a78bfa', nations: ['Semûd'] },
-  { type: 'sarsinti', label: 'Sarsıntı — Rajfa',       color: '#f39c12', nations: ['Medyen'] },
+  { type: 'ses',      label: 'Ses: Saika/Sayha',      color: '#a78bfa', nations: ['Semûd'] },
+  { type: 'sarsinti', label: 'Sarsıntı: Rajfa',       color: '#f39c12', nations: ['Medyen'] },
   { type: 'ruzgar',   label: 'Rüzgar',                 color: COLORS.silver, nations: ['Âd'] },
   { type: 'tas',      label: 'Taş / Alt-Üst',          color: '#a0785a', nations: ['Lût Kavmi'] },
   { type: 'golge',    label: 'Gölge Azabı',            color: '#b8860b', nations: ['Eyke Halkı'] },
@@ -1871,8 +1871,8 @@ const HELAK_TYPES_TR = [
 const HELAK_TYPES_EN = [
   { type: 'su',       label: 'Water / Flood',          color: '#3498db', nations: ["People of Noah", "People of Sheba"] },
   { type: 'deniz',    label: 'Sea (Drowning)',          color: '#1a5276', nations: ["People of Pharaoh"] },
-  { type: 'ses',      label: 'Sound — Saika/Sayha',     color: '#a78bfa', nations: ["Thamud"] },
-  { type: 'sarsinti', label: 'Earthquake — Rajfa',      color: '#f39c12', nations: ["Midian"] },
+  { type: 'ses',      label: 'Sound: Saika/Sayha',     color: '#a78bfa', nations: ["Thamud"] },
+  { type: 'sarsinti', label: 'Earthquake: Rajfa',      color: '#f39c12', nations: ["Midian"] },
   { type: 'ruzgar',   label: 'Wind',                    color: COLORS.silver, nations: ["ʿAd"] },
   { type: 'tas',      label: 'Stones / Overturned',     color: '#a0785a', nations: ["People of Lot"] },
   { type: 'golge',    label: 'Shade Punishment',        color: '#b8860b', nations: ["Companions of the Grove"] },
@@ -1949,7 +1949,7 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
             {language === 'tr' ? 'Kurtuldu' : 'Saved'}
           </div>
           {[
-            { tr: 'İbrahim Kavmi', en: "People of Abraham", noteTr: 'Kavim helak edilmedi — Kur\'an sebebini açıklamaz', noteEn: 'People were not destroyed — Quran gives no reason' },
+            { tr: 'İbrahim Kavmi', en: "People of Abraham", noteTr: 'Kavim helak edilmedi; Kur\'an sebebini açıklamaz', noteEn: 'People were not destroyed; the Quran gives no reason' },
             { tr: 'Yunus Kavmi', en: "People of Jonah", noteTr: 'Tüm toplum tevbe edip kurtuldu', noteEn: 'Entire community repented and was saved' },
           ].map((n, i) => (
             <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', marginBottom: i === 0 ? '6px' : 0 }}>
@@ -2047,8 +2047,8 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
         </table>
         <p style={{ color: SEMANTIC.textFaint, fontSize: '0.71rem', fontFamily: FONTS.body, margin: '10px 0 0', lineHeight: 1.5 }}>
           {language === 'tr'
-            ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder — iki farklı ölçüm, doğrudan karşılaştırılamaz.'
-            : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people — two different metrics, not directly comparable.'}
+            ? '* Hz. İbrahim sayısı peygamber adı geçiş sayısını yansıtır. Firavun sayısı (~70) kavme özel anlatı ayetlerini ifade eder; iki farklı ölçüm, doğrudan karşılaştırılamaz.'
+            : '* The Abraham figure reflects name occurrences of the prophet. The Pharaoh figure (~70) refers to narrative verses specifically about his people; two different metrics, not directly comparable.'}
         </p>
       </div>
 
@@ -2062,8 +2062,8 @@ function TabKarsilastirma({ nations: _nations, language, isMobile }) {
         </div>
         <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: FONTS.body, margin: '0 0 16px', lineHeight: 1.6 }}>
           {language === 'tr'
-            ? 'Her kavim neredeyse aynı itirazlarla reddetti. Bu dört itiraz Hz. Muhammed\'e de yapıldı — Kur\'an bu paraleli bilinçli kurar.'
-            : "Every people rejected with nearly the same objections. These four objections were also raised against Prophet Muhammad — the Quran builds this parallel deliberately."}
+            ? 'Her kavim neredeyse aynı itirazlarla reddetti. Bu dört itiraz Hz. Muhammed\'e de yapıldı; Kur\'an bu paraleli bilinçli kurar.'
+            : "Every people rejected with nearly the same objections. These four objections were also raised against Prophet Muhammad; the Quran builds this parallel deliberately."}
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {objections.map((obj, i) => (
@@ -2099,19 +2099,19 @@ function TabKaynaklar({ language }) {
       titleTr: 'Klasik Tefsir',
       titleEn: 'Classical Tafsir',
       items: [
-        { label: 'İbn Kesir', detail: language === 'tr' ? 'Tefsîru\'l-Kur\'âni\'l-Azîm — kıssa yorumları' : "Tafsir al-Qur'an al-'Azim — narrative commentaries" },
-        { label: 'Taberî', detail: language === 'tr' ? 'Câmiu\'l-Beyân — tarihsel bağlam' : "Jami' al-Bayan — historical context" },
-        { label: 'İbn Kayyim el-Cevziyye', detail: language === 'tr' ? 'Zâdü\'l-Meâd — helak-suç bağı analizi' : "Zad al-Ma'ad — destruction-sin correlation analysis" },
+        { label: 'İbn Kesir', detail: language === 'tr' ? 'Tefsîru\'l-Kur\'âni\'l-Azîm: kıssa yorumları' : "Tafsir al-Qur'an al-'Azim: narrative commentaries" },
+        { label: 'Taberî', detail: language === 'tr' ? 'Câmiu\'l-Beyân: tarihsel bağlam' : "Jami' al-Bayan: historical context" },
+        { label: 'İbn Kayyim el-Cevziyye', detail: language === 'tr' ? 'Zâdü\'l-Meâd: helak ile suç bağının analizi' : "Zad al-Ma'ad: analysis of the destruction and sin correlation" },
       ],
     },
     {
       titleTr: 'Arkeolojik Kaynaklar',
       titleEn: 'Archaeological Sources',
       items: [
-        { label: 'Ryan & Pitman', detail: 'Noah\'s Flood (1997) — ' + (language === 'tr' ? 'Karadeniz teorisi' : 'Black Sea theory') },
-        { label: 'Nicholas Clapp', detail: 'The Road to Ubar (1998) — ' + (language === 'tr' ? 'İrem/Ubar keşfi' : 'Iram/Ubar discovery') },
+        { label: 'Ryan & Pitman', detail: 'Noah\'s Flood (1997): ' + (language === 'tr' ? 'Karadeniz teorisi' : 'Black Sea theory') },
+        { label: 'Nicholas Clapp', detail: 'The Road to Ubar (1998): ' + (language === 'tr' ? 'İrem/Ubar keşfi' : 'Iram/Ubar discovery') },
         { label: 'Tall el-Hammam Excavation Project', detail: language === 'tr' ? 'Lût bölgesi kazıları' : 'Excavations in the Lot region' },
-        { label: 'UNESCO World Heritage', detail: language === 'tr' ? 'Hegra (Madain Salih) — 2008' : 'Hegra (Madain Salih) — 2008' },
+        { label: 'UNESCO World Heritage', detail: language === 'tr' ? 'Hegra (Madain Salih), 2008' : 'Hegra (Madain Salih), 2008' },
       ],
     },
     {

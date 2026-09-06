@@ -17,13 +17,13 @@ const PROPHET_PROFILES = [
     profileEn: 'Founder · Architect · Father',
     themesTr: ['Nesil ve süreklilik', 'Halk için şefaat', 'Hidayet ve zikir', 'Rızık ve minnet'],
     themesEn: ['Lineage and continuity', 'Intercession for people', 'Guidance and gratitude', 'Provision and thanks'],
-    famousTr: '"Rabbenâ tekabbel minnâ, inneke ente\'s-semîʿu\'l-ʿalîm" — Rabbimiz, bunu bizden kabul et; şüphesiz Sen hakkıyla işiten, hakkıyla bilensin. (Bakara 2:127)',
-    famousEn: '"Rabbanā taqabbal minnā, innaka anta al-samīʿu al-ʿalīm" — Our Lord, accept this from us; indeed You are the All-Hearing, the All-Knowing. (Al-Baqara 2:127)',
+    famousTr: '"Rabbenâ tekabbel minnâ, inneke ente\'s-semîʿu\'l-ʿalîm": Rabbimiz, bunu bizden kabul et; şüphesiz Sen hakkıyla işiten, hakkıyla bilensin. (Bakara 2:127)',
+    famousEn: '"Rabbanā taqabbal minnā, innaka anta al-samīʿu al-ʿalīm": Our Lord, accept this from us; indeed You are the All-Hearing, the All-Knowing. (Al-Baqara 2:127)',
     ar: 'رَبَّنَا تَقَبَّلْ مِنَّا  إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ',
     countTr: '15+ dua',
     countEn: '15+ supplications',
-    insightTr: "Hz. İbrahim'in duaları görev bilinci taşır — her dua bir nesil, bir ümmet, bir şehir için.",
-    insightEn: "Abraham's prayers carry a sense of mission — each prayer is for a generation, a nation, a city.",
+    insightTr: "Hz. İbrahim'in duaları görev bilinci taşır; her dua bir nesil, bir ümmet, bir şehir içindir.",
+    insightEn: "Abraham's prayers carry a sense of mission; each prayer is for a generation, a nation, a city.",
     responseTr: 'Cevap: Mekke kuruldu, Beytullah inşa edildi (Bakara 2:127); ileri yaşta Hz. İsmail ve Hz. İshak verildi (İbrâhim 14:39).',
     responseEn: 'Response: Mecca was established, the Sacred House was built (Al-Baqara 2:127); in old age he was granted Ishmael and Isaac (Ibrāhīm 14:39).',
   },
@@ -36,15 +36,15 @@ const PROPHET_PROFILES = [
     profileEn: 'Patience · Suffering · Surrender',
     themesTr: ['Hastalık ve çaresizlik', 'Şikâyet değil, dua', 'Teslimiyetle istek', 'Acının dile gelişi'],
     themesEn: ['Illness and helplessness', 'Prayer not complaint', 'Requesting with surrender', 'Pain finding voice'],
-    famousTr: '"Ennî messeniye\'d-durru ve ente erhamü\'r-râhimîn" — Bana zarar dokundu; Sen merhametlilerin en merhametlisisin. (Enbiyâ 21:83)',
-    famousEn: '"Annī massaniya al-ḍurru wa anta arḥam al-rāḥimīn" — Adversity has touched me, and You are the Most Merciful of the merciful. (Al-Anbiya 21:83)',
+    famousTr: '"Ennî messeniye\'d-durru ve ente erhamü\'r-râhimîn": Bana zarar dokundu; Sen merhametlilerin en merhametlisisin. (Enbiyâ 21:83)',
+    famousEn: '"Annī massaniya al-ḍurru wa anta arḥam al-rāḥimīn": Adversity has touched me, and You are the Most Merciful of the merciful. (Al-Anbiya 21:83)',
     ar: 'أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ',
     countTr: '2 dua',
     countEn: '2 supplications',
-    insightTr: "Hz. Eyyub'un duası şikâyet değil, arz'tır — durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
-    insightEn: "Job's prayer is not complaint but presentation — he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
+    insightTr: "Hz. Eyyub'un duası şikâyet değil, arzdır; durumunu Allah'a sunar ama isyan etmez. 'Bana zarar dokundu' der, hemen 'Sen merhametlilerin en merhametlisisin' diye Allah'ın sıfatını hatırlatır. Klasik tefsir (Râzî, Kurtubî, İbn Kesîr): edebî sınırlar içinde halini arz, sabrın peygamberinin yöntemi.",
+    insightEn: "Job's prayer is not complaint but presentation; he lays his condition before God without rebellion. 'Adversity has touched me,' he says, then immediately invokes 'You are the Most Merciful.' Classical exegesis (Rāzī, Qurṭubī, Ibn Kathīr): a respectful arrangement of one's state, the method of the prophet of patience.",
     responseTr: 'Cevap: Şifa, ailesi geri döndü, malı bir misli artırıldı (Enbiyâ 21:84, Sâd 38:42-43); "Şüphesiz biz onu sabreden bulduk; ne güzel kuldur o!" (Sâd 38:44).',
-    responseEn: 'Response: Healing, his family was restored, his wealth doubled (Al-Anbiya 21:84, Sad 38:42-43); "Indeed We found him patient — an excellent servant!" (Sad 38:44).',
+    responseEn: 'Response: Healing, his family was restored, his wealth doubled (Al-Anbiya 21:84, Sad 38:42-43); "Indeed We found him patient; an excellent servant!" (Sad 38:44).',
   },
   {
     id: 'yusuf',
@@ -55,13 +55,13 @@ const PROPHET_PROFILES = [
     profileEn: 'Exile · Tribulation · Completion',
     themesTr: ['Yabancı topraklarda dua', 'İmtihandan sığınma', 'İktidar şükrü', 'Müslüman olarak ölüm talebi'],
     themesEn: ['Prayer in foreign lands', 'Refuge from trial', 'Gratitude in power', 'Petition to die as a Muslim'],
-    famousTr: '"Rabbi\'s-sicnu ehabbu ileyye mimmâ yedʿûnenî ileyh" — Rabbim, bunların beni davet ettiği şeyden bana zindan daha sevimlidir. (Yûsuf 12:33)',
-    famousEn: '"Rabbi al-sijnu aḥabbu ilayya mimmā yadʿūnanī ilayhi" — My Lord, prison is dearer to me than what they invite me to. (Yūsuf 12:33)',
+    famousTr: '"Rabbi\'s-sicnu ehabbu ileyye mimmâ yedʿûnenî ileyh": Rabbim, bunların beni davet ettiği şeyden bana zindan daha sevimlidir. (Yûsuf 12:33)',
+    famousEn: '"Rabbi al-sijnu aḥabbu ilayya mimmā yadʿūnanī ilayhi": My Lord, prison is dearer to me than what they invite me to. (Yūsuf 12:33)',
     ar: 'رَبِّ السِّجْنُ أَحَبُّ إِلَيَّ مِمَّا يَدْعُونَنِي إِلَيْهِ',
-    countTr: '3 dua — gurbet, sığınma ve tamamlanma',
-    countEn: '3 prayers — exile, refuge, and completion',
-    insightTr: "Hz. Yusuf'un duaları gurbetin üç evresini izler: (1) İmtihan anında sığınma — 'zindan günaha tercih edilir' (Yûsuf 12:33), bedensel kaybın ahlâkî kazançtan az olduğunun ifadesi. (2) İktidar elde edildiğinde şükür ve teslimiyet — 'beni Müslüman olarak öldür ve sâlihlere kat' (Yûsuf 12:101), zafer anında dahi son talep dünyada değil ahirette tamamlanmak. Yûsuf sûresi tek bir kıssa olarak inen tek sûredir; duaları kıssanın zirvelerini işaretler.",
-    insightEn: "Hz. Joseph's prayers trace three phases of exile: (1) Refuge in trial — 'prison is dearer than sin' (Yūsuf 12:33), an assertion that bodily loss is less than moral gain. (2) Surrender in power — 'cause me to die as a Muslim and join me with the righteous' (Yūsuf 12:101); even at the moment of victory, the final petition is for completion not in this world but in the next. The Sūra of Yūsuf is the only sura revealed as a single continuous narrative; his prayers mark its peaks.",
+    countTr: '3 dua: gurbet, sığınma ve tamamlanma',
+    countEn: '3 prayers: exile, refuge and completion',
+    insightTr: "Hz. Yusuf'un duaları gurbetin üç evresini izler. İmtihan anında sığınma: 'zindan günaha tercih edilir' (Yûsuf 12:33), bedensel kaybın ahlâkî kazançtan az olduğunun ifadesi. İktidar elde edildiğinde şükür ve teslimiyet: 'beni Müslüman olarak öldür ve sâlihlere kat' (Yûsuf 12:101), zafer anında dahi son talep dünyada değil ahirette tamamlanmak. Yûsuf sûresi tek bir kıssa olarak inen tek sûredir; duaları kıssanın zirvelerini işaretler.",
+    insightEn: "Hz. Joseph's prayers trace three phases of exile. Refuge in trial: 'prison is dearer than sin' (Yūsuf 12:33), an assertion that bodily loss is less than moral gain. Surrender in power: 'cause me to die as a Muslim and join me with the righteous' (Yūsuf 12:101); even at the moment of victory, the final petition is for completion not in this world but in the next. The Sūra of Yūsuf is the only sura revealed as a single continuous narrative; his prayers mark its peaks.",
     responseTr: "Cevap: Hz. Yusuf zindandan kurtulup Mısır'ın hazinelerine memur edildi (Yûsuf 12:54-56), babası ve kardeşleri yanına geldi (Yûsuf 12:99-100); duası ile ailesi bütünleştirildi.",
     responseEn: "Response: Hz. Joseph was released from prison and entrusted with the storehouses of Egypt (Yūsuf 12:54-56); his father and brothers came to him (Yūsuf 12:99-100); through his prayer his family was reunited.",
   },
@@ -74,13 +74,13 @@ const PROPHET_PROFILES = [
     profileEn: 'Struggle · Clarity · Refuge in Fear',
     themesTr: ['Şerh-i sadr (göğüs açılması)', 'İletişim güçlüğünün kaldırılması', 'Yardımcı talebi', 'Kendi zaafından sığınma'],
     themesEn: ['Sharḥ al-ṣadr (expansion of the chest)', 'Removal of speech impediment', 'Petition for support', "Refuge from one's own weakness"],
-    famousTr: '"Rabbi\'şrah lî sadrî · ve yessir lî emrî · vahlul ʿuqdetan min lisânî · yefkahû kavlî" — Rabbim, göğsümü aç, işimi kolaylaştır, dilimden düğümü çöz ki sözümü anlasınlar. (Tâhâ 20:25-28)',
-    famousEn: '"Rabbi shraḥ lī ṣadrī · wa yassir lī amrī · waḥlul ʿuqdatan min lisānī · yafqahū qawlī" — My Lord, expand my chest, ease my task, untie the knot from my tongue, that they may understand my speech. (Ta-Ha 20:25-28)',
+    famousTr: '"Rabbi\'şrah lî sadrî · ve yessir lî emrî · vahlul ʿuqdetan min lisânî · yefkahû kavlî": Rabbim, göğsümü aç, işimi kolaylaştır, dilimden düğümü çöz ki sözümü anlasınlar. (Tâhâ 20:25-28)',
+    famousEn: '"Rabbi shraḥ lī ṣadrī · wa yassir lī amrī · waḥlul ʿuqdatan min lisānī · yafqahū qawlī": My Lord, expand my chest, ease my task, untie the knot from my tongue, that they may understand my speech. (Ta-Ha 20:25-28)',
     ar: 'رَبِّ اشْرَحْ لِي صَدْرِي ﴿٢٥﴾ وَيَسِّرْ لِي أَمْرِي ﴿٢٦﴾ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ﴿٢٧﴾ يَفْقَهُوا قَوْلِي ﴿٢٨﴾',
-    countTr: '15+ dua — Kur\'an\'ın en uzun dua zinciri',
-    countEn: "15+ supplications — the Qur'an's longest prayer chain",
-    insightTr: "Hz. Mûsâ'nın duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hz. Hârûn). Modern psikolojinin 'iç düzenleme → dış eylem → diyalog → ekosistem' sıralamasını 14 asır önce verir. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar — 'şerh-i sadr' iç dünyada yer açma demektir.",
-    insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). Fourteen centuries before modern psychology, this sequence — inner regulation → outer action → dialogue → ecosystem — is laid out. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition — 'sharḥ al-ṣadr' means making inner space.",
+    countTr: '15\'ten fazla dua: Kur\'an\'ın en uzun dua zinciri',
+    countEn: "More than 15 supplications: the Qur'an's longest prayer chain",
+    insightTr: "Hz. Mûsâ'nın duası psikolojinin haritasıdır: önce iç durum (göğüs açılsın, dar olmasın), sonra dış görev (iş kolaylaşsın), ardından iletişim (dil çözülsün), nihayet sosyal destek (kardeş Hz. Hârûn). Bu sıra, modern psikolojinin 'iç düzenleme, dış eylem, diyalog, ekosistem' sıralamasıyla örtüşür. Firavun karşısında bir peygamber kendi zaafını şikâyet değil talep diliyle sunar; 'şerh-i sadr' iç dünyada yer açmak demektir.",
+    insightEn: "Moses' prayer is a map of psychology: first inner state (let the chest expand, not constrict), then outer task (ease the work), then communication (untie my tongue), finally social support (my brother Aaron). This sequence aligns with modern psychology's order of inner regulation, outer action, dialogue and ecosystem. Before Pharaoh, a prophet voices his own weakness not as complaint but as petition; 'sharḥ al-ṣadr' means making inner space.",
     responseTr: 'Cevap: "Talebin verildi" (Tâhâ 20:36). Hz. Hârûn yardımcı kılındı, korku açıklığa dönüştürüldü.',
     responseEn: 'Response: "Your request is granted" (Ta-Ha 20:36). Aaron was made his helper; fear was transformed into clarity.',
   },
@@ -93,13 +93,13 @@ const PROPHET_PROFILES = [
     profileEn: 'Darkness · Regret · Salvation',
     themesTr: ['Hata kabulü', 'Tenzih ve öz kınama', 'Üç katmanlı karanlık', 'Anlık ve mutlak'],
     themesEn: ['Acknowledgment of error', 'Exaltation and self-reproach', 'Three layers of darkness', 'Instant and absolute'],
-    famousTr: '"Lâ ilâhe illâ ente sübhâneke innî küntü mine\'z-zâlimîn" — Senden başka ilah yoktur, Seni tenzih ederim; ben zalimlerden oldum. (Enbiyâ 21:87)',
-    famousEn: '"Lā ilāha illā anta subḥānaka innī kuntu min al-ẓālimīn" — There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. (Al-Anbiya 21:87)',
+    famousTr: '"Lâ ilâhe illâ ente sübhâneke innî küntü mine\'z-zâlimîn": Senden başka ilah yoktur, Seni tenzih ederim; ben zalimlerden oldum. (Enbiyâ 21:87)',
+    famousEn: '"Lā ilāha illā anta subḥānaka innī kuntu min al-ẓālimīn": There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers. (Al-Anbiya 21:87)',
     ar: 'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
-    countTr: "1 ana dua (Enbiyâ 21:87) — mâna açısından en yoğun",
-    countEn: "1 main prayer (Al-Anbiya 21:87) — semantically most dense",
-    insightTr: "Hz. Yunus'un duası mâna açısından Kur'an'ın en yoğun dualarından biri — tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Hz. Zekeriyyâ Meryem 19:4, Hz. Mûsâ Kasas 28:24); Hz. Yunus'un farkı uzunluk değil, mâna yoğunluğudur.",
-    insightEn: "Jonah's prayer is semantically among the most concentrated in the Qur'an — three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah Maryam 19:4, Moses Al-Qaṣaṣ 28:24); Jonah's distinction is not length but density of meaning.",
+    countTr: "1 ana dua (Enbiyâ 21:87): mâna açısından en yoğun",
+    countEn: "1 main prayer (Al-Anbiya 21:87): semantically the most dense",
+    insightTr: "Hz. Yunus'un duası mâna açısından Kur'an'ın en yoğun dualarından biridir; tek cümlede üç katman: tevhid (lâ ilâhe illâ ente), tenzih (sübhâneke) ve itiraf (innî küntü mine'z-zâlimîn). Daha kısa dualar vardır (Hz. Zekeriyyâ Meryem 19:4, Hz. Mûsâ Kasas 28:24); Hz. Yunus'un farkı uzunluk değil, mâna yoğunluğudur.",
+    insightEn: "Jonah's prayer is semantically among the most concentrated in the Qur'an; three layers in one sentence: divine unity (lā ilāha illā anta), exaltation (subḥānaka), and confession (innī kuntu mina'z-zālimīn). Shorter prayers exist (Zechariah Maryam 19:4, Moses Al-Qaṣaṣ 28:24); Jonah's distinction is not length but density of meaning.",
     responseTr: 'Cevap: Karanlığın içinde kurtarıldı (Enbiyâ 21:88). Kur\'an "Allah onu tasadan kurtardı" diye nitelendirir.',
     responseEn: 'Response: Delivered from the darkness (Al-Anbiya 21:88). The Qur\'an states "We saved him from the distress."',
   },
@@ -112,13 +112,13 @@ const PROPHET_PROFILES = [
     profileEn: 'Old Age · Intimacy · Unexpected Miracle',
     themesTr: ['İleri yaşta evlat talebi', 'Gizli/yumuşak ses ile dua', 'Allah\'tan utanma', 'Mucizevi cevap'],
     themesEn: ['Petition for offspring in old age', 'Praying with a hushed voice', 'Modesty before God', 'Miraculous response'],
-    famousTr: '"Rabbi innî vehene\'l-azmu minnî ve\'ş-teʿale\'r-re\'sü şeybâ ve lem ekun bi-duʿâike Rabbi şakıyyâ" — Rabbim, kemiklerim zayıfladı, saçım ağardı; sana dua ederken hiçbir zaman bedbaht olmadım Rabbim. (Meryem 19:4)',
-    famousEn: '"Rabbi innī wahana al-ʿaẓmu minnī wa\'shtaʿala al-ra\'su shaybā wa lam akun bi-duʿā\'ika Rabbi shaqiyyā" — My Lord, my bones have weakened and my head has flared with white; and I have never been unblessed in calling upon You, my Lord. (Maryam 19:4)',
+    famousTr: '"Rabbi innî vehene\'l-azmu minnî ve\'ş-teʿale\'r-re\'sü şeybâ ve lem ekun bi-duʿâike Rabbi şakıyyâ": Rabbim, kemiklerim zayıfladı, saçım ağardı; sana dua ederken hiçbir zaman bedbaht olmadım Rabbim. (Meryem 19:4)',
+    famousEn: '"Rabbi innī wahana al-ʿaẓmu minnī wa\'shtaʿala al-ra\'su shaybā wa lam akun bi-duʿā\'ika Rabbi shaqiyyā": My Lord, my bones have weakened and my head has flared with white; and I have never been unblessed in calling upon You, my Lord. (Maryam 19:4)',
     ar: 'رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا',
     countTr: '4 ana dua',
     countEn: '4 main supplications',
-    insightTr: "Hz. Zekeriyyâ'nın duası 'gizli ses' (nidâen hafiyyâ — Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez — Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
-    insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan — Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
+    insightTr: "Hz. Zekeriyyâ'nın duası 'gizli ses' (nidâen hafiyyâ, Meryem 19:3) ile yapılır; ne dilediği başkalarının duymasından utanç duyar. Kemiklerinin zayıfladığını söyler ama 'biliyorsun' demez; Allah'a tanıklık değil, kendi acziyetini sunar. İleri yaşın çaresizliği umut talebine dönüşür: 'sana dua ederken hiçbir zaman bedbaht olmadım.'",
+    insightEn: "Zechariah's prayer is offered 'in a hushed voice' (nidā'an khafiyyan, Maryam 19:3); he is too modest for others to overhear what he asks. He notes that his bones have weakened, yet does not say 'You know'; he places his own helplessness before God rather than testifying to it. The despair of old age transforms into a petition of hope: 'I have never been unblessed in calling upon You.'",
     responseTr: 'Cevap: İleri yaşta Hz. Yahyâ (Yûhanna) verildi (Meryem 19:7). Aynı isim daha önce kimseye verilmemişti.',
     responseEn: 'Response: In advanced age he was granted Hz. Yaḥyā (John) (Maryam 19:7). A name not given to anyone before.',
   },
@@ -130,8 +130,8 @@ const RABBENA_DUAS = [
     tr: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.',
     en: 'Our Lord, grant us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.',
     ref: 'Bakara 2:201', color: COLORS.gold,
-    noteTr: "Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26 — Enes b. Mâlik'ten); Arafat vakfesinde okunan klasik dua.",
-    noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26 — from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
+    noteTr: "Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26; Enes b. Mâlik'ten); Arafat vakfesinde okunan klasik dua.",
+    noteEn: "The Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26; from Anas b. Mālik); the classical prayer recited during the Arafat standing.",
   },
   {
     ar: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً  إِنَّكَ أَنتَ الْوَهَّابُ',
@@ -156,8 +156,8 @@ const RABBENA_DUAS = [
     tr: 'Rabbimiz! Bize eşlerimizden ve soyumuzdan göz aydınlığı ver; bizi muttakîlere imam (öncü) kıl.',
     en: 'Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us a model for the God-conscious.',
     ref: 'Furkan 25:74', color: COLORS.gold,
-    noteTr: 'Talep aile mutluluğu ile bitmez — liderlik sorumluluğuyla taçlanır. İdeal mü\'min profili: önce kendi yuvası, sonra ümmet için öncülük.',
-    noteEn: "The petition does not end with family harmony — it is crowned with leadership responsibility. The ideal believer profile: first one's own household, then exemplarship for the community.",
+    noteTr: 'Talep aile mutluluğu ile bitmez; liderlik sorumluluğuyla taçlanır. İdeal mü\'min profili: önce kendi yuvası, sonra ümmet için öncülük.',
+    noteEn: "The petition does not end with family harmony; it is crowned with leadership responsibility. The ideal believer profile: first one's own household, then exemplarship for the community.",
   },
   {
     ar: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ',
@@ -170,8 +170,8 @@ const RABBENA_DUAS = [
     tr: 'Rabbimiz! Unutursak veya hata yaparsak bizi sorumlu tutma. Rabbimiz! Bizden öncekilere yüklediğin gibi bize de ağır bir yük yükleme. Rabbimiz! Bize gücümüzün yetmediği şeyleri yükleme. Bizi affet, bağışla ve bize merhamet et. Sen bizim Mevlâmızsın; kâfirler topluluğuna karşı bize yardım et.',
     en: 'Our Lord, do not hold us accountable if we forget or err. Our Lord, do not place upon us a burden like that which You placed on those before us. Our Lord, do not burden us with what we cannot bear. Pardon us, forgive us, and have mercy on us. You are our Protector — help us against the disbelieving people.',
     ref: 'Bakara 2:286', color: '#a78bfa',
-    noteTr: "Kur'an'ın en kapsamlı duası — Bakara'nın son ayeti. Hata kabulü, taşınamaz yükten muafiyet, af, mağfiret, merhamet ve nusret talebi tek dua içinde. Hadiste 'Bakara'nın son iki ayetini geceleyin okuyana o iki ayet yeter' (Buhârî, Fedâilü'l-Kur'an 10).",
-    noteEn: "The Qur'an's most comprehensive prayer — the closing verse of Al-Baqara. Acknowledgment of error, exemption from unbearable burden, pardon, forgiveness, mercy, and victory — all in one prayer. Hadith: 'Whoever recites the last two verses of Al-Baqara at night, they will suffice him' (Bukhārī, Faḍāʾil al-Qurʾān 10).",
+    noteTr: "Kur'an'ın en kapsamlı duası: Bakara'nın son ayeti. Hata kabulü, taşınamaz yükten muafiyet, af, mağfiret, merhamet ve nusret talebi tek dua içinde. Hadiste 'Bakara'nın son iki ayetini geceleyin okuyana o iki ayet yeter' (Buhârî, Fedâilü'l-Kur'an 10).",
+    noteEn: "The Qur'an's most comprehensive prayer: the closing verse of Al-Baqara. Acknowledgment of error, exemption from unbearable burden, pardon, forgiveness, mercy and victory, all in one prayer. Hadith: 'Whoever recites the last two verses of Al-Baqara at night, they will suffice him' (Bukhārī, Faḍāʾil al-Qurʾān 10).",
   },
 ];
 
@@ -225,8 +225,8 @@ export default function QuranDua() {
         }}
       >
         {tr
-          ? 'Kur’an’da “Rabbena” (Rabbimiz!) ile başlayan 40’tan fazla dua yer alır. Bunlar sadece kelimeler değil — farklı peygamberlerin farklı anlarda, farklı ihtiyaçlarla seslendirdiği insan ruhunun haritasıdır.'
-          : 'The Quran contains over 40 prayers beginning with “Rabbana” (Our Lord!). These are not merely words — they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
+          ? 'Kur’an’da “Rabbena” (Rabbimiz!) ile başlayan 40’tan fazla dua yer alır. Bunlar yalnızca kelimeler değildir; farklı peygamberlerin farklı anlarda, farklı ihtiyaçlarla seslendirdiği insan ruhunun haritasıdır.'
+          : 'The Quran contains over 40 prayers beginning with “Rabbana” (Our Lord!). These are more than words; they are a map of the human soul, voiced by different prophets at different moments with different needs.'}
       </motion.p>
 
       {/* Linguistik gözlemler — 3 pencere: Tekil/Çoğul · Yâ Edatı · Zalemnâ Enfusenâ */}
@@ -236,7 +236,7 @@ export default function QuranDua() {
           color: COLORS.gold, fontFamily: "'Inter', sans-serif", fontWeight: 700,
           marginBottom: '12px', opacity: 0.85,
         }}>
-          {tr ? "Dilbilimsel Gözlemler — Dua Dilinin Üç Penceresi" : "Linguistic Observations — Three Windows into the Language of Prayer"}
+          {tr ? "Dilbilimsel Gözlemler: Dua Dilinin Üç Penceresi" : "Linguistic Observations: Three Windows into the Language of Prayer"}
         </p>
         <div className="qd-tri-minmax" style={{
           display: 'grid',
@@ -276,8 +276,8 @@ export default function QuranDua() {
               lineHeight: 1.65, fontFamily: "'Inter', sans-serif",
             }}>
               {tr
-                ? 'Peygamberin kişisel başvurusu — Hz. Zekeriyyâ, Hz. Eyyub, Hz. Mûsâ, Hz. Yusuf, Hz. Süleyman. Yalnız kalan ruhun Rabbiyle teması.'
-                : "Prophet's personal petition — Zechariah, Job, Moses, Joseph, Solomon. The solitary soul's contact with its Lord."}
+                ? 'Peygamberin kişisel başvurusu: Hz. Zekeriyyâ, Hz. Eyyub, Hz. Mûsâ, Hz. Yusuf, Hz. Süleyman. Yalnız kalan ruhun Rabbiyle teması.'
+                : "The prophet's personal petition: Zechariah, Job, Moses, Joseph, Solomon. The solitary soul's contact with its Lord."}
             </div>
           </div>
 
@@ -334,8 +334,8 @@ export default function QuranDua() {
               lineHeight: 1.65, fontFamily: "'Inter', sans-serif",
             }}>
               {tr
-                ? 'Topluluk/ümmet adına başvuru — Bedir öncesi, Âdem-Havvâ, Hac duası, müminler topluluğu. Bireysel iman dahi kolektif bir omurga taşır.'
-                : 'Petition on behalf of community/ummah — before Badr, Adam-Eve, the Hajj prayer, congregation of believers. Even individual faith carries a collective spine.'}
+                ? 'Topluluk ve ümmet adına başvuru: Bedir öncesi, Âdem-Havvâ, Hac duası, müminler topluluğu. Bireysel iman dahi kolektif bir omurga taşır.'
+                : 'Petition on behalf of the community: before Badr, Adam-Eve, the Hajj prayer, congregation of believers. Even individual faith carries a collective spine.'}
             </div>
           </div>
         </div>
@@ -349,7 +349,7 @@ export default function QuranDua() {
         }}>
           {tr
             ? '"Rabbî" kişinin Allah\'ı yalnız kendi adına çağırması, "Rabbenâ" başkalarını da sesin içine alan davet. Birey Allah\'a sadece kendisi için yönelebilir; ama topluluğa açıldığı an, dili çoğullaşır.'
-            : '"Rabbī" calls upon God for oneself alone; "Rabbanā" is an invitation that draws others into the voice. One may turn to God for oneself only — but the moment the call opens to a community, the language becomes plural.'}
+            : '"Rabbī" calls upon God for oneself alone; "Rabbanā" is an invitation that draws others into the voice. One may turn to God for oneself only; but the moment the call opens to a community, the language becomes plural.'}
         </p>
 
         {/* Pencere 2 + 3: alt grid */}
@@ -390,15 +390,15 @@ export default function QuranDua() {
               fontSize: '0.7rem', color: '#a78bfa', opacity: 0.7, fontWeight: 600,
               fontFamily: "'Inter', sans-serif", textAlign: 'right', marginBottom: '10px',
             }}>
-              ↳ {tr ? 'Bakara 2:186 — "Ben yakınım"' : 'Al-Baqara 2:186 — "I am near"'}
+              ↳ {tr ? 'Bakara 2:186: "Ben yakınım"' : 'Al-Baqara 2:186: "I am near"'}
             </div>
             <p style={{
               color: 'rgba(232,230,227,0.7)', fontSize: '0.8rem',
               fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
             }}>
               {tr
-                ? 'Türkçede "Ey Rabbim!" doğal görünür. Kur\'an\'da hiçbir dua "yâ" hitap edatıyla başlamaz — sadece "Rabbî" veya "Rabbenâ". Çünkü "yâ" edatı, çağrılan ile çağıran arasında mesafe varsa kullanılır. Kur\'an zaten der: "Kullarım sana Beni sorduğunda, Ben elbette yakınım." Hitap edatının düşmesi, bu yakınlığın gramatik ifadesidir.'
-                : 'In Turkish "Ey Rabbim!" sounds natural. In the Qur\'an no prayer begins with the vocative "yā" — only "Rabbī" or "Rabbanā". The "yā" particle is used when there is distance between the caller and the called. The Qur\'an itself states: "When My servants ask you about Me, I am near." The omission of the vocative is the grammatical expression of this nearness.'}
+                ? 'Türkçede "Ey Rabbim!" doğal görünür. Kur\'an\'da hiçbir dua "yâ" hitap edatıyla başlamaz; yalnızca "Rabbî" veya "Rabbenâ". Çünkü "yâ" edatı, çağrılan ile çağıran arasında mesafe varsa kullanılır. Kur\'an zaten der: "Kullarım sana Beni sorduğunda, Ben elbette yakınım." Hitap edatının düşmesi, bu yakınlığın gramatik ifadesidir.'
+                : 'In Turkish "Ey Rabbim!" sounds natural. In the Qur\'an no prayer begins with the vocative "yā"; only "Rabbī" or "Rabbanā". The "yā" particle is used when there is distance between the caller and the called. The Qur\'an itself states: "When My servants ask you about Me, I am near." The omission of the vocative is the grammatical expression of this nearness.'}
             </p>
           </div>
 
@@ -419,7 +419,7 @@ export default function QuranDua() {
               color: '#e74c3c', fontWeight: 700, fontFamily: "'Inter', sans-serif",
               marginBottom: '10px', opacity: 0.9,
             }}>
-              {tr ? 'Pencere 3 · "Zalemnâ Enfusenâ" — Pişmanlık Formülü' : 'Window 3 · "Ẓalamnā Anfusanā" — Formula of Repentance'}
+              {tr ? 'Pencere 3 · "Zalemnâ Enfusenâ": Pişmanlık Formülü' : 'Window 3 · "Ẓalamnā Anfusanā": Formula of Repentance'}
             </div>
 
             {/* İki paralel ayet */}
@@ -463,8 +463,8 @@ export default function QuranDua() {
               fontFamily: "'Inter', sans-serif", lineHeight: 1.7, margin: 0,
             }}>
               {tr
-                ? '"Kendimize zulmettik" — Hz. Âdem ve Hz. Mûsâ\'nın tevbe dillerinde aynı kalıp tekrar eder (çoğul ve tekil formlarda). Birden fazla peygamberin tevbe duasında yankılanan bu formül tek bir öğreti taşır: günah dışsal değil içseldir; sorumluluk başkasına değil, kendi nefsine yöneltilir.'
-                : '"We wronged ourselves" — the same formula recurs in Hz. Adam\'s and Hz. Moses\' repentance prayers (plural and singular forms). Echoing across multiple prophetic prayers, this formula carries one teaching: sin is internal, not external; responsibility is directed inward to one\'s own self, not outward.'}
+                ? '"Kendimize zulmettik": Hz. Âdem ve Hz. Mûsâ\'nın tevbe dillerinde aynı kalıp tekrar eder (çoğul ve tekil formlarda). Birden fazla peygamberin tevbe duasında yankılanan bu formül tek bir öğreti taşır: günah dışsal değil içseldir; sorumluluk başkasına değil, kendi nefsine yöneltilir.'
+                : '"We wronged ourselves": the same formula recurs in Hz. Adam\'s and Hz. Moses\' repentance prayers (plural and singular forms). Echoing across multiple prophetic prayers, this formula carries one teaching: sin is internal, not external; responsibility is directed inward to one\'s own self, not outward.'}
             </p>
           </div>
         </div>
@@ -672,12 +672,12 @@ export default function QuranDua() {
       {/* Dua'nın Anatomisi — 4-parçalı klasik retorik yapı */}
       <motion.div variants={fadeUpItem} className="mb-12">
         <h3 className="font-display text-xl font-bold text-off-white mb-2">
-          {tr ? "Dua'nın Anatomisi — Dört Aşama" : "Anatomy of a Prayer — Four Stages"}
+          {tr ? "Duanın Anatomisi: Dört Aşama" : "Anatomy of a Prayer: Four Stages"}
         </h3>
         <p style={{ color: 'rgba(148, 163, 184, 0.78)', fontSize: '0.9rem', lineHeight: 1.65, fontFamily: "'Inter', sans-serif", marginBottom: '20px', maxWidth: '780px' }}>
           {tr
-            ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur — bu sıra rastgele değil, içsel bir mimari. Tek bir kısa dua dördünü birden açıkça taşımaz; aşağıda Bakara 2:201 ile Hz. Eyyub'un duası (Enbiyâ 21:83) bileşik bir örnek olarak kullanılmıştır:"
-            : "In the Qur'anic prayer tradition, every prayer comprises four core stages — not random but an inner architecture. No single short prayer makes all four explicit; below, Al-Baqara 2:201 and Hz. Job's prayer (Al-Anbiya 21:83) are used as a composite example:"
+            ? "Kur'ânî dua geleneğinde her dua dört temel aşamadan oluşur; bu sıra rastgele değil, içsel bir mimaridir. Tek bir kısa dua dördünü birden açıkça taşımaz; aşağıda Bakara 2:201 ile Hz. Eyyub'un duası (Enbiyâ 21:83) bileşik bir örnek olarak kullanılmıştır:"
+            : "In the Qur'anic prayer tradition, every prayer comprises four core stages; not random, but an inner architecture. No single short prayer makes all four explicit; below, Al-Baqara 2:201 and Hz. Job's prayer (Al-Anbiya 21:83) are used as a composite example:"
           }
         </p>
 
@@ -692,8 +692,8 @@ export default function QuranDua() {
               ar: 'رَبَّنَا',
               source: 'Bakara 2:201',
               sourceEn: 'Al-Baqara 2:201',
-              translitTr: 'Rabbenâ — Rabbimiz',
-              translitEn: 'Rabbanā — Our Lord',
+              translitTr: 'Rabbenâ: Rabbimiz',
+              translitEn: 'Rabbanā: Our Lord',
               descTr: "Hitabın yakınlığı: 'yâ' edatı kullanılmaz. Allah ile dua eden arasındaki mesafe sıfırlanır.",
               descEn: "Intimacy of address: no 'yā' particle. The distance between God and the supplicant collapses.",
               color: COLORS.gold,
@@ -705,8 +705,8 @@ export default function QuranDua() {
               sourceEn: 'Hz. Job · Al-Anbiya 21:83',
               translitTr: 'Bana zarar dokundu',
               translitEn: 'Adversity has touched me',
-              descTr: 'Bakara 2:201\'de hâl zımnidir (insanın iki diyarda varoluşu). Hz. Eyyub\'un duasında ise açıktır: durumunu Allah\'a sunar — şikâyet etmeden, edebî sınırlar içinde.',
-              descEn: 'In Al-Baqara 2:201 the state is implicit (humanity\'s existence across two realms). In Hz. Job\'s prayer it is explicit: he presents his condition to God — without complaint, within respectful bounds.',
+              descTr: 'Bakara 2:201\'de hâl zımnidir (insanın iki diyarda varoluşu). Hz. Eyyub\'un duasında ise açıktır: durumunu Allah\'a sunar; şikâyet etmeden, edep sınırları içinde.',
+              descEn: 'In Al-Baqara 2:201 the state is implicit (humanity\'s existence across two realms). In Hz. Job\'s prayer it is explicit: he presents his condition to God; without complaint, within respectful bounds.',
               color: '#3498db',
             },
             {
@@ -716,8 +716,8 @@ export default function QuranDua() {
               sourceEn: 'Al-Baqara 2:201',
               translitTr: 'Bize dünyada da iyilik ver, ahirette de iyilik ver',
               translitEn: 'Grant us good in this world and good in the Hereafter',
-              descTr: '"Hasene" (iyilik) tanımlanmamış — kişiye, duruma göre değişir. Açık uçlu talep, ilahî hikmete emanet.',
-              descEn: '"Ḥasana" (good) is undefined — varies by person and situation. An open-ended request, entrusted to divine wisdom.',
+              descTr: '"Hasene" (iyilik) tanımlanmamıştır; kişiye ve duruma göre değişir. Açık uçlu talep, ilahî hikmete emanet.',
+              descEn: '"Ḥasana" (good) is undefined; it varies by person and situation. An open-ended request, entrusted to divine wisdom.',
               color: '#2ecc71',
             },
             {
@@ -727,7 +727,7 @@ export default function QuranDua() {
               sourceEn: 'Al-Baqara 2:201',
               translitTr: 've bizi ateş azabından koru',
               translitEn: 'and protect us from the punishment of the Fire',
-              descTr: '"Kınâ" — koru demek. Talep biter, Allah\'ın koruyucu sıfatına teslim ile mühürlenir. Her duanın son nefesi.',
+              descTr: '"Kınâ": koru demek. Talep biter, Allah\'ın koruyucu sıfatına teslim ile mühürlenir. Her duanın son nefesi.',
               descEn: '"Qinā" means "protect us." The petition ends, sealed by surrender to the protective attribute of God. The final breath of every prayer.',
               color: '#a78bfa',
             },
@@ -819,8 +819,8 @@ export default function QuranDua() {
           lineHeight: 1.6,
         }}>
           {tr
-            ? "Kaynak: Bakara 2:201 — Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26). Hâl Arzı için ek örnek: Hz. Eyyub Enbiyâ 21:83."
-            : "Source: Al-Baqara 2:201 — the Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26). Additional example for Presentation: Hz. Job Al-Anbiya 21:83."}
+            ? "Kaynak: Bakara 2:201, Hz. Peygamber'in en sevdiği dua (Buhârî, Daavât 55; Müslim, Zikir 26). Hâl Arzı için ek örnek: Hz. Eyyub Enbiyâ 21:83."
+            : "Source: Al-Baqara 2:201, the Prophet's most beloved supplication (Bukhārī, Daʿawāt 55; Muslim, Dhikr 26). Additional example for Presentation: Hz. Job Al-Anbiya 21:83."}
         </div>
       </motion.div>
 
@@ -949,12 +949,12 @@ export default function QuranDua() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {tr ? '↗ İNSAN PSİKOLOJİSİ — BÖLÜME GİT' : '↗ HUMAN PSYCHOLOGY — GO TO SECTION'}
+              {tr ? '↗ İNSAN PSİKOLOJİSİ: BÖLÜME GİT' : '↗ HUMAN PSYCHOLOGY: GO TO SECTION'}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? "Nefis · kalp · korku · savunma · Hz. Yusuf travma-iyileşme — Kur'an'ın psikoloji haritası"
-                : "Nafs · heart · fear · defenses · Joseph trauma-healing — the Qur'an's map of the mind"}
+                ? "Nefis · kalp · korku · savunma · Hz. Yusuf travma ve iyileşme; Kur'an'ın psikoloji haritası"
+                : "Nafs · heart · fear · defenses · Joseph trauma and healing; the Qur'an's map of the mind"}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
@@ -990,12 +990,12 @@ export default function QuranDua() {
         >
           <div style={{ textAlign: 'left' }}>
             <p style={{ color: COLORS.gold, fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.1em', margin: '0 0 3px', fontFamily: "'Inter', sans-serif" }}>
-              {tr ? '↗ KUR\'AN\'DA DUA AYETLERİ — ARACI AÇ' : '↗ PRAYER VERSES IN THE QUR\'AN — OPEN THE TOOL'}
+              {tr ? '↗ KUR\'AN\'DA DUA AYETLERİ: ARACI AÇ' : '↗ PRAYER VERSES IN THE QUR\'AN: OPEN THE TOOL'}
             </p>
             <p style={{ color: COLORS.silver, fontSize: '0.82rem', fontFamily: "'Inter', sans-serif", margin: 0 }}>
               {tr
-                ? "Sığınma · şifa · hidayet · şükür · tevbe — Kur'an'dan seçilmiş duaların tamamı"
-                : "Refuge · healing · guidance · gratitude · repentance — the full collection of selected supplications"}
+                ? "Sığınma · şifa · hidayet · şükür · tevbe; Kur'an'dan seçilmiş duaların tamamı"
+                : "Refuge · healing · guidance · gratitude · repentance; the full collection of selected supplications"}
             </p>
           </div>
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={COLORS.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
@@ -1008,15 +1008,15 @@ export default function QuranDua() {
       <motion.div variants={fadeUpItem} className="mt-6">
         <div className="text-center mb-5">
           <span className="font-body uppercase tracking-[0.24em] text-xs" style={{ color: COLORS.gold, opacity: 0.75 }}>
-            {tr ? 'Daha Derine — Duanın Mührü' : 'Go Deeper — The Seal of Prayer'}
+            {tr ? 'Daha Derine: Duanın Mührü' : 'Go Deeper: The Seal of Prayer'}
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Kur\'an\'ın ilk duası — günde 17+ kez kulun Rabbiyle diyaloğu.', descEn: 'The Quran\'s first prayer — the servant\'s daily 17+ dialogue with the Lord.' },
+            { surahNum: 1, titleTr: 'Fâtiha Sûresi (1)', titleEn: 'Sura al-Fātiḥa (1)', descTr: 'Kur\'an\'ın ilk duası; kulun Rabbiyle günde 17\'den fazla kez kurduğu diyalog.', descEn: 'The Quran\'s first prayer; the servant\'s dialogue with the Lord, more than 17 times a day.' },
             { surahNum: 2, titleTr: 'Bakara 2:186', titleEn: 'al-Baqara 2:186', descTr: '"Kullarım Beni sorarsa — Ben yakınım, dua edenin duasına icabet ederim."', descEn: '"When My servants ask about Me — I am near; I respond to the call of the caller."' },
-            { surahNum: 40, titleTr: 'Mü\'min 40:60', titleEn: 'al-Muʾmin 40:60', descTr: '"Bana dua edin, size icabet edeyim" — Rabbinin doğrudan emri.', descEn: '"Call upon Me; I will respond to you" — your Lord\'s direct command.' },
+            { surahNum: 40, titleTr: 'Mü\'min 40:60', titleEn: 'al-Muʾmin 40:60', descTr: '"Bana dua edin, size icabet edeyim." Rabbinin doğrudan emri.', descEn: '"Call upon Me; I will respond to you." Your Lord\'s direct command.' },
           ].map((tt, i) => (
             <motion.div
               key={tt.surahNum}
