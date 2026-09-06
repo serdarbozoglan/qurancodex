@@ -178,8 +178,11 @@ export default function HeroRing({ className }) {
           '<b>' + n + '. ' + surahName(n, lc) + '</b> <span>· ' + COUNTS[hovSura] + ' ' + ayetLbl + '</span>' +
           (mk ? '<div class="hr-mk" lang="ar" dir="rtl">' + mk + ' <span>MUKATTAA</span></div>' : '') +
           '<div class="hr-cta">' + readLbl + '</div>';
-        canvas.style.cursor = 'pointer';
-      } else if (tip) { tip.style.opacity = 0; canvas.style.cursor = 'default'; }
+        // İmleç sahne üstünde ayarlanır — canvas artık pointerEvents:none
+        // (CTA'ları kapatmasın diye), o yüzden cursor'u canvas'a vermek işe
+        // yaramaz.
+        if (hitEl) hitEl.style.cursor = 'pointer';
+      } else if (tip) { tip.style.opacity = 0; if (hitEl) hitEl.style.cursor = 'default'; }
 
       raf = requestAnimationFrame(draw);
     }
@@ -204,11 +207,19 @@ export default function HeroRing({ className }) {
       if (s >= 0) router.push(`/${langRef.current}/oku/${s + 1}`);
     }
 
+    // Halka canvas'ı zIndex:20 ile metnin ÜSTÜNDE (kullanıcı: "halkayı en öne
+    // getir"). Ama canvas tüm sahneyi kaplar; pointerEvents:auto olursa altındaki
+    // CTA butonlarını (Kur'an'ı Oku / Keşfe Başla) kapatır ve tıklanamaz olur.
+    // ÇÖZÜM: canvas pointerEvents:none; halka tıklaması SAHNE düzeyinde dinlenir
+    // (suraAt yalnız halka bandında sûre döndürür, CTA konumunda -1 → no-op,
+    // dolayısıyla buton kendi tıklamasını alır). Hover zaten window'da.
+    const hitEl = canvas.closest('#hero-scene-1') || canvas.parentElement || window;
+
     build();
     raf = requestAnimationFrame(draw);
     window.addEventListener('mousemove', onMove);
     window.addEventListener('resize', build);
-    canvas.addEventListener('click', onClick);
+    hitEl.addEventListener('click', onClick);
 
     const io = new IntersectionObserver((entries) => {
       const was = visible; visible = entries[0].isIntersecting;
@@ -221,14 +232,14 @@ export default function HeroRing({ className }) {
       cancelAnimationFrame(raf);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', build);
-      canvas.removeEventListener('click', onClick);
+      hitEl.removeEventListener('click', onClick);
       io.disconnect();
     };
   }, [router]);
 
   return (
     <div className={className} style={{ position: 'absolute', inset: 0, zIndex: 20, pointerEvents: 'none' }} aria-hidden="true">
-      <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block', pointerEvents: 'auto' }} />
+      <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block', pointerEvents: 'none' }} />
       <div ref={tipRef} className="hero-ring-tip" role="tooltip" />
     </div>
   );
