@@ -432,7 +432,7 @@
       "content": "Maurice Bucaille (1976) Kur'an'daki Hâmân ile Eski Mısır kayıtlarındaki 'Ḥmn' kökünden isimler arasında bir dilbilimsel paralellik önerdi. Bu öneri popüler apolojetik literatürde 'klasik bir Kur'ânî mucize' olarak dolaşıma girdi; akademik Mısıroloji'de ise kabul görmedi. Atlas burada paralelliğin akademik durumunu olduğu gibi sunar.",
       "points": [
         "Tevrat'ta Hâmân, Pers İmparatorluğu'nda yaşayan Ester Kitabı karakteridir (MÖ ~480); Kur'an'da Mısır'da Firavun'un yardımcısıdır",
-        "Rosetta Taşı (1799) → Champollion (1822) ile hiyeroglifler çözüldü",
+        "Rosetta Taşı (1799) ve Champollion (1822) ile hiyeroglifler çözüldü",
         "Ranke, Die Ägyptischen Personennamen (1935): 'Ḥmn' kökünden isimler dahil yüzlerce 'ḥm-' başlangıçlı isim listelenir",
         "Mainstream Mısıroloji bu paralelliği reddeder: 'ḥm-' başlangıçlı isimler oldukça yaygındır, vokalleştirme farkları büyüktür ve hiçbiri 'Hâmân' olarak okunmaz",
         "Walid Saleh, Reuven Firestone gibi Kur'an-Tora ilişkisini inceleyen akademisyenler, iki Hâmân arasındaki bağı edebî/teolojik bir birleşme veya farklı kişiler olarak da yorumlar"
@@ -980,7 +980,7 @@
       },
       "korku": {
         "title": "Korku, Kaygı ve Huzur",
-        "intro": "Modern psikoloji korkuyu tek boyutlu tanımlar: tehdit algısı → amigdala aktivasyonu → kaç ya da savaş. Kur'an dört farklı duygusal hâl tanımlar: Havf, Haşyet, Hüzün ve Sekinet. Her birinin kaynağı, işlevi ve tedavisi birbirinden farklıdır.",
+        "intro": "Modern psikoloji korkuyu tek boyutlu tanımlar: tehdit algısı, amigdala aktivasyonu, kaç ya da savaş. Kur'an dört farklı duygusal hâl tanımlar: Havf, Haşyet, Hüzün ve Sekinet. Her birinin kaynağı, işlevi ve tedavisi birbirinden farklıdır.",
         "items": [
           {
             "id": "havf",
@@ -998,7 +998,7 @@
             "translation": "Allah'tan ancak âlim kulları korkar (haşyet duyar).",
             "reference": "Fâtır, 35:28",
             "description": "Havf'tan daha derindir. Haşyet, Allah'ı tanımanın yarattığı derin saygı ve korkudur; cezadan değil, büyüklük karşısındaki aczden doğar. Ne kadar çok bilirsen o kadar çok haşyet duyarsın. Bu, psikolojideki huşu (awe) deneyimiyle örtüşür.",
-            "modernNote": "Dacher Keltner'ın 'hayranlık/awe' araştırmaları: büyüklük karşısında egonun küçülmesi → bağ ve anlam hissi."
+            "modernNote": "Dacher Keltner'ın 'hayranlık/awe' araştırmaları: büyüklük karşısında egonun küçülmesi, ardından bağ ve anlam hissi."
           },
           {
             "id": "huzun",
@@ -1193,7 +1193,7 @@
             "translation": "Eğer şükrederseniz, sizi artırırım.",
             "reference": "İbrahim, 14:7",
             "description": "Şükür bir kibarlık biçimi değil, bir bilişsel yeniden çerçeveleme (reframing) pratiğidir: odağı eksik olanlardan mevcut olanlara kaydırmak. Kur'an şükrün \"artırmayı\" getireceğini söyler; nörobilim çalışmaları da şükür pratiğini dopamin ve serotonin artışıyla ilişkilendirir.",
-            "modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği uyku kalitesini artırır ve duygu durumunu iyileştirir. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analizi gratitude müdahalelerinin klinik depresyon ve anksiyetede orta düzey etki gösterdiğini doğrular."
+            "modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği uyku kalitesini artırır ve duygu durumunu iyileştirir. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analizi gratitude müdahalelerinin klinik depresyon ve anksiyetede orta düzey etki gösterdiğini bulur."
           },
           {
             "id": "zikir",

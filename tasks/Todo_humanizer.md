@@ -109,7 +109,7 @@ Dosyalar: `public/tefekkur/_index.json` (53 tldr) · `public/tefekkur/*.json` (g
 - [ ] **"X değil — Y"**: 862 hit'in ~400'ü tefekkür. lehv 12, kaynak-yuzey 19, enerji-krizi 30, ruhun-termostati 33, inception-hayatlar 21, ruhsal-cografya 29.
 - [ ] **"Asıl soru / asıl mesele" (§27)**: kaynak-yuzey 5, rahmetin-grameri-4, anlam-yaratilis-senteni, yaratilis-hikayesi-1 ("Belki de asıl soru şu:"), Isimlendirme.jsx ("asıl mesele o kısalıkta").
 - [ ] **EN çevirilerde AI kelimeleri**: "A crucial qualifier", "the crucial point is this", "underscores this fundamental role", "fundamentally how human comprehension works", "The unique role is never discovered". TR'de bu kelimeler yokken EN'de belirmesi çeviri katmanının makine olduğunu gösteriyor. EN gövdeleri ayrı bir geçiş ister.
-- [ ] **Bilimsel ad-anma (§2/§5)**: "Nörobilim (Schubert 2005, embodied cognition) bunu doğrular", "Termodinamiğin ikonu Rod Swenson", "fMRI studies show" (en.json psychology). Kaynak varsa tamam; "doğrular" fiili §13.24 kuralına aykırı (bilim tasdik etmez).
+- [~] **Bilimsel ad-anma (§2/§5)** (2026-09-06: "doğrular/confirms" → "bulur/finds" yapıldı; "fMRI çalışmaları gösteriyor" atıfsız kaldı, kaynak eklenmesi yazar kararı): "Nörobilim (Schubert 2005, embodied cognition) bunu doğrular", "Termodinamiğin ikonu Rod Swenson", "fMRI studies show" (en.json psychology). Kaynak varsa tamam; "doğrular" fiili §13.24 kuralına aykırı (bilim tasdik etmez).
 - [ ] **Başlıklarda Title Case + "X: Y" çift başlık**: "Kur'an'ın Düşünme Fiilleri: Zihnin İşletim Sistemi", "Yapılanların Süslü Görülmesi — Tezyînin Anatomisi", "İdrak 2: Sonsuz Nasıl Bilinir — Yönelimsel İdrak" (iki ayraç birden). Bunlar yazarın başlıkları olabilir; kontrol edilmeli.
 
 ---
@@ -157,7 +157,7 @@ Dosyalar: `src/components/*.jsx`, `src/sections/ProphetAtlas.jsx`, `src/data/ahi
 - [x] **TefsirIhtilaflari.jsx** ✅ (2026-09-06: "Anlaşmazlık burada bir kusur sayılmaz; metnin katmanlı yapısından doğar"): "anlaşmazlık bir kusur değil, metnin katmanlı doğasının doğal sonucudur" (§9 + §3).
 - [x] **KorumaZinciri.jsx** ✅ (2026-09-06: "sıfır varyasyon ilkesinin bugünkü görünümü"): "sıfır-varyasyon prensibinin canlı manzarası" (§32 "the landscape of").
 - [x] **Isimlendirme.jsx** ✅ (2026-09-06: "Cevap sanıldığından çok daha kısa; kısalığın kendisi de bir mesaj"): "Cevap, sanıldığından çok daha kısa — ve asıl mesele o kısalıkta" (§27, §28: noktayı söylemeden duyuruyor).
-- [ ] **Ok zincirleri (1.242)**: neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
+- [~] **Ok zincirleri (1.242)** (2026-09-06: tools.jsx descLong, tr/en.json psikoloji girişi ve tarihsel kanıt listesi düz cümle oldu; tefekkür gövdeleri ve public/*.json diyagram alanları yazar kararına bırakıldı): neden-sonuc, ahiret, nefs, insan-yolculugu sayfalarında "A → B → C → D" gövde metninde. Diyagramda ok doğal; düz metinde "sabır → yardım → zafer" yerine "sabır yardımı, yardım zaferi getirir" okunur.
 - [x] **Hata mesajları da aynı kalıpta** (MeselAtlasi ✅, not-found ✅ 2026-09-06): MeselAtlasi "The verse could not be loaded right now — the source service is unreachable"; not-found "Bu adres bir sayfaya karşılık gelmiyor — bağlantı bozulmuş olabilir". Küçük ama tire her yere sızmış.
 
 Temiz olanlar: `Navbar.jsx` (0 tire), `SebebiNuzul.jsx`, `VerseGraph.jsx`, `SorRoute.jsx`, `exploreCategories.jsx`.

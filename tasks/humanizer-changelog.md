@@ -7550,3 +7550,30 @@ Kart açıklamaları, kaynak notları, araç ipuçları ve erişilebilirlik etik
 - ÖNCE: `{tr ? (labelTr || 'Daha Derine — İlgili Araçlar') : (labelEn || 'Go Deeper — Related Tools')}`
   SONRA: `{tr ? (labelTr || 'Daha Derine: İlgili Araçlar') : (labelEn || 'Go Deeper: Related Tools')}`
 
+
+## 17. tr.json / en.json ek: bilim fiili ve düz metindeki ok zincirleri (2026-09-06)
+
+Psikoloji bölümünde meta-analiz için "doğrular / confirms" → "bulur / finds" (§13.24); korku girişindeki "tehdit algısı → amigdala → kaç ya da savaş" ve Keltner notundaki ok zinciri düz cümleye, tarihsel kanıt listesindeki "Rosetta Taşı → Champollion" bağlaca döndü. "kemik → et" (Mü'minun 23:14 sırası), katalog kartı etiketleri ("itiraz → cevap → netice"), araç adı "Neden → Sonuç Atlası", ana sayfa eyebrow "Yaratılış → Yaratıcı" ve Âhiret atlasının aşama şeridi diyagram/etiket sayıldığı için kaldı.
+
+### `next/src/i18n/tr.json`
+
+- ÖNCE: `"Rosetta Taşı (1799) → Champollion (1822) ile hiyeroglifler çözüldü",`
+  SONRA: `"Rosetta Taşı (1799) ve Champollion (1822) ile hiyeroglifler çözüldü",`
+- ÖNCE: `"intro": "Modern psikoloji korkuyu tek boyutlu tanımlar: tehdit algısı → amigdala aktivasyonu → kaç ya da savaş. Kur'an dört farklı duygusal hâl tanımlar: Havf, Haşyet, Hüzün ve Sekinet. Her birinin kaynağı, işlevi ve tedavisi birbirinden farklıdır.",`
+  SONRA: `"intro": "Modern psikoloji korkuyu tek boyutlu tanımlar: tehdit algısı, amigdala aktivasyonu, kaç ya da savaş. Kur'an dört farklı duygusal hâl tanımlar: Havf, Haşyet, Hüzün ve Sekinet. Her birinin kaynağı, işlevi ve tedavisi birbirinden farklıdır.",`
+- ÖNCE: `"modernNote": "Dacher Keltner'ın 'hayranlık/awe' araştırmaları: büyüklük karşısında egonun küçülmesi → bağ ve anlam hissi."`
+  SONRA: `"modernNote": "Dacher Keltner'ın 'hayranlık/awe' araştırmaları: büyüklük karşısında egonun küçülmesi, ardından bağ ve anlam hissi."`
+- ÖNCE: `"modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği uyku kalitesini artırır ve duygu durumunu iyileştirir. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analizi gratitude müdahalelerinin klinik depresyon ve anksiyetede orta düzey etki gösterdiğini doğrular."`
+  SONRA: `"modernNote": "Robert Emmons'ın minnet (gratitude) araştırmaları: düzenli şükür pratiği uyku kalitesini artırır ve duygu durumunu iyileştirir. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analizi gratitude müdahalelerinin klinik depresyon ve anksiyetede orta düzey etki gösterdiğini bulur."`
+
+### `next/src/i18n/en.json`
+
+- ÖNCE: `"The Rosetta Stone (1799) → Champollion (1822) made hieroglyphs readable",`
+  SONRA: `"The Rosetta Stone (1799) and Champollion (1822) made hieroglyphs readable",`
+- ÖNCE: `"intro": "Modern psychology defines fear in one dimension: threat perception → amygdala activation → fight or flight. The Quran defines four distinct emotional states: Hawf, Khashya, Huzn, and Sakina. Each has a different source, function, and remedy.",`
+  SONRA: `"intro": "Modern psychology defines fear in one dimension: threat perception, amygdala activation, fight or flight. The Quran defines four distinct emotional states: Hawf, Khashya, Huzn, and Sakina. Each has a different source, function, and remedy.",`
+- ÖNCE: `"modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness → connection and sense of meaning."`
+  SONRA: `"modernNote": "Dacher Keltner's awe research: the shrinking of ego before greatness, followed by connection and a sense of meaning."`
+- ÖNCE: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis confirms gratitude interventions show moderate effects on clinical depression and anxiety."`
+  SONRA: `"modernNote": "Robert Emmons' gratitude research: regular gratitude practice improves sleep quality and mood. Cregg & Cheavens (2021, Clinical Psychology Review) meta-analysis finds that gratitude interventions show moderate effects on clinical depression and anxiety."`
+
