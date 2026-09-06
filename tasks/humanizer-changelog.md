@@ -2650,3 +2650,820 @@ Kapsam: araç sayfalarında render edilen bölümler (linguisticDNA, impossibleR
 - ÖNCE: "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahi irade. Bu paradoks değil — sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçeve. Dışsal motivasyon (ödül-ceza) değil, içselleştirilmiş anlam motivasyonu."
   SONRA: "description": "Kur'an iki motivasyon katmanı tanımlar: insan iradesi ve ilahî irade. Bu bir paradoks değil, sorumluluğu ortadan kaldırmadan tevekkülü mümkün kılan bir çerçevedir. Dışsal motivasyon (ödül ve ceza) değil, içselleştirilmiş anlam motivasyonu."
 
+
+## 5. Bileşen içi metinler, 1. parti: ProphetAtlas + WowFacts (2026-09-06)
+
+Yalnız site yazımı metinler; âyet çevirileri (tr/en/duaTr/duaEn alanları) ve atıf tireleri ("— Mûsâ'nın duasından") olduğu gibi bırakıldı. Başlıklarda tire yerine iki nokta, notlarda ℹ️ yerine "Not:", satış sıfatları (eşsiz, benzersiz, çarpıcı, striking, remarkable, unique) çıktı. İki çeviri düzeltmesi: "Balık sahibi'ne uyma" → "'Balık sahibi' gibi olma" (Kalem 68:48), "Kavmine de mecnun dediler" → "Ona da mecnun dediler" (EN ile uyum).
+
+
+### `next/src/components/WowFacts.jsx`
+
+- ÖNCE: `bodyTr: 'Sûrelerin neredeyse tamamı besmele ile açılır — yalnız Tevbe sûresi istisnadır. Bir kez daha Neml 27:30\'da, Hz. Süleyman\'ın Belkıs\'a yazdığı mektubun açılışı olarak geçer. Mushaf geleneğinde besmelenin sûre başlarında yer alması belirgin bir düzen oluşturur; ancak toplam sayım, besmelenin ayet sayımı ve istisnalar gibi usûl tercihlerine bağlıdır. (Not: Neml 27:30\'da besmele bir mektup`
+  SONRA: `bodyTr: 'Sûrelerin neredeyse tamamı besmele ile açılır; yalnız Tevbe sûresi istisnadır. Bir kez daha Neml 27:30\'da, Hz. Süleyman\'ın Belkıs\'a yazdığı mektubun açılışı olarak geçer. Mushaf geleneğinde besmelenin sûre başlarında yer alması belirgin bir düzen oluşturur; ancak toplam sayım, besmelenin ayet sayımı ve istisnalar gibi usûl tercihlerine bağlıdır. (Not: Neml 27:30\'da besmele bir mektup `
+- ÖNCE: `bodyEn: 'Bismillah opens nearly every surah — At-Tawbah is the only exception. It appears once more inside An-Naml 27:30, as the opening of Solomon\'s letter to the Queen of Sheba. In the mushaf tradition, placing the Basmala at surah headings forms a clear order; but any total count depends on methodological choices such as whether the Basmala is counted as a verse and how exceptions are treated.`
+  SONRA: `bodyEn: 'Bismillah opens nearly every surah; At-Tawbah is the only exception. It appears once more inside An-Naml 27:30, as the opening of Solomon\'s letter to the Queen of Sheba. In the mushaf tradition, placing the Basmala at surah headings forms a clear order; but any total count depends on methodological choices such as whether the Basmala is counted as a verse and how exceptions are treated. `
+- ÖNCE: `titleTr: 'Her Ayette Allah — Tek Sûre',`
+  SONRA: `titleTr: 'Her Ayette Allah: Tek Sûre',`
+- ÖNCE: `titleEn: 'Allah in Every Verse — The Only Surah',`
+  SONRA: `titleEn: 'Allah in Every Verse: The Only Surah',`
+- ÖNCE: `bodyTr: 'Kur\'an\'ın en çok geçen kelimesi, Allah lafzıdır. Sûrelerin tamamına, ayetlerin geneline yayılmış — hiçbir sayfa sessiz kalmıyor.\n\nℹ️ Kesin sayı, hangi formların dahil edildiğine göre kaynaklara göre hafif farklılık gösterebilir.',`
+  SONRA: `bodyTr: 'Kur\'an\'ın en çok geçen kelimesi, Allah lafzıdır. Sûrelerin tamamına, ayetlerin geneline yayılmıştır; hiçbir sayfa sessiz kalmaz.\n\nNot: Kesin sayı, hangi formların dahil edildiğine göre kaynaklara göre hafif farklılık gösterebilir.',`
+- ÖNCE: `bodyEn: 'The most frequent word in the Quran is the name Allah itself. Spread across every surah, throughout the verses — no page is silent.\n\nℹ️ The exact count varies slightly by source depending on which forms are included.',`
+  SONRA: `bodyEn: 'The most frequent word in the Quran is the name Allah itself. Spread across every surah, throughout the verses; no page is silent.\n\nNote: The exact count varies slightly by source depending on which forms are included.',`
+- ÖNCE: `wowTr: 'Her 2,3 ayette bir — hiçbir sayfa susmuyor.',`
+  SONRA: `wowTr: 'Her 2,3 ayette bir; hiçbir sayfa susmuyor.',`
+- ÖNCE: `wowEn: 'Once every 2.3 verses — no page is silent.',`
+  SONRA: `wowEn: 'Once every 2.3 verses; no page is silent.',`
+- ÖNCE: `labelTr: '"Allah" lafzı — en sık geçen kelime',`
+  SONRA: `labelTr: '"Allah" lafzı: en sık geçen kelime',`
+- ÖNCE: `labelEn: '"Allah" — the most frequent word',`
+  SONRA: `labelEn: '"Allah": the most frequent word',`
+- ÖNCE: `bodyTr: 'Allah lafzından sonra Kur\'an\'da en çok geçen Allah\'ın güzel ismi "Rahman" (Çok Merhametli) — yaklaşık 57 kez. Bir sûre adını Rahman\'dan alır (Er-Rahman, 55. sûre) ve onun açılışında üst üste "Rabbinizin hangi nimetlerini yalanlıyorsunuz" sorusu tekrarlanır. Rabbinin merhamet sıfatı anlatı atmosferinde sürekli yankılanır.\n\nℹ Sayım Esma-ül Hüsna\'dan Allah\'ın özel isimleri arasındaki`
+  SONRA: `bodyTr: 'Allah lafzından sonra Kur\'an\'da en çok geçen Allah\'ın güzel ismi "Rahman" (Çok Merhametli); yaklaşık 57 kez. Bir sûre adını Rahman\'dan alır (Er-Rahman, 55. sûre) ve onun açılışında üst üste "Rabbinizin hangi nimetlerini yalanlıyorsunuz" sorusu tekrarlanır. Merhamet sıfatı anlatı boyunca tekrar tekrar duyulur.\n\nNot: Sayım Esma-ül Hüsna\'dan Allah\'ın özel isimleri arasındaki tek tek `
+- ÖNCE: `bodyEn: 'After "Allah", the most-frequent of God\'s beautiful names is "Ar-Rahman" (The All-Merciful) — approximately 57 times. One surah is named after Him (Ar-Rahman, the 55th), opening with the recurring refrain "Which of your Lord\'s favors will you deny?". The attribute of mercy echoes continuously through the narrative.\n\nℹ The count covers occurrences of the personal divine name; attribute`
+  SONRA: `bodyEn: 'After "Allah", the most-frequent of God\'s beautiful names is "Ar-Rahman" (The All-Merciful); approximately 57 times. One surah is named after Him (Ar-Rahman, the 55th), opening with the recurring refrain "Which of your Lord\'s favors will you deny?". The attribute of mercy recurs throughout the narrative.\n\nNote: The count covers occurrences of the personal divine name; attribute-names `
+- ÖNCE: `bodyTr: 'Kur\'an, peygamberlerin bir kısmını ismiyle zikreder. İslam geleneğinde toplamda 124.000 peygamber gönderildiği rivayet edilir. İsimle anılanların her biri farklı bir insanlık dersini taşır: sabır, adalet, tevbe, tevekkül... ℹ Zülkifl başta olmak üzere bazı isimlerin peygamberliği klasik tefsirde tartışmalıdır.',`
+  SONRA: `bodyTr: 'Kur\'an, peygamberlerin bir kısmını ismiyle zikreder. İslam geleneğinde toplamda 124.000 peygamber gönderildiği rivayet edilir. İsimle anılanların her biri farklı bir insanlık dersini taşır: sabır, adalet, tevbe, tevekkül... Not: Zülkifl başta olmak üzere bazı isimlerin peygamberliği klasik tefsirde tartışmalıdır.',`
+- ÖNCE: `bodyEn: 'The Quran names a select group of prophets according to general scholarly consensus. Islamic tradition holds that 124,000 prophets were sent in total. Each named prophet carries a distinct lesson: patience, justice, repentance, trust... ℹ The prophethood of some figures, notably Dhul-Kifl, is debated in classical exegesis.',`
+  SONRA: `bodyEn: 'The Quran names a select group of prophets according to general scholarly consensus. Islamic tradition holds that 124,000 prophets were sent in total. Each named prophet carries a distinct lesson: patience, justice, repentance, trust... Note: The prophethood of some figures, notably Dhul-Kifl, is debated in classical exegesis.',`
+- ÖNCE: `wowTr: '124.000\'den 25 — her biri bir ders, hepsi bir sistem.',`
+  SONRA: `wowTr: '124.000\'den 25; her biri bir ders, hepsi bir sistem.',`
+- ÖNCE: `wowEn: '25 out of 124,000 — each a lesson, together a system.',`
+  SONRA: `wowEn: '25 out of 124,000; each a lesson, together a system.',`
+- ÖNCE: `labelTr: 'İsimle anılan — her biri bir ders',`
+  SONRA: `labelTr: 'İsimle anılan; her biri bir ders',`
+- ÖNCE: `labelEn: 'Named in the Quran — each a lesson',`
+  SONRA: `labelEn: 'Named in the Quran; each a lesson',`
+- ÖNCE: `titleTr: '"Febieyyi âlâi" — Kur\'an\'ın En Çok Tekrar Eden Ayeti',`
+  SONRA: `titleTr: '"Febieyyi âlâi": Kur\'an\'ın En Çok Tekrar Eden Ayeti',`
+- ÖNCE: `titleEn: '"Febieyyi ala\'i" — The Most Repeated Verse',`
+  SONRA: `titleEn: '"Febieyyi ala\'i": The Most Repeated Verse',`
+- ÖNCE: `bodyTr: 'Er-Rahman sûresinde "Febieyyi âlâi Rabbikümâ tükezzibân" (Rabbinizin hangi nimetlerini yalanlıyorsunuz?) ayeti bir refrain gibi yinelenir. Kur\'an\'ın en çok tekrar eden ayetidir. Her tekrar farklı bir nimeti saydıktan sonra geliyor — retorik bir mühür gibi.',`
+  SONRA: `bodyTr: 'Er-Rahman sûresinde "Febieyyi âlâi Rabbikümâ tükezzibân" (Rabbinizin hangi nimetlerini yalanlıyorsunuz?) ayeti bir nakarat gibi yinelenir. Kur\'an\'ın en çok tekrar eden ayetidir. Her tekrar farklı bir nimet sayıldıktan sonra gelir, retorik bir mühür gibi.',`
+- ÖNCE: `bodyEn: 'In Surah Ar-Rahman, the verse "Febieyyi ala\'i Rabbikuma tukadhdhibhan" (Which of your Lord\'s favors will you deny?) returns like a refrain. It is the most repeated verse in the Quran. Each repetition follows the mention of a different blessing — like a rhetorical seal.',`
+  SONRA: `bodyEn: 'In Surah Ar-Rahman, the verse "Febieyyi ala\'i Rabbikuma tukadhdhibhan" (Which of your Lord\'s favors will you deny?) returns like a refrain. It is the most repeated verse in the Quran. Each repetition follows the mention of a different blessing, like a rhetorical seal.',`
+- ÖNCE: `labelTr: 'Aynı ayet — retorik bir mühür',`
+  SONRA: `labelTr: 'Aynı ayet, retorik bir mühür',`
+- ÖNCE: `labelEn: 'The same verse — a rhetorical seal',`
+  SONRA: `labelEn: 'The same verse, a rhetorical seal',`
+- ÖNCE: `titleTr: '14 Secde Ayeti — Okuyucuya Doğrudan Emir',`
+  SONRA: `titleTr: '14 Secde Ayeti: Okuyucuya Doğrudan Emir',`
+- ÖNCE: `titleEn: '14 Prostration Verses — A Direct Command to the Reader',`
+  SONRA: `titleEn: '14 Prostration Verses: A Direct Command to the Reader',`
+- ÖNCE: `bodyTr: 'Kur\'an\'da 14 ayet secde emri içerir; bu ayetleri okuyan ya da duyan kişinin secde etmesi beklenir. Fıkıh sınıflandırması mezheplere göre değişir: Hanefî mezhebinde 14 secde vaciptir; Şâfi\'î, Mâlikî ve Hanbelî mezheplerinde ise genellikle sünnet kabul edilir. Sûre Hac\'da iki adet secde ayeti bulunur — bu onu diğer tüm sûrelerden ayıran tek özelliktir.',`
+  SONRA: `bodyTr: 'Kur\'an\'da 14 ayet secde emri içerir; bu ayetleri okuyan ya da duyan kişinin secde etmesi beklenir. Fıkıh sınıflandırması mezheplere göre değişir: Hanefî mezhebinde 14 secde vaciptir; Şâfi\'î, Mâlikî ve Hanbelî mezheplerinde ise genellikle sünnet kabul edilir. Hac sûresinde iki secde ayeti bulunur; bu özellik başka hiçbir sûrede yoktur.',`
+- ÖNCE: `bodyEn: 'The Quran contains 14 prostration verses; whoever recites or hears them is expected to prostrate. The fiqh classification varies by madhhab: in the Hanafi school all 14 are wajib (obligatory); in the Shafi\'i, Maliki and Hanbali schools they are generally held as sunnah (recommended). Surah Al-Hajj uniquely contains two — the only surah with a double prostration.',`
+  SONRA: `bodyEn: 'The Quran contains 14 prostration verses; whoever recites or hears them is expected to prostrate. The fiqh classification varies by madhhab: in the Hanafi school all 14 are wajib (obligatory); in the Shafi\'i, Maliki and Hanbali schools they are generally held as sunnah (recommended). Surah Al-Hajj contains two; it is the only surah with a double prostration.',`
+- ÖNCE: `titleTr: 'Bir Eksik, Bir Fazla — Denge Bozulmaz',`
+  SONRA: `titleTr: 'Bir Eksik, Bir Fazla: Denge Bozulmaz',`
+- ÖNCE: `titleEn: 'One Missing, One Extra — Balance Unbroken',`
+  SONRA: `titleEn: 'One Missing, One Extra: Balance Unbroken',`
+- ÖNCE: `bodyEn: 'At-Tawbah is the only surah without an opening Bismillah. An-Naml has a Bismillah both at its own chapter opening and again inside verse 27:30 — as the opening of Solomon\'s letter to the Queen of Sheba. The total still comes to 114.',`
+  SONRA: `bodyEn: 'At-Tawbah is the only surah without an opening Bismillah. An-Naml has a Bismillah both at its own chapter opening and again inside verse 27:30, as the opening of Solomon\'s letter to the Queen of Sheba. The total still comes to 114.',`
+- ÖNCE: `bodyTr: 'Kur\'an\'ın açılış sûresinde "Allah" lafzı hiç geçmez. Allah, güzel isimlerinden dördüyle anılır: Rabb (terbiye eden ve rızık veren), Rahman (çok merhametli), Rahim (daima merhametli), Malik (hüküm ve mülk sahibi).\n\nℹ️ Hafs kıraatinde "Mâlik", bazı diğer kıraatlerde "Melik" okunur.',`
+  SONRA: `bodyTr: 'Kur\'an\'ın açılış sûresinde "Allah" lafzı hiç geçmez. Allah, güzel isimlerinden dördüyle anılır: Rabb (terbiye eden ve rızık veren), Rahman (çok merhametli), Rahim (daima merhametli), Malik (hüküm ve mülk sahibi).\n\nNot: Hafs kıraatinde "Mâlik", bazı diğer kıraatlerde "Melik" okunur.',`
+- ÖNCE: `bodyEn: 'The opening surah of the Quran never uses the name "Allah". Allah is mentioned through four of His beautiful names: Rabb (the Sustainer and Provider), Rahman (the All-Merciful), Rahim (the Ever-Merciful), Malik (the Master of all sovereignty).\n\nℹ️ The Hafs recitation reads "Mālik"; some other qira\'at traditions read "Malik" as "Melik" (King).',`
+  SONRA: `bodyEn: 'The opening surah of the Quran never uses the name "Allah". Allah is mentioned through four of His beautiful names: Rabb (the Sustainer and Provider), Rahman (the All-Merciful), Rahim (the Ever-Merciful), Malik (the Master of all sovereignty).\n\nNote: The Hafs recitation reads "Mālik"; some other qira\'at traditions read "Malik" as "Melik" (King).',`
+- ÖNCE: `wowTr: 'Fatiha\'da "Allah" lafzı geçmez — Allah, güzel isimleriyle konuşur.',`
+  SONRA: `wowTr: 'Fatiha\'da "Allah" lafzı geçmez; Allah güzel isimleriyle konuşur.',`
+- ÖNCE: `wowEn: 'Al-Fatiha never says "Allah" — He speaks through His beautiful names.',`
+  SONRA: `wowEn: 'Al-Fatiha never says "Allah"; He speaks through His beautiful names.',`
+- ÖNCE: `bodyEn: 'Al-Fatiha has 7 verses. The exact middle (4th) verse: "You alone we worship, You alone we ask for help." The essence of the human-God relationship — at the geometric center.',`
+  SONRA: `bodyEn: 'Al-Fatiha has 7 verses. The exact middle (4th) verse: "You alone we worship, You alone we ask for help." The essence of the human-God relationship, at the geometric center.',`
+- ÖNCE: `labelTr: 'Merkez tam ortada — yapısal denge',`
+  SONRA: `labelTr: 'Merkez tam ortada; yapısal denge',`
+- ÖNCE: `labelEn: 'Center at the exact middle — structural balance',`
+  SONRA: `labelEn: 'Center at the exact middle; structural balance',`
+- ÖNCE: `titleTr: 'En Kısa Sûre — En Yoğun Teselli',`
+  SONRA: `titleTr: 'En Kısa Sûre, En Yoğun Teselli',`
+- ÖNCE: `titleEn: 'The Shortest Surah — The Most Intense Consolation',`
+  SONRA: `titleEn: 'The Shortest Surah, the Most Intense Consolation',`
+- ÖNCE: `titleTr: 'En Uzun Ayet — Bir Borç Sözleşmesi',`
+  SONRA: `titleTr: 'En Uzun Ayet: Bir Borç Sözleşmesi',`
+- ÖNCE: `titleEn: 'The Longest Verse — A Debt Contract',`
+  SONRA: `titleEn: 'The Longest Verse: A Debt Contract',`
+- ÖNCE: `labelTr: 'Kur\'an\'ın en uzun ayeti — bir tam sayfa',`
+  SONRA: `labelTr: 'Kur\'an\'ın en uzun ayeti; bir tam sayfa',`
+- ÖNCE: `labelEn: "The Quran's longest verse — a full page",`
+  SONRA: `labelEn: "The Quran's longest verse; a full page",`
+- ÖNCE: `titleTr: 'Huruf-i Mukattaâ — 1.400 Yıllık Şifre',`
+  SONRA: `titleTr: 'Huruf-i Mukattaâ: 1.400 Yıllık Soru',`
+- ÖNCE: `titleEn: 'Muqatta\'at Letters — A 1,400-Year Cipher',`
+  SONRA: `titleEn: 'Muqatta\'at Letters: A 1,400-Year Question',`
+- ÖNCE: `titleTr: 'Halka Yapısı — Ring Composition',`
+  SONRA: `titleTr: 'Halka Yapısı: Ring Composition',`
+- ÖNCE: `titleEn: 'Ring Composition — A Structure Within the Structure',`
+  SONRA: `titleEn: 'Ring Composition: A Structure Within the Structure',`
+- ÖNCE: `bodyTr: 'Raymond Farrin\'in araştırması pek çok sûrenin ring composition (halka) yapısına sahip olduğunu göstermektedir: A-B-C-Merkez-C\'-B\'-A\'. Fatiha bunun en yalın örneğidir. Bu yapı antik edebiyatta biliniyor olsa da Kur\'an\'daki yoğunluğu ve tutarlılığı dikkat çekicidir.',`
+  SONRA: `bodyTr: 'Raymond Farrin\'in araştırması pek çok sûrenin ring composition (halka) yapısına sahip olduğunu göstermektedir: A-B-C-Merkez-C\'-B\'-A\'. Fatiha bunun en yalın örneğidir. Bu yapı antik edebiyatta da bilinir; Kur\'an\'da ayırt edici olan yoğunluğu ve tutarlılığıdır.',`
+- ÖNCE: `bodyEn: 'Raymond Farrin\'s research shows that many surahs follow a ring composition structure: A-B-C-Center-C\'-B\'-A\'. Al-Fatiha is its simplest example. While this structure exists in ancient literature, its density and consistency in the Quran is remarkable.',`
+  SONRA: `bodyEn: 'Raymond Farrin\'s research shows that many surahs follow a ring composition structure: A-B-C-Center-C\'-B\'-A\'. Al-Fatiha is its simplest example. This structure also exists in ancient literature; what sets the Quran apart is its density and consistency.',`
+- ÖNCE: `wowTr: 'Dikkat çekici bir yapısal örüntü.',`
+  SONRA: `wowTr: 'Yapısal bir örüntü.',`
+- ÖNCE: `wowEn: 'A striking structural pattern.',`
+  SONRA: `wowEn: 'A structural pattern.',`
+- ÖNCE: `titleTr: 'Fatiha — Her Gün 40 Kez',`
+  SONRA: `titleTr: 'Fatiha: Her Gün 40 Kez',`
+- ÖNCE: `titleEn: 'Al-Fatiha — 40 Times Every Day',`
+  SONRA: `titleEn: 'Al-Fatiha: 40 Times Every Day',`
+- ÖNCE: `bodyTr: 'Günde 5 vakit namaz, her rekatta Fatiha okunur. Dünyada her gün milyarlarca kez okunan tek metin. Saat dilimleri nedeniyle dünyanın her saatinde bir yerde namaz vakti girer — Fatiha\'nın okunmadığı bir an yoktur.',`
+  SONRA: `bodyTr: 'Günde 5 vakit namaz, her rekatta Fatiha okunur. Dünyada her gün milyarlarca kez okunan tek metin. Saat dilimleri nedeniyle dünyanın her saatinde bir yerde namaz vakti girer; Fatiha\'nın okunmadığı bir an yoktur.',`
+- ÖNCE: `bodyEn: 'Five daily prayers, Al-Fatiha recited in every rakat. The only text read billions of times every single day. Because of time zones, prayer time is always entering somewhere in the world — there is no moment when Al-Fatiha is not being recited.',`
+  SONRA: `bodyEn: 'Five daily prayers, Al-Fatiha recited in every rakat. The only text read billions of times every single day. Because of time zones, prayer time is always entering somewhere in the world; there is no moment when Al-Fatiha is not being recited.',`
+- ÖNCE: `wowTr: 'En çok okunan metinlerden biri — her gün, her kıtada.',`
+  SONRA: `wowTr: 'En çok okunan metinlerden biri; her gün, her kıtada.',`
+- ÖNCE: `wowEn: 'One of the most recited texts — every day, on every continent.',`
+  SONRA: `wowEn: 'One of the most recited texts; every day, on every continent.',`
+- ÖNCE: `wowTr: 'Okunuş kuralları sonradan icat edilmedi — metnin içinde emredildi.',`
+  SONRA: `wowTr: 'Okunuş kuralları sonradan icat edilmedi; metnin içinde emredildi.',`
+- ÖNCE: `wowEn: 'Recitation rules were not invented later — they were commanded within the text itself.',`
+  SONRA: `wowEn: 'Recitation rules were not invented later; they were commanded within the text itself.',`
+- ÖNCE: `titleTr: 'Et-Tevbe\'nin Sırrı — Neden Besmelesiz?',`
+  SONRA: `titleTr: 'Et-Tevbe: Neden Besmelesiz?',`
+- ÖNCE: `titleEn: 'The Mystery of At-Tawbah — Why No Bismillah?',`
+  SONRA: `titleEn: 'At-Tawbah: Why No Bismillah?',`
+- ÖNCE: `bodyEn: 'Surahs are not ordered by length (general trend, many exceptions), chronology (Al-Alaq — first revealed — is 96th in the mushaf), or alphabet. Islamic scholars hold that the order was divinely determined (tawqifi). Modern researchers continue to uncover thematic groupings and inter-surah connections.',`
+  SONRA: `bodyEn: 'Surahs are not ordered by length (general trend, many exceptions), chronology (Al-Alaq, the first revealed, is 96th in the mushaf), or alphabet. Islamic scholars hold that the order was divinely determined (tawqifi). Modern researchers continue to uncover thematic groupings and inter-surah connections.',`
+- ÖNCE: `wowTr: 'Sıralama insan mantığına uymayan bir düzene sahip — ama her inceleme yeni bir bağlantı ortaya çıkarıyor.',`
+  SONRA: `wowTr: 'Sıralama insan mantığına uymayan bir düzene sahip; yine de her inceleme yeni bir bağlantı ortaya çıkarıyor.',`
+- ÖNCE: `wowEn: 'The ordering defies human logic — yet every closer look reveals a new connection.',`
+  SONRA: `wowEn: 'The ordering defies human logic, yet every closer look reveals a new connection.',`
+- ÖNCE: `titleTr: 'En Uzun Sûre, En Kısa Sûre — 95\'e 1',`
+  SONRA: `titleTr: 'En Uzun Sûre, En Kısa Sûre: 95\'e 1',`
+- ÖNCE: `titleEn: 'Longest Surah, Shortest Surah — 95 to 1',`
+  SONRA: `titleEn: 'Longest Surah, Shortest Surah: 95 to 1',`
+- ÖNCE: `wowTr: '3 ayetle teselli, 286 ayetle şeriat — ikisi de eksiksiz.',`
+  SONRA: `wowTr: '3 ayetle teselli, 286 ayetle şeriat; ikisi de eksiksiz.',`
+- ÖNCE: `wowEn: '3 verses of consolation, 286 verses of law — both complete.',`
+  SONRA: `wowEn: '3 verses of consolation, 286 verses of law; both complete.',`
+- ÖNCE: `titleTr: 'Son İnen Ayet — Tartışma Hâlâ Sürüyor',`
+  SONRA: `titleTr: 'Son İnen Ayet: Tartışma Hâlâ Sürüyor',`
+- ÖNCE: `titleEn: 'Last Verse Revealed — Debate Still Open',`
+  SONRA: `titleEn: 'Last Verse Revealed: Debate Still Open',`
+- ÖNCE: `wowTr: 'İlk ayet belli, son ayet tartışmalı — bu da bir dürüstlük.',`
+  SONRA: `wowTr: 'İlk ayet belli, son ayet tartışmalı; bu da bir dürüstlük.',`
+- ÖNCE: `wowEn: 'The first is certain, the last is debated — that too is a form of honesty.',`
+  SONRA: `wowEn: 'The first is certain, the last is debated; that too is a form of honesty.',`
+- ÖNCE: `bodyEn: 'A common misconception is that the Quran is a "book of law." The vast majority of its verses are not about worship rules, civil transactions, or criminal law — they cover ethics, narrative, contemplation, prayer, and the universe.',`
+  SONRA: `bodyEn: 'A common misconception is that the Quran is a "book of law." The vast majority of its verses are not about worship rules, civil transactions or criminal law; they cover ethics, narrative, contemplation, prayer and the universe.',`
+- ÖNCE: `wowTr: 'Hukuk Kur\'an\'ın bir bölümü — ruh, anlam ve evren geri kalanı.',`
+  SONRA: `wowTr: 'Hukuk Kur\'an\'ın bir bölümü; ruh, anlam ve evren geri kalanı.',`
+- ÖNCE: `wowEn: 'Law is one part of the Quran — soul, meaning, and universe are the rest.',`
+  SONRA: `wowEn: 'Law is one part of the Quran; soul, meaning and universe are the rest.',`
+- ÖNCE: `titleTr: 'Kur\'an\'ın En Yoğun Yemin Dizisi — Art Arda 7 Yemin',`
+  SONRA: `titleTr: 'Kur\'an\'ın En Yoğun Yemin Dizisi: Art Arda 7 Yemin',`
+- ÖNCE: `titleEn: 'The Quran\'s Most Intense Oath Sequence — 7 Consecutive Oaths',`
+  SONRA: `titleEn: 'The Quran\'s Most Intense Oath Sequence: 7 Consecutive Oaths',`
+- ÖNCE: `bodyTr: 'Şems sûresi art arda 7 yemin ile açılır: güneşe, aydınlığına, aya, gündüze, geceye, gökyüzüne ve yere. Her yemin bir sonrakini inşa eder; kozmosu sahne yapar. Hemen ardından insanın ruhuna yemin gelir — kozmik dekor "nefs"e (kendi öz benliğe) iner. Kur\'an\'ın yemin içeren sûreleri arasında bu art arda yoğunluk nadirdir.\n\nℹ Diyanet / klasik tefsir konvansiyonu: 7 ana zarf yemini. Bazı k`
+  SONRA: `bodyTr: 'Şems sûresi art arda 7 yemin ile açılır: güneşe, aydınlığına, aya, gündüze, geceye, gökyüzüne ve yere. Her yemin bir sonrakini inşa eder; kozmosu sahne yapar. Hemen ardından insanın ruhuna yemin gelir; kozmik dekor "nefs"e (kendi öz benliğe) iner. Kur\'an\'ın yemin içeren sûreleri arasında bu art arda yoğunluk nadirdir.\n\nNot: Diyanet / klasik tefsir konvansiyonu: 7 ana zarf yemini. Bazı`
+- ÖNCE: `bodyEn: 'Surah Ash-Shams opens with 7 consecutive oaths: by the sun, its radiance, the moon, the day, the night, the sky, and the earth. Each oath builds on the previous, staging the cosmos. Immediately after, an oath by the human soul follows — the cosmic stage descends to the "nafs" (inner self). Among the Quran\'s oath-bearing surahs, such density is rare.\n\nℹ Diyanet / classical tafsir conven`
+  SONRA: `bodyEn: 'Surah Ash-Shams opens with 7 consecutive oaths: by the sun, its radiance, the moon, the day, the night, the sky, and the earth. Each oath builds on the previous, staging the cosmos. Immediately after, an oath by the human soul follows; the cosmic stage descends to the "nafs" (inner self). Among the Quran\'s oath-bearing surahs, such density is rare.\n\nNote: Diyanet and classical tafsir c`
+- ÖNCE: `titleTr: 'Hz. Musa — En Çok Anılan Peygamber: 136',`
+  SONRA: `titleTr: 'Hz. Musa, En Çok Anılan Peygamber: 136',`
+- ÖNCE: `titleEn: 'Prophet Moses — Most Mentioned: 136 Times',`
+  SONRA: `titleEn: 'Prophet Moses, Most Mentioned: 136 Times',`
+- ÖNCE: `bodyTr: 'Hz. Musa, Kur\'an\'da 136 kez adıyla geçen en çok anılan peygamberdir. Hz. Muhammed ise 5 kez (4 kez "Muhammed", 1 kez "Ahmed").\n\nℹ️ Bu sayı "Musa" isminin doğrudan geçtiği yerleri kapsar; zamir ve dolaylı atıflar dahil değildir. Kaynak: Leeds Üniversitesi Kur\'ân Korpusu (corpus.quran.com).',`
+  SONRA: `bodyTr: 'Hz. Musa, Kur\'an\'da 136 kez adıyla geçen en çok anılan peygamberdir. Hz. Muhammed ise 5 kez (4 kez "Muhammed", 1 kez "Ahmed").\n\nNot: Bu sayı "Musa" isminin doğrudan geçtiği yerleri kapsar; zamir ve dolaylı atıflar dahil değildir. Kaynak: Leeds Üniversitesi Kur\'ân Korpusu (corpus.quran.com).',`
+- ÖNCE: `bodyEn: 'Prophet Moses (Musa) is the most mentioned prophet by name — 136 times. Prophet Muhammad appears 5 times (4 as "Muhammad", once as "Ahmad" in Al-Saff 61:6).\n\nℹ️ This count covers direct occurrences of the name "Musa" only; pronouns and indirect references are not included. Source: University of Leeds Quranic Arabic Corpus (corpus.quran.com).',`
+  SONRA: `bodyEn: 'Prophet Moses (Musa) is the most mentioned prophet by name, 136 times. Prophet Muhammad appears 5 times (4 as "Muhammad", once as "Ahmad" in Al-Saff 61:6).\n\nNote: This count covers direct occurrences of the name "Musa" only; pronouns and indirect references are not included. Source: University of Leeds Quranic Arabic Corpus (corpus.quran.com).',`
+- ÖNCE: `bodyTr: 'Hz. İsa Kur\'an\'da 25 kez adıyla geçer; Hz. Muhammed ise "Muhammed" olarak 4 kez, "Ahmed" olarak 1 kez (Saff 61:6). İslam tefsirine göre "Ahmed" ismi Hz. Muhammed\'in bir diğer adıdır — bu okuma klasik tefsir görüşüdür.',`
+  SONRA: `bodyTr: 'Hz. İsa Kur\'an\'da 25 kez adıyla geçer; Hz. Muhammed ise "Muhammed" olarak 4 kez, "Ahmed" olarak 1 kez (Saff 61:6). İslam tefsirine göre "Ahmed" ismi Hz. Muhammed\'in bir diğer adıdır; bu okuma klasik tefsir görüşüdür.',`
+- ÖNCE: `bodyEn: 'Jesus (Isa) is mentioned by name 25 times in the Quran; Muhammad appears 4 times as "Muhammad" and once as "Ahmad" (As-Saff 61:6). In Islamic exegesis, "Ahmad" is understood as another name of Prophet Muhammad — this reading is the classical tafsir position.',`
+  SONRA: `bodyEn: 'Jesus (Isa) is mentioned by name 25 times in the Quran; Muhammad appears 4 times as "Muhammad" and once as "Ahmad" (As-Saff 61:6). In Islamic exegesis, "Ahmad" is understood as another name of Prophet Muhammad; this reading is the classical tafsir position.',`
+- ÖNCE: `labelTr: '"Hz. İsa" — "Muhammed" 4 kez ile karşılaştırın',`
+  SONRA: `labelTr: '"Hz. İsa"; "Muhammed" 4 kez ile karşılaştırın',`
+- ÖNCE: `labelEn: '"Jesus" — compare with "Muhammad" 4 times',`
+  SONRA: `labelEn: '"Jesus"; compare with "Muhammad" 4 times',`
+- ÖNCE: `bodyTr: 'Hz. Yûsuf\'un hikâyesi, Kur\'an\'da tamamen tek bir sûrede anlatılır — 111 ayet boyunca kesintisiz. Kur\'an bu hikâyeye "ahsenü\'l-kasas" (kıssaların en güzeli) adını verir.',`
+  SONRA: `bodyTr: 'Hz. Yûsuf\'un hikâyesi, Kur\'an\'da tamamen tek bir sûrede anlatılır; 111 ayet boyunca kesintisiz. Kur\'an bu hikâyeye "ahsenü\'l-kasas" (kıssaların en güzeli) adını verir.',`
+- ÖNCE: `bodyEn: 'The story of Prophet Joseph is told in a single, unbroken surah — 111 consecutive verses. The Quran itself names it "ahsan al-qasas" — the best of all stories.',`
+  SONRA: `bodyEn: 'The story of Prophet Joseph is told in a single, unbroken surah, 111 consecutive verses. The Quran itself names it "ahsan al-qasas", the best of all stories.',`
+- ÖNCE: `titleTr: 'Hz. Nuh\'un 950 Yılı — Ankebût 29:14',`
+  SONRA: `titleTr: 'Hz. Nuh\'un 950 Yılı: Ankebût 29:14',`
+- ÖNCE: `titleEn: 'Noah\'s 950 Years — Al-Ankabut 29:14',`
+  SONRA: `titleEn: 'Noah\'s 950 Years: Al-Ankabut 29:14',`
+- ÖNCE: `wowTr: '950 yıl — ayetin, kavmi arasında kalma süresi olarak verdiği belirgin bir rakam.',`
+  SONRA: `wowTr: '950 yıl: ayetin, kavmi arasında kalma süresi olarak verdiği rakam.',`
+- ÖNCE: `wowEn: '950 years — a striking figure the verse gives for his time among his people.',`
+  SONRA: `wowEn: '950 years: the figure the verse gives for his time among his people.',`
+- ÖNCE: `titleTr: 'Hz. Âdem — Günahta İkisi de Eşit',`
+  SONRA: `titleTr: 'Hz. Âdem: Günahta İkisi de Eşit',`
+- ÖNCE: `titleEn: 'Adam — Both Equally Responsible',`
+  SONRA: `titleEn: 'Adam: Both Equally Responsible',`
+- ÖNCE: `bodyTr: 'Kur\'an\'da Hz. Âdem ve Hz. Havva birlikte yanılır, birlikte pişman olur, birlikte af diler — A\'raf 7:22\'de fiiller ikildir: "aldattı", "tattılar", "utandılar", "dediler ki: Rabbimiz, kendimize zulmettik." Bu, yaygın bir okuma biçiminde Havva\'ya daha ağır bir sorumluluk yükleyen bazı Tekvin 3 yorumlarından belirgin bir farktır.',`
+  SONRA: `bodyTr: 'Kur\'an\'da Hz. Âdem ve Hz. Havva birlikte yanılır, birlikte pişman olur, birlikte af diler; A\'raf 7:22\'de fiiller ikildir: "aldattı", "tattılar", "utandılar", "dediler ki: Rabbimiz, kendimize zulmettik." Bu, yaygın bir okuma biçiminde Havva\'ya daha ağır bir sorumluluk yükleyen bazı Tekvin 3 yorumlarından belirgin bir farktır.',`
+- ÖNCE: `bodyEn: 'In the Quran, Adam and Eve err together, repent together, seek forgiveness together — in A\'raf 7:22, every verb is dual: "deceived them both," "they tasted," "they felt ashamed," "they said: Our Lord, we have wronged ourselves." This marks a clear contrast with some common readings of Genesis 3 that place heavier blame on Eve.',`
+  SONRA: `bodyEn: 'In the Quran, Adam and Eve err together, repent together, seek forgiveness together; in A\'raf 7:22, every verb is dual: "deceived them both," "they tasted," "they felt ashamed," "they said: Our Lord, we have wronged ourselves." This marks a clear contrast with some common readings of Genesis 3 that place heavier blame on Eve.',`
+- ÖNCE: `wowTr: 'Kur\'an\'da sorumluluk paylaşılır — ikisi birlikte yanılır, ikisi birlikte af diler.',`
+  SONRA: `wowTr: 'Kur\'an\'da sorumluluk paylaşılır; ikisi birlikte yanılır, ikisi birlikte af diler.',`
+- ÖNCE: `wowEn: 'In the Quran, responsibility is shared — both err together, both seek forgiveness together.',`
+  SONRA: `wowEn: 'In the Quran, responsibility is shared; both err together, both seek forgiveness together.',`
+- ÖNCE: `titleTr: 'Hz. Yunus — Hatası Anlatılan Peygamber',`
+  SONRA: `titleTr: 'Hz. Yunus: Hatası Anlatılan Peygamber',`
+- ÖNCE: `titleEn: 'Jonah — The Prophet Whose Error Is Told',`
+  SONRA: `titleEn: 'Jonah: The Prophet Whose Error Is Told',`
+- ÖNCE: `bodyTr: 'Kur\'an peygamberleri idealize etmez. Hz. Yunus, iznini almadan kavmini terk eder ve balığın karnında "Seni tenzih ederim, ben zalimlerden oldum" diye niyaz eder (Enbiyâ 21:87). İzinsiz ayrılış, pişmanlık, dua, kurtuluş — hepsi açıkça anlatılır. Bu, kitabın insani dürüstlüğünün belgesidir.',`
+  SONRA: `bodyTr: 'Kur\'an peygamberleri idealize etmez. Hz. Yunus, iznini almadan kavmini terk eder ve balığın karnında "Seni tenzih ederim, ben zalimlerden oldum" diye niyaz eder (Enbiyâ 21:87). İzinsiz ayrılış, pişmanlık, dua, kurtuluş; hepsi açıkça anlatılır. Bu, kitabın insani dürüstlüğünün belgesidir.',`
+- ÖNCE: `bodyEn: 'The Quran does not idealize its prophets. Jonah leaves his people without permission and calls out from inside the whale: "Glory be to You, I have been among the wrongdoers" (Al-Anbiya 21:87). Unauthorized departure, remorse, prayer, salvation — all told plainly. This is the book\'s human honesty on record.',`
+  SONRA: `bodyEn: 'The Quran does not idealize its prophets. Jonah leaves his people without permission and calls out from inside the whale: "Glory be to You, I have been among the wrongdoers" (Al-Anbiya 21:87). Unauthorized departure, remorse, prayer, salvation; all told plainly. This is the book\'s human honesty on record.',`
+- ÖNCE: `titleTr: 'Hz. Meryem — Bazı Havarilerden Daha Çok Anılıyor',`
+  SONRA: `titleTr: 'Hz. Meryem: Bazı Havarilerden Daha Çok Anılıyor',`
+- ÖNCE: `titleEn: 'Mary — More Mentioned Than Some Apostles',`
+  SONRA: `titleEn: 'Mary: More Mentioned Than Some Apostles',`
+- ÖNCE: `titleTr: 'Zeyd ibn Hârise — Adıyla Anılan Tek Sahabe',`
+  SONRA: `titleTr: 'Zeyd ibn Hârise: Adıyla Anılan Tek Sahabe',`
+- ÖNCE: `titleEn: 'Zayd ibn Harithah — The Only Companion Named by Name',`
+  SONRA: `titleEn: 'Zayd ibn Harithah: The Only Companion Named by Name',`
+- ÖNCE: `bodyTr: 'Kur\'an\'da adıyla zikredilen tek sahabe Zeyd ibn Hârise\'dir (Ahzâb 33:37). Hz. Peygamber\'in azatlı kölesi ve evlatlığıydı. O ayet, evlatlık kurumuna dair cahiliye geleneğini kökten değiştiren bir hüküm taşıyordu — tarihsel olayı tescillemek için isim zorunluydu. ℹ Genel kanıya göre diğer sahabeler isimleriyle geçmez; ancak bazı rivayetlerde dolaylı atıflar tartışılmaktadır.',`
+  SONRA: `bodyTr: 'Kur\'an\'da adıyla zikredilen tek sahabe Zeyd ibn Hârise\'dir (Ahzâb 33:37). Hz. Peygamber\'in azatlı kölesi ve evlatlığıydı. O ayet, evlatlık kurumuna dair cahiliye geleneğini kökten değiştiren bir hüküm taşıyordu; tarihsel olayı tescillemek için isim zorunluydu. Not: Genel kanıya göre diğer sahabeler isimleriyle geçmez; ancak bazı rivayetlerde dolaylı atıflar tartışılmaktadır.',`
+- ÖNCE: `bodyEn: 'The only companion named by name in the Quran is Zayd ibn Harithah (Al-Ahzab 33:37). He was the Prophet\'s freed slave and adopted son. That verse carried a ruling that fundamentally reformed the pre-Islamic institution of adoption — the historical event required the name. ℹ The scholarly consensus holds no other companion is named; some indirect references remain debated.',`
+  SONRA: `bodyEn: 'The only companion named by name in the Quran is Zayd ibn Harithah (Al-Ahzab 33:37). He was the Prophet\'s freed slave and adopted son. That verse carried a ruling that reformed the pre-Islamic institution of adoption at its root; the historical event required the name. Note: The scholarly consensus holds no other companion is named; some indirect references remain debated.',`
+- ÖNCE: `titleTr: 'Hz. İbrahim — Duaları Öne Çıkan Peygamberlerden',`
+  SONRA: `titleTr: 'Hz. İbrahim: Duaları Öne Çıkan Peygamberlerden',`
+- ÖNCE: `titleEn: 'Abraham — Among the Prophets Whose Prayers Stand Out',`
+  SONRA: `titleEn: 'Abraham: Among the Prophets Whose Prayers Stand Out',`
+- ÖNCE: `bodyEn: 'More than 10 distinct supplications of Prophet Abraham are recorded in the Quran. His prayers stand out in number and variety — he is among the prophets whose supplications the Quran preserves most prominently (alongside Moses, who is also given multiple distinct prayers). Each voices a different human need: offspring, peace, guidance, provision, forgiveness...',`
+  SONRA: `bodyEn: 'More than 10 distinct supplications of Prophet Abraham are recorded in the Quran. His prayers stand out in number and variety; he is among the prophets whose supplications the Quran preserves most prominently (alongside Moses, who is also given multiple distinct prayers). Each voices a different human need: offspring, peace, guidance, provision, forgiveness...',`
+- ÖNCE: `bodyTr: 'Kur\'an\'ın ilk inen ayeti "İkra" (Oku) emriyle başlar. 7. yüzyıl Arabistan\'ında okuryazarlık oranı son derece düşüktü — vahyin ilk emri okumaktı.',`
+  SONRA: `bodyTr: 'Kur\'an\'ın ilk inen ayeti "İkra" (Oku) emriyle başlar. 7. yüzyıl Arabistan\'ında okuryazarlık oranı son derece düşüktü; vahyin ilk emri okumaktı.',`
+- ÖNCE: `bodyEn: 'The first verse ever revealed begins with "Iqra" (Read). Literacy rates in 7th-century Arabia were extremely low — and the very first command of revelation was to read.',`
+  SONRA: `bodyEn: 'The first verse ever revealed begins with "Iqra" (Read). Literacy rates in 7th-century Arabia were extremely low, and the very first command of revelation was to read.',`
+- ÖNCE: `bodyTr: 'Kehf sûresi, mağara ashâbının "üç yüz yıl kaldığını, buna dokuz eklediklerini" söyler (18:25). Yaygın bir okuma: 300 güneş yılı, kamer takvimine göre yaklaşık 309 yıla denk gelir (300 güneş yılı ≈ 309 kamer yılı) — ayet "üç yüz"e "dokuz" ekleyerek bu farka işaret eder. Kimi müfessirler ise ifadeyi süre hakkındaki farklı görüşlerin aktarımı olarak okur; ayet "Allah ne kadar kaldıklarını en`
+  SONRA: `bodyTr: 'Kehf sûresi, mağara ashâbının "üç yüz yıl kaldığını, buna dokuz eklediklerini" söyler (18:25). Yaygın bir okuma: 300 güneş yılı, kamer takvimine göre yaklaşık 309 yıla denk gelir (300 güneş yılı ≈ 309 kamer yılı); ayet "üç yüz"e "dokuz" ekleyerek bu farka işaret eder. Kimi müfessirler ise ifadeyi süre hakkındaki farklı görüşlerin aktarımı olarak okur; ayet "Allah ne kadar kaldıklarını en `
+- ÖNCE: `bodyEn: 'Surah Al-Kahf says the cave dwellers "stayed three hundred years and added nine" (18:25). A common reading: 300 solar years correspond to about 309 lunar years (300 solar ≈ 309 lunar) — the verse adds "nine" to "three hundred," pointing to this difference. Some exegetes instead read it as reporting differing views on the duration; the verse continues, "Say: Allah knows best how long they `
+  SONRA: `bodyEn: 'Surah Al-Kahf says the cave dwellers "stayed three hundred years and added nine" (18:25). A common reading: 300 solar years correspond to about 309 lunar years (300 solar ≈ 309 lunar); the verse adds "nine" to "three hundred", pointing to this difference. Some exegetes instead read it as reporting differing views on the duration; the verse continues, "Say: Allah knows best how long they s`
+- ÖNCE: `wowTr: '300 güneş yılı, kamerî takvimde ~309 yıla denk gelir — ayetteki "üç yüz ve dokuz"un bir okuması.',`
+  SONRA: `wowTr: '300 güneş yılı kamerî takvimde yaklaşık 309 yıla denk gelir; ayetteki "üç yüz ve dokuz"un bir okuması.',`
+- ÖNCE: `wowEn: '300 solar years ≈ 309 lunar years — one reading of "three hundred and nine."',`
+  SONRA: `wowEn: '300 solar years ≈ 309 lunar years; one reading of "three hundred and nine".',`
+- ÖNCE: `titleTr: '"Alın" — Beynin Yalan Merkezi',`
+  SONRA: `titleTr: '"Alın" ve Beynin Yalan Merkezi İddiası',`
+- ÖNCE: `titleEn: '"Forehead" — The Brain\'s Lying Center',`
+  SONRA: `titleEn: '"Forehead" and the Brain\'s Lying Center Claim',`
+- ÖNCE: `bodyTr: 'Kur\'an yalancıyı "alından" yakalar (Alak 96:15-16). Bazı çağdaş yorumlar bunu prefrontal korteksle (alnın hemen arkası) ilişkilendirir; ancak \'beynin yalan merkezi\' olduğu ve fMRI ile kesin tespit edildiği iddiası nörobilimde tartışmalıdır.\n\nℹ️ Klasik tefsirde "nâsiye" rezalet ve zilletin mecazi sembolüdür — Taberi ve diğer müfessirler bu ifadeyi anatomiyle ilişkilendirmez. Nörobilim`
+  SONRA: `bodyTr: 'Kur\'an yalancıyı "alından" yakalar (Alak 96:15-16). Bazı çağdaş yorumlar bunu prefrontal korteksle (alnın hemen arkası) ilişkilendirir; ancak \'beynin yalan merkezi\' olduğu ve fMRI ile kesin tespit edildiği iddiası nörobilimde tartışmalıdır.\n\nNot: Klasik tefsirde "nâsiye" rezalet ve zilletin mecazi sembolüdür; Taberi ve diğer müfessirler bu ifadeyi anatomiyle ilişkilendirmez. Nörobili`
+- ÖNCE: `bodyEn: 'The Quran says the liar will be seized by the "forelock" (Al-Alaq 96:15-16). Some contemporary readings associate this with the prefrontal cortex (just behind the forehead); but the claim that it is the brain\'s \'lying center,\' definitively identified by fMRI, is contested in neuroscience.\n\nℹ️ In classical commentary, "nāsiyah" is a metaphor for disgrace and humiliation — classical sc`
+  SONRA: `bodyEn: 'The Quran says the liar will be seized by the "forelock" (Al-Alaq 96:15-16). Some contemporary readings associate this with the prefrontal cortex (just behind the forehead); but the claim that it is the brain\'s \'lying center,\' definitively identified by fMRI, is contested in neuroscience.\n\nNote: In classical commentary, "nāsiyah" is a metaphor for disgrace and humiliation; classical `
+- ÖNCE: `titleTr: '"Parmak Uçları" — Benzersiz Kimlik',`
+  SONRA: `titleTr: '"Parmak Uçları" ve Kişiye Özgü Kimlik',`
+- ÖNCE: `titleEn: '"Fingertips" — Unique Identity',`
+  SONRA: `titleEn: '"Fingertips" and Individual Identity',`
+- ÖNCE: `bodyTr: '"Parmak uçlarını bile yeniden düzeltmeye kadiriz" (Kıyâme 75:4). Tüm organlar arasında neden özellikle parmak uçları? 1880\'lerde belgelendi: Her insanın parmak izi eşsizdir. İkizlerde bile.\n\nℹ️ Klasik tefsirde bu ayet, kıyamette Allah\'ın yeniden yaratma gücünü anlatır — parmak uçları küçüklük ve inceliğin sembolü olarak kullanılır. Parmak izi benzersizliği bağlantısı çağdaş bir okumad`
+  SONRA: `bodyTr: '"Parmak uçlarını bile yeniden düzeltmeye kadiriz" (Kıyâme 75:4). Tüm organlar arasında neden özellikle parmak uçları? 1880\'lerde belgelendi: Her insanın parmak izi kendine özgüdür, ikizlerde bile.\n\nNot: Klasik tefsirde bu ayet, kıyamette Allah\'ın yeniden yaratma gücünü anlatır; parmak uçları küçüklük ve inceliğin sembolü olarak kullanılır. Parmak izi benzersizliği bağlantısı çağdaş bi`
+- ÖNCE: `bodyEn: '"We are able to restore even his fingertips" (Al-Qiyama 75:4). Of all body parts, why specifically fingertips? Documented in the 1880s: every person\'s fingerprint is unique. Even in identical twins.\n\nℹ️ In classical commentary, this verse describes God\'s power to resurrect — fingertips are used as a symbol of intricacy and smallness. The fingerprint uniqueness connection is a contempo`
+  SONRA: `bodyEn: '"We are able to restore even his fingertips" (Al-Qiyama 75:4). Of all body parts, why specifically fingertips? Documented in the 1880s: every person\'s fingerprint is their own, even in identical twins.\n\nNote: In classical commentary, this verse describes God\'s power to resurrect; fingertips are used as a symbol of intricacy and smallness. The fingerprint uniqueness connection is a con`
+- ÖNCE: `titleTr: '"Rahman" — Kur\'an\'ın Merkeze Aldığı İsim',`
+  SONRA: `titleTr: '"Rahman": Kur\'an\'ın Merkeze Aldığı İsim',`
+- ÖNCE: `titleEn: '"Rahman" — A Name the Quran Placed at the Center',`
+  SONRA: `titleEn: '"Rahman": A Name the Quran Placed at the Center',`
+- ÖNCE: `bodyTr: 'Kur\'an, "Rahman" ismini öyle bir merkeze aldı ki bu isim hem dile hem teolojiye kalıcı biçimde yerleşti. Her sûrenin başında, Fatiha\'da, Rahman sûresinin tamamında — bu isim Kur\'an\'ın dokusuna işlendi.',`
+  SONRA: `bodyTr: 'Kur\'an, "Rahman" ismini öyle bir merkeze aldı ki bu isim hem dile hem teolojiye kalıcı biçimde yerleşti. Her sûrenin başında, Fatiha\'da, Rahman sûresinin tamamında; bu isim Kur\'an\'ın dokusuna işlendi.',`
+- ÖNCE: `bodyEn: 'The Quran placed "Rahman" so centrally that it became permanently embedded in both language and theology. At the start of every surah, in Al-Fatiha, throughout Surah Ar-Rahman — this name was woven into the very fabric of the Quran.',`
+  SONRA: `bodyEn: 'The Quran placed "Rahman" so centrally that it became permanently embedded in both language and theology. At the start of every surah, in Al-Fatiha, throughout Surah Ar-Rahman; this name was woven into the fabric of the Quran.',`
+- ÖNCE: `wowTr: 'Kur\'an\'ın en çok tekrar eden isimlerinden biri — her sûrenin açılışında.',`
+  SONRA: `wowTr: 'Kur\'an\'ın en çok tekrar eden isimlerinden biri; her sûrenin açılışında.',`
+- ÖNCE: `wowEn: 'One of the most repeated names in the Quran — at the opening of every surah.',`
+  SONRA: `wowEn: 'One of the most repeated names in the Quran; at the opening of every surah.',`
+- ÖNCE: `bodyTr: 'Fatiha, Kur\'an\'ın ilk sûresi ve namazın ayrılmaz parçasıdır. İnsan her rekatta bu sûreyi okur — ama okuduğu kelimeler Allah\'ın vahyidir. Kul, Rabbi\'nin kendisine öğrettiği sözlerle Rabbine seslenir. Hadis-i kudsîde Allah şöyle buyurur: "Namazı kulumla aramda paylaştırdım; yarısı benim, yarısı kulumun..." (Müslim).',`
+  SONRA: `bodyTr: 'Fatiha, Kur\'an\'ın ilk sûresi ve namazın ayrılmaz parçasıdır. İnsan her rekatta bu sûreyi okur, ama okuduğu kelimeler Allah\'ın vahyidir. Kul, Rabbi\'nin kendisine öğrettiği sözlerle Rabbine seslenir. Hadis-i kudsîde Allah şöyle buyurur: "Namazı kulumla aramda paylaştırdım; yarısı benim, yarısı kulumun..." (Müslim).',`
+- ÖNCE: `bodyEn: 'Al-Fatiha is the opening surah of the Quran and the pillar of every prayer. A person recites it in every unit of prayer — yet the words they speak are God\'s own revelation. The servant calls upon his Lord using the words his Lord taught him. In a hadith qudsi, God says: "I have divided the prayer between Myself and My servant into two halves..." (Muslim).',`
+  SONRA: `bodyEn: 'Al-Fatiha is the opening surah of the Quran and the pillar of every prayer. A person recites it in every unit of prayer, yet the words they speak are God\'s own revelation. The servant calls upon his Lord using the words his Lord taught him. In a hadith qudsi, God says: "I have divided the prayer between Myself and My servant into two halves..." (Muslim).',`
+- ÖNCE: `wowEn: 'God taught His servant how to turn back to Him — in His own words.',`
+  SONRA: `wowEn: 'God taught His servant how to turn back to Him, in His own words.',`
+- ÖNCE: `wowTr: 'Klasik bir ahlâk çerçevesi — 18 ayette.',`
+  SONRA: `wowTr: 'Klasik bir ahlâk çerçevesi, 18 ayette.',`
+- ÖNCE: `wowEn: 'A classical moral framework — in 18 verses.',`
+  SONRA: `wowEn: 'A classical moral framework, in 18 verses.',`
+- ÖNCE: `wowTr: 'Klasik kelimeler — modern paraleller (felsefî gözlem).',`
+  SONRA: `wowTr: 'Klasik kelimeler, modern paraleller (felsefî gözlem).',`
+- ÖNCE: `wowEn: 'Classical words — modern parallels (philosophical observation).',`
+  SONRA: `wowEn: 'Classical words, modern parallels (philosophical observation).',`
+- ÖNCE: `bodyTr: 'Arabistan\'da inen bir kitap olmasına rağmen Kur\'an coğrafi detaylara odaklanmaz. "Deve" Arapçada 6 farklı sözcükle ifade edilebilir — Kur\'an bunları çok sınırlı kullanır. Kum, çöl, oasis gibi dönem Arabistanı\'nın olmazsa olmazları arka planda kalır; evrensel kavramlar öne çıkar.',`
+  SONRA: `bodyTr: 'Arabistan\'da inen bir kitap olmasına rağmen Kur\'an coğrafi detaylara odaklanmaz. "Deve" Arapçada 6 farklı sözcükle ifade edilebilir; Kur\'an bunları çok sınırlı kullanır. Kum, çöl, oasis gibi dönem Arabistanı\'nın olmazsa olmazları arka planda kalır; evrensel kavramlar öne çıkar.',`
+- ÖNCE: `bodyEn: 'Despite being revealed in Arabia, the Quran does not dwell on geographical detail. "Camel" can be expressed in 6 Arabic words — the Quran uses them sparingly. Sand, oasis, and other Arabian staples fade into the background; universal concepts take center stage.',`
+  SONRA: `bodyEn: 'Despite being revealed in Arabia, the Quran does not dwell on geographical detail. "Camel" can be expressed in 6 Arabic words; the Quran uses them sparingly. Sand, oasis, and other Arabian staples fade into the background; universal concepts take center stage.',`
+- ÖNCE: `wowTr: 'Evrensel bir kitap, yerel bir coğrafyada indi — ve coğrafyayı aşmayı seçti.',`
+  SONRA: `wowTr: 'Evrensel bir kitap, yerel bir coğrafyada indi ve coğrafyayı aşmayı seçti.',`
+- ÖNCE: `wowEn: 'A universal book descended in a local geography — and chose to transcend it.',`
+  SONRA: `wowEn: 'A universal book descended in a local geography and chose to transcend it.',`
+- ÖNCE: `titleTr: 'Kur\'an\'ın Sesi — Hiçbir Dile Tam Çevrilemiyor',`
+  SONRA: `titleTr: 'Kur\'an\'ın Sesi: Hiçbir Dile Tam Çevrilemiyor',`
+- ÖNCE: `titleEn: 'The Quran\'s Voice — Untranslatable Into Any Language',`
+  SONRA: `titleEn: 'The Quran\'s Voice: Untranslatable Into Any Language',`
+- ÖNCE: `titleTr: 'El-Asr — 14 Kelime, Tüm Rehber',`
+  SONRA: `titleTr: 'El-Asr: 14 Kelime, Tüm Rehber',`
+- ÖNCE: `titleEn: 'Al-Asr — 14 Words, Complete Guide',`
+  SONRA: `titleEn: 'Al-Asr: 14 Words, Complete Guide',`
+- ÖNCE: `bodyTr: 'El-Asr: 3 ayet, yaklaşık 14 kelime. İmam Şafii şöyle buyurdu: "İnsanlar bu sûreyi iyice düşünseydi, bu onlara yeterdi." (Beyhaki, Şuabu\'l-İman) Zaman yemini, insanın hüsranı, kurtuluşun 4 şartı (iman, amel, hak, sabır) — hepsi 3 ayette.',`
+  SONRA: `bodyTr: 'El-Asr: 3 ayet, yaklaşık 14 kelime. İmam Şafii şöyle buyurdu: "İnsanlar bu sûreyi iyice düşünseydi, bu onlara yeterdi." (Beyhaki, Şuabu\'l-İman) Zaman yemini, insanın hüsranı, kurtuluşun 4 şartı (iman, amel, hak, sabır); hepsi 3 ayette.',`
+- ÖNCE: `bodyEn: 'Al-Asr: 3 verses, approximately 14 words. Imam al-Shafi\'i said: "If people pondered this surah, it would be sufficient for them." (Al-Bayhaqi, Shu\'ab al-Iman) An oath by time, humanity\'s loss, and the 4 conditions of salvation (faith, deeds, truth, patience) — all in 3 verses.',`
+  SONRA: `bodyEn: 'Al-Asr: 3 verses, approximately 14 words. Imam al-Shafi\'i said: "If people pondered this surah, it would be sufficient for them." (Al-Bayhaqi, Shu\'ab al-Iman) An oath by time, humanity\'s loss, and the 4 conditions of salvation (faith, deeds, truth, patience); all in 3 verses.',`
+- ÖNCE: `wowEn: 'God\'s book defines itself — in dozens of different names.',`
+  SONRA: `wowEn: 'God\'s book defines itself, in dozens of different names.',`
+- ÖNCE: `titleTr: '"Hüden li\'l-Müttakîn" — Kur\'ân\'ın İlk Adı: Hidâyet',`
+  SONRA: `titleTr: '"Hüden li\'l-Müttakîn", Kur\'ân\'ın İlk Adı: Hidâyet',`
+- ÖNCE: `titleEn: '"Hudan li\'l-Muttaqīn" — The Qur\'an\'s First Name: Guidance',`
+  SONRA: `titleEn: '"Hudan li\'l-Muttaqīn", the Qur\'an\'s First Name: Guidance',`
+- ÖNCE: `bodyTr: 'Bakara 2:2\'de Kur\'ân kendini tanımlarken seçtiği ilk kelime: "hüden" (hidâyet/rehberlik). Âl-i İmrân 3:138\'de de aynı isim: "bu Kur\'ân insanlık için bir açıklamadır; takva sahipleri için de bir hidâyet ve bir öğüttür." Kur\'ân kendisini 114 sûre boyunca onlarca kez "hudâ" olarak anar — kimine göre 90 yerden fazla. İlk işaret ettiği işlev bilgi değil, yön.',`
+  SONRA: `bodyTr: 'Bakara 2:2\'de Kur\'ân kendini tanımlarken seçtiği ilk kelime: "hüden" (hidâyet/rehberlik). Âl-i İmrân 3:138\'de de aynı isim: "bu Kur\'ân insanlık için bir açıklamadır; takva sahipleri için de bir hidâyet ve bir öğüttür." Kur\'ân kendisini 114 sûre boyunca onlarca kez "hudâ" olarak anar; kimine göre 90 yerden fazla. İlk işaret ettiği işlev bilgi değil, yön.',`
+- ÖNCE: `bodyEn: 'In Q 2:2, the first word the Qur\'an chooses to describe itself is *hudan* (guidance). In Q 3:138 the same term: "This is an exposition for mankind — and a guidance and an admonition for the God-conscious." The Qur\'an refers to itself as *hudā* dozens of times across 114 surahs — by some counts over 90 occurrences. The first function it points to is not information but direction.',`
+  SONRA: `bodyEn: 'In Q 2:2, the first word the Qur\'an chooses to describe itself is *hudan* (guidance). In Q 3:138 the same term: "This is an exposition for mankind, and a guidance and an admonition for the God-conscious." The Qur\'an refers to itself as *hudā* dozens of times across 114 surahs; by some counts over 90 occurrences. The first function it points to is not information but direction.',`
+- ÖNCE: `wowTr: 'Kur\'ân\'ın kendine verdiği ilk isim bilgi değil — "yol".',`
+  SONRA: `wowTr: 'Kur\'ân\'ın kendine verdiği ilk isim bilgi değil, "yol".',`
+- ÖNCE: `wowEn: 'The Qur\'an\'s first self-name is not "knowledge" — it is "way."',`
+  SONRA: `wowEn: 'The Qur\'an\'s first self-name is not "knowledge" but "way".',`
+- ÖNCE: `titleTr: 'Furkân — "Hakkı Bâtıldan Ayıran"',`
+  SONRA: `titleTr: 'Furkân: "Hakkı Bâtıldan Ayıran"',`
+- ÖNCE: `titleEn: 'Furqān — "That Which Separates Truth from Falsehood"',`
+  SONRA: `titleEn: 'Furqān: "That Which Separates Truth from Falsehood"',`
+- ÖNCE: `bodyTr: 'Furkân sûresinin ilk ayeti Kur\'ân\'a bu ismi adeta bir nişan gibi takar: "Âlemlere uyarıcı olsun diye kulu Muhammed\'e Furkân\'ı indiren Allah yüceler yücesidir." (25:1). "Furkân" kelimesi "ayıran, sınırı çeken" anlamına gelir — hak ile bâtıl arasındaki çizgiyi. Klasik belâgatta bu isim Kur\'ân\'ın fonksiyonunu tarif eden en keskin adlandırmalardan biridir: bilgi vermek değil, karar vere`
+  SONRA: `bodyTr: 'Furkân sûresinin ilk ayeti Kur\'ân\'a bu ismi adeta bir nişan gibi takar: "Âlemlere uyarıcı olsun diye kulu Muhammed\'e Furkân\'ı indiren Allah yüceler yücesidir." (25:1). "Furkân" kelimesi "ayıran, sınırı çeken" anlamına gelir; hak ile bâtıl arasındaki çizgiyi çeken. Klasik belâgatta bu isim Kur\'ân\'ın fonksiyonunu tarif eden en keskin adlandırmalardan biridir: bilgi vermek değil, karar`
+- ÖNCE: `bodyEn: 'The opening verse of Sūrat al-Furqān places this name on the Qur\'an like a blazon: "Blessed is He who has sent down the Furqān upon His servant, that he may be a warner to the worlds." (Q 25:1). The word *furqān* means "that which separates, draws the boundary" — between truth and falsehood. In classical *balāgha* this name is among the sharpest descriptions of the Qur\'an\'s function: n`
+  SONRA: `bodyEn: 'The opening verse of Sūrat al-Furqān places this name on the Qur\'an like a blazon: "Blessed is He who has sent down the Furqān upon His servant, that he may be a warner to the worlds." (Q 25:1). The word *furqān* means "that which separates, draws the boundary", between truth and falsehood. In classical *balāgha* this name is among the sharpest descriptions of the Qur\'an\'s function: no`
+- ÖNCE: `titleTr: '"ez-Zikr" — Allah\'ın Koruduğunu Bildirdiği İsim',`
+  SONRA: `titleTr: '"ez-Zikr": Allah\'ın Koruduğunu Bildirdiği İsim',`
+- ÖNCE: `titleEn: '"al-Dhikr" — The Name Allah Promises to Preserve',`
+  SONRA: `titleEn: '"al-Dhikr": The Name Allah Promises to Preserve',`
+- ÖNCE: `bodyTr: 'Kur\'ân\'ın en ünlü koruma ayeti Hicr 15:9\'dur: "Kur\'ân\'ı kesinlikle biz indirdik; elbette onu yine biz koruyacağız." Ama ayetin orijinalinde "Kur\'ân" kelimesi geçmez — kullanılan isim "ez-Zikr"dir ("innâ nahnu nezzelne\'z-zikre ve innâ lehû le-hâfizûn"). Yani Allah\'ın "koruma" vaadi, özellikle "hatırlatma" işlevine verilmiştir. Klasik tefsir bu kelime seçimini dikkatli yorumlar: Kur`
+  SONRA: `bodyTr: 'Kur\'ân\'ın en ünlü koruma ayeti Hicr 15:9\'dur: "Kur\'ân\'ı kesinlikle biz indirdik; elbette onu yine biz koruyacağız." Ama ayetin orijinalinde "Kur\'ân" kelimesi geçmez; kullanılan isim "ez-Zikr"dir ("innâ nahnu nezzelne\'z-zikre ve innâ lehû le-hâfizûn"). Yani Allah\'ın "koruma" vaadi, özellikle "hatırlatma" işlevine verilmiştir. Klasik tefsir bu kelime seçimini dikkatli yorumlar: Kur\`
+- ÖNCE: `bodyEn: 'The Qur\'an\'s most famous preservation verse is Q 15:9: "Indeed, We have sent down the reminder, and indeed We will be its guardians." But the original Arabic does not use the word "Qur\'an" — the name is *al-dhikr* (the reminder). Allah\'s promise of preservation is given specifically to the *function* of reminding. Classical exegesis interprets this word-choice carefully: the Qur\'an i`
+  SONRA: `bodyEn: 'The Qur\'an\'s most famous preservation verse is Q 15:9: "Indeed, We have sent down the reminder, and indeed We will be its guardians." But the original Arabic does not use the word "Qur\'an"; the name is *al-dhikr* (the reminder). Allah\'s promise of preservation is given specifically to the *function* of reminding. Classical exegesis interprets this word-choice carefully: the Qur\'an is`
+- ÖNCE: `wowTr: 'Korunan ismin seçimi: "Kur\'ân" değil, "zikr" — unutulmaya karşı.',`
+  SONRA: `wowTr: 'Korunan ismin seçimi: "Kur\'ân" değil, "zikr"; unutulmaya karşı.',`
+- ÖNCE: `wowEn: 'The chosen name of the preserved: not "Qur\'an" but "the reminder" — against forgetting.',`
+  SONRA: `wowEn: 'The chosen name of the preserved: not "Qur\'an" but "the reminder"; against forgetting.',`
+- ÖNCE: `titleTr: '"Nûr" — Kur\'ân Bir Işık Olarak Tanımlanır',`
+  SONRA: `titleTr: '"Nûr": Kur\'ân Bir Işık Olarak Tanımlanır',`
+- ÖNCE: `titleEn: '"Nūr" — The Qur\'an Described as Light',`
+  SONRA: `titleEn: '"Nūr": The Qur\'an Described as Light',`
+- ÖNCE: `wowEn: 'The Qur\'an by its own name: "light." Not metaphor — an ontological claim.',`
+  SONRA: `wowEn: 'The Qur\'an by its own name: "light". Not a metaphor but an ontological claim.',`
+- ÖNCE: `titleTr: '"Şifâ" — Kur\'ân İç Hastalıkların İlacı Olarak Anılır',`
+  SONRA: `titleTr: '"Şifâ": Kur\'ân İç Hastalıkların İlacı Olarak Anılır',`
+- ÖNCE: `titleEn: '"Shifāʾ" — The Qur\'an Named as Cure for Inner Ailments',`
+  SONRA: `titleEn: '"Shifāʾ": The Qur\'an Named as Cure for Inner Ailments',`
+- ÖNCE: `bodyTr: 'İsrâ 17:82: "Biz, Kur\'ân\'dan öyle bir şey indiriyoruz ki o, müminler için şifa ve rahmettir; zalimlerin ise yalnızca ziyanını artırır." Klasik tefsir (Kurtubî, Râzî) bu şifayı iki katmanda okur: (1) ruhî-ahlâkî — şüphe, gurur, kibir, cimrilik gibi iç hastalıkların iyileşmesi, (2) bedensel — rukye bağlamında bazı hastalıklarda şifa vesilesi olma. Ama dikkat: klasik ulema "Kur\'ân her der`
+  SONRA: `bodyTr: 'İsrâ 17:82: "Biz, Kur\'ân\'dan öyle bir şey indiriyoruz ki o, müminler için şifa ve rahmettir; zalimlerin ise yalnızca ziyanını artırır." Klasik tefsir (Kurtubî, Râzî) bu şifayı iki katmanda okur: ruhî ve ahlâkî katmanda şüphe, gurur, kibir, cimrilik gibi iç hastalıkların iyileşmesi; bedensel katmanda rukye bağlamında bazı hastalıklarda şifa vesilesi olma. Ama dikkat: klasik ulema "Kur\'â`
+- ÖNCE: `bodyEn: 'Q 17:82: "And We send down from the Qur\'an that which is healing and a mercy for the believers; but it increases the wrongdoers in nothing but loss." Classical exegesis (al-Qurṭubī, al-Rāzī) reads this healing at two levels: (1) spiritual-ethical — the cure for inner diseases like doubt, arrogance, miserliness, (2) physical — through *ruqya* (recitation-based remedy) as a cause of healin`
+  SONRA: `bodyEn: 'Q 17:82: "And We send down from the Qur\'an that which is healing and a mercy for the believers; but it increases the wrongdoers in nothing but loss." Classical exegesis (al-Qurṭubī, al-Rāzī) reads this healing at two levels: the spiritual and ethical, the cure for inner diseases like doubt, arrogance and miserliness; and the physical, through *ruqya* (recitation-based remedy) as a cause `
+- ÖNCE: `wowTr: 'Aynı ayet — iman için şifa, zulüm için kayıp. Metin aynı, etki zıt.',`
+  SONRA: `wowTr: 'Aynı ayet; iman için şifa, zulüm için kayıp. Metin aynı, etki zıt.',`
+- ÖNCE: `wowEn: 'Same verse — healing for faith, loss for wrongdoing. Same text, opposite effects.',`
+  SONRA: `wowEn: 'Same verse; healing for faith, loss for wrongdoing. Same text, opposite effects.',`
+- ÖNCE: `{language === 'tr' ? <>İlk bakışta görünmeyen <em style={{ fontStyle: 'normal', color: COLORS.gold }}>örüntüler</em>, asla rastlantı olamayacak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>denklikler</em>, 1.400 yıldır içinde duran <em style={{ fontStyle: 'normal', color: COLORS.gold }}>sırlar</em> — tedebbürün açtığı kapılar.</> : <>Patterns invisible at first glance, equivalences too `
+  SONRA: `{language === 'tr' ? <>İlk bakışta görünmeyen <em style={{ fontStyle: 'normal', color: COLORS.gold }}>örüntüler</em>, asla rastlantı olamayacak <em style={{ fontStyle: 'normal', color: COLORS.gold }}>denklikler</em>, 1.400 yıldır içinde duran <em style={{ fontStyle: 'normal', color: COLORS.gold }}>sırlar</em>; tedebbürün açtığı kapılar.</> : <>Patterns invisible at first glance, equivalences too p`
+- ÖNCE: `{ href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: '50 çarpıcı gerçek — Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: '50 striking facts — the Quran\'s structure, architecture, language and content.' },`
+  SONRA: `{ href: `/${language}/arac/kurani-tani`, titleTr: 'Kur\'an\'ı Tanı', titleEn: 'Discover the Quran', descTr: '50 gerçek: Kur\'an\'ın yapısı, mimarisi, dili ve içeriği.', descEn: '50 facts: the Quran\'s structure, architecture, language and content.' },`
+- ÖNCE: `{ href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimsel okumalarla örtüşen Kur\'ânî işaretler — nüanslarıyla.', descEn: 'Quranic signs that align with modern scientific readings — with all their nuances.' },`
+  SONRA: `{ href: `/${language}/arac/bilimsel-isaretler`, titleTr: 'Bilimsel İşaretler', titleEn: 'Scientific Signs', descTr: 'Modern bilimsel okumalarla örtüşen Kur\'ânî işaretler, nüanslarıyla.', descEn: 'Quranic signs that align with modern scientific readings, with all their nuances.' },`
+- ÖNCE: `{ href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Kur\'ânî anlatılarla tarihsel bulguların temas noktaları — Firavun\'un bedeni, Hâmân.', descEn: 'Where Quranic narratives and historical findings touch — Pharaoh\'s body, Hāmān.' },`
+  SONRA: `{ href: `/${language}/arac/tarihsel-kanitlar`, titleTr: 'Tarihsel İzler', titleEn: 'Historical Traces', descTr: 'Kur\'ânî anlatılarla tarihsel bulguların temas noktaları: Firavun\'un bedeni, Hâmân.', descEn: 'Where Quranic narratives and historical findings touch: Pharaoh\'s body, Hāmān.' },`
+- ÖNCE: `noteTr: "Kur'ân ilimlerinin klasik ansiklopedisi — sayısal örüntüler, dil özellikleri, retorik incelikler için temel başvuru.",`
+  SONRA: `noteTr: "Kur'ân ilimlerinin klasik ansiklopedisi; sayısal örüntüler, dil özellikleri ve retorik incelikler için temel başvuru.",`
+- ÖNCE: `noteEn: 'Classical encyclopedia of Quranic sciences — foundational reference for numerical patterns, linguistic features, rhetorical subtleties.',`
+  SONRA: `noteEn: 'Classical encyclopedia of Quranic sciences; the foundational reference for numerical patterns, linguistic features and rhetorical subtleties.',`
+- ÖNCE: `noteTr: "Kur'ân ilimlerinin bir diğer klasik kompendyumu — mucize (iʿcâz), tenâsüb, münâsebet ve dilsel örüntüler.",`
+  SONRA: `noteTr: "Kur'ân ilimlerinin bir diğer klasik kompendyumu: mucize (iʿcâz), tenâsüb, münâsebet ve dilsel örüntüler.",`
+- ÖNCE: `noteEn: 'Another classical compendium of Quranic sciences — miraculousness (iʿjāz), munāsaba, and linguistic patterns.',`
+  SONRA: `noteEn: 'Another classical compendium of Quranic sciences: miraculousness (iʿjāz), munāsaba and linguistic patterns.',`
+
+### `next/src/sections/ProphetAtlas.jsx`
+
+- ÖNCE: `"Melekler ona secde etti — insanlık tarihinde ilk ve tek secde şerefi (2:34)",`
+  SONRA: `"Melekler ona secde etti; insanlık tarihinde ilk ve tek secde şerefi (2:34)",`
+- ÖNCE: `"İblis'in kibrinin nedeni: 'Ben ateşten, o çamurdan' — Kur'an'ın anlattığı ilk büyüklenme (7:12)",`
+  SONRA: `"İblis'in kibrinin nedeni: 'Ben ateşten, o çamurdan'; Kur'an'ın anlattığı ilk büyüklenme (7:12)",`
+- ÖNCE: `"Taught all names — knowledge the angels did not possess (2:31–33)",`
+  SONRA: `"Taught all the names; knowledge the angels did not possess (2:31-33)",`
+- ÖNCE: `"Angels prostrated to him — the first and only prostration in human history (2:34)",`
+  SONRA: `"The angels prostrated to him; the first and only prostration in human history (2:34)",`
+- ÖNCE: `"Iblis's pride: 'I am of fire, he of clay' — the Quran's first recorded arrogance (7:12)",`
+  SONRA: `"Iblis's pride: 'I am of fire, he of clay'; the Quran's first recorded arrogance (7:12)",`
+- ÖNCE: `noteTr: "Kur'an'ın en az söz ettiği peygamberlerden biri — sadece 2 kez geçer. Her kelimesi özenle seçilmiş.",`
+  SONRA: `noteTr: "Kur'an'ın en az söz ettiği peygamberlerden biri; yalnızca 2 kez geçer. Her kelimesi özenle seçilmiştir.",`
+- ÖNCE: `noteEn: "Among the least-mentioned prophets in the Quran — named only twice. Every word is precisely chosen.",`
+  SONRA: `noteEn: "Among the least-mentioned prophets in the Quran; named only twice. Every word is precisely chosen.",`
+- ÖNCE: `"'Şükredici kul' unvanıyla anıldı — Kur'an'da çok az kişiye verilmiş özel bir lakap (17:3)",`
+  SONRA: `"'Şükredici kul' unvanıyla anıldı; Kur'an'da çok az kişiye verilmiş bir lakap (17:3)",`
+- ÖNCE: `"Called 'a grateful servant' — a rare title given to very few in the Quran (17:3)",`
+  SONRA: `"Called 'a grateful servant'; a title given to very few in the Quran (17:3)",`
+- ÖNCE: `3: "Hûd 11:45-46 — Hz. Nuh oğlunu ailesi olarak sayarak onun da gemiye binmesini istedi. Allah, 'O senin ehlinden değil; o salih olmayan bir iş işledi' diye cevap verdi.",`
+  SONRA: `3: "Hûd 11:45-46: Hz. Nuh oğlunu ailesi olarak sayarak onun da gemiye binmesini istedi. Allah, 'O senin ehlinden değil; o salih olmayan bir iş işledi' diye cevap verdi.",`
+- ÖNCE: `4: "Sâffât 37:79 — 'Selâmun alâ Nûhin fi'l-âlemîn.' Bu formülasyonla âlemlere selam gönderilmesi Kur'an'da son derece nadir bir şereftir.",`
+  SONRA: `4: "Sâffât 37:79: 'Selâmun alâ Nûhin fi'l-âlemîn.' Bu formülle âlemlere selam gönderilmesi Kur'an'da çok nadir bir şereftir.",`
+- ÖNCE: `3: "Hud 11:45-46 — Noah asked Allah to save his son, counting him as family. Allah replied: 'He is not of your family; indeed, he is one whose work was other than righteous.'",`
+  SONRA: `3: "Hud 11:45-46: Noah asked Allah to save his son, counting him as family. Allah replied: 'He is not of your family; indeed, he is one whose work was other than righteous.'",`
+- ÖNCE: `4: "As-Saffat 37:79 — 'Peace be upon Noah among all the worlds.' This formulaic greeting sent across all worlds is an extremely rare honour in the Quran.",`
+  SONRA: `4: "As-Saffat 37:79: 'Peace be upon Noah among all the worlds.' A greeting sent across all the worlds is a very rare honour in the Quran.",`
+- ÖNCE: `"Kavmi ona 'beyinsiz' ve 'yalancı' dedi — Hz. Muhammed'e yapılan ithamlarla aynı (7:66)",`
+  SONRA: `"Kavmi ona 'beyinsiz' ve 'yalancı' dedi; Hz. Muhammed'e yapılan ithamlarla aynı (7:66)",`
+- ÖNCE: `"Kıyamete dek Âd'ın ardından lanet sürdü — 'uzak olsun Âd kavmi!' (11:60)",`
+  SONRA: `"Kıyamete dek Âd'ın ardından lanet sürdü: 'uzak olsun Âd kavmi!' (11:60)",`
+- ÖNCE: `"His people called him 'foolish' and 'liar' — the exact same slanders directed at the Prophet (7:66)",`
+  SONRA: `"His people called him 'foolish' and 'liar'; the same slanders later directed at the Prophet (7:66)",`
+- ÖNCE: `"'I am a trustworthy messenger to you' — and asked for no payment for his message (26:125–127)",`
+  SONRA: `"'I am a trustworthy messenger to you', and he asked no payment for his message (26:125-127)",`
+- ÖNCE: `"A curse was made to follow Aad until the Day of Judgment — 'Away with Aad!' (11:60)",`
+  SONRA: `"A curse was made to follow Aad until the Day of Judgment: 'Away with Aad!' (11:60)",`
+- ÖNCE: `2: "A'râf 7:66 — Kavminin ileri gelenleri 'Biz seni beyinsizlikte görüyoruz ve seni yalancılardan sanıyoruz' dedi. Kur'an bu ifadeyi bilinçli tekrar eder — Hz. Muhammed'e yapılan suçlamalarla örtüşmesi tesadüf değildir.",`
+  SONRA: `2: "A'râf 7:66: Kavminin ileri gelenleri 'Biz seni beyinsizlikte görüyoruz ve seni yalancılardan sanıyoruz' dedi. Kur'an bu ifadeyi bilinçli tekrar eder; Hz. Muhammed'e yapılan suçlamalarla örtüşmesi tesadüf değildir.",`
+- ÖNCE: `4: "Ahkâf 46:24-25 — Azap rüzgarını önce bulut sanan kavim, yaklaştığında gerçeği anladı. 'Her şeyi Rabbinin emriyle yerle bir eder' ifadesi Kur'an'ın en çarpıcı azap tasvirlerinden biridir.",`
+  SONRA: `4: "Ahkâf 46:24-25: Azap rüzgârını önce bulut sanan kavim, yaklaştığında gerçeği anladı. 'Her şeyi Rabbinin emriyle yerle bir eder' ifadesi Kur'an'ın en sert azap tasvirlerinden biridir.",`
+- ÖNCE: `2: "Al-Araf 7:66 — Their leaders said: 'We see you in foolishness and think you among the liars.' The Quran deliberately echoes this — its parallel with accusations against the Prophet is not coincidental.",`
+  SONRA: `2: "Al-Araf 7:66: Their leaders said: 'We see you in foolishness and think you among the liars.' The Quran deliberately echoes this; its parallel with the accusations against the Prophet is not coincidental.",`
+- ÖNCE: `4: "Al-Ahqaf 46:24-25 — The people first mistook the punishment for rain clouds. 'Destroying everything by the command of its Lord' is among the most vivid punishment descriptions in the Quran.",`
+  SONRA: `4: "Al-Ahqaf 46:24-25: The people first mistook the punishment for rain clouds. 'Destroying everything by the command of its Lord' is among the harshest punishment descriptions in the Quran.",`
+- ÖNCE: `"Semud, gök gürültüsüyle helak edildi — her kavmin azabı farklı (11:67)",`
+  SONRA: `"Semud gök gürültüsüyle helak edildi; her kavmin azabı farklıdır (11:67)",`
+- ÖNCE: `"Semud'un izi silindi; sadece yurtları kaldı — bugün Mada'in Sâlih (Hegra) adıyla bilinen UNESCO alanı (7:74)",`
+  SONRA: `"Semud'un izi silindi; yalnızca yurtları kaldı, bugün Mada'in Sâlih (Hegra) adıyla bilinen UNESCO alanı (7:74)",`
+- ÖNCE: `"The Thamud were destroyed by a thunderbolt — each people's punishment differs (11:67)",`
+  SONRA: `"The Thamud were destroyed by a thunderbolt; each people's punishment differs (11:67)",`
+- ÖNCE: `"The Thamud were wiped out; only their dwellings remained — today known as Mada'in Salih (Hegra), a UNESCO World Heritage Site (7:74)",`
+  SONRA: `"The Thamud were wiped out; only their dwellings remained, today known as Mada'in Salih (Hegra), a UNESCO World Heritage Site (7:74)",`
+- ÖNCE: `0: "A'râf 7:74 — 'Sizi Âd'dan sonra halifeler kıldı ve sizi yeryüzünde yerleştirdi; orada ovalarında saraylar, dağlarında evler yapıyorsunuz.' Semud'un kaya evleri bugün Suudi Arabistan'daki Mada'in Sâlih (Hegra) alanıyla örtüşmektedir — UNESCO Dünya Mirası.",`
+  SONRA: `0: "A'râf 7:74: 'Sizi Âd'dan sonra halifeler kıldı ve sizi yeryüzünde yerleştirdi; orada ovalarında saraylar, dağlarında evler yapıyorsunuz.' Semud'un kaya evleri bugün Suudi Arabistan'daki Mada'in Sâlih (Hegra) alanıyla örtüşmektedir; UNESCO Dünya Mirası.",`
+- ÖNCE: `2: "Neml 27:48-49 — Bu 9 kişi aynı zamanda Hz. Sâlih'i öldürmeyi de planlıyordu. Kur'an onların planından haberdar olduğunu bildiriyor.",`
+  SONRA: `2: "Neml 27:48-49: Bu 9 kişi aynı zamanda Hz. Sâlih'i öldürmeyi de planlıyordu. Kur'an onların planından haberdar olduğunu bildiriyor.",`
+- ÖNCE: `3: "Hûd 11:65 — Kur'an'ın geri sayım ultimatumu. Bu format — 'X gün sonra azap' — peygamber kıssaları içinde eşsizdir. Üç günün her biri için farklı alamet aktarılır (klasik tefsirlerde).",`
+  SONRA: `3: "Hûd 11:65: Kur'an'ın geri sayım ultimatumu. 'X gün sonra azap' formatı peygamber kıssaları içinde başka yerde görülmez. Klasik tefsirlerde üç günün her biri için farklı bir alamet aktarılır.",`
+- ÖNCE: `0: "Al-Araf 7:74 — 'He made you successors after Aad and settled you in the land; you take castles from its plains and carve houses from the mountains.' Thamud's rock-cut dwellings correspond to Mada'in Salih (Hegra) in Saudi Arabia — a UNESCO World Heritage Site.",`
+  SONRA: `0: "Al-Araf 7:74: 'He made you successors after Aad and settled you in the land; you take castles from its plains and carve houses from the mountains.' Thamud's rock-cut dwellings correspond to Mada'in Salih (Hegra) in Saudi Arabia, a UNESCO World Heritage Site.",`
+- ÖNCE: `2: "An-Naml 27:48-49 — These nine men also conspired to assassinate Salih. The Quran reveals their plot was known before they acted.",`
+  SONRA: `2: "An-Naml 27:48-49: These nine men also conspired to assassinate Salih. The Quran reveals that their plot was known before they acted.",`
+- ÖNCE: `3: "Hud 11:65 — The Quran's countdown ultimatum. This format — 'punishment in X days' — is unique among the prophet narratives. Classical tafsir records a different sign for each of the three days.",`
+  SONRA: `3: "Hud 11:65: The Quran's countdown ultimatum. The 'punishment in X days' format appears nowhere else among the prophet narratives. Classical tafsir records a different sign for each of the three days.",`
+- ÖNCE: `"Halîlullah — Allah'ın dostu unvanı; Kur'an'da yalnızca ona verilmiştir (4:125)",`
+  SONRA: `"Halîlullah: Allah'ın dostu unvanı; Kur'an'da yalnızca ona verilmiştir (4:125)",`
+- ÖNCE: `"Hanîf — ne Yahudi ne Hristiyan; saf tevhidin öncüsü (3:67)",`
+  SONRA: `"Hanîf: ne Yahudi ne Hristiyan; saf tevhidin öncüsü (3:67)",`
+- ÖNCE: `"Oğlunu kurban etmeye razı oldu — Allah bunu büyük bir sınav olarak nitelendirdi (37:103–107)",`
+  SONRA: `"Oğlunu kurban etmeye razı oldu; Allah bunu apaçık bir sınav olarak nitelendirdi (37:103-107)",`
+- ÖNCE: `"Khalilullah — Allah's intimate friend; a title given to no one else in the Quran (4:125)",`
+  SONRA: `"Khalilullah: Allah's intimate friend; a title given to no one else in the Quran (4:125)",`
+- ÖNCE: `"Hanif — neither Jewish nor Christian; the father of pure monotheism (3:67)",`
+  SONRA: `"Hanif: neither Jewish nor Christian; the father of pure monotheism (3:67)",`
+- ÖNCE: `"Consented to sacrifice his son — Allah declared this a 'manifest trial' (37:103–107)",`
+  SONRA: `"Consented to sacrifice his son; Allah declared this a 'manifest trial' (37:103-107)",`
+- ÖNCE: `0: "Nisâ 4:125 — 'Allah İbrahim'i dost (halîl) edindi.' Halîl, dostlukta en yüksek mertebe. Kur'an bu unvanı başka hiçbir peygambere vermez.",`
+  SONRA: `0: "Nisâ 4:125: 'Allah İbrahim'i dost (halîl) edindi.' Halîl, dostlukta en yüksek mertebedir. Kur'an bu unvanı başka hiçbir peygambere vermez.",`
+- ÖNCE: `2: "Tevbe 9:114 — 'İbrahim'in babası için istiğfar etmesi, yalnızca ona verdiği bir söz yüzündendi. Onun Allah'ın düşmanı olduğu açıkça belli olunca ondan uzaklaştı.' İstiğfar bir keşfin değil, vefanın ifadesidir.",`
+  SONRA: `2: "Tevbe 9:114: 'İbrahim'in babası için istiğfar etmesi, yalnızca ona verdiği bir söz yüzündendi. Onun Allah'ın düşmanı olduğu açıkça belli olunca ondan uzaklaştı.' Bu istiğfar vefanın ifadesidir.",`
+- ÖNCE: `3: "Enbiyâ 21:62-63 — 'Bunu kim yaptı?' diye sorduklarında İbrahim: 'Belki şunu yaptı, ona sorun, eğer konuşabiliyorsa.' Kendisi yaparken gördüklerine rağmen cevap veremediler. Kur'an'ın en keskin hiciv sahnesi.",`
+  SONRA: `3: "Enbiyâ 21:62-63: 'Bunu kim yaptı?' diye sorduklarında İbrahim: 'Belki şunu yaptı, ona sorun, eğer konuşabiliyorsa.' Kendisi yaparken gördükleri hâlde cevap veremediler. Kur'an'ın en keskin hiciv sahnelerinden biri.",`
+- ÖNCE: `7: "Sâffât 37:103-107 — Oğlu 'emrolunduğun şeyi yap' dedi, ikisi de teslim oldu. Allah son anda fidye gönderdi. 'İşte biz iyileri böyle mükâfatlandırırız.'",`
+  SONRA: `7: "Sâffât 37:103-107: Oğlu 'emrolunduğun şeyi yap' dedi, ikisi de teslim oldu. Allah son anda fidye gönderdi. 'İşte biz iyileri böyle mükâfatlandırırız.'",`
+- ÖNCE: `0: "An-Nisa 4:125 — 'Allah took Abraham as a khalil (intimate friend).' Khalil is the highest rank of friendship. The Quran grants this title to no other prophet.",`
+  SONRA: `0: "An-Nisa 4:125: 'Allah took Abraham as a khalil (intimate friend).' Khalil is the highest rank of friendship. The Quran grants this title to no other prophet.",`
+- ÖNCE: `2: "At-Tawbah 9:114 — 'Abraham's seeking forgiveness for his father was only because of a promise he had made. When it became clear that he was an enemy of Allah, he disassociated himself.' The intercession was loyalty, not ignorance.",`
+  SONRA: `2: "At-Tawbah 9:114: 'Abraham's seeking forgiveness for his father was only because of a promise he had made. When it became clear that he was an enemy of Allah, he disassociated himself.' The intercession was an act of loyalty.",`
+- ÖNCE: `3: "Al-Anbiya 21:62-63 — When asked who destroyed the idols, Ibrahim said: 'Perhaps the big one did it — ask him, if he can speak.' They had seen him do it but couldn't answer. The Quran's sharpest scene of wit.",`
+  SONRA: `3: "Al-Anbiya 21:62-63: When asked who destroyed the idols, Ibrahim said: 'Perhaps the big one did it; ask him, if he can speak.' They had seen him do it but could not answer. One of the Quran's sharpest scenes of wit.",`
+- ÖNCE: `7: "As-Saffat 37:103-107 — His son said: 'Do what you are commanded.' Both submitted. Allah sent a ransom at the last moment. 'Indeed, this was a clear trial.'",`
+  SONRA: `7: "As-Saffat 37:103-107: His son said: 'Do what you are commanded.' Both submitted. Allah sent a ransom at the last moment. 'Indeed, this was a clear trial.'",`
+- ÖNCE: `"Melekler misafir geldi; şehrin helak edileceğini, sabaha kadar ayrılmasını bildirdi — eşi geride kalacaktı (11:81)",`
+  SONRA: `"Melekler misafir geldi; şehrin helak edileceğini ve sabaha kadar ayrılması gerektiğini bildirdi. Eşi geride kalacaktı (11:81)",`
+- ÖNCE: `"Angels came as guests; informed him the city would be destroyed and he must leave before dawn — his wife would remain behind (11:81)",`
+  SONRA: `"Angels came as guests and told him the city would be destroyed and that he must leave before dawn. His wife would remain behind (11:81)",`
+- ÖNCE: `0: "Enbiyâ 21:71 — Kur'an'da başka bir peygamberle birlikte hicret ettiği açıkça zikredilen nadir peygamberlerden. Ankebût 26'da Hz. İbrahim 'Ben Rabbime hicret ediyorum' derken Hz. Lût da onunla beraberdir.",`
+  SONRA: `0: "Enbiyâ 21:71: Kur'an'da başka bir peygamberle birlikte hicret ettiği açıkça zikredilen nadir peygamberlerden. Ankebût 26'da Hz. İbrahim 'Ben Rabbime hicret ediyorum' derken Hz. Lût da onunla beraberdir.",`
+- ÖNCE: `4: "A'râf 7:83 — 'Onu ve ailesini kurtardık; karısı hariç — o geride kalanlardan oldu.' Tahrîm 66:10'da ise Lût'un karısı ihanet örneği olarak anılır. Kur'an'da eşi helak olan tek peygamber.",`
+  SONRA: `4: "A'râf 7:83: 'Onu ve ailesini kurtardık; karısı hariç, o geride kalanlardan oldu.' Tahrîm 66:10'da ise Lût'un karısı ihanet örneği olarak anılır. Kur'an'da eşi helak olan tek peygamber.",`
+- ÖNCE: `5: "Hûd 11:82 — 'Sicîl' kelimesi Arapça'da sert pişmiş kil anlamına gelir. Kur'an azabı bu somutluktaki detayıyla aktarır; her taşın belirli biri için işaretlendiği rivayet edilir.",`
+  SONRA: `5: "Hûd 11:82: 'Sicîl' kelimesi Arapçada sert pişmiş kil anlamına gelir. Kur'an azabı bu somutlukta aktarır; her taşın belirli biri için işaretlendiği rivayet edilir.",`
+- ÖNCE: `4: "At-Tahrim 66:10 — 'Allah presents as an example the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them.' The Quran explicitly records this tragic separation.",`
+  SONRA: `4: "At-Tahrim 66:10: 'Allah presents as an example the wife of Noah and the wife of Lot. They were under two of Our righteous servants but betrayed them.' The Quran explicitly records this tragic separation.",`
+- ÖNCE: `5: "Hud 11:82 — 'Sijjil' means hard baked clay in Arabic. The Quran conveys the punishment with this level of physical detail; classical tafsir records that each stone was marked for a specific person.",`
+  SONRA: `5: "Hud 11:82: 'Sijjil' means hard baked clay in Arabic. The Quran conveys the punishment with this level of physical detail; classical tafsir records that each stone was marked for a specific person.",`
+- ÖNCE: `"Sâdıku'l-va'd — 'sözüne sadık' unvanı; Kur'an'da yalnızca Hz. İsmâil'e verilmiştir (19:54)",`
+  SONRA: `"Sâdıku'l-va'd: 'sözüne sadık' unvanı; Kur'an'da yalnızca Hz. İsmâil'e verilmiştir (19:54)",`
+- ÖNCE: `"Kurban yerine büyük bir fidye — koç gönderildi (37:107)",`
+  SONRA: `"Kurban yerine büyük bir fidye, bir koç gönderildi (37:107)",`
+- ÖNCE: `"Sâdiq al-wa'd — 'true to his promise'; a title given exclusively to Ishmael in the Quran (19:54)",`
+  SONRA: `"Sâdiq al-wa'd: 'true to his promise'; a title given exclusively to Ishmael in the Quran (19:54)",`
+- ÖNCE: `"Submitted to his father's command to be sacrificed — 'both submitted' (37:102–103)",`
+  SONRA: `"Submitted to his father's command to be sacrificed; 'both submitted' (37:102-103)",`
+- ÖNCE: `"Ransomed with a great sacrifice — a ram sent in his place (37:107)",`
+  SONRA: `"Ransomed with a great sacrifice, a ram sent in his place (37:107)",`
+- ÖNCE: `0: "Meryem 19:54 — 'sâdıku'l-va'd' ifadesi Kur'an'da bir peygamber için kullanılan benzersiz bir unvandır. Hz. İsmâil'in babasına verdiği söze sadakati ve kurban anındaki teslimiyeti bu unvanın somut yansımasıdır.",`
+  SONRA: `0: "Meryem 19:54: 'sâdıku'l-va'd' ifadesi Kur'an'da yalnızca bu peygamber için kullanılan bir unvandır. Hz. İsmâil'in babasına verdiği söze sadakati ve kurban anındaki teslimiyeti bu unvanın somut yansımasıdır.",`
+- ÖNCE: `4: "Saffât 37:102 — 'Beraber teslim olduklarında...' (فَلَمَّا أَسْلَمَا). İki peygamberin aynı anda tam teslimiyeti — Kur'an'ın en dramatik sahnelerinden biri.",`
+  SONRA: `4: "Saffât 37:102: 'Beraber teslim olduklarında...' (فَلَمَّا أَسْلَمَا). İki peygamberin aynı anda tam teslimiyeti, Kur'an'ın en dramatik sahnelerinden biridir.",`
+- ÖNCE: `0: "Maryam 19:54 — 'sâdiq al-wa'd' is a unique title in the Quran applied to a prophet. Ishmael's faithfulness to his word to his father, and his submission at the moment of sacrifice, embody this title.",`
+  SONRA: `0: "Maryam 19:54: 'sâdiq al-wa'd' is a title the Quran applies to this prophet alone. Ishmael's faithfulness to his word to his father, and his submission at the moment of sacrifice, embody this title.",`
+- ÖNCE: `4: "As-Saffat 37:102 — 'When they had both submitted...' (فَلَمَّا أَسْلَمَا). Two prophets in complete submission simultaneously — one of the Quran's most dramatic scenes.",`
+  SONRA: `4: "As-Saffat 37:102: 'When they had both submitted...' (فَلَمَّا أَسْلَمَا). Two prophets in complete submission at the same moment, one of the Quran's most dramatic scenes.",`
+- ÖNCE: `duaNoteTr:'Hz. İbrahim ile birlikte — Kâbe inşası sırasında',`
+  SONRA: `duaNoteTr:'Hz. İbrahim ile birlikte, Kâbe inşası sırasında',`
+- ÖNCE: `duaNoteEn:'Together with Ibrahim — during the construction of the Ka\'bah',`
+  SONRA: `duaNoteEn:'Together with Ibrahim, during the construction of the Ka\'bah',`
+- ÖNCE: `"Soyu bereketli kılındı — peygamberler silsilesinin kaynağı oldu (37:113)",`
+  SONRA: `"Soyu bereketli kılındı; peygamberler silsilesinin kaynağı oldu (37:113)",`
+- ÖNCE: `"His progeny was blessed — he became the source of the chain of prophets (37:113)",`
+  SONRA: `"His progeny was blessed; he became the source of the chain of prophets (37:113)",`
+- ÖNCE: `"Commanded his sons never to despair of Allah's mercy — 'only disbelievers despair of Allah' (12:87)",`
+  SONRA: `"Commanded his sons never to despair of Allah's mercy: 'only disbelievers despair of Allah' (12:87)",`
+- ÖNCE: `"Was a man of knowledge — his understanding, given by Allah, was deep and precise (12:68)",`
+  SONRA: `"Was a man of knowledge; his understanding, given by Allah, was deep and precise (12:68)",`
+- ÖNCE: `"Sensed Joseph's scent from afar — said 'I can smell Joseph' before the caravan arrived (12:94)",`
+  SONRA: `"Sensed Joseph's scent from afar; said 'I can smell Joseph' before the caravan arrived (12:94)",`
+- ÖNCE: `0: "Yûsuf 12:86 — 'Ben derdimi ve üzüntümü ancak Allah'a arz ediyorum; Allah'tan sizin bilmediğinizi biliyorum.' Yıllar süren ayrılık ve körleşme — ama hiç şikâyet etmedi.",`
+  SONRA: `0: "Yûsuf 12:86: 'Ben derdimi ve üzüntümü ancak Allah'a arz ediyorum; Allah'tan sizin bilmediğinizi biliyorum.' Yıllar süren ayrılık ve körleşme; yine de hiç şikâyet etmedi.",`
+- ÖNCE: `2: "Yûsuf 12:68 — Ayet 'öğrettiğimizden ötürü ilim sahibiydi' diyor. Bu, ona verilmiş ilâhî bir kavrayış; gaybı bilmek değil, olayların arkasındaki hikmeti görebilmek.",`
+  SONRA: `2: "Yûsuf 12:68: Ayet 'öğrettiğimizden ötürü ilim sahibiydi' diyor. Bu, ona verilmiş ilâhî bir kavrayıştır; gaybı bilmek değil, olayların arkasındaki hikmeti görebilmek.",`
+- ÖNCE: `4: "Yûsuf 12:94 — 'Eğer bana bunak demeseydiniz Yûsuf'un kokusunu alıyorum.' Peygamber sezgisi: kervan Mısır'dan yola çıkmıştı, haberi henüz Kenan'a ulaşmamıştı.",`
+  SONRA: `4: "Yûsuf 12:94: 'Eğer bana bunak demeseydiniz, Yûsuf'un kokusunu alıyorum.' Peygamber sezgisi: kervan Mısır'dan yola çıkmıştı, haberi henüz Kenan'a ulaşmamıştı.",`
+- ÖNCE: `0: "Yusuf 12:86 — 'I only complain of my suffering and my grief to Allah, and I know from Allah what you do not know.' Years of separation and blindness — yet never complained to others.",`
+  SONRA: `0: "Yusuf 12:86: 'I only complain of my suffering and my grief to Allah, and I know from Allah what you do not know.' Years of separation and blindness, yet he never complained to others.",`
+- ÖNCE: `2: "Yusuf 12:68 — The verse says 'a possessor of knowledge because of what We taught him.' This is divinely-gifted understanding, not knowledge of the unseen — the ability to perceive the wisdom behind events.",`
+  SONRA: `2: "Yusuf 12:68: The verse says 'a possessor of knowledge because of what We taught him.' This is divinely gifted understanding, not knowledge of the unseen: the ability to perceive the wisdom behind events.",`
+- ÖNCE: `4: "Yusuf 12:94 — 'If you did not think me weakened in judgement, I would say I sense the smell of Joseph.' Prophetic perception: the caravan had just departed Egypt, the news had not yet reached Canaan.",`
+  SONRA: `4: "Yusuf 12:94: 'If you did not think me weakened in judgement, I would say I sense the smell of Joseph.' Prophetic perception: the caravan had just departed Egypt, and the news had not yet reached Canaan.",`
+- ÖNCE: `"Zindanda bile tebliğ etti — rüya tabirini orada iki mahkuma gösterdi (12:37)",`
+  SONRA: `"Zindanda bile tebliğ etti; rüya tabirini orada iki mahkûma gösterdi (12:37)",`
+- ÖNCE: `"The Quran itself calls this story 'the best of stories' — a unique self-reference (12:3)",`
+  SONRA: `"The Quran itself calls this story 'the best of stories'; a self-reference found nowhere else (12:3)",`
+- ÖNCE: `"Even in prison he taught — demonstrated dream interpretation to two fellow inmates (12:37)",`
+  SONRA: `"Even in prison he taught; he demonstrated dream interpretation to two fellow inmates (12:37)",`
+- ÖNCE: `3: "Yûsuf 12:24 — 'Eğer Rabbinin burhanını görmeseydi...' Buradaki 'burhan' (açık delil/işaret) müfessirler arasında en çok tartışılan ifadelerden biri. Bunun ne olduğu kesin bilinmiyor — ilâhî bir ikaz mı, aklî bir uyarı mı, vahiy mi? Ayet kesin bir tanım vermiyor.",`
+  SONRA: `3: "Yûsuf 12:24: 'Eğer Rabbinin burhanını görmeseydi...' Buradaki 'burhan' (açık delil, işaret) müfessirler arasında en çok tartışılan ifadelerden biridir. Ne olduğu kesin bilinmiyor: ilâhî bir ikaz mı, aklî bir uyarı mı, vahiy mi? Ayet kesin bir tanım vermiyor.",`
+- ÖNCE: `3: "Yusuf 12:24 — 'Had he not seen the burhan of his Lord...' This 'burhan' (clear sign/proof) is one of the most debated terms in tafsir literature. What it was exactly is not specified in the Quran — a divine warning, rational restraint, or revelation? The verse leaves it open.",`
+  SONRA: `3: "Yusuf 12:24: 'Had he not seen the burhan of his Lord...' This 'burhan' (clear sign, proof) is one of the most debated terms in tafsir literature. What it was exactly is not specified in the Quran: a divine warning, rational restraint, or revelation? The verse leaves it open.",`
+- ÖNCE: `"Kavmi ona 'namazın mı seni bunları yasaklıyor?' diye sordu — dini baskının açık ifadesi (11:87)",`
+  SONRA: `"Kavmi ona 'namazın mı seni bunları yasaklıyor?' diye sordu; dinî baskının açık ifadesi (11:87)",`
+- ÖNCE: `"Kavmi onu zayıf gördü: 'Kabilenin hatırı olmasaydı seni taşlardık' — gücünü imanından değil kabilesinden sandılar (11:91)",`
+  SONRA: `"Kavmi onu zayıf gördü: 'Kabilenin hatırı olmasaydı seni taşlardık.' Gücünü imanından değil kabilesinden sandılar (11:91)",`
+- ÖNCE: `"His people said 'Does your prayer command you to abandon what our fathers worshipped?' — open religious coercion (11:87)",`
+  SONRA: `"His people said 'Does your prayer command you to abandon what our fathers worshipped?'; open religious coercion (11:87)",`
+- ÖNCE: `"His people saw him as weak: 'Were it not for your clan, we would stone you' — they mistook his strength for tribal loyalty, not faith (11:91)",`
+  SONRA: `"His people saw him as weak: 'Were it not for your clan, we would stone you.' They mistook his strength for tribal loyalty rather than faith (11:91)",`
+- ÖNCE: `3: "Hûd 11:91 — 'Ey Şuayb! Söylediklerinin çoğunu anlamıyoruz. Seni aramızda zayıf görüyoruz. Kabilenin hatırı olmasaydı seni taşlardık.' Kur'an'da kabile baskısını bu kadar açık anlatan ender sahnelerden biri.",`
+  SONRA: `3: "Hûd 11:91: 'Ey Şuayb! Söylediklerinin çoğunu anlamıyoruz. Seni aramızda zayıf görüyoruz. Kabilenin hatırı olmasaydı seni taşlardık.' Kur'an'da kabile baskısını bu kadar açık anlatan ender sahnelerden biri.",`
+- ÖNCE: `3: "Hud 11:91 — 'O Shu'ayb! We do not understand much of what you say, and indeed we consider you weak among us. Were it not for your family, we would stone you.' One of the Quran's most explicit depictions of tribal coercion overriding faith.",`
+  SONRA: `3: "Hud 11:91: 'O Shu'ayb! We do not understand much of what you say, and indeed we consider you weak among us. Were it not for your family, we would stone you.' One of the Quran's most explicit depictions of tribal coercion overriding faith.",`
+- ÖNCE: `duaNoteTr:'Mü\'minlerle birlikte — toplu niyaz',`
+  SONRA: `duaNoteTr:'Mü\'minlerle birlikte, toplu niyaz',`
+- ÖNCE: `"His family was given back doubled as mercy from Allah — a lesson for those of understanding (38:43)",`
+  SONRA: `"His family was given back doubled as mercy from Allah; a lesson for those of understanding (38:43)",`
+- ÖNCE: `"Kelîmullah — Allah onunla bizzat, doğrudan konuştu (4:164)",`
+  SONRA: `"Kelîmullah: Allah onunla bizzat, doğrudan konuştu (4:164)",`
+- ÖNCE: `"Annesine vahiy gönderildi: 'Onu sandığa koy, nehre bırak' — peygamber olmayan birine vahiy (20:38)",`
+  SONRA: `"Annesine vahiy gönderildi: 'Onu sandığa koy, nehre bırak.' Peygamber olmayan birine vahiy (20:38)",`
+- ÖNCE: `"Firavuna 'yumuşak söz söyleyin' emri — Hz. Hârûn ile birlikte gönderilmesinin hikmeti (20:44)",`
+  SONRA: `"Firavun'a 'yumuşak söz söyleyin' emri; Hz. Hârûn ile birlikte gönderilmesinin hikmeti (20:44)",`
+- ÖNCE: `"Ülü'l-azm — beş büyük peygamberin arasında Hz. Nuh, Hz. İbrahim, Hz. İsa ile anıldı (33:7)",`
+  SONRA: `"Ülü'l-azm: beş büyük peygamber arasında Hz. Nuh, Hz. İbrahim ve Hz. İsa ile anıldı (33:7)",`
+- ÖNCE: `"Kalimullah — Allah spoke to him directly and without intermediary (4:164)",`
+  SONRA: `"Kalimullah: Allah spoke to him directly and without intermediary (4:164)",`
+- ÖNCE: `"His mother received inspiration: 'Place him in a chest and cast it into the river' — revelation to a non-prophet (20:38)",`
+  SONRA: `"His mother received inspiration: 'Place him in a chest and cast it into the river.' Revelation to a non-prophet (20:38)",`
+- ÖNCE: `"Commanded to speak to Pharaoh with 'gentle speech' — the wisdom behind sending Hz. Aaron too (20:44)",`
+  SONRA: `"Commanded to speak to Pharaoh with 'gentle speech'; the wisdom behind sending Aaron with him (20:44)",`
+- ÖNCE: `"Ulu'l-azm — one of the five greatest prophets, named alongside Hz. Noah, Hz. Abraham and Hz. Jesus (33:7)",`
+  SONRA: `"Ulu'l-azm: one of the five greatest prophets, named alongside Noah, Abraham and Jesus (33:7)",`
+- ÖNCE: `"Hz. Musa'nın bizzat duasıyla peygamber yapıldı — başka bir peygamberin niyazıyla görevlendirilen nadir örnek (20:29-36)",`
+  SONRA: `"Hz. Musa'nın bizzat duasıyla peygamber yapıldı; başka bir peygamberin niyazıyla görevlendirilen nadir örnek (20:29-36)",`
+- ÖNCE: `"Made a prophet through Moses' own prayer — a rare case of prophethood granted through another prophet's supplication (20:29-36)",`
+  SONRA: `"Made a prophet through Moses' own prayer; a rare case of prophethood granted through another prophet's supplication (20:29-36)",`
+- ÖNCE: `2: "Kasas 28:34 — 'Kardeşim Hârûn, benden daha fasih konuşur.' Bu, Allah'ın Hârûn'u nitelendirdiği bir ayet değil; Hz. Musa'nın kendisi için 'dilim tutulur' diye Allah'a yaptığı başvurudaki ifadesidir.",`
+  SONRA: `2: "Kasas 28:34: 'Kardeşim Hârûn, benden daha fasih konuşur.' Bu, Allah'ın Hârûn'u nitelendirdiği bir ayet değil; Hz. Musa'nın kendisi için 'dilim tutulur' diye Allah'a yaptığı başvurudaki ifadesidir.",`
+- ÖNCE: `4: "A'râf 7:150 — Hz. Musa döndüğünde levhaları fırlattı ve Hârûn'u saçından tuttu. Hârûn: 'Ey annemin oğlu! Beni saçımdan ve sakalımdan tutma. Ben senin düşmanlarını sevindirmekten korktum.' Kur'an'daki en insani kardeş diyaloğu.",`
+  SONRA: `4: "A'râf 7:150: Hz. Musa döndüğünde levhaları fırlattı ve Hârûn'u saçından tuttu. Hârûn: 'Ey annemin oğlu! Beni saçımdan ve sakalımdan tutma. Ben senin düşmanlarını sevindirmekten korktum.' Kur'an'daki en insanî kardeş diyaloglarından biri.",`
+- ÖNCE: `2: "Al-Qasas 28:34 — 'My brother Aaron is more eloquent in speech than I.' This is not Allah's description of Aaron — it is Moses' own plea to Allah, citing his own speech difficulty as the reason he needs support.",`
+  SONRA: `2: "Al-Qasas 28:34: 'My brother Aaron is more eloquent in speech than I.' This is not Allah's description of Aaron; it is Moses' own plea to Allah, citing his own speech difficulty as the reason he needs support.",`
+- ÖNCE: `4: "Al-A'raf 7:150 — Moses threw down the tablets and seized Aaron by the hair. Aaron said: 'O son of my mother, do not seize me by my beard or head. I feared you would say: you have caused division among the Children of Israel.' One of the Quran's most human sibling exchanges.",`
+  SONRA: `4: "Al-A'raf 7:150: Moses threw down the tablets and seized Aaron by the hair. Aaron said: 'O son of my mother, do not seize me by my beard or head. I feared you would say: you have caused division among the Children of Israel.' One of the Quran's most human sibling exchanges.",`
+- ÖNCE: `"'Eğer tesbih edenlerden olmasaydı kıyamete kadar kalırdı' — geçmiş ibadetinin meyvesi (37:143-144)",`
+  SONRA: `"'Eğer tesbih edenlerden olmasaydı kıyamete kadar kalırdı'; geçmiş ibadetinin meyvesi (37:143-144)",`
+- ÖNCE: `"Kavmi azap gelmeden iman etti ve kurtuldu — Kur'an'da buna tek örnek (10:98)",`
+  SONRA: `"Kavmi azap gelmeden iman etti ve kurtuldu; Kur'an'da bunun tek örneği (10:98)",`
+- ÖNCE: `"His people believed before the punishment arrived and were spared — the only such case in the Quran (10:98)",`
+  SONRA: `"His people believed before the punishment arrived and were spared; the only such case in the Quran (10:98)",`
+- ÖNCE: `giftsTooltipsTr: { 2: 'Sâffât 143-144\'teki bu ifade, Hz. Yûnus\'un önceki tesbihlerinin balığın karnında duasının kabulüne vesile olduğuna işaret eder — müfessirlerin büyük çoğunluğunun benimsediği yorum.' },`
+  SONRA: `giftsTooltipsTr: { 2: 'Sâffât 143-144\'teki bu ifade, Hz. Yûnus\'un önceki tesbihlerinin balığın karnında duasının kabulüne vesile olduğuna işaret eder; müfessirlerin büyük çoğunluğunun benimsediği yorum budur.' },`
+- ÖNCE: `giftsTooltipsEn: { 2: 'This clause in Ṣāffāt 143-144 indicates that his prior glorifications were the means by which his prayer was answered in the whale — the interpretation held by the majority of classical scholars.' },`
+  SONRA: `giftsTooltipsEn: { 2: 'This clause in Ṣāffāt 143-144 indicates that his prior glorifications were the means by which his prayer was answered in the whale; this is the interpretation held by the majority of classical scholars.' },`
+- ÖNCE: `"Mürselîn — gönderilen peygamberler arasında tescillendi (37:123)",`
+  SONRA: `"Mürselîn: gönderilen peygamberler arasında tescillendi (37:123)",`
+- ÖNCE: `"Kavmine 'Allah'tan korkun' diyerek tebliğ etti; Baal'a değil, âlemlerin en güzel yaratıcısına çağırdı (37:124-125)",`
+  SONRA: `"Kavmine 'Allah'tan korkun' diyerek tebliğ etti; onları Baal'a değil, âlemlerin en güzel yaratıcısına çağırdı (37:124-125)",`
+- ÖNCE: `"'İl-Yâsîn'e selam olsun' — âlemlerde selamla anıldı; Hz. Nuh'a verilen selamla aynı formülasyon (37:130)",`
+  SONRA: `"'İl-Yâsîn'e selam olsun': âlemlerde selamla anıldı; Hz. Nuh'a verilen selamla aynı formül (37:130)",`
+- ÖNCE: `"Among the Mursal — registered among the sent messengers (37:123)",`
+  SONRA: `"Among the Mursal: registered among the sent messengers (37:123)",`
+- ÖNCE: `"Called his people: 'Will you not fear Allah?' — inviting them to the finest of creators, not Baal (37:124-125)",`
+  SONRA: `"Called his people: 'Will you not fear Allah?' He invited them to the finest of creators, not to Baal (37:124-125)",`
+- ÖNCE: `"'Peace upon Il-Yasin' — greeted across all the worlds; same formula as the greeting given to Noah (37:130)",`
+  SONRA: `"'Peace upon Il-Yasin': greeted across all the worlds; the same formula as the greeting given to Noah (37:130)",`
+- ÖNCE: `3: "Saffât 37:130 — 'İl-Yâsîn'e selam olsun' ifadesi klasik tefsirde tartışmalıdır. Büyük çoğunluk bunun Hz. İlyâs'ın başka bir adı veya kavminin adı olduğunu söyler. Bazı müfessirler Hz. İdrîs'i, bazıları Hz. Muhammed (s.a.v.) soyunu kasteder. Kur'an kesin bir açıklama yapmıyor; bu belirsizlik bilinçli olabilir.",`
+  SONRA: `3: "Saffât 37:130: 'İl-Yâsîn'e selam olsun' ifadesi klasik tefsirde tartışmalıdır. Büyük çoğunluk bunun Hz. İlyâs'ın başka bir adı veya kavminin adı olduğunu söyler. Bazı müfessirler Hz. İdrîs'i, bazıları Hz. Muhammed'in (s.a.v.) soyunu kasteder. Kur'an kesin bir açıklama yapmıyor; bu belirsizlik bilinçli olabilir.",`
+- ÖNCE: `3: "As-Saffat 37:130 — The phrase 'Peace upon Il-Yasin' is debated in classical tafsir. Most commentators say it is another name for Elijah or refers to his community. Some cite Idris; others link it to the Prophet's lineage. The Quran does not clarify — this ambiguity may itself be intentional.",`
+  SONRA: `3: "As-Saffat 37:130: The phrase 'Peace upon Il-Yasin' is debated in classical tafsir. Most commentators say it is another name for Elijah or refers to his community. Some cite Idris; others link it to the Prophet's lineage. The Quran does not clarify, and this ambiguity may itself be intentional.",`
+- ÖNCE: `"Hz. İlyâs'ın ardından gelen peygamber olduğu kabul edilir — Kur'an ikisini aynı listede zikreder, halef ilişkisini açıkça belirtmez (38:48)",`
+  SONRA: `"Hz. İlyâs'ın ardından gelen peygamber olduğu kabul edilir; Kur'an ikisini aynı listede zikreder ama halef ilişkisini açıkça belirtmez (38:48)",`
+- ÖNCE: `"Traditionally regarded as the prophet who came after Elijah — the Quran places them in the same list but does not explicitly state succession (38:48)",`
+  SONRA: `"Traditionally regarded as the prophet who came after Elijah; the Quran places them in the same list but does not explicitly state succession (38:48)",`
+- ÖNCE: `2: "Sâd 38:48 — Kur'an Hz. İlyâs ve Hz. Elyesâ'yı birlikte zikretse de aralarındaki halef ilişkisi doğrudan Kur'an metniyle değil, İsrailiyyât ve tefsir geleneğiyle aktarılır.",`
+  SONRA: `2: "Sâd 38:48: Kur'an Hz. İlyâs ve Hz. Elyesâ'yı birlikte zikretse de aralarındaki halef ilişkisi doğrudan Kur'an metniyle değil, İsrailiyyât ve tefsir geleneğiyle aktarılır.",`
+- ÖNCE: `2: "Sad 38:48 — While the Quran mentions Elijah and Elisha together, the succession relationship between them comes from tafsir tradition and Isra'iliyyat, not directly from the Quranic text.",`
+  SONRA: `2: "Sad 38:48: While the Quran mentions Elijah and Elisha together, the succession relationship between them comes from tafsir tradition and Isra'iliyyat, not directly from the Quranic text.",`
+- ÖNCE: `"İki ayrı sûrede, iki ayrı seçkin liste içinde anılması — Kur'an'ın ona verdiği çifte tescil (21:85)(38:48)",`
+  SONRA: `"İki ayrı sûrede, iki ayrı seçkin liste içinde anılır; Kur'an'ın ona verdiği çifte tescil (21:85)(38:48)",`
+- ÖNCE: `"Counted among the patient alongside Ishmael and Idris — all three distinguished by patience in a single verse (21:85)",`
+  SONRA: `"Counted among the patient alongside Ishmael and Idris; all three distinguished by patience in a single verse (21:85)",`
+- ÖNCE: `"Mentioned in two separate suras in two different elite lists — a double attestation by the Quran (21:85)(38:48)",`
+  SONRA: `"Mentioned in two separate suras in two different elite lists; a double attestation by the Quran (21:85)(38:48)",`
+- ÖNCE: `"The name 'Dhul-Kifl' means 'the one who undertakes a pledge' — itself a characterization (21:85)",`
+  SONRA: `"The name 'Dhul-Kifl' means 'the one who undertakes a pledge'; the name itself is a characterization (21:85)",`
+- ÖNCE: `4: "Enbiyâ 21:85 — 'Zülkifl' isminin kime atıfta bulunduğu klasik tefsirde tartışmalıdır; Hz. Hizkil (Hezekiel), Hz. Elyesâ veya başka bir peygamber önerilmiştir. Kimliği Kur'an metninden net biçimde çıkarılamaz.",`
+  SONRA: `4: "Enbiyâ 21:85: 'Zülkifl' isminin kime atıfta bulunduğu klasik tefsirde tartışmalıdır; Hz. Hizkil (Hezekiel), Hz. Elyesâ veya başka bir peygamber önerilmiştir. Kimliği Kur'an metninden net biçimde çıkarılamaz.",`
+- ÖNCE: `0: "The Quran does not explicitly give Dhul-Kifl the title of 'prophet' or 'messenger' — only that he was among the patient. His prophetic status is debated: Ibn Kathir and Tabari held he was a prophet, while others considered him a righteous servant.",`
+  SONRA: `0: "The Quran does not explicitly give Dhul-Kifl the title of 'prophet' or 'messenger'; it says only that he was among the patient. His prophetic status is debated: Ibn Kathir and Tabari held he was a prophet, while others considered him a righteous servant.",`
+- ÖNCE: `4: "Anbiya 21:85 — The identity of 'Dhul-Kifl' is debated in classical tafsir; Ezekiel, Elisha, and others have been proposed. His exact identity cannot be determined from the Quranic text alone.",`
+  SONRA: `4: "Anbiya 21:85: The identity of 'Dhul-Kifl' is debated in classical tafsir; Ezekiel, Elisha and others have been proposed. His exact identity cannot be determined from the Quranic text alone.",`
+- ÖNCE: `"'Faslu'l-hitab' — söz güzelliği ve yargıda keskinlik verildi; mülkü sağlamlaştırıldı (38:20)",`
+  SONRA: `"'Faslu'l-hitab': söz güzelliği ve yargıda keskinlik verildi; mülkü sağlamlaştırıldı (38:20)",`
+- ÖNCE: `"Taught to make measured coats of armor — craftsmanship linked to righteous deeds (34:11)",`
+  SONRA: `"Taught to make measured coats of armor; craftsmanship linked to righteous deeds (34:11)",`
+- ÖNCE: `"Given 'faslu'l-hitab' — wisdom and discernment in speech; his kingdom strengthened (38:20)",`
+  SONRA: `"Given 'faslu'l-hitab', wisdom and discernment in speech; his kingdom strengthened (38:20)",`
+- ÖNCE: `"Directly named 'Our servant David' by Allah — the 'awwab' attribute praised alongside strength and kingship (38:17)",`
+  SONRA: `"Directly named 'Our servant David' by Allah; the 'awwab' attribute praised alongside strength and kingship (38:17)",`
+- ÖNCE: `6: "Sâd 38:17 — Allah'ın 'عَبْدَنَا دَاوُودَ' (kulumuz Dâvûd) ifadesi, doğrudan ilahî nitelendirmedir. 'نِعْمَ الْعَبْدُ' (ne güzel kul) formülasyonu ise aynı sûrede Hz. Süleymân (38:30) ve Hz. Eyyûb (38:44) için kullanılır. İkisi de yüksek övgü, ancak farklı Arapça formülleridir.",`
+  SONRA: `6: "Sâd 38:17: Allah'ın 'عَبْدَنَا دَاوُودَ' (kulumuz Dâvûd) ifadesi doğrudan ilâhî bir nitelendirmedir. 'نِعْمَ الْعَبْدُ' (ne güzel kul) formülü ise aynı sûrede Hz. Süleymân (38:30) ve Hz. Eyyûb (38:44) için kullanılır. İkisi de yüksek övgüdür, ancak farklı Arapça formüllerdir.",`
+- ÖNCE: `6: "Sad 38:17 — Allah's phrase 'Our servant David' (عَبْدَنَا دَاوُودَ) is a direct divine attribution. The formula 'ni'ma'l-abd' (what an excellent servant) is used in the same sura for Solomon (38:30) and Job (38:44) — both are high praise, but distinct Arabic formulations.",`
+  SONRA: `6: "Sad 38:17: Allah's phrase 'Our servant David' (عَبْدَنَا دَاوُودَ) is a direct divine attribution. The formula 'ni'ma'l-abd' (what an excellent servant) is used in the same sura for Solomon (38:30) and Job (38:44); both are high praise, but distinct Arabic formulations.",`
+- ÖNCE: `"Sebe Melikesi'nin tahtını gözünü kırpmadan önce getirtti — Kitab'dan ilim (27:38)",`
+  SONRA: `"Sebe Melikesi'nin tahtını gözünü kırpmadan önce getirtti; Kitab'dan ilim (27:38)",`
+- ÖNCE: `"'Rabbim! Benden sonra kimseye nasip olmayacak bir mülk bağışla' — eşsiz mülk duası (38:35)",`
+  SONRA: `"'Rabbim! Benden sonra kimseye nasip olmayacak bir mülk bağışla'; başkasına verilmeyecek bir mülk duası (38:35)",`
+- ÖNCE: `"Had the throne of the Queen of Sheba brought before his gaze could return — knowledge from the Scripture (27:38)",`
+  SONRA: `"Had the throne of the Queen of Sheba brought before his gaze could return; knowledge from the Scripture (27:38)",`
+- ÖNCE: `"'My Lord! Grant me a kingdom that shall not belong to anyone after me' — the prayer for a unique kingdom (38:35)",`
+  SONRA: `"'My Lord! Grant me a kingdom that shall not belong to anyone after me'; the prayer for a kingdom given to no one else (38:35)",`
+- ÖNCE: `7: "Sâd 38:35-38 — Bu dua hemen kabul edildi: ardından rüzgar (38:36), şeytanlar/dalgıçlar (38:37) ve bağlı diğer güçler (38:38) emrine verildi. Kur'an bu duayı kibir olarak değil, Allah'ın ona özgü bir lütuf olarak sunar.",`
+  SONRA: `7: "Sâd 38:35-38: Bu dua hemen kabul edildi; ardından rüzgâr (38:36), şeytanlar ve dalgıçlar (38:37) ve bağlı diğer güçler (38:38) emrine verildi. Kur'an bu duayı kibir olarak değil, Allah'ın ona özgü bir lütfu olarak sunar.",`
+- ÖNCE: `7: "Sad 38:35-38 — This prayer was immediately granted: the wind (38:36), every devil and diver (38:37), and others bound in chains (38:38) were all subjected to him. The Quran presents this not as arrogance but as a unique divine gift.",`
+  SONRA: `7: "Sad 38:35-38: This prayer was immediately granted; the wind (38:36), every devil and diver (38:37), and others bound in chains (38:38) were all subjected to him. The Quran presents this not as arrogance but as a divine gift particular to him.",`
+- ÖNCE: `"Yahya'ya daha önce kimseye verilmemiş eşsiz bir isim konuldu (19:7)",`
+  SONRA: `"Yahya'ya daha önce kimseye verilmemiş bir isim konuldu (19:7)",`
+- ÖNCE: `"Gizlice seslenerek dua etti; kemikler zayıflamış, baş ağarmış — yine de Allah'a yöneldi (19:3-4)",`
+  SONRA: `"Gizlice seslenerek dua etti; kemikleri zayıflamış, başı ağarmıştı, yine de Allah'a yöneldi (19:3-4)",`
+- ÖNCE: `"Alâmet olarak 3 gece sağlıklıyken insanlarla konuşamama verildi — Kur'an'da eşsiz bir ilahi işaret (19:10)",`
+  SONRA: `"Alâmet olarak, sağlıklı olduğu hâlde 3 gece insanlarla konuşamama verildi; Kur'an'da başka örneği olmayan bir ilâhî işaret (19:10)",`
+- ÖNCE: `"John was given a name unprecedented — no one had ever been called by it before (19:7)",`
+  SONRA: `"John was given a name never used before; no one had ever been called by it (19:7)",`
+- ÖNCE: `"Called to his Lord in a secret voice; bones weakened, head filled with white — yet he turned to Allah (19:3-4)",`
+  SONRA: `"Called to his Lord in a secret voice; his bones weakened, his head filled with white, yet he turned to Allah (19:3-4)",`
+- ÖNCE: `"Given the sign of three nights of speechlessness while physically sound — a uniquely specific divine sign (19:10)",`
+  SONRA: `"Given the sign of three nights of speechlessness while physically sound; a divine sign with no parallel in the Quran (19:10)",`
+- ÖNCE: `"Bu isimde daha önce hiç kimse adlandırılmamıştı — eşsiz bir isim (19:7)",`
+  SONRA: `"Bu isimle daha önce hiç kimse adlandırılmamıştı (19:7)",`
+- ÖNCE: `"Hz. İsa'yı tasdik etmek üzere gönderildi — iki peygamber arasındaki nadir ilişki (3:39)",`
+  SONRA: `"Hz. İsa'yı tasdik etmek üzere gönderildi; iki peygamber arasındaki nadir bir ilişki (3:39)",`
+- ÖNCE: `"No one had ever been given this name before — a uniquely unprecedented name (19:7)",`
+  SONRA: `"No one had ever been given this name before (19:7)",`
+- ÖNCE: `"Sent to confirm Hz. Jesus — a rare direct relationship between two prophets (3:39)",`
+  SONRA: `"Sent to confirm Jesus; a rare direct relationship between two prophets (3:39)",`
+- ÖNCE: `"Babasız, yalnızca anneden doğdu — Kur'an'ın açıkça anlattığı mucizevi doğum (19:20-21)",`
+  SONRA: `"Babasız, yalnızca anneden doğdu; Kur'an'ın açıkça anlattığı mucizevî doğum (19:20-21)",`
+- ÖNCE: `"Allah katındaki durumu Hz. Âdem gibidir — ikisi de babasız, 'Ol' emriyle (3:59)",`
+  SONRA: `"Allah katındaki durumu Hz. Âdem gibidir; ikisi de babasız, 'Ol' emriyle (3:59)",`
+- ÖNCE: `"Çamurdan kuş yaptı, ölü diriltti, körleri iyileştirdi — Allah'ın izniyle (3:49)",`
+  SONRA: `"Çamurdan kuş yaptı, ölü diriltti, körleri iyileştirdi; hepsi Allah'ın izniyle (3:49)",`
+- ÖNCE: `"Rûhullah ve Kelimetullah — Kur'an'ın ona verdiği iki eşsiz unvan (4:171)",`
+  SONRA: `"Rûhullah ve Kelimetullah: Kur'an'ın yalnızca ona verdiği iki unvan (4:171)",`
+- ÖNCE: `"Allah onu kendi katına yükseltti — çarmıha gerilmedi (4:158)",`
+  SONRA: `"Allah onu kendi katına yükseltti; çarmıha gerilmedi (4:158)",`
+- ÖNCE: `"Announced by angels to Mary: 'A word from Allah' — before his creation (3:45)",`
+  SONRA: `"Announced by angels to Mary as 'a word from Allah', before his creation (3:45)",`
+- ÖNCE: `"Born without a father, from his mother alone — the Quran's explicitly narrated miraculous birth (19:20-21)",`
+  SONRA: `"Born without a father, from his mother alone; the Quran's explicitly narrated miraculous birth (19:20-21)",`
+- ÖNCE: `"His likeness before Allah is that of Hz. Adam — both fatherless, created by 'Be' (3:59)",`
+  SONRA: `"His likeness before Allah is that of Adam; both fatherless, created by 'Be' (3:59)",`
+- ÖNCE: `"Made a bird from clay, raised the dead, healed the blind — all by Allah's permission (3:49)",`
+  SONRA: `"Made a bird from clay, raised the dead, healed the blind; all by Allah's permission (3:49)",`
+- ÖNCE: `"Ruhullah and Kalimullah — two unique titles given to him by the Quran (4:171)",`
+  SONRA: `"Ruhullah and Kalimullah: two titles the Quran gives to him alone (4:171)",`
+- ÖNCE: `"Allah raised him to Himself — he was not crucified (4:158)",`
+  SONRA: `"Allah raised him to Himself; he was not crucified (4:158)",`
+- ÖNCE: `"Üsve-i hasene — 'Allah'ın Resûlü'nde güzel bir örnek' (33:21)",`
+  SONRA: `"Üsve-i hasene: 'Allah'ın Resûlü'nde güzel bir örnek' (33:21)",`
+- ÖNCE: `"Hâtemü'n-Nebiyyîn — peygamberlerin sonuncusu (33:40)",`
+  SONRA: `"Hâtemü'n-Nebiyyîn: peygamberlerin sonuncusu (33:40)",`
+- ÖNCE: `"Uswa hasana — 'In the Messenger of Allah there is an excellent model' (33:21)",`
+  SONRA: `"Uswa hasana: 'In the Messenger of Allah there is an excellent model' (33:21)",`
+- ÖNCE: `"Khatam al-Nabiyyin — the seal and last of all prophets (33:40)",`
+  SONRA: `"Khatam al-Nabiyyin: the seal and last of all prophets (33:40)",`
+- ÖNCE: `subtitleTr: 'İlk insan, ilk halife, ilk tövbe — yeryüzü hikâyesinin açılışı',`
+  SONRA: `subtitleTr: 'İlk insan, ilk halife, ilk tövbe: yeryüzü hikâyesinin açılışı',`
+- ÖNCE: `subtitleEn: 'First human, first vicegerent, first repentance — the opening of the earthly story',`
+  SONRA: `subtitleEn: 'First human, first vicegerent, first repentance: the opening of the earthly story',`
+- ÖNCE: `{ s:36, phaseTr:'İblis\'e uymamak — misak', phaseEn:'Covenant Against Following Iblīs' },`
+  SONRA: `{ s:36, phaseTr:'İblis\'e uymamak: misak', phaseEn:'Covenant Against Following Iblīs' },`
+- ÖNCE: `subtitleTr: '950 yıllık davet — bir gemi, bir tufan, yeniden başlangıç',`
+  SONRA: `subtitleTr: '950 yıllık davet: bir gemi, bir tufan, yeniden başlangıç',`
+- ÖNCE: `subtitleEn: '950 years of calling — one ark, one flood, a new beginning',`
+  SONRA: `subtitleEn: '950 years of calling: one ark, one flood, a new beginning',`
+- ÖNCE: `subtitleTr: 'Tevhidin atası — Kâbe\'nin mimarı',`
+  SONRA: `subtitleTr: 'Tevhidin atası, Kâbe\'nin mimarı',`
+- ÖNCE: `subtitleEn: 'Father of monotheism — Architect of the Kaaba',`
+  SONRA: `subtitleEn: 'Father of monotheism, architect of the Kaaba',`
+- ÖNCE: `subtitleTr: 'Sodom-Gomorra\'nın sesi — üç meleğin misafir olduğu peygamber',`
+  SONRA: `subtitleTr: 'Sodom ve Gomorra\'nın sesi; üç meleğin misafir olduğu peygamber',`
+- ÖNCE: `subtitleEn: "The voice of Sodom-Gomorrah — the prophet who hosted three angels",`
+  SONRA: `subtitleEn: "The voice of Sodom and Gomorrah; the prophet who hosted three angels",`
+- ÖNCE: `{ s:7,  phaseTr:'Kavminin sapkınlığı — ilk uyarı', phaseEn:"His People's Deviance — First Warning" },`
+  SONRA: `{ s:7,  phaseTr:'Kavminin sapkınlığı: ilk uyarı', phaseEn:"His People's Deviance: First Warning" },`
+- ÖNCE: `{ s:51, phaseTr:'Kalıntılar — apaçık bir işaret', phaseEn:'Ruins — A Clear Sign' },`
+  SONRA: `{ s:51, phaseTr:'Kalıntılar: apaçık bir işaret', phaseEn:'Ruins: A Clear Sign' },`
+- ÖNCE: `{ s:54, phaseTr:'Kavmin akıbeti — sabah şafağı', phaseEn:"People's End — At Dawn" },`
+  SONRA: `{ s:54, phaseTr:'Kavmin akıbeti: sabah şafağı', phaseEn:"People's End: At Dawn" },`
+- ÖNCE: `{ s:66, phaseTr:'Lût\'un karısı — ihanet örneği', phaseEn:"Lot's Wife — Example of Betrayal" },`
+  SONRA: `{ s:66, phaseTr:'Lût\'un karısı: ihanet örneği', phaseEn:"Lot's Wife: Example of Betrayal" },`
+- ÖNCE: `subtitleTr: 'Kur\'an\'ın en güzel kıssası — başından sonuna tek sûreli eksiksiz anlatı',`
+  SONRA: `subtitleTr: 'Kur\'an\'ın en güzel kıssası: başından sonuna tek sûrede eksiksiz anlatı',`
+- ÖNCE: `subtitleEn: "The Quran's most beautiful story — a complete narrative from beginning to end in one surah",`
+  SONRA: `subtitleEn: "The Quran's most beautiful story: a complete narrative from beginning to end in one surah",`
+- ÖNCE: `subtitleTr: 'Sabrın timsâli — hastalıktan sonra iyileşme suyu ve iade',`
+  SONRA: `subtitleTr: 'Sabrın timsâli: hastalıktan sonra iyileşme suyu ve iade',`
+- ÖNCE: `subtitleEn: "The archetype of patience — healing waters and restoration after illness",`
+  SONRA: `subtitleEn: "The archetype of patience: healing waters and restoration after illness",`
+- ÖNCE: `subtitleTr: '30\'dan fazla sûrede — Kur\'an\'ın en geniş kapsamlı peygamber kıssası',`
+  SONRA: `subtitleTr: '30\'dan fazla sûrede: Kur\'an\'ın en geniş kapsamlı peygamber kıssası',`
+- ÖNCE: `subtitleEn: 'Across 30+ surahs — the most expansive prophet narrative in the Quran',`
+  SONRA: `subtitleEn: 'Across more than 30 surahs: the most expansive prophet narrative in the Quran',`
+- ÖNCE: `{ s:7,  phaseTr:'9 mucize — Mısır\'da', phaseEn:'9 Miracles in Egypt' },`
+  SONRA: `{ s:7,  phaseTr:'Mısır\'da 9 mucize', phaseEn:'9 Miracles in Egypt' },`
+- ÖNCE: `{ s:27, phaseTr:'Süleyman\'a miras — hikmet', phaseEn:'Inheritance to Solomon — Wisdom' },`
+  SONRA: `{ s:27, phaseTr:'Süleyman\'a miras: hikmet', phaseEn:'Inheritance to Solomon: Wisdom' },`
+- ÖNCE: `{ s:21, phaseTr:'İki davacı arasında hüküm — Dâvud ile', phaseEn:'Judgment Between Litigants — With David' },`
+  SONRA: `{ s:21, phaseTr:'İki davacı arasında hüküm, Dâvud ile', phaseEn:'Judgment Between Litigants, With David' },`
+- ÖNCE: `{ s:34, phaseTr:'Rüzgâr, cinler + vefâtı — asaya dayanma', phaseEn:'Wind, Jinn + Death — Leaning on the Staff' },`
+  SONRA: `{ s:34, phaseTr:'Rüzgâr, cinler ve vefâtı: asaya dayanma', phaseEn:'Wind, Jinn and Death: Leaning on the Staff' },`
+- ÖNCE: `subtitleTr: 'Balığın karnındaki zulumât duası — Ninova\'nın imana dönüşü',`
+  SONRA: `subtitleTr: 'Balığın karnındaki zulumât duası; Ninova\'nın imana dönüşü',`
+- ÖNCE: `subtitleEn: "The prayer from the darkness within the whale — the conversion of Nineveh",`
+  SONRA: `subtitleEn: "The prayer from the darkness within the whale; the conversion of Nineveh",`
+- ÖNCE: `{ s:10, phaseTr:'İman eden tek kavim — Yunus\'un ümmeti', phaseEn:"The One People That Believed — Jonah's People" },`
+  SONRA: `{ s:10, phaseTr:'İman eden tek kavim: Yunus\'un ümmeti', phaseEn:"The One People That Believed: Jonah's People" },`
+- ÖNCE: `{ s:21, phaseTr:'Zulumât duası — Zünnûn', phaseEn:'The Darkness Prayer — Dhū al-Nūn' },`
+  SONRA: `{ s:21, phaseTr:'Zulumât duası: Zünnûn', phaseEn:'The Darkness Prayer: Dhū al-Nūn' },`
+- ÖNCE: `{ s:68, phaseTr:'Balık sahibi\'ne uyma — Rasûl\'e öğüt', phaseEn:"Warning: Do Not Be Like the Man of the Fish" },`
+  SONRA: `{ s:68, phaseTr:'\'Balık sahibi\' gibi olma: Rasûl\'e öğüt', phaseEn:"Warning: Do Not Be Like the Man of the Fish" },`
+- ÖNCE: `subtitleTr: 'Yaşlılıkta gelen dua — Meryem\'in kefili ile onun müjdelediği evlat',`
+  SONRA: `subtitleTr: 'Yaşlılıkta kabul edilen dua: Meryem\'in kefili ve ona müjdelenen evlat',`
+- ÖNCE: `subtitleEn: 'A prayer answered in old age — the guardian of Mary and the son he foretold',`
+  SONRA: `subtitleEn: 'A prayer answered in old age: the guardian of Mary and the son foretold to him',`
+- ÖNCE: `"The prophet narratives in the Quran are not incidental — each was revealed to mirror precisely what Prophet Muhammad (s.a.v.) was facing at that moment. Over 23 years, revelation functioned as a targeted program of guidance and support.",`
+  SONRA: `"The prophet narratives in the Quran are not incidental; each was revealed to mirror what Prophet Muhammad (s.a.v.) was facing at that moment. Over 23 years, revelation functioned as a targeted program of guidance and support.",`
+- ÖNCE: `narrativeTr: 'Putlara başkaldırı — babasının ve kavminin baskısına rağmen Tevhid. Ateşe atılma.',`
+  SONRA: `narrativeTr: 'Putlara başkaldırı; babasının ve kavminin baskısına rağmen tevhid. Ateşe atılma.',`
+- ÖNCE: `narrativeEn: 'Revolt against idols — monotheism despite rejection by father and people. Cast into fire.',`
+  SONRA: `narrativeEn: 'Revolt against idols; monotheism despite rejection by father and people. Cast into the fire.',`
+- ÖNCE: `contextTr: 'Mekke\'nin ilk yılları: Kureyş baskısı, mal ve makam teklifleri, sosyal boykot. Medine döneminde ise Hz. İbrahim\'in Kâbe inşası ve Haniflik vurgusu — Yahudi ve Hristiyanlara karşı tevhidin savunusu olarak yeniden devreye girdi.',`
+  SONRA: `contextTr: 'Mekke\'nin ilk yılları: Kureyş baskısı, mal ve makam teklifleri, sosyal boykot. Medine döneminde ise Hz. İbrahim\'in Kâbe inşası ve Haniflik vurgusu, Yahudi ve Hristiyanlara karşı tevhidin savunusu olarak yeniden devreye girdi.',`
+- ÖNCE: `contextEn: 'Early Mecca: Quraysh pressure, offers of wealth and status, social boycott. In Medina, the Kaaba-building and Hanifiyya narrative returned — as a defense of monotheism against Jewish and Christian claims.',`
+  SONRA: `contextEn: 'Early Mecca: Quraysh pressure, offers of wealth and status, social boycott. In Medina, the Kaaba-building and Hanifiyya narrative returned as a defense of monotheism against Jewish and Christian claims.',`
+- ÖNCE: `narrativeTr: '950 yıl alay ve inkâr — hatta öz oğlu gemiyi reddetti. Yine de inşa etti, yine de davet etti. Kavmine de "mecnun" dediler (Kamer 54:9).',`
+  SONRA: `narrativeTr: '950 yıl alay ve inkâr; hatta öz oğlu gemiyi reddetti. Yine de inşa etti, yine de davet etti. Ona da "mecnun" dediler (Kamer 54:9).',`
+- ÖNCE: `narrativeEn: '950 years of mockery and denial — even his own son refused the ark. He built anyway, he called anyway. His people called him "majnun" too (Qamar 54:9).',`
+  SONRA: `narrativeEn: '950 years of mockery and denial; even his own son refused the ark. He built anyway, he called anyway. His people called him "majnun" too (Qamar 54:9).',`
+- ÖNCE: `contextTr: 'Hz. Ebu Talib yıllarca Hz. Muhammed (s.a.v.)\'i korudu — ama iman etmeden vefat etti. En sevilen insanın imansız ölümü, Hz. Nuh\'un oğlunun dalgalarda yok olmasıyla bire bir örtüşüyordu. "Mecnun" iftirası da ortaktı.',`
+  SONRA: `contextTr: 'Ebu Talib yıllarca Hz. Muhammed\'i (s.a.v.) korudu, ama iman etmeden vefat etti. En sevilen insanın imansız ölümü, Hz. Nuh\'un oğlunun dalgalarda yok olmasıyla birebir örtüşüyordu. "Mecnun" iftirası da ortaktı.',`
+- ÖNCE: `contextEn: "Abu Talib protected the Prophet for years — yet died without accepting Islam. The death of the most beloved person without faith mirrored Noah's son vanishing beneath the waves. The 'madman' slander was shared too.",`
+  SONRA: `contextEn: "Abu Talib protected the Prophet for years, yet died without accepting Islam. The death of the most beloved person without faith mirrored Noah's son vanishing beneath the waves. The 'madman' slander was shared too.",`
+- ÖNCE: `narrativeTr: 'Kuyudan hapishaneye, hapishâneden vezirliğe — her çile bir sonraki adımın kapısıydı.',`
+  SONRA: `narrativeTr: 'Kuyudan hapishaneye, hapishaneden vezirliğe; her çile bir sonraki adımın kapısıydı.',`
+- ÖNCE: `narrativeEn: 'From well to prison, from prison to viceroy — triumph born from the deepest darkness.',`
+  SONRA: `narrativeEn: 'From well to prison, from prison to viceroy; triumph born of the deepest darkness.',`
+- ÖNCE: `narrativeTr: 'Firavun karşısında yılmayan sabır — mucizeler gösterildi, yine de reddedildi. Nihayet zafer.',`
+  SONRA: `narrativeTr: 'Firavun karşısında yılmayan sabır; mucizeler gösterildi, yine de reddedildi. Nihayet zafer.',`
+- ÖNCE: `narrativeEn: 'Unshaken patience before Pharaoh — miracles shown, still rejected. Ultimately victorious.',`
+  SONRA: `narrativeEn: 'Unshaken patience before Pharaoh; miracles shown, still rejected. Ultimately victorious.',`
+- ÖNCE: `contextTr: 'Baskı dorukta, Medine\'ye Büyük Hicret yaklaşıyor. Kur\'an, Hz. Musa\'nın Firavun\'dan çıkışını anlatarak Müslümanlara zımnen şunu söylüyordu: "Siz de hicret edeceksiniz — ve arkanızdan gelen Mekkeli müşrikler, Firavun\'un ordusu gibi helak olacak."',`
+  SONRA: `contextTr: 'Baskı dorukta, Medine\'ye Büyük Hicret yaklaşıyor. Kur\'an, Hz. Musa\'nın Firavun\'dan çıkışını anlatarak Müslümanlara zımnen şunu söylüyordu: "Siz de hicret edeceksiniz ve arkanızdan gelen Mekkeli müşrikler, Firavun\'un ordusu gibi helak olacak."',`
+- ÖNCE: `contextEn: "Oppression at its peak, the Great Hijra imminent. By narrating Moses' Exodus, the Quran was implicitly telling Muslims: 'You too will migrate — and the Meccan pursuers, like Pharaoh's army, will be destroyed.'",`
+  SONRA: `contextEn: "Oppression at its peak, the Great Hijra imminent. By narrating Moses' Exodus, the Quran was implicitly telling Muslims: 'You too will migrate, and the Meccan pursuers, like Pharaoh's army, will be destroyed.'",`
+- ÖNCE: `narrativeTr: 'Mucizeler de yetmedi, hüccet de — kavmi yine de böldü. Ama Allah onu ref\' ile yükseltip şereflendirdi; o da gidinceye dek Hz. Muhammed (s.a.v.)\'i müjdeledi (Saf 61:6). Her zahiri son, ilahi bir yeniden başlangıçtı.',`
+  SONRA: `narrativeTr: 'Mucizeler de yetmedi, hüccet de; kavmi yine de bölündü. Ama Allah onu ref\' ile yükseltip şereflendirdi; o da gidinceye dek Hz. Muhammed\'i (s.a.v.) müjdeledi (Saf 61:6). Her zahirî son, ilâhî bir yeniden başlangıçtı.',`
+- ÖNCE: `narrativeEn: "Miracles weren't enough, argument wasn't enough — his people divided anyway. Yet God honored him with the rafa'; and before departing, he foretold Prophet Muhammad (As-Saff 61:6). Every apparent ending was a divine new beginning.",`
+  SONRA: `narrativeEn: "Miracles were not enough, argument was not enough; his people divided anyway. Yet God honored him with the rafa', and before departing he foretold Prophet Muhammad (As-Saff 61:6). Every apparent ending was a divine new beginning.",`
+- ÖNCE: `contextTr: '631: Necran\'dan gelen Hristiyan heyeti Medine\'ye ulaştı; Âl-i İmrân\'ın büyük bölümü bu müzakereye cevap olarak indi. Mübahele ayeti (3:61) — hakikatin ilan edildiği o tarihi an. Hz. Muhammed (s.a.v.)\'in zahiri "yalnızlığı" da Hz. İsa\'nın ref\'i gibi geçici bir görüntüydü.',`
+  SONRA: `contextTr: '631: Necran\'dan gelen Hristiyan heyeti Medine\'ye ulaştı; Âl-i İmrân\'ın büyük bölümü bu müzakereye cevap olarak indi. Mübahele ayeti (3:61), hakikatin ilan edildiği o tarihî an. Hz. Muhammed\'in (s.a.v.) zahirî "yalnızlığı" da Hz. İsa\'nın ref\'i gibi geçici bir görüntüydü.',`
+- ÖNCE: `contextEn: "631: The Najran Christian delegation arrived in Medina; most of Âl-i Imrân was revealed in response. The Mubahala verse (3:61) — that historic moment of declaring truth. The Prophet's apparent 'isolation' was, like Jesus' ascension, only a surface appearance.",`
+  SONRA: `contextEn: "631: The Najran Christian delegation arrived in Medina; most of Âl-i Imrân was revealed in response. The Mubahala verse (3:61), that historic moment of declaring truth. The Prophet's apparent 'isolation' was, like Jesus' ascension, only a surface appearance.",`
+- ÖNCE: `{ href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: '12 peygamberin sahne-sahne kıssa anlatısı — bağlam, ders, ayet.', descEn: 'Scene-by-scene prophet stories of 12 prophets — context, lessons, verses.' },`
+  SONRA: `{ href: `/${language}/atlas/kissa`, titleTr: 'Kıssa Atlası', titleEn: 'Story Atlas', descTr: '12 peygamberin sahne sahne kıssa anlatısı: bağlam, ders, ayet.', descEn: 'Scene-by-scene stories of 12 prophets: context, lessons, verses.' },`
+- ÖNCE: `{ href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Peygamberlerin gönderildiği kavimler — coğrafya + akıbet.', descEn: 'The nations prophets were sent to — geography and outcome.' },`
+  SONRA: `{ href: `/${language}/atlas/kavim`, titleTr: 'Kavimler Atlası', titleEn: 'Nations Atlas', descTr: 'Peygamberlerin gönderildiği kavimler: coğrafya ve akıbet.', descEn: 'The nations the prophets were sent to: geography and outcome.' },`
+- ÖNCE: `{ href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Peygamber ↔ muhatap konuşma ağı — kim kime ne dedi.', descEn: 'Prophet ↔ addressee dialogue network — who said what to whom.' },`
+  SONRA: `{ href: `/${language}/graf/diyalog`, titleTr: 'Diyalog Ağı', titleEn: 'Dialogue Network', descTr: 'Peygamber ile muhatap arasındaki konuşma ağı: kim kime ne dedi.', descEn: 'The dialogue network between prophet and addressee: who said what to whom.' },`
+- ÖNCE: `noteTr: '25 peygamberin klasik kıssa derlemesi — ayet + hadis + selef rivayetleri birlikte.',`
+  SONRA: `noteTr: '25 peygamberin klasik kıssa derlemesi; ayet, hadis ve selef rivayetleri birlikte.',`
+- ÖNCE: `noteEn: 'Classical compilation of 25 prophet stories — verses, hadith, and salaf reports together.',`
+  SONRA: `noteEn: 'Classical compilation of 25 prophet stories; verses, hadith and salaf reports together.',`
+- ÖNCE: `noteTr: 'Hz. Muhammed\'in siyeri — Kur\'ân\'daki peygamber anlatısıyla siyer arasındaki bağlantıyı kuran temel eser.',`
+  SONRA: `noteTr: 'Hz. Muhammed\'in siyeri; Kur\'ân\'daki peygamber anlatısıyla siyer arasındaki bağlantıyı kuran temel eser.',`
+- ÖNCE: `noteEn: 'The biography of Prophet Muhammad — foundational text connecting Quranic prophet narratives with sīra.',`
+  SONRA: `noteEn: 'The biography of Prophet Muhammad; the foundational text connecting Quranic prophet narratives with sīra.',`
